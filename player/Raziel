@@ -1,0 +1,446 @@
+#PLAYER
+Name Raziel~
+Id   1015855853
+LogO 1018736248
+Vers 13
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Clan blackclaw~
+Sex  1
+Cla  7
+Levl 17
+Plyd 26162
+Back 13869
+Note 1017719776 1017719776 1017719776 1017719776 1017719776 1017758662 1017719776
+Scro 22
+Room 4597
+HMS  293 293 218 218 271 271
+Gold 11
+Silv 3856
+Exp  29966
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQS
+AfBy T
+FRes BM
+FVul NS
+Comm DEHNOX
+Revk 0
+Cgrp A
+Cnsr 0
+Pos  8
+Alig  -1000
+Hit   2
+Dam   1
+ACs 86 77 77 99
+Atrib 19 20 22 20 17 16
+AtMod 1 1 1 4 0 2
+Pass history~
+Afk {B[{CSat Apr 13 16:30:52 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl , Mystery of the One~
+Immn ~
+Pnts 40
+Rank {cNIN{x~
+Aura ~
+TSex 1
+LLev 5
+Deit Azrael~
+Lsit CPE013399902481.cpe.net.cable.rogers.com~
+Ltim Sat Apr 13 14:59:49 2002
+~
+LSav Sat Apr 13 17:17:28 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  AHO
+HMSP 289 218 271
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'axe'
+Sk 1 1 'flail'
+Sk 80 1 'sword'
+Sk 81 1 'enhanced damage'
+Sk 76 1 'second attack'
+Sk 75 1 'dual wield'
+Sk 71 1 'hunt'
+Sk 75 1 'fast healing'
+Sk 75 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'illusion'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3705
+Enchanted
+Nest 0
+Wt   8
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Cond 93
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear 5
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 82
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 1804
+Enchanted
+Nest 0
+ExtF 262208
+Cond 87
+Wear -1
+Lev  12
+Cost 100
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'enchant weapon'   1  91  -1   3  18          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'reserved'   1  10  -1   1   3          0 1
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 76
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 102 0 0 0
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3021
+Nest 0
+Cond 86
+Wear 16
+Cost 250
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 21
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 21
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4583
+Enchanted
+Nest 0
+Wear -1
+Cost 1200
+Affc 'reserved'   1  15  -1   1  18          0 1
+Affc 'reserved'   1  15  -1   2   2          0 1
+Affc 'reserved'   1  15  -1  -5  12          0 1
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4584
+Nest 0
+Wear -1
+Cost 1600
+End
+
+#O
+Vnum 1215
+Nest 0
+Name half wild eeyore stuffed liriel~
+ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
+Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24816
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24819
+Nest 0
+Wear -1
+Cost 13
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4584
+Nest 0
+Wear -1
+Cost 1600
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4589
+Nest 0
+Wear 0
+Cost 500
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear 17
+Cost 1200
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4590
+Nest 0
+Wear -1
+Cost 600
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#END

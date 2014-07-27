@@ -1,0 +1,36 @@
+[21006] Liriel: RTS: make a helpfile on Edit
+[ 3001] Liriel: Make Edit desc work and the colors prettier
+[24606] Liriel: want to code in clanpits that last through copyovers and can hold 25 items each.
+{Y[{x09/17{Y]{x {C[{x 1226{C]{x Montrey: put in something that writes the last command entered to disk
+{Y[{x11/16{Y]{x {C[{x 1200{C]{x Montrey: somebody come up with a good scheme for the departed list, i got rid of the bum helps and the bits of the sword, but we need to make it look nice
+{Y[{x11/24{Y]{x {C[{x25822{C]{x Montrey: moving mob/player hp, mana, moves to 32 bit variables, so they can go above 32k
+{Y[{x01/04{Y]{x {C[{x 1298{C]{x Montrey: figure out a better solution to the animate spells, the follower code is buggy at best (someday)
+{Y[{x01/31{Y]{x {C[{x 1223{C]{x Liriel: make it not auto join, make a message pop up and have them agree/reject or something
+{Y[{x02/05{Y]{x {C[{x 1298{C]{x Montrey: something to prevent 'quit' if there's not enough disk space for their pfile
+{Y[{x02/07{Y]{x {C[{x 1223{C]{x Liriel: Make lists numberized so that we only really need 1 list for each one and we can delete and stuff
+{Y[{x02/07{Y]{x {C[{x 1223{C]{x Liriel: oh and making them being able to be modified too would work
+{Y[{x02/07{Y]{x {C[{x 1202{C]{x Xenith: Erm, let me clarify. Programmable messages that are displayed when the banned host attempts to sign on. Saves time and explainations
+{Y[{x02/09{Y]{x {C[{x 1298{C]{x Montrey: remove the gold/exp/level/class applies on objects, make the height and weight ones at least show up correctly in identify, if not actually do anything
+{Y[{x02/12{Y]{x {C[{x 1298{C]{x Montrey: make it so when a player does some insane damage it bugs to the imms, like if they got their hands on a thunderstriker somehow
+{Y[{x02/12{Y]{x {C[{x 1223{C]{x Liriel: Basic project list for me myself and Montrey: World map, Interactive rooms, remort races, roleplay system
+{Y[{x02/15{Y]{x {C[{x    1{C]{x Liriel: change consider ... roleplay system (so I don't forget)
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: fix calm to prevent other methods of starting fights
+{Y[{x03/17{Y]{x {C[{x 1298{C]{x Liriel: did we ever want to condesne hbi and wbi so it becomes one todo list, and same for wbb and hbb :)  You know.
+{Y[{x04/01{Y]{x {C[{x 1223{C]{x Montrey: make a version of scatter to scatter objects among the containers in the quest area
+{Y[{x04/02{Y]{x {C[{x  700{C]{x Liriel: Battle code (arenas) need to be fixed, make autorestore upon in and out and a prep room
+{Y[{x04/09{Y]{x {C[{x 1223{C]{x Montrey: the hbi regarding mobs kicking and stuff while bashed is temporary, till i come up with something better :P
+{Y[{x04/10{Y]{x {C[{x 1298{C]{x Liriel: fix and work out saves with Montrey because it needs to go to 100 and sleeping is way too easy on mobs right now.
+{Y[{x04/19{Y]{x {C[{x 1298{C]{x Montrey: make war events colored, easier to read
+{Y[{x04/21{Y]{x {C[{x 5345{C]{x Viro: Increase in maximum_input_length, possibly by a large degree.  I'd personally like to see a 2048 character limit, but I also type long long sentances and such.
+{Y[{x05/03{Y]{x {C[{x 1298{C]{x Montrey: make enchant weapon give you the option of a guaranteed brilliant, or maybe an imm 'enchant' command
+{Y[{x06/20{Y]{x {C[{x 1266{C]{x Liriel: Make a way to prioritize wbi, I don't even know how but somehow needs to be done :P
+{Y[{x06/21{Y]{x {C[{x 1206{C]{x Liriel: maybe alias . to ic and ooc to gossip?  Syveril's idea, I like aliasing something to IC to promote it.
+{Y[{x06/30{Y]{x {C[{x 1298{C]{x Montrey: make a color option to switch grey and white, for gmud users
+{Y[{x07/03{Y]{x {C[{x 1266{C]{x Montrey: note to self:  email kyndig, ask about possibly setting permanent read/write permissions on all files within and subdirs of area for builders
+{Y[{x09/04{Y]{x {C[{x 1225{C]{x Teotwawki: allowing clan leaders to buy quest tokens and run clan quests has been tabled but needs to come up again in a month or so.
+{Y[{x12/09{Y]{x {C[{x 1298{C]{x Montrey: make a help file for 'help'
+{Y[{x12/15{Y]{x {C[{x 1298{C]{x Montrey: order affects list by duration
+{Y[{x12/26{Y]{x {C[{x26004{C]{x Teotwawki: requests, approval and projects being worked on by Montrey
+{Y[{x12/26{Y]{x {C[{x26004{C]{x Teotwawki: Wizgroup project by Outsider
+{Y[{x12/26{Y]{x {C[{x26004{C]{x Teotwawki: Necro project by Vegita
+{Y[{x01/05{Y]{x {C[{x 1298{C]{x Montrey: not wielding a primary weapon should still allow attacks from the off hand, possibly combined with unarmed combat

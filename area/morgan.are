@@ -1,0 +1,1697 @@
+#AREA
+morgan.are~
+The Hidden Keep~
+{H{{50 85} {MMorgan {TThe Hidden Keep~
+20000 20200
+
+#MOBILES
+
+#20000
+guard~
+a guard~
+A guard is standing at attention.
+~
+This is one of the many guards of {PH{Ridden {PK{Reep{x.
+He wears a uniform of leather armor with an 'S' like
+symbol sewn into the left breast. The guard is standing
+at perfect attention.
+~
+human~
+GB DFHN 0 S
+60 9 1d10+2990 1d10+2990 7d10+1 slash
+-19 -18 -17 -20
+EFKT ABQJ EGI CK
+stand stand male 300
+0 0 medium 0
+
+#20001
+guard captain~
+the captain of the guard~
+The captain of the guard is here.
+~
+The captain of the guard looks like most of the
+other guards except he wears studded leather
+with a golden '{YS{x' sewn into the left breast.
+He is inspecting the guards at this station.
+~
+human~
+G DFHN 0 S
+65 9 1d10+2990 1d10+2990 7d15+6 slash
+-19 -18 -17 -20 
+EFKU ABQJ EGI CK
+stand stand male 300
+0 0 medium 0
+
+
+#20002
+old man~
+an old man~
+An old man is sitting here painting a picture
+~
+An old man is sitting here holding a palette and brush.
+He seems to be painting a picture of someone. Every
+now and then he puts down the brush and palette to
+pray. Then he nods his head and picks up the
+palette and starts painting again.
+~
+human~
+ZABQV DEFGHN 0 S
+60 9 1d10+2990 1d10+2990 7d10+1 bash
+-19 -18 -17 -20 
+EFKU ABCDEFGHIJKLOQJ EGI CK
+stand stand male 300
+0 0 medium 0
+
+#20003
+Corbin~
+Corbin~
+Corbin stands here waiting to sell you something.
+~
+You see an old man wearing a bath robe.
+He has a mischievous grin on his face.
+~
+human~
+ZBZG DEFGHN 0 S
+100 9 1d10+2990 1d10+2990 7d10+1 bash
+-19 -18 -17 -20 
+EFKU ABCDEFGHIJKLOQJ EGI CK
+stand stand male 300
+0 0 medium 0
+>all_greet_prog 99~
+if ispc($n)
+ say Hello {C$n{x, welcome to my shop.
+ grin $n
+else
+ grin $n
+endif
+~
+|
+
+#20004
+glendor~
+Glendor the IV~
+Glendor the IV is here.
+~
+This is the great warrior Glendor the IV, he who fought
+in the great Thalos wars long ago.
+~
+human~
+BT ZceNH 1000 S
+68 11 5d10+3500 1d1+99 12d6+1 cleave
+-44 -43 -44 -37
+CEDFKN ABHJL CE K
+stand stand male 1000
+0 0 medium 0
+
+#20005
+nirek black blacksteel~
+Nirek Blacksteel~
+Nirek Blacksteel stands here watching the crowd.
+~
+A shadowy figure stands back from the small groups
+of people. Even though he isn't in the conversations
+he seems to be paying very close attention.
+~
+human~
+SH DFHOPVZbce -1000 S
+59 10 5d10+2000 1d1+99 10d7+1 stab
+-40 -36 -37 -20
+BCDEFN EQ B N
+stand stand male 75
+0 0 small 0
+
+#20006
+gubilex~
+Gubilex~
+Gubilex is here talking to Clea.
+~
+You see before you a man who trusts no wizard. He has
+even gone so far as to never let anyone know his full
+name. Some people say it is on the ring he wears.
+~
+human~
+BT HVZbce -200 S
+79 10 5d10+5000 1d1+90 15d9+1 slash
+-60 -65 -60 -44
+EFHIJKN ABCJK 0 0
+stand stand male 1000
+0 0 medium 0
+
+#20007
+princess clea~
+Princess Clea~
+Princess Clea is conversing with Gubilex.
+~
+The once mighty ruler of the land of pyramids.
+She now stays in the keep where her enemies
+can't get to her.
+~
+human~
+GBHRZ Hce -300 S
+59 8 5d10+2000 1d1+99 10d7+1 slap
+-30 -24 -31 -20
+FINJC ABM 0 G
+stand stand female 500
+0 0 small 0
+
+#20008
+polly ann~
+Polly Ann~
+Polly Ann walks from conversation to conversation.
+~
+Polly Ann was the one time consort to a knight of
+Camelot. She left right before the trouble
+with that silly cup began.
+~
+elf~
+BGHRZ Hce -300 S
+59 8 5d10+2000 1d1+99 10d7+1 slap
+-30 -24 -31 -20
+FINJC ABM 0 G
+stand stand female 500
+0 0 small 0
+
+#20009
+marish mad insane nervous little~
+Marish the Mad~
+A nervous little man sits in the corner by himself.
+~
+A one time resident of the Insane Asylum. Most
+people still call him Marish the Mad because of
+the crazy haunted look in his eyes.
+~
+human~
+CGR HVba -1000 S
+67 8 4d9+3000 1d1+99 11d8+1 smash
+-33 -42 -33 -29
+CEFN E B 0
+sit stand male 25
+0 0 small 0
+
+#20010
+gruff greybeard~
+Gruff Greybeard~
+Gruff stands before some people showing off his latest creation.
+~
+Gruff Greybeard a blacksmith of some small talent. He is
+mostly known for his cordless yo-yo (a great embarrassment
+if you ask him), but it is a popular toy among the great
+Immortals.
+~
+dwarf~
+GQB HVe 500 S
+59 8 5d10+2000 1d1+99 10d7+1 pound
+-40 -36 -37 -20
+EFHIJKN AB 0 0
+stand stand male 100
+0 0 small 0
+
+#20011
+father gerold priest~
+Father Gerold~
+A priest is conversing heavily with Targsys.
+~
+This is Father Gerold. He is well known among
+the other churches of Thera for his strange
+way of picking a new god to worship every
+week.
+~
+human~
+BGHQZ DHNOZ 0 S
+60 7 5d10+2500 1d1+1000 10d7+1 pound
+-42 -53 -42 -35
+EFHK ABHIJ CFNQ 0
+stand stand male 300
+0 0 medium 0
+
+#20012
+lorin talesinger bard~
+Lorin Talesinger~
+A bard sits in the back of the room playing a song.
+~
+Lorin Talesinger, a bard of some renown. He is well
+known for his song "The hard times of Thera" which
+tells of some of the wars that have sculpted Thera
+into what it is today.
+~
+elf~
+GBTZ VZbce 1000 S
+70 10 5d10+4000 1d1+99 13d6+1 stab
+-46 -45 -46 -40
+EFHIJKN ABFHI 0 0
+sit sit male 400
+0 0 medium 0
+
+#20013
+targsys chronicler~
+Targsys the Chronicler~
+Targsys is deep in talk with a priest.
+~
+Targsys the Chronicler
+
+Targsys has been around since the dawn of Thera.
+Nobody knows how he came to be or how he has lived
+all these years. He has said many times that he
+is not immortal. He has been blessed with a long
+life so he can write the story of Thera to its
+end.
+~
+human~
+VZB HNOVZbce 0 S
+66 10 5d10+3800 1d1+99 12d6+1 smash
+-90 -80 -79 -92
+EFHIJKN 0 0 0
+stand stand male 100
+0 0 medium 0
+
+#20014
+french maid~
+A french maid~
+A french maid is here dusting trophies.
+~
+You see a gorgeous looking brunette in a tight fitting
+maid's outfit. She is using a feather duster to clear
+dust off a huge dragon's head.
+~
+human~
+BGTVZ HTVZbce 300 S
+80 12 5d10+6000 1d1+99 15d6+1 slap
+-60 -71 -60 -59
+EFHIJKN AIJD BC E
+stand stand female 30
+0 0 small 0
+
+#20015
+illy~
+Illy~
+Illy moves from cage to cage talking to the animals.
+~
+Illyatha, a beautiful ranger, tends to the animals of
+this strange shop. She seems to be at home with all
+the animals here.
+~
+giant~
+ZABV 0 900 0
+60 9 1d10+2990 1d10+2990 7d10+1 bash
+-19 -18 -17 -20 
+EFKU ABCDEFGHIJKLOQJ EGI CK
+stand stand female 300
+0 0 giant 0
+
+#20016
+man huge armourer~
+Armourer~
+A huge man stands here waiting to sell you something.
+~
+A huge mountain of a man stands before you. He hefts 
+a great hammer as if it where made of parchment.
+~
+giant~
+ZABQVa DEFGHN 0 S
+60 9 1d10+2990 1d10+2990 7d10+1 bash
+-19 -18 -17 -20 
+EFKU ABCDEFGHIJKLOQJ EGI CK
+stand stand male 300
+0 0 giant 0
+
+#20017
+gregor wise barkeep~
+Gregor the Wise~
+Gregor stands at the bar waiting to take your order.
+~
+Gregor is the barkeep of this establishment. He is also
+the author of "Gregor's guide to Midgaard" and "How to
+use a sword for dummies"
+~
+human~
+ABQVa DEFGHN 0 S
+60 9 1d10+2990 1d10+2990 7d10+1 bash
+-19 -18 -17 -20 
+EFKU ABCDEFGHIJKLOQJ EGI CK
+stand stand male 300
+0 0 medium 0
+
+#20018
+waitress wench~
+a waitress~
+A waitress moves from table to table refilling drinks.
+~
+You see a cute little red-headed girl. She is wearing the
+dress of a serving wench. She seems very happy to serve
+drinks here.
+~
+human~
+ABQVa DEFGHN 0 S
+60 9 1d10+2990 1d10+2990 7d10+1 bash
+-19 -18 -17 -20 
+EFKU ABCDEFGHIJKLOQJ EGI CK
+stand stand male 300
+0 0 medium 0
+
+#20019
+tal master~
+Tal~
+Tal the Master is ready to teach you.
+~
+Tal is the weapons master of {PH{Ridden {PK{Reep{x.
+He is proficient in most weapons and is willing to
+prove it.
+~
+human~
+ZBQVJKb DEFGHN 0 S
+60 9 1d10+2990 1d10+2990 7d10+1 bash
+-19 -18 -17 -20 
+EFKU ABCDEFGHIJKLOQJ EGI CK
+stand stand male 300
+0 0 medium 0
+
+#20020
+cat black~
+A black cat~
+A beautiful black cat is here.
+~
+The cat has glowing {Ggreen{x eyes that seem to
+pierce your soul.
+~
+cat~
+ABU F -100 S
+30 1 6d8+300 1d1+99 4d5+5 claw
+2 4 3 7
+DFH C 0 0
+stand stand female 0
+0 0 small 0
+
+#20021
+giant mouse~
+A giant mouse~
+A giant mouse is here.
+~
+The mouse has light brown hair and sparkling {Pred{x
+eyes.
+~
+mouse~
+ABU F 100 S
+30 1 6d8+300 1d1+99 4d5+5 bite
+2 4 3 7
+DFH C 0 0
+stand stand either 0
+0 0 medium 0
+ 
+#20022
+huge bull~
+A huge bull~
+A huge bull is here.
+~
+The bull has very large and pointed horns. It breathes
+steam out of its nose and its eyes glow bright {Yyellow{x.
+~
+bull~
+ABU F 0 S
+30 1 6d8+300 1d1+99 4d5+5 claw
+-2 -4 -3 -7
+DFH C 0 0
+stand stand male 0
+0 0 giant 0
+
+#20023
+vampire bat~
+A vampire bat~
+A vampire bat is here.
+~
+The bat is big with long fangs and wicked claws.
+~
+bat~
+ABOU F -1000 S
+30 1 6d8+300 1d1+99 4d5+5 bite
+-2 -4 -3 -7
+DFH C 0 N
+stand stand either 0
+0 0 medium 0
+
+#0
+
+#OBJECTS
+#20000
+brush paint~
+A paint brush~
+A paint brush rests here.~
+wood~
+trash ABMO AN
+0 0 0 0 0
+1 0 0 P
+A
+4 2
+
+#20001
+palette~
+A palette~
+A palette rests here.~
+wood~
+trash ABMO AO
+0 0 0 0 0
+1 0 0 P
+A
+4 2
+
+#20002
+bath robe old~
+an old bath robe~
+A pile of brown cloth lies here.~
+cloth~
+armor GYS AD
+25 20 25 10 0
+60 20 1000 P
+E
+man~
+This belongs to the old man.
+~
+A
+3 1
+A
+4 2
+A
+9 10
+A
+26 3
+
+#20003
+old dented helmet~
+An old dented helmet~
+A dented helmet sits against the wall.~
+steel~
+armor ABHI AE
+20 21 20 22 0
+68 20 500 P
+E
+glendor~
+This belongs to Glendor.
+~
+A
+1 1
+A
+2 2
+A
+18 3
+A
+26 2
+
+#20004
+shadowy cloak~
+A shadowy cloak~
+A shimmering pile of cloth is laying on the ground.~
+cloth~
+armor AGJ AC
+25 25 26 29 0
+59 2 1000 P
+E
+nirek~
+This belongs to Nirek Blacksteel.
+~
+A
+2 3
+A
+14 100
+A
+26 -1
+
+#20005
+golden ring~
+A {Ygolden{x ring~
+A {Ygolden{x ring with an {Winscription{x on it.~
+gold~
+treasure A AB
+0 0 0 0 0
+79 0 200 P
+E
+inscription~
+{CG{xelvedan {CU{xvaldes {CB{xarholomew {CI{xehabod {CL{xleonca
+{CE{xlderban the {CX{x.
+~
+E
+gubilex~
+This ring belongs to Gubilex.
+~
+A
+1 1
+A
+3 1
+A
+9 -10
+A
+19 3
+
+#20006
+gown evening form fitting~
+A form fitting evening gown~
+A beautiful gown lies here.~
+cloth~
+armor GIKYS AD
+30 30 32 40 0
+59 0 999 P
+E
+clea~
+This gown belongs to Clea.
+~
+A
+9 -30
+A
+26 3
+A
+24 -3
+A
+12 100
+
+#20007
+blouse hot pink~
+A hot pink blouse~
+A hot pink blouse lies here.~
+cotton~
+armor GIKY AD
+3 4 6 8 0
+59 0 50 P
+E
+polly~
+This is Polly Ann's.
+~
+A
+3 -2
+A
+2 1
+A
+26 2
+A
+1 -1
+A
+18 3
+A
+19 3
+
+#20008
+black leather mini skirt~
+A black leather mini skirt~
+A skirt of shiny black leather lies here.~
+leather~
+armor GIKY AL
+3 4 6 8 0
+59 0 50 P
+E
+ann~
+This is Polly Ann's.
+~
+A
+5 2
+A
+12 100
+A
+13 50
+A
+24 -8
+
+#20009
+mad man pendant~
+A madman's pendant~
+An {Wodd{x looking pendent lies here.~
+crystal~
+treasure ABGJMOT AC
+0 0 0 0 0
+67 23 1 P
+E
+odd~
+It is made of a shinny glowing crystal. A smiling face
+is etched into it with gold.
+~
+E
+marish~
+This is Marish's pendant.
+~
+A
+14 300
+A
+18 4
+A
+19 5
+A
+13 100
+A
+12 -200
+
+#20010
+useless weapon~
+A useless weapon~
+A {Cblue{x sword lies here.~
+glass~
+weapon I AN
+sword 5 11 scratch D
+59 20 33 P
+E
+gruff~
+This is Gruff's weapon.
+~
+E
+blue~
+It looks like it is made of glass?
+~
+A
+18 3
+A
+19 4
+A
+13 30
+
+#20011
+multi religion pendant~
+A multi religionist's pendant~
+A brightly glowing pendant with {Cfaces{x carved on it floats here.~
+something~
+treasure ABI AC
+0 0 0 0 0
+60 0 0 P
+E
+faces~
+The face of every immortal in Thera is carved on this item.
+Some are very distinguish and others are just shadowy images.
+~
+E
+gerold~
+This is Gerold's pendant.
+~
+A
+4 3
+A
+14 300
+A
+12 100
+
+#20012
+robe multi colored~
+A multi colored robe~
+A multi colored robe lies here.~
+cloth~
+armor GYS AD
+20 20 20 10 0
+60 20 1000 P
+E
+gerold~
+This belongs to Father Gerold
+~
+A
+3 1
+A
+4 2
+A
+9 10
+A
+26 3
+
+#20013
+silver flute~
+A silver flute~
+A long metal tube rests against the wall.~
+silver~
+wand ABGI AO
+30 13 13 'divine regen' 0
+70 3 600 P
+E
+lorin~
+This is Lorin's instrument, give it back.
+~
+
+#20014
+dark green robe~
+A dark green robe~
+A pile of dark green cloth lies here.~
+cloth~
+armor GYS AD
+25 15 20 10 0
+66 20 1000 P
+E
+targsys~
+This belongs to Targsys.
+~
+A
+3 1
+A
+4 2
+A
+9 10
+A
+26 3
+
+#20015
+writing quill~
+A writing quill~
+An old quill lies here.~
+bird~
+weapon ABG AN
+exotic 12 6 pierce B
+66 0 0 P
+E
+targsys~
+This is Targsys's quill, please return it.
+~
+A
+18 3
+A
+18 5
+
+#20016
+book thera chronicle~
+A book labeled "The Thera Chronicles I"~
+A large molding book lies here.~
+parchment~
+treasure GMS AO
+0 0 0 0 0
+66 5 9000 P
+E
+targsys~
+This is Targsys's book, please return it.
+~
+A
+12 110
+A
+3 3
+A
+9 -40
+A
+24 -10
+
+#20017
+tight maid outfit~
+A tight fitting maid's outfit~
+A maid's outfit is lies here.~
+cloth~
+armor ABGI AD
+0 0 0 0 0
+80 0 0 P
+A
+14 150
+A
+1 -2
+
+#20018
+feather duster~
+A feather duster~
+Something that looks like a handle with a bird's tale lies here.~
+wood~
+weapon 0 AN
+whip 8 9 whip 0
+80 3 10 P
+A
+18 3
+A
+19 4
+A
+1 -1
+
+#20019
+gnome dagger~
+A gnome dagger~
+A {Cstrange{x looking weapon lies here.~
+marble~
+weapon BT AN
+dagger 10 7 stab FD
+60 1000 10 P
+E
+strange~
+The dagger seems to have two? handles that form a V.
+It would have to be held two handed to be of any use.
+~
+A
+19 2
+A
+18 2
+
+#20020
+wooden stake~
+A wooden stake~
+A wooden stake rests against the wall.~
+wood~
+weapon ABLT AN
+dagger 2 7 stab AE
+19 4 300 P
+A
+24 -30
+A
+5 2
+
+#20021
+blessed wooden stake~
+A blessed wooden stake~
+A wooden stake rests against the wall.~
+wood~
+weapon ABILT AN
+dagger 2 7 stab AE
+19 4 300 P
+A
+24 -30
+A
+5 2
+
+#20022
+golf club~
+A golf club~
+A nine iron rests agains the wall.~
+steel~
+weapon ABLOT AN
+mace 11 7 pound 0
+61 10 25000 P
+A
+14 200
+A
+2 3
+
+#20023
+aluminum crutch~
+An aluminum crutch~
+An aluminum crutch has been left against the wall.~
+aluminum~
+weapon ABHKY AN
+mace 2 20 beating F
+50 7 21000 P
+A
+14 -100
+A
+1 2
+
+#20024
+diving suit~
+A diving suit~
+A strange suit with tubes sticking out of it.~
+rubber~
+armor Y AD
+20 30 20 19 0
+49 300 22000 P
+A
+2 -1
+A
+17 20
+
+#20025
+gnome power armor~
+Gnome power armor~
+A pile of mechanical junk is laying on the floor.~
+steel~
+armor BG AD
+25 30 20 25 0
+70 999 30000 P
+A
+5 2
+A
+18 -1
+A
+19 4
+A
+14 200
+
+#20026
+golden suit armor~
+A golden suit of armor~
+A pile of golden armor is here.~
+gold~
+armor ABG AD
+45 40 40 40 0
+91 2000 90000 P
+A
+1 2
+A
+2 1
+A
+3 1
+A
+4 2
+A
+13 20
+A
+12 100
+
+#20027
+cat suit~
+A cat suit~
+A furry garment lies here.~
+hair~
+armor BGY AD
+13 12 14 11 0
+40 1 2000 P
+A
+2 2
+A
+3 1
+A
+6 1
+A
+14 100
+
+#20028
+bath robe~
+A bath robe~
+A white cotton bath robe.~
+cotton~
+armor IKY AD
+7 6 8 9 0
+22 1 700 P
+A
+6 1
+A
+12 50
+A
+13 50
+A
+18 1
+A
+18 2
+
+#20029
+armor girdle~
+An armor girdle~
+An armor girdle lies here.~
+steel~
+armor ABG AL
+5 4 5 3 0
+15 4 1000 P
+A
+6 1
+A
+14 -100
+A
+17 -10
+A
+26 2
+
+#20030
+odd statue~
+An odd statue~
+An odd statue is standing here.~
+marble~
+staff ABG AO
+25 20 20 'change sex' 0
+10 1 3000 P
+
+#20031
+pair pink running shoes~
+{WA pair of {Ppink{x {Wrunning shoes{x~
+{WA pair of {Ppink{x {Wrunning shoes lie here{x.~
+leather~
+armor ABGM AG
+7 6 8 4 0
+20 2 600 P
+A
+3 -1
+A
+6 1
+A
+18 1
+A
+19 2
+
+#20032
+silver pendant~
+A silver pendant~
+A small silver pendant.~
+silver~
+treasure ABG AC
+0 0 0 0 0
+30 1 2000 P
+A
+6 1
+A
+18 3
+A
+18 4
+
+#20033
+sequined purse~
+A sequined purse~
+A small purse with glowing sequins on it.~
+leather~
+container ABG AO
+1000 14 0 3000 2
+36 3 2500 P
+A
+6 1
+
+#20034
+small purple pill~
+A small purple pill~
+A purple colored pill.~
+pill~
+pill 0 A
+90 'change sex' '' '' ''
+40 0 200 P
+
+#20035
+powerful scroll~
+A powerful scroll~
+A scroll.~
+parchment~
+scroll G AO
+90 'change sex' '' '' ''
+20 0 100 P
+
+#20036
+set red finger nails~
+A set of {Pred{x finger nails~
+A set of finger nails.~
+nail~
+armor MH AH
+1 2 1 3 0
+4 1 10 P
+A
+6 1
+
+#20037
+straw hat~
+A straw hat~
+A straw hat.~
+straw~
+armor GMH AE
+8 9 8 6 0
+24 2 200 P
+A
+6 1
+A
+19 5
+
+#20038
+skull king arthor crown~
+Skull of King Arthor~
+A skull with a crown on it.~
+bone~
+trash 0 AO
+0 0 0 0 0
+1 1 0 P
+E
+crown king arthor~
+This is the skull of King Arthor of Camelot.
+It is very old and the crown on it is very
+brittle.
+~
+
+#20039
+stuffed fido~
+A stuffed fido~
+The stuffed remains of a fido.~
+dog~
+trash 0 0
+0 0 0 0 0
+1 20 0 P
+E
+fido stuffed~
+A reminder of when times where tuff.
+~
+
+#20040
+alien skull~
+The skull of an alien~
+A oblong skull with wicked looking teeth.~
+bone~
+trash 0 AO
+0 0 0 0 0
+1 20 0 P
+
+#20041
+trophy realm javelin catcher~
+Trophy for all realm javelin catcher~
+A small statue of a man with a javelin impaling him.~
+steel~
+trash o AO
+0 0 0 0 0
+1 30 0 P
+E
+javelin catcher man~
+A small plaque says "All realm javelin catcher".
+~
+
+#20042
+dragon skull~
+A dragon's skull~
+A huge dragon's skull is sitting on the floor.~
+bone~
+trash 0 AO
+0 0 0 0 0
+1 9999 0 P
+
+#20043
+troffy realm speling be champeen~
+Troffy for all realm speling be champeen~
+A statue of a man wearing a dunse hat.~
+steel~
+trash o AO
+0 0 0 0 0
+1 30 0 P
+E
+man speling champeen troffy~
+A small plaque says "All realm speling be champeen".
+~
+
+#20044
+stuffed orc paladin~
+A stuffed orc paladin~
+A stuffed orc paladin stands in the corner.~
+orc~
+trash 0 0
+0 0 0 0 0
+1 20 0 P
+E
+orc paladin~
+A rare site in any land. :)
+~
+
+#20045
+wax dummy highlander~
+A wax dummy of a highlander~
+A wax dummy of a highlander in full dress stands in the corner.~
+wax~
+trash 0 0
+0 0 0 0 0
+1 20 0 P
+
+#20046
+cement mixer mug~
+A cement mixer~
+A mug of ale?~
+clay~
+drink 0 A
+6 6 'icewine' 0 0
+0 20 24 P
+E
+ale~
+The liquid smells strange.
+It doesn't look like ale.
+~
+
+#20047
+rolling thunder mug~
+A drink called "Rolling Thunder"~
+A mug of ale?~
+clay~
+drink 0 A
+6 6 'salt water' 0 0
+0 20 34 P
+E
+ale~
+The liquid smells strange.
+It doesn't look like ale.
+~
+
+#20048
+wizard's folly glass~
+A drink called "Wizard's Folly"~
+A glass of wine?~
+glass~
+drink 0 A
+6 6 'local specialty' 0 0
+0 20 50 P
+E
+ale~
+The liquid smells strange.
+It looks like wine.
+~
+
+#20049
+piece crispy chicken~
+A piece of crispy chicken~
+A pice of crispy chicken.~
+chicken~
+food 0 A
+4 4 0 0 0
+0 16 22 P
+
+#20050
+large bed~
+A large bed~
+A large bed sits in the corner.~
+feathers~
+furniture ABG 0
+2 1000 FIL 150 150
+0 0 0 P
+E
+bed~
+Looks very comfy.
+~
+E
+large~
+Could fit four people in it
+~
+
+#20051
+small writing table~
+A small writing table~
+A small writing table with a huge tome on it.~
+wood~
+furniture 0 0
+1 1000 D 200 200
+0 0 0 P
+E
+tome~
+The cover reads "The diary of Morgan".
+~
+
+#20052                                       
+tiny black key Morgan~
+A tiny black key~
+This is a tiny black key.~
+steel~
+key 0 AO
+1 0 0 0 0
+0 0 0 P
+E
+key~
+This is the key to Morgan's room in the keep.
+~
+
+#20053
+uniform s seeker~
+A uniform with an '{PS{x' symbol on it~
+A uniform with an '{PS{x' symbol on it.~
+leather~
+armor ABG AD
+19 18 17 20 0
+60 0 2000 P
+E
+s uniform~
+It is made of leather with the '{PS{x'
+sewn into the left breast.
+~
+A
+18 4
+A
+19 3
+A
+13 30
+
+#20054
+uniform s seeker golden~
+A uniform with a golden '{YS{x' symbol on it~
+A uniform with a golden '{YS{x' symbol on it.~
+leather~
+armor ABG AD
+19 18 17 20 0
+60 0 2000 P
+E
+s uniform golden~
+It is made of studded leather with the golden
+'{YS{x' sewn into the left breast.
+~
+A
+18 4
+A
+19 3
+A
+13 30
+
+#20055
+large throne solid black marble~
+A large throne made of marble~
+A large black throne.~
+marble~
+furniture ABG 0
+2 9999 EHK 100 100
+0 0 0 P
+E
+marble black throne~
+The throne is made of a flawless black marble that
+glows and vibrates with power.
+~
+
+#0
+
+#ROOMS
+
+#20000
+{GEntrance {WHall{x~
+This is the {GEntrance {WHall{x to the {PH{Ridden {PK{Reep{x.
+There is a set of double doors to the north. A guard stands at
+attention on each side of them. There are archways leading east 
+and west and a winding staircase leads upwards.
+~
+20 D  0
+D0
+A large set of oak double doors stand before you.
+~
+oak double doors~
+3 -1 20001
+D1
+An archway leading east to another room. 
+~
+east arch archway~
+0 -1 20003
+D2
+You see a shimmering door with strange lights coming from it
+~
+door shimmering shimmer~
+1 -1 1603
+D3
+An archway leading west to another room.
+~
+west arch archway~
+0 -1 20002
+D4
+A winding stairway going up
+~
+stair winding stairway~
+0 -1 20004
+S
+
+#20001
+{WT{Hhe {WT{Hhrone {WR{Hoom{W.{x~
+This is the throne room of {PH{Ridden {PK{Reep{x. Many {Ctapestries{x and
+{Cpictures{x adorn the wall. A large throne made of solid black marble sits
+in back of the room and long tables and benches run along the sides of the
+room leaving space for performers and musicians. Many people are standing
+here chatting.
+~
+20 D 0
+D2
+Double doors stand here leading to the {GEntrance {WHall{x.
+~
+double doors entrance~
+3 -1 20000
+E
+tapestries~
+Huge tapestries showing some of the battles of ancient Thera.
+One shows the battle of the evil Seekers against the Queen's
+Quarter Knots and another showing one of the great battles
+of Thalos. They are all well preserved and extremely old.
+~
+E
+pictures~
+Pictures of some of the past and present known Immortals of
+Thera litter the wall. Some glow with white light while others
+have a shadowy look to them.
+~
+S
+
+#20002
+{CT{Temple {xof the {PI{RM{PM{RO{PR{RT{PA{RL{PS{x.~
+This room is devoted to the worship of all the Immortals of
+Thera. It is a rather odd place. All you see is an old man
+sitting upon a raised dais in the middle of the room. He is
+painting a picture. Every now and then he stops and prays.
+~
+20 D 0
+D1
+An archway leads out to the {GEntrance {WHall{x.
+~
+archway entrance hall~
+0 -1 20000
+S
+
+#20003
+{RCorbin's {TPlace{x.~
+Welcome to Corbin's place a shop full of many wondrous items.
+Corbin stands behind the counter wearing a bathrobe and an old
+wizard's hat. 
+~
+20 D 0
+D3
+An archway leads out to the {GEntrance {WHall{x.
+~
+archway entrance hall~
+0 -1 20000
+S
+
+#20004
+{W2nd floor of {PH{Ridden {PK{Reep{x.~
+{bYou see a winding staircase going up and down.{x
+There are three doors leading east, west, and north.
+~
+20 D 0
+D0
+You see a door with a lion's head drawn on it.
+~
+lion door~
+3 -1 20005
+D1
+A door with a helmet and sword etched into stands here.
+~
+door helmet sword~
+3 -1 20008
+D3
+This door seems to have scratches all over it.
+~
+door scratches~
+3 -1 20006
+D4
+A winding staircase going up.
+~
+stair staircase winding~
+0 -1 20009
+D5
+A winding staircase going down.
+~
+stair staircase winding~
+0 -1 20000
+S
+
+#20005
+{YTrophy {bRoom{x.~
+You see before you a very huge trophy room full of creatures
+that haven't been seen on Thera since the age of chaos.
+A few that have probably never been seen on Thera before.
+A french maid is dusting what looks like the skull of a
+rather large dragon.
+~
+20 D 0
+D2
+A door leading back to the staircase.
+~
+door staircase stair~
+3 -1 20004
+S
+
+#20006
+{PIlly's {Gexotic {Yanimals{x.~
+This shop is full of cages of all shapes and sizes.
+There are all kinds of animals here. A young ranger
+is tending too them. She looks over at you and asks
+"How may I help you?"
+~
+20 DM 0
+D1
+A door leading back to the staircase.
+~
+door staircase stair~
+3 -1 20004
+S
+
+#20007
+{PIlly's {Gexotic {Yanimals{x shop~
+This is the place where Illy stores all her animals.
+~
+20 CDNST 0
+S
+
+#20008
+{CArmory{x of {PH{Ridden {PK{Reep{x~
+This place has many interesting and unusual items for sell.
+A big muscle bound man waits patiently for you to 
+decide.
+~
+20 CDS 0
+D3
+A door leading back to the staircase.
+~
+door staircase stair~
+3 -1 20004
+S
+
+#20009
+{W3rd floor of {PH{Ridden {PK{Reep{x.~
+{bYou see a winding staircase going down.{x
+There are three doors leading east, west, and north.
+~
+20 D 0
+D0
+You see a door with the name {WMorgan the {PS{Re{Pe{Rk{Pe{Rr{x 
+glowing on it.
+~
+door morgan seeker~
+4 20052 20010
+D1
+A door with two crossed swords is stands before you.
+~
+door crossed swords~
+3 -1 20012
+D3
+This door has a shield with a foaming mug painted on it.
+~
+door shield mug~
+3 -1 20011
+D5
+A winding staircase going down.
+~
+stair staircase winding~
+0 -1 20004
+S
+#20010
+{PS{Re{Pe{Rk{Pe{Rr{x's {BPlace{x.~ 
+This is the true home of {WMorgan{x the {PS{Re{Pe{Rk{Pe{Rr{x.
+Many years he searched for this keep hearing rumors of it's
+existence hopping he would find it. Once he did he made it
+his own. There is a bed sitting in the corner and a desk
+on the south wall. A great tome rests upon it.
+~
+20 DPJK 0
+D2
+A door leading to the rest of {PH{Ridden {PK{Reep{x.
+~
+door hidden keep seeker~
+4 20052 20009
+S
+
+#20011
+The Bar~
+As you enter you smell the strong stench of ale and mead.
+The aroma of well cooked food can barely be made out.
+Gregor the Wise stands at the bar waiting to take your
+order. A waitress moves from table to table refilling drinks.
+~
+20 D 0
+D1
+A door leads back to the staircase.
+~
+door staircase stair~
+1 -1 20009
+S
+
+#20012
+The Sparring Room~
+You see a padded room before you. A man instructs a
+younger man in the use of a two handed bastard sword.
+The older man sees you and walks over. He says "Hello
+my name is Tal I'm the weapons master of the keep.
+How can I help you?"
+~
+20 D 0
+D3
+A door leads back to the staircase.
+~
+door staircase stair~
+1 -1 20009
+S
+#0
+
+#RESETS                  
+M 0 20000 6 20000 6      *load guard
+E 0 20053 9 5            *load uniform
+M 0 20000 6 20000 6      *load guard
+E 0 20053 9 5            *load uniform
+O 0 20055 1 20001        *load throne
+M 0 20004 1 20001 1      *load glendor
+E 0 20003 8 6            *load helmet
+M 0 20005 1 20001 1      *load nirek
+E 0 20004 8 3            *load cloak
+M 0 20006 1 20001 1      *load gubilex
+E 0 20005 8 1            *load ring
+M 0 20007 1 20001 1      *load clea
+E 0 20006 8 5            *load gown
+M 0 20008 1 20001 1      *load polly
+E 0 20007 8 5            *load blouse
+E 0 20008 8 13           *load skirt
+M 0 20009 1 20001 1      *load marish
+E 0 20009 8 4            *load pendant
+M 0 20010 1 20001 1      *load gruff
+E 0 20010 8 16           *load weapon
+M 0 20011 1 20001 1      *load gerold
+E 0 20011 8 3            *load pendant
+E 0 20012 8 5            *load robe
+M 0 20012 1 20001 1      *load lorin
+E 0 20013 8 17           *load flute
+M 0 20013 1 20001 1      *load targsys
+E 0 20014 8 5            *load robe
+E 0 20015 8 16           *load quil
+E 0 20016 8 17           *load book
+M 0 20002 1 20002 1      *load old man
+E 0 20000 1 16           *load brush
+E 0 20001 1 17           *load palette
+M 0 20003 1 20003 1      *load corbin
+E 0 20002 1 5            *load bath robe
+G 0 20027 -1             *load cat suit
+G 0 20028 -1             *load bath
+G 0 20029 -1             *load girdle
+G 0 20030 -1             *load statue
+G 0 20031 -1             *load shoes
+G 0 20032 -1             *load pendant
+G 0 20033 -1             *load purse
+G 0 20034 -1             *load pill
+G 0 20035 -1             *load scroll
+G 0 20036 -1             *load nails
+G 0 20037 -1             *load hat
+M 0 20000 6 20004 6      *load guard
+E 0 20053 9 5            *load uniform
+M 0 20000 6 20004 6      *load guard
+E 0 20053 9 5            *load uniform
+M 0 20001 1 20004 1      *load captain
+E 0 20054 9 5            *load uniform
+M 0 20014 1 20005 1      *load maid
+E 0 20017 8 5            *load maid outfit
+E 0 20018 8 16           *load feather duster
+O 0 20038 1 20005        *load skull
+O 0 20039 1 20005        *load fido
+O 0 20040 1 20005        *load alien
+O 0 20041 1 20005        *load trophy
+O 0 20042 1 20005        *load dragon
+O 0 20043 1 20005        *load troffy
+O 0 20044 1 20005        *load paladin
+O 0 20045 1 20005        *load dummy
+M 0 20015 1 20006 1      *load illy
+M 0 20020 1 20007 1      *load cat
+M 0 20021 1 20007 1      *load mouse
+M 0 20022 1 20007 1      *load bull
+M 0 20023 1 20007 1      *load bat
+M 0 20016 1 20008 1      *load armourer
+G 0 20019 -1             *load gnome dagger
+G 0 20020 -1             *load stake
+G 0 20021 -1             *load blessed stake
+G 0 20022 -1             *load golf club
+G 0 20023 -1             *load crutch
+G 0 20024 -1             *load suit
+G 0 20025 -1             *load armor
+G 0 20026 -1             *load golden suit
+M 0 20000 6 20009 6      *load guard
+E 0 20053 9 5            *load uniform
+M 0 20000 6 20009 6      *load guard
+E 0 20053 9 5            *load uniform
+O 0 20050 1 20010        *load bed
+O 0 20051 1 20010        *load table
+M 0 20017 1 20011 1      *load gregor
+G 0 20046 -1             *load mixer
+G 0 20047 -1             *load thunder
+G 0 20048 -1             *load folly
+G 0 20049 -1             *load chicken
+M 0 20018 1 20011 1      *load waitress
+M 0 20019 1 20012 1      *load tal
+D 0 20000 0 1            *door north
+D 0 20000 2 1            *door south
+D 0 20004 0 1            *door north
+D 0 20004 1 1            *door west
+D 0 20004 3 1            *door east
+D 0 20009 0 2            *door seeker
+D 0 20009 1 1            *door west
+D 0 20009 3 1            *door east
+D 0 20001 2 1            *door south
+D 0 20005 2 1            *door south
+D 0 20006 1 1            *door east
+D 0 20008 3 1            *door west
+D 0 20010 2 1            *door south
+D 0 20011 1 1            *door east
+D 0 20012 3 1            *door west
+S
+
+#SHOPS
+20003 4 9 11 15 26   125 75   0 23  *corbin
+20015 0 0 0 0 0      100 100  0 23  *illy
+20016 5 9 0 0 0      100 50   0 23  *armourer
+20017 0 0 0 0 0      110 100  0 23  *gregor
+0
+
+#SPECIALS
+M 20000 spec_guard        *guard
+M 20001 spec_guard        *guard captain
+M 20002 spec_cast_adept   *the old man
+M 20016 spec_blacksmith   *the armourer
+S
+
+#$
+
+

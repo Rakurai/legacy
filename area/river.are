@@ -1,0 +1,94 @@
+#AREA
+river.are~
+Midgaard River~
+{H{{1 91} {MUbiquitous  {TMidgaard River~
+17131 17140
+
+#MOBILES
+#0
+
+#OBJECTS
+#0
+
+#ROOMS
+
+#17131
+On the Midgaard River~
+The river flows to the east under the walls of Midgaard and west
+snaking through a dark forest.
+~
+0 0 7
+D1
+~
+~
+0 -1 3200
+D3
+~
+~
+0 -1 17132
+S
+
+
+#17132
+On the Midgaard River~
+The river continues east and west meandering through the woods.
+~
+0 A 7
+D1
+~
+~
+0 -1 17131
+D3
+~
+~
+0 -1 17133
+S
+
+
+#17133
+On the Midgaard River~
+The river continues east and west meandering through the woods. You
+hear the sounds of chopping wood far off in the distance.
+~
+0 A 7
+D0
+~
+~
+0 -1 6123
+D1
+~
+~
+0 -1 17132
+D3
+~
+~
+0 -1 17134
+S
+
+#17134
+Under the Haon Dor Bridge~
+The moss is clinging to the underside of the bridge, with an occasional outbreak 
+of slime that is. The river continues east meandering through the woods.
+~
+0 A 7
+D1
+~
+~
+0 -1 17133
+S
+#0
+
+#RESETS
+S
+
+#SHOPS
+
+0
+
+#SPECIALS
+
+S
+
+#$
+
+

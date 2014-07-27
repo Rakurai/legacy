@@ -1,0 +1,33 @@
+Bug File, clear when fixed.
+
+{Y[{x12/05{Y]{x {C[{x 1298{C]{x Montrey: page doesn't work across muds
+{Y[{x12/05{Y]{x {C[{x 1298{C]{x Montrey: stormscry said something about a mysql error with update godlog?  might check the logs for that
+{Y[{x12/09{Y]{x {C[{x 1298{C]{x Montrey: remote needs robust messages
+{Y[{x12/09{Y]{x {C[{x 1298{C]{x Montrey: sac all has reversed colors?
+{Y[{x12/10{Y]{x {C[{x 1298{C]{x Montrey: shouldn't save objects lying around on the ground in spawn
+{Y[{x12/10{Y]{x {C[{x 1225{C]{x Teotwawki: update_pc_index: Commands out of sync; You can't run this command now
+{Y[{x12/10{Y]{x {C[{x 1288{C]{x Vegita: do_clanlist: Commands out of sync; You can't run this command now
+{Y[{x12/10{Y]{x {C[{x 1288{C]{x Vegita: count_clan_members: Commands out of sync; You can't run this command now.
+{Y[{x12/11{Y]{x {C[{x 1224{C]{x Teotwawki: save_clan_table: Comands out of synct; You can't run this
+{Y[{x12/12{Y]{x {C[{x 3001{C]{x Montrey: ranged can't find a target in the next room
+{Y[{x12/12{Y]{x {C[{x 3001{C]{x Montrey: i'm betting that the room next to you has no light in it :)
+{Y[{x12/13{Y]{x {C[{x 1298{C]{x Xenith: Deputize broken, Monty can't code@!
+{Y[{x12/13{Y]{x {C[{x 1298{C]{x Xenith: Level checks broken, rank checks broken, mortals now == immortals! PANDAMONIUM!
+{Y[{x12/13{Y]{x {C[{x25000{C]{x Montrey: buggy owhere
+{Y[{x12/13{Y]{x {C[{x25000{C]{x Rakurai: i can use 2 weapons, a shield, and a held item
+{Y[{x12/13{Y]{x {C[{x10168{C]{x Rakurai: make 'evo' pos_sleeping
+{Y[{x12/14{Y]{x {C[{x25000{C]{x Celes: make body parts dropped in arena fights go to the winner :)
+{Y[{x12/16{Y]{x {C[{x 8543{C]{x Sturm: no lag on slow
+{Y[{x12/16{Y]{x {C[{x 1288{C]{x Vegita: <WizNet> [*****] BUG: do_alternate: WARNING: maximum site structure size reached
+{Y[{x12/18{Y]{x {C[{x10152{C]{x Jasper: You dodge Ambrose Spike's hilt strike.
+{Y[{x12/19{Y]{x {C[{x 3370{C]{x Sturm: last night I was fighting Jasper and I wasnt dodging any of his attacks..and my dex is higher than his
+{Y[{x12/22{Y]{x {C[{x 3001{C]{x Teotwawki: Missing vch for $N
+{Y[{x01/09{Y]{x {C[{x 1224{C]{x Teotwawki: Removing general group from immortals works until they reload into game then it reissues them the general command again this needs to be fixed please.
+{Y[{x01/09{Y]{x {C[{x 1224{C]{x Teotwawki: I am unable to unleader or deputize some of our elders I believe this may be due to the Is_Special command .. please fix this Thank you.
+{Y[{x01/10{Y]{x {C[{x 1202{C]{x Xenith: <WizNet> [*****] BUG: Error in getting object index in do_vlist().
+{Y[{x01/12{Y]{x {C[{x 1290{C]{x Montrey: fry needs to update pc_index
+{Y[{x07/26{Y]{x {C[{x 3721{C]{x Arcannos: outdated tutorial
+{Y[{x07/26{Y]{x {C[{x 1298{C]{x Montrey: misspelling something in newbie creation gives a wiznet bug 'no helps with keywords'
+{Y[{x07/26{Y]{x {C[{x 3001{C]{x Montrey: helps still need work, need testing with newbie creation
+{Y[{x07/26{Y]{x {C[{x 3001{C]{x Montrey: strike the above thing about wiznet showing missing helps, log those to a file
+{Y[{x07/26{Y]{x {C[{x 3365{C]{x Montrey: newbies should get some kind of warning if they finish customization without using up 40 CP

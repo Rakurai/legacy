@@ -1,0 +1,2446 @@
+#AREA
+
+torayna.are~
+Torayna Cri~
+{H{{1 91} {MMontrey {TTorayna Cri~
+2600 2799
+
+#MOBILES
+
+#2600
+old man~
+the old man~
+An old man huddles in front of the fire here.
+~
+He is an old human, far beyond your years.  He wears a simple tunic and
+breeches, but has a blanket over his shoulders as he huddles in front of
+the fire.  How someone can live in this climate, you dare not guess.
+~
+human~
+BGZa DFd 700 S
+85 17 3d100+1999 5d100+2999 5d8+15 beating
+-60 -60 -61 -58
+0 ABI 0 0
+sit sit male 0
+0 0 medium 0
+
+>all_greet_prog 100~
+peer $n
+say Were you raised in a barn?  Close the door when you come inside, it's cold out there!
+close east
+emote huddles close to the fire again.
+say Come over here close to the fire, get yourself warmed up.  Are you heading out across the wastelands?
+~
+
+>speech_prog p yes~
+nod
+say Well then, you'd better be careful not to get lost.  It's bitter cold out there, you can freeze to death before you even realize it.
+say A few people head back and forth to Torayna Cri, you can probably pick up their path, if you're lucky.  Just watch out for... it.
+shudder
+emote quickly looks away.
+~
+
+>speech_prog p no~
+nod
+say Probably the smart move, you can get lost and freeze to death out there.
+~
+
+>act_prog p wakes and stands up.~
+emote runs over to you.
+say Are you alright??  A caravan found you out in the wastelands, and brought you here.  You've been unconscious all day!
+say You'd better thank the heavens, most people who get lost out there aren't as lucky!
+emote sighs, and goes back to his place by the fire.
+~
+
+>rand_prog 1~
+MPAT 2602 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
+MPAT 2603 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
+MPAT 2604 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
+MPAT 2605 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
+MPAT 2606 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
+MPAT 2607 MPECHO You think you feel a slight tremor in the ground, almost like the far off footfall of some massive beast.
+~
+
+>rand_prog 1~
+MPAT 2602 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
+MPAT 2603 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
+MPAT 2604 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
+MPAT 2605 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
+MPAT 2606 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
+MPAT 2607 MPECHO You involuntarily freeze as your ears barely discern the sound of a mighty roar carried over the wind... or is it just the howling of the blizzard?
+~
+|
+
+#2601
+savior~
+~
+{x~
+This mob transes people to the old man's house, when they get lost in the wastelands.
+~
+human~
+BGKZ DF 0 S
+100 0 1d1+9999 1d1+1 1d1+1 scratch
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+>all_greet_prog 10~
+MPECHO The bitter cold overtakes you...  you collapse on the ground, and know no more.
+MPFORCE $n sleep
+MPTRANS $n 2601
+~
+|
+
+#2602
+savior~
+~
+{x~
+This mob transes people to the inn in Torayna Cri, when they get lost in the wastelands.
+~
+human~
+BGKZ DF 0 S
+100 0 1d1+9999 1d1+1 1d1+1 scratch
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+>all_greet_prog 10~
+MPECHO The bitter cold overtakes you...  you collapse on the ground, and know no more.
+MPFORCE $n sleep
+MPTRANS $n 2601
+~
+|
+
+#2603
+will shopkeeper weaponsmith~
+Will~
+Will stands here, ready to equip you with a deadly weapon.
+~
+Will is a small, middle aged human, who makes his living with his brothers outfitting
+the travellers passing through town with fine weapons.
+~
+human~
+BGVZ DF 0 S
+40 8 1d100+999 1d100+299 1d1+20 cleave
+-25 -25 -25 -20
+0 ABCD 0 0
+stand stand male 30000
+0 0 medium 0
+
+>tick_prog 100~
+if mudtime() == 8
+   MPGOTO 2680
+   MPOLOAD 2604
+   unlock south
+   MPJUNK masterkey
+   break
+endif
+if mudtime() == 18
+   close south
+   MPOLOAD 2604
+   lock south
+   MPJUNK masterkey
+   MPGOTO 2799
+   break
+endif
+~
+
+>greet_prog 50~
+grin $n
+say Welcome!  What sort of fine blades be ye looking for today?
+~
+
+>rand_prog 1~
+sigh
+say I wonder how Joe Bob is doing...  going off to Midgaard and such...
+~
+|
+
+#2604
+bill shopkeeper armorsmith~
+Bill~
+Bill stands here, ready to outfit you in Torayna's finest armor.
+~
+Bill is a middle aged human of medium build, who makes his living with his brothers
+outfitting the travellers passing through town with strong armor.
+~
+human~
+BGVZ DF 0 S
+38 8 1d100+999 1d100+299 1d1+22 chop
+-25 -25 -25 -19
+0 ABCD 0 0
+stand stand male 100000
+0 0 medium 0
+
+>bribe_prog 5000~
+beam $n
+say Excellent!  Right this way, please!  I'm sure you'll have a fine blade crafted in no time, maybe even as good as the ones ol' Phil makes!
+remove key
+unlock north
+open north
+emote guides you to the back room.
+MPFORCE $n north
+close north
+lock north
+wear key
+smile
+~
+
+>bribe_prog 1~
+eyebrow $n
+say I'm sorry, the charge is 50 gold to use the forge.
+pet $n
+emote pockets the money and goes back to polishing the armor.
+~
+
+>rand_prog 1~
+emote spits on a rag and starts polishing a suit of half plate.
+~
+|
+
+#2605
+phil weaponsmith armorsmith repairer shopkeeper~
+Phil~
+Phil stands here, looking over your equipment.
+~
+Phil is a young man, stockily built, who makes his living with his brothers charging
+for his services as a blacksmith.  He forges the weapons and armor for the shops,
+repairs traveller's equipment to the best possible condition, and also sells bars of
+metal for customers to make their own weapons with.
+~
+human~
+BGVZ DF 0 S
+35 8 1d100+1099 1d100+199 1d1+25 smash
+-25 -25 -25 -18
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+>rand_prog 1~
+emote lays a silvery sword across the anvil and skillfully hammers a blemish out of it.
+~
+
+>rand_prog 1~
+emote holds a spear up to the light and sights down it, checking for straightness.
+~
+
+>greet_prog 25~
+bow $n
+say Welcome!  Please look at the sign, it'll tell you what you can do here.  Be careful with my anvil!
+~
+|
+
+#2606
+nora shopkeeper clothier~
+Nora~
+Nora glances at your shabby appearance, and returns to reading a book.
+~
+Nora is a middle aged woman, using just a touch too much perfume.  The clothing
+she sells can't be beat, though, for comfort or for function.  (Looks great, too!)
+~
+human~
+BGVZ DF 0 S
+32 7 1d100+749 1d100+249 1d1+15 peck
+-22 -21 -22 -20
+0 ABCD 0 0
+sit sit female 100000
+0 0 medium 0
+
+>rand_prog 1~
+emote stifles a yawn.
+say Can I help you find anything, dear?
+~
+|
+
+#2607
+bartek shopkeeper jeweler~
+Bartek~
+Bartek grins at you as you enter, and shines up the glass above his most expensive jewelry.
+~
+Bartek is an old wizened Crystal, likely of many more years than you'll ever
+see.  His wares include the local specialty, rubies, but there are a few other
+gemstones on display that he's acquired in trade.  A great deal of his work is
+available for purchase, in the form of necklaces, rings, earrings, and other
+such beautiful pieces.
+~
+crystal~
+BGVZ DF 0 S
+45 9 2d100+1199 2d100+599 1d1+30 crush
+-30 -30 -28 -25
+0 ABCD 0 0
+stand stand male 58000
+0 0 large 0
+
+>rand_prog 1~
+emote pulls a tiny silver ring out of the display case, polishes it with a white cloth, and replaces it.
+~
+|
+
+#2608
+forluk healer apothecary shopkeeper~
+Forluk~
+Forluk glances up at your entrance, and goes back to furiously scribbling notes on a piece of paper.
+~
+Forluk is a young Crystal, although likely still older than you are.  His talent
+with magic is quite remarkable, although he has never taken the adventuring path.
+~
+crystal~
+BGVZa DF 0 S
+60 12 5d100+799 9d100+1499 1d1+70 magic
+-35 -32 -39 -58
+0 ABCD 0 0
+sit sit male 77000
+0 0 large 0
+
+>rand_prog 1~
+emote stops writing for a moment, looks around, grabs a nearby book, and pores through it's pages.
+~
+|
+
+#2609
+reklen shopkeeper~
+Reklen~
+Reklen beams a smile at you as you enter.
+~
+Reklen is a very small Crystal woman who keeps her shop well organized and stocked.
+Rumour has it that she used to be an adventurer, and travelled all around the world,
+but getting her to speak of such things isn't an easy task.
+~
+crystal~
+BGVZ DF 0 S
+71 15 5d100+4499 7d100+3899 1d1+95 chop
+-51 -50 -49 -42
+0 ABCD 0 0
+stand stand female 24000
+0 0 small 0
+
+#2610
+kayleigh cloghopper shopkeeper~
+{VK{Mayleigh {VC{Mloghopper{x~
+{VK{Mayleigh {VC{Mloghopper{x stands here, smiling at you.
+~
+{VK{Mayleigh {VC{Mloghopper{x has devoted her life to helping adventurers, and sells
+bags, lights, and other useful equipment to them at a discount price.  She also keeps
+a {bbarrel{x in her shop for donations to the young adventurers, sometimes throwing
+in a few things from her own stock as well.
+~
+human~
+BGVZ DF 0 S
+35 7 1d100+999 1d100+799 1d1+25 thwack
+-20 -20 -20 -20
+0 ABCD 0 0
+stand stand female 75000
+0 0 small 0
+
+#0
+
+#OBJECTS
+
+#2600
+fireplace~
+the fireplace~
+A small fireplace is here, filling the room with warmth.~
+brick~
+light AOY P
+0 0 -1 0 0
+0 0 0 I
+E
+fireplace~
+You sit down in front of the fireplace and warm your hands, thankful for the
+heat after braving the bitter cold outside.
+~
+
+#2601
+anvil public~
+the anvil~
+Phil's anvil sits here on a heavy wood pedastal.~
+steel~
+anvil OY P
+0 5 0 0 5
+1 3000 0 I
+E
+anvil public~
+Amazingly, the anvil has not a single blemish on it's surface.  It is likely
+because of good care, rather than disuse.
+~
+
+#2602
+key bill~
+a key on a silver chain~
+A key on a silver chain lies here.  Better return it to Bill!~
+silver~
+key OY AC
+0 0 0 0 0
+0 1 50000 I
+
+#2603
+barrel donation pit~
+the barrel~
+A huge barrel of {Tb{Br{Ti{Bc{T-{Ba{T-{Bb{Tr{Ba{Tc{x stands here.~
+wood~
+container OY P
+10000 0 0 1000 100
+0 0 0 P
+
+#2604
+masterkey~
+a key~
+A key lies here.~
+metal~
+key OY A
+0 0 0 0 0
+0 0 0 I
+
+#0
+
+#ROOMS
+
+#2600
+The edge of the Wastelands~
+Snow falls steadily around you as you gaze north over the Toray Wastelands.
+Your vision is limited, however, by the endless blizzard of snow swirling
+constantly over the barren landscape.  A small wooden house is to the near
+west, and you can travel north if you dare brave the bitter cold.
+~
+0 CD 10
+H 20 M 20
+D0
+The blinding snowstorm of the Toray Wastelands is to the north.
+~
+~
+0 -1 2608
+D3
+A small wooden house is to the west.
+~
+~
+3 -1 2601
+S
+
+#2601
+Inside the house~
+It is surprisingly warm in here, at least compared to the bitter cold
+outside.  There are no decorations, only a bed in one corner, a table in
+the center of the room, and a fireplace on one wall.  The only exit is
+east.
+~
+0 CDH 0
+D1
+Outside is the edge of the wastelands.
+~
+~
+3 -1 2600
+S
+
+#2602
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.  You see no signs of a path from
+here, in any direction.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2603
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2603
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2603
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2603
+S
+
+#2603
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.  You see no signs of a path from
+here, in any direction.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2604
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2604
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2604
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2604
+S
+
+#2604
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.  You see no signs of a path from
+here, in any direction.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2603
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2603
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2603
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2603
+S
+
+#2605
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.  You see no signs of a path from
+here, in any direction.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2606
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2606
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2606
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2606
+S
+
+#2606
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.  You see no signs of a path from
+here, in any direction.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2607
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2607
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2607
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2607
+S
+
+#2607
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.  You see no signs of a path from
+here, in any direction.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2606
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2606
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2606
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2606
+S
+
+#2608
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You can make out a faint set of footprints heading to the north.
+~
+~
+0 -1 2609
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D2
+Through the snow, you see a small wooden house to the south.
+~
+~
+0 -1 2600
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+S
+
+#2609
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D2
+You can make out a faint set of footprints heading to the south.
+~
+~
+0 -1 2608
+D3
+You can make out a faint set of footprints heading to the west.
+~
+~
+0 -1 2610
+S
+
+#2610
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You can make out a faint set of footprints heading to the north.
+~
+~
+0 -1 2611
+D1
+You can make out a faint set of footprints heading to the east.
+~
+~
+0 -1 2609
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+S
+
+#2611
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D1
+You can make out a faint set of footprints heading to the east.
+~
+~
+0 -1 2612
+D2
+You can make out a faint set of footprints heading to the south.
+~
+~
+0 -1 2610
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+S
+
+#2612
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You can make out a faint set of footprints heading to the north.
+~
+~
+0 -1 2613
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D3
+You can make out a faint set of footprints heading to the west.
+~
+~
+0 -1 2611
+S
+
+#2613
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D2
+You can make out a faint set of footprints heading to the south.
+~
+~
+0 -1 2612
+D3
+You can make out a faint set of footprints heading to the west.
+~
+~
+0 -1 2614
+S
+
+#2614
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D1
+You can make out a faint set of footprints heading to the east.
+~
+~
+0 -1 2613
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D3
+You can make out a faint set of footprints heading to the west.
+~
+~
+0 -1 2615
+S
+
+#2615
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.  To the north you can almost make
+out the faint shadows of rising mountains.
+~
+0 CD 10
+H 0 M 0
+D0
+You can make out a faint set of footprints heading to the north.
+~
+~
+0 -1 2616
+D1
+You can make out a faint set of footprints heading to the east.
+~
+~
+0 -1 2614
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+S
+
+#2616
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.  The path to the north is blocked
+by the mountains.
+~
+0 CD 10
+H 0 M 0
+D1
+You can make out a faint set of footprints heading to the east.
+~
+~
+0 -1 2617
+D2
+You can make out a faint set of footprints heading to the south.
+~
+~
+0 -1 2615
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+S
+
+#2617
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You can make out a faint set of footprints heading to the north.
+~
+~
+0 -1 2618
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2602
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2616
+D3
+You can make out a faint set of footprints heading to the west.
+~
+~
+0 -1 2609
+S
+
+#2618
+The beginning of the Toray Valley~
+The blizzard is less furious here in the slight shelter of the Toray
+Mountains.  The peaks stand thousands of feet above you on either side,
+forming a pass between them leading to the north.  The snow is still
+flying about, though, so you had better find shelter soon.  Either that,
+or you could head south if you dare brave the wastelands again.
+~
+0 CD 10
+H 20 M 10
+D0
+North the valley continues.
+~
+~
+0 -1 2619
+D2
+South of here is the wastelands.
+~
+~
+0 -1 2617
+S
+
+#2619
+Deep in the Toray Valley~
+The snow here drifts down endlessly yet gently, keeping the ground
+covered with a thick layer of white.  On either side of you grand
+mountains rise to the sky, offering their protection from the harsh
+winds outside.  The valley continues to the north and south.
+~
+0 CD 10
+H 30 M 20
+D0
+North the valley continues.
+~
+~
+0 -1 2632
+D2
+South the valley continues.
+~
+~
+0 -1 2618
+S
+
+#2620
+Deep in the Toray Valley~
+The snow here drifts down endlessly yet gently, keeping the ground
+covered with a thick layer of white.  On either side of you grand
+mountains rise to the sky, offering their protection from the harsh
+winds outside.  The valley continues to the north and south.
+~
+0 CD 10
+H 30 M 20
+D0
+North the valley continues.
+~
+~
+0 -1 2632
+D2
+South the valley continues.
+~
+~
+0 -1 2621
+S
+
+#2621
+The beginning of the Toray Valley~
+The intensity of the snowfall starts to increase here, but you are still
+sheltered by the Toray Mountains.  The peaks stand thousands of feet
+above you on either side, forming a pass between them leading north toward
+Torayna Cri.  Head south if you dare brave the wastelands, or return north
+to the safety of the town.
+~
+0 CD 10
+H 20 M 10
+D0
+North the valley continues.
+~
+~
+0 -1 2620
+D2
+South of here is the wastelands.
+~
+~
+0 -1 2622
+S
+
+#2622
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You can make out a faint set of footprints heading to the north.
+~
+~
+0 -1 2621
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2622
+D3
+You can make out a faint set of footprints heading to the west.
+~
+~
+0 -1 2605
+S
+
+#2623
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.  The path to the north is blocked
+by the mountains.
+~
+0 CD 10
+H 0 M 0
+D1
+You can make out a faint set of footprints heading to the east.
+~
+~
+0 -1 2622
+D2
+You can make out a faint set of footprints heading to the south.
+~
+~
+0 -1 2624
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+S
+
+#2624
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.  To the north you can almost make
+out the faint shadows of rising mountains.
+~
+0 CD 10
+H 0 M 0
+D0
+You can make out a faint set of footprints heading to the north.
+~
+~
+0 -1 2623
+D1
+You can make out a faint set of footprints heading to the east.
+~
+~
+0 -1 2625
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+S
+
+#2625
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D1
+You can make out a faint set of footprints heading to the east.
+~
+~
+0 -1 2626
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D3
+You can make out a faint set of footprints heading to the west.
+~
+~
+0 -1 2624
+S
+
+#2626
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D2
+You can make out a faint set of footprints heading to the south.
+~
+~
+0 -1 2627
+D3
+You can make out a faint set of footprints heading to the west.
+~
+~
+0 -1 2625
+S
+
+#2627
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You can make out a faint set of footprints heading to the north.
+~
+~
+0 -1 2626
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D3
+You can make out a faint set of footprints heading to the west.
+~
+~
+0 -1 2628
+S
+
+#2628
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D1
+You can make out a faint set of footprints heading to the east.
+~
+~
+0 -1 2627
+D2
+You can make out a faint set of footprints heading to the south.
+~
+~
+0 -1 2629
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+S
+
+#2629
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You can make out a faint set of footprints heading to the north.
+~
+~
+0 -1 2628
+D1
+You can make out a faint set of footprints heading to the east.
+~
+~
+0 -1 2630
+D2
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+S
+
+#2630
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D2
+You can make out a faint set of footprints heading to the south.
+~
+~
+0 -1 2631
+D3
+You can make out a faint set of footprints heading to the west.
+~
+~
+0 -1 2629
+S
+
+#2631
+The Toray Wastelands~
+If you could see past the blinding snow swirling around you, the bleak white
+landscape would be disheartening.  But, since you can't see more than two
+meters in front of your face, it matters little.  Your feet plant deep into
+the snow beneath you as you trudge onward, and the urge to pray for divine
+transportation increases with every step.
+~
+0 CD 10
+H 0 M 0
+D0
+You can make out a faint set of footprints heading to the north.
+~
+~
+0 -1 2630
+D1
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+D2
+Through the blinding snow, you can see a small wooden house to the south.
+~
+~
+0 -1 2600
+D3
+You see nothing but white snow in that direction.
+~
+~
+0 -1 2605
+S
+
+#2632
+Outside Torayna Cri~
+You are standing on a bluff overlooking the mining town of Torayna Cri.
+Built hundreds of years ago by Crystals taking advantage of the area's
+vast ruby deposits, it is now one of the chief suppliers of raw rubies
+to realms around the world.  The population is mostly Crystal, but a
+few ambitious humans have taken up shop here as well, trading necessary
+supplies, tools, and other good to the residents.  The town is completely
+circled by the Toray Mountains, and the only exit is the pass south of
+you.  Directly to the north you can enter the town, or head east toward
+the Torayna Trading Company.
+~
+0 D 10
+H 70 M 60
+D0
+North of here is Torayna Cri.
+~
+~
+0 -1 2633
+D1
+East of here is the Torayna Trading Company.
+~
+~
+0 -1 2649
+D2
+South of here is the Toray Valley.
+~
+~
+0 -1 2620
+S
+
+#2633
+Near the hot spring~
+You walk just west of the hot spring at the center of Torayna Cri.  Warmth
+reaches you even at this distance, and you see steam rising from the waters.
+Far in the distance, at the other shore, you see some of the houses of the
+town's residents, and to the north you can see the local businesses and shops.
+South of here is the edge of town, and beyond that the pass through the Toray
+Mountains.
+~
+0 D 10
+H 80 M 80
+D0
+To the north is the town of Torayna Cri.
+~
+~
+0 -1 2634
+D2
+South is the edge of town, and beyond that the pass through the Toray Mountains.
+~
+~
+0 -1 2632
+S
+
+#2634
+Near the hot spring~
+You walk just west of the hot spring at the center of Torayna Cri.  Warmth
+reaches you even at this distance, and you see steam rising from the waters.
+Far in the distance, at the other shore, you see some of the houses of the
+town's residents, and to the north you can see the local businesses and shops.
+South of here is the edge of town, and beyond that the pass through the Toray
+Mountains.
+~
+0 D 10
+H 80 M 80
+D0
+To the north is the town of Torayna Cri.
+~
+~
+0 -1 2635
+D2
+South is the edge of town, and beyond that the pass through the Toray Mountains.
+~
+~
+0 -1 2633
+S
+
+#2635
+Near the hot spring~
+Just to the north is the only real road in Torayna Cri, which circles around
+the hot spring from the businesses on the northwest side, past the houses to
+the east, and ends up in front of the Toray Trading Company.  East you see the
+near shore of the hot spring, a small lake by some standards.  Situated on a
+peninsula reaching into the spring is the only inn in town, and across the waters
+to the east you see houses of the town's residents.  South you can walk along
+the shore until you reach the mountain pass, or you can head north into town.
+~
+0 D 10
+H 80 M 80
+D0
+To the north you can enter the town.
+~
+~
+0 -1 2636
+D2
+South the shoreline continues.
+~
+~
+0 -1 2634
+S
+
+#2636
+The main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  East and west the road continues, with shops
+alongside.  Just to the north is a stone building where a local magic practitioner
+plies his trade, and south is the path along the hot spring leading out of town.
+~
+0 D 10
+H 80 M 80
+D0
+The Apothecary is to the north.
+~
+door~
+1 -1 2685
+D1
+The road continues to the east.
+~
+~
+0 -1 2639
+D2
+South is the path leading to the Toray Trading Company.
+~
+~
+0 -1 2635
+D3
+The road continues to the west.
+~
+~
+0 -1 2637
+S
+
+#2637
+The main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  East and west the road continues, with shops
+alongside.  To the north is a large building with two doors on the street side,
+with the word, 'ARMOR' painted in crude letters above the east door.  South
+is the jeweler, where the finest ruby jewelry in Thera can be purchased.
+~
+0 D 10
+H 80 M 80
+D0
+Bill's Armor is to the north.
+~
+door~
+1 -1 2681
+D1
+The road continues to the east.
+~
+~
+0 -1 2636
+D2
+The Crimson Jewel is to the south.
+~
+door~
+1 -1 2684
+D3
+The road continues to the west.
+~
+~
+0 -1 2638
+S
+
+#2638
+West end of the main road~
+You stand at the western end of the main road in Torayna Cri.  To the east the
+road stretches on, with shops alongside, and west the mountains rise up from
+the valley floor.  To the north is a large building with two doors on the street
+side, with the word 'WEAPONS' painted in crude letters above the west door.
+South is a shop with coats, shirts, and shoes in the large glass window,
+evidently a clothing store.
+~
+0 D 10
+H 80 M 80
+D0
+Will's Weapons is to the north.
+~
+door~
+4 2604 2680
+D1
+The road continues to the east.
+~
+~
+0 -1 2637
+D2
+Tunics by Nora is to the south.
+~
+door~
+1 -1 2683
+S
+
+#2639
+The main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  East and west the road continues, with shops
+alongside.  North the road branches, forming a smaller road that leads toward
+the mountains, and the ruby mines within them.  South is the shore of the hot
+spring, and you can see a large wood building built on a peninsula to the
+southeast, overlooking the waters.
+~
+0 D 10
+H 80 M 80
+D0
+North is the ruby mines.
+~
+~
+0 -1 2650
+D1
+The road continues to the east.
+~
+~
+0 -1 2640
+D3
+The road continues to the west.
+~
+~
+0 -1 2636
+S
+
+#2640
+The main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  East and west the road continues, with shops
+alongside.  North you can purchase food, although the selection is rather small,
+since only what can be brought to the town by caravan is sold here.  South is a
+large wooden house, two stories tall, with glass windows and a curl of wood smoke
+from the red brick chimney.  You can make out the words, 'Sword and Spear' in
+large green letters above the door, with 'Inn' in smaller letters just below it.
+Iconographs of a bed, a mug of ale, and a fork are painted on the sides of the
+door, for the less educated guests. It is built upon a peninsula jutting into the
+lake, and it's upper rooms overlook the waters.
+~
+0 D 10
+H 80 M 80
+D0
+Reklen's Supplies is to the north.
+~
+door~
+1 -1 2686
+D1
+The road continues to the east.
+~
+~
+0 -1 2641
+D3
+The road continues to the west.
+~
+~
+0 -1 2639
+S
+
+#2641
+The main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  East and west the road continues, with the road
+making a bend to the south just east of here.  Shops line the road to the west,
+and north of here is a grocer that can sell you supplies to see you through the
+toughest winter.  South is the shore of the hot spring-lake, and you can see a
+large wood building built upon a peninsula to the southwest.
+~
+0 D 10
+H 80 M 80
+D0
+The Bric-a-brac Shop is to the north.
+~
+door~
+1 -1 2687
+D1
+The road continues to the east.
+~
+~
+0 -1 2642
+D3
+The road continues to the west.
+~
+~
+0 -1 2640
+S
+
+#2642
+A bend in the main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  West and south the road continues, with shops
+alongside to the west.  South of here you can see the shores of the hot spring
+on the west side of the road, and houses of the town's residents to the east.
+North and east the ground starts to climb as the mountains rise from the valley
+floor.
+~
+0 D 10
+H 80 M 80
+D2
+The road continues to the south.
+~
+~
+0 -1 2643
+D3
+The road continues to the west.
+~
+~
+0 -1 2641
+S
+
+#2643
+The main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  North and south the road continues, with the
+shores of the hot spring to the west and houses on the other side.  Just east
+of here is a small brick house with a bright blue iconograph of an open book
+painted above the door.
+~
+0 D 10
+H 80 M 80
+D0
+The road continues to the north.
+~
+~
+0 -1 2642
+D2
+The road continues to the south.
+~
+~
+0 -1 2644
+S
+
+#2644
+The main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  North and south the road continues, with the
+shores of the hot spring to the west and houses on the other side.  East of here
+the road branches into a small street, houses situated all around it.
+~
+0 D 10
+H 80 M 80
+D0
+The road continues to the north.
+~
+~
+0 -1 2643
+D1
+A small street branches off to the east.
+~
+~
+0 -1 2652
+D2
+The road continues to the south.
+~
+~
+0 -1 2645
+S
+
+#2645
+The main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  North and south the road continues, with the
+shores of the hot spring to the west and houses on the other side.  Further south
+the road bends toward the west, following the south shore of the hot spring
+toward the Toray Trading Company.
+~
+0 D 10
+H 80 M 80
+D0
+The road continues to the north.
+~
+~
+0 -1 2644
+D2
+The road continues to the south.
+~
+~
+0 -1 2646
+S
+
+#2646
+The main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  The road follows the east shore of the hot spring
+to the north, with houses just east of there.  West the road follows the south
+shore toward the Toray Trading Company.  Just east of here is a small stone
+house with a curl of smoke coming from the chimney.
+~
+0 D 10
+H 80 M 80
+D0
+The road continues to the north.
+~
+~
+0 -1 2645
+D3
+The road continues to the west.
+~
+~
+0 -1 2647
+S
+
+#2647
+The main road~
+You stand on the main road in Torayna Cri, really just a wagon path that would
+be muddy if it weren't frozen.  The road follows the south shore of the hot spring,
+and you can see houses off to the northeast.  South of here is the headquarters
+to the Toray Trading Company.
+~
+0 D 10
+H 80 M 80
+D1
+The road continues to the east.
+~
+~
+0 -1 2646
+D2
+The road continues to the south.
+~
+~
+0 -1 2648
+S
+
+#2648
+South end of the main road~
+You stand on the south end of the main road, just in front of the Toray Trading
+Company.  The huge wood building to the south is their headquarters, and you can
+enter the wagon barn through the large door before you.  West of here the road
+turns into a path leading to the company offices.
+~
+0 D 10
+H 80 M 80
+D0
+The road continues to the north.
+~
+~
+0 -1 2647
+D3
+The path leading to the company offices is west of here.
+~
+~
+0 -1 2649
+S
+
+#2649
+In front of the offices~
+You are outside the offices of the Toray Trading Company, suppliers of provisions
+to Torayna Cri and raw rubies and jewelry to the rest of the realm.  You can enter
+the huge wood building through the small door to the south, or follow the path back
+east toward the main road.  West you see the bluff, and the beginning of the
+mountain pass that leads to the wastelands.  A cart trail on the ground indicates
+that wagons from Torayna Cri use it to get outside their sheltered valley.
+~
+0 D 10
+H 80 M 80
+D1
+The road starts to the east.
+~
+~
+0 -1 2648
+D3
+West is the bluff overlooking Torayna Cri.
+~
+~
+0 -1 2632
+S
+
+#2650
+The road to the mines~
+You travel a well used road north of the businesses of Torayna Cri.  This road
+leads to the ruby mines in the mountains, and has the impressions of wagon wheels
+on the ground beneath you.  North the mountains that surround the town rise up
+to greet you, and south is the main road.  Just northeast you can see a brick
+building, and a great deal of footprints in the snow lead to the door.
+~
+0 D 10
+H 80 M 80
+D0
+The road leads toward the mountains to the north.
+~
+~
+0 -1 2651
+D2
+The main road is to the south.
+~
+~
+0 -1 2639
+S
+
+#2651
+The road to the mines~
+You travel a well used road north of the town of Torayna Cri.  This road
+leads to the ruby mines in the mountains, the entrance of which you can see
+in the sheer rock wall north of here.  South is the town, and east is a brick
+building with many footsteps leading to the door.  The words, 'The Flaming
+Weasel' are painted in bright red letters just above the -- wait a minute,
+THE Flaming Weasel?!?  You recall rumours of the best ice cold ale in the
+realm, and you find your feet taking you toward the door.
+~
+0 D 10
+H 80 M 80
+D2
+The town of Torayna Cri is to the south.
+~
+~
+0 -1 2650
+S
+
+#2652
+The side street~
+You are on a small street among the houses in Torayna Cri.  Shelters of brick
+and stone are north and south, but the doors evidently face another direction.
+The ground here is less rutted by wagon marks here, and reasonably flat.  To
+the east the street goes on, toward more houses, and to the west is the main
+road and the shore of the hot spring.
+~
+0 D 10
+H 80 M 80
+D1
+The street goes on to the east.
+~
+~
+0 -1 2653
+D3
+The main road is to the west.
+~
+~
+0 -1 2644
+S
+
+#2653
+The side street~
+You are on a small street among the houses in Torayna Cri.  Shelters of brick
+and stone are all around, and doors lead into two of them to the north and
+east.  The street continues west, and ends to the south.
+~
+0 D 10
+H 80 M 80
+D2
+The end of the street is to the south.
+~
+~
+0 -1 2654
+D3
+The street continues to the west.
+~
+~
+0 -1 2652
+S
+
+#2654
+The side street~
+You are on a small street among the houses in Torayna Cri.  Shelters of brick
+and stone are all around, and doors lead into two of them to the south and
+west.  The street continues to the north.
+~
+0 D 10
+H 80 M 80
+D0
+The street continues to the north.
+~
+~
+0 -1 2653
+S
+
+#2680
+Will's Weapons~
+Racks of weaponry, some shining and new, some old and worn, line the walls
+here.  You see warhammers, swords, spears, bows and arrows, daggers, and
+other killing implements on display, most with rather hefty price tags.
+You have a feeling that not much is sold here, although likely due to
+location and not the quality of the goods.  South is the door leaving the
+shop, and the armor shop is east through a door that has been propped open,
+effectively making the armor and weapon shops into one large emporium of
+metalcraft.  There is a {Csign{x on the counter.
+~
+0 CD 1
+D1
+Bill's Armor is through the doorway.
+~
+door~
+1 -1 2681
+D2
+You can leave the shop to the south.
+~
+door~
+4 2604 2638
+E
+sign counter~
+The sign reads:
+
+     Welcome to Will's Weapons, the one stop for all your monster
+     slaying needs!  We have a fine selection of blades available,
+     just type '{Plist{x' to see them.  For more information on
+     buying and selling goods, type '{Phelp buy{x'.  Make sure to
+     pick up what you need, it's a dangerous world out there!
+     Also, don't forget to stop by Bill's Armor next door, because
+     the best offense is a good defense!
+                                             Will and Bill
+~
+S
+
+#2681
+Bill's Armor~
+Suits of plate armor on dummies greet you as you enter.  The walls of this
+shop are lined with shelves holding many pieces of armor, ranging from
+simple leather to chainmail to ornately jeweled helms.  Some of of the
+prices make you shudder in horror, but a lot is reasonably marked.  South
+is the way out should you not care to see more, and the weapon shop is
+west through a propped open door.  A closed door to the north probably
+leads to where armor and weapons are crafted, and sure enough, you can
+hear a hammer beating an anvil occasionally.  A small {Csign{x is on the
+counter.
+~
+0 CD 1
+D0
+A closed door to the north probably indicates the presence of a private forge.
+~
+door~
+4 2602 2682
+D2
+You can leave the shop to the south.
+~
+door~
+1 -1 2637
+D3
+Will's Weapons is through the doorway.
+~
+door~
+1 -1 2680
+E
+sign counter~
+A sign on the counter reads:
+
+     As a measure of goodwill toward the community of Torayna Cri,
+     Will and Bill have opened their private forge to the public
+     for their metalworking needs, for only a small fee used to
+     repair damage done by the inexperienced.  If you feel the need
+     to use it, please give {Y50 gold pieces{x to Bill, and he'll be
+     more than happy to let you into the back room.  Don't forget
+     to pick up one of the handy scabbards to keep your new weapon
+     in, you won't regret it!  Type '{Phelp buy{x' for details on how
+     to purchase items.
+                                           Will and Bill
+~
+S
+
+#2682
+Phil's Forge~
+Unsurprisingly, this room is rather warm compared to most other places
+in Torayna Cri.  A blazing hot forge is set up along the eastern wall,
+and flames lick the edges each time Phil works the bellows.  Various
+hammers, tongs, and other implements are on racks on the other walls,
+and an anvil sits in the center of the room.  The only door is to the
+south, and leads back to the armor shop.  There is a {Csign{x mounted on
+one wall, obviously intended for paying guests who forge weapons here.
+~
+0 CDKS 1
+D2
+Bill's Armor is to the south.
+~
+~
+0 -1 2681
+E
+sign~
+The sign reads:
+
+     Please take care not to dent, scratch, scuff, or otherwise
+     damage the anvil!  Type '{Phelp forge{x' for more information
+     on forging weapons.  Phil has some fine materials for sale,
+     type '{Plist{x' to see his selection, and '{Pbuy <name>{x' to buy
+     it!  Also, if you have damaged equipment, Phil can repair
+     it for you, for a nominal {Ygold cost{x.  Type '{Phelp repair{x'
+     for information on how he can do it.
+                                               Phil
+~
+S
+
+#2683
+Tunics by Nora~
+The air in here is stuffy, and smells of new cloth.  Despite the store's
+small size, Nora carries a decent selection of the latest in Theran
+fashion.  Tough breeches, comfortable boots, and cloth shirts (using real
+thread, not string!) are displayed on shelves and racks.  Befitting the
+climate outside, one entire wall of the store is set aside for thick,
+warm coats.  You take a look at some of the prices, though, and glance
+back at the door to the north.  There is a small {Csign{x on the counter.
+~
+0 CD 1
+D0
+You can leave the shop to the north.
+~
+door~
+1 -1 2638
+E
+sign~
+The sign reads:
+
+     Type '{Phelp buy{x' if you need to know how to purchase from the
+     fine selection of the latest trends I carry.
+                                                     Nora
+~
+S
+
+#2684
+The Crimson Jewel~
+You open the heavy wood door and step into a shop with no windows.  No
+dust can be seen on the glass display cases, and everything in the room
+has an aire of sterility.  You gaze at the items made from jewels and
+precious metals on display, and wonder if you can *really* afford to even
+be looking.  You see a {Csign{x hanging behind the counter.
+~
+0 CD 1
+D0
+You can leave the shop to the north.
+~
+door~
+1 -1 2637
+E
+sign~
+The sign reads:
+
+     Welcome!  Only the finest in precious stones and metals will be
+     found here.  Type '{Phelp buy{x' if you know not about buying and
+     selling in Thera.  We also carry wedding rings here, personalized
+     for a small charge.  Type '{Phelp weddingring{x' to learn more.
+
+                                                  Bartek
+~
+S
+
+#2685
+The Apothecary~
+How can someone work in all this clutter?  Shelves and cupboards line every
+wall of this shop, filled with potions, scrolls, books, jars, and other
+magical looking things.  Stuffed animals, maps, and assorted odds and ends
+seem placed around the room in a random fashion, spilling over onto the
+floor and generally being a mess.  Hopefully the owner of this shop knows
+where to find things better than you ever could.  A {Cscrap of paper{x is pinned
+to the inside of the door.
+~
+0 CD 1
+D2
+You can leave the shop to the south.
+~
+door~
+1 -1 2636
+E
+scrap paper~
+The paper reads:
+
+     Please watch where you step, don't go treading on my papers!  If
+     you're in need of healing services, type '{Pheal{x' for a list of
+     spells.  I carry a few scrolls and potions that I prepare, type
+     '{Phelp buy{x' if you don't know how to buy them.  Above all, please
+     keep it quiet!
+                                                Forluk
+~
+S
+
+#2686
+Reklen's Supplies~
+Bins and shelves line the walls of this shop, with an aisle of shelves down
+the center leading to the counter.  On the shelves are jars and boxes, filled
+with preserved foods guaranteed to hold up on the road.  Salted meats, pickled
+fish, and dried fruits can all be found here, along with staples such as flour,
+rice, and potatoes.  A {Cnote{x is pinned to the counter.
+~
+0 CD 1
+D2
+You can leave the shop to the south.
+~
+door~
+1 -1 2640
+E
+note~
+The note reads:
+
+     Please, don't touch unless you plan to buy.  We carry basic
+     foodstuffs at all times, but sometimes we can get in luxury
+     items, so check back often.  Type '{Phelp buy{x' to see how to
+     purchase items.
+                                               Reklen
+~
+S
+
+#2687
+{BThe {TB{Br{Ti{Bc{T-{Ba{T-{Bb{Tr{Ba{Tc {BS{Th{Bo{Tp{x~
+Before you stands a huge {bbarrel {xthat appears to be full of assorted
+{Tb{Br{Ti{Bc{T-{Ba{T-{Bb{Tr{Ba{Tc{x, weapons stick up out of the pile and clothing spills over
+the edge, some things look far to large for you to use, while others
+look just perfect.  There is a {Csign{x on the side of the {bbarrel {xwhich 
+catches your eye, perhaps you should read it?
+
+The room itself is plain, with brick walls and a stone floor.  A counter
+is off to one side, from which {VK{Mayleigh{x plies her trade.
+~
+0 CD 1
+D2
+You can leave the shop to the south.
+~
+door~
+1 -1 2641
+D4
+A small set of stairs leads up.
+~
+~
+0 -1 2688
+E
+sign~
+The sign reads:
+
+     To see things in the barrel within your level range type '{Ppit{x'.
+     To see what is in there within a particular range, type '{Ppit{x'
+     then the lower level range followed by the higher range, eg,
+     '{Ppit 1 5{x' would show items in that level range.  To see everything
+     in the pit, type '{Pexamine pit{x'.  Everything in the barrel is
+     free for the taking, donated by the gracious population of
+     Thera.  Other things can be bought from Kayleigh, type
+     '{Phelp buy{x' to learn how to buy items.
+
+                                           {VK{Mayleigh{x
+~
+S
+
+#2688
+A closely guarded room~
+Here is where more powerful adventurers may access their strongbox.  The
+room is small, with the only entrance being the staircase below, and is
+completely unfurnished except for rows of metal boxes lining the walls.
+{VK{Mayleigh{x must be very generous indeed, if she's willing to devote part of
+her shop to helping people store their goods.
+~
+0 CDQST 1
+D5
+{VK{Mayleigh{x's shop is below.
+~
+~
+0 -1 2687
+S
+
+#2720
+Challenger Prep Room~
+The challenger's preparation room.
+~
+0 0 2
+S
+
+#2721
+Defender Prep Room~
+The defender's preparation room.
+~
+0 0 2
+S
+
+#2722
+Viewing Room~
+The room to view the match from.
+~
+0 K 2
+S
+
+#2723
+Arena Room~
+An arena room.
+~
+0 0 2
+D1
+~
+~
+0 -1 2724
+D2
+~
+~
+0 -1 2726
+S
+
+#2724
+Arena Room~
+An arena room.
+~
+0 0 2
+D1
+~
+~
+0 -1 2725
+D2
+~
+~
+0 -1 2727
+D3
+~
+~
+0 -1 2723
+S
+
+#2725
+Arena Room~
+An arena room.
+~
+0 0 2
+D2
+~
+~
+0 -1 2728
+D3
+~
+~
+0 -1 2724
+S
+
+#2726
+Arena Room~
+An arena room.
+~
+0 0 2
+D0
+~
+~
+0 -1 2723
+D1
+~
+~
+0 -1 2727
+D2
+~
+~
+0 -1 2729
+S
+
+#2727
+Arena Room~
+An arena room.
+~
+0 0 2
+D0
+~
+~
+0 -1 2724
+D1
+~
+~
+0 -1 2728
+D2
+~
+~
+0 -1 2730
+D3
+~
+~
+0 -1 2726
+S
+
+#2728
+Arena Room~
+An arena room.
+~
+0 0 2
+D0
+~
+~
+0 -1 2725
+D2
+~
+~
+0 -1 2731
+D3
+~
+~
+0 -1 2727
+S
+
+#2729
+Arena Room~
+An arena room.
+~
+0 0 2
+D0
+~
+~
+0 -1 2726
+D1
+~
+~
+0 -1 2730
+S
+
+#2730
+Arena Room~
+An arena room.
+~
+0 0 2
+D0
+~
+~
+0 -1 2727
+D1
+~
+~
+0 -1 2731
+D3
+~
+~
+0 -1 2729
+S
+
+#2731
+Arena Room~
+An arena room.
+~
+0 0 2
+D0
+~
+~
+0 -1 2728
+D3
+~
+~
+0 -1 2730
+S
+
+#2799
+Mob storage room~
+No reason to be here, this is just a storage room for mobs waiting to do something.
+~
+0 CD 1
+S
+
+#0
+
+#RESETS
+
+M 0 2600 1 2601 1               * Old man to the house south of the wastelands
+O 0 2600 1 2601                 * Fireplace to the old man's house
+
+M 0 2601 2 2603 1               * Savior to lost in the wastelands
+M 0 2601 2 2604 1               * Savior to lost in the wastelands
+M 0 2602 2 2606 1               * Savior to lost in the wastelands
+M 0 2602 2 2607 1               * Savior to lost in the wastelands
+
+M 0 2603 1 2799 1               * Will (weapons) to Will's Weapons (storage)
+
+M 0 2604 1 2681 1               * Bill (armor) to Bill's Armor
+E 0 2602 1 3                    *   Equips Bill with key to forge
+
+M 0 2605 1 2682 1               * Phil (materials, repairer) to Phil's Forge
+O 0 2601 1 2682                 * Anvil to Phil's Forge
+
+M 0 2606 1 2683 1               * Nora (clothing) to Tunics by Nora
+
+M 0 2607 1 2684 1               * Bartek (jeweler) to The Crimson Jewel
+
+M 0 2608 1 2685 1               * Forluk (apothecary, healer) to The Apothecary
+
+M 0 2609 1 2686 1               * Reklen (food) to Reklen's Supplies
+
+M 0 2610 1 2687 1               * Kayleigh (items) to The Bric-a-brac Shop
+O 0 2603 1 2687                 * Barrel to The Bric-a-brac Shop
+
+O 0 1297 2 2688                 * dummystrongbox (immort.are) to strongbox room
+
+D 0 2600 3 1                    * Closes outside of old man's house west
+D 0 2601 1 1                    * Closes inside of old man's house east
+D 0 2638 0 1                    * Closes outside of Will's Weapons north
+D 0 2680 2 1                    * Closes inside of Will's Weapons south
+D 0 2637 0 1                    * Closes outside of Bill's Armor north
+D 0 2681 2 1                    * Closes inside of Bill's Armor south
+D 0 2681 0 2                    * Closes and locks inside of Bill's Armor north (to forge)
+D 0 2638 2 1                    * Closes outside of Tunics by Nora south
+D 0 2683 0 1                    * Closes inside of Tunics by Nora north
+D 0 2637 2 1                    * Closes outside of The Crimson Jewel south
+D 0 2684 0 1                    * Closes inside of The Crimson Jewel north
+D 0 2636 0 1                    * Closes outside of The Apothecary north
+D 0 2685 2 1                    * Closes inside of The Apothecary south
+D 0 2640 0 1                    * Closes outside of Reklen's Supplies north
+D 0 2686 2 1                    * Closes inside of Reklen's Supplies south
+D 0 2641 0 1                    * Closes outside of Bric-a-brac Shop north
+D 0 2687 2 1                    * Closes inside of Bric-a-brac Shop south
+
+S
+
+#SHOPS
+
+2603   5 35 36  0  0  120   40  8 18   * Will, buys weapon/pbtube/pbgun, open 8am to 6pm
+2604   9  0  0  0  0  100   50  8 18   * Bill, buys armor, open 8am to 6pm
+2605  37  0  0  0  0  100   70  0 23   * Phil, buys materials, open 24 hours!
+2606  11  0  0  0  0  100   30  8 18   * Nora, buys clothing, open 8am to 6pm
+2607   8 30 32 33  0  110  100  8 18   * Bartek, buys treasure, warp stone, gem, jewelry, open 8 am to 6 pm
+2608   2  3  4 10  0  100   15  8 18   * Forluk, buys scroll, wand, staff, potion, open 8 am to 6 pm
+2609   0  0  0  0  0  110  100  8 18   * Reklen, open 8 am to 6 pm
+2610   1  8 13 15 19  150   40  7 19   * Kayleigh, buys light, treasure, trash, container, food, open 7 am to 7 pm
+
+0
+
+#SPECIALS
+
+M 2605 spec_blacksmith                 * Phil, the blacksmith
+
+S
+
+#$
+

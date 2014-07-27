@@ -1,0 +1,212 @@
+#PLAYER
+Name DragonsFear~
+Id   1008266443
+LogO 1008616203
+Vers 9
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nmv {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race feral~
+Sex  1
+Cla  2
+Levl 4
+Plyd 2001
+Age  0
+Back 1717
+Note 0 0 0 0 0 0
+Scro 22
+Room 19904
+HMV  55 55 108 108 118 118
+Gold 3
+Silv 475
+Exp  4559
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy J
+Comm NO
+Revk 0
+Cnsr 0
+Pos  8
+Trai 3
+Save  -13
+Alig  -26
+Hit   17
+Dam   8
+ACs 95 95 95 99
+Atrib 16 17 10 18 14 10
+AtMod 1 2 3 1 0 2
+Pass stinky~
+Titl  the second deadly thief~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Sivat~
+Lsit mailserv.awec.EDnet.NS.CA~
+Ltim Mon Dec 17 12:41:32 2001
+~
+LSav Mon Dec 17 13:10:03 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMVP 51 108 118
+THVP 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'dagger'
+Sk 75 1 'sword'
+Sk 39 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'dodge'
+Sk 1 1 'second attack'
+Sk 1 1 'rotate'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Affc 'blood moon'   0  83  28   8  19          0 1
+Affc 'blood moon'   0  84  28   4  18          0 1
+Affc 'bless'   0  80  35  12  18          0 1
+Affc 'bless'   0  83  35 -12  24          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 124 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Cond 86
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 6011
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

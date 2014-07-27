@@ -1,0 +1,251 @@
+#PLAYER
+Name DragonSlayer~
+Id   1008011830
+LogO 1010763754
+Vers 10
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nmv {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race dragon~
+Sex  1
+Cla  3
+Levl 6
+Plyd 9819
+Age  0
+Back 2845
+Note 1008087616 1008087616 1008087616 1008087616 1008087616 1008087616
+Scro 22
+Room 8543
+HMS  81 94 117 117 75 172
+Gold 3
+Silv 1254
+Exp  8188
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy HTV
+Comm NO
+Revk 0
+Cnsr 0
+Pos  4
+Prac 3
+Trai 1
+Alig  -25
+Hit   5
+Dam   8
+ACs 93 93 93 100
+Atrib 20 18 17 9 16 10
+AtMod 5 1 3 6 0 2
+Pass saiyan~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Neffertini~
+Lsit mailserv.awec.EDnet.NS.CA~
+Ltim Fri Jan 11 09:25:48 2002
+~
+LSav Fri Jan 11 09:42:34 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 90 117 172
+THMS 0 0 0
+Cnd  0 8 47 0
+Sk 1 1 'acid breath'
+Sk 1 1 'fire breath'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'lightning breath'
+Sk 80 1 'sword'
+Sk 1 1 'bash'
+Sk 1 1 'dodge'
+Sk 76 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 71 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'draconian'
+Affc 'haste'   0  41  10   4   2    2097152 1
+Affc 'giant strength'   0  41  41   4   1          0 1
+Affc 'sanctuary'   0  41   5   0   0        128 1
+Affc 'blood moon'   0  81   2   4  18          0 1
+Affc 'blood moon'   0  82   2   8  19          0 1
+End
+
+#O
+Vnum 3001
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3001
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 102 15 0 0
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Cond 93
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 4581
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4572
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4570
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4572
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4570
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4572
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4570
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4570
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#END

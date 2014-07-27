@@ -1,0 +1,218 @@
+#PLAYER
+Name Cyfris~
+Id   1009062635
+LogO 1019958761
+Vers 13
+Mexp 2
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nmv {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race elf~
+Sex  1
+Cla  7
+Levl 6
+Plyd 14082
+Back 12910
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3001
+HMS  100 100 126 126 170 170
+Gold 1002
+Silv 609
+Exp  9314
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDFGHJLQSc
+FRes B
+FVul Z
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 3
+Trai 3
+Save  -1
+Alig  0
+Hit   7
+Dam   7
+ACs 93 93 93 100
+Atrib 13 17 11 18 13 18
+AtMod 1 1 3 2 0 2
+Pass lookout~
+Afk {B[{CTue Mar 26 19:01:33 2002{B] {CUnknown Departure.{x
+~
+Titl .~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 1
+LLev 3
+Deit Sivat~
+Lsit hlfx44-159.ns.sympatico.ca~
+Ltim Sat Apr 27 20:50:12 2002
+~
+LSav Sat Apr 27 20:52:41 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 96 126 170
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 78 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'disarm'
+Sk 66 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 1 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'enchantment'
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Cond 99
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 138 15 0 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 1212
+Nest 0
+Name trivia token glimmer brilliance montrey~
+ShD  {b*{Ytrivia{b* {Wa {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge{x~
+Desc {WA {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge {Wis here, inspiring you.{x~
+Wear -1
+Cost 0
+ExDe owned by~ Montrey
+~
+End
+
+#O
+Vnum 3021
+Enchanted
+Nest 0
+ExtF 323
+Wear 16
+Lev  5
+Cost 250
+Val  1 1 5 1 129
+Affc 'poison'   5  79 307   0   0        128 1
+Affc 'flame blade'   5  77  13   0   0          1 1
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'bless'   1  73  20  -1  20        256 1
+End
+
+#END

@@ -1,0 +1,1142 @@
+#AREA
+rebel.are~
+Rebel Alliance Headquarters~
+{H{{ CLANS } {MMap/BigS/Mich {TRebel Headquarters~ 
+24600 24749
+
+#MOBILES
+
+#24600
+luke skywalker~
+Luke Skywalker~
+Luke Skywalker stands before you lightsabre drawn.
+~
+A weary man stands before you. He doesn't appear to be very 
+strong, but you notice he carries the weapon of a {GJ{Be{Gd{Bi{x knight 
+and you decide to keep your distance.
+~
+human~
+BGJKTb DFH 1000 S
+91 15 33d33+4500 33d33+1000 10d7+25 slash
+-30 -30 -30 -30
+FHI ABCD 0 0
+stand stand male 3000
+0 0 medium 0
+
+
+#24601
+watto~
+Watto~
+Watto hovers about you.
+~
+A small {Ggreen{x creature swarms around you talking with 
+an accent which you can barely make out.
+~
+unique~
+BG DFT 700 S
+100 5 100d100+10000 100d100+100 10d10+10 pound
+-50 -50 -50 -50
+F ABCD 0 0
+stand stand male 1000000
+0 0 small 0
+
+
+#24602
+jabba hutt~
+Jabba The Hutt~
+Jabba The Hutt squirms around you.
+~
+A giant lizard like creature slithers around slowly.  He seems 
+to be nothing more that a slobbering mass of think rubber-like skin and 
+blubber, his large red glowing eyes watch your every move.
+~
+hutt~
+BG DF -500 S
+100 5 100d100+10000 100d100+100 10d10+10 pound
+-50 -50 -50 -50
+0 ABCD 0 0
+stand stand male 100000
+0 0 huge 0
+
+#24603
+medical droid onebee two-onebee~
+Two-Onebee~
+Two-Onebee, the medical droid, is here to administer to your pains.
+~
+This droid is designed in a very stark manner, as befitting its jobs fixing 
+up war wounds.
+~
+droid~
+BGa DF 1000 S
+159 5 100d100+10000 100d100+100 10d10+10 pound
+-50 -50 -50 -50
+F ABCD 0 0
+stand stand male 10000
+0 0 medium 0
+
+#24604
+golden koi~
+Swallows~
+A brilliant goldfish dazzling the room with sparkling rays of shimmering 
+light.
+~
+A thousand year old, wise carp from deep in the mountains of Tibet.
+~
+fish~
+BG 0 750 S
+1 1 10d10+20 10d10+20 2d2+2 hit
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand either 0
+0 0 small 0
+
+#0
+
+#OBJECTS
+
+#24600
+yoda's stew~
+Yoda's stew~
+A thick brown gravy inhabits a bowl and smells very appetizing.~
+stew~
+food 0 A
+25 45 0 0 0
+1 3 13 P
+
+#24601
+fighting frog~
+Fighting frog~
+A small frog-like creature squeaks as you pick it up.~
+frog~
+food 0 A
+20 40 0 0 0
+1 2 11 P
+
+#24602
+bread~
+Bread~
+This is home-made bread that looks as if it would be tasty with some stew.~
+wheat~
+food 0 A
+30 50 0 0 0
+1 4 17 P
+
+#24603
+rancor ribs~
+Rancor Ribs~
+These are the biggest ribs you have ever seen, surely capable of fulfilling any appetite.~
+ribs~
+food 0 A
+45 60 0 0 0
+1 10 27 P
+
+#24604
+bacta tank~
+Bacta Tank~
+A large bacta tank, filled with blueish-green bacta, sits here.~
+glass~
+furniture O P
+2 0 FIL 100 200
+1 1000 10 P
+
+#24605
+bed futon silk~
+a silk futon stuffed with goose feathers~
+A soft futon beckons.~
+silk~
+furniture O P
+3 0 EHK 150 150
+1 500 10 P
+
+#24606
+incense~
+Ancient incense~
+A fragrant incense fills the room with a cloying aroma.~
+minerals~
+pill 0 A
+15 'regen' 'frenzy' 'talon' 'giant'
+15 5 10 P
+
+#24607
+tea green~
+Dark green tea~
+A simmering bronze pot of tea.~
+bronze~
+fountain O P
+0 0 tea 0 0
+1 50 10 P
+
+#24609
+jedi knighthood ring~
+a {Hr{Gi{bn{Yg{x of {PR{We{Pb{We{Pl{x {WK{Gn{Ti{Gg{Wh{Tt{Gh{go{Wo{Gd{x~
+A small silver ring lies here.~
+silver~
+armor ABIT AB
+4 4 4 4 0
+10 1 1000 P
+E
+jedi knighthood ring~
+This is the signet ring of a Jedi Knight.  It consists of a wide silver 
+band, with a half inch wide white stone set in the center.
+~
+E
+band silver~
+The band is made of pure silver and is about three fourths of an inch 
+wide at the top, tapering to half an inch at the bottom.  It is rumoured 
+that each ring is personalized with the owner's name, but only the owner 
+can make the writing show itself.
+~
+E
+white stone~
+In the center of the ring is a half inch wide, circular white stone.  
+It is flat across the top and has a dull gleam.  Legend has it that the 
+Jedi Symbol shows when it is worn by a Jedi Knight.
+~
+E
+eqstat~
+stock: 3 points
+bought: 0 points
+
+1 point: +1 hit/+1 dam
+1 point: +10 mana 
+1 point: +1 wisdom
+= 3 points
+~
+A
+4 1
+A
+13 10
+A
+18 1
+A
+19 1
+
+#24611
+handheld light jedi~
+a small {Gh{Ha{bn{Wd{Wh{be{Hl{Gd {Tl{Wi{gg{Wh{Tt{x~
+A tiny black cylinder lies here.~
+titanium~
+light ABISTY AO
+0 0 -1 0 0
+30 3 3000 P
+E
+handheld light~
+This device measures about four inches long, and is about three fourths 
+of an inch in diameter.  One end has a clear covering on it, inside of 
+that is a small glass sphere.  It has a small button near the clear end.
+~
+E
+button~
+When you press the button, a small but bright stream of light projects 
+from the clear end of the cylinder.  This could be very useful for 
+illuminating dark spaces.
+~
+E
+eqstats~
+stock: 5 points
+bought: 0 points
+
+2 points: +2 hit/+2 dam
+2 points: 20 mana
+1 point: +1 strength
+= 5 points
+~
+A
+1 1
+A
+13 20
+A
+18 2
+A
+19 2
+
+
+#24612
+deep gray tunic jedi~
+a {Wd{ge{ke{kp {kg{gr{Wa{ky{x {kt{gu{Wn{gi{kc{x~
+A dark gray piece of cloth lies here.~
+wool~
+armor ABISTY AD
+12 12 12 11 0
+35 3 3500 P
+E
+deep gray tunic~
+This is the traditional clothing of the Jedi.  It is made of wool dyed 
+a deep gray, and the expert weaving makes it light and comfortable.  It 
+is loose fitting to allow ease of movement, but still insulates the body 
+rather well.
+~
+E
+eqstats~
+stock: 5 points
+bought 5 points
+
+2 points: +2 wisdom
+3 points: +30 mana
+3 points: +3 hit/+3 dam
+2 points: -2 saves
+= 10 points
+~
+A
+4 2
+A
+13 30
+A
+18 3
+A
+19 3
+A
+20 -2
+
+
+#24613
+brown sleeves jedi~
+a pair of brown {Cs{Rl{Ye{Ge{Vv{He{Ns{x~
+A pair of brown woolen sleeves lie here.~
+wool~
+armor ABISTY AI
+12 12 12 11 0
+35 3 3500 P
+E
+brown woolen sleeves~
+These dark brown sleeves are part of the traditional clothing of a Jedi 
+Knight.  They are made of wool, and are woven especially to provide 
+comfort, ease of movement, and concealment of the arms.
+~
+E
+eqstats~
+stock: 5 points
+bought: 0 points
+
+2 points: +20 mana
+1 point: +1 hit/+1 dam
+2 points: -2 saves
+= 5 points
+~
+A
+13 20
+A
+18 1
+A
+19 1
+A
+20 -2
+
+#24614
+electronic chronograph watch jedi~
+an {Te{Cl{Te{Nc{Bt{Cr{To{Nn{Bi{Tc{x {Nc{Mh{Tr{Vo{Mn{Bo{Tg{Nr{Va{Bp{Nh{x~
+A black piece of plastic lies here.~
+plastic~
+armor ABISTY AM
+13 13 13 12 0
+40 4 4000 P
+E
+electronic chronograph watch~
+This item consists of a band of black plastic with a clear plastic face 
+in the center.  It is designed to strap around the wrist, and give an idea 
+of the time of day whenever it is looked at.  To access this feature, type 
+'time'.
+~
+E
+eqstats~
+stock: 6 points
+bought: 6 points
+
+1 point: +1 strength
+1 point: +1 dex 
+4 points: +40 mana
+4 points: +4 hit/+4 dam
+2 points: -2 saves
+= 12 points
+~
+A
+1 1
+A
+2 1
+A
+13 40
+A
+18 4
+A
+19 4
+A
+20 -2
+
+
+#24615
+brown cape jedi~
+a {bb{Yr{bo{Yw{bn {Gc{Ya{Gp{Ye{x~
+A brown cape lies here.~
+wool~
+armor ABISTY AC
+13 13 13 11 0
+40 4 4000 P
+E
+brown cape~
+This cape looks best when used with a Jedi robe.  It offers a fair 
+amount of protection, and can be used to parry blows when a more suitable 
+weapon cannot be found.  It is made of wool dyed a deep brown, and is light 
+and comfortable despite its looks.
+~
+E
+eqstats~
+stock: 6 points
+bought: 6 points
+
+1 point: +1 wisdom
+4 points: +40 mana
+4 points: +4 hit/+4 dam
+2 points: -2 saves
+1 point: +1 con
+= 12 points
+~
+A
+4 1
+A
+5 1
+A
+13 40
+A
+18 4
+A
+19 4
+A
+20 -2
+
+#24616
+ring shield generator portable jedi~
+a {Np{Mo{Vr{Vt{Pa{Rb{Pl{Re {Ts{gh{Wi{ge{Tl{Cd {Mg{Ve{Mn{Be{Tr{Ma{Ct{Bo{Nr{x~
+A small black ring lies here.~
+titanium~
+armor ABISTY AB
+14 14 14 12 0
+45 4 4500 P
+E
+ring shield generator portable~
+This is a small, black titanium ring with a tiny button in the crest.  
+It has no other adornments, and looks to be made for utility rather than 
+vanity.
+~
+E
+button crest~
+When you depress the button, the area around you turns slightly hazy 
+due to the energy shield that has activated.  It serves well to protect 
+you from various attacks.  Pressing the button again deactivates the shield.
+~
+E
+eqstats~
+stock: 6 points
+bought: 6 points
+
+1 point: +1 intelligence
+1 point: +1 charisma
+4 points: +40 mana
+4 points: +4 hit/+4 dam
+2 points: -2 saves
+= 12 points
+~
+A
+3 1
+A
+13 40
+A
+18 4
+A
+19 4
+A
+20 -2
+A
+26 1
+
+#24617
+black leather boots jedi~
+a {Yp{Ha{Gi{br{x of {Wb{Tl{ga{Tc{gk {Yl{be{Ha{Gt{Yh{be{Hr{x {Nb{Bo{To{Mt{Bs{x~
+A pair of black leather boots lie here.~
+leather~
+armor ABISTY AG
+15 15 15 14 0
+50 5 5000 P
+E
+black leather boots~
+These black leather boots appear comfortable and rugged.  They have an 
+aggressive tread pattern on the bottom, and tough laces to strap them 
+on.
+~
+E
+eqstats~
+stock: 7 points
+bought: 0 points
+
+1 point: +10 mana
+1 point: +10 move
+4 points: +4 hit/+4 dam
+1 point: -1 saves
+= 7 points
+~
+A
+13 10
+A
+14 10
+A
+18 4
+A
+19 4
+A
+20 -1
+
+#24618
+black leather gloves jedi~
+a {Yp{Ga{Hi{br{x of {Wb{gl{Ta{cc{gk{x {bl{Ye{Ga{bt{Yh{Ge{br {Ng{Tl{Bo{Mv{Be{Vs{x~
+A pair of black leather gloves lie here.~
+leather~
+armor ABISTY AH
+16 16 16 14 0
+55 5 5500 P
+E
+black leather gloves~
+This pair of gloves is designed to be rugged and to aid in gripping 
+objects. The palms are slightly abrasive, giving excellent grip when 
+holding objects such as a lightsabre.
+~
+E
+eqstats~
+Stock: 7 points
+Bought: 0 points
+
+1 point: +1 strength
+1 point: +1 intelligence
+1 point: +1 wisdom
+2 points: +20 mana
+2 points: +2 hit/+2 dam
+= 7 points
+~
+A
+1 1
+A
+3 1
+A
+4 1
+A
+13 20
+A
+18 2
+A
+19 2
+
+#24619
+brown hood jedi~
+a {bb{Yr{bo{Yw{bn {Gh{Bo{Go{Bd{x~
+A brown woolen hood lies here.~
+wool~
+armor ABISTY AE
+17 17 17 15 0
+60 6 6000 P
+E
+brown hood~
+This hood is designed to accompany a Jedi robe.  It is made of dark 
+brown wool, made to be light and comfortable.  It's main purpose is to 
+conceal the face when the need arises, and it offers some protection as 
+well.
+~
+E
+eqstats~
+Stock: 8 points
+Bought: 0 points
+
+1 point: +1 dexterity
+1 point: +1 intelligence
+1 point: +1 wisdom
+2 points: +20 hp
+3 points: +3 hit/+3 dam
+= 8 points
+~
+A
+2 1
+A
+3 1
+A
+4 1
+A
+12 20
+A
+18 3
+A
+19 3
+
+#24620
+deep gray trousers jedi~
+a {Bp{Ga{Bi{Gr{x of deep {Wg{gr{Wa{gy {Nt{Br{To{Bu{Ns{Ce{Tr{Ns{x~
+A pair of gray trousers lie here.~
+denim~
+armor ABISTY AF
+20 20 20 18 0
+70 7 7000 P
+E
+deep gray trousers~
+These trousers are made of denim died a deep gray, both for rugged 
+utility and good looks.  They are loose fitting to allow freedom of 
+movement, and offer fair protection both from attacks and from the elements.
+~
+E
+eqstats~
+Stock: 9 points
+Bought: 0 points
+
+1 point: +1 strength
+1 point: +1 intelligence
+1 point: +1 wisdom
+1 point: +1 age
+1 point: +10 hp
+1 point: +10 mana
+3 points: +3 hit/+3 dam
+~
+A
+1 1
+A
+3 1
+A
+4 1
+A
+9 1
+A
+12 10
+A
+13 10
+A
+18 3
+A
+19 3
+
+
+#24625
+portal annabus~
+Portal to Annabus~
+A portal to Annabus is here.~
+shimmery~
+portal O P
+0 0 A 3365 0
+1 100 10 P
+
+#24626
+portal meeting place pirate cave~
+Portal to Meeting Place~
+A portal to the meeting place in the Pirate's Cave is here.~
+shimmery~
+portal O P
+0 0 A 4429 0
+1 100 10 P
+
+#24627
+portal hall damned hell~
+Portal to the Hall of the Damned~
+A portal to the Hall of the Damned in Hell is here.~
+shimmery~
+portal O P
+0 0 A 10406 0
+1 100 10 P
+#0
+
+
+
+
+#ROOMS
+
+
+#24600
+{HR{be{Hb{be{Hl{x {RHeadquarters{x~
+Many {Hr{be{Hb{be{Hl{bs{x have trained amongst these very walls 
+and have become great {GJ{Be{Gd{Bi{x masters. One large hall runs east 
+and west from here, but you cant make out whats at the end of either end.  
+You notice other various {HR{be{Hb{be{Hl{bs{x and {GJ{Be{Gd{Bi{x working on 
+various armor and weapons. Noticing all the friends around you, you 
+instantly begin to feel more relaxed and at home.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24606
+D1
+~
+~
+0 -1 24601
+D3
+~
+~
+0 -1 24604
+D2
+~
+~
+0 -1 24603
+S
+
+
+#24601
+Watto's Armor Shop~
+You enter a small well lit room, junk is piled everywhere from 
+the dirt floors to the ceiling.  Piles of robots, armor, weapons, parts 
+for space ships, and other things you don't even know are used for.  You 
+are watchful of Watto he looks like the type that would swindle you.  Watto 
+is cautious of you and seems to trust no-one.  You are sure somewhere 
+buried in this junk you are sure to find what you need.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24608
+D1
+~
+~
+0 -1 24614
+D2
+~
+~
+0 -1 24605
+D3
+~
+~
+0 -1 24600
+S
+
+
+
+#24602
+Jabba's Food Palace~
+You enter a Grand Palace built for a king.  Guards watch your 
+every move as you move through the great hall.  You hear bellowing 
+laughter as a giant red curtain opens and a small servant appears before you 
+with a menu.  Strange things inherit this menu but you are hungry and decide 
+you must eat.  Jabba offers you a fighting frog, and you politely decline 
+after seeing a small clear bowl next to him filled with what you assume to be 
+fighting frogs.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24604
+D1
+~
+~
+0 -1 24603
+D3
+~
+~
+0 -1 24612
+S
+
+#24603
+Launching Bay~
+You have entered the launching pad for the warships of the Alliance. 
+Hundreds of androids scurry around doing repairs and carrying equipment of 
+unknown origin. A puddle of radioactive acid smokes on the floor. Portals 
+shimmer and fade to unknown destinations.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24600
+D1
+~
+~
+0 -1 24605
+D3
+~
+~
+0 -1 24602
+D5
+~
+~
+0 -1 16548
+S
+
+#24604
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24607
+D1
+~
+~
+0 -1 24600
+D2
+~
+~
+0 -1 24602
+D3
+~
+~
+0 -1 24611
+S
+
+#24605
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24601
+D1
+~
+~
+0 -1 24613
+D3
+~
+~
+0 -1 24603
+S
+
+#24606
+Sick Bay~
+This room is designed to be stark and to make patients want to get well so they 
+can get out of there as soon as possible.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24620
+D1
+~
+~
+0 -1 24608
+D2
+~
+~
+0 -1 24600
+D3
+~
+~
+0 -1 24607
+S
+
+#24607
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D1
+~
+~
+0 -1 24606
+D2
+~
+~
+0 -1 24604
+D3
+~
+~
+0 -1 24610
+S
+
+#24608
+Gokaisho~
+A classical tea ceremony room, with tatami mats on the floor and a 'go'
+board in the center.
+~
+0 N 0
+C rebel~
+D1
+~
+~
+0 -1 24609
+D2
+~
+~
+0 -1 24601
+D3
+~
+~
+0 -1 24606
+S
+
+#24609
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D1
+~
+~
+0 -1 24616
+D2
+~
+~
+0 -1 24614
+D3
+~
+~
+0 -1 24608
+S
+
+#24610
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D1
+~
+~
+0 -1 24607
+D2
+~
+~
+0 -1 24611
+D3
+~
+~
+0 -1 24617
+S
+
+#24611
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24610
+D1
+~
+~
+0 -1 24604
+D2
+~
+~
+0 -1 24612
+D3
+~
+~
+0 -1 24618
+S
+
+#24612
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24611
+D1
+~
+~
+0 -1 24602
+D3
+~
+~
+0 -1 24619
+S
+
+#24613
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24614
+D3
+~
+~
+0 -1 24605
+S
+
+#24614
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24609
+D1
+~
+~
+0 -1 24615
+D2
+~
+~
+0 -1 24613
+D3
+~
+~
+0 -1 24601
+S
+
+#24615
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24616
+D3
+~
+~
+0 -1 24614
+S
+
+#24616
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D2
+~
+~
+0 -1 24615
+D3
+~
+~
+0 -1 24609
+S
+
+#24617
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D1
+~
+~
+0 -1 24617
+D2
+~
+~
+0 -1 24618
+S
+
+#24618
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24617
+D1
+~
+~
+0 -1 24611
+D2
+~
+~
+0 -1 24619
+S
+
+#24619
+blank~
+This is a blank room.
+~
+0 N 0
+C rebel~
+D0
+~
+~
+0 -1 24618
+D1
+~
+~
+0 -1 24612
+S
+
+#24620
+{BT{Cr{Ba{Ci{Bn{Ci{Bn{Cg {BS{Ci{Bm{Cu{Bl{Ca{Bt{Ci{Bo{Cn{x~
+A large well lit open room stands before you. A small number of viewers 
+stand on the outside of the room watching intently as the two warriors 
+in the center of the arena stand poised, waiting to do battle.  This is 
+obviously a place where you could practice and hone your skills preparing 
+yourself to become the ultimate fighter!
+~
+0 N 21
+C rebel~
+D2
+~
+~
+0 -1 24606
+S
+
+#0
+
+#RESETS
+
+M 0 24600 1 24600 1    * Luke to clanrec
+M 0 24601 1 24601 1    * Watto to Watto's shop
+G 0 24609 50           * claneq
+G 0 24611 40           * claneq
+G 0 24612 40           * claneq
+G 0 24613 40           * claneq
+G 0 24614 40           * claneq
+G 0 24615 40           * claneq
+G 0 24616 40           * claneq
+G 0 24617 40           * claneq
+G 0 24618 40           * claneq
+G 0 24619 40           * claneq
+G 0 24620 40           * claneq
+M 0 24602 1 24602 1    * Jabba to Jabba's food palace
+G 0 24600 40           * stew
+G 0 24601 40           * frog
+G 0 24602 40           * bread
+G 0 24603 40           * ribs
+M 0 24603 1 24606 1    * Two-Onebee to sick bay
+O 0 24604 1 24606      * Bacta tank to sick bay
+M 0 24604 1 24608 1    * fish
+O 0 24605 1 24608      * futon
+O 0 24606 40 24608     * incense
+O 0 24607 1 24608      * tea
+O 0 24625 1 24603      * portal
+O 0 24626 1 24603      * portal
+O 0 24627 1 24603      * portal
+S
+
+#SHOPS
+
+24601 9 5 1 0 0 125 50 0 23 * Watto
+24602 19 0 0 0 0 125 50 0 23 * Jabba
+
+0
+
+#SPECIALS
+
+S
+
+#$
+
+
+
+
+

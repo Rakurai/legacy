@@ -1,0 +1,1122 @@
+#AREA
+Weaponfa.are~
+ACME Weapon factory~
+{H{{60 80} {MElrac&Sharra {TACME Weapon Factory~
+7330 7390
+
+#MOBILES
+#7330
+worker~
+A weapon factory worker~
+A weapon factory worker rushes by you.
+~
+The weapon factory worker swears and mumbles to himself while carrying
+around some heavy items to an unknown destination.
+~
+human~
+BGH Haa -800 S
+65 8 1d1+3689 1d1+149 9d7+1 hit
+-28 -32 -31 -15
+EFKU ABL M J
+stand stand male 800
+0 0 medium 0
+#7331
+weaponsmith~
+A very strong looking weaponsmith~
+A very strong looking weaponsmith stands here, sweating heavily while working.
+~
+The weaponsmith is a very tall and strong looking man. It doesn't seem
+like a good idea to disturb him at his work.
+~
+human~
+BCGT Haa -900 S
+75 10 1d1+4699 1d1+249 10d7+1 beating
+-41 -43 -46 -25
+EFJKU ABQ HI J
+stand stand male 1100
+0 0 large 0
+#7332
+Security guard~
+The security guard~
+A security guard is here, ready to fight intruders.
+~
+The security guard is very proud of his job. He will defend the belongings
+of his BOSS with his life.
+~
+human~
+FGZ QTVbb -900 S
+70 9 1d1+6199 1d1+199 9d8+1 slash
+-35 -32 -33 -18
+BCEFIKR ABL X C
+stand stand male 300
+0 0 medium 0
+#7333
+Employee young man~
+A young man~
+A young man walks by. He is an employee of the factory.
+~
+The young man seems to be in quite a hurry. He looks worried, as if he was
+in trouble with his BOSS.
+~
+human~
+GH H -400 S
+60 6 1d1+2699 1d1+99 9d6+1 punch
+-30 -35 -29 -10
+CFHJK ABK T Y
+stand stand male 1650
+0 0 medium 0
+#7334
+Employee young woman~
+A young woman~
+A young woman sits behind a desk. She is an employee of the factory.
+~
+The young woman seems to be deep in thought. She mutters quietly to herself
+while fumbling with some papers. She completely ignores you and everyone
+else in the room.
+~
+human~
+BGH HTaa 0 S
+65 7 1d1+3899 1d1+169 9d7+1 bite
+-40 -32 -35 -28
+CFHKN AB P K
+sit sit female 1800
+0 0 medium 0
+#7335
+chief engineer man~
+The chief engineer~
+The chief engineer stands behind a very large desk.
+~
+The chief engineer is a rather thin man with a pocket protector in his
+shirt pocket and a pencil behind his ear. He fiddles with a slide rule
+and scribbles on a note pad as he works on new lethal weapons.
+~
+human~
+BZ HNbbcc 800 S
+70 9 1d1+4099 1d1+299 10d7+1 pound
+-38 -36 -40 -27
+CEFKN ABQ I H
+stand stand male 3500
+0 0 medium 0
+#7336
+manager man~
+The manager of the factory~
+The manager of the weapon factory sits here in a large chair.
+~
+The manager doesn't look as if he works a lot. In fact, he looks rather
+lazy. He knows how to make others work, though.
+~
+human~
+BCHS HOaabb -1000 S
+70 9 1d1+4299 1d1+199 9d7+1 pierce
+-33 -37 -40 -27
+EFJK L H I
+sit sit male 4360
+0 0 large 0
+#7337
+secretary~
+The BOSS' secretary~
+The BOSS' secretary sits here at a large desk.
+~
+The BOSS' secretary is a beautiful young blonde. You get the impression
+that the BOSS hired her more for her looks than her abilities. What she
+is best at is coming up with reasons people cannot talk to the BOSS right
+now.
+~
+human~
+BHZ HTaabb -800 S
+75 9 1d1+5699 1d1+399 10d8+1 stab
+-37 -39 -35 -28
+CFJK AB E M
+sit sit female 2400
+0 0 medium 0
+#7338
+boss~
+THE BOSS of the factory~
+THE BOSS of the factory,
+a short fat man with little hair and a big nose, is not just angry at your
+disturbance. He is red in the face and screaming at you. Suddenly you
+realize that your chances of leaving his office alive are slim.
+~
+THE BOSS, just THE BOSS. FEAR him!
+~
+human~
+FGHS DFaabb -1000 S
+80 11 1d1+12099 1d1+499 10d9+1 stab
+-47 -42 -35 -30
+CDEFIK ABJ P I
+stand stand male 5680
+0 0 large 0
+#7339
+wannabe successor~
+The wannabe successor of THE BOSS~
+
+The wannabe successor of THE BOSS hides here.
+~
+This big and nasty man wants to be the next BOSS of the weapon factory.
+He is hiding here waiting for an opportunity to kill THE BOSS.
+It looks like he will let nobody stop him in his ruthless ambition,
+certainly not you!
+~
+human~
+BCH BHQVbb -1000 S
+79 12 1d1+7999 1d1+299 10d9+1 grep
+-38 -43 -42 -28
+CDEFKN ABLP O H
+stand stand male 4000
+0 0 large 0
+#0
+
+#OBJECTS
+#7330
+heavy leather belt~
+a heavy leather belt~
+A heavy leather belt lies on the ground.~
+hard leather~
+armor GJS AL
+17 17 17 15 0
+65 20 3000 P
+E
+heavy leather belt~
+This is a very heavy belt, made from dark hard leather. It shows marks
+from many years of use.
+~
+A
+1 1
+A
+26 2
+A
+12 30
+A
+13 10
+A
+18 3
+A
+19 1
+A
+24 -3
+#7331
+pair golden sandals~
+a pair of golden sandals~
+A pair of golden sandals lies here.~
+gold~
+armor AGJ AG
+19 19 19 18 0
+73 8 5000 P
+E
+pair golden sandals~
+This is a pair of sandals, made from pure gold. They are very elegant,
+though they might not be very comfortable.
+~
+A
+3 2
+A
+5 2
+A
+12 40
+A
+13 20
+A
+18 2
+A
+19 1
+A
+24 -4
+#7332
+silver ring~
+a silver ring with a big ruby~
+A silver ring with a big ruby is lying here.~
+silver~
+armor AGJ AB
+17 17 17 15 0
+65 3 4000 P
+E
+silver ring~
+This is a silver ring with a big ruby. It doesn't really look good, seems
+to be made to show off!
+~
+A
+3 2
+A
+4 2
+A
+12 30
+A
+13 20
+A
+18 2
+A
+19 2
+#7333
+pin striped trousers~
+a pair of pin striped trousers~
+A pair of pin striped trousers lies here.~
+linen~
+armor GJS AF
+17 16 17 16 0
+70 8 2000 P
+E
+pin striped trousers~
+This is a pair of pin striped trousers. It looks like the clothing of
+somebody who has lots of gold, but not much taste.
+~
+A
+2 2
+A
+26 1
+A
+12 30
+A
+18 2
+A
+19 2
+#7334
+dark black robe~
+a dark black robe~
+A dark black robe lies on the ground.~
+soft leather~
+armor GS AK
+19 20 19 19 0
+70 40 1000 P
+E
+dark black robe~
+This is a black robe. It seems that whoever wears this doesn't want to be
+seen from afar.
+~
+A
+12 20
+A
+18 2
+A
+19 2
+#7335
+white coat~
+a white coat with a small green crocodile~
+A white coat with a small green crocodile is lying here.~
+cloth~
+armor GMS AD
+18 18 18 15 0
+60 10 1000 P
+E
+white coat~
+This is a white coat. On its front part there is a small green crocodile.
+Perhaps it is some kind of trade mark?
+~
+A
+3 -2
+A
+4 -2
+A
+12 60
+#7336
+white sleeves~
+some white sleeves~
+A pair of white sleeves lies here.~
+cloth~
+armor GKS AI
+19 19 19 15 0
+70 10 800 P
+E
+white sleeves~
+A pair of white sleeves. They have gathered some dirt, apparently from being
+worn in a working environment.
+~
+A
+5 2
+A
+26 1
+A
+12 20
+#7337
+big hat~
+a BIG hat~
+A BIG hat lies here.~
+wool~
+armor GJMS AE
+21 21 21 21 0
+80 10 1000 P
+E
+big hat~
+A very BIG hat. Lettering on the inside sweatband reads:
+Property of THE BOSS!
+~
+A
+1 2
+A
+3 -2
+A
+13 40
+#7338
+black gloves~
+a pair of black gloves~
+A pair of black gloves lie here.~
+soft leather~
+armor GJMS AH
+20 20 20 20 0
+80 4 1440 P
+E
+black gloves~
+This is a pair of black gloves. Sinister looking gloves like these might be
+worn by an assassin.
+~
+A
+18 3
+A
+19 3
+#7339
+heavy axe~
+a heavy axe~
+A heavy axe is lying here.~
+steel~
+weapon BG AN
+axe 9 7 smash D
+60 500 844 P
+E
+heavy axe~
+This is a very heavy axe. In the hands of a skilled warrior, it would
+undoubtedly be a lethal weapon.
+~
+A
+18 4
+A
+19 4
+#7340
+long golden spear~
+a long golden spear~
+A long golden spear is lying here.~
+gold~
+weapon BG AN
+spear 9 7 pierce D
+60 300 844 P
+E
+long golden spear~
+This is a very long golden spear. Although a bit unwieldy at short range,
+it probably inflicts severe damage!
+~
+A
+18 4
+A
+19 4
+#7341
+small silver dagger~
+a small silver dagger~
+A small silver dagger is lying here.~
+silver~
+weapon G AN
+dagger 10 7 pierce 0
+75 30 2680 P
+E
+small silver dagger~
+This is a small silver dagger. It is nicely crafted and although very small
+has a sharp point that can really hurt.
+~
+A
+18 5
+A
+19 5
+#7342
+golden fountain pen~
+a golden fountain pen~
+A golden fountain pen is lying here.~
+gold~
+weapon G AN
+exotic 11 6 sting 0
+70 10 3840 P
+E
+golden fountain pen~
+This is a golden fountain pen. It looks very expensive but a practically
+minded person would choose a different instrument to write with.
+~
+A
+18 2
+A
+19 2
+#7343
+siege halberd~
+a siege halberd~
+A sharp, fearsome siege halberd gleams wickedly at your feet.~
+adamantite~
+weapon G AN
+polearm 10 7 slash D
+75 420 960 P
+E
+siege halberd~
+One of the heavier tools of the warrior's trade, this siege helbard is meant
+to put force behind a slash and distance between its wielder and his
+opponent.
+~
+A
+18 5
+A
+19 5
+#7344
+whip battlewhip~
+a battle whip~
+A vicious looking battlewhip lies coiled on the ground before you.~
+hard leather~
+weapon GS AN
+whip 10 7 whip D
+75 40 960 P
+E
+whip battlewhip~
+Made of long thick coils of oily black leather, this whip looks like a snake
+waiting to coil itself around a victim.
+~
+A
+18 5
+A
+19 5
+#7345
+black steel sword~
+a black steel sword~
+A black steel sword is lying here.~
+steel~
+weapon G AN
+sword 8 9 slice 0
+70 300 860 P
+E
+black steel word~
+This is a utilitarian black steel sword. Sporting no frills, this heavy
+device is all business, if the business is security or killing.
+~
+A
+18 3
+A
+19 3
+#7346
+old slide rule~
+an old fashioned slide rule~
+An old fashioned slide rule made of heavy wooden bars is lying here.~
+wood~
+weapon GS AN
+flail 8 9 pound EH
+70 100 5480 P
+E
+old slide rule~
+Constructed of three intricately notched long wooden bars and three steel
+crosspieces, this arcane-looking device is a slide rule, the weapon of
+choice of an engineer. A simple hack-and-slash warrior like yourself would
+probably not know what to do with one.
+~
+A
+18 6
+A
+19 6
+#7347
+diamond letter opener~
+a diamond letter opener~
+A diamond letter opener is lying here.~
+diamond~
+weapon GHS AN
+exotic 11 7 stab AE
+80 80 3280 P
+E
+diamond letter opener~
+This is a letter opener, made from diamond. A very nice and expensive piece.
+Carved into it are the words: Property of THE BOSS.
+~
+A
+18 5
+A
+19 5
+#7348
+power drill~
+a power drill~
+A power drill is lying here.~
+steel~
+weapon AGH AN
+exotic 8 10 grep CD
+79 400 6520 P
+E
+power drill~
+This power drill looks heavy enough to eat holes into steel, rock or armor
+plate with equal ease. A blackened aluminum plate on the bottom of its
+handle is engraved with a lifetime guarantee and the word BOSCH.
+~
+A
+12 30
+A
+18 6
+A
+19 6
+A
+24 -5
+#7360
+cup coffee~
+a cup of coffee~
+A cup of coffee is cooling down here.~
+pottery~
+drink S A
+12 12 'coffee' 0 0
+30 4 80 P
+E
+cup coffee~
+This is a simple coffee cup. Though chipped and stained in a few places, it
+will hold enough coffee for a night shift.
+~
+#7349
+bar ivory~
+a bar of {Wivory{x~
+A bar of {Wivory{x has been left here.~
+ivory~
+material 0 AO
+0 -1 3 0 0
+60 6 1000 P
+#7350
+bar steel~
+a bar of {cs{gt{ce{ge{cl{x~
+A bar of {cs{gt{ce{ge{cl{x has been left here.~
+steel~
+material 0 AO
+-5 1 1 0 0
+50 6 1000 P
+#7351
+bar iron~
+a bar of {ciron{x~
+A bar of {ciron{x has been left here.~
+iron~
+material 0 AO
+-5 1 1 0 0
+50 6 1000 P
+#7352
+bar tin~
+a bar of {Wt{gi{Wn{x~
+A bar of {Wt{gi{Wn{x has been left here.~
+tin~
+material 0 AO
+-2 2 -1 0 0
+50 6 1000 P
+#7353
+bar bronze~
+a bar of {bbronze{x~
+A bar of {bbronze{x has been left here.~
+bronze~
+material 0 AO
+-3 -1 2 0 0
+50 6 1000 P
+#7354
+bar diamond~
+a bar of {Wd{gi{Wa{gm{Wo{gn{Wd{x~
+A bar of {Wd{gi{Wa{gm{Wo{gn{Wd{x has been left here.~
+diamond~
+material F AO
+-20 -1 3 0 0
+70 6 1000 P
+#7355
+bar platinum~
+a bar of platinum~
+A bar of platinum has been left here.~
+platinum~
+material 0 AO
+-20 5 -5 0 0
+75 6 1000 P
+#0
+
+#ROOMS
+#7330
+Road to the ACME WEAPON FACTORY~
+This is a wide, well-travelled road. Heavily loaded vehicles pass you heading
+east and west. The ones going west are heavily laden with raw materials while
+the eastward bound ones are piled high with newly crafted weapons to be sold
+in the towns of Thera. From the west you can hear the sounds of metal being
+worked on.
+There is a sign on the left side of the road.
+~
+0 0 2
+D1
+To the east you see Miden´nir, home of the Goblins.
+~
+~
+0 -1 3522
+D3
+To the west you see the end of the road.
+~
+~
+0 -1 7331
+E
+sign~
+The sign reads: This is the way to the ACME WEAPON FACTORY.
+Only experienced adventurers should dare to explore it.
+~
+S
+#7331
+Before the ACME WEAPON FACTORY~
+The road ends here. To the north is a huge iron gate, obviously the gate of
+a factory. Behind it you can make out the roof of a large building.
+You hear sounds of working from that direction.
+~
+0 0 2
+D0
+There is a great iron factory gate to the north.
+~
+gate~
+1 -1 7332
+D1
+To the east you see a wide, well-travelled road.
+~
+~
+0 -1 7330
+E
+building~
+You can only make out its roof. It is very large and you guess that it must
+be a factory.
+~
+S
+#7332
+Entrance to the ACME WEAPON FACTORY~
+You are standing in the entrance yard of the ACME WEAPON FACTORY.
+Litter covers the ground. Among all the rubbish you see some materials,
+some tools and unfinished weapons lying around. NOT a very tidy place.
+To the north lies the Work Hall.
+Some stairs lead upwards to the administration complex.
+~
+0 0 2
+D0
+To the north you can make out the Work Hall.
+~
+
+~
+0 -1 7333
+D2
+To the south is a great iron factory gate.
+~
+~
+1 -1 7331
+D4
+Looking upward you see the door to the administration complex.
+~
+~
+1 -1 7341
+E
+stairs~
+The stairs lead upward to the door of the administration complex.
+~
+S
+#7333
+Work Hall~
+This is the south part of a great work hall. Many men are working here,
+forging dangerous-looking weapons of all kinds. The noise in here is nearly
+unbearable.
+~
+0 AD 0
+D0
+To the north, the Work Hall continues.
+~
+~
+0 -1 7334
+D2
+To the south lies the entrance to the factory.
+~
+~
+0 -1 7332
+D3
+To the west, the Work Hall continues.
+~
+~
+0 -1 7339
+S
+#7334
+Work Hall~
+This is the center part of a great work hall. Many men are working here,
+forging dangerous-looking weapons of all kinds. The noise in here is nearly
+unbearable.
+~
+0 AD 0
+D0
+To the north, the Work Hall continues.
+~
+~
+0 -1 7335
+D2
+To the south, the Work Hall continues.
+~
+~
+0 -1 7333
+D3
+To the west, the Work Hall continues.
+~
+~
+0 -1 7338
+S
+#7335
+Work Hall~
+This is the north part of a great work hall. Many men are working here,
+forging dangerous-looking weapons of all kinds. The noise in here is nearly
+unbearable.
+~
+0 AD 0
+D0
+To your north you see a door marked with the words: NO ENTRY.
+~
+door~
+1 -1 7336
+D2
+To the south, the Work Hall continues.
+~
+~
+0 -1 7334
+D3
+To the west, the Work Hall continues.
+~
+~
+0 -1 7337
+S
+#7336
+Storage room~
+This is where the raw materials for forging weapons is stored. Many chests of
+different sizes cover the floor. It is quite dark in here and a thin layer
+of dust makes you sneeze.
+~
+0 AD 0
+D2
+The Working Hall lies southward beyond the door.
+~
+door~
+1 -1 7335
+S
+#7337
+Work Hall~
+This is the north part of a great work hall. Many men are working here,
+forging dangerous-looking weapons of all kinds. The noise in here is nearly
+unbearable.
+~
+0 AD 0
+D1
+To the east, the Work Hall continues.
+~
+~
+0 -1 7335
+D2
+To the south, the Work Hall continues.
+~
+~
+0 -1 7338
+S
+#7338
+Work Hall~
+This is the center part of a great work hall. Many men are working here,
+forging dangerous-looking weapons of all kinds. The noise in here is nearly
+unbearable.
+~
+0 AD 0
+D0
+To the north, the Work Hall continues.
+~
+~
+0 -1 7337
+D1
+To the east, the Work Hall continues.
+~
+~
+0 -1 7334
+D2
+To the south, the Work Hall continues.
+~
+~
+0 -1 7339
+S
+#7339
+Work Hall~
+This is the south part of a great work hall. Many men are working here,
+forging dangerous-looking weapons of all kinds. The noise in here is nearly
+unbearable.
+~
+0 AD 0
+D0
+To the north, the Work Hall continues.
+~
+~
+0 -1 7338
+D1
+To the east, the Work Hall continues.
+~
+~
+0 -1 7333
+D2
+To your south you see a door marked with the words: NO ENTRY.
+~
+door~
+1 -1 7340
+S
+#7340
+Storage room~
+This is where the raw materials for forging weapons is stored. Many chests
+of different sizes cover the floor. It is quite dark in here and a thin
+layer of dust makes you sneeze.
+~
+0 AD 0
+D0
+The Working Hall lies northward beyond the door.
+~
+door~
+1 -1 7339
+S
+#7341
+Corridor~
+This long corridor leads to the Administration Complex. Pictures on the
+walls depict historical weapons. However, this weak attempt at
+beautification is not sufficient to compensate for all the dirt which
+amasses in a typical factory corridor.
+~
+0 AD 0
+D0
+The corridor continues to the north.
+~
+~
+0 -1 7342
+D5
+Uneven dark steps lead downward to the entrance of the weapon factory.
+~
+steps~
+1 -1 7332
+S
+#7342
+Corridor~
+You are standing in the corridor of the Administration Complex. A door to
+the east is labelled: CHIEF ENGINEER. The corridor continues to the north
+and south.
+~
+0 AD 0
+D0
+The corridor continues to the north.
+~
+~
+0 -1 7344
+D1
+There is a door to the east labelled: CHIEF ENGINEER.
+~
+door~
+1 -1 7343
+D2
+The corridor continues to the south.
+~
+~
+0 -1 7341
+S
+#7343
+Office of the Chief Engineer~
+Someone obviously works a lot here. A large desk dominates the center of
+the room. It needs to be large, or it would not be visible under the pile
+of paper covering it! Weapons in different states of construction and
+disassembly lie around everywhere.
+~
+0 AD 0
+D3
+A dimly lit corridor may be accessed through a door to the west.
+~
+door~
+1 -1 7342
+S
+#7344
+Corridor~
+You are standing at the end of the corridor. There are doors to the north,
+east and west, labelled with: PERSONNEL DIVISION, SECRETARY and MANAGER,
+respectively.
+~
+0 AD 0
+D0
+You are stopped short by a marble-sided door labelled: SECRETARY.
+~
+~
+1 -1 7347
+D1
+You pause respectfully before a naugahyde-covered door labelled: MANAGER.
+~
+~
+1 -1 7345
+D2
+The corridor continues to the south.
+~
+~
+0 -1 7342
+D3
+You have second thoughts about entering a wooden door labelled:
+PERSONNEL DIVISION.
+~
+~
+1 -1 7346
+E
+door~
+Now you know why they call it a corri-door. There are doors to the
+north, east and west, all bearing impressive and official-looking signs.
+~
+S
+#7345
+Manager's office~
+An impressively spacious room strikes you with unusual tidiness and
+luxurious furnishings intended to impress and coddle visitors. Dwarfing
+the guest furniture are a mahagony desk the size of a workbench but
+utterly bare, and a bathtub-capacity armchair groaning under the bulk of
+the Manager. The lack of tools, papers and writing implements gives rise
+to a suspicion that no work is done in this room.
+~
+0 AD 0
+D3
+A door to the west invites you... to leave.
+~
+door~
+1 -1 7344
+S
+#7346
+Personnel Division~
+This typical office houses thin, pale-skinned clerks behind cluttered desks
+among walls lined with shelves mostly full of files. Your entrance causes
+a brief titter among the occupants but none of them dare to neglect their
+work for more than a furtive glance at the unexpected intruder.
+~
+0 AD 0
+D1
+A door to the east leads to the dim quiet of a dusty corridor.
+~
+door~
+1 -1 7344
+S
+#7347
+Secretary's office~
+As you enter the room, you notice the large, empty desk of the Secretary.
+If the presence of the visitor's chairs off to the side is not enough of a
+hint, her cold stares will surely send you to take a seat there while you
+wait for your appointment with THE BOSS. You guess that you would find him
+beyond a door to the north, labelled: DO NOT DISTURB.
+~
+0 AD 0
+D0
+Sporadic barked commands reach your ears through a door to the north,
+labelled: DO NOT DISTURB.
+~
+door~
+1 -1 7348
+D2
+Looking at the south door, you feel a sudden urge to leave and return to the
+corridor.
+~
+~
+1 -1 7344
+S
+#7348
+Office of THE BOSS~
+The amount of pretentious luxury assaulting a visitor here seems strangely
+out of place in a factory. Most of the furniture is dedicated to various
+styles of sitting down, but there is also a large, polished marble desk in
+the centre of the room, currently the site of an epic battle between
+opposing armies of tin soldiers. If sitting is an important function in
+this room, then surely the occupant of the huge leather-upholstered
+monstrosity behind the desk must be supremely important. But what of the
+shadow behind the chair?
+~
+0 AD 0
+D2
+A door to the south promises to return you to the real world.
+~
+door~
+1 -1 7347
+E
+shadow~
+When you squint your eyes, you think you see a vague outline of a person's
+shadow lurking behind THE BOSS' chair. Have you been questing, sleepless,
+for too many days or is there a real danger here?
+~
+S
+#0
+
+#RESETS
+M 0 7330 7 7333 2     *Load worker
+G 0 7339 20           *Load heavy axe (workers inventory)
+G 0 7349 1            *Load bar of ivory (workers inventory)
+E 0 7330 25 13        *Load heavy leather belt (workers equipment)
+M 0 7330 7 7333 2     *Load worker
+G 0 7340 20           *Load spear (workers inventory)
+M 0 7330 7 7334 1     *Load worker
+G 0 7339 20           *Load heavy axe (workers inventory)
+G 0 7349 1            *Load bar of ivory (workers inventory
+E 0 7330 25 13        *Load heavy leather belt (workers equipment)
+M 0 7331 5 7334 1     *Load weaponsmith
+E 9 7343 20 16        *Load siege halberd (weaponsmiths equipment)
+M 0 7330 7 7335 1     *Load worker
+G 0 7340 20           *Load spear (workers inventory)
+G 0 7349 1            *Load bar of ivory (workers inventory
+E 0 7330 25 13        *Load heavy leather belt (workers equipment)
+M 0 7331 5 7335 1     *Load weaponsmith
+E 9 7344 20 16        *Load battle whip (weaponsmiths equipment)
+M 0 7332 3 7336 2     *Load security guard
+E 0 7334 20 12        *Load dark black robe (guards equipment)
+E 0 7345 20 16        *Load black steel sword (guards equipment)
+M 0 7332 3 7336 2     *Load security guard
+E 0 7334 20 12        *Load dark black robe (guards equipment)
+E 0 7345 20 16        *Load black steel sword (guards equipment)
+M 0 7330 7 7337 1     *Load worker
+G 0 7339 20           *Load heavy axe (workers inventory)
+G 0 7349 1            *Load bar of ivory (workers inventory
+M 0 7331 5 7338 2     *Load weaponsmith
+M 0 7331 5 7338 2     *Load weaponsmith
+E 9 7344 20 16        *Load battle whip (weaponsmiths equipment)
+M 0 7330 7 7339 1     *Load worker
+G 0 7349 1            *Load bar of ivory (workers inventory
+M 0 7331 5 7339 1     *Load weaponsmith
+E 9 7343 20 16        *Load siege halberd (weaponsmiths equipment)
+M 0 7332 3 7340 1     *Load security guard
+E 0 7334 20 12        *Load dark black robe (guards equipment)
+E 0 7345 20 16        *Load black steel sword (guards equipment)
+M 0 7333 4 7341 1     *Load male employee
+E 0 7335 20 5         *Load white coat (empoyees equipment)
+M 0 7333 4 7342 2     *Load male employee
+M 0 7333 4 7342 2     *Load male employee
+E 0 7335 20 5         *Load white coat (empoyees equipment)
+M 0 7335 1 7343 1     *Load chief engineer
+E 0 7336 20 10        *Load white sleeves (engineers equipment)
+E 0 7346 20 16        *Load old slide rule (engineers equipment)
+M 0 7333 4 7344 1     *Load male employee
+M 0 7336 1 7345 1     *Load manager
+E 0 7333 25 7         *Load trousers (managers equipment)
+G 0 7360 20           *Load cup of coffee (managers inventory)
+E 0 7342 20 16        *Load golden fountain pen (managers equipment)
+M 0 7334 1 7346 1     *Load female employee
+E 0 7332 25 1         *Load silver ring (employees equipment)
+M 0 7337 1 7347 1     *Load secretary
+E 0 7331 25 8         *Load golden sandals (ecretarys equipment)
+E 0 7341 20 16        *Load silver dagger (secretarys equipment)
+M 0 7338 1 7348 1     *Load BOSS
+E 0 7337 20 6         *Load big hat (BOSSs equipment)
+E 0 7347 25 16        *Load diamond letter opener (BOSSs equipment)
+M 0 7339 1 7348 1     *Load wannabe successor
+E 0 7338 20 9         *Load black gloves (successors equipment)
+E 0 7348 25 16        *Load power drill (successors equipment)
+G 0 7355 1            *Load bar of platinum (successors inventory)
+O 0 7350 1 7336       *Load bar of steel (storage room)
+O 0 7350 1 7340       *Load bar of steel (work hall)
+O 0 7351 1 7336       *Load bar of iron (storage room)
+O 0 7351 1 7340       *Load bar of iron (work hall)
+O 0 7352 1 7336       *Load bar of tin (storage room)
+O 0 7352 1 7340       *Load bar of tin (work hall)
+O 0 7353 1 7336       *Load bar of bronze (storage room)
+O 0 7353 1 7340       *Load bar of bronze (work hall)
+O 0 7354 1 7332        *Load bar of diamond (entrance)
+D 0 7331 0 1          *entrance gate (norh of Before the weapon factory), closed
+D 0 7332 2 1          *entrance gate (south of Entrance to the w. f.), closed
+D 0 7335 0 1          *door to storage room (north from working hall), closed
+D 0 7336 2 1          *door out of storage room (south to working hall), closed
+D 0 7339 2 1          *door to storage room (south from working hall), closed
+D 0 7340 0 1          *door out of storage room (north to working hall), closed
+D 0 7332 4 1          *door up from entrance to corridor, closed
+D 0 7341 5 1          *door down from corridor to entrance, closed
+D 0 7342 1 1          *door east from corridor to office of the chief engineer, closed
+D 0 7343 3 1          *door west from office of the chief engineer to corridor, closed
+D 0 7344 0 1          *door north from corridor to secretarys office, closed
+D 0 7347 2 1          *door south from secretarys office to corridor, closed
+D 0 7344 1 1          *door east from corridor to managers office, closed
+D 0 7345 3 1          *door west from managers office to corridor, closed
+D 0 7344 3 1          *door west from corridor to personell division, closed
+D 0 7346 1 1          *door east from personell division to corridor, closed
+D 0 7347 0 1          *door north from secretarys office to office of THE BOSS, closed
+D 0 7348 2 1          *door south from office of THE BOSS to secretarys office, closed
+
+S
+
+#SPECIALS
+M 7336 spec_thief
+M 7338 spec_thief
+M 7339 spec_poison
+S
+
+#$
+
+

@@ -1,0 +1,323 @@
+#PLAYER
+Name Senek~
+Id   1020735878
+LogO 1020739767
+Vers 13
+Mexp 1
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race seraph~
+Sex  1
+Cla  5
+Levl 1
+Plyd 2536
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3757
+HMS  24 24 100 100 97 100
+Gold 3
+Silv 422
+Exp  2173
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy T
+FRes NS
+FVul M
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Save  -1
+Alig  -1000
+Hit   2
+Dam   2
+ACs 86 84 84 99
+Atrib 17 14 15 14 15 19
+AtMod 1 2 3 1 0 2
+Pass famousBill~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kenneth~
+Lsit 0-1pool69-75.nas1.clemson1.sc.us.da.qwest.net~
+Ltim Mon May 06 21:07:10 2002
+~
+LSav Mon May 06 21:49:27 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 36 44 0
+Sk 1 1 'armor'
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 1 1 'cure serious'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'fireproof'
+Sk 1 1 'frenzy'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'mass healing'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 75 1 'sword'
+Sk 23 1 'shield block'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'curative'
+Gr 'healing'
+Gr 'protective'
+Affc 'blood moon'   0  26  15   1  18          0 1
+Affc 'blood moon'   0  28  15   2  19          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 144 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3723
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 119
+Nest 0
+Name food Warning, This is poisoned.~
+ShD  {GWarning, This is poisoned.{x~
+Desc {GWarning, This is poisoned.{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  50 100 0 1 0
+ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#END

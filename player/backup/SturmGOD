@@ -1,0 +1,987 @@
+#PLAYER
+Name Sturm~
+Id   989815888
+LogO 1006160893
+Vers 8
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race wolf~
+Clan balance~
+Sex  1
+Cla  2
+Levl 94
+Tru  96
+Plyd 1036955
+Age  1368000
+Back 1027016
+Note 1006140353 1005419024 1005475183 1005865722 1004843792 1006092882
+Scro 22
+Room 3700
+HMV  30981 30981 30950 30950 9677 30123
+Gold 2283
+Silv 906
+Exp  164500
+PCkills 0
+PCkilled 3
+Akills 7
+Akilled 12
+PKRank 0
+Spou Onica~
+Mark 1270
+Referee 1
+Act  CDEFGHJLNSTc
+AfBy HV
+ERes FH
+EVul N
+Comm NOV
+Revk 0
+Wizn A
+Invi 92
+Secu 92
+Pos  5
+Prac 362
+Trai 33
+Save  -247
+Alig  749
+Hit   511
+Dam   619
+ACs -914 -902 -893 -884
+Atrib 25 25 25 25 25 25
+AtMod 57 66 70 59 61 60
+SkillPnts 4518
+RolePnts 20
+QuestPnts 64
+Pass tikcus~
+GameIn  <insert unique gameout here>~
+GameOut <insert unique gamein here>~
+Afk {B[{CSun Nov 18 23:09:31 2001{B] {CUnknown Departure.{x
+~
+Titl  {HA{Gl{Wi{Gs{Ha{W'{Gs{x {NW{To{Nl{Tv{Ne{Tn{x {bT{Mh{bi{Me{bf{x~
+Immn {W[{x     {NT{BN{NT{x      {W]{x~
+Pnts 40
+Rank {PH{WB{PK{x~
+Aura {HA{Gl{Wi{Gs{Ha{W'{Gs{x {RC{No{RD{Ne{x {RR{Ne{RD{x {TThug{x~
+TSex 1
+LLev 285
+Deit {HA{Gl{Wi{Gs{Ha{x~
+Stus OutKast Kensai~
+RmCt 3
+ExSk 0
+Raff 965
+RRes T
+Lsit ACB770A2.ipt.aol.com~
+Ltim Mon Nov 19 03:08:08 2001
+~
+LSav Mon Nov 19 02:09:47 2001
+~
+Finf {HYour backstab{x {Cbrings a touch of{x {PDEATH{x {Cto{x {NThe{BRock{x {H!{x {H[7730]{x
+TheRock is Dead!
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  ACFQ
+HMVP 30346 30070 30123
+THVP 0 0 0
+Cnd  0 0 100 100
+Alias go gossip~
+Query alisa~
+Query sundancer~
+Query liriel~
+Query kitari~
+Query sapphire~
+Query montrey~
+Query napalm~
+Query peliar~
+Sk 100 1 'reserved'
+Sk 100 1 'acid blast'
+Sk 100 1 'acid breath'
+Sk 100 1 'acid rain'
+Sk 100 1 'age'
+Sk 100 1 'animate skeleton'
+Sk 100 1 'animate wraith'
+Sk 100 1 'animate gargoyle'
+Sk 100 1 'animate zombie'
+Sk 100 1 'armor'
+Sk 100 1 'bless'
+Sk 100 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 100 1 'blood blade'
+Sk 100 1 'blood moon'
+Sk 100 1 'burning hands'
+Sk 100 1 'call lightning'
+Sk 100 1 'calm'
+Sk 100 1 'cancellation'
+Sk 100 1 'cause light'
+Sk 100 1 'cause serious'
+Sk 100 1 'cause critical'
+Sk 100 1 'chain lightning'
+Sk 100 1 'change sex'
+Sk 100 1 'channel'
+Sk 100 1 'charm person'
+Sk 100 1 'chill touch'
+Sk 100 1 'colour spray'
+Sk 100 1 'continual light'
+Sk 100 1 'control weather'
+Sk 100 1 'create food'
+Sk 100 1 'create parchment'
+Sk 100 1 'create rose'
+Sk 100 1 'create sign'
+Sk 100 1 'create spring'
+Sk 100 1 'create vial'
+Sk 100 1 'create water'
+Sk 100 1 'cure blindness'
+Sk 100 1 'cure critical'
+Sk 100 1 'cure disease'
+Sk 100 1 'cure light'
+Sk 100 1 'cure poison'
+Sk 100 1 'cure serious'
+Sk 100 1 'curse'
+Sk 100 1 'dazzling light'
+Sk 100 1 'demonfire'
+Sk 100 1 'detect evil'
+Sk 100 1 'detect good'
+Sk 100 1 'detect hidden'
+Sk 100 1 'detect invis'
+Sk 100 1 'detect magic'
+Sk 100 1 'detect poison'
+Sk 100 1 'dispel evil'
+Sk 100 1 'dispel good'
+Sk 100 1 'dispel magic'
+Sk 100 1 'divine healing'
+Sk 100 1 'divine regeneration'
+Sk 100 1 'earthquake'
+Sk 100 1 'encampment'
+Sk 100 1 'enchant armor'
+Sk 100 1 'enchant weapon'
+Sk 100 1 'energy drain'
+Sk 100 1 'faerie fire'
+Sk 100 1 'faerie fog'
+Sk 100 1 'farsight'
+Sk 100 1 'fear'
+Sk 100 1 'fire breath'
+Sk 100 1 'fireball'
+Sk 100 1 'fireproof'
+Sk 100 1 'firestorm'
+Sk 100 1 'flame blade'
+Sk 100 1 'flameshield'
+Sk 100 1 'flamestrike'
+Sk 100 1 'fly'
+Sk 100 1 'floating disc'
+Sk 100 1 'frenzy'
+Sk 100 1 'frost blade'
+Sk 100 1 'frost breath'
+Sk 100 1 'gas breath'
+Sk 100 1 'gate'
+Sk 100 1 'general purpose'
+Sk 100 1 'giant strength'
+Sk 100 1 'harm'
+Sk 100 1 'haste'
+Sk 100 1 'heal'
+Sk 100 1 'heat metal'
+Sk 100 1 'high explosive'
+Sk 100 1 'holy word'
+Sk 100 1 'identify'
+Sk 100 1 'infravision'
+Sk 100 1 'invisibility'
+Sk 100 1 'know alignment'
+Sk 100 1 'light of truth'
+Sk 100 1 'lightning bolt'
+Sk 100 1 'lightning breath'
+Sk 100 1 'locate life'
+Sk 100 1 'locate object'
+Sk 100 1 'magic missile'
+Sk 100 1 'mass healing'
+Sk 100 1 'mass invis'
+Sk 100 1 'nexus'
+Sk 100 1 'pass door'
+Sk 100 1 'plague'
+Sk 100 1 'poison'
+Sk 100 1 'power word'
+Sk 100 1 'polymorph'
+Sk 100 1 'portal'
+Sk 100 1 'protect container'
+Sk 100 1 'protection evil'
+Sk 100 1 'protection good'
+Sk 100 1 'ray of truth'
+Sk 100 1 'recharge'
+Sk 100 1 'refresh'
+Sk 100 1 'resurrect'
+Sk 100 1 'regeneration'
+Sk 100 1 'remove alignment'
+Sk 100 1 'remove invisibility'
+Sk 100 1 'remove curse'
+Sk 100 1 'sanctuary'
+Sk 100 1 'shield'
+Sk 100 1 'shock blade'
+Sk 100 1 'shocking grasp'
+Sk 100 1 'shrink'
+Sk 100 1 'sleep'
+Sk 100 1 'slow'
+Sk 100 1 'smokescreen'
+Sk 100 1 'steel mist'
+Sk 100 1 'stone skin'
+Sk 100 1 'summon'
+Sk 100 1 'summon object'
+Sk 100 1 'talon'
+Sk 100 1 'teleport'
+Sk 100 1 'teleport object'
+Sk 100 1 'undo spell'
+Sk 100 1 'ventriloquate'
+Sk 100 1 'vision'
+Sk 100 1 'weaken'
+Sk 100 1 'word of recall'
+Sk 100 1 'wrath'
+Sk 100 1 'axe'
+Sk 100 1 'dagger'
+Sk 100 1 'flail'
+Sk 100 1 'mace'
+Sk 100 1 'polearm'
+Sk 100 1 'shield block'
+Sk 100 1 'spear'
+Sk 100 1 'sword'
+Sk 100 1 'whip'
+Sk 100 1 'brew'
+Sk 100 1 'scribe'
+Sk 100 1 'backstab'
+Sk 100 1 'bash'
+Sk 100 1 'berserk'
+Sk 100 1 'circle'
+Sk 100 1 'crush'
+Sk 100 1 'dirt kicking'
+Sk 100 2 'disarm'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'envenom'
+Sk 100 1 'hand to hand'
+Sk 100 1 'kick'
+Sk 100 1 'parry'
+Sk 100 1 'rescue'
+Sk 100 1 'trip'
+Sk 100 1 'second attack'
+Sk 100 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 100 1 'hunt'
+Sk 100 1 'swimming'
+Sk 100 1 'fast healing'
+Sk 100 1 'firebuilding'
+Sk 100 1 'forge'
+Sk 100 1 'repair'
+Sk 100 1 'rotate'
+Sk 100 1 'languages'
+Sk 100 1 'haggle'
+Sk 100 1 'hide'
+Sk 100 1 'search'
+Sk 100 1 'lore'
+Sk 100 1 'meditation'
+Sk 100 1 'peek'
+Sk 100 1 'pick lock'
+Sk 100 1 'scan'
+Sk 100 1 'sneak'
+Sk 100 1 'steal'
+Sk 100 1 'sing'
+Sk 100 1 'scrolls'
+Sk 100 1 'staves'
+Sk 100 1 'wands'
+Sk 100 1 'recall'
+Sk 100 1 'sheen'
+Sk 100 1 'focus'
+Sk 100 1 'paralyze'
+Sk 100 1 'barrier'
+Sk 100 1 'dazzle'
+Sk 100 1 'full heal'
+Sk 100 1 'midnight'
+Sk 100 1 'shadow form'
+Sk 100 1 'hone'
+Sk 100 1 'riposte'
+Sk 100 1 'fourth attack'
+Sk 100 1 'rage'
+Sk 100 1 'sap'
+Sk 100 1 'pain'
+Sk 100 1 'hex'
+Sk 100 1 'hammerstrike'
+Sk 100 1 'force shield'
+Sk 100 1 'holy sword'
+Sk 100 1 'align'
+Sk 100 1 'blur'
+Sk 100 1 'dual second'
+Sk 100 1 'standfast'
+Sk 100 1 'mark'
+Sk 100 1 'critical blow'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 19937
+Nest 0
+Cond 99
+Wear 18
+Cost 8000
+End
+
+#O
+Vnum 3207
+Nest 0
+Cond 92
+Wear 9
+Cost 80
+End
+
+#O
+Vnum 3208
+Nest 0
+Cond 86
+Wear 15
+Cost 90
+End
+
+#O
+Vnum 3208
+Nest 0
+Cond 96
+Wear 14
+Cost 90
+End
+
+#O
+Vnum 4422
+Nest 0
+ExtF 65
+Cond 95
+Wear 7
+Cost 3400
+End
+
+#O
+Vnum 6
+Nest 0
+Desc <{BThe {CL{Bo{Cv{Be {COf {BAn {CA{Bn{Cg{Be{Cl {BWith {GJade {CEyes{B*~
+ExtF 1048577
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 2912
+Nest 0
+ExtF 16777283
+Cond 95
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10105
+Nest 0
+Wear 17
+Cost 33000
+End
+
+#O
+Vnum 10112
+Nest 0
+Wear 11
+Cost 500
+End
+
+#O
+Vnum 10102
+Nest 0
+Wear 10
+Cost 33333
+End
+
+#O
+Vnum 10115
+Enchanted
+Nest 0
+ExtF 16777283
+Wear 6
+Cost 50
+Affc 'reserved'   1  91  -1   3   4          0 1
+Affc 'reserved'   1  91  -1  80  12          0 1
+Affc 'reserved'   1  91  -1  70  13          0 1
+Affc 'enchant armor'   1  94  -1 -85  17          0 1
+Affc 'reserved'   1  91  -1  -2  24          0 1
+Affc 'reserved'   1  91  -1   7  19          0 1
+End
+
+#O
+Vnum 3209
+Nest 0
+Wear 13
+Cost 100
+End
+
+#O
+Vnum 11776
+Nest 0
+Wear 2
+Cost 10000
+End
+
+#O
+Vnum 14014
+Nest 0
+ExtF 17825857
+Wear 1
+Cost 10000
+End
+
+#O
+Vnum 10101
+Nest 0
+Wear 8
+Cost 30000
+End
+
+#O
+Vnum 4505
+Enchanted
+Nest 0
+ExtF 65
+Wear 12
+Cost 4000
+Affc 'enchant armor'   1  94  -1 -92  17          0 1
+Affc 'reserved'   1  91  -1  10  18          0 1
+Affc 'reserved'   1  91  -1  10  19          0 1
+End
+
+#O
+Vnum 13003
+Nest 0
+Wear 4
+Cost 9500
+End
+
+#O
+Vnum 13003
+Nest 0
+Wear 3
+Cost 9500
+End
+
+#O
+Vnum 1254
+Nest 0
+ExtF 17580355
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 17320
+Nest 0
+Wear -1
+Cost 2500
+Val  250 1 17321 40 30
+End
+
+#O
+Vnum 1258
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8227
+Nest 1
+ShD  {NR{Bo{Nl{Bl{Ni{Bn{Ng{x {RT{Ph{Ru{Pn{Rd{Pe{Rr{x~
+ExtF 524609
+Wear -1
+Cost 7055
+End
+
+#O
+Vnum 602
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 10116
+Nest 1
+Wear -1
+Cost 25
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 1001
+Nest 1
+ShD  a Congratulations on your {WWedding{x! November 11, 2001{x rose~
+Desc A Congratulations on your {WWedding{x! November 11, 2001{x rose is lying on the ground.~
+Wear -1
+Cost 0
+ExDe florist~ This rose was created by Sundancer.
+~
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+Val  64 44 21 0 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+ExtF 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 824
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 45
+Nest 1
+Wear -1
+Cost 25000
+End
+
+#O
+Vnum 1001
+Nest 1
+ShD  a Someone had his way with you while you were blind{x rose~
+Desc A Someone had his way with you while you were blind{x rose is lying on the ground.~
+Wear -1
+Cost 0
+ExDe florist~ This rose was created by Gabriel.
+~
+End
+
+#O
+Vnum 2915
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24215
+Nest 1
+Wear -1
+Cost 75
+Val  300 180 1 0 0
+End
+
+#O
+Vnum 24215
+Nest 1
+Wear -1
+Cost 75
+End
+
+#O
+Vnum 24215
+Nest 1
+Wear -1
+Cost 75
+End
+
+#O
+Vnum 24215
+Nest 1
+Wear -1
+Cost 75
+Val  300 276 1 0 0
+End
+
+#O
+Vnum 10151
+Nest 1
+Wear -1
+Cost 3300
+End
+
+#O
+Vnum 1001
+Nest 1
+ShD  a {Bp{Te{Nr{Cp{Te{Nt{Bu{Ca{Tl{Nl{By {Ga{bf{Yk{x{x rose~
+Desc A {Bp{Te{Nr{Cp{Te{Nt{Bu{Ca{Tl{Nl{By {Ga{bf{Yk{x{x rose is lying on the ground.~
+Wear -1
+Cost 0
+ExDe florist~ This rose was created by Endo.
+~
+End
+
+#O
+Vnum 1001
+Nest 1
+ShD  a {VA{Nl{Bi{Ts{Ca{x rose~
+Desc A {VA{Nl{Bi{Ts{Ca{x rose is lying on the ground.~
+Wear -1
+Cost 0
+ExDe florist~ This rose was created by Ramaru.
+~
+End
+
+#O
+Vnum 12
+Nest 1
+ShD  the head of The Hell Knight~
+Desc The severed head of The Hell Knight is lying here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1100
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 550
+Affc 'enchant armor'   1  94  -1  -9  17          0 1
+Affc 'reserved'   1   5  -1   1   4          0 1
+End
+
+#O
+Vnum 80
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 550
+Affc 'enchant armor'   1  94  -1  -7  17          0 1
+Affc 'reserved'   1   5  -1   1   3          0 1
+End
+
+#O
+Vnum 9520
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 250
+Affc 'enchant armor'   1  94  -1 -18  17          0 1
+End
+
+#O
+Vnum 2326
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 550
+Affc 'enchant armor'   1  94  -1  -9  17          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
+End
+
+#O
+Vnum 2326
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 550
+Affc 'enchant armor'   1  94  -1  -9  17          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
+End
+
+#O
+Vnum 9530
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 168
+Affc 'enchant armor'   1  94  -1 -13  17          0 1
+End
+
+#O
+Vnum 9532
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 168
+Affc 'enchant armor'   1  94  -1 -12  17          0 1
+End
+
+#O
+Vnum 9548
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 200
+Affc 'enchant armor'   1  94  -1 -16  17          0 1
+End
+
+#O
+Vnum 10013
+Enchanted
+Nest 0
+ExtF 262209
+Wear -1
+Lev  10
+Cost 20
+Affc 'enchant armor'   1  94  -1  -8  17          0 1
+End
+
+#O
+Vnum 78
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 900
+Affc 'enchant armor'   1  94  -1  -4  17          0 1
+Affc 'reserved'   1   7  -1   1   2          0 1
+End
+
+#O
+Vnum 2404
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 550
+Affc 'enchant armor'   1  94  -1  -9  17          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#O
+Vnum 2404
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 550
+Affc 'enchant armor'   1  94  -1 -10  17          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#O
+Vnum 75
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 620
+Affc 'enchant armor'   1  94  -1 -11  17          0 1
+Affc 'reserved'   1   3  -1   4  13          0 1
+Affc 'reserved'   1   3  -1   1   1          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#O
+Vnum 75
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  10
+Cost 620
+Affc 'enchant armor'   1  94  -1  -9  17          0 1
+Affc 'reserved'   1   3  -1   4  13          0 1
+Affc 'reserved'   1   3  -1   1   1          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#O
+Vnum 10155
+Nest 0
+Wear -1
+Cost 1100
+End
+
+#O
+Vnum 10160
+Nest 0
+ShD  {WA{x {bPumpkin{x {VPie{x~
+Desc {WA{x {CDelicious{x {MPie{x lies here~
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 1258
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 20026
+Nest 0
+Wt   1900
+Wear 5
+Cost 90000
+End
+
+#O
+Vnum 1254
+Nest 0
+Wear 19
+Cost 0
+End
+
+#B
+Vnum 4471
+Nest 0
+Name enchant token liriel~
+ShD  {gA {Vlevel {Y100 {Be{Cn{Bc{Ch{Ba{Cn{Bt {gfrom {WL{Ci{Br{Ci{Te{Wl{x~
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 4471
+Nest 0
+Name lower token liriel~
+ShD  {WA {Glowering {Bt{Co{Bk{Ce{Bn{W from L{Ci{Br{Ci{Te{Wl{x~
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 4471
+Nest 0
+Name lower token liriel~
+ShD  {WA {Glowering {Bt{Co{Bk{Ce{Bn{W from L{Ci{Br{Ci{Te{Wl{x~
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 2921
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

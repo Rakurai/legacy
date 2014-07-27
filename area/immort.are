@@ -1,0 +1,2320 @@
+#AREA
+immort.are~
+IMM-Zone~
+{H{{ ALL } {MROM {TImmortal Zone~
+1200 1299
+
+#MOBILES
+
+#1201 
+Dragon Hatchling Sinji~ 
+Sinji, A Baby Dragon Hatchling~ 
+A Dragon Hatchling named Sinji hisses at you. 
+~ 
+You see a Dragon Hatchling that, while considered small to a mature dragon, is
+as large as you are. You can see the fire from your torch twinking in his eyes.
+His Black Scales shine and reflect the light around the room. 
+~ 
+dragon~ 
+BGV Sb -666 S 
+90 13 100d75+3000 100d75+300 5d9+20 frbite 
+-600 -600 -600 -520 
+EF ABR 0 0 
+stand stand male 1000 
+0 0 large 0 
+
+
+#1202
+wolf iglu~
+{TXenith's {Wpet wolf, {BIglu{x~
+{TXenith's {Wpet wolf, {BIglu, {blies here, with her tail curled around her legs.{x
+~
+A great silver she-wolf lies here, and she just happens to be staring directly at you.
+How disconcerting.
+~
+wolf~
+BISUVZ DFHJNOTUVZ 1000 S
+120 1000 1d1+29999 1d1+29999 100d100+500 claw
+-5000 -5000 -5000 -5000
+ACEIJKNO ABCDEFGHIJKLMNOPQRSTUVWXYZ 0 0
+stand stand female 0
+0 0 giant 0
+>bribe_prog 1~
+say I'm a wolf, what am I going to do with money?
+cackle $n
+say But you definately aren't getting your money back.
+snicker
+~
+>rand_prog 1~
+yell Xenith is an all powerful goddess! Give in! You cannot resist!
+~
+>rand_prog 2~
+giggle
+say Xenith is such a great goddess. We should all bow down to her in abject worship.
+sage
+~
+|
+
+
+#1203
+yehanoha guardian~
+{PYehaNoha{x~
+{PYehaNoha{x, the Sacred Spirit and Guardian of this, room stands here.
+~
+This guardian spirit keeps the peace within this room. He guards
+the rebirthed mortals' lockers taking his job *very* seriously.
+Don't try practicing any skills with him, because you may find
+yourself fighting an opponent you may not wish to encounter.
+~
+human~
+BGRVYZd DFHNZ 0 S
+120 25 1d1+29999 1d100+8000 20d20+45 divine
+-70 -70 -70 -70
+ACDEFIJKNO ABCD 0 0
+stand stand male 0
+0 0 giant 0
+>all_greet_prog 100~
+if isimmort($n)
+   bow
+   say "Welcome, mighty one."
+   emote drops to one knee and lowers his head.
+   say "All is safe and secure, as ordered."
+   emote stands at attention.
+ else
+   if ispc($n)
+   emote at once aware of your presence, draws his sword!
+   emote snaps to attention and salutes you with his sword.
+   say All is safe and secure.
+   bow
+   emote sheathes his sword and resumes his watchful guard.
+   endif
+endif
+~
+>rand_prog 1~
+peer
+emote walks over and starts checking strongboxes.
+chuckle
+emote turns and walks back to his post.
+~
+>fight_prog 100~
+emote stares at you mournfully.
+say You have violated the sanctity of this room.
+say Return when you have learned some respect!
+pmote makes a magical gesture at $n.
+mpechoat $n Your vision fades to black.
+mpechoaround $n $n disappears!
+mpechoat $n When next you open your eyes, you find yourself far away.
+mptransfer $n 5031
+~
+|
+
+
+#1217
+bearded lady~
+Bearded lady~
+There's some skanky man here..holy crap, it's some chick with a beard!
+~
+Butt ugly.  And by butt, I mean rear end.
+~
+human~
+BGT DFHVc 750 S
+80 16 30d60+8000 30d60+800 3d3+45 bite
+-55 -55 -55 -55
+ACDFK 0 0 0
+stand stand female 0
+0 0 medium 0
+
+
+#1218
+mon capitaine~
+Mon capitaine~
+Mon capitaine is here..acting French.  Bastard.
+~
+He's even got the oily little mustache and oilier smirk.
+~
+french~
+BGT DFHZ 750 S
+120 16 500d25+12000 500d25+2000 5d5+60 slap
+-75 -75 -75 -75
+ACDFK 0 0 0
+stand stand male 0
+0 0 medium 0
+
+
+#1226
+puppy little~
+a {blittle puppy{x~
+{gA {blittle puppy{g is curled up on top of the bed, awwww how cute!!!{x
+~
+{gThis little puppy can't be more than 2 months old, it's so tiny.  Already 
+though, you can tell it's a retriever, by it's cream colored fur, short
+floppy ears, and big chocolate colored eyes.  It opens it's mouth to yawn, and
+you feel your heart melting.  Go ahead, pet it.  {WL{Ci{Br{Ci{Te{Wl{g won't mind.  :){x
+~
+dog~
+BUV NVZ 1000 S
+250 500 1d1+4999 1d1+1999 1d1+499 bite
+-100 -100 -100 -100
+D ABCDEFGHIJKLMOPQRSTUVWXYZ 0 0
+rest rest male 0
+0 0 small 0
+
+
+
+#1253
+arwen evenstar~
+Arwen~
+Arwen, the Evenstar stands here watching you.
+~
+Arwen Undomiel stands here.  She is elven, slightly over five feet tall,
+with waist length auburn hair and green eyes.  She is perhaps the most
+exquisite creature you have ever had the pleasure of seeing, and
+possibly one of the most deadly.  She protects this shrine from
+sacrilege by any whom might enter here, and dispatches those she sees
+fit with horrid efficiency.  None escape her gaze, just as none provoke
+her and live.  She wears a curve fitting blue gown which highlights her
+womanly charms well.
+~
+elf~
+BGTZ CDEFGHNOUVYZbce 1000 S
+100 1000 1d1+29999 1d1+29999 100d100+1000 divine
+-1000 -1000 -1000 -1000
+ACFHIKNOQ ALMOPQRSTXYZ CDEFGHIJKN 0
+stand stand female 1000000
+0 0 medium 0
+
+
+#1262
+pegasus beautiful~
+a {Wbeautiful pegasus{x~
+A {Wbeautiful pegasus{x rests here in the corner of the cave. 
+~
+A sleek, beautiful animal stands before you... resembling a {Wwhite
+horse{x, the long {Wa{Cn{Wg{Ce{Wl {Cwings{x it possesses distinguishing it as one of the
+rare {Bm{Ca{Bg{Ci{Bc{Ca{Bl {xcreatures known as a {Wpegasus{x.  It's pristine {Wwhite {xbody is
+sleekly muscled, a {Vcontrast{c to the large doe-like {bbrown eyes{x that gaze
+at you limpidly.  It's {Vdocileness{x and {Gtameness{x indicate that this
+creature has been {WL{Ci{Br{Ci{Te{Wl's{x since it was a colt.
+~
+pegasus~
+BGJKabd CDEFGHVZ 1000 S
+100 100 1d1+4999 1d1+4999 1d1+199 smash
+-750 -750 -750 -1000
+EFHIJKN ABFI C 0
+rest stand male 0
+0 0 large 0
+>greet_prog 100~
+emote raises its wings up and flutters them softly in greeting.
+~
+>act_prog p saunters in.~
+emote raises its wings up and flutters them softly in greeting.
+~
+>act_prog p hugs you.~
+nuzzle $n
+stretch
+~
+>act_prog p pets you (scratches behind your ears too).~
+emote nickers softly, basking in the attention happily.
+~
+>act_prog p rudely awakes you from your peaceful slumber.~
+frown $n
+stretch
+~
+>act_prog p bonks you on the head for being so foolish.~
+emote neighs loudly in disapproval, before calming down and snorting softly.
+~
+>rand_prog 3~
+emote curls its wings up around him and lies down on the floor.
+sleep
+~
+>rand_prog 3~
+wake
+emote stretches its wings out softly, before glancing around lazily.
+~
+|
+
+
+#1270
+Hwisprian~
+Hwisprian~
+Hwisprian, the {WWhite {BKnight{x clan physician, wanders among the wounded.
+~
+Hwisprian is here.  The teilysa wears a long robe and hood that shows
+only a quiet and concentrated face. This aged cleric's days of battling
+are over, and instead heals clan members in need of special healing.
+Hwisprian is so well-versed in all skills and spells that you can also
+heal, practice and/or train here.  Ask nothing else of Hwisprian;
+casting spells takes great concentration.
+~
+teilysa~
+ABGJKQVZab AHZ 0 S
+100 15 13d75+11001 21d15+3001 47d7+28 divine
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand none 0
+0 0 medium 0
+>rand_prog 10~
+if isimmort($n)
+   nod
+   say Welcome. As always, you are free to stay.
+else
+   eyebrow $n
+   say Excuse me, can I help you ... out the door?
+endif
+~
+|
+
+#0
+
+#OBJECTS
+
+#1201
+token qp~
+{Ya token for 1 qp{x~
+{YA token for 1 qp lies here.{x~
+questpoints~
+token ORSTWYa A
+0 0 0 0 0
+0 0 3 P
+
+
+#1202
+token qp~
+{Ya token for 2 qp{x~
+{YA token for 2 qp lies here.{x~
+questpoints~
+token ORSTWYa A
+0 0 0 0 0
+0 0 6 P
+
+
+#1203
+token qp~
+{Ya token for 3 qp{x~
+{YA token for 3 qp lies here.{x~
+questpoints~
+token ORSTWYa A
+0 0 0 0 0
+0 0 9 P
+
+
+#1204
+token qp~
+{Ya token for 4 qp{x~
+{YA token for 4 qp lies here.{x~
+questpoints~
+token ORSTWYa A
+0 0 0 0 0
+0 0 12 P
+
+
+#1205
+token qp~
+{Ya token for 5 qp{x~
+{YA token for 5 qp lies here.{x~
+questpoints~
+token ORSTWYa A
+0 0 0 0 0
+0 0 15 P
+
+
+#1206
+enchant immortal token~
+an {Ce{Bn{Vc{Ph{Ga{Yn{Ct {Btoken{x~
+A {Btoken{x that can be used for a {Yfree {Ce{Bn{Vc{Ph{Ga{Yn{Ct {xlies here!~
+magic~
+token ORSTWY A
+0 0 0 0 0
+0 0 0 P
+
+
+#1207
+restring immortal token~
+a {Vr{Me{Vs{Mt{Vr{Mi{Vn{Mg {Ctoken{x~
+A {Ctoken{x that can be used for a {Yfree {Vr{Me{Vs{Mt{Vr{Mi{Vn{Mg {xlies here!~
+magic~
+token ORSTWY A
+0 0 0 0 0
+0 0 0 P
+
+
+#1208
+lowering immortal token~
+a {Cl{Wo{Gw{We{Cr {Vtoken{x~
+A {Vtoken{x that can be used for a {Yfree {Cl{Wo{Gw{We{Cring{x lies here!~
+magic~
+token ORSTWY A
+0 0 0 0 0
+0 0 0 P
+
+
+#1211
+token~
+a blank token~
+{WA shiny {Ygolden {Wtoken lies here!{x~
+magic~
+token ABGSTY AP
+0 0 0 0 0
+0 1 0 I
+
+
+#1212
+token trivia~
+a blank trivia token~
+{WA shiny {Ygolden {Wtoken lies here!{x~
+magic~
+token ABGSTY AP
+0 0 0 0 0
+0 1 0 I
+
+
+#1213
+token hidden~
+a blank hidden token~
+{WA shiny {Ygolden {Wtoken lies here!{x~
+magic~
+token ABGSTY AP
+0 0 0 0 0
+0 1 0 I
+
+
+#1214
+token quest~
+a blank quest token~
+{WA shiny {Ygolden {Wtoken lies here!{x~
+magic~
+token ABGSTY AP
+0 0 0 0 0
+0 1 0 I
+
+
+#1215
+token wild~
+a blank wild token~
+{WA shiny {Ygolden {Wtoken lies here!{x~
+magic~
+token ABGSTY AP
+0 0 0 0 0
+0 1 0 I
+
+
+#1226
+bed birch mattress~
+a {Cte{Tm{Cp{Ct{Ti{Cng{B b{Ne{Bd{x~
+A {Cte{Tm{Cp{Ct{Ti{Cng{B b{Ne{Bd{x lies here in the corner.~
+birch~
+furniture ABGO P
+2 0 BEHK 0 0
+1 20 1000 I
+E
+bed~
+{xThis {Bb{Ne{Bd{x looks {Yso{x comfortable, you are {Pt{Re{Pm{Rp{Pt{Re{Pd{x to undress and go right 
+{xto sleep on it.  Your eyes glance over the {Cbaby blue s{Ta{Ct{Ti{Cn s{Th{Ce{Te{Ct{Ts{x, and
+{xyour mind is instantly filled with {Vt{Ma{Vn{Mt{Va{Ml{Vi{Mz{Vi{Mn{Vg{x images of {WL{Ci{Br{Ci{Te{Wl{x 
+{xstretched out on top of them.  You shake your head, {Gcl{He{Gar{Hi{Gng{x your {Bmind{x,
+{xand smile at the {Ndark blue comforter{x rolled up at the end of the {Bb{Ne{Bd{x. 
+~
+
+
+#1227
+bed~
+the bed~
+~
+oak~
+furniture O P
+2 0 BEHK 0 0
+1 20 1000 I
+E
+bed~
+The bed is in the center of the room, and has no headboard, but judging by the positioning
+of the pillows and linens, the foot of the bed faces toward the window.  Here, Montrey
+stretches out and relaxes, reads a book, or sometimes just sits and watches the clouds
+drift past the mountains outside.
+~
+
+
+#1228
+cooler~
+the cooler~
+~
+metal~
+container O P
+100 AC 0 100 30
+1 1 1 I
+E
+cooler~
+It's a little refridgerator, powered by some unknown source.  One could likely deduce more
+information about it by looking at it's contents.
+~
+
+
+#1229
+coke bottle~
+a twenty ounce bottle of {PC{Woc{Pa{W-{PC{Wol{Pa{x~
+An ice cold bottle of {PC{Wok{Pe{x sits here.~
+plastic~
+fountain GY A
+0 0 'coke' 0 0
+0 7 100 P
+E
+bottle coke~
+An ice cold bottle of that magical elixir, Coca-Cola.  Funny, as you drink it, it doesn't
+seem to be any less full... in fact, you notice that it is *always* full.
+~
+
+#1230
+tear reality~
+{Wa tear in r{Ye{Pa{Vl{Bi{Ct{Gy{x~
+{WA {Cs{Th{Ci{Tm{Cm{Te{Cr{Ti{Cn{Tg{W rip in the fabric of r{Ye{Pa{Vl{Bi{Ct{Gy{W catches your {Be{Ny{Be{x.~
+magic~
+container ABGSY A
+100 0 0 20 25
+0 20 0 I
+E
+tear reality~
+This beautiful {Wtear{x is proof that you've obtained {WL{Ci{Br{Ci{Te{Wl's {gprized {BL{Cegacy {BS{Cet{x.
+{BCongratulations!{x  You may use this {Bm{Ca{Bg{Ci{Bc{Ca{Bl {Wtear in r{Ye{Pa{Vl{Bi{Ct{Gy{x to stow away your
+most {Gvaluable{x possessions. 
+~
+
+#1231
+huge cow print oven mitts~
+{BH{Cu{Bg{Ce {WC{co{Ww {WPr{ci{Wnt {BO{Cv{Be{Cn {BM{Ci{Bt{Ct{Bs{x~
+{gA pair of huge cow print oven mitts lay here.  You wonder who they belong to.{x~
+cotton~
+armor GS AH
+40 40 40 50 0
+91 10 0 P
+E
+huge cow print oven mitts~
+{BWow {xthese are {CHUGE!{x  Now you know how {WL{Ci{Br{Ci{Te{Wl{x manages to {Vbake{x so many {bcookies{x.
+~
+A
+3 2
+A
+4 2
+A
+17 -20
+A
+18 10
+A
+19 10
+
+#1232
+platinum chain delicate~
+{ga delicate {Wp{gl{Wa{gt{Wi{gn{Wu{gm {Wc{ghain{x~
+{gA delicate {Wp{gl{Wa{gt{Wi{gn{Wu{gm {Wc{ghain{g lies here, {Wglinting{g in the {Yl{Wi{Yg{Wh{Yt{x.~
+platinum~
+treasure AGY AC
+0 0 0 0 0
+95 5 0 P
+E
+platinum chain delicate~
+{gWhat a pretty little {Wc{ghain!  It's so {Ws{gh{Wi{gn{Wy{g ...{x
+~
+A
+13 200
+A
+12 200
+A
+14 200
+
+#1233
+amulet exquisite~
+{Wan {Te{Cxquisite {Na{Bmulet{x~
+{gAn {Te{Cxquisite {Na{Bmulet{g lies here ... it is {Gunlike{g anything else you have ever seen.{x~
+magic~
+treasure ABGSY AC
+0 0 0 0 0
+95 5 0 P
+E
+amulet exquisite~
+You have never seen {Ganything{x like this before.  The {Na{Bmulet{x at first glance
+appears to be made out of a {Nd{Beep {Nb{Blue {Ns{Bapphire{x, but the {Bc{Co{Bl{Co{Br{Cs{x shift and 
+change every angle, from a {Cs{Wp{Ca{Wr{Ck{Wl{Ci{Wn{Cg {Ccyan{x, to the {Bd{Narkest indigo{x.  The only
+thing you can conclude about it is that it must be very {Cm{Ta{Cg{Ti{Cc{Ta{Cl{x and very 
+{Vp{Mo{Vw{Me{Vr{Mf{Vu{Ml{x.  
+~
+A
+24 -30
+
+
+#1234
+sorceress brew~
+{WS{Co{Br{Cc{Te{Cr{Be{Ns{Bs {WB{Yr{We{Yw{x~
+{gA small {Bflask{g of a bubbling {Wp{Yot{Wi{Yo{Wn{g sit here, waiting to be {Gquaffed{x.~
+magic~
+potion ABGS A
+100 'bless' 'frenzy' 'armor' 'shield'
+0 10 0 P
+
+#1244
+gift sea~
+{CG{Wi{Bf{Ct {Wof {Bthe {CS{We{Ca{x~
+Who dropped {gO{ca{Wk{ge{cn{Wf{go{cl{Wd{x's {CG{Wi{Bf{Ct {Wof {Bthe {CS{We{Ca{x?
+UH-OH!!~
+love~
+container 0 A
+100 1 0 100 30
+0 10 1000 P
+E
+gift sea~
+When you love someone, you do not love them all the time, in exactly
+the same way, from moment to moment. It is an impossibility. It is
+even a lie to pretend to. And yet this is exactly what most of us
+demand. We have so little faith in the ebb and flow of life, of love,
+of relationships. We leap at the flow of the tide and resist in terror
+its ebb. We are afraid it will never return. We insist on permanency,
+on duration, on continuity, when the only continuity possible, in life
+as in love, is in growth, in fluidity - in freedom, in the sense that
+the dancers are free, barely touching as they pass, but partners in the
+same pattern. The only real security is not in owning or possessing,
+not in demanding or expecting, not in hoping, even. Security in a
+relationship lies neither in looking back to what was in nostalgia,
+nor forward to what it might be in dread or anticipation, but living
+in the present relationship and accepting it as it is now. Relationships
+must be like islands, one must accept them for what they are here and
+now, within their limits - islands, surrounded and interrupted by
+the sea, and continually visited and abandoned by the tides.
+~
+
+
+#1245 
+shabby frayed rug~ 
+a {Ys{gh{ba{Yb{gb{by{x, {Cf{gr{Ta{Cy{ge{Td {crug{x~ 
+{gA {Ys{gh{ba{Yb{gb{by{g, {Cf{gr{Ta{Cy{ge{Td {crug{g lies near the wall.{x~ 
+rug~ 
+furniture S 0 
+4 0 EHK 0 0
+0 50 500 W 
+E 
+shabby frayed rug~ 
+{gThough it looks dingy at first glance, looking again, this soft rug has a{x
+{gcomforting appeal that tempts you to lie down and snuggle up to something{x
+{gor someone on it.{x 
+~ 
+E
+soft spot~
+{gThe plush carpeting has been worn down toward the center of the rug, leaving{x
+{ga soft spot, the perfect size to curl up in.{x
+~
+
+
+#1246
+shoe box shoebox~ 
+an old {Ns{Rh{bo{Ne{bbox{x~ 
+{gA tattered {Ns{Rh{bo{Ne{bbox {grests on a pile of toys.{x~ 
+paper~ 
+container ST P 
+500 ABC 0 50 0 
+0 10 100 W 
+E 
+tattered shoe box shoebox~ 
+{gLooking at this torn and shredded box, it is obvious it has been a well used{x
+{gsubstitute for a scratching post. The lid is almost nonexistant, but looking{x
+{gclosely at the label you realize this used to hold some lucky newbie's first{x
+{gpair of {GNike {BCross {GTrainers{g.{x 
+~
+
+ 
+#1248 
+crickets handful~ 
+a handful of crickets~ 
+A small handful of crickets chirp noisily in the corner.~ 
+meat~ 
+food PS AO 
+0 0 0 0 0 
+0 0 0 G 
+E 
+crickets handful~ 
+Oooh! *giggle* They hop around, tickling your hand.
+~
+
+
+#1254
+arwen holy sword~
+{YA{br{Yw{be{Yn{b'{Ys {gH{Wo{gl{Wy {gS{Ww{go{Wr{gd{x~
+A {gwhite sword{x lies here glowing brightly.~
+energy~
+weapon ABGIKLOSTY AN
+sword 30 30 divine ABCDEGH
+93 0 0 I
+E
+arwen holy sword~
+You hold Arwen's sword in your hands.  It is a four foot long
+broadsword, the blade made of a pure white material that glows so
+brightly it almost hurts to look at it.  The handle is of silver, with
+a pure blue sapphire set in the pommel.
+~
+E
+sapphire~
+The sapphire glows a bright blue when you touch it.
+~
+A
+1 25
+A
+2 25
+A
+3 25
+A
+4 25
+A
+5 25
+A
+26 25
+A
+17 -100
+A
+18 200
+A
+19 250
+A
+20 -100
+
+
+#1255
+package animal crackers montrey~
+{Ya{W p{Ca{gc{Ck{Wa{Yg{We {Co{gf M{Wo{gn{Wt{gr{We{gy {Ys{Wh{Ca{gp{Ce{Wd {Ya{Wn{Ci{gm{Ca{Wl {Yc{Wr{Ca{gc{Ck{We{Yr{Ws{x~
+A delicious looking package of {Ya{Wn{Ci{gm{Ca{Wl {Yc{Wr{Ca{gc{Ck{We{Yr{Ws{x lies here.~
+graham~
+pill G A
+15 'haste' 'sanctuary' 'protection evil' 'regen'
+15 0 0 P
+E
+package animal crackers~
+It's a Montrey shaped animal cracker!  Yum!
+~
+
+
+#1256
+couch white leather~
+a comfortable white leather couch~
+A comfortable white leather couch sits here.~
+leather~
+furniture 0 0
+4 0 EHK 150 150
+0 30000 0 I
+E
+couch white leather~
+It's a very comfortable looking white leather couch.
+~
+
+
+#1257
+portal recall~
+a portal to {Cr{Tecal{Cl{x~
+A portal leading to {Cr{Tecal{Cl{x is here.~
+time~
+portal GOTY P
+0 0 A 3001 0
+0 30000 0 I
+
+
+#1258
+vortex white light~
+{ga {Cs{gw{Ci{Tr{gl{Cin{Tg {Cv{go{Cr{Tt{ge{Cx {gof pure w{Whi{gt{We l{gi{Wg{ght{x~
+A portal to {CM{go{Cn{Tt{gr{Cey{g'{Ts {xroom lies here.~
+static energy~
+portal ABOSTY AP
+0 0 C 1281 0
+0 0 0 I
+
+
+#1264
+energy bed~
+{Wan {Ce{Tn{Ce{Tr{Cg{Ty {Bb{Ne{Bd{x~
+{WA {Bb{Ne{Bd{W comprised solely of {Ce{Tn{Ce{Tr{Cg{Ty{W lies here{x.~
+energy~
+furniture ABGO 0
+4 0 BEHK 0 0
+1 20 1000 I
+E
+bed energy~
+Unable to believe your eyes, you reach out and touch the {Yglowing {Bbed{x
+and you encounter something {Vs{Wi{Vl{Wk{Vy {Ws{Co{Wf{Ct{x, which surprisingly is durable
+and can withstand much weight.  It is in this bed that {WL{Ci{Br{Ci{Te{Wl{x sleeps to
+regenerate her {Cm{Ta{Cg{Ti{Cc{x, safe in the {Gknowledge{x she is unable to be
+harmed by any {Pe{Rv{Pi{Rl {Bf{No{Br{Nc{Be{Ns{x. 
+~
+
+
+#1270
+key sorsha~
+a key to Sorsha's Castle~
+A small silver key lies here.~
+silver~
+key 0 A
+1 0 0 0 0
+0 0 0 I
+
+
+#1274
+spam~
+a can of SPAM!!!~
+A big can of spam has been left here to rot.~
+food~
+food 0 A
+8 8 0 0 0
+0 10 0 P
+E
+spam~
+==========================================
+| ,dP""8a "888888b,  d8b    "888b  ,888" |
+| 88b   "  888  d88 dPY8b    88Y8b,8888  |
+| `"Y8888a 888ad8P'dPaaY8b   88 Y88P888  |
+| a,   Y88 888    dP    Y8b  88  YP 888  |
+| `"8ad8P'a888a  a88a;*a888aa88a   a888a |
+|                ;*;;;;*;;;*;;;*,,       |
+|        _,---'':::';*;;;*;;;*;;*d;,     |
+|     .-'      ::::::::::';*;;*;dII;     |
+|   .' ,<<<,.  :::::::::::::::ffffff`.   |
+|  / ,<<<<<<<<,::::::::::::::::fffffI,\  |
+| .,<<<<<<<<<<I;:::::::::::::::ffffKIP", |
+| |<<<<<<<<<<dP;,?>;,::::::::::fffKKIP | |
+| ``<<<<<<<dP;;;;;\>>>>>;,::::fffKKIPf ' |
+|  \ `mYMMV?;;;;;;;\>>>>>>>>>,YIIPP"` /  |
+|   `. "":;;;;;;;;;i>>>>>>>>>>>>>,  ,'   |
+|     `-._``":;;;sP'`"?>>>>>=========.   |
+|         `---..._______...|<[Hormel |   |
+|                          `========='   |
+==========================================
+~
+
+
+#1276
+well magical~
+{Cm{Wa{Cg{Wi{Cc{Wa{Cl{B well{x~
+A {Cm{Wa{Cg{Wi{Cc{Wa{Cl{B well{x gleams brightly at you.~
+stone~
+fountain AGIORT 0
+0 0 'water' 0 0
+0 1 1 I
+E
+magical well~
+{WLooking inside the {Cm{Wa{Cg{Wi{Cc{Wa{Cl {Bwell{W, you find it brimming with clear,
+pure {Bw{Ca{Bt{Ce{Br{W.  Even though {WL{Ci{Br{Ti{Ce{Wl often uses this as her {Ccrystal ball{W, the
+water looks like it'd be {Vd{Wel{Vi{Wci{Vo{Wus.  She won't mind if you drink some.  :)
+~
+
+
+#1277 
+portal hole~ 
+a dark hole{x~ 
+A small {chole{x in the ground looks just large enough to crawl inside.~ 
+{cnothing{x~ 
+portal ABOS AOP 
+0 0 C 1277 0 
+0 0 10000 P 
+E 
+hole portal~ 
+A {chole{x. What did you expect?
+~
+
+
+#1278 
+light hole ceiling~
+a hole in the ceiling~ 
+Light seems to come in through a large hole in the ceiling.{x~ 
+light~ 
+portal OT P 
+0 0 A 3001 0 
+0 0 5000 I 
+E 
+light hole ceiling~ 
+Small beams of light drift in, warming your face as you lean closer to 
+see what's on the other side, dismissing it as nothing special, you go 
+back to exploring this dark, but friendly, room.
+~
+
+
+#1283
+mox jet~
+A Mox Jet~
+A powerful gem lies here.~
+adamantite~
+armor ABGT AQ
+5 5 5 5 0
+15 5 1000 P
+E
+mox jet~
+Carried within this mox is the power of death.
+~
+
+
+#1284
+mox ruby~
+A Mox Ruby~
+A powerful gem lies here.~
+adamantite~
+armor ABGT AQ
+5 5 5 5 0
+15 5 1000 P
+E
+mox ruby~
+Carried within this mox is the power of destruction.
+~
+
+
+#1285
+mox pearl~
+A Mox Pearl~
+A powerful gem lies here.~
+adamantite~
+armor ABGT AQ
+5 5 5 5 0
+15 5 1000 P
+E
+mox pearl~
+Carried within this mox is the power of life.
+~
+
+
+#1286
+mox emerald~
+A Mox Emerald~
+A powerful gem lies here.~
+adamantite~
+armor ABGT AQ
+
+5 5 5 5 0
+15 5 1000 P
+E
+mox emerald~
+Carried within this mox is the power of nature.
+~
+
+
+#1287
+mox sapphire~
+A mox sapphire~
+A powerful gem lies here.~
+adamantite~
+armor ABGT AQ
+5 5 5 5 0
+15 5 1000 P
+E
+mox sapphire~
+Carried within this mox is the power of magic.
+~
+
+
+#1290
+liriel cookie~
+an {CL-shaped {xcookie~
+A {Vc{Mu{Wr{Vi{Mo{Wu{Vs {xlittle cookie lies here, it sort of looks like an {C"L"{x ...~
+love~
+pill ABGSTYa AP
+120 'cure critical' 'bless' 'frenzy' 'flameshield'
+1 0 6 P
+E
+liriel cookie~
+How {Pl{Wu{Pc{Wk{Py{x!!! You have found one of {WL{Ci{Br{Ci{Te{Wl's{x treasured {bcookies{x!!!
+Now you can {Geat{x it and see what will {Yhappen{x, but you have a
+slight {Bh{Nu{Bn{Nc{Bh{x that there is something very {Cv{Wa{Cl{Wu{Ca{Wb{Cl{We{x about this ...
+~
+
+#1295
+arms goddess woman~
+{gthe arms of the {WG{go{Wd{gd{We{gs{Ws{x~
+~
+love~
+furniture OSY 0
+4 0 CFIL 140 130
+1 200 200 P
+E
+woman goddess arms~
+Divine love is Bliss
+~
+
+
+#1296
+fountain man manhood~
+{gthe manhood of a {WG{go{cd{x~
+~
+strength~
+fountain OSY 0
+0 0 'protein shake' 0 0
+1 200 20 P
+E
+man fountain manhood~
+Don't ask...just enjoy.
+~
+
+#1297
+dummystrongbox~
+the dummystrongbox~
+Your strongbox is embedded in the wall here,
+     open to you yet impenetrable to all others.~
+ebonite~
+container ABGOTY P
+1000 ACD 0 1000 100
+99 1000 0 P
+E
+strongbox box~
+You see a strongbox, the container holding your most valuable
+possessions. If you would find out what it holds, you had best
+look IN it!
+~
+
+#0
+
+#ROOMS
+
+#1200
+{WT{ch{We {gS{Wa{gc{Wr{ge{Wd {GG{Ha{Gr{Hd{Ge{Hn{x~ 
+The sound of cascading {Cw{Ta{Bt{Ce{Tr{x tickles your ears as you enter the
+beautiful {Gg{Ha{Gr{Hd{Ge{Hn{x. The {Wp{gu{Wr{ge, {Vs{Mw{Ve{Me{Vt{x fragrance's of the many {Cf{Tl{Go{Hw{Ve{Mr{Vs{x 
+tease your nose as their beauty captivates your eyes. Your senses 
+dance as you look about the garden, feeling as if you have landed 
+in {WM{go{Wt{gh{We{gr {HN{Ga{Wt{Hu{Wr{Ge{W'{Hs{x lap itself. The {Cw{Ta{Bt{Ne{Cr{Tf{Ba{Nl{Bl{x showers  into a circular 
+{cs{gt{co{gn{ce {Wp{go{Wol{x in the center of the {Gg{Ha{Gr{Hd{Ge{Hn{Gs{x, pooling around a grand {WIvory 
+statue{x. The man and woman of the statue seem eternally frozen in 
+time, human, and yet, immortal. As if ready to embrace, the woman 
+holds her arms out, her face understanding, compassionate, all 
+knowing.  The man kneels before her, his head resting in her lap 
+as water dances around them.
+~
+0 DKT 0
+E
+creationdate~
+April 21st, by {VL{Mi{Cd{Td{Ma{x
+~
+S
+
+#1201
+Nothingness~
+You float in nothingness.  As you peer around into the darkness your mind 
+slowly registers the possibilities of this place, for it is not truly a 
+place, but a portal to many places.  As you glance around you see nothing, 
+but catch glimpses of everything.  If only you could master this place, 
+anything would be possible.
+~
+0 CT 0
+S
+
+
+#1202
+The Beginning, and The End~
+  You stand in the void. You stand in nothing. You stand in everything.
+Everywhere you look, you see nothing, yet you see everything. Time moves
+so slow that it bounds ahead as fast as can be. It is so dark it's blinding.
+It's so quiet it's deafening. It's here, yet it's not. You stand in a
+conundrum.
+   From this point, the universe came into existance, and here it will
+cease to be.
+~
+0 CDNSTY 0
+S
+
+
+#1203
+Valhalla~
+This is the huge Hall of Valhalla, where the Gods rule supreme.  The
+cavernous building stretches infinitely in all directions.  Valhalla
+continues to the east, and the gods make their homes north and south of
+the halls.  The golden gates are to the west.  You know not what lies
+upward...
+~
+0 DP 0
+D1
+Valhalla continues east.
+~
+~
+0 -1 1217
+D2
+A sea cave is south of here.
+~
+door~
+1 -1 1208
+D3
+The entrance to Valhalla is to the west.
+~
+~
+0 -1 1216
+D4
+If you want to know what is up there, you shall have to go look...
+~
+~
+0 -1 1
+S
+
+
+#1205
+The Eye of the Hurricane~
+The shrieking winds of a monstrous storm surround you, spinning you around
+in an endless web of fury. But then, in the middle of turmoil, you find a
+strange calm. You find yourself hovering in the calm eye of a hurricane. All
+around you you can see the destruction caused by the powerful storm. White
+hot flashes of lightning flicker from the depths of the hurricane.  But
+everything is strangely peaceful in here, with the sun shining in from above
+and a flock of birds winging across the sky.  You stretch out and relax, this
+storm is going to be here a while.
+~
+0 CDJNO 9
+S
+
+
+#1206 
+A Dark Cavern~ 
+The room is dark and musty. As you travel farther into the cavern, your boot
+kicks something solid and bounces around causing echos to fill the air. As you
+light a torch to see what was creating the clatter, you gasp in suprise as you
+see the huge amount of treasure that lies before you. There are piles upon
+piles of {Yg{bo{Yl{bd{x, {Vj{Be{Vw{Be{Vl{Bs{x, {Nm{Ma{Rg{Ni{Mc {Ri{Nt{Me{Rm{Ns{x, and other rare and exotic items. As you 
+begin to clamber up the side of one of the mounds of treasure, you also 
+notice the {Ws{gkulls{x and {Wskel{ge{Wtons{x of other brave souls who have dared to 
+disturb the inhabitant of this cavern. As you contemplate your next course 
+of action, you hear a great commotion behind you. Rising up from within 
+the treasure you see the head of a large black dragon, the smell of its 
+breath causing you to wretch. The dragon hisses "you will pay for waking 
+me from my slumber. Now, feel my wrath." With a sharp intake of breath, 
+the great dragon known as {cKaz{gan{cder{x shoots forward an icy blast that 
+instantly freezes and shatters your body. 
+~ 
+0 ADEKNS 5 
+H 100 M 100 
+D2 
+You see the Temple of Midgaard. 
+~ 
+~ 
+0 0 3001 
+S
+
+#1208
+A Sea Cave~
+You are in a small cave in a cliff next to a deep green sea.  Fine
+gold and pink sand blanket the floor.  Shells are scattered and strewn
+about.  A blow hole in the roof of the cave allows beams of light to stream
+in and illuminate the cave.  The wind blows outside the entrance, but
+you are protected from the weather in your cozy cave.  The foamy surf
+never seems to quite reach your feet.  Several boulders here have been
+worn by time into a shape similar to a comfortable chair.
+~
+0 DJP 0
+D0
+Valhalla lies to the north.
+~
+door~
+1 -1 1203
+S
+
+#1211
+Arena of Judgment~
+The scene before you is one that gives you the feeling of being placed
+under a higher authority.  The jury is out.  A statue of Pontius Pilate is
+in the aft of the Arena.  Staring balefully, the statue faces a distant
+hillside where many aged crosses still stand.  The Arena is set in a wide
+pit-like field of trampled bloodstained grass, and is guarded by high walls
+of veinous marble.  A bloodstone seat awaits the true paragon of Romanity.
+~
+0 DJP 0
+D2
+Valhalla is to the south.
+~
+door~
+1 -1 1218
+E
+statue~
+A statue of Pontius Pilate is here.  On its face is the expression of some
+age old contemplation.  Standing at the statues bronzy feet is a blood red
+shield that glimmers like a pool of blood.
+~
+S 
+
+
+#1212
+The Realm of the Dead~
+You are standing on an immense, grey stone floor that stretches as far as you
+can see in all directions.  Rough winds plunging from the dark, starless sky
+tear savagely at your fragile body.
+~
+0 DNKY 0
+D0
+The hard floor seems to go on forever.
+~
+~
+0 -1 1212
+D1
+The hard floor seems to go on forever.
+~
+~
+0 -1 1212
+D2
+The hard floor seems to go on forever.
+~
+~
+0 -1 1212
+D3
+The hard floor seems to go on forever.
+~
+~
+0 -1 1212
+E
+sky wind winds~
+Cold winds plunge ceaselessly at you from the dark, cloudless sky.
+~
+E
+floor~
+The stone floor is the same shade of grey as the sky and is completely plain
+and unscratched.  It is probably too hard for anything to leave as much as a
+scratch on it.
+~
+S
+
+
+#1213
+Asgard~
+You stand on a huge expanse of glass.  Below you are clouds and the
+pains of mortality.  As you stand in Asgard, home of the bravest of the
+brave, you are frozen in awe of the power held within these walls.  A
+huge mansion lies to the east beyond a set of magnificent golden doors.
+~
+0 0 0
+D1
+The golden doors of Valhalla are to the east
+~
+~
+0 -1 1216
+D4
+Above you is a colorful room, the entrance to the Rainbow Collimator!
+~
+~
+0 -1 4201
+D5
+The Rainbow Bridge is below you.  You can barely see it through the clouds.
+~
+~
+0 -1 1215
+S
+
+
+#1215
+Head of the Rainbow Bridge~
+Standing on the mortal end of the Rainbow Bridge, the bridge arches up
+before you and seems to disappear into the clouds.  You wonder if it is
+wise to venture upward into the realm of the gods.  But it seems so calm
+and peaceful here that it would be a shame to leave...
+~
+0 0 1
+D4
+The Rainbow Bridge stretches ahead before you.
+~
+~
+0 -1 1220
+D5
+The altar of Midgaard is below you.
+~
+~
+0 -1 3054
+S
+
+
+#1216
+The Entrance of Valhalla~
+The huge ornate entrance of Valhalla is before you.  It seems as though
+at least eight hundred soldiers could walk abreast of one another through
+these doors. You stare in awe at the sparkling mansion before you.  You
+wonder what secrets are held behind these doors and long to hear the stories
+of bravery and glory that you know are kept within the walls of Valhalla.
+~
+0 P 1
+D1
+Valhalla lies to the east.
+~
+~
+0 -1 1203
+D3
+Asgard lies to the west.
+~
+~
+0 -1 1213
+S
+
+
+#1217
+Valhalla~
+You are standing in the halls of Valhalla.  Pictures of Odin, Thor, Tyr,
+Loki, Freyr, Feyja, and Balder line the walls.  The cavernous hall extends
+to the east and west.  Rooms belonging to the gods lie to the north and
+south.  There appears to be an exit above you, but you do not know what is
+up there...
+~
+0 P 0
+D1
+Valhalla continues east.
+~
+~
+0 -1 1218
+D3
+Valhalla continues west.
+~
+~
+0 -1 1203
+D4
+If you want to know what is up there you shall have to go and look...
+~
+~
+0 -1 1212
+S
+
+
+#1218
+Valhalla~
+You are standing in the halls of Valhalla.  Tapestries of the gods line
+the walls.  A statue of Odin is here.  The halls continue to the east and
+west, and there are doors to the north and south of you.  There is some
+sort of exit above you, but you do not know where it leads...
+~
+0 P 0
+D0
+Pontius' room is north of here.
+~
+door~
+1 -1 1211
+D1
+Valhalla continues east.
+~
+~
+0 -1 1219
+D3
+Valhalla continues west.
+~
+~
+0 -1 1217
+D4
+If you want to know what is up there you shall have to go up and see...
+~
+~
+0 -1 2
+E
+statue odin~
+The statue of Odin has been exquisitely crafted.  It is of white marble
+with black and gold veins.  It looks to be of magical origin.
+~
+S
+
+
+#1219
+Valhalla~
+You have reached the end of the halls of Valhalla.  There are heavy doors
+on three walls which lead into the rooms of the gods.  The hall goes back to
+the west, and there is some sort of an exit above you.  Torches sputter
+softly and the scent of incense is strong here.
+~
+0 P 0
+D0
+Melancholys' room is north of here.
+~
+~
+0 -1 3161
+D1
+Kates' room is east of here.
+~
+~
+0 -1 3150
+D2
+The Temple of Stupid is south of here.
+~
+~
+0 -1 3170
+D3
+Valhalla goes back to the west.
+~
+~
+0 -1 1218
+S
+
+
+#1220
+On the Rainbow Bridge~
+You have reached the center of the Rainbow Bridge.  Clouds and mist swirl
+around your feet.  The view from here is incredible, and it is little wonder
+that the heavens were saved for the gods personal pleasures.
+~
+0 0 1
+D0
+An ominously dark room lies to the north. Dare you enter?
+~
+~
+0 -1 1269
+D4
+The Rainbow Bridge continues upwards into the heavens.
+~
+~
+0 -1 1221
+D5
+The Rainbow Bridge disappears down into the clouds.
+~
+~
+0 -1 1215
+E
+clouds~
+The clouds are beautiful.  There are shades of gray, pink and purple swirled
+into the blue sky.
+~
+S
+
+
+#1221
+The End of the Rainbow Bridge~
+You have reached the end of the Rainbow Bridge.  Asgard stretches out above
+you.  Looking around, you search for the legendary guardian of Asgard.  The
+clouds are far below you and a sense of beauty and peacefulness surrounds you.
+~
+0 0 1
+D4
+Asgard is above you, spread out in all its glory.
+~
+~
+0 -1 1213
+D5
+Bifrost, the Rainbow Bridge leads down to the Temple of Midgaard.
+~
+~
+0 -1 1220
+S
+
+
+#1222
+Center of the Universe~
+  You are standing in the center of all creation.  You have never felt so
+at peace before in your life.  It is a tight squeeze but two people can
+fit into here to discuss private matters that only the stars can over hear.
+~
+0 DKW 0
+E
+tele~
+The rainbow light glimmers in the distance once more and catches you in
+its grasp.  Your next stop could be anywhere...
+~
+S
+
+
+#1223
+{VRefuge{W of a {WS{Cor{Tce{Bre{Nss{x~
+You find yourself in a large, yet cozy cavern, lighted softly with 
+glowing, flickering {Pt{Yo{Pr{Yc{Ph{Ye{Ps{x on the wall.  The scent of fresh {Gherbs{x,
+{bmoss{x, and {Vf{Wl{Vo{Ww{Ve{Wr{Vs{x lingers, highly unusual for an {gobsidian {xcave such as
+this one.  However, if you pay attention out of the corner of your eye,
+you seem to catch the walls {Cg{Tl{Ci{Tm{Cm{Te{Cr{Ti{Cn{Tg{x and {Bs{Nh{Bi{Nf{Bt{Ni{Bn{Ng{x magically.  Your
+gaze is drawn to a graceful {Wwhite horse{x, resting in one corner of the
+cavern.  As you {Glook{x at his soft, doe-like eyes, he flutters his wings
+and ... Wings?{Y!{x?  You realize you are staring at a {Vr{Me{Va{Ml{W-{Vl{Mi{Vf{Me {Wpegasus{x.  A
+carved-in {cbookshelf{x filled with {bancient tomes{x and a {Cm{Wa{Cg{Wi{Cc{Wa{Cl {Bwell{x
+confirm your {Psuscipicions{x.  Truly, this is the {Vabode {xof a {Ws{Cor{Tce{Bre{Nss{x.
+~
+0 KNT 0
+D4
+You see a magical gateway {WL{Ci{Br{Ci{Te{Wl{x has thoughtfully provided.{x
+~
+~
+0 -1 3001
+E
+torches~
+The several {Pt{Yo{Pr{Yc{Ph{Ye{Ps{x mounted on the walls throw light across
+the spacious cavern while keeping away the draftiness or gloominess
+found in so many caves.
+~
+E
+herbs~
+The scent of {Tmystical{x healing {Gherbs{x permeates the air.
+~
+E
+moss~
+A slightly {bmossy{x scent reminds you of the {Hwilderness{x surrounding you.
+~
+E
+flowers~
+As you sniff softly, you can almost visualize {Vorchids{x, {Wl{Ci{Wl{Cl{Wi{Ce{Ws{x,
+and {Mdaffodils{x in front of you.
+~
+E
+obsidian walls~
+The walls are pure {cobsidian{x, and yet, seem to shift and glimmer when you
+are not paying attention.  That so large of a cave was made from this type of
+hard rock indicates the presence of powerful magical forces.
+~
+E
+bookshelf~
+An ingeniously designed bookshelf has been carefully carved into the walls here,
+the shelves pure {gobsidian{x.  On it, you see many dusty {Nancient tomes{x,
+which have withheld the test of time only because of the {Bw{Ci{Bs{Cd{Bo{Cm{x
+they contain.
+~
+E
+ancient tomes~
+As you study these magical writings further, several titles catch your sight.
+{VL{Wo{Vv{We{x, {PH{Ra{Pt{Re{x, {BW{Ci{Bs{Cd{Bo{Cm{x, and {GS{Yu{Cc{Yc{Ce{Ys{Cs{x are among the well
+read pages.
+~
+E
+love~
+For those who seek that elusive thing called love, my only advice is to not.
+When it wants to be found, it will be, whether or not you wish it to be so.
+It will catch you unawares, when you least expect it.  Take a good look at
+every face around you, every spirit you know, every friend you cherish, every
+being you despise.  For love could chain you to any.  
+
+For those who have love, cherish it and nurture it; do not deprive it with
+worries or it will wear thin.  And for those who do not believe that love
+hurts, they clearly have never experienced it.  The pain of loving someone
+is the greatest pain of all, the everlasting ache in your heart which can
+never be healed.  But bask in love when it is yours, for to be embraced by
+the caresses of true love is happiness beyond description.  
+
+{MLove is patient and kind,
+Love is not jealous or boastful,
+It is not arrogant or rude.
+Love does not insist on its own way,
+It is not irritable or resentful,
+It does not rejoice at wrong, but rejoices at right.
+Love bears all things, believes all things, hopes all things, endures all things.
+Love never ends.
+So faith, hope, love abide,
+these three, but the greatest of these is {VL{Wo{Vv{We{x
+~
+E
+wisdom~
+{TThe following are a few words of wisdom that I've accumulated over the years:
+
+If life were not complicated, if it went exactly the way you wished it to be,
+would it be worth living?  What is spring if there is no winter?  It is because
+life is not boring, because we keep on learning from mistakes, that we have the
+urge to continue.
+
+New tomorrows were created to make up for the bad todays.
+
+A smile costs nothing, but is worth a lot.  Wouldn't the world be a little
+better if everybody smiled more?
+
+When in doubt, shut up. 
+
+Always strive for compassion, for it is that which separates humans as a race.
+The ability to put others before ourselves, to think from somebody elses shoes.
+You might be surprised to find that when you give a little, you get a lot.
+
+Nobody likes a whiner.
+
+It is NOT better to have loved and lost than to never have loved before... and
+yet, it is not like we have any choice whether or not to love.  So... why not
+enjoy it while you can?
+
+Never hesitate to hug.  What other gesture conveys innocent affection as
+strongly as a hug?{x  
+~
+E
+success~
+1. Never give up on a dream.
+2. It never hurts to plan for your future.
+3. It's okay to make mistakes.  It's not to make them again.
+4. Never be afraid to try something new.
+5. Hear from everybody.  Listen to your loved ones.  Trust yourself.
+
+{Bit all amounts to this:
+
+{CIf you want something hard enough, you will work for it.
+If you work for it hard enough, it will be yours.{x
+~
+E
+sorceress~
+Does it look like Liriel is here?  Duh!!! :P
+~
+S
+
+
+#1224
+An overflowing office~
+The very act of entering this cramped room involves shoving aside enough 
+paper to have a place to stand.  Sitting is almost out of the question, 
+unless you want to use a stuffed briefcase as a cushion.  A torch in the 
+corner is the only source of light, and a rather dangerous one, at that.  
+You do have the feeling that a large fire would be the only way to reduce 
+the amount of trash and paperwork cluttering this room.  Directly behind 
+a small desk is a large map of Thera.  You note with anxiety that some 
+spaces on the map are crossed out, while others are circled.  The only 
+other objects of note in the room are a small compass and an abacus.
+~
+0 JK 0
+D5
+You see Teotwawki busy at work.
+~
+door~
+1 0 1225
+S
+
+#1225 
+{PT{Ye{Po{P'{Ys {PW{Yo{Pr{Yk{Ps{Yh{Po{Yp{x~ 
+You walk into the room and immediately notice all the tools Teo has neatly
+arranged on the shelf. She has everything and they are all labeled. The 
+{Csign{x on the wall lists what each tool is used for. She has a work bench in
+the corner of the room. Teotwawki is very territorial about her work space.
+There are shades on every window. After careful consideration she built a 
+door leading to her boss's office. A voice from above says, "feel free to 
+look around but DO NOT TOUCH ANYTHING." 
+~
+0 DJKN 0 
+D4
+You see Kenneth neck high in paperwork.
+~
+door~
+1 0 1224
+E
+sign~
+{CAuger -{W drilling holes in wood
+{CAxe - {Wfelling small trees or cutting firewood
+{CAdaze - {Wcutting slivers from the surface of the wood
+{CBasket - {Wholding stone while it was hoisted at a building site
+{CBillhook - {Wpruning
+{CCloth Shears - {Wcutting cloth
+{CCrowbar - {Wfor manhandling the heavy stones at a quarry and placing stones 
+            in their final resting places
+{CDividers - {Wfor measuring
+{CHammer - {Wto butt stone and drive wooden pegs
+{CHandsaw - {Wto make small wood cuts and more delicate woodworking
+{CHold On (Tongs) -{W holding metal as it is being hammered
+{CMallet - {Wused in conjunction with a chisel to carve wood or stone; the 
+           mason or carpenter would strike the chisel with the mallet.
+{CMason Chisel - {Wused by the masons, along with the mallet, to carve 
+                 decorative designs into the stones, and for cutting and 
+                 dressing stone
+{CNippers - {Wcutting through wire
+{CPitch Fork - {Wthrusting into sheaves, bundles of hay, so that they could 
+               be pitched into a cart
+{CSharp Blade -{Wcutting through leather
+{CShearing Shears - {Wcutting fleece from sheep
+{CSickle - {Wcutting crops
+{CSnip - {Wcutting sheets of metal
+{CTrowel - {Wlaying and smoothing mixed mortar on stone or brick
+{CWood Chisel - {Wshaping and cutting designs into the wood, or splitting wood{x
+~
+S
+
+
+
+#1226
+{WA {Cbe{Ta{Cut{Ti{Cfu{Tl {Bbedroom{x~
+The first sensation that you feel as you walk past the {Wlace-draped{x doorway, 
+into this bright, {Ysunny{x bedroom, is sinking into the 2 inch deep, plush 
+{Bblue carpet{x that spreads across the large room.  The walls are all {Wwhite{x, 
+{Wi{Cl{Wl{Cu{Wm{Ci{Wn{Ca{Wt{Ce{Wd{x by two big windows directly across from you that let the {Ysun{x 
+shine through.  A huge birch-framed bed lies in one corner, the overstuffed 
+mattress just {Vt{Me{Vm{Mp{Vt{Mi{Vn{Mg{x you to bounce on it.  A curious little {bheap{x lies on 
+top of the {Cbaby blue s{Ta{Ct{Ti{Cn s{Th{Ce{Te{Ct{Ts{x, which soon stretches and yawns to turn 
+into an adorable little puppy that turns and blinks it's sleepy eyes at you.  
+The birch desk in the corner holds the only evidence of {WL{Ci{Br{Ci{Te{Wl's{x current 
+occupation, with {Ba{Nm{Bu{Nl{Be{Nt{Bs{x and {cscrolls{x scattered across the surface.  You 
+{Psmile{x as you catch the light scent of {Gcrisp apples{x and {Pripe {Yp{Pe{Ya{Pc{Yh{Pe{Ys{x; 
+this room certainly fits the {Cg{Wo{Bd{Td{We{Ns{Cs{x you know.
+~
+0 DIKNP 0
+D2
+~
+~
+0 -1 1282
+E
+windows~
+Two big windows take up most of one wall, the {Wlace-trimmed{x {Clight blue curtains{x 
+drawn back to take advantage of the {Ysunlight{x streaming in.  If you walk up 
+to them and look outside, you might catch a view of the sparrow in the {Gt{Hr{Ge{He{x 
+outside that {WL{Ci{Br{Ci{Te{Wl{x has befriended. 
+~
+E
+walls~
+The {Wwhite walls{x and light furniture seem as if they've never encountered {bdust{x
+in their lives, which lets you suspect that {WL{Ci{Br{Ci{Te{Wl{x might have {Pcheated{x and 
+erected a {Wm{Ga{Cg{Bi{Vc{Pa{Yl {Cw{Ba{Cr{Bd{x against {bdust{x.  Nah, she wouldn't be that lazy.  Hmm...
+~
+S
+
+
+#1227
+A small shrine~ 
+Within a small glade stands a single structure, intricately
+carved.  It looks so natural, it had to have been carven from
+a single block of stone.  Impressive in itself, the fact is
+amplified by the fact that you haven't seen a single rock
+even as large as your fist within miles of this shrine.
+Standing in front of the opening of the shrines is a large
+wooden structure.  It would be an arch, except it lacks any
+curve.  Instead, two pillars of wood stand up, with one more
+laid across their tops.  The shrine itself is open on the
+front, with a slight stairway leading up to the center.
+Surrounding the actual center of the shrine are many small
+statues.  Below the statues lie offerings including such
+things as flowers, rare stones, letters, and carvings.
+Sitting in the center of the statues is one that doesn't
+stand out much, aside from being slightly larger.  The
+inscription under it reads 'Viro - Kami of Honour and Fate'.
+There is more writing below, but you can't read it from
+where you are right now.
+~
+0 KTY 2
+H 100 M 150
+
+D2
+You see the forest bordering this beautiful glade.
+~
+~
+0 -1 6100
+
+E
+inscription writing~
+"Here stands the sanctified altar to Viro, Kami of Honour and
+Fate.  His will determines the thread your life will likely
+lead, and his grace is bestown upon those who act with
+true grace."
+~
+
+E
+statues~
+Many small statues surround the center island in this shrine.
+As your eyes sweep the lot, you see a wolf, a bat, a mempo, a
+katana, a tree, a circle, and a thought.
+~
+
+E
+wolf~
+This statue depicts a wolf sitting on its haunches, howling.
+Underneath it, a brief inscription into the stone reads,
+"Worship the wolf, for he is truly in touch with his primal
+side.  It is this connection that allows one to truly
+understand why things happen the way they do."
+~
+
+E
+bat~
+This statue has a single thread-width pillar supporting a bat
+in mid-flight.  The inscription beneath it reads, "Always
+remember that no matter what your first impressions are, you
+should always respect any man, woman, or creature for their
+true abilities."
+~
+
+E
+mempo~
+Resting atop a short pillar is a statue of a strange looking
+mask.  The mask is attached to a traditional eastern helmet,
+and appears to be fashioned after a metal mask.  Beneath it
+is an inscription, just like every statue.  This one reads,
+"Very few men are what they first appear to be.  Almost
+everyone wears an invisible mask to hide their true self.
+For better or worse, remember that however honest you are,
+others may not be the same."
+~
+
+E
+katana~
+A katana is carven, seemingly with the top of the blade buried
+into the pillar it rests upon.  Intricate runes trace down the
+flat of the blade, and spread out along with face of the pillar.
+As you look at them, a section of the runes stand out, and you
+realize that the inscription on this statue is actually part of
+the statue itself.  After a short moment of seperating the
+random runes from the actual message, you read to yourself,
+"The physical weapon one wields can cut no deeper than the words
+the wielder flings.  A word spoken in anger may be remembered by
+others for years to come.  Do not cut wounds with words where you
+would not slice open the flesh with your blade."
+~
+
+E
+tree~
+This statue actually rests on the ground, and is still as tall
+as the others.  Written on the side of the trunk on a flattened
+section, you read, "Respect nature and what it gives and takes,
+for it is a force that exists beyond change."
+~
+
+E
+circle~
+Standing atop its pillar is a simple circle, flawlessly carved
+out of the same piece of stone as the pillar (and possibly the
+rest of the shrine).  Below it, an inscription reads, "The circle
+has no beginning and no end.  As your life ends, another will
+begin.  Noone avoids the grasp of time, although some may delay
+it.  Remember that while this circle may seem harmless, it can
+be either your best friend or your worst enemy."
+~
+
+E
+thought~
+As you look at the pillar just left of the statue of Viro, you
+fail to see any discernable shape.  However, as you concentrate
+on it, a stream of words enter your head.  "Bushido is one of
+the many codes of honour.  No two men have ever interpreted the
+teachings exactly the same, and no two ever will.  Honour defines
+who a person is, but who a person is also defines what honour is
+to him.  Honour is its most basic form is the act of treating
+others how they should be treated, personal feelings aside.
+Remember this, and build your own code of honour to follow."
+~
+S
+
+
+#1250
+Tomb of Necromancy~
+  Evil lurks on the walls as you peer around at the shadows
+surrounding you.  They creep in on you.  Slow, persistent,
+and consuming.  The voices of ghosts from the past fill your
+fading mind.  A mind that appears to be slipping away as you
+soon become content with your surroundings.  You now feel at
+one with the dead.  Suddenly, the room is much more than just
+a physical place.  The presence of many can be felt.  Are
+they ghosts, demons, or zombies?  Whatever it is, it is beyond
+imagination, and truly sinister.  The future is at hand, and
+your life as you knew it is behind you.
+~
+12 DK 0
+D5
+You see the sacred Altar of Necromancy.
+~
+~
+0 -1 1251
+D4
+You see the northern end of the temple hall.
+~
+~
+0 -1 3054
+D0
+You see, Nothing!!!.
+~
+~
+0 -1 500
+S
+
+
+#1251
+The Altar of Necromancy~
+  You have taken your first step into the realm of the unknown;
+the domain of the undead.  You feel very different as you notice
+the tingling sensation that surges through your lifeless body.
+What you feel is more power than you ever could have imagined.
+You now hold the power and knowledge of the vampire.  Settling
+your thoughts, you begin to glance about the room, admiring its
+many decorations.  The {Cwalls{x are all constructed of an ebony
+granite which are smooth and cold to the touch.  In each of the
+five corners of this pentagon shaped room stands a {Ctorch{x burning
+a dark light.  Together they provide just enough illumination
+to read some of the carvings on the walls.  In the middle of the
+room is a circular fountain which is filled with a rich mixture
+of dark blood.  Blood which pours down from a small opening in
+the ceiling of stalactites.  The sight is awe inspiring.
+~
+12 DK 0
+D4
+A dreaded mist of evil cloaks this room from above.
+~
+~
+0 -1 1250
+E
+light torch~
+These massive torches are about one foot wide in diameter and
+stand about three feet tall.  They are composed of a rock similar
+to that of the walls.  The fire that burns within them is
+extremely mysterious.  The flames are black and provide no heat
+at all.  They just merely provide a dim glow that is eerie and
+evil in appearance.
+~
+E
+walls granite carvings~
+The five walls of this room are all composed of an ebony granite
+that is cold to the touch.  Each wall has a carving towards the
+top.  You determine them to be names.  Lotus, Arioch, Takhisis,
+Razor, and Colburn.  All descendants of the great vampire
+Zhukaukas.
+~
+S
+
+
+#1266
+The Guest Immortals' Room~
+   This room is devoted to those immortals who do not have a room of
+their own.  There are diagrams hanging up on the walls on how to use
+your godlike powers to torture mortals and change global weather
+patterns.  Two small recliners line the north edge of the room and
+a large leather couch is on the west wall.  There are no doors or
+windows and the ceiling is made of a swirling gas material.  It appears
+to be a portal of some sort that will allow living beings to be sucked
+in and out of it with ease.
+~
+0 0 0
+S
+
+
+#1269
+{PThe {CS{Ye{Ga{Vs{Go{Yn{Cs {Pof the {BHero{x~
+   As with all mortals, there are seasons in our lives which we pass
+through: a season of {Cbeginnings{x; a season of {Yprosperity{x; a season of
+{Gmaturity{x; and a season of {Bfinality{x. On each wall is a mural
+of these Four Seasons. Gaze upon each, read and remember, for your
+memories hold the answer to who you are. As with all questions, you
+can find the answer only within your soul. Welcome. May your name be
+forever burned into the murals of this sacred room.
+~
+0 CDQS 0
+D2
+To the south, the Rainbow Bridge offers safe passage back to
+the mortal realm.
+~
+~
+0 -1 1220
+E
+beginnings~
+In the Spring of Growth, you begin learning and experiencing lessons
+which will equip you for your long journey. Depending upon how you
+use what you learn, your skills and spells will continue growing,
+carrying you into new realms. This is the time for seeking and
+exploring new places.
+~
+E
+prosperity~
+In the Summer of Life, you put your knowledge to the test and strive
+to excel, moving forward quickly. Your growth is determined by wisely
+using what you learned, aiding your fight from one level to another.
+Your wealth of knowledge provides the means for advancing into the
+Autumn of Maturity.
+~
+E
+maturity~
+The Autumn of Maturity is a time for reflecting upon past experiences,
+drawing upon your understanding and sharing it with others that are
+still in the seasons before. Your assistance to others is invaluable.
+Based upon wisdom you attained during your previous seasons, you
+are looked upon as almost all knowing. But, as with all things, you
+pass into the next season.
+~
+E
+finality~
+Winter Twilight descends upon all mortals, and passing into this season
+you slow down. Looking deep within yourself to find answers about who
+you are and where you are going, your mortality is questioned. Having
+almost reached the end, you contemplate a mortal's final decision of
+rebirth or immortality.
+~
+S
+
+
+#1270
+Sorsha's Office~
+A large oak table sits in the middle of the room, with a few comfy chairs
+surrounding it. Papers are scattered about the desk, and building plans
+are stretched out in one corner. A skylight allows the suns rays into the
+room. All around the walls tapestries are hung, and other special mementos
+to Sorsha.
+~
+0 KC 0
+S
+
+
+#1271
+Below some massive clouds~
+The path stops here, and the sunlight beats down upon you, in the distance
+the sound of wings flapping can be heard. The clouds seem to stay in place
+and hover about you. The suns rays part though the clouds. This truly is a
+glorious place!
+~
+0 CKS 0
+D0
+~
+~
+0 -1 5281
+D4
+~
+~
+0 -1 1272
+S
+
+
+#1272
+Before Sorsha's Domain~
+You stand on top of a huge billowing cloud, the sun beats down on you, making 
+your face warm. A huge castle stands before you, and a wrought iron gate blocks 
+entrance into the castle. This must be as far as you can go.
+~
+0 CKS 0
+D5
+~
+~
+0 -1 1271
+D0
+A massive wrought iron gate blocks the way.  There is a tiny
+keyhole in the center, though...
+~
+gate~
+4 1270 1273
+S
+
+
+#1273
+Within a large castle~
+A strong scent of roses surround you upon your entrance. A red carpet 
+lines the long hallways that go off toward the north and south. A grand 
+stair case leads upstairs.  A soft and gentle melody plays in your head, 
+that almost inspires you to start dancing right here in front of everyone.
+~
+0 CKS 0
+D0
+~
+~
+0 -1 1279
+D1
+~
+~
+0 -1 1274
+D2
+A massive wrought iron gate blocks the way.  There is a
+tiny keyhole in the center, though...
+~
+gate~
+4 1270 1272
+D3
+~
+~
+0 -1 1276
+S
+
+
+#1274
+Grand Hallway~
+Large stain glass windows give light to this room. Soft candles burn off 
+in the distance that give the castle a warm and welcoming feeling. Large 
+paintings that depict Sorsha's birth to her ascension into the heavens 
+line this hallway. You can't help but look, and gaze in sheer wonder.
+~
+0 CKS 0
+D0
+~
+~
+0 -1 1270
+D3
+~
+~
+0 -1 1273
+S
+
+
+#1276
+Large Hallway~
+Grand arches give support to this hallway.  Vases are mounted along the 
+brick walls where fresh flowers gathered from around the realm sit, and 
+provide a lovely scent to the atmosphere.  It's kept up well and very 
+clean. The whole castle leaves you in awe.
+~
+0 CKS 0
+D1
+~
+~
+0 -1 1273
+D2
+~
+~
+0 -1 1280
+S
+
+
+#1279
+Large sitting room~
+Throw pillows and sofas line the room, with a solid walnut table in the 
+middle. A few left over tea cups sit on it from past conversations. The 
+whole room looks so comfortable, you just want to plop down and take a nap. 
+~
+0 CKS 0
+D2
+~
+~
+0 -1 1273
+S
+
+
+#1280
+Sorsha's bedroom~
+Soft curtains blow in the breeze, a gentle smell of roses enters the room. 
+Soft pillows and silky sheets make up the bed. A single red rose has been 
+placed between the two pillows.  From the balcony you can see the entire 
+realm. A lounge chair has been placed out there to provide Sorsha with a 
+place to relax.
+~
+0 CKS 0
+D0
+~
+~
+0 -1 1276
+S
+
+
+#1277 
+Down a Dark Hole~ 
+{cSlipping down inside to the shadowy space below, you maneuver around the{x
+{Ws{gp{Wid{ger{Ww{ge{Wbs{c and other various obstacles in your path.  Your eyes catch a soft,{x
+{ctrampled spot on the {Cf{gr{Ta{Cy{ge{Td {grug{c in the corner... it looks very comfortable,{x
+{cand judging by the mess of catnip, {Ws{gh{Wre{gdd{We{gd {Wpaper{c, and other various toys{x
+{csurrounding it, someone else thinks so, too.{x
+{c  Glancing around, you can tell this untidy little {Wh{gi{cd{ge{Wa{cw{Wa{gy{c is visited often,{x
+{cand {Rl{Po{Rv{Pe{Rd{c dearly.  Filled with {Nh{Bea{Nr{Bt{Nw{Bar{Nmi{Bn{Ng{c personal touches, it just {Yr{Wa{Yd{Wia{Yt{We{Ys{x
+{can overwhelming sense of safety and peace of mind. You almost don't notice the{x
+{cplace is damp, dark and smells oddly of {Cfish{c.  A {gpainting{c sits on top of a tall{x
+{cstack of books by the bed.{x
+{c  Off to the left you see a torn {Ns{Rh{bo{Ne{bbox{c, and wonder what treasures in might{x
+{chold. The {bhomeliness{c of it all just fills you with {Rw{Ya{Pr{Rm{c, fuzzy feelings, and{x
+{cyou can't help but smile to yourself and wonder {Wwho{c it is that calls this tiny{x
+{Hk{Gi{Htt{Gy {Hc{Gav{Her{Gn{c her home.{x
+~
+0 DEJNS 0 
+E
+spiderwebs~
+{gDangling in the {ccorners{g of the room are a few delicatly woven {Ws{gp{Wid{ger{Ww{ge{Wbs{g.{x
+~
+E
+shredded paper~
+{gWhat a treat! A few pieces of {Ws{gh{Wre{gdd{We{gd {Wpaper{g lie here, rolled into little{x
+{gballs, just begging you to bat them around!{x
+~
+E
+books~
+A few books any kitty's library would be incomplete without; 'Mousing in Style', 
+'Sunbathing Made Easy', 'Grooming for Pros', and 'Scratch Posts For Dummies'.
+~
+E
+toys~
+Ball toys! Wool toys! Leather toys! Feather toys!!
+It's enough to make your head swim!!
+~
+E
+painting picture~
+{gBefore you stands a slender, {Wwhite {gfurred, feline. Her soft, {Cg{cr{Ca{cy{g-{Cb{cl{Cu{Ce{x
+{Ce{cy{Ce{cs{g draw your gaze like a magnet, and her waist length, {Rf{Pi{Ye{Pr{Ry {Pred {ghair{x
+{gcascades over her shoulders in a molten waterfall.  Soft, full lips,{x
+{gpainted to perfection, seem to beg to be {Rk{Mis{Rse{Md{x{g, but something makes{x
+{gyou stop and think... would you dare?{x
+~
+S
+
+
+#1278
+{GSturms{x {bCave{x {Mof{x {VWonders{x~
+{TAs you enter this eerie place it seems very dimly lit in the far left 
+corner is one torch and under this torch is a shrine on it sits a what 
+seems to be a old lamp...{x {Ryou want to leave but for some strange 
+reason you're drawn to it you move closer to it suddenly out of the 
+corner of your eye a shadowy figure moves past you oddly enough you're 
+not worried{x {byou notice in the right hand corner is two large statues 
+standing side by side the statues seem to be female you examine them the
+first seems to be cat-like the second is also cat-like and even more 
+beautiful then the first you move to touch one of them and the shadowy 
+figure steps out in front of you and reveals himself to be Maverick the 
+Bard{x  "{Pno one is allowed to touch the statue of Lady {MS{Vu{Mn{Vd{Ma{Vn{Mc{Ve{Mr{x 
+without permission," he explains, "and this other statue is Sturm's deity 
+{HA{Gl{Wi{Gs{Ha please stick around and stay awhile and please enjoy 
+your stay."
+~
+0 D 0
+S
+
+
+#1281
+Montrey's Shrine~
+This is the room where Montrey comes to relax, entertain guests, gather
+with other immortals to work on group projects, and to pay homage to
+those powers higher than he.  The walls, ceiling, and floor are made
+from stained and lacquered oak, as is the coffee table in the center of
+the room.  A couch is situated near the table, and a small altar is on
+the west wall.  Paintings of some of Montrey's avatars are hung on the
+walls.  The only exit from this room is north.
+~
+0 DNSU 0
+D0
+North of here is Liriel's bedroom.
+~
+~
+0 -1 1226
+E
+walls ceiling floor oak~
+The walls, ceiling, and floor are made from stained and lacquered oak.
+~
+E
+coffee table~
+It's an oak coffee table, perfect for setting drinks on or laying out
+plans, diagrams, and other work.
+~
+E
+altar~
+A small altar built of oak is near the west wall.  It is simple yet
+elegant, and suitable for worshiping any of the gods of Thera.
+~
+E
+paintings avatars identities~
+Paintings of some of Montrey's past and present identities.  Currently
+Rakurai is the only one you recognize.
+~
+E
+rakurai~
+An oak framed portrait of Rakurai is hung on the wall.  Rakurai has
+shoulder length brown hair and blue eyes, and it looks like a pair of
+katanas are fastened to his back.
+~
+E
+smile~
+{k.                         {Yoooo$$$$$$$$$$$$oooo
+{k.                      {Yoo$$$$$$$$$$$$$$$$$$$$$$$$o
+{k.                   {Yoo$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$o         o$   $$ o$
+{k.   {Yo $ oo        o$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$o       $$ $$$$o$
+{k.{Yoo $ $ "$      o$$$$$$$$$    $$$$$$$$$$$$$    $$$$$$$$$o       $$$o$$o$
+{k.{Y"$$$$$$o$     o$$$$$$$$$  {BoO  {Y$$$$$$$$$$$  {BOo  {Y$$$$$$$$$$o    $$$$$$$$
+{k.  {Y$$$$$$$    $$$$$$$$$$$  {BOO  {Y$$$$$$$$$$$  {BOO  {Y$$$$$$$$$$$$$$$$$$$$$$$
+{k.  {Y$$$$$$$$$$$$$$$$$$$$$$$    $$$$$$$$$$$$$    $$$$$$$$$$$$$$  """$$$
+{k.   {Y"$$$""""$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$     "$$$
+{k.    {Y$$$   o$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$     "$$$o
+{k.   {Yo$$"   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$     $$$o
+{k.   {Y$$$    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$""$$$$$$ooooo$$$$o
+{k.  {Yo$$$oooo$$$$$  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$o$$$$$$$$$$$$$$$$$
+{k.  {Y$$$$$$$$"$$$$   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$     $$$$""""""""
+{k. {Y""""       $$$$    "$$$$$$$$$$$$$$$$$$$$$$$$$$$$"      o$$$
+{k.            {Y"$$$o     """$$$$$$$$$$$$$$$$$$"$$"         $$$
+{k.              {Y$$$o          "$$""$$$$$$""""           o$$$
+{k.               {Y$$$$o                                o$$$"
+{k.                {Y"$$$$o      {Po$$$$$$o"$$$$o        {Yo$$$$
+{k.                  {Y"$$$$$oo     {P""$$$$o"$$$$o   {Yo$$$$""
+{k.                     {Y""$$$$$oooo  {P"$$$$o"$$$${Y$$$""  
+{k.                        {Y""$$$$$$$oo {P$$$$$$$$$$
+{k.                                {Y""""{P$$$$$$$$$$$
+{k.                                    {P$$$$$$$$$$$$
+{k.                                     {P$$$$$$$$$$"
+{k.                                      {P"$$$$$$"
+{k.
+~
+S
+
+
+#1282
+Montrey's Bedroom~
+Your feet sink into a thick {Wwhite rug{x as you step into this room.  This is
+where Montrey spends the small amount of time that he's not working somewhere
+about the realm, and where he only brings the most special of guests.  Very few
+see this room, which isn't a terrible disappointment, because it's not much to
+see.  Simple {bwood{x floors and walls, reminiscent of a log cabin, give the
+room a small, cozy feeling.  The wall opposite you is one huge window, with a
+panoramic view of {Wsnow capped{c mountains{x.  A desk is placed against one
+wall, with papers and maps strewn about the top of it.  A small cooler sits
+near the desk.  A large bed takes up the center of the room, with the foot
+facing the window.  Other than that, the only furnishing in the room is a shelf
+on one wall, holding a few mementos from times gone by.
+~
+0 CDJOT 0
+D0
+~
+~
+0 -1 1226
+E
+rug white~
+A white rug covers part of the floor.
+~
+E
+wood floor wall~
+The walls and floor are of a light varnished wood, somewhat reminiscent of a log cabin.
+~
+E
+window mountain~
+The window literally makes up one of the walls of this room, and reminds you that the room
+is built onto a cliff in the mountains.  Looking out, you can see a vast expanse of air,
+and snow covered peaks above and below.
+~
+E
+desk~
+Papers, maps, and other assorted things lay on top of the desk.
+~
+E
+shelf~
+The shelf holds some of Montrey's prized possessions.  Most noticable, though are the
+pictures.  Pictures of friends, most in their own frames, take up most of the space.
+Portraits of Liriel seem to be in the majority, oddly enough. :)
+~
+S
+
+
+#1298
+{WCloser to Heaven{x~
+A {Cc{Whi{Cl{Wl {xbreeze blows past as your eyes adjust to the dazzling brightness
+filling your vision.  You stand atop a wispy {Wc{glou{Wd {xhigh above the {He{ba{Hr{bt{Hh{x,
+surrounded by {Cazure sky{x lanced with shafts of {Yg{go{Wld{ge{Yn s{gu{Wnlig{gh{Yt{x.  Never have
+you seen something so vast, empty, yet strangely beautiful... until you look
+down.  Reaching as far as the eye can see is a {Wwhite sea{x of churning {Wcl{go{Wu{gd{Ws{x.
+Peaks and valleys, canyons and mountains of {Wm{gis{Wt{x rise and collapse in an
+always changing, ever unchanged panorama.  A question enters your mind...
+"How can mortals endure their lives, ignorant of such natural beauty?"
+Coherent thoughts soon flee in face of such an awesome scene, however... so
+you sit back, relax, and lose yourself watching the {Wcl{go{Wu{gds{Wc{ga{Wpe{x far below.
+~
+0 JPT 9
+S
+
+#1299
+{cCelestial Echoes{x~
+Iridescent crystal beams of moonlight illuminate the azure sky, framing
+the graceful foliage in ethereal splendor.  The first faint breezes sweep a
+gentle wave across the endless vista carrying the soft, sweet sound of
+melodic strings.  As if in perfect counterpoint, there is a barely audible
+whisper that seems to play among the woodwinds.  There is a sense of other
+worlds, other times.  This realm is permeated by an incredible sense of
+relaxation that seems to lift and banish all feelings of stress and tension.
+This is the time to dream, to reflect, to clarify.
+~
+0 CDKT 1
+O Chilalin~
+S
+
+#0
+
+#RESETS
+
+D 0 1203 2    1         * Valhalla south
+D 0 1211 2    1         * Arena of Judgement south
+D 0 1218 0    1         * Valhalla north
+D 0 1225 4    1        *close door going up from 1225 to 1224
+D 0 1224 5    1        *close door going up from 1224 to 1225  
+D 0 1272 0    2         * To Sorsha's Castle north
+D 0 1273 2    2         * From Sorsha's Castle south
+
+O 0 1295 1 1200         *furniture in Garden
+O 0 1296 1 1200         *fountain in Garden
+
+M 0 1203 1 1269 1       * guardian into strongbox (seasons) room
+O 0 1297 1 1269         * dummystrongbox into seasons room
+
+M 0 1201 1 1206 1       * load dragon into a dark cavern
+
+M 0 1253 1 1281 1       * Arwen into Montrey's Shrine
+E 0 1254 10 16          * Equip Arwen with Arwen's Sword
+O 0 1256 1 1281         * Couch into Montrey's Shrine
+O 0 1257 5 1281         * Portal to recall into Montrey's Shrine
+
+O 0 1264 1 1223         * Energy bed in Refuge of a Sorceress
+O 0 1276 1 1223         * Magical Well in Refuge of a Sorceress
+M 0 1262 1 1223 1       * Pegasus in Refuge of a Sorceress
+
+O 0 1226 1 1226         * Bed in Liriel's Bedroom
+M 0 1226 1 1226 1       * Puppy in Liriel's Bedroom
+
+O 0 1278 1 1277         * Light (portal) in Alisa's room
+O 0 1245 1 1277         * Rug in Alisa's room
+O 0 1246 1 1277         * Shoebox (container) in Alisa's room
+P 0 1248 100 1246 1     * Crickets (food) in shoebox
+
+O 0 1227 1 1282         * Bed in Montrey's Bedroom
+O 0 1228 1 1282         * Cooler in Montrey's Bedroom
+P 0 1229 10 1228 2      * Coke in cooler
+
+
+S
+
+#SHOPS
+
+0
+
+#SPECIALS
+
+M 1218 spec_cast_cleric    * mon capitaine
+
+S
+
+#$
+

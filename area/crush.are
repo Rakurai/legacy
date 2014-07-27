@@ -1,0 +1,613 @@
+#AREA
+crush.are~
+Crush's Temple~
+{H{{ ALL } {MCrush   {TTemple of the Tao~
+19900 19999
+
+#MOBILES
+#19900
+bunny common tao small~
+A small bunny~
+A small bunny of the Tao is here.
+~
+Upon closer inspection, the bunny seems to glide around the room
+without moving a muscle.  The bunny seems almost a part of the mist.
+~
+human~
+CGRZ TH 0 S
+15 6 5d15+225 5d15+325 3d5+5 claw
+-10 -9 -11 -15
+FHIJU ACX EFG S
+stand rest female 5
+0 0 small 0
+>all_greet_prog 50~
+	if ispc($n)
+		if isimmort($n)
+			worship $n
+		else
+			bow $n
+		endif
+	endif
+~
+>entry_prog 100~
+	worship crush
+	peer
+~
+>give_prog carrot~
+	thank $n
+	eat carrot
+	mpoload 19902
+	give pill $n
+~
+>death_prog 99~
+	mpmload 19900
+	mpecho The bunny sits back down and smiles at you contentedly.
+	mpgoto 19920
+~
+|
+
+#19901
+large french lop bunny grey~
+The lop-eared bunny~
+A large grey french lop-eared bunny is here.
+~
+Upon closer inspection, the bunny seems to glide around the room
+without moving a muscle.  The bunny seems almost a part of the mist.
+~
+human~
+ABGQZJKab DFHITV 0 S
+99 19 1d1+5000 1d1+219919 1d1+749 wrath
+-40 -40 -40 -40
+BCDEFHIJKN AC D Y
+stand stand female 500
+0 0 medium 0
+>all_greet_prog 99~
+	if ispc($n)
+		bow $n
+		say Welcome, I will train, gain, practice, or heal you as you wish.
+	else
+		bow $n
+	endif
+~
+>act_prog such location.~
+	say He is not connected right now, but thank you for your donation.
+	smile $n
+~
+>death_prog 99~
+	mpmload 19901
+	mpecho The bunny sits back down and smiles at you contentedly.
+	mpgoto 19920
+~
+|
+
+#19902
+butterfly small delicate~
+A small butterfly~
+A small butterfly flits around you.
+~
+This small delicate butterfly is hurting no one, especially not you.
+~
+human~
+GQ T 0 S
+1 10 1d1+5 1d1+5 1d1+9 sting
+10 10 10 10
+U E D G
+stand rest female 0
+0 0 tiny 0
+>death_prog 99~
+	mpmload 19902
+	mpecho A small butterfly has arrived.
+~
+|
+#0
+
+#OBJECTS
+#19900
+rug meditation rest intricate~
+A rug of meditation and rest~
+A rug of meditation and rest lies on the floor here.~
+energy~
+furniture ABGLORTY 0
+10 90000 BEHK 150 150
+1 2000 1000 P
+
+#19901
+fountain crystal energy lemonade~
+A crystal fountain of energy~
+A crystal fountain is here, shimmering with the energy used to create it.~
+energy~
+fountain 0 0
+0 0 'lemonade' 0 0
+0 0 0 G
+E
+fountain~
+Carved out of pure crystal, it shimmers with energy.
+~
+
+#19902
+pill bunny food~
+a bunny of the Tao pill~
+What looks like a pellet of bunny food has been dropped here.~
+chalk~
+pill 0 A
+15 'bless' 0 0 0 
+15 1 1 P
+   
+
+
+#0
+
+
+#ROOMS
+#19900
+A Dark Hallway~
+	You have dropped into a dark north-south hallway.  It is
+dimly lit with candles, and a warm mist hangs in the air, gently
+swirling around you.  The longer you stay in this room, the more 
+relaxed you get.  Back against the north wall, there is a spiral stair
+leading back up to Midgaard.  Further south are large oaken doors
+inscribed with a Yin - Yang symbol on the front.
+~
+19 ADKNC 0
+D4
+A well built spiral stair leads upwards to Midgaard.
+~
+spiral staircase~
+0 0 3005
+D2
+Huge solid oaken doors carved with a Yin - Yang symbol are to 
+the south.
+~
+door oaken yin yang huge solid~
+1 -1 19901
+S
+
+#19901
+Grand Hallway~
+	You have entered the Grand Temple of Crush, Lord of the
+Balance, the Tao, the Line....  This grand hallway extends for at 
+least three hundred and fifty feet.  Large oaken columns hold up
+arched domes made of gold and silver every twenty feet or so.  To
+the south, you can see a large room.  Back to the north, are the
+huge oaken doors inscribed with a Yin - Yang symbol.  To the east
+and west are small alcoves that hold the large candles used to 
+illuminate the hallway, you could probably squeeze into the alcoves 
+if you tried.
+A sign on the wall reads: "{CPlease respect the bunnies{x"
+~
+19 DKN 0
+D0
+Huge solid oaken doors carved with a Yin - Yang symbol are to 
+the north.
+~
+huge oaken doors yin yang~
+1 -1 19900
+D2
+~
+~
+0 0 19904
+D1
+~
+~
+0 0 19902
+D3
+~
+~
+0 0 19903
+S
+
+#19902
+Small Alcove~
+	You have squeezed yourself into a small alcove to 
+the side of the grand hallway... Why?
+~
+19 NDK 0
+D3
+~
+~
+0 0 19901
+S
+
+#19903
+Small Alcove~
+	You have squeezed yourself into a small alcove to 
+the side of the grand hallway... Why?
+~
+19 NDK 0
+D1
+~
+~
+0 0 19901
+S
+
+#19904
+Temple Dais~
+	You are standing before a large Temple Dais.  The steps
+are carved from fine polished woods.  There are several hundred
+candles providing illumination around the room.  Symbols of all the
+religions of the world are displayed around the room, signifying the 
+universal truth of Taoism and its acceptance of all forms of worship.
+Incense burns from brass holders in several places, adding to the 
+warm mist swirling around you, and relaxing you further.  To the 
+north, you can see a lush garden through a wood lattice window,
+and there are archways to the east and west, and there is a spiral 
+staircase in the corner, leading up and into the darkness.
+~
+19 DKN 0
+D0
+~
+~
+0 0 19901
+D3
+~
+~
+0 0 19905
+D1
+~
+~
+0 0 19907
+D4
+A well built spiral stair leads upwards into the darkness.
+~
+spiral staircase~
+0 0 10124
+S
+
+#19905
+Sanctuary of Meditation~
+	This is a small room filled with candles, incense, and books
+of all sorts.  Some of the books are left open, half-read, or maybe
+just marked to passages of importance.  You see several books by
+{VRobert Service{x, The {VCelestine Prophecy {xby {VJames Redfield{x, some
+books on The {VTao{x and {VTaoism{x, and many other works.  The roof here 
+is open, to better see the sky and the garden can once again be seen 
+to the north through a wood latice window.  An archway leads east to 
+the Dias and another archway leads west curving north to a room of 
+rest.
+~
+19 DNK 0
+D1
+~
+~
+0 0 19904
+D3
+~
+~
+0 0 19906
+E
+service~
+	      Just Think!
+Just think!  Some night the stars will gleam
+	Upon a cold grey stone,
+And trace a name with silver beam'
+	And lo!  'twill be your own.
+
+That night is speeding on to greet
+	Your epitaphic rhyme.
+Your life is but a little beat
+	Within the heart of Time.
+
+A little gain, a little pain,
+	A laugh, lest you may moan;
+A little blame, a little fame,
+	A star gleam on a stone.
+~
+E
+robert~
+	The Three Voices
+
+The waves have a story to tell me, 
+  As I lie on the lonely beach;
+Chanting aloft in the pine tops,
+   The wind has a lesson to teach;
+But the stars sing an anthem of glory
+   I cannot put into speech.
+
+The waves tell of ocean spaces,
+   Of hearts that are wild and brave,
+Of populous city places,
+   Of desolate shores they lave,
+Of men who sally in quest of gold
+   To sink in an ocean grave.
+
+The wind is a mighty roamer;
+   He bids me keep me free,
+Clean from the taint of the gold lust,
+   Hardy and pure as he;
+Cling with my love to nature, 
+   As a child to the mother knee.
+
+But the stars throng out in their glory,
+   And they sing of the God in man;
+They sing of the mighty Master,
+   Of the loom his fingers span,
+Where a star or a soul is a part of the whole,
+   And weft in the wonderous plan.
+
+Here by the campfire's flicker,
+   Deep in my blanket curled,
+I long for the peace of the pine gloom,
+   When the scroll of the lord is unfurled,
+And the wind and the wave are silent,
+   And world is singing to world.
+~
+E
+celestine prophecy james redfield~
+The following passage is highlighted:
+	"All religion, is about humankind finding relationship to one 
+higher source.  And all religions speak of a perception of God within,
+a perception that fills us, makes us more than we were.  Religions 
+become corrupted when leaders are assigned to explain God's will
+to the people, instead of showing them how to find this direction
+within themselves."
+~
+E
+Tao~
+	"An anchor too heavy cannot be lifted.  A mast too high
+cannot be steadied.  A sail too large cannot be tended.  More than 
+enough is too much.  Too much is less.  Least is most."
+~
+E
+taoism~
+	"To know, and yet not be knowing, this is the Tao."
+~
+S
+
+#19906
+Sanctuary of Rest~
+	This is a small room, built for one purpose, to rest.
+The archway to the south curves off to the east and there
+is a small wooden lattice window against the east wall looking
+out over the garden.
+~
+19 CDKN 0
+D2
+~
+~
+0 0 19905
+S
+
+#19907
+Stone pathway~
+	This stone pathway leads around to the north towards 
+the garden.  The stones in the walkway were carefully carved
+leaving almost no space between them.  They were apparently
+laid out in a certain order, yet there is no discernable pattern.
+Back to the west, you can see the archway leading to the Dais,
+and to the north, the passageway opens up into the garden seen
+from the windows.
+~
+19 DNK 0
+D3
+~
+~
+0 0 19904
+D0
+~
+~
+0 0 19908
+S
+
+#19908
+Southeast corner of the Garden~
+	This lush garden is well tended.  A multitude of
+colorful flowers grow everywhere interspersed with miniature
+trees in a random, but purposeful pattern.  The stone path
+leads both to the north, and to the west in the garden, and 
+back to the temple to the south.
+~
+19 DNK 2
+D2
+~
+~
+0 0 19907
+D0
+~
+~
+0 0 19911
+D3
+~
+~
+0 0 19909
+S
+
+#19909
+South Garden~
+	The garden continues here, the path leads east-west
+with a split off that leads to the north.  The beautiful vegetation
+continues to flourish here.  To the south, you can see in the 
+wood latticed window to the Temple Dais.  Some of the incense
+waftes out the window towards you.
+~
+19 NK 2
+D1
+~
+~
+0 0 19908
+D0
+~
+~
+0 0 19912
+D3
+~
+~
+0 0 19910
+S
+
+#19910
+Southwest corner of the Garden~
+	The garden path turns north here, to the west and south 
+you can see through the wood latticed windows to the rooms of
+rest and meditation, respectively.  The flowers get more and more
+sparse as you go north.
+~
+19 NK 2
+D1
+~
+~
+0 0 19909
+D0
+~
+~
+0 0 19913
+S
+
+#19911
+East Garden~
+	The garden path continues to the north here.
+A small wooden bridge crosses a brook as it comes 
+from the west and flows to the east, under the footbridge
+and cascades off of the cliffs to your east.  To the east,
+the cliffs you are on afford you an expansive view of 
+gently rolling mountains, mist swirling around the base
+of them.
+~
+19 NK 2
+D2
+~
+~
+0 0 19908
+D0
+~
+~
+0 0 19914
+S
+
+#19912
+Center of Garden~
+	This is the center of the garden.  The stone path
+leads off to the north, the south, and the west.  To the east
+a small stream flows from the base of the fountain off under
+a wooden footbridge.
+~
+19 NK 2
+D0
+~
+~
+0 0 19915
+D2
+~
+~
+0 0 19909
+D3
+~
+~
+0 0 19913
+S
+
+#19913
+West Garden~
+	The plants fade into pure white sand here.  The stone
+path leads to the south, the north, and the east.  To the west
+is part of the temple wall surrounding this part of the garden.
+~
+19 NK 2
+D1
+~
+~
+0 0 19912
+D2
+~
+~
+0 0 19910
+D0
+~
+~
+0 0 19916
+S
+
+#19914
+Northeast Corner of the Garden~
+	The cliffs continue to provide an expansive view of 
+the mountains and misty valleys below you.  The stone path
+continues to the south or the west.  The vegetation grows thinner 
+to the west.
+~
+19 NK 2
+D2
+~
+~
+0 0 19911
+D3
+~
+~
+0 0 19915
+S
+
+#19915
+North Garden~
+	This is the northern edge of the garden.  The stone
+path branches here, going from east-west to the south
+where you can hear the sound of water bubbling and flowing.
+As the path goes to the west, it and the plants are slowly
+replaced by pure white sand.
+~
+19 NK 2
+D1
+~
+~
+0 0 19914
+D2
+~
+~
+0 0 19912
+D3
+~
+~
+0 0 19916
+S
+
+#19916
+Northwest Corner of the Garden~
+	You are no longer walking on the stone path as
+it has faded completely into the white sand.  The sand
+is raked into intricate patterns around and among large
+rocks sticking out of the sand.  You can see the stone 
+path to the south and to the east.
+~
+19 NK 10
+D1
+~
+~
+0 0 19915
+D2
+~
+~
+0 0 19913
+S
+
+
+
+#0
+
+#RESETS
+M 0 19900 20 19901 20           * Load Bunny
+M 0 19900 20 19902 20           * Load Bunny
+M 0 19900 20 19903 20           * Load Bunny
+M 0 19900 20 19904 20           * Load Bunny
+M 0 19900 20 19905 20           * Load Bunny
+M 0 19900 20 19906 20           * Load Bunny
+M 0 19900 20 19907 20           * Load Bunny
+M 0 19900 20 19908 20           * Load Bunny
+M 0 19902 20 19908 20           * Load Butterfly
+M 0 19902 20 19909 20           * Load Butterfly
+M 0 19902 20 19910 20           * Load Butterfly
+M 0 19902 20 19911 20           * Load Butterfly
+M 0 19902 20 19912 20           * Load Butterfly
+M 0 19902 20 19913 20           * Load Butterfly
+M 0 19902 20 19914 20           * Load Butterfly
+M 0 19902 20 19915 20           * Load Butterfly
+M 0 19902 20 19916 20           * Load Butterfly
+D 0 19900 2 1                   * Closes door
+D 0 19901 0 1                   * Closes door
+O 0 19900 2 19906               * Load Rug
+O 0 19901 2 19912               * Load Fountain
+S
+
+#SPECIALS
+M 19901 spec_cast_adept         * the lop healer
+S
+
+#$
+
+

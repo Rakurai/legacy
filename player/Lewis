@@ -1,0 +1,971 @@
+#PLAYER
+Name Lewis~
+Id   992705199
+LogO 1019660786
+Vers 13
+Mexp 2
+Desc His face is craggy and weather-beaten, making him look older than his years.
+His fur is combed in a sensible manner, and is graying in places, adding to
+his aged appearance.  His liquidy hazel eyes have a haunted look in them that
+offers a mute testament to the many places he's been and the many things he's
+seen, few of either good.
+~
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race feral~
+Clan blackclaw~
+Sex  1
+Cla  2
+Levl 57
+Plyd 385789
+Back 381221
+Note 998086834 997088619 1010203363 998075570 998951168 1019392578 1016388958
+Scro 30
+Room 3365
+HMS  1125 1125 870 870 703 703
+Gold 1252
+Silv 16
+Silver_in_bank 54080
+Gold_in_bank 44
+Exp  63471
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEGHIJLOSTc
+AfBy R
+FVul JR
+Comm NO
+Revk 0
+Cgrp A
+Cnsr B
+Pos  8
+Prac 16
+Trai 1
+Save  -19
+Alig  -1000
+Hit   53
+Dam   50
+ACs -363 -366 -372 -345
+Wimp  110
+Atrib 18 14 16 22 17 11
+AtMod 9 5 9 6 8 11
+SkillPnts 109
+RolePnts 5
+QuestPnts 11
+QpDonated 14
+QuestNext 8
+SQuestNext 16
+Pass =jamesdean~
+Afk {B[{CSat Oct 13 09:48:14 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  "{TS{Ch{Ta{Cd{To{Cw {TN{Ci{Tn{Cj{Ta{x" Truckowski~
+Immn ~
+Pnts 40
+Rank {cNIN~
+Aura ~
+TSex 1
+LLev 95
+Video AB
+Deit Liriel~
+Lsit 206-74-93-129.generic.clemson.edu~
+Ltim Wed Apr 24 10:02:33 2002
+~
+LSav Wed Apr 24 10:06:26 2002
+~
+Finf {HPor favor paso lejos de las puertas.{x
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FK
+HMSP 875 310 703
+THMS 0 0 0
+Cnd  0 0 14 16
+Query sundancer~
+Sk 78 1 'armor'
+Sk 81 1 'cancellation'
+Sk 1 1 'channel'
+Sk 75 1 'cure critical'
+Sk 2 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'fireproof'
+Sk 77 1 'fly'
+Sk 75 1 'gate'
+Sk 1 1 'giant strength'
+Sk 77 1 'haste'
+Sk 84 1 'heal'
+Sk 1 1 'infravision'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 79 1 'pass door'
+Sk 1 1 'portal'
+Sk 75 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 76 1 'refresh'
+Sk 75 1 'regeneration'
+Sk 77 1 'sanctuary'
+Sk 77 1 'shield'
+Sk 76 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 75 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 77 1 'undo spell'
+Sk 78 1 'word of recall'
+Sk 100 1 'dagger'
+Sk 75 1 'sword'
+Sk 81 1 'backstab'
+Sk 94 1 'circle'
+Sk 100 1 'dodge'
+Sk 94 1 'second attack'
+Sk 76 1 'hunt'
+Sk 75 1 'forge'
+Sk 79 1 'repair'
+Sk 76 1 'hide'
+Sk 77 1 'peek'
+Sk 76 1 'pick lock'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 75 1 'steal'
+Sk 57 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'protective'
+Gr 'transportation'
+Affc 'stone skin'   0  50  27 -40  17          0 1
+Affc 'shield'   0  50  37 -20  17          0 1
+End
+
+#O
+Vnum 3050
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 4595
+Nest 0
+Cond 93
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 504
+Nest 0
+Cond 89
+Wear 15
+Cost 312
+End
+
+#O
+Vnum 500
+Nest 0
+Cond 86
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 2390
+Nest 0
+Cond 89
+Wear -1
+Cost 5800
+End
+
+#O
+Vnum 10171
+Nest 0
+Cond 86
+Wear 0
+Cost 3300
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 96
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 12
+Nest 0
+ShD  the head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x~
+Desc The severed head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x is lying here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10164
+Nest 0
+Cond 91
+Wear 17
+Cost 1350
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 84
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 5604
+Nest 0
+ExtF 17301507
+Cond 92
+Wear 4
+Cost 1000
+End
+
+#O
+Vnum 5603
+Nest 0
+ExtF 17301507
+Cond 89
+Wear 3
+Cost 1000
+End
+
+#O
+Vnum 10169
+Nest 0
+Cond 82
+Wear 18
+Cost 2200
+End
+
+#O
+Vnum 16016
+Nest 0
+Cond 94
+Wear -1
+Cost 4650
+End
+
+#O
+Vnum 108
+Nest 0
+Name rose~
+ShD  a {YHappy BIrthday{x {Bt{To {BJ{Ca{Ts{Bo{Cn{x{x rose~
+Desc A {YHappy BIrthday{x {Bt{To {BJ{Ca{Ts{Bo{Cn{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Endo.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 3808
+Nest 0
+Cond 78
+Wear 12
+Cost 30000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 7502
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4592
+Nest 1
+Cond 96
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 19902
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 19902
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 72
+Nest 1
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 1258
+Nest 1
+Name gateway refuge liriel~
+ShD  {Wa {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{x~
+Desc {WA {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{W lies here, {Cs{Th{Ci{Tm{Cm{Te{Cr{Ti{Cn{Tg{x.~
+Wear -1
+Cost 0
+Val  0 0 4 1223 0
+End
+
+#O
+Vnum 7503
+Nest 1
+Wear -1
+Cost 5000
+Val  500 468 0 0 0
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 914
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 1807
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 1255
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16504
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10169
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 28004
+Nest 0
+Wear -1
+Cost 1000
+Spell 3 'dispel evil'
+End
+
+#O
+Vnum 28001
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 28002
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 28003
+Nest 0
+Wear 8
+Cost 45
+End
+
+#O
+Vnum 29182
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3170
+Nest 0
+Wear -1
+Cost 600
+ExDe owned by~ Lewis~
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Wear 14
+Cost 312
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 20006
+Nest 0
+ExtF 17039680
+Cond 93
+Wear 5
+Cost 999
+End
+
+#O
+Vnum 9911
+Nest 0
+Cond 95
+Wear 10
+Cost 8500
+End
+
+#O
+Vnum 3810
+Nest 0
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 3811
+Nest 0
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 17101
+Nest 0
+Cond 97
+Wear 11
+Cost 160
+End
+
+#O
+Vnum 8806
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 8807
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 24807
+Nest 0
+Wear 2
+Cost 5000
+End
+
+#O
+Vnum 24807
+Nest 0
+Cond 96
+Wear 1
+Cost 5000
+End
+
+#O
+Vnum 24806
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 24806
+Nest 0
+Wear 9
+Cost 5000
+End
+
+#O
+Vnum 904
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 902
+Nest 0
+Wear -1
+Cost 7300
+End
+
+#O
+Vnum 926
+Nest 0
+Wear -1
+Time 776
+Cost 810
+Spell 1 'sanctuary'
+Spell 2 'giant strength'
+Spell 3 'armor'
+End
+
+#O
+Vnum 909
+Nest 0
+Wear -1
+Time 547
+Cost 1130
+Spell 1 'dispel evil'
+Spell 2 'heal'
+End
+
+#O
+Vnum 5608
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger Elendil~
+ShD  {HEle{Nn{Hdil{x{x~
+Desc A dagger is here, forged by Lewis's craftsmanship.~
+Mat iron~
+ExtF 66
+Wt   41
+Cond 79
+Wear 16
+Lev  51
+Cost 4
+Val  2 6 11 11 0
+Affc 'enchant weapon'   0  67  -1   5  18          0 1
+Affc 'enchant weapon'   1  67  -1   5  19          0 1
+ExDe dagger Elendil~ It is a marvellous dagger, crafted from the finest iron around.
+It was created in the Month of Silence by a young thief
+named Lewis.  Legend holds that this feral was a great weaponsmith.
+~
+End
+
+#L
+Vnum 4471
+Nest 0
+Name enchant token liriel~
+ShD  {gA {Vlevel {Y100 {Be{Cn{Bc{Ch{Ba{Cn{Bt {gfrom {WL{Ci{Br{Ci{Te{Wl{x~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 0
+Name enchant token liriel~
+ShD  {gA {Vlevel {Y100 {Be{Cn{Bc{Ch{Ba{Cn{Bt {gfrom {WL{Ci{Br{Ci{Te{Wl{x~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 1004
+Nest 0
+Name dagger Anduri'l~
+ShD  {HAn{Nd{Hur{Ni{H'l{x{x~
+Desc A dagger is here, forged by Lewis's craftsmanship.~
+Mat tin~
+Wt   40
+Wear -1
+Lev  46
+Cost 5
+Val  2 7 8 11 0
+ExDe dagger Anduri'l~ It is a marvellous dagger, crafted from the finest tin around.
+It was created in the Month of Silence by a young thief
+named Lewis.  Legend holds that this feral was a great weaponsmith.
+~
+End
+
+#L
+Vnum 16015
+Nest 0
+Wear -1
+Cost 6500
+End
+
+#L
+Vnum 1215
+Nest 0
+Name teotwawki wild token~
+ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia token glimmer brilliance montrey~
+ShD  {b*{Ytrivia{b* {Wa {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge{x~
+Desc {WA {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge {Wis here, inspiring you.{x~
+Wear -1
+Cost 0
+ExDe owned by~ Montrey
+~
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia token glimmer brilliance montrey~
+ShD  {b*{Ytrivia{b* {Wa {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge{x~
+Desc {WA {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge {Wis here, inspiring you.{x~
+Wear -1
+Cost 0
+ExDe owned by~ Montrey
+~
+End
+
+#L
+Vnum 1212
+Nest 0
+Name qaz trivia~
+ShD  Qaz's trivia token~
+Desc Qaz's too hard trivia token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name qaz trivia~
+ShD  Qaz's trivia token~
+Desc Qaz's too hard trivia token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name qaz trivia~
+ShD  Qaz's trivia token~
+Desc Qaz's too hard trivia token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name qaz trivia~
+ShD  Qaz's trivia token~
+Desc Qaz's too hard trivia token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name qaz trivia~
+ShD  Qaz's trivia token~
+Desc Qaz's too hard trivia token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name qaz trivia~
+ShD  Qaz's trivia token~
+Desc Qaz's too hard trivia token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3032
+Nest 0
+Name Bag Kazander First Word Association Quest~
+ShD  {cKaz{gan{cder's {BF{Nirst {VW{Mord {CA{Tssociation {YQ{buest {GB{Hag{x~
+Desc A quest bag lies here~
+Wear -1
+Cost 9
+End
+
+#L
+Vnum 1215
+Nest 1
+Name Token Wild Surge Energy Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VW{MiLd{P* {GS{Hurge {co{gf {YE{bnergy {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VW{MiLd{P* {GS{Hurge {co{gf {YE{bnergy {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name Token Wild Surge Energy Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VW{MiLd{P* {GS{Hurge {co{gf {YE{bnergy {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VW{MiLd{P* {GS{Hurge {co{gf {YE{bnergy {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3032
+Nest 0
+Name Bag Kazander First Word Association Quest~
+ShD  {cKaz{gan{cder's {BF{Nirst {VW{Mord {CA{Tssociation {YQ{buest {GB{Hag{x~
+Desc A quest bag lies here~
+Wear -1
+Cost 9
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name Token Wild Surge Energy Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VW{MiLd{P* {GS{Hurge {co{gf {YE{bnergy {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VW{MiLd{P* {GS{Hurge {co{gf {YE{bnergy {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 0
+Name eeyore tail liriel~
+ShD  {ga {Blittle {cE{geyore {ct{gail{x~
+Desc {gA {Blittle {cE{geyore {ct{gail{g is lying {Ch{Tere{g on the {Gg{Hround{g ... where could it's {Yowner{g be?{x~
+Wear -1
+Cost 0
+ExDe It's~ an {cE{geyore {ct{gail!  What you do with it is up to you, but  
+~
+ExDe tail~ It's an {cE{geyore {ct{gail!  What you do with it is up to you, but  
+you should check any immquests from {WL{Ci{Br{Ci{Te{Wl{g to see if she {Vwants{g it!{x
+~
+ExDe eeyore~ It's an {cE{geyore {ct{gail!  What you do with it is up to you, but  
+you should check any immquests from {WL{Ci{Br{Ci{Te{Wl{g to see if she {Vwants{g it!{x
+~
+ExDe you~ You do not see that here. 
+~
+End
+
+#L
+Vnum 1215
+Nest 0
+Name half wild eeyore stuffed liriel~
+ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
+Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name doggie cookie quest liriel~
+ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
+Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#END

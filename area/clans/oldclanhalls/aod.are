@@ -1,0 +1,1626 @@
+#AREA
+aod.are~
+Caverns of Darkness~
+{H{{CLANS} {MSularia {TCaverns of Darkness~
+25000 25199
+
+#MOBILES
+
+#25000
+Vanesha trainer~
+{RV{ca{Wn{c{We{cs{Wh{ca{x~
+{RV{ca{Wn{c{We{cs{Wh{ca{x stands here, tinkering with some deadly
+potion.
+~
+{RV{ca{Wn{c{We{cs{Wh{ca{x is a tall, mysterious figure. Draped in fine silken robes,
+the face of this person is obscured. As the robes billow around {RV{ca{Wn{c{We{cs{Wh{ca{x
+it is impossible to tell the gender if this figure. Quick movements and
+arcane mutterings lead you to believe that {RV{ca{Wn{c{We{cs{Wh{ca{x would be able to
+{Gtrain{x or give you {Ypractice{x in almost any area you wanted, for a
+price. Potions bubble and fume, suspended in the air by magic. Tubes of
+scrolls are gaurded my magical enchantments and are hidden deep within the
+folds of {RV{ca{Wn{c{We{cs{Wh{ca{x's robes.
+~
+unique~
+BGJKOQRSTVabd CDEFGHJKNOPVYZd -1000 S
+100 15 1d1+9999 1d1+9999 1d1+100 wrath
+-1000 -1000 -1000 -1000
+U ABCDEFGHIJKLMNOQX S Y
+stand stand none 0
+0 0 large 0
+
+#25001
+Ashnod equipment storekeeper shopkeeper~
+{cA{gs{Wh{gn{co{Wd{x~
+{cA{gs{Wh{gn{co{Wd{x tends to the equipment laid out before her with
+quick and nimble hands.
+~
+The air around {cA{gs{Wh{gn{co{Wd{x hums with energy and power.Her
+slender frame ripples with muscles, but she is also stunningly beautiful.
+{kRaven{x hair cascades down her back in ringlets, ending near mid
+back. Large almond eyes the color of a {Ctrop{Bical oc{Cean{x scan the
+room quickly, watching the portals for unwelcome visitors. As the
+equipment shopkeeper for the {WA{cr{Wm{cy {Wo{cf
+{WD{ca{Wr{ck{Wn{ce{Ws{cs{x, she is responsible for the safe keeping of
+their treasured items.
+~
+unique~
+BGOQRSTVZd CDEFGHJNOPVYZ -1000 S
+100 0 1d1+9999 1d1+9999 10d10+5 wrath
+-1000 -1000 -1000 -1000
+KFH A M X
+stand stand female 200000
+0 0 medium 0
+
+#25002
+damned healer man~
+{RD{camned {RH{cealer{x~
+The {RD{camned {RH{cealer{x attends to his duties, a scowl on his face.
+~
+The {RD{camned {RH{cealer{x wears robes of the {kblackest{x night.
+They are such a deep {kblack{x that you can't see the seams, let
+alone what type of fabric it is. The {RD{camned {RH{cealer{ has been
+imprisoned by the powerful {WA{cr{Wm{cy {WO{cf
+{WD{ca{Wr{ck{Wn{ce{Ws{x leaders for all eternity to heal all the
+members {WA{co{Wd{x. A gruesome scar mars his face, making him by
+far the most disgusting human-like form you have ever seen.
+~
+unique~
+BGOQRSTVa CDEFGHJNOPUTVYZbe -1000 S
+100 50 1d1+9999 1d1+9999 10d20+7 wrath
+-1000 -1000 -1000 -1000
+FK A B P
+stand stand male 10000
+0 0 large 0
+
+#25003
+dystanex food shopkeeper storekeeper~
+{CD{Wy{Bs{Wt{Ca{Wn{Bx{x~
+{CD{Wy{Bs{Wt{Ca{Wn{Bx{x stands here with a bloody apron and a shiny
+steel cleaver.
+~
+{CD{Wy{Bs{Wt{Ca{Wn{Bx{W{Cs{x chamber reflects on the man
+himself. Very much like the many different types of body parts strewn
+about, his body is made up of many different kinds of creatures. His head
+is scaly and lizard like, his arms are covered in a dark fur, matted with
+blood. He stands on the legs of what could be called nothing other than a
+dragon's, and his torso appears to be that of a cat. Wings
+protrude from his back, and the leathery hide that spands between them
+would suggest they came from a bat. Grinning evily he looks at you and
+asks, "What'll it be?"
+~
+unique~
+BGOQRSTVZd CDEFGHJNOPVYZ -1000 S
+120 0 1d1+9999 1d1+9999 10d10+5 wrath
+-1000 -1000 -1000 -1000
+KFH A M X
+stand stand male 200000
+0 0 large 0
+
+#25004
+shadow kamor~
+the {cshadow {gof {Rkamor{x~
+The {cShadow {gOf {RKamor{x
+~
+A {cg{gh{co{gs{ct{gl{cy{x form of remains of {RKamor{x is standing here.
+~
+human~
+GTVZ HIV 0 S
+60 3 10000d1+1 10000d1+1 30d30+1 bite
+-20 -20 -20 -20
+CDFJK ABCD DC T
+stand stand male 0
+0 0 medium 0
+
+#25005
+jared whipping boy~
+Jared, Crowe's whipping boy~
+Jared notices you enter and cowers protectively.
+~
+~
+human~
+G 0 0 S
+15 3 10d10+1 10d10+1 1d1+0 punch
+0 0 0 0
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#25006
+pack wolves guardian~
+A Pack Of Wolves~
+A pack of wolves are here.
+~
+A pack of wolves are standing guard over Malign's rooms. Their long
+{Pbloody{x teeth tell you that maybe you should just back away.
+~
+wolf~
+G 0 0 S
+15 3 10d10+1 10d10+1 1d1+0 bite
+0 0 0 0
+0 ABCD 0 0
+stand stand either 0
+0 0 medium 0
+
+#25007
+elf~
+{cS{Wh{ce{Wi{ck{x~
+{cS{Wh{ce{Wi{ck{x stands here, {bDeku {HNut {xin hand, ready to
+{cd{Wi{cs{Wa{cp{Wp{ce{Wa{cr {xinto thin Air.
+~
+{cS{Wh{ce{Wi{ck{x is rather tall, and looks vaguely elven, with his pointy ears.
+The eyes are a very disturbing blue that seem to look deep into your soul and
+judge you.
+~
+elf~
+BG 0 0 S
+10 0 2d6+130 10d9+100 1d8+4 stab
+5 5 5 8
+F ABCD 0 0
+stand stand either 150
+0 0 small 0
+
+#25008
+fuzzy pup something ball~
+the little {RP{cu{RP{x~
+A fuzzy little ball of SoMeThInG is here sitting in the corner.
+~
+~
+dog~
+BG 0 0 S
+20 5 10d10+10 5d5+1 4d2+1 bite
+-1 -1 -1 -1
+0 ABCD 0 0
+sit rest male 0
+0 0 small 0
+
+#25009
+luna cat~
+Luna~
+Luna, Serena's talking cat looks at you questioningly.
+~
+Luna looks like an ordinary {cblack{x housecat, except for the crescent
+moon shaped symbol on her forehead.  You nod your acknowledgement
+when she says, 'Hello', and continue on about your business.  Wait
+a minute, did she just talk??
+~
+cat~
+BGZ CEFG 1000 S
+8 1 1d1+199 1d1+299 1d1+1 scratch
+-9 -9 -9 -15
+0 ABCD 0 0
+sit sit female 0
+0 0 small 0
+
+#0
+
+#OBJECTS
+
+#25000
+dragon hide ring~
+A {RD{Pr{Ya{Wg{Yo{Pn{R-{PH{Yi{Wd{Ye{x {cR{gi{wn{gg{x~
+A loop of {RD{Pr{Ya{Wg{Yo{Pn{R-{PH{Yi{Wd{Ye{x is carefully set down
+here.~
+nothingness~
+armor ABIOSTWY ABP
+7 7 7 6 0
+20 1 2000 P
+A
+3 1
+A
+26 1
+A 
+13 20
+A
+18 1
+A
+19 1
+
+#25001
+ogre hide helm~
+An {bO{Yg{br{Ye{x {cH{bi{cd{be{x Helm~
+A Helm of {b0{Yg{br{Ye{x {cH{bi{cd{be{x is carefully placed on the ground here.~
+nothingness~
+armor ABIOSTWY AEP
+7 7 7 6 0
+20 1 2000 P
+A
+2 1
+A
+13 20
+A
+18 1
+A
+19 1
+A
+26 1
+
+#25002
+feather griffen~
+The {WF{ge{ca{gt{Wh{ge{cr{x of a {WG{gr{ci{gf{Wf{ge{cn{x~
+The {WF{ge{ca{gt{Wh{ge{cr{x of a {WG{gr{ci{gf{Wf{ge{cn{x has floated to rest on the ground here.~
+nothingness~
+armor ABIOSTWY AQP
+7 7 7 6 0
+20 1 2000 P
+A
+1 1
+A
+5 1
+A
+4 1
+A
+13 20
+A
+18 1
+A
+19 1
+
+#25003
+hydra scale gloves speed~
+{RH{cy{gd{cr{Ra{x {WS{Yc{Pa{Yl{We{x Gloves of {WSp{gee{cd{x~
+A pair of {RH{cy{gd{cr{Ra{x {WS{Yc{Pa{Yl{We{x gloves have been carefully placed on the ground here.~
+nothingness~
+armor ABIOSTWY AHP
+8 8 8 8 0
+25 1 2500 P
+A
+13 25
+A
+18 2
+A
+19 2
+A
+26 1
+A
+2 1
+A
+3 1
+
+#25004
+crowe's comfy pumps~
+{kC{cr{go{Ww{Ye{W'{gs{x most {MC{No{Bm{Nf{My{x {RP{Pu{Ym{Pp{Rs{x~
+The laces on {kC{cr{go{Ww{Ye{W'{gs{x most {MC{No{Bm{Nf{My{x {RP{Pu{Ym{Pp{Rs{x have been tied together and dropped here. ~
+nothingness~
+armor ABIOSTWY AGP
+10 10 10 10 0
+30 1 3000 P
+A
+14 50
+A
+13 30
+A
+18 2
+A
+19 2
+A
+1 1
+A
+2 2
+
+#25005
+malign's random idea~
+{cM{Ra{gl{Ri{cg{Rn{g'{Rs{x {YR{Ga{Cn{Bd{No{Mm{x {CI{Wd{Ye{Ca{x~
+{cM{Ra{gl{Ri{cg{Rn{g'{Rs{x {YR{Ga{Cn{Bd{No{Mm{x {CI{Wd{Ye{Ca{x has been discarded here.~
+nothingness~
+armor ABIOSTWY AQP
+12 12 12 11 0
+35 1 3500 P
+A
+13 35
+A 
+26 1
+A
+5 2
+A
+18 3
+A
+19 3
+
+#25006
+branch juniper~
+A {bB{Hr{ba{Hn{bc{Hh{x of {HJ{Gu{Hn{Gi{Hp{Ge{Hr{x~
+A {bB{Hr{ba{Hn{bc{Hh{x of {HJ{Gu{Hn{Gi{Hp{Ge{Hr{x is lying on the ground.~
+nothingness~
+armor ABIOSTWY ABP
+12 12 12 11 0
+35 1 3500 P
+A
+13 35
+A
+1 1
+A 
+3 1
+A 
+2 1
+A
+18 3
+A
+19 3
+
+#25007
+helm dragon wisdom~
+A Helm of {RD{Mr{Na{Mg{Ro{Mn{x {CW{Bi{Ns{Bd{Co{Bm{x~
+A Helm of {RD{Mr{Na{Mg{Ro{Mn{x {CW{Bi{Ns{Bd{Co{Bm{x has been discarded on the ground.~
+nothingness~
+armor ABIOSTWY AEP
+13 13 13 13 0
+40 1 4000 P
+A
+13 45
+A
+18 4
+A
+19 4
+A
+3 1
+A 
+4 2
+A
+20 -3
+
+#25008
+sleeves werewolf wolf fur~
+Sleeves of {WW{ce{br{ce{Ww{co{bl{Wf{x {bFur{x~
+Sleeves of {WW{ce{br{ce{Ww{co{bl{Wf{x {bFur{x have been dropped
+here.~
+nothingness~
+armor ABIOSTWY AIP
+13 13 13 13 0
+40 1 4000 P
+A
+13 40
+A 
+20 -3
+A
+18 4
+A
+19 4
+A 
+5 2
+A
+26 1
+
+#25009
+leggings legging wraith stealth~
+Leggings of {WW{cr{ga{ci{Wt{ch {gS{ct{We{ca{gl{ct{Wh{x~
+Leggings of {WW{cr{ga{ci{Wt{ch {gS{ct{We{ca{gl{ct{Wh{x blend into the ground.~
+nothingness~
+armor ABIOSTWY AFP
+17 17 17 16 0
+50 1 5000 P
+A
+13 50
+A 
+20 -5
+A
+18 4
+A
+19 4
+A
+5 1
+A 
+26 1
+A
+4 1
+
+#25010
+Akira boots perseverance~
+{cA{Rk{gi{Wr{ca{R'{gs {xBoots of {gP{We{cr{Rs{ce{Wr{gv{We{cr{Ra{cn{Wc{ge~
+{cA{Rk{gi{Wr{ca{R'{gs {xBoots of {gP{We{cr{Rs{ce{Wr{gv{We{cr{Ra{cn{Wc{ge sit here, tied at the laces.~
+nothingness~
+armor ABIOSTWY AGP
+17 17 17 16 0
+50 4 5000 P
+A
+13 50
+A
+1 1
+A
+26 1
+A
+2 1
+A 
+18 4
+A
+19 4
+A
+20 -3
+
+#25011
+bear's bit advice~
+{BB{Ne{Ba{Nr{B'{Ns{x {WB{Bi{Wt {xof {YA{Wd{Rv{Pi{Yc{We{x~
+{BB{Ne{Ba{Nr{B'{Ns{x {WB{Bi{Wt {xof {YA{Wd{Rv{Pi{Yc{We{x has fallen to the ground here.~
+nothingness~
+armor ABIOSTWY ABP
+18 18 18 18 0
+55 1 5500 P
+A
+13 55
+A
+9 1
+A
+4 2
+A
+18 4
+A
+19 4
+A
+20 -5
+A
+3 2
+
+#25012
+circlet wraith shadow~
+A {WC{Ci{Br{Nc{Bl{Ce{Wt{x of a {kW{cr{ga{ci{kt{ch {cSha{gdow{x~
+A {Wc{Ci{Br{Nc{Bl{Ce{Wt{x of a {kW{cr{ga{ci{kt{ch {cSha{gdow{x has been detatched from the shadow.~
+nothingness~
+armor ABIOSTWY ACP
+20 20 20 20 0
+60 1 6000 P
+A
+13 60
+A
+5 1
+A
+26 1
+A
+18 3
+A
+19 3
+A
+20 -6
+A
+4 1
+A
+9 1
+
+#25013
+plume feathers griffen~
+A {WB{Yr{Gi{Hl{Cl{Bi{Va{Pn{Rt{x Plume of {cG{gr{ci{gf{cf{ge{cn {Wf{ge{ca{gt{Wh{ge{cr{gs{x~
+A {WB{Yr{Gi{Hl{Cl{Bi{Va{Pn{Rt{x Plume of {cG{gr{ci{gf{cf{ge{cn{x {Wf{ge{ca{gt{Wh{ge{cr{gs{x has been bound to a helmet here.~
+nothingness~
+armor ABIOSTWY AEP
+20 20 20 20 0
+60 1 6000 P
+A
+13 60
+A
+9 1
+A
+4 1
+A
+18 3
+A
+19 3
+A
+3 2
+A
+20 -6
+
+#25014
+Helios' sleeves strength~
+{kH{ce{kl{ci{ko{cs{k'{x Sleeves of {RS{ct{Wr{ce{Rn{cg{Wt{Rh{x~
+{kH{ce{kl{ci{ko{cs{k'{x Sleeves of {RS{ct{Wr{ce{Rn{cg{Wt{Rh{x hum softly on the ground.~
+nothingness~
+armor ABIOSTWY AIP
+20 20 20 20 0
+60 1 6000 P
+A
+13 60
+A
+9 2
+A
+18 3
+A 
+19 3
+A
+5 1
+A
+20 -5
+A
+2 1
+A
+26 1
+
+#25015
+fountain blood~
+{cThe fountain of {Rblood{x~
+{cA ornate {Wwhite marble{x {cfountain gurgles softly as the {Rblood{x{crushes through the many spouts and falls into the basin below.{x~
+nothingness~
+fountain AB 0
+0 0 blood 0 0
+0 0 0 P
+
+#25016
+leg food knot~
+The leg of a {TKnot{x~
+The severed leg of a {Tknot{x lies here, slowly decomposing.~
+flesh~
+food I AO
+15 100 0 0 0
+0 1 100 P
+
+#25017
+arm food high lander highlander~
+The arm of a {bHighlander{x~
+The arm of a {bHighlander{x twitches on the ground.~
+flesh~
+food I AO
+15 100 0 0 0
+0 1 100 P
+
+#25018
+hand white knight food~
+The hand of a {WWhite Knight{x~
+The hand of a {Wwhite Knight{x still bears a {WKnight{x gauntlet.~
+flesh~
+food I AO
+15 100 0 0 0 
+1 1 100 P
+
+#25019
+paw lir knot~
+The paw of a {TKnot's Lir{x~
+A paw lies on the ground here, severed from the body of a
+{TKnot's Lir{x.~
+flesh~
+food I AO
+15 100 0 0 0
+1 1 100 P
+
+#25020
+eye wolf pack stew food~
+{GWolfPack{x eye stew~
+A hearty bowl of boiled {GWoflPack{x eye stew still bubbles and
+steams.~
+flesh~
+food I AO
+15 100 0 0 0
+1 1 100 P
+
+#25021
+vampire skull drink~
+A hollow {Rvampire{x skull~
+A hollowed out {Rvampire{x skull holding some sort of liquid is resting on
+the ground.~
+bone~
+drink I AEO
+500 500 blood 0 0
+1 1 100 P
+
+#25022
+stomach lining drink~
+Stomach Lining of a {bHighlander{x~
+The stomach lining of a {bHighlander{x has been ripped from their still
+living body and discarded.~
+flesh~
+drink I AO
+500 500 blood 0 0
+1  1 100 P
+
+#25023 
+portal pirate~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to the {RPirate {Gcaves{x~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to the {RPirate {Gcaves{x fades in and out of this reality.~
+Nothingness~
+portal ABO P
+0 0 A 4402 0
+0 0 0 P
+
+#25024 
+portal Drakyri~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to {BD{Cr{Na{Mk{Ny{Cr{Bi {BI{Cs{Nl{Me{x~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to {BD{Cr{Na{Mk{Ny{Cr{Bi {BI{Cs{Nl{Me{x fades in and out of this reality.~
+Nothingness~
+portal ABO P
+0 0 A 11703 0
+0 0 0 P
+
+#25025
+portal wood lord~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to the {bWood Lord{x~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x the {bWood Lord{x fades in and out of this reality.~
+Nothingness~
+portal ABO P
+0 0 A 827 0
+0 0 0 P
+
+#25026
+pill skittle~
+a {PS{Yk{Vi{Gt{Vt{Yl{Pe{x~
+A reddish bag has been left here, it looks like a {PS{Yk{Vi{Gt{Vt{Yl{Pe{x has been left inside~
+energy~
+pill A A
+15 'frenzy' 'sanc' 'haste' 'bless'
+15 10 15 P
+
+#25027
+bed smiley face~
+a Smiley Face~
+A giant foam {YS{bm{Yi{bl{Ye{by {YF{ba{Yc{be sits in the corner.~
+foam~
+furniture GMO 0
+10 1000 EHK 150 150
+1 100 10 P
+E
+smiley face~
+A giant foam {YS{bm{Yi{bl{Ye{by {YF{ba{Yc{be{x sits in the corner with black pillows for the eyes, 
+nose and mouth.
+~
+
+#25028
+pill kitty klump~
+A Kitty Klump~
+A small {YK{bi{Yt{Bt{Yy {bK{Yl{bu{Ym{bp has been discarded here.~ 
+klump~
+pill 0 A
+15 'sanc' 'haste' 'giant' 'frenzy'
+15 1 0 P
+
+#25029
+steel bar~
+A steel bar~
+A Large {cS{gt{ce{ge{cl{x bar rests on the ground here.~
+steel~
+furniture GMO 0
+2 0 BEHKN 150 150
+1 100 1 P  
+
+#25030
+pill victim bone~
+The {bBone Of A {PVictim{x~
+An old dried bone lies here with a name scratched into it.~
+bone~
+pill 0 AO
+15 'shield' 'regen' 'giant' 'protection good'
+15 1 1 P
+
+#25031
+bed crude comfortable~
+A Crude Bed~
+A very shabby looking, yet very comfortable bed.~
+fur~
+furniture 0 0
+4 0 BEHKN 150 150
+0 300 300 P
+E
+bed crude comfortable~
+A very shabby looking bed, yet quite comfortable. It lies under the first
+candle. It is made of natural things: {HP{bi{Hn{be {HB{br{Ha{bn{Hc{bh{He{bs{x {GGrass{x and 
+{Wshedded winter fur{x.
+~
+
+#25032
+spring crystal~
+A {CCrystal Clear Spring{x~
+A spring runs through the room ready to quench your thirst~
+water~
+fountain 0 0
+0 0 'water' 0 0
+0 320 10 P
+
+#25033
+bed deku nut~
+{bDeku {Wbed{x~
+A small {bDeku {Wbed{x sits here.~
+wood~
+furniture O P
+2 0 EIL 150 150
+40 40000 4000 P
+
+#25034
+deku nut~
+A {bDeku {HNut~
+A small {BM{Cy{Bs{Ct{Bi{Cc{Ba{Cl{b nut lies here.{x~
+wood~
+pill O AP
+15 'sanc' 'haste' 'talon' 'frenzy'
+15 4 100 P
+
+#25035
+pond small~
+A {Bsmall {Cpond{x~
+A {Bsmall {Cpond {xsits here with cool refreshing water in it.~
+water~
+fountain O P
+0 0 water 0 0
+15 40000 100 P
+
+#25036
+rabbit prey bloody bit~
+{ba {RB{Pl{Ro{Po{Rd{Py {Rr{Pa{Rb{Pb{Ri{Pt{x~
+A little bit of prey has been left here.~
+rabbit~
+pill S A
+15 'sanc' 'haste' 'frenzy' 'talon'
+15 10 10 P
+
+#25037
+dripping ceiling rock~
+a dripping ceiling~
+A constantly dripping rock is over in the corner.~
+rock~
+fountain O P
+0 0 water 0 0
+1 5000 10 P
+
+#25038
+pile fur~
+A pile of fur~
+There is a twisted {WP{ci{Wl{ce {Wo{cf {WF{cu{Wr {xhere.~
+fur~
+furniture O P
+3 0 BEHL 150 150
+1 50 10 P
+
+#25039
+bed~
+the bed~
+~
+wood and cotton~
+furniture Y P
+3 0 EHK 150 150
+1 3000 0 I
+E
+bed~
+It looks like a nice and comfortable bed.
+~
+
+#25040
+moon wand~
+{gthe {YMoon {VWand{x~
+A wand of {Yyellow {xand {Vpink {xplastic is lying on the dresser.~
+{Yp{Vlasti{Yc{x~
+wand ABISTY AO
+25 3 3 'dispel magic' 0
+15 0 0 P
+E
+moon wand~
+It's Serena's {YMoon {VWand{x, said to posess some sort of magical power.
+~
+
+#25041
+can coca cola coke~
+a can of {PC{Wo{Pc{Wa-{PC{Wo{Pl{Wa{x~
+A can of {PC{Wo{Pc{Wa-{PC{Wo{Pl{Wa{x is sitting on the dresser.~
+{Waluminum{x~
+fountain GY P
+0 0 'coke' 0 0
+0 0 0 I
+E
+can coca cola coke~
+It's a can of that magical and refreshing liquid, {PC{Wo{Pc{Wa-{PC{Wo{Pl{Wa{x.
+~
+
+#25042
+orb dark wisdom~
+{cOrb {Mof {cDark Wisdom{x~
+An orb floats here.~
+{cDark Wisdom{x~
+light ABGOSTY AP
+0 0 -1 0 0
+50 0 0 I
+A
+17 -23
+A
+18 5
+A
+19 5
+A
+12 40
+A
+13 60
+A
+5 3
+A
+4 1
+A
+3 3
+A
+1 1
+
+#0
+
+#ROOMS
+
+#25000
+{cE{gn{ct{gr{ca{gn{cc{ge {ct{go {RD{Pe{Rv{Pi{Rl{P{Rs {cC{ga{cv{ge{cr{gn~
+A {gsharply{x {cd{Re{gc{ca{Ry{gi{cn{Rg{x odor seeps from the cavern you now stand in. 
+{RC{Wa{Rr{Wn{Ra{Wg{Re{x seems to be growing from the walls, falling in clumps of 
+{cr{Ro{Wt{ct{Ri{Wn{cg{x and putrid flesh into piles on the gory floor. You walk 
+through the {cm{gu{cc{gk{x on the cavernfloor, compelled into the deep {kdarkness{x
+that leads into the depths of the {cA{Wr{cm{Wy {cO{Wf {cD{Wa{cr{Wk{cn{We{cs{Ws{x, 
+or quite simply, {Rhell{x.
+~
+0 DT 0
+C Army~
+D0
+~
+north~
+0 -1 1251
+D2 
+To the south is the Morgue
+~
+morgue south~
+1 -1 25001
+D5
+Downwards is {RH{ce{Rl{cl{R.{x
+~
+hell down~
+1 -1 25002 
+E
+flesh gore piles~
+The gore appears to be bits of bone, muscle, sinew, and just plain flesh. It
+looks like it oozes from the walls.
+~
+S
+
+#25001
+The {cM{ko{cr{kg{cu{ke{x~
+The {cM{ko{cr{kg{cu{ke{x is where all the fallen warriors of the {Wu{Cp{Wp{Ce{Wr{x world
+come when they are no longer needed by their souls. Many {Rs{ct{gr{ca{Rn{cg{ge {cb{Ro{cd{gi{ce{Rs{x
+lie on the tables, all in different stages of decomposition. Some are
+little more than skin over {Wbones{x, others still reek of {Rd{ke{Ra{kt{Rh{x. Torches 
+set into the wall flicker, reflecting off the strange phenomena of the
+gore.
+~
+0 DT 0
+C Army~
+D0
+To the north is the {cE{gn{ct{gr{ca{gn{cc{ge {ct{go
+{RD{Pe{Rv{Pi{Rl{P'{Rs {cC{ga{cv{ge{cr{gn.
+~
+devil entrance north~
+0 -1 25000
+E
+flesh gore piles~
+The gore appears to be bits of bone, muscle, sinew, and just plain flesh. It
+looks like it oozes from the walls.
+~
+S
+
+#25002
+A {cD{ko{cw{kn{cw{ka{cr{kd {bTunnel{x in the {cCavern{x~
+The walls glow a strange {Rre{Pdd{Ris{Ph{x hue, and there is constant
+*plopping* sounds from when the {Rg{co{Rr{ce{x reaches the large piles
+already collected along the walls. Shadows dance along the downward
+sloping cavern, creating illusions of monstrous creatures. You see a
+{cHydra, {gDragon, {WGriffin, {gOgre, {cWerewolf, {xand a {gWraith{x. All
+gruesome and quite fearsome, they blend together and shift sizes and
+shapes in a chaotic system. The tunnel leads further into the depths of the
+earth, and closer to {Rhell{x.
+~
+0 DT 0
+C Army~
+D5
+Downwards is {Rhell{x and the {WA{cr{Wm{cy {WO{cf
+{WD{ca{Wr{ck{Wn{ce{Ws{cs {xClanhall.
+~
+down hell army darkness clan hall clanhall~
+0 -1 25003
+D4
+Above you is the {cE{gn{ct{gr{ca{gn{cc{ge {ct{go
+{RD{Pe{Rv{Pi{Rl{P{Rs {cC{ga{cv{ge{cr{gn.
+~
+~
+0 0 25000
+S
+
+#25003
+A {csp{Wl{git {xin the tunnel~
+{bTorches{x set into the wall provide {gminimal {Yi{Pl{Rl{Pu{Ym{Pi{Rn{Pa{Yt{Pi{Ro{Pn{x. {cS{gh{ca{gd{co{gw{cs{x still
+dance on the wall, more quickly now, and less {cd{ke{cf{ki{cn{ka{cb{kl{ce{x. The further
+into the caverns you travel, the more the {cA{Wr{cm{Wy {cO{Wf {cD{Wa{cr{Wk{cn{We{cs{Ws{c'{x
+{kshadows{x meld and become one. Not only a terrifyingly fierce clan,
+they are like a very close family. {cT{Wh{ce {WA{cr{Wm{cy {WO{cf {WD{ca{Wr{ck{Wn{ce{Ws{cs{x 
+is a close knit clan.
+~
+0 DT 0
+C Army~
+D4
+Back up the steeply sloping tunnel is more Downward tunnel.
+~
+up~
+0 -1 25002
+D5
+Downwards is a steeply sloping tunnel.
+~
+down~
+0 -1 25005
+D2
+South is a Pentagonal room.
+~
+south~
+0 -1 25004
+S
+
+#25004
+A Pentagonal Room~
+Five walls, roughly twenty feet tall and twenty feet wide encase this huge
+cavern. Floating orbs of {Wlight{x hover near the top of the chamber,
+casting a dim glow around this {gg{Wr{ga{Wn{gi{Wt{ge{x chamber. 
+  Gravel crunches under your feet, created from bits of rock that has
+chipped and fallen off over time. The cavern is obviously very {cold{x for
+so much gravel to have accumulated. The sound of a {Bflo{Cwi{Wng{x
+underground {Bw{Ca{Bt{Ce{Br{x source can be heard, and the consistency of the rushing 
+water is almost {Ms{No{Bo{Nt{Mh{Ni{Bn{Ng{x.
+  {cCloaked{x in {kshadow{x is the {RD{camned {RH{cealer{x, cursed by the underworld 
+gods to serve the {cA{Wr{cm{Wy {cO{Wf {cD{Wa{cr{Wk{cn{We{cs{Ws{x in their conquests.
+~
+0 DT 0
+C Army~
+D0
+To the north is a downward sloping tunnel.
+~
+north~
+0 -1 25003
+E
+orb orbs glowing light~
+The orbs seem to hover in the air, suspended by magic. The {Wlight{x
+they give off is pale {Wwhite{x and flickering.
+~
+S
+
+#25005
+{cDow{gnwa{Wrd {cSlo{gpe{x~
+The tunnel continues into the strange half-{Wlight{x, half-{kdarkness{x.
+{bTorches{x become more frequent as the {Wlight{x from above quickly
+{Wf{ga{cde{ks{x into a memory. Your steps {ce{xch{co{x against the walls
+and high ceilings, and the clinking of armor and weapons seems {Cloud{x
+in the eerie absence of normal sounds. {bDust{x rises from your footsteps
+and swirls in the ever-{Ywa{Prm{Ring{x air. The scent of {Rch{ka{Rrr{ce{Rd
+f{kle{Rsh{x and {bwo{ko{bd{x lingers in the {Wa{gi{cr{x, a contsant reminder of the
+{kdeath{x and {kde{cca{gy{x of the world.
+~
+0 DT 0
+C Army~
+D0
+~
+~
+0 0 25023
+D4
+Back up the tunnel is yet more cave leading towards the {Wlight{x.
+~
+up~
+0 -1 25003
+D5
+Down is a split in the tunnel.
+~
+down~
+0 -1 25006
+E
+torch torches light~
+The {btorches{x are made from small twigs and easily burnable material
+bound with burlap rags. They are then doused in a flammable substance,
+and dipped in wax for easy lighting. These {btorches{x look like they have
+been magically enchanted, because no matter how much they burn, they
+never go out.
+~
+S
+
+#25006
+{cSp{gl{Wit{x in the {Rt{Pu{cn{Pn{Re{Pl~
+To the west is {cA{gs{Wh{gn{co{Wd{c{gs{x chamber. You can barely see the ceiling 
+of this magnificently carved cavern. In every crevice, and spanning the
+whole ceiling and walls, are chiseled {ci{Rn{gt{Pr{Wi{Yc{Wa{Pt{ge{x carvings.
+They depict battles won and lost by the {cA{Wr{cm{Wy {cO{Wf {cD{Wa{cr{Wk{cn{We{cs{Ws{x. They 
+constantly shift as {cA{Wr{cm{Wy {cO{Wf {cD{Wa{cr{Wk{cn{We{cs{Ws{x member's 
+standings change in the {br{He{Ga{Yl{Gm{Hs{B.{x
+  The walls are a personal testament to the struggles of {kE{Rv{ki{Rl{x to rise 
+against the restraints of the {Wg{Yu{Wt{Yl{We{Ys{Ws {c"{WGood{c"{x in {bT{Hh{Ge{Yr{Ga{H.{x 
+The carvings writhe in the {Ca{Ww{Ce{x of the {ch{Ro{gr{Rr{Wo{Rr{x and {Wm{Ya{Cg{Bn{Ni{Mf{Ni{Bc{Ce{Yn{Wc{Ye{x of 
+the {cA{Wr{cm{Wy{x they reflect, and a {cb{Ci{ct{Ct{ce{Cr{cs{Cw{ce{Ce{ct{x
+{Wcry{x of a hard earned {RV{Pictory{x ripples across them as another
+falls to the {kB{cl{xade of the {cA{Wr{cm{Wy {cO{Wf {cD{Wa{cr{Wk{cn{We{cs{Ws{x.
+~
+0 DT 0
+C Army~
+D3
+To the west is {cA{gs{Wh{gn{co{Wd{c'{gs{x chamber.
+~
+east ashnod ashnods~
+0 -1 25007
+D4
+~
+~
+0 0  25005
+D5
+~
+~
+0 0 25008
+S
+
+#25007
+{cA{gs{Wh{gn{co{Wd{c'{gs{x chamber~
+As soon as you enter this room you hear a low pitched {Yhumming{x
+resonating throughout the room. The air here is noticeably
+{Cc{Bo{Wo{Bl{Ce{Wr{x, and fine {Wwhite{x {Ys{ba{Yn{bd{x covers the cavern floor. 
+Large iridescent gateways to other parts of {bT{Hh{Ge{Yr{Ga{x shimmer and {Bp{Nu{Ml{Ns{Ba{Nt{Me{Ns{x 
+were three of the walls should be. Through the {Cp{Bo{Yr{Wt{Ya{Wl{Bs{x are
+three areas; Drakyri Isle, Pirate Cave, and the Elemental Canyon. As the
+images {ct{gw{Ri{gs{ct and {Rco{Pnv{Ye{Prg{Re{x, {kevil{x undertones enter the scenes.
+The portals show the evil nature of {bT{Hh{Ge{Yr{Ga{H,{x and hence,
+distort the physical reality of the space.
+  Skies darken to a {Rcrimson{x, {Rbl{Po{Rod{x rains from the sky, and the
+living creatures don't appear quite so alive. In fact, they appear to
+be {cde{Rca{gyi{cng{x as they go through the patterns that make up their
+{Wpathetic{x existance. Through these portals you can see the plane of
+existence below this one, that of the {cun{kdead{x spirits and those who
+have not passed on yet. In the center of the room is a large dias with
+some {Bma{Ggn{Yif{Wic{gen{ct{x looking artifacts carefully aranged on
+top of it. A woman cloaked in the material of the night sky watches
+carefully over it. She does not look like a person to trifel with.
+~
+0 DT 0
+C Army~
+D1
+To the east you see a split in the tunnel.
+~
+east split~
+0 -1 25006
+
+S
+
+#25008
+{WDo{gwn{cwa{krd{x~
+These caves seem to be on a constant {WDo{gwn{cwa{krd{x slope, heading into
+the {Rf{Pier{Ry{x center of the {bT{Hh{Ge{Yr{Ga{Hn{x world.
+  Despite the very {Pwarm{x air, you get chills in this section of the
+tunnel. In the {cs{kha{cd{kow{cs{x flickering on the wall you see gruesome
+images of {Rd{keath{x and {Rd{kestruction{x, of {kp{Rain{x and {ks{Ruffering{x.
+  Basking in the glory of the {kdarkness{x are spirit wraiths, hovering
+between this plane of existance and the one below it. The tunnel heads
+further into the core of {bT{Hh{Ge{Yr{Ga{H,{x and upwards to the bright surface.
+~
+0 DT 0
+C Army~
+D4
+The tunnel heads back up towards the surface of {bT{Hh{Ge{Yr{Ga{H.{x
+~
+up thera theran~
+0 -1 25006
+D5
+The tunnel leads down into the {RF{Pi{Re{Pr{Ry{x {kdarkness{x that
+constitutes the center of {bT{Hh{Ge{Yr{Ga{H.{x
+~
+down fiery~
+0 -1 25009
+S
+
+#25009
+{WDo{gwn{cwa{krd{x~
+These caves seem to be on a constant {WDo{gwn{cwa{krd{x slope, heading into
+the {Rf{Pier{Ry{x center of the {bT{Hh{Ge{Yr{Ga{Hn{x world.
+  Despite the very {Pwarm{x air, you get chills in this section of the
+tunnel. In the {cs{kha{cd{kow{cs{x flickering on the wall you see gruesome
+images of {Rd{keath{x and {Rd{kestruction{x, of {kp{Rain{x and {ks{Ruffering{x.
+  Basking in the glory of the {kdarkness{x are spirit wraiths, hovering
+between this plane of existance and the one below it. The tunnel heads
+further into the core of {bT{Hh{Ge{Yr{Ga{H,{x and upwards to the bright surface.
+~
+0 DT 0
+C Army~
+D4
+The tunnel heads back up towards the surface of {bT{Hh{Ge{Yr{Ga{H.{x
+~
+up thera theran~
+0 -1 25008
+D5
+The tunnel leads down into the {RF{Pi{Re{Pr{Ry{x {kdarkness{x that
+constitutes the center of {bT{Hh{Ge{Yr{Ga{H.{x
+~
+down fiery~
+0 -1 25010
+S
+
+#25010
+{cSp{gl{Wit{x in the {Rt{Pu{cn{Pn{Re{Pl~
+To the east is {CD{Wy{Bs{Wt{Ca{Wn{Bx{W'{Cs{x chamber. You can barely see the ceiling 
+of this magnificently carved cavern. In every crevice, and spanning the
+whole ceiling and walls, are chiseled {ci{Rn{gt{Pr{Wi{Yc{Wa{Pt{ge{x carvings. 
+They depict battles won and lost by the {cA{Wr{cm{Wy {cO{Wf {cD{Wa{cr{Wk{cn{We{cs{Ws{x. They
+constantly shift as {cA{Wr{cm{Wy {cO{Wf {cD{Wa{cr{Wk{cn{We{cs{Ws{x members standings change 
+in the {br{He{Ga{Yl{Gm{Hs{B.{x The walls are a personal testament to the struggles 
+of {kE{Rv{ki{Rl{x to rise against the restraints of the {Wg{Yu{Wt{Yl{We{Ys{Ws {c"{WGood{c"{x in {bT{Hh{Ge{Yr{Ga{H.{x 
+The carvings writhe in the {Ca{Ww{Ce{x of the {ch{Ro{gr{Rr{Wo{Rr{x and {Wm{Ya{Cg{Bn{Ni{Mf{Ni{Bc{Ce{Yn{Wc{Ye{x of
+the {cA{Wr{cm{Wy{x they reflect, and a {cb{Ci{ct{Ct{ce{Cr{cs{Cw{ce{Ce{ct{x {Wcry{x of a hard earned 
+{RV{Pictory{x ripples across them as another falls to the {kB{cl{xade of
+the {cA{Wr{cm{Wy {cO{Wf {cD{Wa{cr{Wk{cn{We{cs{Ws{x.
+~
+0 DT 0
+C Army~
+D1
+To the east is {CD{Wy{Bs{Wt{Ca{Wn{Bx{W&rsquo;{Cs{x chamber.
+~
+east dystanex~
+0 -1 25011
+D4
+The tunnel continues up towards the surface of Thera.
+~
+up thera~
+0 -1 25009
+D5
+The tunnel continutes downwards into the fiery inferno of Thera's
+center.
+~
+down fiery~
+0 -1 25012
+S
+
+#25011
+{CD{Wy{Bs{Wt{Ca{Wn{Bx{W'{Cs{x chamber.~
+{RB{Ploody{x body parts are strewn about, piled on large
+{Wm{ga{Wr{gb{Wl{ge{x tables. You can see equipment still attached to
+the severed limbs. You recognize a {bHighlander{x emblem on a sleeve,
+the leg if a {tKnot's{x Lir, the arms and legs of a ex-{GWolf{x, an
+ear with a {WD{Mi{Wz{Mz{Wy{MK{Wn{Mi{Wg{Mh{Wt{x stud still in it, and a brain that
+ could only belong to a {rVamphyri{x. {CD{Wy{Bs{Wt{Ca{Wn{Bx{x stands behind 
+the {Wm{ga{Wr{gb{Wl{ge{x tables, splashed in blood up to the elbows. A sign 
+that hovers at eye level above the center table says "Ring bell for
+service".
+~
+0 DT 0
+C Army~
+D3
+To the west is a split in the tunnel.
+~
+west split~
+0 -1 25010
+S
+
+#25012
+A {cD{ko{cw{kn{cw{ka{cr{kd {bTunnel{x~
+The walls glow a strange {Rre{Pdd{Ris{Ph{x hue, and dust rises from your
+feet as you move along in this ancient tunnel. Shadows dance along the
+downward sloping cavern, creating illusions of monstrous creatures. You
+see a {cHydra, {gDragon, {WGriffin, {gOgre, {cWerewolf, {xand a {gWraith{x.
+ All gruesome and quite fearsome, they blend together and shift sizes and
+shapes in a chaotic system. The tunnel leads further into the depths of
+the earth, and closer to {Rhell{x.
+~
+0 DT 0
+C Army~
+D0
+~
+~
+0 -1 25022
+D3
+To the west is Serena's room.~
+~
+3 -1 25024
+D4
+The tunnel continues up towards the surface of Thera.
+~
+up thera~
+0 -1 25010
+D5
+The tunnel leads down into the {RF{Pi{Re{Pr{Ry{x {kdarkness{x that
+constitutes the center of {bT{Hh{Ge{Yr{Ga{H.{x
+~
+down fiery darkness~
+0 -1 25013
+S
+
+#25013
+Closer to the depths of {Rhell{x~
+The tunnel looks like it {co{gp{We{gn{cs{x into a wide chamber ahead,
+and {Wl{Yi{Wg{Yh{Wt{x flickers from the enterance.. All noises echo loudly
+against the tunnel walls, creating strange sounds and sending chills up
+and down your spine. Apart from the muggy, {Rwarm{x air, the sound of
+quickly rushing {Bwater{x close by creates a very strange enviornment. 
+~
+0 DT 0
+C Army~
+D0
+~
+~
+0 0 25021
+D4
+The tunnel continues up towards the surface of Thera.
+~
+up thera~
+0 -1 25012
+D5
+The tunnel leads down into the {RF{Pi{Re{Pr{Ry{x {kdarkness{x that
+constitutes the center of {bT{Hh{Ge{Yr{Ga{H.{x
+~
+down fiery darkness~
+0 -1 25014
+S
+
+#25014
+Chamber of {RG{Mr{Ne{Ba{Nt{Me{Rr{x {cD{ke{Rmo{kn{cs{x~
+The tunnel seems to fade into the far distance as this huge cavern opens
+in front of you. Easily 100 feet across, a river cuts through the center of
+the chamber. Boiling {kblack{x liquid flows in the underground river bed
+and steam {Cs{Wi{cz{Cz{Wl{ce{Cs{x and rises off the surface. A putrid {Ysulphur{x 
+smell invades your nostrils, and you almost chose in disgust because
+it's so strong. This is the chamber of the {RG{Mr{Ne{Ba{Nt{Me{Rr{x {cD{ke{Rmo{kn{cs{x.
+To the North is Crowe's room, to the east is Malign's room, to the south
+is Juniper's room, down a dark stairway is Helios' room, and finally, to
+the west is the trophy room.
+~
+0 DT 0
+C Army~
+D0
+~
+~
+0 0 25020
+D4
+The tunnel continues up towards the surface of Thera.
+~
+up thera~
+0 -1 25013
+D1
+To the east is Malign's room.
+~
+east malign~
+3 -1 25016
+D2
+To the south is Juniper's room.
+~
+south juniper~
+3 -1 25017
+D3
+To the west is the Trophy room of the {cA{Wr{cm{Wy {co{Wf
+{cD{Wa{cr{Wk{cn{We{cs{Ws{x.
+~
+west trophy~
+0 -1 25018
+D5
+Down is Helios' room.
+~
+down helios~
+3 -1 25019
+S
+
+#25016
+{cM{Ra{gl{ci{Rg{cn{c'{Rs{x {cW{go{cl{gv{ce{gn {PR{Re{Pt{Rr{Pe{Ra{Pt{x~
+As you look around the room, you are surprised by the lack of
+{cg{kl{co{ko{cm{ki{cn{ke{cs{ks{x you would expect from a leader of the
+{WA{co{WD{x. The high ceilings and plain out spaciousness of the room
+give it an {Wa{Ci{cr{Wy{x, relaxed feeling. Four amazingly {Ybright{x
+candles light different corners of the room. Under the first, you see a very
+soft looking bed of {Hp{bi{Hn{be {Hb{br{Ha{bn{Hc{bh{He{bs{x, {Ggrass{x, and excess winter fur. 
+You continue to scan around to the second candle, under which flows a
+babbling {Cspring{x. You don't know where it leads to or comes from, but
+it's there. Under the third candle, you see the first sign of Malign's
+love to {Rkill{x. After every {Rkill{x, Malign takes a {Wbone{x from his
+victim and etches their name in it. You see a pile of these, strangely, in
+alphabetical order. Under the fourth and final candle, you see where
+Malign goes to relax. A ping pong table sits there, beside a pinball
+machine. A dartboard is hanging on the wall with picturse of those who
+oppose the {WA{cr{Wm{cy{x for "missed" shots. This room is indeed a
+wolven paradise.~
+0 DT 0
+C Army~
+D3
+To the west is the Chamber of {RG{Mr{Ne{Ba{Nt{Me{Rr{x
+{cD{ke{Rmo{kn{cs{x.
+~
+west chamber~
+3 -1 25014
+S
+
+#25017
+{NJ{Mu{Vn{Pi{Rp{Ye{Wr{C'{Bs {NG{Me{Vt{P-{Ra{Yw{Wa{Cy {Bf{Nr{Mo{Vm {Pt{Rh{Ye {Ww{Co{Br{Nl{Md~
+As soon as you enter this virtual {Np{Ma{Vr{Pa{Rd{Yi{Ws{Ce{x you notice
+several things. The air is scented with {Vlavander{x and {Proses{x. As
+you look around you notice several {Vlavander{x and {Prose{x plants on a
+table near the door. The {Hp{Gl{Ha{Gn{Ht{Gs{x look like the flourish under
+her touch. A carpet woven from thread from the fabric of reality that
+makes up our existance {Cs{Wh{Yi{Wm{Cm{We{Yr{Ws{x on the floor,
+working as a viewing globe of Thera. A plush bed made from down
+feathers is covered in vibrant {Vpurple{x sheets that matches the color of
+the {Vlavender{x buds. On all free wall space are hand drawn diagrams.
+They look quite a bit like attack plans, and maps of different areas of
+{bT{Hh{Ge{Yr{Ga{H.{x Apparently {NJ{Mu{Vn{Pi{Rp{Ye{Wr{x is quite a fighter.
+~
+0 DT 0
+C Army~
+D0
+To the north is the Chamber of {RG{Mr{Ne{Ba{Nt{Me{Rr{x
+{cD{ke{Rmo{kn{cs{x.
+~
+north chamber greater demons~
+3 -1 25014
+S
+
+#25019
+{cH{ke{cl{ki{co{ks{c' {CP{Tr{Ci{Tv{Ca{Tt{Ce {PH{Ye{Pl{Yl{x~
+You look around you, expecting {Pf{Yi{Pr{Ye{x, {cd{ke{ca{kt{ch{x, {Cp{Ta{Ci{Tn{x, {Va{Mg{Vo{Mn{Vy{x, 
+but you find none. Not a thing to be expected of a {cd{ke{cm{ko{cn{x. The area 
+is a clean cut {Gf{Hi{Ge{Hl{Gd{x, near a beautiful {Bl{Na{Bk{Ne{x, {Gt{Hr{Ge{He{Gs{x growing 
+around the place. {YB{be{Ya{bu{Yt{bi{Yf{bu{Yl {Wm{ga{Wi{gd{We{gn{Ws{x have gathered around 
+the {Bl{Na{Bk{Ne{x, and some are engaged in games of tag, and the like. They 
+are all scantly clad in {Wwhite{x, without the slightest hint of {cevil{x
+in their eyes. You see a {Pc{Ri{Pr{Rc{Pl{Re {Po{Rf {Pf{Ri{Pr{Re{x a ways off from the
+{Bl{Na{Bk{Ne{x, and on closer inspection find a {Pf{Yi{Pe{Yr{Py {Yb{Pe{Yd{x with 
+the {Cm{ca{Cr{ck{Ci{cn{Cg{cs{x of a {WH{gy{cd{gr{Wa{x on the head. On the stand beside 
+the bed is a {Pobject{x, distorted by the {Pf{Yi{Pr{Ye{x of the stand and such. 
+It looks like a some sort of rod. You now realize there is no way out of
+this {Gf{Hi{Ge{Hl{Gd{x, and as you look around, you find yourself trapped...
+~
+0 DT 0
+C Army~
+D4
+~
+~
+3 -1 25014
+E 
+women woman maiden girls~
+The lovely {Wl{ga{Wd{gi{We{gs{x all bounce merrily about you, making
+you half dizzy with all their running about, but you enjoy the scene
+anyways.
+~
+E
+circle~
+A {Pc{Ri{Pr{Rc{Pl{Re {Po{Rf {Pf{Ri{Pr{Re {Pb{Yl{Pa{Yz{Pe{Ys{x around
+an area containing a bed and a place of sanctuary.
+You near it, and the flames part to allow you into the circle.
+~
+E
+lake~
+A beautiful, crystal clear lake sits silently, occasionally disturbed by the
+ladies
+in the area. You look into it and do not see your reflection but rather that of
+your demon self. You look at one of the maiden's reflections and see the
+same thing. You sense a mystery unfolding...
+~
+E
+reflection~
+As you realize everyone in this room is a demon, you start to think about
+how you are going to get out of here. One of the maidens near the lake seems to
+be staring off into space, and as you follow her gaze, it comes upon a
+small cave entrance you didn't see before.
+~
+E
+cave~
+As you near the cave, you are suddenly flung away by an unknown force.
+You frantically look about for a way into the cave and your search is suddenly
+captured by a glint of light above the cave entrance.
+~
+E
+above~
+You see a small key with the word 'oblivion' etched into it. You glance
+back at the cave entrance and mentally imagine the word 'oblivion'.
+~
+S
+
+#25018
+The {WA{cr{Wm{cy {WO{cf {WD{ca{Wr{ck{Wn{cn{We{cs{Ws{x {RT{crophy{x room.~
+A small, but very secure room, is really more of an alcove off of the
+Chamber of {RG{Mr{Ne{Ba{Nt{Me{Rr{x {cD{ke{Rmo{kn{cs{x. Magical {Cfo{Yrce fiel{Cds{x surround the 
+trophies that sit behind them. Successfully warning off an possible
+thieves. A low {Yhum{x bounces off the alcove walls, as the trophies bask
+in the glory they represent. An aura of {Re{cv{ki{cl{x surrounds  them, a
+{cbitter{x reminder of the {Rd{ke{Rs{kt{Rr{ku{Rc{kt{Ri{ko{Rn{x and {kd{Re{kc{Ra{ky{x caused over 
+{bT{Hh{Ge{Yr{Ga{c'{bs{x history by the evil forces.
+  Heedless of the {Yy{We{Yl{Wl{Yo{Ww {Yb{We{Yl{Wl{Yi{We{Yd{x good in {bT{Hh{Ge{Yr{Ga{x pleading 
+for mercy, the {WA{cr{Wm{cy {WO{cf {WD{ca{Wr{ck{Wn{cn{We{cs{Ws{x continues their merciless 
+crusade against the world with gusto and style. Oh yeah, they enjoy themselves,
+too.
+~
+0 DT 0
+C Army~
+D1
+To the east is the Chamber of {RG{Mr{Ne{Ba{Nt{Me{Rr{x
+{cD{ke{Rmo{kn{cs{x.
+~
+east chamber demon demons great greater~
+0 -1 25014
+S
+
+#25020
+{GCrowe's Nest{x~
+This room definitely belongs to a thief. There are all sort of artifacts
+and valuables from around the realm. The room is beautifully decorated
+with the most expensive vases and artwork that can be found. Of course
+most of it has been reported stolen from various museums and shops around
+town. Everything seems so organised and well placed and from what you know
+about Crowe, this seems totally out of her nature but the room is
+magnificent.
+You catch a glimpse of movement out of the corner of your eye and reach
+for your sword. Just as you are about the attack, you notice a rather 
+strong muscular man dressed in nothing but a loin cloth on the other side
+of the rooom. He is a bit bruised but seem to be in decent health. As you
+approach him, you notice that he is chained to the wall and wears a collar
+that reads "Property of Crowe."
+His name is Jerad and his job is to keep the place clean and tidy for his
+owner. He does a very good job considering he is trapped against his will.
+~
+0 DT 0
+C army~
+D2
+~
+~
+0 0 25014
+S
+#25021
+{YJust Dandy{x~
+You feel and confined in here. {YLaughter{x and {Vhappiness{x float
+around carelessly. Self-upgrading {BS{Cu{Bp{Ce{Br {CC{Bo{Cm{Bp{Cu{Bt{Ce{Br{Cs{x sits in the
+computer, loaded with all the newest {Gg{Ha{Gm{He{Gs{x (including many MUD clients
+of course). A drink dispenser sits in the other corner but it only dispenses
+{HS{Yp{Hr{Yi{Ht{Ye{x and {YLemonade{x. A big {Yyellow{x, circular bed sits in the
+corner, with a black head, back and foot pillows shaped into a {Ysmiley{x face.
+Here you can step out of your busy role-playing self and just be
+yourself.
+~
+0 DT 0
+C Army~
+D2
+~
+~
+0 0 25013
+S
+#25022
+{cS{Wh{ce{Wi{Ck{x's Dwelling~
+As you walk into the room you are surrounded by trees.  Then something catches
+your eye, a shadow.  You look closer to reveal Sheik of the Sheikah.  Then
+you notice a small Deku wooden bed with a matress and pillow on it.  As you
+start to explore further you notice a small {bDeku {HNut{x lying on the
+ground.
+Then all of a sudden you see a bright flash and {WS{ch{We{ci{Wk{x disappears
+into thin air.  After the flash clears, you feel dizzy and collapse on the
+bed.{x
+~
+0 D 0
+C army~
+D2
+To the south you can see the Army of Darkness clanhall.
+~
+~
+0 -1 25012
+E
+creationdate~
+Room by Kenneth, October 1st, Clerve.
+~
+S
+
+#25023
+{cA{Wa{Rr{gi{ck{W'{Rs {gG{ce{Wt{Ra{gw{ca{Wy~
+{bYou enter into a small rocky cave with sharp edges ALL around you.
+You notice a small {Wwhite {cwolf {bpup in the corner.  He is in a
+small bed made of hair shed in years past.  In another corner, there
+is coming a {B'drip drip drip' {bsound.  This appears to be a {Mcozy {blittle
+{ccave{x.  A small rabbit has been left by the guardian wolf
+{N*YUM... Already Been Chewed*.  {x
+~
+0 DK 0
+C Army~
+D2
+Southwards the ground slopes downward.
+~
+~
+0 -1 25005
+E
+created~
+Done 10.15.99 by Kenneth.
+~
+S
+
+#25024
+{CS{ge{Cr{ge{Cn{ga{C'{gs {CB{ge{Cd{gr{Co{go{Cm{x~
+Serena's room is typical of those lived in by most teenage girls.  The
+walls are {Wwhite{x, with a few pictures of family and friends, with some
+posters of popular bands.  {VPink{x carpet covers the floor, and there
+is a window looking out into a {Ysunshine{x(?) filled back yard.  A bed
+takes up a large amount of the space, with {Vpink{x and {Cblue{x coverings draping
+down to the floor.  A vanity and dresser take up a wall, and a closet
+holding her vast wardrobe is nearby.  It looks like a nice place to relax
+for a bit, but you probably don't want Serena catching you nosing about
+her room unattended.
+~
+0 DK 0
+C army~
+D1
+East leads to the Army of Darkness clanhall.
+~
+door~
+3 -1 25012
+E
+walls pictures posters~
+The white walls have a few pictures and posters hung on them.
+~
+E
+carpet floor~
+Surprisingly, the carpet is actually clean.  Knowing Serena's habits,
+though, it's likely that her mom finally got tired of her messy room and
+cleaned it.
+~
+E
+window sunshine backyard~
+You can see {Ysunshine{x beaming down on {Hgreen{x grass out in the back
+yard.
+~
+E
+vanity dresser~
+It is made of wood, and painted white to match the rest of the room.  The
+vanity mounted to the dresser shows you a crystal clear reflection of
+yourself.
+~
+E
+closet wardrobe~
+Serena has *lots* of clothes, you don't see how they could possibly all
+fit in the closet.
+~
+S
+
+#0
+
+
+#RESETS
+
+M 0 25000 1 25000 1           * Load Vanesha to 25000
+M 0 25001 1 25007 1           * Load Ashnod to 25007
+G 0 25000 1000                * Ashnod
+G 0 25001 1000                * Ashnod
+G 0 25002 1000                * Ashnod
+G 0 25003 1000                * Ashnod
+G 0 25004 1000                * Ashnod
+G 0 25005 1000                * Ashnod
+G 0 25006 1000                * Ashnod
+G 0 25007 1000                * Ashnod
+G 0 25008 1000                * Ashnod
+G 0 25009 1000                * Ashnod
+G 0 25010 1000                * Ashnod
+G 0 25011 1000                * Ashnod
+G 0 25012 1000                * Ashnod
+G 0 25013 1000                * Ashnod
+G 0 25014 1000                * Ashnod
+M 0 25002 1 25004 1           * Load Damned Healer to 25004
+M 0 25003 1 25011 1           * Load Dystanex to 25011
+G 0 25016 1000                * Dystanex
+G 0 25017 1000                * Dystanex
+G 0 25018 1000                * Dystanex
+G 0 25019 1000                * Dystanex
+G 0 25020 1000                * Dystanex
+G 0 25021 1000                * Dystanex
+G 0 25022 1000                * Dystanex
+O 0 25015 1 25009             * Load fountain in 25009
+O 0 25023 1 25007             * Load portal in 25007
+O 0 25024 1 25007             * Load portal in 25007
+O 0 25025 1 25007             * Load portal in 25007
+
+M 0 25004 1 25021 1           * mob to Kirt's room
+O 0 25026 100 25021           * pill to Kirt's room
+O 0 25027 1 25021             * bed to Kirt's room
+
+M 0 25005 1 25020 1           * jared to Crowe's room
+O 0 25028 100 25020           * pill to Crowe's room
+O 0 25029 1 25020             * bed to Crowe's rooms
+
+M 0 25006 1 25016 1           * wolf to Malign's room
+O 0 25030 100 25016           * pill to Malign's room
+O 0 25031 1 25016             * bed to Malign's room 
+O 0 25032 1 25016             * fountain to Malign's room
+
+M 0 25007 1 25022 1           * Sheik into Sheik's room (don't ask me)
+O 0 25033 1 25022 1           * Deku Bed into Sheik's room
+O 0 25034 1 25022 1           * Deku nut into Sheik's room
+O 0 25035 1 25022 1           * Small pond into Sheik's room
+
+M 0 25008 1 25023 1           * little pup into Aarik's room
+O 0 25038 1 25023 1           * Pile of fur into Aarik's room
+O 0 25037 1 25023 1           * Dripping ceiling into Aarik's room
+O 0 25036 20 25023 1          * Bloody rabbit into Aarik's room
+
+M 0 25009 1 25024 1           * Luna into Serena's room
+O 0 25039 1 25024 1           * bed into Serena's room
+O 0 25040 20 25024 1          * moon wand into Serena's room
+O 0 25041 1 25024 1           * coke into Serena's room
+
+S
+
+#SHOPS
+
+25001 9 0 0 0 0 125 50 0 23     * Ashnod
+25003 19 17 0 0 0 125 50 0 23   * Dystanex
+
+0
+
+#$
+
+

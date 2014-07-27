@@ -1,0 +1,370 @@
+#PLAYER
+Name Gouda~
+Id   1004159912
+LogO 1004208415
+Vers 8
+Prom %CC%h/%Hhp %CG%m/%Mm %CB%v/%Vmv %CV%XXnl %CB%q%Cc/%CY%j%CCmin.  ~
+Race dragon~
+Sex  1
+Cla  7
+Levl 15
+Plyd 30948
+Age  0
+Back 30936
+Note 1004200428 1004160060 1004160060 1004160060 1004160060 1004160060
+Scro 22
+Room 8543
+HMV  35 345 162 162 117 234
+Gold 4
+Silv 3312
+Exp  22962
+PCkills 0
+PCkilled 0
+Akills 1
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy T
+Comm NOV
+Revk 0
+Pos  4
+Save  -2
+Alig  11
+Hit   8
+Dam   6
+ACs 23 22 25 85
+Atrib 20 19 20 15 22 18
+AtMod 1 1 1 1 2 4
+RolePnts 8
+QuestPnts 4
+Pass notintheface~
+Afk {B[{CSat Oct 27 08:03:23 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {Y17 {bhours {Yof {bfreshness {Yremain~
+Immn ~
+Pnts 40
+Rank ~
+Aura {Y{bc{Yh{be{Ye{bs{Yy{x aura~
+TSex 1
+LLev 7
+Deit Alisa~
+Lsit pc-62-31-5-48-bf.blueyonder.co.uk~
+Ltim Sat Oct 27 11:18:47 2001
+~
+LSav Sat Oct 27 13:46:55 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  AF
+HMVP 310 152 184
+THVP 0 0 0
+Cnd  0 12 6 16
+Sk 1 1 'acid breath'
+Sk 1 1 'fire breath'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'lightning breath'
+Sk 49 1 'axe'
+Sk 75 1 'dagger'
+Sk 1 1 'flail'
+Sk 80 1 'shield block'
+Sk 86 1 'sword'
+Sk 75 1 'bash'
+Sk 1 1 'dodge'
+Sk 80 1 'enhanced damage'
+Sk 83 1 'parry'
+Sk 79 1 'second attack'
+Sk 49 1 'third attack'
+Sk 76 1 'dual wield'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'draconian'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 15
+Cost 112
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 92
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 95
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Cond 96
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 12701
+Nest 0
+Cond 96
+Wear 5
+Cost 500
+End
+
+#O
+Vnum 12708
+Nest 0
+Wear 9
+Cost 500
+End
+
+#O
+Vnum 12709
+Nest 0
+Cond 97
+Wear 8
+Cost 500
+End
+
+#O
+Vnum 12704
+Nest 0
+Cond 97
+Wear 4
+Cost 500
+End
+
+#O
+Vnum 12704
+Nest 0
+Cond 97
+Wear 3
+Cost 500
+End
+
+#O
+Vnum 12706
+Nest 0
+Wear 7
+Cost 500
+End
+
+#O
+Vnum 1911
+Nest 0
+Cond 74
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 1603
+Nest 0
+Cond 99
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 506
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 1605
+Nest 0
+Cond 83
+Wear -1
+Cost 1510
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3364
+Nest 0
+Cond 93
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 1603
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1605
+Nest 0
+Wear 19
+Cost 1510
+End
+
+#O
+Vnum 4573
+Enchanted
+Nest 0
+Wear 18
+Cost 1800
+Affc 'reserved'   1  14  -1   2   5          0 1
+Affc 'reserved'   1  14  -1   1   3          0 1
+End
+
+#O
+Vnum 1605
+Nest 0
+Wear 16
+Cost 1510
+End
+
+#O
+Vnum 1614
+Nest 0
+Wear 6
+Cost 2300
+End
+
+#END

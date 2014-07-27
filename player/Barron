@@ -1,0 +1,8540 @@
+#PLAYER
+Name Barron~
+Id   1011778587
+LogO 1027193105
+Vers 14
+Mexp 2
+Pass alpha1~
+ShD  A stumpy little man stands here, trying to get in your pants.~
+LnD  A stumpy little man stands here, trying to get in your pants.
+~
+Desc a                      {R8888  8888888
+a               {R8888{Y:{W*{Y::{R8888888888888888888888888
+a             {R8888{Y::{W*{Y::::{R8888888888888888888888888888 
+a            {R88{Y::::{W*{Y::::{R888{Y:::{R8888888888888888888888888
+a          {R88888888{W*{Y:::{R8{Y:::::::::::{R88888888888888888888
+a        {R888 8{Y::{R888888{Y::::::::::::::::::{R88888888888   888
+a           {R88{Y::::{R88888888{Y::::m::::::::::{R88888888888    8
+a         {R888888888888888888{Y:M:::::::::::{R8888888888888
+a        {R88888888888888888888{Y::::::::::::M{R88888888888888
+a        {R8888888888888888888888{Y:::::::::M{R8888888888888888
+a         {R8888888888888888888888{Y:::::::M{R888888888888888888
+a        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888
+a        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888
+a      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888
+a      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888
+a     {R88888888888888888{Y:::{R88888{Y::::M:::{Go*M*o:{R888888888    88
+a    {R88888888888888888{Y:::{R8888{Y:::::M:::::::::::{R88888888    8
+a   {R88888888888888888{Y::::{R88{Y::::::M:::::::::::::{R888888888
+a  {R8888888888888888888{Y:::{R8{Y::::::M::aAa::::::::M{R8888888888       8
+a  {R88   8888888888{Y::{R88{Y::::{R8{Y::::M:::::::::::::{R888888888888888 8888
+a {R88  88888888888{Y:::{R8{Y:::::::::M:::::::::::::{R88:{R88888888888888888
+a {R8  8888888888888{Y:::::::::::M::{P"@@@@@@@"{Y::::{R8w8888888888888888
+a  {R88888888888{Y:{R888{Y::::::::::M:::::{P"@a@"{Y:::::M{R8i888888888888888
+a{R8888888888{Y::::{R88{Y:::::::::M{R88{Y:::::::::::::M{R88z88888888888888888
+a{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888!888888888888888888
+a{R888888888{Y:::::{R8{Y:::::::::M{R8888888{YMAmmmAMVMM{R888*88888888   88888888
+a{R888888 {YM:::::::::::::::M{R888888888{Y:::::::MM{R88888888888888   8888888
+a{R8888   {YM::::::::::::::M{R88888888888{c[][][][]{R888888888888888    88888
+a {R888   {YM:::::::::::::M{R8888888888888{YM:::::mM{R888888888888888    8888
+a  {R888  {YM::::::::::::M{R8888{Y:{R888888888888{Y::::m::Mm{R88888 888888   8888
+a   {R88  {YM::::::::::::{R8888{Y:{R88888888888888888{Y::::::Mm{R8   88888   888
+a   {R88  {YM::::::::::{R8888{YM::{R88888{Y::{R888888888888{Y:::::::Mm{R88888    88
+a   {R8   {YMM::::::::{R8888{YM:::{R8888{Y:::::{R888888888888{Y::::::::Mm{R8     4
+a       {R8{YM:::::::{R8888{YM:::::{R888{Y:::::::{R88{Y:::{R8888888{Y::::::::Mm   {R2
+a      {R88{YMM:::::{R8888{YM:::::::{R88{Y::::::::{R8{Y:::::{R888888{Y:::M:::::M
+a     {R8888{YM:::::{R888{YMM::::::::{R8{Y:::::::::::M::::{R8888{Y::::M::::M
+a    {R88888{YM:::::{R88{Y:M::::::::::{R8{Y:::::::::::M:::{R8888{Y::::::M::M
+a   {R88 888{YMM:::{R888{Y:M:::::::::::::::::::::::M:{R8888{Y:::::::::M:
+a   {R8 88888{YM:::{R88{Y::M:::::::::::::::::::::::MM:{R88{Y::::::::::::M
+a     {R88888{YM:::{R88{Y::M::::::::::{P*88*{Y::::::::::M:{R88{Y::::::::::::::M
+a    {R888888{YM:::{R88{Y::M:::::::::{P88@@88{Y:::::::::M::{R88{Y::::::::::::::M
+a    {R888888{YMM::{R88{Y::MM::::::::{P88@@88{Y:::::::::M:::{R8{Y::::::::::::::{P*8
+a     {R88888  {YM:::{R8{Y::MM:::::::::{P*88*{Y::::::::::M:::::::::::::::::{P88@@
+a     {R8888   {YMM::::::MM:::::::::::::::::::::MM:::::::::::::::::{P88@@
+a      {R888    {YM:::::::MM:::::::::::::::::::MM::M::::::::::::::::{P*8
+a      {R888    {YMM:::::::MMM::::::::::::::::MM:::MM:::::::::::::::M
+a       {R88     {YM::::::::MMMM:::::::::::MMMM:::::MM::::::::::::MM
+a        {R88    {YMM:::::::::MMMMMMMMMMMMMMM::::::::MMM::::::::MMM
+a         {R88    {YMM::::::::::::MMMMMMM::::::::::::::MMMMMMMMMM
+a          {R88   8{YMM::::::::::::::::::::::::::::::::::MMMMMM
+a           {R8   88{YMM::::::::::::::::::::::M:::M::::::::MM
+a               {R888{YMM::::::::::::::::::MM::::::MM::::::MM
+a              {R88888{YMM:::::::::::::::MMM:::::::mM:::::MM
+a              {R888888{YMM:::::::::::::MMM:::::::::MMM:::M
+a             {R88888888{YMM:::::::::::MMM:::::::::::MM:::M
+a            {R88 8888888{YM:::::::::MMM::::::::::::::M:::M
+a            {R8  888888 {YM:::::::MM:::::::::::::::::M:::M:
+a               {R888888 {YM::::::M:::::::::::::::::::M:::MM
+a              {R888888  {YM:::::M::::::::::::::::::::::::M:M
+a              {R888888  {YM:::::M:::::::::@{Y::::::::::::::M::M
+a              {R88888   {YM::::::::::::::@@{Y:::::::::::::::M::M
+a             {R88888   {YM::::::::::::::@@@{Y::::::::::::::::M::M
+a            {R88888   {YM:::::::::::::::@@{Y::::::::::::::::::M::M
+a           {R88888   {YM:::::m::::::::::@{Y::::::::::Mm:::::::M:::M
+~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race dragon~
+Clan divinity~
+Cla  0
+Levl 76
+Tru  91
+Plyd 1096365
+Back 1086965
+Note 1027189445 1022813787 1027144008 1027087211 1027146472 1025960765 1026831915
+Scro 22
+Room 24209
+HMS  1415 2266 563
+Gold 97
+Silv 66
+Gold_in_bank 14000
+Exp  95614
+PCkills  11
+PCkilled 5
+Akills   0
+Akilled  0
+PKRank   2
+Pos  8
+Alig 907
+Ptnr Darkavatar~
+FImm 0
+FRes EG
+FVul FQ
+Plr  AQ
+Video 0
+Act  CDGHJLNSc
+AfBy QT
+Comm NO
+Revk 0
+Cgrp A
+Cnsr A
+Prac 31
+Trai 8
+Wimp 0
+Atrib 20 21 20 16 20 18
+SkillPnts  1220
+RolePnts   5
+QuestPnts  1969
+Afk {B[{CSat Jul 20 12:10:41 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  *grins*~
+Immn ~
+Pnts 40
+Rank {cA{gR{WC~
+Aura {RS{Yu{Cm{Ym{To{Yn{Ci{Yn{Rg {Nm{Ba{Ce{Nl{Bs{Nt{Br{Co{Nm{Bs {Ro{Pf {CM{Ta{Cn{Ta{x~
+TSex 1
+LLev 291
+Email hunter_of_knowledge@yahoo.com~
+Deit {WUrza {RThe {TGod {Rof {TM{Ra{Tg{Ri{Tc{x~
+Stus {Ha{Gv{Ha{Gt{Ha{Gr {No{Bf {gn{cu{gt{cr{ga{cl{gi{ct{gy{x~
+RmCt 1
+ExSk 0
+Raff 908
+Lsit dialup-ras6-57.eug.or.uspops.net~
+Ltim Sat Jul 20 14:21:05 2002
+~
+LSav Sat Jul 20 14:25:05 2002
+~
+Finf A stumpy little man stands here, trying to get in your pants.
+You see arwen evenstar (level 100)
+Race: elf  Sex: female  Class: mobile  Size: medium
+Str: 25(25)AC Pierce : -10250    Hit Points: 30000/30000
+Int: 24(25)AC Bash   : -10250    Mana      : 30000/30000
+Wis: 22(25)AC Slash  : -10250    Stamina   : 1010/1010
+Dex: 29(25)AC Magic  : -10250    Hit Roll  : 1206
+Con: 24(25)      Dam Roll  : 1259
+Chr: 24(25)Saves     : -102      Alignment : 1000
+Damage    : 100d100     Message   : divine power
+Count     : 1         Killed    : 0
+
+Act: npc sentinel stay_area warrior nopush
+Off: area attack bash dodge fast kick parry trip crush assist_align
+Imm: summon poison negative energy mental disease drowning light sound wood 
+silver iron
+Res: charm magic weapon bash pierce slash fire cold electricity acid holy
+Vul: iron
+Form: edible sentient biped mammal
+Parts: head arms legs heart brains guts hands feet fingers ears eyes
+Master: (none)  Leader: (none)  Pet: (none)
+Affected by: detect_evil detect_good detect_invis detect_magic detect_hidden 
+sanctuary prot_evil prot_good pass_door haste divreg flameshield regen talon 
+steel_mist
+Spell: 'talon' modifies none by 0 for -1 hours with bits talon, level 100, evolve 
+1.
+Spell: 'regeneration' modifies none by 0 for -1 hours with bits regen, level 100, 
+evolve 1.
+Spell: 'flameshield' modifies armor class by -20 for -1 hours with bits 
+flameshield, level 100, evolve 1.
+Spell: 'divine regeneration' modifies none by 0 for -1 hours with bits divreg, 
+level 100, evolve 1.
+Spell: 'steel mist' modifies armor class by -10 for -1 hours with bits 
+steel_mist, level 100, evolve 1.
+Spell: 'haste' modifies dexterity by 6 for -1 hours with bits haste, level 100, 
+evolve 1.
+Spell: 'pass door' modifies none by 0 for -1 hours with bits pass_door, level 
+100, evolve 1.
+Spell: 'protection good' modifies saves by -1 for -1 hours with bits prot_good, 
+level 100, evolve 1.
+Spell: 'protection evil' modifies saves by -1 for -1 hours with bits prot_evil, 
+level 100, evolve 1.
+Spell: 'sanctuary' modifies none by 0 for -1 hours with bits sanctuary, level 
+100, evolve 1.
+Arwen laughs at you mercilessly..
+Arwen is in excellent condition.
+~
+HMSP 1065 1061 610
+THMS 0 0 0
+Cnd  0 0 16 40
+Alias pose1 emote {Cs{Pu{Cm{Pm{Co{Pn{Cs up a {Rs{Yh{Ci{Rm{Cm{Ye{Rr{Ci{Yn{Rg {Wg{gl{Wo{gb{We{x {bo{Yf {CP{TO{CW{TE{CR{x {Yt{bo {Vd{Mi{Vs{Ms{Vi{Mp{Va{Mt{Ve {Ba{Nl{Bl {Ra{Ytt{Ra{Yck{Rs{.~
+Alias socpose1 soc emote {Cs{Pu{Cm{Pm{Co{Pn{Cs up a {Rs{Yh{Ci{Rm{Cm{Ye{Rr{Ci{Yn{Rg {Wg{gl{Wo{gb{We{x {bo{Yf {CP{TO{CW{TE{CR{x {Yt{bo {Vd{Mi{Vs{Ms{Vi{Mp{Va{Mt{Ve {Ba{Nl{Bl {Ra{Ytt{Ra{Yck{Rs{.~
+Alias pose2 emote {Rs{Ph{Yo{Cw{Gs {Co{Hf{Gf {Gh{Hi{Cs {Wt{ge{We{gt{Wh {Yi{bn {ga {Rf{Pe{Rr{Pa{Rl {Vg{Mr{Vi{Mn {ba{Ys {cs{Wm{go{Wk{ce {Ga{Hn{Gd {gf{cu{gm{ce{gs {Nl{Be{Na{Bk {Rf{Pr{Ro{Pm {Ch{Yi{Cs {Rn{Yo{Rs{Yt{Rr{Yi{Rl{Ys{x.~
+Alias socpose2 soc emote {Rs{Ph{Yo{Cw{Gs {Co{Hf{Gf {Gh{Hi{Cs {Wt{ge{We{gt{Wh {Yi{bn {ga {Rf{Pe{Rr{Pa{Rl {Vg{Mr{Vi{Mn {ba{Ys {cs{Wm{go{Wk{ce {Ga{Hn{Gd {gf{cu{gm{ce{gs {Nl{Be{Na{Bk {Rf{Pr{Ro{Pm {Ch{Yi{Cs {Rn{Yo{Rs{Yt{Rr{Yi{Rl{Ys{x.~
+Alias pose3 emote {Vs{Me{Ve{Mm{Vs {Ga{Hm{Gu{Hs{Ge{Hd {Ya{bs {bh{Ye {Wp{gl{ca{gy{Ws {Tw{Ci{Tt{Ch {Pa {Bg{Nr{Bo{Nu{Bp {Yo{Rf {Rt{Yi{Rn{Yy {Rf{Pi{Rr{Pe {Re{Yl{Re{Ym{Re{Yn{Rt{Ya{Rl{Ys {Wf{gro{clic{gin{Wg {Vo{Mn {Ch{Bi{Cs {Cf{Ti{Gng{Her{Gti{Tp{Cs{x.~
+Alias socpose3 soc emote {Vs{Me{Ve{Mm{Vs {Ga{Hm{Gu{Hs{Ge{Hd {Ya{bs {bh{Ye {Wp{gl{ca{gy{Ws {Tw{Ci{Tt{Ch {Pa {Bg{Nr{Bo{Nu{Bp {Yo{Rf {Rt{Yi{Rn{Yy {Rf{Pi{Rr{Pe {Re{Yl{Re{Ym{Re{Yn{Rt{Ya{Rl{Ys {Wf{gro{clic{gin{Wg {Vo{Mn {Ch{Bi{Cs {Cf{Ti{Gng{Her{Gti{Tp{Cs{x.~
+Alias pose4 emote {gg{ce{gs{ct{gu{cr{ge{cs {Rm{ce{Rn{ca{Rn{cc{Ri{cn{Rg{cl{Ry {Yc{ba{Yu{bs{Yi{bn{Yg {Ca{Bn {Wu{gn{ce{Wa{gr{ct{Wh{gl{cy {Hc{Ga{Hl{Gm {Bt{Co {Bp{Ne{Br{Nm{Be{Na{Bt{Ne {Ct{Th{Ce {Wr{ce{Wa{cl{Wm{x. ~
+Alias socpose4 soc emote {gg{ce{gs{ct{gu{cr{ge{cs {Rm{ce{Rn{ca{Rn{cc{Ri{cn{Rg{cl{Ry {Yc{ba{Yu{bs{Yi{bn{Yg {Ca{Bn {Wu{gn{ce{Wa{gr{ct{Wh{gl{cy {Hc{Ga{Hl{Gm {Bt{Co {Bp{Ne{Br{Nm{Be{Na{Bt{Ne {Ct{Th{Ce {Wr{ce{Wa{cl{Wm{x. ~
+Alias pose5 emote {bh{Ro{bl{Rd{bs {Gh{Hi{Gs {Bg{Cr{Bo{Cu{Bn{Cd{B, {Rs{Pt{Rr{Pa{Ri{Pn{Ri{Pn{Rg{P, {Ba{Cs {cA {Wm{Pa{Rl{Ye{bs{Yt{Rr{Po{Wm {Co{Bf {Nm{Ba{Tn{Ca {Gg{Ha{Gt{Hh{Ge{Hr{Gs {Ca{Bt {Rh{Pi{Rs {Vc{Mo{Vm{Mm{Va{Mn{Vd{x. ~
+Alias socpose5 soc emote {bh{Ro{bl{Rd{bs {Gh{Hi{Gs {Bg{Cr{Bo{Cu{Bn{Cd{B, {Rs{Pt{Rr{Pa{Ri{Pn{Ri{Pn{Rg{P, {Ba{Cs {cA {Wm{Pa{Rl{Ye{bs{Yt{Rr{Po{Wm {Co{Bf {Nm{Ba{Tn{Ca {Gg{Ha{Gt{Hh{Ge{Hr{Gs {Ca{Bt {Rh{Pi{Rs {Vc{Mo{Vm{Mm{Va{Mn{Vd{x. ~
+Alias se scribe energy drain~
+Alias bd brew divine heal~
+Alias sce scribe energy drain~
+Query Urza~
+Sk 100 1 'acid blast'
+Sk 83 1 'acid breath'
+Sk 91 1 'acid rain'
+Sk 92 1 'age'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 99 1 'armor'
+Sk 84 1 'bless'
+Sk 88 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 78 1 'blood moon'
+Sk 3 1 'burning hands'
+Sk 2 1 'call lightning'
+Sk 75 1 'calm'
+Sk 94 1 'cancellation'
+Sk 86 1 'chain lightning'
+Sk 76 1 'channel'
+Sk 96 1 'charm person'
+Sk 4 1 'chill touch'
+Sk 4 1 'colour spray'
+Sk 75 1 'continual light'
+Sk 75 1 'control weather'
+Sk 75 1 'create food'
+Sk 100 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 76 1 'create vial'
+Sk 2 1 'create water'
+Sk 100 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 86 1 'cure serious'
+Sk 94 1 'curse'
+Sk 77 1 'detect evil'
+Sk 76 1 'detect good'
+Sk 93 1 'detect hidden'
+Sk 99 1 'detect invis'
+Sk 2 1 'detect magic'
+Sk 3 1 'detect poison'
+Sk 100 1 'dispel magic'
+Sk 88 1 'divine healing'
+Sk 79 2 'divine regeneration'
+Sk 1 1 'encampment'
+Sk 96 1 'energy drain'
+Sk 81 1 'faerie fire'
+Sk 2 1 'faerie fog'
+Sk 75 1 'fear'
+Sk 89 1 'fire breath'
+Sk 100 3 'fireball'
+Sk 3 1 'fireproof'
+Sk 100 1 'firestorm'
+Sk 90 1 'flameshield'
+Sk 82 1 'fly'
+Sk 1 1 'floating disc'
+Sk 82 1 'frenzy'
+Sk 84 1 'frost breath'
+Sk 6 1 'gas breath'
+Sk 100 1 'gate'
+Sk 88 1 'giant strength'
+Sk 98 1 'haste'
+Sk 5 1 'heal'
+Sk 4 1 'holy word'
+Sk 100 1 'identify'
+Sk 5 1 'infravision'
+Sk 91 1 'invisibility'
+Sk 4 1 'know alignment'
+Sk 78 1 'light of truth'
+Sk 6 1 'lightning bolt'
+Sk 90 1 'lightning breath'
+Sk 94 1 'locate life'
+Sk 97 1 'locate object'
+Sk 1 1 'magic missile'
+Sk 3 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 76 1 'nexus'
+Sk 100 1 'pass door'
+Sk 77 1 'plague'
+Sk 85 1 'poison'
+Sk 77 1 'power word'
+Sk 1 1 'portal'
+Sk 92 1 'protection evil'
+Sk 87 1 'protection good'
+Sk 100 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 85 2 'regeneration'
+Sk 82 1 'remove alignment'
+Sk 3 1 'remove invisibility'
+Sk 2 1 'remove curse'
+Sk 100 2 'sanctuary'
+Sk 91 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 76 1 'sleep'
+Sk 100 1 'slow'
+Sk 75 1 'smokescreen'
+Sk 78 1 'steel mist'
+Sk 90 1 'stone skin'
+Sk 96 1 'summon'
+Sk 87 1 'summon object'
+Sk 78 3 'talon'
+Sk 91 1 'teleport'
+Sk 77 1 'teleport object'
+Sk 96 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 78 1 'vision'
+Sk 94 1 'weaken'
+Sk 91 1 'word of recall'
+Sk 100 1 'wrath'
+Sk 100 1 'dagger'
+Sk 100 1 'sword'
+Sk 100 1 'shield block'
+Sk 77 1 'brew'
+Sk 100 1 'scribe'
+Sk 84 1 'bash'
+Sk 100 1 'dodge'
+Sk 100 1 'parry'
+Sk 100 1 'second attack'
+Sk 88 1 'hunt'
+Sk 100 2 'meditation'
+Sk 100 1 'scan'
+Sk 80 1 'scrolls'
+Sk 75 1 'staves'
+Sk 79 1 'wands'
+Sk 66 1 'recall'
+Sk 65 1 'focus'
+Sk 56 1 'paralyze'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 6
+Nest 0
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 24225
+Nest 0
+Wear -1
+Cost 400
+Val  450 114 10 0 0
+End
+
+#O
+Vnum 24230
+Nest 0
+Cond 85
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 3203
+Nest 0
+Cond 86
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 98
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 9911
+Nest 0
+Wear -1
+Cost 8500
+End
+
+#O
+Vnum 24226
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 10168
+Nest 0
+Cond 98
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 5604
+Nest 0
+ExtF 17301507
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 24205
+Nest 0
+Wear -1
+Cost 5333
+End
+
+#O
+Vnum 8204
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 3808
+Nest 0
+Cond 96
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 3809
+Nest 0
+Cond 89
+Wear 17
+Cost 15000
+End
+
+#O
+Vnum 14073
+Nest 0
+Cond 84
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 9102
+Nest 0
+Wear -1
+Cost 0
+Val  13 17 31 23 0
+End
+
+#O
+Vnum 3204
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16514
+Nest 0
+Cond 95
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 17009
+Enchanted
+Nest 0
+Wt   8
+Wear 6
+Cost 0
+Affc 'reserved'   1  75  -1   2  18          0 1
+Affc 'reserved'   1  75  -1   2  19          0 1
+Affc 'reserved'   1  75  -1  50  12          0 1
+Affc 'reserved'   1  75  -1  40  13          0 1
+Affc 'reserved'   0  75  -1   0   0      65536 1
+End
+
+#O
+Vnum 5611
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 11661
+Nest 0
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 3808
+Nest 0
+Wear 12
+Cost 30000
+End
+
+#O
+Vnum 20006
+Nest 0
+Wear 5
+Cost 999
+End
+
+#O
+Vnum 20008
+Nest 0
+ExtF 16777536
+Cond 89
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 3810
+Nest 0
+Cond 93
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 1213
+Nest 0
+Name teotwawki dust hidden~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 61
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 16071
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 10166
+Nest 0
+Cond 95
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14041
+Nest 0
+Wear -1
+Cost 750
+End
+
+#O
+Vnum 4482
+Nest 0
+ExtF 65
+Wear 3
+Cost 3000
+End
+
+#O
+Vnum 28008
+Nest 0
+ExtF 17301568
+Wear -1
+Cost 47500
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 20021
+Nest 0
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 10166
+Nest 0
+Cond 99
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4482
+Enchanted
+Nest 0
+ExtF 65
+Cond 98
+Wear 4
+Cost 3000
+Affc 'reserved'   1  80  -1 150  12          0 1
+Affc 'reserved'   1  80  -1   2   9          0 1
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 3805
+Nest 0
+Wear 1
+Cost 5000
+End
+
+#O
+Vnum 5609
+Nest 0
+Cond 97
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 5605
+Nest 0
+ExtF 17301507
+Wear 11
+Cost 1000
+End
+
+#O
+Vnum 9101
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 3806
+Nest 0
+Wear 18
+Cost 5000
+End
+
+#O
+Vnum 14030
+Enchanted
+Nest 0
+ExtF 16777283
+Wear 16
+Lev  61
+Cost 0
+Affc 'enchant weapon'   1  91  -1   8  19          0 1
+Affc 'enchant weapon'   1  91  -1   8  18          0 1
+Affc 'reserved'   1  60  -1  45  12          0 1
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Lev  76
+Cost 2000
+Val  76 -1 -1 -1 -1
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Lev  76
+Cost 2000
+Val  76 -1 -1 -1 -1
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Lev  76
+Cost 2000
+Val  76 -1 -1 -1 -1
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name vegita quest token~
+ShD  {WQ{GU{TE{YS{PT{B!{x Just a {Gp{Hi{Pe{Yc{Ve{x of rock{x~
+Desc {WQ{GU{TE{YS{PT{B!{x Just a {Gp{Hi{Pe{Yc{Ve{x of rock{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden token kenneth ultrarare~
+ShD  An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x waits to be discovered.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 0
+Name qaz wild token~
+ShD  {CThe {V*{Cild {PQ{Ra{Pz{x {Ctoken{x~
+Desc The wild and wonderful Qazorkins token of untamed feral ferocity~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24226
+Nest 0
+Wear -1
+Cost 400
+End
+
+#L
+Vnum 4471
+Nest 0
+Name Little Poney Card Valentines~
+ShD  a {PMy Little Poney {RV{Pa{Rl{Pe{Rn{Pt{Ri{Pn{Re{Ps{x~
+Desc a {PMy Little Poney {RV{Pa{Rl{Pe{Rn{Pt{Ri{Pn{Re{Ps{x~
+Mat love~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 0
+Name card~
+ShD  {WM{go{Wo{gn{x~
+Desc you gain one of three wishes ...~
+Mat love~
+Wt   0
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 0
+Name card~
+ShD  {BEuryale{x~
+Desc obtain one restring~
+Mat love~
+Wt   0
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name teotwawki dust hidden~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name teotwawki dust hidden~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name teotwawki dust hidden~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1201
+Nest 0
+Name sucker token~
+ShD  {WI owe you nothing -Jubei-{x~
+Desc Sucker :P~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1206
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1207
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token kenneth ultrarare~
+ShD  An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x waits to be discovered.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token kenneth ultrarare~
+ShD  An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x waits to be discovered.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1207
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1211
+Nest 0
+Name Green Lightsaber token~
+ShD  {GLightsaber{x~
+Desc A lightsaber lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 0
+Name Blue Lightsaber token~
+ShD  {BLightsaber{x~
+Desc A lightsaber lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1234
+Nest 0
+Wear -1
+Cost 0
+Spell 1 'bless'
+Spell 2 'frenzy'
+Spell 3 'armor'
+Spell 4 'shield'
+End
+
+#L
+Vnum 1234
+Nest 0
+Wear -1
+Cost 0
+Spell 1 'bless'
+Spell 2 'frenzy'
+Spell 3 'armor'
+Spell 4 'shield'
+End
+
+#L
+Vnum 1211
+Nest 0
+Name Queen Diamonds Card Face Down Kazander~
+ShD  {WA {RQueen {Wof {RDiamonds{x~
+Desc {HA {TFac{He Do{Twn C{Hard{x~
+Wear -1
+Cost 0
+ExDe Card~ {RKaz{can{Rder {cSpr{Ri{cngs {RCa{csi{Rno{x
+~
+ExDe Face~ {RKaz{can{Rder {cSpr{Ri{cngs {RCa{csi{Rno{x
+~
+ExDe Diamonds~ {RKaz{can{Rder {cSpr{Ri{cngs {RCa{csi{Rno{x
+~
+ExDe Queen~ {RKaz{can{Rder {cSpr{Ri{cngs {RCa{csi{Rno{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 24229
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#L
+Vnum 1213
+Nest 1
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 119
+Nest 0
+Name food Blue Pill~
+ShD  {BBlue Pill{x~
+Desc {BBlue Pill{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  50 100 0 0 0
+ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food Red Pill~
+ShD  {RRed Pill{x~
+Desc {RRed Pill{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  50 100 0 0 0
+ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food Blue Pill~
+ShD  {BBlue Pill{x~
+Desc {BBlue Pill{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  50 100 0 0 0
+ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food Red Pill~
+ShD  {RRed Pill{x~
+Desc {RRed Pill{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  50 100 0 0 0
+ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food Alluring Flames~
+ShD  {PA{Rl{Pl{Ru{Pr{Ri{Pn{Rg {PF{Rl{Pa{Rm{Pe{Rs{x~
+Desc {PA{Rl{Pl{Ru{Pr{Ri{Pn{Rg {PF{Rl{Pa{Rm{Pe{Rs{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe chef~ This food was created by Azrael.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#L
+Vnum 4471
+Nest 0
+Name plushy napalm~
+ShD  {BN{Wa{Np{Wa{Bl{Wm {NP{Wl{Bu{Ws{Nh{Wy{x'~
+Desc {BI{Wt{Ns {Wa {Bl{Ni{Wt{Wt{Nl{Be {Ws{Bt{Nu{Nf{Bf{We{Wd {NN{Wa{Bp{Ba{Wl{Nm {WP{Bl{Nu{Ws{Nh{By{x~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 3202
+Nest 0
+Wear -1
+Cost 30
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 3201
+Enchanted
+Nest 0
+Cond 84
+Wear -1
+Cost 0
+Affc 'reserved'   1  10  -1  10  13          0 1
+Affc 'reserved'   1  10  -1   1  19          0 1
+Affc 'reserved'   1  10  -1   1  18          0 1
+Affc 'reserved'   1  10  -1   1   5          0 1
+Affc 'reserved'   1  10  -1   1   3          0 1
+Affc 'acid breath'   0  12  -1   1  17          0 1
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia token glimmer brilliance montrey~
+ShD  {b*{Ytrivia{b* {Wa {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge{x~
+Desc {WA {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge {Wis here, inspiring you.{x~
+Wear -1
+Cost 0
+ExDe owned by~ Montrey
+~
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia token glimmer brilliance montrey~
+ShD  {b*{Ytrivia{b* {Wa {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge{x~
+Desc {WA {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge {Wis here, inspiring you.{x~
+Wear -1
+Cost 0
+ExDe owned by~ Montrey
+~
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia token glimmer brilliance montrey~
+ShD  {b*{Ytrivia{b* {Wa {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge{x~
+Desc {WA {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge {Wis here, inspiring you.{x~
+Wear -1
+Cost 0
+ExDe owned by~ Montrey
+~
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia token glimmer brilliance montrey~
+ShD  {b*{Ytrivia{b* {Wa {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge{x~
+Desc {WA {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge {Wis here, inspiring you.{x~
+Wear -1
+Cost 0
+ExDe owned by~ Montrey
+~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name gauntlets eye trading card Montrey~
+ShD  {Wa {Yga{bunt{Yl{bet{Ys {bof the {We{Py{We tr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe gauntlets eye trading card~ These magical gauntlets are said to strengthen the constitution
+of their wearer, making them highly sought after armor for the
+experienced traveller.  The engraving of an eye harkens to the
+enforcer eyes who posess them.
+~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sheandra stone bracelet trading card Montrey~
+ShD  {Wa {MSheandra {cS{gt{co{gn{ce {gBracelet {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe sheandra stone bracelet trading card~ {x   Stone from the mountain
+{x     carved and worn,
+{x   Around the wrist of 
+{x     the lost and sworn.
+{x   Warriors strong 
+{x     and great were they,
+{x   Zorah's curse
+{x     took it all away.
+{x
+These enchanted bracelets, worn by the Sheandra Stone Warriors, are
+sought after pieces due to their ability to increase the wearer's
+spell abilities.  It is said that in times past they granted the
+powers of enhanced eyesight to its owner, but the mysteries of such
+sorcery are lost in this day and age.
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain~
+ShD  a scroll of energy drain, energy drain~
+Desc A scroll of energy drain, energy drain lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 62 62 -1 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1201
+Nest 0
+ShD  {COne free restore by {WSorsha{x~
+Desc {COne free restore by {WSorsha{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name vegita trivia trivial piece dragonball~
+ShD  Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Desc Just a {WT{Cr{Gi{Hv{Ni{Ma{Vl {WP{Ci{We{Cc{We{x of a {PD{Rr{Pa{Rg{Po{Rn{Pb{Ra{Pl{Rl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name viro glimmer hope bushido wild~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Marx quest goodness token wisp~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
+Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Marx quest goodness token wisp~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
+Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Marx quest goodness token wisp~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
+Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Marx wild chaos token bit~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {P({RWild{P) {RBit of {GC{Hh{Ga{Ho{Gs{x~
+Desc {RA bit of {GC{Hh{Ga{Ho{Gs {Rlevitates here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name qaz wild token~
+ShD  {CThe {V*{Cild {PQ{Ra{Pz{x {Ctoken{x~
+Desc The wild and wonderful Qazorkins token of untamed feral ferocity~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name montrey liriel wild token choice~
+ShD  {Wa {Gbig {Bold {CH{WU{CG {G*{VW{Pi{YL{Cd{B* {W<{Vgood{g for a {CC{Th{CO{Ti{CC{Te{C {gof {gM{Wo{gn{Ct{gr{We{gy{P OR {WL{Ci{Br{Ci{Te{Wl{Y!!!{W>{x~
+Desc {WOh my god you can't believe what you see{Y!!!  {WGET IT{Y!!!{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name hug wild token choice montrey liriel~
+ShD  {Wa {Gbig {Bold {CH{WU{CG {G*{VW{Pi{YL{Cd{B* {W<{Vgood{g for a {CC{Th{CO{Ti{CC{Te{C {gof {gM{Wo{gn{Ct{gr{We{gy{P OR {WL{Ci{Br{Ci{Te{Wl{Y!!!{W>{x~
+Desc {WOh my god you can't believe what you see{Y!!!  {WGET IT{Y!!!{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name hug wild token choice montrey liriel~
+ShD  {Wa {Gbig {Bold {CH{WU{CG {G*{VW{Pi{YL{Cd{B* {W<{Vgood{g for a {CC{Th{CO{Ti{CC{Te{C {gof {gM{Wo{gn{Ct{gr{We{gy{P OR {WL{Ci{Br{Ci{Te{Wl{Y!!!{W>{x~
+Desc {WOh my god you can't believe what you see{Y!!!  {WGET IT{Y!!!{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jubei hidden chi earth token~
+ShD  {W*{gH{Wi{gd{Wd{ge{Wn{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Desc {W*{gH{Wi{gd{Wd{ge{Wn{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {ge{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jubei hidden chi earth token~
+ShD  {W*{gH{Wi{gd{Wd{ge{Wn{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Desc {W*{gH{Wi{gd{Wd{ge{Wn{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {ge{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jubei hidden chi earth token~
+ShD  {W*{gH{Wi{gd{Wd{ge{Wn{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Desc {W*{gH{Wi{gd{Wd{ge{Wn{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {ge{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jubei hidden chi earth token~
+ShD  {W*{gH{Wi{gd{Wd{ge{Wn{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Desc {W*{gH{Wi{gd{Wd{ge{Wn{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {ge{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jubei hidden chi earth token~
+ShD  {W*{gH{Wi{gd{Wd{ge{Wn{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Desc {W*{gH{Wi{gd{Wd{ge{Wn{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {ge{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest jubei chi token~
+ShD  {W*{gQ{Wu{ge{Ws{gt{W* {gJ{Wu{gb{We{gi{W'{gs {WC{gh{Wi {go{Wf {gH{We{ga{Wv{ge{Wn{x~
+Desc {W*{gQ{Wu{ge{Ws{gt{W* {gJ{Wu{gb{We{gi{W'{gs {WC{gh{Wi {go{Wf {gH{We{ga{Wv{ge{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest jubei chi token~
+ShD  {W*{gQ{Wu{ge{Ws{gt{W* {gJ{Wu{gb{We{gi{W'{gs {WC{gh{Wi {go{Wf {gH{We{ga{Wv{ge{Wn{x~
+Desc {W*{gQ{Wu{ge{Ws{gt{W* {gJ{Wu{gb{We{gi{W'{gs {WC{gh{Wi {go{Wf {gH{We{ga{Wv{ge{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia jubei chi token~
+ShD  {W*{gT{Wr{gi{Wv{gi{Wa{g* {gJ{Wu{gb{We{gi{W'{gs {WC{gh{Wi {go{Wf {gt{Wh{ge {WM{gi{Wn{gd{x~
+Desc {W*{gT{Wr{gi{Wv{gi{Wa{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gM{Wi{gn{Wd {gC{Wh{gi{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild jubei chi soul token~
+ShD  {W*{gW{Wi{gl{Wd{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gS{Wo{gu{Wl{x~
+Desc {W*{gW{Wi{gl{Wd{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gS{Wo{gu{Wl{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia jubei chi token~
+ShD  {W*{gT{Wr{gi{Wv{gi{Wa{g* {gJ{Wu{gb{We{gi{W'{gs {WC{gh{Wi {go{Wf {gt{Wh{ge {WM{gi{Wn{gd{x~
+Desc {W*{gT{Wr{gi{Wv{gi{Wa{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gM{Wi{gn{Wd {gC{Wh{gi{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivats double hidden token~
+ShD  {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat wild token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat wild token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat wild token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat wild token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat wild token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name sivat trivia token ~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sivats double hidden token~
+ShD  {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat wild token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat wild token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 4471
+Nest 0
+Name liriel plushy~
+ShD  {WL{Ci{Br{Ci{Te{Wl {CP{Wl{Wu{Ws{Wh{Cy{x~
+Desc {WI{Ct{Bs {Ca {Tl{Wi{Bt{Ct{Tl{We {Cs{Bt{Cu{Tf{Wf{Be{Cd {WL{Ci{Br{Ci{Te{Wl {CP{Bl{Cu{Ts{Wh{Cy{x~
+Mat Cotton~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 1215
+Nest 0
+Name half wild eeyore stuffed liriel~
+ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
+Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name liriel rainbow dazzling wild~
+ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
+Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name liriel rainbow dazzling wild~
+ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
+Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name cow cookie wild liriel~
+ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
+Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name cow cookie wild liriel~
+ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
+Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name liriel rainbow dazzling wild~
+ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
+Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name cow cookie wild liriel~
+ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
+Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name cow cookie wild liriel~
+ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
+Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name liriel rainbow dazzling wild~
+ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
+Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name cow cookie wild liriel~
+ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
+Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name cow cookie wild liriel~
+ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
+Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name cow cookie wild liriel~
+ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
+Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name doggie cookie quest liriel~
+ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
+Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name doggie cookie quest liriel~
+ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
+Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name liriel orb gleaming quest~
+ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
+Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name doggie cookie quest liriel~
+ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
+Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name liriel orb gleaming quest~
+ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
+Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name doggie cookie quest liriel~
+ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
+Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name bunny cookie hidden liriel~
+ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
+Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name bunny cookie hidden liriel~
+ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
+Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name half hidden piglet stuffed liriel~
+ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
+Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name liriel rainbow dazzling wild~
+ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
+Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name liriel rainbow dazzling wild~
+ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
+Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name liriel rainbow dazzling wild~
+ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
+Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Qaz quest~
+ShD  Qaz quest mudpie~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Qaz quest~
+ShD  Qaz quest mudpie~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Qaz quest~
+ShD  {WThe {PQ{Ra{Pz{x {Wquest {bmudpie{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name qaz trivia~
+ShD  {PQ{Ra{Pz{x {Ytrivia{x token ~
+Desc Qaz's too hard trivia token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name qaz trivia~
+ShD  {PQ{Ra{Pz{x {Ytrivia{x token ~
+Desc Qaz's too hard trivia token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name qaz trivia~
+ShD  {PQ{Ra{Pz{x {Ytrivia{x token ~
+Desc Qaz's too hard trivia token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name qaz trivia~
+ShD  {PQ{Ra{Pz{x {Ytrivia{x token ~
+Desc Qaz's too hard trivia token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath lightning breath~
+ShD  a scroll of lightning breath, lightning breath~
+Desc A scroll of lightning breath, lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 95 -1 -1
+Spell 1 'lightning breath'
+Spell 2 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath~
+ShD  a scroll of fire breath~
+Desc A scroll of fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 -1 -1 -1
+Spell 1 'fire breath'
+End
+
+#L
+Vnum 3380
+Nest 0
+Name scroll fire breath fire breath~
+ShD  a scroll of fire breath, fire breath~
+Desc A scroll of fire breath, fire breath lies here.
+~
+Wear -1
+Lev  76
+Cost 2000
+Val  76 67 67 -1 -1
+Spell 1 'fire breath'
+Spell 2 'fire breath'
+End
+
+#B
+Vnum 11793
+Nest 0
+ExtF 257
+Cond 98
+Wear -1
+Lev  91
+Cost 55000
+ExDe owned by~ Barron
+~
+End
+
+#B
+Vnum 3413
+Nest 0
+Wear -1
+Cost 26
+End
+
+#B
+Vnum 10121
+Nest 0
+ExtF 16777315
+Cond 76
+Wear -1
+Lev  91
+Cost 21
+ExDe owned by~ Barron
+~
+End
+
+#B
+Vnum 11776
+Nest 0
+Wear -1
+Lev  91
+Cost 10000
+ExDe owned by~ Barron
+~
+End
+
+#B
+Vnum 4437
+Nest 0
+ExtF 64
+Cond 95
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 3209
+Nest 0
+Cond 91
+Wear -1
+Cost 100
+End
+
+#B
+Vnum 10112
+Nest 0
+ExtF 16777283
+Cond 94
+Wear -1
+Lev  91
+Cost 500
+ExDe owned by~ Barron
+~
+End
+
+#B
+Vnum 14015
+Nest 0
+ExtF 1048656
+Wear -1
+Cost 15000
+End
+
+#B
+Vnum 11791
+Nest 0
+Cond 94
+Wear -1
+Lev  91
+Cost 55000
+ExDe owned by~ Barron
+~
+End
+
+#B
+Vnum 10104
+Nest 0
+Wear -1
+Cost 33000
+End
+
+#B
+Vnum 1211
+Nest 0
+Name Eight Hearts Card Face Down Kazander~
+ShD  {WA {PEight {Wof {PHearts{x~
+Desc {HA {TFac{He Do{Twn C{Hard{x~
+Wear -1
+Cost 0
+ExDe Card~ {RKaz{can{Rder {cSpr{Ri{cngs {RCa{csi{Rno{x
+~
+ExDe Face~ {RKaz{can{Rder {cSpr{Ri{cngs {RCa{csi{Rno{x
+~
+ExDe Eight~ {RKaz{can{Rder {cSpr{Ri{cngs {RCa{csi{Rno{x
+~
+ExDe Hearts~ {RKaz{can{Rder {cSpr{Ri{cngs {RCa{csi{Rno{x
+~
+End
+
+#B
+Vnum 17037
+Nest 0
+Wear -1
+Cost 500
+End
+
+#B
+Vnum 20026
+Nest 0
+Wt   0
+Cond 98
+Wear -1
+Cost 90000
+End
+
+#B
+Vnum 4417
+Nest 0
+ExtF 64
+Cond 95
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 17038
+Nest 0
+Cond 96
+Wear -1
+Cost 250
+End
+
+#B
+Vnum 11751
+Nest 0
+Cond 99
+Wear -1
+Cost 15000
+End
+
+#B
+Vnum 11709
+Nest 0
+Cond 95
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 13005
+Nest 0
+Cond 94
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 11713
+Nest 0
+Cond 93
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11709
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 10101
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 8231
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11791
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13011
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13003
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13003
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11910
+Nest 0
+ExtF 17301777
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10106
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10100
+Nest 0
+Wear -1
+Cost 32000
+End
+
+#B
+Vnum 24229
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#B
+Vnum 119
+Nest 1
+Name food war is rumored...~
+ShD  war is rumored...~
+Desc War is rumored...{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  43 87 0 0 0
+ExDe chef~ This food was created by Tara.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#B
+Vnum 11699
+Nest 1
+Wear -1
+Cost 0
+Val  80 0 20 29206 0
+End
+
+#B
+Vnum 10106
+Nest 1
+Wear -1
+Cost 33000
+End
+
+#B
+Vnum 10105
+Nest 1
+Wear -1
+Cost 33000
+End
+
+#B
+Vnum 11699
+Nest 1
+Wear -1
+Cost 0
+Val  87 0 20 12270 0
+End
+
+#B
+Vnum 4471
+Nest 1
+Name azrael action figure~
+ShD  {RA{Pz{Rr{Pa{Re{Pl {RA{Pc{Rt{Pi{Ro{Pn {RF{Pi{Rg{Pu{Rr{Pe{x~
+Desc {RA huge {PDemonic {RDragon {WNecromancer {Rwith animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x~
+Mat Plastic~
+Wt   0
+Cond -1
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 4477
+Nest 1
+Name poseable azrael figurine~
+ShD  A {PP{Ro{Ps{Re{Pa{Rb{Pl{Re {PA{Rz{Pr{Ra{Pe{Rl {PF{Ri{Pg{Ru{Pr{Ri{Pn{Re{x~
+Desc A {PP{Ro{Ps{Re{Pa{Rb{Pl{Re {PA{Rz{Pr{Ra{Pe{Rl {PF{Ri{Pg{Ru{Pr{Ri{Pn{Re{x~
+ExtF 83
+Wt   1
+Cond -1
+Wear -1
+Cost 100000
+ExDe poseable figurine figure~ '{Ra huge {PDemonic{R Dragon {WNecromancer{R with animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x
+~
+ExDe azrael~ '{Ra huge {PDemonic{R Dragon {WNecromancer{R with animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x
+~
+End
+
+#B
+Vnum 11699
+Nest 1
+Wear -1
+Cost 0
+Val  38 0 20 9083 0
+End
+
+#B
+Vnum 3201
+Nest 1
+Wear -1
+Cost 20
+End
+
+#B
+Vnum 28008
+Nest 1
+ExtF 17301568
+Wear -1
+Cost 47500
+End
+
+#B
+Vnum 14043
+Nest 1
+Cond 95
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 16099
+Enchanted
+Nest 1
+Name tiny marshmellow mini skirt~
+ShD  {ga tiny {Wmarshmellow {Wm{gi{Wn{gi{W-{gs{Wk{gi{Wr{gt{x~
+Desc {gA tiny {Wmarshmellow {Wm{gi{Wn{gi{W-{gs{Wk{gi{Wr{gt{g lies here, woo that looks fun to eat off somebody!{x~
+Wear -1
+Cost 1500
+Affc 'reserved'   1  22  -1  40  13          0 1
+Affc 'reserved'   1  22  -1   1   5          0 1
+Affc 'reserved'   1  22  -1   1   1          0 1
+Affc 'reserved'   1 100  -1   5  18          0 1
+Affc 'reserved'   1 100  -1   5  19          0 1
+Affc 'reserved'   1 100  -1  -2  20          0 1
+Affc 'reserved'   1 100  -1   3  26          0 1
+End
+
+#END

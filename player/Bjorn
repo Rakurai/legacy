@@ -1,0 +1,90 @@
+#PLAYER
+Name Bjorn~
+Id   1017794685
+LogO 1017957497
+Vers 13
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Sex  1
+Cla  3
+Levl 7
+Plyd 12080
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3005
+HMS  110 110 134 134 174 174
+Gold 0
+Silv 246
+Exp  16732
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy T
+FRes BM
+FVul NS
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  5
+Alig  982
+ACs 100 100 100 100
+Atrib 21 17 17 15 15 15
+AtMod 0 0 0 0 0 0
+Pass slammer~
+Afk {B[{CWed Apr  3 17:26:18 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  king of monkeys~
+Immn ~
+Pnts 51
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Montrey~
+Lsit h216-170-045-120.adsl.navix.net~
+Ltim Thu Apr 04 15:57:02 2002
+~
+LSav Thu Apr 04 15:58:17 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 110 134 174
+THMS 1 0 0
+Cnd  0 42 46 44
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'smokescreen'
+Sk 1 1 'talon'
+Sk 1 1 'ventriloquate'
+Sk 79 1 'sword'
+Sk 1 1 'dodge'
+Sk 75 1 'enhanced damage'
+Sk 79 1 'parry'
+Sk 75 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 72 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'enhancement'
+Gr 'illusion'
+End
+
+#END

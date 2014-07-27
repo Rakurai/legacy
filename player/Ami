@@ -1,0 +1,1959 @@
+#PLAYER
+Name Ami~
+Id   1008763300
+LogO 1027216265
+Vers 14
+Mexp 2
+Pass bluerose~
+Desc Your heart skips a beat as you look upon this small, delicate-looking young 
+girl. She is barely over a metre and a half tall and might weigh 45 kilogrammes 
+or so. She is wearing a modified white sailor fuku with a navy collar; her sky-
+blue cravat looks like a bowtie with a sapphire at the centre, whilst the 
+miniskirt matches the collar and the boots that adorn her shapely legs. Round 
+her slim waist is a sash with a second cerulean bow-tie at her back. Her navy 
+choker holds a sapphire cut into the shape of a rose; another rose of the same 
+colour rests upon the centre of her fuku's neckline, dropping right between her 
+delicate breasts. Long white gloves cover her hands to the elbows, stopping at  
+navy elbow pads. Looking over to her round, open face, you are mildly surprised 
+to discover that her short, fluffy hair is the same navy blue as the large, 
+clear eyes that reveal intelligence and a touch of sadness, as well as an inner 
+strength. A platinum tiara with a single sapphire adorns her forehead, and you 
+see a blue rose at each ear. As you peruse that sweet face, you realise that she 
+is calmly watching you too. Having deemed you to be harmless, she gives you a 
+shy smile. "Hello, how are you?" she asks, her melodious voice high-pitched yet 
+kind. As she gracefully turns to go, she still looks cute and cuddly....  though 
+from her serious demeanour you sense that beryl armour lies beneath that polite 
+smile.
+(For a visual, see http://amymercury.tripod.com/cgi-bin/amycollage_space.gif)
+~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Clan order~
+Cla  0
+Levl 80
+Tru  0
+Plyd 1012542
+Back 688356
+Note 1027189445 1022813787 1027144008 1027209569 1027146472 1027142394 1026831915
+Scro 22
+Room 24453
+HMS  1057 417 111
+Gold 4802
+Silv 2740
+Silver_in_bank 102700
+Gold_in_bank 50000
+Exp  116422
+PCkills  6
+PCkilled 3
+Akills   1
+Akilled  0
+PKRank   1
+Pos  8
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  ATU
+Video 0
+Act  CDEFGHJLQSc
+AfBy DFTU
+Comm NOQ
+Revk 0
+Cgrp A
+Cnsr 0
+Prac 4
+Trai 5
+Wimp 311
+Atrib 18 21 18 18 18 15
+SkillPnts  670
+RolePnts   6
+QuestPnts  1747
+QpDonated  185
+GlDonated  13000
+Afk {B[{CSat Jul 20 20:45:14 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {NP{Br{Ci{Wnc{Ce{Bs{Ns of M{Be{Cr{Wc{Cu{Br{Ny~
+Immn ~
+Pnts 49
+Rank {NL{Cr{NW~
+Aura ~
+TSex 2
+LLev 278
+Deit Liriel~
+Lsit naio72.interpac.net~
+Ltim Sat Jul 20 18:56:29 2002
+~
+LSav Sat Jul 20 20:51:05 2002
+~
+HMSP 977 1014 582
+THMS 0 0 0
+Cnd  0 0 0 0
+Colr 0 32 1
+Colr 3 31 1
+Colr 4 33 1
+Colr 8 32 1
+Colr 11 31 1
+Colr 13 31 1
+Ignore laurana~
+Ignore kitty~
+Alias san c 'undo spell' sanc~
+Alias m c 'lightning breath'~
+Alias blast recite lightning~
+Alias burn recite fire~
+Alias ice recite frost~
+Alias q c 'acid breath'~
+Alias wipe c 'dispel magic'~
+Alias gas c gas~
+Alias cu recite curse~
+Alias age recite age~
+Alias weak recite weak~
+Alias blind recite blind~
+Alias blue c 'enchant weapon'~
+Alias ble c 'undo spell' bless~
+Alias foc c 'undo spell' focus~
+Alias for c 'undo spell' force~
+Alias p get all~
+Alias o clanrecall~
+Alias sap c 'energy drain'~
+Alias sip recite 'energy drain'~
+Alias bar c 'undo spell' barrier~
+Query Malenna~
+Sk 97 1 'acid blast'
+Sk 87 1 'acid breath'
+Sk 100 1 'age'
+Sk 98 1 'armor'
+Sk 82 1 'bless'
+Sk 100 1 'blindness'
+Sk 75 1 'blood blade'
+Sk 97 1 'burning hands'
+Sk 77 1 'calm'
+Sk 80 1 'cancellation'
+Sk 100 1 'chain lightning'
+Sk 75 1 'change sex'
+Sk 75 1 'channel'
+Sk 96 1 'chill touch'
+Sk 76 1 'colour spray'
+Sk 77 1 'continual light'
+Sk 80 1 'create food'
+Sk 97 1 'create parchment'
+Sk 78 1 'create rose'
+Sk 77 1 'create sign'
+Sk 76 1 'create spring'
+Sk 76 1 'create vial'
+Sk 2 1 'create water'
+Sk 100 1 'cure critical'
+Sk 81 1 'cure light'
+Sk 76 1 'cure serious'
+Sk 100 1 'curse'
+Sk 83 1 'dazzling light'
+Sk 76 1 'detect evil'
+Sk 77 1 'detect good'
+Sk 95 1 'detect hidden'
+Sk 88 1 'detect invis'
+Sk 4 1 'detect magic'
+Sk 2 1 'detect poison'
+Sk 100 1 'dispel magic'
+Sk 78 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 80 1 'encampment'
+Sk 78 1 'enchant armor'
+Sk 86 1 'enchant weapon'
+Sk 77 1 'energy drain'
+Sk 76 1 'fire breath'
+Sk 100 3 'fireball'
+Sk 75 1 'fireproof'
+Sk 75 1 'firestorm'
+Sk 81 1 'flame blade'
+Sk 99 1 'fly'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 75 1 'frost blade'
+Sk 88 1 'frost breath'
+Sk 77 1 'gas breath'
+Sk 100 1 'gate'
+Sk 91 1 'giant strength'
+Sk 100 1 'haste'
+Sk 76 1 'heal'
+Sk 75 1 'holy word'
+Sk 87 1 'identify'
+Sk 76 1 'infravision'
+Sk 89 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 75 1 'light of truth'
+Sk 76 1 'lightning bolt'
+Sk 91 1 'lightning breath'
+Sk 81 1 'locate life'
+Sk 76 1 'locate object'
+Sk 79 1 'magic missile'
+Sk 77 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 2 1 'nexus'
+Sk 100 1 'pass door'
+Sk 79 1 'plague'
+Sk 4 1 'poison'
+Sk 1 1 'portal'
+Sk 1 1 'protect container'
+Sk 100 1 'protection evil'
+Sk 97 1 'protection good'
+Sk 1 1 'recharge'
+Sk 96 1 'refresh'
+Sk 87 2 'regeneration'
+Sk 77 1 'remove alignment'
+Sk 79 1 'remove invisibility'
+Sk 79 1 'remove curse'
+Sk 100 2 'sanctuary'
+Sk 100 1 'shield'
+Sk 76 1 'shock blade'
+Sk 76 1 'shocking grasp'
+Sk 75 1 'shrink'
+Sk 100 1 'slow'
+Sk 2 1 'smokescreen'
+Sk 95 1 'stone skin'
+Sk 83 1 'summon'
+Sk 75 1 'summon object'
+Sk 94 2 'talon'
+Sk 2 1 'teleport'
+Sk 75 1 'teleport object'
+Sk 100 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 75 1 'vision'
+Sk 100 1 'weaken'
+Sk 76 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 100 1 'dagger'
+Sk 100 1 'sword'
+Sk 75 1 'brew'
+Sk 100 1 'scribe'
+Sk 100 1 'dodge'
+Sk 100 1 'parry'
+Sk 100 1 'second attack'
+Sk 100 1 'dual wield'
+Sk 76 1 'swimming'
+Sk 78 1 'repair'
+Sk 100 2 'meditation'
+Sk 100 1 'scan'
+Sk 81 1 'scrolls'
+Sk 3 1 'staves'
+Sk 1 1 'wands'
+Sk 55 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Affc 'pass door'   0  78   2   0   0    1048576 1
+Affc 'detect invis'   0  73  35   0   0          8 1
+Affc 'detect hidden'   0  77  35   0   0         32 1
+Affc 'stone skin'   0  72  34 -40  17          0 1
+Affc 'giant strength'   0  68  31   5   1          0 1
+Affc 'fly'   0  67  25   0   0     524288 1
+Affc 'shield'   0  71  26 -20  17          0 1
+Affc 'bless'   0  65  23 -10  24          0 1
+Affc 'bless'   0  67  23  10  18          0 1
+End
+
+#O
+Vnum 24409
+Nest 0
+Cond 90
+Wear 2
+Cost 6000
+End
+
+#O
+Vnum 24409
+Nest 0
+Cond 94
+Wear 1
+Cost 6000
+Val  20 17 20 19 0
+End
+
+#O
+Vnum 24407
+Nest 0
+Cond 85
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 24408
+Nest 0
+Cond 84
+Wear 7
+Cost 6000
+Val  19 20 20 19 0
+End
+
+#O
+Vnum 17102
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 20006
+Nest 0
+ExtF 17039680
+Cond 77
+Wear 5
+Cost 999
+End
+
+#O
+Vnum 20008
+Nest 0
+ExtF 16777536
+Cond 73
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 5604
+Nest 0
+ExtF 17301507
+Cond 89
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 5608
+Nest 0
+Cond 97
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 5608
+Nest 0
+Cond 90
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 5610
+Nest 0
+ExtF 17301507
+Cond 80
+Wear 6
+Cost 2000
+End
+
+#O
+Vnum 8204
+Enchanted
+Nest 0
+Cond 87
+Wear 9
+Cost 3800
+Affc 'reserved'   1  60  -1  -3  23          0 1
+Affc 'reserved'   1  60  -1   3   5          0 1
+Affc 'reserved'   1  60  -1  55  12          0 1
+Affc 'reserved'   1  60  -1   3  18          0 1
+Affc 'reserved'   1  60  -1   3  19          0 1
+End
+
+#O
+Vnum 14030
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3808
+Nest 0
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 3206
+Nest 0
+Cond 92
+Wear 10
+Cost 70
+End
+
+#O
+Vnum 11696
+Nest 0
+Wear -1
+Cost 5500
+End
+
+#O
+Vnum 5611
+Nest 0
+Cond 93
+Wear 0
+Cost 2000
+End
+
+#O
+Vnum 3810
+Nest 0
+Cond 74
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 5404
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 20015
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 5404
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16514
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 7333
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 7360
+Nest 0
+Wear -1
+Cost 80
+Val  12 0 24 0 0
+End
+
+#O
+Vnum 17044
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 5404
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 11636
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 11696
+Nest 0
+Wear -1
+Cost 5500
+End
+
+#O
+Vnum 14006
+Nest 0
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 16511
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 2409
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 5614
+Nest 0
+Cond 77
+Wear 12
+Cost 4000
+End
+
+#O
+Vnum 16509
+Nest 0
+Cond 97
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 11661
+Nest 0
+Cond 89
+Wear 3
+Cost 10
+End
+
+#O
+Vnum 14041
+Nest 0
+Wear -1
+Cost 750
+End
+
+#O
+Vnum 14041
+Nest 0
+Wear -1
+Cost 750
+End
+
+#O
+Vnum 10103
+Nest 0
+Cond 95
+Wear 18
+Cost 22000
+End
+
+#O
+Vnum 3810
+Nest 0
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 3810
+Nest 0
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 20015
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4431
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3351
+Nest 0
+Wear -1
+Cost 590
+End
+
+#O
+Vnum 11647
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 11673
+Nest 0
+Wear -1
+Cost 4240
+End
+
+#O
+Vnum 3351
+Nest 0
+Wear -1
+Cost 590
+End
+
+#O
+Vnum 11668
+Nest 0
+Wear -1
+Cost 4530
+End
+
+#O
+Vnum 4481
+Nest 0
+Wear -1
+Cost 1000
+Val  12 0 2 0 0
+End
+
+#O
+Vnum 3811
+Nest 0
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 3806
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 2917
+Nest 0
+ExtF 16777283
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 11664
+Nest 0
+Wear -1
+Cost 7500
+End
+
+#O
+Vnum 4475
+Nest 0
+ExtF 0
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 3351
+Nest 0
+Wear -1
+Cost 590
+End
+
+#O
+Vnum 5613
+Enchanted
+Nest 0
+Wear -1
+Cost 5000
+Affc 'reserved'   1  80  -1  28  14          0 1
+Affc 'reserved'   1  80  -1  35  12          0 1
+Affc 'reserved'   1  80  -1  40  13          0 1
+Affc 'reserved'   1  80  -1  50  14          0 1
+Affc 'reserved'   1  80  -1   3  18          0 1
+Affc 'reserved'   1  80  -1   5  19          0 1
+End
+
+#O
+Vnum 5613
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 4491
+Nest 0
+Wear -1
+Cost 10
+Val  16 0 5 0 0
+End
+
+#O
+Vnum 5613
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 11668
+Nest 0
+Wear -1
+Cost 4530
+End
+
+#O
+Vnum 11663
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 11664
+Nest 0
+Wear -1
+Cost 7500
+End
+
+#O
+Vnum 11651
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 11652
+Nest 0
+ExtF 262690
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 5604
+Nest 0
+ExtF 17301507
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 4440
+Enchanted
+Nest 0
+ExtF 67
+Wear -1
+Lev  73
+Cost 1000
+Affc 'enchant weapon'   1  78  -1   7  18          0 1
+Affc 'enchant weapon'   1  78  -1   7  19          0 1
+End
+
+#O
+Vnum 11663
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3800
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 4442
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 3380
+Nest 0
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear -1
+Lev  79
+Cost 2000
+Val  79 62 -1 -1 -1
+Spell 1 'energy drain'
+End
+
+#O
+Vnum 3380
+Nest 0
+Name scroll frost breath~
+ShD  a scroll of frost breath~
+Desc A scroll of frost breath lies here.
+~
+Wear -1
+Lev  79
+Cost 2000
+Val  79 78 -1 -1 -1
+Spell 1 'frost breath'
+End
+
+#O
+Vnum 3380
+Nest 0
+Name scroll frost breath~
+ShD  a scroll of frost breath~
+Desc A scroll of frost breath lies here.
+~
+Wear -1
+Lev  79
+Cost 2000
+Val  79 78 -1 -1 -1
+Spell 1 'frost breath'
+End
+
+#O
+Vnum 3380
+Nest 0
+Name scroll frost breath~
+ShD  a scroll of frost breath~
+Desc A scroll of frost breath lies here.
+~
+Wear -1
+Lev  79
+Cost 2000
+Val  79 78 -1 -1 -1
+Spell 1 'frost breath'
+End
+
+#O
+Vnum 3380
+Nest 0
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear -1
+Lev  79
+Cost 2000
+Val  79 62 -1 -1 -1
+Spell 1 'energy drain'
+End
+
+#O
+Vnum 3380
+Nest 0
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear -1
+Lev  79
+Cost 2000
+Val  79 62 -1 -1 -1
+Spell 1 'energy drain'
+End
+
+#O
+Vnum 4440
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 16528
+Nest 0
+ExtF 671746
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 4475
+Nest 0
+ExtF 0
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 4475
+Nest 0
+ExtF 0
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 11663
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 11664
+Nest 0
+Wear -1
+Cost 7500
+End
+
+#O
+Vnum 4442
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 8829
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4440
+Enchanted
+Nest 0
+ExtF 67
+Cond 51
+Wear 19
+Lev  73
+Cost 0
+Affc 'enchant weapon'   1  73  -1   7  18          0 1
+Affc 'enchant weapon'   1  73  -1   7  19          0 1
+End
+
+#O
+Vnum 11692
+Nest 0
+Wear -1
+Cost 3450
+End
+
+#O
+Vnum 11687
+Nest 0
+ExtF 262147
+Wear -1
+Cost 7550
+End
+
+#O
+Vnum 11689
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 11690
+Nest 0
+Wear -1
+Cost 7650
+End
+
+#O
+Vnum 4471
+Nest 0
+Name liriel plushy~
+ShD  {WL{Ci{Br{Ci{Te{Wl {CP{Wl{Wu{Ws{Wh{Cy{x~
+Desc {WI{Ct{Bs {Ca {Tl{Wi{Bt{Ct{Tl{We {Cs{Bt{Cu{Tf{Wf{Be{Cd {WL{Ci{Br{Ci{Te{Wl {CP{Bl{Cu{Ts{Wh{Cy{x~
+Mat Cotton~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4442
+Nest 0
+Cond 92
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 17015
+Nest 0
+Wear -1
+Cost 200
+Val  500 485 31 0 0
+End
+
+#O
+Vnum 3811
+Nest 0
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 1213
+Nest 0
+Name liriel sparkling hidden teardrop~
+ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
+Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4442
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 17044
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 17039
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 11677
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 11678
+Nest 0
+Wear -1
+Cost 230
+End
+
+#O
+Vnum 14035
+Nest 0
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 11663
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 11668
+Nest 0
+Wear -1
+Cost 4530
+End
+
+#O
+Vnum 11677
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 11678
+Nest 0
+Wear -1
+Cost 230
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 2914
+Enchanted
+Nest 0
+Cond 92
+Wear -1
+Lev  83
+Cost 5000
+Affc 'enchant weapon'   1  80  -1   7  18          0 1
+Affc 'enchant weapon'   1  80  -1   7  19          0 1
+End
+
+#O
+Vnum 4434
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 99
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 16528
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 14032
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 14026
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 2914
+Enchanted
+Nest 0
+Cond 84
+Wear -1
+Lev  83
+Cost 5000
+Affc 'enchant weapon'   1  80  -1   8  18          0 1
+Affc 'enchant weapon'   1  80  -1   8  19          0 1
+End
+
+#O
+Vnum 11663
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 4440
+Enchanted
+Nest 0
+ExtF 67
+Cond 93
+Wear 16
+Lev  73
+Cost 0
+Val  2 10 7 11 1
+Affc 'flame blade'   5  50  13   0   0          1 1
+Affc 'enchant weapon'   1  73  -1   7  18          0 1
+Affc 'enchant weapon'   1  73  -1   7  19          0 1
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14037
+Nest 0
+Wear -1
+Cost 20
+End
+
+#L
+Vnum 11915
+Enchanted
+Nest 0
+Cond 72
+Wear -1
+Cost 300
+Val  6 8 8 10 0
+Affc 'reserved'   1  20  -1   3  18          0 1
+Affc 'reserved'   1  20  -1   3  19          0 1
+Affc 'reserved'   1  20  -1   2   5          0 1
+Affc 'reserved'   1  20  -1   2   1          0 1
+End
+
+#L
+Vnum 4595
+Nest 0
+Cond 57
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 1213
+Nest 0
+Name black hilted sword dragonslicer trading card hidden token Montrey~
+ShD  {Wa {cblack hilted {gs{Wwo{gr{Wd called {g"{HD{cr{Hag{co{Hn{csl{Hi{cc{Her{g" {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe black hilted sword dragonslicer trading card~ Known for its high magical protection, Dragonslicer is a favorite
+weapon of wyrm slayers across the realm.  Its keen edge is ideal
+for slicing through tough, scaly hide.
+~
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1211
+Nest 0
+Name songquest token Kids Run Through The City Corner~
+ShD  Kids Run Through The City Corner~
+Desc A single song whistles through the air~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1211
+Nest 0
+Name songquest token Another World of Beasts~
+ShD  Another World of Beasts~
+Desc A single song whistles through the air~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 0
+Name songquest token Battle Theme~
+ShD  Battle Theme~
+Desc A single song whistles through the air~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1215
+Nest 0
+Name teotwawki wild token~
+ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1211
+Nest 0
+Name Yellow Lightsaber token~
+ShD  {YLightsaber{x~
+Desc A lightsaber lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 0
+Name Red Lightsaber token~
+ShD  {RLightsaber{x~
+Desc A lightsaber lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1211
+Nest 0
+Name Yellow Lightsaber token~
+ShD  {YLightsaber{x~
+Desc A lightsaber lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3202
+Nest 0
+Wear -1
+Cost 30
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name alara hidden token unending speck luminescence everlasting fires~
+ShD  {W*{RH{Pi{gdd{Pe{Rn{W* {gE{Wv{ge{Wrl{ga{Wst{gi{Wng {cM{gi{cdn{gi{cght {RF{Pi{Yr{Pe{Rs{x~
+Desc {W*{RH{Pi{gdd{Pe{Rn{W* {gA{Wn {gU{Wn{ge{Wnd{gi{Wng {gSp{Ye{gck {go{Wf {WL{Yu{Wm{Yi{Wn{Ye{Wsc{Ye{Wnc{Ye{x is here.~
+Mat {Yst{Wa{Yrl{Wi{Yght{x~
+Wear -1
+Cost 0
+ExDe fires~ An {ge{Wt{ge{Wrn{ga{Wl {gsp{Ye{gck {go{Wf {Yst{Wa{Yrl{Wi{Yght{x has been {gg{Wa{gth{we{gr{We{gd here.
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name teotwawki wild token~
+ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 4471
+Nest 0
+Name enchant token liriel~
+ShD  {gA {Vlevel {Y100 {Be{Cn{Bc{Ch{Ba{Cn{Bt {gfrom {WL{Ci{Br{Ci{Te{Wl{x~
+Wear -1
+Cost 3500
+End
+
+#END

@@ -1,0 +1,95 @@
+#PLAYER
+Name Testplayer~
+Id   1019810190
+LogO 1019811084
+Vers 13
+Mexp 2
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Sex  1
+Cla  3
+Levl 91
+Tru  91
+Plyd 851
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 1202
+HMS  83 1184 120 562 177 1028
+Gold 0
+Silv 0
+Exp  91000
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+FRes E
+FVul H
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 496
+Trai 123
+Alig  0
+ACs 100 100 100 100
+Atrib 21 18 18 18 18 18
+AtMod 0 0 0 0 0 0
+Pass 9553211x~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Xenith~
+Stus blah, I'm a test player~
+RmCt 13
+ExSk 1701
+Raff 903 952
+Lsit adsl-63-196-195-52.dsl.snlo01.pacbell.net~
+Ltim Fri Apr 26 03:37:14 2002
+~
+LSav Fri Apr 26 03:51:24 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  Q
+HMSP 1184 562 1028
+THMS 0 0 0
+Cnd  0 0 30 30
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 40 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'bash'
+Sk 1 1 'disarm'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 50 1 'mark'
+Sk 1 1 'critical blow'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'warrior default'
+Gr 'weaponsmaster'
+End
+
+#END

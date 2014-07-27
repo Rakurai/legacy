@@ -1,0 +1,392 @@
+#PLAYER
+Name Osiris~
+Id   1016318444
+LogO 1022366630
+Vers 14
+Mexp 2
+Pass mark2~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race wolf~
+Clan divinity~
+Cla  7
+Levl 23
+Tru  0
+Plyd 101942
+Back 75603
+Note 1021055647 1016318957 1016318957 1016318957 1016318957 1016318957 0
+Scro 22
+Room 24207
+HMS  437 288 96
+Gold 4
+Silv 23
+Exp  25333
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -3
+FImm 0
+FRes I
+FVul H
+Plr  HKO
+Video 0
+Act  CDEFGHIJLSc
+AfBy 0
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr C
+Prac 4
+Trai 1
+Wimp 0
+Atrib 20 18 17 18 18 12
+Afk {B[{CSat May 25 17:18:20 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank {WS{gR{WP~
+Aura ~
+TSex 1
+LLev 26
+Deit Teotwawki~
+Lsit sprint254-49.bbc.net~
+Ltim Sat May 25 17:06:49 2002
+~
+LSav Sat May 25 17:43:50 2002
+~
+HMSP 427 236 345
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 61 1 'giant strength'
+Sk 1 1 'haste'
+Sk 75 1 'infravision'
+Sk 30 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 90 1 'axe'
+Sk 1 1 'flail'
+Sk 4 1 'dodge'
+Sk 42 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 84 1 'kick'
+Sk 95 1 'parry'
+Sk 76 1 'second attack'
+Sk 75 1 'dual wield'
+Sk 75 1 'hunt'
+Sk 1 1 'fast healing'
+Sk 75 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'enhancement'
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 6 15 0 0
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Cond 99
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 1205
+Nest 0
+Name red poker chip~
+ShD  {RRed {RP{Wo{Bk{Re{Wr {BC{Rh{Wi{Bp{x~
+Desc {YIts A {RRed {RP{Wo{Bk{Re{Wr {BC{Rh{Wi{Bp{x {YWorth 5QP{x~
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 3504
+Nest 0
+Cond 100
+Wear 15
+Cost 690
+End
+
+#O
+Vnum 3504
+Nest 0
+Cond 100
+Wear 14
+Cost 690
+End
+
+#O
+Vnum 24230
+Nest 0
+Wear 0
+Cost 2400
+End
+
+#O
+Vnum 24229
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 24218
+Nest 0
+Wear -1
+Cost 24
+Val  60 0 25 0 0
+End
+
+#O
+Vnum 1215
+Nest 0
+Name teotwawki wild token~
+ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 24245
+Enchanted
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 9918
+Nest 0
+Cond 97
+Wear -1
+Cost 500
+Spell 3 'poison'
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 10131
+Enchanted
+Nest 0
+ExtF 17039427
+Cond 99
+Wear -1
+Lev  13
+Cost 110
+Affc 'enchant weapon'   1  91  -1   8  19          0 1
+Affc 'reserved'   1  10  -1   1   5          0 1
+Affc 'enchant weapon'   0  91  -1   5  18          0 1
+End
+
+#O
+Vnum 4577
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 4577
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 4577
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 4577
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 16007
+Nest 0
+Cond 98
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 12715
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 8725
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#END

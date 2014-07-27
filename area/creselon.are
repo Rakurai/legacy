@@ -1,0 +1,2577 @@
+#AREA
+creselon.are~
+Creselon, the Floating Island~
+{H{{1 5} {MMontrey {TCreselon, the Floating Island~
+12800 12999
+#MOBILES
+#12800
+talro shopkeeper~
+Talro~
+Talro, the shopkeeper stands here watching you.
+~
+Talro is an old wizened human whose gleaming blue eyes
+pierce your soul when he looks at you.  He sells equipment
+here in his shop, and also guards the portal to Creselon.
+If you are worthy, he may let you trade for some of his
+more valuable merchandise, or he may share some of his
+knowledge of combat if you are ready to receive training.
+~
+human~
+BGJKRUVZb DF 0 S
+65 30 1d1+4999 1d1+9999 7d7+7 magic
+-40 -40 -40 -45
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+>rand_prog 3~
+emote brisky goes around the room, dusting the equipment.  You don't see a difference, though, as the merchandise was already clean.
+~
+>greet_prog 100~
+say Welcome, worthy adventurer!  Will you be journeying to Creselon today?
+~
+>give_prog wand speed creseloneq~
+say Ah yes, a wand of speed.  I can give you a wand of lethargy for it in trade.
+MPOLOAD 12807
+give lethargy $n
+MPJUNK creseloneq
+~
+>give_prog potion talon creseloneq~
+say Excellent, I have a friend who buys potions of talon from me.  I will give you a scroll of frost breath for it.
+MPOLOAD 12810
+give frost $n
+MPJUNK creseloneq
+~
+>give_prog portal spire stars creseloneq~
+smile $n
+say You must have fought many battles to acquire the secret portal into the Spire!  I will give you a Mace of Disruption to assist in conquering your foes.
+MPOLOAD 12812
+give disruption $n
+MPJUNK creseloneq
+~
+>give_prog suffering innocent creseloneq~
+sigh
+say Yes, many innocent people have suffered since the Spire was raised.  Some kings have literally taxed their citizens to death paying for their invading parties.
+say It's not much, but I can give you a Dagger of Treachery for your help in ending this long standoff.
+MPOLOAD 12814
+give treachery $n
+MPJUNK creseloneq
+~
+>give_prog wand healing creseloneq~
+say Ah... a wand of healing.  For healing items I can give you a Crusader Shield to help you on your quests.
+MPOLOAD 12816
+give crusader $n
+MPJUNK creseloneq
+~
+>give_prog cursed boots creseloneq~
+say I see that you don't relish the weakness imposed by the Cursed Boots.  I have an acquaintance who will buy them, so I'll give you a scroll of Fiery Doom in exchange.
+MPOLOAD 12818
+give doom $n
+MPJUNK creseloneq
+~
+>give_prog girdle giant strength creseloneq~
+nod
+say Girdles of Giant Strength have become a rarity nowadays.  In trade, I will give you a Nova Ring.  It should prove useful in battles to come.
+MPOLOAD 12820
+give nova $n
+MPJUNK creseloneq
+~
+>give_prog armor etherealness creseloneq~
+beam $n
+say Excellent!  I may retire early on the gold I can sell an Armor of Etherealness for.  I have a Gauntlets of the Titan I will give you for it.
+MPOLOAD 12822
+give titan $n
+MPJUNK creseloneq
+~
+>give_prog robe magi creseloneq~
+hop
+say Incredible!  Few adventurers have brought back a Robe of the Magi from that accursed island!  You shall receive my best armor for this!
+MPOLOAD 12824
+give star $n
+MPJUNK creseloneq
+~
+>give_prog bracelet faith creseloneq~
+grovel $n
+say Unbelievable!  Derelar himself wears this powerful bracelet!  For you to be standing here with it, you must have slain him!
+high $n
+say For this, you shall receive something REALLY special.
+emote makes a magical gesture, and promptly vanishes.  When he reappears, he holds a brilliant white sword in his hands.
+say May you destroy great evils with this Holy Avenger!
+MPOLOAD 12826
+give avenger $n
+MPJUNK creseloneq
+bow $n
+~
+>give_prog all~
+emote glances uninterestedly at $O.
+say No, I'm afraid I can't offer you anything in trade for that particular item.  Please look in the display case for the list of items I am looking for.
+give $o $n
+~
+|
+#12801
+othertalro~
+Talro~
+{x~
+Talro is an old wizened human whose gleaming blue eyes
+pierce your soul when he looks at you.  He sells equipment
+here in his shop, and also guards the portal to Creselon.
+If you are worthy, he may let you trade for some of his
+more valuable merchandise, or he may share some of his
+knowledge of combat if you are ready to receive training.
+~
+human~
+BGRUVZ DF 0 S
+65 30 1d1+4999 1d1+9999 7d7+7 magic
+-40 -40 -40 -45
+0 ABCD 0 0
+stand stand male 10000000
+0 0 medium 0
+#12802
+general klov~
+General Klov~
+A battle hardened general stands here, commanding his men.
+~
+General Klov is a large man, with an aura of confidence that
+high rank commands.  He is battle hardened, likely with
+skills to match his looks.  He commands his troops with the
+ease of a seasoned veteran.
+~
+human~
+BGT H 200 S
+8 0 1d1+99 1d1-1 4d3+1 pound
+3 3 3 2
+K 0 0 0
+stand stand male 0
+0 0 medium 0
+>rand_prog 3~
+emote yells, 'Hold steady men!  We'll all go home once we take the Spire!'
+~
+>death_prog 4~
+MPOLOAD 12809
+~
+|
+#12803
+soldier~
+a soldier~
+A soldier stands here, ready for combat with Derelar's apprentices.
+~
+The soldiers looks like they've never even seen actual
+combat.  They will do their duty, though, and fight to the
+end for their king.
+~
+human~
+G 0 100 S
+1 -1 1d1+12 1d1-1 3d2+1 slash
+1 1 1 1
+0 0 0 0
+stand stand either 0
+0 0 medium 0
+#12804
+orlin apprentice earth~
+Orlin~
+Orlin, the Apprentice of Earth, stands here watching over the battle.
+~
+Orlin is a tall dark skinned man who looks to be around
+thirty years old.  He wears a deep brown robe, and has
+piercing eyes that seem to take in everything happening
+around him at once.
+~
+human~
+BGR HU 0 S
+4 0 1d1+49 1d1+99 1d3+1 beating
+2 2 2 2
+H 0 0 0
+stand stand male 0
+0 0 medium 0
+>rand_prog 3~
+say Have faith, brothers.  We will repel this newest attack just as we have all the others.
+~
+>fight_prog 90~
+zap
+~
+|
+#12805
+mageling~
+a mageling~
+A mageling is here, preparing for combat.
+~
+The young mageling is making magical gestures, probably
+casting protective spells in anticipation of the upcoming
+battle.
+~
+human~
+GR 0 0 S
+1 0 1d1+11 1d1+49 1d2+1 slap
+1 1 1 1
+0 0 0 0
+stand stand male 0
+0 0 medium 0
+#12806
+ninette quest shopkeeper~
+Ninette~
+Ninette, the Quest Shopkeeper stands here.
+~
+Ninette is a human woman, maybe twoscore years of age, with
+long brown hair and a warm smile.  She was an apprentice of
+Annabus in times long past, before she set out adventuring
+on her own.  She has set up shop on Creselon recently, and
+peddles some of the items she gathered on her expeditions
+into the wilderness.
+~
+human~
+BGRa DFHVZ 400 S
+99 25 1d1+19999 1d1+29999 10d11+38 thwack
+-100 -100 -100 -98
+AFK ABCD 0 0
+stand stand female 0
+0 0 medium 0
+>greet_prog 100~
+smile $n
+say Welcome to my shop!  Let me know if you see anything that catches your eye.
+~
+>rand_prog 2~
+emote spits on a rag and starts polishing a rust-covered helm.
+~
+|
+#12807
+mageling~
+a mageling~
+A mageling is here, practicing magic.
+~
+The young mageling is unconcerned about the battle waging
+south of here, as the invasions by various kingdoms are
+always routed.  This mageling is one of Derelar's absolute
+beginners, and is still working on learning some of the most
+basic spells.
+~
+human~
+GR 0 0 S
+1 0 1d1+11 1d1+49 1d2+1 slap
+1 1 1 1
+0 0 0 0
+stand stand either 0
+0 0 medium 0
+>rand_prog 3~
+MPECHO The mageling conjures a ball of fire in $m hand, but it vanishes almost as quickly as it was made.
+grumble
+~
+>fight_prog 4~
+MPECHO The mageling conjures a ball of fire to throw at you, but the ball explodes backwards, leaving $m with no eyebrows!
+~
+>death_prog 25~
+MPOLOAD 12829
+~
+|
+#12808
+relv apprentice fire~
+Relv~
+Relv, the Apprentice of Fire, stands here training the magelings.
+~
+Relv is the head apprentice of the Fire Wizard Fiol.  He
+has not yet mastered all the intricacies of commanding
+heat and light, but he is trained enough to teach the young
+magelings some of the simpler spells.
+~
+human~
+BGR b 100 S
+4 1 1d1+39 1d1+79 3d3+1 beating
+-3 -3 -3 -4
+F 0 H I
+stand stand male 200
+0 0 medium 0
+>rand_prog 2~
+emote looks at the mageling and says, 'Alright, now throw the powder and make the sign with your left hand.  No, wait!  Oh, sh-'
+duck
+MPECHO A tremendous blast of flame leaps from the mageling's hands, shooting through the place Relv's head was a moment ago.
+emote glares at the mageling and says, 'You idiot!  Your other left!'
+emote bonks the mageling on the head for being such a moron.
+~
+>fight_prog 25~
+MPCAST 'burning hands'
+~
+>fight_prog 25~
+MPCAST 'fireball'
+~
+>death_prog 25~
+MPOLOAD 12811
+~
+|
+#12809
+mageling~
+a mageling~
+A mageling is here, practicing fire magic with Relv.
+~
+The young mageling is unconcerned about the battle waging
+south of here, as the invasions by various kingdoms are
+always routed.  This mageling is one of Derelar's absolute
+beginners, and is still working on learning some of the most
+basic fire spells.
+~
+human~
+BGR 0 0 S
+1 0 1d1+11 1d1+49 1d2+1 slap
+1 1 1 1
+0 0 0 0
+stand stand either 0
+0 0 medium 0
+>rand_prog 3~
+MPECHO The mageling conjures a ball of fire in $m hand, but it vanishes almost as quickly as it was made.
+grumble
+~
+>fight_prog 4~
+MPECHO The mageling conjures a ball of fire to throw at you, but the ball explodes backwards, leaving $m with no eyebrows!
+~
+>death_prog 25~
+MPOLOAD 12829
+~
+|
+#12810
+fiol master fire~
+Fiol~
+Fiol, the Master of Fire stands here.
+~
+Fiol is a short man, rather obese, with bright red hair.
+He looks to be about forty-five years old, but it is
+rumored that his skill with fire magic is unparelled.
+~
+human~
+BGR b -50 S
+10 2 1d1+99 1d1+299 3d3+4 flame
+-6 -6 -6 -6
+KO 0 H I
+stand stand male 0
+0 0 large 0
+>rand_prog 2~
+grumble
+say Where is that idiot Relv?  He was supposed to be back an hour ago!
+~
+>fight_prog 33~
+say BURN!
+MPCAST 'fireball'
+~
+>fight_prog 33~
+say I'll turn you to cinders!
+MPCAST 'flamestrike'
+~
+>fight_prog 15~
+say You can't use armor if it's too HOT!
+MPCAST 'heat metal'
+~
+>death_prog 5~
+MPOLOAD 12818
+~
+|
+#12811
+tien apprentice ice~
+Tien~
+Tien, the Apprentice of Ice, glares at you.
+~
+Tien is quite beautiful, if not very nice.  She has blonde
+hair, and is probably in her early twenties, but her icy
+cold stare quickly makes you look the other way.
+~
+human~
+GR 0 -400 S
+6 1 1d1+59 1d1+199 2d3+4 chill
+-4 -4 -4 -5
+N 0 I H
+stand stand female 0
+0 0 medium 0
+>rand_prog 2~
+emote stops wandering around the room, and casts an angry glance toward you.
+say And what is it you want?!?
+~
+>fight_prog 40~
+MPCAST 'chill touch'
+~
+|
+#12812
+jilo master ice~
+Jilo~
+Jilo, the Master of Ice eyes you thoughtfully.
+~
+Jilo is a very old man, with white hair and a white beard.
+He is small, but not in any way crippled.  He still moves
+his hands in somatic motions along with the best
+spellcasters.
+~
+human~
+BGR NO 100 S
+10 1 1d1+89 1d1+499 2d4+2 chill
+-5 -5 -5 -11
+0 0 I H
+stand rest male 0
+0 0 medium 0
+>rand_prog 2~
+emote pulls a book from one of the shelves and starts reading it.
+~
+>fight_prog 40~
+say Say, is it cold in here, or is it just you?
+MPCAST 'chill touch'
+~
+>fight_prog 25~
+say This ought to cool your temper a little!
+MPCAST 'frost breath'
+~
+>death_prog 6~
+MPOLOAD 12815
+~
+|
+#12813
+myr apprentice lightning~
+Myr~
+Myr, the Apprentice of Lightning, giggles in your presence.
+~
+Myr is a dazzlingly beautiful young woman.  She wears a very
+revealing outfit, and looks at you interestedly.
+~
+human~
+GR 0 200 S
+6 1 1d1+68 1d1+199 1d6+4 slap
+-4 -4 -4 -3
+E 0 J R
+stand stand female 0
+0 0 medium 0
+>rand_prog 2~
+giggle
+say Tell me, have you ever felt the stimulation a little electricity can provide?
+wink
+~
+>fight_prog 25~
+MPCAST 'shocking grasp'
+~
+>fight_prog 25~
+MPCAST 'lightning bolt'
+~
+|
+#12814
+treyv master lightning~
+Treyv~
+Treyv, the Master of Lightning grins at you.
+~
+Treyv is an extremely thin, tall man with blond hair.  He
+wears a long yellow robe that touches the floor, and moves
+about with quick and graceful movements.  He is married to
+Astari, the Apprentice Conjurer.
+~
+human~
+BGR 0 0 S
+10 2 1d1+79 1d1+299 4d2+1 shock
+-6 -6 -6 -7
+0 0 J R
+stand stand male 0
+0 0 medium 0
+>rand_prog 2~
+MPECHO As Treyv wanders around looking through the shelves, you catch a glimpse of electricity crackling between his fingertips.
+~
+>fight_prog 40~
+say Funny, I've heard most people aren't fond of electrocution.
+MPCAST 'lightning bolt'
+~
+>fight_prog 20~
+say You might find this a bit SHOCKING!
+MPCAST 'lightning breath'
+~
+>death_prog 3~
+MPOLOAD 12823
+~
+|
+#12815
+noret master earth~
+Noret~
+Noret, the Master of Earth, lies here sleeping.
+~
+Noret is a large, powerful man in his early thirties.  He
+wears a robe of deep brown that matches his hair and eyes.
+~
+human~
+BGR 0 300 S
+10 3 1d1+119 1d1+199 4d3+5 crush
+-8 -8 -8 -7
+EO 0 0 0
+sleep sleep male 0
+0 0 large 0
+>rand_prog 2~
+snore
+~
+>fight_prog 30~
+say Tremble before me!
+MPCAST 'earthquake'
+~
+>death_prog 4~
+MPOLOAD 12819
+~
+|
+#12816
+kyva apprentice necromancy necromancer~
+Kyva~
+Kyva, the Apprentice of Necromancy stands here getting dressed.
+~
+Kyva, the Apprentice Necromancer is a young, beautiful
+black haired woman.  You see that she has a lithe body and
+pale skin because, at the moment, she is completely naked.
+~
+human~
+BGRZ 0 100 S
+6 1 1d1+59 1d1+229 1d8+4 drain
+-3 -3 -3 -6
+F 0 M N
+stand stand female 0
+0 0 medium 0
+>greet_prog 100~
+scream
+say What are you doing in here?  GET OUT!
+emote shoves you out of her room, and slams the door.
+MPFORCE $n north
+close north
+~
+>fight_prog 25~
+MPCAST 'slow'
+~
+>fight_prog 25~
+MPCAST 'curse'
+~
+>fight_prog 20~
+MPCAST 'demonfire'
+~
+>death_prog 3~
+MPOLOAD 12830
+~
+|
+#12817
+portua master necromancy necromancer~
+Portua~
+Portua, the Master of Necromancy sneers at you mercilessly.
+~
+Portua is a middle aged woman with dark brown hair.  She
+is anorexically thin, and appears very weak physically.
+Beware, though, as it is a rule of thumb never to under-
+estimate a necromancer.
+~
+human~
+BGR 0 -400 S
+11 0 1d1+99 1d1+499 1d1+6 drain
+-2 -2 -2 -14
+0 0 M N
+stand stand female 0
+0 0 medium 0
+>rand_prog 2~
+say Weakling.
+laugh $r
+~
+>fight_prog 40~
+say You'll never leave here alive!
+MPCAST 'curse'
+~
+>fight_prog 30~
+say Your life force is MINE!
+MPCAST 'sap'
+~
+>death_prog 5~
+MPOLOAD 12817
+~
+|
+#12818
+ylon apprentice illusions~
+Ylon~
+Ylon, the Apprentice of Illusions stands here, thinking he can't be seen.
+~
+Ylon is a handsome young man in his early twenties.  He
+enjoys hiding from people, and being sneaky in general.
+~
+human~
+GR BDF 0 S
+8 1 1d1+79 1d1+199 4d2+3 magic
+-6 -6 -6 -8
+DI 0 0 0
+stand stand male 0
+0 0 medium 0
+>rand_prog 2~
+MPECHO You feel something brush past you noiselessly.
+~
+>fight_prog 40~
+say Take THIS!
+MPCAST 'colour spray'
+~
+>fight_prog 20~
+say You can't fight if you can't see!
+MPCAST 'blind'
+~
+>death_prog 10~
+MPOLOAD 12831
+~
+|
+#12819
+malsina master illusions~
+Malsina~
+Malsina, the Master of Illusions is sneaking around here.
+~
+Malsina is hardly more than a girl of perhaps fifteen, and
+while she has mastered the arts of illusory spells, she has
+yet to be able to use them to their full potential.
+~
+human~
+BGR 0 200 S
+12 2 1d1+129 1d1+219 4d3+3 beating
+-8 -8 -8 -9
+0 0 0 0
+stand stand female 0
+0 0 medium 0
+>rand_prog 4~
+vis
+say Oops!  Chameleon cloak ran out again!
+snicker
+MPCAST 'chameleon cloak'
+~
+>rand_prog 8~
+emote tries to sneak around the room, but stubs her toe on the bed.
+curse
+~
+>rand_prog 4~
+MPCAST 'ventriloquate' $r Isn't Malsina just soooo cool?
+~
+>rand_prog 3~
+vis
+~
+>fight_prog 30~
+say You're not very nice, and I'm gonna punish you for it!
+MPCAST 'blind'
+~
+>fight_prog 7~
+MPECHO Malsina utters the words, 'animate dracolich'.
+MPECHO The Dracolich *ROARS* at you!
+MPECHO {YThe Dracolich's drain {Tbrings a touch of {RD{cE{RA{cT{RH {Tto {Yyou! [17509]{x
+MPECHO loses her concentration, and the illusion vanishes.
+laugh
+~
+>death_prog 9~
+MPOLOAD 12821
+~
+|
+#0
+#OBJECTS
+#12800
+shimmering white portal~
+a shimmering {Wwhite{x portal~
+A shimmering {Wwhite{x portal is built into the east wall.~
+nothingness~
+portal OY P
+0 0 A 12801 0
+0 30000 0 I
+E
+shimmering white portal~
+A shimmering {Wwhite{x portal is built into the east wall.
+~
+#12801
+bright steel sword~
+a {Wbr{gig{Wht {gst{Wee{gl{x sword~
+A sword of {Wbr{gig{Wht{gly {Wpo{gli{Wsh{ged {Wst{gee{Wl{x lies here.~
+steel~
+weapon G AN
+sword 2 2 cleave 0
+1 3 10000 P
+E
+bright steel sword~
+It is a sword of brightly polished steel, designed to cut
+through monsters with ease.
+~
+A
+18 1
+A
+19 1
+#12802
+bright steel ring~
+a {Wbr{gig{Wht {gst{Wee{gl{x ring~
+A ring of {Wbr{gig{Wht{gly {Wpo{gli{Wsh{ged {Wst{gee{Wl{x lies here.~
+steel~
+armor G AB
+2 2 2 2 0
+5 1 15000 P
+E
+bright steel ring~
+It is a small band of highly polished steel, and it makes
+you feel a little more powerful when you wear it.
+~
+A
+4 1
+A
+13 1
+A
+18 1
+A
+19 1
+#12803
+bright steel gauntlets pair~
+a pair of {Wbr{gig{Wht {gst{Wee{gl{x gauntlets~
+Gauntlets of {Wbr{gig{Wht{gly {Wpo{gli{Wsh{ged {Wst{gee{Wl{x lie here.~
+steel~
+armor BG AH
+7 7 7 6 0
+15 2 30000 P
+E
+bright steel gauntlets pair~
+The gauntlets are made of brightly polished steel, and
+protect the hands well versus most attacks.
+~
+A
+13 15
+A
+18 2
+A
+19 2
+#12804
+scroll sanctuary~
+a scroll of sanctuary~
+A tightly bound scroll lies here.~
+parchment~
+scroll 0 A
+15 'sanctuary' '' '' ''
+4 1 15000 P
+E
+scroll sanctuary~
+The parchment scroll is tightly bound and looks to be newly
+scribed.
+~
+#12805
+light hope~
+{Wlight of {Ph{Go{Bp{Ye{x~
+The beams from a {Wlight of {Ph{Go{Bp{Ye{x fill the room with encouragement.~
+{Ph{Go{Bp{Ye{x~
+light AGIYa AP
+0 0 -1 0 0
+13 1 70 P
+E
+light hope~
+Beams of multicolored {Ylight{x radiate from the {Wlight of
+{Ph{Go{Bp{Ye{x.  Just being near it bestows a sense of
+encouragement, and you feel that things can only get better
+from here.
+~
+A
+4 1
+A
+5 1
+A
+26 1
+A
+12 15
+A
+13 20
+A
+18 2
+A
+19 2
+A
+22 -1
+F
+A 0 0 DF
+#12806
+cape comraderie~
+{Ycape of {Vc{Mo{Vm{Mr{Va{Md{Ve{Mr{Vi{Me{x~
+You feel a sense of closeness to your friends when you see the {Ycape of {Vc{Mo{Vm{Mr{Va{Md{Ve{Mr{Vi{Me{x.~
+trust~
+armor AGIYa ACP
+8 8 8 7 0
+12 2 60 P
+E
+cape comraderie~
+Memories of past battles flash before your eyes, and you are
+reminded of happy times with your comrades when you look at
+the {Ycape of {Vc{Mo{Vm{Mr{Va{Md{Ve{Mr{Vi{Me{x.
+~
+A
+1 1
+A
+2 1
+A
+3 1
+A
+4 1
+A
+12 15
+A
+13 20
+A
+18 3
+A
+19 3
+#12807
+wand lethargy~
+Wand of Lethargy~
+A black wand lies here.~
+wood~
+wand 0 AO
+10 1 1 'slow' 0
+3 1 1000 P
+E
+wand lethargy~
+It is an ordinary looking wand of maple wood.
+~
+#12808
+wand speed creseloneq~
+Wand of Speed~
+A yellow wand lies here.~
+wood~
+wand 0 AO
+10 1 1 'haste' 0
+3 1 1000 P
+E
+wand speed~
+The wand is made of lightweight balsa wood.
+~
+#12809
+potion talon creseloneq~
+a potion of talon~
+A incandescent green potion lies here.~
+glass~
+potion 0 A
+50 'talon' '' '' ''
+2 1 1000 P
+E
+potion talon~
+It is a small glass vial with a rubber stopper, holding a
+translucent green liquid.
+~
+#12810
+scroll frost breath~
+a scroll of frost breath~
+A scroll lies here.~
+parchment~
+scroll 0 A
+15 'frost breath' '' '' ''
+3 1 1000 P
+E
+scroll frost breath~
+The scroll is made of tightly bound parchment.
+~
+#12811
+portal spire stars creseloneq~
+a portal to the Spire of the Stars~
+A portal lies here humming~
+nothingness~
+portal BRY A
+8 0 A 12835 0
+1 0 2000 P
+E
+portal spire stars~
+It looks like an ordinary piece of black cloth, but when
+you unfold it and lay it on the ground, the blackness
+becomes deeper and you feel you could step into it.
+~
+#12812
+mace disruption~
+Mace of Disruption~
+An mace lies here glowing.~
+steel~
+weapon ARY AN
+mace 4 3 crush G
+6 3 3000 P
+E
+mace disruption~
+The Mace of Disruption has a wooden handle, and a metal ball
+attached to the end.  It is heavy, but surprisingly easy to
+wield.
+~
+A
+18 2
+A
+19 1
+A
+20 -2
+#12813
+suffering innocent creseloneq~
+Suffering of the Innocent~
+A sense of guilt overwhelms you in the presence of this spirit.~
+guilt~
+armor EHJ AQ
+3 3 3 4 0
+8 0 1000 P
+E
+suffering innocent~
+As the spirit floats nearby, you feel the weight of a
+thousand dead voices filling you with guilt.
+~
+A
+12 4
+A
+18 2
+A
+19 2
+A
+26 -2
+#12814
+dagger treachery~
+Dagger of Treachery~
+An evil aura surround a dagger lying here.~
+steel~
+weapon EGJO AN
+dagger 4 3 stab H
+7 2 3000 P
+E
+dagger treachery~
+The Dagger of Treachery glistens wetly, as if it were
+covered with poison.
+~
+A
+2 2
+A
+18 2
+A
+19 2
+#12815
+wand healing creseloneq~
+Wand of Healing~
+A small white wand lies here.~
+wood~
+wand I AO
+1 5 3 'heal' 0
+4 1 5000 P
+E
+wand healing~
+It is a small wand made of white ash.
+~
+#12816
+crusader shield~
+Crusader Shield~
+A brilliantly glowing shield bearing the semblance of an angel lies here.~
+iron~
+armor AI AJ
+5 5 5 4 0
+10 4 5000 P
+E
+crusader shield~
+The Crusader Shield is about two feet high and a foot and a
+half wide, made of highly polished silver, and bears the
+likeness of an angel on it.
+~
+A
+1 2
+A
+12 6
+A
+18 2
+A
+19 2
+A
+23 -3
+#12817
+cursed boots creseloneq~
+Cursed Boots~
+You are tempted to take the pair of boots lying here.~
+leather~
+armor BEM AG
+10 10 10 10 0
+11 2 1000 P
+E
+cursed boots~
+The boots are leather, and you feel an overwhelming desire
+to try them on.
+~
+A
+2 3
+A
+12 3
+A
+13 3
+A
+14 10
+A
+18 6
+A
+19 6
+A
+20 -3
+F
+V 0 0 D
+#12818
+scroll fiery doom~
+a scroll of Fiery Doom~
+A scroll glows with a brilliant red aura here.~
+parchment~
+scroll A A
+15 'burning hands' 'fireball' 'flamestrike' 'fire breath'
+5 1 6000 P
+E
+scroll fiery doom~
+The scroll of Fiery Doom is made of parchment, and glows
+with a brilliant red aura.
+~
+#12819
+girdle giant strength creseloneq~
+Girdle of Giant Strength~
+A girdle lies here.~
+leather~
+armor MP AL
+5 5 5 5 0
+12 1 6000 P
+E
+girdle giant strength~
+It looks like an ordinary girdle, except for some obscure
+runes worked into it.
+~
+E
+runes obscure~
+You can't decipher them.
+~
+A
+1 5
+A
+18 3
+A
+19 3
+#12820
+nova ring~
+Nova Ring~
+A powerful ring lies here.~
+white gold~
+armor ABGY AB
+5 5 5 3 0
+13 1 20000 I
+E
+nova ring~
+The Nova Ring is made of white gold, and shines like the
+stars.  A feeling of power surges through you when you
+put it on your finger.
+~
+A
+1 1
+A
+2 1
+A
+3 1
+A
+4 1
+A
+5 1
+A
+26 1
+A
+12 15
+A
+13 15
+A
+18 2
+A
+19 2
+#12821
+armor etherealness creseloneq~
+Armor of Etherealness~
+A translucent suit of armor lies here.~
+ethereal steel~
+armor ABY AD
+7 7 7 5 0
+14 5 20000 P
+E
+armor etherealness~
+The Armor of Etherealness is translucent, and you find that
+when you wear it, most doors are no longer an obstruction.
+~
+A
+12 17
+A
+13 15
+A
+17 -2
+A
+18 2
+A
+19 1
+F
+A 0 0 U
+#12822
+gauntlets titan~
+Gauntlets of the Titan~
+A large set of gauntlets lie here.~
+adamant~
+armor ABIY AH
+7 7 7 6 0
+15 2 20000 P
+E
+gauntlets titan~
+The Gauntlets of the Titan are almost too big to fit you,
+but the strength granted by them more than makes up for the
+uncomfortable chaffing.
+~
+A
+1 3
+A
+12 15
+A
+13 -5
+A
+18 3
+A
+19 3
+#12823
+robe magi creseloneq~
+Robe of the Magi~
+A robe of red velvet lies here.~
+velvet~
+armor ABIY AK
+6 6 6 8 0
+16 2 30000 P
+E
+robe magi~
+It is a red velvet robe that drapes loosely over your body.
+You feel your mental abilities heightened.
+~
+A
+3 2
+A
+4 2
+A
+13 30
+A
+18 2
+A
+19 2
+A
+20 -6
+#12824
+armor stars~
+Armor of the Stars~
+A swirling pattern of brilliant points of light takes the shape of a suit of armor here.~
+starlight~
+armor ABIY AD
+9 9 9 9 0
+17 0 70000 I
+E
+armor stars~
+A swirling pattern of brilliant points of light coalesce
+into a suit of armor around your torso, dazzling all those
+who set eyes on you.
+~
+A
+1 2
+A
+2 2
+A
+26 1
+A
+12 30
+A
+13 30
+A
+18 4
+A
+19 4
+#12825
+bracelet faith creseloneq~
+Bracelet of Faith~
+A blinding white bracelet lies here.~
+faith~
+armor ABIY AM
+8 8 8 8 0
+18 1 150000 P
+E
+bracelet faith~
+You find you no longer need a light source, as the blinding
+white light from the Bracelet of Faith illuminates
+everything around you.
+~
+A
+4 2
+A
+12 15
+A
+13 25
+A
+18 8
+A
+19 3
+A
+20 -5
+#12826
+holy avenger sword~
+The Holy Avenger~
+A pure white sword lies here glowing brilliantly.~
+faith~
+weapon ABGIKLOUY AN
+sword 7 7 divine ADEG
+20 3 500000 I
+E
+holy avenger~
+The ultimate in holy weapons, the Holy Avenger is a sword
+of unparalled might.  Only those of the most devout faith
+can ever hope to master it's use.
+~
+A
+1 2
+A
+2 2
+A
+3 2
+A
+4 2
+A
+5 2
+A
+26 2
+A
+18 8
+A
+19 8
+A
+20 -10
+#12827
+ragnarok creseloneq~
+The Ragnarok~
+A red hilted sword lies here humming softly.~
+crystallized magic~
+weapon ABIY AN
+sword 7 5 slash BDH
+18 1 100000 P
+E
+ragnarok~
+The Ragnarok, the legendary sword sought after by warriors
+and collectors alike, is made of magic crystallized into a
+blade with a red steel handle.
+~
+A
+1 1
+A
+3 2
+A
+12 10
+A
+13 10
+A
+18 5
+A
+19 5
+#12828
+longsword sword +2~
+Longsword +2~
+A steel longsword lies here, radiating a faint aura of magic.~
+steel~
+weapon G AN
+sword 2 3 slash 0
+2 3 5000 P
+E
+longsword sword +2~
+It is a sharp blade, enchanted to be more effective in
+battle.
+~
+A
+18 2
+A
+19 2
+#12829
+white pill~
+a little white pill~
+A little white pill lies on the ground here.~
+medicine~
+pill 0 A
+15 'cure critical' 'steel mist' '' ''
+2 1 100 P
+E
+white pill~
+It is a little white pill, who knows what it might be for?
+~
+#12830
+potion ironskin~
+a potion of ironskin~
+A grey colored potion lies here.~
+liquid iron~
+potion 0 A
+4 'ironskin' '' '' ''
+3 2 4000 P
+E
+potion ironskin~
+It is a potion of grey colored liquid.
+~
+#12831
+potion enhanced sight~
+a potion of enhanced sight~
+A clear potion lies here.~
+eyedrops~
+potion 0 A
+70 'detect invis' 'detect hidden' '' ''
+2 1 2000 P
+E
+potion enhanced sight~
+It is a stoppered bottle of clear eyedrops.
+~
+#0
+#ROOMS
+#12800
+Talro's Shop~
+Adventuring gear of all sorts occupies the walls and
+shelves of this well stocked shop.  Deadly weapons,
+sturdy armor, and useful equipment are neatly arranged
+around the room, while a glass display case houses some
+of the rare and magical pieces.  In the southwest corner
+of the shop is a marble pedastal, on top of which is an
+open book bound in leather.  Especially interesting,
+however is the shimmering white portal built into the east
+wall, leading off to places unknown.
+~
+0 129 0
+D3
+You can return to Mud School by leaving west.
+~
+~
+0 -1 3701
+E
+glass display case~
+All the pieces in here are marked with their trade price,
+and all look to be extremely valuable.  To buy one of these
+items, give the required trade item to Talro.
+ 
+Will accept:                        For:
+Wand of Speed                       Wand of Lethargy
+a potion of talon                   a scroll of frost breath
+Portal to the Spire                 Mace of Disruption
+Suffering of the Innocent           Dagger of Treachery
+Wand of Healing                     Crusader Shield
+Cursed Boots                        Scroll of Fiery Doom
+Girdle of Giant Strength            Nova Ring
+Armor of Etherealness               ?????
+Robe of the Magi                    ?????
+Bracelet of Faith                   ?????
+~
+E
+pedastal~
+A large leather bound book sits on top of the marble
+pedastal, waiting to be read by curious adventurers.
+~
+E
+book~
+THE HISTORY OF CRESELON
+
+Long ago, in times forgotten by mortals and gods alike, the
+archmage Derelar practised his magicks in the Spire of the
+Stars.  He was a good wizard, with a thirst for knowledge
+and a love of life.  He hated fighting and wars with
+reknowned passion, and collected armor and weapons of
+destruction in order to hide them away from the world.
+What he couldn't destroy he sealed away in his tower,
+protected by his apprentices and by the ring of lava he
+created around the tower, called Hotash Slay.  In time,
+tales of his incredible collection grew legendary, and
+power-hungry kings sent armies to try and bring back at
+least a few pieces of powerful equipment.  In time,
+Derelar's refuge from the evil of the world became a place
+of massacre, with armies, adventurers, and rogue bands
+always searching for a way to enter the tower, and often
+fighting eachother in the process.
+
+Unable to deal with the knowledge that he had in fact
+created yet another reason for the people of the world to
+kill eachother, Derelar, now in great old age, cast a
+spell that would levitate the Spire of the Stars and
+Hotash Slay into the sky, and at the same time move the
+floating island into another dimension, to return in a
+thousand years when Thera was more civilized.  His
+apprentices he made forever youthful, so that they could
+still protect the treasures from those who still might
+gain access to the island.  Alas, clever mages built
+portals leading to the island in the hopes of claiming
+some of the treasures sealed away there.  Derelar now
+spends his life waiting in the tower for the next gang
+of thieves to try and steal from him, and will only rest
+when the world is peaceful enough for weapons not to be
+needed any longer.
+
+There is more writing here, written by a different hand...
+~
+E
+writing~
+I respect Derelar as a powerful wizard, and applaud his
+sense of righteousness and his ethics.  However, I do not
+believe that his actions were the way to solve anything.
+I believe that weapons and armor are not evil in
+themselves, but are only so when they are used by beings
+without respect for life.  There are too many evils in
+the world for those of good heart to sit idly by.
+Therefore, I campaign to bring back the equipment sealed
+away by Derelar, to give it to those worthy adventurers
+who would use it to destroy evil in this world.  There
+are items I will accept for trade for some of the
+equipment that I have brought back myself, look in my
+display case for more information.
+
+Talro
+~
+S
+#12801
+Creselon, the Floating Island~
+You emerge from the portal onto Creselon, the Floating
+Island, home to the Spire of the Stars.  Green grass lies
+under your feet, and the blue sky has never looked closer,
+especially since you could walk ten paces to the west or
+south and fall off into it.  A warm wind blows from the
+north, and you can hear the sounds of fighting from the
+northeast.  When you look off the edge, you can see
+Midgaard below you, to the southwest.  Recalling would be
+the advisable way to return, as simply walking there would
+result in a few thousand foot step.
+~
+0 129 2
+D1
+~
+~
+0 -1 12802
+S
+#12802
+Before the Field of Glory~
+North of here lies the Field of Glory, where many battles
+took place long ago.  In fact, you suspect that one might
+be happening right now, as you can hear weapons clash and
+cries of death from the north.
+~
+0 C129 2
+D0
+~
+~
+0 -1 12804
+D3
+~
+~
+0 -1 12801
+S
+#12803
+The Field of Glory~
+The grass is trampled and blood stained here, and other
+signs of recent combat assault your senses.  Battles have
+been waged here for thousands of years, between the
+protectors of the Spire and invading armies seeking the
+treasures of Derelar.
+~
+0 129 2
+D0
+~
+~
+0 -1 12806
+D1
+~
+~
+0 -1 12804
+S
+#12804
+The Field of Glory~
+The grass is trampled and blood stained here, and other
+signs of recent combat assault your senses.  Battles have
+been waged here for thousands of years, between the
+protectors of the Spire and invading armies seeking the
+treasures of Derelar.
+~
+0 129 2
+D0
+~
+~
+0 -1 12807
+D1
+~
+~
+0 -1 12805
+D2
+~
+~
+0 -1 12802
+D3
+~
+~
+0 -1 12803
+S
+#12805
+The Field of Glory~
+The grass is trampled and blood stained here, and other
+signs of recent combat assault your senses.  Battles have
+been waged here for thousands of years, between the
+protectors of the Spire and invading armies seeking the
+treasures of Derelar.
+~
+0 129 2
+D0
+~
+~
+0 -1 12808
+D3
+~
+~
+0 -1 12804
+S
+#12806
+The Field of Glory~
+The grass is trampled and blood stained here, and other
+signs of recent combat assault your senses.  Battles have
+been waged here for thousands of years, between the
+protectors of the Spire and invading armies seeking the
+treasures of Derelar.
+~
+0 129 2
+D0
+~
+~
+0 -1 12809
+D1
+~
+~
+0 -1 12807
+D2
+~
+~
+0 -1 12803
+S
+#12807
+The Field of Glory~
+The grass is trampled and blood stained here, and other
+signs of recent combat assault your senses.  Battles have
+been waged here for thousands of years, between the
+protectors of the Spire and invading armies seeking the
+treasures of Derelar.
+~
+0 129 2
+D0
+~
+~
+0 -1 12810
+D1
+~
+~
+0 -1 12808
+D2
+~
+~
+0 -1 12804
+D3
+~
+~
+0 -1 12806
+S
+#12808
+The Field of Glory~
+The grass is trampled and blood stained here, and other
+signs of recent combat assault your senses.  Battles have
+been waged here for thousands of years, between the
+protectors of the Spire and invading armies seeking the
+treasures of Derelar.
+~
+0 129 2
+D0
+~
+~
+0 -1 12811
+D2
+~
+~
+0 -1 12805
+D3
+~
+~
+0 -1 12807
+S
+#12809
+The Field of Glory~
+The grass is trampled and blood stained here, and other
+signs of recent combat assault your senses.  Battles have
+been waged here for thousands of years, between the
+protectors of the Spire and invading armies seeking the
+treasures of Derelar.  To the west is a path encircling
+Hotash Slay, and the lava field lies to the north.
+~
+0 129 2
+D1
+~
+~
+0 -1 12810
+D2
+~
+~
+0 -1 12806
+D3
+~
+~
+0 -1 12832
+S
+#12810
+The Field of Glory~
+The grass is trampled and blood stained here, and other
+signs of recent combat assault your senses.  Battles have
+been waged here for thousands of years, between the
+protectors of the Spire and invading armies seeking the
+treasures of Derelar.  The lava field of Hotash Slay lies
+to the north.
+~
+0 129 2
+D1
+~
+~
+0 -1 12811
+D2
+~
+~
+0 -1 12807
+D3
+~
+~
+0 -1 12809
+S
+#12811
+The Field of Glory~
+The grass is trampled and blood stained here, and other
+signs of recent combat assault your senses.  Battles have
+been waged here for thousands of years, between the
+protectors of the Spire and invading armies seeking the
+treasures of Derelar.  To the east is a path encircling
+Hotash Slay, and the lava field lies to the north.
+~
+0 129 2
+D1
+~
+~
+0 -1 12812
+D2
+~
+~
+0 -1 12808
+D3
+~
+~
+0 -1 12810
+S
+#12812
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 C129 2
+D0
+~
+~
+0 -1 12813
+D3
+~
+~
+0 -1 12811
+S
+#12813
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D1
+~
+~
+0 -1 12814
+D2
+~
+~
+0 -1 12812
+S
+#12814
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D0
+~
+~
+0 -1 12815
+D3
+~
+~
+0 -1 12813
+S
+#12815
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D0
+~
+~
+0 -1 12816
+D2
+~
+~
+0 -1 12814
+S
+#12816
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+To the east is a path leading to a small cottage built
+near the cliff.
+~
+0 129 2
+D0
+~
+~
+0 -1 12817
+D1
+~
+~
+0 -1 12833
+D2
+~
+~
+0 -1 12815
+S
+#12817
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D0
+~
+~
+0 -1 12818
+D2
+~
+~
+0 -1 12816
+S
+#12818
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D2
+~
+~
+0 -1 12817
+D3
+~
+~
+0 -1 12819
+S
+#12819
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D0
+~
+~
+0 -1 12820
+D1
+~
+~
+0 -1 12818
+S
+#12820
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D2
+~
+~
+0 -1 12819
+D3
+~
+~
+0 -1 12821
+S
+#12821
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D1
+~
+~
+0 -1 12820
+D3
+~
+~
+0 -1 12822
+S
+#12822
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D1
+~
+~
+0 -1 12821
+D3
+~
+~
+0 -1 12823
+S
+#12823
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D1
+~
+~
+0 -1 12822
+D3
+~
+~
+0 -1 12824
+S
+#12824
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D1
+~
+~
+0 -1 12823
+D2
+~
+~
+0 -1 12825
+S
+#12825
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D0
+~
+~
+0 -1 12824
+D3
+~
+~
+0 -1 12826
+S
+#12826
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D1
+~
+~
+0 -1 12825
+D2
+~
+~
+0 -1 12827
+S
+#12827
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D0
+~
+~
+0 -1 12826
+D2
+~
+~
+0 -1 12828
+S
+#12828
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D0
+~
+~
+0 -1 12827
+D2
+~
+~
+0 -1 12829
+S
+#12829
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D0
+~
+~
+0 -1 12828
+D2
+~
+~
+0 -1 12830
+S
+#12830
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D0
+~
+~
+0 -1 12829
+D1
+~
+~
+0 -1 12831
+S
+#12831
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 129 2
+D2
+~
+~
+0 -1 12832
+D3
+~
+~
+0 -1 12830
+S
+#12832
+Near Hotash Slay~
+The heat is nearly unbearable as you travel the path
+encircling Hotash Slay.  The lava bubbles and smokes
+nearby, and the ground beneath your feet is hot and dry.
+The only relief is the breeze that occasionally blows
+from the other side of the path, where there is nothing
+but open sky.
+~
+0 C129 2
+D0
+~
+~
+0 -1 12831
+D1
+~
+~
+0 -1 12809
+S
+#12833
+Before Ninette's Shop~
+You stand in front of a small cottage built onto a cliff
+overlooking all of Thera.  The view here is amazing:  You
+can see New Thalos far to the southeast, the Dwarven
+Kindom is directly below, and south lies the Gnome
+Village.  The cottage a few paces north is built of hewn
+stone, with a single door made of weathered wood.  Curls
+of smoke rise from the chimney, giving evidence that it
+is occupied.
+~
+0 C129 2
+D0
+~
+cottage door shop~
+1 -1 12834
+D3
+~
+~
+0 -1 12816
+S
+#12834
+Ninette's Shop~
+You are in a small cottage built of stone.  While cramped
+with an assortment of adventuring gear and common items,
+everything is well organized and clean.  Some tidbits from
+Ninette's adventuring days are displayed prominently in
+recesses in the rock, or on shelves and displays on the
+walls.  You can leave Ninette's shop to the south.
+~
+0 CDK129 0
+D2
+~
+cottage door shop~
+1 -1 12833
+S
+#12835
+First Floor~
+~
+0 129 0
+D0
+~
+~
+0 -1 12839
+D1
+~
+~
+0 -1 12836
+D2
+~
+~
+0 -1 12837
+D3
+~
+~
+0 -1 12838
+D4
+~
+~
+0 -1 12840
+S
+#12836
+The Kitchens~
+~
+0 129 0
+D3
+~
+~
+0 -1 12835
+S
+#12837
+Storage Room~
+~
+0 129 0
+D0
+~
+~
+0 -1 12835
+S
+#12838
+Communal Sleeping Chambers~
+~
+0 129 0
+D1
+~
+~
+0 -1 12835
+S
+#12839
+Portal Room~
+~
+0 129 0
+D2
+~
+~
+0 -1 12835
+S
+#12840
+Second Floor~
+~
+0 129 0
+D0
+~
+~
+0 -1 12844
+D1
+~
+~
+0 -1 12841
+D2
+~
+~
+0 -1 12842
+D3
+~
+~
+0 -1 12843
+D4
+~
+~
+0 -1 12845
+D5
+~
+~
+0 -1 12835
+S
+#12841
+Astari and Treyv's Room~
+~
+0 129 0
+D3
+~
+~
+0 -1 12840
+S
+#12842
+Relv's Room~
+~
+0 129 0
+D0
+~
+~
+0 -1 12840
+S
+#12843
+Myr's Room~
+~
+0 129 0
+D1
+~
+~
+0 -1 12840
+S
+#12844
+Tien's Room~
+~
+0 129 0
+D2
+~
+~
+0 -1 12840
+S
+#12845
+Third Floor~
+~
+0 129 0
+D0
+~
+~
+0 -1 12849
+D1
+~
+~
+0 -1 12846
+D2
+~
+~
+0 -1 12847
+D3
+~
+~
+0 -1 12848
+D4
+~
+~
+0 -1 12850
+D5
+~
+~
+0 -1 12840
+S
+#12846
+Fiol's Room~
+~
+0 129 0
+D3
+~
+~
+0 -1 12845
+S
+#12847
+Noret's Room~
+~
+0 129 0
+D0
+~
+~
+0 -1 12845
+S
+#12848
+Ylon's Room~
+~
+0 129 0
+D1
+~
+~
+0 -1 12845
+S
+#12849
+Library~
+~
+0 129 0
+D2
+~
+~
+0 -1 12845
+S
+#12850
+Fourth Floor~
+~
+0 129 0
+D0
+~
+~
+0 -1 12854
+D1
+~
+~
+0 -1 12851
+D2
+~
+~
+0 -1 12852
+D3
+~
+~
+0 -1 12853
+D4
+~
+~
+0 -1 12855
+D5
+~
+~
+0 -1 12845
+S
+#12851
+Orlin's Room~
+~
+0 129 0
+D3
+~
+~
+0 -1 12850
+S
+#12852
+Kendara and T'rell's Room~
+~
+0 129 0
+D0
+~
+~
+0 -1 12850
+S
+#12853
+Portua's Room~
+~
+0 129 0
+D1
+~
+~
+0 -1 12850
+S
+#12854
+Jilo's Room~
+~
+0 129 0
+D2
+~
+~
+0 -1 12850
+S
+#12855
+Fifth Floor~
+~
+0 129 0
+D0
+~
+~
+0 -1 12859
+D1
+~
+~
+0 -1 12856
+D2
+~
+~
+3 -1 12857
+D3
+~
+~
+0 -1 12858
+D4
+~
+~
+0 -1 12860
+D5
+~
+~
+0 -1 12850
+S
+#12856
+Practice Chamber~
+~
+0 129 0
+D3
+~
+~
+0 -1 12855
+S
+#12857
+Spell Component Storage~
+~
+0 129 0
+D0
+~
+~
+3 -1 12855
+S
+#12858
+Spellcasting Chamber~
+~
+0 129 0
+D1
+~
+~
+0 -1 12855
+S
+#12859
+Meeting Room~
+~
+0 129 0
+D2
+~
+~
+0 -1 12855
+S
+#12860
+Sixth Floor~
+~
+0 129 0
+D0
+~
+~
+0 -1 12864
+D1
+~
+~
+1 -1 12861
+D2
+~
+~
+0 -1 12862
+D3
+~
+~
+0 -1 12863
+D4
+~
+~
+0 -1 12865
+D5
+~
+~
+0 -1 12855
+S
+#12861
+Kyva's Room~
+~
+0 129 0
+D3
+~
+~
+1 -1 12860
+S
+#12862
+The Baths~
+~
+0 129 0
+D0
+~
+~
+0 -1 12860
+S
+#12863
+Chet's Room~
+~
+0 129 0
+D1
+~
+~
+0 -1 12860
+S
+#12864
+Malsina's Room~
+~
+0 129 0
+D2
+~
+~
+0 -1 12860
+S
+#12865
+Seventh Floor~
+~
+0 129 0
+D0
+~
+~
+0 -1 12869
+D1
+~
+~
+0 -1 12866
+D2
+~
+~
+0 -1 12867
+D3
+~
+~
+0 -1 12868
+D4
+~
+~
+0 -1 12870
+D5
+~
+~
+0 -1 12860
+S
+#12866
+Armory~
+~
+0 129 0
+D3
+~
+~
+0 -1 12865
+S
+#12867
+Myrjala's Room~
+~
+0 129 0
+D0
+~
+~
+0 -1 12865
+S
+#12868
+Treasury~
+~
+0 129 0
+D1
+~
+~
+0 -1 12865
+S
+#12869
+Chalinar's Room~
+~
+0 129 0
+D2
+~
+~
+0 -1 12865
+S
+#12870
+Derelar's Quarters~
+~
+0 129 0
+D5
+~
+~
+0 -1 12865
+S
+#0
+#RESETS
+M 0 12801 1 12800 1   * Othertalro into Talro's Shop
+G 0 12801 200        * Give bright steel sword to Othertalro
+G 0 12802 200        * Give bright steel ring to Othertalro
+G 0 12803 200        * Give bright steel gauntlets to Othertalro
+G 0 12804 400        * Give scroll of sanctuary to Othertalro
+M 0 12800 1 12800 1   * Talro into Talro's Shop (is now 2.)
+O 0 12800 1 12800     * Puts portal to Creselon in Talro's shop
+M 0 12802 1 12804 1   * General Klov onto the Field of Glory
+E 0 12828 30 16      * Equips General Klov with Longsword +2
+M 0 12803 6 12804 3   * Soldier onto the Field of Glory
+M 0 12804 1 12810 1   * Orlin onto the Field of Glory
+E 0 12808 20 17      * Equips Orlin with wand of speed
+M 0 12805 6 12810 3   * Mageling onto the Field of Glory
+M 0 12806 1 12834 1   * Ninette into Ninette's Shop
+G 0 12805 300        * Gives light of hope to Ninette
+G 0 12806 300        * Gives cape of comraderie to Ninette
+D 0 12833 0 1        * Close north of Before Ninette's Shop
+D 0 12834 2 1        * Close south of Ninette's Shop
+M 0 12807 14 12818 3  * Mageling into repop point #1 (path)
+M 0 12807 14 12826 3  * Mageling into repop point #2 (path)
+D 0 12860 1 1        * Close door to Kyva's Room
+D 0 12861 3 1        * Close door from Kyva's Room
+M 0 12808 1 12822 1   * Relv into the path
+M 0 12809 1 12822 1   * Fire Mageling into the path
+M 0 12810 1 12846 1   * Fiol into Fiol's Room
+M 0 12811 1 12844 1   * Tien into Tien's Room
+M 0 12812 1 12849 1   * Jilo into the Library
+M 0 12813 1 12843 1   * Myr into Myr's Room
+M 0 12814 1 12857 1   * Treyv into Spell Component Storage
+M 0 12815 1 12847 1   * Noret into Noret's Room
+M 0 12816 1 12861 1   * Kyva into Kyva's Room
+M 0 12817 1 12853 1   * Portua into Portua's Room
+M 0 12818 1 12848 1   * Ylon into Ylon's Room
+M 0 12819 1 12864 1   * Malsina into Malsina's Room
+S
+#SHOPS
+12801 0 0 0 0 0 100 50 0 23     * Sets up Talro's Shop (othertalro is the shopkeeper)
+12806 999 0 0 0 0 100 35 0 23   * Set's up Ninette's Quest Shop
+0
+#SPECIALS
+S
+#$
+
+
+

@@ -1,0 +1,528 @@
+#PLAYER
+Name Yalp~
+Id   989721337
+LogO 1010988547
+Vers 10
+Prom %CV%h%CMhp %CG%m%CHm %Cb%z %CB%r %Cc%Xtnl %CR%qq %CM%vm ~
+Race human~
+Sex  0
+Cla  0
+Levl 55
+Tru  91
+Plyd 90321
+Age  0
+Back 72519
+Note 996442844 1009756632 996281049 997091675 1009870159 995236478
+Scro 100
+Room 3370
+HMS  1024 1024 1009 1009 420 420
+Gold 1082
+Silv 1057
+Exp  55999
+PCkills 0
+PCkilled 1
+Akills 0
+Akilled 2
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy DF
+Comm NO
+Revk 0
+Cnsr AB
+Pos  4
+Prac 177
+Save  -2
+Alig  815
+Hit   24
+Dam   28
+ACs -134 -129 -123 -118
+Atrib 18 21 18 18 18 18
+AtMod 11 -1 4 8 3 2
+QuestPnts 45
+Pass aobnysfq~
+Afk {B[{CMon Jan 14 00:07:18 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {Thas been {WR{gE{cBO{gR{WN{x~
+Immn ~
+Pnts 40
+Rank {cS{BD{MW{x~
+Aura ~
+TSex 1
+LLev 2
+Email yalp@titanmail.net~
+Deit Liriel~
+Stus blah~
+RmCt 2
+ExSk 0
+Raff 953
+RRes H
+Lsit cp2114446-a.mtgmry1.md.home.com~
+Ltim Sun Jan 13 22:53:21 2002
+~
+LSav Mon Jan 14 00:09:07 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  AFMQ
+HMSP 834 644 440
+THMS 0 0 0
+Cnd  0 0 0 0
+Alias cr clanrecall~
+Alias go gos~
+Sk 75 1 'acid blast'
+Sk 76 1 'acid breath'
+Sk 1 1 'acid rain'
+Sk 75 1 'age'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 75 1 'armor'
+Sk 76 1 'bless'
+Sk 1 1 'blindness'
+Sk 81 1 'blizzard'
+Sk 75 1 'blood blade'
+Sk 75 1 'blood moon'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 75 1 'cancellation'
+Sk 1 1 'cause light'
+Sk 1 1 'cause serious'
+Sk 1 1 'cause critical'
+Sk 75 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 1 1 'charm person'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 75 1 'continual light'
+Sk 1 1 'control weather'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 1 1 'cure serious'
+Sk 75 1 'curse'
+Sk 75 1 'dazzling light'
+Sk 75 1 'demonfire'
+Sk 75 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 75 1 'detect magic'
+Sk 75 1 'detect poison'
+Sk 1 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 1 1 'dispel magic'
+Sk 75 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'earthquake'
+Sk 1 1 'encampment'
+Sk 75 1 'enchant armor'
+Sk 75 1 'enchant weapon'
+Sk 1 1 'energy drain'
+Sk 75 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fear'
+Sk 75 1 'fire breath'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'flame blade'
+Sk 76 1 'flameshield'
+Sk 1 1 'flamestrike'
+Sk 1 1 'fly'
+Sk 1 1 'floating disc'
+Sk 75 1 'frenzy'
+Sk 75 1 'frost blade'
+Sk 75 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 76 1 'gate'
+Sk 75 1 'giant strength'
+Sk 1 1 'harm'
+Sk 77 1 'haste'
+Sk 77 1 'heal'
+Sk 1 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'infravision'
+Sk 76 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 75 1 'lightning breath'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 75 1 'pass door'
+Sk 75 1 'plague'
+Sk 75 1 'poison'
+Sk 1 1 'power word'
+Sk 1 1 'polymorph'
+Sk 1 1 'portal'
+Sk 1 1 'protect container'
+Sk 75 1 'protection evil'
+Sk 76 1 'protection good'
+Sk 1 1 'ray of truth'
+Sk 1 1 'recharge'
+Sk 1 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 75 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 76 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 75 1 'shock blade'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 75 1 'sleep'
+Sk 79 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 75 1 'steel mist'
+Sk 75 1 'stone skin'
+Sk 77 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'sunray'
+Sk 75 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 75 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'vision'
+Sk 75 1 'weaken'
+Sk 77 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 1 1 'axe'
+Sk 75 1 'dagger'
+Sk 1 1 'flail'
+Sk 75 1 'mace'
+Sk 91 1 'polearm'
+Sk 1 1 'spear'
+Sk 83 1 'sword'
+Sk 1 1 'whip'
+Sk 75 1 'brew'
+Sk 1 1 'backstab'
+Sk 1 1 'bash'
+Sk 1 1 'circle'
+Sk 1 1 'dirt kicking'
+Sk 97 1 'dodge'
+Sk 91 1 'enhanced damage'
+Sk 75 1 'hand to hand'
+Sk 75 1 'kick'
+Sk 83 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'trip'
+Sk 80 1 'second attack'
+Sk 1 1 'third attack'
+Sk 91 1 'dual wield'
+Sk 75 1 'hunt'
+Sk 1 1 'swimming'
+Sk 76 1 'fast healing'
+Sk 75 1 'forge'
+Sk 1 1 'repair'
+Sk 1 1 'rotate'
+Sk 1 1 'hide'
+Sk 78 1 'search'
+Sk 75 1 'lore'
+Sk 75 1 'peek'
+Sk 75 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 75 1 'sheen'
+Sk 75 1 'standfast'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'mage default'
+Gr 'weaponsmaster'
+Gr 'attack'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'harmful'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'change sex'   0  73 187  -1   6          0 1
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 0
+Name polearm Polearm~
+ShD  Polearm{x~
+Desc A polearm is here, forged by Yalp's craftsmanship.~
+Mat steel~
+ExtF 64
+Wt   50
+Cond 97
+Wear 19
+Lev  57
+Cost 18
+Val  8 5 12 13 0
+Affc 'enchant weapon'   0  55  -1   2  18          0 1
+Affc 'enchant weapon'   1  55  -1   2  19          0 1
+ExDe polearm Polearm~ It is a marvellous polearm, crafted from the finest steel around.
+It was created in the Month of Harmony by an experienced mage
+named Yalp.  Legend holds that this superhuman was a great weaponsmith.
+~
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 92
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 3202
+Nest 0
+Wear 7
+Cost 30
+End
+
+#O
+Vnum 3205
+Nest 0
+Wear 5
+Cost 60
+End
+
+#O
+Vnum 1004
+Nest 0
+Name dagger <AngeL Fury>~
+ShD  <{RA{Yn{Gg{Me{BL {WFury>{x~
+Desc A dagger is here, forged by Oz's craftsmanship.~
+Mat adamantite~
+Wt   39
+Wear -1
+Lev  46
+Cost 5
+Val  2 5 11 11 0
+ExDe dagger <AngeL Fury>~ It is a marvellous dagger, crafted from the finest adamantite around.
+It was created in the Month of Perseverance by a young ranger
+named Oz.  Legend holds that this feral was a great weaponsmith.
+~
+End
+
+#O
+Vnum 1004
+Nest 0
+Name dagger <AngeL Fury>~
+ShD  <{RA{Yn{Gg{Me{BL {WFury>{x~
+Desc A dagger is here, forged by Oz's craftsmanship.~
+Mat silver~
+Wt   40
+Cond 95
+Wear -1
+Lev  46
+Cost 5
+Val  2 5 10 11 0
+ExDe dagger <AngeL Fury>~ It is a marvellous dagger, crafted from the finest silver around.
+It was created in the Month of Perseverance by a young ranger
+named Oz.  Legend holds that this feral was a great weaponsmith.
+~
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 108
+Nest 0
+Name rose~
+ShD  a {BH{Ti{x rose~
+Desc A {BH{Ti{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by RaptorClaw.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 11626
+Nest 0
+ExtF 262434
+Wear 18
+Cost 2200
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 82
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 14020
+Nest 0
+Cond 92
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 10207
+Nest 0
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 10206
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14018
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 16082
+Enchanted
+Nest 0
+Cond 93
+Wear 6
+Cost 0
+Affc 'reserved'   1  47  -1   3  19          0 1
+Affc 'reserved'   1  47  -1  65  13          0 1
+Affc 'reserved'   1  47  -1   1   1          0 1
+Affc 'acid breath'   0  48  -1   1  17          0 1
+End
+
+#O
+Vnum 14019
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 95
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 17316
+Nest 0
+ExtF 4
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 5112
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 4471
+Nest 0
+Name token race~
+ShD  {Ya token for a free race change{x~
+Wear -1
+Cost 3500
+ExDe owned by~ Yalp
+~
+End
+
+#END

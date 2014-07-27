@@ -1,0 +1,1107 @@
+#AREA
+redwall.are~
+Redwall Abbey~
+{H{{ 1 15} {MKenneth {TRedwall Abbey~
+10126 10150
+
+
+#MOBILES
+
+#10126
+mole~
+A {cmole{x~
+There is a {cmole{x here discussing digging terms you don't understand.
+~
+"Yurr, Oi be pow'ful 'ungry, Zurr,"  it says to you as you look at it.
+Maybe it'd be best if you gave it something to eat.
+~
+unique~
+G J 1000 S
+10 2 12d10+55 1d5+20 2d3+4 claw
+4 4 3 8
+J 0 0 S
+stand stand male 277
+0 0 medium 0
+>greet_prog 50~
+   beam $n
+~
+|
+
+#10127
+constance badger~
+Constance~
+Constance the {cb{ga{cd{gg{ce{gr{x keeps an eye out for wandering {HDibbuns{x.
+~
+This is a very big {cb{ga{cd{gg{ce{gr{x.  You estimate that she could probably
+pick you up, march on over to the {bw{ca{bl{cl{bs{x, and chuck you over without
+even breaking a sweat.
+~
+unique~
+GT J 1000 S
+20 3 50d5+200 10d10+20 6d3+3 pound
+-2 -2 -2 0
+O 0 0 0
+stand stand female 770
+0 0 large 0
+
+#10128
+squirrel silent sam baby~
+{gSilent{x Sam~
+A baby {Psquirrel{x is here sucking his paw.
+~
+This looks like a normal {Psquirrel{x {HDibbun{x, but there are a few
+exceptions:  One, he sucks his paw wherever he goes; and two,
+he is totally {gsilent{x.  No noise whatsoever comes out of this
+{Psquirrel{x.
+~
+unique~
+G J 1000 S
+5 0 6d5+30 1d20+5 3d2+2 chomp
+6 6 6 9
+N 0 0 0
+stand stand male 32
+0 0 small 0
+
+#10129
+dibbun mouse young~
+a young {Ymouse{x {HDibbun{x~
+A young {Ymouse{x {HDibbun{x is running around wildly here.
+~
+This young example of a {Ymouse{x never seems to hold still.  It is
+dashing about everywhere, stuffing itself with food, and
+shrieking wildly.
+~
+unique~
+G J 1000 S
+5 0 6d5+30 1d20+5 3d2+2 chomp
+6 6 6 9
+N 0 0 0
+stand stand male 32
+0 0 small 0
+>greet_prog 50~
+   if ispc($n)
+      if isimmort($n)
+         worship $n
+      else
+         pounce $n
+   endif
+endif
+~
+|
+
+#10130
+dibbun hog hedgehog young~
+a young {Mhedgehog{x {HDibbun{x~
+A young {Mhedgehog{x {HDibbun{x is running around wildly here.
+~
+This young example of {Mhedgehogs{x never seems to hold still.
+It is dashing about everywhere, stuffing itself with food,
+shrieking wildly, and poking things with it's spines.
+~
+unique~
+G J 1000 S
+5 0 6d5+30 1d20+5 3d2+2 chomp
+6 6 6 9
+N 0 0 0
+stand stand male 32
+0 0 small 0
+>greet_prog 50~
+   if ispc($n)
+      if isimmort($n)
+         worship $n
+      else
+         pounce $n
+      endif
+   endif
+~
+|
+
+#10131
+dibbun otter young~
+a young {Cotter{x {HDibbun{x~
+A young {Cotter{x {HDibbun{x is running around wildly here.
+~
+This young example of {Cotters{x never seems to hold still.
+It is dashing about everywhere, stuffing itself with food,
+and shrieking wildly.
+~
+unique~
+G J 1000 S
+5 0 6d5+30 1d20+5 3d2+2 chomp
+6 6 6 9
+N 0 0 0
+stand stand male 32
+0 0 small 0
+>greet_prog 50~
+   if ispc($n)
+      if isimmort($n)
+         worship $n
+      else
+         pounce $n
+      endif
+   endif
+~
+|
+
+#10132
+dibbun young squirrel~
+a young {Psquirrel{x {HDibbun{x~
+A young {Psquirrel{x {HDibbun{x is running around wildly here.
+~
+This young example of {Psquirrels{x never seems to hold still.
+It is dashing about everywhere, stuffing itself with food,
+and shrieking wildly.
+~
+unique~
+G J 1000 S
+5 0 6d5+30 1d20+5 3d2+2 chomp
+6 6 6 9
+N 0 0 0
+stand stand male 32
+0 0 small 0
+>greet_prog 50~
+   if ispc($n)
+      if isimmort($n)
+         worship $n
+      else
+         pounce $n
+      endif
+   endif
+~
+|
+
+#10133
+dibbun young mole~
+a young {cmole{x {HDibbun{x~
+A young {cmole{x {HDibbun{x is running around wildly here.
+~
+This young example of {cmoles{x never seems to hold still.
+It is dashing about everywhere, hurr-hurring to itself,
+and stuffing itself with food.
+~
+unique~
+G J 1000 S
+5 0 6d5+30 1d20+5 3d2+2 chomp
+6 6 6 9
+N 0 0 0
+stand stand male 32
+0 0 small 0
+>greet_prog 50~
+if ispc($n)
+   if isimmort($n)
+      worship $n
+   else
+      pounce $n
+   endif
+endif
+~
+|
+
+#10134
+big fish~
+a {GBIG {Wfish{x~
+The biggest {Wfish{x you have ever seen is here.
+~
+You wonder if it is even possible to reel this {Wfish{x in,
+let alone eat it.  By the way, read the {RRedwall{x Series!!!
+~
+unique~
+BG 0 -500 S
+12 2 20d8+100 1d20+5 4d3+3 bite
+2 2 2 4
+0 0 0 J
+stand stand none 0
+0 0 large 0
+
+#10135
+mouse field~
+a {Gfield{Ymouse{x~
+A {Gfield{Ymouse{x scampers about here looking for something useful to do.
+~
+This {Ymouse{x, quite obviously, normally lives in the fields.  With
+the coming of {bC{Rl{bu{Rn{by{R'{bs{x army, however, it has taken sanction in
+{RRedwall{x.
+~
+unique~
+GW J 100 S
+10 2 12d10+55 1d5+20 2d3+4 chomp
+4 4 3 8
+N 0 0 0
+stand stand either 255
+0 0 medium 0
+>greet_prog 25~
+   if ispc($n)
+      if isimmort($n)
+         worship $n
+      else
+         say Hello, $n
+      endif
+   endif
+~
+|
+
+
+
+
+#10136
+otter~
+an {Cotter{x~
+An {Cotter{x walks about ready for action.
+~
+This {Cotter{x has a long, sharp javelin in
+his paws, in case you were thinking of taking
+him now....
+~
+unique~
+G J 1000 S
+10 2 12d10+55 1d5+20 2d3+4 claw
+4 4 3 8
+F 0 0 0
+stand stand male 266
+0 0 medium 0
+
+#10137
+brother alf mordalfus~
+Brother Alf~
+Brother Alf is fishing by the pond's edge.
+~
+A sturdy mouse, he looks many years wiser than his age, and
+he has a friendly twinkle in his eyes. He looks like a napper.
+~
+unique~
+BGQZ DFJ 100 S
+15 3 11d19+100 1d1+99 3d4+5 chomp
+1 1 1 3
+F 0 0 0
+stand rest male 550
+0 0 small 0
+>speech_prog p I got one!~
+      if ispc($n)
+         say An excellent catch, $n!
+         clap $n
+	else
+	say Nice one!
+      endif
+~
+|
+
+#10138
+baby rollo~
+Baby Rollo~
+Baby Rollo is here singing about food.
+~
+Baby Rollo is a cute little Vole with an appetite!
+~
+unique~
+G 0 1000 S
+2 0 1d1+9 1d1+9 1d3+0 bite
+8 8 8 10
+0 0 0 0
+stand rest male 37
+0 0 tiny 0
+
+#10139
+jess squirrel~
+Jess Squirrel~
+Jess Squirrel is here chatting with Sam.
+~
+Jess Squirrel is a middle-aged squirrel with a soft heart, but
+one that could probably slay you in a moment.
+~
+unique~
+GT DFJ 1000 S
+15 3 11d19+100 1d1+99 3d4+5 chomp
+1 1 1 3
+F 0 0 0
+stand rest female 550
+0 0 small 0
+
+#10140
+sister may sissimay mouse warrior~
+Sister May~
+Sister May is looking for Stryk.
+~
+Sister May is a soft-hearted mouse, but as she has proven previously, she
+can be a fierce fighter.  She looks almost as if she doesn't touch the ground
+as she walks... she walks like a rocket.  Wanna see her run?  Take Rollo! ;)
+~
+unique~
+GQ J 1000 S
+15 3 11d19+100 1d1+99 3d4+5 chomp
+1 1 1 3
+F 0 0 0
+stand rest female 550
+0 0 small 0
+
+#10141
+hedgehog~
+a {Mhedgehog{x~
+A {Mhedgehog{x is preparing for the attack of {bC{Rl{bu{Rn{by{R'{bs{x searats.
+~
+You're not sure you'd want to mess with this guy.  He seems
+to be covered with lots of spiny quills.
+~
+unique~
+G J 1000 S
+10 2 12d10+55 1d5+20 2d3+4 pierce
+4 4 3 8
+K 0 E 0
+stand stand male 370
+0 0 medium 0
+
+
+#0
+
+
+#OBJECTS
+
+#10126
+colorful pants~
+{PC{Go{Pl{Go{Prf{Gu{Pl {YP{Ba{Ynts{x~
+A pair of {Pc{Go{Pl{Go{Prf{Gu{Pl {Yp{Ba{Ynts{x are gathering dust.~
+cloth~
+armor IYS AF
+4 4 4 2 0
+5 5 57 P
+A
+4 1
+A
+12 5
+
+#10127
+brambled leggings~
+{GBr{Ha{Gmbl{He{Gd L{He{Ggg{Hi{Gngs{x~
+{GBr{Ha{Gmbl{He{Gd l{He{Ggg{Hi{Gngs{x don't look very comfortable..~
+brambles~
+armor YS AF
+10 10 10 9 0
+15 10 128 P
+A
+18 1
+A
+19 1
+A
+20 -1
+A
+2 1
+A
+1 1
+
+#10128
+fish scale~
+{CA {Tf{Ci{Ts{Ch {Ts{Cc{Ta{Cl{Te{x~
+Some {Tf{Ci{Ts{Ch{x has been shedding.~
+scales~
+armor YS AO
+6 6 6 4 0
+12 5 98 P
+A
+4 1
+A
+3 1
+A
+12 5
+
+#10129
+mole work song tune~
+{YA {km{Yo{kl{Ye {kw{Yo{kr{Yk {ks{Yo{kn{Yg{x~
+An interesting tune floats in the air.~
+music~
+armor YS AQ
+5 5 5 4 0
+10 5 122 P
+A
+3 1
+A
+1 1
+A
+13 5
+
+#10130
+oaken cudgel stick~
+{YAn {Ro{Ya{Rk{Ye{Rn {Yc{Ru{Yd{Rg{Ye{Rl{x~
+A large {Ro{Ya{Rk{Ye{Rn{x stick lies here.~
+oak~
+weapon ASY AN
+'mace' 3 8 smash 0
+20 20 220 P
+A
+1 2
+A
+18 2
+A
+19 2
+
+#10131
+really nasty axe~
+{VA {Mr{Vea{Mlly n{Va{Msty {Va{Mx{Ve{x~
+An incredibly wicked looking {Va{Mx{Ve{x is here.~
+metal and pokey bits~
+weapon ASY AN
+'axe' 6 2 chop 0
+10 15 110 P
+A
+5 1
+A
+19 3
+
+#10132
+brambled whip~
+{HA {GBr{Ha{Gmbl{He{Gd Wh{Hi{Gp{x~
+{HA {Gbr{Ha{Gmbl{He{Gd wh{Hi{Gp{x lies here.~
+brambles~
+weapon ASY AN
+'whip' 2 4 slash D
+5 5 86 P
+A
+12 5
+A
+19 1
+
+#10133
+high laced sandals~
+{WH{Vi{Wgh l{Va{Wc{Ve{Wd s{Va{Wnd{Va{Wls{x~
+A pair of {Wh{Vi{Wgh l{Va{Wc{Ve{Wd s{Va{Wnd{Va{Wls{x is here.~
+leather~
+armor YS AG
+5 6 5 4 0
+15 10 120 P
+A
+2 1
+A
+12 10
+A
+20 -1
+
+#10134
+nun cowl~
+{cA {Wn{cu{Wn's c{co{Wwl{x~
+A folded up {Wc{co{Wwl{x has been discarded here.~
+cloth~
+armor YS AE
+6 5 6 3 0
+15 10 120 P
+A
+4 1
+A
+3 1
+A
+12 10
+A
+12 1
+
+#10135
+rollo's gloves~
+{YB{ba{Yby R{bo{Yll{bo{Y's gl{bo{Yv{be{Ys{x~
+Those are some cute looking gloves!~
+cloth~
+armor YS AH
+1 1 1 1 0
+2 5 23 P
+A
+3 1
+A
+12 2
+
+
+#0
+
+
+
+#ROOMS
+
+
+#10126
+The Gates of {RRedwall{x~
+You are standing at the gates of {RRedwall{x!  The massive
+walls loom above you, the sun playing off the sandstone that
+makes them up.  To the west is a gatehouse.  There is a note
+posted on the wall.
+~
+0 0 2
+D0
+To the north lies the gates.
+~
+gate~
+1 -1 10128
+D2
+A {Ggrassy{x clearing lies south of here.
+~
+~
+0 0 10100
+D3
+The gatehouse lies to the west.
+~
+~
+0 0 10127
+E
+note~
+Friends, please close the gate behind you, in order to
+help us keep the wicked {cC{Rl{cu{Rn{cy{x out.
+Abbot Mortimer.
+~
+S
+
+#10127
+The Gatehouse~
+This gatehouse is packed full with books, scrolls, and
+various other record-keeping devices.  One book in particular
+catches your attention, as it is the only one that is actually
+on the desk.  It seems to be open to a particular page...
+~
+0 D 0
+D1
+The gates lie to the east.
+~
+~
+0 0 10126
+E
+book page~
+Extract from the writings of Methusaleh, Recorder of
+{RRedwall{x Abbey:
+        Ambrose Spike was lucky, he harvested all the rhubarb he
+had been growing alongside the west wall before the snows started.
+The snow is now so deep they have named this season the
+Winter of the Deepest Snow.  The weather outside is harsh and
+gloomy, but Redwallers are merry and snug inside our Abbey.  I
+helped Ambrose in the cellars today;  he is squeezing the rhubarb
+with great stone slabs and ale barrels as weights.  The juice we
+mixed with clear honey and poured into a firkin. It is a beautiful
+pink color.  Ambrose Spike would not allow me to touch it.  He says
+it will not be properly ready for at least two seasons, but when it
+is ready, Ambrose is of the opinion it will be unequaled for taste.
+        I left him to go back to my recording today.  Ambrose was
+fitting the lid tight onto the firkin with soft willow withes.  He
+had a brush and vegetable dye to paint the name on the firkin.  I
+like the name he has chosen for this wine:  The Cup of Cheer.
+~
+S
+
+#10128
+In the Courtyard of {RRedwall Abbey{x~
+You are standing in a rather {Ggrassy{x area.  Seems a bit odd
+for inside of an abbey's walls, doesn't it?  Oh well, it doesn't
+matter that much.  To the east lies a large pond, and to the west,
+{Ps{Gt{Pr{Ga{Pw{Gb{Pe{Gr{Pr{Gi{Pe{Gs{P{x!!  North lies the door to the inside of the Abbey itself.
+~
+0 CS 2
+D0
+North lies the Abbey doors.
+~
+~
+0 0 10145
+D1
+East lies a great pond.
+~
+~
+0 0 10129
+D2
+A {Ggrassy{x clearing lies south of here.
+~
+gate~
+1 -1 10126
+D3
+West lie the {Ps{Gt{Pr{Ga{Pw{Gb{Pe{Gr{Pr{Gy {xpatches.
+~
+~
+0 0 10133
+S
+
+#10129
+At the {BP{Co{Bn{Cd{x~
+You at the {Bp{Co{Bn{Cd{x.  Rumour has it that there are some
+pretty big fish around here, and that only otters dare to
+swim in here.  This is where Mortimer and Matthias fish.
+~
+0 0 6
+D3
+A {Ggrassy{x clearing.
+~
+~
+0 0 10128
+D5
+~
+~
+0 0 10148
+S
+
+#10130
+Inside the {BP{Co{Bn{Cd{x~
+You are inside the {Bp{Co{Bn{Cd{x.  Rumour has it that there are some
+pretty big fish around here, and that only otters dare to
+swim in here.
+~
+0 X 6
+D0
+The {Bpond{x continues.
+~
+~
+0 0 10132
+D3
+The {Bpond{x continues.
+~
+~
+0 0 10148
+S
+
+#10131
+Inside the {BP{Co{Bn{Cd{x~
+You are inside the {Bp{Co{Bn{Cd{x.  Rumour has it that there are some
+pretty big fish around here, and that only otters dare to swim in here.
+~
+0 X 6
+D1
+The {Bpond{x continues.
+~
+~
+0 0 10132
+D2
+The {Bpond{x continues.
+~
+~
+0 0 10148
+S
+
+#10132
+Inside the {BP{Co{Bn{Cd{x~
+You are inside the {Bp{Co{Bn{Cd{x.  Rumour has it that there are some
+pretty big fish around here, and that only otters dare to
+swim in here.
+~
+0 X 6
+D2
+The {Bpond{x continues.
+~
+~
+0 0 10130
+D3
+The {Bpond{x continues.
+~
+~
+0 0 10131
+S
+
+#10133
+{PS{Gt{Pr{Ga{Pw{Gb{Pe{Gr{Pr{Gy {YP{Ga{Yt{Gc{Yh{Ge{Ys{x~
+Yay!!  You are in the midst of the {Ps{Gt{Pr{Ga{Pw{Gb{Pe{Gr{Pr{Gy {Yp{Ga{Yt{Gc{Yh{Ge{Ys{x.
+This section is frequented quite often by little {HDibbuns{x who have come to fill
+their stomaches with food, albeit quite often at the dismay of their elders, who
+wouldn't mind sneaking down here for a snack if the place wasn't constantly
+under surveillance by other brothers and sisters who are waiting for a free
+moment.
+~
+0 0 4
+D1
+A {Ggrassy{x clearing.
+~
+~
+0 0 10128
+D3
+The field of the {HDibbuns{x.
+~
+~
+0 0 10134
+S
+
+#10134
+{HDibbun's{b Field{x~
+You are in the field frequented most often by {HDibbuns{x as
+their playground/run-madly-all-over-the-place.  I would watch
+your step, as a wild baby might came careening through here at
+any moment, and you wouldn't want to trip, not with all that
+rubbish you've got on, would you?
+~
+0 0 2
+D0
+{HDibbun's{x field continues.
+~
+~
+0 0 10135
+D1
+The {Ps{Gt{Pr{Ga{Pw{Gb{Pe{Gr{Pr{Gy {Yp{Ga{Yt{Gc{Yh{Ge{Ys{x.
+~
+~
+0 0 10133
+D3
+{HDibbun's{x field continues.
+~
+~
+0 0 10136
+S
+
+#10135
+{HDibbun's {bField{x~
+You are in the field frequented most often by {HDibbuns{x as
+their playground/run-madly-all-over-the-place.  I would watch
+your step, as a wild baby might came careening through here at
+any moment, and you wouldn't want to trip, not with all that
+rubbish you've got on, would you?
+~
+0 0 2
+D2
+{HDibbun's{x field continues.
+~
+~
+0 0 10134
+D3
+{HDibbun's{x field continues.
+~
+~
+0 0 10137
+S
+
+#10136
+{HDibbun's {bField{x~
+You are in the field frequented most often by {HDibbuns{x as
+their playground/run-madly-all-over-the-place.  I would watch
+your step, as a wild baby might came careening through here at
+any moment, and you wouldn't want to trip, not with all that
+rubbish you've got on, would you?
+~
+0 0 2
+D0
+{HDibbun's{x field continues.
+~
+~
+0 0 10137
+D1
+{HDibbun's{x field continues.
+~
+~
+0 0 10134
+D3
+The base of the {bw{ca{bl{cl{bs{x.
+~
+~
+0 0 10138
+S
+
+#10137
+{HDibbun's {bField{x~
+You are in the field frequented most often by {HDibbuns{x as
+their playground/run-madly-all-over-the-place.  I would watch
+your step, as a wild baby might came careening through here at
+any moment, and you wouldn't want to trip, not with all that
+rubbish you've got on, would you?
+~
+0 0 2
+D1
+{HDibbun's{x field continues.
+~
+~
+0 0 10135
+D2
+{Dibbun's{x field continues.
+~
+~
+0 0 10136
+S
+
+#10138
+Base of the {bw{ca{bl{cl{bs{x~
+You are standing at the base of the walls.  The huge {Rs{ba{Rn{bd{Rs{bt{Ro{bn{Re{x
+structure towers above you, making you feel pretty puny.  There
+are quite a few defenders standing on top of the wall with missile
+weapons, making you feel quite sorry for the army outside.  On
+second thought, why should you feel any pity for those evil folk?
+There are some stairs leading to the top of the walls.
+~
+0 CS 2
+D0
+Another clearing at the base of the {bw{ca{bl{cl{bs{x.
+~
+~
+0 0 10144
+D1
+{HDibbun's{x field lies to the east.
+~
+~
+0 0 10136
+D4
+To the top of the walls!
+~
+~
+0 0 10139
+E
+stairs~
+The stairs also seem to be made out of sandstone.
+~
+S
+
+#10139
+On top of the {bw{ca{bl{cl{bs{x~
+Well, you are standing on top of the walls.  Do not
+look down, as you are incredibly high up.  To the east
+you see the Abbey and the Belltower rise out of the ground.
+To the south-west you see St. Ninians Church.  Masses of the
+enemy troops line the ground below.
+~
+0 0 1
+D0
+The wall continues.
+~
+~
+0 0 10140
+D5
+Down the stairs you see the base of the walls.
+~
+~
+0 0 10138
+S
+
+#10140
+On top of the {bw{ca{bl{cl{bs{x~
+Well, you are standing on top of the walls.  Do not
+look down, as you are incredibly high up.  To the east
+you see the Abbey and the Belltower rise out of the ground.
+To the south-west you see St. Ninians Church.  Masses of the
+enemy troops line the ground below.
+~
+0 0 1
+D0
+The wall continues north.
+~
+~
+0 0 10141
+D2
+The wall continues south.
+~
+~
+0 0 10139
+S
+
+#10141
+On top of the {bw{ca{bl{cl{bs{x~
+Well, you are standing on top of the walls.  Do not
+look down, as you are incredibly high up.  To the east
+you see the Abbey and the Belltower rise out of the ground.
+To the south-west you see St. Ninians Church.  Masses of the
+enemy troops line the ground below.
+~
+0 0 1
+D0
+The walls continue north.
+~
+~
+0 0 10142
+D2
+The walls continue south.
+~
+~
+0 0 10140
+S
+
+#10142
+On top of the {bw{ca{bl{cl{bs{x~
+Well, you are standing on top of the walls.  Do not
+look down, as you are incredibly high up.  To the east
+you see the Abbey and the Belltower rise out of the ground.
+To the south-west you see St. Ninians Church.  Masses of the
+enemy troops line the ground below.
+~
+0 0 1
+D2
+The walls continue south.
+~
+~
+0 0 10141
+D5
+Down the stairs lies the base of the wall.
+~
+~
+0 0 10143
+S
+
+#10143
+Base of the {bw{ca{bl{cl{bs{x~
+You are standing at the base of the walls.  The huge {Rs{ba{Rn{bd{Rs{bt{Ro{bn{Re{x
+structure towers above you, making you feel pretty puny.  There
+are quite a few defenders standing on top of the wall with missile
+weapons, making you feel quite sorry for the army outside.  On
+second thought, why should you feel any pity for those evil folk?
+There are some stairs leading to the top of the walls.
+~
+0 0 2
+D2
+South the base of the walls continues.
+~
+~
+0 0 10144
+D4
+Stairs lead up to the top of the walls.
+~
+~
+0 0 10142
+S
+
+#10144
+Base of the {bw{ca{bl{cl{bs{x~
+You are standing at the base of the walls.  The huge {Rs{ba{Rn{bd{Rs{bt{Ro{bn{Re{x
+structure towers above you, making you feel pretty puny.  There
+are quite a few defenders standing on top of the wall with missile
+weapons, making you feel quite sorry for the army outside.  On
+second thought, why should you feel any pity for those evil folk?
+~
+0 0 2
+D0
+North the base of the walls continues.
+~
+~
+0 0 10143
+D2
+South the base of the walls continues.
+~
+~
+1 0 10138
+S
+
+#10145
+Doors before the Abbey~
+Looking up, you can barely see the top of this gigantic
+Abbey.  You wonder if it is possible for any beast to climb these
+walls.  The Belltower lies to the west.
+~
+0 0 2
+D0
+To the north lies the doors that lead to the Abbey
+~
+door~
+1 -1 10151
+D2
+A {Ggrassy{x clearing.
+~
+~
+0 0 10128
+D3
+To the west is a {Ggrassy{x clearing before the {YBelltower{x.
+~
+~
+0 0 10146
+S
+
+#10146
+Before the {YBelltower{x~
+The {YBelltower{x towers above you, you crane your neck to
+see the top.  The fabled {YJ{bo{Ys{be{Yp{bh {YB{be{Yl{bl{x lies within.
+Why don't you go take a look?
+~
+0 0 2
+D0
+North lies the inside of the {YBelltower{x.
+~
+~
+0 0 10147
+D1
+East lies the Abbey doors.
+~
+~
+0 0 10145
+S
+
+#10147
+The {YBelltower{x~
+You are inside the {YBelltower{x.  The {YJ{bo{Ys{be{Yp{bh {YB{be{Yl{bl{x
+takes up most of the room in here.  There is a long rope dangling
+from the middle of the bell, presumably so that you can ring it.
+~
+0 D 0
+D2
+The clearing before the {YBelltower{x lies to the south.
+~
+~
+0 0 10146
+E
+rope~
+It seems to be a stout rope.  'twould be difficult to snap
+this cord.
+~
+S
+
+#10148
+Inside the {BP{Co{Bn{Cd{x~
+You are inside the {Bp{Co{Bn{Cd{x.  Rumour has it that there are some
+pretty big fish around here, and that only otters dare to
+swim in here.
+~
+0 X 6
+D0
+~
+~
+0 0 10131
+D1
+The {Bpond{x continues.
+~
+~
+0 0 10130
+D4
+~
+~
+0 0 10129
+S
+
+#0
+
+
+#RESETS
+
+M 0 10126 5 10128 1 * mole to courtyard
+E 0 10129 50 18     * mole work song
+M 0 10126 5 10138 1 * mole to base of walls
+E 0 10129 50 18     * mole work song
+M 0 10126 5 10145 1 * mole to before abbey
+E 0 10129 50 18     * mole work song
+M 0 10127 1 10142 1 * constance to top of walls
+E 0 10130 20 16     * oaken cudgel
+M 0 10128 1 10147 1 * sam to belltower
+E 0 10132 20 16     * brambled whip
+M 0 10129 5 10133 2 * mouse dibbun to strawberries
+E 0 10126 50 7      * colorful pants
+M 0 10130 5 10134 2 * hedgehog dibbun to dibbun fields
+E 0 10126 50 7      * colorful pants
+M 0 10131 5 10135 2 * otter dibbun to dibbun fields
+E 0 10126 50 7      * colorful pants
+M 0 10132 5 10136 2 * squirrel dibbun to dibbun fields
+E 0 10126 50 7      * colorful pants
+M 0 10133 5 10137 2 * mole dibbun to dibbun fields
+E 0 10126 50 7      * colorful pants
+M 0 10134 5 10130 2 * big fish to pond
+E 0 10128 50 17           * fish scale
+M 0 10134 5 10131 1 * big fish to pond
+E 0 10128 50 17           * fish scale
+M 0 10134 5 10132 1 * big fish to pond
+E 0 10128 50 17           * fish scale
+M 0 10134 5 10148 1 * big fish to pond
+E 0 10128 50 17           * fish scale
+M 0 10135 5 10139 2 * field mouse to walls
+M 0 10135 5 10141 1 * field mouse to walls
+M 0 10135 5 10143 2 * field mouse to base of walls
+M 0 10136 5 10138 2 * otter to wall
+M 0 10136 5 10140 2 * otter to wall
+M 0 10137 1 10129 1 * alf to pond
+E 0 10133 30 8      * sandals
+M 0 10138 1 10133 1 * rollo to strawberries
+E 0 10135 30 9      * rollo's gloves
+M 0 10139 1 10147 1 * jess to belltower
+E 0 10127 30 7      * brambled pants
+M 0 10140 1 10133 1 * sister may to rollo
+E 0 10134 30 6      * nun's cowl
+M 0 10141 5 10127 1 * hedgehog to gatehouse
+E 0 10131 30 16     * nasty axe
+M 0 10141 5 10144 2 * hedgehog to wall
+E 0 10131 30 16     * nasty axe
+M 0 10141 5 10146 1 * hedgehog to before belltower
+E 0 10131 30 16
+
+S
+
+#SHOPS
+
+0
+
+#SPECIALS
+
+S
+
+#$
+
+

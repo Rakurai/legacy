@@ -1,0 +1,304 @@
+#PLAYER
+Name Tarrant~
+Id   1024295125
+LogO 1406417440
+Vers 14
+Mexp 2
+Pass naebis~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Cla  4
+Levl 100
+Plyd 140110
+Back 118102
+Note 1027020666 1024690924 1026918579 1027003362 1026409721 1026942054 1026831915
+Scro 80
+Room 1202
+HMS  30015 30012 30008
+Gold 0
+Silv 0
+Exp  220000
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -750
+FImm 0
+FRes BM
+FVul NS
+Plr  HRU
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp ABCEFGI
+Cnsr 0
+Block_Remote 0
+Prac 10
+Trai 4
+Wimp 0
+Familiar 0
+Wizn ACEFHIJKLRSTUVZabc
+Invi 92
+Lurk 0
+Secu 2
+Atrib 25 25 25 25 25 25
+Afk {B[{CSun Jul  7 01:19:13 2002{B] {CUnknown Departure.{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn {W[{x   {YC{Cu{Wt{Gi{Ye{WP{Vi{Ce{x   {W]{x~
+Pnts 60
+Rank {cles{x~
+Aura ~
+TSex 1
+LLev 0
+Deit Nobody~
+Lsit 141-229.generic.clemson.edu~
+Ltim Thu Jul 18 14:27:46 2002
+~
+LSav Sat Jul 26 16:30:40 2014
+~
+HMSP 30015 30012 30008
+THMS 0 0 0
+Cnd  0 45 47 47
+Colr 3 33 1
+Colr 13 32 1
+Sk 100 1 'reserved'
+Sk 100 1 'acid blast'
+Sk 100 1 'acid breath'
+Sk 100 1 'acid rain'
+Sk 100 1 'age'
+Sk 100 1 'animate skeleton'
+Sk 100 1 'animate wraith'
+Sk 100 1 'animate gargoyle'
+Sk 100 1 'animate zombie'
+Sk 100 1 'armor'
+Sk 100 1 'bless'
+Sk 100 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 100 1 'blood blade'
+Sk 100 1 'blood moon'
+Sk 100 1 'burning hands'
+Sk 100 1 'call lightning'
+Sk 100 1 'calm'
+Sk 100 1 'cancellation'
+Sk 100 1 'cause light'
+Sk 100 1 'cause serious'
+Sk 100 1 'cause critical'
+Sk 100 1 'chain lightning'
+Sk 100 1 'change sex'
+Sk 100 1 'channel'
+Sk 100 1 'charm person'
+Sk 100 1 'chill touch'
+Sk 100 1 'colour spray'
+Sk 100 1 'continual light'
+Sk 100 1 'control weather'
+Sk 100 1 'create food'
+Sk 100 1 'create parchment'
+Sk 100 1 'create rose'
+Sk 100 1 'create sign'
+Sk 100 1 'create spring'
+Sk 100 1 'create vial'
+Sk 100 1 'create water'
+Sk 100 1 'cure blindness'
+Sk 100 1 'cure critical'
+Sk 100 1 'cure disease'
+Sk 100 1 'cure light'
+Sk 100 1 'cure poison'
+Sk 100 1 'cure serious'
+Sk 100 1 'curse'
+Sk 100 1 'darkness'
+Sk 100 1 'dazzling light'
+Sk 100 1 'demonfire'
+Sk 100 1 'detect evil'
+Sk 100 1 'detect good'
+Sk 100 1 'detect hidden'
+Sk 100 1 'detect invis'
+Sk 100 1 'detect magic'
+Sk 100 1 'detect poison'
+Sk 100 1 'dispel evil'
+Sk 100 1 'dispel good'
+Sk 100 1 'dispel magic'
+Sk 100 1 'divine healing'
+Sk 100 1 'divine regeneration'
+Sk 100 1 'earthquake'
+Sk 100 1 'encampment'
+Sk 100 1 'enchant armor'
+Sk 100 1 'enchant weapon'
+Sk 100 1 'energy drain'
+Sk 100 1 'faerie fire'
+Sk 100 1 'faerie fog'
+Sk 100 1 'farsight'
+Sk 100 1 'fear'
+Sk 100 1 'fire breath'
+Sk 100 1 'fireball'
+Sk 100 1 'fireproof'
+Sk 100 1 'firestorm'
+Sk 100 1 'flame blade'
+Sk 100 1 'flameshield'
+Sk 100 1 'flamestrike'
+Sk 100 1 'fly'
+Sk 100 1 'floating disc'
+Sk 100 1 'frenzy'
+Sk 100 1 'frost blade'
+Sk 100 1 'frost breath'
+Sk 100 1 'gas breath'
+Sk 100 1 'gate'
+Sk 100 1 'general purpose'
+Sk 100 1 'giant strength'
+Sk 100 1 'harm'
+Sk 100 1 'haste'
+Sk 100 1 'heal'
+Sk 100 1 'heat metal'
+Sk 100 1 'high explosive'
+Sk 100 1 'holy word'
+Sk 100 1 'identify'
+Sk 100 1 'infravision'
+Sk 100 1 'invisibility'
+Sk 100 1 'know alignment'
+Sk 100 1 'light of truth'
+Sk 100 1 'lightning bolt'
+Sk 100 1 'lightning breath'
+Sk 100 1 'locate life'
+Sk 100 1 'locate object'
+Sk 100 1 'magic missile'
+Sk 100 1 'mass healing'
+Sk 100 1 'mass invis'
+Sk 100 1 'nexus'
+Sk 100 1 'pass door'
+Sk 100 1 'plague'
+Sk 100 1 'poison'
+Sk 100 1 'power word'
+Sk 100 1 'polymorph'
+Sk 100 1 'portal'
+Sk 100 1 'protect container'
+Sk 100 1 'protection evil'
+Sk 100 1 'protection good'
+Sk 100 1 'ray of truth'
+Sk 100 1 'recharge'
+Sk 100 1 'refresh'
+Sk 100 1 'resurrect'
+Sk 100 1 'regeneration'
+Sk 100 1 'remove alignment'
+Sk 100 1 'remove invisibility'
+Sk 100 1 'remove curse'
+Sk 100 1 'sanctuary'
+Sk 1 1 'scry'
+Sk 100 1 'shield'
+Sk 100 1 'shock blade'
+Sk 100 1 'shocking grasp'
+Sk 100 1 'shrink'
+Sk 100 1 'sleep'
+Sk 100 1 'slow'
+Sk 100 1 'smokescreen'
+Sk 1 1 'starve'
+Sk 100 1 'steel mist'
+Sk 100 1 'stone skin'
+Sk 100 1 'summon'
+Sk 100 1 'summon object'
+Sk 100 1 'sunray'
+Sk 100 1 'talon'
+Sk 100 1 'teleport'
+Sk 100 1 'teleport object'
+Sk 100 1 'undo spell'
+Sk 100 1 'ventriloquate'
+Sk 100 1 'vision'
+Sk 100 1 'weaken'
+Sk 100 1 'word of recall'
+Sk 100 1 'wrath'
+Sk 100 1 'axe'
+Sk 100 1 'dagger'
+Sk 100 1 'flail'
+Sk 100 1 'mace'
+Sk 100 1 'polearm'
+Sk 100 1 'spear'
+Sk 100 1 'sword'
+Sk 100 1 'whip'
+Sk 100 1 'shield block'
+Sk 100 1 'brew'
+Sk 100 1 'scribe'
+Sk 100 1 'backstab'
+Sk 100 1 'bash'
+Sk 100 1 'berserk'
+Sk 100 1 'circle'
+Sk 100 1 'crush'
+Sk 100 1 'dirt kicking'
+Sk 100 1 'disarm'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'envenom'
+Sk 100 1 'hand to hand'
+Sk 100 1 'kick'
+Sk 1 1 'necromancy'
+Sk 100 1 'parry'
+Sk 100 1 'rescue'
+Sk 100 1 'trip'
+Sk 100 1 'second attack'
+Sk 100 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 100 1 'hunt'
+Sk 100 1 'swimming'
+Sk 100 1 'fast healing'
+Sk 100 1 'firebuilding'
+Sk 100 1 'forge'
+Sk 100 1 'repair'
+Sk 100 1 'rotate'
+Sk 100 1 'languages'
+Sk 100 1 'haggle'
+Sk 100 1 'hide'
+Sk 100 1 'lore'
+Sk 100 1 'meditation'
+Sk 100 1 'peek'
+Sk 100 1 'pick lock'
+Sk 100 1 'scan'
+Sk 100 1 'sneak'
+Sk 100 1 'steal'
+Sk 100 1 'sing'
+Sk 100 1 'scrolls'
+Sk 100 1 'staves'
+Sk 100 1 'wands'
+Sk 100 1 'recall'
+Sk 100 1 'sheen'
+Sk 100 1 'focus'
+Sk 100 1 'paralyze'
+Sk 100 1 'barrier'
+Sk 100 1 'dazzle'
+Sk 100 1 'full heal'
+Sk 100 1 'midnight'
+Sk 100 1 'shadow form'
+Sk 100 1 'hone'
+Sk 100 1 'riposte'
+Sk 100 1 'fourth attack'
+Sk 100 1 'rage'
+Sk 100 1 'sap'
+Sk 100 1 'pain'
+Sk 100 1 'hex'
+Sk 100 1 'bone wall'
+Sk 100 1 'hammerstrike'
+Sk 100 1 'force shield'
+Sk 100 1 'holy sword'
+Sk 100 1 'align'
+Sk 100 1 'blur'
+Sk 100 1 'dual second'
+Sk 100 1 'quick'
+Sk 100 1 'standfast'
+Sk 100 1 'mark'
+Sk 100 1 'critical blow'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'necromancer default'
+Gr 'beguiling'
+Gr 'combat'
+Gr 'detection'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#END

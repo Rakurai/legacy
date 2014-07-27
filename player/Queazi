@@ -1,0 +1,115 @@
+#PLAYER
+Name Queazi~
+Id   1016087276
+LogO 1017562537
+Vers 13
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race seraph~
+Sex  1
+Cla  3
+Levl 50
+Plyd 113104
+Back 0
+Note 1016003566 0 0 0 1009643038 1016094855 0
+Scro 22
+Room 8801
+HMS  839 839 327 327 551 711
+Gold 0
+Silv 45
+Exp  62512
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLSc
+AfBy T
+FRes NS
+FVul M
+Comm GNO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 12
+Trai 3
+Alig  -300
+ACs 100 100 100 100
+Wimp  150
+Atrib 23 18 20 17 20 13
+AtMod 0 0 0 0 0 0
+SkillPnts 9
+QuestPnts 23
+Pass 212121~
+Afk {B[{CTue Mar 19 21:35:29 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  (Extra Newbie Aura) With added spice~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 29
+Deit Liriel~
+Lsit 211.32.42.219~
+Ltim Sun Mar 31 02:13:54 2002
+~
+LSav Sun Mar 31 02:15:37 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 839 327 711
+THMS 0 0 0
+Cnd  0 0 22 8
+Sk 74 1 'bless'
+Sk 1 1 'calm'
+Sk 74 1 'cure blindness'
+Sk 75 1 'cure critical'
+Sk 73 1 'cure disease'
+Sk 1 1 'cure light'
+Sk 73 1 'cure poison'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'fly'
+Sk 77 1 'frenzy'
+Sk 76 1 'gate'
+Sk 85 1 'heal'
+Sk 1 1 'holy word'
+Sk 13 1 'mass healing'
+Sk 37 1 'nexus'
+Sk 1 1 'pass door'
+Sk 37 1 'portal'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'word of recall'
+Sk 78 1 'dagger'
+Sk 100 1 'sword'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 92 1 'parry'
+Sk 90 1 'second attack'
+Sk 86 1 'third attack'
+Sk 96 1 'dual wield'
+Sk 80 1 'fast healing'
+Sk 79 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'benedictions'
+Gr 'curative'
+Gr 'healing'
+Gr 'transportation'
+End
+
+#END

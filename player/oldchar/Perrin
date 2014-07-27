@@ -1,0 +1,263 @@
+#PLAYER
+Name Perrin~
+Id   998067167
+LogO 1006047673
+Vers 8
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race wolf~
+Sex  1
+Cla  7
+Levl 4
+Plyd 3950
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMV  13 73 111 111 75 118
+Gold 0
+Silv 142
+Exp  10640
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy T
+Comm NO
+Revk 0
+Pos  5
+Prac 11
+Trai 6
+Save  -11
+Alig  557
+Hit   21
+Dam   10
+ACs 68 66 66 80
+Atrib 17 15 15 17 19 14
+AtMod 4 0 0 0 0 0
+Pass lonewolf~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 62
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Aerylene~
+Lsit cad3128500-a.crlspr1.fl.home.com~
+Ltim Sat Nov 17 19:38:03 2001
+~
+LSav Sat Nov 17 19:41:13 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FK
+HMVP 73 111 118
+THVP 0 0 0
+Cnd  0 0 11 8
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'shield block'
+Sk 1 1 'spear'
+Sk 40 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'disarm'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 1 1 'kick'
+Sk 1 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'enhancement'
+Affc 'bless'   0  78  41 -11  24          0 1
+Affc 'bless'   0  80  41  11  18          0 1
+Affc 'shield'   0  73  42 -20  17          0 1
+Affc 'fly'   0  80  38   0   0     524288 1
+Affc 'giant strength'   0  80  35   4   1          0 1
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+Affc 'dazzling light'   0  79  49   4  19          0 1
+Affc 'dazzling light'   0  78  49   4  18          0 1
+End
+
+#O
+Vnum 12700
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 12703
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12707
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12706
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12710
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12702
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12701
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3021
+Enchanted
+Nest 0
+ExtF 67
+Cond 87
+Wear 16
+Lev  5
+Cost 250
+Val  1 1 5 1 132
+Affc 'blood blade'   5  77  39   0   0          4 1
+Affc 'poison'   5  80 341   0   0        128 1
+Affc 'enchant weapon'   0  87  -1   6  18          0 1
+Affc 'enchant weapon'   1  87  -1   6  19          0 1
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3724
+Nest 0
+Wear -1
+Cost 100
+Val  60 1 0 6 100
+End
+
+#END

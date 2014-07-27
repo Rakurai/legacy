@@ -1,0 +1,1996 @@
+#PLAYER
+Name Buttercup~
+Id   994656563
+LogO 1027153282
+Vers 14
+Mexp 2
+Pass zetaform~
+Desc Before you stands a tall, powerful young lady of regal beauty. She is easily six 
+feet tall and her 175 or so pounds are mainly sinewy muscle from what you can 
+tell in her royal blue gown. Her pendant around her neck holds a sapphire cut 
+into the shape of a rose; another rose of the same colour rests upon the centre 
+of her gowns neckline. You barely manage to force your eyes from her arms, 
+showcasing muscles and veins in play underneath honey golden skin, to her face.
+Long red hair swirls around her, crowned by a platinum tiara decorated with 
+diamonds, rubies and sapphires, and graced with a blue rose at each ear. Amidst 
+the angelically beautiful face, fine brows arch over large blue eyes that look 
+right through you. Just as you feel intimidated by such beauty, though, she 
+smiles gently at you. In truth, you sense no menace or danger from this lady - - 
+only concern and love for her people. Even as your heart melts, you wonder that 
+one so young should be faced with so many cares... then you realize that this is 
+indeed the Queen Buttercup of legend, beloved of the Order of the Blue Rose.
+~
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%q%Cc/%CG%j%CCmin.> ~
+Race human~
+Clan order~
+Cla  3
+Levl 91
+Tru  0
+Plyd 759375
+Back 577572
+Note 1019869175 1016246214 1019757037 1019559698 1019186826 1027152870 0
+Scro 22
+Room 24472
+HMS  2909 2282 1238
+Gold 198
+Silv 91
+Silver_in_bank 58000
+Gold_in_bank 7000
+Exp  91011
+PCkills  3
+PCkilled 1
+Akills   2
+Akilled  2
+PKRank   1
+Pos  8
+Alig 834
+Spou Malenna~
+Ptnr Jubei~
+FImm 0
+FRes 0
+FVul 0
+Plr  AFORTU
+Video 0
+Act  CDEFGHJLSTc
+AfBy CDEFGHPV
+Comm NOQ
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 29
+Trai 2
+Wimp 445
+Atrib 21 18 18 18 18 18
+SkillPnts  134
+QuestPnts  28
+QpDonated  30
+GlDonated  2300
+Afk {B[{CSun Jul 14 02:05:00 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {Nh{Ba{Ns r{Be{Ct{Wur{Cn{Be{Nd to T{Bh{Ce{Br{Na a{Bn{Nd h{Be{Nr p{Be{Cop{Bl{Ne~
+Immn ~
+Pnts 40
+Rank {NG{Cu{Na~
+Aura ~
+TSex 2
+LLev 163
+Deit Liriel~
+Lsit naio44.interpac.net~
+Ltim Sat Jul 20 02:38:19 2002
+~
+LSav Sat Jul 20 03:21:22 2002
+~
+HMSP 1619 487 1208
+THMS 0 0 0
+Cnd  0 0 0 0
+Colr 0 32 1
+Colr 8 32 1
+Colr 13 36 1
+Ignore banon~
+Ignore rukus~
+Ignore shadowhunter~
+Alias san c 'undo spell' sanc~
+Alias blast recite lightning~
+Alias m c 'lightning breath'~
+Alias z c 'fire breath~
+Alias wipe c 'dispel magic'~
+Query sundancer~
+Sk 86 1 'acid breath'
+Sk 72 1 'acid rain'
+Sk 71 1 'age'
+Sk 84 1 'armor'
+Sk 71 1 'bless'
+Sk 75 1 'blindness'
+Sk 71 1 'blizzard'
+Sk 1 1 'call lightning'
+Sk 71 1 'calm'
+Sk 75 1 'cancellation'
+Sk 72 1 'change sex'
+Sk 61 1 'channel'
+Sk 1 1 'control weather'
+Sk 76 1 'curse'
+Sk 73 1 'dispel magic'
+Sk 72 1 'divine regeneration'
+Sk 73 1 'energy drain'
+Sk 89 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 80 1 'fire breath'
+Sk 1 1 'fireproof'
+Sk 68 1 'flameshield'
+Sk 78 1 'fly'
+Sk 1 1 'frenzy'
+Sk 73 1 'frost breath'
+Sk 73 1 'gas breath'
+Sk 83 1 'gate'
+Sk 78 1 'giant strength'
+Sk 85 1 'haste'
+Sk 1 1 'holy word'
+Sk 1 1 'infravision'
+Sk 1 1 'lightning bolt'
+Sk 77 1 'lightning breath'
+Sk 1 1 'nexus'
+Sk 83 1 'pass door'
+Sk 76 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'portal'
+Sk 82 1 'protection evil'
+Sk 84 1 'protection good'
+Sk 74 1 'refresh'
+Sk 79 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 86 1 'sanctuary'
+Sk 85 1 'shield'
+Sk 90 1 'slow'
+Sk 73 1 'steel mist'
+Sk 78 1 'stone skin'
+Sk 72 1 'summon'
+Sk 73 1 'summon object'
+Sk 80 1 'talon'
+Sk 1 1 'teleport'
+Sk 71 1 'teleport object'
+Sk 84 1 'undo spell'
+Sk 74 1 'weaken'
+Sk 61 1 'word of recall'
+Sk 90 1 'dagger'
+Sk 100 1 'sword'
+Sk 100 1 'bash'
+Sk 100 1 'circle'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'parry'
+Sk 100 1 'second attack'
+Sk 100 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 71 1 'hunt'
+Sk 94 1 'fast healing'
+Sk 77 1 'repair'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 1 1 'staves'
+Sk 2 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'benedictions'
+Gr 'draconian'
+Gr 'enhancement'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 119
+Nest 0
+ShD  {YEggNog{x~
+Desc {YEggNog{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  42 85 0 0 0
+ExDe chef~ This food was created by DarkAvatar.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+ShD  {RC{Gh{Rr{Gi{Rs{Gt{Rm{Ga{Rs{bHam{x~
+Desc {RC{Gh{Rr{Gi{Rs{Gt{Rm{Ga{Rs{bHam{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  42 85 0 0 0
+ExDe chef~ This food was created by DarkAvatar.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+ShD  {RF{Gr{Ru{Gi{Rt{GC{Ra{Gk{Re{x~
+Desc {RF{Gr{Ru{Gi{Rt{GC{Ra{Gk{Re{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  42 85 0 0 0
+ExDe chef~ This food was created by DarkAvatar.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 24403
+Nest 0
+Cond 97
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 6
+Nest 0
+ShD  {Ya gold {Gelven {Yring{x~
+Desc a platinum ring with a peridot stone~
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 1111
+Nest 0
+Name duct tape~
+ShD  {cduct tape{x~
+Desc A pile {cduct tape{x lies on the floor.~
+Mat tape!~
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 108
+Nest 0
+Name rose~
+ShD  a less boring {Nblue{x{x rose~
+Desc A less boring {Nblue{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Endo.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 5408
+Nest 0
+Cond 77
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 20006
+Nest 0
+Wear -1
+Cost 999
+End
+
+#O
+Vnum 20006
+Nest 0
+Wear -1
+Cost 999
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 3808
+Nest 0
+Cond 97
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24408
+Nest 0
+Cond 82
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 24409
+Nest 0
+Cond 76
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 24409
+Nest 0
+Cond 92
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 5608
+Nest 0
+Cond 93
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 5408
+Nest 0
+Cond 83
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 5608
+Nest 0
+Cond 93
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 20008
+Nest 0
+ExtF 16777536
+Cond 74
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 20006
+Nest 0
+ExtF 17039680
+Cond 93
+Wear -1
+Cost 999
+End
+
+#O
+Vnum 8204
+Nest 0
+Cond 78
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 506
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 3801
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 17102
+Nest 0
+Cond 98
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 11709
+Nest 0
+Wear 4
+Cost 10000
+End
+
+#O
+Vnum 13005
+Nest 0
+Cond 89
+Wear 12
+Cost 4500
+End
+
+#O
+Vnum 17037
+Nest 0
+Cond 83
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 17041
+Nest 0
+Cond 86
+Wear 6
+Cost 5000
+End
+
+#O
+Vnum 17042
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 11713
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 11709
+Nest 0
+Cond 89
+Wear 3
+Cost 10000
+End
+
+#O
+Vnum 17037
+Nest 0
+Cond 84
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 20026
+Nest 0
+Wear 5
+Cost 90000
+End
+
+#O
+Vnum 11713
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 13010
+Nest 0
+Cond 94
+Wear 8
+Cost 450
+End
+
+#O
+Vnum 13009
+Nest 0
+Wear 7
+Cost 660
+End
+
+#O
+Vnum 11785
+Enchanted
+Nest 0
+Cond 93
+Wear -1
+Cost 0
+Affc 'reserved'   0  91  -1   0   0         40 1
+Affc 'reserved'   1  91  -1   4  18          0 1
+Affc 'reserved'   1  91  -1   3  19          0 1
+Affc 'reserved'   1  91  -1  50  13          0 1
+Affc 'reserved'   1  91  -1  50  12          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+End
+
+#O
+Vnum 14013
+Nest 0
+ExtF 1835010
+Cond 92
+Wear 9
+Cost 3500
+End
+
+#O
+Vnum 10116
+Nest 0
+Wear -1
+Cost 25
+End
+
+#O
+Vnum 119
+Nest 0
+Name food burrito~
+ShD  burrito~
+Desc Burrito{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
+~
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 14110
+Enchanted
+Nest 0
+Wear -1
+Cost 100000
+Affc 'reserved'   1  91  -1   3   5          0 1
+Affc 'reserved'   1  91  -1   3  26          0 1
+Affc 'reserved'   1  91  -1 120  12          0 1
+Affc 'reserved'   1  91  -1 120  13          0 1
+Affc 'enchant weapon'   1  99  -1  16  18          0 1
+Affc 'enchant weapon'   1  99  -1  18  19          0 1
+End
+
+#O
+Vnum 14043
+Nest 0
+Wear -1
+Cost 12000
+End
+
+#O
+Vnum 14015
+Nest 0
+ExtF 1048656
+Wear -1
+Cost 15000
+End
+
+#O
+Vnum 11791
+Nest 0
+Wear 15
+Lev  91
+Cost 55000
+ExDe owned by~ Buttercup
+~
+End
+
+#O
+Vnum 11751
+Nest 0
+ExtF 2
+Cond 99
+Wear 10
+Cost 15000
+End
+
+#O
+Vnum 11748
+Nest 0
+Wear -1
+Cost 15000
+End
+
+#O
+Vnum 11748
+Nest 0
+Wear -1
+Cost 15000
+End
+
+#O
+Vnum 10121
+Nest 0
+ExtF 16777315
+Wear 19
+Lev  91
+Cost 21
+ExDe owned by~ Buttercup
+~
+End
+
+#O
+Vnum 11793
+Nest 0
+ExtF 257
+Cond 88
+Wear 0
+Lev  91
+Cost 55000
+ExDe owned by~ Buttercup
+~
+End
+
+#O
+Vnum 11791
+Nest 0
+Cond 97
+Wear 14
+Lev  91
+Cost 55000
+ExDe owned by~ Buttercup
+~
+End
+
+#O
+Vnum 11712
+Nest 0
+Cond 72
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 11712
+Nest 0
+Cond 82
+Wear 2
+Cost 10000
+End
+
+#O
+Vnum 11776
+Nest 0
+Cond 95
+Wear 1
+Lev  91
+Cost 10000
+ExDe owned by~ Buttercup
+~
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 3209
+Nest 0
+Wear 13
+Cost 100
+End
+
+#O
+Vnum 13003
+Nest 0
+Wear -1
+Cost 9500
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3081
+Nest 1
+Wear -1
+Cost 1000
+Spell 1 'sanctuary'
+End
+
+#O
+Vnum 3081
+Nest 1
+Wear -1
+Cost 1000
+Spell 1 'sanctuary'
+End
+
+#O
+Vnum 4491
+Nest 1
+Wear -1
+Cost 10
+Val  16 0 24 0 0
+End
+
+#O
+Vnum 24407
+Nest 0
+Cond 92
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 10107
+Nest 0
+Cond 96
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 4432
+Nest 0
+Wear -1
+Cost 7000
+End
+
+#O
+Vnum 4504
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 4443
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 4436
+Nest 0
+ExtF 64
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 11714
+Nest 0
+Wear -1
+Cost 9500
+End
+
+#O
+Vnum 4432
+Nest 0
+Wear -1
+Cost 7000
+End
+
+#O
+Vnum 4428
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 11792
+Nest 0
+Cond 97
+Wear 16
+Lev  91
+Cost 55000
+ExDe owned by~ Buttercup
+~
+End
+
+#O
+Vnum 4432
+Nest 0
+Wear -1
+Cost 7000
+End
+
+#O
+Vnum 4428
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 4442
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 1212
+Nest 0
+Name token trivia kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wn{Cea{Bt {Bt{Cr{Wi{Cv{Wi{Ba {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wn{Cea{Bt {Bt{Cr{Wi{Cv{Wi{Ba {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 0
+Name token trivia kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wn{Cea{Bt {Bt{Cr{Wi{Cv{Wi{Ba {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wn{Cea{Bt {Bt{Cr{Wi{Cv{Wi{Ba {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 0
+Name token trivia kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wn{Cea{Bt {Bt{Cr{Wi{Cv{Wi{Ba {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wn{Cea{Bt {Bt{Cr{Wi{Cv{Wi{Ba {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 108
+Nest 0
+Name rose~
+ShD  a {Mlove for a queen{x rose~
+Desc A {Mlove for a queen{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe florist~ This rose was created by Malenna.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 5409
+Nest 0
+ExtF 67
+Cond 88
+Wear -1
+Cost 100000
+End
+
+#L
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#L
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#L
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#L
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#L
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#L
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#L
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#L
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 19
+Cond 83
+Wear -1
+Cost 312
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 19
+Cond 88
+Wear -1
+Cost 312
+End
+
+#L
+Vnum 12701
+Nest 0
+Cond 98
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#L
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#L
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 4 0 0
+End
+
+#L
+Vnum 17100
+Nest 0
+Wear -1
+Cost 159
+End
+
+#L
+Vnum 17100
+Enchanted
+Nest 0
+ExtF 65
+Cond 86
+Wear -1
+Lev  51
+Cost 159
+Affc 'reserved'   1  45  -1  -1  20          0 1
+Affc 'reserved'   1  45  -1  20  13          0 1
+Affc 'reserved'   1  45  -1  35  12          0 1
+Affc 'enchant weapon'   1  91  -1   4  19          0 1
+Affc 'enchant weapon'   1  91  -1   4  18          0 1
+Affc 'reserved'   1  45  -1   2   2          0 1
+End
+
+#B
+Vnum 3202
+Nest 0
+Wear -1
+Cost 30
+End
+
+#B
+Vnum 3201
+Nest 0
+Wear -1
+Cost 20
+End
+
+#B
+Vnum 4471
+Nest 0
+Name buttercup roses~
+ShD  {RA {PD{Ro{Pz{Re{Pn {RL{Po{Rn{Pg {RS{Pt{Re{Pm {RR{Po{Rs{Pe{Rs{x~
+Desc {RI{Pt{Rs {Pa {Rd{Po{Rz{Pe{Rn {Pr{Ro{Ps{Re{Ps {Rw{Pi{Rt{Ph {Ra {Ps{Rm{Pa{Rl{Pl {Rn{Pa{Rm{Pe {Rt{Pa{Rg {Pw{Ri{Pt{Rh {Pt{Rh{Pe {Rn{Pa{Rm{Pe {RM{Pa{Rl{Pe{Rn{Pn{Ra {Ps{Ri{Pg{Rn{Pe{Rd {Po{Rn {Pi{Rt{x~
+Mat roses~
+Wt   0
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 3203
+Nest 0
+Wear -1
+Cost 40
+End
+
+#B
+Vnum 20028
+Nest 0
+ExtF 16777472
+Cond 94
+Wear -1
+Cost 700
+End
+
+#B
+Vnum 5610
+Nest 0
+ExtF 17301507
+Cond 89
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 14030
+Nest 0
+Cond 28
+Wear -1
+Cost 6000
+End
+
+#B
+Vnum 14030
+Nest 0
+Cond 67
+Wear -1
+Cost 6000
+End
+
+#B
+Vnum 10215
+Nest 0
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 46
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 0
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 4471
+Nest 0
+Name weapon flag token~
+ShD  {Ya {Pt{Yo{Gk{Ce{Vn {Yfor one free {Gweapon flag{x~
+Desc {YA {Pt{Yo{Gk{Ce{Vn {Yfor one free {Gweapon flag{Y lies here.{x~
+Wear -1
+Cost 3500
+ExDe weapon flag token~ This token is good for one free weapon flag on any weapon, exempt from any restrictions.
+~
+End
+
+#B
+Vnum 14112
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13004
+Enchanted
+Nest 0
+Name aura montrey~
+ShD  {gMo{Wn{Ct{Wr{geys My{Ws{Ct{Wi{gc{Wal {gS{Wh{ga{Wdo{gw {WA{Cu{gr{Wa{x~
+ExtF 262211
+Wear -1
+Cost 3700
+Affc 'enchant armor'   0 100  -1  -1  17          0 1
+Affc 'reserved'   1  90  -1   7  18          0 1
+Affc 'reserved'   1  90  -1   7  19          0 1
+Affc 'reserved'   1  90  -1  50  12          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   1          0 1
+End
+
+#B
+Vnum 3206
+Nest 0
+Wear -1
+Cost 70
+End
+
+#B
+Vnum 4471
+Nest 0
+Name buttercup valentine card~
+ShD  {RH{Pa{Rp{Pp{Ry {PV{Ra{Pl{Re{Pn{Rt{Pi{Rn{Pe{R'{Ps {RD{Pa{Ry{x~
+Desc {RW{Pi{Rs{Ph{Ri{Pn{Rg {Py{Ro{Pu {Ra {Ph{Ra{Pp{Rp{Py {Rd{Pa{Ry{P, {Rl{Po{Rv{Pe {RM{Pa{Rl{Pe{Rn{Pn{Ra{x~
+Mat love~
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 10245
+Nest 0
+Name buttercup chocolate box~
+ShD  {RB{Po{Rx {Po{Rf {PV{Ra{Pl{Re{Pn{Rt{Pi{Rn{Pe{Rs {PD{Ra{Py {bChocolate{x~
+Desc {RI{Pt{Rs {Pa {Rb{Po{Rx {Po{Rf {Pe{Rx{Pp{Re{Pn{Rs{Pi{Rv{Pe {Ra{Pn{Rd {Pv{Re{Pr{Ry {Pt{Ra{Ps{Rt{Py {bChocolates{x~
+Mat chocolate~
+Wt   0
+Wear -1
+Lev  0
+Cost 10
+End
+
+#B
+Vnum 5604
+Nest 0
+ExtF 17301507
+Cond 85
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 5604
+Nest 0
+ExtF 17301507
+Cond 80
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#B
+Vnum 28
+Nest 1
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 32
+Nest 1
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 27
+Nest 1
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 62
+Nest 1
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 57
+Nest 1
+Name wedding bride necklace pendant gold~
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 30
+Nest 1
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 59
+Nest 1
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 29
+Nest 1
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 33
+Nest 1
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 58
+Nest 1
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 56
+Nest 1
+ShD  {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{x.~
+Desc {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{W lies here{x.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 31
+Nest 1
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 45
+Nest 1
+ShD  {WA bo{Ct{Wtle of {Mw{Vi{Mne {Gcelebrating {Wthe {Vl{Wo{Pv{Ve{W of {BBu{Ct{Wt{Ce{Brc{Cu{Bp {Wand {VMa{Ml{We{Vn{Mn{Va{x~
+Desc {WA bo{Ct{Wtle of {Mw{Vi{Mne {Gcelebrating {Wthe {Vl{Wo{Pv{Ve{W of {BBu{Ct{Wt{Ce{Brc{Cu{Bp {Wand {VMa{Ml{We{Vn{Mn{Va{W lies here{x.~
+Wear -1
+Cost 25000
+End
+
+#B
+Vnum 504
+Nest 0
+ExtF 19
+Wear -1
+Cost 312
+End
+
+#B
+Vnum 13004
+Enchanted
+Nest 0
+Name aura montrey~
+ShD  {gMo{Wn{Ct{Wr{geys My{Ws{Ct{Wi{gc{Wal {gS{Wh{ga{Wdo{gw {WA{Cu{gr{Wa{x~
+Cond 87
+Wear -1
+Cost 3700
+Affc 'acid breath'   0  91  -1   1  17          0 1
+Affc 'reserved'   1  90  -1   7  18          0 1
+Affc 'reserved'   1  90  -1   7  19          0 1
+Affc 'reserved'   1  90  -1  50  12          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   1          0 1
+End
+
+#END

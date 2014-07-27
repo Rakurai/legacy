@@ -1,0 +1,302 @@
+#PLAYER
+Name Kitari~
+Id   989631840
+LogO 1012350838
+Vers 11
+Prom %CT<%CB%q for %Q %CH%e %CP%z %w%CT>%c%CT<%CV%h%CMhp %CH%m%CGm %CP%v%CRmv %CW%X%Cgexp>%CX   ~
+Race wolf~
+Clan highlanders~
+Sex  2
+Cla  7
+Levl 51
+Tru  91
+Plyd 21283
+Age  0
+Back 20800
+Note 994620498 991776308 991776308 991776308 991776308 995360605
+Scro 22
+Room 25813
+HMS  1119 1119 304 304 434 688
+Gold 1541
+Silv 19
+Exp  57199
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Inco 91
+Pos  8
+Prac 155
+Trai 12
+Alig  750
+Hit   8
+Dam   8
+ACs 100 100 100 100
+Atrib 20 18 18 20 22 18
+AtMod 0 0 0 0 0 0
+QuestPnts 3
+Pass suntop~
+Afk {B[{CSun Jun  3 04:36:19 2001{B] {Cdoing something
+~
+Titl  {BT{TH{BI{TN{BK{TS {HL{GI{HF{GE {gI{WS {BC{TR{BA{TP~
+Immn ~
+Pnts 31
+Rank MBR~
+Aura ~
+TSex 2
+LLev 1
+Deit Dreamslayer~
+Stus {gS{WL{gA{WY{gE{WR {bO{YF {REVIL {BR{TR{BE{TA{BM{TS{x~
+RmCt 4
+ExSk 0
+Raff 0
+Lsit naio40.interpac.net~
+Ltim Wed Jul 18 08:03:42 2001
+~
+LSav Tue Jan 29 18:33:58 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FH
+HMSP 1119 304 688
+THMS 0 0 0
+Cnd  0 41 48 48
+Query sturm~
+Sk 75 1 'acid blast'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 75 1 'armor'
+Sk 75 1 'bless'
+Sk 75 1 'blindness'
+Sk 75 1 'blizzard'
+Sk 1 1 'blood blade'
+Sk 1 1 'blood moon'
+Sk 75 1 'burning hands'
+Sk 75 1 'call lightning'
+Sk 75 1 'calm'
+Sk 75 1 'cancellation'
+Sk 75 1 'cause light'
+Sk 75 1 'cause serious'
+Sk 75 1 'cause critical'
+Sk 75 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 75 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 75 1 'control weather'
+Sk 75 1 'cure blindness'
+Sk 75 1 'cure critical'
+Sk 75 1 'cure disease'
+Sk 75 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 75 1 'cure serious'
+Sk 75 1 'curse'
+Sk 75 1 'dazzling light'
+Sk 75 1 'demonfire'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 75 1 'dispel evil'
+Sk 75 1 'dispel good'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'earthquake'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 75 1 'faerie fire'
+Sk 75 1 'faerie fog'
+Sk 75 1 'fear'
+Sk 75 1 'fireball'
+Sk 75 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 1 1 'flame blade'
+Sk 1 1 'flameshield'
+Sk 75 1 'flamestrike'
+Sk 75 1 'fly'
+Sk 75 1 'frenzy'
+Sk 1 1 'frost blade'
+Sk 75 1 'gate'
+Sk 75 1 'giant strength'
+Sk 75 1 'harm'
+Sk 75 1 'haste'
+Sk 75 1 'heal'
+Sk 75 1 'heat metal'
+Sk 75 1 'holy word'
+Sk 1 1 'identify'
+Sk 75 1 'infravision'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 75 1 'lightning bolt'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
+Sk 75 1 'magic missile'
+Sk 75 1 'mass healing'
+Sk 75 1 'nexus'
+Sk 75 1 'pass door'
+Sk 75 1 'plague'
+Sk 75 1 'poison'
+Sk 75 1 'portal'
+Sk 1 1 'protect container'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 75 1 'ray of truth'
+Sk 1 1 'recharge'
+Sk 75 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 75 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 75 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 1 1 'shock blade'
+Sk 75 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 75 1 'slow'
+Sk 75 1 'steel mist'
+Sk 75 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'sunray'
+Sk 1 1 'talon'
+Sk 75 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 75 1 'undo spell'
+Sk 75 1 'vision'
+Sk 75 1 'weaken'
+Sk 75 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 75 1 'axe'
+Sk 75 1 'dagger'
+Sk 75 1 'flail'
+Sk 75 1 'mace'
+Sk 75 1 'polearm'
+Sk 75 1 'shield block'
+Sk 75 1 'spear'
+Sk 75 1 'sword'
+Sk 75 1 'whip'
+Sk 1 1 'backstab'
+Sk 75 1 'bash'
+Sk 75 1 'berserk'
+Sk 1 1 'circle'
+Sk 75 1 'dirt kicking'
+Sk 75 1 'disarm'
+Sk 75 1 'dodge'
+Sk 75 1 'enhanced damage'
+Sk 1 1 'envenom'
+Sk 75 1 'hand to hand'
+Sk 75 1 'kick'
+Sk 75 1 'parry'
+Sk 75 1 'rescue'
+Sk 75 1 'trip'
+Sk 75 1 'second attack'
+Sk 75 1 'third attack'
+Sk 75 1 'dual wield'
+Sk 75 1 'hunt'
+Sk 75 1 'swimming'
+Sk 75 1 'fast healing'
+Sk 75 1 'forge'
+Sk 75 1 'repair'
+Sk 75 1 'rotate'
+Sk 75 1 'languages'
+Sk 75 1 'haggle'
+Sk 75 1 'hide'
+Sk 75 1 'search'
+Sk 75 1 'lore'
+Sk 75 1 'meditation'
+Sk 75 1 'peek'
+Sk 75 1 'pick lock'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 1 1 'steal'
+Sk 75 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Sk 75 1 'sheen'
+Sk 1 1 'barrier'
+Sk 75 1 'align'
+Sk 75 1 'standfast'
+Sk 75 1 'mark'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'weaponsmaster'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'curative'
+Gr 'detection'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'harmful'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 3001
+Nest 0
+Name oktoberfest 2000 stein beer~
+ShD  An Original Oktoberfest 2000 Stein filled with Beer~
+Desc An Original Oktoberfest 2000 Stein filled with Beer lies here~
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 8674
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear -1
+Cost 571
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear -1
+Cost 610
+End
+
+#O
+Vnum 1807
+Nest 0
+Wear 19
+Cost 2500
+End
+
+#O
+Vnum 1807
+Nest 0
+Wear 16
+Cost 2500
+End
+
+#END

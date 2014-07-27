@@ -1,0 +1,582 @@
+#AREA
+loner.are~
+Loner Refuge~
+{H{{CLANS} {MQaz {TLoner Refuge~
+6700 6720
+ 
+#OBJECTS
+#6700
+fountain seclusion~
+the {Bfountain{x of seclusion~
+The {Bfountain{x of seclusion.~
+isolation~
+fountain O P
+0 0 'water' 0 0
+0 3000 24000 P
+E
+fountain seclusion~
+A formidable {Bfountain{x rises from the ground. It looks as if it has
+been fashioned by the hands of someone that was skilled, but not an
+{Ra{Br{Vt{Yi{Hs{Ba{Rn{x. A deft jack-of-all-trades perhaps. Nonetheless,
+it is not only functional, it has a rustic beauty. The sculptures of the
+fountain tell the story of the challenges that a loner must meet with
+confidence and bravery. The engraved story uses analogy and metaphor to
+illustrate the benefits of having faced, and overcome obstacles by your
+own wit and cunning. The uppermost figure on the fountain is a statue of a
+loner coming back from a quest. The figure offers you the contents of a
+{Wbackpack{x he is holding.
+~
+#6701
+backpack~
+the sculpted backpack~
+~
+marble~
+container O P
+30 0 0 10 100
+15 50 1000 P
+E
+backpack~
+Equisite detail and deep a understanding of organic form by the artist who
+sculpted this fountain combine to make this remarkable stone rendition of
+a backpack seem to be made of lamia leather.
+~
+#6702
+bag trail mix food~
+{Ht{Gr{Va{Mi{Hl{x mix~
+A bag of dried {Cfruit{x, {bnuts{x, nutritious {Gweeds{x and {Wgrubs{x is
+open and lying on the ground.~
+food~
+food IS AO
+1 60 0 0 0
+15 5 1 I
+E
+trail mix~
+A bag filled with a variety of nutritious looking, if not entirely
+appetizing, foods. {bNuts{x, dried items that look like {Cfruits{x,
+{Gweeds{x, and {Wgrubs{x, and a few things that are unidentifiable are
+among the food items you see.
+~
+E
+nuts nut~
+Hmmm... Peanuts, cashews, macadamia, pistachio... yummy
+~
+E
+fruit fruits~
+Pieces of dried dates, mangoes, pineapples, smurfberries, and some banana
+chips.
+~
+E
+grubs grub~
+A dried, small body composed of segments and looking like... yep, it's a
+grub!
+~
+E
+weeds weed~
+{GDried, green and leafy looks back at you. This will keep me regular for
+sure.{x
+~
+E
+unidentifiable unidentified UO~
+Looks like {WNOTHING{x I have EVER seen! Smells funny too :-/
+~
+A
+14 10
+#6703
+survival denim bag gear~
+survival gear~
+A small {Bdenim bag{x lies here.~
+denim~
+container SYG AO
+100 A 0 10 100
+15 10 0 I
+E
+survival gear denim bag~
+A {Bdenim{x bag encloses indispensable items for the self-reliant
+adventurer.
+~
+#6704
+compass~
+a compass~
+A small {gmetallic object{x with a glass face is here reflecting the
+{Ylight{x
+is here.~
+titanium~
+treasure 0 AO
+0 0 0 0 0
+15 1 50 P
+E
+compass~
+A shiny metal case and glass face contains a floating needle with a
+{kblack{x and a {Rred end{x that keeps pointing north-south.
+~
+E
+red end~
+You see the {Rred{x end of a compass. Upon close inspection you see a
+bubble in the paint.
+~
+E
+black~
+Looks like the red end, only black.
+~
+E
+glass face reflection reflects~
+Clear, reflecive, transparent... it's glass.
+~
+E
+light~
+ouch!
+~
+#6705
+suture kit~
+a suture kit~
+A small kit that appears to be for sewing.~
+indeterminate~
+treasure S AO
+0 0 0 0 0
+15 1 10 P
+E
+suture kit sewing~
+You see a tiny box containing a curved, sharp needle, a small package
+labeled **{B-absorbable sutures-{x**  and a small packet of some kind of
+{Yointment{x.
+~
+#6706
+towel~
+a {Wtowel{x~
+A towel rests, crumpled at your feet.~
+cotton~
+treasure S ABCDEFGHIJKLMO
+0 0 0 0 0
+15 1 1 W
+E
+towel~
+This {Wtowel{x could be used in an endless variety of ways. Someone has
+written on the tag that explains the washing instructions in tiny letters.
+It says, "Read the 'Hitchhikers Guide to the Galaxy'" for further
+instructions."
+~
+A
+4 1
+#6707
+widget~
+a {Cwidget{x~
+a little {Cwidget{x is here looking quite useful for... something.~
+widgetinium~
+treasure 0 AO
+0 0 0 0 0
+15 1 1 P
+E
+widget~
+Looking at this widget makes you wonder how many of these are produced
+annually by the {Pswords to widgets activists{x.
+~
+#6708
+pill independence~
+a pill of independence~
+A pill of independence has been dropped here.~
+eye_of_newt~
+pill 0 A
+15 'cure poison' 'cure blindness' 'cure disease' 'infravision'
+15 1 100 P
+E
+pill independence~
+This pill looks remarkably like the eye of a newt?!?!
+~
+#0
+#ROOMS
+#6700
+Entrance to Solitude~
+You arrive at a world apart from the meandering multitudes of
+Thera. The solitude here settles about you comfortably like an oversized,
+slightly worn, favorite robe. There is an exit leading down that seems to
+call to you. The peaceful solitude experienced in this room seems pale in
+comparison to the feeling that comes over you simply by thinking of moving
+into the next. 
+~
+0 ADKST 1
+C loner~
+D5
+You look deeper into peace.
+~
+~
+0 0 6701
+E
+solitude~
+What words could be used to express the content, quiet, peaceful serenity
+that comes to a loner in this refuge, away from others. It can only be
+experienced.
+~
+S
+#6701
+Doorway to isolation~
+>From here you may step up into a realm of reflection and quiet or, if the
+doorway up leads to a room already filled by another loner, you may
+continue deeper into solitude, until you find a place apart to regenerate
+and reflect. 
+~
+0 ADKST 1
+C loner~
+D5
+You look deeper into solitude.
+~
+~
+0 0 6703
+D4
+The room upward draws you strongly. You feel every fiber in your being
+longing for the peace emanating from this quiet corner of the universe.
+~
+~
+0 0 6702
+E
+solitude~
+What words could be used to express the quiet, peaceful serenity that
+comes to a loner in this refuge, away from others? It can only be
+experience.
+~
+S
+#6702
+Isolation~
+No longer in a room or a building or even wholly on Thera, you have
+finally reached a place, or a plane, of peace, isolation and contentment.
+Here you can learn from your past, plan your future or simply meditate.
+~
+0 ADKLST 0
+C loner~
+H 150 M 150
+S
+#6703
+Doorway to Isolation~
+>From here, you may step up into a realm of reflection and quiet or if the
+room is already filled by another loner, you may continue deeper into
+solitude, until you find a place apart to regenerate and reflect.
+~
+0 ADKST 0
+C loner~
+D5
+You look deeper into solitude.
+~
+~
+0 0 6705
+D4
+The room upward draws you strongly. You feel every fiber in your being
+longing for the peace emanating from this quiet corner of the universe.
+~
+~
+0 0 6704
+E
+solitude~
+What words could be used to express the quiet, peaceful serenity that
+comes to a loner in this refuge, away from others? It can only be
+experience.
+~
+S
+#6704
+Isolation~
+No longer in a room or a building or even wholly on Thera, you have
+finally reached a place, or a plane, of peace, isolation and contentment.
+Here you can learn from your past, plan your future or simply meditate.
+~
+0 ADKLST 0
+C loner~
+H 150 M 150
+S
+#6705
+Doorway to Isolation~
+>From here, you may step up into a realm of reflection and quiet or if the
+room is already filled by another loner, you may continue deeper into
+solitude, until you find a place apart to regenerate and reflect.
+~
+0 ADKST 0
+C loner~
+D5
+You look deeper into solitude.
+~
+~
+0 0 6707
+D4
+The room upward draws you strongly. You feel every fiber in your being
+longing for the peace emanating from this quiet corner of the universe.
+~
+~
+0 0 6706
+E
+solitude~
+What words could be used to express the quiet, peaceful serenity that
+comes to a loner in this refuge, away from others? It can only be
+experience.
+~
+S
+#6706
+Isolation~
+No longer in a room or a building or even wholly on Thera, you have
+finally reached a place, or a plane, of peace, isolation and contentment.
+Here you can learn from your past, plan your future or simply meditate.
+~
+0 ADKLST 0
+C loner~
+H 150 M 150
+S
+#6707
+Doorway to Isolation~
+>From here, you may step up into a realm of reflection and quiet or if the
+room is already filled by another loner, you may continue deeper into
+solitude, until you find a place apart to regenerate and reflect.
+~
+0 ADKST 0
+C loner~
+D5
+You look deeper into solitude.
+~
+~
+0 0 6709
+D4
+The room upward draws you strongly. You feel every fiber in your being
+longing for the peace emanating from this quiet corner of the universe.
+~
+~
+0 0 6708
+E
+solitude~
+What words could be used to express the quiet, peaceful serenity that
+comes to a loner in this refuge, away from others? It can only be
+experience.
+~
+S
+#6708
+Isolation~
+No longer in a room or a building or even wholly on Thera, you have
+finally reached a place, or a plane, of peace, isolation and contentment.
+Here you can learn from your past, plan your future or simply meditate.
+~
+0 ADKLST 0
+C loner~
+H 150 M 150
+S
+#6709
+Doorway to Isolation~
+>From here, you may step up into a realm of reflection and quiet or if the
+room is already filled by another loner, you may continue deeper into
+solitude, until you find a place apart to regenerate and reflect.
+~
+0 ADKST 0
+C loner~
+D5
+You look deeper into solitude.
+~
+~
+0 0 6711
+D4
+The room upward draws you strongly. You feel every fiber in your being
+longing for the peace emanating from this quiet corner of the universe.
+~
+~
+0 0 6710
+E
+solitude~
+What words could be used to express the quiet, peaceful serenity that
+comes to a loner in this refuge, away from others? It can only be
+experience.
+~
+S
+#6710
+Isolation~
+No longer in a room or a building or even wholly on Thera, you have
+finally reached a place, or a plane, of peace, isolation and contentment.
+Here you can learn from your past, plan your future or simply meditate.
+~
+0 ADKLST 0
+C loner~
+H 150 M 150
+S
+#6711
+Doorway to Isolation~
+>From here, you may step up into a realm of reflection and quiet or if the
+room is already filled by another loner, you may continue deeper into
+solitude, until you find a place apart to regenerate and reflect.
+~
+0 ADKST 0
+C loner~
+D5
+You look deeper into solitude.
+~
+~
+0 0 6713
+D4
+The room upward draws you strongly. You feel every fiber in your being
+longing for the peace emanating from this quiet corner of the universe.
+~
+~
+0 0 6712
+E
+solitude~
+What words could be used to express the quiet, peaceful serenity that
+comes to a loner in this refuge, away from others? It can only be
+experience.
+~
+S
+#6712
+Isolation~
+No longer in a room or a building or even wholly on Thera, you have
+finally reached a place, or a plane, of peace, isolation and contentment.
+Here you can learn from your past, plan your future or simply meditate.
+~
+0 ADKLST 0
+C loner~
+H 150 M 150
+S
+#6713
+Doorway to Isolation~
+>From here, you may step up into a realm of reflection and quiet or if the
+room is already filled by another loner, you may continue deeper into
+solitude, until you find a place apart to regenerate and reflect.
+~
+0 ADKST 0
+C loner~
+D5
+You look deeper into solitude.
+~
+~
+0 0 6715
+D4
+The room upward draws you strongly. You feel every fiber in your being
+longing for the peace emanating from this quiet corner of the universe.
+~
+~
+0 0 6714
+E
+solitude~
+What words could be used to express the quiet, peaceful serenity that
+comes to a loner in this refuge, away from others? It can only be
+experience.
+~
+S
+#6714
+Isolation~
+No longer in a room or a building or even wholly on Thera, you have
+finally reached a place, or a plane, of peace, isolation and contentment.
+Here you can learn from your past, plan your future or simply meditate.
+~
+0 ADKLST 0
+C loner~
+H 150 M 150
+S
+#6715
+Doorway to Isolation~
+>From here, you may step up into a realm of reflection and quiet or if the
+room is already filled by another loner, you may continue deeper into
+solitude, until you find a place apart to regenerate and reflect.
+~
+0 ADKST 0
+C loner~
+D5
+You look deeper into solitude.
+~
+~
+0 0 6717
+D4
+The room upward draws you strongly. You feel every fiber in your being
+longing for the peace emanating from this quiet corner of the universe.
+~
+~
+0 0 6716
+E
+solitude~
+What words could be used to express the quiet, peaceful serenity that
+comes to a loner in this refuge, away from others? It can only be
+experience.
+~
+S
+#6716
+Isolation~
+No longer in a room or a building or even wholly on Thera, you have
+finally reached a place, or a plane, of peace, isolation and contentment.
+Here you can learn from your past, plan your future or simply meditate.
+~
+0 ADKLST 0
+C loner~
+H 150 M 150
+S
+#6717
+Doorway to Isolation~
+>From here, you may step up into a realm of reflection and quiet or if the
+room is already filled by another loner, you may continue deeper into
+solitude, until you find a place apart to regenerate and reflect.
+~
+0 ADKST 0
+C loner~
+D5
+You look deeper into solitude.
+~
+~
+0 0 6719
+D4
+The room upward draws you strongly. You feel every fiber in your being
+longing for the peace emanating from this quiet corner of the universe.
+~
+~
+0 0 6718
+E
+solitude~
+What words could be used to express the quiet, peaceful serenity that
+comes to a loner in this refuge, away from others? It can only be
+experience.
+~
+S
+#6718
+Isolation~
+No longer in a room or a building or even wholly on Thera, you have
+finally reached a place, or a plane, of peace, isolation and contentment.
+Here you can learn from your past, plan your future or simply meditate.
+~
+0 ADKLST 0
+C loner~
+H 150 M 150
+S
+#6719
+Doorway to Isolation~
+>From here, you may step up into a realm of reflection and quiet to
+regenerate and reflect.
+~
+0 ADKST 0
+C loner~
+D4
+The room upward draws you strongly. You feel every fiber in your being
+longing for the peace emanating from this quiet corner of the universe.
+~
+~
+0 0 6720
+E
+solitude~
+What words could be used to express the quiet, peaceful serenity that
+comes to a loner in this refuge, away from others? It can only be
+experience.
+~
+S
+#6720
+Isolation~
+No longer in a room or a building or even wholly on Thera, you have
+finally reached a place, or a plane, of peace, isolation and contentment.
+Here you can learn from your past, plan your future or simply meditate.
+~
+0 ADKLST 0
+C loner~
+H 150 M 150
+S
+#0
+ 
+#RESETS
+O 0 6700 1 6700                 *Place fountain in entrance*
+O 0 6701 1 6700	         	*Place backpack in entrance*
+P 0 6702 20 6701 2              *Put 2 trail mix in backpack*
+P 0 6708 20 6701 1              *Put 1 pill in backpack*
+O 0 6703 20 6700                *Place bag of survival gear in entrance*
+P 0 6704 20 6703 1              *Put 1 compass in kit*
+P 0 6705 20 6703 1              *Put 1 suture kit in survival kit*
+P 0 6706 20 6703 1              *Put 1 towel in kit*
+P 0 6707 20 6703 1              *Put 1 widget in kit*
+
+S
+#$
+ 
+ 
+

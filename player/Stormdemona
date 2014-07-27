@@ -1,0 +1,502 @@
+#PLAYER
+Name StormDemona~
+Id   1004174376
+LogO 1015412476
+Vers 12
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%q%Cc/%CG%j%CCmin.> ~
+Race wolf~
+Sex  2
+Cla  7
+Levl 30
+Plyd 88407
+Age  0
+Back 88380
+Note 1012202453 1012202453 1012202453 1012202453 1012202453 1012202453
+Scro 22
+Room 8543
+HMS  696 696 269 269 450 451
+Gold 1645
+Silv 31
+Exp  38506
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Spou ~
+Act  CDEFGHJLQSTc
+AfBy DFZ
+FRes I
+FVul H
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 6
+Trai 4
+Save  -27
+Alig  -1000
+Hit   32
+Dam   21
+ACs -48 -54 -46 -9
+Atrib 20 18 18 20 23 18
+AtMod 3 4 5 4 3 4
+QuestPnts 8
+Pass tartty~
+Afk {B[{CSun Jan 13 16:47:10 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {BP{Vr{Bi{Vn{Bc{Ve{Bs{Vs {BO{Vf {BE{Vt{Be{Vr{Bn{Va{Bl {VD{Bba{Vr{Bk{Vn{Be{Vs{Bs{x~
+Immn ~
+Pnts 43
+Rank ~
+Aura ~
+TSex 2
+LLev 22
+Deit Lotus~
+Lsit 24.247.28.98.bay.mi.chartermi.net~
+Ltim Wed Mar 06 05:00:26 2002
+~
+LSav Wed Mar 06 05:01:16 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  AF
+HMSP 621 214 451
+THMS 0 0 0
+Cnd  0 0 32 17
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'giant strength'
+Sk 1 1 'haste'
+Sk 75 1 'infravision'
+Sk 75 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 90 1 'axe'
+Sk 1 1 'flail'
+Sk 93 1 'sword'
+Sk 76 1 'bash'
+Sk 83 1 'dodge'
+Sk 91 1 'enhanced damage'
+Sk 75 1 'hand to hand'
+Sk 79 1 'kick'
+Sk 83 1 'second attack'
+Sk 76 1 'third attack'
+Sk 82 1 'dual wield'
+Sk 61 1 'hunt'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'enhancement'
+Affc 'blood moon'   0  86   9   5  18          0 1
+Affc 'blood moon'   0  84   9   8  19          0 1
+Affc 'bless'   0  80  15 -12  24          0 1
+Affc 'bless'   0  76  15  12  18          0 1
+Affc 'divine regeneration'   0  85   9   0   0   33554432 1
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9924
+Nest 0
+Cond 92
+Wear 0
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16053
+Nest 0
+Cond 94
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 48 0 0 0
+End
+
+#O
+Vnum 21
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 76
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 0 15 0 0
+End
+
+#O
+Vnum 10127
+Nest 0
+Cond 93
+Wear 7
+Cost 128
+End
+
+#O
+Vnum 10133
+Nest 0
+Cond 92
+Wear 8
+Cost 120
+End
+
+#O
+Vnum 10134
+Nest 0
+Cond 97
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 4589
+Nest 0
+Cond 99
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 4574
+Nest 0
+Cond 95
+Wear 18
+Cost 2200
+End
+
+#O
+Vnum 16039
+Nest 0
+ExtF 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16067
+Nest 0
+Wear 4
+Cost 6500
+End
+
+#O
+Vnum 16066
+Nest 0
+Wear 9
+Cost 3500
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear 1
+Cost 1280
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 3355
+Enchanted
+Nest 0
+Wear 3
+Cost 510
+End
+
+#O
+Vnum 3001
+Nest 0
+Wear -1
+Cost 5
+Val  16 4 1 0 0
+End
+
+#O
+Vnum 3001
+Nest 0
+Wear -1
+Cost 5
+Val  16 4 1 0 0
+End
+
+#O
+Vnum 3001
+Nest 0
+Wear -1
+Cost 5
+Val  16 4 1 0 0
+End
+
+#O
+Vnum 3001
+Nest 0
+Wear -1
+Cost 5
+Val  16 0 1 0 0
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 15
+Cost 1900
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Wear 14
+Cost 312
+End
+
+#O
+Vnum 3353
+Nest 0
+Cond 94
+Wear 5
+Cost 900
+End
+
+#O
+Vnum 29905
+Nest 0
+Cond 96
+Wear 6
+Cost 10000
+End
+
+#O
+Vnum 108
+Nest 0
+Name rose~
+ShD  a your beauty rivals that of an angel{x rose~
+Desc A your beauty rivals that of an angel{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Disman.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 16041
+Nest 0
+Wear 19
+Cost 5000
+End
+
+#O
+Vnum 16041
+Nest 0
+Wear 16
+Cost 5000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 29901
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 6
+Nest 0
+ShD  The {BP{Nr{Co{Nm{Bi{Cs{Ne{x of a {RP{Yr{Pi{Rn{Yc{Pe{x~
+Desc The {BP{Nr{Co{Nm{Bi{Cs{Ne{x of a {RP{Yr{Pi{Rn{Yc{Pe{x~
+ExtF 1048577
+Wear 20
+Cost 1
+End
+
+#END

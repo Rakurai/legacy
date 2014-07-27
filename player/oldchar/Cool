@@ -1,0 +1,92 @@
+#PLAYER
+Name Cool~
+Id   1011274615
+LogO 1011275954
+Vers 11
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Sex  2
+Cla  7
+Levl 1
+Plyd 1064
+Age  0
+Back 0
+Note 0 0 0 1009775565 0 0
+Scro 22
+Room 3054
+HMS  19 20 100 100 100 100
+Gold 0
+Silv 6
+Exp  3622
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm ENO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  5
+Prac 5
+Trai 3
+Alig  -750
+ACs 100 100 100 100
+Atrib 16 16 16 15 15 14
+AtMod 0 0 0 0 0 0
+Pass cool765~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Lotus~
+Lsit 202.65.138.133~
+Ltim Thu Jan 17 07:41:28 2002
+~
+LSav Thu Jan 17 07:59:14 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 24 24
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'axe'
+Sk 40 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'shield block'
+Sk 1 1 'spear'
+Sk 1 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'disarm'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 1 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'illusion'
+End
+
+#END

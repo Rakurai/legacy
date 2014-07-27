@@ -1,0 +1,348 @@
+#PLAYER
+Name Fork~
+Id   1001520749
+LogO 1001557763
+Vers 7
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race human~
+Sex  1
+Cla  5
+Levl 5
+Plyd 5622
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMV  76 76 125 136 30 124
+Gold 34
+Silv 1053
+Exp  10145
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy V
+Comm NO
+Revk 0
+Pos  8
+Alig  1000
+Hit   4
+Dam   8
+ACs 32 24 26 56
+Atrib 15 13 16 15 17 16
+AtMod 2 3 3 6 0 3
+QuestPnts 2
+Pass spoon~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 54
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Montrey~
+Lsit c357081-a.crvlls1.or.home.com~
+Ltim Wed Sep 26 19:56:08 2001
+~
+LSav Wed Sep 26 21:29:23 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  F
+HMVP 68 129 124
+THVP 0 0 0
+Cnd  0 0 1 26
+Sk 75 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'light of truth'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create sign'
+Sk 1 1 'create rose'
+Sk 1 1 'create parchment'
+Sk 1 1 'create vial'
+Sk 1 1 'create spring'
+Sk 1 1 'create water'
+Sk 1 1 'cure critical'
+Sk 76 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'vision'
+Sk 1 1 'mace'
+Sk 75 1 'shield block'
+Sk 76 1 'sword'
+Sk 1 1 'scribe'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'rotate'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'paladin default'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'detection'
+Gr 'healing'
+Affc 'blood moon'   0  96  88   4  18          0
+Affc 'blood moon'   0  99  88   8  19          0
+Affc 'haste'   0  80   7   4   2    2097152
+Affc 'shield'   0  81  76 -20  17          0
+Affc 'armor'   0  79  10 -20  17          0
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 116 0 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 89
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 3022
+Nest 0
+Cond 82
+Wear 16
+Cost 610
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3705
+Enchanted
+Nest 0
+Wear 4
+Cost 72
+Affc 'reserved'   1   0  -1   1  17          0
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Cond 99
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 66 15 0 0
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3724
+Nest 0
+Wear 12
+Cost 100
+Val  60 1 0 6 100
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 14017
+Nest 0
+Wear 17
+Cost 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3115
+Nest 0
+Cond 96
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 1602
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 2101
+Nest 0
+Wear 5
+Cost 970
+End
+
+#O
+Vnum 1001
+Nest 0
+ShD  a '{RI {WA{RM {WC{RA{WN{RA{WD{RI{WA{RN'{x rose~
+Desc A '{RI {WA{RM {WC{RA{WN{RA{WD{RI{WA{RN'{x rose is lying on the ground.~
+Wear -1
+Cost 0
+ExDe florist~ This rose was created by Elias.
+~
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear -1
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 14
+Cost 112
+End
+
+#END

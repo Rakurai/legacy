@@ -1,0 +1,2265 @@
+#AREA
+empire.are~
+Castle Osaka~
+{H{{CLANS} {MConan&Elric {TCastle Osaka~
+2501 2600
+
+#MOBILES
+
+#2501
+white lion~
+A {Wwhite {xlion~
+A {Wwhite {xlion stares at you with it's piercing blue eyes.
+~
+Sitting at the {VEmperor's{x left hand side is the largest lion you've ever 
+seen. It's fur and main are the color of the purest {Wsnow white{x.  The 
+majestic animal is the likes of which you've never even imagined an animal could 
+be.  Slowly, it yawns, and opens it's gaping maw, revealing it's large, 
+razor-sharp teeth.  As it scans the room with its marvelous {Bblue{x eyes it 
+looks to the {VEmperor{x then scans the room again, as though it is watching out 
+for him.
+~
+cat~
+BGZ H 750 S
+30 5 50d50+50 20d20+20 10d2+10 bite
+-10 -10 -10 -10
+C ABCD 0 0
+rest rest male 0
+0 0 large 0
+
+#2502
+ryo swordsmaster~
+Ryo the Swordsmaster~
+Ryo is here carefully folding the metal on a katana blade.
+~
+A barrel-chested man covered in the sweat of his labors stands here performing 
+his master craft of folding the metal of sword blades and making each weapon 
+with pride and careful attention to detail. It is said that he spent a lifetime 
+learning his craft and will never truly master the art. Even so, his weapons are 
+the finest in all the lands and many a battle has been won on the edge of his 
+steel.
+~
+human~
+BGZ H 750 S
+30 5 50d50+50 20d20+20 10d2+10 bite
+-10 -10 -10 -10
+C ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#2503
+zanji dragon armorer~
+{GZanji{x, the ancient dragon of {YSun{x.~
+An ancient dragon is here, ready to outfit you in the {VEmpire's{x best.
+~
+An ancient, serpentine dragon, said to be the legendary Dragon of the {YSun{x. 
+It was said that the {VEmperor{x himself bested this dragon in single combat, 
+but showed an uncharacteristic compassion and spared his life. Out of gratitude 
+and what has become a strong friendship, {GZanji{x uses his special powers to 
+outfit the {VEmpire{x in the finest {garmors{x in the land.
+~
+dragon~
+BGZ H 750 S
+30 5 50d50+50 20d20+20 10d2+10 bite
+-10 -10 -10 -10
+C ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#2504
+sensei sun man~
+The Sensei of the {YSun{x~
+The Sensei of the {YSun{x is here going over some impressive katas.
+~
+A tall, thickly-muscled man wearing a standard white uniform decorated in 
+symbols of his position and wearing the traditional black belt, double-wrapped 
+and knotted in front. He looks at you and nods knowingly, ready to assist you in 
+your training.
+~
+human~
+BGJZb H 750 S
+30 5 50d50+50 20d20+20 10d2+10 bite
+-10 -10 -10 -10
+C ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#2505
+fuji rotund man~
+Mr. Fuji~
+Mr. Fuji stands at the counter awaiting your order.
+~
+Mr. Fuji is a small, rotund man with {Ylightning{x-like reflexes.  He is wearing 
+a suit and tie with a perfectly sized top hat upon his head.  His voice his calm 
+and level and he addresses you with a slow, steady ease.
+~
+human~
+BGZ H 750 S
+30 5 50d50+50 20d20+20 10d2+10 bite
+-10 -10 -10 -10
+C ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+
+
+#2506
+kato man~
+Kato~
+Kato is here waiting to serve up drinks.
+~
+A handsome oriental man dressed in a black uniform of some sort and wearing a 
+floppy, black cap on his head. He moves with deceptive quickness as he pours 
+drinks and cleans glasses, so quick, in fact, that you wonder what hidden 
+talents this seemingly simple bartender possesses.
+~
+human~
+BGZ H 750 S
+30 5 50d50+50 20d20+20 10d2+10 bite
+-10 -10 -10 -10
+C ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#2507
+myagi mr. man~
+Mr. Myagi~
+Mr. Myagi waits here in solemn meditation.
+~
+You see before you a short, gray-haired, oriental man, dressed in plain robes 
+with no distinguishing marks. He catches your glance, gives you an 
+uncharacteristic smile and wink and promptly goes back to his meditation.
+~
+human~
+BGZa H 750 S
+100 5 50d50+50 20d20+20 10d2+10 bite
+-10 -10 -10 -10
+C ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#2508
+ben hari chef~
+A Ben Hari Chef~
+A Ben Hari Chef is here rapidly preparing food.
+~
+A tall man with a thin mustache and wears a tall white hat with a proud, and 
+startling white uniform. He moves with almost blinding speed as he chops food 
+and quickly cooks and serves it. You could stand and watch him for hours, but 
+you can tell he is growing impatient with your presence. Better go ahead and 
+order.
+~
+human~
+BGZ H 750 S
+30 5 50d50+50 20d20+20 10d2+10 bite
+-10 -10 -10 -10
+C ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#2509
+courtesy~
+Courtesy~
+{x
+~
+Your worst nightmare!  Etiquette!
+~
+demon~
+BGZ 0 0 S
+120 5 50d50+50 20d20+20 10d2+10 bite
+-10 -10 -10 -10
+C ABCD 0 0
+stand stand none 0
+0 0 medium 0
+
+#2510
+samurai guard~
+a samurai guard~
+A devout samurai guard stands here on guard duty.
+~ 
+A guard of the empire stands dilligently here.  He reguards you with a cold 
+eye as he places his hand on the hilt of his blade.  He is armored in customary 
+samurai protection and wields the weapon of the warrior, a katana.
+~
+human~
+GZ DFHV 1000 S
+85 14 100d50+5000 20d20+20 7d6+23 slice
+-56 -56 -56 -56
+FHP ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+
+
+#2511
+samurai guard~
+a samurai guard~
+A devout samurai guard stands here on guard duty.
+~
+A guard of the empire stands dilligently here.  He reguards you with a cold eye 
+as he places his hand on the hilt of his blade.  He is armored in customary 
+samurai protection and wields the weapon of the warrior, a katana.
+~
+human~
+GZ DFHV 1000 S
+85 14 100d50+5000 20d20+20 7d6+23 stab
+-56 -56 -56 -56
+FHP ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#2512
+samurai guard~
+a samurai guard~
+A devout samurai guard stands here on guard duty.
+~
+A guard of the empire stands dilligently here.  He reguards you with a cold eye 
+as he places his hand on the hilt of his blade.  He is armored in customary 
+samurai protection and wields the weapon of the warrior, a katana.
+~
+human~
+BGZ DFHV 1000 S
+85 14 100d50+5000 20d20+20 7d6+23 stab
+-56 -56 -56 -56
+FHP ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#2513
+samurai guard~
+a samurai guard~
+A devout samurai guard stands here on guard duty.
+~
+A guard of the empire stands dilligently here.  He reguards you with a cold eye 
+as he places his hand on the hilt of his blade.  He is armored in customary 
+samurai protection and wields the weapon of the warrior, a katana.
+~
+human~
+BGZ DFHV 1000 S
+85 14 100d50+5000 20d20+20 7d6+23 smash
+-56 -56 -56 -56
+FHP ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#2514
+samurai guard~
+a samurai guard~
+A devout samurai guard stands here on guard duty.
+~
+A guard of the empire stands dilligently here.  He reguards you with a cold eye 
+as he places his hand on the hilt of his blade.  He is armored in customary 
+samurai protection and wields the weapon of the warrior, a katana.
+~
+human~
+BGZ DFHV 1000 S
+85 14 100d50+5000 20d20+20 7d6+23 magic
+-56 -56 -56 -56
+FHP ABCD 0 0
+stand stand male 0
+0 0 medium 0
+#0
+
+#OBJECTS
+
+#2501
+sandals pain~
+{Vth{Ye S{Man{Vda{Yls {Mof {VPa{Yin{x~
+Some uncomfortable looking sandals await new feet.~
+Wood~
+armor ABSY AG
+7 7 7 6 0
+20 1 2000 P
+E
+sandals pain~
+These uncomfortable looking wooden sandles have no support for your feet what so 
+ever. These could quite possibly be the most uncomfortable looking sandals 
+you've ever seen. In fact, they almost look like they would hurt your feet.
+~
+A
+14 20
+A
+12 20
+A
+4 2
+A
+5 2
+A
+18 2
+A
+19 2
+
+#2502
+ring shame~
+{Va R{Yin{Mg o{Vf S{Yha{Mme{x~
+A simple band of brass lies here.~
+brass~
+armor ABSY AB
+9 9 9 8 0
+25 1 2500 P
+E
+ring shame~
+This simple ring gives you feelings of worthlessness and shame to even put it 
+on, but, for some strange reason, you feel compelled to wear it.
+~
+A
+12 25
+A
+26 2
+A
+3 1
+A
+2 2
+A
+18 2
+A
+19 2
+
+#2503
+necklace doubt~
+{Va B{Yea{Mde{Vd N{Yec{Mkl{Vac{Ye o{Mf D{Vou{Ybt{x~
+A simple beaded necklace lies carlessly on the ground.~
+leather~
+armor ABSY AC
+10 10 10 10 0
+30 1 3000 P
+E
+necklace doubt~
+This strange, simple necklace makes you wonder why you even exist.
+~
+A
+12 30
+A
+18 3
+A
+19 3
+A
+20 -3
+
+#2504
+spirit shinto~
+{Va M{Yin{Mor {VSh{Yin{Mto {VSp{Yir{Mit{x~
+The spirit of a fallen warrior.~
+energy~
+armor ABSY AQ
+12 12 12 11 0
+35 1 3500 P
+E
+spirit shinto~
+This is the guarding spirit of a bushido warrior of old.
+~
+A
+12 30
+A
+26 1
+A
+4 1
+A
+18 2
+A
+19 2
+
+#2505
+shackles conscious~
+{Vth{Ye S{Mha{Vck{Yle{Ms o{Vf C{Yon{Msc{Vio{Yus{x~
+A bracer made out of binding chains lies here.~
+chain~
+armor ABSY AM
+14 14 14 13 0
+40 1 4000 P
+E
+shackles conscious~
+These binding chains make you consider the golden rule: "Do unto others as you 
+would have them do unto you."
+~
+A
+12 40
+A
+26 2
+A
+3 2
+A
+18 4
+A
+19 4
+A
+20 -3
+
+#2506
+ribbons disgrace~
+{Vth{Ye R{Mib{Vbo{Yns {Mof {VDi{Ysg{Mra{Vce{x~
+Someone has lost their silk ribbon.~
+silk~
+armor ABSY AI
+15 15 15 15 0
+45 1 4500 P
+E
+ribbons disgrace~
+To even consider putting these ribbons on your arms brings filth and dishonor to 
+your very name.  To wear them with pride is the true test of a man.
+~
+A
+12 40
+A
+1 2
+A
+2 2
+A
+18 3
+A
+19 3
+
+#2507
+helm ignorance~
+{Vth{Ye H{Mel{Vm o{Yf I{Mgn{Vor{Yan{Mce{x~
+A simple looking warriors helm lies here.~
+leather~
+armor ABSY AE
+17 17 17 16 0
+50 1 5000 P
+E
+helm ignorance~
+This ridiculous looking helm will dull your wits and cloud your mind.  But once 
+you get a clear spirt, it will bring you fountains of knowledge.
+~
+A
+12 50
+A
+4 1
+A
+5 1
+A
+26 1
+A
+18 3
+A
+19 3
+
+#2508
+leggings impeding~
+{Vth{Ye L{Meg{Vgi{Yng{Ms o{Vf I{Ymp{Med{Vin{Yg{x~
+A pair of cumbersome looking leggings lies here, unwanted.~
+leather~
+armor ABSY AF
+18 18 18 17 0
+55 1 5500 P
+E
+leggings impeding~
+These incredibly uncomfortable leggings appear as though they would only slow 
+your journey down.
+~
+A
+12 55
+A
+4 1
+A
+5 1
+A
+9 1
+A
+18 3
+A
+19 3
+
+#2509
+ring fear~
+{Va R{Yin{Mg o{Vf F{Yea{Mr{x~
+An unattractive circular band lies here.~
+brass~
+armor ABSY AB
+20 20 20 20 0
+60 1 6000 P
+E
+ring fear~
+This brass band gives you shivers just from being in your hand.  It's strange 
+aura fills your body with an almost uncontrollable fear.
+~
+A
+12 60
+A
+18 6
+A
+19 6
+A
+1 1
+A
+2 1
+A
+4 1
+A
+9 1
+A
+20 -6
+
+#2510
+boots jealousness~
+{Vth{Ye B{Moo{Vts {Yof {MJe{Val{You{Msn{Ves{Ys{x~
+Some elaborate looking boots lie here.~
+leather~
+armor ABSY AG
+22 22 22 21 0
+65 1 6500 P
+E
+boots jealousness~ 
+These elaborately designed boots give you a feeling of superiority...until you 
+notice that other guys pair of boots.  Man...those look nice, don't they???
+~
+A
+12 65
+A
+1 2
+A
+2 2
+A
+5 2
+A
+9 1
+A
+20 -6
+A
+18 5
+A
+19 5
+
+#2511
+robe feebleness~
+{Vth{Ye R{Mob{Ves {Yof {MFe{Vbl{Yen{Mes{Vs{x~
+A weak looking robe lies here.~
+silk~
+armor ABSY AK
+24 24 24 23 0
+70 1 7000 P
+E
+robe feebleness~
+This soft silken robe makes your body weak just to even hold.  Your muscles 
+begin to soften, and your knees start to quiver.  If not for your indominable 
+will, you would surely fall over and die.
+~
+A
+12 70
+A
+1 4
+A
+9 2
+A
+20 -7
+A
+18 6
+A
+19 6
+
+#2512
+essence shinto~
+{Vth{Ye E{Mss{Ven{Yce {Mof {VSh{Yin{Mto{x~
+A powerful spirit floats here.~
+energy~
+armor ABSY AQ
+25 25 25 25 0
+75 1 7500 P
+E
+essence shinto~
+This is the very heart of bushido.  The essence of shinto.
+~
+A
+12 80
+A
+5 2
+A
+3 2
+A
+9 2
+A
+20 -7
+A
+18 6
+A
+19 6
+
+#2513
+sleeves weakness~
+{VSl{Yee{Mve{Vs o{Yf W{Mea{Vkn{Yes{Ms{x~
+Some sleeves lie crumpled up on the floor.~
+weakness~
+armor ABSY AI
+27 27 27 26 0
+80 1 8000 P
+E
+sleeves weakness~
+Just looking at these sleeves makes you feel weak as a kitten..you don't even
+want to think about wearing them.
+~
+A
+12 55
+A
+18 8
+A
+19 8
+A
+20 -8
+A
+9 3
+
+#2514
+statue dragon~
+a dragon statue~
+A statue of an emerald dragon rests here with a bronze gong its mouth.~
+emerald~
+jewelry  B P
+0 0 0 0 0
+15 12000 10000 P
+E
+statue~
+Beautifully crafted this remarkable statue appears to be carved from one giant
+emerald. Its long, stout body has a spine of Opal spikes running from neck to
+tail.  The talons on its claws and feet appear to be made of pure gold.
+~
+
+
+#2515
+box~
+teak wood box~
+This finely crafted box is made of polished and lacquered wood.  It opens and 
+closes on well oiled hinges and has a fine {Vpurple velvet{x interior.~
+teak~
+container S A
+50 A 0 5 100
+15  50  100  P
+
+
+#2516
+backpack~
+{VImperial{x backpack~
+An {VImperial{x backpack lies here.~
+wool~
+container 0 AO
+300 A 0 20 30
+15 50 300 P
+E
+backpack~
+Well made from woven wool this back pack seems like an essential if you were to 
+undertake any kind of travel.  It bears the mark of the {VEmpire{x.
+~
+
+
+#2517
+scroll~
+a scroll with the {VImperial{x seal~
+A simple rolled up piece parchment with the {VImperial{x seal on it.~
+rice paper~
+scroll A O
+0 0 0 0 0
+15 1 1 P
+
+
+#2518
+chukei~
+chukei~
+A decorative fan lies here.~
+bamboo~
+treasure 0 AO
+0 0 0 0 0
+15 2 500 P
+E
+chukei~
+This looks strange at first but you soon realize that it is a decorative fan 
+used for matters of state to look noble.
+~
+
+
+#2519
+rug~
+a rug~
+An intricately woven rug lies here.~
+fiber~
+furniture S 0
+50 0 BEHKN 0 0
+100  500 10000 P
+E
+rug~
+Although this rug is placed in the entry hall you hardly think it proper to wipe 
+your feet on it, in fact, you are not supposed to have your shoes on at all.  
+The rug appears to woven from some sort of stout material although in all your 
+travels you've never seen it's equal. It looks like it might even be comfortable 
+to lay on, but then again, it is not very diplomatic to sleep in the hallways of 
+the {VEmperor's{x home.
+~
+
+
+#2520
+table~
+a long elaborately carved table~
+This long elaborately carved table is the main attraction of the room.~
+wood~
+furniture O P
+31 0 ADGJ 150 150
+15 5000 50000 P
+E
+table~
+This long elaborately carved table is the main attraction of the room.  It sees 
+long enough to seat but there are no chairs, also the table barely sits off the 
+ground.  But then, that is the way of the {VEmpire{x.
+~
+
+
+#2521
+ruby throne~
+{RRuby Throne{x~
+The {RRuby Throne{x sits ominously here.~
+ruby~
+furniture ABGOS P
+1 0 BEHK 150 150
+91 80000 999999 P
+E
+throne~
+The fabled throne of the {VEmperor {xof the {YSun{x sits before your stunned 
+eyes.  It's beauty is chaotic and mystic.  Carved skillfully from the whole of 
+one giant ruby it is quite possibly the most marvelous masterpiece of art that 
+has ever befallen you.  It is, in every way the epitome of perfection.  It is a 
+symbol of the {VE{Ym{Vp{Yi{Vr{Ye{x in itself.
+~
+E
+ruby~
+The fabled throne of the {VEmperor {xof the {YSun{x sits before your stunned 
+eyes.  It's beauty is chaotic and mystic.  Carved skillfully from the whole of 
+one giant ruby it is quite possibly the most marvelous masterpiece of art that 
+has ever befallen you.  It is, in every way the epitome of perfection.  It is a 
+symbol of the {VE{Ym{Vp{Yi{Vr{Ye{x in itself.
+~
+
+
+#2522
+box herb~
+Box of herbs~
+A box of herbs lies against the wall.~
+wood~
+furniture 0 0
+0 0 0 0 0
+15 1 1 P
+E
+herb~
+You hold a strange leaf in your hand, it's almost slick to the touch and at the 
+same time feels warm and soothing.
+~
+
+#2523
+box fruit~
+a box of fruit~
+A box of fruit lies against the wall.~
+wood~
+furniture 0 0
+0 0 0 0 0
+15  1 100 P
+E
+box~
+This small, weaker boxes is labeled "Fruit," Obviously what it contains is what 
+it is labeled because the {VEmpire{x does NOT make errors.  Although the 
+contents look useful, it is widely known that it is not wise to steal from the 
+{VEmpire{x.
+~
+
+#2524
+tempura shrimp~
+a batter fried shrimp~
+A steaming pile of deliciously deep-fried shrimp.~
+food~
+food 0 APO
+10 10 0 0 0
+15 1 1 P
+
+
+#2525
+spring roll~
+a spring roll~
+A nice spring roll.~
+food~
+food 0 APO
+10 10 0 0 0
+15 1 1 P
+E
+roll~
+This miniature egg roll is giving off a wonderful smell, although only 1/3 the
+side of an egg roll some say it's twice as delicious.
+~
+E
+spring~
+This miniature egg roll is giving off a wonderful smell, although only 1/3 the 
+side of an egg roll some say it's twice as delicious.
+~
+
+
+#2526
+cake rice~
+rice cake~
+A small white disc~
+rice~
+food 0 APO
+10 10 0 0 0
+15 1 1 P
+E
+rice~
+A dried and flattened patty of rice, simple but delicious.
+~
+E
+cake~
+A dried and flattened patty of rice, simple but delicious.
+~
+
+
+
+#2527
+food sushi fish~
+sushi~
+A plate of various raw fish from the sea~
+fish~
+food 0 APO
+20 40 0 0 0
+15 11 11 P
+
+
+#2528
+bed~
+a comfortable bed~
+A comfortable bed rests here, waiting to be occupied.~
+comfort~
+furniture O P
+4 0 BEHK 150 150
+15 2000 2000 P
+E
+bed~
+This elaborate bed is the centerpiece of the room.  It totally and completely 
+draws your eye. Swaying gently in the breeze, a silken cover billows in and out, 
+calling to you. The bed's comfort looks to be infinite.  If only you could lie 
+on such a bed you might never wake up from your wonderful dream.
+~
+
+
+#2529
+seppuku robes~
+Seppuku Robes~
+The noble Seppuku Robes~
+wool~
+armor S ADP
+5 5 5 5 0
+15 10 1000 P
+
+
+#2530
+seppuku dagger~
+a Seppuku Dagger~
+The simple yet noble dagger of Seppuku.~
+metal~
+weapon P AN
+exotic 1 1 slice 0
+1 10 100 P
+
+
+#2531
+barrel~
+a barrel~
+A Barrel sits awkwardly in the corner.~
+wood~
+drink P A
+500 500 water 0 0
+15 300  600 W
+E
+barrel~
+This barrel when hit sounds hallow and empty.  
+Beyond that, it's just a normal barrel.
+~
+
+#2532
+export box~
+a box~
+A box marked "{RExport{x." is here.~
+wood~
+container 0 P
+50 0 0 50 100
+15 500 300 P
+E
+box~
+This box contains the weath the Empire sends to lands near and far and is filled
+mostly with silks and jewelry.
+~
+E
+silks~
+Silk made from the {VEmperor's{x own silk worms.  No other silk of this kind can
+be found anywhere in the world.
+~
+E
+jewelry~ 
+Jewelry of immense beauty and craftsmanship lie before you.  You assume that the 
+jewels used to make the necklaces and rings are from the island's {bmountain{x 
+caves.)
+~
+
+#2533
+box import~
+a box~
+This hardwood box is labeled in red letters, "{RImport{x."~
+wood~
+container 0 P
+50 0 0 50 100
+15 30 300 P
+E
+box~
+{WWool{x, being the only thing the empire needs to import, this box contains the 
+warm outer coat of the mainland sheep.
+~
+
+
+#2534
+fountain~
+a fountain~
+A fountain shaped like a bird spouting water into the pond.~
+granite~
+fountain O P
+0 0 water 0 0
+15 3000 4000 P
+E
+fountain~
+A fountain, shaped like a bird spreading its wings for flight, spouts water into 
+the goldfish pond. The water is clear and pure and looks good to drink. You may 
+fill your containers here and drink your fill by the Emperor's decree.
+~
+#2535
+anvil private empire~
+an Anvil~
+A large anvil awaits use here~
+steel~
+anvil 0 0
+0 0 1 0 3
+0 0 0 P
+
+#0
+
+#ROOMS
+
+#2501
+Top of the {bMountain{x~
+Magically, the weather clears and peace over fills your spirit.  The path before
+you, for the first time, is clear-cut and appears easy going.  A low fog floats
+about, soothing your poor, bleeding legs and feet.  To the north you can see
+the outside gates of {WCastle Osaka{x.
+~
+0 DNTY 20
+D0
+North the gates of Castle Osaka rise before you.
+~
+~
+0 -1 2502
+S
+
+#2502
+Outside the Gates of {WCastle Osaka{x~
+The great outer wall of {WCastle Osaka{x expands before you.  The castle itself
+is built into the {bmountain {xof  power.  The only face of the castle that is
+exposed to the world is it's bold, beautiful front, showing off ancient
+architecture and craftsmanship.  Looming above you is a massive, iron door
+standing approximately 25 feet in height.  On either side of the door is a
+statue of a dragon each with a bronze gong hanging in its open maw. A
+mallet lies on the floor, inviting further examination.
+~
+0 DNTY 20
+D0
+Before you lies the courtyard of Castle Osaka.
+~
+gate~
+3 0 2503
+D2
+South is the top of the mountain.
+~
+~
+0 -2 2501
+E
+mallet~
+Try typing "emote picks up the mallet."
+~
+S
+
+#2503
+Castle Courtyard~
+Through the castle gates lies a courtyard of peace and beauty.  Magnificent
+statues carved from {Wpure ivory{x decorate the elaborate, well-tended grounds.
+In the distance you see the actual gates of the castle itself.  Across the
+courtyard in either direction there is the low murmur of voices and bustle
+of activity taking place in front of the palace shops, where merchants
+from the world over offer their knowledge and wares.
+~
+0 DNTY 20
+D0
+The courtyard continues in all directions, even north.
+~
+~
+0 -1 2506
+D1
+The courtyard continues in all directions, even east.
+~
+~
+0 -1 2504
+D2
+To leave the castle, go south.
+~
+gate~
+1 -1 2502
+D3
+The courtyard continues in all directions, even west.
+~
+~
+0 -1 2505
+S
+
+#2504
+Castle Courtyard~
+Through the castle gates lies a courtyard of peace and beauty.  Magnificent
+statues carved from {Wpure ivory{x decorate the elaborate, well-tended grounds.
+In the distance you see the actual gates of the castle itself.  Across the
+courtyard in either direction there is the low murmur of voices and bustle
+of activity taking place in front of the palace shops, where merchants
+from the world over offer their knowledge and wares.
+~
+0 DNTY 20
+D0
+The courtyard continues in all directions, even north.
+~
+~
+0 -1 2510
+D1
+The courtyard continues in all directions, even east.
+~
+~
+0 -1 2507
+D3
+The courtyard continues in all directions, even west.
+~
+~
+0 -1 2503
+S
+
+#2505
+Castle Courtyard~
+Through the castle gates lies a courtyard of peace and beauty.  Magnificent
+statues carved from {Wpure ivory{x decorate the elaborate, well-tended grounds.
+In the distance you see the actual gates of the castle itself.  Across the
+courtyard in either direction there is the low murmur of voices and bustle
+of activity taking place in front of the palace shops, where merchants
+from the world over offer their knowledge and wares.
+~
+0 DNTY 20
+D0
+The courtyard continues in all directions, even north.
+~
+~
+0 -1 2509
+D1
+The courtyard continues in all directions, even east.
+~
+~
+0 -1 2503
+D3
+The courtyard continues in all directions, even west.
+~
+~
+0 -1 2508
+S
+
+#2506
+Castle Courtyard~
+Through the castle gates lies a courtyard of peace and beauty.  Magnificent
+statues carved from {Wpure ivory{x decorate the elaborate, well-tended grounds.
+In the distance you see the actual gates of the castle itself.  Across the
+courtyard in either direction there is the low murmur of voices and bustle
+of activity taking place in front of the palace shops, where merchants
+from the world over offer their knowledge and wares.
+~
+0 DNTY 20
+D0
+To the north lies the entry hall.
+~
+~
+0 -1 2518
+D1
+To the east the courtyard continues.
+~
+~
+0 -1 2510
+D2
+To the south the courtyard continues.
+~
+~
+0 -1 2503
+D3
+To the west the courtyard continues.
+~
+~
+0 -1 2509
+S
+
+#2507
+Castle Courtyard~
+Through the castle gates lies a courtyard of peace and beauty.  Magnificent
+statues carved from {Wpure ivory{x decorate the elaborate, well-tended grounds.
+In the distance you see the actual gates of the castle itself.  Across the
+courtyard in either direction there is the low murmur of voices and bustle
+of activity taking place in front of the palace shops, where merchants
+from the world over offer their knowledge and wares.
+~
+0 DNTY 20
+D0
+To the north the courtyard continues.
+~
+~
+0 -1 2511
+D1
+East you hear the clanging of metals...must be the forge!
+~
+~
+0 -1 2516
+D3
+To the west the courtyard continues.
+~
+~
+0 -1 2504
+S
+
+#2508
+Castle Courtyard~
+Through the castle gates lies a courtyard of peace and beauty.  Magnificent
+statues carved from {Wpure ivory{x decorate the elaborate, well-tended grounds.
+In the distance you see the actual gates of the castle itself.  Across the
+courtyard in either direction there is the low murmur of voices and bustle
+of activity taking place in front of the palace shops, where merchants
+from the world over offer their knowledge and wares.
+~
+0 DNTY 20
+D0
+To the north the courtyard continues.
+~
+~
+0 -1 2512
+D1
+To the east the courtyard continues.
+~
+~
+0 -1 2505
+D3
+To the west, you can hone your skills!
+~
+~
+0 -1 2515
+S
+
+#2509
+Castle Courtyard~
+Through the castle gates lies a courtyard of peace and beauty.  Magnificent
+statues carved from {Wpure ivory{x decorate the elaborate, well-tended grounds.
+In the distance you see the actual gates of the castle itself.  Across the
+courtyard in either direction there is the low murmur of voices and bustle
+of activity taking place in front of the palace shops, where merchants
+from the world over offer their knowledge and wares.
+~
+0 DNTY 20
+D1
+To the east the courtyard continues.
+~
+~
+0 -1 2506
+D2
+To the south the courtyard continues.
+~
+~
+0 -1 2505
+D3
+To the west the courtyard continues.
+~
+~
+0 -1 2512
+S
+
+#2510
+Castle Courtyard~
+Through the castle gates lies a courtyard of peace and beauty.  Magnificent
+statues carved from {Wpure ivory{x decorate the elaborate, well-tended grounds.
+In the distance you see the actual gates of the castle itself.  Across the
+courtyard in either direction there is the low murmur of voices and bustle
+of activity taking place in front of the palace shops, where merchants
+from the world over offer their knowledge and wares.
+~
+0 DNTY 20
+D1
+To the east the courtyard continues.
+~
+~
+0 -1 2511
+D2
+To the south the courtyard continues.
+~
+~
+0 -1 2504
+D3
+To the west the courtyard continues.
+~
+~
+0 -1 2506
+S
+
+#2511
+Castle Courtyard~
+Through the castle gates lies a courtyard of peace and beauty.  Magnificent
+statues carved from {Wpure ivory{x decorate the elaborate, well-tended grounds.
+In the distance you see the actual gates of the castle itself.  Across the
+courtyard in either direction there is the low murmur of voices and bustle
+of activity taking place in front of the palace shops, where merchants
+from the world over offer their knowledge and wares.
+~
+0 DNTY 20
+D1
+To the east you can gird yourself in steel..
+~
+~
+0 -1 2517
+D2
+To the south the courtyard continues.
+~
+~
+0 -1 2507
+D3
+To the west the courtyard continues.
+~
+~
+0 -1 2510
+S
+
+#2512
+Castle Courtyard~
+Through the castle gates lies a courtyard of peace and beauty.  Magnificent
+statues carved from {Wpure ivory{x decorate the elaborate, well-tended grounds.
+In the distance you see the actual gates of the castle itself.  Across the
+courtyard in either direction there is the low murmur of voices and bustle
+of activity taking place in front of the palace shops, where merchants
+from the world over offer their knowledge and wares.
+~
+0 DNTY 20
+D1
+To the east the courtyard continues.
+~
+~
+0 -1 2509
+D2
+To the south the courtyard continues.
+~
+~
+0 -1 2508
+D3
+West you can buy lots of useful stuff..
+~
+~
+0 -1 2513
+S
+
+#2513
+{VImperial{x General Store~
+A stale odor lies in the air.  This store has many, many wares in it sold for
+the general purpose of the {VEmpire{x.  An old man with lightning speed
+darts around behind the counter.  He is busily placing jars in their
+proper place and cataloging the new inventory.  As you ring the bell he
+turns to you with a semi-annoyed stare and gets down off his small ladder.
+He seems quite calm as he slowly addresses you:
+~
+0 DNTY 20
+C empire~
+D1
+To the east the courtyard continues.
+~
+~
+0 -1 2512
+D3
+To the west you can get drunk!
+~
+~
+0 -1 2514
+S
+
+#2514
+The Palace Bar~
+You enter into a small tavern, sparsely furnished, yet with an air of fullness
+about it. At the head of the room there is a long, low counter neatly laid
+out with glasses and bottles containing the empires favorite drinks. Oddly
+there are no chairs in the room but several tall, wicker tables to stand
+at and enjoy your drinks in the company of your brethren.
+~
+0 DNTY 20
+C empire~
+D1
+East you can visit again with Mr. Fuji.
+~
+~
+0 -1 2513
+S
+
+#2515
+The {VEmpire's{x Dojo.~
+Carefully painted symbols adorn the light-colored, wooden walls of this room.
+The room contains no furnishing but several {Ystraw{x mats lie on the
+floor and weapon racks line the walls containing a large variety of
+traditional weaponry. Candelabrum are set at the corners of the rooms,
+casting a somber glow over the area. It is here that the {VEmperor's{x
+trusted masters teach the {VEmpire's{x troops the arts of warfare
+and the skills they will need to survive in a hostile world.
+~
+0 DNTY 20
+C empire~
+D1
+To the east the courtyard continues.
+~
+~
+0 -1 2508
+S
+
+#2516
+The Way of the Blade~
+The legendary Way of the Blade, as it has come to be known, is the forge of the
+Empire of the Sun. It is here, in this smoke-filled room that the blades
+that conquer the world are formed with spirit and pride. A blast furnace
+dominates the room and casts eerie redand orange glow over all that you
+see, tables and equipment for the folding of the heated metal line the
+walls and you can see several blades and other weapons in various stages
+of construction. A silver plaque set into the wall reads "This room bleeds the
+blood of the earth, the metals that we form with the fires of our gods and
+the essence of our souls. It is here that your legend is born and it is
+here your soul becomes one with your steel. Let it be so for the every
+soul that burns into the Empire of the Sun."
+~
+0 DNTY 20
+C empire~
+D3
+To the west the courtyard continues.
+~
+~
+0 -1 2507
+S
+
+#2517
+The {gArmory{x of the {vEmpire{x~
+Lockers line the walls of this room, containing the {garmors{x of the
+{VEmpire{x. The room is larger than normal and the entrances to this room
+are exceptionally wide to accommodate the dragon, {GZanji{x, that enchants
+the mystic virtues into the armors you see in the lockers. Each {garmor{x
+is not only symbolic of virtues a true citizen of the {YSun{x must
+overcome, but is enchanted with the dragon's ancient power to fulfill and
+strengthen these virtues. This {garmor{x is definitely a gift not to be taken
+lightly.
+~
+0 DNTY 20
+C empire~
+D3
+To the west the courtyard continues.
+~
+~
+0 -1 2511
+S
+
+#2518
+Entry Hall~
+The artistic, but sturdy doors of the castle close behind you.  The hallway you
+now stand in is divided perfectly down the middle, with a hallway leading
+straight north into what looks like a garden.  To the east and west lie
+torch-lined hallways.
+~
+0 DNTY 20
+D0
+North lies the safest place in the castle, the healer.
+~
+~
+0 -1 2523
+D1
+To the east lies a torch-lined hallway.
+~
+~
+0 -1 2519
+D2
+To the south the courtyard continues.
+~
+~
+0 -1 2506
+D3
+To the west lies a torch-lined hallway.
+~
+~
+0 -1 2520
+S
+
+#2519
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D1
+To the east the hallway continues.
+~
+~
+0 -1 2521
+D3
+To the west lies the Entry Hall.
+~
+~
+0 -1 2518
+S
+
+#2520
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D1
+To the east lies the Entry Hall.
+~
+~
+0 -1 2518
+D3
+To the west the hallway continues.
+~
+~
+0 -1 2522
+S
+
+#2521
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D0
+To the north the hallway continues.
+~
+~
+0 -1 2524
+D1
+To the east lies an empty room.
+~
+~
+0 -1 2534
+D3
+To the west the hallway continues.
+~
+~
+0 -1 2519
+S
+
+#2522
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D0
+To the north the hallway continues.
+~
+~
+0 -1 2525
+D1
+To the east the hallway continues.
+~
+~
+0 -1 2520
+D3
+To the west lies an empty room.
+~
+~
+0 -1 2535
+S
+
+#2523
+A {gSmoke{x-Filled {WTemple{x~
+As you enter this room, the pungent odor of herbs and incenses overwhelms your
+senses. You drift into an almost euphoric state as the mixture of scents
+carries you away. You look around the room to find it littered with herbs
+and unguents. A small statue {Wivory{x sits at the center of the room
+where the palace healer waits in solemn meditation until his talents are
+needed once again.
+~
+0 D 0
+C empire~
+D0
+To the north you can explore the garden.
+~
+~
+0 -1 2544
+D1
+To the east you can explore the garden.
+~
+~
+0 -1 2543
+D2
+To the south lies the Entry Hall.
+~
+~
+0 -1 2518
+D3
+To the west you can explore the garden.
+~
+~
+0 -1 2542
+S
+
+#2524
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D0
+To the north the hallway continues.
+~
+~
+0 -1 2526
+D1
+To the east is a guest room.
+~
+~
+0 -1 2537
+D2
+To the south the hallway continues.
+~
+~
+0 -1 2521
+S
+
+#2525
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D0
+To the north the hallway continues.
+~
+~
+0 -1 2527
+D2
+To the south the hallway continues.
+~
+~
+0 -1 2522
+D3
+To the west is a guest room.
+~
+~
+0 -1 2536
+S
+
+#2526
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D0
+To the north the hallway continues.
+~
+~
+0 -1 2532
+D1
+To the east is an empty room.
+~
+~
+0 -1 2538
+D2
+To the south the hallway continues.
+~
+~
+0 -1 2524
+S
+
+#2527
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D0
+To the north the hallway continues.
+~
+~
+0 -1 2528
+D2
+To the south the hallway continues.
+~
+~
+0 -1 2525
+D3
+To the west lies an empty room.
+~
+~
+0 -1 2539
+S
+
+#2528
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D1
+To the east the hallway continues.
+~
+~
+0 -1 2529
+D2
+To the south the hallway continues.
+~
+~
+0 -1 2527
+D3
+To the west lies a guest room.
+~
+~
+0 -1 2541
+S
+
+#2529
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D1
+To the east the hallway continues.
+~
+~
+0 -1 2530
+D3
+To the west the hallway continues.
+~
+~
+0 -1 2528
+S
+
+#2530
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D0
+To the north the hallway continues.
+~
+~
+0 -1 2533
+D1
+To the east the hallway continues.
+~
+~
+0 -1 2531
+D3
+To the west the hallway continues.
+~
+~
+0 -1 2529
+S
+
+#2531
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D1
+To the east the hallway continues.
+~
+~
+0 -1 2532
+D3
+To the west the hallway continues.
+~
+~
+0 -1 2530
+S
+
+#2532
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D1
+To the east lies a guest room.
+~
+~
+0 -1 2540
+D2
+To the south the hallway continues.
+~
+~
+0 -1 2526
+D3
+To the west the hallway continues.
+~
+~
+0 -1 2531
+S
+
+#2533
+A {RTorch{x-Lined Hallway~
+A long hallway with torches set at periodic points in the wall, cutting into the
+darkness. Decorative furniture's, such as carved tables and plush chairs
+are placed at sporadic places in the halls to show the Empire's
+appreciation for such things and to break the monotony of the hall.
+~
+0 DNTY 20
+D0
+North you hear the scraping of plates...the dining hall!
+~
+~
+0 -1 2547
+D1
+To the east you can check out one of the storage rooms.
+~
+~
+0 -1 2548
+D2
+To the south the hallway continues.
+~
+~
+0 -1 2530
+D3
+To the west you can check out one of the storage rooms.
+~
+~
+0 -1 2549
+S
+
+#2534
+Empty Room~
+Frowning to yourself you ponder what it is about this room that it wouldn't be
+used for. It's true that just recently the {VEmperor{x occupied this
+castle, perhaps it is just waiting to be used.  It looks like it might
+make a good bedroom, no, wait, maybe it would make a nice room for a
+bath...hmm...the possibilities are endless.
+~
+0 DNTY 20
+D3
+To the west lies the torch-lined hallway.
+~
+~
+0 -1 2521
+S
+
+#2535
+Empty Room~
+Frowning to yourself you ponder what it is about this room that it wouldn't be
+used for. It's true that just recently the {VEmperor{x occupied this
+castle, perhaps it is just waiting to be used.  It looks like it might
+make a good bedroom, no, wait, maybe it would make a nice room for a
+bath...hmm...the possibilities are endless.
+~
+0 DNTY 20
+D1
+To the east lies the torch-lined hallway.
+~
+~
+0 -1 2522
+S
+
+#2536
+Guest Bedroom~
+Comfort is the only thing that comes to mind when you enter this room.  Your day
+has been long, and your journey even longer.  In the comfort of this room
+you breath in roaming incense that lightens your load.  The furniture is
+decorative and beautiful, but all that really catches your eye is the bed
+right against the middle of the back wall. It's silken curtain that hangs
+around the bed, billowing in the wind appears to be beckoning you like
+a lover's finger to come closer.
+~
+0 DKNTY 20
+C empire~
+D1
+To the east lies the torch-lined hallway.
+~
+~
+0 -1 2525
+S
+
+#2537
+Guest Bedroom~
+Comfort is the only thing that comes to mind when you enter this room.  Your day
+has been long, and your journey even longer.  In the comfort of this room
+you breath in roaming incense that lightens your load.  The furniture is
+decorative and beautiful, but all that really catches your eye is the bed
+right against the middle of the back wall. It's silken curtain that hangs
+around the bed, billowing in the wind appears to be beckoning you like a
+lover's finger to come closer.
+~
+0 DKNTY 20
+C empire~
+D3
+To the west lies the torch-lined hallway.
+~
+~
+0 -1 2524
+S
+
+#2538
+Empty Room~
+Frowning to yourself you ponder what it is about this room that it wouldn't be
+used for. It's true that just recently the {VEmperor{x occupied this
+castle, perhaps it is just waiting to be used.  It looks like it might
+make a good bedroom, no, wait, maybe it would make a nice room for a
+bath...hmm...the possibilities are endless.
+~
+0 DTNY 20
+D3
+To the west lies the torch-lined hallway.
+~
+~
+0 -1 2526
+S
+
+#2539
+Empty Room~
+Frowning to yourself you ponder what it is about this room that it wouldn't be
+used for. It's true that just recently the {VEmperor{x occupied this
+castle, perhaps it is just waiting to be used.  It looks like it might
+make a good bedroom, no, wait, maybe it would make a nice room for a
+bath...hmm...the possibilities are endless.
+~
+0 DTNY 20
+D1
+To the east lies the torch-lined hallway.
+~
+~
+0 -1 2527
+S
+
+#2540
+Guest Bedroom~
+Comfort is the only thing that comes to mind when you enter this room.  Your day
+has been long, and your journey even longer.  In the comfort of this room
+you breath in roaming incense that lightens your load.  The furniture is
+decorative and beautiful, but all that really catches your eye is the bed
+right against the middle of the back wall. It's silken curtain that hangs
+around the bed, billowing in the wind appears to be beckoning you like a
+lover's finger to come closer.
+~
+0 DKNTY 20
+D3
+To the west lies the torch-lined hallway.
+~
+~
+0 -1 2532
+S
+
+#2541
+Guest Bedroom~
+Comfort is the only thing that comes to mind when you enter this room.  Your day
+has been long, and your journey even longer.  In the comfort of this room
+you breath in roaming incense that lightens your load.  The furniture is
+decorative and beautiful, but all that really catches your eye is the bed
+right against the middle of the back wall. It's silken curtain that hangs
+around the bed, billowing in the wind appears to be beckoning you like a
+lover's finger to come closer.
+~
+0 DKNTY 20
+D1
+To the east lies the torch-lined hallway.
+~
+~
+0 -1 2528
+S
+
+#2542
+The Royal Gardens.~
+{RFlowers{x and {Gtrees{x of every type dominate this large garden. The foliage
+grows over-head through the canopy of tree limbs creating an almost closed
+environment, letting the {Ysunlight{x trickle down in a cascade of
+{Gc{Ro{Yl{Bo{Gr{x, adding to the mystery and wonderment of this magical
+place. Flowers of every {Gc{Ro{Yl{Bo{Gr{x grow in the rainbow spread out
+before you, most of them were planted by the {VEmperor{x himself as he
+carefully tends to his beloved garden when not on missions for his
+{VEmpire{x. Small, {gstone{x walkways wind their way through
+the garden, twisting and turning, allowing patrons to soak in the beauty
+of the gardens or giving young lovers a chance to have a few extra moments
+together. At the center of the gardens is a good-sized goldfish pond with
+high-arching bridges angling over it at either end. A statue of a bird,
+spreading its wings spouts water at the edge the pond. You inhale the rich
+aroma of the botanical paradise as several colorful birds sing overhead.
+You feel at peace here.
+~
+0 NTY 20
+C empire~
+D0
+To the noth the gardens continue.
+~
+~
+0 -1 2545
+D1
+To the east Mr. Myagi will take care of all your ills.
+~
+~
+0 -1 2523
+S
+
+#2543
+The Royal Gardens.~
+{RFlowers{x and {Gtrees{x of every type dominate this large garden. The foliage
+grows over-head through the canopy of tree limbs creating an almost closed
+environment, letting the {Ysunlight{x trickle down in a cascade of
+{Gc{Ro{Yl{Bo{Gr{x, adding to the mystery and wonderment of this magical
+place. Flowers of every {Gc{Ro{Yl{Bo{Gr{x grow in the rainbow spread out
+before you, most of them were planted by the {VEmperor{x himself as he
+carefully tends to his beloved garden when not on missions for his
+{VEmpire{x. Small, {gstone{x walkways wind their way through
+the garden, twisting and turning, allowing patrons to soak in the beauty
+of the gardens or giving young lovers a chance to have a few extra moments
+together. At the center of the gardens is a good-sized goldfish pond with
+high-arching bridges angling over it at either end. A statue of a bird,
+spreading its wings spouts water at the edge the pond. You inhale the rich
+aroma of the botanical paradise as several colorful birds sing overhead.
+You feel at peace here.
+~
+0 NTY 20
+C empire~
+D0
+To the north the gardens continue.
+~
+~
+0 -1 2546
+D3
+To the west you can visit with Mr. Myagi.
+~
+~
+0 -1 2523
+S
+
+#2544
+The Royal Gardens.~
+{RFlowers{x and {Gtrees{x of every type dominate this large garden. The foliage
+grows over-head through the canopy of tree limbs creating an almost closed
+environment, letting the {Ysunlight{x trickle down in a cascade of
+{Gc{Ro{Yl{Bo{Gr{x, adding to the mystery and wonderment of this magical
+place. Flowers of every {Gc{Ro{Yl{Bo{Gr{x grow in the rainbow spread out
+before you, most of them were planted by the {VEmperor{x himself as he
+carefully tends to his beloved garden when not on missions for his
+{VEmpire{x. Small, {gstone{x walkways wind their way through
+the garden, twisting and turning, allowing patrons to soak in the beauty
+of the gardens or giving young lovers a chance to have a few extra moments
+together. At the center of the gardens is a good-sized goldfish pond with
+high-arching bridges angling over it at either end. A statue of a bird,
+spreading its wings spouts water at the edge the pond. You inhale the rich
+aroma of the botanical paradise as several colorful birds sing overhead.
+You feel at peace here.
+~
+0 NTY 20
+C empire~
+D1
+To the east the gardens continue.
+~
+~
+0 -1 2546
+D2
+To the south Mr. Myagi awaits your coming.
+~
+~
+0 -1 2523
+D3
+To the west the gardens continue.
+~
+~
+0 -1 2545
+S
+
+#2545
+The Royal Gardens.~
+{RFlowers{x and {Gtrees{x of every type dominate this large garden. The foliage
+grows over-head through the canopy of tree limbs creating an almost closed
+environment, letting the {Ysunlight{x trickle down in a cascade of
+{Gc{Ro{Yl{Bo{Gr{x, adding to the mystery and wonderment of this magical
+place. Flowers of every {Gc{Ro{Yl{Bo{Gr{x grow in the rainbow spread out
+before you, most of them were planted by the {VEmperor{x himself as he
+carefully tends to his beloved garden when not on missions for his
+{VEmpire{x. Small, {gstone{x walkways wind their way through
+the garden, twisting and turning, allowing patrons to soak in the beauty
+of the gardens or giving young lovers a chance to have a few extra moments
+together. At the center of the gardens is a good-sized goldfish pond with
+high-arching bridges angling over it at either end. A statue of a bird,
+spreading its wings spouts water at the edge the pond. You inhale the rich
+aroma of the botanical paradise as several colorful birds sing overhead.
+You feel at peace here.
+~
+0 NTY 20
+C empire~
+D1
+To the east the gardens continue.
+~
+~
+0 -1 2544
+D2
+To the south the gardens continue.
+~
+~
+0 -1 2542
+S
+
+#2546
+The Royal Gardens.~
+{RFlowers{x and {Gtrees{x of every type dominate this large garden. The foliage
+grows over-head through the canopy of tree limbs creating an almost closed
+environment, letting the {Ysunlight{x trickle down in a cascade of
+{Gc{Ro{Yl{Bo{Gr{x, adding to the mystery and wonderment of this magical
+place. Flowers of every {Gc{Ro{Yl{Bo{Gr{x grow in the rainbow spread out
+before you, most of them were planted by the {VEmperor{x himself as he
+carefully tends to his beloved garden when not on missions for his
+{VEmpire{x. Small, {gstone{x walkways wind their way through
+the garden, twisting and turning, allowing patrons to soak in the beauty
+of the gardens or giving young lovers a chance to have a few extra moments
+together. At the center of the gardens is a good-sized goldfish pond with
+high-arching bridges angling over it at either end. A statue of a bird,
+spreading its wings spouts water at the edge the pond. You inhale the rich
+aroma of the botanical paradise as several colorful birds sing overhead.
+You feel at peace here.
+~
+0 NTY 20
+C empire~
+D2
+To the south the gardens continue.
+~
+~
+0 -1 2543
+D3
+To the west the gardens continue.
+~
+~
+0 -1 2544
+S
+
+#2547
+Dining Hall~
+Marvelous scents arouse your senses as you enter this room.  There is a bustle
+of activity to the west in what appears to be a kitchen.  This room is
+decorated with naught but a very long, ornate, teak {bwood{x table, and
+comfortable pillows to kneel down on before the table.  The pillows are
+made of fine, {Vpurple{x silk; and they look to be just perfectly stuffed.
+There is only one head of the table, and that, you assume, is for the
+{VEmperor{x himself.
+~
+0 DKNTY 20
+D0
+North lies the throne room!
+~
+~
+0 -1 2552
+D1
+To the east you can visit the Kitchens.
+~
+~
+0 -1 2551
+D2
+To the south the torch-lit hallway continues.
+~
+~
+0 -1 2533
+D3
+To the west lies the Pantry.
+~
+~
+0 -1 2550
+S
+
+#2548
+Storage Room~
+This bland looking room contains hardwood boxes marked, "{RImport{x," and
+"{RDeport{x," painted in red.  Many barrels stock the walls and you guess
+casks of wine.  A few boxes marked, "Fruit" are lined up against the back
+wall; and the occasional small box labeled, "Herbs."
+~
+0 DNTY 20
+D3
+To the west lies the torch-lined hallway.
+~
+~
+0 -1 2533
+S
+
+#2549
+Storage Room~
+This bland looking room contains hardwood boxes marked, "{RImport{x," and
+"{RDeport{x," painted in red.  Many barrels stock the walls and you guess
+casks of wine.  A few boxes marked, "Fruit" are lined up against the back 
+wall; and the occasional small box labeled, "Herbs."
+~
+0 DNTY 0
+D1
+To the east lies the torch-lined hallway.
+~
+~
+0 -1 2533
+S
+
+#2550
+Royal Pantry~
+Stocks of grain are kept here.  But beyond that the {VEmpire{x has no need for
+the former castle owner's pantry.  Two peculiar looking barrels rest in
+the corner of the room.  They seem out of place considering the rooms
+contents.
+~
+0 DNTY 20
+D1
+To the east you can rejoin the eaters at the Dining Hall.
+~
+~
+0 -1 2547
+S
+
+#2551
+The Palace Kitchen~
+The loud sizzling noise of quickly frying food and the amazingly fast chopping
+noise of the famed chef's knife on the block are the first things that you
+notice as you enter the kitchen. The smells of fish and shrimp water your
+mouth as you peer forward through the smoke to see the chef hard at work
+cooking over a long flat grill, light frying the food, serving it and
+quickly moving on to the next dish. You better place your order quick,
+this place looks really busy!
+~
+0 DKNTY 20
+C empire~
+D3
+To the west you can enter the Dining Hall.
+~
+~
+0 -1 2547
+S
+
+#2552
+Audience Chamber~
+As you enter this grand room a sense of power, prestige, and awe sweeps you
+over.  The walls of this grand room are decorated by old tapestries, which
+depict the battles of ancient kings and ancient armies.  At the center of
+the room sits the fabled {RRuby Throne{x.  The Grand {VEmperor{x of the
+{YSun{x sits here.  On the left side of the ruby throne is a majestic
+looking {Wwhite{x lion with eyes of {Bsea blue{x.  The throne is set
+up on a platform.  It seems like it was set up so that the {VEmperor{x would
+never have to sit at the same level as normal men.  This is the main room
+of the castle. It is where people come from the world over to plead their
+case to the great and powerful, {VEmperor {xof the {YSun{x.
+~
+0 DT 0
+C empire~
+D2
+To the south the Dining Hall looms.
+~
+~
+0 -1 2547
+S
+
+#0
+
+#RESETS
+
+M 0 2501 1 2552 1             *White Lion into Audience Chamber
+M 0 2502 1 2516 1             *Ryo into the Way of the Blade
+M 0 2503 1 2517 1             *Zanji into the Armory
+G 0 2501 50                   *Sandals of Pain
+G 0 2502 50                   *Ring of Shame
+G 0 2503 50                   *Necklace of Doubt
+G 0 2504 50                   *Spirit of Shinto
+G 0 2505 50                   *Shackles of Conscious
+G 0 2506 50                   *Ribbons of Disgrace
+G 0 2507 50                   *Helm of Ignorance
+G 0 2508 50                   *Leggings of Impeding
+G 0 2509 50                   *Ring of Fear
+G 0 2510 50                   *Boots of Jealousness
+G 0 2511 50                   *Robe of Feebleness
+G 0 2512 50                   *Essence of Shinto
+G 0 2513 50                   *Sleeves of Weakness
+M 0 2504 1 2515 1             *Sensei into the Dojo
+M 0 2505 1 2513 1             *Mr. Fuji into the General Store
+G 0 2515 50                   *Teak wood box
+G 0 2516 50                   *Imperial Backpack
+G 0 2517 50                   *Scroll
+G 0 2518 50                   *Chukei
+G 0 2529 50                   *Seppuku robe
+G 0 2530 50                   *Seppuku dagger
+M 0 2506 1 2514 1             *Kato into the bar
+G 0 611 100                   *Milk
+G 0 17303 100                 *A flask of wine
+G 0 3154 100                  *Irish Red
+M 0 2507 1 2523 1             *Mr. Myagi into the Temple
+M 0 2508 1 2551 1             *Ben Hari Chef into the Kitchen
+G 0 2524 50                   *Tempura shrimp
+G 0 2525 50                   *Spring rolls
+G 0 2526 50                   *Rice cake
+G 0 2527 50                   *Sushi
+M 0 2509 1 2502 1             *Courtesy to the Palace Gates
+M 0 2510 1 2504 1             *A samurai guard to Courtyard
+M 0 2511 1 2504 1             *A samurai guard to Courtyard
+M 0 2512 1 2504 1             *A samurai guard to Courtyard
+M 0 2513 1 2504 1             *A samurai guard to Courtyard
+O 0 2514 1 2502               *Statue to the Front Gate
+O 0 2531 2 2550               *Barrels to the Royal Pantry
+O 0 2528 4 2536               *Bed to Guest Room
+O 0 2528 4 2537               *Bed to Guest Room
+O 0 2528 4 2540               *Bed to Guest Room
+O 0 2528 4 2541               *Bed to Guest Room
+O 0 2519 1 2518               *Rug to Entry Hall
+O 0 2534 5 2542               *Fountain to Royal Gardens
+O 0 2534 5 2543               *Fountain to Royal Gardens
+O 0 2534 5 2544               *Fountain to Royal Gardens
+O 0 2534 5 2545               *Fountain to Royal Gardens
+O 0 2534 5 2546               *Fountain to Royal Gardens
+O 0 2532 2 2548               *Export box to Storage
+O 0 2533 2 2548               *Import box to Storage
+O 0 2532 2 2549               *Export box to Storage
+O 0 2532 2 2549               *Import box to Storage
+O 0 2522 2 2548               *Fruit to Storage
+O 0 2523 2 2548               *Herbs to Storage
+O 0 2522 2 2549               *Fruit to Storage
+O 0 2523 2 2549               *Herbs to Storage
+O 0 2520 1 2547               *Table to Dining Hall
+O 0 2521 1 2552               *Ruby Throne to Audience Chamber
+D 0 2502 0 2                  *gate at main entrance locked 
+O 0 2535 1 2516               *anvil to smithy
+S
+
+#SHOPS
+
+2503 1 9 0 0 0 135 70 0 23    *Zanji, the armorer
+2505 3 4 15 0 0 130 75 0 23   *Mr. Fuji
+2506 17 0 0 0 0 130 75 0 23   *Kato, drinks guy
+2508 19 0 0 0 0 130 75 0 23   *A Ben Hari Chef
+0
+
+#SPECIALS
+M 2502 spec_blacksmith        *Ryo the Swordsmaster
+M 2503 spec_breath_any        *Zanji, the nasty dragon!
+S
+
+#$
+
+

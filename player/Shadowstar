@@ -1,0 +1,425 @@
+#PLAYER
+Name ShadowStar~
+Id   1022446702
+LogO 1022459123
+Vers 14
+Mexp 2
+Pass aceventura~
+Prom {Y%h/%HHP {G%m/%Mmana {V%v/%VStm {Y%g{W/%s (%r) {P%aAlign {G%XTnl {W%q/{G%j{x ~
+Race human~
+Cla  2
+Levl 5
+Tru  0
+Plyd 4434
+Back 4410
+Note 1022455376 1022455376 1022455376 1022455376 1022455376 1022455376 1022455376
+Scro 22
+Room 8543
+HMS  74 119 133
+Gold 2042
+Silv 65
+Exp  6346
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr B
+Prac 4
+Trai 1
+Wimp 0
+Atrib 15 15 15 16 17 14
+SkillPnts  2
+QuestPnts  8
+QuestNext  2
+SQuestNext 9
+Afk {B[{CSun May 26 19:20:27 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 44
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Vegita~
+Lsit AC89478C.ipt.aol.com~
+Ltim Sun May 26 18:22:54 2002
+~
+LSav Sun May 26 19:25:23 2002
+~
+HMSP 70 117 133
+THMS 0 0 0
+Cnd  0 28 42 45
+Colr 3 33 1
+Colr 57 33 1
+Colr 58 32 1
+Colr 59 37 1
+Colr 72 33 1
+Alias ki back~
+Sk 1 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'dispel magic'
+Sk 1 1 'fireproof'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 75 1 'dagger'
+Sk 25 1 'backstab'
+Sk 28 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 63 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'protective'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 102 0 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 2404
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 3052
+Enchanted
+Nest 0
+Wt   9
+Cond 100
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 126 15 0 0
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3043
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 3074
+Nest 0
+Wear 7
+Cost 420
+End
+
+#O
+Vnum 3075
+Nest 0
+Wear 8
+Cost 420
+End
+
+#O
+Vnum 3097
+Nest 0
+Wear 11
+Cost 750
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 8302
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 4203
+Nest 0
+ExtF 524289
+Wear 13
+Time 3
+Cost 1000
+End
+
+#O
+Vnum 3020
+Nest 0
+Cond 100
+Wear 16
+Cost 157
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#END

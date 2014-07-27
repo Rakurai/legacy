@@ -1,0 +1,1308 @@
+#AREA
+arctic.are~
+Arctic Wood~
+{H{{60 85} {MZheiden {TArctic Wood~
+3800 3899
+
+#MOBILES
+#3800
+wolf~
+A lupine shadow~
+A {ggrey{x {cshadow{x pads through the trees and stops to regard you.
+~
+The hunter of these woods stands before you.  A leader among the
+pack, the great {ggrey wolf{x is also a protector of the forest.
+His powerful jaws and rippling muscles promise painful {Rdeath{x
+to anyone foolish enough to threaten the woods. He tilts his head
+and seems to smile, as if he knows what you are thinking.  And,
+as silently as he appeared, he vanishes.
+~
+wolf~
+AGT PQHV -850 S
+60 10 10d80+4500 1d1+200 10d9+30 bite
+-30 -30 -30 -25
+FJKOR B IC Z
+stand stand male 500
+0 0 medium 0
+
+#3801
+wolf~
+A lupine shadow~
+A {ggrey{x {cshadow{x pads through the trees and stops to regard you.
+~
+This she-wolf, wise in her ways, is a brave hunter who roams the 
+forest with her life long mate. Her powerful jaws and rippling
+muscles promise painful {Rdeath{x to anyone foolish enough to 
+threaten the woods. She tilts her head and seems to smile, as if 
+she knows what you are thinking. And, as silently as she appeared, 
+she vanishes.
+~
+wolf~
+AGT PQHV -850 S
+60 10 10d80+4500 1d1+200 10d9+30 bite
+-30 -30 -30 -25
+FJKOR B IC Z
+stand stand female 500
+0 0 medium 0
+
+#3802
+hoar hound~
+A snarling ball of fur~
+A snarling, white hound launches itself at your throat.
+~
+With the size and attitude of a rabid mastiff, this is one canine
+you want to avoid.  Snarling and growling, the blue-eyed albino
+dog sees you as an intruder and a tasty meal.  Her bristly white
+fur deflects your blows and her bite leaves you chilled to the bone.
+~
+dog~
+ACGTF HVEDGJP -900 S
+60 10 10d10+4500 1d1+199 10d9+20 frbite
+-25 -24 -24 -20
+FOKND BGI FLNRQ Z
+stand stand female 500
+0 0 large 0
+
+#3803
+hoar hound~
+A snarling ball of fur~
+A snarling, white hound launches itself at your throat.
+~
+With the size and attitude of a rabid mastiff, this is one canine
+you want to avoid.  Snarling and growling, the blue-eyed albino
+dog sees you as an intruder and a tasty meal.  His bristly white
+fur deflects your blows and his bite leaves you chilled to the bone.
+~
+dog~
+ABCFGT HVEDGJ -900 S
+60 10 10d10+4500 1d1+199 10d9+20 frbite
+-30 -25 -25 -25
+FOKND BGI FLNRQ Z
+stand stand male 300
+0 0 large 0
+
+#3804
+ice warg~
+A shaggy wolfhound~
+A huge {Wwhite{x body of fur breathes ice.
+~
+Cold radiates from his body and from the intense gaze of his ice
+blue eyes as he focuses on you.  Normal breathing in these arctic
+temperatures resembles a tiny smokestack, yet you cannot tell if
+the warg is breathing or not.  His muscles ripple beneath his
+thick, white fur coat and ice blue teeth vanish and reappear as
+he opens and closes his mouth.
+~
+dog~
+AGT DFHJVP -900 S
+70 15 30d20+3500 1d1+200 10d9+25 frbite
+-31 -31 -30 -25
+BFOKH BC EGLNR H
+stand stand male 700
+0 0 large 0
+
+#3805
+ice warg~
+A shaggy wolfhound~
+A huge {Wwhite{x body of fur breathes ice .
+~
+Cold radiates from her body and from the intense gaze of her ice
+blue eyes as she focuses on you.  Normal breathing in these arctic
+temperatures resembles a tiny smokestack, yet you cannot tell if
+the warg is breathing or not.  Her muscles ripple beneath her
+thick, white fur coat and ice blue teeth vanish and reappear as
+she opens and closes her mouth.
+~
+dog~
+AGT DFHJVP -850 S
+70 15 30d20+3500 1d1+200 10d9+40 frbite
+-31 -31 -30 -25
+BFOKH BC EGLNR H
+stand stand female 700
+0 0 large 0
+
+#3806
+sprite~
+A pair of red eyes~
+A whirlpool of the water sprite whips 'round you.
+~
+In the turbulent water, you can see a tormented face.  You feel the
+entity is definitely female and that she does not want you here.
+While you ponder this, the water starts whirling faster and faster
+till it is painful to remain.
+~
+unique~
+ABFGR HDFGJQVN -850 S
+75 18 10d10+5000 1d1+150 10d8+20 blast
+-35 -33 -33 -25
+KCH BFHJ GIL ES
+stand stand female 700
+0 0 medium 0
+
+#3807
+treant~
+A walking tree~
+You feel eyes watching you from the {Gtrees{x.
+~
+The ancient ancestors of trees still walk the earth, though slowly.
+Towering above you, it looks at you through eyes that have watched
+a thousand empires and dynasties fall.  The rough barked skin is
+tough and repels most weapons, but is susceptible to axes and
+fire.  Tread softly, for this is the keeper of the trees and will
+not be ignored or toyed with in its domain.
+~
+unique~
+AGQB DFHJVYc -900 S
+80 23 20d50+6900 1d1+199 8d7+30 crush
+-40 -40 -40 -35
+ACEFKOH G FNOPQLT KH
+stand stand either 800
+0 0 giant 0
+
+#3808
+lord~
+The All Father~
+The {WAll Father{x, {GLord of the Forest{x, beckons to you in friendship.
+~
+His branches swaying, he awaits the end of eternity.  Born when the
+world was a babe, he grew until his legs could no longer support
+his weight.  He is the source of power for the forest, its
+protector, its father.  Ancient before history began, he stands
+imparting knowledge and providing succor to all within his domain.
+~
+unique~
+ABGR DFEHJBYVc 0 S
+85 25 30d50+8400 1d1+299 10d9+30 wrath
+-43 -43 -42 -40
+ACEFHJK ABDIJLNOQSM K H
+stand stand male 800
+0 0 giant 0
+
+#0
+
+#OBJECTS
+#3800
+heather sprig~
+A sprig of heather~
+A sprig of royal heather glows purple at your feet.~
+pill~
+pill GS A
+15 'shield' '' '' ''
+15 1 200 P
+E
+heather~
+This hardy plant, a symbol of freedom and royalty, grows only here
+and is rumored to bestow great power upon the partaker.
+~
+
+#3801
+hoar frost~
+hoar frost~
+A bit of ice flakes off the ceiling and falls to the floor.~
+pill~
+pill GS A
+15 'steel mist' '' '' ''
+15 1 200 P
+E
+hoar frost~
+This bit of ice has an eerie blue-white glow to it and being ice,
+it must be edible.
+~
+
+#3802
+moss bed~
+a soft bed of moss~
+A soft bed of moss grows in the corner.~
+moss~
+furniture MOIRY 0
+30 2000 BEHK 150 150
+1 2000 10 P
+E
+moss~
+Mother Earth has grown this special bed of moss just so that you
+could rest and refresh yourself.  Yup, it also cushions the tosch
+while you sit and chat a while ;)
+~
+
+#3803
+pool milky~
+a milky pool~
+A milky pool of liquid gathers near the wall.~
+milk~
+fountain MO 0
+1000 1000 milk 0 0
+1 1500 10 P
+E
+pool~
+The swirling opalascence of the milky liquid gathers in this pool.
+These are the rich juices which Mother Earth provides.
+~
+
+#3804
+vial~
+a small crystal vial~
+A small crystal vial of gel hangs suspended in air.~
+glass~
+potion GS AO
+60 'bless' 'heal' 'blood moon' ''
+60 1 5000 P
+E
+vial crystal~
+From the heart of the Mother Earth, a gift has been left for you.
+~
+
+#3805
+ring~
+{Yring{x of the {GAll Father{x~
+The {Yring{x of the {GAll Father{x lies here.~
+mithril~
+armor ABOTYR AB
+20 20 20 20 0
+80 0 5000 P
+E
+ring~
+The {Yring{x of the {GAll Father{x is worn in remembrance of
+all that the forest brings.
+~
+A
+3 3
+A
+4 3
+A
+5 3
+A
+13 75
+A
+18 5
+A
+19 5
+
+#3806
+Aurora Borealis~
+the {VA{x{Yu{x{Gr{x{Wo{x{Rr{x{Na{x {CB{x{Vo{x{Yr{x{Ge{x{Wa{x{Rl{x{Ni{x{Vs{x~
+Vivid lights of {Nblue{x and {Vviolet{x streak across the sky here.~
+light~
+armor ABPS AQ
+20 20 20 18 0
+65 0 5000 P
+E
+aurora borealis~
+Within the vivid {Nblues{x and {Vpurples{x you see a forest inhabited 
+by wolves, warges, ents, a sprite, and hoar hounds.
+~
+A
+3 3
+A
+12 65
+A
+18 3
+A
+19 3
+A
+24 5
+
+#3807
+key player Arctic~
+key to {WArctic Wood{x~
+Did Zheiden give you this key????~
+ice~
+key TYS A
+1 0 0 0 0
+0 0 0 P
+E
+Arctic Wood~
+This key was specially formed from ice crystals for Zheiden.
+~
+
+#3808
+wolf pelt~
+a wolf pelt~
+A thick {Wsilver{x {gwolf{x {Wpelt{x lies here.~
+wolf pelt~
+armor ABGSTY AK
+20 20 20 15 0
+60 1 30000 P
+E
+wolf pelt~
+Well preserved and warm, the {Wpelt{x provides excellent protection
+from the elements.  While wearing this, you almost feel the {Cspirit{x
+of the forest runner watching you.
+~
+A
+5 2
+A
+12 75
+A
+13 50
+A
+18 3
+A
+19 3
+A
+24 -3
+
+#3809
+tail charm~
+a hoar hound charm~
+A thick furry tail gives off a frigid aura.~
+tail~
+armor ABSTYG AO
+15 13 15 13 0
+55 1 15000 P
+E
+shaggy tail~
+A trophy from the hound, the tail gives off a cold aura that
+numbs your hand.
+~
+A
+3 3
+A
+5 3
+A
+12 50
+A
+13 25
+A
+18 2
+A
+19 2
+A
+24 -2
+
+#3810
+foggy mist~
+a foggy mist~
+A {Wcold{x {ggray{x {Wmist{x hangs here.~
+mist~
+armor ABGST AQ
+19 19 20 20 0
+65 1 30000 P
+E
+mist foggy~
+This is the remnants of a {Wfrost beast{x.  It is said the
+soul remains to protect the wearer until {Rdeath{x.
+~
+A
+5 2
+A
+12 40
+A
+13 40
+A
+19 4
+A
+24 -3
+
+#3811
+spirit~
+an angry spirit~
+The soul of a sprite drifts here, abandoned and lost.~
+energy~
+light AEGJSTYZ A
+0 0 -1 -0 0
+65 1 30000 P
+E
+energy~
+The anger is palpable.  The tragedy is tangible.  A long
+groaning wail teases the edge of your consciousness.
+~
+A
+5 2
+A
+12 40
+A 
+13 25
+A
+18 3
+A
+19 4
+A
+24 -4
+
+#3812
+wood bracers ~
+a band of living wood~
+Pulsing with life, a bracer lies here waiting its new possessor.~
+steel~
+armor ABHJMYT AM
+20 20 19 19 0
+75 1 30000 P
+E
+wood bracers~
+Smoother than the surface of a still pon, this piece of wood fits
+snugly around your wrist.  Once there, you feel its power flowing
+into and supporting you.
+~
+A
+2 2
+A
+12 40
+A
+13 25
+A
+14 -50
+A
+18 3
+A
+19 2
+
+#3813
+heart~
+the {Rheart{x of the earth~
+~
+wood~
+container 0 0
+300 A 0 300 100
+0 300 0 P
+E
+heart~
+The {Rheart{x of the earth holds more than just blood. 
+~
+#3814
+sign~
+a sign~
+There is a sign floating in the air.~
+wood~
+trash 0 0
+0 0 0 0 0
+0 0 0 P
+E
+sign~
+The sign reads:
+
+The names of the mobs are written in the sky. 
+Look in the heart of the Mother's Sanctuary 
+for the answer.
+
+PS: We highly recommend you group for this area.
+The Battlefield of the Legion lies to the south.
+Mind yourself there. It takes more than a strong
+arm to uncover the secrets hidden within the
+corpses of the war.
+~
+
+#0
+
+#ROOMS
+#3800
+{WA{x {gHidden{x {WPass{x~
+   Before you is a break in the basalt wall that extends miles to
+either side.  It is very dark and narrow allowing only two people
+at a time to enter.  You can see it climbing in the distance, and
+note that the gray pebbles and rocks now at your feet are covered
+with snow at higher elevations. {PREAD THE SIGN!!!!!{x
+~
+0 N 0
+D1
+East is a rocky cave.
+~
+~
+4 8412 8403
+D2
+To the south lies the entrance to the Legion's Battlefield.
+~
+~
+0 -1 11900
+D3
+The foot of the mountains lies to the west.
+~
+~
+0 -1 3550
+D4
+Travel up a narrow path.
+~
+~
+0 -1 3801
+S
+
+#3801
+{WThe{x {CNarrows{x~
+    To either side is sheer rock.  You cannot climb it, nor even
+chip it with hammer and chisel.  In the distance, you hear
+haunting cries of the denizens of this place.  Rattled by the
+wails and the silence, you press onward not wanting to be caught
+without room to fight.
+~
+0 J 0
+D4
+Travel up a narrow path.
+~
+~
+0 -1 3802
+D5
+The Hidden Pass is down.
+~
+~
+0 -1 3800
+D1
+A sanctuary lies east.
+~
+~
+1 -1 3820
+S
+
+#3802
+{WThe{x {CNarrows{x~
+    To either side is sheer rock.  You cannot climb it, nor even
+chip it with hammer and chisel.  In the distance, you hear
+haunting cries of the denizens of this place.  Rattled by the
+wails and the silence, you press onward not wanting to be caught
+without room to fight.
+~
+0 J 0
+D4
+Travel up a narrow path.
+~
+~
+0 -1 3803
+D5
+A path leads back down.
+~
+~
+0 -1 3801
+S
+
+#3803
+{WThe{x {CNarrows{x~
+    To either side is sheer rock.  You cannot climb it, nor even
+chip it with hammer and chisel.  In the distance, you hear
+haunting cries of the denizens of this place.  Rattled by the
+wails and the silence, you press onward not wanting to be caught
+without room to fight.
+~
+0 J 0
+D4
+The valley is visible further up.
+~
+~
+0 -1 3804
+D5
+A path leads back down.
+~
+~
+0 -1 3802
+S
+
+#3804
+{VEntrance{x {Yto the{x {GValley{x~
+    Your journey down the precarious descent of the narrows has been
+a long one.  You stop for a {Cmoment{x to regain your strength.  Before
+you is a valley, none of which you have ever seen before, heralds
+your arrival with a visual assualt of verdant, lush {Gforest{x growth.
+To the east you see a pale waterfall in the distance. Looking down
+the path, you note the snow has disappeared, but the chill remains.
+Looking again, you note that this is your only exit.  The
+surrounding mountains and monroes are covered in snow, impassable.
+~
+0 N 0
+D5
+You can go back down the path to the narrows.
+~
+~
+0 -1 3803
+D3
+To the west the path ends.
+~
+~
+0 -1 3805
+E
+forest~
+A peaceful scene
+In a crystal surface
+A forest dream
+Of quiet serenity
+A finger's touch
+The ripple's path
+The scene destroyed
+~
+E
+moment~
+Only minutes together
+Happy moments for both
+We give and receive
+Memories lived and unlived
+~
+S
+
+#3805
+{WThe{x {GPath{x {Wends{x~
+    You come to the edge of the wood and the path stops abruptly.
+There is an eerie silence broken only by the cries of the creatures
+in the woods.  The trees form a wall cutting off any visibility into
+the wood, leaving you guessing as to the inhabitants of the trees.
+From here, you see only vague shadows moving swiftly and silently
+{Vbeyond{x the trees.  Or is it your imagination?
+~
+0 N 0
+D1
+If you look to east you will see the valley entrance.
+~
+~
+0 -1 3804
+D0
+The {WArctic Wood{x lies to the north.
+~
+~
+0 -1 3806
+E
+beyond~
+A lover's kiss
+The heart pounds
+Bodies yearn
+And souls entwine
+
+Never lost
+A mem'ry kept
+Forever cherished
+To beyond death.
+~
+S
+
+#3806
+{CThe{x {WArctic Wood{x~
+    A deep chill pierces you to the bone while you journey inside
+this dark wood. There is no sense of danger, just unearthy patience.
+Under the canopy of evergreens, the sun is invisible and time
+has stopped.  You cannot tell where you are, as it is dark as
+the depths of midnight.  The aroma overwhelms your nose, leaving it
+congested, protected from the strong odor. The {Vonly{x senses you can
+use are touch to feel the trees and hearing to listen to the howls
+and wails of the inhabitants. Slowly, you realize that you are at
+the mercy of anything that might be native to the cold, dark wood.
+~
+0 N 0
+D0
+The {WArctic Wood{x lies to the north.
+~
+~
+0 -1 3807
+D2
+To the south the path ends, not sure if there is more {WArctic
+Wood{x there or not?
+~
+~
+0 -1 3805
+D1
+The {WArctic Wood{x lies to the east.
+~
+~
+0 -1 3809
+E
+only~
+Years have passed
+Dreams my only solace.
+My heart aches,
+Memories my only comfort.
+I am returned,
+Only three days later.
+~
+S
+
+#3807
+{CThe{x {WArctic Wood{x~
+    A deep chill pierces you to the bone while you journey inside
+this dark wood. There is no sense of danger, just unearthy patience.
+Under the canopy of evergreens, the sun is invisible and time
+has stopped.  You cannot tell where you are, as it is dark as
+the depths of midnight.  The aroma overwhelms your nose, leaving it
+congested, protected from the strong odor. The only senses you can
+use are touch to feel the trees and hearing to listen to the howls
+and wails of the inhabitants. Slowly, you realize that you are at
+the mercy of anything that might be native to the cold, dark wood.
+~
+0 N 0
+D0
+The {WArctic Wood{x lies to the north.
+~
+~
+0 -1 3811
+D1
+The {WArctic Wood{x lies to the east.
+~
+~
+0 -1 3808
+D2
+The {WArctic Wood{x lies to the south.
+~
+~
+0 -1 3806
+S
+#3808
+{CThe{x {WArctic Wood{x~
+    A deep chill pierces you to the bone while you journey inside
+this dark wood. There is no sense of danger, just unearthy patience.
+Under the canopy of evergreens, the sun is invisible and time
+has stopped.  You cannot tell where you are, as it is dark as
+the depths of midnight.  The aroma overwhelms your nose, leaving it
+congested, protected from the strong odor. The only senses you can
+use are touch to feel the trees and hearing to listen to the howls
+and wails of the inhabitants. Slowly, you realize that you are at
+the mercy of anything that might be native to the cold, dark wood.
+~
+0 N 0
+D3
+The {WArctic Wood{x lies to the west.
+~
+~
+0 -1 3807
+D1
+I know you expected more of the {WArctic Wood{x, but you are in luck,
+there is a clearing that lies to the east.
+~
+~
+0 -1 3814
+D2
+The {WArctic Wood{x lies to the south.
+~
+~
+0 -1 3810
+S
+#3809
+{CThe{x {WArctic Wood{x~
+    A deep chill pierces you to the bone while you journey inside
+this dark wood. There is no sense of danger, just unearthy patience.
+Under the canopy of evergreens, the sun is invisible and time
+has stopped.  You cannot tell where you are, as it is dark as
+the depths of midnight.  The aroma overwhelms your nose, leaving it
+congested, protected from the strong odor. The only senses you can
+use are touch to feel the trees and hearing to listen to the howls
+and wails of the inhabitants. Slowly, you realize that you are at
+the mercy of anything that might be native to the cold, dark wood.
+~
+0 N 0
+D3
+The {WArctic Wood{x lies to the west.
+~
+~
+0 -1 3806
+D1
+A clearing lies to the east.
+~
+~
+0 -1 3821
+S
+#3810
+{CThe{x {WArctic Wood{x~
+    A deep chill pierces you to the bone while you journey inside
+this dark wood. There is no sense of danger, just unearthy patience.
+Under the canopy of evergreens, the sun is invisible and time
+has stopped.  You cannot tell where you are, as it is dark as
+the depths of midnight.  The aroma overwhelms your nose, leaving it
+congested, protected from the strong odor. The only senses you can
+use are touch to feel the trees and hearing to listen to the howls
+and wails of the inhabitants. Slowly, you realize that you are at
+the mercy of anything that might be native to the cold, dark wood.
+~
+0 N 0
+D1
+You hear the sound of thrashing water to the east.
+~
+~
+0 -1 3816
+D0
+Just more of The {WArctic Wood{x is north.
+~
+~
+0 -1 3808
+S
+
+#3811
+{CThe{x {WArctic Wood{x~
+    A deep chill pierces you to the bone while you journey inside
+this dark wood. There is no sense of danger, just unearthy patience.
+Under the canopy of evergreens, the sun is invisible and time
+has stopped.  You cannot tell where you are, it is as dark as
+the depths of midnight.  The aroma overwhelms your nose, leaving it
+congested, protected from the strong odor. The only senses you can
+use are touch to feel the trees and hearing to listen to the howls
+and wails of the inhabitants. Slowly, you realize that you are at
+the mercy of anything that might be native to the {Ccold{x, dark wood.
+~
+0 N 0
+D2
+The {WArctic Wood{x lies to the south.
+~
+~
+0 -1 3807
+D4
+A short walk up the summit, or a long walk if you happen to have
+short legs;)
+~
+~
+0 -1 3812
+D1
+To the east is a morning greeting.
+~
+~
+0 -1 3813
+E
+cold~
+A cold fire dwindles
+One ember beneath the ash
+Air breathed kindles the flame
+A light, a torch, a blaze
+~
+S
+
+#3812
+{VHigh Point{x~
+    Here you can see the entire valley, even the original entrance
+in the south.  The forest below beckons you, awaiting your reentry.
+The voices call out in mocking wails and howls, daring you to
+return.  Visible on the other side of the valley is a white
+waterfall, spray puffing as if it were a living thing.  You {Vfeel{x
+you can rest here, but there still is a sense of danger lurking
+at the edge of your mind.
+~
+0 N 0
+D5
+There seems to be no other way to go but back down.
+~
+~
+0 -1 3811
+E
+feel~
+Time abides
+But waits for none
+Apart for now
+But soon together
+We await that moment
+Breathless and longing
+Two hearts yearning
+Two hands outstretched
+Close enough to hear and feel
+But too far to touch
+~
+S
+
+#3813
+{YThe{x {RMorning's{x {NAzure{x {YGreeting{x~
+    Slowly, the east lightens as azure scouts rout the black
+rearguard of night. Gradually, {Ylight{x penetrates the forest below and
+you can just make out a waterfall across the valley shining in the
+morning light. A rapidly falling wave of shimmering light, awakens
+your eyes with vivid blues and piercing reds as its prismatic effect
+grows. Beneath the flowing waters and under the trees you see a
+second sky reflected in a secluded crystal blue pool. Looking up
+again, you see the clouds growing lighter and lighter, heralding
+the approach of the emperor announcing his arrival.  Finally, the
+golden monarch peeks above the {Yhorizon{x bathing everything in
+light and sending his sister's darkness into the west.
+~
+0 N 0
+D3
+The {WArctic Wood{x lies to the west.
+~
+~
+0 -1 3811
+E
+light~
+A slice of day
+In the veil of night
+A beacon's glow for the lost
+Heaven's light
+Muted and low
+A reminder though
+Of sun and glory
+~
+E
+horizon~
+Past horizons
+Powerful tides lay
+In wait of the time
+They come no weaker
+For time at sea
+They crash like a tidal wave
+Just as potent, only
+Longer
+~
+S
+
+#3814
+{WThe{x {REerie{x {WPath{x~
+    The trees part, forming an arch over a section of forest.  At
+the end you can see what appears to be a grove of trees. Waves of
+power wash over you, originating in that grove.  The silence here
+is disquieting. There is {Pintense{x interest in your actions. Tread
+lightly, there are watchers even you cannot sense.
+~
+0 N 0
+D3
+The {WArctic Wood{x lies to the west.
+~
+~
+0 -1 3808
+D0
+You see a huge tree to the north.
+~
+~
+0 -1 3815
+E
+intense~
+Love so intense
+Desire so deep
+So much in the mind
+No escape, even in sleep.
+A need to embrace
+To comfort and care
+A life worth living
+A life to share.
+~
+S
+
+#3815
+{WThe{x {CWhispering{x {WGrove{x~
+    In the center of the grove is a *HUGE* pine.  Feeling the
+{Gtree's{x life in the very air around you, awed you stop to regard it.
+The tree must be thousands of years old, its trunk as thick as the
+belly of a dragon. Just on the edge of your preception is an eerie
+whispering as if someone is trying to speak, but you can make
+nothing out. You watch as the branches move of their own accord in
+an almost lifelike fashion. The grove is a perfect circle with the
+roots of the pine radiating in all directions.  The smell of power
+is thick and pervasive. You hear movement in the trees, but cannot
+for your life see your pursuers.
+~
+0 N 0
+D2
+A trail leads south to the eerie path.
+~
+~
+0 -1 3814
+E
+tree~
+Alone with you
+In a tree's embrace
+A long sought wish
+Your face to touch
+Twitching fingers
+Rise and fall
+A dream come true
+Or am I sleeping still?
+~
+S
+
+#3816
+{WIcy{x {CWaterfall{x~
+    The first thing you hear is the gentle rush of water, much like
+that of a heavy downpour.  The crisp, clean air reminds you of early
+winter sunrises. Then, you break the trees at the base of a glorious
+waterfall. The water cascades down the rockface like so much liquid
+snow and into a secluded crystal pond hidden by the tall trees and
+surrounding black cliffs.  You are splashed by the froth and feel
+the biting chill where the water {Ctouches{x your skin. Rather than mind
+numbing cold, it is invigorating and refreshing.
+~
+0 N 0
+D4
+If you have enough energy, and are able, climb upward to the summit.
+~
+~
+0 -1 3817
+D5
+Go down to a hidden pool, but be careful it's slippery.
+~
+~
+0 -1 3818
+D3
+The {WArctic Wood{x lies to the west.
+~
+~
+0 -1 3810
+E
+touches~
+I cannot see
+Them nor touch them
+But I feel them
+Holding mine.
+First searching, they grasp
+Then guiding, they lead
+And loving, they comfort
+Invisible, but there
+I feel them holding mine.
+~
+S
+
+#3817
+{RS{x{Yu{x{Nn{x{Vs{x{Ce{x{Pt{x {Wof{x {PCrimson{x {Wand{x {YGold{x~
+    Finishing your climb, you pause for a rest at the summit.
+Looking across the valley, you see the evening's {Psunset{x beginning
+its magnificent display. Surrounding the sun, the clouds take on
+deep hues of crimson and gold. An aura so vivid it breaks across
+the hills and monroes changing the leaves to auburn fire.  The
+reds and yellows fade to deep blues and violets that reach toward
+the oncoming darkness.  The dreaming clouds of pink far from the
+sun, darken into shadows of the sky as the deep, blue velvet of
+{cnight{x stretches across the sky, chasing the last rays of crimson
+and gold into the west.
+~
+0 N 0
+D5
+An icy waterfall is at the base of the summit.
+~
+~
+0 -1 3816
+E
+sunset~
+A summer breeze upon my cheek,
+Blood-red sunset for my eyes,
+Gentle dreams while I sleep,
+A calming touch upon my heart,
+What makes me happy,
+You do.
+~
+E
+night~
+Storms of night
+And winter's rain
+A love's lost heart
+Lost and found again.
+~
+S
+
+#3818
+{WThe{x {NPool{x~
+    Diving beneath the calm surface, you suddenly realize that there
+is no life in this body of water.  You can feel the water move around
+you.  First, you {Vfeel{x a gentle caress, then a violent tug.  Looking
+around, you see nothing, but then you are rocked by an iron {Vhard{x slap
+to the face.  The water churns and churns, pulling you this way and
+that.  Within the tempest you see a shadowy form and blazing red
+eyes filled with hate.
+~
+0 XN 6
+D4
+You see nothing, you are under water.
+~
+~
+0 -1 3816
+D3
+You can get out of the water and go west under the cliff. That is if
+you don't drown first.
+~
+~
+0 -1 3819
+E
+feel~
+A name without a face
+I can feel you just the same
+A piece of me in the day
+A dream of you at night
+~
+E
+hard~
+I love you
+Three short words
+A world full of meaning
+An existence full of life
+I love you
+So hard to explain
+An emotion deeper than seas
+And more vast than oceans
+I love you
+Simply put
+Strongly felt
+Forever Lived.
+~
+S
+
+#3819
+{gUnder{x {WThe{x {gCliff{x~
+    Having narrowly escaped the tempest, you cautiously swim into
+calmer waters.  You can feel the warmth of the {Cwater{x and a sense
+of peace suffuses you. Looking up, you see a window, glittering
+shafts of white light stream through beckoning you.  In the
+background, you hear and feel a low thrum in the water that
+suddenly relaxes you.  Lazily, you float towards the white light.
+~
+0 XN 6
+D1
+To the east you hear the sound of water splashing, or is that
+thrashing?
+~
+~
+0 -1 3818
+D4
+It would be advisable to go up and rest in the sanctuary.
+~
+~
+0 -1 3820 
+E
+water~
+Early morning, A
+Sleeping sun still
+Slumbering beyond the trees
+A light unseen glows
+
+A bond miles long
+Glowing dreams of
+Sound and sight
+A hidden light grows
+
+Separated by
+A river of hate
+And Ocean of Water
+The light endure
+
+Two joined in
+Pre-dawn hours
+Each with minds tied
+And a glow in their hearts
+~
+S
+
+#3820
+{RMother's{x {TSanctuary{x~
+    It is as if you were in the center of the Aurora Borealis.  The
+walls come alive with shimmering colors as scant illumination reflects
+vibrant reds, happy yellows, melancholy blues, and living greens in a
+flowing mural of color. {CYou{x hear the water lapping at the edges of
+the pool, and the echoes of water dripping from the stalagtites on
+the ceiling. If you are very quiet and listen carefully, you can
+hear the heart of the earth slowly pulsing as the day passes.
+Like the inexorable tide, the room's serenity rolls over you and a
+warm glow spreads throughout your body, as Mother Earth smiles
+upon you.  Rest...refresh...renew.
+~
+0 0 0
+D5
+You can venture back down under the cliff.
+~
+~
+0 -1 3819
+E
+you~
+In heart's short life
+Love comes so rare
+Only touched by few
+Veils lifted, souls revealed
+Even sorrow pales
+You kissed my heart
+Once, twice, three times
+Unknown, unseen, unforgettable
+~
+E
+heart~
+A love so sweet and pure
+Cannot by distance or Death
+Be lessened.
+A body can be mourned in passing,
+But a soul is forever loved.
+A spirit so giving and
+Heart so caring cannot,
+Because of absence, be forsaken.
+~
+S
+
+#3821
+{WA{x {CC{x{Wh{x{Ci{x{Wl{x{Cl{x{Wy{x {CC{x{Wl{x{Ce{x{Wa{x{Cr{x{Wi{x{Cn{x{Wg{x~
+   You have entered a small clearing at the base of one of the
+basalt cliffs.  Dug out of the side is a cavern, roughly the size of
+a small hut.  Upon closer inspection, you notice that the sides are
+sheer and smooth, as if cut with a razor-thin blade.  A definite
+chill billows {gforth{x from the cave and your breath steams in front
+of you as you contemplate the entrance.  From inside, you hear a
+yelp and a growl.
+~
+0 N 0
+D2
+A cave lies to the south.
+~
+~
+0 -1 3822
+D3
+The {WArctic Wood{x lies west.
+~
+~
+0 -1 3809
+E
+forth~
+A love in my heart
+It sings all day long
+Thoughts rambling in my mind
+Only you stand forth clear
+My night blends with day
+And you are always there
+My heart, my hope, my dream
+~
+S
+
+#3822
+{CThe{x {WIcy{x {gDen{x~
+    The cave is about the size of a large living room, all of it of
+the same cut as the entrance, smooth and clean.  The floor is
+littered with bones and coarse fur.  In the corner is a nest of
+some sort, made from fallen branches and discarded {Ytreasure{x.  The
+entire cavern is covered in a blue-white frost.  Claw marks are
+scored deep into this frozen sheath.  They are roughly the size of
+bear claws, big bear claws.  The chill settles deep into your bones
+and you feel the need to leave, RIGHT NOW.
+~
+0 N 0
+D0
+A clearing lies north.
+~
+~
+0 -1 3821
+E
+treasure~
+A treasure lost
+Of gold and wealth
+A paltry sum
+In love's warm glow
+The lovers' kiss
+To free the heart
+A life forever
+In the other's soul
+~
+S
+#0
+
+#RESETS
+D 0 3801 1 1 *Close door east to Mother's Sanctuary
+O 0 3814 1 3800 *load vial
+M 0 3800 2 3807 2 *load wolf
+G 0 3808 10 *Load wolf pelt on wolf
+M 0 3800 2 3808 2 *load wolf
+G 0 3808 10 *Load wolf pelt on wolf
+M 0 3801 2 3809 2 *load wolf
+G 0 3808 10 *Load wolf pelt on wolf
+M 0 3801 2 3810 2 *load wolf
+G 0 3808 10 *Load wolf pelt on wolf
+M 0 3802 1 3822 1 *load hoar hound
+G 0 3809 10 *Load tail charm on hoar hound
+M 0 3803 1 3822 1 *load hoar hound
+G 0 3809 10 *Load tail charm on hoar hound
+M 0 3804 1 3813 1 *load ice warg
+G 0 3810 5 *Load mist on ice warg
+M 0 3805 1 3817 1 *load ice warg
+G 0 3810 5 *Load mist on ice warg
+M 0 3806 1 3818 1 *load sprite
+G 0 3811 10 *Load seele on sprite
+M 0 3807 3 3812 1 *load ent
+E 0 3812 20 15 *Load wood bracers on ent
+M 0 3807 3 3816 1 *load ent
+E 0 3812 20 15 *Load wood bracers on ent
+M 0 3807 3 3811 1 *load ent
+E 0 3812 20 15 *Load wood bracers on ent
+M 0 3808 1 3815 1 *load All Father
+E 0 3805 10 1 *Load ring on All Father
+O 0 3800 4 3812 *load heather sprig
+O 0 3801 4 3822 *load hoar frost
+O 0 3802 1 3820 *load moss
+O 0 3803 1 3820 *load pool
+O 0 3804 4 3820 *load vial
+O 0 3813 1 3820 *load heart of earth
+P 0 3806 10 3813 1 *load Aurora in heart
+S
+
+#SPECIALS
+M 3804 spec_breath_frost
+M 3805 spec_breath_frost
+M 3806 spec_cast_mage
+M 3807 spec_cast_cleric
+M 3808 spec_cast_mage
+S
+
+#$
+

@@ -1,0 +1,313 @@
+#PLAYER
+Name Deathstar~
+Id   1007759026
+LogO 1015201062
+Vers 12
+Prom <%hhp %mm %vmv> <%X> <%z> <%p %k> <%q %Q> ~
+Race seraph~
+Sex  1
+Cla  5
+Levl 5
+Plyd 3621
+Age  0
+Back 2779
+Note 1010076924 1010076924 1010076924 1010076924 1010076924 1010076924
+Scro 22
+Room 3124
+HMS  82 82 124 124 124 157
+Gold 24
+Silv 680
+Exp  5589
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHIJLQSc
+AfBy TVYc
+FRes NS
+FVul M
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 9
+Trai 7
+Save  -10
+Alig  1000
+Hit   22
+Dam   12
+ACs 105 105 105 112
+Atrib 15 15 11 13 17 18
+AtMod 6 2 3 6 0 4
+QuestPnts 4
+Pass death~
+Afk {B[{CSat Dec  8 12:35:55 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 20
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Alisa~
+Lsit 134.231.222.21~
+Ltim Sun Mar 03 18:16:24 2002
+~
+LSav Sun Mar 03 18:17:42 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 74 124 157
+THMS 0 0 0
+Cnd  0 0 3 0
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'frenzy'
+Sk 1 1 'holy word'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 42 1 'sword'
+Sk 1 1 'shield block'
+Sk 1 1 'rescue'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'curative'
+Affc 'bless'   0  72  64   9  18          0 1
+Affc 'bless'   0  68  64  -9  24          0 1
+Affc 'frenzy'   0  70   9  12  18          0 1
+Affc 'frenzy'   0  72   9  12  19          0 1
+Affc 'frenzy'   0  70   9  60  17          0 1
+Affc 'giant strength'   0  72  58   4   1          0 1
+Affc 'haste'   0  70   3   4   2    2097152 1
+Affc 'armor'   0  67   9 -20  17          0 1
+Affc 'shield'   0  71  66 -20  17          0 1
+Affc 'steel mist'   0  69  21  -7  17   16777216 1
+Affc 'regeneration'   0  71  22   0   0  268435456 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 53 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 1
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 1
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 1
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 81
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#END

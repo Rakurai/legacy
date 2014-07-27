@@ -1,0 +1,1030 @@
+#PLAYER
+Name Zaq~
+Id   990759737
+LogO 1005023433
+Vers 8
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%r/%z> ~
+Race irda~
+Clan kindred~
+Sex  1
+Cla  0
+Levl 43
+Plyd 400437
+Age  720000
+Back 362010
+Note 992406546 992309656 992299772 992320252 992337334 992241159
+Scro 22
+Room 3032
+HMV  750 750 767 767 423 423
+Gold 1504
+Silv 266
+Gold_in_bank 3000
+Exp  48487
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 7
+PKRank 0
+Act  CDEFGHJLSTc
+Comm NORVb
+Revk 0
+Pos  8
+Prac 12
+Trai 2
+Save  -24
+Alig  1000
+Hit   32
+Dam   50
+ACs -155 -151 -148 -145
+Atrib 14 21 21 18 17 15
+AtMod 7 8 5 12 6 3
+QuestPnts 52
+Pass mpfdlis~
+Afk {B[{CMon Jun 11 02:21:22 2001{B] {C{CA{Tuto-{CA{Tfk by {GL{Be{Nga{Bc{Gy{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 41
+Rank {TM{gB{cR{x~
+Aura ~
+TSex 1
+LLev 104
+Email qaz@unforgettable.com~
+Deit {RQ{Pa{Rz{x~
+Lsit adsl-138-89-64-176.nnj.adsl.bellatlantic.net~
+Ltim Wed Jun 13 05:06:02 2001
+~
+LSav Mon Nov 05 23:10:33 2001
+~
+MC 41
+Col 32 0 36 35 31 0 0 0 0 32 0 0 0 0 0 0 0 0 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 1 0 1 1 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  BFGHJO
+HMVP 455 507 353
+THVP 0 0 0
+Cnd  0 0 0 0
+Alias ww who~
+Alias qq qt~
+Alias cc c heal~
+Alias ss sca~
+Alias pp get all|scan~
+Alias ooo qw capacity~
+Alias ee get pie pouch|eat pie~
+Alias home drop qaz|enter qaz|get qaz~
+Alias recall recall~
+Alias ff c 'faerie fire'~
+Alias // get heal backpack|quaff heal~
+Sk 100 1 'acid blast'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 77 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 89 1 'armor'
+Sk 86 1 'bless'
+Sk 100 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 75 1 'blood blade'
+Sk 75 1 'blood moon'
+Sk 93 1 'burning hands'
+Sk 75 1 'call lightning'
+Sk 75 1 'calm'
+Sk 75 1 'cancellation'
+Sk 75 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 76 1 'chill touch'
+Sk 91 1 'colour spray'
+Sk 1 1 'continual light'
+Sk 75 1 'control weather'
+Sk 75 1 'create food'
+Sk 75 1 'create parchment'
+Sk 75 1 'create rose'
+Sk 75 1 'create sign'
+Sk 75 1 'create spring'
+Sk 84 1 'create vial'
+Sk 1 1 'create water'
+Sk 92 1 'cure critical'
+Sk 81 1 'cure light'
+Sk 82 1 'cure serious'
+Sk 86 1 'curse'
+Sk 75 1 'dazzling light'
+Sk 75 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 80 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'encampment'
+Sk 83 1 'enchant armor'
+Sk 77 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 82 1 'faerie fire'
+Sk 76 1 'faerie fog'
+Sk 75 1 'fear'
+Sk 90 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'flame blade'
+Sk 1 1 'flameshield'
+Sk 75 1 'fly'
+Sk 1 1 'floating disc'
+Sk 82 1 'frenzy'
+Sk 75 1 'frost blade'
+Sk 80 1 'gate'
+Sk 75 1 'giant strength'
+Sk 86 1 'haste'
+Sk 95 1 'heal'
+Sk 1 1 'holy word'
+Sk 97 1 'identify'
+Sk 1 1 'infravision'
+Sk 77 1 'invisibility'
+Sk 75 1 'know alignment'
+Sk 43 1 'light of truth'
+Sk 75 1 'lightning bolt'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
+Sk 85 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 80 1 'pass door'
+Sk 76 1 'plague'
+Sk 83 1 'poison'
+Sk 1 1 'polymorph'
+Sk 43 1 'portal'
+Sk 1 1 'protect container'
+Sk 75 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'recharge'
+Sk 77 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 81 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 24 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 89 1 'sanctuary'
+Sk 82 1 'shield'
+Sk 75 1 'shock blade'
+Sk 97 1 'shocking grasp'
+Sk 75 1 'shrink'
+Sk 95 1 'slow'
+Sk 75 1 'smokescreen'
+Sk 78 1 'steel mist'
+Sk 79 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 75 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 75 1 'ventriloquate'
+Sk 75 1 'vision'
+Sk 87 1 'weaken'
+Sk 76 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 96 1 'dagger'
+Sk 77 1 'shield block'
+Sk 98 1 'sword'
+Sk 79 1 'brew'
+Sk 75 1 'repair'
+Sk 1 1 'lore'
+Sk 95 1 'meditation'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 76 1 'staves'
+Sk 75 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'detection'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 3203
+Nest 0
+Wear 12
+Cost 40
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear 17
+Cost 3000
+End
+
+#O
+Vnum 3202
+Nest 0
+Wear 7
+Cost 30
+End
+
+#O
+Vnum 16037
+Nest 0
+Wear 14
+Cost 5000
+End
+
+#O
+Vnum 10208
+Nest 0
+Wear 11
+Cost 10000
+End
+
+#O
+Vnum 11643
+Nest 0
+Wear 13
+Cost 20
+End
+
+#O
+Vnum 20028
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8272
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 16040
+Nest 0
+Wear 3
+Cost 9800
+End
+
+#O
+Vnum 11645
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 100
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 100
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25007
+Nest 0
+Wear 6
+Cost 4000
+End
+
+#O
+Vnum 25006
+Nest 0
+Wear 2
+Cost 3500
+End
+
+#O
+Vnum 25006
+Nest 0
+Cond 76
+Wear 1
+Cost 3500
+End
+
+#O
+Vnum 25004
+Nest 0
+Wear 8
+Cost 3000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Cond 98
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 1201
+Nest 0
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16011
+Nest 0
+Wear -1
+Cost 7500
+End
+
+#O
+Vnum 11645
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3092
+Nest 0
+Wear -1
+Time 477
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 16042
+Nest 0
+Cond 94
+Wear -1
+Cost 5600
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7616
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7507
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 7502
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 551
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 285
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 516
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 189
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 350
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 355
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 216
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 142
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 219
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 245
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 214
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 322
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Time 549
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion heal~
+ShD  a potion of heal~
+Wear -1
+Lev  43
+Cost 2000
+Val  43 84 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 7503
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 25005
+Enchanted
+Nest 0
+ExtF 21774659
+Wear 18
+Lev  37
+Cost 3500
+Affc 'enchant armor'   1  43  -1  -3  17          0 1
+Affc 'reserved'   1  35  -1  35  13          0 1
+Affc 'reserved'   1  35  -1   1  26          0 1
+Affc 'reserved'   1  35  -1   2   5          0 1
+Affc 'reserved'   1  35  -1   3  18          0 1
+Affc 'reserved'   1  35  -1   3  19          0 1
+End
+
+#O
+Vnum 10215
+Nest 0
+Wear 16
+Cost 10000
+End
+
+#O
+Vnum 25003
+Nest 0
+Wear 9
+Cost 2500
+End
+
+#O
+Vnum 16040
+Nest 0
+Wear 4
+Cost 9800
+End
+
+#O
+Vnum 7601
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1257
+Nest 0
+Name qaz damned portal~
+ShD  Qaz's damned portal~
+Desc Qaz's damned portal~
+WeaF 1
+Wt   1
+Wear -1
+Cost 0
+Val  0 0 4 8401 0
+End
+
+#O
+Vnum 16072
+Nest 0
+Wear 0
+Cost 0
+Affc 'dazzling light'   0  42  51   3  18          0 1
+Affc 'dazzling light'   0  37  51   3  19          0 1
+End
+
+#L
+Vnum 1001
+Nest 0
+ShD  a thick book, 'The Lusty Tales of Alisa and Lyana the Waitress', several pages marked with petals from a{x rose~
+Desc A thick book, 'The Lusty Tales of Alisa and Lyana the Waitress', several pages marked with petals from a{x rose is lying on the ground.~
+Wear -1
+Cost 0
+ExDe florist~ This rose was created by Nightowl.
+~
+End
+
+#L
+Vnum 3201
+Nest 0
+Cond 98
+Wear -1
+Cost 20
+End
+
+#L
+Vnum 4595
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 7607
+Nest 0
+Wear -1
+Cost 20
+End
+
+#END

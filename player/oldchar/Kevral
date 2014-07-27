@@ -1,0 +1,128 @@
+#PLAYER
+Name Kevral~
+Id   1011594089
+LogO 1011594497
+Vers 11
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race wolf~
+Sex  1
+Cla  2
+Levl 1
+Plyd 181
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3757
+HMS  20 20 100 100 97 100
+Gold 0
+Silv 0
+Exp  2800
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 5
+Save  -1
+Alig  0
+Hit   1
+ACs 95 95 95 99
+Atrib 18 15 15 21 18 11
+AtMod 0 0 0 0 0 0
+Pass 123456~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 52
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Sturm~
+Lsit adsl-64-175-109-225.dsl.lsan03.pacbell.net~
+Ltim Mon Jan 21 00:25:15 2002
+~
+LSav Mon Jan 21 00:28:17 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 36 44 44
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 40 1 'dagger'
+Sk 1 1 'hand to hand'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'enhancement'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 196 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

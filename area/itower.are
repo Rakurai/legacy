@@ -1,0 +1,1010 @@
+#AREA
+border.are~
+Incelsis Tower~
+{H{{65 80} {MKenneth {TIncelsis Tower~
+17001 17025
+
+#MOBILES
+#17001
+japheth arcane wizard chancellor~
+{MJa{Nph{Meth {NAr{Mca{Nne{x~
+{MJa{Nph{Meth{x is an intense looking man, completely shrouded in his cassock.
+~
+{MJa{Nph{Meth {NAr{Mca{Nne{x is the Chancellor of the Tower, and the one
+Valkyrie and Kismet successfully negotiated with in order to grant you the
+privilege of entering.  He sometimes has a single-mindedness that borders
+on obsessiveness, but he is very warm to his friends.
+~
+human~
+GR DFH 500 S
+80 14 10d100+5000 10d50+100 10d7+5 shock
+-53 -52 -53 -54
+FH 0 0 0
+stand stand male 8000
+0 0 medium 0
+
+#17002
+abendroth regent wizard~
+{RAbe{cnd{Rr{coth{x~
+{RAbe{cnd{Rr{coth{x stands here, clutching at his accounts and tables.
+~
+No one else in the Tower has the patience or interest in the
+dry matter of mathematics to handle the job of regent of
+Financial Concerns.  {RAbe{cnd{Rr{coth{x's mind has been compared to a
+steel trap:  Nothing gets out and nothing gets in!
+~
+human~
+GR DFH 0 S
+75 12 30d100+4500 10d20+300 12d6+2 shock
+-48 -49 -47 -50
+FH 0 0 0
+stand stand male 7500
+0 0 medium 0
+
+#17003
+dirganon regent wizard~
+{cDi{krg{can{kon{x~
+{cDi{krg{can{kon{x, a cowled figure, stands here, his features shrouded in
+darkness..
+~
+An eye floats around next to {cDi{krg{can{kon{x, and peering into his cowl
+rewards you with no glimpse of his face, just {csha{kdows{x..
+~
+human~
+GR DFH 500 S
+75 13 30d100+4500 10d25+1000 12d6+3 shock
+-49 -48 -48 -49
+FH 0 0 0
+stand stand male 7300
+0 0 medium 0
+>rand_prog 2~
+say I'd like to meet this Valkyrie.
+~
+>act_prog p Valkyrie says 'Greetings.'~
+say Valkyrie!  Your services do us all good!
+~
+|
+
+
+#17004
+shardea sword paladin~
+{WSh{gar{Wdea{x~
+{WSh{gar{Wdea{x, a paladin of the {BG{Go{Bd{Gd{Be{Gs{Bs{x and the Sword Arm of
+the {VO{Nr{Vd{Ne{Vr{x, paces by you.
+~
+{WSh{gar{Wdea{x is a woman who carries herself upright, not slouching or
+stooped over.  Her silvery hair cascades down her brilliant blue
+armor, and the sword she's carrying sparkles with tendrils of
+golden electricity.
+~
+human~
+GTZ CDFHN 1000 S
+75 13 20d20+5250 1d10+300 10d7+5 slash
+-50 -49 -50 -43
+CHK 0 0 0
+stand stand female 5000
+0 0 medium 0
+
+#17005
+rolvsbakken wizard guild~
+{VR{Wol{gvsb{cak{Vk{Wen{x~
+{VR{Wol{gvsb{cak{Vk{Wen{x is here, lounging in the baths.
+~
+{VR{Wol{gvsb{cak{Vk{Wen{x looks totally relaxed over in the hottest part of the
+baths.  He's got on some funky red glasses, too!
+~
+human~
+BGR DFH 500 S
+70 10 25d10+4000 20d10+500 10d6+10 shock
+-45 -46 -45 -44
+FH 0 0 0
+rest rest male 5500
+0 0 medium 0
+>act_prog p Kismet says 'Greetings.'~
+say Kismet!  Sing us a jolly song, would you?
+~
+|
+
+#17006
+apprentice~
+An apprentice~
+An apprentice is here, tending to the garden.
+~
+This apprentice hurries about her chores, hoping to get to
+free time faster!
+~
+human~
+BGR H 500 S
+65 10 100d10+3000 20d10+200 10d6+5 slap
+-42 -43 -44 -41
+FH 0 0 0
+stand stand female 2500
+0 0 medium 0
+>rand_prog 1~
+say I've heard Kismet is cute!
+giggle
+~
+|
+
+#17007
+apprentice~
+An apprentice~
+An apprentice is here, up to his elbows in laundry.
+~
+This apprentice hurries about his chores, hoping to get to
+free time faster!
+~
+human~
+BGR H 500 S
+65 10 100d10+3800 20d10+200 10d6+5 slap
+-42 -43 -44 -41
+FH 0 0 0
+stand stand male 2500
+0 0 medium 0
+>act_prog p Valkyrie arrives from the north.~
+        whistle valkyrie
+~
+|
+
+#17008
+apprentice~
+An apprentice~
+An apprentice is here, carting chamberpots back and forth.
+~
+This apprentice hurries about her chores, hoping to get to
+free time faster!
+~
+human~
+BGR H 500 S
+65 10 100d10+3800 20d10+200 10d6+5 slap
+-42 -43 -44 -41
+FH 0 0 0
+stand stand female 2500
+0 0 medium 0
+
+#17009
+apprentice~
+An apprentice~
+An apprentice is here, eating.
+~
+This apprentice takes his time eating, knowing it's one
+of the few fun things he'll get to do.
+~
+human~
+BGR H 500 S
+65 10 100d10+3800 20d10+200 10d6+5 slap
+-42 -43 -44 -41
+FH 0 0 0
+stand stand male 2500
+0 0 medium 0
+
+#17010
+apprentice~
+An apprentice~
+An apprentice is here, cooking up something good!
+~
+This apprentice hurries about his chores, hoping to get to
+free time faster!
+~
+human~
+BGR H 500 S
+65 10 100d10+3800 20d10+200 10d6+5 slap
+-42 -43 -44 -41
+FH 0 0 0
+stand stand male 2500
+0 0 medium 0
+
+#17011
+apprentice~
+An apprentice~
+An apprentice is here, sleeping.
+~
+This apprentice sleeps the sleep of the incredibly tired..
+~
+human~
+BGR H 500 S
+65 10 100d10+3800 20d10+200 10d6+5 slap
+-42 -43 -44 -41
+FH 0 0 0
+sleep sleep female 2500
+0 0 medium 0
+
+#17012
+apprentice~
+An apprentice~
+An apprentice is here, studying hard.
+~
+This apprentice hurries about her chores, hoping to get to
+free time faster!
+~
+human~
+BGR H 500 S
+65 10 100d10+3800 20d10+200 10d6+5 slap
+-42 -43 -44 -41
+FH 0 0 0
+stand stand female 2500
+0 0 medium 0
+
+#17013
+matias older apprentice~
+{CMat{Tias{x the Older~
+{CMat{Tias{x the Older is here, thinking up ways to get his brother in trouble.
+~
+{CMat{Tias{x the Older is a cruel looking 15 year old with a nasty
+scar running down his nose.  He has lank brown hair and a
+permanent sneer.
+~
+human~
+GR H 500 S
+65 10 100d10+3800 20d10+200 10d6+5 slap
+-42 -43 -44 -41
+FH 0 0 0
+stand stand male 2500
+0 0 medium 0
+
+#17014
+matias younger apprentice~
+{CMat{Tias{x the Younger~
+{CMat{Tias{x the Younger is here, thinking of ways to stay out of trouble.
+~
+{CMat{Tias{x the Younger is a sneaky looking 13 year old with brown hair
+and a furtive expression.  His brother is always picking on him, so
+he always has to be extra wary.
+~
+human~
+GR H 500 S
+65 10 100d10+3800 20d10+200 10d6+5 slap
+-42 -43 -44 -41
+FH 0 0 0
+stand stand male 2500
+0 0 medium 0
+
+#0
+
+#OBJECTS
+
+#17001
+rolvsbakken empathic spectacles red~
+{VR{Wol{gvsb{cak{Vk{Wen{x's {BEmp{Nat{Bhic {CSp{Pec{Cta{Pcl{Ces{x~
+A pair of {Rred{x-lensed spectacles lie on the floor.~
+red crystal~
+light ASY AE
+0 0 -1 0 0
+69 17 2000 P
+A
+4 2
+A
+12 40
+A
+17 -20
+A
+18 2
+A
+19 2
+A
+20 -3
+A
+26 3
+
+#17002
+cassock precaution~
+{GCassock{x of {VPrecaution{x~
+A bright {Vpurple{x cassock levitates a few feet above the floor.~
+wool~
+armor SY AK
+23 22 22 20 0
+65 20 200 P
+A
+2 3
+A
+18 5
+A
+19 3
+A
+20 -3
+
+#17003
+regent's cassock~
+{kR{Ve{kg{Ve{kn{Vt{x's {GCassock{x~
+A bright {Vpurple{x cassock with {bgold{x stitching levitates at eye level.~
+silk~
+armor SY AK
+25 24 25 22 0
+75 20 200 P
+A
+2 3
+A
+18 4
+A
+19 4
+A
+20 -4
+F
+A 0 0 b
+
+#17004
+kaylisidee enchanted dove bird~
+{WKa{gyl{Wis{gid{Wee{x's {gEn{Wch{gan{Wte{gd D{Wov{ge{x~
+A little metal bird flutters about mindlessly.~
+adamantite~
+armor Y AQ
+22 22 22 20 0
+70 20 200 P
+A
+3 4
+A
+4 3
+A
+18 2
+A
+19 2
+A
+12 60
+
+#17005
+eye dirganon~
+{cDi{krg{can{kon{x's Eye~
+A disembodied eye hovers here...~
+eyeball~
+armor SY AQ
+22 22 22 20 0
+70 20 200 P
+A
+1 4
+A
+5 3
+A
+18 2
+A
+19 2
+A
+13 60
+
+#17006
+preserver axe~
+The {TPreserver{x~
+A monstrously HUGE axe leans against the wall!~
+adamantite~
+weapon Y AN
+axe 9 9 cleave B
+75 70 200 P
+A
+18 5
+A
+19 5
+
+#17007
+redeemer axe~
+The {WRedeemer{x~
+A monstrously HUGE axe leans against the wall!~
+adamantite~
+weapon Y AN
+axe 9 9 cleave C
+75 70 200 P
+A
+18 4
+A
+19 6
+
+#17008
+liwendyll sympathetic knife~
+{CLiwe{Pnd{Cyll{P'{Cs {PSym{Cpa{Pth{Ceti{Pc {CKn{Pife{x~
+A gleaming, sharp knife draws your eye..~
+mithril~
+weapon Y AN
+dagger 10 8 stab G
+75 20 200 P
+A
+18 7
+A
+19 3
+A
+13 15
+
+#17009
+cowl darkness hood~
+{kCo{cwl{x of {kDar{ckne{kss{x~
+A cowl shimmers here...you can't see anything but {ksh{cad{kows{x inside the
+hood..~
+silk~
+armor Y AE
+23 23 23 20 0
+75 20 200 P
+A
+18 2
+A
+19 2
+A
+12 50
+A
+13 40
+F
+A 0 0 Q
+
+#17010
+belt khaerog mighty leather~
+Belt of {CKh{Wae{Cro{Wg{x the Mighty~
+A thin, leather, belt with a bit of {bgold{x stitching is curled up in a heap.~
+leather~
+armor SY AL
+21 21 21 20 0
+70 30 200 P
+A
+18 4
+A
+19 2
+A
+1 5
+
+#17011
+armor brightdelve champion suit breastplate~
+Armor of the {gBri{Yght{gde{Ylv{ge C{Yha{gmp{Yio{gn{x~
+A {Ygl{gea{Ymi{gng{x suit of armor lies on the floor.~
+mithril~
+armor Y AD
+24 24 24 22 0
+75 150 500 P
+A
+5 2
+A
+13 20
+A
+19 2
+A
+20 -5
+
+#17012
+draught titan potion titan's flask~
+{PT{Bi{Pt{Ba{Pn{x's Draught~
+A flask is gathering dust on the floor.~
+glass~
+potion Y A
+65 'giant str' 'frenzy' '' ''
+45 15 25 P
+
+#17013
+ring regeneration~
+{YRing{x of {bRe{Gge{bne{Gra{bti{Gon{x~
+A beautiful ring is wedged into a crack in the floor.~
+gold~
+armor Y AB
+20 18 19 20 0
+65 10 50 P
+A
+13 60
+A
+18 2
+A
+19 3
+F
+A 0 0 c
+
+#17014
+staff power~
+{BSt{Naff{x of {VPow{Ber{x~
+A staff, surrounded by a nimbus of {ksh{cad{kow{x, floats here.~
+wood~
+staff Y AO
+75 3 3 'frost breath' 0
+75 30 500 P
+A
+12 50
+
+#17015
+cask amontillado~
+A cask of {Pam{Ron{Pti{Rll{Pad{Ro{x~
+A cask of {Pam{Ron{Pti{Rll{Pad{Ro{x lies on the floor..~
+booze~
+drink Y A
+500 500 amontillado 0 0
+0 200 200 P
+
+#17016
+goblet icewine wine~
+A goblet of {Ci{gc{Ce {gw{Ci{gn{Ce{x~
+A goblet filled with nice, chilled {Ci{gc{Ce {gw{Ci{gn{Ce{x rests here.~
+wine~
+drink Y AO
+150 150 icewine 0 0
+0 20 55 P
+
+#0
+
+#ROOMS
+#17001
+Great Approach~
+The {Wiron{x portcullis bangs shut behind you, and you find yourself
+admiring the entry hall.  The floor of it is tiled in a {bbrown{x marble
+that only looks a little scuffed.  The ceiling depicts a frieze of
+a {Tblue{x sky where {gsky{W-ca{gst{Wles{x are lodged on vast
+{Ythund{cerhe{Yads{x.  The walls are done in a {Ggreen{x and {bbrown{x
+mosaic.  You almost feel as if you were still outdoors!
+~
+0 CD 0
+D0
+The Central Hall lies northward.
+~
+~
+0 -1 17003
+D1
+Eastern Thera lies back that way...turn back if you feel faint at heart.
+~
+portcullis~
+1 -1 8318
+D2
+Need to go?  South is the privy.
+~
+~
+0 -1 17002
+S
+
+#17002
+{YP{br{Yi{bv{Yy{x~
+No natural privy, this.  A huge fissure has been roped off to prevent
+people from falling in, which would be really nasty.  Obviously most
+of the people in this tower are male.  Some chamberpots are lying
+against a wall, having been dumped out but not picked up again.
+~
+0 D 0
+D0
+North will set you back in the Great Approach.
+~
+~
+0 -1 17001
+S
+
+#17003
+{CCentral {THall{x~
+This wide hallway provides access to the variety of chambers on this
+level.  The large support pillar at the center of the tower provides
+a central nexus for the hall, and a spiral staircase has even been
+carved into it.
+~
+0 D 0
+D0
+North lies the Chapel of the tower.
+~
+~
+0 -1 17006
+D1
+East you hear the sounds of guards sharpening weapons.
+~
+~
+0 -1 17004
+D2
+South will take you back to the Great Approach.
+~
+~
+0 -1 17001
+D3
+West you hear the scraping of tables and the clinkings of forks hitting plates.
+~
+~
+0 -1 17005
+D4
+Upwards you see the second level of the tower.
+~
+~
+0 -1 17010
+S
+
+#17004
+{WBar{grac{Wks{x~
+This chamber is spartanly decorated, containing 30 bunk beds.  Beside
+each bunk bed is a double-tiered shelf where guards can store personal
+belongings, such as clothes or sentimental trinkets.
+~
+0 D 0
+D3
+West is the Central Hallway.
+~
+~
+0 -1 17003
+S
+
+#17005
+{bCo{gmm{bis{gsa{bry{x~
+Rows of wooden tables fill this chamber, allowing a large percentage
+of the Order's membership to eat simultaneously.  The head table is
+located along the southwest curve of the wall.
+~
+0 D 0
+D0
+North you can smell food coming from the kitchen.
+~
+~
+0 -1 17007
+D1
+East heads back to the Central Hallway.
+~
+~
+0 -1 17003
+S
+
+#17006
+Chapel to the {BG{Go{Bd{Gd{Be{Gs{Bs{x~
+This chapel holds a large altar in the northern portion of the room
+atop a low dais.  Behind the altar, a towering statue of a graceful
+and lovely {Vw{Mo{Vm{Ma{Vn{x stands, so high that her waist is even with the
+30-foot balcony.  The rest of the chapel is filled with {Ppadded{x benches
+offering a good view of the dais.  A staircase provides access to the
+balcony.  A feeling of serenity and peace is tangible here, and the
+sweet odor of incense wafts through the air.
+~
+0 DKS 0
+D2
+South will take you back to the Central Hallway.
+~
+~
+0 -1 17003
+D4
+Up you can check out the balcony seats!
+~
+~
+0 -1 17013
+S
+
+#17007
+{RKitchens{x~
+The food for the entire college is prepared here by the resident cook
+and a changing staff of apprentices.  The chamber is filled with all
+manner of {Wcutting{x surfaces, {gboiling pots{x, {Rflaming{x ovens, hanging
+cookwares, {Cknives{x, and miscellaneous {ciron{x utensils.
+~
+0 D 0
+D0
+North leads to the Cold Storage chamber.
+~
+~
+0 -1 17009
+D2
+South leads back to the Commissary.
+~
+~
+0 -1 17005
+D3
+A piece of the wall moves slightly to the side at your glance..
+~
+wall~
+1 -1 17008
+S
+
+#17008
+{cHi{Bdd{cen {BPa{css{Bag{ce{x~
+This passage is what keeps the world to the west of Thera...west of
+Thera.  There are two locked stone doors, and the hall is constantly
+patrolled by guards.
+~
+0 D 0
+D1
+East will take you back to the Kitchens.
+~
+wall~
+1 -1 17007
+D3
+~
+~
+2 -1 17030
+S
+
+#17009
+{BCo{Wld {BSt{Wor{Bag{We{x~
+A large block of magically regenerating {Cice{x is the centerpiece of this
+chamber. Looks like there's enough food in here to feed a platoon!
+~
+0 D 0
+D2
+South will let you leave this chilly room.
+~
+~
+0 -1 17007
+S
+
+#17010
+{CCentral {THallway{x~
+This hallway surrounds the central support pillar, and provides access
+to the various chambers found on this level of the tower.  The spiral
+stairwell extends both upwards and downwards.
+~
+0 D 0
+D0
+North leads to the balcony.
+~
+~
+0 -1 17013
+D2
+South is where apprentices have to do the laundry.
+~
+~
+0 -1 17011
+D3
+West you smell soap...the baths!
+~
+~
+0 -1 17012
+D4
+Upwards the stairwell continues...
+~
+~
+0 -1 17015
+D5
+Downwards will take you back from whence you came..
+~
+~
+0 -1 17003
+S
+
+#17011
+{bLa{gun{bdr{gy{x~
+The denizens of this tower require an ongoing effort to keep their wardrobes
+clean and presentable.  Piles of dirty clothes vie with racks to dry
+clean clothes that have been scrubbed in the swift-running hot water
+trough paralleling the curved southern wall.  The water enters the chamber
+from a 2-foot diameter tunnel, but empties out a small hole in the side
+of the tower, spewing forth a small but ever-flowing waterfall down the
+southern side of the tower.
+~
+0 D 0
+D0
+North leads back to the Central Hallway.
+~
+~
+0 -1 17010
+S
+
+#17012
+The {BB{Ta{Bt{Th{Bs{x~
+A natural hot spring far below this structure has been tapped, letting
+a never-ending source of hot water to pool in this room.  The far end
+is extraordinarily hot, as evidenced by the steam rising up from it.
+The nearest section seems only lukewarm, though.  The bathwater continually
+flows through a 2-foot diameter hole in the wall, to be used to clean
+clothes.
+~
+0 D 0
+D1
+East takes you back to the Central Hallway.
+~
+~
+0 -1 17010
+S
+
+#17013
+Balcony overlooking the Chapel~
+You are now at eye-level with the majestic statue's waist.  Posh seats
+show that the balcony is probably used only by the higher ranking
+members of the tower.  The scent of {Pch{Rer{Pri{Res{x reaches you from the
+lower levels, tickling at your nose and caressing your body.  The
+Chaplain has a room to the west.
+~
+0 D 0
+D2
+South will take back to the Central Hallway.
+~
+~
+0 -1 17010
+D3
+West will let you explore the Chaplain's room.
+~
+~
+0 -1 17014
+D5
+South takes you back into the main floor of the Chapel.
+~
+~
+0 -1 17006
+S
+
+#17014
+Chaplain's Quarters~
+This room takes the word 'austere' to the extreme.  A cot, washbasin,
+bureau, and desk are the only pieces of furniture.  A few tapestries
+depicting a beautiful woman, his {Bg{Go{Bd{Gd{Be{Gs{Bs{x, adorn the walls, but
+that's all.
+~
+0 D 0
+D1
+East will take you back to the balcony.
+~
+~
+0 -1 17013
+S
+
+#17015
+{CCentral {THallway{x~
+This hallway surrounds the central support pillar, and provides access
+to the various chambers found on this level of the tower.  The spiral
+stairwell extends both upwards and downwards.
+~
+0 D 0
+D0
+North leads to Dirganon's Chambers.
+~
+~
+0 -1 17016
+D1
+Eastward lie Abendroth's Chambers.
+~
+~
+0 -1 17017
+D2
+Southwards the Archives lie!
+~
+~
+0 -1 17018
+D3
+West will take you into Shardea's Quarters.
+~
+~
+0 -1 17019
+D4
+Going up will take you into the garden...indoors?!
+~
+~
+0 -1 17020
+D5
+Down will lead you back to the second floor.
+~
+~
+0 -1 17010
+S
+
+#17016
+{cDi{krg{can{kon{x's Chambers~
+This chamber is filled with artifacts collected from digs {cDi{krg{can{kon{x
+has supervised.  Spoons, his favorite thing to collect because they're
+worthless, cover the walls.  Several books rest on the floor by his bed.
+~
+0 D 0
+D2
+South will take you back to the Central Hallway.
+~
+~
+0 -1 17015
+S
+
+#17017
+{RAbe{cnd{Rr{coth{x's Chambers~
+This room is almost mathematical in it's design.  Everything is *just
+so*, and you imagine the owner of the room would notice if anything at
+all was moved.  A sheaf of papers rests on his desk, next to an abacus.
+~
+0 D 0
+D3
+West will lead you into the Central Hallway.
+~
+~
+0 -1 17015
+S
+
+#17018
+The Archive~
+As you walk through the entryway to this great room, a surge of energy
+jolts through you, causing all the hairs on your arm to stand up!
+Rows and rows of 25-foot tall bookshelves stretch out from where you
+stand.  The books cover every topic imaginable:  from cooking for
+ogres to repairing aqueducts to shaping high level magic.
+~
+0 D 0
+D0
+North is the Central Hallway.
+~
+~
+0 -1 17015
+S
+
+#17019
+{WSh{gar{Wdea{x's Private Quarters~
+This utilitarian chamber serves as the living and sleeping quarters
+of the {VAr{Nca{Vne {NOr{Vde{Nr's{x Sword Arm, {WSh{gar{Wdea{x.  Various military 
+accoutrements fight for space with statues of her goddess.  There is a
+hard bed on one wall, with a bathtub slightly below it.
+~
+0 D 0
+D1
+East is the Central Hallway.
+~
+~
+0 -1 17015
+E
+statue~
+A statue of the Goddess {VE{Ma{Vi{Mr{Vl{My{Ve{x...worshipped by all in this
+tower...
+~
+S
+
+#17020
+{YEn{Bch{Yan{Bte{Yd {GGa{Hrd{Gen{x~
+This entire level has been given over to a successful experiment in
+indoor gardening.  {bSo{Gil{x was imported, seeds of all sorts planted,
+{Bwat{Cer{x provided, and specially researched spells crafted to simulate
+day and night.  {GGrasses{x, {Gbushes{x, {Gtrees{x, and wild {Mfl{Yow{Mer{xs
+cover the entire expanse of this floor, excepting the areas where a few
+shallow pools have been dug.  A few {Wso{Mngb{Wir{Mds{x flutter from tree
+to tree, and colorful {Pf{gi{Ps{gh{x swim in ponds that can't be more than
+3 feet deep.
+~
+0 D 0
+D5
+Down leads back into the Central Hallway.
+~
+~
+0 -1 17015
+S
+
+#17021
+Portal to the {cBo{brd{cer{x...~
+This room was hastily added atop the {VMage's Guild{x in Midgaard as
+soon as it was discovered that they had brethren to the west of the
+city.  A portal was opened up between the two groups of mages so
+that they could communicate, and now it is the easiest way to travel.
+~
+8318 DW 0
+D5
+Down lies the Mage's Guild of Midgaard.
+~
+~
+0 -1 3017
+E
+tele~
+The portal takes effect, transporting you to Incelsis Tower!
+~
+S
+
+#0
+
+#RESETS
+
+D 0 17008 3 2
+M 0 17001 1 17020 1  *Japheth goes to the Enchanted Garden
+E 0 17003 40 12      *Japheth gets the Regent's Cassock
+E 0 17007 40 16      *He also wields the Redeemer
+E 0 17014 40 17      *And in his other hand, The Staff of Power!
+M 0 17002 1 17017 1  *Abendroth goes to Abendroth's Chambers
+E 0 17008 40 16      *Abendroth wields a Sympathetic Knife
+M 0 17003 1 17016 1  *Dirganon to his Quarters
+E 0 17009 40 6       *He wears the Cowl of Darkness
+E 0 17005 40 18      *His Eye floats nearby
+E 0 17006 40 16      *And he wields The Preserver
+M 0 17004 1 17019 1  *Shardea to her Private Chamber
+E 0 17010 40 13      *She wears the Belt of Khaerog the Mighty
+E 0 17011 40 5       *And wears the Armor of the Brightdelve Champion
+M 0 17005 1 17012 1  *Rolvsbakken is taking a bath
+E 0 17001 40 6       *Rolvsbakken has on his funky specs
+E 0 17004 40 18      *and Kaylisidee's Dove floats above, holding soap
+M 0 17006 1 17020 1  *An apprentice to tend the Garden
+M 0 17007 1 17011 1  *An apprentice to do the Laundry
+M 0 17008 1 17002 1  *An apprentice in the Privy..
+M 0 17009 1 17005 1  *An eating apprentice in the commissary
+M 0 17010 1 17007 1  *An apprentice in the Kitchen
+M 0 17011 1 17018 1  *sleepy Apprentice in the Archive
+M 0 17012 1 17018 1  *studying Apprentice in the Archive
+M 0 17013 1 17015 1  *Matias the Older into the Central Hallway
+E 0 17013 40 2       *He wears a ring of regeneration
+G 0 17012 40         *And is given a Titan's Draught
+M 0 17014 1 17012 1  *Matias the Younger into the Baths
+E 0 17002 40 12      *Matias the Younger wears a Cassock of Precaution
+O 0 17015 40 17009   *The Cold Storage gets a cask of amontillado
+O 0 17016 40 17005   *Goblet of icewine into the Commissary
+D 0 17007 3 1        *closed, Kitchen, west
+D 0 17008 1 1        *closed, Hidden Passage, east
+S
+
+#SHOPS
+0
+
+#SPECIALS
+M 17001 spec_cast_mage  *Japheth
+M 17002 spec_cast_mage  *Abendroth
+M 17003 spec_cast_mage  *Dirganon
+M 17005 spec_cast_mage  *Rolvsbakken
+M 17014 spec_thief      *Matias the Younger
+S
+
+#$
+
+
+
+
+
+

@@ -1,0 +1,254 @@
+#PLAYER
+Name Asad~
+Id   1006815850
+LogO 1007710403
+Vers 9
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race dwarf~
+Sex  1
+Cla  3
+Levl 8
+Plyd 5466
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 9408
+HMV  121 136 127 128 89 142
+Gold 1877
+Silv 87
+Exp  10962
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDFGHJLQSc
+AfBy J
+Comm NO
+Revk 0
+Cnsr AB
+Pos  8
+Prac 3
+Trai 1
+Save  -14
+Alig  -137
+Hit   12
+ACs 87 87 88 96
+Wimp  20
+Atrib 18 16 17 10 19 11
+AtMod 1 4 3 2 0 5
+Pass drinkbud~
+Afk {B[{CWed Nov 28 21:45:46 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {RW{War{RL{Wor{RD{x~
+Immn ~
+Pnts 46
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Neffertini~
+Lsit h24-67-216-149.gv.shawcable.net~
+Ltim Fri Dec 07 01:20:27 2001
+~
+LSav Fri Dec 07 01:33:23 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMVP 128 126 142
+THVP 0 0 0
+Cnd  0 6 46 0
+Sk 1 1 'cure critical'
+Sk 61 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'fly'
+Sk 1 1 'gate'
+Sk 1 1 'heal'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'portal'
+Sk 1 1 'refresh'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'word of recall'
+Sk 77 1 'sword'
+Sk 75 1 'bash'
+Sk 1 1 'berserk'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'kick'
+Sk 75 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'forge'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'healing'
+Gr 'transportation'
+Affc 'bless'   0  89  49 -12  24          0 1
+Affc 'bless'   0  85  49  12  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 80 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 99
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Cond 94
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 2335
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 72
+Nest 1
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3702
+Nest 1
+Wear -1
+Cost 360
+End
+
+#O
+Vnum 2404
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 10212
+Nest 0
+ExtF 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 0
+End
+
+#END

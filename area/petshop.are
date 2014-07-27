@@ -1,0 +1,399 @@
+#AREA
+petshop.are~
+Pet Shop~
+{H{{1 91} {MAlisa {TPet Shop~
+21000 21099
+
+#MOBILES
+#21000
+child kid punk~
+{ga {bn{Rei{bg{Rhb{bo{Rr{bh{Roo{bd {Rp{bu{Rn{bk{x~
+{xA {bn{Rei{bg{Rhb{bo{Rr{bh{Roo{bd {Rk{bi{Rd{x stands here looking for {ct{gr{co{gu{cb{gl{ce{x.
+~
+A young child is here, probably ditching school. They appear to be
+up to no good, and it looks like they have a small wooden cage in 
+their arms. 
+~
+human~
+GSV DFb -1000 S
+30 5 1d1+799 1d1+499 1d1+8 punch
+-9 -9 -9 -8
+EI AB 0 0
+stand stand either 2000
+0 0 medium 0
+
+>greet_prog 100~
+emote pokes a stick in a small cage, and you hear the whimper of a frightened animal.
+~
+
+>death_prog 100~
+mpecho A small cage falls to the floor and the door breaks open, leaving
+mpecho a frightened animal that looks helpless and lost.
+mpmload 21003
+~
+|
+
+#21001
+child kid punk~
+{ga {bn{Rei{bg{Rhb{bo{Rr{bh{Roo{bd {Rp{bu{Rn{bk{x~
+{xA {bn{Rei{bg{Rhb{bo{Rr{bh{Roo{bd {Rk{bi{Rd{x stands here looking for {ct{gr{co{gu{cb{gl{ce{x.
+~
+A young child is here, probably ditching school. They appear to be
+up to no good, and it looks like they have a small wooden cage in 
+their arms. 
+~
+human~
+GSV DFb -1000 S
+30 5 1d1+799 1d1+499 1d1+8 punch
+-9 -9 -9 -8
+EI AB 0 0
+stand stand either 2000
+0 0 medium 0
+
+>greet_prog 100~
+emote pokes a stick in a small cage, and you hear the whimper of a frightened animal.
+~
+
+>death_prog 100~
+mpecho A small cage falls to the floor and the door breaks open, leaving
+mpecho a frightened animal that looks helpless and lost.
+mpmload 21004
+~
+|
+
+#21002
+child kid punk~
+{ga {bn{Rei{bg{Rhb{bo{Rr{bh{Roo{bd {Rp{bu{Rn{bk{x~
+{xA {bn{Rei{bg{Rhb{bo{Rr{bh{Roo{bd {Rk{bi{Rd{x stands here looking for {ct{gr{co{gu{cb{gl{ce{x.
+~
+A young child is here, probably ditching school. They appear to be
+up to no good, and it looks like they have a small wooden cage in 
+their arms. 
+~
+human~
+GSV DFb -1000 S
+30 5 1d1+799 1d1+499 1d1+8 punch
+-9 -9 -9 -8
+EI AB 0 0
+stand stand either 2000
+0 0 medium 0
+
+>greet_prog 100~
+emote pokes a stick in a small cage, and you hear the whimper of a frightened animal.
+~
+
+>death_prog 100~
+mpecho A small cage falls to the floor and the door breaks open, leaving
+mpecho a frightened animal that looks helpless and lost.
+mpmload 21005
+~
+|
+
+#21003
+viscious monkey~
+a {Mv{Ni{Msc{Ni{Mou{Ns {bmonkey{x~
+A {Mv{Ni{Msc{Ni{Mou{Ns{x little {bmonkey{x hisses at your feet.
+~
+You wonder why anyone would want this ugly creature for a pet.
+Maybe if you give him a {Yb{ba{Yn{ba{Yn{ba{x, he might calm down.
+~
+unique~
+BGVZ 0 1000 S
+10 0 1d1+99 1d1+49 1d1+4 bite
+-5 -5 -5 -4
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0 
+
+>give_prog unripe banana~
+mpecho The small primate lets out a sudden squeal of delight and 
+mpecho shoves the entire banana in his mouth, chewing happily.
+mpecho After a while he seems to have calmed down quite a bit. 
+follow $n
+emote smiles happily and looks up with adoring eyes.
+~
+
+>entry_prog 100~
+if inroom($i) == 3031
+   emote grunts and jumps back into his waiting cage.
+   mpat 3032 mpmload 3091
+   MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
+   MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
+   MPFORCE owner mpoload 21003
+   MPFORCE owner give note 2.
+   MPFORCE owner say Here's a note of appreciation. I'm going to go see how our little friend is recovering from his excitement.
+   MPFORCE owner emote smiles and leaves to check on the monkey.
+   mpgoto 1
+endif
+~
+|
+
+#21004
+kitten cat~
+a little {ckitten{x~
+A hungry {cgrey kitten{x purrs at your feet.
+~
+A small {cgrey kitten{x looks up to you with large, frightened eyes.
+She looks hungry, maybe some {Cfish{x would help.
+~
+cat~
+BGVZ 0 1000 S
+10 0 1d1+99 1d1+49 1d1+4 scratch
+-5 -5 -5 -4
+0 ABCD 0 0
+stand stand female 0
+0 0 small 0 
+
+>give_prog fish head~
+mpecho The little kitten purrs sofly and licks her lips, then 
+mpecho takes the fish head in her mouth and swallows it all in
+mpecho a few gulps.
+follow $n
+emote smiles happily and looks up with adoring eyes.
+~
+
+>entry_prog 100~
+if inroom($i) == 3031
+   emote smiles happily and jumps back into her waiting cage.
+   mpat 3032 mpmload 3090
+   MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
+   MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
+   MPFORCE owner mpoload 21004
+   MPFORCE owner give note 2.
+   MPFORCE owner say Here's a note of appreciation. I'm going to go see how our little friend is recovering from her excitement.
+   MPFORCE owner emote smiles and leaves to check on the kitten.
+   mpgoto 1
+endif
+~
+|
+
+#21005
+puppy dog~
+a small {Wpuppy{x~
+A {Wpuppy{x looks up with drooping eyes, whining eagerly for some attention.
+~
+This poor, unhappy {Wpuppy{x looks like he could use some {gT{ML{TC{x.
+Maybe if you play fetch for a while, it might cheer him up.
+~
+dog~
+BGVZ 0 1000 S
+10 0 1d1+99 1d1+49 1d1+4 bite
+-5 -5 -5 -4
+0 ABCD 0 0
+stand stand male 0
+0 0 small 0 
+
+>give_prog chew toy~
+mpecho The little puppy begins to hop up and down at the sight  
+mpecho of this squeaky chew toy. Letting out a friendly growl,
+mpecho he tosses it over to you and chases after it.
+follow $n
+emote smiles happily and looks up with adoring eyes.
+~
+
+>entry_prog 100~
+if inroom($i) == 3031
+   emote barks happily and jumps back into his waiting cage.
+   mpat 3032 mpmload 3091
+   MPFORCE owner say It's such a relief to see one of our pets return safely! Thanks for the help!
+   MPFORCE owner emote pulls a piece of paper out from behind the counter and, after scribbling a few words onto it, hands it over.
+   MPFORCE owner mpoload 21005
+   MPFORCE owner give note 2.
+   MPFORCE owner say Here's a note of appreciation. I'm going to go see how our little friend is recovering from his excitement.
+   MPFORCE owner emote smiles and leaves to check on the puppy.
+   mpgoto 1
+endif
+~
+|
+
+#21006
+owner pet shop~
+the owner of the pet shop~
+The owner of the pet shop paces nervously near the many empty cages.
+~
+A large man stands here, looking very nervous indeed. Walking back to
+the empty cages in his storeroom every few minutes, he seems to be quite 
+worried.
+~
+human~
+BGVZ DF 1000 S
+120 30 1d1+499 1d1+299 1d1+49 punch
+-20 -20 -20 -15
+0 ABCD 0 0
+stand stand male 0
+0 0 large 0
+
+>all_greet_prog 0~
+emote glances up at the sound of the door.
+if ispc($n)
+   if isimmort($n)
+      stroke $n
+      nod self
+      break
+   else
+      beam
+      say Hello, welcome to my pet shop, sadly most of our animals have been stolen by some neighborhood punks.
+      sigh
+      say I'm told they're wandering around Midgaard with a few of our pets. Have you seen any of them?
+      emote looks hopeful.
+      break
+   endif
+else
+   emote shuffles some paperwork.
+endif
+~
+
+>speech_prog p yes~
+beam $n
+say Wonderful! Hopefully, we'll have all our furry friends back quickly.
+~
+
+>speech_prog p no~
+say Ah, well, I'm sure they'll return soon enough.
+emote gives a soft sigh and returns to nervously pacing the room.x
+~
+|
+
+#21007
+the Legacy Times Newsboy~
+the Legacy Times Newsboy~
+A small, ragged boy stands here, shouting the latest news.
+~
+Here stands a newsboy from the Legacy Times. He 
+shouts out the latest news as he sees you arrive.
+~
+human~
+BGVZ DF 1000 S
+10 20 1d1+499 1d1+299 1d1+4 punch
+-10 -10 -10 -5
+0 ABCD 0 0
+stand stand male 0
+0 0 small 0
+
+>greet_prog 20~
+mpecho The Legacy Times Newsboy exclaims, "Extra! Extra! The Midgaard Pet shop has been broken into! 
+mpecho Reward offered for the safe return of pets."
+~
+|
+
+#0
+
+#OBJECTS
+
+#21000
+unripe banana~
+an {Hu{Gn{Hr{Gi{Hp{Ge {Yb{ba{Yn{ba{Yn{ba{x~
+A {Yb{ba{Yn{ba{Yn{ba{x lies here, not quite ripe.~
+{Yb{ba{Yn{ba{Yn{ba{x~
+treasure ORST AP
+0 0 0 0 0
+0 0 0 P
+E
+unripe banana~
+The perfect treat for a {bmonkey{x, this {Yb{ba{Yn{ba{Yn{ba{x looks
+like it might come in handy, though it is still a little {Gg{Hr{Ge{He{Gn{x.
+~
+
+#21001
+fish head~
+a {Cfish{x head{x~
+A tiny, smelly {Cfish{x head looks quite disgusting.~
+{Cfish{x~
+treasure ORST AP
+0 0 0 0 0
+0 0 0 P
+E
+fish head~
+A smelly mess with gouged out eyes and dripping scales. Though it makes 
+your stomach churn, it looks like a treat a hungry kitty might enjoy.
+~
+
+#21002
+chew toy~
+a {Wchew toy{x~
+Hearing a loud squeak, you realize you've stepped on a chew toy.~
+{Wplastic{x~
+treasure ORST AP
+0 0 0 0 0
+0 0 0 P
+E
+chew toy~
+A {Wwhite{x, bone-shaped chew toy looks like it would be fun to use in 
+a game of fetch with a willing canine.
+~
+
+#21003
+paper note appreciation monkey~
+a {Wnote{x of appreciation~
+A thin piece of {Wpaper{x lies on the floor.~
+paper~
+treasure ORSTWYa AO
+0 0 0 0 0
+0 10 30 P
+E
+paper note appreciation monkey~
+{x  Thank you, good friend, for returning this stolen {bmonkey{x.
+In return, as a show of appreciation, this note, if given to{x
+Annabus, the questmaster, may be redeemed for a prize of QP.{x
+It can also be saved, and if you are able to return two other{x
+pets, given to Alisa for a prize worthy of a true adventurer.{x
+
+                  Many thanks,{x
+                    The owner of the Midgaard pet shop{x
+~
+
+#21004
+paper note appreciation kitten~
+a {Wnote{x of appreciation~
+A thin piece of {Wpaper{x lies on the floor.~
+paper~
+treasure ORSTWYa AO
+0 0 0 0 0
+0 10 30 P
+E
+paper note appreciation kitten~
+{x  Thank you, good friend, for returning this stolen {ckitten{x.
+In return, as a show of appreciation, this note, if given to{x
+Annabus, the questmaster, may be redeemed for a prize of QP.{x
+It can also be saved, and if you are able to return two other{x
+pets, given to Alisa for a prize worthy of a true adventurer.{x
+
+                  Many thanks,{x
+                    The owner of the Midgaard pet shop{x
+~
+#21005
+paper note appreciation puppy~
+a {Wnote{x of appreciation~
+A thin piece of {Wpaper{x lies on the floor.~
+paper~
+treasure ORSTWYa AO
+0 0 0 0 0
+0 10 30 P
+E
+paper note appreciation puppy~
+{x  Thank you, good friend, for returning this stolen {Wpuppy{x.
+In return, as a show of appreciation, this note, if given to{x
+Annabus, the questmaster, may be redeemed for a prize of QP.{x
+It can also be saved, and if you are able to return two other{x
+pets, given to Alisa for a prize worthy of a true adventurer.{x
+
+                  Many thanks,{x
+                    The owner of the Midgaard pet shop{x
+~
+
+#0
+
+#ROOMS
+#0
+#RESETS
+
+M 0 21006 1 3031 1	* owner
+
+S
+#SHOPS
+0
+#SPECIALS
+S
+#$
+
+

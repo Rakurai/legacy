@@ -1,0 +1,390 @@
+#PLAYER
+Name Zurisolthar~
+Id   1013914305
+LogO 1013975503
+Vers 12
+Prom {W[{g%z{W] ({g%a{W)%c{T<{C%h{T/%Hhp {C%m{T/%Mm {C%v{T/%Vmv {W[{x%e{W]{x %X{T> ~
+Race dragon~
+Sex  1
+Cla  5
+Levl 6
+Plyd 7810
+Age  0
+Back 3636
+Note 1013914719 1013925062 1013914719 1013914719 1013914719 1013914719
+Scro 100
+Room 3054
+HMS  46 111 145 166 149 149
+Gold 28
+Silv 39
+Exp  16823
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CEFGHJLQSc
+AfBy CDT
+FRes EG
+FVul F
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 4
+Save  -1
+Alig  1000
+Hit   3
+Dam   2
+ACs 51 50 50 69
+Wimp  10
+Atrib 16 17 17 13 19 15
+AtMod 0 6 6 4 3 2
+SkillPnts 4
+QuestPnts 9
+Pass disochak~
+Afk {B[{CSun Feb 17 13:36:20 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  N'Grasinthl~
+Immn ~
+Pnts 55
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Xenith~
+Lsit dyn-420w119-214-191.dyn.columbia.edu~
+Ltim Sun Feb 17 12:18:41 2002
+~
+LSav Sun Feb 17 13:51:43 2002
+~
+MC 44
+Col 33 31 0 33 0 37 0 0 37 35 37 0 0 0 33 0 36 0 0 37 35 37 31 0 32 37 37 37 33 33 0 36 0 0 0 0 0 0 0 0 0 37 37 37 
+Bol 1 0 0 0 0 1 0 0 0 1 0 0 0 0 1 0 1 0 0 1 1 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 
+Plr  AO
+HMSP 109 147 147
+THMS 0 0 0
+Cnd  0 20 1 36
+Sk 1 1 'acid breath'
+Sk 71 1 'bless'
+Sk 1 1 'calm'
+Sk 71 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 71 1 'create water'
+Sk 1 1 'cure critical'
+Sk 74 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 71 1 'detect evil'
+Sk 71 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'fire breath'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning breath'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 71 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'vision'
+Sk 71 1 'dagger'
+Sk 72 1 'mace'
+Sk 76 1 'sword'
+Sk 71 1 'shield block'
+Sk 1 1 'scribe'
+Sk 1 1 'bash'
+Sk 1 1 'parry'
+Sk 71 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 71 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'paladin default'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'detection'
+Gr 'draconian'
+Gr 'healing'
+Affc 'detect invis'   0  10   8   0   0          8 1
+Affc 'detect evil'   0  10   8   0   0          4 1
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 4204
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 6601
+Nest 1
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 75
+Nest 1
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 10135
+Enchanted
+Nest 0
+ExtF 17039425
+Wear 9
+Lev  6
+Cost 23
+Affc 'enchant armor'   1  91  -1  -5  17          0 1
+Affc 'reserved'   1   2  -1   1   3          0 1
+Affc 'reserved'   1   2  -1   2  12          0 1
+End
+
+#O
+Vnum 10126
+Enchanted
+Nest 0
+ExtF 17039681
+Wear 7
+Lev  6
+Cost 57
+Affc 'enchant armor'   1  91  -1  -1  17          0 1
+Affc 'reserved'   1   5  -1   1   4          0 1
+Affc 'reserved'   1   5  -1   5  12          0 1
+End
+
+#O
+Vnum 9201
+Nest 0
+Wear 2
+Cost 1140
+End
+
+#O
+Vnum 9201
+Nest 0
+Wear 1
+Cost 1140
+End
+
+#O
+Vnum 2326
+Enchanted
+Nest 0
+ExtF 65
+Wear 15
+Lev  6
+Cost 550
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
+End
+
+#O
+Vnum 2326
+Enchanted
+Nest 0
+ExtF 65
+Wear 14
+Lev  6
+Cost 550
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 4205
+Enchanted
+Nest 0
+Wear 13
+Cost 1000
+Affc 'reserved'   1   1  -1  -1  23          0 1
+Affc 'reserved'   1   1  -1   2   2          0 1
+Affc 'reserved'   1   1  -1  -2  17          0 1
+End
+
+#O
+Vnum 78
+Nest 0
+Cond 98
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear -1
+Cost 610
+End
+
+#O
+Vnum 4203
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 1603
+Nest 0
+Wear 16
+Cost 700
+End
+
+#O
+Vnum 3171
+Nest 0
+Wear 5
+Cost 600
+ExDe owned by~ Zurisolthar~
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear 17
+Cost 1140
+End
+
+#O
+Vnum 12700
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear 0
+Cost 400
+End
+
+#O
+Vnum 16030
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3115
+Nest 0
+Wear 10
+Cost 660
+End
+
+#END

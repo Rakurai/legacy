@@ -1,0 +1,679 @@
+#PLAYER
+Name Morpheus~
+Id   1006942647
+LogO 1009826082
+Vers 9
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race dwarf~
+Clan divinity~
+Sex  1
+Cla  3
+Levl 26
+Plyd 51710
+Age  0
+Back 0
+Note 1007708774 1007538837 1007708432 1004828214 1007717505 1007636382
+Scro 22
+Room 3365
+HMV  690 690 200 200 251 251
+Gold 4146
+Silv 158
+Exp  27735
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 1
+PKRank 0
+Act  CDEFGHJLS
+AfBy DFJV
+Comm NOQZ
+Revk 0
+Cnsr AB
+Pos  8
+Prac 4
+Save  -5
+Alig  1000
+Hit   25
+Dam   25
+ACs -53 -55 -51 -23
+Atrib 21 16 20 15 21 13
+AtMod 3 8 9 13 3 8
+QuestPnts 8
+Pass scooby~
+Afk {B[{CFri Dec  7 17:10:30 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl .~
+Immn ~
+Pnts 40
+Rank {WCRB{x~
+Aura ~
+TSex 1
+LLev 13
+Deit Kenneth~
+Lsit 1Cust194.tnt1.longview.tx.da.uu.net~
+Ltim Fri Dec 07 17:04:57 2001
+~
+LSav Mon Dec 31 13:14:42 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMVP 530 180 251
+THVP 3 0 0
+Cnd  0 0 0 0
+Sk 75 1 'cure critical'
+Sk 25 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'heal'
+Sk 1 1 'mass healing'
+Sk 73 1 'refresh'
+Sk 1 1 'dagger'
+Sk 95 1 'sword'
+Sk 69 1 'berserk'
+Sk 71 1 'dodge'
+Sk 80 1 'enhanced damage'
+Sk 84 1 'kick'
+Sk 77 1 'parry'
+Sk 78 1 'second attack'
+Sk 73 1 'third attack'
+Sk 79 1 'dual wield'
+Sk 1 1 'firebuilding'
+Sk 1 1 'forge'
+Sk 75 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'healing'
+Affc 'haste'   0 100  23   4   2    2097152 1
+End
+
+#O
+Vnum 74
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 32116
+Enchanted
+Nest 0
+Cond 95
+Wear -1
+Cost 0
+Affc 'acid breath'   0   7  -1   1  17          0 1
+Affc 'reserved'   1  15  -1 -15  17          0 1
+Affc 'reserved'   1  15  -1   1   5          0 1
+End
+
+#O
+Vnum 16046
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 16044
+Nest 0
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 10127
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 12714
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 16075
+Enchanted
+Nest 0
+Cond 95
+Wear 10
+Cost 0
+Affc 'reserved'   1  22  -1   2  19          0 1
+Affc 'reserved'   1  22  -1   1  18          0 1
+Affc 'reserved'   1  22  -1   2   2          0 1
+Affc 'acid breath'   0   6  -1   1  17          0 1
+End
+
+#O
+Vnum 16076
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 16066
+Nest 0
+Wear 9
+Cost 3500
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9205
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 16039
+Nest 0
+ExtF 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 16007
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 16006
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 12714
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 4596
+Nest 0
+Wear 11
+Cost 2400
+End
+
+#O
+Vnum 4577
+Nest 0
+Wear 18
+Cost 2400
+End
+
+#O
+Vnum 4595
+Nest 0
+Cond 92
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear 0
+Cost 700
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear 17
+Cost 3000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 14028
+Enchanted
+Nest 0
+Wear -1
+Cost 150
+Affc 'reserved'   1  15  -1  -1  21          0 1
+Affc 'reserved'   1  15  -1  10  13          0 1
+Affc 'reserved'   1  15  -1   1   1          0 1
+End
+
+#O
+Vnum 14034
+Nest 0
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 16042
+Nest 0
+Wear -1
+Cost 5600
+End
+
+#O
+Vnum 16041
+Enchanted
+Nest 0
+ExtF 67
+Wear 16
+Lev  28
+Cost 5000
+Affc 'reserved'   1  26  -1 -10  17          0 1
+Affc 'enchant weapon'   1  88  -1   4  18          0 1
+Affc 'enchant weapon'   1  88  -1   4  19          0 1
+End
+
+#O
+Vnum 2369
+Nest 0
+Wear -1
+Cost 1950
+End
+
+#O
+Vnum 2370
+Nest 0
+Wear -1
+Cost 1950
+End
+
+#O
+Vnum 2371
+Nest 0
+Wear -1
+Cost 1950
+End
+
+#O
+Vnum 2366
+Nest 0
+Wear -1
+Cost 2100
+End
+
+#O
+Vnum 2372
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 3201
+Nest 0
+Wear 6
+Cost 20
+End
+
+#O
+Vnum 7300
+Nest 0
+Wear -1
+Cost 100
+Val  60 1 0 6 100
+End
+
+#O
+Vnum 73
+Nest 1
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 1
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 1
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 80
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3091
+Nest 1
+Wear -1
+Cost 0
+Spell 1 'fly'
+End
+
+#O
+Vnum 9573
+Nest 1
+Wear -1
+Cost 0
+Spell 1 'haste'
+End
+
+#O
+Vnum 9573
+Nest 1
+Wear -1
+Cost 0
+Spell 1 'haste'
+End
+
+#O
+Vnum 9573
+Nest 1
+Wear -1
+Cost 0
+Spell 1 'haste'
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 114 15 0 0
+End
+
+#O
+Vnum 72
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 1621
+Nest 1
+Wear -1
+Time 259
+Cost 320
+Spell 1 'cure blindness'
+Spell 2 'cure critical'
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 7616
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 7616
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4596
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 4586
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 4586
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 9201
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 9202
+Nest 0
+Wear -1
+Cost 5500
+End
+
+#O
+Vnum 24200
+Nest 0
+Wear 1
+Cost 2000
+End
+
+#O
+Vnum 24200
+Nest 0
+Wear 2
+Cost 2000
+End
+
+#O
+Vnum 24236
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#END

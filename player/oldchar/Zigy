@@ -1,0 +1,204 @@
+#PLAYER
+Name Zigy~
+Id   1008353175
+LogO 1010780171
+Vers 10
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nmv {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Sex  1
+Cla  3
+Levl 4
+Plyd 1717
+Age  0
+Back 1708
+Note 0 0 0 0 0 0
+Scro 22
+Room 8543
+HMS  66 66 111 111 144 144
+Gold 3
+Silv 484
+Exp  4605
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+Comm NO
+Revk 0
+Cnsr AB
+Pos  4
+Save  -8
+Alig  750
+Hit   7
+ACs 72 72 72 79
+Atrib 15 16 16 16 15 13
+AtMod 1 2 3 2 0 2
+Pass demon~
+Afk {B[{CFri Jan 11 13:49:54 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 39
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Endo~
+Lsit mailserv.awec.EDnet.NS.CA~
+Ltim Fri Jan 11 13:44:20 2002
+~
+LSav Fri Jan 11 14:16:11 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMSP 62 111 144
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'heal'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 75 1 'sword'
+Sk 51 1 'bash'
+Sk 1 1 'berserk'
+Sk 1 1 'dirt kicking'
+Sk 75 1 'enhanced damage'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 1 1 'forge'
+Sk 1 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'healing'
+Affc 'shield'   0  41   0 -20  17          0 1
+Affc 'bless'   0  45  19   7  18          0 1
+Affc 'bless'   0  52  19  -7  24          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 129 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear 16
+Cost 0
+End
+
+#END

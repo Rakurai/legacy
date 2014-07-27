@@ -1,0 +1,367 @@
+#PLAYER
+Name Curry~
+Id   1017005994
+LogO 1018919424
+Vers 13
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Sex  1
+Cla  3
+Levl 25
+Plyd 9883
+Back 0
+Note 1017344252 1017199308 1017160817 1017329568 1017214812 1017283170 1017272376
+Scro 22
+Room 3054
+HMS  530 530 259 259 394 397
+Gold 217
+Silv 5
+Exp  25514
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDGHJLQSc
+AfBy DEFHNO
+Comm NO
+Revk 0
+Cgrp A
+Cnsr B
+Pos  8
+Prac 46
+Trai 1
+Save  -18
+Alig  1000
+Hit   36
+Dam   22
+ACs -47 -47 -49 -4
+Atrib 19 18 18 18 18 15
+AtMod 6 2 6 1 1 2
+Pass justin~
+Titl , {RE{Pn{cr{Pa{Rg{ce{Pd {GI{gr{Wi{Gs{gh{Wm{Ga{gn{x.~
+Immn ~
+Pnts 39
+Rank {RB{gL{cD{x~
+Aura ~
+TSex 1
+LLev 1
+Deit Montrey~
+Lsit adsl-63-187-95.bix.bellsouth.net~
+Ltim Thu Mar 28 12:52:21 2002
+~
+LSav Mon Apr 15 20:10:24 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  EHO
+HMSP 425 229 397
+THMS 0 0 0
+Cnd  0 0 7 29
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 1 1 'axe'
+Sk 78 1 'dagger'
+Sk 78 1 'sword'
+Sk 78 1 'bash'
+Sk 4 1 'dodge'
+Sk 79 1 'enhanced damage'
+Sk 75 1 'kick'
+Sk 76 1 'parry'
+Sk 76 1 'second attack'
+Sk 77 1 'third attack'
+Sk 78 1 'dual wield'
+Sk 75 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'enhancement'
+Affc 'sanctuary'   0  89   2   0   0        128 2
+Affc 'bless'   0  91  84 -11  24          0 1
+Affc 'bless'   0  89  84  11  18          0 1
+Affc 'giant strength'   0  19   3   3   1          0 1
+Affc 'armor'   0  10   3 -20  17          0 1
+Affc 'shield'   0  11   2 -20  17          0 1
+Affc 'protection evil'   0   9   3  -1  24       8192 1
+Affc 'protection good'   0  10   3  -1  24      16384 1
+Affc 'detect invis'   0   9   8   0   0          8 1
+Affc 'detect magic'   0  10   8   0   0         16 1
+Affc 'detect hidden'   0  10   8   0   0         32 1
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 118 0 0 0
+End
+
+#O
+Vnum 12701
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 10127
+Nest 0
+Wear 7
+Cost 128
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 1
+Cost 1500
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Cond 99
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 506
+Nest 0
+Wear 0
+Cost 1000
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16065
+Nest 0
+Cond 74
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16042
+Nest 0
+Cond 92
+Wear 19
+Cost 5600
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 16041
+Nest 0
+Cond 82
+Wear 16
+Cost 5000
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3092
+Nest 0
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 3092
+Nest 0
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 504
+Nest 0
+Wear 14
+Cost 312
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Wear 15
+Cost 312
+End
+
+#END

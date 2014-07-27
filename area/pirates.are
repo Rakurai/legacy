@@ -1,0 +1,5556 @@
+#AREA
+pirates.are~
+Pirate Cave~
+{H{{70 91} {MElrac&Sharra {TPirate Cave~
+4400 4519
+
+#MOBILES
+#4400
+pirate guardian~
+The pirate gate guardian~
+The pirate gate guardian stands here, guarding the entrance to the Pirate Cave.
+~
+The pirate gate guardian is on duty to make sure no spies or soldiers of
+the various kingdoms who are at war with the pirates enter the cave.  He is
+sworn to defend the security of their refuge with his life.  Of the pirates
+living here, he is one of few who is a member of neither the Dragon-Pirates
+nor the Snake-Pirates, so he won't get involved in those regular squabbles
+taking place between these so different groups who nevertheless share one
+home.
+~
+human~
+BGT H 0 S
+70 11 30d30+3800 1d1+99 5d5+27 beating
+-28 -27 -29 -11
+BDEIK 0 0 K
+stand stand male 500
+0 0 medium 0
+
+#4401
+pirate guard~
+The pirate peace guard~
+A pirate peace guard is here, trying to prevent the pirates from fighting each other.
+~
+The pirate peace guard has a tough job. The two different groups of
+pirates, the Dragon-Pirates and the Snake-Pirates, living in this Cave tend
+to fight each other regularly. In fact, even members of the same group
+think nothing of picking a nice fight with one other. So the poor peace
+guard has to jump into each fight going on, trying to separate the
+opponents. But as he himself doesn't mind a good brawl, it often turns out
+that he just heats up the fire instead of cooling it down.
+~
+human~
+GT HNO 0 S
+75 12 30d30+4500 1d1+149 5d5+29 beating
+-30 -33 -32 -16
+BDEKR 0 0 K
+stand stand male 500
+0 0 medium 0
+
+#4402
+old pirate leg~
+The old pirate with a wooden leg~
+An old pirate with a wooden leg stands here.
+~
+The pirate is quite old and has many scars from all the fights he fought in
+his life. The worst part is that he lost one leg in a great battle between
+the pirates and an armada of ships from the dwarfen kingdom.  The pirates
+captured the dwarfen king in that battle and collected a very high ransom
+from the dwarfs for letting him go alive. That was the basis for quite a
+fortune they have managed to earn until today.  This poor old man, though,
+has now to manage with a wooden leg.  On the upper arm of the pirate you
+notice a {Ggreen snake{x tattoo.
+~
+human~
+GT H -1000 S
+70 10 30d30+3800 1d1+99 5d5+27 hit
+-28 -27 -28 -12
+DEK 0 E F
+stand stand male 1500
+0 0 medium 0
+
+#4403
+young pirate blond~
+A young pirate~
+A young pirate with long blond hair stands here.
+~
+This young woman was born as the daughter of a pirate and although not yet
+very experienced in fighting, will become a great pirate as all others
+agree. Some more years of experience and she might be a captain.  On her
+upper arm you notice a {Rred dragon{x tattoo.
+~
+human~
+GT H 1000 S
+70 10 30d30+3850 1d1+99 5d5+27 slap
+-28 -27 -28 -12
+DEJK 0 G E
+stand stand female 1500
+0 0 medium 0
+
+#4404
+drunken pirate~
+The slightly drunken pirate~
+A slightly drunken pirate staggers along here.
+~
+This woman of about 40 years appears to be slightly drunken. Nothing
+special, though, as most pirates like a good drink even more than a good
+fight. She seems to be on the way to her bed.  On her upper arm you notice
+a {Ggreen snake{x tattoo.
+~
+human~
+GT H -1000 S
+70 10 30d30+3875 1d1+99 5d5+28 slap
+-28 -27 -28 -12
+DEJK 0 F G
+stand stand female 1500
+0 0 medium 0
+
+#4405
+young pirate bald~
+A young pirate~
+A bald-headed young pirate stands here.
+~
+Although still very young, this pirate has a bald head. He must have gone
+through hard times to lose his hair at such a young age.  On his upper arm
+you notice a {Rred dragon{x tattoo.
+~
+human~
+GT H 1000 S
+70 10 30d30+3850 1d1+99 5d5+28 hit
+-28 -27 -28 -12
+DEIK 0 E F
+stand stand male 1500
+0 0 medium 0
+
+#4406
+pirate nose~
+A pirate with a big nose~
+A pirate with a big nose stands here.
+~
+This man has such a big nose that it draws everybody's attention, it's
+nearly unbelievable. The nose is also a bit red, either from cold or from
+too much rum, who knows? On his upper arm you notice a {Ggreen snake{x
+tattoo.
+~
+human~
+GT H -1000 S
+72 10 30d30+4040 1d1+99 5d5+28 hit
+-30 -31 -30 -13
+DEIK 0 G E
+stand stand male 1800
+0 0 medium 0
+
+#4407
+old female pirate~
+The old female pirate~
+An old female pirate stands here.
+~
+This old woman looks rather tired. If she only had a hard day or a hard
+life, who can tell? On her upper arm you notice a {Rred dragon{x tattoo.
+~
+human~
+GT H 1000 S
+72 10 30d30+4040 1d1+99 5d5+28 slap
+-30 -31 -30 -13
+DEJK 0 F G
+stand stand female 1800
+0 0 medium 0
+
+#4408
+pirate girl~
+A pirate girl~
+A pirate girl stands here.
+~
+Just a girl. Hmm.... don't underestimate her! She is just a girl, but still
+a pirate. You might not come out standing from a fight with her.  Better
+not to try! On the girl's upper arm you notice a {Ggreen snake{x tattoo.
+~
+human~
+GT H -1000 S
+72 10 30d30+4040 1d1+99 5d5+28 claw
+-30 -31 -30 -13
+DEJK 0 E F
+stand stand female 1800
+0 0 medium 0
+
+#4409
+pirate boy~
+A pirate boy~
+A pirate boy stands here.
+~
+Just a boy. Hmm.... don't underestimate him. He is just a boy, but still a
+pirate. You could end up losing if you start a fight with him.  Better not
+to try! On the boys upper arm you notice a {Rred dragon{x tattoo.
+~
+human~
+GT H 1000 S
+72 10 30d30+4040 1d1+99 5d5+28 hit
+-30 -31 -30 -13
+DEIK 0 G E
+stand stand male 1800
+0 0 medium 0
+
+#4410
+average pirate~
+An average pirate~
+An average pirate stands here.
+~
+This is a very average pirate. You look at him... you notice nothing
+special. You look away... you have forgotten him.  The only thing you can
+remember is his {Ggreen snake{x tattoo.
+~
+human~
+GT H -1000 S
+74 11 30d30+4280 1d1+99 5d5+29 hit
+-32 -32 -33 -15
+DEIK 0 F G
+stand stand male 2000
+0 0 medium 0
+
+#4411
+average pirate~
+An average pirate~
+An average pirate stands here.
+~
+This is a very average pirate. You look at him... you notice nothing
+special. You look away... you have forgotten him.  The only thing you can
+remember is his {Rred dragon{x tattoo.
+~
+human~
+GT H 1000 S
+74 11 30d30+4280 1d1+99 5d5+29 hit
+-32 -32 -33 -15
+DEIK 0 E F
+stand stand male 2000
+0 0 medium 0
+
+#4412
+bully pirate~
+A bully pirate~
+A bully pirate stands here, challenging you to a fight.
+~
+The bully pirate would love a good fight with you. He is calling you names,
+just to make you attack him. You might want to have a second thought about
+it, though.  On his arm you notice a {Ggreen snake{x tattoo.
+~
+human~
+GT H -1000 S
+76 12 30d30+4550 1d1+149 5d5+31 hit
+-35 -33 -34 -18
+DEJK 0 G E
+stand stand male 2000
+0 0 medium 0
+
+#4413
+timid pirate~
+A timid pirate~
+A timid pirate stands here, trying not to be noticed.
+~
+This pirate looks ridiculous. A TIMID pirate, who would have thought that
+such a thing exists? Well, some people have the wrong job, no? On the arm
+of the timid pirate you notice a {Rred dragon{x tattoo.
+~
+human~
+GHT H 1000 S
+76 12 30d30+4550 1d1+149 5d5+31 hit
+-35 -33 -34 -18
+DEJK 0 F G
+stand stand male 2000
+0 0 medium 0
+
+#4414
+spy dwarf~
+The spy from the dwarfen kingdom~
+A spy from the dwarfen kingdom tries to hide here.
+~
+The spy was sent by the dwarfen king who once was a prisoner of the
+pirates. He wants to make sure never to get into that situation again.  So
+he sent out some of his men to have a sharp eye on what is going on in the
+pirates' refuge. The spy is not a good fighter, but he is great at hiding,
+sneaking and finding out secrets. One can understand that he feels quite
+uneasy among all those pirates, though.
+~
+dwarf~
+G BHQbb 0 S
+60 9 30d30+3250 1d1+299 5d3+18 pound
+-28 -25 -26 -14
+EFHK CHIJ D 0
+stand stand male 0
+0 0 small 0
+
+#4415
+very drunken pirate~
+A very drunken pirate~
+A very drunken pirate has a hard time staying on his feet.
+~
+Yes, this pirate is VERY drunken. But pirates are often in this state.  So
+if you are after a fight, don't think he wont hit you just because he is
+drunk. Believe me, he is used to hard matches in just that condition.  On
+the arm of the pirate you notice a {Ggreen snake{x tattoo.
+~
+human~
+GT H -1000 S
+78 12 30d30+4760 1d1+149 5d5+31 slap
+-36 -36 -37 -22
+DEJK 0 E F
+stand stand male 400
+0 0 medium 0
+
+#4416
+very drunken pirate~
+A very drunken pirate~
+A very drunken pirate has a hard time standing on his feet.
+~
+Yes, this pirate is VERY drunken. But pirates are often in this state.  So
+if you are after a fight, don't think he wont hit you just because he is
+drunk. Believe me, he is used to hard matches in just that condition.  On
+the arm of the pirate you notice a {Rred dragon{x tattoo.
+~
+human~
+GT H 1000 S
+78 12 30d30+4760 1d1+149 5d5+31 slap
+-36 -36 -37 -25
+DEJK 0 G E
+stand stand male 400
+0 0 medium 0
+
+#4417
+aggressive pirate~
+An aggressive pirate~
+An aggressive pirate is waiting here for someone to pick on.
+~
+The aggressive pirate is happy to see you. Finally, somebody he could have a
+good fight with.  On the arm of the aggressive pirate you notice a {Ggreen
+snake{x tattoo.
+~
+human~
+BFGT aabb -1000 S
+80 13 50d30+8250 1d1+199 6d6+25 crush
+-37 -38 -36 -25
+DEIKN 0 F G
+stand stand male 2600
+0 0 medium 0
+
+#4418
+bored pirate~
+A bored pirate~
+A bored pirate stands here, not knowing what to do.
+~
+This is a young woman looking terribly bored. Maybe you could do her a
+favor with a nice little fight? Or maybe in another way???? On the arm of
+the bored pirate you notice a {Rred dragon{x tattoo.
+~
+human~
+GHT H 1000 S
+80 13 50d30+8250 1d1+199 6d6+25 claw
+-37 -38 -36 -25
+DEIKN 0 E F
+stand stand female 2600
+0 0 medium 0
+
+#4419
+ugly pirate~
+An ugly pirate~
+An ugly pirate is here.
+~
+Better don't look.
+On the arm of the ugly pirate you notice a {Ggreen snake{x tattoo.
+~
+human~
+GT H -1000 S
+82 13 30d30+5240 1d1+199 6d6+25 pound
+-39 -38 -37 -26
+DEJKN 0 G E
+stand stand either 2500
+0 0 medium 0
+
+#4420
+ugly pirate~
+An ugly pirate~
+An ugly pirate is here.
+~
+Better don't look.
+On the arm of the ugly pirate you notice a {Rred dragon{x tattoo.
+~
+human~
+GT H 1000 S
+82 13 30d30+5240 1d1+199 6d6+25 pound
+-39 -38 -37 -26
+DEJKN 0 F G
+stand stand either 2500
+0 0 medium 0
+
+#4421
+handsome pirate~
+A handsome pirate~
+A handsome pirate is here, waiting for you to admire his beauty.
+~
+VERY handsome, indeed. But the pity is, he knows it.  On the arm of the
+handsome pirate you notice a {Ggreen snake{x tattoo.
+~
+human~
+GHT H -1000 S
+84 13 30d30+5480 1d1+199 6d6+26 slap
+-41 -40 -40 -27
+DEIKN 0 E F
+stand stand male 2000
+0 0 medium 0
+
+#4422
+beautiful pirate~
+A very beautiful pirate~
+A very beautiful pirate is here, waiting for you to admire her.
+~
+You are struck by her beauty and admire her. If you are male, that is.  If
+you are a woman you are likely to have the good sense to be wary of people
+who are used to being admired.  On the arm of the beautiful pirate you
+notice a {Rred dragon{x tattoo.
+~
+human~
+GHT H 1000 S
+84 13 30d30+5480 1d1+199 6d6+26 slap
+-41 -40 -40 -27
+DEIKN 0 G E
+stand stand female 2000
+0 0 medium 0
+
+#4423
+pirate big belly~
+A pirate with a big belly~
+A pirate with a big belly stands here.
+~
+Yeah, this pirate has a very big belly. He might be a cook. Or just the
+cook's best customer.  On the arm of the pirate you notice a {Ggreen
+snake{x tattoo.
+~
+human~
+GHT H -1000 S
+86 13 30d40+5550 1d1+249 6d6+28 crush
+-43 -42 -42 -30
+DEIKN 0 F G
+stand stand male 2200
+0 0 medium 0
+
+#4424
+pirate big belly~
+A pirate with a big belly~
+A pirate with a big belly stands here.
+~
+Yeah, this pirate has a very big belly. He might be a cook. Or just the
+best customer of a such.  On the arm of the pirate you notice a {Rred
+dragon{x tattoo.
+~
+human~
+GHT H 1000 S
+86 13 30d40+5550 1d1+249 6d6+28 crush
+-43 -42 -42 -30
+DEIKN 0 E F
+stand stand male 2200
+0 0 medium 0
+
+#4425
+mad pirate~
+A mad pirate~
+A mad pirate stands here, a frightening look in his eyes.
+~
+Heck, he IS frightening. Shouting and screaming, he rambles around.  Better
+leave fast, before he attacks you. If he hasn't already, that is.  On the
+arm of the pirate you notice a {Ggreen snake{x tattoo.
+~
+human~
+BFGT H -1000 S
+88 14 30d40+5960 1d1+249 6d6+29 claw
+-45 -46 -46 -36
+DEIKN 0 G E
+stand stand male 2400
+0 0 medium 0
+
+#4426
+mad pirate~
+A mad pirate~
+A mad pirate stands here, completely out of her mind.
+~
+Although this woman is member of the Dragon-Pirates, who normally are quite
+nice people (if you didn't happen to be on a ship they just boarded, you
+will agree here), she is so insane, she attacks each and everybody,
+fighting with the strength of the crazy.  On the arm of the pirate you
+notice a {Rred dragon{x tattoo.
+~
+human~
+BFGT bbaa 1000 S
+88 14 30d40+5960 1d1+249 6d6+29 claw
+-45 -46 -46 -36
+DEIKN 0 F G
+stand stand female 2400
+0 0 medium 0
+
+#4427
+pirate warrior~
+A pirate warrior~
+A pirate warrior is here, guarding the way to the treasure chamber.
+~
+This is one of the guardians of the treasure chamber. You should not have
+come here. But now that you have, it is definitely clear, that one must
+die, either the guard or you. The guard looks like he is quite sure that
+you'll be the one to die! On the arm of the pirate you notice a {Ggreen
+snake{x tattoo.
+~
+human~
+FGT BHbbaa -1000 S
+90 16 30d40+6100 1d1+299 7d7+24 beating
+-47 -46 -46 -33
+BDEFN 0 E F
+stand stand male 2600
+0 0 medium 0
+
+#4428
+tall strong pirate warrior~
+A very tall and strong pirate warrior~
+A very tall and strong pirate warrior is here, guarding the treasure chamber.
+~
+This is the guardian of the pirate treasure chamber. She noticed you
+intrude the place. Better flee as long as you are alive! On the arm of the
+pirate you notice a {Ggreen snake{x tattoo.
+~
+human~
+BFGT DFHbbaa -1000 S
+92 16 30d40+6350 1d1+299 7d7+24 beating
+-49 -48 -47 -34
+BDEFN 0 G E
+stand stand female 2600
+0 0 large 0
+
+#4429
+strong pirate guard~
+The strong pirate peace guard~
+A strong pirate peace guard is here, preventing the pirates from fighting each other.
+~
+This guard really holds the peace. In fact, he would rather see the
+opponents dead than fighting. NOBODY dares to fight in his presence.  So
+you had better give up the thought of a nice match as well!
+~
+human~
+GT Haabb 0 S
+90 16 30d40+6100 1d1+299 7d7+24 beating
+-47 -46 -46 -32
+BDEFKR 0 F G
+stand stand male 2600
+0 0 large 0
+
+#4430
+slim pirate~
+A slim pirate~
+A slim pirate stands here.
+~
+Yes, this pirate is rather slim. But what she lacks in muscles, she makes
+up in agility and speed.  On the arm of the pirate you notice a {Ggreen
+snake{x tattoo.
+~
+human~
+GT HVbb -1000 S
+90 16 30d40+6150 1d1+299 6d7+22 slap
+-47 -46 -46 -32
+DEFHJK 0 E H
+stand stand female 2600
+0 0 medium 0
+
+#4431
+slim pirate~
+A slim pirate~
+A slim pirate stands here.
+~
+Yes, this pirate is rather slim. But what he lacks in muscles, he makes up
+in agility and speed.  On the arm of the pirate you notice a {Rred dragon{x
+tattoo.
+~
+human~
+GT HVbb 1000 S
+90 16 30d40+6150 1d1+299 6d7+22 slap
+-47 -46 -46 -32
+DEFHJK 0 F I
+stand stand male 2600
+0 0 medium 0
+
+#4432
+pirate cook~
+The pirate cook~
+A pirate cook is here, preparing a meal for lots of people.
+~
+The pirate cook is preparing a meal.  It doesn't smell very appetizing,
+though.  On the arm of the pirate cook you notice a {Ggreen snake{x tattoo.
+~
+human~
+BGT Hbb -1000 S
+92 16 30d40+6240 1d1+299 7d7+23 crush
+-49 -48 -47 -34
+CDEFK 0 G J
+stand stand male 800
+0 0 medium 0
+
+#4433
+pirate craftsman~
+The pirate craftsman~
+A pirate craftsman is here, repairing some minor damages to the ship.
+~
+The pirate craftsman is involved in his work and doesn't notice you.  On
+the arm of the pirate craftsman you notice a {Ggreen snake{x tattoo.
+~
+human~
+GT Hbb -1000 S
+92 16 30d40+6240 1d1+299 7d7+23 crush
+-49 -48 -47 -34
+CDEFIK 0 E H
+stand stand male 2800
+0 0 medium 0
+
+#4434
+pirate craftsman~
+The pirate craftsman~
+A pirate craftsman is here, repairing some minor damages to the ship.
+~
+The pirate craftsman is involved in his work and doesn't notice you.  On
+the arm of the pirate craftsman you notice a {Rred dragon{x tattoo.
+~
+human~
+GT Hbb 1000 S
+92 16 30d40+6340 1d1+299 7d7+23 crush
+-49 -48 -47 -34
+CDEFIK 0 F I
+stand stand male 2800
+0 0 medium 0
+
+#4435
+pirate sea guard~
+The pirate sea guard~
+A pirate sea guard stands here, watching the sea for ships that might sail by.
+~
+The job of this pirate sea guard is to warn the others if ships of enemy
+kingdoms come near their refuge. And to alert the others to ships that
+might be worth boarding.  On the arm of the pirate sea guard you notice a
+{Ggreen snake{x tattoo.
+~
+human~
+BGT Haabb -1000 S
+94 16 30d40+6680 1d1+299 7d7+24 crush
+-50 -51 -49 -40
+CDEFIK 0 G J
+stand stand either 2000
+0 0 large 0
+
+#4436
+pirate prison guard~
+The pirate prison guard~
+A pirate prison guard is here, making sure none of the prisoners escape.
+~
+The pirate prison guard looks rather bored. All those prisoners are kings,
+queens or some such. None of them would dare to take a step on their own
+without some servants to accompany them. They are just not used to wiping
+their own noses. So, none of them ever tries to flee.  On the arm of the
+pirate prison guard you notice a {Ggreen snake{x tattoo.
+~
+human~
+BGT HZaa -1000 S
+96 17 30d40+6820 1d1+349 7d7+26 crush
+-52 -51 -52 -40
+CDEFJK 0 F I
+stand stand either 500
+0 0 large 0
+
+#4437
+king dreamlands~
+The king of dreamlands~
+The king of dreamlands stands here, looking confused.
+~
+The king of dreamlands is a nice but stupid man. He is king because his
+father was before. If they had asked him about his wishes, he had wanted to
+become a sandman, one of the most respected professions in his country.
+But he had had no choice. He was captured by the Spider-pirates a few weeks
+ago, but didn't really realize what was going on. He will be here until his
+people pay the ransom for him.
+~
+human~
+BGT HZ 1000 S
+96 17 30d40+6920 1d1+349 7d7+26 pound
+-52 -51 -52 -40
+DEFKN 0 G J
+stand stand male 0
+0 0 large 0
+
+#4438
+king darklands~
+The king of darklands~
+The king of darklands stands here, looking frightened.
+~
+The king of darklands has reigned his people in a brutal and horrifying
+manner. When he was captured by the Dragon-pirates quite some time ago, he
+was uncertain if his country would pay any ransom for him. And he was
+right. The citizens of darklands were so glad to get rid of them, they told
+the pirates they wouldn't even consider paying. Normally, that would have
+meant instant death for the king... but the Dragon-pirates didn't like the
+thought of killing a prisoner and so they are still thinking about a way to
+get rid of him without having to kill him.
+~
+human~
+BGT HZ -1000 S
+96 17 30d40+6920 1d1+349 7d7+27 pound
+-52 -51 -52 -40
+DEFKN 0 E H
+stand stand male 0
+0 0 large 0
+
+#4439
+queen of summerland~
+The queen of summerland~
+The queen of summerland stands here, radiating warmth.
+~
+Although she has been imprisoned for several days since being captured by
+the Spider-pirates, the queen of summerland still looks beautiful.  She is
+quite sure that she will be free soon as her people love her and will pay
+any ransom the pirates might demand.
+~
+human~
+BGT HZ 1000 S
+98 17 30d40+7260 1d1+349 7d7+27 slap
+-54 -54 -54 -42
+DEFKN F 0 I
+stand stand female 0
+0 0 large 0
+
+#4440
+queen of winterland~
+The queen of winterland~
+The queen of winterland stares coldly at you.
+~
+The queen of winterland is an old, icy lady. The Snake-pirates captured her
+a few weeks ago, and the ones that came in touch with her still suffer from
+a bad cold.
+~
+human~
+BGT HZ -1000 S
+98 17 30d40+7260 1d1+349 7d7+27 slap
+-54 -54 -54 -42
+DEFJK I 0 F
+stand stand female 0
+0 0 large 0
+
+#4441
+pirate captain~
+The pirate captain~
+One of the pirate captains stands here.
+~
+The pirate captain is an impressive looking man. It might be better for
+your health not to mess with him.  On the arm of the pirate captain you
+notice a {Ggreen snake{x tattoo.
+~
+human~
+GT HZ -1000 S
+100 18 30d50+7300 1d1+399 8d8+21 crush
+-54 -54 -54 -43
+CDEFJK 0 E H
+stand stand male 2200
+0 0 large 0
+
+#4442
+pirate captain~
+The pirate captain~
+One of the pirate captains stands here.
+~
+The pirate captain is an impressive looking woman. It might be better for
+your health not to mess with her.  On the arm of the pirate captain you
+notice a {Rred dragon{x tattoo.
+~
+human~
+GT HZ 1000 S
+100 18 30d50+7300 1d1+399 8d8+21 crush
+-54 -54 -54 -43
+DEFJKN 0 F I
+stand stand female 2200
+0 0 large 0
+
+#4443
+guard honor~
+The guard of honor~
+The guard of honor for the pirate queen stands here.
+~
+This is the guard of honor for the pirate queen. He warns you not to
+disturb his majesty or else be prepared to die.  On the arm of the guard of
+honor you notice a {Ggreen snake{x tattoo.
+~
+human~
+BGT HZ -1000 S
+102 18 30d50+7440 1d1+399 8d8+22 smash
+-55 -55 -55 -45
+CDEFIK 0 G J
+stand stand male 3200
+0 0 large 0
+
+#4444
+guard honor~
+The guard of honor~
+The guard of honor for the pirate king stands here.
+~
+This is the guard of honor for the pirate king. She warns you not to
+disturb his majesty or else be prepared to die.  On the arm of the guard of
+honor you notice a {Rred Dragon{x tattoo.
+~
+human~
+BGT HZ 1000 S
+102 18 30d50+7440 1d1+399 8d8+22 smash
+-55 -55 -55 -45
+CDEFIK 0 E H
+stand stand female 3200
+0 0 large 0
+
+#4445
+pirate admiral~
+The pirate admiral~
+A pirate admiral stands here, looking authoritarian.
+~
+The pirate admiral is a very authoritarian man. He sure knows how to order
+his men and women around. They don't like him but admire him as he has led
+them to great victories and quite some gold.  On the arm of the pirate
+admiral you notice a {Ggreen snake{x tattoo.
+~
+human~
+GT HZ -1000 S
+105 18 30d50+7900 1d1+449 8d8+23 smash
+-57 -56 -57 -45
+DEFIKN 0 F I
+stand stand male 3600
+0 0 large 0
+
+#4446
+pirate admiral~
+The pirate admiral~
+A pirate admiral stands here thinking of the next sea battle she is going to lead her ships in.
+~
+The pirate admiral is an elderly woman with a lot of experience.  She has
+fought so many battles, she can't remember all of them. But she will
+forever remember the ones she lost and why and won't ever make a mistake
+twice. So, if you are thinking of fighting her, be prepared for the tough
+time she'll give you.  On the arm of the pirate admiral you notice a {Rred
+dragon{x tattoo.
+~
+human~
+GT HZ 1000 S
+105 18 30d50+7900 1d1+449 8d8+23 smash
+-57 -56 -57 -45
+DEFIKN 0 G J
+stand stand female 3600
+0 0 large 0
+
+#4447
+pirate queen~
+The pirate queen~
+The pirate queen stands here.
+~
+The pirate queen is an old but still very strong woman.  The kings and
+queens of the pirates are not determined by birth but by vote.  The pirates
+elect their best and most successful admirals as kings and queens when they
+are too old for battle. Thus they can still serve their people with their
+knowledge and advice. As a reward they receive quite a few privileges, one
+of them being that they are NOT to be disturbed in their private cave.
+They get VERY angry if somebody dares to do so nevertheless! On the arm of
+the pirate queen you notice a {Ggreen dragon{x tattoo.
+~
+human~
+BFGT HZ -1000 S
+110 19 30d50+8500 1d1+499 9d9+16 thrust
+-60 -62 -61 -50
+CDEFIK 0 M J
+stand stand female 5000
+0 0 large 0
+
+#4448
+pirate king~
+The pirate king~
+The pirate king stands here.
+~
+The pirate king is an old, but still very strong man.  The kings and queens
+of the pirates are not determined by birth but by vote.  The pirates elect
+their best and most successful admirals as kings and queens when they are
+too old for battle. Thus they can still serve their people with their
+knowledge and advice. As a reward they receive quite a few privileges, one
+of them being that they are NOT to be disturbed in their private cave.
+They get VERY angry if somebody dares to do so nevertheless! On the arm of
+the pirate king you notice a {Rred dragon{x tattoo.
+~
+human~
+BFGT HZ 1000 S
+110 19 30d50+8500 1d1+499 9d9+16 thrust
+-60 -62 -61 -50
+CDEFIK 0 N J
+stand stand male 5000
+0 0 large 0
+
+#4449
+pirate hermit~
+The pirate hermit~
+The pirate hermit stands here.
+~
+The pirate hermit lives on this small island because he can't bear the
+crowded caves any longer. All his life he was never really integrated as he
+is by far taller, stronger and more intelligent than all the other pirates.
+They always respected, but also always feared him. He never could
+participate in their fights among each others because nobody dared to risk
+to fight with him. So he led a quite lonesome life and one day decided to
+rather be alone than lonely in a crowd.  On the arm of the pirate hermit
+you notice a {Ggreen snake{x tattoo.
+~
+human~
+BGT HZ -1000 S
+120 22 30d50+13000 1d1+599 9d9+23 chop
+-65 -64 -66 -52
+DEFK 0 0 0
+stand stand male 6000
+0 0 large 0
+
+#4450
+pirate woman~
+The pirate woman~
+The pirate woman who is in love with the pirate hermit stands here.
+~
+This pirate woman is in love with the pirate hermit. She never dared to
+tell him as he didn't seem to notice her at all. Thus he didn't realize that
+she was in quite the same situation as he. Quite outstanding in size and
+strength, she wasn't very well integrated in the group either. And to make
+it worse, while he belongs to the Snake-Pirates, she was born as member of
+the Dragon-Pirates. And although the two groups managed to establish a more
+or less working social life in the cave together,  'mixed' couples  are
+frowned upon by either sides.  So when the hermit left the cave, the woman
+followed him without him knowing.  On this small island she is busy hiding
+from him but being near him at the same time.  A sad story, isn't it? On
+the arm of the pirate woman you notice a {Rred dragon{x tattoo.
+~
+human~
+BGT HZ 1000 S
+120 22 30d50+13000 1d1+599 9d9+23 chop
+-65 -64 -66 -52
+DEFK 0 0 0
+stand stand female 6000
+0 0 large 0
+
+#4451
+spy dwarf~
+The spy from the dwarfen kingdom~
+A spy from the dwarfen kingdom tries to hide here.
+~
+The spy was sent by the dwarfen king who once was a prisoner of the
+pirates. He wants to make sure never to get into that situation again.  So
+he sent out some of his men to have a sharp eye on what is going on in the
+pirates' refuge. The spy is not a good fighter, but he is great at hiding,
+sneaking and finding out secrets. One can understand that he feels quite
+uneasy among all those pirates, though.
+~
+dwarf~
+G BHQbb 0 S
+60 9 30d30+3300 1d1+299 5d3+16 pound
+-28 -25 -26 -20
+EFHK CHIJ D 0
+stand stand male 0
+0 0 small 0
+
+#4452
+spy dwarf~
+The spy from the dwarfen kingdom~
+A spy from the dwarfen kingdom tries to hide here.
+~
+The spy was sent by the dwarfen king who once was a prisoner of the
+pirates. He wants to make sure never to get into that situation again.  So
+he sent out some of his men to have a sharp eye on what is going on in the
+pirates' refuge. The spy is not a good fighter, but he is great at hiding,
+sneaking and finding out secrets. One can understand that he feels quite
+uneasy among all those pirates, though.
+~
+dwarf~
+G BHQbb 0 S
+60 9 30d30+3300 1d1+299 5d3+16 pound
+-28 -25 -26 -20
+EFHK CHIJ D 0
+stand stand male 0
+0 0 small 0
+
+#4453
+pirate sea guard~
+The pirate sea guard~
+A pirate sea guard stands here, watching the sea for ships that might sail by.
+~
+The job of this pirate sea guard is to warn the others if ships of enemy
+kingdoms come near their refuge. And to alert the others to ships that
+might be worth boarding.  On the arm of the pirate sea guard you notice a
+{Rred dragon{x tattoo.
+~
+human~
+BGT Haabb 1000 S
+94 16 30d40+6680 1d1+299 7d7+25 crush
+-50 -51 -49 -40
+CDEFJK 0 E H
+stand stand either 500
+0 0 large 0
+
+#0
+
+#OBJECTS
+#4400
+blue red coat~
+a {Bblue{x and {Rred{x striped coat~
+A {Bblue{x and {Rred{x striped coat lies here.~
+cloth~
+armor GJ AK
+20 19 20 19 0
+73 20 1400 P
+E
+blue red coat~
+This is a {Bblue{x and {Rred{x striped coat. Like the colors? :)
+~
+A
+1 2
+A
+12 40
+A
+13 20
+A
+18 4
+A
+19 4
+A
+24 -2
+A
+26 2
+#4401
+green yellow coat~
+a {Ggreen{x and {Yyellow{x striped coat~
+A {Ggreen{x and {Yyellow{x striped coat lies here.~
+cloth~
+armor GK AK
+20 19 20 19 0
+73 20 1400 P
+E
+green yellow coat~
+This is a {Ggreen{x and {Yyellow{x striped coat. Like the colors? :)
+~
+A
+1 2
+A
+12 40
+A
+13 20
+A
+18 4
+A
+19 4
+A
+24 -2
+A
+26 2
+#4402
+pink green coat~
+a {Ppink{x and {Ggreen{x striped coat~
+A {Ppink{x and {Ggreen{x striped coat lies here.~
+cloth~
+armor G AK
+15 16 15 15 0
+70 20 1000 P
+E
+pink green coat~
+This is a {Ppink{x and {Ggreen{x striped coat. Like the colors? :)
+~
+A
+12 60
+A
+13 20
+A
+18 1
+A
+19 1
+#4403
+violet blue coat~
+a {Vviolet{x and {Bblue{x striped coat~
+A {Vviolet{x and {Bblue{x striped coat lies here.~
+cloth~
+armor G AK
+15 16 15 15 0
+70 20 1000 P
+E
+violet blue coat~
+This is a {Vviolet{x and {Bblue{x striped coat. Like the colors? :)
+~
+A
+12 20
+A
+13 60
+A
+18 1
+A
+19 2
+#4404
+red white coat~
+a {Rred{x and {Wwhite{x striped coat~
+A {Rred{x and {Wwhite{x striped coat lies here.~
+cloth~
+armor G AK
+15 16 15 15 0
+70 20 1000 P
+E
+red white coat~
+This is a {Rred{x and {Wwhite{x striped coat. Like the colors? :)
+~
+A
+12 30
+A
+13 30
+A
+18 3
+A
+19 1
+#4405
+green blue sleeves~
+a pair of {Ggreen{x and {Bblue{x striped sleeves~
+A pair of {Ggreen{x and {Bblue{x striped sleeves lies here.~
+cloth~
+armor GJ AI
+22 21 22 20 0
+85 20 2000 P
+E
+green blue sleeves~
+This is a nice pair of {Ggreen{x and {Bblue{x striped sleeves.
+Aren't they {Gcolor{Bful{x? :)
+~
+A
+2 2
+A
+5 2
+A
+12 50
+A
+13 20
+A
+18 3
+A
+19 5
+A
+24 -3
+#4406
+red yellow sleeves~
+a pair of {Rred{x and {Yyellow{x striped sleeves~
+A pair of {Rred{x and {Yyellow{x striped sleeves lies here.~
+cloth~
+armor GK AI
+22 21 22 20 0
+85 20 2000 P
+E
+red yellow sleeves~
+This is a nice pair of {Rred{x and {Yyellow{x striped sleeves.
+Aren't they {Rcolor{YFul{x? :)
+~
+A
+2 2
+A
+5 2
+A
+12 50
+A
+13 20
+A
+18 3
+A
+19 5
+A
+24 -3
+#4407
+pink green sleeves~
+a pair of {Ppink{x and {Ggreen{x striped sleeves~
+A pair of {Ppink{x and {Ggreen{x striped sleeves lies here.~
+cloth~
+armor G AI
+15 16 17 14 0
+80 20 1000 P
+E
+pink green sleeves~
+This is a nice pair of {Ppink{x and {Ggreen{x striped sleeves.
+Aren't they {Pcolor{GFul{x? :)
+~
+A
+2 1
+A
+12 60
+A
+13 20
+#4408
+violet red sleeves~
+a pair of {Vviolet{x and {Rred{x striped sleeves~
+A pair of {Vviolet{x and {Rred{x striped sleeves lies here.~
+cloth~
+armor G AI
+15 16 17 14 0
+75 20 800 P
+E
+violet red sleeves~
+This is a nice pair of {Vviolet{x and {Rred{x striped sleeves.
+Aren't they {Vcolor{Rful{x? :)
+~
+A
+2 1
+A
+12 20
+A
+13 60
+#4409
+cyan blue sleeves~
+a pair of {Ccyan{x and {Bblue{x striped sleeves~
+A pair of {Ccyan{x and {Bblue{x striped sleeves lies here.~
+cloth~
+armor G AI
+15 16 17 14 0
+70 20 600 P
+E
+cyan blue sleeves~
+This is a nice pair of {Ccyan{x and {Bblue{x striped sleeves.
+Aren't they {Ccolor{BFul{x? :)
+~
+A
+12 30
+A
+13 20
+#4410
+pink boots~
+a pair of {Ppink{x boots with a {Ygolden{x buckle~
+A pair of {Ppink{x boots with a {Ygolden{x buckle lies here.~
+hard leather~
+armor GJ AG
+24 25 25 24 0
+91 20 2000 P
+E
+pink boots~
+{Ppink{x boots with a {Ygolden{x buckle?
+They must belong to a clown or a pirate.
+~
+A
+1 2
+A
+3 2
+A
+4 2
+A
+12 60
+A
+13 30
+A
+18 6
+A
+19 6
+A
+24 -5
+#4411
+blue boots~
+a pair of {Bblue{x boots with a {Ygolden{x buckle~
+A pair of {Bblue{x boots with a {Ygolden{x buckle lies here.~
+hard leather~
+armor GK AG
+24 25 25 24 0
+91 20 2000 P
+E
+blue boots~
+{Bblue{x boots with a {Ygolden{x buckle?
+They must belong to a clown or a pirate.
+~
+A
+1 2
+A
+3 2
+A
+4 2
+A
+12 60
+A
+13 30
+A
+18 6
+A
+19 6
+A
+24 -5
+#4412
+red boots~
+a pair of {Rred{x boots with a {Ygolden{x buckle~
+A pair of {Rred{x boots with a {Ygolden{x buckle lies here.~
+hard leather~
+armor G AG
+20 19 19 15 0
+85 20 1500 P
+E
+red boots~
+{Rred{x boots with a {Ygolden{x buckle?
+They must belong to a clown or a pirate.
+~
+A
+1 2
+A
+12 40
+A
+18 2
+A
+19 2
+A
+24 -2
+#4413
+green boots~
+a pair of {Ggreen{x boots with a {Ygolden{x buckle~
+A pair of {Ggreen{x boots with a {Ygolden{x buckle lies here.~
+hard leather~
+armor G AG
+16 15 15 12 0
+80 20 1500 P
+E
+green boots~
+{Ggreen{x boots with a {Ygolden{x buckle?
+They must belong to a clown or a pirate.
+~
+A
+1 2
+A
+12 40
+A
+18 1
+A
+19 1
+#4414
+violet boots~
+a pair of {Vviolet{x boots with a {Ygolden{x buckle~
+A pair of {Vviolet{x boots with a {Ygolden{x buckle lies here.~
+hard leather~
+armor G AG
+10 10 14 10 0
+70 20 1500 P
+E
+violet boots~
+{Vviolet{x boots with a {Ygolden{x buckle?
+They must belong to a clown or a pirate.
+~
+A
+1 2
+A
+12 30
+A
+18 1
+A
+19 1
+#4415
+golden ring snake~
+a {Ygolden ring{x with an {Gemerald snake{x~
+A {Ygolden ring{x with an {Gemerald snake{x lies here.~
+gold~
+armor GJ AB
+20 19 20 19 0
+85 10 5800 P
+E
+golden ring snake~
+This {Ygolden ring{x with an {Gemerald snake{x is a really nice artwork!
+It also marks the owner as member of the Snake-Pirates. Evil folks.
+If you aren't one of them, better not wear that ring!
+~
+A
+1 2
+A
+3 2
+A
+12 30
+A
+13 30
+A
+18 3
+A
+19 3
+A
+26 1
+#4416
+golden ring dragon~
+a {Ygolden ring{x with a {Rruby dragon{x~
+A {Ygolden ring{x with a {Rruby dragon{x lies here.~
+gold~
+armor GK AB
+20 19 20 19 0
+85 10 5800 P
+E
+golden ring dragon~
+This {Ygolden ring{x with a {Rruby dragon{x is a really nice artwork!
+It also marks the owner as member of the Dragon-Pirates.
+Pirates, yeah, but all in all nice people. Everybody has to make a
+living somehow, no?
+~
+A
+1 2
+A
+3 2
+A
+12 30
+A
+13 30
+A
+18 3
+A
+19 3
+A
+26 1
+#4417
+green leather gloves~
+a pair of {Ggreen leather gloves{x~
+A pair of {Ggreen leather gloves{x lies here.~
+hard leather~
+armor GJ AH
+23 22 23 20 0
+89 20 3500 P
+E
+green leather gloves~
+A nice pair of {Ggreen leather gloves{x, made from very hard leather.
+~
+A
+2 2
+A
+4 2
+A
+12 40
+A
+13 20
+A
+18 5
+A
+19 5
+A
+24 -2
+A
+26 1
+#4418
+red leather gloves~
+a pair of {Rred leather gloves{x~
+A pair of {Rred leather gloves{x lies here.~
+hard leather~
+armor GK AH
+23 22 23 20 0
+89 20 3500 P
+E
+red leather gloves~
+A nice pair of {Rred leather gloves{x, made from very hard leather.
+~
+A
+2 2
+A
+4 2
+A
+12 40
+A
+13 20
+A
+18 5
+A
+19 5
+A
+24 -2
+A
+26 1
+#4419
+blue leather gloves~
+a pair of {Bblue leather gloves{x~
+A pair of {Bblue leather gloves{x lies here.~
+hard leather~
+armor G AH
+18 19 18 15 0
+80 20 2000 P
+E
+blue leather gloves~
+A nice pair of {Bblue leather gloves{x, made from very hard leather.
+~
+A
+12 30
+A
+13 20
+A
+18 2
+A
+19 2
+#4420
+pink leather gloves~
+a pair of {Ppink leather gloves{x~
+A pair of {Ppink leather gloves{x lies here.~
+hard leather~
+armor G AH
+16 17 18 15 0
+70 20 2000 P
+E
+pink leather gloves~
+A nice pair of {Ppink leather gloves{x, made from very hard leather.
+~
+A
+12 20
+A
+13 20
+A
+18 2
+A
+19 1
+#4421
+pirate eye patch~
+a pirate eye patch~
+A pirate eye patch lies here.~
+hard leather~
+armor ABFGHM AE
+25 24 25 24 0
+91 10 5000 P
+E
+pirate eye patch~
+This is a dark black eye patch of a pirate. On the inside there is still
+a bit of dried blood of the wound that pirate had. Nobody should wear
+that just for fun... it could be cursed!
+~
+A
+1 2
+A
+2 -3
+A
+4 2
+A
+5 1
+A
+12 50
+A
+13 40
+A
+18 6
+A
+19 6
+A
+24 -5
+A
+26 1
+#4422
+purple leggings~
+a pair of {Ppurple leggings{x with {Ygolden stripes{x~
+a pair of {Ppurple leggings{x with {Ygolden stripes{x lies here.~
+cloth~
+armor GJ AF
+20 19 19 18 0
+78 20 3400 P
+E
+purple leggings~
+This is a pair of {Ppurple leggings{x with {Ygolden stripes.
+Your eyes are dazzled by the intensity of the colors!
+~
+A
+2 2
+A
+12 30
+A
+13 20
+A
+18 2
+A
+19 3
+A
+26 2
+#4423
+violet leggings~
+a pair of {Vviolet leggings{x with {Ygolden stripes{x~
+a pair of {Vviolet leggings{x with {Ygolden stripes{x lies here.~
+cloth~
+armor GK AF
+20 19 19 18 0
+78 20 3400 P
+E
+violet leggings~
+This is a pair of {Vviolet leggings{x with {Ygolden stripes.
+Your eyes are dazzled by the intensity of the colors!
+~
+A
+2 2
+A
+12 30
+A
+13 20
+A
+18 2
+A
+19 3
+A
+26 2
+#4424
+red leggings~
+a pair of {Rred leggings{x with {Ygolden stripes{x~
+a pair of {Rred leggings{x with {Ygolden stripes{x lies here.~
+cloth~
+armor G AF
+15 17 16 14 0
+70 20 2400 P
+E
+red leggings~
+This is a pair of {Rred leggings{x with {Ygolden stripes.
+Your eyes are dazzled by the intensity of the colors!
+~
+A
+12 70
+#4425
+blue leggings~
+a pair of {Bblue leggings{x with {Ygolden stripes{x~
+a pair of {Bblue leggings{x with {Ygolden stripes{x lies here.~
+cloth~
+armor G AF
+15 17 16 14 0
+70 20 2400 P
+E
+blue leggings~
+This is a pair of {Bblue leggings{x with {Ygolden stripes.
+Your eyes are dazzled by the intensity of the colors!
+~
+A
+13 70
+#4426
+golden necklace snake pendant~
+a {Ygolden necklace{x with a {Gemerald snake pendant{x~
+A {Ygolden necklace{x with a {Gemerald snake pendant{x lies here.~
+gold~
+armor GJ AC
+22 20 22 20 0
+80 20 6800 P
+E
+golden necklace snake pendant~
+This is a {Ygolden necklace{x with a {Gemerald snake pendant{x.
+It belongs to one of the Snake-Pirates. Don't let him catch you
+with it!
+~
+A
+1 2
+A
+2 2
+A
+12 30
+A
+13 30
+A
+18 5
+A
+19 5
+A
+24 -4
+#4427
+golden necklace dragon pendant~
+a {Ygolden necklace{x with a {Rruby dragon pendant{x~
+A {Ygolden necklace{x with a {Rruby dragon pendant{x lies here.~
+gold~
+armor GK AC
+22 20 22 20 0
+80 20 5800 P
+E
+golden necklace dragon pendant~
+This is a {Ygolden necklace{x with a {Ruby dragon pendant{x.
+It belongs to one of the Dragon-Pirates. Don't let him catch you
+with it!
+~
+A
+1 2
+A
+2 2
+A
+12 30
+A
+13 30
+A
+18 5
+A
+19 5
+A
+24 -4
+#4428
+heavy metal shield snake~
+a heavy metal shield with the picture of a big {Ggreen snake{x~
+A heavy metal shield with the picture of a big {Ggreen snake{x lies here.~
+metal~
+armor GJ AJ
+20 20 20 20 0
+75 150 4000 P
+E
+heavy metal shield snake~
+This is a heavy metal shield with the picture of a big {Ggreen snake{x.
+The snake nearly looks alive. Be careful... maybe it is and will bite you.
+~
+A
+4 2
+A
+5 1
+A
+12 20
+A
+13 20
+A
+18 4
+A
+19 4
+A
+24 -2
+#4429
+heavy metal shield dragon~
+a heavy metal shield with the picture of a big {Rred dragon{x~
+A heavy metal shield with the picture of a big {Rred dragon{x lies here.~
+metal~
+armor GK AJ
+20 20 20 20 0
+75 150 4000 P
+E
+heavy metal shield snake~
+This is a heavy metal shield with the picture of a big {Rred dragon{x.
+The dragon nearly looks alive. Be careful... maybe it is and will eat you.
+~
+A
+4 2
+A
+5 1
+A
+12 20
+A
+13 20
+A
+18 4
+A
+19 4
+A
+24 -2
+#4430
+rainbow cloth braid~
+a {Pr{Ya{Gi{Cn{Bb{Vo{cw {Pc{Yo{Gl{Co{Br{Ve{cd {Pc{Yl{Go{Ct{Bh{x with a {Ygolden braid{x~
+A {Pr{Ya{Gi{Cn{Bb{Vo{cw {Pc{Yo{Gl{Co{Br{Ve{cd {Pc{Yl{Go{Ct{Bh{x with a {Ygolden braid{x lies here.~
+cloth~
+armor G AL
+19 18 19 17 0
+75 10 2000 P
+E
+rainbow cloth braid~
+This is a {Pr{Ya{Gi{Cn{Bb{Vo{cw {Pc{Yo{Gl{Co{Br{Ve{cd {Pc{Yl{Go{Ct{Bh{x with a {Ygolden braid{x.
+Isn't it beautiful?
+~
+A
+3 1
+A
+12 30
+A
+13 20
+A
+18 3
+A
+19 3
+A
+24 -2
+A
+26 2
+#4431
+platinum armband~
+a platinum armband~
+A platinum armband lies here.~
+platinum~
+armor GF AM
+16 18 17 15 0
+70 10 6000 P
+E
+platinum armband~
+This is a platinum armband. It looks very valuable!
+~
+A
+12 20
+A
+13 20
+A
+18 5
+A
+19 5
+#4432
+pirate flag snake~
+a pirate flag with the picture of a {Ggreen snake{x~
+A pirate flag with the picture of a {Ggreen snake{x lies here.~
+cloth~
+armor GJ AO
+18 18 18 18 0
+70 20 7000 P
+E
+pirate flag snake~
+This is a black pirate flag. It doesn't have a skull but the picture
+of a {Ggreen snake{x on it. Well, if all pirates had skulls on
+their flags... how would you be able to distinguish them?
+~
+A
+3 1
+A
+4 2
+A
+12 40
+A
+13 30
+A
+18 3
+A
+19 3
+#4433
+pirate flag dragon~
+a pirate flag with the picture of a {Rred dragon{x~
+A pirate flag with the picture of a {Rred dragon{x lies here.~
+cloth~
+armor GK AO
+18 18 18 18 0
+70 20 7000 P
+E
+pirate flag snake~
+This is a black pirate flag. It doesn't have a skull but the picture
+of a {Rred dragon{x on it. Well, if all pirates had skulls on
+their flags... how would you be able to distinguish them?
+~
+A
+3 1
+A
+4 2
+A
+12 40
+A
+13 30
+A
+18 3
+A
+19 3
+#4434
+golden lantern snake~
+a {Ygolden lantern{x with a {Ggreen snake{x on top~
+A {Ygolden lantern{x with a {Ggreen snake{x on top lies here.~
+gold~
+light GHJ A
+0 0 -1 0 0
+80 20 2000 P
+E
+golden lantern snake~
+This is a {Ygolden lantern{x with a {Ggreen snake{x on top.
+Although it is quite small, it emits a bright light.
+~
+A
+3 2
+A
+4 2
+A
+12 40
+A
+13 30
+A
+18 4
+A
+19 4
+#4435
+golden lantern dragon~
+a {Ygolden lantern{x with a {Rred dragon{x on top~
+A {Ygolden lantern{x with a {Rred dragon{x on top lies here.~
+gold~
+light GHK A
+0 0 -1 0 0
+80 20 2000 P
+E
+golden lantern dragon~
+This is a {Ygolden lantern{x with a {Rred dragon{x on top.
+Although it is quite small, it emits a bright light.
+~
+A
+3 2
+A
+4 2
+A
+12 40
+A
+13 30
+A
+18 4
+A
+19 4
+#4436
+huge black shadow man~
+a huge black shadow of a man~
+A huge black shadow of a man might be here.~
+shadow~
+armor GJ AQ
+25 25 25 25 0
+91 1 0 P
+E
+huge black shadow man~
+There seems to be a huge black shadow of a man here. You can't see
+its origin, though.
+~
+A
+2 2
+A
+4 2
+A
+12 60
+A
+13 40
+A
+18 5
+A
+19 5
+A
+24 -4
+A
+26 2
+#4437
+huge black shadow woman~
+a huge black shadow of a woman~
+A huge black shadow of a woman might be here.~
+shadow~
+armor GK AQ
+25 25 25 25 0
+91 1 0 P
+E
+huge black shadow woman~
+There seems to be a huge black shadow of a woman here. You can't see
+its origin, though.
+~
+A
+2 2
+A
+4 2
+A
+12 60
+A
+13 40
+A
+18 5
+A
+19 5
+A
+24 -4
+A
+26 2
+#4438
+small black shadow boy~
+a small black shadow of a boy~
+A small black shadow of a boy might be here.~
+shadow~
+armor G AQ
+15 15 13 10 0
+70 1 0 P
+E
+small black shadow boy~
+There seems to be a small black shadow of a boy here. You can't see
+its origin, though.
+~
+A
+12 40
+A
+18 2
+A
+19 1
+#4439
+small black shadow girl~
+a small black shadow of a girl~
+A small black shadow of a girl might be here.~
+shadow~
+armor G AQ
+15 15 13 10 0
+70 1 0 P
+E
+small black shadow girl~
+There seems to be a small black shadow of a girl here. You can't see
+its origin, though.
+~
+A
+12 40
+A
+18 2
+A
+19 1
+#4440
+pirate knife~
+a pirate knife~
+A pirate knife lies here.~
+steel~
+weapon G AN
+dagger 10 7 pierce 0
+70 10 1000 P
+E
+pirate knife~
+This is a small, but vicious looking pirate knife.
+~
+A
+18 3
+A
+19 3
+#4441
+grapnel~
+a grapnel~
+A grapnel lies here.~
+steel~
+weapon G AN
+exotic 7 12 sting H
+84 150 1800 P
+E
+grapnel~
+This is a rather heavy grapnel like pirates like to use them.
+~
+A
+18 5
+A
+19 5
+#4442
+pirate sabre~
+a pirate sabre~
+A pirate sabre lies here.~
+steel~
+weapon G AN
+sword 13 6 slice 0
+80 90 1200 P
+E
+pirate sabre~
+This is a pirate sabre. You see nothing special, just an average weapon
+of a pirate.
+~
+A
+18 5
+A
+19 5
+#4443
+curved pirate sabre~
+a curved pirate sabre~
+A curved pirate sabre lies here.~
+adamantite~
+weapon GH AN
+sword 10 10 slice DE
+91 110 5000 P
+E
+curved pirate sabre~
+This is a curved pirate sabre. A very large weapon, with a golden handle.
+~
+A
+18 8
+A
+19 8
+#4444
+pirate pistol~
+a pirate pistol~
+A pirate pistol lies here.~
+steel~
+weapon GH AN
+exotic 10 10 blast AD
+91 40 5000 P
+E
+pirate pistol~
+This is a pirate pistol with nicely worked mother-of-pearl inlay.
+It is a very valuable item. A very good weapon too!
+~
+A
+18 8
+A
+19 8
+#4445
+wall hole~
+a hole in the wall~
+In the east wall of the cave you see a small hole.~
+nothingness~
+portal O 0
+0 0 A 4402 0
+0 0 0 P
+E
+wall hole~
+In the east wall of the cave you see a small hole. It might be large enough
+for you to squeeze through it if neither your head nor your belly is too big.
+~
+#4446
+wall hole~
+a hole in the wall~
+In the west wall of the cave you see a small hole.~
+nothingness~
+portal O 0
+0 0 A 4401 0
+0 0 0 P
+E
+wall hole~
+In the west wall of the cave you see a small hole. It might be large enough
+for you to squeeze through it if neither your head nor your belly is too big.
+~
+#4447
+wall hole~
+a hole in the wall~
+In the south wall of the cave you see a rather wide hole.~
+nothingness~
+portal O 0
+0 0 A 4419 0
+0 0 0 P
+E
+wall hole~
+In the south wall of the cave you see a rather wide hole. Looking through
+it you see a wide tunnel.
+~
+#4448
+wall hole~
+a hole in the wall~
+In the north wall of the cave you see a rather wide hole.~
+nothingness~
+portal O 0
+0 0 A 4412 0
+0 0 0 P
+E
+wall hole~
+In the north wall of the cave you see a rather wide hole. Looking through
+it you see a tunnel.
+~
+#4449
+wall hole~
+a hole in the wall~
+If you look very closely, you notice in the south wall of the cave a hidden hole.~
+nothingness~
+portal FO 0
+0 0 A 4441 0
+0 0 0 P
+E
+wall hole~
+If you look very close, you notice in the south wall of the cave a hidden
+hole. The pirates did their very best to hide it. You must have VERY sharp
+eyes that you were able to notice it.
+~
+#4450
+wall hole~
+a hole in the wall~
+If you look very closely, you notice a hidden hole in the north wall of the cave.~
+nothingness~
+portal FO 0
+0 0 A 4430 0
+0 0 0 P
+E
+wall hole~
+If you look very closely, you notice a hidden hole in the north wall of
+the cave . The pirates did their very best to hide it. You must have
+VERY sharp eyes that you were able to notice it.
+~
+#4451
+ship~
+a pirate ship~
+A pirate ship is beached here.~
+wood~
+portal 0 0
+0 0 A 4471 0
+0 0 0 P
+E
+ship~
+This is a rather small pirate ship. It has some minor defects that must be
+taken care of. The pirates beached it here to repair it.
+~
+#4452
+treasure chest~
+a treasure chest~
+A small treasure chest stands here.~
+steel~
+container 0 A
+300 ACD 4453 300 100
+0 300 20 P
+E
+treasure chest~
+This is a rather small treasure chest made from black steel.
+It might hold some treasure. It might hold some trash. Who knows?
+~
+#4453
+steel key~
+a steel key~
+A steel key lies here.~
+steel~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+E
+steel key~
+A steel key. Plain and simple.
+~
+#4454
+treasure chest~
+a treasure chest~
+A medium-sized treasure chest stands here.~
+iron~
+container 0 A
+500 ACD 4455 500 100
+0 500 20 P
+E
+treasure chest~
+This is a medium-sized treasure chest made from iron.
+It might hold some treasure. It might hold some trash. Who knows?
+~
+#4455
+iron key~
+an iron key~
+An iron key lies here.~
+iron~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+E
+iron key~
+An iron key. Plain and simple.
+~
+#4456
+treasure chest~
+a treasure chest~
+A large treasure chest stands here.~
+wood~
+container 0 A
+800 ACD 4457 800 100
+0 3000 20 P
+E
+treasure chest~
+This is a large wooden treasure chest.
+It might hold some treasure. It might hold some trash. Who knows?
+~
+#4457
+wooden key~
+a large wooden key~
+A large wooden key lies here.~
+wood~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+E
+wooden key~
+A large wooden key. Plain and simple.
+~
+#4458
+treasure chest~
+a treasure chest~
+A small treasure chest stands here.~
+wood~
+container 0 A
+100 ACD 4459 100 100
+0 100 20 P
+E
+treasure chest~
+This is a small wooden treasure chest.
+It might hold some treasure. It might hold some trash. Who knows?
+~
+#4459
+wooden key~
+a small wooden key~
+A small wooden key lies here.~
+wood~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+E
+wooden key~
+A small wooden key. Plain and simple.
+~
+#4460
+treasure box~
+a small golden treasure box~
+A small golden treasure box stands here.~
+gold~
+container 0 A
+100 ACD 4461 100 100
+0 300 1000 P
+E
+treasure box~
+This is a small golden treasure box.
+This one holds treasure. You can believe me. Or not?
+~
+#4461
+golden key~
+a small golden key~
+A small golden key lies here.~
+gold~
+key F A
+0 0 0 0 0
+0 1 0 P
+E
+golden key~
+A small golden key. Plain and simple.
+~
+#4462
+treasure box~
+a small silver treasure box~
+A small silver treasure box stands here.~
+silver~
+container 0 A
+100 ACD 4463 100 100
+0 300 300 P
+E
+treasure box~
+This is a small silver treasure box.
+This one holds treasure. You can believe me. Or not?
+~
+#4463
+silver key~
+a small silver key~
+A small silver key lies here.~
+gold~
+key F A
+0 0 0 0 0
+0 1 0 P
+E
+silver key~
+A small silver key. Plain and simple.
+~
+#4464
+treasure chest~
+a very large and heavy-looking treasure chest~
+A very large and heavy-looking treasure chest stands here.~
+steel~
+container 0 A
+8000 ACD 4465 8000 100
+0 20000 1 P
+E
+treasure chest~
+This is very large and heavy-looking treasure chest.
+Here the pirates keep their most valuable items.
+~
+#4465
+diamond key~
+a large diamond key~
+A large diamond key lies here.~
+diamond~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+E
+diamond key~
+A large diamond key. It looks VERY valuable.
+It might be the key to a fortune.
+~
+#4466
+gold coins~
+a pile of gold coins~
+A pile of gold coins lie here.~
+gold~
+money 0 A
+0 110 0 0 0
+0 0 0 P
+E
+gold coins~
+Might be around a hundred gold.
+~
+#4467
+gold coins~
+a pile of gold coins~
+A pile of gold coins lie here.~
+gold~
+money 0 A
+0 150 0 0 0
+0 0 0 P
+E
+gold coins~
+Might be around a hundred gold.
+~
+#4468
+gold coins~
+a pile of gold coins~
+A pile of gold coins lie here.~
+gold~
+money 0 A
+0 180 0 0 0
+0 0 0 P
+E
+gold coins~
+Looks like more than a thousand gold.
+~
+#4469
+big ruby~
+a big {Rruby{x~
+A big {Rruby{x lies here.~
+gem~
+jewelry 0 A
+0 0 0 0 0
+0 10 3000 P
+E
+big ruby~
+This is a big and beautiful {Rruby{x. It looks quite valuable.
+~
+#4470
+big emerald~
+a big {Gemerald{x~
+A big {Gemerald{x lies here.~
+gem~
+jewelry 0 A
+0 0 0 0 0
+0 10 3000 P
+E
+big emerald~
+This is a big and beautiful {Gemerald{x. It looks quite valuable.
+~
+#4471
+big moonstone~
+a big blue and white {Cm{Wo{Co{Wn{Cs{Wt{Co{Wn{Ce{x~
+A big {Cm{Wo{Co{Wn{Cs{Wt{Co{Wn{Ce{x lies here.~
+gem~
+warp_stone T AO
+0 0 0 0 0
+0 10 3500 P
+E
+big moonstone~
+This is a big and beautiful {Cm{Wo{Co{Wn{Cs{Wt{Co{Wn{Ce{x. It looks quite valuable.
+~
+#4472
+diamond crown~
+a diamond crown with lots of {Rrubies{x in it~
+A diamond crown with lots of {Rrubies{x in it lies here.~
+diamond~
+jewelry ABG AE
+0 0 0 0 0
+80 20 30000 P
+E
+diamond crown~
+This is a beautiful and very valuable diamond crown with lots of
+{Rrubies{x in it. The pirates must have stolen them from a king of
+a very rich country.
+~
+A
+18 12
+A
+19 12
+#4473
+diamond sword~
+a diamond sword with a golden hilt~
+A diamond sword with a golden hilt lies here.~
+diamond~
+weapon ABG AN
+sword 8 10 slice 0
+80 50 10000 P
+E
+diamond sword~
+This is a diamond sword with a golden hilt. A very valuable weapon.
+Is it also a GOOD weapon? Who knows.
+~
+A
+18 6
+A
+19 6
+#4474
+pearl necklace~
+a {Bp{Re{Ya{Gr{Bl {Rn{Ye{Gc{Bk{Rl{Ya{Gc{Be{x~
+A {Bp{Re{Ya{Gr{Bl {Rn{Ye{Gc{Bk{Rl{Ya{Gc{Be{x lies here.~
+glass~
+treasure M AC
+0 0 0 0 0
+0 10 10 P
+E
+pearl necklace~
+This necklace is made of {Bblue, {Rred, {Yyellow and {Ggreen{x glass pearls.
+It looks to belong to a child or a very childish adult.
+~
+#4475
+ring~
+a tin ring with a {Bblue pearl{x~
+A tin ring with a {Bblue pearl{x lies here.~
+tin~
+treasure M AB
+0 0 0 0 0
+0 10 10 P
+E
+ring~
+This is a tin ring with a {Bblue pearl{x. Trash, by all appearances.
+~
+#4476
+brooch~
+a tiny metal brooch~
+A tiny metal brooch lies here~
+metal~
+treasure M AD
+0 0 0 0 0
+0 10 10 P
+E
+brooch~
+This tiny metal brooch looks pretty worthless.
+~
+#4477
+pile trash~
+a pile of trash~
+A pile of trash lies here.~
+trash~
+trash 0 A
+0 0 0 0 0
+0 100 0 P
+E
+pile trash~
+This is a large pile of trash. Many useless items of all sorts.
+Nobody will ever be able to sort them out!
+Just junk it!
+~
+#4478
+golden lantern~
+a {Ygolden lantern{x~
+Fixed on the wall is a {Ygolden lantern{x that emits a dim light,
+just bright enough that you can see your surroundings.~
+gold~
+light H 0
+0 0 -1 0 0
+0 10 0 P
+E
+golden lantern~
+The lantern emits a dim light.
+~
+#4479
+golden lantern~
+a {Ygolden lantern{x~
+Fixed on the wall is a {Ygolden lantern{x, bathing the whole room in
+brightness.~
+gold~
+light H 0
+0 0 -1 0 0
+0 10 0 P
+E
+golden lantern~
+The lantern emits a bright light.
+~
+#4480
+gold coins~
+a pile of gold coins~
+A pile of gold coins lie here.~
+gold~
+money 0 A
+0 300 0 0 0
+0 0 0 P
+E
+gold coins~
+Looks like a few hundred coins.
+~
+#4481
+golden tumbler~
+a golden tumbler~
+A golden tumbler lies here.~
+gold~
+drink A A
+12 12 'red wine' 0 0
+30 4 1000 P
+E
+golden tumbler~
+A valuable golden tumbler. It is (or was) filled with a very tasty red wine.
+~
+#4482
+diamond necklace~
+a diamond necklace~
+A diamond necklace lies here.~
+diamond~
+jewelry AGM AC
+0 0 0 0 0
+80 10 3000 P
+E
+diamond necklace~
+The diamonds catch the light and reflect it in many colors.
+~
+A
+12 150
+#4483
+platinum helmet~
+a platinum helmet~
+A platinum helmet lies here.~
+platinum~
+armor AHM AE
+43 40 41 38 0
+80 200 5000 P
+E
+platinum helmet~
+This is a very valuable item... and a strong piece of armor, too!
+~
+#4484
+heavy iron key~
+a heavy iron key~
+A heavy iron key lies here.~
+iron~
+key 0 A
+0 0 0 0 0
+0 30 0 P
+E
+iron key~
+This is a heavy iron key. Engraved on it are the words:
+"Property of the Cave Pirates."
+~
+#4485
+barrel ale~
+a barrel of ale~
+A barrel of ale stands here.~
+wood~
+fountain 0 A
+500 500 'ale' 0 0
+0 10000 5000 P
+E
+barrel ale~
+A very large barrel of ale.
+~
+#4486
+barrel beer~
+a barrel of beer~
+A barrel of beer stands here.~
+wood~
+fountain 0 A
+500 500 'beer' 0 0
+0 10000 5000 P
+E
+barrel beer~
+A very large barrel of beer.
+~
+#4487
+barrel red wine~
+a barrel of red wine~
+A barrel of red wine stands here.~
+wood~
+fountain 0 A
+500 500 'red wine' 0 0
+0 10000 5000 P
+E
+barrel red wine~
+A very large barrel of red wine.
+~
+#4488
+barrel red whisky~
+a barrel of whisky~
+A barrel of whisky stands here.~
+wood~
+fountain 0 A
+500 500 'whisky' 0 0
+0 10000 5000 P
+E
+barrel whisky~
+A very large barrel of whisky.
+~
+#4489
+barrel rum~
+a barrel of rum~
+A barrel of rum stands here.~
+wood~
+fountain 0 A
+500 500 'rum' 0 0
+0 10000 5000 P
+E
+barrel rum~
+A very large barrel of rum.
+~
+#4490
+pottery mug~
+a pottery mug~
+A pottery lies on the ground.~
+pottery~
+drink 0 A
+16 4 'beer' 0 0
+30 4 10 P
+E
+pottery mug~
+A pottery mug. Very simply made.
+~
+#4491
+pottery mug~
+a pottery mug~
+A pottery mug lies on the ground.~
+pottery~
+drink 0 A
+16 4 'whisky' 0 0
+30 4 10 P
+E
+pottery mug~
+A pottery mug. Very simply made.
+~
+#4492
+pottery mug~
+a pottery mug~
+A pottery mug lies on the ground.~
+pottery~
+drink 0 A
+16 4 'rum' 0 0
+30 4 10 P
+E
+pottery mug~
+A pottery mug. Very simply made.
+~
+#4493
+cannon~
+an old and rusty, but still working cannon~
+An old and rusty, but still working cannon stands here.~
+iron~
+weapon ABG 0
+exotic 20 15 blast A
+91 20000 20000 P
+E
+cannon~
+This is an old and rusty, but still working cannon. Be careful not to
+stand in its aim! One blow and you are dead. Or riding on a cannon ball.
+Of course, I *have* heard of people who prefer to travel that way.
+~
+A
+18 100
+A
+19 100
+#4494
+pile litter~
+a pile of litter~
+A pile of litter lies in one corner of the room.~
+paper~
+trash 0 A
+0 0 0 0 0
+0 300 0 P
+E
+pile litter~
+This is just a pile of litter. Pirates are not very tidy people.
+One can be lucky if they at least sweep the litter together so it
+isn't spread around in the whole room.
+~
+#4495
+bed~
+a small bed~
+A small bed stands at the wall.~
+wood~
+furniture G A
+1 1000 EIL 140 140
+0 5000 1000 P
+E
+bed~
+This is a small but quite comfortable looking bed. It is covered with
+a {Rred blanket{x.
+~
+#4496
+bed~
+a small bed~
+A small bed stands at the wall.~
+wood~
+furniture G A
+1 1000 EIL 130 130
+0 5000 1000 P
+E
+bed~
+This is a small but quite comfortable looking bed. It is covered with
+a {Bblue blanket{x.
+~
+#4497
+bed~
+a small bed~
+A small bed stands at the wall.~
+wood~
+furniture G A
+1 1000 EIL 120 120
+0 5000 1000 P
+E
+bed~
+This is a small but quite comfortable looking bed. It is covered with
+a {Ggreen blanket{x.
+~
+#4498
+plank bed plank-bed~
+a very large plank-bed~
+A very large plank-bed stands in the center of the room.~
+wood~
+furniture G A
+10 1000 EHK 110 110
+0 5000 500 P
+E
+plank bed plank-bed~
+This is a wooden plank-bed. Its large enough to let about 10 people sleep
+on it. It is not at all comfortable, holding no blankets or pillows, but
+pirates are used to it. They are mostly drunken when they go to sleep
+anyways, so they don't even notice it.
+~
+#4499
+bed~
+the captain's bed~
+The captain's bed stands at the wall.~
+steel~
+furniture G A
+2 1000 EIL 150 150
+0 5000 2000 P
+E
+bed~
+This is a big and very comfortable bed. The captain of this pirate ship
+seems to be used to luxury. And it is big enough for at least 2 people.
+~
+#4500
+blue robe king~
+a {Bblue robe{x of a king~
+A {Bblue robe{x of a king lies here.~
+cloth~
+armor GJ AK
+24 23 24 23 0
+91 30 6000 P
+E
+blue robe king~
+This is a {Bdeep blue robe{x. A truly royal cloth.
+~
+A
+3 2
+A
+5 2
+A
+12 60
+A
+13 40
+A
+18 4
+A
+19 4
+A
+24 -4
+#4501
+blue robe king~
+a {Bblue robe{x of a king~
+A {Bblue robe{x of a king lies here.~
+cloth~
+armor GK AK
+24 23 24 23 0
+91 30 6000 P
+E
+blue robe king~
+This is a {Bdeep blue robe{x. A truly royal cloth.
+~
+A
+3 2
+A
+5 2
+A
+12 60
+A
+13 40
+A
+18 4
+A
+19 4
+A
+24 -4
+#4502
+purple robe queen~
+a {Ppurple robe{x of a queen~
+A {Ppurple robe{x of a queen lies here.~
+cloth~
+armor GJ AK
+24 23 24 23 0
+91 30 6000 P
+E
+purple robe queen~
+This is a impressive {Ppurple robe{x. A truly royal cloth.
+~
+A
+2 2
+A
+4 2
+A
+12 80
+A
+13 20
+A
+18 4
+A
+19 4
+A
+24 -4
+#4503
+purple robe queen~
+a {Ppurple robe{x of a queen~
+A {Ppurple robe{x of a queen lies here.~
+cloth~
+armor GK AK
+24 23 24 23 0
+91 30 6000 P
+E
+purple robe queen~
+This is a impressive {Ppurple robe{x. A truly royal cloth.
+~
+A
+2 2
+A
+4 2
+A
+12 80
+A
+13 20
+A
+18 4
+A
+19 4
+A
+24 -4
+#4504
+cloak pirate queen~
+the {Pr{Ya{Gi{Cn{Bb{Vo{cw {Pc{Yo{Gl{Co{Br{Ve{cd {Pc{Yl{Go{Ca{Bk{x of the pirate queen~
+The {Pr{Ya{Gi{Cn{Bb{Vo{cw {Pc{Yo{Gl{Co{Br{Ve{cd {Pc{Yl{Go{Ca{Bk{x of the pirate queen lies here.~
+cloth~
+armor GJ AK
+25 25 25 25 0
+91 20 4000 P
+E
+cloak pirate queen~
+Your eyes are dazzled by the {Pr{Ya{Gi{Cn{Bb{Vo{cw {Pc{Yo{Gl{Co{Br{Ve{cd {Pc{Yl{Go{Ca{Bk{x of the pirate queen.
+~
+A
+18 10
+A
+19 10
+#4505
+cloak pirate king~
+the {Pr{Ya{Gi{Cn{Bb{Vo{cw {Pc{Yo{Gl{Co{Br{Ve{cd {Pc{Yl{Go{Ca{Bk{x of the pirate king~
+The {Pr{Ya{Gi{Cn{Bb{Vo{cw {Pc{Yo{Gl{Co{Br{Ve{cd {Pc{Yl{Go{Ca{Bk{x of the pirate king lies here.~
+cloth~
+armor GK AK
+25 25 25 25 0
+91 20 4000 P
+E
+cloak pirate king~
+Your eyes are dazzled by the {Pr{Ya{Gi{Cn{Bb{Vo{cw {Pc{Yo{Gl{Co{Br{Ve{cd {Pc{Yl{Go{Ca{Bk{x of the pirate king.
+~
+A
+18 10
+A
+19 10
+#4506
+ladle~
+a ladle~
+A ladle lies here.~
+steel~
+weapon GH AN
+exotic 10 10 slap 0
+91 10 80 P
+E
+ladle~
+This is a big ladle, used by cooks that have to prepare meals for LOTS
+of people.
+~
+A
+18 8
+A
+19 8
+#4507
+rusty iron key~
+a rusty iron key~
+A rusty iron key lies here.~
+iron~
+key 0 A
+0 0 0 0 0
+0 30 0 P
+E
+iron key~
+This is a rusty iron key.
+~
+#0
+
+#ROOMS
+#4400
+Cave Entrance~
+This is the entrance to the Pirate Cave, where the Dragon-Pirates and the
+Snake-Pirates live. The Dragon-Pirates are (despite of the fact that they
+are pirates) quite nice people whereas the Snake-Pirates are truly evil
+folks.  You might wonder why they live in one home together
+nevertheless.....  Well... pirates have many enemies and each of the two
+groups on their own wouldn't be strong enough to stand against them. But
+together they are nearly invincible, even by the mightiest kingdoms. So
+they overcame their antipathy against each other and built this VERY large
+cave as their common home and refuge.  Before you consider entering there,
+think twice! The pirates might not like your intrusion or even consider you
+a spy in which case instant death would be certain for you!
+~
+0 AD 0
+D4
+Upwards you see a dark forest.
+~
+~
+0 -1 3513
+D1
+To the east you see a great iron gate. Passing through it would lead you deeper
+into the Pirate Cave.
+~
+gate~
+1 4484 4401
+S
+#4401
+Small Tunnel~
+You are standing in a small tunnel. There doesn't seem to be a way out
+except through a great iron gate to the west.
+~
+0 D 0
+D3
+To the west you see a great iron gate.
+~
+gate~
+1 4484 4400
+S
+#4402
+Small Tunnel~
+This is a small tunnel, leading east. To the south lies a small side
+tunnel.  Nothing special catches your eye. Just bare stone walls. It must
+have been hard work to form this tunnel out of the rocks. The pirates were
+happy to finish the work and didn't even consider spending their time with
+artwork or some such just to make it interesting for some uninvited
+visitors like you.
+~
+0 D 0
+D1
+To the east the tunnel continues.
+~
+~
+0 -1 4407
+D2
+To the south there is a small side tunnel.
+~
+~
+0 -1 4403
+S
+#4403
+Side Tunnel~
+This is a small side tunnel, leading north and south.  Nothing special is
+catching your eyes. Just bare stone walls.
+~
+0 D 0
+D0
+To the north you see a small tunnel.
+~
+~
+0 -1 4402
+D2
+To the south the side tunnel continues.
+~
+~
+0 -1 4404
+S
+#4404
+Side Tunnel~
+This small side tunnel leads  east and west to some private caves.
+Although most pirates don't mind living together with lots of people in
+very small rooms, there ARE pirates who feel uncomfortable that way. So
+they made the great effort to build their own private caves. More and more
+pirates see the advantages of that and so more and more private caves are
+built.
+~
+0 D 0
+D0
+To the north the side tunnel leads back to the main tunnel.
+~
+~
+0 -1 4403
+D1
+To the east there is a private cave.
+~
+~
+0 -1 4406
+D3
+To the west there is a private cave.
+~
+~
+0 -1 4405
+S
+#4405
+Private Cave~
+You are standing in a private cave of one of  the pirates.  It is a very
+small room with very little furniture, but compared with the bare tunnels,
+it bears quite a cozy atmosphere. The walls are covered with some pictures
+of great battles the pirates fought in the past.
+~
+0 D 0
+D1
+To the east is a small side tunnel.
+~
+~
+0 -1 4404
+S
+#4406
+Private Cave~
+You are standing in a private cave of one of  the pirates.  Fishing nets,
+starfishes and sea-horses cover the walls and give the room an atmosphere
+of life on the sea. Given the smell of the breeze wafting in through the
+creaking door, this would not really be necessary.
+~
+0 D 0
+D3
+To the west is a small side tunnel.
+~
+~
+0 -1 4404
+S
+#4407
+Small Tunnel~
+This is a small tunnel leading east and west. To the north a side tunnel
+starts.
+~
+0 D 0
+D0
+To the north lies a small side tunnel.
+~
+~
+0 -1 4408
+D1
+To the east the tunnel continues.
+~
+~
+0 -1 4412
+D3
+To the west the tunnel continues.
+~
+~
+0 -1 4402
+S
+#4408
+Side tunnel~
+This is a small side tunnel, leading north and south.
+Nothing special catches your eyes. Just bare stone walls.
+~
+0 D 0
+D0
+To the north the side tunnel continues.
+~
+~
+0 -1 4409
+D2
+To the south there is a small tunnel.
+~
+~
+0 -1 4407
+S
+#4409
+Side Tunnel~
+This small side tunnel leads east and west to some private caves.
+~
+0 D 0
+D1
+To the east there is a private cave.
+~
+~
+0 -1 4411
+D2
+To the south the side tunnel leads back to the main tunnel.
+~
+~
+0 -1 4408
+D3
+To the west there is a private cave.
+~
+~
+0 -1 4410
+S
+#4410
+Private Cave~
+You are standing in a private cave of one of  the pirates.  Apart from
+scant bits of furniture, this room is just as bare as the tunnels you came
+from. It's not very inviting... but that might just be intended... the
+owner of this cave might like his privacy.
+~
+0 D 0
+D1
+To the east is a small side tunnel.
+~
+~
+0 -1 4409
+S
+#4411
+Private Cave~
+You are standing in a private cave of one of  the pirates.  Wow... this
+pirate seems to have gathered a lot of rubbish in his life and most of it
+is piled in his cave. You can barely make out the floor underneath it.
+~
+0 D 0
+D3
+To the west is a small side tunnel.
+~
+~
+0 -1 4409
+S
+#4412
+Small Tunnel~
+This is a small tunnel leading east and west.
+~
+0 D 0
+D1
+To the east the small tunnel continues.
+~
+~
+0 -1 4413
+D3
+To the west the small tunnel continues.
+~
+~
+0 -1 4407
+S
+#4413
+Small Tunnel~
+This is a small tunnel leading east and west. To the north lies a small
+side tunnel.
+~
+0 D 0
+D0
+To the north lies a small side tunnel.
+~
+~
+0 -1 4415
+D1
+To the east there is a dead end of the tunnel.
+~
+~
+0 -1 4414
+D3
+To the west the small tunnel continues.
+~
+~
+0 -1 4412
+S
+#4414
+Dead end~
+This is a (currently) dead end of the tunnel.  Shovels, picks and dredges
+are scattered around, giving the impression of work in progress.  It looks
+as if the pirates plan to dig new tunnels here to enlarge their cave. But
+at the moment nobody is working here.
+~
+0 D 0
+D3
+To the west lies a small tunnel.
+~
+~
+0 -1 4413
+S
+#4415
+Side Tunnel~
+This is a small side tunnel, leading north and south.
+Nothing special catches your eyes. Just bare stone walls.
+~
+0 D 0
+D0
+To the north the side tunnel continues.
+~
+~
+0 -1 4416
+D2
+To the south lies a small tunnel.
+~
+~
+0 -1 4413
+S
+#4416
+Side Tunnel~
+This small side tunnel leads north and east to some private caves.
+~
+0 D 0
+D0
+To the north there is a private cave.
+~
+~
+0 -1 4417
+D1
+To the east there is a private cave.
+~
+~
+0 -1 4418
+D2
+To the south the side tunnel continues.
+~
+~
+0 -1 4415
+S
+#4417
+Private Cave~
+You are standing in a private cave of one of  the pirates.  This cave is
+quite dirty, and the smell is worse than in the rest of the caves. Many
+empty bottles cover the floor, along with scattered clothes and assorted
+treasures of little worth.
+~
+0 D 0
+D2
+To the south lies a small side tunnel.
+~
+~
+0 -1 4416
+S
+#4418
+Private Cave~
+You are standing in a private cave of one of  the pirates.  This cave
+doesn't have any personal touch. Just the plain walls and a bit of
+furniture. You can't be sure if anyone lives here at all.
+~
+0 D 0
+D3
+To the west lies a side tunnel.
+~
+~
+0 -1 4416
+S
+#4419
+Wide tunnel~
+You are standing in a wide tunnel with plain stone walls. Carved into the
+walls is some graffiti. As it is written by pirates you might imagine that
+it is quite ... hmm... unprintable. So don´t look at them.. I made sure
+that they would not be readable! :)
+~
+0 D 0
+D2
+To the south the wide tunnel continues.
+~
+~
+0 -1 4420
+E
+graffiti~
+I *told* you not to look!
+~
+S
+#4420
+Wide Tunnel~
+You are standing in a wide tunnel leading north, east and south.
+~
+0 D 0
+D0
+To the north the wide tunnel continues.
+~
+~
+0 -1 4419
+D1
+To the east the wide tunnel continues.
+~
+~
+0 -1 4421
+D2
+To the south the wide tunnel continues.
+~
+~
+0 -1 4423
+S
+#4421
+Wide Tunnel~
+This part of the wide tunnel serves as antechamber to the cave of the
+pirate king. There are stone seats carved into the wall for the people
+waiting for an audience. The room is richly decorated with colorful
+carpets, both on the floor and the walls.
+~
+0 D 0
+D1
+To the east lies the cave of the pirate king.
+~
+~
+0 -1 4422
+D3
+To the west the wide tunnel continues.
+~
+~
+0 -1 4420
+S
+#4422
+Cave of the pirate king~
+You are standing in the cave of the pirate king. It is a very large room,
+and is awash with a rough and mixed kind of splendor not to be found in any
+of the other caves in the area. Woven tapestries, inlaid with gold, cover
+most of the walls. The few otherwise bare spots on the wall are hung with
+golden shields and weapons, obviously more ornamental than functional. Long
+oaken tables and benches stand alongside the side walls of the cave. It
+seems that booty is distributed at these tables as there are some coffers
+overflowing with gold and jewelry standing on them. One of the tables still
+holds the remnants of a meal. Though most of it has been consumed, it is
+obvious that it must have been a meal fit for a king.
+~
+0 D 0
+D3
+To the west lies a wide tunnel.
+~
+~
+0 -1 4421
+S
+#4423
+Wide Tunnel~
+You are standing in a wide tunnel leading north, east and south.
+~
+0 D 0
+D0
+To the north the wide tunnel continues.
+~
+~
+0 -1 4420
+D1
+To the east the wide tunnel continues.
+~
+~
+0 -1 4424
+D2
+To the south the wide tunnel continues.
+~
+~
+0 -1 4426
+S
+#4424
+Wide Tunnel~
+This part of the wide tunnel serves as antechamber to the cave of the
+pirate queen. There are stone seats carved into the wall for the people
+waiting for an audience. The room is richly decorated with colorful
+carpets, both on floor and walls.
+~
+0 D 0
+D1
+To the east lies the cave of the pirate queen.
+~
+~
+0 -1 4425
+D3
+To the west the wide tunnel continues.
+~
+~
+0 -1 4423
+S
+#4425
+Cave of the pirate queen~
+You are standing in the cave of the pirate queen. It is a very large room.
+By pirate standards, this room shows the more tasteful and delicate touch
+of a woman in its decoration. A few hand-woven tapestries depict battles in
+which the pirates conquered the royal fleets of various nations. The floor
+is covered in thick pile rugs which lead to... yes, this is a genuine
+four-poster brass bed, complete with an overhead canopy. A commode near the
+bed holds many of the completely mysterious items of a queen's personal
+hygiene and piles of priceless jewelry.
+~
+0 D 0
+D3
+To the west lies a wide tunnel.
+~
+~
+0 -1 4424
+S
+#4426
+Wide Tunnel~
+You are standing in a wide tunnel leading north and south.
+~
+0 D 0
+D0
+To the north the white tunnel continues.
+~
+~
+0 -1 4423
+D2
+To the south lies the great meeting place of the pirates.
+~
+~
+0 -1 4427
+S
+#4427
+Meeting Place~
+You are standing in the north-west part of a very large cave.  It serves as
+as a meeting place for the pirates. Here they come together to make
+decisions (at least those that are made on a democratic basis, which are not
+to many as most things will be decided by the king or queen or admirals).
+But mostly they meet here to go together to the party halls, to have some
+nice fights amongst each other or to just chat a bit.
+~
+0 D 0
+D0
+To the north lies a wide tunnel.
+~
+~
+0 -1 4426
+D1
+To the east lies the north-east part of the meeting place.
+~
+~
+0 -1 4429
+D2
+To the south lies the south-west part of the meeting place.
+~
+~
+0 -1 4428
+D3
+To the west lies the party hall.
+~
+~
+0 -1 4432
+S
+#4428
+Meeting Place~
+You are standing in the south-west part of a very large cave.  It serves as
+as a meeting place for the pirates. Here they come together to make
+decisions (at least those that are made on a democratic basis, which are not
+to many as most things will be decided by the king or queen or admirals).
+But mostly they meet here to go together to the party halls, to have some
+nice fights amongst each other or to just chat a bit.
+~
+0 D 0
+D0
+To the north lies the north-west part of the meeting place.
+~
+~
+0 -1 4427
+D1
+To the east lies the south-east part of the meeting place.
+~
+~
+0 -1 4430
+S
+#4429
+Meeting Place~
+You are standing in the north-east part of a very large cave.  It serves as
+as a meeting place for the pirates. Here they come together to make
+decisions (at least those that are made on a democratic basis, which are not
+to many as most things will be decided by the king or queen or admirals).
+But mostly they meet here to go together to the party halls, to have some
+nice fights amongst each other or to just chat a bit.
+~
+0 D 0
+D1
+To the east lies a wide tunnel.
+~
+~
+0 -1 4446
+D2
+To the south lies the south-east part of the meeting place.
+~
+~
+0 -1 4430
+D3
+To the west lies the north-west part of the meeting place.
+~
+~
+0 -1 4427
+S
+#4430
+Meeting Place~
+You are standing in the south-east part of a very large cave.  It serves as
+as a meeting place for the pirates. Here they come together to make
+decisions (at least those that are made on a democratic basis, which are not
+to many as most things will be decided by the king or queen or admirals).
+But mostly they meet here to go together to the party halls, to have some
+nice fights amongst each other or to just chat a bit.
+~
+0 D 0
+D0
+To the north lies the north-east part of the meeting place.
+~
+~
+0 -1 4429
+D3
+To the west lies the south-west part of the meeting place.
+~
+~
+0 -1 4428
+S
+#4431
+Sleeping chamber~
+This is a large cave that serves as a sleeping chamber for the pirates.  It
+lies near the party hall so the drunken pirates can stumble in here and
+fall on the bed to go to sleep.
+~
+0 AD 0
+D0
+To the north lies the party hall.
+~
+~
+0 -1 4432
+S
+#4432
+Party hall~
+This is a very big cave serving as a party hall.  Tables, benches and
+chairs fill the room. A counter off to one side blocks direct access to a
+large assortment of barrels and probably serves as a bar.  On the tables
+and on the floor you see lots of empty bottles lying around.  These and the
+heavy alcoholic odor in the air indicate that the room is rarely cleaned
+up.
+~
+0 D 0
+D0
+To the north the party hall continues.
+~
+~
+0 -1 4433
+D1
+To the east lies the meeting place.
+~
+~
+0 -1 4427
+D2
+To the south lies a sleeping chamber.
+~
+~
+0 -1 4431
+D3
+To the west the party hall continues.
+~
+~
+0 -1 4437
+S
+#4433
+Party hall~
+This is a very big cave serving as a party hall. It is filled with tables
+and chairs.  On the tables and on the floor you see lots of empty bottles
+lying around.  One of the tables is broken, an axe still embedded in its
+larger fragment.
+~
+0 D 0
+D0
+To the north lies a sleeping chamber.
+~
+~
+0 -1 4434
+D2
+To the south the party hall continues.
+~
+~
+0 -1 4432
+D3
+To the west the party hall continues.
+~
+~
+0 -1 4436
+S
+#4434
+Sleeping chamber~
+This is a large cave that serves as a sleeping chamber for the pirates.  It
+lies near the party hall so the drunken pirates can stumble in here and
+fall on the bed to go to sleep.
+~
+0 AD 0
+D2
+To the south lies the party hall.
+~
+~
+0 -1 4433
+S
+#4435
+Sleeping chamber~
+This is a large cave that serves as a sleeping chamber for the pirates.  It
+lies near the party hall so the drunken pirates can stumble in here and
+fall on the bed to go to sleep.
+~
+0 AD 0
+D2
+To the south lies the party hall.
+~
+~
+0 -1 4436
+S
+#4436
+Party hall~
+This is a very big cave serving as a party hall. It is filled with tables
+and chairs.  On the tables and on the floor you see lots of empty bottles
+lying around.  A sloping platform in one corner may have served as a stage
+at one point, as evidenced by stains of what may have been rotting fruit.
+~
+0 D 0
+D0
+To the north lies a sleeping chamber.
+~
+~
+0 -1 4435
+D1
+To the east the party hall continues.
+~
+~
+0 -1 4433
+D2
+To the south the party hall continues.
+~
+~
+0 -1 4437
+D3
+To the west lies a sleeping chamber.
+~
+~
+0 -1 4440
+S
+#4437
+Party hall~
+This is a very big cave serving as a party hall. It is filled with tables
+and chairs.  On the tables and on the floor you see lots of empty bottles
+lying around.  Some of the furniture is charred. There must have been a
+fire in here once, probably the result of some drunk tipping over an oil
+lamp.
+~
+0 D 0
+D0
+To the north the party hall continues.
+~
+~
+0 -1 4436
+D1
+To the east the party hall continues.
+~
+~
+0 -1 4432
+D2
+To the south lies a sleeping chamber.
+~
+~
+0 -1 4438
+D3
+To the west lies a sleeping chamber.
+~
+~
+0 -1 4439
+S
+#4438
+Sleeping chamber~
+This is a large cave that serves as a sleeping chamber for the pirates.  It
+lies near the party hall so the drunken pirates can stumble in here and
+fall on the bed to go to sleep.
+~
+0 AD 0
+D0
+To the north lies the party hall.
+~
+~
+0 -1 4437
+S
+#4439
+Sleeping chamber~
+This is a large cave that serves as a sleeping chamber for the pirates.  It
+lies near the party hall so the drunken pirates can stumble in here and
+fall on the bed to go to sleep.
+~
+0 AD 0
+D1
+To the east lies the party hall.
+~
+~
+0 -1 4437
+S
+#4440
+Sleeping chamber~
+This is a large cave that serves as a sleeping chamber for the pirates.  It
+lies near the party hall so the drunken pirates can stumble in here and
+fall on the bed to go to sleep.
+~
+0 AD 0
+D1
+To the east lies the party hall.
+~
+~
+0 -1 4436
+S
+#4441
+Hidden tunnel~
+Wow! You have found the way to the treasury. But now you will have to FIGHT
+your way there too!
+~
+0 AD 0
+D2
+To the south the hidden tunnel continues.
+~
+~
+0 -1 4442
+S
+#4442
+Hidden tunnel~
+Wow! You have found the way to the treasury. But now you will have to FIGHT
+your way there too!
+~
+0 AD 0
+D0
+To the north the hidden tunnel continues.
+~
+~
+0 -1 4441
+D3
+To the west the hidden tunnel continues.
+~
+~
+0 -1 4443
+S
+#4443
+Hidden tunnel~
+Wow! You have found the way to the treasury. But now you will have to FIGHT
+your way there too!
+~
+0 AD 0
+D1
+To the east the hidden tunnel continues.
+~
+~
+0 -1 4442
+D2
+To the south the hidden tunnel continues.
+~
+~
+0 -1 4444
+S
+#4444
+Hidden tunnel~
+Wow! You have found the way to the treasury. But now you will have to FIGHT
+your way there too!
+~
+0 AD 0
+D0
+To the north the hidden tunnel continues.
+~
+~
+0 -1 4443
+D1
+To the east lies the treasury of the pirates.
+~
+~
+0 -1 4445
+S
+#4445
+Treasury~
+This is the legendary treasure chamber of the pirates. It holds the most
+valuable items the pirates gathered on their raids. So you can imagine the
+pirates are NOT very pleased to see you in here! I don't think they will
+let you get out of here alive.
+~
+0 AD 0
+D3
+To the west lies the hidden tunnel.
+~
+~
+0 -1 4444
+S
+#4446
+Wide Tunnel~
+You are standing in a wide tunnel that leads eastwards to the sea and
+westwards deeper in the pirate cave. To the south lies a side tunnel.
+~
+0 D 0
+D1
+To the east the wide tunnel continues.
+~
+~
+0 -1 4455
+D2
+To the south lies a small side tunnel.
+~
+~
+0 -1 4447
+D3
+To the west lies the meeting place.
+~
+~
+0 -1 4429
+S
+#4447
+Side Tunnel~
+You are standing in a small side tunnel, leading to the prison.
+~
+0 D 0
+D0
+To the north lies a wide tunnel.
+~
+~
+0 -1 4446
+D2
+To the south the side tunnel continues.
+~
+~
+0 -1 4448
+S
+#4448
+Side Tunnel~
+You are standing in a small side tunnel, leading to the prison.
+~
+0 D 0
+D0
+To the north the side tunnel continues.
+~
+~
+0 -1 4447
+D1
+To the east the side tunnel continues.
+~
+~
+0 -1 4449
+S
+#4449
+Side Tunnel~
+You are standing in a small side tunnel, leading to the prison.
+~
+0 D 0
+D3
+To the west the side tunnel continues.
+~
+~
+0 -1 4448
+D5
+There is a trap door leading downwards to the prison.
+~
+trap door~
+1 -1 4450
+S
+#4450
+Prison~
+This is the prison of the pirate cave. Here the pirates have their
+prisoners, mostly king and queens they have captured and asking a ransom
+for. Once in a while a pirate is brought here for a crime against the
+pirate rules. But this is rare, as pirates have few rules and breaking most
+of THOSE is punishable by death.
+~
+0 D 0
+D0
+A door to the north leads to a prison cell.
+~
+~
+1 4507 4454
+D1
+A door to the east leads to a prison cell.
+~
+~
+1 4507 4451
+D2
+A door to the south leads to a prison cell.
+~
+~
+1 4507 4452
+D3
+A door to the west leads to a prison cell.
+~
+~
+1 4507 4453
+D4
+There is a trap door to the up.
+~
+trap door~
+1 -1 4449
+S
+#4451
+Prison Cell~
+You are in a small cave that serves as a prison cell. Not very comfortable
+at all.  The kings and queens usually imprisoned here are always shocked at
+the first sight. But all of them learned to live with it eventually. They
+just didn't have a choice.
+~
+0 D 0
+D3
+To the west lies a door leading out of the prison cell.
+~
+door~
+1 4507 4450
+S
+#4452
+Prison Cell~
+You are in a small cave that serves as a prison cell. Not very comfortable
+at all.  The kings and queens usually imprisoned here are always shocked at
+the first sight. But all of them learned to live with it eventually. They
+just didn't have a choice.
+~
+0 D 0
+D0
+To the north lies a door leading out of the prison cell.
+~
+door~
+1 4507 4450
+S
+#4453
+Prison Cell~
+You are in a small cave that serves as a prison cell. Not very comfortable
+at all.  The kings and queens usually imprisoned here are always shocked at
+the first sight. But all of them learned to live with it eventually. They
+just didn't have a choice.
+~
+0 D 0
+D1
+To the east lies a door leading out of the prison cell.
+~
+door~
+1 4507 4450
+S
+#4454
+Prison Cell~
+You are in a small cave that serves as a prison cell. Not very comfortable
+at all.  The kings and queens usually imprisoned here are always shocked at
+the first sight. But all of them learned to live with it eventually. They
+just didn't have a choice.
+~
+0 D 0
+D2
+To the south lies a door leading out of the prison cell.
+~
+door~
+1 4507 4450
+S
+#4455
+Wide Tunnel~
+You are standing in a wide tunnel that leads eastwards to the sea and
+westwards deeper in the pirate cave. To the north lies a storage cave.
+~
+0 D 0
+D0
+To the north lies a storage cave.
+~
+~
+0 -1 4456
+D1
+To the east the wide tunnel continues.
+~
+~
+0 -1 4457
+D3
+To the west the wide tunnel continues.
+~
+~
+0 -1 4446
+S
+#4456
+Storage Cave~
+This is where the pirates store their alcohol. Well, actually it is ONE of
+the places for that purpose as although this cave is quite large it
+wouldn't be large enough for all the barrels the pirates need as a monthly
+supply.
+~
+0 D 0
+D2
+To the south lies a wide tunnel.
+~
+~
+0 -1 4455
+S
+#4457
+Wide Tunnel~
+You are standing in a wide tunnel that leads eastwards to the sea and westwards
+deeper in the pirate cave. To the south lies a storage chamber.
+~
+0 D 0
+D1
+To the east the wide tunnel continues.
+~
+~
+0 -1 4459
+D2
+To the south lies a storage chamber.
+~
+~
+0 -1 4458
+D3
+To the west the wide tunnel continues.
+~
+~
+0 -1 4455
+S
+#4458
+Storage Cave~
+This is where the pirates store their alcohol. Well, actually it is ONE of
+the places for that purpose as although this cave is quite large it
+wouldn't be large enough for all the barrels the pirates need as a monthly
+supply.
+~
+0 D 0
+D0
+To the north lies a wide tunnel.
+~
+~
+0 -1 4457
+S
+#4459
+Wide Tunnel~
+You are standing in a wide tunnel that leads eastwards to the sea and
+westwards deeper in the pirate cave.
+~
+0 D 0
+D1
+To the east the tunnel leads to a wide opening.
+~
+~
+0 -1 4462
+D3
+To the west the wide tunnel continues.
+~
+~
+0 -1 4457
+S
+#4460
+Wide Opening~
+You are standing in the north-west part of the wide opening of the pirate
+cave.  Although still standing in the cave itself, you can see the beach
+and the sea.  It is a very large place where the pirates have parties,
+especially when they are celebrating their victory in another battle.
+~
+0 D 0
+D1
+To the east the wide opening continues.
+~
+~
+0 -1 4461
+D2
+To the south the wide opening continues.
+~
+~
+0 -1 4462
+S
+#4461
+Wide Opening~
+You are standing in the north-east part of the wide opening of the pirate
+cave.  Although still standing in the cave itself, you can see the beach
+and the sea.  It is a very large place where the pirates have partys,
+especially when they are celebrating their victory in another battle.
+~
+0 D 0
+D2
+To the south the wide opening continues.
+~
+~
+0 -1 4463
+D3
+To the west the wide opening continues.
+~
+~
+0 -1 4460
+S
+#4462
+Wide Opening~
+You are standing in the center part of the wide opening of the pirate cave.
+Although still standing in the cave itself, you can see the beach and the
+sea.  It is a very large place where the pirates have parties, especially
+when they are celebrating their victory in another battle.
+~
+0 D 0
+D0
+To the north the wide opening continues.
+~
+~
+0 -1 4460
+D1
+To the east the wide opening continues.
+~
+~
+0 -1 4463
+D2
+To the south the wide opening continues.
+~
+~
+0 -1 4464
+D3
+To the west lies a wide tunnel, leading deeper into the pirate cave.
+~
+~
+0 -1 4459
+S
+#4463
+Wide Opening~
+You are standing in the center part of the wide opening of the pirate
+cave.  Although still standing in the cave itself, you can see the beach
+and the sea.  It is a very large place where the pirates have parties,
+especially when they are celebrating their victory in another battle.
+~
+0 D 0
+D0
+To the north the wide opening continues.
+~
+~
+0 -1 4461
+D1
+To the east lies the beach.
+~
+~
+0 -1 4467
+D2
+To the south the wide opening continues.
+~
+~
+0 -1 4465
+D3
+To the west the wide opening continues.
+~
+~
+0 -1 4462
+S
+#4464
+Wide Opening~
+You are standing in the south-west part of the wide opening of the pirate
+cave.  Although still standing in the cave itself, you can see the beach
+and the sea.  It is a very large place where the pirates have parties,
+especially when they are celebrating their victory in another battle.
+~
+0 D 0
+D0
+To the north the wide opening continues.
+~
+~
+0 -1 4462
+D1
+To the east the wide opening continues.
+~
+~
+0 -1 4465
+S
+#4465
+Wide Opening~
+You are standing in the south-east part of the wide opening of the pirate
+cave.  Although still standing in the cave itself, you can see the beach
+and the sea.  It is a very large place where the pirates have parties,
+especially when they are celebrating their victory in another battle.
+~
+0 D 0
+D0
+To the north the wide opening continues.
+~
+~
+0 -1 4463
+D1
+To the east lies the beach.
+~
+~
+0 -1 4468
+D3
+To the west the wide opening continues.
+~
+~
+0 -1 4464
+S
+#4466
+Cliffs~
+You are standing on some steep cliffs. The view over the beach and sea is
+breathtaking.  To the far east you notice a small island in the sea. Some
+smoke from a fire there indicates that somebody must live there.  Around
+you the cliffs continue but you aren't able to climb them further, they are
+just too steep.
+~
+0 0 5
+D5
+Looking down you see the beach.
+~
+~
+0 -1 4467
+S
+#4467
+Beach~
+You are standing on a large beach. It is a beautiful place.  White sand and
+some sparsely spread rocks to sit upon invite you to rest in the sun and
+just enjoy yourself.  In the sand there are some beautiful shells to be
+found.  Above you are some steep cliffs.  The calm, blue sea lies to the
+east.
+~
+0 0 2
+D1
+To the east the beach continues, leading to the sea.
+~
+~
+0 -1 4479
+D2
+To the south the beach continues.
+~
+~
+0 -1 4468
+D3
+To the west lies the wide opening of the pirate cave.
+~
+~
+0 -1 4463
+D4
+Looking upwards you see some steep cliffs.
+~
+~
+0 -1 4466
+S
+#4468
+Beach~
+You are standing on a large beach. It is a beautiful place.  White sand and
+some sparsely spread rocks to sit upon invite you to rest in the sun and
+just enjoy yourself.  In the sand there are some beautiful shells to be
+found.  The calm, blue sea lies to the east.
+~
+0 0 2
+D0
+To the north the beach continues, leading to some steep cliffs.
+~
+~
+0 -1 4467
+D1
+To the east the beach continues, leading to the sea.
+~
+~
+0 -1 4480
+D2
+To the south the beach continues, leading to some steep cliffs.
+~
+~
+0 -1 4469
+D3
+To the west lies the wide opening of the pirate cave.
+~
+~
+0 -1 4465
+S
+#4469
+Beach~
+You are standing on a large beach. It is a beautiful place.  White sand and
+some sparsely spread rocks to sit upon invite you to rest in the sun and
+just enjoy yourself.  In the sand there are some beautiful shells to be
+found.  Above you are some steep cliffs.  The calm, blue sea lies to the
+east.
+~
+0 0 2
+D0
+To the north the beach continues.
+~
+~
+0 -1 4468
+D1
+To the east the beach continues, leading to the sea.
+~
+~
+0 -1 4481
+D4
+Looking upwards you see some steep cliffs.
+~
+~
+0 -1 4470
+S
+#4470
+Cliffs~
+You are standing on a steep cliff. The view over the beach and sea is
+breathtaking.  To the far east you notice a small island in the sea. Some
+smoke from a fire there indicate that somebody must live there.  Around you
+the cliffs continue but you aren't able to climb them further, they are
+just to steep.
+~
+0 0 5
+D5
+Looking down you see the beach.
+~
+~
+0 -1 4469
+S
+#4471
+Foredeck~
+You are standing on the foredeck of a rather small pirate ship.
+The deck is scrubbed clean, indicating that the pirates who own it
+take their craft seriously.
+~
+0 0 1
+D1
+To the east lies the bridge.
+~
+~
+0 -1 4472
+D3
+To the west lies the aft deck.
+~
+~
+0 -1 4473
+D5
+The way down leads back to the beach.
+~
+~
+0 -1 4469
+S
+#4472
+Bridge~
+The bridge is the place where the captain commands his ship.
+Wrapped in oiled leather, you see a compass, a sextant and some
+navigational charts. The rudder is tied in position.
+~
+0 0 1
+D3
+To the west lies the foredeck.
+~
+~
+0 -1 4471
+S
+#4473
+Aft deck~
+The ship's aft deck is scrubbed as clean as the foredeck. A mop
+and pail lie off to the side, unsurprisingly. Your gaze follows a
+coil of rope lying on the deck upward to the mast, where several
+huge black sails are furled. Sure enough, at the tip of the mast
+flutters the Jolly Roger.
+~
+0 0 1
+D1
+To the east lies the foredeck.
+~
+~
+0 -1 4471
+D5
+Downward lies the lower deck.
+~
+~
+0 -1 4474
+S
+#4474
+Lower deck~
+The lower deck serves as the accessway to some of the crew's cabins, the
+galley and the hold. Some chisels, saws and hammers threaten to trip you up
+on your way, and a small box of nails has been spilled in the corner. It
+seems that some repairs are underway here.  The lack of light from above
+gives the lower deck a gloomy atmosphere, and there is a musty smell of
+slowly rotting timbers in the air.
+~
+0 AD 0
+D1
+To the east lies the door to the Captain's cabin.
+~
+~
+1 -1 4475
+D3
+The galley lies to the west.
+~
+~
+0 -1 4477
+D4
+The way up leads to the aft deck.
+~
+~
+0 -1 4473
+D5
+A narrow ladder leads down to the hold.
+~
+~
+0 -1 4476
+S
+#4475
+Captain's cabin~
+Cramped by the standards of anyone used to living on land but outside a
+prison cell, this cabin is luxurious by nautical standards. There is room
+for a small, though rarely used wash basin, and a small table holding
+charts, pipes, tobacco, tinder and assorted small weapons.
+~
+0 AD 0
+D3
+The lower deck is accessible through a door to the west.
+~
+~
+1 -1 4474
+S
+#4476
+Hold~
+The ship's supplies are neatly stowed into the hold. They need to be,
+because all the bread, meat, cheese and of course rum needed for a long sea
+voyage take up a lot of room even when closely packed and would overflow
+the hold if it were not so.
+~
+0 AD 0
+D4
+A narrow ladder leads back up to the lower deck.
+~
+~
+0 -1 4474
+D5
+A tiny hatch leads down to the bilge.
+~
+~
+1 -1 4478
+S
+#4477
+Galley~
+Known to the grumbling pirates as the Porridge Factory, this galley is
+where the cook braves high seas and a heaving keel to produce warm food
+that will nourish a band of pirates through a long voyage and a hard
+battle.
+~
+0 AD 0
+D1
+The way east leads back to fresher air and the lower deck.
+~
+~
+0 -1 4474
+S
+#4478
+Bilge~
+The smell in this tiny compartment just above the keel planks of the
+ship is nauseating. All the water which enters the ship during rain
+or a storm and does not find its way back out eventually seeps through
+the cracks and ends up here. The water is slimy with mold and products
+of decay. As you hurriedly turn to exit this place, you think you glimpse
+a shadow's reflection on the murky water.
+~
+0 AD 0
+D4
+A tiny hatch leads back up to the hold.
+~
+~
+1 -1 4476
+S
+#4479
+Beach~
+You are standing on a large beach. It is a beautiful place.  White sand and
+some sparsely spread rocks to sit upon invite you to rest in the sun and
+just enjoy yourself.  In the sand there are some beautiful shells to be
+found.  The calm, blue sea lies to the east.
+~
+0 0 2
+D1
+The restless sea starts to the east.
+~
+~
+0 -1 4484
+D2
+To the south the beach continues.
+~
+~
+0 -1 4480
+D3
+The beach continues to the west.
+~
+~
+0 -1 4467
+S
+#4480
+Beach~
+You are standing on a large beach. It is a beautiful place.  White sand and
+some sparsely spread rocks to sit upon invite you to rest in the sun and
+just enjoy yourself.  In the sand there are some beautiful shells to be
+found.  The calm, blue sea lies to the east.
+~
+0 0 2
+D0
+To the north the beach continues.
+~
+~
+0 -1 4479
+D1
+To the east, the sea washes against the sand.
+~
+~
+0 -1 4483
+D2
+To the south the beach continues.
+~
+~
+0 -1 4481
+D3
+To the west, the beach continues.
+~
+~
+0 -1 4468
+S
+#4481
+Beach~
+You are standing on a large beach. It is a beautiful place.  White sand and
+some sparsely spread rocks to sit upon invite you to rest in the sun and
+just enjoy yourself.  In the sand there are some beautiful shells to be
+found.  The calm, blue sea lies to the east.
+~
+0 0 2
+D0
+To the north the beach continues.
+~
+~
+0 -1 4480
+D1
+The sea shimmers to the east.
+~
+~
+0 -1 4482
+D2
+The beach continues to the south.
+~
+~
+0 -1 2929
+D3
+To the west lies yet more beach.
+~
+~
+0 -1 4469
+S
+#4482
+Sea~
+You are on the sea, near the beach that lies to the south-west.  Little
+waves rock you softly. You can see the bottom of the sea. Some fish and
+some shells are to be seen in the water.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4483
+D1
+To the east the sea continues.
+~
+~
+0 -1 4486
+D2
+To the south lies the beach.
+~
+~
+0 -1 4481
+D3
+To the west lies the beach.
+~
+~
+0 -1 4481
+S
+#4483
+Sea~
+You are on the sea, near the beach that lies to the west.  Little waves
+rock you softly. You can see the bottom of the sea. Some fish and some
+shells are to be seen in the water.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4484
+D1
+To the east the sea continues.
+~
+~
+0 -1 4485
+D2
+To the south the sea continues.
+~
+~
+0 -1 4482
+D3
+To the west lies the beach.
+~
+~
+0 -1 4480
+S
+#4484
+Sea~
+You are on the sea, near the beach that lies to the north-west.  Little
+waves rock you softly. You can see the bottom of the sea. Some fish and
+some shells are to be seen in the water.
+~
+0 N 7
+D0
+To the north lies the beach.
+~
+~
+0 -1 4479
+D1
+To the east the sea continues.
+~
+~
+0 -1 4483
+D2
+To the south the sea continues.
+~
+~
+0 -1 4483
+D3
+To the west lies the beach.
+~
+~
+0 -1 4479
+S
+#4485
+Sea~
+You are deeper on the sea, the bottom of  the sea isn't visible any more.
+The waves get a bit heavier but are still enjoyable. Looking around you,
+you see the beach to the far west but you get the feeling that the drift
+might prevent you from reaching it. To the far east lies a small island,
+but the way there looks difficult and dangerous. Strong drifts might hinder
+you to go in the directions you are heading to.  Hmm... looks like you are
+lost on the sea.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4488
+D1
+To the east the sea continues.
+~
+~
+0 -1 4485
+D2
+To the south the sea continues.
+~
+~
+0 -1 4486
+D3
+To the west the sea continues.
+~
+~
+0 -1 4486
+S
+#4486
+Sea~
+You are deeper on the sea, the bottom of  the sea isn't visible any more.
+The waves get a bit heavier but are still enjoyable. Looking around you,
+you see the beach to the far west but you get the feeling that the drift
+might prevent you from reaching it directly.  A bit southward the sea looks
+calmer and probably provides a way back.  To the far east lies a small
+island, but the way there looks difficult and dangerous. Strong drifts
+might hinder you to go in the directions you are heading to.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4485
+D1
+To the east the sea continues.
+~
+~
+0 -1 4487
+D2
+To the south the sea continues.
+~
+~
+0 -1 4482
+D3
+To the west the sea continues.
+~
+~
+0 -1 4486
+S
+#4487
+Sea~
+You are deeper on the sea, the bottom of the sea isn't visible any more.
+The waves are quite heavy and uncomfortable here. Looking around you, you
+see the beach to the far west. To the far east lies a small island, but
+the way there looks difficult and dangerous.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4488
+D1
+To the east the sea continues.
+~
+~
+0 -1 4492
+D2
+To the south the sea continues.
+~
+~
+0 -1 4486
+D3
+To the west the sea continues.
+~
+~
+0 -1 4486
+S
+#4488
+Sea~
+You are deeper on the sea, the bottom of  the sea isn't visible any more.
+The waves are quite heavy and uncomfortable here. Looking around you, you
+see the beach to the far west but the drift might prevent you from reaching
+it.  To the far east lies a small island, but the way there looks difficult
+and dangerous. Strong drifts hinder your direct way there.  You notice a
+shark passing by near you. Hmm... you might be in trouble, don't you think?
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4489
+D1
+To the east the sea continues.
+~
+~
+0 -1 4487
+D2
+To the south the sea continues.
+~
+~
+0 -1 4487
+D3
+To the west the sea continues.
+~
+~
+0 -1 4488
+S
+#4489
+Sea~
+You are deeper on the sea, the bottom of  the sea isn't visible any more.
+The waves are quite heavy and uncomfortable here. Looking around you, you
+see the beach to the far west but the drift might prevent you from reaching
+it. To the north the sea looks a bit calmer and probably offers a way back.
+To the far east lies a small island, but the way there looks difficult and
+dangerous.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4484
+D1
+To the east the sea continues.
+~
+~
+0 -1 4491
+D2
+To the south the sea continues.
+~
+~
+0 -1 4488
+D3
+To the west the sea continues.
+~
+~
+0 -1 4488
+S
+#4490
+Sea~
+You are deeper on the sea, the bottom of the sea isn't visible any more.
+Looking around you, you see the beach to the very far west.  To the far
+east lies a small island, but the way there looks difficult and dangerous.
+A poisonous jellyfish passes near you. Be careful not to touch it!
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4496
+D1
+To the east the sea continues.
+~
+~
+0 -1 4493
+D2
+To the south the sea continues.
+~
+~
+0 -1 4491
+D3
+To the west the sea continues.
+~
+~
+0 -1 4489
+S
+#4491
+Sea~
+You are deeper on the sea, the bottom of  the sea isn't visible any more.
+Looking around you, you see the beach to the very far west.  To the far
+east lies a small island, but the way there looks difficult and dangerous.
+Strong drifts might prevent you from reaching it.  You notice a school of
+fish in the water. Might be a good fishing ground here.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4490
+D1
+To the east the sea continues.
+~
+~
+0 -1 4490
+D2
+To the south the sea continues.
+~
+~
+0 -1 4492
+D3
+To the west the sea continues.
+~
+~
+0 -1 4489
+S
+#4492
+Sea~
+You are on the sea near a small island that lies to the east. Though it is
+quite near, the many rocks in the water cause a strong drift that prevents
+you from reaching it.  Looking around you, you see the beach to the very
+far west. It looks too difficult to reach from here, though.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4491
+D1
+To the east the sea continues.
+~
+~
+0 -1 4491
+D2
+To the south the sea continues.
+~
+~
+0 -1 4487
+D3
+To the west the sea continues.
+~
+~
+0 -1 4491
+S
+#4493
+Sea~
+You are on the sea, near a small island that lies to the south-east.
+Little waves rock you softly. You can see the bottom of the sea. Some
+fish and some shells are to be seen in the water.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4490
+D1
+To the east lies a small island.
+~
+~
+0 -1 4497
+D2
+To the south lies a small island.
+~
+~
+0 -1 4494
+D3
+To the west the sea continues.
+~
+~
+0 -1 4490
+S
+#4494
+Small Island~
+You are standing on a small island. It is a very nice place.  Many plants
+and trees prove that the earth is very fruitful here.  You hear birds
+singing and see some butterflies passing by.  There is a little vegetable
+garden that indicates that somebody seems to live here.  The sea lies to
+the north and west, whereas the island continues to the east and south.
+The sea at the north shore looks quite calm and inviting, but the sea to
+the west is rough and many rocks cause a strong current.
+~
+0 0 2
+D0
+To the north lies the sea.
+~
+~
+0 -1 4493
+D1
+To the east the island continues.
+~
+~
+0 -1 4497
+D2
+To the south the island continues.
+~
+~
+0 -1 4495
+D3
+To the west lies the sea.
+~
+~
+0 -1 4492
+S
+#4495
+Small Island~
+You are standing on a small island. It is a very nice place.  Many plants
+and trees prove that the earth is very fruitful here.  You hear birds
+singing and see some butterflies passing by.  There is a table and a chair
+carved from stone standing underneath a big tree.  The sea lies to the
+south and west, whereas the island continues to the north and east.  The
+sea at the south shore looks quite calm and inviting, but the sea to the
+west is rough and many rocks cause a strong current.
+~
+0 0 2
+D0
+To the north the island continues.
+~
+~
+0 -1 4494
+D1
+To the east the island continues.
+~
+~
+0 -1 4498
+D2
+To the south lies the sea.
+~
+~
+0 -1 4499
+D3
+To the west lies the sea.
+~
+~
+0 -1 4492
+S
+#4496
+Sea~
+You are on the sea, near a small island that lies to the south.  Little
+waves rock you softly. You can see the bottom of the sea. Some fish and
+some shells are to be seen in the water.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4496
+D1
+To the east the sea continues.
+~
+~
+0 -1 4496
+D2
+To the south lies a small island.
+~
+~
+0 -1 4497
+D3
+To the west the sea continues.
+~
+~
+0 -1 4493
+S
+#4497
+Small Island~
+You are standing on a small island. It is a very nice place.  Many plants
+and trees prove that the earth is very fruitful here.  You hear birds
+singing and see some butterflies passing by.  Some sheep are grazing here.
+The sea lies to the north and east, whereas the island continues to the
+south and west.
+~
+0 0 2
+D0
+To the north lies the sea.
+~
+~
+0 -1 4496
+D1
+To the east lies the sea.
+~
+~
+0 -1 4500
+D2
+To the south the island continues.
+~
+~
+0 -1 4498
+D3
+To the west the island continues.
+~
+~
+0 -1 4494
+S
+#4498
+Small Island~
+You are standing on a small island. It is a very nice place.  Many plants
+and trees prove that the earth is very fruitful here.  You hear birds
+singing and see some butterflies passing by.  A little hut has been built
+here.  The sea lies to the south and east, whereas the island continues to
+the north and west.
+~
+0 0 2
+D0
+To the north the island continues.
+~
+~
+0 -1 4497
+D1
+To the east lies the sea.
+~
+~
+0 -1 4500
+D2
+To the south lies the sea.
+~
+~
+0 -1 4499
+D3
+To the west the island continues.
+~
+~
+0 -1 4495
+E
+hut~
+It is just a very small hut to provide a bit of shelter should it happen to
+rain. It is locked and there is no way for you to enter.  You shouldn't
+anyway, it isn't your hut, is it?
+
+~
+S
+#4499
+Sea~
+You are on the sea, near a small island that lies to the north-east.
+Little waves rock you softly. You can see the bottom of the sea. Some fish
+and some shells are to be seen in the water.
+~
+0 N 7
+D0
+To the north lies a small island.
+~
+~
+0 -1 4495
+D1
+To the east lies a small island.
+~
+~
+0 -1 4498
+D2
+To the south the sea continues.
+~
+~
+0 -1 4499
+D3
+To the west the sea continues.
+~
+~
+0 -1 4492
+S
+#4500
+Sea~
+You are on the sea, near a small island that lies to the south-west.
+Little waves rock you softly. You can see the bottom of the sea. Some fish
+and some shells are to be seen in the water.
+~
+0 N 7
+D0
+To the north the sea continues.
+~
+~
+0 -1 4496
+D1
+To the east the sea continues.
+~
+~
+0 -1 4500
+D2
+To the south lies a small island.
+~
+~
+0 -1 4498
+D3
+To the west lies a small island.
+~
+~
+0 -1 4497
+S
+#0
+
+#RESETS
+M 0 4400 1 4400 1       *Load pirate gate guardian
+G 0 4484 8              *Load gate key on guardian
+E 0 4402 30 12          *Load coat on guardian
+E 0 4409 30 10          *Load sleeves on guardian
+E 0 4425 30 7           *Load leggings on guardian
+E 0 4440 50 16          *Load knife on guardian
+O 0 4445 1 4401         *Load portal
+O 0 4478 50 4401        *Load lantern
+M 0 4402 1 4402 1       *Load pirate wooden leg
+E 0 4432 30 17          *Load flag on pirate
+E 0 4424 30 7           *Load leggings on pirate
+E 0 4404 30 12          *Load coat on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4446 1 4402         *Load portal
+O 0 4478 50 4402        *Load lantern
+M 0 4403 1 4403 1       *Load young pirate blond hair
+E 0 4433 30 17          *Load flag on pirate
+E 0 4403 30 12          *Load coat on pirate
+E 0 4431 30 14          *Load armband on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4403        *Load lantern
+M 0 4406 1 4404 1       *Load pirate big nose
+E 0 4402 30 12          *Load coat on pirate
+E 0 4420 30 9           *Load gloves on pirate
+E 0 4432 30 17          *Load flag on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4404        *Load lantern
+O 0 4494 10 4404        *Load litter
+M 0 4410 2 4405 2       *Load average pirate
+G 0 4455 1              *Load key on pirate
+E 0 4400 30 12          *Load coat on pirate
+E 0 4420 30 9           *Load gloves on pirate
+E 0 4425 30 7           *Load leggings on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4405        *Load lantern
+O 0 4495 2 4405         *Load bed
+O 0 4452 1 4405         *Load small treasure chest
+P 0 4466 1 4452 1       *Load 110 gold in treasure chest
+P 0 4469 1 4452 1       *Load ruby in treasure chest
+P 0 4475 2 4452 1       *Load tin ring in treasure chest
+M 0 4413 2 4406 2       *Load timid pirate
+G 0 4463 1              *Load key on pirate
+E 0 4408 30 10          *Load sleeves on pirate
+E 0 4429 30 11          *Load shield on pirate
+E 0 4414 30 8           *Load boots on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4406        *Load lantern
+O 0 4496 2 4406         *Load bed
+O 0 4456 1 4406         *Load large wooden treasure chest
+P 0 4476 1 4456 1       *Load brooch in treasure chest
+P 0 4477 3 4456 1       *Load pile of trash in treasure chest
+M 0 4409 1 4407 1       *Load pirate boy
+G 0 4453 1              *Load key on pirate
+E 0 4402 30 12          *Load coat on pirate
+E 0 4424 30 7           *Load leggings on pirate
+E 0 4439 30 18          *Load shadow on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4407        *Load lantern
+M 0 4411 2 4408 2       *Load average pirate
+G 0 4457 1              *Load key on pirate
+E 0 4401 30 12          *Load coat on pirate
+E 0 4424 30 7           *Load leggings on pirate
+E 0 4409 30 10          *Load sleeves on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4408        *Load lantern
+M 0 4412 2 4409 2       *Load bully pirate
+G 0 4461 1              *Load key on pirate
+E 0 4408 30 10          *Load sleeves on pirate
+E 0 4428 30 11          *Load shield on pirate
+E 0 4414 30 8           *Load boots on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4409        *Load lantern
+M 0 4407 1 4410 1       *Load old female pirate
+E 0 4424 30 7           *Load leggings on pirate
+E 0 4409 30 10          *Load sleeves on pirate
+E 0 4433 30 17          *Load flag on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4410        *Load lantern
+O 0 4497 2 4410         *Load bed
+O 0 4454 1 4410         *Load medium-sized treasure chest
+P 0 4474 2 4454 1       *Load pearl necklace in treasure chest
+P 0 4477 3 4454 1       *Load pile of trash in treasure chest
+M 0 4404 1 4411 1       *Load drunken pirate
+E 0 4402 30 12          *Load coat on pirate
+E 0 4425 30 7           *Load leggings on pirate
+E 0 4431 30 14          *Load armband on pirate
+E 0 4440 50 16          *Load knife on pirate
+M 0 4414 1 4411 1       *Load spy
+O 0 4478 50 4411        *Load lantern
+O 0 4495 2 4411         *Load bed
+O 0 4458 1 4411         *Load small wooden treasure chest
+P 0 4470 2 4458 1       *Load emerald in treasure chest
+P 0 4475 2 4458 1       *Load tin ring in treasure chest
+M 0 4410 2 4412 2       *Load average pirate
+E 0 4400 30 12          *Load coat on pirate
+E 0 4420 30 9           *Load gloves on pirate
+E 0 4425 30 7           *Load leggings on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4412        *Load lantern
+O 0 4447 1 4412         *Load portal
+M 0 4405 1 4413 1       *Load young pirate bald
+E 0 4404 30 12          *Load coat on pirate
+E 0 4425 30 7           *Load leggings on pirate
+E 0 4409 30 10          *Load sleeves on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4413        *Load lantern
+M 0 4412 2 4414 2       *Load bully pirate
+E 0 4408 30 10          *Load sleeves on pirate
+E 0 4428 30 11          *Load shield on pirate
+E 0 4414 30 8           *Load boots on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4414        *Load lantern
+M 0 4401 1 4415 1       *Load pirate peace guard
+E 0 4403 30 12          *Load coat on pirate
+E 0 4424 30 7           *Load leggings on pirate
+E 0 4420 30 9           *Load gloves on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4415        *Load lantern
+M 0 4408 1 4416 1       *Load pirate girl
+G 0 4459 1              *Load key on pirate
+E 0 4425 30 7           *Load leggings on pirate
+E 0 4438 30 18          *Load shadow on pirate
+E 0 4420 30 9           *Load gloves on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4416        *Load lantern
+O 0 4494 10 4416        *Load litter
+M 0 4411 2 4417 2       *Load average pirate
+E 0 4401 30 12          *Load coat on pirate
+E 0 4409 30 10          *Load sleeves on pirate
+E 0 4424 30 7           *Load leggings on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4417        *Load lantern
+O 0 4460 1 4417         *Load treasure box
+P 0 4477 3 4460 1       *Load pile of trash in treasure box
+P 0 4471 1 4460 1       *Load moonstone in treasure box
+O 0 4496 2 4417         *Load bed
+M 0 4413 2 4418 2       *Load timid pirate
+E 0 4408 30 10          *Load sleeves on pirate
+E 0 4429 30 11          *Load shield on pirate
+E 0 4414 30 8           *Load boots on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4478 50 4418        *Load lantern
+O 0 4462 1 4418         *Load treasure box
+P 0 4467 1 4462 1       *Load 150 gold in treasure box
+P 0 4470 2 4462 1       *Load emerald in treasure box
+P 0 4474 2 4462 1       *Load pearl necklace in treasure box
+O 0 4497 2 4418         *Load bed
+M 0 4451 2 4419 2       *Load spy
+O 0 4448 1 4419         *Load portal
+O 0 4478 50 4419        *Load lantern
+M 0 4418 2 4420 2       *Load bored pirate
+E 0 4413 30 8           *Load boots on pirate
+E 0 4435 30 0           *Load lantern on pirate
+E 0 4427 30 3           *Load necklace on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4478 50 4420        *Load lantern
+M 0 4444 1 4421 1       *Load guard of honor king
+E 0 4429 30 11          *Load shield on pirate
+E 0 4433 30 17          *Load flag on pirate
+E 0 4421 20 6           *Load eye patch on pirate
+E 0 4442 20 16          *Load sabre on pirate
+O 0 4479 20 4421        *Load lantern
+M 0 4448 1 4422 1       *Load pirate king
+G 0 4465 2              *Load diamond key on king
+E 0 4433 30 17          *Load flag on pirate
+E 0 4437 30 18          *Load shadow on pirate
+E 0 4505 10 12          *Load cloak on pirate
+E 0 4443 20 16          *Load curved sabre on pirate
+O 0 4479 20 4422        *Load lantern
+M 0 4419 2 4423 2       *Load ugly pirate
+E 0 4407 30 10          *Load sleeves on pirate
+E 0 4419 30 9           *Load gloves on pirate
+E 0 4434 30 0           *Load lantern on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4478 50 4423        *Load lantern
+M 0 4443 1 4424 1       *Load guard of honor queen
+E 0 4428 30 11          *Load shield on pirate
+E 0 4432 30 17          *Load flag on pirate
+E 0 4426 30 3           *Load necklace on pirate
+E 0 4442 20 16          *Load sabre on pirate
+O 0 4479 20 4424        *Load lantern
+M 0 4447 1 4425 1       *Load pirate queen
+G 0 4465 2              *Load diamond key on queen
+E 0 4432 30 17          *Load flag on pirate
+E 0 4436 30 18          *Load shadow on pirate
+E 0 4504 10 12          *Load cloak on pirate
+E 0 4443 20 16          *Load curved sabre on pirate
+O 0 4479 20 4425        *Load lantern
+O 0 4478 50 4426        *Load lantern
+M 0 4445 1 4427 1       *Load admiral
+E 0 4405 30 10          *Load sleeves on pirate
+E 0 4417 30 9           *Load gloves on pirate
+E 0 4443 20 16          *Load curved sabre on pirate
+O 0 4479 20 4427        *Load lantern
+M 0 4421 2 4428 2       *Load handsome pirate
+E 0 4439 30 18          *Load shadow on pirate
+E 0 4422 30 7           *Load leggings on pirate
+E 0 4430 30 13          *Load rainbow cloth on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4479 20 4428        *Load lantern
+M 0 4423 2 4429 2       *Load pirate big belly
+E 0 4405 30 10          *Load sleeves on pirate
+E 0 4412 30 8           *Load boots on pirate
+E 0 4441 50 16          *Load grapnel on pirate
+O 0 4479 20 4429        *Load lantern
+M 0 4430 2 4430 2       *Load slim pirate
+E 0 4405 30 10          *Load sleeves on pirate
+E 0 4417 30 9           *Load gloves on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4449 1 4430         *Load portal
+O 0 4479 20 4430        *Load lantern
+O 0 4494 10 4430        *Load litter
+M 0 4417 2 4431 2       *Load aggressive pirate
+E 0 4413 30 8           *Load boots on pirate
+E 0 4434 30 0           *Load lantern on pirate
+E 0 4426 30 3           *Load necklace on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4498 6 4431         *Load plank-bed
+M 0 4415 2 4432 2       *Load very drunk pirate
+E 0 4422 30 7           *Load leggings on pirate
+E 0 4430 30 13          *Load rainbow cloth on pirate
+E 0 4403 30 12          *Load coat on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4479 20 4432        *Load lantern
+O 0 4491 10 4432        *Load mug whisky
+O 0 4492 10 4432        *Load mug rum
+O 0 4494 10 4432        *Load litter
+M 0 4416 2 4433 2       *Load very drunk pirate
+E 0 4423 30 7           *Load leggings on pirate
+E 0 4430 30 13          *Load rainbow cloth on pirate
+E 0 4404 30 12          *Load coat on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4479 20 4433        *Load lantern
+O 0 4490 10 4433        *Load mug beer
+M 0 4417 2 4434 2       *Load aggressive pirate
+E 0 4413 30 8           *Load boots on pirate
+E 0 4434 30 0           *Load lantern on pirate
+E 0 4426 30 3           *Load necklace on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4498 6 4434         *Load plank-bed
+M 0 4425 2 4435 2       *Load mad pirate
+E 0 4426 30 3           *Load necklace on pirate
+E 0 4415 30 1           *Load ring on pirate
+E 0 4441 50 16          *Load grapnel on pirate
+O 0 4498 6 4435         *Load plank-bed
+M 0 4415 2 4436 2       *Load very drunk pirate
+E 0 4422 30 7           *Load leggings on pirate
+E 0 4430 30 13          *Load rainbow cloth on pirate
+E 0 4403 30 12          *Load coat on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4492 10 4436        *Load mug rum
+O 0 4479 20 4436        *Load lantern
+O 0 4494 10 4436        *Load litter
+M 0 4416 2 4437 2       *Load very drunk pirate
+E 0 4423 30 7           *Load leggings on pirate
+E 0 4430 30 13          *Load rainbow cloth on pirate
+E 0 4404 30 12          *Load coat on pirate
+E 0 4440 50 16          *Load knife on pirate
+O 0 4492 10 4437        *Load mug rum
+O 0 4479 20 4437        *Load lantern
+M 0 4425 2 4438 2       *Load mad pirate
+E 0 4426 30 3           *Load necklace on pirate
+E 0 4415 30 1           *Load ring on pirate
+E 0 4441 50 16          *Load grapnel on pirate
+O 0 4498 6 4438         *Load plank-bed
+M 0 4426 2 4439 2       *Load mad pirate
+E 0 4427 30 3           *Load necklace on pirate
+E 0 4416 30 1           *Load ring on pirate
+E 0 4441 50 16          *Load grapnel on pirate
+O 0 4498 6 4439         *Load plank-bed
+M 0 4426 2 4440 2       *Load mad pirate
+E 0 4427 30 3           *Load necklace on pirate
+E 0 4416 30 1           *Load ring on pirate
+E 0 4441 50 16          *Load grapnel on pirate
+O 0 4498 6 4440         *Load plank-bed
+M 0 4427 2 4441 2       *Load guard treasure chamber
+E 0 4417 30 9           *Load gloves on pirate
+E 0 4432 30 17          *Load flag on pirate
+E 0 4428 30 11          *Load shield on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4450 1 4441         *Load portal
+M 0 4427 2 4443 2       *Load guard treasure chamber
+E 0 4417 30 9           *Load gloves on pirate
+E 0 4432 30 17          *Load flag on pirate
+E 0 4428 30 11          *Load shield on pirate
+E 0 4442 50 16          *Load sabre on pirate
+M 0 4428 1 4445 1       *Load tall strong guard treasury
+E 0 4417 30 9           *Load gloves on pirate
+E 0 4421 20 6           *Load eye patch on pirate
+E 0 4442 20 16          *Load sabre on pirate
+O 0 4464 1 4445         *Load treasure chest
+P 0 4468 1 4464 1       *Load 1800 gold in treasure chest
+P 0 4472 1 4464 1       *Load diamond crown in treasure chest
+P 0 4473 1 4464 1       *Load diamond sword in treasure chest
+O 0 4480 1 4445         *Load 300 gold
+O 0 4481 1 4445         *Load golden cup
+O 0 4482 1 4445         *Load diamond necklace
+O 0 4483 1 4445         *Load platinum helmet gold
+M 0 4429 1 4446 1       *Load pirate peace guard
+E 0 4443 20 16          *Load curved sabre on pirate
+O 0 4478 50 4446        *Load lantern
+O 0 4478 50 4447        *Load lantern
+M 0 4420 2 4448 2       *Load ugly pirate
+E 0 4419 30 9           *Load gloves on pirate
+E 0 4407 30 10          *Load sleeves on pirate
+E 0 4435 30 0           *Load lantern on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4478 50 4448        *Load lantern
+M 0 4451 2 4449 2       *Load spy
+O 0 4478 50 4449        *Load lantern
+M 0 4436 1 4450 1       *Load prison guard
+G 0 4507 3              *Load prison key on guard
+E 0 4415 30 1           *Load ring on pirate
+E 0 4405 30 10          *Load sleeves on pirate
+E 0 4431 30 14          *Load armband on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4478 50 4450        *Load lantern
+M 0 4437 1 4451 1       *Load king of dreamland
+E 0 4501 20 12          *Load robe on king
+O 0 4478 50 4451        *Load lantern
+M 0 4439 1 4452 1       *Load queen of summerland
+E 0 4503 20 12          *Load robe on queen
+O 0 4478 50 4452        *Load lantern
+M 0 4438 1 4453 1       *Load king of darkland
+E 0 4500 20 12          *Load robe on king
+O 0 4478 50 4453        *Load lantern
+M 0 4440 1 4454 1       *Load queen of summerland
+E 0 4502 20 12          *Load robe on queen
+O 0 4478 50 4454        *Load lantern
+M 0 4441 1 4455 1       *Load pirate captain
+E 0 4421 20 6           *Load eye patch on pirate
+E 0 4415 30 1           *Load ring on pirate
+E 0 4428 30 11          *Load shield on pirate
+E 0 4442 20 16          *Load sabre on pirate
+O 0 4478 50 4455        *Load lantern
+M 0 4424 2 4456 2       *Load pirate big belly
+E 0 4406 30 10          *Load sleeves on pirate
+E 0 4412 30 8           *Load boots on pirate
+E 0 4441 50 16          *Load grapnel on pirate
+O 0 4478 50 4456        *Load lantern
+O 0 4485 2 4456         *Load barrel ale
+O 0 4486 2 4456         *Load barrel beer
+O 0 4487 2 4456         *Load barrel red wine
+O 0 4488 2 4456         *Load barrel whisky
+O 0 4489 2 4456         *Load barrel rum
+O 0 4490 10 4456        *Load mug beer
+O 0 4491 10 4456        *Load mug whisky
+O 0 4492 10 4456        *Load mug rum
+M 0 4422 2 4457 2       *Load beautiful pirate
+E 0 4431 30 14          *Load armband on pirate
+E 0 4423 30 7           *Load leggings on pirate
+E 0 4438 30 18          *Load shadow on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4478 50 4457        *Load lantern
+O 0 4478 50 4458        *Load lantern
+O 0 4485 2 4458         *Load barrel ale
+O 0 4486 2 4458         *Load barrel beer
+O 0 4487 2 4458         *Load barrel red wine
+O 0 4488 2 4458         *Load barrel whisky
+O 0 4489 2 4458         *Load barrel rum
+O 0 4490 10 4458        *Load mug beer
+O 0 4491 10 4458        *Load mug whisky
+O 0 4492 10 4458        *Load mug rum
+M 0 4431 2 4459 2       *Load slim pirate
+E 0 4418 30 9           *Load gloves on pirate
+E 0 4406 30 10          *Load sleeves on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4478 50 4459        *Load lantern
+O 0 4494 10 4459        *Load litter
+M 0 4442 1 4460 1       *Load pirate captain
+E 0 4401 30 12          *Load coat on pirate
+E 0 4416 30 1           *Load ring on pirate
+E 0 4429 30 11          *Load shield on pirate
+E 0 4442 20 16          *Load sabre on pirate
+M 0 4419 2 4461 2       *Load ugly pirate
+E 0 4419 30 9           *Load gloves on pirate
+E 0 4407 30 10          *Load sleeves on pirate
+E 0 4434 30 0           *Load lantern on pirate
+E 0 4442 50 16          *Load sabre on pirate
+M 0 4423 2 4462 2       *Load pirate big belly
+E 0 4405 30 10          *Load sleeves on pirate
+E 0 4412 30 8           *Load boots on pirate
+E 0 4441 50 16          *Load grapnel on pirate
+M 0 4430 2 4463 2       *Load slim pirate
+E 0 4417 30 9           *Load gloves on pirate
+E 0 4405 30 10          *Load sleeves on pirate
+E 0 4442 50 16          *Load sabre on pirate
+M 0 4418 2 4464 2       *Load bored pirate
+E 0 4427 30 3           *Load necklace on pirate
+E 0 4413 30 8           *Load boots on pirate
+E 0 4435 30 0           *Load lantern on pirate
+E 0 4442 50 16          *Load sabre on pirate
+M 0 4446 1 4465 1       *Load pirate admiral
+E 0 4406 30 10          *Load sleeves on pirate
+E 0 4418 30 9           *Load gloves on pirate
+E 0 4443 20 16          *Load curved sabre on pirate
+M 0 4435 1 4466 1       *Load pirate sea guard
+E 0 4428 30 11          *Load shield on pirate
+E 0 4432 30 17          *Load flag on pirate
+E 0 4400 30 12          *Load coat on pirate
+E 0 4442 50 16          *Load sabre on pirate
+M 0 4420 2 4467 2       *Load ugly pirate
+E 0 4419 30 9           *Load gloves on pirate
+E 0 4407 30 10          *Load sleeves on pirate
+E 0 4435 30 0           *Load lantern on pirate
+E 0 4442 50 16          *Load sabre on pirate
+M 0 4421 2 4468 2       *Load handsome pirate
+E 0 4422 30 7           *Load leggings on pirate
+E 0 4430 30 13          *Load rainbow cloth on pirate
+E 0 4439 30 18          *Load shadow on pirate
+E 0 4442 50 16          *Load sabre on pirate
+M 0 4422 2 4469 2       *Load beautiful pirate
+E 0 4431 30 14          *Load armband on pirate
+E 0 4423 30 7           *Load leggings on pirate
+E 0 4438 30 18          *Load shadow on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4451 1 4469         *Load portal (ship)
+M 0 4453 1 4470 1       *Load pirate sea guard
+E 0 4429 30 11          *Load shield on pirate
+E 0 4433 30 17          *Load flag on pirate
+E 0 4401 30 12          *Load coat on pirate
+E 0 4442 50 16          *Load sabre on pirate
+O 0 4493 2 4471         *Load canon
+M 0 4433 1 4473 1       *Load pirate craftsman
+E 0 4426 30 3           *Load necklace on pirate
+E 0 4422 30 7           *Load leggings on pirate
+E 0 4441 50 16          *Load grapnel on pirate
+O 0 4493 2 4473         *Load canon
+M 0 4434 1 4474 1       *Load pirate craftsman
+E 0 4427 30 3           *Load necklace on pirate
+E 0 4423 30 7           *Load leggings on pirate
+E 0 4441 50 16          *Load grapnel on pirate
+O 0 4499 1 4475         *Load captain's bed
+M 0 4432 1 4477 1       *Load pirate cook
+E 0 4400 30 12          *Load coat on pirate
+E 0 4415 30 1           *Load ring on pirate
+E 0 4506 50 16          *Load ladle on pirate
+M 0 4452 1 4478 1       *Load spy
+M 0 4424 2 4479 2       *Load pirate big belly
+E 0 4406 30 10          *Load sleeves on pirate
+E 0 4412 30 8           *Load boots on pirate
+E 0 4441 50 16          *Load grapnel on pirate
+M 0 4431 2 4480 2       *Load slim pirate
+E 0 4406 30 10          *Load sleeves on pirate
+E 0 4418 30 9           *Load gloves on pirate
+E 0 4442 50 16          *Load sabre on pirate
+M 0 4449 1 4495 1       *Load pirate hermit
+E 0 4410 20 8           *Load boots on pirate
+E 0 4421 20 6           *Load eye patch on pirate
+E 0 4444 6 16           *Load pistol on pirate
+M 0 4450 1 4497 1       *Load pirate woman
+E 0 4411 20 8           *Load boots on pirate
+E 0 4401 30 12          *Load coat on pirate
+E 0 4444 6 16           *Load pistol on pirate
+D 0 4400 1 2            *Lock door entrance
+D 0 4401 3 2            *Lock door entrance
+D 0 4449 5 1            *Close trap-door prison
+D 0 4450 4 1            *Close trap-door prison
+D 0 4450 0 2            *Lock door prison
+D 0 4454 2 2            *Lock door prison
+D 0 4450 1 2            *Lock door prison
+D 0 4451 3 2            *Lock door prison
+D 0 4450 2 2            *Lock door prison
+D 0 4452 0 2            *Lock door prison
+D 0 4450 3 2            *Lock door prison
+D 0 4453 1 2            *Lock door prison
+D 0 4474 1 1            *Close door captain's cabin
+D 0 4475 3 1            *Close door captain's cabin
+D 0 4476 5 1            *Close door bilge
+D 0 4478 4 1            *Close door bilge
+S
+
+#$

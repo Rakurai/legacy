@@ -1,0 +1,229 @@
+#PLAYER
+Name Zsuzsanna~
+Id   989719599
+LogO 1027098814
+Vers 14
+Mexp 2
+Pass reddog~
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
+Race elf~
+Cla  2
+Levl 26
+Tru  0
+Plyd 64213
+Back 27566
+Note 1027095770 1022813787 1027084263 1027087211 1026409721 1017456706 1019982389
+Scro 22
+Room 4602
+HMS  444 298 378
+Gold 649
+Silv 454
+Exp  27423
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 840
+FImm 0
+FRes B
+FVul Z
+Plr  BF
+Video 0
+Act  CDEFGHJLQSTc
+AfBy DF
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AC
+Prac 4
+Trai 5
+Wimp 0
+Atrib 16 20 18 23 15 18
+QuestPnts  7
+Afk {B[{CMon Mar 25 02:04:19 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {BBlah{x~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 2
+LLev 1
+Deit Leveret~
+Lsit sprint254-43.bbc.net~
+Ltim Fri Jul 19 12:08:02 2002
+~
+LSav Fri Jul 19 12:13:34 2002
+~
+HMSP 360 213 378
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 76 1 'dagger'
+Sk 76 1 'sword'
+Sk 75 1 'backstab'
+Sk 77 1 'dodge'
+Sk 75 1 'enhanced damage'
+Sk 75 1 'hand to hand'
+Sk 75 1 'parry'
+Sk 76 1 'second attack'
+Sk 75 1 'fast healing'
+Sk 75 1 'repair'
+Sk 75 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 75 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'enchantment'
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 4580
+Nest 0
+Cond 94
+Wear 17
+Cost 1000
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 16076
+Nest 0
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 2242
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 16100
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 16040
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 16076
+Nest 0
+Cond 89
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 16042
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 9210
+Nest 0
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 16007
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear 0
+Cost 700
+End
+
+#END

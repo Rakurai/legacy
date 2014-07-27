@@ -1,0 +1,2025 @@
+#HELPS
+
+92 HELPFILE~
+
+Here's the syntax for writing helpfiles:
+
+{WHELPFILE NAME{x
+
+Syntax: {Ccast {x'{Yspellname{x' <{Ytarget{x> {Gargument{x
+        {Cgeneric skill{x <{Yargument{x>
+        {Vskill{x <{Ytarget{x> {Garguments{x
+
+Here's where the text of of your helpfile goes.  Please note the coloring
+and the spacing of this example helpfile.  Use {Ccyan{x for generic skills
+and for spells.  Please use {Yyellow{x for the targets of spells/skills.  Use
+{Ggreen{x for further arguments of skills/spells, and {Yyellow{x for the arguments
+of generic skills.  Use spaces, not tabs to line up multiple syntaxes.
+
+When referring to a {Cspell{x or a {Cgeneric command{x within the text of the
+helpfile, use {Ccyan{x to highlight.  {VViolet{x is used for skills (skills are
+anything that shows up on your skill list.)  Please keep the length of
+your lines in the low 70's.  This one uses a max of 75.
+
+At the bottom of the helpfile goes the spellgroup of the spell and a SEE
+ALSO if your helpfile is naturally related to another one.  For additional
+formatting, see the {Wfireball{x and {Wpeek{x helpfiles.
+
+GROUP:  {RSpellgroup{x {RSpellgroup{x
+{YSEE ALSO:{x otherhelpfile, otherhelpfile
+~
+
+
+0 VERSION~
+{WMy{BL{Ce{gg{Wa{Cc{By {gv{W1.4{x
+
+Legacy is currently stable.  Some bugs pop up, but we are doing our best
+to squash them immediately.  The 'My' in 'MyLegacy' refers to our dependence
+on MySQL, a very fast and powerful databasing engine used for increasing
+amounts of our information storage and retrieval.
+~
+
+0 MERC~
+This mud is based on Merc 2.1, created by Furey, Hatchet, and Kahn.  
+Merc 2.1 is available as Merc_21.tar.gz from ftp.tcp.com and 
+ftp.math.okstate.edu.
+E-mail to 'majordomo@webnexus.com' to join the merc mailing list.
+
+Thanks to ...
+  ... Diku Mud for starting it all.
+  ... The Free Software Foundation and DJ Delorie for kick-ass tools.
+  ... Copper Mud and Alfa Mud for releasing their code and worlds.
+  ... Aod of Generic for ... well, everything.  You're a hoopy frood, Aod.
+  ... Alander for many ideas and contributions.
+  ... John Brothers of Silly for permission to use Silly code and worlds.
+  ... Zrin for administering the mailing list.
+  ... Abaddon for proofreading our comm.c.
+  ... Hind, Quin, Vic, Diavolo, Oleg, Trienne, and others for porting help.
+  ... Diavolo, Grodyn, Morgenes, and others for code and bug fixes.
+  ... Raff, Doctor, VampLestat, Nirrad, Tyrst, PinkF, Chris, Glop for worlds.
+  ... the players and imps of Mud Dome, Final Mud, Mud Lite, Vego Mud, Rivers
+      of Mud, Ruhr Mud, and Mystic Realms for bug reports, ideas, new code,
+      and hours of enjoyment.
+
+Also see "help ROM" for information about the Rivers of Mud code base.
+~
+
+0 ROM~
+ROM started in early February 1993, using Merc 1.0 code. In July of 1993,  
+ROM II was started, eventually replacing the original ROM.  ROM was up for
+a little over a year, after which the code (version 2.3) was released,
+and various other ROM muds were started, including Rivers of Mud under
+a new management (Zump's ROM), at rom.org 9000.
+
+Alander's current project is Athen, the sequel to the ROM code. It can
+be found on Rehobaom's Legacy, at hypercube.org 9000.
+
+The following people contributed to the ROM flavor of the merc base code:
+
+Socials --  Kelsey and Liralen
+
+New, Improved Valhalla --  Liralen
+
+Puff's new special proc and improved poofin/poofout code --  Seth
+
+Maps and map shop --  Ezra, Regnan (Olympus)
+
+Nirvana zone --  Forstall (mobiles rewritten by Alander)
+
+Mob Factory --
+    Pinkfloyd (originally written for ROM, mobiles rewritten by Alander)
+
+Geographically correct Midgaard (tm) --  Alander
+
+Ideas and playtesting --  Thousands of dedicated mudders around the world
+
+The New Thalos area was donated by Onivel of Jedi, who was also the
+originator of the ASCII flags used in the zone files
+
+Beta testing --
+    Ken Blosser, Doug Araya, and Sherene Neil all helped with bugs reports
+    and suggestions, saving a lot of headaches
+
+Bug reports --
+    Thanks to Shad Muegge, Jerome Despret, Phoenix, Will Hongach,
+    Erwin S. Andreasen, Adam Debus and especially Gary Turkington
+    (author of the ROM FAQ) for help spotting bugs
+
+ROM 2.4 was developed during my time with Moosehead mud, and the release
+shares many of the features I wrote while I was there.  Additional code
+was written by Seth Scott (the new poofin/poofout), and many contributions
+and ideas from the Merc list were used.  Portions of Rusty's work on
+Moosehead also remain.
+
+The new features of 2.4 were largely produced in bull sessions with
+Gabrielle Taylor and Brian Moore, without whom this release wouldn't
+have happened.  In particular, the new privacy code, furniture, and
+wiznet are the results of Gabrielle's ideas.
+
+Changes to the standard diku mob and object format, as well as the changes
+to Merc 2.1 source code, were done by Alander over many a late night of
+hair-pulling. Hope you enjoy it.
+
+(my apologies if anyone was forgotten in this list)
+~
+
+-1 DIKU~
+.		     Original game idea, concept, and design:
+
+	  Katja Nyboe		    [Superwoman] (katz@freja.diku.dk)
+	  Tom Madsen		  [Stormbringer] (noop@freja.diku.dk)
+	  Hans Henrik Staerfeldt	   [God] (bombman@freja.diku.dk)
+	  Michael Seifert		  [Papi] (seifert@freja.diku.dk)
+	  Sebastian Hammer		 [Quinn] (quinn@freja.diku.dk)
+
+
+Developed at: DIKU -- The Department of Computer Science
+		      at the University of Copenhagen.
+~
+
+0 MOBINFO~
+.	     Our Mobiles have been infused with the breath of a
+	     shy faerie to give them a slightly warmer nature.
+	     Perhaps you have noticed this already.  If not, do
+	     take a moment to ask a mobile to tea.  The code is
+	     written by J Murphy, N'Atas-Ha of ThePrincedom and
+	     based on a concept created on Worlds of Carnage by
+	     Aaron Buhr. questions/comments to murph@cs.cmu.edu
+	     A little rewriting of the code/DOC/INSTALL done by
+	     Kahn of MERC Industries and tested extensively on
+	     Marble Mud.
+~
+
+0 WIZLIST~
+.
+    {P,{x                                                             {P,{x
+   {P'`,{x                                                           {P'`,{x
+   {P`,{x                                                            {P`,{x
+   {Y.:.{x               {WThe {GImmortal Staff {Wof {BL{Ce{gg{Wa{Cc{By{x                {Y.:.{x
+   {b)X({x                                                           {b)X({x
+  {b[{Y%%%{b]{x                                                         {b[{Y%%%{b]{x
+   {b|#|{N-----------------------------------------------------------{b|#|{x
+   {b|#|                                                           |#|{x
+   {b|#|         {BCoders{x                         {CQwestors{x           {b|#|{x
+   {b|#|   {G*{W=-=-=-=-=-=-=-=-=-={G*{x           {G*{W=-=-=-=-=-=-=-=-=-={G*   {b|#|{x
+   {b|#|         {gMontrey                         Urza              {b|#|{x
+   {b|#|         {gXenith                          Kazander          {b|#|{x 
+   {b|#|         {gViro                            Marx              {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|                     {GL{Wegacy{G@{Wkyndig{G.{Wcom{x                     {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|         {VBuilders{x                        {YAdmin{x             {b|#|{x
+   {b|#|   {G*{W=-=-=-=-=-=-=-=-=-={G*{x           {G*{W=-=-=-=-=-=-=-=-=-={G*{x   {b|#|{x
+   {b|#|         {gKenneth                         Liriel            {b|#|{x
+   {b|#|         {gTeotwawki                       Vegita            {b|#|{x
+   {b|#|         {gQaz                             Sivat             {b|#|{x
+   {b|#|         {gSorsha                          Alara             {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|{N-----------------------------------------------------------{b|#|{x
+   {b|#|                                                           {b|#|{x
+  {b[[|]]{x                                                         {b[[|]]{x
+~
+
+-1 OLDGREETING~
+.
+         [0;34m____                                                    ____
+        (____)                 [0;37mAge [1;37mof [1;34mL[1;36me[0;37mg[1;37ma[1;36mc[1;34my                    [0;34m(____)
+        [0;34m/____\                                                  /____\
+        [0;34m|___[1;35m.-^-.-^-.      [0;36m ______________________       [1;35m.-^-.-^-.[0;34m___|
+        [0;34m|__[1;35m(  __|__  )_  [0;36m-=(_)____________________)=-  [1;35m_(  __|__  )[0;34m__|
+        [0;34m|[1;35m/ \/\_/^\._)/ \    [0;36m/                   _/    [1;35m/ \(_./^\_/\/ \[0;34m|
+        [1;35m(  (__{([1;33mO[1;35m)}\___)  )  [0;36m/-    [1;37mLegacy v1.1    [0;36m/    [1;35m(  (__/{([1;33mO[1;35m)}___)  )
+        [0;34m|[1;35m\_/ (/(_)\_))_/  [0;36m(-                   (      [1;35m\_((_/(_)\) \_/[0;34m|
+  [0;34m______|_[1;35m(  (__)_)_/ )    [0;36m\     [1;34mFounded by:    [0;36m\      [1;35m( \_(_(__)  )[0;34m_|______
+ [0;34m/_________[1;35m\_/  |  \_/      [0;36m\                    \      [1;35m\_/  |  \_/[0;34m_________\
+[0;34m|/   [1;32m/' [1;37m|\  /[1;35m'-^'^-'[0;34m\|       [0;36m\_  [1;37mL[1;36mi[1;34mr[1;36mi[0;36me[1;37ml           [0;36m\     [0;34m|/[1;35m'-^'^-'[1;37m\  /| [1;32m'\   [0;34m\|
+    [1;32m|  ([1;37m| \/ |                [0;36m\      [0;31mM[1;31mo[1;37mntr[1;31me[0;31my       [0;36m\            [1;37m| \/ |[1;32m)  |
+    [1;32m|   `\   [1;37m|                 [0;36m\_        [1;34mand [1;32mE[0;32mdge  [0;36m-\           [1;37m|   [1;32m/`   |
+     [1;32m`\  `\  [1;37m|    [1;32m___           [0;36m)                    )   [1;32m___    [1;37m|  [1;32m/`  /`
+       [1;32m`\  `\[1;37m|  [1;32m/' ..'>        [0;36m/-  [1;36mwith thanks to  [0;36m_/  [1;32m<'..  '\ [1;37m|[1;32m/`  /`
+      [1;32m__[1;37m|[1;32m`\  `\: ,' /'        [0;36m/  [1;36mDIKU, MERC, ROM   [0;36m/    [1;32m'\ '  :/`  /`[1;37m|[1;32m___
+    [1;32m/' _ /''`\  '__'        [0;36m_/____________________/       [1;32m'__'  /`''\ _ '\
+   [1;32m< .'./'   [1;37m|  [1;32m|        [0;36m-=(_)____________________)=-        [1;32m|[1;37m  |   [1;32m'\.'. >
+    [1;32m`^' [1;37m|    |  [1;32m|                                            |  [1;37m|    |[1;32m '^`
+        [1;37m|    |[1;32m/'                                              '\[1;37m|    |
+         [1;37m\  /                                                    \  /
+          [1;37m\/                                                      \/
+
+[1;33mBy what name do you wish to be known?[0m ~
+
+-1 GREETING~
+.
+{N         ____                                                    ____
+{N        (____)                 {gAge {Wof {BL{Ce{gg{Wa{Cc{By                    {N(____)
+{N        /____\                                                  /____\
+{N        |___{V.-^-.-^-.       {T______________________       {V.-^-.-^-.{N___|
+{N        |__{V(  __|__  )_  {T-=(_)____________________)=-  {V_(  __|__  ){N__|
+{N        |{V/ \/\_/^\._)/ \    {T/                   _/    {V/ \(_./^\_/\/ \{N|
+{V        (  (__{{({YO{V)}\_)  )  {T/-   {WMy{BL{Ce{gg{Wa{Cc{By {gv{W1.4   {T/    {V(  (_/{{({YO{V)}__)  )
+{N        |{V\_/ (/(_)\_))_/  {T(-                   (      {V\_((_/(_)\) \_/{N|
+{N  ______|_{V(  (__)_)_/ )    {T\     {BFounded by:    {T\      {V( \_(_(__)  ){N_|______
+{N /_________{V\_/  |  \_/      {T\                    \      {V\_/  |  \_/{N_________\
+{N|/   {G/' {W|\  /{V'-^'^-'{N\|       {T\_  {WL{Ci{Br{Ci{Te{Wl           {T\     {N|/{V'-^'^-'{W\  /| {G'\   {N\|
+{G    |  ({W| \/ |                {T\      {gM{Wo{gn{Ct{gr{We{gy       {T\            {W| \/ |{G)  |
+{G    |   `\   {W|                 {T\_        {Band {GE{Hdge  {T-\           {W|   {G/`   |
+{G     `\  `\  {W|    {G___           {T)                    )   {G___    {W|  {G/`  /`
+{G       `\  `\{W|  {G/' ..'>        {T/-   {CVisit us at    {T_/  {G<'..  '\ {W|{G/`  /`
+{G      __{W|{G`\  `\: ,' /'        {T/ {Clegacy.kyndig.com  {T/    {G'\ '  :/`  /`{W|{G___
+{G    /' _ /''`\  '__'        {T_/____________________/       {G'__'  /`''\ _ '\
+{G   < .'./'   {W|  {G|        {T-=(_)____________________)=-        {G|  {W|   {G'\.'. >
+{G    `^' {W|    |  {G|                                            |  {W|    |{G '^`
+{W        |    |{G/'       {NROM 2.4 (c)1993-1995 Russ Taylor      {G '\{W|    |
+{W        |    |    {NBased on Merc 2.1 by Hatchet, Furey, Kahn     {W|    |
+{W         \  /  {NDiku: Staerfeldt, Madsen, Nyboe, Seifert, Hammer  {W\  /
+{W          \/                                                      \/
+
+{YBy what name do you wish to be known?{x ~
+
+-1 MOTD~ 
+{WWelcome to {BL{Ce{gg{Wa{Cc{By{W!
+
+{Y* {BMake sure you know and understand the {Yrules{B which govern your characters
+  before you start playing.  It will help you tremendously.
+{Y* {BPlease read {Vhelp censor{B.  If you are punished for disregarding them,
+  there is NO excuse!
+{Y* {BYou can return to this message by typing {Ghelp motd{B at any time.
+{Y* {BIf you have any questions/comments/suggestions, please contact the
+  immortals via notes, or at {CLegacyImms@kyndig.com{B.
+{Y* {BThere will be absolutly no revealing of a person's alt identity. To 
+  do so will result in being 1212'd, then fried.
+
+
+
+{WRemember ...
+{BRespect both immortals and mortals, for only by working together do we 
+make this happen.  All ideas, comments, and constructive criticism is 
+appreciated here, and remember, above all, ENJOY YOURSELF!  :){x
+
+{WNew {PL{Ye{Vg{Ga{Bc{Cy {RBuilding Guide: {Whttp://legacy.kyndig.com/building/index.html{x
+{WDownloadable version {R({Bupdated nightly{R): {Whttp://legacy.kyndig.com/building/build.zip{x
+~ 
+ 
+92 IMOTD~
+Welcome Immortal!
+
+You are responsible for following the laws of immortal behavior. These can
+be found by typing 'help laws' or 'help commandments'.
+
+* Your actions represent the entire immstaff, remember that.
+
+* Do not ask to be promoted.
+
+* If at any time you have no clue what you're doing, ask.
+
+{WNew {PL{Ye{Vg{Ga{Bc{Cy {RBuilding Guide: {Whttp://legacy.kyndig.com/building/index.html{x
+{WDownloadable version {R({Bupdated nightly{R): {Whttp://legacy.kyndig.com/building/build.zip{x
+
+[Hit Return to Continue]
+~
+
+-1 AUTOMOTD~
+{C--------------------------------------------------------------------------------
+{WWelcome to {BL{Ce{gg{Wa{Cc{By{W!
+
+{Y* {BMake sure you know and understand the {Yrules{B which govern your characters
+  before you start playing.  It will help you tremendously.
+{Y* {BPlease read {Vhelp censor{B.  If you are punished for disregarding them,
+  there is NO excuse!
+{Y* {BYou can return to this message by typing {Ghelp motd{B at any time.
+{Y* {BIf you have any questions/comments/suggestions, please contact the
+  immortals via notes, or at {CLegacyImms@kyndig.com{B.
+
+{WRemember ...
+{BRespect both immortals and mortals, for only by working together do we 
+make this happen.  All ideas, comments, and constructive criticism are 
+appreciated here, and remember, above all, ENJOY YOURSELF!  :){x
+{C--------------------------------------------------------------------------------
+~
+
+-1 DEFAULTMOTD~
+~
+
+92 AURA~
+Syntax: {Caura{x <{Yplayername{x> <{Yaura{x>
+        {Caura{x <{Yplayername{x> {Ynone{x
+        {Caura{x <{Yplayername{x>
+
+Self explanatory; {Caura{x <{Yplayername{x> will give you the person's aura.
+~
+
+92 MPSTAT~
+Syntax: {Cmpstat{x <{Ymobile{x>
+
+This command will list some basic info about the mobile and the mob
+program associated with that mobile.
+~
+
+92 CLANQP~
+Syntax: {Cclanqp donate {x<{Yamount{x> <{Yclanname{x>
+
+This allows an imm to donate questpoints to a clan. (e.g. as a reward for
+a quest.)
+
+~
+
+92 JUKEBOX PLAY~
+Immortal additions to the {VJukeBox{x interface:
+
+Syntax: {Cplay loud{x <{Ysongname{x>  ({YImmortal Only{x)
+        {Cplay stop{x           ({YImmortal Only{x)
+
+These commands are pretty straight forward.  Play loud plays a song such
+that everyone on the entire mud hears it, as long as their music channel
+is on.  Play stop will stop any and all global songs being played at the
+time.  {PNOTE: You must be in a room with a jukebox to do either.{x
+~
+
+92 ROOM AREA BUILDING~
+{CImmortal{x additions to the ROOM helpfile:
+
+{PPersonal rooms{x, when placed {Woutside{x of a clanhall, should be discussed
+{PAHEAD{x of time with the head {Cbuilder{x, or an {PI{Ym{Gp{Bl{Ve{Pm{Ye{Gn{Bt{Vo{Pr{x.  There are areas
+in the mud that cannot have personal rooms, for example around Annabus,
+the Flaming Sword, or shops.
+~
+
+92 INVITE~
+Immortal addition to the {Cinvite{x command:
+
+Syntax: {Cinvite{x    ({YImmortal Only{x)
+
+Invite without an argument will display a list of all the current invitations on
+the mud.
+~
+
+92 DAMAGE ATTACK~
+{c/===============================================\
+{c|{P0      {c|{Hhit            {c|{P20     {c|{Hdivine power   {c|
+{c|{P1      {c|{Hslice          {c|{P21     {c|{Hcleave         {c|
+{c|{P2      {c|{Hstab           {c|{P22     {c|{Hscratch        {c|
+{c|{P3      {c|{Hslash          {c|{P23     {c|{Hpeck           {c|
+{c|{P4      {c|{Hwhip           {c|{P24     {c|{Hpeck           {c|
+{c|{P5      {c|{Hclaw           {c|{P25     {c|{Hchop           {c|
+{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
+{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
+{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
+{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
+{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
+{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
+{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
+{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
+{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
+{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
+{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
+{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
+{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
+{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
+{c\===============================================/{x
+~
+
+92 POOFIN POOFOUT~
+Syntax: {Cpoofin{x  <{Ymessage{x>
+        {Cpoofout{x <{Ymessage{x>
+
+The standard messages for goto are 'arrives in a swirling mist' and
+'leaves in a swirling mist'.  You can replace these with messages of
+your own choosing using the {Cpoofin{x and {Cpoofout{x commands.  These messages
+must include your name somewhere in the string.
+
+{Cpoofin{x and {Cpoofout{x only show to characters who can see you.
+
+{YSEE ALSO:{x goto
+~
+
+92 LURK~
+Syntax: {Clurk{x
+
+Immortals may {Clurk{x to only allow themselves to be seen by mortals
+in the same room.
+~
+
+92 QUEST~
+Immortal additions to the {RQUEST{x command:
+
+{RQUEST OPEN{x                   -- open the Quest Area for questing.
+{RQUEST CLOSE{x                  -- close the Quest Area.
+{RQUEST PK{x                     -- toggles unlimited or restricted pk in FS.
+{RQUEST LIST{x                   -- list all player's quest status.
+{RQUEST DOUBLE{x                 -- turns on or off double quest points.
+{RQUEST AWARD{x  <{Yplayer{x> points{x   -- give a player 1 to 10 quest points.
+{RQUEST DEDUCT{x <{Yplayer{x> points{x   -- deduct quest points from a player.
+{RQUEST REFEREE{x <{Yimmortal{x>       -- confer the {RQUEST AWARD{x power to an imm.
+
+{CImmortals{x cannot award or deduct quest points until conveyed to them
+with the {RQUEST REFEREE{x command.
+~
+
+92 AREAS~
+Additional info for {YImms{x:
+
+{YImms{x get {Y3{x extra columns in the output from {Careas{x. These are the area
+file name, the vnum range and the number of players in the area.
+
+{Careas *{x will give you only areas with players in them.
+{Careas #{x will give you the areas sorted by vnum ranges.
+These two options can be combined with the others where sensible.
+~
+
+92 SHOWFLAGS~
+Syntax: {Cshowflags{x <{Yplayer{x>
+        {Cshowflags{x <{Ymob{x>
+
+For immortals, this command also shows flags for other characters.
+Some of this information is useful, and it's much more condensed than
+what you get from {Cstat{x.
+~
+
+92 TESTPOSE~
+Syntax: {Ctestpose{x <{Yclass{x>
+	{Ctestpose{x <{Yclass{x> <{Ynumber{x>
+
+As the name implies, {Ctestpose{x can be used to test poses before they
+are inflicted on the MUD in general.
+
+{Ctestpose{x <{Yclass{x> tells you how many poses are available for the
+given class. You can then use a number from 1 to that number in
+{Ctestpose{x <{Yclass{x> <{Ynumber{x> to demonstrate the pose to yourself.
+~
+
+92 SITES ALTERNATE~
+Syntax: {Calternate{x <{Yplayer{x>
+
+By using this command, you can obtain a list of possible alternate
+characters that one player might have.  This is by no means a complete
+or accurate list.  However, it does list off all players who are in the
+database and have similar host addresses.
+
+This list is only updated when a player logs into the mud for the first
+time.  It is not updated when a player returns from being link-dead or
+when a player deletes.
+~
+
+92 BATTLE ARENA~
+Immortal Notes:
+Syntax: {Cbattle{x <{Ylow level{x> <{Yhigh level{x> <{Yentry fee{x>
+        {Cbattle start{x
+        {Cbattle stop{x
+        {Cbattle status{x
+
+{CBattle start{x and {Cstop{x will determine when mortals may attack each other
+while within the arena.  {CBattle status{x will display the values set for
+levels, fee, and combat progress.  Also, be sure you are {PVISIBLE{x when
+using the {Cbattle{x command, otherwise, it will not display the {Cbattle{x
+{Cstatus{x over the FYI channel.
+~
+
+92 FLAG FLAGLIST TYPELIST~
+Syntax: {Cflaglist{x
+        {Cflaglist{x <{Yflag group{x>
+        {Cflag char{x <{Yvictim{x> <{Yflag group{x> <{Y?{x> <{Yflag{x>
+        {Cflag obj{x  <{Yobject{x> <{Yflag group{x> <{Y?{x> <{Yflag{x>
+        {Cflag room{x   <{Yroom{x> <{Yflag group{x> <{Y?{x> <{Yflag{x>
+        {Ctypelist{x
+
+The {Cflaglist{x command can be used to obtain all the flags located
+within a {Cflag{x group.
+
+The {Cflag{x command can be used to change flags for an individual, object,
+or room. The ? can be substituted with a -, +, or =.
+
+- : Remove the {Cflag{x,  + : Add the {Cflag{x
+= : Set all other flags {Poff{x except for the selected {Cflag{x
+
+If you leave the {Y?{x blank, the {Cflag{x will just be toggled on/off.
+
+{Ctypelist{x has a few other tables that are useful at times.
+~
+
+92 HBI WBI~
+Syntax: {Cwbi{x {Y<message>{x
+        {Chbi{x {Y<message>{x
+
+WBI is used to send a one line message to the coder(s) to remind
+them of things the other Immortals would like to see implemented. It's
+basically a to-do list and wish list. The items on this list are checked
+for feasibility by the coder(s) and need to be approved by the Imp before
+they are added to the code.
+
+HBI is used to send a one line message from the coder(s) to let others
+know of ideas that were implemented, but the mortals have not been notified
+about yet.  Usually because of an impending copyover.  {Chbi{x or {Cwbi{x without
+an argument will show the hbi or wbi file, respectively.
+
+Sorry if all this sounds very formal, but it helps avoid losing good ideas.
+Coders need all the organizational help they can get :)
+~
+
+92 'EXITS IN'~
+Syntax: {Cexits in{x
+
+This is an imm-only command that tells you which rooms exit into your
+current location and which portals lead there.  This is helpful with
+rooms that are not connected with two-way exits.
+~
+
+92 EQUIPMENT INVENTORY~
+Immortal addition:
+Syntax:  {Cequipment{x <{Ycharacter{x>
+         {Cinventory char{x <{Ycharacter{x>
+
+{Cequipment{x <{Ycharacter{x> and {Cinventory char{x <{Ycharacter{x> will list equipment
+or inventory for another character (player or mobile) in the game.
+~
+
+92 INVIS WIZINVIS~
+Syntax: {Cwizinvis{x
+
+{CWizinvis{x makes you completely invisible to mortal players.
+~
+
+92 GOTO~
+Syntax: {Cgoto{x <{Yvnum of room{x>
+        {Cgoto{x <{Ycharacter or object name{x>
+        {Cgoto{x obj <{Yobject name{x>
+
+{CGoto{x takes you to a location.  The location may be specified as a vnum,
+as the name of a mobile, or as the name of an object.
+
+You may not {Cgoto{x a room if it is {RPRIVATE{x and has two (or more) characters
+already present, or if it is {RSOLITARY{x and has one (or more) characters
+already present. Some other rooms are barred to players below a certain
+god level.
+
+Implementors can use the violate command to get into private rooms.
+~
+
+92 IMMNAME~
+Syntax: {Cimmname{x <{Yargument{x>
+        {Cimmname none{x
+
+This changes the block of text appearing before your name in the wholist
+to the argument.  The none argument clears your {Cimmname{x.
+~
+
+92 IMMTALK :~
+Syntax: {Cimmtalk{x <{Ymessage{x>
+        {Cimmtalk{x
+
+{CImmtalk{x sends a message to all immortals.  {C:{x is a synonym for {Cimmtalk{x.
+Using this command with no argument turns off the immortal channel (or
+turns it back on).
+~
+
+92 MALLOC~
+The mud is constantly allocating memory as it needs it.  However, the mud
+rarely deallocates that memory.  Instead, it frees up the memory and holds
+it in storage for later use.  Then in the future, when the mud needs more
+memory, it grabs this reserved memory and uses it.
+
+Now, if there is no reserved memory of the type the mud needs, it will
+allocate more memory.  This is what causes the Wiznet {PMalloc{x message to
+appear.  Normally this is not a problem.  Especially when the mud has just
+started or is returning from a copyover.  You will notice that as the first
+characters log in, you get spammed by tons of messages.  The problem is when
+24 hours later you are still getting memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+~
+
+92 WIZNET~
+Syntax: {Cwiznet{x
+        {Cwiznet show{x
+        {Cwiznet status{x
+        {Cwiznet{x <{Yfield{x>
+
+{CWiznet{x is sort of an immortal news service, to show important events to
+the wiznetted immortal.  {CWiznet{x by itself turns {Wwiznet{x on and off,
+{Cwiznet show{x lists all settable flags (they are not detailed here),
+{Cwiznet status{x shows your current {Wwiznet{x settings, and {Cwiznet{x <{Yfield{x>
+toggles a field on and off.  The events should be self-explanatory, if
+they are not, use the {Cwiznet{x <{Yfield{x> {G?{x command.  More events can be seen
+at higher levels.
+
+{YSEE ALSO:{x wizhelp
+~
+
+92 WIZHELP~
+Syntax: {Cwizhelp{x <{Ylevel{x>
+
+{CWizhelp{x provides a list of all the immortal commands available to your
+level (or trust level).
+
+The level argument is optional. When provided you'll see only immortal
+commands that are of the specified level.
+~
+
+92 HEED~
+Syntax: {Cheed{x <{Yplayername{x> <{Ymessage{x>
+        {Cheed{x
+
+This is the preferred way for Imms to answer to {Cprayers{x from mortals.
+{CHeed{x sends a message to the named mortal:
+
+   {RAn immortal enlightens you with:{x
+      "<{Ymessage{x>"
+
+which is as handy as {Ctell{x but more impressive, and anonymous even if
+the imm happens to be visible. Also, it informs all other imms of what
+was said, and to whom. This way, all imms partake in both sides of
+the conversation.  Note that {Cpray{x no longer informs other mortals of
+the fact that one of them is praying, so a conversation can be held
+without spamming all mortals.
+
+{CHeed{x without an argument will toggle whether or not your name appears in
+the heed message.
+~
+
+92 CHECK~
+Syntax: {Ccheck{x
+        {Ccheck stats{x
+        {Ccheck eq{x
+        {Ccheck snoop{x
+        {Ccheck res{x
+        {Ccheck imm{x
+        {Ccheck vul{x
+        {Ccheck <{Yoption{x> {Cgods{x
+
+The {Ccheck{x command is usefuly for finding players that may be cheating.  It
+is also useful for finding interesting information about the players in
+general.  The snoop option can only be used by a Level 100 Immortal.  If
+you want immortals to appear in the list of results, you must specify {Cgods{x
+after the check option.
+~
+
+92 GAMEIN GAMEOUT~
+Syntax: {Cgamein{x <{Yplayer name{x>
+
+Immortals can use {Cgamein{x and {Cgameout{x to check any player's game entry
+and exit messages.
+~
+
+92 GROUPLIST~
+Syntax: {Cgrouplist{x
+
+Lists all the groups currently on the mud.  The name in {Yyellow{x shows the
+group leader.
+~
+
+92 PUNISH~
+Syntax: {Cpunish{x
+        {Cpunish{x <{Ymessage>{x
+        
+Punish is a log of all punishments.  When you nochan, ban, fry, anybody,
+please log it with {Cpunish{x <{Ymessage{x>.  Punish by itself shows the last
+100 lines of the log.  This is used so imms can see if there have been
+previous incidents with a particular individual, or to know when to
+remove current punishments, etc etc ... it's a method of communication.
+~
+
+92 ROOMEXITS~
+Syntax: {Croomexits{x
+
+This command shows all exits into and out of the room that you are in,
+and the vnums of the room that connect.  <> denote two way exits, while
+a > or a < denotes a one way exit.    
+~
+	
+92 MARRY MARRIAGE SPOUSE SPOUSETALK DIVORCE~
+Immortal MARRIAGE commands:
+
+Syntax: {Cmarry{x <{Yspouse1{x> <{Yspouse2{x>
+        {Cdivorce{x <{Yspouse1{x> <{Yspouse2{x>
+
+The {Cmarry{x command can be used either spouse first, and is not gender
+specific in any way.  The {Cdivorce{x command is the same, as well.
+
+
+{cMarriage code written by Ryouga (ryouga@jessi.indstate.edu){x
+~
+
+92 FILE~
+Syntax: {Cfile{x <{Yfield{x> <{Ylines{x>
+
+Currently available:
+        {Cfile bug{x      <{Ylines{x>       -- player-reported game bugs
+        {Cfile typo{x     <{Ylines{x>       -- player-reported typos
+        {Cfile email{x    <{Ylines{x>       -- player e-mail addresses
+        {Cfile shutdown{x <{Ylines{x>       -- game shutdown messages
+        {Cfile work{x     <{Ylines{x>       -- work in progress and planned
+        {Cfile wbi{x      <{Ylines{x>       -- 'will be implemented' notes to Coder
+        {Cfile checkout{x <{Ylines{x>       -- files checked out for working on
+        {Cfile syslog{x                 -- system log file names
+        {Cfile syslog{x   <{Ylines{x> <{Yfilename{x> -- specified log file
+
+This command can be used to look at some game maintenance files.
+Depending on your level, not all files may be available to you.
+To avoid spamming your connection to death, you need to indicate
+how many lines of text from the file you want to see, from a minimum
+of 1 (just the very last line) to 150 (the last 150 lines).
+
+{Cfile syslog{x will show a directory listing of the ../../Dmaint/log directory.
+You can then use {Cfile syslog{x <lines> <filename>' to look into a specific log.
+~
+
+92 EXITLIST~
+Syntax: {Cexitlist{x
+
+Lists information about exits to and from your current area.
+
+Example:
+ 3370 The School of Skills       <> 8543 The Gathering             (Playpen )
+The < means that 8543 connects to 3370
+The > means that 3370 connects to 8543
+(Playpen ) is the connecting area's name
+3370 The School of Skills is a vnum/room in your current area
+8543 The Gathering is a vnum/room in a connecting area
+
+{YSEE ALSO:{x 'exits in' and 'roomexit'
+~
+
+92 VLIST~
+Syntax: {Cvlist{x <{Ybeginning number{x> <{Yending number{x>
+
+{CVlist{x displays the names for both object and mobile for a given vnum range.
+The ending number is optional.
+~
+
+92 VNUM~
+Syntax: {Cvnum{x <{Yname{x>
+        {Cvnum{x <{Yobj or mob{x> <{Yname{x>
+        {Cvnum skill{x <{Yname{x>
+
+{CVnum{x finds all objects and mobiles with a particular name, and prints out
+the results.  Use {Cvnum obj{x or {Cvnum mob{x to limit the search.  This {Cvnum{x is
+very useful for loading. {CVnum{x skill returns the skill number (for set) and
+the slot number (for making new zones) of a skill name.
+~
+
+92 STAT~
+Syntax: {Cstat{x <{Yname{x>
+        {Cstat mob{x  <{Yname{x>
+        {Cstat obj{x  <{Yname{x>
+        {Cstat room{x <{Ynumber{x>
+
+The {Cstat{x command gives you detailed information on a player, mobile, object
+or room within the game.  Without a class argument, the command will return
+a player (if found), a mobile (if no player exists, but a mobile does),
+an object or a room (if a number is given).  {CStat room{x with no argument
+stats the room you are standing in.  {CStat{x can be used to find room vnums
+for goto.
+
+{YSEE ALSO:{x pstat
+~
+
+92 PSTAT~
+Syntax: {Cpstat{x <{Yname{x>
+
+The {Cpstat{x command will tell you the most commonly needed information about
+any player in the game. It is colored and formatted for your reading pleasure.
+
+{YSEE ALSO:{x stat
+~
+
+92 MLEVEL OLEVEL~
+Syntax: {Cmlevel{x <{Ybeginning level{x> <{Yending level{x>
+        {Colevel{x <{Ybeginning level{x> <{Yending level{x>
+
+These commands find objects/mobiles that match the levels given.  If no
+ending level is given, it will only print items for the beginning level.
+~
+
+92 MEMORY~
+Syntax: {Cmemory{x
+
+{CMemory{x reports the size of your mud.
+
+The 'Mobs' and 'Objs' lines report the number of types of mobiles and
+objects, not the number of instances currently in the game.
+
+The 'Strings' line shows memory used by area-file strings.  These strings
+have a maximum limit, which is also shown.
+
+The 'Perms' line shows permanently allocated memory blocks.  There is no
+limit on the number and size of these blocks.
+~
+
+92 NOREPLY~
+Syntax: {Cnoreply{x
+
+This command will clear the reply buffer for anyone on the mud who might
+have you as their reply victim.
+~
+
+92 ALLSAVE~
+Syntax: {Callsave{x
+
+{WSAVE{xs all players in the game, immediately and with no lag and no message
+to the players. Use this command if you anticipate a game crash or other
+instability and you want the players to avoid experience and/or equipment
+losses.
+There is nothing to be gained from doing this for no good reason. It does
+strain the server's resources a bit and lags the game slightly.
+~
+
+92 SECURE~
+Syntax: {Csecure{x
+        {Csecure{x <{Ylevel{x>
+
+{CSecure{x without an argument sets your {Csecure{x {Mlevel{x to {Y92{x.  Only {CImmortals{x
+with a trust level greater than or equal to your {Csecure {Mlevel{x can see
+the immtalk messages you send.
+~
+
+92 OWHERE~
+Syntax: {Cowhere{x {Yobject{x
+        {Cowhere{x {Yobject{x {Y2nd keyword{x
+        {Cowhere{x {Yobject{x {Ylevel{x
+
+Gives you the room vnum, the object's short description and vnum, and
+the name of the object's carrier or the name of the room it's in, as
+appropriate.
+
+To narrow your selection down, you may enter 2 object name keywords
+(e.g. {Cowhere dragon sword{x), or you can enter a level as the second
+search term, which will show you only objects of exactly that level.
+~
+
+92 ROOMLIST RLIST~
+Syntax: {Crlist{x <{Ystarting-vnum{x> <{Yending-vnum{x>
+
+Gives a list of area and room name, where available, for each vnumber
+in the given range. If you just want the name of a single room given
+its vnum, you need to specify that vnumber twice.
+
+Note that this command will spam you badly if the range you specify
+is too large. Above about 400 lines, the in-game spam protection will
+temporarily throw you out of the game.
+~
+
+92 RWHERE~
+Syntax: {Crwhere{x <{Ystring{x>
+
+Lists all rooms whose short titles match {Ystring{x by vnum, area, and
+full name.
+~
+
+100 MOTD 'MESSAGE OF THE DAY'~
+Syntax: {Cmotd{x
+        {Cmotd {Y-{x{x
+        {Cmotd{x {Y+{x <{Ymessage{x>
+
+Without an argument, {Cmotd{x will display the current message of the day.
+The "{Y-{x" will subtract lines, and the "{Y+{x" will add lines to the {Cmotd{x.
+~
+
+92 FORCE~
+Syntax: {Cforce{x <{Ycharacter{x> <{Ycommand{x>
+        {Cforce all{x <{Ycommand{x>
+
+{CFORCE{x forces one character to execute a command, except of course delete.
+
+Below level 97 (Deity) {Cforce{x can only be used on mobiles, and {Cforce all{x is
+unavailable.  You also cannot '{Cforce{x {Yorc murder hugo{x', for example.
+
+{CForce all{x forces all player characters to execute a command.
+This is typically used for '{Cforce all{x {Ysave{x'.
+~
+
+92 SOCKETS~
+Syntax: {Csockets{x
+        {Csockets{x <{Yname{x>
+
+{CSockets{x reports all of the visible users connected to the server,
+including users in the process of logging in.  The two numbers inside
+brackets are the channel number and the 'connected' state.  The
+'connected' states are listed in merc.h: 0 is CON_PLAYING; non-zero
+values are various states of logging in.
+
+The optional name argument shows the site of a player, or optional can
+be used to identify switched gods (i.e. socket orc shows the name of
+anyone switched into an orc).
+~
+
+92 MWHERE~
+Syntax: {Cmwhere{x <{Yname{x>
+
+{CMwhere{x shows you the locations of all mobiles with a particular name.
+~
+
+92 ICLAN~
+Syntax: {Ciclan{x <{Yclan name{x> <{Ymessage{x>
+
+This is a command for immortals to broadcast messages to specific clans.
+~
+
+92 FOD~
+Syntax: {Cfod{x <{Yplayer{x>
+
+Used on players, this command is a mild punishment device. It knocks the
+player off their feet and paralyzes them for 10 seconds. This gives the
+Imm time to think of what to do next :) There are also fearsome messages
+to the player and to the game. But there is no permanent harm done.
+
+{CFOD{x no longer works on mobiles.  This command is NOT, I repeat NOT a
+toy.  Even though it does not permanently hurt a mortal, it's effectiveness
+as a punishment device is lost if it is flaunted. Excessive fodding without
+real reason is grounds for demotion.
+
+{cThis command is modelled after a command by the same name in British
+Legends MUD, where wizards use it as their main device of termination.{x
+~
+
+100 SHUTDOWN~
+Syntax:  {Cshutdown{x <{Yreason{x>
+
+{CShutdown{x shuts down the server and prevents the normal 'startup' script
+from restarting it.  The reason can be any brief message that explains why
+there is going to be a {Vshutdown{x.
+
+{YSEE ALSO:{x reboot, autoreboot
+~
+
+92 AT~
+Syntax: {Cat{x <{Ylocation{x> <{Ycommand{x>
+
+{CAt{x executes the given command (which may have arguments) at the given
+location.  The location may be specified as a vnum, as the name of a
+mobile, or as the name of an object.
+
+{CAt{x works by temporarily moving you to that location, executing the
+command, and then moving you back (if the command didn't change your
+location).
+~
+
+92 SWITCH RETURN~
+Syntax: {Cswitch{x <{Ycharacter{x>
+        {Creturn{x
+
+{CSwitch{x switches you into the body of another character (who must not
+already have a descriptor, e.g., you can't switch into a PC). You also cannot
+switch into linkdead PCs.
+
+{CReturn{x returns you to your original body.
+~
+
+92 ECHO GECHO PECHO ZECHO~
+Syntax: {Cecho{x  <{Ymessage{x>
+        {Cgecho{x <{Ymessage{x>
+        {Czecho{x <{Ymessage{x>
+        {Cpecho{x <{Ycharacter{x> <{Ymessage{x>
+
+These commands all perform similar functions.  {CEcho{x sends the message to
+all characters in the same room as the user with no indication of who sent
+it. {CZecho{x sends the message to all characters in the same zone (area).
+{CGecho{x does the same for all players connected to the game, and {Cpecho{x
+sends the message to the player specified as the target.  Any higher level
+god will see a prompt in front of your message informing him or her that it
+is an {Cecho{x.
+
+The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
+and {Czecho{x at 96, and {Cgecho{x at 98.)
+~
+
+92 TAIL~
+Syntax: {Ctail{x {Ycharacter{x {Cact{x
+	{Ctail{x {Ycharacter{x {Cstop{x
+	{Ctail stop{x
+
+This is a less invasive form of snooping a player. If you {Rtail{x a
+player, you see only his ACT messages to the room, i.e. what players
+in his room see him doing as well. Saves you the trouble of walking
+to him and/or following him, essentially. {CTail{x also suppresses
+the player's {Csay{xs. Note that you do not see the things happening
+to the player caused by someone else, i.e. you will see the player's
+hit messages on a mob he is fighting but not the hits of the mob on
+the player.
+
+{CTail{x works not only on players but also on mobiles. You can {Ctail{x
+any number of characters, and any number of immortals can {Ctail{x the
+same character(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+~
+
+92 PEACE~
+Syntax:  {Cpeace{x
+
+{CPeace{x causes all characters in a room to stop fighting. It also strips the
+AGGRESSIVE bit from mobiles.
+~
+
+92 LOAD~
+Syntax: {Cload mob{x <{Yvnum{x>
+        {Cload obj{x <{Yvnum{x> <{Ylevel{x>
+
+The {Cload{x command is used to load new objects or mobiles (use clone to
+duplicate strung items and mobs).  The vnums can be found with the vnum
+command, or by stat'ing an existing mob or object.
+
+{CLoad{x puts objects in inventory if they can be carried, otherwise they are
+put in the room.  Mobiles are always put into the same room as the god. Old
+format objects must be given a level argument to determine their power, new
+format objects have a preset level that cannot be changed without set.
+
+{YSEE ALSO:{x vnum
+~
+
+92 SEDIT~
+Syntax:  {Csedit delete         {W<{Vsocial{W>
+         {Csedit new            {W<{Vsocial{W>
+         {Csedit show           {W<{Vsocial{W>
+         {Csedit {W<{Ystring-name{W>  <{Vsocial{W> {W[{Gstring{W]{x
+
+{CSEDIT{x allows online creation, deletion and editting of socials.
+
+{CSEDIT DELETE{x <social> deletes that social. The deletion is irrecoverable,
+save for restoring a backup file, so use this command with great care!
+
+{CSEDIT NEW <social>{x creates a new, empty social.
+
+{CSEDIT SHOW <social>{x shows all of the strings for that social.
+
+{CSEDIT <string-name> <social> [string]{x changes a certain of the 7 strings that
+make up a social. If you leave out the string, no message will be sent to
+the involved characters.
+
+There are 7 strings that make up a social:
+{Ycnoarg: Sent to character when no argument typed.
+onoarg: Sent to others in the room when no argument is given.
+cfound: Sent to the character if a target is found.
+vfound: Sent to the victim.
+ofound: Sent to others in room, if target is found.
+cself : Sent to the character if the target is self.
+oself : Sent to others in room when a player targets themselves.{x
+
+To get the player names and sexes correct, you need to use those macros:
+
+{c/{GItem      {c/{BFor Char	{c/{PFor Victim
+{c|----------------------------------\
+{c|{Gname       {B$n           {P$N        {c|
+{c|{Ghe/she     {B$e           {P$E        {c|
+{c|{Ghim/her    {B$m           {P$M        {c|
+{c|{Ghis/hers   {B$s           {P$S{x        {c|
+{c|{G(his/her)                         {c|
+{c\----------------------------------/
+
+So, to make a new social called 'epoke' which would poke eyes out, you would
+do the following:
+
+{WSEDIT NEW epoke
+SEDIT cnoarg epoke Poke whose eyes out?
+SEDIT onoarg epoke $n looks for a pair of eyes to poke out.
+SEDIT cfound epoke You poke $N's eyes out!
+SEDIT vfound epoke $n pokes your eyes out! Ouch..
+SEDIT ofound epoke $n pokes $N's eyes out!
+SEDIT cself  epoke Being bored, you poke your own eyes out.
+SEDIT oself  epoke $n pokes $s eyes out!{x
+
+To get more examples, type {GSEDIT SHOW <social-name>{x to see one of the
+existing socials.
+
+The socials are stored in a file called socials.txt. Manual editting of
+that file is not advised. A frequent back-up is recommended. The social
+file is updated by the server as soon as anything changes.  Because of
+this code, there is no longer any option for if the player you try to
+do the action on is not there.
+
+
+{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
+~
+
+92 REMORT~
+Syntax: {Cremort{x <{Yplayer{x> <{Yrace{x> <{Ydeity{x> <{Ytitle{x>
+
+Turns a mortal hero into a remorted level 1, i.e. sets him up for
+another round of 90 levels. The mortal's hp, mana and mv are set to
+20, 100 and 100 respectively. His trust stays at 91 so he can do the
+level 80 CONSIDER and use the hero channel, among other things.
+
+{YRace{x is the name of the race the player is remorting into.  Any
+playable race is acceptable, although some races require the player to
+be of a certain remort count or higher.
+
+{Ydeity{x should be the name of an immortal of whom the player becomes
+a follower. {Ytitle{x becomes the player's new remort title, which
+shows up in {WWHOIS{x.
+
+Because of the way stats are handled in this command, the player has
+to remove all equipment before {Cremort{x will work.
+
+Remorting will roll the player a new set of remort affects.
+~
+
+92 BAN~
+Syntax:  {Cban{x <{Ysite{x> <{Ynewbies|all|permit{x> <{Yreason{x>
+
+{CBan{x <{Ysite{x> prohibits players from that site from logging in.  {CBan{x with
+no arguments lists the banned sites.
+
+A site may have all players, new players, or non-permitted players (set
+by editing the player file) banned, by changing the argument after the
+site.  *s may be used to ban either by suffix (*.edu), prefix (labmac*),
+or content (*andrews*), but be careful not to accidently lock out too
+many sites with a wildcard.
+~
+
+92 MASTER~
+Syntax: {Cmaster{x <{Yvictim{x> <{Ymobile{x>
+
+This command will set a mobile as a pet for a player.
+~
+
+100 FYI~
+Syntax: {CFYI{x <{Ymessage{x>
+
+This command simulates an in-game FYI message.  It's meant to announce
+general information and to warn players of possible problems.
+~
+
+92 LOWER~
+Syntax: {Clower{x <{Yitem{x> <{Yplayer{x>
+
+This command will set the level of a Drakyri Isle object to level 91,
+owner the item to the player, and automatically deduct the appropriate
+amount of qp.
+~
+
+92 STRING RESTRING~
+The string commands works as follows:
+
+{VShort{x:    Description seen when you type "{YInventory{x" or "{YEquipment{x"
+          or pet's basic name.
+{Cstring obj{x <{Ykeyword for object{x> short <{Ynew string for short{x>
+{Cstring mob{x <{Ykeyword for mob{x>    short <{Ynew string for short{x>
+
+
+{VLong{x:     Description of something {Ysitting in a room or on the ground{x
+{Cstring obj{x <{Ykeyword for object{x> long <{Ynew string for long{x>
+{Cstring mob{x <{Yobject's keyword{x>   long <{Ynew string for long{x>
+
+{VExtended{x: *{GObjects Only{x* Extra Keywords and Descriptions for stuff
+          that you have to {Yexplicitly look at{x.
+{Cstring obj{x <{Yobject's keyword{x> extended <{Ynew look keyword{x> <{Yextended string{x>
+
+{VKeywords{x: {YWords that identify{x the item/pet
+{Cstring obj{x <{Yone of the object's current keyword{x> name <{Ynew keywords{x>
+{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
+
+{PNote: {WYou can also string room names:{x
+{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
+~
+
+92 CLONE~
+Syntax: {Cclone obj{x <{Yobject{x>
+        {Cclone mob{x <{Ymobile{x>
+        {Cclone{x <{Yname{x>
+
+The {Cclone{x command duplicates an object or mobile.  The level of item or
+mobile that may be {Ccloned{x depends on your level.  The target object or
+mob must be in the same room as you, or in your possession.  Strung and
+set information is preserved by {Cclone{x, as well as any spell effects and
+container contents or mobile inventory, except for items which are too
+high for you to {Cclone{x.
+~
+
+92 STRING~
+Syntax: {Cstring obj{x <{Yname{x> <{Yfield{x> <{Ystring{x>
+        {Cstring mob{x <{Yname{x> <{Yfield{x> <{Ystring{x>
+        {Cstring room{x <{Yfield{x> <{Ystring{x>
+
+The {Cstring{x command changes the various strings associated with an object
+or mobile.  A full list of fields can be viewed by typing {Cstring obj{x or
+{Cstring mob{x.  Sorry, multi-line strings are not yet supported.
+~
+
+92 TRANSFER~
+Syntax: {Ctransfer{x <{Ycharacter{x>
+        {Ctransfer all{x
+        {Ctransfer{x <{Ycharacter{x> <{Ylocation{x>
+        {Ctransfer all{x         <{Ylocation{x>
+
+{CTransfer{x transfers the target character, or ALL player characters,
+to your current location (default) or to a specified location. Trans all
+should almost never be used, as 100 players popping into one room can have
+horrible affects on slow links.
+~
+
+92 SETGAMEIN SETGAMEOUT ENTRY EXIT~
+Syntax: {Csetgamein{x  <{Yplayer name{x> <{Ygame entry message{x>
+        {Csetgameout{x <{Yplayer name{x> <{Ygame exit message{x>
+
+This will set the player's game entry and exit messages as specified.
+If you specify no message, the player's entry and/or exit message will
+revert to its default text. Do not include the [FYI] when setting gamein/
+gameout messages; they are included automatically, and they are {Ggreen{x.
+~
+
+92 MORPH~
+Syntax: {Cmorph{x <{Yvictim{x> <{Ymobile{x>
+        {Creturn{x
+
+{CMorph{x switches the body of the victim into a mobile.  At least one
+mobile must be in existance on the mud during the time of the morph,
+for the morph command uses that mobile as a template for creating a
+new body for the victim.
+
+Morphed mortals can only return to their original bodies by being
+killed, dropping link, or typing the command: {Creturn{x.
+~
+
+92 REVOKE~
+Syntax:  {Crevoke{x <{Ycharacter{x> <{Bexp{x/{Bnochannel{x/{Bflameonly{x>
+         {Crevoke{x <{Ycharacter{x> <{Gchannel{x>
+
+The {Crevoke{x command completely replaces the old nochannel command, and
+expands upon it greatly.
+
+The {Bnochannel{x option prevents the victim from using any of the channels
+(gossip, philo, Q/A, music) on the game, except for {Gpray{x, {Gpage{x, {Gtell{x,
+and {Gqtell{x. Basically all public channels.  A {Bnochannel{x usually results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+~
+
+92 QPCONV~
+Syntax: {Cqpconv {g<{Ycharacter{g> <{Ytrain{g|{Ypractice{g> <{Yamount{g>
+
+The {Cqpconv{g command will convert questpoints into trains or practices. The 
+amount given is the amount of trains|practices that need to be converted.
+The questpoints will automaticly be deducted from the characters. A maximum
+of 10 trains|practices is allowed at a time.
+~
+
+92 LINKLOAD~
+Syntax: {Clinkload{x <{Yplayer{x>
+
+{CLinkload{x reaches into the playerfiles and loads a player into the game
+in a linkdead status.
+~
+
+92 AUTOREBOOT~
+Syntax: {Cautoreboot{x <{Ytime{x>
+
+For an {Cautoreboot{x, select a time between 0000 and 2399.  If you select a
+time that is earlier than the current time, the mud will assume the next
+day for the date.  When the reboot time matches the current time, the
+mud will check to see if any players are logged in.  If there are no players,
+then the {Creboot{x will occur.  If there are players, the the mud will advance
+the reboot time ahead by 5 minutes and wait to check again.  {CAutoreboot{x
+without an argument will display the current autoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+~
+
+92 GUILD~
+Syntax: {Cguild{x <{Ycharacter{x> <{Yclanname{x>
+
+Sets a character's clan to one of the clans listed in Clanlist.
+~
+
+92 CHOWN~
+Syntax:  {Cchown{x <{Yobject{x> <{Yvictim{x>
+
+This command transfers the ownership of an item on a subject or in their
+inventory to your invetory.  All checks are ignored.
+~
+
+92 CLANQP~
+Syntax: {Cclanqp deduct {x<{Yamount{x> <{Yclanname{x> <{Yreason{x>
+
+This allows an immortal to deduct questpoints from a clan. For example as
+price for a clan anvil.
+
+{cSeptember 18th, 1999 by Clerve{x
+~
+
+92 JOIN UNJOIN LEADER RANK~
+Immortal additions to the {CClanleader Functions{x:
+
+Syntax: {Cleader{x <{Yplayername{x>
+
+-Gives a player of level {P50 or higher{V(and remorts){x a leader flag.
+~
+
+92 NEWBIEMAKER~
+Syntax: {Cnewbiemaker{x {Yplayer{x
+
+Gives {Yplayer{x a newbie helper flag (visible in {WWHO{x).  This flag enables
+the newbie helper to use the command {Cnewbiekit{x to create a newbie bag.
+~
+
+92 NEWLOCK~
+Syntax: {Cnewlock{x
+
+{CNewlock{x locks out new character generation, typically used for preventing a
+spammer from returning.  Newlocking should be accompanied by mail or a note to
+the Imps.
+~
+
+92 FREEZE~
+Syntax: {Cfreeze{x <{Yname{x>
+
+{CFreeze{x <{Ycharacter{x> is a toggle which prevents a character from issuing
+any any commands. It can be removed from within the game, so freezing a
+{Ptroublemaker{x is usually a better option than the deny command.
+~
+
+92 PURGE~
+Syntax: {Cpurge{x
+        {Cpurge{x <{Ycharacter{x>
+
+{CPurge{x is used to clean up the world.  {CPurge{x with no arguments removes all the
+NPCs and objects in the current room.  {CPurge{x with an argument purges one
+character from anywhere in the world.
+
+{CPurge{x will not get rid of PCs, objects, or mobiles with a {PNOPURGE{x flag
+set (i.e. the pit, the fountain, shopkeepers, Helga).  Mobiles may be
+purged if they are called directly by name.
+~
+
+92 RESTORE~
+Syntax: {Crestore{x <{Ycharacter{x>
+        {Crestore room{x
+        {Crestore all{x
+
+{CRestore{x restores full hit points, mana points, and movement points to the
+target character.  It also heals poison, plague, and blindness.  Because
+restore is so powerful, it should rarely be used.
+
+{CRestore room{x (or {Crestore{x with no argument) performs a restore on every
+player in the room, and {Crestore all{x does the same for all connected
+players.  {CRestore all{x is only usable by immortals with trust 97 or
+greater.  Do not restore your mortal alts!  (This includes using the
+{Crestore all{x command while an alt is logged on.)
+~
+
+92 SLAY~
+Syntax: {Cslay{x <{Ycharacter{x>
+
+{CSlay{x kills a character in cold blood, no saving throw.  Best not to use
+this command on players unless you have good reason.
+
+This command no longer works on immortals.
+~
+
+92 PARDON~
+Syntax: {Cpardon{x <{Ycharacter{x> {Gkiller{x
+        {Cpardon{x <{Ycharacter{x> {Gthief{x
+
+{CPardon{x pardons a player for their crimes.  Don't {Cpardon{x a player unless
+you are sure they deserve it.  Being killed by Helga acts as an automatic
+pardon.
+~
+
+92 FOR~
+Syntax: {Cfor all{x <{Yaction{x>
+        {Cfor mortals{x <{Yaction{x>
+        {Cfor gods{x <{Yaction{x>
+
+Executes an action several times, either on all players (not including
+yourself), mortals (including trusted characters), or gods.
+
+If you insert a {Y#{x in the action, it will be replaced by the name of the target.
+
+If {Y#{x is a part of the action, the action will be executed for every target
+in game. If there is no {Y#{x, the action will be executed for every room containg
+at least one target, but only once per room. {Y#{x can be anywhere in the action.
+
+Example:
+
+{Cfor all smile{x -> you will only smile once in a room with 2 players.
+{Cfor all smile #{x -> In a room with A and B, you will smile A then B.
+
+The command works by transporting the character to each of the rooms with a
+target in them. Private rooms are not violated.
+~
+
+92 DISABLE~
+Syntax: {Cdisable{x
+        {Cdisable{x <{Ycommand{x> <{Yreason{x>
+
+{CDisable{x without an argument will show a list of disabled commands.
+{CDisable{x with an argument will either disable or enable a command.  The
+command must be spelled out in its entirety, and you must provide a short
+explanation as to why you disabled the command.
+
+When a command is disabled, no players can use it. It is useful for
+disabling buggy commands or disabling certain commands for use with quests.
+~
+
+100 100 REBOOT~
+Syntax: {Creboot{x <{Yreason{x>
+
+{CReboot{x shuts down the server.  When the normal 'startup' script is used
+to control the server, a delay of fifteen seconds will ensue (to allow
+old connections to die), followed by a {Creboot{x.
+
+{YSEE ALSO:{x shutdown, autoreboot
+~
+
+100 100 DESPELL ADDSPELL~
+Syntax: {Caddspell{x <{Yobject{x> <{Yspell{x> <{Ylevel{x>
+        {Cdespell{x  <{Yobject{x>
+
+Adds spells to or removes spells from objects.	These can be any spells
+currently available on the mud.
+~
+
+92 DISCONNECT~
+Syntax: {Cdisconnect{x <{Ysocket number{x>
+
+Given a socket number from the leftmost column in the output from SOCKETS,
+this command can be used to {Cdisconnect{x the individual shown on that line
+from Legacy. This command is meant to deal with people stuck in mid-login
+or at the '{Yask name{x' phase, which often prevents them from logging
+in again successfully. {CDisconnect{x does not work on active (playing)
+players.
+~
+
+92 LOCKER STRONGBOX~
+Syntax: {Clocker{x    <{Yvictim{x>
+        {Clocker{x    <{Yvictim{x> <{Ycommand{x> <{Yobject{x>
+        {Cstrongbox{x <{Yvictim{x>
+        {Cstrongbox{x <{Yvictim{x> <{Ycommand{x> <{Yobject{x>
+
+{CLocker{x without a command will look in a player's locker.  {CLocker{x with
+a command (put : get) will either put an item in a player's locker or get an
+item from a player's locker.  The {Cstrongbox{x command does the same with a
+player's strongbox.
+~
+
+92 WIZLOCK~
+Syntax: {Cwizlock{x
+
+{CWizlock{x locks out all non-gods (i.e. level less than 92), except for 
+linkdead players who are returning.  Wizlocking should be avoided except in
+extreme circumstances.
+~
+
+99 ADDAPPLY~
+Syntax: {Caddapply {x<{Yobject{x> <{Ytype{x> <{Yvalue{x> <{Yduration{x>
+
+{CAddapply{x is used to add applies to an object.  Applies are bonus
+attributes, being of hp, mana, move, str, dex, wis, int, con, chr, age,
+ac, hitroll, damroll, or saves.  Value can be any number, from -30000 to
+30000.  Duration can be a number from 0 to 998, and can be left off
+completely to be infinite.
+
+{YExample:          {Vaddapply {Ysword hp 20 50{x
+
+would set the sword to +20 hp for 50 hours.  Leaving out the 50 would
+make the bonus permanent.
+~
+
+92 ALLOW~
+Syntax: {Callow{x <{Ysite{x>
+
+{CAllow{x <{Ysite{x> removes a site from the ban list, if the remover is of equal
+or higher level than the immortal who originally did the ban.
+
+{SEE ALSO:{x ban, update
+~
+
+92 OWNER~
+Syntax: {Cowner{x <{Yitem{x> {Yplayer{x
+Syntax: {Cowner{x <{Yitem{x> none
+
+This command makes an item personally owned by {Yplayer{x.
+This means that only {Yplayer{x can wield/wear/hold the {Yitem{x.
+'none' makes the object public again.
+~
+
+100 100 UPDATE~
+Syntax: {Cupdate{x
+
+{CUpdate{x updates the perm_ban file from the unix shell.  It also updates the
+help files from the unix shell.
+~
+
+92 OCLONE~
+Syntax: {Coclone{x <{Yobject{x> <{Yowner{x>
+
+Clones a copy of an item that someone else owns and places it into your
+inventory.
+~
+
+92 SNOOP~
+Syntax: {Csnoop{x <{Ycharacter{x>
+
+{CSnoop{x shows you a copy of all the input and output going to a character.
+The character must have an open channel.  You may snoop more than one
+character at a time.  {PRespect privacy{x.  Use snoop only if you have
+reason to believe a character may be cheating, powerleveling, or is being
+harrassed by another.
+
+{CSnoop{x <{Yyourself{x> to cancel all outstanding snoops.
+~
+
+92 UNDENY~
+Syntax: {Cundeny{x <{Yplayer{x>
+
+{CUndeny{x removes the deny flag from a playerfile.  This must be used in
+conjunction with the {Clinkload{x command.
+~
+
+100 100 CEDIT~
+Syntax:  {Pcedit delete         {W<{Vclan{W>
+         {Pcedit new            {W<{Vclan{W>
+	 {Pcedit show           {W<{Vclan{W>
+	 {Pcedit {W<{Ystring-name{W>  <{Vclan{W> {W[{Gstring{W]{x
+
+The 'new' commands adds a clan to the collection of clans. In order to create
+a new clan, you have to provide the clan's name. Choose this name wisely for
+it will be the clan's mail name and this name will be used for any clan-
+related command. This name can {PNOT{x be altered once created.
+All newly created clan start with 100 questpoints.
+The 'delete' command on clans can only be used by the IMPLEMENTOR.
+The 'show' command displays the specified clan on the screen.
+
+You can edit a clan by specifying the name of the field you want to change
+and the new value.
+
+There are 8 values that make up a clan:
+{Ywhoname    {x: the name of the clan as it should show in 'who'.
+{Yhall       {x: the vnum of the room the 'clanrecall' commands leads to.
+{Yareamin    {x: the lower vnum of the area the clanhall is in.
+{Yareamax    {x: the upper vnum of the area the clanhall is in.
+{Yindependent{x: indicates if it's a loner clan. Always use '0'.
+{Yclanqp     {x: the number of questpoints a clan has gathered.
+{Yclanname   {x: the fullname of the clan.
+{Ycreator    {x: the name(s) of the creator(s) of the clan.{x
+
+The whoname, clanname and creator are strings, the other fields are numerical.
+for independent, use 1 for Yes, and 0 for No.
+The number specified for clanrecall has to be an existing room in the mud.
+
+{PWARNING: DO NOT CREATE CLANS JUST FOR FUN! THIS WILL BE PUNISHED WITH A
+         DEMOTION!{x
+
+~
+
+92 NEWPASSWORD~
+Syntax: {Cnewpassword{x <{Yplayer{x> <{Ypassword{x>
+
+This command will reset a player's {Ypassword{x.
+~
+
+100 FRY~
+Syntax: {Cfry{x <{Yvictim{x>
+
+This command will remove a playerfile with the unix rm command.
+
+It will no longer work on immortals.
+~
+
+92 PROTECT~
+Syntax: {Cprotect{x <{Ycharacter{x>
+
+{CProtect{x is used to protect a character from unwanted snooping.  Removing
+protected status from a character {RWILL{x be seen by that character.
+
+In addition, protect will also prevent a character from being forced by 
+another immortal.  It will also show any wizinvis imms to this player if
+they happen to be in the same room.
+~
+
+100 LOG~
+Syntax: {Clog{x <{Ycharacter{x>
+        {Clog all{x
+
+{CLog{x <{Ycharacter{x> causes all of a character's commands to be logged into
+the server's log file.  Like Freeze, it is a permanent character toggle.
+Logs may only be used by Creator and Implementor, and should be accompanied
+by mail to the Implementor.
+
+Certain commands (Password) are protected against log.	Conversely, certain
+commands (especially immortal commands) are always logged.
+
+{CLog all{x logs all character commands.  It is a server-wide toggle; it does
+not persist across reboots.  Please do not use this unless you tell the Imp.
+~
+
+92 DENY~
+Syntax: {Cdeny{x <{Yname{x>
+
+{CDeny{x locks a character out of a game permanently, rendering their name
+unusable.  It may only be removed by editing the file, for this reason
+freeze is usually preferred.
+~
+
+92 NOTE NOTES NEWS ROLEPLAY IDEA CHANGES UNREAD PERSONAL~
+{CImmortal{x addendum to NOTES commands:
+
+  {Cnote delete{x <{Ynumber{x>         {H: deletes a note
+  {Cnote repost{x <{Ynumber{x>         {H: reposts a note with the to line as "Immortal"
+  {Cnote move{x   <{Ynumber{x> <{Yboard{x> {H: will move anybody's notes to another board
+~
+
+100 ADJUST~
+Syntax: {Cadjust{x <{Yvictim{x> <{Yexp points{x>
+
+This command will raise or lower a player's exp by a given amount.  This
+command is only used for testing purposes on test characters.  This
+command is {Pnever{x to be used on a mortal player.
+~
+
+100 ADVANCE~
+Syntax: {Cadvance{x <{Ycharacter{x> <{Ylevel{x>
+
+{CAdvance{x sets a character's level to the specified value.  It is the
+only way to create new immortal characters within the game.  {CAdvance{x
+may also be used to demote characters.
+~
+
+100 DOAS~
+Syntax: {Cdoas{x <{Ycharacter{x> <{Ycommands{x>
+
+{CDoas{x is an unobtrusive way for an immortal to check information available
+to a player.  It gives no message to the player, and can be used for such
+things as seeing their practice list, gain list, etc.  {CDoas{x is {PNOT{x a toy,
+and should never be used to force players to do things as a joke.
+~
+
+100 TRUST~
+Syntax: {Ctrust{x <{Ycharacter{x> <{Ylevel{x>
+
+{CTrust{x sets a character's trust to the specified level.  This is similar to
+advancing the character for accessing immortal commands, but has no effect
+on combat strength, etc.  You can give more trust to mortal (or immortal)
+characters to give them access to more power without messing up the
+character.  You can also restrict a player's trust to less than their
+natural level.
+
+A trust of 0 means to use the character's natural level again.
+~
+
+92 DEBUG~
+Syntax: {Cdebug lcheck{x
+        {Cdebug qtz{x
+        {Cdebug actflag{x
+        ... etc.
+
+The {Cdebug{x command is used to connect to a handful of special temporary
+commands used mainly by the coders to find a certain bug in the game, or
+to fix one. Subcommands, like {Rlcheck{x, {Rqtz{x and {Ractflag{x may
+come and go as needed, may be very sparsely documented and may not do
+what you wanted. This command is intended for maintenance and debugging
+purposes only, not day-to-day game control.
+The current subfunctions do the following:
+lcheck - checks on the location of all objects in lockers, was once
+         instrumental in fixing the locker memory bug.
+qtz    - sets a player's time to next quest to 0. This was used to
+         test the new quest code. Any use of this subcommand outside of
+         a testing situation constitutes cheating.
+actflag - Given the NUMERIC value of an ACT flag, tells you how many
+          mobs in the game have that flag. Used to check for available
+          flags for new properties. Yes, our forefathers have used some
+          flags they forgot to document, and it took this command to
+          find them.
+~
+
+92 SET~
+Syntax: {Cset mob{x      <{Ymobile{x> <{Yfield{x> <{Yvalue{x>
+        {Cset obj{x      <{Yobject{x> <{Yfield{x> <{Yvalue{x>
+        {Cset room{x     <{Ynumber{x> <{Yfield{x> <{Yvalue{x>
+        {Cset clan{x     <{Yclan{x>   <{Yfield{x> <{Yvalue{x>
+        {Cset skill{x    <{Ychar{x>   <{Yname{x>  <{Yrating{x>
+        {Cset skill{x    <{Ychar{x>   {Call{x     <{Yrating{x>
+        {Cset raff{x     <{Ychar{x>   <{Yoption{x>
+        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
+
+The {Cset{x command is used to change the numerical values of the various data
+structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
+{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
+given.	Use string to change the strings on an object or mobile.
+
+{YSEE ALSO:{x string, stat
+~
+
+100 WIZIFY~
+Syntax: {Cwizify{x <{Yvictim{x>
+
+It sets the victim's hitpoints/mana/move to 30k, all his stats to 25, all
+his skills at 100%, and restores his hp/mana/moves.
+~
+
+100 SUPERWIZ~
+Syntax: {Csuperwiz{x
+
+This command makes you invisible to everyone in the game, including
+immortals up to 100 trust.
+
+This command is restricted to LEVEL 100 immortals (implementors).
+~
+
+100 VIOLATE~
+Syntax: {Cviolate{x {Ycharacter{x
+	{Cviolate{x {Yroom-vnum{x
+
+For those times when you want to be with a couple of people standing in
+a private room, this command will enable you to. Unless you were invited
+or doing some kind of police work, this is considered rude :)
+
+{CViolate{x works exactly like {Cgoto{x, except it works *only* for
+private rooms occupied by 2 or more characters.
+~
+
+98 HELP~
+Immortal additions to HELP:
+
+Helps are never to be added to areas.  It simply makes them difficult to find
+if they need updating.  All helps are in the following five files:
+
+   {Vrom.are       {Ystandard rom stuff, entry screen, wizlist, and all imm helps{x
+   {Vhelp.are      {Yall standard mortal helps, except those stated below{x
+   {Vgroup.are     {Yhelps on races, skills, and spells{x
+   {Vclanhelp.are  {Yhelps on commands clan related, and individual clan helps{x
+   {Vrhelp.are     {Yhelps on everything involving remorts{x
+
+Help on immortal commands is sorted by the level of the command.  If you change
+the level of the command, move the help to it's proper place and update the level
+of the help.  (Montrey!  You need to do this!)
+~
+
+92 DUMP~
+Syntax: {Cdump{x
+
+Creates a {Cdump{x file for mobiles, objects, and memory.
+~
+
+100 PIPE~
+Syntax: {Cpipe{x <{Ycommand{x>
+
+{YThe {Cpipe{Y command is reserved for implementors.{x  It is a way to send a single
+command to the unix shell, and therefore should *never* be given to those
+without shell access.
+
+{YExamples of use:{x
+
+    {Mpipe {Yfinger        {CShows what accounts are logged in to Kyndig.
+    {Mpipe {Yquota         {CShows total and maximum disk space, in the 'blocks' and 'quota'
+                       columns.
+    {Mpipe {Yps -ux        {CShows a list of current processes, such as ftp connections,
+                       shell connections, startup scripts, and spawn.
+    {Mpipe {Ykill {x<{VPID{x>    {CUsed to terminate a process, usually used with runaway startup
+                       scripts and spawn.{x
+
+{PIf you do not know what you are doing, do NOT use {Cpipe{P for any more than the above
+reasons.{x
+~
+
+92 TOKENRULES~
+The new Imm Legacy system is for you to be as creative as possible in 
+running quests, designing tokens, and making the mud fun for mortals.
+However, there are certain rules that must be followed to make the 
+system work, and make it fair for everybody.
+
+First of all, tokens are treated just like qp, do not give them out 
+unless you have a reason.  Your alt may not touch your imm tokens.  
+Let me repeat that again.  {PYOUR ALT MAY NOT TOUCH YOUR IMM TOKENS.{x
+This means at no time may your alt have your imm tokens.  Obviously, 
+this also means you cannot collect your own legacy set.  Duh!  Also,
+using owhere to find tokens is explicitly illegal.  Owhere IS logged,
+and using it for your own benefit, or telling others where hidden tokens
+are located will result in an almost certain fry.
+
+Likewise, tokens are not to be handed out to friends.  This should be
+obvious.  Tokens will be given out for what they are intended for.  
+Hiddens will be dropped around the realm randomly, a trivia token given
+to a mortal who answers a trivia question of yours right in a trivia 
+quest, and quest tokens given out for tag/hug quests, or any other quest
+you guys want to do.  These are no brainers.  
+
+When you string your tokens, please load them from the appropriate vnums.
+There are separate vnums for hidden, trivia, quest, and wild.  When you
+string, your name MUST be in the keywords, the token TYPE (hidden, wild,
+whatever) MUST be in the long and the keywords.  Please don't do anything
+obscene (another nobrainer), but otherwise use your roleplay and creative
+max in designing and coloring!  
+
+Please do not drop more than 25 hidden tokens a day, or give out more than
+50 tokens total.  At any time there should be no more than approximately
+500 of your tokens in circulation, if I notice that everybody and their 
+uncle has 50 of your tokens, it means you are distributing much too many of
+them.  Use your common sense, we know you have it, that's why we hired you
+as an imm. :)  Make sure you know the mortal helpfile for legacy sets, and
+if you have any questions, ask!  
+~
+
+0 LIRIEL~
+Liriel was one of the original three founders of the realm of Legacy, and
+serves as head of all Administration.  As one of the two co-implementors,
+she is very busy with the seemingly infinite projects that seem to need 
+attention at one time.  Some of her continuous activities include helping
+all other imms, updating helpfiles, brainstorming and reviewing ideas for
+implementation, and mortal relations.  However, with her roots as a Qwest-
+Mistress, she often enjoys interacting with mortals in a magical quest.
+
+Liriel's current projects include:
+  Everything Montrey is working on + 1!  :P
+~
+
+0 LIRIATI~
+
+If you have ever played Scrabble and Literati (the online Yahoo! version
+of Scrabble) against {WL{Ci{Br{Ci{Te{Wl{x, then you would know she is a real whiz at
+putting words together.  She has brought the game to {BL{Ce{gg{Wa{Cc{By{x for you guys
+to sharpen your word skills.
+
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {Btiles{x will be periodically scattered around Thera, just like
+other hidden tokens.  Each tile bears a letter, and the {Gc{Yo{Pl{Vo{Cr{x of the
+tile determines its point worth.  
+
+{BColor of the Letter     Point Worth{x
+   {Y[ ]{x Yellow                1 
+   {C[ ]{x Cyan                  2 
+   {P[ ]{x Red                   3 
+   {G[ ]{x Green                 4 
+   {V[ ]{x Violet                5
+   {W[ ]{x White                 0
+
+Special tiles that might be found include {Cd{Touble lette{Cr{x, {Bt{Nriple lette{Br{x, 
+{Yd{bouble wor{Yd{x, and {Pt{Rriple wor{Pd{x tiles, as well as {Wwilds{x.  The double and
+triple letters and words do exactly as they say they do.  You may pick a 
+letter to double or triple, or if it's a double or triple word, your
+whole words point value gets multiplied.  {WWhite wild {Btiles{x don't count
+for points but they can complete that annoying word that is just missing
+a single letter.  
+
+When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+~
+
+0 MONTREY~
+Montrey, a renowned Paladin, was also one of the three founders of Legacy.
+As a co-implementor, along with Liriel, he manages a lot of the coding
+and building projects that are constantly being spawned.  As head of both
+departments, he finds himself very busy, but always has time to chat or
+laugh with a mortal.  Montrey especially enjoys taking creative and 
+imaginative ideas from mortals, and making them into a reality.
+
+Montrey's current projects include:
+  Everything under the sun and more :)
+
+{C*** {WTR{gA{WD{gIN{WG C{gAR{WDS {C***{x
+
+  I've taken some of the most well known items in the realm and placed
+their likeness on a {Wtr{ga{Wd{gin{Wg c{gar{Wd{x!  These fun and collectable cards
+can sometimes be found lying around, or can be acquired by trading
+or buying from other players.  There are currently {P18{x different ones
+out there, not including rare cards, with more sure to come.
+
+  Collecting cards can be profitable!  Normal cards are the same as a
+hidden token from me, and can be put toward redemption of my {BL{Cegacy{x
+{BS{Cet{x.  But, if you bring me 12 different cards at once, here's what
+I'll do for you:
+
+  I will take your cards and {cautograph{x them, ensuring that the same
+cards are not cashed in more than once.  I return them to you to
+do as you please with, although they are still counted as tokens
+toward my {BL{Cegacy {BS{Cet{x.  Then, I'll give you a nice {Wbi{gn{Wd{ger{x to keep
+your cards in, an {Ce{Bn{Vc{Ph{Ga{Yn{Ct {Btoken{x from me, AND a randomly chosen
+{Pr{Ya{Br{Ge{x card from my own personal collection.
+
+  {PR{Ya{Br{Ge{x cards are not found lying around in the realm, and are worth
+{P3{x hidden tokens toward my {BL{Cegacy {BS{Cet{x.  When you cash in a {Pr{Ya{Br{Ge{x
+card, I'll {cautograph{x it and return it to you, but after that, it
+is no longer valuable except as a keepsake.  Normal cards are not
+returned when cashing them in for my {BL{Cegacy {BS{Cet{x.
+
+  I may at times offer special deals, to bring in a certain group
+of cards, and I will award a prize that may differ from those
+listed above.  {YThat said, happy hunting!{x
+~
+
+0 XENITH~
+Xenith is an insane coder who is obsessed with meteors.  Beware.
+
+Xenith's current projects include:
+  War Code
+  Moons of Creation
+  Worldgem Citadel
+~
+
+0 KENNETH~
+Kenneth is just some loser who, one day, as a small boy, knocked over a
+set of blocks.  He then spent 17 days in front of those stupid blocks,
+building all kinds of crazy stuff.  Later on in life, he decided he 
+wanted to become a civil engineer and build bridges, but he flunked out 
+of school for not passing any classes except his engineering classes.  
+Oddly enough, some imm thought Kenneth's bizarre sense of humor and 
+laziness was interesting, and, after a long period, talked Kenneth into
+becoming an Imm. Ever since, Kenneth has been scratching his itch to 
+build things and amusing people with his wacky antics.  
+
+Kenneth is the main builder for Legacy, mainly working with clans to
+create, maintain, or update their clanhalls or equipment.  He just 
+finished his new area, Twilight.  His current projects include the 
+battle arenas, mapping Thera, continuity, guilds, the building 
+guide, and maybe a new zone.
+~
+
+0 NEFFERTINI~
+Neffertini is Legacy's resident pure evil builder.
+
+Neffertini's current projects include:
+  Crystal Temple
+~
+
+0 SIVAT~
+Sivat, known as the maintainer, preserver or simply immortal of life, is
+one of the immortals that cherish life, creation and love. As one 
+appreciating creation and love, Sivat prides himself on performing 
+marriages and maintaining good relations between all mortals. Along
+with sustaining relationships, Sivat enjoys challenging his mortal 
+friends to quick games of intellect and adventure.
+
+Sivat's current projects include:
+Overseeing Marriages
+Promoting a Role-playing Environment with Vegita
+Web Page
+{bM{Yu{bd{GL{He{Gm{x's
+~
+
+0 VEGITA~
+The all powerful Saiyan Prince.  Came to the land of Legacy after
+the evil tyrants of another land didn't appease him.  The ever
+vigilant overseer of Roleplay in the land.  He sits in the clouds
+over Thera and watches the happenings.  Liriel's puppet *just
+kidding*, he is at her whims and beckonings.
+
+Vegita's current projects include:
+  Overwatching all the imms *besides those my level or higher *Scuffs*
+  Working on helfiles
+  Mists of Time
+  Promoting a Roleplaying Environment
+  Anything Liriel and Montrey pimp him out to do
+~
+
+0 SORSHA~
+Sorsha is a beautiful Seraph that came down from the heavens. As a 
+mortal she wandered the realm with a curious mind, and search for 
+adventure. Her sense for adventure, and gift of working with people, 
+is what made her stand out. After a short while, Sorsha was honored
+by the Immortals of the realm, and ascended into the heavens where 
+she lives today. Her castle is built upon the clouds with move freely 
+around the realm. Sorsha is good at heart, but she is an Seraph with 
+a temper. She is one to let the realm know about her wrath. It is 
+wise to let her be, and not push your luck with her. She loves to 
+venture out into the realm, and the flapping of her wings can clearly
+be heard. But watch out for her razor sharp Halo, which has been 
+known to fly aimless around the realm.
+
+Sorsha's current projects include:
+  City of Pintula
+  Roads
+  Oceans
+~
+
+0  ALARA~
+An immortal ranger pulled from the study of nature, Alara is primarily
+interested in the way things interact.  Currently an understudy of
+{WL{Ci{Br{Ci{Te{Wl{x, Alara will always be working on mud policy and balance, as
+well as the creation and maintenance of helpfiles.  She loves to field
+questions and evaluate ideas, so feel free to send them her way. :)
+
+Alara's current projects include:
+     Helping Vegita clean up those ugly, ugly helpfiles.
+     Helping Vegita write helpfiles.
+     Keeping Montrey from doing stupid things while Liriel is away.
+~
+
+
+0 $~
+#$
+

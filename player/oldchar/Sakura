@@ -1,0 +1,229 @@
+#PLAYER
+Name Sakura~
+Id   1000720076
+LogO 1000720578
+Vers 6
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
+Race elf~
+Sex  2
+Cla  0
+Levl 1
+Plyd 334
+Age  0
+Back 309
+Note 1000720391 1000720391 1000720391 1000720391 1000720391 1000720391
+Scro 22
+Room 8543
+HMV  24 24 100 100 100 100
+Gold 3
+Silv 400
+Exp  1102
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm NOV
+Revk 0
+Pos  4
+Save  -1
+Alig  -750
+Hit   1
+ACs 95 95 95 99
+Atrib 13 21 15 16 14 14
+AtMod 1 3 3 1 0 3
+Pass asshole~
+Titl  {x~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Neffertini~
+Lsit cl3162441-a.baycty1.mi.home.com~
+Ltim Mon Sep 17 04:50:45 2001
+~
+LSav Mon Sep 17 04:56:18 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  F
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 24 40 40
+Sk 1 'acid blast'
+Sk 1 'age'
+Sk 1 'armor'
+Sk 1 'blindness'
+Sk 1 'burning hands'
+Sk 1 'cancellation'
+Sk 1 'chain lightning'
+Sk 1 'change sex'
+Sk 1 'channel'
+Sk 1 'chill touch'
+Sk 1 'colour spray'
+Sk 1 'dazzling light'
+Sk 1 'cure critical'
+Sk 1 'cure light'
+Sk 1 'cure serious'
+Sk 1 'curse'
+Sk 1 'dispel magic'
+Sk 1 'divine healing'
+Sk 1 'divine regeneration'
+Sk 1 'enchant armor'
+Sk 1 'enchant weapon'
+Sk 1 'energy drain'
+Sk 1 'fireball'
+Sk 1 'fireproof'
+Sk 1 'firestorm'
+Sk 1 'giant strength'
+Sk 1 'haste'
+Sk 1 'heal'
+Sk 1 'infravision'
+Sk 1 'lightning bolt'
+Sk 75 'magic missile'
+Sk 1 'mass healing'
+Sk 1 'plague'
+Sk 1 'poison'
+Sk 1 'protect container'
+Sk 1 'protection evil'
+Sk 1 'protection good'
+Sk 1 'recharge'
+Sk 1 'refresh'
+Sk 1 'regeneration'
+Sk 1 'remove alignment'
+Sk 1 'remove invisibility'
+Sk 1 'sanctuary'
+Sk 1 'shield'
+Sk 1 'shocking grasp'
+Sk 1 'shrink'
+Sk 1 'slow'
+Sk 1 'stone skin'
+Sk 1 'talon'
+Sk 1 'undo spell'
+Sk 1 'weaken'
+Sk 1 'wrath'
+Sk 75 'dagger'
+Sk 1 'brew'
+Sk 75 'scribe'
+Sk 1 'dodge'
+Sk 1 'hide'
+Sk 100 'scan'
+Sk 1 'sneak'
+Sk 1 'scrolls'
+Sk 1 'staves'
+Sk 1 'wands'
+Sk 50 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'combat'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 192 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#END

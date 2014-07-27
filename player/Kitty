@@ -1,0 +1,508 @@
+#PLAYER
+Name Kitty~
+Id   1007405057
+LogO 1027189813
+Vers 14
+Mexp 2
+Pass Kitty~
+Desc here sits a cute little feral with a dazzling blue eye and a brilliant green eye!
+~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nmv {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race feral~
+Clan blackclaw~
+Cla  2
+Levl 38
+Tru  0
+Plyd 93211
+Back 91962
+Note 1027095770 1022813787 1027144008 1027087211 1027146472 1027094615 1025590922
+Scro 22
+Room 3054
+HMS  583 370 492
+Gold 2342
+Silv 643
+Exp  42108
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+Spou Havoc~
+FImm 0
+FRes 0
+FVul JR
+Plr  A
+Video 0
+Act  CDEFGHJLQSc
+AfBy PQR
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AC
+Prac 35
+Trai 3
+Wimp 30
+Atrib 17 19 18 24 18 14
+QuestPnts  1
+Afk {B[{CSun May 19 08:07:11 2002{B] {CUnknown Departure.{x
+~
+Titl  The last of the Naked Ninjas ;)~
+Immn ~
+Pnts 40
+Rank {cNIN{x~
+Aura ball of fur~
+TSex 2
+LLev 25
+Email bohbofu16@hotmail.com~
+Deit {WUrza{x~
+Lsit hlfx64-1-32.ns.sympatico.ca~
+Ltim Sat Jul 20 13:26:14 2002
+~
+LSav Sat Jul 20 13:30:13 2002
+~
+HMSP 493 280 492
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 99 1 'dagger'
+Sk 84 1 'sword'
+Sk 80 1 'backstab'
+Sk 80 1 'circle'
+Sk 100 1 'dodge'
+Sk 82 1 'second attack'
+Sk 75 1 'hunt'
+Sk 75 1 'swimming'
+Sk 75 1 'hide'
+Sk 75 1 'pick lock'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 75 1 'steal'
+Sk 1 1 'sing'
+Sk 75 1 'scrolls'
+Sk 45 1 'staves'
+Sk 75 1 'wands'
+Sk 70 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Affc 'hide'   0  35  21   0   0      65536 1
+Affc 'sneak'   0  34  21   0   0      32768 1
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9923
+Nest 0
+Cond 89
+Wear 13
+Cost 2500
+End
+
+#O
+Vnum 16084
+Nest 0
+Cond 98
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Cond 93
+Wear 1
+Cost 1500
+End
+
+#O
+Vnum 16040
+Nest 0
+Cond 98
+Wear 3
+Cost 9800
+End
+
+#O
+Vnum 16053
+Nest 0
+Cond 97
+Wear 7
+Cost 900
+End
+
+#O
+Vnum 12712
+Nest 0
+Cond 85
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 10213
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 119
+Nest 1
+ShD  {cA {Cc{cu{Cd{cd{Cl{ce{Cy {Wk{ci{Wt{ct{We{cn{x~
+Desc {cA {Cc{cu{Cd{cd{Cl{ce{Cy {Wk{ci{Wt{ct{We{cn{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  11 23 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elias.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+ShD  {cA {Cc{cu{Cd{cd{Cl{ce{Cy {Wk{ci{Wt{ct{We{cn{x~
+Desc {cA {Cc{cu{Cd{cd{Cl{ce{Cy {Wk{ci{Wt{ct{We{cn{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  11 23 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elias.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+ShD  {cA {Cc{cu{Cd{cd{Cl{ce{Cy {Wk{ci{Wt{ct{We{cn{x~
+Desc {cA {Cc{cu{Cd{cd{Cl{ce{Cy {Wk{ci{Wt{ct{We{cn{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  11 23 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elias.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+ShD  {cA {Ct{Ya{Ms{Pt{Vy {cmouse{x~
+Desc {cA {Ct{Ya{Ms{Pt{Vy {cmouse{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  11 23 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elias.
+~
+End
+
+#O
+Vnum 10215
+Nest 1
+ExtF 64
+Cond 72
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 24820
+Nest 1
+Wear -1
+Cost 17
+End
+
+#O
+Vnum 24820
+Nest 1
+Wear -1
+Cost 17
+End
+
+#O
+Vnum 24820
+Nest 1
+Wear -1
+Cost 17
+End
+
+#O
+Vnum 24820
+Nest 1
+Wear -1
+Cost 17
+End
+
+#O
+Vnum 24820
+Nest 1
+Wear -1
+Cost 17
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16090
+Nest 1
+Wear -1
+Cost 1500
+Spell 3 'fireball'
+End
+
+#O
+Vnum 16090
+Nest 1
+Wear -1
+Cost 1500
+Spell 3 'fireball'
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 78 15 0 0
+End
+
+#O
+Vnum 4587
+Enchanted
+Nest 1
+ExtF 262209
+Wear -1
+Lev  31
+Cost 0
+Affc 'enchant armor'   1  25  -1  -2  17          0 1
+Affc 'reserved'   1  30  -1   1   3          0 1
+Affc 'reserved'   1  30  -1   1   4          0 1
+Affc 'reserved'   1  30  -1   1   5          0 1
+Affc 'reserved'   1  30  -1  20  13          0 1
+Affc 'reserved'   1  30  -1   1  18          0 1
+Affc 'reserved'   1  30  -1   1  19          0 1
+End
+
+#O
+Vnum 10213
+Nest 1
+Cond 99
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4591
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1277
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 119
+Nest 1
+ShD  {cA {Ct{Ya{Ms{Pt{Vy {cmouse{x~
+Desc {cA {Ct{Ya{Ms{Pt{Vy {cmouse{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  11 23 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elias.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+ShD  {cA {Ct{Ya{Ms{Pt{Vy {cmouse{x~
+Desc {cA {Ct{Ya{Ms{Pt{Vy {cmouse{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  11 23 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elias.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+ShD  Ball of Yarn~
+Desc Ball of Yarn{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  26 53 0 0 0
+ExDe chef~ This food was created by Disman.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+ShD  {cA {Cc{cu{Cd{cd{Cl{ce{Cy {Wk{ci{Wt{ct{We{cn{x~
+Desc {cA {Cc{cu{Cd{cd{Cl{ce{Cy {Wk{ci{Wt{ct{We{cn{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  11 23 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elias.
+~
+End
+
+#O
+Vnum 10201
+Nest 0
+ExtF 64
+Cond 95
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 24801
+Nest 0
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 2245
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'call lightning'
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 2328
+Nest 0
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 16103
+Nest 0
+ExtF 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 4579
+Nest 0
+Cond 96
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 99
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 55
+Wear 16
+Cost 10000
+End
+
+#O
+Vnum 10158
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 658
+Nest 0
+ExtF 64
+Cond 99
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 20028
+Nest 0
+ExtF 16777472
+Cond 97
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#END

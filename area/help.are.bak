@@ -1,0 +1,2654 @@
+#HELPS
+
+0 BACKGROUND STORY~
+Let me sit you down, young traveler, and tell you a tale ...
+
+Long ago, the universe was very different.  Worlds existed only to
+themselves, and one such world called as Thera.  It was a thriving
+land, and together with its inhabitants, it was the realm known to
+all as Dizzy.  Filled with immortals and mortals alike, it thrived
+and prospered.  But then one day, it all ended.  Looking back, we can
+only guess that another realm had collided with Dizzy, but we still
+are not certain.  All we know is that everything as we knew it had
+been shattered, and all around us lay the bits and pieces of what was
+once our world.  
+
+Somehow, within the utter chaos, a separate, new universe had been
+born, and whether by the grace of Lady Luck or Lady Fate, three
+individuals stumbled upon it.  They saw what was before their eyes
+with crystal clarity, and knew what they had to do.  Slowly, and with
+painstaking effort, they took each shard they could find, and shaped
+it, melding them together to create a crude imitation of what they
+had known before.  
+
+But it was not enough.  For when they finished and glanced around
+themselves, only then did they begin to see the potential.  The earth
+was new, undisturbed.  The air was fresh, clean.  All around them lay 
+silence, but it was not unwelcome.  There was so much that could be.
+And so they started anew, breaking apart what they had just made, and
+reshaping, creating, drawing upon magicks and energy that even they
+did not know existed, until they had tried.  At the end, when it was
+finished, all three were exhausted.  But they looked around them, saw
+the joy, anguish, love, pain, and happiness that would take place 
+in what they had created, and it was worth it.
+
+Slowly, travelers started trickling in, and finding the peaceful, 
+open atmosphere to their liking, settled down and stayed.  Many more
+came, curious as to this realm where fantasy was reality, where the
+world was built into a whole, where mortals and immortals appreciated 
+alike, and where each and every traveler such as you will find
+something to captivate their interest and might adventure, explore,
+or just rest one's weary heart for a while.
+
+For yes, your guess is right ... that realm that I speak of is the
+very one you are in right now.  Enjoy your stay at Legacy.
+
+SEE ALSO: HELP VERSION
+~
+
+0 RULE RULES~
+{gThe {BRules {gof {BL{Ce{Wg{ga{Cc{By{x
+
+These are the rules of Legacy.  They are here to ensure that this mud is
+fair and enjoyable for everybody.  As a player of Legacy, you agree not to
+break any of the below rules - EVEN IF you do not agree with what they say.
+Ignorance is not an excuse, and violation of the rules is an indication
+that you do not wish to play, and the immortals will act accordingly.
+
+{Y*{x Harassment of players, especially newbies, in any form is not tolerated.
+{Y*{x Do not use clients or triggers to do any of the following:  bot, auto-
+  reconnect, or keep your character idle.  If you are suspected of such
+  activity and do not respond, your character shall be punished.
+{Y*{x Multiple playing and logins is strictly prohibited.  Helping your own 
+  characters by ANY method is considered cheating: this includes but is not
+  limited to giving gold to your other chars, spelling them, grouping with
+  them, weakening mobs, or transferring eq in any way (as in dropping it
+  and logging on to an alt to go pick it up).
+{Y*{x Spam is rude and disrespectful to everybody else on the mud.  Do not do
+  it.  Repeating anything 3 times in quick succession is one way spam will 
+  be identified, but not the only way.  Also, conflicts inevitably arise on 
+  muds between players.  Please keep it to private channels or tells.
+{Y*{x Do not advertise other muds on Legacy.  There are many places to do so,
+  such as www.mudconnect.com as well as usenet groups.  Logging on just to
+  advertise your own mud is frowned upon everywhere, and will get you a
+  quick nochannel.
+{Y*{x If you find a bug, please report it, and do not use it.  The immortals 
+  will get back to you.  
+{Y*{x If you have any questions regarding these rules, ASK THE IMMS!  We will
+  be more than happy to answer them.  If you go ahead and do something
+  without asking us, do not blame us if you are punished.
+
+Lastly, just because a rule is not posted here does not mean that it is not
+cheating.  Anybody found cheating can expect to find the smell of smoke and
+a small pile of ashes where their character used to be.  
+
+{YSEE ALSO:{x  Help Censor
+~  
+0 IMMORTALS STAFF~
+The term "Immortals" (or Imms) refers to the staff of Legacy who work
+hard to provide a great mudding experience for you, the player.  The
+Imms run the mud, and are here to help you, but please do not ask any
+imms to assist you in any way that might interfere with game balance,
+for example: killing a mob, gathering EQ, locating objects, etc ... 
+Because the Imms have much more power than ordinary mortals, they have 
+many more rules they must follow.
+
+If you have a question or concern regarding the game or your character,
+you may address it to the Imms - that is what they are here for.  You
+can either note to Imms or use the pray channel.  Also, if an Immortal
+requests you to do something (or to stop doing something), please obey
+them immediately.  An Immortal's word is final in every case.
+
+{YSEE ALSO:{x Wizlist, Help Deity, Help Pray
+~
+
+0 LAG~
+Lag is a state of flux in the great Internet web in which you send a message 
+to a friend and they receive it sometime next century.
+~
+
+0 NEWBIE INFO~
+Ah! Another mortal, seeking adventure.  You should go through mudschool first,
+to gain experience to face the trials outside.  Be sure to practice a weapon
+in the guild room, or your stay with us shall be very short indeed.  Type
+'equipment' to see what your are wielding, 'spells' to see your spells,
+'skills' to see your skills, and 'commands' for a list of commands. Help is
+available on most commands and abilities.
+
+Please type 'help rules' to see the Rules of ROM.
+~
+
+0 | PIPE~
+Syntax: <{Ycommand{x> {P|{x <{Ycommand{x>
+
+The {Ppipe{x allows you to "{Ystack{x" commands.  You can {Ystack{x as many commands
+as you wish  (assuming you do not exceed the maximum input length for
+your list of commands).
+
+You can place {Ytwo {Ppipes{x next to each other to nullify the separation
+of commands.  Instead, it will just print {Yone{x {P|{x instead of the {P||{x you
+typed.	(This is useful for putting {Ppiped{x commands into aliases).
+
+{VFor example{x: {Yn{P|{Yscore{P|{Yw{P|{Yw{P|{Ycast 'blood' self{P|{Ys{P|{Yd{x
+~
+
+0 GLOBAL SOCIAL SOCIALS~
+
+Syntax: {Ysocial-command{x
+	{Ysocial-command player{x
+	{Ysocial-command mobile{x
+	{RSOCIAL{x {Ysocial-command{x
+	{RSOCIAL{x {Ysocial-command player{x
+
+Socials are commands that describe you, the player, doing some action.
+You type one of a large list of these commands and it expands to some
+nicely descriptive message.
+
+Example: {Rmakeout liriel{x
+   You see:    {GYou steam up the windows with Liriel.{x
+   She sees:   {GMontrey steams up the windows with you.  Wow baby.{x
+   Others see: {GMontrey's steaming up the windows with Liriel.  *whistle*{x
+
+Most socials will work with or without a subject. E.g. '{Rsmile{x' will
+show you smiling happily. '{Rsmile{x {Yplayer{x' will show you smiling at
+that player.
+
+If you type {RSOCIAL{x (or {RSOC{x) before one of the social-commands,
+your social will be visible to everyone in the game. That's called a
+global social.
+
+At last count, Legacy had almost 300 socials to choose from.
+Type {RSOCIALS{x if you want to see the list.
+If you want to know what they do, try them out!
+
+Type {RHELP MORESOCIALS{x if you want to contribute new socials.
+Type {RHELP GLOBAL{x if you wanted to see the HELP on {RSOCIAL{x.
+~
+
+0 ROOMS  AREA  BUILDING~
+Our goal is to make {bL{Ye{Wga{Yc{by{x one of the best MUDs you will ever find.  Our
+uniqueness manifests in many ways, one of which is allowing players {Yof
+level 35 and up{x to have their own personal room complete with one mob and
+3 objects.  It is {Y100 quest points{x if your room is open to all, or
+{Y200 quest points{x if it is closed/private. You will need to work out all
+the details listed below.  Clan rooms are {Y50 quest points{x, and are always
+open to the entire clan.
+
+1. {PName{x of the room, general {Pdescription{x of the room, and
+   type of room ({Psafe{x, {Pnorecall{x, etc).
+
+2. Location of the room (which {Parea{x), {Pwhat existing room{x it is to
+   be connected to, {Pin which direction{x, and by what type of door
+   ({Pno door{x, {Ppass door only{x, etc).
+
+3. {YOne mobile{x and {Y3 objects{x ({Pfurniture/{Pbed{x, {Pfountain{x/{Pdrink{x,
+   {Ppill{x/{Ppotion{x/{Pwand{x/{Pscroll{x), subject to the following restrictions:
+
+   The {Pbed{x will be {P150/150 regen rate{x. The {Ppill{x/{Ppotion{x is {Ylevel 15{x,
+   with {Yfour level 15 spells{x. The {CIMP{x reserves the right to restrict all
+   spells on objects.  The {Pwand{x/{Pscroll{x level may be {Yno lower than level 15{x,
+   with 3 charges of a spell {Yno higher than level 25{x.
+   -The {Pwand{x/{Pscroll{x can also be a {Pfountain{x or another object, at the sole
+    discretion of the {Cbuilders{x.
+
+Due to {bL{Ye{Wga{Yc{by{x's EPA regulations, we can only allow one personal room
+per player, and since we have become more aware of protecting our
+environment, no portals are allowed in personal rooms. This ruling is
+because there are several portals already established and maintained.
+
+When you have completed all descriptions for room, mob, and objects,
+submit it by {Pemail{V(preferably){x or by {Pnote{V(not recommended){x to the {Cbuilders{x,
+or the {PI{Ym{Gp{Bl{Ve{Pm{Ye{Gn{Bt{Vo{Pr{x, who will check it and give it
+to a {Cbuilder{x to code. Once your room is submitted and approved, it cannot be
+changed (except for typos/bugs). Make sure it is {Y*exactly*{x the way you want it.
+The {Cbuilders{x at Legacy are extremely helpful and will advise you if you run
+into a problem.
+~
+
+0 DUEL ARENA DUELS CHALLENGE~
+Syntax:
+{V   duel issue {x<{Yplayer{x> <{Yname of arena{x>
+{V   duel accept{x
+{V   duel decline{x
+{V   duel ignore{x
+{V   duel view{x
+{V   duel arena{x
+{V   duel arena {x<{Yname{x>
+
+For some, disagreements can only be solved through a fight to
+the death.  Others may enjoy combat just to test their skill.
+For both, there is the duel arena, letting players challenge
+eachother to a one on one fight, without interference of any
+kind.  Only the supplies you bring and your wits can help you
+once you've committed to a duel, as only one person will leave
+alive.
+
+Duels are held in exotic locations set aside as battlegrounds,
+each provides their own strategic obstacles that you can use
+to your advantage, if you know how.  Use {Cduel arena{x to see a
+list of the possible arenas, and {Cduel arena {x<{Yname of arena{x>
+to learn more about it.
+
+To challenge someone to combat, use {Cduel issue {x<{Yname of player{x>.
+Leaving out the name of an arena will cause a random one to be
+picked.  There are some restrictions, however.  Players cannot
+duel until they are at least level 10, and the challenger and
+defender must be within 10 levels of eathother if their clans
+are at war.  If one does not wish to take part in duels at all,
+they may use {Cduel ignore{x to make themselves unchallengable.
+
+When a person is challenged, they have ten minutes to either
+{Cduel decline {xor {Cduel accept{x, or the challenge will expire.
+Nothing bad can happen if the duel expires or is declined, except
+perhaps a few taunts.
+
+Once a duel is accepted, both parties are transported to separate
+preparation rooms to get ready for the upcoming fight.  The
+opponents are spelled down, except for their equipment and racial
+abilities, and then have 60 seconds to do whatever they need to
+prepare.  Once this timer runs out, both are taken to the arena
+and battle may begin at any time.
+
+At any time after a duel is accepted, players that are not
+involved may {Cduel view{x to be taken to a special viewing room to
+watch the battle.  When a battle is finished, the opponents will
+find themselves taken back to their clanhalls or the Temple Altar.
+~
+
+0 JUKEBOX PLAY~
+Syntax:
+   {VPlay{x <{Ysongname{x>
+   {VPlay list{x
+
+{VPlay <{Ysongname{x> will do just that: play the song.
+{VPlay list{x displays your wonderfull Legacy Jukebox selection :)
+These commands will help you interface with the numerous jukeboxes located on
+{bL{Ye{Wga{Yc{by{x.
+~
+
+0 KILLER THIEF~
+If you {PPK{x or {YPSteal{x from an injured player or a sleeping player, 
+then you will receive a {PKILLER{x or {BTHIEF{x flag.  Once you have one 
+of these flags, players outside of eight levels can attack you.  Once you 
+have initiated combat against someone, the injured player/sleep restriction is 
+lifted for that combat session. Thus, if your opponent flees, you can 
+still track them down.
+
+{PKILLER{x and {BTHIEF{x flags can be removed only at the discretion of 
+the Immortals.  At no time are the Imms of Legacy required to ever remove 
+a {PKILLER{x or {BTHIEF{x flag.
+~
+
+0 PKILL PKILLING PKILLER 'PLAYER KILLING' PSTEALING 'PLAYER STEALING' FLAMING~
+{PPlayer killing{x and {Yplayer stealing{x is restricted to only those who have their
+{PPK flag{x set to the {Ron{x position.  Also, {PPK{x is restricted to within
+eight levels. In addition, if you {PPK{x or {YPSteal{x from an injured player or a sleeping player, then you will receive a {PKILLER{x or {BTHIEF{x
+flag.  Once you have one of these flags, players outside of eight levels
+can attack you.  Once you have initiated combat against someone, the injured
+player restriction is lifted for that combat session.  Thus, if your opponent
+flees, you can still track them down.
+See also the {RPK{x command.
+
+For a friendly duel with no level restrictions and no serious losses, try
+going to the {RLand of {PFlaming {YSword{x! Tickets there are sold just north of
+Clan Road, all the way north from 'recall'. Once there, {WREAD SIGN{x
+for details!
+~
+
+0 PK PKFLAG~
+The {RPK ON{x command raises your PK flag. This is the prerequisites for 
+engaging in player killing, both killing and being killed. {VOnce you 
+raise your PK flag, you cannot lower it until you die to PK!{x Don't even 
+bother trying, there is no PK OFF command :)
+You can check you PK status by typing {RPK{x (without the {RON{x), which
+will tell you if your flag is up or down. Your remort, level, class and race
+will be outlined in {Pred brackets{x on the wholist if your pk is on.  You
+can also see who has a pk flag by typing {Ywho pk{x.
+~
+
+0 PAINTBALL  RELOAD  SHOOT~
+Syntax:
+   {Vshoot{x <{Yvictim{x>
+   {Vreload{x
+   {Wp{Pa{Yi{Gn{Ct{Bb{Va{Wl{Pl{x
+
+{WP{Pa{Yi{Gn{Ct{Bb{Va{Wl{Pl{x turns your PB flag {Gon{x and {Roff{x.  It signifies whether you are
+participating in the forever ongoing game of {Wp{Pa{Yi{Gn{Ct{Bb{Va{Wl{Pl{x on the mud.
+
+{VReload{x will take a {Ttube from{x your inventoy and {Mload{x it {Minto{x your gun.
+You must be {Yholding{x your paintgun for this to work.
+
+{VShoot{x will shoot your victim.  It is basically a random chance, but some
+guns are better than others.  Also, you have to wait a few seconds after
+each shot, so beware!  If you cast identify on a paintgun, here is what
+the rating numbers stand for:
+
+    {Bwait time{x/{Bhow damaged your gun is{x/{Phow good the gun is{x
+
+The {Bfirst two{x you want to be as {Blow{x as possible.  The {Pthird one{x you want
+to be {Phigh{x.  If your gun jams in combat it will be damaged, and eventually,
+damaged guns must be replaced.
+~
+
+0 HEALER~
+The {Ghealer{x decided to grab a quick buck, and now charges for her heals.  Some
+services are still {Cfree{x to players of level {Y10 or below{x.  To see
+a full listing of the healer's services, type '{Gheal{x' at her residence. To
+receive healing, bring plenty of money, and type '{Gheal <{Yspell{x>'.
+~
+
+
+0 GAIN~
+The {Vgain{x command is used to learn {Mnew{x skills, once the proper trainer has
+been found. ({YCheck New Thalos{x) The following options can be used with gain:
+
+{Vgain list{x:	  {Ylists all groups and skills that can be learned{x
+{Vgain points{x:  {Ylowers your creation points by {M1{x
+{Vgain{x <{Yname{x>:  {Yadds a skill or skill group, at the listed cost{x
+{Vgain convert{x: {Yturns {M10{Y practices into one training session{x
+{Vgain revert{x:  {Yturns one train into {M10{Y practices{x
+
+{VGain{x {Yuses {Gtraining {Gsessions{x, {Mnot practices{x. (see '{Phelp train{x')
+{VGained{x skills and groups do {RNOT{x increase your experience per level or total
+number of creation points.  {VGain points{x should be done {Yafter{x a recent level
+gain, for it will set your exp till next level to the new full value.
+Each {Vgain{x point will lower your cp by {Y1{x.
+~
+
+0 OUTFIT~
+The {Coutfit{x command, usable by levels {Y5 and below{x, {Cequips{x your character with
+a new set of sub issue gear (banner, weapon, helmet, shield, and vest),
+courtesy of the Mayor's warehouses.  Only empty equipment slots are affected.
+This is useful in case you drop one of your pieces of eq, at which time it will
+poof out of existence.
+~
+
+0 AUTOTICK AUTOLIST AUTOLOOT AUTOGOLD AUTOSAC AUTOEXIT AUTOASSIST AUTORECALL AUTOSPLIT AUTOPEEK~
+ROM uses various {Vautomatic actions{x to ease the boredom of always splitting
+gold, sacrificing corpses and similar repetitive tasks.  The commands are:
+
+{Vautolist{x  {c| {Ylist all automatic actions{x ({Gsee below{x)
+{c--------------------------------------------------------------
+{Vautoloot{x  {c| {Btake all {Yequipment from dead mobiles{x
+{Vautogold{x  {c| {Btake all {Ygold from dead mobiles{x
+{Vautosac{x   {c| {Msacrifice {Ydead monsters (if autoloot is on, only empty corpes){x
+{Vautoexit{x  {c| {Cdisplay {Yroom exits upon entering a room{x
+{Vautosplit{x {c| {Gsplit up {Yspoils from combat among your group members{x
+{Vautoassist{x{c| {Pmakes {Yyou help group members in combat{x
+{Vautotick{x  {c| {Cdisplays {Ya message when a tick occurs{x
+{Vautorecall{x{c| When {Rlinkdead, {Yyou will repeatedly attempt to recall{x
+{Vautopeek{x  {c| {Rpeek {Yat a character when you look at him/her/it{x
+
+Typing a command sets the action , typing it again removes it.
+~
+
+0 AURA~
+Syntax:
+   {Vaura{x
+
+The {Vaura{x command is used to give a gimmic aura to mortals.  This can be
+done for several purposes.  It can be used for followers: {V({WL{Ci{Br{Ci{Te{Wl{x {GA{Hura{V){x, or
+it can be used for punishment: {V(Probation Aura){x.  Auras are a gift, not a right,
+and thus can be revoked or changed at any time at the discretion of the
+Immortals.
+
+{Vaura{x alone shows you your current aura.
+~
+
+-1 DEITY DEITIES~
+A deity is the Immortal your character worships.  Each Immortal of this
+mud may be either aligned Good, Neutral, or Evil.  Additionally, they
+may be lawful, or chaotic.  Please pick a deity who best represents who
+your character admires and strives to be like.  Although your first
+deity is selected during character creation, you may decide to change who
+you worship when you remort.  
+
+{YSEE ALSO:{x Wizlist
+~
+
+0 RESTRING~
+A {Crestring{x is the process of taking an item of equipment or a pet
+and renaming them for a more personal touch.  {CRestrings{x are usually
+a prize offered for valiant efforts during a quest.  When redeeming
+a {Crestring{x, please provide the following information:
+
+{VKeywords{x: {YWords that identify{x the item/pet
+	  (sword, twilight, dreamslayer)(kitten moxie)
+{VShort{x:    Description seen when you type "{YInventory{x" or "{YEquipment{x"
+	  or pet's basic name.
+	  (Twilight Dreamslayer)(Moxie the Kitten)
+{VLong{x:     Description of something {Ysitting in a room or on the ground{x
+	  (a cold sword lies here)(Moxie is here, licking her paws)
+{VExtended{x: *{GObjects Only{x* Extra Keywords and Descriptions for stuff
+	  that you have to {Yexplicitly look at{x.
+	  ('hilt' - The hilt is carved from an ebony bone)
+~
+
+0 SHOWLAST FINGER FINGERINFO~
+Syntax:
+   {Vfinger{x <{Ycharacter{x>
+   {Vfinger private{x
+   {Vfingerinfo{x
+   {vshowlast{x
+
+This command will display the last time a character was playing on
+{bL{Ye{Wga{Yc{by{x along with several items of other useful unformation.
+Abbreviations cannot be used for character names.
+
+The {Vfinger private{x command will toggle the appearance of your {Yemail{x
+{Yaddress{x in the {Vfinger data{x.  This setting defaults to off.
+
+The {Vfingerinfo{x command is identical to the description command.  It
+can be used to add additional information to your {Vfinger data{x.
+
+The {Vshowlast{x command will toggle whether a player's last time on
+displays in the finger listing.
+
+{YNOTE{x: The {Vfinger data{x does not {Yupdate{x until your character has been
+saved by either the {Yautosave feature{x or by typing the {Ysave{x command.
+~
+
+0 SUICIDE DELETE~
+Use the delete command to erase unwanted characters, so the name will be
+available for use.  This command must be typed twice to delete a character,
+and you cannot be forced to delete.  Typing delete with an argument will
+return your character to 'safe' status if you change your mind after the
+first delete.
+~
+
+0 IDENTIFY SAGE~
+Syntax: {Videntify{x <{Yobject{x>
+
+If you are in the same room as the {Pwandering sage{x, then you can
+use this command to {Videntify{x objects in your inventory.  The cost
+is approximately {Y50 + 10 silver{x per level of the object.
+~
+
+0 MARRY  MARRIAGE  SPOUSE  SPOUSETALK  DIVORCE~
+Syntax:
+   {Vspousetalk{x <{Ymessage{x>
+
+Ah, the beautiful {Cceremony{x that occurs when someone loves another so much
+that they wish to spend the rest of their lives together.  Unfortunately...
+it turns {Ysour{x sometimes.  Whether you're wanting to marry, or be divorced,
+it must be performed by an {CImmortal{x.  With marriage comes the ability
+to communicate exclusively to your spouse via your own private channel.
+The tremendous responsibility associated with being married requires that
+bride and groom {Gboth{x be at least level {P12{x.
+
+Getting married is now free of charge.  Getting divorced now costs QPs,
+25 for the player wanting the divorce or 10 each if it's mutual.
+~
+
+0 QUEST QUESTS~
+Certain characters in the game will allow you to go on {Yquests{x to recover
+an item or {Pkill{x a mob. To go on a {Yquest{x, you must be in the
+same room with a questmaster. When you successfully complete a {Yquest{x, you
+will receive a certain number of {Yquest {Gpoints{x ({YQP{x). These points
+may be saved up and used to buy restrings, practices, or player rooms. See
+{RHELP QP{x for other uses for Quest Points.
+
+The {YQUEST{x command is used for information about your current {Yquest{x,
+to request a {Yquest{x from a questmaster, etc. Commands are as follows:
+
+{YQUEST {MPOINTS{x - Gives your current number of {Yquest {Mpoints{x. This
+command may be used anywhere.
+
+{YQUEST {BINFO{x - If you are on a {Yquest{x, this will remind you who or
+what you are after.
+
+{YQUEST {CTIME{x - Gives the amount of {Ctime{x remaining on your current
+{Yquest{x, or the amount of {Ctime{x until you can request another {Yquest{x.
+This command may be used anywhere.
+
+{YQUEST {VREQUEST{x - Petitions the questmaster to send you on a {Yquest{x.
+If you accept the {Yquest{x, you will be given a real time limit (in minutes)
+in which you must complete the {Yquest{x. If you are on a {Yquest{x to kill a
+creature, when you come across that creature you will see a {P[TARGET]{x
+notice before it. This is the creature you are to kill.
+
+{YQUEST {GCOMPLETE{x - Once you have completed your {Yquest{x and recovered
+the item or killed the mob or whatever, you must return to the questmaster
+who sent you on the {Yquest{x and use this command. If you have successfully
+completed your {Yquest{x, he will reward you with {Yquest {Mpoints{x. Once
+you complete a {Yquest{x you cannot request another for 10 minutes.
+
+{YQUEST {PFORFEIT{x - This option will stop the current {Yquest{x and
+{Pforfeit{x your prize. You will have you wait to {Yquest{x again for another
+{M10{x minutes.
+
+{cQuest Code (c) 1996 Ryan Addams{x
+~
+
+0 QP QPPRICE~
+
+You can purchase a number of useful oddities from immortals with qp.
+The following is a list, with prices. 
+
+      {BOne Spell{x         : {Y50 QP
+      {BOne Restring{x      : {Y25 QP
+      {BA Lesser Enchant{x  : {Y35 QP
+      {BA Greater Enchant{x : {Y50 QP
+      {BOne Practice{x      : {Y20 QP
+      {BOne Train{x         : {Y200 QP{x
+
+{CEnchants{x can be either weapon or armor.  Lesser enchants are from
+immortals level 99 or below, and have a small chance to be brilliant
+blue.  Greater enchants are from level 100 imms and are guaranteed
+to be brilliant blue.  Weapon and armor enchants will not exceed {P+14{x
+above original stats or {P+18{x total, whichever is lower.  Trade-ins 
+and refunds are not accepted after enchanting of equipment.
+
+You may also {Glower{x equipment that is above the mortal plane with qp.
+You must be a hero (level 91) in order to have eq lowered.  The
+following are the prices.
+
+{Y125 qp{x to lower any piece of level {P92{x equipment
+{Y150 qp{x to lower any piece of level {P93{x equipment
+{Y175 qp{x to lower any piece of level {P94 and above{x equipment
+~
+
+0 EMAIL~
+Syntax:
+   {Vemail{x
+   {Vemail{x <{Yaddress{x>
+
+
+Without an argument, {Vemail{x will display your {Vemail {Yaddress{x.
+With an argument, {Vemail{x will change your {Vemail {Yaddress{x.
+This address is kept in confidence and will be used in notifying you
+of important mud information.
+
+This address will also be used if you forget your password and need
+help remembering it.
+~
+
+0 COUNT~
+The {Ccount{x command displays the number of people (that you can see) logged
+into the mud.  It also displays the highest number observed that day, if
+it is higher.
+~
+
+0 AFFECTS AFFECT~
+This command is used to show all the spells affecting your character. At
+low levels, only the spell name will be displayed, at higher levels the
+affects and duration of the spell will also be shown.  Spell affects
+are no longer shown on score (this can be changed by using 'show' command).
+Remorts can toggle whether or not their remort affects show up with the
+'{Vshowraff{x' command.
+~
+
+0 TOURING COACHES TOURS BOARD ALIGHT~
+Legacy has a small fleet of touring coaches operating out of Midgaard.
+These coaches depart from (currently) three well-marked locations in town:
+{YInside the West Gate of Midgaard{x, {YInside the East Gate of Midgaard{x,
+and {YCommon Square{x. The coaches travel to most of Legacy's areas, though
+not always by the shortest route, and are available to anyone willing to
+pay the fare. The fare depends on the distance to the final destination and
+the level of the target area. The way to get on board a coach is to type
+{RBOARD{x. Coaches stand around waiting for a while at the coach stops but
+may be boarded en route by anyone quick enough to board a coach in travel.
+A coach will seat a maximum of 4 players.
+
+Players riding the coach are safe from any attacks as long as they stay
+in the coach, but they will be on their own at the final destination,
+where in some cases aggressive mobs may attack. Passengers may leave the
+coach tour at any time by typing '{RALIGHT{x', which is formal English for
+'come down'. When they do, they will be reimbursed for the portion of the
+tour they have not yet taken. Thus, if you find yourself in a far too
+expensive coach to an area you don't have a prayer in, remember to type
+{RALIGHT{x and your price will be a light one.
+
+The coaches travel at a comfortable speed for sight-seeing and
+note-taking, both of which activities are encouraged. As the schedules
+are random and the pace is slow, the coaches are not recommended for
+getting anywhere in a hurry. {YEnjoy your tour!{x
+~
+
+0 AREAS OLDAREAS~
+Syntax:
+   {Vareas{x
+   {Vareas{x {Ylevel{x
+   {Vareas{x {Ysearch-string{x
+
+This command shows you the {Vareas{x of {bL{Ye{Wga{Yc{by{x. {VAreas{x are shown with level
+range, area name and author. {VAreas{x are sorted alphabetically by area name.
+For some {Vareas{x, the range is replaced by {YALL, CLANS, HRO or IMM{x, meaning
+this area is open to every one, members of their clans only, heroes or
+immortals, respectively.
+
+{RAreas{x by itself shows far too many {Vareas{x to be readable. As of this
+writing, there are over 100 areas in {bL{Ye{Wga{Yc{by{x and the number is growing. So, if you
+are looking for an area appropriate for your level, type {Vareas 5{x (for
+example). If you remember part of the name of an area or its author, type
+something like {Vareas the{x or {Vareas elrac{x or {Vareas clan{x.
+
+Those of you who preferred the old style can type {Roldareas{x.
+~
+
+0 BACKUP~
+Syntax: {Rbackup{x
+
+This command saves a backup copy of your character in a separate directory.
+Unlike {Rsave{x, this is *not* automatic but needs {Yyou{x to do it.
+Having a backup copy of your character is good if your player file becomes
+damaged somehow, the Imms can then restore your character from the backup.
+We recommend doing {Rbackup{x about once a day.
+
+Everytime you log in, the mud will notify you if it has been an hour or
+longer since your last backup.	After 24 hours, the message will change
+colors to catch your attention.
+
+See also: {Rsave{x
+~
+
+0 CRUSH~
+Syntax: {Rcrush{x
+
+In a fight, this skill lets you do heavy physical damage to your opponent.
+It is envisioned as an extra-strong bearhug, resulting in crushed ribs
+and the like.
+
+At the moment, this skill is not available for gaining, and is only usable
+by mobs. :(
+~
+
+0 KILL~
+Syntax: {Rkill{x {Ycharacter{x
+
+This is the classical way to start a fight with another character, be it
+a mob or a player. Note that attacking other players is subject to
+numerous restrictions; see {Rhelp pkill{x for details.
+
+*One* '{Rkill{x' command is sufficient until one of the fighting parties
+flees or dies. There is no need to repeat the command for the rest of
+the fight.
+
+Hint: Before deciding to {Rkill{x something, you should {Rconsider{x it
+to see if you stand a chance. See also {Rhelp consider{x.
+~
+
+0 NEXT~
+Syntax: {Rnext{x
+	{Rnext unread{x
+
+The {RNEXT{x command is a convenient way to read through all your
+unread notes, ideas, roleplay notes, changes, personals, trade notes,
+ and news. Every time you type {Rnext{x, the next item (in chronological
+order) will be shown.  This command freely mixes the different types of
+messages, moving forward from the earliest unread (by you) message to the
+latest.
+
+If you specify another word with {Rnext{x (we recommend {Rnext unread{x),
+then your unread messages will be shown to you grouped by message type,
+with notes first and trade notes last. Each type is moved through in time
+order.
+~
+
+0 SHOWFLAGS~
+Syntax: {Rshowflags{x
+
+{Rshowflags{x shows you which game flags are set for your character.
+Alas, the format is a bit hard to read and nobody is likely to explain
+the names and values of the flags for you. Consider this an interesting
+curiosity or an arcane command for the advanced player.
+~
+
+0 WORTH~
+Syntax: {Rworth{x
+
+{Rworth{x tells you how much gold, silver and experience you have on you.
+If you only want to know this, it's much more convenient than {Rscore{x.
+Note that this command does {Ynot{x tell you how much money you have
+in the bank! (See also: {Rhelp bank{x).
+~
+
+0 COMBINE~
+Syntax: {Rcombine{x
+
+If you are looking at a lot of items and many of those items are of the
+same type, you will probably prefer to have the repeated items shown
+on only one line, with the number of items given. If you are carrying
+3 long thin daggers, for example, you could see either:
+
+long thin dagger
+long thin dagger
+long thin dagger
+
+or (3) long thin dagger .
+
+Type {Rcombine{x once to switch from the full listing to the summary,
+and {Rcombine{x again to switch back to full if you want.
+
+The effects of {Rcombine{x apply to the output you see from
+{Rinventory{x, {Rlook{x, {Rexamine{x and a few others.
+~
+
+0 DEFENSIVE~
+Syntax: {Rdefensive{x
+
+In a fight, it may be useful for you to see if your opponent is dodging
+or parrying your attacks. On the other hand, you may have so much going
+on that this extra information would just irritate you.
+
+{Rdefensive{x lets you choose whether or not you see defensive blocks
+(e.g. dodge, parry) in a fight or not. Type {Rdefensive{x once to stop
+seeing these moves, and again if you would rather see them after all.
+~
+
+0 NOFOLLOW~
+Syntax: {Rnofollow{x
+
+This command sets your {Ynofollow{x flag, which prevents other characters
+from following you. If you are being followed at the time you issue this
+command, your followers will stop following you.
+
+Typing {Rnofollow{x when your {Ynofollow{x flag is set turns it back off,
+and lets people follow you again. If you broke the link to a follower
+using {Rnofollow{x, that person will have to {Rfollow{x you again if he
+wants to.
+
+You can check your current {Ynofollow{x status either by typing
+{Rnofollow{x once or twice, or by looking in the output from {Rautolist{x.
+~
+
+0 NOSUMMON~
+Syntax: {Rnosummon{x
+
+This command sets or unsets your {Ynosummon{x flag, which keeps you safe
+from being summoned as long as it is set. Many player-killing attacks are
+started by summoning the victim, and this measure can thwart such
+attempts. However, if you ever ask a friend to summon you, do remember
+to unset the flag or they will waste a lot of mana trying.
+
+You can check your current {Ynosummon{x status either by typing
+{Rnosummon{x once or twice, or by looking in the output from {Rautolist{x.
+~
+
+0 NOLOOT~
+Syntax: {Rnoloot{x
+
+This command sets or unsets a flag which determines if others can loot
+your corpse after you die. The normal setting is on, which means your
+corpse will be safe from looters. Typing {Rnoloot{x will change that.
+This may come in handy if you die in a dangerous area and ask others to
+retrieve the stuff from your corpse for you.
+
+You can check your current {Ynoloot{x status either by typing
+{Rnoloot{x once or twice, or by looking in the output from {Rautolist{x.
+~
+
+0 ENTER~
+Syntax: {Renter{x {Yportal-name{x
+
+There are many {Yportals{x in the game, mysterious gateways that allow
+you to move by magical means from one room to another although those rooms
+are not physically connected. To use a portal, you must {Renter{x it.
+~
+
+0 BATTLE ARENA~
+The arena is built for PK tournaments among mortals.  Special rules and
+commands are as follows:
+
+1)  When you are in the arena, you will suffer no loss of exp or alignment.
+2)  You will suffer no loss of equipment through death or stealing.
+3)  When you die in the arena, you are teleported back to the temple
+    healer with all your equipment still on your body.
+4)  Breath spells donot provide the same affect in the arena as they 
+    do outside it.
+5)  The only way to exit the arena is through death or victory.
+6)  There is a fee for entering the arena which is announced upon the
+    declaration of battle.
+7)  To enter the arena after a battle is announced, {Ytype: battle{x.
+8)  There are no level/clan/ooc restrictions on PK within the arena.
+9)  Anything that is not listed as a special rule above is no longer valid.
+10) The victors within arena battle will accumulate their Arena Wins counter.
+
+There is a walk-in arena available to anyone above a minimum level, for
+a reasonable fee, called the Land of Flaming Sword. Enter the door 3 north
+of recall and {Vread the sign{x there!
+~
+
+0 FORGE SMITHY~
+Syntax: {Rforge{x <{Yweapon type{x> <{Yweapon name{x>
+ -or-	{Rforge flag{x <{Yflag type{x>
+
+These two forms of the command cause two very different things to happen.
+
+The FIRST creates a weapon from a bar of forging material which you hold
+in your hand. The {Yweapon type{x can be any one of the following:
+{Csword{x, {Cmace{x, {Cdagger{x, {Caxe{x, {Cpolearm{x, {Cstaff{x, {Cflail{x, or {Cwhip{x.
+
+The {Yweapon name{x can be any string as long as it is less than 30
+printed characters.  Color codes are not counted as a printed character.
+
+A forged weapon's power is based on its creator's level, skill in making
+weapons, and the type of material that is used.  To forge a weapon, the
+crafter must be holding the material he or she wants to make the weapon
+out of (the material must be of identify type: material).  Materials can
+make your weapon easier to forge, or more difficult.  Other materials can
+make your weapon stronger or weaker.  In addition, forged weapons will
+take on the magical properties of the material that is used in making them.
+
+The SECOND form of forging adds one of four magical attributes to a weapon
+you are wielding. The weapon attribute can be any one of the following:
+{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
+level 30 in order for you to be able to forge flags onto it.
+These attributes are put on the weapon as *permanent* weapon flags with the
+same effects as those which can *temporarily* be put on weapons using the
+Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
+succeeding at this task depends on your skill at forging. If you fail, your
+weapon will be destroyed!
+
+This second type of forging is now also able to let you make a weapon
+stronger and more powerful.  The downside, however, is that the added
+weight necessary makes it two-handed.  To achieve this, use the flag type
+{Ctwohanded{x.
+
+BOTH forms of forging require that the forger be in the same room with a
+special forging {Yanvil{x. See {RHELP ANVIL{x for details!
+~
+
+0 ANVIL~
+An {YAnvil{x is required in order to forge weapons from raw materials
+or to forge enhancing attributes (weapon flags) onto a weapon.
+
+A public forging anvil is available in the smithy below Griswald's
+Repair Shop on Clan Road in Midgaard. This anvil, like most of its kind,
+has costs associated with its use. {YWeapon forging{x costs a number
+of gold coins wheras {Yflag forging{x costs the forger quest points.
+~
+
+0 SHOWLOST~
+Syntax:
+   {Vshowlost{x
+
+By enabling the showlost feature, you will be notified of any items in your
+locker or inventory that will be lost before quiting.
+~
+
+0 SHOWFLAG~
+Syntax:
+   {Vshowflag{x
+   {Vshowflag{x <{Yvictim{x> ({YImmortal Only{x)
+
+This command will display your current flag status.  If you are an immortal,
+it will also display flag status for mobiles and other players.
+~
+
+0 STRENGTH STR~
+{PStrength{x as the name suggests is a mark on how strong you are. The
+stronger you are the more damage you do, the more you can carry (weight
+wise) and you are able to wield heavier weaponry. 
+~ 
+
+0 DEXTERITY DEX~
+{PDexterity{x is a measure of your agility and prowess. The higher
+it is the easier it is to avoid attacks.
+~
+
+0 INTELLIGENCE INT~
+{PIntelligence{x is a mark of how clever you are. Intelligence is used for 
+gaining more mana per level, specifically by magic-using classes. It also
+guides how much of a percentage increase you get when you practice.
+~
+
+0 WISDOM WIS~
+{PWisdom{x is used to define how wise you are, and marks how many
+practices you get per level.
+~    
+
+0 CONSTITUTION CON~
+{PConstitution{x is the mark of how healthy you are, the higher your
+constitution the more hit point you'll gain per level.
+~
+
+0 CHARISMA CHR~
+{PCharisma{x affects how you interact with monsters and the Hidden Fates.
+Specifically, a high charisma makes aggressive monsters less likely to
+attack you (they may hesitate just long enough for you to wander on by,
+or long enough for you to have a nice nap). Also, with a high charisma,
+you have a chance of getting 2 {Ytrains{x {G(!){x each time you gain a level.
+~
+
+0 VIDEO DARK VT100 FLASH~
+Syntax: {Cvideo flash {Y<on, off, or underline>{x
+	{Cvideo dark  {Y<normal or modify>{x
+	{Cvideo vt100 {Y<on or off>{x
+	{Cvideo codes {Y<show or hide>{x
+
+{Cvideo flash{x controls how text designed to flash ({{f) will appear on your
+screen (flashing, normal, or underlined). Underlined text may appear as
+reversed video, depending on your screen emulator. {Cvideo dark{x controls
+how you will see black ({{k) and charcoal ({{c) text (normal means you
+see them as black or charcoal, modify means black and charcoal will appear
+as grey). {Cvideo vt100{x {Yon{x sends output to your terminal in vt100
+mode (which may well not be what you want, so {Cvideo vt100{x {Yoff{x will
+fix it). {Cvideo codes{x {Yshow{x will show you the code sequences used in
+colored strings that you see. This will probably give you a headache, so
+you can use {Cvideo codes{x {Yoff{x to turn it off again.
+~
+
+0 CLEAR~
+Syntax: {Cclear{x
+
+Clears the screen.
+~
+
+0 MULTIPLAY MULTIPLAYING MULTIPLAYERS MULTI~
+The act of simultaneously playing more than one character at the same time
+is call Multiplaying. This is an illegal act here on Legacy. Playing
+more than one character makes it easier for you to level, true, but it
+takes away from the roleplaying experience and fun you can have when you
+just try and flesh out one character. It also gives you an unfair
+advantage over those who try to follow the rules. Having two characters on
+at the same time, even if they aren't interacting with each other. Even if
+one is playing while the other is recovering (sleeping) is still
+multiplaying. The point is, no logging on with multiple Characters.
+~
+
+0 GOLD SILVER MONEY~
+Midgaard's economy is based on gold and silver coinage (and the lowly copper,
+which you as an adventurer are far too proud to carry).  Gold coins are worth
+100 silver coins, but are also four times as heavy (25/pound, as opposed to
+100 to the pound for silver). Gems can be bought to alleviate weight problems
+from the Midgaard jeweler, he charges a mere 10% more than they are worth.
+10 gems weigh one pound, and they can be worth more than 100 gold pieces for
+the highest quality stones.  Also see '{YHELP BANK{x'
+~
+
+0 LOCKER~
+Syntax:
+   {Vlook in locker{x
+   {Vget{x <{Yobject{x> {Vlocker{x
+   {Vget all locker{x
+   {Vput{x <{Yobject{x> {Vlocker{x
+   {Vput all locker{x
+
+{VLockers{x work in a similar manner to containers, however, your {Vlocker{x
+is safely located in the town of Midgaard while you are off adventuring
+throughout Thera.  Your {Vlocker{x costs {Y10 silver{x for every object kept
+inside.  The fee is deducted every time you quit the game.  If you cannot
+afford to pay the fee, then your {Vlocker{x will be closed and you will not be
+able to get items from your {Vlocker{x until the fee can be paid.  The "late
+fee" will be deducted the next time you try to get something from your
+{Vlocker{x and your funds are sufficient.  Your {Vlocker{x also has a maximum
+limit for the number and size of items that can be contained within it.
+~
+
+0 BANK  DEPOSIT  WITHDRAW  BALANCE~
+Due to the heavy weight of gold the city bank has been reopened! You can
+safely store your gold and silver in the bank by using the following commands:
+
+{Cdeposit{x <{Yamount{x> gold or {Cdeposit{x <{Yamount{x> silver will {Cdeposit{x
+that amount of gold/silver into your account.
+
+{Pwithdraw{x <{Yamount{x> gold or {Pwithdraw{x <{Yamount{x> silver will {Pwithdraw{x
+that amount of gold/silver from your account.
+
+{Gbalance{x: Shows how much gold and silver you currently have in the bank.
+~
+
+0 BRIEF COMPACT~
+{GBrief{x and {YCompact{x help set your display options for the game. Typing brief
+toggles on and off the showing of room descriptions when you move around
+(considerably reducing the text to be processed) and player's descriptions
+when you look at them.
+
+Typing {Ycompact{x removes the extra blank line before your prompt.
+~
+
+0 AFK  REPLAY~
+Syntax: {Cafk{x <{Ymessage{x>
+	{Creplay{x
+
+Typing {Cafk{x puts your character in a tell-saving mode so that any tell
+to you is stored in a special buffer, and can be seen later by typing
+{Greplay{x.  This is useful when you need to leave the mud for 5 or 10 minutes,
+but don't want to miss tells.  {CAFK{x shows up in your prompt until it is
+turned off.
+
+Tells to linkdead players are stored in a similar fashion, and can also be
+seen by typing {Greplay{x (unless, of course, the character logs off before
+reading them).
+
+After {Y7{x ticks of inactivity, you will be set Auto-AFK by the mud.  After {Y14{x ticks,
+you are transfered to the void.  After {Y30{x ticks, you are forced to quit.
+~
+
+0 PUSH DRAG~
+Syntax:
+   {Vpush{x <{Yvictim{x>
+   {Mdrag{x <{Yvictim{x>
+
+If you want to {Vpush{x a standing victim or {Mdrag{x a sitting/resting victim,
+{Vpush{x and {Mdrag{x is a skill all players have.  It is based on the relative
+strength of both individuals involved with a little random variation.
+{VPush{x and {Mdrag{x fall under the same restrictions as PK combat (must be
+within 8 levels, can't {Vpush{x/{Mdrag{x in a safe room, etc).  If you attempt
+to {Vpush{x/{Mdrag{x a mobile and fail, the mobile will attack you.
+~
+
+0 LEVELS~
+Syntax: {Clevels{x <{Yclassname{x>
+
+This command will provide information on spell levels for a specific class.
+It will then follow the spell levels with a listing of skill levels.
+~
+
+0 PROMPTTYPES~
+In all cases the short version of a selected prompt does not show
+the max values for things like hp or mana since people would tend
+to know what the max value is by heart and be more concerned with
+what the current value is so they can keep it above zero.
+
+Default  - {W<{C30{Thp {G30{Hma {B30{Nmv {W[{gNeSw{W] {R728{W>{x
+           The {Vdefault{x prompt shows hit points, mana, movement, exits,
+           and experience until next level.
+
+Short    - {W<{C30{Thp {G30{Hma {B30{Nmv{W>{x
+           The {Vshort{x prompt shows hit points, mana, and movement.
+
+Long     - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Nmv {W[{cNeSw{W] {Y24{C/{g34 {W( {gMidgaard {W) {R734{W>{x
+           The {Vlong{x prompt shows hit points, mana, movement, exits, gold,
+           silver, area name, and experience until next level.
+
+Quest    - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Nmv {Y({bNone 0{Y){W>{x
+           The {Vquest{x prompt shows hit points, mana, movement and the
+           quest target and quest time.
+
+Riches   - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Tmv {W[{gNeSw{W] {Y24{bg {W34{gs{W>{x
+           The {Vriches{x prompt shows the hit points, mana, movement, gold,
+           and silver.
+
+Align    - {W<{C30{g/{C30{Thp {G30{g/{G30{Hma {B30{Nmv {W[{cNeSw{W] {R728 {V({M-1000{V){W>{x
+           The {Valign{x prompt shows hit points, mana, movement, exits,
+           experience until next level, and alignment.
+
+Immortal - {W<{Y({W1223{Y) {T-{CImm Room{T- {H[{GNeSw{H] {WIMM-Zone {N[{B0/92{N]{W>{x
+           The {Vimmortal{x prompt shows room vnum, name, exits, area, wizi,
+           and incog status.  This prompt will not display properly if you are
+           not immortal.
+~
+
+0 PROMPT PREFIX~
+Syntax:
+   {Cprompt{x
+   {Cprompt <{Ytype{x>{x
+   {YSee PROMPTTYPES for a list of prompts{x
+   {Cprompt{x <{Y%*{x>
+   {Vprefix{x <{Yprefix message{x>
+
+{VPrefix{x allows you to start every command with the {Vprefix{x message.
+To turn {VPrefix{x off, just type {VPrefix{x without an argument.
+
+{CPrompt{x without an argument will turn your prompt on or off.
+{CPrompt default{x will give you the standard "<hits mana moves>" prompt.
+{CPrompt <{Y%*{x> where the %* are the various variables you may set yourself.
+
+	%h :  Display your current hits
+	%H :  Display your maximum hits
+	%m :  Display your current mana
+	%M :  Display your maximum mana
+	%v :  Display your current moves
+	%V :  Display your maximum moves
+	%x :  Display your current experience
+	%X :  Display experience to level
+	%g :  Display your gold held
+	%s :  Display silver carried
+	%a :  Display your alignment
+        %p :  Display your questpoints
+        %k :  Display your skillpoints
+	%r :  Display the room name you are in
+	%e :  Display the exits from the room in NESWDU style
+	%c :  Display a carriage return (useful for multi-line prompts)
+	%R :  Display the vnum you are in (IMMORTAL ONLY)
+	%w :  Display your invis/lurk status (IMMORTAL ONLY)
+	%z :  Display the area name you are in
+	%q :  Display your quest timer
+	%Q :  Display the purpose of your quest
+        %j :  Display your skill quest timer
+        %J :  Display the purpose of your skill quest
+
+Example:  prompt <%hhp %mm %vmv>
+	Will set your prompt to "<10hp 100m 100mv>"
+~
+
+0 SUMMARY~
+MOVEMENT			    GROUP
+north south east west up down	    follow group gtell split
+exits recall scan search hide
+sleep wake rest stand
+
+OBJECTS 			    INFORMATION / COMMUNICATION
+get put drop give sacrifice	    help credits commands areas
+wear wield hold second		    report score time weather
+recite quaff zap brandish	    description password title
+lock unlock open close pick	    bug idea typo
+inventory equipment look compare    gossip say tell yell query
+eat drink fill pour		    emote pose semote pray
+list buy sell value auction	    note
+forge repair lore		    who shortwho where hunt
+brew scribe envenom steal
+COMBAT				    OTHER
+kill flee kick rescue disarm	    ! save quit
+backstab cast wimpy		    practice train
+bash trip circle dirt sing	    auto
+
+For more help, type '{Phelp{x <{Ytopic{x>' for any command, skill, or spell.
+Also help on: DAMAGE DEATH EXPERIENCE NEWS STORY TICK WIZLIST
+~
+
+0 DEATH MORGUE~
+When your character dies, you are reincarnated back at the Altar of the Temple
+of Mota.  You corpse is relocated by an act of the dark god to the Altar of
+Necromancy together with all of your equipment.  If you are above level 50,
+your corpse will not be relocated and will be found in the room you perished.
+
+Any spells which were affecting you are canceled by death.
+
+You lose experience points for dying.  The amount you lose is two-thirds of
+the way back to the beginning of your level.
+
+A corpse will decay after time, and the objects inside the corpse will decay
+with them. A player's corpse will last *roughly* 30 hours of game time
+(15 minutes of real time). Only the player who died, or if you were grouped,
+someone in the same group, can retrieve objects from a player's corpse.
+Objects on a player corpse will not be lost when it decays.
+~
+
+0 EXPERIENCE LEVEL XP~
+Your character advances in power by gaining experience.  You need a set
+amount of experience points for each level based on your creation points.
+
+You {Cgain{x experience when you kill a monster and when you are part of a
+group that kills a monster.
+
+You {Plose{x experience when you flee from combat, recalled out of 
+combat,
+being the target of certain spells, and dying.
+
+The experience you get from a kill depends on several things: how many players
+are in your group; your level versus the level of the monster; your alignment
+versus the monster's alignment; how many of this monster have been killed
+lately; and some random variation.
+~
+
+0 PET PETS~
+You can buy pets in the pet shop.  You may own only one pet at a time, and
+after the old one dies you may purchase a replacement.
+When you buy your pet, you are given a chance to name it; the syntax is
+{Ybuy {c<petspecies> {R<name>{x. Thereafter, you can refer to your pet
+in {Yorders{x, {Ylook{x, and the like by its name.
+~
+
+0 TICK~
+Many of the game actions are based upon interval timers, including combat,
+most autonomous monster actions, hp/mana/move regeneration, spell 
+duration,
+weather, and area resetting.
+
+Of these timers, the hp/mana/move regeneration timer is popularly called the
+'tick'.  Ticks on this mud average 45 seconds of real time, but the actual
+amount varies randomly from 30 seconds to 60 seconds.
+
+Area resetting happens roughly every 3 minutes if no one is in the area; less
+often (15 minutes) if someone is.  Also note that objects lying on the ground
+will not be regenerated if anyone is in the area when it resets.
+~
+
+0 !~
+Syntax: !
+
+! repeats the last command you typed.
+~
+
+0 NORTH SOUTH EAST WEST UP DOWN~
+Syntax: north
+Syntax: south
+Syntax: east
+Syntax: west
+Syntax: up
+Syntax: down
+
+Use these commands to walk in a particular direction.
+~
+
+0 EXITS~
+Syntax: {Pexits{x
+
+Tells you the {Yvisible{x {Pexits{x of the room you are in, but not all {Pexits{x
+are visible. You can use {CSCAN{x to find those that are not, however :)
+~
+
+0 DROP	GET  GIVE  PUT	TAKE~
+Syntax:
+   {Cdrop{x <{Yobject{x>
+   {Cdrop{x <{Ynumber{x>{C*{x<{Yobject{x>
+   {Cdrop{x <{Yamount{x> {Ccoins{x
+   {Mget{x  <{Yobject{x>
+   {Mget{x  <{Yobject{x> <{Ycontainer{x>
+   {Ggive{x <{Yobject{x> <{Ycharacter{x>
+   {Ggive{x <{Ynumber{x>{C*{x<{Yobject{x> <{Ycharacter{x>
+   {Ggive{x <{Yamount{x> {Gcoins{x <{Ycharacter{x>
+   {Vput{x  <{Yobject{x> <{Ycontainer{x>
+
+{CDrop{x drops an object, or some coins, on the ground.
+
+{MGet{x gets an object, either lying on the ground, or from a container, or even
+from a corpse.	TAKE is a synonym for get.
+
+{MGive{x gives an object, or some coins, to another character.
+
+{VPut{x puts an object into a container.
+
+{CDrop{x, {Mget{x and {Vput{x understand the object names '{Yall{x' for all objects and
+'ALL.object' for all objects with the same name.
+
+You can use {CDrop{x or {Ggive{x to drop or give {Ymultiple objects of the same type{x
+if you put a number and an asterisk ({C*{x) in front of the object's name. Examples:
+{Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
+~
+
+0 EQUIPMENT   INVENTORY~
+Syntax:
+   {Cequipment{x
+   {Pinventory{x
+
+{CEQUIPMENT{x lists your equipment (armor, weapons, and held items).
+
+{PINVENTORY{x lists your inventory.
+~
+
+0 COMPARE~
+Syntax:
+   {Mcompare{x <{Yobject-1{x> <{Yobject-2{x>
+   {Mcompare{x <{Yobject{x>
+
+{MCompare{x compares two objects in your inventory.  If both objects are weapons,
+it will report the one with the better average damage.	If both objects are
+armor, it will report the one with the better armor class.
+
+{MCompare{x with one argument compares an object in your inventory to the object
+you are currently wearing or wielding of the same type.
+
+{MCompare{x doesn't consider any special modifiers of the objects.
+~
+
+0 FLEE~
+Syntax:
+   {Pflee{x
+   {Rrescue{x <{Ycharacter{x>
+
+Once you start a fight, you can't just walk away from it.  If the fight
+is not going well, you can attempt to {Pflee{x, or another character can
+{RRescue{x you.  (You can also {CRECALL{x, but this is less likely to work,
+and will cost more experience points than fleeing.) The act of fleeing is based on your 
+dexterity, the number of mobs you are currently fighting, level difference and a % chance.
+Flee does not automatically succeed though, as it is sometimes impossible to back away 
+from a fight.
+
+
+If you lose your link during a fight, then your character will keep
+fighting, and will attempt to {CRECALL{x from time-to-time.  Your chances
+of making the {CRECALL{x are reduced, and you will lose much more experience.
+~
+
+0 EXAMINE  LOOK  READ~
+Syntax:
+   {Mlook{x
+   {Mlook{x    <{Yobject{x>
+   {Mlook{x    <{Ycharacter{x>
+   {Mlook{x    <{Ydirection{x>
+   {Mlook{x    <{Ykeyword{x>
+   {Mlook in{x <{Ycontainer{x>
+   {Mlook in{x <{Ycorpse{x>
+   {Vexamine{x <{Ycontainer{x>
+   {Vexamine{x <{Ycorpse{x>
+
+{MLook{x looks at something and sees what you can see.
+
+{MRead{x does exactly the same as {MLook{x. People like to use it with books,
+maps and signs.
+
+{VExamine{x is short for '{Mlook{x {Ycontainer{x' followed by '{Mlook in{x {Ycontainer{x'.
+~
+
+0 ORDER~
+Syntax:
+   {Corder{x <{Ycharacter{x> <{Ycommand{x>
+   {Corder all{x <{Ycommand{x>
+   {Corder{x <{Ypet{x> {Ystay{x
+   {Corder{x <{Ypet{x> {Yfollow{x
+
+{COrder{x orders one or all of your charmed followers (including pets) to
+perform any command.  The command may have arguments.  You are responsible
+for the actions of your followers, and others who attack your followers
+will incur the same penalty as if they attacked you directly.
+
+Most charmed creatures lose their aggressive nature (while charmed).
+
+If your charmed creature engages in combat it will break the charm.
+
+By ordering your pet to stay or follow, you can control your pet's location.
+~
+
+0  SLEEP  WAKE	REST  SIT  STAND  WAKE~
+Syntax:
+   {Prest{x	   or {Prest{x {Yfurniture{x
+   {Psleep{x	   or {Psleep{x {Yfurniture{x
+   {Psit{x	   or {Psit{x {Yfurniture{x
+   {Ystand{x
+   {Ywake{x	   or {Ywake{x {Ccharacter{x
+
+These commands change your position.  When you {Prest{x or {Psleep{x, you
+regenerate hit points, mana points, and movement points faster.
+However, you are more vulnerable to attack, and if you {Psleep{x,
+you won't hear many things happen.
+
+You may choose to {Ysit{x when talking with a friend.
+
+If there is furniture available that supports sleeping, resting or
+sitting on, then you can specify the name of that item with your
+{Prest{x, {Psleep{x or {Psit{x command. You may sleep better in a bed
+than on the floor :)
+
+Use {Ystand{x or {Ywake{x to come back to a standing position.	You can
+also {Ywake{x to wake up other sleeping characters.
+~
+
+0 GTELL~
+Syntax:  {Vgtell{x <{Ymessage{x>
+
+{VGtell{x sends a message to all of the characters in your group, wherever they are,
+even if they are sleeping or stunned or dying.  '{V;{x' is a synonym for {Vgtell{x.
+~
+
+0 TELL REPLY DEAF~
+Syntax:  {Vtell{x  <{Ymessage{x>
+         {Vreply{x <{Ymessage{x>
+         {Vdeaf{x
+
+{VTell{x sends a message to one player anywhere in the world, providing you can see them.
+{VReply{x sends a message to the last player who sent you a {Vtell{x.  {VReply{x will work
+even if you can't see the player, and without revealing their identity.  This is handy
+for talking to invisible or switched immortal players.  If you don't want to receive tells
+from other players, type '{Vdeaf{x'.  You can type {Vdeaf{x again to turn tells back on.
+~
+
+0 SAY~
+Syntax:  {Vsay{x <{Ymessage{x>
+
+{VSay{x sends a message to all awake players in your room.  The single quote '{V'{x'
+is a synonym for {Vsay{x.
+~
+
+0 IGNORE~
+Syntax:
+   {MIgnore
+   {MIgnore {x<{Yvictim{x>
+
+The {Mignore{x command can be used to ignore all comments made by a certain
+player over most of the channels.  The only channels that are not covered
+by ignore are say, emote, and pmote.  Ignore by itself will show you a
+list of players who are currently being ignored.
+~
+
+0 QUERY QTELL~
+Syntax:
+   {VQuery list{x	: Lists names in your query.
+   {VQuery +{x <{Yname{x>   : Adds a name to your query.
+   {VQuery -{x <{Yname{x>   : Removes a name from query.
+   {VQuery clear{x	: Clears your query.
+   {VQtell {x<{Ymessage{x>  : Sends a message to your query list.
+
+The {VQuery{x channel is similar to the {VGtell{x channel.  However, you do
+not have to be following another player or be grouped with them to use the
+channel.  Whoever is in your {VQuery{x will receive your message when you
+use {VQtell{x, but it is important to remember that if you are replying to
+someone with the {VQtell{x channel, ensure that they are in your {VQuery list{x.
+~
+
+0 STORAGE VACATION~
+If you are leaving for an extended period of time, you may request that
+your character be put in storage, to avoid the necessary cleanup of
+inactive characters.  If you wish to do this, post a note to immortal
+or send an email to LegacyImms@yahoo.com.
+~
+
+0 NOTIFY~
+Syntax: {Cnotify{x
+
+Turns on the broadcast messages for notes.
+~
+
+0 NOTE  NOTES  PERSONAL  NEWS  ROLEPLAY  IDEA  CHANGES  TRADE  UNREAD~
+The notes on ROM replace the bulletin boards and mail systems found on many
+other MUDs.  The following options are usable:
+
+{Vreading notes:{x
+{c----------------
+{Rnote {Hlist{x       : show all notes (unread notes are marked with an N)
+{Rnote {Hlist new{x   : show all unread notes
+{Rnote {Hlist all{x   : show all notes in one continuous list
+{Rnote {Hlist {Y<name>{x: show all notes that are from the given name
+{Rnote {Hread{x       : either by number, or read next to read unread notes
+{Rnote {Hremove{x     : removes a note that you wrote or are the only target of
+{Rnote {Hcatchup{x    : marks all notes as read
+{Rnote {Hwipe{x       : marks all messages on all boards as read
+{Rnote {Hforward{x    : forwards a note (note forward 'forward list' number)
+{Rnote {Hrepost{x     : forwards a note to immortals
+{Rnote {Hmove{x       : moves a note you have written from its current board to
+                : another, eg. {RNOTE MOVE 69 IDEAS{x .
+
+{Vwriting new notes:
+{c--------------------
+{Rnote {Hto{x         : sets the TO line (see below)
+{Rnote {Hsubject{x    : sets the SUBJECT for a new note
+{Rnote {H+{x          : adds a line to a new note (e.g. {Rnote + hi guys!{x)
+{Rnote {H-{x          : remove a line from a note in progress
+{Rnote {Hclear{x      : erase a note in progress
+{Rnote {Hshow{x       : shows the note you are working on
+{Rnote {Hpost{x       : posts a new note. This MUST be done to post a note.
+{Rnote {Hformat{x     : capitalizes sentences, spaces sentences, word wrap
+{Rnote {Hreplace{x    : replace one string with another
+
+{CNotes to {YClans{C:      {Gnote to clan             {Y(only to your clan){x
+                     {Gnote to clans            {Y(all clans){x
+                     {Gnote to <clan name>      {Y(only to the clan specified){x
+
+     {CYou may also specify '{Yleaders{C' or '{Bdeputies{C' to limit the recipients.{x
+
+{CNotes to {YImmortals{C:  {Gnote to imms{x
+                     {Gnote to immortals{x
+
+When you log in, you will be informed if there are unread notes waiting. Type
+{Rnote read{x or {Rnext{x to scroll through them one at a time.
+
+Six other note directories exist, these are IDEAS, NEWS, CHANGES, PERSONAL,
+TRADE and ROLEPLAY.  They are used the exact same way, for example idea read
+5 will read idea #5.  Posting to the news and changes boards is
+restricted. The 'unread' command can be used to show your unread notes on
+all the note spools. See also {RHELP NEXT{x.
+
+The personal message board is slightly special.  If a note's recipient is
+strictly personal(playername, clanname, remort, or immortal), then it will
+automatically post to the personal message board.  If a personal message
+recipient includes "all" in it, then it will be automatically posted to the
+note message board.
+
+{P*****Tolerance*****{x
+
+{YIf you wish to ramble, post your notes to {Vspam{Y.{x
+Posting mindless, spammy notes to everyone on the mud is a waste of space,
+time, and patience.  If you are unsure if your note fits into the useless spam
+category, you probably don't want to post it.  If you really want to post it,
+then check with the Immortals.  Note that we have other things on our list of
+chores, and will be bothered by repeated queries.  Notes in poor taste will
+be removed.
+
+{PExcessive swearing on global note boards (ie. {YNOT{P personal) is strictly
+prohibited.{x
+
+If you swear in a personal note, be sure the person receiving the note 
+will not be offended, as none of the note boards are censored.  The Immortals
+will use their judgment as to how much swearing is tolerable.  If an Immortal
+tells you to remove a note, remove it, and note the Imp if you have any
+concerns.
+
+~
+
+0 CLANNOTES LEADERNOTES DEPUTYNOTES~
+{CNotes to {YClans{C:
+      {Gnote to clan             {Y(only to your clan){x
+      {Gnote to clans            {Y(all clans){x
+      {Gnote to <clan name>      {Y(only to the clan specified){x
+
+{CYou may also specify '{Yleaders{C' or '{Bdeputies{C' to limit the recipients.{x
+~
+
+0 IMMNOTES IMMORTALNOTES~
+{VNoting {CImmortals{x:
+
+     {Vnote to {Yimms{x
+     {Vnote to {Yimmortals{x
+
+Both will work.
+~
+
+0 OOC  RP  ROLEPLAY~
+Syntax: {Cooc{x
+
+This will toggle on and off a flag within the who/whois list. It is used for
+verifying "out of character"/"role playing" characters from other individuals.
+~
+
+0 IC~
+Syntax: {CIC{x     <{Ymessage{x>
+
+{CIC is {BL{Ce{gg{Wa{Cc{By's{x public roleplay channel. It is used to publically interact 
+in character with other players that are in character. To use {CIC{x, you must 
+first be in character. 
+
+{YSee Also:{x OOC RP Roleplay
+~
+
+0 GOSSIP . YELL~
+Syntax:
+   {Ggossip{x  <{Ymessage{x>
+   {Cyell{x   <{Ymessage{x>
+
+{GGOSsip{x is a variant of {Rshout{x (without the delay).  '{G.{x' is a
+synonym for {GGOSssip{x.
+
+{CYell{x sends a message to all awake players within your area.
+
+Type a channel name by itself to turn it off.
+~
+
+0 EMOTE POSE~
+Syntax:
+   {Memote{x {Yaction{x
+   {Msocial emote{x {Yaction{x
+   {Mpose{x
+
+{MEmote{x is used to express emotions or actions. Whatever you type
+in as the {Yaction{x will be seen by people in the room (or all over
+the MUD if you use {Msocial emote{x) with your name in front of it.
+
+Whatever action you want to show, chances are it's already available
+as a pre-built {Ysocial{x. Type {Mhelp socials{x for information about
+these 'canned' actions and {Msocials{x to see the list.
+
+{VPose{x produces a random message to your room depending on your class
+and level. The message generally shows off your prowess at whatever your
+class does.
+~
+
+0 MORESOCIALS~
+Although {bL{Ye{Wga{Yc{by{x has {GMANY{x socials at present, people keep thinking up new
+ones. There is room for some more, but the implementor must keep watching
+the socials count in {VMEMORY{x and check it against {YMAX_SOCIALS{x in the code.
+{PAn overabundance of socials caused the Great Crash of July 1997 :({x
+
+Assuming that '{Ychar{x' is the one who performs the social,
+'{Yvictim{x' is the one 'char' does it to (if anybody), and
+'{Yroom{x' means third parties in the room observing the social,
+a complete definition of a social consists of 8 strings:
+
+{c/=============================================================================\
+{c|{N(1){c| {Gsocial name		    {c| {Ylaugh 				  {c|
+{c|{N(2){c| {Gmsg to char if done to nobody {c| {YYou fall down laughing.		  {c|
+{c|{N(3){c| {Gmsg to room if done to nobody {c| {Y$n falls down laughing.		  {c|
+{c|{N(4){c| {Gmsg to char if victim found   {c| {YYou laugh at $N mercilessly.		  {c|
+{c|{N(5){c| {Gmsg to room if victim found   {c| {Y$n laughs at $N mercilessly.		  {c|
+{c|{N(6){c| {Gmsg to victim		    {c| {Y$n laughs at you mercilessly. Hmmph.	  {c|
+{c|{N(7){c| {Gmsg to char if victim=char    {c| {YYou laugh at yourself. I would, too.	  {c|
+{c|{N(8){c| {Gmsg to room if victim=char    {c| {Y$n laughs at $mself. Let's all join in! {c|
+{c\=============================================================================/
+
+Social name must always be in lower case. Social text should be no longer
+than 70 chars. Here are the definitions of the $ characters:
+
+{c/{GItem      {c/{BFor Char	{c/{PFor Victim
+{c===================================
+{c={Gname       {B$n	       {P$N	  {c=
+{c={Ghe/she     {B$e	       {P$E	  {c=
+{c={Ghim/her    {B$m	       {P$M	  {c=
+{c={Ghis/hers   {B$s	       {P$S{x	  {c=
+{c={G(his/her)			      {c=
+{c===================================
+~
+
+0 SEMOTE~
+Syntax: {Csemote{x <{Yaction{x>
+
+{CSemote{x works exactly like emote, except you must place your name somewhere in
+the string, and it will show that string to everyone in the room.
+~
+
+0 HOLD REMOVE WEAR WIELD~
+Syntax:
+   {Chold{x   <{Yobject{x>
+   {Vremove{x <{Yobject{x>
+   {Pwear{x   <{Yobject{x>
+   {Pwear  all{x
+   {Gwield{x  <{Yobject{x>
+
+Three of these commands will take an object from your inventory and start using
+it as equipment.  {CHold{x is for light sources, wands, and staves.  {PWear{x is for
+armor, and {Gwield{x is for weapons.
+
+You may {Pwear{x objects up to 5 levels higher than your level.
+
+{YWear all{x will attempt to {Chold{x, {Pwear{x, or {Gwield{x each suitable item in your
+inventory.
+
+You may not be able to {Chold{x, {Pwear{x, or {Gwield{x an item if its alignment does not
+match yours, if it's too heavy for you, or if you're not experienced enough
+to use it properly.
+
+{VRemove{x will take any object from your equipment and put it back into your
+inventory.
+~
+
+0 BUG TYPO~
+Syntax:
+   {Mbug{x <{Ymessage{x>
+   {Vtypo{x <{Ymessage{x>
+
+These commands will take your message and record it into a file as feedback
+to the mud implementors.
+~
+
+0 COMMANDS~
+Syntax:
+   {Ccommands{x
+   {Ccommands{x <{Ygroup-name{x>
+   {Ccommands{x <{Ygroup-number{x>
+
+{CCommands{x without an argument will display the groups of commands.
+
+{CCommands{x with an argument will display the contents of the specified
+group.	The contents will be a listing of all commands pertaining
+to that particular group.
+
+To get more information about a particular command, type
+  {Chelp{x {Ycommand-name{x .
+~
+
+0 WEATHER~
+Syntax:  {Vweather{x
+
+{VWeather{x shows the current game weather.
+~
+
+0 REPORT SCORE~
+
+Syntax:  {Vreport{x
+         {Vreport all{x
+         {Vscore{x
+
+{VReport{x shows your current statistics to you and also announces them to other
+players in the room.  {VReport all{x reports those statistics, as well as what
+spells are currently affecting you.  {VScore{x shows much more detailed statistics
+to you only.  Your ability scores are shown as true value(current value), so for
+example Str: 15(23) means you have a 15 strength from training, but a 23 strength
+from other factors (spells or items).
+~
+
+0 TIME~
+Syntax:  {Vtime{x
+
+{VTime{x shows the game time, as well as the time the mud was last started,
+and the current local time for the host computer.
+~
+
+0 WHO~
+Syntax:
+   {Vwho{x
+   {Vwho{x <{Ylevel-range{x>
+   {Vwho{x <{Yclass or race{x>
+   {Vwho{x <{Yclan name{x>
+   {Vwho{x <{Yclass or race{x> <{Ylevel-range{x> <{Yclan name{x>
+
+{VWho{x shows the people currently in the game.  Some people may choose to
+remain unseen and won't appear on the {Vwho{x list.
+
+{VWho{x without any arguments shows all of the (visible) people currently playing.
+
+With arguments, {Vwho{x can show players of certain classes or levels.
+For example:
+
+   {Vwho 10{x	       lists all players of level 10 or above
+   {Vwho 15 20{x       lists all players between level 15 and 20
+   {Vwho cleric{x      lists all clerics playing
+   {Vwho immortal{x    lists all immortals playing
+   {Vwho cleric 1 5{x  lists all clerics between levels 1 and 5
+   {Vwho elf cleric{x  lists all elven clerics
+   {Vwho demise e m{x  lists all elven mages in Demise
+
+Classes and races may be abbreviated.
+~
+
+0 WHOIS  SWHO  SHORTWHO  PRIVATE~
+Syntax:
+   {Cwhois{x <{Yname{x>
+   {CSwho{x
+   {Cshortwho{x
+   {Cprivate{x
+
+The {Cwhois{x command identifies any user who matches the name given. For
+example, 'whois a' shows all characters whose name begins with A.
+
+The {Cshortwho{x command is similar to who, but it displays some different
+information.
+
+The {Cprivate{x command will toggle on and off having your room name displayed
+in the {Cshortwho{x command.
+~
+
+0 WHERE~
+Syntax:
+   {Cwhere{x
+   {Cwhere <{Ycharacter{x>
+
+{CWhere{x without an argument tells you the location of visible players in the same
+area as you are.
+
+{CWhere{x with an argument tells you the location of one character with that name
+within your area, including monsters.
+~
+
+0 HELP~
+Syntax:
+   {Chelp{x
+   {Chelp{x <{Ykeyword{x>
+   {Chelp{x <{Yletter{x>
+
+{CHelp{x without any arguments shows a one-page command summary.
+
+{CHelp{x <{Ykeyword{x> shows a page of help on that keyword.  The keywords include
+all the commands, spells, and skills listed in the game.
+
+{CHelp{x <{Yletter{x> will show all the help files that contain at least one
+keyword starting with that letter.
+~
+
+0 DESCRIPTION DESC~
+Syntax:
+   {Vdescription{x <{Ystring{x>
+   {Vdescription{x '{Y+{x' <{Ystring{x>
+   {Vdescription{x '{Y-{x'
+
+Sets your long description to the given string.  If the description string
+starts with a '{Y+{x', the part after the '{Y+{x' is appended to your current
+description, so that you can make multi-line descriptions. You can delete
+lines by using description '{Y-{x'.
+~
+
+0 PASSWORD~
+Syntax: {Cpassword{x <{Yold-password{x> <{Ynew-password{x>
+
+{CPassword{x changes your character's password.  The first argument must be
+your {Pold{x password.	The second argument is your {Rnew{x password. The {Cpassword{x
+command is protected against being snooped or logged.
+~
+
+0 TITLE~
+Syntax: {Ctitle{x <{Ystring{x>
+
+Sets your {Ctitle{x to a given string.	You can use
+{Ctitle{x to set your {Ctitle{x to something else.
+~
+
+0 WIMPY~
+Syntax:
+   {Pwimpy{x
+   {Pwimpy{x <{Ynumber{x>
+
+{PWimpy{x sets your {Pwimpy{x value.  When your character takes damage that reduces
+your hit points below your {Pwimpy{x value, you will automatically attempt to flee.
+You will only flee if your character is not in a wait state -- i.e. has not
+been using combat commands like cast, trip, and bash, and has not been
+tripped or bashed by an enemy.
+
+{PWimpy{x with no argument sets your {Pwimpy{x value to 20% of your maximum hit points.
+
+Some monsters are wimpy.
+~
+
+0 OPEN CLOSE LOCK UNLOCK~
+Syntax:
+   {Copen{x  <{Yobject|direction{x>
+   {Vclose{x  <{Yobject|direction{x>
+   {Glock{x   <{Yobject|direction{x>
+   {Gunlock{x <{Yobject|direction{x>
+
+{COpen{x and {Vclose{x open and closes an object or a door.
+
+{GLock{x and {Gunlock{x lock and unlock a closed object or door, and you
+must have the appropriate key to {Glock{x or {Gunlock{x.
+~
+
+0 DRINK  EAT  FILL  POUR~
+Syntax:
+   {Cdrink{x <{Yobject{x>
+   {Peat{x   <{Yobject{x>
+   {Peat{x   <{Cnumber{x>{P*{x<{Yobject{x>
+   {Peat{x
+   {Gfill{x  <{Yobject{x>
+   {Vpour{x  <{Yobject{x> {Vout{x
+   {Vpour{x  <{Yobject{x> <{Yobject{x>
+   {Vpour{x  <{Yobject{x> <{Ycharacter{x>
+
+{CDrink{x when you are thirsty, and {Peat{x when you are hungry.
+
+{PEat{x, without an argument, will attempt to eat the first item of food
+in your inventory.
+
+{CDrink{x, without an argument, will attempt to drink from a fountain.
+
+If you are {Yvery{x hungry, you can eat {Ymultiple objects of the same type{x
+by typing a number and an asterisk ({C*{x) before the name of the object.
+Example: {Peat 5*bread{x.
+
+{GFill{x fills a drink container with water.
+
+{YPour{x transfers a liquid to a container, or empties one.
+You can also pour from an object into something a character is holding.
+~
+
+0 BUY  LIST  SELL  VALUE~
+Syntax:
+   {Cbuy{x   <{Yobject{x>
+   {Vlist{x
+   {Vlist{x  <{Yname{x>
+   {Psell{x  <{Yobject{x>
+   {Gvalue{x <{Yobject{x>
+
+{CBuy{x buys an object from a shopkeeper. When multiple items of the same
+name are listed, type 'buy n.item', where 'n' is the position of the item in
+a list of that name.  So if there are two swords, buy 2.sword will buy the
+second. If you want to buy multiples of an item, use an * (buy 5*pie will
+buy 5 pies).  These can be combined into (for example) buy 2*2.shield,
+as long as the * is first.
+
+{VList{x lists the objects the shopkeeper will sell you. {VList{x <{Yname{x>
+shows you only objects of that name.
+
+{YSell{x sells an object to a shopkeeper.
+
+{GValue{x asks the shopkeeper how much he/she/it will buy the item for.
+~
+
+0 SACRIFICE TAP JUNK  DONATE~
+Syntax:
+   {CSacrifice{x <{Yobject{x>
+   {CTap{x <{Yobject{x>
+   {PJunk{x <{Yobject{x>
+   {VDonate{x <{Yobject{x>
+
+{CSacrifice{x offers an object to the gods, who may reward you.
+The nature of the reward depends upon the level of object.
+
+{CTap{x does the same as sacrifice.
+
+{PJunk{x removes an item from your inventory.  The gods do
+not offer any rewards for junked items.
+
+{VDonate{x transports an item from your inventory to the Donation
+Pit in Midgaard.
+~
+
+0 SCROLL~
+Syntax: scroll
+Syntax: scroll <number>
+
+This command changes the maximum number of lines that will be sent to your
+screen at once. If you look at something longer than your scroll number,
+(a long description, note, or inventory, for instance) you will have to
+[Hit enter to continue] for each page. The default scroll value is 24 lines.
+~
+
+0 BRANDISH STAFF WAND QUAFF RECITE ZAP~
+Syntax:
+   {PBrandish{x
+   {CQuaff{x	<{Ypotion{x>
+   {VRecite{x	<{Yscroll{x> <{Ytarget{x>
+   {GZap{x	<{Ytarget{x>
+   {GZap{x
+
+{PBRANDISH{x brandishes a magical staff.  {CQUAFF{x quaffs a magical potion (as opposed
+to DRINK, which drinks mundane liquids).  {VRECITE{x recites a magical scroll; the
+<target> is optional, depending on the nature of the scroll.  {GZAP{x zaps a
+magical wand at a target.  If the target is not specified, and you are fighting
+someone, then that character is used for a target.
+
+You must {RHOLD{x a wand or a staff before using {PBRANDISH{x or {GZAP{x.
+
+All of these commands use up their objects.  Potions and scrolls have a single
+charge.  Wands and staves have multiple charges.  When a magical object has no
+more charges, it will be consumed.
+
+These commands may require an item skill to be succesful, see the help entries
+on the skills scrolls, staves, and wands for more information.
+~
+
+80 SCON CONSIDER~
+Syntax: {Cscon{x <{Yvictim{x>
+	{Cscon{x <{Yvictim{x> {Cmore{x
+        {Cconsider{x <{Yvictim{x>
+
+The scon command is a short consider that displays only hit points, mana, and
+level of a mobile.  If you add the more flag then you will also see immunities,
+vulnerabilities, resistances, alignment, and affects.
+
+The more powerful {Cconsider{x available to high level players will show a
+great deal of information, some useful, some not.  It is subject to change
+without warning, however :)
+~
+
+0 CONSIDER~
+Syntax: {Cconsider{x <{Ycharacter{x>
+
+{VConsider{x tells you what your chances are of killing a monster.
+Of course, it's only a rough estimate.
+~
+
+0 FOLLOW  GROUP~
+Syntax:
+   {Cfollow{x <{Ycharacter{x>
+   {Cgroup{x
+   {Cgroup{x <{Ycharacter{x>
+
+{CFollow{x starts you following another character.  To stop following anyone else,
+just {CFollow{x <{Yyourself{x>.
+
+{CGroup{x <{Ycharacter{x> makes someone who is following you a member of your group.
+Group members share experience points from kills and may use the Gtell and
+Split commands.  If anyone in your group is attacked, you will automatically
+join the fight.
+
+If the <{Ycharacter{x> is already a member of your group, then {Cgroup{x will
+kick out the <{Ycharacter{x> from your group.  Characters can also leave your
+group by using a {Cfollow{x command to stop following you.
+
+{CGroup{x with no argument shows statistics for each character in your group.
+
+You may {Cgroup{x only with characters who are within six levels of your own.
+
+See also: {Chelp nofollow{x .
+~
+
+0 VISIBLE~
+{PVisible{x cancels your hiding and sneaking, as well as any invisibility,
+making you visible again.
+~
+
+0 QUIT	RENT  SAVE~
+Syntax:
+   {Cquit{x
+   {Ysave{x
+
+{YSave{x saves your character and objects.  The game saves your character every
+15 minutes regardless, and is the preferred method of saving.  Typing {Ysave{x
+will block all other commands for about 20 seconds, so use it sparingly.
+(90+ players all typing save every 30 seconds just generated too much lag)
+
+Some objects, such as a few keys , may not be saved.
+
+{CQuit{x leaves the game.  You may {Cquit{x anywhere.  When you re-enter the game
+you will be back in the same room.
+
+{CQuit{x automatically does a {Ysave{x, so you can safely leave the game with just one
+command.  Nevertheless it's a good idea to {Ysave{x before {Cquit{x.  If you get into
+the habit of using {Cquit{x without {Ysave{x, and then you play some other mud that
+doesn't save before quitting, you're going to regret it.
+
+There is no {PRENT{x in this mud.  Just {Ysave{x and {Cquit{x whenever you want to leave.
+
+For maximum safety of your player file, see also {CBACKUP{x.
+~
+
+0 RECALL /~
+Syntax: {Crecall{x
+
+{CRecall{x prays to Mota for miraculous transportation from where you are
+back to the Temple of Midgaard.  '{C/{x' is a synonym for {Crecall{x.
+
+If you {Crecall{x during combat, you will lose experience (more than for fleeing),
+and you will have a chance of failing (again, more than for fleeing).  This
+chance is based on your {Crecall{x skill, although a 100% {Crecall{x does not
+ensure success. {CRecall{x costs half of your movement points.	{CRecall{x
+doesn't work in certain god-forsaken rooms, and characters afflicted by a
+curse may not {Crecall{x at all.
+~
+
+0 SPLIT~
+Syntax: {Msplit{x <{Ysilver{x> <{Ygold{x>
+
+{MSplit{x will split the amount of coins between you and all the members of
+your group who are in the same room as you.  It's customary to {Msplit{x the
+loot after a kill.  The first argument is the amount of silver (0 is
+acceptable), and the second gold (optional).
+Examples:
+{Msplit{x 30	    --> split 30 silver
+{Msplit{x 20 50     --> split 20 silver, 50 gold
+{Msplit{x  0 10     --> split 10 gold
+~
+
+0 PRACTICE~
+Syntax:
+   {Vpractice{x
+   {Vpractice abc{x <{Yskill|spell or abbreviation{x>
+   {Vpractice %{x
+   {Vpractice groups{x
+   {Vpractice groups{x <{Ygroup name or abbreviation{x>
+   {Vpractice{x <{Yskill|spell{x>
+
+{VPractice{x without an argument or {Rpractice abc{x tells you your
+current ability level in all the skills and spells available to you.
+You can check this anywhere. The list is sorted in alphabetical order.
+
+{VPractice abc{x and one or more letters will restrict the list to
+spells and skills beginning with those letters.
+
+{VPractice %{x will show your skills and spells sorted in decreasing
+order of proficiency.
+
+{VPractice groups{x will show your your skills and spells by skill/
+spell groups. If you type a group name after the {Rgroups{x, the list
+will be limited to that group or those groups matching what you typed.
+
+{VPractice{x with an argument practices that skill or spell.  Your learning
+percentage varies from 1% (unlearned) to a maximum between 80% and 100%,
+depending on your class.  You must be at a guildmaster to practice, and
+you can practice to a maximum of 75% with practice sessions; beyond that
+you must learn in combat.
+
+The higher your intelligence, the more you will learn at each practice
+session.  The higher your wisdom, the more practice sessions you will
+have each time you gain a level.  Unused sessions are saved until you
+use them.
+~
+
+0 TRAIN~
+Syntax: {Ctrain{x <{Ystr int wis dex con chr hp mana{x>
+
+{CTRAIN{x increases one of your attributes.  When you start the game, your
+character has standard attributes based on your class, and several
+initial training sessions.  You can increase your attributes by
+using these sessions at a trainer (there are several in town).
+
+It takes one training session to improve an attribute, or to increase
+mana, hp, or movement by 10.  You receive one session per level.
+
+The best attributes to train first are {PWIS{x and {PCON{x.  {PWIS{x gives you more
+practice when you gain a level.  {PCON{x gives you more hit points.
+In the long run, your character will be more powerful if you train
+{PWIS{x and {PCON{x both to 18 before practicing or training anything else.
+~
+
+0 TRUST~
+Having trust enables your character to have access to commands at 
+your trust level.  However, it does not change the permanant stats 
+of your character.  Thus, having trust of 91 allows your character 
+to have access to the hero channel and the scon command even though 
+you are below the required level.
+~
+
+0 AUCTION~
+Syntax:
+   {Vauction{x
+   {Vauction{x <{Yitem{x>
+   {Vauction{x <{Yitem{x> <{Yminimum bid{x>
+   {Vauction status{x
+   {Vauction bid{x <{Yamount{x>   (in {Ygold{x)
+   {Vauction stop{x	      ({PImmortal Only{x)
+
+{VAuction{x without an argument will turn the auction channel off and on.
+{VAuction{x with an argument will select an item for auction.
+{VAuction status{x will display some information about the object
+    including the current bids.
+{VAuction bid{x will place your bid. + and * can be used to increase bids
+    by a fixed percentage or amount.
+    You must bid at least 1 gold if the auction has just started, or
+    1 gold more than the previous bidder. Note that all amounts are
+    numbers of {Ygold{x coins, and you must be carrying the actual
+    number of gold coins you wish to bid; the auction mechanism will
+    not exchange coinage for you.
+{VAuction{x with a minimum bid prevents your item for being sold too
+    cheaply.  The minimum bid cannot be greater than 1/2 the cost of the
+    item up for auction.
+{VAuction stop{x can be used by {PImmortals{x to confiscate auctioned items.
+~
+
+0 GLOBAL SOCIAL~
+Syntax:
+   {Vsocial{x
+   {Vsocial{x <{Ymessage{x>
+   {Vsocial{x <{Ysocial{x>		(see {VSOCIALS{x and {VHELP SOCIALS{x)
+   {Vsocial emote{x <{Ymessage{x>	(see {VHELP EMOTE{x)
+
+The {Vsocial{x channel is used for displaying your actions across the MUD.
+Typing {Vsocial{x by itself will turn the channel on or off.
+{Vsocial{x <{Ymessage{x> shows everyone in the MUD:
+  {G[S] {Yyour-name{x {Gsocializes '{x<{Ymessage{x>{G'{x
+{Vsocial{x <{Ysocial{x> shows the given social to everyone in the MUD.
+  {Vsoc hop{x yields:
+  {G[S] {Yyour-name{x {Ghops around like a little kid.{x
+{Vsocial emote <{Ymessage{x> allows you to show a custom message to everyone:
+  {G[E]{x <{Yyour-name{x> <{Yyour-message{x>{G.{x
+~
+
+0 FLAME~
+Syntax: {Pflame {g<{Vmessage{g>{x
+	{Pflame who{x
+	{Pflame{x
+
+Flame is a channel intended for complaints, frustrations, and otherwise 
+inappropriate language that you are free to air here.  Foul language and
+swearing otherwise not allowed should be used here, where people have the
+option to turn the channel off if they do not feel like listening.  
+
+Typing {Pflame{x without any messages turns the flame channel off for you
+so you don't hear other peoples' flames, or turns it back on if off.
+
+{Pflame who{x will tell you who else is tuned in to this channel at the
+moment.
+
+{YSEE ALSO: {xHelp Censor
+~
+
+0 QWEST @~
+Syntax: {Rqwest{x {Ymessage{x
+	{Rqwest who{x
+	{Rqwest{x
+
+This command lets you communicate quest-related information to others in
+the game. It's spelled funny so as not to conflict with the {Rquest{x
+command, which is already used for something else. This channel is
+typically used to communicate questions and answers for trivia quests,
+or to issue instructions for major quests.
+
+'@' is a valid short form for the {rqwest{x command.
+
+Typing {Rqwest{x without any messages turns the channel off for you
+if you're not concerned with the quest, or turns it back on if off.
+
+{Rqwest who{x will tell you who else is tuned in to this channel
+at the moment.
+~
+
+0 PRAY~
+Syntax: {Rpray{x {Ymessage{x
+	{Rpray who{x
+	{Rpray{x
+
+This command is for communication between mortals and immortals. When
+you {rpray{x, chances are that some immortal will hear you and answer
+your concern, if it's valid. Note that the immortals are pretty busy
+folk and often don't have time to chat about trivial things with
+everyone in the game. Try not to take up TOO much of their time.
+
+Typing {Rpray{x without any messages turns the channel off for you
+or back on again, but it's not really important if you're a mortal
+because you can't hear prayers anyway.
+
+{Rpray who{x will tell you who else is tuned in to this channel
+at the moment.
+~
+
+0 ANNOUNCE FYI~
+Syntax: {Rannounce{x
+
+The {Rannounce{x command lets you turn your reception of game
+announcements (they start with [FYI]) on if they're off or off if
+they're on.
+~
+
+0 MUSIC~
+Syntax: {Rmusic{x {Ymessage{x
+	{Rmusic who{x
+	{Rmusic{x
+
+This command lets you pretend to be singing or making music to the
+public population of Thera.
+
+Typing {Rmusic{x without any messages turns the channel off for you
+if you don't want to hear any music, or turns it back on if off.
+
+{Rmusic who{x will tell you who else is tuned in to this channel
+at the moment.
+~
+
+0 QUESTION ANSWER Q/A~
+Syntax: {Rquestion{x {Ymessage{x   or {Ranswer{x {Ymessage{x
+	{Rquestion who{x       or {Ranswer who{x
+	{Rquestion{x	       or {Ranswer{x
+
+The Question/Answer channel, called Q/A, really has two commands to
+operate it: {Rquestion{x and {Ranswer{x. They do the same thing, so you
+could ask a question with {Ranswer{x and answer one with {Rquestion{x.
+Your questions and/or answers will be heard all over the MUD. This
+channel is typically used by players who have a tricky problem and are
+looking for other players with a good answer to the problem.
+
+Typing {Rquestion{x or {Ranswer{x without any messages turns the channel off
+for you if you don't want to hear any of these, or turns it back on if off.
+
+{Rquestion who{x or {Ranswer who{x will tell you who else is tuned in to this
+channel at the moment.
+~
+
+0 GRATS~
+Syntax: {Rgrats{x {Ymessage{x
+	{Rgrats who{x
+	{Rgrats{x
+
+'grats' is a channel dedicated to congratulating other players,
+especially for levelling. Yes, 'grats' is short for 'congratulations'.
+
+Typing {Rgrats{x without any messages turns the channel off for you
+if you don't want to hear any gratulations, or turns it back on if off.
+
+{Rgrats who{x will tell you who else is tuned in to this channel
+at the moment.
+~
+
+0 HERO~
+Syntax: None. You gotta make it through 90 levels. :)
+
+'Hero' is the only mortal level with a name. It is the name of level 91,
+the last non-immortal level. It takes a lot of work to get here, so
+heroes are usually held in high regard in the game. Heroes gain a number
+of convenient privileges when they reach this level. For one, they can
+die without losing experience.
+
+On the other hand, heroes do not gain experience. When they are done
+showing off their newly-found power, their best bet is to ask an Imm
+for a {CREMORT{x and start over as a rather powerful newbie. See
+{RHELP REMORT{x for details on the exciting career of being reborn.
+~
+
+0 PMOTE~
+Syntax: {Rpmote{x message
+
+{Rpmote{x works a lot like {Remote{x, but if you do it correctly, any
+full-name references to other people in the room (properly spelled and
+capitalized) will be translated to 'you' and 'your' for the person
+so named.
+
+Example: Elrac types: {Ypmote slaps Vicky.{x
+	 Vicky sees:  {CElrac slaps you.{x
+	 Ronja sees:  {CElrac slaps Vicky.{x
+
+In other words, {Rpmote{x is a way to do {Remote{xs with a better chance
+of naming people correctly such that nobody in the room can tell the
+difference between a real action and an emoted one.
+~
+
+0 PAGE~
+Syntax: {Rpage{x {Yplayer message{x
+	{Rpage{x
+
+'page' is a message channel you can use if you're desparate to get the
+attention of another player. It sends a message to a particular player,
+just like {Rtell{x does, but it comes through in red if the person's
+terminal supports colors, and is accompanied by a bell sound if the
+person's terminal supports that. You can see it being a bit loud and
+bothersome to some people, so please don't overuse it.
+
+{Rpage{x is a good way to get people back to their terminals if they
+are AFK (away from keyboard), as it goes through the AFK state, unlike
+{Rtell{x.
+
+Typing {Rpage{x without any messages turns the channel off for you
+if you don't want to be paged, or turns it back on if off.
+~
+
+0 DAMAGE~
+Legacy Damage List:
+
+{c/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\{x
+
+  {Ymiss        {Mdecimate               {c::: {RDEMOLISH {c:::
+  {bscratch     {Vdevastate              {T*** {CSTOMP {T***
+  {Ggraze       {Pmaim                   {M@@@ {VINCINERATE {M@@@
+  {Hhit         {PM{cU{PT{cI{PL{cA{PT{cE               {N=== {BOBLITERATE {N===
+  {Ninjure      {BDI{NSE{BMB{NOW{BEL             {H>>> {GANNIHILATE {H<<<
+  {Cwound       {MDI{YSM{MEM{YBE{MR              {b<<< {YERADICATE {b>>>
+  {Bmaul        {BDE{bCA{BPI{bTA{BTE             {R[#[ {PVAPORIZE {R]#]
+
+{c\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/{x
+
+And in the far reaches of power, you can do {PUN{RSP{PEA{RKA{PBL{RE{x things to
+your opponent or even bring a touch of {RD{cE{RA{cT{RH{x to their soul.
+~
+
+0 NEWBIE INFO~
+//////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Helpful Commands for Newbies:
+
+{CHELP FILES{x - Auto, Death, Gold, Player, Rooms, Clans, Changes,
+Color, Credits, Levels, and Email.
+
+{VNON NEWBIES{x: The majority of your auto commands have been set to
+'ON' for your convenience.
+
+You are born with a newbiebag token in your hand. Give it to the
+healer 1 north of recall to get your very own newbiebag! It holds
+several useful items including a manual and hints on MUDding.
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\//////////////////////////////////
+~
+
+50 NEWBIEBAG~
+Syntax:
+   {Vnewbiebag{x
+
+{VNewbiebag{x is a command that lets certain individuals create newbiebags.
+~
+
+0 'CRAZY COLOR'  COLOR  CTEST~
+{WSyntax: Color
+Toggles Color on and off (Nuff Said).
+
+{GSyntax: Color <channelname> <colorname>
+Channelname is the name listed in your channel list and color is the
+color name listed in ctest.
+
+{YSyntax: Color <scoreitem> <colorname>
+Scoreitem is one of the names listed in 'HELP SCORE' and color is the
+color name listed in ctest.
+
+{CSyntax: Color reset
+Resets to the default color scheme that we have all grown attached to =)
+
+{PSyntax: Ctest
+Shows a list of colors and their names that can be used for custom color.
+The letters within the ()'s are for the prompt colors.  The letters tend
+to be the first character in the color's name.  However, "earth" tones
+(brown, black, charcoal, and grey) are lower case letters.
+
+{VSyntax: Color Crazy
+Toggles Crazy Color on and off.
+Crazy color is a feature at Legacy that allows you to use you own personal
+color codes anywhere you desire.  This is done by placing a {{ before the
+color code letter listed in ctest.  Therefore, you can get a very colorful
+message by using the following sequence:
+
+		 {R{{RH{Y{{Ye{G{{Gl{B{{Bl{V{{Vo{W{{W!!{x{{x
+
+The code: {{x will return your color back to the default color (or custom
+	  color that is normally used.
+~
+
+0 COLORABLE THINGS~
+All channel colors can be customized.  Type: channels for current settings.
+
+Score items can be customized.	Type: score for current settings.  See
+'help score' for the item names.
+
+Here are some other various things that can be color customized:
+     Roomname	  Mobiles     Objects	  Players     Inventory
+~
+
+0 SCORE~
+Syntax:
+   {Cscore{x
+   {Cchangescore{x
+
+{CScore{x is a command that lists various important data about your character.
+
+{CChangescore{x can be used to toggle between three different versions of
+{Cscore{x:  the classic version is the {Cdefault score{x for rom muds; the
+{Cshort version{x is just a shorter version of the classic score; and the {Cmenu{x
+{Cscore{x is in a list format making it easier to read.  The {Cmenu score{x
+colors can also be customized by using the color command and the following
+item names:
+
+Score Section			: Keyword for color command
+-----------------------------------------------------------
+Line with name, title, and time : (name)
+Line with PK data		: (pkill)
+Line with class, race, and sex	: (class)
+The five basic stats		: (stat)
+Armor class values		: (armor)
+Hit points, mana, and movement	: (points)
+Items held and weight		: (weight)
+Trains and practices		: (gain)
+Alignment and wimpy		: (align)
+Gold and silver 		: (money)
+Hitroll and damroll		: (diceroll)
+~
+
+0 SCAN~
+Syntax:
+   {Cscan{x
+   {Cscan{x <{Ydirection{x>
+
+{CScan{x will tell you the location of players and mobs that are within
+one room distance from your location.  It will also show who is
+currectly in the room with you.  Scanning in one direction will show
+you what is off in the distance, and also will show closed doors.
+~
+
+0 CHANNELS QUIET~
+Syntax:
+   {x<{Ychannelname{x>
+   {x<{Ychannelname{x> {Vwho{x
+   {Vchannels{x
+   {Vquiet{x
+
+Simply entering the channel's name will toggle it on or off.
+Entering the channel and adding {Vwho{x will list the people who
+currently have the channel enabled.
+
+{VChannels{x alone will list your channels, label them on or off, tell you
+if you're quiet, give your prompt string, and display your aura, among
+other things.
+
+The current channels available to mortals:
+Gossip, Auction, Music, Q/A (Question / Answer), IC (the roleplay channel), 
+Grats, Clan, Flame, Philosophy, Query, Qwest, Pray, Clantalk,
+Music, Social, Page and Tell.
+
+Other channels with status restrictions:
+The Announce (FYI) Channel shows you detailed info on:
+   Players leveling, leaving, joining, dying, and PKing.
+Immtalk is an Imm only channel.
+
+To turn off your channels, just type the channel name without
+any text following the name.  To turn off all channels, type: {Cquiet{x.
+For more help on any given channel, type {CHELP{x {Ychannel-name{x.
+~
+
+0 CHATMODE~
+Syntax: {Cchatmode{x
+
+This toggles on and off the hunger/thirst/sober messages that can get
+annoying if you are conversing instead of playing.
+~
+
+0 SAVES ARMORCLASS THAC0 HITROLL DAMROLL~
+
+{GSome explanations of frequently misunderstood stats{x
+
+    {YSAVES{x
+The {YSaves{x value represents your ability to resist spells; the
+lower the better, with {Cnegative{x values being very good.
+
+    {YARMOR CLASS{x
+The {YAC{x ({YArmor Class{x) values represent how hard it is to hit you.
+A lower value means you are harder to hit.  There are four
+categories : pierce, bash, slash, and magic.  Again, {Cnegative{x values
+are even better than low positive values.
+
+    {YTHAC0{x
+The {YThac0{x ({YTo-Hit-AC-Zero{x) represents your base ability to hit
+enemies.  This value only depends on your level and class.  A lower
+value means you hit more easily. {CNegative{x values are great.
+
+    {YHIT ROLL{x / {YDAM ROLL{x
+{YHit Roll{x and {YDam Roll{x represent your ability to hit enemies
+and to hurt them.  They depend on the objects you are wearing,
+on your weapon, and on your strength and dexterity.  The {Rhigher{x
+this value, the better a fighter you are.
+~
+
+0 COPYOVER~
+{RCOPYOVER{x is an imm command which is used to re-load the game for
+changes in areas or program software. {YMortals{x should know this:
+
+A copyover is not always successful, it may crash the game. You should
+{RSAVE{x when a copyover is announced.
+
+If the copyover crashes the game, try to reconnect again soon. The game
+should be back up within less than a minute.
+
+A copyover always results in a complete game reset. If you were fighting a
+mob at the time of copyover, when it's over you may be facing a brand new
+and healthy copy of the mob, whereas you will have the same wounds you had
+before the copyover.  If you are in an aggressive mob's room at copyover
+time, that mob will be there after the copyover and will attack you.  All
+quests will be forfeited. The donation pit will also be emptied, all shop-
+keepers will revert to their normal inventory, and you will lose anything in
+your inventory which is more than seven levels above you. Thus,
+
+- When {RCOPYOVER{x is announced, {Yfinish any current fight as soon as
+  possible, and move to some place where you will be safe from aggressive
+  mobs!{x  {PDo not start any new quests or fights!{x
+
+- If you are in the middle of a quest or a fight and need some time to
+  finish up, use {GGOSSIP{x to inform the immortal and (s)he will usually
+  give you a chance to get ready.
+
+- Buy anything in the shop that you might have been saving for, and get
+  what you need from the pit. And get someone of higher level to hold that
+  precious item you just bought at auction but can't use for a few levels.
+
+When you see a message saying
+   {G*** COPYOVER by (immortal) ... please remain seated!{x
+then you can start playing as soon as you can move again.
+~
+
+0 CENSOR LANGUAGE FILTH SWEARING SPAM~
+Syntax: {Rc{Pensor{x
+	{Rc{Pensor list{x
+
+{RC{Pensor{x toggles {Rc{Pensor{x on and off, and censor list shows the list of
+words currently being filtered.
+
+{bL{Ye{Wga{Yc{by{x is a mud oriented and open to all ages, and because of this, 
+there are {Rc{Pensor rules{x.  
+
+{T*{x All characters start out on {GPG{x mode, which censors swear words and 
+  has the {P*FlAmE*{x channel off.  If you set yourself to {PR{x mode, do not 
+  complain about language or swearing.
+
+{T*{x {YGossip{x, {Hsocial{x, and {Vpray{x are {Cno-swear channels{x.  Notes are also {Cno-
+  swear zones{x.  Because these are the primary channels / methods of 
+  communication, a certain modicum of courtesy and respect should be
+  maintained.
+
+{T*{x On all other channels, be wary of what you say.  Swear words used
+  to insult another player, or swear words disguised that slip past
+  the censor shall be punished immediately and harshly.
+
+{T*{x {PFlame{x is a {Bfree-for-all channel{x.  Period.  If you do not like what
+  is being said on {Pflame{x, you may turn it off.  However, please note
+  the last rule ...
+
+{T* Racial, gender, or sexual slurs will NOT be tolerated on Legacy.
+  This encompasses ALL public and private channels (including Flame!)
+  and anybody found harassing in such a manner shall not be welcome
+  on this mud.{x
+
+{VNOTE:{x Punishments for violators of the {Rc{Pensor rules{x will be determined
+      on a case by case basis, but generally will be as follows:  1) 
+      a warning {YFOD{x  2) a {bnochan{x/{bnonote{x  3) {G1{H2{G1{H2{x, {Tf{Creeze{x, or {Pf{Rr{Py{x.
+~
+
+0 GAMEIN  GAMEOUT~
+You can use {PGAMEIN{x and {PGAMEOUT{x to check your current game entry and exit
+messages. These messages can be set for you by an imm, at a cost of 50 qp which 
+entitles you both the gamein and gameout.
+~
+
+0 ENGRAVE  ENGRAVING~
+Syntax: {Pengrave{x <{Ymessage{x>
+
+Engraving is the art of etching a message into a weapon. It is intended to
+show the history of some of the legendary weapons of Thera, but you could
+also use it to write down the 'dirs to the bakery from recall', if you are
+having trouble in that area. Engraving requires the use of special tools
+which mortals can't get (yet), but which every jeweler has. In order to
+minimize the wear and tear on these tools (which you can use for free, no
+matter how uncooperative the jeweler), each person may only engrave one
+message per weapon (and that's a short one, maximum 75 characters). You can
+engrave it again, but that will overwrite YOUR first engraving (others may
+put their own engravings on it). Also, you may not engrave a weapon you are
+not worthy to wield... This is an artifact of the intended purpose, which
+is to show who wrote their name in the history of Thera using this weapon.
+
+To engrave a weapon, take it to any jeweler in the game (there are more
+than you might have thought) wield it, and '{Pengrave{x <{Yyourmessage{x>'.
+Thereafter, if you look at the weapon you will see that there are
+'personal {Cengravings{x' on it, and you can '{Plook engravings{x'. If you have
+more than one engraved weapon, you can '{Plook 2.engravings{x'. Your
+engraving will look like this:
+
+    [date] {Y<your name>{x <your title> engraved {Ythis{x:
+     "<your engraved message>"
+
+So you may want to have your title reflect something about your skill or
+intent in making the weapon, as this will be recorded along with your
+engraved message.
+~
+
+0 SPAM~
+'{PSpam{x' is the name of a brand of canned meat, but that's irrelevant here.
+Here in the MUD, '{Pspam{x' means unnecessary and annoying information. If
+you {RGOSSIP{x something, then the whole MUD has to hear what you say. If you
+{RGOSSIP{x the same thing repeatedly, then all those people have to listen to
+all those things. Chances are you will be {Mannoying{x them. Remember that you
+are not alone in the MUD, and consider what a mess your screen would be if all
+the players were to do things that produce messages to the whole MUD. The same
+thing applies if you {RSOCIAL{x a lot, or {RAUCTION{x all kinds of useless things.
+
+If you bother a lot of people and don't notice it, chances are someone will
+complain to you about it. When people complain, this should tell you you have
+overdone it, whatever you did. You really should stop it at this point.
+
+Remember that if courtesy is not enough to help keep you from spamming, then
+the {YImmortals{x may have to take action against you. You can be warned, have
+your communication channels turned off or even be banned. {CTake heed!{x
+~
+
+0 MOOCHING~
+As in real life, there are players who accomplish a lot on their own through
+hard work and using their head, and there are the {Ymoochers{x who loudly (and
+often obnoxiously) beg everyone for help in getting experience, equipment,
+gold or spell-ups. The clever workers and explorers get a lot more out of the
+game, believe me! It's OK to ask for help if you get into unexpected trouble,
+the helpful folks at Legacy will be happy to assist if they can. You can ask
+for the occasional bit of information if you've tried to come by it on your
+own and can't seem to find it. It's {Pnot{x OK to try to get people to help
+you with every step because you're {Ytoo lazy!{x Check all these resources
+before {Ywhining{x for help:
+- You are born with a token for a {Cnewbie bag{x in your hand. If you give
+  it to Deirdre, the Healer 1 north of the Temple of Mota (Recall), she will
+  give you a newbie bag with useful equipment and helpful hints in it, even
+  some food and drink.
+- Other equipment and some silver can be gotten by killing mobs in MUD school
+  and the Fair. The directions to the Fair are in the {CNewbie Bag{x.
+- You are born with a map of Midgaard in your hand. There is also a {Cmap shop{x
+  at the west end of Poor Alley, which runs a bit south of Main Street.
+- Before you ask '{GWhere can I go to level?{x', try exploring on your own
+  for a while! Check the list from the {RAREAS{x command for reference.
+- If you do need to ask for help, be polite. People have their own characters
+  to level here, and are doing you a favor by helping you.
+~
+
+0 PIT~
+The {RPIT{x command allows you to look into the donation pit
+(see {RHELP DONATE{x) for items of a specific level and/or name.
+
+Just as with {RLOOK IN PIT{x, you must be standing by the pit in order
+to see what is there.
+
+Syntax examples:
+   {Rpit{x	     - shows you items around your level.
+   {Rpit 15{x	     - shows you items around level 15 ( 5 - 25, actually )
+   {Rpit 10 20{x     - shows you items between levels 10 and 20.
+   {Rpit axe{x	     - shows you all items called 'axe' in the pit.
+   {Rpit 45 sword{x  - shows you swords in the pit around level 45.
+   {Rpit 20 40 axe{x - shows you axes between levels 20 and 40.
+~
+
+91 APPLICATION~
+Applying for Immortality
+
+The final step for any mortal is the assumption of immortal power. In order
+to climb the last few steps to immortality, you must submi

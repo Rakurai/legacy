@@ -1,0 +1,980 @@
+#AREA
+smurf.are~
+Smurfville~
+{H{{ 1 10} {MGeneric {TSmurf Village~
+2400 2499
+
+#MOBILES
+#2401
+oldstyle smurf~
+a {Cs{Wm{Cu{Wr{Cf{x~
+A {Cs{Wm{Cu{Wr{Cf{x is singing and walking along.
+~
+A cute little blue {Cs{Wm{Cu{Wr{Cf{x with a {Wwhite hat{x and {Wwhite boots{x.  You have a sudden
+urge to crush him.
+~
+human~
+AGHS DF 100 0
+1 0 2d4+2 0d9+100 1d2+0 none
+10 10 10 10
+BEFJNU 0 0 0
+stand stand male 1
+0 0 medium 0
+#2402
+oldstyle smurf~
+a {Cs{Wm{Cu{Wr{Cf{x~
+A {Cs{Wm{Cu{Wr{Cf{x is here, picking berries.
+~
+A small {Cs{Wm{Cu{Wr{Cf{x is quietly picking berries.  He seems to hardly notice you.
+~
+human~
+ABHS DF 100 0
+1 0 2d4+2 0d9+100 1d2+0 none
+10 10 10 10
+BEFJNU 0 0 0
+stand stand male 1
+0 0 medium 0
+#2403
+oldstyle brainy smurf~
+{GB{Cr{Ga{Ci{Gn{Cy{x {CS{Wm{Cu{Wr{Cf{x~
+{GB{Cr{Ga{Ci{Gn{Cy{x {CS{Wm{Cu{Wr{Cf{x is here, mumbling something to himself.
+~
+{GB{Cr{Ga{Ci{Gn{Cy{x {CS{Wm{Cu{Wr{Cf{x has on his usual glasses.  {GB{Cr{Ga{Ci{Gn{Cy{x {CS{Wm{Cu{Wr{Cf{x isn't liked much by the
+other {Cs{Wm{Cu{Wr{Cf{Ws{x.  They fear his knowledge.  Knowledge is power!
+~
+human~
+AGHS DF 100 0
+3 0 2d7+21 1d9+100 1d5+0 none
+8 8 8 10
+BEFJNU 0 0 0
+stand stand male 1
+0 0 medium 0
+#2404
+oldstyle handy smurf~
+{bH{Ca{bn{Cd{by{x {CS{Wm{Cu{Wr{Cf{x~
+{bH{Ca{bn{Cd{by{x {CS{Wm{Cu{Wr{Cf{x is building something here.
+~
+{bH{Ca{bn{Cd{by{x is always building something.  He never takes a break.  Why don't you
+give him a break, like all of his bones.
+~
+human~
+AGHS DF 100 0
+3 0 2d7+21 1d9+100 1d5+0 none
+8 8 8 10
+BEFJNU 0 0 0
+stand stand male 1
+0 0 medium 0
+#2405
+oldstyle sleepy smurf~
+{BS{Cl{Be{Ce{Bp{Cy{x {CS{Wm{Cu{Wr{Cf{x~
+{BS{Cl{Be{Ce{Bp{Cy{x {CS{Wm{Cu{Wr{Cf{x is sleep walking here.
+~
+{BS{Cl{Be{Ce{Bp{Cy{x never gets enough sleep.  You would think he goes to college.  I wonder
+if he has ever stayed up a whole night without sleeping.
+~
+human~
+AGHS DF 100 0
+3 0 2d7+21 1d9+100 1d5+0 none
+8 8 8 10
+BEFJNU 0 0 0
+stand stand male 1
+0 0 medium 0
+#2406
+oldstyle hefty smurf~
+{PH{Ce{Pf{Ct{Py{x {CS{Wm{Cu{Wr{Cf{x~
+{PH{Ce{Pf{Ct{Py{x {CS{Wm{Cu{Wr{Cf{x is lifting weights here.
+~
+{PH{Ce{Pf{Ct{Py{x is a total health nut.  He lifts weights, eats right, and exercises all
+the time.  Won't do him much good when he's DEAD.
+~
+human~
+AGHS DF 100 0
+3 0 2d7+21 1d9+100 1d5+0 none
+8 8 8 10
+BEFJNU 0 0 0
+stand stand male 1
+0 0 medium 0
+#2407
+oldstyle grumpy smurf~
+{cG{Cr{cu{Cm{cp{Cy{x {CS{Wm{Cu{Wr{Cf{x~
+{cG{Cr{cu{Cm{cp{Cy{x {CS{Wm{Cu{Wr{Cf{x is here, swearing.
+~
+{cG{Cr{cu{Cm{cp{Cy{x has never been happy in his whole life.  So why don't you just end it?
+~
+human~
+AGHS DF 100 0
+3 0 2d7+21 1d9+100 1d5+0 none
+8 8 8 10
+BEFJNU 0 0 0
+stand stand male 1
+0 0 medium 0
+#2408
+oldstyle jokey smurf~
+{PJ{Yo{Pk{Ye{Py{x {CS{Wm{Cu{Wr{Cf{x~
+{PJ{Yo{Pk{Ye{Py{x {CS{Wm{Cu{Wr{Cf{x is here, holding a present.
+~
+{PJ{Yo{Pk{Ye{Py{x loves to give people presents.  Too bad the present explodes when opened.
+Oh well, to each his own.
+~
+human~
+AGHS DF 100 0
+3 0 2d7+21 1d9+100 1d5+0 none
+8 8 8 10
+BEFJNU 0 0 0
+stand stand male 1
+0 0 medium 0
+#2409
+oldstyle smurfette~
+{YS{Cm{Yu{Cr{Yf{Ce{Yt{Ct{Ye{x~
+{YS{Cm{Yu{Cr{Yf{Ce{Yt{Ct{Ye{x is here, looking beautiful.
+~
+{YS{Cm{Yu{Cr{Yf{Ce{Yt{Ct{Ye{x is the cutest little {Cs{Wm{Cu{Wr{Cf{x you've ever seen.  If only she were your
+size.  I wonder how much she charges the other {Cs{Wm{Cu{Wr{Cf{Ws{x.
+~
+human~
+AGHS DF 100 0
+3 0 2d7+21 1d9+100 1d5+0 none
+8 8 8 10
+BEFJNU 0 0 0
+stand stand female 1
+0 0 medium 0
+#2410
+oldstyle papa smurf~
+{PPapa {CS{Wm{Cu{Wr{Cf{x~
+{PPapa {CS{Wm{Cu{Wr{Cf{x is practicing magic here.
+~
+Yep, its {PPapa {CS{Wm{Cu{Wr{Cf{x all right.  {PRed hat{x and {Pboots{x and the funny little {Wwhite
+beard{x.  {PPapa {CS{Wm{Cu{Wr{Cf{x treats his fellow {Cs{Wm{Cu{Wr{Cf{Ws{x with dignity and respect.  That
+is why {PPapa {CS{Wm{Cu{Wr{Cf{x is so popular among the ladies.
+~
+human~
+AGHR 0 100 0
+10 0 2d6+110 10d9+100 1d8+1 none
+2 2 2 6
+FU 0 0 0
+stand stand male 2
+0 0 medium 0
+#2411
+oldstyle gargamel~
+{bG{Ra{br{Rg{ba{Rm{be{Rl{x~
+{bG{Ra{br{Rg{ba{Rm{be{Rl{x is here, cursing out the {Cs{Wm{Cu{Wr{Cf{Ws{x.
+~
+{bG{Ra{br{Rg{ba{Rm{be{Rl{x has never done anything right in his life.  He has caught {Cs{Wm{Cu{Wr{Cf{Ws{x
+before but always lets them escape.  He brings true meaning to the word moron.
+~
+human~
+ABHQ 0 -100 0
+10 0 2d7+121 10d9+100 1d7+2 none
+1 1 1 7
+EIKU 0 0 0
+stand stand male 2
+0 0 medium 0
+#2412
+oldstyle azreal cat~
+{bA{gz{br{ge{ba{gl{x~
+{bA{gz{br{ge{ba{gl{x is here, licking himself.
+~
+{bG{Ra{br{Rg{ba{Rm{be{Rl{x's worthless cat.  He is just about as dumb as {bG{Ra{br{Rg{ba{Rm{be{Rl{x.  He should
+just grab a {Cs{Wm{Cu{Wr{Cf{x in his teeth and chew away.
+~
+human~
+ABH 0 -100 0
+8 0 2d7+96 4d9+100 1d7+2 none
+3 3 3 9
+EFNU 0 0 0
+stand stand male 1
+0 0 medium 0
+#0
+
+#OBJECTS
+#2400
+bunch berries smurfberries~
+a bunch of {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vi{Ce{Vs{x~
+A bunch of delicious looking {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vi{Ce{Vs{x lie here.~
+oldstyle~
+pill 0 A
+8 '' '' 'change sex' ''
+0 20 180 P
+#2401
+glasses~
+a pair of glasses~
+An odd pair of glasses has been left here.~
+oldstyle~
+clothing A AE
+0 0 0 0 0
+
+3 20 270 P
+A
+4 1
+A
+2 1
+#2402
+smurf hat~
+a {Cs{Wm{Cu{Wr{Cf{x hat~
+A {Cs{Wm{Cu{Wr{Cf{x hat has been left here.~
+oldstyle~
+armor 0 AE
+3 3 3 0 0
+3 20 310 P
+#2403
+axe small~
+a small axe~
+A small axe has been dropped here.~
+oldstyle~
+weapon 0 AN
+axe 1 7 slash 0
+3 20 370 P
+#2404
+necklace~
+a small {Wn{Ye{Wc{Yk{Wl{Ya{Wc{Ye{x~
+A small {Wn{Ye{Wc{Yk{Wl{Ya{Wc{Ye{x is lying on the ground.~
+oldstyle~
+jewelry A AC
+0 0 0 0 0
+3 20 550 P
+A
+3 1
+A
+26 1
+#2405
+pink potion~
+a {Vpink{x potion~
+A {Vpink{x potion is barely visible on the ground.~
+oldstyle~
+potion 0 A
+6 'armor' 'cure blindness' '' ''
+0 20 160 P
+#2406
+wand~
+a small wand~
+A small wand lies on the ground.~
+oldstyle~
+wand 0 AO
+5 1 1 'burning hands' 0
+3 20 540 P
+#2407
+key~
+a tiny key~
+A tiny key is lying on the ground.~
+oldstyle~
+key 0 A
+2 0 0 0 0
+0 20 0 P
+#2408
+well~
+a {Cs{Wm{Cu{Wr{Cf{x well~
+A small {Cs{Wm{Cu{Wr{Cf{Wy{x well is here.~
+oldstyle~
+fountain 0 0
+50 50 'water' 0 0
+0 0 0 P
+#2409
+key~
+a small key~
+A key to {bG{Ra{br{Rg{ba{Rm{be{Rl{x's door lies here.~
+oldstyle~
+key 0 A
+2 0 0 0 0
+0 20 0 P
+
+#2410
+bar bubblegum~
+a bar of {Vbubblegum{x~
+A bar of {Vbubblegum{x has been left here.~
+bubblegum~
+material 0 AO
+25 -1 -1 0 0
+0 60 1000 P
+
+#2411
+bar ivory~
+a bar of {Wivory{x~
+A bar of {Wivory{x has been left here.~
+ivory~
+material 0 AO
+0 -1 3 0 0
+60 60 1000 P
+
+#2412
+bar steel~
+a bar of {cs{gt{ce{ge{cl{x~
+A bar of {cs{gt{ce{ge{cl{x has been left here.~
+steel~
+material 0 AO
+-5 1 1 0 0
+50 60 1000 P
+
+#2413
+bar iron~
+a bar of {ciron{x~
+A bar of {ciron{x has been left here.~
+iron~
+material 0 AO
+-5 1 1 0 0
+50 60 1000 P
+
+#2414
+bar tin~
+a bar of {Wt{gi{Wn{x~
+A bar of {Wt{gi{Wn{x has been left here.~
+tin~
+material 0 AO
+-2 2 -1 0 0
+50 60 1000 P
+
+#2415
+bar bronze~
+a bar of {bbronze{x~
+A bar of {bbronze{x has been left here.~
+bronze~
+material 0 AO
+-3 -1 2 0 0
+50 60 1000 P
+
+#2416
+bar diamond~
+a bar of {Wd{gi{Wa{gm{Wo{gn{Wd{x~
+A bar of {Wd{gi{Wa{gm{Wo{gn{Wd{x has been left here.~
+diamond~
+material F AO
+-20 -1 3 0 0
+70 60 1000 P
+
+#2417
+bar platinum~
+a bar of platinum~
+A bar of {Wp{Yl{Wa{Yt{Wi{Yn{Wu{Ym{x has been left here.~
+platinum~
+material 0 AO
+-20 5 -5 0 0
+75 60 1000 P
+
+#2418
+bar energy~
+a bar of {Yenergy{x~
+A bar of {Yenergy{x has been left here.~
+energy~
+material 0 AO
+-50 4 3 0 0
+90 60 1000 P
+
+
+#0
+
+#ROOMS
+#2401
+Dimly Lit Path~
+This path is made of crushed {cg{xr{ca{xn{ci{xt{ce{x with curious {Cb{xl{Cu{xe streaks in it.
+The path continues north to a village, or south to the eastern road.
+~
+0 0 3
+D0
+The path continues toward the village.
+~
+~
+0 -1 2402
+D2
+The path heads back toward the eastern road.
+~
+~
+0 -1 3525
+S
+#2402
+Dimly Lit Path~
+This section of the road is badly worn and frequently traversed.  There is
+faint singing to the north.  The path back to the road lies to the south.
+~
+0 C 3
+D0
+The path continues toward the village.
+~
+~
+0 -1 2403
+D2
+The dimly lit path.
+~
+~
+0 -1 2401
+S
+#2403
+Dimly Lit Path~
+This section of the road is badly worn and frequently traversed.  Singing is
+getting stronger to the north.  The path back to the road lies to the south.
+~
+0 0 3
+D0
+The entrance to {Cs{Wm{Cu{Wr{Cf{x village.
+~
+~
+0 -1 2404
+D2
+The dimly lit path.
+~
+~
+0 -1 2402
+S
+#2404
+Entrance to {CS{Wm{Cu{Wr{Cf{x Village~
+You stand at the entrance to a tiny village.  You can see across the whole
+village easily.  Little {Cblue creatures{x with {Wwhite hats{x and {Wboots{x and little 
+fluffy tails scamper about.  They sing continuously.  The singing is getting
+on your nerves and you have the urge to squash them.
+~
+0 0 2
+D0
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2405
+D2
+Dimly Lit Path
+~
+~
+0 -1 2403
+S
+#2405
+{CS{Wm{Cu{Wr{Cf{Wy{x Road~
+You are way too big to be using this road.  But who cares.  Who's gonna stop
+you?  These little {Cblue{x {Cs{Wm{Cu{Wr{Cf{Ws{x?  The singing is growing intense.  Your ears
+are starting to ring.  {CS{Wm{Cu{Wr{Cf{Wy{x Road continues to the north, west, and east.
+There is still time to turn back and go south.
+~
+0 0 1
+D0
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2406
+D1
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2410
+D2
+Entrance to {Cs{Wm{Cu{Wr{Cf{x village
+~
+~
+0 -1 2404
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2411
+S
+#2406
+{CS{Wm{Cu{Wr{Cf{Wy{x Road~
+You continue to travel down {CS{Wm{Cu{Wr{Cf{Wy{x Road.  Isn't it just {Cs{Wm{Cu{Wr{Cf{Wy{x?  {CS{Wm{Cu{Wr{Cf{Wy{x road
+continues its {Cs{Wm{Cu{Wr{Cf{Wy{x path to the {Cs{Wm{Cu{Wr{Cf{Wy{x north, {Cs{Wm{Cu{Wr{Cf{Wy{x west, and {Cs{Wm{Cu{Wr{Cf{Wy{x south.
+A {Cs{Wm{Cu{Wr{Cf{Wy{x home lies to the {Cs{Wm{Cu{Wr{Cf{Wy{x east.
+~
+0 0 1
+D0
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2407
+D1
+{CS{Wm{Cu{Wr{Cf{Wy{x Home
+~
+~
+0 -1 2420
+D2
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2405
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2412
+S
+#2407
+{CS{Wm{Cu{Wr{Cf{Wy{x Road~
+Oh boy, another {Cs{Wm{Cu{Wr{Cf{Wy{x road!  {CS{Wm{Cu{Wr{Cf{Wy{x Road goes north and south here.  There
+is a {Cs{Wm{Cu{Wr{Cf{Wy{x, mushroom home to the west.  A beautiful {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x patch is to
+the east.
+~
+0 0 1
+D0
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2408
+D1
+{CS{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x Patch
+~
+~
+0 -1 2416
+D2
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2406
+D3
+A {CS{Wm{Cu{Wr{Cf{Wy{x Home
+~
+~
+0 -1 2429
+S
+#2408
+{CS{Wm{Cu{Wr{Cf{Wy{x Road~
+{CS{Wm{Cu{Wr{Cf{Wy{x Road continues to {Cs{Wm{Cu{Wr{Cf{x here.  It {Cs{Wm{Cu{Wr{Cf{Ws{x to the south and {Cs{Wm{Cu{Wr{Cf{Ws{x to
+an end to the north.  A {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x patch is to the east.  A stone path lies
+to the west.
+~
+0 0 1
+D0
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2409
+D1
+{CS{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x patch
+~
+~
+0 -1 2417
+D2
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2407
+D3
+A stone path
+~
+~
+0 -1 2413
+S
+#2409
+{CS{Wm{Cu{Wr{Cf{Wy{x Road~
+A {Cs{Wm{Cu{Wr{Cf{Wy{x well lies here in the middle of {CS{Wm{Cu{Wr{Cf{Wy{x Road.  A fence separates
+the {Cs{Wm{Cu{Wr{Cf{Ws{x from harm to the north.  A berry patch is to the east.  {CS{Wm{Cu{Wr{Cf{Wy{x
+Road continues to to the south and west.
+~
+0 0 1
+D1
+{CS{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x Patch
+~
+~
+0 -1 2418
+D2
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2408
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2414
+E
+{Cs{Wm{Cu{Wr{Cf{Wy{x well~
+A small well is here.  Just the right size if you're a {Cs{Wm{Cu{Wr{Cf{x.  But big
+enough for you to get some water from.  I'm sure the {Cs{Wm{Cu{Wr{Cf{Ws{x wont mind.
+~
+S
+#2410
+{CS{Wm{Cu{Wr{Cf{Wy{x Road~
+A corner of {Cs{Wm{Cu{Wr{Cf{Wy{x road is where you stand.  A {Cs{Wm{Cu{Wr{Cf{Wy{x fence blocks passage
+to the east or south.  A {Cs{Wm{Cu{Wr{Cf{Wy{x home is to the north.  {CS{Wm{Cu{Wr{Cf{Wy{x Road goes back
+to the west.
+~
+0 0 1
+D0
+{CS{Wm{Cu{Wr{Cf{Wy{x Home
+~
+~
+0 -1 2419
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2405
+S
+#2411
+{CS{Wm{Cu{Wr{Cf{Wy{x Road~
+Western corner of {CS{Wm{Cu{Wr{Cf{Wy{x Road.  You can continue to {Cs{Wm{Cu{Wr{Cf{x down the road
+to the east and north.  You can also {Cs{Wm{Cu{Wr{Cf{x into a {Cs{Wm{Cu{Wr{Cf{Wy{x home to the south.
+~
+0 0 1
+D0
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2412
+D1
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2405
+D2
+{CS{Wm{Cu{Wr{Cf{Wy{x Home
+~
+~
+0 -1 2421
+S
+#2412
+{CS{Wm{Cu{Wr{Cf{Wy{x Road~
+There's no place like {Cs{Wm{Cu{Wr{Cf{x.  There's no place like {Cs{Wm{Cu{Wr{Cf{x.  Sorry wrong
+movie.  A {Cs{Wm{Cu{Wr{Cf{Wy{x home is to the west.  {PPapa {CS{Wm{Cu{Wr{Cf{x's backyard is to the
+north but you can't go there.  {CS{Wm{Cu{Wr{Cf{Wy{x Road continues to the south and
+east.
+~
+0 0 1
+D1
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2406
+D2
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2411
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x Home
+~
+~
+0 -1 2422
+S
+#2413
+Stone Path~
+You are walking along a cute little stone path.  To the south lies {PPapa
+{CS{Wm{Cu{Wr{Cf{x's house.  A {CS{Wm{Cu{Wr{Cf{Wy{x house is to the west.  {CS{Wm{Cu{Wr{Cf{Wy{x road is to the east.
+Everything is so peaceful here.  You could stay forever.
+~
+0 0 1
+D1
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2408
+D2
+{PPapa {CS{Wm{Cu{Wr{Cf{x's House
+~
+door~
+1 2407 2425
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x House
+~
+~
+0 -1 2423
+S
+#2414
+{CS{Wm{Cu{Wr{Cf{Wy{x Road~
+Yet another part of {CS{Wm{Cu{Wr{Cf{Wy{x Road.  Hey if you go west its the last
+section of {CS{Wm{Cu{Wr{Cf{Wy{x Road.  You can go back to the {Cs{Wm{Cu{Wr{Cf{Wy{x well to the east.
+~
+0 0 1
+D1
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2409
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2415
+S
+#2415
+{CS{Wm{Cu{Wr{Cf{Wy{x Road~
+The last piece of {CS{Wm{Cu{Wr{Cf{Wy{x Road.  You can go back to {CS{Wm{Cu{Wr{Cf{Wy{x Road to the east.
+A nice, beautiful, {Cs{Wm{Cu{Wr{Cf{Wy{x, mushroom home is to the south.  In the distance to
+the north you can see {bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle.
+~
+0 0 1
+D0
+Path to {bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle
+~
+~
+0 -1 2426
+D1
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2414
+D2
+{CS{Wm{Cu{Wr{Cf{Wy{x Home
+~
+~
+0 -1 2424
+S
+#2416
+{CS{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x Patch~
+Delicious {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vi{Ce{Vs{x grow here.  You could probably eat a year's worth of
+{Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vi{Ce{Vs{x in one sitting.  {CS{Wm{Cu{Wr{Cf{Wy{x Road is back to the west.  Another
+{Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x patch is to the north.
+~
+0 0 1
+D0
+{CS{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x Patch
+~
+~
+0 -1 2417
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2407
+S
+#2417
+{CS{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x Patch~
+Another patch of {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vi{Ce{Vs{x is growing here.  The smell is driving your
+nostrils crazy.  It almost, ALMOST, makes you forget all the singing going
+on.  {CS{Wm{Cu{Wr{Cf{Wy{x Road is to the west, while {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x patches are to the north
+and south.
+~
+0 0 1
+D0
+{CS{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x Patch
+~
+~
+0 -1 2418
+D2
+{CS{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x Patch
+~
+~
+0 -1 2416
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2408
+S
+#2418
+{CS{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x Patch~
+The northernmost of the {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x patches grows here.  It looks just
+as scrumptious as all the rest.  Just take a few; they'll never know.  {CS{Wm{Cu{Wr{Cf{Wy{x
+Road is to the west.  A {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x patch is to the south.
+~
+0 0 1
+D2
+{CS{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vy{x Patch
+~
+~
+0 -1 2417
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2409
+S
+#2419
+{GB{Cr{Ga{Ci{Gn{Cy{x {CS{Wm{Cu{Wr{Cf{x's Home~
+You rip the roof of the home to get a good look inside.  You see
+many {Cs{Wm{Cu{Wr{Cf{Wy{x books.  The print is so small you couldn't even read it
+with a magnifying glass.  I wonder if {GB{Cr{Ga{Ci{Gn{Cy{x {CS{Wm{Cu{Wr{Cf{x minds if you
+destroy his home?  {CS{Wm{Cu{Wr{Cf{Wy{x Road is back to the south.
+~
+0 0 1
+D2
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2410
+S
+#2420
+{bH{Ca{bn{Cd{by{x {CS{Wm{Cu{Wr{Cf{x's Home~
+This home was well built.  Of course, until you rip it apart you big meany
+you.  Tools are all over the place.  Too small for you to use.  {CS{Wm{Cu{Wr{Cf{Wy{x Road is
+back to the west.
+~
+0 0 1
+D3
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2406
+S
+#2421
+{PH{Ce{Pf{Ct{Py{x {CS{Wm{Cu{Wr{Cf{x's Home~
+{PH{Ce{Pf{Ct{Py{x is anything but wimpy.  So is his house.  It actually took you a 
+couple of minutes to destroy his house.  Better watch out -- he might be
+a little mad at you.  {CS{Wm{Cu{Wr{Cf{Wy{x Road is back to the north.
+~
+0 0 1
+D0
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2411
+S
+#2422
+{BS{Cl{Be{Ce{Bp{Cy{x {CS{Wm{Cu{Wr{Cf{x's Home~
+Be vewy vewy quiet.  {BS{Cl{Be{Ce{Bp{Cy{x {CS{Wm{Cu{Wr{Cf{x is probably sleeping.  You see so many
+beds you can't even tell if he is here.  Maybe you should quietly go back to
+{CS{Wm{Cu{Wr{Cf{Wy{x Road to the east.
+~
+0 0 1
+D1
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2412
+S
+#2423
+{cG{Cr{cu{Cm{cp{Cy{x {CS{Wm{Cu{Wr{Cf{x's Home~
+This is {cG{Cr{cu{Cm{cp{Cy{x {CS{Wm{Cu{Wr{Cf{x's home.  He is pissed at you.  Of course, he is pissed
+at everyone.  So don't take it bad.  Maybe you'd better leave before he really
+gets mad.  {CS{Wm{Cu{Wr{Cf{Wy{x Road to the east is your only salvation.
+~
+0 0 1
+D1
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2413
+S
+#2424
+{PJ{Co{Pk{Ce{Py{x {CS{Wm{Cu{Wr{Cf{x's Home~
+You pull the top of his house and it explodes in your face.  That {PJ{Co{Pk{Ce{Py{x
+{CS{Wm{Cu{Wr{Cf{x, what a kidder.  You can hear his laughter as you wipe the {cashes{x off
+your face.  You better get even.  {CS{Wm{Cu{Wr{Cf{Wy{x Road is to the north.
+~
+0 0 1
+D0
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2415
+S
+#2425
+{PPapa {CS{Wm{Cu{Wr{Cf{x's Home~
+It's the home of the leader of the {Cs{Wm{Cu{Wr{Cf{Ws{x.  {PPapa {CS{Wm{Cu{Wr{Cf{x has a nicely decorated
+home.  He takes pride in his work.  You could get to know him or just squash
+him.  If {PPapa {CS{Wm{Cu{Wr{Cf{x is not here he is probably at {YS{Cm{Yu{Cr{Yf{Ce{Yt{Ct{Ye{x's putting the
+moves on her.  A stone path lies to the north.
+~
+0 0 1
+D0
+Stone Path
+~
+door~
+1 2407 2413
+S
+#2426
+Path to {bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle~
+You are walking along a path to {bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle to the North.
+{CS{Wm{Cu{Wr{Cf{Wy{x Road lies to the south.
+~
+0 0 1
+D0
+Outside {bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle
+~
+~
+0 -1 2427
+D2
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2415
+S
+#2427
+Outside {bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle~
+You are standing outside {bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle.  You can hear him screaming at
+{bA{gz{br{ge{ba{gl{x from inside.  You can also him cursing out those wretched {Cs{Wm{Cu{Wr{Cf{Ws{x.
+His Castle is to the north while {CS{Wm{Cu{Wr{Cf{Wy{x Road is to the south.
+~
+0 0 1
+D0
+{bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle
+~
+door~
+1 2409 2428
+D2
+Path to {bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle
+~
+~
+0 -1 2426
+S
+#2428
+{bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle~
+This is {bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle.  His big {cblack kettle{x is in the middle of the room.
+Where else would he put it?  The place has only one room.
+~
+0 0 1
+D2
+Outside {bG{Ra{br{Rg{ba{Rm{be{Rl{x's Castle
+~
+door~
+1 2409 2427
+S
+#2429
+{YS{Cm{Yu{Cr{Yf{Ce{Yt{Ct{Ye{x's House~
+This house is conveniently next to {PPapa Smurf{x's.  Makes it easier for {PPapa
+{CS{Wm{Cu{Wr{Cf{x to sneak over at night.  I hope he uses protection.  I would hate to
+have little {Cs{Wm{Cu{Wr{Cf{Ws{x running around.  The only exit is to the east.
+~
+0 0 1
+D1
+{CS{Wm{Cu{Wr{Cf{Wy{x Road
+~
+~
+0 -1 2407
+S
+#0
+
+
+#RESETS
+O 0  2408   1  2409	* a smurf well
+M 0  2402   3  2418  1	* a smurf
+G 1  2400  10     	*   a bunch of smurfberries
+M 0  2402   3  2417  1	* a smurf
+G 1  2400  10     	*   a bunch of smurfberries
+M 0  2402   3  2416  1	* a smurf
+G 1  2400  10     	*   a bunch of smurfberries
+M 0  2401   8  2405  1	* a smurf
+M 0  2401   8  2410  1	* a smurf
+G 1  2402  10     	*   a smurf hat
+M 0  2401   8  2411  1	* a smurf
+M 0  2401   8  2412  1	* a smurf
+G 1  2402  10     	*   a smurf hat
+M 0  2401   8  2407  1	* a smurf
+M 0  2401   8  2408  1	* a smurf
+G 1  2402  10     	*   a smurf hat
+M 0  2401  8  2409  1	* a smurf
+M 0  2401   8  2404  1	* a smurf
+G 1  2402  10     	*   a smurf hat
+M 0  2403   1  2419  1	* Brainy Smurf
+E 1  2401   8    6	*   a pair of glasses
+M 0  2404   1  2420  1	* Handy Smurf
+E 1  2403   8   16	*   a small axe
+M 0  2405   1  2422  1	* Sleepy Smurf
+M 0  2406   1  2421  1	* Hefty Smurf
+E 1  2403   8   16	*   a small axe
+M 0  2407   1  2423  1	* Grumpy Smurf
+M 0  2408   1  2424  1	* Jokey Smurf
+G 1  2410   -1
+M 0  2409   1  2429  1	* Smurfette
+E 1  2404   8    3	*   a small necklace
+G 1  2407   8     	*   a tiny key
+M 0  2410   1  2425  1	* Papa Smurf
+G 1  2405  10     	*   a pink potion
+G 1  2409   8     	*   a small key
+M 0  2411   1  2428  1	* Gargamel
+E 1  2406   8   17	*   a small wand
+M 0  2412   1  2428  1	* Azreal
+S
+
+#SHOPS
+0
+
+#SPECIALS
+M 2401 spec_thief          	* a smurf
+M 2402 spec_thief          	* a smurf
+M 2403 spec_thief          	* Brainy Smurf
+M 2404 spec_thief          	* Handy Smurf
+M 2405 spec_thief          	* Sleepy Smurf
+M 2406 spec_thief          	* Hefty Smurf
+M 2407 spec_thief          	* Grumpy Smurf
+M 2408 spec_thief          	* Jokey Smurf
+M 2409 spec_thief          	* Smurfette
+M 2410 spec_cast_mage      	* Papa Smurf
+M 2411 spec_cast_cleric    	* Gargamel
+M 2412 spec_poison         	* Azreal
+S
+
+#$
+
+

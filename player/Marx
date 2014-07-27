@@ -1,0 +1,1623 @@
+#PLAYER
+Name Marx~
+Id   992430000
+LogO 1022810604
+Vers 14
+Mexp 2
+Pass divit3~
+Desc Marx is an immortal.  He doesn't need a description... right now.
+~
+Prom {W<{Y({W%R{Y) {T-{C%r{T- {H[{G%e{H] {W%z {N[{B%w{N]{W>{x ~
+Race elf~
+Clan elders~
+Cla  2
+Levl 99
+Tru  99
+Plyd 1073251
+Back 759759
+Note 1022790410 1022724260 1020907845 1022459857 1022291946 1022804105 1022568229
+Scro 22
+Room 1212
+HMS  30050 30040 30000
+Gold 19712
+Silv 16
+Silver_in_bank 341344
+Gold_in_bank 2725
+Exp  57732
+PCkills  3
+PCkilled 1
+Akills   3
+Akilled  11
+PKRank   1
+Pos  8
+Alig -1000
+Mark 1205
+FImm 0
+FRes B
+FVul Z
+Plr  ACFMNOQ
+Video 0
+Act  CDEFGHJLSTWc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp ABC
+Cnsr AB
+Prac 6
+Trai 0
+Wimp 23
+Wizn ACEFIJLRSTUVZb
+Invi 0
+Lurk 92
+Secu 92
+Atrib 25 25 25 25 25 25
+SkillPnts  372
+RolePnts   37
+QuestPnts  206
+Bin  You hear a high-pitched {Pshriek{x, and {TMarx {xfalls out of the sky... landing with an unnatural {cT{bH{cU{bD{R!~
+Bout {TMarx {xwhimpers softly as he is flung back into the air by an {Cinvisible {cslingshot.~
+Afk {B[{CWed Apr 17 17:15:14 2002{B] {CKilling people and winning prizes.
+~
+Titl  {x~
+Immn {W[{x{HS{Go{gu{ct{gh{Gp{Ha{Gw {gP{cr{gi{Gd{He{x{W]{x~
+Pnts 40
+Rank ...~
+Aura {RSocialist{x~
+TSex 1
+LLev 214
+Email {x~
+Deit Mob~
+Stus {cMa{gs{Wt{Ce{Tr {No{Tf {call h{Te {NS{Tu{Cr{Wv{ge{cys{x~
+RmCt 1
+ExSk 0
+Raff 103
+Lsit co-colspgs-u4-c3b-35.clspco.adelphia.net~
+Ltim Thu May 30 21:01:37 2002
+~
+LSav Thu May 30 21:03:24 2002
+~
+Finf {TAnd.. exactly *where* do you put your finger to learn this info?
+~
+HMSP 30000 30000 30000
+THMS 4 0 4
+Cnd  0 0 100 100
+Ignore rukus~
+Ignore rukus~
+Sk 100 1 'reserved'
+Sk 100 1 'acid blast'
+Sk 100 1 'acid breath'
+Sk 100 1 'acid rain'
+Sk 100 1 'age'
+Sk 100 1 'animate skeleton'
+Sk 100 1 'animate wraith'
+Sk 100 1 'animate gargoyle'
+Sk 100 1 'animate zombie'
+Sk 100 1 'armor'
+Sk 100 1 'bless'
+Sk 100 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 100 1 'blood blade'
+Sk 100 1 'blood moon'
+Sk 100 1 'burning hands'
+Sk 100 1 'call lightning'
+Sk 100 1 'calm'
+Sk 100 1 'cancellation'
+Sk 100 1 'cause light'
+Sk 100 1 'cause serious'
+Sk 100 1 'cause critical'
+Sk 100 1 'chain lightning'
+Sk 100 1 'change sex'
+Sk 100 1 'channel'
+Sk 100 1 'charm person'
+Sk 100 1 'chill touch'
+Sk 100 1 'colour spray'
+Sk 100 1 'continual light'
+Sk 100 1 'control weather'
+Sk 100 1 'create food'
+Sk 100 1 'create parchment'
+Sk 100 1 'create rose'
+Sk 100 1 'create sign'
+Sk 100 1 'create spring'
+Sk 100 1 'create vial'
+Sk 100 1 'create water'
+Sk 100 1 'cure blindness'
+Sk 100 1 'cure critical'
+Sk 100 1 'cure disease'
+Sk 100 1 'cure light'
+Sk 100 1 'cure poison'
+Sk 100 1 'cure serious'
+Sk 100 1 'curse'
+Sk 100 1 'darkness'
+Sk 100 1 'dazzling light'
+Sk 100 1 'demonfire'
+Sk 100 1 'detect evil'
+Sk 100 1 'detect good'
+Sk 100 1 'detect hidden'
+Sk 100 1 'detect invis'
+Sk 100 1 'detect magic'
+Sk 100 1 'detect poison'
+Sk 100 1 'dispel evil'
+Sk 100 1 'dispel good'
+Sk 100 1 'dispel magic'
+Sk 100 1 'divine healing'
+Sk 100 1 'divine regeneration'
+Sk 100 1 'earthquake'
+Sk 100 1 'encampment'
+Sk 100 1 'enchant armor'
+Sk 100 1 'enchant weapon'
+Sk 100 1 'energy drain'
+Sk 100 1 'faerie fire'
+Sk 100 1 'faerie fog'
+Sk 100 1 'farsight'
+Sk 100 1 'fear'
+Sk 100 1 'fire breath'
+Sk 100 1 'fireball'
+Sk 100 1 'fireproof'
+Sk 100 1 'firestorm'
+Sk 100 1 'flame blade'
+Sk 100 1 'flameshield'
+Sk 100 1 'flamestrike'
+Sk 100 1 'fly'
+Sk 100 1 'floating disc'
+Sk 100 1 'frenzy'
+Sk 100 1 'frost blade'
+Sk 100 1 'frost breath'
+Sk 100 1 'gas breath'
+Sk 100 1 'gate'
+Sk 100 1 'general purpose'
+Sk 100 1 'giant strength'
+Sk 100 1 'harm'
+Sk 100 1 'haste'
+Sk 100 1 'heal'
+Sk 100 1 'heat metal'
+Sk 100 1 'high explosive'
+Sk 100 1 'holy word'
+Sk 100 1 'identify'
+Sk 100 1 'infravision'
+Sk 100 1 'invisibility'
+Sk 100 1 'know alignment'
+Sk 100 1 'light of truth'
+Sk 100 1 'lightning bolt'
+Sk 100 1 'lightning breath'
+Sk 100 1 'locate life'
+Sk 100 1 'locate object'
+Sk 100 1 'magic missile'
+Sk 100 1 'mass healing'
+Sk 100 1 'mass invis'
+Sk 100 1 'nexus'
+Sk 100 1 'pass door'
+Sk 100 1 'plague'
+Sk 100 1 'poison'
+Sk 100 1 'power word'
+Sk 100 1 'polymorph'
+Sk 100 1 'portal'
+Sk 100 1 'protect container'
+Sk 100 1 'protection evil'
+Sk 100 1 'protection good'
+Sk 100 1 'ray of truth'
+Sk 100 1 'recharge'
+Sk 100 1 'refresh'
+Sk 100 1 'resurrect'
+Sk 100 1 'regeneration'
+Sk 100 1 'remove alignment'
+Sk 100 1 'remove invisibility'
+Sk 100 1 'remove curse'
+Sk 100 1 'sanctuary'
+Sk 100 1 'shield'
+Sk 100 1 'shock blade'
+Sk 100 1 'shocking grasp'
+Sk 100 1 'shrink'
+Sk 100 1 'sleep'
+Sk 100 1 'slow'
+Sk 100 1 'smokescreen'
+Sk 100 1 'steel mist'
+Sk 100 1 'stone skin'
+Sk 100 1 'summon'
+Sk 100 1 'summon object'
+Sk 100 1 'sunray'
+Sk 100 1 'talon'
+Sk 100 1 'teleport'
+Sk 100 1 'teleport object'
+Sk 100 1 'undo spell'
+Sk 100 1 'ventriloquate'
+Sk 100 1 'vision'
+Sk 100 1 'weaken'
+Sk 100 1 'word of recall'
+Sk 100 1 'wrath'
+Sk 100 1 'axe'
+Sk 100 1 'dagger'
+Sk 100 1 'flail'
+Sk 100 1 'mace'
+Sk 100 1 'polearm'
+Sk 100 1 'spear'
+Sk 100 1 'sword'
+Sk 100 1 'whip'
+Sk 100 1 'shield block'
+Sk 100 1 'brew'
+Sk 100 1 'scribe'
+Sk 100 1 'backstab'
+Sk 100 1 'bash'
+Sk 100 1 'berserk'
+Sk 100 1 'circle'
+Sk 100 1 'crush'
+Sk 100 1 'dirt kicking'
+Sk 100 1 'disarm'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'envenom'
+Sk 100 1 'hand to hand'
+Sk 100 1 'kick'
+Sk 100 1 'parry'
+Sk 100 1 'rescue'
+Sk 100 1 'trip'
+Sk 100 1 'second attack'
+Sk 100 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 100 1 'hunt'
+Sk 100 1 'swimming'
+Sk 100 1 'fast healing'
+Sk 100 1 'firebuilding'
+Sk 100 1 'forge'
+Sk 100 1 'repair'
+Sk 100 1 'rotate'
+Sk 100 1 'languages'
+Sk 100 1 'haggle'
+Sk 100 1 'hide'
+Sk 100 1 'lore'
+Sk 100 1 'meditation'
+Sk 100 2 'peek'
+Sk 100 1 'pick lock'
+Sk 100 1 'scan'
+Sk 100 1 'sneak'
+Sk 100 1 'steal'
+Sk 100 1 'sing'
+Sk 100 1 'scrolls'
+Sk 100 1 'staves'
+Sk 100 1 'wands'
+Sk 100 1 'recall'
+Sk 100 1 'sheen'
+Sk 100 1 'focus'
+Sk 100 1 'paralyze'
+Sk 100 1 'barrier'
+Sk 100 1 'dazzle'
+Sk 100 1 'full heal'
+Sk 100 1 'midnight'
+Sk 100 1 'shadow form'
+Sk 100 1 'hone'
+Sk 100 1 'riposte'
+Sk 100 1 'fourth attack'
+Sk 100 1 'rage'
+Sk 100 1 'sap'
+Sk 100 1 'pain'
+Sk 100 1 'hex'
+Sk 100 1 'hammerstrike'
+Sk 100 1 'force shield'
+Sk 100 1 'holy sword'
+Sk 100 1 'align'
+Sk 100 1 'blur'
+Sk 100 1 'dual second'
+Sk 100 1 'standfast'
+Sk 100 1 'mark'
+Sk 100 1 'critical blow'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+Gr 'detection'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+End
+
+#O
+Vnum 13009
+Nest 0
+Name loincloth~
+ShD  {cA {bloincloth{x~
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 3388
+Nest 0
+Name gun paintball shocker~
+ShD  {gS{Nh{No{Bc{Nk{Ne{Br {gS{Ne{Bl{Ne{Nc{Bt {gF{Ni{Nr{Be{x~
+Desc The baddest mamma jamming paintball gun you ever did see lies here.~
+Mat {cad{gam{Wa{cnt{Wi{gt{ce{x~
+Wear -1
+Cost 43750
+Val  410 500 8 10 15
+End
+
+#O
+Vnum 7502
+Nest 0
+Name Marx pants~
+ShD  {Th{ci{Ts {cp{ba{cn{bt{cs{x~
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token bead stone~
+ShD  {c(Transluscent) {YYellow Stone{x~
+Desc {c(Transluscent) {bA glowing {Yyellow bead {bhovers here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3032
+Nest 1
+Name hole~
+ShD  {gA {cPortable {bHole{x~
+Desc {gA {cPortable {bHole {clies here.{x~
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 1214
+Nest 2
+Name Marx quest goodness token wisp~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
+Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 2
+Name Marx quest goodness token wisp~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
+Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 2
+Name Marx quest goodness token wisp~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
+Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 2
+Name Marx wild chaos token bit~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {P({RWild{P) {RBit of {GC{Hh{Ga{Ho{Gs{x~
+Desc {RA bit of {GC{Hh{Ga{Ho{Gs {Rlevitates here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 2
+Name Marx trivia neutrality token drop~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
+Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 2
+Name hidden evil marx token sliver~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
+Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 2
+Name Marx wild chaos token bit~
+ShD  {TM{Ca{Tr{Nx{T'{Ns {P({RWild{P) {RBit of {GC{Hh{Ga{Ho{Gs{x~
+Desc {RA bit of {GC{Hh{Ga{Ho{Gs {Rlevitates here.{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13005
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10107
+Nest 0
+Cond 86
+Wear -1
+Cost 28000
+End
+
+#B
+Vnum 13010
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11709
+Nest 0
+ExtF 321
+Wt   0
+Cond 99
+Wear -1
+Lev  88
+Cost 10000
+End
+
+#B
+Vnum 13008
+Nest 0
+Cond 99
+Wear -1
+Cost 550
+End
+
+#B
+Vnum 11709
+Nest 0
+ExtF 321
+Wt   0
+Wear -1
+Lev  88
+Cost 10000
+End
+
+#B
+Vnum 8227
+Nest 0
+Wear -1
+Cost 7055
+End
+
+#B
+Vnum 4437
+Nest 0
+Wt   0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 17041
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 1232
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 3203
+Nest 0
+Cond 80
+Wear -1
+Cost 40
+End
+
+#B
+Vnum 56
+Nest 0
+Name tasty bit amsterdoodle urza cake slice~
+ShD  {WF{Gr{Ve{Wa{Wk{Gi{Vn{Wg {WC{GO{VL{WO{WS{GU{VS {Wp{Wi{Ge{Vc{We {Wo{Gf {Vc{Wa{Wk{Ge{V!{x~
+Desc {WF{Gr{Ve{Wa{Wk{Gi{Vn{Wg {WC{GO{VL{WO{WS{GU{VS {Wp{Wi{Ge{Vc{We {Wo{Gf {Vc{Wa{Wk{Ge{V!{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 45
+Nest 0
+ShD  {WA bo{Ct{Wtle of {Mw{Vi{Mne {Gcelebrating {Wthe {Vl{Wo{Pv{Ve{W of {BBu{Ct{Wt{Ce{Brc{Cu{Bp {Wand {VMa{Ml{We{Vn{Mn{Va{x~
+Desc {WA bo{Ct{Wtle of {Mw{Vi{Mne {Gcelebrating {Wthe {Vl{Wo{Pv{Ve{W of {BBu{Ct{Wt{Ce{Brc{Cu{Bp {Wand {VMa{Ml{We{Vn{Mn{Va{W lies here{x.~
+Wear -1
+Cost 0
+Val  15 0 18 0 0
+End
+
+#B
+Vnum 45
+Nest 0
+Wear -1
+Cost 25000
+Val  15 5 18 0 0
+End
+
+#B
+Vnum 55
+Nest 0
+Name amsterdoodlew urzaw wine tear stars~
+ShD  {WT{Gh{Ve {Wb{We{Gs{Vt {Wt{Wa{Gs{Vt{Wi{Wn{Gg {Vw{Wi{Wn{Ge {VE{WV{WE{GR{V!{x~
+Desc {WT{Gh{Ve {Wb{We{Gs{Vt {Wt{Wa{Gs{Vt{Wi{Wn{Gg {Vw{Wi{Wn{Ge {VE{WV{WE{GR{V!{x~
+Wear -1
+Cost 0
+Val  64 64 2 0 0
+End
+
+#B
+Vnum 55
+Nest 0
+Name amsterdoodlew urzaw wine tear stars~
+ShD  A {Bt{We{Wa{Br{x of {Yj{Po{Yy{x from the {Ws{Ct{ga{Cr{Ws{x for {VA{Bm{Vs{Bt{Ve{Br{Vd{Bo{Vo{Bd{Vl{Be{x and {RU{Tr{Rz{Ta{x~
+Desc A {Bt{We{Wa{Br{x of {Yj{Po{Yy{x from the {Ws{Ct{ga{Cr{Ws{x for {VA{Bm{Vs{Bt{Ve{Br{Vd{Bo{Vo{Bd{Vl{Be{x and {RU{Tr{Rz{Ta{x~
+Wear -1
+Cost 0
+Val  64 49 2 0 0
+End
+
+#B
+Vnum 4471
+Nest 0
+Name jubei plushy~
+ShD  {WJ{gu{Wb{ge{Wi {gP{Wl{gu{Ws{gh{Wy{x~
+Desc {WI{gt{Ws {ga {Wl{gi{Wt{gt{Wl{ge {Ws{gt{Wu{gf{Wf{ge{Wd {gJ{Wu{gb{We{gi {WP{gl{Wu{gs{Wh{gy{x~
+Mat Cotton~
+Wt   0
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 4471
+Nest 0
+Name kenneth plushy~
+ShD  {MK{He{Rn{bn{Be{Nt{Vh {MP{Hl{Ru{bs{Nh{Vy{x~
+Desc {BT{Nh{Ve {MK{He{Rn{bn{Be{Nt{Vh {MP{Hl{Ru{bs{Nh{Vy {Ml{Ho{Ro{bk{Bs {Nl{Mi{Vk{Me {Hs{Ro{bm{Be{No{Vn{Me {Hs{Rh{bo{Nv{Me{Vd {Hi{Rt{bs {Nf{Va{Hc{Re {bi{Nn {Vt{Mh{He {Rb{bl{Ma{Nd{Re{Vs {Ro{bf {Va {Hf{Na{Bn {Ro{Hn {Bm{Ma{Rx{Ms{Hp{be{Re{Vd{x~
+Mat Cotton~
+Wt   0
+Cond -1
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 1207
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 45
+Nest 0
+ShD  {WA bo{Ct{Wtle of {Mw{Vi{Mne {Gcelebrating {Wthe {Vl{Wo{Pv{Ve{W of {BBu{Ct{Wt{Ce{Brc{Cu{Bp {Wand {VMa{Ml{We{Vn{Mn{Va{x~
+Desc {WA bo{Ct{Wtle of {Mw{Vi{Mne {Gcelebrating {Wthe {Vl{Wo{Pv{Ve{W of {BBu{Ct{Wt{Ce{Brc{Cu{Bp {Wand {VMa{Ml{We{Vn{Mn{Va{W lies here{x.~
+Wear -1
+Cost 0
+Val  15 0 18 0 0
+End
+
+#B
+Vnum 56
+Nest 0
+Name tasty bit amsterdoodle urza cake slice~
+ShD  {WF{Gr{Ve{Wa{Wk{Gi{Vn{Wg {WC{GO{VL{WO{WS{GU{VS {Wp{Wi{Ge{Vc{We {Wo{Gf {Vc{Wa{Wk{Ge{V!{x~
+Desc {WF{Gr{Ve{Wa{Wk{Gi{Vn{Wg {WC{GO{VL{WO{WS{GU{VS {Wp{Wi{Ge{Vc{We {Wo{Gf {Vc{Wa{Wk{Ge{V!{x~
+Wear -1
+Cost 0
+End
+
+#END

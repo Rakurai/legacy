@@ -1,0 +1,189 @@
+#PLAYER
+Name Hoturi~
+Id   1026930913
+LogO 1026932204
+Vers 14
+Mexp 1
+Pass werth~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race seraph~
+Cla  5
+Levl 1
+Tru  0
+Plyd 871
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3712
+HMS  20 100 100
+Gold 0
+Silv 6
+Exp  2312
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes NS
+FVul M
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 5
+Trai 0
+Wimp 0
+Atrib 18 12 17 12 18 22
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 58
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Xenith~
+Lsit h24-69-94-19.ca.shawcable.net~
+Ltim Wed Jul 17 13:42:13 2002
+~
+LSav Wed Jul 17 13:56:44 2002
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 28 28
+Sk 1 1 'armor'
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 1 1 'cure serious'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'fireproof'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'mass healing'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 40 1 'sword'
+Sk 1 1 'shield block'
+Sk 1 1 'dodge'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'curative'
+Gr 'healing'
+Gr 'protective'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 180 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#END

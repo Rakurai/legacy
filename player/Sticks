@@ -1,0 +1,243 @@
+#PLAYER
+Name Sticks~
+Id   1017592285
+LogO 1017598800
+Vers 13
+Desc tick...
+~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race wolf~
+Sex  1
+Cla  7
+Levl 2
+Plyd 4425
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3001
+HMS  35 51 103 103 111 111
+Gold 0
+Silv 57
+Exp  5093
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+FRes I
+FVul H
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 7
+Trai 1
+Save  -1
+Alig  0
+Dam   1
+ACs 84 82 82 99
+Wimp  8
+Atrib 18 12 15 16 21 12
+AtMod 0 0 0 0 0 0
+Pass moocow~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 61
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Teotwawki~
+Lsit wiley-1-345537.roadrunner.nf.net~
+Ltim Sun Mar 31 10:41:15 2002
+~
+LSav Sun Mar 31 12:20:00 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMSP 51 103 111
+THMS 1 0 0
+Cnd  0 0 0 0
+Sk 1 1 'channel'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'heal'
+Sk 1 1 'infravision'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 1 1 'axe'
+Sk 1 1 'flail'
+Sk 40 1 'polearm'
+Sk 1 1 'sword'
+Sk 1 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 1 1 'kick'
+Sk 1 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'enhancement'
+Gr 'healing'
+End
+
+#O
+Vnum 21
+Nest 0
+Wear -1
+Cost 0
+Affc 'light of truth'   0  82  28   0   0         64 1
+Affc 'light of truth'   0  78  28   0   0          8 1
+Affc 'light of truth'   0  77  28   0   0         32 1
+Affc 'light of truth'   0  76  28   0   0         16 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 72 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3722
+Nest 0
+Cond 98
+Wear 16
+Cost 183
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#END

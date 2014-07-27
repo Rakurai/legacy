@@ -1,0 +1,1372 @@
+#AREA
+blakclaw.are~
+Blackclaw Clanhall~
+{H{{CLANS} {MDoomsmerf&GreatNinja {TBlackclaw Clanhall~
+24800 24949
+
+#MOBILES
+
+#24800
+she bou chef~
+{PShe bou Chef{x~
+{PShe bou Chef{x {Gmoves around making something.
+~
+The She Bou Chef wields a small deadly knife for chopping 
+vegetables.  He is busy going back and forth baking and 
+preparing food.  He wears a white cooking robe with an 
+apron about his waist.  You cannot see his hair beneath 
+his ninja headdress but he has a black goatee and blue 
+eyes.  He smiles and continues his work.
+~
+human~
+BG DF 0 S
+50 8 100d100+4500 10d10+4500 3d6+18 slash
+-35 -35 -35 -35
+IS ABCD 0 0
+stand stand male 300000
+0 0 medium 0
+
+
+#24801
+shim'sha budo master~
+{PShim'sha Budo{x {GMaster{x~
+{PShim'sha Budo{x {GMaster is hammering something{x.
+~
+A large burly man leans over his anvil hammering away at 
+some piece of metal.  He has the arms of an oak and the 
+heart of a lion.  He smirks as he sees you and continues 
+his work.  He has wavy black hair tied into a pony tail.
+~
+human~
+BG DF 0 S
+50 8 100d100+4500 10d10+4500 3d6+18 slash
+-35 -35 -35 -35
+IS ABCD 0 0
+stand stand male 1000000
+0 0 medium 0
+
+
+#24802
+warrior go sha'ma~
+{GA Warrior {RGo Sha'ma{x~
+{GA Warrior {RGo Sha'ma{x {gStands here sword drawn.{x
+~
+A brave, wise sensei lingers here.  He wears a black ninja 
+garb tied at the waist with a black silk belt.  On his chest 
+is encrested ancient symbols depicting a great battle.  He 
+carrys a humming katana and a shorter yet deadlier knife 
+along his waist.
+~
+human~
+BG DF 0 S
+70 8 100d100+7500 10d10+4500 5d6+18 slash
+-35 -35 -35 -35
+IS ABCD 0 0
+stand stand male 0
+0 0 medium 0
+>greet_prog 100~
+mpecho {GA Warrior {RGo Sha'ma{x rushes to block your path.
+bow
+say You may pass
+mpecho {GA Warrior {RGo Sha'ma{x sheathes his sword.
+~
+|
+
+
+#24803
+ye'shindu master~
+{BYe'Shindu{x {GMaster{x~
+{BYe'Shindu{x {GMaster offers you his services.{x
+~
+The Ye'Shindu Master has a calm look about him.  He is 
+wearing black ninja garb with the claw insignia.  A 
+black silk sash holds his garb in place.  He has two 
+thin, long daggers strapped to his legs.  He has green 
+eyes and wavy white hair.
+~
+human~
+BGJKb DF 0 S
+50 8 100d100+4500 10d10+4500 3d6+18 slash
+-35 -35 -35 -35
+IS ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+
+#24804
+guards~
+{PA Guard{x~
+{PGuards {Gstand here waiting for trouble{x.
+~
+A tall ninja with with two large katanas looms here.  He 
+makes no movements, but his eyes follow you wherever you 
+go.  He has blue eyes and thick black hair, and his face 
+is covered by a black silk scarf.
+~
+human~
+BG DF 0 S
+70 8 100d100+7500 10d10+4500 5d6+18 slash
+-35 -35 -35 -35
+IS ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+
+#24805
+yang sha healer~
+{BYang Sha{x {BH{ge{Wal{ge{Br{x~
+The {BYang Sha {BH{ge{Wal{ge{Br{x hums to himself here.
+~
+A wise old man hums to himself, he is clean-shaven except 
+for his white goatee.  He wears flowing white robes with 
+a white ninja belt tied loosely about his waist. The healer 
+seems content with his job and you bother him no more.
+~
+human~
+BGa DF 0 S
+109 8 100d100+4500 10d10+4500 3d6+18 slash
+-35 -35 -35 -35
+IS ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+
+#24806
+lamia disco fanatics~ 
+{ML{Ga{Pm{Yi{Ma Disco {PF{Ra{Pn{Ra{Pt{Ri{Pc{Rs {gDance around a {WShr{gi{Wn{ge{x to Peliar.~
+{ML{Ga{Pm{Yi{Ma Disco {PF{Ra{Pn{Ra{Pt{Ri{Pc{Rs {gDance around a {WShr{gi{Wn{ge{x to Peliar.
+~ 
+Beautiful lamias in no clothes at all stare at a shrine to peliar in awe! 
+They seem to be dancing in some sexual ritual.  You wonder what they could 
+be doing as they strip your clothes away and begin fondling you. You feel 
+tingly all over as lamias mount you to have their way with you! A big smile 
+comes over your face as you begin to dance with them. Lamias smile at you 
+and lick your jawline delicately.  You must be a very sexy person, as lamias 
+don't do that for everyone; only one that has reached their Inner Peliar.
+~
+unique~ 
+BG 0 500 S 
+50 8 100d100+4500 10d10+4500 3d6+18 slash
+-35 -35 -35 -35
+IS ABCD 0 0
+stand stand male 1000
+0 0 medium 0
+
+
+#24807
+kitten~ 
+kitten ~ 
+Kitten playfully plays here 
+~ 
+A playful kitten jumps on you! He works his way into your sleeve and pops 
+out the other sleeve MEow! he must like you. 
+~ 
+unique~ 
+BG 0 500 S 
+50 8 100d100+4500 10d10+4500 3d6+18 slash
+-35 -35 -35 -35
+IS ABCD 0 0
+stand stand male 1000
+0 0 small 0
+
+#24808
+spike dog~ 
+{WS{cp{Wi{ck{We{x~ 
+{YA {BB{Gi{Rg {BD{Go{Rg {YNamed {WS{cp{Wi{ck{We {Ygrowls here{x
+~ 
+Stands before you is a British pitbull with a spike collar around his neck.
+~ 
+dog~ 
+BGVZ DFJ 1000 S 
+75 10 33d30+4400 33d30+4400 7d8+21 chomp 
+-48 -52 -50 -45 
+0 ABCD 0 0 
+stand sit male 0 
+0 0 large 0
+
+#24809 
+aylee fairy princess~ 
+{CA{Ty{Cl{Te{Ce{x~ 
+{MThe {CF{Ta{Ci{Tr{Cy {CPrincess{x 
+~ 
+A minature fairy flits before you. She is dressed in a gossamer gown of
+spun gold and has a coronet of jewel-like flowers on her head. Her eyes
+are darkest black while her hair is the color of summer wheat and her
+skin is like cream. Her rosy lips curve in a smile before she flys away,
+giggling. 
+~ 
+unique~ 
+BG DFT 500 S 
+75 10 33d30+4400 33d30+4400 7d8+21 punch
+48 51 49 45 
+0 ABCD 0 0 
+stand sit female 1 
+0 0 tiny 0
+
+
+#0
+
+#OBJECTS
+
+#24800
+orb protection~
+{WOrb{x of {CProtection{x~
+The {WOrb{x of {CProtection{x floats here.~
+light~
+armor ABS AQ
+6 6 6 6 0
+20 5 2000 P
+E
+eqstats~
+Stock:  4 points
+Bought: 0 points
+
+2 points:  +20 hp
+2 points:  +2 con
+1 point:   +2 dam
+= 5 points
+
+-1 point:  -2 age
+= 4 points
+~
+A
+13 20
+A
+5 2
+A
+19 2
+A
+9 -2
+
+
+#24801
+nekode sharpness~
+{cNekode{x of {RSharpness{x~
+A {cNekode{x of {RSharpness{x is here.~
+steel~
+armor ABI AI
+6 6 6 5 0
+20 5 2000 P
+E
+eqstats~
+Stock:  4 points
+Bought: 0 points
+
+1 point:  +10 hp
+1 point:  -3 ac
+1 point:  +1 str
+1 point:  +1 wis
+1 point:  +2 dam
+= 5 points
+
+-1 point: -2 age
+= 4 points
+~
+A
+13 10
+A
+1 1
+A
+4 1
+A
+19 2
+A
+9 -2
+A
+17 -3
+
+
+#24802
+pair black gloves~
+{kPair{x of {cblack gloves{x~
+A {kpair{x of {cblack gloves{x lie here.~
+leather~
+armor ABS AH
+6 6 6 5 0
+20 5 2000 P
+E
+eqstats~
+Stock:  4 points
+Bought: 0 points
+
+1 point:  +10 hp
+1 point:  +1 int
+2 points: +2 hit and dam
+0.5 points:  +1 dam
+0.5 points:  -1 ac
+=5 points
+
+-1 point: -2 age
+=4 points
+~
+A
+13 10
+A
+18 2
+A
+19 3
+A
+9 -2
+A
+17 -1
+A
+3 1
+
+
+#24803
+tabi boots silence~
+{cTabi boots{x of {kSilence{x~
+A pair of {cTabi boots{x of {kSilence{x are here.~
+silk~
+armor ABIS AG
+6 6 6 5 0
+20 5 2000 P
+E
+eqstats~
+Stock:  4 points
+Bought: 0 points
+
+2 points:  +2 int
+2 points:  +2 hit and dam
+0.5 points:  -1 ac
+0.5 points:  +5 hp
+= 5 points
+
+-1 point:  -2 age
+= 4 points
+~
+A
+9 -2
+A
+13 5
+A
+18 2
+A
+19 2
+A
+17 -1
+A
+3 2
+
+
+#24804
+yin yang engraved gold medallion~
+{WYin {cYang{x engraved {Ygold medallion{x~
+A lovely {Wyin {cyang{x {Ymedallion{x is here.~
+gold~
+armor AB AC
+13 13 13 13 0
+40 10 4000 P
+E
+eqstats~
+Stock:  6 points
+Bought: 3 points
+
+4 points:  +40 mana
+1 point:   +1 int
+1 point:   +1 wis
+2 point:   +2 con
+2 points:  +2 hit and dam
+1 point:   -3 ac
+= 10 points
+
+-2 points:  -4 age
+= 8 points
+~
+A
+9 -4
+A
+17 -3
+A
+18 2
+A
+19 2
+A
+3 1
+A
+4 1
+A
+5 2
+A
+12 40
+
+
+#24805
+black ninja garb~
+{cBlack Ninja Garb{x~
+A suit of {cblack ninja garb{x is pooled into a small pile on the floor.~
+silk~
+armor ABS AK
+13 13 13 13 0
+40 10 4000 P
+E
+eqstats~
+Stock:  6 points
+Bought: 4 points
+
+4 points:  +40 mana
+1 point:   +1 con
+3 points:  +3 charisma
+3 points:  +3 hit and dam
+1 point:   -3 ac
+= 12 points
+
+-2 points:  -4 age
+= 10 points
+~
+A
+12 40
+A
+5 1
+A
+26 3
+A
+19 3
+A
+18 3
+A
+17 -3
+A
+9 -4
+
+
+#24806
+pair shadow warrior bracers~
+{xPair of {cShadow {PWarrior {cBracers{x~
+A simple pair of {cShadow {PWarrior {cBracers{x lie here.~
+leather~
+armor AB AH
+16 16 16 16 0
+50 10 5000 P
+E
+eqstats~
+Stock:  7 points
+Bought: 3 points
+
+4 points:    +40 mana
+4 points:    +4 hit and dam
+1 point:     +1 int
+1 point:     +1 wis
+1 point:     +1 charisma
+1 point:     -3 ac
+= 12 points
+
+-2 points:   -4 age
+= 10 points
+~
+A
+12 40
+A
+3 1
+A
+4 1
+A
+26 1
+A
+19 4
+A
+18 4
+A
+17 -3
+A
+9 -4
+
+
+#24807
+engraved dragon ring~
+{xAn engraved {kDragon{x Ring{x~
+An engraved {kDragon{x ring is here.~
+gold~
+armor ABI AB
+16 16 16 15 0
+50 5 5000 P
+E
+eqstats~
+Stock:  7 points
+Bought: 7 points
+
+5 points:   +50 mana
+1 points:   +1 str
+1 point:    +1 wis
+1 point:    +1 int
+1 point:    +1 dex
+1 point:    +1 cha
+4 points:   +4 hit and dam
+1 point:    -3 ac
+1 point:    -2 ac
+= 16 points
+
+-2 points:  -4 age
+= 14 points
+~
+A
+12 50
+A
+1 1
+A
+3 1
+A
+2 1
+A
+4 1
+A
+26 1
+A
+18 4
+A
+19 4
+A
+17 -5
+A
+9 -4
+
+
+#24808
+black shadow leggings~
+{cBlack {kShadow {cLeggings{x~
+A pair of {cblack {kshadow {cleggings{x are here.~
+silk~
+armor ABS AF
+20 20 20 20 0
+60 10 6000 P
+E
+eqstats~
+Stock:  8 points
+Bought: 0 points
+
+5 points:  +50 mana
+1 point:   +1 int
+2 point:   +2 dex
+2 points:  +2 hit and dam
+1 point:   -3 ac
+= 11 points
+
+-3 points:  -6 age
+= 8 points
+~
+A
+12 50
+A
+3 1
+A
+2 2
+A
+18 2
+A
+19 2
+A
+17 -3
+A
+9 -6
+
+
+#24809
+sune-ate stealth~
+{cSune-ate {xof {BStealth{x~
+The {cSune-ate{x of {BStealth{x is here.~
+silk~
+armor ABI AF
+30 30 30 30 0
+90 20 9000 P
+E
+eqstats~
+Stock:  10 points
+Bought: 0 points
+
+4 points:  +40 mana
+2 points:  +2 dex
+1 point:   +1 cha
+3 points:  -9 ac
+4 points:  -4 saves
+= 14 points
+
+-4 points:  -8 age
+= 10 points
+~
+A
+12 40
+A
+2 2
+A
+26 1
+A
+17 -9
+A
+20 -4
+A
+9 -8
+
+
+#24810
+green meditation mat~
+{GGreen {BMe{gdit{Wat{gi{Bon {Gmat{x~
+{GGreen {BMe{gdit{Wat{gi{Bon {Gmat{x lies here.~
+foam~
+furniture O P
+6 0 EHK 150 150
+1 100 10 P
+
+
+#24811
+fountain drinking water~
+A fountain of drinking water~
+A fountain of drinking water stands here.~
+marble~
+fountain O P
+0 0 water 0 0
+1 100 10 P
+
+
+#24812
+shimmering blue gateway~
+A {CShimmering {BBlue{x gateway~
+A {CShimmering {BBlue{x gateway is here.~
+energy~
+portal O P
+0 0 A 14154 0
+1 100 10 P
+
+
+#24813
+shimmering red gateway~
+A {CShimmering {PRed{x gateway~
+A {CShimmering {PRed{x gateway is here.~
+energy~
+portal O P
+0 0 A 11703 0
+1 100 10 P
+
+
+#24814
+shimmering green gateway~
+A {CShimmering {Ggreen{x gateway~
+A {CShimmering {Ggreen{x gateway is here.~
+energy~
+portal O P
+0 0 A 13001 0
+1 100 10 P
+
+
+#24815
+calif maki~
+{MC{Wa{Ml{Wi{Mf {WM{ga{Wk{gi{x~
+Some {MC{Wa{Ml{Wi{Mf {WM{ga{Wk{gi{x is here.~
+food~
+food 0 A
+25 45 0 0 0
+1 3 12 P
+
+
+#24816
+salmon sushi~
+{Ws{ga{Wl{gm{Wo{gn {Ws{gu{Ws{gh{Wi{x~
+A little {Ws{ga{Wl{gm{Wo{gn {Ws{gu{Ws{gh{Wi{x is here.~
+fish~
+food 0 A
+20 40 0 0 0
+1 5 11 P
+
+
+#24817
+egg sushi~
+{Gegg {Ws{gu{Ws{gh{Wi{x~
+Some {Gegg {Ws{gu{Ws{gh{Wi{x is here.~
+eggs~
+food 0 A
+22 42 0 0 0
+1 4 11 P
+
+
+#24818
+saki~
+{bsaki{x~
+A little {bsaki{x is here.~
+saki~
+drink 0 A
+150 150 'rice wine' 0 0
+1 4 16 P
+
+
+#24819
+white rice~
+{Wwhite rice{x~
+A small bowl of {Wwhite rice{x sits here.~
+rice~
+food 0 A
+40 30 0 0 0
+1 4 13 P
+
+
+#24820
+veggy combo~
+{GVeggy combo{x~
+A {Gveggy combo{x is lying here.~
+veggies~
+food 0 A
+30 50 0 0 0
+1 5 17 P
+
+
+#24821
+cosmos cup~
+{CC{Bo{Ws{gm{Bos {CCup{x~
+The {CC{Bo{Ws{gm{Bos {CCup{x is here.~
+food~
+food 0 A
+45 60 0 0 0
+1 5 27 P
+
+
+#24822
+god pill~
+{GGod Pill{x~
+{GGod Pill{x lies here.~
+god!~
+pill 0 A
+15 'haste' 'regen' 'cure crit' 'cure crit'
+15 5 10 P
+
+
+#24823
+fountain soya milk~
+{gA fountain of Soya Milk{x~
+{gA fountain of Soya Milk is here to drink from.{x~
+milk~
+fountain O P
+0 0 milk 0 0
+1 100 10 P
+
+
+#24824
+pill faith~
+A pill of {YFaith{x~
+A pill of {YFaith{x lies here.~
+faith~
+pill 0 A
+15 'bless' 'sanc' 'talon' 'stone'
+15 5 10 P
+
+
+#24825
+large table~
+A large table~
+A large table with maps and war plans sits in the center of the room.~
+wood~
+container O P
+300 0 0 25 100
+1 100 10 P
+
+
+#24826
+yingyang yang pill~
+{HYin{BYan {PPill{x~
+A YingYang pill lies here.~
+neutrality~
+pill 0 A
+15 'stone' 'flameshield' 'sanc' 'cure crit'
+15 5 10 P
+
+
+#24827
+throne~
+A {WT{gh{Wr{go{Wn{ge{x~
+{GLord Shadow's {BThrone Looms{x.~
+gold~
+furniture O P
+1 0 EHK 150 150
+1 100 10 P
+
+
+#24828
+waterbed swirling~
+{BA {BS{gw{Wi{grl{Wi{Bng{x {BWaterbed{x~
+{BA {BS{gw{Wi{grl{Wi{Bng{x {BWaterbed{x undulates.~
+water~
+furniture O P
+4 0 EHK 150 150
+1 100 10 P
+
+
+#24829
+candied fish eyeball~
+{WC{ga{Wn{gd{Wi{ge{Wd {WF{gi{Ws{gh {WE{gy{We{gb{Wa{gl{Wl{x~
+A small {Wc{ga{Wn{gd{Wi{ge{Wd {WF{gi{Ws{gh {WE{gy{We{gb{Wa{gl{Wl{x is squished against the wall.~
+eyeball~
+pill 0 A
+15 'frenzy' 'bless' 'blood moon' 'shield'
+15 4 10 P
+
+
+#24830
+vibrating kingsize dog-basket~
+{Bv{Mi{Cb{Gr{Mati{Gn{Bg {Bk{Win{gg{Ws{gi{Bze {Md{Bo{Yg{P-{Bb{Ta{Cs{Wk{Bet{x~
+There's a {Bv{Mi{Cb{Gr{Mati{Gn{Bg {Bk{Win{gg{Ws{gi{Bze {Md{Bo{Yg{P-{Bb{Ta{Cs{Wk{Bet{x in the corner.~
+cloth~
+furniture O P
+2 0 EHK 150 150
+1 100 10 P
+
+
+#24831
+cheese figurine kenneth~
+{bc{Yh{be{Ye{bs{Ye {bf{Yi{bg{Yu{br{Yi{bn{Ye {Yo{gf {BKe{Wn{gn{We{Bth{x~
+A small altar has been set aside to enshrine this {bc{Yh{be{Ye{bs{Ye {bf{Yi{bg{Yu{br{Yi{bn{Ye {Yo{gf {BKe{Wn{gn{We{Bth{x~
+cheese~
+pill 0 A
+15 'frenzy' 'refresh' 'refresh' 'flameshield'
+15 5 10 P
+E
+cheese figurine kenneth~
+Hidden amongst the cheap Kenneth (tm) goods that Peliar likes to sell to 
+the gullibe public you find a figurine of Kenneth made out of cheese, mmm 
+tasty!
+~
+
+#24832
+throne~ 
+{GLady {CTia's {WT{xh{Wr{xo{Wn{xe~ 
+{GLady {CTia's {WT{xh{Wr{xo{Wn{xe.~ 
+gold~ 
+furniture OT 0 
+1 0 BEHKN 150 150 
+15 10000 100 P 
+E 
+throne~ 
+The beauty of the throne is overshadowed only by the beauty of it's owner. 
+~
+
+#24833
+fountain ninja~ 
+{TA {MBe{Ya{Mu{Yti{Mful {Wfou{gnt{ga{Wi{gn {Tof {gNinja {GLifeforce{x~ 
+{TA {MBe{Ya{Mu{Yti{Mful {Wfou{gnt{ga{Wi{gn {Tof {gNinja {GLifeforce{x ~ 
+stone~ 
+fountain OT 0 
+0 0 vodka 0 0 
+15 2000 10 P 
+E 
+lifeforce~ 
+The Ninja Lifeforce spills forth from the fountain. 
+~
+
+#24834
+old oak tree~ 
+{GA {GV{He{Tr{Gy {HO{Gl{Hd {GO{Ha{Gk {Gt{Hr{Ge{He{x~ 
+{GA {GV{He{Tr{Gy {HO{Gl{Hd {GO{Ha{Gk {Gt{Hr{Ge{He.{x ~ 
+wood~ 
+furniture T 0 
+10 0 BEHKN 150 150
+15 10000 10 P 
+
+
+#24835
+acorn~ 
+{GA{Hc{Go{Hr{Gn{x~ 
+{HA tiny acorn which has fallen from the mighty oak{x.~ 
+seed~ 
+pill IY A 
+15 'steel mist' 'armor' 'protection good' 'protection evil' 
+15 5 100 P 
+E 
+tiny~ 
+The {GA{Hc{Go{Hr{Gn{x fits easily into your hand.
+~ 
+
+#0
+
+#ROOMS
+
+#24800
+{gBl{Wa{gc{Wk {gC{Wl{ga{Ww {gT{We{gm{Wp{gl{We{x~
+Before you towers the temple of the Claw, its magnificent masonry
+is intricately sculpted. Marble statues Of Sun-Tzu warriors are 
+positioned at the entrance as if they were actually protecting it. 
+As you walk by them you turn and swear the statues were facing the 
+other direction just a second ago.
+~
+0 K 0
+C blackclaw~
+D0
+~
+~
+0 -1 24805
+D1
+~
+~
+0 -1 24813
+D2
+~
+~
+0 -1 24801
+D3
+~
+~
+0 -1 24810
+S
+
+
+#24801
+{BYang Sha{x {BH{ge{Wal{ge{Br{x~
+As you enter, you see a Clan Elder meditating here, his robes
+flowing in the {Ccool breeze{x. Inside you feel peaceful calm, and 
+one with yourself, you cannot help but realize you feel a sense
+of warmth pass over you. Only then do you realize that, this 
+older man is a {bhealer{x. He looks at with a knowing smile and 
+offers his services to you.
+~
+0 K 0
+C blackclaw~
+D0
+~
+~
+0 -1 24800
+D2
+~
+~
+0 -1 24802
+S
+
+
+#24802
+{BMed{git{Wat{gati{Bon Room{x~
+Inside this room a {Cshimmering{x aura hangs in the air.  When 
+you step forth into the room, you feel {Gabsolutely vibrant{x.  A cool 
+breeze flows from The opening in the ceiling, and you turn your 
+attention to the {Chumming{x {Gmats{x that are scattered about the 
+floor.{x
+~
+0 K 0
+C blackclaw~
+D0
+~
+~
+0 -1 24801
+S
+
+
+#24803
+{gS{Wh{gi{Wn{gto {gArmory{x~
+As you enter this room you hear the sound of hot steel being cooled, 
+and then the hammering of hot metal. As your eyes adjust to the darkness 
+you make out a large man bent over his anvil, making some new weapon 
+no doubt.  As you walk further into the room you notice the walls are 
+lined with armor and weapons. The large man turns around with a wicked 
+smile .. May I help you sir..
+~
+0 K 0
+C blackclaw~
+D2
+~
+~
+0 -1 24810
+S
+
+
+#24804
+{PA{Rr{Pe{Rn{Pa E{Rn{Ptr{Ra{Pn{Rc{Pe{x~
+
+{R                 ...$$$$$$$....
+{R                .$$ $$$$$$$$$$$$$$$..
+{R             ..$$$$ "$$$$$$$$$$$$$$$$$$..                           
+{R            $$$$   ""   ^"^$$$$$$$$$$$$$$$$.
+{R         $$$$"""           `$$$$$$$$$$$$$$$$.
+{R       .$$                   -$$$$$$$$$$$$$$$$
+{R      .$$                 ==$$. '"$".$$$$$$$$$$
+{R     $$$                           $$$$$$$$$$$$$.
+{R    $$$                      ..      "$$$$$$$$$$$
+{R   $$$           .        .$$$$$$.    ..  "  $$$$$
+{R   $$            $          ^$$$$$$   "      .$$$$$
+{R  $$$            ^$    ..$$$$.."$$$$$.       .$$$$$.
+{R  $$$            $$$$$$$$$$$$$$$. "$$$$$  .. $$$$$$$                
+{R  $$$            $$$$$$$$$$$$$$$$$   "$$ $ $$$$$$$$$
+{R  $$$            '$$$$$$$$$$$$$$$$$$$....$$ $$$$$$$$
+{R '$$$             `$$$$$$$$$$$$$$$$$$$$$$$$ '$$$$$$$
+{R  $$                  ^""""""`       ^"$$$$$ $$$$$$
+{R  $  $$                                  "$$. .$$$ $
+{R  $$$$$$                                   "$. $$$$
+{R   $$$$$$                                   '$$. .$
+{R   $$$$$$$                                   '$$$$
+{R    $$$$$$                                    $$$"
+{R     $$$$$  $$                                $$$
+{R      $$$$ $$$                                $"
+{R       $$$$$$$$$$$$$$.                        "
+{R        ^$$$$$$$$$$$$$$
+{R          `"$$$$$$$$$${x
+~
+0 K 0
+C blackclaw~
+D2
+~
+~
+0 -1 24805
+S
+
+
+#24805
+{BYe'Shindu {PT{Rra{Pin{Ri{Pn{Rg {PGrounds.~
+You stand before two oak doors, as you push past them you see a 
+grand hall with tapestries, 12 foot statues of past ninjas tower 
+on either side of the hall. When you return your gaze forward a 
+man stands before you dressed in Ninja garb. He wears a black belt 
+and carries no weapons that you can see. 'May I assist you?' he asks.
+~
+0 K 0
+C blackclaw~
+D0
+~
+~
+0 -1 24804
+D2
+~
+~
+0 -1 24800
+S
+
+
+#24806
+{Ws{gh{Ca'{gp{Wa{gi{x Gateway~
+You saunter into a circular room. There are three portals in the wall 
+each one a different color.  As you peer closer you make out the holy 
+city as blue, twilight as green and drakyri isle as red. You lean back 
+and feel a cool breeze wash over you. You reach out to touch a portal
+and your hand flows through it as if the portal was made water.
+~
+0 K 0
+C blackclaw~
+D0
+~
+~
+0 -1 24810
+S
+
+
+#24807
+{GF{go{Wo{gd {GC{go{Wu{gr{Gt{x~
+As you enter the area you find yourself surrounded by the galaxy.
+Holograms at the end show the great warriors and thinkers of days
+past. Titanium-glass windows fill the walls and give a dazzling
+view of the Universe. A man stands here making delicacies.
+~
+0 K 0
+C blackclaw~
+D2
+~
+~
+0 -1 24811
+S
+
+
+#24808
+{GDo{Wo{gm{Wsm{ge{Grfs {GD{Wo{gj{Go{x~
+{x{W            __..--''``---....___   _..._    __
+{x   {G /// //_{W.-'    .-/";  `        ``<._  ``.''_ `.{G / // /
+{x   {G///{W_.-' _..--.'_    ;                    `( ) ){G // //
+{x   {G/ {W(_..-' // (< _     ;_..__               ; `' {G/ ///
+{x {G// / // // //  {W`-._,_)' // / ``--...____..-'{G /// / //
+{x  {G// ///  //////  ///  ////  //// ///  // /// /// /{x 
+{x
+~
+0 K 0
+C blackclaw~
+D0
+~
+~
+0 -1 24809
+D3
+~
+~
+0 -1 24813
+D2
+~
+~
+0 -1 24814
+D1
+~
+~
+0 -1 24816
+D4
+~
+~
+0 -1 24817
+S
+
+
+#24809
+{RGreat Ninja's Room{x~
+Inside you enter a room that is {Wsurrounded{x by a collection of 
+old {Pweapons{x and {carmor{x alike from different era's of {RJapan{x.
+A few other things like old portraits of people are hung in honor 
+of past events. One particular portrait stands out for its grace 
+and beauty. It is a portrait of his true {Rlove{x, {CTara{x. She sits 
+happily in a chair {Cglancing{x back at you.
+~
+0 K 0
+C blackclaw~
+D2
+~
+~
+0 -1 24808
+S
+
+
+#24810
+{PGuard Post{x~
+Guards stand here, inspecting the packs of travellers as they walk 
+by.  They eye you down and say 'You may pass.'  They wrap their
+ninja garb around their heads to protect them from the cold wind 
+and resume watch.
+~
+0 K 0
+C blackclaw~
+D0
+~
+~
+0 -1 24803
+D1
+~
+~
+0 -1 24800
+D2
+~
+~
+0 -1 24806
+D3
+~
+~
+0 -1 24811
+S
+
+
+#24811
+{PCheckpoint{x~
+Gates to the north and south impede your path.  Soldiers roam this  
+hallway, guarding the doors with great pride. 
+~
+0 K 0
+C blackclaw~
+D0
+~
+~
+0 -1 24807
+D1
+~
+~
+0 -1 24810
+D2
+~
+~
+0 -1 24812
+S
+
+
+#24812
+                          {PCommand Room{x~
+{R                              ...
+{R           s,                .                    .s
+{R            ss,              . ..               .ss
+{R            'SsSs,           ..  .           .sSsS'
+{R             sSs'sSs,        .   .        .sSs'sSs
+{R              sSs  'sSs,      ...      .sSs'  sSs
+{R               sS,    'sSs,         .sSs'    .Ss
+{R               'Ss       'sSs,   .sSs'       sS'
+{R      ...       sSs         ' .sSs'         sSs       ...
+{R     .           sSs       .sSs' ..,       sSs       .
+{R     . ..         sS,   .sSs'  .  'sSs,   .Ss        . ..
+{R     ..  .        'Ss .Ss'     .     'sSs. ''        ..  .
+{R     .   .         sSs '       .        'sSs,        .   .
+{R      ...      .sS.'sSs        .        .. 'sSs,      ...
+{R            .sSs'    sS,     .....     .Ss    'sSs,
+{R         .sSs'       'Ss       .       sS'       'sSs,
+{R      .sSs'           sSs      .      sSs           'sSs,
+{R   .sSs'____________________________ sSs ______________'sSs,
+{R.sSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS'.Ss SSSSSSSSSSSSSSSSSSSSSs,
+{R                        ...         sS'
+{R                         sSs       sSs
+{R                          sSs     sSs
+{R                           sS,   .Ss
+{R                           'Ss   sS'
+{R                            sSs sSs
+{R                             sSsSs
+{R                              sSs
+{R                               s{x
+~
+0 KV 0
+C blackclaw~
+D0
+~
+~
+0 -1 24811
+
+S
+
+
+#24813
+Grand Gate~
+As you enter this room ominous gates tower before you. A man in robes
+speaks a strange language and the gate opens. You quickly follow this  
+small man before the gates close again.
+~
+0 K 0
+C blackclaw~
+D1
+~
+~
+0 -1 24808
+D3
+~
+~
+0 -1 24800
+S
+
+
+#24814
+{CS{Rh{Ca{Rd{Co{Rw{Ch{Ru{Cn{Rt{Ce{Rr {C& {RT{Ci{Ra{C'{Rs {RRoom{x~
+{gIn the middle of the room you see a {Ryin yang{x {gtiled
+into the floor. The smell of blood fills your body as 
+you step in. Over the yin yang is a {Cmagnificent{x {Ygolden{x 
+{gchandelier with an array of candles{x.
+~
+0 0 0
+C blackclaw~
+D0
+~
+~
+0 -1 24808
+D5
+~
+~
+0 -1 24815
+S
+
+
+#24815
+{YSha{gr{Wk{gu{Ws{YoA {BAq{Wu{ga{Ws{gt{Wr{ge{Bam{x~ 
+{gSuddenly you are pulled down into a {Cs{Twi{Wr{gl{Wi{Cn{Tg {gv{Wo{Cr{gt{Wex{x of {BWater{x, Upon reaching 
+the other end of the {gv{Wo{Cr{gt{Wex{x You step into a room {MB{We{Ma{Wu{Mt{Wi{Mf{Wu{Ml{Wl{My{x crafted. The 
+walls are what seems to be {Bwater{x held in place by {Cforce fields{x. In the center 
+of the the room is a {Bw{Ca{Tt{Cer{Bbed{x surrounded by huge {Gferns{x. You notice a {Cshimmer{x 
+as a MantaRay passes through the wall and rests in the corner.
+~
+0 K 0
+C blackclaw~
+D4
+~
+~
+0 -1 24814
+S
+
+
+#24816
+Lamia Disco room~
+{gYou enter this room and theres a {Cd{Ta{Cn{Tc{Ce p{Ta{Cr{Tt{Cy!{x {MWild {Wlights{x dance around 
+this room the {Pbeat{x of drums and {Mwild {TD{Pa{Mn{Cc{Yi{gn{Bg intice you to {Md{Ga{gn{Yc{Te{x to! from the 
+ceiling a {Wd{gi{Ws{gc{Wo ball {Cswirls{x You notice all the women are are {PHot {ML{Ga{Pm{Yi{Ca{Rs{x 
+in the center of all the {Gexcitement{x You notice you are the only person and 
+with four {ML{Ga{Pm{Yi{Ca{Rs{x! above you is a {Wm{gi{Wr{gr{Wo{gr{We{gd{x ceiling, you can see yourself. 
+In the corner is a small {gS{Wh{Cr{gi{Wne{x to {PP{Re{Pl{Ri{Pa{Rr{x
+~
+0 K 0
+C blackclaw~
+D3
+~
+~
+0 -1 24808
+S
+
+#24817
+{MT{Wa{Mm{Wa{Mr{Wa'{Ms {GC{Hl{Ge{Ha{Gr{Hi{Gn{Hg{x~ 
+You walk out into a {Mb{We{ga{Wu{Bt{Wi{gf{Bu{Wl{x clearing. There are tiny {GF{Ml{Bo{Yw{Be{gr{Cs{x nestled like
+{Cj{Te{Cw{Te{Cl{Ts{x in the {H{xgrass{x. The sky overhead is a clear {Cblue{x with {Wfluffy{x, cotton-
+puff clouds. A minature {Mf{Wa{gi{Wr{My{x flits among the flowers, giggling as she
+plays with the {Yb{bu{Yt{bt{Ye{brf{Yl{bi{Ye{bs{x. A glistening stream flows on your left, and
+the giant {Hoak{x {Gt{Hr{Ge{He{x in the distance. 
+~
+0 K 2 
+C blackclaw~
+D5
+~
+~
+0 -1 24808
+E
+flowers~
+The flowers glint and glitter in the sunlight.
+~
+E
+butterflies~
+Some {Yb{bu{Yt{bt{Ye{brf{Yl{bi{Ye{bs{x flutter playfully among the flowers.
+~
+S
+
+#0
+
+#RESETS
+
+M 0 24800 1 24807 1   * She Bou Chef to the Food Court
+G 0 24815 60          * food 
+G 0 24816 60          * food
+G 0 24817 60          * food
+G 0 24818 60          * food
+G 0 24819 60          * food
+G 0 24820 60          * food
+G 0 24821 60          * food
+M 0 24801 1 24803 1   * Shim'sha Budo Master to Armory
+G 0 24800 40          * claneq
+G 0 24801 40          * claneq
+G 0 24802 40          * claneq
+G 0 24803 40          * claneq
+G 0 24804 40          * claneq
+G 0 24805 40          * claneq
+G 0 24806 40          * claneq
+G 0 24807 40          * claneq
+G 0 24808 40          * claneq
+G 0 24809 40          * claneq
+M 0 24802 1 24804 1   * Go'Shama to the Arena Entrance
+M 0 24803 1 24805 1   * Ye'Shindu Master to Training Place
+M 0 24804 4 24810 2   * Guards to the Guard Post
+M 0 24804 4 24811 2   * Guards to the checkpoint
+M 0 24805 1 24801 1   * Yang Sha Healer to Yang Sha Healer
+M 0 24806 1 24816 1   * lamia disco fanatics into lamia disco room
+M 0 24807 1 24808 1   * kitten into doomsmerfs room
+O 0 24810 1 24802     * Mat to the meditation room
+O 0 24811 1 24802     * Fountain to the meditation room
+O 0 24812 1 24806     * a portal to the portal room
+O 0 24813 1 24806     * a portal to the portal room
+O 0 24814 1 24806     * a portal to the portal room
+O 0 24822 40 24808    * God pill to Dooms' room
+O 0 24823 1 24809     * soya milk to Ninja's room
+O 0 24824 40 24809    * faith pill to Ninja's room
+O 0 24825 1 24812     * large table to the leader room
+O 0 24826 40 24814    * yingyang pill to Shadowhunter's room
+O 0 24827 1 24814     * throne to shadowhunter's room
+O 0 24831 40 24816    * cheese figurine kenneth into lamia disco room
+O 0 24830 1 24816     *vibrating kingsize dog-basket into lamia disco
+O 0 24828 1 24815     * waterbed swirling into sharkusoa's room
+O 0 24829 40 24815    * candied fish eyeball into sharkusoa's room
+M 0 24808 1 24814 1   * load spike into shadowhunters room
+O 0 24832 1 24814     * tia's throne into shadowhunters room
+O 0 24833 1 24800     * load fountain at clanrecall
+M 0 24809 1 24817 1   * load fairy into tamara's room
+O 0 24834 1 24817     * oak tree into tamara's room
+O 0 24835 40 24817     * load acorn at tamara's room
+S
+
+#SHOPS
+
+24800 19 0 0 0 0 125 50 0 23 * She Bou Chef
+24801 9 0 0 0 0 125 50 0 23  * Shim'sha Budo Master
+
+0
+
+#SPECIALS
+
+M 24801 spec_blacksmith * Shim'sha Budo Master
+
+S
+
+#$
+
+
+
+
+
+
+

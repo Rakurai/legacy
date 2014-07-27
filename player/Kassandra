@@ -1,0 +1,1391 @@
+#PLAYER
+Name Kassandra~
+Id   1021164462
+LogO 1027006761
+Vers 14
+Mexp 2
+Pass aceventura~
+Prom {Y%h/%Hhp {V%m/%Mmana {G%v/%Vstm {Y%g{W/%s (%r) {P%aAlign {C%XTnl {W%q{C/{G%j{x ~
+Race human~
+Clan order~
+Cla  7
+Levl 51
+Tru  91
+Plyd 180002
+Back 177982
+Note 1026595133 1026595133 1026918579 1026595133 1026595133 1026877382 1026595133
+Scro 22
+Room 24456
+HMS  1525 691 632
+Gold 2068
+Silv 13
+Gold_in_bank 2000
+Exp  51718
+PCkills  1
+PCkilled 1
+Akills   1
+Akilled  0
+PKRank   1
+Pos  8
+Alig -1000
+Mark 3001
+FImm 0
+FRes 0
+FVul 0
+Plr  AOQU
+Video D
+Act  CDEFGHJLQSc
+AfBy c
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr B
+Prac 22
+Trai 2
+Wimp 0
+Atrib 18 18 18 18 21 11
+SkillPnts  156
+RolePnts   1
+QuestPnts  27
+Afk {B[{CWed Jul 17 00:33:09 2002{B] {CUnknown Departure.{x
+~
+Titl  {PTe{Rm{Yptr{Re{Pss{x of {YLi{Wg{Yht{x and {WD{ga{gr{Wk{x~
+Immn ~
+Pnts 40
+Rank {NP{CF{NC~
+Aura ~
+TSex 2
+LLev 48
+Deit Kazander~
+Stus The {WT{Ce{Va{Ys{Te{x~
+RmCt 1
+ExSk 0
+Raff 106
+Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
+Ltim Thu Jul 18 10:32:34 2002
+~
+LSav Thu Jul 18 10:39:21 2002
+~
+HMSP 1115 449 662
+THMS 0 0 0
+Cnd  3 0 7 10
+Colr 3 33 1
+Colr 11 33 1
+Colr 13 33 1
+Colr 57 33 1
+Colr 58 31 1
+Colr 72 31 1
+Colr 73 32 1
+Alias ball c fireball~
+Alias dispel c 'dispel magic'~
+Alias qu backup|save|quit~
+Alias slow c slow~
+Alias weak c weaken~
+Alias blind c blindness~
+Alias undo c 'undo spell'~
+Alias ed c 'energy drain'~
+Alias clna clan~
+Alias to c 'teleport object'~
+Alias fire c 'faerie fire'~
+Alias we get looney|wield looney~
+Alias cc c 'cure critical'~
+Alias so c 'summon object'~
+Sk 1 1 'acid blast'
+Sk 75 1 'acid rain'
+Sk 76 1 'age'
+Sk 78 1 'armor'
+Sk 79 1 'blindness'
+Sk 91 1 'blizzard'
+Sk 2 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 81 1 'cancellation'
+Sk 75 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 1 1 'chill touch'
+Sk 76 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 81 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 78 1 'curse'
+Sk 80 1 'dispel magic'
+Sk 83 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 76 1 'energy drain'
+Sk 80 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 87 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 75 1 'firestorm'
+Sk 76 1 'flameshield'
+Sk 81 1 'fly'
+Sk 85 1 'gate'
+Sk 76 1 'giant strength'
+Sk 80 1 'haste'
+Sk 1 1 'heal'
+Sk 1 1 'infravision'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 82 1 'pass door'
+Sk 76 1 'plague'
+Sk 76 1 'poison'
+Sk 1 1 'portal'
+Sk 78 1 'protection evil'
+Sk 80 1 'protection good'
+Sk 76 1 'refresh'
+Sk 78 1 'regeneration'
+Sk 87 1 'sanctuary'
+Sk 76 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 91 1 'slow'
+Sk 75 1 'steel mist'
+Sk 76 1 'stone skin'
+Sk 75 1 'summon'
+Sk 75 1 'summon object'
+Sk 75 1 'talon'
+Sk 1 1 'teleport'
+Sk 75 1 'teleport object'
+Sk 80 1 'undo spell'
+Sk 86 1 'weaken'
+Sk 77 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 100 1 'axe'
+Sk 1 1 'flail'
+Sk 100 1 'sword'
+Sk 100 1 'bash'
+Sk 87 1 'circle'
+Sk 75 1 'disarm'
+Sk 100 1 'enhanced damage'
+Sk 93 1 'hand to hand'
+Sk 95 1 'kick'
+Sk 100 1 'parry'
+Sk 75 1 'rescue'
+Sk 100 1 'second attack'
+Sk 91 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 75 1 'hunt'
+Sk 75 1 'forge'
+Sk 81 1 'repair'
+Sk 75 1 'hide'
+Sk 75 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 51 1 'recall'
+Sk 66 1 'mark'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'combat'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'regeneration'   0  44   1   0   0  268435456 1
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24402
+Nest 0
+Wear 0
+Cost 3000
+End
+
+#O
+Vnum 24403
+Nest 0
+Wear 18
+Cost 3000
+End
+
+#O
+Vnum 24410
+Nest 0
+Wear 6
+Cost 3000
+End
+
+#O
+Vnum 24404
+Nest 0
+Wear 9
+Cost 3000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Enchanted
+Nest 0
+Cond 76
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 29901
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Enchanted
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+Affc 'reserved'   1  15  -1  -1  12          0 1
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Wear -1
+Cost 10000
+Val  1 8 5 21 25
+End
+
+#O
+Vnum 24405
+Nest 0
+Wear 4
+Cost 4000
+End
+
+#O
+Vnum 24406
+Nest 0
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 24406
+Nest 0
+Wear 14
+Cost 4000
+End
+
+#O
+Vnum 4594
+Nest 0
+Wear 2
+Cost 8000
+End
+
+#O
+Vnum 3203
+Nest 0
+Wear 12
+Cost 40
+End
+
+#O
+Vnum 24407
+Nest 0
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear 19
+Cost 20
+Val  0 6 10 2 9
+End
+
+#O
+Vnum 29901
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Enchanted
+Nest 0
+Cond 62
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 108
+Nest 0
+Name rose~
+ShD  a diamond{x rose~
+Desc A diamond{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe florist~ This rose was created by DeathStrike.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 108
+Nest 0
+Name rose~
+ShD  a bouquet of {RRed{x rose~
+Desc A bouquet of {RRed{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by DeathStrike.
+~
+End
+
+#O
+Vnum 108
+Nest 0
+Name rose~
+ShD  a gold{x rose~
+Desc A gold{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by DeathStrike.
+~
+End
+
+#O
+Vnum 1215
+Nest 0
+Name liriel rainbow dazzling wild~
+ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
+Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1206
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 10414
+Nest 0
+Wear -1
+Cost 5000
+Spell 3 'sleep'
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 9911
+Nest 0
+Wear 10
+Cost 8500
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 95
+Wear -1
+Cost 10000
+Val  1 8 5 21 28
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 3205
+Nest 0
+Wear 5
+Cost 60
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Wear 1
+Cost 2200
+End
+
+#O
+Vnum 7502
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 17316
+Nest 1
+ExtF 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 11900
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8201
+Nest 0
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 10157
+Nest 0
+Wear -1
+Cost 25
+Val  50 38 3 0 0
+End
+
+#O
+Vnum 8800
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 8800
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 8801
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 8802
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 8803
+Nest 0
+Wear -1
+Cost 150
+End
+
+#O
+Vnum 8800
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear 16
+Cost 20
+Val  0 6 10 2 12
+End
+
+#O
+Vnum 8800
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#B
+Vnum 7502
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11668
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11669
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11718
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13008
+Nest 1
+Wear -1
+Cost 550
+End
+
+#B
+Vnum 14043
+Nest 1
+Wear -1
+Cost 12000
+End
+
+#B
+Vnum 14015
+Nest 1
+ExtF 1048656
+Wear -1
+Cost 15000
+End
+
+#B
+Vnum 8832
+Enchanted
+Nest 1
+ExtF 67
+Wear -1
+Cost 0
+Val  1 11 11 1 0
+Affc 'enchant weapon'   0  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+End
+
+#B
+Vnum 10103
+Nest 1
+Wear -1
+Cost 22000
+End
+
+#B
+Vnum 13010
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13009
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13005
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 2914
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11711
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11709
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11715
+Nest 1
+Wear -1
+Cost 9000
+End
+
+#B
+Vnum 3208
+Nest 1
+Wear -1
+Cost 90
+End
+
+#B
+Vnum 4426
+Nest 1
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 24409
+Nest 1
+Wear -1
+Cost 6000
+End
+
+#B
+Vnum 20026
+Nest 0
+Wear -1
+Cost 90000
+End
+
+#B
+Vnum 16512
+Nest 0
+ExtF 786769
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11910
+Nest 0
+ExtF 17302289
+Wear -1
+Cost 8000
+End
+
+#B
+Vnum 11709
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 825
+Nest 0
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 14030
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 3808
+Nest 1
+Wear -1
+Cost 30000
+End
+
+#B
+Vnum 2916
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 2913
+Nest 1
+ExtF 16777283
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 2912
+Nest 1
+ExtF 16777283
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10171
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 20006
+Nest 1
+ExtF 17039680
+Wear -1
+Cost 999
+End
+
+#B
+Vnum 5607
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 5608
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 2917
+Nest 1
+ExtF 16777283
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 2914
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 20008
+Nest 1
+ExtF 16777536
+Wear -1
+Cost 50
+End
+
+#B
+Vnum 8204
+Nest 1
+Wear -1
+Cost 3800
+End
+
+#B
+Vnum 20004
+Nest 1
+ExtF 65
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 14030
+Nest 1
+Cond 93
+Wear -1
+Cost 6000
+End
+
+#B
+Vnum 1345
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 10131
+Nest 1
+Wear -1
+Cost 110
+End
+
+#B
+Vnum 16064
+Nest 1
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 16041
+Nest 1
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 16041
+Nest 1
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 4593
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 4593
+Nest 1
+Wear -1
+Cost 0
+End
+
+#END

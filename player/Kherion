@@ -1,0 +1,127 @@
+#PLAYER
+Name Kherion~
+Id   1016404765
+LogO 1016404833
+Vers 13
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Sex  1
+Cla  2
+Levl 1
+Plyd 21
+Age  0
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3700
+HMS  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  1000
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 5
+Trai 3
+Save  -1
+Alig  0
+Hit   1
+ACs 95 95 95 99
+Atrib 12 10 12 16 10 12
+AtMod 0 0 0 0 0 0
+Pass asshole~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Neffertini~
+Lsit localhost~
+Ltim Sun Mar 17 16:40:12 2002
+~
+LSav Sun Mar 17 16:40:33 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  A
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 48 48 48
+Sk 40 1 'dagger'
+Sk 1 1 'mace'
+Sk 1 1 'sword'
+Sk 1 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'hide'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

@@ -1,0 +1,122 @@
+#PLAYER
+Name Urdh~
+Id   1021830230
+LogO 1021831044
+Vers 14
+Mexp 1
+Pass secret~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  7
+Levl 1
+Tru  0
+Plyd 706
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  1 100 100
+Gold 3
+Silv 511
+Exp  4800
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig 0
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 8
+Atrib 14 12 12 10 14 14
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 77
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Qaz~
+Lsit 64.26.98.90~
+Ltim Sun May 19 12:45:39 2002
+~
+LSav Sun May 19 12:57:24 2002
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 3 33 33
+Sk 1 1 'channel'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'encampment'
+Sk 1 1 'fly'
+Sk 1 1 'floating disc'
+Sk 1 1 'gate'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'portal'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'word of recall'
+Sk 75 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 1 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 1 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 1 1 'fast healing'
+Sk 1 1 'firebuilding'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'creation'
+Gr 'enhancement'
+Gr 'transportation'
+End
+
+#END

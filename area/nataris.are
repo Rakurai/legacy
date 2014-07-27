@@ -1,0 +1,2685 @@
+#AREA
+nataris.are~
+Nataris Castle~
+{H{{35 91} {MAeris  {TNataris Castle~
+8200 8299
+
+
+#MOBILES
+#8200
+sylph child~
+A sylph child~
+A sylph child is here, flying in circles
+~
+One of the smallest creatures you've ever seen flies around in several
+circles, and makes you dizzy just watching her.  She streaks towards your
+face, and stops at the last instant.  She stares at you with her round eyes
+and smiles at you with a wide grin.  She waves and speeds off in another
+direction.  
+~
+elf~
+ACGHT EHJTVN 500 S
+35 7 10d10+1300 35d10+100 1d1+21 bite
+-22 -22 -21 18
+FKI MB J 0
+stand stand female 400
+0 0 tiny 0
+
+#8201
+fire sylph~
+A fire sylph~
+A {Pfire{x sylph zips by, making you sweat.
+~
+You catch sight of a small streaking ball of fire.  As she stops to look
+at you, her form can be more easily recognized as a sylph.  She is covered
+in deep {Pred{x from head to toe and even has a {Rred{x hair ribbon.  The
+deep color of her {Reyes{x and {Rclothes{x contrasts well with her bright
+and rather wild {Phair.{x She glares at you for watching her.  
+~
+elf~
+AGRT HIJTVN 600 S
+50 10 1d1+2499 1d1+299 1d1+29 flame
+-32 -32 -32 -29
+DFKE BIHG J 0
+stand stand female 430
+0 0 tiny 0
+
+#8202
+wind sylph~
+A wind sylph~
+A {Wwind{x sylph curiously explores the area.
+~
+A {Wwind{x sylph flutters around the area, looking closely at anything
+that catches her interest.  She notices you and stares at you with her round
+{Yeyes{x.  She wears a {Wdress{x made of thin silk and has a slightly
+{Yyellow{x tint to her skin.  She stares at you for several moments before
+inspecting more of her surroundings.  
+~
+elf~
+ACGR DHJTUVc 800 S
+60 12 1d1+3299 1d10+570 1d1+29 chill
+-40 -40 -40 -37
+CEFH JBK L 0
+stand stand female 400
+0 0 tiny 0
+
+#8203
+water sylph~
+A water sylph~
+A {Cwater{x sylph flutters calmly by you, leaving a fine mist on you.
+~
+As you move closer to look at the {Cwater{x sylph, you begin to feel more
+humid almost immediately.  Her skin has a slightly {Bblue{x tint and she is
+pleasant to look at.  Her long {Bhair{x and {Bblue{x eyes contrast nicely
+with her {Bskin{x.  She wears a nearly transparent silk {Crobe{x and has
+{Chair ribbons{x adorning her.  She notices you, and calmly smiles at you.  
+~
+elf~
+ACGQ DHOVc 800 S
+60 12 1d1+3299 1d10+370 1d1+34 sting
+-40 -40 -40 -37
+FEKN BEG M IH
+stand stand female 400
+0 0 tiny 0
+
+#8204
+earth sylph~
+An earth sylph~
+An {bearth{x sylph zips by, blowing dust in your face.
+~
+You sneeze as you get near the sylph.  As she moves, dust flies about the
+area, covering everything.  She has short {bhair{x and wears a silk
+{Grobe{x.  Her {Geyes{x are slanted and peer at you cautiously.  
+~
+elf~
+ACGQT DHJNOVce 800 S
+65 13 1d1+3999 1d10+499 1d1+35 crush
+-42 -42 -41 -38
+CJKF BG JK H
+stand stand female 500
+0 0 tiny 0
+
+#8205
+caretaker~
+A caretaker~
+A caretaker is here, trying to keep track of the sylph children.
+~
+The caretaker appears to be a bit tired, but also seems to enjoy her
+work.  She tends to the little sylphs as if they were her own children, and
+makes sure they don't go through the gates.  The caretaker is Elven in
+origin and wears rather simple clothing and has a ponytail hair style.  She
+has an affinity for children and the little sylphs often cling to her and
+play with her.  
+~
+elf~
+AGT DFHVc 800 S
+40 8 1d1+1690 20d9+100 1d1+24 divine
+-27 -25 -26 -20
+JCDNE BC HI K
+stand stand female 450
+0 0 medium 0
+
+#8206
+terlei guardian~
+Terlei~
+{CTerlei{x, the Guardian of {CWater{x, watches you closely.
+~
+Terlei is the Guardian of {CWater{x.  She stands facing you and tightens
+her grip on her gleaming {CBlizzard Scythe{x.  You can see that she is elven. 
+Her {Beyes{x pierce you and a look of extreme seriousness is on her face.  Long
+and shiny {Chair{x flows gracefully down her back, and matches nicely with
+her {Bblue{x armor, {Bskirt{x, and {Bcloak{x.  You instinctively know that she will be a worthy match for your ability.  
+~
+elf~
+ABQRT DFHJNVZc 1000 S
+85 19 1d1+7049 1d1+349 1d1+44 frbite
+-54 -53 -53 -50
+ACEFJNK BIJ MO G
+stand stand female 2000
+0 0 medium 0
+
+#8207
+Terii~
+Terii~
+{GTerii{x, Guardian of {GEarth{x, stands and faces you.
+~
+A human female of medium height looks up from shaping a gem to watch
+you enter.  She grasps her mace with a subtle motion and meets your
+gaze.  She has long {bbrown{x hair and wears a {Hgreen{x skirt.  On the left
+side of her face, you notice a sparkling {Ggem{x.  Her narrow {Geyes{x look
+at you cautiously, watching your every move.  
+~
+human~
+ABGQT VNOHac 1000 S
+80 16 1d1+6999 1d1+499 1d1+42 crush
+-53 -53 -50 -40
+CJKOE BEFM IKJ HQ
+stand stand female 2500
+0 0 medium 0
+
+#8208
+Ignar~
+Ignar~
+Ignar, Guardian of {RFire{x, glares at you and attacks.
+~
+Just by looking at him you can see his strong muscles beneath his armor
+and the sturdy frame of his dwarven body.  He swings a large {Rruby{x battle
+axe with ease and was in the midst of his training when you entered.  He
+wears a bright {Rred{x beard and his rage shows vividly on his face.  
+~
+dwarf~
+ABFGT DFHIJVNac 1000 S
+85 1 1d1+7499 1d1+499 1d1+47 flbite
+-56 -55 -55 -50
+CDJNKF BHM FJI QL
+stand stand male 3000
+0 0 medium 0
+
+#8209
+Aeryn~
+Aeryn~
+{WAeryn{x, Guardian of {WWind{x, watches you.
+~
+A tall human female is floating around her room, doing various things. 
+She hears you enter and turns to face you.  Her {Yeyes{x are round and she
+has a noticable {Yyellow{x tint to her skin.  She wears a lose robe and a
+bracelet sparkles in the light.  You also notice a weapon sheathed on her
+belt.  Calmly, she hovers in place watching you as you look at her.  
+~
+human~
+ABGRS VHDFJTUZNc 1000 S
+80 16 1d1+6999 1d1+399 1d1+42 frbite
+-53 -53 -50 -49
+FCDKOE BHIJ M F
+stand stand female 2300
+0 0 medium 0
+
+#8210
+zekra shadow elf child~
+Zekra~
+A shifting {Mshadow{x gathers into the form of an elf child.
+~
+The {Mshadow{x has taken the form of a female elf child.  She looks at
+you curiously and smiles at you.  A small voice enters your mind, "I'm
+called Zekra.  Are you here to play with me?  I'm lonely."  You look at the
+elf child strangely and notice a key hangs from her necklace.  She catches
+your glance and you hear voice in your mind, "If you play with me and win,
+the key will be yours if you want it.  It is very important, so I hear from
+the sylphs.  It goes to that door."  She points to an area near her.  The
+elf child carries no visible weapon and looks up at you with big, round
+{Mpurple{x eyes.  
+~
+elf~
+ABGRS VHDFJTUZNc 1000 S
+85 17 1d1+7599 1d1+349 1d1+48 magic
+-53 -53 -53 -50
+ABCEFKO BMQGH IJ F
+stand stand female 3000
+0 0 medium 0
+
+#8211
+queen crystiya elven woman~
+Crystiya, Queen of Nataris~
+{MCrystiya{x, Queen of {MNataris{x, watches you calmly.
+~
+The elven woman looks back at you calmly, wondering why you have come. 
+She has long {Ggreen{x hair and almond shaped {Bblue{x eyes.  Her facial
+features are defined and more beautiful than that of most elves.  She wears
+a royal outfit covered partly by a long robe.  She sits upon a beautifully
+decorated throne, and smiles at you.  
+~
+elf~
+ABGQRTF DFHNVOZc 1000 S
+110 25 1d1+15999 1d1+899 1d1+59 wrath
+-73 -73 -72 -69
+CDEFJKNO BJM COI 0
+stand stand female 5000
+0 0 medium 0
+
+#8212
+crystal sylph~
+A crystal sylph~
+A {gcrystal{x sylph looks at you calmly.
+~
+You see a slight shimmer to the sylph's skin as she moves along.  She
+seems to fade in and out as you look at her.  Her hair is silver in color
+and flows down her back.  She wears a loose robe which seems to have no
+color at all.  In her hand she clutches a crystal staff that catches the
+light nicely.  As she calmly meets you gaze, you see her {ggrey{x eyes.  
+~
+elf~
+AGQR HTUVNOc 800 S
+70 14 1d1+5699 1d1+399 1d1+39 chill
+-46 -45 -45 -40
+ACDEFK BHI MOJ G
+stand stand female 3000
+0 0 tiny 0
+
+#8214
+Karlyn~
+Karlyn~
+Karlyn sees you enter her shop, and beckons for you to browse her wares.
+~
+Karlyn is a beautiful young girl.  She is human in origin and smiles at
+you warmly.  She wears a simple {Bblue{x tunic, a {Rred{x skirt, and has
+long {Hdark green{x hair.  As you look at her, she beckons towards her goods and
+stands nearby willing to help you make a selection.  
+~
+human~
+ABG CDEFG 0 S
+120 80 10d1950+7734 170d10+100 5d59+87 slap
+-96 -96 -96 -43
+ABCDH ABCD HJKLPQ 0
+stand stand female 90000
+0 0 medium 0
+
+#8215
+Yulen~
+Yulen~
+Yulen is here, talking with the patrons.
+~
+Yulen is a happy and talkative young woman.  She moves from patron to
+patron trying to maintain several conversations.  Her elven features make
+her attractive to many, but it is her outgoing and pleasant personality that
+makes her popular.  She notices you and comes over to talk with you.  
+~
+elf~
+ABG J 0 S
+120 100 10d1518+6150 150d10+100 5d52+77 none
+-83 -83 -83 -36
+0 ABCD B Z
+stand stand female 0
+0 0 medium 0
+
+#8216
+Mari~
+Mari~
+Mari is here, organizing her goods.
+~
+You notice a relatively short elf woman cleaning and organizing her shop.
+She hums a soft melody as she works and notice seem to notice you.  She
+wears a somewhat plain looking {Rred{x dress.  
+~
+elf~
+ABQR JU 390 S
+120 80 10d1323+5418 280d10+100 5d49+70 slap
+-77 -77 -77 -33
+0 ABCD B Z
+stand stand female 92000
+0 0 medium 0
+
+#8217
+Terian~
+Terian~
+Terian is here, working on a blade.
+~
+You notice a young woman silently working a blade.  She is in deep
+concentration and doesn't notice you looking at her.  In the dim light, you
+can see she has {Ggreen hair{x wrapped into a ponytail and a ordinary looking
+{bbrown{x dress.  After a few moments she looks up at you and you can see her
+deep {Hgreen{x eyes.  
+~
+human~
+ABGT FJWZ 19 S
+120 44 10d1140+4746 130d10+100 5d45+67 slap
+-71 -71 -71 -30
+ACFHJK ABCD 0 0
+stand stand female 90000
+0 0 medium 0
+
+#0
+
+
+
+#OBJECTS
+#8200
+long colorful hair ribbon~
+a {Cc{Po{Gl{Yo{Wr{bf{Ru{Vl{x hair ribbon~
+A long hair ribbon of many {Cc{Po{Gl{Yo{Wr{Vs{x is here.~
+silk~
+armor 0 AE
+12 12 12 12 0
+35 1 345 P
+A
+1 3
+A
+18 3
+A
+19 3
+
+#8201
+runic leather skirt~
+a runic leather skirt~
+A leather skirt with rune symbols on it is here.~
+leather~
+armor G AL
+13 13 12 12 0
+40 6 800 P
+A
+12 30
+A
+13 15
+A
+18 2
+A
+19 2
+A
+24 -4
+
+#8202
+wind robe~
+{YRobe of Wind{x~
+A thin robe made of silk rests here, enjoying the breeze.~
+silk~
+armor GS AK
+15 16 15 12 0
+60 4 2150 P
+A
+1 3
+A
+2 1
+A
+12 25
+A
+13 25
+A
+18 2
+A 
+19 2
+
+#8203
+ice bracelet~
+{CBracelet of Ice{x~
+A blue bracelet is here, making the air around it very cold.~
+ice~
+armor GS AM
+15 14 15 13 0
+50 6 2744 P
+A
+1 2
+A
+12 10
+A
+13 30
+A
+18 2
+A
+19 3
+A
+24 -3
+
+#8204
+gauntlets earth~
+{HGauntlets of Earth{x~
+Some well made gauntlets rest here, collecting dust.~
+mithril~
+armor AGI AH
+17 16 16 15 0
+60 5 3800 P
+A
+5 3
+A
+12 55
+A
+18 3
+A
+19 3
+
+#8205
+pendant fire~
+{RPendant of Fire{x~
+A bright {Pred{x pendant lies here, making the air hot.~
+ruby~
+armor AGY AC
+19 19 18 14 0
+50 7 3233 P
+A
+3 1
+A
+5 2
+A
+18 3
+A
+19 3
+A
+24 -2
+
+#8206
+wind blade~
+{WWind{x Blade~
+A rather long and thin dagger hovers here.~
+silver~
+weapon AGI AN
+dagger 8 10 pierce G
+80 15 7435 P
+A 
+18 8 
+
+
+#8207
+plate silk tunic~
+plate silk tunic~
+Some fine silk attached to a breastplate lies in the corner.~
+mithril~
+armor I AD
+21 20 20 19 0
+75 10 8300 P
+A
+3 2
+A
+12 30
+A 
+13 40
+A
+18 2
+A
+19 3
+A 
+26 2 
+
+#8210
+wind key~
+{YWind{x Key~
+A key floats around the area.~
+silver~
+key 0 A
+0 0 0 0 0
+1 3 1 P
+
+#8214
+boots fire~
+{RFlame{x Boots~
+Some fine boots made of {Rred{x cloth rest here.~
+leather~
+armor BG AG
+18 18 18 16 0
+80 10 4300 P
+A
+4 3 
+A
+14 50
+A
+17 -2 
+A
+18 2 
+A
+19 4 
+
+#8215
+fire key~
+{RFire{x Key~
+This key is completely surround by {Rfire{x.~
+fire~
+key B A
+0 0 0 0 0
+2 8 300 P
+
+#8216
+Amethyst Mace~
+{MAmethyst Mace{x~
+A long mace made of amethyst rest here.~
+amethyst~
+weapon BGI AN
+mace 11 8 crush 0
+80 20 6300 P
+A
+18 3
+A
+19 6
+A
+24 -5 
+
+#8219
+Emerald Shield~
+{HEmerald Shield{x~
+A {Hdeep green{x shield lies on ground.~
+emerald~
+armor G AJ
+21 21 20 19 0
+80 20 5500 P
+A
+13 50 
+A
+17 -4 
+A
+18 5 
+A
+19 5 
+
+#8227
+nature light~
+{MNature's Light{x~
+A crystal orb floats here, scattering light everywhere.~
+crystal~
+light AGI A
+0 0 -1 0 0
+91 10 7055 P
+A
+1 2
+A
+2 2 
+A
+3 1
+A 
+4 1
+A
+12 150
+A
+18 8 
+A
+19 8
+
+#8231
+skirt crystal~
+{MCrystal Skirt{x~
+A nice leather skirt with crystal plates on it reflects the sunlight.~
+crystal~
+armor AGY AF
+25 24 23 20 0
+93 20 8300 P
+A
+12 95 
+A
+18 6 
+A
+19 6 
+A
+24 -5 
+
+#8234
+Yulen special drink container water~
+{CYulen's Special Drink Container{x~
+Yulen's Special Drink Container is here, waiting to be enjoyed.~
+water~
+drink G A
+200 200 'water' 0 0
+40 10 4900 P
+
+#8235
+Water Drop Potion~
+{BWater Drop Potion{x~
+A small vial, shaped like a water drop, rests here.~
+glass~
+potion AG AO
+44 'heal' 'sanctuary' 'remove curse' 0
+59 4 15000 P
+
+#8236
+Ice Dream Potion~
+{CPotion of Ice Dreams{x~
+A tall vial filled with a thin {Bblue{x liquid rests here.~
+None~
+potion G A
+80 'frenzy' 'bless' 'haste' 0
+80 10 26000 P
+
+#8237
+Pastry of the Wind~
+{WPastry{x of the {YWind{x~
+A very light pastry rests here.~
+dough~
+food 0 A
+CE AC 0 0 0
+1 2 55 P
+
+#8238
+Wind Cookie~
+{YWind Cookie{x~
+A cookie floats here.~
+dough~
+pill B A
+50 'fly' 'detect invis' 'detect hidden' 0
+50 8 5500 P
+
+#8239
+Wind Cake~
+{WWind Cake{x~
+A cake floats here.~
+dough~
+pill B A
+60 'invisibility' 'protection evil' 'pass door' 0
+70 5 8400 P
+
+#8240
+emerald dagger~
+{GEmerald{x Dagger~
+A beautiful dagger with a blade of {Gemerald{x rests on the ground.~
+emerald~
+weapon I AN
+dagger 5 9 pierce 0
+44 13 4300 P
+A
+1 1 
+A
+19 2 
+
+#8241
+amethyst short sword~
+{MAmethyst{x Short Sword~
+A {Mpurple{x bladed short sword rests here.~
+amethyst~
+weapon I AN
+sword 8 8 slice E
+55 24 10000 P
+A
+13 30
+A
+18 4 
+A
+19 5 
+
+#8242
+topaz mace~
+{YTopaz{x Mace~
+A long steel rod attached to a round piece of {Ytopaz{x rests here.~
+topaz~
+weapon I AN
+mace 5 10 crush 0
+45 22 2900 P
+A
+18 2
+A
+19 2 
+
+#8250
+Earth key~
+earth key~
+A heavy looking brown wooden key rests here.~
+wood~
+key 0 A
+0 0 0 0 0
+1 14 0 P
+
+#8270
+bandana water~
+{CBandana of Water{x~
+A simple looking piece of cloth with a water drop design on it is here.~
+cloth~
+armor AG AE
+20 20 19 18 0
+59 2 9000 P
+A
+5 2
+A
+9 2
+A
+12 30 
+A
+18 3 
+A
+26 2
+
+#8271
+Ice gauntlets~
+{CIce Gauntlets{x~
+Some {Bblue{x gauntlets lie here, freezing the ground.~
+ice~
+armor GI AH
+13 12 13 14 0
+42 10 7000 P
+A
+1 2
+A
+18 2 
+A
+19 2
+
+#8272
+ice plate armor~
+{CIce Plate Armor{x~
+Some nice looking {Bblue{x plate mail is here, waiting for battle.~
+ice~
+armor AGI AD
+16 15 15 14 0
+40 10 5000 P
+A
+4 2 
+A
+18 2
+A
+19 3
+A
+24 -3 
+
+#8289
+shadow key~
+{Mshadow key{x~
+A barely visible key lies here.~
+shadows~
+key 0 A
+0 0 0 0 0
+40 4 0 P
+
+#8290
+fountain~
+a large stone fountain~
+A large stone fountain is filled with water and sylph children.~
+stone~
+fountain 0 0
+0 0 'water' 0 0
+1 0 0 P
+
+#8291
+small fountain~
+a small fountain~
+A smaller sized fountain is here with sylph children playing in its basin.~
+stone~
+fountain 0 0
+0 0 'water' 0 0
+1 0 0 P
+
+#8292
+small fountain~
+a small fountain~
+A smaller fountain is here with no sylph children in its basin.~
+stone~
+fountain 0 0
+0 0 'water' 0 0
+1 0 0 P
+
+#8293
+key glittering golden~
+a {Yglittering{x key~
+A very {Ybright{x key lies here, trying to blind you.~
+gold~
+key A A
+0 0 0 0 0
+55 10 0 P
+
+#8294
+Water Key~
+{CWater Key{x~
+A key lies here, making a puddle.~
+water~
+key 0 A
+0 0 0 0 0
+50 2 0 P
+
+#8295
+crystal staff~
+{gCrystal Staff{x~
+A clear crystal staff rests here, scattering multi-{Rc{Yo{Gl{Co{Br{Ve{Pd{x light.~
+crystal~
+weapon AGI AN
+spear 11 7 pound F
+70 10 4500 P
+A
+13 40
+A
+18 5 
+A
+19 5 
+
+#8296
+portal sphere to crystiya~
+{MPortal to Crystiya{x~
+A sphere of energy {Mglows{x in the corner of the room.~
+energy~
+portal A 0
+0 0 A 8286 0
+1 0 0 P
+
+#8297
+magical energy~
+{Pm{Ya{Gg{Vi{Bc{Ca{Wl {Ve{Mn{Ve{Mr{Vy{x~
+~
+energy~
+portal O 0
+0 0 A 5630 0
+0 0 0 P
+E
+magical energy~
+The {Pm{Ya{Gg{Vi{Bc{Ca{Wl {Ve{Mn{Ve{Mr{Vy{x seems to form a portal leading to a place 
+that has been sealed off long ago. 
+~
+#0
+
+
+#ROOMS
+#8200
+Entrance Gate to {BNataris Courtyard{x~
+Before you stands a large wall with a sturdy iron gate set within it. 
+Along the stone walls you notice intricate designs of robed figures and
+various battles.  Looking closely at the main corner stones that hold the
+gate, you notice four shimmering runes, each emitting a {Pm{Ya{Gg{Vi{Bc{Ca{Wl {Ve{Mn{Ve{Mr{Vg{My{x.  
+Looking more closely, the energy seems to lead to a place that has been 
+sealed off long ago. You may, however, proceed through the unlocked gate 
+since there is no one around to stop you from entering.
+~
+0 4 2
+D0
+~
+~
+1 0 8201
+D2
+~
+~
+0 0 9206
+S
+
+#8201
+Nataris Courtyard~
+You enter a lively courtyard filled with sylph children, as well as some
+elven caretakers and guards.  The children fly around in hyper patterns
+while enjoying the day.  Caretakers scamper after some trying to escape the
+castle.  The grass is somewhat short, but is soft to walk on.  A gentle
+breeze moves about and relaxes you.  
+~
+0 0 2
+D0
+~
+~
+0 0 8205
+D1
+~
+~
+0 0 8203
+D2
+~
+~
+1 0 8200
+D3
+~
+~
+0 0 8202
+S
+
+#8202
+Peaceful Corner of the Courtyard~
+You've entered the southwestern corner of the courtyard.  Strangely
+enough the sounds of excitement and fun don't reach this area.  The few
+children here play quiet games and many are resting in the trees.  This
+looks like a very good place to rest or just enjoy the day in peace.  To the
+west and south, high walls protect the courtyard.  
+~
+0 0 2
+D0
+~
+~
+0 0 8204
+D1
+~
+~
+0 0 8201
+S
+
+#8203
+Nataris Courtyard~
+You're in the southeast corner of the courtyard.  From here, high walls
+block your progress south and east.  The walls appear to be in fine shape
+and will protect the courtyard well.  More sylph children are here, along
+with their caretakers.  Tall trees provide places for the children to hide
+and play, as well as cooling shade to rest in.  
+~
+0 0 2
+D0
+~
+~
+0 0 8206
+D3
+~
+~
+0 0 8201
+H 90 M 110
+S
+
+#8204
+Western Courtyard~
+A smaller version of the fountain at the Center Courtyard is here.  Its
+appearance is the same, but about half the size.  Several sylph children
+play around in the basin of the fountain, but clearly not as many as you see
+to the east.  Still, this doesn't appear the greatest place to rest, should
+you need to.  The children here giggle as they notice you approaching the
+fountain.  
+~
+0 0 2
+D0
+~
+~
+0 0 8209
+D1
+~
+~
+0 0 8205
+D2
+~
+~
+0 0 8202
+H 85 M 80
+S
+
+#8205
+{CCenter{x {VCourtyard{x~
+A large fountain with a deep and wide bowl dominates this area.  In the
+center of the fountain, two stone figures stand tall.  One appears to be a
+spellcaster captured in the final moments of his spell.  Arms outstretched
+and hands opened, a stream of water flows out as if it was magical energy. 
+The second figure appears to be an elven female.  You can almost count the
+points on the detailed stone mace at her side.  She leans against a stone
+pillar and the water flows from the pillar onto the female's figure.  This
+area is very active and several sylph children play in the fountain's basin.
+Some also climb on the statues and sit on the stone sculptures.  Resting
+here is not advised as the sylph children may try to climb on you as well.  
+~
+0 0 2
+D0
+~
+~
+0 0 8207
+D1
+~
+~
+0 0 8206
+D2
+~
+~
+0 0 8201
+D3
+~
+~
+0 0 8204
+H 50 M 50
+S
+
+#8206
+Eastern Courtyard~
+A smaller version of the fountain in Center Courtyard is here.  It looks
+very much the same except that it's about half the size.  You are slightly
+shocked to see no sylph children on the fountain, but then notice the tall
+trees lined along the eastern wall.  Your guess that they are playing in the
+trees is correct as you see several dart in and out of them.  You jump as
+one of the children managed to sneak behind you and surprise you with a
+shrill scream.  You turn and grin at the laughing sylph child.  
+~
+0 0 2
+D0
+~
+~
+0 0 8208
+D2
+~
+~
+0 0 8203
+D3
+~
+~
+0 0 8205
+H 90 M 90
+S
+
+#8207
+North Courtyard~
+The noise level rises as you enter this area.  Several children are at
+play here, pretending to be adventures and going on imaginary quests. 
+Caretakers mingle with the children to make sure they don't get hurt or try
+to wander of into the castle.  Looking north, you see crowds of people
+talking and having fun just before the gate of the castle.  The noise from
+them is nearly as loud as the noise level of the children in front of you.  
+~
+0 0 2
+D0
+~
+~
+0 0 8210
+D1
+~
+~
+0 0 8208
+D2
+~
+~
+0 0 8205
+D3
+~
+~
+0 0 8209
+S
+
+#8208
+Northeast Courtyard~
+Little activity in this section of the courtyard.  This looks to be an
+area where the caretakers can come for a bit of a break.  Tall trees line
+the east and north walls, provide cooling shade to go with the gentle
+breeze.  The sylph children that come here are quiet as the enter and they
+play and talk softly as not to disturb the caretakers.  As a result, this is
+a great place to rest and catch your breath from the excitement of the rest
+of the courtyard.  
+~
+0 0 2
+D2
+~
+~
+0 0 8206
+D3
+~
+~
+0 0 8207
+H 123 M 114
+S
+
+#8209
+Northwest Courtyard~
+This appears to be the picnic area.  Lots of children fly around playing
+all sorts of games as they wait for the caretakers to make the lunches. 
+Everyone is having immense amounts of fun and many of the children smile and
+giggle at you.  The caretakers look up occasionally from their work to check
+on the children, but then continue preparing the food and drinks.  
+~
+0 0 2
+D1
+~
+~
+0 0 8207
+D2
+~
+~
+0 0 8204
+S
+
+#8210
+Entrance Gate of {VNataris Castle{x~
+This narrow passage is quite crowded.  You wander just how many people
+are here.  The noise is nearly deafening and you can't hear yourself think. 
+Mobs of children are here and add to the ever rising noise level. 
+Fortuantely, the gate is just a little distance to your north.  Perhaps you
+should enter before your ears begin to hurt even more.  Obviously, this is
+not a very good place to rest.  
+~
+0 0 2
+D0
+~
+~
+1 0 8211
+D2
+~
+~
+0 0 8207
+H 20 M 0
+S
+
+#8211
+{VMain Hall{x~
+You've entered the main hall of Nataris Castle.  You are in awe of the
+beautiful design of this hall and the decorations in it.  The walls and
+floor are made of shimmering crystal and the light from the torches bounces
+{Cc{Bo{Yl{Ro{Vr{Mf{bu{Wl{Gl{Ry{x around the room.  The ceiling has clear crystal sections to allow
+natural light to come in as well, adding to the {Cc{Bo{Yl{Ro{Mr{x.  Ornate chandeliers
+hang from the ceiling, and beautiful paintings line the walls.  
+~
+0 0 0
+D0
+~
+~
+0 0 8212
+D2
+~
+~
+1 0 8210
+S
+
+#8212
+{VIntersection in the Main Hall{x~
+This section of the hall has almost as much {Cc{Ro{Yl{Go{Br{x as the others along the
+hall.  The slight loss is due to the light flowing into the corridors east
+and west.  A {Bblue{x light enters the fringes of the area.  
+~
+0 0 0
+D0
+~
+~
+0 0 8224
+D1
+~
+~
+0 0 8251
+D2
+~
+~
+0 0 8211
+D3
+~
+~
+0 0 8213
+S
+
+#8213
+{CHall of Water{x~
+This part of the hall is filled with painting of peaceful ocean scenes. 
+The theme of the wall of paintings seems to show how peaceful the element of
+{Cwater{x can be and how beautiful it is.  The walls and ceiling emit a soft
+{Bblue{x glow and light the area pleasantly.  
+~
+0 0 0
+D1
+~
+~
+0 0 8212
+D3
+~
+~
+0 0 8214
+S
+
+#8214
+{CHall of Water{x~
+This section of the hall has tall pillars of ice scattered about its
+floors.  The pillars reach up to the ceiling, but strangely, you don't feel
+cold.  Daring to touch one of the pillars, you notice that it isn't cold
+either, but is solid.  You look at pillars for a few moments more then turn
+your attentions back to your surroundings.  
+~
+0 0 0
+D0
+~
+~
+0 0 8215
+D1
+~
+~
+0 0 8213
+D3
+~
+~
+0 0 8216
+S
+
+#8215
+{CThe Peaceful Sea{x~
+You've entered the armor shop.  The room is lit by many soft blue flames
+that float about.  Everything is shiny and clean.  The layout of the shop is
+well-suited for customers to browse the goods for sale.  A pretty shopkeeper
+smiles as you look around, hoping you'll find something of interest.  
+~
+0 4 0
+D2
+~
+~
+0 0 8214
+S
+
+#8216
+{CHall of Water{x~
+This part of the hall has more paintings.  Some are of peaceful ocean
+scense and others are serene drawings of morning dew.  Gazing at them brings
+a sense of relaxation to you and all of your worries seem to disappear.  
+~
+0 0 0
+D1
+~
+~
+0 0 8214
+D3
+~
+~
+0 0 8217
+S
+
+#8217
+{CHall of Water{x~
+The peace of the hall is making you very relaxed.  You notice yourself
+slowing your pace in order to enjoy the wonderfully done paintings.  You've
+grown to like the soft {Bblue{x light that is ever-present in the hall. 
+This section of the hall adds some {Cbright blue{x carpet and tall plants
+with {Bblue{x leaves.  You stop to inspect the plants curiously.  The leaves
+are smooth to the touch and rather fragile.  The carpet is plush and has
+many designs of raindrops all over it.  
+~
+0 0 0
+D1
+~
+~
+0 0 8216
+D3
+~
+~
+0 0 8218
+D5
+~
+~
+1 0 8247
+S
+
+#8218
+{CStairway of Water{x~
+This end of the hall stops here.  A stairway winds upward here, covered in
+plush {Bblue{x carpet.  The soft {Bblue{x glow seems to continue up the stairway as
+far as you can see.  The walls are unusually bland here, and have no color
+aside from the {Bblue{x glow.  
+~
+0 0 0
+D1
+~
+~
+0 0 8217
+D4
+~
+~
+0 0 8219
+S
+
+#8219
+{CSecond Floor of the Hall of Water{x~
+You arrive at the top of the stairway and look around.  The familar {Bblue{x
+glow is around, although softer.  The walls have more paintings on them, and
+the color seems to {Bglow{x.  You notice a thin but plush carpet leading north. 
+~
+0 0 0
+D0
+~
+~
+0 0 8220
+D5
+~
+~
+0 0 8218
+S
+
+#8220
+{CSecond Floor of the Hall of Water{x~
+This room is more brightly decorated.  A lantern hangs from the ceiling
+with a blue flame within it.  The brighter light allows you to see more of
+the room's decorations and admire them more fully.  You see gleaming swords
+on the wall and touch the blades in awe of their craftsmanship.  You wish
+you could try the sword, but it is firmly attached to the wall.  The blue
+light is reflected from the blades of the sword cause them to shimmer
+brightly.  
+~
+0 0 0
+D0
+~
+~
+0 0 8221
+D2
+~
+~
+0 0 8219
+S
+
+#8221
+{CSecond Floor of the Hall of Water{x~
+This area of the hall has more of those finely crafted swords.  You
+wonder who made these weapons and why they are seemingly wasted as display
+items.  Looking around, you noitce your reflection on the ceiling and stop
+to look closer.  It seems this part of the hall is made in shiny glass, or
+is it crystal?  Or perhaps it is a sheet of ice?  Whatever it is takes on a
+{Bblue{x color because of the familiar {Bblue{x glow.  
+~
+0 0 0
+D0
+~
+~
+0 0 8222
+D2
+~
+~
+0 0 8220
+S
+
+#8222
+{CSecond Floor of the Hall of Water{x~
+The {Bblue{x glow is intense here.  Everything in the room appears {Bblue{x, even
+you.  You can't tell where the ceiling, floor, and walls meet and you feel
+somewhat disoriented.  There isn't much to see, and you look around for an
+exit.  
+~
+0 0 0
+D1
+~
+~
+0 0 8223
+D2
+~
+~
+0 0 8221
+S
+
+#8223
+{CChamber of the Guardian of Water{x~
+You are taken by surprise at the magnificent decorations in the room. 
+Beautiful sapphire windows change the sunlight into a pleasing soft {Bblue{x
+light.  A {Cblue{x crystal chandelier hangs from the center of the ceiling and
+shimmers beautifully.  A sturdy wooden table dominates the center of the
+room.  You also see fancy eating implements, plates, and glasses set along
+the table's length.  Finely carved chair with {Cblue{x cushions are near the
+table and most of the room is covered with a plush carpet in many {Bsh{Cad{ces{x of
+{Bblue{x.  Larger versions of the paintings you saw in the first floor of the
+hall cover the walls.  You then notice a young elven woman standing near one
+of the windows.  She turns to you.   
+~
+0 0 0
+D3
+~
+~
+0 0 8222
+S
+
+#8224
+{VMain Hall{x~
+The hall is lined with various paintings.  They depict well-armed
+warriors locked in a large battle.  The detail is fine and look as if you
+were witnessing the battle in person.  Another beautiful chandlier hangs
+tossing {Vlight{x everywhere, bathing the room in a soft {Vglow{x.  
+~
+0 0 0
+D0
+~
+~
+0 0 8225
+D2
+~
+~
+0 0 8212
+S
+
+#8225
+{VIntersection in the Main Hall{x~
+Another intersection of hallways lies here, and the {Pc{Yo{Gl{Bo{Hr{Cs{x mix pleasingly
+into the room.  To your left, {Yyellow{x light enters the intersection, and
+you feel a gentle breeze coming from that direction.  The air feels dry on
+your right, and a hint of {bdust{x enters.  You can't see much detail as you
+look down the corridors.  Ahead you see what appears to be more of the main
+hall.  
+~
+0 0 0
+D0
+~
+~
+0 0 8226
+D1
+~
+~
+0 0 8229
+D2
+~
+~
+0 0 8224
+D3
+~
+~
+0 0 8257
+S
+
+#8226
+{VMain Hall{x~
+This part of the hall is somewhat narrower than the rest and the light is
+dim.  You notice a small {Vrug{x in the center of the floor and a few
+decorations along the walls.  Looking around, you see a small passage to the
+west and the hall continues north and south.  
+~
+0 0 0
+D0
+~
+~
+0 0 8266
+D2
+~
+~
+0 0 8225
+D3
+~
+~
+0 0 8227
+S
+
+#8227
+{MSmall Passage{x~
+This passage is rather small.  You find it hard to move around freely and
+it is rather dark.  Very few details of the room can be seen, but you do
+make out your exits to the east and north.  
+~
+0 0 0
+D0
+~
+~
+0 0 8228
+D1
+~
+~
+0 0 8226
+S
+
+#8228
+{MSmall Passage{x~
+The passage widens a bit here, and the surroundings are a little
+brighter.  You can see the walls are a strange {Mpurple{x color and obscure
+paintings line the walls.  The ceiling is quite high, but there is nothing
+hanging from it.  
+~
+0 0 0
+D0
+~
+~
+4 8294 8232
+D2
+~
+~
+0 0 8227
+S
+
+#8229
+{HHall of Earth{x~
+This part of the castle has a thin layer of dust on the floor and a
+little lingers in the air.  The surroundings appear to be somewhat bland,
+but you notice some decorations in the form of paintings on the wall.  A
+comforting soft {Ggreen glow{x spreads throughout the room.  
+~
+0 0 0
+D1
+~
+~
+0 0 8230
+D3
+~
+~
+0 0 8225
+S
+
+#8230
+{HHall of Earth{x~
+This room is rather narrow and the little amount of space here is
+occupied further by a couple {Hemerald{x pillars.  The {Ggreen glow{x reflects
+intensly off the pillars and scatters about the room.  More paintings of
+caverns cover the walls, and the dust is a bit thicker here.  
+~
+0 0 0
+D1
+~
+~
+0 0 8231
+D3
+~
+~
+0 0 8229
+S
+
+#8231
+{HHall of Earth{x~
+More {gemerald{x pillars color the room and little dust covers the area.  The
+{Ggreen glow{x is somewhat dimmer and makes the surroundings slightly more
+difficult to see.  You notice a few paintings on the walls, depicting vast
+deserts.  
+~
+0 0 0
+D1
+~
+~
+0 0 8236
+D3
+~
+~
+0 0 8230
+S
+
+#8232
+{MSmall Passage{x~
+Some strange runic symbols {Mglow{x eeriely on the walls.  The {Mglow{x is rather
+dark and forboding.  You look at the symbols but can't make out their
+meaning.  The surroundings are visible by the dark {Mglow{x, but little detail
+can be seen.  You can see enough of the room to make out its shape and
+exits.  
+~
+0 0 0
+D0
+~
+~
+4 8215 8233
+D2
+~
+~
+4 8294 8228
+S
+
+#8233
+{MSmall Passage{x~
+The passage takes a sharp turn to the west and you nearly hit your head
+on the northern wall.  The passage is still rather dark and only the soft
+{Mglow{x from the runes on the wall give any light.  The darkness makes it
+impossible to see any great detail, but only allows you to barely find you
+bearings and exits.  
+~
+0 0 0
+D2
+~
+~
+4 8215 8232
+D3
+~
+~
+4 8210 8234
+S
+
+#8234
+{MSmall Passage{x~
+Strangely, the passage is bright here and widens tremendously.  You can
+see the walls and paintings with great details and a plush carpet lines the
+floor.  The runes on the wall are still there, but the {Mglow{x is far brighter
+than before.  You can easily see your exits to the east and west.  
+~
+0 0 0
+D1
+~
+~
+4 8210 8233
+D3
+~
+~
+4 8250 8235
+S
+
+#8235
+{MEnd of Small Passage{x~
+A wide room opens before you and is quite bright.  You wonder how all the
+light is in this room as their are no torches or windows.  You look around
+and notice very little is in the room.  A plain carpet is in the center of
+the floor and a few chairs are scattered about.  A sphere of energy {Mglows{x in
+the corner of the room.  
+~
+0 0 0
+D1
+~
+~
+4 8250 8234
+S
+
+#8236
+{HHall of Earth{x~
+The {Ggreen glow{x sparkles off the dazzling array of gems set within the
+walls and floor.  You watch as the gems scatter light about the room,
+creating a {Pr{Ca{Gi{Rn{Yb{Bo{Vw{x of color.  The dust is minimal here and does not hinder
+the beautiful view.  There is a nice {Hgreen rug{x in the center of the floor
+and a few paintings scattered among the gems.  
+~
+0 0 0
+D1
+~
+~
+0 0 8237
+D3
+~
+~
+0 0 8231
+S
+
+#8237
+{HHall of Earth{x~
+Everything in this room is {Ggreen{x.  The walls have {Hdeep green{x moss growing
+on them and the floor is covered in high {Ggreen{x.  A bright {Ggreen{x chair
+rests in the corner.  The {Ggreen glow{x blends in well with the {Ggreen{x decor. 
+An {Hemerald{x pillar stands in the center of the room, circled by a {Hgreen{x
+shaded rug.  
+~
+0 0 0
+D1
+~
+~
+0 0 8238
+D3
+~
+~
+0 0 8236
+S
+
+#8238
+{HHall of Earth{x~
+This room is very plain looking, until you decide to look up.  A large
+and beautiful {Hemerald{x chandlier scatters soft {Ggreen{x light everywhere, and
+many glittering gems are set into the ceiling.  A mural of a peaceful meadow
+covers the ceiling.  
+~
+0 0 0
+D1
+~
+~
+0 0 8239
+D3
+~
+~
+0 0 8237
+S
+
+#8239
+{HHall of Earth{x~
+The part of the hall is very dark and mysterious.  A faint {Hgreen light{x
+enters the room and barely allows you to see the room.  It is very difficult
+to make out any details, but you do manage to see the top of a set of stairs
+leading down.  
+~
+0 0 0
+D3
+~
+~
+0 0 8238
+D5
+~
+~
+0 0 8240
+S
+
+#8240
+{HStairway of Earth{x~
+The {Mdarkness{x is quite overwhelming.  Your light barely is able to
+penetrate the {Mdarkness{x and allow vision.  Movement can be heard from
+somewhere in the depths of the {Mdarkness{x.  Moving slowly, you feel around the
+room to get a sense of its size and shape as well as finding your exits.  
+~
+0 1 0
+D1
+~
+~
+0 0 8245
+D3
+~
+~
+0 0 8244
+D4
+~
+~
+0 0 8239
+D5
+~
+~
+0 0 8241
+S
+
+#8241
+{HStairway of Earth{x~
+The {Mdarkness{x continues to overwhelm you.  It seems to be pressing you
+and surrounding you as if moving in for an attack.  Your light barely cuts
+through the thick shadows, allowing minimal view of the surroundings.  You
+can see only a few steps ahead as you slowly make your way down the
+stairway.  
+~
+0 1 0
+D4
+~
+~
+0 0 8240
+D5
+~
+~
+0 0 8242
+S
+
+#8242
+{HHall of Earth{x~
+The {Mdarkness{x seems to falter slightly to the east as the sounds of
+pounding suddenly echo through the room.  Despite the best efforts of your
+vision and light, you can't see the source of the sounds from here.  A
+stairway is barely visible in the corner of the room, and you manage to find
+the exit east.  
+~
+0 1 0
+D1
+~
+~
+0 0 8250
+D4
+~
+~
+0 0 8241
+S
+
+#8244
+{HHall of Earth{x~
+The {Mdarkness{x seems to abate a little in the room to the west, but is
+still quite strong here.  Your light allows you to notice the room's small
+size and lack of features.  Occassionly, you notice a sylph or two wandering
+around.  There is no furniture or decorations in the room.  Nothing special
+except the thick layer of dust on the floor.  
+~
+0 1 0
+D1
+~
+~
+0 0 8240
+D3
+~
+~
+0 0 8246
+S
+
+#8245
+{HEmpty Room{x~
+There is nothing much but dust in this room.  You shine your light around
+the room, hoping for some interesting feature of the room to show.  The room
+is completely bare except for a few boxes in the corner, trying the boxes,
+they are sealed shut with no visible way to open them.  It seems that this
+is a storage room of some sort.  
+~
+0 1 0
+D3
+~
+~
+0 0 8240
+S
+
+#8246
+{HTerian's Weapons{x~
+The faint light of the shop allows you to see many blades resting on the
+side counter.  You can also see finished blades in the display case on the
+counter in front of you.  Looking around, you see the shopkeeper focusing
+intently on the fine detail of a blade.  You decide to look around the shop.
+~
+0 0 0
+D1
+~
+~
+0 0 8244
+S
+
+#8247
+{CPassage beneath the hall{x~
+You've entered a dim pathway.  The soft {Bblue{x light is not here and has
+been replaced by a strange darkness.  Your light source provides enough
+light for you.  A faint outline of a door is to the south.  Trying the door,
+you find that it is locked.  The dark surroundings are unusual, but you
+sense no evil.  
+~
+0 1 0
+D2
+~
+~
+4 8294 8248
+D4
+~
+~
+1 0 8217
+S
+
+#8248
+{MA dark room{x~
+This room is very {Mdark{x and your light source barely shows you the
+room.  You can make out the furniture, a table and a chair, and the general
+size of the room.  The walls seem to exude {Mdarkness{x and you think you
+see a shifting shadow form in the corner.  
+~
+0 0 0
+D0
+~
+~
+4 8294 8247
+D3
+~
+~
+4 8289 8249
+S
+
+#8249
+A bland, dusty room~
+This is a strange room.  The only thing in this room, besides a lot of
+dust, is a glittering key.  This room is very bland and boring.  The dust is
+visible as it flies about the room, and you begin to sneeze violently.  
+~
+0 0 0
+D1
+~
+~
+4 8289 8248
+H 5 M 0
+S
+
+#8250
+{HChamber of the Guardian of Earth{x~
+This room is quite bright with the {Ggreen glow{x shining throughout the
+room.  You notice many interesting weapons, seemingly work in progress.  All
+of them are made of various gems and precious metals, and glitter in an
+array of {Pc{Co{Gl{Yo{Vr{Rs{x.  You eyes catch sight of a figure huddled over a gem,
+carefully shaping it.  She feels your presence and looks up at you.  
+~
+0 0 0
+D3
+~
+~
+0 0 8242
+S
+
+#8251
+{CHall of Water{x~
+There are many paintings and portraits of the large waves and tidal
+storms.  These paintings seem to portray the power {Cwater{x has and how
+dangerous it can be if at the wrong place at the wrong time.  The pictures
+are in vivid detail and you can almost feel the force of the waves crashing
+against you.  The peaceful {Bblue{x glow is in sharp contrast with the active
+and unsettled scenes in the pictures.  
+~
+0 0 0
+D1
+~
+~
+0 0 8252
+D3
+~
+~
+0 0 8212
+S
+
+#8252
+{CHall of Water{x~
+This room is filled with more paintings of violent water scenes.  This
+time pictures of thunderstorms and torrential downpours dominate the
+scenary.  They are done in great details and you hear the loud rumbling of
+thunder, or is it just your imagination?  The {Bblue{x glow seems to be a bit
+dim here.  
+~
+0 0 0
+D1
+~
+~
+0 0 8253
+D3
+~
+~
+0 0 8251
+S
+
+#8253
+{CHall of Water{x~
+You look around frantically as the sounds of rushing water flood your
+mind.  You begin to wonder if a deluge of water will be crashing into you at
+any moment.  The soft {Bblue{x glow is gone, making the room dim. 
+Cautiously, you step into the center of the room.  
+~
+0 0 0
+D2
+~
+~
+0 0 8254
+D3
+~
+~
+0 0 8252
+S
+
+#8254
+{CHall of Water{x~
+The sound of rushing water increases, and you wonder about going any
+farther.  The room is dim and you can't see any signs of water, and the room
+is very dry.  You make out an exit to the south and notice the one you came
+through from the north.  
+~
+0 0 0
+D0
+~
+~
+0 0 8253
+D2
+~
+~
+0 0 8255
+S
+
+#8255
+{CHall of Water{x~
+The noise level is that of a waterfall in this room.  In fact you are
+starting to feel as if you're in the center of the waterfall!  The room is
+even darker here and you can barely make out the outlines of the room.  You
+almost trip and fall down a set of stairs.  You gather yourself and take a
+look down the stairs.  Darkness fills the stairway until about half way
+down.  The {Bblue{x glow returns brightly near the bottom of the stairs, and
+sounds of many people can be heard.  
+~
+0 0 0
+D0
+~
+~
+0 0 8254
+D5
+~
+~
+0 0 8256
+S
+
+#8256
+{CThe Torrent{x~
+You have entered a lively tavern.  The patrons greet you as you move
+towards the bar.  Fun and excitement are in the air and the people are in
+high spirits.  You manage to find a stool, despite the large crowd here. 
+The owner of the tavern approaches you, making light conversation.  She too
+is in a happy mood.  She introduces herself as Yulen, and calmly directs you
+to the list of specialities and supplies availible.  She then leaves to
+converse with some other patrons.  The {Bblue{x glow you have grown
+accustomed to is here in full brightness and adds to the festivity.  
+~
+0 0 0
+D4
+~
+~
+0 0 8255
+S
+
+#8257
+{YHall of Wind{x~
+A relaxing breeze flows through the hallway.  The walls are colorless but
+sevreal paintings have been placed.  They each show scenes of grassy plains
+and gusty winds.  A soft {Yyellow{x glow fills the room pleasingly.  
+~
+0 0 0
+D1
+~
+~
+0 0 8225
+D3
+~
+~
+0 0 8258
+S
+
+#8258
+{YHall of Wind{x~
+The winds gusts a little more briskly in this room, but is still calming.
+You stop and notice a visible column of air in the center of the room.  The
+{Yyellow{x glow brightens as you approach.  Curiously, you watch the air
+rise and circulate inside the column.  You wonder what the column is for and
+what magic made this column of air visible.  
+~
+0 0 0
+D1
+~
+~
+0 0 8257
+D3
+~
+~
+0 0 8259
+S
+
+#8259
+{YHall of Wind{x~
+The breeze dies down in this room for some strange reason.  The {Yglow{x
+has faded quite a bit as well.  Looking around, you don't see anything of
+interest.  This room is rather plain, especially compared to the other rooms
+you have seen.  
+~
+0 0 0
+D1
+~
+~
+0 0 8258
+D3
+~
+~
+0 0 8260
+S
+
+#8260
+{YHall of Wind{x~
+The gentle breeze returns in this room, with and occasional gust from the
+north.  Tall {Yyellow topaz{x pillars support the room and provide a
+pleasing color.  The room is a bit smaller than the others, but is well
+decorated with various paintings on the walls and a plush rug to walk on.  
+~
+0 0 0
+D0
+~
+~
+0 0 8261
+D1
+~
+~
+0 0 8259
+S
+
+#8261
+{YEnd of the Hall{x~
+You stop suddenly as the floor appears to end.  In fact the entire room
+appears to be incomplete.  Only three walls are visible and only a part of
+the ceiling is in place.  You peer ahead and wonder what lies beyond this
+point.  Strangely you make out the familiar {Yyellow glow{x and some movement in
+the distance.  
+~
+0 0 0
+D2
+~
+~
+0 0 8260
+D4
+~
+~
+0 0 8262
+S
+
+#8262
+{YPillar of Wind{x~
+You find yourself held up by a pillar of swirling winds.  You can see the
+surroundings clearly and move about freely.  Slowly you look below, and you
+can see the floor below you, and you start to feel a dizzy.  You quickly
+look up and take in your surroundings.  The soft and familiar {Yyellow glow{x is
+here and ocassionally a sylph zips about in the winds.  You can see more
+movement above you.  
+~
+0 0 9
+D4
+~
+~
+0 0 8263
+D5
+~
+~
+0 0 8261
+S
+
+#8263
+{YPillar of Wind{x~
+The sensation of moving freely in the air is begin to become enjoyable. 
+You slowly glide around, taking a look at the new surroundings.  The wind
+gently swirls around, supporting you and helping you to move about.  Some of
+the sylphs that see you smile at you and fly around you playfully.  The
+{Yyellow glow{x dims slightly.  
+~
+0 0 0
+D4
+~
+~
+0 0 8264
+D5
+~
+~
+0 0 8262
+S
+
+#8264
+{YPillar of Wind{x~
+The {Yyellow glow{x is rather bright here.  Looking around you can see
+another part of the castle floating in mid-air.  The pillar of wind seems to
+be wrapping around you tightly, as if to provide extra support for your
+movements.  This sylphs look at you curiously, wondering why you aren't
+moving.  They begin to cluster around you.  
+~
+0 0 0
+D4
+~
+~
+0 0 8265
+D5
+~
+~
+0 0 8263
+S
+
+#8265
+{YHall of Wind{x~
+The seemingly incomplete room leads towards nothing but air, or so it
+seems.  As you cautiously approach the edge, you can feel a strange swirl of
+winds.  Peering below, you can see a {Yyellow glow{x, but little else.  
+~
+0 0 0
+D0
+~
+~
+0 0 8282
+D3
+~
+~
+0 0 8281
+D5
+~
+~
+0 0 8264
+S
+
+#8266
+{VMain Hall{x~
+This part of the hall is rather fancy.  Various paintings of beautiful
+lands and people decorate most of the walls.  A small but still nice
+chandlier hangs from the ceiling scattering light softly throughout the
+room.  The floor is bare but well polished.  You can see your reflection and
+the reflections of the everything here.  
+~
+0 0 0
+D0
+~
+~
+0 0 8267
+D2
+~
+~
+0 0 8226
+H 89 M 88
+S
+
+#8267
+{VEnd of the Main Hall{x~
+The hall turns to the right at this point.  You can see a {Rred{x glow
+spilling in from that direction.  On the wall in front of you, a large
+painting of a {Rfire{x dominates the room.  It even seems to {Rglow{x slightly. 
+~
+0 0 0
+D1
+~
+~
+0 0 8268
+D2
+~
+~
+0 0 8266
+S
+
+#8268
+{RHall of Fire{x~
+The sudden brightness of the {Rred glow{x stuns your for a moment.  When you
+can adjust to the {Rlight{x{x, your eyes slowly take in the brightness of the
+surroundings.  Various paintings of {Rflames{x line the walls, and a carpet in
+shades of {Rr{Pe{Rd{x covers the center of the floor.  
+~
+0 0 0
+D1
+~
+~
+0 0 8269
+D3
+~
+~
+0 0 8267
+S
+
+#8269
+{RHall of Fire{x~
+The {Rred glow{x covers the room in a {Rred tint{x.  Everything around you,
+including your own items appears to be {Rred{x.  There are various paintings on
+the wall that depict large consuming {Rfires{x in various landscapes.  A {Rruby{x
+chandlier hangs from the ceiling and two narrow {Rruby{x pillars stand near the
+center of the area.  
+~
+0 0 0
+D1
+~
+~
+0 0 8271
+D3
+~
+~
+0 0 8268
+S
+
+#8271
+{RHall of Fire{x~
+The {Rred glow{x dims slightly here and your eyes are thankful.  The
+surrounding walls have {Prubies{x set into them causing the glow to glitter
+nicely.  You also notice a large design of a {Rflame{x painted on the floor. 
+The ceiling also has a large {Rflame{x design on it, and a chandlier hangs from
+the center of the design.  
+~
+0 0 0
+D1
+~
+~
+0 0 8272
+D3
+~
+~
+0 0 8269
+S
+
+#8272
+{RHall of Fire{x~
+This part of the hall narrows slightly.  Nothing of interest is in this
+room, except for the pillars of {Rflame{x.  You gaze curiously at the pillars,
+inspecting them from all sides.  You begin to sweat tremendously as the heat
+builds.  The {Rflames{x light the area brightly and cover the room in {Rred{x light.
+~
+0 0 0
+D1
+~
+~
+0 0 8273
+D3
+~
+~
+0 0 8271
+S
+
+#8273
+{RHall of Fire{x~
+The hall spreads out here and the {Rred glow{x brightens considerably.  A
+bright {Rred{x rug covers a large part of the floor and a large painting of
+raining {Rfire{x covers each wall.  A wide {Rruby{x pillar dominates the center of
+the hall and some {Pred desks{x rest against it.  
+~
+0 0 0
+D1
+~
+~
+0 0 8274
+D3
+~
+~
+0 0 8272
+S
+
+#8274
+{RHall of Fire{x~
+A large {Rred{x sphere catches you attention immediately.  It takes up
+most of the space in the hall and {Rglows{x very brightly.  You stand in awe
+of the sphere for many moments before wondering about how to get past it. 
+You watch as sylphs pass through the sphere without a problem and as if it
+wasn't there.  You take a chance and push your hand into the sphere,
+noticing that it passes easily.  
+~
+0 0 0
+D0
+~
+~
+0 0 8275
+D3
+~
+~
+0 0 8273
+S
+
+#8275
+{RHall of Fire{x~
+You suddenly feel very hot.  The sudden heat shocks your system for a
+moment.  Sweat beads on your skin as the heat continues.  You wonder how
+these sylphs can take this heat.  The {Rred glow{x is somewhat bright, and
+illuminates a rather bland room.  
+~
+0 0 0
+D1
+~
+~
+0 0 8276
+D2
+~
+~
+0 0 8274
+S
+
+#8276
+{RHall of Fire{x~
+In this part of the hall you find no relief from the tremendous heat. 
+You begin to tire rapidly as the sweat pours off your skin.  You notice very
+little of interest in the room.  The {Rred glow{x is rather bright here.  
+~
+0 0 0
+D0
+~
+~
+0 0 8277
+D3
+~
+~
+0 0 8275
+S
+
+#8277
+{RHall of Fire{x~
+The heat continues into this part of the hall.  You wonder when you'll
+ever find relief from it.  The room is covered in a bright {Rred glow{x and the
+{Rglow{x makes looking at anything with detail difficult.  To the west, you see
+an even brighter {Rglow{x.  
+~
+0 0 0
+D2
+~
+~
+0 0 8276
+D3
+~
+~
+0 0 8278
+S
+
+#8278
+{RChamber of the Guardian of Fire{x~
+The bright {Rredness{x blinds you momentarily as your eyes struggle to
+adjust.  When you can make out the room, you can see {Rred{x painted walls, a
+large {Rred{x rug in center of the room, a {Rruby{x chandlier scattering even more
+{Rred light{x, and a {Rfire{x burning in the fireplace adding to the already intense
+heat.  You also notice a stout dwarf with a {Rred{x bladed axe and all {Rred{x armor
+on.  He glares at your presence and tightens his grip on his axe.  
+~
+0 0 0
+D1
+~
+~
+0 0 8277
+S
+
+#8281
+{YHall of Wind{x~
+This part of the hall is rather wide.  Several topaz pillars are
+scattered about and a small {Yyellow rug{x sits in the middle of the floor. 
+On the walls many paintings of scenes showing the power of the wind.  The
+{Yyellow glow{x shines brightly.  
+~
+0 0 0
+D1
+~
+~
+0 0 8265
+D3
+~
+~
+0 0 8284
+S
+
+#8282
+{YHall of Wind{x~
+This part of the hall is bathed in bright {Yyellow light{x.  The brightness
+clearly shows how plain this room is.  There are no paintings or other
+decorations on the walls, nor is there any furniture about.  The floor is
+bare and you wonder why this room looks so bad.  You notice the room is
+lacking a fourth wall and the floor leads into the air.  You can see another
+part of the hall above you.  
+~
+0 0 0
+D2
+~
+~
+0 0 8265
+D4
+~
+~
+0 0 8283
+S
+
+#8283
+{YHall of Wind{x~
+This room is nice to look at.  Various paintings of high detail cover the
+walls and a beautiful carpet colors the floor.  The {Yyellow glow{x is soft
+creating an atmosphere of peace and comfort.  Looking around, you notice
+only three walls in the room and below you can see another part of the hall.
+~
+0 0 0
+D0
+~
+~
+0 0 8285
+D5
+~
+~
+0 0 8282
+H 115 M 110
+S
+
+#8284
+{YMari's Mythical Morsels{x~
+You enter a large shop filled with several baked goods and other food
+items.  Looking around, you are somewhat amazed at the quantity and
+selection of foods availible.  You even sense a strange energy from some of
+the items.  You can see the shopkeep busily oragnizing and cleaning, and
+soft knock on the counter getting her attention.  
+~
+0 0 0
+D1
+~
+~
+0 0 8281
+S
+
+#8285
+{YChamber of the Guardian of Wind{x~
+The room is sparsely furnished, but has several open windows.  The breeze
+swirls about the room and feels as if it is coming from every direction at
+once.  A few tables are scattered about the room, each with parchments held
+down by crystal cubes.  A chandlier scatters {Ylight{x in all directions and
+a {Yrug{x covers the center of the floor.  A human woman hovers in place
+near the center of the room.  
+~
+0 4 0
+D2
+~
+~
+0 0 8283
+S
+
+#8286
+{VMain Hall{x~
+Ornate decorations hang from the ceiling in a dazzling area of {Cc{Ro{Gl{Yo{Br{x. 
+Various banners and paintings hang along the walls.  A plush {Mrug{x is in the
+center of the hall and has fine designs on it.  The floor is shiny and a
+crystal chandlier hangs from the ceiling, scattering soft {Vlight{x.  
+~
+0 4 0
+D0
+~
+~
+0 0 8297
+S
+
+#8297
+{VMain Hall{x~
+The floor shines magnificantly and you can easily see your reflection. 
+Some {Vorbs{x float about the hall, scattering their {Vlight{x.  Finely crafted
+weapons are securely attached to the walls.  You admire the craftsmanship of
+the many blades and touch their surfaces lightly.  
+~
+0 0 0
+D0
+~
+~
+0 0 8298
+D2
+~
+~
+0 0 8286
+S
+
+#8298
+{VMain Hall{x~
+The hall ends abruptly at a door here.  The door has a strange runic
+script carved on it and is shut tightly.  Trying the door, you notice it is
+locked.  The walls are bare, but the floor is still shined nicely.  A soft
+{Vglow{x spreads across the hall from the chandlier hanging on the ceiling.  
+~
+0 0 0
+D0
+~
+~
+4 8293 8299
+D2
+~
+~
+0 0 8297
+S
+
+#8299
+{VThe Royal Chamber{x~
+You are in awe of the beautiful furnishings in this room.  A large
+crystal chandlier spreads light everywhere and the walls and ceilings are
+made of {gcrystal{x.  Tall candlesticks flank a large throne with gems set in
+it.  A {Vpurple{x carpet stretches from the foot of the throne towards the
+enterance of the chamber, and is plush with detailed designs along its
+length.  The room itself is large and appears larger because of the {gcrystal{x
+surroundings.  A regal lady elf sits comfortably on the throne and calmly
+smiles as you take in the surroundings.  
+~
+0 0 0
+D2
+~
+~
+4 8293 8298
+S
+#0
+
+
+#RESETS
+D 0 8200 0 1
+D 0 8201 2 1
+D 0 8210 0 1
+D 0 8211 2 1
+D 0 8217 5 1
+D 0 8228 0 2
+D 0 8232 0 2
+D 0 8232 2 2
+D 0 8233 2 2
+D 0 8233 3 2
+D 0 8234 1 2
+D 0 8234 3 2
+D 0 8235 1 2
+D 0 8247 2 2
+D 0 8247 4 1
+D 0 8248 0 2
+D 0 8248 3 2
+D 0 8249 1 2
+D 0 8298 0 2
+D 0 8299 2 2
+O 0 8297 1 8200     *Magical energy (portal to Ruins of Oran)  
+M 0 8200 8 8201 1   *Load A sylph child 
+M 0 8205 8 8201 1   *Load caretaker 
+M 0 8200 8 8202 1   *Load sylph child 
+M 0 8200 8 8204 1   *Load A sylph child 
+O 0 8291 1 8204     *A small fountain loaded to Western Courtyard  
+M 0 8205 8 8204 1   *Load A caretaker 
+
+M 0 8200 8 8205 1   *Load A sylph child
+E 0 8200 5 6        *A hair ribbon on head
+
+M 0 8205 8 8205 1   *Load A caretaker 
+O 0 8290 1 8205     *A large stone fountain loaded to {CCenter{x {mCourtyard{x 
+O 0 8292 1 8206     *A small fountain loaded to Eastern Courtyard 
+M 0 8200 8 8206 1   *Load A sylph child 
+
+M 0 8205 8 8206 1   *Load A caretaker
+E 0 8201 5 13       *A runic leather skirt loaded around waist 
+
+M 0 8200 8 8207 1   *Load A sylph child 
+M 0 8205 8 8207 1   *Load A caretaker 
+M 0 8205 8 8208 1   *Load A caretaker 
+M 0 8200 8 8209 1   *Load A sylph child 
+M 0 8205 8 8209 1   *Load A caretaker 
+M 0 8200 8 8210 1   *Load A sylph child 
+
+M 0 8205 8 8210 1   *Load A caretaker 
+E 0 8201 5 13       *A runic leather skirt loaded around waist 
+
+M 0 8203 13 8213 1  *Load A water sylph 
+M 0 8203 13 8214 1  *Load A water sylph 
+
+M 0 8214 1 8215 1   *Load Karlyn
+G 0 8270 1          *{cbandana of water{x is given to Karlyn
+G 0 8272 1          *{cice plate armor{x is given to Karlyn
+G 0 8271 1          *{cice gauntlets{x is given to Karlyn
+
+M 0 8203 13 8216 1  *Load A water sylph
+M 0 8203 13 8217 1  *Load A water sylph 
+
+M 0 8203 13 8218 1  *Load A water sylph
+E 0 8203 5 15       *{cbracelet of ice{x loaded right wrist
+
+M 0 8203 13 8220 1  *Load A water sylph
+M 0 8203 13 8221 1  *Load A water sylph
+
+M 0 8203 13 8222 1  *Load A water sylph
+E 0 8203 5 14       *{cbracelet of ice{x loaded left wrist 
+
+M 0 8206 1 8223 1   *Load Terlei 
+E 0 8219 5 11       *{HEmerald Shield{x loaded on Terlei 
+G 0 8294 20         *{cwater key{x given to Terlei
+
+M 0 8212 6 8224 2   *Load A crystal sylph 
+
+M 0 8212 6 8225 2   *Load A crystal sylph
+E 0 8295 5 16       *{wcrystal staff{x loaded wielded 
+
+M 0 8212 6 8226 2   *Load A crystal sylph
+
+M 0 8204 6 8229 1   *Load An earth sylph 
+E 0 8204 5 9        *{ggauntlets of earth{x loaded on hands
+
+M 0 8204 6 8230 1   *Load An earth sylph
+O 0 8296 1 8235     *portal to crystiya loaded to End of Small Passage 
+M 0 8204 6 8238 1   *Load An earth sylph
+
+M 0 8204 6 8239 1   *Load An earth sylph 
+E 0 8204 5 9        *{ggauntlets of earth{x loaded on hands 
+
+M 0 8204 6 8240 1   *Load An earth sylph 
+M 0 8204 6 8242 1   *Load An earth sylph 
+
+M 0 8217 1 8246 1   *Load Terian
+G 0 8240 0          *{gemerald{x dagger is given to Terian
+G 0 8241 0          *{mamethyst{x short sword is given to Terian
+G 0 8242 0          *{ytopaz{x mace is given to Terian 
+
+M 0 8210 1 8248 1   *Load Zekra
+G 0 8289 15         *{mshadow key{x given to Zekra
+O 0 8293 10 8249    *{yglittering{x key loaded to A bland, dusty room 
+
+M 0 8207 1 8250 1   *Load Terii 
+E 0 8216 5 16       *{mamethyst mace{x is loaded wielded of Terii 
+G 0 8250 15         *Earth key is given to Terii 
+
+M 0 8203 13 8251 1  *Load A water sylph
+M 0 8203 13 8252 1  *Load A water sylph
+M 0 8203 13 8253 1  *Load A water sylph 
+M 0 8203 13 8254 1  *Load A water sylph 
+M 0 8203 13 8255 1  *Load A water sylph 
+
+M 0 8215 1 8256 1   *Load Yulen 
+G 0 8234 0          *{cyulen's special drink container{x is given to Yulen
+G 0 8235 0          *{bwater drop potion{x is given to Yulen 
+G 0 8236 0          *{cpotion of ice dreams{x is given to Yulen 
+
+M 0 8202 9 8257 1   * Load A wind sylph
+E 0 8202 5 12       *{yrobe of wind{x loaded shoulders 
+
+M 0 8202 9 8258 1   *Load A wind sylph
+M 0 8202 9 8259 1   *Load A wind sylph
+M 0 8202 9 8260 1   *Load A wind sylph
+
+M 0 8202 9 8262 1   *Load A wind sylph
+E 0 8202 5 12       *{yrobe of wind{x loaded shoulders  
+
+M 0 8202 9 8263 1   *Load A wind sylph 
+M 0 8202 9 8264 1   *Load A wind sylph
+M 0 8201 10 8269 2  *Load A fire sylph
+
+M 0 8201 10 8271 2  *Load A fire sylph
+E 0 8205 5 3        *{Ppendant of fire{x loaded neck (1)  
+
+M 0 8201 10 8272 2  *Load A fire sylph
+M 0 8201 10 8274 2  *Load A fire sylph
+
+M 0 8201 10 8275 2  *Load A fire sylph 
+E 0 8205 5 3        *{Ppendant of fire{xloaded neck (1) 
+
+M 0 8201 10 8276 2  *Load A fire sylph
+
+M 0 8208 1 8278 1   *Load Ignar 
+E 0 8214 5 8        *{Pflame{x boots loaded on feet 
+G 0 8215 15         *{Pfire{x key given
+
+M 0 8202 9 8281 1   *Load A wind sylph 
+M 0 8202 9 8283 1   *Load A wind sylph
+
+M 0 8216 1 8284 1   *Load Mari
+G 0 8237 0          *{wpastry{x of the {Wwind{x given to Mari
+G 0 8238 0          *{Wwind cookie{x given to Mari
+G 0 8239 0          *{Wwind cake{x given to Mari 
+
+M 0 8209 1 8285 1   *Load Aeryn 
+E 0 8206 5 16       *{Wwind{x blade loaded wielded Aeryn 
+E 0 8207 5 12       *Plate silk tunic loaded on body of Aeryn 
+G 0 8210 30         *{Wwind{x key given to Aeryn
+
+M 0 8211 1 8299 1   *Load Crystiya, Queen of Nataris 
+E 0 8227 5 0        *nature's light loaded on Crystiya 
+E 0 8231 5 5        *crystal skirt loaded on torso of Crystiyan 
+S
+
+
+#SHOPS
+8214 9 0 0 0 0 135 69 6 18
+8215 17 0 0 0 0 115 55 3 20
+8216 19 0 0 0 0 140 50 7 21
+8217 5 0 0 0 0 130 45 4 20
+0
+
+
+#SPECIALS
+M 8201 spec_cast_mage     *Fire Sylph cast mage spells
+M 8202 spec_cast_mage     *Wind Sylph cast mage spells
+M 8203 spec_cast_cleric   *Water Sylph cast cleric spells
+M 8204 spec_cast_cleric   *Earth Sylph cast cleric spells
+M 8206 spec_cast_mage     *Terlei cast mage spells
+M 8207 spec_cast_cleric   *Terii cast cleric spells
+M 8209 spec_cast_mage     *Aeryn cast mage spells
+M 8210 spec_cast_mage     *Zekra cast mage spells
+M 8211 spec_cast_mage     *Crystiya casts mage spells
+M 8212 spec_cast_cleric   *Crystal Sylphs cast cleric spells
+S
+
+#$
+
+

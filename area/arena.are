@@ -1,0 +1,460 @@
+#AREA        
+arena.are~
+Arena~
+{H{{ARENA} {MLegato  {TArena~
+700 799
+
+#MOBILES
+#0
+
+#OBJECTS
+#0
+
+#ROOMS
+#700
+Center Of The Arena~
+	You are at the "Dead" center of the arena.
+Exits lead in all directions.
+~
+0 D 20
+D0
+You see nothing of interest.
+~
+~
+0 -1 711
+D1
+You see nothing of interest.
+~
+~
+0 -1 701
+D2 
+You see nothing of interest.
+~
+~
+0 -1 714
+D3
+You see nothing of interest.
+~
+~
+0 -1 712
+S
+#701
+The Arena~
+	You are in a room in the arena.
+Exits lead: North, South & West.
+~
+0 D 20
+D0
+You see nothing of interest.
+~
+~
+0 -1 702
+D2
+You see nothing of interest.
+~
+~
+0 -1 715
+D3
+You see nothing of interest.
+~
+~
+0 -1 700       
+S
+#702
+The Arena~
+	You are in a room in the arena.
+Exits lead: North, South & West
+~
+0 D 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 703
+D2
+You see nothing of interest.
+~
+~
+0 -1 701
+D3
+You see nothing of interest.
+~
+~
+0 -1 711
+S
+#703
+The Arena~	
+	You are in a room in the arena.
+Exits lead: North & South.
+~
+0 D 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 704
+D2
+You see nothing of interest.
+~
+~
+0 -1 702
+S
+#704
+The Arena~
+	You are in a room in the arena.
+Exits lead: North & South.
+~
+0 D 20
+D0
+You see nothing of interest.
+~
+~
+0 -1 705
+D2
+You see nothing of interest.
+~
+~
+0 -1 703
+S
+#705 
+The Arena~
+	You are in a room in the arena.
+Exits lead: West & South.
+~
+0 D 20
+D2 
+You see nothing of interest.
+~
+~
+0 -1 704
+D3 
+You see nothing of interest.
+~
+~
+0 -1 706
+S
+#706
+The Arena~
+	You are in a room in the arena.
+Exits lead: West & East.
+~
+0 D 20
+D1
+You see nothing of interest.
+~
+~
+0 -1 705
+D3
+You see nothing of interest.
+~
+~
+0 -1 707
+S
+#707
+The Arena~
+	You are in a room in the arena.
+Exits lead: South & East.
+~
+0 D 20
+D1
+You see nothing of interest.
+~
+~
+0 -1 706
+D2
+You see nothing of interest.
+~
+~
+0 -1 708
+S
+#708
+The Arena~
+	You are in a room in the arena.
+Exits lead: North & south.
+~
+0 D 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 707
+D2
+You see nothing of interest.
+~
+~
+0 -1 709
+S
+#709
+The Arena~
+	You are in a room in the arena.
+Exits lead: North & South.
+~
+0 D 20
+D0
+You see nothing of interest.
+~
+~
+0 -1 708
+D2
+You see nothing of interest.
+~
+~
+0 -1 710
+S
+#710
+The Arena~
+	You are in a room in the arena.
+Exits lead: North, South & East.
+~
+0 D 20
+D0
+You see nothing of interest.
+~
+~
+0 -1 709
+D1
+You see nothing of interest.
+~
+~
+0 -1 711
+D2
+You see nothing of interest.
+~
+~
+0 -1 712
+S
+#711
+The Arena~
+	You are in a room in the arena.
+Exits lead: West, East & South.
+~
+0 D 20
+D1
+You see nothing of interest.
+~
+~
+0 -1 702
+D2
+You see nothing of interest.
+~
+~
+0 -1 700
+D3 
+You see nothing of interest.
+~
+~
+0 -1 710
+S
+#712
+The Arena~
+	You are in a room in the arena.
+Exits lead: North, South & East.
+~
+0 D 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 710
+D1
+You see nothing of interest.
+~
+~
+0 -1 700
+D2 
+You see nothing of interest.
+~
+~
+0 -1 713
+S
+#713
+The Arena~
+	You are in a room in the arena.
+Exits lead: North, South & East.
+~
+0 D 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 712
+D1
+You see nothing of interest.
+~
+~
+0 -1 714
+D2
+You see nothing of interest.
+~
+~
+0 -1 722
+S
+#714
+The Arena~
+	You are in a room in the arena.
+Exits lead: North, West & East.
+~
+0 D 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 700
+D1
+You see nothing of interest.
+~
+~
+0 -1 715
+D3
+You see nothing of interest.
+~
+~
+0 -1 713
+S
+#715
+The Arena~
+	You are in a room in the arena.
+Exits lead: North, South & West.
+~
+0 d 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 701
+D2
+You see nothing of interest.
+~
+~
+0 -1 716
+D3
+You see nothing of interest.
+~
+~
+0 -1 714
+S 
+#716
+The Arena~
+	You are in a room in the arena.
+Exits lead: North & south.
+~
+0 D 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 715
+D2
+You see nothing of interest.
+~
+~
+0 -1 717
+S
+#717
+The Arena~
+	You are in a room in the arena.
+Exits lead: North & South.
+~
+0 D 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 716
+D2
+You see nothing of interest.
+~
+~
+0 -1 718
+S
+#718
+The Arena~
+	You are in a room in the arena.
+Exits lead: North & West.
+~
+0 D 20
+D0
+You see nothing of interest.
+~
+~
+0 -1 717
+D3
+You see nothing of interest.
+~
+~
+0 -1 719
+S
+#719
+The Arena~
+	You are in a room in the arena.
+Exits lead: West & East.
+~
+0 D 20
+D1
+You see nothing of interest.
+~
+~
+0 -1 718
+D3
+You see nothing of interest.
+~
+~
+0 -1 720
+S
+#720
+The Arena~
+	You are in a room in the arena.
+Exits lead: North & East.
+~
+0 D 20
+D0 
+you see nothing of interest.
+~
+~
+0 -1 721
+D1
+You see nothing of interest.
+~
+~
+0 -1 719
+S
+#721
+The Arena~
+	You are in a room in the arena.
+Exits lead: North & South.
+~
+0 D 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 722
+D2
+You see nothing of interest.
+~
+~
+0 -1 720
+S
+#722
+The Arena~
+	You are in a room in the arena.
+Exits lead: North & South.
+~
+0 D 20
+D0 
+You see nothing of interest.
+~
+~
+0 -1 713
+D2
+You see nothing of interest.
+~
+~
+0 -1 721
+S
+#0
+
+#RESETS
+S
+
+#$

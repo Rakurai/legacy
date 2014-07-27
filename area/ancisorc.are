@@ -1,0 +1,4403 @@
+#AREA
+ancisorc.are~
+Ancient Tower of High Sorcery~
+{H{{45 65} {MAngreal {TAncient Tower of High Sorcery{x~
+29100 29299
+
+#MOBILES
+#29100
+disembodied eyes~
+a pair of disembodied eyes~
+A pair of disembodied eyes stares at you.
+~
+A pair of disembodied eyes floats before you glowing white 
+with an eerie, cold light. Eyes clouded over with the touch 
+of death that watch you . . . . look at you . . . . stare at 
+you. Their gaze transfixes you.  Feelings of ravenous hunger 
+accost your mind.  A hunger for warmth. A hunger for life.
+~
+human~
+AFGOW DFJTUZ -1000 0
+46 23 25d10+3200 25d10+700 6d6+16 drain
+-16 -16 -16 -3 
+P ABILQX D NSY
+stand stand none 0
+IVc 0 medium 0
+#29101
+One Live~
+a Live One~
+A Live One sits in a pool of its own secretions.
+~
+A shiny wet body writhes on the ground.  Bleeding and larva-like 
+it carpets the ground with its greenish oozings.  Its twisted face 
+is a contortion of pain.  The pain of magic gone awry.
+~ 
+human~
+ABF ADFKS 0 0
+48 22 25d10+3600 25d10+700 6d6+18 slime
+-17 -17 -17 -2 
+CEP ABLR J 0
+sit sit none 0
+BGS 0 medium 0
+#29102
+golem iron statue~
+The iron golem~
+A statue stands here.
+~
+The figure of a human warrior rises up 9 feet from the ground.
+Muscles ripple across the expanse of his brown-black chest.  An 
+iron sword gripped in his right hand hangs over your head like an 
+executioner's blow.  His polished metal body is cold to the touch.
+~
+human~
+ABFGTZ J 0 0
+50 25 50d10+4000 50d10+700 6d8+19 slice
+-18 -18 -18 -2 
+ACEFPU ABC 0 J
+stand stand male 0
+JM 0 large 0
+#29103
+demon shadow~
+The shadow demon~
+The shadow demon watches your every move.
+~
+The mere outline of a human being glides around you.  Featureless, it 
+looks like a piece of cloth cut out of the very fabric of the night. 
+ Misshapen wings adorn its would-be back.
+~
+human~
+ACFGW BDFPQUVZ -825 0
+53 27 50d10+4600 50d10+700 7d7+21 claw
+-20 -20 -20 -3 
+DP ABHIJ 0 S
+stand stand none 65
+HMVc 0 medium 0
+#29104
+mihstu guard~
+The mihstu~
+The mihstu envelops you.
+~
+This formless creature looks like a cloud of swirling mist.  
+Four tentacles project out of the mist. Each taloned tentacle sways 
+in the air like a cobra before a snake charmer on the streets of Daltigoth.
+~
+human~
+AFGW DFTUVZ -325 0
+55 26 50d10+4800 50d10+750 7d7+20 whip
+-20 -20 -20 -3 
+AEHNP ABJM I 0
+stand stand none 0
+HKc 0 medium 0
+#29105
+elf dark Dalamar~
+Dalamar~
+Dalamar looks at you with a sinister grin on his face.
+~
+Dalamar's cool, violet eyes glide over your body.  Their almond 
+shape belie his elvish ancestry as does his bronze skin.  His strong, 
+muscular body fills out his black robes. His composed stature tells 
+you that he does not fear you.  Dalamar scribes some sort of symbol 
+in the air. A gong sounds.  Laughter fills the dark elf's eyes.
+~
+elf~
+ABFGRWZ DFHJZ -825 0
+59 29 50d10+5600 50d10+800 11d4+24 pierce
+-23 -23 -23 -6 
+FP AB 0 0
+stand stand male 500
+AHMV 0 medium 0
+#29106
+devil Arioch~
+Arioch~
+Arioch twirls his double-ended halberd as he sizes you up.
+~
+A leonine mane encircles Arioch's stubby, crocodile-like face
+and rolls down his back like a black waterfall to the base of his 
+great forked tail.  Huge bat-like wings adorn his purple shoulders.  
+Wine red scales overlap one another as they cover the bulging muscles 
+of his arms and chest. You hear the clatter of his great hooves against
+the ground as he assumes his battle stance.
+~
+human~
+ABFGT DGTVcc -1000 0
+63 34 50d10+6300 5d10+800 10d6+30 claw
+-25 -25 -25 -4 
+EFHJKP ABH IL N
+stand stand male 1200
+BHMV 0 large 0
+#29107
+wind torrents~
+the wind torrents~
+The wind torrents push you toward the edge of the roof.
+~
+The wind torrents are strangely warm yet cold.  You feel 
+as if two gigantic air elementals, one hot and the other 
+cold, are waging war around you.
+~
+human~
+ABCFZ BJTV 0 0
+66 33 50d10+6650 1d1+99 10d7+31 blast
+-25 -25 -25 0 
+ACEHW ABLQRST D 0
+stand stand none 0
+EGSLc 0 giant 0
+#29108
+fit coughing~
+a coughing fit~
+~
+~
+human~
+ABCFWZ ABJTV 0 0
+66 33 50d10+6650 1d1+99 10d7+31 grep
+-25 -25 -25 0 
+ACEH ABLQRST D 0
+stand stand none 0
+0 0 giant 0
+#29109
+mage Majere Raistlin~
+Raistlin~
+Raistlin mocks you with his sly grin.
+~
+Black robes of the finest velvet hang from the archmage's 
+slightly stooped, thin shoulders. The robes fall in soft folds
+around his slender body.  The hood covers his head, leaving all
+but his golden eyes in shadow.  He leans upon a staff.  His 
+slender gold-tinged fingers grip the haft of the staff with such 
+force they almost look white.  The Master of Past and Present lets
+out a wry chuckle as you turn your gaze away from him.
+~
+human~
+ABFGHRWZ DFHPcc -1000 0
+68 34 50d10+6700 5d10+1000 10d7+31 shock
+-26 -26 -26 -7
+AP AB 0 0
+stand stand male 1313
+AHMV 0 medium 0
+#0
+
+#OBJECTS
+#29100
+polearm halberd~
+Arioch's halberd~
+Arioch's halberd lies upon the ground.~
+adamantite~
+weapon AG AN
+polearm 9 6 cleave DF
+63 175 15000 P
+A
+18 2
+A
+19 2
+E
+polearm halberd~
+The smooth black surface of its shaft stretches fifteen feet from 
+tip to tip.  A gleaming black head adorns each end.  Each head is 
+composed of an axe-like blade, a beak opposite the blade,and an apical 
+spike jutting out one foot from the base of the head.  No ornament or 
+runes mar the glossy surface of either head.  Holding the halberd by the 
+middle of the shaft, you feel the exquisite balance of this weapon.
+~
+#29101
+paper folded scrap~
+a folded scrap of paper~
+A folded scrap of paper lies in the dirt.~
+parchment~
+map GOPUY A
+1 0 0 0 0
+0 0 0 P
+E
+paper folded scrap~
+The Ancient Tower of High Sorcery area was created by Angreal 
+on 5/6/96.  All rights reserved.
+~
+#29102
+robes black hourglass~
+hourglass robes~
+The hourglass robes lie on the ground.~
+velvet~
+clothing AB AK
+1 1 1 20 0
+68 20 750 P
+E
+robes black hourglass~
+The sparkle of silver thread catches your eyes as you look at these 
+soft velvet robes.  Looking more closely, you see the intricate pattern 
+the silver threads form around the hood and cuffs. Runes.  Predominate 
+among the runes is a large hourglass shaped one that is woven into the 
+center of the hood.
+~
+A
+12 40
+#29103
+magius staff~
+the Staff of Magius~
+The Staff of Magius rests on the ground.~
+hardwood~
+light ABGY AO
+0 0 -1 0 0
+68 100 6500 P
+A
+17 -20
+A
+18 2
+E
+magius staff~
+A cold, dark crystal clutched in a gold dragon's claw stands atop 
+the shaft of this staff. The multifaceted crystal is clear and egg shaped.
+The gold dragon claw holding the crystal iscarved of the very heart 
+of a vallenwood though it looks remarkably like a true dragon's claw so 
+flawless is its crafting.  You discover that the dragon claw head holding 
+the crystal fits over the tip of the maple shaft and is secured by thick 
+coils of golden wire.  The maple shaft is shod with a dull grey metal cap 
+that makes a slight ping as you tap it against the ground. 
+~
+#29104
+dagger silver~
+a silver dagger~
+A silver dagger lies on the ground.~
+silver~
+weapon 0 AN
+dagger 2 4 pierce 0
+5 10 50 P
+E
+dagger silver~
+The beginnings of tarnish mar the hilt of this silver dagger.  
+The blade seems to be finely crafted, but no runes are engraved 
+into its shiny surface.  Coarse silver wire is wrapped around the hilt,
+giving the dagger excellent grip.
+~
+#29105
+gem emerald~
+emerald~
+An emerald lies on the ground.~
+corundum~
+gem Y AO
+0 0 0 0 0
+0 10 5500 P
+#29106
+herb petals rose~
+some rose petals~
+Some rose petals lie scattered on the ground.~
+food~
+food 0 AO
+1 1 0 0 0
+0 10 1 P
+E
+herb petals rose~
+These deep purple-red petals are highly fragrant.  Summer dreams fill 
+your head as you smell their sweet perfume.
+~
+#29107
+book spell Fistandantilus one~
+Fistandantilus' spellbook (Vol. 1)~
+Fistandantilus' spellbook (Vol. 1) rests on the ground.~
+vellum~
+scroll EGJL AO
+30 'detect invis' 'detect good' 'detect evil' ''
+45 50 1250 P
+E
+book spell Fistandantilus one~
+A chill runs down your spine as you examine the tome.  Runes and 
+spidery writing glow through the dust that covers the spine of this 
+night-blue tome.  A heaviness clouds your mind.
+~
+#29108
+book spell Fistandantilus two~
+Fistandantilus' spellbook (Vol. 2)~
+Fistandantilus' spellbook (Vol. 2) rests on the ground.~
+vellum~
+scroll EGJL AO
+30 'fireball' '' '' ''
+45 50 1250 P
+E
+book spell Fistandantilus two~
+A chill runs down your spine as you examine the tome.  Runes and 
+spidery writing glow through the dust that covers the spine of this 
+night-blue tome.  A heaviness clouds your mind.
+~
+#29109
+book spell Fistandantilus three~
+Fistandantilus' spellbook (Vol. 3)~
+Fistandantilus' spellbook (Vol. 3) rests on the ground.~
+vellum~
+scroll EGJL AO
+30 'acid blast' '' '' ''
+45 50 1500 P
+E
+book spell Fistandantilus three~
+A chill runs down your spine as you examine the tome.  Runes and 
+spidery writing glow through the dust that covers the spine of this 
+night-blue tome.  A heaviness clouds your mind.
+~
+#29110
+book spell Fistandantilus four~
+Fistandantilus' spellbook (Vol. 4)~
+Fistandantilus' spellbook (Vol. 4) rests on the ground.~
+vellum~
+scroll EGJL AO
+30 'lightning bolt' '' '' ''
+45 50 1000 P
+E
+book spell Fistandantilus four~
+A chill runs down your spine as you examine the tome.  Runes and 
+spidery writing glow through the dust that covers the spine of this 
+night-blue tome.  A heaviness clouds your mind.
+~
+#29111
+book spell Fistandantilus five~
+Fistandantilus' spellbook (Vol. 5)~
+Fistandantilus' spellbook (Vol. 5) rests on the ground.~
+vellum~
+scroll EGJL AO
+30 'plague' '' '' ''
+45 50 2500 P
+E
+book spell Fistandantilus five~
+A chill runs down your spine as you examine the tome.  Runes and 
+spidery writing glow through the dust that covers the spine of this 
+night-blue tome.  A heaviness clouds your mind.
+~
+#29112
+book spell Raistlin one~
+Raistlin's spellbook (Vol. 1)~
+Raistlin's spellbook (Vol. 1) has been left on the ground.~
+vellum~
+scroll EGJL AO
+45 'fear' '' '' ''
+55 60 2700 P
+E
+book spell Raistlin one~
+Runes and spidery writing glow through the dust that covers the spine 
+of this black tome. An ominous sense of foreboding washes over your 
+body as you examine the book.  
+~
+#29113
+book spell Raistlin two~
+Raistlin's spellbook (Vol. 2)~
+Raistlin's spellbook (Vol. 2) has been left on the ground.~
+vellum~
+scroll EGJL AO
+45 'regeneration' '' '' ''
+55 60 2700 P
+E
+book spell Raistlin two~
+Runes and spidery writing glow through the dust that covers the 
+spine of this black tome. An ominous sense of foreboding washes 
+over your body as you examine the book.  
+~
+#29114
+book spell Raistlin three~
+Raistlin's spellbook (Vol. 3)~
+Raistlin's spellbook (Vol. 3) has been left on the ground.~
+vellum~
+scroll EGJL AO
+45 'chain lightning' '' '' ''
+55 60 2200 P
+E
+book spell Raistlin three~
+Runes and spidery writing glow through the dust that covers the 
+spine of this black tome. An ominous sense of foreboding washes 
+over your body as you examine the book.  
+~
+#29115
+book spell Raistlin four~
+Raistlin's spellbook (Vol. 4)~
+Raistlin's spellbook (Vol. 4) has been left on the ground.~
+vellum~
+scroll EGJL AO
+45 'firestorm' '' '' ''
+55 60 2700 P
+E
+book spell Raistlin four~
+Runes and spidery writing glow through the dust that covers the 
+spine of this black tome. An ominous sense of foreboding washes 
+over your body as you examine the book.  
+~
+#29116
+brass key~
+a brass key~
+A brass key lies on the ground.~
+brass~
+key P AO
+0 0 0 0 0
+0 10 0 P
+#29117
+desk teak~
+a black teak desk~
+A black teak desk stands on the ground.~
+hardwood~
+furniture O A
+2 800 BEHKN 100 100
+0 5000 17500 P
+#29118
+flagon crystal~
+a crystal flagon~
+A crystal flagon is here.~
+crystal~
+drink 0 A
+24 16 'icewine' 0 0
+0 50 80 P
+#29119
+chair Gwynnian highback~
+a Gwynnian highback chair~
+A Gwynnian highback chair stands on the ground.~
+hardwood~
+furniture CO A
+1 300 BEH 100 100
+0 200 2000 P
+E
+chair Gwynnian highback~
+The craftsmanship of this chair holds you enthralled.  The 
+twining bodies of the reddish serpentine dragons that form the 
+armrests look so real you almost shiver.  The back is tall, narrow,
+rectangular.  The seat is triangular with rounded corners.  Three 
+legs of rope-like design support the chair.  A nagging sensation tugs 
+at the back of your mind.  The chair doesn't look quite right.  
+Something about the chair is . . . wrong.  Realization hits you like 
+an avalanche. The chair seems sculpted from a large block of rosewood 
+rather than pieced together from individual pieces of wood.  You search 
+harder, but find no seams or joints.
+~
+#29120
+shelf bookcase~
+a bookcase shelf~
+~
+hardwood~
+furniture CORT 0
+0 200 N 0 0
+0 0 0 P
+E
+shelf bookcase~
+Several night-blue volumes stand cover to cover upon this shelf of the 
+bookcase.  The deep ruddy color of the wood reveals the bookcase to be 
+made of mahogany.  Iron braces placed at one foot intervals underneath 
+the shelf provide added support.
+~
+#29121
+shelf wooden~
+a wooden shelf~
+~
+hardwood~
+furniture CORT 0
+0 200 N 0 0
+0 0 0 P
+#29122
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29123
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29124
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29125
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29126
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29127
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29128
+herb flowers foxglove~
+some foxglove flowers~
+Some foxglove flowers lie scattered on the ground.~
+food~
+food 0 AO
+1 1 0 A 0
+0 10 10 P
+E
+herb flowers foxglove~
+Your heart beats faster as you smell these pale pink flowers.  Their 
+tube like structure intrigues you and the yellow rimmed brownish spots 
+that adorn their throats reminds you of a leopard.
+~
+#29129
+herb root mandrake~
+some mandrake roots~
+Some mandrake roots lie scattered on the ground.~
+food~
+food 0 AO
+1 1 0 A 0
+0 10 10 P
+E
+herb root mandrake~
+These rugged, dark brown roots remind you of a phallus.  Lustful thoughts 
+creep into your imagination and you become aroused.  You feel the 
+uncontrollable need to blush.  The roots moan.
+~
+#29130
+herb beans castor~
+some castor beans~
+Some castor beans lie scattered on the ground.~
+food~
+food 0 AO
+1 1 0 A 0
+0 10 80 P
+E
+herb beans castor~
+These blackish blue beans remind you of plump blueberries.
+~
+#29131
+herb leaves rosemary~
+some rosemary leaves~
+Some rosemary leaves lie scattered on the ground.~
+food~
+pill G AO
+40 'cure poison' '' '' ''
+0 10 760 P
+E
+herb leaves rosemary~
+The piney odor of these gray-green leaves remind you of spruce and fir trees.
+~
+#29132
+flies fire jar~
+a jar of fireflys~
+Pale yellow light emits from a clear glass jar on the ground.~
+light~
+light AG AO
+0 0 -1 0 0
+50 100 1750 P
+E
+flies fire jar~
+Small black insects with iridescent yellow tails flit about the clear glass
+jar and attempt to cling to its inner walls. The jar feels warm to the touch.
+~
+F
+A 20 -5 bb
+#29133
+table small wooden~
+a small wooden table~
+A small wooden table is here.~
+hardwood~
+furniture CO 0
+1 100 BEN 0 0
+0 250 400 P
+#29134
+decanter triangular~
+a triangular decanter~
+A triangular decanter rests here.~
+glass~
+drink 0 A
+32 12 'elvish wine' 0 0
+0 20 50 P
+E
+decanter triangular~
+A pale green liquid fills this clear glass decanter.  Close 
+inspection of the decanter reveals that the seams of the faces are 
+all rounded as are the corners.  The pale green liquid smells of
+lavender and new grown clover.
+~
+#29135
+goblet silver~
+a silver goblet~
+A silver goblet lies here.~
+silver~
+drink 0 A
+16 16 'elvish wine' 0 0
+0 20 328 P
+E
+goblet silver~
+An embossed stag caught in mid-leap over a fallen tree dominates the 
+foreground of the forest scene depicted around the outside of the goblet.
+Delectable aromas reminiscent of lavender and new grown clover huddle about 
+the goblet's rim.
+~
+#29136
+cabinet maple~
+a maple cabinet~
+~
+hardwood~
+furniture CORT 0
+0 300 P 0 0
+0 0 0 P
+E
+cabinet maple~
+The brass ring fixtures mounted in the center of each cabinet door 
+look tarnished.  Tugging on each of these rings opens the cabinet 
+doors to reveal shelves of brown glass jars.
+~
+#29137
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29138
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29139
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29140
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29141
+jar brown glass~
+a brown glass jar~
+A brown glass jar.~
+glass~
+container 0 AO
+1 12 0 1 100
+0 10 1 P
+#29142
+ink Kraken's~
+some Kraken's ink~
+Some ink has been spilled on the ground.~
+oil~
+treasure 0 A
+0 0 0 0 0
+0 10 100 P
+E
+ink Kraken's~
+This viscous liquid clings to your fingers as you examine it.  
+Your fingers are stained black. You wonder why you examined 
+the ink.
+~
+#29143
+herb leaves mint~
+some mint leaves~
+Some mint leaves lie scattered on the ground.~
+food~
+food 0 AO
+1 1 0 0 0
+0 10 2 P
+#29144
+herb seeds anise~
+some anise seeds~
+Some anise seeds lie scattered on the ground.~
+food~
+food 0 AO
+1 1 0 0 0
+0 10 10 P
+#29145
+herb petals jasmine~
+some jasmine petals~
+Some jasmine petals lie scattered on the ground.~
+food~
+food 0 AO
+1 1 0 0 0
+0 10 20 P
+#29146
+herb sprig lavender~
+some sprigs of lavender~
+Some sprigs of lavender lie scattered on the ground.~
+food~
+food 0 AO
+1 1 0 0 0
+0 10 10 P
+E
+herb sprig lavender~
+Soft and delicate these pale bluish purple flowers tantalize your nose 
+with their sweet, piney smell.  Long forgotten memories of happy times 
+creep into your mind.
+~
+#29147
+table stone~
+a stone table~
+A stone table stands on the ground.~
+stone~
+furniture CO A
+2 800 BCEHKN 100 100
+0 10000 27500 P
+E
+table stone~
+Your reflection stares up at you from the smooth, polished surface 
+of the table as you examine it. Runes carved into the stone form a 
+border around the mirror-like tabletop.  The stone table is so large 
+that one of the tall, broad-shouldered race of minotaurs living upon 
+the isle of Mithas might lay down upon it, stretched out to his full 
+height, and still have room to spare.
+~
+#29148
+quill axe beak~
+an axe beak quill~
+An axe beak quill lies on the ground.~
+feathers~
+treasure 0 A
+0 0 0 0 0
+0 10 30 P
+E
+quill axe beak~
+The fine tip of this quill is stained black.  Flecks of gold from the 
+blackened nib glitter in the light. The axe beak quill measures one foot 
+in length.  Fluffy white barbs protrude from the end of the stem-like 
+rachis. These hair-like white barbs contrast with the stiff blue-black 
+barbs that line either side of the rachis' body.  
+~
+#29149
+vellum sheet~
+a sheet of vellum~
+A sheet of vellum lies on the ground.~
+vellum~
+treasure 0 A
+0 0 0 0 0
+0 10 18 P
+#29150
+mortar~
+a mortar~
+A mortar lies here.~
+marble~
+container 0 AO
+1 1 0 1 100
+0 10 6 P
+#29151
+pestle~
+a pestle~
+A pestle lies here.~
+marble~
+weapon 0 AN
+mace 1 6 pound 0
+1 10 25 P
+#29152
+holder phial~
+a phial holder~
+~
+hardwood~
+furniture CO 0
+0 50 OR 0 0
+0 0 0 P
+#29153
+phial ceramic~
+a ceramic phial~
+A ceramic phial.~
+porcelain~
+container 0 AO
+1 1 0 1 100
+0 10 1 P
+#29154
+phial ceramic~
+a ceramic phial~
+A ceramic phial.~
+porcelain~
+container 0 AO
+1 1 0 1 100
+0 10 1 P
+#29155
+phial ceramic~
+a ceramic phial~
+A ceramic phial.~
+porcelain~
+container 0 AO
+1 1 0 1 100
+0 10 1 P
+#29156
+phial ceramic~
+a ceramic phial~
+A ceramic phial.~
+porcelain~
+container 0 AO
+1 1 0 1 100
+0 10 1 P
+#29157
+phial ceramic~
+a ceramic phial~
+A ceramic phial.~
+porcelain~
+container 0 AO
+1 1 0 1 100
+0 10 1 P
+#29158
+horn powder minotaur~
+some powdered minotaur horn~
+A pile of bone colored power lies on the ground.~
+horn~
+treasure 0 AO
+0 0 0 0 0
+0 10 200 P
+#29159
+hair djinn~
+djinn hair~
+Clumps of steel-blue hair lie on the ground.~
+horn~
+treasure 0 AO
+0 0 0 0 0
+0 10 500 P
+E
+hair djinn~
+The steel-blue hair is very coarse, almost like wire.
+~
+#29160
+feathers griffin~
+some griffin feathers~
+Some ruddy feathers lie on the ground.~
+feathers~
+treasure 0 AO
+0 0 0 0 0
+0 10 200 P
+E
+feathers griffin~
+Dried blood stains the quills of these ruddy feathers.  The feathers 
+are too long to be tail feathers and too short to be flight feathers.
+~
+#29161
+tongue harpy~
+a dozen harpy tongues~
+A bunch of tongues lie on the ground.~
+meat~
+treasure 0 AO
+0 0 0 0 0
+0 10 350 P
+E
+tongues harpy~
+The texture of the tongues' surface reminds you of sandpaper.  
+Each blue-black tongue forks at the tip.
+~
+#29162
+sapphire black powder~
+some powdered black sapphire~
+A pile of black power lies on the ground.~
+corundum~
+treasure 0 AO
+0 0 0 0 0
+0 10 150 P
+#29163
+shelf wooden~
+a wooden shelf~
+~
+hardwood~
+furniture CORT 0
+0 200 N 0 0
+0 0 0 P
+#29164
+fountain hourglass~
+a fountain~
+A fountain is here.~
+marble~
+fountain 0 0
+100000 100000 'water' 0 0
+0 0 0 P
+#29165
+pond~
+the pond~
+A small, circular pond stretches out before you.~
+marble~
+fountain 0 0
+100000 100000 'slime mold juice' 0 0
+0 0 0 P
+E
+pond~
+Green moss mingles with the secretions of the Live Ones around the 
+edges of this pond.  Dark, still water rests within its borders.  
+The pond is lifeless save for the jet of blue flame that spurts
+from its center.
+~
+#29166
+barrel~
+an oak barrel~
+An oak barrel stands here.~
+hardwood~
+container 0 A
+50 12 0 10 100
+0 100 22 P
+#29167
+barrel~
+an oak barrel~
+An oak barrel stands here.~
+hardwood~
+container 0 A
+50 12 0 10 100
+0 100 22 P
+#29168
+barrel~
+an oak barrel~
+An oak barrel stands here.~
+hardwood~
+container 0 A
+50 12 0 10 100
+0 100 22 P
+#29169
+barrel~
+an oak barrel~
+An oak barrel stands here.~
+hardwood~
+container 0 A
+50 12 0 10 100
+0 100 22 P
+#29170
+barrel~
+an oak barrel~
+An oak barrel stands here.~
+hardwood~
+container 0 A
+50 12 0 10 100
+0 100 22 P
+#29171
+salt~
+some salt~
+A pile of salt is here.~
+food~
+food 0 A
+0 0 0 0 0
+0 50 3 P
+#29172
+flour wheat~
+some wheat flour~
+A pile of flour is here.~
+food~
+food 0 A
+1 4 0 0 0
+0 50 10 P
+#29173
+meal corn~
+some corn meal~
+A pile of corn meal is here.~
+food~
+food 0 A
+3 7 0 0 0
+0 50 10 P
+#29174
+salt coarse~
+some coarse salt~
+A pile of coarse salt is here.~
+food~
+food 0 A
+0 0 0 0 0
+0 50 2 P
+#29175
+fruit yochtal~
+a peck of yochtal fruit~
+A pile of yochtal fruit is here.~
+food~
+food 0 A
+35 8 0 0 0
+0 70 110 P
+E
+fruit yochtal~
+This greenish yellow fruit exudes a strange citrus smell.  
+Hair-like spines project outward from its otherwise smooth skin.  
+You notice a five pointed star in its middle not matter which way
+you cut it.  The taste reminds you of oranges and strangely enough roses.
+~
+#29176
+sack burlap~
+a burlap sack~
+A burlap sack lies on the ground.~
+hemp~
+container 0 A
+50 1 0 50 100
+0 10 12 P
+#29177
+sack burlap~
+a burlap sack~
+A burlap sack lies on the ground.~
+hemp~
+container 0 A
+50 1 0 50 100
+0 10 12 P
+#29178
+sack burlap~
+a burlap sack~
+A burlap sack lies on the ground.~
+hemp~
+container 0 A
+50 1 0 50 100
+0 10 12 P
+#29179
+sugar~
+some sugar~
+A pile of sugar is here.~
+food~
+food 0 A
+8 2 0 0 0
+0 50 10 P
+#29180
+potato~
+a bushel of potatoes~
+A pile of potatoes is here.~
+food~
+food 0 A
+45 50 0 0 0
+0 80 100 P
+E
+bushel potato~
+The brown skin of the potatoes is undamaged.  The potatoes feel 
+a little sandy as if they have yet to be washed.  You notice no 
+black blemishes on their surface.  There appear to be 40 potatoes
+here.
+~
+#29181
+bushel yams~
+a bushel of yams~
+A pile of yams is here.~
+food~
+food 0 A
+35 35 0 0 0
+0 70 90 P
+E
+bushel yams~
+The brownish orange skin of the yams is dirty.  All thirty yams 
+seem to be good enough to eat.
+~
+#29182
+tap wooden~
+a wooden tap~
+A wooden tap lies on the ground.~
+hardwood~
+treasure 0 AO
+0 0 0 0 0
+0 10 5 P
+#29183
+tap wooden~
+a wooden tap~
+A wooden tap lies on the ground.~
+hardwood~
+key P AO
+0 0 0 0 0
+0 10 5 P
+#29184
+tap wooden~
+a wooden tap~
+A wooden tap lies on the ground.~
+hardwood~
+treasure P AO
+0 0 0 0 0
+0 10 5 P
+# 29185
+skeleton key~
+a skeleton key~
+A skeleton key lies on the ground.~
+iron~
+key P AO
+0 0 0 0 0
+0 10 0 P
+#29186
+skeleton key~
+a skeleton key~
+A skeleton key lies on the ground.~
+iron~
+key P AO
+0 0 0 0 0
+0 10 0 P
+#29187
+wood wand cumulus~
+a cumulus wand~
+A twisted piece of wood lies on the ground.~
+ebony~
+wand G AO
+55 10 4 'lightning breath' 0
+58 10 1650 P
+E
+wood wand cumulus~
+The shape of this black stick looks like the bent finger of an old man.  
+The surface of this piece of wood is faceted but feels smooth to the touch.
+~
+#29188
+rack horns arioch~
+Arioch's horns~
+A rack of horns lies on the ground.~
+horn~
+armor GHQS AE
+-12 -12 -12 0 0
+63 500 3150 P
+A 
+1 2
+A 
+13 30
+E
+rack horns arioch~
+Light glistens upon the smooth purple-black surface of this set 
+of horns.  This rack of horns resembles that of a bull save for 
+their odd color.  A feeling of numbness creeps through your body 
+as you examine the horns.
+~
+#0
+
+#ROOMS
+#29100
+The Chamber of Seeing~
+A perfectly round pool of dark, still water dominates the center of 
+this small room.  A blue flame spurts from the center of the pond.  
+The blue flame rises to the ceiling.  Pale green slime carpets
+the stone floor.
+~
+0 DN 0
+D4
+The shadows obscure your vision.
+~
+trap door~
+1 -1 29101
+S
+#29101
+The Cellar~
+Wooden barrels line the walls. The air smells of onions with musty overtones.
+No dust covers the floor.  Cobwebs hang in the corners of the room.  A rat 
+scurries across your feet.  Open doorways lead north, east, and west.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29103
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29102
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29104
+D5
+~
+trap door~
+1 -1 29100
+S
+#29102
+The Cellar~
+Wooden barrels line the walls.  Tiny footprints in the dust lead to the 
+doorway in the room's west wall.  Cobwebs hang in the corners of the room.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29101
+S
+#29103
+The Cellar~
+A huge cedar wine cask dominates the northern wall.  The cask looks to be 
+ten feet in diameter. A red wax seal plugs the opening for the tap.  A five 
+petaled flower is embossed in the wax. A pyramid of barrels lies stacked 
+against the eastern and western walls.  Cobwebs hang in the corners of the 
+room.  The air is cool and musty.  A faint squeaking noise seems to come 
+from the room beyond the southern doorway.  A stairway leads up.
+~
+0 ADN 0
+D0
+wine cask
+~
+~
+4 29183 28015
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29101
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29105
+S
+#29104
+The Cellar~
+Coarse burlap sacks lie stacked against the walls.  Grains of wheat 
+and corn litter the floor. You catch a glimpse of several rats as 
+they scurry into burrows underneath the pilfered sacks.
+Cobwebs hang in the corners of the room.  A doorway leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29101
+S
+#29105
+A Stairway~
+Wide stone steps rise to meet your feet.  Cobwebs cling to the waist high 
+metal railings and walls.  A light layer of dust coats each step.  An 
+empty sconce adorns each wall.  A plain oak door leads to the east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29106
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29103
+S
+#29106
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor. Dark shapes dart among the shadows that surround you.  
+The hiss of whispers seems to encircle you.  Goosebumps rise upon your 
+forearms.  Your bones throb with pain. A faint musty odor fills the air.  
+Plain oak doors lead north, east, and west.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29107
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29108
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29109
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29105
+E
+dust floor~
+Faint footprints in the dust lead east and south.
+~
+S
+#29107
+Learning Room~
+Thick layers of dust coat the floor.  Cobwebs hang in the corners.  
+A mangled wooden table rests at an angle on a raised dais at the 
+front of the room.  With two shortside legs missing, the table
+looks like a bowing horse.  Dark shapes dart among the shadows 
+that surround you.  Your bones throb with pain.  A plain oak door 
+leads to the south.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29106   
+S
+#29108
+A Stairwell~
+Wide stone steps rise to meet your feet.  Cobwebs cling to the waist high
+metal railings and walls. A light layer of dust coats each winding stair. 
+An empty sconce adorns each wall.  A plain oak door leads to the west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29106
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29137
+E
+dust floor step~
+Faint footprints traverse the floor and steps, leaving their mark in 
+the dust.  The footprints lead up and west.
+~
+S
+#29109
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  
+An empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+The hiss of whispers seems to encircle you.  Your bones throb with pain.
+A faint musty odor fills the air.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29106
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29110
+E
+dust floor~
+Faint footprints in the dust lead north and south.
+~
+S
+#29110
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  
+An empty sconce adorns each wall. A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+Your bones throb with pain.  A faint musty odor fills the air.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29109
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29111
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29119
+E
+dust floor~
+Faint footprints in the dust lead north and west.
+~
+S
+#29111
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  
+An empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+The hiss of whispers seems to encircle you.  Your bones throb with pain.
+A faint musty odor fills the air.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29110
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29112
+S
+#29112
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of 
+attachment.  An empty sconce adorns each wall.  A light layer of dust 
+coats the grey flagstone floor.  Dark shapes dart among the shadows
+that surround you.  The hiss of whispers seems to encircle you.  Your 
+bones throb with pain. A faint musty odor fills the air.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29111
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29113
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29114
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29115
+S
+#29113
+A Stairwell~
+Wide stone steps rise to meet your feet.  Cobwebs cling to the waist high 
+metal railings and walls. A light layer of dust coats each winding stair.  
+An empty sconce adorns each wall.  A plain oak door leads to the west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29112
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29136
+S
+#29114
+Learning Room~
+Thick layers of dust coat the floor.  Cobwebs hang in the corners.  A large 
+wooden table rests on a raised dais at the front of the room.  Dark shapes 
+dart among the shadows that surround you. Your bones throb with pain.  
+A plain oak door leads to the north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29112   
+S
+#29115
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor. Dark shapes dart among the shadows that surround you.  
+The hiss of whispers seems to encircle you.  Your bones throb with pain.
+A faint musty odor fills the air.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29112
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29116
+S
+#29116
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  
+An empty sconce adorns each wall.  A light layer of dust coats the  grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+Your bones throb with pain.  A faint musty odor fills the air.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29117
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29115
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29124
+S
+#29117
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  
+An empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  The gurgle and splash of falling water catch your ear.  
+Your bones throb with pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29121
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29118
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29116
+S
+#29118
+Examination Room~
+A shallow pit rings the center of the room.  Dust dunes undulate like ocean 
+waves across the pit's surface.  A two inch high ridge rises from the floor 
+and encompasses the pit.  Dark shapes dart among the shadows that surround 
+you. Your bones throb with pain.  A faint musty odor fills the
+air.
+~ 
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29117
+S
+#29119
+Kitchen~
+A large, well-crafted oak table sits in the center of the room.  A light 
+layer of dust coats the grey flagstone floor.  A cutting board lies upon 
+the tabletop. Wooden barrels line the southern wall. Shelves jut out over 
+the barrels.  Pine green glass jars rest on the shelves.  An open doorway 
+leads north.  A plain oak door lies to the east. 
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29120
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29110
+E
+dust floor~
+Faint footprints in the dust lead east and north.
+~
+S
+#29120
+Dining Hall~
+The ceiling towers above you, lost in the darkness.  Empty sconces dot 
+the smooth black walls at regular intervals.  A light layer of dust coats 
+the grey flagstone floor.  The room feels like a great cavern. Damp, silent, 
+empty...the noisome darkness swallows you whole.  Your bones throb with 
+pain.  An open doorway leads south.  A plain oak door lies to the west.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29119
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29122
+E
+dust floor~
+Faint footprints in the dust lead south and west.
+~
+S
+#29121
+Hallway~
+A half moon shaped marble fountain thrusts out from the smooth, black 
+surface of the eastern wall. Water drips like liquid grains of sand from a 
+free floating, crystal hourglass that hovers over the middle of the fountain.  
+A light mist covers your clothes.  A chill passes through your body.
+You shiver.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29122
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29117
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29125
+E
+dust floor~
+Faint footprints in the dust lead north and west.
+~
+S
+#29122
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment. An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  The gurgle and splash of falling water catch your ear.  
+Your bones throb with pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29123
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29120
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29121
+E
+dust floor~
+Faint footprints in the dust lead south and east.
+~
+S
+#29123
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment. An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+Your bones throb with pain.  A faint musty odor fills the air.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29122
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29126
+S
+#29124
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment. An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+Your bones throb with pain.  A faint musty odor fills the air.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29116
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29128
+S
+#29125
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment. An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  The gurgle and splash of falling water catch your ear.  
+Your bones throb with pain.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29121
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29130
+E
+dust floor~
+Faint footprints in the dust lead east and west.
+~
+S
+#29126
+
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment. An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+Your bones throb with pain.  A faint musty odor fills the air.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29123
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29132
+S
+#29127
+Apprentice Cell~
+Broken bunks lie on top of each other along the margin of the room.  The 
+ceiling towers above you, lost in the shadows.  A light layer of dust coats 
+the grey flagstone floor.  Dark shapes dart among the shadows that surround 
+you.  The hiss of whispers seems to encircle you.  Your bones throb
+with pain.  A faint musty odor fills the air.  A plain oak door leads north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29128
+S
+#29128
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment. An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+The hiss of whispers seems to encircle you.  Your bones throb with pain. 
+A faint musty odor fills the air.  A plain oak door leads west and another 
+leads south.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29124
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29127
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29134
+S
+#29129
+Gate Hall~
+Smooth, opaque stone forms the walls.  You notice no mortar lines.  The 
+walls seem carved from a single block of black stone.  An empty sconce 
+adorns each wall.  The ceiling towers above you, cloaked in shadow.  A 
+light layer of dust coats the grey flagstone floor.  Your bones throb with
+pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29130
+S
+#29130
+Gate Hall~
+Smooth, opaque stone forms the walls.  You notice no mortar lines.  The 
+walls seem carved from a single block of black stone.  A cylindrical, 
+black iron chandelier drops down from the ceiling. Cobwebs cover its 
+frame.  The ivory candle within lies dormant.  The chandelier's black link 
+chain rises up into the darkness and passes out of sight.  A slight breeze 
+rocks the chandelier.  The creak of its chain breaks the silence as the 
+chandelier begins to sway.  A light layer of dust coats the grey flagstone 
+floor.  Your bones throb with pain.  A plain oak door lies to the west.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29131
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29125
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29129
+D3
+The shadows obscure your vision.
+~
+door~
+1 28014 28033
+E
+dust floor~
+Faint footprints in the dust lead east.
+~
+S
+#29131
+Gate Hall~
+Smooth, opaque stone forms the walls.  You notice no mortar lines.  The 
+walls seem carved from a single block of black stone.  An empty sconce 
+adorns each wall.  The ceiling towers above you, cloaked in shadow.  A 
+light layer of dust coats the grey flagstone floor.  Your bones throb with
+pain.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29130
+S
+#29132
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+The hiss of whispers seems to encircle you.  Your bones throb with pain.
+A faint musty odor fills the air.  A plain oak door leads west and another 
+leads north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29133
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29126
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29135
+S
+#29133
+Apprentice Cell~
+The ceiling towers above you, lost in the shadows.  Thick layers of dust coat 
+the grey flagstone floor.  A broken lantern lies in the corner to your left.  
+Dark shapes dart among the shadows that surround you.  The hiss of whispers 
+seems to encircle you.  Your bones throb with pain. A faint musty odor fills 
+the air.  A plain oak door leads south.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29132
+S
+#29134
+Apprentice Cell~
+The ceiling towers above you, lost in the shadows.  Thick layers of dust 
+coat the grey flagstone floor.  A pile of rubble lies in the corner to your 
+right.  Dark shapes dart among the shadows that surround you.  Your bones 
+throb with pain.  A faint musty odor fills the air.  A plain oak door
+leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29128
+S
+#29135
+Apprentice Cell~
+The ceiling towers above you, lost in the shadows.  Thick layers of dust 
+coat the grey flagstone floor.  A tattered book lies near the door.  Dark 
+shapes dart among the shadows that surround you. Your bones throb with pain.  
+A faint musty odor fills the air.  A plain oak door leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29132
+S
+#29136
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls. A light layer of dust coats each winding stair. An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29138
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29113
+S
+#29137
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls.  A light layer of dust coats each winding stair. An 
+empty sconce adorns each wall.  The rhythmic thump of your heart pounds in 
+your ears.
+~
+0 ACDN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29139
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29108
+E
+dust floor step~
+Faint footprints traverse each step, leaving their mark in the dust.  The 
+footprints lead up and down.
+~
+S
+#29138
+A Stairwell~
+Wide stone steps spiral down.  Cobwebs hang in the corners of the room.  A 
+light layer of dust coats each winding stair. An empty sconce adorns each 
+wall.  Your bones throb with pain. A plain oak door leads west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29141
+D5
+The shadows obscure your vision.
+~
+~
+
+0 -1 29136
+S
+#29139
+A Stairwell~
+Wide stone steps spiral down.  Cobwebs hang in the corners of the room.  A 
+light layer of dust coats each winding stair. An empty sconce adorns each 
+wall.  Your bones throb with pain. A cold sweat breaks out on your forehead.
+A plain oak door leads west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29145
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29137
+E
+dust floor step~
+Faint footprints traverse the landing, leaving their mark in the dust.  The 
+footprints lead west and down.
+~
+S
+#29140
+A Stairwell~
+Wide stone steps rise to meet your feet.  Cobwebs cling to the waist high 
+metal railings and walls. A light layer of dust coats each winding stair.  
+An empty sconce adorns each wall.  A plain oak door leads to the north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+2 29116 29141
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29171
+E
+dust floor step~
+Faint footprints traverse the floor and steps, leaving their mark in the 
+dust.  The footprints lead north and up.
+~
+S
+#29141
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns the northern wall.  A light layer of dust coats the grey 
+flagstone floor.  A large bronze statue stands in the middle of the room.  
+Dark shapes dart among the shadows that surround you.  Your bones throb 
+with pain.  A faint musty odor fills the air.  Plain oak doors lead east 
+and south.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29138
+D2
+The shadows obscure your vision.
+~
+door~
+2 29116 29140
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29147
+E
+dust floor~
+Faint footprints in the dust lead in all directions.
+~
+S
+#29142
+Raistlin's Study~
+A fire blazes in a huge, gaping fireplace across from the door.  A coldness 
+pervades the air despite the fire.  The coldness seems to emanate from the 
+hundreds of night-blue books that line the walls on the deep shelves of 
+bookcases.  Large, plush chairs of the best fabric stand upon hand-woven 
+carpets.  Carved wooden tables draped with objects rare and ghastly dot the
+immense room.  A gigantic desk of black wood stands near the northern wall.  
+A high-backed chair sits behind the desk.  Heavy, black velvet curtains 
+hang down behind the chair.  A plain oak door leads west.
+~
+0 DN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29148
+E
+dust floor~
+Faint footprints in the dust lead west.
+~
+S
+#29143
+The Conclave~
+This vast chamber seems to be carved of obsidian.  The ceiling hangs above 
+you, obscured in shadow.  A half-circle of stone chairs stands in the middle 
+of the chamber.  Dust lies heavy upon the grey flagstone floor.  Dark shapes 
+dart among the shadows that surround you.  The sound of your breathing 
+echoes off the walls.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29149
+S
+#29144
+Dalamar's Study~
+A large fireplace set in the wall stands across from the door.  A small fire 
+burns in the fireplace. Two ornate chairs sit in front of the fireplace 
+with their backs to you.  A small wooden table sits between the chairs.  A 
+bowl of fruit, a triangular glass decanter, and a silver goblet rest on the
+table.  Hand-woven carpets decorated with pastoral and woodland scenes 
+blanket the grey stone floor.  A bed rests in the corner.  A small wooden 
+shelf sits on the northern wall.  A plain oak door leads west.
+~
+0 DN 0
+D3
+The shadows obscure your vision.
+~
+door~
+2 29185 29150
+E
+dust floor~
+Faint footprints in the dust lead west.
+~
+S
+#29145
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns the southern wall.  A light layer of dust coats the grey 
+flagstone floor.  A large bronze statue stands in the middle of the room.  
+Dark shapes dart among the shadows that surround you.  Your bones throb 
+with pain.  A faint musty odor fills the air.  Plain oak doors lead north 
+and east.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+2 29116 29146
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29139
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29151
+E
+dust floor~
+Faint footprints in the dust lead in all directions.
+~
+S
+#29146
+A Stairwell~
+Wide stone steps rise to meet your feet.  Cobwebs cling to the waist high 
+metal railings and walls. A light layer of dust coats each winding stair.  
+An empty sconce adorns each wall.  A plain oak door leads to the south.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+2 29116 29145
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29172
+S
+#29147
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns the western wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+A light breeze brushes your cheek.  Your bones throb with pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29148
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29141
+E
+dust floor~
+Faint footprints in the dust lead north and east.
+~
+S
+#29148
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns the northern wall.  A light layer of dust coats the 
+grey flagstone floor.  Dark shapes dart among he shadows that surround you.  
+A light breeze brushes your cheek.  Your bones throb with pain. A plain 
+oak door leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29142
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29147
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29153
+E
+dust floor~
+Faint footprints in the dust lead south and west.
+~
+S
+#29149
+Audience Antechamber~
+Stone benches line the smooth, opaque walls.  Dust lies heavy upon the grey 
+flagstone floor. Empty sconces dot the wall of this immense chamber at 
+regular intervals.  Dark shapes dart among the shadows that surround you.  
+Plain oak doors lead east and west.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29143
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29154
+S
+#29150
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns the southern wall.  A light layer of dust coats the
+grey flagstone floor.  Dark shapes dart among the shadows that surround you.  
+A light breeze brushes your cheek.  Your bones throb with pain. A plain 
+oak door leads east.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29151
+D1
+The shadows obscure your vision.
+~
+door~
+2 29185 29144
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29155
+E
+dust floor~
+Faint footprints in the dust lead in all directions.
+~
+S
+#29151
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns the western wall.  A light layer of dust coats the 
+grey flagstone floor.  Dark shapes dart among the shadows that surround 
+you.  A light breeze brushes your cheek.  Your bones throb with pain.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29145
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29150
+E
+dust floor~
+Faint footprints in the dust lead south and east.
+~
+S
+#29152
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the 
+mantle.  Dust lies heavy upon the grey flagstone floor.  Empty bookshelves 
+line the walls.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29153
+S
+#29153
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  A 
+light layer of dust coats the grey flagstone floor.  Dark shapes dart 
+among the shadows that surround you.  A light breeze brushes your cheek.  
+Your bones throb with pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29154
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29148
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29152
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29158
+E
+dust floor~
+Faint footprints in the dust lead north and east.
+~
+S
+#29154
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  A 
+light layer of dust coats the grey flagstone floor.  Dark shapes dart 
+among the shadows that surround you.  A light breeze brushes your cheek.  
+Your bones throb with pain.  Plain oak doors lead east and west.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29155
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29149
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29153
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29159
+E
+dust floor~
+Faint footprints in the dust lead north and south.
+~
+S
+#29155
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  A 
+light layer of dust coats the grey flagstone floor.  Dark shapes dart 
+among the shadows that surround you.  A light breeze brushes your cheek.  
+Your bones throb with pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29156
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29150
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29154
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29160
+E
+dust floor~
+Faint footprints in the dust lead south and east.
+~
+S
+#29156
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line 
+the walls.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29155
+S
+#29157
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  A large bronze statue stands in the middle of the room.  
+Dark shapes dart among the shadows that surround you.  Your bones throb
+with pain.  A faint musty odor fills the air.  A plain oak door leads west.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29158
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29163
+S
+#29158
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+A light breeze brushes your cheek.  Your bones throb with pain.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29153
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29157
+S
+#29159
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the 
+mantle.  Dust lies heavy upon the grey flagstone floor.  Empty bookshelves 
+line the walls.  A plain oak door leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29154
+S
+#29160
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+A light breeze brushes your cheek.  Your bones throb with pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29161
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29155
+S
+#29161
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  A large bronze statue stands in the middle of the room.  
+Dark shapes dart among the shadows that surround you.  Your bones throb
+with pain.  A faint musty odor fills the air.  A plain oak door leads west.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29160
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29167
+S
+#29162
+Bartizan~
+Merlons and embrasures alternate one after the other as they ring the top of 
+the bartizan's low, black wall.  Sepia colored moss grows thick on the 
+rough, grey flagstone floor.  The rustle of tree branches creaks in the 
+darkness that surrounds you.  Your bones throb with pain.  
+~
+0 AN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29163
+S
+#29163
+Bartizan~
+Darkness surrounds you.  Puffs of white mist cloud the calm air with each 
+frigid breath you exhale. A chill runs down your spine.  You shiver.  
+A faint rustling sound seems to come from all directions.
+Your bones throb with pain.  
+~
+0 AN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29164
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29162
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29169
+S
+#29164
+Wall-Walk~
+A waist-high, black stone wall runs along the western border of this 
+walkway.  Tan moss dots the top of the wall's smooth, even surface.  
+The rustle of tree branches creaks in the darkness that surrounds you.  
+Your bones throb with pain.
+~
+0 AN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29165
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29163
+S
+#29165
+Wall-Walk~
+A waist-high, black stone wall runs along the western border of this walkway.  
+Tan moss dots the top of the wall's smooth, even surface.  The rustle of 
+tree branches creaks in the darkness that surrounds you.  Your bones throb 
+with pain.
+~
+0 AN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29166
+D1
+The shadows obscure your vision.
+~
+~
+1 -1 29159
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29164
+D5
+The shadows obscure your vision.
+~
+trap door~
+1 -1 29130
+S
+#29166
+Wall-Walk~
+A waist-high, black stone wall runs along the western border of this walkway.  
+Tan moss dots the top of the wall's smooth, even surface.  The rustle of 
+tree branches creaks in the darkness that surrounds you.  Your bones throb 
+with pain.
+~
+0 AN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29167
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29165
+S
+#29167
+Bartizan~
+Darkness surrounds you.  Puffs of white mist cloud the calm air with each 
+frigid breath you exhale.  A chill runs down your spine.  You shiver.  
+A faint rustling sound seems to come from all directions.  Your bones 
+throb with pain.  
+~
+0 AN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29168
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29166
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29170
+S
+#29168
+Bartizan~
+Merlons and embrasures alternate one after the other as they ring the top of 
+the bartizan's low, black wall.  Sepia colored moss grows thick on the 
+rough, grey flagstone floor.  The rustle of tree branches creaks in the 
+darkness that surrounds you.  Your bones throb with pain.  
+~
+0 AN 0
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29167
+S
+#29169
+Bartizan~
+Merlons and embrasures alternate one after the other as they ring the top of 
+the bartizan's low, black wall.  Sepia colored moss grows thick on the 
+rough, grey flagstone floor.  The rustle of tree branches creaks in the 
+darkness that surrounds you.  Your bones throb with pain.  
+~
+0 AN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29163
+S
+#29170
+Bartizan~
+Merlons and embrasures alternate one after the other as they ring the top of 
+the bartizan's low, black wall.  Sepia colored moss grows thick on the 
+rough, grey flagstone floor.  The rustle of tree branches creaks in the 
+darkness that surrounds you.  Your bones throb with pain.  
+~
+0 AN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29167
+S
+#29171
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls. A light layer of dust coats each winding stair.  
+An empty sconce adorns each wall.  The rhythmic thump of your heart 
+pounds in your ears.
+~
+0 ACDN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29173
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29140
+E
+dust floor step~
+Faint footprints traverse each step, leaving their mark in the dust.  
+The footprints lead up and down.
+~
+S
+#29172
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls. A light layer of dust coats each winding stair. An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29174
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29146
+S
+#29173
+A Stairwell~
+Wide stone steps spiral down.  Cobwebs hang in the corners of the room.  A 
+light layer of dust coats each winding stair. An empty sconce adorns each 
+wall.  Your bones throb with pain. A cold sweat breaks out on your 
+forehead.  A plain oak door leads west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29176
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29171
+E
+dust floor step~
+Faint footprints traverse the landing, leaving their mark in the dust.  
+The footprints lead west and down.
+~
+S
+#29174
+Stairwell~
+Wide stone steps spiral down.  Cobwebs hang in the corners of the room.  A 
+light layer of dust coats each winding stair. An empty sconce adorns each 
+wall.  Your bones throb with pain.  A plain oak door leads west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29180
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29172
+S
+#29175
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+northern and western walls.  A dirty cot stands along the bare eastern wall.  
+A plain oak door leads north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29176
+S
+#29176
+Minaret Entrance~
+A large greystone staircase spirals down from the ceiling to the center of 
+the room.  The smooth, opaque walls continue unbroken by any lines of 
+attachment.  An empty sconce adorns each wall.  A light layer of dust 
+coats the grey flagstone floor.  Dark shapes dart among the shadows that 
+surround you.  Your bones throb with pain.  Plain oak doors lead south, 
+east, and west.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29177
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29173
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29175
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29182
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29189
+E
+dust floor~
+Faint footprints in the dust lead north and east.
+~
+S
+#29177
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns each wall.  A light layer of dust coats the  grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+Your bones throb with pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29178
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29176
+S
+#29178
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns the eastern wall.  A light layer of dust coats the 
+grey flagstone floor.  Dark shapes dart among the shadows that surround you.  
+Your bones throb with pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29179
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29177
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29183
+S
+#29179
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+Your bones throb with pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+~
+0 -1 29180
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29178
+S
+#29180
+Minaret Entrance~
+A large greystone staircase spirals down from the ceiling to the center of 
+the room.  The smooth, opaque walls continue unbroken by any lines of 
+attachment.  An empty sconce adorns each wall. A light layer of dust 
+coats the grey flagstone floor.  Dark shapes dart among the shadows that 
+surround you.  Your bones throb with pain.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29181
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29174
+D2
+The shadows obscure your vision.
+~
+~
+0 -1 29179
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29184
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29190
+S
+#29181
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the 
+mantle.  Dust lies heavy upon the grey flagstone floor.  Empty bookshelves 
+line the walls.  A plain oak door leads south.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29180
+S
+#29182
+Clan Hall~
+A circle of black tiles encompasses a pedestal that stands in the center of 
+the room.  The ceiling hangs above you, obscured in shadow.  Empty sconces 
+occur at regular intervals along the black walls of this large room.  
+Cobwebs dangle from the sconces.  Your bones throb with pain. A plain 
+oak door leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29176
+S
+#29183
+Hallway~
+The smooth, opaque walls continue unbroken by any lines of attachment.  An 
+empty sconce adorns each wall.  A light layer of dust coats the grey 
+flagstone floor.  Dark shapes dart among the shadows that surround you.  
+Your bones throb with pain.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29178
+D3
+The shadows obscure your vision.
+~
+~
+0 -1 29186
+S
+#29184
+Clan Hall~
+A circle of white tiles encompasses a pedestal that stands in the center of 
+the room.  The ceiling hangs above you, obscured in shadow.  Empty sconces 
+occur at regular intervals along the black walls of this large room. Cobwebs 
+dangle from the sconces.  Your bones throb with pain.  A plain oak door 
+leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29180
+S
+#29185
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the 
+mantle.  A small marble table stands before the fireplace.  Dust lies 
+heavy upon the grey flagstone floor.  Empty bookshelves line the walls.  
+A plain oak door leads north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29186
+S
+#29186
+Minaret Entrance~
+A large greystone staircase spirals down from the ceiling to the center of 
+the room.  The smooth, opaque walls continue unbroken by any lines of 
+attachment.  An empty sconce adorns each wall. A light layer of dust 
+coats the grey flagstone floor.  Dark shapes dart among the shadows that 
+surround you.  Your bones throb with pain.  Plain oak doors lead north, 
+south, and west.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29187
+D1
+The shadows obscure your vision.
+~
+~
+0 -1 29183
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29185
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29188
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29191
+S
+#29187
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads south.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29186
+S
+#29188
+Clan Hall~
+A circle of red tiles encompasses a pedestal that stands in the center of 
+the room.  The ceiling hangs above you, obscured in shadow.  Empty sconces 
+occur at regular intervals along the black walls of this large room.  
+Cobwebs dangle from the sconces.  Your bones throb with pain.  A plain 
+oak door leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29186
+S
+#29189
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls.  A light layer of dust coats each winding stair. An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29192
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29176
+S
+#29190
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls.  A light layer of dust coats each winding stair. 
+An empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29193
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29180
+S
+#29191
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls. A light layer of dust coats each winding stair. 
+An empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29194
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29186
+S
+#29192
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls.  A light layer of dust coats each winding stair. An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29195
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29189
+S
+#29193
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls.  A light layer of dust coats each winding stair.  An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29196
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29190
+S
+#29194
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls.  A light layer of dust coats each winding stair.  An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29197
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29191
+S
+#29195
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls. A light layer of dust coats each winding stair.  An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29198
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29192
+S
+#29196
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls.  A light layer of dust coats each winding stair.  An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29203
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29193
+S
+#29197
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls. A light layer of dust coats each winding stair.  An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29208
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29194
+S
+#29198
+A Landing~
+Smooth, opaque stone forms the walls.  Wide stone steps spiral up and down 
+the staircases that lie in the center of the room.  An empty sconce 
+adorns each wall.  Dark shapes dart among the shadows that surround you.  
+Your bones throb with pain.  Plain oak doors lead in all directions.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29201
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29200
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29199
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29202
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29213
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29195
+S
+#29199
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line 
+the walls.  A plain oak door leads north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29198
+S
+#29200
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29198
+S
+#29201
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads south.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29198
+S
+#29202
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29198
+S
+#29203
+A Landing~
+Smooth, opaque stone forms the walls.  Wide stone steps spiral up and down 
+the staircases that lie in the center of the room.  An empty sconce adorns 
+each wall.  Dark shapes dart among the shadows that surround you.  Your 
+bones throb with pain.  Plain oak doors lead in all directions.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29206
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29205
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29204
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29207
+D4
+The shadows obscure your vision.
+~
+trap door~
+1 -1 29214
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29196
+S
+#29204
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29203
+S
+#29205
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29203
+S
+#29206
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads south.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29203
+S
+#29207
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29203
+S
+#29208
+A Landing~
+Smooth, opaque stone forms the walls.  Wide stone steps spiral up and down 
+the staircases that lie in the center of the room.  An empty sconce adorns 
+each wall.  Dark shapes dart among the shadows that surround you.  Your 
+bones throb with pain.  Plain oak doors lead in all directions.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29211
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29210
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29209
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29212
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29215
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29197
+S
+#29209
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29208
+S
+#29210
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29208
+S
+#29211
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads south.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29208
+S
+#29212
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29208
+S
+#29213
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls. A light layer of dust coats each winding stair. An
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29216
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29198
+S
+#29214
+Minaret Attic~
+Smooth, opaque stone forms the walls.  Light streams into the room through 
+the lantern in the roof. Wide stone steps spiral down.  Cobwebs hang in the 
+corners of the room.  A light layer of dust coats each winding stair. An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 DN 0
+D4
+Daylight creeps through the openings along each side of a square cap.~
+lantern~
+1 -1 29221
+D5
+The shadows obscure your vision.
+~
+trap door~
+1 -1 29203
+E
+lantern~
+A square shaped opening crowned by a raised iron cap opens on to the roof.  
+The cap looks like a hollowed out pyramid.  Four iron spikes support the cap.
+~
+S
+#29215
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls. A light layer of dust coats each winding stair.  An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29222
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29208
+S
+#29216
+A Landing~
+Smooth, opaque stone forms the walls.  Wide stone steps spiral up and down 
+the staircases that lie in the center of the room.  An empty sconce adorns 
+each wall.  Dark shapes dart among the shadows that surround you.  Your 
+bones throb with pain.  Plain oak doors lead in all directions.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29219
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29218
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29217
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29220
+D4
+The shadows obscure your vision.
+~
+trap door~
+1 -1 29227
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29213
+S
+#29217
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29216
+S
+#29218
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29216
+S
+#29219
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle. 
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads south.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29216
+S
+#29220
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads east.
+~
+0 ADN 0
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29216
+S
+#29221
+Minaret Pinnacle~
+Blood red ceramic tiles overlap one another underneath your feet to form a 
+cone.  The pitch of the roof is steep.  The tiles are smooth.  The wind 
+buffets your body.  Keeping your balance is a constant struggle.  The Old 
+City section of Palanthas stretches out before you in every direction.
+~
+0 N 0
+D5
+An empty room.~
+lantern~
+1 -1 29214
+S
+#29222
+A Landing~
+Smooth, opaque stone forms the walls.  Wide stone steps spiral up and down 
+the staircases that lie in the center of the room.  An empty sconce adorns 
+each wall.  Dark shapes dart among the shadows that surround you.  Your 
+bones throb with pain.  Plain oak doors lead in all directions.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29225
+D1
+The shadows obscure your vision.
+~
+door~
+1 -1 29224
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29223
+D3
+The shadows obscure your vision.
+~
+door~
+2 29186 29226
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29228
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29208
+S
+#29223
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads north.
+~
+0 ADN 0
+D0
+The shadows obscure your vision.
+~
+door~
+1 -1 29222
+S
+#29224
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor.  Empty bookshelves line the 
+walls.  A plain oak door leads west.
+~
+0 ADN 0
+D3
+The shadows obscure your vision.
+~
+door~
+1 -1 29222
+S
+#29225
+Study~
+A large fireplace set in the wall stands across from the door.  Silver-gray 
+ashes cover the grate in the fireplace.  Cobwebs droop down from the mantle.  
+Dust lies heavy upon the grey flagstone floor. Empty bookshelves line the 
+walls.  A plain oak door leads south.
+~
+0 ADN 0
+D2
+The shadows obscure your vision.
+~
+door~
+1 -1 29222
+S
+#29226
+Laboratory~
+A large stone table stands in the center of the room.  Rows of ceramic phials 
+stand in a phial holder on top of the stone table.  A maple cabinet stands 
+against the northern wall.  A circle of black powder rings a raised platform 
+that bisects the southern wall.  Four silver urns stand at the cardinal 
+points along the circle.  Thick white tendrils of smoke rise up out of the 
+urns.  A plain oak door leads east.
+~
+0 DN 0
+D1
+The shadows obscure your vision.
+
+~
+door~
+2 29186 29222
+E
+smoke~
+The smoke smells woody yet very sweet.  The smell reminds you of myrrh.
+~
+S
+#29227
+Minaret Attic~
+Smooth, opaque stone forms the walls.  Light streams into the room through 
+the lantern in the roof. Wide stone steps spiral down.  Cobwebs hang in the 
+corners of the room.  A light layer of dust coats each winding stair. An 
+empty sconce adorns each wall.  Your bones throb with pain.
+~
+0 DN 0
+D4
+The shadows obscure your vision.
+~
+lantern~
+1 -1 29229
+D5
+The shadows obscure your vision.
+~
+trap door~
+1 -1 29216
+E
+lantern~
+A square shaped opening crowned by a raised iron cap opens on to the roof.  
+The cap looks like a hollowed out pyramid.  Four iron spikes support the cap.
+~
+S
+#29228
+A Stairwell~
+Wide stone steps spiral up and down.  Cobwebs cling to the waist high metal 
+railings and walls. A light layer of dust coats each winding stair. An empty 
+sconce adorns each wall.  Your bones throb with pain.
+~
+0 ADN 0
+D4
+The shadows obscure your vision.
+~
+~
+0 -1 29239
+D5
+The shadows obscure your vision.
+~
+~
+0 -1 29228
+S
+#29229
+Minaret Pinnacle~
+Blood red ceramic tiles overlap one another underneath your feet to form a 
+cone.  The pitch of the roof is steep.  The tiles are smooth.  The wind 
+buffets your body.  Keeping your balance is a constant struggle.  The Old 
+City section of Palanthas stretches out before you in every direction.
+~
+0 N 0
+D5
+An empty room.~
+lantern~
+1 1 29227
+S
+#29230
+A Landing~
+Smooth, opaque stone forms the walls.  Wide stone steps spiral up and down 
+the staircases that lie in the center of the room.  An empty sconce adorns 
+each wall.  The faint smell of smoke fills the room.  Your bones throb with 
+pain.  A plain oak door leads west.  You realize that you can recall from 
+this room.
+~
+0 AD 0
+D3
+The shadows obscure your vision save for a glimmer of light seeping through 
+the keyhole and the crack under the door.
+~
+door~
+2 29116 29231
+E
+smoke~
+The smoke smells like burned leaves.
+~
+S
+#29231
+Death Walk~
+Merlons and crenels alternate one after the other atop the balcony wall.  
+The wind brushes against your face.  Puddles of rainwater stand on the grey 
+flagstone walk.  The smooth, seamless black walls of the minaret stretch 
+twenty feet further to the minaret's pinnacle.
+~ 
+0 N 0
+D0
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29238
+D1
+A small, barred wooden door stands in the archway carved into the black 
+stone of the minaret.~
+door~
+2 29116 29230
+D2
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29232
+E
+west~
+The western portion of Palanthus' Old City section stretches out below you.  
+The inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+S
+#29232
+Death Walk~
+Merlons and crenels alternate one after the other atop the balcony wall.  The 
+wind brushes against your body.  Puddles of rainwater stand on the grey 
+flagstone walk.  The smooth, seamless black walls of the minaret stretch 
+twenty feet further to the minaret's pinnacle.
+~ 
+0 N 0
+D0
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29231
+D1
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29233
+E
+west~
+The western portion of Palanthus' Old City section stretches out below you.  
+The inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+E
+south~
+The southern portion of Palanthus' Old City section stretches out below you.  
+The inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+S
+#29233
+Death Walk~
+Merlons and crenels alternate one after the other atop the balcony wall.  
+The wind brushes against your face.  Puddles of rainwater stand on the 
+grey flagstone walk.  The smooth, seamless black walls of the minaret 
+stretch twenty feet further to the minaret's pinnacle.
+~ 
+0 N 0
+D1
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29234
+D3
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29232
+E
+south~
+The southern portion of Palanthus' Old City section stretches out below you.  
+The inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+S
+#29234
+Death Walk~
+Merlons and crenels alternate one after the other atop the balcony wall.  
+The wind brushes against your face.  Puddles of rainwater stand on the grey 
+flagstone walk.  The smooth, seamless black walls of the minaret stretch 
+twenty feet further to the minaret's pinnacle.
+~ 
+0 N 0
+D0
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29235
+D3
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29233
+E
+east~
+The eastern portion of Palanthus' Old City section stretches out below you.  
+Another minaret rises up from the keep of the tower to the southeast.  
+The inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+E
+south~
+The southern portion of Palanthus' Old City section stretches out below you.  
+Another minaret rises up from the keep of the tower to the southeast.  
+The inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+S
+#29235
+Death Walk~
+Merlons and crenels alternate one after the other atop the balcony wall.  
+The wind brushes against your face.  Puddles of rainwater stand on the grey 
+flagstone walk.  The smooth, seamless black walls of the minaret stretch 
+twenty feet further to the minaret's pinnacle.
+~ 
+0 N 0
+D0
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29236
+D2
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29234
+E
+east~
+The eastern portion of Palanthus' Old City section stretches out below you.  
+The inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+S
+
+#29236
+Death Walk~
+Merlons and crenels alternate one after the other atop the balcony wall.  
+The wind brushes against your face.  Puddles of rainwater stand on the grey 
+flagstone walk.  The smooth, seamless black walls of the minaret stretch 
+twenty feet further to the minaret's pinnacle.
+~ 
+0 N 0
+D2
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29235
+D3
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29237
+E
+east~
+The eastern portion of Palanthus' Old City section stretches out below you.  
+Another minaret rises up from the keep of the tower to the northeast.  The 
+inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+E
+north~
+The northern portion of Palanthus' Old City section stretches out below you.  
+Another minaret rises up from the keep of the tower to the northeast.  The 
+inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+S
+#29237
+Death Walk~
+Merlons and crenels alternate one after the other atop the balcony wall.  
+The wind brushes against your face.  Puddles of rainwater stand on the grey 
+flagstone walk.  The smooth, seamless black walls of the minaret stretch 
+twenty feet further to the minaret's pinnacle.
+~ 
+0 N 0
+D1
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29236
+D3
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29238
+E
+north~
+The northern portion of Palanthus' Old City section stretches out below you.  
+The inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+S
+#29238
+Death Walk~
+Merlons and crenels alternate one after the other atop the balcony wall. 
+The wind brushes against your face.  Puddles of rainwater stand on the grey 
+flagstone walk.  The smooth, seamless black walls of the minaret stretch 
+twenty feet further to the minaret's pinnacle.
+~ 
+0 N 0
+D1
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29237
+D2
+The grey flagstone walk of the balcony continues in this direction.~
+~
+0 -1 29231
+E
+west~
+The western portion of Palanthus' Old City section stretches out below you.  
+The inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+E
+north~
+The northern portion of Palanthus' Old City section stretches out below you.  
+The inky darkness of the Shoikan Grove envelops the base of the tower.
+~
+S
+#29239
+Minaret Attic~
+Silvery-white smoke billows out of holes near the top of the smooth, opaque 
+walls.  Dim light filters through the thick smoke.  The light is strongest 
+near a large hole in the center of the roof. The smoke seems to be drawn 
+out this hole.  Your eyes water.  Coughing fits compel you to leave the 
+room.   Wide stone steps spiral down.
+~
+0 DN 0
+D4
+Smoke clouds your vision.
+~
+lantern~
+1 -1 29240
+D5
+Smoke clouds your vision.
+~
+trap door~
+1 -1 29230
+E
+lantern~
+A square shaped opening crowned by a raised iron cap opens on to the roof.  
+The cap looks like a hollowed out pyramid.  Four iron spikes support the cap.
+~
+S
+#29240
+Minaret Pinnacle~
+Blood red ceramic tiles overlap one another underneath your feet to form a 
+cone.  The pitch of the roof is steep.  The tiles are smooth.  The wind 
+buffets your body. Keeping your balance is a constant struggle.  The Old 
+City section of Palanthas stretches out before you in every direction.
+~
+0 N 0
+D5
+Smoke clouds your vision.
+~
+lantern~
+1 -1 29239
+S
+
+#0
+#RESETS
+M 0 29101  4 29100 4                    *A Live One
+M 0 29101  4 29100 4                    *A Live One
+M 0 29101  4 29100 4                    *A Live One
+M 0 29101  4 29100 4                    *A Live One
+O 0 29165 -1 29100                      *The pond
+M 0 29100  3 29101 28           *A pair of disembodied eyes
+O 0 29166 -1 29101                      *An oak barrel(#1)
+P 0 29171 -1 29166 1                    *A pile of salt
+O 0 29167 -1 29101                      *An oak barrel(#2)
+P 0 29174 -1 29167 1                    *A pile of coarse salt
+O 0 29168 -1 29101                      *An oak barrel(#3)
+P 0 29175 -1 29168 1                    *A pile of yochtal fruit
+O 0 29183 -1 29101                      *A wooden tap (key)
+M 0 29100  3 29102 28           *A pair of disembodied eyes
+M 0 29100  3 29103 28           *A pair of disembodied eyes
+O 0 29182 -1 29103                      *A wooden tap
+M 0 29100  3 29104 28           *A pair of disembodied eyes
+G 1 29184 -1                            *A wooden tap
+O 0 29169 -1 29104                      *An oak barrel(#4)
+P 0 29172 -1 29169 1                    *A pile of wheat flour
+O 0 29170 -1 29104                      *An oak barrel(#5)
+P 0 29173 -1 29170 1                    *A pile of corn meal
+O 0 29176 -1 29104                      *A burlap sack(#1)
+P 0 29179 -1 29176 1                    *A pile of sugar
+O 0 29177 -1 29104                      *A burlap sack(#2)
+P 0 29181 -1 29177 1                    *A pile of yams
+M 0 29100  3 29105 28           *A pair of disembodied eyes
+M 0 29100  3 29107 28           *A pair of disembodied eyes
+M 0 29100  3 29107 28           *A pair of disembodied eyes
+M 0 29100  3 29109 28           *A pair of disembodied eyes
+M 0 29100  3 29112 28           *A pair of disembodied eyes
+M 0 29100  3 29115 28           *A pair of disembodied eyes
+M 0 29100  3 29116 28           *A pair of disembodied eyes
+M 0 29103  2 29117 17           *A shadow demon
+M 0 29103  2 29118 17           *A shadow demon
+O 0 29178 -1 29119                      *A burlap sack(#3)
+P 0 29180 -1 29178 2                    *A pile of potatoes
+O 0 29164 -1 29121                      *The fountain
+M 0 29100  3 29124 28           *A pair of disembodied eyes
+M 0 29100  3 29128 28           *A pair of disembodied eyes
+M 0 29100  3 29129 28           *A pair of disembodied eyes
+M 0 29100  3 29130 28           *A pair of disembodied eyes
+M 0 29100  3 29131 28           *A pair of disembodied eyes
+M 0 29100  3 29132 28           *A pair of disembodied eyes
+M 0 29103  2 29133 17           *A shadow demon
+M 0 29100  3 29134 28           *A pair of disembodied eyes
+M 0 29100  3 29134 28           *A pair of disembodied eyes
+M 0 29100  3 29137 28           *A pair of disembodied eyes
+M 0 29100  3 29137 28           *A pair of disembodied eyes
+M 0 29104  2 29140 8                    *A mihstu guard
+M 0 29102  1 29141 1                    *An iron golem
+M 0 29105  1 29142 1                    *Dalamar, the dark elf
+G 1 29107 -1                            *Fistandantilus' Spellbook (Vol. 1)
+G 1 29116 -1                            *A brass key
+G 1 29185 -1                            *A skeleton key
+E 0 29187  4 17                 *A cumulus wand
+O 0 29163 -1 29142                      *A black teak desk
+P 0 29118 -1 29163 1                    *A crystal flagon
+O 0 29119 -1 29142                      *A Gwynnian highback chair
+O 0 29120 -1 29142                      *A bookcase shelf
+P 0 29108 -1 29120 1                    *Fistandantilus' Spellbook (Vol. 2)
+P 0 29109 -1 29120 1                    *Fistandantilus' Spellbook (Vol. 3)
+P 0 29110 -1 29120 1                    *Fistandantilus' Spellbook (Vol. 4)
+P 0 29111 -1 29120 1                    *Fistandantilus' Spellbook (Vol. 5)
+O 0 29121 -1 29144                      *A wooden shelf
+P 0 29132  4 29121 1                    *A jar of fireflys
+P 0 29122 -1 29121 1                    *A brown glass jar (#1)
+P 0 29128 -1 29119 1                    *Some foxglove flowers
+P 0 29123 -1 29121 1                    *A brown glass jar (#2)
+P 0 29129 -1 29120 1                    *Some mandrake roots
+P 0 29124 -1 29121 1                    *A brown glass jar (#3)
+P 0 29130 -1 29121 1                    *Some castor beans
+P 0 29125 -1 29121 1                    *A brown glass jar (#4)
+P 0 29131 -1 29122 1                    *Some rosemary leaves
+P 0 29126 -1 29121 1                    *A brown glass jar (#5)
+P 0 29127 -1 29121 1                    *A brown glass jar (#6)
+O 0 29133 -1 29144                      *A small wooden table
+P 0 29134 -1 29133 1                    *A triangular decanter
+P 0 29135 -1 29133 1                    *A silver goblet
+M 0 29102  1 29145 1                    *An iron golem
+M 0 29103  2 29146 17           *A shadow demon
+M 0 29104  2 29148 8                    *A mihstu guard
+M 0 29103  2 29149 17           *A shadow demon
+M 0 29100  3 29150 28           *A pair of disembodied eyes
+M 0 29100  3 29153 28           *A pair of disembodied eyes
+M 0 29102  1 29157 1                    *An iron golem
+M 0 29103  2 29159 17           *A shadow demon
+M 0 29104  2 29160 8                    *A mihstu guard
+M 0 29102  1 29161 1                    *An iron golem
+M 0 29100  3 29162 28           *A pair of disembodied eyes
+M 0 29100  3 29164 28           *A pair of disembodied eyes
+M 0 29100  3 29165 28           *A pair of disembodied eyes
+
+M 0 29100  3 29165 28           *A pair of disembodied eyes
+M 0 29100  3 29168 28           *A pair of disembodied eyes
+M 0 29103  2 29181 17           *A shadow demon
+M 0 29103  2 29182 17           *A shadow demon
+M 0 29103  2 29183 17           *A shadow demon
+M 0 29103  2 29185 17           *A shadow demon
+M 0 29103  2 29185 17           *A shadow demon
+M 0 29103  2 29192 17           *A shadow demon
+M 0 29103  2 29193 17           *A shadow demon
+M 0 29103  2 29194 17           *A shadow demon
+M 0 29103  2 29198 17           *A shadow demon
+M 0 29104  2 29201 8                    *A mihstu guard
+M 0 29103  2 29204 17           *A shadow demon
+M 0 29103  2 29206 17           *A shadow demon
+M 0 29104  2 29208 8                    *A mihstu guard
+M 0 29104  2 29214 8                    *A mihstu guard
+M 0 29104  2 29216 8                    *A mihstu guard
+M 0 29104  2 29220 8                    *A mihstu guard
+M 0 29107  1 29221 1                    *A wind torrent
+M 0 29106  1 29226 1                    *Arioch
+G 1 29101 -1                            *A folded scrap of paper
+E 0 29188  4  6                 *Arioch's horns
+E 0 29100  4 16                 *Arioch's halberd
+M 0 29109  1 29226 1                    *Raistlin Majere
+G 1 29104 -1                            *A silver dagger
+G 1 29105 -1                            *An emerald
+G 1 29106 -1                            *Some rose petals
+G 1 29186 -1                            *A skeleton key (#2)
+E 0 29102 -1 12                 *Hourglass robes
+E 0 29103  2 17                 *Staff of Magius
+O 0 29136 -1 29226                      *A maple cabinet
+P 0 29137 -1 29136 1                    *A brown glass jar (#7)
+P 0 29142 -1 29137 1                    *Some Kraken's ink
+P 0 29138 -1 29136 1                    *A brown glass jar (#8)
+P 0 29143 -1 29138 1                    *Some mint leaves
+P 0 29139 -1 29136 1                    *A brown glass jar (#9)
+P 0 29144 -1 29139 1                    *Some anise seeds
+P 0 29140 -1 29136 1                    *A brown glass jar (#10)
+P 0 29145 -1 29140 1                    *Some jasmine petals
+P 0 29141 -1 29136 1                    *A brown glass jar (#11)
+P 0 29146 -1 29141 1                    *Some sprigs of lavender
+O 0 29147 -1 29226                      *A stone table
+P 0 29112 -1 29147 1                    *Raistlin's Spellbook (Vol. 1)
+P 0 29148 -1 29147 1                    *An axe beak quill
+P 0 29149 -1 29147 1                    *A sheet of vellum
+P 0 29150 -1 29147 1                    *A mortar
+P 0 29151 -1 29147 1                    *A pestle
+P 0 29152 -1 29147 1                    *A phial holder
+P 0 29153 -1 29152 1                    *A ceramic phial (#1)
+P 0 29158 -1 29153 1                    *Some powdered minotaur horn
+P 0 29154 -1 29152 1                    *A ceramic phial (#2)
+P 0 29159 -1 29154 1                    *Some djinn hair
+P 0 29155 -1 29152 1                    *A ceramic phial (#3)
+P 0 29160 -1 29155 1                    *Some griffon feathers
+P 0 29156 -1 29152 1                    *A ceramic phial (#4)
+P 0 29161 -1 29156 1                    *Some harpy tongues
+P 0 29157 -1 29152 1                    *A ceramic phial (#5)
+P 0 29162 -1 29157 1                    *Some powdered black sapphire
+O 0 29163 -1 29226                      *A small wooden shelf
+P 0 29113 -1 29163 1                    *Raistlin's Spellbook (Vol. 2)
+P 0 29114 -1 29163 1                    *Raistlin's Spellbook (Vol. 3)
+P 0 29115 -1 29163 1                    *Raistlin's Spellbook (Vol. 4)
+M 0 29107  1 29229 1                    *A wind torrent
+M 0 29108  1 29239 1                    *A coughing fit
+M 0 29107  1 29240 1                    *A wind torrent
+D 0 29100 4 1 B                 *trap door
+D 0 29101 5 1 B                 *trap door
+D 0 29103 0 2 BCF                       *wine cask
+D 0 29105 1 1 B                 *door
+D 0 29106 0 1 B                 *door
+D 0 29106 1 1 B                 *door
+D 0 29106 3 1 B                 *door
+D 0 29107 2 1 B                 *door
+D 0 29108 3 1 B                 *door
+D 0 29110 3 1 B                 *door
+D 0 29112 1 1 B                 *door
+D 0 29112 2 1 B                 *door
+D 0 29113 3 1 B                 *door
+D 0 29114 0 1 B                 *door
+D 0 29117 1 1 B                 *door
+D 0 29118 3 1 B                 *door
+D 0 29119 1 1 B                 *door
+D 0 29120 3 1 B                 *door
+D 0 29122 1 1 B                 *door
+D 0 29127 0 1 B                 *door
+D 0 29128 2 1 B                 *door
+D 0 29128 3 1 B                 *door
+D 0 29130 3 1 B                 *Entrance to the Ancient Tower
+D 0 29132 0 1 B                 *door
+D 0 29132 3 1 B                 *door
+D 0 29133 2 1 B                 *door
+D 0 29134 1 1 B                 *door
+D 0 29135 1 1 B                 *door
+D 0 29138 3 1 B                 *door
+D 0 29139 3 1 B                 *door
+D 0 29140       0 2 BC                  *door
+D 0 29141 1 1 B                 *door
+D 0 29141 2 2 BC                        *door
+D 0 29142 3 1 B                 *door
+D 0 29143 3 1 B                 *door
+D 0 29144 3 1 B                 *door
+D 0 29145 0 2 BC                        *door
+D 0 29145 1 1 B                 *door
+D 0 29146 2 2 BC                        *door
+D 0 29148 1 1 B                 *door
+D 0 29149 1 1 B                 *door
+D 0 29149 3 1 B                 *door
+D 0 29150 1 1 B                 *door
+D 0 29152 0 0 A                 *door
+D 0 29153 2 0 A                 *door
+D 0 29154 1 1 B                 *door
+D 0 29154 3 1 B                 *door
+D 0 29155 0 0 A                 *door
+D 0 29156 2 0 A                 *door
+D 0 29157 3 1 B                 *door (One-way)
+D 0 29159 1 1 B                 *door
+D 0 29161 3 1 B                 *door (One-way)
+D 0 29165 1 1 B                 *door (One-way)
+D 0 29165 5 1 B                 *trap door (One-way)
+D 0 29173 3 1 B                 *door
+D 0 29174 3 1 B                 *door
+D 0 29175 0 1 B                 *door
+D 0 29176 1 1 B                 *door
+D 0 29176 2 1 B                 *door
+D 0 29176 3 1 B                 *door
+D 0 29180 0 1 B                 *door
+D 0 29180 1 1 B                 *door
+D 0 29180 3 1 B                 *door
+D 0 29181 2 1 B                 *door
+D 0 29182 1 1 B                 *door
+D 0 29184 1 1 B                 *door
+D 0 29185 0 1 B                 *door
+D 0 29186 0 1 B                 *door
+D 0 29186 2 1 B                 *door
+D 0 29186 3 1 B                 *door
+D 0 29187 2 1 B                 *door
+D 0 29188 1 1 B                 *door
+D 0 29198 0 1 B                 *door
+D 0 29198 1 1 B                 *door
+D 0 29198 2 1 B                 *door
+D 0 29198 3 1 B                 *door
+D 0 29199 0 1 B                 *door
+D 0 29200 3 1 B                 *door
+D 0 29201 2 1 B                 *door
+D 0 29202 1 1 B                 *door
+D 0 29203 0 1 B                 *door
+D 0 29203 1 1 B                 *door
+D 0 29203 2 1 B                 *door
+D 0 29203 3 1 B                 *door
+D 0 29203 4 1 B                 *trap door
+D 0 29204 0 1 B                 *door
+D 0 29205 3 1 B                 *door
+D 0 29206 2 1 B                 *door
+D 0 29207 1 1 B                 *door
+D 0 29208 0 1 B                 *door
+D 0 29208 1 1 B                 *door
+D 0 29208 2 1 B                 *door
+D 0 29208 3 1 B                 *door
+D 0 29209 0 1 B                 *door
+D 0 29210 3 1 B                 *door
+D 0 29211 2 1 B                 *door
+D 0 29212 1 1 B                 *door
+D 0 29214 4 1 B                 *lantern
+D 0 29214 5 1 B                 *trap door
+D 0 29216 0 1 B                 *door
+D 0 29216 1 1 B                 *door
+D 0 29216 2 1 B                 *door
+D 0 29216 3 1 B                 *door
+D 0 29216 4 1 B                 *door
+D 0 29217 0 1 B                 *door
+D 0 29218 3 1 B                 *door
+D 0 29219 2 1 B                 *door
+D 0 29220 1 1 B                 *door
+D 0 29221 5 1 B                 *lantern
+D 0 29222 0 1 B                 *door
+D 0 29222 1 1 B                 *door
+D 0 29222 2 1 B                 *door
+D 0 29222 3 1 BCF                       *door
+D 0 29223 0 1 B                 *door
+D 0 29224 3 1 B                 *door
+D 0 29225 2 1 B                 *door
+D 0 29226 1 1 BCF                       *door
+D 0 29227 4 1 B                 *lantern
+D 0 29227 5 1 B                 *trap door
+D 0 29229 5 1 B                 *lantern
+D 0 29230 3 2 BC                        *door
+D 0 29231 1 2 BC                        *door
+D 0 29239 5 1 B                 *trap door
+D 0 29239 4 1 B                 *lantern
+D 0 29240 5 1 B                 *lantern
+R 0 29116 3
+R 0 29121 3
+R 0 29153 4
+R 0 29155 4
+R 0 29178 3
+R 0 29189 2
+R 0 29190 2
+R 0 29191 2
+R 0 29195 2
+R 0 29196 2
+R 0 29197 2
+R 0 29213 2
+R 0 29215 2
+S
+
+#SPECIALS
+M 29100 spec_cast_undead
+M 29102 spec_breath_gas
+M 29104 spec_breath_lightning
+M 29105 spec_cast_mage
+M 29108 spec_poison
+M 29109 spec_cast_mage
+S
+
+#$

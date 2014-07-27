@@ -1,0 +1,451 @@
+#PLAYER
+Name Tanis~
+Id   1014328226
+LogO 1023680921
+Vers 14
+Mexp 2
+Pass angel~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race elf~
+Cla  7
+Levl 1
+Tru  0
+Plyd 4570
+Back 2649
+Note 1023331133 0 0 0 0 1023596077 0
+Scro 22
+Room 3054
+HMS  24 100 100
+Gold 3
+Silv 331
+Exp  1768
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 750
+FImm 0
+FRes B
+FVul Z
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 11 15 13 15 17 14
+Afk {B[{CTue Jun  4 17:42:12 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Montrey~
+Lsit 154.5.34.125~
+Ltim Sun Jun 09 22:48:31 2002
+~
+LSav Sun Jun 09 22:48:41 2002
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 75 1 'sword'
+Sk 1 1 'bash'
+Sk 21 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 1 1 'parry'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 1 1 'hide'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'curative'
+Gr 'enchantment'
+Affc 'bless'   0  55  26   7  18          0 1
+Affc 'bless'   0  52  26  -7  24          0 1
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear 17
+Cost 0
+End
+
+#O
+Vnum 21
+Nest 0
+Cond 95
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 4212
+Nest 0
+Wear -1
+Cost 12
+Val  15 5 0 3 100
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4212
+Nest 0
+Wear -1
+Cost 12
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4212
+Nest 0
+Wear -1
+Cost 12
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 4211
+Nest 1
+Wear -1
+Cost 1
+End
+
+#END

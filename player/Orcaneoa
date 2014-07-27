@@ -1,0 +1,1609 @@
+#PLAYER
+Name OrcaneoA~
+Id   1023989747
+LogO 1024557117
+Vers 14
+Mexp 2
+Pass opaen~
+Prom %CG<%h%CGhp %CC%m%CCm %CY%v%CYmv> %CP%XTnl %Cb%z%c> ~
+Race irda~
+Cla  0
+Levl 69
+Tru  0
+Plyd 98001
+Back 82170
+Note 1024390312 1023990263 0 1024489348 1024384309 0 0
+Scro 22
+Room 8543
+HMS  196 952 253
+Gold 3408
+Silv 12035
+Gold_in_bank 500
+Exp  76086
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 891
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDGHJLQSc
+AfBy NTUYZbd
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 38
+Trai 1
+Wimp 125
+Atrib 18 23 21 18 18 15
+Afk {B[{CWed Jun 19 14:07:04 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl .  I ain't your hero.~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 1
+LLev 26
+Deit Urza~
+Lsit 24-205-232-81.slo-dyn.charterpipeline.net~
+Ltim Thu Jun 20 02:06:39 2002
+~
+LSav Thu Jun 20 02:11:57 2002
+~
+HMSP 757 1003 484
+THMS 0 0 0
+Cnd  0 17 43 35
+Alias chill cast chill~
+Alias cl cast 'cure light'~
+Alias burn cast 'burning hands'~
+Alias shock cast 'shocking grasp'~
+Alias col cast 'colour spray'~
+Alias mag cast 'magic missile'~
+Alias reg cast 'regeneration'~
+Alias acd cast 'acid blast'~
+Alias sanct cast 'sanctuary'~
+Alias flm cast 'flamestrike'~
+Alias fly cast fly~
+Alias fry cast 'fireball'~
+Alias cli cast 'chain lightning'~
+Alias ene cast 'energy drain'~
+Alias fast cast 'haste'~
+Alias cc cast 'cure critical'~
+Alias slow cast 'slow' orcane~
+Alias dem cast 'demonfire'~
+Alias ray cast 'ray of truth'~
+Alias fb cast 'fire breath'~
+Alias lit cast 'lightning bolt'~
+Alias fae cast 'faerie fire'~
+Alias lb cast 'lightning breath'~
+Alias dm cast 'dispel magic'~
+Sk 78 1 'acid blast'
+Sk 75 1 'acid breath'
+Sk 1 1 'acid rain'
+Sk 79 1 'age'
+Sk 82 1 'armor'
+Sk 77 1 'bless'
+Sk 85 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 86 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 75 1 'cancellation'
+Sk 79 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 87 1 'chill touch'
+Sk 93 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 96 1 'cure critical'
+Sk 76 1 'cure light'
+Sk 77 1 'cure serious'
+Sk 80 1 'curse'
+Sk 75 1 'demonfire'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 76 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 76 1 'dispel evil'
+Sk 75 1 'dispel good'
+Sk 78 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'earthquake'
+Sk 76 1 'energy drain'
+Sk 77 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 78 1 'fire breath'
+Sk 100 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 76 1 'flameshield'
+Sk 75 1 'flamestrike'
+Sk 89 1 'fly'
+Sk 1 1 'frenzy'
+Sk 75 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 83 1 'gate'
+Sk 79 1 'giant strength'
+Sk 95 1 'haste'
+Sk 75 1 'heal'
+Sk 1 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'infravision'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 94 1 'lightning bolt'
+Sk 81 1 'lightning breath'
+Sk 1 1 'locate life'
+Sk 75 1 'locate object'
+Sk 92 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 75 1 'pass door'
+Sk 83 1 'plague'
+Sk 78 1 'poison'
+Sk 1 1 'portal'
+Sk 81 1 'protection evil'
+Sk 79 1 'protection good'
+Sk 1 1 'ray of truth'
+Sk 75 1 'refresh'
+Sk 86 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 85 1 'sanctuary'
+Sk 81 1 'shield'
+Sk 92 1 'shocking grasp'
+Sk 88 1 'slow'
+Sk 78 1 'steel mist'
+Sk 80 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'sunray'
+Sk 77 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 78 1 'undo spell'
+Sk 1 1 'vision'
+Sk 78 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 92 1 'dagger'
+Sk 100 1 'sword'
+Sk 100 1 'shield block'
+Sk 1 1 'brew'
+Sk 100 1 'dodge'
+Sk 85 1 'second attack'
+Sk 78 1 'fast healing'
+Sk 75 1 'lore'
+Sk 88 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 76 1 'staves'
+Sk 75 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'bless'   0  69  75  -8  24          0 1
+Affc 'bless'   0  69  75   8  18          0 1
+Affc 'pass door'   0  69  16   0   0    1048576 1
+Affc 'fly'   0  69  71   0   0     524288 1
+Affc 'giant strength'   0  69  68   4   1          0 1
+Affc 'shield'   0  69  76 -20  17          0 1
+Affc 'flameshield'   0  69  33 -20  17  134217728 1
+Affc 'steel mist'   0  69  35  -6  17   16777216 1
+Affc 'stone skin'   0  69  68 -40  17          0 1
+Affc 'protection evil'   0  69  23  -1  24       8192 1
+Affc 'armor'   0  69  23 -20  17          0 1
+Affc 'divine regeneration'   0  30  29   0   0   33554432 1
+Affc 'slow'   0  68  31  -7   2  536870912 1
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 3715
+Nest 1
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 76
+Nest 1
+Cond 92
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 66 15 0 0
+End
+
+#O
+Vnum 4215
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4214
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 20013
+Nest 1
+Wear -1
+Cost 600
+Val  30 13 4 57 0
+Spell 3 'divine regeneration'
+End
+
+#O
+Vnum 2319
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 16090
+Enchanted
+Nest 1
+Wear -1
+Lev  23
+Cost 0
+Val  35 5 3 68 0
+Spell 3 'fireball'
+End
+
+#O
+Vnum 1215
+Nest 1
+Name half wild eeyore stuffed liriel~
+ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
+Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 9922
+Nest 0
+Cond 58
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 64
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 17105
+Nest 0
+Cond 21
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 79
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 11657
+Nest 0
+Wear -1
+Cost 9540
+End
+
+#O
+Vnum 10206
+Nest 1
+ExtF 64
+Cond 96
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9909
+Nest 1
+Cond 96
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 4594
+Nest 1
+Cond 86
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 4594
+Nest 1
+Cond 91
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 4579
+Nest 1
+Cond 96
+Wear -1
+Cost 2800
+End
+
+#O
+Vnum 10208
+Nest 1
+ExtF 64
+Cond 87
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10171
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10213
+Nest 1
+Cond 95
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10213
+Nest 1
+Cond 96
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10204
+Nest 1
+ExtF 64
+Cond 87
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10003
+Nest 1
+ExtF 262401
+Cond 80
+Wear -1
+Cost 0
+Val  60 20 12 38 0
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 10215
+Nest 1
+ExtF 64
+Cond 66
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10166
+Nest 1
+Cond 95
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 14030
+Nest 1
+Cond 86
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 10166
+Nest 1
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 14019
+Nest 0
+Cond 76
+Wear 5
+Cost 300
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 81
+Wear 4
+Cost 3800
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 79
+Wear 3
+Cost 3800
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Cond 81
+Wear 2
+Cost 2200
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Cond 84
+Wear 1
+Cost 2200
+End
+
+#O
+Vnum 17108
+Nest 0
+Cond 78
+Wear 15
+Cost 350
+End
+
+#O
+Vnum 17108
+Nest 0
+Cond 61
+Wear 14
+Cost 350
+End
+
+#O
+Vnum 9911
+Nest 0
+Cond 82
+Wear 10
+Cost 8500
+End
+
+#O
+Vnum 8204
+Nest 0
+Wear 9
+Cost 3800
+End
+
+#O
+Vnum 20008
+Nest 0
+ExtF 16777536
+Cond 96
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 17001
+Nest 0
+Wear 0
+Cost 2000
+End
+
+#O
+Vnum 17003
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 17014
+Nest 0
+Wear -1
+Cost 500
+Spell 3 'frost breath'
+End
+
+#O
+Vnum 17101
+Nest 0
+ExtF 1
+Cond 92
+Wear 11
+Cost 160
+End
+
+#O
+Vnum 14025
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 17004
+Nest 0
+Cond 97
+Wear 18
+Cost 200
+End
+
+#O
+Vnum 10164
+Nest 0
+Cond 88
+Wear 17
+Cost 1350
+End
+
+#L
+Vnum 4572
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 80
+Nest 0
+Cond 97
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 2404
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 74
+Nest 0
+Cond 86
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#L
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 3115
+Nest 0
+Cond 97
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5206
+Nest 0
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5202
+Nest 0
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 621
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 624
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16053
+Nest 0
+Cond 96
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3114
+Nest 0
+Wear -1
+Cost 660
+End
+
+#L
+Vnum 9923
+Nest 0
+Cond 96
+Wear -1
+Cost 2500
+End
+
+#L
+Vnum 2242
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 4576
+Nest 0
+Cond 93
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 1615
+Nest 0
+Wear -1
+Cost 1540
+End
+
+#L
+Vnum 1615
+Nest 0
+Wear -1
+Cost 1540
+End
+
+#L
+Vnum 12722
+Nest 0
+Cond 90
+Wear -1
+Cost 4000
+End
+
+#L
+Vnum 12712
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 75
+Nest 0
+Cond 84
+Wear -1
+Cost 620
+End
+
+#L
+Vnum 620
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 75
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5201
+Nest 0
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5205
+Nest 0
+ExtF 64
+Cond 93
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5203
+Nest 0
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5204
+Nest 0
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5200
+Nest 0
+ExtF 64
+Cond 96
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10207
+Nest 0
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 9909
+Nest 0
+Cond 98
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 10206
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 637
+Nest 0
+Cond 94
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 2390
+Nest 0
+Cond 94
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 19
+Cond 100
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 19
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 9203
+Nest 0
+Cond 88
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 12713
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 12714
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 12722
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1604
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1604
+Nest 0
+Cond 99
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 29901
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 29901
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16041
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16041
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16042
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 12710
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 12714
+Nest 0
+Cond 94
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10201
+Nest 0
+ExtF 64
+Cond 98
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10205
+Nest 0
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10203
+Nest 0
+ExtF 64
+Cond 95
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 9924
+Nest 0
+Cond 95
+Wear -1
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#L
+Vnum 10298
+Nest 0
+ExtF 64
+Cond 87
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10202
+Nest 0
+ExtF 64
+Cond 95
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 14023
+Nest 0
+Cond 93
+Wear -1
+Cost 200
+End
+
+#L
+Vnum 14020
+Nest 0
+Cond 89
+Wear -1
+Cost 200
+End
+
+#L
+Vnum 17102
+Nest 0
+Cond 79
+Wear -1
+Cost 250
+End
+
+#L
+Vnum 4595
+Nest 0
+Cond 85
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 10169
+Enchanted
+Nest 0
+Cond 27
+Wear -1
+Cost 2200
+Affc 'reserved'   1  55  -1   1   1          0 1
+Affc 'reserved'   1  55  -1   1   5          0 1
+Affc 'reserved'   1  55  -1  40  12          0 1
+Affc 'reserved'   1  55  -1   2  18          0 1
+Affc 'reserved'   1  55  -1   2  19          0 1
+Affc 'reserved'   1  55  -1   3  26          0 1
+End
+
+#END

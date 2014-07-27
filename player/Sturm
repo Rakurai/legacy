@@ -1,0 +1,1213 @@
+#PLAYER
+Name Sturm~
+Id   989815888
+LogO 1406432550
+Vers 15
+Mexp 2
+Pass tikcus~
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race elf~
+Clan rebel~
+Cla  2
+Levl 62
+Plyd 1207135
+Back 1204607
+Note 1406389926 1022120902 1026877089 1026792163 1406400423 1027158380 1026831915
+Scro 22
+Room 1269
+HMS  1128 1297 878
+Gold 324
+Silv 27
+Exp  65117
+PCkills  1
+PCkilled 3
+Akills   9
+Akilled  17
+PKRank   1
+Pos  8
+Alig -378
+Ptnr {RB{gL{cD{x~
+FImm 0
+FRes B
+FVul Z
+Plr  ACFQ
+Video 0
+Act  CDEFGHJLSTc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp AIKLMO
+Cnsr A
+Block_Remote 0
+Prac 181
+Trai 24
+Wimp 0
+Familiar 0
+Atrib 16 18 18 22 16 18
+SkillPnts  68
+RolePnts   21
+QuestPnts  47
+GameIn  {gsteps {Nout{x {Cof {RC{ch{RA{co{RS{x {band{x {Ginto {NT{Th{Ne{Tr{Na~
+GameOut {gleaves {NT{Th{Ne{Tr{Na{x {Bback{x {Cinto{x {RC{ch{RA{co{RS{x~
+Afk {B[{CSat Jul 20 19:17:47 2002{B] {CUnknown Departure.{x
+~
+Titl  :)~
+Immn ~
+Pnts 40
+Rank {GK{HN{cI{x~
+Aura {HA{Gl{Wi{Gs{Ha{W'{Gs{x {RC{No{RD{Ne{x {RR{Ne{RD{x {TThug{x~
+TSex 1
+LLev 326
+Deit {RV{Pe{Yg{Yi{Pt{Ra{W, The {BS{Hi{Wm{Wp{Hl{Be {RS{Pa{Yi{Yy{Pa{Rn{x~
+Stus OutKast Kensai~
+RmCt 4
+ExSk 1300
+Raff 10
+Lsit 66-87-64-76.pools.spcsdns.net~
+Ltim Sat Jul 26 20:38:21 2014
+~
+LSav Sat Jul 26 20:42:30 2014
+~
+Finf the ghetto's of america are breeding grounds for the criminal minded
+
+as for years they have killed one another off and america has enjoyed its creation
+
+well now these ghetto minded criminals have crossed the line into your neiborhood
+
+and will soon give you a taste of the hell that they have lived with so long
+
+so pops this time its your son who gets shot deal with your own creation
+
+
+hbkgrandslam@hotmail.com
+
+~
+HMSP 843 552 678
+THMS 0 0 0
+Cnd  0 0 0 22
+Alias go gossip~
+Query alisa~
+Query sundancer~
+Query liriel~
+Query kitari~
+Query sapphire~
+Query montrey~
+Query napalm~
+Sk 77 1 'acid blast'
+Sk 75 1 'acid breath'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 81 1 'armor'
+Sk 76 1 'bless'
+Sk 77 1 'blindness'
+Sk 93 1 'blizzard'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 75 1 'cancellation'
+Sk 75 1 'chain lightning'
+Sk 75 1 'change sex'
+Sk 1 1 'channel'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 76 1 'continual light'
+Sk 75 1 'control weather'
+Sk 75 1 'create food'
+Sk 1 1 'create parchment'
+Sk 75 1 'create rose'
+Sk 79 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 77 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 75 1 'curse'
+Sk 75 1 'dazzling light'
+Sk 75 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 77 1 'detect hidden'
+Sk 80 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 82 1 'dispel magic'
+Sk 78 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'encampment'
+Sk 78 1 'enchant armor'
+Sk 75 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 79 1 'faerie fire'
+Sk 75 1 'faerie fog'
+Sk 75 1 'fire breath'
+Sk 75 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 78 1 'flameshield'
+Sk 82 1 'fly'
+Sk 1 1 'floating disc'
+Sk 75 1 'frenzy'
+Sk 75 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 85 1 'gate'
+Sk 75 1 'giant strength'
+Sk 84 1 'haste'
+Sk 89 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 75 1 'infravision'
+Sk 1 1 'know alignment'
+Sk 76 1 'light of truth'
+Sk 75 1 'lightning bolt'
+Sk 75 1 'lightning breath'
+Sk 76 1 'locate life'
+Sk 78 1 'locate object'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 76 1 'pass door'
+Sk 75 1 'plague'
+Sk 75 1 'poison'
+Sk 1 1 'portal'
+Sk 2 1 'protect container'
+Sk 76 1 'protection evil'
+Sk 82 1 'protection good'
+Sk 1 1 'recharge'
+Sk 76 1 'refresh'
+Sk 77 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 84 1 'sanctuary'
+Sk 1 1 'scry'
+Sk 87 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 84 1 'slow'
+Sk 1 1 'starve'
+Sk 79 1 'steel mist'
+Sk 79 1 'stone skin'
+Sk 76 1 'summon'
+Sk 75 1 'summon object'
+Sk 84 1 'talon'
+Sk 77 1 'teleport'
+Sk 76 1 'teleport object'
+Sk 81 1 'undo spell'
+Sk 75 1 'vision'
+Sk 75 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 75 1 'axe'
+Sk 100 1 'dagger'
+Sk 83 1 'mace'
+Sk 84 1 'polearm'
+Sk 100 1 'sword'
+Sk 92 1 'backstab'
+Sk 75 1 'bash'
+Sk 75 1 'berserk'
+Sk 99 1 'circle'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 83 1 'hand to hand'
+Sk 75 1 'kick'
+Sk 100 1 'parry'
+Sk 75 1 'trip'
+Sk 100 1 'second attack'
+Sk 99 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 87 1 'hunt'
+Sk 100 1 'fast healing'
+Sk 77 1 'repair'
+Sk 100 1 'languages'
+Sk 77 1 'hide'
+Sk 79 1 'lore'
+Sk 76 1 'peek'
+Sk 100 1 'scan'
+Sk 79 1 'sneak'
+Sk 75 1 'steal'
+Sk 75 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 75 1 'sheen'
+Sk 69 1 'midnight'
+Sk 70 1 'shadow form'
+Sk 50 1 'riposte'
+Sk 75 1 'align'
+Sk 77 1 'standfast'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3203
+Nest 0
+Cond 93
+Wear 12
+Cost 40
+End
+
+#O
+Vnum 10215
+Nest 0
+Cond 71
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 24614
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 24614
+Nest 0
+Cond 96
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 24616
+Nest 0
+Cond 93
+Wear 1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Cond 94
+Wear 2
+Cost 4500
+End
+
+#O
+Vnum 24617
+Nest 0
+Cond 97
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 96
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 3204
+Nest 0
+Cond 94
+Wear 18
+Cost 50
+End
+
+#O
+Vnum 14067
+Nest 0
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 14069
+Nest 0
+ExtF 1
+Cond 90
+Wear 5
+Cost 400
+End
+
+#O
+Vnum 20008
+Nest 0
+ExtF 16777537
+Cond 92
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 14030
+Nest 0
+Wear 19
+Cost 6000
+End
+
+#O
+Vnum 20011
+Nest 0
+Cond 97
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 10154
+Nest 0
+Wear -1
+Cost 3300
+End
+
+#O
+Vnum 10154
+Nest 0
+Cond 97
+Wear -1
+Cost 3300
+End
+
+#O
+Vnum 10171
+Nest 0
+Cond 96
+Wear 0
+Cost 3300
+End
+
+#O
+Vnum 3206
+Nest 0
+Cond 91
+Wear 10
+Cost 70
+End
+
+#O
+Vnum 8204
+Nest 0
+Cond 88
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 5610
+Nest 0
+ExtF 17301507
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 20011
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 92
+Wear 16
+Cost 6000
+End
+
+#O
+Vnum 1215
+Nest 0
+Name liriel rainbow dazzling wild~
+ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
+Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 5607
+Enchanted
+Nest 0
+ExtF 17301571
+Cond 88
+Wear 14
+Lev  63
+Cost 0
+Affc 'enchant armor'   1  63  -1  -3  17          0 1
+Affc 'reserved'   1  60  -1  60  12          0 1
+Affc 'reserved'   1  60  -1   3  18          0 1
+Affc 'reserved'   1  60  -1   3  19          0 1
+End
+
+#O
+Vnum 1212
+Nest 0
+Name trivia teotwawki~
+ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
+Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 17036
+Nest 0
+Wear -1
+Time 1121
+Cost 650
+Spell 1 'fireball'
+Spell 2 'curse'
+Spell 3 'fireball'
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#L
+Vnum 4471
+Nest 0
+Name sturm roses~
+ShD  {RA {PD{Ro{Pz{Re{Pn {RL{Po{Rn{Pg {RS{Pt{Re{Pm {RR{Po{Rs{Pe{Rs{x~
+Desc {RI{Pt{Rs {Pa {Rd{Po{Rz{Pe{Rn {Pr{Ro{Ps{Re{Ps {Rw{Pi{Rt{Ph {Ra {Ps{Rm{Pa{Rl{Pl {Rt{Pa{Rg {Pw{Ri{Pt{Rh {Pt{Rh{Pe {Rn{Pa{Rm{Pe {RS{Pa{Rp{Pp{Rh{Pi{Rr{Pe {Rs{Pi{Rg{Pn{Re{Pd {Ro{Pn {Ri{Pt{x~
+Mat roses~
+Wt   0
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 1001
+Nest 0
+ShD  a {Bp{Te{Nr{Cp{Te{Nt{Bu{Ca{Tl{Nl{By {Ga{bf{Yk{x{x rose~
+Desc A {Bp{Te{Nr{Cp{Te{Nt{Bu{Ca{Tl{Nl{By {Ga{bf{Yk{x{x rose is lying on the ground.~
+Wear -1
+Cost 0
+ExDe florist~ This rose was created by Endo.
+
+~
+End
+
+#L
+Vnum 1001
+Nest 0
+ShD  a {VA{Nl{Bi{Ts{Ca{x rose~
+Desc A {VA{Nl{Bi{Ts{Ca{x rose is lying on the ground.~
+Wear -1
+Cost 0
+ExDe florist~ This rose was created by Ramaru.
+
+~
+End
+
+#L
+Vnum 12
+Nest 0
+ShD  the head of The Hell Knight~
+Desc The severed head of The Hell Knight is lying here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 119
+Nest 0
+Name food A Chocolate Valentine from Syveril~
+ShD  {RA C{Ph{Ro{Pc{Ro{Pl{Ra{Pt{Re V{Pa{Rl{Pe{Rn{Pt{Ri{Pn{Re{x from {TSyveril{x~
+Desc {RA C{Ph{Ro{Pc{Ro{Pl{Ra{Pt{Re V{Pa{Rl{Pe{Rn{Pt{Ri{Pn{Re{x from {TSyveril{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  45 91 0 0 0
+ExDe chef~ This food was created by Syveril.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#L
+Vnum 4471
+Nest 0
+Name Little Poney Card Valentines~
+ShD  a {PMy Little Poney {RV{Pa{Rl{Pe{Rn{Pt{Ri{Pn{Re{Ps{x~
+Desc a {PMy Little Poney {RV{Pa{Rl{Pe{Rn{Pt{Ri{Pn{Re{Ps{x~
+Mat love~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 0
+Name sturm valentine card~
+ShD  {RA {PV{Ra{Pl{Re{Pn{Rt{Pi{Rn{Pe {Rf{Po{Rr {PS{Rt{Pu{Rr{Pm{x~
+Desc {RF{Pr{Ro{Pm {Ry{Po{Ru{Pr {Rl{Po{Rv{Pi{Rn{Pg {Rf{Pi{Ra{Pn{Rc{Pe{R, {PS{Ra{Pp{Rp{Ph{Ri{Pr{Re{x~
+Mat love~
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 4471
+Nest 0
+Name enchant token liriel~
+ShD  {gA {Vlevel {Y100 {Be{Cn{Bc{Ch{Ba{Cn{Bt {gfrom {WL{Ci{Br{Ci{Te{Wl{x~
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 13011
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#B
+Vnum 11793
+Nest 0
+ExtF 1793
+Wear -1
+Cost 55000
+End
+
+#B
+Vnum 11791
+Nest 0
+ExtF 259
+Wear -1
+Cost 55000
+End
+
+#B
+Vnum 10112
+Nest 0
+Wear -1
+Cost 500
+End
+
+#B
+Vnum 8832
+Nest 0
+ExtF 65
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11748
+Nest 0
+ExtF 17
+Cond 67
+Wear -1
+Cost 15000
+End
+
+#B
+Vnum 10245
+Nest 0
+Name box chocolate~
+ShD  {RB{Po{Rx {Po{Rf {PV{Ra{Pl{Re{Pn{Rt{Pi{Rn{Pe{Rs {PD{Ra{Py {bChocolate{x~
+Desc {RI{Pt{Rs {Pa {Rb{Po{Rx {Po{Rf {Pe{Rx{Pp{Re{Pn{Rs{Pi{Rv{Pe {Ra{Pn{Rd {Pv{Re{Pr{Ry {Pt{Ra{Ps{Rt{Py {bChocolates{x~
+Mat chocolate~
+Wt   0
+Wear -1
+Lev  0
+Cost 10
+End
+
+#B
+Vnum 1004
+Nest 0
+Name polearm Saturn's Glaive of Silence~
+ShD  {MS{Va{Mt{Vu{Mr{Vn{M'{Vs {cG{gl{ca{gi{cv{ge of {MS{Vi{Ml{Ve{Mn{Vc{Me{x~
+Desc A polearm is here, forged by Malenna's craftsmanship.~
+Mat steel~
+Wt   69
+Wear -1
+Lev  73
+Cost 12
+Val  8 6 16 13 0
+ExDe polearm Saturn's Glaive of Silence~ It is a marvellous polearm, crafted from the finest steel around.
+It was created in the Month of Peace by an experienced thief
+named Malenna.  Legend holds that this seraph was a great weaponsmith.
+~
+End
+
+#B
+Vnum 1004
+Nest 0
+Name polearm An Engraved Javelin~
+ShD  An {ME{Vn{Mg{Vr{Ma{Vv{Me{Vd {BJ{Na{Bv{Ne{Bl{Ni{Bn{x~
+Desc A polearm is here, forged by Malenna's craftsmanship.~
+Mat diamond~
+ExtF 32
+Wt   71
+Wear -1
+Lev  73
+Cost 14
+Val  8 4 18 13 0
+ExDe polearm An Engraved Javelin~ It is a marvellous polearm, crafted from the finest diamond around.
+It was created in the Month of Peace by an experienced thief
+named Malenna.  Legend holds that this seraph was a great weaponsmith.
+~
+End
+
+#B
+Vnum 1207
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 4471
+Nest 0
+Name token train liriel~
+ShD  {CA {Vt{Mo{Wk{Ve{Mn {Wfor {Pa {YT{WR{YA{WI{YN {Bfrom {WL{Ci{Br{Ci{Te{Wl{x~
+Desc {CA {Vt{Mo{Wk{Ve{Mn {Wfor {Pa {YT{WR{YA{WI{YN {Bfrom {WL{Ci{Br{Ci{Te{Wl{W lies here ...{G GRAB IT!{x~
+Mat {bmud{x~
+Wear -1
+Cost 3500
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
+~
+ExDe paw~ A very small, and unmistakeably feline, paw print.
+~
+ExDe print~ A very small, and unmistakeably feline, paw print.
+~
+End
+
+#B
+Vnum 3202
+Nest 0
+Wear -1
+Cost 30
+End
+
+#B
+Vnum 7502
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 10151
+Nest 1
+Wear -1
+Cost 3300
+End
+
+#B
+Vnum 3208
+Nest 1
+Cond 95
+Wear -1
+Cost 90
+End
+
+#B
+Vnum 3208
+Nest 1
+Cond 85
+Wear -1
+Cost 90
+End
+
+#B
+Vnum 3207
+Nest 1
+Cond 71
+Wear -1
+Cost 80
+End
+
+#B
+Vnum 10100
+Nest 1
+Wear -1
+Cost 32000
+End
+
+#B
+Vnum 10121
+Nest 1
+ExtF 16778307
+Cond 93
+Wear -1
+Lev  91
+Cost 21
+ExDe owned by~ Sturm
+~
+End
+
+#B
+Vnum 11792
+Nest 1
+ExtF 259
+Wear -1
+Lev  91
+Cost 55000
+ExDe owned by~ Sturm
+~
+End
+
+#B
+Vnum 13005
+Nest 1
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 5409
+Nest 1
+ExtF 67
+Cond 92
+Wear -1
+Cost 100000
+End
+
+#B
+Vnum 13008
+Nest 1
+Wear -1
+Cost 550
+End
+
+#B
+Vnum 11709
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 10115
+Nest 1
+Wear -1
+Cost 50
+End
+
+#B
+Vnum 20026
+Nest 1
+Wear -1
+Cost 90000
+End
+
+#B
+Vnum 11709
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 10107
+Nest 1
+Cond 99
+Wear -1
+Cost 28000
+End
+
+#B
+Vnum 11751
+Enchanted
+Nest 1
+ExtF 19
+Cond 90
+Wear -1
+Cost 0
+Affc 'acid breath'   0  47  -1   2  17          0 1
+Affc 'reserved'   1  91  -1   4   1          0 1
+Affc 'reserved'   1  91  -1   4   5          0 1
+Affc 'reserved'   1  91  -1   1   6          0 1
+Affc 'reserved'   1  91  -1  20   9          0 1
+Affc 'reserved'   1  91  -1  85  12          0 1
+Affc 'reserved'   1  91  -1  85  13          0 1
+Affc 'reserved'   1  91  -1   6  18          0 1
+Affc 'reserved'   1  91  -1   7  19          0 1
+End
+
+#B
+Vnum 10101
+Nest 1
+Wear -1
+Cost 30000
+End
+
+#B
+Vnum 14043
+Nest 1
+Wear -1
+Cost 12000
+End
+
+#B
+Vnum 14042
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 8227
+Nest 1
+Wear -1
+Cost 7055
+End
+
+#B
+Vnum 13004
+Nest 1
+Wear -1
+Cost 3700
+End
+
+#B
+Vnum 14014
+Nest 1
+ExtF 17825857
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 14015
+Nest 1
+ExtF 1048657
+Wear -1
+Cost 15000
+End
+
+#END

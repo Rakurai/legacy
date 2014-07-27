@@ -1,0 +1,231 @@
+#PLAYER
+Name Nappa~
+Id   1010796647
+LogO 1013097942
+Vers 12
+Prom <{T%h/%H{xhp {H%m/%M{xma {C%v/%V{xmv {B%X{x Exp {R%q{x/{Y%j{x> ~
+Race human~
+Sex  1
+Cla  3
+Levl 8
+Plyd 2989
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 8543
+HMS  132 132 136 136 192 192
+Gold 22
+Silv 568
+Exp  8131
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr 0
+Pos  4
+Prac 3
+Trai 1
+Save  -2
+Alig  -1000
+Hit   5
+Dam   7
+ACs 80 78 78 94
+Atrib 19 15 15 15 17 15
+AtMod 1 3 4 1 1 2
+Pass inferno~
+Afk {B[{CFri Jan 11 19:33:31 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  Sayian Warrior, Vegita's Apprentice.~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Urza~
+Lsit stjh1-0263.nb.vibe.net~
+Ltim Fri Jan 11 18:54:12 2002
+~
+LSav Thu Feb 07 10:05:42 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  A
+HMSP 128 129 192
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'dispel magic'
+Sk 1 1 'fireproof'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 44 1 'sword'
+Sk 45 1 'bash'
+Sk 1 1 'dodge'
+Sk 75 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 75 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'repair'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'protective'
+Affc 'blood moon'   0  59  53   5  19          0 1
+Affc 'blood moon'   0  58  53   3  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Cond 95
+Wear 0
+Cost 0
+Val  0 0 139 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 86
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 3705
+Nest 0
+Cond 98
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear 17
+Cost 1140
+End
+
+#O
+Vnum 1804
+Enchanted
+Nest 0
+ExtF 262464
+Cond 99
+Wear 16
+Lev  11
+Cost 100
+Val  1 2 8 3 4
+Affc 'bless'   1  43  21  -1  20        256 1
+Affc 'enchant weapon'   1  50  -1   2  19          0 1
+Affc 'enchant weapon'   1  50  -1   2  18          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'reserved'   1  10  -1   1   3          0 1
+Affc 'blood blade'   5  44  78   0   0          4 1
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#END

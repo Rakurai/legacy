@@ -1,0 +1,8089 @@
+#AREA
+flaming.are~
+Land of Flaming Sword~
+{H{{ ALL } {MImmortals {TLand of Flaming Sword~
+12000 12199
+
+#MOBILES
+
+#12000
+old woman~
+an old woman~
+An old woman stands behind a desk.
+~
+A very old woman. She is the shopkeeper of this general store.
+~
+human~
+ABV 0 900 0
+23 0 1d1+999 1d1+99 1d8+20 beating
+-15 -15 -15 -15
+EFJ ABCD 0 0
+stand stand female 90000
+0 0 medium 0
+
+#12001
+Nevermore Keeper ~
+The Keeper of the Secret~
+Nevermore, Keeper of the Secret, stands guard at the entrance.
+~
+Nevermore, Keeper of the Secret, was the most powerful mage
+of all before the devastation.  He had at his beck and call
+hags, crones and harpies - numberless and endless, nourished
+on the filth of graveyards and suckled on the rotting flesh
+of battlefield corpses.  A war where sorcery is used is a
+terrible thing, and can have devastating results.  He was
+beaten back by Lotus, Lord of Evil, and although he was not
+destroyed, he was left here in this form as a reminder to all
+who would think they can overtake all and rule supreme.
+~
+unique~
+ABTZVUG 0 0 S
+93 12 1d1+9999 1d1+9999 10d10 +1 claw
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+>act_prog p saunters in.~
+  if isimmort($n)
+      worship $n
+  else
+    if ispc ($n)
+        bow $n
+    endif
+  endif
+~
+>act_prog p has arrived from below.~
+say {YGreetings, $n.{x
+say {YYou have found the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x.
+say {RSay {Ythe answer to my {Griddle{x {Yand I will tell you{x
+say {Ywhich cave to enter.{x
+say {G"What does man love more than life,{x
+say {Gfear more than death or mortal strife,{x
+say {Gwhat the poor have, the rich require,{x
+say {Gwhat the miser spends{x
+say {Gand the spendthrift save,{x
+say {Gand all men carry to their graves?"{x
+egrin
+peer $n
+~
+>speech_prog nothing~
+ say {YSplendid, $n. You have solved the riddle.{x
+ say {YEnter the {Cwest {Yentrance,{x
+ say {Ybut beware of the {cs{gh{ca{gd{co{gw{cs{x.
+ cackle
+~
+|
+
+#12002
+Black Gryphon~
+The {cBlack Gryphon{x~
+The {cBlack Gryphon{x, a mage-bred creature, is crouched here.
+~
+The {cBlack Gryphon{x is a magical creature, created by Ma'ar, the Mage of Silence.
+He is well-disciplined and intelligent. His gleaming {cebony feathers{x, majestic
+wingspan, and keen magesight are the fulfillment of his creator.  Watching this
+sinuous, graceful creature glide over the {GLand {Wof {PFlaming {WSword{x, you 
+instantly give him the respect he so well deserves.
+~
+unique~
+G H 0 S
+30 0 6d12+850 1d10+150 4d6+10 pierce
+-10 -9 -9 -8
+FK AHIJ 0 0
+stand stand male 0
+0 0 large 0
+
+#12003
+White Gryphon~
+The {WWhite Gryphon{x~
+The {WWhite Gryphon{x, a mage-bred creature, is crouched here.
+~
+The {WWhite Gryphon{x is a magical creature, created by Ma'ar, the Mage of Silence.
+She is well-disciplined and intelligent. Her gleaming {Wwhite feathers{x, majestic
+wingspan, and keen magesight are the fulfillment of her creator.  Watching this
+sinuous, graceful creature glide over the {GLand {Wof {PFlaming {WSword{x, you 
+instantly give her the respect she so well deserves.
+~
+unique~
+G H 0 S
+30 0 6d12+850 1d10+150 4d6+10 pierce
+-10 -9 -9 -8
+FK AHIJ 0 0
+stand stand female 0
+0 0 large 0
+
+#12004
+Silver Gryphon~
+The {gS{ci{gl{cv{ge{cr {WGryphon{x~
+The {gS{ci{gl{cv{ge{cr {WGryphon{x, a mage-bred creature, is crouched here.
+~
+The {gS{ci{gl{cv{ge{cr {WGryphon{x is a magical creature, created by Ma'ar, the Mage of Silence.
+He is well-disciplined and intelligent. His gleaming {gs{ci{gl{cv{ge{cr {Wfeathers{x, majestic
+wingspan, and keen magesight are the fulfillment of his creator.  Watching this
+sinuous, graceful creature glide over the {GLand {Wof {PFlaming {WSword{x, you 
+instantly give him the respect he so well deserves.
+~
+unique~
+G H 0 S
+30 0 6d12+850 1d10+150 4d6+10 pierce
+-10 -9 -9 -8
+FK AHIJ 0 0
+stand stand male 0
+0 0 large 0
+
+#0
+
+
+#OBJECTS
+#12000
+river water~
+a small {Criver{x~
+A small {Criver{x flows here.~
+~
+fountain O 0
+0 0 'water' 0 0
+0 0 0 G
+E
+river water~
+It is a small {Criver{x. The {Cwater{x looks clean and refreshing.
+~
+#12001
+key questkey~
+a key~
+A key lies here.~
+steel~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+E
+key~
+It is just an ordinary key that might fit into a doorlock.
+~
+#12002
+flowerpot pot questcontainer~
+a {bflowerpot{x~
+~
+pottery~
+container O 0
+300 0 0 300 100
+0 300 0 P
+E
+flowerpot pot~
+The {bflowerpot{x doesn't contain any flowers.
+~
+#12003
+big tree house treehouse questportal~
+a big {Gtree{x~
+~
+wood~
+portal O 0
+0 0 A 12044 0
+0 0 0 P
+E
+big tree house treehouse~
+It is a very big {Gtree{x. Looking closer, you see a {Gtree{bhouse{x higher up.
+~
+#12004
+big wooden chest questcontainer~
+a big wooden {bchest{x~
+A big wooden {bchest{x stands in the right corner of the room.~
+wood~
+container 0 A
+300 AC 0 300 100
+0 3000 0 P
+E
+big wooden chest~
+This is a typical wooden {bchest{x you can find in old {bf{Ya{Gr{Rm{xhouse. It looks
+heavy.
+~
+#12005
+small fountain~
+a small {Cfountain{x~
+A small {Cfountain{x stands here.~
+~
+fountain O 0
+0 0 'water' 0 0
+0 0 0 G
+E
+small fountain~
+It is a very small {Cfountain{x, from where the inhabitants of the {Rv{bi{gl{Rl{ba{gg{Re{x get
+their {Cwater{x.
+~
+#12006
+old wooden bed~
+an old wooden {Wb{ge{Wd{x~
+~
+wood~
+furniture 0 0
+1 10000 IL 130 130
+1 2000 9999 P
+E
+old wooden bed~
+It is very old and looks rather uncomfortable. Actually it might even break
+down when you try to lie on it.
+~
+#12007
+hole ladder questportal~
+a {Bhole{x in the floor, climbing down a {Yladder{x into the {Wc{ge{Wl{gl{Wa{gr{x~
+~
+wood~
+portal O 0
+0 0 A 12062 0
+0 0 0 P
+E
+hole ladder~
+There is a {Bhole{x in the floor. You notice a {Yladder{x leading down into the
+{Wc{ge{Wl{gl{Wa{gr{x of the abandoned {Wh{go{Wu{gs{We{x.
+~
+#12008
+bread loaf~
+a bread loaf~
+A loaf of bread lies in the dirt.~
+food~
+food 0 A
+20 40 0 0 0
+0 20 42 P
+
+#12009
+lantern~
+a {Ylantern{x~
+A {Ylantern{x has been left here.~
+glass~
+light 0 A
+0 0 250 0 0
+0 40 120 P
+
+#12010
+mouse hole questcontainer~
+a {Bmouse hole{x~
+~
+hole~
+container O 0
+300 0 0 300 100
+0 300 0 P
+E
+mouse hole rat~
+It is quite a big {Bmouse hole{x. Come to think of it, it could as well be
+the hole of a big field rat. Anyway, it is big enough to put your hands
+into if you want to test your luck not to getten bitten when doing so.
+~
+#12011
+old rusty key questkey~
+an old rusty key~
+An old rusty key lies here.~
+steel~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+E
+old rusty key~
+It is very old and very rusty. You need to be careful when using it
+to unlock a door... else it might break.
+~
+#12012
+big iron key questkey~
+a big iron key~
+A big iron key lies here.~
+iron~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+E
+big iron key~
+There is nothing special about this key. Nothing gives away to what
+lock it might fit.
+~
+#12013
+hole questcontainer~
+a hole in the floor~
+~
+hole~
+container O 0
+300 0 0 300 100
+0 300 0 P
+E
+hole~
+The hole in the floor could have been a place to hide small but
+valuable items.
+~
+#12014
+bottom secret drawer lid questcontainer~
+a secret drawer beneath the {bbottom{x of a {Bchest{x~
+~
+hole~
+container O 0
+300 AC 0 300 100
+0 300 0 P
+E
+bottom~
+While you DO admire the {bbottom{x of the empty {Bchest{x you recognize
+that it is the lid to a secret drawer. You might be able to open it.
+~
+E
+secret drawer~
+Beneath the {bbottom{x of the {Bchest{x there is a secret drawer.
+~
+E
+lid~
+The bottom of the chest is the lid to a secret drawer.
+~
+#12015
+winerack rack secret passage questportal~
+a {bwine rack{x~
+~
+wood~
+portal O 0
+0 0 A 12111 0
+0 0 0 P
+E
+winerack rack~
+The {bwine rack{x is almost empty. Looking more closely, you notice that
+you would be able to step through it into some {Bsecret passage{x that lies
+behind it.
+~
+E
+secret passage~
+In case you are curious as to where it might lead, you can enter it.
+~
+#12016
+hole wall questportal~
+a {Whole{x in the wall leading out of the prison~
+~
+hole~
+portal O 0
+0 0 A 12014 0
+0 0 0 P
+E
+hole wall~
+The {Whole{x must have been dug by former prisoners. They might have
+managed to escape from the tower through it.
+~
+#12017
+inlaid wardrobe questcontainer~
+an inlaid {Ywardrobe{x~
+~
+wood~
+container O 0
+300 AC 0 300 100
+0 300 0 P
+E
+inlaid wardrobe~
+It is a very big {Ywardrobe{x and a really nice piece of artwork!
+~
+#12018
+large chest chinese inlay work questcontainer~
+a large {Ychest{x with Chinese inlay work~
+~
+wood~
+container O 0
+300 ACD 12020 300 100
+0 300 0 P
+E
+large chest chinese inlay work~
+It is a beautiful {Ychest{x with inlays in many different colors.
+~
+#12019
+secret passage questportal~
+a {Bsecret passage{x~
+~
+hole~
+portal O 0
+0 0 A 12133 0
+0 0 0 P
+E
+secret passage~
+The {Bsecret passage{x behind the {bbookshelf{x leads into a secret chamber.
+~
+#12020
+small golden key questkey~
+a small golden {Ykey{x~
+A small golden {Ykey{x lies here.~
+gold~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+E
+small golden key~
+It is a tiny golden {Ykey{x.
+~
+#12021
+large wardrobe questcontainer~
+a large {bwardrobe{x~
+A large, well-built {bwardrobe{x with some engraving and decoration
+dominates the room.~
+wood~
+container O 0
+300 ACD 0 300 100
+0 300 0 P
+E
+wardrobe~
+It is a very practical piece of furniture but not at all drab.
+~
+#12022
+bed~
+a {Wbed{x~
+There is a {Wbed{x standing in one corner of the room.~
+wood~
+furniture O 0
+1 10000 IL 130 130
+1 2000 9999 P
+E
+bed~
+The {Wbed{x does not look very comfortable, but at least it is not
+as rotten as most of the other furniture in this tower. So if you want
+to, you could take a nap in it.
+~
+#12023
+small chest questcontainer~
+a small {bchest{x~
+~
+wood~
+container O 0
+300 AC 0 300 100
+0 300 0 P
+E
+small chest~
+It is a small wooden {bchest{x. There is nothing special about it.
+~
+#12024
+cot bed one~
+a cot~
+A cot stands here.~
+wood~
+furniture O A
+1 10000 IL 120 120
+1 4000 100 P
+E
+cot bed~
+The cot does not look comfortable at all.
+~
+#12025
+cot bed two questcontainer~
+a cot~
+A cot stands here.~
+wood~
+container O 0
+300 0 0 300 100
+0 300 0 P
+E
+cot bed~
+This cot is too rotten to sit or lie upon any more.
+In spite of its poor condition you get the feeling
+that it might be worth closer examination.
+~
+#12026
+piece paper~
+a piece of {Wpaper{x~
+A piece of {Wpaper{x lies here.~
+paper~
+trash 0 A
+0 0 0 0 0
+0 10 0 P
+E
+piece paper~
+You can not read the writing on this faded {Wpaper{x. The {Bink{x has
+bled severely. In one section you can barely make out the words
+"... {Bcondemned to the{x {RPIT{x!"
+~
+#12027
+huge treasure chest questcontainer~
+a huge treasure {Vc{Gh{Be{Cs{Pt{x~
+~
+wood~
+container O 0
+1000 AC 0 1000 100
+0 300 0 P
+E
+huge treasure chest~
+This is a very huge treasure {Vc{Gh{Be{Cs{Pt{x. It is made of wood and has
+a colorful painting of some {Pelves{x dancing in a {Gforest{x on its front part.
+~
+#12028
+racks questcontainer~
+a weapon rack~
+~
+wood~
+container O 0
+1000 A 0 1000 100
+0 300 0 P
+E
+racks~
+The weapon rack is broken and full of dust.
+~
+#12030
+down questportal~
+down~
+~
+energy~
+portal O 0
+0 0 A 12164 0
+0 0 0 P
+E
+down~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go down the Tunnel of Time.
+~
+#12031
+left questportal~
+left~
+~
+energy~
+portal O 0
+0 0 A 12160 0
+0 0 0 P
+E
+left~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go west.
+~
+#12032
+right questportal~
+right~
+~
+energy~
+portal O 0
+0 0 A 12170 0
+0 0 0 P
+E
+right~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go east.
+~
+#12033
+east questportal~
+east~
+~
+energy~
+portal O 0
+0 0 A 12171 0
+0 0 0 P
+E
+east~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go east.
+~
+#12034
+west questportal~
+west~
+~
+energy~
+portal O 0
+0 0 A 12161 0
+0 0 0 P
+E
+west~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go west.
+~
+#12035
+down questportal~
+down~
+~
+energy~
+portal O 0
+0 0 A 12165 0
+0 0 0 P
+E
+down~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go down.
+~
+#12036
+up questportal~
+up~
+~
+energy~
+portal O 0
+0 0 A 12159 0
+0 0 0 P
+E
+up~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go up.
+~
+#12037
+left questportal~
+left~
+~
+energy~
+portal O 0
+0 0 A 12166 0
+0 0 0 P
+E
+left~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go west.
+~
+#12038
+right questportal~
+right~
+~
+energy~
+portal O 0
+0 0 A 12167 0
+0 0 0 P
+E
+right~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go east.
+~
+#12039
+down questportal~
+down~
+~
+energy~
+portal O 0
+0 0 A 12168 0
+0 0 0 P
+E
+down~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go down.
+~
+#12040
+up questportal~
+up~
+~
+energy~
+portal O 0
+0 0 A 12164 0
+0 0 0 P
+E
+up~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go up.
+~
+#12041
+west wall questportal~
+west wall~
+~
+stone~
+portal O 0
+0 0 A 12163 0
+0 0 0 P
+E
+west wall~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go west.
+~
+#12042
+east wall questportal~
+east wall~
+~
+stone~
+portal O 0
+0 0 A 12169 0
+0 0 0 P
+E
+east wall~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go east.
+~
+#12043
+down questportal~
+down~
+~
+energy~
+portal O 0
+0 0 A 12174 0
+0 0 0 P
+E
+down~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go down.
+~
+#12044
+up questportal~
+up~
+~
+energy~
+portal O 0
+0 0 A 12165 0
+0 0 0 P
+E
+up~
+The {cS{gh{ca{gd{co{gw{cs{x open, allowing you to go up.
+~
+#12045
+silent dark questcontainer~
+the silent dark~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+silent dark~
+This is a great place to hide something: After all, it is dark.
+~
+#12046
+shapes twisting questcontainer~
+shapes twisting~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+shapes twisting~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12047
+pleasant visions questcontainer~
+pleasant visions~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+pleasant visions~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12048
+bed of tragedy questcontainer~
+bed of tragedy~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+bed of tragedy~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12049
+sound of footsteps questcontainer~
+sound of footsteps~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+sound of footsteps~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12050
+harmless shadow questcontainer~
+harmless shadow~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+harmless shadow~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12051
+devastation questcontainer~
+devastation~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+devastation~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12052
+teaching materials questcontainer~
+teaching materials~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+teaching materials~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12053
+moonlight dances questcontainer~
+moonlight dances~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+moonlight dances~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12054
+playground questcontainer~
+a playground~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+a playground~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12055
+rock basins questcontainer~
+shallow rock basins~
+~
+stone~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+rock basins~
+This is a great place to hide something, although it may get wet.
+~
+
+#12056
+shadows within questcontainer~
+shadows within~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+shadows within~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12057
+unseen evil questcontainer~
+the unseen evil~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+unseen evil~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12058
+humming sound questcontainer~
+a humming sound~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+hummming sound~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12059
+whirling maelstrom questcontainer~
+whirling maelstrom~
+~
+nothingness~
+container 0 0
+500 MOY 0 500 100
+0 500 0 P
+E
+whirling maelstrom~
+This is a great place to hide something: After all, it is dark.
+~
+
+#12060
+tiny stream~
+a tiny stream~
+A tiny stream of tears flows here into the {Cpool{x below.~
+tears~
+fountain 0 0
+100 100 water 0 0
+0 0 0 P
+E
+tiny stream~
+The tears of anguish and despair mingle with the tears of joy.
+~
+
+#12061
+racks questcontainer~
+a weapon rack~
+~
+wood~
+container O 0
+1000 A 0 1000 100
+0 300 0 P
+E
+racks~
+The weapon rack is broken and full of dust.
+~
+#12062
+racks questcontainer~
+a weapon rack~
+~
+wood~
+container O 0
+1000 A 0 1000 100
+0 300 0 P
+E
+racks~
+The weapon rack is broken and full of dust.
+~
+#12063
+cot bed three~
+a cot~
+A cot stands here.~
+wood~
+furniture O A
+1 10000 IL 120 120
+1 4000 100 P
+E
+cot bed~
+The cot does not look comfortable at all.
+~
+#12064
+cot bed four~
+a cot~
+A cot stands here.~
+wood~
+furniture O A
+1 10000 IL 120 120
+1 4000 100 P
+E
+cot bed~
+The cot does not look comfortable at all.
+~
+#12065
+cot bed five~
+a cot~
+A cot stands here.~
+wood~
+furniture O A
+1 10000 IL 120 120
+1 4000 100 P
+E
+cot bed~
+The cot does not look comfortable at all.
+~
+#12066
+cot bed six~
+a cot~
+A cot stands here.~
+wood~
+furniture O A
+1 10000 IL 120 120
+1 4000 100 P
+E
+cot bed~
+The cot does not look comfortable at all.
+~
+#12067
+cot bed seven~
+a cot~
+A cot stands here.~
+wood~
+furniture O A
+1 10000 IL 120 120
+1 4000 100 P
+E
+cot bed~
+The cot does not look comfortable at all.
+~
+#12068
+cot bed eight~
+a cot~
+A cot stands here.~
+wood~
+furniture O A
+1 10000 IL 120 120
+1 4000 100 P
+E
+cot bed~
+The cot does not look comfortable at all.
+~
+#12069
+fox hole foxhole questcontainer~
+a {bfox hole{x~
+~
+nothingness~
+container O 0
+200 0 0 200 100
+0 300 0 P
+E
+fox hole foxhole~
+This is an old {bfox hole{x under one of the {Gtrees{x. The fox seems to be
+elswhere at the moment, though.
+~
+#12070
+rabbit hole rabbithole questcontainer~
+a {brabbit hole{x~
+~
+nothingness~
+container O 0
+100 0 0 100 100
+0 300 0 P
+E
+rabbit hole rabbithole~
+This is a small {brabbit hole{x under one of the {Gtrees{x. It is
+just large enough to put your hand in in case you want to try to catch
+the {brabbit{x.
+~
+#12071
+small chest questcontainer~
+a small chest~
+~
+wood~
+container O 0
+300 A 0 300 100
+0 300 0 P
+E
+small chest~
+It is a small chest half buried under the {Gmoss{x. It is made of wood
+and looks rather old and might have been lying around here for years.
+~
+#12072
+broken sword~
+a broken sword~
+A broken sword lies here.~
+metal~
+trash 0 AO
+0 0 0 0 0
+0 10 0 P
+E
+broken sword~
+These are the remains of an old rusty sword. It is broken and of no
+use in a battle any more.
+~
+#12073
+broken dagger~
+a broken dagger~
+A broken dagger lies here.~
+metal~
+trash 0 AO
+0 0 0 0 0
+0 10 0 P
+E
+broken dagger~
+These are the remains of an old rusty dagger. It is broken and of no
+use in a battle any more.
+~
+#12074
+broken axe~
+a broken axe~
+A broken axe lies here.~
+metal~
+trash 0 AO
+0 0 0 0 0
+0 10 0 P
+E
+broken axe~
+These are the remains of an old rusty axe. It is broken and of no
+use in a battle any more.
+~
+#12075
+magical portal questportal~
+a {Cmagical portal{x~
+~
+energy~
+portal O 0
+0 0 A 12170 0
+0 0 0 P
+E
+magical portal shadows~
+The magical portal flimmers before your eyes. There seem to be
+some {cS{gh{ca{gd{co{gw{cs{x behind it. You can't tell for sure, though.
+~
+#12076
+altar opening questportal~
+an {CAltar{x and find yourself transported by magic power~
+~
+energy~
+portal O 0
+0 0 A 12105 0
+0 0 0 P
+E
+altar opening backside~
+This huge {Caltar{x has ancient {Csymbols{x engraved into it. Looking
+closer, you notice a small opening on the back side that you are able
+to enter. You have no idea where it might lead to, though. Given the
+uneasiness you feel all the time in this room it might be a bad move
+to go there.
+~
+#12077
+little drawer questcontainer~
+a little drawer beneath the table-top~
+~
+wood~
+container O 0
+200 AC 0 200 100
+0 300 0 P
+E
+little drawer~
+There is a little drawer beneath the table-top.
+~
+#12078
+bed~
+a bed~
+~
+wood~
+furniture O A
+1 10000 IL 130 130
+1 4000 100 P
+E
+bed~
+You see a small but quite comfortable looking bed.
+~
+#12079
+wardrobe questportal~
+a wardrobe and find yourself transported by magic power~
+~
+wood~
+portal O 0
+0 0 A 12114 0
+0 0 0 P
+E
+wardrobe~
+From outside, it is just a normal wooden wardrobe. Looking inside, you
+notice that this can't be just a normal wardrobe. There is something
+magical about it. It is large enough for you to enter it.
+~
+#12080
+hole questportal~
+a hole in the ceiling~
+~
+nothingness~
+portal O 0
+0 0 A 12036 0
+0 0 0 P
+E
+hole~
+There is a small {Whole{x in the {Wceiling{x. It is just large enough
+for you to squeeze through it. If you are not too fat, that is.
+~
+#12081
+hole questcontainer~
+a hole in the sand~
+~
+nothingness~
+container O 0
+100 0 0 100 100
+0 300 0 P
+E
+hole~
+There is a little hole in the sand. It might have been dug by a
+small animal.
+~
+#12082
+water-lily lily questcontainer~
+a beautiful {Wwater-lily{x~
+~
+flower~
+container O 0
+50 0 0 50 100
+0 300 0 P
+E
+water-lily lily~
+A beautiful {Wwater-lily{x grows here.
+~
+#12083
+hidden tunnel entrance questportal~
+an entrance to a hidden tunnel~
+~
+nothingness~
+portal O 0
+0 0 A 12164 0
+0 0 0 P
+E
+hidden tunnel entrance~
+Beyond those big stones there is an entrance to a hidden tunnel.
+It is dark inside and you have no clue as to where it might lead.
+~
+#12084
+seaweed questcontainer~
+some {Gseaweed{x~
+~
+flower~
+container O 0
+50 0 0 50 100
+0 300 0 P
+E
+seaweed~
+Some {Gseaweed{x grows here.
+~
+#12085
+green bush questcontainer~
+a green {Gbush{x~
+~
+flower~
+container O 0
+50 0 0 50 100
+0 300 0 P
+E
+green bush~
+A green {Gbush{x grows here. You've never seen such a plant ever before
+so you don't know what kind of bush it might be.
+~
+#12086
+light questportal~
+light~
+~
+energy~
+portal O 0
+0 0 A 12158 0
+0 0 0 P
+E
+light~
+The {Ylight{x draws you.
+~
+#12087
+rabbit hole rabbithole questcontainer~
+a {brabbit hole{x~
+~
+nothingness~
+container O 0
+100 0 0 100 100
+0 300 0 P
+E
+rabbit hole rabbithole~
+There is a small {brabbit hole{x hidden under the {Ggrass{x.
+~
+#12088
+small ditch questcontainer~
+a small {bd{Gi{gt{Yc{bh{x~
+~
+nothingness~
+container O 0
+100 0 0 100 100
+0 300 0 P
+E
+small ditch~
+The {bd{Gi{gt{Yc{bh{x might once have hold water but know it is dried out.
+It is full of decayed {bgrass{x and {bflowers{x and some rubbish people
+have thrown in.
+~
+#12089
+hollowed out tree questcontainer~
+a hollowed out {btree{x~
+~
+wood~
+container O 0
+100 0 0 100 100
+0 900 0 P
+E
+hollowed out tree~
+It must have been years ago that this {btree{x was struck by {Ylightning{x.
+The long dead {bwood{x is covered by {Gmoss{x and there are only very few
+branches left. The wide hole in its {btrunk{x would allow a very small
+child to enter but isn't quite big enough to let pass somebody of
+your size.
+~
+#12090
+mole burrows questcontainer~
+a {bmole burrows{x~
+~
+nothingness~
+container O 0
+100 0 0 100 100
+0 300 0 P
+E
+mole burrows~
+There is a {bmole burrows{x starting under a {bmole hill{x here.
+~
+#12091
+haystack stack questcontainer~
+a {Yhaystack{x~
+~
+hay~
+container O 0
+100 0 0 100 100
+0 300 0 P
+E
+bale haystack~
+A large {Yhaystack{x rises in a corner of the {Yb{ba{Yr{bn{x. You are not looking
+for a needle in a {Yhaystack{x, are you?
+~
+#12092
+massive stove questcontainer~
+a massive {bstove{x~
+~
+iron~
+container O 0
+100 0 0 100 100
+0 500 0 P
+E
+massive stove~
+There is a massive {bstove{x in the corner for heating and cooking. It is
+still hot to the touch.
+~
+#12093
+simple wooden chest questcontainer~
+a simple wooden {bchest{x~
+~
+wood~
+container O 0
+100 0 0 100 100
+0 500 0 P
+E
+simple wooden chest~
+It is a simple wooden {bchest{x. Children might use it as a seat and
+for hiding their little valuables in.
+~
+#12094
+large wooden trough questcontainer~
+a large wooden trough~
+~
+wood~
+container O 0
+100 0 0 100 100
+0 900 0 P
+E
+large wooden trough~
+The trough is old and partly broken down. Nobody would want to feed
+animals here any more.
+~
+#12095
+old rusty bucket questcontainer~
+an old rusty bucket~
+~
+steel~
+container O 0
+100 0 0 100 100
+0 300 0 P
+E
+old rusty bucket~
+The bucket is old and rusty. There are several holes in its bottom.
+You had better not try to carry anything in it or else you might lose it.
+~
+#12096
+flickering light magical portal questportal~
+a {Yf{Wl{Yi{Wc{Yk{We{Yr{Wi{Yn{Wg {Yl{Wi{Yg{Wh{Yt{x~
+~
+nothingness~
+portal O 0
+0 0 A 12170 0
+0 0 0 P
+E
+flickering light magical portal~
+The {Yl{Wi{Yg{Wh{Yt{x flickers constantly. It is definitely a {Cmagical portal{x.
+As to where it might lead... no clue.
+~
+
+#0
+
+
+#ROOMS
+#12000
+A large {Yclearing{x~
+You are standing on a large {Yclearing{x in the center of a deep, dark {Gforest{x.
+Looking around, you realize that entering that {Gforest{x could easily get you lost.
+~
+0 0 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12008
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12013
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12017
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12012
+E
+forest~
+The clearing is surrounded by a dense {Gforest{x. You might want to think
+twice before you dare to enter it.
+~
+E
+clearing grass flowers~
+This {Yclearing{x is a beautiful place. Green {Ggrass{x invites you to lie down
+and take a nap. The air is filled with the smell of all the flowers
+growing here.
+~
+S
+#12001
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D1
+You can't see more than a dense {Gforest{x. You think you hear the faint sounds
+of people singing, but you are not sure.
+~
+~
+0 -1 12002
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12006
+D3
+You can't see more than a dense {Gforest{x. It looks like you would not be
+able to move very far in that direction.
+~
+~
+0 -1 12001
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Certainly not
+a way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12002
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+Wow! You are in luck! There is a path leading out of the {Gforest{x into
+a {Gv{ba{Gl{bl{Ge{by{x!
+~
+~
+0 -1 12025
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12003
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12007
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12001
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Certainly not
+a way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12003
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D1
+You can't see anything but a dense {Gforest{x. You hear the faint sound of
+{Cwater{x bubbling.
+~
+~
+0 -1 12004
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12008
+D3
+You can't see more than a dense {Gforest{x. You think you here the faint sounds
+of people singing, but you are not sure.
+~
+~
+0 -1 12002
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12004
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without close examination.
+It is hard to acclimatize yourself to the environs and navigate
+the {Gforest{x.
+~
+0 A 3
+D0
+Wow! You are in luck! There is a path leading out of the {Gforest{x to a {Clake{x.
+~
+~
+0 -1 12026
+D1
+You can't see more than a dense {Gforest{x. There seems to be a strange smell in
+the air.
+~
+~
+0 -1 12005
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12009
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12003
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12005
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D1
+You make out the entrance to a high tower in that directions. Sure, it's
+tempting to leave this {Gforest{x, but on the other hand, this building
+does not look very inviting!
+~
+~
+0 -1 12027
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12010
+D3
+You can't see more than a dense {Gforest{x. You hear the faint sound of {Cwater{x
+bubbling.
+~
+~
+0 -1 12004
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12006
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12001
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12007
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12011
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12007
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x. You think you hear the faint
+sounds of people singing, but you are not sure.
+~
+~
+0 -1 12002
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12008
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12012
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12006
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... and suddenly you discover a small chest. It is half buried
+under the {Gmoss{x but maybe it holds something important. On the other hand
+it could just be empty as well.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+E
+moss~
+Half buried under the moss you discover a small chest.
+~
+S
+#12008
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12003
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12009
+D2
+Some light shimmers through the trees.
+~
+~
+0 -1 12000
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12007
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12009
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x. You hear the faint sound of {Cwater{x
+bubbling.
+~
+~
+0 -1 12004
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12010
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12013
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12008
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12010
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x. There seems to be a strange smell in
+the air.
+~
+~
+0 -1 12005
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12014
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12009
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12011
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12006
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12012
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12015
+D3
+Wow! You are in luck! There is a path leading out of the {Gforest{x up a hill.
+~
+~
+0 -1 12030
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12012
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12007
+D1
+Some light shimmers through the trees.
+~
+~
+0 -1 12000
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12016
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12011
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12013
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12009
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12014
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12018
+D3
+Some light shimmers through the trees.
+~
+~
+0 -1 12000
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12014
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12010
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12019
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12013
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but the only thing you find is a {bfox hole{x beyond one of the
+{Gtrees{x.
+~
+E
+trees~
+Beyond one of the trees you see a {bfox hole{x.
+~
+S
+#12015
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12011
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12016
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12020
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but the only thing you see is a little rabbit hole.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12016
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12012
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12017
+D2
+You can't see more than a dense {Gforest{x. The path seems to lead upwards
+in that direction.
+~
+~
+0 -1 12021
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12015
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12017
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+Some light shimmers through the trees.
+~
+~
+0 -1 12000
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12018
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12022
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12016
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12018
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12013
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12019
+D2
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12023
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12017
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12019
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12014
+D2
+You can't see more than a dense {Gforest{x. There seems to come fresh air from
+that direction.
+~
+~
+0 -1 12024
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12018
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12020
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12015
+D1
+You can't see more than a dense {Gforest{x. The path seems to lead upwards
+in that direction.
+~
+~
+0 -1 12021
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12021
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12016
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12022
+D2
+Wow! You are in luck! There is a path leading out of the {Gforest{x up to
+some foothills.
+~
+~
+0 -1 12029
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12020
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12022
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12017
+D1
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12023
+D3
+You can't see more than a dense {Gforest{x. The path seems to lead upwards
+in that direction.
+~
+~
+0 -1 12021
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12023
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12018
+D1
+You can't see more than a dense {Gforest{x. There seems to come fresh air from
+that direction.
+~
+~
+0 -1 12024
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12022
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12024
+The deep, dark {Gforest{x~
+The mystical {Gforest{x seems to close around you as you move. The dim
+surroundings make it difficult to see anything without a close
+examination. It is hard to acclimatize yourself to the environs and
+navigate the {Gforest{x.
+~
+0 A 3
+D0
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12019
+D2
+Wow! You are in luck! There is a path leading out of the {Gforest{x up to
+rocky hill.
+~
+~
+0 -1 12028
+D3
+You can't see more than a dense {Gforest{x.
+~
+~
+0 -1 12023
+E
+forest surroundings environs~
+The {Gforest{x surrounding you is dense and dark. It is hard to find a way
+between all those {Gtrees{x and even harder to see anything else. You look
+and look... but no, you can't find anything of interest here. Less a
+way out of this mess.
+~
+E
+trees~
+You can't see the {Gforest{x for the {Gtrees{x.
+~
+S
+#12025
+Path through a {Gv{ba{Gl{bl{Ge{by{x~
+You made it out of the deep dark {Gforest{x and are now standing on a path
+through a {Gv{ba{Gl{bl{Ge{by{x. Around you there is {Gmeadow{x, to the far north you can
+make out a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+0 0 2
+D0
+To the north the path continues.
+~
+~
+0 -1 12033
+D1
+To the east lies a {Gmeadow{x.
+~
+~
+0 -1 12035
+D2
+To the south lies the deep dark {Gforest{x.
+~
+~
+0 -1 12002
+D3
+To the west lies a {Gmeadow{x.
+~
+~
+0 -1 12031
+E
+deep dark forest~
+The deep dark {Gforest{x lies to the south.
+~
+E
+path~
+The path continues northwards leading to a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+E
+meadow~
+There is a large {Gmeadow{x surrounding the path.
+~
+E
+small village~
+To the far north you can make out a small {Rv{bi{gl{Rl{ba{gg{Re{x. You would need to get
+closer to see details, though.
+~
+S
+#12026
+At the {Clake{x shore~
+You made it out of the deep dark {Gforest{x and are now standing on a
+{Clake{x shore. The {Clake{x looks beautiful and calm, but it is surrounded
+by a deep dark {Gforest{x, which gives the whole place a feeling of
+uneasiness and danger.
+~
+0 0 2
+D0
+To the north lies a {Clake{x.
+~
+~
+0 -1 12086
+D1
+To the east the {Clake{x shore continues.
+~
+~
+0 -1 12083
+D2
+To the south lies the deep dark {Gforest{x.
+~
+~
+0 -1 12004
+D3
+To the west the {Clake{x shore continues.
+~
+~
+0 -1 12082
+E
+lake shore~
+You are standing on a {Clake{x shore.
+The {Clake{x looks beautiful and calm.
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12027
+Entrance Hall of the {WAbandoned Tower{x~
+You are now standing in the entrance hall of an {WAbandoned Tower{x.
+The building is tall, dark, old, wet and a terrible rotting smell
+emanates from it. It looks as if it might break down any minute.
+~
+0 D 0
+D0
+To the north lies an armory.
+~
+~
+0 -1 12106
+D1
+To the east lies a mess hall.
+~
+~
+0 -1 12108
+D2
+To the south lies an empty room.
+~
+~
+0 -1 12107
+D3
+To the west lies the deep dark {Gforest{x.
+~
+~
+0 -1 12005
+D4
+There is a staircase leading upwards.
+~
+~
+0 -1 12115
+D5
+A staircase leads down.
+~
+~
+0 -1 12109
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+entrance hall room~
+You are now standing in the entrance hall of an {WAbandoned Tower{x.
+It is empty. The only thing you see are the walls of the tower, which are
+wet to the touch.
+~
+S
+#12028
+On a rocky hill~
+You have made it out of the deep dark {Gforest{x and are now standing on
+a rocky hill.
+~
+0 0 5
+D0
+To the north lies the deep dark {Gforest{x.
+~
+~
+0 -1 12024
+D2
+To the south lies a {Yclearing{x.
+~
+~
+0 -1 12174
+S
+#12029
+Path through the foothills~
+You made it out of the deep dark {Gforest{x and are now standing on a
+path through some foothills.
+~
+0 0 5
+D0
+To the north lies the deep dark {Gforest{x.
+~
+~
+0 -1 12021
+D2
+To the south lies a {Yclearing{x.
+~
+~
+0 -1 12142
+S
+#12030
+Path up a hill~
+You made it out of the deep dark {Gforest{x and are now standing on a
+path leading up a hill. On top of the hill you can see an old castle.
+The way up used to lead over a bridge which has recently fallen down.
+It looks like work is in progress to rebuild the bridge, but for the
+moment your only means of reaching the castle is, alas, not available.
+~
+0 0 2
+D1
+To the east lies the deep dark {Gforest{x.
+~
+~
+0 -1 12011
+E
+bridge~
+The bridge leading up to the castle has fallen down and is not passable.
+~
+E
+castle hill top way path~
+Peering into the distance, you see a castle a ways up the hill. The path
+leads over a bridge which has fallen down, so you cannot proceed there.
+~
+E
+forest~
+The {Gforest{x lies to the east.
+~
+S
+#12031
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can just make out a small {Rv{bi{gl{Rl{ba{gg{Re{x
+while a deep, dark {Gforest{x looms to the south.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12032
+D1
+To the east lies a path through the {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12025
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12031
+D3
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12031
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+A small path runs through the {Gmeadow{x to the east of where you
+stand.
+~
+S
+#12032
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can just make out a small {Rv{bi{gl{Rl{ba{gg{Re{x
+while a deep, dark {Gforest{x looms to the south.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12037
+D1
+To the east lies a path through the {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12033
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12031
+D3
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12032
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+A small path runs through the {Gmeadow{x to the east of where you
+stand.
+~
+S
+#12033
+Path through a {Gv{ba{Gl{bl{Ge{by{x~
+You are standing on a path through a {Gv{ba{Gl{bl{Ge{by{x. Around you there is {Gmeadow{x,
+to the far north you can make out a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+0 0 2
+D0
+To the north lies a {Gmeadow{x.
+~
+~
+0 -1 12037
+D1
+To the east the path through the {Gv{ba{Gl{bl{Ge{by{x continues.
+~
+~
+0 -1 12034
+D2
+To the south the path through the {Gv{ba{Gl{bl{Ge{by{x continues.
+~
+~
+0 -1 12025
+D3
+To the west lies a {Gmeadow{x.
+~
+~
+0 -1 12032
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+This small, dusty path runs roughly south and east. To the east, it
+bends to approach a {Rv{bi{gl{Rl{ba{gg{Re{x to the north; to the south, a chillingly
+dark {Gforest{x threatens.
+~
+S
+#12034
+Path through a {Gv{ba{Gl{bl{Ge{by{x~
+You are standing on a path through a {Gv{ba{Gl{bl{Ge{by{x. Around you there is {Gmeadow{x,
+to the far north you can make out a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+0 0 2
+D0
+To the north the path through the {Gv{ba{Gl{bl{Ge{by{x continues.
+~
+~
+0 -1 12038
+D1
+To the east lies a {Gmeadow{x.
+~
+~
+0 -1 12036
+D2
+To the south lies a {Gmeadow{x.
+~
+~
+0 -1 12035
+D3
+To the west the path through the {Gv{ba{Gl{bl{Ge{by{x continues.
+~
+~
+0 -1 12033
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+This small, dusty path runs roughly north and west. To the west, it
+bends to approach a deep dark {Gforest{x to the south. Far to the north
+you think you see a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+S
+#12035
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can just make out a small {Rv{bi{gl{Rl{ba{gg{Re{x
+while a deep, dark {Gforest{x looms to the south.
+~
+0 0 2
+D0
+To the north lies a path through the {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12034
+D1
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12036
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12035
+D3
+To the west lies a path through the {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12025
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+A small path runs through the {Gmeadow{x to the north and west of where you
+stand.
+~
+S
+#12036
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can just make out a small {Rv{bi{gl{Rl{ba{gg{Re{x
+while a deep, dark {Gforest{x looms to the south. Looking down, you notice
+a small rabbit hole hidden beneath the grass.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12039
+D1
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12036
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12035
+D3
+To the west lies a path through the {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12034
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+A small path runs through the {Gmeadow{x to the west of where you stand.
+~
+S
+#12037
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can just make out a small {Rv{bi{gl{Rl{ba{gg{Re{x
+while a deep, dark {Gforest{x looms to the south.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12040
+D1
+To the east lies a path through the {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12038
+D2
+To the south lies a path through the {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12033
+D3
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12032
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+A small path runs through the {Gmeadow{x to the east and south of where
+you stand.
+~
+S
+#12038
+Path through a {Gv{ba{Gl{bl{Ge{by{x~
+You are standing on a path through a {Gv{ba{Gl{bl{Ge{by{x. Around you there is {Gmeadow{x,
+to the far north you can make out a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+0 0 2
+D0
+To the north the path through the {Gv{ba{Gl{bl{Ge{by{x continues.
+~
+~
+0 -1 12041
+D1
+To the east lies a {Gmeadow{x.
+~
+~
+0 -1 12039
+D2
+To the south the path through the {Gv{ba{Gl{bl{Ge{by{x continues.
+~
+~
+0 -1 12034
+D3
+To the west lies a {Gmeadow{x.
+~
+~
+0 -1 12037
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+This small, dusty path runs roughly north and west. To the north, it
+leads into a small {Rv{bi{gl{Rl{ba{gg{Re{x; far to the south, a deep {Gforest{x darkens
+the horizon.
+~
+S
+#12039
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can just make out a small {Rv{bi{gl{Rl{ba{gg{Re{x
+while a deep, dark {Gforest{x looms to the south.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12042
+D1
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12042
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12036
+D3
+To the west lies a path through the {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12038
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+A small path runs through the {Gmeadow{x to the west of where you stand.
+~
+S
+#12040
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. The {Gmeadow{x stretches to the north west and
+south. To the east lies a small path. There is a {bhallowed out tree{x
+standing here.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12052
+D1
+To the east lies a path through the {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12041
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12037
+D3
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12052
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+A small path runs through the {Gmeadow{x to the east of where you stand.
+~
+S
+#12041
+Path through a {Gv{ba{Gl{bl{Ge{by{x~
+You are standing on a path through a {Gv{ba{Gl{bl{Ge{by{x. Around you there is {Gmeadow{x,
+to the far north you can make out a small {Rv{bi{gl{Rl{ba{gg{Re{x. Eastwards in the {Gmeadow{x
+you see a big {Gtree{x. On the left side of the path you notice a small
+{bd{Gi{gt{Yc{bh{x, coming from the north and dead ending here.
+~
+0 0 2
+D0
+To the north the path through the {Gv{ba{Gl{bl{Ge{by{x continues.
+~
+~
+0 -1 12053
+D1
+To the east lies a {Gmeadow{x.
+~
+~
+0 -1 12042
+D2
+To the south the path through the {Gv{ba{Gl{bl{Ge{by{x continues.
+~
+~
+0 -1 12038
+D3
+To the west lies a {Gmeadow{x.
+~
+~
+0 -1 12040
+E
+tree~
+A tremendous old {Gtree{x grows out of the {Gmeadow{x to your east. Must be an
+oak {Gtree{x, you ponder. Yes, definitely a big {Gtree{x.
+~
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+This small, dusty path runs roughly north and south. To the north, it
+leads to a small road entering a small {Rv{bi{gl{Rl{ba{gg{Re{x; to the south, it seems to
+continue indefinitely.
+~
+S
+#12042
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can just make out a small {Rv{bi{gl{Rl{ba{gg{Re{x
+and to the east you notice a very big {Gtree{x.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12054
+D1
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12043
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12039
+D3
+To the west lies a path through the {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12041
+E
+tree~
+A tremendous old {Gtree{x grows out of the {Gmeadow{x to your east. Must be an
+oak {Gtree{x, you ponder. Yes, definitely a big {Gtree{x.
+~
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+A small path runs through the {Gmeadow{x to the west of where you stand.
+~
+S
+#12043
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. There is a big {Gtree{x standing here.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12054
+D1
+To the east lies a small path.
+~
+~
+0 -1 12045
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12039
+D3
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12042
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+forest~
+A deep dark {Gforest{x to the south runs a chill down your spine.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+path~
+A small path runs through the {Gmeadow{x to the east of where you stand.
+~
+S
+#12044
+In a {GTree{bhouse{x~
+A {Gtree{bhouse{x built of imagination and anything else that could be
+scavenged by the children of the {Rv{bi{gl{Rl{ba{gg{Re{x is quite large and sturdy.
+{YFurniture{x that is the size suitable for children is almost neatly
+arranged and various simple {Rt{Bo{Yy{Vs{x are stuffed into every available cubby
+or shelf.
+~
+0 0 2
+D5
+Downwards you see the {Gmeadow{x.
+~
+~
+0 -1 12043
+E
+furniture~
+A very small {Ytable{x and some {Ychairs{x all made from wood are standing in
+the centre of the room. In one corner rests a simple wooden {Ychest{x.
+Other than that you see come cubbies and shelves.
+~
+E
+toys dolls teddy crayons horse dollhouse crockery locomotive~
+There are {Rt{Bo{Yy{Vs{x here for all ages and sexes. You notice dolls of varying
+quality, a large teddy bear, some crayons, a wooden horse, a slightly
+run down dollhouse, some miniature crockery and a wooden locomotive.
+~
+E
+cubby holes paraphenelia cubbyholes~
+Some holes in the walles have been used to prop up more childish
+paraphenelia. Worried that some of it might be alive, you decide not to
+investigate further.
+~
+E
+shelf shelves books~
+The shelves are all of different sizes and construction, but most of them
+hold brightly colored books of some sort.
+~
+E
+treehouse~
+You can tell at a glance that this {Gtree{bhouse{x is a work of art and
+dedication by a large group of children. A true home away from home,
+at least when it's not too cold out. Glancing at the roof, you decide
+that it had better not rain, either.
+~
+S
+#12045
+On a small path~
+You are standing on a small path. To the far south, you see a {bf{Ya{Gr{Rm{x.
+~
+0 0 2
+D2
+To the south the path continues.
+~
+~
+0 -1 12046
+D3
+To the west lies a {Gmeadow{x.
+~
+~
+0 -1 12043
+E
+path farm~
+This path leads southward from the {Rv{bi{gl{Rl{ba{gg{Re{x to a {bf{Ya{Gr{Rm{x.
+~
+S
+#12046
+On a small path~
+You are standing on a small path. To the far south, you see a {bf{Ya{Gr{Rm{x.
+~
+0 0 2
+D0
+To the north the path continues.
+~
+~
+0 -1 12045
+D2
+To the south the path continues.
+~
+~
+0 -1 12047
+E
+path farm~
+This path leads southward from the {Rv{bi{gl{Rl{ba{gg{Re{x to a {bf{Ya{Gr{Rm{x.
+~
+S
+#12047
+On a small path~
+You are standing on a path that runs north and south. Immediately to the
+south you see and smell a small {bf{Ya{Gr{Rm{x.
+~
+0 0 2
+D0
+To the north the path continues.
+~
+~
+0 -1 12046
+D2
+To the south lies a small {bf{Ya{Gr{Rm{x.
+~
+~
+0 -1 12049
+E
+path farm~
+This path leads from the {bf{Ya{Gr{Rm{x to your immediate south to a {Rv{bi{gl{Rl{ba{gg{Re{x
+further north.
+~
+S
+#12048
+In a {Yb{ba{Yr{bn{x~
+You enter a large {Yb{ba{Yr{bn{x smelling strongly of {Yhay{x and manure. There are many
+farm implements lining the walls. They are crudely fashioned but arranged
+neatly. An old {bdonkey{x that is too old to work any longer is here. It is
+obviously well taken care of.
+~
+0 AD 0
+D1
+To the east lies the door leading to the yard of a small {bf{Ya{Gr{Rm{x.
+~
+door~
+1 -1 12049
+E
+donkey~
+The {bdonkey{x regards you briefly with its large, sad eyes. Then it goes back
+to doing nothing at all.
+~
+E
+implements pitchforks~
+Well, there are pitchforks, and pitchforks and... oh yes, more pitchforks.
+~
+E
+manure~
+Eeewww!
+~
+E
+barn~
+You're in a {Yb{ba{Yr{bn{x. If you open your eyes, you can look around. If you close
+them, at least you are able to take in the aroma.
+~
+S
+#12049
+A small {bf{Ya{Gr{Rm{x~
+A large yard of a {bf{Ya{Gr{Rm{x dominates the view. {WC{bh{Wi{bc{Wk{be{Wn{bs{x roam the grounds
+freely and the smell of animals and {Yhay{x and aging wooden structures mixes
+to form the unmistakable aroma of farm life. There are {Yb{ba{Yr{bn{x to the east
+and west, while to the south stands a small, rustic, farm house. Next to
+the door of the farm house there is a {bflowerpot{x carefully placed out of
+the way of foot traffic.
+~
+0 0 2
+D0
+To north is a small path.
+~
+~
+0 -1 12047
+D1
+To the east lies a door leading to a {Yb{ba{Yr{bn{x.
+~
+door~
+1 -1 12050
+D2
+To the south lies a door leading to an old farmhouse.
+~
+door~
+3 12001 12051
+D3
+To the west lies a door leading to a {Yb{ba{Yr{bn{x.
+~
+door~
+1 -1 12048
+E
+farm yard~
+The {bf{Ya{Gr{Rm{x yard is a central, mostly clear space generally in the middle
+of the farm. People drag small vehicles and large animals across it,
+while smaller animals make their own way across or just get in your
+way. It might be wise to watch your step.
+~
+E
+vehicles manure hay~
+The vehicles crossing the {bf{Ya{Gr{Rm{x yard are carts of {Yhay{x that smells of
+manure and manure that smells of {Yhay{x. All very confusing.
+~
+E
+chickens animals~
+{WC{bh{Wi{bc{Wk{be{Wn{bs{x are very stupid animals and seem to have forgotten where their
+coop is. Until someone shows them the way, they spend their days in the
+{bf{Ya{Gr{Rm{x yard.
+~
+E
+structures buildings barns~
+Well yes, city slickers say 'structures.' Countryfolk would say
+'buildings.' In either case, there's the {Yb{ba{Yr{bn{Ys{x and the house.
+~
+E
+house door~
+The {bf{Ya{Gr{Rm{x house is to the south of the {bf{Ya{Gr{Rm{x yard. The walls are built of
+solid brick, so most people enter and exit by way of the door.
+~
+S
+#12050
+In a {Yb{ba{Yr{bn{x~
+You enter a large {Yb{ba{Yr{bn{x smelling strongly of {Yhay{x and manure. There are many
+farm implements lining the walls. They are crudely fashioned but arranged
+neatly. A huge {bowl{x sits quietly in the rafters looking down on you.
+~
+0 AD 0
+D3
+To the west lies the door leading to the yard of a small {bf{Ya{Gr{Rm{x.
+~
+door~
+1 -1 12049
+E
+implements pitchforks~
+Well, there are pitchforks, and pitchforks and... oh yes, more pitchforks.
+~
+E
+manure~
+Eeewww!
+~
+E
+barn~
+You're in a {Yb{ba{Yr{bn{x. If you open your eyes, you can look around. If you close
+them, at least you are able to take in the aroma.
+~
+E
+owl beak wing~
+The {bowl{x is rather sleepy during the daytime, and would rather not be
+disturbed. It peers at you myopically for a while, then decides you're no
+threat, tucks its {bbeak{x back under its {bwing{x and goes back to sleep.
+~
+E
+rafters~
+These large wooden beams near the top of the barn hold up the roof and an
+{bowl{x.
+~
+S
+#12051
+In an old {bF{Ya{Gr{Rm{xhouse~
+You enter a very old house. This {bf{Ya{Gr{Rm{xhouse has one large room like most of
+the houses that were built so long ago. There is a massive {bstove{x in the
+corner for heating and cooking. The {Yfurniture{x is all solid hardwood. It
+looks as if might last a thousand years. The house is simple and
+utilitarian, but has a warm, comfortable feeling to it.
+~
+0 AD 0
+D0
+To the north lies a door leading to the yard of the farm.
+~
+door~
+3 12001 12049
+E
+farmhouse room~
+You're standing in the single room of a one-room {bf{Ya{Gr{Rm{xhouse. Look around,
+everything's real wood!
+~
+E
+furniture wood hardwood oak cherry~
+You're no carpenter, but you decide the {Yfurniture{x is probably made from
+oak or cherry. No fir in this {Yfirniture{x, fir sure!
+~
+S
+#12052
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can make out a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12055
+D1
+To the east lies a small road.
+~
+~
+0 -1 12053
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12040
+D3
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12055
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+road~
+A small road runs through the {Gmeadow{x to the east of where you stand.
+~
+S
+#12053
+On a small road~
+You are standing on a small road that leads northwards to a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+To both sides of the road lies a {Gmeadow{x. On the left side of the road
+you notice a small {bd{Gi{gt{Yc{bh{x running north and south.
+~
+0 0 1
+D0
+To the north the road continues.
+~
+~
+0 -1 12056
+D1
+To the east lies a {Gmeadow{x.
+~
+~
+0 -1 12054
+D2
+To the south lies a path through a {Gv{ba{Gl{bl{Ge{by{x.
+~
+~
+0 -1 12041
+D3
+To the west lies a {Gmeadow{x.
+~
+~
+0 -1 12052
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+road~
+A small road runs north and south through the {Gmeadow{x.
+~
+S
+#12054
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can make out a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12057
+D1
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12057
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12042
+D3
+To the west lies a small road.
+~
+~
+0 -1 12053
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+road~
+A small road runs through the {Gmeadow{x to your west.
+~
+S
+#12055
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can make out a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12055
+D1
+To the east lies a small road.
+~
+~
+0 -1 12056
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12052
+D3
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12052
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+road~
+A small road runs through the {Gmeadow{x to the east.
+~
+S
+#12056
+On a small road~
+You are standing on a small road that leads northwards to a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+To both sides of the road lies a {Gmeadow{x. On the left side of the road
+you notice a small {bd{Gi{gt{Yc{bh{x, coming from the south and dead ending here.
+~
+0 0 1
+D0
+To the north lies the {Rv{bi{gl{Rl{ba{gg{Re{x square.
+~
+~
+0 -1 12058
+D1
+To the east lies a {Gmeadow{x.
+~
+~
+0 -1 12057
+D2
+To the south the small road continues.
+~
+~
+0 -1 12053
+D3
+To the west lies a {Gmeadow{x.
+~
+~
+0 -1 12055
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+road~
+A small road runs south through the {Gmeadow{x. To the north, it leads
+into a {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+S
+#12057
+{GMeadow{x~
+You are standing on a {Gmeadow{x. Wild, flowing {Ggrass{x reaches up to your
+knees. The occasional {Rf{Bl{Po{Yw{Ve{Cr{x adds a touch of color to the greenness but
+there are not many. To the north, you can make out a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+0 0 2
+D0
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12057
+D1
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12054
+D2
+You see more of the {Gmeadow{x.
+~
+~
+0 -1 12054
+D3
+To the west lies a small road.
+~
+~
+0 -1 12056
+E
+meadow grass~
+Tall, flowing {Ggrass{x sprinkled with small {Gmeadow{x {Rf{Bl{Po{Yw{Ve{Cr{Rs{x.
+~
+E
+flowers~
+Small colorful {Rf{Bl{Po{Yw{Ve{Cr{Rs{x dot the {Gmeadow{x here and there.
+~
+E
+village church tower hamlet rooftop smoke chimney~
+A small {Rh{Wa{gm{Rl{We{gt{x lies north of you. A small {Wchurch tower{x rises just
+above the {Rrooftops{x, and you think you see {gsmoke{x rising from a {Rchimney{x.
+~
+E
+valley~
+Small {Gh{bi{Gl{bl{Gs{x rise to the sides of the {Gmeadow{x. Thus, the {Gmeadow{x lies in
+a {Gv{ba{Gl{bl{Ge{by{x and the path roughly at its center.
+~
+E
+road~
+A small road runs through the {Gmeadow{x to your west.
+~
+S
+#12058
+{Rv{bi{gl{Rl{ba{gg{Re{x square~
+You are standing on a {Rv{bi{gl{Rl{ba{gg{Re{x square. It is a rather small {Rv{bi{gl{Rl{ba{gg{Re{x, just
+a handful of houses standing around this central square. To the north is
+a {Ws{gh{Wo{gp{x, called {Wg{ge{Wn{ge{Wr{ga{Wl {gs{Wt{go{Wr{ge{x. It looks rather old and you doubt that you
+can purchase anything useful there.
+~
+0 0 1
+D0
+To the north lies a {Ws{gh{Wo{gp{x.
+~
+~
+0 -1 12063
+D1
+To the east lies a small road.
+~
+~
+0 -1 12064
+D2
+To the south lies a small road.
+~
+~
+0 -1 12056
+D3
+To the west lies a door leading into an old, abandoned looking {Wh{go{Wu{gs{We{x.
+~
+door~
+1 -1 12059
+E
+houses~
+The few houses you see here look rather run down. They are all closed,
+except for a small abandoned {Wh{go{Wu{gs{We{x to the west.
+~
+E
+shop general store shelves~
+A tiny, dirty old {Ws{gh{Wo{gp{x with empty shelves. You hurriedly turn away to
+take your business elsewhere.
+~
+E
+village square~
+The empty space between the empty houses is called the {Rv{bi{gl{Rl{ba{gg{Re{x square.
+It affords enough space for the small road, which is also empty except
+for you.
+~
+S
+#12059
+{WL{gi{Wv{gi{Wn{gg {Wr{go{Wo{gm{x~
+You are standing in the {Wl{gi{Wv{gi{Wn{gg {Wr{go{Wo{gm{x of an old abandoned {Wh{go{Wu{gs{We{x. There is
+not much {Yfurniture{x left, just an old {Ychair{x and a {Ytable{x. The whole room
+is very {gd{Wu{gs{Wt{gy{x. The {Wh{go{Wu{gs{We{x must have been empty for many years.
+~
+0 AD 0
+D0
+To the north lies the {Wb{ge{Wd{gr{Wo{go{Wm{x.
+~
+~
+1 -1 12060
+D1
+To the east lies the {Rv{bi{gl{Rl{ba{gg{Re{x square.
+~
+~
+1 -1 12058
+D3
+To the west lies lies the {Wk{gi{Wt{gc{Wh{ge{Wn{x.
+~
+~
+1 -1 12061
+E
+furniture~
+The {Yfurniture{x consists of one {Ychair{x and one {Ytable{x.
+~
+E
+chair~
+The {Ychair{x stands by the {Ytable{x in the otherwise empty room.
+~
+E
+table~
+The {Ytable{x stands by the {Ychair{x in the otherwise empty room.
+~
+E
+dusty~
+{gD{Wu{gs{Wt{x is the only thing you find plenty of around here. It covers the
+floor, it covers the windowsills and the walls, and if you don't get
+a move on it will soon cover you too.
+~
+S
+#12060
+{WB{ge{Wd{gr{Wo{go{Wm{x~
+You are standing in the {gd{Wu{gs{Wt{gy{x {Wb{ge{Wd{gr{Wo{go{Wm{x of an old abandoned {Wh{go{Wu{gs{We{x. There is
+a small {Wb{ge{Wd{x here that looks like it could cause an incredible number of
+degenerative bone diseases if anyone actually tried to sleep on it. Like
+the rest of the {Wh{go{Wu{gs{We{x this room has an empty, abandoned, almost haunted
+feel to it.
+~
+0 AD 0
+D2
+To the south lies the {Wl{gi{Wv{gi{Wn{gg {Wr{go{Wo{gm{x.
+~
+~
+1 -1 12059
+E
+dusty~
+{gD{Wu{gs{Wt{x is the only thing you find plenty of around here. It covers the
+floor, it covers the windowsills and the walls, and if you don't get
+a move on it will soon cover you too.
+~
+S
+#12061
+{WK{gi{Wt{gc{Wh{ge{Wn{x~
+You are standing in the {Wk{gi{Wt{gc{Wh{ge{Wn{x of an old, abandoned {Wh{go{Wu{gs{We{x. An extremely
+thick layer of {gd{Wu{gs{Wt{x covers everything in the room. The {Wh{go{Wu{gs{We{x must have
+been deserted for many years. In one corner you notice a {Bhole{x in the
+floor. Upon closer inspection you see a {Yladder{x leading down into the
+{Wc{ge{Wl{gl{Wa{gr{x.
+~
+0 AD 0
+D1
+To the east lies the {Wl{gi{Wv{gi{Wn{gg {Wr{go{Wo{gm{x.
+~
+~
+1 -1 12059
+E
+dusty~
+{gD{Wu{gs{Wt{x is the only thing you find plenty of around here. It covers the
+floor, it covers the windowsills and the walls, and if you don't get
+a move on it will soon cover you too.
+~
+S
+#12062
+{WC{ge{Wl{gl{Wa{gr{x~
+You are standing in the {Wc{ge{Wl{gl{Wa{gr{x of an old abandoned {Wh{go{Wu{gs{We{x. The whole room
+is very {Wd{gu{Ws{gt{Wy{x. The {Wh{go{Wu{gs{We{x must have been empty since many years.
+~
+0 AD 0
+D4
+Upwards lies the {Wk{gi{Wt{gc{Wh{ge{Wn{x.
+~
+~
+1 -1 12061
+E
+dusty~
+A thick layer of {gd{Wu{gs{Wt{x covers the floor. You notice your own {Wf{go{bo{Wt{gp{br{Wi{gn{bt{Ws{x
+in the {gd{Wu{gs{Wt{x but also those of a something that must be a very large
+{Bcreature{x. You have no idea what it might be and if it is still around.
+It might be a good idea to head back up.
+~
+E
+footprints feet foot~
+Clearly different from your own {Wf{go{bo{Wt{gp{br{Wi{gn{bt{Ws{x, you see some really large and
+unusual {gp{br{Wi{gn{bt{Ws{x in the {gd{Wu{gs{Wt{x. They lead to the south {Wc{go{Wr{gn{We{gr{x of the {Wc{ge{Wl{gl{Wa{gr{x.
+~
+E
+south corner~
+Getting closer to the south {Wc{ge{Wl{gl{Wa{gr{x, you notice a {Yf{Wl{Yi{Wc{Yk{We{Yr{Wi{Yn{Wg {Yl{Wi{Yg{Wh{Yt{x.
+It looks like a {Cmagical portal{x.
+~
+E
+creatures~
+Of course you don't see any {Bcreature{x. But you can feel it, or at least
+imagine it. Or imagine that you feel it. Not a pleasant thought,
+considering the size of those feet. You briefly wonder if a {Bcreature{x
+this large could have athlete's foot.
+~
+S
+#12063
+{WG{ge{Wn{ge{Wr{ga{Wl {gs{Wt{go{Wr{ge{x~
+You enter the {Wg{ge{Wn{ge{Wr{ga{Wl {gs{Wt{go{Wr{ge{x of this farm {Rv{bi{gl{Rl{ba{gg{Re{x. The shelves are mostly
+bare and the old woman behind the counter does not seem interested in
+talking to you. She seems to be selling mostly {Wd{gu{Ws{gt{x and hanging on to a
+life long since vanished.
+~
+0 D 0
+D2
+To the south lies the {Rv{bi{gl{Rl{ba{gg{Re{x square.
+~
+~
+0 -1 12058
+E
+shelves counter~
+The shelves are empty, like the counter. But they are not bare. After
+all, there's the {Wd{gu{Ws{gt{x.
+~
+E
+dust~
+{WD{gu{Ws{gt{x is the only thing you find plenty of around here. It covers the
+floor, it covers the windowsills and the walls, and if you don't get
+a move on it will soon cover you too.
+~
+S
+#12064
+On a small road~
+You are standing on a small road that leads through a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+A few houses stand around, but they all look very nondescript, uninviting
+and downright closed. You have the choice of heading west to the {Rv{bi{gl{Rl{ba{gg{Re{x
+square or following the small road north into some {Yfields{x.
+~
+0 0 1
+D0
+To the north the road continues.
+~
+~
+0 -1 12065
+D3
+To the west lies the {Rv{bi{gl{Rl{ba{gg{Re{x square.
+~
+~
+0 -1 12058
+E
+road~
+It's a small road leading through a small {Rv{bi{gl{Rl{ba{gg{Re{x. It seems more than
+adequate for the amount of passing traffic, though. You notice it's
+also rather {Wd{gu{Ws{gt{Wy{x.
+~
+E
+houses~
+There's nothing to see about the houses, and you can't get in because
+they're closed.
+~
+E
+village square~
+The square to your west is even more empty than the few houses around it. Well, there
+is the road and some {Wd{gu{Ws{gt{x on the road. And you, if you go there.
+~
+E
+fields wheat corn rye~
+Some {Yfields{x to the north seem to be growing {Ywheat{x, {Ycorn{x and {Yrye{x. They
+look a bit dry but not quite dead yet.
+~
+E
+dust~
+{WD{gu{Ws{gt{x covers the road like a thin grimy blanket. You kick up some small
+clouds of it as you pass, and it makes you cough. Thus, you don't need
+to smoke here.
+~
+S
+#12065
+On a small road~
+You are standing on a small road that leads southwards to a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+0 0 1
+D0
+To the north the road continues.
+~
+~
+0 -1 12067
+D1
+To the east lies a door that leads to a {bb{Ya{br{Yn{x.
+~
+door~
+1 -1 12066
+D2
+To the south the road continues.
+~
+~
+0 -1 12064
+E
+road~
+A small road takes what little traffic there is from a small {Rv{bi{gl{Rl{ba{gg{Re{x
+out into the country and back.
+~
+E
+village~
+The {Rv{bi{gl{Rl{ba{gg{Re{x lies to the south.
+~
+S
+#12066
+{bB{Ya{br{Yn{x~
+You are standing in an old {bb{Ya{br{Yn{x that seems abandoned since quite a while.
+There is a long wooden {Ytrough{x standing on the east wall but it looks old
+and parts of the wood are broken down. In one corner stands an old rusty
+{Bb{gu{Bc{gk{Be{gt{x with some {Bholes{x in its bottom.
+~
+0 A 0
+D3
+To the west lies a door that leads to a small road.
+~
+door~
+1 -1 12065
+E
+barn~
+All around you is an old, run-down {bb{Ya{br{Yn{x. If you're bored you could go to
+sleep here but you don't see much other use for it.
+~
+E
+walls~
+At the east wall you notice a long wooden {Ytrough{x.
+~
+S
+#12067
+On a small road~
+You are standing on a small road that leads southwards to a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+0 0 1
+D0
+To the north the road continues.
+~
+~
+0 -1 12072
+D1
+To the east there are {Ywheat fields{x.
+~
+~
+0 -1 12068
+D2
+To the south the road continues.
+~
+~
+0 -1 12065
+D3
+To the west there are {Yrye fields{x.
+~
+~
+0 -1 12074
+E
+road~
+A small road runs north and south here. Actually, it's more like it's
+ambling. Or perhaps it's just lying there.
+~
+E
+village~
+The {Rv{bi{gl{Rl{ba{gg{Re{x lies to the south.
+~
+S
+#12068
+In a {YWheat Field{x~
+You are standing in a {Ywheat field{x. What are you doing here? Dont'
+step on the plants!!!
+~
+0 0 2
+D0
+To the north the {Yfield{x continues.
+~
+~
+0 -1 12071
+D1
+To the east the {Yfield{x continues.
+~
+~
+0 -1 12069
+D3
+To the west there is a small road.
+~
+~
+0 -1 12067
+E
+wheat field plants grain~
+This is a {Ywheat field{x. Although it doesn't look very well tended, some
+hardy {Ywheat{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12069
+In a {YWheat Field{x~
+You are standing in a {Ywheat field{x. You notice a {Bmouse hole{x in the ground.
+What are you doing here? Don't step on the plants!!!
+~
+0 0 2
+D0
+To the north the {Yfield{x continues.
+~
+~
+0 -1 12070
+D3
+To the west the {Yfield{x continues.
+~
+~
+0 -1 12068
+E
+wheat field plants grain~
+This is a {Ywheat field{x. Although it doesn't look very well tended, some
+hardy {Ywheat{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12070
+In a {YWheat Field{x~
+You are standing in a {Ywheat field{x. What are you doing here?
+Don't step on the plants!!!
+~
+0 0 2
+D2
+To the south the {Yfield{x continues.
+~
+~
+0 -1 12069
+D3
+To the west the {Yfield{x continues.
+~
+~
+0 -1 12071
+E
+wheat field plants grain~
+This is a {Ywheat field{x. Although it doesn't look very well tended, some
+hardy {Ywheat{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12071
+In a {YWheat Field{x~
+You are standing in a {Ywheat field{x. What are you doing here?
+Don't step on the plants!!!
+~
+0 0 2
+D1
+To the east the {Yfield{x continues.
+~
+~
+0 -1 12070
+D2
+To the south the {Yfield{x continues.
+~
+~
+0 -1 12068
+D3
+To the west lies the end of the road.
+~
+~
+0 -1 12072
+E
+wheat field plants grain~
+This is a {Ywheat field{x. Although it doesn't look very well tended, some
+hardy {Ywheat{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12072
+End of the road~
+The road abruptly ends here. You can go back southwards to the {Rv{bi{gl{Rl{ba{gg{Re{x.
+Or to the north, east or west into some {Yfield{x. But don't let the farmers
+catch you if you do!
+~
+0 0 1
+D0
+To the north lies a {Ycorn field{x.
+~
+~
+0 -1 12077
+D1
+To the east lies a {Ywheat field{x.
+~
+~
+0 -1 12071
+D2
+To the south the road leads to a small {Rv{bi{gl{Rl{ba{gg{Re{x.
+~
+~
+0 -1 12067
+D3
+To the west lies a {Yrye field{x.
+~
+~
+0 -1 12073
+E
+road end~
+All good things must end, they say. So does this road. Does that make
+it good? You ponder this question and soon find yourself at wit's end.
+~
+E
+village~
+If you were to turn back southward on the road at this point, you would
+have to go through that depressingly desolate {Rv{bi{gl{Rl{ba{gg{Re{x again. You
+consider your alternatives.
+~
+E
+wheat rye corn fields grain~
+The end of the road is surrounded by {Yfields{x. There are {Ywheat fields{x,
+{Ycorn fields{x and {Yrye fields{x. All of them are {Ygrain fields{x, come to
+think of it.
+~
+S
+#12073
+In a {YRye Field{x~
+You are standing in a {Yrye field{x. What are you doing here?
+Don't step on the plants!!!
+~
+0 0 2
+D1
+To the east lies the end of the road.
+~
+~
+0 -1 12072
+D2
+To the south the {Yfield{x continues.
+~
+~
+0 -1 12074
+D3
+To the west the {Yfield{x continues.
+~
+~
+0 -1 12076
+E
+rye field plants grain~
+This is a {Yrye field{x. Although it doesn't look very well tended, some
+hardy {Yrye{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12074
+In a {YRye Field{x~
+You are standing in a {Yrye field{x. What are you doing here?
+Don't step on the plants!!!
+~
+0 0 2
+D0
+To the north the {Yfield{x continues.
+~
+~
+0 -1 12073
+D1
+To the east lies a small road.
+~
+~
+0 -1 12067
+D3
+To the west the {Yfield{x continues.
+~
+~
+0 -1 12075
+E
+rye field plants grain~
+This is a {Yrye field{x. Although it doesn't look very well tended, some
+hardy {Yrye{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12075
+In a {YRye Field{x~
+You are standing in a {Yrye field{x. What are you doing here?
+Don't step on the plants!!!
+~
+0 0 2
+D0
+To the north the {Yfield{x continues.
+~
+~
+0 -1 12076
+D1
+To the east the {Yfield{x continues.
+~
+~
+0 -1 12074
+E
+rye field plants grain~
+This is a {Yrye field{x. Although it doesn't look very well tended, some
+hardy {Yrye{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12076
+In a {YRye Field{x~
+You are standing in a {Yrye field{x. What are you doing here?
+Don't step on the plants!!!
+~
+0 0 2
+D1
+To the east the {Yfield{x continues.
+~
+~
+0 -1 12073
+D2
+To the south the {Yfield{x continues.
+~
+~
+0 -1 12075
+E
+rye field plants grain~
+This is a {Yrye field{x. Although it doesn't look very well tended, some
+hardy {Yrye{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12077
+In a {YCorn Field{x~
+You are standing in a {Ycorn field{x. What are you doing here?
+Don't step on the plants!!!
+~
+0 0 2
+D0
+To the north the {Yfield{x continues.
+~
+~
+0 -1 12079
+D1
+To the east the {Yfield{x continues.
+~
+~
+0 -1 12078
+D2
+To the south lies the end of the road.
+~
+~
+0 -1 12072
+E
+corn field plants grain~
+This is a {Ycorn field{x. Although it doesn't look very well tended, some
+hardy {Ycorn{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12078
+In a {YCorn Field{x~
+You are standing in a {Ycorn field{x. What are you doing here?
+Don't step on the plants!!!
+~
+0 0 2
+D0
+To the north the {Yfield{x continues.
+~
+~
+0 -1 12080
+D3
+To the west the {Yfield{x continues.
+~
+~
+0 -1 12077
+E
+corn field plants grain~
+This is a {Ycorn field{x. Although it doesn't look very well tended, some
+hardy {Ycorn{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12079
+In a {YCorn Field{x~
+You are standing in a {Ycorn field{x. What are you doing here?
+Don't step on the plants!!!
+~
+0 0 2
+D1
+To the east the {Yfield{x continues.
+~
+~
+0 -1 12080
+D2
+To the south the {Yfield{x continues.
+~
+~
+0 -1 12077
+E
+corn field plants grain~
+This is a {Ycorn field{x. Although it doesn't look very well tended, some
+hardy {Ycorn{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12080
+In a {YCorn Field{x~
+You are standing in a {Ycorn field{x. On the ground you notice a {bmole hill{x.
+What are you doing here? Don't step on the plants!!!
+~
+0 0 2
+D2
+To the south the {Yfield{x continues.
+~
+~
+0 -1 12078
+D3
+To the west the {Yfield{x continues.
+~
+~
+0 -1 12079
+E
+corn field plants grain~
+This is a {Ycorn field{x. Although it doesn't look very well tended, some
+hardy {Ycorn{x is still growing here. You see lots of it, it looks a bit
+monotonous. Are there mice in among the grain, you wonder?
+~
+S
+#12081
+At the {Clake{x shore~
+You are standing on a {Clake{x shore. The {Clake{x looks beautiful and calm,
+but it is surrounded by this deep dark {Gforest{x, which gives the whole
+place a feeling of uneasiness and danger.
+~
+0 0 2
+D0
+To the north the {Clake{x shore continues.
+~
+~
+0 -1 12088
+D1
+To the east the {Clake{x shore continues.
+~
+~
+0 -1 12082
+D2
+To the south lies the deep dark {Gforest{x.
+~
+~
+0 -1 12008
+D3
+To the west lies the deep dark {Gforest{x.
+~
+~
+0 -1 12013
+E
+lake shore~
+You are standing on a {Clake{x shore.
+The {Clake{x looks beautiful and calm.
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12082
+At the {Clake{x shore~
+You are standing on a {Clake{x shore. The {Clake{x looks beautiful and calm,
+but it is surrounded by this deep dark {Gforest{x, which gives the whole
+place a feeling of uneasiness and danger.
+~
+0 0 2
+D0
+To the north lies the {Clake{x.
+~
+~
+0 -1 12085
+D1
+To the east the {Clake{x shore continues.
+~
+~
+0 -1 12004
+D2
+To the south lies the deep dark {Gforest{x.
+~
+~
+0 -1 12003
+D3
+To the west the {Clake{x shore continues.
+~
+~
+0 -1 12081
+E
+lake shore~
+You are standing on a {Clake{x shore.
+The {Clake{x looks beautiful and calm.
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12083
+At the {Clake{x shore~
+You are standing on a {Clake{x shore. The {Clake{x looks beautiful and calm,
+but it is surrounded by this deep dark {Gforest{x, which gives the whole
+place a feeling of uneasiness and danger.
+~
+0 0 2
+D0
+To the north lies the {Clake{x.
+~
+~
+0 -1 12087
+D1
+To the east the {Clake{x shore continues.
+~
+~
+0 -1 12084
+D2
+To the south lies the deep dark {Gforest{x.
+~
+~
+0 -1 12005
+D3
+To the west the {Clake{x shore continues.
+~
+~
+0 -1 12004
+E
+lake shore~
+You are standing on a {Clake{x shore.
+The {Clake{x looks beautiful and calm.
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12084
+At the {Clake{x shore~
+You are standing on a {Clake{x shore. The {Clake{x looks beautiful and calm,
+but it is surrounded by this deep dark {Gforest{x, which gives the whole
+place a feeling of uneasiness and danger.
+~
+0 0 2
+D0
+To the north the {Clake{x shore continues.
+~
+~
+0 -1 12092
+D1
+To the east lies the deep dark {Gforest{x.
+~
+~
+0 -1 12014
+D2
+To the south lies the deep dark {Gforest{x.
+~
+~
+0 -1 12010
+D3
+To the west the {Clake{x shore continues.
+~
+~
+0 -1 12083
+E
+lake shore~
+You are standing on a {Clake{x shore.
+The {Clake{x looks beautiful and calm.
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12085
+On the {Clake{x~
+You are swimming in a beautiful, calm {Clake{x, but it is surrounded
+by this deep dark {Gforest{x, which gives the whole place a feeling of
+uneasiness and danger.
+~
+0 0 6
+D0
+To the north the {Clake{x continues.
+~
+~
+0 -1 12089
+D1
+To the east the {Clake{x continues.
+~
+~
+0 -1 12086
+D2
+To the south lies the {Clake{x shore.
+~
+~
+0 -1 12082
+D3
+To the west lies the {Clake{x shore.
+~
+~
+0 -1 12081
+E
+lake~
+You are swimming in a beautiful, calm {Clake{x
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12086
+On the {Clake{x~
+You are swimming in a beautiful, calm {Clake{x, but it is surrounded
+by this deep dark {Gforest{x, which gives the whole place a feeling of
+uneasiness and danger.
+~
+0 0 6
+D0
+To the north the {Clake{x continues.
+~
+~
+0 -1 12090
+D1
+To the east the {Clake{x continues.
+~
+~
+0 -1 12087
+D2
+To the south lies the {Clake{x shore.
+~
+~
+0 -1 12026
+D3
+To the west the {Clake{x continues.
+~
+~
+0 -1 12085
+E
+lake~
+You are swimming in a beautiful, calm {Clake{x
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12087
+On the {Clake{x~
+You are swimming in a beautiful, calm {Clake{x, but it is surrounded
+by this deep dark {Gforest{x, which gives the whole place a feeling of
+uneasiness and danger. You notice some {Gseaweed{x growing here.
+~
+0 0 6
+D0
+To the north the {Clake{x continues.
+~
+~
+0 -1 12091
+D1
+To the east lies the {Clake{x shore.
+~
+~
+0 -1 12092
+D2
+To the south lies the {Clake{x shore.
+~
+~
+0 -1 12083
+D3
+To the west the {Clake{x continues.
+~
+~
+0 -1 12086
+E
+lake~
+You are swimming in a beautiful, calm {Clake{x
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12088
+At the {Clake{x shore~
+You are standing on a {Clake{x shore. The {Clake{x looks beautiful and calm,
+but it is surrounded by this deep dark {Gforest{x, which gives the whole
+place a feeling of uneasiness and danger. On the ground you notice some
+rather large stones lying around.
+~
+0 0 2
+D0
+To the north the {Clake{x shore continues.
+~
+~
+0 -1 12096
+D1
+To the east lies the {Clake{x.
+~
+~
+0 -1 12089
+D2
+To the south the {Clake{x shore continues.
+~
+~
+0 -1 12081
+D3
+To the west lies the deep dark {Gforest{x.
+~
+~
+0 -1 12003
+E
+lake shore~
+You are standing on a {Clake{x shore.
+The {Clake{x looks beautiful and calm.
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+E
+large stones~
+The stones are quite large and look somewhat out of place here.
+Somebody must have brought them here. Curious as to for what purpose,
+you examine them further. Moving them a bit, you discover an entrance
+to a hidden tunnel.
+~
+S
+#12089
+On the {Clake{x~
+You are swimming in a beautiful, calm {Clake{x, but it is surrounded
+by this deep dark {Gforest{x, which gives the whole place a feeling of
+uneasiness and danger. You notice a beautiful {Wwater-lily{x growing here.
+~
+0 0 6
+D0
+To the north the {Clake{x continues.
+~
+~
+0 -1 12093
+D1
+To the east the {Clake{x continues.
+~
+~
+0 -1 12090
+D2
+To the south the {Clake{x continues.
+~
+~
+0 -1 12085
+D3
+To the west lies the {Clake{x shore.
+~
+~
+0 -1 12088
+E
+lake~
+You are swimming in a beautiful, calm {Clake{x
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12090
+On the {Clake{x~
+You are swimming in a beautiful, calm {Clake{x, but it is surrounded
+by this deep dark {Gforest{x, which gives the whole place a feeling of
+uneasiness and danger.
+~
+0 0 6
+D0
+To the north the {Clake{x continues.
+~
+~
+0 -1 12094
+D1
+To the east the {Clake{x continues.
+~
+~
+0 -1 12091
+D2
+To the south the {Clake{x continues.
+~
+~
+0 -1 12086
+D3
+To the west the {Clake{x continues.
+~
+~
+0 -1 12089
+D5
+Going down you might drown!
+~
+~
+0 -1 12100
+E
+lake~
+You are swimming in a beautiful, calm {Clake{x
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12091
+On the {Clake{x~
+You are swimming in a beautiful, calm {Clake{x, but it is surrounded
+by this deep dark {Gforest{x, which gives the whole place a feeling of
+uneasiness and danger.
+~
+0 0 6
+D0
+To the north the {Clake{x continues.
+~
+~
+0 -1 12095
+D1
+To the east lies the {Clake{x shore.
+~
+~
+0 -1 12092
+D2
+To the south the {Clake{x continues.
+~
+~
+0 -1 12087
+D3
+To the west the {Clake{x continues.
+~
+~
+0 -1 12090
+E
+lake~
+You are swimming in a beautiful, calm {Clake{x
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12092
+At the {Clake{x shore~
+You are standing on a {Clake{x shore. The {Clake{x looks beautiful and calm,
+but it is surrounded by this deep dark {Gforest{x, which gives the whole
+place a feeling of uneasiness and danger.
+~
+0 0 2
+D0
+To the north the {Clake{x shore continues.
+~
+~
+0 -1 12098
+D1
+To the east lies the deep dark {Gforest{x.
+~
+~
+0 -1 12013
+D2
+To the south the {Clake{x shore continues.
+~
+~
+0 -1 12084
+D3
+To the west lies the {Clake{x.
+~
+~
+0 -1 12091
+E
+lake shore~
+You are standing on a {Clake{x shore.
+The {Clake{x looks beautiful and calm.
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12093
+On the {Clake{x~
+You are swimming in a beautiful, calm {Clake{x, but it is surrounded
+by this deep dark {Gforest{x, which gives the whole place a feeling of
+uneasiness and danger.
+~
+0 0 6
+D0
+To the north lies the {Clake{x shore.
+~
+~
+0 -1 12096
+D1
+To the east the {Clake{x continues.
+~
+~
+0 -1 12094
+D2
+To the south the {Clake{x continues.
+~
+~
+0 -1 12089
+D3
+To the west lies the {Clake{x shore.
+~
+~
+0 -1 12088
+E
+lake~
+You are swimming in a beautiful, calm {Clake{x
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12094
+On the {Clake{x~
+You are swimming in a beautiful, calm {Clake{x, but it is surrounded
+by this deep dark {Gforest{x, which gives the whole place a feeling of
+uneasiness and danger.
+~
+0 0 6
+D0
+To the north lies the {Clake{x shore.
+~
+~
+0 -1 12097
+D1
+To the east the {Clake{x continues.
+~
+~
+0 -1 12095
+D2
+To the south the {Clake{x continues.
+~
+~
+0 -1 12090
+D3
+To the west the {Clake{x continues.
+~
+~
+0 -1 12093
+E
+lake~
+You are swimming in a beautiful, calm {Clake{x
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12095
+On the {Clake{x~
+You are swimming in a beautiful, calm {Clake{x, but it is surrounded
+by this deep dark {Gforest{x, which gives the whole place a feeling of
+uneasiness and danger. You notice a beautiful {Wwater-lily{x growing here.
+~
+0 0 6
+D0
+To the north lies the {Clake{x shore.
+~
+~
+0 -1 12098
+D1
+To the east lies the {Clake{x shore.
+~
+~
+0 -1 12098
+D2
+To the south the {Clake{x continues.
+~
+~
+0 -1 12091
+D3
+To the west the {Clake{x continues.
+~
+~
+0 -1 12094
+E
+lake~
+You are swimming in a beautiful, calm {Clake{x
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12096
+At the {Clake{x shore~
+You are standing on a {Clake{x shore. The {Clake{x looks beautiful and calm,
+but it is surrounded by this deep dark {Gforest{x, which gives the whole
+place a feeling of uneasiness and danger. There is a green {Gbush{x
+growing here.
+~
+0 0 2
+D0
+To the north lies the deep dark {Gforest{x.
+~
+~
+0 -1 12009
+D1
+To the east the {Clake{x shore continues.
+~
+~
+0 -1 12097
+D2
+To the south the {Clake{x shore continues.
+~
+~
+0 -1 12088
+D3
+To the west lies the deep dark {Gforest{x.
+~
+~
+0 -1 12008
+E
+lake shore~
+You are standing on a {Clake{x shore.
+The {Clake{x looks beautiful and calm.
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12097
+At the {Clake{x shore~
+You are standing on a {Clake{x shore. The {Clake{x looks beautiful and calm,
+but it is surrounded by this deep dark {Gforest{x, which gives the whole
+place a feeling of uneasiness and danger.
+~
+0 0 2
+D0
+To the north lies a door leading into a small hut.
+~
+door~
+4 12011 12099
+D1
+To the east the {Clake{x shore continues.
+~
+~
+0 -1 12098
+D2
+To the south lies the {Clake{x.
+~
+~
+0 -1 12094
+D3
+To the west the {Clake{x shore continues.
+~
+~
+0 -1 12096
+E
+lake shore~
+You are standing on a {Clake{x shore.
+The {Clake{x looks beautiful and calm.
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12098
+At the {Clake{x shore~
+You are standing on a {Clake{x shore. The {Clake{x looks beautiful and calm,
+but it is surrounded by this deep dark {Gforest{x, which gives the whole
+place a feeling of uneasiness and danger. Walking around you suddenly
+stumble a bit. There must be something in the sand beneath your feet.
+~
+0 0 2
+D0
+To the north lies the deep dark {Gforest{x.
+~
+~
+0 -1 12008
+D1
+To the east lies the deep dark {Gforest{x.
+~
+~
+0 -1 12009
+D2
+To the south the {Clake{x shore continues.
+~
+~
+0 -1 12092
+D3
+To the west the {Clake{x shore continues.
+~
+~
+0 -1 12097
+E
+feet~
+Your feet? How should I know what your feet look like?
+~
+E
+sand~
+In the sand beneath your feet you notice a small hole. Probably it
+was that hole that made you stumble.
+~
+E
+lake shore~
+You are standing on a {Clake{x shore.
+The {Clake{x looks beautiful and calm.
+~
+E
+deep dark forest~
+The {Clake{x is surrounded by the {Gforest{x.
+~
+S
+#12099
+In a small hut~
+You are standing in a small hut. Although the building itself is
+very old, it looks like it has been used just recently. Everything
+in here is very tidy and clean. There is a small table with two chairs
+standing to your left, a wardrobe to your right and a bed just in front
+of you.
+~
+0 AD 0
+D2
+To the south there is a door leading to the {Clake{x shore.
+~
+door~
+4 12011 12097
+E
+left~
+To your left you see a small table with two chairs.
+~
+E
+right~
+To your right stands a wardrobe.
+~
+E
+front~
+In front of you stands a bed.
+~
+E
+small hut building~
+You are standing in a small hut. The room is very tidy and clean.
+~
+E
+table~
+It is a small table with a little drawer.
+~
+E
+chairs~
+There are two chairs standing at the table.
+~
+S
+#12100
+Drowning in the {Clake{x~
+{RGASP{x! You are under{Cwater{x! Make sure you can hold your breath
+long enough!
+~
+0 AX 6
+D0
+More {Cwater{x!
+~
+~
+0 -1 12101
+D1
+More {Cwater{x!
+~
+~
+0 -1 12100
+D2
+More {Cwater{x!
+~
+~
+0 -1 12100
+D3
+More {Cwater{x!
+~
+~
+0 -1 12100
+D4
+You can see the {Ylight{x!
+~
+~
+0 -1 12090
+E
+lake water~
+Nothing but {Cwater{x around you!
+~
+S
+#12101
+Drowning in the {Clake{x~
+{RGASP{x! You are under{Cwater{x! Make sure you can hold your breath
+long enough!
+~
+0 AX 6
+D0
+More {Cwater{x!
+~
+~
+0 -1 12101
+D1
+More {Cwater{x!
+~
+~
+0 -1 12102
+D2
+More {Cwater{x!
+~
+~
+0 -1 12100
+D3
+More {Cwater{x!
+~
+~
+0 -1 12100
+D4
+You can see the {Ylight{x!
+~
+~
+0 -1 12093
+E
+lake water~
+Nothing but {Cwater{x around you!
+~
+S
+#12102
+Drowning in the {Clake{x~
+{RGASP{x! You are under{Cwater{x! Make sure you can hold your breath
+long enough!
+~
+0 AX 6
+D0
+More {Cwater{x!
+~
+~
+0 -1 12101
+D1
+More {Cwater{x!
+~
+~
+0 -1 12103
+D2
+More {Cwater{x!
+~
+~
+0 -1 12100
+D3
+More {Cwater{x!
+~
+~
+0 -1 12101
+D4
+You can see the {Ylight{x!
+~
+~
+0 -1 12094
+E
+lake water~
+Nothing but {Cwater{x around you!
+~
+S
+#12103
+Drowning in the {Clake{x~
+{RGASP{x! You are under{Cwater{x! Make sure you can hold your breath
+long enough!
+~
+0 AX 6
+D0
+More {Cwater{x!
+~
+~
+0 -1 12102
+D1
+More {Cwater{x!
+~
+~
+0 -1 12103
+D2
+More {Cwater{x!
+~
+~
+0 -1 12104
+D3
+More {Cwater{x!
+~
+~
+0 -1 12102
+D4
+You can see the {Ylight{x!
+~
+~
+0 -1 12095
+E
+lake water~
+Nothing but {Cwater{x around you!
+~
+S
+#12104
+Drowning in the {Clake{x~
+{RGASP{x! You are under{Cwater{x! Make sure you can hold your breath
+long enough!
+~
+0 AX 6
+D0
+More {Cwater{x!
+~
+~
+0 -1 12103
+D1
+You can't realy tell what is there, but it looks different from
+all the other {Cwater{x around you.
+~
+~
+0 -1 12105
+D2
+More {Cwater{x!
+~
+~
+0 -1 12104
+D3
+More {Cwater{x!
+~
+~
+0 -1 12103
+D4
+You can see the {Ylight{x!
+~
+~
+0 -1 12091
+E
+lake water~
+Nothing but {Cwater{x around you!
+~
+S
+#12105
+A small cave under the {Clake{x~
+You take a deep breath! You made it into a small cave under the {Clake{x.
+There is enough air here for you to breathe again. Just don't stay too
+long or you might use it all up!
+~
+0 AD 0
+D3
+{Cwater{x!
+~
+~
+0 -1 12104
+E
+cave~
+This is not a natural cave but was made by people. Nothing gives you
+a clue as to for what purpose it was made, though. Although there is a
+small {Whole{x in the {Wceiling{x, no light enters from there and you had
+better have a light source to see anything.
+~
+E
+ceiling~
+There is a small {Whole{x in the {Wceiling{x. No light enters from there,
+though.
+~
+E
+lake~
+Outside the cave you see the {Cwater{x.
+~
+S
+#12106
+The Armory~
+There are broken, empty, {bweapon racks{x here full of dust and the
+occasional metal scrap.  When these racks were intact and full they
+obviously held an impressive array of weaponry.  Now the dim, dusty
+surroundings start to remind you of the transience of all things.
+~
+0 AD 0
+D2
+To the south you see the entrance to the {WAbandoned Tower{x.
+~
+~
+0 -1 12027
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+Armory~
+This room was once the armory of the {WAbandoned Tower{x.
+Now there is not much left but a couple of broken, empty {bweapon racks{x.
+~
+E
+weaponry weapons array~
+There is not much left of the impressive array of weaponry that once
+might have been here. Only some broken weapons without any value for you.
+~
+E
+dust~
+The hole room is covered in dust.
+~
+S
+#12107
+Administration~
+This room is bare and you have no idea what it was once used for.
+Unless... is the dust perhaps a little thicker here?
+~
+0 AD 0
+D0
+To the north you see the entrance to the {WAbandoned Tower{x.
+~
+~
+0 -1 12027
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+administration room~
+The bare room tells you nothing about its former use.
+Or whether what was done here was of any use.
+~
+E
+dust~
+The dust which covers the floor could be finely disintegrated, yellowed
+paper. But then again, it could be just plain old dust.
+~
+S
+#12108
+The Mess Hall~
+Tables and chairs line the walls.  There is an occasional plate or utensil
+lying about.  This room looks as if it could accommodate quite a few
+people at one sitting when it was in use.  Now, it looks like an excellent
+source of firewood with all the deteriorating furniture in it.
+~
+0 AD 0
+D3
+To the west you see the entrance to the {WAbandoned Tower{x.
+~
+~
+0 -1 12027
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+tables chairs~
+The tables and chairs line the walls. They are of no use any more but
+to be burned down. Don't even try to sit on them, they would break down.
+~
+E
+plate utensil~
+Well, it is a terrible mess and nothing of interest can be found amongst
+all that broken and rotten stuff.
+~
+E
+mess hall messhall~
+You are standing in the mess hall. Nothing of interest has been left here.
+~
+S
+#12109
+Cellar in the {WAbandoned Tower{x~
+You are standing in the Cellar of the {WAbandoned Tower{x.
+The smell here is even worse than in the rest of the building.
+Especially from downstairs comes a smell reminding you of
+rotting flesh. On the east wall you notice a {bwine rack{x. There
+are not many {bbottles{x left, but those which are there are still
+closed. This {Ywine{x could either be worth a fortune for its age
+or have turned into vinegar by now.
+~
+0 AD 0
+D4
+A staircaise leads up.
+~
+~
+0 -1 12027
+D5
+There is a deep {Whole{x leading down and it doesn't look as if you
+could come up again, once you jumped down.
+~
+~
+0 -1 12110
+E
+bottle~
+There are only a few {bbottles{x left. They are so dirty, you don't
+want to touch them for closer inspection!
+~
+E
+rotting flesh~
+You can't see it, but the smell coming from downstairs is nearly
+unbearable.
+~
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+cellar~
+You are standing in the cellar. Have a look if you want to see your
+surroundings.
+~
+S
+#12110
+Trapped in the Prison~
+Hmm... you really NEEDED to come here??? If you would have looked down
+before you jumped, you would have noticed that you might not get out
+again. Now... what will you do in the next hours and days you will sit
+around here. Play with all those {Wbones{x lying around, perhaps?
+Looks like the former inhabitants of the tower used this hole
+to push victims into and let them die. Many must have suffered this
+fate judging from all that human {Wbones{x lying around.
+You might consider starting to pray.
+~
+0 ADN 0
+E
+bones human~
+While examining the {Wbones{x closer, you move one pile of them a bit
+and notice a strange looking {Rbrick{x in the west wall close above the
+floor.
+~
+E
+brick~
+Examining the {Rbrick{x, you notice that you can move it. As you do so,
+a {Whole{x in the wall opens, just big enough for you to squeeze through.
+~
+E
+former inhabitants~
+What did you expect to see? Only their {Wbones{x are left.
+~
+E
+prison~
+Well yes, this room seems to have served as the prison in the tower.
+In fact, it still serves as such, or you wouldn't still be here, would
+you?
+~
+E
+abandoned tower~
+The tower must be above you. You can't see it, tough.
+~
+S
+#12111
+Hidden Tunnel in the {WAbandoned Tower{x~
+You are in a small tunnel beyond the {WAbandoned Tower{x. Nothing
+in here gives you a clue where it might lead to.
+~
+0 AD 0
+D1
+To the east the hidden tunnel continues.
+~
+~
+0 -1 12112
+D3
+To the west you can step through a {bwine rack{x to get to
+the cellar.
+~
+~
+0 -1 12109
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+hidden tunnel~
+You see nothing of interest here.
+~
+S
+#12112
+Hidden Tunnel in the {WAbandoned Tower{x~
+You are in a small tunnel beyond the {WAbandoned Tower{x. Nothing
+in here gives you a clue where it might lead to.
+~
+0 AD 0
+D1
+To the east the hidden tunnel continues.
+~
+~
+0 -1 12113
+D3
+To the west the hidden tunnel continues.
+~
+~
+0 -1 12109
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+hidden tunnel~
+You see nothing of interest here.
+~
+S
+#12113
+Hidden Tunnel in the {WAbandoned Tower{x~
+You are in a small tunnel beyond the {WAbandoned Tower{x. Nothing
+in here gives you a clue where it might lead to.
+~
+0 AD 0
+D1
+To the east there is a big iron door.
+~
+iron door~
+4 12012 12114
+D3
+To the west the hidden tunnel continues.
+~
+~
+0 -1 12112
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+hidden tunnel~
+You see nothing of interest here.
+~
+S
+#12114
+{VTreasure Chamber{x of the {WAbandoned Tower{x~
+You are standing in the {VTreasure Chamber{x of the {WAbandoned Tower{x.
+There doesn't seem anything left of all the treasure that once
+might have been here.
+Now the rooms appears mostly empty. Just a few open {Bchests{x standing
+around. They are all empty. You can see right to the {bbottom{x of them.
+~
+0 AD 0
+D3
+To the west there is a big iron door.
+~
+door~
+4 12012 12113
+E
+chests~
+All the {Bchests{x are empty. The only thing for you to admire is their
+{bbottom{x.
+~
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+treasure chamber~
+This rooms was once used as a {Vtreasure chamber{x. There doesn't seem to
+be any treasure left, though.
+~
+S
+#12115
+Second floor of the {WAbandoned Tower{x~
+You are standing on the second floor of the {WAbandoned Tower{x.
+~
+0 D 0
+D0
+You peek into a barracks.
+~
+~
+0 -1 12119
+D1
+You peek into a barracks.
+~
+~
+0 -1 12118
+D2
+You peek into a barracks.
+~
+~
+0 -1 12117
+D3
+You peek into a barracks.
+~
+~
+0 -1 12116
+D4
+There is a staircase leading upwards.
+~
+~
+0 -1 12120
+D5
+A staircase leads down.
+~
+~
+0 -1 12027
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+second floor~
+You are standing on the second floor of the {WAbandoned Tower{x.
+There is nothing of interest here.
+~
+S
+#12116
+Barracks~
+This looks like a barracks.  There are simple beds crammed into this small
+room so that you can barely walk through it.  There is no evidence that
+any attempt was ever made to decorate the room in any way.  Sardines in a
+tin have more room than whoever used this barracks to sleep.
+~
+0 AD 0
+D1
+To the east you see the second floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12115
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+barracks room~
+You are standing in a barracks. Have a look if you want to see your
+surroundings.
+~
+S
+#12117
+Barracks~
+This looks like a barracks.  There are simple beds crammed into this small
+room so that you can barely walk through it.  There is no evidence that
+any attempt was ever made to decorate the room in any way.  Sardines in a
+tin have more room than whoever used this barracks to sleep.
+~
+0 AD 0
+D0
+To the north you see the second floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12115
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+barracks room~
+You are standing in a barracks. Have a look if you want to see your
+surroundings.
+~
+S
+#12118
+Barracks~
+This looks like a barracks.  There are simple beds crammed into this small
+room so that you can barely walk through it.  There is no evidence that
+any attempt was ever made to decorate the room in any way.  Sardines in a
+tin have more room than whoever used this barracks to sleep.
+~
+0 AD 0
+D3
+To the west you see the second floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12115
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+barracks room~
+You are standing in a barracks. Have a look if you want to see your
+surroundings.
+~
+S
+#12119
+Barracks~
+This looks like a barracks.  There are simple beds crammed into this small
+room so that you can barely walk through it.  There is no evidence that
+any attempt was ever made to decorate the room in any way.  Sardines in a
+tin have more room than whoever used this barracks to sleep.
+~
+0 AD 0
+D2
+To the south you see the second floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12115
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+barracks room~
+You are standing in a barracks. Have a look if you want to see your
+surroundings.
+~
+S
+#12120
+Third floor of the {WAbandoned Tower{x~
+You are standing on the third floor of the {WAbandoned Tower{x.
+~
+0 D 0
+D0
+You peek into a barracks.
+~
+~
+0 -1 12124
+D1
+You peek into a barracks.
+~
+~
+0 -1 12123
+D2
+You peek into a barracks.
+~
+~
+0 -1 12122
+D3
+You peek into a barracks.
+~
+~
+0 -1 12121
+D4
+There is a staircase leading upwards.
+~
+~
+0 -1 12125
+D5
+A staircase leads down.
+~
+~
+0 -1 12115
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+third floor~
+You are standing on the third floor of the {WAbandoned Tower{x.
+There is nothing of interest here.
+~
+S
+#12121
+Barracks~
+This looks like a barracks.  There are simple beds crammed into this small
+room so that you can barely walk through it.  There is no evidence that
+any attempt was ever made to decorate the room in any way.  Sardines in a
+tin have more room than whoever used this barracks to sleep.
+~
+0 AD 0
+D1
+To the east you see the third floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12120
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+barracks room~
+You are standing in a barracks. Have a look if you want to see your
+surroundings.
+~
+S
+#12122
+Barracks~
+This looks like a barracks.  There are simple beds crammed into this small
+room so that you can barely walk through it.  There is no evidence that
+any attempt was ever made to decorate the room in any way.  Sardines in a
+tin have more room than whoever used this barracks to sleep.
+~
+0 AD 0
+D0
+To the north you see the third floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12120
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+barracks room~
+You are standing in a barracks. Have a look if you want to see your
+surroundings.
+~
+S
+#12123
+Barracks~
+This looks like a barracks.  There are simple beds crammed into this small
+room so that you can barely walk through it.  There is no evidence that
+any attempt was ever made to decorate the room in any way.  Sardines in a
+tin have more room than whoever used this barracks to sleep.
+~
+0 AD 0
+D3
+To the west you see the third floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12120
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+barracks room~
+You are standing in a barracks. Have a look if you want to see your
+surroundings.
+~
+S
+#12124
+Barracks~
+This looks like a barracks.  There are simple beds crammed into this small
+room so that you can barely walk through it.  There is no evidence that
+any attempt was ever made to decorate the room in any way.  Sardines in a
+tin have more room than whoever used this barracks to sleep.
+~
+0 AD 0
+D2
+To the south you see the third floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12120
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+barracks room~
+You are standing in a barracks. Have a look if you want to see your
+surroundings.
+~
+S
+#12125
+Fourth floor of the {WAbandoned Tower{x~
+You are standing on the fourth floor of the {WAbandoned Tower{x.
+~
+0 D 0
+D0
+You peek into a large room.
+~
+~
+0 -1 12128
+D1
+You peek into a large room.
+~
+~
+0 -1 12127
+D2
+You peek into a large room.
+~
+~
+0 -1 12126
+D3
+You peek into a large room.
+~
+~
+0 -1 12129
+D4
+There is a staircase leading upwards.
+~
+~
+0 -1 12130
+D5
+A staircase leads down.
+~
+~
+0 -1 12120
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+fourth floor~
+You are standing on the fourth floor of the {WAbandoned Tower{x.
+There is nothing of interest here.
+~
+S
+#12126
+A large room in the {WAbandoned Tower{x~
+You are standing in a large room. It might once have been a storage
+room judging from the few pieces of rotten chests, shelves and
+weapon racks that lie around here. Now it is only a big mess of
+decaying wood.
+~
+0 AD 0
+D0
+To the north you see the fourth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12125
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+large room storage~
+This is a very large room. It might once have been a storage room but
+you can't be sure about that.
+~
+E
+pieces rotten chests shelf shelves weapon racks decaying wood~
+The room is full of rotten, decaying stuff. I can't imagine that you
+want to inspect all that mess any closer. There is nothing useful
+to be found here anyway.
+~
+S
+#12127
+A large room in the {WAbandoned Tower{x~
+You are standing in a large room. It might once have been a storage
+room judging from the few pieces of rotten chests, shelves and
+weapon racks that lie around here. Now it is only a big mess of
+decaying wood.
+~
+0 AD 0
+D3
+To the west you see the fourth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12125
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+large room storage~
+This is a very large room. It might once have been a storage room but
+you can't be sure about that.
+~
+E
+pieces rotten chests shelf shelves weapon racks decaying wood~
+The room is full of rotten, decaying stuff. I can't imagine that you
+want to inspect all that mess any closer. There is nothing useful
+to be found here anyway.
+~
+S
+#12128
+A large room in the {WAbandoned Tower{x~
+You are standing in a large room. It might once have been a storage
+room judging from the few pieces of rotten chests, shelves and
+weapon racks that lie around here. Now it is only a big mess of
+decaying wood.
+~
+0 AD 0
+D2
+To the south you see the fourth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12125
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+large room storage~
+This is a very large room. It might once have been a storage room but
+you can't be sure about that.
+~
+E
+pieces rotten chests shelf shelves weapon racks decaying wood~
+The room is full of rotten, decaying stuff. I can't imagine that you
+want to inspect all that mess any closer. There is nothing useful
+to be found here anyway.
+~
+S
+#12129
+A large room in the {WAbandoned Tower{x~
+You are standing in a large room. It might once have been a storage
+room judging from the few pieces of rotten chests, shelves and
+weapon racks that lie around here. Now it is only a big mess of
+decaying wood.
+~
+0 AD 0
+D1
+To the east you see the fourth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12125
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+large room storage~
+This is a very large room. It might once have been a storage room but
+you can't be sure about that.
+~
+E
+pieces rotten chests shelf shelves weapon racks decaying wood~
+The room is full of rotten, decaying stuff. I can't imagine that you
+want to inspect all that mess any closer. There is nothing useful
+to be found here anyway.
+~
+S
+#12130
+Fifth floor of the {WAbandoned Tower{x~
+You are standing on the fifth floor of the {WAbandoned Tower{x.
+~
+0 D 0
+D0
+You peek into a room.
+~
+~
+0 -1 12134
+D1
+You peek into a beautiful furnished room.
+~
+~
+0 -1 12132
+D2
+You peek into a room.
+~
+~
+0 -1 12131
+D3
+You peek into a room.
+~
+~
+0 -1 12135
+D4
+There is a staircase leading upwards.
+~
+~
+0 -1 12136
+D5
+A staircase leads down.
+~
+~
+0 -1 12125
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+fifth floor~
+You are standing on the fifth floor of the {WAbandoned Tower{x.
+There is nothing of interest here.
+~
+S
+#12131
+Officers Quarters~
+This room looks like a sleeping quarters for someone important as
+there is only one {Wbed{x here and a large wooden {bwardrobe{x that is still
+in good condition.  It must have been finely crafted to have lasted
+so well.
+~
+0 AD 0
+D0
+To the north you see the fifth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12130
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+officers quarters sleeping~
+You are standing in an officers quarters. Take a look if you want to
+see your surroundings.
+~
+S
+#12132
+A Beautiful Furnished Room~
+You are standing in a beautiful furnished room in the {WAbandoned Tower{x.
+When the former inhabitants left this building, they seemed to have
+lacked the time to take all that neat stuff with them. Strangely enough,
+there is no dust on the furniture nor is any of it rotten like all the
+things in the other rooms you have seen so far. This tower might NOT be
+totally abandoned after all.
+An inlaid {Ywardrobe{x, a very big round {Rtable{x, {bbookshelves{x made from
+expensive woods, a large {Ychest{x with Chinese inlay work and some other
+stuff worth a fortune is standing here. What a shame that you don't have
+the time or the strength to take any of those pieces with you.
+~
+0 AD 0
+D3
+To the west you see the fifth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12130
+E
+dust~
+I told you, there is no dust here!
+~
+E
+furniture pieces beautiful furnished room~
+There are many very nice pieces of furniture here. An inlaid wardrobe,
+a big round table, some bookshelves and a large chest to mention just
+a few of them.
+~
+E
+table mahogany~
+The {Rtable{x is a beautiful piece of furniture, made from {Rmahogany{x.
+It is big enough for at least 15 people to sit around it.
+There are no chairs around it, though.
+~
+E
+bookshelves bookshelf shelf shelves books~
+The {bbookshelves{x are all empty. All the books they might once have
+hold are gone. Some of the {Yboards{x in one of the shelves seem to be
+broken.
+~
+E
+boards~
+While examining the {Yboards{x closer, you move them a bit and a
+{Bsecret passage{x opens behind the {bbookshelf{x.
+~
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in.
+~
+S
+#12133
+Secret Chamber~
+You are standing in a secret chamber of the {WAbandoned Tower{x.
+The room is mostly empty, only a small table and a chair
+are standing on the wooden floor.
+~
+0 AD 0
+D3
+To the west you see a beautiful furnished room.
+~
+~
+0 -1 12132
+E
+table~
+A very small wooden table. It doesn't have any drawers or anything
+else of interest for you.
+~
+E
+chair~
+The chair is quite rotten already. Better don't try to sit
+on it, it would break down under your weight.
+~
+E
+wooden floor~
+The floor is old and the wood rotting. One of the floorboards
+is loose. You see a small {Whole{x underneath it.
+~
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in.
+~
+E
+secret chamber room~
+You are standing in a secret chamber of the {WAbandoned Tower{x.
+Have a look if you want to see your surroundings.
+~
+S
+#12134
+Officers Quarters~
+This room looks like a sleeping quarters for someone important as
+there is only one {Wbed{x here and a large wooden {bwardrobe{x that is still
+in good condition.  It must have been finely crafted to have lasted
+so well.
+~
+0 AD 0
+D2
+To the south you see the fifth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12130
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+officers quarters sleeping~
+You are standing in an officers quarters. Take a look if you want to
+see your surroundings.
+~
+S
+#12135
+Officers Quarters~
+This room looks like a sleeping quarters for someone important as
+there is only one {Wbed{x here and a large wooden {bwardrobe{x that is still
+in good condition.  It must have been finely crafted to have lasted
+so well.
+~
+0 AD 0
+D1
+To the east you see the fifth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12130
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+officers quarters sleeping~
+You are standing in an officers quarters. Take a look if you want to
+see your surroundings.
+~
+S
+#12136
+Sixth floor of the {WAbandoned Tower{x~
+You are standing on the sixth floor of the {WAbandoned Tower{x.
+~
+0 D 0
+D0
+You peek into a room.
+~
+~
+0 -1 12139
+D1
+You peek into a room.
+~
+~
+0 -1 12138
+D2
+You peek into a room.
+~
+~
+0 -1 12137
+D3
+You peek into a room.
+~
+~
+0 -1 12140
+D4
+There is a staircase leading upwards.
+~
+~
+0 -1 12141
+D5
+A staircase leads down.
+~
+~
+0 -1 12130
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+sixth floor~
+You are standing on the sixth floor of the {WAbandoned Tower{x.
+There is nothing of interest here.
+~
+S
+#12137
+A Room in the {WAbandoned Tower{x~
+Another room of no discernable purpose confronts you.  The {Wwalls{x are
+bare and this room is unusually clean compared to the rest of this
+tower.  You almost feel as though someone was just here.  On the other
+hand, that someone may still be here.
+~
+0 AD 0
+D0
+To the north you see the sixth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12136
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+room~
+You are standing in an empty room with bare {Wwalls{x. The room is
+unusually clean.
+~
+E
+walls north~
+While examining those bare {Wwalls{x, you touch a part on the north {Wwall{x
+and your hand goes right through it. You have found a {Cmagical portal{x!
+~
+S
+#12138
+Records Room~
+In this room broken {bdesks{x and {Wfiles{x are strewn about with tattered
+{Yscrolls{x everywhere.  Someone put a lot of effort in keeping track of
+a lot of information here.
+~
+0 AD 0
+D3
+To the west you see the sixth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12136
+E
+scrolls~
+They are all tattered and strewn about. Beyond one of the {Yscrolls{x
+you discover a small {bchest{x.
+~
+E
+desks~
+They are all broken and can't be of any interest to anyone any more.
+~
+E
+files hints~
+The {Wfiles{x might contain some hints as to what purpose this tower was
+once build for. Unfortunately, they are written in a language you don't
+understand.
+~
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+S
+#12139
+{VT{Gr{Be{Ca{Ps{Cu{Br{Ge {Vr{Go{Bo{Cm{x~
+You have entered a room with a huge treasure {Vc{Gh{Be{Cs{Pt{x in it.
+The room seems to exist simply to hold this {Vc{Gh{Be{Cs{Pt{x!
+~
+0 AD 0
+D2
+To the south you see the sixth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12136
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in. Judging from that and the terrible smell
+that irritates your nose, you get the feeling that this building has
+been abandoned for many years and might break down any minute.
+~
+E
+room~
+The room is bare except for this huge treasure {Vc{Gh{Be{Cs{Pt{x.
+~
+S
+#12140
+{CAltar{x~
+This room has religious {Csymbols{x on the {Ww{Ca{Wl{Cl{Ws{x and a huge {Caltar{x with
+ancient {Csymbols{x engraved into it.  You recognize some of the {Csymbols{x
+but you can not remember what they mean.  You have not seen them except
+in a book once and you can not really remember anything about them.
+You get a gut feeling that is not entirely pleasant upon seeing them
+again even though you doe not remember why.
+~
+0 AD 0
+D1
+To the east you see the sixth floor of the {WAbandoned Tower{x.
+~
+~
+0 -1 12136
+E
+abandoned tower building~
+You are standing inside the tower, so you can't see much of it but
+the room you are standing in.
+~
+E
+symbol~
+Looking at the {Csymbols{x gives you a strange feeling of uneasiness.
+~
+E
+room~
+This room makes you feel uncertain about yourself and the task you
+are trying to complete.
+~
+E
+walls~
+The {Ww{Ca{Wl{Cl{Ws{x are covered with religious {Csymbols{x.
+~
+S
+#12141
+On top of the {WAbandoned Tower{x~
+You are standing on top of the {WAbandoned Tower{x. From here you have
+a marvelous view over the deep dark {Gforest{x, the {Clake{x in it,
+a small {Rv{bi{gl{Rl{ba{gg{Re{x and some fields to the north, a mountain to the south
+and a castle at the other side of the {Gwood{x.
+~
+0 AD 0
+D5
+A staircase leads down.
+~
+~
+0 -1 12136
+E
+abandoned tower building top view~
+You are standing on top of the tower. You have a marvelous view from here.
+~
+E
+castle~
+You can barely make out a castle to the other side of the {Gforest{x.
+It is too far away to see any details, though.
+~
+E
+mountain south~
+To the south of the {Fforest{x you see the {PN{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x {GMountains{x.
+It looks like a mystic place, worthwhile but dangerous to explore.
+~
+E
+small village fields meadow north~
+You notice a {Rv{bi{gl{Rl{ba{gg{Re{x north of the {Gforest{x. It is surrounded by some
+{Yfields{x and a {Gmeadow{x.
+~
+E
+lake~
+Somewhere in midst the {Gforest{x you see a small {Clake{x.
+~
+E
+deep dark forest wood~
+The {WAbandoned Tower{x is surrounded by a deep dark {Gforest{x.
+~
+S
+
+#12142
+{GClearing {WBefore the{x {PN{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x {GMountains{x~
+    Emerging from the deep sheltered {Gf{Yo{Gr{Ye{Gs{Yt{x you have entered a small
+clearing. Before you, rising to unseen heights, are the {PN{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x
+{GMountains{x, purple-misted, dark and remote.  They stretch as far east
+and west as the eye can see, seeming to never disappear in the far
+off horizons.  To the west is a very narrow {Gpath{x cut from the side
+of the rock face that looks like it might lead upwards.  As you turn
+to go up the path, you notice to the north small slivers of {Ylight{x
+peeking through some well-placed boulders.
+~
+0 0 2
+D0
+A winding {Gpath{x to the sheltered {Gf{Yo{Gr{Ye{Gs{Yt{x.
+~
+~
+0 -1 12029
+D4
+The {cS{gt{co{gn{ce{x {GPath{x leads upwards.
+~
+~
+0 -1 12143
+E
+path~
+Creativity is a shapechanger. One moment it takes this form, the
+next that. Some say the creative life is in ideas, some say it is
+in doing. Creativity is not a solitary movement. Whatever is touched
+by it, whoever hears it, sees it, senses it, knows it,...is fed.
+For each a different path we trod.
+~
+E
+light~
+{YLight{x streams from cracks all along the jagged edges of these
+{gboulders{x hinting to maybe an {Pentrance{x leading somewhere.
+~
+S
+
+#12143
+{cS{gt{co{gn{ce{x {GPath{x~
+    So far so good, but be careful, the {Gpath{x gets steeper and more
+treacherous as you continue upward.  The sound of {Tfalling {grocks{x to
+the east catches your interest. You turn and notice there is another
+{Gpath{x veering off to the other side of the mountain face.  Wonder if
+that {Gpath{x is easier?
+~
+0 0 4
+D4
+The {cS{gt{co{gn{ce{x {GPath{x leads upward.
+~
+~
+0 -1 12144
+D5
+The {cS{gt{co{gn{ce{x {GPath{x leads to the clearing.
+~
+~
+0 -1 12142
+D1
+The {cS{gt{co{gn{ce{x {GPath{x leads to the east.
+~
+~
+0 -1 12151
+E
+falling rocks~
+You wonder what made or who made those {crocks{x fall so easily
+over there. Maybe THIS {Gpath{x is safer.
+~
+S
+
+#12144
+{cS{gt{co{gn{ce{x {GPath{x~
+    As you continue your climb, you marvel at the craftsmanship
+needed for someone or something to have been able to cut this
+narrow {Gpath{x out of the sheer face cliff. You ease against the cold
+stone, staying as far away from the edge of the {Gpath{x as you possibly
+can.  Whew....better continue up and get this over with.  Be careful,
+there are {Tloose {gpebbles{x everywhere.
+~
+0 0 5
+D4
+The {cS{gt{co{gn{ce{x {GPath{x leads upward.
+~
+~
+0 -1 12145
+D5
+If you are afraid of continuing, you can go back down.
+~
+~
+0 -1 12143
+D1
+A secret passage leading somewhere.
+~
+secret passage~
+1 -1 12160
+E
+path~
+Yep, it's the same path you've been climbing.
+~
+E
+loose pebbles~
+Be very careful because you could easily slip on these loose
+pebbles, and that would be disastrous. The jagged {grocks{x at
+the bottom of this {Gmountain{x could cause some {P*Sirius*{x damage.
+~
+S
+
+#12145
+{cS{gt{co{gn{ce{x {GPath{x~
+    The air becomes thinner as you proceed cautiously up the
+narrow {cs{gt{co{gn{ce{x {Gpath{x.  Suddenly your hand on the smooth granite
+face wall feels a jagged slit, like an opening.  You turn to
+take a closer look and notice if you push against it slightly,
+the {gstone{x begins to slide back in, leaving a space just barely
+wide enough to wiggle through.  Now that you've pushed it open,
+are you going to enter the chamber or continue upward?
+~
+0 0 5
+D4
+The {cS{gt{co{gn{ce{x {GPath{x continues upward.
+~
+~
+0 -1 12146
+D5
+You can go back down the {cS{gt{co{gn{ce{x {GPath{x if you are feeling lightheaded.
+~
+~
+0 -1 12144
+D1
+You need to push harder, the {gstone{x seems to have closed.
+~
+stone door~
+1 -1 12161
+S
+
+#12146
+{cS{gt{co{gn{ce{x {GPath{x~
+    Well,  you are getting closer to the plateau.  All this arduous
+climbing had better be worth whatever it is at the top of this
+gods-awful {Pn{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x {Gpath{x.  You decide to stop and lean back
+against the wall, taking a quick breather.  Looking out over the
+valley, you see the {Vp{Ya{Bt{Cc{Ph{Vw{Yo{Br{Ck{x design of radiant colors, and the
+{Bdense {Cmist{x barely kissing the crystal lake.  Towards the east you
+see a somewhat {Mdeserted {Vvillage{x, and - -what's that?  A {brope{x
+{bladder{x dangling over the side.  Hmmm, I wonder.......
+~
+0 0 5
+D5
+After all this climbing, do you really want to go back down?
+~
+~
+0 -1 12145
+D4
+After you catch your breath, you can continue upward.
+~
+~
+0 -1 12148
+D1
+A rope ladder left by someone for something.
+~
+~
+0 -1 12147
+E
+patchwork design~
+That {Gf{Yo{Gr{Ye{Gs{Yt{x is the same one you just came through, but at that
+time all you could think about was finding your way {POUT!{x  It
+doesn't look so menacing now from up here.
+~
+E
+dense mist~
+A thick, {Vpurple-hued mist{x swirls slowly over a large crystal {Clake{x
+that looks inviting.  If you ever get off this gods-awful
+{Gmountain{x in one piece, maybe that would be a great place to relax.
+~
+E
+deserted village~
+As far as you can tell from this distance, it looks pretty deserted.
+That might be worth exploring one day, but for right now, it's
+onward and upward.
+~
+E
+rope ladder~
+Someone has left a worn rope ladder dangling over the side. It
+doesn't look too sturdy, maybe that is why they just left it.
+~
+S
+
+#12147
+DOH!!!~
+   That was not such a brilliant move...Now you are left
+standing on a rock ledge wondering what to do. You can't go back up,
+because the rope is not sturdy enough so guess you better take
+the shorter route and go down. Besides you have no other choice;)
+We all learn from our mistakes ;)
+~
+0 0 0
+D5
+Nowhere to go but down.
+~
+~
+0 -1 12000
+S
+
+#12148
+{cS{gt{co{gn{ce{x {GPath{x~
+    The {Gpath{x is less steep here, but it's still quite narrow. So
+far you have made good time coming up, but you still have not
+reached the top yet.  Better not linger, it would not be wise
+to be caught here when {gnight {Tfalls{x.  Be careful where you place
+your foot.  The {Gpath{x is very worn and pieces of it have fallen
+away from the mountain.  To slip now would definitely hurt.
+~
+0 0 4
+D5
+After coming all this way, do you really want to go back down?
+~
+~
+0 -1 12146
+D4
+Yep, more of the {cS{gt{co{gn{ce{x {GPath{x leading upward.
+~
+~
+0 -1 12149
+D1
+Not much here, or is there?
+~
+~
+1 -1 12162
+D3
+Not much here either, or is there?
+~
+~
+1 -1 12018
+E
+night falls~
+For when night falls, a gentle rush of music, soft and cold and
+haunting gives a sensation of something unbearably beautiful moving.
+Blue and green smudges of smoke.  Wisps and curls of ice fire, blue
+on green on blue again; half seen and then gone, dissolving into the
+uncertain light, melting into the forest and then appearing again.
+Shapes and half-shapes; things you could not be entirely sure you
+were seeing, but creatures you knew where there.
+~
+S
+
+#12149
+{cS{gt{co{gn{ce{x {GPath{x~
+    The {Gpath{x veers slightly to the east, and ahead you see the
+{bplateau{x, what you have been longing for since 10 minutes after you
+started up this "{Pn{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x" {Gpath{x.  Okay, no time to rest now,
+you are almost to the top. Looking back down the {Gpath{x, you breathe
+a sigh of relief that you have made it this far without mishap.
+~
+0 0 4
+D0
+The plateau is within sight.
+~
+~
+0 -1 12150
+D5
+After all this, you aren't really going back down are you?
+~
+~
+0 -1 12148
+D1
+A {Gpath{x leading deeper into the {Gmountain{x.
+~
+~
+1 -1 12163
+E
+plateau~
+The plateau rises from what seemingly looks to be nothing. The air
+around you feels heavy with enchantment, as if it wraps itself around
+you, like a soft gentle rainfall, like a cobweb cascade. From the path
+there is a dense {Gf{Yo{Gr{Ye{Gs{Yt{x that shelters a forbidding
+looking {gc{ca{gs{ct{gl{ce{x far to the north, its spheres barely touching
+the clouds. You have heard the strange rumors of it being haunted..it
+might be wise to investigate in the daylight ;)
+~
+S
+
+#12150
+Plateau of the {PN{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x {GMountains{x~
+    {GF{Yo{Gr{Ye{Gs{Yt{x edges, it is a peculiar feeling how your footsteps echo,
+even when it is soft bracken you are walking on, and the noises are
+different here than the ones you heard far down below the mountain.
+Faint stirrings of wind above you, {beagles{x dipping and gliding
+gracefully.  The faintest, frailest {Mthread of {Vsound{x, nothing more,
+except maybe the sound of rustling, scurrying feet. There is the
+feeling that the bushes are about to part and show {Tsomething{x that
+may be crouched there waiting......
+~
+0 0 0
+D0
+You see the edge of the {Gf{Yo{Gr{Ye{Gs{Yt{x.
+~
+~
+0 -1 12011
+D1
+From here you see the {Gpath{x to the {cs{gt{co{gn{ce{x {gs{ct{ge{cp{gs{x.
+~
+~
+0 -1 12157
+D2
+The way to the {cS{gt{co{gn{ce{x {GPath{x leading down.
+~
+~
+0 -1 12149
+D5
+A winding {Gpath{x down the other side of the {Gmountain{x.
+~
+~
+0 -1 12175
+E
+thread of sound~
+Wolves can move ever so softly. A wolf shadows anyone or anything
+that passes through its territory.  The sound they make is in the
+manner of the shyest angels.  Shadowing, meaning to have such a
+light touch, such a light tread, that one can move freely through
+the forest, observing without being observed.
+~
+E
+eagles~
+For a time all is silent. The fading of twilight gives way to
+shadows. You hear the song of the druid priestess:
+{C"While Eagles gorge, the Dragon sleeps,
+When Ravens fly, the Lady weeps,
+What hate has sown, compassion reaps..."{x
+~
+E
+something~
+You don't know when it began or where it came from - - but
+suddenly you are aware that there is something moving closer;
+a great rush of anticipation, a feeling that something is about
+to happen overwhelms you.
+~
+S
+
+#12151
+{cS{gt{co{gn{ce{x {GPath{x~
+    You have chosen the alternate way up the east side of the
+{PN{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x {GMountains{x.  Someone has cut deep
+{cs{gt{co{gn{ce{x {gs{ct{ge{cp{gs{x on this side of the mountain.  You start
+to wonder if maybe the narrow {Gpath{x would have been easier than
+these steep {gs{ct{ge{cp{gs{x that were obviously carved out for a giant's stride.
+~
+0 0 0
+D4
+The {cS{gt{co{gn{ce{x {gs{ct{ge{cp{gs{x lead up the {Gmountain{x.
+~
+~
+0 -1 12152
+D3
+You can chose to go west to the {cS{gt{co{gn{ce{x {GPath{x.
+~
+~
+0 -1 12143
+D1
+This {Gpath{x doesn't look as worn as the others.
+~
+~
+0 -1 12013
+S
+
+#12152
+{cS{gt{co{gn{ce{x {gS{ct{ge{cp{gs{x~
+    The {gs{ct{ge{cp{gs{x are not easy to maneuver and your legs are already
+tired.  You pause to catch your breath and ease your aching leg
+muscles.  You wish you could sit down, but even though the rise
+of the {gs{ct{ge{cp{gs{x is high, they are extremely narrow.  As you pause
+to survey your surroundings, you notice further up that here and
+there the {gs{ct{ge{cp{gs{x seem wider, almost as if it were done on {Tpurpose{x.
+~
+0 0 4
+D4
+The {cS{gt{co{gn{ce{x {gs{ct{ge{cp{gs{x lead up the {Gmountain{x.
+~
+~
+0 -1 12153
+D5
+Well if the other {gs{ct{ge{cp{gs{x lead up, these must obviously lead down.
+~
+~
+0 -1 12151
+D3
+{PCrimson{x {Ylight{x catches your eye.
+~
+{Pcrimson{x {Ylight{x~
+1 -1 12170
+E
+purpose~
+O be wary, Mortal, be wary of the vast caverns of pain and torture..
+all the torments of burning dungeons..leaping, devouring flames..
+look deep into the furnaces and be lost once and forever...look
+down into the boiling lakes and beds of raging fire..Follow me,
+human soul, and come down into the brimstone pit.
+~
+S
+
+#12153
+{cS{gt{co{gn{ce{x {gS{ct{ge{cp{gs{x~
+    Well, you seem to be making some headway, not much, but
+at least some.  Now you know why the {gs{ct{ge{cp{gs{x are wider
+in some places than others.  There is a low narrow opening cut out
+of the rock face which was once concealed by mage magic.  The
+remnants of the illusionary spell have faded somewhat over the
+course of time.  The {YGateways{x {Rf{Yl{Pi{Rc{Yk{Pe{Rr{x.
+~
+0 0 4
+D4
+Yep, more {cs{gt{co{gn{ce{x {gs{ct{ge{cp{gs{x lead up.
+~
+~
+0 -1 12154
+D5
+Yep, if the others lead up, this leads down.
+~
+~
+0 -1 12152
+E
+gateways flicker~
+{YLight{x is shadowless, a diffuse illumination in which the
+{Rc{Go{Vl{Bo{Wr{Cs{x of the {Gf{Yo{Gr{Ye{Gs{Yt{x glow like muted jewels.  With a shiver
+you understand how to pass the boundary that separates the field of
+men from the Otherworld. The music will draw you into the fire and
+the light, with echoes all about you, beautiful fragile images created
+by the souls of the worlds not yet formed.
+~
+S
+
+#12154
+{cS{gt{co{gn{ce{x {gS{ct{ge{cp{gs{x~
+   Well so far so good or is it?  The valley is far below and
+you realize one slip and it's all over, or rather you will be
+all over the valley floor.  Hmm, what's that {Chumming{x?
+It seems to be coming from behind that slightly protruding
+boulder.  Dang, decision time again.  Continue up or
+squeeze behind that boulder and satisfy your curiosity?
+Your choice.  OOPS, now to make the choice even more
+complicated, you notice what appears to be a switchback.
+Should you attempt it by going south?
+~
+0 0 5
+D4
+The {cS{gt{co{gn{ce{x {gS{ct{ge{cp{gs{x continue upward.
+~
+~
+0 -1 12156
+D5
+{cS{gt{co{gn{ce{x {gs{ct{ge{cp{gs{x leading back down.
+~
+~
+0 -1 12153
+D3
+You hear a faint {Chumming{x sound coming from behind the boulder.
+~
+stone boulder~
+1 -1 12172
+D2
+Looks like a switchback.
+~
+~
+0 -1 12155
+E
+humming~
+As you hear the song, your {Ph{Re{Pa{Rr{Pt{x is pierced with sorrow and
+your vision blurs as tears fill your eyes. With the beating of
+a thousand wings upon the still {Cair{x, comes the clear voice
+from beyond the world as you know it, "{VAlas for the land beyond
+the wave, Alas for the land that none could save, The knowledge
+lost that gods once gave...{x"
+~
+S
+
+#12155
+Switchback~
+  *thwock*  Now you know it's not a switchback.
+~
+0 C 0
+S
+
+#12156
+{cS{gt{co{gn{ce{x {gS{ct{ge{cp{gs{x~
+    You notice the remaining {gs{ct{ge{cp{gs{x are not as steep as the
+ones far below.  The air is cleaner and more brisk.  You
+stop to clear your mind and wonder what may be awaiting
+you when you finally reach the top.  As you take a deep
+breath, your eyes catch sight of the {Mdancing {Vcolors{x, {Yyellow{x,
+{Porange{x, and {Rscarlet{x that appear here and there like tiny
+far-off rivers of living fire streaming out of the mountainside.
+You wonder where they are coming from.
+~
+0 0 4
+D4
+Ahyup, just a few more {cs{gt{co{gn{ce{x {gs{ct{ge{cp{gs{x leading upwards.
+~
+~
+0 -1 12157
+D5
+Ahyup, a lot of {cs{gt{co{gn{ce{x {gs{ct{ge{cp{gs{x leading back down.
+~
+~
+0 -1 12154
+D3
+~
+dancing {Rc{Go{Vl{Bo{Wr{Cs{x~
+1 -1 12173
+E
+dancing colored~
+Dancing {Rc{Yo{Vl{Bo{Wr{Ce{Gd{x {Ylights{x coming from somewhere.
+~
+S
+
+#12157
+{cS{gt{co{gn{ce{x {GPath{x~
+    Whew!  Finally no more {gs{ct{ge{cp{gs{x.  You honestly didn't think
+your legs could possibly take any more.  The sheer mountainside
+has now given way to a fairly flat spot of land, gently sloping
+to the west.  You should not stop here too long, because you
+never know what might appear.
+~
+0 0 0
+D3
+Dang, finally flat land and no more {gs{ct{ge{cp{gs{x.
+~
+~
+0 -1 12150
+D5
+After coming all this way, do you really want to go back down.
+~
+~
+0 -1 12156
+S
+
+#12158
+{REntrance {Wto the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+    With a rasp of claws on stone and a terrible low chuckle,
+a triumphant harsh cawing sound heralds the appearance of
+{cNevermore{x, {RKeeper{x of the {CSecret{x to the entrance, a giant black
+raven. He stands guard prohibiting you from entering the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x.
+There are four openings that look exactly the same, however, there is
+only {Tone correct opening{x. You try to look inside, but it is pitch black.
+Etched in the stone above the entrance are {Mstrange markings{x.
+~
+0 0 0
+D5
+An entrance to the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x.
+~
+~
+1 -1 12012
+D3
+An entrance to the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x.
+~
+~
+1 -1 12159
+D2
+An entrance to the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x.
+~
+~
+1 -1 12008
+D1
+An entrance to the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x.
+~
+~
+1 -1 12013
+D0
+A clearing before the {PN{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x {GMountains{x.
+~
+~
+1 -1 12142
+E
+one correct opening~
+DOH, it's hidden, how did you expect to see it?
+~
+E
+strange markings~
+{cNevermore{x was cursed forever to recite a riddle to all who approached
+the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x.  If you say the correct answer
+he will tell you which entrance is the correct one. If not, be
+forewarned that attempting to enter otherwise could prove hazardous
+to your health <egrin>.
+~
+S
+
+#12159
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+    You have entered the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x, a place that existed
+long before the Mage Wars.  As you look Down the {CTunnel{x {Wof{x {CTime{x,
+you see great {Techoing caverns{x which go on and on with endless
+winds that carry the tales of the Mage Wars.  A place where
+someone might wander forever in the {Msilent {Vdark{x, searching for
+the {Tdoorways{x of a past they Left behind.  Mage and Druids alike
+thought they were Right to seek refuge here.
+~
+0 D 0
+D4
+The way back to the entrance is up.
+~
+~
+1 -1 12158
+E
+tunnel of time~
+The {CTunnel{x {Wof{x {CTime{x leads down deep into the heart of the
+{Gmountain{x.  There are secret chambers leading off in all directions.
+~
+E
+echoing caverns~
+This was a well-guarded shelter for mystical magic to continue.
+Mage and Druids came here taking up residence in caverns and
+chambers carved out by time. Their experiments and visits to
+other astral planes went uninterrupted until.....well, you
+might encounter some of the reasons for the until.
+~
+E
+doorways~
+In order to protect themselves from unwanted guests, they found that
+casting powerful illusionary spells to cloak the doors were quite
+effective.  To break the spells and enter the vortex, you must read
+carefully the clues they left behind.  Don't think of all the doors
+in the preferred manner, i.e., west, east.  The wording may be quite
+different. After all, the magic wielders were extremely intelligent
+and cunning in disguising what they didn't want you to know.
+~
+S
+
+#12160
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+    Listen. {cS{gh{ca{gd{co{gw{cs{x that sway to the rhythm.  The ones who
+believed in dreams and enchantments and who had known all
+along that there were other worlds, only that you had to
+sometimes look very hard to find them. As with all {cs{gh{ca{gd{co{gw{cs{x,
+they constantly move, blending into forms, {Tshapes twisting{x
+till from what it was it is no more.  {MShattered {Vdreams{x and
+{Vfaded {Menchantments{x forever {cs{gh{ca{gd{co{gw{cs{x to dance endlessly.
+~
+0 D 0
+D1
+~
+~
+1 -1 12159
+D0
+~
+~
+1 -1 12161
+E
+shattered dreams~
+Dreams of wishes, of pleas, of visions, shattered by
+unhappiness. The wants, desires, and longing that spur
+a mind, body, and soul onward are cold and lifeless.
+The only thing left are shattered dreams.
+~
+E
+faded enchantments~
+The mind watches the shadows dance and listens to the mournful music.
+Can you hear their cries of glory fading, no longer brilliant with
+the enchantment of life and love.
+~
+S
+
+#12161
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+    From the narrow slits around the boulder that serves as a hidden
+door, slivers of light cast small {cs{gh{ca{gd{co{gw{cs{x over your shoulder.  You
+cannot tell whether it is moonlight or sunlight since there is no day
+or night within the chambers of the {CTunnel{x {Wof{x {CTime{x.  You glance back
+thinking that you can catch them in their hypnotic dance.  {cS{gh{ca{gd{co{gw{cs{x
+at their best can be pleasant {Tvisions{x dancing within the mind, or at
+their worst they can lead to a disastrous nightmare.  Many braver
+than you let the {cs{gh{ca{gd{co{gw{cs{x rule their {Mcommon {Vsense{x.
+~
+0 D 0
+D0
+~
+~
+1 -1 12162
+D2
+~
+~
+1 -1 12160
+D1
+~
+~
+1 -1 12164
+E
+common sense~
+Small {cs{gh{ca{gd{co{gw{cs{x creep into your dreams at night from once was
+pleasant and soothing turns to dread and fear. Happiness
+alludes you even in visions dancing in your mind when
+sleeping.  Remember where you are, remember who you are.
+Common sense is greatly talked about, mostly rarely used.
+~
+S
+
+#12162
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+    The secret chambers within could be either a haven or a bed
+of tragedy for the Druid or Mage who chose to dwell here. The ones
+who came here never went back, but stayed to satiate their
+onward driving quest to seek more powerful spells and magic.
+Sometimes a {Mresponse{x, an {Vanswer{x, a creature drawn by magic,
+puzzled, dazzled and bewildered, but ready to obey the magic's spell.
+~
+0 D 0
+D0
+~
+~
+1 -1 12163
+D2
+~
+~
+1 -1 12161
+D3
+~
+~
+1 -1 12148
+E
+response~
+Truly as the Bards had sung, the Land of the Living and the
+Otherworld lay like folds in a cloak, and where they touched, one
+could pass easily from one to another.
+~
+E
+answer~
+It was only sometimes that the worlds came so closely together,
+when the Druids would sing their sacred songs to the {CLady{x of {YLight{x.
+    {C"Behold, the holy priestess comes,
+      Sacred herbs are in her crown,
+       The golden crescent in her hand.."{x
+~
+S
+
+#12163
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+     Ah, you hear it, and as soon as you hear it, you realize you
+have been hearing it for quite some time.  The {Ysound of footsteps{x
+are nearer now, and there is something very menacing about them.
+There is a purposeful air about them, almost as if {gunseen {Pcreatures{x
+had sensed you, and were saying, "AHA!  Here is something of
+interest, a very tasty morsel indeed!"  That does conjure up very
+{Rnasty images{x, doesn't it?  Better not linger too long here, you
+might think about {Vreturning{x {Bhome}x!!!
+~
+0 D 0
+D2
+~
+~
+1 -1 12162
+D1
+~
+~
+1 -1 12168
+E
+unseen creatures~
+The whispers seem closer now; they echo and reverberate about the
+cavern walls "What is the difference between soul and sanity..it
+is all one to us, it feeds the music and it is what makes our
+beauty, for beauty feeds on pain...you will lose your wits, you
+will lose your soul."
+~
+E
+nasty images~
+Well your appetite may be lost, but there may be someone else
+lurking who's appetite has not been satisfied - - yet ;)
+Laughter
+~
+E
+returning home~
+What is homing?  An instinct to return to a place we remember? Using
+our abilities to find, whether in dark or in daylight, one's home
+place. Ah, but where is home?  Can it be an internal place, a place
+somewhere in time rather than space, where a thought or feeling can
+be sustained instead of being torn away?
+~
+S
+
+#12164
+{CTunnel{x {Wof{x {CTime{x~
+   {cS{gh{ca{gd{co{gw{cs{x dance everywhere you look, to the east, to the
+west, and further Down the tunnel.  You are leery of going further,
+since you have been taught that {Vthings unseen{x may very well lurk
+in what appears to be a {Tharmless {cshadow{x.  If you go back Up
+you will never know.  Let the {cs{gh{ca{gd{co{gw{cs{x soak into your soul,
+let yourself become one with the dark and the beauty, travel the
+{CTunnel{x {Wof{x {CTime{x.
+~
+0 D 0
+E
+things unseen~
+Where is the midway point between the worlds of reason and image,
+between feeling and thinking, between matter and spirit - between
+all the opposites and all shades of meaning one can imagine?
+~
+S
+
+#12165
+{CTunnel{x {Wof{x {CTime{x~
+    The Mage Wars brought {Mdevastation{x to the rich fertile lands.
+Fields were stripped of crops, streams and rivers dried up, and
+wildlife became scarce.  {cS{gh{ca{gd{co{gw{cs{x of what once were crops
+rich for harvest are all that are left.  Sometimes thinking you're
+right in your {Ypursuit{x to know the enemy could prove fatal.  Also,
+not knowing what is ahead could pique your curiosity, but you also
+know that lingering within these {cs{gh{ca{gd{co{gw{cs{x is not going to
+get you down the {CTunnel{x {Wof{x {CTime{x.
+~
+0 D 0
+E
+pursuit~
+The tears of passion and compassion are wept after the accidental
+finding of treasure, after the fearful chase, after the untangling -
+for it is the combination of these that causes the exhaustion,
+the disassembling of defenses, the facing of oneself, the
+stripping down to the bones, the desire for both knowledge and
+relief.  These cause a soul to peer into what the soul truly
+wants, and to weep for loss and love of both.
+~
+S
+
+#12166
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+    It was the habit of Master Bards, particularly the teachers, to
+write short dissertations on the meaning and derivation of songs
+to be used as {Mteaching {Vmaterials{x. After the arrival of the mages,
+Master Bards had plenty to {Twrite{x and {Ysing{x about - - Do you see them?
+Do you hear it?
+~
+0 D 0
+D1
+~
+~
+1 -1 12165
+E
+write about~
+ {cS{gh{ca{gd{co{gw{cs{x black, {cS{gh{ca{gd{co{gw{cs{x gray,
+       all blending into forms then fading away.
+   Dancing to music only the dead can hear,
+       mage magic transforming the {cs{gh{ca{gd{co{gw{cs{x far and near.
+~
+E
+sing~
+The music begins softly and gradual; one minute it is not there, and
+the next minute it is entirely there, so that you think it has
+probably been there for quite a long while.  Then it is all about you,
+an icy waterfall of beauty and enchantment, and old, old magic.
+~
+S
+
+#12167
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+    There is a growing feeling of immense evil now, of something
+greedy and implacable approaching.  Moonlight pierces the cave,
+from holes through tiny shafts blasted out by magic gone awry.
+Black {cs{gh{ca{gd{co{gw{cs{x fall across the uneven surface of the rock floor as
+{Ymoonlight dances{x across the polished smooth walls.  You can't
+see it, but you feel its composition of every nightmare you've had,
+and every grisly story ever you've been told or imagined or feared.
+~
+0 D 0
+D3
+~
+~
+1 -1 12165
+E
+nightmare~
+Nightmares of despair and anguish that wretch your soul till the
+tears of pain flow, that no matter how hard you try, you cannot
+control them, they control you.  You are no longer the master
+of your soul; for they reach into the very corners of your mind
+that you did not even know existed.
+~
+S
+
+#12168
+{CTunnel{x {Wof{x {CTime{x~
+    Sentient {cs{gh{ca{gd{co{gw{cs{x dance upon the west wall from blazing
+torches lining the east wall.  You hear the faint sound of trickling
+water, singing its soothing {Msong {Tof {Vpower{x.  All down the sides
+of the left wall, rich green moss grows in crevices here and
+there. To go forward from here may be less hazardous than trying
+to go back up. A {Tplayground{x for the fears living just on the outer
+limits of your mind.
+~
+0 D 0
+E
+song of power~
+At the creation the Gods gave the people songs, telling them that
+using them will call the Gods back at any time, that song will
+bring to them the things they need as well as transform or
+banish those things they don't want. Songs can relieve pain,
+magic breaths restoring the body.
+~
+S
+
+#12169
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+   The hot springs at the foot of the underground {Cwaterfall{x were
+sculpted by {WIce{gShadow{x back when the caves were first inhabited.
+The cool water of a tiny stream falls into a series of shallow
+rock basins ending in the hot pool of the spring below. {WIce{gShadow{x
+had tuned each of the basins so that the {Mmusic{x of the falls is
+incredibly soothing. The soft melody of wind chimes caresses the
+crying {cs{gh{ca{gd{co{gw{cs{x within your troubled mind that you force into hiding.
+~
+0 D 0
+D1
+~
+~
+1 -1 12168
+E
+{WIce{cS{gh{ca{gd{co{gw{x~
+A Druid who taught the disciplines that would give the other mages
+access to the inner planes. Dreams and intuitions had always come
+easy and without warning to {WIce{cS{gh{ca{gd{co{gw{x. He taught them to bring the
+visions at will, and when necessary, to wall them away.
+~
+E
+music~
+You realize it isn't really {Cwater{x that flows down to the basins.
+It's the endless {Ctears{x of memories caught in the crying {cs{gh{ca{gd{co{gw{cs{x;
+one man's agonizing communication between sight, sound and emotions.
+Tears carry creative power. They can be a binder, to secure elements,
+unite ideas, join souls. The can call spirits and heal wounds.
+~
+E
+waterfall~
+Spring comes in a rain of tears.  Entry to the underworld is upon a
+waterfall.  A tear, heard by anyone of heart, is understood as a cry
+to come closer.  Minister to your pain from within; thinking
+that another can be Your healer is a mistake.  It is written that a
+magician sheltered a runaway slave girl by crying so many tears he
+created a waterfall under which she took refuge.  Let your heart break,
+break open, and a love from within that you did not know existed but
+always carried within, will help you heal.
+~
+S
+
+#12170
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+    The inside of this stone chamber glows with a {Rcrimson{x {Ylight{x,
+thickening {cs{gh{ca{gd{co{gw{cs{x everywhere.  A shield was placed on the boundary
+lines, so that within the confines a riot of vegetation flourished
+no matter the season. Outside the shield, nothing.  You can see a
+kind of shimmer where one ended and the other began, pure energy
+allowing only a selected few to cross over.  The barrier is broken
+now and all that remains are {cs{gh{ca{gd{co{gw{cs{x within, the {TForgotten Ones{x.
+~
+0 D 0
+D3
+~
+~
+1 -1 12159
+D0
+~
+~
+1 -1 12171
+E
+forgotten ones~
+The Forgotten Ones, masters of sorcery, who ventured recklessly to seek
+the powers that in the end, overtook them.  For what is power if it
+controls you?  Did the good intentions outlast the evil outcome?
+Forgotten and lost in {cs{gh{ca{gd{co{gw{cs{x, their only grave.
+~
+S
+
+#12171
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+   Through a few crevices high in the domed ceiling of the chamber,
+soft {Ylight{x spills into the chamber, piercing the dimness. You faintly
+see a shadowy archway, and passages that might lead elsewhere.
+At the center of the chamber is a long dark table, polished to a
+mirror-bright shine, and nine carved chairs are arranged around it.
+The long table is laid as if, any moment, someone will come in,
+sit down and {Mstart {Veating{x.  As you move nearer, you listen and
+search the {cs{gh{ca{gd{co{gw{cs{x for the {Tunseen {Revil{x.
+~
+0 D 0
+D2
+~
+~
+1 -1 12170
+D0
+~
+~
+1 -1 12172
+D3
+~
+~
+1 -1 12164
+E
+light~
+You have journeyed between the worlds, you have seen the {Ylight{x
+that is without {cs{gh{ca{gd{co{gw, you have been purified.
+~
+E
+start eating~
+As with the tale of Manawee, when the Bards would sing their song,
+some control must be placed on human appetite. As with the little
+dog, one will stop for every bonehock in the road, every pie on a
+log.  To practice not giving in to distracting appetites is a long
+process, and one difficult to maintain. The soul's work is not
+satisfied until we remember the real task at hand.
+~
+S
+
+#12172
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+    The {VStone{x of {RF'al{x was brought here to unravel the mystery of
+its potent power.  The Druids would raise the stone high above
+their heads, the music from the stone growing stronger, till the
+{VStone{x cried out, shrieking loud so that the sound echoed and
+spun them about.  Now, it goes on and on, a {Chumming sound{x,
+a noise like thousands of wings beating on the air.  Pure
+delight, a sound so comforting, so safe, except for the ones who
+had held it within their grasp.
+~
+0 D 0
+D2
+~
+~
+1 -1 12171
+D0
+~
+~
+1 -1 12173
+D3
+~
+~
+1 -1 12154
+E
+stone f'al~
+The {VStone{x of {RF'al{x cries out its warning, "All that has been
+will ever be, The dragons rise from the sea, Only the wise are
+truly free."
+~
+S
+
+#12173
+{cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+   Coming from the darkness of the connecting chamber, the first
+glimpse of the great {YSun Chamber{x is a massive assault on your
+senses.  Blinded and made breathless, you are sent gasping and
+helpless into a {Mwhirling {Vmaelstrom{x of living color, breathing light,
+and pulsating beauty.  Drowning in a sea of brilliance, smothered
+in light.  The colors caress the dreams and hopes that are still
+not shattered, still in {Yhopes{x {Gof{x {Yrealization{x, still in longing.
+~
+0 D 0
+D2
+~
+~
+1 -1 12172
+E
+hopes of realization~
+"Today near eventime I did lead
+the girl who has no seeing
+a little way into the forest
+where it was darkness and shadows were.
+I led her toward a shadow
+that was coming our way.
+It did touch her cheeks
+with its velvety fingers.
+And now she too
+does have likings for shadows.
+And her fear that was is gone.
+~
+S
+
+#12174
+Outside the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x~
+    You emerge on the other side of the {PN{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x {GMountains{x,
+outside the {cC{ga{cv{ge{x {Wof{x {cS{gh{ca{gd{co{gw{cs{x.  The clearing before you contains a
+pool touching a {Cwaterfall{x.  Whether it be the moon or sun overhead,
+the light turns it into a shower of flowing silver and diamond
+droplets.  The {Gpath{x is dark, snakelike and silent into the great
+forest.  From somewhere in the north, a sad single strand of {Ylight{x
+drifts down. {MMusic{x floats upon the gentle winds, a {Ysong{x once
+forgotten but now remembered within this spot.
+~
+0 0 0
+D0
+To the north you see a rocky hill.~
+~
+0 -1 12028
+D2
+You have no idea where you will get to in that direction.~
+~
+0 -1 12098
+D1
+You have no idea where you will get to in that direction.~
+~
+0 -1 12016
+D3
+You have no idea where you will get to in that direction.~
+~
+0 -1 12058
+E
+light~
+In all the stories of enchantment and in all the ledgends of
+bewitchment, there is one that stands above the rest.  A
+persistent, recurring theme; a single strand of ancient lore
+in the weave - - the beckoning of enchanted music.
+~
+E
+music~
+The music is like a gentle bewitchment; it spins tiny filaments of
+delight, brittle and cold and cobweb fine. You cannot be afraid of
+it, you cannot possible fear something so delicate. But through
+the dark forest, on the gentle winds come the sounds of crying.
+~
+E
+song~
+This is the song of the Woman with Hair of Gold, who lived in the
+woods alone, and wove upon a loom made of black walnut boughs. A
+brute tried to force her to marry him, instead she gave him some
+of her golden hair. It was spiritual gold, not monetary, and when
+he tried to sell it, people jeered at him and thought him mad.
+He murdered the woman and buried her body by the river. In her
+grave, the woman's golden hair grew until it surfaced and her
+grave was covered by a field of swaying golden reeds. Shepherds
+cut the curly reeds to make flutes, and when they played them,
+the tiny flutes sang and would not stop singing.
+ {Y"Here lies the woman with golden hair,
+  murdered and in her grave, killed by the
+  son of the coal burner because she wished to live."{x
+That is how the man who took the life of the woman with the
+golden hair was discovered, and brought to justice so all who
+live in the wild woods were safe once more.
+~
+S
+#12175
+A Winding {cS{gt{co{gn{ce{x {GPath{x~
+    You have started down the backside of the {PN{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x
+{GMountains{x. The {Gpath{x is very steep and narrow, so be careful.
+Unfortunately you cannot go back, the only way is down.
+~
+0 0 0
+D5
+A very steep {Gpath{x leading down.
+~
+~
+0 -1 12176
+S
+
+#12176
+A Winding {cS{gt{co{gn{ce{x {GPath{x~
+    You are still heading down the backside of the {PN{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x
+{GMountains{x.  The {Gpath{x is still very steep and very narrow.  Yep,
+you still need to be careful and nope you can't go back up.
+~
+0 0 0
+D5
+A very steep {Gpath{x still leading down.
+~
+~
+0 -1 12178
+D2
+~
+~
+1 -1 12177
+S
+
+#12177
+Hmm~
+*DOH*  you were told to be careful...slipping off the {Gmountain{x
+and crash landing in the deep sheltered {Gf{Yo{Gr{Ye{Gs{Yt{x will make for
+a long walk back.  Oh well, at least you didn't die (small
+humor at trying to make you feel better after such a blunder).
+~
+0 0 0
+D0
+Yep, it's a {Gpath{x back to the sheltered {Gf{Yo{Gr{Ye{Gs{Yt{x.
+~
+~
+0 -1 12011
+S
+
+#12178
+A Winding {cS{gt{co{gn{ce{x {GPath{x~
+    You are still heading down the backside of the {PN{Ye{Gv{Ve{Br{We{Bn{Vd{Gi{Yn{Pg{x
+{GMountains{x.  The {Gpath{x is still very steep and very narrow.  Yep,
+you still need to be careful and nope you can't go back up.
+~
+0 0 0
+D5
+A winding {Gpath{x down the {Gmountain{x.
+~
+~
+0 -1 12179
+S
+
+#12179
+A Winding {cS{gt{co{gn{ce{x {GPath{x~
+    You have finally reached the bottom. Okay, decisions, decisions.
+Which way now? You have several options, north, east, or west.
+Good luck and "Happy Trails to You" ;)
+~
+0 0 0
+D0
+~
+~
+1 -1 12102
+D1
+~
+~
+1 -1 12098
+D3
+~
+~
+1 -1 12078
+S
+#0
+
+#RESETS
+
+M 0 12002 1 12003 1       *black griffin into deep, dark forest
+M 0 12003 1 12075 1       *white griffin into rye field
+M 0 12004 1 12092 1       *silver griffin at the lake shore
+
+O 0 12000 1 12000         *load river in clearing
+O 0 12069 1 12014         *load fox hole in forest
+O 0 12070 1 12015         *load rabbit hole in forest
+O 0 12071 1 12007         *load chest in forest
+O 0 12087 1 12036         *load rabbit hole in meadow
+O 0 12088 3 12041         *load ditch on path
+O 0 12088 3 12053         *load ditch on road
+O 0 12088 3 12056         *load ditch on road
+O 0 12089 3 12040         *load hallowed out tree on meadow
+O 0 12090 1 12080         *load mole burrow on corn field
+O 0 12091 2 12048         *load hay stack in barn
+O 0 12091 2 12050         *load hay stack in barn
+O 0 12092 1 12051         *load stove in farmhouse
+O 0 12093 1 12044         *load chest in treehouse
+O 0 12094 1 12066         *load trough in barn
+O 0 12095 1 12066         *load bucket in barn
+O 0 12096 1 12062         *load flickering light (portal) in cellar
+
+O 0 12002 1 12049         *load flowerpot into farm yard
+P 0 12001 1 12002 1       *load key into flowerpot
+O 0 12003 1 12043         *load tree (portal) in meadow
+O 0 12004 1 12051         *load chest into farmhouse
+O 0 12005 1 12058         *load fountain on village square
+O 0 12006 1 12060         *load bed in bedroom
+O 0 12007 1 12061         *load hole/ladder (portal) into kitchen
+M 0 12000 1 12063 1       *load shopkeeper in general store
+G 1 12008  -1             *   a bread
+G 1 12009  -1             *   a lantern
+O 0 12010 1 12069         *load mouse hole in wheat field
+
+O 0 12084 1 12087         *load seaweed to lakeshore
+O 0 12083 1 12088         *load tunnel to lakeshore
+O 0 12082 1 12089         *load water-lily (container) in lake
+O 0 12082 1 12095         *load water-lily (container) in lake
+O 0 12085 1 12096         *load bush on lakeshore
+O 0 12081 1 12098         *load hole (container) in lake shore
+O 0 12077 1 12099         *load drawer (container) in hut
+O 0 12078 1 12099         *load bed in hut
+O 0 12079 1 12099         *load wardrobe (portal) in hut
+O 0 12011 1 12105         *load key (to hut) in Cave
+O 0 12080 1 12105         *load hole (portal) in Cave
+O 0 12028 1 12106         *load weapon rack in armory
+O 0 12061 1 12106         *load weapon rack in armory
+O 0 12062 1 12106         *load weapon rack in armory
+O 0 12072 1 12106         *load sword in armory
+O 0 12073 1 12106         *load dagger in armory
+O 0 12074 1 12106         *load axe in armory
+O 0 12026 1 12107         *load paper in Administration
+O 0 12014 1 12114         *load bottom (container) in treasure chamber
+O 0 12013 1 12133         *load hole (container) in secret chamber
+P 0 12012 1 12013 1       *load key (to treasure chamber) into hole
+O 0 12015 1 12109         *load wine rack (portal) in cellar
+O 0 12016 1 12110         *load hole (portal) in prison
+O 0 12024 70 12116        *load cot (bed) in barracks
+O 0 12063 70 12116        *load cot (bed) in barracks
+O 0 12064 70 12116        *load cot (bed) in barracks
+O 0 12065 70 12116        *load cot (bed) in barracks
+O 0 12025 70 12116        *load cot (container) in barracks
+O 0 12066 70 12116        *load cot (bed) in barracks
+O 0 12067 70 12116        *load cot (bed) in barracks
+O 0 12068 70 12116        *load cot (bed) in barracks
+O 0 12024 70 12117        *load cot (bed) in barracks
+O 0 12063 70 12117        *load cot (bed) in barracks
+O 0 12064 70 12117        *load cot (bed) in barracks
+O 0 12065 70 12117        *load cot (bed) in barracks
+O 0 12066 70 12117        *load cot (bed) in barracks
+O 0 12067 70 12117        *load cot (bed) in barracks
+O 0 12025 70 12117        *load cot (container) in barracks
+O 0 12068 70 12117        *load cot (bed) in barracks
+O 0 12024 70 12118        *load cot (bed) in barracks
+O 0 12063 70 12118        *load cot (bed) in barracks
+O 0 12025 70 12118        *load cot (container) in barracks
+O 0 12064 70 12118        *load cot (bed) in barracks
+O 0 12065 70 12118        *load cot (bed) in barracks
+O 0 12066 70 12118        *load cot (bed) in barracks
+O 0 12067 70 12118        *load cot (bed) in barracks
+O 0 12068 70 12118        *load cot (bed) in barracks
+O 0 12024 70 12119        *load cot (bed) in barracks
+O 0 12063 70 12119        *load cot (bed) in barracks
+O 0 12064 70 12119        *load cot (bed) in barracks
+O 0 12025 70 12119        *load cot (container) in barracks
+O 0 12065 70 12119        *load cot (bed) in barracks
+O 0 12066 70 12119        *load cot (bed) in barracks
+O 0 12067 70 12119        *load cot (bed) in barracks
+O 0 12068 70 12119        *load cot (bed) in barracks
+O 0 12024 70 12121        *load cot (bed) in barracks
+O 0 12063 70 12121        *load cot (bed) in barracks
+O 0 12064 70 12121        *load cot (bed) in barracks
+O 0 12065 70 12121        *load cot (bed) in barracks
+O 0 12066 70 12121        *load cot (bed) in barracks
+O 0 12067 70 12121        *load cot (bed) in barracks
+O 0 12068 70 12121        *load cot (bed) in barracks
+O 0 12025 70 12121        *load cot (container) in barracks
+O 0 12024 70 12122        *load cot (bed) in barracks
+O 0 12063 70 12122        *load cot (bed) in barracks
+O 0 12064 70 12122        *load cot (bed) in barracks
+O 0 12065 70 12122        *load cot (bed) in barracks
+O 0 12025 70 12122        *load cot (container) in barracks
+O 0 12066 70 12122        *load cot (bed) in barracks
+O 0 12067 70 12122        *load cot (bed) in barracks
+O 0 12068 70 12122        *load cot (bed) in barracks
+O 0 12024 70 12123        *load cot (bed) in barracks
+O 0 12063 70 12123        *load cot (bed) in barracks
+O 0 12064 70 12123        *load cot (bed) in barracks
+O 0 12065 70 12123        *load cot (bed) in barracks
+O 0 12066 70 12123        *load cot (bed) in barracks
+O 0 12025 70 12123        *load cot (container) in barracks
+O 0 12067 70 12123        *load cot (bed) in barracks
+O 0 12068 70 12123        *load cot (bed) in barracks
+O 0 12024 70 12124        *load cot (bed) in barracks
+O 0 12063 70 12124        *load cot (bed) in barracks
+O 0 12025 70 12124        *load cot (container) in barracks
+O 0 12064 70 12124        *load cot (bed) in barracks
+O 0 12065 70 12124        *load cot (bed) in barracks
+O 0 12066 70 12124        *load cot (bed) in barracks
+O 0 12067 70 12124        *load cot (bed) in barracks
+O 0 12068 70 12124        *load cot (bed) in barracks
+O 0 12017 1 12132         *load wardrobe (container) in beaut. furnish. room
+O 0 12018 1 12132         *load chest (container) in beaut. furnish. room
+O 0 12019 1 12132         *load secret passage (portal) in beaut. furnish. room
+O 0 12021 4 12131         *load wardrobe (container) in officers quarters
+O 0 12022 4 12131         *load bed in officers quarters
+O 0 12021 4 12134         *load wardrobe (container) in officers quarters
+O 0 12022 4 12134         *load bed in officers quarters
+O 0 12021 4 12135         *load wardrobe (container) in officers quarters
+O 0 12022 4 12135         *load bed in officers quarters
+O 0 12075 1 12137         *load portal in A room
+O 0 12023 1 12138         *load chest in records room
+P 0 12020 1 12023 1       *load key (to chest in beaut.f.r.) into chest
+O 0 12027 1 12139         *load chest in treasure room
+O 0 12076 1 12140         *load altar (portal) in altar
+
+O 0 12086 1 12142 *load portal light
+M 0 12001 1 12158 1       *load Nevermore Keeper
+O 0 12030 1 12159 *load portal down (to Tunnel of Time)
+O 0 12031 1 12159 *load portal left (to Cave of Shadows)
+O 0 12032 1 12159 *load portal right (to Cave of Shadows)
+O 0 12033 1 12164 *load portal east (to Cave of Shadows)
+O 0 12034 1 12164 *load portal west (to Cave of Shadows)
+O 0 12035 1 12164 *load portal down (to Tunnel of Time)
+O 0 12036 1 12164 *load portal up  (to Tunnel of Time)
+O 0 12037 1 12165 *load portal left  (to Cave of Shadows)
+O 0 12038 1 12165 *load portal right (to Cave of Shadows)
+O 0 12039 1 12165 *load portal down (to Tunnel of Time)
+O 0 12040 1 12165 *load portal up (to Tunnel of Time)
+O 0 12041 1 12168 *load portal west wall (to Cave of Shadows)
+O 0 12042 1 12168 *load portal east wall (to Cave of Shadows)
+O 0 12043 1 12168 *load portal down  (to outside Cave of Shadows)
+O 0 12044 1 12168 *load portal up (to Tunnel of Time)
+O 0 12045 1 12159 *load silent dark
+O 0 12046 1 12160 *load shaping twisting
+O 0 12047 1 12161 *load pleasant visions
+O 0 12048 1 12162 *load bed of tragedy
+O 0 12049 1 12163 *load sound of footsteps
+O 0 12050 1 12164 *load harmless shadow
+O 0 12051 1 12165 *load devastation
+O 0 12052 1 12166 *load teaching material
+O 0 12053 1 12167 *load moonlight dances
+O 0 12054 1 12168 *load playground
+O 0 12055 1 12169 *load shallow rock basins
+O 0 12056 1 12170 *load shadows within
+O 0 12057 1 12171 *load unseen evil
+O 0 12058 1 12172 *load humming sound
+O 0 12059 1 12173 *load whirling maelstrom
+O 0 12060 1 12169 *load tiny stream fountain
+
+D 0 12048 1 1             *close door from west barn to yard of farm
+D 0 12049 3 1             *close door from yard of farm to west barn
+D 0 12049 1 1             *close door from yard of farm to east barn
+D 0 12050 3 1             *close door from east barn to yard of farm
+D 0 12049 2 2             *lock door from yard to farmhouse
+D 0 12051 0 2             *lock door from farmhouse to yard
+D 0 12058 3 1             *close door from village square to old house
+D 0 12059 1 1             *close door from old house to village square
+D 0 12065 1 1             *close door from small road to barn
+D 0 12066 3 1             *close door from barn to small road
+D 0 12097 0 2             *lock door from lake shore to hut
+D 0 12099 2 2             *lock door from hut to lake shore
+D 0 12113 1 2             *lock door from hidden tunnel to trasure chamber
+D 0 12114 3 2             *lock door from treasure chamber to hidden tunnel
+
+D 0 12144 1 1 *close secret passage
+D 0 12145 1 1 *close stone door
+D 0 12148 1 1 *close door stone path
+D 0 12148 3 1 *close door stone path
+D 0 12149 1 1 *close path
+D 0 12152 3 1 *close crimson light
+D 0 12154 3 1 *close stone boulder
+D 0 12156 3 1 *close dancing colors
+D 0 12158 5 1 *close door down
+D 0 12158 3 1 *close door west
+D 0 12158 0 1 *close door north
+D 0 12158 1 1 *close door east
+D 0 12158 2 1 *close door south
+D 0 12159 4 1 *close door up
+D 0 12160 1 1 *close door east
+D 0 12160 0 1 *close door north
+D 0 12161 0 1 *close door north
+D 0 12161 2 1 *close door south
+D 0 12161 1 1 *close door east
+D 0 12162 0 1 *close door north
+D 0 12162 2 1 *close door south
+D 0 12162 3 1 *close door west
+D 0 12163 2 1 *close door south
+D 0 12163 1 1 *close door east
+D 0 12166 1 1 *close door east
+D 0 12167 3 1 *close door west
+D 0 12169 1 1 *close door east
+D 0 12170 3 1 *close door west
+D 0 12170 0 1 *close door north
+D 0 12171 2 1 *close door south
+D 0 12171 0 1 *close door north
+D 0 12171 3 1 *close door west
+D 0 12172 2 1 *close door south
+D 0 12172 0 1 *close door north
+D 0 12172 3 1 *close door west
+D 0 12173 2 1 *close door south
+D 0 12176 2 1 *close door south
+D 0 12179 0 1 *close door north
+D 0 12179 1 1 *close door east
+D 0 12179 3 1 *close door west
+
+* R 0 12000 4               *make maze random
+* R 0 12001 4               *make maze random
+* R 0 12002 4               *make maze random
+* R 0 12003 4               *make maze random
+* R 0 12004 4               *make maze random
+* R 0 12005 4               *make maze random
+* R 0 12006 4               *make maze random
+* R 0 12007 4               *make maze random
+* R 0 12008 4               *make maze random
+* R 0 12009 4               *make maze random
+* R 0 12010 4               *make maze random
+* R 0 12011 4               *make maze random
+* R 0 12012 4               *make maze random
+* R 0 12013 4               *make maze random
+* R 0 12014 4               *make maze random
+* R 0 12015 4               *make maze random
+* R 0 12016 4               *make maze random
+* R 0 12017 4               *make maze random
+* R 0 12018 4               *make maze random
+* R 0 12019 4               *make maze random
+* R 0 12020 4               *make maze random
+* R 0 12021 4               *make maze random
+* R 0 12022 4               *make maze random
+* R 0 12023 4               *make maze random
+* R 0 12024 4               *make maze random
+S
+
+#SHOPS
+12000  1  5 8 9 33    150  75      0 23   * the old woman in general store
+0
+
+#$
+

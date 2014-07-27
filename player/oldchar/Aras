@@ -1,0 +1,190 @@
+#PLAYER
+Name Aras~
+Id   1012216723
+LogO 1012218543
+Vers 11
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Sex  1
+Cla  3
+Levl 1
+Plyd 135
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3712
+HMS  30 30 100 100 100 100
+Gold 0
+Silv 12
+Exp  1719
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQS
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  5
+Save  -4
+Alig  750
+Hit   4
+ACs 85 84 84 99
+Atrib 18 17 10 12 13 13
+AtMod 0 0 0 0 0 0
+Pass polly~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Montrey~
+Lsit we-24-127-94-146.we.mediaone.net~
+Ltim Mon Jan 28 05:23:20 2002
+~
+LSav Mon Jan 28 05:49:03 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMSP 30 100 100
+THMS 1 0 0
+Cnd  0 0 13 13
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'heal'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 55 1 'shield block'
+Sk 76 1 'sword'
+Sk 1 1 'kick'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'swimming'
+Sk 1 1 'fast healing'
+Sk 1 1 'forge'
+Sk 1 1 'repair'
+Sk 1 1 'languages'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'healing'
+Affc 'bless'   0  25   7  -3  24          0 1
+Affc 'bless'   0  24   7   3  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 165 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#END

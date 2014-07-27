@@ -1,0 +1,194 @@
+#PLAYER
+Name Alfred~
+Id   1002359212
+LogO 1002361770
+Vers 7
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race wolf~
+Sex  1
+Cla  5
+Levl 1
+Plyd 1085
+Age  0
+Back 0
+Note 1002352962 0 0 0 0 0
+Scro 22
+Room 3054
+HMV  24 24 100 100 100 100
+Gold 3
+Silv 400
+Exp  1312
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm MNOZ
+Revk 0
+Pos  6
+Save  -8
+Alig  1000
+Hit   8
+ACs 95 95 95 99
+Atrib 15 16 14 16 16 17
+AtMod 1 1 3 1 0 2
+Pass bilbo~
+Afk {B[{CSat Oct  6 04:24:00 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl .~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Xenith~
+Lsit pmdyn65-204.dip.CSUChico.EDU~
+Ltim Sat Oct 06 04:07:53 2001
+~
+LSav Sat Oct 06 04:49:30 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FH
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 23 1 'shield block'
+Sk 75 1 'sword'
+Sk 1 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'enhancement'
+Affc 'bless'   0  51  17  -7  24          0
+Affc 'bless'   0  48  17   7  18          0
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 145 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 78
+Nest 1
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#END

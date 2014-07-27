@@ -1,0 +1,281 @@
+#PLAYER
+Name Tantorian~
+Id   1014743023
+LogO 1014744515
+Vers 12
+Prom %h/%H %m/%M %v/%V %Xxp %g %s %a %p %k ~
+Race human~
+Sex  1
+Cla  5
+Levl 1
+Plyd 1381
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3744
+HMS  50 50 100 100 100 100
+Gold 0
+Silv 31
+Exp  11220
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  DEFGJLQS
+Comm ANOQ
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Save  -1
+Alig  -1000
+Hit   2
+Dam   2
+ACs 83 81 81 99
+Wimp  13
+Atrib 12 15 11 15 15 17
+AtMod 0 0 1 0 1 0
+Pass iceman1~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 104
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Neffertini~
+Lsit 146.95.52.44~
+Ltim Tue Feb 26 11:05:32 2002
+~
+LSav Tue Feb 26 11:28:35 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 50 100 100
+THMS 3 0 0
+Cnd  0 0 37 17
+Sk 1 1 'acid blast'
+Sk 1 1 'bless'
+Sk 1 1 'burning hands'
+Sk 1 1 'calm'
+Sk 1 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'demonfire'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'earthquake'
+Sk 1 1 'encampment'
+Sk 1 1 'fireball'
+Sk 1 1 'firestorm'
+Sk 1 1 'flamestrike'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'heal'
+Sk 1 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'infravision'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'ray of truth'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'sunray'
+Sk 1 1 'talon'
+Sk 1 1 'vision'
+Sk 1 1 'wrath'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 75 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'scribe'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'paladin default'
+Gr 'weaponsmaster'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'detection'
+Gr 'enhancement'
+Gr 'healing'
+Affc 'blood moon'   0  29  13   1  18          0 1
+Affc 'blood moon'   0  29  13   2  19          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Cond 94
+Wear 0
+Cost 0
+Val  0 0 169 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 97
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear 17
+Cost 1140
+End
+
+#END

@@ -1,0 +1,158 @@
+#PLAYER
+Name Chiriko~
+Id   1001010887
+LogO 1001011032
+Vers 6
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race seraph~
+Sex  1
+Cla  5
+Levl 1
+Plyd 21
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3700
+HMV  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  1375
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy T
+Comm NO
+Revk 0
+Pos  8
+Prac 5
+Trai 3
+Save  -1
+Alig  1000
+Hit   1
+ACs 95 95 95 99
+Atrib 16 14 14 13 15 19
+AtMod 0 0 0 0 0 0
+Pass tamsrox~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Liriel~
+Lsit cr144345-a.nmkt1.on.wave.home.com~
+Ltim Thu Sep 20 13:37:05 2001
+~
+LSav Thu Sep 20 13:37:12 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  F
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 48 48 48
+Sk 1 'armor'
+Sk 1 'bless'
+Sk 1 'calm'
+Sk 1 'cancellation'
+Sk 1 'cure blindness'
+Sk 1 'cure critical'
+Sk 1 'cure disease'
+Sk 1 'cure light'
+Sk 1 'cure poison'
+Sk 1 'cure serious'
+Sk 1 'dispel magic'
+Sk 1 'divine healing'
+Sk 1 'fireproof'
+Sk 1 'fly'
+Sk 1 'frenzy'
+Sk 1 'gate'
+Sk 1 'heal'
+Sk 1 'holy word'
+Sk 1 'mass healing'
+Sk 1 'nexus'
+Sk 1 'pass door'
+Sk 1 'portal'
+Sk 1 'protection evil'
+Sk 1 'protection good'
+Sk 1 'refresh'
+Sk 1 'remove alignment'
+Sk 1 'remove invisibility'
+Sk 1 'remove curse'
+Sk 1 'sanctuary'
+Sk 1 'shield'
+Sk 1 'stone skin'
+Sk 1 'summon'
+Sk 1 'summon object'
+Sk 1 'teleport'
+Sk 1 'teleport object'
+Sk 1 'undo spell'
+Sk 1 'word of recall'
+Sk 1 'shield block'
+Sk 40 'sword'
+Sk 1 'rescue'
+Sk 1 'second attack'
+Sk 1 'dual wield'
+Sk 100 'scan'
+Sk 1 'scrolls'
+Sk 1 'staves'
+Sk 1 'wands'
+Sk 50 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'curative'
+Gr 'healing'
+Gr 'protective'
+Gr 'transportation'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

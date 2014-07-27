@@ -1,0 +1,2230 @@
+#AREA
+Seraph.are~
+Divinity Hall~
+{H{{CLANS} {MDarkAvatar  {TDivinity Clanhall~
+24200 24349
+#MOBILES
+#24200
+sakura shinguuji~
+Sakura Shinguuji~
+Sakura Shinguuji is here with a sweet smile on her face.
+~
+This raven hair cutie is here to help with the baking even though she 
+probably takes some of the attention away from the food. she is wearing a 
+light {Ppink{x and {Wwhite{x Kimono. Her hair has been tied back into a
+pony tail and she has just a little flour dusted on her cheeks from baking.
+~
+human~
+BG DF 750 S
+90 10 1d1+5999 1d1+5999 3d8+24 cleave
+-65 -65 -65 -65
+CEFJKN ABCD 0 0
+stand stand female 100000
+0 0 medium 0
+
+#24201
+drizzt do'urden urden drow~
+Drizzt Do' Urden~
+Drizzt Do' Urden stands here conferring with Guenhwyvar.
+~
+A handsome young elf sits here in a pile of cushions. Shock white hair 
+cascades about muscular shoulders and ebony skin glows eerily in the 
+faerie fire that lights the store. This is a Drow elf with a reputation 
+that precedes him as one who has turned away from evil and embraced the 
+light. Twin scimitars are his trademarks and are almost as lethal as 
+Guenhwyvar his companion from the astral plane that watches your every 
+move. 
+~
+elf~
+BG DFH 1000 S
+75 10 13d13+2500 13d13+2000 13d13+30 slash
+-40 -40 -40 -40
+CDFH ABCD 0 0
+stand stand male 10000
+0 0 medium 0
+
+
+#24202
+Chibi-dragon~
+Chibi-Dragon~
+A mystical chibi-dragon flutters about the room.
+~
+This is a mystical dragon from the lands in the far east of the world, 
+it's unique because it's small enough to sit right in your lap and it's 
+so cute.
+~
+dragon~
+RU DF 750 S
+20 3 4d8+325 3d10+299 4d4+6 chomp
+-8 -8 -8 9
+F 0 0 0
+stand stand either 0
+0 0 tiny 0
+
+#24203
+Mesa Pegasus~
+{WMesa Pegasus{x~
+A large {WMesa Pegasus{x stamps its hoof and rears its head to gain your 
+attention. 
+~
+Before a woman marries in the village of Sursi, she must visit the land 
+of the {WMesa Pegasus{x. Legend has it that if the woman is pure of heart 
+and her love is true, a {WMesa Pegasus{x will appear, blessing her family with 
+long life and good fortune.{x
+~
+horse~
+QU DF 750 S
+50 8 17d13+2300 11d10+1100 8d4+8 stomp
+-35 -32 -34 -30
+CF 0 0 0
+stand stand either 0
+0 0 large 0
+
+#24204
+Holy dragon~
+{WHoly Dragon{x~
+A {Wholy and pure dragon{x sits here, looking regal and majestic.
+~
+This race of sacred dragons has existed for millenia and is as ancient as 
+the heavens themselves. The dragon is pure white and glows with a holy 
+aura.
+~
+dragon~
+TU DFH 750 S
+80 15 80d80+4200 80d8+3200 8d8+15 divine
+-50 -50 -50 -50
+CDFK 0 0 0
+stand stand either 0
+0 0 huge 0
+
+#24206
+wilmae deering vendor~
+{WWilma Deering{x~
+{WWilma Deering{x still looks a little confused!
+~
+{BCol. {WWilma Deering{x still is confused from being ripped from Earth
+into the Vamphyri and then becoming an angel in the clan of the Divinity
+.... don't blame her I would be a tad freaked as well.
+~
+human~
+ABV 0 900 0
+91 5 1d1+9999 1d1+9999 3d8+24 cleave
+-70 -70 -70 -70
+CEFJKN ABCD 0 0
+stand stand female 200000
+0 0 medium 0
+#24207
+aleric elf healer~
+{WAleric{x~
+Aleric is standing here waiting to be of assistance to you
+~
+Aleric is a tall elven man in a white coat with vast knowledge of several
+healing and medical techniques.
+~
+human~
+ABQVa DFH 1000 S
+140 5 1d1+9999 1d1+9999 3d8+24  divine
+-70 -70 -70 -70
+FHIK ABCD 0 0
+stand stand male 0
+0 0 medium 0
+#24208
+albert einstein trainer~
+{WAlbert Einstein{x~
+{WAlbert Einstein{x is here.
+~
+This great man has agreed to continue to assist us in our training endeavors as
+long as he has access to the technology that the clan has. If you let him this
+man can teach you anything you ever needed to know about spells and skills.
+~
+human~
+ABJKb DFH 1000 S
+91 5 1d1+1999 1d1+1999 3d8+24 divine
+-70 -70 -70 -70
+FG ABCD 0 0
+stand stand male 0
+0 0 medium 0
+#24210
+citan~
+Citan~
+Citan is here mixing drinks with his katana at his side.
+~
+Citan was a great warrior from another dimension who spends his days now with the
+Divinity. He says "he wishes to be closer to God" and he makes a mean daiquiri so
+he spends his time here.
+~
+human~
+AB DFH 1000 S
+95 10 1d1+12999 1d1+1999 2d12+34 slash
+-70 -70 -70 -70
+FHIK ABCD 0 0
+stand stand male 0
+0 0 medium 0
+#24213
+mygas wizard~
+Mygas~
+Mygas is here waiting to be of service to you.
+~
+An old wizard with a beard almost down to the floor looks at you from out of 
+his bushy eyebrows.
+~
+human~
+AB DFH 1000 S
+90 10 1d1+2999 1d1+12999 2d7+44 divine
+-60 -60 -60 -60
+FHIK ABCD 0 0
+stand stand male 10000
+0 0 medium 0
+#24214
+casanova librarian~
+Casanova~
+Your very handsome hormone crazed librarian who likes to check out more than books.
+~
+Casanova was not only a great lover. At the climax of his career in 1785, the famous womanizer began
+13 years as librarian for the Count von Waldstein in the chateau of Dux in Bohemia. Now he works
+for the Divinity :P
+~
+human~
+AB DFH 1000 S
+55 5 1d1+2999 1d1+1999 3d8+20 slash
+-40 -40 -40 -40
+FG ABCD 0 0
+stand stand male 0
+0 0 medium 0
+#24217
+Galileo Galilei~
+Galileo Galilei~
+Galileo Galilei is waiting to see why you have intruded upon his research.
+~
+Galileo Galilei has recently agreed to help the Divinity in their endeavors at the agreement that
+we allowed him to construct a small research area within the tower which you are now in.
+~
+human~
+AB DFH 1000 S
+90 10 1d1+2999 1d1+6999 3d8+24 slice
+-60 -60 -60 -60
+FG ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#24223
+cat anastacia~
+Anastacia~
+A small grey cat is curled up on the bed.
+~
+It has grey fur along with some white. You can hear it purr while its
+asleep. The cat then wakes up and looks at you then goes near the cello
+and meows softly. Its like she is saying for you to play it. You then see
+a collar with a tag saying Anastacia on it.
+~
+cat~
+AB DFH 1000 S
+90 10 1d1+2999 1d1+6999 3d8+24 slice
+-60 -60 -60 -60
+FG ABCD 0 0
+stand stand female 0
+0 0 small 0 
+
+#24224
+adam smith~
+Adam Smith~
+Adam Smith is here waiting to help you with your financing.
+~
+It's Adam Smith, the financial founder of the trade industry and he's now here with the Divinity
+helping out part time as our bank president.
+~
+human~
+ABd DFH 1000 S
+65 10 1d1+3999 1d1+3999 3d8+22 slice
+-40 -40 -40 -40
+FG ABCD 0 0
+stand stand male 500000
+0 0 medium 0
+#24233
+kawaii chibi-dragon dragon~
+Kawai Chibi-Dragon~
+Awww, it's the cutest dragon you have ever seen its so small and you just want to hug it.
+~
+This little dragon is just the cutest thing in the world, definitely.
+~
+dragon~
+AB DFH 1000 S
+25 5 1d1+999 1d1+999 2d6+12 bite
+-20 -20 -20 -20
+FHIK ABCD 0 0
+stand stand female 0
+0 0 small 0
+#24234
+skie khellendros serpent~
+{CA {BSapphire {Gserpent{x~
+{CA {BSapphire {Gserpent{x with unblinking {Yamber{x eyes watches you.
+~
+An enormous blue dragon, one larger than any seen before blots out the landscape.
+With scale colored a deep sapphire the dragon's wings are stretched out to his sides,
+billowed like the sail of a schooner. Glistening ivory horns rising tall and curling
+from atop his massive ridged head give Skie the dragon also known as Khellendros a
+menacing look. He is extremely loyal to his rider and none shall come between them.
+~
+dragon~
+AB DFH 1000 S
+95 15 1d1+15999 1d1+14999 5d10+45 bite
+-80 -80 -80 -80
+FHIK ABCD 0 0
+stand stand male 0
+0 0 huge 0
+#0
+
+#OBJECTS
+
+#24200
+angel ring~
+{WAngel {YRing{x~
+An {WAngelic {YRing{x sits here.~
+gold~
+armor AB AB
+7 7 7 7 0
+20 5 1666 P
+A
+18 3
+A
+19 3
+A
+4 1
+A
+9 1
+E
+eqstats~
+stock:  4 points
+bought 1 points
+3 points:  +3 hit/dam
+1 point:   +1 age
+1 point:   +1 wis
+= 5 points
+~
+
+#24201
+angel wing~
+{WAngel Wing{x~
+A pair of {WAngel Wings{x hover here.~
+feathers~
+armor AB AC
+7 7 7 7 0
+20 10 1666 P
+A
+12 10
+A
+18 3
+A
+19 3
+A
+9 1
+E
+eqstats~
+stock:  4 points
+bought 1 points
+1 point:  +10 mana
+3 points: +3 hit/dam
+1 point:  +1 age
+=5 points
+~
+
+#24202
+bracelet zoe~
+{CBracelet {Wof Zoe{x~
+The {CBracelet {Wof Zoe{x lies here.~
+metal~
+armor AB AM
+10 10 10 10 0
+30 10 2666 P
+A
+12 10
+A
+13 10
+A
+18 3
+A
+19 3
+A
+1 1
+E
+eqstats~
+stock:  5 points
+bought 1 points
+1 point:  +10 mana
+1 point:  +10 hp
+3 points: +3 hit/dam
+1 point:  +1 str
+=6 points
+~
+
+#24203
+blessed aura~
+{WBlessed {CAura{x~
+A {WBlessed {CAura{x floats here.~
+good feelings~
+armor AB AQ
+13 13 13 13 0
+40 15 4000 P
+A
+12 20
+A
+4 2
+A
+9 1
+A
+3 1
+A
+18 1
+A
+19 1
+E
+eqstats~
+stock:  6 points
+bought 1 points
+2 points:  +20 mana
+1 point:   +1 int
+2 points:  +2 wis
+1 point:   +1 age
+1 point:   +1 hit and dam
+=7 points
+~
+
+#24204
+holy plate~
+{WHoly Plate{x~
+A suit of {WHoly Plate{x rests here.~
+gold~
+armor AB AD
+17 17 17 17 0
+50 20 4666 P
+A
+18 4
+A
+19 4
+A
+1 1
+A
+2 1
+A
+5 1
+A
+26 1
+E
+eqstats~
+stock:  7 points
+bought 1 points
+4 points:  str/con/dex/chr +1
+4 points:  +4 hit/dam
+=8 points
+~
+
+#24205
+heavenly helm~
+{YHeavenly {BHelm{x~
+A {YHeavenly {BHelm{x lies here.~
+gold~
+armor AB AE
+20 20 20 20 0
+60 25 5333 P
+A
+18 6
+A
+19 6
+A
+5 1
+A
+1 1
+A
+13 10
+E
+eqstats~
+stock:  8 points
+bought 1 points
+6 points:  +6 hit/dam
+2 points:  +1 str/con
+1 point:   +10 hp
+=9 points
+~
+
+#24206
+holy sandals~
+{WHoly {CSandals{x~
+A pair of {WHoly {CSandals{x sit here.~
+leather~
+armor AB AG
+23 23 23 23 0
+70 30 6000 P
+A
+9 2
+A
+18 5
+A
+19 5
+A
+2 2
+E
+eqstats~
+stock:  9 points
+bought 0 points
+2 points:  +2 dex
+5 points:  +5 hit/dam
+2 points:  +2 age
+=9 points
+~
+
+#24207
+seraphic garb~
+{RSeraphic {WGarb{x~
+Some {RSeraphic {WGarb{x lies here.~
+flowing robes~
+armor AB AD
+27 27 27 27 0
+80 35 6666 P
+A
+12 30
+A
+13 30
+A
+18 4
+A
+19 4
+E
+eqstats~
+stock:  10 points
+bought 0 points
+6 points:  +30 hp/mana
+4 points:  +4 hit/dam
+=10 points
+~
+
+#24208
+angel armband~
+{WAngel Armband{x~
+An {WAngelic Armband{x sits here.~
+gold~
+armor AB AM
+27 27 27 27 0
+80 15 6666 P
+A
+12 30
+A
+18 6
+A
+19 6
+A
+26 1
+E
+eqstats~
+stock:  10 points
+bought 0 points
+3 points:  +30 mana
+6 points:  +6 hit/dam
+1 point:   +1 chr
+=10 points
+~
+
+#24209
+band gods~
+{WBand {Cof {WThe {CGods{x~
+The {WBand {Cof {WThe {CGods{x lies here.~
+gold~
+armor AB AB
+26 26 26 26 0
+80 15 6666 P
+A
+12 30
+A
+13 30
+A
+18 4
+A
+19 4
+E
+eqstats~
+stock:  10 points
+bought 0 points
+6 points:  +30 mana/hp
+4 points:  +4 hit/dam
+=10 points
+~
+
+#24210
+ivory fountain~
+An {WIvory{x fountain~
+A massive fountain of an angel reaching towards the heavens. It stretches almost twenty feet into the air.~
+ivory~
+fountain O P
+0 0 'milk' 0 0
+1 1000 10 P
+
+
+#24211
+ginger bread cookie~
+{bGinger Bread Cookie{x~
+A {bGinger Bread Cookie{x lies here.~
+gingerbread~
+food 0 A
+6 10 0 0 0
+1 3 4 P
+
+#24212
+devils food cake~
+{RDevils {bfood Cake{x~
+Some {RDevils {bfood Cake{x is here.~
+cake~
+food 0 A
+12 12 0 0 0
+1 3 8 P
+
+#24213
+cheesecake cake~
+{YCheeseCake{x~
+A slice of {YCheeseCake{x is here.~
+cake~
+food 0 A
+18 12 0 0 0
+1 3 16 P
+
+#24214
+angels food cake~
+{WAngels Food Cake{x~
+A slice of {WAngels Food Cake{x sits here.~
+cake~
+food 0 A
+20 14 0 0 0
+1 3 20 P
+
+#24215
+blueberry angels food cake~
+{BB{Wl{Bu{We{Bb{We{Br{Wr{By {WAngels Food Cake{x~
+A large slice of {BB{Wl{Bu{We{Bb{We{Br{Wr{By {WAngels Food Cake{x lies 
+here.~
+cake~
+food 0 A
+25 30 0 0 0
+1 4 24 P
+
+#24216
+cranberry juice cocktail~
+{Pc{Rr{Pa{Rn{Pb{Re{Pr{Rr{Py {Rjuice cocktail{x~
+A delightful blend of different cranberries mixed together.~
+cranberry juice~
+drink 0 A
+25 25 'cranberry juice' 0 0
+1 4 4 P
+
+#24217
+kiwi lime shooter~
+{HKiwi {GLime {YShooter{x~
+A mixed drink of Kiwi and Lime.~
+kiwi-lime~
+drink 0 A
+40 40 'lemonade' 0 0
+1 4 16 P
+
+#24218
+apple juice cocktail~
+{YApple Juice cocktail{x~
+It's apple juice.~
+apple juice~
+drink 0 A
+60 60 'orange juice' 0 0
+1 4 24 P
+
+#24219
+root beer~
+{bRoot beer{x~
+Nice and bubbly root beer.~
+root beer~
+drink 0 A
+30 30 'root beer' 0 0
+1 4 8 P
+
+#24220
+strawberry daquiri~
+{PStrawberry {RDaquiri{x~
+A smooth tasty daquiri.  Leigh's favorite.~
+strawberries~
+drink 0 A
+50 50 'sherry' 0 0
+1 4 20 P
+
+#24221
+jukebox~
+a laser jukebox~
+It's a laser jukebox playing all kinds of CD's.~
+plastic~
+jukebox O P
+0 0 0 0 0
+1 100 10 P
+E
+jukebox~
+Woooow how strange a little device flips a little silver shiny
+disc over and the next thing you know music comes out ... this
+is really AMAZING!
+~
+
+#24222
+anvil power~
+An anvil of power~
+A privately owned Anvil of Power rests here, no doubt a great clan's heirloom.~
+steel~
+anvil O P
+0 3 0 0 3
+1 1000 10 P
+E
+anvil power~
+A large, steel, well-used anvil is here. But The life has not yet been
+beaten out of it. You could still make a fine weapon on this hunk of
+metal. There are an incredible number of tiny pockmarks and blemishes
+on this piece of equipment but it is still serviceable and being put
+to good use.
+~
+
+#24224
+conductors baton~
+Conductors baton~
+Conductors baton is here.~
+wood~
+wand 0 AO
+15 3 3 'charm' 0
+15 5 10 P
+E
+conductors baton~
+Its a conductors baton that you can use to create beautiful music.
+~
+
+#24225
+angel grail~
+{WAngel Grail{x~
+An {WAngel Grail{x lies here.~
+gold~
+drink ABSY A
+450 10 'water' 0 0
+1 5 400 P
+
+#24226
+fluffy cloud~
+{WFluffy Cloud{x~
+A {WFluffy Cloud{x floats along here.~
+mist~
+furniture SY A
+1 0 EHK 150 150
+1 10 400 P
+
+#24227
+blessed parchment~
+{WBlessed {bParchment{x~
+A scrap of {WBlessed {bParchment{x has slipped to the floor.~
+parchment~
+scroll G AO
+40 '' '' '' ''
+1 5 750 P
+
+#24228
+crystal vial~
+{CCrystal Vial{x~
+A {CCrystal Vial{x has landed here.~
+crystal~
+potion G AO
+40 '' '' '' ''
+1 5 750 P
+
+#24229
+bag miracles~
+{WBag{x of {CMiracles{x~
+A {WBag{x of {CMiracles{x rests here.~
+cloth~
+container SY A
+250 A 0 100 25
+20 50 2400 P
+
+#24230
+holy light~
+{WHoly Light{x~
+A {WHoly Light{x emanates from this room.~
+light~
+light SY AO
+0 0 -1 0 0
+20 40 2400 P
+A
+18 4
+A
+19 4
+A
+12 10
+A
+13 10
+
+#24231
+water fountain~
+A water fountain~
+You see a strange looking water fountain before you with a button that makes water spring forth from it.~
+steel~
+fountain O P
+0 0 'water' 0 0
+1 100 10 P
+E
+water fountain~
+This is a regular water fountain that you see most everywhere.
+It is made out of steel and looks a little old.
+~
+#24232
+angel tear crystal vial~
+{CAngel {BTear{x~
+You see a small {Ccrystal{x vial with {Bblue{x water in it.~
+crystal~
+potion 0 A
+15 'cure serious' 'cure serious' 'cure crit' 'cure crit'
+15 10 10 P
+#24233
+canopy bed~
+A comfy canopy bed~
+You see a comfy canopy bed with a grey cat sleeping on it.~
+fluff~
+furniture O P
+5 0 EHK 150 150
+1 1000 10 P
+E
+canopy bed~
+It's a queen sized bed with black soft satin sheets and comforter along with
+fluffy pillows also in black satin. It is draped in black lace and the headboard
+has two hearts intertwining with the names Leigh and DarkAvatar engraved 
+upon them.
+~
+#24234
+can jolt cola~
+{YJ{Go{Yl{Gt {YC{Go{Yl{Ga{x~
+A cold can of cola is lying here.~
+aluminum~
+potion 0 A
+15 'haste' 'frenzy' 'talon' 'giant'
+15 5 10 P
+E
+can jolt cola~
+It's a nice frosty can of jolt cola drink; be careful, too many of these and 
+your head may explode.
+~
+#24235
+waterbed bed~
+A big waterbed~
+A big water bed covered in black sheets lies here.~
+water~
+furniture O P
+5 0 EHK 150 150
+1 1000 10 P
+E
+waterbed bed~
+It's a big comfy water bed coverd in black silk sheets and large pillows with the names
+DarkAvatar and Leigh sewn into them.
+~
+#24236
+featherbed bed~
+A featherbed~
+A featherbed that looks like a {Ww{Ta{Wt{Te{Wr{Tb{We{Td{x.~
+feathers~
+furniture O P
+5 0 EHK 150 150
+1 1000 10 P
+E
+featherbed bed~
+A king sized bed sits here in the far corner. Its silk sheets;
+litterd with rose petals and fluffy pillows beckon you to lie down
+and enjoy yourself. Its four posts are exquisitely carved and
+adorned with fine that drape from its canopy. the design itself
+give a romantic appeal to the atmosphere.
+~
+#24237
+nectar goblets~
+A pair of {BBlue Crystal Goblets{x~
+{bE{Hl{bv{Hi{bs{Hh{x nectar floats in twin goblets.~
+blue crystal~
+fountain O P
+0 0 'elvish wine' 0 0
+1 100 10 P
+E
+nectar goblets~
+Blue crystal goblets float by the bed within easy reach if you don't
+want to get up. The elvish wine, favoured by elves is sweet and is
+known to drown the drinker in waves of ecstasy.
+~
+#24238
+wild berries batch~
+A batch of {TW{Vi{Tl{Vd {TB{Ve{Tr{Vr{Ti{Ve{Ts{x~
+A batch of {TW{Vi{Tl{Vd {TB{Ve{Tr{Vr{Ti{Ve{Ts{x has been plucked and laid 
+here.~
+berries~
+pill 0 A
+15 'sanc' 'frenzy' 'blood moon' 'bless'
+15 5 10 P
+#24239
+mirror arena portal~
+A {Cshimmering{x mirror~
+A {Cshimmering{x mirror that looks like an Arena is on the other side.~
+glass~
+portal O P
+0 0 A 24235 0
+1 10 10 P
+E
+mirror arena portal~
+This portal lead to the small arena under the clan hall.
+~
+#24240
+portal oran~
+Portal to Oran~
+You see a portal shimmering here agaisnt the wall that leads to the Ruins of Oran.~
+glass~
+portal O P
+0 0 A 5610 0
+1 10 10 P
+#24241
+portal looney tunes~
+Portal to Looney Tunes~
+This portal leads to Looney Tunes.~
+glass~
+portal O P
+0 0 A 2927 0
+1 10 10 P
+#24242
+portal divided souls~
+Portal to Divided Souls~
+A portal to the region of Divided souls.~
+glass~
+portal O P
+0 0 A 11623 0
+1 10 10 P
+#24243
+fluffy cloud bed~
+A big fluffy cloud~
+A big fluffy cloud is sitting here floating in mid air it looks extremely 
+soft and comfy.~
+mist~
+furniture O P
+5 0 EHK 150 150
+1 100 10 P
+E
+fluffy cloud bed~
+The cloud is actually a big queen sized bed. The sheets on it are a white silky
+satin with a lot of fluffy pillows on it.
+~
+#24244
+crystal fountain~
+A crystal fountain~
+You see a fountain made of pure crystal sitting in the middle of the air shooting forth streams of water with {Rr{Ba{Gi{Yn{Rb{Bo{Gw{x hues.~
+crystal~
+fountain O P
+0 0 'water' 0 0
+1 1000 10 P
+E
+crystal fountain~
+The fountain is made out of crystal. It has water shooting out of the middle and
+goes down into a little pool. Oddly enough the water sounds like a harp is being played.
+~
+#24245
+strawberry cotton candy stick~
+{PS{Wt{Pr{Wa{Pw{Wb{Pe{Wr{Pr{Wy {CCotton {WCandy{x~
+There is a very yummy looking stick of {PS{Wt{Pr{Wa{Pw{Wb{Pe{Wr{Pr{Wy {CCotton {WCandy{x floating here in the air.~
+cotton candy~
+pill 0 A
+15 'bless' 'sanc' 'talon' 'frenzy'
+15 5 10 P
+
+#24246
+heavenly mana~
+{Wsome {Che{Tav{Cen{Tly {Wmana{x~
+{WMana from {Che{Tav{Cen {Wis in a silver bowl on the table near the bed.{x~
+energy~
+pill 0 A
+15 'sanctuary' 'stone skin' 'shield' 'steel mist'
+15 3 10 P
+E
+mana~
+{TI guess if the Israelites can eat mana for 40 years it must be good.{x
+~
+
+
+#24247
+bed featherbed~
+a soft featherbed~
+{WA large 4-poster featherbed is against the far wall.{x~
+feathers~
+furniture O P
+4 0 KHEB 150 150
+1 500 10 P
+E
+featherbed~
+{TA special bed that was procured from the Mage Tower. Its softness
+is not rivaled by any within the realms.{x
+~
+
+#24248
+cello~
+A maple cello~
+You see a cello on its side and a music stand near it.~
+maple~
+trash O P
+0 0 0 0 0
+1 10 10 P
+E
+cello~
+Its made out of maple. The color is a golden ground color. The bow lays on
+the side. The sound is deep and mellow. 
+~
+
+#24249
+dresser~
+An old-fashioned dresser~
+You see a old fashioned dresser with two pictures and a lone rose on top of it.~
+wood~
+container O P
+10 A 0 5 100
+1 10 10 P
+
+#24250
+gold belt~
+{YA gold <<*><*>> belt{x~
+Someone from {CDivinity{x has dropped their belt on the ground.~
+cloth~
+armor ABY AL
+15 15 15 15 0
+45 2 5000 P
+E
+belt~
+A {Ygold <<*><*>> belt{x made by the heavens and given to mankind.
+~
+E
+eqstat~
+stock:  6
+bought: 1
+
+3 points:  +3 hit/dam
+1 point:   +1 age
+1 point:   +10 mana
+1 point:   +10 hp
+1 point:   +10 stamina
+= 7 points
+~
+A
+9 1
+A 
+12 10
+A
+13 10
+A
+14 10
+A
+18 3
+A
+19 3
+
+#24251
+sleeves~
+{WSleeves {Tof {CDivinity{x~
+Someone from {CDivinity{x dropped their sleeves on the ground.~
+cloth~
+armor ABS AI
+13 13 13 13 0
+40 3 4500 P
+E
+sleeves~
+These sleeves were crafted of the finest material found in the Astral 
+Planes.
+~
+E
+eqstat~
+stock:  6 points
+bought: 1 points
+
+1 point:  +1 charisma
+2 points: +20 hp
+3 points: +3 hit and dam
+1 point:  +1 dam, -1 ac
+= 7 points
+~
+A
+26 1
+A
+17 -1
+A
+13 10
+A
+18 3
+A 
+19 4
+
+#24252
+boots brave~
+{WBoots {Tof {Cthe {WBrave{x~
+Someone from {CDivinity{x has left their boots on the ground.~
+stardust~
+armor ABY AG
+8 8 8 8 0
+25 0 2200 P
+E
+boots~
+Specially crafted boots from stardust.
+~
+E
+eqstat~
+stock:  4 points
+bought: 1 points
+
+1 point:  +1 age
+1 point:  +10 stamina
+3 points: +3 hit and dam
+= 5 points 
+~
+A
+9 1
+A
+14 10
+A
+18 3
+A
+19 3
+
+#24253
+robe devotion~
+{WRobe {Cof {TDevotion{x~
+Someone from {CDivinity{x left their robe laying on the ground.~
+cloth~
+armor ABS AK
+12 12 12 11 0
+35 5 3400 P
+E
+robe devotion~
+A prized robe that was spun from the glory and riches of heaven.
+~
+E
+eqstat~
+stock:  5 points
+bought: 2 points
+
+2 points:  +20 hp
+2 points:  +20 mana
+3 points:  +3 hit and dam
+= 7 points
+~
+A
+12 20
+A
+13 20
+A
+18 3
+A
+19 3
+
+#24254
+sacred heart cross~
+{WSacred {CHeart {TCross{x~
+Someone from {CDivinity{x left their cross laying on the ground.~
+gold~
+armor ABY AC
+22 22 22 21 0
+65 5 6700 P
+E
+robe devotion~
+A cross from the heavens.
+~
+E
+eqstat~
+stock:  8 points
+bought: 0 points
+
+4 points:  +40 hp
+4 points:  +4 hit and dam
+= 8 points
+~
+A
+13 40
+A
+18 4
+A
+19 4
+
+#24255
+glass frosted crystal~
+a frosted crystal glass~
+{WA {Tfr{Costed {Wcr{Cyst{Wal {Tgl{Ca{Tss {Wof wine is on the sideboard.{x~
+water~
+fountain O P
+0 0 'water' 0 0
+1 10 10 P
+E
+glass crystal~
+{TA shimmering ice crystal glass was a gift from the snarling ball of
+fur in the Arctic Woods. It always stays cold so that anything you
+put in it, it is instantly chilled to just the right tempeture. 
+Sometimes Taylor likes a chilled glass of elvish wine while relaxing 
+by the fireside.
+~
+
+#0
+#ROOMS
+#24201
+{WGates of Heaven{x~
+Looking upon the incredible tower from the outside your gaze looks up to the sky
+in hopes to find the top of the grand spire. Alas the top of the tower vanishes
+into the clouds above, as you start to walk into the tower you notice that the
+entrance has two massive white gates that stand thirty foot in length. The second
+you place foot into the tower you feel a presence of purity and protection. As you
+walk you hear your footsteps echo through the huge entry way seeming to trail off
+into the grand hall for what seems like forever.
+~
+0 DN 0
+C divinity~
+D0
+North is center room of {HLevel 1{x.~
+~
+0 -1 24202
+S
+#24202
+{WTower Level 1{x~
+You are now on the lowest level of the heavenly spire that reaches far past
+the clouds. The air in the room is fresh smelling from the  open archway of
+the front gates of the tower directly behind you. The room is supported by
+several large magnificent ivory pillars that span a full 30 foot up into this
+huge room.
+~
+0 CD 0
+C divinity~
+D0
+~
+~
+0 -1 24205
+D1
+~
+~
+0 -1 24204
+D2
+~
+~
+0 -1 24201
+D3
+~
+~
+0 -1 24203
+D4
+~
+~
+0 -1 24206
+S
+#24203
+{WDivinity Cathedral{x~
+As you enter this room you appear to be in a cathedral. It has huge stained
+glass windows that stretch high into the air on the side of the huge walls.
+From the looks of this place it resembles a cathedral from 1700's. In one window
+it has a dove resting in a tree. As you look up you see that the ceiling seems
+to be almost 50 ft above you with candle holders in the middle of the paneling
+lighting the way. As you go farther in you see Michaelangelo's famous painting
+on the ceiling. It reminds you of the same paintings that were done on the Sistine
+Chapel. This is the place where the leaders of the clan hold their meetings.
+~
+0 CD 0
+C divinity~
+D1
+~
+~
+0 -1 24202
+S
+#24204
+{NThe {BTraining {HFields {Yof {RGlory{x~
+This training facility was kept after the great change because of its popularity
+amongst the {RVamphyri{x. This trainer whom you may recognize hails from a world
+different then ours and can show you things no one else can.  He does not get out
+much anymore and would probably like to hear some news of what goes on in Thera.
+~
+0 CD 0
+C divinity~
+D3
+~
+~
+0 -1 24202
+S
+#24205
+{WBlessed {RCrisis {BArmory{x~
+As you enter upon this room strangely enough two glass doors slide open 
+as you step near them you gaze all around seeing shelves scattering across 
+this huge looking place with small signs hanging in-between each isle of 
+shelves. You jump back in shock a little as you hear a high pitched voice 
+echo through a small device in the corner that states something about a 
+sale on aisle 5 for armor polish....
+~
+0 D 0
+C divinity~
+D2
+~
+~
+0 -1 24202
+S
+
+#24206
+{WTower Level 2{x~
+You ascend the huge stairwell from the first level and you climb for what 
+seems like forever. Finally you reach the second floor of the grand tower 
+looking about the hall that you are now in. The walls seem to radiate 
+arcane energy from all points. In the center of the room is a massively 
+huge fountain with an {Wivory{x sculpture of an angel reaching towards the 
+heavens. 
+~
+0 CD 0
+C divinity~
+D0
+~
+~
+0 -1 24207
+D1
+~
+~
+0 -1 24208
+D2
+~
+~
+0 -1 24209
+D3
+~
+~
+0 -1 24210
+D4
+~
+~
+0 -1 24211
+D5
+~
+~
+0 -1 24202
+S
+#24207
+{WA{Yn{Wg{Ye{Wl{Y'{Ws {YD{We{Yn{x~
+As you enter this room you see a {Wcloud{x and a crystalline fountain in the air. 
+As you look down you don't even see a floor! In fact your up in the 
+{Csky{x! Its a good thing that you have wings. As you come farther into 
+the room you notice that the fountain is shooting water into the air 
+creating a {Rr{Ba{Gi{Yn{Rb{Bo{Gw{x. The fountain also has a swan in the middle 
+with her hatchlings next to her. Besides the fountain there is a fluffy 
+{Wcloud{x. It looks really comfy as if you could fall asleep on it. A few 
+feet away from the bed is a very yummy looking stick of {PS{Wt{Pr{Wa{Pw{Wb{Pe{Wr{Pr{Wy {Ccotton {Wcandy{x. 
+~
+0 D 0
+C divinity~
+D2
+~
+~
+0 -1 24206
+S
+#24208
+{WDivinity Bakery{x~
+As you walk into this clean little bakery the smell of fresh baking 
+cookies and cakes make your mouth begin to water. You see breads, cakes,  
+and cookies scattered all over the bakery. You shouldn't spend too much 
+time in this wonderful place or you may get too fat for your wings to 
+carry you!
+~
+0 CD 0
+C divinity~
+D3
+~
+~
+0 -1 24206
+S
+#24209
+{WDivinity Health Care Center{x~
+This room is spotless and completely covered in all kinds of hospital 
+equipment, along with the small bed with the paper sheet and extremely 
+thin pillow on it. The doctor is dressed in the white coat with a 
+stethoscope around his neck. This is the place to come to if you ever 
+are in need of medical attention.
+~
+0 CD 0
+C divinity~
+D0
+~
+~
+0 -1 24206
+S
+#24210
+{RJuice Bar{x~
+As you walk towards the room you hear music playing off in the
+back of the room. Drawing closer to the room you hear the music more 
+clearly its upbeat and fast unlike anything you have ever heard. Maybe 
+this is what they call Rock and Roll? At the far end of the room is a  
+large Ivory bar to sit and have a drink at. On the walls are picures of 
+some of the more famous of the Divinity and Vamphyri. Such as one picture 
+of Laurana when she was still a young teen standing over her first dragon 
+she had killed. Or a picture of DarkAvatar sparring and teaching new 
+fighting skills to his wife Leigh when they were younger. 
+~
+0 CD 0
+C divinity~
+D1
+~
+~
+0 -1 24206
+S
+#24211
+{WTower Level 3{x~
+You ascend yet another huge case of stairs only this time you use the 
+common sense to fly up instead of circling the winding staircase up. You  
+can judge your height by the thin air alone. But you peek out one of the 
+windows only to see a drop down into clouds below you.
+~
+0 CD 0
+C divinity~
+D0
+~
+~
+0 -1 24212
+D1
+~
+~
+0 -1 24213
+D2
+~
+~
+0 -1 24214
+D3
+~
+~
+0 -1 24215
+D4
+~
+~
+0 -1 24216
+D5
+~
+~
+0 -1 24206
+S
+#24212
+{YPanama Beach{x~
+As you enter this room you notice that this room looks like you are on a 
+{Ybeach{x. You notice that where you came from isn't there anymore. As you 
+come further in you see the surf is calm and the {Cwater{x is reasonable 
+cool on your feet.The {Ysun{x is also on your back. You walk north a little
+and see a fountain but it looks like a regular water fountain. This water
+fountain also has a little shelf on the top of it and it has this 
+mysterious looking bottle on it. The bottle has a bluish purplish color
+to it. The bottle looks like a tear.
+~
+0 D 0
+C divinity~
+D2
+~
+~
+0 -1 24211
+S
+#24213
+{WDivinity Magic Shop{x~
+Intricate talismans hang from the walls of this small shop and the smell
+of fresh herbs circle the room.  There are stacks of parchments and vials
+in the corner of the room as wands and scrolls of all sorts lay throughout
+the shop.  As you walk in an aged wizard looks up at you ready to assist 
+you.
+~
+0 D 0
+C divinity~
+D3
+~
+~
+0 -1 24211
+S
+#24214
+{bThe Great Library{x~
+You enter upon a room that looks like an ancient library. It is very tall 
+and full of knowledge. You see Casanova at the check out desk. You notice 
+ancient tomes and books on the first floor. You then look right and see a
+grand staircase leading up to the second floor. You go up the second floor
+and notice that this floor is dedicated mainly to ancient scrolls of the
+Vamphyri and the Divinity. As you keep walking through the rows of scrolls
+you end up in front of the encyclopaedias.
+~
+0 CD 0
+C divinity~
+D0
+~
+~
+0 -1 24211
+E
+book~
+History of the Vamphyri.
+~
+E
+2book~
+You find one of DarkAvatar's Porn mags shoved in-between one of the 
+encyclopaedias titled "Hot Anime Babes".
+~
+S
+#24215
+{PThe {CM{Ry{Cs{Rt{Ci{Rc {PSmithy{x~
+Another one of the rooms that was kept after the great change. The heat in 
+this room is well-nigh unbearable.  Created by the combined {Ye{Rn{Ye{Rr{Yg{Ri{Ye{Rs{x of the
+clan, it exists in many spheres of the multiverse. The room is decorated 
+with powerful weapons of legendary clan members of both the {RVamphyri{x and 
+{WDivinity{x. In the center of the room is the anvil of Clan with figures of
+{Wobsidian{x and {Wdiamonds{x supporting the great forge.
+~
+0 D 0
+C divinity~
+D1
+~
+~
+0 -1 24211
+S
+#24216
+{WTower Level 4{x~
+You reach the fourth floor of the tower, the air is getting very thin and 
+you feel like you are miles above the surface of Thera. This room is covered
+in a great mural depicting the history of the Divinity and their purpose on
+this world.
+~
+0 CD 0
+C divinity~
+D0
+~
+~
+0 -1 24217
+D1
+~
+~
+0 -1 24218
+D2
+~
+~
+0 -1 24219
+D3
+~
+~
+0 -1 24220
+D4
+~
+~
+0 -1 24221
+D5
+~
+~
+0 -1 24211
+S
+#24217
+{CGalileo's Observatory{x~
+As you enter the room you see a huge base of a telescope that stretches out
+of the tower pointing towards the heavens. An elderly gentleman looks away
+from the eye piece of the telescope to see who has intruded upon his 
+research.
+~
+0 D 0
+C divinity~
+D2
+~
+~
+0 -1 24216
+S
+#24218
+{CResearch Lab{x~
+This large room must be one of the many research facilities of the 
+{WDivinity{x. As you look around the room you see vials of chemicals on 
+small burners, intertwining tubes carrying unknown {Vliquids{x from one 
+vial to another. On one side of the lab you see the soft glow a few 
+computer {Cscreens{x that hold information and help control the climate 
+of the tower.
+~
+0 CD 0
+C divinity~
+D3
+~
+~
+0 -1 24216
+S
+#24219
+{WGateway of the Unseen{x~
+Inside this room you see {CShimmering{x mirrors against the wall. As you 
+come closer to the mirrors expecting your reflection instead you see what
+looks like another world on the other side of the mirror. You bring your
+finger to the mirror and they gently sink into it creating soft ripples 
+across the shimmering glass. You realize that this is indeed a portal to 
+another region of Thera. Perhaps you should use these devices with caution.
+~
+0 CD 0
+C divinity~
+D0
+North is {HThe Fourth Level{x.
+~
+~
+0 -1 24216
+S
+#24220
+{WMeditation Chamber{x~
+This room enters into a darkness. You look back to see the door way fade 
+far from reality leaving you in nothingness. Your feet seem to be light 
+as if you were in mid-air. You are completly engulfed in darkness as you
+float there in nothingness. No sound or distraction just pure silence and
+nothingness. You close your eyes and the silence helps you clear your
+mind. You feel at peace and now you can begin to focus your true powers.
+~
+0 CD 0
+C divinity~
+D1
+~
+~
+0 -1 24216
+S
+#24221
+{WTower Level 5{x~
+Ascending yet another long set of stairs you reach the fifth floor of the 
+tower. This floor is fairly simple in structure. It has the familar {Wivory{x
+pillars that you have grown used to now, and the beautiful murals and paintings
+of the Divinity. But what is most lovely about this floor is the entire floor
+is made out of a {Cshimmering{x energy, almost the same as the look of the
+portals you saw a few floors down. It resembles the look of water and though
+when you take a step you see it ripple the floor remains as hard as stone.
+~
+0 CD 0
+C divinity~
+D0
+~
+~
+0 -1 24222
+D1
+~
+~
+0 -1 24241
+D2
+~
+~
+0 -1 24225
+D3
+~
+~
+0 -1 24224
+D4
+~
+~
+0 -1 24226
+D5
+~
+~
+0 -1 24216
+S
+#24222
+{YGrand Ball Room{x~
+The size and pure beauty of this room is breath taking. The floor is made of 
+a magnificently polished {bhard wood{x that you can see your reflection in. 
+Giant {Wivory{x pillars support the massive ceiling above you. {YChandeliers{x
+are scattered across the grand room {Willuminating it brightly{x. A full sized 
+orchestra is playing beautiful classical {Vmusic{x. With such instruments
+as {bviolins{x, {gflutes{x, {Ybass{x, and even some {bviolas{x. Further more 
+you can hear the sounds of {Yh{Wa{Yr{Wp{Ys{x, {bcellos{x, and even some {Ytrombones{x in
+the orchestra. The center of the ceiling is a huge {Cglass{x dome opening into a
+perfectly clear {Wstarry night{x. The {Vmusic{x is wonderful, a piece 
+created by {PLeigh{x and you can't help but want to go to the center of 
+the dance floor and let the {Vmusic{x take you where you wish to go.
+~
+0 CD 0
+C divinity~
+D2
+~
+~
+0 -1 24221
+S
+#24223
+A Little Piece of Heaven~
+As you enter this room you see a canopy bed with black soft satin sheets and 
+comforter with fluffy pillows also in black satin. You then notice a cat 
+sleeping near the foot of the bed. It has grey fur along withsome white and
+it sure looks cute. As you enter further you see a old fashioned dresser with
+two pictures and a lone red rose in a vase on top of it. The first picture
+is when DarkAvatar was first inducted as a leader of the Vamphyri. The second
+picture was taken when DarkAvatar and his wife were cuddling and happened to
+be facing the camera smiling happily. You turn right a little and see a
+full-sized cello with a music stand near the wall. The cello is laying on its
+side with the bow laid across it. You get the sense of peace and tranquility
+here.
+~
+0 CD 0
+C divinity~
+D2
+~
+~
+0 -1 24227
+E
+picture~
+DarkAvatar sure looks happy and proud as he is inducted into the Vamphyri as 
+a leader. Its great to know Leigh has a handsome husband :)
+~
+E
+2picture~
+These two sure look happy and in love :) Its a good thing that DarkAvatar 
+and Leigh make a cute couple :)
+~
+S
+#24224
+{WDivinity {CBank {Wand {CTrust{x~
+Across the room you see a man in a business suit sitting at a desk awaiting 
+your needs with several parchments and contracts stacked on the desk. Several
+small lockers line the walls with tiny key hole locks on them.
+~
+0 DESU 0
+C divinity~
+D1
+~
+~
+0 -1 24221
+S
+#24225
+{WDojo{x~
+Its your typical martial arts dojo. Here you can spar with your clan mates 
+and perfect your battle skills so that you will be more proficent in the
+field of combat. Obviously its always a fight to the finish but always
+non-lethal as well.
+~
+0 D 0
+C divinity~
+D0
+~
+~
+0 -1 24221
+S
+#24226
+{WTower Level 6{x~
+Reaching level six you glance out a window to see the view. But all you see
+is a sea of {Wclouds{x stretching far off into the distance and out of site.
+~
+0 CD 0
+C divinity~
+D4
+~
+~
+0 -1 24227
+D5
+~
+~
+0 -1 24221
+D3
+~
+~
+0 -1 24240
+S
+#24227
+{WTower Level 7{x~
+This floor is coverd in ancient runes and enchantments and the walls and 
+floor seem to radiate energy. You feel the draw of raw magical power 
+eminating from the carvings on the wall and feel the energy of the spire.
+~
+0 CD 0
+C divinity~
+D0
+~
+~
+0 -1 24223
+D2
+~
+~
+0 -1 24233
+D3
+~
+~
+0 -1 24234
+D4
+~
+~
+0 -1 24228
+D5
+~
+~
+0 -1 24226
+S
+#24228
+{PThe {WDivinity {GGardens{x~
+This room exits out into four separate gardens from many different worlds 
+that The Vamphyri and the Divinity have visited. Leigh insisted in keeping 
+this area of the tower since she has such a fondness of it and many fond
+memories here. You should visit each one for the full appreciation of the
+care they are given and require.
+~
+0 CD 0
+C divinity~
+D5
+Down is the {HThe Seventh Level{x.
+~
+~
+0 -1 24227
+D1
+~
+~
+0 -1 24232
+D3
+~
+~
+0 -1 24230
+D0
+~
+~
+0 -1 24231
+D2
+~
+~
+0 -1 24229
+S
+#24229
+{RThe {YSouthern {GGardens{x~
+The sound of crickets are everywhere and the evening is brilliantly lit by 
+{Yfireflies{x. A warm breeze blows through this garden bringing with it many of
+the scents of flowers found here. You can smell {YHoneysuckle{x, {VJasmin{x, {ROld 
+Fashioned Roses{x, and {GMimosa{x. There are {RAzaleas{x of many colors to be found 
+alongside {PRhododendrons{x, {WBaby's Breath{x, {bH{Wo{br{Ws{be{Ws{bT{wa{bi{wl{x, {GC{Hr{Ge{He{Gp{Hi{Gn{Hg {GI{Hv{Gy{x and 
+{HKudzu{x...fortunately they have found a way to keep that tame! In another plot 
+there are {WM{Ya{Wg{Yn{Wo{Yl{Wi{Ya{Ws{x, {RD{Po{Wg{Rw{Po{Wo{Rd{Ps{x,{wPeach trees{x, {WBradford Pears{x, {RJapanese 
+Maples{x, and {GS{Wp{Gi{Wd{Ge{Wr {GG{Wr{Ga{Ws{Gs{x. Looking to your right you see {GElms{x, {PT{Wu{Yl{Bi{Rp{Ns{x, {BC{Vr{Bo{Mc{Bu{Vs{Be{Ms{x, 
+{Psweet potatos{x, and {bPeanut bushes{x.
+~
+0 CD 0
+C divinity~
+D0
+~
+~
+0 -1 24228
+S
+#24230
+{RThe {HV{Ge{Hn{Gu{Hs{Gi{Ha{Gn {HG{Ga{Hr{Gd{He{Gn{Hs{x~
+This garden is composed of almost nothing but greens.  {HOnce again...
+very little is {Gknown about{x these gardens.  {PWe hope to have a
+member give the plants names {Bone{x day.  But we will have to wait a little
+{Wlonger{x for that person.  This garden like the {MOrbital{x {WGarden{x is
+kept as close to {Gthe environment as possible{x {Hthat the plants were{x
+found in.  The {Honly thing different {Ghere{x is like the {MOrbital
+{WGarden{x, these plants {Ghave all the food they{x can {Beat{x and many
+that will care for them.  {HThere{x is no lack of {Gdesire{x here for these
+plants.  {NThey{x seem to realize {Cthis{x and seem to be {Wdoing{x quite
+{Twell{x.
+~
+0 CD 0
+C divinity~
+D1
+~
+~
+0 -1 24228
+S
+#24231
+{RThe {WArctic {GGarden{x~
+This garden comes from a world with a colder climate than that of Thera's. 
+There is {PF{Ri{Pr{Re{Pw{Re{Pe{Rd{c, {TLovelocks{x, {GC{Hl{Go{Hv{Ge{Hr{x, and {HPine{x in this plot. Over here 
+you see {WArctic {Rroses{x, {GSweet Thorns{x, {BBlueberries{x, and {MWild Blackberries{x.  
+The plot over there contains {HCedar trees{x, {YBirches{x, {WAspens{x, and {GFirs{x. Over to 
+the right you see many different {WTundra{x {BW{Ri{Gl{Md{Yf{Pl{Bo{Ww{Ve{br{Cs{x, {YHay{x, {PApple trees{x, and {HFerns{x.
+~
+0 CD 0
+C divinity~
+D2
+~
+~
+0 -1 24228
+S
+#24232
+{PThe {MOrbital {WGardens{x~
+This is an {Codd{x place filled with {Hmany{x plants from a world that
+had so overgrown with {Ytechnology{x and artificial creations {Vthat{x the
+plants were {Wforced{x to adapt to their {Meverchanging{x world which was
+busy {Ntrying{x to choke them out of {Wexistence{x. Not much is known
+{Wabout these plants and {Pflowers{x.  They are not {Cpoisonous{x that we
+can determine {Rso{x we have collected {Gthem{x and placed them here in
+the hope that {Rthey{x will thrive in their new surroundings {buncluttered{x
+by {Mthe race to kill{x each other off {Rfor{x the {Gsoil{x and nutrients.
+{bThey{x seem {Yto{x be doing well {Rthough{x only time can tell on matters
+{Bsuch{x as {Wthese{x.
+~
+0 CD 0
+C divinity~
+D3
+~
+~
+0 -1 24228
+S
+#24233
+{REdge of Heaven{x~
+This rooms walls are completely covered in black and the carpet is a dark 
+grey. The wall is covered in {Ymedals{x and {Ywar trophies{x. Including certificates
+of recognition from the highest magic school of the land. A small wooden desk
+lies on the far end of the room with several pictures on it, including one of 
+DarkAvatar and his wife {PLeigh{x on their wedding day. And another of DarkAvatar
+and {PLeigh{x out on the town window shopping through New thalos. A small rack
+upon the wall is decorated with a few of DarkAvatars most prized weapons 
+including the famed {WCrystal Katana{x and {RBloody{WAngel{x. Looking further
+about the room you see a large water bed covered in silky black sheets and 
+pillows. With a small raido on the bed stand beside it. In the floor at the
+foot of the bed is a cute little chibi-dragon.
+~
+0 CD 0
+C divinity~
+D0
+~
+~
+0 -1 24227
+E
+picture~
+Its a picture of Darky and Leigh on their {Wwedding{x day. Leigh looks so 
+cute in that wedding dress.
+~
+E
+2picture~
+Darky is trying on a {Vpurple hat with a feather{x in it while giving the 
+camera a peace sign, Leigh is just laughing at him.
+~
+S
+#24234
+{WA Cloud {TG{Va{Tz{Ve{Tb{Vo{x~
+You feel intense {Rh{Yea{Rt{x, then a calm peaceful presence as the holy 
+fires burn away any {Wimp{Ver{Tfec{Vti{Wons{x cleansing your soul. You enter an airy
+gazebo suspended by some arcane magic from a time long forgotten. This is 
+Laurana's getaway. Often times she is here with her beloved Elias and close 
+friends for the occasional picnic. Celestial fires diminish revealing a sparkling
+{Tblue {Wsky{x with feathery {Wwhite clouds{x.  Mist has covered the floorboards 
+and crept up the pillars. Translucent dew is settling on any surface it can
+touch. What resembles {Ysunlight{x peeks through the topmost section, which
+is a huge glassless window. Laurana's personal magic keeps the torrential 
+rainfall from drenching the Gazebo during a downpour and the blustery
+weather from howling through when there is a tempest. A warm breeze caresses 
+your cheek and pushes back your hair. A featherbed wrought from {bvallenwood{x is
+over in the far corner, as if the gazebo expands to make room for it all.  {WSea 
+{Tsalt {xincense burns making the room exude a calm soothing romantic aura. Two
+goblets of {be{Hl{bv{Hi{bs{Hh {xnectar sit suspended in mid air beside the bed smelling
+sweetly of honey.
+~
+0 CD 0
+C divinity~
+D1
+~
+~
+0 -1 24227
+S
+#24235
+{RThe Divinity Battle Arena{x~
+You find yourself in the center of a huge arena surrounded by walls on all
+sides of you. All around the walls are spectators screaming and cheering you
+on there must be thousands of them here. The floor is simply a natural 
+{bdirt{x floor. As you look ahead you see the gate draw open and your 
+challenger steps forth from the darkness.
+~
+0 CD 21
+C divinity~
+D1
+~
+~
+0 -1 24236
+D2
+~
+~
+0 -1 24238
+D3
+~
+~
+0 -1 24237
+D0
+~
+~
+0 -1 24239
+S
+#24236
+{REast Arena{x~
+You are now on the east side of the arena.
+~
+0 CD 21
+C divinity~
+D3
+~
+~
+0 -1 24235
+S
+#24237
+{RWest Arena{x~
+You are now on the west side of the arena.
+~
+0 CD 21
+C divinity~
+D1
+~
+~
+0 -1 24235
+S
+#24238
+{RSouth Arena{x~
+You are now south of the center of the arena.
+~
+0 CD 21
+C divinity~
+D0
+~
+~
+0 -1 24235
+S
+#24239
+{RNorth Arena{x~
+You are now north of the center of the arena.
+~
+0 CD 21
+C divinity~
+D2
+~
+~
+0 -1 24235
+S
+
+#24240
+{TT{Ca{Wy{gl{To{Cr{W'{gs {WTo{gw{Wer {go{Wf {TV{Ci{Ws{gi{Co{Tn{x~
+{gHigh within the tower's spire, you can look out across the lush 
+verdent Valley of the Elves. The visions of the valley sing a song of hope 
+and whispers gentle peace within your mind lulling you into arms of safety,
+protection, and comfort. There are two large comfortable chairs covered
+in rich teal brocade next to the large window. This is where Taylor sits
+and gazes out the window listening to the soft sounds of music from the
+the realm below. Sometimes when Taylor wants to relax she reads a good 
+book from her collection that she has acquired over the years. A huge 
+stone fireplace dominates the far wall, always lit with a blazing fire. 
+There are bright colored tapestries covering the other wall which depicts 
+the Divinity and how it came into existence. A large, carved wooden 
+armorier holds many books that Taylor loves to read, and in front of the 
+four poster featherbed is a white yeti rug that covers the golden oak wood 
+floors. All in all, it's simple but comfortable, just like an the embrace 
+that melted her heart that was once frozen long ago by evil, but now warms 
+to compassion and love.{x
+~
+0 DK 0
+C ~
+D1 
+~
+~
+0 -1 24226
+E
+collection book books~
+May your bright and shining star be transformed into words for all to
+gaze upon. Taylor has several books, just read book1, book2, book3, etc. 
+
+{T"Close, oh close your shining eyes...
+ {CAngels, angels...tread the skies.
+  {gTHear the music of the night...
+   {cAngels, angels...bathed in light.
+    {TSoft the passage of their wings...
+     {CAngels, angels...pluck the strings.
+      {gClose your eyes, my dearest one...
+       {cAngels, angels...veil the sun."{x    
+~
+E
+book1~
+{TThey say that love's a rainbow
+{Cwith colors soft and bright,
+{cEnough to fill a lifetime
+{gor make it through a night.
+{TIt can color all your visions
+{Cand brighten all your days,
+{cTrue love can make you stronger
+{gin a million subtle ways.
+{TIt restores your faith in others
+{Cand changes all your dreams.
+{cIn love you find a purpose
+{git's more than what it seems.
+{TLike that baby in a cradle
+{Cand the trust within its eyes,
+{cAs it reaches toward its mother
+{geach time the baby cries.
+{TOr that couple in the chapel
+{Cwith eternity in view,
+{cHow it all becomes so perfect
+{gin three words "I love you".
+{TOr that couple in their eighties
+{Con the porch swing over there,
+{cWho still see love and beauty
+{gdespite the graying hair.
+{TIt's a magic sent from heaven
+{Ca sweetest gift from up above,
+{cThe miracle of miracles
+{gthe priceless treasure that is Love.{x                  
+~
+E
+book2~
+{TDefining a soulmate is not hard but sometimes the definition is
+misinterpreted. You may love someone, but wonder if you are making the
+right decision to be with them. Sometimes you wonder if maybe
+somewhere there is a better one, but by expecting our soulmate to be
+perfect, we do not give ourselves a chance to find true and everlasting
+love. A soulmate is not perfect, but perfect for us. Realizing who your
+soulmate is happens after you take time to get to know them. It takes
+time to open our hearts fully to one another. When love grows, we just
+know one day when it happens, it is a natural knowing. It recognizes
+it by our souls, not our minds. It just knows "this is the person for
+me." If we try to figure out if a person is right, then we are judging
+from our minds, and if we do that, they will never be enough - we will
+always find flaws. To pick a soulmate, we must chose from our soul. We
+use our minds to figure out how to give and receive love and support,
+doing this our hearts begin to open. Love is not enough, just because
+we love someone does not mean they are right for us. A soulmate is
+someone with whom in our heart of hearts we feel a longing to share
+our lives.{x
+~
+E
+book3~
+{TT{Ca{Wy{gl{To{Cr{W'{gs {THistory {Wand {CPortrait{x
+  
+{TAnd she cried.  It came quickly, swiftly, and deadly - -  The White  
+Scream.  It filled her head, her legs became weak and her heart faint. The 
+devastation from the Duet unleashing the Void on Baddalaur makes {WTaylor 
+{Tshudder each time she thinks back to that horrible day. The Void 
+devoured everything, whirling, absorbing, nothing could stop it. Leaving 
+total destruction of the safe world she knew. {WTaylor {Twas spared only 
+by the swift thinking of Nanri, the Senior Scholar from the Four Elders of 
+the Seven Nations, who threw her into the deep well that stood in the 
+center of the Court of Armadaile.  She plunged downward, letting the swift 
+black current pull her further and further down and then just before 
+losing consciousness, she surfaced on the far side of Baddalaur. {WTaylor 
+{Ttook one last look over her shoulder at Baddalaur, the only home she 
+knew, and now was no more.  Calead, her human father, fell in love with 
+Sarel, a vamphyri, not without a great cost to her, since their union was 
+strictly forbidden.  Sarel, dying in childbirth, made her husband promise 
+to love and protect their daughter.  When the townspeople of Barrow heard 
+of {WTaylor's {Tbirth, Calead, forewarned, fled into the night to seek 
+refuge at Baddalaur.  In the deep forests on the outskirts of Baddalaur, a 
+Madra Alltra, werebeast, attacked Calead, almost tearing his arm off. 
+After killing the werebeast, Calead knew that he had only a short time to 
+get {WTaylor {Tto safety before he turned into one of the Madra Alltra.  
+In his high tower, Nanri saw the attack and met Calead at the gate, and 
+knowing what would happen to him. Nanri promised to shelter {WTaylor 
+{Tfrom the outside eyes. Nanri became obsessed with {WTaylor{T, and 
+through this, he turned from the warm human being he used to be into a 
+cold, and calculating mage. Nanri gave her his protection and loved her 
+but that was not enough to hide from her what he had become. His coldness 
+froze her heart and with that, her speech was frozen also. {WTaylor 
+{Tneeded to find someone strong and confident, who would not feel 
+threatened by her existence but be willing to share. She had to find him, 
+the one who called her heart to his, the one who would love and protect
+her, the one who will whisper her name and she will hear. And so {WTaylor 
+{Tstarted on her journey being careful to disguise herself when entering 
+any towns for she knew that because she could not speak many might not 
+understand and turn on her.  Her journey was long and hazardous, but her 
+search  ended. She came to Thera and joined the Divinity who became her 
+family and friends. Her search for a family is over and her heart 
+unfrozen although she is still sometimes silent.{x
+
+{CThe wraithlike figure, with thick, golden hair cascading to her waist,
+turns her pale face to gaze with brilliant, blue eyes at you. She's
+only 5 foot tall but don't let her small size deceive you into thinking
+she cannot defend herself. She'll battle with the best of them if and
+when she has to. She's learned a few tricks and if she bats her long
+black eyelashes in a coy manner, don't believe it ;){x
+~
+S
+
+#24241
+The {TKawaii Pet Shop{x~
+This is a kawaii pet shop! A pink glow of faerie fire is used to 
+illuminate the room. In the spectral light you can see assorted 
+statuettes, some onyx, others sapphire, all carved into beautiful 
+renderings of creatures too perfect for this world. The room radiates 
+with magical power and it clouds your mind with its intensity, giving you 
+a slight buzz as it soaks into every fiber of your soul.  The two sole 
+occupants of the store: a Elf that moves gracefully among the animals 
+as a Ranger and a large black panther with glowing ethereal eyes. 
+~
+0 DKMS 0
+C divinity~
+D3
+~
+~
+0 -1 24221
+S
+
+#24242
+The Pet Storeroom~
+This is where the Divinity Pets are stored.
+~
+0 KNY 0
+C divinity~
+S
+
+#0
+#RESETS
+M 0 24208 1 24204 1   * Albert Einstein to the Training Room
+M 0 24206 1 24205 1   * Wilma Deering to her shop
+G 0 24200 50          * claneq
+G 0 24201 50          * claneq
+G 0 24202 50          * claneq
+G 0 24203 50          * claneq
+G 0 24204 50          * claneq
+G 0 24205 50          * claneq
+G 0 24206 50          * claneq
+G 0 24207 50          * claneq
+G 0 24208 50          * claneq
+G 0 24209 50          * claneq
+G 0 24250 50          * claneq
+G 0 24251 50          * claneq
+G 0 24252 50          * claneq
+G 0 24253 50          * claneq
+G 0 24254 50          * claneq
+M 0 24207 1 24209 1   * Aleric to healer room
+O 0 24210 1 24206     * milk fountain to tower level 2
+M 0 24200 1 24208 1   * Sakura to food shop
+G 0 24211 60          * food
+G 0 24212 60          * food
+G 0 24213 60          * food
+G 0 24214 60          * food
+G 0 24215 60          * food
+M 0 24210 1 24210 1   * Citan to the juice bar
+G 0 24216 50          * drink
+G 0 24217 50          * drink
+G 0 24218 50          * drink
+G 0 24219 50          * drink
+G 0 24220 50          * drink
+O 0 24221 1 24210     * jukebox to juice bar
+M 0 24214 1 24214 1   * casanova to the library
+O 0 24222 1 24215     * anvil to the smithy
+M 0 24217 1 24217 1   * Galileo to the observatory
+M 0 24224 1 24224 1   * adam smith to the bank
+O 0 24224 40 24222    * wand to grand ballroom
+M 0 24213 1 24213 1   * Mygas to the magic shop
+G 0 24225 50          * eq
+G 0 24226 50          * eq
+G 0 24227 50          * eq
+G 0 24228 50          * eq
+G 0 24229 50          * eq
+G 0 24230 50          * eq
+M 0 24234 1 24234 1   * khellendros
+M 0 24233 1 24233 1   * kawaii dragon
+O 0 24231 1 24212     * fountain
+O 0 24232 50 24212    * potion
+O 0 24233 1 24223     * bed
+O 0 24234 50 24233    * potion
+O 0 24235 1 24233     * bed
+O 0 24236 1 24234     * bed
+O 0 24237 1 24234     * fountain
+O 0 24238 50 24234    * pill
+O 0 24239 1 24225     * arena portal
+O 0 24240 1 24219     * portal
+O 0 24241 1 24219     * portal
+O 0 24242 1 24219     * portal
+O 0 24243 1 24207     * bed
+O 0 24244 1 24207     * fountain
+O 0 24245 50 24207    * pill
+O 0 24246 50 24240    * pill
+O 0 24247 1 24240     * bed
+O 0 24255 1 24240     * fountain
+O 0 24248 1 24223     * cello
+O 0 24249 1 24223     * dresser
+M 0 24223 1 24223 1   * cat
+M 0 24201 1 24241 1   * Drizzt to the pet shop
+M 0 24202 20 24242 1  * chibi dragon to pet shop
+M 0 24203 20 24242 1  * mesa pegasus to pet shop
+M 0 24204 20 24242 1  * holy dragon to pet shop
+S
+
+#SHOPS
+24206 9 1 0 0 0 125 50 0 23  * wilma
+24200 19 0 0 0 0 125 50 0 23 * sakura
+24210 17 0 0 0 0 125 50 0 23 *citan
+24213 2 3 4 10 0 125 50 0 23 * mygas
+0
+
+#SPECIALS
+M 24217 spec_sage * Galileo
+S
+#$
+
+
+
+ 
+

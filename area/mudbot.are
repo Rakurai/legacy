@@ -1,0 +1,322 @@
+#AREA
+mudbot.are~
+mudbots~
+{H{{ ALL } {MSivat {TMud Bot Area~
+7700 7799
+
+
+#MOBILES
+#7700
+blanklem lem~
+~
+A {Rdisabled{x {bM{Yu{bd{GL{He{Gm{x is hunched over here.
+~
+This {bM{Yu{bd{GL{He{Gm{x is awaiting full functions.
+{ROverall Rating:{x {YF{x
+{RHighlights: {YNone{x
+~
+unique~
+BGZ 0 0 S
+1 0 1d1+0 1d1+0 1d1+0 hit
+10 10 10 10
+0 0 0 0
+stand stand either 0
+0 0 small 0
+
+#7701
+magelem lem~
+a {bM{Ya{bg{Ye{GL{He{Gm{x~
+A {bM{Ya{bg{Ye{GL{He{Gm{x stands here wearing a small {Bblue{x cloak.
+~
+{bM{Ya{bg{Ye{Gl{He{Gm{x is known for its {Gmagic missle{x and higher mana
+above the other bots.
+~
+unique~
+BGZ 0 0 S
+1 0 1d1+0 1d1+0 1d1+0 hit
+10 10 10 10
+0 0 0 0
+stand stand either 0
+0 0 small 0
+>speech_prog status~
+if ismaster($n)
+   say Sheeot!
+   say Jeez this better have worked or im kicking your ass mont.
+endif
+~
+|
+
+#0
+
+
+
+
+#OBJECTS
+
+#7700
+lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {Bblank{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {Bblank{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+This is a completely blank {bM{Yu{bd{GL{He{Gm{x card, how utterly useless!?
+~
+
+#7701
+hp lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {GHP{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {GHP{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{GHP{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's HP by {T10{x.
+~
+
+#7702
+double hp lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {GDouble HP{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {GDouble HP{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{GDouble HP{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's HP by {T20{x.
+~
+
+#7703
+mp lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {VMP{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {VMP{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{VMP{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's MP by {T10{x.
+~
+
+#7704
+double mp lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {VDouble MP{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {VDouble MP{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{VDouble MP{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's MP by {T20{x.
+~
+
+#7705
+stamina lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {NST{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {NST{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{NST{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's Stamina by {T10{x.
+~
+
+#7706
+double stamina lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {NDouble ST{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {NDouble ST{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{NDouble ST{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's Stamina by {T20{x.
+~
+
+#7707
+strength lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {RSTR{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {RSTR{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{RSTR{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's Strength by {T1{x.
+~
+
+#7708
+intelligence lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {CINT{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {CINT{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{CINT{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's Intelligence by {T1{x.
+~
+
+#7709
+wisdom lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {GWIS{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {GWIS{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{GWIS{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's Wisdom by {T1{x.
+~
+
+#7710
+dexterity lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {bDEX{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {bDEX{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{bDEX{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's Dexterity by {T1{x.
+~
+
+#7711
+constitution lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {PCON{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {PCON{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{PCON{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's Constitution by {T1{x.
+~
+
+#7712
+charisma lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {BCHR{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {BCHR{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{BCHR{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's Charisma by {T1{x.
+~
+
+#7713
+level lem mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {TL{Ce{Wv{Ce{Tl{x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {TL{Ce{Wv{Ce{Tl{x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{TL{Ce{Wv{Ce{Tl{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's Level by {T1{x.
+~
+
+#7714
+Blank mudlem card~
+{Y[{bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{Y]{x {x {bM{Yu{bd{GL{He{Gm{x {TC{Ca{Tr{Cd{x~
+a {x {bM{Yu{bd{GL{He{Gm{x card lies here.~
+waxed paper~
+token AB A
+0 0 0 0 0
+0 1 0 P
+E
+lem card~
+{x {bM{Yu{bd{GL{He{Gm{x {YC{ba{Yr{bd{x
+
+Increases target {bM{Yu{bd{GL{He{Gm{x's  by {T1{x.
+~
+
+#0
+
+
+#ROOMS
+
+#7700
+{RThe {YC{bo{Yn{bs{Yt{br{Yu{bc{Yt{bi{Yo{bn{x {RBay{x~
+The smell of molten steel, burning wood, and other raw materials
+fill the air. Stacked along the sides of this giant bay are crates upon
+crates of {RM{bud{g-{HB{bot{x's and {RM{bud{g-{HB{bot{x Armaments. The true purpose of this room
+is the creation and construction of these little marvels.
+
+~
+
+0 0 0
+S
+
+#7701
+{RThe {bM{Yu{bd{GL{He{Gm {RStorage Room{x~
+This is a small room, with a large showcase of unquie {Hb{bot{x-weapon's
+and tokens. Here, you can trade your tokens and equip your bot's
+with the equipment necessary. Any Immortal in this area will help you
+install your tokens into your {GL{He{Gm{x's.
+
+~
+
+0 0 0
+S
+
+#7702
+{YB{Rattle {YD{Rome {Y: {GT{Hh{Ge {HD{Ge{He{Gp {HF{Go{Hr{Ge{Hs{Gt {HR{Gu{Hi{Gn{Hs{x~
+Amongst large {Wo{ga{Wk {Gt{Hr{Ge{He{Gs{x, and immense amounts of {Gf{Hl{Go{Hr{Ga{x lies a large
+ring of rocks. In the middle of these rocks is a giant oak tree, maybe the
+forefather to all the rest. Given all that lies in this peaceful looking area
+it's true purpose is for {bM{Yu{bd{GL{He{Gm{x battles.
+
+~
+
+0 0 0
+S
+
+#0
+
+#$

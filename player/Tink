@@ -1,0 +1,157 @@
+#PLAYER
+Name Tink~
+Id   1026445835
+LogO 1026450353
+Vers 14
+Mexp 0
+Pass tinker~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  2
+Levl 3
+Tru  0
+Plyd 1449
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3044
+HMS  44 18 53
+Gold 0
+Silv 68
+Exp  4073
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 16 18 14 17 15 13
+Afk {B[{CThu Jul 11 23:11:35 2002{B] {CUnknown Departure.{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Sivat~
+Lsit class223.32.ohiohills.com~
+Ltim Thu Jul 11 23:58:33 2002
+~
+LSav Fri Jul 12 00:05:53 2002
+~
+HMSP 56 113 116
+THMS 1 0 0
+Cnd  0 27 41 16
+Sk 1 1 'acid blast'
+Sk 1 1 'burning hands'
+Sk 1 1 'chain lightning'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'fireball'
+Sk 1 1 'firestorm'
+Sk 1 1 'lightning bolt'
+Sk 63 1 'magic missile'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'wrath'
+Sk 1 1 'dagger'
+Sk 70 1 'whip'
+Sk 12 1 'dodge'
+Sk 1 1 'envenom'
+Sk 1 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'combat'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 168 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3721
+Nest 0
+Wear 16
+Cost 330
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

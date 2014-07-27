@@ -1,0 +1,951 @@
+#AREA
+marley.are~
+Marley~
+{H{{ALL} {MErminfrieda {TMarleyite Church~
+7450 7499
+
+#MOBILES
+#7450
+confused novice nun~
+a confused novice~
+A confused novice is here, trying to recite her Precepts.
+~
+She is getting stuck halfway through the Third Precept. Maybe you
+should help her out.
+~
+human~
+AGH C 1000 0
+1 0 2d6+9 1d1+99 1d4+1 beating
+9 9 9 9
+0 0 0 B
+stand stand female 1
+AHMV ABCDEFGHIJK medium 0
+#7451
+sock puppet~
+a slightly possessed sock puppet~
+A slightly possessed sock puppet tries to convert you.
+~
+A slightly possessed sock puppet shouts, "BODIN IS LORD! ODIN IS LORD!
+ODIN IS LORD! ODIN IS LORD! ODIN IS LORD! ODIN IS LORD! ODIN IS LORD!
+ODIN IS LORD! ODIN IS LORD! ODIN IS LORD! ODIN IS LORD! ODIN IS LORD!
+ODIN IS LORD! ODIN IS LORD! ODIN IS LORD! ODIN IS LORD! ODIN IS LORD!"
+~
+doll~
+AGW KTc -100 0
+3 0 2d6+39 1d1+3 1d6+0 mental
+7 7 7 7
+D BLNQR 0 H
+stand stand none 0
+CHMc ABCGH small 0
+#7452
+harmless bat~
+a harmless bat~
+A harmless bat shelters under a bit of scaffolding.
+~
+It is very small, and asleep.
+~
+bat~
+ABGH JQT 10 0
+1 0 2d6+9 1d1+99 1d4+0 bite
+9 9 9 0
+FH 0 0 S
+stand stand either 0
+AGV ACDEFHJKP tiny 0
+#7453
+toxic bat~
+a toxic bat~
+A foul-smelling bat is hiding in a dark corner.
+~
+The bat looks quite sick, and is covered with strange goo from the
+Mob Factory. Industrial pollution, working its way up the food chain.
+~
+bat~
+ABGH JMQT -300 0
+4 0 2d7+46 1d1+99 1d5+1 slime
+6 6 6 6
+AFH 0 0 S
+stand stand either 0
+AGV ACDEFHJKP small 0
+#7454
+gnome mason~
+a gnome mason~
+A gnome mason is here, carving a gargoyle drain spout.
+~
+His main characteristic looks to be dust. But right now he is
+engrossed in his work. After a long day of building nice straight
+unimaginative walls, carving the fanciful decorations is a welcome
+break and creative outlet.
+~
+goblin~
+ABGW JNW 500 0
+8 1 2d7+96 2d8+99 1d7+2 stab
+3 3 3 3
+DJ 0 Q C
+stand stand male 200
+AHMV ABCDEFGHIJK medium 0
+#7455
+gnome laborer~
+a gnome laborer~
+A gnome laborer is here, hauling great blocks of granite about.
+~
+Low brow, sloping forehead... Yup, he hauls blocks.
+~
+goblin~
+AGW Ja 500 0
+5 0 2d6+60 1d1+99 1d6+2 crush
+6 6 6 8
+O 0 Q C
+stand stand male 100
+AHMV ABCDEFGHIJK medium 0
+#7456
+Magda gooseherd~
+Magda, the gooseherd~
+Magda is here minding the geese.
+~
+Magda is a very young gnome in a simple {BMarleyite blue{x frock.
+She can show you around the Mud School, if you like. Just call one
+of the other nuns to come watch her geese for a bit.
+~
+human~
+ABGQW 0 1000 0
+5 0 1d1+79 1d1+119 1d10+6 pound
+2 2 2 6
+Q 0 0 B
+stand stand female 1000
+AHMV ABCDEFGHIJK medium 0
+#7457
+goose~
+a fine grey sitting goose~
+A fine grey sitting goose looks at you through one eye, then the other.
+~
+Looking closely, you can tell that all the geese are rocking gently
+to the rhythm of the hammering from the smithy. Apparently they have
+decided to live with it. 
+~
+water fowl~
+ABGW Ca 1000 0
+1 0 2d6+9 1d1+99 1d4+0 peck
+9 9 9 9
+DR 0 R 0
+stand stand either 0
+AGW ACDEFHKP medium 0
+#7458
+spout gargoyle~
+a half-finished spout gargoyle~
+A half-finished spout gargoyle fixes its stony gaze upon you.
+~
+Well, about half-finished. It is already grotesque, the nightmare
+vision of a gnome stoneworker. It looks comical too, though.
+~
+troll~
+ABG ad -200 0
+2 0 2d7+19 1d1+99 1d5+0 chomp
+8 8 8 3
+GM ILMPQRS J 0
+stand stand none 0
+DJC AGIJJKLPQUY medium 0
+#0
+
+#OBJECTS
+#7450
+Poor Box~
+the Poor Box~
+A little box with a slot in the top gathers dust on the wall.~
+wood~
+container IOR 0
+1000 A 0 1000 100
+0 5 50 G
+E
+poor box~
+It is just a little wooden box on the wall, with a handlettered
+"Poor Box: take what you need, and leave the rest".
+~
+#7451
+Roof Fund box~
+the Roof Fund box~
+A little box with a slot in the top gathers dust on the wall.~
+wood~
+container IOR 0
+1000 A 0 1000 100
+0 5 50 G
+E
+Roof Fund box~
+It is just a little wooden box on the wall, with a handlettered
+"Please help roof in our church".
+~
+#7452
+baptismal font bowl~
+a baptismal font~
+A large sandstone bowl lies near the vestry entrance.~
+stone~
+furniture IR 0
+1 800 IL 100 100
+0 500 2000 P
+E
+baptismal font bowl~
+This is a baptismal font created by someone with no idea what a
+baptismal font is supposed to look like. The gargoyles on the
+sides, for instance, look particularly out of place.
+~
+#7453
+block granite~
+a block of granite~
+A block of granite is here.~
+stone~
+weapon 0 AN
+mace 1 6 crush 0
+0 35 50 P
+E
+block granite~
+It is a block of granite. It is very heavy.
+~
+#7454
+camp bed~
+a camp bed~
+A narrow canvas camp bed is in the corner.~
+wood~
+furniture 0 0
+1 800 EHK 150 150
+0 100 2000 P
+#7455
+garderobe~
+a garderobe~
+A fine rosewood garderobe stands in a corner.~
+wood~
+container R 0
+600 A 0 500 100
+0 800 3000 P
+#7456
+words comfort marleyite~
+words of comfort from the {BMarleyite{x Book of Days~
+A scroll bears words of comfort from the {BMarleyite{x Book of
+Days.~
+paper~
+scroll 0 AO
+15 'cure serious' 0 0 0
+10 1 200 P
+#7457
+words inspiration marleyite~
+words of inspiration from the {BMarleyite{x Book of Days~
+A scroll bears words of inspiration from the {BMarleyite{x Book
+of Days.~
+paper~
+scroll 0 AO
+30 'bless' 0 0 0
+10 1 200 P
+#7458
+glad tidings marleyite~
+glad tidings from the {BMarleyite{x Book of Days~
+A scroll bears glad tidings from the {BMarleyite{x Book of Days.~
+paper~
+scroll 0 AO
+15 'regeneration' 0 0 0
+10 1 200 P
+#7459
+words encouragement marleyite~
+words of encouragement from the {BMarleyite{x Book of Days~
+A scroll bears words of encouragement from the {BMarleyite{x Book
+of Days.~
+paper~
+scroll 0 AO
+15 'refresh' 0 0 0
+10 1 200 P
+#7460
+words praise marleyite~
+words of praise from the {BMarleyite{x Book of Days~
+A scroll bears words of praise from the {BMarleyite{x Book of Days.~
+paper~
+scroll 0 AO
+15 'armor' 0 0 0
+10 1 200 P
+#7461
+welcome mat~
+a welcome mat~
+A genuine jute welcome mat bears the words, "Welcome to our home!"~
+paper~
+furniture R 0
+1 20000 B 100 100
+0 3 25 P
+E
+welcome mat~
+Just like any finely crafted furnishing that is sold door-to-door,
+this bears a little tag saying "Lighthouse for the Blind".
+~
+#7462
+copyist's desk~
+a copyist's desk~
+A well-used walnut desk is stacked high with works in progress.~
+wood~
+container R 0
+500 0 0 300 100
+0 500 5000 G
+#7463
+anvil private sister~
+the anvil of service~
+The great anvil of the {BM{xCC&BOT dominates this room.~
+iron~
+anvil BIKORY 0
+0 3 1 0 3
+0 9500 50000 P
+E
+anvil private sister~
+It is a massive anvil, crafted of scraps from untold numbers of
+poor forging attempts, and held together by divine magic bestowed
+by the god of smiths Himself. Engraved about the edge is "Love
+thy neighbor as long as he doesn't mind", and "Give till it hurts."
+~
+#0
+
+#ROOMS
+#7450
+The Great Square~
+Great? Not yet it isn't. Mostly it is mud. With deep wagon ruts.
+It is very large, though. 
+~
+0 0 1
+D0
+A high-rent section of Clan Road is to the north.
+~
+~
+0 -1 3314
+D1
+A gaping hole in the structure to the east does not look like a grand
+entrance yet.
+~
+~
+0 -1 7452
+D2
+The end of the rainbow is to the south. You might remember the Temple
+of Mota being there, but someone tore it down.
+~
+~
+0 -1 3054
+D3
+There is a modest sandstone structure there, featuring a temporary sign
+reading, "Convent of the Humble Sisters of Marley". A newer sign reads:
+"Central Office of the {BMarleyite{x Custom Cutlery and Blunt Objects
+Trust. Subnovice Erminfrieda, Chief Executive Officer. Please consult
+Magda for weapons ordering instructions ('finger gooseherd')."
+~
+~
+0 -1 7465
+S
+#7451
+The base of the North Tower~
+Heavy granite blocks form a sturdy foundation here; evidently quite a
+tower is planned. The facing stones are being left for last, apparently,
+but a staircase winds around the interior, going up to the less finished
+parts of the tower above you. There are some tools lying about, and a
+lot of scaffolding. It may be dangerous up there, it is not even
+weathered in yet.
+~
+0 0 1
+D1
+An unimproved wall stretches east.
+~
+~
+0 -1 7454
+D2
+The "grand entrance" is to the south.
+~
+~
+0 -1 7452
+D4
+The stairs look solid enough, but there is a lot of scaffolding up
+there...
+~
+~
+0 -1 7460
+S
+#7452
+A construction site~
+You stand in a great gap between half-finished towers to the north and
+south. Scaffolding surrounds the arch above you, and supports a hardwood
+floor resting on heavy beams which run between the towers. Everything is
+of stout but utilitarian construction, strong granite blocks that will
+someday be covered with decorative marble. The entire area to the east
+is surrounded by two-story walls, but the roof has not been started. 
+~
+0 D 1
+D0
+The base of the North Tower (under construction) is to the north.
+~
+~
+0 -1 7451
+D1
+The area to the east is open and unimproved.
+~
+~
+0 -1 7455
+D2
+The base of the South Tower (under construction) is to the south.
+~
+~
+0 -1 7453
+D3
+The not-yet-Great Square is outside.
+~
+~
+0 -1 7450
+S
+#7453
+The base of the South Tower~
+Heavy granite blocks form a sturdy foundation here; evidently quite a
+tower is planned. The facing stones are being left for last, apparently,
+but a staircase winds around the interior, going up to the less finished
+parts of the tower above you. There are some tools lying about, and a
+lot of scaffolding. It may be dangerous up there, it is not even
+weathered in yet.
+~
+0 0 1
+D0
+The "grand entrance" is to the north.
+~
+~
+0 -1 7452
+D1
+An unimproved wall stretches east.
+~
+~
+0 -1 7456
+D4
+The stairs look solid enough, but there is a lot of scaffolding up
+there...
+~
+~
+0 -1 7462
+S
+#7454
+The North Side Ship~
+Now it is just an unimproved wall, stretching a way east and then
+bowing sharply north to form the future transept (the northernmost
+portion of which is built up only about one story, to leave room
+for whatever plan may be used for the stained glass windows). A
+row of foundations for pillars is just south of the main wall.
+~
+0 0 1
+D1
+East is a curtained-off little room.
+~
+~
+0 -1 7457
+D2
+An unimproved area is to the south.
+~
+~
+0 -1 7455
+D3
+The base of the Northern Tower (under construction) is to the west.
+~
+~
+0 -1 7451
+S
+#7455
+The Central Nave~
+This is just an empty field now, although some effort has been made
+to flatten it, and flagstones are being put down in places.
+~
+0 0 1
+D0
+The north side ship is to the north, but it's not much to look at.
+~
+~
+0 -1 7454
+D1
+East is the temporary altar.
+~
+~
+0 -1 7458
+D2
+The south side ship is to the south, but it's not much to look at.
+~
+~
+0 -1 7456
+D3
+The "grand entrance" is to the west.
+~
+~
+0 -1 7452
+S
+#7456
+The South Side Ship~
+Now it is just an unimproved wall, stretching a way east and then
+bowing sharply south to form the future transept (the southernmost
+portion of which is built up only about one story, to leave room
+for whatever plan may be used for the stained glass windows). A
+row of foundations for pillars is just north of the main wall.
+~
+0 0 1
+D0
+An empty, flat area is to the north.
+~
+~
+0 -1 7455
+D1
+East is an almost-finished small room, made of pillars supporting
+a cupola.
+~
+~
+0 -1 7459
+D3
+The base of the Southern Tower (under construction) is to the west.
+~
+~
+0 -1 7453
+S
+#7457
+The (future) Sacristy~
+There are some temporary shelves under a temporary awning here,
+but no real furnishings. Evidently there is no priest in residence
+yet. 
+~
+0 G 1
+D2
+The temporary altar is to the south.
+~
+~
+0 -1 7458
+D3
+An unimproved wall stretches west.
+~
+~
+0 -1 7454
+S
+#7458
+The Great Altar~
+Well, not yet. The flagstones here are even, at least, and there are a
+couple of pews, and a table that is probably wooden under a red velvet
+cloth for an altar. There are some plaques here, bearing the names of
+the Mighty Ones of Thera. They are only copper, and small. "MARBLE!" is
+chalked in next to them. 
+~
+0 D 0
+D0
+The future sacristy is to the north.
+~
+~
+0 -1 7457
+D2
+There is a nearly finished room to the south, formed of columns sur-
+mounted by a cupola.
+~
+~
+0 -1 7459
+D3
+The central nave stretches west toward the entrance.
+~
+~
+0 -1 7455
+E
+Aeris Aerisplaque~
+Aeris Zephyrlyn, Master of the Four Winds, incarnates as an elf with pale,
+almost translucent skin and hair. He takes an active role in guiding the
+mortals of Thera in response to threats. Invoke His name when travelling
+by magic, or when using lightning. To Him sacrifice warp stones, and
+foes vanquished with the powers of Air. 
+~
+E
+Morgan Morganplaque~
+Morgan the Seeker spent his mortal life seeking immortality, knowing it
+a futile endeavor. Then He succeeded. Invoke the Name of the Seeker when
+knowledge is your most desperate need, and seek knowledge though you 
+think you need it not, for His Name's sake. Worshippers of Morgan taunt
+vampires thrice daily, for no immediately obvious reason.
+~
+E
+Meagan Meaganplaque~
+Meagan, Windborne Lady, rules Thera with a smile and a gentle yet firm
+hand. The marriage of Meagan and Loomis was given the blessing of
+eternal renewal, Their love for each other never dying, by the Goddess
+of Eternal Spring. You have only to stand facing north whispering Her
+Name to invoke Her mystical power of strength.
+~
+E
+Qaz Qazplaque~
+The tenets of Qazism are many and mysterious, but chief among them
+are: Death is an illusion, You have all that you truly need, and
+Frivolity is its own reward. Pray to Qaz when you desire to achieve
+Unity, and invite Him to rejoice with you when you achieve it. 
+Sacrifice to Qaz the hearts of your foes, for hearts have the power
+of the Centers of Things.
+~
+E
+Elrac Elracplaque~
+Lord Elrac, god of forgers and Keeper of the Excellent List of Things,
+began life as a blacksmith and gradually realized that all His work
+was going for naught, misused by Those Without Clues. So He took his
+hoard of clues and left them strewn in His wake as He rushed to supreme
+power. Worship Him by finding unusual things, discovering their
+properties and uses, and putting them on display. Then, when your
+discovery is ignored or misunderstood, shall you know the Lord Elrac.
+~
+E
+Sharra Sharraplaque~
+Sharra, the {RR{Pa{Yi{Gn{Bb{Vo{Nw{x Lady, is that rare and precious goddess
+who works in secret. Know Her by Her works, for they are all around
+you. Rarely will you see Her, but never doubt that somewhere She is
+watching or devising.
+~
+S
+#7459
+The crypt entrance~
+This little room is finished in fine white marble veined with pink,
+and roofed by a vaulted cupola resting on fine fluted pillars. This
+is what the entire interior will look like one day, if someone comes
+up with a staggering fortune to finish the place. A wide marble
+staircase leads down.
+~
+0 D 1
+D0
+The temporary altar is to the north.
+~
+~
+0 -1 7458
+D3
+An unimproved wall stretches west.
+~
+~
+0 -1 7456
+D5
+A wide marble staircase leads down. There is a mahogany gate set
+into the banister above the central well of the staircase, and a
+wooden platform on vertical rails and raiseable (or lowerable) on
+ropes is there.
+~
+~
+0 -1 7473
+S
+#7460
+The North Tower~
+You stand at the top of the stairway. Above you there is only
+scaffolding, a wooden platform, and a ladder. Even the wall only
+goes up a bit farther. A hardwood floor stretches south.
+~
+0 0 1
+D2
+To the south is the organ loft (under construction).
+~
+~
+0 -1 7464
+D4
+You can climb the ladder to the wooden platform.
+~
+~
+0 -1 7461
+D5
+The base of the North Tower is just down the stairs.
+~
+~
+0 -1 7451
+S
+#7461
+The (future) North Belfry~
+You stand atop a ladder, among scaffolding and beams. There is a
+great view of the North Midgaard, but no place to go.
+~
+0 0 1
+D5
+You can climb back down to the top of the tower.
+~
+~
+0 -1 7460
+S
+#7462
+The South Tower~
+You stand at the top of the stairway. Above you there is only
+scaffolding, a wooden platform, and a ladder. Even the wall only
+goes up a bit farther. A hardwood floor stretches north.
+~
+0 0 1
+D0
+To the north is the organ loft (under construction).
+~
+~
+0 -1 7464
+D4
+You can climb the ladder to the wooden platform.
+~
+~
+0 -1 7463
+D5
+The base of the South Tower is just down the stairs.
+~
+~
+0 -1 7453
+S
+#7463
+The (future) South Belfry~
+You stand atop a ladder, among scaffolding and beams. There is a
+great view of the Central Midgaard, but no place to go.
+~
+0 0 1
+D5
+You can climb back down to the top of the tower.
+~
+~
+0 -1 7462
+S
+#7464
+The (future) Organ Loft~
+This is just a nice hardwood floor between the two towers now, with
+tin sheeting and canvas to keep the rain off. A railing keeps you
+from falling into the Great Square, and if you lean on the fine
+banister on the east side, you can see the whole cathedral. You see
+weeds down there.
+~
+0 0 1
+D0
+The North Tower is to the north.
+~
+~
+0 -1 7460
+D2
+The South Tower is to the south.
+~
+~
+0 -1 7462
+S
+#7465
+The entryway~
+Heavy granite blocks form the bare foundation here. Someday, they
+may be faced with cement and a nice mosaic. The walls are basic 
+sandstone, and the roof is just thatch, so far. There is no door to
+the east, all are welcome in the convent. All women, that is.
+~
+0 DF 0
+D0
+A nice enclosed vegetable garden is there, out from under the roof.
+You hear geese.
+~
+~
+0 -1 7467
+D1
+The Great (empty) Square is out there.
+~
+~
+0 -1 7450
+D2
+South is a quiet room, smelling of mothballs.
+~
+~
+0 -1 7466
+D3
+A larger room, still unfurnished, is to the west.
+~
+~
+0 -1 7468
+S
+#7466
+The Vestry~
+This is a workshop for sewing and repairing clothes, as well as for
+storing the nuns' garb.
+~
+0 DF 0
+D0
+The entry foyer is to the north.
+~
+~
+0 -1 7465
+S
+#7467
+The walled garden~
+This is a large vegetable garden, set off from the bustling city by
+a high brick wall. Many vegetables, especially peas, grow in rows,
+and it would be a quiet place but for the clucking of geese from the
+pen in the corner and the hammering to the west.
+~
+0 F 1
+D2
+The convent entryway is to the south.
+~
+~
+0 -1 7465
+D3
+The smithy used to be there. You can even still see it there. But
+somehow you can't get there from here; a sort of bubble of force
+is centered on the great anvil of the {BM{xCC&BOT.
+~
+~
+0 -1 -1
+S
+#7468
+The not yet Great Hall~
+This is a large room, still under a thatched roof, but with very
+stout beams for a much better roof in the future. Someone has put
+a few potted palms around. They look nice.
+~
+0 DF 0
+D0
+The smithy used to be there. You can even still see it there. But
+somehow you can't get there from here; a sort of bubble of force
+is centered on the great anvil of the {BM{xCC&BOT.
+~
+~
+0 -1 -1
+D1
+The entryway is east, and beyond that, the Great Square.
+~
+~
+0 -1 7465
+D2
+The dining hall is to the south.
+~
+~
+0 -1 7470
+D3
+There is a broad stairway to the west.
+~
+~
+0 -1 7471
+S
+#7469
+The Smithy~
+A thatched roof covers a large work room. A great hearth with a stone
+chimney is in the center of the room, and beside it is the nuns' prize
+possession, still humming from the last time it was used. As this is
+now the main work room, there are also dyeing vats and some leather-
+working tables and tools stacked in a corner for occaisional use.
+~
+0 DFN 0
+D1
+There is a garden, and geese.
+~
+~
+0 -1 7467
+D2
+The Great Hall is to the south. Hammer quietly.
+~
+~
+0 -1 7468
+S
+#7470
+The Refectory~
+The walls are bare. The floor is bare. There isn't even a kitchen.
+There are a few crumbs from magically produced cheesesticks, and
+wedge-shaped tomato paste spots on the floor, but it seems the
+underpopulated convent doesn't really need a dining room yet.
+~
+0 DF 0
+D0
+The soon-to-be-Great Hall is north.
+~
+~
+0 -1 7468
+S
+#7471
+The Stairway~
+A wide granite stairway goes up to a landing, turns, and continues
+up to the thatch roof. This is only a one story building, so far.
+~
+0 DF 0
+D1
+The soon-to-be-Great Hall is to the east.
+~
+~
+0 -1 7468
+D2
+There is a very quiet room to the south.
+~
+~
+0 -1 7472
+S
+#7472
+The library and copyists' room~
+The shelves here are temporary and the books and papers disordered,
+but this is the best room in the whole convent, so far. It is the
+only one with a roof that isn't thatch. One of the tables looks
+worth keeping, too, and there are some fine ink wells.
+~
+0 DF 0
+D0
+The unnecessary stairway is to the north.
+~
+~
+0 -1 7471
+S
+#7473
+The crypt entrance~
+You stand at the base of a stairway, looking up at the bottom of
+a sort of hoist arrangement. The area near the stairway is marble,
+matching the domed room above, but here it feels cold and bare
+rather than airy. To the north, the crypt is dark and unimproved,
+looking like a mine shaft. 
+~
+0 DF 0
+D0
+There is a dark tunnel running north.
+~
+~
+0 -1 7474
+D4
+You can go back up the stairs to the nice marble room.
+~
+~
+0 -1 7459
+S
+#7474
+A dark crypt tunnel~
+It is dark, but not frightening at all. The walls and ceiling are
+well shored. No one is buried here yet.
+~
+0 AD 0
+D0
+The tunnel continues north.
+~
+~
+0 -1 7475
+D2
+South is a nice marble stairway leading up.
+~
+~
+0 -1 7473
+S
+#7475
+The northern end of the crypt~
+The dark tunnel just ends here.
+~
+0 AD 0
+D2
+The tunnel runs south, and there is light at the end of it.
+~
+~
+0 -1 7474
+S
+#0
+
+#RESETS
+M 0 7450 1 7455 1 * the confused novice
+M 0 7451 1 7456 1 * the sock puppet
+M 0 7452 2 7461 2 * the harmless bat
+M 0 7453 2 7463 2 * the toxic bat
+M 0 7454 1 7454 1 * the gnome mason
+M 0 7455 2 7451 1 * the gnome laborer(s)
+E 0 7453 20 16    * the gnome laborer wields a granite block
+M 0 7456 1 7467 1 * Magda the gooseherd
+M 0 7457 4 7467 4 * the geese
+M 0 7458 1 7454 1 * the spout gargoyle
+O 0 7450 1 7452   * the Poor Box
+O 0 7451 1 7453   * the Roof Fund box
+O 0 7452 1 7458   * the inappropriate baptismal font
+O 0 7454 1 7466   * the camp bed
+O 0 7455 1 7466   * the garderobe
+O 0 7461 1 7465   * the welcome mat
+O 0 7462 1 7472   * the copyist's desk
+P 0 7456 5 7462 1 * words of comfort
+P 0 7457 5 7462 1 * words of inspiration
+P 0 7458 5 7462 1 * glad tidings
+P 0 7459 5 7462 1 * words of encouragement
+P 0 7460 5 7462 1 * words of praise
+O 0 7463 1 7469   * THE anvil
+S
+
+#SHOPS
+0
+
+#SPECIALS
+S
+
+#$
+
+
+

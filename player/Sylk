@@ -1,0 +1,308 @@
+#PLAYER
+Name Sylk~
+Id   1027066728
+LogO 1027068634
+Vers 14
+Mexp 1
+Pass turtle~
+Prom <%h/%H-%m/%M-%v/%V><%X> ~
+Race dragon~
+Cla  5
+Levl 3
+Tru  0
+Plyd 1751
+Back 0
+Note 1027021105 0 0 0 0 0 0
+Scro 22
+Room 3001
+HMS  58 65 93
+Gold 7
+Silv 892
+Exp  4860
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes EG
+FVul F
+Plr  U
+Video 0
+Act  CDFGHJLQS
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 15 17 20 13 16 13
+QuestPnts  2
+QuestNext  1
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Xenith~
+Lsit ascend10-39.brainerd.net~
+Ltim Fri Jul 19 03:21:23 2002
+~
+LSav Fri Jul 19 03:50:34 2002
+~
+HMSP 50 116 117
+THMS 0 0 0
+Cnd  0 0 9 2
+Alias ss scan~
+Alias gg group~
+Alias hh c 'cure light' sylk~
+Sk 1 1 'acid breath'
+Sk 1 1 'cure critical'
+Sk 75 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'fire breath'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'heal'
+Sk 1 1 'lightning breath'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 75 1 'sword'
+Sk 73 1 'shield block'
+Sk 1 1 'bash'
+Sk 1 1 'enhanced damage'
+Sk 25 1 'rescue'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 74 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'draconian'
+Gr 'healing'
+Affc 'bless'   0  28  17  -3  24          0 1
+Affc 'bless'   0  28  17   3  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Cond 92
+Wear 0
+Cost 0
+Val  0 0 161 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Cond 97
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  45 91 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Maplearn.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  45 91 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Maplearn.
+~
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#END

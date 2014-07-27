@@ -1,0 +1,451 @@
+#PLAYER
+Name Vanish~
+Id   991873796
+LogO 1012335918
+Vers 11
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
+Race vampire~
+Clan cirque~
+Sex  2
+Cla  0
+Levl 22
+Plyd 50260
+Age  0
+Back 41351
+Note 995184427 0 995325436 0 0 994707128
+Scro 22
+Room 3054
+HMS  327 327 437 437 326 227
+Gold 29
+Silv 84
+Exp  28749
+PCkills 0
+PCkilled 0
+Akills 1
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQRSTc
+AfBy TYc
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 12
+Trai 2
+Save  -3
+Alig  -1000
+Hit   19
+Dam   16
+ACs -66 -66 -74 -40
+Wimp  20
+Atrib 16 21 22 16 12 12
+AtMod 10 6 6 4 5 0
+QpDonated 36
+QuestNext 7
+Pass level~
+Afk {B[{CTue Jul 17 14:54:09 2001{B] {C{CA{Tuto-{CA{Tfk by {GL{Be{Nga{Bc{Gy{x
+~
+Titl , {RI{Tllusionist from {PC{Yi{Gr{Bq{Mu{Ce {Tde la {RV{Yi{Re~
+Immn ~
+Pnts 40
+Rank {PI{BL{YT{x~
+Aura ~
+TSex 1
+LLev 13
+Deit Edge~
+Lsit pool-63.52.150.172.dlls.grid.net~
+Ltim Fri Aug 03 16:06:35 2001
+~
+LSav Tue Jan 29 14:25:18 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  ACFHM
+HMSP 177 297 227
+THMS 0 0 0
+Cnd  0 0 17 9
+Sk 1 1 'acid blast'
+Sk 1 1 'age'
+Sk 75 1 'armor'
+Sk 75 1 'blindness'
+Sk 76 1 'burning hands'
+Sk 75 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 78 1 'chill touch'
+Sk 86 1 'colour spray'
+Sk 75 1 'curse'
+Sk 75 1 'dazzling light'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 76 1 'enchant armor'
+Sk 75 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 1 1 'fireball'
+Sk 75 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'giant strength'
+Sk 1 1 'haste'
+Sk 75 1 'infravision'
+Sk 76 1 'invisibility'
+Sk 84 1 'lightning bolt'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass invis'
+Sk 1 1 'plague'
+Sk 76 1 'poison'
+Sk 1 1 'polymorph'
+Sk 1 1 'protect container'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 1 1 'recharge'
+Sk 76 1 'refresh'
+Sk 76 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 81 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 1 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 1 1 'stone skin'
+Sk 1 1 'talon'
+Sk 1 1 'undo spell'
+Sk 76 1 'ventriloquate'
+Sk 76 1 'weaken'
+Sk 1 1 'wrath'
+Sk 90 1 'dagger'
+Sk 75 1 'brew'
+Sk 1 1 'hand to hand'
+Sk 78 1 'languages'
+Sk 97 1 'peek'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'combat'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'protective'
+Affc 'steel mist'   0  66  11  -7  17   16777216 1
+Affc 'regeneration'   0  65  10   0   0  268435456 1
+Affc 'shield'   0  66  53 -20  17          0 1
+Affc 'giant strength'   0  65  45   4   1          0 1
+End
+
+#O
+Vnum 12700
+Nest 0
+Cond 86
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 9923
+Nest 0
+Cond 95
+Wear 13
+Cost 2500
+End
+
+#O
+Vnum 20028
+Nest 0
+ExtF 16777472
+Wear 5
+Cost 700
+End
+
+#O
+Vnum 9922
+Nest 0
+Cond 99
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 11915
+Nest 0
+Cond 92
+Wear 18
+Cost 300
+End
+
+#O
+Vnum 12717
+Nest 0
+Wear 10
+Cost 3000
+End
+
+#O
+Vnum 12718
+Nest 0
+Cond 99
+Wear 7
+Cost 3000
+End
+
+#O
+Vnum 12719
+Nest 0
+Wear 6
+Cost 3000
+End
+
+#O
+Vnum 12720
+Nest 0
+Cond 96
+Wear 9
+Cost 3000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 506
+Nest 0
+Wear 0
+Cost 1000
+End
+
+#O
+Vnum 12721
+Nest 0
+Wear 8
+Cost 3000
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Wear -1
+Cost 312
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Cond 86
+Wear -1
+Cost 312
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger a CrAzY dagger~
+ShD  a {GC{Yr{BA{Pz{VY{x dagger{x~
+Desc A dagger is here, forged by Napalm's craftsmanship.~
+Mat mithril~
+ExtF 320
+Wt   10
+Cond 94
+Wear 16
+Lev  21
+Cost 1
+Val  2 5 6 11 0
+Affc 'enchant weapon'   1  74  -1   4  19          0 1
+Affc 'enchant weapon'   0  74  -1   4  18          0 1
+Affc 'bless'   1  59   5  -1  20        256 1
+ExDe dagger a CrAzY dagger~ It is a marvellous dagger, crafted from the finest mithril around.
+It was created in the Month of Reverence by a newbie ranger
+named Napalm.  Legend holds that this superhuman was a great weaponsmith.
+~
+End
+
+#O
+Vnum 74
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 95
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16084
+Nest 0
+ExtF 67
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 16041
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#END

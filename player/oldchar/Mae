@@ -1,0 +1,341 @@
+#PLAYER
+Name Mae~
+Id   991125806
+LogO 1009571653
+Vers 9
+Prom %CG%e %CV%z %CP%w %CW[%CM%q for %Q%CW]%c%CT<%CC%h%CThp %CY%m%Cbm %CG%X%CHtnl%CT%CH %CP%v%CRmov%CT> ~
+Race human~
+Sex  2
+Cla  6
+Levl 20
+Plyd 6301
+Age  0
+Back 0
+Note 0 0 0 0 0 1004505707
+Scro 22
+Room 1277
+HMV  410 410 178 178 321 321
+Gold 2416
+Silv 57
+Exp  20010
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm NO
+Revk 0
+Cnsr AB
+Pos  8
+Trai 2
+Save  -2
+Alig  -1000
+Hit   22
+Dam   13
+ACs -20 -24 -20 14
+Atrib 18 18 18 21 18 18
+AtMod 6 3 7 6 6 0
+QuestPnts 100
+Pass ed186 ~
+Titl  {x~
+Immn ~
+Pnts 40
+Rank {RR{cV{RN{x~
+Aura ~
+TSex 2
+LLev 1
+Deit Montrey~
+Lsit ACB46208.ipt.aol.com~
+Ltim Wed Nov 07 01:15:35 2001
+~
+LSav Fri Dec 28 14:34:13 2001
+~
+MC 44
+Col 32 0 0 0 0 0 0 0 0 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FH
+HMVP 315 178 221
+THVP 0 0 0
+Cnd  0 0 3 0
+Sk 73 1 'axe'
+Sk 1 1 'flail'
+Sk 78 1 'sword'
+Sk 75 1 'backstab'
+Sk 75 1 'dodge'
+Sk 75 1 'parry'
+Sk 75 1 'second attack'
+Sk 77 1 'dual wield'
+Sk 75 1 'repair'
+Sk 75 1 'languages'
+Sk 75 1 'peek'
+Sk 100 1 'scan'
+Sk 75 1 'sing'
+Sk 76 1 'scrolls'
+Sk 1 1 'staves'
+Sk 12 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'bard basics'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 158 0 0
+End
+
+#O
+Vnum 12714
+Nest 0
+Wear 19
+Cost 4000
+End
+
+#O
+Vnum 12713
+Nest 0
+Wear 5
+Cost 3000
+End
+
+#O
+Vnum 12721
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 12720
+Nest 0
+Wear 9
+Cost 3000
+End
+
+#O
+Vnum 12718
+Nest 0
+Wear 7
+Cost 3000
+End
+
+#O
+Vnum 12717
+Nest 0
+Wear 10
+Cost 3000
+End
+
+#O
+Vnum 12719
+Nest 0
+Cond 94
+Wear 6
+Cost 3000
+End
+
+#O
+Vnum 9924
+Nest 0
+Wear 0
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear 13
+Cost 2500
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 16065
+Nest 0
+ExtF 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 16065
+Nest 0
+ExtF 0
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 10133
+Nest 0
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 10128
+Nest 0
+Wear -1
+Cost 98
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 11915
+Nest 0
+ExtF 557379
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 16066
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4586
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4586
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 12714
+Nest 0
+Cond 95
+Wear 16
+Cost 4000
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 20031
+Nest 0
+Wear 8
+Cost 600
+End
+
+#O
+Vnum 20028
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 20035
+Nest 0
+Wear -1
+Cost 100
+Spell 1 'change sex'
+End
+
+#O
+Vnum 20035
+Nest 0
+Wear -1
+Cost 100
+Spell 1 'change sex'
+End
+
+#O
+Vnum 20035
+Nest 0
+Wear -1
+Cost 100
+Spell 1 'change sex'
+End
+
+#O
+Vnum 20035
+Nest 0
+Wear -1
+Cost 100
+Spell 1 'change sex'
+End
+
+#O
+Vnum 20035
+Nest 0
+Wear -1
+Cost 100
+Spell 1 'change sex'
+End
+
+#O
+Vnum 20035
+Nest 0
+Wear -1
+Cost 100
+Spell 1 'change sex'
+End
+
+#O
+Vnum 20035
+Nest 0
+Wear -1
+Cost 100
+Spell 1 'change sex'
+End
+
+#END

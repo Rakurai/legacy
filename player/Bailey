@@ -1,0 +1,392 @@
+#PLAYER
+Name Bailey~
+Id   1009799454
+LogO 1014111139
+Vers 12
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race wolf~
+Sex  2
+Cla  7
+Levl 6
+Plyd 17753
+Age  0
+Back 9195
+Note 1014105870 1013246151 1013241056 1012966471 1013073753 1013740277
+Scro 22
+Room 8543
+HMS  122 122 124 124 167 167
+Gold 12
+Silv 455
+Exp  14096
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+FRes I
+FVul H
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  5
+Prac 6
+Trai 2
+Alig  -1000
+Hit   1
+ACs 79 73 73 91
+Atrib 15 13 16 16 19 18
+AtMod 2 3 4 2 0 2
+QuestPnts 2
+Pass muffling~
+Afk {B[{CSat Jan  5 11:10:05 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 2
+LLev 3
+Deit Sorsha~
+Lsit host213-1-191-28.btinternet.com~
+Ltim Tue Feb 19 03:23:41 2002
+~
+LSav Tue Feb 19 03:32:19 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  B
+HMSP 113 117 167
+THMS 0 0 0
+Cnd  0 32 48 40
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 75 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'disarm'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 1 1 'kick'
+Sk 15 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 73 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'enhancement'
+End
+
+#O
+Vnum 3702
+Nest 0
+Cond 98
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10129
+Nest 0
+Wear 18
+Cost 122
+End
+
+#O
+Vnum 3031
+Nest 0
+Wear 0
+Cost 75
+Val  0 0 6 0 0
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#END

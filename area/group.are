@@ -1,0 +1,2424 @@
+#HELPS
+
+-1 RACES~
+
+Your race is a very important part of your character, because combined
+with class, it determines what your character receives in terms of
+skills and spells, what strengths and weaknesses your character has,
+and how you will want to play your character.
+
+{BL{Ce{gg{Wa{Cc{By{x offers the following races during character creation:
+  {PHuman{x       all-around capable, this is the standard race
+  {PDwarf{x       short and stocky, these have great strength but lack speed 
+  {PElf{x         slender and graceful, these are nimble and magical
+  {PIrda{x        an ancient, innately magical race
+  {PGiant{x       huge, tough warriors, they tower over all else in the land
+  {PDragon{x      diverse in form, these are mystical powerful creatures
+  {PFeral{x       feline in nature, these are vicious sneaky fighters
+  {PVampire{x     the race of the undead, feared by most
+  {PSeraph{x      the golden angelic race, descending from the heavens
+  {PWolf{x        at one with the forests, both powerful and quick
+
+Some races can only be played by remorting.  Currently the only one is:
+  {RSuperhuman{x  the superstandard race, {Gremort level 10{x
+
+Different {Rraces{x have different starting statistics, and also different
+stat maximums for magic items and training.
+
+{CCreation points{x increase the amount of experience it takes to gain a level.
+For more information, see the help files for each {Rrace{x (i.e. '{Rhelp dwarf{x')
+
+See '{RHELP RACESTATS{x' for help on race stats.
+~
+
+-1 'RACESTATS'~
+{RRace{x      Class Multipliers(Exp per level based on 40cp)
+          Mag   Cle   Thi   War   Nec   Pld   Bar   Ran
+-------------------------------------------------------------------
+{RHuman{x     100   100   100   100   100   100   100   100
+{RDwarf{x     140   105   130   105   150   110   120   120
+{RElf{x       105   120   105   110   130   130   110   120
+{RIrda{x      105   110   130   150   105   120   130   150
+{RGiant{x     150   130   130   105   150   150   120   120
+{RDragon{x    125   150   150   125   150   150   150   150
+{RFeral{x     175   175   110   125   150   200   125   150
+{RVampire{x   125   200   175   150   110   175   125   175
+{RSeraph{x    150   125   175   125   200   110   175   175
+{RWolf{x      200   150   175   125   175   125   150   110
+{GSuper{x     200   200   200   200   200   200   200   200
+-------------------------------------------------------------------
+{RRace{x      CP  Base/Max allowed to train
+               Str     Int     Wis     Dex     Con     Chr
+-------------------------------------------------------------
+{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
+{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
+{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
+{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
+{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
+{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
+{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
+{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
+{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
+{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
+{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
+-------------------------------------------------------------
+Stats can be raised by {G5{x over the Max with magical items if you are human.
+They can only be raised by {G4{x if you are Demi-Human.
+No stat may exceed {G25{x.
+Base stats may be different due to rolling in character creation.
+Add {G+3{x to prime stat for any human class and {G+2{x for any
+Demi-Human class.
+-----------------------------------------------------------
+{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
+Int    Wis    Dex    Str    Int    Chr    Dex    Con
+-----------------------------------------------------------
+~
+
+0 WOLF WOLVES~
+One of the more advanced races on Thera, the wolven are starting to 
+appear in greater numbers. Wolves possess a keen sense of smell, which 
+helps them track their prey. Their claws and their natural enhancement 
+ability ensure that they are armed even without weapons, and their 
+thick fur protects them from the cold. However, being creatures of the 
+forest, wolves share an instinctual fear of fire.
+~
+
+0 DWARF DWARVES~
+Dwarves are a stout and old-lived race, hailing from the deep caves
+of Moria.  Known for foul temper but great stamina, they have
+developed infravision as an adaptation to living underground. 
+Dwarves have immense strength and are very tough, part of their 
+warrior tradition. Being sheltered so long underground, their bodies
+are very resistant to the diseases and poisons of the surface world, 
+but their inexperience with water is a great vulnerability. They also
+have an ancient tradition of metal-working, and are smiths without 
+par.
+~
+
+0 DRAGONS~
+The ancient dragons of Thera come in many shapes and sizes, and
+are probably the second most versatile race behind humans.  They
+tower over all but giants and make fearsome fighters, but are 
+intertwined with the weave as well.  They are known for their 
+legendary draconian spells, and their scales deflect many attacks
+quite effectively, but their cumbersome size makes them slower and
+vulnerable to piercing and stabbing attacks.
+~
+
+0 ELF ELVES~
+Slender, fey creatures tied to nature, Elves are an ancient race, 
+populating the woods of Thera before legends were made.  They are 
+secretive by nature, and being small in stature, are often hard to 
+spot.  Their constitution might be insulted as fragile, but none
+can beat the nimbleness of an elf.  Elves are tied to the magical 
+weave of Thera, and are natural conduits for magic.  Their strong 
+ties to the weave make them difficult to deceive through charms, but
+also makes them vulnerable to the touch of cold iron.
+~
+
+0 HUMANS~
+The most common race in Thera, humans are also the most versatile.  
+They excel at all professions, and have no weaknesses.  They are also
+the most adaptable race, advancing faster than any other race, 
+regardless of class.
+~
+
+0 GIANTS~
+Giants are the largest race that inhabits Thera.  Thick-boned and 
+thick-skulled, this colossal race are the strongest and toughest
+race.  Their immense strength allows them to wield the heaviest of 
+weapons in a single hand.  Also, their huge size makes them masters
+of brute force and resistant to temperature extremes. However, they
+have rather limited mental capabilities, and are thus best suited to
+physical vocations.
+~
+
+0 FERALS~
+A feline race, ferals have evolved from the ancient big cats of the
+forests.  They are even quicker than the elves, and like the elves, 
+possess the stealth of forest-dwellers.  Unlike the elves, ferals are
+poor conduits for magic, and are especially afraid of lightning. As
+with all felines, ferals possess a reflective layer behind their 
+optical receptors, allowing them to see even in the darkest of rooms.
+Their inheritance from the cats also includes an instinctive hatred
+of water.
+~
+
+0 VAMPIRES~
+Vampires are the race of the undead - not quite alive, but animated 
+by the blood of the living.  These creatures of darkness have defied 
+the cycle of life and death, but have paid for it with a weakness to
+godly power revealed.  They are also vulnerable to light, especially 
+sunlight.  However, vampires are also very powerful.  They fly at 
+will, are masters of shadow and illusion, and can shrug off charm 
+spells and attacks of demonic nature.  
+~
+
+0 SUPERHUMANS~
+{RSuperhumans{x are the currently available {GRemort Race{x This race
+can only be attained by being atleast remort 10 or higher{x
+~
+
+0 IRDAS~
+Arriving only a few centuries ago from another plane, Irda are a 
+race of fearsome magic-wielding beings.  Other races share a mistrust
+for these powerful beings, as the Irda have developed a reputation 
+for being unscrupulous in their constant pursuit of greater magical 
+power.  Irda are set apart by their eyes, which lack pupils, but 
+seem to see beyond the veil.  The blackness within allows them to 
+discern the characteristics of both living beings and inanimate 
+objects.
+~
+
+0 SERAPHIM~
+From the heavens, the angelic seraphim have descended to Thera. 
+Characterized by their passionate righteousness, these golden beings'
+biggest weakness is their downright arrogance. Because they come from 
+the heavens, they believe they have superiority to all other beings, 
+when in reality, each seraph has lived a sheltered life and might not 
+be either experienced or capable in the real world. However, with 
+their divine powers, their skill at both battling and healing is 
+well-known, and are suited towards those professions. Unfortunately, 
+with their lack of subtlety, they make very poor thieves. The 
+seraphim have wings of light that allow them to fly, and it is 
+difficult to harm them with divine wrath - however, the taint of evil
+causes them great pain.
+~
+
+-1 'GROUP HEADER'~
+The following skills and groups are available to your character:
+From within the mud, you can type: 'LEVELS <CLASSNAME>' to get a listing
+of a classes skills, spells and their equivilant levels.
+~
+
+-1 'GROUP HELP'~
+The following commands are available:
+list         display all groups and skills not yet bought
+learned      show all groups and skills bought
+premise      brief explanation of creation points and skill groups
+add <name>   buy a skill or group
+drop <name>  discard a skill or group
+info <name>  list the skills or spells contained within a group
+help <name>  help on skills and groups, or other help topics
+done         exit the character generation process
+~
+
+-1 'MENU CHOICE'~
+Choice (list,learned,premise,add,drop,info,help, and done)?~
+
+-1 'GROUPS' 'INFO' 'PREMISE'~
+The {BL{Ce{gg{Wa{Cc{By{x skill system allows you to fully customize your new character,
+making him or her skilled in the skills you choose.  Skills are paid for
+with {Ccreation points{x, and the more creation points you have, the harder
+it is to gain a level.  Also, higher-cost skills are harder to practice.
+
+Skill groups are like package deals for characters -- sets of skills or
+spells that are closely related, and hence can be learned as a unit.
+There is a default skill group for each class, which can be selected for
+a balanced selection of skills at a somewhat reduced cost.
+
+The experience breakdown is as follows:
+points    exp/level    points   exp/level
+40        1000         90        6000
+50        1500         100       8000
+60        2000         110      12000
+70        3000         120      16000
+80        4000         130      24000
+The table continues in a similar manner for higher point totals.
+~
+
+-1 'CLASS HELP'~
+{BL{Ce{gg{Wa{Cc{By{x has several classes avialable.  The help files listed after the
+class name will give more information pertaining to each class.
+
+Mage, a magic user            '{RHELP MAGE{x'
+Cleric, a healer              '{RHELP CLERIC{x'
+Thief, a rogue                '{RHELP THIEF{x'
+Warrior, a fighter            '{RHELP WARRIOR{x'
+Necromancer, a magic user     '{RHELP NECROMANCER{x'
+Paladin, a holy knight        '{RHELP PALADIN{x'
+Bard, a rogue                 '{RHELP BARD{x'
+Ranger, a fighter             '{RHELP RANGER{x'
+~
+
+0 BASICS 'ROM BASICS'~
+The basic skills:
+
+Every character starts with two skill groups, one for their class and a
+default set that all characters receive.  The {Cdefault skills{x are:
+
+{Crecall{x    essential escape skill (see help recall)
+{Cscrolls{x   reading of scrolls and other magical volumes
+{Cstaves{x    use of magical staves
+{Cwands{x     use of magical wands
+
+for class defaults, check the classes themselves.
+~
+
+0 MAGE 'MAGIC-USER' 'MAGE BASICS' 'MAGE DEFAULT'~
+{RMages{x specialize in the casting of spells, offensive ones in particular.
+{RMages{x have the highest-powered magic of any class.  They are also very
+skilled at the use of magical items, though their combat skills are the
+weakest of any class.
+
+All {Rmages{x begin with skills in {Gdagger{x and {Gbrew{x. Any other skill must be
+purchased, many of them at a very high rate.  
+The {Cdefault skill selection{x for mages is as follows:
+
+skills:
+{Clore{x           the lore of magical items
+
+spell groups:
+{Cbeguiling{x      spells that control the mind
+{Ccombat{x         offensive magics, such as fireball and chill touch
+{Cdetection{x      informational magics, such as detect magic and identify
+{Cenhancement{x    spells that maximize physical potential, such as haste
+{Cillusion{x       magics for concealing and deceiving
+{Cmaladictions{x   a selection of curses fit for any witch
+{Cprotective{x     defensive magics, ranging from armor to stone skin
+{Ctransporation{x  spells for getting from here to there
+{Cweather{x        spells for conjuring and mastering the elements
+~
+
+0 CLERIC 'CLERIC BASICS' 'CLERIC DEFAULT'~
+{RClerics{x are the most defensively orientated of all the classes.  Most of their
+spells focus on healing or defending the faithful, with their few combat spells
+being far less powerful than those of mages. However, clerics are the best
+class by far at healing magics, and they posess an impressive area of
+protective magics, as well as fair combat prowess.
+
+All {Rclerics{x begin with skills in {Gmace{x and {Gscribe{x.  Other skills must
+be purchased, many at a very dear cost.  The {Cdefault skill selection{x for
+clerics is as follows:
+
+skills:
+{Cflail{x           the proper use of flails
+
+spell groups:
+{Cattack{x          a selection of offensive magics
+{Ccreation{x        the making of physical objects, such as food and water
+{Ccurative{x        spells that cure the sick and feeble of their ailments
+{Cbenedictions{x    powerful magics that grant the blessings of the gods
+{Cdetection{x       informational magics, such as detect magic and identify
+{Chealing{x         spells for treating wounds, from scratches to death blows
+{Cmaladictions{x    an assortment of curses
+{Cprotective{x      defensive magics, including the powerful sanctuary spell
+{Ctransportation{x  spells for getting from here to there
+{Cweather{x         spells for conjuring and mastering the elements
+~
+
+0 THIEF 'THIEF BASICS' 'THIEF DEFAULT'~
+{RThieves{x are a marginal class. They do few things better than any other class,
+but have the widest range of skills available.  {RThieves{x are specialists at
+thievery and covert actions, being capable of entering areas undetected where
+more powerful adventurers would fear to tread.  They are better fighters than
+clerics, but lack the wide weapon selection of warriors.
+
+All {Rthieves{x begin with the {Gdagger{x combat skill, and are learned in {Gsteal{x as
+well.  Any other weapon skills must be purchased, unless the default selection
+is chosen.  This {Cdefault skill package{x includes:
+
+skills:
+{Cmace{x           the use of maces and other blunt weapons
+{Csword{x          swordplay and fencing
+{Cbackstab{x       the art of hitting your opponent by surprise
+{Cdisarm{x         used to deprive your opponent of his weapon
+{Cdodge{x          the best way to take a punch is not to be there
+{Csecond attack{x  with training, the skilled thief can hit twice as fast
+{Ctrip{x           a good way to introduce an opponent to the floor
+{Chide{x           the art of remaining undetected in a room
+{Cpeek{x           used to look into a person's belongings
+{Cpick lock{x      a useful skill for breaking and entering
+{Csneak{x          with this skill, a thief can walk into a room undetected
+{Ccircle{x         the art of circling around a victim for repeated backstabs
+~
+
+0 WARRIOR 'WARRIOR BASICS' 'WARRIOR DEFAULT'~
+{RWarriors{x live for combat and the thrill of battle. They are the best fighters
+of all the classes, but lack the subtle skills of thieves and the magical
+talents of mages and priests.  {RWarriors{x are best for those who don't mind
+taking the direct approach, even when another method might be called for.
+
+{RWarriors{x begin with skill in the {Gsword{x, and gain a {Gsecond attack{x in combat.
+Other weapon skills may be purchased cheaply, or gained in the {Cdefault skill
+package{x, which includes the following:
+
+skills:
+{Cweaponsmaster{x    this group provides knowledge of all weapon types
+{Cshield block{x     the art of parrying with a shield
+{Cbash{x             a forceful rush with the body, designed to flatten your foes
+{Cenhanced damage{x  this skill multiplies your damage in battle
+{Cparry{x            the art of parrying with weapons
+{Crescue{x           allows you to take the blows aimed for a companion
+{Cthird attack{x     allows the skilled warrior to land three blows in one round
+~
+
+0 NECROMANCERS~
+Since ancient times, scholars and priests have devoted their entire lives
+to studying, explaining, and revering the final chapter in human life.
+For some individuals, however, death has become an obsession, a source
+of magical power, or even an object or religious adoration.
+These beings are {Rnecromancers{x, and they are universally feared and loathed
+as the purbeyors of unremitting evil.
+
+Popular myth tells about {Rnecromancers{x practicing vile and forbidden arts.
+He is the macabre sorcerer who roots about in graveyards, searching
+out moldering components for his obscene spells.  She is the evil
+priestess who calls upon restless, tormented spirits of the long
+deceased, seeking their immortal arcana.  In their dark secluded
+lairs, the mute undead, the monstrous familiar, and the ravening fiend
+serve the necromancers in their ghoulish endeavors.
+
+{RNecromancers{x begin with skills in {Gpolearm{x, {Gdagger{x and {Gscribe{x.  
+Other spellgroups may be purchased seperately or as a group.  
+The {Cdefault{x is as follows:
+
+spells:
+{Cbeguiling{x      spells that control the mind
+{Ccombat{x         offensive magics, such as fireball and chill touch
+{Cdetection{x      informational magics, such as detect magic and identify
+{Cnecromancy{x     the ability to animate and control the dead
+{Cillusion{x       magics for concealing and deceiving
+{Cmaladictions{x   a selection of curses fit for any witch
+{Cprotective{x     defensive magics, ranging from armor to stone skin
+{Ctransporation{x  spells for getting from here to there
+{Cweather{x        spells for conjuring and mastering the elements
+~
+
+0 PALADINS~
+{RPaladins{x are the defenders of law and justice in this land of chaos.
+They are sworn to defend the weak and fight evil wherever they find
+it, which is never far.  Combining the righteousness of knighthood 
+with a touch of the holy clerical arts, a paladin is a worthy
+opponent in battle. Paladins start with rescue and shield block, as 
+well as a proficiency in swords.
+
+The default paladin package includes:
+
+skills:
+{Cmace{x            for beating down evil
+{Csecond attack{x   ... quickly
+{Cthird attack{x    ... very quickly
+{Crotate{x          giving you the choice of which opponent to fight
+{Cparry{x           the art of parrying with weapons
+{cscribe{x          the clerical art of scribing
+
+spells:
+{Ccreation{x        basic conjuration
+{cbenedictions{x    spells that channel the divine power of gods
+{Cdetection{x       providing the ability to discern a good or evil nature
+{Chealing{x         spells that restore health to the sick and weak
+~
+
+0 BARDS~
+In historical terms, the title '{Rbard{x' applies only to certain Celtic poets
+who sand the history of their tribes in long, recitative poems.
+These {Rbards{x, found mainly in Ireland, Wales, and Scotland, filled many
+important roles in their society.  They were storehouses of tribal
+history, reporters of news, messengers, and even ambassadors to other
+tribes. Indeed, every culture has its storyteller or poet, whether he is
+called a {Rbard{x, or something else.
+
+A {Rbard{x, by his nature, tends to learn many different skills.  He is a jack
+of all trades but master of none.  {RBards{x can lighten your day, or can steal
+your purse.  They can be treated as friends or enemies.
+
+All {Rbards{x begin with the {Gaxe{x and {Gflail{x combat skills, and are learned in
+{Gsing{x as well.  Any other weapon skills must be purchased, unless the default 
+selection is chosen.  This {Cdefault skill package{x includes:
+
+skills:
+{Cweaponsmaster{x  this group provides knowledge of all weapon types
+{Chaggle{x         the art of saving and making money
+{Cdisarm{x         used to deprive your opponent of his weapon
+{Cdodge{x          the best way to take a punch is not to be there
+{Csecond attack{x  with training, the skilled bard can hit twice as fast
+{Ctrip{x           a good way to introduce an opponent to the floor
+{Chide{x           the art of remaining undetected in a room
+{Csneak{x          with this skill, a bard can walk around undetected
+{Cparry{x          the art of parrying with weapons
+{Csing{x           the right song will make your listeners follow you
+~
+
+0 RANGERS~
+A woodsman and tracker, as well as a dangerous fighter, he combines good
+combat skills with a few extra abilities that give him many options and
+decisions during play.  He boasts the courage and strength of a warrior
+and the stealth and self-reliance of a thief.  He combines the druids
+affinity for the outdoors with  the devotion and magical aptitude of a
+priest.  He's a hunter, tracker, and survivalist.  By temperament and
+by choice, he's a loner, often prefering the company of animals to people.
+Without question, he's one with nature, sworn to protect the inhabitants of
+the wilderness.
+
+{RRangers{x begin with skills in {Gaxe{x, {Gflail{x, and gain {Gdual wield{x so they can
+use two weapons in combat.  Other weapon skills may be purchased cheaply,
+or gained in the {Cdefault skillpackage{x, which includes the following:
+
+skills:
+{Cweaponsmaster{x     this group provides knowledge of all weapon types
+{Cshield block{x      the art of parrying with a shield
+{Cenhanced damage{x   this skill multiplies your damage in battle
+{Cparry{x             the art of parrying with weapons
+{Cdisarm{x            used to deprive your opponent of his weapon
+{Csecond attack{x     with training, the skilled thief can hit twice as fast
+{Ctrip{x              a good way to introduce an opponent to the floor
+{Chunt{x              helps you to track down mobs and other characters
+{Ckick{x              it is just what it says an extra attack in combat
+~
+
+0 SKILLS SPELLS~
+The {Cskills{x and {Cspells{x commands are used to display your character's list
+of available {Cskills{x (or {Cspells{x, as the case may be).  They are listed in
+order of level, with {Ymana cost{x (for {Cspells{x) or {Ypercentage{x (for {Cskills{x)
+listed where applicable. See {YHELP SPELLS{x for details on the {CSPELLS{x command.
+
+If you want to see the levels at which various skills and spells are
+*potentially* available to you, type {CLEVELS{x class-name. Example:
+{Clevels warrior{x will show you the levels at which warriors get skills
+and spells. You can substitute any other class.
+~
+
+0 SPELLS~
+The {Cspells{x command tells you about the spells you have, will have or
+could gain. Here are some things you can do with it:
+{Cspells{x        -- gives you a list of all the spells for which you have
+                 gained the spell groups, and the levels at which you got
+                 them or will get them.
+{Cspells 75{x     -- lists all spells in your spell groups from level 75 up.
+{Cspells 10 20{x  -- lists all spells in your spell groups from level 10
+                 to 20 inclusive.
+{Cspells c{x      -- lists ALL spells starting with C, including two-word
+		 spell names whose 2nd word starts with a 'C'
+{Cspells breath{x -- lists all breath spells.
+{Cspells weather{x - lists all the spells in the {CWEATHER{x group. You must
+                 give the full name of the group for this to work.
+{Cspells groups{x -- lists all available spell groups, showing which ones
+                 you already have.
+
+All but the first and last of these variations display output in a new,
+colorful and more informative format which tells you not only how much
+mana the spell costs but also how skilled you are at it. For spells which
+are not in any spell group you have gained, it shows you this fact too.
+~
+
+0 CAST~
+Syntax: {Ccast{x '{Yspell{x' <{Ytarget{x>
+
+Before you can cast a spell, you have to learn it by practicing it.  The
+more you practice, the higher chance you have of success when casting.
+Casting spells costs mana.
+
+The <{Ytarget{x> is optional.  Many spells which need targets will use an
+appropriate default target, especially during combat.
+
+If the spell name is more than one word, then you must quote the spell name.
+Example: {Ccast{x '{Ycure critical{x' frag.  Quoting is optional for single word
+spells.  You can abbreviate the spell name.
+
+When you cast an offensive spell, the victim usually gets a saving throw.
+The effect of the spell is reduced or eliminated if the victim makes the
+saving throw successfully.
+
+{YSEE ALSO:{x the help files for individual spells.
+~
+
+0 ATTACK~
+The {Rattack spells{x are essentially powerful curses, fueled by divine energy
+rather than magical power (like the combat spells are). They are less powerful
+than the combat spells, but can still deal out a stinging blow.  
+The {Rattack spell group{x consists of the following spells:
+
+{Cdemonfire{x     a powerful, but very evil, spell
+{Cdispel evil{x   torments evil foes
+{Cdispel good{x   calls down unholy power on good creatures
+{Cearthquake{x    brings the power of earth to bear against your foes
+{Cflamestrike{x   sends a column of flame from the heavens
+{Cray of truth{x  sends forth a blinding ray of holy energy
+{Csunray{x        calls down a divine searing beam of light.
+{Cheat metal{x    makes metal armor very hot
+~
+
+0 DEMONFIRE~
+Syntax: {Ccast{x {Ydemonfire{x <{Ytarget{x>
+
+{CDemonfire{x is a spell of blackest evil, and as such can only be used by
+those who follow the paths of darkness.  It conjures forth demonic spirits
+to inflict terrible wounds on the enemies of the caster.
+
+GROUP: {RAttack{x
+~
+
+0 'DISPEL EVIL'~
+Syntax: {Ccast{x '{Ydispel evil{x' <{Yvictim{x>
+
+This spell invokes the wrath of Mota on an evil victim. It can be very
+dangerous for casters who are evil.
+
+GROUP: {PAttack{x
+~
+
+0 'DISPEL GOOD'~
+Syntax: {Ccast{x '{Ydispel good{x' <{Yvictim{x>
+
+{CDispel good{x brings forth evil energies that inflict horrific torment on
+the pure of heart.  Good-aligned characters use this dark magic at their
+peril.
+
+GROUP: {RAttack{x
+~
+
+0 EARTHQUAKE~
+Syntax: {Ccast{x '{Yearthquake{x'
+
+This spell inflicts damage on every enemy character in the room that
+has their feet on the ground.  Beware that other characters who are
+not yet fighting may attack you as a result!
+
+GROUP: {RAttack{x
+~
+
+0 FLAMESTRIKE~
+Syntax: {Ccast{x '{Yflamestrike{x' <{Yvictim{x>
+
+{CFlamestrike{x invokes a bolt of fire to inflict damage on the victim.
+
+GROUP:	{RAttack{x
+~
+
+0 'HEAT METAL'~
+Syntax: {Ccast{x '{Yheat metal{x' <{Ytarget{x>
+
+{CHeat metal{x is a powerful clerical attack spell, with effects that vary
+according to the armor of the victim.  It heats up the metal equipment
+(assumed to be all weapons and armor at this point in time) on the target,
+causing him or her to drop them if possible, taking serious burns in the
+process (possibly fatal if the equipment is too heavy to remove easily).
+This spell does no damage to creatures who are immune to fire.
+
+GROUP: {RAlteration{x
+GROUP: {RAttack{x
+~
+
+0 'RAY OF TRUTH'~
+Syntax: {Ccast{x '{Yray of truth{x' <{Ytarget{x>
+
+{RRay of truth{x opens a portal to the planes of positive energy, bringing forth
+a beam of light of sufficient purity to harm or or annihilate the servants
+of evil.  It cannot harm the pure of heart, and will turn and strike
+casters who are tainted by evil.
+
+GROUP: {RAttack{x
+~
+
+0 SUNRAY~
+Syntax: {Ccast{x '{Ysunray{x' <{Ytarget{x>
+
+{CSunray{x is the most powerful of a clerics offensive arsenal, bringing down
+a divine light that sears the cleric's enemies both good and evil in nature.
+Used wisely, this will help clerics and paladins across Thera spread justice
+and order.
+
+GROUP: {RAttack{x
+~
+
+0 BEGUILING~
+This insidious spell group is used to invade the minds of others.  It
+consists of various charming magics, well suited for turning your foes
+to your cause.  The {Rbeguiling spell group{x consist of the following:
+
+{Ccalm{x          if successful, stops all fighting in the room
+{Ccharm person{x  turns an enemy into a trusted friend
+{Csleep{x         puts a foe into enchanted slumber
+{Cpower word{x    with one word, die, your victim will obey
+~
+
+0 'CHARM PERSON'~
+Syntax: {Ccast{x '{Ycharm person{x' <{Yvictim{x>
+
+This spell, if successful, causes the victim to follow and to take
+orders from you.  Use {WORDER{x to order your charmed followers.  You
+are responsible for the actions of your followers.
+
+GROUP: {RBeguiling{x
+~
+
+0 SLEEP~
+Syntax: {Ccast{x '{Ysleep{x' <{Yvictim{x>
+
+This spell causes the victim to fall into a magically induced slumber.
+They cannot be woken from this slumber while the spell is in affect
+unless they take damage.
+
+GROUP: {RBeguiling{x
+~
+
+0 'POWER WORD'~
+Syntax: {Ccast{x '{Ypower word{x' <{Yvictim{x>
+
+With a single word, the caster can cause a victim to die instantly.  Only
+lower level creatures are suspectible to death from {Cpower word{x.
+
+GROUP: {RBeguiling{x
+~
+
+0 BENEDICTIONS~
+{RBenedictions{x are priestly spells, used to bestow divine favor upon your
+allies.  They are sometimes restricted to targets of like alignment.    
+The {Rbenedictions spell group{x consists of the following:
+
+{Cbless{x         bestows divine favor upon the target
+{Ccalm{x          if successful, stops all fighting in the room
+{Cfrenzy{x        puts the recipient into beserker rage
+{Choly word{x     aids your allies while calling divine wrath upon your foes
+{Cremove curse{x  removes malevolent magic from players and items
+{Cremove invis{x  makes invisible items visible
+{Cremove align{x  removes the alignment from objects
+~
+
+0 BLESS~
+Syntax: {Ccast{x '{Ybless{x <{Ycharacter{x>
+        {Ccast{x '{Ybless{x' <{Yobject{x>
+
+This spell improves the to-hit roll and saving throw versus spell of the
+target character by 1 for every 8 levels of the caster. It may also be
+cast on an object to temporarily bless it (blessed weapons, for example,
+are more effective against demonic beings).  Bless may be cast only on
+characters of good alignment and never on fighting characters.
+
+GROUP: {RBenedictions{x
+~
+
+0 CALM~
+Syntax: {Ccast{x '{Ycalm{x'
+
+One of the most useful and often overlooked abilities of the master cleric
+is the {Ccalm{x spell, which can put an end to all violence in a room.  Calmed
+creatures will not attack of their own volition, and are at a disadvantage
+in combat as long as the spell soothes their minds.  The more violent
+activity there is in a room, the harder the spell, and it is all or nothing
+-- either all combat in the room is ended or none of it is.
+
+GROUP: {RBenedictions{x
+GROUP: {RBeguiling{x
+~
+
+0 FRENZY~
+Syntax: {Ccast{x '{Yfrenzy{x' <{Ytarget{x>
+
+The {Cfrenzy{x spell fills the target with righteous fury, greatly increasing
+his or her attack skill and damaging capacity.  Unfortunately, this divine
+wrath is coupled with a tendency to ignore threats to personal safety,
+making the character easier to hit.  {CFrenzy{x provides immunity to the calm
+spell, and may only be used on those of the caster's alignment.
+
+GROUP: {RBenedictions{x
+{YSEE ALSO:{x calm, berserk
+~
+
+0 'HOLY WORD'~
+Syntax: {Ccast{x '{Yholy word{x'
+
+{CHoly word{x is the invocation of the full power of a cleric's god, with
+disastrous effects upon the enemies of the priest coupled with powerful
+blessings on the priest's allies.  All creatures of like alignment in the
+room are blessed and filled with righteous divine wrath, while those of
+opposite morals (or both good and evil in the case of neutral priests)
+are struck down by holy (or unholy might) and cursed.  The cleric suffers
+greatly from the strain of this spell, being left unable to move and
+drained of vitality.  Experience loss is no longer associated with the spell.
+
+GROUP: {RBenedictions{x
+~
+
+0 'REMOVE CURSE'~
+Syntax: {Ccast{x '{Yremove curse{x' <{Ycharacter{x>
+        {Ccast{x '{Yremove curse{x' <{Yobject{x>
+
+This spell removes a {Ccurse{x from a character, and might possibly uncurse
+a cursed object.  It may also be targeted on an object in the caster's
+inventory, in which case its chance of success is significantly higher.
+
+GROUP: {RBenedictions{x
+~
+
+0 BLADECRAFT~
+The {Rweaponcraft spell group{x is the art of magically altering the abilities 
+of weapons.  The {Rbladecraft spell group{x consist of the following:
+
+{Cflame blade{x   adds the power of fire to your weapons.
+{Cfrost blade{x   adds the power of frost to your weapons.
+{Cblood blade{x   adds the power of energy drain to your weapons.
+{Cshock blade{x   adds the power of lightning to your weapons.
+~
+
+0 'FLAME BLADE' 'FROST BLADE' 'BLOOD BLADE' 'SHOCK BLADE' BLADE~
+Syntax: {Ccast{x '{Yflame blade{x' <{Yweapon{x>
+        {Ccast{x '{Yfrost blade{x' <{Yweapon{x>
+        {Ccast{x '{Yblood blade{x' <{Yweapon{x>
+        {Ccast{x '{Yshock blade{x' <{Yweapon{x>
+
+These spells add weapon flags to your favorite weapons for a limited
+period of time.  Only one bladecraft spell may be cast on a weapon at
+any time.
+
+GROUP: {RBladecraft{x
+~
+
+0 COMBAT~
+These sorcerous spells are, in the words of one famous mage, just 'more
+ways to toss energy around'.  They are the most powerful of the damaging
+spells, and considered an essential part of most wizards' collections. 
+In order of power, the {Rcombat spell group{x contains the following magics:
+
+{Cmagic missile{x    send a weak energy bolt into a foe
+{Cchill touch{x      weakens your enemy with a frigid grasp
+{Cburning hands{x    sends a blast of fire into your foe
+{Cshocking grasp{x   sends a powerful jolt into a foe
+{Clightning bolt{x   sends forth a single bolt of lightning into an enemy
+{Ccolour spray{x     blasts your opponent with a blinding rainbow spray
+{Cfireball{x         a powerful spell, great for burning your enemy to ashes
+{Cacid blast{x       sends forth a sphere of acid to eradicate your foes
+{Cchain lightning{x  sends lightning bolts arcing through foes
+{Cfirestorm{x        sends out arcing fire to your foes
+{Cwrath{x            a devastating manifestation of raw magical power
+~
+
+0 'MAGIC MISSILE'~
+Syntax: {Ccast {x'{Ymagic missile{x' <{Ytarget{x>
+
+{CMagic missile{x is first spell available to any student of combat magic,
+being the simplest and most direct conversion of magical power into
+an offensive attack.  The caster conjures a small bolt of force which
+flies into an opponent.  At higher levels, a caster develops greater
+willpower, and can conjure up multiple {Cmagic missiles{x with a single
+casting.  As with all combat spells, specifiying a target is optional
+when in combat; if you are fighting, casting without a target will direct
+the spell at your primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 'CHILL TOUCH'~
+Syntax: {Ccast {x'{Ychill touch{x' <{Ytarget{x>
+
+To cast {Cchill touch{x, a caster surrounds a finger with a cloud of
+freezing mist, and jabs the finger at an opponent.  The magically
+conjured vapor clings to the target and settles in, destroying a small
+section of tissue.  Occasionally, the touch will strike a vital area
+and cause the victim to lose strength.  As with all combat spells,
+specifiying a target is optional when in combat; if you are fighting,
+casting without a target will direct the spell at your primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 'BURNING HANDS'~
+Syntax: {Ccast {x'{Yburning hands{x' <{Ytarget{x>
+
+To cast {Cburning hands{x, a caster engulfs both hands with flames and
+drives them into an opponent.  As with all combat spells, specifiying
+a target is optional when in combat; if you are fighting, casting
+without a target will direct the spell at your primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 'SHOCKING GRASP'~
+Syntax: {Ccast {x'{Yshocking grasp{x' <{Ytarget{x>
+
+Similar to {Cchill touch{x and {Cburning hands{x, {Cshocking grasp{x involves the
+caster enveloping their hands with magic power.  In this case, charges
+of lightning are conjured and delivered by grasping the opponent.  As
+with all combat spells, specifiying a target is optional when in combat;
+if you are fighting, casting without a target will direct the spell at
+your primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 'LIGHTNING BOLT'~
+Syntax: {Ccast {x'{Ylightning bolt{x' <{Ytarget{x>
+
+{CLightning bolt{x is one of the classic spells in a magic-users arsenal
+of offensive weapons.  Ancient studies of weather elementals revealed
+that magic users could create extreme charge differentials between
+themselves and a target.  Magically encouraging the release of this
+stored energy causes what is essentially an oversized {Wstatic shock{x,
+zapping the target but somehow not causing harm to the caster.  As
+with all combat spells, specifiying a target is optional when in
+combat; if you are fighting, casting without a target will direct
+the spell at your primary opponent.
+
+GROUP: {RCombat{x
+GROUP: {RWeather{x
+~
+
+0 'COLOUR SPRAY'~
+Syntax: {Ccast {x'{Ycolour spray{x' <{Ytarget{x>
+
+Just like Jubilee's mutant power in X-Men!
+
+GROUP: {RCombat{x
+~
+
+0 FIREBALL~
+Syntax: {Ccast{x '{Yfireball{x' <{Ytarget{x>
+        {Ccast{x '{Yfireball{x' {Groom{x                      ({YEvolution 2{x)
+
+One of the most basic and universal combat spells, {Cfireball{x involves
+the conjuration of a sphere of fire and hurling it at an enemy.  It's
+also one of the more versatile combat spells.  With the encouragement
+of {WL{Ci{Br{Ci{Te{Wl{x, the archmage {NS{By{Tv{Ce{Tr{Bi{Nl{x has developed advanced modifications
+for {Cfireball{x.
+
+{GEvolved:{x
+When evolved, the {Cfireball{x spell becomes progressively more powerful
+and larger, allowing the caster to engulf an entire room with their
+{Hf{Gir{Web{Gal{Hl{x.  At higher evolution, a {Bf{Cir{Web{Cal{Bl{x is infused with explosive
+power, capable of knocking down enemies.
+
+GROUP: {RCombat{x
+~
+
+0 'ACID BLAST'~
+Syntax: {Ccast {x'{Yacid blast{x' <{Ytarget{x>
+
+With this spell, the caster encases a globe of corrosive acid within
+a sphere of force and hurls it at an enemy.  The sphere explodes upon
+impact, causing grievous injury to the victim.  As with all combat
+spells, specifiying a target is optional when in combat; if you are
+fighting, casting without a target will direct the spell at your
+primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 'CHAIN LIGHTNING'~
+Syntax : {Ccast{x '{Ychain lightning{x' <{Ytarget{x>
+
+{CChain lightning{x is a deadly spell, producing a powerful bolt of
+lightning that arcs from target to target in the room, until its force
+is fully expended.  Killable players will also be hit by this spell
+unless they are grouped with the caster, while the caster himself will
+not be struck unless no other viable target remains.  {CChain lightning{x
+is most effective when used on groups of creatures.
+
+GROUP: {RCombat{x
+~
+
+0 FIRESTORM~
+Syntax:  {Ccast {x'{Yfirestorm{x' <{Ytarget{x>
+
+{CFirestorm{x is very similar to {cchain lightning{x, as it is a fire-based
+variant on that spell.  A huge flame arcs out of the caster's hand in
+response to a casting of {Cfirestorm{x, and is considered even more deadly
+than the {Cchain lightning{x spell.
+
+GROUP: {RCombat{x
+~
+
+0 WRATH~
+Syntax:  {Ccast {x'{Ywrath{x' <{Ytarget{x>
+
+The ultimate manifestation of a caster's ability to translate magical
+power into devastation, {Cwrath{x bypasses the crutches of elemental fury and
+delivers large amounts of explosive force to an opponent.  To be sure,
+this requires great willpower and only magic users with a great deal of
+experience can attempt to cast {Cwrath{x.  As with all combat spells,
+specifiying a target is optional when in combat; if you are fighting,
+casting without a target will direct the spell at your primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 CREATION~
+The {Rcreation spell group{x is used to create objects, of temporary or permanent
+duration.  Skilled creators can travel without food or drink, and use their
+powers to create nourishment as required.
+The {Rcreation spell group{x contains the following:
+
+{Ccontinual light{x   creates an eternal light source
+{Ccreate food{x       produces a nourishing mushroom
+{Ccreate rose{x       creates a beautiful red rose
+{Ccreate spring{x     calls forth a small but pure spring from the ground
+{Ccreate water{x      fills any available container with water
+{Cfloating disc{x     creates a floating disc of force to hold items
+{Ccreate vial{x       creates a vial for brewing potions
+{Ccreate parchment{x  creates a parchment for scribing scrolls
+{Cencampment{x        creates a small campsite for one person
+{Ccreate sign{x       creates a magical sign for all to read
+~
+
+0 'CONTINUAL LIGHT'~
+Syntax: {Ccast{x '{Ycontinual light{x'
+        {Ccast{x '{Ycontinual light{x' <{Yobject{x>
+
+This spell creates a ball of light which you can hold as a light source.
+The ball of light will last indefinitely, and may also be used on an object
+to give it an enchanted glow.
+
+GROUP: {RCreation{x
+~
+
+0 'CREATE VIAL' 'CREATE PARCHMENT'~
+Syntax: {Ccast{x '{Ycreate vial{x'
+        {Ccast{x '{Ycreate parchment{x'
+
+These spells create items for brewing and scribing.
+
+GROUP: {RCreation{x
+~
+
+0 ENCAMPMENT~
+Syntax: {Ccast{x '{Yencampment{x'
+
+This spell creates a magical campsite for the traveling player.
+
+GROUP: {RCreation{x
+~
+
+0 'CREATE SIGN'~
+Syntax: {Ccast{x '{Ycreate sign{x' <{Ymessage{x>
+
+This spell creates a magical sign which others can see and read.
+
+GROUP: {RCreation{x
+~
+
+0 'CREATE FOOD'~
+Syntax: {Ccast{x '{Ycreate food{x' <{PFood name{x>
+
+This spell creates an item of food, which you or anyone else can eat.
+Like create rose, this spell can be used without an arguement, and
+will create a random food type of the Legacy Imm's favourite foods,
+or you can add your own flavor text (get the pun?), but be warned, as
+with other spells with message arguments, please use discretion so as
+to not to cause offense. {R:){x
+
+GROUP: {RCreation{x
+~
+
+0 'CREATE SPRING' 'CREATE WATER'~
+Syntax: {Ccast{x '{Ycreate spring{x'
+        {Ccast{x '{Ycreate water{x' <{Ydrink-container{x>
+
+{CCreate spring{x brings forth a magical spring from the ground which has the
+same properties as a fountain (although it will eventually run dry).
+
+{CCreate water{x replenishes a drinking container with water.
+GROUP: {RCreation{x
+~
+
+0 'CREATE ROSE'~
+Syntax: {Ccast{x '{Ycreate rose{x' <{Ycolor{x>
+
+A romantic spell that creates a fragrant rose, with utterly no game
+use whatsoever.  The default color is {Rred{x.
+
+GROUP: {RCreation{x
+~
+
+0 'FLOATING DISC'~
+Syntax: {Ccast{x '{Yfloating disc{x'
+
+This useful spell creates a floating field of force which follows the
+caster around, allowing him or her to pile treasure high with no fear
+of weight penalties.  It lasts no more than twice the casters level in
+hours, and usually less.  It can hold 10 pounds per level of the caster,
+with a maximum of five pounds per item.  The spell requires an open float
+location on the character, and the only way to remove the disc is to die
+or allow it to run out of energy.
+
+GROUP: {RCreation{x
+~
+
+0 CURATIVE~
+The {Rcurative spells{x are used to heal various unpleasant conditions that can
+befall an adventurer.   For healing of damage, see the healing spell group.
+The {Rcurative spell group{x contains the following:
+
+{Ccure blindness{x  restored sight to the blind
+{Ccure disease{x    heals the plague
+{Ccure poison{x     removes the harmful effects of poison
+~
+
+0 'CURE BLINDNESS'~
+Syntax: {Ccast{x '{Ycure blindness{x' <{Ycharacter{x>
+
+This spell cures blindness in one so unfortunate.
+
+GROUP: {RCurative{x
+~
+
+0 'CURE POISON'~
+Syntax: {Ccast{x '{Ycure poison{x' <{Ycharacter{x>
+
+This spell cures a character's poison, or your own poison if you don't
+specify a target.
+
+GROUP: {RCurative{x
+~
+
+0 'CURE DISEASE'~
+Syntax: {Ccast{x '{Ycure disease{x' <{Ycharacter{x>
+
+This spell cures a character's plague, or your own plague if you don't
+specify a target.
+
+GROUP: {RCurative{x
+~
+
+0 DETECTION~
+The {Rdetection spells{x have many uses, all related to gathering information. They
+can be used to see hidden objects, give information about treasure, or even
+scry out the true nature of your foe. 
+The {Rdetection spell group{x contains the following:
+
+{Cdetect evil{x     reveals the aura of evil monsters
+{Cdetect good{x     similar to above, only for good monsters
+{Cdetect hidden{x   shows the whereabouts of hidden foes
+{Cdetect invis{x    allows the caster to see the unseeable
+{Cdetect magic{x    reveals magical auras to the caster
+{Cdetect poison{x   determines if food is safe to eat
+{Cfarsight{x        allows to caster to see farther about him
+{Cidentify{x        gives information about the nature of an object
+{Cknow alignment{x  determines the moral character of a monster or person
+{Clocate object{x   finds a specific item
+{Clight of truth{x  enhances the detection capabilities of a light
+{Clocate life{x     searches out through the lands for a specific lifeform
+{Cvision{x          lets you see the contents of a room from afar
+~
+
+0 'DETECT EVIL'~
+Syntax: {Ccast{x '{Ydetect evil{x'
+
+This spell enables the caster to detect evil characters, who are revealed
+by a characteristic red aura.
+
+GROUP: {RDetection{x
+~
+
+0 'DETECT HIDDEN'  'DETECT INVIS'~
+Syntax: {Ccast{x '{Ydetect hidden{x'
+        {Ccast{x '{Ydetect invis{x'
+        
+{CDetect hidden{x enables the caster to detect hidden creatures.
+
+{CDetect invis{x will enable the caster to detect invisible objects,
+monsters, and players.
+
+GROUP: {RDetection{x
+~
+
+0 'DETECT MAGIC'~
+Syntax: {Ccast{x '{Ydetect magic{x'
+
+This spell enables the caster to detect magical objects.
+
+GROUP: {RDetection{x
+~
+
+0 'DETECT POISON'~
+Syntax: {Ccast{x '{Ydetect poison{x' <{Yobject{x>
+
+This spell detects the presence of poison in food or drink.
+
+GROUP: {RDetection{x
+~
+
+0 'DETECT GOOD'~
+Syntax: {Ccast{x '{Ydetect good{x'
+
+This spell enables the caster to detect good characters, who are revealed
+by a characteristic golden aura.
+
+GROUP: {RDetection{x
+~
+
+0 FARSIGHT~
+Syntax: {Ccast{x {Yfarsight{x
+        {Ccast{x {Yfarsight{x <{Ydirection{x>
+
+The {Cfarsight{x spell expands the caster's consciousness, allowing him or
+her to see far away beings like they were in the same room.  The spell may
+be used for a general scan that reaches a short distance in all directions,
+or with a directional component to see creatures much farther away.
+
+GROUP: {RDetection{x
+~
+
+0 'IDENTIFY'~
+Syntax: {Ccast{x '{Yidentify{x' <{Yobject{x>
+
+This spell reveals valuable information about the object.
+
+GROUP: {RDetection{x
+~
+
+0 'KNOW ALIGNMENT'~
+Syntax: {Ccast{x '{Yknow alignment{x' <{Ycharacter{x>
+
+This spell reveals the alignment of the target character.
+
+GROUP: {RDetection{x
+~
+
+0 'LIGHT OF TRUTH'~
+Syntax: {Ccast{x '{Ylight of truth{x' <{Yobject{x>
+
+This spell puts random detection spells on a light source for a limited time.
+
+GROUP: {RDetection{x
+~
+
+0 'LOCATE LIFE' 'LOCATE OBJECT'~
+Syntax: {Ccast{x '{Ylocate object{x' <{Yname{x>
+        {Ccast{x '{Ylocate life{x' <{Yvictim{x>
+
+{CLocate object{x reveals the location of all objects with the given name.
+
+{CLocate life{x reveals the location of all characters with the given name.
+Both spells have some limitations to their usefulness, and neither can
+detect objects or players that are higher level than the caster.
+
+GROUP: {RDetection{x
+~
+
+0 'VISION'~
+Syntax: {Ccast{x '{Yvision{x' <{Ytarget{x>
+
+This vision spell creates a mystical sphere from which you can look inside
+to see the location of your target.  The target must either be a player or
+a mobile.  Awake characters in the room with your vision target will 'feel
+a presence in the room'.
+
+GROUP: {RDetection{x
+~
+
+0 DRACONIAN~
+The {RDraconian spell group{x deals with the magic of dragons -- in this case,
+bringing forth the devastating power of their breath weapons upon your foes.
+The {Rdraconian spell group{x contains the following:
+
+{Cacid breath{x       uses the black dragon's attack upon an enemy
+{Cfire breath{x       calls forth the flames of a red dragon
+{Cfrost breath{x      drains the life from a foe with the power a white dragon
+{Cgas breath{x        suffocates your enemies with a green dragon's fumes
+{Clightning breath{x  summons the electrical fury of a blue dragon
+~
+
+0 'ACID BREATH' 'FIRE BREATH' 'FROST BREATH' 'GAS BREATH' 'LIGHTNING BREATH'~
+Syntax:
+   {Ccast{x '{Yacid breath{x'      <{Yvictim{x>
+   {Ccast{x '{Yfire breath{x'      <{Yvictim{x>
+   {Ccast{x '{Yfrost breath{x'     <{Yvictim{x>
+   {Ccast{x '{Ylightning breath{x' <{Yvictim{x>
+   {Ccast{x '{Ygas breath{x'       <{Yvictim{x>
+
+These spells are for the use of dragons; however, high level mages may
+also learn and cast these spells.  {CAcid{x and {Clightning{x breath damage one
+victim, whereas the others damage everyone in the room.  {CFire{x and {Cfrost{x
+can break objects, and {Cacid{x can damage armor.
+
+GROUP: {RDraconian{x
+~
+
+0 ENCHANTMENT~
+The {Renchantment spell group{x is used to imbue items with magical properties.
+The {Renchantment spell group{x contains the following:
+
+{Cenchant weapon{x     increases the hit and damage bonuses of a weapon
+{Cenchant armor{x      increases the protective value of armor
+{Cprotect container{x  permanantly protects a container, but for a price
+{Crecharge{x           restores power to a depleted wand or staff
+{Cremove invis{x       makes invisible items visible
+{Cremove align{x       removes the alignemnt from objects
+{Cshrink{x             reduces the weight of an object
+{Cdazzling light{x     increases the hit and damage bonuses of a light
+~
+
+0 'ENCHANT WEAPON'~
+Syntax: {Ccast{x '{Yenchant weapon{x' <{Yweapon{x>
+
+This spell magically enchants a weapon, increasing its to-hit and to-dam
+bonuses by one or two points.  Multiple enchants may be cast, but as the
+weapon grows more and more powerful, it is more likely to be drained or
+destroyed by the magic.  Also, every successful enchant increases the level
+of the weapon by one...and there is no turning back.  Casting this spell on
+armor will work, but it can have unusual effects on the item.
+
+GROUP: {REnchantment{x
+{YSEE ALSO:{x enchant armor
+~
+
+0 'ENCHANT ARMOR'~
+Syntax:  {Ccast{x '{Yenchant armor{x' <{Yarmor{x>
+
+The {Cenchant armor{x spell imbues armor with powerful protective magic.
+It is not nearly as reliable as enchant weapon, being far more prone to
+destructive effects.  Each successful enchant improves the armor bonus
+of an item by 1 or 2 points, and raises its level by one.
+
+GROUP: {REnchantment{x
+{YSEE ALSO:{x enchant weapon
+~
+
+0 'PROTECT CONTAINER'~
+Syntax: {Ccast{x '{Yprotect container{x' <{Yobject{x>
+
+This spell makes a container immune to destruction.  However, the spell
+costs a certain amount of gold depending on the capacity of the container.
+
+GROUP: {REnchantment{x
+~
+
+0 RECHARGE~
+Syntax: {Ccast{x {Yrecharge{Y <{Yitem{x>
+
+The {Crecharge{x spell can be used to restore energy to depleted wands and
+staves.  Fully exhausted items cannot be {Crecharged{x, and the difficulty
+of the spell is proportional to the number of charges used.  Magical
+items can only be {Crecharged{x once.
+
+GROUP: {REnchantment{x
+~
+
+0 'REMOVE ALIGNMENT'  'REMOVE INVISIBILITY'~
+Syntax: {Ccast{x '{Yremove alignment{x' <{Yobject{x>
+        {Ccast{x '{Yremove invis{x' <{Yobject{x>
+
+These spells change the properties of objects.	The {Cremove alignment{x
+spell makes an object that was once anti-evil no longer anti-evil.
+The same goes for anti-good and anti-neutral.  The {Cremove invisible{x
+spell makes an object visible.
+
+GROUP: {REnchantment{x
+GROUP: {RBenedictions{x
+~
+
+0 SHRINK~
+Syntax: {Ccast{x '{Yshrink{x' <{Yobject{x>
+
+This miracle spell can actually reduce the weight of an object.  The
+object's level is increased by one for each successful casting.
+
+GROUP: {REnchantment{x
+~
+
+0 'DAZZLING LIGHT'~
+Syntax: {Ccast{x '{Ydazzling light{x' <{Yobject{x>
+
+This spell increases the hit and damage bonuses of a light source for a
+limited time.  The amount depends on the caster's level.
+
+GROUP: {REnchantment{x
+~
+
+0 ENHANCEMENT~
+The {Renhancement spells{x improve upon the body's pontential, allowing feats of
+superhuman strength and speed.  However, these spells may often have harmful
+effects upon the recipient.
+The {Renhancement spell group{x contains the following:
+
+{Cgiant strength{x       grants increased strength
+{Chaste{x                doubles the speed of the target, but slows down healing
+{Cinfravision{x          allows monsters to be seen in the dark
+{Crefresh{x              restores energy to tired adventurers
+{Cregeneration{x         doubles the healing rate of the target
+{Ctalon{x                makes the target harder to disarm.
+{Cdivine regeneration{x  quadruples the healing rate of the target
+{Cchannel{x              channels mana from caster into the victim
+~
+
+0 'GIANT STRENGTH'~
+Syntax: {Ccast{x '{Ygiant strength{x' <{Ycharacter{x>
+
+This spell increases the strength of the target character.
+
+GROUP: {REnhancement{x
+~
+
+0 HASTE~
+Syntax: {Ccast{x '{Yhaste{x' <{Ytarget{x>
+
+The {Chaste{x spell increases the speed and agility of the recipient, allowing
+an extra attack (or even a backstab) in combat, and improving evasive
+abilities in combat.  However, it produces a great strain on the system,
+such that recuperative abilities are halved.  {CHaste{x is capable of negating
+the slow spell. (see 'help slow').
+
+GROUP: {REnhancement{x
+~
+
+0 INFRAVISION~
+Syntax: {Ccast{x '{Yinfravision{x' <{Ycharacter{x>
+
+This spell enables the target character to see warm blooded creatures even
+while in the dark, and exits of a room as well.
+
+GROUP: {REnhancement{x
+~
+
+0 REFRESH~
+Syntax: {Ccast{x '{Yrefresh{x' <{Ycharacter{x>
+
+This spell heals the stamina of a character.
+
+GROUP: {RHealing{x {REnhancements{x
+~
+
+0 'DIVINE REGENERATION' REGENERATION~
+Syntax: {Ccast{x '{Yregeneration{x' <{Ycharacter{x>
+        {Ccast{x '{Ydivine regeneration{x'
+
+This spell increases the regeneration rate of the target character.
+{CDivine regeneration{x can only be cast upon yourself and it also affects
+mana.
+
+{GEvolved:{x
+When evolved, the {Cregeneration{x spell will cause stamina to heal 
+during combat, and the {Cdivine regeneration{x spell causes stamina, 
+mana, and hp to regen during combat.
+
+GROUP: {REnhancement{x
+~
+
+0 TALON~
+Syntax: {Ccast{x '{Ytalon{x' <{Ycharacter{x>
+
+This spell makes the target character resistant to disarming.
+
+{GEvolved:{x
+When evolved, the {Ctalon{x spell strengthens the user's hands even more,
+making it even harder to disarm that character.
+
+GROUP: {REnhancement{x
+~
+
+0 'CHANNEL'~
+Syntax: {Ccast{x '{Ychannel{x' <{Yamount{x> <{Ytarget{x>
+
+This spell channels your magical energy into a target.
+
+GROUP: {REnhancement{x
+~
+
+0 HARMFUL~
+This spell group is the opposite of healing.  The {Rharmful spells{x are
+designed to tear flesh from bone, rupture arteries, and generally turn the
+body against itself.  
+In order of power, the {Rharmful spells{x are:
+
+{Ccause light{x     inflicts minor wounds on an enemy
+{Ccause serious{x   inflicts wounds on a foe
+{Ccause critical{x  causes major damage to the target
+{Charm{x            the most deadly harmful spell
+~
+
+0 'CAUSE LIGHT'  'CAUSE SERIOUS'  'CAUSE CRITICAL'  'HARM'~
+Syntax: {Ccast{x '{Ycause light{x'    <{Yvictim{x>
+        {Ccast{x '{Ycause serious{x'  <{Yvictim{x>
+        {Ccast{x '{Ycause critical{x' <{Yvictim{x>
+        {Ccast{x '{Yharm{x'           <{Yvictim{x>
+
+These spells inflict damage on the victim.  The higher-level spells do
+more damage.
+
+GROUP: {RHarmful{x
+~
+
+0 HEALING~
+The {Rhealing spells{x are used to cure the wounds that adventurers inevitably
+suffer in battle.  For curing other conditions, such as poison, see the
+{Wcurative{x spell group.  
+In order of power, the {Rhealing spells{x are:
+
+{Crefresh{x         restores vigor to a tired adventurer
+{Ccure light{x      heals minor wounds
+{Ccure serious{x    heals wounds
+{Ccure critical{x   closes all but the worst wounds
+{Cheal{x            the most powerful healing spell
+{Cmass healing{x    casts a heal spell on each player in the room
+{Cdivine healing{x  calls forth the power of the gods to perform a miracle
+~
+
+0 'CURE LIGHT'  'CURE SERIOUS'  'CURE CRITICAL'  'HEAL'~
+Syntax: {Ccast{x '{Ycure light{x'    <{Ycharacter{x>
+        {Ccast{x '{Ycure serious{x'  <{Ycharacter{x>
+        {Ccast{x '{Ycure critical{x' <{Ycharacter{x>
+        {Ccast{x '{Yheal{x'          <{Ycharacter{x>
+
+These spells cure damage on the target character.  The higher-level spells
+heal more damage.
+
+GROUP: {RHealing{x
+
+{YSEE ALSO:{x healer
+~
+
+0 'MASS HEALING'~
+Syntax: {Ccast{x '{Ymass healing{x'
+
+The {Cmass healing{x spell, as its name might suggest, performs a healing spell
+on all players in the room.  It also throws in a refresh spell for good
+measure.
+
+GROUP: {RHealing{x
+~
+
+0 'DIVINE HEALING'~
+Syntax: {Ccast{x '{Ydivine healing{x' <{Yvictim{x>
+
+This spell brings forth the power of the gods to heal a victim in need.
+As the name implies, it is much more powerful than 'heal'.
+
+GROUP: {RHealing{x
+~
+
+0 ILLUSION~
+The {Rillusions spells{x are dedicated to deception and trickery.  They can be
+used to mask appearances, or create distractions for the party.  Currently,
+the {Rillusion group{x is very small, but it will be expanded in the future.
+The {Rillusion spell group{x consist of the following:
+
+{Cinvis{x          turns the target invisible
+{Cmass invis{x     turns the caster's group invisible
+{Cventriloquate{x  allows the caster to put words in someone's mouth
+{Csmokescreen{x    creates a mysterious cloud of smoke in adjacent rooms
+~
+
+0 INVISIBILITY  'MASS INVIS'~
+Syntax: {Ccast{x '{Yinvisibility{x' <{Ycharacter{x>
+        {Ccast{x '{Yinvisibility{x' <{Yobject{x>
+        {Ccast{x '{Ymass invis{x'
+
+The {Cinvisibility{x spell makes the target character invisible.  Invisible
+characters will become visible when they attack.  You may also cast the
+spell on an object to render it invisible.
+
+The {Cmass invis{x spell makes all characters in the caster's group invisible,
+including the caster.
+
+GROUP: {RIllusion{x
+~
+
+0 VENTRILOQUATE~
+Syntax: {Ccast{x '{Yventriloquate{x' <{Yspeaker{x> <{Ymessage{x>
+
+This spell throws your voice, making it appear that some other object
+or character in the room is saying your message.  Victims who make
+their saving throw will know that someone is using ventriloquism, but
+not who.  Victims who fail their saving throw will think that the object
+or character really did say your message.
+
+GROUP: {RIllusion{x
+~
+
+0 SMOKESCREEN~
+Syntax: {Ccast{x '{Ysmokescreen{x' <{Ydirection{x>
+
+This spell conjures a cloud of smoke in an adjacent room, and all mobiles
+in that room will not be able to see you for a short period of time.
+
+GROUP: {RIllusion{x
+~
+
+0 MALADICTIONS~
+{RMaladictions{x are a group of curses and other baneful spells, designed to
+cripple, inconvenience, or torture, rather than kill outright.  
+The {Rmaladictions spell group{x consist of the following:
+
+{Cblindness{x     strikes the target blind
+{Ccurse{x         prevents recalling and weakens the target in combat
+{Cenergy drain{x  drains experiance and mana, while strengthening the caster
+{Cplague{x        causes the target to suffer a slow, painful death from plague
+{Cpoison{x        weaker than plague, but often fatal
+{Cslow{x          slows your enemies down, reducing their rate of attack	
+{Cweaken{x        drains the strength of the target
+{Cage{x           ages your victim
+~
+
+0 BLINDNESS~
+Syntax: {Ccast{x '{Yblindness{x' <{Yvictim{x>
+
+This spell clouds the eyes of the target, making them unable to see.
+
+GROUP: {RMaladictions{x
+~
+
+0 CURSE~
+Syntax: {Ccast{x '{Ycurse{x' <{Ycharacter{x>
+
+This spell reduces the character's to-hit roll and save versus spells.
+It also renders the character unclean in the eyes of Mota and unable
+to RECALL. Curse may be used to fill equipment with evil power, allowing
+(for example) weapons to do more damage to particularly holy opponents.
+
+GROUP: {RMaladictions{x
+~
+
+0 'ENERGY DRAIN'~
+Syntax: {Ccast{x '{Yenergy drain{x' <{Yvictim{x>
+
+This spell saps the experience points, mana, and movement points of its
+target, and transfers them to you (except the experience).
+
+GROUP:{RMaladictions{x {RNecromancy{x
+~
+
+0 SLOW~
+Syntax: {Ccast{x {Yslow{x <{Ytarget{x>
+
+Following popular mythology, {Cslow{x is the opposite of haste.  It is a spell
+with it's own unique set of effects.  When cast on an unfortunate victim,
+it slows its movements, making it easier to hit and reducing its rate
+of attack.  The effect of {Cslow{x also double movement costs and double
+healing rates.
+
+GROUP: {RMaladictions{x
+~
+
+0 PLAGUE~
+Syntax: {Ccast{x {Yplague{x <{Ytarget{x>
+
+The {Cplague{x spell infests the target with a magical disease of great virulence,
+sapping its strength and causing horrific suffering, possibly leading to
+death.  It is a risky spell to use, as the contagion can spread like
+wildfire if the victim makes it to a populated area.
+
+GROUP: {RMaladictions{x
+~
+
+0 'POISON'~
+Syntax: {Ccast{x '{Ypoison{x' <{Yvictim{x>
+        {Ccast{x '{Ypoison{x' <{Yobject{x>
+
+This spell reduces the strength of the victim by two, as well as reducing
+the victim's regeneration rate. It may also be used to poison food, drink,
+or a weapon in a fashion similar to envenom ('{Rhelp envenom{x'), but with
+drastically reduced effectiveness.
+
+GROUP: {RMaladictions{x
+~
+
+0 'WEAKEN'~
+Syntax: {Ccast{x '{Yweaken{x' <{Yvictim{x>
+
+This spell reduces the strength of the victim.
+
+GROUP: {PMaladictions{x
+~
+
+0 'AGE'~
+Syntax: {Ccast{x '{Yage{x' <{Yvictim{x>
+
+This spell reduces the strength and constitution of the victim while
+increasing their wisdom.  It also temporarily ages the victim by a number
+of years equal to the level of the caster.
+
+GROUP: {RMaladictions{x
+~
+
+0 NECROMANCY~
+The {Rnecromancy spell group{x is rooted in the black magic of evil mages.
+Mages who drew their power from the evil sides of their tainted souls.
+These mages were able to use this power to summon undead creatures to
+do their bidding.  Once summoned, these undead monsters would fight
+to protect their master.
+The {Rnecromancy spell group{x consist of the following:
+
+{Cblood moon{x        this spell summons the power of the vampires
+{Canimate skeleton{x  summons an undead skeleton to your side
+{Canimate zombie{x    summons a powerful zombie warrior to your side
+{Canimate wraith{x    summons a ghastly wraith to your side
+{Canimate gargoyle{x  summons a deadly gargoyle mage to your side
+{Cfear{x              this spell makes a victim call for their mother
+{Cresurrect{x         a high level spell that brings the dead to life
+{Cenergy drain{x      drains exp and mana, while strengthening the caster
+~
+
+0 BLOOD MOON~
+Syntax: {Ccast{x '{Yblood moon{x' <{Ycharacter{x>
+
+This spell invokes the powers of the vampire into a mortal, and should
+only be used upon those who serve evil well.
+
+GROUP: {RNecromancy{x
+~
+
+0 'ANIMATE SKELETON' 'ANIMATE ZOMBIE' 'ANIMATE WRAITH' 'ANIMATE GARGOYLE'~
+Syntax: {Ccast{x '{Yanimate skeleton{x'
+        {Ccast{x '{Yanimate zombie{x'
+        {Ccast{x '{Yanimate wraith{x'
+        {Ccast{x '{Yanimate gargoyle{x'
+
+These spells summon forth the power and abilities of the undead.  Only
+one mobile of each type may be summoned.  However, all of these animated
+creatures can be summoned for a single battle.	Once their time in this
+world has come to an end, these undead creatures will return to the
+netherworld from whence they came.
+
+GROUP: {RNecromancy{x
+~
+
+0 FEAR~
+Syntax: {Ccast{x '{Yfear{x' <{Yvictim{x>
+
+This spell adversely affects the victim's to-hit roll, damage roll, and
+saves vs spells.  Terror grips the victim's mind and they will flee if at
+all possible.
+
+GROUP: {RNecromancy{x
+~
+
+0 'RESURRECT'~
+Syntax: {Ccast{x '{Yresurrect{x' <{Ycorpse{x>
+
+This spell, when cast upon a corpse in the room, will create a zombie
+to rise and become your servant.
+
+GROUP: {RNecromancy{x
+~
+
+0 PROTECTIVE PROTECTION~
+The {Rprotective spells{x are used to shield against harm, whether from spells or
+physical attack.  They range from the weak armor spell to the sought-after
+sanctuary charm.  Also included in this group are several spells for dispeling
+hostile magics.  The {Rprotective spell group{x consists of the following spells:
+
+{Carmor{x            provides the target with an extra layer of defense
+{Ccancellation{x     a powerful dispel, used for removing spells from friends
+{Cdispel magic{x     removes spells from enemies, not as effective as cancel
+{Cundo spell{x       similar to cancellation, except it is spell specific
+{Cfireproof{x        shields items from the harmful effects of fire and acid
+{Cprotection evil{x  provides defense from the attacks of evil creatures
+{Cprotection good{x  protects from the attacks of good beings
+{Csanctuary{x        reduces all damage taken by the recipient by half
+{Cshield{x           puts a shimmering shield between you and your enemies
+{Cstoneskin{x        turns skin hard as stone, providing a huge armor boost
+~
+
+0 ARMOR~
+Syntax: {Ccast{x '{Yarmor{x' <{Ycharacter{x>
+
+This spell decreases (improves) the armor class of the target character
+by 20 points.
+
+GROUP: {RProtective{x
+~
+
+0 'DISPEL MAGIC'  'CANCELLATION'~
+Syntax: {Ccast{x '{Ydispel magic{x' <{Ycharacter{x>
+        {Ccast{x '{Ycancellation{x' <{Ycharacter{x>
+
+Both of these spells attempt to remove magical effects from the target.
+{CDispel magic{x has a lower chance of working, and is considered an attack
+spell.  {CCancellation{x can only be used on allies, but is more effective
+and does not provoke attack.  Unfortunately, neither of these spells will
+discriminate between harmful and benign spells.
+
+The chance of dispelling is based on the level of the spell and the saves
+of the victim.  Permanent spells (such as mobile sanctuary) are much more
+difficult to remove. Certain spells may not be dispelled at all, such as
+plague and poison.
+
+GROUP: {RProtective{x
+{YSEE ALSO:{x 'undo spell'
+~
+
+0 'UNDO SPELL'~
+Syntax: {Ccast{x '{Yundo spell{x' <{Yspell{x> <{Ycharacter{x>
+
+This spell is similar to cancellation except that it is spell specific.
+
+GROUP: {RProtective{x
+~
+
+0 FIREPROOF~
+Syntax: {Ccast{x {Yfireproof{x <{Yobject{x>
+
+The {Cfireproof{x spell creates a short-lived protective aura around an
+object, to protect it from the harmful effects spells.  Items protected
+by this spell are not harmed by fire or the heat metal spell.  Although
+inexpensive to use, the spell's short duration makes it impractical for
+protecting large numbers of objects.
+
+GROUP: {RProtective{x
+~
+
+0 'PROTECTION GOOD' 'PROTECTION EVIL'~
+Syntax: {Ccast{x '{Yprotection evil{x'
+	{Ccast{x '{Yprotection good{x'
+
+The {Cprotection{x spells reduce the amount of damage taken from attackers
+of the appropriate ethos, and improve saving throws against all forms of
+magic. They may not be cast on others.
+
+GROUP: {RProtective{x
+~
+
+0 SANCTUARY~
+Syntax: {Ccast{x '{Ysanctuary{x'  <{Ycharacter{x>
+
+The {Csanctuary{x spell reduces the damage taken by the character from any
+attack by roughly one half.
+
+{GEvolved:{x
+When evolved, the {Csanctuary{x spell can reduce even more damage, weakens
+attacks by cursed characters and sometimes even stops them cold, and can
+deal holy damage to the attacker for violating the protective aura.
+
+GROUP: {RProtective{x
+~
+
+0 SHIELD  'STONE SKIN'~
+Syntax: {Ccast{x '{Yshield{x' <{Ycharacter{x>
+        {Ccast{x '{Ystone skin{x'
+
+These spells protect the caster by decreasing (improving) the caster's
+armor class.  {CShield{x provides 20 points of armor.  {CStone skin{x provides
+40 points of armor.  You may cast {Cshield{x but not {Cstone skin{x on another.
+
+GROUP: {RProtective{x
+~
+
+0 TRANSPORTATION~
+The {Rtransportation group{x is used for travel, whether by flight, magical
+teleportation, or walking through walls.  These spells are among the most 
+useful in the game.  The {Rtransportation spell group{x consists of the 
+following spells:
+
+{Cfly{x              allows the target to fly over nearly all obstacles
+{Cgate{x             transports the caster to the target
+{Cnexus{x            forms a two-way portal to a far off destination
+{Cpass door{x        allows the caster to walk through walls
+{Cportal{x           creates a one-way portal to a destination
+{Csummon{x           transports the target to the caster
+{Csummon object{x    transports an object to the caster
+{Cteleport{x         sends the target to a random location
+{Cteleport object{x  sends obejcts from one character to another
+{Cword of recall{x   transports the caster to safety in Midgaard
+~
+
+0 FLY~
+Syntax: {Ccast{x '{Yfly{x' <{Ycharacter{x>
+
+This spell enables the target character to fly.
+
+GROUP: {RTransportation{x
+~
+
+0 NEXUS~
+Syntax: {Ccast{x '{Ynexus{x' <{Ytarget{x>
+
+This spell is virtually identical to {Wportal{x, with the only difference
+being that while portal creates a one-way gate, a {Cnexus{x spell makes a
+two-sided gate.  It also lasts longer than the lower-powered portal
+spell.  Both spells require an additional power source, the secret
+of which has been lost...
+
+GROUP: {RTransportation{x
+~
+
+0 'PASS DOOR'~
+Syntax: {Ccast{x '{Ypass door{x' <{Ytarget{x>
+
+This spell enables the caster to become translucent in order to pass through
+closed doors.  Casting {cpass door{x without a target will target yourself.
+
+GROUP: {RTransportation{x
+~
+
+0 GATE~
+Syntax: cast '{Ygate{x' <{Ycharacter/mob{x>
+
+This spell is one of the most basic transportation spells.  It allows you
+to teleport yourself and your pet (if you have one) to another character
+of mob by use of a magical gate, with certain limitations.  You cannot
+{Cgate{x to a monster or player that is more than 3 levels higher than you,
+and monsters recieve a save against {Cgate{x.  You also cannot {Cgate{x to rooms
+belonging to Immortals, private rooms, and rooms that are no-recall, nor
+can you {cgate{x out of norecall rooms.
+
+GROUP: {RTransportation{x
+~
+
+0 PORTAL~
+Syntax: {Ccast{x '{Yportal{x' <{Ytarget{x>
+
+The {Cportal{x spell is similar to gate, but creates a lasting one-way
+portal to the target creature instead of transporting the caster.  Portals
+are entered using '{WENTER{x', as in 'enter portal'.  Portals cannot be made
+to  certain destinations, but can be used to reach norecall rooms. Portal
+requires a special source of power to be used, unfortunately the secret of
+this material component has been lost...
+
+GROUP: {RTransportation{x
+~
+
+0 SUMMON~
+Syntax: {Ccast{x '{Ysummon{x' <{Ycharacter{x>
+
+This spell summons a character from anywhere else in the world into your
+room.  Characters who are fighting may not be summoned.
+
+GROUP: {RTransportation{x
+{YSEE ALSO:{x nosummon
+~
+
+0 'SUMMON OBJECT'~
+Syntax: {Ccast{x '{Ysummon object{x' <{Yobject{x>
+
+This powerful spell can call forth objects from the far reaches of the
+world to the earth below your feet.  Objects cannot be summoned from
+places you cannot see, from powerful mobiles, from safe or private
+rooms, or from other players.  The object must also be close to your
+power level.
+
+GROUP: {RTransportation{x
+~
+
+0 TELEPORT  'TELEPORT OBJECT'~
+Syntax: {Ccast{x '{Yteleport{x'
+        {Ccast{x '{Yteleport object{x' <{Yobject{x> <{Yperson{x>
+
+{CTeleport{x will take you from your current location to a random location
+somewhere in the world.
+
+{CTeleport object{x will send an object across great distances to another.
+
+GROUP: {RTransportation{x
+~
+
+0 'WORD OF RECALL'~
+Syntax: {Ccast{x '{Yword of recall{x'
+
+This spell duplicates the built-in {WRECALL{x ability.  When successfully
+cast, {Cword of recall{x will allow you to recall out of combat more easily
+than using the {Wrecall{x command.
+
+GROUP: {RTransportation{x
+{YSEE ALSO:{x recall
+~
+
+0 WEATHER~
+These spells allow the caster to manipulate local weather conditions, as well
+as summon fog clouds, lightning, or even electrical glows. 
+The {Rweather spell group{x consists of the following spells:
+
+{Ccall lightning{x   summons a huge bolt from the heavens, if the weather is right
+{Ccontrol weather{x  changes the weather in the manner desired by the caster
+{Cfaerie fire{x      surrounds the target in a glowing aura
+{Cfaerie fog{x       reveals all hidden creatures in the room
+{Clightning bolt{x   sends a bolt of electricity into the target
+{Cflameshield{x      creates a circle of flames around your body
+{Csteel mist{x       lowers ac values and protects armor from damage
+{Cblizzard{x         sends a snow flurry avalanching at everyone in the room
+{Cacid rain{x        sends a torrent of acid rain at everyone in the room
+
+(the weather command, unrelated to this group, shows local weather conditions)
+~
+
+0 'CALL LIGHTNING'~
+Syntax: {Ccast{x '{Ycall lightning{x'
+
+This spell works only outdoors, and only when the weather is bad.  It
+calls down lightning bolts from the Heavens.
+
+GROUP: {RWeather{x
+{YSEE ALSO:{x 'control weather'
+~
+
+0 'CONTROL WEATHER'~
+Syntax: {Ccast{x '{Ycontrol weather{x' better
+        {Ccast{x '{Ycontrol weather{x' worse
+
+This spell makes the weather either better or worse.
+
+GROUP: {RWeather{x
+~
+
+0 'FAERIE FIRE'~
+Syntax: {Ccast{x '{Yfaerie fire{x' <{Yvictim{x>
+
+This spell increases (worsens) the armor class of its victim.  For each
+level of the caster, the victim's armor class is increased by two points.
+
+GROUP: {RWeather{x
+~
+
+0 'FAERIE FOG'~
+Syntax: {Ccast{x '{Yfaerie fog{x'
+
+This spell reveals all manner of invisible, hidden, and sneaking creatures in
+the same room as you.
+
+GROUP: {RWeather{x
+~
+
+0 FLAMESHIELD~
+Syntax: {Ccast{x '{Yflameshield{x'
+
+This spell creates a shield of flames that encircles your body.  Any
+individual who attemps to penetrate this shield with an attack may be
+burned by its magic.
+
+GROUP: {RWeather{x
+~
+
+0 'STEEL MIST'~
+Syntax: {Ccast{x '{Ysteel mist{x' <{Yvictim{x>
+
+This spell grants the victim special protection not only to their body,
+but also their armor.
+
+GROUP: {RWeather{x
+~
+
+0 'BLIZZARD'~
+Syntax : {Ccast{x '{Yblizzard{x' <{Ytarget{x>
+
+The {CBlizzard{x spell is well suited to demonstrating the power of nature.
+A flurry of ice and snow originates from the hands of the caster and
+quickly snowballs into an avalanche which rebounds between targets in
+the room until its force is fully expended.  Other players may be hit
+by this spell if both characters have their {Rpk flags{x raised and they are
+not grouped.  The caster will not be struck unless no other ungrouped,
+viable target remains.
+
+GROUP: {RWeather{x
+~
+
+0 'ACID RAIN'~
+Syntax : {Ccast{x '{Yacid rain{x' <{Ytarget{x>
+
+Similar to the {Cblizzard{x spell, this is a chain spell which attacks every
+legal target in the room with a torrent of {Cacid rain{x.
+
+GROUP: {RWeather{x
+~
+
+0 ALTERATION~
+This spell group contains spells used to alter the fabric of reality.  
+Alteration spells are mostly not combat-oriented, instead tending more 
+towards miscellaneous functions and situation-oriented strategies.
+The {Ralteration spell group{x consists of the following spells:
+
+{Cpolymorph{x    morphs your body into that of another kind
+{Cchange sex{x   changes the sex of the target
+{Cdarkness{x     creates a cloud of darkness that fills the room
+{Cheat metal{x   heats metal equipment to searing temperatures
+~
+
+0 DARKNESS~
+Syntax: {Ccast{x '{Ydarkness{x'
+
+{CDarkness{x is a utilitarian spell that causes the room to be 
+engulfed in darkness.  Infravision will still work in the room, 
+but lights will not.
+
+GROUP: {RAlteration{x
+~
+
+0 POLYMORPH~
+Syntax: {Ccast{x '{Ypolymorph{x' <{Ymobile name{x>
+
+This spell morphs your body into that of any mobile within your power
+to imitate.  When polymorphed, you do not assume the full power and
+toughness of the mobile.  It is merely an illusion to confuse your
+friends and enemies.  However, the polymorph spell does have a hidden
+advantage.
+
+GROUP: {RAlteration{x
+~
+
+0 'CHANGE SEX' SEX~
+Syntax: {Ccast{x '{Ychange sex{x' <{Yvictim{x>
+
+This spell temporarily changes the sex of the victim.
+
+GROUP: {RAlteration{x
+~
+
+0 EXOTIC WEAPONSMASTER AXE DAGGER FLAIL MACE POLEARM SPEAR SWORD WHIP~
+Each {Rweapon skill{x applies to a specific group of armaments, and determines how
+well a character fights with a particular weapon.  The weaponsmaster group
+provides talent in all weapons (save exotics), from chair legs to halberds.
+If the character has the parry skill as well, he can parry incoming attacks.
+The chance of parrying is best if the character in question is skilled at
+both his weapon and his opponent's.
+
+The weapon skills consist of the following:
+
+{Rweaponsmaster{x  skill group of all weapons listed below (save exotic weaponry)
+{Raxe{x            the use of axes, ranging from hand to great (but not halberds)
+{Rdagger{x         the use of knives and daggers, and other stabbing weapons
+{Rflail{x          skill in ball-and-chain type weapons
+{Rmace{x           this skill includes clubs and hammers as well as maces
+{Rpolearm{x        the use of pole weapons (except spears), including halberds
+{Rspear{x          this skill covers both spears and staves, but not polearms
+{Rsword{x          the warrior's standby, from rapier to claymore
+{Rwhip{x           the use of whips, chains, and bullwhips
+{Rexotic{x         the use of strange magical weapons
+
+The {Rexotic{x skill cannot be purchased, and is dependent solely upon level.
+~
+
+0 CIRCLE~
+Syntax : {Vcircle{x <{Ytarget{x>
+
+This skill can only be used in a fight, and only on one of the opponents
+you are currently fighting.  The effect is that you surprise your victim
+by ending up in a position behind him to deal him an especially harmful
+strike, similar to backstabbing.  Like backstabbing, this skill is not
+very effective with blunt weapons. By its sneaky nature, it is primarily
+a thief skill, although others can learn it at great cost and perhaps to
+their great advantage.
+~
+
+0 DIRT 'DIRT KICKING'~
+Syntax : {Vdirt{x <{Ytarget{x>
+
+Consider by some to be a cowardly skill, {Vdirt kicking{x gives the clever
+combatant a chance to blind his opponent by casting dirt into his eyes.
+The blindness does not last long, but it can provide a crucial edge in
+combat.  High dexterity helps in hitting with or avoiding a dirt kick.  
+~
+
+0 DISARM~
+Syntax : {Vdisarm{x <{Ytarget{x>
+
+{VDisarm{x is a somewhat showy and unreliable skill, designed to relieve your
+opponent of his weapon.  The best possible chance of disarming occurs
+when you are skilled both your own and your opponent's weapon. 
+
+{GEvolved:{x
+When evolved, {Vdisarm{x has a much better chance of succeeding, and also
+allows you to disarm while blind, disarm opponents that are not attacking
+you directly, and even knock your victim's weapon into the next room.
+~
+
+0 DODGE~
+In the words of one wise warrior, 'the best way to block a blow is to not
+be where it lands'.  The {Vdodge{x skill honors this tradition, by improving
+the character's natural agility to the point where many blows will miss
+the target. The chance of dodging is also affected by the dexterity of
+the attacker and the target.  
+~
+
+0 DUAL WIELD SECOND~
+Syntax: {Vsecond{x <{Yweapon{x>
+
+This skill allows a player to wield a weapon in their off-hand.  There
+are weight restrictions on the second weapon, and this makes use of two-
+handed weapons impossible, unless your race is large enough to use a
+two-handed weapon in one hand.  This also prevents a character from
+using a shield, and/or holding an item.  {VSecond{x allows you to select
+your secondary weapon.
+
+{GEvolved:{x
+Evolved dual wield gives a better chance at hitting with your secondary
+weapon.  Combined with skill in {Vparry{x, you can block attacks with
+your off hand, and even perform a strike with the hilt of your weapon
+after an off-hand parry if you are skilled in {Vhand to hand{x combat.
+~
+
+0 'ENHANCED DAMAGE'~
+With {Venhanced damage{x you are able to inflict more damage in combat.  
+{VEnhanced damage{x is checked for with each hit, although with a low skill, 
+the chance of receiving a bonus is very low indeed.
+~
+
+0 ENVENOM~
+Syntax: {Venvenom{x <{Yobject{x>
+
+The {Venvenom{x skill is a cowardly skill, designed to win a battle through
+alchemy and treachery rather than skill or strength.  Or, put another
+way, it's a skill used by the smart to kill the foolish.  Food, drink,
+and weapons may be envenomed, with varying effects. Poisoned food or
+drink puts a mild poison spell on the consumer, and is unlikely to be
+more than a minor inconvience (after all, the typical adventurer could
+drink sewer water with only a trace of the runs).
+
+A poisoned weapon, on the other hand, can inflict serious damage on an
+opponent as the poison burns through his bloodstream.  But be careful,
+blade venom evaporates quickly and repeated blows in combat will render
+it almost powerless.
+~
+
+0 'HAND TO HAND'~
+{VHand to hand{x combat is a rare skill in the lands of Thera.  Learning this
+style of fighting gives the player a weapon even when disarmed -- bare
+hands.  Trained {Vhand to hand{x experts can become as effective as swordsmen.
+~
+
+0 KICK~
+Syntax: {Vkick{x <{Ytarget{x>
+
+{VKicking{x allows the adventurer to receive an extra attack in combat, a
+powerful kick.  {CKick{x is more effective if you are also skilled in
+{Vhand to hand{x combat.
+~
+
+0 PARRY~
+If at first you fail to dodge, block it.  {VParry{x is useful for deflecting
+attacks, and is succesful more often than dodge.  {VParry{x requires a weapon
+for full success, the hand-to-hand skill may also be used, but results in
+reduced damage instead of no damage.  The best chance of parrying occurs
+when the defender is skilled in both his and his opponent's weapon type.
+~
+
+0 RESCUE~
+Syntax: {Vrescue{x <{Yplayer{x>
+
+A friend in need is a friend indeed.  And when in combat, a warrior with
+the {Vrescue{x skill is just the friend you need.  Rescue allows a player
+to intercede in combat, protecting weaker characters from bodily harm.
+Hopefully the favor will be returned.  Success in rescuing depends on the
+skill rating, as well as a comparision of the level, dexterity, and speed
+between the character and the target.
+
+(note: you rescue a friend, not the monster)
+~
+
+0 TRIP~
+Syntax: {Vtrip{x <{Ytarget{x>
+
+{VTrip{x is a somewhat dastardly attack, and involves using any one of a
+number of methods to bring your opponent down to the ground.  Tripping
+large monsters is generally not a good idea, and agile ones will find
+the attack easy to avoid.  
+~
+
+0 'SECOND ATTACK'~
+Training in {Vsecond attack{x allows the character a chance at additional
+strikes in combat -- although a 100% {Vsecond attack{x does NOT guarantee
+2 attacks every round.  
+~
+
+0 'THIRD ATTACK'~
+Training in {Vthird attack{x allows the character a chance at an additional
+strike in a combat, and increases the chance of a second attack as well.
+Perfect {Vthird attack{x does NOT assure three attacks per round.  
+~
+
+0 HIDE SNEAK~
+Syntax: {Vhide{x
+        {Vsneak{x
+
+{VHide{x and {Vsneak{x are similar skills, both related to remaining undetected.
+{VSneak{x hides a character's room to room movement, and {Vhide{x makes it very
+difficult to see a character without the {Cdetect hidden{x spell.
+
+~
+
+0 'FAST HEALING'~
+The {Vfast healing{x skill improves wound healing rates, whether walking,
+resting, or sleeping. It represents knowledge of healing herbs or just
+general toughness and stamina.  {VFast healing{x is checked every tick, and
+it is possible to fail.
+
+{GEvolved:{x
+When evolved, the {Vfast healing{x skill allows hp to regen during combat.
+~
+
+0 LORE~
+Syntax: {Vlore{x <{Yobject{x>
+
+{VLore{x is a general skill, consisting of knowledge of myths and legends.
+Use of the {Vlore{x skill gives a chance of obtaining valuable information
+on an object, concerning its power and uses.
+~
+
+0 HAGGLE HAGGLING~
+{VHaggling{x is an indispensable skill to the trader.  Having {Vhaggle{x allows
+a character to match wits with a merchant, and try get a better price for
+merchandise, or to buy at the lowest possible cost.  Unfortunately, most
+merchants are already very skilled at {Vhaggling{x, so the untrainined trader
+had best guard his treasure closely.  
+~
+
+0 HUNT~
+Syntax: {Vhunt{x <{Yvictim{x>
+
+The {Vhunt{x skill allows a character to hunt for a monster or player.  If
+the character is successful they will be given the direction to go to
+reach their prey.
+~
+
+0 PEEK~
+Syntax: {Vpeek{x <{Yvictim{x>
+        {Vpeek{x <{Yvictim{x> {Glore{x <{Gitem{x>          ({YEvolution 2{x)
+        {Vpeek{x <{Yvictim{x> {Gall{x                  ({YEvolution 3{x)
+
+The {Vpeek{x skill is useful for seeing what a player or monster is carrying,
+the better to use the steal command with.  More intelligent characters
+are harder to peek at.  
+
+If you have the skill, you can set the {WAUTOPEEK{x flag to try to perform a
+{WPEEK{x whenever you {WLOOK{x at a character.
+
+{GEvolved:{x
+When evolved, {Vpeek{x can be used with the {Glore{x skill to examine an object
+in a character's inventory.  At higher evolution, you can even see {Gall{x
+the items they carry, even those in containers.
+~
+
+0 PICK 'PICK LOCK'~
+Syntax:  {Vpick{x <{Yobject{x>
+         {Vpick{x <{Ydirection{x>
+
+{VLock picking{x is one of the prime skills of thieves, allowing them to
+gain access to many secured areas.  {VLock picking{x chances are improved
+by intelligence, and hindered by complicated locks.
+~
+
+0 MEDITATION~
+This skill is similar to fast healing, but relies on the concentration and
+mantras to increase mana recovery when the character is sleeping or resting.
+Thieves and warriors, with their troubled minds and violent attitudes, have
+much trouble learning to {Vmeditate{x.
+
+{GEvolved:{x
+When evolved, the {Vmeditation{x skill allows mana to heal during combat.
+~
+
+0 BACKSTAB~
+Syntax: {Vbackstab{x <{Ytarget{x>
+
+{VBackstab{x is the favored attack of thieves, murderers, and other rogues.
+It can be used with any weapon type, but is most effective with piercing
+weapons.  The damage inflicted by a backstab is determined by the level
+of the attacker, his weapon skill, his backstab skill, and the power of
+his opponent.
+~
+
+0 BASH~
+Syntax: {VBASH{x <{Ytarget{x>
+
+The {Vbash{x skill is a warrior talent, a brute-force attack designed to knock
+your foe to his knees.  Its success depends on many factors, including the
+bash rating, your weight, and the size of your opponent.  Bashing a dragon
+is not generally a wise idea.
+~
+
+0 BERSERK~
+Syntax: {Vberserk{x
+
+Only powerful warriors can master {Vberserking{x, the ability to enter an
+insane rage in combat.  Its effects are not altogether unlike the frenzy
+spell -- a huge surge of combat prowess, coupled with a disregard for
+personal safety.  {VBerserking{x warriors are more resistant to the effects
+of magic.
+~
+
+0 ROTATE~
+Syntax: {Vrotate{x <{Ytarget{x>
+
+{VRotate{x allows you to switch from one target to another in the middle of
+battle.
+~
+
+0 LANGUAGES~
+This skill enables the adventurer to acquire knowledge in all the languages
+of the realms, and speak in the same tongue as the people they contact.
+
+If you do not have a skill in languages, you will only be able to understand
+words spoken by your own race.  (Currently this only applies to spells cast
+by characters of another class.)
+
+Side Note: Only a small section of Legacy is currenly devoted to languages.
+~
+
+0 STEAL~
+Syntax: {Vsteal coins{x <{Ycharacter{x>
+        {Vsteal{x <{Yobject{x> <{Ycharacter{x>
+
+{VSteal{x attempts to steal coins, or an object, from a character.  There
+are penalties for using {Csteal{x on other players.  In order to {Vsteal{x
+successfully, you must practice the appropriate skill.
+
+Players are allowed to steal from other players if both have {RPK{x turned on
+and both players are within {Y8{x levels of each other.  It is possible for
+someone to steal from you while fighting, sleeping, or just standing around.
+
+If you are caught stealing, you will receive a {PTHIEF{x flag.  Beware!
+~
+
+0 WANDS STAVES SCROLLS~
+Magical items require training to use properly.  If your character lacks the
+necessary skill to use an item, he will fail, possibly destroying it.  The
+item skills are as follows:
+
+{Vscrolls{x   The reading of magical scrolls and books (see '{Yhelp recite{x')
+{Vstaves{x    The use of staves and similar devices (see '{Yhelp brandish{x')
+{Vwands{x     The use of wands and similar items (see '{Yhelp zap{x')
+~
+
+0 'SHIELD BLOCK'~
+{VShield block{x is a rather fancy name for the art of parrying with a shield.
+Characters with no shield block skill will not be able to defend themselves
+well with a shield.  Beware, flails ignore shield blocking attempts, and
+whips have an easier time getting around them.  Axes may split shields in two.
+~
+
+0 DROWNING~
+This skill has been more aptly renamed to {Vswimming{x.  See {Yhelp swimming{x.
+~
+
+0 SWIMMING~
+Most players and most mobiles rapidly lose hit points when {Bunderwater{x
+{Yunless{x they are skilled at {Vswimming{x.  A player with {V100% swimming skill{x
+can safely remain {Bunderwater{x indefinitely.  
+~
+
+0 FIREBUILDING TORCH~
+Syntax: {Vfirebuilding{x
+
+This skill enables an adventurer to create a torch from their environment.
+~
+
+0 BREW SCRIBE~
+Syntax: {Vbrew{x <{Yspell{x>
+        {Vscribe{x <{Yspell{x>
+
+These skills allow you to create potions and scrolls.  For the skills
+to work, you must be holding a parchment or vial.  It is possible to
+hold multiple spells within a scroll or potion, but the chances of
+success are poor.  The cost to brew and scribe is double your normal
+mana costs.  Any spell can be {Vscribed{x; however, only selected spells
+can be {Vbrewed{x.
+~
+
+0 REPAIR~
+Syntax: {Vrepair{x
+        {Vrepair all{x
+        {Vrepair{x <{Yobject{x>
+
+If you are at {GGriswald's{x blacksmith shop, {Vrepair all{x will repair all 
+items you are wearing to perfect condition.  The blacksmith never fails
+in his work and will never do extra damage to your equipment.  The cost
+is approximately 1 gold per point of damage on the object.  {VRepair{x
+<{Yobject{x> will repair only one object at a time and it must be in your
+inventory.
+
+If you have the repair skill, you can use the repair command outside of
+the blacksmith shop to repair an item yourself.  However, if you fail
+your skill check, you will do further damage to your object.  Reparing
+an object yourself does not cost money.
+
+Repair without an argument will show a list of your current equipped
+items and their current condition.
+~
+
+0 SINGING~
+Syntax: {Vsing{x <{Yvictim{x>
+
+Singing is a bard-type skill that allows one to charm their adoring
+listeners.  Unlike the {Ccharm{x spell, failure simply means that your
+song wasn't good enough - the victim won't be provoked to attack you.
+~
+
+0 $~
+#$

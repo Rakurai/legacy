@@ -1,0 +1,1750 @@
+#AREA
+chess.are~
+Chessboard~
+{H{{30 50} {MObi     {TChessboard~
+29900 29999
+
+#MOBILES
+#29900
+pawn white~
+a white pawn~
+A white pawn stands here being manipulated.
+~
+This is, well, a pawn.  He probably would be sick of being manipulated
+by more powerful pieces, but he doesn't know he is.
+~
+human~
+G 0 900 0
+33 0 10d10+1100 1d10+330 6d4+10 punch
+-10 -10 -11 -7
+FI 0 N M
+stand stand male 1500
+0 0 medium 0
+#29901
+rook white~
+a white rook~
+A white rook stands here guarding its post.
+~
+This is just what you thought it was; a big tower in a castle.
+However, it seems to be alive and watching you.
+~
+modron~
+G N 900 0
+50 0 50d10+5500 1d10+100 5d8+12 pound
+-17 -18 -17 -12
+CDK 0 N M
+stand stand none 4000
+0 0 large stone
+#29902
+knight white~
+a white knight~
+A white knight is here riding his horse and poised for action.
+~
+He is ready to attack at any moment.  Loyal to his king, and with an
+intense hatred for the enemy, he is the perfect soldier.
+~
+human~
+GT 0 950 0
+39 1 15d10+1750 1d10+100 5d6+32 cleave
+-12 -13 -10 -9
+DEI 0 N M
+stand stand male 3900
+0 0 large 0
+#29903
+bishop white~
+a white bishop~
+A white bishop stands here uttering a prayer for battle.
+~
+This holy man is not what you think a fighter would look like.
+On a second look, he is well-muscled, and his cross is sharp
+at the edges.  Looks like the enemy better get ready to die
+a holy death.
+~
+human~
+GQ CDN 1000 0
+44 0 25d10+2300 1d10+600 8d4+10 divine
+-13 -13 -13 -15
+K N 0 M
+stand stand male 1200
+0 0 medium 0
+#29904
+queen white~
+a white queen~
+A white queen is here surveying her troops.
+~
+The most powerful white piece, you feel instant respect for her.
+She could probably tear you apart with one hand behind her back
+and blindfolded.
+~
+human~
+G H 950 0
+55 1 50d10+7000 1d10+550 10d4+23 wrath
+-25 -25 -24 -21
+DEGK 0 N M
+stand stand female 7500
+0 0 medium 0
+#29905
+king white~
+a white king~
+The white king stands here.
+~
+One of the weakest pieces on the board, yet he is essential to the kingdom.
+~
+human~
+G 0 1000 0
+33 0 10d10+1100 1d10+330 6d4+10 pound
+-12 -10 -11 -8
+FI 0 N M
+stand stand male 4500
+0 0 medium 0
+#29906
+pawn black~
+a black pawn~
+The black pawn stands here staring at his opposite.
+~
+He looks like he's trying to size up his white counterpart halfway
+across the board, and doing a pretty good job of it, too.
+~
+human~
+G 0 -900 0
+33 0 10d10+1100 1d10+330 6d4+10 punch
+-10 -10 -11 -7
+FI 0 M N
+stand stand male 1500
+0 0 medium 0
+#29907
+rook black~
+a black rook~
+A black rook stands here standing guard.
+~
+It stands sentry guarding its dark ruler at all costs.
+~
+modron~
+G O -900 0
+50 0 50d10+5500 1d10+100 5d8+12 pound
+-17 -18 -17 -12
+CDK 0 M N
+stand stand none 4000
+0 0 large stone
+#29908
+black knight~
+a black knight~
+A black knight stands here ready to strike.
+~
+Atop his dark steed, he looks like the Dark Knight from the fairy
+tales.  Only thing is, this guy isn't planning on losing.
+~
+human~
+FGT 0 -950 0
+39 1 15d10+1750 1d10+100 5d6+32 cleave
+-12 -13 -10 -9
+DEI 0 M N
+stand stand male 3900
+0 0 large 0
+#29909
+black queen~
+the black queen~
+The black queen stands here waiting to attack.
+~
+Dressed in a black robe, she looks at you seductively.  Do not be
+fooled, for she is one of the most powerful characters of the realm.
+~
+human~
+FG H -950 0
+55 1 50d10+7000 1d10+550 10d4+23 wrath
+-25 -25 -24 -21
+DEGK 0 M N
+stand stand female 7500
+0 0 medium 0
+#29910
+black king~
+the black king~
+The black king stands here ready to run at the sign of battle.
+~
+More concerned about his safety (and the queen's, well, at least,
+certain parts of her) than victory, he tries to look dignified in
+front of you.
+~
+human~
+G H -1000 0
+33 0 10d10+1100 1d10+330 6d4+10 slash
+-12 -10 -11 -8
+FI 0 M N
+stand stand male 4500
+0 0 medium 0
+#29911
+black bishop~
+the black bishop~
+The black bishop stands here preaching about the antichrist.
+~
+He is the exact opposite of his white counterpart.  While the white
+preaches of Jesus and the Virgin Mary, this one preaches of the
+coming of Lucifer.  His black cross is ablaze.
+~
+human~
+FGQ DGO -1000 0
+44 0 25d10+2300 1d10+600 8d4+10 negative
+-13 -13 -13 -15
+K M 0 N
+stand stand male 1200
+0 0 medium 0
+#0
+
+
+#OBJECTS
+#29900
+pawn hat silly~
+that silly hat a pawn wears~
+A silly little hat that the pawns wear that makes them look SO stupid.~
+silk~
+armor S AE
+10 11 10 4 0
+30 10 1000 P
+A
+19 2
+A
+18 2
+A
+4 1
+#29901
+lance knights~
+a knight's lance~
+A lance lies here ready to stab someone.~
+composite~
+weapon 0 AN
+spear 8 5 pierce 0
+36 200 2500 P
+A
+19 2
+A
+18 4
+#29902
+white cross bishops~
+a bishop's cross~
+A white bishop's cross lies here glowing softly.~
+ivory~
+armor AS AC
+12 12 13 10 0
+41 20 3000 P
+A
+12 50
+A
+18 3
+#29903
+black cross bishops~
+a black bishop's cross~
+A black bishop's cross lies here burning with a mysterious aura.~
+obsidian~
+armor A AC
+-5 -5 -5 2 0
+41 20 3000 P
+A
+12 50
+A
+19 3
+#29904
+queen robe~
+a queen's robe~
+A queen's robe lies here strewn on the floor.~
+silk~
+armor S AK
+15 15 14 11 0
+51 40 8000 P
+A
+4 3
+A
+13 10
+A
+19 3
+#29905
+crown kings~
+a king's crown~
+A king's crown lies here shining.~
+adamantite~
+armor 0 AE
+10 11 10 5 0
+31 40 10000 P
+A
+13 25
+A
+17 -5
+A
+4 1
+#0
+
+
+#ROOMS
+#29900
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.  There is a sign against
+the white wall.
+~
+0 0 0
+D0
+~
+~
+0 -1 29908
+D3
+~
+~
+0 -1 29901
+E
+sign wall~
+Chess Board Area created by Obi.  Special thanks to Termus for help with
+the concept.~
+S
+#29901
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29909
+D1
+~
+~
+0 -1 29900
+D3
+~
+~
+0 -1 29902
+S
+#29902
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29910
+D1
+~
+~
+0 -1 29901
+D3
+~
+~
+0 -1 29903
+S
+#29903
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29911
+D1
+~
+~
+0 -1 29902
+D3
+~
+~
+0 -1 29904
+S
+#29904
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29912
+D1
+~
+~
+0 -1 29903
+D4
+~
+~
+0 -1 9555
+D3
+~
+~
+0 -1 29905
+D5
+~
+~
+0 -1 7644
+S
+#29905
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29913
+D1
+~
+~
+0 -1 29904
+D3
+~
+~
+0 -1 29906
+S
+#29906
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29914
+D1
+~
+~
+0 -1 29905
+D3
+~
+~
+0 -1 29907
+S
+#29907
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29915
+D1
+~
+~
+0 -1 29906
+S
+#29908
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29916
+D2
+~
+~
+0 -1 29900
+D3
+~
+~
+0 -1 29909
+S
+#29909
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29917
+D1
+~
+~
+0 -1 29908
+D2
+~
+~
+0 -1 29901
+D3
+~
+~
+0 -1 29910
+S
+#29910
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29918
+D1
+~
+~
+0 -1 29909
+D2
+~
+~
+0 -1 29902
+D3
+~
+~
+0 -1 29911
+S
+#29911
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29919
+D1
+~
+~
+0 -1 29910
+D2
+~
+~
+0 -1 29903
+D3
+~
+~
+0 -1 29912
+S
+#29912
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29920
+D1
+~
+~
+0 -1 29911
+D2
+~
+~
+0 -1 29904
+D3
+~
+~
+0 -1 29913
+S
+#29913
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29921
+D1
+~
+~
+0 -1 29912
+D2
+~
+~
+0 -1 29905
+D3
+~
+~
+0 -1 29914
+S
+#29914
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29922
+D1
+~
+~
+0 -1 29913
+D2
+~
+~
+0 -1 29906
+D3
+~
+~
+0 -1 29915
+S
+#29915
+White room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29923
+D1
+~
+~
+0 -1 29914
+D2
+~
+~
+0 -1 29907
+S
+#29916
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29924
+D2
+~
+~
+0 -1 29908
+D3
+~
+~
+0 -1 29917
+S
+#29917
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29925
+D1
+~
+~
+0 -1 29916
+D2
+~
+~
+0 -1 29909
+D3
+~
+~
+0 -1 29918
+S
+#29918
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29926
+D1
+~
+~
+0 -1 29917
+D2
+~
+~
+0 -1 29910
+D3
+~
+~
+0 -1 29919
+S
+#29919
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29927
+D1
+~
+~
+0 -1 29918
+D2
+~
+~
+0 -1 29911
+D3
+~
+~
+0 -1 29920
+S
+#29920
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29928
+D1
+~
+~
+0 -1 29919
+D2
+~
+~
+0 -1 29912
+D3
+~
+~
+0 -1 29921
+S
+#29921
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29929
+D1
+~
+~
+0 -1 29920
+D2
+~
+~
+0 -1 29913
+D3
+~
+~
+0 -1 29922
+S
+#29922
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29930
+D1
+~
+~
+0 -1 29921
+D2
+~
+~
+0 -1 29914
+D3
+~
+~
+0 -1 29923
+S
+#29923
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29931
+D1
+~
+~
+0 -1 29922
+D2
+~
+~
+0 -1 29915
+S
+#29924
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29932
+D2
+~
+~
+0 -1 29916
+D3
+~
+~
+0 -1 29925
+S
+#29925
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29933
+D1
+~
+~
+0 -1 29924
+D2
+~
+~
+0 -1 29917
+D3
+~
+~
+0 -1 29926
+S
+#29926
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29934
+D1
+~
+~
+0 -1 29925
+D2
+~
+~
+0 -1 29918
+D3
+~
+~
+0 -1 29927
+S
+#29927
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29935
+D1
+~
+~
+0 -1 29926
+D2
+~
+~
+0 -1 29919
+D3
+~
+~
+0 -1 29928
+S
+#29928
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29936
+D1
+~
+~
+0 -1 29927
+D2
+~
+~
+0 -1 29920
+D3
+~
+~
+0 -1 29929
+S
+#29929
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29937
+D1
+~
+~
+0 -1 29928
+D2
+~
+~
+0 -1 29921
+D3
+~
+~
+0 -1 29930
+S
+#29930
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29938
+D1
+~
+~
+0 -1 29929
+D2
+~
+~
+0 -1 29922
+D3
+~
+~
+0 -1 29931
+S
+#29931
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29939
+D1
+~
+~
+0 -1 29930
+D2
+~
+~
+0 -1 29923
+S
+#29932
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29940
+D2
+~
+~
+0 -1 29924
+D3
+~
+~
+0 -1 29933
+S
+#29933
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29941
+D1
+~
+~
+0 -1 29932
+D2
+~
+~
+0 -1 29925
+D3
+~
+~
+0 -1 29934
+S
+#29934
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29942
+D1
+~
+~
+0 -1 29933
+D2
+~
+~
+0 -1 29926
+D3
+~
+~
+0 -1 29935
+S
+#29935
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29943
+D1
+~
+~
+0 -1 29934
+D2
+~
+~
+0 -1 29927
+D3
+~
+~
+0 -1 29936
+S
+#29936
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29944
+D1
+~
+~
+0 -1 29935
+D2
+~
+~
+0 -1 29928
+D3
+~
+~
+0 -1 29937
+S
+#29937
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29945
+D1
+~
+~
+0 -1 29936
+D2
+~
+~
+0 -1 29929
+D3
+~
+~
+0 -1 29938
+S
+#29938
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29946
+D1
+~
+~
+0 -1 29937
+D2
+~
+~
+0 -1 29930
+D3
+~
+~
+0 -1 29939
+S
+#29939
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29947
+D1
+~
+~
+0 -1 29938
+D2
+~
+~
+0 -1 29931
+S
+#29940
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29948
+D2
+~
+~
+0 -1 29932
+D3
+~
+~
+0 -1 29941
+S
+#29941
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29949
+D1
+~
+~
+0 -1 29940
+D2
+~
+~
+0 -1 29933
+D3
+~
+~
+0 -1 29942
+S
+#29942
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29950
+D1
+~
+~
+0 -1 29941
+D2
+~
+~
+0 -1 29934
+D3
+~
+~
+0 -1 29943
+S
+#29943
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29951
+D1
+~
+~
+0 -1 29942
+D2
+~
+~
+0 -1 29935
+D3
+~
+~
+0 -1 29944
+S
+#29944
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29952
+D1
+~
+~
+0 -1 29943
+D2
+~
+~
+0 -1 29936
+D3
+~
+~
+0 -1 29945
+S
+#29945
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29953
+D1
+~
+~
+0 -1 29944
+D2
+~
+~
+0 -1 29937
+D3
+~
+~
+0 -1 29946
+S
+#29946
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29954
+D1
+~
+~
+0 -1 29945
+D2
+~
+~
+0 -1 29938
+D3
+~
+~
+0 -1 29947
+S
+#29947
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29955
+D1
+~
+~
+0 -1 29946
+D2
+~
+~
+0 -1 29939
+S
+#29948
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29956
+D2
+~
+~
+0 -1 29940
+D3
+~
+~
+0 -1 29949
+S
+#29949
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29957
+D1
+~
+~
+0 -1 29948
+D2
+~
+~
+0 -1 29941
+D3
+~
+~
+0 -1 29950
+S
+#29950
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29958
+D1
+~
+~
+0 -1 29949
+D2
+~
+~
+0 -1 29942
+D3
+~
+~
+0 -1 29951
+S
+#29951
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29959
+D1
+~
+~
+0 -1 29950
+D2
+~
+~
+0 -1 29943
+D3
+~
+~
+0 -1 29952
+S
+#29952
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29960
+D1
+~
+~
+0 -1 29951
+D2
+~
+~
+0 -1 29944
+D3
+~
+~
+0 -1 29953
+S
+#29953
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29961
+D1
+~
+~
+0 -1 29952
+D2
+~
+~
+0 -1 29945
+D3
+~
+~
+0 -1 29954
+S
+#29954
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D0
+~
+~
+0 -1 29962
+D1
+~
+~
+0 -1 29953
+D2
+~
+~
+0 -1 29946
+D3
+~
+~
+0 -1 29955
+S
+#29955
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D0
+~
+~
+0 -1 29963
+D1
+~
+~
+0 -1 29954
+D2
+~
+~
+0 -1 29947
+S
+#29956
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D2
+~
+~
+0 -1 29948
+D3
+~
+~
+0 -1 29957
+S
+#29957
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D1
+~
+~
+0 -1 29956
+D2
+~
+~
+0 -1 29949
+D3
+~
+~
+0 -1 29958
+S
+#29958
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D1
+~
+~
+0 -1 29957
+D2
+~
+~
+0 -1 29950
+D3
+~
+~
+0 -1 29959
+S
+#29959
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D1
+~
+~
+0 -1 29958
+D2
+~
+~
+0 -1 29951
+D3
+~
+~
+0 -1 29960
+S
+#29960
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D1
+~
+~
+0 -1 29959
+D2
+~
+~
+0 -1 29952
+D3
+~
+~
+0 -1 29961
+S
+#29961
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D1
+~
+~
+0 -1 29960
+D2
+~
+~
+0 -1 29953
+D3
+~
+~
+0 -1 29962
+S
+#29962
+Black Room~
+This room is pitch black.  You wouldn't be able to see at all if not for
+the light coming from the exits.  This place is creepy and you want to
+get out of here.
+~
+0 A 0
+D1
+~
+~
+0 -1 29961
+D2
+~
+~
+0 -1 29954
+D3
+~
+~
+0 -1 29963
+S
+#29963
+White Room~
+This whole room is spotless white.  You shudder at how much maintenance
+must cost.  All the exits lead into darkness.
+~
+0 0 0
+D1
+~
+~
+0 -1 29962
+D2
+~
+~
+0 -1 29955
+S
+#0
+
+
+#SPECIALS
+M 29903 spec_cast_cleric	*white bishop
+M 29911 spec_cast_cleric	*black bishop
+
+S
+
+
+#RESETS
+
+M 1 29900 8 29908 1		*a white pawn to White Room
+E 1 29900 100 6
+M 1 29900 8 29909 1		*a white pawn to White Room
+E 1 29900 100 6
+M 1 29900 8 29910 1		*a white pawn to White Room
+E 1 29900 100 6
+M 1 29900 8 29911 1		*a white pawn to White Room
+E 1 29900 100 6
+M 1 29900 8 29912 1		*a white pawn to White Room
+E 1 29900 100 6
+M 1 29900 8 29913 1		*a white pawn to White Room
+E 1 29900 100 6
+M 1 29900 8 29914 1		*a white pawn to White Room
+E 1 29900 100 6
+M 1 29900 8 29915 1		*a white pawn to White Room
+E 1 29900 100 6
+
+M 1 29901 2 29900 1		*a white rook to White room
+M 1 29901 2 29907 1		*a white rook to Black Room
+
+M 1 29902 2 29901 1		*a white knight to Black Room
+E 1 29901 100 16
+M 1 29902 2 29906 1		*a white knight to White Room
+E 1 29901 100 16
+
+M 1 29903 2 29902 1		*a white bishop to White Room
+E 1 29902 100 3
+M 1 29903 2 29905 1		*a white bishop to Black Room
+E 1 29902 100 3
+
+M 1 29904 1 29904 1		*a white queen to White Room
+E 1 29904 100 12
+M 1 29905 1 29903 1		*a white king to Black Room
+E 1 29905 100 6
+
+M 1 29906 8 29948 1		*a black pawn to Black Room
+E 1 29900 100 6
+M 1 29906 8 29949 1		*a black pawn to White Room
+E 1 29900 100 6
+M 1 29906 8 29950 1             *a black pawn to Black Room
+E 1 29900 100 6
+M 1 29906 8 29951 1             *a black pawn to White Room
+E 1 29900 100 6
+M 1 29906 8 29952 1             *a black pawn to Black Room
+E 1 29900 100 6
+M 1 29906 8 29953 1             *a black pawn to White Room
+E 1 29900 100 6
+M 1 29906 8 29954 1             *a black pawn to Black Room
+E 1 29900 100 6
+M 1 29906 8 29955 1             *a black pawn to White Room
+E 1 29900 100 6
+
+M 1 29907 2 29956 1             *a black rook to Black Room
+M 1 29907 2 29963 1             *a black rook to White Room
+
+M 1 29908 2 29957 1             *a black knight to White Room
+E 1 29901 100 16
+M 1 29908 2 29962 1             *a black knight to Black Room
+E 1 29901 100 16
+
+M 1 29909 1 29960 1             *the black queen to Black Room
+E 1 29904 100 12
+M 1 29910 1 29959 1             *the black king to White Room
+E 1 29905 100 6
+
+M 1 29911 2 29958 1             *the black bishop to Black Room
+E 1 29903 100 3
+M 1 29911 2 29961 1             *the black bishop to White Room
+E 1 29903 100 3
+
+S
+
+#$

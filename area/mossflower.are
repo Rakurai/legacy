@@ -1,0 +1,1271 @@
+#AREA
+mossflower.are~
+Woods of Mossflower~
+{H{{80 91} {MKenneth&Chase {TWoods of Mossflower~
+10100 10125
+
+#MOBILES
+
+#10100
+rat~
+a rat~
+A rat mutters unspeakables to himself here.
+~
+This rat is all covered in patchy fur, with lots
+of scars covering his body.  However, you remember
+that time-honored wisdom about bullies always being
+cowards, and this rat will probably prove no exception.
+~
+rodent~
+GT Z -500 S
+105 25 35d60+7500 10d50+5000 8d8+19 scratch
+-70 -70 -70 -65
+CEFIN 0 0 B
+stand stand male 9200
+0 0 small 0 
+
+#10101
+ferret~
+a ferret~
+A ferret tries to act busy away from the eye of {bC{Rl{bu{Rn{by{x.
+~
+This ferret sharpens it's iron spike, while staying as
+far away from the tempermental Warlord as possible.
+~
+rodent~
+GT Z -500 S
+105 25 35d60+7500 10d50+5000 8d8+19 scratch
+-70 -70 -70 -65
+CEFIN 0 0 B
+stand stand male 9200
+0 0 small 0 
+
+#10102
+stoat~
+a stoat~
+A stoat works on tunneling beneath {RRedwall{x here.
+~
+This sinewy stoat is hard at work, trying to tunnel
+beneath {RRedwall{x in order to wreak havoc on the
+innocent creatures within.
+~
+rodent~
+GT Z -500 S
+105 25 35d60+7500 10d50+5000 8d8+19 scratch
+-70 -70 -70 -65
+CEFIN 0 0 B
+stand stand male 9200
+0 0 small 0 
+
+#10103
+weasel~
+a weasel~
+A weasel is lounging about here.
+~
+This long, shifty looking weasel has probably never done
+an honest day's work in its life.
+~
+rodent~
+GT Z -500 S
+105 25 35d60+7500 10d50+5000 8d8+19 scratch
+-70 -70 -70 -65
+CEFIN 0 0 B
+stand stand male 9200
+0 0 small 0 
+
+#10104
+cluny rat scourge chief~
+{bC{Rl{bu{Rn{by{x the {PScourge{x~
+The vicious {bC{Rl{bu{Rn{by{x the {PScourge{x is here barking out orders.
+~
+He is big, and tough; an evil rat with ragged fur and carved,
+jagged teeth.  He wears a {cblack{x eyepatch; his eye had been
+torn out in battle with a pike.  He has an enormous, whiplike
+tail that he uses as a weapon, earning him the name {bC{Rl{bu{Rn{by
+the {PScourge{x
+~
+unique~
+GT DHJQV -1000 S
+125 25 1d1+20799 2d10+5 15d4+27 pound
+-90 -90 -90 -86
+CEFHIJK Q M N
+stand rest male 10000
+0 0 medium 0
+
+#10105
+guosim shrew~
+A Guosim Shrew~
+A Guosim Shrew stands fiercely.
+~
+The shrew looks mad.  VERY MAD.
+~
+rodent~
+GT Za 600 S
+115 25 90d45+9000 10d50+5000 8d9+20 scratch
+-75 -75 -75 -70
+CEFHIN 0 0 BH
+stand stand male 9700
+0 0 small 0
+
+#10106
+darkclaw rat~
+Darkclaw~
+Darkclaw the rat stands here waiting to ambush.
+~
+Filth, utter filth, utter filth in a ditch.
+~
+rodent~
+GT DFZa -600 S
+115 25 90d45+9000 10d50+5000 8d9+20 scratch
+-75 -75 -75 -70
+CEFHIN 0 0 BH
+stand stand male 9700
+0 0 small 0
+
+#10107
+redtooth rat~
+{RRed{Wtooth{x~
+{RRed{Wtooth{x, the rat, is waiting to kill.
+~
+Filth, *shudder* eeeevil....
+~
+rodent~
+GT DFZa -600 S
+115 25 90d45+9000 10d50+5000 8d9+20 scratch
+-75 -75 -75 -70
+CEFHIN 0 0 BH
+stand stand male 9700
+0 0 small 0
+
+#10108
+cheesethief rat~
+Cheesethief~
+Cheesethief, the rat, scans around for food.
+~
+The name says it all.
+~
+rodent~
+GT DFZa -600 S
+115 25 90d45+9000 10d50+5000 8d9+20 scratch
+-75 -75 -75 -70
+CEFHIN 0 0 BH
+stand stand male 9700
+0 0 small 0
+
+#10109
+scrag weasel~
+Scrag~
+Scrag, the weasel, is here.
+~
+Scrag has a look of death in his eyes.  Wonder if he's dead...
+~
+rodent~
+GT DFZa -600 S
+115 25 90d45+9000 10d50+5000 8d9+20 scratch
+-75 -75 -75 -70
+CEFHIN 0 0 BH
+stand stand male 9700
+0 0 small 0
+
+#10110
+stryk redkite~
+Stryk Redkite~
+Stryk Redkite towers above you in the sky.
+~
+The first thing you notice as you enter the area, is the MASSIVE
+bird flying overhead.  The red kite twists and turns in the sky so
+gracefully, that you stand there and watch, charmed by the beauty
+of the Giant bird.
+~
+song bird~
+GTW CDFHJVZ 1000 S
+125 25 1d1+26999 1d1+18999 20d10+25 shbite
+-90 -90 -90 -85
+CDEIK 0 E J
+stand stand female 10000
+0 0 huge 0
+
+#10111
+tsarmina feral scum~
+Tsarmina~
+Tsarmina, Queen of a Thousand Eyes, is here.
+~
+Tsarmina, as far as you can see, is a powerful beast with a desire to kill.  
+She will kill anything she can get her hands on.
+~
+feral~
+GT BDJOV -1000 S
+125 26 1d1+13999 1d1+999 15d13+20 flbite
+-88 -87 -88 -82
+CDFH 0 J 0
+stand stand female 10350
+0 0 medium 0
+
+#10112
+fortunata~
+Fortunata~
+Fortunata, the healing fox, is here reciting scrolls and offering service.
+~
+Fortunata is a backstabbing fox of the most dishonest kind.  She looks
+as if she's had her share of run-ins with angry people, and is probably a
+fake, but since she only offers her services to rodents, it doesn't really
+matter.
+~
+fox~
+GT DFZa -600 S
+115 25 90d45+9000 10d50+5000 8d9+30 scratch
+-75 -75 -75 -70
+CEFHIN 0 0 BH
+stand stand female 9700
+0 0 small 0
+
+#10113
+asmodeus snake~
+Asmodeus~
+Asmodeus, the poisonous Adder, is sleeping here.
+~
+Shhhhhh!
+Wake him up and you'll have a battle to the death.
+This thing could kill you with one dose of venom.  Instant painful death.
+~
+snake~
+BFGHT BDFHJQ -1000 S
+125 30 1d1+15999 1d1+6999 7d12+18 bite
+-88 -89 -88 -83
+DFHN QL M 0
+sleep sleep male 0
+0 0 large 0
+
+#10114
+basil stag hare~
+{RBasil {YStag {gHare{x~
+{RBasil {YStag {gHare{x is looking around for vittles.
+~
+As he sees you looking at him, he says, "Ah, hello there,
+old thingummy!  Would you happen to have a spot of grub about
+you, wot wot?"  However, despite his seemingly buffoonish attitude,
+hares are very seasoned fighters.
+~
+rabbit~
+BGT DFHJQ 1000 S
+125 29 1d1+9999 2d10+5 23d8+25 frbite
+-85 -85 -85 -81
+CDFI 0 0 Q
+stand stand male 1000
+0 0 medium 0
+
+#10115
+matthias~
+{gMatthias{x~
+{gMatthias{x the young {Ymouse{x is hacking through vermin to reach {bC{Rl{bu{Rn{by{x.
+~
+{gMatthias{x has a slightly intense look about him, the look of
+one who is willing to sacrifice everything in order to help
+his friends and family of the Abbey.  In his left paw is a round,
+steel shield with a large M on it.  He seems to have a bit of
+trouble moving about because his sandals are a bit too large
+for him.
+~
+unique~
+GT DFHJVc 1000 S
+130 30 1d1+28999 2d20+5000 10d12+40 slash
+-90 -90 -90 -86
+CDEFIK B N M
+stand stand male 12500
+0 0 medium 0
+>rand_prog 2~
+   say Wonder what {YCorn{xflower is doing.
+   sigh
+~
+|
+
+#0
+
+
+#OBJECTS
+
+#10100
+leggings smell cheese~
+{YLe{bgg{Yin{bg{Ys that s{bm{Yell li{bk{Ye chees{be{x~
+Some smelly looking {Yle{bgg{Yin{bg{Ys{x lie here.~
+cheesecloth?~
+armor ABS AF
+22 22 22 21 0
+91 15 32000 P
+A
+18 6
+A
+19 8
+A
+23 -2
+A
+12 30
+A
+13 40
+A
+3 2
+A
+4 2
+
+#10101
+dirty boots~
+{HA d{Yi{Hrty p{Yai{Hr {Yo{Hf b{Yoo{Hts{x~
+Some nasty, {Hd{Yi{Hrty b{Yoo{Hts{x are here.~
+mostly mud~
+armor ABS AG
+24 24 24 23 0
+91 15 30000 P
+A
+18 8
+A
+19 7
+A
+12 90
+A
+3 2
+A
+4 2
+A
+5 2
+A
+22 -4
+
+#10102
+snakeskin sleeves~
+{CA pa{bi{Cr of {bs{Cnakes{bk{Cin sle{be{Cves{x~
+some coiled {bs{Cnakes{bk{Cin{x lies on the floor.~
+snakeskin~
+armor ABS AI
+29 29 29 27 0
+95 10 33333 P
+A
+4 5
+A
+22 -5
+A
+18 10
+A
+19 12
+A
+9 5
+
+#10103
+muttered curse~
+{RA {Pm{Ru{Ptt{Re{Pr{Re{Pd c{Ru{Prs{Re{x~
+{RA {Pm{Ru{Ptt{Re{Pr{Re{Pd c{Ru{Prs{Re{x lingers in the air.~
+bad language~
+armor ABS AQ
+21 20 21 19 0
+81 5 22000 P
+A
+18 5
+A
+19 7
+A
+12 60
+A
+21 -3
+A
+2 3
+
+#10104
+brilliantly plumed feather~
+{RA brilliantly pl{bu{Rmed feather{x~
+A solitary feather floats gently to the earth.~
+feather~
+armor ABS AO
+25 25 25 28 0
+93 10 33000 P
+A
+18 12
+A
+19 10
+A
+20 -6
+A
+12 80
+F
+R 0 0 J
+
+#10105
+cattail tail~
+{kA {cc{ka{ct{kt{ca{ki{cl{x~
+A purely black {cc{ka{ct{kt{ca{ki{cl{x twitches here.~
+fur~
+armor ABS AO
+26 26 26 26 0
+93 10 33000 P
+A
+18 8
+A
+19 12
+A
+9 10
+A
+13 80
+F
+R 0 0 H
+
+#10106
+lucky rabbit's foot~
+{BA {Nlucky {Bra{Nbb{Bit{N's {Bf{Noo{Bt{x~
+Some rabbit has left his foot here.~
+fur~
+armor ABS AO
+27 27 27 24 0
+93 10 33000 P
+A
+18 12
+A
+19 8
+A
+2 5
+A
+12 40
+A
+13 40
+F
+R 0 0 I
+
+#10107
+healing pouch~
+{PA hea{Wl{Ping po{Wu{Pch{x~
+A pouch full of healing items is here.~
+leather~
+armor ABS AL
+22 22 22 22 0
+91 10 28000 P
+A
+13 100
+A
+5 5
+A
+18 8
+A
+19 9
+A
+23 -5
+
+#10112
+shield martin~
+Shield of Martin~
+Martin, the Warrior's great shield shines on the ground.~
+steel~
+armor ABGKY AJ
+45 50 45 45 0
+93 15 500 P
+A
+12 110
+A
+18 25
+A
+19 20
+A
+24 -12
+F
+R 0 0 F
+E
+shield martin of the~
+This round, steel shield never seems to stop shining, even
+when taken into the dark.  A big letter M is set into the
+middle of it.
+~
+
+#10115
+cluny helmet~
+{bC{Rl{bu{Rn{by{R'{bs{x helmet~
+This is {bC{Rl{bu{bn{by{x the {PScourge's{x great helmet.~
+metal~
+armor ABY AE
+26 26 24 25 0
+91 12 50 P
+A
+4 3
+A
+12 80
+A
+13 70
+A
+17 -9
+A
+24 -2
+A
+19 7
+E
+cluny helmet~
+{bC{Rl{bu{Rn{by{R'{bs{x helmet is entirely, totally, {bblack{x.
+The two great horns of a stag beetle adorn the top.
+~
+
+#10116
+ragged cloak~
+a ragged cloak~
+A ragged cloak made of batwings lies on the floor.~
+batwings~
+armor ES AD
+24 24 25 23 0
+85 2 25 P
+A
+12 60
+A
+13 30
+A
+18 6
+A
+19 6
+A
+26 2
+E
+ragged cloak batwings wing~
+This cloak, made entirely of batwings, is clasped at the
+neck with a moles skull.
+~
+
+#10121
+sword martin gleaming~
+the {WSword{x of {gMartin{x~
+A great, {ggleaming{x {Wsword{x sticks straight up out of the ground.~
+meteoric steel~
+weapon ABFGKY AN
+sword 9 17 slash BGD
+95 15 21 P
+A
+18 42
+A
+19 50
+A
+3 2
+A
+4 2
+A
+13 50
+A
+12 50
+A
+2 2
+E
+sword~
+This badger-forged sword gleams brightly in the light,
+filling you with a calm, peaceful feeling.  With this
+sword in your hand, nothing can stop you!  However, this
+sword is not magical.  The magic comes from within....
+~
+
+#0
+
+
+
+
+
+#ROOMS
+
+#10100
+Before the gates~
+You are standing before the majestic gates of {RRedwall{x.
+The sun playing on the wall truly helps bring the {Rredness{x
+shining out, giving a somewhat dazzling affect.  There seems to
+a large {Yditch{x to the west, and there is a note posted on a {Gtree{x.
+~
+0 C 2
+D0
+To the north lies the gates of {RRedwall{x!
+~
+~
+0 0 10126
+D1
+A path lies to the east leading through the woods.
+~
+~
+0 0 10111
+D3
+A large ditch lies to the west.
+~
+~
+0 0 10101
+D5
+A staircase leads down here.
+~
+~
+0 0 10124
+E
+note~
+The {RRedwall{x charter:
+To be brothers and sisters of peace and goodwill,
+living together in harmony under the protection of
+{RRedwall{x Abbey, forsaking all unnecessary forms
+of violence, not only to Mossflower, its trees, grasses,
+flowers, and insects, but to all living creatures.
+To help and comfort the dispossessed, harbor orphans
+and waifs, offer shelter to all creatures alike, give
+clothing, warmth, and food to any beast or creature that
+is deemed in need of such.  To educate and learn,
+particularly in the healing arts, comfort the sick, nurse
+the injured and help the wounded.
+To take our food from the eart and replenish the land by
+caring for it, husbanding crops and living in harmony with
+the seasons always.  To honor and protect our friends and
+brethren, only raising paw to do battle when our life at
+{RRedwall{x is threatened by treachery and the shadow of war;
+at these times every {RRedwall{x creature should show courage,
+fortitude, and obedience to the Father Abbot.  Albeit the
+taking of another life must always be justified and never carried
+out in a wanton manner.
+~
+E
+tree~
+It appears to be an oak {Gtree{x.
+~
+S
+
+#10101
+In a {gd{bi{gt{bc{gh{x~
+Well, you are standing at the bottom of a mucky, nasty
+old ditch.  There is a small trickle of {Bwater{x at
+the bottom.  This is the major staging ground for
+{cC{Rl{cu{Rn{cy{R'{cs{x troops.  To the north stands the
+walls of {RRedwall{x.
+~
+0 0 2
+D1
+To the east seems to be a small clearing.
+~
+~
+0 0 10100
+D3
+The ditch continues.
+~
+~
+0 0 10102
+S
+
+#10102
+In a {gd{bi{gt{bc{gh{x~
+Well, you are standing at the bottom of a mucky, nasty
+old ditch.  There is a small trickle of {Bwater{x at
+the bottom.  This is the major staging ground for
+{cC{Rl{cu{Rn{cy{R'{cs{x troops.  To the north stands the
+walls of {RRedwall{x.
+~
+0 0 2
+D1
+To the east the ditch continues.
+~
+~
+0 0 10101
+D3
+To the west the ditch continues.
+~
+~
+0 0 10103
+S
+
+#10103
+In a {gd{bi{gt{bc{gh{x~
+Well, you are standing at the bottom of a mucky, nasty
+old ditch.  There is a small trickle of {Bwater{x at
+the bottom.  This is the major staging ground for
+{cC{Rl{cu{Rn{cy{R'{cs{x troops.  To the north stands the
+walls of {RRedwall{x.
+~
+0 0 2
+D0
+To the north a road begins.
+~
+~
+0 0 10104
+D1
+To the east the ditch continues.
+~
+~
+0 0 10102
+S
+
+#10104
+On a {groad{x~
+You are on the road that leads towards St. Ninians church.
+The church used to be the home of the respectable, though
+slightly poor Churchmouse family, but it has been taken over
+by the hordes of {cC{Rl{cu{Rn{cy {xthe {PScourge{x.
+~
+0 0 2
+D2
+To the south there is a ditch.
+~
+~
+0 0 10103
+D3
+To the west the road continues.
+~
+~
+0 0 10105
+S
+
+#10105
+The Road to St. Ninians~
+You are on the road that leads towards St. Ninians church.
+The church used to be the home of the respectable, though
+slightly poor Churchmouse family, but it has been taken over
+by the hordes of {cC{Rl{cu{Rn{cy {xthe {PScourge{x.  {RRedwall{x
+Abbey's walls are visible to the east.
+~
+0 0 2
+D1
+The road continues east.
+~
+~
+0 0 10104
+D3
+The courtyard of St. Ninians looms.
+~
+~
+0 0 10106
+S
+
+#10106
+The Courtyard of St. Ninians~
+This barren, sparse land is covered with rocky monoliths
+that have mostly been defaced by the rats, ferrets, weasels,
+and stoats in {cC{Rl{cu{Rn{cy{R'{cs{x army.  The church itself
+looms to the west.
+~
+0 0 2
+D1
+The road continues east.
+~
+~
+0 0 10105
+D2
+The courtyard continues.
+~
+~
+0 0 10107
+D3
+The courtyard continues.
+~
+~
+0 0 10109
+E
+monolith~
+This particular monolith says, "Harr, them Redwallers won't
+know what 'it 'em!  I, Bloodsnout will demolish 'em!"
+~
+S
+
+#10107
+The Courtyard of St. Ninians~
+This barren, sparse land is covered with rocky monoliths
+that have mostly been defaced by the rats, ferrets, weasels,
+and stoats in {cC{Rl{cu{Rn{cy{R'{cs{x army.  The church itself
+looms to the west.
+~
+0 0 2
+D0
+The courtyard continues.
+~
+~
+0 0 10106
+D3
+The courtyard continues.
+~
+~
+0 0 10108
+E
+monolith~
+This particular monilith says, "We're looking for a few good rats."
+~
+S
+
+#10108
+The Courtyard of St. Ninians~
+This barren, sparse land is covered with rocky monoliths
+that have mostly been defaced by the rats, ferrets, weasels,
+and stoats in {cC{Rl{cu{Rn{cy{R'{cs{x army.  The church itself
+looms to the west.
+~
+0 0 2
+D0
+The courtyard continues.
+~
+~
+0 0 10109
+D1
+The courtyard continues.
+~
+~
+0 0 10107
+E
+monolith~
+This monolith has inscribed upon it, "Looking for some booty?  Know
+the lay of the land?  Have a grudge against {RRedwall{x Abbey?  See
+{cC{Rl{cu{Rn{cy{x for details on how you can win fame, money, and etc."
+~
+S
+
+#10109
+The Courtyard of St. Ninians~
+This barren, sparse land is covered with rocky monoliths
+that have mostly been defaced by the rats, ferrets, weasels,
+and stoats in {cC{Rl{cu{Rn{cy{R'{cs{x army.  The church itself
+looms to the west.
+~
+0 0 2
+D1
+The courtyard continues.
+~
+~
+0 0 10106
+D2
+The courtyard continues.
+~
+~
+0 0 10108
+D3
+St. Ninians church rises out of the ground.
+~
+~
+0 0 10110
+S
+
+#10110
+St. Ninians Church~
+The inside of the church is in massive disrepair.  The pews
+have been overturned, smashed, or both.  The altar is in
+really sad shape.  Mud is everywhere.  A chair has been set up
+beyond the altar where {bC{Rl{bu{Rn{by{x can sit when he is not
+at the {Pbattlefield{x.
+~
+0 D 0
+D1
+The courtyard lies to the east.
+~
+~
+0 0 10109
+E
+altar~
+One side of the altar has been smashed inward, and there
+is a great gash in the top.
+~
+S
+
+#10111
+A small path through Mossflower~
+Af first the {bw{Wo{bo{Wd{bs{x seem {cdark{x and {Nunfriendly{x, but upon
+closer inspection you notice {GW{Ho{Po{bd{Gl{Ha{Pn{bd{Ge{Hr{Ps{x scurrying
+about, doing tasks, and you can hear {Bbirds {Ychirping{x off in the distance.
+There are two things you find interesting, as you glance at a {bstump{x to the
+north, you see some little spiked creatures that seem to have occupied it.
+After referring to your handy {GMossflower Creatures Guide{x, you realize that
+they are {bHedgehogs{x.  Outside the stump there is a {Csign{x.  The other
+thing you notice is a hole in the ground on your right side, which looks
+a lot like a den.  It also has a little {Csign{x by it.
+~
+0 A 3
+D0
+~
+~
+0 0 10112
+D1
+~
+~
+0 0 10114
+D3
+~
+~
+0 0 10100
+D5
+~
+~
+0 0 10113
+E
+woods dark unfriendly~
+These woods are actually peaceful and friendly, you guess it was just the
+sudden loss of bright sunshine that made you feel uneasy.
+~
+E
+woodlanders scurrying tasks~
+Cute little woodlanders, squirrels, hedgehogs, mice, and other little creatures
+run around you, busily looking for things.
+~
+E
+birds~
+Ah, the lovely sound of birds chirping on a nice, warm day.
+~
+E
+hedgehogs hedgehog family~
+Hedgehogs are cute little spiked animals that live from about 8-12 years. They
+eat almost anything, and know how to rough it, just LOOK at that stump!
+~
+E
+stump log~
+A stump is a tree that has been chopped down, or died and fell over. :)
+~
+E
+sign signs~
+The signs read '{CThe Stump Family{x' and '{CBasil Stag Hare's Den{x.'
+~
+E
+den hole dirt ground~
+The hole in the ground seems to lead into a room below the ground, go check it
+out!
+~
+S
+
+#10112
+End of a small path through Mossflower Woods~
+As you continue on through the forest of {bM{Ho{bs{Hs{bf{Hl{bo{Hw{be{Hr{x woods,
+you draw to the end of the path.  To the north lies mere trees and brush.
+Turning back, at this point, would be a wise choice.
+~
+0 A 3
+D2
+~
+~
+0 0 10111
+E
+mossflower wood~
+'Tis a spectacular forest.  You wish you could stay forever.. hey! why not?~
+S
+
+#10113
+Basil's Den~
+One thing that you definitely notice is that this is the messiest
+hole you've ever seen in your life. There's a nice {Bb{Vl{Ba{Vn{Bk{Ve{Bt{x in the
+corner for napping, and a small {Gtable{x on your left. There's a small 
+{Pf{Yi{Pr{Ye{x burning, and a {Ppot{x steaming away with the {Baroma{x of {GMint {bTea{x.
+Basil must be due back soon.
+~
+0 ACD 3
+D4
+~
+~
+0 0 10111
+E
+table left~
+The table looks VERY sturdy.
+~
+E
+blanket corner~
+Doesn't it just make you want to take a nap?
+~
+E
+fire~
+Ouch! HOT!
+~
+E
+pot~
+Is that silver?
+~
+E
+mint tea aroma~
+mmmmm..  Smells just lovely, bet it tastes good too!
+~
+S
+
+#10114
+On the shoreline of River Moss~
+The rushing sound of {Cwater{x fills your ears as you walk along the {Bdeep {Nabyss{x.
+Otters playing off in the distance can be heard, and fish can be seen swimming
+in the river.  To the east there is a piece of wood sticking out of the water,
+with something resembling a {Pcrow's nest{x on top.  Looks like a scuttled {Gs{Hh{Gi{Hp{x.
+~
+0 0 3
+D0
+~
+~
+0 0 10115
+D3
+~
+~
+0 -1 10111
+E
+rushing water river deep abyss~
+The river is massive, and it sounds like there's a waterfall way off in the
+distance.
+~
+E
+otters~
+Frolicking off in the distance, otters can be heard having underwater breathing
+contests and such.
+~
+E
+fish~
+IS THAT A PIKE?!!?
+~
+S
+
+
+#10115
+Along a dusty, stone flecked path~
+You are on a small path leading up from the river.
+Off in the far distance you can make out a huge {cgorge{x, go check it out!
+~
+0 0 2
+D0
+~
+~
+0 0 10116
+D2
+~
+~
+0 0 10114
+E
+gorge~
+Looks really big, and you can make out a ladder going down into it, also a worn
+path.
+~
+S
+
+#10116
+Walking on the stone flecked path~
+The gorge off in the distance, from what you can see, is actually an old stone
+quarry!  A massive sight indeed!
+~
+0 0 2
+D0
+~
+~
+0 0 10117
+D2
+~
+~
+0 0 10115
+E
+quarry old stone~
+Go check it out!  be careful though!
+~
+S
+
+#10117
+Mouth of the stone quarry~
+Inside the qarry all you can see is baren wasteland, and it doesn't look too
+exciting. Wait! Did you just see something down there? Just in front of
+you there is a nice leather ladder leading down in the {cdark depths{x.
+~
+0 0 3
+D2
+~
+~
+0 0 10116
+D5
+~
+~
+0 0 10118
+E
+ladder leather~
+That looks stong enough to hold a dragon!
+~
+E
+dark depths~
+Goes a ways down,  still pretty cool, go check it out, muaahahahaha!
+~
+S
+
+#10118
+Inside the quarry~
+Looking around you can see the {Hodd thing{x move, making you terribly nervous.
+To the west, the quarry continues on, and also to the east.  To the north though,
+there is a {chole{x in the side of the quarry obviously made up to be hidden,
+but still rather easily spotted.
+~
+0 0 4
+D0
+~
+~
+0 0 10121
+D1
+~
+~
+0 0 10120
+D3
+~
+~
+0 0 10119
+D4
+~
+~
+0 0 10117
+E
+hole side~
+Looks pretty creepy, i wouldn't go in there unless i was a fearless fighter like
+you!
+~
+E
+odd things~
+Can't be anything too much... muahahahaha!
+~
+S
+
+#10119
+West side of quarry~
+As you look around, you see nothing but barren land and stone.
+What was that you just saw? This place give you the creeps.
+~
+0 0 4
+D1
+~
+~
+0 0 10118
+E
+that just saw~
+Looked like a snake's tail!
+~
+S
+
+#10120
+East side of the quarry~
+Nothing but barren land and stone. What was that you saw out of the 
+corner of your eye?
+~
+0 0 4
+D3
+~
+~
+0 0 10118
+S
+
+#10121
+At the entrance of a hole~
+The hole in the ground is smoothe and you're sure that if you go down there,
+you'll find something. It looks a lot like a lair. Are you up to the 
+challenge? Go down, you'll live! -maybe.
+~
+0 D 4
+D2
+~
+~
+0 0 10118
+D5
+~
+~
+0 0 10122
+E
+lair~
+*shudder* don't go in unless you're BIG N' TOUGH.
+~
+S
+
+#10122
+Inside the lair.~
+Echoing around, you can here something chanting continuously,
+           Assssmooodeeeeuuuusssssssssss....
+                           Assssmmmooooddeeeeeuussssssssssss.
+What's that smell?
+~
+0 AD 0
+D4
+~
+~
+0 0 10121
+D5
+~
+~
+0 0 10123
+E
+smell~
+Guess you'll have to go down and find out!
+~
+S
+
+#10123
+At the opening of a wide chamber~
+At this point most people on Thera would run for their lives.  There's a
+HUGE ADDER sleeping within a foot of you.  Every step you make, it stirs.
+One of its eyes seems to be open just a bit, and the light protruding
+is following you around.
+~
+0 AD 0
+D4
+~
+~
+0 0 10122
+E
+adder~
+oh, nothing much, just a HUGE poisonous snake, you could take 'em any day.
+-Oh, you're not dead yet?
+~
+S
+
+#10124
+A spiral stone staircase leading upwards~
+You can barely see anything.  As you travel these steps, you feel as if you
+are being transported to a distant place, slowly, as you work your way along.
+These stone steps look ancient, and yet extremely clean, almost dust free. The
+air is very clean, and you can smell the slight scent of forest in the distance.
+You feel the presence of very strong magic here.
+~
+0 D 0
+D4
+You can see some faint light, and can smell forest.
+~
+~
+0 0 10100
+D5
+~
+~
+0 0 19904
+S
+
+#0
+
+
+
+#RESETS
+
+M 0 10100 10 10101 2 * rat to ditch
+E 0 10103 50 18      * curse
+M 0 10100 10 10103 2 * rat to ditch
+E 0 10103 50 18      * curse
+M 0 10100 10 10109 2 * rat to road
+E 0 10103 50 18      * curse
+M 0 10100 10 10114 1 * rat to woods
+E 0 10103 50 18      * curse
+M 0 10100 10 10116 1 * rat to quarry
+E 0 10103 50 18      * curse
+M 0 10101 10 10100 2 * ferret to entrance
+M 0 10101 10 10102 2 * ferret to ditch
+M 0 10101 10 10106 2 * ferret to courtyard
+M 0 10102 5 10107 2 * stoat to courtyard
+M 0 10102 5 10103 1 * stoat to ditch
+M 0 10103 5 10108 2 * weasel to courtyard
+M 0 10103 5 10102 1 * weasel to ditch
+M 0 10104 1 10110 1 * cluny to church
+E 0 10102 25 10     * snakeskin sleeves
+E 0 10115 25 6      * cluny's helmet
+E 0 10116 25 3      * ragged batwing cloak
+M 0 10105 5 10115 2 * shrew to path
+M 0 10105 5 10116 1 * shrew to rat
+M 0 10106 1 10101 1 * darkclaw to ditch
+M 0 10107 1 10104 1 * redtooth to road
+M 0 10108 1 10105 1 * cheesethief to road
+E 0 10100 25 13     * cheesy leggings
+M 0 10109 1 10110 1 * scrag to road
+E 0 10101 25 8      * dirty boots
+M 0 10110 1 10114 1 * stryk to river
+E 0 10104 2 17      * feather  
+M 0 10111 1 10107 1 * tsarmina to courtyard
+E 0 10105 2 17      * cattail
+M 0 10112 1 10109 1 * fortunata to courtyard
+E 0 10107 25 13     * healing pouch
+M 0 10113 1 10123 1 * asmodeus to quarry
+M 0 10114 1 10113 1 * basil to his den
+E 0 10106 2 17      * rabbit's foot
+M 0 10115 1 10106 1 * matthias to courtyard
+E 0 10112 3 11      * shield of martin
+E 0 10121 10 16     * sword of martin
+
+S
+
+#SHOPS
+
+0
+
+#SPECIALS
+
+M 10113 spec_poison  * Asmodeus
+
+S
+
+
+#$
+
+

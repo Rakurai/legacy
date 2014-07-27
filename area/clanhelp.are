@@ -1,0 +1,1076 @@
+#HELPS
+
+0 CLAN~
+   A {PClan{x is a family with a collection of players, united to follow
+and further a common cause.   Each {PClan{x has rules and regulations, to find
+out more about Clans and their '{Gbeliefs{x' type "{Phelp{x <{Yclan name{x>".
+To join a {PClan{x you  must be at or above level 15.  Speak to a {PClan Leader{x 
+or a {BClan Deputy{x about joining; however, if you are unable to speak to them, 
+please note them that you wish to join their {PClan{x.
+
+   If you find you have joined the wrong {Pclan{x for some reason, you may
+be expelled from your {PClan{x and be free to look around for another {PClan{x
+
+   Joining a {PClan{x is a dangerous step.   Many adventurers live to
+kill and torture others and chances are that your paths will cross.
+Remember, attacking or killing fellow {PClan members{x is generally frowned upon,
+and may bring {Ph{Ra{Pr{Rs{Ph{x punishment upon you from your clan leaders.{x
+
+   If you want to create a clan, check out {YHELP STARTCLAN{x for more
+information.
+
+   {PClans{x may on occasion engage in {RClan Wars{x. There are detailed and
+explicit rules for conduct of a {RClan War{x. Type help '{YCLANWAR{X' to see them.
+~
+
+0 STARTCLAN FOUNDING~
+At {BL{Ce{gg{Wa{Cc{By{x, enhancing your experience with role-playing is one of the
+many aspects of making this the best possible mud you will ever find.
+Joining an existing clan, or starting your own, can be a very 
+rewarding experience for most players.  However, to ensure and
+preserve the clan system's quality as a whole, there is a system to
+starting a new clan.
+
+{W1.{x Your clan must have a {Ppurpose{x.  All clans should be {Vrole-play 
+   oriented{x, and it's {Gname{x and {Ybackground{x must reflect that.  A
+   helpfile will be required of your clan which includes explanations
+   of at least (but not limited to) the
+   
+         {CI.   Background / History 
+         II.  Rules / Principles
+         III. Ranks / Hierarchy Structure{x
+   
+   All of the above need to well-thought out and really explain to
+   the immortals as well as the mud as a whole why your clan deserves
+   space to be recognized, and why players should choose your clan.  
+   Uniqueness of roleplay will always be an important factor.  
+
+{W2.{x You will need the following support in terms of {Gplayers{x:
+          
+         {W2 {YLeaders{x (50+ levels)
+         {W5 {BMembers{x
+        {W10 {VLetters of Support{x from non-members
+         
+      {CNote:{x each player may only give support from ONE alt and each
+            alt may only count for ONE category
+    
+{W3.{x  You will need to meet the following requirements in terms of
+    wealth (to be derived from any combo of the original 7 members)
+    
+         {Y1000   Quest Points  {B::half of the amounts return to clan::
+         {Y10000  Gold{x          {B::to begin clanqp & clanbalance acct::
+
+{W4.{x  At this point, you are ready to send in your request with all of
+    the above requested information to {CLegacyImms@yahoo.com{x.  The    
+    chance of your clan being approved rests on many factors,
+    including space available for clans, fulfillment of requirements,
+    and general overall playerbase support.  
+
+{W5.{x  If your clan is approved, the fees in {YQP{x and {YGold{x will be taken
+    from the characters at this time.  In return, you shall receive
+    the default clanhall as well as 10 pieces of clan equipment, 
+    which your leaders shall design.   When these are done, send them
+    to {CLegacyImms@yahoo.com{x, to get them implemented ASAP.
+    
+{W6.{x  By now, your {Pstruggle{x is almost over.  Your last hurdle shall be
+    your probationary month, during which your clan must gain at
+    least {B10 members{x total (not including alts).  At the end of this
+    month, if you have passed all six of the steps ... 
+    
+            {WC{CO{BN{VG{PR{YA{GT{WU{CL{BA{VT{PI{YO{GN{WS{C!{B!{V!  {GYou will have a new clan{Y!{B!{C!{x
+
+{YSEE ALSO:{x Help CEQ, Help Chall
+~
+
+0 CLANHALLS CHALL~
+{CClanhalls{x
+
+Clans are entitled to many luxuries, one of them being a clanhall. In
+the near future, clanhalls will be able to be invaded in times of war.
+However for now, they are safe havens for clanmembers to rest, relax, 
+and congegrate with other members.
+
+Each {Gdefault clanhall{x starts out with:
+
+         20 rooms
+          2 clanpills
+          1 healer (lvl 100)
+          1 trainer
+          1 eq shopkeeper
+             * 10 pieces of eq (help ceq for more details)
+          1 food shopkeeper
+             * 10 items of food/drink 
+          1 piece of furniture
+          1 fountain
+            
+However, {Vmuch more{x can be purchased, at the {YQP{x price of:
+
+         Extra Rooms             50 each
+         Juke Box                50
+         Fountains               75
+         Furniture              100
+         Portals (max 3)        100
+         Clan Sage              200
+         Money Changer          100
+         Locker/Bank access     200
+         Anvil                  750
+         Clan Pit               250
+         Clan Arena             100 per room
+         Pet Shop               200 + 100 per pet
+         Shopkeeper             200 + 20 per item sold
+           (for bags etc) 
+
+{BNotes:{x
+
+Healers can be upgraded at {Y10k gold{x per level.  Each 10th level
+requires {Y200qp{x as well.
+
+Furniture may only have a maximum of {G100{x over normal {Cregeneration{x,
+distributed any way you choose.  Examples - 150/150, 120/180, 100/200
+are all allowed.
+
+Clan Anvils have a {YQP{x cost of only {Y3{x per each attempted {Pflag forge{x.
+
+All items sold must be cleared with the {WHead Builder{x.  The extra
+shopkeeper shall only be used for miscellaneous, grocer type items.
+
+{YSEE ALSO:{x Help Claneq, Help Clanprice 
+~
+
+0 CLANPRICES CPRICE~
+{CClan Prices{x
+
+
+Besides adding to the clanhall, clanqp and gold can be spent to
+enhance or add to claneq, as well as obtain a very interesting
+variety of items and conveniences.  
+
+
+{BEnhancement{x of {CClan Equipment{x
+
+You may buy extra points to {Benhance{x your {Cclan equipment{x at {Y100 QP{x each.
+Each {Vpiece{x of equipment can have no more than {Gdouble{x it's original
+point value.  
+
+{GExample:{x A {Plevel 10 ring{x starts out with 3 points.  You can add up to
+         another 3 points, for {Y300 qp{x.
+
+
+{VAdditional {CClan Equipment{x
+
+Additional pieces of eq can be bought (with their starting point 
+value included) for {Y200 qp{x each for the {Pfirst five{x, and then an
+extra {Y200 qp{x per piece each time you exceed another {P5{x.  For {Gexample{x,
+if you want to buy another {V10 pieces{x of {Beq{x, the first {P5{x would cost
+{Y200 qp{x each, the next would cost {Y400 qp{x each.
+
+You may not have more than {G30 pieces{x of {CClan EQ{x.
+
+
+{YSEE ALSO:{x Help Claneq, Help Clanhall
+
+~
+
+0 CLANEQUIPMENT CEQ~
+{CClan Equipment{x
+
+Each clan starts out with 10 pieces of eq, which they can design using a 
+point system.
+
+Each point allows one of the following: 
++1 str, int, wis, dex, con or chr. 
++10 hps, mana, or move 
++2 hit or dam 
++1 hit AND +1 dam 
+-1 saves
+-3 armor class 
++1 age
+
+The allocated points by level of item are: 
+
+    {BLevel Range               {VDefault Points{x 
+       1 -  9                        2	
+      10 - 19                        3 
+      20 - 29                        4 
+      30 - 39                        5 
+      40 - 49                        6 
+      50 - 59                        7 
+      60 - 69                        8 
+      70 - 79                        9 
+      80 - 90                       10
+
+{PRestrictions:{x 
+1) An item cannot have HR or DR greater than 1/10th of its level.
+2) Total stats (eg. str, int, etc...) added together cannot be greater 
+   than 1/10th of the item's level. 
+3) The total of saves cannot be greater than 1/20th of the item's level,
+   rounded down to the nearest whole number.
+4) Armor class cannot be greater than 1/10th of the item's level. 
+5) Total hp, mana and moves cannot be higher than the level of the item. 
+6) An item cannot have age greater than 1/20th of its level, rounded down
+   to the nearest whole number.
+
+{GExample:{x A level 50 piece of eq starts out with 7 points.  Therefore, it 
+could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
+However, it could NOT have any more than 50 hp, because of restriction 
+number 5. 
+
+Also, negative points CAN be used to add points for other affects but 
+within the same group only and with a 50% payback rate.  You gain 1
+point per 2 negative points you take.  Max negative points that can be
+used to compensate is 1/20th of the item's level.  Note that restrictions
+cannot be exceeded with this method.
+
+{YSEE ALSO:{x Help Clanweap, Help Clanprice
+~
+
+0 CLANWEAPONS CWEAPONS~
+{CClan Weapons{x
+
+Your clan may choose to create it's own clan weapons, maximum 
+of two per clan.  Each clanweapon you choose to design costs
+{Y300 QP{x.  The stats and restrictions on them are as follows.
+
+{PAverage damage{x
+
+{GLevel:            {BDice:            {VPoints:       {CAverage:{x
+1-9               1d10               1               5
+10-19             2d10               2              11
+20-29             3d10               3              16
+30-39             4d10               4              22
+40-49             5d10               5              27
+50-59             6d10               6              33
+60-69             7d10               7              38
+70-79             8d10               8              44
+80-91             9d10               9              49
+
+All clanweapons will be set to these damages, no exceptions.
+
+{VPoints:{x any listed for help ceq, same restrictions
+
+{CFlags:{x Maximum of 2 per weapon
+       The first flag costs 2 points
+       The second flag costs 4 points
+
+Acceptable damage types:
+
+{BBASH               {GSLASH               {VPIERCE{x
+beating            chop                bite
+blast              claw                chomp
+charge             cleave              peck
+crush              grep                pierce
+peck               slash               scratch
+pound              slice               stab
+punch              whip                sting
+slap                                   thrust
+smash
+suction
+thwack
+
+
+{YSEE ALSO:{x Help Claneq, Help Clanprice
+~
+
+15 CLANQP~
+Syntax:
+{x   {Cclanqp{x
+{x   {Cclanqp donate{x <{Yamount{x>
+
+The {Cclanqp{x command enables clanmembers to donate questpoints to their clan.
+The clan can then decide on what to spend the questpoints, for example on a 
+clan anvil.  Without an argument, {Cclanqp{x will show the current gold and
+qp that your clan possesses, along with other useful information.
+~
+
+0 CLANDEPOSIT~
+Syntax:
+{x   {Cclandeposit {x<{Yamount{x>
+
+{CClandeposit{x allows you to donate gold to your clan.  The amount you
+donate must be gold that you carry on your person, and there must be a
+bank at the location that you are standing.  To see the current amount
+of gold in your clan's account, use the {Cclanqp{x command.
+~
+
+0 WAR CLANWAR~
+
+{x
+{R    "It was a cold morning, the kind where the wind just cuts
+     through your body as if you were butter.  Cannons were firing
+     off in the distance, accompanied by the thunderous pounding of
+     horses' hooves.  Two groups of people, gathered on two 
+     opposite hills, slowly faced off.  Suddenly, a cry pierced the
+     silence, and the battlers charged towards each other, meeting
+     with a tremendous crash as grunts of effort and cries of pain
+     filled the air.  Yes, war had fallen upon us again ... "{x
+                                    
+{g                                       - {PAnonymous Diary{x
+
+Syntax:  {Cwar list
+	 war history
+	 war events {W<{Ywar number{W>{x
+
+Being in a clan has many benefits, but it also requires that you defend
+your clan in times of war.  Wars can be declared by any clan on any 
+other clan, by a simple majority vote of leaders.  Being involved in a
+war means you are open to attack at any time by a member of the opposing
+clan, and is a very serious struggle between two or more clans.  War is 
+not to be taken lightly.
+
+{CWar list{x lists all the current wars going on at this time.  The
+challenger is listed first, and then the defender, with each respective
+score listed by the clan name.  If there are none, you will see a 
+message saying that Legacy is at peace.
+
+{CWar history{x lists the history of all the wars that have been fought on
+Legacy in numbered format.  It uses the same format as war list.
+
+{CWar events{x shows you each individual event that comprises the war.  
+During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
+decreases the score of {BClan B{x.  The first clan that reaches a score of
+{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
+variety of factors, one of them {PPK rating{x.
+
+Each completed war results in a transfer of {GFame{x from the defeated clan
+to the victorious clan.  Also, they each respectively lose and gain {PMight{x
+depending on how drastic the win was.
+~
+
+0 CLANPOWER~
+Syntax:
+{x   {Cclanpower{x
+
+{CClanpower{x displays the graphed power of the various clans of Legacy.
+Four factors determine the overall power of a clan:  {CSize{x (number of
+members), {GFame{x (clanqp), {YWealth{x (clangold), and {PMight{x (war points).  
+
+The current ranking of each clan as compared to the others is represented
+using black bar graphs (so you may need to change the background color of
+your mud client).  Each factor is weighted equally in determining overall
+clan ranking, and the clans are listed in order of decreasing power.
+~
+
+0 CLANLEADERSHIP LEADER DEPUTY~
+
+Each clan may have one to {Gthree{x leaders, and up to {Gfive{x deputies.  The
+{Yleaders{x usually are the founders of the clan, but sometimes others will
+step up to assume leadership.  They {Vrepresent the clan overall{x and their
+commands are followed without question.  {BDeputies{x are essentially the
+{Vsecond-in-command{x.  They do not choose clan policy or direction, but 
+instead, help with recruitment and monitoring of members.  Each {Cclan{x has
+it's own method of choosing {Yleaders{x and {Bdeputies{x, whether it be by vote
+or selection.  However,  the following notes must be received from the
+immortals for the {Cselection{x or {Premoval{x of a player to be valid.  Beware
+who you place in leadership positions, for they represent your clan.
+
+The {Cselection{x of a {Bdeputy{x requires one leader's approval.
+     (Deputies must be over level {G50{x)
+To {Premove{x a deputy requires all leaders' approval.
+
+The {Cselection{x of a {Yleader{x requires all leaders' approval.
+     (Leaders must be at over level {G91{x)
+To {Premove{x a leader requires all deputies' approval.
+
+Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
+{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
+
+Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
+Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
+
+{YSEE ALSO:{x Help Join
+~
+
+0 JOIN UNJOIN RANK~
+Syntax:
+   {Vjoin{x <{Yplayername{x>
+   {Vunjoin{x <{Yplayername{x>
+   {Vrank{x <{Yplayername{x> <{Ycode{x>
+   {Vrank{x <{Yplayername{x> {Ynone{x
+
+These commands help sort out the ranks of clans and their members.
+
+The code in the rank command is limited to a {Pthree character word{x which
+can only be set by {Cleaders of clans{x on their clan members.	{CLeaders{x are
+urged to treat this as a privilege granted to only the best clan members.
+The {Vrank player {Ynone{x command will clear their rank.
+
+{YSEE ALSO:{x Help Leader
+~
+
+0 INVITE~
+Syntax: {Vinvite{x <{Yplayer{x>
+	{Vinvite{x accept
+	{Vinvite{x decline
+	{Vinvite{x terminate
+	{Vinvite{x terminate <{Yplayer{x>
+
+By using the invite command, a {Cleader{x of a clan can allow a player who is not
+a member of the clan to enter the clan hall.  The player who receives an
+invitation can either accept or decline the invitation.  By accepting the
+invitation, the player agrees to pay a fee of {C100 gold{x.  If at any time you
+wish to end your invitation after you have accepted it, just use the termination
+command.  In addition, a leader can terminate an invitation at any time.
+
+The person who requested  a non-clan member to be invited will be held
+responsible for the conduct of the non-clan member while they are
+visiting. That person will know the whereabouts of the non-clan member at
+all times to ensure that the integrity of the invite command is not
+compromised in any way. Punishment for any violation will be the
+responsibility of the leader who ordered the invite command for the
+non-clan member.
+~
+
+0 CLANRECALL~
+Syntax: {Vclanrecall{x
+
+This returns a person to their {PClan{x hall.
+~
+
+0 CLANLIST~
+Syntax:
+
+   {Vclanlist{x
+   {Vclanlist{x <{Yclan{x>
+
+{VClanlist{x without an argument will show all current {PClans{x and all
+disbanded {PClans{x.  {VClanlist{x with an argument will show the current
+members of a given {PClan{x.
+~
+
+0 CLANTALK~
+Syntax: {Rclantalk{x {Ymessage{x
+	{Rclantalk who{x
+	{Rclantalk{x
+
+This command is for communication among clan members. Your {Ymessage{x
+will be heard by all others in your clan, if they have their clantalk
+channel turned on.
+
+Typing {Rclantalk{x without any messages turns the channel off for you
+if you don't want to hear from your clan, or turns it back on if off.
+
+{Rclantalk who{x will tell you who else is tuned in to this channel
+at the moment.
+~
+
+0 ORDER BLUEROSE~
+
+The Order of the Blue Rose 
+ 
+        {C_,--._.-,
+       {B/\_r-,\_ {C)
+    {B.-.) _;='_/ {C(.;
+     {B\ \'     \/S {C)
+      {BL.'-. _.'
+     {N<_`-'\'_.'/
+       {N`'-._( {H\
+              {H\{G\       ___
+               {H\{G\   .-'{H_.{G /
+                {H\{G\ /{H.-'{G_.'
+                 {H\{G('--'
+                  {H\{x
+
+
+
+Fortified through contless travails we stand strong;
+Bound by honour,
+Tempered by wisdom,
+Diverse in origin and profession,
+United in vision and purpose,
+In search of truth,
+We protect and serve Thera and her denizens.
+We are the Order of the Blue Rose.
+
+
+Ranks of the {NB{Blu{Ne {NR{Bos{Ne{x
+
+[{NR{Ce{Nc{x] Recruit, (level 15 to 20) The "Newbies" of the clan. This phase is
+       used to teach the players devotion to the clan and hone their abilities.
+[{NS{Cq{Nr{x] Squire, (level 21 to 50) The "Knights in Training":The true phase of self
+       progression, wherein physically and mentally the player grows toward
+       Knighthood.
+[{NK{Cn{Nt{x] Knight, (level 51 to 91) The "Knight": Finally a true warrior is granted
+       with this fine title, All the leaders must agree that the Player is
+       worthy of the title, for now the member is allowed to have more freedoms
+       and powers than ever before...
+[{NM{Cs{Nt{x] Master, (level R1 15 to 40) The "Master" These fine members are capable
+       of overruling the lower member levels of the clan at wars. Of course,
+       this does not entitle the masters to control the lower level players, but
+       in times of war, those with greater experience and knowledge will be
+       given more authority to determine war strategies, as well as who actually
+       fights. Of course, even a Master would have to bow before Tac's, for the
+       latter specialises in military tactics
+After R1 level 40, players may have whatever rank they wish.
+
+Also:
+Guardian [{NG{Cu{Na{x]  Those who have shown great skill at PK
+Lord Wizard [{NL{Cr{NW{x]  Those who make scrolls and potions for the Blue Rose.
+Recruiter [{NR{Cc{Nt{x]  Those who go about newbies to recruit them for our order
+General [{NT{Ca{Nc{x]   ( Tactical Advisor )
+Ambassador [{ND{Cm{Nt{x]   ( Diplomat ) Important for forging alliances and treaties.
+Leader [{YLDR{x]
+
+
+A Word of Warning:
+
+We, bound by blood and mutual honour, serve as the guardians of justice and 
+the people. Those who attack us are at war with all good people of Thera. 
+This includes, but is not restricted to, those who sideswipe us or engage us
+in warfare. With this in mind, those who do evil are due neither our respect
+nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
+{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
+to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
+existence. If this means that we get a few {RKILLER{x flags, so be it. We 
+will defend our clan by any resources of strength, sorcery and stealth that
+we can muster. Otherwise, we will be honourable with our opponents, accepting
+their surrenders graciously. Individuals who offend us shall be placed onto
+the List of the Black Rose; these fallen lot shall be subject to our extreme
+ill will and we will take every opportunity to kill them. Redemption shall be
+at OUR discretion.
+
+As for honour in METHODS of PK, understand this -- the object of ANY PK
+combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
+Anything goes in PK; whoever says otherwise is lying to themselves. We don't
+advocate breaking the rules, but otherwise anything goes. Any trick, tool or
+resource at our command shall be used to defend our clan and the innocent in
+the most efficient way possible. This is our code of honour, and woe to those
+who would impugn it.
+
+
+{YSEE ALSO:{x Help OrderHistory, Help OrderRules
+~
+
+0 ORDERHISTORY~
+
+{NT{Bh{Ne {NH{Bi{Cs{Wt{Co{Br{Ny of t{Bh{Ne {NO{Br{Cd{Be{Cr of t{Bh{Ne {NB{Blu{Ne {NR{Bos{Ne{x
+
+Thera. A world of beauty, of plenty, of happiness...
+   The world was perfect in almost every aspect. The only thing that marred
+its perfection was the people who walked upon it. They loved, they hated,
+they gave birth and they brought death. All in mere seconds on a cosmic
+scale did they grow and die, yet they changed the face of Thera forever.
+These people, of many races, tended to be social animals and developed
+into groups known as clans. These clans brought war upon one another, They
+began to destroy the face of Thera. But one clan sought to cure this
+disease: the {MK{xn{Mi{xg{Mh{xt{Ms {Xof the Dizzy {MTable{x. Under the rule and guidance of
+Queen Buttercup, they fought for what was right and true. And for a while
+they won.
+   Alas, the evil clans quickly gained in strength and determination. The
+defenders of Thera were quickly shackled, both from without and from
+foolish rhetoric and squabbling from within. Likewise, in the heavens
+corruption took root as the powers of Righteousness were overwhelmed by
+power-maddened djinn. Finally, one of the princes, Brian,
+denounced the rhetoric that forbade the killing of unwary foes. As he and
+a few other {MK{xn{Mi{xg{Mh{xt{Ms{x led by the {CS{Ym{Cu{Yr{Cf{Y Lord{x Doom began to fight back against
+the dark armies, the tide began to turn. But alas, the djinn sought to
+hold the {MK{xn{Mi{xg{Mh{xt{Ms{x to that foolish ban, and laid a curse upon the very
+grounds of their clan hall. Being thus forbidden from effectively
+defending their clan,  the {MK{xn{Mi{xg{Mh{xt{Ms{x were left no choice but to flee and
+turn westward, taking Queen Buttercup with them in search of a place to
+hide and regroup. But the darkness has many forms. Disman, once a member
+of this holy order, had turned to the darkness.He gave the Queen a red
+rose that was laced with a tailored poison.
+   It was not meet to merely kill the Queen outright, for she would become
+a martyr and thus would the {MK{xn{Mi{xg{Mh{xt{Ms {Xof the Dizzy {MTable{x fight all the
+harder to destroy her murderers and avenge her. Rather, a slow decline
+would distract and thus dispirit her loyal vanguard. And so she fell
+deathly ill on the exodus.
+   Even then the enemy pursued them. Just as the queen collapsed, one of
+the dark princes, accompanied by a black-cloaked sorcerer, sought to
+dispatch her with a dagger. Seeing this, Brian intervened, drawing his
+sword and cleaving both dagger and Dark Prince in one lightning-swift motion, but not before he uttered his last words, "May the most
+beautiful flower kill the most beautiful coward". On the queen's other
+side, {YLord{x Doom dispatched the sorcerer.
+--------------------------------------------------------------------------
+   That night, in the mountains the {CH{Yo{Cl{Yy {CS{Ym{Cu{Yr{Cf {YLord {xKung Fu, the {BLord
+Wizard{x Laurana and {YPrince{x Brian called upon healing magicks and placed
+their queen into stasis, keeping her alive until they could find a cure
+for the weakness that had permeated her body.
+   Brian, Lord Doom, Lord Kung Fu and all of the other {MK{xn{Mi{xg{Mh{xt{Ms{x vowed upon
+that day to change forever. To reshape Thera forever. Never to hide behind
+the lies and fantasies of others again. To build a new life for themselves
+and their families, and create a new world in which justice could triumph
+over evil and all could know peace. But first, they had to find a place to
+live...
+   Anon a beautiful, dark-haired lady came along. "Greetings, friends," she
+called, smiling at both Lord Kung Fu and Prince Brian. "What do you seek
+in this forest?"
+   "Milady," Brian replied, bowing to her, "we seek sanctuary for ourselves
+and our queen; she has been poisoned and must rest and regain her strength
+or die."
+   "Also," added Lord Kung Fu as he duplicated Brian's gesture of respect,
+"we are pursued by a force of demons and djinn. We must find a place
+wherein we can regroup and regain our strength to better defend ourselves
+against their depradations."
+   The lady nodded gravely, studying each {MK{xn{Mi{xg{Mh{xt{Ms{x in turn. "Yes, you serve a
+worthy cause. This being the case," she continued, "know that I, too, came
+here to find sanctuary against vile djinn who sought to corrupt my efforts
+to serve mortals through magick. When I would not bend to their will, they
+stripped me of all but enough of my power to come over to this forest
+which is now my home."
+   The {MK{xn{Mi{xg{Mh{xt{Ms{x told their story; when they had finished, the lady said, "We
+do indeed have a common foe, as well as a common ideal." She looked over
+the sleeping Queen thoughtfully, almost sadly. "Alas, my powers have not
+yet recovered sufficiently to fully revive your Queen. I do, however, know
+of a way to gradually restore her to health."
+   The lady led the {MK{xn{Mi{xg{Mh{xt{Ms{x over to a bush that grew blue roses. "These
+blue roses have medicinal properties. Just by breathing in their vapour,
+all but the most mortally ill or wounded will regain their strength. You
+may build your keep near this bush; be certain that Buttercup rests in a
+room with blue roses."
+   "Many thanks, milady," Brian said to the lady upon listening to her
+advice. "What may we do for you in return?"
+   "Remember your vow to yourselves and each other, as well as to your
+Queen," the lady responded. "And remember to treat the forest with care
+and respect since we are to be neighbours. Also Brian, Doom and KungFu, be
+sure to look after your comrades; for this world is dangerous and you'll
+need to keep your wits about you in order to survive. Only by sticking
+together can we survive and prosper.
+   "My name is {WL{Ci{Br{Ci{Te{Wl{x. I welcome you to Legacy." Embracing Brian and Kung
+Fu, the goddess of sorcery vanished, saying: "If ever you need guidance,
+feel free to ask me."
+
+   Thereafter, the Knights adopted the blue rose as their symbol, both as
+the flower that would heal their Queen and in honour of the goddess {WL{Ci{Br{Ci{Te{Wl{x
+whose teaching both Brian and Kung Fu held dear. Through {WL{Ci{Br{Ci{Te{Wl{x, the {NB{Blu{Ne
+{NR{Bos{Ne{x became synonymous with the new life Brian and the {CS{Ym{Cu{Yr{Cf {YLords{x sought
+for their people; hence, they became the {NO{Br{Cd{Be{Cr{x of the {NB{Blu{Ne {NR{Bos{Ne{x.
+
+{YSEE ALSO:{x Help Order, Help OrderRules
+~     
+
+
+0 ORDERRULES~
+Rules Of the Blue Rose
+
+{NR{Bu{Cl{Be{Ns Of t{Bh{Ne {NB{Blu{Ne {NR{Bos{Ne{x
+
+   We conduct ourselves in an upright, courteous manner and treat each other
+and others with respect, dignity and consideration. Be chary of your
+speech, for your word, once given, should be your bond as we frown upon
+hypocrisy. We advocate role-play but not to the point of offending others;
+if you are asked to stop role-playing something, {PSTOP{x! Role-play is no
+excuse for discourteous, foolish or otherwise immodest behaviour. Another,
+related caution is to be careful whom you role-play what in front of; you
+never know who might seek some sort of petty self-aggrandisement at the
+expense of our {NO{Br{Cd{Be{Nr{x. At the same time, keep a cool head; insults to self
+or clan are nothing more than hot air from a buffoon, and should not be
+mistaken for actual acts of war.
+   If you do wrong, admit it and face whatever consequences you reap from
+it; people will respect you for your integrity.
+   We may be a PK and War clan but this does NOT mean that we go round
+spoiling for a fight. We encourage our members to take any and all
+opportunities to practise PK, whether in {RFlaming Sword{x or in an Arena, as
+it is good to be ready to put all resources of strength, spells, stealth
+and cunning to use as needed. {PHOWEVER{x, we don't just run about insulting
+and challenging people hither and yon. Likewise, there is no disgrace in
+refusing a useless fight; violence, after all, is a last resort and MOST
+problems can be solved through cool reasoning and mutual co-operation.
+(More on our war policy later.)
+   We of the {NB{Blu{Ne {NR{Bos{Ne{x believe in gender equality. This means, among other
+things, that we expect a gentleman to treat a lady with respect, kindness
+and consideration. Naturally, we expect that our ladies shall be afforded
+the same courtesy. By the same token, in times of war, we will deal with
+women who war upon our clan with the same ruthlessness that we would
+afford her male colleagues; a female combatant, after all, is still a
+combatant, just like her male counterparts.
+   Above all, we are a family and community. We expect all who are loyal to
+our Queen Buttercup to leave their egos at the door; there is no "I" in
+"team" and we are all expected to serve the Order as best we can.  At the
+same time, if you need help, don't hesitate to ask those who can help you;
+after all, the betterment of each is a necessary condition for the
+betterment of all. Besides, what are comrades and friends for?
+   Respect your {YLords{x and {YPrinces{x ({YLeaders{x; female {YLeaders{x are still
+addressed as {YLord{x or {YPrince{x) and heed their advice, for they have seen and
+learnt more than you have and have your best interests (as part of the
+interests of the Order as a whole) at heart. If they say to abstain from
+fighting, for example, they generally have a good reason for their counsel;
+heed it as though the Leader were in fact an Immortal "enlightening" you;
+{YLeaders{x are, in fact, chosen for just this sort of wisdom.
+   Ranks (including that of {YLeader{x) are a {PPRIVILEGE{x, not a right. Therefore,
+treat them (and others about you) with respect. First-time offenders will
+receive a warning and/or a qp fine; repeat offenders will receive a stiffer
+punishment: a larger qp fine and/or revocation of rank, which the offender
+must earn over again (including {YLeadership{x), step by step, at the
+discretion of the Leaders. In extreme cases, expulsion may be an
+appropriate punishment.
+   The purpose of our {NL{Bor{Nd {NW{Bi{Cz{Wa{Cr{Bd{Ns{x is to, among other things, brew potions
+and scrolls for the clan. However, they are not in place solely to make
+life easier. Like rank, their services are a privilege that should be
+treated with respect. At the same time, we encourage our members to learn
+other ways of operating beyond merely the use of potions and scrolls;
+potions and scrolls are an ADJUNCT to a complete repertoire of fighting,
+not the repertoire itself.
+   {NA{Bm{Cb{Wassad{Co{Br{Ns{x are important for clan relations, treaties, alliances and the
+like. In this world, there is strength in co-operation and our {NA{Bm{Cb{Wassad{Co{Br{Ns{x,
+who foster it between and within clans, perform thereby an important
+function indeed. Moreover, we hold them sacrosanct and, as such, are NOT to
+participate in PK, especially during times of war. {NA{Bm{Cb{Wassad{Co{Br{Ns{x who
+voluntarily put up their PK flags will be  relieved of their diplomatic
+duties; theirs is NOT the business of war. At the same time, anyone who
+attacks, waylays or otherwise molests our {Na{Bm{Cb{Wassad{Co{Br{Ns{x is committing an act
+of war against our clan. As such, the offender will know the full wrath of
+the entire {NO{Br{Cd{Be{Cr{x of t{Bh{Ne {NB{Blu{Ne {NR{Bos{Ne{x; all competent PKers within the villain's
+PK range will seek the miscreant's life in any way they can. Molestation
+includes, but is not restricted to, war-time challenges and the placement
+of aggressive mobs in their path. Further interpretation shall be at the
+discretion of our {YLords{x and {YPrinces{x.
+   {NS{Bp{Ci{Be{Ns{x are to be hidden and sneaked at all times; as possible they should
+also be lurked, invisible and chameleon-cloaked. Their function is two-
+fold: gather information and practise lethal, pragmatic (read, dirty) PK.
+   {YLeaders{x should actively observe the rest of the clan; they should also
+meet on a regular basis to discuss clan business and membership.
+   We encourage our membership to learn as much as they can about Thera, in
+terms of eq, geography, skills, spells and questing. Naturally, we also
+expect them to learn new ways to PK.
+   Ours is a harsh world; the forces of evil may strike at any time.
+Therefore, we help each other in any way we can, whether by fetching eq,
+spelling each other up, grouping to level or teaching each other to PK.
+United we stand, divided we fall.
+   PK, whether during peacetime or war, is at the discretion of the {YLeaders
+{x {NT{Ba{Cc{Wtici{Ca{Bn{Ns{x and {NM{Ba{Cs{Wt{Ce{Br{Ns{x. While it is good to practise PK, that doesn't mean that we
+recklessly put up our PK flags and look for trouble. Likewise during war:
+there is a fine line between courage and stupidity. Don't be a fool.
+During times of war, our new members will be treated the same way as
+{Na{Bm{Cb{Wassad{Co{Br{Ns{x: they are to stay in safe areas, and are not to be molested
+lest the varlets curse the day that they ever met a {NK{Bn{Cig{Bh{Nt{x of the B{Clu{Ne
+R{Cos{Ne{x (between deaths at our hands). At the same time we do
+not foolishly go after people who severely out-power us. There is no disgrace
+in refusing a useless fight. Also, if it gets too tough, retreat and regroup.
+Those who fight and run away live to fight another day.
+
+{YSEE ALSO:{x Help Order
+~
+
+0 KINDRED DARKNESS~
+{cK{Wi{gndr{We{cd {gof the {NDarkness{x
+
+
+" Life is filled with indulgent sin
+  Beauty is but a tainted facade
+  Release your foolish, shattered dreams
+  Succumb to the Darkness. "
+
+
+{cBackground{x 
+ 
+The Kindred fit their name well, for their clan is truly shrouded in
+darkness.  They are mysterious, and there is much speculation
+surrounding their origins.  They have been certainly linked with the
+infamous Army of Darkness, long thought a myth, which means the
+Kindred are also definitely the direct descendants of the demon Akira.
+
+The Kindred are an elite group, and although many are curious about
+their business, only a select few are allowed to join as members.  It
+is no secret that they are considered an "evil" clan, but to them,
+evil is subjective.  They see themselves as a blessing to the realm,
+for without them, life would be a one-sided and colorless thing.  
+
+The Kindred pride themselves on fierce and cunning battles, fought by
+their honor system (which many would consider none at all).  There is
+nothing more a member of the Kindred abhors more than "heros" who try
+to obtain  glory by exuding false righteousness.  Reality is not made
+up of rights or wrongs, but situations, and we will bring down any
+clan which attempts to take control by painting untrue pictures.
+
+
+{cPrinciples of the Kindred{x
+
+1. In becoming one with the Darkness, you pledge your loyalty and very
+   soul.  You are a Kindred first, and everything after that.  Any 
+   form of mutiny, treason, or disobediance shall be punished swiftly
+   and without mercy.
+2. The Kindred of the Darkness will always be first and foremost, a PK
+   clan.  Although not all members are expected to fight, those who
+   don't are expected to support.
+3. Honor and mercy are terms used by the weak.  True honor means no
+   bounds, this reality has no room for those who set boundaries.  
+   Death is our gift, and we shall give it with any and all means.
+
+
+{cThe Calyx{x
+
+The Kindred are organized in a unique way known as the Calyx, the way
+of the Darkness.  Their clan structure can be portrayed as a
+pentagon, with everybody following one of five paths -
+
+{YL{ba{Ynt{be{Yrn{x: These are the Leaders of the Kindred.  They give vision and
+         direction through the Darkness, and are to be obeyed without
+         question at all times.  They come from all other auspices.
+{RB{cl{ga{cd{Re{x:   These are the Fighters of the Kindred.  They are the
+         strength that is shown to the outside, and may they spill
+         the blood of all those who oppose the Darkness.
+{HL{ge{ca{Hf{x:    These are the Stealth of the Kindred.  They include spies, 
+         assassins, and others who creep through the night, slipping
+         past the enemies with the wind, at one with the Darkness.
+{NP{ci{gll{ca{Nr{x:  These are the Guardians of the Kindred.  Though they do not
+         fight, they represent the very core of the Darkness, for 
+         without their help and support, the rest would be nowhere.
+{MM{ci{grr{co{Mr{x:  These are the Keepers of the Kindred.  They do not fight
+         either, but patiently tend to the wounds of the Darkness,
+         within the safety of the deep Caverns.
+
+Remember, one's actual class has nothing to do with his place within
+the Darkness.  A cleric might very well become a Leaf, or a warrior a
+Guardian.  After passing one's training period as a Disciple and
+being regarded worthy, they shall choose their own path.
+
+{RLastly,
+
+To any outsiders, let us give you a warning.  Together, the Kindred
+are bound by blood, and it is demon blood at that.  Dare disturb any
+one, and you shall find the fury of the Darkness down upon you.{x
+
+  
+~
+
+0 DIVHISTORY~
+During the years that ensued after the {RVamphyri's{x first arrival on 
+Thera by using the {CGate{x, they grew in power and might.  Even so, 
+their numbers were so tiny that it seemed as if all their toil and 
+struggle were for naught.  Living, if one may call it that, faded to 
+simply existing. They resided in their high tower built by their undead 
+servants and slaves and would  prey on the local citizens at their 
+leisure.  Immortal and cold as ice, they knew neither mercy nor remorse. 
+
+It was after many millennia that a piercing {Wlight}x descended from 
+the heavens and engulfed the tower containing the {RVamphyri{x. A voice 
+from the light spoke with unheard of power and majesty. It sifted 
+through the fabric of every vampire's thoughts enmeshing them with its 
+gentle yet strong messages. The light shook the {Rvamphyri{x  halls to 
+their foundations buried deep within the bones of the land appealing to 
+all that was good and just in the fallen {RVamphyri{x. 
+
+It appealed to their ancient wisdom, their long forgotten honour, and 
+foremost, their desire to survive. It offered them a blessing, and if 
+they would embrace it, they would be granted stature no longer vulnerable 
+to the rays of the sun nor the dark words of that which is darkest in 
+every beings soul.  They would be glorious in their splendor and all 
+would revere the once shackled and cursed immortals. They would be free 
+to love and sing and savor the rising glory of the fragile dawn. They 
+would be able to create a culture based on joy and laughter, not  
+desolation and slaughter. In short, they would become more than they could 
+hope to achieve on their own.
+
+While the offered {Wblessing{x seemed like a perfect miracle to the 
+majority of the {RVamphyri{x some old fetid creatures could not accept 
+that a divine power would lower itself to the menial task of saving the 
+lowly {RVampires{x.  And so a great council was held in the main hall 
+of the tower and a debate raged for many weeks. Finally it was decided 
+by the high council that the time had come to remove the shackles of the 
+past and look towards the horizon of a new era for the {RVamphyri{x. 
+
+With that the light became so {Ybrilliant{x to block out all vision 
+for many miles from the tower. Those few who could see through the 
+blinding haze saw that the tower had shed its protective shields and black 
+outer casing leaving only the pure white marble that has always been the 
+foundation. All of the tower was transformed from a work of fear to a 
+work of beauty, and it was thus with the {Rvamphyri{x themselves.  They 
+grew splendorous wings ranging from the {Wpurest white{x to the most 
+{kimpenetrable black{x, skin became fair and tinged with rose. Their 
+delicate features enhanced their lithe appearance and one would say that 
+they did not transform, but merely shed the darkness from themselves. 
+Eyes that had known only darkness captured the {Ylight and sparkled{x in 
+its glory.
+
+{WAngels{x now, they turned their newfound powers and emotions to the 
+great deeds that their ambition asked of them and each in his or her 
+own heart rejoiced to be at last {CFree{x.
+
+{YSEE ALSO:{g Help Divinity{x
+~
+
+0 DIVINITY~
+{WRules of The Divinity{x
+
+1.  This clan is based upon honor and kindness. Members will {Rnot{x 
+act in anyway form or fashion to disgrace the clan or soil its name. 
+Those who do will be punished at the discretion of the clan and 
+{YArchAngels{x including exile from the clan if deemed worthy
+
+2.  This clan is a family and it's not necessary that you like your 
+brothers or sisters. However, you will show them respect at all times as 
+it is expected of them.
+
+3.  There will be no fighting or theft amongst fellow clan members 
+other than for training methods. Internal conflicts that cannot be solved 
+by the {YArchAngels{x or other members will be disputed in the arena by 
+those parties alone.
+
+4. {YArchAngels{x are the base of this clan and the glue that holds it 
+together. You are expected to show them the same respect as the rest of 
+the clan and abide by their decisions. If you have a problem with an 
+{YArchAngel{x note the other {YArchAngels {x on the matter as well as to 
+the  clan.
+
+5.  Aid your clan mates and support newbies. This clan is not based on 
+war or power, but on kindness and friendship along with the love of 
+protecting and helping others. If that doesn't sound like your cup of tea 
+- - go elsewhere. 
+
+
+{W*****Principles of the Divinity*****{x
+
+The Divinity is a clan for the strong of heart who want to make the 
+world of Thera a better place for all. We don't expect fame or fortune for 
+this. A simple thank you is all we require. Our clan shall help 
+everyone from newbies to high-level remorts. At the same time, to protect 
+the balance of Thera, we will not over exert our help by walking the new 
+players through areas and killing the creatures for them. This clan is 
+about balance and kindness, but most of all it is about honor and 
+righteousness. If you enjoy helping others and having a strong reliable 
+family to stand behind you, then {WThe Divinity{x is where you belong.
+
+
+Ranks
+
+Lv 1-25   [{WSRP{x]
+Lv 26-50 [{WCRB{x]
+Lv 51-75 [{WCHS{x]
+Lv 76-90 [{WANG{x]
+Lv 91 + custom rank
+
+Specialty Ranks
+
+People who excel in certain skills will receive specialty ranks 
+signifying their accomplishments.
+
+Excellent PK'ers  [{WWAR{x]
+Excellent support members, be it newbies or with clan matters, [{WSNT{x]
+Honorable members  [{WNBL{x]
+Generous members  [{WACE{x]
+Leaders  [{WARC{x]
+
+
+{YSEE ALSO:{g Help Divhistory{x
+~
+
+0 REBEL ALLIANCE~
+{gThe {HR{be{Hb{be{Hl {bA{Hl{bl{Hi{ba{Hn{bc{He{x
+
+One day a long time ago two young {BJ{Ge{Bd{Gi{x, Michigan and BigSexy fled
+from the {cdark forces{x that threatened their existence.  They happened
+upon a new land called {BThera{x.  They thought that this would be a good
+place to settle down and reestablish their forgotten arts.  New to 
+this land they joined a peaceful clan, {WWhite {WK{Tnights{x where they could 
+train unnoticed by the world.  Here they stayed and secretly trained a 
+small number of {HR{be{Hb{be{Hl{bs{H{x without drawing {Pattention{x.
+
+Once they had formed that small band of {HR{be{Hb{be{Hl{bs{H{x they decided to let 
+their existence be known.  They hoped then to restore their former 
+{Gglory{x and destroy any threats they saw to themselves.  However they 
+were betrayed by a conspiracy of upstart overlords who warped them 
+into a different {Yuniverse{x. Hurt but not dead, they were {Creborn{x into 
+even more powerful and vengeful warriors.
+
+Now wary and wiser they have been slowly and cautiously regrouping 
+powerful forces of totally committed fighters. Not wishing to repeat 
+the mistakes that arose from blind trust and kindness, they have been
+trained in the secret way of the {BJ{Ge{Bd{Gi{x to instantly attack and destroy 
+any being not allied to their cause. They have learned the bitter 
+truth that destruction is the key to self-preservation. One for all 
+and all for one! One day again to be {BMasters{W of the {YUniverse{x!
+
+{bRules{g of the {bA{Hl{bl{Hi{ba{Hn{bc{He{x
+{B1.{x A {Gmember{x shall not steal or fight amongst each other except for 
+   training and sparring.
+{B2.{x A {Gmember{x shall be honest to his clan at all times.
+{B3.{x A {Gmember{x shall use the advice of his siblings and mentors in any 
+   event.
+{B4.{x A {BMaster{x must train only one {Rpadawan{x learner at a time.
+{B5.{x A {Rpadawan{x wishing to join the ranks must be sponsored by a {Bmaster{x 
+   who does not have a {Rpadawan{x.
+{B6.{x Never forget the ways of the force. Let it be your mentor and 
+   guide in decision making and anything else you may encounter.
+
+{HRanks{g of the {bA{Hl{bl{Hi{ba{Hn{bc{He{x
+     1-90          {GP{BD{GW{x    ({Rpadawan{x)
+     91-r3 90      {GK{BN{GI{x    ({Wknight{x)
+     r5 91-r10 91  {GM{BS{GT{x    ({Bmaster{x)
+
+A player wishing to join {HR{be{Hb{be{Hl {bA{Hl{bl{Hi{ba{Hn{bc{He{x must be sponsored by a Master.
+If the master deems you worthy of training, it begins. A {Bmaster{x can 
+only train 1 padawan learner at a time. Once a {Rpadawan{x reaches 91 he 
+becomes a {Wknight{x and requires no further training from his {Bmaster{x. 
+{YLeaders{x are chosen carefully by the council of other {Yleaders{x.
+~ 
+
+0 BLACK CLAW~
+Black Claw's History
+
+Many years ago, in a forgotten valley far to the north.  Shadows and 
+whispers filled the valley of the Ninja, telling them of a great war 
+which headed toward their sanctuary.  Greatninja, the wisest Ninja, 
+sent scouts to see if his intuition was right.  Upon the scouts return 
+they gave word of a army which stretched as far as the eye could see.  
+This malevolent army slaughtered any who opposed them and left nothing 
+standing in their path.  All the ninjas knew they could not defeat a 
+army of such sheer size.  The Sun-ate Ninja sent word to their 
+brothers in the woodlands ... but no word came.  Soon the armies would 
+be upon them; ninjas began to prepare for battle.  Some formed battle 
+lines in front of the great holy Temple of the Claw and unsheathed 
+their katanas, others formed parties and retreated to the mountain 
+pass.  With the Temple of the Claw behind them the battle lines were 
+drawn.  Hundreds of ninjas waited.  An army could be heard entering the 
+valley.  Screams of terror and bloodshed drew near.  Soon, out of the 
+woods the dark army flew.  Every ninja sliced through the crowd killing
+their foes, not giving up.  They thought the battle was won, as the 
+exhausted ninjas took in the thousands of slaughtered dark knights that 
+lay around them.  But the war was not over ... another army of dark 
+knights formed at the tree line.  Greatninja and the remaining small 
+band of ninjas entered the temple.  Knowing they could never defeat the
+dark army outside their beloved temple, he revealed a magnificant jade 
+shard.  "With this Shard we shall travel to a new land and train new 
+ninjas in the way of the Claw."  Greatninja stabbed the Shard into the
+center of the Temple and a shimmering gateway emerged.  
+
+Upon materializing on the otherside of this gateway Greatninja met new 
+allies.  The ninjas perservered and slowly recontructed the Temple of 
+the Claw.  In Thera they will remain, regaining their power until they 
+can return to their old realm to overthrow the dark army of the Shogun 
+for once and for all.
+
+
+In Order to Join the Clan
+
+- Must prove their knowledge of Thera.
+- Must show the ability to pk or gather equipment for others.
+- Must swear alliegance to the Claw and no other clan.
+
+Rules of the Claw
+
+1. A Leader's decision is final and agreed amongst all leaders.
+2. If it is in your power to help a clan member do so.
+3. No Fighting amongst fellow ninjas, this is punishable by death.
+4. Anyone caught in a traitorous act will be declanned and killed.
+5. PK is encouraged to help train ninjas to be stronger.
+6. Leaders must be elected by unanimous vote of the council.
+5. A non-remort Ninja may not participate in a war unless under
+   a Sensei's intruction.
+
+Black Claw's Mercenary Rules
+
+1. All ninjas who merc must donate 25% of their fee to the clan.
+2. Every ninja should fulfill his contract to the best of his ability.
+3. All ninjas should merc for the glory of the Claw.
+4. In the event that two ninjas are merc'd to opposing clans those
+   ninjas will never attack each other but still fulfill their job.
+5. A non-remort Ninja may not participate in a War unless under
+    a Sensei's intruction.
+
+Ranks of the Claw
+
+Lv:          Rank:
+R0           Ninja Student     NIN
+R1           Black Belt        Blt
+R3           Sensei (Teacher)  SEN
+R3 50        Ninja Leader      LDR
+R5           Ninja Assassin    NAS
+R7           Shadow Ninja      ShN
+R10+         Grand Sensei      GRS
+R10+ (Ldr)   Grand Master      GrM
+
+~
+
+0 $~
+#$

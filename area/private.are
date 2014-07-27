@@ -1,0 +1,656 @@
+#AREA
+private.are~
+Private Rooms~
+{H{{ XXX } {MPlayers {TPrivate Player Rooms~
+21000 21800
+
+#MOBILES
+#21000
+giant turtle~
+The giant turtle~
+A Giant Turtle stands here awaiting the return of its master.
+~
+A very large old turtle stands here guarding the entrance this small dwelling.
+He stares at the sea waiting... 
+~
+unique~
+ABGZ HW 1000 S
+1 7 1d1+1000 1d1+1000 2d5+1 pierce
+-25 -25 -25 -25
+C ABCD 0 0
+stand stand male 200
+0 0 large 0
+
+#21001
+Owl~ 
+a bright eyed owl~
+An Owl, twit twoo's at you mournfully.
+~
+{YGolden{x eyes look at you, knowing all there is to know, never blinking
+and never giving anything away. Feathers rustle as he settles, awaiting  
+the return of his master, {BDonLucciano{x.
+~
+unique~
+BG DFHJTa 0 S
+91 5 1d1+10000 1d1+10000 1d1+100 peck
+-150 -150 -150 -150
+ABCDEFHIJKNO ABCD 0 0
+stand stand male 0   
+0 0 large 0
+#21002
+lexy dog~
+{PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x~
+You see a small {Bdog{x here {Wstarring{x at you.
+~
+~
+dog~
+ABG 0 0 S
+15 3 1d1+10 1d1+10 1d1+10 scratch
+0 0 0 0
+0 ABCD 0 0
+stand stand either 0
+0 0 medium 0
+#21003
+raven black fenrir~
+{PFenrir{x~
+{gA Black Raven named {P"Fenrir" {gis perched in the tree.
+~
+A croaking black raven perches on a lonely branch on the tree.  It squawks at you
+in a forboding voice and gives you an evil stare...
+~
+song bird~
+BG DFJO 0 S
+1 1 25d10+10 5d10+10 5d2+10 peck
+-1 -1 -1 -1
+0 ABCD 0 0
+sit sit male 0
+0 0 tiny 0
+
+#21004
+pegasus winged horse~
+Pegasus~
+Pegasus will capture all your bad dreams.
+~
+Pegasus is a huge, white, winged horse with, oddly enough, a glowing horn,
+reminiscent of a unicorn.  The horse's eyes gleam the same golden color
+as the crystal that is somehow imbedded in it's forehead.
+~
+horse~
+BG H 1000 S
+30 3 10d100+50 10d100+50 2d5+2 slap
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand either 0
+0 0 large 0
+
+#21005
+squirrel small~
+A {Psm{Rall {Psqu{Rirr{Pel{x~
+A {Psm{Rall {Psqu{Rirr{Pel{x scampers along the cabin's porch.
+~
+This small little animal darts right up to the edge of the porch,
+begins to chatter at you, and then dashes right back to the other
+side, apparently enjoying the game.
+~
+squirrel~
+BG 0 0 S
+1 1 20d1+5 20d1+5 2d2+2 bite
+-1 -1 -1 -1
+0 0 0 0
+stand stand male 0
+0 0 tiny 0
+#0
+
+#OBJECTS
+#21000
+pile leaves bed~
+a pile of leaves~
+A pile of {HPandanus{x leaves lie here forming a bed and looking extremely
+comfortable.~ 
+cloth~
+furniture RY 0
+2 8000 EHK 150 150
+0 0 5000 P
+E
+pile leaves bed~
+Some leftover leaves lie here in place of a bed most likely leftover from the 
+roof. 
+~
+
+#21001
+pill seaweed~
+some seaweed~
+{GSeaweed{x lies on the floor...hmm try some!~
+pill~   
+pill 0 A
+15 'sanctuary' 'haste' 'talon' 'giant strength'
+15 5 5 P 
+
+#21002
+fountain~
+a fountain~
+A small {CW{Wa{Ct{We{Cr{Ww{Ca{Wl{Cl{x flows nearby.~
+stone~
+fountain EO 0 
+10000 10000 'water' 0 0
+0 40 500 P
+E
+fountain waterfall~
+A small {CW{Wa{Ct{We{Cr{Ww{Ca{Wl{Cl{x splashes to your feet from the
+mountains above.
+~
+
+#21003
+key michigan~
+a key labeled '{BM{Yi{Bc{Yh{Bi{Yg{Ba{Yn {BA{Yn{Bd {RA{Gl{Ro{Gh{Ra{G'{Rs {GG{Hr{Ga{Hs{Gs{x Hut'.~
+A key with a label saying '{BM{Yi{Bc{Yh{Bi{Yg{Ba{Yn {BA{Yn{Bd {RA{Gl{Ro{Gh{Ra{G'{Rs {GG{Hr{Ga{Hs{Gs{x Hut' is lies here.~
+steel~
+key ORT AO
+1 0 0 0 0
+0 5 1 P
+E
+key~
+This is the key to '{BM{Yi{Bc{Yh{Bi{Yg{Ba{Yn {BA{Yn{Bd {RA{Gl{Ro{Gh{Ra{G'{Rs {GG{Hr{Ga{Hs{Gs{x Hut'.
+~
+
+#21004
+rainbow bottle~
+a {Yr{Ba{Gi{Pn{Cb{Yo{Bw {Gc{Po{Cl{Yo{Bu{Gr{Pe{Cd{x bottle~
+A {Yr{Ba{Gi{Pn{Cb{Yo{Bw {Gc{Po{Cl{Yo{Bu{Gr{Pe{Cd{x bottle sits on the shelf.~
+earth~
+pill ABSY A
+15 'bless' 'sanctuary' 'haste' 'frenzy'
+15 1 0 P
+E
+rainbow bottle~
+A small bottle lies here, colours shifting, dazzling you.
+~
+
+#21005
+curved oak chair carved~
+a curved oak chair~
+An intricately carved oak chair rests here.~
+stone~
+furniture ABSY P
+10 0 BEHK 150 150
+0 500 0 P
+E
+carved curved chair oak~
+A curved {boak{x chair invites you to seat yourself, silently promising
+relief from your tiredness, and the healing of your wounds.
+~
+
+#21006
+vortex fountain~
+a vortex~
+A Vortex of {Rwine{x whirls nearby.~
+wine~
+fountain 0 0
+1000 1000 'red wine' 0 0
+0 500 0 P
+E
+vortex fountain~
+An invisible vortex contains a {Rblood{x red liquid you hope is {Rwine{x
+in a neverending spiral. You listen for the noise you know should be
+there, but it just doesn't manage to escape from the {Vvortex{x.
+~
+
+#21007
+key donlucciano~
+a key labeled '{cThe {PM{Ga{Wg{Ce{Y'{Vs {BStudy{x'.~
+A key with a label saying '{cThe {PM{Ga{Wg{Ce{Y'{Vs {BStudy{x' is lies here.~
+steel~
+key HMORTZ AO
+1 0 0 0 0
+0 5 1 P
+E
+key~
+This is the key to '{cThe {PM{Ga{Wg{Ce{Y'{Vs {BStudy{x'.
+~
+#21008
+king size waterbed~
+A King Sized Water Bed~
+A large water bed sits here tempting you to take a nap~
+water~
+furniture 0 0
+2 0 BEHKN 150 150
+0 0 0 P
+#21009
+double cheese~
+{GA {VDo{Bu{Cb{Gl{Ye {RC{bh{Re{be{Rs{be {RI{bt{V!{B!{V!{x~
+someone left their {VDo{Bu{Cb{Gl{Ye {RC{bh{Re{be{Rs{be {RI{bt{V!{B!{V!{x here!~
+cheese~
+pill 0 AO
+15 'invis' 'pass' 'fly' 'talon'
+15 1 0 P
+#21010
+everflowing fountain of surge~
+{YAn {ME{gv{Te{Hr{bf{Rl{co{Tw{Mi{gn{Rg {Cf{Bo{Cu{Ct{Ba{Ci{Bn {Vo{Pf {GSurge{P.~
+{YAn {ME{gv{Te{Hr{bf{Rl{co{Tw{Mi{gn{Rg {Cf{Bo{Cu{Ct{Ba{Ci{Bn {Vo{Pf {GSurge{P.~
+surge~
+fountain 0 0
+0 0 water 0 0
+1 0 0 P
+#21011
+key weibe energie~
+{YKey to {WWeibe {VE{Bn{Ge{Pr{Wg{Ci{Be{x~
+A small key lies on the floor.~
+steel~
+key 0 AO
+1 0 0 0 0
+1 1 0 P
+#21012
+moss oak tree~
+An oak tree~
+{Ha moss covered Oak tree {gstands here in all it's glory.
+~
+wood~
+furniture O P
+2 0 AEHL 150 150
+1 5000 50 P
+E
+moss oak tree~
+This ancient tree has stood the test of time and persevered.  No mere winter
+would stand a chance against it!
+~
+
+#21013
+mutton warm bone~
+{gWarm {Cmutton{x~
+{gwarm {CMutton {gstill on the bone.
+~
+meat~
+pill 0 A
+15 'sanctuary' 'haste' 'talon' 'stone'
+15 2 25 P
+E
+mutton warm bone~
+Looks juicy!
+~
+
+#21014
+key vincent~
+{BK{ce{By {ct{Bo {cV{Bi{cn{Bc{ce{Bn{ct{B'{cs {Br{co{Bo{cm{x~
+{BA {ckey {Bfades {cin {Band {cout {Bof {cview{x.
+~
+energy~
+key 0 A
+1 0 0 0 0
+1 2 25 P
+#21015
+everlasting memory waterbed bed~
+Everlasting Memory~
+A king-size waterbed rests on the floor.~
+waterbed~
+furniture O P
+2 0 EHK 150 150
+1 5000 50 P
+
+#21016
+fountain youth~
+Fountain of Youth~
+The mossy fountain of youth sits serenely here.~
+water~
+fountain O P
+0 0 water 0 0
+1 5000 50 P
+#21017
+key napalm~
+Key to Destiny Of Dreams.~
+Key to Destiny Of Dreams.
+~
+energy~
+key 0 A
+1 0 0 0 0
+1 2 25 P
+
+#21018
+key sioned~
+{CKey{x to the {WClearing{x~
+A key made of grass is here.~
+grass~
+key HO A
+1 0 0 0 0
+1 1 1 P 
+
+#21019
+bundle herbs~
+a {bbundle{x of {bh{He{br{Hb{bs{x~
+A small {bbundle{x of {bh{He{br{Hb{bs{x is tucked into a tree branch.~
+herbs~
+pill 0 A
+15 'sanc' 'protection good' 'protection evil' 'talon'
+15 5 10 P
+
+#21020
+quilt tree willow~
+a {Rp{Pa{Yt{Gc{Hh{Bw{Mo{Vr{Rk{x quilt~
+A {Rp{Pa{Yt{Gc{Hh{Bw{Mo{Vr{Rk{x quilt lies underneath an old willow tree..~
+rags~
+furniture O P
+3 0 EHK 150 150
+1 100 10 P
+
+#21021
+lake spring~
+a large {Tl{Ca{Tk{Ce{x~
+A large {Tl{Ca{Tk{Ce{x shimmers {Bb{Nl{Bu{Ne {xand {Yg{bo{Yl{bd {xin the sun.~
+water~
+fountain O P
+0 0 water 0 0
+1 1000 10 P
+
+#21022
+bed~
+{gthe {Cb{Te{Cd{x~
+{gA large, soft looking {Cb{Te{Cd {gis here, {Yl{gi{Wt {gsoftly by the dancing {Wmo{go{Wn{gbe{Wa{gm{Ws{g.{x~
+{gsoftness{x~
+furniture AOSTY P
+2 0 BEHK 150 150
+0 2000 1000000 I
+E
+bed~
+{gThe {Cb{Te{Cd {gis simple, yet luxurious, and large enough to easily hold two, as it{x
+{gusually does.  Soft {Cbl{Ta{Cn{Tke{Ct{Ts {gare laid across the smooth {Csa{Tt{Ci{Tn s{Che{Te{Ct{Ts{g, with{x
+{gextras rolled and placed at the foot of the {Cb{Te{Cd {gfor colder {cni{gg{ch{gt{cs{g.{x
+~
+
+#21023
+waterfall falls~
+{gthe {Cwa{Tt{Ce{Trf{Ca{Tl{Cl{x~
+~
+{Cw{Ta{Ct{Te{Cr{x~
+fountain OSTY P
+0 0 'water' 0 0
+0 5000 0 I
+E
+waterfall falls~
+{gThe {Cc{Tas{Cca{Td{Ci{Tn{Cg w{Ta{Cte{Tr {gis dazzling in the {Wmo{go{Wn{gl{Wig{ght.  A light {Cmist {ghovers just{x
+{ginside the {Wcave{g, but comes no further in...{x
+~
+
+#21024
+wardrobe~
+{gthe {bwardrobe{x~
+~
+{Boak{x~
+container OSTY P
+1000 AC 0 1000 100
+0 6000 1000 I
+E
+wardrobe~
+{gThe {bwardrobe{g holds a great deal of Ayelri and Rakurai's clothing, along with a few other{x
+{gassorted items.{x
+~
+
+#21025
+tight scroll~
+a tightly bound {gs{bc{gro{bl{gl{x~
+A tightly bound {gs{bc{gro{bl{gl{x lies here.~
+parchment~
+scroll ABGIOSTY AOP
+25 'curse' 'blind' 'heat metal' ''
+15 0 0 P
+E
+tight scroll~
+It is a tightly bound scroll with magical spells...  you shudder uncomfortably as you look at
+the names.
+~
+
+#21026
+mist~
+{ga patch of {Cm{Tis{Ct{x~
+{gA patch of {Cm{Tis{Ct {gfloats here... you can almost hear a {Cwa{Tt{Ce{Trf{Ca{Tl{Cl{g, but not quite.{x~
+{Cw{Ta{Ct{Te{Cr{x~
+portal ABGIOSTY AP
+0 0 C 21006 0
+0 0 0 P
+E
+mist~
+{gAs you look at the {Cm{Tis{Ct{g, you hear a faint echo of the {Cwa{Tt{Ce{Trf{Ca{Tl{Cl{g, beckoning you come{x
+{ghome...{x
+~
+
+#0
+#ROOMS
+#21000
+{BM{Yi{Bc{Yh{Bi{Yg{Ba{Yn {BA{Yn{Bd {RA{Gl{Ro{Gh{Ra{G'{Rs {GG{Hr{Ga{Hs{Gs{x Hut.~
+As you step into this rather small dwelling, the smell of the {TO{Cc{Te{Ca{Tn{x 
+is in the {BA{Ci{Br{x. The {RW{Pa{Rr{Pm{Rt{Ph{x of the {Ys{Pu{Yn{x through the small 
+window is the only {WL{Yi{Wg{Yh{Wt{x you see. 
+~
+0 DK 0
+D5
+~
+~
+4 21003 8901
+E
+creationdate~
+Michigan's private room, May 23rd by Clerve.
+~
+
+S
+
+
+#21001
+{cThe {PM{Ga{Wg{Ce{Y'{Vs {BStudy{x~
+The {bdoor{x swings open smoothly as you push it with your hand,releasing
+the musty odor of ages gone by.{TSpells{x {Rtingle{x up your arm and make you
+realise there are webs of magic encompassing the room. You enter,
+floorboards creaking under your feet, dust fluttering around you as you
+move, carefully through the scrolls littering the floor. Your eyes take in 
+the potions lining the shelves, a myriad of colors {Wd{Pa{Bz{Cz{Gl{Vi{Wn{Cg{x you. You see
+a {Vvortex{x holding a column of liquid, {Rblood{x {Pred{x, in an ever present spiral. 
+A slight movement from the corner startles you, eyes adjusting to the slight
+{Tgloom{x you notice an {HOwl{x, sat on the back of a large imposing chair. He
+blinks, bobs his head and settles his feathers, accepting your presence. 
+You inspect the chair, noticing the smooth grooves worn into the arms, the
+{Cglow{x of the wood cherished through the ages by {BDonLucciano{x.
+~
+0 DK 0
+D3
+~ 
+~ 
+4 21007 3251
+D5
+~
+~
+4 21011 21002
+E
+doors~
+These massive doors swing surprisingly easily on their hinges.
+~
+E
+odor musty~
+The musty odor of old books and dust hangs in the air.
+~
+E
+floorboards scrolls~
+The floorboards creak under your feet as you scatter scrolls around
+the floor.
+~
+E
+creationdate~
+DonLucciano's room, May 25th by Clerve
+~
+S
+#21002
+{WWeibe {VE{Bn{Ge{Pr{Wg{Ci{Be{x~
+The hinge gives way as you pry the {Rrusted{x door handle off. As 
+you make a path through to the {bdirty laundry and {YMcdonalds{x wrappers
+you discover a CD labelled {C{fRammstein{x.
+  You pop it into the Phat system and the floor starts {fshakin'{x. The TV
+falls off the stand creating a huge {fflash{x of {f{Wlight{x. You look
+over at your beloved {B120 {Vmhz{x computer. The monitor is just about to
+fall off the desk. Maybe you'd better turn it down. Well at least the
+dancing {PFlowers{x are having fun.
+~
+0 DK 0
+D4
+~
+~
+4 21011 21001
+E
+creationdate~
+built by Leveret 31st July 1999
+moved by Leveret 20th August 1999
+~
+S
+#21003
+{BF{co{Br{cg{Bo{ct{Bt{ce{Bn {GF{co{Gr{ce{Gs{ct{Gs~
+{HYou have entered the long forgotten paradise of the forest. These are the
+oldest trees you've ever seen, and everything is a lush {Ggreen{H. All around as
+far as you can see is beautiful {Grainforests{H, {Yanimals{H, and
+{Cwaterfalls{H. Very few have ever seen this {WParadise of legend{H, for only
+the {Wgods{H, and those favored by them, are allowed to enter the sanctum of
+this {Gforest{H. You gaze in awe at the {G-Tree of Life-{H, and within it lay
+the watcher of {YOdin{H. You feel your heart stop at the thought of {Pangering
+{Hthe inhabitants of this {Gparadise{H. For the punishment would surely be a
+{WFate {Hworse than {cDeath{H.
+~
+0 JK 3
+D4
+A swirling portal leads you back to the bar.
+~
+portal~
+4 21014 3358
+S
+#21004
+Napalm and Lorpay's Destiny Of Dreams~
+As you enter the double corridor, you gaze around and realize you have
+entered the room of your dreams. To the right you see a huge king size water
+bed called the Everlasting Memory.  To the left you see a Fountain of Youth
+which will help you overcome your aging appearance. Last but not least in
+front of you there is  a fireplace of dancing flames for you to keep warm by.
+~
+0 K 0
+D1
+East will lead back into the Cleric's Guild.
+~
+~
+1 21017 3004
+S
+
+#21005
+{WMagical Clearing{x~
+You enter a {Wmagical clearing{x within the {Hf{Go{Hr{Ge{Hs{Gt{x, you
+are amazed at the beauty of it all...
+
+To the southern edge you see a large {Tl{Ca{Tk{Ce{x full of fish... 
+on the edge of the lake you see a {HW{Ge{He{Gp{Hi{Gn{Hg {GW{Hi{Gl{Hl{Go{Hw{x tree with a
+{Pq{Yu{Vi{Gl{Ct{x beneath the {cshading{x {bbranches{x...
+
+There is a {ccabin{x to the far side of the clearing, and beside the {ccabin{x
+you see two {Hgardens{x, one apears to be an {bh{He{br{Hb {Hgarden{x, the other
+a small {Gvegetable {Hgarden{x, and on the other side of the {ccabin{x 
+you see {Cwild {Yf{Pl{Co{Ww{Re{Br{bs{x blooming all over, untamed.. natural and free..
+
+On the steps leading to the porch of the {ccabin{x, you see a {bbasket{x
+with what appears to be a {bbundle{x of {bh{He{br{Hb{b{Hs{x within it...
+
+As you look around notice rabbits and squirrels running about playing in
+utter {Wpeace{x.. and butterflies, bees, dragonflies and birds all flying
+and fluttering here and there..
+
+This truly is a {WMagical Clearing{x
+~
+0 IK 2
+D0
+North lies the magical forest of Haon Dor.
+~
+trellis~
+4 21018 6001
+S
+
+#21006
+{gBehind the {CWa{Tt{Ce{Trf{Ca{Tl{Cl{x~
+{gYou stand in a natural cave carved out of the {Wwhite stone{g of the {cmo{gu{cn{gta{cin{g,{x
+{gcompletely hidden from outside view by the cascading {Cwa{Tt{Ce{Trf{Ca{Tl{Cl {gat the only{x
+{gentrance.  It is strangely {bdry{g here, as if some {Gm{Hag{Gi{Hc{Gal w{Har{Gd {ghas been{x
+{gplaced to prevent the {Ccool mist {gof the falling {Cw{Tat{Cer {gfrom entering.  The{x
+{glast {Wbe{ga{Wm{gs {gfrom the setting {Wm{goo{Wn {gshine through the thin {Cc{Tur{Cta{Ti{Cn {gof {Cw{Tat{Ce{Tr{c,{x
+{gd{Ya{gz{Wzl{gi{Yn{gg {gthe eyes with patches of {Wsoft light {gdancing across the pure {Wwhite{x
+{Wstone{g.  After taking a moment to gaze at the natural and breathtaking b{Ce{Wa{gu{Ct{gy{x
+{garound you, you realize that the {Wcave {gis not unoccupied.  {BR{Ta{gku{Wr{Ta{Bi {gand {VA{My{ge{Bl{Vr{Mi{x
+{ghave made this place their home, with simple {Wfu{gr{Cn{Wi{gsh{Wi{Cn{Wg{gs and d{We{gco{Yr{Wat{gi{Wo{Yn{gs in{x
+{gvarious places.  {bT{cr{be{ca{bd {gwarily, unwelcome visitors here seldom see the other{x
+{gside of the {Cwa{Tt{Ce{Trf{Ca{Tl{Cl {gagain.{x
+~
+0 DJST 0
+D1
+{gThrough the {Cwa{Tt{Ce{Trf{Ca{Tl{Cl {gis the {GD{Hwa{Gr{Hve{Gn F{Hor{Ge{Hst{g.{x
+~
+~
+0 -1 5281
+E
+mist ward~
+{gIt appears as if some {Gm{Ha{Ggi{Hca{Gl w{Har{Gd {gis preventing the {Cmist {gfrom the {Cwa{Tt{Ce{Trf{Ca{Tl{Cl{x
+{gfrom coming inside, keeping the room {bdry{g.  Now that you think of it, the{x
+{gnoise from the {Cf{Ta{Cl{Tl{Cs {gis slightly muffled as well...{x
+~
+E
+moon beams light~
+{gThe falling {Ccu{Tr{Ct{Tai{Cn {gof {Cw{Ta{Ct{Te{Cr {gbreaks up the {Wmo{go{Wn{gbe{Wa{gm{Ws {ginto patches of {Wlight{x
+{gthat {Wd{Ya{gnc{We {gacross the {Wwhite rock {gwalls.{x
+~
+E
+furnishings decorations~
+{gNothing overly fancy, just simple things to make a {Wcave {gmore livable, such{x
+{gas a {btable {gagainst one {Wwall{g, a thick, soft {Br{Nu{Bg {gon the floor, and a {bwardrobe{x
+{gnear the {Cb{Te{Cd{g.{x
+~
+E
+cave white walls~
+{gThe {Wwalls {gof the cave are of a {Wwhite rock {gseldom seen outside.  They are {Cg{Tlas{Cs{x
+{gsmooth, yet there are no sharp edges.{x
+~
+S
+
+#0
+
+#RESETS
+O 0 21000 1 21000		* Bed
+O 0 21001 1 21000		* Pill
+O 0 21002 1 21000		* Fountain
+D 0 21000 5 2			* Lock the door
+D 0 8901 4 2			* Lock the door on the other side too
+
+M 0 21001 1 21001 1		* Owl in DonLucciano's room
+O 0 21004 1 21001		* Pill in DonLucciano's room
+O 0 21005 1 21001		* Chair in DonLucciano's room
+O 0 21006 1 21001		* Fountain in DonLucciano's room
+D 0 21001 3 2			* Lock the door
+D 0 3251  1 2			* Lock the door on the other side too
+M 0 21002 1 21002 1             *lexy to noodles' room
+O 0 21008 1 21002               * bed to " "
+O 0 21009 1 21002               * pill to " "
+O 0 21010 1 21002               * fountain to " "
+D 0 21001 5 2                  * lock door
+D 0 21002 4 2                   *lock door other side
+D 0 21003 4 2                   *lock door 
+M 0 21003 1 21003 1  *Fenrir to Vincent's Room
+O 0 21012 1 21003 1  *Oak tree to Vincent's Room
+O 0 21013 20 21003 1 *Mutton to Vincent's Room
+M 0 21004 1 21004 1  *Pegasus into Napalm's room
+O 0 21015 1 21004    *waterbed into Napalm's room
+O 0 21016 1 21004    *fountain of youth into Napalm's room
+D 0 21004 1 2        *lock the door
+D 0 3004 3 2         *lock door from other side too
+D 0 21005 0 2        *Lock the door north of Clearing
+D 0 6001 2 2         *And the reverse
+M 0 21005 1 21005 1  *Squirrel to Sioned's room
+O 0 21019 50 21005   *bundle of herbs
+O 0 21020 1 21005    *patchwork quilt
+O 0 21021 1 21005    *lake
+O 0 21022 1 21006    *bed in Rakurai and Ayelri's room
+O 0 21023 1 21006    *waterfall in Rakurai and Ayelri's room
+O 0 21024 1 21006    *wardrobe in Rakurai and Ayelri's room
+P 0 21025 200 21024 1 *scroll in wardrobe
+S
+#SHOPS
+0
+
+#SPECIALS
+S
+
+#$

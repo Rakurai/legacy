@@ -1,0 +1,471 @@
+#PLAYER
+Name Asellus~
+Id   1017252423
+LogO 1018359504
+Vers 13
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Clan blackclaw~
+Sex  2
+Cla  2
+Levl 19
+Plyd 94136
+Back 0
+Note 1017343119 0 0 1016740550 1011721386 0 0
+Scro 22
+Room 4593
+HMS  282 282 218 218 276 276
+Gold 1411
+Silv 278
+Gold_in_bank 8003
+Exp  25983
+PCkills 0
+PCkilled 1
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQS
+FRes B
+FVul Z
+Comm Nb
+Revk 0
+Cgrp A
+Cnsr 0
+Pos  4
+Save  4
+Alig  -1000
+Hit   11
+Dam   13
+ACs 51 37 39 75
+Wimp  12
+Atrib 16 18 18 20 16 12
+AtMod 1 3 1 0 0 2
+Pass felix1~
+Afk {B[{CTue Apr  9 08:01:35 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  needs help leveling~
+Immn ~
+Pnts 45
+Rank {cNIN~
+Aura ~
+TSex 2
+LLev 19
+Email ChyrieDR@yahoo.com~
+Deit Azrael~
+Lsit 131.109.88.65~
+Ltim Tue Apr 09 06:32:17 2002
+~
+LSav Tue Apr 09 08:38:24 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  ABHMO
+HMSP 257 208 276
+THMS 4 0 1
+Cnd  0 0 4 0
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 93 1 'dagger'
+Sk 1 1 'mace'
+Sk 75 1 'sword'
+Sk 17 1 'backstab'
+Sk 1 1 'circle'
+Sk 19 1 'disarm'
+Sk 15 1 'dodge'
+Sk 75 1 'trip'
+Sk 78 1 'second attack'
+Sk 67 1 'hide'
+Sk 1 1 'peek'
+Sk 45 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 62 1 'steal'
+Sk 9 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+Gr 'enchantment'
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 73
+Wear 15
+Cost 112
+End
+
+#O
+Vnum 407
+Nest 0
+Cond 95
+Wear 3
+Cost 1
+End
+
+#O
+Vnum 3043
+Nest 0
+Cond 96
+Wear 2
+Cost 640
+End
+
+#O
+Vnum 9538
+Nest 0
+Cond 96
+Wear 13
+Cost 27
+End
+
+#O
+Vnum 4593
+Nest 1
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 3032
+Nest 1
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 1212
+Nest 2
+Name half trivia owl stuffed liriel~
+ShD  {W(1/2 {Vtrivia{W) {ga {Clittle{g stuffed {Yo{bwl{x~
+Desc {W(1/2 {Vtrivia{W) {gA {Clittle{g stuffed {Yo{bwl{g lies here, stretching his feathers.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 2
+Name half trivia owl stuffed liriel~
+ShD  {W(1/2 {Vtrivia{W) {ga {Clittle{g stuffed {Yo{bwl{x~
+Desc {W(1/2 {Vtrivia{W) {gA {Clittle{g stuffed {Yo{bwl{g lies here, stretching his feathers.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 2
+Name half trivia owl stuffed liriel~
+ShD  {W(1/2 {Vtrivia{W) {ga {Clittle{g stuffed {Yo{bwl{x~
+Desc {W(1/2 {Vtrivia{W) {gA {Clittle{g stuffed {Yo{bwl{g lies here, stretching his feathers.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3014
+Nest 1
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 1
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 1
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 4590
+Nest 1
+Wear -1
+Cost 600
+End
+
+#O
+Vnum 4584
+Nest 1
+Wear -1
+Cost 1600
+End
+
+#O
+Vnum 9561
+Nest 1
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 4593
+Nest 1
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token kenneth ultrarare~
+ShD  An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x waits to be discovered.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4608
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4608
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 9567
+Nest 1
+Wear -1
+Cost 10
+Val  2 0 5 0 0
+End
+
+#O
+Vnum 8009
+Nest 1
+Wear -1
+Cost 360
+End
+
+#O
+Vnum 1213
+Nest 1
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3502
+Nest 0
+Cond 97
+Wear 6
+Cost 490
+End
+
+#O
+Vnum 9516
+Nest 0
+Wear -1
+Cost 2900
+End
+
+#O
+Vnum 4593
+Nest 0
+Wear 1
+Cost 2400
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear 5
+Cost 430
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24801
+Nest 0
+Cond 99
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 24802
+Nest 0
+Cond 95
+Wear 9
+Cost 2000
+End
+
+#O
+Vnum 24803
+Nest 0
+Wear 8
+Cost 2000
+End
+
+#O
+Vnum 1603
+Enchanted
+Nest 0
+ExtF 67
+Cond 96
+Wear 16
+Lev  12
+Cost 700
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
+Affc 'reserved'   1   8  -1  10  12          0 1
+End
+
+#O
+Vnum 9521
+Nest 0
+Cond 90
+Wear 11
+Cost 710
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 28 10 0 0
+End
+
+#O
+Vnum 8001
+Nest 0
+Wear 7
+Cost 480
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 3031
+Nest 0
+Wear 0
+Cost 75
+Val  0 0 84 0 0
+End
+
+#O
+Vnum 4590
+Nest 0
+Wear -1
+Cost 600
+End
+
+#END

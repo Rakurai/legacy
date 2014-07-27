@@ -1,0 +1,512 @@
+#PLAYER
+Name Elda~
+Id   1023390988
+LogO 1025939975
+Vers 14
+Mexp 2
+Pass natoo~
+Prom {W<{C%h{Thp {G%m{Hma {B%v{Nst {W[{g%e{W] {R%X{W>{x ~
+Race irda~
+Cla  0
+Levl 18
+Tru  0
+Plyd 50273
+Back 50091
+Note 1025939834 1025939834 1025939834 1025939834 1025939834 1025939834 1025939834
+Scro 22
+Room 3001
+HMS  274 330 259
+Gold 235
+Silv 980
+Exp  28555
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1
+FImm 0
+FRes 0
+FVul 0
+Plr  OU
+Video 0
+Act  CDEFGHJLQSc
+AfBy TV
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 14 19 16 13 13 11
+SkillPnts  22
+QuestPnts  12
+QuestNext  3
+SQuestNext 18
+Afk {B[{CSun Jun  9 23:03:53 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {k.~
+Immn ~
+Pnts 50
+Rank ~
+Aura ~
+TSex 2
+LLev 13
+Email amber_martin47@hotmail.com~
+Deit Urza~
+Lsit 12-225-97-97.client.attbi.com~
+Ltim Sat Jul 06 02:17:10 2002
+~
+LSav Sat Jul 06 02:19:35 2002
+~
+HMSP 215 294 160
+THMS 7 0 0
+Cnd  0 0 16 11
+Alias ga get all~
+Alias os open south~
+Alias on open north~
+Alias q quest~
+Alias qr quest request~
+Alias f flee~
+Alias oe open east~
+Alias ow open west~
+Alias eh enter house~
+Alias cc cast 'cure serious'~
+Alias com compare~
+Alias et eat apple~
+Sk 1 1 'acid blast'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 77 1 'armor'
+Sk 75 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 100 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 1 1 'charm person'
+Sk 87 1 'chill touch'
+Sk 92 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 75 1 'cure critical'
+Sk 75 1 'cure light'
+Sk 75 1 'cure serious'
+Sk 71 1 'curse'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 71 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 71 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'energy drain'
+Sk 77 1 'faerie fire'
+Sk 71 1 'faerie fog'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 1 1 'flameshield'
+Sk 76 1 'fly'
+Sk 1 1 'gate'
+Sk 76 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'heal'
+Sk 1 1 'identify'
+Sk 1 1 'infravision'
+Sk 76 1 'invisibility'
+Sk 75 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 71 1 'locate life'
+Sk 71 1 'locate object'
+Sk 90 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'plague'
+Sk 71 1 'poison'
+Sk 1 1 'power word'
+Sk 1 1 'portal'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 75 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 75 1 'shocking grasp'
+Sk 71 1 'sleep'
+Sk 1 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 75 1 'steel mist'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 71 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'vision'
+Sk 75 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 84 1 'dagger'
+Sk 75 1 'brew'
+Sk 1 1 'repair'
+Sk 75 1 'lore'
+Sk 77 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'mage default'
+Gr 'beguiling'
+Gr 'combat'
+Gr 'detection'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'giant strength'   0  14   8   2   1          0 1
+Affc 'haste'   0  13   0   2   2    2097152 1
+Affc 'fly'   0  14  11   0   0     524288 1
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 12714
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 118 0 0 0
+End
+
+#O
+Vnum 2410
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 2410
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 620
+Nest 0
+Cond 96
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 15
+Cost 112
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 12700
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 12708
+Nest 0
+Cond 97
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 10133
+Nest 0
+Cond 86
+Wear 8
+Cost 120
+End
+
+#O
+Vnum 10134
+Nest 0
+Wear 6
+Cost 120
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear 17
+Cost 1200
+End
+
+#O
+Vnum 4590
+Nest 0
+Wear 0
+Cost 600
+End
+
+#O
+Vnum 9909
+Nest 0
+Cond 96
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 12716
+Nest 0
+Cond 94
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 9922
+Nest 0
+Cond 85
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 10212
+Nest 0
+ExtF 0
+Cond 94
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 12717
+Nest 0
+Cond 97
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 12718
+Nest 0
+Cond 96
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 3163
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10209
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 8918
+Nest 0
+Wear -1
+Cost 150
+Spell 3 'cure light'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10129
+Nest 0
+Cond 95
+Wear 18
+Cost 122
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 14037
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16048
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 2338
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

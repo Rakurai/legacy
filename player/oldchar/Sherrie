@@ -1,0 +1,170 @@
+#PLAYER
+Name Sherrie~
+Id   1007134729
+LogO 1007136399
+Vers 8
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race elf~
+Sex  2
+Cla  5
+Levl 1
+Plyd 58
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3700
+HMV  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  1625
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+Comm NO
+Revk 0
+Pos  8
+Prac 5
+Trai 3
+Save  -1
+Alig  1000
+Hit   1
+ACs 95 95 95 99
+Atrib 11 16 15 14 10 17
+AtMod 0 0 0 0 0 0
+Pass 29october~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Alisa~
+Lsit ACBE7356.ipt.aol.com~
+Ltim Fri Nov 30 09:42:21 2001
+~
+LSav Fri Nov 30 10:06:39 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 0 15 15
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'dazzling light'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'shrink'
+Sk 1 1 'vision'
+Sk 1 1 'mace'
+Sk 1 1 'shield block'
+Sk 40 1 'sword'
+Sk 1 1 'scribe'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'rotate'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'paladin default'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'detection'
+Gr 'enchantment'
+Gr 'healing'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 167 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

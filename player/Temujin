@@ -1,0 +1,308 @@
+#PLAYER
+Name Temujin~
+Id   1017996883
+LogO 1018945294
+Vers 13
+Prom <%h/%Hhp %m/%Mm %v/%Vmv %X %e> ~
+Race feral~
+Sex  1
+Cla  2
+Levl 7
+Plyd 10106
+Back 0
+Note 1018406520 0 0 0 0 1017456706 0
+Scro 22
+Room 3526
+HMS  107 107 146 146 155 155
+Gold 8
+Silv 40
+Exp  9807
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEGHJLQS
+AfBy R
+FVul JR
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 2
+Alig  -402
+Hit   1
+Dam   1
+ACs 67 65 65 94
+Wimp  15
+Atrib 14 18 18 22 16 12
+AtMod 2 4 4 2 2 4
+QuestPnts 1
+Pass bullion~
+Afk {B[{CFri Apr  5 15:01:10 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  Khan~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 1
+LLev 2
+Deit Marx~
+Lsit ACC11D82.ipt.aol.com~
+Ltim Tue Apr 16 03:18:36 2002
+~
+LSav Tue Apr 16 03:21:34 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 94 139 155
+THMS 0 0 0
+Cnd  0 0 31 0
+Alias a aff~
+Alias wh who~
+Alias fl flee~
+Sk 1 1 'dagger'
+Sk 78 1 'sword'
+Sk 75 1 'backstab'
+Sk 75 1 'dirt kicking'
+Sk 75 1 'dodge'
+Sk 75 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'hide'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 0
+Val  150 102 15 0 0
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10129
+Nest 1
+Wear -1
+Cost 122
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 1215
+Nest 1
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 0 0 0 0
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 94
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 10126
+Nest 0
+Cond 97
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 98
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 1804
+Nest 0
+Cond 93
+Wear 16
+Cost 100
+End
+
+#O
+Vnum 3050
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 4570
+Nest 0
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 99
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 93
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 20038
+Nest 0
+Wear 17
+Cost 0
+End
+
+#O
+Vnum 12701
+Nest 0
+Wear 5
+Cost 0
+End
+
+#END

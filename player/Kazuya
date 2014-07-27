@@ -1,0 +1,497 @@
+#PLAYER
+Name Kazuya~
+Id   1022745118
+LogO 1026808122
+Vers 14
+Mexp 2
+Pass emmais~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Cla  5
+Levl 30
+Tru  0
+Plyd 182686
+Back 0
+Note 0 0 0 0 1017587497 0 0
+Scro 22
+Room 3005
+HMS  512 376 373
+Gold 13
+Silv 3074
+Silver_in_bank 16455
+Gold_in_bank 2928
+Exp  29932
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm MNOQa
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 5
+Trai 0
+Wimp 15
+Atrib 18 17 18 18 18 13
+QuestPnts  5
+Afk {B[{CMon Jul 15 05:40:31 2002{B] {CUnknown Departure.{x
+~
+Titl  is {Wl{Go{Wn{Ge{Wl{gy and needs {Rc{Go{Rm{Gp{Ra{Gn{Ry~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 47
+Email aphex_monster@homail.com~
+Deit Xenith~
+Lsit 64-30-104-123.ftth.sac.winfirst.net~
+Ltim Tue Jul 16 03:26:57 2002
+~
+LSav Tue Jul 16 03:28:42 2002
+~
+HMSP 432 326 373
+THMS 0 2 0
+Cnd  0 0 0 0
+Alias cure cast 'cure critical'~
+Alias detect cast 'detect invis'~
+Sk 75 1 'armor'
+Sk 83 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 75 1 'continual light'
+Sk 77 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 75 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 75 1 'create water'
+Sk 91 1 'cure critical'
+Sk 78 1 'cure light'
+Sk 90 1 'cure serious'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'fireproof'
+Sk 1 1 'floating disc'
+Sk 80 1 'frenzy'
+Sk 78 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 37 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 75 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 1 1 'vision'
+Sk 1 1 'mace'
+Sk 100 1 'sword'
+Sk 100 1 'shield block'
+Sk 1 1 'scribe'
+Sk 100 1 'parry'
+Sk 1 1 'rescue'
+Sk 87 1 'second attack'
+Sk 76 1 'third attack'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'paladin default'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'detection'
+Gr 'healing'
+Gr 'protective'
+End
+
+#O
+Vnum 3705
+Nest 0
+Cond 66
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3715
+Nest 0
+Cond 53
+Wear 17
+Cost 1140
+End
+
+#O
+Vnum 4572
+Nest 0
+Cond 76
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 9224
+Nest 0
+Wear -1
+Cost 200
+Val  150 70 0 0 0
+End
+
+#O
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9224
+Nest 0
+Wear -1
+Cost 200
+Val  150 22 0 0 0
+End
+
+#O
+Vnum 3364
+Nest 0
+Cond 98
+Wear 2
+Cost 1280
+End
+
+#O
+Vnum 1211
+Nest 0
+Name Yellow Lightsaber token~
+ShD  {YLightsaber{x~
+Desc A lightsaber lies here~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9546
+Nest 0
+Cond 86
+Wear -1
+Cost 8
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 5202
+Nest 0
+ExtF 64
+Cond 98
+Wear 9
+Cost 2700
+End
+
+#O
+Vnum 5204
+Nest 0
+ExtF 64
+Cond 89
+Wear 8
+Cost 3100
+End
+
+#O
+Vnum 5206
+Nest 0
+ExtF 64
+Cond 98
+Wear -1
+Cost 5200
+End
+
+#O
+Vnum 5205
+Nest 0
+ExtF 64
+Cond 97
+Wear 7
+Cost 3100
+End
+
+#O
+Vnum 17312
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 17308
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 17309
+Nest 0
+Wear 11
+Cost 5000
+End
+
+#O
+Vnum 17312
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 17312
+Nest 0
+ExtF 64
+Cond 94
+Wear 10
+Cost 1000
+End
+
+#O
+Vnum 17331
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 17312
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 17320
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 17320
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 17313
+Nest 0
+Wear 6
+Cost 5000
+End
+
+#O
+Vnum 1215
+Nest 0
+Name liriel rainbow dazzling wild~
+ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
+Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4590
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear -1
+Cost 2163
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 1840
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 16041
+Nest 0
+Wear 16
+Cost 5000
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 16044
+Nest 0
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 4579
+Enchanted
+Nest 0
+Wear 18
+Cost 2800
+Val  1 1 0 1 0
+Affc 'reserved'   1  30  -1   2  19          0 1
+Affc 'reserved'   1  30  -1   2  18          0 1
+Affc 'reserved'   1  30  -1   2   5          0 1
+Affc 'reserved'   1  30  -1   2   3          0 1
+End
+
+#O
+Vnum 4594
+Nest 0
+Wear 1
+Cost 8000
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 17304
+Nest 0
+Wear 5
+Cost 4000
+End
+
+#O
+Vnum 6114
+Nest 0
+Wear -1
+Cost 50
+End
+
+#PET
+Vnum 9595
+Name tiger pet~
+LogO 1026808122
+Desc The large, striped tiger looks like a savage fighter.
+A collar around its neck says 'I belong to Kazuya'.
+~
+Sex  2
+HMS  343 343 100 100 201 201
+AfBy FS
+Comm W
+Pos  8
+Atrib 11 12 11 13 11 11
+AtMod 0 0 0 0 0 0
+End
+#END

@@ -1,0 +1,144 @@
+#PLAYER
+Name Kittens~
+Id   1002248913
+LogO 1002250730
+Vers 7
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race feral~
+Sex  2
+Cla  3
+Levl 1
+Plyd 1784
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3700
+HMV  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  2500
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy JUVY
+Comm NOZ
+Revk 0
+Pos  8
+Prac 5
+Trai 3
+Save  -1
+Alig  -750
+Hit   5
+Dam   7
+ACs 46 46 46 50
+Atrib 15 13 11 18 15 11
+AtMod 4 0 0 4 0 0
+Pass selune~
+Afk {B[{CThu Oct  4 21:48:17 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Lotus~
+Lsit 207.91.11.43~
+Ltim Thu Oct 04 21:29:02 2001
+~
+LSav Thu Oct 04 21:58:50 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  F
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 0 0 9
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'shield block'
+Sk 1 1 'spear'
+Sk 40 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'bash'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'warrior default'
+Gr 'weaponsmaster'
+Affc 'blood moon'   0  84  72   4  18          0
+Affc 'blood moon'   0  83  72   7  19          0
+Affc 'haste'   0  88   2   4   2    2097152
+Affc 'giant strength'   0  87  71   4   1          0
+Affc 'armor'   0  86   4 -20  17          0
+Affc 'steel mist'   0  89  16  -9  17   16777216
+Affc 'shield'   0  86  79 -20  17          0
+Affc 'pass door'   0  87   2   0   0    1048576
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 161 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

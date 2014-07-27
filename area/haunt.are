@@ -1,0 +1,888 @@
+#AREA
+haunt.are~
+The Haunting~
+{H{{40 60} {MKenneth {TThe Haunting~
+17100 17130
+
+#MOBILES
+
+#17100
+rot-grubs grubs swarm~
+A swarm of {br{Ho{bt{H-{bg{Hr{bu{Hb{bs{x~
+The floor writhes beneath your feet, looking down you see a swarm of {br{Ho{bt{H-{bg{Hr{bu{Hb{bs{x.
+~
+Dozens of small white grubs burrow through the wooden floor.  A few of them
+seem to decide that your boots might make a tasty treat, and start to
+wriggle towards them.
+~
+grub~
+BGY Vc -500 S
+45 9 200d20+400 20d20+20 7d6+3 digestion
+-30 -29 -31 -26
+AH 0 D C
+stand stand none 12
+0 0 small 0
+
+#17101
+lizard man scaly death tribe~
+{GA li{Hz{Gard {Hma{Gn o{Hf t{Ghe {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x~
+A lizard man with a hideous black tattoo obscuring his face patrols around.
+~   
+Scaly muscles ripple as he turns to glare at you.  The black
+sunburst on his face wrinkles as he sizes you up and sneers.
+~    
+lizard~
+GTY HJVa -500 S
+50 10 200d10+400 20d20+20 8d6+2 scratch
+-33 -32 -33 -29
+CK 0 0 0
+stand stand male 156
+0 0 medium 0 
+
+#17102
+reviler skull face~
+A {Wr{ge{cv{Pi{Wl{ge{cr{x~
+{WA {gl{ce{Pe{Wr{gi{cn{Pg {Ws{gk{cu{Pl{Wl {gf{ca{Pc{We {gw{ci{Pt{Wh {gc{cl{Pa{Ww{ge{cd{P, {Wg{gr{ca{Ps{Wp{gi{cn{Pg {Wh{ga{cn{Pd{Ws {gs{cw{Po{Wo{gp{cs {Pd{Wo{gw{cn {Po{Wn {gy{co{Pu{W!{x
+~
+Yellow mist is all that seems to connect the face and the claws of
+this creature.  Something starts to whisper in your ear.  Its
+hollow eyes lock onto yours as it dives, and begin to glow with 
+a green, phosphorescent fire...
+~
+ghost~
+GOY BDFHKOTc -1000 S
+55 11 200d13+600 20d20+20 9d6+1 chill
+-36 -35 -36 -32
+FH 0 E 0
+stand stand male 220
+0 0 medium 0
+
+#17103
+reviler skull face~
+A {Wr{ge{cv{Pi{Wl{ge{cr{x~
+{WA {gl{ce{Pe{Wr{gi{cn{Pg {Ws{gk{cu{Pl{Wl {gf{ca{Pc{We {gw{ci{Pt{Wh {gc{cl{Pa{Ww{ge{cd{P, {Wg{gr{ca{Ps{Wp{gi{cn{Pg {Wh{ga{cn{Pd{Ws {gs{cw{Po{Wo{gp{cs {Pd{Wo{gw{cn {Po{Wn {gy{co{Pu{W!{x
+~
+Yellow mist is all that seems to connect the face and the claws of
+this creature.  Something starts to whisper in your ear.  Its
+hollow eyes lock onto yours as it dives, and begin to glow with
+a green, phosphorescent fire...
+~
+ghost~
+GOY BDFHKOTc -1000 S
+55 11 200d13+600 20d20+20 9d6+1 chill
+-36 -35 -36 -32
+FH 0 E 0
+stand stand male 220
+0 0 medium 0
+>all_greet_prog 100~
+MPECHO A statue of a priest with the head of a horned fiend glares at you.
+~
+|
+
+#17104
+baethshaera penanggalan head fanged~
+{NBae{Mt{Nhs{Mha{Ne{Mra{x~
+A grotesque head hovers around you, looking for an opening..
+~
+The head, if it were attached to a body, would make up a fairly
+attractive female, except for the large fangs and the blood
+running down its chin..
+~
+unique~
+GBRY KT -1000 S
+55 11 200d13+600 20d20+20 10d5+1 bite
+-35 -36 -36 -31
+FH 0 B 0
+stand stand female 200
+0 0 small 0
+
+#17105
+tanar'ri fish toad hezrou demon bad~
+{BT{Rhe{B H{Rezr{Bou{x~
+The hezrou lurches forward, its eyes brimming with hatred.
+~
+It seems to be covering the distance between you and it rather
+quickly...and it has very sharp teeth...
+~
+demon~
+BGT HGKO -1000 S
+60 12 1d1+2499 20d30+20 10d5+5 wrath
+-40 -41 -39 -36
+DHK 0 0 0
+stand stand male 310
+0 0 large 0
+
+#17106
+varak man crazy redshield priest cleric~
+{gV{Ra{gr{Ra{gk {RRe{gds{Rhi{gel{Rd{x~
+A wild-eyed man giggles as he keeps the portal open.
+~
+Being crazy doesn't suit Varak.  His bulging, blood-shot
+eyes clash with his priestly robe, and those red stains 
+will probably never wash out...
+~
+human~
+BGQ HKB -1000 S
+60 12 1d1+2099 200d30+20 10d5+4 magic
+-39 -40 -39 -37
+HK 0 0 0
+stand stand male 275
+0 0 medium 0
+
+#17107
+body decaying lacedon ghast~
+A {cla{Mc{ced{Mo{cn g{Mh{cas{Mt{x~
+A decaying body flies from the earth and clutches at your throat!!
+~
+Its nose might be about to fall off, but that does not make
+it any less deadly...the rotting stench makes you gag as it
+presses closer in an attempt to kill you that it might feed..
+~
+undead~
+BGOF FVX -1000 S
+45 9 1d1+1534 25d50+17 8d4+4 claw
+-30 -31 -30 -26
+D 0 0 0
+stand stand none 155
+0 0 medium 0
+
+#17108
+danexius sunstroke headache~
+A dazing headache~
+All the sun is giving you a headache.
+~
+Perhaps you had better get out of the sun before you suffer
+sunstroke.
+~
+delusion~
+BG 0 0 S
+35 4 1d1+699 1d1+329 7d4+4 sting
+-20 -20 -20 -18
+0 0 0 0
+stand stand none 0
+0 0 tiny 0
+
+
+#17109
+messenger scaly death tribe lizard~
+{GA me{Hs{Gsen{Hge{Gr o{Hf t{Ghe {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x~
+A lizard man with a hideous {cblack{x tattoo obscuring his face dashes by on an urgent mission.
+~
+Powerful leg muscles ripple as slows to consider your presence.  
+It is clear that he is on an important delivery mission, and 
+does not have the time to deal with you, otherwise he would most 
+certainly make his presence felt.
+~
+lizard~
+G V -750 S
+20 4 20d5+200 10d5+100 5d3+5 slash
+-12 -13 -12 -10
+FH 0 0 0
+stand stand male 0
+0 0 medium 0
+
+#0
+
+
+#OBJECTS
+
+#17100
+helm underwater action green blue~
+{GHe{Hl{Bm o{Nf {GU{Bn{Nd{He{Brw{Ga{Nte{Hr {GA{Bct{Nio{Hn{x~
+A green and blue helm with a wavy crest lies here.~
+steel~
+armor A AE
+18 18 18 15 0
+45 17 159 P
+A
+2 2
+A
+18 2
+A
+19 2
+A
+12 35
+A
+13 20
+A
+20 -1
+
+#17101
+varak's redshield shield~
+{gV{Ra{gr{Ra{gk{R'{gs {RRe{gds{Rhi{gel{Rd{x~
+A shimmering red shield hovers a foot above the floor.~
+meteoric iron~
+armor AJ AJ
+18 18 18 15 0
+55 25 160 P
+A
+17 -10
+A
+13 30
+A
+18 3
+A
+19 3
+A
+20 -6
+
+#17102
+red crystal planar shard sliver~
+{PA {Rpla{Pn{Rar s{Ph{Rard{x~
+A sliver of red crystal is lying on the floor.~
+crystal~
+light ABY A
+0 0 -1 0 0
+55 10 250 P
+A
+3 2
+A
+4 2
+A
+18 2
+A
+19 2
+A
+12 50
+
+#17103
+heartseeker spear~
+{gThe{x {cHe{ga{crt{gsee{ck{ge{cr{x~
+A long shard of obsidian carved with mystic runes is here.~
+obsidian~
+weapon ABY AN
+'staff' 7 7 'stab' C
+50 40 230 P
+A
+18 4
+A
+19 4
+A
+17 -4
+A
+20 -2
+
+#17104
+shortsword quickness~
+{WA sh{go{Wr{gtsw{Wo{gr{Wd of {gq{Wu{gick{Wn{ge{Wss{x~
+A glimmering shortsword twitches in the light.~
+steel~
+weapon ABY AN
+'dagger' 8 6 'pierce' G
+50 25 170 P
+A
+18 5
+A
+19 3
+A
+14 35
+A
+17 -3
+
+#17105
+sabot protection wooden shoes~
+{bSab{Ho{bts{H of {bp{Hrot{bec{Hti{bo{Hn{x~
+A strange pair of wooden shoes lie here.~
+oak~
+armor Y AG
+18 18 18 14 0
+50 20 145 P
+A
+18 2
+A
+19 2
+A
+20 -4
+
+#17106
+ailettes shoulder plates leather~
+{cA p{ga{Wi{cr o{gf ai{Wl{cet{gte{Ws{x~
+A pair of stiff leather shoulder plates lie here.~
+leather~
+armor AY AI
+17 16 17 13 0
+50 45 133 P
+A
+5 2
+A
+19 3
+A
+18 1
+A
+13 20
+
+#17107
+flanged mace~
+{PA f{Rl{Pan{Rg{Ped {Rm{Pac{Re{x~
+A flanged mace is embedded head first into the ground.~
+iron~
+weapon ABY AN
+'mace' 9 5 'pound' 0
+50 40 150 P
+A
+18 2
+A
+19 5
+A
+12 20
+
+#17108
+silver band~
+{WA {gsi{Wl{gve{Wr b{gan{Wd{x~
+A silver band of metal shimmers.~
+silver~
+armor ABIY AM
+15 15 15 13 0
+53 5 350 P
+A
+18 3
+A
+19 4
+A
+3 2
+A
+12 30
+A
+20 -1
+
+#17109
+important message scrap paper~
+an important message~
+A small scrap of paper lies on the ground.~
+paper~
+trash 0 AO
+0 0 0 0 0
+5 1 5 P
+E
+important message scrap paper~
+It has been located.  Begin preparations immediately.  Excavation begins 
+as soon as possible.  The world will be ours! 
+~
+
+#0
+
+#ROOMS
+
+#17100
+Grassy plains~
+You walk in the grassy plains, enjoying the scent of flowers around you.
+As the sun beats down on your head, you begin to feel slightly feverish,
+and your senses are invaded by intoxicating sensations of delight, peace, 
+and tranquility.  Your heart begins to beat in time with your spinning head.
+It seems as though you can make out a house rising in the distance.
+~
+0 0 4
+D1
+~
+~
+0 -1 416
+D3
+~
+~
+0 -1 17101
+S
+
+#17101
+Porch~
+Several minutes of walking brings you to the porch of the house you saw.
+Majestic columns rise above you, framing the oaken doorway that leads into
+this manor.  Should you really be disturbing whoever lives here?  It seems
+as if they have plenty of gold, and probably hold a lot of influence.  
+~
+0 0 4
+D0
+~
+door~
+1 -1 17102
+D1
+~
+~
+0 -1 17100
+S
+
+#17102
+Chamber of the Faithful~
+A low, circular stone well in the center of this room contains a pool of
+clear water.  Slim pillars of marble, all throughout the room, reach to 
+the ceiling.  There are four small fountains, one at each corner.  Water
+spews forth from the mouths of the fish that make up these fountains.
+The fish have an eerie, staring cast, and their eyes seem to follow your
+every movement...
+~
+0 D 0
+D0
+~
+~
+0 -1 17105
+D1
+~
+~
+0 -1 17103
+D2
+~
+door~
+1 -1 17101
+D3
+~
+door~
+1 -1 17106
+S
+
+#17103
+Statuary~
+These two alcoves are occupied by 9' tall marble statues of robed priests,
+their faces obscured by cowls.  They carry huge scythes, and it seems as
+though the eyes, though not visible, are glaring down on your head..
+~
+0 D 0
+D1
+~
+~
+0 -1 17104
+D3
+~
+~
+0 -1 17102
+S
+
+#17104
+Kitchen~
+This chamber is in a complete shambles.  The wooden table and chairs are
+overturned and rotting, and metal utensils and pottery shards are littered
+everywhere.  A rotted tapestry has fallen from the eastern wall and
+partially drapes the floor.  An alcove on the far eastern wall holds 
+split open wine barrels.  A flooded crate and some barren shelves complete
+the scene.
+~
+0 D 0
+D3
+~
+~
+0 -1 17103
+S
+
+#17105
+Anointing Hall~
+This looks like a room used to anoint priests.  The walls are covered in 
+frescoes of leering skulls.  Many pieces of stone lie smashed on the floor;
+you can make out images of deer and woodlands on some of the pieces, and
+notice a huge bare space on the wall.  As soon as you enter, the skulls seem
+to move to face you, and begin to howlllll!
+~
+0 D 0
+D2
+~
+~
+0 -1 17102
+S
+
+#17106
+Hall of the Faithful~
+The eastern wall is inscribed with an illustration of the rising sun, and
+the west wall has an inscription of the setting sun.  The red carpet that
+once covered the floor here is torn and rotted.  Bright frescoes on the
+north and south walls are chipped, and many of the pieces lay strewn
+across the floor.
+~
+0 D 0
+D0
+~
+door~
+1 -1 17108
+D1
+~
+door~
+1 -1 17102
+D2
+~
+door~
+1 -1 17107
+D3
+~
+door~
+1 -1 17110
+S
+
+#17107
+Scriptorium~
+This room is divided into many smaller compartments by ornate, arched 
+pillars.  Writing tables have scribing instruments stabbed into them,
+so forcefully that the wood is split.
+~
+0 D 0
+D0
+~
+door~
+1 -1 17106
+S
+
+
+#17108
+Meditation Hall~
+This chamber is divided by two archways.  There are several iron
+candelabras and a small folding shrine in the southwest corner.  
+Bloated tapestries hang precariously from the walls, their thick
+draperies wavering sluggishly...the tapestry on the west wall has 
+swung out from the wall a ways, allowing you to see part of a door
+behind it.
+~
+0 D 0
+D2
+~
+door~
+1 -1 17106
+D3
+~
+door~
+1 -1 17109
+S
+
+#17109
+Library~
+Thick weeds and vegetation cover this room.  Bones and cartilage lie
+heaped in a pile on the floor, a gruesome sight to behold.  Three shelves
+contain books and body parts.  One stool seems to be sinking into a hole
+in the floor.
+~
+0 D 0
+D1
+~
+door~
+1 -1 17108
+S
+
+#17110
+Chapel~
+The air here is stale and rank.  The vaulted ceiling of the chapel reaches
+all the way to the roof of the house, through all the other stories.
+The floor is tiled in intricate patterns of turquoise, and the center
+of the chapel is dominated by a circular dais of green marble.  The
+top of the dais is a deep, bowl-like depression.  Water quickly
+begins to pour over the edge of the dais...
+~
+0 D 0
+D1
+~
+door~
+1 -1 17106
+D3
+~
+~
+0 -1 17111
+S
+
+#17111
+Staircase~
+A staircase leads up to the next level of the house.  The walls
+here are sculpted with depictions of daily life at a sanctuary.  
+However, the faces of the priests have been warped into skulls and
+horribly twisted visages.  As you enter, the air fills with soft, 
+eerie whisperings, and the eyes of the sculptures seem to follow
+your every move.
+~
+0 D 0
+D1
+~
+~
+0 -1 17110
+D4
+~
+~
+0 -1 17112
+S
+
+#17112
+Landing~
+This room is devoid of everything besides the staircase and a couple
+doors, one of which is leaning askew on its hinges.
+~
+0 D 0
+D0
+~
+~
+0 -1 17113
+D1
+~
+door~
+1 -1 17114
+D5
+~
+~
+0 -1 17111
+S
+
+
+#17113
+Chapel Balconies~
+This room contains a balcony that looks down 25 feet onto the chapel below.
+The balcony is surrounded by slim, fluted pillars and a stone railing.
+You can't quite put your finger on it, but the way the railing is carved
+makes you feel ill at ease..
+~
+0 D 0
+D2
+~
+~
+0 -1 17112
+S
+
+#17114
+Gray, quiet room~
+This room is lit only by a single gray candle.  Two women in pure white
+gowns lie sleeping on a pallet in the northeast corner.  Both have small
+puncture marks on their necks.  A disembodied head with large fangs
+floats quickly out the east door, leaving a rush of air in its wake!
+~
+0 D 0
+D1
+~
+~
+0 -1 17115
+D3
+~
+door~
+1 -1 17112
+S
+
+#17115
+Hall of Eldath~
+This hall is decorated with twisted wilderness scenes.  Hideous 
+columns with skull-like protrusions rise to the ceiling.  Thick, 
+rotten tapestries flank a large altar shoved against a wall.  The 
+floor is shrouded in two feet of mist.  
+~
+0 D 0
+D0
+~
+~
+0 -1 17116
+D3
+~
+~
+0 -1 17114
+S
+
+#17116
+Hall of Eldath~
+This hall is decorated with twisted wilderness scenes.  Hideous 
+columns with bony protrusions rise to the ceiling.  Thick, rotten
+tapestries add a pungent odor to the room.  The floor is shrouded 
+in two feet of mist.  The mist is pouring out from under two great 
+bronze double doors to the west.  A horrifyingly loud roaring sound 
+can be heard from the same direction.
+~
+0 D 0
+D0
+~
+~
+0 -1 17117
+D1
+~
+~
+0 -1 17121
+D2
+~
+~
+0 -1 17115
+D3
+~
+door~
+1 -1 17118
+S
+
+#17117
+Hall of Eldath~
+This hall is decorated with twisted wilderness scenes.  Hideous 
+columns with skull-like protrusions rise to the ceiling.  Thick, 
+rotten tapestries flap feebly against the wall, as if they were 
+trying to escape.  The floor is shrouded in two feet of mist.   
+~
+0 D 0
+D2
+~
+~
+0 -1 17116
+D3
+~
+~
+0 -1 17119
+S
+
+#17118
+Vault of Heartseeker~
+Roiling mist pours under the bronze double doors behind you.  A steady
+roar as if from some great maelstrom can be heard.  Most of the room is
+filled with mist that has yet to escape.  Sunk into the stone floor is  
+a square dais, atop of which lies a long obsidian shard inscribed with
+magical runes.  Directly above the dais is a circular hole in the 
+ceiling, filled with a vortex of dark clouds and mist.  The roaring
+noise came from this vortex.  The candles that were lighting the room
+flicker and go dim as the obsidian shard seems to melt into a mirror...
+~
+0 D 0
+D1
+~
+door~
+1 -1 17116
+S
+
+#17119
+Varak's Quarters~
+A hideous stench permeates this room.  A cheerful blue urn is set
+in one corner, and part of a human torso is visible peeking over
+the top of it. The entire room is painted in bright pastels, and
+has had...imaginative...designs painted across it in blood.  A
+badly preserved head stares at you from a shelf across the room.
+~
+0 D 0
+D1
+~
+~
+0 -1 17117
+D3
+~
+secret~
+1 -1 17120
+S
+
+#17120
+Vault of Holy Treasures~
+The north and south walls of this room are lined with white marble
+statues of saintly priests, all of whom are making gestures of 
+supplication and reverence to a pedestal of malachite in the center
+of the room.  There are also many ivory carvings along the floor
+depicting beautiful wildlife scenes and harvest feasts.
+~
+0 D 0
+D1
+~
+secret~
+1 -1 17119
+S
+
+#17121
+Storage Room~
+This part of the mansion was used for the storage of common supplies.  
+You can tell this by the way several of those common supplies, like
+the trowels and other gardening implements, are imbedded in the wall. 
+A ladder, only missing a few rungs, is leaned against one wall, 
+leading up through a hole in the ceiling.
+~
+0 D 0
+D3
+~
+~
+0 -1 17116
+D4
+~
+~
+0 -1 17122
+S
+
+
+
+#17122
+Watchtower Armory~
+A small rack of maces, flails, scimitars, and morning stars is very
+busy rusting itself into the wall.  A full suit of armor is standing
+at guard next to the rack..surprisingly enough, it is not rusted.
+The helmet turns to you, and you can swear you feel something just
+staring at you..and grinning at what it sees...
+~
+0 D 0
+D3
+~
+secret~
+1 -1 17123
+D5
+~
+~
+0 -1 17121
+S
+
+#17123
+Gathering Chamber~
+A churning vortex of dark mist spins in the center of the chamber, roaring
+like a thunderstorm.  From its black center climbs a horrid beast resembling
+a cross between a monstrous toad and a fish, its powerful body covered with
+gleaming scales of mottled green.  Sharp spines lines its back, and its
+gaping mouth is filled with rows of snapping teeth.  The creature emits a
+deafening roar that drowns out the sound of the vortex.
+~
+0 D 0
+D1
+~
+secret~
+1 -1 17122
+S
+
+
+#0
+
+#RESETS
+
+M 0 17100 3 17107 1     *rot grubs to the scriptorium
+M 0 17100 3 17115 1     *rot grubs to the halls of eldath 
+M 0 17100 3 17121 1     *rot grubs to the storage room
+M 0 17101 4 17118 1     *lizard man, ultrabuff one, vault
+E 0 17103 25 16         *Heartseeker
+E 0 17106 45 10         *ailettes
+M 0 17101 4 17122 1     *lizard man, watchtower
+E 0 17104 30 16         *shortsword of quickness
+E 0 17106 45 10         *ailettes
+M 0 17101 4 17117 1     *lizard man, hall of eldath
+E 0 17107 30 16         *flanged mace
+E 0 17106 45 10         *ailettes
+M 0 17101 4 17104 1     *lizard man, kitchen
+E 0 17105 40 8          *sabots
+E 0 17106 45 10         *ailettes
+M 0 17102 4 17105 1     *reviler, anointing hall
+M 0 17102 4 17110 1     *reviler, chapel
+M 0 17102 4 17122 1     *reviler, also to the vault
+M 0 17102 4 17108 1     *reviler, meditation hall
+M 0 17103 1 17111 1     *bad reviler, stairway
+M 0 17104 1 17116 1     *baethshaara to hall of eldath
+M 0 17105 1 17123 1     *hezrou to gathering chamber
+E 0 17108 60 14         *silver band
+M 0 17106 1 17123 1     *varak to gathering chamber
+E 0 17101 40 11         *redshield
+E 0 17102 40 0          *planar shard
+M 0 17107 1 17109 1     *ghast to library
+E 0 17100 40 6          *helm of underwater action
+M 0 17108 1 17100 1     *danexius headache to beginning room
+D 0 17101 0 1           *door
+D 0 17102 2 1           *door
+D 0 17102 3 1           *door
+D 0 17106 0 1           *door
+D 0 17106 1 1           *door
+D 0 17106 2 1           *door
+D 0 17106 3 1           *door
+D 0 17107 0 1           *door
+D 0 17108 2 1           *door
+D 0 17108 3 1           *door
+D 0 17109 1 1           *door
+D 0 17110 1 1           *door
+D 0 17112 1 1           *door
+D 0 17114 3 1           *door
+D 0 17116 3 1           *door
+D 0 17118 1 1           *door
+D 0 17119 3 1           *door
+D 0 17120 1 1           *door
+D 0 17122 3 1           *door
+D 0 17123 1 1           *door
+
+
+S
+
+#SHOPS
+
+0
+
+#SPECIALS
+
+S
+
+#$
+
+
+

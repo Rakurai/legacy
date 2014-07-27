@@ -1,0 +1,175 @@
+#PLAYER
+Name Love~
+Id   1020209858
+LogO 1020211600
+Vers 13
+Mexp 1
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race seraph~
+Sex  1
+Cla  0
+Levl 1
+Plyd 285
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  3000
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy T
+FRes NS
+FVul M
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  5
+Prac 5
+Trai 3
+Save  -7
+Alig  750
+Hit   7
+ACs 100 100 100 100
+Wimp  5
+Atrib 14 15 15 10 17 18
+AtMod 0 0 0 0 0 0
+Pass ir3land~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Viro~
+Lsit 203.36.248.1~
+Ltim Tue Apr 30 18:38:37 2002
+~
+LSav Tue Apr 30 19:06:40 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 10 10
+Sk 1 1 'acid blast'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 1 1 'armor'
+Sk 1 1 'bless'
+Sk 1 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 1 1 'charm person'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'curse'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'energy drain'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 1 1 'flameshield'
+Sk 1 1 'fly'
+Sk 1 1 'frenzy'
+Sk 1 1 'gate'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'infravision'
+Sk 1 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'power word'
+Sk 1 1 'portal'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'sleep'
+Sk 1 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 1 1 'steel mist'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'vision'
+Sk 1 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 40 1 'dagger'
+Sk 1 1 'brew'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'mage default'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'curative'
+Gr 'detection'
+Gr 'enhancement'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'bless'   0  52  35  -7  24          0 1
+Affc 'bless'   0  55  35   7  18          0 1
+End
+
+#END

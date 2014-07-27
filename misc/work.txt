@@ -1,0 +1,25 @@
+
+This file is to keep track of ideas that have not been implemented for one reason or another.
+An idea being in this file does not mean that it WILL be implemented, it merely means it is
+put here for future consideration.
+
+Living Armor:  Armor that increases in power and level as you do.
+Armor Forging:  Lets you build your own armor, possibly comprehensive enough to let you use
+  qp to add hp/mana/saves/ac/etc
+Room Progs:  Work a lot like mobprogs, triggers in room can activate
+Object Progs:  Same thing, can check for conditions, and perform commands
+Killer/Thief flags:  come up with something better.  :P  maybe making it so you can't enter safe rooms
+Paintball:  change to paintbow, and redo it.  custom paint colors, scorekeeping, a paintball arena
+Weather System:  redo weather completely, put in fog, snow, storms, even bad affects from bad weather,
+  such extra movement loss, possible damage from hail, etc
+
+Future Skills and Spells:
+Exhaustion:  Spell that lowers movement, maybe 7 per level of the caster for each successful casting.
+Mindset:  Doubles durations on spells. (remort)
+Soul Blade:  Mana draining bladecraft spell (remort)
+Dual Parry and Dual Riposte:  Possible future bard skills (remort)
+Prismatic Wall:  Shield spell that randomly changes it's properties, absorbs elemental damage. (remort)
+Tsunami (Tidal Wave?):  Water damage spell
+{Y[{x01/29{Y]{x {C[{x 1223{C]{x Liriel: helpers redone, clan ranking redone, all after warcode gets put in, and remort races
+{Y[{x12/07{Y]{x {C[{x 1288{C]{x Vegita: from eusiebus> make dodge and haste evolvable and have them build off each other.
+{Y[{x01/11{Y]{x {C[{x 1290{C]{x Montrey: wikihelps!

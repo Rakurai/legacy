@@ -1,0 +1,386 @@
+#PLAYER
+Name Alyssa~
+Id   995783224
+LogO 1017775919
+Vers 13
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race human~
+Sex  2
+Cla  3
+Levl 24
+Plyd 141128
+Back 0
+Note 1017698069 1017698069 1017698069 1017698069 1017698069 1017698069 1017698069
+Scro 22
+Room 1251
+HMS  302 348 199 199 335 335
+Gold 957
+Silv 214
+Silver_in_bank 9420
+Gold_in_bank 341
+Exp  24075
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 3
+Trai 2
+Save  -5
+Alig  1
+Hit   5
+Dam   6
+ACs -23 -19 -20 16
+Atrib 21 16 18 14 17 18
+AtMod -5 4 -2 6 -5 6
+Pass queen~
+Afk {B[{CTue Apr  2 13:16:59 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  Agarwaen~
+Immn ~
+Pnts 21
+Rank ~
+Aura ~
+TSex 2
+LLev 35
+Deit Edge~
+Lsit c-66-41-76-12.mn.client2.attbi.com~
+Ltim Tue Apr 02 12:38:30 2002
+~
+LSav Tue Apr 02 13:31:59 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  F
+HMSP 343 174 385
+THMS 0 0 0
+Cnd  0 0 0 14
+Sk 78 1 'dagger'
+Sk 94 1 'sword'
+Sk 100 1 'shield block'
+Sk 93 1 'enhanced damage'
+Sk 24 1 'hand to hand'
+Sk 79 1 'second attack'
+Sk 39 1 'dual wield'
+Sk 78 1 'fast healing'
+Sk 75 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 0 0 0 0
+End
+
+#O
+Vnum 16046
+Nest 0
+Cond 93
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3115
+Nest 0
+Cond 91
+Wear 10
+Cost 660
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 664
+Nest 0
+ExtF 64
+Cond 74
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3114
+Nest 0
+Wear 9
+Cost 660
+End
+
+#O
+Vnum 6
+Nest 0
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 17318
+Nest 0
+ExtF 4
+Cond 96
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 7203
+Nest 0
+Cond 96
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 10133
+Nest 0
+Cond 98
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 16039
+Nest 0
+ExtF 1
+Cond 99
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 16039
+Nest 0
+ExtF 1
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 3116
+Nest 0
+Cond 78
+Wear 11
+Cost 1190
+End
+
+#O
+Vnum 9923
+Nest 0
+Cond 92
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 4583
+Nest 0
+Cond 94
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9924
+Nest 0
+Cond 93
+Wear -1
+Cost 0
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 17318
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 17320
+Nest 0
+ExtF 262146
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 1104
+Nest 0
+Cond 95
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16008
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 17318
+Nest 0
+ExtF 0
+Wear 7
+Cost 1000
+End
+
+#O
+Vnum 16084
+Nest 0
+Cond 97
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 9922
+Nest 0
+Cond 98
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 10209
+Nest 0
+Cond 96
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 4590
+Nest 0
+Cond 96
+Wear 0
+Cost 600
+End
+
+#O
+Vnum 16007
+Nest 0
+Cond 97
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16032
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 4583
+Nest 0
+Cond 89
+Wear 17
+Cost 1200
+End
+
+#O
+Vnum 9586
+Nest 0
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 9586
+Nest 0
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 9585
+Nest 0
+Cond 98
+Wear 16
+Cost 640
+End
+
+#O
+Vnum 9500
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 0
+Name liriati tile letter D~
+ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {Y[{WD{Y]{x~
+Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4576
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 4577
+Nest 0
+Wear 18
+Cost 2400
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#END

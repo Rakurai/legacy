@@ -1,0 +1,207 @@
+#PLAYER
+Name Forge~
+Id   1026190874
+LogO 1026228234
+Vers 14
+Mexp 0
+Pass creed1~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  6
+Levl 4
+Tru  0
+Plyd 2599
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  18 120 23
+Gold 0
+Silv 89
+Exp  5687
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -20
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 15 18 13 18 10 13
+Titl  The Crafter~
+Immn ~
+Pnts 48
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Urza~
+Lsit class223.58.ohiohills.com~
+Ltim Tue Jul 09 10:10:05 2002
+~
+LSav Tue Jul 09 10:23:54 2002
+~
+HMSP 64 122 120
+THMS 1 0 0
+Cnd  0 16 38 33
+Sk 1 1 'blood blade'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'encampment'
+Sk 1 1 'flame blade'
+Sk 1 1 'floating disc'
+Sk 1 1 'frost blade'
+Sk 1 1 'shock blade'
+Sk 75 1 'axe'
+Sk 1 1 'flail'
+Sk 31 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'second attack'
+Sk 1 1 'forge'
+Sk 1 1 'repair'
+Sk 1 1 'lore'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'steal'
+Sk 1 1 'sing'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'bard basics'
+Gr 'creation'
+Gr 'bladecraft'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 142 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3719
+Nest 0
+Wear 16
+Cost 350
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 1344
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 1345
+Nest 0
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 14027
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 10017
+Nest 0
+Cond 84
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 1377
+Nest 0
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 6601
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 9061
+Enchanted
+Nest 0
+ExtF 65
+Wear 15
+Lev  7
+Cost 0
+Affc 'enchant armor'   1  91  -1  -5  17          0 1
+End
+
+#O
+Vnum 9060
+Nest 0
+Wear 7
+Cost 0
+End
+
+#END

@@ -1,0 +1,267 @@
+#PLAYER
+Name Tsurai~
+Id   1014878781
+LogO 1014965367
+Vers 12
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Sex  2
+Cla  0
+Levl 1
+Plyd 5603
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3701
+HMS  30 30 110 110 100 100
+Gold 0
+Silv 0
+Exp  1050
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+FRes B
+FVul Z
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Save  -1
+Alig  750
+Hit   1
+ACs 95 95 95 99
+Atrib 11 18 14 15 11 14
+AtMod 0 0 0 0 0 0
+Pass fluffy~
+Afk {B[{CThu Feb 28 01:27:24 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 38
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Jubei~
+Lsit AC8E180D.ipt.aol.com~
+Ltim Thu Feb 28 23:38:41 2002
+~
+LSav Fri Mar 01 00:49:27 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 30 110 100
+THMS 1 1 0
+Cnd  0 3 1 32
+Sk 1 1 'cause light'
+Sk 1 1 'cause serious'
+Sk 1 1 'cause critical'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 1 1 'cure serious'
+Sk 1 1 'dazzling light'
+Sk 1 1 'divine healing'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'harm'
+Sk 1 1 'heal'
+Sk 1 1 'mass healing'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 1 1 'dagger'
+Sk 48 1 'sword'
+Sk 14 1 'brew'
+Sk 75 1 'languages'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'sing'
+Sk 21 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'curative'
+Gr 'enchantment'
+Gr 'harmful'
+Gr 'healing'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 66 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Jubei.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Jubei.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Jubei.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a delicious cheesestick~
+ShD  a delicious {Ycheesestick{x~
+Desc A delicious {Ycheesestick{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Jubei.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Jubei.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Jubei.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Jubei.
+~
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 48 0 0 0
+End
+
+#END

@@ -1,0 +1,2966 @@
+#AREA
+macdougal.are~
+Castle Dunollie~
+{H{{CLANS} {MGrem/Winter/Trav {TCastle Dunollie~
+4701 4899
+
+#MOBILES
+#4701
+katherine mackinnley~
+{GKatherine MacKinnley{x~
+{GKatherine {Wbustles all about the store stocking shelves.{x
+~
+Katherine is a buxom, red-haired wench whose brightly flushed color seems 
+to taint her soft, pale flesh. Her color comes naturally since she's from
+the Misty Isles. Her emerald green eyes are as sharp as ever and she 
+doesn't miss a trick. She's fair in her prices and abundant in her pinches.
+If you tarry too long, you may have more marks on your butt than you'd
+care to show your wife or girlfriend.
+~
+human~
+BTGVZd DEF 0 S
+100 30 10000d1+1 10000d1+1 50d65+1 slap
+-70 -70 -70 -70
+0 ABCD 0 0
+stand stand female 100000
+0 0 small flesh
+>all_greet_prog 100~
+if sex($n)==0
+   eyebrow $n
+   emote wonders to herself if you look more like a female or male.
+   pinch $n
+else
+   if sex($n)==1
+   bow $n
+   say What be yer pleasure ta'day?
+   pinch $n
+else
+   if sex($n)==2
+   smile $n
+   say Good day M'Lady. What may I do for you?
+  endif
+ endif
+endif
+~
+|
+
+#4702
+Duncan McSorley~
+{GDuncan McSorley{x~
+{GDuncan {Wwill skillfully repair your damaged equipment for you.{x
+~
+Duncan McSorley has been repairing equipment for a long time and his
+leathery skin shows the effects the hot forge has done over the years.
+His leather apron has been replaced more times than even he can 
+remember. He knows the exact technique needed to repair each piece
+whether it be obsidian, platinum, or even that pesky dragonscale
+stuff. He can fix it all back to perfect. His blue eyes still have
+a twinkle in them as each night he hangs up his worn black leather
+apron. He may be tired after a long day repairing clan equipment,
+but when he leaves his shop he has a slight spring in his step.
+You wonder if it's because he's finally finished for the night
+or is it because he's going to visit Katherine.
+~
+human~
+ABCGTVZX DEF 0 S
+108 30 10000d1+1 10000d1+1 50d65+1 slap
+-90 -90 -90 -90
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#4703
+Ewan McCaulie~
+{GEwan McCaulie{x~
+{GEwan {Wwaits patiently for you to make a selection.{x
+~
+Ewan McCaulie has been raising dogs all his life, just as his father
+did before him and his father before him. To him they are not just pets,
+they are much more than that. He knows that training a dog with a
+kind and gentle touch,  but firm and authoritative voice, will create
+a dog that is eager to learn and please its master. Ewan's brown eyes
+are ever watchful of his charges, making sure they are healthy and
+robust. He has tended many a sick pup back to health. Ewan is not one
+to mince words because he'll tell you that you'd better respect your
+dog and give it the love it deserves. Dogs, they say, are man's best
+friend. Ever wonder why? They don't ask for love, they give it 
+unconditionally. Sound familiar?
+~
+human~
+ABGTZVX DEF 0 S
+100 30 10000d1+1 10000d1+1 50d65+1 slap
+-50 -50 -50 -50
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 100000
+
+#4704
+Dougall~
+{GDougall{x~
+{GDougall {Wis busy getting equipment ready for the next person to use.{x
+~
+Dougall was named after the the son of Somerled. He's proud of the name
+and his pride shows in the clan gear he sells. He designed each piece himself
+ensuring it was the exact strength needed to withstand arduous battles. He
+has heard many stories that have been passed down and each one he weaved
+into his creations in order that the legacy lives on...
+~
+human~
+ABGTVZX DEF 0 S
+100 30 10000d1+1 10000d1+1 50d65+1 divine
+-50 -50 -50 -50
+0 ABCD 0 0
+stand stand male 100000000
+0 0 medium 0
+>all_greet_prog 100~
+
+   bow $n
+   say Buaidh no bas!
+endif
+~
+|
+
+#4705
+Liam the Ancient Sage~
+{GLiam, the Ancient Sage{x~   
+{WStanding near the bookshelf is {GLiam{W, the ancient sage from the Misty Isles.{x
+~
+Liam is not a flashy dresser, in fact, he reminds you of a monk. He wears
+a cream-colored, wool shirt under a brown linen robe which is tied at the
+waist with a corded rope. His wisdom is supernatural, much akin to 
+Solomon's. He felt a great burden to leave the Misty Isles and come here
+to be the one who would aid his clan in what seems a simple task of
+identifying objects, but that is on the outside. Liam looks beyond to get
+the full knowledge of what he is inspecting. God blessed him with singular
+wisdom and understanding in a spirit as deep as the ocean. Indeed his wisdom
+dwarfs that of all who are gifted this way. 
+~
+human~
+ABCGRVXZ DEF 0 S
+108 30 10000d1+1 10000d1+1 50d65+1 slap
+-70 -70 -70 -70
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#4706
+Friar Sean~
+{GFriar Sean{x~
+{WSinging praises and worship, {GFriar Sean {Wis oblivious to all around him.{x
+~
+Friar Sean is a tall, slim man whose gentle brown eyes and soft hands have seen
+much joy and touched much pain. His soft green robe is belted at the waist with
+a thin leather strap, a small gold cross attached. He is pleased with his 
+simply furnished chapel, unadorned of great riches. He believes that richness
+in spirit, a righteous heart, and an upright walk shows far more wealth than
+material stuff (as he calls it). He heals the sick, blind, plagued, cursed 
+and weary without hesitation. He knows who the saints are, the people who
+let the light shine through.  
+~
+human~
+ABGQVZa DEF 0 S
+100 30 10000d1+1 10000d1+1 50d65+1 slap
+-50 -50 -50 -50
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+           
+#4707
+Alexander~
+{GAlexander{x~
+{GAlexander {Wis busily picking up swords and fails from the floor.{x
+~
+Alexander hardly ever stops or slows down. He's always busy picking up stuff!
+He's a tidy man, but to look at him, you wouldn't think this small average 
+built man with a deep burley voice knew much about warfare. Don't let looks
+deceive you, it's what's on the inside that counts. There are many stories
+about the Scottish soldier dating back nearly two thousand years from the 
+feared King "Conn of the Hundred Battles" through to Bonnie Prince Charlie.
+Warriors immortalized in history such as Rob Roy MacGregor springs to 
+mind, yet, the list of great Highlanders and their adventures is endless.
+Alexander would not be the first to tell you of "the misty hills on a 
+highland shore, holding mystery with  of days when old men prayed, when
+soldiers fought..and children played."
+~
+human~
+ABGJKTZVXb DEF 0 S
+100 30 10000d1+1 10000d1+1 50d65+1 slap
+-50 -50 -50 -50
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+>all_greet_prog 100~
+ say Ye don't look like much.
+ say but if it's training ye're wanting...
+~
+|
+#4708
+katielynn mccallister~
+{GKatieLynn McCallister{x~
+{GKatieLynn {Wbustles around preparing food for everyone.{x
+~
+KatieLynn is a portly woman with graying hair that is neatly tied back
+in a bun. Even with all the hard work it takes to run a clan kitchen, 
+the sparkle in her green eyes never fades. She comes from hardy Scottish
+stock and has had her trials and tribulations through the years. One
+observer said she had "the rare gift of sensing people's fundamental
+needs, of reaching into their hearts and leaving there a firmer grasp
+of the lasting realities of faith and hop and love." She knows that the
+people who have the best grasp on life are those who most would call
+common or ordinary, not the "upwardly mobile" or the "movers and 
+shakers." No, those who truly understand the ebb and flow of life are
+those who struggle with the day-to-day joys and disappointments of jobs
+and families. Those who rejoice in a baby's first step, a grandchild's
+chalk picture, a daughter's wedding. Those who weep for a father's 
+death or sister's illness. Those who count among their most treasured
+possessions the memories of family and friends. Yes, KatieLynn is a rare
+woman indeed.
+~
+human~
+ABGTVZ DEF 0 S
+100 30 10000d1+1 10000d1+1 50d65+1 slap
+-50 -50 -50 -50
+0 ABCD 0 0
+stand stand female 10000
+0 0 small 0
+
+#4709
+deerhound~
+{Wa {cdeerhound{x~
+{WA beautiful {cgray deerhound {Wsits here waiting patiently for its orders.{x
+~
+This very large long-haired hound is from a noble Scottish breed of
+dogs. His shaggy appearance belies the fact that he is a supreme
+guard dog, willing and able to tackle any command his master gives
+him. He is very protective of his master watching your every move.
+~ 
+dog~
+ABGTVZ DEF 0 S
+70 14 20d100+60 1d500+3 12d5+0 bite
+-35 -33 -35 -25
+CF 0 0 0
+stand stand male 5000
+0 0 large 0
+ 
+#4710
+rough collie~
+{Wa {brough {bc{Wo{cl{bl{Wi{ce{x~
+{WA beautiful {bgold and {Wwhite {bc{Wo{cl{bl{Wi{ce {Wstands here ready to obey your command.{x
+~
+This collie is one of the most beautiful of all dogs. Its coat is golden 
+brown and white with black accents around the ears, eyes and tail. 
+The outstanding qualities of this "Lassie" dog, friendly, obedient, and
+protective, make it a quality dog for anyone. They are also used as 
+working dogs to herd sheep or cattle making it an around choice.
+This collie will be a friend to you for life.
+~
+dog~
+ABGTVZ DEF 0 S
+50 10 20d50+60 1d250+3 1d17+0 bite
+-25 -23 -25 -18
+CF 0 0 0
+stand stand male 3000
+0 0 medium 0
+
+#4711
+shetland sheepdog~
+{Wa {bsh{Wet{bla{cnd sh{bee{Wpd{bog{x~
+{WA small {bs{Wh{be{ce{bp{Wd{bo{Wg waits patiently for its orders.{x
+~
+The smaller of the collie breeds, this is one of the cutest dogs. It's a tiny
+"Lassie", but don't let its smallness deceive you, because this little dog
+is a wonderful guard dog. It is energetic and always willing to please. 
+This little dog can get into some tight spots that bigger dogs can't. 
+It's loyal, friendly and obedient nature makes it a perfect companion.
+~
+dog~
+ABGTVZ DEF 0 S
+30 6 1d329+1 1d130+3 1d8+0 bite
+-19 -18 -19 -15
+CF 0 0 0
+stand stand male 2000
+0 0 small 0
+
+#4712
+spirit indian shaman~
+The {VSpi{Mrit{x of an {GInd{Hian{x {CS{Bh{Sa{Bm{Ce{Bn{x~
+The {VSpi{Mrit{x of an {GInd{Hian{x {CS{Bh{Sa{Bm{Ce{Bn{x watches over you while you rest.
+~
+The {VSpi{Mrit{x of an {GInd{Hian{x {CS{Bh{Sa{Bm{Ce{Bn{x.
+~
+human~
+ABGV DFH 0 S
+15 1 1d999+1 1d999+1 1d999+1 slap
+-10 -10 -10 -10
+0 ABCD 0 0
+stand stand female 0
+0 0 medium 0
+#4713
+connor macloud fighter~
+Connor MaCloud~
+Connor MaCloud of The clan MaCloud stands here.
+~
+Connor MaCloud Is one of the last of the Clan MaCloud and he has fought
+valiantly with Duncan MaCloud in the Fight to Defeat all the Evil in 
+our land. He stays here to Relax so no Rivals will find him.
+~
+human~
+BG DF 0 S
+1 1 20d20+20 20d20+20 2d2+2 wrath
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand male 1
+0 0 medium 0
+
+#0
+
+
+#OBJECTS
+#4701
+sheepskin boots~
+{HSh{Bee{Rps{Hki{Bn B{Roo{Hts{x~
+{WThe sheep are cold, but your feet will be warm in these boots.{x~
+sheepskin~
+armor ABIY AG
+7 7 7 6 0
+20 1 500 I
+E
+sheepskin boots~
+{TThe clan raise their own sheep, so since they know the quality of their
+flock, they use their own to make these boots. The boots keep your feet
+warm and dry in cold or wet weather, and yet they allow the feet to
+remain cool insulated even when walking through deserts. As every 
+Highlander knows, the steps of a good man are ordered by the Lord.
+As Sara Ezell said "you have to go through being scared before you
+can be brave." So each mile starts with one step, all journeys do.
+If you don't take the first step, you'll never know whether you 
+could have succeeded.{x
+~
+A
+1 1
+A 
+2 1
+A
+3 1
+A
+13 20
+A
+18 2
+A
+19 2
+
+#4702
+war cry freedom~
+{HTh{Be W{Rar {HCr{By o{Rf F{Hre{Bed{Rom{x~
+{WThe cries of war and freedom float above the ground.{x~
+energy~
+armor ABIY AQ
+9 9 9 8 0
+25 1 625 I
+E
+freedom war cry~
+{TThe war cry of our clan is "Buaidh no bas" - - "Conquer or die."
+A war cry stirs up the inner emotions to rally the men forward.
+It is cried out in sheer desperation of all that lies within the
+soul, all that cries out for win or die..leading the loyal, the
+brave, and the determined across a battlefield to victory or
+defeat. Push forward, never retreat...to die for a cause that
+is noble, honorable, and will free men from any bondage is worth
+all that and more..to be mentally and spiritually chained against
+everything you believe in..well that is death. So a raging war cry
+goes up for battle..in great moments life seems neither right nor
+wrong, but something greater, it seems inevitable.{x
+~
+A
+3 1
+A
+4 1
+A
+5 1
+A 
+12 30
+A
+18 2
+A 
+19 2
+
+#4703
+one bond ring~
+{HTh{Be O{Rne {HBo{Bnd {RRi{Hng{x~
+{WA {Hr{Bi{Rn{Hg {Wlies half hidden in the dirt.{x~
+silver~
+armor ABIY AB
+10 10 10 10 0
+30 1 750 I
+E
+one bond ring~
+{TThe MacDougalls were once very wealthy, but after almost losing all they
+have made a comeback. They wear plain silver, a little tarnished from
+wear and tear, not gold, to remind them that wealth is not all there
+is to life. Wealth is determined more by the number of friends you 
+have, the number of people you help, and what you give away. For if
+a man asks you for your shirt, give him your cloak, for it will
+protect him. Luxury is a condition of abundance, something that
+provides pleasure but is not absolutely necessary, a sumptuous
+environment. It may be a place in your home to spend quiet times
+with all your favorite things around you. Time to enjoy good health,
+personal strength, beautiful memories, an afternoon nap ;) 
+sleeping late, one daisy in a blue bottle..all are luxuries. All
+are things that make life extra nice, that provide pleasure. Little
+things that add up to luxury ;) So is luxury something you can buy?
+Not always. More often, luxury is making the most of what you have ;)
+{WThere is an engraving on the inside of the ring.{x
+~
+E
+engraving~
+{TWith faith in the saving power of the cross, souls intertwine
+to become one to travel the road of life.{x
+~
+A
+1 1
+A
+4 1
+A
+5 1
+A
+12 15
+A
+13 15
+A
+18 3
+A
+19 3
+A
+20 -3 
+
+#4704
+deerskin gloves~
+{HDe{Ber{Rsk{Hin {BGl{Rov{Hes{x~
+{WWell worn gloves were left here.{x~
+deerskin~
+armor ABIY AH
+12 12 12 11 0
+35 1 875 I
+E
+deerskin gloves~
+{TFrom the clan's tannery, the softest, yet most durable gloves ever
+made were designed by Grembane. The best techniques were used to add
+the strength and endurance of the deer were used so that your hands,
+during battle,would be protected. You see nothing really ever dies,
+that is not born anew, the miracles of nature, all tell us this is
+true. "Things do not change, we do."{x 
+~
+A
+2 1
+A
+3 1
+A
+26 1
+A
+12 20
+A
+13 15
+A
+18 3
+A
+19 3
+ 
+#4705
+boots of conqueror~
+{HTh{Be B{Roo{Hts {Bof {Ra C{Hon{Bqu{Rer{Hor{x~
+{WA pair of {Hb{Bo{Ro{Ht{Bs{x were dropped here.{x~
+leather~
+armor ABIY AG
+14 14 14 13 0
+40 1 1000 I
+E
+boots conqueror~
+{TTo conquer...to bring under submission..to make it your own..Sometimes
+that means an act of faith. Like the scouts that were sent to determine
+not if they should enter the promised land, but where they should 
+enter, they concluded the obstacles were too great and the land not
+worth the obstacles they must conquer. They were afraid of the risks,
+not trusting in God to give them the power to overcome and conquer
+the land He had promised them. They let their fear and skepticism 
+control their lives and so they lsot 40 years of their lives wandering
+and the blessing they could have had if they had obeyed and boldly 
+went in to conquer what was theirs by God's proclamation.{x
+~
+A
+1 1
+A 
+2 2
+A
+3 2
+A
+12 10
+A 
+13 20
+A 
+17 -3
+A
+18 4
+A
+19 4
+
+#4706
+cross of life~
+{HSi{Blv{Rer  {HCe{Blt{Ric {HCr{Bos{Rs{x~
+{WA large {Bc{Rr{Ho{Bs{Rs {Wlies here half hidden in the dirt.{x~
+silver~
+armor ABIY AC
+15 15 15 15 0
+45 1 1125 I
+E
+cross life silver~
+{TA silver cross that bears these engraved words: 
+"On the timberline of the mountain, where the storms beat in full
+fury, we find the sturdiest of trees, the hearty veterans of ten 
+thousand blasts, adversity is hard to bear, but it tries the soul
+and strengthens it."{x
+~
+A
+1 1
+A
+2 1
+A
+4 1
+A
+5 1
+A
+12 40
+A
+13 20
+A
+18 5
+A
+19 5
+A
+20 -5
+A
+26 1
+
+#4707
+studded leather Chausses~
+{HSt{Bud{Rde{Hd {HL{Bea{Rth{Her {BCh{Rau{Hss{Bes{x~
+{WSome chausses sit on the ground.{x~
+energy~
+armor ABIY AF
+17 17 17 16 0
+50 1 1250 I
+E
+spirit of somerled light~
+{TTo protect and guide you through all your travels, the guardian 
+spirit of Somerled shines on forever. He heard Schuman-Heink once
+say when asked about what is a home? "A roof to keep out the rain.
+Four walls to keep out the cold. Yes, but home is more than that.
+It is the laugh of a baby, the song of a mother, the strength of a
+father. Warmth of loving hearts, light from happy eyes, kindness,
+loyalty, comradeship. Somerled tried to instill this in each of his
+children, even with the ravishes of war.{x 
+~
+A
+1 1
+A
+3 2
+A
+9 1
+A
+12 25
+A
+13 25
+A 
+17 -8
+A
+18 4
+A
+19 4
+A
+20 -5
+A
+26 1
+F
+A 0 0 DF
+
+#4708
+macdougall sash faith~
+{HTh{Be M{Rac{HDo{Bug{Ral{Hl S{Bas{Rh o{Hf F{Bai{Rth{x~
+{WSomeone dropped their clan {Hs{Ba{Rs{Hh{x here.{x~
+cloth~
+armor ABIY AL
+17 17 17 16 0
+55 1 1375 I
+E
+macdougall sash faith~
+ {TPowered by determination ...you are as young as your faith, as
+old as your doubt, as young as your self-confidence, as old as
+your fear, as young as your hope, as old as your despair..Live
+on my warrior son.{x
+~
+A
+1 1
+A
+2 1
+A
+5 1
+A
+9 2
+A
+12 20
+A
+13 40
+A 
+17 -2
+A
+18 4
+A
+19 4
+A
+20 -2
+
+#4709
+war paint~
+{HWa{Br P{Rai{Hnt{x~
+{WThere's a blob of gunk-like {Hw{Ba{Rr {Hp{Ba{Ri{Hn{Bt{x lying here.{x~
+gunk~
+armor ABIY AE
+20 21 20 18 0
+60 1 1500 I
+E
+war paint~
+{TWar paint has been used since the earliest warriors. It's used to denote
+a special significance to their rituals before going into battle. Most
+designs are related to some characteristic or spiritual necessity within
+the warrior.{x
+~
+A
+3 1
+A
+4 2
+A
+5 1
+A
+12 30
+A
+13 30
+A
+17 -2
+A
+18 4
+A
+19 4
+A
+20 -2
+
+#4710
+blood english gauntlets~
+{HTh{Be B{Rlo{Hod {Bof {Rth{He E{Bng{Rli{Hsh{x~
+{WA discarded pair of {Hg{Ba{Ru{Hn{Bt{Rl{He{Bt{Rs{x lies here.{x~
+obsidian~
+armor ABIY AH
+22 22 22 20 0
+65 1 1500 I
+E
+gauntlets blood english~
+{TFreedom..a heavy price to pay, however, your values determine your
+character, and they set a framework for evaluating your success. In
+other words, your values provide the framework for self-accountability.
+Appraise your motives and then you can have a sense of accomplishment,
+of being one step closer to the fulfillment of your destiny on earth.{x
+~
+A
+1 2
+A
+2 1
+A 
+5 1
+A
+9 2
+A
+12 40
+A
+13 30
+A
+17 -4
+A
+18 7
+A
+19 7
+
+#4711
+scars freedom bracer~
+{HSc{Bar{Rs o{Hf F{Bre{Red{Hom{x~
+{WLying on the ground is a bracer.{~
+dragonscales~
+armor ABIOY AM
+25 25 25 24 0
+75 1 1875 I
+E
+scars freedom bracer~
+{TIt is not natural for us, but should be, to believe that the
+richest harvest of happiness comes with age as that true sight
+and hearing are within, not without. Confidently we should
+climb the broad stairway that love and faith have built to
+heights where we shall "attain to a boundless reach of sky."
+Do not stale your days by taking for granted the people about
+you, or the things which make up your environment, and you
+will ever abide in a realm of fadeless beauty and freedom.{x
+~
+A
+2 2
+A
+3 2
+A
+5 2
+A
+9 3
+A
+12 40
+A
+13 40
+A
+18 8
+A
+19 8
+A
+20 -8
+A
+26 2
+
+#4712
+cries of the slain~
+{HTh{Be C{Rri{Hes {Bof {Rth{He S{Bla{Rin{x~
+{WThe {Rc{Hr{Bi{Re{Hs{x of the {Hs{Bl{Ra{Hi{Bn{x floats above the ground.{x~
+energy~
+armor ABIOY AQ
+27 27 27 26 0
+80 1 2000 I
+E
+cries of slain~
+{TThe remedy for dirt is soap and water. The remedy for dying is living.{x
+~
+A
+1 1
+A
+2 1
+A
+3 1
+A
+4 2
+A
+5 1
+A
+9 2
+A
+12 40
+A
+13 40
+A
+17 -4
+A
+18 7
+A
+19 6
+A
+26 1
+
+#4713
+macdougall signet ring leadereq~
+{HMa{BcD{Rou{Hga{Bll {RSi{Hgn{Bet {RRi{Hng{x~
+{WYour finger will rot off if you are not a MacDougall leader.{x~
+energy~
+armor ABGORY AB
+23 23 23 21 0
+50 0 0 I
+E
+signet ring macdougall~
+{TLeadership.....
+Are you a leader?
+Look behind and see if anyone is following.
+He who thinks he is leading
+and no one is following
+is only taking a walk.{x
+~
+A
+1 1
+A
+3 3
+A
+4 1
+A
+5 3
+A
+12 40
+A
+13 60
+A
+18 5
+A
+19 5
+
+#4714
+traveler's pouch~
+{HA T{Bra{Rve{Hll{Ber'{Rs P{Hou{Bch{x~ 
+{WSomeone dropped their {HP{Bo{Ru{Hc{Bh{x.  {RUh-{POh..{x~
+leather~
+container OSTY A
+200 0 0 50 3
+15 1 1000 I
+E
+traveler's pouch~
+{TJust a big sack that carries a lot of junk and stuff.{x
+~
+
+#4715
+light warrior~
+{HA W{Bar{Rri{Hor'{Bs L{Rig{Hht{x~
+{WA warrior's light has been left here to burn out.{x~
+energy~
+light ABSIY A
+0 0 -1 0 0
+15 1 100  I
+E
+light warrior~
+{TA light to lead your way in the world of darkness. A light that will
+shine on, as does a Celtic Warrior lives on. The art of living well
+and dying well are one. Be a true light, what the child sees, the 
+child does. What the child does, the child is.{x
+~
+A
+3 2
+A
+18 3
+A 
+18 3
+A
+20 -4
+
+#4716
+brooch lorn~
+{HTh{Be S{Rac{Hre{Bd B{Rro{Hoc{Bh o{Rf L{Horn{x~
+{WA sacred {HB{Br{Ro{Ho{Bc{Rh{x was carelessly left here on the ground.{x~
+crystalline~
+armor ABSIY AO
+6 6 6 5 0
+15 1 3000 I
+E
+brooch lorn~
+{HTh{Be S{Rac{Hre{Bd B{Rro{Hoc{Bh o{Rf L{Horn{x has a history all its own that none can deny.
+~
+A
+4 1
+A
+5 1
+A
+17 -4
+A
+18 2
+A
+19 2
+
+#4717
+cats eye marble~
+{WA {GCat'sEye {HMarble{x~
+{WA {Ggreen {Hmarble {Wthat looks like a {Gcat's eye {Wlies here.{x~
+catseye~
+gem OSIYW A
+0 0 0 0 0
+15 1 10000 I
+E
+cat's eye marble~
+{TA small {Hmarble {Tthat resembles a {Gcat's eye {Thas been found deep within
+the Valley of the Elves mountains. Liam stumbled upon it when he was
+out gathering information about the inhabitants of that valley. He
+brought a supply back to give to Katherine so she can sell it to 
+the clan members so they won't have to carry so much gold around
+with them. You never can tell about the thieves in Thera. Bloody
+sickly lot they be. Far better to be safe than sorry.{x
+~
+
+#4718
+cauldron~
+{ca black cauldron{x~
+{WWisps of steam rise from a large, {cblack cauldron{x.~
+metal~
+container 0 0
+10000 0 0 100 50
+0 0 0 I
+E
+cauldron~
+{TPut in what you had and no longer need which may help another..Take
+what you need and remember the others.{x
+~
+
+#4719
+anvil private macdougal~
+private anvil~
+{GDuncan's {Wpersonal anvil for all to use is in the middle of the room.{x~
+steel~
+anvil RYOT 0
+100 2 1 0 2
+1 2500 100000 I
+E
+anvil~
+{TA roaring fire is blazing in the forge next to this well-worn anvil. The
+clanging and banging goes on all day and sometimes into the night. 
+Highlanders are a fierce breed that demand their freedom. No Highlander
+rests under a bondage to any man, and so weapons of war are continually
+forged.{x
+~
+
+#4720
+stone well fountain~
+{ca stone {gwell{x~
+{WTo quench your thirst, a {cst{go{cne {Cwell {Wwas built here in the courtyard.{x~
+stone~
+fountain MO 0
+10000 10000 'water' 0 0
+1 0 0 I
+E
+stone well~
+{TThe well water is clear and very cold. It is fed from an underground
+spring which flows down from a melting glacier in the Arctic. The
+clean crystal taste of it reminds you of a poem:
+There are strange things done in the midnight sun
+By the men who moil for gold
+The Arctic trails have their secret tales
+That would make your blood run cold,
+The Northern Lights have seen queer sight,
+But the queerest they ever did see
+Was the night on the marge of Lake Lebarge
+I cremated Sam McGee!!!!{x
+~
+
+#4721
+wooden bench~
+{ba wooden bench{x~
+{WA comfortable {bwooden bench {Wis against the far wall.{x~
+wood~
+furniture 0 0
+3 1000 EHK 150 150
+0 0 0 I
+E
+wooden bench~
+{TA sturdy wooden bench is set against the far wall. The honeysuckle vines
+shade it from the hot sun which makes it a perfect spot to nap, rest,
+or just sit and read the book {WWinter{RHeart {Tleft here. "The only way to
+multiply happiness is to divide it." ;){x
+~
+
+#4722
+hammock~
+a {brope hammock{x~
+{WHow nice ;) a cozy {bhammock {Wstrung between two trees, and built for two.{x~
+rope~
+furniture 0 0
+2 1000 EHK 150 150
+0 0 0 I
+E
+hammock rope~
+{TA hammock is always fun to lie in and just relax, gaze up at the blue sky
+and watch the clouds change shape as they slowly drift in and out of your
+vision range. Or if you prefer, come here some crystal clear moonlit night
+and try to count the stars that outnumber the grains of sand in the sea.
+"If seeds in the black earth can turn into such beautiful roses, what 
+might not the heart of man become in its long journey toward the stars?"
+Most times when you climb into this hammock, your eyes seem to automatically
+close without you ever knowing it is happening. But what is more fun than
+that...two in a hammock sharing, caring and just being lost in a world
+of your own.{x
+~
+
+#4723
+hay loft~
+{Wan ordinary {Yhay loft{x~
+There is a {YHay loft{x above you.
+~
+energy~
+portal MO 0
+0 0 AB 11615 I
+20 10000 0 I
+
+#4724
+west stall~
+{Wthe {Twest stall{x~
+An empty stall to the {Twest.{x
+~
+energy~
+portal MO 0
+0 0 AB 9506 0
+15 10000 0 I
+
+#4725
+south stall~
+{Wthe {Tsouth stall{x~
+An empty stall to the {Tsouth.{x
+~
+energy~
+portal MO 0
+0 0 AB 4402 0 
+15 10000 0  I
+
+#4726
+pewter bowl~
+a pewter bowl~
+~
+pewter~
+container 0 0
+1000 0 0 10 100
+0 0 0 I
+
+#4727
+acorn pill~
+{Wa{Yn {ba{Yc{bo{Yr{bn{x~
+{WAn {ba{Yc{bo{Yr{bn{x {Wlies here left by some nut.{x~
+pill~
+pill Y A
+15 'shield' flameshield' 'frenzy' 'bless'
+15 0 0 I
+E
+acorn~
+{TStorms make oaks take deeper roots...{x
+~
+
+#4728
+bell heather pill~
+{Va {Ms{Cp{Tr{Vi{Mg {Co{Tf {Vb{Te{Ml{Cl {Vhe{Ta{Mt{Ch{Ver{x~
+{WSomeone dropped {Va {Ms{Cp{Tr{Vi{Mg {Co{Tf {Vb{Te{Ml{Cl {Vhe{Ta{Mt{Ch{Ver.{x~
+pill~
+pill Y A
+15 'sanctuary' 'talon' 'pass door' 'fly'
+15 0 0 I
+E
+bell heather~
+{TWhat sunshine is to flowers, smiles are to humanity...{x
+~
+
+#4729
+barrel brew~
+{Wa barrel of {Thome brew{x~
+{WTIn the far corner is a barrel of Travis' {T"home brew" {Wto quench your thirst.{x~
+liquid~
+fountain MO 0
+1000 1000 'ale' 0 0
+1 1000 0 I
+E
+barrel home brew~
+{TTravis' home brew, good for what ails you and for what doesn't. And you
+thought wolves were just snarling furballs. Well taste this and you'll
+see how hot hell will feel ;){x
+~
+
+#4730
+bench~
+{Wa long {bwooden bench{x~
+{WLong {bwooden benches {Ware arranged around the tables.{x~
+wood~
+furniture 0 0
+20 0 EHI 150 150
+1 2000 0 I
+E
+bench~
+{TAbuse from dragons, humans, elves, wolves, and the whole clan make you
+wonder how they hold up to all that!! There have been times when they
+have been thrown clear across the room, but still they are in one piece.{x
+~
+
+#4731
+hard cheese~
+{Wa chunk of hard {Ycheese{x~
+{WSomeone has dropped some {Ycheese {Won the ground.{x~
+cheese~
+food 0 A
+15 15 0 0 0
+1 1 15 P
+E
+hard cheese~
+{TA chunk of hard cheese is just the right size to eat with a slice of
+bread. It's a good staple food, easily transported when on the run
+to and from battles, nand if you have a hankering for some meat,
+it's good rat bait.{x
+~
+
+#4732
+black bread~
+{Wa slice of {cblack bread{x~
+{WA slice of {cbread {Wis on the ground.{x~
+bread~
+food 0 A
+25 25 0 0 0
+1 1 20 P
+E
+black bread~
+{TThis bread is a very dark brown, so dark in fact, it looks black.
+Bread is a mainstay in a highlander's diet, because there are times
+when they cannot light a fire to cook because it would give away
+where they were hiding.{x
+~
+
+#4733
+mutton stew~
+{Wsome {Ymut{bton {Hst{Pew{x~
+{WA blob of {Ymut{bton {Hst{Pew {Wis splattered here.{x~
+stew~
+food 0 A
+40 4 0 0 0
+1 1 30 P
+E
+stew mutton~
+{TChunks of meat and veggies float in a thick, gravy-like stew that
+is very filling. mmmmmmmmm KatieLynn makes the best mutton stew 
+in all of Thera, but if you shout to her "best stew ever", tears
+well up in her eyes. Poor little lamb, who has gone astray..baa baa{x
+~
+
+#4734
+roast goat~
+{Wa chuck of {broast {Wgo{bat{x~
+{WWho dropped this piece of {bgoat {Where?{x~
+goat~
+food 0 A
+50 50 0 0 0
+1 1 40 P
+E
+roast goat~
+{T*MMMMMmmmmm* KatieLynn sure knows how to roast a goat, fill a mote,
+fetch a tote, keep afloat, kick a bloat..Hmmmm..well anyways, she does
+get carried away using herbs and spices she grows in her garden, but
+the men sure don't complain. Only makes them hit Travis' barrel of
+home brew more often.{x
+~
+
+#4744
+macdougall leader key~
+{WA Key to {RUH-OH{x~
+{WA MacDougall leader has dropped their {Rkey {Where.{x~
+metal~
+key 0 A
+1 0 0 0 0
+60 1 0 I
+E
+key uh oh leader~
+{TThis key belongs to a leader of the clan. It unlocks the door to 
+UH-OH...and that's where you don't wanta go!!{x
+~
+
+#4735
+waterbed featherbed~
+{Wa {Cwaterbed {Wthat's a {Cfeatherbed{x~
+{WA {Cwaterbed {Wthat looks like a {Cfeatherbed {Wis against the far wall.{x~
+feathers~
+furniture 0 0
+20 0 EHK 150 150
+15 0 0 I
+E
+waterbed featherbed~
+{TThis is a special featherbed that came from the Mage Tower. It looks
+like a featherbed which is what {WWinter{RHeart {Tlikes, and yet it is a
+waterbed which is what {WGr{Gem{Wba{Gne {Tlikes. So you see the magical
+properties lets the sleeper have just what he or she wants and
+it makes them both happy.{x
+~
+
+#4736
+frosted crystal glass~
+{Wa frosted crystal glass{x~
+{WA {Cfro{Ws{Cted {Wcry{Cs{Wtal {Cgl{Wa{Css {Wof {Vw{Mi{Vn{Me {Wis on the sideboard.{x
+~
+liquid~
+fountain 0 0
+0 0 'elvish wine' 0 0 
+15 0 0 I
+E
+frosted crystal glass~
+{TA shimmering ice crystal glass was a gift from the snarling ball of
+fur in the Arctic Woods. It always stays cold so that anything you
+put in it, it is instantly chilled to just the right tempeture. 
+{WGr{Gem{Wba{Gne {Tand {WWinter{RHeart {Tlike a chilled glass of elvish wine
+while relaxing by the fireside.{x
+~
+
+#4737
+potion icy hot~
+{Wan {CI{Wc{Cy{RH{Po{Rt {WCrystal{x~
+{WA small crystal that is filled with {Ci{Wc{Cy {Rh{Po{Rt {Wliquid lies on the ground.{x~
+energy~
+potion YO A
+15 'armor' 'giant strength' 'stone skin' 'haste'
+15 1 1 I
+E
+icy hot potion~
+{TGlowing and humming, hot and cold..colors swirl and cascade. One moment
+slow, the next fast. The power and the blessing be with you ;){x
+~
+
+#4738
+secret drawer~
+secret drawer~
+~
+wood~
+container 0 0
+1000 0 0 10 50
+0 0 0 I
+
+
+#4739
+comfortable chairs~
+{Wa large comfortable chair{x~
+{WThere are several large comfortable {Tchairs {Win front of the {Rfireplace.{x~
+wood~
+furniture 0 0
+20 0 EHK 150 150
+1 2000 0 I
+E
+large comfortable chairs~
+{TThese chairs are large enough for even a dragon to sit and still have
+room to move around in. Sit and relax and listen to {WWinter{RHeart's {Vm{Ru{Ps{Bi{Nc{Pb{Ro{Vx{T.
+It was a gift from {WGr{Gem{Wba{Gne {Twho traveled across the {RRed {GDragon {WSea {Tto 
+procure it for her as a wedding gift. Wasn't that thoughtful of him. She
+was clever enough to have engraved on the bottom of the musicbox "say 
+something nice to {WWinter{RHeart{T" which when he sees it, it will get him
+out of any hole he might have dug himself into ;){x 
+~
+
+#4740
+musicbox~
+{WA {Vm{Mu{Vs{Mi{Vc{Mb{Vo{Mx{x~
+{WOn the small table is a lovely {Vm{Mu{Vs{Mi{Vc{Mb{Vo{Mx{W.{x~
+spirits~
+jukebox 0 0
+0 0 0 0 0
+1 100000 0 P
+E
+musicbox~
+{TA lovely musicbox for you to enjoy some of your favorite tunes or not so 
+favorite ones.{x
+~
+
+#4741
+essence of peyote~  
+{VEss{Mence{x of {CPey{Bote{x~
+{VEss{Mence{x of {CPey{Bote{x lies here.~
+pill~
+pill 0 AO
+15 'cure disease' 'cure poison' 'slow' 'regeneration'
+15 1 0 P
+
+#4742
+soft bed deerskins~
+{Wa soft bed of {bdeerskins{x~
+{WA soft bed of {btanned deerskins.{x~
+wood~
+furniture RO 0
+4 1000 KHEB 150 150
+15 500 1000 P
+
+#4743
+cool spring~
+{Wa cool {Cspr{Ting{x~
+{WA {Cspr{Ting {Wflows into a small {Cpool of water {Wsurrounded by many small {bmushrooms.{x~
+pottery~
+fountain O P
+0 0 'water' 0 0 
+0 0 0 P
+#4745
+table triforce~
+A soft table~
+A Soft table with a Triforce Symbol rests here.~
+wood~
+furniture O P
+1 0 AEHK 150 150
+1 5000 10 P
+
+#4746
+pill power~
+The Pill of Power~
+The Pill of Power rests on the table.~
+power~
+pill O A
+15 'flameshield' 'talon' 'haste' 'giant'
+15 10 10 P
+
+#4747
+drink slimfast fast~
+Slim Fast~
+A Barrel containing Nicholas' Favorite Drink is here "Slim Fast" able to fill
+you up in no time.~
+milkshake~
+fountain O P
+0 0 milk 0 0
+1 500 10 P
+#0
+
+#ROOMS
+#4701
+{HTh{Be C{Ren{Hte{Br C{Rou{Hrt{Bya{Rrd{x~
+   {HWe{Blc{Rom{He H{Bom{Re!{x Warm sunshine, singing birds and barking dogs greet you 
+upon entering the inner courtyard which is the core of the clan.  Two very
+large oak trees planted hundreds of years ago, line the outer perimeter of
+the courtyard helping to shade the shops. Timber from the local forests
+and stone cut from the Avardes Mountains was used to construct this
+impenetrable fortress. Sounds drifting from the Keep and shops comfort and
+reassure all  who return home from their adventures that "home is where
+the heart is." Over the doorway to the Inner Sanctum is a carved wooden
+sign {H"B{Bu{Ra{Hi{Bd{Rh {Hn{Bo {Rb{Ha{Bs"{x the clan's motto. You may
+proceed north to the Inner Sanctum, east to the General Store, or west to
+the stables. Further south is the outer courtyard.
+~
+0 K 0
+C macdougal~
+D0
+The Inner Sanctum is north.
+~
+~
+0 -1 4708
+D1
+To the east is the General Store.
+~
+~
+0 -1 4702
+D2
+To the south is the outer courtyard.
+~
+~
+0 -1 4704
+D3
+To the west are the kennels.
+~
+~
+0 -1 4706
+S
+  
+#4702
+{HKa{Bth{Rer{Hin{Be's {RGe{Hne{Bra{Rl S{Hto{Bre{x~
+   Well-stocked storerooms are vital if those living in the Keep are to
+survive a siege for any length of time. Katherine, who came to Dunollie 
+Keep from the far isles, carries a variety of whatnots and dodads for
+the clan members. The shelves overflow with merchandise ranging from
+mustache hair nose pullers to delicate silver hair combs. Quite a range,
+wouldn't you say? Katherine also tends to the vegetable and herb gardens
+out back which also takes up a great deal of her time. So if she mutters
+something about hurrying up with your purchase, just pay her no mind.
+Hopefully, she will assist you in a pleasant manner;).
+~
+0 DK 0
+C macdougal~
+D3
+To the west is the central courtyard.
+~
+~
+0 -1 4701
+D2
+South is Duncan's Smithy.
+~
+~
+0 -1 4703
+S
+
+#4703
+{HDu{Bnc{Ran{H's {BSm{Rit{Hhy{x~
+   As you enter, the heat of the forge assaults your flesh and the sharp ring 
+of metal on metal bombards your senses. Swords flash and spells blaze across
+the walls in vibrant colors. Forging your own weapons is an art form the Scots
+have developed to perfection. Materials are gathered from all over Thera and 
+to ensure your weapon is properly forged, Duncan has posted a {Tlist{x on the far
+wall that may help you find the materials needed to forge a proper weapon. 
+~
+0 DK 0
+C macdougal~
+D0
+To the north is Katherine's General Store.
+~
+~
+0 -1 4702
+D3
+To the west is the outer courtyard.
+~
+~
+0 -1 4704
+E
+list~
+From the Mage Tower, you can secure mithril (level 30-50) to make a weapon,
+gold, silver and adamanite to use for practicing. Directions are
+recall, n, e, enter port, n 3e, 2n, u, 3w, 4s, 4e, 4n, u, 4w, s, w. 
+From the Weapons Factory, you can secure tin (level 50-79) and iron
+(level 50-70). Directions are Rec, 2s,3e, all s, 2w, 7s, 3w, N then
+e and door is south (a closet). Platinum (level 70-90)is on the 
+Wannabee Boss (but he's tough, so be careful and a high level). 
+There is stardust on the demon knights in Doom (rare tho). You can
+also buy steel from the weapon shop in Midgaard. 
+~
+S
+
+#4704
+{HOu{Bte{Rr C{Hou{Brt{Rya{Hrd{x~
+   Hand-hewned granite stones from the Avardes Mountains are set in a 
+circular pattern around the {cs{gt{co{gn{ce {gw{ce{gl{cl{x. This well is fed from an underground
+spring. Sounds from the stables can be heard from the west, clanging and banging
+to the east and people rushing about to the north. {WWinter{RHeart{x has left a {Cbook{x 
+on the {bwooden bench{x, which is against the far wall, in hopes that you may want
+to sit and relax for a bit between battles of good and evil. There's also a {brope
+hammock{x strung between two elm trees if you'd like to take a nap in the warm
+sun. Over the well is a carved {bwooden sign{x that tells a great deal about a 
+warrior's life.
+~
+0 K 0
+C macdougal~
+D1
+To the east is Duncan's Smithy.
+~
+~
+0 -1 4703
+
+D0
+To the north is in Central Courtyard.
+~
+~
+0 -1 4701
+D3
+~
+~
+0 0 4705
+D5
+Down is the rope bridge.
+~
+~
+0 -1 7858
+E
+wooden sign~
+{TJourney of a Warrior's Soul
+"Many's the men who've
+battled foe,
+Many the number slain,
+many the lads have fallen though,
+Scotland shall rise again."{x	
+~
+E
+book~
+{TThis book has a few {Wstories{x you might find interesting and relaxing.{x
+~
+E
+stories~
+{Tpage1   The Legacy
+page2	Live On My Warrior Son
+page3	Of Days Winter
+page4	Ralph Waldo Emerson
+page5	New Beginnings
+page6	The Magic of Love
+page7	Act Medium
+page8   Choosing
+page9   Outwitted
+page10  Bullets or Seeds{x
+~
+E
+page1~
+{T  The Legacy
+
+Behind the walls of
+Thoughts there lyes,
+Something timeless
+Something wise.
+Within us all
+The prize of our past
+From father to son
+From the first to the last.
+
+And so full circle
+The image reappears
+To this second son born
+The hazy mist clears
+An echo swamped in
+Youthful rage
+Revealed once more with
+The coming of age.
+
+So forget ye' not
+The departed ones,
+For the souls they live on
+In the blood of the sons.{x
+~
+E
+page2~
+{T  Live On My Warrior Son  
+
+For I'll never see you, again
+And I'll never please you, again
+
+Live on, live on
+Live on beloved one
+Live on my warrior son
+
+Born of the Isles
+Somerled child
+Fearless and brave
+From birth to the grave
+
+Clan Dougall, Clan Dougall
+
+Live on beloved one
+Live on my warrior son.{x  
+~
+E
+page3~
+
+{TOf days winter and cold I watch from sun bleached sands
+And look beyond the sky's edge toward this other land.
+Pride flows hot in this eager blood born unto this place.
+But to the past I would follow away from this time and space.
+Thoughts create reflection of thistle and tartan splendour.
+Old worlds renewed like the lovers' kiss, I crave the sweet and tender.
+One foot leading to the future, the other in yesteryear.
+Many generations have left her shores, yet still I must travel there.
+And born far away I hear the call, my feelings forever roam.
+Two worlds two minds I live them both, this new land
+and Scotland...my homes...by Paul Watson{x
+~
+E
+page4~
+
+{T"Finish every day and be done with it. You have done what you could.
+Some blunders and absurdities no doubt crept in, forget them as soon
+as you can. Tomorrow is a new day, begin it well and serenely and with
+too high a spirit to be cumbered with your old nonsense. This day is
+all that is good and fair. It is too dear, with its hopes and 
+invitations, to waste a moment on yesterdays."{x
+~
+E
+page5~
+
+{TNew Beginnings..Helen Steiner Rice
+
+How often we wish for another chance
+To make a fresh beginning,
+A chance to blot out our mistakes,
+And change failure into winnings --
+And it does not take a new year
+To make a brand-new start,
+It only takes the deep desire
+To try with all our heart
+To live a little better
+And to always be forgiving
+And to add a little "sunshine"
+To the world in which we're living --
+So never give up in despair
+And think that you are through,
+For there's always a tomorrow
+And a chance to start anew.{x	
+~
+E
+page6~
+
+{TThe Magic of Love..Helen Steiner Rice
+
+Love is like magic.
+And it always will be,
+For love still remains
+Life's sweet mystery!
+
+Love works in ways
+That are wondrous and strange
+And there's nothing in life
+That love cannot change!
+
+Love can transform
+The most commonplace
+Into beauty and splendor
+And sweetness and grace!
+
+Love is unselfish,
+Understanding and kind,
+For it sees with its heart
+And not with its mind!
+
+Love is the answer
+That everyone seeks -
+Love is the language
+That every heart speaks -
+
+Love can't be bought,
+It is priceless and free,
+Love like pure magic
+Is a sweet mystery!{x	
+~
+E
+page7~
+
+{TThe children worked long and hard on their own little cardboard shack.
+It was to be a special spot - a clubhouse - where they could meet in
+solemn assembly or just laugh, play games, and fool around. As they
+thought long and hard about their rules, they came up with three
+rather perceptive ones..
+1. Nobody act big.
+2. Nobody act small.
+3. Everybody act medium{x
+~
+E
+page8~
+
+{TDr. Victor E. Frankl, survivor of three grim years at Auschwitz and
+other Nazi prisons, has recorded his observations on life in Hitler's
+camps. We who lived in concentration camps can remember the men who
+walked through the huts comforting others, giving away their last
+piece of bread. They have been few in number, but they offer 
+sufficient proof that everything can be taken from a man but one
+thing..the last of the human freedoms..to choose one's attitude in
+any given set of circumstances, to choose one's own way.{x
+~
+E
+page9~
+
+{THe drew a circle that shut me out--
+Heretic, rebel, a thing to flout.
+But Love and I had the wit to win,
+We drew a circle that took him in!{x
+~
+E
+page10~
+
+{TYou can offer your ideas to others as bullets or as seed.
+You can shoot them, or sow them, hit people in the head with them,
+or plant them in their hearts. Ideas used as bullets will kill
+inspiration and neutralize motivation. Used as seeds, they take
+root, grow, and become reality in the life in which they are 
+planted. The only risk in the seed approach..Once it grows and 
+becomes part of those in whom it's planted, you probably will get
+no credit for originating the idea. But if you're willing to do 
+without the credit...you'll reap a rich harvest.{x
+~
+S
+
+#4705
+{HTh{Be S{Rta{Hbl{Bes{x~
+   The clan takes pride in their mounts and ensures they are well-fed and
+trained for battle. But more than just a means of transportation, the horses 
+also represent partnership in a culture that is demanding of survival. Their
+horses are as valuable to them as are their wives and children. Fresh hay is
+in the manger, clean water in the trough, and the stalls are clean. There is
+a ladder leaning against the east wall that leads to a {Yhay loft{x. There are 
+two empty {cst{gal{cls{x, one to the {Msouth{x and one to the {Mwest{x. Out the open north 
+door, you hear dogs barking. Then again,it might be Ewan barking commands.
+~
+0 DK 0
+C macdougal~
+D0
+North is Ewan's Kennel.
+~
+~
+0 -1 4706
+D1
+East is the Center Courtyard.
+~
+~
+0 -1 4704
+E
+hay loft~
+{TWhat seems to be an ordinary {Yhay loft{T is really a vortex that will
+transport you to a place that has divided souls.{x
+~
+E
+south stall~
+{TWell if Clint Eastwood was here, he'd tell ya.."The Good, The Mad and
+The Ugly.";){x
+~
+E
+west stall~
+{TThis leads to the new one, there is also an old one and one before 
+time began.{x
+~
+S
+
+#4706
+{HEw{Ban{R's {HDo{Bg K{Ren{Hne{Bls{x~
+    Ewan runs the kennels with pride and he lovingly tends to the dogs. His
+kennels are clean and well stocked with the best dogs in Thera. He takes great
+care in their training to ensure their obedience and loyalty is unfailing. Dogs
+were created as creatures of love. Their whole purpose is to love, protect, and
+obey their master. As Ewan says "just look into those big brown eyes and you'll
+see that dog knows no one but you." His selection is limited to the best three
+dogs that are suitable for Scots and the rugged adventures the two of them would
+encounter. His only request is that you take care of the dog with respect and
+and love, and don't abuse it, because if you do, you might find a certain
+{Gelf{x or {gwolf{x haulin' ya to the Inquistion Chamber.
+~
+0 KM 0
+C macdougal~
+D2
+South are the stables.
+~
+~
+0 -1 4705
+D1
+East is the central courtyard.
+~
+~
+0 -1 4701
+S
+
+#4707
+Ewan's Kennels~
+This room is to house the pets for Ewan's Kennels.
+~
+0 CDS 0
+C macdougal~
+S
+
+#4708
+{HTh{Be K{Ree{Hp's {BIn{Rne{Hr S{Ban{Rct{Hum{x~
+    Upon entering this huge, oak paneled room, you notice the blazing fire
+in the river rock fireplace on the far wall. A round oak table and eight
+padded chairs are off to the side under a large stained glass window. The 
+window was designed to reflect visions of death, order, destruction, and life.
+The light from the sun and the fire battle for best colors dancing within the 
+depths of the scenes. Forged in the furnaces of creation and pulled from the 
+endless reaches of time, you thoroughly enjoy the performance of the elements
+entertaining you. There is a large bearskin rug on the floor that covers almost
+all of the honey oak grooved floors. A tantalizing aroma wafts through the open
+way to the north. Upon the main table is a {cpe{gwt{cer {gbo{cwl{x filled with {ba{Yc{bo{Yr{bn{Ys{x
+and {Vbell {Mhea{Vther{x. From here you can go north where all the food is prepared, west
+to the clan's Chapel, or east to the Armory. In the far corner, spiral stairs 
+lead up to the first floor landing of the tower which houses the private
+chambers of the clan members.
+~
+0 DK 0
+C macdougal~
+D0
+North is where the wonderful aroma of food is coming from.
+~
+~
+0 -1 4711
+D3
+West is the Blessed Chapel of Visions.
+~
+~
+0 -1 4714
+D1
+East is the Armory.
+~
+~
+0 -1 4709
+D2
+~
+~
+0 -1 4701
+D4
+Spiral stairs lead up to the first floor landing.
+~
+~
+0 -1 4726
+D5
+Down is the Inquisiton Chamber.
+~
+~
+0 -1 4712
+E
+pewter bowl~
+{TThis pewter bowl holds two very choice selections just for you.{x
+~
+S
+
+#4709    
+{HAr{Bmo{Rry {Hof {BLo{Rrn{x~
+     Many shelves line the walls of the clan's Armory holding items that Dougall
+obtained here and there during his travels throughout the isles. He is quite
+proud of the equipment noting that its superior quality in workmanship is
+second to none in Thera. The MacDougall Clan is founded upon the principles of
+integrity, honor, and loyalty which is reflected in the equipment they wear
+into battle. Their motto {H"to {Bco{Rnq{Hue{Br o{Rr {Hdi{Be"{x is a battle cry heard throughout
+the lands..a proud warrior's battle cry. In order to conquer or die requires that
+you must have no fear..no fear of fighting..no fear of dying.
+~
+0 DK 0
+C macdougal~
+D0 
+North is the library where Liam is reading.
+~
+~
+0 -1 4710
+D3
+West is the Inner Sanctum.
+~
+~
+0 -1 4708
+S
+
+#4710
+{HLi{Bam{R's L{Hib{Bra{Rry{x~
+    In a well-padded highback chair, Liam sits reading a book. The lighting in
+Keeps is usually somewhat dim, however, {WWinter{RHeart{x designed this room with floor
+to ceiling windows. This not only lets in most of the sunlight during the day for
+members to read by, but also enables the weary from battle to come and sit and 
+enjoy the magnificent view of the Valley of the Elves. From here you can see the
+doe eating by the willow trees near the valley river and her fawn not far off
+sleeping, well hidden, under some brush. Squirrels, chipmunks, and rabbits play
+and eat without fear. Soaring high in the skies, eagles glide and dip with the
+ease and grace that only they possess. If you have come to ask Liam to identify 
+something, don't worry because he doesn't mind sharing his wisdom and knowledge.
+In the meantime, you may sit and relax. Help yourself to any of the books.
+You may find a familiar {Cpoem {Tor {Cstory{x that you may like. They are simply listed 
+as poem1 or story1. Also, if you have a favorite one you would like to add to our
+library, just ask {WWinter{RHeart{x to add it in and she'll be happy to accommodate you;)
+~
+0 DK 0
+C macdougal~
+D2 
+South is the Armory of Lorn.   
+~
+~
+0 -1 4709
+D3
+West is the Great Feast Hall.
+~
+~
+0 -1 4711
+E
+poem~
+{TTo read the poems, just read poem1 or poem2.{x
+~
+E
+story~
+{TTo read the story, just read story1 or story2.{x
+~
+E
+poem1~
+{TLight Shining Out Of Darkness..Wm. Cowper
+
+God moves in a mysterious way,
+   His wonders to perform,
+He plants his footsteps in the sea,
+   And rides upon the storm.
+ 
+Deep in unfathomable mines
+   O never failing skill,
+He treasures up his bright designs,
+   And works his sovereign will.
+   
+Ye fearful saints fresh courage take,
+   The clouds ye so much dread
+Are big with mercy, and shall break
+   In blessings on your head.
+   
+Judge not the Lord by feeble sense,
+   But trust him for his grace,
+Behind a frowning providence,
+   He hides a smiling face.
+               
+His purposes will ripen fast,
+   Unfolding every hour,
+The bud may have a bitter taste,
+   But sweet will be the flower.
+   
+Blind unbelief is sure to err,
+   And scan his work in vain,
+God is his own interpreter,
+   And he will make it plain.{x
+~
+E
+poem2~
+{T   Music I Heard...Conrad Aiken
+
+Music I heard with you was more than music,
+And bread I broke with you was more than bread,
+Now that I am without you, all is desolate,
+All that was once  so beautiful is dead.         
+    
+Your hands once touched this table and this silver,
+And I have seen your fingers hold this glass.
+These things do not remember you, beloved,
+And yet your touch upon them will not pass.
+
+For it was in my heart you moved among them,
+And blessed them with your hands and with your eyes,
+And in my heart they will remember always, 
+They knew you once, O beautiful and wise.{x
+~
+E
+poem3~
+
+{TMy Highland Home..Robert Service
+
+My mother spun the household wool,
+And all our kiddy clothes would make,
+I used to go barefoot to school,
+While bannock took the place of cake.
+One shirt a week was all I had,
+Our home was just a but-and-ben,
+But oh I was the proudful lad,
+And life was rich with promise then.
+
+Although I supped on milk and brose,
+And went to bed by candle-light,
+I pored on books of noble prose,
+And longed like Bobbie Burns to write.
+Now in this age of the machine
+I look back three-score years and ten,
+With life so simple, sane and clean,
+Oh were we not more happy then?
+
+We deemed not of electric light,
+Nor ever thought that we would fly,
+Our sons were not called up to fight,
+And in a foreign field to die.
+So now when threats of war appal,
+And millions cower to monster men,
+Friends, don't you think that, after all,
+We were a heap more happy then?{x
+~
+E
+story1~
+{TOld Age -- It's Later Than You Think
+
+It's later than you think--everything is farther away now than it
+used to be. It's twice as far to the corner--and they added a hill.
+I notice I've given up running for the bus--it leaves faster than
+it used to. It seems to me they are making steps steeper than in 
+the old days and have you noticed the smaller print they use in
+the newspapers? There is no sense asking anyone to read aloud..
+everyone speaks in such a low voice I can scarely hear them.
+Material in dresses is so skimpy especially around the hips.
+It's all but impossible to reach my shoe laces. Even people
+are changing--they are much younger than they used to be when I
+was their age. On the other hand, people my age are much older
+than I. I ran into an old classmate the other day and she had
+aged so much she didn't remember me. I got to thinking about the
+poor thing while I was combing my hair this morning and I glanced
+in the mirror at the reflection and confound it, they don't make
+mirrors like they used to either............{x
+~ 
+E
+story2~
+
+{TAn Autobiography in 5 Short Paragraphs
+
+1. I walk down the street. There is a deep hole in the sidewalk. I
+fall in. I am lost. I am helpless. It isn't my fault. It takes
+forever to find a way out.
+
+2. I walk down the street. There is a deep hole in the sidewalk. I
+pretend I don't see it. I fall in. I can't believe I'm in the same
+place, but it isn't my fault. It still takes a long time to get out.
+
+3. I walk down the street. There is a deep hole in the sidewalk. I 
+see it is there. I still fall in. It's a habit. My eyes are open. I
+know where I am. It is my fault. I get out immediately.
+
+4. I walk down the street. There is a deep hole in the sidewalk. I
+walk around it.
+
+5. I walk down a different street.{x
+~
+E
+story2~
+
+{TAppointment With Death
+
+There is an old legend about a rich merchant in Baghdad who sent 
+his servant to the market. While he was at the marketplace, he
+was jostled by someone in the crowd. When he turned around he
+saw a woman in a long black cloak and knew it was Death. The
+servant ran home to his master and in a trembling voice told him
+about the encounter and how Death had looked at him and made a
+threatening gesture.
+The servant begged his master to loan him a horse so he could 
+ride to Samarra and hide so Death would not find him. The
+master agreed and the servant galloped away.
+Later the merchant went down to the marketplace and saw Death
+standing nearby. The merchant asked, "Why did you make a 
+threatening gesture to my servant and frighten him?"
+"That was not a threatening gesture," Death replied. "It was
+just that I was startled to see him in Baghdad because I have 
+an appointment with him tonight in Samarra!"{x
+~
+E
+story3~
+
+{TFulfillment is something for which every person seems to long.
+In its simplest meaning, fulfillment refers to being "fully
+filled" --having a complete sense of accomplishment.
+A lack of fulfillment isn't the fault of circumstances or
+another person's behavior. It is a matter of your outer life
+being in harmony with your inner life, living outwardly what
+you profess with your mouth and believe in your heart. As one
+definition said.."That man is a success who has lived well,
+laughed often and loved much, who has gained the respect of 
+intelligent men and the love of children, who has filled his
+niche and accomplished his task, who leaves the world better
+than he found it, whether by an improved poppy, a perfect poem,
+or a rescued soul, who never lacked appreciation of earth's
+beauty or failed to express it, who looked for the best in
+others and gave the best he had."{x
+~
+S
+
+#4711
+{HYe {BOl{Re F{Hea{Bst {RHa{Hll{x~
+     This is where everyone gathers for good ale, good food, and good old
+fashioned story swapping time. The Feast Hall is the heart of the compound 
+for it is here that friendships are made and battle plans and strategy are 
+discussed. In fact, you may hear training of skills going on out by the west
+side of the hall. This is where family comes together as one unit. Walls
+rise 25 feet up to a heavily timber-beamed ceiling. Brightly colored, woven
+{Vt{Wa{Mp{Ve{Ws{Mt{Vr{Wi{Me{Vs{x are draped from the timber beams lining the outside of the ceiling.
+The scenes range from battles to marriages that have occurred during the years
+and more will be added as new members join the clan. Suspended from the
+ceiling are 5 massive hand wrought iron chandeliers where candles burn day 
+and night. At any given time you may enter and eat from the black iron kettles
+hung in the open fireplace. The tantalizing aroma of various foods being cooked
+over the blazing fire, continually waft throughout the compound. The food is
+replenished by Agnes and her servants skillfully and silently so that no one
+is disturbed while eating, drinking or just having conversation. The tables 
+and benches are arranged in a U-shape fashion on a raised wooden dias. Eat,
+Drink, and Be Merry!!!For tomorrow the battle cry may sound. A large {Tbarrel of
+"Travis' Home Brew"{x is in the corner, help yourself!!;)
+~
+0 DK 0
+C macdougal~
+D0
+North is the Stepping Stones Study.
+~
+~
+0 -1 4725
+D1
+East is the Liam's Library.
+~
+~
+0 -1 4710
+D2
+South is the Inner Sanctum.
+~
+~
+0 -1 4708
+D3
+Go west out the door to the training grounds.
+~
+~
+0 -1 4715
+E
+tapestries~
+{TThese tapestries depict the portraits of the clan members. The stories
+are woven in threads of tears, joy, pain, and triumph. The marriages are
+also recorded here. Read each one like tapestry1, tapestry2, etc. To
+see who is married, just read marriage1, marriage2, etc.{x
+tapestry1	{WWinter{RHeart{x
+tapestry2	{WGr{Gem{Wba{Gne{x
+tapestry3	{TTravis{x
+tapestry4   (PNapalm{x
+~
+E
+tapestry1~
+{WWinter{RHeart{x
+
+{TAnd she cried.  It came quickly, swiftly, and deadly - -  The White Scream.
+It filled her head, her legs became weak and her heart faint. The devastation
+from the Duet unleashing the Void on Baddalaur makes {WWinter{RHeart {Tshudder each
+time she thinks back to that horrible day. The Void devoured everything,
+whirling, absorbing, nothing could stop it. Leaving total destruction of
+the safe world she knew. {WWinter{RHeart {Twas spared only by the swift thinking
+of Nanri, the Senior Scholar from the Four Elders of the Seven Nations, who 
+threw her into the deep well that stood in the center of the Court of
+Armadaile.  She plunged downward, letting the swift black current pull her
+further and further down and then just before losing consciousness, she 
+surfaced on the far side of Baddalaur. {WWinter{RHeart {Ttook one last look over 
+her shoulder at Baddalaur, the only home she knew, and now was no more.  
+Calead, her human father, fell in love with Sarel, a vampiri, not without 
+a great cost to her, since their union was strictly forbidden.  Sarel, dying
+in childbirth, made her husband promise to love and protect their daughter.
+When the townspeople of Barrow heard of {WWinter{RHeart{T's birth, Calead, 
+forewarned, fled into the night to seek refuge at Baddalaur.  In the 
+deep forests on the outskirts of Baddalaur, a Madra Alltra, werebeast,
+attacked Calead, almost tearing his arm off. After killing the werebeast,
+Calead knew that he had only a short time to get {WWinter{RHeart {Tto safety 
+before he turned into one of the Madra Alltra.  In his high tower, Nanri
+saw the attack and met Calead at the gate, and knowing what would happen
+to him, Nanri promised to shelter {WWinter{RHeart {Tfrom the outside eyes.
+Nanri became obsessed with {WWinter{RHeart{T, and through this, he turned
+from the warm human being he used to be into a cold, and calculating
+mage. Nanri gave her his protection and loved her but that was not enough
+to hide from her what he had become. His coldness froze her heart and with
+that, her speech was frozen also. {WWinter{RHeart {Tneeded to find someone 
+strong and confident, who would not feel threatened by her existence but
+be willing to share. She had to find him, the one who called her heart
+to his, the one who would love and protect her, the one who will whisper
+her name and she will hear. And so {WWinter{RHeart {Tstarted on her journey being
+careful to disguise herself when entering any towns for she knew that 
+because she could not speak many might not understand and turn on her. Her
+journey was long and hazardous, but her search  ended. She came to Thera
+and joined the Highlander Clan who became her family and friends. Her search
+was over, she is with the one who whispered her name, {WGr{Gem{Wba{Gne{T. 
+And she smiles.
+
+The wraithlike figure, with thick, golden hair cascading to her waist,
+turns her pale face to gaze with brilliant, blue eyes at you. She's
+only 5 foot tall but don't let her small size deceive you into thinking
+she cannot defend herself. She'll battle with the best of them if and
+when she has to. She's learned a few tricks and if she bats her long
+black eyelashes in a coy manner, don't believe it ;){x
+~
+E
+tapestry2~
+{WGr{Gem{Wba{Gne{x
+
+{TBefore you stands an elf who seems aged beyond his natural years.  Long,
+wavy, light brown hair flows down around his thin hardened face, highlighting
+deep blue piercing eyes.  His wirey build and cunning appearance, seems to
+more than make up for his lack of physical strength. He was raised by the 
+Druids of the Grove having never known his parents. Over the years, as 
+he was growing up, a longing to know his heritage was ever present in
+his mind. His life was not an easy one for the Druids were cruel and
+worked him hard, seeing him as a beast of burden rather than a person.
+However, he watched and learned, and as time past, he grew to love the
+wild and sanctuary in the forest. It was there that he met a mountain
+of a man who was all but kind, however, he did show him the use of the
+sword. Still longing for something more in his life, he went joined the
+{bHighlander Clan{T. This is where he found a home and friends. He thrived
+with the {bHighlanders {Tfor over 100 years obtaining great respect. He
+was even honored as an Elder for many many years. Then he met a woman
+whose heart had turned to ice. She stirred his soul and he in returned
+thawed her heart, and soon they were wed. {WGr{Gem{Wba{Gne {Tonce again felt the
+longing of something missing, so he left his home and his new bride
+{WWinter{RHeart{T, and set out in search for it. What he found was
+more than he had ever expected. The lost clan of the {HMa{BcD{Rou{Hga{Bll{Ts. He
+felt at peace for the first time in his life. He gatherd his wife and
+a few close friends and together they revived the forgotten clan builing
+a new Keep for the glory of Clan {HMa{BcD{Rou{Hga{Bll{T.{x  
+~
+E
+tapestry3~
+{TTravis{x
+
+{TTravis stands 6'2 inches with brown and grey fur mixed with flecks of
+silver.  His body seems to be look like the average body of other wolven
+although the eyes show the keen wisdom of a hardened warrior.  
+
+Travis hails from the {WArctic Woods{T. As a result from the death of his
+mother during birth, Travis was blamed and cast out of the pack to face the 
+harsh life of the {WArctic Woods {Tby himself. He wandered for three days
+without food and with very little water. Then he came upon a hidden valley.
+He remained there until he met Lord {WGr{Gem{Wba{Gne{T, after a lengthy
+discussion, he found his and the elf's ideals to be the same. He agreed 
+to venture out to see what wonders the world might offer. He settled into
+the {bHighlanders{T, {WGr{Gem{Wba{Gne{T's clan, and soon rose to be a wise
+leader and respected clansman. Despite the realization that his ideals 
+differed slightly from that of the clans, his core values were the same
+and he loved his kinsmen. After seeing the loss of the second war against
+the {RVamphyri{T, Travis felt an urge that seemed to tug at the very fabric
+of his existance. An urge he had never felt before but older than even 
+himself. It was the intense hatred for the {RVamphyri {Tthat had been 
+born within him and was finally released. He knew then he must leave and 
+start a new clan, a clan that would fight like no other clan in Thera.
+He told {WGr{Gem{Wba{Gne {Tof his plans to find that clan, and again, the elf's
+thoughts were the same. {WGr{Gem{Wba{Gne {Thad already begun making plans.
+After discussing their goals Clan {HMa{BcD{Rou{Hga{Bll{T was born. {HBu{Bai{Rdh {Hno {BBaRs!{x
+~
+E
+marriage1~
+{WWinter{RHeart{x and {WGr{Gem{Wba{Gne {Mmarried the 13th day of Sep year of 99.{x
+~
+E
+tapestry4~
+{PNapalm{x
+
+Napalm is originally from the land of Drakcan.  He stands about 7'6", and
+has a great build for his body size.  On his back are two sets of powerful
+wings and his body is covered with gleaming scales that seem to reflect the
+light.  Across his face you see a massive scar that runs through his eyelash
+and across the bridge of his nose.  When you look at him you think that you
+could probably take him, but remember underneath his huge body lurks the
+cunning mind of a awesome fighter.  Napalm is originally from the land of
+Drakcan.  All that changed for him one night long, long ago when he was
+returning from a hunting trip with his best friend Prince Dagon, the Prince
+of Drakcan.  Halfway home the party was attacked by a group of thugs,
+killing everyone except the him and the prince.  After the attack, they
+hurried to the Kingdom of Tyrgon but found it in ruins.  Napalm in a frantic
+rage left the prince's side to see if anyone was left alive.  After going
+from house to house he arrived at his home, where he saw a scene that made
+his blood boil.  Pinned by swords to the wall of the house were his parents.
+Off to his left were the remains of his younger brother and sister.  A
+sudden moan startles him and he turns around to discover that his father is
+still alive.  Napalm carefully removes his father from the wall and places
+him on the floor.  After a moment, his father tells him of the attack on the
+kingdom and that it was all the Prince's doing.  The Prince wanted to have
+the attack done when he was away, so he couldn't stop it.  In his dying
+breath Napalm's father tells him to go and get his sword and seek vengeance
+off in search of the Prince.  Napalm arrives at the Palace Gate, this being
+the only place he didn't yet search.  He enters the palace and travels down
+a long corridor until he reaches the Throne Room where he finds the Prince
+hovering over the dead body of the King.  With a vengeful leap Napalm
+engages the Prince in combat.  The battle rages on for hours, until finally
+Napalm's sword finds a flaw in the Prince's armor.  Napalm seizing to
+opportunity for revenge, thrusts the sword into the princes chest where he
+had made a hole.  The force of Napalm's thrust impales the Prince which
+causes him to fall to his death, but not before he managed to hit Napalm
+across the face with his sword.  Napalm having completed his father's last
+wish leaves the land of Drakcan, in search of something that would ease his
+hurt and still raging heart.  Napalm traveled the lands going from city to
+city and from kingdom to kingdom searching for that certain something.  He
+finally arrived in the land of Thera where he met a wise and noble elf,
+Grembane who showed a kindness to Napalm that he had never seen before. 
+With the help of Grembane, Napalm began to trust people again.  Also,
+Grembane saw it fit to have Napalm join his new found clan.  This made
+Napalm very happy.  Napalm enjoyed the new company of his fellow clan
+members but something was still missing.  Napalm was bound and determined to
+find this other thing that would make him feel complete.  A short time later
+he found this thing that made him feel whole, and that was the love and
+compassion of another person, and that other person was the beautiful Elven
+Ranger by the name of Lorpay.  Napalm after finding the two things that made
+his life complete returned to the castle a happier man.  
+~
+S
+
+#4712
+{HTh{Be I{Rnq{Hui{Bsi{Rti{Hon{Ber{R's C{Hha{Bmb{Rer{x~
+    Your senses are immediately assaulted as you tumble down the stone steps 
+leading to this cold and damp room. The eerie glow of embers in the fire pit
+catch your glance, not letting go, only plummeting you into a deeper sense
+of forboding. You wonder why it is so cold down here even with a fire, your
+mind trying to decide what the next step will be. Then you realize why it's 
+so cold..the fear has permeated into your very being as you gaze upon the 
+wall that houses a rack of huge weapons and sharp and pointy tools that look
+like they could cause great pain if someone had a mind to do that.  Now that
+you have been here for a few minutes, your eyes have adjusted to the dimness
+and you now see the bits and pieces of flesh, blood and bone strewn around 
+the room and on the sandstone walls. {RUH OH{x...you've gone and done it now!!!  
+~
+0 ADK 0
+D3 
+You don't want to know what is west..now do you?
+~
+~
+4 4734 4716
+D1
+~
+~
+1 0 4713
+D4
+Up is the Inner Sanctum.
+~
+~
+0 -1 4708
+D5
+Down are the sounds of battle.
+~
+~
+0 -1 4717
+S
+
+#4713
+{VThe {MDen {Hof {VTranq{Muility{x~
+  {TThis Den has served Travis well. Serenity and peace fills your soul and sets
+your {Vspi{Mrit{x {Tat ease. On the wall are several murals depicting an {GInd{Hian{x {CS{Bh{Ca{Bm{Ca{Bn{x 
+{Tperforming various rituals for her tribe. A large pile of {Htanned{x {Tdeer skins 
+look warm and inviting. A few feet away, a cool {Cspring{x {Tgurgles into a small 
+pool surrounded by many small {Mmushrooms{T. A presence, lifts your {Vspi{Mrit{T as a
+feeling of complete safety flows through you.{x 
+~
+0 DK 0
+D3
+You can open the door and go to the Inquisition Chamber.
+~
+door~
+1 0 4712
+E
+creationdate~
+Travis' room, May 23rd by Clerve.
+Moved by WinterHeart 4 Nov 99. 
+~
+D4
+~
+~
+1 0 4714
+S
+
+#4714
+{HTh{Be B{Rle{Hss{Bed {RCh{Hap{Bel {ROf {HAn{Bci{Ren{Ht P{Bin{Res{x~
+    This Chapel is simple, but in the exact simplicity lies reverence and 
+truth. There are 3 double rows of pews made from quality cherry hardwood
+adorned with deep, red wool cushions for the seat and back. The men from 
+the clan went deep into the Holy Grove forest for the wood knowing that it
+was the finest in the land. The women of the clan hand-dyed and wove the
+cushions on looms. It is the same as with all things, the whole clan pitches
+in whether it be for work, battle or prayer. The sandstone walls are unadorned
+except the the large oak wooden cross hung on the far wall. Around the cross,
+are pieces of stained glass depicting a waterfall cascading into a small pool
+surrounded by a grove of flowering trees. The sky is pale blue with a few 
+drifting white clouds. But, what you notice is the bright yellow sun peeking 
+out from all around the top of the cross radiating all throughout the scene.
+Beneath the cross is an {balter table{x adorned with a white linen cloth and on 
+it..one single candle that burns unceasingly. The chapel is tended at all times
+by Friar Sean, a kind and caring soul, who pastors his sheep with gentleness.
+~
+0 DK 0
+C macdougal~
+D0
+Out the north door is the Chamber of Knowledge, Wisdom and Learning.
+~
+~
+0 -1 4715
+D1
+The east door leads the way back to the inner sanctum of the Keep.
+~
+~
+0 -1 4708
+D5
+There is a trap door concealed here under the rug.
+~
+trap door~
+1 0 4713
+E
+alter table~
+{TThese words are carved in the front of the alter table. A beautiful
+hym penned by a Scottish minister..George Matheson.
+
+O Love that wilt not let me go,
+I rest my weary soul on Thee,
+I give Thee back the life I owe,
+that in Thine ocean depths its flow
+may richer, fuller be.
+
+O Light that follow'st all my way
+I yield my flinching torch to Thee,
+my heart restores its borrowed ray,
+that in Thy sunshine's blaze
+its day may brighter, fairer be.{x 
+~
+S
+
+#4715
+{HTh{Be {RCh{Ham{Bbe{Rr o{Hf K{Bno{Rwl{Heg{Be, {RWi{Hsd{Bom{R, a{Hnd {BLe{Rar{Hni{Bng{x~
+    Be careful where you step. Practice equipment clutters the floor and spell
+books lie open all over the place. A straw dummy hanging from a rafter in the
+far corner looks like it has seen better days. Someone will have to approach
+{WLo{Grd {WGr{Gem{Wba{Gne{x to restuff this poor thing before someone else starts practicing
+on it, or otherwise everyone may have to practice on each other. Alexander 
+tries his best to keep the chamber in an orderly fashion, but to no avail. 
+Highlanders are not the neatest people when fighting is on their minds, so 
+everyone just accepts the place as it is.
+~
+0 DK 0
+C macdougal~
+D1
+From the east the aroma of good food assails your senses.
+~
+~
+0 -1 4711
+D2
+The south door will lead you to the Chapel for inner healing.
+~
+~
+0 -1 4714
+S
+
+#4716
+{HJu{Bst {RYo{Hur {BOr{Rdi{Hna{Bry {RLo{Hne{Bly {RCe{Hll{x~
+{RUH-OH{P....plain and simple if you are standing here...*tsk tsk*{x
+~
+0 NAY 5
+C macdougal~
+D1
+East is the way, if a leader happens to unlock the door.
+~
+~
+4 4734 4712
+S
+
+#4717
+{HTh{Be M{Ris{Hts {Bof {RLo{Hrn{x~
+  You have entered from a tunnel to a special place that neither exists
+here nor there. Beneath the single sky, therein lies the silence, a lesson 
+in the making, the journey beyond the breath. And in battle their lives 
+they give, as flowers in the forest live, live on, within God's light.
+~
+0 Y 21
+C macdougal~
+D0
+~
+~
+0 -1 4719
+D1
+~
+~
+0 -1 4718
+D2
+~
+~
+0 -1 4722
+D3
+~
+~
+0 -1 4724
+D4
+~
+~
+0 -1 4712
+S
+ 
+#4718
+{HTh{Be M{Ris{Hts {Bof {RLo{Hrn{x~
+  You have entered a special place that neither exists here nor there.
+Beneath the single sky, therein lies the silence, a lesson in the making,
+the journey beyond the breath. And in battle their lives they give, as
+flowers in the forest live, live on, within God's light.
+~
+0 Y 21
+C macdougal~
+D0
+~
+~
+0 -1 4722
+D1
+~
+~
+0 -1 4721
+D2
+~
+~
+0 -1 4719
+D3
+~
+~
+0 -1 4724
+S
+
+#4719
+{HTh{Be M{Ris{Hts {Bof {RLo{Hrn{x~
+  You have entered a special place that neither exists here nor there.
+Beneath the single sky, therein lies the silence, a lesson in the making,
+the journey beyond the breath. And in battle their lives they give, as 
+flowers in the forest live, live on, within God's light.
+~
+0 Y 21   
+C macdougal~
+D0 
+~
+~
+0 -1 4718
+D1
+~
+~
+0 -1 4720
+D2 
+~
+~
+0 -1 4723
+D3
+~
+~
+0 -1 4722
+S
+
+#4720
+{HTh{Be M{Ris{Hts {Bof {RLo{Hrn{x~
+  You have entered a special place that neither exists here nor there.
+Beneath the single sky, therein lies the silence, a lesson in the making,
+the journey beyond the breath. And in battle their lives they give, as 
+flowers in the forest live, live on, within God's light.
+~
+0 Y 21
+C macdougal~
+D0
+~
+~
+0 -1 4719
+D1
+~
+~
+0 -1 4719
+D2
+~
+~
+0 -1 4724
+D3
+~
+~
+0 -1 4721
+S
+
+#4721
+{HTh{Be M{Ris{Hts {Bof {RLo{Hrn{x~
+  You have entered a special place that neither exists here nor there.
+Beneath the single sky, therein lies the silence, a lesson in the making,
+the journey beyond the breath. And in battle their lives they give, as 
+flowers in the forest live, live on, within God's light.
+~
+0 Y 21
+C macdougal~
+D0
+~
+~
+0 -1 4722
+D1 
+~
+~
+0 -1 4720
+D2
+~
+~
+0 -1 4717
+D3
+~
+~
+0 -1 4723
+S
+
+#4722
+{HTh{Be M{Ris{Hts {Bof {RLo{Hrn{x~
+  You have entered a special place that neither exists here nor there.
+Beneath the single sky, therein lies the silence, a lesson in the making,
+the journey beyond the breath. And in battle their lives they give, as 
+flowers in the forest live, live on, within God's light.
+~
+0 Y 21
+C macdougal~
+D0
+~
+~
+0 -1 4717
+D1
+~
+~
+0 -1 4719
+D2
+~
+~
+0 -1 4721
+D3
+~
+~
+0 -1 4724
+S
+
+#4723
+{HTh{Be M{Ris{Hts {Bof {RLo{Hrn{x~
+ You have entered a special place that neither exists here nor there.
+Beneath the single sky, therein lies the silence, a lesson in the making,
+the journey beyond the breath. And in battle their lives they give, as 
+flowers in the forest live, live on, within God's light.
+~
+0 Y 21
+C macdougal~
+D0
+~
+~
+0 -1 4718
+D1
+~
+~
+0 -1 4719
+D2
+~
+~
+0 -1 4717
+D3
+~
+~
+0 -1 4724
+S
+
+#4724
+{HTh{Be M{Ris{Hts {Bof {RLo{Hrn{x~
+ You have entered a special place that neither exists here nor there.
+Beneath the single sky, therein lies the silence, a lesson in the making,
+the journey beyond the breath. And in battle their lives they give, as 
+flowers in the forest live, live on, within God's light.
+~
+0 Y 21
+C macdougal~
+D0
+~
+~
+0 -1 4719
+D1
+~
+~
+0 -1 4722
+D2
+~
+~
+0 -1 4723
+D3
+~
+~
+0 -1 4718
+S
+
+#4725
+{HTh{Be S{Rte{Hpp{Bin{Rg S{Hto{Bne{Rs S{Htu{Bdy{x~
+   Everyone needs a place to just get away from everything...to think..
+to reflect...to set goals and dream. For a person without dreams is 
+one without imagination. In the confusion and noise that surrounds you,
+sometimes peace is a blessed welcome. To shut away the chaotic state and
+reflect on remembering that ideas are like stars up in the sky - you can
+never really reach them, but you can chart your course in life with 
+high ideals and love, as high as the stars, even striving toward them.
+Peace is not something you fight for with swords and flails that kill,
+peace is attained in the silence that comes when the heart stands still.
+So sit here alone and dream..climb those mountains..cross those valleys.
+There is a {Ym{Gu{Wr{Ba{Pl {Vo{Tf {Mg{gi{ba{Hn{Wt{Cs{Y, {Rw{Gi{Bz{Ta{Vr{Pd{Ws{x, and dwarfs on the far wall. It tells
+a wonderful story. There is also a {Vm{Mu{Vs{Mi{Vc{Mb{Vo{Mx{x if you'd like to play a 
+favorite song.
+~
+0 Y 21
+C macdougal~
+D2
+South is the Great Feast Hall.
+~
+~
+0 -1 4711
+E
+mural giants wizards dwarfs~
+{Giants, Wizards, and Dwarfs...by Robert Fulghum
+
+Giants, wizards, and dwarfs was the game to play.
+
+Being left in charge of about 80 children seven to ten years old, while their
+parents were off doing parenty things, I mustered my troops in the church
+social hall and explained the game. It's a large-scale version of Rock, Paper,
+and Scissors, and involves some intellectual decision making. But the real
+purpose of the game is to make a lot of noise and run around chasing people
+until nobody knows which side you are on or who won.
+
+Organizing a roomful of wired-up grade-schoolers into two teams, explaining
+the rudiments of the game, achieving consensus on group identity--all this
+is no mean accomplishment, but we did it with a right good will and were
+ready to go.
+
+The excitement of the chase had reached a critical mass. I yelled out "You
+have to decide now which you are - a GIANT, a WIZARD, or a DWARF!"
+
+While the groups huddled in frenzied, whispered consultation, a tug came 
+at my pants leg. A small child stands there looking up, and asks in a 
+small, concerned voice, "Where do the Mermaids stand?"
+
+Where do the Mermaids stand?
+
+A long pause. A very long pause. "Where do the Mermaids stand?" says I.
+
+"Yes. You see, I am a Mermaid."
+
+"There are no such things as Mermaids."
+
+"Oh, yes, I am one!"
+
+She did not relate to being a Giant, a Wizard, or a Dwarf. She knew her
+category. Mermaid. And was not about to leave the game and go over and stand
+against the wall where a loser would stand. She intended to participate,
+wherever Mermaids fit into the scheme of things. Without giving up
+dignity or identity. She took it for granted that there was a place for
+
+Mermaids and that I would know just where.
+
+Well, where DO the Mermaids stand? All the "Mermaids"--all those who are
+different, who do not fit the norm and who do not accept the available
+boxes and pigeonholes?
+
+Answer that question and you can build a school, a nation, or a world on it.
+
+What was my answer at the moment? Every once in a while I say the right thing.
+"The Mermaid stands right here by the King of the Sea!" says I (Yes, right
+here by the King's Fool, I thought to myself.)
+
+So we stood there hand in hand, reviewing the troops of Wizards and Giants
+and Dwarfs as they rolled by in wild disarray.
+
+It is not true, by the way, that mermaids do not exist. I know at least
+one personally. I have held her hand.{x
+~
+E
+musicbox~
+{TIt's a pretty little music box, just right for this study. Some of the
+tunes are a bit weird, some are sappy, some oldies, but all in all there
+are some nice tunes.{x
+~
+S
+
+#4726
+{HTh{Be F{Rir{Hst {BFl{Roo{Hr L{Ban{Rdi{Hng{x~
+   You have reached the first landing that overlooks the inner sanctum. A 
+hallway continues east leading to the private chambers. More spiral stairs
+lead up to the second floor landing.
+~
+0 DK 0
+C macdougal~
+D1
+The hallway goes east.
+~
+~
+0 -1 4727
+D4
+The stairs spiral upwards to the second landing.
+~
+~
+0 -1 4730
+D5
+Down is the Inner Sanctum of the Keep.
+~
+~
+0 -1 4708
+S
+
+#4727
+{HTh{Be F{Rir{Hst {BFl{Roo{Hr H{Bal{Rlw{Hay{x~
+The candles in the sconces give the only light required in this 
+hallway. Private chambers lead in all directions. The hallway
+continues.
+~
+0 DK 0
+C macdougal~
+D1
+The hallway goes east.
+~
+~
+0 -1 4728
+D3
+The hallway goes back west.
+~
+~
+0 -1 4726
+S
+
+#4728
+{HTh{Be F{Rir{Hst {BFl{Roo{Hr H{Bal{Rlw{Hay{x~
+The candles in the sconces give the only light required in this 
+hallway. Private chambers lead in all directions. The hallway
+continues.
+~
+0 DK 0
+C macdougal~
+D1
+The hallway goes east.
+~
+~
+0 -1 4729
+D3
+The hallway goes back west.
+~
+~
+0 -1 4727
+S
+
+#4729
+{HTh{Be F{Rir{Hst {BFl{Roo{Hr H{Bal{Rlw{Hay{x~
+The candles in the sconces give the only light required in this 
+hallway. Private chambers lead in all directions. 
+~
+0 DK 0
+C macdougal~
+D3
+The hallway goes back west.
+~
+~
+0 -1 4728
+S
+
+#4730
+{HSe{Bco{Rnd {HFl{Boo{Rr L{Han{Bdi{Rng{x~
+   You have reached the second floor landing.  A hallway continues east
+leading to the clan's private chambers. More spiral stairs lead up to {WGr{Gem{Wba{Gne{x
+and {WWinter{RHeart's{x private chamber.
+~
+0 DK 0
+C macdougal~
+D1
+The hallway goes east.
+~
+~
+0 -1 4731
+D5
+The stairs spiral down to the first floor landing.
+~
+~
+0 -1 4726
+D4
+Up is the private chamber of Lord Grembane and WinterHeart.
+~
+~
+0 -1 4734
+S
+
+#4731
+{HSe{Bco{Rnd {HFl{Boo{Rr H{Hal{Blw{Ray{x~
+The candles in the sconces give the only light required in this 
+hallway. Private chambers lead in all directions. The hallway
+continues.
+~
+0 DK 0
+C macdougal~
+D1
+The hallway goes east.
+~
+~
+0 -1 4732
+D3
+The hallway goes back west to the second floor landing.
+~
+~
+0 -1 4730
+S
+
+#4732
+{HSe{Bco{Rnd {HFl{Boo{Rr H{Hal{Blw{Ray{x~
+The candles in the sconces give the only light required in this 
+hallway. Private chambers lead in all directions. The hallway
+continues.
+~
+0 DK 0
+C macdougal~
+D1
+The hallway goes east.
+~
+~
+0 -1 4733
+D3
+The hallway goes back west.
+~
+~
+0 -1 4731
+S
+
+#4733
+{HSe{Bco{Rnd {HFl{Boo{Rr H{Hal{Blw{Ray{x~
+The candles in the sconces give the only light required in this 
+hallway. Private chambers lead in all directions. 
+~
+0 DK 0
+C macdougal~
+D3
+The hallway goes back west.
+~
+~
+0 -1 4732
+D1
+~
+~
+0 -1 4735
+S
+
+#4734
+{WGr{Gem{Wba{Gne {gand {WWinter{RHeart's {gTower of {CV{Ti{Vs{Mi{To{Cn{x~
+  From here you can look out across the lush verdent Valley of the Elves. The
+visions of the valley sing a song of hope and whispers gentle peace within
+your mind lulling you into arms of safety, protection, and comfort. There are 
+two large comfortable chairs covered in fur next to the large window. This is
+where {WGr{Gem{Wba{Gne{x and {WWinter{RHeart{x sit and gaze out the window listening to the
+soft sounds of music from the courtyard, or they just sit and read a good book.
+has collected over the years. A huge stone fireplace dominates the far wall,
+always lit with a blazing fire. There are bright colored tapestries covering
+the other wall which depicts the Celtic Warrior in scenes of battles fought
+and won. A large, carved wooden armorier holds many books that {WWinter{RHeart{x
+loves to read. A white yeti rug covers the golden oak wood floors next to the
+four poster featherbed. All in all, it's simple but comfortable..just like an
+elf's warm embrace melting a heart that was once frozen long ago by evil, but
+now warms to one elf only.
+~
+0 DK 0
+C macdougal~
+D5
+Down is the second floor landing.
+~
+~
+0 -1 4730
+S 
+#4735
+Nicholas' Room of Immortality~
+As You enter this room a feeling of peacefulness fills your body.
+This room belongs to Lord Nicholas of The Clan MacDougall this place
+is also home to Connor MaCloud of The clan MaCloud. Nicholas has Fought
+countless times and this is his place to rest and heals his wounds. Connor
+MaCloud Protects this Room with his life with the massive experience
+Connor has fought with he is an excellent fighter. You see a
+Bookshelf that has the books of Lord Nicholas Past from his first time
+on Legacy to His First time becoming Lord of The MacDougall. You see
+a Table on the right side of the room that has a Barrel on the Table that
+has Nicholas' Best Drink. on the Left side you see a Bed that Lord Nicholas
+rests in and heals his Wounds. Lord Nicholas Welcomes all to his Room of
+Immortality.
+~
+0 K 0
+C macdougal~
+D3
+West will take you back into the hallway.
+~
+~
+0 -1 4733
+S
+#0
+
+#RESETS
+M 0 4701 1 4702	1	*Load Katherine (shopkeeper) in General Store
+G 0 4714 1			*load traveller's pouch on Katherine
+G 0 4715 1			*load light of warrior on Katherine
+G 0 4716 1			*load Brooch of Lorn on Katherine
+G 0 4717 1			*load cat's eye marble on Katherine
+M 0 4702 1 4703	1	*Load Duncan (repairer) McSorley in Duncan's Smithy
+O 0 4719 1 4703			*load anvil in Duncan's Smithy
+M 0 4703 1 4706	1	*Load Ewan (shopkeeper) in Ewan's Kennels
+M 0 4709 1 4707 1		*Load deerhound pet in Pet Shop
+M 0 4710 1 4707 1		*Load rough collie in Pet Shop
+M 0 4711 1 4707 1		*Load shetland sheepdog in Pet Shop
+M 0 4704 1 4709 1	*Load Dougall (shopkeeper clan eq) in Armory of Lorn
+G 0 4701 1			*load sheepskin boots on Dougall
+G 0 4702 1			*load war cry on Dougall
+G 0 4703 1			*load tarnished silver ring on Dougall
+G 0 4704 1			*load deerskin gloves on Dougall
+G 0 4705 1			*load boots of conquest on Dougall
+G 0 4706 1			*load silver celtic cross on Dougall
+G 0 4707 1			*load leather chausses leggings on Dougall
+G 0 4708 1			*load macdougall sash on Dougall
+G 0 4709 1			*load war paint on Dougall
+G 0 4710 1			*load battle gauntlets on Dougall
+G 0 4711 1			*load dragon torque bracers on Dougall
+G 0 4712 1			*load guardian spirit on Dougall
+M 0 4705 1 4710	1	*Load Liam (sage) in Library
+M 0 4706 1 4714 1	*Load Fryar Sean (healer) in Blessed Chapel of Visions
+M 0 4707 1 4715 1	*Load Alexander (trainer) in Chamber of Knowledge, etc
+M 0 4708 1 4711 1	*Load KatieLynn (shopkeeper food) in Great Feast Hall
+G 0 4731 1			*load cheese on KatieLynn
+G 0 4732 1			*load black bread on KatieLynn
+G 0 4733 1			*load mutton stew on KatieLynn
+G 0 4734 1			*load roast goat on KatieLynn
+M 0 4712 1 4713 1	*Load Spirit of Indian Shaman in Travis' room
+O 0 4741 1 4713		*Load Essence of Peyote in Travis' room
+O 0 4742 1 4713		*Load bed in Travis' room
+O 0 4743 1 4713		*Load cool spring in Travis' room
+D 0 4713 3 1			*Close door west to Inquisition Chamber
+D 0 4714 5 1			*Close trapdoor down to Travis Room
+O 0 4718 1 4701		*load cauldron in Center Courtyard
+O 0 4720 1 4704		*Load stone well fountain in Outer Courtyard
+O 0 4721 1 4704		*Load wooden bench in Outer Courtyard
+O 0 4722 1 4704		*Load rope hammock in Outer Courtyard
+O 0 4723 1 4705		*Load portal hay loft in Stables
+O 0 4724 1 4705 	*Load portal west stall in Stables
+O 0 4725 1 4705		*Load portal south stall in Stables
+O 0 4726 1 4708		*Load pewter bowl in Inner Sanctum
+P 0 4727 100 4726 1			*Load acorn pill in pewter bowl
+P 0 4728 100 4726 1		*Load bell heather in pewter bowl
+O 0 4729 1 4711		*Load barrel home brew in Great Feast Hall
+O 0 4730 1 4711		*Load bench in Great Feast Hall
+O 0 4738 1 4725		*Load secret drawer in Stepping Stones Chamber
+P 0 4734 1 4738			*Load leader key in secret drawer
+O 0 4739 1 4725		*Load comfortable chair in Stepping Stones Chamber
+O 0 4740 1 4725		*Load musicbox in Stepping Stones Chamber
+
+O 0 4735 1 4734		*Load waterbed featherbed in Grem's and WH's room
+O 0 4736 1 4734		*Load frosted crystal glass in Grem's and WH's room
+O 0 4737 1 4734		*Load icy hot potion in Grem's and WH's room		
+M 0 4713 1 4735 1    *Connor MaCloud to Nicholas's Room
+O 0 4745 1 4735      *Table to Nicholas's Room
+O 0 4746 40 4735     *Pill of Power to Nicholas's Room
+O 0 4747 1 4735      **shiver* Slimfast to Nicholas's Room
+D 0 4712 1 1          *close travis door from 4712
+D 0 4713 4 1
+S
+
+#SHOPS
+4701 3 5 0 32 0 105 100 0 23	*Katherine MacKinnley (gen store)
+4703 0 0 0 0 0 105 70 0 23	*Ewan McCaulie (Pets)
+4704 5 9 0 0 0 100 90 0 23	*Dougall (eq)
+4708 0 0 0 0 0 105 90 0 23	*KatieLynn McCallister (food)
+
+0
+
+
+#SPECIALS
+M 4702 spec_blacksmith		*Duncan McSorley
+M 4705 spec_sage		*Liam, ancient sage
+S
+
+#$

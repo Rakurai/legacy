@@ -1,0 +1,1756 @@
+#AREA
+twilite.are~
+Twilight~
+{H{{80 91} {MKenneth {TTwilight~
+13000 13070
+
+
+#MOBILES
+
+#13000
+whore~
+a {Pwh{Wo{Pre{x~
+A provocative {Pwh{Wo{Pre{x leans forward, offering you a view of the merchandise.
+~
+All the makeup on her face almost disguises the fact that she's starting to
+get on there in years..but most people don't purchase her product for the
+face.
+~
+human~
+GHS OVc -500 S
+110 25 45d60+7750 10d50+5000 8d8+19 slap
+-70 -70 -70 -65
+EFIN 0 0 0
+stand stand female 9200
+0 0 small 0 
+
+#13001
+ragamuffin child small~
+a raga{bmu{Yff{bin{x~
+This small raga{bmu{Yff{bin{x looks far too innocent to be real.
+~
+Given the age, plus all the rags and dirt, you have no idea whether
+this little fellow is a boy or a girl.
+~
+human~
+GS Vc -500 S
+110 25 45d60+7750 10d50+5000 8d8+19 claw
+-70 -70 -70 -65
+FIN 0 0 0
+stand stand none 9200
+0 0 small 0 
+
+#13002
+skulker thief shadows~
+a {csku{Nl{cker{x~
+A professional {csku{Nl{cker{x wraps himself in the shadows.
+~
+This man makes his living shadowing others and reporting their activities
+to the bashers, to make their jobs easier.
+~
+human~
+GS Vc -750 S
+110 25 45d60+7750 10d50+5000 8d8+19 stab
+-70 -70 -70 -65
+EFIN 0 0 0
+stand stand male 9200
+0 0 small 0 
+
+#13003
+stabber thief knife~
+a {cst{gabb{cer{x~
+A greasy looking {cst{gabb{cer{x lounges about, completely at ease.
+~
+Stabbers perform the finesse jobs that bashers can't handle, taking on the
+assassinations that require more skill than tying the soon-to-be deceased
+to a rock and sending him to swim with the fishes.
+~
+human~
+GS Vc -750 S
+115 25 45d70+8000 10d50+5000 8d8+19 stab
+-70 -70 -70 -65
+EFIN 0 0 0
+stand stand male 9200
+0 0 small 0 
+
+#13004
+cutter thief purse~
+a {cc{Yutte{cr{x~
+Your eyes slip over a {cc{Yutte{cr{x who is very good at his job.
+~
+Cutters, known in some cultures as cutpurses, require normal looking faces
+that nobody would notice, plus very quick fingers and the small fingerblades
+from which they get their names.
+~
+human~
+GS Vc -750 S
+110 25 45d60+7750 10d50+5000 8d8+19 cut
+-70 -70 -70 -65
+EFIN 0 0 0
+stand stand male 9200
+0 0 small 0 
+
+#13005
+basher thief club~
+a {cba{bsh{cer{x~
+A burly looking {cba{bsh{cer{x is here, struggling vainly with an original thought.
+~
+Bashers make up the core of Twilight.  They are the thugs and enforcers that
+collect protection money, they shake down fat merchants in alleyways, and they
+are fond of selling cement shoes.
+~
+human~
+GT Vc -500 S
+100 25 45d60+7750 10d50+5000 8d8+19 pound
+-70 -70 -70 -65
+CEFIN 0 0 0
+stand stand male 9200
+0 0 small 0 
+
+
+#13006
+burglar thief houseman~
+a {cbur{Mg{clar{x~
+A wary looking {cbur{Mg{clar{x speculatively eyes the walls in a professional manner.
+~
+Burglars are the ones that hit houses, sometimes after they've been checked out
+by skulkers impersonating as servants, sometimes after scouting it out themselves.
+They have very tight nerves and have been known to have heart attacks on the
+job because of sudden noises.
+~
+human~
+GS Vc -750 S
+110 25 45d60+7750 10d50+5000 8d8+19 cut
+-70 -70 -70 -65
+EFIN 0 0 0
+stand stand male 9200
+0 0 small 0 
+
+#13007
+pugilist thief fists~
+a {cpug{Ril{cist{x~
+A shirtless pugilist walks around boasting about his latest fight.
+~
+Most pugilists are slaves belonging to either the government or rich nobles,
+but occasionally Twilight will clean up by entering their own pugilists into
+contests or mano-a-mano deathmatches and betting heavily.  They also make
+excellent enforcers when paired with a basher.
+~
+human~
+GT Vc -500 S
+110 25 45d60+7750 10d50+5000 8d8+19 pound
+-70 -70 -70 -65
+CEFIN 0 0 0
+stand stand male 9200
+0 0 small 0 
+
+#13008
+bagman thief guard~
+a {cb{Tagma{cn{x~
+A crooked {cb{Tagma{cn{x waits here, eager to report his latest "find" to a {clie{Buten{cant{x.
+~
+Bagmen in this organization are crooked guards who get the dragon horn powder 
+they need for their addiction by turning over goods confiscated by the Sultan's
+guards to Twilight.
+~
+human~
+GT Vc -500 S
+110 25 45d60+7750 10d50+5000 8d8+19 slash
+-70 -70 -70 -65
+CEFIN 0 0 0
+stand stand male 9200
+0 0 small 0 
+
+#13009
+ragman thief magic~
+the {cR{Va{Pg{Cm{Ya{cn{x~
+The mystic {cR{Va{Pg{Cm{Ya{cn{x, magician of Twilight, is here daydreaming about new clothes.
+~
+The Ragman, as his name would suggest, is covered all over in raggedy clothes.
+Only his greasy face is uncovered, and it would probably be better for everyone 
+if that had rags over it as well.
+~
+human~
+GR IDFVZ -1000 S
+120 25 90d55+9500 10d50+5000 8d9+20 flame
+-75 -75 -75 -70
+FKJIN 0 0 0
+stand stand male 9700
+0 0 small 0
+
+#13010
+tofsman thief tofstick~
+a {ctof{Cs{cman{x~
+A {ctof{Cs{cman{x sifts through the latest tof to float his way.
+~
+Tofsmen use their sticks to explore tofs, which are clumps of debris that
+form in the sewer and float along, following the currents.  They don't often
+find treasure, but make a living at it, also selling their services as watchmen
+for Twilight.
+~
+human~
+BGS Vc -500 S
+110 25 45d60+7750 10d50+5000 8d8+19 punch
+-70 -70 -70 -65
+EFIN 0 0 0
+stand stand male 9200
+0 0 small 0 
+
+#13011
+lieutenant thief~
+a {clie{Buten{cant{x~
+A {clie{Buten{cant{x of Twilight inspects some of the latest spoils here.
+~
+The lieutenants report directly to Midnight, and keep the various factions
+of Twilight in line and working together, instead of fighting among each
+other.
+~
+human~
+GT Vc -1000 S
+120 25 90d55+9500 10d50+5000 8d9+20 slash
+-75 -75 -75 -70
+CEFHIN 0 0 0
+stand stand male 9700
+0 0 small 0
+
+#13012
+midnight thief chief~
+{cMid{Nni{cght{x~
+{cMid{Nni{cght{x, leader of Twilight, demands a report from a faceless underling.
+~
+As the saying goes, Twilight leads to Midnight.  In this case, however, it's
+more like Midnight leads Twilight.  As the sole commander of a large passel
+of thieves, Midnight has a rather stressful job.  He seems to handle it well, 
+however, thanks mostly to the fact that several of his underlings are whores.
+~
+human~
+GS VZ -1000 S
+130 25 1d1+23299 2d10+5 15d4+27 stab
+-90 -90 -90 -86
+CEFHIJK 0 0 0
+stand rest male 10000
+0 0 medium 0
+
+#13013
+priest scaly death tribe lizardman~
+{GA p{Hri{Gest o{Hf t{Ghe {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x~
+A lizard man with a hideous {cblack{x tattoo obscuring his face genuflects to the altar.
+~
+The black sunburst on his face has an awestruck look on it as he grovels in
+the direction of the altar, but when he notices you, it quickly changes to a 
+contemptuous sneer.
+~
+lizard~
+GQ IDFVZ -1000 S
+120 25 90d65+9900 10d50+5000 8d9+20 chill
+-75 -75 -75 -70
+FKJIN 0 I 0
+stand stand male 9700
+0 0 small 0
+
+#13014
+april virgin sacrifice~
+{WAp{Gr{Wil{x~
+A virgin wanders about, wailing at her soon-to-be sacrificers.
+~
+This virgin, April by name, has been clothed in a white, silky negligee,
+and looks as though she wishes she hadn't been.  But, like her father would
+have said if he were still alive, any clothing is better than none at all.
+~
+human~
+G Vc 750 S
+100 25 35d60+7500 10d50+5000 8d8+19 scratch
+-70 -70 -70 -65
+FJIN 0 0 0
+stand stand female 5200
+0 0 small 0 
+
+#13015
+may virgin sacrifice~
+{cM{gay{x~
+A virgin wanders about, wailing at her soon-to-be sacrificers.
+~
+May is the name of this virgin, and, conveniently, the month she 
+was born.  She seems to be the embodiment of the word virgin, looking
+both pure and innocent, even in the face of death.
+~
+human~
+G Vc 750 S
+100 25 35d60+7500 10d50+5000 8d8+19 scratch
+-70 -70 -70 -65
+FJIN 0 0 0
+stand stand female 5200
+0 0 small 0 
+
+#13016
+june virgin sacrifice~
+{CJ{gun{Ce{x~
+A virgin wanders about, wailing at her soon-to-be sacrificers.
+~
+This virgin goes by June, and she is as beautiful as the advent of her 
+month is to students in the public school system.  She is worriedly
+fingering a small necklace about her neck.
+~
+human~
+G Vc 750 S
+100 25 35d60+7500 10d50+5000 8d8+19 scratch
+-70 -70 -70 -65
+FJIN 0 0 0
+stand stand female 5200
+0 0 small 0 
+
+#13017
+tentacled horror ky'ur'la'no'tha demon~
+{BKy'{Rur'{Bla'{Rno'{Btha{x~
+{BKy'{Rur'{Bla'{Rno'{Btha{x lounges on the altar, using a toothpick on one of his mouths.
+~
+Ky'ur'la'no'tha is a many-mouthed, tentacled horror, and the focus of the 
+religion of the Scaly Death Tribe of lizardmen.  He has proven his divinity 
+many times, and so priests eagerly sacrifice virgins to him every season.
+This, naturally, makes most women in the area very..prolific, and so the
+virgins get younger every year, it seems. 
+~
+demon~
+BGT DHJQV -1000 S
+130 25 1d1+24899 2d10+5 15d4+27 frbite
+-90 -90 -90 -86
+CEFHIJK 0 0 0
+stand rest male 10000
+0 0 medium 0
+
+#13018
+nyarlathotep high priest lizardman~
+{GNya{crl{Gath{cot{Gep{x~
+{GNya{crl{Gath{cot{Gep{x, high priest of the {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x, utters a benediction to his god.
+~
+The stare of Nyarlathotep brings confusion and pain, and also makes you think of a
+little, common rhyme of these parts.
+"No Nyarlathotep, know peace.
+ Know Nyarlathotep, no peace."
+~
+lizard~
+BGQ DHJQV -1000 S
+130 25 1d1+21599 2d10+5 15d4+27 chill
+-90 -90 -90 -86
+CEFHIJK 0 0 0
+stand rest male 10000
+0 0 medium 0
+
+#0
+
+#OBJECTS
+
+#13000
+tofstick stick~
+a {Ctof{cst{Cick{x~
+A long, somewhat mucky stick lies on the floor.~
+wood~
+weapon AS AN
+'mace' 15 8 thwack 0
+90 40 3700 P
+A
+18 12
+A
+19 12
+A
+20 -1
+A
+9 5
+A
+5 2
+
+#13001
+provocative blouse~
+a {Wpro{Pvocat{Wive bl{Rou{Wse{x~
+As low as this {Wbl{Rou{Wse{x is cut, you might as well go without a shirt.~
+silk~
+armor ABS AD
+30 30 30 25 0
+90 25 8500 P
+A
+18 4
+A
+19 4
+A
+26 2
+A
+17 -5
+A
+9 -2
+A
+12 20
+A
+13 40
+A
+2 1
+
+#13002
+muffin~
+a {bmu{Yff{bin{x~
+A {Bbl{Vueber{Bry{x {bmu{Yff{bin{x is on the ground..5 second rule?~
+blueberries~
+pill 0 A
+90 'cure poison' 'stone' 'bless' ''
+75 5 30 P
+
+#13003
+silver friendship necklace~
+{ga si{Clv{ger fr{Ciendsh{gip ne{Cckla{gce{x~
+a small {gsi{Clv{ger ne{Cckla{gce{x glints on the ground.~
+silver~
+armor AB AC
+27 27 27 25 0
+92 10 9500 P
+A
+18 8
+A
+19 5
+A
+13 65
+A
+12 65
+A
+26 2
+A
+20 -1
+A
+2 2
+
+
+#13004
+pure aura black~
+{ca pure aura{x~
+A {cpure black aura{x, that has never let anything naughty escape from it, hovers here.~
+purity~
+armor ABS AQ
+24 24 24 23 0
+90 10 3700 P
+A
+18 7
+A
+19 7
+A
+12 50
+A
+13 50
+A
+5 2
+A
+26 2
+A
+1 2
+
+
+
+#13005
+white silky negligee~
+{Wa white si{glk{Wy negligee{x~
+A very skimpy {Wwhite n{ge{Wgligee{x is pooled up on the floor.~
+silk~
+armor AS AK
+26 26 26 24 0
+90 20 4500 P
+A
+18 8
+A
+19 8
+A
+12 60
+A
+13 50
+A
+20 -2
+A
+26 2
+A
+5 2
+A
+2 1
+A
+14 30
+A
+9 -2
+
+#13006
+virgin heart warpstone~
+{Wa vi{Grg{Win's h{Pear{Wt{x~
+The pure heart of a virgin feebly beats its last here.~
+muscle~
+warp_stone ABU AO
+0 0 0 0 0
+25 5 120 P
+A
+1 2
+
+#13007
+yellow sunburst black headband~
+a {Yye{bll{Yow hea{bdb{Yand{x with a {cblack{x {csu{Yn{cb{Yu{cr{Ys{ct{x on it~
+A somewhat grimy headband with an odd design on it lies on the floor.~
+cloth~
+armor AB AE
+30 30 30 28 0
+93 20 770 P
+A
+18 7
+A
+19 7
+A
+12 60
+A
+13 60
+A
+1 2
+A
+3 2
+A
+4 2
+A
+21 -2
+
+
+#13008
+brass knuckles~
+{Rbr{ca{Rss kn{cuckl{Res{x~
+A pair of {Rbr{ca{Rss kn{cuckl{Res{x, illegal in most places, sits innocuously on the floor.~
+brass~
+armor AB AH
+26 26 26 25 0
+90 30 550 P
+A
+18 8
+A
+19 8
+A
+12 60
+A
+13 30
+A
+1 5
+
+#13009
+deep yellow leggings black sunburst~
+{bdeep {Yyellow {bl{Yeg{bgi{Yng{bs{x~
+Some {bdeep {Yyellow {bl{Yeg{bgi{Yng{bs{x with a {cblack su{Yn{cb{Yu{cr{Ys{ct{x emblazoned on the crotch lie here.~
+cloth~
+armor AB AF
+24 24 24 24 0
+90 25 660 P
+A
+4 3
+A
+1 1
+A
+18 5
+A
+19 5
+A
+12 40
+A
+13 50
+
+#13010
+soft boots mud~
+soft {bboots {Gco{bve{Gre{bd {xin {bmud{x~
+Somebody left these {bboots{x in the mud!~
+leather~
+armor B AG
+26 26 26 25 0
+90 30 450 P
+A
+18 8
+A
+19 8
+A
+12 45
+A
+13 40
+F
+A 0 0 P
+
+#13011
+deep blue vambraces~
+{bdeep {Nblue va{cmbrac{Nes{x~
+A very {bdeep {Nblue{x pair of {Nva{cmbrac{Nes{x lies muted in the shadows.~
+metal~
+armor B AI
+35 35 35 30 0
+95 40 1200 P
+A
+18 12
+A
+19 12
+A
+3 2
+A
+4 2
+A
+12 30
+A
+13 30
+A
+20 -1
+
+#13012
+high priest's book~
+The {bb{goo{bk{x of the {YHi{Gg{Yh Prie{Gs{Yt{x~
+This {bb{goo{bk{x has some interesting notes in it.  Some interesting notes indeed..~
+vellum~
+treasure 0 A
+0 0 0 0 0
+5 5 10 P
+E
+high priest's book~
+A History of the Hezrou 
+
+The great Ky'ur'la'no'tha is the greatest of the demon race known as the hezrou, 
+but there are many subservient to him.  The art of summoning a hezrou is a closely 
+kept secret known only to the Scaly Death Tribe and their minions.
+
+Many lesser priests have been sent out into the world to subvert good clerics and 
+bring them around to the worship of Ky'ur'la'no'tha.  Then they can be taught the 
+art of summoning the lesser hezrous.
+~
+
+#0
+
+
+#ROOMS
+
+#13000
+Underground~
+You hear some low chanting to the west.  A multitude of pipes cover 
+the walls, leading in all different directions.  That still doesn't 
+prevent the tunnel from being fairly wet and muddy, since many of the 
+pipes are leaking.   
+~
+0 0 0
+D1
+~
+~
+0 -1 9579
+D3
+~
+~
+0 -1 13001
+S
+
+#13001
+Underground~
+You hear some low chanting to the west.  The sewer here has begun to 
+open up, with lots of head and elbow room, and open tunnels leading 
+in many directions.  It doesn't seem like you've reached the proper 
+sewer yet, though.  Most likely you're still in the section where 
+sewer workers loiter while they run up the time clock and pretend to 
+work.  The bench and the copy of "{CFishing{x" magazine on it are a couple 
+more clues supporting this hypothesis.
+~
+0 0 0
+D0
+~
+~
+0 -1 13010
+D1
+~
+~
+0 -1 13000
+D2
+~
+~
+0 -1 13011
+D3
+~
+~
+0 -1 13002
+S
+
+#13002
+Underground~
+You hear some low chanting to the west.  It is beginning to become more 
+clear, despite the echoes from all the pipes.  The chanting is very harsh 
+and guttural, and is most likely due to some religious ceremony.  Why 
+else do people chant?
+~
+0 0 0
+D1
+~
+~
+0 -1 13001
+D3
+~
+~
+0 -1 13003
+S
+
+#13003
+Underground~
+From the smell of things, you're almost at the beginning of the real sewers.  
+Beware if you choose to enter.  Not even counting what else might be in there, 
+the dangers of {Bhydrogen{x sulfide asphyxiation and {cmet{bh{cane{x explosions have been 
+well documented by the New Thalos Commission on Sewer Safety.  To make matters 
+worse, the chanting has taken on an evil sound, and has a bit of a leering 
+sound to it. 
+~
+0 C 0
+D0
+~
+~
+0 -1 13004
+D1
+~
+~
+0 -1 13002
+D2
+~
+~
+0 -1 13005
+D3
+~
+~
+0 -1 13012
+S
+
+#13004
+Underground~
+A slippery ladder leads down to a small pit where sewer workers store water 
+used for cleaning themselves up after a hard day's {Wlounging{x.
+~
+0 0 0
+D2
+~
+~
+0 -1 13003
+D5
+~
+~
+0 -1 13006
+S
+
+#13005
+Underground~
+A slippery ladder leads down to a small pit where sewer workers store water 
+used for cleaning themselves up after a hard day's {blounging{x.
+~
+0 0 0
+D0
+~
+~
+0 -1 13003
+D5
+~
+~
+0 -1 13007
+S
+
+#13006
+Wash room~
+Two large cisterns hold {Nwater{x, one {Ccool{x and one {Rlukewarm{x. There are a lot of 
+muddy footprints on the floor, silent testimony to the muckiness of the floor 
+above you. A ladder leads to the sewer above.
+~
+0 0 0 
+D1
+~
+~
+0 -1 13009
+D4
+~
+~
+0 -1 13004
+S
+
+#13007
+Wash room~
+Two large cisterns hold water, one {Tcool{x and one {Plukewarm{x. There are a lot of 
+muddy footprints on the floor, silent testimony to the muckiness of the floor 
+above you. A ladder leads up to the sewer above.
+~
+0 0 0 
+D1
+~
+~
+0 -1 13008
+D4
+~
+~
+0 -1 13005
+S
+
+#13008
+Towel room~
+There is a rack along the wall holding six towels, each embroidered with a 
+different monogramme. The colors of the towels range from {cdark {xgray to light 
+{bbrown{x, covering all the different shades of gray and {bbrown{x in-between. A fairly 
+clean ladder leads up to the punch-out room.
+~
+0 0 0
+D3
+~
+~
+0 -1 13007
+D4
+~
+~
+0 -1 13011
+E
+towel monogramme~
+One of the towels is monogrammed with Michigan's initials.
+~
+S
+
+#13009
+Towel room~
+There is a rack along the wall holding six towels, each embroidered with a 
+different monogramme. The colors of the towels range from {bdirty {Ppink{x to {Wlight 
+{Yyellow{x, covering all the different shades of yellow and pink, including orange, 
+in-between. A fairly clean ladder leads up to the punch-out room.
+~
+0 0 0
+D3
+~
+~
+0 -1 13006
+D4
+~
+~
+0 -1 13010
+S
+
+#13010
+Punch-out room~
+There are six slots on the wall, each filled with a different punch card. There 
+being no actual way to punch the cards, a small charcoal {cX{x has to be scratched 
+next to the time of arrival and departure.  A ladder leads down to the toweling 
+off room. 
+~
+0 0 0
+D2
+~
+~
+0 -1 13001
+D5
+~
+~
+0 -1 13009
+S
+
+#13011
+Punch-out room~
+There are six slots on the wall, each filled with a different punch card. There 
+being no actual way to punch the cards, a small charcoal {cX{x has to be scratched 
+next to the time of arrival and departure.  A ladder leads down to the toweling 
+off room. 
+~
+0 0 0
+D0
+~
+~
+0 -1 13001
+D5
+~
+~
+0 -1 13008
+S
+
+#13012
+Sewer Entrance~
+After emerging from a long tunnel, you find yourself in an area hazily lit by a few 
+magic globes.  Luckily, nobody's stupid enough to use open {Yfl{Pa{Yme{x to light a sewer, 
+right?  The smell is of the most horrible description, smelling much like old cabbage, 
+among other unsavory odors. "Night soil" covers the middle section of the floor, 
+leaving just two damp, narrow walkways on either side. To the west you see a large 
+altar, which is probably the focus of the chanting.
+~
+0 0 0
+D0
+~
+~
+0 -1 13018
+D1
+~
+~
+0 -1 13003
+D2
+~
+~
+0 -1 13017
+D3
+~
+~
+0 -1 13013
+S
+
+#13013
+Sacrificial Altar~
+A large, {Ggreen{x and {cblack{x altar dominates this room.  Arcane symbols have been cut into 
+the walls, none of them looking like the crescent moon normally associated with toilets 
+and sewers.  The language they are written in is harsh and ugly, as befitting the harsh 
+and ugly tribe that uses it, the Scaly Death Tribe. 
+~
+0 0 0
+D1
+~
+~
+0 -1 13012
+D3
+~
+~
+0 -1 13014
+S
+
+#13014
+Dim Tunnel~
+This tunnel may be poorly lit, but one thing that is always visible is the altar to the 
+east.  It seems to be the focal point of the religion of the {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x, and is 
+always kept in view. Every few steps during the ceremony, priests are required to stop, 
+face the altar, and beat their fist against their chest. Oddly enough, this does not 
+seem to affect the tone of the chant, proof of the toughness of these priests. 
+A large iron ladder leads both up and down into new sections of the sewer.  A huge
+metal pipe leads down from above, transporting solid and semi-solid sewage down to the 
+lower levels.
+~
+0 0 0
+D0
+~
+~
+0 -1 13015
+D1
+~
+~
+0 -1 13013
+D2
+~
+~
+0 -1 13016
+D4
+~
+~
+0 -1 13019
+D5
+~
+~
+0 -1 13020
+S
+
+#13015
+Dim Tunnel~
+This tunnel may be poorly lit, but one thing that is always visible is the altar to the 
+south-east.  It seems to be the focal point of the religion of the {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x, and 
+is always kept in view. Every few steps during the ceremony, priests are required to stop, 
+face the altar, and beat their fist against their chest. Oddly enough, this does not 
+seem to affect the tone of the chant, proof of the toughness of these priests.
+~
+0 0 0
+D1
+~
+~
+0 -1 13018
+D2
+~
+~
+0 -1 13014
+S
+
+#13016
+Dim Tunnel~
+This tunnel may be poorly lit, but one thing that is always visible is the altar to the 
+north-east.  It seems to be the focal point of the religion of the {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x, and 
+is always kept in view. Every few steps during the ceremony, priests are required to stop, 
+face the altar, and beat their fist against their chest. Oddly enough, this does not 
+seem to affect the tone of the chant, proof of the toughness of these priests.
+~
+0 0 0
+D0
+~
+~
+0 -1 13014
+D1
+~
+~
+0 -1 13017
+S
+
+#13017
+Dim Tunnel~
+This tunnel may be poorly lit, but one thing that is always visible is the altar to the 
+north-west.  It seems to be the focal point of the religion of the {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x, and 
+is always kept in view. Every few steps during the ceremony, priests are required to stop, 
+face the altar, and beat their fist against their chest. Oddly enough, this does not 
+seem to affect the tone of the chant, proof of the toughness of these priests.
+~
+0 0 0
+D0
+~
+~
+0 -1 13012
+D3
+~
+~
+0 -1 13016
+S
+
+#13018
+Dim Tunnel~
+This tunnel may be poorly lit, but one thing that is always visible is the altar to the 
+south-west.  It seems to be the focal point of the religion of the {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x, and 
+is always kept in view. Every few steps during the ceremony, priests are required to stop, 
+face the altar, and beat their fist against their chest. Oddly enough, this does not 
+seem to affect the tone of the chant, proof of the toughness of these priests.
+~
+0 0 0
+D2
+~
+~
+0 -1 13012
+D3
+~
+~
+0 -1 13015
+S
+
+#13019
+{MNoble {bSewe{brs{x~
+This section of the sewers is the bane of the New Thalos taxpayer. For reasons unknown to 
+anyone with logic, the previous sultan refused to have his refuse mingle with "common night 
+soil."  So, this upper section of the sewer was built to service the palace of the Sultan, 
+and only the palace of the Sultan.  The smell is particularly rich and fragrant here, 
+testimony to the expensive food enjoyed in the palace.
+~
+0 C 0 
+D3
+~
+~
+0 -1 13022
+D5
+~
+~
+0 -1 13014
+S
+
+#13020
+{HCommon {bSewers{x~
+This, the lower section of the sewers, is the more frequently used and less frequently cleaned 
+section, as nobody really cares about it. It was designed for all the citizens of New Thalos 
+who don't live in the palace. Since it is not visited often by the sewer workers, it is the 
+perfect place for Twilight, the feared thieve's guild of New Thalos.
+~
+0 C 0
+D3
+~
+~
+0 -1 13021
+D4
+~
+~
+0 -1 13014
+S
+
+#13021
+{HCommon {bSewers{x~
+Only one of the walkways in this tunnel is really usable, as the other side is just way too 
+slick.  Scrawled on the wall is the slogan of Twilight: "The foolish villagers trembled in 
+fear, knowing that the sun was setting, and Twilight was approaching."
+~
+0 0 0
+D1
+~
+~
+0 -1 13020
+D3
+~
+~
+0 -1 13032
+D4
+~
+~
+0 -1 13024
+S
+
+#13022
+{MNoble {bSewers{x~
+This tunnel has been meticulously cleaned and polished, which makes no sense at all.  It's a 
+sewer, it's not like there are going to be very many visitors from neighboring heads of state.  
+Apparently, there was just too much money going into the Sultan's pocket, and he didn't know 
+what to spend it all on.  It makes you wonder what brilliant chamberlain suggested the idea 
+of sewer beautification to him.
+~
+0 0 0
+D1
+~
+~
+0 -1 13019
+D0
+~
+~
+0 -1 13025
+D2
+~
+~
+0 -1 13023
+S
+
+#13023
+{MNoble {bSewers{x~
+This tunnel is also very clean and pristine.  The Noble Sewers are the favorite section for 
+tofsmen, as the nobles and maids in the palace are much more likely to drop something valuable 
+down the drain than some drudge in the slums.  However, since this area is well maintained, 
+there aren't very many natural tofs, and so the tofsmen have to construct their own barricades 
+to catch the goods.
+~
+0 0 0
+D0
+~
+~
+0 -1 13022
+D1
+~
+~
+0 -1 13024
+S
+
+#13024
+{MNoble {xand {HCommon{x Junction~
+A pipe leads down from this, the Noble section of the sewers, to the Common section. This little 
+pipe was added by the chief engineer of the Noble Sewers, unknown to the previous Sultan. The 
+sewer workers also heartily approve, as this pipe just moves all the refuse from the Noble section 
+down to the Common section, making the Noble section much easier to maintain and keep clean. 
+~
+0 0 0
+D3
+~
+~
+0 -1 13023
+D5
+~
+~
+0 -1 13021
+S
+
+#13025
+Flowing {cCess{bpool{x~
+Unlike most cesspools, this one does not just allow the merchandise to pile up, but keeps it moving 
+down the tunnel.  Heading up will take you to the {MSultan's{x private bathroom, but there are plenty 
+more pipes leading here from the rest of the palace.
+~
+0 0 0
+D2
+~
+~
+0 -1 13022
+D4
+~
+~
+0 -1 13026
+S
+
+#13026
+The {MSultan's {VPr{Miva{Vte Re{Mstro{Vom{x~
+This opulent bathroom is heavily perfumed to mask any unpleasant odor that normal people have to 
+deal with when using the bathroom.  The {Ygold{x inlaid throne, studded with {Gj{Pe{Bw{Ge{Pl{Bs{x, stands upon a
+marble dais.
+~
+0 0 0
+D1
+~
+door~
+1 -1 9689
+D5
+~
+~
+0 -1 13025
+S
+
+#13027
+Noble Sewer~
+blah
+~
+0 F 0
+D0
+~
+~
+0 -1 13028
+S
+
+#13028
+Noble Sewer~
+blah
+~
+0 G 0
+D2
+~
+~
+0 -1 13027
+D3
+~
+~
+0 -1 13029
+S
+
+#13029
+Noble Sewer~
+blah
+~
+0 F 0
+D0
+~
+~
+0 -1 13030
+D1
+~
+~
+0 -1 13028
+D4
+~
+~
+0 -1 13031
+S
+
+#13030
+Noble Sewer~
+blah
+~
+0 G 0
+D1
+~
+~
+0 -1 13031
+D2
+~
+~
+0 -1 13029
+S
+
+#13031
+Noble Sewer~
+blah
+~
+0 G 0
+D3
+~
+~
+0 -1 13030
+D5
+~
+~
+0 -1 13029
+S
+
+#13032
+Long Tunnel~
+This long stretch of sewer is the main tunnel of the {HCommon {bSewer{x.  As such, 
+it is also the dirtiest and smelliest.  There are several large pipes that 
+branch off to the north and south that lead {csewage{x off to prevent backups 
+and overflows, which would be pretty nasty.
+~
+0 0 0
+D0
+~
+~
+0 -1 13034
+D1
+~
+~
+0 -1 13021
+D2
+~
+~
+0 -1 13035
+D3
+~
+~
+0 -1 13033
+S
+
+#13033
+Long Tunnel~
+This long stretch of sewer is the main tunnel of the {HCommon {bSewer{x.  It is, 
+naturally, the dirtiest and the smelliest. There are, surprisingly, signs 
+of habitation along this stretch of tunnel. Graffiti decorates the walls 
+with such memorable and intelligent phrases as "{PTony {Gwuz {Phear{x."
+~
+0 0 0
+D0
+~
+~
+0 -1 13037
+D1
+~
+~
+0 -1 13032
+D3
+~
+~
+0 -1 13039
+S
+
+#13034
+Diverted Tunnel~
+This tunnel is just designed to divert some {csewage{x off the main tunnel so that 
+no backups or overflows occur.  The flow, if you can call it that, is rather 
+slow in this section of the tunnel.
+~
+0 0 0
+D2
+~
+~
+0 -1 13032
+D3
+~
+~
+0 -1 13037
+S
+
+#13035
+Diverted Tunnel~
+This tunnel is just designed to divert some {csewage{x off the main tunnel so that 
+no backups or overflows occur.  The flow, if you can call it that, is rather 
+slow in this section of the tunnel.
+~
+0 0 0
+D0
+~
+~
+0 -1 13032
+D3
+~
+~
+0 -1 13036
+S
+
+#13036
+Diverted Tunnel~
+This tunnel is just designed to divert some {csewage{x off the main tunnel so that 
+no backups or overflows occur.  The flow, if you can call it that, is rather 
+sluggish in this section of the tunnel.
+~
+0 0 0
+D1
+~
+~
+0 -1 13035
+D3
+~
+~
+0 -1 13038
+S
+
+#13037
+Diverted Tunnel~
+This tunnel is just designed to divert some {csewage{x off the main tunnel {Cs{To {Ct{Th{Ca{Tt{x 
+no backups or overflows occur.  The flow, if you can call it that, is rather 
+slow in this section of the tunnel.
+~
+0 0 0
+D1
+~
+~
+0 -1 13034
+D2
+~
+~
+0 -1 13033
+S
+
+#13038
+Diverted Tunnel~
+This tunnel is just designed to divert some {csewage{x off the main tunnel so that 
+no backups or overflows occur.  The flow, if you can call it that, is rather 
+sluggish in this section of the tunnel.
+~
+0 0 0
+D0
+~
+~
+0 -1 13039
+D1
+~
+~
+0 -1 13036
+S
+
+#13039
+Long Tunnel~
+This long stretch of sewer is the main tunnel of the {HCommon {bSewer{x.  Therefore, 
+it is also the dirtiest and nastiest.  There are several large pipes that 
+branch off to the north and south and that lead sewage off to prevent backups 
+and overflows, which would be pretty rough.
+~
+0 0 0
+D1
+~
+~
+0 -1 13033
+D2
+~
+~
+0 -1 13038
+D3
+~
+~
+0 -1 13040
+S
+
+#13040
+Long Tunnel~
+This long stretch of sewer is the main tunnel of the {HCommon {bSewer{x.  A rather 
+prominent piece of graffiti catches your eye, stating "{YIf yu came this far, 
+yu have no knose.{x"  That's probably pretty accurate in summing up the smell. 
+One further oddity is that the tunnel to the north has had a small wall put 
+up in front of it, so that sewage can't flow down it, but people can still 
+walk through it.  Interesting.
+~
+0 0 0
+D0
+~
+~
+0 -1 13041
+D1
+~
+~
+0 -1 13039
+D3
+~
+~
+0 -1 13042
+S
+
+#13041
+Dry Tunnel~
+This tunnel is certainly a change from what you've been getting used to. Since 
+the sewage has been blocked from entering, the walls and floor are fairly dry 
+and clean.  This must be the living quarters for {cTwi{gli{cght{x.  There's not really 
+any other reason why this section would be walled off, is there? As befits the name 
+of the gang, this section of the tunnel is dimly lit, much like the actual twilight 
+hours.
+~
+0 0 0
+D2
+~
+~
+0 -1 13040
+D3
+~
+~
+0 -1 13043
+S
+
+#13042
+Long Tunnel~
+This long stretch of sewer is the main tunnel of the {HCommon {bSewer{x. The 
+graffiti message from before has been extended, and turned into a cheap 
+threat, "{YYu may have no knose, but if yu kontinue, yu'll have no body, 
+too.{x" Much like the previous section of tunnel, the tunnel to the north has 
+had a small wall put up in front of it, so that sewage can't flow down 
+it, but people can still walk through.
+~
+0 0 0
+D0
+~
+~
+0 -1 13043
+D1
+~
+~
+0 -1 13040
+D3
+~
+~
+0 -1 13045
+S
+
+#13043
+Dry Tunnel~
+This tunnel is certainly a change from what you've been getting used to. Since 
+the sewage has been blocked from entering, the walls and floor are fairly dry 
+and clean.  This must be the living quarters for {cTwi{gli{cght{x.  As befits the name 
+of the gang, this section of the tunnel is dimly lit, much like the actual twilight 
+hours.  The dry section continues up a pipe to the north, while the nasty, smelly 
+section can be reached through a southward tunnel. 
+~
+0 0 0
+D0
+~
+~
+0 -1 13044
+D1
+~
+~
+0 -1 13041
+D2
+~
+~
+0 -1 13042
+S
+
+#13044
+Dry Tunnel~
+This is the end of what you assume must be the living quarters for {cTwi{gli{cght{x. As 
+befits the name of the gang, this section of the tunnel is dimly lit, much like 
+the actual twilight hours.  However, a well-maintained ladder leads down into 
+{cpitch-black{x darkness.
+~
+0 0 0
+D2
+~
+~
+0 -1 13043
+D5
+~
+~
+0 -1 13046
+S
+
+#13045
+Long Tunnel~
+This long stretch of sewer is the main tunnel of the {HCommon {bSewer{x. It smells 
+pretty ripe here, thanks to a partial blockage. Not all of the flow has been 
+blocked, luckily, and there is a diversionary pipe to the south to handle some 
+of it.
+~
+0 0 0
+D1
+~
+~
+0 -1 13042
+D2
+~
+~
+0 -1 13048
+D3
+~
+~
+0 -1 13050
+S
+
+#13046
+{cDark Tunnel{x~
+This tunnel is {cpitch-black{x, just the way the mysterious leader of {cTwi{gli{cght{x, 
+known as {cMid{Nni{cght{x, likes it. You can still sense the ladder leading up behind 
+you, and, far above you, you can make out the dim opening that led to the 
+gang's living quarters.
+~
+0 A 0
+D3
+~
+~
+0 -1 13047
+D4
+~
+~
+0 -1 13044
+S
+
+#13047
+{cDark Anteroom{x~
+This {cpitch-black{x room is where {cMid{Nni{cght{x makes people wait before he sees them.  
+There are several magazines, including "{CFishing{x" and "{HField & Stream{x," on a 
+coffee table.  If you brought along a light source, you can even read some 
+articles.
+~
+0 A 0
+D0
+~
+~
+0 -1 13053
+D1
+~
+~
+0 -1 13046
+S
+
+#13048
+Diverted Tunnel~
+This tunnel is getting much more traffic than normal, thanks to the partial 
+blockage in the main tunnel.  The flow is moving pretty quickly here, eager 
+to reach an escape from the {bnightmarish{x New Thalos sewer system.
+~
+0 0 0
+D0
+~
+~
+0 -1 13045
+D3
+~
+~
+0 -1 13049
+S
+
+#13049
+Diverted Tunnel~
+This tunnel is getting much more traffic than normal, thanks to the partial 
+{bblockage{x in the main tunnel.  The flow is moving pretty quickly here, eager 
+to reach an escape from the nightmarish New Thalos sewer system.
+~
+0 0 0
+D1
+~
+~
+0 -1 13048
+D3
+~
+~
+0 -1 13052
+S
+
+#13050
+Long Tunnel~
+The smell is getting mustier here, as the tunnel approaches the end of its 
+long journey.  Up ahead you can see the {Wgrate{x all of this refuse will be 
+leaving through.
+~
+0 0 0
+D1
+~
+~
+0 -1 13045
+D3
+~
+~
+0 -1 13051
+S
+
+#13051
+Long Tunnel~
+The tunnel here merges with the {Wpipe{x to the south, bringing an influx of 
+{csewage{x right to the ending point of the tunnel.  Through the {Wgrate{x you catch 
+a whiff of the musty cave system that was once the pride of New Thalos, its 
+prehistoric cave paintings the wonders of archaeologists from Solace and Ofcol. 
+Now most of the cave paintings have been destroyed by the acidic nature and 
+fumes of the {csewage{x that is dumped there.
+~
+0 0 0
+D1
+~
+~
+0 -1 13050
+D2
+~
+~
+0 -1 13052
+S
+
+#13052
+Diverted Tunnel~
+This tunnel is getting much more traffic than normal, thanks to the partial 
+blockage in the main tunnel.  The flow is moving pretty quickly here, eager 
+to reach an escape from the nightmarish New Thalos sewer system. The pipe 
+leads back to the north, {bmerging{x back with the main tunnel.
+~
+0 0 0
+D0
+~
+~
+0 -1 13051
+D1
+~
+~
+0 -1 13049
+S
+
+#13053
+{cThe Focal Point of {NNight{x~
+This room, {cMid{Nni{cght{x claims, is the focus of all night, as he gathers the power 
+of {cTwi{gli{cght{x and {kDarkness{x here and channels it out to rob and pillage throughout 
+the greater New Thalos area.  The room is shrouded in darkness, and is rather 
+opulent, considering it's located in a sewer.
+~
+0 A 0
+D2
+~
+~
+0 -1 13047
+S
+
+
+
+#0
+
+#RESETS
+
+M 0 13000 5 13036 1  * Whore
+E 0 13001 20 5       * blouse
+M 0 13000 5 13041 1  * whore
+E 0 13001 20 5       * blouse
+M 0 13000 5 13046 1  * whore
+E 0 13001 20 5       * blouse
+M 0 13001 5 13002 1  * ragamuffin
+G 0 13002 30         * muffin
+M 0 13001 5 13009 1  * ragamuffin
+G 0 13002 30         * muffin
+M 0 13001 5 13008 1  * ragamuffin
+G 0 13002 30         * muffin
+M 0 13001 5 13034 1  * ragamuffin
+G 0 13002 30         * muffin
+M 0 13002 5 13021 1  * skulker
+E 0 13010 20 8       * muddy boots
+M 0 13002 5 13043 1  * skulker
+E 0 13010 20 8       * muddy boots
+M 0 13002 5 13052 1  * skulker
+E 0 13010 20 8       * muddy boots
+M 0 13003 5 13037 1  * stabber
+M 0 13003 5 13049 1  * stabber
+M 0 13003 5 13050 1  * stabber
+M 0 13004 3 13038 1  * cutter
+M 0 13004 3 13042 1  * cutter
+M 0 13005 9 13032 1  * basher
+M 0 13005 9 13033 1  * basher
+M 0 13005 9 13040 1  * basher
+M 0 13005 9 13041 1  * basher
+M 0 13005 9 13048 1  * basher
+M 0 13005 9 13051 1  * basher
+M 0 13006 3 13035 1  * burglar
+M 0 13006 3 13052 1  * burglar
+M 0 13007 3 13033 1  * pugilist
+E 0 13008 20 9       * knuckles
+M 0 13007 3 13041 1  * pugilist
+E 0 13008 20 9       * knuckles
+M 0 13008 3 13044 1  * bagman
+M 0 13008 3 13046 1  * bagman
+M 0 13009 1 13045 1  * ragman
+M 0 13010 5 13022 1  * tofsman
+E 0 13000 20 16      * tofstick
+M 0 13010 5 13023 1  * tofsman
+E 0 13000 20 16      * tofstick
+M 0 13010 5 13040 1  * tofsman
+E 0 13000 20 16      * tofstick
+M 0 13010 5 13050 1  * tofsman
+E 0 13000 20 16      * tofstick
+M 0 13011 3 13022 1  * lieutenant
+M 0 13011 3 13045 1  * lieutenant
+M 0 13011 3 13047 1  * lieutenant
+M 0 13012 1 13053 1  * midnight
+E 0 13011 10 10      * vambraces
+M 0 13013 9 13012 2  * priest
+E 0 13009 30 7       * leggings
+M 0 13013 9 13014 1  * priest
+E 0 13009 30 7       * leggings
+M 0 13013 9 13015 2  * priest
+E 0 13009 30 7       * leggings
+M 0 13013 9 13016 1  * priest
+E 0 13009 30 7       * leggings
+M 0 13013 9 13017 2  * priest
+E 0 13009 30 7       * leggings
+M 0 13013 9 13018 1  * priest
+E 0 13009 30 7       * leggings
+M 0 13014 1 13015 1  * april
+E 0 13005 10 12      * negligee
+M 0 13015 1 13017 1  * may
+E 0 13004 10 18      * pure aura
+M 0 13016 1 13018 1  * june
+E 0 13003 15 3       * necklace
+M 0 13017 1 13013 1  * ky'ur
+E 0 13006 10 17      * heart
+M 0 13018 1 13013 1  * nyarl
+E 0 13007 10 6       * headband
+G 0 13012 15         * history
+D 0 13026 1 1     * door east
+D 0 9689 3 1      * door west
+
+
+S
+
+#$
+
+
+
+
+

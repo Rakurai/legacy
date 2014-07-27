@@ -1,0 +1,427 @@
+#PLAYER
+Name Ospris~
+Id   995589374
+LogO 1009513011
+Vers 9
+Desc {bOspris is a big, ugly feral whodoesn't know what he is doing.
+{b Ospris is the utter newbie. In fact he doesn't even know what he looks like.
+Ospris has the biggest butt you have ever seen on a feral.
+Ospris looks like he doesn't even know which direction is up
+Ospris can't tell night from day.
+it takes Ospris 1700 experience to level.
+~
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
+Race feral~
+Sex  1
+Cla  2
+Levl 7
+Plyd 15794
+Age  0
+Back 11238
+Note 996907187 996907187 996907187 996907187 996907187 996907187
+Scro 22
+Room 8543
+HMV  128 128 119 119 139 139
+Gold 29
+Silv 608
+Exp  12801
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy J
+Comm NO
+Revk 0
+Cnsr AB
+Pos  5
+Prac 2
+Save  -1
+Alig  354
+Hit   2
+Dam   1
+ACs 55 46 49 84
+Wimp  16
+Atrib 17 14 15 23 18 14
+AtMod 2 1 2 1 1 3
+QuestPnts 1
+Pass blumonk~
+Titl  {HTracer {xthief in training~
+Immn ~
+Pnts 51
+Rank ~
+Aura ~
+TSex 1
+LLev 2
+Deit Liriel~
+Lsit 12-225-96-29.client.attbi.com~
+Ltim Thu Dec 27 22:16:03 2001
+~
+LSav Thu Dec 27 22:16:51 2001
+~
+Finf {b-={T Tracer Apprentice {b=-
+
+Ospris, the wannabe muddist goes about his business in the newbie fashion.
+If you see Ospris, help him out
+or give him some newbie hints.  
+And if he uses the channels wrong or can't send notes, ignore it.
+{RRemember, he's just a newbie...{x
+
+{b-= {TReturn 0 {b=-{x
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  F
+HMVP 104 119 139
+THVP 0 0 0
+Cnd  0 0 3 11
+Sk 1 1 'dagger'
+Sk 75 1 'sword'
+Sk 75 1 'backstab'
+Sk 1 1 'circle'
+Sk 50 1 'dodge'
+Sk 1 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'repair'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3724
+Nest 0
+Wear 12
+Cost 100
+Val  60 1 0 6 100
+End
+
+#O
+Vnum 9541
+Nest 1
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 9541
+Nest 1
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 9541
+Nest 1
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 9541
+Nest 1
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 9541
+Nest 1
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 9541
+Nest 1
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 9541
+Nest 1
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 9541
+Nest 1
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 2105
+Nest 0
+Wear -1
+Cost 2200
+Spell 3 'colour spray'
+End
+
+#O
+Vnum 2114
+Nest 0
+Wear 5
+Cost 1470
+End
+
+#O
+Vnum 3076
+Nest 0
+Wear 9
+Cost 420
+End
+
+#O
+Vnum 1616
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 1604
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 32127
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 12700
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 12707
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 12705
+Nest 0
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 0
+Val  150 102 15 0 0
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3356
+Nest 0
+Wear -1
+Cost 450
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear 0
+Cost 640
+Val  0 0 427 0 0
+End
+
+#END

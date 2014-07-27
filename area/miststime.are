@@ -1,0 +1,310 @@
+#AREA
+miststime.are~
+Mists of Time~
+{H{{1 91} {MVegita {TMistsTime~
+29300 29499
+
+
+
+#MOBILES
+#29300
+Keeper of Time figure old~
+The Keeper of Time~
+An old wrikled figure stand before you.
+~
+He is old, VERY old. Looks like he could have witnessed the beginning of
+life. He is drabbed in a rather frail looking overcoat that hides his 
+nasty interior.
+~
+human~
+BGRVZ DFHINOVaabb 0 S
+95 42 1d1+10089 1d1+3089 1d1+49 beating
+-64 -63 -59 -74
+CEFIJOR ABMNU JKL H
+stand stand male 50
+0 0 medium 0
+>greet_prog 100~
+bow $n
+say $n Is your true intention to disturb time?
+say Think carefully, for the wrong answer may cost you your life!
+say After you have thought, speak your answer to me.
+~
+>speech_prog p yes~
+growl $n
+say Then it is your intention to die!
+MPKILL $n
+~
+>speech_prog p no~
+beam $n
+say Good, I shall let you pass then.
+bow $n
+MPTRANSFER $n 29301
+MPAT 29301 say Welcome to Where Time Stands Still.
+~
+|
+#0
+#OBJECTS
+#29300
+bunch berries smurfberries~
+a bunch of {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vi{Ce{Vs{x~
+A bunch of delicious looking {Cs{Vm{Cu{Vr{Cf{Vb{Ce{Vr{Cr{Vi{Ce{Vs{x lie here.~
+oldstyle~
+pill 0 A
+8 '' '' 'change sex' ''
+0 20 180 P
+#0
+#ROOMS
+#29300
+The Ends Of Time~
+You stand before an emense wall of clocks. Each seem to move either faster
+or slower than each other. You also notice some are at a dead stop. You
+can't seem to remember how you got here, your mind cloudy. As you look
+around, you notice that everything here is rather old and the air
+is filled with a kinda old smell.
+~
+0 IT 0
+H 100 M 100
+E
+clocks~
+Many types of clocks are here, thier metal smudged and tarnished.
+Some are ticking, while others are not.
+~
+S
+#29301
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+~
+0 DI 10
+H 0 M 0
+D1
+~
+~
+0 -1 29302
+S
+#29302
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+~
+0 DI 10
+H 0 M 0
+D0
+~
+~
+0 -1 29303
+D1
+~
+~
+0 -1 29305
+D2
+~
+~
+0 -1 29304
+S
+#29303
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+~
+0 DI 10
+H 0 M 0
+D0
+~
+~
+0 -1 29307
+D1
+~
+~
+0 -1 29306
+D2
+~
+~
+0 -1 29302
+S
+#29304
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+~
+0 DI 10
+H 0 M 0
+D0
+~
+~
+0 -1 29302
+D1
+~
+~
+0 -1 29308
+S
+#29305
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+~
+0 DI 10
+H 0 M 0
+D0
+~
+~
+0 -1 29306
+D1
+~
+~
+0 -1 29309
+D2
+~
+~
+0 -1 29308
+D3
+~
+~
+0 -1 29302
+S
+#29306
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+~
+0 DI 10
+H 0 M 0
+D0
+~
+~
+0 -1 29310
+D1
+~
+~
+0 -1 29311
+D2
+~
+~
+0 -1 29305
+D3
+~
+~
+0 -1 29303
+S
+#29307
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+~
+0 DI 10
+H 0 M 0
+D1
+~
+~
+0 -1 29310
+D2
+~
+~
+0 -1 29303
+S
+#29308
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+~
+0 DI 10
+H 0 M 0
+D0
+~
+~
+0 -1 29305
+D1
+~
+~
+0 -1 29312
+D3
+~
+~
+0 -1 29304
+S
+#29309
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+~
+0 DI 10
+H 0 M 0
+D0
+~
+~
+0 -1 29311
+D1
+~
+~
+0 -1 29313
+D2
+~
+~
+0 -1 29312
+D3
+~
+~
+0 -1 29305
+S
+#29310
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+NOT DONE!!!
+~
+0 DI 10
+H 0 M 0
+S
+#29311
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+NOT DONE!!!
+~
+0 DI 10
+H 0 M 0
+S
+#29312
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+NOT DONE!!!
+~
+0 DI 10
+H 0 M 0
+S
+#29313
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+NOT DONE!!!
+~
+0 DI 10
+H 0 M 0
+S
+#29315
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+NOT DONE!!!
+~
+0 DI 10
+H 0 M 0
+S
+#29316
+Where Time Stands Still~
+You are in a place where time holds no precedence. You neither grow old nor
+experiance what you normally would from time.
+NOT DONE!!!
+~
+0 DI 10
+H 0 M 0
+S
+#0
+#RESETS
+M 0 29300 1 29300 1 *keeper of time
+O 0 29300 30 29302 *place test object in room*
+S
+
+#$
+

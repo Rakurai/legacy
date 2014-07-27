@@ -1,0 +1,2198 @@
+#PLAYER
+Name Shadowhunter~
+Id   1013235966
+LogO 1026540188
+Vers 14
+Mexp 2
+Pass nathan~
+Prom {W<{C%h{Thp {G%m{Hma {B%v{Nst{W>{x ~
+Race giant~
+Clan blackclaw~
+Cla  3
+Levl 80
+Tru  91
+Plyd 1286416
+Back 1259783
+Note 1026409897 1022813787 1026339553 1026100171 1026409721 1026258348 1025590922
+Scro 22
+Room 24814
+HMS  1748 868 1281
+Gold 2124
+Silv 13
+Silver_in_bank 17595
+Gold_in_bank 4520
+Exp  84275
+PCkills  2
+PCkilled 7
+Akills   2
+Akilled  9
+PKRank   0
+Pos  8
+Alig 1000
+Spou Tia~
+FImm 0
+FRes HIL
+FVul BP
+Plr  AGIKQT
+Video 0
+Act  CDEFGHJLNOQSc
+AfBy Q
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 29
+Trai 27
+Wimp 0
+Atrib 25 14 17 16 22 18
+SkillPnts  39
+RolePnts   1
+QuestPnts  174
+QpDonated  544
+GlDonated  122732
+Afk {B[{CFri Jul 12 14:50:49 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {CL{Yo{Rr{Bd {CO{Yf {RT{Bh{Ce {YS{Rh{Ba{Cd{Yo{Rw {BR{Ce{Ya{Rl{Bm~
+Immn ~
+Pnts 40
+Rank {GG{BO{RD~
+Aura {TL{Yo{Rr{Bd {TS{Yh{Ra{Bd{To{Yw{x~
+TSex 1
+LLev 350
+Email HITLISTFREAK@yahoo.com~
+Deit {gM{Wo{gn{Ct{gr{We{gy{x~
+Stus {CB{Rl{Ca{Rc{Ck{RC{Cl{Ra{Cw {RC{Cl{Ra{Cn {RQ{Cu{Re{Cs{Rt{Ce{Rr{x~
+RmCt 4
+ExSk 0
+Raff 957
+Lsit 207.193.154.45~
+Ltim Sat Jul 13 01:01:42 2002
+~
+LSav Sat Jul 13 01:03:08 2002
+~
+Finf {BBlackClaw {CClan {BRanks:
+{RLv:                          Ranks:
+{GR0                            {cNIN     Ninja Student
+{GR1                            {cBlt     Black Belt
+{GR3                            {cSEN     Sensei (Teacher)
+{GR5                            {cNAS     Ninja Assassin
+{GR7                            {cShN     Shadow Ninja
+{GR10+                          {cGRS     Grand Sensei
+{GR10+ (Protector)              {cGrM     Grand Master
+~
+HMSP 1608 428 1131
+THMS 0 0 0
+Cnd  0 0 0 0
+Query doom~
+Sk 82 1 'acid blast'
+Sk 78 1 'acid rain'
+Sk 75 1 'age'
+Sk 75 1 'animate skeleton'
+Sk 75 1 'animate wraith'
+Sk 75 1 'animate gargoyle'
+Sk 75 1 'animate zombie'
+Sk 88 1 'armor'
+Sk 91 1 'bless'
+Sk 75 1 'blindness'
+Sk 84 1 'blizzard'
+Sk 75 1 'blood blade'
+Sk 75 1 'blood moon'
+Sk 75 1 'burning hands'
+Sk 76 1 'call lightning'
+Sk 75 1 'calm'
+Sk 75 1 'cancellation'
+Sk 79 1 'chain lightning'
+Sk 76 1 'channel'
+Sk 75 1 'chill touch'
+Sk 75 1 'colour spray'
+Sk 77 1 'continual light'
+Sk 75 1 'control weather'
+Sk 84 1 'create food'
+Sk 76 1 'create parchment'
+Sk 75 1 'create rose'
+Sk 75 1 'create sign'
+Sk 80 1 'create spring'
+Sk 75 1 'create vial'
+Sk 75 1 'create water'
+Sk 100 1 'cure critical'
+Sk 76 1 'cure light'
+Sk 75 1 'cure serious'
+Sk 75 1 'curse'
+Sk 76 1 'dazzling light'
+Sk 75 1 'demonfire'
+Sk 75 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 75 1 'detect magic'
+Sk 75 1 'detect poison'
+Sk 75 1 'dispel evil'
+Sk 76 1 'dispel good'
+Sk 78 1 'dispel magic'
+Sk 78 1 'divine healing'
+Sk 80 1 'divine regeneration'
+Sk 75 1 'earthquake'
+Sk 75 1 'encampment'
+Sk 77 1 'enchant armor'
+Sk 84 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 76 1 'faerie fire'
+Sk 75 1 'faerie fog'
+Sk 75 1 'fear'
+Sk 75 1 'fireball'
+Sk 75 1 'fireproof'
+Sk 77 1 'firestorm'
+Sk 76 1 'flame blade'
+Sk 77 1 'flameshield'
+Sk 75 1 'flamestrike'
+Sk 92 1 'fly'
+Sk 75 1 'floating disc'
+Sk 85 1 'frenzy'
+Sk 75 1 'frost blade'
+Sk 96 1 'gate'
+Sk 87 1 'giant strength'
+Sk 91 1 'haste'
+Sk 80 1 'heal'
+Sk 75 1 'heat metal'
+Sk 75 1 'holy word'
+Sk 75 1 'identify'
+Sk 75 1 'infravision'
+Sk 75 1 'know alignment'
+Sk 75 1 'light of truth'
+Sk 77 1 'lightning bolt'
+Sk 77 1 'locate life'
+Sk 79 1 'locate object'
+Sk 75 1 'magic missile'
+Sk 75 1 'mass healing'
+Sk 75 1 'nexus'
+Sk 81 1 'pass door'
+Sk 75 1 'plague'
+Sk 76 1 'poison'
+Sk 75 1 'portal'
+Sk 75 1 'protect container'
+Sk 88 1 'protection evil'
+Sk 83 1 'protection good'
+Sk 75 1 'ray of truth'
+Sk 75 1 'recharge'
+Sk 86 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 82 1 'regeneration'
+Sk 78 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 96 1 'sanctuary'
+Sk 86 1 'shield'
+Sk 75 1 'shock blade'
+Sk 75 1 'shocking grasp'
+Sk 75 1 'shrink'
+Sk 85 1 'slow'
+Sk 86 1 'steel mist'
+Sk 84 1 'stone skin'
+Sk 93 1 'summon'
+Sk 86 1 'summon object'
+Sk 1 1 'sunray'
+Sk 87 1 'talon'
+Sk 75 1 'teleport'
+Sk 78 1 'teleport object'
+Sk 84 1 'undo spell'
+Sk 75 1 'vision'
+Sk 77 1 'weaken'
+Sk 75 1 'word of recall'
+Sk 75 1 'wrath'
+Sk 84 1 'axe'
+Sk 77 1 'dagger'
+Sk 89 1 'mace'
+Sk 100 1 'polearm'
+Sk 100 1 'sword'
+Sk 76 1 'brew'
+Sk 83 1 'backstab'
+Sk 100 1 'bash'
+Sk 78 1 'berserk'
+Sk 100 1 'circle'
+Sk 77 1 'disarm'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 79 1 'envenom'
+Sk 100 1 'hand to hand'
+Sk 100 1 'kick'
+Sk 100 1 'parry'
+Sk 79 1 'rescue'
+Sk 100 1 'second attack'
+Sk 100 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 84 1 'hunt'
+Sk 100 1 'fast healing'
+Sk 75 1 'forge'
+Sk 81 1 'repair'
+Sk 100 1 'languages'
+Sk 77 1 'hide'
+Sk 80 1 'lore'
+Sk 78 1 'peek'
+Sk 100 1 'scan'
+Sk 76 1 'sneak'
+Sk 75 1 'steal'
+Sk 75 1 'sing'
+Sk 75 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 76 1 'recall'
+Sk 100 1 'riposte'
+Sk 100 1 'fourth attack'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'detection'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 3810
+Nest 0
+Cond 79
+Wear 18
+Cost 30000
+End
+
+#O
+Vnum 9911
+Nest 0
+Cond 83
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 8205
+Nest 0
+Cond 76
+Wear 4
+Cost 3233
+End
+
+#O
+Vnum 8204
+Nest 0
+Cond 83
+Wear 9
+Cost 3800
+End
+
+#O
+Vnum 6
+Nest 0
+ShD  {YT{Bi{Ya{B'{Ys {BU{Yn{Bd{Yi{Bv{Yi{Be{Yd {BL{Yo{Bv{Ye~
+Desc {GLord {BShadow & {GLady {BShadow~
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 5609
+Nest 0
+Cond 98
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 17001
+Nest 0
+Cond 75
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 20004
+Nest 0
+ExtF 65
+Cond 84
+Wear 3
+Cost 1000
+End
+
+#O
+Vnum 2914
+Nest 0
+Cond 93
+Wear 16
+Cost 5000
+End
+
+#O
+Vnum 11633
+Nest 0
+ExtF 1
+Cond 96
+Wear 7
+Cost 4500
+End
+
+#O
+Vnum 17009
+Enchanted
+Nest 0
+ExtF 16777281
+Wear 6
+Lev  76
+Cost 200
+Affc 'reserved'   0  75  -1   0   0      65536 1
+Affc 'reserved'   1  75  -1  40  13          0 1
+Affc 'reserved'   1  75  -1  50  12          0 1
+Affc 'reserved'   1  75  -1   2  19          0 1
+Affc 'reserved'   1  75  -1   2  18          0 1
+Affc 'enchant armor'   1  80  -1  -2  17          0 1
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 1345
+Nest 0
+Cond 96
+Wear 12
+Cost 1000
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Enchanted
+Nest 1
+Wear -1
+Cost 6
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24824
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24824
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24824
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24807
+Nest 0
+Wear 1
+Cost 5000
+End
+
+#O
+Vnum 11714
+Nest 0
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 8214
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#L
+Vnum 24831
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'refresh'
+End
+
+#L
+Vnum 24831
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'refresh'
+End
+
+#L
+Vnum 24831
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'refresh'
+End
+
+#L
+Vnum 4577
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#L
+Vnum 4577
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#L
+Vnum 2914
+Nest 0
+Cond 97
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 2914
+Nest 0
+Cond 90
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 24831
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'refresh'
+End
+
+#L
+Vnum 75
+Nest 0
+Name FOD Finger of Death~
+ShD  FOD~
+Desc Finger of Death!!!!~
+Wear -1
+Cost 620
+End
+
+#L
+Vnum 10152
+Nest 0
+Wear -1
+Cost 5500
+End
+
+#L
+Vnum 3000
+Nest 0
+Wear -1
+Cost 75
+Val  300 300 10 0 0
+End
+
+#L
+Vnum 14030
+Nest 0
+Cond 90
+Wear -1
+Cost 6000
+End
+
+#L
+Vnum 10166
+Enchanted
+Nest 0
+ExtF 17039427
+Cond 85
+Wear -1
+Lev  57
+Cost 0
+Affc 'reserved'   1  55  -1  -5  17          0 1
+Affc 'enchant weapon'   1  73  -1   7  18          0 1
+Affc 'enchant weapon'   1  73  -1   7  19          0 1
+End
+
+#L
+Vnum 14030
+Nest 0
+Cond 90
+Wear -1
+Cost 6000
+End
+
+#L
+Vnum 10166
+Enchanted
+Nest 0
+ExtF 17039427
+Wear -1
+Lev  57
+Cost 0
+Affc 'enchant weapon'   1  73  -1   7  19          0 1
+Affc 'enchant weapon'   1  73  -1   7  18          0 1
+Affc 'reserved'   1  55  -1  -5  17          0 1
+End
+
+#L
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#L
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#L
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#L
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#L
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#L
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#L
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#L
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#L
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#B
+Vnum 11714
+Nest 0
+Wear -1
+Cost 9500
+End
+
+#B
+Vnum 11714
+Nest 0
+Wear -1
+Cost 9500
+End
+
+#B
+Vnum 11712
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11712
+Nest 0
+Cond 94
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 10121
+Nest 0
+ExtF 16777283
+Cond 57
+Wear -1
+Lev  91
+Cost 21
+ExDe owned by~ Shadowhunter
+~
+End
+
+#B
+Vnum 2919
+Enchanted
+Nest 0
+Wear -1
+Cost 0
+Affc 'reserved'   1  90  -1   4  19          0 1
+Affc 'reserved'   1  90  -1   4  18          0 1
+Affc 'reserved'   1  90  -1 100  13          0 1
+Affc 'reserved'   1  90  -1   3   2          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+End
+
+#B
+Vnum 17102
+Nest 0
+Wear -1
+Cost 250
+End
+
+#B
+Vnum 5608
+Nest 0
+Cond 97
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#B
+Vnum 2917
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 2917
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 2916
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 1211
+Nest 0
+Name songquest token The Snake Path (invalid)~
+ShD  The Snake Path~
+Desc A single song whistles through the air~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 17102
+Nest 0
+Wear -1
+Cost 250
+End
+
+#B
+Vnum 1345
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 13010
+Nest 1
+Wear -1
+Cost 450
+End
+
+#B
+Vnum 14111
+Nest 1
+Cond 81
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11721
+Nest 1
+Wear -1
+Cost 9000
+End
+
+#B
+Vnum 13005
+Nest 1
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 14111
+Nest 1
+Cond 93
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11777
+Enchanted
+Nest 1
+ExtF 321
+Wear -1
+Cost 0
+Affc 'reserved'   1  91  -1   5  18          0 1
+Affc 'reserved'   1  91  -1  70  12          0 1
+Affc 'reserved'   1  91  -1   4   4          0 1
+Affc 'enchant armor'   1  91  -1  -5  17          0 1
+End
+
+#B
+Vnum 11716
+Nest 1
+Wear -1
+Cost 11100
+End
+
+#B
+Vnum 11714
+Nest 1
+Wear -1
+Cost 9500
+End
+
+#B
+Vnum 4417
+Nest 1
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 11720
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 815
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13004
+Nest 1
+Wear -1
+Cost 3700
+End
+
+#B
+Vnum 11717
+Nest 1
+Wear -1
+Cost 11000
+End
+
+#B
+Vnum 11757
+Nest 1
+Wear -1
+Cost 12000
+End
+
+#B
+Vnum 11773
+Nest 1
+Wear -1
+Cost 11000
+End
+
+#B
+Vnum 1345
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe April 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {BT{Car{Ba{T!!{x~
+Desc Brains&Beauty protected by a Ninja Cloak.~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 1111
+Nest 1
+Wear -1
+Cost 11
+End
+
+#B
+Vnum 17013
+Nest 2
+Cond 97
+Wear -1
+Cost 50
+End
+
+#B
+Vnum 17104
+Nest 2
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 5607
+Nest 2
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 1345
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 20013
+Nest 1
+Wear -1
+Cost 600
+Val  30 13 8 57 0
+Spell 3 'divine regeneration'
+End
+
+#B
+Vnum 17013
+Nest 1
+Cond 97
+Wear -1
+Cost 50
+End
+
+#B
+Vnum 8819
+Nest 1
+Wear -1
+Cost 3000
+End
+
+#B
+Vnum 17011
+Nest 1
+Wear -1
+Cost 500
+End
+
+#B
+Vnum 11685
+Nest 1
+Wear -1
+Cost 3400
+End
+
+#B
+Vnum 3000
+Nest 1
+Wear -1
+Cost 75
+Val  300 240 1 0 0
+End
+
+#B
+Vnum 5614
+Nest 1
+Cond 73
+Wear -1
+Cost 4000
+End
+
+#B
+Vnum 17105
+Nest 1
+Cond 74
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 5609
+Nest 1
+Cond 84
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 5607
+Nest 1
+Cond 88
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 2914
+Enchanted
+Nest 1
+Cond 90
+Wear -1
+Cost 0
+Val  1 14 7 3 8
+Affc 'reserved'   1  80  -1   4  18          0 1
+Affc 'reserved'   1  80  -1   4  19          0 1
+End
+
+#B
+Vnum 9101
+Enchanted
+Nest 1
+Cond 95
+Wear -1
+Cost 0
+Affc 'reserved'   1  72  -1  -2  21          0 1
+Affc 'reserved'   1  72  -1  50  12          0 1
+Affc 'reserved'   1  72  -1  20  13          0 1
+Affc 'reserved'   1  72  -1  75  14          0 1
+Affc 'reserved'   1  72  -1   3  18          0 1
+Affc 'reserved'   1  72  -1   2  19          0 1
+Affc 'reserved'   1  72  -1  -2  20          0 1
+Affc 'reserved'   1  72  -1   2   2          0 1
+Affc 'reserved'   0  72  -1   0   0     524288 1
+End
+
+#B
+Vnum 24807
+Nest 1
+Cond 99
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 3810
+Nest 1
+Cond 88
+Wear -1
+Cost 30000
+End
+
+#B
+Vnum 17013
+Nest 1
+ExtF 16777217
+Cond 97
+Wear -1
+Cost 50
+End
+
+#END

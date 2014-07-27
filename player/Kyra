@@ -1,0 +1,774 @@
+#PLAYER
+Name Kyra~
+Id   998241178
+LogO 1023505977
+Vers 14
+Mexp 2
+Pass aqua24~
+Desc as you walk along you see a cloaked figure on the path.
+Covered in a brown cloak with locks of auburn hair
+falling out from the hood. You realise it is a young
+girl that walks down the path in the opposite direction
+of you. You look up at her face seeing a finely chiseled
+face. Greens out stare out at you revealing a look
+of loniless. Quickly she turns her face staring straight
+ahead of her. She walks past clutching a flail tightly
+in her right hand.
+Stopping to look at the ground she studies some tracks
+quickly running off to follow the direction they
+lead in.
+~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Clan divinity~
+Cla  7
+Levl 46
+Tru  0
+Plyd 81477
+Back 0
+Note 1014233745 0 1014071992 930633430 0 1022523093 0
+Scro 22
+Room 19906
+HMS  1181 542 622
+Gold 1141
+Silv 24
+Silver_in_bank 4900
+Gold_in_bank 1150
+Exp  46078
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  AF
+Video 0
+Act  CDEFGHJLQSTc
+AfBy DF
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 4
+Trai 3
+Wimp 0
+Atrib 18 18 18 18 21 18
+QuestPnts  8
+QpDonated  8
+GlDonated  1100
+Afk {B[{CMon Jun  3 22:22:32 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  Tracker of {HF{Gi{Wan{Gn{Ha~
+Immn ~
+Pnts 39
+Rank {WC{gR{WB{x~
+Aura ~
+TSex 2
+LLev 19
+Email anigurl_34@hotmail.com~
+Deit Liriel~
+Lsit 12.164.33.214~
+Ltim Fri Jun 07 21:46:34 2002
+~
+LSav Fri Jun 07 22:12:57 2002
+~
+HMSP 966 377 612
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'age'
+Sk 75 1 'armor'
+Sk 75 1 'blindness'
+Sk 77 1 'cancellation'
+Sk 75 1 'curse'
+Sk 75 1 'dispel magic'
+Sk 1 1 'energy drain'
+Sk 75 1 'fireproof'
+Sk 75 1 'plague'
+Sk 80 1 'poison'
+Sk 75 1 'protection evil'
+Sk 76 1 'protection good'
+Sk 79 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 75 1 'slow'
+Sk 75 1 'stone skin'
+Sk 75 1 'undo spell'
+Sk 81 1 'weaken'
+Sk 81 1 'axe'
+Sk 82 1 'flail'
+Sk 100 1 'sword'
+Sk 84 1 'bash'
+Sk 75 1 'dodge'
+Sk 93 1 'enhanced damage'
+Sk 83 1 'kick'
+Sk 100 1 'parry'
+Sk 83 1 'second attack'
+Sk 79 1 'third attack'
+Sk 94 1 'dual wield'
+Sk 78 1 'hunt'
+Sk 75 1 'swimming'
+Sk 75 1 'rotate'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 33 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'maladictions'
+Gr 'protective'
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 0 0 0 0
+End
+
+#O
+Vnum 7300
+Nest 0
+Wear -1
+Cost 0
+Val  60 1 0 6 100
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Pizza~
+ShD  Pizza~
+Desc Pizza{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 24215
+Nest 1
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 1
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 24215
+Nest 1
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 9924
+Nest 0
+Wear 0
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 24200
+Nest 0
+Cond 81
+Wear 1
+Cost 1666
+End
+
+#O
+Vnum 24200
+Nest 0
+Cond 79
+Wear 2
+Cost 1666
+End
+
+#O
+Vnum 24201
+Nest 0
+Cond 95
+Wear 4
+Cost 1666
+End
+
+#O
+Vnum 24201
+Nest 0
+Cond 88
+Wear 3
+Cost 1666
+End
+
+#O
+Vnum 4595
+Nest 0
+Cond 97
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 3033
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 24238
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24245
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Enchanted
+Nest 1
+Wear -1
+Cost 10
+Val  17 119 128 120 127
+Spell 3 'shield'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24245
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24238
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24238
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24245
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24238
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24245
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24238
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24245
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 9573
+Nest 1
+Wear -1
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 9573
+Nest 1
+Wear -1
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 9573
+Nest 1
+Wear -1
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 9573
+Nest 1
+Wear -1
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 9573
+Nest 1
+Wear -1
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 9573
+Nest 1
+Wear -1
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 24202
+Nest 0
+Cond 97
+Wear 14
+Cost 2666
+End
+
+#O
+Vnum 24202
+Nest 0
+Cond 86
+Wear 15
+Cost 2666
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 10127
+Nest 0
+Cond 93
+Wear 7
+Cost 128
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 96
+Wear 19
+Cost 10000
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 59
+Wear 16
+Cost 10000
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 91
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16016
+Nest 0
+Wear 9
+Cost 4650
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24238
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 20028
+Nest 0
+ExtF 16777472
+Cond 98
+Wear 5
+Cost 700
+End
+
+#O
+Vnum 24238
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24232
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24203
+Nest 0
+Wear 18
+Cost 4000
+End
+
+#O
+Vnum 24253
+Nest 0
+Wear 12
+Cost 3400
+End
+
+#O
+Vnum 24251
+Nest 0
+Wear 10
+Cost 4500
+End
+
+#O
+Vnum 24252
+Nest 0
+Wear 8
+Cost 2200
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24238
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 24238
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 24238
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#END

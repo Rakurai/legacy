@@ -1,0 +1,603 @@
+#PLAYER
+Name Lothair~
+Id   994716877
+LogO 1012350763
+Vers 11
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race human~
+Clan cirque~
+Sex  1
+Cla  2
+Levl 35
+Plyd 70355
+Age  0
+Back 66695
+Note 995242523 995409876 995325436 994962734 995351853 995236478
+Scro 22
+Room 8543
+HMS  717 717 226 226 473 473
+Gold 2914
+Silv 380
+Silver_in_bank 89000
+Exp  35332
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJKLQSTc
+AfBy DF
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  4
+Prac 8
+Trai 3
+Save  -8
+Alig  1000
+Hit   32
+Dam   30
+ACs -53 -55 -57 0
+Wimp  85
+Atrib 18 17 18 17 18 14
+AtMod 4 4 5 6 5 8
+QpDonated 67
+QuestNext 10
+Pass 22971~
+Afk {B[{CTue Jul 17 01:31:40 2001{B] {CUnknown Departure.{x
+~
+Titl  {G... {MC{Nh{Ta C{Mh{Na C{Th{Ma{N!{T!~
+Immn ~
+Pnts 40
+Rank {PD{BG{YR{x~
+Aura ~
+TSex 1
+LLev 18
+Deit Qaz~
+Lsit c1413691-a.crvlls1.or.home.com~
+Ltim Wed Aug 15 01:01:48 2001
+~
+LSav Tue Jan 29 18:32:43 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  AFHO
+HMSP 547 226 473
+THMS 0 0 0
+Cnd  0 0 26 6
+Sk 75 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'dispel magic'
+Sk 1 1 'fireproof'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 1 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 96 1 'dagger'
+Sk 79 1 'backstab'
+Sk 77 1 'circle'
+Sk 80 1 'dodge'
+Sk 78 1 'parry'
+Sk 85 1 'second attack'
+Sk 76 1 'third attack'
+Sk 89 1 'dual wield'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'protective'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 9909
+Nest 0
+Cond 96
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 4594
+Nest 0
+Cond 95
+Wear 2
+Cost 8000
+End
+
+#O
+Vnum 4595
+Nest 0
+Cond 98
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 4594
+Nest 0
+Cond 89
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 4592
+Nest 0
+Cond 96
+Wear 0
+Cost 700
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Cond 98
+Wear 15
+Cost 312
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Cond 100
+Wear 14
+Cost 312
+End
+
+#O
+Vnum 8000
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'general purpose'
+End
+
+#O
+Vnum 16075
+Nest 0
+Cond 92
+Wear 10
+Cost 1600
+End
+
+#O
+Vnum 16069
+Nest 0
+Wear 3
+Cost 5300
+End
+
+#O
+Vnum 14039
+Nest 0
+Cond 95
+Wear 19
+Cost 0
+End
+
+#O
+Vnum 2374
+Nest 0
+Wear 7
+Cost 1450
+End
+
+#O
+Vnum 16001
+Nest 0
+Wear 5
+Cost 5000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16036
+Nest 0
+ExtF 64
+Wear 8
+Cost 9000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 17308
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16042
+Nest 0
+Cond 92
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 7609
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4586
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear 18
+Cost 2600
+End
+
+#O
+Vnum 14095
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 908
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 5252
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5252
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 12722
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 9914
+Nest 0
+Cond 91
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 12722
+Nest 0
+Cond 79
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16074
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16074
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16086
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16086
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 78
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3364
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10212
+Nest 0
+ExtF 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10126
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

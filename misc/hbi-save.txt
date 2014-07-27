@@ -1,0 +1,547 @@
+[ 2212] Tarrant: Sandserver works
+[ 2212] Tarrant: Color in clan stuff... w00t
+[ 2212] Tarrant: new greeting works... yay
+[ 2212] Tarrant: The create rose bug won't crash us, I went thru and fixed it.
+[ 2212] Tarrant: Fixed wbi so it doesn't say mbi... happy, Elly? :P
+[ 2212] Tarrant: Fixed a couple bugs and loopholes from the old code.
+[ 1200] Tarrant: Exitlist displays the right stuff now.  w00t
+[    1] Tarrant: quest award's back up to 10 and I modified the autoafk message.  Started changing finger, I'll finish it later tonight.
+[ 5644] Tarrant: Sitefile updates when people log in, so alt should become more useful in a day or two.
+[    1] Tarrant: Finger works, also fixed a huge loophole in security.  Mobs can't use Imm commands anymore, no matter the trust, and they won't receive imm channels.
+[    1] Tarrant: Killer/thief seems to work, if you have problems with it, tell me where it goes wrong and I'll try to fix it?
+[    1] Tarrant: Went thru the code and swapped all the Dizzy stuff I could find to Legacy.  Also modified the Deity list to include current deities and took out Clerve and Lev since they're current Dizzy Imms.
+[ 3001] Tarrant: New Imm command: "roomexits" <--- gives list of all exits to and from a room.
+[ 5644] Tarrant: Mana regen in, modified paralyse, force shield and critical blow to put them back to what they were on the other code.
+[ 5644] Tarrant: Censor catches swearing thru color codes and passwords don't show up if you use telnet.  If you use a client, there's nothing I can do, bug the person who makes the client :P
+[ 5644] Tarrant: Fixed the levels of the commands Elly put on here and added acid rain, as well as updated the help files on it
+[ 1281] Tarrant: Arena scores are kept separately than normal pk now.
+[ 5644] Tarrant: Superhumans can't be selected, modified the finger text and added the "twohanded" option to forge flag
+[ 5644] Tarrant: Changed the help system so it searches for exact matches first.
+[ 5281] Tarrant: Changed level on linkload (*mutters*)
+[ 3365] Tarrant: Changed the quest system back to 2 mins per qp awarded
+[ 5644] Tarrant: The help system got changed again at Montrey's request: it now locates ALL exact matches if there are any.  If not, it looks for all help files that start with that string.
+[ 5644] Tarrant: lower should work for everything now...
+[ 5644] Tarrant: Quest timer should work properly when you run out of time
+[ 5644] Tarrant: wiznet should behave a little more normally now.  As it was, if you had secure on, it DIDN'T show you a lot of stuff that it would have if you had secure off... very strange.  Anyways, minor switch fixed that.
+[ 5644] Tarrant: Added immquest to wiznet secure and wiznet quest
+[ 1200] Chilalin: "update" fixed to load clanhelp.are
+[ 1200] Chilalin: SIZE_GIANT w/dual wield can now wield two-handed weapons in second hand
+[ 1200] Chilalin: new command, "notick".. toggles display of those annoying TICK! messages
+[ 1200] Chilalin: Changed name of "drowning" skill to "swimming"
+[ 1299] Chilalin: New commands "wbb" and "hbb". Exactly as wbi/hbi, but for building. (will be built, etc)
+[ 1299] Chilalin: "file" commands updated to allow for displaying of wbb/hbb files.
+[ 1299] Chilalin: Smacked sand_server back into submission. Port conflicts with "old" legacy were a pain.
+[ 1226] Tarrant: chain spells won't miss, and I fixed that typo Elly was complaining about in debug
+[ 1298] Montrey: iskiller and isthief checks added, also mudtime, allows mobs to check time of day
+[ 1298] Montrey: tick command readded, changed to 'dotick' so as not to be confused with tickle, advances the mud by 1 tick
+[ 1298] Montrey: tick_prog mobprog added, allows mobs to run a mobprog on a tick.
+[ 1298] Montrey: ^ thanks to Endo on all of these, we need a help file for 'dotick'.  it's level 100 right now
+[ 1299] Montrey: smite gone
+[ 1223] Montrey: clangold is working, saves to the clan now.
+[ 1298] Montrey: endo had to take off, but he added in the 'allchars' argument to quest award.  quest award allchars 1
+[ 1298] Montrey: fixed swho.  i had only moved swho to level 92, not shortwho *scuff*
+[29226] Montrey: kick fixed
+[29226] Montrey: draconians work in arena
+[29226] Montrey: pills and potions fill you up now
+[29226] Montrey: remorts get hungry, thirsty, drunk now
+[29226] Montrey: magic missile does multiple hits now
+[29226] Montrey: lag on some spells adjusted, nothing major
+[29226] Montrey: mage casting speed imped, mage regen taken out, needs some playtesting.  currently takes 1/4 off the spell lag for magical classes
+[  300] Montrey: critical blow changed, still works in arena, but it's the new critical blow, with the chance based on opponent's hp
+[14000] Montrey: acid breath made so it won't etch eq in the arena *cower ramaru*
+[ 1298] Montrey: few ugly typos in linkload fixed, and it shows the room where your victim quit from
+[ 1223] Montrey: independent clans taken off the clanqp/clangold list
+[ 1223] Montrey: newpassword command fixed, can't set a password on chars higher level than yourself :P
+[ 1212] Montrey: clangold disabled, replaced with clandeposit and clanwithdraw.  gold donated in place, shows in clanqp and claninfo
+[ 1212] Montrey: bugs with clanless imms and clanqp fixed, and you can do it with trust 96 now
+[24606] Liriel: Xenith fixed freeze.  *kicks Xenith for not putting it in hbi*
+[ 1299] Chilalin: Balance no longer shows up in clanlist, by multiple requests of Liriel.
+[ 1299] Chilalin: Clanlist is now alphabetized, according to mailname. Gotta love qsort.
+[    1] Xenith: Removed ramble and hormone channels
+[    1] Xenith: Added an in character channel
+[ 1223] Xenith: Fixed the format on engrave, looks much better now.
+[    1] Xenith: Added in a relevel function. Just in case.
+[ 1226] Montrey: gold donated fixed
+[ 1226] Montrey: relevel moved in interp.c so 'rel' will still reload your paintball gun
+[ 1298] Montrey: attack group vs a charmed pet's master taken out of fight.c
+[ 1282] Montrey: barfuss backdoor fixed
+[ 1269] Montrey: {Yremort code imped{x
+[ 1269] Montrey: new clan-edit.c put in, caused some serious problems when the code expected 8 entries per clan and got 9 ;) (clangold)
+[ 1269] Montrey: unlinked the remort areas, they're not doing anything and i'd rather not limit the area command right now
+[ 1269] Montrey: censor spam removed, 'spamguard' put in.  also changed the {GL{Be{Nga{BB{Gy{x (or whatever it was) to the new colors
+[ 1269] Montrey: default color of motd and defaultmotd changed to white
+[ 1269] Montrey: making flag recognize light before lightning is going to be complicated, so i'm putting it off
+[ 1269] Montrey: mob wealth fixed, mobs no longer have such massive amounts of silver coins
+[ 1269] Montrey: fixed a problem with the new races and imm/res/vulns left over from pfiles
+[ 1269] Montrey: unjoin now vapes clan eq, made it sensitive to clan bags (will get stuff from the bag first)
+[ 1269] Montrey: unjoin now transes the victim to the temple altar if they are in the clanhall
+[ 1299] Chilalin: Help entries are displayed a little differently now. Blame Liriel for how it looks, she made me do it! :( *cackle*
+[ 1223] Montrey: raffect vuln/res now checks to see if the player is already vuln/res to it racially
+[    1] Xenith: Updated deity_list. New deities, offer everyone deity restrings.
+[ 1298] Montrey: fixed a bug with 'skill', remort skills show up if they're above your level now
+[ 1298] Montrey: swho now shows the field 'NT', meaning, they have a note in progress
+[ 1298] Montrey: extraclass list fixed, won't exclude imms class, and won't require an imm to be a remort
+[ 1298] Montrey: imm inventory/eq is no longer damaged by acid, frost, fire, lightning, or poison
+[ 1298] Montrey: imm eq can't be damaged in combat, either
+[ 1298] Montrey: force shield targetting fixed
+[ 1298] Montrey: for imms, typing 'level' by itself will list all skills/spells except remort ones, with levels for each class
+[ 1298] Montrey: 'level remort' will list all remort skills/spells, with levels for each class and trains to learn
+[ 1298] Montrey: oclone won't clone items on the ground anymore
+[ 1298] Montrey: problem with leader flags and unclanned ppl fixed
+[ 3001] Montrey: group members can undo eachothers spells now, instead of just the leader
+[    1] Xenith: Legacy is now on CVS! Whoopie!
+[ 1298] Montrey: try as i may, i couldn't understand why armor class wasn't calculated until level 30, so i made it so it's always calculated.  i think it may have just been to prevent newbies from being
+[ 1298] Montrey: too powerful, or maybe to stop a debate about good ac vs frenzy at low level *shrug*  anyway, newbies have a lil boost now
+[ 1201] Montrey: 'crush' put in again for mobs with off_crush.  does up to 3x the mob's level in damage
+[11716] Montrey: damage and damage_old were separate to keep spells and weapon damage separate, consolidated them and added a check for spell or weapon damage, cut about 500 lines out of fight.c
+[ 1201] Montrey: problem with autosac fixed
+[ 1298] Montrey: you *can* use spells to initiate combat against killers and thiefs now
+[ 3472] Montrey: {W[FYI] Soandso has engaged Otherguy in Mortal Kombat!{x will show in any type of player vs player combat starting now, hopefully
+[ 3472] Montrey: new chain spells are extremely easy to add now, made one function that handles them all with groups of messages (also cut out about 200 lines)
+[ 3472] Montrey: did the same with the animate spells, magic.c is slowly becoming a lean, mean...  you get the picture
+[ 1299] Chilalin: Bank problems solved. Remorts should be able to correctly deposit (and keep!) the right about of ca$h
+[ 9173] Liriel: helpfiles in. :)
+[ 1298] Montrey: rage no longer lets imms hit players unless they're in arena, it won't hit groupies now, and both it and critical blow check improve correctly
+{Y[{x09/12{Y]{x {C[{x 1223{C]{x Montrey: pk rating in
+{Y[{x09/12{Y]{x {C[{x 1223{C]{x Montrey: <---  doesn't it look nice now?
+{Y[{x09/12{Y]{x {C[{x 1212{C]{x Xenith: nochannel <person> nopray now works....flameonly doesn't because I'm a big dummy
+{Y[{x09/15{Y]{x {C[{x    1{C]{x Montrey: mobs will now rotate from charmies to the master at a 2% per hit rate, so a mob can't tank for a player for long
+{Y[{x09/15{Y]{x {C[{x    1{C]{x Montrey: new whois is done
+{Y[{x09/15{Y]{x {C[{x    1{C]{x Montrey: warrior remort skill levels adjusted
+{Y[{x09/16{Y]{x {C[{x 1277{C]{x Xenith: New NOCHANNEL command in! Check HELP NOCHANNEL for details. Booya.
+{Y[{x09/16{Y]{x {C[{x 1277{C]{x Xenith: NOTELL and NOEMOTE put back in, as they no longer work with NOCHANNEL, because it's dumb.
+{Y[{x09/17{Y]{x {C[{x 3365{C]{x Montrey: few bugs fixed, including the {W[FYI] Somebody has been toasted by SomebodyElse{x message, its back in now (accidentally edited it out a while back)
+{Y[{x09/17{Y]{x {C[{x 3365{C]{x Montrey: hbi file cleared, i think it's a good idea to save all hbi entries, so i started a new file in the misc directory, hbi-save.txt.  whenever we clear out hbi, append it to that file.
+{Y[{x09/17{Y]{x {C[{x 1226{C]{x Montrey: pk start fyi message changed
+{Y[{x09/17{Y]{x {C[{x 1226{C]{x Montrey: changed first prompt, also added in a hp % counter to imm battle prompt
+{Y[{x09/17{Y]{x {C[{x 1226{C]{x Montrey: afk message now shows in whois
+{Y[{x09/17{Y]{x {C[{x 1226{C]{x Montrey: pk rating added to score
+{Y[{x09/17{Y]{x {C[{x 1226{C]{x Montrey: pk rating added to fingerinfo, fixed bug with players having above racial max of stats
+{Y[{x09/18{Y]{x {C[{x 1223{C]{x Montrey: addapply command added, level 98
+{Y[{x09/19{Y]{x {C[{x 1269{C]{x Montrey: few little typos in some spells fixed, quest forfeit time is up to 12 minutes, put in randomized eq to see how it works out, may not stay (see change note)
+{Y[{x09/20{Y]{x {C[{x 1202{C]{x Xenith: New engagement code in! Yay! propose, accept, and breakup.
+{Y[{x09/20{Y]{x {C[{x 1208{C]{x Xenith: New do_huh function added, because the old way was dumb. Now you can do stuff like if (IS_NPC(ch)) do_huh(ch, "")
+{Y[{x09/20{Y]{x {C[{x 1202{C]{x Montrey: color_strlen fixed, it now counts {{{{s as characters, should fix being able to mess up who by using {{s in immname and rank
+{Y[{x09/20{Y]{x {C[{x 1202{C]{x Montrey: commands open, close, lock, and unlock rearranged, then now check doors before objects, so ppl will be able to 'open south' when they have a map of southern midgaard :)  *thanks mageman*
+{Y[{x09/21{Y]{x {C[{x 1298{C]{x Montrey: unique_item removed from db.c
+{Y[{x09/21{Y]{x {C[{x 1298{C]{x Montrey: healers fixed so they get the proper amount of gold for their services
+{Y[{x09/21{Y]{x {C[{x 1298{C]{x Montrey: unique eq back in
+{Y[{x09/21{Y]{x {C[{x 1202{C]{x Montrey: dotick has been moved to debug, syntax is debug tick
+{Y[{x09/21{Y]{x {C[{x 1202{C]{x Montrey: new imm command 'doas', level 100, help doas for details
+{Y[{x09/21{Y]{x {C[{x 1202{C]{x Montrey: help for addapply is in
+{Y[{x09/25{Y]{x {C[{x 1277{C]{x Liriel: xenith put in colors for clans on finger and on whois.
+{Y[{x09/28{Y]{x {C[{x 1202{C]{x Xenith: Marriage code completely fixed. Although, if someone comes complaining that they can
+{Y[{x09/28{Y]{x {C[{x 1202{C]{x Xenith: can't propose, do a string char <person> spouse none, and it'll fix it
+{Y[{x09/30{Y]{x {C[{x11657{C]{x Xenith: Fixed the color command and colors and such  (granted, I broke them), and made them more modular. CSLOT_* in merc.h now define color slots....no more running through dozens of commands to change a single thing
+{Y[{x09/30{Y]{x {C[{x11657{C]{x Xenith: Oh, 'say' is semi-coloured now....you can colour it with the 'color' command, but it only affects the things you say....not what others say. Still working on that.
+{Y[{x09/30{Y]{x {C[{x 1202{C]{x Xenith: New do_say....mostly in the way it was coded. It's a bit better now, it doesn't use that stupid act function.
+{Y[{x10/02{Y]{x {C[{x 1202{C]{x Xenith: Relevel is pretty much set up properly now. It doesn't use advance anymore. Yay. It sets level and trust, in case either get removed for some reason, and it sets stats at 30k.
+{Y[{x10/08{Y]{x {C[{x 1298{C]{x Montrey: most of quest system in place, no questmistress yet, and rpp is in
+{Y[{x10/08{Y]{x {C[{x 1202{C]{x Xenith: Fixed the rpp,qp,sp color problem
+{Y[{x10/09{Y]{x {C[{x 3455{C]{x Montrey: unique items fixed, few typos in the code, success rate on hone (it was at half your skill for some reason), and you'll now be outfitted by your deity, not calvaria
+{Y[{x10/09{Y]{x {C[{x 3455{C]{x Montrey: can't mage regen or vamp regen over your max hp and mana anymore
+{Y[{x10/09{Y]{x {C[{x 3455{C]{x Montrey: owner moved to 95 (same as lower), 'spells' by itself now shows the new format of spells
+{Y[{x10/09{Y]{x {C[{x 3455{C]{x Montrey: rage no longer fails if you're blind, and you can't catch an imm with it outside the arena anymore
+{Y[{x10/10{Y]{x {C[{x 3370{C]{x Montrey: after a near disaster adding evolution to affect data, we're on pfile version 8.  affect data means that something affecting you can have evolution, such as having evolution 3 sanc
+{Y[{x10/11{Y]{x {C[{x 1298{C]{x Montrey: immquest redone, shows more info and is a little prettier, imho (xenith disagrees).  evolution based sanctuary is in, not evolvable by players yet, tho, till we figure out how we're doing that
+{Y[{x10/11{Y]{x {C[{x 1298{C]{x Montrey: new sanctuary in, please don't cast high evolution sancs on players :P
+{Y[{x10/13{Y]{x {C[{x 1223{C]{x Montrey: piles of money won't go into negative weight anymore if you drop a lot
+{Y[{x10/14{Y]{x {C[{x 1298{C]{x Montrey: you can now use standard color codes in prompts, and play checks your inventory for a jukebox first
+{Y[{x10/14{Y]{x {C[{x 1298{C]{x Montrey: finally found the last possible way a player could be a leader without a clan, making them a leader when they join a clan...  fixed
+{Y[{x10/14{Y]{x {C[{x 1298{C]{x Montrey: when newbies die they're taken to the temple altar instead of recall now, and i made it so aggressive mobs don't attack in the city
+{Y[{x10/15{Y]{x {C[{x 1298{C]{x Montrey: bug fix for the day:  added a . at the end of 'Mob trains you in the art of <skill>'
+{Y[{x10/15{Y]{x {C[{x 1202{C]{x Xenith: Fixed relevel to actually do what I wanted it to do, and you can now purge linkdead players regardless of level/trust
+{Y[{x10/15{Y]{x {C[{x 1202{C]{x Xenith: Well, that is....the victim's level/trust ;-)
+{Y[{x10/15{Y]{x {C[{x 1202{C]{x Xenith: Released Legacy Beta v0.5 tonight. Yippie.
+{Y[{x10/15{Y]{x {C[{x 1202{C]{x Xenith: Moved the location of certain files (notes, copyover.data, log files) to make it more organized. I also figured out how to change the character that someone is playing in the middle of a copyover. <heh>
+{Y[{x10/15{Y]{x {C[{x 1298{C]{x Montrey: finished rework of const.c, cut it's size from 150k to 96k
+{Y[{x10/15{Y]{x {C[{x 3759{C]{x Montrey: sac all in
+{Y[{x10/15{Y]{x {C[{x 3759{C]{x Montrey: mwhere takes a vnum argument now
+{Y[{x10/15{Y]{x {C[{x 3759{C]{x Montrey: fixed sac, now doesn't let ppl sac an item flagged as enchanted, should cover anything enchanted, uniquified, restrung, lowered, ownered, etc
+{Y[{x10/15{Y]{x {C[{x 3712{C]{x Montrey: "pocket" by itself will show a list of all unused pockets of vnums bigger than 50, or you can use a number as an argument to find smaller or larger sets
+{Y[{x10/16{Y]{x {C[{x 3370{C]{x Xenith: I fixed up the time.update and weather.update a bit in preperation for seasons and moons and all that good stuff.
+{Y[{x10/16{Y]{x {C[{x 3370{C]{x Xenith: Fixed say so that asleep (and dead) people don't hear says ;-)
+{Y[{x10/16{Y]{x {C[{x24454{C]{x Montrey: make it so having showtick turned off, eliminates the bell tolling? :P
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: we've crashed 3 times on age_update in the last month, and now i look at it to find a comment saying that the mud crashed on it once back in 1998.  :P
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: so, put in a check that should give a bug message and abort instead of crashing
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: added macro GET_USABLE_LEVEL(ch) to merc.h, replaces all those places in the code that figures out what level of eq someone can wear.  use it, love it
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: fixed wands, scrolls, and.. um, that other thing, you can now succeed at using them if you're high enuf level to hold them
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: removed debug 'ungained', no longer needed
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: argh, damn :P  accidentally uploaded into the legacy/src directory, instead of test, and i don't have time to test tonight.  don't compile it till tomorrow
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: ignore above, tested anyway.  works fine
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: ppl with autotick off won't see the weather/bell tolling messages anymore :P  can't be helped, they're part of the same thing
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: alt now can look up by site name, type alt by itself for syntax
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: the socket command has been redone.  it now only shows IPs at trust 98, but will show multiplayers at any level
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: laughter of the gods and favor of the gods fixed, they were running on a 1 in 100 base chance thanks to my sloppiness :)
+{Y[{x10/17{Y]{x {C[{x 1298{C]{x Montrey: reworked 'finger', combined immfinger and finger into it, and removed the immfinger command (regular finger does it all for imms)
+{Y[{x10/17{Y]{x {C[{x    8{C]{x Montrey: owhere now takes a vnum argument, arena can't be portaled out of
+{Y[{x10/17{Y]{x {C[{x    8{C]{x Montrey: wiznet flags are stripped from players not high enough to have them now
+{Y[{x10/18{Y]{x {C[{x    8{C]{x Montrey: after copyover, players won't be able to leave norecall areas with takable portals, or enter them while cursed
+{Y[{x10/18{Y]{x {C[{x    8{C]{x Montrey: can't portal out of arena either
+{Y[{x10/18{Y]{x {C[{x11912{C]{x Montrey: reworked recall and clanrecall, they were essentially the same command with repeated code, saved some lines and stopped up some possible bugs.  i think pets will clanrecall properly now, too
+{Y[{x10/18{Y]{x {C[{x11912{C]{x Montrey: turning autorecall off should work now
+{Y[{x10/18{Y]{x {C[{x11912{C]{x Montrey: no longer necessary to teleport the victor of an arena battle out, they can recall when the battle is over, or if it's started and they're the only one there (doesn't count imms in arena)
+{Y[{x10/18{Y]{x {C[{x11912{C]{x Montrey: raychyl fixed, won't increase % of skills beyond your level
+{Y[{x10/19{Y]{x {C[{x11912{C]{x Montrey: portal and nexus fixed, less restrictions on them now (like norecall rooms, if the victim is in your clan, etc :P )
+{Y[{x10/19{Y]{x {C[{x11912{C]{x Montrey: act_enter.c and magic2.c taken out of repository and makefiles
+{Y[{x10/19{Y]{x {C[{x11912{C]{x Montrey: combat targetting on scrolls done, if the first spell on a scroll is TAR_OFFENSIVE or TAR_OBJ_CHAR_OFF (almost all damage spells and curse/poison), and you're in combat, it targets what you're fighting.  otherwise, targets yourself
+{Y[{x10/19{Y]{x {C[{x19920{C]{x Montrey: gate buggy portals and buggy recall will no longer pick a room that both has no exits, and is norecall
+{Y[{x10/19{Y]{x {C[{x19920{C]{x Montrey: the prob with 'help siva' fixed, the problem was that the help levels were -1.  -1 is used for helps without the *-=-=-* line, in character creation
+{Y[{x10/19{Y]{x {C[{x19920{C]{x Montrey: won't teleport to pet shops anymore
+{Y[{x10/22{Y]{x {C[{x 1298{C]{x Montrey: clanlist will count ppl over r10 now
+{Y[{x10/22{Y]{x {C[{x 1298{C]{x Montrey: learning from mistakes rates on blur, dodge, parry, shblock adjusted a little bit, they were set pretty high
+{Y[{x10/22{Y]{x {C[{x 1298{C]{x Montrey: reworked autoloot/sac/gold a little bit, should fix bugs with saccing full corpses, and eliminate some repeated messages
+{Y[{x10/22{Y]{x {C[{x 1205{C]{x Montrey: replaced ITEM_LOCK with ITEM_TRANSPARENT, to be used with objects that aren't containers and aren't flagged compartment, but hold an item anyway (so you can or can't see inside)
+{Y[{x10/22{Y]{x {C[{x10539{C]{x Montrey: can't undo the effects of channel, fire breath, poison, or plague anymore, lemme know if anyone has objections to this, or if i missed any?
+{Y[{x10/26{Y]{x {C[{x 9599{C]{x Montrey: pk rating thing fixed
+{Y[{x10/26{Y]{x {C[{x 9599{C]{x Montrey: pk rating fixed
+{Y[{x10/26{Y]{x {C[{x 9599{C]{x Montrey: hmm...  hehe
+{Y[{x10/26{Y]{x {C[{x 9599{C]{x Montrey: oh yeah, a query message will turn query on if it's off, next compile/copyover
+{Y[{x11/03{Y]{x {C[{x 1202{C]{x Xenith: Can now force linkdead people regardless of level
+{Y[{x11/03{Y]{x {C[{x 1223{C]{x Montrey: immapp and work commands in next copyover, fountains can't get poisoned anymore either
+{Y[{x11/03{Y]{x {C[{x 1223{C]{x Montrey: remort exp drop off adjusted, pk message will now read Somebody is out for blood ... En guarde, Somebodyelse!
+{Y[{x11/04{Y]{x {C[{x 1223{C]{x Montrey: creating a new clan will now set clanqp to 0 instead of 100
+{Y[{x11/04{Y]{x {C[{x 1223{C]{x Montrey: few little typo fixes, work files cleared out
+{Y[{x11/04{Y]{x {C[{x 1298{C]{x Montrey: prompts redone, changed a couple of exit messages
+{Y[{x11/04{Y]{x {C[{x 1298{C]{x Montrey: help prompt and help prompttypes updated
+{Y[{x11/08{Y]{x {C[{x16445{C]{x Montrey: bug with gain fixed
+{Y[{x11/15{Y]{x {C[{x25901{C]{x Xenith: Moved addapply to level 100, and added a silent roomflag
+{Y[{x11/27{Y]{x {C[{x 1277{C]{x Montrey: quest double option is in
+{Y[{x11/28{Y]{x {C[{x 1277{C]{x Montrey: 'toasted' changed to 'slain' in global death messages.  remort spells show up in spells list even if you can't use them, and you search by name
+{Y[{x11/28{Y]{x {C[{x 1277{C]{x Montrey: reply lock is in
+{Y[{x11/28{Y]{x {C[{x 1298{C]{x Montrey: damage types and accompanying imm/res/vuln to lightning has been changed to 'electricity', was the only way to make the mud distinguish between that and light without some awful hacks to the code.  makes more sense anyway
+{Y[{x11/29{Y]{x {C[{x 1298{C]{x Montrey: monopoly dice fixed
+{Y[{x11/29{Y]{x {C[{x 1298{C]{x Montrey: newbie bag command changed a bit, it's now newbiekit, fixed it so newbie helper mortals can do it now, changed the text around, and it's a bit prettier
+{Y[{x11/29{Y]{x {C[{x 1298{C]{x Montrey: imms can see weddingrings on unmarried ppl now
+{Y[{x11/29{Y]{x {C[{x 1298{C]{x Montrey: help storage updated
+{Y[{x11/29{Y]{x {C[{x 1298{C]{x Montrey: storage by itself shows syntax now
+{Y[{x11/29{Y]{x {C[{x 1298{C]{x Montrey: stat shows remort count now
+{Y[{x11/29{Y]{x {C[{x 1298{C]{x Alisa: 100
+{Y[{x12/01{Y]{x {C[{x 1277{C]{x Montrey: clan code has undergone a little fine tuning, imm clans are now considered loners, but have access to all clan commands.  they also won't show up in clanqp anymore, and i fixed some ugly messages
+{Y[{x12/05{Y]{x {C[{x 1298{C]{x Montrey: config command in, replaced video, censor, and wiznet.  replaced send_to_char and printf_to_char across files with stc and ptc, which seems to be the way to go nowadays from looking at newer code (good shorthand)
+{Y[{x12/05{Y]{x {C[{x 1282{C]{x Montrey: dual wield for giants fixed, they can dual two handed weapons now.  also fixed for imms, along with weapon weight checks.  dual wield now checks for clan eq and ownered eq
+{Y[{x12/05{Y]{x {C[{x 1282{C]{x Montrey: 'rage' should check safe rooms and conditions a lil better now, can rage at recall again
+{Y[{x12/05{Y]{x {C[{x 1282{C]{x Montrey: you can now flee through doors if you have pass door (and it's not pass proof)
+{Y[{x12/05{Y]{x {C[{x 1282{C]{x Montrey: scavenger mobs will no longer pick up furniture that's in use :P
+{Y[{x12/06{Y]{x {C[{x 1282{C]{x Montrey: lore and identify will now show where an item is worn, looks a bit nicer than dizzy's too, if i say so myself :)
+{Y[{x12/06{Y]{x {C[{x 1282{C]{x Montrey: xsocials partner now saves to pfile
+{Y[{x12/06{Y]{x {C[{x 1282{C]{x Montrey: quest double fixed, now does 1 min per point
+{Y[{x12/06{Y]{x {C[{x 1282{C]{x Montrey: being killed by an imm in the arena no longer counts against your arenakills
+{Y[{x12/06{Y]{x {C[{x 1282{C]{x Montrey: advance and trust redone a bit, can't demote an imm unless you're 100 trust, can't touch at all someone higher or equal level to you unless you're level 100
+{Y[{x12/06{Y]{x {C[{x 1282{C]{x Montrey: animate spells fixed, will check to see if your zombie/whatever still exists when you try to cast
+{Y[{x12/06{Y]{x {C[{x 1202{C]{x Xenith: New Revoke command in, helpfiles updated.
+{Y[{x12/23{Y]{x {C[{x 2052{C]{x Gabriel: Sunray... go play
+{Y[{x12/28{Y]{x {C[{x 1269{C]{x Montrey: we shouldn't crash when newbies create now
+{Y[{x12/31{Y]{x {C[{x 1282{C]{x Montrey: light in rooms has been redone a bit, room can be flagged nolight and be completely dark except for infravision
+{Y[{x12/31{Y]{x {C[{x 1282{C]{x Montrey: room affects are in, rooms can have spells
+{Y[{x12/31{Y]{x {C[{x 1282{C]{x Montrey: addapply is back at 100, not sure why it was changed back to 98.  deny and undeny both are 98 now
+{Y[{x12/31{Y]{x {C[{x 1282{C]{x Montrey: spell 'darkness' finished, put into the new spell group, 'alteration', along with polymorph, change sex, heat metal
+{Y[{x12/31{Y]{x {C[{x 1298{C]{x Montrey: oh yeah, damage on sunray and wrath has been tweaked again
+{Y[{x01/01{Y]{x {C[{x 1298{C]{x Montrey: ferals changed from infravision to night vision, dwarves also given night vision
+{Y[{x01/01{Y]{x {C[{x 1298{C]{x Montrey: the big copyover security thing is patched
+{Y[{x01/01{Y]{x {C[{x 1298{C]{x Montrey: creating food now puts the food's description into the keywords
+{Y[{x01/01{Y]{x {C[{x 1298{C]{x Montrey: fixed cedit delete
+{Y[{x01/01{Y]{x {C[{x 1298{C]{x Montrey: locate object shouldn't give bug messages now
+{Y[{x01/02{Y]{x {C[{x 1270{C]{x Montrey: evolved peek finished, rewrote show_list_to_char to accomodate it
+{Y[{x01/02{Y]{x {C[{x 1270{C]{x Montrey: set evo now let's you set evolutions beyond their class on imms, on mortals it's still restricted to what they can evolve to
+{Y[{x01/02{Y]{x {C[{x 1270{C]{x Montrey: we crashed on a null character when somebody typed who, think i got it fixed
+{Y[{x01/03{Y]{x {C[{x 1298{C]{x Montrey: announcements in starting pk and double qp changed
+{Y[{x01/03{Y]{x {C[{x 1298{C]{x Montrey: immquest has been removed, replaced with 'quest deduct' and 'quest list'
+{Y[{x01/04{Y]{x {C[{x 1298{C]{x Montrey: most cases of checking for connected state replaced with IS_PLAYING() across the code, which checks for null descriptor, connected state, and null character data.  should cut down on possible crashes
+{Y[{x01/04{Y]{x {C[{x 1298{C]{x Montrey: helps for immquest and immfinger removed, help for 'quest' redone (the imm quest help file)
+{Y[{x01/04{Y]{x {C[{x 1298{C]{x Montrey: stupidassline (the help file line)  changed from christmas lights back to turquoise
+{Y[{x01/04{Y]{x {C[{x 3365{C]{x Montrey: notes from mobs now show their short description as the sender, rather than their keywords
+{Y[{x01/04{Y]{x {C[{x 3365{C]{x Montrey: departedlist by itself now shows syntax
+{Y[{x01/04{Y]{x {C[{x 3365{C]{x Montrey: storage by itself shows syntax too
+{Y[{x01/04{Y]{x {C[{x 1298{C]{x Montrey: mob skill percentages have been adjusted, among other things should make rescue not work perfectly for mobs
+{Y[{x01/04{Y]{x {C[{x 1298{C]{x Montrey: anyone trust 91 or up should be able to get level 92+ items from the pit now
+{Y[{x01/07{Y]{x {C[{x 1270{C]{x Montrey: mobs make the same checks as players for crossing water and walking in air rooms (flying, boat), skill in swimming lets you walk in water rooms, and mobs now have reasonable movement values and lose them for performing skills and walking
+{Y[{x01/10{Y]{x {C[{x 1298{C]{x Montrey: crash bug with IC fixed :P
+{Y[{x01/10{Y]{x {C[{x24213{C]{x Montrey: channels have been redone internally, censored lines now have a {P[C]{x in front of them, for easier fodding :)
+{Y[{x01/11{Y]{x {C[{x 1226{C]{x Montrey: addapply can do sex now, imms won't get full messages from eating
+{Y[{x01/11{Y]{x {C[{x 1226{C]{x Montrey: string obj now checks for inventory, then worn items, then the stuff on the ground in your room, and stops there
+{Y[{x01/11{Y]{x {C[{x 1226{C]{x Montrey: my room is fixed, yay :)  imp only rooms aren't counted as private anymore
+{Y[{x01/11{Y]{x {C[{x 1226{C]{x Montrey: wont see poofins/poofouts unless you can actually see them, superwiz wasn't counted till now
+{Y[{x01/11{Y]{x {C[{x 1226{C]{x Montrey: Urza is on deity list now
+{Y[{x01/11{Y]{x {C[{x 1226{C]{x Montrey: sockets now shows linkdead ppl, 'linkdead' command removed
+{Y[{x01/11{Y]{x {C[{x 1226{C]{x Montrey: the extra lines in socket will be gone next copyover
+{Y[{x01/14{Y]{x {C[{x 1202{C]{x Xenith: Command groups are done. I think. All I need to do is update the running mud.
+{Y[{x01/16{Y]{x {C[{x 1298{C]{x Montrey: mobs can do commands again
+{Y[{x01/19{Y]{x {C[{x 1298{C]{x Montrey: stat won't show that a character has every command group when they actually don't anymore
+{Y[{x01/19{Y]{x {C[{x 1298{C]{x Montrey: transfer will now show 'Someone has transported you.' if the victim can't see you
+{Y[{x01/24{Y]{x {C[{x 1298{C]{x Montrey: legacy is no longer backwards compatible with rom 2.3 area files, all the checking for old format mobs and objects is removed
+{Y[{x01/29{Y]{x {C[{x 1298{C]{x Montrey: lowering stuff for yourself (or any imms) no longer owners or deducts qp
+{Y[{x01/31{Y]{x {C[{x 1298{C]{x Montrey: all communications stuff has been moved from act_comm.c (which is for commands) to channels.c
+{Y[{x02/01{Y]{x {C[{x 1223{C]{x Montrey: ticks changed, imms can't bid on auctions anymore
+{Y[{x02/01{Y]{x {C[{x 1223{C]{x Montrey: followerlist fixed
+{Y[{x02/02{Y]{x {C[{x 1298{C]{x Montrey: quest forfeit bug fixed, quest referee removed (replaced by having the quest group or not)
+{Y[{x02/02{Y]{x {C[{x 1298{C]{x Montrey: imms can walk into guild rooms now, clanlists have been fixed to sort imms properly (not by remort count)
+{Y[{x02/02{Y]{x {C[{x 1298{C]{x Montrey: put in recursive searching for an object's carrier, owhere won't show items carried by someone you can't see now
+{Y[{x02/02{Y]{x {C[{x 1298{C]{x Montrey: players and mobs no longer just lay around after being bashed or failing a bash, when they're part of a group.  they stand back up
+{Y[{x02/02{Y]{x {C[{x 1298{C]{x Montrey: the check for mobs rotating no longer happens every hit, but every combat round, will make it a bit more consistent
+{Y[{x02/02{Y]{x {C[{x 1298{C]{x Montrey: set is now level immortal, after rewriting it a bit
+{Y[{x02/02{Y]{x {C[{x 1298{C]{x Montrey: fixed it so you can't summon skill quest objects :P
+{Y[{x02/02{Y]{x {C[{x 1298{C]{x Montrey: can't sac all and get items you can't see now
+{Y[{x02/03{Y]{x {C[{x 1298{C]{x Montrey: mob rotate fixed again :)  mobs now won't rotate if they're blinded, *but* they do have a chance of fleeing in face of such odds ;)
+{Y[{x02/03{Y]{x {C[{x 1202{C]{x Xenith: Fixed problem where startup file doesn't die on shutdown, and it also kills sand_server on shutdown.
+{Y[{x02/03{Y]{x {C[{x 1202{C]{x Xenith: Installed an autoboot script...checks for running mud every 5 minutes and boots if not running.
+{Y[{x02/03{Y]{x {C[{x 1202{C]{x Xenith: Fixed those things that I made go boom. Copyover now works correctly now with the changes
+{Y[{x02/03{Y]{x {C[{x 1202{C]{x Xenith: REVOKE EXP now works correctly. I don't know who removed that code. Probably Monty overwriting the code again. I have to figure out how he's doing that with CVS and all.
+{Y[{x02/03{Y]{x {C[{x 1202{C]{x Xenith: OOPS! Silly me....copyover was making us go boom. I think I fixed that. Along with the autoboot script, everything should be working fine. And oi, what a problem that was to fix. ;-)
+{Y[{x02/04{Y]{x {C[{x 1298{C]{x Montrey: pc_index should be working better now, and debug oldchar will remove pfiles more than 3 months old
+{Y[{x02/04{Y]{x {C[{x 1298{C]{x Montrey: set hunt should work properly, and you can talk on immtalk without taking off quiet mode now
+{Y[{x02/05{Y]{x {C[{x 1298{C]{x Montrey: holylight removed, imms can see everything
+{Y[{x02/05{Y]{x {C[{x 1298{C]{x Montrey: world gold limit is in, cause i had to update the running mud, it should be disabled till we come up with a decent way of determining the max gold on the mud
+{Y[{x02/05{Y]{x {C[{x 1298{C]{x Montrey: hammerstrike adjusted down
+{Y[{x02/05{Y]{x {C[{x 1298{C]{x Montrey: set mob works for level 99s now
+{Y[{x02/05{Y]{x {C[{x 1298{C]{x Montrey: auto message in room teleports is removed
+{Y[{x02/05{Y]{x {C[{x 1298{C]{x Montrey: fixed problems with disarming someone you're not fighting
+{Y[{x02/05{Y]{x {C[{x 1298{C]{x Montrey: skill cost based on level is now in, for stuff under 50
+{Y[{x02/06{Y]{x {C[{x 1298{C]{x Montrey: commands that are in multiple groups should show up on wizhelp now
+{Y[{x02/06{Y]{x {C[{x 1298{C]{x Montrey: the name check at creation checks for exact name now, not partial.  no more "Vegeta" == "Vegetable" :)
+{Y[{x02/06{Y]{x {C[{x 1298{C]{x Montrey: showlost will catch objects in containers now, thanks to a little recursion
+{Y[{x02/06{Y]{x {C[{x 1298{C]{x Montrey: brew/scribe will change the long description of a potion/scroll now
+{Y[{x02/06{Y]{x {C[{x 1298{C]{x Montrey: you can stop jukeboxes now, mortals can stop a jukebox in their inventory
+{Y[{x02/06{Y]{x {C[{x 1298{C]{x Montrey: stamina will show in scon now
+{Y[{x02/07{Y]{x {C[{x 1298{C]{x Montrey: incog removed, all references replaced with 'lurk'.  lurk is level immortal now, mortals cant use it, not clanleaders, not heroes
+{Y[{x02/07{Y]{x {C[{x 1298{C]{x Montrey: herotalk and philosophise removed
+{Y[{x02/08{Y]{x {C[{x 1202{C]{x Xenith: God DAMNIT! Ok, I fixed revoke exp AGAIN. Monty! God damnit! Don't code anything until you talk to me!
+{Y[{x02/10{Y]{x {C[{x 1298{C]{x Montrey: charm person can't charm a sleeping person now
+{Y[{x02/10{Y]{x {C[{x 1282{C]{x Montrey: guild, unjoin, and join all properly set questpoints_donated and gold_donated for the character to 0, guild works again, and the it searches for players before mobiles
+{Y[{x02/11{Y]{x {C[{x 1202{C]{x Xenith: Fixed a problem with do_huh.
+{Y[{x02/11{Y]{x {C[{x 1202{C]{x Xenith: do_huh is now just do_huh(ch); no longer do_huh(ch, "");
+{Y[{x02/11{Y]{x {C[{x 1202{C]{x Xenith: In fiddling with log stuff and copyover stuff, the mud now logs who the last person to do the copyover was. in misc/copyover.log
+{Y[{x02/11{Y]{x {C[{x 1202{C]{x Xenith: Eventually I'll make it read from the log and do a copyover_recover message depending on who did the copyover, but it's being a butt, and fscanf is complaining. Woo, and I just found a nifty key combo with this new mud client. heh. ;-)
+{Y[{x02/11{Y]{x {C[{x 1202{C]{x Xenith: I am a coding GOD! So now copyover_recover spits out a custom message depending on who did the copyover. You'll have to go in and add your message yourself. Although I suppose I could add it to pcdata....
+{Y[{x02/12{Y]{x {C[{x 1298{C]{x Montrey: mobs can use remort skills now
+{Y[{x02/12{Y]{x {C[{x 1298{C]{x Montrey: 'motd clear' will clear the motd now
+{Y[{x02/12{Y]{x {C[{x 1298{C]{x Montrey: scribe and brew now change the 'vial' and 'parchment' keywords to 'potion' and 'scroll'
+{Y[{x02/12{Y]{x {C[{x 1298{C]{x Montrey: you can't deny yourself anymore :P
+{Y[{x02/13{Y]{x {C[{x 1298{C]{x Montrey: ptb function in, asynchronous with ptc, it prints to BUFFER type data.  it can replace the old sprintf/add_buf combo with one function call that takes variable arguments like printf_to_char (ptc)
+{Y[{x02/13{Y]{x {C[{x 1298{C]{x Montrey: rage won't hit groupies anymore
+{Y[{x02/13{Y]{x {C[{x 1298{C]{x Montrey: showlost fixed
+{Y[{x02/13{Y]{x {C[{x 1298{C]{x Montrey: can't make someone in and independant clan (including imm clans) a leader or deputy anymore
+{Y[{x02/13{Y]{x {C[{x 1298{C]{x Montrey: clan deputies in
+{Y[{x02/14{Y]{x {C[{x 1202{C]{x Montrey: bug with mobs blurring fixed
+{Y[{x02/14{Y]{x {C[{x 1269{C]{x Azrael: create obj can't be used, the object templates cant be found..
+{Y[{x02/14{Y]{x {C[{x 1269{C]{x Azrael: Fixed the deity list, and the wizgroup command. will be effective next copyover
+{Y[{x02/14{Y]{x {C[{x 1223{C]{x Montrey: imms can now evolve without worrying about the cost or max evolve level for their class, battle arenas are unquestable now
+{Y[{x02/15{Y]{x {C[{x    1{C]{x Montrey: guild rooms/ownering on buy done
+{Y[{x02/15{Y]{x {C[{x    1{C]{x Montrey: max leaders is now 3 or members/10 + 1, max deputies is 5 or members/5 + 1, deputies can't unjoin anymore
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: no recalling under pk timer
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: or word of recall
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: clanpower shows clan stats to imms
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: can push/drag pktimered players out of safe rooms
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: can flee while slowed, but it rolls percentage vs your dex*3
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: slow checks saves now
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: slow hits dex for level/10 now
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: focus fixed, no longer works with scrolls/staves/wands
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: damage on wrath and sunray tweaked
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: saves tweaked
+{Y[{x02/17{Y]{x {C[{x 1298{C]{x Montrey: undo now checks saves, dispel, cancellation check it better
+{Y[{x02/20{Y]{x {C[{x 1298{C]{x Montrey: shrink fixed, now works like enchants, and correctly updates carried weight
+{Y[{x02/20{Y]{x {C[{x 1298{C]{x Montrey: pktimer now parasites off of violence_update, set at 30 seconds, and is zeroed when you die (but not if you kill yourself)
+{Y[{x02/20{Y]{x {C[{x 1298{C]{x Montrey: pk timer will show in affects
+{Y[{x02/20{Y]{x {C[{x 1298{C]{x Montrey: slow no longer checks saves when casting on yourself
+{Y[{x02/20{Y]{x {C[{x 1298{C]{x Montrey: slow is now a negative dex mod, not positive *scuff*
+{Y[{x02/20{Y]{x {C[{x 1298{C]{x Montrey: flee tweaked a bit
+{Y[{x02/20{Y]{x {C[{x 1298{C]{x Montrey: breakup won't make bug messages about str_cmp now
+{Y[{x02/23{Y]{x {C[{x 1298{C]{x Montrey: problem with unique weapons and flags fixed
+{Y[{x02/25{Y]{x {C[{x 1212{C]{x Azrael: The flags changed on the deity list for active/inactive imms, changed in the hard code. effective next copyover
+{Y[{x02/25{Y]{x {C[{x24603{C]{x Montrey: invite logic bug fixed
+{Y[{x02/25{Y]{x {C[{x24603{C]{x Montrey: can't summon pc corpses to clanhalls or guild rooms, or private/solitary/playpen rooms
+{Y[{x02/25{Y]{x {C[{x 1298{C]{x Montrey: can't relocate while under pk timer
+{Y[{x02/25{Y]{x {C[{x 1298{C]{x Montrey: skills, evolve, ariana fixed
+{Y[{x03/01{Y]{x {C[{x 1212{C]{x Azrael: Edited the const.c for the final time, ran a make and a copyover, it's still cool, etc, old imms are marked with a '*'
+{Y[{x03/06{Y]{x {C[{x 1212{C]{x Azrael: Stat seems to work again, any furthur problems lemme know ;)
+{Y[{x03/06{Y]{x {C[{x 1212{C]{x Azrael: deity_table somewhat updated.
+{Y[{x03/06{Y]{x {C[{x 1212{C]{x Azrael: deity_table done, once again neffertini and Ubi are gone
+{Y[{x03/13{Y]{x {C[{x 1210{C]{x Azrael: peek/lore NOT changed. read global note
+{Y[{x03/13{Y]{x {C[{x 1281{C]{x Montrey: imms can't ignore ppl, ignore won't work on imms that were ignored before they were immed, and ignore only searches players now
+{Y[{x03/13{Y]{x {C[{x 1298{C]{x Montrey: can't relocate out of combat
+{Y[{x03/13{Y]{x {C[{x 1298{C]{x Montrey: saves should work better now, cancellation and curatives no longer check saves, they roll a save using level only
+{Y[{x03/14{Y]{x {C[{x 1298{C]{x Montrey: you can now recite and quaff scrolls and potions you're holding
+{Y[{x03/14{Y]{x {C[{x 1298{C]{x Montrey: you can enter portals in combat now, follows the same kind of dex check as fleeing
+{Y[{x03/14{Y]{x {C[{x 1298{C]{x Montrey: mobs won't rotate to you if they can't see you, not just limited to blind now
+{Y[{x03/14{Y]{x {C[{x 1298{C]{x Montrey: revoke auction prevents auctioning now
+{Y[{x03/14{Y]{x {C[{x 1298{C]{x Montrey: duel announcements won't show through quiet or turning announcements off
+{Y[{x03/14{Y]{x {C[{x 1298{C]{x Montrey: fleeing chances rewritten, better takes into account your opponent's dex vs yours, and how many you're fighting
+{Y[{x03/14{Y]{x {C[{x 1298{C]{x Montrey: if someone in your group kills your quest mob, you still get the quest complete
+{Y[{x03/14{Y]{x {C[{x 1298{C]{x Montrey: stealing your quest item counts toward your quest now
+{Y[{x03/14{Y]{x {C[{x 1298{C]{x Montrey: dex vs opponents changes worked into entering portals in combat
+{Y[{x03/14{Y]{x {C[{x 1298{C]{x Montrey: slight lag on flee, little heavier on entering a portal in combat
+{Y[{x03/15{Y]{x {C[{x 1298{C]{x Montrey: full heal changed from max_mana/3 to max_hit/4 cost
+{Y[{x03/15{Y]{x {C[{x 1298{C]{x Montrey: flee tweaked, shouldn't be so difficult anymore
+{Y[{x03/15{Y]{x {C[{x 1298{C]{x Montrey: token type in, create obj token also
+{Y[{x03/15{Y]{x {C[{x 1298{C]{x Montrey: vuln/res cancel eachother out, check_immune is simplified
+{Y[{x03/15{Y]{x {C[{x 1298{C]{x Montrey: fry fiddled with, create moved to level imm
+{Y[{x03/15{Y]{x {C[{x 1281{C]{x Montrey: flee finally fixed
+{Y[{x03/15{Y]{x {C[{x 1281{C]{x Montrey: tokens done
+{Y[{x03/15{Y]{x {C[{x 1298{C]{x Montrey: can't hide no_drop objects anymore
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: bug with room lighting fixed
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: scatter command is in
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: clan restrictions on pk removed
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: stat now searches on your person, then in the room, then in the world for objects, searches your room and then the world for mobs.  has also been tweaked a bit to be more efficient code-wise
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: mortals can't peek imms anymore
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: swearcheck is a little bit smarter now, it won't censor 'associate'.  will improve it someday
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: imms aren't restricted in summon object anymore
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: goto modified a bit, can goto object now
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: fixed helps on draconians, removed helps on incog, ramble, philo, herotalk, moved helps on lurk, goto, poofin, and poofout to rom.are, updated goto and lurk
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: fixed help clanhall to 3 qp per flag forge on anvils, help gate and help portal updated, cleared typo, bug, wbi, hbi, and the rest
+{Y[{x03/16{Y]{x {C[{x 1298{C]{x Montrey: some problems with age handling corrected, and saves have been tweaked a little bit, seeing as i accidentally made slowing a mob more than 18 levels higher than you impossible :)
+{Y[{x03/17{Y]{x {C[{x 1223{C]{x Montrey: colors fixed in 'aura'
+{Y[{x03/17{Y]{x {C[{x 1298{C]{x Montrey: blood moon no longer makes you thirsty if you have the raffect 'nothirst'
+{Y[{x03/17{Y]{x {C[{x 1298{C]{x Montrey: minimum bid on any item set to 10000 gold
+{Y[{x03/17{Y]{x {C[{x 1298{C]{x Montrey: copyover recovery messages are fixed
+{Y[{x03/17{Y]{x {C[{x 1298{C]{x Montrey: tokens lying on the ground now save through copyovers
+{Y[{x03/17{Y]{x {C[{x 1298{C]{x Montrey: search and hidden objects have been removed
+{Y[{x03/17{Y]{x {C[{x 1223{C]{x Montrey: lag on flee and enter portal in combat adjusted
+{Y[{x03/17{Y]{x {C[{x 1298{C]{x Montrey: the asterisk for notes in swho is now colored to what type of note they're working on
+{Y[{x03/17{Y]{x {C[{x 1298{C]{x Montrey: imms organized
+{Y[{x03/17{Y]{x {C[{x 1298{C]{x Montrey: rewrote parts of interp and wizhelp, added a ton of macros to handle department heads and imps, some fixes to evolve, most imm commands worked on a bit
+{Y[{x03/18{Y]{x {C[{x 1226{C]{x Montrey: portal and nexus aren't restricted for imms anymore
+{Y[{x03/18{Y]{x {C[{x 1226{C]{x Montrey: 'for room' is in
+{Y[{x03/18{Y]{x {C[{x 1226{C]{x Montrey: if you drown, the kill goes to who you're fighting, if anyone
+{Y[{x03/18{Y]{x {C[{x 1226{C]{x Montrey: you now take a drink of water every round you spend drowning, unless you have 100% swimming :)  should make the skill a bit more desirable
+{Y[{x03/18{Y]{x {C[{x 1226{C]{x Montrey: scan no longer shows in duel view rooms
+{Y[{x03/18{Y]{x {C[{x 1298{C]{x Montrey: improved functionality of get_char_here|area|world and get_player_here|area|world, moved all functions that find a character, object, or room into find.c
+{Y[{x03/19{Y]{x {C[{x 1298{C]{x Montrey: complete rewrite of 'flag' finished.  oh my god, it's so pretty *snuggles up to it*  i'll finish flagsearch tomorrow
+{Y[{x03/19{Y]{x {C[{x 1298{C]{x Montrey: imps and deputies get perfect enchants now
+{Y[{x03/19{Y]{x {C[{x 1298{C]{x Montrey: the DCB (dynamic crashproof buffer) max size increased from 16384 to 65536 bytes, should cut down on buffer overflows even if it does use more memory
+{Y[{x03/19{Y]{x {C[{x 1298{C]{x Montrey: some old debug subfunctions removed, replaced by flagsearch
+{Y[{x03/19{Y]{x {C[{x 1298{C]{x Montrey: flagsearch finally finished *whew*
+{Y[{x03/19{Y]{x {C[{x 1298{C]{x Montrey: the hp bar in duel rooms is fixed
+{Y[{x03/20{Y]{x {C[{x 1298{C]{x Montrey: can't auction food made with 'create food' anymore
+{Y[{x03/20{Y]{x {C[{x 1298{C]{x Montrey: changes to auction:  minimum bid increase is now 5%, you can just type 'auc bid' to automatically do 5% increase, and it can now deduct from your silver
+{Y[{x03/21{Y]{x {C[{x 1298{C]{x Montrey: bug with draconian king fixed, mobs should get up once bashed again
+{Y[{x03/21{Y]{x {C[{x 1210{C]{x Azrael: changed the flee help file, it now reflects the reasoning behind why flee doesnt work all the time
+{Y[{x03/21{Y]{x {C[{x 1298{C]{x Montrey: azrael forgot to hbi, news has been changed to immquest, imms can write notes about their quests
+{Y[{x03/21{Y]{x {C[{x 1298{C]{x Montrey: stat room works again
+{Y[{x03/21{Y]{x {C[{x 1298{C]{x Montrey: clanpower should sort by actual cp now, instead of the sum of the bars
+{Y[{x03/22{Y]{x {C[{x 1298{C]{x Montrey: clanpower worked on, i think it's good now :)
+{Y[{x03/22{Y]{x {C[{x 1298{C]{x Montrey: multiplying berserk/hammerstrike fixed
+{Y[{x03/22{Y]{x {C[{x 1210{C]{x Azrael: Fixed Deity_table, again
+{Y[{x03/22{Y]{x {C[{x 1223{C]{x Montrey: objects and mobiles now keep track of what reset created them, makes saving objects over crashes a hell of a lot faster
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: added ismaster and isleader mobprog ifchcks
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: both characters are autosaved at the end of a duel now
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: all items are crash/copyover proof now, put in an automatic janitor to decay worthless items on the ground
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: can't steal in duel arena now
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: can't charm/sing players anymore
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: there's only lag on failing flee, not success now
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: added in revoke note, prevents writing, but not reading notes
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: you can now note to 'clans' (all clans), leaders/deputies (of a clan), or a combination like 'clan leaders' to go to all clan leaders
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: the notes you forward won't show up in your list now
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: flaglist will show the alpha bit for flags now
+{Y[{x03/23{Y]{x {C[{x 1298{C]{x Montrey: immtalk shows secure level as either head or imp, secure reworked, is now a head command
+{Y[{x03/24{Y]{x {C[{x 1298{C]{x Montrey: help note update.  yes, it's ugly, but so's the whole damn thing!  besides, i'm too tired to make pretty help files.  somebody fix it if they want
+{Y[{x03/24{Y]{x {C[{x 1298{C]{x Montrey: stuff with strongboxes and not being able to put items in is fixed
+{Y[{x03/24{Y]{x {C[{x 1298{C]{x Montrey: decay timer thing with donation pit fixed
+{Y[{x03/24{Y]{x {C[{x 1298{C]{x Montrey: all the item number and weight handling code has been rewritten, it's a touch more processor intensive (recalculates when needed), but it should be more accurate
+{Y[{x03/24{Y]{x {C[{x 1298{C]{x Montrey: owhere differentiates between lockers and strongboxes now
+{Y[{x03/24{Y]{x {C[{x 1298{C]{x Montrey: age mods by eq fixed
+{Y[{x03/24{Y]{x {C[{x 1298{C]{x Montrey: the problem with imms losing leader/deputy flags with guild is fixed, also fixed some security loopholes with join/unjoin
+{Y[{x03/25{Y]{x {C[{x 1270{C]{x Montrey: all imms with 'set' can set themselves
+{Y[{x03/25{Y]{x {C[{x 1270{C]{x Montrey: searching the mud for objects should work properly now
+{Y[{x03/25{Y]{x {C[{x 1270{C]{x Montrey: stat should do better at picking out what you're trying to stat
+{Y[{x03/25{Y]{x {C[{x 1270{C]{x Montrey: mobs standing up in combat without messages should be fixed
+{Y[{x03/25{Y]{x {C[{x 1298{C]{x Montrey: i rewrote our overly complicated and memory leaky help code, putting a -1 for the level for newbie helps is unnecessary now (it's ignored).  newbies just aren't shown the line
+{Y[{x03/26{Y]{x {C[{x 1298{C]{x Montrey: position changes fixed!!  and you can now note to followers
+{Y[{x03/26{Y]{x {C[{x 1298{C]{x Montrey: can't quit under pk timer
+{Y[{x03/26{Y]{x {C[{x 1298{C]{x Montrey: stat room fixed
+{Y[{x03/27{Y]{x {C[{x 1223{C]{x Liriel: Min auction bid has been changed to 10% of existing bid, from 5%
+{Y[{x03/27{Y]{x {C[{x 1210{C]{x Azrael: For a fountain i'm making in my room i added 'liquid brimstone' to const.c
+{Y[{x03/27{Y]{x {C[{x 1210{C]{x Azrael: Did kenneth's coyover msg
+{Y[{x03/27{Y]{x {C[{x 1208{C]{x Liriel: deputy has been added to finger info
+{Y[{x03/29{Y]{x {C[{x 1298{C]{x Montrey: fixed bug with underwater rooms and messages going to/leaving them
+{Y[{x03/29{Y]{x {C[{x 1298{C]{x Montrey: the saves on teleport were all stupid, been fixed
+{Y[{x03/29{Y]{x {C[{x 1298{C]{x Montrey: can't disarm in safe rooms anymore
+{Y[{x03/29{Y]{x {C[{x 1298{C]{x Montrey: mobs backstabbing worked on, mobs with act_thief should have been able to backstab but a typo prevented it
+{Y[{x03/29{Y]{x {C[{x 1298{C]{x Montrey: fixed the bug with unjoin, also made it so a leader can't unjoin another leader :P
+{Y[{x03/29{Y]{x {C[{x 3370{C]{x Montrey: bug with forfeiting quests/skill quests fixed
+{Y[{x03/29{Y]{x {C[{x 3370{C]{x Montrey: you can dual wield while resting now
+{Y[{x03/29{Y]{x {C[{x12202{C]{x Montrey: affects of talon tweaked
+{Y[{x03/30{Y]{x {C[{x 1298{C]{x Montrey: failing disarm initiates combat, problems with disarm lag fixed
+{Y[{x03/30{Y]{x {C[{x 1298{C]{x Montrey: bug with deputies showing on who fixed
+{Y[{x03/31{Y]{x {C[{x 1298{C]{x Montrey: fixed bug with reconnect messages, can't access wiznet flags if you're not high enuf, enter takes command precedence over engrave (en == enter), can't engrave in your sleep now
+{Y[{x03/31{Y]{x {C[{x 1223{C]{x Liriel: Bank balance changed to 50000, clanbanks upped to 200k
+{Y[{x03/31{Y]{x {C[{x 1223{C]{x Liriel: fixed Mont's sloppy note coding *grins*
+{Y[{x03/31{Y]{x {C[{x 1223{C]{x Liriel: Put Kaz and Marx in the deity list, Marx is chaotic evil for now snicker
+{Y[{x03/31{Y]{x {C[{x 1226{C]{x Liriel: put in kenneth's copyover message and shoved extra lines into the copyover message.
+{Y[{x03/31{Y]{x {C[{x 1226{C]{x Liriel: engagement message
+{Y[{x04/01{Y]{x {C[{x 1223{C]{x Montrey: bug with put fixed, clanpower reworked
+{Y[{x04/09{Y]{x {C[{x 1223{C]{x Montrey: mobs shouldn't bash/flee/kick/dirt kick and all that stuff when they're bashed anymore
+{Y[{x04/09{Y]{x {C[{x 1223{C]{x Montrey: mobs won't spam bash anymore, did it by setting their wait_state to 1 at certain points
+{Y[{x04/11{Y]{x {C[{x 1298{C]{x Montrey: fixed that thing with clans gaining points when a war finishes
+{Y[{x04/13{Y]{x {C[{x 1298{C]{x Montrey: the level on bans has been removed, also got rid of 'permban', ban is always permanent unless allowed
+{Y[{x04/13{Y]{x {C[{x 1298{C]{x Montrey: you can now set a mob's damage dice, sides, and type
+{Y[{x04/13{Y]{x {C[{x 1298{C]{x Montrey: hero gratz should be working now
+{Y[{x04/13{Y]{x {C[{x 1298{C]{x Montrey: couldn't find anything wrong with quit messages when you delete, other than a little thing with null gameouts, we'll see if that makes a difference
+{Y[{x04/13{Y]{x {C[{x 1298{C]{x Montrey: max value for v0 in set isn't limited to 100 anymore
+{Y[{x04/13{Y]{x {C[{x 1298{C]{x Montrey: fingerinfo has been made idiotproof (j/k), fingerinfo shows it, fingerinfo + adds lines, fingerinfo - clears lines, fingerinfo clear clears the whole thing, anything else shows you the syntax
+{Y[{x04/13{Y]{x {C[{x 1223{C]{x Montrey: the mud will catch invalid sizes in area files now
+{Y[{x04/13{Y]{x {C[{x 1223{C]{x Montrey: file will show the last lines of a file now when you specify a number, rather than the first lines
+{Y[{x04/18{Y]{x {C[{x 1298{C]{x Montrey: parry and dual parry take your skill with your opponent's weapon into account, and mobs won't rotate while bashed anymore
+{Y[{x04/18{Y]{x {C[{x 1298{C]{x Montrey: any imm can write a change note now
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: crash bug with unjoin fixed, and i did a little tweaking to money item types so it won't say 'You get 1 gold coins from the corpse of ...'
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: ended up getting irritated and rewrote create_money completely, it eliminates the need for 5 different money vnums and also fixes some weird bugs with mobprog bribe triggers.  much more efficient
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: autoloot reworked a little, should give less senseless messages
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: viro forgot to hbi, but he reworked energy drain, haste, and giant strength, and did some tweaking on mob stats
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: order of operations in combat changed, mobs won't flee in the middle of a combat round now, also takes care of some other little peculiarities
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: fire breath blindness effect is a lot less nasty now, still a little worse than dirt kick tho
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: pets won't load spell effects multiple times now
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: quirks with money changer weight stuff fixed, it subtracts the weight of the coins you're carrying before deciding if you can carry the change
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: other minor tweaks to 'give', including fixing some weird messages
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: max alias is now 30
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: random rooms won't pick pet shop back rooms now
+{Y[{x04/20{Y]{x {C[{x 1298{C]{x Montrey: more stuff with autoloot fixed, should pick the correct corpse now (used to do odd things when there was more than one in the room)
+{Y[{x04/21{Y]{x {C[{x 1298{C]{x Montrey: mortals can enter portals in combat now
+{Y[{x04/21{Y]{x {C[{x 1298{C]{x Montrey: plague, autogold/sac/loot, money changers, portals, war history, disarm fixed
+{Y[{x04/22{Y]{x {C[{x 1298{C]{x Montrey: breath spells, focus, sap, and spellcaster spell lag tweaked, fixed bug with remort
+{Y[{x04/23{Y]{x {C[{x 1298{C]{x Montrey: sing fixed, eq damaging made more efficient, 'put' is now the first command in the list beginning with 'pu', and tiny level mobs shouldn't hit so hard with fireball now
+{Y[{x04/23{Y]{x {C[{x 1298{C]{x Montrey: age reworked, should be foolproof now.  removed a ridiculous exp modifier that lessened the exp you get the faster you level, and cut chances of fireball_bash to 1/4 cause you can cast 4 fireballs in the lag of one bash :P
+{Y[{x04/23{Y]{x {C[{x 1298{C]{x Montrey: little typo in the room name in order clanhall, that wiccan herb room or whatever, fixed
+{Y[{x04/28{Y]{x {C[{x 1298{C]{x Montrey: a lot of work on skill/spell gsns done, mud a hair faster as a result
+{Y[{x04/28{Y]{x {C[{x 1298{C]{x Montrey: made gain list and practice list a little nicer looking
+{Y[{x04/28{Y]{x {C[{x25005{C]{x Montrey: gain convert no longer sets you back to base exp per level, it keeps the exp you gained this level
+{Y[{x04/28{Y]{x {C[{x 1298{C]{x Montrey: hopefully fixed crash bug with substitute_alias
+{Y[{x04/30{Y]{x {C[{x 1298{C]{x Montrey: pit no longer marks up items by one level, and will show you all items above you that you can use
+{Y[{x04/30{Y]{x {C[{x 1298{C]{x Montrey: send_to_query reworked, no longer loops over all mobiles, and it now checks ignoring
+{Y[{x04/30{Y]{x {C[{x 1298{C]{x Montrey: autosplit fixed a bit, won't split with mobs, period
+{Y[{x04/30{Y]{x {C[{x 1298{C]{x Montrey: cure disease won't show you the message twice
+{Y[{x04/30{Y]{x {C[{x 1298{C]{x Montrey: bugs with breakup *should* be fixed now, makes their spouse '\0' just like string none instead of str_dup("")
+{Y[{x04/30{Y]{x {C[{x 1298{C]{x Montrey: a few check_improve message locations moved around, and recall from a clan arena will only take you to clanrecall if you're fighting
+{Y[{x04/30{Y]{x {C[{x 1298{C]{x Montrey: lot of bugs with banks fixed
+{Y[{x05/05{Y]{x {C[{x 1298{C]{x Montrey: next code copyover in a day or two.  the stuff with who list and channel visibility done and tested.
+{Y[{x05/05{Y]{x {C[{x 1298{C]{x Montrey: push and drag have been reworked, but it needs some work on the messages before i'm happy with it, i'll finish up tomorrow.
+{Y[{x05/05{Y]{x {C[{x 1298{C]{x Montrey: added 3 commands into the coder group for testing, addexit, remexit, and sectchange.  as the names imply, they add an exit, remove an exit, and change the sector type of a room temporarily (will be restored after copyover)
+{Y[{x05/06{Y]{x {C[{x 1298{C]{x Montrey: fixed problems with pc_index and pwipe, initial capped strings are correct now.  don't forget to do a shutdown and reload the pc_index rather than copyover
+{Y[{x05/06{Y]{x {C[{x 1298{C]{x Montrey: color settings reworked, downside is that everyone's color settings get restored to default.  gives room for expansion now, though
+{Y[{x05/06{Y]{x {C[{x 2722{C]{x Montrey: config color is done
+{Y[{x05/06{Y]{x {C[{x 2722{C]{x Montrey: gaining skills will now set evolution to 1, not 0
+{Y[{x05/07{Y]{x {C[{x 1298{C]{x Montrey: acid etching on eq now picks an ac value of the eq and hurts it, not adds a magical ac effect
+{Y[{x05/07{Y]{x {C[{x 1298{C]{x Montrey: nothing short of divine intervention can change a players true sex now, no more screwups with sex changing
+{Y[{x05/10{Y]{x {C[{x 1298{C]{x Montrey: fixed bug messages with color
+{Y[{x05/17{Y]{x {C[{x 1298{C]{x Montrey: fixed stuff with newbies logging on with 0 hp and with censor settings
+{Y[{x05/18{Y]{x {C[{x 1298{C]{x Montrey: followerlist fixed next copyover
+{Y[{x05/18{Y]{x {C[{x 1298{C]{x Montrey: formatting problems with affects fixed
+{Y[{x06/06{Y]{x {C[{x 1298{C]{x Montrey: fixed the thing in check that was messing up SP
+{Y[{x06/06{Y]{x {C[{x 1298{C]{x Montrey: weird bug with next unread fixed
+{Y[{x06/06{Y]{x {C[{x 1298{C]{x Montrey: random strings in create food and create rose should be fixed
+{Y[{x06/06{Y]{x {C[{x 1298{C]{x Montrey: spawn won't reset the max_on counter anymore
+{Y[{x06/06{Y]{x {C[{x 1298{C]{x Montrey: bugs with propose fixed, hehe, also fixes that nasty bug with characters names getting screwed up :P
+{Y[{x06/07{Y]{x {C[{x 1298{C]{x Montrey: new help system in, i'll save spamming hbi and post a note for those who're interested
+{Y[{x06/07{Y]{x {C[{x 1298{C]{x Montrey: 'time' shows a counter with how long double qp have been running now
+{Y[{x06/22{Y]{x {C[{x 1225{C]{x Montrey: bug that was mangling single letter help searches has been fixed
+{Y[{x06/22{Y]{x {C[{x 1225{C]{x Montrey: alignment won't go past -1000 or 1000 on extreme high level kills anymore
+{Y[{x06/22{Y]{x {C[{x 1225{C]{x Montrey: fixed the bug with xsocials, they should work fine again
+{Y[{x06/22{Y]{x {C[{x 1225{C]{x Montrey: put in random resets for mobiles, ask me for info, should be in the builder's guide shortly
+{Y[{x06/24{Y]{x {C[{x 1270{C]{x Montrey: after next compile/commit/copyover, poofins and poofouts will ignore color codes in your name
+{Y[{x06/26{Y]{x {C[{x 1298{C]{x Montrey: poisoned fountains can now poison a drink container when you fill them, along with a few other bug fixes on drink/fountain poisonings
+{Y[{x06/26{Y]{x {C[{x 1298{C]{x Montrey: vampires no longer get thirsty drinking blood :P
+{Y[{x06/26{Y]{x {C[{x 1298{C]{x Montrey: evolve looks different now
+{Y[{x06/26{Y]{x {C[{x 1298{C]{x Montrey: fixed a prob with drinking
+{Y[{x06/27{Y]{x {C[{x 1298{C]{x Montrey: note move should work properly now with trade notes, and won't let you do it anyway when it tells you you can't
+{Y[{x06/28{Y]{x {C[{x 1298{C]{x Montrey: site saving reworked, won't save so much spam now
+{Y[{x06/30{Y]{x {C[{x 1298{C]{x Montrey: alternate command and site updating fixed, added ssite column to sites table
+{Y[{x06/30{Y]{x {C[{x 1298{C]{x Montrey: sockets fixed
+{Y[{x10/07{Y]{x {C[{x 1298{C]{x Montrey: new mysql deny system in

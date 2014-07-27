@@ -1,0 +1,1019 @@
+#PLAYER
+Name Onica~
+Id   991099791
+LogO 1026663151
+Vers 14
+Mexp 2
+Pass nefertina~
+Desc {CAs she walk's throw the {Wdimly {Ylit {Ggarden {Cyou see the {gmoon {Cdance upon her {gS{Wi{gl{Wv{ge{Wr {Chair and across her radiant silk skin, her {Gjade {Ceye's piercs your heart with {Vlove {Cand {gsorrow{C-({VAngel{C)-
+~
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
+Race elf~
+Clan divinity~
+Cla  0
+Levl 52
+Tru  0
+Plyd 236153
+Back 236100
+Note 1007708774 1006529081 1006529081 1006529081 1006529081 1025960765 0
+Scro 22
+Room 24241
+HMS  960 713 410
+Gold 118
+Silv 35
+Gold_in_bank 1000
+Exp  54988
+PCkills  0
+PCkilled 1
+Akills   0
+Akilled  2
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
+FRes B
+FVul Z
+Plr  AF
+Video 0
+Act  CDEFGHJLSTc
+AfBy TZ
+Comm NOQ
+Revk 0
+Cgrp A
+Cnsr A
+Prac 12
+Trai 2
+Wimp 40
+Atrib 16 23 18 21 16 18
+RolePnts   10
+QuestPnts  73
+Afk {B[{CFri Jan  4 09:56:54 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {CThe most Radiant Elfmaiden of kyrnn....~
+Immn ~
+Pnts 39
+Rank {WC{gH{WS{x~
+Aura {gS{Wi{gl{Wv{ge{Wr {gE{Wl{gf {WM{ga{Wi{gd{We{gn{x~
+TSex 2
+LLev 63
+Email kira_norise@hotmail.com~
+Deit Sivat~
+Lsit hlfx33-226.ns.sympatico.ca~
+Ltim Sun Jul 14 11:11:50 2002
+~
+LSav Sun Jul 14 11:12:31 2002
+~
+HMSP 540 633 410
+THMS 2 6 0
+Cnd  0 0 31 27
+Sk 91 1 'acid blast'
+Sk 75 1 'acid breath'
+Sk 76 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 75 1 'animate zombie'
+Sk 80 1 'armor'
+Sk 76 1 'blood blade'
+Sk 75 1 'blood moon'
+Sk 75 1 'burning hands'
+Sk 75 1 'cancellation'
+Sk 75 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 75 1 'chill touch'
+Sk 75 1 'colour spray'
+Sk 75 1 'continual light'
+Sk 75 1 'create food'
+Sk 75 1 'create parchment'
+Sk 75 1 'create rose'
+Sk 75 1 'create sign'
+Sk 75 1 'create spring'
+Sk 1 1 'create vial'
+Sk 75 1 'create water'
+Sk 75 1 'cure critical'
+Sk 75 1 'cure light'
+Sk 61 1 'cure serious'
+Sk 75 1 'dazzling light'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'encampment'
+Sk 78 1 'enchant armor'
+Sk 75 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 76 1 'fear'
+Sk 95 1 'fire breath'
+Sk 80 1 'fireball'
+Sk 75 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 78 1 'flame blade'
+Sk 75 1 'floating disc'
+Sk 76 1 'frost blade'
+Sk 75 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 78 1 'giant strength'
+Sk 82 1 'haste'
+Sk 100 1 'heal'
+Sk 75 1 'infravision'
+Sk 76 1 'lightning bolt'
+Sk 75 1 'lightning breath'
+Sk 77 1 'magic missile'
+Sk 75 1 'mass healing'
+Sk 1 1 'protect container'
+Sk 78 1 'protection evil'
+Sk 76 1 'protection good'
+Sk 75 1 'recharge'
+Sk 75 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 76 1 'regeneration'
+Sk 76 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 81 1 'sanctuary'
+Sk 83 1 'shield'
+Sk 75 1 'shock blade'
+Sk 75 1 'shocking grasp'
+Sk 75 1 'shrink'
+Sk 79 1 'stone skin'
+Sk 1 1 'talon'
+Sk 75 1 'undo spell'
+Sk 1 1 'wrath'
+Sk 75 1 'dagger'
+Sk 100 1 'sword'
+Sk 75 1 'brew'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 75 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'combat'
+Gr 'creation'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Affc 'divine regeneration'   0  83   2   0   0   33554432 4
+Affc 'bless'   0  84   8 -12  24          0 1
+Affc 'bless'   0  85   8  12  18          0 1
+Affc 'fly'   0  84   5   0   0     524288 1
+Affc 'giant strength'   0  82   2   6   1          0 1
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{x.~
+Desc {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{W lies here{x.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 108
+Nest 1
+Name rose~
+ShD  a I worship {WL{Ci{Br{Ci{Te{Wl{x rose~
+Desc A I worship {WL{Ci{Br{Ci{Te{Wl{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 10166
+Nest 1
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10166
+Nest 1
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10215
+Nest 1
+ExtF 64
+Cond 52
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 6
+Nest 1
+Desc <{BThe {CL{Bo{Cv{Be {Cof {Ban {CAngel {Bwith {GJade {Ceyes*~
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+Desc {WA {Vslice{M {Wof cake from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 62
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 59
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 58
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 57
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 33
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 32
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 31
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 30
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 29
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 28
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 27
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 26
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{x.~
+Desc {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{W lies here{x.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{x.~
+Desc {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{W lies here{x.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{x.~
+Desc {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{W lies here{x.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{x.~
+Desc {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{W lies here{x.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{x.~
+Desc {WA s{Cl{Wi{Cc{We of c{ga{Wke {Gcelebrating {Wthe {Vl{Wo{Pv{Ve {Wof {BBu{Ct{Wt{Ce{Brc{Cu{Bp{W and {VMa{Ml{We{Vn{Mn{Va{W lies here{x.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 45
+Nest 1
+Wear -1
+Cost 25000
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Name magnum bollinger~
+ShD  {WA {Vmagnum {Wof Bollinger '69.{x~
+Desc {MA {Vmagnum{M {Wof Bollinger from {GS{Bt{Nu{Cr{Hm'{Ms {W and {COnica's{x {WWedding{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 108
+Nest 1
+Name rose~
+ShD  a Congratulations on your {WWedding{x! November 11, 2001{x rose~
+Desc A Congratulations on your {WWedding{x! November 11, 2001{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Sundancer.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 9602
+Nest 1
+ExtF 524289
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 24405
+Nest 0
+Cond 94
+Wear 4
+Cost 4000
+End
+
+#O
+Vnum 24404
+Nest 0
+Cond 80
+Wear 9
+Cost 3000
+End
+
+#O
+Vnum 24406
+Nest 0
+Cond 87
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 24406
+Nest 0
+Cond 96
+Wear 14
+Cost 4000
+End
+
+#O
+Vnum 24402
+Nest 0
+Cond 77
+Wear 2
+Cost 2000
+End
+
+#O
+Vnum 24401
+Nest 0
+Cond 73
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 16011
+Nest 0
+Cond 72
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3203
+Enchanted
+Nest 0
+Cond 84
+Wear 12
+Lev  31
+Cost 40
+Affc 'reserved'   1  30  -1  40  12          0 1
+Affc 'reserved'   1  30  -1   2  19          0 1
+Affc 'reserved'   1  30  -1   2  18          0 1
+Affc 'reserved'   1  30  -1   2   3          0 1
+Affc 'reserved'   1  30  -1   2   2          0 1
+Affc 'enchant armor'   1  43  -1  -2  17          0 1
+End
+
+#O
+Vnum 11644
+Nest 0
+Cond 64
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 4592
+Nest 0
+Cond 93
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 28009
+Nest 0
+ExtF 17301572
+Cond 88
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 24407
+Nest 0
+Cond 84
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 24405
+Nest 0
+Cond 86
+Wear 3
+Cost 4000
+End
+
+#O
+Vnum 24403
+Nest 0
+Cond 89
+Wear 18
+Cost 3000
+End
+
+#O
+Vnum 10215
+Enchanted
+Nest 0
+ExtF 67
+Cond 77
+Wear 16
+Lev  41
+Cost 0
+Affc 'reserved'   1  40  -1  -5  23          0 1
+Affc 'enchant weapon'   1  41  -1   8  19          0 1
+Affc 'enchant weapon'   1  41  -1   4  18          0 1
+End
+
+#O
+Vnum 16008
+Nest 0
+Cond 92
+Wear 6
+Cost 5000
+End
+
+#O
+Vnum 6
+Nest 0
+ShD  {bThe{x {BL{Co{Bv{Ce{x {Mof{x {Wa{x {bT{Mh{bi{Me{bf{x~
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 2222
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10407
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10171
+Nest 0
+Cond 84
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24200
+Nest 0
+Cond 84
+Wear 1
+Cost 1666
+End
+
+#O
+Vnum 24220
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 24220
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 24232
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 17101
+Nest 0
+ExtF 1
+Cond 73
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 9600
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 620
+Nest 0
+Name sivat engagment ring~
+ShD  a {CL{TO{CO{TK {CA{TT {CT{TH{CE {TS{CI{TZ{CE {TO{CF {TT{CH{TA{CT {WR{gO{WC{gK{x ring~
+Desc a {CL{TO{CO{TK {CA{TT {CT{TH{CE {TS{CI{TZ{CE {TO{CF {TT{CH{TA{CT {WR{gO{WC{gK{x ring~
+Wear -1
+Cost 730
+End
+
+#O
+Vnum 29902
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 9590
+Nest 0
+Wear -1
+Cost 380
+End
+
+#O
+Vnum 7614
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16066
+Nest 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 16090
+Nest 0
+Wear -1
+Cost 1500
+Spell 3 'fireball'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24232
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24238
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#PET
+Vnum 24203
+Name Mesa Pegasus~
+LogO 1026663151
+Desc Before a woman marries in the village of Sursi, she must visit the land 
+of the {WMesa Pegasus{x. Legend has it that if the woman is pure of heart 
+and her love is true, a {WMesa Pegasus{x will appear, blessing her family with 
+long life and good fortune.{x
+A collar around its neck says 'I belong to Onica'.
+~
+Sex  2
+HMS  2424 2424 1170 1170 300 300
+Act  AIQU
+AfBy DFS
+Comm W
+Pos  8
+Atrib 17 17 19 13 15 17
+AtMod 0 0 0 0 0 0
+End
+#END

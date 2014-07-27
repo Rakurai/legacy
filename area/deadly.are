@@ -1,0 +1,1974 @@
+#AREA
+deadly.are~
+Deadly Treasure~
+{H{{80 91} {MKenneth {TDeadly Treasure~
+17030 17099
+
+#MOBILES
+#17030
+barney shopkeeper~
+{MBarney{x~
+{MBarney{x waddles around here, trying to make a sale.
+~
+{MBarney{x is a fat, little man with a moustache that looks like a fuzzy
+caterpillar is trying to eat his nose.  He sweats profusely and often
+has to mop at his face with a stained hankerchief.
+~
+human~
+BG DF 0 S
+10 2  10d10+20 1d5+10 1d2+1 slap
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand male 1000000
+0 0 medium 0
+
+#17031
+towndweller dweller~
+A towndweller~
+A towndweller wanders around.
+~
+The towndweller looks moderately civilised, although he does sport a
+rustic beard.
+~
+human~
+BG 0 0 S
+10 2 10d10+20 1d5+10 1d2+1 slap
+-5 -5 -5 -5
+0 0 0 0
+stand stand male 10
+0 0 medium 0
+
+#17032
+farmer~
+A farmer~
+A farmer is here, chawing tobacco and telling tall tales.
+~
+The farmer has a beard down to his chest, stained with tobacco juice.
+His plaid shirt looks and smells like it hasn't been washed since
+the Midgaard civil war, and he looks old enough to have been in
+it!
+~
+human~
+BG 0 0 S
+10 2 10d10+20 1d5+10 1d2+1 slap
+-4 -4 -4 -4
+0 0 0 0
+stand stand male 10
+0 0 medium 0
+
+#17033
+jim shopkeeper~
+{WJim{x~
+{WJim{x leans back behind the counter and drawls, 'Whut can Ah do fur ya?'
+~
+{WJim{x is the Outlet manager for the Wizards of Incelsis Tower.  You
+wonder at their poor business sense, to trust this man.
+~
+human~
+BG DF 0 S
+10 2 10d10+20 1d5+10 1d2+1 slap
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand male 1000000
+0 0 medium 0
+
+#17034
+farnum innkeeper~
+{GFarnum{x~
+{GFarnum{x towers above you, his massive brows coming together in a hairy frown.
+~
+{GFarnum{x is big.  Really big.  His head is bald, but that doesn't stop his
+eyebrows from trying to make up for it.  His eyebrows have more hair in
+them than most people's heads.
+~
+human~
+BG DF 0 S
+10 2 10d10+20 1d5+10 1d2+1 slap
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand male 1000000
+0 0 large 0
+
+#17035
+barthal shopkeeper~
+{TBarthal{x~
+{TBarthal{x is a skinny man, completely engrossed in his latest toys.
+~
+Piercing gray eyes peer at you from under his wire-rimmed spectacles.
+It's not long until he dismisses you and turns with a childish smile
+to his collectables.
+~
+human~
+BG DF 0 S
+10 2 10d10+20 1d5+10 1d2+1 slap
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand male 1000000
+0 0 medium 0
+
+#17036
+chasme demon winged~
+A chasme~
+A winged demon with horsefly wings drones around you.
+~
+A chasme looks something like a large horsefly, only much nastier,
+and much much larger.  Like about 5 feet larger.
+~
+fly~
+BGT TVc -1000 S
+85 15 8500d1+5020 10d10+20 10d8+2 bite
+-56 -55 -55 -50
+F B AC D
+stand stand none 100
+0 0 medium 0
+
+#17037
+shape smoke para-elemental elemental~
+{cSm{gok{ce P{gar{ca-{gel{cem{gen{cta{gl{x~
+A shape forms out of the {gsm{cok{ge{x around you...
+~
+The greyish black {ksm{gok{ce{x whirls into a form resembling a human, only with four
+smokey arms.  Two gaping pits are all that are present where the eyes would
+be.
+~
+smoke~
+BGT HTZ 1000 S
+98 20 5d100+7200 100d10+25 10d9+4 chill
+-66 -66 -66 -66
+DFHK 0 EG C
+stand stand none 1110
+0 0 medium 0
+
+#17038
+wight undead lifedrainer~
+A wight~
+The stench of carrion alerts you to the presence of a wight.
+~
+A wight is an undead creature that can drain strength from unwitting targets.
+It carries the smell of the grave wherever it goes because of it's dietary
+habits...
+~
+undead~
+BGO HVZ -1000 S
+98 20 5d100+7200 100d10+25 10d9+4 drain
+-66 -66 -66 -66
+DEFK E F G
+stand stand none 1475
+0 0 medium 0
+
+#17039
+flea-biter biter imp reddish-gray gray~
+{RF{Wle{Ra{W-{Rb{Wi{Rt{We{Rr{x~
+A reddish-gray imp hovers above you, taunting away mercilessly.
+~
+"Your father was a hamster, and your mother experimented with illegal pharmeceuticals!"
+it screams viciously as you near it.  That's it.  No one insults dear ol' mom.
+~
+imp~
+BGS TVc -1000 S
+85 15 8500d1+5020 10d10+20 10d8+2 bite
+-56 -55 -55 -50
+F B AC D
+stand stand none 100
+0 0 medium 0
+
+#17040
+rat-stabber stabber imp yellow-gray gray~
+{YR{Wa{Yt{W-{Ys{Wt{Ya{Wb{Yb{We{Yr{x~
+A yellow-gray imp tries to sneak furtively into the shadows.
+~
+He obviously doesn't realize that {Yyellow{x is not a good color to hide in.
+Maybe you should teach this misguided demon a thing or two about sneaking?
+~
+imp~
+BGS TVc -1000 S
+85 15 8500d1+5020 10d10+20 10d8+2 bite
+-56 -55 -55 -50
+F B AC D
+stand stand none 100
+0 0 medium 0
+
+#17041
+farastu gehreleth demon winged fiend~
+{RFar{Past{Ru Ge{Phre{Rlet{Ph{x~
+A winged fiend stops it's destruction of the room to glare at you.
+~
+{RFar{Past{Ru{x is a monstrous winged creature, standing nine feet tall easily.
+Words like "demon" and "hooboy" run through your brain as you contemplate
+the way it's staring down at you with it's piggish eyes.
+~
+demon~
+BGT HVZb -1000 S
+120 25 5000d2+2000 100d10+100 9d9+9 stab
+-80 -80 -80 -80
+DEFK 0 0 0
+stand stand none 2700
+0 0 large 0
+
+#17042
+salamander~
+A {Rsa{kl{Ram{ka{Rnd{ke{Rr{x~
+A fiery {Rsa{kl{Ram{ka{Rnd{ke{Rr{x slithers along the floor, trident upraised.
+~
+A {Rsa{kl{Ram{ka{Rnd{ke{Rr{x is a creature from the Elemental plane of {RFi{kr{Re{x.  It looks
+human from the waist up, except for the sooty orange-ish color of it's
+skin, but below that it looks like the creature whose name it bears.
+~
+elemental~
+BGT HVc -1000 S
+96 23 1000d3+5000 100d10+100 9d9+7 stab
+-70 -70 -70 -70
+DEFK H 0 I
+stand stand male 2200
+0 0 large 0
+
+#17043
+bat firebat~
+A {Rfi{kr{Re b{ka{Rt{x~
+A {Rfi{kr{Re b{ka{Rt{x screeches down the hallway.
+~
+A {Rfi{kr{Re b{ka{Rt{x looks like a normal bat, except for the {Rred{x and orange patchwork
+colorations, but it is also from the Elemental Plane of {RFi{kr{Re{x.
+~
+bat~
+G AT 0 S
+35 4 2d50+1000 2d10+25 6d4+8 bite
+-20 -20 -20 -20
+DF H 0 I
+stand stand none 15
+0 0 small 0
+
+#17044
+spectre undead spirit~
+A spectre~
+A spectre wavers in front of you, moaning in an eerie way.
+~
+The form of the specter is somewhat indistinct, but it looks a bit like a
+fat, middle aged, balding man.  Not the most terrifying undead you've ever
+seen, but it can still try and freeze your heart with the terror of it's
+cold, grasping hands..
+~
+undead~
+GO HOZ -1000 S
+90 22 1000d2+5600 100d10+200 8d8+8 drain
+-60 -60 -60 -60
+DEFK 0 F G
+stand stand none 2100
+0 0 medium 0
+
+#17045
+hydroloth tanar'ri~
+A {Ch{Ty{Cdr{To{Cl{Toth{x~
+A horrible looking tanar'ri forms above the rim of the well.
+~
+A {Ch{Ty{Cdr{To{Cl{Toth{x combines the worst aspects of octopus, fish, and illithid
+in a pretty frightening combination.  They are also highly skilled
+magic users, so watch out!
+~
+tanar'ri~
+BGR HZ -1000 S
+90 18 8d100+6000 1000d2+200 7d8+9 frbite
+-59 -60 -60 -58
+DEFK 0 0 0
+stand stand male 2455
+0 0 large 0
+
+#17046
+water elemental~
+A {Nwat{Ter e{Nle{Tme{Nnta{Tl{x~
+A summoned {Nwat{Ter e{Nle{Tme{Nnta{Tl{x appears from a {Bblue{x gate.
+~
+A {Nwat{Ter e{Nle{Tme{Nnta{Tl{x comes from, naturally, the Elemental Plane of {BWat{Te{Br{x.  They
+are just that:  water that can control it's shape.
+~
+elemental~
+BGT Hc 1000 S
+92 20 8d100+6000 100d2+200 7d8+9 pound
+-60 -60 -60 -59
+DEFKP 0 0 0
+stand stand none 0
+0 0 large 0
+
+#17047
+stone golem statue~
+A {Pst{bon{Pe {bg{Po{bl{Pe{bm{x~
+In front of you is a large, {Pst{bon{Pe {bg{Po{bl{Pe{bm{x, barring passage.
+~
+It is a big chunk of rock that has been magically formed into a giant
+{Pst{bon{Pe creature.  It stands here guarding the passageway.
+~
+golem~
+BGT Hc 1000 S
+92 20 8d100+6000 100d2+200 7d8+9 pound
+-60 -60 -60 -59
+DEFK F 0 0
+stand stand none 0
+0 0 large 0
+
+#17048
+zathis II simulacrum mage~
+{WZathis {CII{x~
+A bald, skinny, old mage glares at you.
+~
+He is dressed in magnificent robes, a shiny {kblack{x with a {gpearl gray{x
+front.  In one hand he clutches a staff, and in the other a spellbook.
+~
+illusion~
+BGR HZb -1000 S
+98 24 50d10+7000 50d10+7000 10d9+5 magic
+-62 -61 -60 -59
+FHK 0 0 0
+stand stand male 6573
+0 0 medium 0
+>greet_prog 100~
+cast 'fireball' $n
+~
+|
+
+#17049
+sir ayvers paladin~
+{WSir {YAy{Wve{Yrs{x~
+A paladin with a horrified expression frozen onto his face cowers before you.
+~
+He is not frozen, judging by the way he is trembling, but his face is frozen
+into such a picture of abject terror that it's making you a bit queasy to
+look at.
+~
+human~
+BGT HZb 1000 S
+98 24 50d10+7000 50d10+200 10d9+5 slash
+-62 -61 -60 -59
+FHK 0 0 0
+stand stand male 6573
+0 0 medium 0
+
+#17050
+dranloc priest cleric~
+{PDranloc{x~
+A fat and oily looking cleric gives you a sinister smile.
+~
+{PDranloc{x is extraordinarily fat, but also quite agile, judging by the
+speed at which he's waddling about.  His black eyes glimmer in
+the eerie half-light.
+~
+human~
+BGQ HZb -1000 S
+98 24 50d10+7000 50d10+7000 10d9+5 magic
+-62 -61 -60 -59
+FHK 0 0 0
+stand stand male 6573
+0 0 medium 0
+
+#17051
+zarrp arcanaloth demon~
+{RZ{Ya{Rr{Yr{Rp{x~
+A vile arcanaloth materializes from the {Rred{x cloud...
+~
+Arcanaloths look like giant winged creatures that have the fur of a yeti,
+the legs of a yak, 4 arms, and the smell of a goat.  A diseased goat.
+Diseased and only a couple hours from dying.  Might already be dead,
+actually.
+~
+arcanaloth~
+BGT HVZb -1000 S
+120 25 5000d2+2000 100d10+100 9d9+9 stab
+-80 -80 -80 -80
+DEFK 0 0 0
+stand stand none 2700
+0 0 large 0
+
+#17052
+mezzoloth demon~
+A {Bme{czz{Bol{cot{Bh{x~
+{RZ{Ya{Rr{Yr{Rp{x conjures forth a portal and from it steps a mezzoloth...
+~
+{Bme{czz{Bol{cot{Bhs{x resemble their cousins, arcanaloths, but only have the
+two arms and are much lankier in appearance.  A malevolent green fire
+lights up it's eyes.
+~
+mezzoloth~
+BGT TVc -1000 S
+85 15 8500d1+5020 10d10+20 10d8+2 bite
+-56 -55 -55 -50
+FP B AC D
+stand stand none 100
+0 0 medium 0
+
+#0
+
+#OBJECTS
+
+#17030
+magic bean~
+A magic bean~
+A magic bean lies on the ground...just add water...~
+bean~
+staff A AO
+85 1 1 'acid breath' 0
+80 10 220 P
+
+#17031
+eversmoking bottle lungdisease~
+{cEv{Wer{csm{Wok{cin{Wg b{cot{Wtl{ce{x~
+A small bottle sits on the floor, giving off lots of {csm{Wok{ce{x.~
+ceramic~
+armor A AO
+27 27 27 25 0
+85 30 375 P
+A
+12 40
+A
+18 4
+A
+19 4
+
+#17032
+ring boccob~
+{bRi{Yng{x of {bBo{Ycc{bob{x~
+A peculiar looking ring glints in the dim light.~
+gold~
+armor A AB
+22 22 22 20 0
+87 5 220 P
+A
+18 3
+A
+19 3
+A
+13 50
+A
+4 2
+A
+22 -5
+
+#17033
+necklace strangulation~
+{WNe{gck{Wla{gce{x of {WSt{gra{Wng{gul{Wat{gio{Wn{x~
+A beautiful looking necklace {Wshi{Cmm{Wers{x opalescently.~
+silver~
+armor AM AC
+24 24 24 22 0
+87 10 780 P
+A
+18 4
+A
+19 4
+A
+13 -100
+
+
+#17034
+daern's instant fortress tower impervious~
+{gDaern's Instant Fortress{x~
+A huge {gstone{x tower looms above you.~
+rock~
+furniture 0 A
+2 0 CFIL 140 140
+88 20 110 P
+E
+daern's instant fortress tower impervious~
+Saying the command word 'Impervious' is all that it takes to shrink this
+monstrous tower down into an itty bitty cube.
+~
+
+#17035
+wand lightning shaztafraz stick wooden~
+Wand of {YLi{Wg{Yht{Wn{Yin{Wg{x~
+A simple wooden stick leans casually against a wall.~
+wood~
+wand A AO
+88 3 3 'lightning breath' 0
+80 10 500 P
+E
+wand lightning shaztafraz stick wooden~
+You notice the word shaztafraz carved into the side of this stick...
+must be the command word.
+~
+
+#17036
+book infinite spells~
+Book of Infinite Spells~
+A small book lies moldering here.~
+parchment~
+scroll A AO
+85 'fireball' 'curse' 'fireball' ''
+70 3 650 P
+
+#17037
+bracers defense~
+Bracers of Defense~
+A pair of jet-{kblack{x bracers rests here.~
+onyx~
+armor 0 AM
+30 30 30 28 0
+90 20 500 P
+A
+5 2
+A
+13 75
+A
+12 15
+A
+18 3
+A
+19 3
+A
+24 -3
+F
+A 0 0 Y
+
+#17038
+slippers spider climbing black~
+{WSlippers {xof {CS{cp{Ci{cd{Ce{cr {CC{cl{Ci{cm{Cb{ci{Cn{cg{x~
+A pair of silk slippers melds with the darkness.~
+silk~
+armor 0 AG
+30 30 30 28 0
+90 5 250 P
+A
+2 2
+A
+12 75
+A
+13 15
+A
+18 4
+A
+19 4
+A
+20 -1
+F
+A 0 0 T
+
+#17039
+glowing coatrack~
+A {Yglowing{x coatrack~
+A {Yglowing{x coatrack gleams beckoningly at you.~
+wood~
+light A AO
+0 0 -1 0 0
+1 20 100 P
+
+#17040
+defender sword~
+The {YD{be{Yf{be{Yn{bd{Ye{br{x~
+A {Yglowing{x sword hurts your eyes with it's {Ybril{gli{Yance{x.~
+hard steel~
+weapon A AN
+'sword' 12 10 slice G
+90 50 750 P
+A
+17 -5
+A
+18 10
+A
+19 10
+
+#17041
+helm brilliance~
+Helm of {YBril{gli{Yance{x~
+A glittering helm inset with dozens of gemstones lies here.~
+steel and gems~
+armor A AE
+30 30 30 30 0
+91 25 5000 P
+A
+18 6
+A
+19 6
+A
+20 -10
+A
+26 4
+A
+12 60
+A
+13 30
+F
+A 0 0 CG
+
+#17042
+large shield +4~
+A large {Wshield {C+4{x~
+A large {Wshield{x with a {Rred cross{x on it sits here.~
+steel~
+armor A AJ
+29 29 29 29 0
+91 50 1000 P
+A
+18 4
+A
+19 4
+A
+20 -5
+A
+13 40
+A
+12 40
+
+#17043
+stuffed basilisk statue~
+A stuffed basilisk~
+A huge basilisk looms before you, death written in it's glassy eyes!~
+flesh~
+treasure 0 A
+0 0 0 0 0
+1 1000 1000 P
+E
+stuffed basilisk statue~
+This example of stuffed basilisk would be the pride of any taxidermist.
+~
+
+#17044
+rug~
+A rug~
+A rug lies trampled on the floor.~
+weavery~
+treasure 0 A
+0 0 0 0 0
+1 75 500 P
+E
+rug~
+A finely woven thing, done with threads of gold and silver.
+~
+
+#17045
+scroll stone parchment~
+Scroll of Stone~
+A rolled up piece of parchment lies here.~
+parchment~
+scroll 0 AO
+50 'stone' 'armor' 'shield' ''
+35 1 10 P
+
+#17046
+teardrop gods diamond~
+{CTe{Tar{x of the {BGo{Nds{x~
+A monstrously huge diamond shaped like a teardrop lies here.~
+diamond~
+gem A A
+0 0 0 0 0
+1 10 50000 P
+E
+teardrop gods diamond~
+Yeah right.  Everybody knows Gods don't cry.
+~
+
+#17047
+murlynd's spoon~
+{YMurlynd's{x Spoon~
+A crusty looking spoon rests here.~
+steel~
+wand 0 AO
+15 20 20 'create food' 0
+15 10 3400 P
+
+#17048
+scroll faerie fire parchment~
+A scroll of {Mfaerie fire{x~
+A crumpled up piece of parchment lies here.~
+parchment~
+scroll 0 AO
+25 'faerie fire' '' '' ''
+15 1 2400 P
+
+#17049
+scroll color spray parchment~
+A scroll of {Rc{Po{Yl{Go{Hr {Ms{Vp{Rr{Pa{Yy{x~
+A crumpled up piece of parchment lies here.~
+parchment~
+scroll 0 AO
+25 'colour spray' '' '' ''
+15 1 4400 P
+
+#17050
+scroll mass heal parchment~
+A scroll of mass heal~
+A crumpled up piece of parchment lies here.~
+parchment~
+scroll 0 AO
+60 'mass heal' '' '' ''
+60 1 3000 P
+
+#17051
+plate acorn drawing~
+A plate with an {Ya{bco{Yrn{x drawing~
+A plate with a cute little {Ya{bco{Yrn{x drawing on it is here.~
+ceramics~
+treasure 0 A
+0 0 0 0 0
+1 7 125 P
+#0
+#ROOMS
+
+#17030
+A {HW{bo{Ho{bd{He{bd{x Trail~
+Having slipped through the {cHi{Bdd{cen {BPa{css{Bag{ce{x of Incelsis Tower, you are
+cautiously exploring the wooded area beyond it.  The tower lies back
+in the distance, and a town lies before you.
+~
+0 CK 3
+D1
+To the east you can re-enter Incelsis Tower.
+~
+wall~
+1 -1 17008
+D3
+To the west you can enter the town.
+~
+~
+0 -1 17031
+S
+
+#17031
+The Town of {CClear{Bwater{x~
+This bustling little frontier town provides an outlet for all those people
+leaving Midgaard.  The newly cleared {bdirt{x road sends up a cloud of dust as
+you walk along.  A cart track continues west.  {MBarney's{x Gen'ral Store is south
+of you, and the rest of the town continues north.
+~
+0 CK 2
+D0
+To the north the town continues.
+~
+~
+0 -1 17032
+D1
+To the east you can re-enter the woods.
+~
+~
+0 -1 17030
+D2
+South likes Barney's Gen'ral store!
+~
+~
+0 -1 17041
+D3
+To west you can traverse a rugged cart track.
+~
+~
+0 -1 17042
+S
+
+#17032
+Market Square~
+This is the center of life in {CClear{Bwater{x.  Fruit and vegetable vendors hawk
+their goods in loud, piercing voices as the dust from the road continues
+to choke you.  All the main businesses in town are located off this square.
+A huge sign stands right in the middle of the square...no one seems to have
+had the guts to move it.
+~
+0 K 2
+D0
+North the Market Square continues.
+~
+~
+0 -1 17033
+D1
+East lies the house of Barthal, Collector extraordinaire.
+~
+~
+0 -1 17037
+D2
+South is the entrance to Clearwater.
+~
+~
+0 -1 17031
+D3
+West is just a normal home.
+~
+~
+0 -1 17036
+E
+sign~
+			WANTED:  BRAVE ADVENTURERS
+A new tomb has recently opened for business in your area!  The wealth of a
+wizard's lifetime can be yours!  Defeat his traps!  Slay his guardians!
+Zathis the Insightful took a century to collect these marvelous treasures.
+Now they can be yours in a matter of hours!
+
+Hastily scribbled at the bottom is another note.
+
+Just follow the western cart track for five miles.  The tomb entrance is
+to the right.  Look for a circle of stones.  Only serious adventurers
+need apply.
+~
+S
+
+#17033
+Market Square~
+This is the center of life in {CClear{Bwater{x.  Fruit and vegetable vendors hawk
+their goods in loud, piercing voices as the dust from the road continues
+to choke you.  All the main businesses in town are located off this square.
+~
+0 K 2
+D0
+North lies the Wizard's Outlet Mall!
+~
+~
+0 -1 17034
+D1
+To the east is the Town Bank.
+~
+~
+0 -1 17038
+D2
+South the Market Square continues.
+~
+~
+0 -1 17032
+D3
+West lies a common home.
+~
+~
+0 -1 17035
+S
+
+#17034
+{VWizard Outlet Mall{x~
+This is where wizards dump their excess goods!  The walls are lined with
+direct from the factory scrolls and parchment, wands and staves, magical
+rings and other mysterious gewgaws.  The management is also willing to buy
+a few items that don't have the official {VWizards{x (TM) brand name.
+A sign is in the corner.
+~
+0 K 0
+D2
+South you can join the throngs at Market Square.
+~
+~
+0 -1 17033
+E
+sign~
+This sign lets you know that no wizard is running this store...it seems
+to be written by an illiterate person, and says:
+
+Manajimint not responsibble fur nuthin'
+
+~
+S
+
+#17035
+Common Dwelling~
+Just an ordinary house, you've been in dozens just like it...if you don't
+like this description, check out the normal houses in Ofcol or Underdark!
+~
+0 K 0
+D1
+Leave boredom by going east!
+~
+~
+0 -1 17033
+S
+
+#17036
+Common Dwelling~
+Just an ordinary house, you've been in dozens just like it...if you don't
+like this description, check out the normal houses in Solace or MegaCity One!
+~
+0 K 0
+D1
+Leave the doldrums by going east!
+~
+~
+0 -1 17032
+S
+
+#17037
+{TBarthal's{x House~
+{TBarthal's{x house is a collector's dream.  Little statues are everywhere, even
+in the yard.  Several glasses hold various items, such as bottlecaps, stamps,
+even pogs!  A couple boxes of cards are shoved into one corner, right next
+to the comic books.  It seems this {TBarthal{x will buy just about anything..
+~
+0 K 0
+D3
+West lies noise and hubbub.
+~
+~
+0 -1 17032
+S
+
+#17038
+{CClear{Bwater{x Bank~
+This is your typical bank.  Very polished and clean, and totally lacking in
+anything like friendliness or hospitality.  Still, it will allow you access
+to your money and goods.
+~
+0 EKU 0
+D1
+East lies the Inn.
+~
+~
+0 -1 17039
+D3
+West lies the Market Square.
+~
+~
+0 -1 17033
+S
+
+#17039
+{YD{Ra{Yy{R'{Ys{x Inn~
+You can tell the owner of this hotel had good sense.  He built it right off
+the bank so people can get a touch of joy and happiness after all the {Ncold{x
+sterility.  It also doesn't hurt that people can come in right after
+withdrawing {Wm{go{Wn{ge{Wy{x, too...
+~
+0 K 0
+D3
+West will take you back into the Bank.
+~
+~
+0 -1 17038
+D4
+Up will take you to your room.
+~
+~
+0 -1 17040
+S
+
+#17040
+Room #111~
+This room is huge!  There's a spa in the corner, heated by a small dragon...
+king-sized bed...and we mean Henry VIII-sized, so it's HUGE!  It has a sofa,
+a few tables, and even a fake {Gtree{x!
+~
+0 K 0
+D5
+Down will let you leave your room.
+~
+~
+0 -1 17039
+S
+
+#17041
+{MBarney's{x Gen'ral Store~
+{MBarney{x is generally thought of by most people around here as a price-raising
+troublemaker.  He's always trying weird schemes in an attempt to raise prices
+on his goods..like the time he roused the peasants up against the wizards and
+convinced them to "Storm the Castle" so that he could raise prices on
+pitchforks and torches.
+~
+0 K 0
+D0
+North will take you back to the entrance to Clearwater.
+~
+~
+0 -1 17031
+S
+
+#17042
+Western Cart Track~
+The rumblings of carts bearing fruit from the fields into town fills the air.
+Long grooves have been worn into the {bdirt{x track to indicate their passage.
+The road stretches on for miles..
+~
+0 0 2
+D1
+To the east you can re-enter the town.
+~
+~
+0 -1 17031
+D3
+To the west the road stretches on..
+~
+~
+0 -1 17043
+S
+
+#17043
+Ring of {cSt{Con{ces{x~
+After five miles of walking you've come to the ring of {cst{Con{ces{x.  The blocks
+are carved from hardened {cm{Ragm{ca{x and are roughly cubic, about 2 feet on each
+side.  The {cst{Con{ces{x are spaced five feet apart and are buried halfway in the
+earth.  The ring formed by them is roughly four-hundred feet in diameter.
+In the center of the ring is a well.
+~
+0 0 2
+D1
+East you can get back onto the cart track.
+~
+~
+0 -1 17042
+D3
+West lies a pile of rubble.
+~
+~
+0 -1 17044
+S
+
+#17044
+Rubble~
+This area is littered with large {cst{Con{ces{x blocks and debris, as if some vaguely
+circular structure once stood here.  There's nothing really of interest here,
+unless you like rocks.
+~
+0 0 2
+D1
+East you can get back to one side of the ring of stones.
+~
+~
+0 -1 17043
+D3
+West is the well.
+~
+~
+0 -1 17045
+S
+
+#17045
+The Well~
+The well is six feet in diameter, with a one foot high retaining wall.
+The sides of the well are made of smooth, seamless stone splotched
+with mildew and {Prust{x-colored smears.  The bottom of the well, twenty
+feet below, can be seen through the {Bwater{x.  At the bottom is a large
+hatch with a wheel handle.  Engraved on the hatch in large letters
+is the word "Welcome."
+~
+0 0 2
+D1
+East is a huge pile of rubble.
+~
+~
+0 -1 17044
+D3
+West lies the far edge of the ring of stones.
+~
+~
+0 -1 17046
+D5
+Down is the entrance to Zathis's tomb..
+~
+hatch~
+1 -1 17047
+S
+
+#17046
+Ring of {cSt{Con{ces{x~
+On the other side of the well is the far edge of the ring of {cst{Con{ces{x.  The
+blocks are carved from hardened {cm{Ragm{ca{x and are roughly cubic, about 2 feet
+on each side.  The {cst{Con{ces{x are spaced five feet apart and are buried halfway
+in the earth.  The ring formed by them is roughly four-hundred feet in
+diameter.  In the center of the ring is a well.  To the far west you see
+a huge mountain range.
+~
+0 0 2
+D1
+To the east is the aforementioned well.
+~
+~
+0 -1 17045
+S
+
+#17047
+Just Add {BWater{x~
+As the {Bwater{x from the well rushes past you, you are deposited rather ungently
+onto the floor.  The {Bwater{x lands onto a small patch of {bearth{x, which causes
+the magic beans planted therein to hatch..one of them grows into a cloud of
+darkness, and the other into a vicious winged creature known as a Chasme..
+~
+0 A 0
+D0
+North leads into a rather ordinary looking hallway..
+~
+~
+0 -1 17048
+D4
+Up will take you back into the light.
+~
+hatch~
+1 -1 17045
+S
+
+#17048
+Hallway~
+There is no light in this hallway.  The walls are very curious looking...you
+can't find a seam anywhere, even though it's made out of stone..very smooth
+stone, at that.  Must've been done by magic.
+~
+0 A 0
+D0
+North leads to a very smokey chamber..
+~
+~
+0 -1 17049
+D2
+South leads back into the Bean Room.
+~
+~
+0 -1 17047
+S
+
+#17049
+{cS{Wm{ko{Wk{ce{x Gets In Your Eye~
+This room is completely filled with {cs{Wm{ko{Wk{ce{x.  The {cs{Wm{ko{Wk{ce{x pours into your eyes,
+preventing you from seeing at all.  The thick, choking {cs{Wm{ko{Wk{ce{x tries to filter
+down into your lungs and give you all kinds of incurable diseases.
+~
+0 A 0
+D0
+A secret door blocks the way north.
+~
+door~
+1 -1 17050
+D2
+South will get you out of this room..
+~
+~
+0 -1 17048
+E
+door~
+You can barely feel the door behind all this smoke..
+~
+S
+
+#17050
+{WWight{x This Way~
+The corridor narrows down to about five feet wide and branches off in
+several different directions.  The whole area smells musty, like something
+long dead.  This is the only part of the tomb so far that has had any amount
+of dust, so you imagine it must have been imported.
+~
+0 A 0
+D0
+The maze continues north.
+~
+~
+0 -1 17053
+D1
+The maze continues east.
+~
+~
+0 -1 17051
+D2
+Smoker's heaven is to the south.
+~
+door~
+1 -1 17049
+D3
+The maze continues west.
+~
+~
+0 -1 17052
+E
+door~
+You can barely see the door behind all the dust..
+~
+S
+
+#17051
+{WWight{x This Way~
+The corridor remains a narrow five feet wide and branches off in several
+different directions.  The whole area smells musty, like something long
+dead.  This is the only part of the tomb so far that has had any amount
+of dust, so you imagine it must have been imported.
+~
+0 A 0
+D0
+The maze continues north.
+~
+~
+0 -1 17054
+D3
+The maze continues west.
+~
+~
+0 -1 17050
+S
+
+#17052
+{WWight{x This Way~
+The corridor remains a narrow five feet wide and branches off in several
+different directions.  The whole area smells musty, like something long
+dead.  This is the only part of the tomb so far that has had any amount
+of dust, so you imagine it must have been imported.
+~
+0 A 0
+D0
+The maze continues north.
+~
+~
+0 -1 17055
+D1
+The maze continues east.
+~
+~
+0 -1 17050
+S
+
+#17053
+{WWight{x This Way~
+The corridor remains a narrow five feet wide and branches off in several
+different directions.  The whole area smells musty, like something long
+dead.  This is the only part of the tomb so far that has had any amount
+of dust, so you imagine it must have been imported.
+~
+0 A 0
+D0
+To the north is a small platform, hanging above the pit.
+~
+~
+0 -1 17057
+D1
+The maze continues east.
+~
+~
+0 -1 17054
+D2
+The maze continues south.
+~
+~
+0 -1 17050
+D3
+The maze continues west.
+~
+~
+0 -1 17055
+D5
+Down is a pit.
+~
+~
+0 -1 17056
+S
+
+#17054
+{WWight{x This Way~
+The corridor remains a narrow five feet wide and branches off in several
+different directions.  The whole area smells musty, like something long
+dead.  This is the only part of the tomb so far that has had any amount
+of dust, so you imagine it must have been imported.
+~
+0 A 0
+D2
+The maze continues south.
+~
+~
+0 -1 17051
+D3
+The maze continues west.
+~
+~
+0 -1 17053
+S
+
+#17055
+{WWight{x This Way~
+The corridor remains a narrow five feet wide and branches off in several
+different directions.  The whole area smells musty, like something long
+dead.  This is the only part of the tomb so far that has had any amount
+of dust, so you imagine it must have been imported.
+~
+0 A 0
+D1
+The maze continues east.
+~
+~
+0 -1 17053
+D2
+The maze continues south.
+~
+~
+0 -1 17052
+S
+
+#17056
+The {kPit{x~
+This pit is smoothly carved and about twenty feet deep but is otherwise
+unremarkable.  The pit is partially enclosed by the dividing walls of
+the room above.
+~
+0 A 0
+D4
+The maze continues up.
+~
+~
+0 -1 17057
+S
+
+#17057
+The Platform~
+This ten foot square platform is level with the floor of the maze.  It
+is only a platform by the standards of the pit it is above.  The ceiling
+gets very low up ahead.  Looks like you'll have to crawl.
+~
+0 A 0
+D0
+The first crawlway is north.
+~
+~
+0 -1 17058
+D2
+The maze continues south.
+~
+~
+0 -1 17053
+D5
+You can jump down into the pit!
+~
+~
+0 -1 17056
+S
+
+#17058
+First Crawlway~
+This section of the hallway is even narrower than the maze, and it certainly
+is much shorter!  About three feet wide and three feet high, it's definitely
+a squeeze, and you dragon types probably had to polymorph to get in.
+~
+0 A 0
+D0
+North is a large stairway.
+~
+~
+0 -1 17059
+D2
+South is the platform.
+~
+~
+0 -1 17057
+S
+
+#17059
+Stairway~
+This spiral staircase, carved from the rock, winds downward fifty feet
+to the next level of {WZathis's{x tomb.  There are no handrails, but the
+stairs are not innately dangerous.
+~
+0 A 0
+D2
+South you can enter that puny little crawlway again.
+~
+~
+0 -1 17058
+D5
+Down takes you to the next level of doom and despair..
+~
+~
+0 -1 17060
+S
+
+#17060
+Bottom of the Stairway~
+This spiral staircase, carved from the rock, winds upward fifty feet
+to the top level of {WZathis's{x tomb.  There are no handrails, but the
+stairs are not innately dangerous.  A hallway leads south.
+~
+0 A 0
+D2
+A hallway leads south.
+~
+~
+0 -1 17061
+D4
+The stairs lead up to the previous level of doom and despair..
+~
+~
+0 -1 17059
+S
+
+#17061
+Hallway~
+The hallway before you is irregularly shaped.  It is ten feet wide to
+start with, then widens to twenty feet for a section.  Beyond this,
+the hall narrows again but soon widens once more.  It finally narrows
+back to ten feet to finish off.  The ceiling is very high, lost in shadow
+somewhere far above.  The passage is smoothly carved but otherwise
+unremarkable.
+~
+0 A 0
+D0
+The stairway lies north.
+~
+~
+0 -1 17060
+D1
+The hallway continues east.
+~
+~
+0 -1 17062
+D3
+The hallway continues west.
+~
+~
+0 -1 17068
+S
+
+#17062
+Hallway~
+The hallway before you is irregularly shaped.  It is ten feet wide to
+start with, then widens to twenty feet for a section.  Beyond this, the
+hall narrows again but soon widens once more.  It finally narrows back
+to ten feet to finish off.  The ceiling is very high, lost in shadow
+somewhere far above.  The passage is smoothly carved but otherwise
+unremarkable.
+~
+0 A 0
+D2
+The hallway continues south.
+~
+~
+0 -1 17063
+D3
+The hallway continues west.
+~
+~
+0 -1 17061
+S
+
+#17063
+Hallway~
+The hallway before you is irregularly shaped.  It is ten feet wide to
+start with, then widens to twenty feet for a section.  Beyond this,
+the hall narrows again but soon widens once more.  It finally narrows back
+to ten feet to finish off.  The ceiling is very high, lost in shadow
+somewhere far above.  The passage is smoothly carved but otherwise
+unremarkable.
+~
+0 A 0
+D0
+The hallway continues north.
+~
+~
+0 -1 17062
+D2
+The hallway continues south.
+~
+~
+0 -1 17064
+S
+
+#17064
+Hallway~
+The hallway before you is irregularly shaped.  It is ten feet wide to
+start with, then widens to twenty feet for a section.  Beyond this, the
+hall narrows again but soon widens once more.  It finally narrows back
+to ten feet to finish off.  The ceiling is very high, lost in shadow
+somewhere far above.  The passage is smoothly carved but otherwise
+unremarkable.
+~
+0 A 0
+D0
+The hallway continues north.
+~
+~
+0 -1 17063
+D3
+The hallway continues west.
+~
+~
+0 -1 17065
+S
+
+#17065
+Hallway~
+The hallway before you is irregularly shaped.  It is ten feet wide to
+start with, then widens to twenty feet for a section.  Beyond this, the
+hall narrows again but soon widens once more.  It finally narrows back
+to ten feet to finish off.  The ceiling is very high, lost in shadow
+somewhere far above.  The passage is smoothly carved but otherwise
+unremarkable.
+~
+0 A 0
+D0
+To the north is a mirrored room.
+~
+~
+0 -1 17069
+D1
+The hallway continues east.
+~
+~
+0 -1 17064
+D3
+The hallway continues west.
+~
+~
+0 -1 17066
+S
+
+#17066
+Hallway~
+The hallway before you is irregularly shaped.  It is ten feet wide
+to start with, then widens to twenty feet for a section.  Beyond this,
+the hall narrows again but soon widens once more.  It finally narrows
+back to ten feet to finish off.  The ceiling is very high, lost in shadow
+somewhere far above.  The passage is smoothly carved but otherwise
+unremarkable.
+~
+0 A 0
+D0
+The hallway continues north.
+~
+~
+0 -1 17067
+D1
+The hallway continues east.
+~
+~
+0 -1 17065
+S
+
+#17067
+Hallway~
+The hallway before you is irregularly shaped.  It is ten feet wide
+to start with, then widens to twenty feet for a section.  Beyond this,
+the hall narrows again but soon widens once more.  It finally narrows
+back to ten feet to finish off.  The ceiling is very high, lost in shadow
+somewhere far above.  The passage is smoothly carved but otherwise
+unremarkable.
+~
+0 A 0
+D0
+The hallway continues north.
+~
+~
+0 -1 17068
+D2
+The hallway continues south.
+~
+~
+0 -1 17066
+S
+
+#17068
+Hallway~
+The hallway before you is irregularly shaped.  It is ten feet wide
+to start with, then widens to twenty feet for a section.  Beyond this,
+the hall narrows again but soon widens once more.  It finally narrows
+back to ten feet to finish off.  The ceiling is very high, lost in shadow
+somewhere far above.  The passage is smoothly carved but otherwise
+unremarkable.
+~
+0 A 0
+D1
+The hallway continues east.
+~
+~
+0 -1 17061
+D2
+The hallway continues south.
+~
+~
+0 -1 17067
+S
+
+#17069
+{CSeven Year's Bad Luck{x~
+This large room is roughly ninety feet square with a large alcove set in
+the middle of each wall.  The floor is of highly polished {gm{Warbl{ge{x; the
+ceiling is of similiar material.  The area is well lit by a number of
+glowing {Ybrass{x knobs fastened to the ceiling.  This light is reflected
+from every wall of the room, for the entire area is lined with hundreds
+of mirrors in every imaginable shape and size, constructed of countless
+different materials.  The highly polished looking-glasses gleam intheir
+frames of marble, rare {bwoods{x, wrought {ciron{x, {Ybrass{x, {gsilver{x, and even {Ygold{x!
+~
+0 0 0
+D1
+To the east is a door hidden behind a mirror.
+~
+mirror~
+1 -1 17071
+D2
+The hallway continues south.
+~
+~
+0 -1 17065
+D3
+To the west is a door hidden behind a mirror.
+~
+mirror~
+1 -1 17070
+S
+
+#17070
+West Closet~
+This small, bare chamber contains nothing but a single mirror which makes
+you look very fat.  Not very flattering.  This one definitely deserves
+smashing.
+~
+0 A 0
+D1
+To the east is a door.
+~
+mirror~
+1 -1 17069
+S
+
+#17071
+East Closet~
+This small, bare chamber contains nothing but a spiral staircase leading down,
+further down into the tomb...
+~
+0 A 0
+D3
+To the west is a door.
+~
+mirror~
+1 -1 17069
+D5
+Down the staircase we go!
+~
+~
+0 -1 17072
+S
+
+#17072
+All's Well~
+This octagonal chamber is dominated by two features:  a spiral stone
+staircase leading to the level above and a large {Ncistern{x.  The well
+is six feet in diameter and rimmed by a three feet high stone ledge.
+The bottom of the {Ncistern{x cannot be seen through the murky {Bwater{x that
+rises to within a foot of the lip of the retaining wall.  An empty bucket
+and metal dipper lie next to the wall.  The only other notable feature
+in this room is an exit tunnel to the south, a mere three feet high
+and three feet wide.
+~
+0 A 0
+D2
+The second crawlway is to the south.
+~
+~
+0 -1 17073
+D4
+Up the stairs will get you away from the well, and save you from having
+to crawl.
+~
+~
+0 -1 17071
+S
+
+#17073
+Second Crawlway~
+This carved stone tunnel is the same size as the previous crawlway.
+There is only one minor difference.  The floor is covered in {Hacid{x!
+Ow ow ow!  It's burning through your pants!  You probably want to
+crawl very quickly to get through here!
+~
+0 A 0
+D0
+To the north, all is well.
+~
+~
+0 -1 17072
+D2
+South you can't see anything at all..
+~
+~
+0 -1 17074
+S
+
+#17074
+Blackout~
+You can't see a thing in this room!  It is totally pitch-black, not even
+magical lights can penetrate this darkness.
+~
+0 A 0
+D0
+North will make you have to duck down again.
+~
+~
+0 -1 17073
+D1
+You can't see, so how do you expect to know what's up ahead!
+~
+~
+0 -1 17075
+S
+
+#17075
+That {RBlasted{x Bridge~
+This chamber is a perfect sphere, about forty feet in diameter.  A slender
+rope bridge runs through the center of the sphere, connecting the only two
+exits.  The bridge is perfectly ordinary and is fastened securely at either
+end by {Cmetal{x hooks set in the stone.  The room is well lit by a {Ycontinual
+light{x spell cast on the ceiling.
+~
+0 0 0
+D1
+Beyond the bridge is a sloped passage.
+~
+~
+0 -1 17076
+D3
+The way west lies shrouded in darkness.
+~
+~
+0 -1 17074
+S
+
+#17076
+Sloped Passageway~
+This hallway is about ten feet high but only five wide.  The floor is
+extraordinarily smooth and runs upward at a thirty degree angle.
+It seems to have been carved out of one piece of rock, which does actually
+make sense when you consider that you are underground.
+~
+0 A 0
+D1
+To the east the ground slopes downward again.
+~
+~
+0 -1 17077
+D3
+To the west lies that accursed, blasted, bridge.
+~
+~
+0 -1 17075
+S
+
+#17077
+Shaft~
+The end of the hallway is level and ends in a small chamber.  The chamber,
+however, lacks a floor.  It forms a small rectangular shaft that is
+completely lacking in any form of rungs or ledges.
+~
+0 A 9
+D3
+To the west the ground slopes downward.
+~
+~
+0 -1 17076
+D5
+Downward you can barely see the bottom of the shaft..
+~
+~
+0 -1 17078
+S
+
+#17078
+Bottom of the Shaft~
+The bottom of the shaft looks much like the top of it, only the hole is in the
+ceiling instead of the floor.  To the east is a plain, {bwooden{x door.
+~
+0 A 0
+D1
+East you see a door.
+~
+door~
+1 -1 17079
+D4
+Upwards you can get to the top of the shaft.
+~
+~
+0 -1 17077
+S
+
+#17079
+Bedchamber~
+This room only contains a plain bed, a nightstand, and a {bwooden{x footlocker.
+A {Ycontinual light{x spell has been cast on the ceiling, which, you think, would
+make it hard to sleep.  A small closet contains another stairway leading
+down..
+~
+0 A 0
+D3
+West you see a door.
+~
+door~
+1 -1 17078
+D5
+Down goes the stairway, into the stygian blackness.
+~
+~
+0 -1 17080
+S
+
+#17080
+Third Crawlway~
+Having climbed down the stairs, you find yourself in yet another crawlway.
+*sigh* This one is completely dark, so you can't see how far you've gone,
+only feel.  At least this one isn't filled with {Hacid{x!
+~
+0 A 0
+D0
+North the crawlway ends.
+~
+~
+0 -1 17081
+D4
+You can back up a bit and then traverse the stairs.
+~
+~
+0 -1 17079
+S
+
+#17081
+Exit from the Crawlway~
+This small, hexagonal room is rather unremarkable.  A huge iron valve is
+set into the north wall.  Inscribed on the door are the words "Knock before
+entering."  When you do so, out of courtesy, something rather strange
+happens.  Two mouths suddenly appear out of the air in front of you and
+begin speaking in deep, sonorous voices:  "Congratulations, brave adventurers!
+You have reached the final resting place of {WZathis the Insightful{x.  Enter
+and take what you like, but I ask you not to disturb my remains.  Surely
+you will grant me this.  The {Ytreasures{x of a lifetime lie within.  Enter,
+and take what you so richly deserve!"  The mouths then disappear.
+~
+0 0 0
+D0
+North lies the Zathis's tomb!
+~
+door~
+1 -1 17082
+D2
+South lies that bloody crawlway.
+~
+~
+0 -1 17080
+S
+
+#17082
+The Room at the End~
+This is surely the object of your quest, the wizard's tomb.  However, it
+bears little resemblance to any tomb you've seen before.  It looks more
+like a cluttered den or attic.  The floor is strewn with numerous rugs
+and carpets of varying size and quality.  Practically every inch of the
+floor is covered.  A tall {Ybrass coatrock glows magically{x in one corner.
+At the very center of the room is a large brass {Rbrazier, filled with
+coals{x but unlit.  To your immediate right is a nicely carved stone statue
+of a well-muscled man clad in {Mjester's motley{x.  The face of the man
+depicted is handsome and youthful but wears an unsettling expression of
+abject horror.  It seems to be serving as a hatrack.  Immediately to your
+left is a monstrous shape, an enormous {Gbasilisk{x that rears up with a baleful
+glare in its glassy eyes but never moves to attack.  Just before it, lying
+loose on the floor, is a large egg.  A {Ttin waste basket{x sits next to a {bwooden
+desk{x that is covered in papers.  Hanging on the wall over a couch is a
+mounted {WU{gn{Wi{gc{Wo{gr{Wn{x head, it's lips peeled back in a snarl.  A small end table
+next to the couch supports a dirty {Cpewter mug{x with an unwashed spoon beside
+it.  A small {Pcurtain{x conceals an exit to the north.
+~
+0 0 0
+D0
+Through the curtain lies...
+~
+~
+0 -1 17083
+D2
+Back out of this wondrous tomb.
+~
+door~
+1 -1 17081
+S
+
+#17083
+The Tomb!~
+Directly on the other side of the {Pcurtain{x is a low stone bier, draped
+with a sheet of {Rred{x silk and padded with numerous well-stuffed pillows
+and cushions.  Lying atop these cushions, looking perfectly relaxed,
+is a well-dressed, very old man.  He appears to be asleep, but he never
+stirs and his chest never moves to draw a breath.  His arms are folded
+over a stout {bwooden{x staff capped by a huge, glittering {Wdiamond{x in a {Ygold{x
+setting.  As you watch, horrified, the staff slips from his clutches and
+crashes against the floor.  A swirling {Rred{x cloud appears in the room...
+~
+0 0 0
+D2
+Through the curtain lies the, apparently, much safer part of the tomb!
+~
+~
+0 -1 17082
+S
+
+#0
+
+#RESETS
+
+M 0 17030 1 17041 1   *Barney into Barney's Gen'ral Store
+G 0 3032 200          *Bag
+G 0 3138 200          *Water skin
+G 0 3030 200          *torch
+G 0 615 200           *pitchfork
+M 0 17031 5 17032 1   *Towndweller to Market Square
+M 0 17031 5 17033 1   *Towndweller to Market Square
+M 0 17031 5 17035 1   *Towndweller to House
+M 0 17031 5 17036 1   *Towndweller to House
+M 0 17032 5 17031 2   *Farmer to Market Square
+M 0 17032 5 17042 1   *Farmer to Western Cart Track
+M 0 17032 5 17044 1   *Farmer to Rubble
+M 0 17032 5 17046 1   *Farmer to Ring of Stones
+M 0 17033 1 17034 1   *Jim to Wizard Outlet Mall
+G 0 17047 200         *Murlynd's Spoon
+G 0 17048 400         *A scroll of faerie fire
+G 0 17049 400         *A scroll of color spray
+G 0 17050 500         *A scroll of mass heal
+M 0 17034 1 17039 1   *Farnum to the Inn
+M 0 17035 1 17037 1   *Barthal to Barthal's House
+G 0 17051 200         *Plate with an acorn drawing
+M 0 17036 1 17047 1   *Chasme to Just Add Water
+E 0 17030 60 17       *Magic bean
+M 0 17037 1 17049 1   *Smoke para-elemental to Smoke Gets In Your Eye
+E 0 17031 60 17       *Eversmoking bottle
+M 0 17038 3 17051 1   *Wight to Wight This Way
+E 0 17032 60 1        *Boccob's ring
+M 0 17038 3 17052 1   *Wight to Wight This Way
+M 0 17038 3 17055 1   *Wight to Wight This Way
+E 0 17033 60 3        *Necklace of strangulation
+M 0 17039 1 17067 1   *Flea-biter to Hallway
+G 0 17034 60          *Daern's Instant Fortress
+M 0 17040 1 17063 1   *Rat-stabber to Hallway      
+G 0 17036 60          *Book of Infinite Spells
+M 0 17041 1 17069 1   *Farastu to Seven Year's Bad Luck
+M 0 17042 4 17065 1   *Salamander to Hallway
+M 0 17042 4 17062 1   *Salamander to Hallway
+M 0 17042 4 17068 1   *Salamander to Hallway
+M 0 17043 3 17066 1   *Fire bat to Hallway
+M 0 17043 3 17064 1   *Fire bat to Hallway
+M 0 17044 1 17070 1   *Spectre to Western Closet
+M 0 17045 1 17072 1   *Hydroloth to All's Well
+M 0 17046 1 17072 1   *Water Elemental to All's Well
+M 0 17047 1 17074 1   *Stone Golem to Blackout
+E 0 17037 60 14       *Bracers of Defense
+M 0 17048 1 17075 1   *Zathis II to That Blasted Bridge
+E 0 17038 60 8        *Slippers of Spider Climbing
+M 0 17049 1 17079 1   *Sir Ayvers to Bedchamber
+E 0 17040 60 16       *Defender
+E 0 17041 60 6        *Helm of Brilliance
+E 0 17042 60 11       *Large shield +4
+M 0 17050 1 17081 1   *Dranloc to Exit from Third Crawlway
+G 0 17046 60          *Tear of the Gods
+G 0 17045 40          *Scroll of Stone
+M 0 17052 1 17083 1   *Mezzoloth to The Tomb
+M 0 17051 1 17083 1   *Zarrp to The Tomb
+O 0 17039 60 17082    *Glowing coatrack to The Room at the End
+O 0 17043 60 17082    *Basilisk statue to The Room at the End
+O 0 17044 60 17082    *Rug to The Room at the End
+D 0 17030 1 1         *Wooded Clearing east to Hidden Passage
+D 0 17045 5 1         *Well down to Just Add Water
+D 0 17047 4 1         *Just Add Water up to Well
+D 0 17049 0 1         *Smoke gets in your eyes to Wight This Way
+D 0 17050 2 1         *Wight this Way to Smoke gets in your eyes
+D 0 17069 1 1         *Seven Years Bad Luck to East Closet
+D 0 17069 3 1         *Seven Years Bad Luck to West Closet
+D 0 17070 1 1         *West Closet to Seven Years Bad Luck
+D 0 17071 3 1         *East Closet to Seven Years Bad Luck
+D 0 17078 1 1         *Bottom of Shaft to Bedchamber
+D 0 17079 3 1         *Bedchamber to Bottom of Shaft
+D 0 17081 0 1         *Exit of Third Crawlway to The Room at the End
+D 0 17082 2 1         *The Room at the End to Exit of Third Crawlway
+S
+
+#SHOPS
+
+17030 15 17 19 11 0 130 75 0 23
+17033 1 2 3 4 10 130 75 0 23
+17035 8 12 13 32 33 130 100 0 23
+
+0
+
+#SPECIALS
+
+M 17038 spec_cast_undead   *Wight
+M 17044 spec_cast_undead   *Spectre
+M 17048 spec_cast_mage     *Zathis II
+M 17050 spec_cast_cleric   *Dranloc
+
+S
+
+#$
+
+
+
+
+

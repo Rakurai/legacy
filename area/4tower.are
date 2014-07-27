@@ -1,0 +1,2459 @@
+#AREA
+4tower.are~
+The Fourth Tower~
+{H{{ 5 25} {MFinn    {TThe Fourth Tower~
+12700 12773
+
+#MOBILES
+#12701
+male servant~
+A male servant~
+A servant goes about his duties.
+~
+He is cleaning something.  Perhaps you should let him?
+~
+human~
+CH O 500 0
+5 1 1d4+31 1d1+99 2d4+1 slap
+8 8 8 0
+F 0 0 0
+stand stand male 10
+0 0 medium 0
+#12702
+female servant~
+A female servant~
+A servant goes about her duties.
+~
+She is cleaning something.  Perhaps you should let her?
+~
+human~
+CH O 500 0
+5 1 1d4+31 1d1+99 2d4+1 slap
+8 8 8 0
+F 0 0 0
+stand stand female 10
+0 0 medium 0
+#12703
+page~
+A page~
+A page hurries to his destination.
+~
+He looks like he has somewhere to be...now!
+~
+human~
+0 O 500 0
+5 1 1d8+31 1d1+99 2d4+1 punch
+8 8 8 0
+FH 0 0 0
+stand stand male 10
+0 0 medium 0
+#12704
+young squire~
+A young squire~
+A young squire attends to his knight's equipment.
+~
+Running a whetstone down the blade of a sword, this squire has no time for you.
+~
+human~
+T O 600 0
+7 2 1d10+71 1d1+99 3d4+1 slice
+7 7 7 0
+K 0 0 0
+stand stand male 15
+0 0 medium 0
+#12705
+knight training~
+A knight in training~
+A knight in training goes through the Battlemaster's drills.
+~
+His execution of the half-moon technique leaves something to be desired, but he
+is learning.
+~
+human~
+BT O 750 0
+10 2 1d20+100 1d1+99 2d6+4 slice
+4 4 4 0
+EKQ 0 0 0
+stand stand male 20
+0 0 medium 0
+#12706
+cleric apprentice~
+A cleric's apprentice~
+A cleric's apprentice is learning how to perform rituals.
+~
+A smile appears on her face as she correctly pronounces a chant.
+~
+human~
+Q O 750 0
+10 2 1d20+90 1d1+124 1d10+4 pound
+4 4 4 0
+CKQ N 0 M
+stand stand female 25
+0 0 medium 0
+#12707
+wizard apprentice~
+A wizard's apprentice~
+A wizard's apprentice is studying large tomes of text.
+~
+A light bulb appears over his head as he says, "So that's how it works!"
+~
+human~
+R O 750 0
+10 2 1d20+85 1d1+124 1d10+2 stab
+4 4 4 0
+FQ 0 0 0
+stand stand male 25
+0 0 medium 0
+#12708
+scout apprentice~
+A scout's apprentice~
+An apprentice is trying her hardest not to be seen.
+~
+Vanishing completely from your eyes for a split second, she reappears with a
+nasty little grin on her face.
+~
+human~
+S O 750 0
+10 2 1d20+95 1d1+99 2d6+2 pierce
+4 4 4 0
+FN 0 0 0
+stand stand female 28
+0 0 medium 0
+#12709
+visiting merchant~
+A visiting merchant~
+A merchant stands here, going over a list of his inventory.
+~
+A plump man, he no less exudes an air of wealth.
+~
+human~
+CH 0 250 0
+15 3 1d1+149 1d1+99 3d6+1 slap
+2 2 2 0
+JN 0 0 0
+stand stand male 50
+0 0 medium 0
+#12710
+clerk~
+A clerk~
+A clerk sits here at her desk, making appointments to see the TowerLord.
+~
+She sifts through the mass of paperwork before her, looking for something in
+particular.  When she doesn't seem to find it she looks at you and asks, "Do
+you have an appointment?  The TowerLord is very busy you know.  I can make an
+appointment if you'd like.  Is that what you'd like?  Well..."  She continues
+to chatter on annoyingly.
+~
+human~
+B DEO 1000 0
+15 3 1d1+199 1d1+99 3d5+5 thwack 
+2 2 2 0
+CDHO K J 0
+stand stand female 0
+0 0 medium 0
+#12711
+stablemaster stable master~
+A stablemaster~
+A stablemaster spends her time grooming a griffon.
+~
+She is obviously proud of her work judging by the amount of time she spends
+keeping the marvelous winged creatures groomed.
+~
+human~
+B O 850 0
+15 4 1d10+150 1d1+99 2d8+6 slice
+3 3 3 0
+EI 0 0 0
+stand stand female 30
+0 0 medium 0
+#12712
+minor noble~
+A minor noble~
+A well dressed noble stands here waiting for an audience.
+~
+Dressed in expensive clothing, this visiting noble looks impatient at having to
+wait for an audience.
+~
+human~
+H 0 0 0
+15 3 2d10+140 1d1+99 3d6+4 slap
+3 3 3 0
+FKU BP 0 0
+stand stand none 50
+0 0 medium 0
+#12713
+swordsman~
+A swordsman~
+A swordsman attempts to teach a new move to a willing listener.
+~
+He spins his blade from left to right, then brings it across in a diagonal
+motion.  A certain killing maneuver.
+~
+human~
+T O 900 0
+20 5 1d10+269 1d1+99 6d4+6 slash
+-1 -1 -1 0
+DFKU IN L H
+stand stand male 100
+0 0 medium 0
+#12714
+priest~
+A priest~
+A devout woman instructs her pupils.
+~
+She wears plain robes and a holy symbol at her neck.  Her eyes radiate a
+feeling of calm.
+~
+human~
+Q O 900 0
+20 5 1d10+249 1d1+199 5d4+6 pound
+-1 -1 -1 0
+CKU IN L H
+stand stand female 90
+0 0 medium 0
+#12715
+mage~
+A mage~
+An intelligent looking man discusses a spell theory with his pupil.
+~
+A man of middle years, he looks as if he knows a thing or two about the ways of
+magic.
+~
+human~
+R O 900 0
+20 5 1d10+239 1d1+199 5d4+4 stab
+-1 -1 -1 0
+FKU IN L H
+stand stand male 90
+0 0 medium 0
+#12716
+trailblazer~
+A trailblazer~
+A fellow who would feel at home in the forest as well as the city appears from
+the shadows.
+~
+His garments are dyed in earthy tones and dried mud still clings to his boots. 
+He dismisses you after staring at you a moment.
+~
+human~
+S O 900 0
+20 5 1d10+249 1d1+99 6d4+6 pierce
+-2 -2 -2 0
+BEFNU IN L H
+stand stand male 100
+0 0 medium 0
+#12717
+griffon~
+A griffon~
+A majestic winged beast rests here, basking in the sun.
+~
+With the body of a lion, and the head of a great bird, this creature could use
+either its claws or beak to wreak havoc on an enemy.
+~
+dragon~
+B HOV 1000 0
+20 4 1d1+299 1d1+99 5d4+5 bite
+-1 -1 -1 0
+DEHM AB ILQ K
+stand stand none 0
+0 0 medium 0
+#12718
+otto man~
+Otto~
+Decked in full plate armor, a man stands here watching his students.
+~
+Towering well over six foot, Otto bears many scars from previous battles.  With
+an almost casual glance he sums up your strengths and weaknesses.
+~
+human~
+BT HO 1000 0
+25 6 1d1+399 1d1+99 10d4+10 charge
+-4 -4 -4 0
+CDEFIK ABIN L H
+sit stand male 150
+0 0 medium 0
+#12719
+delilah woman~
+Delilah~
+Exuding a holy aura, a graceful woman smiles at her students.
+~
+A slim, graceful woman, Delilah is most serene.  She attempts to fulfill those
+requests which are within her ability, but frowns on foolishness.
+~
+human~
+BQ HO 1000 0
+25 5 1d1+349 1d1+299 8d4+10 divine
+-4 -4 -4 0
+CEFK ABIN L H
+stand stand female 150
+0 0 medium 0
+#12720
+mageddon man~
+Mageddon~
+A wizened old man sits here evaluating his students.
+~
+Old beyond years, Maggedon wears his long white beard with pride.  His eyes
+reflect a knowledge that cannot be gleaned from books alone.
+~
+human~
+BR HO 1000 0
+25 5 1d1+329 1d1+299 8d4+10 stab
+-4 -4 -4 0
+EFK ABIN L H
+stand stand male 150
+0 0 medium 0
+#12721
+vision woman~
+Vision~
+A woman relaxes in the shadows of this room.  When she notices that you have
+seen her, she grins at you.
+~
+Tall, thin and quick as a whip, the woman who calls herself Vision stands before
+you.  A master at stealth and intrigue she is an asset to the Fourth Tower.
+~
+human~
+BS HOQ 1000 0
+25 5 1d1+349 1d1+99 8d4+10 sting
+-5 -5 -5 0
+BEFKN ABIN L H
+stand stand female 150
+0 0 medium 0
+#0
+
+#OBJECTS
+#12700
+practice shield~
+A practice shield~
+An apprentice has left his practice shield here.~
+wood~
+armor 0 AJ
+C BC AC 0 0
+10 7 500 P
+A
+17 -2
+E
+practice shield~
+Made out of wood, this shield can no less perform its task in the combat arena.
+~
+#12701
+practice armor~
+A suit of practice armor~
+A suit of practice armor has been discarded in the corner.~
+leather~
+armor 0 AD
+AC AC AC 0 0
+10 20 500 P
+A
+13 5
+E
+practice armor~
+Leather strips sewn together form this suit of armor.
+~
+#12702
+practice sword~
+A practice sword~
+A wooden practice sword lies here.~
+wood~
+weapon 0 AN
+sword 4 3 slash 0
+10 5 500 P
+A
+19 1
+A
+18 2
+E
+practice sword~
+Two strips of cured wood tied together.  Makes a nasty welt when it connects.
+~
+#12703
+practice mace~
+A practice mace~
+A wooden practice mace lies here.~
+wood~
+weapon 0 AN
+mace 4 3 pound 0
+10 5 500 P
+A
+19 2
+A
+18 1
+E
+practice mace~
+A wooden shaft with a carved wooden head.  Bruises galore.
+~
+#12704
+practice holy symbol~
+A practice holy symbol~
+A plain brass holy symbol is here.~
+brass~
+armor 0 AC
+AC AC AC 0 0
+10 1 500 P
+A
+12 5
+E
+practice holy symbol~
+Your very first holy symbol!  It performs as a medium between you and your
+deity, though powerful prayers may not be answered.
+~
+#12705
+practice robes upper~
+Some practice robes~
+A young mage's practice robes are folded neatly here.~
+cloth~
+armor 0 AI
+BC AC C 0 0
+10 3 500 P
+A
+5 1
+E
+practice robes upper~
+These robes look like they would fit nicely on your upper body.
+~
+#12706
+practice robes lower~
+Some practice robes~
+A young mage's practice robes are discarded here.~
+cloth~
+armor 0 AF
+BC AC C 0 0
+10 3 500 P
+A
+14 50
+E
+practice robes lower~
+These robes look like they would fit nicely on your lower body.
+~
+#12707
+practice hat~
+A practice hat~
+A conical shaped hat sits here.~
+cloth~
+armor 0 AE
+C BC AC 0 0
+10 1 500 P
+A
+3 1
+E
+practice hat~
+Shaped like a cone, this hat has a clearance of approximately 2 feet.  Better
+duck when going through doors!
+~
+#12708
+practice gloves~
+A pair of practice gloves~
+Some leather practice gloves are here.~
+leather~
+armor 0 AH
+C BC AC 0 0
+10 3 500 P
+A
+1 1
+E
+practice gloves~
+They are made of tough strips of worn leather.
+~
+#12709
+practice boots~
+A pair of practice boots~
+Some leather practice boots stand upright here.~
+leather~
+armor 0 AG
+AC AC AC 0 0
+10 5 500 P
+A
+2 1
+E
+practice boots~
+They are made of tough strips of worn leather with a hard leather sole.
+~
+#12710
+practice dagger~
+A practice dagger~
+A wooden practice dagger lies here.~
+wood~
+weapon 0 AN
+dagger 4 3 stab 0
+10 5 500 P
+A
+19 1
+A
+18 2
+E
+practice dagger~
+It is made of two strips of wood tied together, but the point has been chiseled
+so that it is almost sharp.
+~
+#12711
+silver band~
+A silver band~
+A band of worked silver sits gleaming here.~
+silver~
+treasure A AB
+0 0 0 0 0
+15 1 1500 P
+A
+20 -4
+E
+silver band~
+When the light catches this silver band it gleams.  Must be worth a fortune.
+~
+#12712
+cold steel shield~
+Cold steel shield~
+A shield wrought of cold steel sits here.~
+steel~
+armor I AJ
+BC ABC D AC 0
+20 15 3000 P
+A
+17 -5
+E
+shield~
+It is made of steel, heavy but efficient.
+~
+#12713
+cold steel chainmail~
+Cold steel chainmail~
+A suit of chain mesh sits here.~
+steel~
+armor I AD
+ABC D BC AC 0
+20 30 3000 P
+A
+13 20
+E
+chainmail~
+Chain links wrought from cold steel form a shirt of armor.
+~
+#12714
+cold steel broadsword~
+A Cold steel broadsword~
+A broad-bladed sword rests here.~
+steel~
+weapon BI AN
+sword 6 3 slash B
+20 10 4000 P
+A
+19 2
+A
+18 3
+E
+broadsword~
+A broad blade chisels to a point, the entire weapon radiates cold.
+~
+#12715
+cold steel mace~
+A Cold steel mace~
+A cold and heavy steel mace rests here.~
+steel~
+weapon BI AN
+mace 6 3 crush B
+20 10 4000 P
+A
+19 2
+A
+18 3
+E
+mace~
+A tapered ball of steel with metal flares, the entire weapon radiates cold.
+~
+#12716
+cold steel ankh~
+A Cold steel ankh~
+An ankh lies here.~
+steel~
+armor I AC
+ABC ABC ABC AC 0
+20 5 3000 P
+A
+12 15
+E
+ankh~
+The symbol of life, it is forged from cold steel.
+~
+#12717
+flowing robes upper~
+Some flowing robes~
+Some flowing robes lie folded on the floor.~
+cloth~
+armor I AI
+D BC ABC AC 0
+20 7 3000 P
+A
+5 2
+E
+robes upper~
+They are woven of a heavy cloth, ideal for cold climates.
+~
+#12718
+flowing robes lower~
+Some flowing robes~
+Some flowing robes lie unfolded on the floor.~
+cloth~
+armor I AF
+7 7 7 5 0
+20 7 3000 P
+E
+robes lower~
+They are woven of a heavy cloth, ideal for cold climates.
+~
+A
+14 100
+#12719
+tall pointed hat~
+A Tall, pointed hat~
+A tall pointed hat sits on the table.~
+cloth~
+armor I AE
+BC D ABC AC 0
+20 3 3000 P
+A
+3 2
+E
+pointed hat~
+A conical hat, rising a good foot off ones' head.
+~
+#12720
+hard leather gloves~
+Hard leather gloves~
+A pair of hard leather gloves are here.~
+leather~
+armor I AH
+BC BC AD AC 0
+20 8 3000 P
+A
+1 2
+E
+hard leather gloves~
+They serve a dual purpose, defense against foes as well as the cold.
+~
+#12721
+hard leather boots~
+Hard leather boots~
+A pair of hard leather boots are here.~
+leather~
+armor I AG
+BC ABC D AC 0
+20 8 3000 P
+A
+2 2
+E
+hard leather boots~
+They serve a dual purpose, defense against foes as well as the cold.
+~
+#12722
+cold steel dagger~
+Cold steel dagger~
+A dagger wrought of cold steel lies here.~
+steel~
+weapon BI AN
+dagger 3 3 stab B
+15 5 4000 P
+A
+19 2
+A
+18 3
+E
+dagger~
+Forged from cold steel, the entire blade radiates cold.
+~
+#12723
+spiked greaves~
+Spiked greaves~
+A wicked looking set of spiked greaves is here.~
+steel~
+armor IK AI
+ABC AD D AC 0
+25 20 5000 P
+A
+19 2
+A
+18 2
+E
+spiked greaves~
+The greaves themselves are crafted from cold wrought steel.  Wicked looking
+spikes stick forth from the arm guards, adding to the offensive potential of
+the wearer.
+~
+#12724
+spiked leggings~
+Spiked leggings~
+A wicked looking set of spiked leggings is here.~
+steel~
+armor IK AF
+AD ABC D AC 0
+25 20 5000 P
+A
+19 2
+A
+18 2
+E
+spiked leggings~
+The leggings themselves are crafted from cold wrought steel.  Wicked looking
+spikes stick forth from the leg guards, adding to the offensive potential of
+the wearer.
+~
+#12725
+ankh~
+Sun blazoned ankh~
+An ankh set before a golden sun hangs from a chain here.~
+silver~
+armor IK AC
+AD D ABC AC 0
+25 10 5000 P
+A
+22 -5
+A
+20 -5
+A
+12 30
+E
+ankh~
+Carved of pure silver, this holy symbol is the ankh in front of a golden sun. 
+It is the symbol of life coupled with warmth.
+~
+#12726
+clear vial~
+A clear liquid filled vial~
+A vial filled with clear liquid sits here.~
+glass~
+potion 0 A
+25 'armor' 'bless' 'cure critical' ''
+25 1 5000 P
+E
+clear vial~
+A small glass vial filled with a clear liquid.
+~
+#12727
+spellbook~
+A leatherbound spellbook~
+A leatherbound spellbook rests on a table here.~
+leather~
+wand K AO
+25 5 5 'fireball' 0
+25 10 5000 P
+A
+4 1
+A
+3 1
+E
+spellbook~
+A large leatherbound tome, it holds the complex intonations of spellcasting.
+~
+#12728
+component pouch~
+A spell component pouch~
+A pouch sits here, ideal for storing spell components.~
+leather~
+container N A
+200 A 0 0 0
+25 1 5000 P
+E
+pouch~
+Sewn together from strips of leather, you can smell the sweet and sour scent of
+spell components eminating from it.
+~
+#12729
+black bodysuit~
+Black bodysuit~
+A suit of pitch black cloth lies here.~
+cloth~
+armor IK AK
+D ABC AD AC 0
+25 5 5000 P
+A
+24 -5
+A
+17 -5
+A
+2 1
+E
+black bodysuit~
+Made from a night black material, this bodysuit aids its wearer in stealthy
+actions.
+~
+#12730
+ball flame~
+A ball of flame~
+A ball of flame winks in and out of existence.~
+steel~
+light ABF A
+0 0 ABCFGHIJ 0 0
+25 1 0 P
+A
+19 3
+A
+18 3
+E
+ball flame~
+It's a ball of flame alright.  It dances on its own in the air, winking in and
+out of existence.
+~
+#12731
+rotten desk~
+A rotten desk stands here~
+A rotten desk stands here.  It has stood the test of time...barely.~
+wood~
+container MO O
+50 A 0 0 0
+1 500 0 D
+#12732
+papyrus scroll~
+A sheaf of papyrus~
+How to enchant armor by P. Phinneas Phelligar, esquire.~
+vellum~
+scroll 0 AO
+20 'armor' 'armor' 'enchant armor' ''
+20 10 3500 P
+#0
+
+#ROOMS
+#12700
+Guard Post~
+This room is currently occupied by some novice warriors of the land of
+Aerinor.  It is here that they first learn their duties to the land.  The room
+itself is rather plain, containing only a table and some chairs.  A portrait of
+a half-naked woman occupies the north wall.
+~
+0 0 0
+D2
+Entrance to the Fourth Tower.
+~
+door~
+1 0 12704
+E
+portrait~
+Wow is she hot!
+~
+S
+#12701
+Barracks~
+Several bunks fill the inside of this room.  It is obviously a barracks for
+the soldiers of the Fourth Tower.  Locked footchests at the foot of each bunk
+contain only personal items.
+~
+0 0 0
+D2
+Northwest Combat Arena.
+~
+door~
+1 0 12705
+S
+#12702
+Barracks~
+Bunks line the western and northern walls of this room.  A frequently trodden
+path winds its way from the door in the south wall to another door in the east
+wall.  The bunks look kept, and everything is in order.
+~
+0 0 0
+D1
+Commander's Office.
+~
+door~
+1 0 12703
+D2
+Northeast Combat Arena.
+~
+door~
+1 0 12706
+S
+#12703
+Commander's Office~
+This is a sparsely decorated office of sorts.  A cot lies against the north
+wall, a desk against the south.  Maps and tactical documents are all neatly and
+tidily placed throughout the room.  A suit of antique armor takes up a place of
+honor against the east wall.
+~
+0 0 0
+D3
+Barracks.
+~
+door~
+1 0 12702
+S
+#12704
+Entrance to the Fourth Tower~
+You come in from the cold northern winds and are instantly assaulted by the
+sounds of civilization.  The rustling sound of bodies moving as well as that of
+mock combat can be heard from this foyer.  You see a door to the north and
+servants hurrying about their business to the south.
+~
+0 0 0
+D0
+Post.
+~
+door~
+1 0 12700
+D2
+Hall.
+~
+~
+0 0 12708
+D3
+Outside.
+~
+door~
+1 0 12773
+S
+#12705
+Northwest Combat Arena~
+More students of battle show off their skills here.  Sparring with one
+another, they are having a good time rattling each others heads with stout
+blows.  A door lies in the north wall.
+~
+0 0 0
+D0
+Barracks.
+~
+door~
+1 0 12701
+D1
+Northeast Combat Arena.
+~
+~
+0 0 12706
+D2
+Southwest Combat Arena.
+~
+~
+0 0 12709
+S
+#12706
+Northeast Combat Arena~
+Students of the art of combat take turns swinging their wooden practice
+swords at one another here.  The sounds of youths having fun is occasionally
+cut off by an older, more stern voice.  A door lies in the northern wall.
+~
+0 0 0
+D0
+Barracks.
+~
+door~
+1 0 12702
+D2
+Southeast Combat Arena.
+~
+~
+0 0 12710
+D3
+Northwest Combat Arena.
+~
+~
+0 0 12705
+S
+#12707
+Stairwell~
+>From your vantage point you can see a large, expertly constructed stone
+staircase spiral up the tower.  You have to tilt your head back to take in the
+height of the stairs, and thus the tower itself.  It looks to be at least 50 or
+60 feet to the top.
+~
+0 0 0
+D2
+Tapestry Room.
+~
+~
+0 0 12711
+D4
+Stairwell.
+~
+~
+0 0 12723
+S
+#12708
+Hall~
+Continuing south from the foyer, you notice the amount of servants and pages
+running about their business.  The bustle of daily life within the Fourth Tower
+soon becomes apparent.  The hall continues south, and the tower entrance lies
+north.
+~
+0 0 0
+D0
+Entrance to the Fourth Tower.
+~
+~
+0 0 12704
+D2
+Southwest Corner.
+~
+~
+0 0 12712
+S
+#12709
+Southwest Combat Arena~
+This corner of the arena escapes much of the training that is taking place
+elsewhere.  It is here that squires have set up to attend to their masters'
+equipment.  Some students wander in and out, dueling with one another, but a
+relative calm has settled here.
+~
+0 0 0
+D0
+Northwest Combat Arena.
+~
+~
+0 0 12705
+D1
+Southeast Combat Arena.
+~
+~
+0 0 12710
+S
+#12710
+Southeast Combat Arena~
+You now know where the sounds of fighting come from.  You stand in the corner
+of a large, dirt-floored arena; several young men and women fight amongst
+themselves with practice weapons.  The large open area is swamped with those
+willing to learn the art of the warrior.  The door out is south.
+~
+0 0 0
+D0
+Northeast Combat Arena.
+~
+~
+0 0 12706
+D2
+Enrance to the Arena.
+~
+door~
+1 0 12714
+D3
+Southwest Combat Arena.
+~
+~
+0 0 12709
+S
+#12711
+Tapestry Room~
+Large tapestries of all colors and shapes line the walls here.  They look as
+if they are well tended to and would probably fetch a high price at market, if
+the inhabitants of the Fourth Tower allowed you to remove them.  Not likely.
+~
+0 0 0
+D0
+Stairwell.
+~
+~
+0 0 12707
+D2
+Southeast Corner.
+~
+~
+0 0 12715
+S
+#12712
+Southwest Corner~
+There is much traffic here as people run all about on their errands.  The
+strong stonework that makes up the Fourth Tower can be seen here in the support
+buttresses that hold the place together.  The hallway continues to the north
+and east.
+~
+0 0 0
+D0
+Hall.
+~
+~
+0 0 12708
+D1
+Alcove.
+~
+~
+0 0 12713
+S
+#12713
+Alcove~
+The hallway runs east and west here.  Set in the south wall is an alcove, a
+statue dedicated to valor filling it.  As usual, the bustle of people making
+their way through here is an inconvenience.  You can continue to the east and
+west.
+~
+0 0 0
+D1
+Entrance to the Arena.
+~
+~
+0 0 12714
+D3
+Southwest Corner.
+~
+~
+0 0 12712
+E
+statue~
+The God of Valor is a tall human male, bedecked in plated mail and wielding a
+stout two-handed sword.  His expression conveys courage and loyalty, the key
+ingredients to valor.
+~
+S
+#12714
+Entrance to the Arena~
+The sounds of combat are extremely loud here, and the source seems to be the
+stout wooden door in the north wall.  You wonder what it could be?  The hallway
+continues east and west.
+~
+0 0 0
+D0
+Southeast Combat Arena.
+~
+door~
+1 0 12710
+D1
+Southeast Corner.
+~
+~
+0 0 12715
+D3
+Alcove.
+~
+~
+0 0 12713
+S
+#12715
+Southeast Corner~
+The hallway bends here, leading both west and north.  In the corner, though,
+is a large floral arrangement.  It is an odd assortment of northern
+wildflowers.  The scent here reminds you of the outdoors and the whole area
+radiates a feeling of peace and calm.  A few stragglers have stopped to admire
+the sight as others whirl on bye about their business.
+~
+0 0 0
+D0
+Tapestry Room.
+~
+~
+0 0 12711
+D3
+Entrance to the Arena.
+~
+~
+0 0 12714
+S
+#12716
+Office~
+You enter the western half of the offices of the TowerLord.  It is here that
+much of the affairs of state get tended to.  Officials of all sorts discuss
+matters amongst themselves.  There is more office space to the east.
+~
+0 0 0
+D1
+Office.
+~
+~
+0 0 12717
+D2
+Processional.
+~
+door~
+1 0 12720
+S
+#12717
+Office~
+This is the other half of the Tower's offices.  More officials are here
+solving the problems wracking the lands of Aerinor.
+~
+0 0 0
+D3
+Office.
+~
+~
+0 0 12716
+S
+#12718
+Waiting Room~
+  More seats line the room here, providing comfortable accomodations for those
+wishing to meet with the TowerLord.  You hear an annoying chatty voice coming
+from the south, where the meeting facilities expand.
+~
+1 0 0
+D2
+Waiting Room.
+~
+~
+0 0 12722
+S
+#12719
+Post~
+This sparsely furnished room is a guard post of sorts for the tower.  Looking
+out upon the stairwell, it is here that those seeking service to Aerinor keep
+watch.  Some spicy food sits in front of a youthful guard who seems to be
+making an effort to eat it as fast as possible.
+~
+0 0 0
+D2
+Stairwell.
+~
+door~
+1 0 12723
+S
+#12720
+Processional~
+This is the final waiting point for those who wish to see the TowerLord.  It
+is here that the master of the staff organizes parties to see the him. 
+Tapestries depicting scenes of victory hang from the stone walls.  A plush
+divan sits against the west wall in case things go slower than expected.  To
+the north are the offices and to the south lies the audience chamber itself.
+~
+0 0 0
+D0
+Office.
+~
+door~
+1 0 12716
+D1
+Clerk's Desk.
+~
+door~
+1 0 12721
+D2
+Audience Chamber
+~
+~
+0 0 12724
+S
+#12721
+Clerk's Desk~
+You see the source of the annoying chatty sound here.  A woman sitting behind
+a large desk cluttered with papers chatters on to anyone who will listen.  She
+seems to love her job, much to the dismay of everyone else.  Behind her is a
+door that remains shut, leading to the audience chambers of the TowerLord
+himself.
+~
+0 0 0
+D1
+Waiting Room.
+~
+~
+0 0 12722
+D3
+Processional.
+~
+door~
+1 0 12720
+S
+#12722
+Waiting Room~
+This is the heart of the space put aside for those waiting to see the
+TowerLord.  Plush chairs and benches dot the room, providing a relaxing
+environment.  Books lie here and there as diversions to pass the time.  The
+waiting room continues north and south and you hear an annoying chatty voice to
+the west.
+~
+0 0 0
+D0
+Waiting Room.
+~
+~
+0 0 12718
+D1
+Stairwell.
+~
+door~
+1 0 12723
+D2
+Waiting Room.
+~
+~
+0 0 12726
+D3
+Clerk's Desk.
+~
+~
+0 0 12721
+S
+#12723
+Stairwell~
+The stairway spirals both up and down and is carved from the raw stone that
+the tower is built from.  Doors lie to the north and west.
+~
+0 0 0
+D0
+Post.
+~
+door~
+1 0 12719
+D3
+Waiting Room.
+~
+door~
+1 0 12722
+D4
+Stairwell.
+~
+~
+0 0 12734
+D5
+Stairwell.
+~
+~
+0 0 12707
+S
+#12724
+Audience Chamber~
+You stand at the back of the audience chamber.  The whole of the place is a
+good forty foot by forty foot.  The floors are tiled in marble.  Behind you and
+seemingly all around the room are tapestries depicting events in the history of
+Aerinor.  Across the room in front of you is a slightly raised dais upon which
+sits a stone seat.  To the north is the processional.
+~
+0 0 0
+D0
+Processional.
+~
+~
+0 0 12720
+D1
+Audience Chamber.
+~
+~
+0 0 12725
+D2
+Audience Chamber.
+~
+~
+0 0 12728
+S
+#12725
+Audience Chamber~
+Closer to the front of the audience chamber you get a slightly better view of
+the TowerLord's seat.  More tapestries hang from the walls, continuing on with
+the story of Aerinor.  The floor here is tiled with marble.
+~
+0 0 0
+D2
+Audience Chamber.
+~
+~
+0 0 12729
+D3
+Audience Chamber.
+~
+~
+0 0 12724
+S
+#12726
+Waiting Room~
+You stand at the southern end of the comfortably furnished waiting rooms. 
+Merchants and minor nobles relax here, discussing things amongst themselves. 
+They are all waiting patiently for an audience with the TowerLord themselves. 
+~
+0 0 0
+D0
+Waiting Room.
+~
+~
+0 0 12722
+S
+#12727
+Rec Room~
+This somewhat lavishly furnished room is used as a respite for the TowerLord
+when he can't leave the audience chamber.  Comfortable furniture fills the area
+and entertaining books are stacked on shelves mounted to the walls.  A small
+pantry is built into the north wall.  The entire place looks rather relaxing, a
+necessary escape from the toils of duty.
+~
+0 0 0
+D2
+Behind the Seat.
+~
+~
+0 0 12731
+S
+#12728
+Audience Chamber~
+You are at the back of the audience chamber.  The tile here is marble and
+tapestries depicting the history of the land of Aerinor hang from the walls. 
+Ahead of you you can see the seat of the TowerLord on a slightly raised dais.
+~
+0 0 0
+D0
+Audience Chamber.
+~
+~
+0 0 12724
+D1
+Audience Chamber.
+~
+~
+0 0 12729
+S
+#12729
+Audience Chamber~
+You have finally made it to the front of the audience chamber!  From here you
+can get a pretty good look at the TowerLord's seat rising up on it dais.  The
+floor here is tiled in marble and the south wall holds tapestries depicting the
+history of Aerinor up until the present.
+~
+0 0 0
+D0
+Audience Chamber.
+~
+~
+0 0 12725
+D1
+Seat of Office.
+~
+~
+0 0 12730
+D3
+Audience Chamber.
+~
+~
+0 0 12728
+S
+#12730
+Seat of Office~
+Striding up the steps of the dais you come to the Seat of Office for the Lord
+of the Fourth Tower.  It is constructed of stone and is far more functional
+than comfortable.  It is by no means fancy, reflecting the seriousness of the
+land and the people who inhabit it.  Behind the seat itself are some velvet
+curtains.
+~
+0 0 0
+D1
+Behind the Seat.
+~
+curtain~
+1 0 12731
+D3
+Audience Chamber.
+~
+~
+0 0 12729
+S
+#12731
+Behind the Seat~
+This room contains necessary functions for those long hours where the
+TowerLord cannot get away from his audience.  A chamber pot is in the corner
+and to the north you can see what looks to be a comfortable room.
+~
+0 0 0
+D0
+Rec Room.
+~
+~
+0 0 12727
+D3
+Seat of Office.
+~
+curtain~
+1 0 12730
+S
+#12732
+Post~
+This is another sparsely furnished guard post.  From here, young guards can
+sally forth into the hall to deal with any security problems that may arise
+there.  A striped cat purrs at you from the corner.
+~
+0 0 0
+D1
+Hall.
+~
+door~
+1 0 12733
+S
+#12733
+Hall~
+You stand at the northern half of a north-south hallway.  Potted plants line
+the walls and framed portraits adorn the walls.  To the east is the stairway
+and a door is to the west.
+~
+0 0 0
+D1
+Stairwell.
+~
+door~
+1 0 12734
+D2
+Hall.
+~
+~
+0 0 12736
+D3
+Post.
+~
+door~
+1 0 12732
+S
+#12734
+Stairwell~
+The stairwell continues both up and down here.  A door lies in the west wall.
+~
+0 0 0
+D3
+Hall.
+~
+door~
+1 0 12733
+D4
+Stairwell.
+~
+~
+0 0 12745
+D5
+Stairwell.
+~
+~
+0 0 12723
+S
+#12735
+Storage~
+This is merely a storage room for linens and things the servants use to keep
+the tower neat and tidy.  Not much of interest to brave adventurers like
+yourself.
+~
+0 0 0
+D1
+Hall.
+~
+door~
+1 0 12736
+S
+#12736
+Hall~
+You are standing in the southern half of the hall.  More plants and framed
+pictures decorate this half of the hall.  Additionally, there are doors in the
+west and south walls, and voices can be heard to the east.
+~
+0 0 0
+D0
+Hall.
+~
+~
+0 0 12733
+D1
+Western Training Hall.
+~
+~
+0 0 12737
+D2
+Servant Quarters.
+~
+door~
+1 0 12741
+D3
+Storage.
+~
+door~
+1 0 12735
+S
+#12737
+Western Training Hall~
+The source of the voices you heard from the hall, this area is full of
+budding yound scouts.  Each is eager to please his or her master by performing
+feats of stealth and combat.  Excitement fills the room as students learn new
+tricks.
+~
+0 0 0
+D1
+Eastern Training Hall.
+~
+~
+0 0 12738
+D3
+Hall.
+~
+~
+0 0 12736
+S
+#12738
+Eastern Training Hall~
+More young students train to be scouts here.  Performing all manners of
+maneuvers they look both exhausted and eager.  Target dummies stand against the
+north wall which students you didn't know were there suddenly backstab.  A
+master looks proud.
+~
+0 0 0
+D1
+Stairs.
+~
+door~
+1 0 12739
+D3
+Western Training Hall.
+~
+~
+0 0 12737
+S
+#12739
+Stairs~
+You are at the far end of a spire that juts out from the main tower.  A
+stairwell begins here and climbs up another floor.  Looking out a window you
+judge that you are a good 30' from the ground.
+~
+0 0 0
+D3
+Eastern Training Hall.
+~
+door~
+1 0 12738
+D4
+Private Chambers.
+~
+~
+0 0 12751
+S
+#12740
+Servant Quarters~
+You stand at the western end of the servant quarters, the amount of bunks
+visible showing just how much help it takes to keep the tower in order.
+~
+0 0 0
+D1
+Servant Quarters.
+~
+~
+0 0 12741
+S
+#12741
+Servant Quarters~
+This is the heart of the servant quarters.  Bunks of all types dot the room,
+small personal footchests at the ends of each.  The quarters continue to the
+east and west and a door lies in the north wall.
+~
+0 0 0
+D0
+Hall.
+~
+door~
+1 0 12736
+D1
+Servant Quarters.
+~
+~
+0 0 12742
+D3
+Servant Quarters.
+~
+~
+0 0 12740
+S
+#12742
+Servant Quarters~
+You stand at the eastern end of the servant quarters.  More bunks dot the
+area.  Servants hustle in and out about their business.
+~
+0 0 0
+D3
+Servant Quarters.
+~
+~
+0 0 12741
+S
+#12743
+Post~
+Another of the sparsely furnished guard posts.  A table dominates the center
+of this room, at which some young guards are playing a game of cards.  Barely
+glancing at your intrusion, they raise the stakes and continue.
+~
+0 0 0
+D1
+Hall.
+~
+door~
+1 0 12744
+S
+#12744
+Hall~
+You stand in the middle of a well traveled hall.  There is little or no dust
+here as traffic comes through here frequently.  A large hall of some sort
+unfolds south of you and to the east is the stairwell.  Furthermore, a door
+lies in the west wall.
+~
+0 0 0
+D1
+Stairwell.
+~
+door~
+1 0 12745
+D2
+Banquet Hall.
+~
+~
+0 0 12749
+D3
+Post.
+~
+door~
+1 0 12743
+S
+#12745
+Stairwell~
+You are on the stone staircase that spirals its way up the tower.  Looking
+out the window you judge that you are a good 40' above the ground.  A door
+lies in the west wall.
+~
+0 0 0
+D3
+Hall.
+~
+door~
+1 0 12744
+D4
+Stairwell.
+~
+~
+0 0 12757
+D5
+Stairwell.
+~
+~
+0 0 12734
+S
+#12746
+Stairs~
+This is the far western end of the second spire of the Fourth Tower (whew). 
+The spire juts off from the main body of the tower, and the stairs here lead up
+to some sort of personal chamber.
+~
+0 0 0
+D1
+Inner Sanctum.
+~
+door~
+1 0 12747
+D4
+Private Chambers.
+~
+~
+0 0 12758
+S
+#12747
+Inner Sanctum~
+The voices to the west are not as loud here as young men and women sit about
+in contemplative mediation.  An altar decorates the north wall, vials of holy
+water and basins of a dark liquid on top of it.  A feeling of peace and calm
+eminates from this room.  To the east is an area filled with youths in training
+and a door lies in the west wall.
+~
+0 0 0
+D1
+Training Hall.
+~
+~
+0 0 12748
+D3
+Stairs.
+~
+door~
+1 0 12746
+S
+#12748
+Training Hall~
+Several young men and women train in the art of combat here, as well as the
+art of healing and aiding others in combat.  The room is filled with laughter
+and prayer as the students experience the thrill of learning.  An area to the
+west seems more peaceful, and a door in the east wall leads to the banquet
+hall.
+~
+0 0 0
+D1
+Banquet Hall.
+~
+door~
+1 0 12749
+D3
+Inner Sanctum.
+~
+~
+0 0 12747
+S
+#12749
+Banquet Hall~
+You are at the northwest corner of the immense banquet hall.  This enourmous
+chamber is the communal dining spot of all who dwell within the Fourth Tower,
+as well as where all official dining ceremonies are held.
+~
+0 0 0
+D0
+Hall.
+~
+~
+0 0 12744
+D1
+Banquet Hall.
+~
+~
+0 0 12750
+D2
+Banquet Hall.
+~
+~
+0 0 12753
+D3
+Training Hall.
+~
+door~
+1 0 12748
+S
+#12750
+Banquet Hall~
+The northeastern corner of the giant hall is currently empty.  Serving trays
+are stashed in the corner and the tablecloths lie folded upon the huge banquet
+tables.
+~
+0 0 0
+D2
+Banquet Hall.
+~
+~
+0 0 12754
+D3
+Banquet Hall.
+~
+~
+0 0 12749
+S
+#12751
+Private Chambers~
+This room is barely lighted, a lone candle sending flickering shadows dancing
+throughout.  A hard bed stands against the north wall, a wardrobe against the
+east.  There is a functioning fur carpet on the floor and a hearth remains
+unlit in the south wall.  You feel as if you're being watched.  The stairs lead
+back down.
+~
+0 0 0
+D5
+Stairs.
+~
+~
+0 0 12739
+S
+#12752
+Kitchen~
+Here is where the food necessary to feed the tower's inhabitants is prepared. 
+Racks of spices line the walls and countertops are covered with dishes.  Here
+and re cooks prepare tasty dishes to consume.  Seeing you, the head chef
+yells at you and orders you from her kitchen.
+~
+0 0 0
+D1
+Banquet Hall.
+~
+door~
+1 0 12753
+S
+#12753
+Banquet Hall~
+More tables fill this part of the enormous banquet hall, though the area
+along the west wall is cleared for traffic heading in and out of the kitchen.
+~
+0 0 0
+D0
+Banquet Hall.
+~
+~
+0 0 12749
+D1
+Banquet Hall.
+~
+~
+0 0 12754
+D3
+Kitchen.
+~
+door~
+1 0 12752
+S
+#12754
+Banquet Hall~
+You are in the southeastern corner of the banquet hall.  Here, several
+servants are taking a break to consume a meal.  The smells of food permeate the
+air and make your stomach growl with hunger.
+~
+0 0 0
+D0
+Banquet Hall.
+~
+~
+0 0 12750
+D3
+Banquet Hall.
+~
+~
+0 0 12753
+S
+#12755
+Post~
+Another guardpost, this one is just as sparsely furnished as the rest.  Some
+young warriors in training lounge about the room.
+~
+0 0 0
+D1
+Hall.
+~
+door~
+1 0 12756
+S
+#12756
+Hall~
+This hallway is kept clean.  A long, multi-colored rug covers the floor and
+potted plants line the walls.  The stairwell lies behind the door in the east
+wall, and there is another door in the west wall.  To the south you can see
+rows of shelves.  It seems quiet there.
+~
+0 0 0
+D1
+Stairwell.
+~
+door~
+1 0 12757
+D2
+Library.
+~
+~
+0 0 12760
+D3
+Post.
+~
+door~
+1 0 12755
+S
+#12757
+Stairwell~
+The spiraling stairway contiunes both up and own here.  Peering out a window
+in the east wall you can see that you are a good 50' from the ground now, and
+just to your right you notice a spire jutting from the tower.
+~
+0 0 0
+D3
+Hall.
+~
+door~
+1 0 12756
+D4
+Stairwell.
+~
+~
+0 0 12768
+D5
+Stairwell.
+~
+~
+0 0 12745
+S
+#12758
+Private Chambers~
+This room is bedecked with religious items.  Censers release sweet smelling
+odors into the air.  Padded furniture fills the room, adding comfort.  A large
+silver ankh set before a golden sun dominates the north wall, the symbol of
+life coupled with warmth; the symbol of Aerinor.  The chambers' inhabitant
+smiles at you from her position at the back of the room.
+~
+0 0 0
+D5
+Stairs.
+~
+~
+0 0 12746
+S
+#12759
+Library~
+The northwestern section of the tower's enormous library is jam-packed with
+shelves containing all manner of books.  People scatter about searching for
+this and that, being careful not to disturb one another.
+~
+0 0 0
+D1
+Library.
+~
+~
+0 0 12760
+D2
+Library.
+~
+~
+0 0 12764
+S
+#12760
+Library~
+You enter a large library.  Rows upon rows of bookshelves extend in every
+direction.  The sheer volume of books is astounding.  Several people silently
+search for tomes to help them in their research.
+~
+0 0 0
+D0
+Hall.
+~
+~
+0 0 12756
+D1
+Western Training Hall.
+~
+door~
+1 0 12761
+D2
+Library.
+~
+~
+0 0 12765
+D3
+Library.
+~
+~
+0 0 12759
+S
+#12761
+Western Training Hall~
+You have entered a quiet study area for young men and women who wish to
+pursue the scholarly art of magic.  Several students remain quiet as they bury
+their noses in books, attempting to unearth some bit of useful information. 
+Back to the west is the library and further east into the training hall you see
+flashes of light from time to time and can hear some commotion.
+~
+0 0 0
+D1
+Eastern Training Hall.
+~
+~
+0 0 12762
+D3
+Library.
+~
+door~
+1 0 12760
+S
+#12762
+Eastern Training Hall~
+The source of the light flashes and commotion soon becomes apparent as you
+enter this half of the training hall.  Young mages practice their spells here,
+sometimes unsuccessfully.  Brilliant flashes of different colors light up the
+room as magical spells zoom towards their targets.  The look of utter disbelief
+coupled with that of excited discovery shines on the faces of the apprentices
+here.
+~
+0 0 0
+D1
+Stairs.
+~
+door~
+1 0 12763
+D3
+Western Training Hall.
+~
+~
+0 0 12761
+S
+#12763
+Stairs~
+A set of stairs climbs up the outer wall of this spire.  Jutting forth from
+the main body of the Fourth Tower itself, this would seem to be the highest
+spire, judging from your perceptions when you first noticed the complex from
+afar.
+~
+0 0 0
+D3
+Eastern Training Hall.
+~
+door~
+1 0 12762
+D4
+Private Chambers.
+~
+~
+0 0 12771
+S
+#12764
+Library~
+The southwestern corner of the library contains more rows of shelving as well
+as a couple desks at which students can study.  Most are taken and their
+occupants glance at you and motion for you to be quiet.  Kids.
+~
+0 0 0
+D0
+Library.
+~
+~
+0 0 12759
+D1
+Library.
+~
+~
+0 0 12765
+S
+#12765
+Library~
+This is the somewhat less traveled section of the library.  Tomes of ancient
+knowledge are stored away here, the information they hold disproved or improved
+over the years.  One shelf on the east wall catches your attention, as there is
+enough space on one shelf cleared away for a skull with gems in its eye sockets
+to rest glaring at you.  More bookshelves continue in all directions.
+~
+0 0 0
+D0
+Library.
+~
+~
+0 0 12760
+D1
+~
+door~
+1 0 12766
+D3
+Library.
+~
+~
+0 0 12764
+S
+#12766
+Secret Chamber~
+This room is dark beyond belief, your light barely illuminating it.  As you
+enter you kick up several puffs of dust, evidence that the room has not been
+used in ages.  Empty bookshelves are mounted on the walls, and against the east
+wall there sits a desk, the chair in front of it has its back to you.  Upon
+closer investigation you notice a skeleton dressed in rags sitting in the
+chair.  He is quite dead.
+~
+0 AJK 0
+D3
+~
+door~
+1 0 12765
+S
+#12767
+Bedroom~
+This is the private bedroom of the Fourth TowerLord himself.  A large
+canopied bed dominates the room.  Other bedroom furniture such as a wardrobe
+and footchest are here.  A window looks out the western wall, providing a
+spectacular view of the surrounding countryside.
+~
+0 0 0
+D2
+Study.
+~
+~
+0 0 12769
+S
+#12768
+Stairwell~
+Still continuing both up and down, the spiral staircase has a door to the
+south on this floor.  Change is good.  Glancing out the window you would say
+that you're at least 60' above ground level now.
+~
+0 0 0
+D2
+Sitting Room.
+~
+door~
+1 0 12770
+D4
+Stable.
+~
+~
+0 0 12772
+D5
+Stairwell.
+~
+~
+0 0 12757
+S
+#12769
+Study~
+A comfortably furnished study unfolds itself in this room.  Padded furniture
+is arranged around a warmly lit fireplace.  Sticks of incense remain unlit but
+fill the room with a relaxing scent when needed.  To the east lies the sitting
+room and to the north is the bedroom.
+~
+0 0 0
+D0
+Bedroom.
+~
+~
+0 0 12767
+D1
+Sitting Room.
+~
+~
+0 0 12770
+S
+#12770
+Sitting Room~
+This is where the TowerLord and Lady spend their evenings.  A dining table is
+the main feature of the room, and a comfortable love seat stands against the
+south wall, endtables holding candelabras to either side.  The TowerLord's
+private chambers continue west.
+~
+0 0 0
+D0
+Stairwell.
+~
+door~
+1 0 12768
+D3
+Study.
+~
+~
+0 0 12769
+S
+#12771
+Private Chambers~
+An odd smell assaults your senses as you enter this room.  Countertops filled
+with labratory equipment line the walls and glass vials of all shapes and sizes
+fill the room.  The smell must be coming from the weird components that fill
+the vials and lay about the countertops.  A small bed is stuffed away in the
+corner almost as an afterthought.
+~
+0 0 0
+D5
+Stairs.
+~
+~
+0 0 12763
+S
+#12772
+Elite Stables of the Fourth Tower~
+Finally climbing to apex of the Fourth Tower you are glad to once again catch
+a breath of fresh air.  You now stand on the roof and the view here is
+incredible.  Occupying much of the roof is a sturdily constructed stable, which
+upon closer inspection houses some magnificient beasts.  Turning back your
+attention, however, you gaze out mile after mile at the unfolding landscape. 
+It is truly quite a sight.
+~
+0 0 1
+D5
+Stairwell.
+~
+~
+0 0 12768
+S
+#12773
+Outside the Fourth Tower~
+You are standing in front of an immense worked stone tower.  Glancing up at
+the construction you notice that the tower itself is perhaps 60 or more feet
+tall.  Jutting out from the tower are three independent spires, their purpose
+unknown.  A large wooden door leads into the tower and stands in the east wall. 
+With the cold wind of northern Thera whipping at your back, you decide to go in
+and test your luck.
+~
+0 0 2
+D1
+Entrance.
+~
+door~
+1 0 12704
+D3
+~
+~
+0 0 9783
+S
+#0
+
+#RESETS
+M 0 12701  10 12708 10	* A male servant
+M 0 12701  10 12740 10	* A male servant
+M 0 12701  10 12741 10	* A male servant
+M 0 12701  10 12754 10	* A male servant
+M 0 12701  10 12756 10	* A male servant
+M 0 12702  10 12713 10	* A female servant
+M 0 12702  10 12741 10	* A female servant
+M 0 12702  10 12742 10	* A female servant
+M 0 12702  10 12752 10	* A female servant
+M 0 12702  10 12754 10	* A female servant
+M 0 12703  10 12703 10	* A page
+M 0 12703  10 12717 10	* A page
+M 0 12703  10 12730 10	* A page
+M 0 12703  10 12770 10	* A page
+M 0 12704   6 12701  6	* A young squire
+M 0 12704   6 12706  6	* A young squire
+M 0 12704   6 12709  6	* A young squire
+M 0 12705  20 12700 20	* A knight in training
+E 0 12700   5    11	*   A practice shield
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12702   5    16	*   A practice sword
+M 0 12705  20 12702 20	* A knight in training
+E 0 12700   5    11	*   A practice shield
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12702   5    16	*   A practice sword
+M 0 12705  20 12705 20	* A knight in training
+E 0 12700   5    11	*   A practice shield
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12702   5    16	*   A practice sword
+M 0 12705  20 12710 20	* A knight in training
+E 0 12700   5    11	*   A practice shield
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12702   5    16	*   A practice sword
+M 0 12705  20 12719 20	* A knight in training
+E 0 12700   5    11	*   A practice shield
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12702   5    16	*   A practice sword
+M 0 12705  20 12732 20	* A knight in training
+E 0 12700   5    11	*   A practice shield
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12702   5    16	*   A practice sword
+M 0 12705  20 12743 20	* A knight in training
+E 0 12700   5    11	*   A practice shield
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12702   5    16	*   A practice sword
+M 0 12705  20 12755 20	* A knight in training
+E 0 12700   5    11	*   A practice shield
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12702   5    16	*   A practice sword
+M 0 12706   6 12747  6	* A cleric's apprentice
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12703   3    16	*   A practice mace
+E 0 12704   3     3	*   A practice holy symbol
+M 0 12706   6 12748  6	* A cleric's apprentice
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12703   3    16	*   A practice mace
+E 0 12704   3     3	*   A practice holy symbol
+M 0 12706   6 12758  6	* A cleric's apprentice
+E 0 12701  10     5	*   A suit of practice armor
+E 0 12703   3    16	*   A practice mace
+E 0 12704   3     3	*   A practice holy symbol
+M 0 12707   8 12761  8	* A wizard's apprentice
+E 0 12705   4    10	*   Some practice robes
+E 0 12706   4     7	*   Some practice robes
+E 0 12707   4     6	*   A practice hat
+M 0 12707   8 12762  8	* A wizard's apprentice
+E 0 12705   4    10	*   Some practice robes
+E 0 12706   4     7	*   Some practice robes
+E 0 12707   4     6	*   A practice hat
+M 0 12707   8 12764  8	* A wizard's apprentice
+E 0 12705   4    10	*   Some practice robes
+E 0 12706   4     7	*   Some practice robes
+E 0 12707   4     6	*   A practice hat
+M 0 12707   8 12771  8	* A wizard's apprentice
+E 0 12705   4    10	*   Some practice robes
+E 0 12706   4     7	*   Some practice robes
+E 0 12707   4     6	*   A practice hat
+M 0 12708   6 12737  6	* A scout's apprentice
+E 0 12708   3     9	*   A pair of practice gloves
+E 0 12709   3     8	*   A pair of practice boots
+E 0 12710   3    16	*   A practice dagger
+M 0 12709   6 12738  6	* A visiting merchant
+E 0 12708   3     9	*   A pair of practice gloves
+E 0 12709   3     8	*   A pair of practice boots
+E 0 12710   3    16	*   A practice dagger
+M 0 12708   6 12751  6	* A scout's apprentice
+E 0 12708   3     9	*   A pair of practice gloves
+E 0 12709   3     8	*   A pair of practice boots
+E 0 12710   3    16	*   A practice dagger
+M 0 12709   8 12722  8	* A visiting merchant
+M 0 12709   8 12726  8	* A visiting merchant
+E 0 12711   2     1	*   A silver band
+M 0 12709   8 12724  8	* A visiting merchant
+M 0 12709   8 12728  8	* A visiting merchant
+E 0 12711   2     1	*   A silver band
+M 0 12710   1 12721  1	* A clerk
+M 0 12711   1 12772  1	* A stablemaster
+E 0 12722   3    16	*   Cold steel dagger
+M 0 12712   8 12718  8	* A minor noble
+M 0 12712   8 12720  8	* A minor noble
+M 0 12712   8 12725  8	* A minor noble
+M 0 12712   8 12729  8	* A minor noble
+M 0 12713   4 12705  4	* A swordsman
+E 0 12712   2    11	*   Cold steel shield
+E 0 12713   2     5	*   Cold steel chainmail
+E 0 12714   2    16	*   A Cold steel broadsword
+M 0 12713   4 12706  4	* A swordsman
+E 0 12712   2    11	*   Cold steel shield
+E 0 12713   2     5	*   Cold steel chainmail
+E 0 12714   2    16	*   A Cold steel broadsword
+M 0 12714   4 12747  4	* A priest
+E 0 12713   2     5	*   Cold steel chainmail
+E 0 12715   2    16	*   A Cold steel mace
+E 0 12716   2     3	*   A Cold steel ankh
+M 0 12714   4 12759  4	* A priest
+E 0 12713   2     5	*   Cold steel chainmail
+E 0 12715   2    16	*   A Cold steel mace
+E 0 12716   2     3	*   A Cold steel ankh
+M 0 12715   4 12762  4	* A mage
+E 0 12717   2    10	*   Some flowing robes
+E 0 12718   2     7	*   Some flowing robes
+E 0 12719   2     6	*   A Tall, pointed hat
+M 0 12715   4 12764  4	* A mage
+E 0 12717   2    10	*   Some flowing robes
+E 0 12718   2     7	*   Some flowing robes
+E 0 12719   2     6	*   A Tall, pointed hat
+M 0 12716   4 12737  4	* A trailblazer
+E 0 12720   2     9	*   Hard leather gloves
+E 0 12721   2     8	*   Hard leather boots
+E 0 12722   3    16	*   Cold steel dagger
+M 0 12716   4 12738  4	* A trailblazer
+E 0 12720   2     9	*   Hard leather gloves
+E 0 12721   2     8	*   Hard leather boots
+E 0 12722   3    16	*   Cold steel dagger
+M 0 12717   2 12772  2	* A griffon
+M 0 12718   1 12703  1	* Otto
+E 0 12723  -1    10	*   Spiked greaves
+E 0 12724  -1     7	*   Spiked leggings
+M 0 12719   1 12758  1	* Delilah
+E 0 12725  -1     3	*   Sun blazoned ankh
+G 0 12726  -1		*   A clear liquid filled vial
+M 0 12720   1 12771  1	* Mageddon
+E 0 12727  -1    17	*   A leatherbound spellbook
+G 0 12728  -1		*   A spell component pouch
+M 0 12721   1 12751  1	* Vision
+E 0 12729  -1    12	*   Black bodysuit
+E 0 12730  -1     0	*   A ball of flame
+O 0 12731   1 12766	* A rotten desk stands here
+P 0 12732   4 12731 1	* A sheaf of papyrus
+D 0 12700   2     1
+D 0 12701   2     1
+D 0 12702   2     1
+D 0 12702   1     1
+D 0 12703   3     1
+D 0 12704   0     1
+D 0 12704   3     1
+D 0 12705   0     1
+D 0 12706   0     1
+D 0 12710   2     1
+D 0 12714   0     1
+D 0 12716   2     1
+D 0 12719   2     1
+D 0 12720   0     1
+D 0 12720   1     1
+D 0 12722   1     1
+D 0 12723   0     1
+D 0 12723   3     1
+D 0 12730   1     1
+D 0 12731   3     1
+D 0 12732   1     1
+D 0 12733   1     1
+D 0 12733   3     1
+D 0 12734   3     1
+D 0 12735   1     1
+D 0 12736   2     1
+D 0 12736   3     1
+D 0 12738   1     1
+D 0 12739   3     1
+D 0 12741   0     1
+D 0 12743   1     1
+D 0 12744   1     1
+D 0 12744   3     1
+D 0 12745   3     1
+D 0 12746   1     1
+D 0 12747   3     1
+D 0 12748   1     1
+D 0 12749   3     1
+D 0 12752   1     1
+D 0 12753   3     1
+D 0 12755   1     1
+D 0 12756   1     1
+D 0 12756   3     1
+D 0 12757   3     1
+D 0 12760   1     1
+D 0 12761   3     1
+D 0 12762   1     1
+D 0 12763   3     1
+D 0 12765   1     1
+D 0 12766   3     1
+D 0 12768   2     1
+D 0 12770   0     1
+D 0 12773   1     1
+S
+
+#SHOPS
+0
+
+#SPECIALS
+M 12706 spec_cast_cleric     	* A cleric's apprentice
+M 12707 spec_cast_mage       	* A wizard's apprentice
+M 12714 spec_cast_cleric     	* A priest
+M 12715 spec_cast_mage       	* A mage
+M 12719 spec_cast_cleric     	* Delilah
+M 12720 spec_cast_mage       	* Mageddon
+M 12721 spec_thief           	* Vision
+S
+
+#$
+

@@ -1,0 +1,224 @@
+#PLAYER
+Name Testerbot~
+Id   996782927
+LogO 1018731672
+Vers 13
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Sex  1
+Cla  0
+Levl 25
+Tru  91
+Plyd 9769
+Back 5115
+Note 1017656696 1017656696 1017656696 1017656696 1017656696 1017656696 1017656696
+Scro 22
+Room 1226
+HMS  315 313 374 373 259 259
+Gold 2025
+Silv 752
+Exp  31250
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 1
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr A
+Pos  8
+Prac 2818
+Trai 498
+Alig  994
+ACs 100 100 100 100
+Atrib 17 15 15 18 17 16
+AtMod 0 0 0 0 0 0
+QuestPnts 4300
+Pass testerbot~
+Afk {B[{CWed Mar 27 01:07:22 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 1
+LLev 2
+Deit blah~
+Lsit 35.los-angeles-68-69rs.ca.dial-access.att.net~
+Ltim Mon Apr 01 01:24:51 2002
+~
+LSav Sat Apr 13 16:01:12 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FHQ
+HMSP 313 373 259
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'acid blast'
+Sk 1 1 'acid breath'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 75 1 'armor'
+Sk 75 1 'bless'
+Sk 1 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 75 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 75 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'curse'
+Sk 1 1 'dispel magic'
+Sk 75 1 'divine healing'
+Sk 75 1 'divine regeneration'
+Sk 1 1 'energy drain'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 75 1 'fire breath'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'flameshield'
+Sk 1 1 'frenzy'
+Sk 75 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 1 1 'giant strength'
+Sk 75 1 'haste'
+Sk 75 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'infravision'
+Sk 1 1 'invisibility'
+Sk 1 1 'lightning bolt'
+Sk 75 1 'lightning breath'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'polymorph'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 75 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 75 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 75 1 'steel mist'
+Sk 75 1 'stone skin'
+Sk 75 1 'talon'
+Sk 75 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'weaken'
+Sk 75 1 'wrath'
+Sk 40 1 'dagger'
+Sk 1 1 'mace'
+Sk 82 1 'sword'
+Sk 100 1 'backstab'
+Sk 75 1 'bash'
+Sk 75 1 'circle'
+Sk 1 1 'disarm'
+Sk 76 1 'dodge'
+Sk 81 1 'enhanced damage'
+Sk 75 1 'parry'
+Sk 75 1 'rescue'
+Sk 1 1 'trip'
+Sk 77 1 'second attack'
+Sk 76 1 'third attack'
+Sk 76 1 'dual wield'
+Sk 76 1 'fast healing'
+Sk 1 1 'hide'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 75 1 'focus'
+Sk 75 1 'barrier'
+Sk 75 1 'riposte'
+Sk 1 1 'fourth attack'
+Sk 1 1 'rage'
+Sk 1 1 'hex'
+Sk 75 1 'standfast'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'draconian'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'weather'
+End
+
+#O
+Vnum 21
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 177 0 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1403
+Nest 0
+Wear -1
+Cost 100
+Val  25 21 23 0 0
+End
+
+#O
+Vnum 1254
+Nest 0
+ExtF 17580355
+Wear -1
+Lev  0
+Cost 0
+End
+
+#END

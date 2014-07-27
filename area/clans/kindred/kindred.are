@@ -1,0 +1,1368 @@
+#AREA
+kindred.are~
+Caverns of Darkness~
+{H{{CLANS} {MAyelri/Celes {TCaverns of Darkness~
+25000 25199
+
+#MOBILES
+
+#25000
+Vanesha healer trainer~
+{cVa{Wn{ge{Ws{cha{x~
+A figure garbed in midnight black robes is here, tending to the altar of Akira.
+~
+A tall, mysterious figure is dressed in black robes, blending in easily with
+the darkness around it.  The hooded cloak obscures the features of the 
+hidden face, and for as long as Kindred members can remember, this mysterious
+acolyte of Akira has served the Darkness faithfully.  
+~
+unique~
+BGJKabd CDEFGHJKNOPVYZd -1000 S
+200 15 1d1+9999 1d1+9999 1d1+100 wrath
+-1000 -1000 -1000 -1000
+0 ABCD 0 0
+stand stand female 0
+0 0 medium 0
+
+#25001
+Ashnod equipment shopkeeper master~
+{cA{gs{Wh{gn{co{Wd{x~
+A slender maiden tends to the equipment before her with quick and nimble hands.
+~
+The air around the maiden before you hums with energy and power.  Her slender
+frame belies her great strength, and yet she is also stunningly beautiful.
+Raven hair cascades down her back in ringlets, ending near mid-back, and large
+almond eyes study her surroundings carefully.  The intelligence and knowledge 
+carried in those eyes shows why Ashnod is the equipment master of the Kindred.
+~
+unique~
+BG CDEFGHJNOPVYZ -1000 S
+100 0 1d1+9999 1d1+9999 10d10+5 wrath
+-1000 -1000 -1000 -1000
+0 ABCD 0 0
+stand stand female 200000
+0 0 medium 0
+
+#25002
+dystanex food shopkeeper storekeeper~
+{CD{Wy{Bs{Wt{Ca{Wn{Be{Wx{x~
+{CD{Wy{Bs{Wt{Ca{Wn{Be{Wx{x stands here with a bloody apron and a shiny steel cleaver.
+~
+{CD{Wy{Bs{Wt{Ca{Wn{Be{Wx{Cs{x chamber reflects on the man
+himself. Very much like the many different types of body parts strewn
+about, his body is made up of many different kinds of creatures. His head
+is scaly and lizard like, his arms are covered in a dark fur, matted with
+blood. He stands on the legs of what could be called nothing other than a
+dragon's, and his torso appears to be that of a cat. Wings
+protrude from his back, and the leathery hide that spands between them
+would suggest they came from a bat. Grinning evily he looks at you and
+asks, "What'll it be?"
+~
+unique~
+BG CDEFGHJNOPVYZ -1000 S
+120 0 1d1+9999 1d1+9999 10d10+5 wrath
+-1000 -1000 -1000 -1000
+0 ABCD 0 0
+stand stand male 200000
+0 0 large 0
+
+#25050
+cid man~
+Cid~
+A man in a yellow trenchcoat stands here.
+~
+An older man with a mustache and yellow trenchcoat looks back at you.
+~
+human~
+BGZ H 1000 S
+1 7 1d1+999 1d1+999 2d5+1 pierce
+-25 -25 -25 -25
+C ABCD 0 0
+stand stand male 200
+0 0 medium 0
+
+#25051
+demon yoshi~
+a {PDemon Yoshi{x~
+A {PDemon Yoshi{x stands here.
+~
+This {PDemon Yoshi{x is incredibly cute, and
+incredibly scary at the same time. But for the eyes,
+it would appear to be a cute cartoon character, but
+the eyes show more knowledge of pain, fury, and
+killing than you have seen before in your life.
+~
+yoshi~
+BGZ H 0 S
+1 7 1d1+999 1d1+999 2d5+1 pierce
+-25 -25 -25 -25
+C ABCD 0 0
+stand stand none 0
+0 0 medium 0
+
+#25052
+portrait~
+a portrait of Liriel~
+A living portrait of Liriel is gazing at you.
+~
+You see a beautiful picture of Liriel hanging on the
+wall. It seems almost alive, maybe because it IS! She
+smiles at you and all of your troubles float away.
+~
+portrait~
+BGZ H 0 S
+1 7 1d1+999 1d1+999 2d5+1 pierce
+-25 -25 -25 -25
+C ABCD 0 0
+stand stand female 0
+0 0 medium 0
+
+#0
+
+#OBJECTS
+
+#25000
+fountain white marble~
+{Wthe fountain{x~
+An ornate {Wwhite marble{x fountain gurgles softly.~
+{Wwhite marble{x~
+fountain GIOSY P
+0 0 water 0 0
+0 0 0 I
+
+#25001
+leg food knot~
+the leg of a {TKnot{x~
+The severed leg of a {Tknot{x lies here, slowly decomposing.~
+flesh~
+food ISY AO
+1 50 0 0 0
+0 1 100 P
+
+#25002
+arm food highlander~
+the arm of a {bHighlander{x~
+The arm of a {bHighlander{x twitches on the ground.~
+flesh~
+food ISY AO
+1 50 0 0 0
+0 1 100 P
+
+#25003
+hand food blue rose~
+the hand of a {BB{Clu{Be R{Cos{Be{x~
+The hand of a {BB{Clu{Be R{Cos{Be{x lies here.~
+flesh~
+food ISY AO
+1 50 0 0 0 
+1 1 100 P
+
+#25004
+paw lir knot~
+the paw of a {TKnot's Lir{x~
+A paw lies on the ground here, severed from the body of a {TKnot's Lir{x.~
+flesh~
+food ISY AO
+1 50 0 0 0
+1 1 100 P
+
+#25005
+kidney food macdougal~
+the {Rkidney{x of a {GMa{HcDo{Rugall{x~
+A lump of {Rred{x flesh lies here.{x~
+flesh~
+food ISY AO
+0 0 0 1 0
+55 0 100 P
+
+#25006
+vampire skull drink~
+A hollow {Rvampire{x skull~
+A hollowed out {Rvampire{x skull holding some sort of liquid is resting on the ground.~
+bone~
+drink ISY AEO
+500 500 blood 0 0
+1 1 100 P
+
+#25007
+stomach lining drink~
+Stomach Lining of a {bHighlander{x~
+The stomach lining of a {bHighlander{x has been ripped from their still living body and discarded.~
+flesh~
+drink ISY AO
+500 500 blood 0 0
+1 1 100 P
+
+#25011
+portal pirate~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to the {RPirate {Gcaves{x~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to the {RPirate {Gcaves{x fades in and out of this reality.~
+Nothingness~
+portal ABGIOSY P
+0 0 A 4427 0
+0 0 0 I
+
+#25012
+portal new thalos~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to {CNew Thalos{x~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to {CNew Thalos{x fades in and out of this reality.~
+Nothingness~
+portal ABGIOSY P
+0 0 A 9506 0
+0 0 0 I
+
+#25013
+portal recall~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to {YRecall{x~
+A {Wsh{Cim{Yme{Cri{Wng{x {Wp{co{gr{ct{wa{cl{x to {YRecall{x fades in and out of this reality.~
+Nothingness~
+portal ABGIOSY P
+0 0 A 3001 0
+0 0 0 I
+
+#25014
+couch black leather~
+a {cblack leather{x couch~
+A large couch of {cblack leather{x is here.~
+{cblack leather{x~
+furniture GIOSY P
+10 0 EHK 200 100
+0 4000 0 I
+
+#25015
+red pill~
+a {Pred pill{x~
+A {Pred pill{x lies here.~
+false reality~
+pill S AP
+15 'sanctuary' 'haste' 'pass door' 'stone skin'
+15 1 0 P
+E
+red pill~
+Which one do you eat...  the {Pred pill{x, or the {Bblue pill{x?
+~
+
+#25016
+blue pill~
+a {Bblue pill{x~
+A {Bblue pill{x lies here.~
+reality~
+pill S AP
+15 'armor' 'shield' 'protection evil' 'protection good'
+15 1 0 P
+E
+blue pill~
+Which one do you eat...  the {Bblue pill{x, or the {Pred pill{x?
+~
+
+#25017
+anvil kindred~
+the anvil~
+An unholy anvil of ancient steel sits here on a black marble pedastle.~
+ancient steel~
+anvil ABIOSTY P
+0 3 0 0 3
+1 4000 0 I
+E
+anvil kindred~
+An unholy artifact from eons long past, this anvil was unearthed from the very place
+where it now resides, buried before time was recorded.  It's meteoric steel is pure
+black, but shines with an unearthly black glow that warps light around it, making it
+blur before the eyes.  Many deadly weapons have been forged on it, and reforging
+blades stained with the blood of outsiders only seems to make it grow in power.
+~
+E
+black marble pedestal~
+The pedestal is a round slab of black marble, as flat and smooth as glass.  The
+Kindred's anvil rests atop it.
+~
+
+#25049
+orb darkness leadereq kindred~
+{NO{cr{Nb {gof {cDa{Wr{gkn{We{css{x~
+A strange unearthly darkness is centered and hovers here.~
+darkness~
+light ABGIOSTY AP
+0 0 -1 0 0
+50 0 0 I
+A
+17 -23
+A
+18 5
+A
+19 5
+A
+12 40
+A
+13 60
+A
+5 3
+A
+4 1
+A
+3 3
+A
+1 1
+
+#25050
+silence midnight~
+{gthe {cs{Wi{gl{ce{gn{Wc{ce{g of {Nmidnight{x~
+A chill runs down your spine as the silence overwhelms you.~
+silence~
+armor ABS AG
+6 6 6 5 0
+20 2 2000 P
+A
+13 20
+A
+14 -10
+A
+18 2
+A
+19 2
+A
+5 1
+A
+3 1
+A
+20 -1
+E
+eqstat~
+the silence of midnight
+stock: 4 points
+bought: 2.5 points
+
+2 points: +20 hp
+2 points: +2 hit/+2 dam
+1 point: +1 con
+1 point: +1 int
+1 point: -1 saves
+= 7 points
+
+-1 point: -1 age
+= -0.5 points
+~
+
+#25051
+ninja mask~
+{ga {cn{ginj{ca's {cmask{x~
+A black piece of cloth lies here.~
+cloth~
+armor ABS AE
+10 10 10 9 0
+30 3 3000 P
+A
+13 30
+A
+18 3
+A
+19 3
+A
+4 1
+A
+9 -1
+E
+eqstat~
+a ninja's mask
+stock: 5 points
+bought: 1.5 points
+
+3 points: +30 hp
+3 points: +3 hit/+3 dam
+1 point: +1 wis
+= 7 points
+
+-1 point: -1 age
+= -0.5 points
+~
+
+#25052
+bloodspattered gloves~
+{Rb{glo{co{gd{Rs{gpa{Rt{ct{ger{Re{gd {cgloves{x~
+A pair of bloody black leather gloves lie here.~
+leather~
+armor ABS AH
+10 10 10 9 0
+30 3 3000 P
+A
+13 30
+A
+18 3
+A
+19 3
+A
+1 1
+A
+9 -1
+E
+eqstat~
+bloodspattered gloves
+stock: 5 points
+bought: 1.5 points
+
+30 points: +30 hp
+3 points: +3 hit/+3 dam
+1 point: +1 str
+= 7 points
+
+-1 point: -1 age
+= -0.5 points
+~
+
+#25053
+tattooed glyph treachery~
+{ga tattooed {Hg{gl{cy{gp{Hh{g of {ctr{We{gach{We{cry{x~
+Some sort of strange marking is here ... a sense of dread overwhelms you.~
+ink~
+armor ABS AI
+10 10 10 9 0
+30 3 3000 P
+A
+13 30
+A
+18 3
+A
+19 3
+A
+2 1
+A
+9 -1
+E
+eqstat~
+a tattooed glyph of treachery
+stock: 5 points
+bought: 1.5 points
+
+3 points: +30 hp
+3 points: +3 hit/+3 dam
+1 point: +1 dex
+= 7 points
+
+-1 point: -1 age
+= -0.5 points
+~
+
+#25054
+shroud utter darkness~
+{ga {cshroud of utter darkness{x~
+A complete absence of light floats here.~
+darkness~
+armor ABS AQ
+10 10 10 9 0
+30 3 3000 P
+A
+13 30
+A
+18 3
+A
+19 3
+A
+2 1
+A
+9 -1
+E
+eqstat~
+a shroud of utter darkness
+stock: 5 points
+bought: 1.5 points
+
+3 points: +30 hp
+3 points: +3 hit/+3 dam
+1 point: +1 dex
+= 7 points
+
+-1 point: -1 age
+= -0.5 points
+~
+
+#25055
+ring sign kindred~
+{ga {cring{g bearing the {Nsig{Nn{g of the {cK{Wi{gndr{We{cd{x~
+An onyx ring bearing a demonic sign lies here.~
+onyx~
+armor ABS AB
+13 13 13 12 0
+40 4 4000 P
+A
+13 40
+A
+18 4
+A
+19 4
+A
+20 -2
+A
+2 1
+A
+26 1
+A
+9 -2
+E
+eqstat~
+a ring bearing the sign of the Kindred
+stock: 6 points
+bought: 5 points
+
+4 points: +40 hp
+4 points: +4 hit/+4 dam
+2 point: -2 saves
+2 point: +1 chr, +1 str
+= 12 points
+
+-2 points: -2 age
+= -1 points
+~
+
+#25056
+patience mirror~
+{MPatience{g of the {MM{ci{grr{co{Mr{x~
+A magical aura fills you with competence and wisdom.~
+patience~
+armor ABS AC
+13 13 13 12 0
+40 4 4000 P
+A
+13 40
+A
+18 4
+A
+19 4
+A
+20 -2
+A
+9 -2
+E
+eqstat~
+Patience of the Mirror
+stock: 6 points
+bought: 3 points
+
+4 points: +40 hp
+4 points: +4 hit/+4 dam
+2 point: -2 saves
+= 10 points
+
+-2 points: -2 age
+= -1 points
+~
+
+#25057
+fury blade~
+{RFury{g of the {RB{cl{ga{cd{Re{x~
+A fighting spirit fills you with a demonic rage.~
+fury~
+armor ABS AM
+13 13 13 12 0
+40 4 4000 P
+A
+13 40
+A
+18 4
+A
+19 4
+A
+20 -2
+A
+1 1
+A
+2 1
+A
+9 -2
+E
+eqstat~
+Fury of the Blade
+stock: 6 points
+bought: 5 points
+
+4 points: +40 hp
+4 points: +4 hit/+4 dam
+2 point: -2 saves
+2 points: +1 str, +1 dex
+= 12 points
+
+-2 points: -2 age
+= -1 points
+~
+
+#25058
+faith pillar~
+{NFaith{g of the {NP{ci{gll{ca{Nr{x~
+A bond of friendship inspires trust and loyalty in you.~
+faith~
+armor ABS AI
+16 16 16 15 0
+50 5 5000 P
+A
+13 40
+A
+18 3
+A
+19 3
+A
+20 -2
+A
+9 -2
+E
+eqstat~
+Faith of the Pillar
+stock: 7 points
+bought: 1 point
+
+4 points: +40 hp
+3 points: +3 hit/+3 damage
+2 points: -2 saves
+= 9 points
+
+-2 points: -2 age
+= -1 points
+~
+
+#25059
+stealth leaf~
+{HStealth{g of the {HL{ce{ga{Hf{x~
+A calm zephyr aids you with fleetness and concealment.~
+stealth~
+armor ABS AG
+20 20 20 19 0
+60 6 6000 P
+A
+13 45
+A
+18 3
+A
+19 3
+A
+20 -3
+A
+9 -3
+E
+eqstat~
+Stealth of the Leaf
+stock: 8 points
+bought: 1 point
+
+4.5 points: +45 hp
+3 points: +3 hit/+3 dam
+3 points: -3 saves
+= 10.5 points
+
+-3 points: -3 age
+= -1.5 points
+~
+
+#25060
+cunning lantern~
+{YCunning {gof the {YL{ba{Ynt{be{Yrn{x~
+A guiding beam inspires you with the glory of the Darkness.~
+cunning~
+light ABS AP
+0 0 -1 0 0
+40 4 4000 P
+A
+13 40
+A
+18 4
+A
+19 4
+A
+9 -2
+E
+eqstat~
+Cunning of the Lantern
+stock: 6 points
+bought: 1 points
+
+4 points: +40 hp
+4 points: +4 hit/+4 dam
+= 8 points
+
+-2 points: -2 age
+= -1 point
+~
+
+#25080
+small bed~
+a small bed~
+A small bed occupies a corner of the room.~ 
+wood~
+furniture GIOSY P
+6 0 EHK 100 200
+0 15000 0 I
+E
+bed~
+You see a small, but comfortable looking bed in the northeast corner. It makes
+you feel very sleepy...     
+~
+
+#25081
+yummy fish pill~
+a yummy fish~
+A yummy fish is here.~
+pill~   
+pill S A
+15 'fly' 'regen' 'steel mist' 'flameshield'
+15 0 0 P 
+E
+yummy fish~
+You see a yummy looking fish.
+~
+
+#25082
+pot apple cider~
+a pot of apple cider~
+A pot of apple cider sits on the stove.~
+apple cider~
+fountain GIOSY P
+0 0 'water' 0 0
+0 15 0 I
+E
+pot~
+The pot of apple cider steams, giving off a good smell.
+~
+
+#25083
+large pill egg~
+A large {PDemon Yoshi{x Egg~
+A large egg with {Pred{x spots.~
+egg~
+furniture GIOSY P
+2 0 FIL 150 150
+0 0 0 I
+E
+large egg~
+This large {PDemon Yoshi{x egg has a hole in the side, and is
+carpeted on the inside and contains several pillows.
+~
+
+#25084
+pill small egg yoshi demon~
+a Yoshi Egg~
+The small egg of a {PDemon Yoshi{x.~
+egg~
+pill S A
+15 'detect invis' 'detect hidden' 'detect good' 'detect evil'
+15 1 0 P
+
+#25085
+fountain yoshi~
+the fountain~
+A fountain in the shape of a {PYoshi{x spouts a red liquid.~
+red stone~
+fountain GIOSY P
+0 0 'water' 0 0
+0 3000 0 I
+E
+fountain yoshi~
+This fountain is a beautiful sculpture of a
+{PDemon Yoshi{x made out of red stone.
+~
+
+#25086
+pill engraved tablet~
+an engraved tablet~
+A small engraved tablet is here.~
+stone~
+pill S A
+15 'sanctuary' 'pass' 'fly' 'talon'
+15 1 0 P
+
+#25087
+fountain~
+the fountain~
+A lovely fountain is here.~
+stone~
+fountain GIOSY P
+0 0 'lemonade' 0 0
+0 0 0 I
+E
+fountain~
+Upon closer inspection you see a sign deep within the
+fountain. You lean in closer to get a better view. The
+sign reads "If you can read this sign you are about to
+fall i.." You slipped in! You're drenched in delicious
+lemonade. Now you're all sticky...perhaps you should
+find someone to hug.
+~
+
+#25088
+liriel bed~
+a Liriel bed~
+An attractive Liriel bed is being guarded here.~
+Liriel~
+furniture GIOSY P
+4 0 EHK 100 200
+0 0 0 I
+E
+liriel bed~
+A bed that looks like the goddess herself. Hey!
+Stains?....You sure hope that's lemonade! You can see
+two little stuffed Yoshi's guarding this bed. One is
+Red and one is Yellow. They seem very determined to
+protect Liriel. Better keep your distance.
+~
+
+#25089
+crack~
+a crack in the floor~
+~
+wood~
+container GIOSY P
+1000 0 0 1000 0
+0 0 0 I
+
+#25090
+cookie~
+a large cookie~
+A large cookie sits on the table.~
+sugar~
+food S A
+10 20 0 0 0
+1 1 0 P
+E
+cookie~
+Mmm.  Doesn't this cookie look delicious?
+~
+
+#25091
+bed~
+the bed~
+~
+bedstuff~
+furniture 0 P
+2 0 EHK 150 150
+0 0 0 I
+
+#25092
+plastic beverage cooler~
+a plastic beverage cooler~
+A plastic beverage cooler sits here.~
+plastic~
+fountain GIOSY P
+0 0 'water' 0 0
+0 0 0 I
+E
+plastic beverage cooler~
+This cooler is magically enchanted to be constantly filled
+with sparkling water.
+~
+
+#25093
+pill ibuprofen tablet~
+an ibuprofen tablet~
+A 600 mg ibuprofen tablet is here.~
+painkillers~
+pill 0 A
+15 'cure crit' 'cure crit' 'cure serious' 'cure serious'
+15 3 15 P
+E
+ibuprofen tablet~
+Don't take this on an empty stomach!
+~
+
+#25094
+rocking chair~
+a wooden rocking chair, painted white~
+A wooden rocking chair is here.  It looks like a good place to sit.~
+wood~
+furniture O P
+2 0 EHK 125 175
+1 500 10 P
+
+#25095
+bed sharra's~
+Sharra's bed~
+Sharra's bed is here.~
+energy~
+furniture O P
+4 0 EHK 175 125
+1 1000 10 P
+E
+bed sharra's~
+This is Sharra's bed.  It looks like it would only fit one person,
+but it's clean and fresh.  The base and headboard are made of solid oak, 
+and the mattress is fitted with pale yellow bedsheets.  You also see a 
+pair of large pillows and a comforter with embroidered designs
+of leaves and flowers.
+~
+
+#0
+
+#ROOMS
+
+#25000
+Chamber of Darkness~
+Any tiny sound is magnified to hundreds of degrees as your eyes struggle
+to pierce the blanket of darkness that cloaks this large chamber 
+completely.  However, the Kindred are very much at home in this eerie 
+abode, and a small altar devoted to Akira reminds all of the members of 
+their true roots.  An occasional robed member shuffles by silently, each 
+intent on their own business.  
+~
+0 DT 0
+C Kindred~
+D0
+~
+~
+0 -1 25001
+D1
+~
+~
+0 -1 25002
+D2
+~
+~
+0 -1 25010
+D3
+~
+~
+0 -1 25003
+D4
+~
+~
+0 -1 25007
+S
+
+#25001
+Regen Room~
+~
+0 DT 0
+C Kindred~
+D2
+~
+~
+0 -1 25000
+S
+
+#25002
+Portal Room~
+~
+0 DT 0
+C Kindred~
+D3
+~
+~
+0 -1 25000
+S
+
+#25003
+Bank, Locker, Pit Access~
+~
+0 DETU 0
+C Kindred~
+D0
+~
+~
+0 -1 25004
+D1
+~
+~
+0 -1 25000
+D2
+~
+~
+0 -1 25006
+D3
+~
+~
+0 -1 25005
+S
+
+#25004
+Item Shop~
+~
+0 DT 0
+C Kindred~
+D2
+~
+~
+0 -1 25003
+S
+
+#25005
+Clan EQ Shop~
+~
+0 DT 0
+C Kindred~
+D1
+~
+~
+0 -1 25003
+S
+
+#25006
+Food Shop~
+~
+0 DT 0
+C Kindred~
+D0
+~
+~
+0 -1 25003
+S
+
+#25007
+Almost the bottom level (*shrug*)~
+~
+0 DT 0
+C Kindred~
+D0
+~
+~
+0 -1 25008
+D1
+~
+~
+0 -1 25009
+D2
+~
+~
+0 -1 25040
+D3
+~
+~
+0 -1 25011
+D4
+~
+~
+0 -1 25012
+D5
+~
+~
+0 -1 25000
+S
+
+#25008
+Anvil Room~
+~
+0 DT 0
+C Kindred~
+D2
+~
+~
+0 -1 25007
+S
+
+#25009
+Pet Shop~
+~
+0 DT 0
+C Kindred~
+D3
+~
+~
+0 -1 25007
+S
+
+#25010
+Sage's Room~
+~
+0 DT 0
+C Kindred~
+D0
+~
+~
+0 -1 25000
+S
+
+#25011
+Meeting Room~
+~
+0 DT 0
+C Kindred~
+D1
+~
+~
+0 -1 25007
+S
+
+#25012
+Going down...~
+~
+0 DT 0
+C Kindred~
+D0
+To the north you see the inside of a small shack.
+~
+~
+0 -1 25050
+D4
+~
+~
+0 -1 25013
+D5
+~
+~
+0 -1 25007
+S
+
+#25013
+Going down...~
+~
+0 DT 0
+C Kindred~
+D0
+A small, mushroom house is to the north.
+~
+~
+0 -1 25051
+D1
+Sharra's Room is to the east.
+~
+~
+0 -1 25053
+D3
+The Domain of the Signkeeper is to the west.
+~
+~
+0 -1 25052
+D4
+~
+~
+0 -1 25014
+D5
+~
+~
+0 -1 25012
+S
+
+#25014
+Going down...~
+~
+0 DT 0
+C Kindred~
+D4
+~
+~
+0 -1 25015
+D5
+~
+~
+0 -1 25013
+S
+
+#25015
+Going down...~
+~
+0 DT 0
+C Kindred~
+D4
+~
+~
+0 -1 25016
+D5
+~
+~
+0 -1 25014
+S
+
+#25016
+{cE{gn{ct{gr{ca{gn{cc{ge {ct{go {RD{Pe{Rv{Pi{Rl{P{Rs {cC{ga{cv{ge{cr{gn~
+A {gsharply{x {cd{Re{gc{ca{Ry{gi{cn{Rg{x odor seeps from the cavern you now stand in. 
+{RC{Wa{Rr{Wn{Ra{Wg{Re{x seems to be growing from the walls, falling in clumps of 
+{cr{Ro{Wt{ct{Ri{Wn{cg{x and putrid flesh into piles on the gory floor. You walk 
+through the {cm{gu{cc{gk{x on the cavernfloor, compelled into the deep {kdarkness{x
+that leads into the depths of the {WK{cindred {Wo{cf {WD{carkness{W{x, 
+or quite simply, {RHell{x.
+~
+0 DT 0
+C Kindred~
+D4
+~
+~
+0 -1 10422
+D5
+~
+~
+0 -1 25015
+S
+
+#25017
+Pet Shop Storage Room~
+~
+0 DT 0
+C Kindred~
+S
+
+#25040
+{RB{co{Ro{ct {RC{ca{Rm{cp{x~
+{WOh, you thought you *were* in {PH{Rel{Pl{W?  Now you've done it, you stand in the{x
+{Wtraining room of the K{cindred {Wo{cf {WD{carkness{W.  Here young fighters duel, often{x
+{Wto the {cdeath{W, to practice their skills.  The {cdark grey{W stone walls are{x
+{Wscarred by {gchips{W from weapon impacts and blackened in places by the{x
+{Woccasional stray blast of {Yf{Pir{Ye{W.  Dark patches on the stone floor attest to{x
+{Wthe {Rblood{W often spilled here, and seldom cleaned.  A thick chain suspends{x
+{Wan {ciron{W chandelier of torches from the vaulted stone ceiling, bathing the{x
+{Wroom in a deep {Rred{W hue that doesn't quite provide enough light to see by.{x
+{WYou are overcome by a sense of {cd{br{ce{ba{cd{W, and can barely resist the urge to{x
+{Wleave north to safety.{x
+~
+0 DT 21
+C Kindred~
+H 90 M 90
+D0
+You can leave north back to the safety of the clanhall.
+~
+~
+0 -1 25007
+S
+
+#25050
+A tiny, run down shack~
+The floorboards creak under your feet as you enter. The spartan furnishings 
+give the room a cold and forbidding feel, but at the same time, the room gives
+off an impression of desperate survival, as if it is on a deserted island. A 
+bed occupies one corner, a small wood stove the other. A small box rests 
+against one wall.  The sole window overlooks a lifeless, choppy sea.
+~
+0 DK 0
+C Kindred~
+D2
+South leads back to the clanhall.
+~
+~
+0 -1 25012
+S
+
+#25051
+A small, mushroom house~
+This house looks very sweet and innocent,but as you walk inside
+and see the inhabitant, you wonder if maybe entering the house
+could be your undoing. All the light within this house is tinted
+red, and you feel uncomfortable here> Yet, strangely, you don't
+feel this is a domain of evil...
+~
+0 DK 0
+C Kindred~
+D2
+South leads back to the clanhall.
+~
+~
+0 -1 25013
+S
+
+#25052
+Domain of the Signkeeper~
+This is a dark room that appears kind of empty. As you stand here
+the room seems to come alive. An odd light source that hangs from
+the center of the room starts spinning slowly and projecting
+colorful rays in every direction. Hundreds of little signs on the
+walls start to shine for you so that their messages may be read.
+Next, light starts coming from a lovely fountain. Behind it lies
+an attractive looking bed. Two small stuffed toys rest on the bed
+are looking at you funny. Perhaps you should stay away from it.
+Lastly one wall glows and the light brings your focus to a portrait
+of a beautiful goddess.
+~
+0 DK 0
+C Kindred~
+D1
+East leads back to the clanhall.
+~
+~
+0 -1 25013
+S
+
+#25053
+Sharra's Room~
+This room is a surprisingly comfortable change from the dismal
+caverns of the Kindred.  The floor is lined with varnished hardwood,
+and the walls have been whitewashed clean.  The furniture includes
+a patterened rug next to a small bed, and a rocking chair by a
+fountain. A light mounted on the ceiling lights the room in a glow
+that magically, does not flicker.  A small coffee table is set with
+cookies, along with a plastic beverage cooler.
+~
+0 DK 0
+C Kindred~
+D3
+West leads back to the clanhall.
+~
+~
+0 -1 25013
+E
+floor wood~
+This is a varnished hardwood floor, kept free of dust.  Is
+that a crack you see over there?
+~
+E
+chair rocking~
+A wooden rocking chair is here.  It looks like a good place to sit.
+~
+E
+rug~
+This is a tight weave rug, consisting of bright circles of color.
+~
+S
+
+#0
+
+#RESETS
+
+M 0 25000 1 25000 1          * Vanesha (healer, train, gainer) to Clanrecall
+
+M 0 25001 1 25005 1          * Ashnod (CEQ shopkeeper) to his shop
+G 0 25050 1000               * Level 20 Boots
+G 0 25051 1000               * Level 30 Helm
+G 0 25052 1000               * Level 30 Greaves
+G 0 25053 1000               * Level 30 Sleeves
+G 0 25054 1000               * Level 30 Floater
+G 0 25055 1000               * Level 40 Ring
+G 0 25060 1000               * Level 40 Light
+G 0 25056 1000               * Level 40 Neck
+G 0 25057 1000               * Level 40 Wrist
+G 0 25058 1000               * Level 50 Sleeves
+G 0 25059 1000               * Level 60 Boots
+
+M 0 25002 1 25006 1          * Dystanex (Food shopkeeper) to his shop
+G 0 25001 1000
+G 0 25002 1000
+G 0 25003 1000
+G 0 25004 1000
+G 0 25005 1000
+G 0 25006 1000
+G 0 25007 1000
+
+O 0 25000 1 25001            * Load fountain in 25001
+O 0 25011 1 25002            * Load portal in 25002
+O 0 25012 1 25002            * Load portal in 25002
+O 0 25013 1 25002            * Load portal in 25002
+O 0 25014 1 25001            * Load couch in 25001
+O 0 25015 100 25001          * Red pill in 25001
+O 0 25016 100 25001          * Blue pill in 25001
+O 0 25017 1 25008            * Anvil in 25008
+
+M 0 25050 1 25050 1          * Cid in Celes' room
+O 0 25080 100 25050          * Yummy fish (pill) in Celes' room
+O 0 25081 1 25050            * Bed in Celes' room
+O 0 25082 1 25050            * Pot (fountain) in Celes' room
+
+M 0 25051 1 25051 1          * Yoshi in Cyanos' room
+O 0 25083 1 25051            * Egg (bed) in Cyanos' room
+O 0 25084 100 25051          * Egg (pill) in Cyanos' room
+O 0 25085 1 25051            * Fountain in Cyanos' room
+
+M 0 25052 1 25052 1          * Picture of Liriel in Ramaru's room
+O 0 25086 100 25052          * Tablet (pill) in Ramaru's room
+O 0 25087 1 25052            * Fountain in Ramaru's room
+O 0 25088 1 25052            * Bed in Ramaru's room
+
+O 0 25089 1 25053            * Crack (container) in Sharra's room
+O 0 25090 100 25053          * Cookie (food) in Sharra's room
+O 0 25091 1 25053            * Bed in Sharra's room
+O 0 25092 1 25053            * Fountain in Sharra's room
+O 0 25093 30 25053           * ibuprofen to syveril's (sharra's) room
+O 0 25094 1 25053            * bed to sharra's (syveril's) room
+O 0 25095 1 25053            * sharra's bed to her room
+
+S
+
+#SHOPS
+
+25001  9 1 0 0 0 100 75 0 23   * Ashnod
+25002 19 17 0 0 0 125 50 0 23   * Dystanex
+
+0
+
+#$
+
+

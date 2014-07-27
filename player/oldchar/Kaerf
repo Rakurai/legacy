@@ -1,0 +1,735 @@
+#PLAYER
+Name Kaerf~
+Id   991448674
+LogO 1005023353
+Vers 8
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race human~
+Clan kindred~
+Sex  1
+Cla  0
+Levl 59
+Plyd 355678
+Age  -2304000
+Back 354611
+Note 997524850 997088619 997436123 997547921 997521565 997094858
+Scro 22
+Room 3001
+HMV  1035 1035 1404 1404 750 750
+Gold 29
+Silv 1059
+Silver_in_bank 71014
+Gold_in_bank 1305
+Exp  73940
+PCkills 0
+PCkilled 0
+Akills 1
+Akilled 3
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy DF
+Comm NOV
+Revk 0
+Pos  8
+Prac 5
+Trai 2
+Save  -30
+Alig  1000
+Hit   44
+Dam   43
+ACs -285 -282 -287 -272
+Wimp  150
+Atrib 18 21 18 18 18 18
+AtMod 5 4 13 5 5 7
+QuestPnts 9
+QpDonated 40
+Pass woodrow~
+Afk {B[{CWed Jun 27 00:00:06 2001{B] {C{CA{Tuto-{CA{Tfk by {GL{Be{Nga{Bc{Gy{x
+~
+Titl  the Adrenaline~
+Immn ~
+Pnts 45
+Rank {TM{gB{cR{x~
+Aura ~
+TSex 1
+LLev 98
+Email adrenfreak@hotmail.com~
+Deit Liriel~
+Lsit h-64-105-84-103.chcgilgm.covad.net~
+Ltim Sat Aug 11 23:29:22 2001
+~
+LSav Mon Nov 05 23:09:13 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FHI
+HMVP 650 584 450
+THVP 0 0 0
+Cnd  0 0 0 0
+Alias cl cast 'lightning breath'~
+Alias bl c 'lightning breath'~
+Alias bfire c 'fire breath'~
+Alias bfrost c 'frost breath'~
+Alias bgas c 'gas breath'~
+Alias bacid c 'acid breath'~
+Alias cde c 'detect evil'~
+Alias cpe c 'protection evil'~
+Alias ccf c 'create food'~
+Sk 100 1 'acid blast'
+Sk 75 1 'acid breath'
+Sk 76 1 'acid rain'
+Sk 75 1 'age'
+Sk 89 1 'armor'
+Sk 84 1 'bless'
+Sk 100 1 'blindness'
+Sk 77 1 'blizzard'
+Sk 78 1 'burning hands'
+Sk 75 1 'call lightning'
+Sk 1 1 'calm'
+Sk 84 1 'cancellation'
+Sk 80 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 80 1 'charm person'
+Sk 75 1 'chill touch'
+Sk 100 1 'colour spray'
+Sk 75 1 'continual light'
+Sk 1 1 'control weather'
+Sk 77 1 'create food'
+Sk 75 1 'create parchment'
+Sk 61 1 'create rose'
+Sk 75 1 'create sign'
+Sk 77 1 'create spring'
+Sk 91 1 'create vial'
+Sk 1 1 'create water'
+Sk 79 1 'cure critical'
+Sk 75 1 'cure light'
+Sk 81 1 'cure serious'
+Sk 77 1 'curse'
+Sk 75 1 'dazzling light'
+Sk 77 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 78 1 'detect hidden'
+Sk 79 1 'detect invis'
+Sk 76 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 75 1 'dispel magic'
+Sk 75 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'encampment'
+Sk 76 1 'enchant armor'
+Sk 76 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 81 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 56 1 'fire breath'
+Sk 97 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'flameshield'
+Sk 82 1 'fly'
+Sk 75 1 'floating disc'
+Sk 91 1 'frenzy'
+Sk 75 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 82 1 'gate'
+Sk 84 1 'giant strength'
+Sk 97 1 'haste'
+Sk 100 1 'heal'
+Sk 1 1 'holy word'
+Sk 75 1 'identify'
+Sk 75 1 'infravision'
+Sk 79 1 'invisibility'
+Sk 75 1 'know alignment'
+Sk 75 1 'light of truth'
+Sk 75 1 'lightning bolt'
+Sk 78 1 'lightning breath'
+Sk 78 1 'locate life'
+Sk 79 1 'locate object'
+Sk 75 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 75 1 'nexus'
+Sk 76 1 'pass door'
+Sk 76 1 'plague'
+Sk 75 1 'poison'
+Sk 1 1 'power word'
+Sk 1 1 'polymorph'
+Sk 75 1 'portal'
+Sk 1 1 'protect container'
+Sk 80 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'recharge'
+Sk 77 1 'refresh'
+Sk 82 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 79 1 'remove curse'
+Sk 92 1 'sanctuary'
+Sk 87 1 'shield'
+Sk 94 1 'shocking grasp'
+Sk 75 1 'shrink'
+Sk 76 1 'sleep'
+Sk 100 1 'slow'
+Sk 75 1 'smokescreen'
+Sk 81 1 'steel mist'
+Sk 82 1 'stone skin'
+Sk 76 1 'summon'
+Sk 1 1 'summon object'
+Sk 77 1 'talon'
+Sk 75 1 'teleport'
+Sk 75 1 'teleport object'
+Sk 80 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 75 1 'vision'
+Sk 78 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 1 1 'dagger'
+Sk 100 1 'sword'
+Sk 84 1 'brew'
+Sk 80 1 'lore'
+Sk 87 1 'meditation'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 67 1 'staves'
+Sk 75 1 'wands'
+Sk 52 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'mage default'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 16016
+Nest 0
+Cond 82
+Wear 9
+Cost 4650
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 4
+Cost 3800
+End
+
+#O
+Vnum 20006
+Nest 0
+Cond 90
+Wear 5
+Cost 999
+End
+
+#O
+Vnum 20008
+Nest 0
+Cond 93
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 25059
+Nest 0
+Wear 8
+Cost 6000
+End
+
+#O
+Vnum 25058
+Nest 0
+Cond 95
+Wear 10
+Cost 5000
+End
+
+#O
+Vnum 25055
+Nest 0
+Cond 81
+Wear 2
+Cost 4000
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 83
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 20011
+Nest 0
+Cond 90
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 94
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 79
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 10169
+Nest 0
+Cond 91
+Wear 18
+Cost 2200
+End
+
+#O
+Vnum 8806
+Nest 0
+Cond 93
+Wear 17
+Cost 0
+End
+
+#O
+Vnum 3808
+Nest 0
+Cond 76
+Wear 12
+Cost 30000
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 86
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 17102
+Nest 0
+Cond 83
+Wear 0
+Cost 250
+End
+
+#O
+Vnum 10166
+Enchanted
+Nest 0
+ExtF 17039427
+Cond 84
+Wear -1
+Lev  56
+Cost 20
+Affc 'reserved'   1  55  -1  -5  17          0 1
+Affc 'enchant weapon'   1  55  -1   6  18          0 1
+Affc 'enchant weapon'   1  55  -1   6  19          0 1
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 0
+Name sword Valour~
+ShD  {CValour{x~
+Desc A sword is here, forged by Elias's craftsmanship.~
+Mat mithril~
+ExtF 67
+Wt   50
+Cond 96
+Wear -1
+Lev  59
+Cost 0
+Val  1 5 16 3 0
+Affc 'enchant weapon'   0  56  -1   5  18          0 1
+Affc 'enchant weapon'   1  56  -1   5  19          0 1
+ExDe sword Valour~ It is a marvellous sword, crafted from the finest mithril around.
+It was created in the Month of Courtship by an experienced thief
+named Elias.  Legend holds that this elf was a great weaponsmith.
+~
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 17101
+Nest 0
+ExtF 1
+Cond 94
+Wear 11
+Cost 160
+End
+
+#O
+Vnum 10168
+Nest 0
+Cond 99
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 65
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 4456
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 4476
+Nest 1
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 4477
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 7502
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3388
+Nest 1
+Wear -1
+Cost 50000
+Val  86 500 8 2 15
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 1
+Name sword A Grape Popsicle~
+ShD  {CA {MGrape {CP{To{Cp{Ts{Ci{Tc{Cl{Te{x~
+Desc A sword is here, forged by Cyanos's craftsmanship.~
+Mat steel~
+ExtF 64
+Wt   40
+Cond 94
+Wear -1
+Lev  49
+Cost 7
+Val  1 5 10 3 0
+Affc 'enchant weapon'   1  48  -1   4  19          0 1
+Affc 'enchant weapon'   0  48  -1   4  18          0 1
+ExDe sword A Grape Popsicle~ It is a marvellous sword, crafted from the finest steel around.
+It was created in the Month of Silence by a young thief
+named Cyanos.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#O
+Vnum 25015
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25015
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25015
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 1258
+Nest 1
+Name gateway refuge liriel~
+ShD  {Wa {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{x~
+Desc {WA {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{W lies here, {Cs{Th{Ci{Tm{Cm{Te{Cr{Ti{Cn{Tg{x.~
+Wear -1
+Cost 0
+Val  0 0 4 1223 0
+End
+
+#O
+Vnum 25081
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion sanctuary~
+ShD  a potion of sanctuary~
+Wear -1
+Lev  56
+Cost 2000
+Val  56 118 -1 -1 -1
+Spell 1 'sanctuary'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion sanctuary~
+ShD  a potion of sanctuary~
+Wear -1
+Lev  56
+Cost 2000
+Val  56 118 -1 -1 -1
+Spell 1 'sanctuary'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion sanctuary~
+ShD  a potion of sanctuary~
+Wear -1
+Lev  56
+Cost 2000
+Val  56 118 -1 -1 -1
+Spell 1 'sanctuary'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion sanctuary~
+ShD  a potion of sanctuary~
+Wear -1
+Lev  56
+Cost 2000
+Val  56 118 -1 -1 -1
+Spell 1 'sanctuary'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion sanctuary~
+ShD  a potion of sanctuary~
+Wear -1
+Lev  56
+Cost 2000
+Val  56 118 -1 -1 -1
+Spell 1 'sanctuary'
+End
+
+#O
+Vnum 25081
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25015
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25081
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25015
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25015
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 8808
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'talon'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 5604
+Nest 1
+ExtF 17302019
+Cond 99
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 505
+Nest 1
+Wear -1
+Cost 950
+End
+
+#O
+Vnum 3808
+Nest 1
+Wear -1
+Cost 0
+End
+
+#END

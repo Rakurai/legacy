@@ -1,0 +1,492 @@
+#PLAYER
+Name Umi~
+Id   1013901640
+LogO 1018345416
+Vers 13
+Prom <{H%h/%HHP {B%m/%MMP {Y%v/%VST {V%XEXP {Y%gG {g%sS {C%aAli {R%q/{P%j{x> ~
+Race human~
+Clan order~
+Sex  2
+Cla  5
+Levl 31
+Plyd 73366
+Back 73354
+Note 1018334819 1018166134 1018338011 1018332646 1018314334 1018166134 1018336772
+Scro 22
+Room 24453
+HMS  767 767 374 374 381 381
+Gold 60
+Silv 1034
+Silver_in_bank 5000
+Exp  31983
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 1
+PKRank 0
+Act  CDEFGHJLSc
+AfBy DF
+Comm NO
+Revk 0
+Cgrp A
+Cnsr 0
+Pos  8
+Prac 35
+Trai 12
+Save  -5
+Alig  1000
+Hit   35
+Dam   24
+ACs -89 -84 -87 -57
+Atrib 18 18 18 18 18 21
+AtMod 5 5 6 5 4 4
+Pass sacredrose~
+Afk {B[{CWed Mar  6 20:47:26 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  Ryuuzaki {NM{Ca{Bg{Ni{Cc {BK{Nn{Ci{Bg{Nh{Ct{x~
+Immn ~
+Pnts 40
+Rank {NP{CF{NC~
+Aura ~
+TSex 2
+LLev 17
+Email irishrose583 AIM~
+Deit Jubei~
+Lsit ACA627FE.ipt.aol.com~
+Ltim Tue Apr 09 04:40:02 2002
+~
+LSav Tue Apr 09 04:43:36 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  ABGOT
+HMSP 477 344 411
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'acid rain'
+Sk 75 1 'armor'
+Sk 1 1 'blizzard'
+Sk 75 1 'call lightning'
+Sk 75 1 'cancellation'
+Sk 1 1 'channel'
+Sk 75 1 'control weather'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'faerie fire'
+Sk 75 1 'faerie fog'
+Sk 75 1 'fireproof'
+Sk 1 1 'flameshield'
+Sk 76 1 'giant strength'
+Sk 1 1 'haste'
+Sk 75 1 'infravision'
+Sk 75 1 'lightning bolt'
+Sk 76 1 'protection evil'
+Sk 76 1 'protection good'
+Sk 76 1 'refresh'
+Sk 79 1 'regeneration'
+Sk 78 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 75 1 'steel mist'
+Sk 1 1 'stone skin'
+Sk 1 1 'talon'
+Sk 1 1 'undo spell'
+Sk 91 1 'sword'
+Sk 84 1 'shield block'
+Sk 82 1 'enhanced damage'
+Sk 87 1 'kick'
+Sk 96 1 'parry'
+Sk 75 1 'rescue'
+Sk 77 1 'second attack'
+Sk 75 1 'repair'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 74 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'enhancement'
+Gr 'protective'
+Gr 'weather'
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 1
+Cost 1500
+End
+
+#O
+Vnum 16065
+Nest 0
+ExtF 0
+Wear 15
+Cost 1000
+End
+
+#O
+Vnum 16065
+Nest 0
+ExtF 0
+Wear 14
+Cost 1000
+End
+
+#O
+Vnum 24401
+Nest 0
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 24400
+Nest 0
+Wear 8
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 9918
+Nest 0
+Wear 17
+Cost 500
+Spell 3 'poison'
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3013
+Nest 1
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 3013
+Nest 1
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 3013
+Nest 1
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 3013
+Nest 1
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 9923
+Nest 1
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3138
+Nest 1
+Wear -1
+Cost 24
+Val  64 32 0 0 0
+End
+
+#O
+Vnum 4596
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 10127
+Enchanted
+Nest 0
+Wear 7
+Cost 0
+Affc 'reserved'   1  15  -1   1   1          0 1
+Affc 'reserved'   1  15  -1   1   2          0 1
+Affc 'reserved'   1  15  -1  -1  20          0 1
+Affc 'reserved'   1  15  -1   1  19          0 1
+Affc 'reserved'   1  15  -1   1  18          0 1
+Affc 'reserved'   1  15  -1  -1  19          0 1
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 24402
+Nest 0
+Wear 0
+Cost 3000
+End
+
+#O
+Vnum 24410
+Nest 0
+Wear 6
+Cost 3000
+End
+
+#O
+Vnum 24403
+Nest 0
+Wear 18
+Cost 3000
+End
+
+#O
+Vnum 24404
+Nest 0
+Wear 9
+Cost 3000
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16041
+Nest 0
+Cond 98
+Wear 16
+Cost 5000
+End
+
+#O
+Vnum 16001
+Nest 0
+Wear 5
+Cost 5000
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 4596
+Enchanted
+Nest 0
+Wear -1
+Cost 2400
+Affc 'reserved'   1  26  -1   2  26          0 1
+Affc 'reserved'   1  26  -1   1  19          0 1
+Affc 'reserved'   1  26  -1   1  18          0 1
+End
+
+#O
+Vnum 4586
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 506
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#END

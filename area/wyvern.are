@@ -1,0 +1,1886 @@
+#AREA
+wyvern.are~
+Wyvern's Tower~
+{H{{ 5 30} {MTyrst {TWyvern's Tower~
+1600 1799
+
+#MOBILES
+
+#1601
+killer frog~
+{xa {Rki{cll{Rer {Gf{Hr{Go{Hg{x~
+{xA {Rki{cll{Rer {Gf{Hr{Go{Hg{x rises up out of the water.
+~
+The killer frog looks ravenous.
+~
+human~
+ABFG 0 -300 0
+5 0 2d6+60 2d9+100 1d6+1 none
+5 5 5 9
+EFU 0 D C
+stand stand none 1
+0 0 medium 0
+
+#1602
+stone gargoyle~
+{xa {cstone gargoyle{x~
+{xA {cstone gargoyle{x looms over you.
+~
+As you look, the figure seems to shift and move ...
+~
+human~
+ABFGH 0 -400 0
+9 0 2d6+110 4d9+100 1d8+2 none
+2 2 2 8
+EFU 0 D C
+stand stand male 20
+0 0 medium 0
+
+#1603
+angry gargoyle~
+an angry {Rg{ca{Rr{cg{Ro{cy{Rl{ce{x~
+{xAn angry {Rg{ca{Rr{cg{Ro{cy{Rl{ce{x glares at you.
+~
+He looks ready to attack!
+~
+human~
+ACFG 0 -600 0
+10 0 2d7+121 5d9+100 2d4+2 none
+1 1 1 8
+EFU 0 D C
+stand stand male 25
+0 0 medium 0
+
+#1604
+elite gargoyle~
+the {Welite gargoyle{x~
+{xAn {Welite gargoyle{x guards this room against intrusion.
+~
+He snarls at you and says LEAVE OR DIE!
+~
+human~
+ABC 0 -600 0
+12 0 2d10+150 6d9+100 1d10+3 none
+0 0 0 8
+EFU 0 D C
+stand stand male 40
+0 0 medium 0
+
+#1605
+gargoyle shaman~
+the gargoyle {Cs{Bh{Ca{Bm{Ba{Cn{x~
+{xThe gargoyle {Cs{Bh{Ca{Bm{Ba{Cn{x is here, preparing to do battle.
+~
+She says 'I can SEE you! I have been waiting ...'.
+~
+human~
+ABCGQ DF -900 0
+13 0 2d10+170 13d9+100 1d10+3 none
+-1 -1 -1 7
+EIKU 0 D C
+stand stand female 150
+0 0 medium 0
+
+#1606
+carnivorous plant~
+a {HCarnivorous plant{x~
+{xAmidst the jungle here, a huge {HCarnivorous plant{x reaches out to grab you!
+~
+The plant looks something like a Venus fly-trap, only MUCH larger.
+~
+human~
+ABFG 0 0 0
+9 0 2d6+110 4d9+100 1d8+2 none
+2 2 2 8
+EFU 0 D C
+stand stand none 0
+0 0 medium 0
+
+#1607
+gruesome ogre~
+a {Yg{Br{Yu{Be{Ys{Bo{Ym{Be {Cogre{x~
+{xA huge, {Yg{Br{Yu{Be{Ys{Bo{Ym{Be {Cogre{x is sprawled here, gnawing some strange {cmeat.
+~
+It thinks that perhaps you would make a better meal.
+~
+human~
+ABCFG 0 -200 0
+10 0 2d7+121 5d9+100 2d4+2 none
+1 1 1 8
+EFU 0 D C
+sit stand none 60
+0 0 medium 0
+
+#1608
+shadow~
+a shadow~
+{xA {cdark {gshadow{x moves about the room.
+~
+The Shadow is vaguely humanoid. Two glowing pinpoints look at you.
+~
+human~
+ACFG BDF -1000 0
+10 0 2d7+121 5d9+100 2d4+2 none
+1 1 1 8
+EFU 0 D C
+stand stand none 45
+0 0 medium 0
+
+#1609
+evil wight~
+an evil {bw{Yi{bg{Yh{bt{x~
+{xAn evil {bw{Yi{bg{Yh{bt{x lurks in the {cshadows{x!
+~
+He glares at you savagely and charges!
+~
+human~
+ABCFG DFV -1000 0
+12 0 2d10+150 6d9+100 1d10+3 none
+0 0 0 8
+EFU 0 D C
+stand stand male 110
+0 0 medium 0
+
+#1610
+burly minotaur~
+a {cb{gu{cr{gl{cy {bminotaur{x~
+{xA {cb{gu{cr{gl{cy {bminotaur{x watches {Wyou{x solemnly.
+~
+This powerful creature wonders whether to kill you or not ...
+~
+human~
+ACG D -600 0
+14 0 2d10+190 7d9+100 1d12+3 none
+-1 -1 -1 8
+EFU 0 D C
+stand stand male 75
+0 0 medium 0
+
+#1612
+savage minotaur~
+the savage minotaur~
+{xA {RB{Pl{RO{Po{RD{Pt{RH{Pi{RR{Ps{RT{Py{x minotaur slowly counts his loot.
+~
+He looks up at you and screams 'SO! Coming to steal my hoard!'
+~
+human~
+ABCFG D -600 0
+15 0 3d9+208 7d9+100 2d6+3 none
+-2 -2 -2 7
+EFU 0 D C
+stand stand male 0
+0 0 medium 0
+
+#1613
+minotaur captain~
+the captain~
+{xSitting here in this {Croom{x is the Minotaur {CC{Ta{Cp{Tt{Ca{Ti{Cn{x.
+~
+He looks at you, and a sinister grin slowly spreads on his face ...
+~
+human~
+ABCFG D -900 0
+17 0 3d9+258 8d9+100 3d4+4 none
+-3 -3 -3 7
+EFU 0 D C
+stand stand male 0
+0 0 medium 0
+
+#1614
+black pudding~
+the {cblack pudding{x~
+{xA huge {cblack pudding{x fills the center of the room!!
+~
+It is a huge black blob that oozes about the room. Its heading toward YOU!
+~
+human~
+ACFG 0 -1000 0
+15 0 3d9+208 7d9+100 2d6+3 none
+-2 -2 -2 7
+EFU 0 D C
+stand stand none 0
+0 0 medium 0
+
+#1615
+lesser golem~
+a {Nl{We{Ns{Ws{Ne{Wr {HGolem{x~
+{xA {Nl{We{Ns{Ws{Ne{Wr {HGolem{x stands guarding the entrance.
+~
+The golem appears to be made of some kind of {bclay{x, enchanted to come to life!
+~
+human~
+ABG D 0 0
+16 0 3d9+233 8d9+100 2d6+4 none
+-2 -2 -2 7
+EFU 0 D C
+stand stand none 0
+0 0 medium 0
+
+#1616
+ancient wyvern~
+the {Ya{bn{Yc{bi{Ye{bn{Yt {Mw{Vy{Mv{Ve{Mr{Vn{x~
+{xAn {Wenormous, {Ya{bn{Yc{bi{Ye{bn{Yt {Mw{Vy{Mv{Ve{Mr{Vn{x stares down at your tiny form...
+~
+It thunders loudly 'I must protect my Master's wealth!'
+~
+human~
+ACFG DF -1000 0
+18 0 3d9+283 9d9+100 2d7+4 none
+-3 -3 -3 7
+EFU 0 D C
+stand rest male 0
+0 0 medium 0
+
+#1617
+spectre~
+the {Ws{gp{We{gc{Wt{gr{We{x~
+{xA {Ws{gp{We{gc{Wt{gr{We{x has begun to {Bm{Wa{Yt{Ve{Cr{Gi{Pa{Tl{Yi{Rz{ce{x in front of you!
+~
+Terror fills your heart as you view this master of the undead.
+~
+human~
+ACFG BDH -1000 0
+19 0 3d9+308 9d9+100 2d7+5 none
+-4 -4 -4 7
+EFU 0 D C
+stand stand male 0
+0 0 medium 0
+
+#1702
+trapper~
+a {Gt{Hr{Ga{Hp{Gp{He{Gr{x~
+{xA {Gt{Hr{Ga{Hp{Gp{He{Gr{x stands here, bartering his {Rpelts{x.
+~
+The trapper is clad mostly in the fur of various animals he's caught.
+~
+human~
+AC 0 0 0
+6 0 2d7+71 3d9+100 1d7+1 none
+4 4 4 9
+EFU 0 D C
+stand stand male 6
+0 0 medium 0
+
+#1704
+hunter~
+a {ch{bu{cn{bt{ce{br{x~
+{xA {ch{bu{cn{bt{ce{br{x rests in here, carrying a fresh kill.
+~
+The hunter is rugged and sturdy from his occupation.
+~
+human~
+AC 0 0 0
+8 0 2d7+96 4d9+100 1d7+2 none
+3 3 3 9
+EFU 0 D C
+rest stand male 6
+0 0 medium 0
+
+#1706
+ranger~
+a {RR{Pa{RN{Pg{RE{Pr{x~
+{xA grim {RR{Pa{RN{Pg{RE{Pr{x reclines at a table.
+~
+The years of wanderings have left the ranger hardened and strong.
+~
+human~
+ACG D 200 0
+12 0 2d10+150 6d9+100 1d10+3 none
+0 0 0 8
+EFU 0 D C
+rest stand male 0
+0 0 medium 0
+
+#1707
+ranger leader~
+a ranger leader~
+A leader of the Rangers is watching you solemnly.
+~
+This individual has quite a reputation at the local trading posts!
+~
+human~
+ABC D 300 0
+15 0 3d9+208 7d9+100 2d6+3 none
+-2 -2 -2 7
+EFU 0 D C
+stand stand male 0
+0 0 medium 0
+
+#1708
+ranger lord~
+the Lord of the Rangers~
+The Lord of the Rangers catches your eye.
+~
+~
+human~
+ABC D 400 0
+20 0 3d9+333 10d9+100 2d8+5 none
+-4 -4 -4 7
+EFU 0 D C
+stand stand male 0
+0 0 medium 0
+
+#1710
+male centaur~
+a centaur~
+{xA {Bmale {Wcentaur{x wanders about this area.
+~
+The centaur has the upper torso of a man and lower body of a horse.
+~
+human~
+AC 0 200 0
+7 0 2d6+85 3d9+100 1d8+1 none
+4 4 4 9
+EFU 0 D C
+stand stand male 6
+0 0 medium 0
+
+#1711
+female centaur~
+a centaur~
+{xA {Pfemale {Wcentaur{x wanders about this area.
+~
+The centaur has the upper torso of a woman and lower body of a horse.
+~
+human~
+AC 0 200 0
+7 0 2d6+85 3d9+100 1d8+1 none
+4 4 4 9
+EFU 0 D C
+stand stand female 5
+0 0 medium 0
+
+#1712
+old centaur~
+an old centaur~
+{xAn {gold {Wcentaur{x is resting in a corner.
+~
+This centaur has lived a full life.
+~
+human~
+AC 0 200 0
+6 0 2d7+71 3d9+100 1d7+1 none
+4 4 4 9
+EFU 0 D C
+rest rest male 5
+0 0 medium 0
+
+#1714
+centaur elder~
+an elder centaur~
+{xOne of the {Wcentaur {Be{Wl{Bd{We{Br{Ws{x is here, watching you.
+~
+The elders act as counselors and advisors to the chief.
+~
+human~
+ABC B 200 0
+9 0 2d6+110 4d9+100 1d8+2 none
+2 2 2 8
+EFU 0 D C
+stand stand male 0
+0 0 medium 0
+
+#1715
+centaur guard~
+a centaur guard~
+{xA {Rs{Yt{Rr{Yo{Rn{Yg {Wcentaur{x is standing guard here.
+~
+He appears to be blocking entrance to the next room.
+~
+human~
+AB B 200 0
+10 0 2d7+121 5d9+100 2d4+2 none
+1 1 1 8
+EFU 0 D C
+stand stand male 0
+0 0 medium 0
+
+#1716
+centaur chief~
+the centaur chief~
+{xThe {Bc{Wh{Bi{We{Bf{x of the {Wcentaur {Yvillagers{x reclines here.
+~
+He has been the leader of this tribe for many years, and has acquired much
+wisdom.
+~
+human~
+ABC B 200 0
+12 0 2d10+150 6d9+100 1d10+3 none
+0 0 0 8
+EFU 0 D C
+rest stand male 0
+0 0 medium 0
+
+#1720
+displacer beast~
+a displacer beast~
+A displacer beast is grazing nearby.
+~
+As you watch this strange creature, its position seems to flicker and shift.
+~
+human~
+AH 0 0 0
+10 0 2d7+121 5d9+100 2d4+2 none
+1 1 1 8
+EFU 0 D C
+stand stand none 0
+0 0 medium 0
+#0
+
+#OBJECTS
+
+#1601
+rusty cleaver~
+a {brusty {Rcleaver{x~
+A {brusty {Rcleaver{x lies on a counter top.~
+oldstyle~
+weapon 0 AN
+dagger 1 7 chop 0
+1 20 230 P
+
+#1602
+fine mace~
+{xthe {Cf{Ti{Cn{Te {Wm{ca{Wc{ce{x~
+There is a large {Wm{ca{Wc{ce of {Cf{Ti{Cn{Te{x quality here.~
+oldstyle~
+weapon G AN
+mace 2 10 pound 0
+10 110 570 P
+A
+18 1
+
+#1603
+elven dagger~
+{xa {clong {Re{Pl{Rv{Pe{Rn {Bdagger{x~
+A {clong {Re{Pl{Rv{Pe{Rn {Bdagger{x made of adamantite is here.~
+oldstyle~
+weapon AG AN
+dagger 2 10 pierce 0
+8 20 700 P
+A
+18 2
+A
+19 1
+A
+12 10
+
+#1604
+steel broad sword~
+{xa {Bsteel {Ybroad {csword{x~
+A fine {Bsteel {Ybroad {csword{x is lying on the ground.~
+oldstyle~
+weapon AG AN
+sword 2 9 slash 0
+11 120 910 P
+A
+19 1
+A
+18 1
+
+#1605
+steel broad sword~
+{xa {Bsteel {Ybroad {csword{x~
+A very fine {Bsteel {Ybroad {csword{x is lying on the ground.~
+steel~
+weapon AG AN
+sword 2 12 slash 0
+15 120 1510 P
+A
+19 2
+A
+18 2
+
+#1606
+rod might~
+{xthe {gRod of {GM{Hi{Gg{Hh{Gt{x~
+A {gRod of {GM{Hi{Gg{Hh{Gt{x is lying here.~
+oldstyle~
+weapon BG AN
+mace 3 7 blast 0
+14 130 1550 P
+A
+1 1
+A
+12 15
+A
+18 2
+
+#1607
+window~
+a {Cwindow{x~
+~
+glass~
+portal OY P
+0 0 A 1651 0
+0 0 0 I
+
+#1608
+window~
+a {Cwindow{x~
+~
+glass~
+portal OY P
+0 0 A 1650 0
+0 0 0 I
+
+#1612
+black kite shield~
+a {cblack {Wkite {Ys{Rh{Bi{Ye{Rl{Bd{x~
+{xThere is a large {cblack {Wkite {Ys{Rh{Bi{Ye{Rl{Bd{x lying here.{x~
+oldstyle~
+armor AG AJ
+6 6 6 2 0
+13 60 1530 P
+A
+4 1
+A
+12 20
+A
+19 2
+A
+20 -1
+
+#1614
+helm~
+{xa {Hcommander's {ghelm{x~
+{xA {Hcommander's {ghelm{x rests on a table here.{x~
+oldstyle~
+armor AG AE
+7 7 7 2 0
+20 40 2300 P
+A
+13 20
+A
+4 1
+E
+helm~
+This elegant helm is plated in mithril and silver.
+~
+
+#1615
+bracer~
+a {Vm{Mi{Vt{Mh{Vr{Mi{Vl {Wbracer{x~
+A magical {Wbracer{x made from {Vm{Mi{Vt{Mh{Vr{Mi{Vl{x lies on the ground!~
+oldstyle~
+armor BG AM
+4 6 6 2 0
+12 20 1540 P
+A
+1 1
+A
+12 12
+A
+20 -1
+
+#1616
+dark blue cloak~
+{xa {cdark {Bblue {Yc{Rl{Yo{Ra{Yk{x~
+A valuable {Yc{Rl{Yo{Ra{Yk{x of {cdark {Bblue{x cloth lies on the floor.~
+oldstyle~
+armor AG AC
+2 2 2 4 0
+4 20 100 P
+A
+26 1
+A
+18 1
+A
+17 -2
+
+#1621
+dark red potion~
+a {cdark {Rr{Pe{Rd {Mpotion{x~
+A {cdark {Rr{Pe{Rd {Mpotion{x rests on the ground.~
+oldstyle~
+potion AG AO
+9 'cure blindness' 'cure critical' '' ''
+5 10 320 P
+
+#1651
+bronze chest~
+{xa {bb{Yr{bo{Yn{bz{Ye {gchest~
+There is a sturdy {bb{Yr{bo{Yn{bz{Ye {gchest{x in the corner.~
+oldstyle~
+container 0 0
+30 ABCD 1692 10 100
+0 100 100 P
+
+#1652
+ale barrel~
+a {bb{ga{br{gr{be{gl {Gof {Yale{x~
+There is a small {bb{ga{br{gr{be{gl{x in one corner.~
+oldstyle~
+drink 0 A
+150 2 'ale' 0 0
+0 80 10 P
+
+#1691
+key twin towers~
+the twin towers key~
+There is a shiny skeleton key on the ground here.~
+oldstyle~
+key 0 A
+1 0 0 0 0
+0 10 0 P
+
+#1692
+strange key~
+a strange key~
+There is a very {RS{Ct{RR{Ca{RN{Cg{RE{x-looking {gkey{x on the ground here.~
+oldstyle~
+key AG AO
+0 0 0 0 0
+12 10 750 P
+A
+17 -3
+E
+strange key~
+This key is of an unusual shape ... must go to an unusual lock!
+~
+
+#1701
+short bow~
+a {Hs{Th{Ho{Tr{Ht{x bow~
+{xA {Hs{Th{Ho{Tr{Ht{x bow has been carelessly left here.{x~
+oldstyle~
+weapon 0 AN
+exotic 2 4 pierce 0
+5 50 730 P
+E
+short bow~
+It looks like the bows used by rustin hunters.
+~
+
+#1702
+long bow~
+a {Gl{Co{Gn{Cg{x bow~
+{xA {Gl{Co{Gn{Cg{x bow has been foolishly abandoned here.{x~
+oldstyle~
+weapon AG AN
+staff 2 6 pound 0
+12 70 220 P
+A
+13 5
+
+#1711
+fur cap~
+a fur cap~
+A {bf{Yu{br {ccap{x lies here on the ground.~
+oldstyle~
+armor 0 AE
+2 2 2 0 0
+0 10 168 P
+
+#1712
+travelling boots~
+a pair of travelling boots~
+A sturdy pair of travelling boots lies here.~
+oldstyle~
+armor G AG
+5 5 5 0 0
+12 20 880 P
+A
+14 10
+
+#1713
+bronze ring~
+a {bb{gr{bo{gn{bz{ge{x ring~
+{xA ring of etched {bb{gr{bo{gn{bz{ge{x gleams dimly on the ground.~
+oldstyle~
+jewelry G AB
+0 0 0 0 0
+5 10 55 P
+A
+5 1
+A
+12 5
+A
+18 2
+
+#0
+
+#ROOMS
+
+#1601
+{bR{Wo{bu{Wg{bh {REast{x-{BWest {gPath{x~
+  You are on a very {bR{Wo{bu{Wg{bh and {Hovergrown{x path heading {REast{x-{BWest{x over {br{Wu{bg{Wg{be{wd
+{gterrain{x.  To the {Reast{x the {gpath{x passes between low {Ghills{x.
+~
+0 0 4
+D1
+The road heads into low hills this way.
+~
+~
+0 0 1602
+D3
+The cross-roads and a trading post lie in this direction.
+~
+~
+0 0 1702
+S
+
+#1602
+{bR{Wo{bu{Wg{bh {gPath {CBetween{x the {GHills{x~
+  Here the {gpath{x passes {Cbetween{x low {Ghills{x. The going is very {br{Wo{bu{Wg{bh, but
+to the {Reast{x the ground is {Tsmoother{x. In that direction a pair of {ctowers{x
+looms above the hills.
+~
+0 0 4
+D1
+You see a pair of tall towers in the distance.
+~
+~
+0 0 1603
+D3
+The road continues.
+~
+~
+0 0 1601
+S
+
+#1603
+{gPath{x through an {BO{Yp{Pe{Gn{x Area~
+  You are on a {gpath{x through an {Bo{Yp{Pe{Gn{x area. {REast{x of here {cl{go{co{gm{x two tall {Rt{co{Rw{ce{Rr{cs{x,
+joined by a {Bbarbican{x and surrounded by a {Hmurky {Cmoat{x. {PWest{x the {gpath{x passes
+between low {Ghills{x.
+~
+0 0 2
+D0
+A closed door leads to the north.
+~
+~
+1 -1 20000
+D1
+Two fantastic towers surrounded by a moat rise before you.
+~
+~
+0 0 1604
+D3
+The road continues.
+~
+~
+0 0 1602
+S
+
+#1604
+{PWest{x Side of {cMoat{x~
+  You stand on the {Pwest{x side of a {cmoat{x that {Ye{Bn{Pc{Ci{Yr{Bc{Pl{Ce{Gs{x two {Rt{co{Rw{ce{Rr{cs{x, each
+over 50 feet high. You will need a {Nboat{x to go {Reast{x across the {cmoat{x. A
+{br{Yu{bg{Yg{be{Yd {gpath{x heads {Pwest{x, and another one heads {Bnorth{x to a {Mcluster{x of low 
+buildings.
+~
+0 0 2
+D0
+A worn path leads to a cluster of low buildings.
+~
+~
+0 0 1605
+D1
+The Towers loom directly over you, just beyond the moat.
+~
+~
+0 0 1620
+D3
+An old ill-kept roads leads away to the west.
+~
+~
+0 0 1603
+S
+
+#1605
+{gPath {BNorth{x of {cMoat{x~
+  You walk on a {Pf{Ya{Gi{Bn{Vt {gpath{x heading {Ysouth{x toward the {Pwest{x side of the {cmoat{x,
+and {Bnorth{x to three small buildings.
+~
+0 0 2
+D0
+Several low buildings lie this way.
+~
+~
+0 0 1606
+D2
+The path ends west of the moat.
+~
+~
+0 0 1604
+S
+
+#1606
+{Mcluster{x of {YBuildings{x~
+  You are in the middle of a {Mcluster{x of small {Ybuildings{x. There is a building
+to the {Bnorth{x, {Reast{x, and {Pwest{x.  A sign over the {Reastern{x {Ybuilding{x says
+'{CHouse {Wof {bPancakes{x'.
+~
+0 0 1
+D0
+There is an entrance to a building.
+~
+~
+0 0 1609
+D1
+A sign over the door reads '{CHouse {Wof {bPancakes{x'.
+~
+~
+0 0 1607
+D2
+A path heads south toward the west side of the towers.
+~
+~
+0 0 1605
+D3
+There is an entrance to a building here.
+~
+~
+0 0 1608
+S
+
+#1607
+{CHouse {Wof {bPancakes{x~
+  The moment you enter this room, the ceiling descends and crushes you
+into a pancake.  Don't you hate it when that happens?
+~
+0 C 0
+S
+#1608
+{gOld {VS{Mt{Vo{Mr{Ve{x {WRoom{x~
+  You have {Pentered{x what appears to be an {gold {VS{Mt{Vo{Mr{Ve{ {Wroom{x. Most of the {Hitems{x
+that were in here appear to have been {cruined{x long ago.
+~
+0 AD 0
+D1
+~
+~
+0 0 1606
+S
+
+#1609
+{cEmpty Room{x~
+  This {croom{x appears to be completely {fempty{x. The only {yexit{x seems to be the
+way you came.  There are some {bs{cc{br{ca{bt{cc{bh{ce{bs{x around the floor.
+~
+0 AD 0
+D2
+~
+~
+0 0 1606
+D5
+You see a concealed opening leading down.
+~
+~
+0 0 1610
+S
+
+#1610
+{WMinotaur's {cRoom{x~
+  You have entered a {Ts{He{Tc{Hr{Te{Ht {Ychamber{x under the {cempty room{x. In this room is
+the {gworn{x but {Pcared-for{x gear and trappings of some large {Vh{Pu{Vm{Pa{Vn{Po{Vi{Pd{x.
+~
+0 ACD 0
+D4
+~
+~
+0 0 1609
+S
+
+#1620
+{PWestern {cMoat{x~
+  You are in the middle of the {cmoat{x, on the {Pwest{x side of the {Yt{bo{Yw{be{Yr{x.  There is a
+landing on both sides of the {cmoat{x.  Deep throated '{Gr{Hi{Gb{Hb{Gi{Hd{Gs'{x come from the
+{Cwater{x all around you.
+~
+0 0 7
+D0
+~
+~
+0 0 1621
+D1
+~
+~
+0 0 1623
+D2
+~
+~
+0 0 1622
+D3
+~
+~
+0 0 1604
+S
+
+#1621
+{BNorthern {cMoat{x~
+  You are in the middle of the {cmoat{x, on the {Bnorth{x side of the {Yt{bo{Yw{be{Yr{x.  There is
+{cn{Ro{x place to {Gland{x here.  Deep throated '{Gr{Hi{Gb{Hb{Gi{Hd{Gs{x' come from the {Bwater{x all
+around you.
+~
+0 0 7
+D2
+~
+~
+0 0 1620
+S
+
+#1622
+{WSouthern {cMoat{x~
+  You are in the middle of the {xmoat, on the {Wsouth{x side of the {Yt{bo{Yw{be{Yr{x.  There is
+{cn{Ro{x place to land here.  Deep throated '{Gr{Hi{Gb{Hb{Gi{Hd{Gs{x' come from the {Bwater{x all
+around you.
+~
+0 0 7
+D0
+~
+~
+0 0 1620
+S
+
+#1623
+{YT{bo{Yw{be{Yr{x {CF{To{Cy{Te{Cr{x~
+  You are on a {CF{To{Cy{Te{Cr{x on the {Rwest{x side of the {Ys{Ct{Yr{Cu{Yc{Ct{Yu{Cr{Ye{x. The {cmoat{x is {Rwest{x of 
+here. There is also a {Vlarge {bdoor {Peast{xward into the {Ys{Ct{Yr{Cu{Yc{Ct{Yu{Cr{Ye{x.  You notice that
+the walls are {Ro{Gr{Rn{Ga{Rt{Ge{Rl{Gy {Bd{Ye{Bc{Yo{Br{Ya{Bt{Ye{Bd{x with very {Mlife-like {gstone {Wgargoyles{x.
+~
+0 AD 0
+D1
+~
+~
+0 0 1624
+D3
+~
+~
+0 0 1620
+S
+
+#1624
+{WThe {PG{Cr{Pa{Cn{Pd {GL{Hobb{Gy{x~
+  You have entered a vast {Gl{Hobb{Gy{x. This {Gl{Hobb{Gy{x appears to have once been very
+{Bor{Nnate{Bly{x furnished, but now everything is {cdecayed{x and {Hmoldering{x.  A highly
+ornate {Wb{ga{Wl{gc{Wo{gn{Wy{x surrounds the {Gl{Hobb{Gy{x. To the {Reast{x, below the {Wb{ga{Wl{gc{Wo{gn{Wy{x, is an
+opening. The door leading out is {Pwest{x.  You notice that the {Wb{ga{Wl{gc{Wo{gn{Wy{x is
+covered in highly ornate and {Mlife-like {gstone {Wgargoyles{x.
+~
+0 AD 0
+D1
+~
+~
+0 0 1625
+D3
+~
+~
+0 0 1623
+S
+
+#1625
+{cBase of the {RWestern {CF{To{Cy{Te{Cr{x~
+  You stand in the center of the {RWestern {CF{To{Cy{Te{Cr{T's{x base. {YTorch{x brackets occupy
+the four corners of this {WHUGE{x room. Above each {Rt{Yorc{Rh{x is a {Wlifelike{x ornate
+{Mstone gargoyle{x.  There are doors north and south, and passages east and west.
+~
+0 D 0
+D0
+~
+~
+0 0 1627
+D1
+~
+~
+0 0 1626
+D2
+~
+~
+0 0 1628
+D3
+~
+~
+0 0 1624
+S
+
+#1626
+{WThe {CM{gu{Cs{gt{Cy {YCo{brrid{Yor{x~
+  You are walking along a {Cm{gu{Cs{gt{Cy {Reast{x-{Pwest{x {ccorridor{x joining the two {Yto{bwe{Yrs{x.
+There are rooms on each side of the {ccorridor{x, and openings at each end.
+~
+0 AD 0
+D0
+~
+~
+0 0 1629
+D1
+~
+~
+0 0 1631
+D2
+~
+~
+0 0 1630
+D3
+~
+~
+0 0 1625
+S
+
+#1627
+{VKi{Mtch{Ven{x~
+  You have entered what must once have been a {Vki{Mtch{Ven{x. The {brusting{x remains of
+{Rvarious utensils{x lie on {Wcountertops{x. There is also an {gold {Bwash basin{x and a
+{Rp{Po{Rt{c-{Pb{Re{Pl{Rl{Py{x {cstove{x.  There is a door {Wsouth{x, and a serving {Thatch {Reast{x.
+~
+0 AD 0
+D2
+~
+~
+0 0 1625
+S
+
+#1628
+{WC{Vo{Wn{Vs{We{Vr{Wv{Va{Wt{Vo{Wr{Vy{x~
+  You are in the {Yt{bo{Yw{be{Yr{b's{x private {WC{Vo{Wn{Vs{We{Vr{Wv{Va{Wt{Vo{Wr{Vy{x. However, through years of {cne{bgle{cct{x,
+the {Gpl{Han{Gts{x have grown into a {Rhi{Pdeo{Rus {Gj{cungl{Ge{x.  The only exit is {Wnorth{x.
+~
+0 AD 0
+D0
+~
+~
+0 0 1625
+S
+
+#1629
+{CThe {VDin{Ming H{Vall{x~
+  You have entered a fabulous {VDin{Ming H{Vall{x.  The wrecked remains of a long table
+dominate the room. A {Ph{go{Pr{grib{Ple{x {Mo{Td{Mo{Tr{x pervades the room, like some {cfo{Hul-sme{glli{Hng
+{Rb{Pe{Ra{Ps{Rt{x has been leaving half-eaten remains in here.  There is a serving hatch west and
+a door south.
+~
+0 AD 0
+D2
+~
+~
+0 0 1626
+S
+
+#1630
+{BA{Yr{Bt {WG{Pa{Wl{Pl{We{Pr{Wy{x~
+  You are in the {cru{gine{cd{x remains of an {BA{Yr{Bt {WG{Pa{Wl{Pl{We{Pr{Wy{x. Everything appears to
+have been {Wst{gol{Wen{x long ago, however.  The only exit is north.
+~
+0 AD 1
+D0
+~
+~
+0 0 1626
+S
+
+#1631
+{MBase{x of the {CE{Ta{Cs{Tt{Ce{Tr{Cn {YT{bo{Yw{be{Yr{x~
+  You stand in the center of the {CE{Ta{Cs{Tt{Ce{Tr{Cn {YT{bo{Yw{be{Yr{b's {Mbase{x. {YT{borc{Yh{x brackets occupy the
+{Wfour corners{x of this huge room.  Above each {Yt{borc{Yh{x is a {Wlifelike{x ornate {gstone{x
+{Mgargoyle{x.  There are are open doors to the north and south, and passages east
+and west.  In addition, a {Bs{Wp{Bi{Wr{Ba{Wl{x {Ys{bt{Ya{bi{Yr{bc{Ya{bs{Ye{x leads up to the next level of this
+tower.
+~
+0 D 1
+D0
+~
+~
+0 0 1632
+D2
+~
+~
+0 0 1633
+D3
+~
+~
+0 0 1626
+D4
+You see a spiral staircase leading up.
+~
+~
+0 0 1635
+S
+
+#1632
+{TThe Common Room{x~
+  You are in what must once have been a {Tcommon room{x for all residents of the
+{YT{bo{Yw{be{Yr{x. There is a huge {Rfire {cpit{x with a {Rc{chi{Rmne{cy{x in the center, and the smashed
+remains of a {Ngreat{x many {btable{x and {Cchairs{x.  The exit is south.
+~
+0 D 0
+D2
+~
+~
+0 0 1631
+D5
+You notice a grate in the bottom of the fire pit.  Maybe it's an opening ...
+~
+~
+1 -1 1634
+S
+
+#1633
+{CS{Terv{Cant's Q{Tuar{Cters{x~
+  You are in what once was the {Cs{Terv{Cant's q{Tuar{Cters{x, as evidenced by the {Bsha{cbb{By{x
+belongings and {Md{Veco{Mr{x. What little remains is {Rrot{Ntin{Rg{x and of little value
+anyway.  The only exit is north.
+~
+0 AD 0
+D0
+~
+~
+0 0 1631
+S
+
+#1634
+A {NLarge {RMur{Pky Cel{Rlar{x~
+  You are in a {Nlarge{x, {Rmur{Pky cel{Rlar{x. An almost {Wtangible{x air of {Rh{Morr{Ror{x pervades
+the room.  A thin layer of nitre covers the walls and ceiling.  {RRotting
+{bfurniture{x looms obliquely about the room.
+~
+0 AD 1
+D4
+~
+~
+1 -1 1632
+S
+
+#1635
+{BOn the First {Ys{bt{Ya{bi{Yr{bc{Ya{bs{Ye{x~
+  You are on a {Bs{Wp{Bi{Wr{Ba{Wl {Ys{bt{Ya{bi{Yr{bc{Ya{bs{Ye{x connecting the {Bfirst{x and {Nsecond{x levels of
+the {CE{Na{Cs{Nt{Ce{Nr{Cn {YT{bo{Yw{be{Yr{x. You can go up or down.
+~
+0 AD 2
+D4
+~
+~
+0 0 1636
+D5
+~
+~
+0 0 1631
+S
+
+#1636
+{NSecond Level of the {CE{Ta{Cs{Tt{Ce{Tr{Cn {YT{bo{Yw{be{Yr{x~
+  You are in the center of the s{Necond level{x of the {CE{Ta{Cs{Tt{Ce{Tr{Cn {YT{bo{Yw{be{Yr{x. This large
+room appears quite empty, except for the {Rc{Yand{Rle a{Ybra{Rs{x firmly fixed to the
+walls.  An opening leads westward, and a {Bs{Wp{Bi{Wr{Ba{Wl {Ys{bt{Ya{bi{Yr{bc{Ya{bs{Ye{x leads down.
+~
+0 AD 1
+D3
+~
+~
+0 0 1637
+D5
+~
+~
+0 0 1635
+S
+
+#1637
+{VThe E{Mlega{Vnt Hall{x~
+  You are in what was once an {Vel{Megan{Vt hall{x, although everything is {Nmoldering{x now.
+The {Rro{Ctt{Red {gre{Cmain{gs of a {Cplush {Wcarpet{x covers the floor, while several {Nmoldy
+{Pt{Va{Cp{Be{Rs{Yt{Mr{Ti{We{Ps{x adorn the each side of the hall.  There are doors north and south,
+and openings east and west.
+~
+0 AD 0
+D0
+~
+~
+0 0 1638
+D1
+~
+~
+0 0 1636
+D2
+~
+~
+0 0 1639
+D3
+~
+~
+0 0 1640
+S
+
+#1638
+The {BS{Yh{Pa{Bm{Ya{Pn{B's {YR{Po{Bo{Ym{x~
+  You have entered an {Be{Wl{Be{Wg{Ba{Wn{Bt{Wl{By{x furnished room that looks to be still in use!
+{PCostly paintings{x and {bpieces of furniture{x are tastefully situated.  On the
+north wall is an {Baltar to Knar{x, the {cghastly patron of Gargoyles{x.  The only
+exit is south.
+~
+0 D 0
+D2
+~
+~
+0 0 1637
+S
+
+#1639
+{TThe Library{x~
+  This room appears to have been a {Tlibrary{x.  Empty book shelves line each wall.
+The only exit is north.
+~
+0 AD 0
+D0
+~
+~
+0 0 1637
+S
+
+#1640
+{RSecon{Pd Level{x of the {CWest{Tern To{Cwer{x~
+  You are in the center of the {CWest{Tern To{Cwer's {Rsecon{Pd floo{Rr{x.  A large {Bs{Wp{Bi{Wr{Ba{Wl 
+{Ys{bt{Ya{bi{Yr{bc{Ya{bs{Ye{x of 29 steps connects this level with the {Wthird{x.  There are doors
+to the east and west.  Except for a {Rtor{Ych brac{Rket{x in each corner, the 
+room is barren.
+~
+0 D 1
+D1
+~
+~
+0 0 1637
+D3
+~
+~
+0 0 1641
+D4
+You see the spiral staircase leading up.
+~
+~
+0 0 1642
+S
+
+#1641
+{YOn the Balcony{x~
+  You are on the {Ybalcony{x overlooking the {PG{Cr{Pa{Cn{Pd {GL{Hobb{Gy{x.  You have a fabulous
+view of the entire room.  The only exit is the way you came in.
+~
+0 D 2
+D1
+~
+~
+0 0 1640
+S
+
+#1642
+The {Bs{Wp{Bi{Wr{Ba{Wl {VStairs{x~
+  You are on a large {Bs{Wp{Bi{Wr{Ba{Wl {Ys{bt{Ya{bi{Yr{bc{Ya{bs{Ye{x of 29 steps, leading between the 
+{Nsecond{x and {Wthird{x floors.  You can go up or down.
+~
+0 D 2
+D4
+~
+~
+0 0 1643
+D5
+~
+~
+0 0 1640
+S
+
+#1643
+{WThird Level of {CWest{Tern To{Cwer{x~
+  You stand in the center of the {CWest{Tern To{Cwer's{x {Wthird{x floor.  This large room
+{Yglows {Gmys{Hterio{Gusly{x with a {Ws{gt{Wr{ca{Wn{gg{We {Ylight{x all its own.  From a door to the east
+comes a {Ws{gt{Wr{ca{Wn{gg{We {cinky blackness{x.  A {Bs{Wp{Bi{Wr{Ba{Wl {Ys{bt{Ya{bi{Yr{bc{Ya{bs{Ye{x leads down.
+~
+0 D 1
+D1
+~
+~
+1 -1 1644
+D5
+~
+~
+0 0 1642
+S
+
+#1644
+It's too dark to see anything!~
+~
+0 AD 3
+D0
+~
+~
+1 -1 1645
+D1
+~
+~
+1 -1 1647
+D2
+~
+~
+1 -1 1646
+D3
+~
+~
+1 -1 1643
+S
+
+#1645
+{GThe A{Brmor{Gy{x~
+  In this room, which has somehow {Mevaded{x the {Rravages{x of time, are neatly stored
+{Cracks of common weapons{x.  They appear to be quite ordinary; however, a {Ychest{x
+in one corner catches your eye.  The only exit is the way you came in.
+~
+0 AD 0
+D2
+~
+~
+1 -1 1644
+S
+
+#1646
+{GThe O{Hfficer's Q{Guarters{x~
+  You have entered a {Clav{Tis{Ch{x but {gfuncti{cona{gl{x room decked out in a {Bmil{Nitar{By st{Nyle{x.
+Murals on the wall show {Rbattle scenes{x in {Wgargoyles{x, {Cminotaurs{x, and huge,
+flying {Gsnake-like reptiles with poisonous tails{x fight {Whumans{x and {bdwarves{x.
+Various objects in the room give evidence that it is occupied by individuals
+of authority.  The only door is north.
+~
+0 AD 0
+D0
+~
+~
+1 -1 1644
+S
+
+#1647
+{WThird Level{x of {CE{Ta{Cs{Tt{Ce{Tr{Cn {YT{bo{Yw{be{Yr{x~
+  You are in the center of the {CE{Ta{Cs{Tt{Ce{Tr{Cn {YT{bo{Yw{be{Yr's{x {Wthird floor{x.  The room you are in
+{Cglows{x with a {Vmyst{Yerio{Vus{x {Ylight{x that has no source.  In the center of the room a
+{bladder{x climbs up to a hatchway in the ceiling.  The hatchway is a strange
+looking keyhole.  There is also a door to the west.
+~
+0 D 1
+D3
+~
+~
+1 -1 1644
+D4
+The hatchway appears securely fastened.  In it is a strange keyhole.
+~
+~
+1 -1 1648
+S
+
+#1648
+{NTurret{x of the {CE{Ta{Cs{Tt{Ce{Tr{Cn {YT{bo{Yw{be{Yr{x~
+  You stand in the {Nturret{x of the {CE{Ta{Cs{Tt{Ce{Tr{Cn {YT{bo{Yw{be{Yr{x.  A huge hole has been
+made in the roof by some {Pen{Rormous b{Peast{x, letting the {Wdaylight{x (or {Cmoonlight{x)
+in.  There is a hatchway in the floor, and an opening to the west leading out
+onto a {Hca{btwa{Hlk{x.
+~
+0 0 1
+D3
+There is a small opening this way.
+~
+~
+0 0 1649
+D5
+~
+~
+1 -1 1647
+S
+
+#1649
+On the {Hca{btwa{Hlk{x~
+  You are outdoors on a {Hca{btwa{Hlk{x between the turrets of the {CE{Ta{Cs{Tt{Ce{Tr{Cn{x and 
+{CWest{Tern To{Cwer{x towers.  There is a 40 foot drop to the north and south.  You have
+a fabulous view of the {Vsurrounding countryside{x, which consists of a bleak
+{Gwi{Hldern{Gess{x.  At the east end of the {Hca{btwa{Hlk{x is a small opening leading
+inside the {CE{Ta{Cs{Tt{Ce{Tr{Cn{x turret.  At the {CWest{Tern To{Cwer{x end, a strange mirror-like portal
+leads into the {CWest{Tern To{Cwer{x turret.
+~
+0 0 3
+D1
+~
+~
+0 0 1648
+D3
+A mirror-like portal glimmers, allowing entry into the western turret.
+~
+~
+0 0 1650
+S
+
+#1650
+{NTurret{x of the {CWest{Tern To{Cwer{x~
+  You are in the turret of the {CWest{Tern To{Cwer{x.  You feel very strange here.
+Scattered about this room are a {Ygreat many coins{x and {Vvaluable articles{x.
+Yet you can't get rid of a feeling of dread!  A {Cwindow{x is in the western wall.
+~
+0 AD 0
+D1
+~
+~
+0 0 1649
+S
+
+#1651
+On the Other Side~
+  You are outdoors on a {Hca{btwa{Hlk{x between the {Nturrets{x of the {CE{Ta{Cs{Tt{Ce{Tr{Cn{x and {CWest{Tern{x
+{TTo{Cwers{x.  There is a small window opening into the {CWest{Tern To{Cwer{x.  You have a
+{Vfabulous view{x of your surroundings, a {cm{Cur{cky{x {Wcity{x partially obscured by strange
+{csmoke{x that {Rcreeps{x along the ground instead of rising. The city stretches as far
+as the eye can see under the conditions.
+~
+0 0 3
+D3
+~
+~
+0 0 1652
+S
+
+#1652
+{YTh{be Ch{Yamber{x~
+  You are in a small carpeted {Yc{bham{Yber{x. {YTh{be Ch{Yamber{x is empty except for a single
+chair facing a mirror on the wall.
+~
+0 0 0
+D1
+~
+~
+0 0 1651
+S
+
+#1701
+{TMain Eastern Road{x~
+  You are on the {gold{x {TEastern Road{x.  The {Mcross{Vroads{x to the east joins {PANOTHER{x
+northern route to this road, which continues east.  South of the {Mcross{Vroads{x is
+an {gold building{x.  The area around here is lightly {btimbered{x.
+~
+0 C 3
+D1
+You see a cross roads and an old building.
+~
+~
+0 0 1702
+D3
+~
+~
+0 0 5267
+S
+
+#1702
+{MCross{Vroads{x to the {GWil{Hderne{Gss{x~
+  You are at a {Mcross{Vroads{x to the {GWil{Hderne{Gss{x areas {Reast{x and {Wnorth{x of here,
+and the more {Bcivilized areas{x to the {Pwest{x. The main road is west, an
+older road continues east, and a simple {btrail{x heads north.  To the south,
+an {Cold ram-shackle {bbuilding{x is being used as a {Wtra{Cding p{Wost{x for the
+surrounding {GWil{Hderne{Gss{x.
+~
+0 0 3
+D0
+You see a trail leading north.
+~
+~
+0 0 1704
+D1
+The old Eastern road continues this way.
+~
+~
+0 0 1601
+D2
+An old, ram-shackle building serves as a trading post here.
+~
+~
+0 0 1703
+D3
+~
+~
+0 0 1701
+S
+
+#1703
+{WTra{Cding P{Wost{x~
+  You are in a {Wtra{Cding p{Wost{x just south of the {Mcross{Vroads{x, where {RR{Pa{RN{Pg{RE{Pr{Rs,
+{Gt{Hr{Ga{Hp{Gp{He{Gr and {ch{bu{cn{bt{ce{br{cs{x from the surrounding area come to buy, sell, and
+barter goods.
+~
+0 D 0
+D0
+The door opens out on the crossroads.
+~
+~
+0 0 1702
+S
+
+#1704
+{GTrail north{x of {Mcross{Vroads{x~
+  You are on a {bpr{Yimiti{bve{x north-south {Wtrail{x. South of here is a major {Mcross{vroads{x 
+and an {cold building{x. To the north the {Wtrail{x continues toward a {Hdeep, {cdark {Gforest{x.
+~
+0 0 3
+D0
+The trail continues toward a deep, dark, forest.
+~
+~
+0 0 1705
+D2
+A major crossroads and a building lie in this direction.
+~
+~
+0 0 1702
+S
+
+#1705
+{GTrail south{x of {Hforest{x~
+  You are on a {bpr{Yimiti{bve{x north-south {Wtrail{x.  Just north of here looms the
+entrance to a {Hdeep, {cdark {Gforest{x. To the south the {Wtrail{x continues.
+~
+0 0 3
+D0
+The trail enters a dark forest of thick oaks this way.
+~
+~
+0 0 1706
+D2
+The trail continues.
+~
+~
+0 0 1704
+S
+
+#1706
+{PEntrance{x to the {Hforest{x~
+  You are at the entrance to {cdark {Hforest{x comprised mostly of {chuge black {boak{x
+and {Ttowering {Gfirs{x.  A {Wtrail{x from the south continues north on into the
+{bwoods{x at this point.
+~
+0 0 3
+D0
+You see the trail continuing into the forest.
+~
+~
+0 0 1707
+D2
+You see the trail head back on south.
+~
+~
+0 0 1705
+S
+
+#1707
+{WTrail{x in {cDark Oak Forest{x~
+  The {Wtrail{x here passes through {Rgroves{x of closely knit {cBlack Oak{x. Some of
+these trees are of {Peno{Rrmous s{Pize{x.  {bRu{Ystli{bng{x and other low noises come
+from the {Hforest{x on either side of the {Wtrail{x.  The {Wtrail{x continues on north
+and south.
+~
+0 0 4
+D0
+You see the trail continue into thick, dark forest.
+~
+~
+0 0 1708
+D2
+The edge of the forest is visible in this direction.
+~
+~
+0 0 1706
+S
+
+#1708
+{GJ{Wu{Gn{Wc{Gt{Wi{Go{Wn{x in {cDark Forest{x~
+  You are in the {vmidst{x of a {cdeep dark {hforest{x of {chuge oak trees{x.  There is a
+{GJ{Wu{Gn{Wc{Gt{Wi{Go{Wn{x of trails here, with paths leading south, west and east.
+~
+0 0 4
+D1
+A path disappears into thick forest.
+~
+~
+0 0 1720
+D2
+A path disappears into thick forest.
+~
+~
+0 0 1707
+D3
+You see the path to the Centaur village.
+~
+~
+0 0 1709
+S
+
+#1709
+{WPath{x to {CCentaur Village{x~
+  You are on an {Reast-west{x path in the {Hforest{x.  Here the {Hforest{x is mostly
+{Btowering {Gfirs{x, not quite as dense as the {coak groves{x that can be seen eastward.
+Westward, the {Wtrail{x heads toward a small {Rc{Cl{Re{Ca{Rr{Ci{Rn{Cg{x.
+~
+0 0 3
+D1
+A path disappears into thick forest.
+~
+~
+0 0 1708
+D3
+There is a small clearing in this direction.
+~
+~
+0 0 1710
+S
+
+#1710
+The {PEast side{x of the {TCentaur{x {RC{Cl{Re{Ca{Rr{Ci{Rn{Cg{x~
+  You are on the east side of a {Rc{Cl{Re{Ca{Rr{Ci{Rn{Cg{x.  Small primitive {Ghuts{x are scattered
+about the edges of this {Rc{Cl{Re{Ca{Rr{Ci{Rn{Cg{x.  Beyond these on all sides are {Ntowering{x
+{Gfir trees{x.  A {bpath{x leads east out of the {Rc{Cl{Re{Ca{Rr{Ci{Rn{Cg{x. The {Rc{Cl{Re{Ca{Rr{Ci{Rn{Cg{x continues to
+the west.
+~
+0 0 2
+D0
+There is a hut here.
+~
+~
+0 0 1712
+D1
+A path leads away through the forest.
+~
+~
+0 0 1709
+D2
+There is a hut here.
+~
+~
+0 0 1713
+D3
+You see the west side of the clearing.
+~
+~
+0 0 1711
+S
+
+#1711
+{PWest side{x of the {WCentaur{x {Rc{Cl{Re{Ca{Rr{Ci{Rn{Cg{x~
+  You are on the {Pwest side{x of the {Rc{Cl{Re{Ca{Rr{Ci{Rn{Cg{x in the center of the {BCentaur village{x.
+{GHuts{x surround the {Rc{Cl{Re{Ca{Rr{Ci{Rn{Cg{x on all sides, and beyond are {Ntowering firs{x.  The
+{Rc{Cl{Re{Ca{Rr{Ci{Rn{Cg{x continues to the east.  To the west is a {Vvery large hut{x.
+~
+0 0 2
+D0
+There is a hut here.
+~
+~
+0 0 1714
+D1
+You see the east side of the clearing.
+~
+~
+0 0 1710
+D2
+There is a hut here.
+~
+~
+0 0 1715
+D3
+There is a hut here.
+~
+~
+0 0 1716
+S
+
+#1712
+{CA Centaur's Hut{x~
+  You are inside a {gsmallish hut{x, the home of a {Wfamily of Centaurs{x.  The hut
+is sparsely {bfu{Wrnish{bed{x, mostly the {Rtr{Pappin{Rgs{x of {Gsurvival{x.
+~
+0 D 0
+D2
+The opening leads out onto the clearing.
+~
+~
+0 0 1710
+S
+
+#1713
+{CA Centaur's Hut{x~
+  You are inside a {gsmallish hut{x, the home of a {Wfamily of Centaurs{x.  The hut
+is sparsely {bfu{Wrnish{bed{x, mostly the {Rtr{Pappin{Rgs{x of {Gsurvival{x.
+~
+0 D 0
+D0
+The opening leads out onto the clearing.
+~
+~
+0 0 1710
+S
+
+#1714
+{CA Centaur's Hut{x~
+  You are inside a {gsmallish hut{x, the home of a {Wfamily of Centaurs{x.  The hut
+is sparsely {bfu{Wrnish{bed{x, mostly the {Rtr{Pappin{Rgs{x of {Gsurvival{x.
+~
+0 D 0
+D2
+The opening leads out onto the clearing.
+~
+~
+0 0 1711
+S
+
+#1715
+{CA Centaur's Hut{x~
+  You are inside a {gsmallish hut{x, the home of a {Wfamily of Centaurs{x.  The hut
+is sparsely {bfu{Wrnish{bed{x, mostly the {Rtr{Pappin{Rgs{x of {Gsurvival{x.
+~
+0 D 0
+D0
+The opening leads out onto the clearing.
+~
+~
+0 0 1711
+S
+
+#1716
+{REntrance to a {VLarge Hut{x~
+  You are in the {Bentry {Yfoyer{x of a {Vlarge hut{x.  A {Wcurtain{x separates this section
+of the hut from the next section to the west.  To the east is an opening out
+onto the {Rc{Cl{Re{Ca{Rr{Ci{Rn{Cg{x.
+~
+0 D 0
+D1
+The opening leads out onto the clearing.
+~
+~
+0 0 1711
+D3
+There is a curtain here separating this section from the next.
+~
+~
+0 0 1717
+S
+
+#1717
+{TBack of a {VLarge Hut{x~
+  You are in the {Tback of a large hut{x.  A {Wcurtain{x separates this section from
+the front of the hut to the east.  This room is {Yfi{Rnely d{Becor{Yated{x, if
+somewhat primitive.  The decor suggests someone of authority lives here.
+~
+0 D 0
+D1
+There is a curtain here separating this room from the front of the hut.
+~
+~
+0 0 1716
+S
+
+#1720
+{CEastern Path{x in {cDark {HForest{x~
+  You are on an {Ceast{x-{Mwest{x path through extremely {gold growths of oak{x.  The path
+is fairly faint here.  {HUn{bdergr{Howth{x closes in so closely that little can
+be seen in any direction.
+~
+0 0 4
+D3
+The path continues west through thick forest.
+~
+~
+0 0 1708
+S
+
+#0
+
+#RESETS
+D 0 1603 0 1  * closes door north to hidden keep
+R 0 1644   0     	* It's too dark to see anything!
+O 0 1652   2 1608	* a barrel of ale
+O 0 1601   2 1627	* a rusty cleaver
+O 0 1607   1 1650       * window in 1650
+O 0 1608   1 1651       * window in 1651
+O 0 1651   1 1645	* a bronze chest
+P 1 1603   6 1651  1	*   a long elven dagger
+M 0 1601   4 1620  2	* a killer frog
+M 0 1601   4 1620  2	* a killer frog
+M 0 1601   4 1621  2	* a killer frog
+M 0 1601   4 1622  2	* a killer frog
+M 0 1602   6 1623  2	* the stone gargoyle
+M 0 1602   6 1623  2	* the stone gargoyle
+M 0 1602   6 1624  2	* the stone gargoyle
+M 0 1602   6 1624  2	* the stone gargoyle
+M 0 1602   6 1625  1	* the stone gargoyle
+M 0 1602   6 1631  1	* the stone gargoyle
+M 0 1603   3 1630  1	* an angry gargoyle
+M 0 1603   3 1632  1	* an angry gargoyle
+M 0 1603   3 1637  1	* an angry gargoyle
+M 0 1604   4 1636  2	* the elite gargoyle
+E 1 1604  10   16	*   a steel broad sword
+M 0 1604   4 1636  2	* the elite gargoyle
+E 1 1604  10   16	*   a steel broad sword
+M 0 1604   4 1639  2	* the elite gargoyle
+M 0 1604   4 1639  2	* the elite gargoyle
+M 0 1605   1 1638  1	* the gargoyle shaman
+E 1 1602   6   16	*   the fine mace
+E 1 1621   3   13	*   a dark red potion
+M 0 1606   1 1628  1	* a carnivorous plant
+M 0 1607   1 1629  1	* a gruesome ogre
+M 0 1608   4 1644  4	* a shadow
+M 0 1609   1 1634  1	* an evil wight
+E 1 1692   1   17	*   a strange key
+M 0 1610   2 1645  2	* A burly minotaur
+M 0 1610   2 1645  2	* A burly minotaur
+M 0 1612   1 1610  1	* the savage minotaur
+E 1 1604   5   16	*   a steel broad sword
+E 1 1612   3   11	*   a black kite shield
+M 0 1613   1 1646  1	* the captain
+E 1 1605   5   16	*   a steel broad sword
+E 1 1614   3    6	*   a commander's helm
+M 0 1614   1 1643  1	* the black pudding
+M 0 1615   2 1647  2	* a lesser golem
+E 1 1606   2   16	*   the rod of might
+M 0 1616   1 1648  1	* the ancient wyvern
+E 1 1615   2   14	*   a mithril bracer
+G 1 1621   5     	*   a dark red potion
+M 0 1617   1 1650  1	* the spectre
+E 1 1616   2    3	*   a dark blue cloak
+M 0 1702   2 1703  2	* a trapper
+E 1 1711   5    6	*   a fur cap
+M 0 1702   2 1703  2	* a trapper
+E 1 1711   5    6	*   a fur cap
+M 0 1704   2 1703  2	* a hunter
+M 0 1704   2 1703  2	* a hunter
+E 1 1701  10   16	*   a short bow
+M 0 1706   1 1703  1	* a ranger
+E 1 1702   5   16	*   a long bow
+G 1 1621   5     	*   a dark red potion
+M 0 1710   3 1704  1	* a centaur
+E 1 1701  10   16	*   a short bow
+M 0 1710   3 1708  1	* a centaur
+E 1 1701  10   16	*   a short bow
+M 0 1710   3 1710  1	* a centaur
+M 0 1711   2 1706  1	* a centaur
+M 0 1711   2 1709  1	* a centaur
+M 0 1712   3 1710  1	* an old centaur
+M 0 1712   3 1712  1	* an old centaur
+M 0 1712   3 1713  1	* an old centaur
+M 0 1714   3 1711  1	* an elder centaur
+M 0 1714   3 1714  1	* an elder centaur
+M 0 1714   3 1715  3	* an elder centaur
+M 0 1715   2 1716  2	* a centaur guard
+E 1 1604  10   16	*   a steel broad sword
+M 0 1715   2 1716  2	* a centaur guard
+E 1 1604  10   16	*   a steel broad sword
+M 0 1716   1 1717  1	* the centaur chief
+E 1 1713   1    2	*   a bronze ring
+
+S
+
+#SHOPS
+
+0
+
+#SPECIALS
+
+M 1605 spec_cast_cleric    	* the gargoyle shaman
+M 1609 spec_cast_undead    	* an evil wight
+M 1614 spec_breath_acid    	* the black pudding
+M 1616 spec_breath_any     	* the ancient wyvern
+M 1617 spec_cast_undead    	* the spectre
+M 1716 spec_cast_undead    	* the centaur chief
+
+S
+
+#$
+
+

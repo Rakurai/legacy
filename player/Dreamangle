@@ -1,0 +1,193 @@
+#PLAYER
+Name Dreamangle~
+Id   1013395558
+LogO 1013579986
+Vers 12
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race giant~
+Sex  2
+Cla  3
+Levl 4
+Plyd 4577
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3001
+HMS  64 64 108 108 104 137
+Gold 3
+Silv 549
+Exp  4792
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy TY
+FRes HI
+FVul BP
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 3
+Trai 3
+Save  -1
+Alig  850
+Hit   1
+ACs 52 52 52 56
+Atrib 25 10 10 11 17 10
+AtMod 5 2 3 1 0 2
+Pass april~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 32
+Rank ~
+Aura ~
+TSex 2
+LLev 1
+Deit Jubei~
+Lsit 206.72.57.194~
+Ltim Tue Feb 12 23:59:07 2002
+~
+LSav Tue Feb 12 23:59:46 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 60 108 137
+THMS 0 0 0
+Cnd  0 6 24 12
+Sk 75 1 'sword'
+Sk 6 1 'bash'
+Sk 1 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 1 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Affc 'armor'   0  32   2 -20  17          0 1
+Affc 'shield'   0  32  21 -20  17          0 1
+Affc 'giant strength'   0  29  13   4   1          0 1
+Affc 'fly'   0  33  17   0   0     524288 1
+Affc 'steel mist'   0  29  15  -3  17   16777216 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 98 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 6 15 0 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

@@ -1,0 +1,58 @@
+#PLAYER
+Name Look~
+Id   1013496291
+LogO 1013496304
+Vers 12
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Sex  0
+Cla  0
+Levl 0
+Plyd 0
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3001
+HMS  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  0
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJQc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Alig  0
+ACs 100 100 100 100
+Atrib 3 3 3 3 3 3
+AtMod 0 0 0 0 0 0
+Pass ~
+Titl ~
+Immn ~
+Pnts 0
+Rank ~
+Aura ~
+TSex 0
+LLev 0
+Deit Nobody~
+Lsit ~
+Ltim Wed Dec 31 18:00:00 1969
+~
+LSav Tue Feb 12 00:45:04 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 0 0 0
+THMS 0 0 0
+Cnd  0 48 48 48
+End
+
+#END

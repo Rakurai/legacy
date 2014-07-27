@@ -1,0 +1,81 @@
+#PLAYER
+Name Tetsuo~
+Id   1001791282
+LogO 1002433205
+Vers 7
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race feral~
+Sex  1
+Cla  7
+Levl 1
+Plyd 831
+Age  0
+Back 0
+Note 1002200813 0 0 0 0 0
+Scro 22
+Room 3054
+HMV  20 20 100 100 100 100
+Gold 3
+Silv 412
+Exp  1774
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy J
+Comm MNO
+Revk 0
+Pos  8
+Save  -7
+Alig  750
+Hit   7
+ACs 100 100 100 100
+Atrib 12 19 14 17 18 13
+AtMod 0 0 0 0 0 0
+Pass bilbo~
+Titl .~
+Immn ~
+Pnts 39
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Liriel~
+Lsit pmdyn65-92.dip.CSUChico.EDU~
+Ltim Sun Oct 07 00:12:06 2001
+~
+LSav Sun Oct 07 00:40:05 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FH
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'axe'
+Sk 1 1 'flail'
+Sk 76 1 'sword'
+Sk 1 1 'dodge'
+Sk 43 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'forge'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Affc 'bless'   0  50   5   7  18          0
+Affc 'bless'   0  47   5  -7  24          0
+End
+
+#END

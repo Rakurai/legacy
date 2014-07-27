@@ -1,0 +1,364 @@
+#PLAYER
+Name GammaYeti~
+Id   993274394
+LogO 1007005005
+Vers 8
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
+Race vampire~
+Sex  1
+Cla  3
+Levl 8
+Plyd 61398
+Age  0
+Back 0
+Note 993864502 993864502 993864502 993864502 993864502 993864502
+Scro 22
+Room 8543
+HMV  121 121 126 126 147 147
+Gold 25
+Silv 977
+Exp  24226
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy T
+Comm NO
+Revk 0
+Pos  8
+Alig  3
+Hit   1
+ACs 67 60 60 90
+Wimp  25
+Atrib 19 14 18 16 16 15
+AtMod 1 0 3 0 0 1
+Pass strausp~
+Afk {B[{CSat Jun 23 22:51:46 2001{B] {CUnknown Departure.{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 1
+LLev 14
+Deit Vortayne~
+Lsit 24.12.164.80~
+Ltim Wed Nov 28 21:12:19 2001
+~
+LSav Wed Nov 28 21:36:45 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FH
+HMVP 117 126 142
+THVP 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'polymorph'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 2 1 'axe'
+Sk 2 1 'dagger'
+Sk 1 1 'flail'
+Sk 69 1 'mace'
+Sk 1 1 'polearm'
+Sk 32 1 'shield block'
+Sk 1 1 'spear'
+Sk 54 1 'sword'
+Sk 1 1 'whip'
+Sk 35 1 'bash'
+Sk 1 1 'disarm'
+Sk 33 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 57 1 'parry'
+Sk 9 1 'rescue'
+Sk 46 1 'second attack'
+Sk 1 1 'third attack'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'warrior default'
+Gr 'weaponsmaster'
+Gr 'illusion'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Cond 94
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 86 0 0 0
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear 0
+Cost 400
+End
+
+#O
+Vnum 3070
+Nest 0
+Cond 100
+Wear 9
+Cost 220
+End
+
+#O
+Vnum 3071
+Nest 0
+Cond 97
+Wear 10
+Cost 220
+End
+
+#O
+Vnum 7800
+Nest 0
+Wear 5
+Cost 1080
+End
+
+#O
+Vnum 7801
+Nest 0
+Wear 8
+Cost 390
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 4471
+Nest 0
+Name lower token liriel~
+ShD  {WA {Glowering {Bt{Co{Bk{Ce{Bn{W from L{Ci{Br{Ci{Te{Wl{x~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 0
+Name enchant token liriel~
+ShD  {gA {Vlevel {Y100 {Be{Cn{Bc{Ch{Ba{Cn{Bt {gfrom {WL{Ci{Br{Ci{Te{Wl{x~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 1500
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1507
+Nest 0
+Wear 4
+Cost 480
+End
+
+#O
+Vnum 1505
+Nest 0
+Wear 11
+Cost 750
+End
+
+#O
+Vnum 7802
+Nest 0
+Cond 95
+Wear -1
+Cost 670
+End
+
+#O
+Vnum 1504
+Nest 0
+Cond 98
+Wear 16
+Cost 610
+End
+
+#O
+Vnum 4570
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 3164
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 3504
+Nest 0
+Wear 14
+Cost 690
+End
+
+#O
+Vnum 4570
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4572
+Nest 0
+Wear 18
+Cost 1200
+End
+
+#O
+Vnum 4589
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4589
+Nest 0
+Wear -1
+Cost 500
+End
+
+#END

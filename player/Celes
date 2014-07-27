@@ -1,0 +1,1623 @@
+#PLAYER
+Name Celes~
+Id   990587341
+LogO 1406431314
+Vers 15
+Mexp 2
+Pass tierney~
+Prom {W<{C%h{W/{C%H{Thp {G%m{W/{G%M{Hma {B%v{Nmv {Y%g{W/{g%s {P%X{Rxp {W({C%q{W/{G%j{W)>{x ~
+Race vampire~
+Clan kindred~
+Cla  4
+Levl 32
+Plyd 837210
+Back 830494
+Note 1025153820 1025153820 1025153820 1025153820 1025153820 1025153820 1025153820
+Scro 100
+Room 25005
+HMS  755 580 145
+Gold 1463
+Silv 63
+Gold_in_bank 9000
+Exp  35363
+PCkills  16
+PCkilled 6
+Akills   9
+Akilled  7
+PKRank   1
+Pos  8
+Alig 1000
+FImm 0
+FRes BM
+FVul NS
+Plr  ACFIMO
+Video D
+Act  DEFGHIJLQSTc
+AfBy T
+Comm MNO
+Revk 0
+Cgrp AIKLMN
+Cnsr 0
+Block_Remote 0
+Prac 160
+Trai 96
+Wimp 0
+Familiar 0
+Atrib 19 22 22 20 17 19
+SkillPnts  23
+RolePnts   1
+QuestPnts  51
+QpDonated  174
+GlDonated  15020
+Afk {B[{CTue Jul  2 00:01:46 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl , {GB{Ha{ct{Wt{gle{Wm{ca{Hg{Ge {Wof the {cD{Wa{grkne{Ws{cs{x~
+Immn ~
+Pnts 40
+Rank {RB{gL{cD~
+Aura ~
+TSex 2
+LLev 231
+Deit {WL{Ci{Br{Ci{Te{Wl{x~
+Stus {GB{Ha{ct{Wt{gle{Wm{ca{Hg{Ge {Wof the {cD{Wa{grkne{Ws{cs{x~
+RmCt 6
+ExSk 0
+Raff 3
+Lsit static-host-24-31-12-106.nctv.com~
+Ltim Sat Jul 26 20:01:57 2014
+~
+LSav Sat Jul 26 20:21:54 2014
+~
+Finf {x
+{HYour blast of lightning {Tbrings a touch of {RD{cE{RA{cT{RH {Tto {HThor! [213]{x
+
+{W<{C4{W/{C1012{Thp {G421{W/{G1482{Hma {B308{Nmv {Y5814{W/{g91 {P343{Rxp {W({C0{W/{G0{W)>{x
+{HYour sap {Tbrings a touch of {RD{cE{RA{cT{RH {Tto {Hthe ghostly air elemental! [1875]{x
+~
+HMSP 345 481 285
+THMS 0 0 0
+Cnd  0 0 0 5
+Alias uu open up~
+Alias dd open down~
+Alias nn open north~
+Alias ss open south~
+Alias ee open east~
+Alias ww open west~
+Alias a scan~
+Alias pevil c 'protection evil'~
+Alias pgood c 'protection good'~
+Alias id c 'identify'~
+Alias ac c 'acid rain'~
+Alias bl c 'blizzard'~
+Alias ew c 'enchant weapon'~
+Alias ea c 'enchant armor'~
+Alias divheal c 'divine heal'~
+Alias send c 'teleport obj' ~
+Alias dhide c 'detect hidden'~
+Alias dinvis c 'detect invis'~
+Alias fi c 'firestorm'~
+Alias divreg c 'divine regen'~
+Alias crit c 'cure crit'~
+Alias ch c 'chain lightning'~
+Alias ll c 'locate life'~
+Alias m order all rescue celes~
+Alias ener c 'energy'~
+Alias , o all bash~
+Alias dis c 'dispel magic'~
+Alias bu c 'burning hand'~
+Alias sh c 'shocking grasp'~
+Query ramaru~
+Query syveril~
+Query sharra~
+Query shenma~
+Query alara~
+Sk 100 1 'acid blast'
+Sk 99 1 'acid breath'
+Sk 100 1 'acid rain'
+Sk 97 1 'age'
+Sk 80 1 'animate skeleton'
+Sk 77 1 'animate wraith'
+Sk 77 1 'animate gargoyle'
+Sk 79 1 'animate zombie'
+Sk 95 1 'armor'
+Sk 100 1 'bless'
+Sk 100 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 79 1 'blood blade'
+Sk 81 1 'blood moon'
+Sk 96 1 'burning hands'
+Sk 75 1 'call lightning'
+Sk 76 1 'calm'
+Sk 81 1 'cancellation'
+Sk 75 1 'cause light'
+Sk 75 1 'cause serious'
+Sk 75 1 'cause critical'
+Sk 100 1 'chain lightning'
+Sk 75 1 'change sex'
+Sk 75 1 'channel'
+Sk 84 1 'charm person'
+Sk 75 1 'chill touch'
+Sk 80 1 'colour spray'
+Sk 85 1 'continual light'
+Sk 76 1 'control weather'
+Sk 89 1 'create food'
+Sk 100 1 'create parchment'
+Sk 75 1 'create rose'
+Sk 75 1 'create sign'
+Sk 77 1 'create spring'
+Sk 80 1 'create vial'
+Sk 76 1 'create water'
+Sk 86 1 'cure blindness'
+Sk 98 1 'cure critical'
+Sk 87 1 'cure disease'
+Sk 77 1 'cure light'
+Sk 79 1 'cure poison'
+Sk 75 1 'cure serious'
+Sk 99 1 'curse'
+Sk 75 1 'darkness'
+Sk 88 1 'dazzling light'
+Sk 100 1 'demonfire'
+Sk 78 1 'detect evil'
+Sk 76 1 'detect good'
+Sk 78 1 'detect hidden'
+Sk 78 1 'detect invis'
+Sk 75 1 'detect magic'
+Sk 75 1 'detect poison'
+Sk 76 1 'dispel evil'
+Sk 75 1 'dispel good'
+Sk 100 1 'dispel magic'
+Sk 84 1 'divine healing'
+Sk 80 1 'divine regeneration'
+Sk 84 1 'earthquake'
+Sk 79 1 'encampment'
+Sk 94 1 'enchant armor'
+Sk 99 1 'enchant weapon'
+Sk 95 1 'energy drain'
+Sk 93 1 'faerie fire'
+Sk 77 1 'faerie fog'
+Sk 96 1 'fear'
+Sk 99 1 'fire breath'
+Sk 100 2 'fireball'
+Sk 75 1 'fireproof'
+Sk 100 1 'firestorm'
+Sk 77 1 'flame blade'
+Sk 93 1 'flameshield'
+Sk 76 1 'flamestrike'
+Sk 100 1 'fly'
+Sk 75 1 'floating disc'
+Sk 76 1 'frenzy'
+Sk 76 1 'frost blade'
+Sk 89 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 100 1 'gate'
+Sk 91 1 'giant strength'
+Sk 75 1 'harm'
+Sk 96 1 'haste'
+Sk 75 1 'heal'
+Sk 95 1 'heat metal'
+Sk 76 1 'holy word'
+Sk 100 1 'identify'
+Sk 76 1 'infravision'
+Sk 92 1 'invisibility'
+Sk 76 1 'know alignment'
+Sk 76 1 'light of truth'
+Sk 76 1 'lightning bolt'
+Sk 100 1 'lightning breath'
+Sk 84 1 'locate life'
+Sk 80 1 'locate object'
+Sk 100 1 'magic missile'
+Sk 75 1 'mass healing'
+Sk 75 1 'mass invis'
+Sk 75 1 'nexus'
+Sk 95 1 'pass door'
+Sk 93 1 'plague'
+Sk 85 1 'poison'
+Sk 75 1 'power word'
+Sk 77 1 'polymorph'
+Sk 77 1 'portal'
+Sk 75 1 'protect container'
+Sk 94 1 'protection evil'
+Sk 97 1 'protection good'
+Sk 99 1 'ray of truth'
+Sk 76 1 'recharge'
+Sk 86 1 'refresh'
+Sk 76 1 'resurrect'
+Sk 75 2 'regeneration'
+Sk 82 1 'remove alignment'
+Sk 86 1 'remove invisibility'
+Sk 79 1 'remove curse'
+Sk 100 1 'sanctuary'
+Sk 1 1 'scry'
+Sk 92 1 'shield'
+Sk 75 1 'shock blade'
+Sk 100 1 'shocking grasp'
+Sk 84 1 'shrink'
+Sk 76 1 'sleep'
+Sk 100 1 'slow'
+Sk 76 1 'smokescreen'
+Sk 1 1 'starve'
+Sk 96 1 'steel mist'
+Sk 98 1 'stone skin'
+Sk 92 1 'summon'
+Sk 78 1 'summon object'
+Sk 100 1 'sunray'
+Sk 99 1 'talon'
+Sk 75 1 'teleport'
+Sk 81 1 'teleport object'
+Sk 100 1 'undo spell'
+Sk 76 1 'ventriloquate'
+Sk 77 1 'vision'
+Sk 91 1 'weaken'
+Sk 91 1 'word of recall'
+Sk 97 1 'wrath'
+Sk 75 1 'axe'
+Sk 100 1 'dagger'
+Sk 75 1 'flail'
+Sk 100 1 'mace'
+Sk 75 1 'polearm'
+Sk 75 1 'spear'
+Sk 100 1 'sword'
+Sk 75 1 'whip'
+Sk 100 1 'shield block'
+Sk 75 1 'brew'
+Sk 100 1 'scribe'
+Sk 75 1 'backstab'
+Sk 75 1 'bash'
+Sk 75 1 'berserk'
+Sk 86 1 'circle'
+Sk 75 1 'disarm'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 75 1 'envenom'
+Sk 98 1 'hand to hand'
+Sk 75 1 'kick'
+Sk 100 1 'parry'
+Sk 75 1 'rescue'
+Sk 75 1 'trip'
+Sk 100 1 'second attack'
+Sk 100 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 76 1 'hunt'
+Sk 76 1 'swimming'
+Sk 100 1 'fast healing'
+Sk 75 1 'firebuilding'
+Sk 76 1 'forge'
+Sk 80 1 'repair'
+Sk 75 1 'rotate'
+Sk 100 1 'languages'
+Sk 88 1 'haggle'
+Sk 80 1 'hide'
+Sk 75 1 'lore'
+Sk 100 2 'meditation'
+Sk 84 1 'peek'
+Sk 75 1 'pick lock'
+Sk 100 1 'scan'
+Sk 79 1 'sneak'
+Sk 75 1 'steal'
+Sk 81 1 'sing'
+Sk 95 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 75 1 'recall'
+Sk 63 1 'focus'
+Sk 95 1 'sap'
+Sk 91 1 'pain'
+Sk 70 1 'hex'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'attack'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'harmful'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Gr 'alteration'
+End
+
+#O
+Vnum 6
+Nest 0
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 4203
+Enchanted
+Nest 0
+ExtF 557121
+Cond 99
+Wear -1
+Lev  2
+Cost 1000
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+Affc 'reserved'   1   1  -1   2   5          0 1
+End
+
+#O
+Vnum 9201
+Nest 0
+ExtF 65
+Wt   0
+Wear -1
+Lev  8
+Cost 1140
+End
+
+#O
+Vnum 506
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 1804
+Enchanted
+Nest 0
+ExtF 262211
+Cond 86
+Wear -1
+Lev  13
+Cost 100
+Affc 'reserved'   1  10  -1   1   3          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
+End
+
+#O
+Vnum 10134
+Nest 0
+Wear 6
+Cost 120
+End
+
+#O
+Vnum 3021
+Enchanted
+Nest 0
+ExtF 67
+Wt   0
+Cond 89
+Wear -1
+Lev  6
+Cost 250
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
+End
+
+#O
+Vnum 3202
+Enchanted
+Nest 0
+Cond 87
+Wear 7
+Cost 0
+Affc 'acid breath'   0  36  -1   1  17          0 1
+Affc 'reserved'   1  20  -1   1   1          0 1
+Affc 'reserved'   1  20  -1   1   2          0 1
+Affc 'reserved'   1  20  -1   1   5          0 1
+Affc 'reserved'   1  20  -1   1  18          0 1
+Affc 'reserved'   1  20  -1   2  19          0 1
+Affc 'reserved'   1  20  -1  20  12          0 1
+Affc 'reserved'   1  20  -1  20  14          0 1
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 25050
+Nest 0
+Wear 8
+Cost 1370
+End
+
+#O
+Vnum 16040
+Nest 0
+Wear 4
+Cost 9800
+End
+
+#O
+Vnum 16042
+Nest 0
+Wear -1
+Cost 5600
+End
+
+#O
+Vnum 4596
+Nest 0
+Wear 11
+Cost 2400
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear 17
+Cost 3000
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 25053
+Nest 0
+Cond 97
+Wear 10
+Cost 3000
+End
+
+#O
+Vnum 25052
+Nest 0
+Wear 9
+Cost 2775
+End
+
+#O
+Vnum 2335
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 10126
+Nest 1
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 9201
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  8
+Cost 1140
+End
+
+#O
+Vnum 1612
+Nest 1
+Cond 97
+Wear -1
+Cost 1530
+End
+
+#O
+Vnum 1100
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  9
+Cost 550
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   5  -1   1   4          0 1
+End
+
+#O
+Vnum 2326
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  9
+Cost 550
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
+End
+
+#O
+Vnum 2326
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  9
+Cost 550
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
+End
+
+#O
+Vnum 2401
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  6
+Cost 270
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   3  -1   1   4          0 1
+Affc 'reserved'   1   3  -1   1   2          0 1
+End
+
+#O
+Vnum 2404
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Cond 88
+Wear -1
+Lev  6
+Cost 550
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#O
+Vnum 2404
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  6
+Cost 550
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#O
+Vnum 7209
+Nest 1
+ExtF 65
+Wt   100
+Wear -1
+Lev  9
+Cost 900
+End
+
+#O
+Vnum 6621
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  8
+Cost 780
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   4  -1   5  12          0 1
+Affc 'reserved'   1   4  -1   1   4          0 1
+End
+
+#O
+Vnum 3072
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  9
+Cost 566
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+End
+
+#O
+Vnum 20028
+Nest 0
+ExtF 16777472
+Wear 5
+Cost 700
+End
+
+#O
+Vnum 11915
+Nest 0
+Wear 18
+Cost 300
+End
+
+#O
+Vnum 4594
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 3203
+Nest 0
+Cond 82
+Wear 12
+Cost 40
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25084
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'detect good'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 16041
+Enchanted
+Nest 0
+ExtF 67
+Cond 73
+Wear 16
+Lev  32
+Cost 5000
+Val  1 6 6 3 9
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
+End
+
+#O
+Vnum 3181
+Nest 0
+Wear -1
+Cost 948
+ExDe owned by~ Celes~
+End
+
+#O
+Vnum 3176
+Nest 0
+Wear -1
+Cost 588
+ExDe owned by~ Celes~
+End
+
+#O
+Vnum 7607
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 126 13 0 0
+End
+
+#O
+Vnum 25057
+Nest 0
+Wear 15
+Cost 3320
+End
+
+#O
+Vnum 25057
+Nest 0
+Wear 14
+Cost 3520
+End
+
+#O
+Vnum 25056
+Nest 0
+Wear 3
+Cost 3120
+End
+
+#O
+Vnum 25060
+Nest 0
+Wear 0
+Cost 3980
+End
+
+#O
+Vnum 25055
+Nest 0
+Wear 1
+Cost 3140
+End
+
+#O
+Vnum 25055
+Nest 0
+Wear 2
+Cost 2640
+End
+
+#O
+Vnum 1212
+Nest 0
+Name liriel crystal shimmering trivia~
+ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
+Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 0
+Name liriel crystal shimmering trivia~
+ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
+Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 0
+Name liriel crystal shimmering trivia~
+ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
+Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 0
+Name liriel crystal shimmering trivia~
+ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
+Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14085
+Nest 0
+Name jumbled pile fluffy quilts~
+ShD  {Wa jumbled pile of {Vf{Wl{gu{Wf{gf{Vy {Yq{Gu{Ci{Gl{Ct{Ys{x~
+Desc {WA jumbled pile of {Vc{Wo{gm{Wf{Vy {Yq{Gu{Ci{Gl{Ct{Ys {Wlie strewn about the floor.{x~
+Mat {gs{Ti{Ws{gt{Te{Wr{gh{Too{gd{x~
+ExtF 17055811
+WeaF 32769
+Wt   5
+Wear -1
+Lev  0
+Cost 0
+ExDe owned by~ Alisa
+~
+ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
+~
+End
+
+#O
+Vnum 25007
+Nest 0
+Wear -1
+Cost 100
+Val  500 494 13 0 0
+End
+
+#O
+Vnum 25006
+Nest 0
+Wear -1
+Cost 85
+End
+
+#L
+Vnum 55
+Nest 0
+ShD  {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x~
+Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
+Wear -1
+Cost 0
+Val  64 48 0 0 0
+ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name sivat quest token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1211
+Nest 0
+Name letter n~
+ShD  {RThe letter N{x~
+Desc {RThe letter N{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1215
+Nest 0
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10215
+Nest 0
+ExtF 65
+Cond 77
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 10215
+Nest 0
+ExtF 65
+Cond 63
+Wear -1
+Cost 10000
+Val  1 8 5 21 25
+End
+
+#B
+Vnum 16501
+Nest 0
+ExtF 524545
+Wear -1
+Cost 500
+End
+
+#B
+Vnum 16501
+Nest 0
+ExtF 524545
+Cond 92
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger the dagger, 'Bloody Angel'~
+ShD  {cthe dagger, '{PB{clo{Ro{Pd{cy {RA{Pn{cg{Pe{Rl{c'{x{x~
+Desc A dagger is here, forged by Celes's craftsmanship.~
+Mat tin~
+ExtF 16777283
+Wt   49
+Cond 93
+Wear -1
+Lev  60
+Cost 18
+Val  2 7 12 11 4
+Affc 'enchant weapon'   0  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+ExDe dagger the dagger, 'Bloody Angel'~ It is a marvellous dagger, crafted from the finest tin around.
+It was created in the Month of Futility by an experienced necromancer
+named Celes.  Legend holds that this vampire was a great weaponsmith.
+~
+End
+
+#B
+Vnum 10154
+Enchanted
+Nest 0
+ExtF 262211
+Cond 99
+Wear -1
+Lev  60
+Cost 3300
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+End
+
+#B
+Vnum 3380
+Nest 0
+Name scroll heat metal heat metal heat metal~
+ShD  a scroll of heat metal, heat metal, heat metal~
+Desc A scroll of heat metal, heat metal, heat metal lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 86 86 86 -1
+Spell 1 'heat metal'
+Spell 2 'heat metal'
+Spell 3 'heat metal'
+End
+
+#B
+Vnum 3380
+Nest 0
+Name scroll energy drain energy drain energy drain~
+ShD  a scroll of energy drain, energy drain, energy drain~
+Desc A scroll of energy drain, energy drain, energy drain lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 62 62 62 -1
+Spell 1 'energy drain'
+Spell 2 'energy drain'
+Spell 3 'energy drain'
+End
+
+#B
+Vnum 3380
+Nest 0
+Name scroll heat metal heat metal heat metal~
+ShD  a scroll of heat metal, heat metal, heat metal~
+Desc A scroll of heat metal, heat metal, heat metal lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 86 86 86 -1
+Spell 1 'heat metal'
+Spell 2 'heat metal'
+Spell 3 'heat metal'
+End
+
+#B
+Vnum 5612
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger the dagger, 'Bloody Angel'~
+ShD  {cthe dagger, '{PB{clo{Ro{Pd{cy {RA{Pn{cg{Pe{Rl{c'{x{x~
+Desc A dagger is here, forged by Celes's craftsmanship.~
+Mat steel~
+ExtF 16777283
+Wt   50
+Wear -1
+Lev  60
+Cost 6
+Val  2 6 14 11 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
+Affc 'enchant weapon'   0  91  -1   5  18          0 1
+ExDe dagger the dagger, 'Bloody Angel'~ It is a marvellous dagger, crafted from the finest steel around.
+It was created in the Month of Futility by an experienced necromancer
+named Celes.  Legend holds that this vampire was a great weaponsmith.
+~
+End
+
+#B
+Vnum 2335
+Nest 0
+ExtF 16777281
+Wear -1
+Cost 500
+End
+
+#B
+Vnum 10106
+Enchanted
+Nest 1
+ExtF 262211
+Wear -1
+Cost 33000
+Affc 'reserved'   3  93  -1   0   0        256 1
+Affc 'reserved'   1  93  -1  40  13          0 1
+Affc 'reserved'   1  93  -1  40  12          0 1
+Affc 'reserved'   1  93  -1   5   2          0 1
+Affc 'reserved'   1  93  -1   8  19          0 1
+Affc 'reserved'   1  93  -1  12  18          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+End
+
+#B
+Vnum 13011
+Enchanted
+Nest 1
+ExtF 67
+Wear -1
+Cost 1200
+Affc 'reserved'   1  95  -1  -1  20          0 1
+Affc 'reserved'   1  95  -1  30  13          0 1
+Affc 'reserved'   1  95  -1  30  12          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1  12  19          0 1
+Affc 'reserved'   1  95  -1  12  18          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#B
+Vnum 11713
+Enchanted
+Nest 1
+ExtF 65
+Cond 91
+Wear -1
+Cost 10000
+Affc 'enchant weapon'   0  91  -1   2  18          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   1   4          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
+Affc 'reserved'   1  91  -1 -10  17          0 1
+End
+
+#B
+Vnum 14004
+Nest 1
+ExtF 786497
+Wt   0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 14009
+Enchanted
+Nest 1
+ExtF 1572931
+Wear -1
+Cost 3000
+Affc 'enchant weapon'   0  91  -1   4  18          0 1
+Affc 'enchant weapon'   1  91  -1   4  19          0 1
+Affc 'reserved'   0  91  -1   0   0  268435456 1
+Affc 'reserved'   1  91  -1  90  12          0 1
+Affc 'reserved'   1  91  -1   3   3          0 1
+End
+
+#B
+Vnum 13006
+Nest 1
+Wear -1
+Cost 120
+End
+
+#B
+Vnum 10105
+Nest 1
+Wear -1
+Lev  91
+Cost 33000
+ExDe owned by~ Celes
+~
+End
+
+#B
+Vnum 28008
+Nest 1
+ExtF 17301573
+Cond 97
+Wear -1
+Cost 47500
+End
+
+#B
+Vnum 20006
+Enchanted
+Nest 1
+ExtF 17039425
+Cond 99
+Wear -1
+Lev  61
+Cost 999
+Affc 'reserved'   1  59  -1 100  12          0 1
+Affc 'reserved'   1  59  -1  -3  24          0 1
+Affc 'reserved'   1  59  -1   3  26          0 1
+Affc 'reserved'   1  59  -1 -30   9          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'enchant weapon'   0  91  -1   2  18          0 1
+End
+
+#B
+Vnum 20008
+Enchanted
+Nest 1
+ExtF 16777281
+Cond 90
+Wear -1
+Lev  61
+Cost 50
+Affc 'reserved'   1  59  -1  -8  24          0 1
+Affc 'reserved'   1  59  -1  50  13          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
+Affc 'reserved'   1  59  -1   2   5          0 1
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'enchant weapon'   0  91  -1   3  18          0 1
+End
+
+#B
+Vnum 3805
+Nest 1
+Cond 97
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 14003
+Nest 1
+ExtF 18612289
+Wear -1
+Cost 100000
+End
+
+#B
+Vnum 5409
+Nest 1
+ExtF 67
+Wt   0
+Cond 66
+Wear -1
+Cost 100000
+End
+
+#B
+Vnum 1258
+Nest 1
+Name gateway refuge liriel~
+ShD  {Wa {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{x~
+Desc {WA {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{W lies here, {Cs{Th{Ci{Tm{Cm{Te{Cr{Ti{Cn{Tg{x.~
+Wear -1
+Cost 0
+Val  0 0 4 1223 0
+End
+
+#B
+Vnum 14043
+Enchanted
+Nest 1
+ExtF 18088003
+Wear -1
+Cost 12000
+Affc 'reserved'   2  91  -1   0   0       2048 1
+Affc 'reserved'   0  91  -1   0   0    2097152 1
+Affc 'reserved'   1 100  -1  18  19          0 1
+Affc 'reserved'   1 100  -1  18  18          0 1
+Affc 'reserved'   1  91  -1 120  13          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
+End
+
+#B
+Vnum 11791
+Enchanted
+Nest 1
+ExtF 67
+Cond 95
+Wear -1
+Lev  91
+Cost 55000
+Affc 'reserved'   0  95  -1   0   0    2097152 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'reserved'   1  95  -1 300  13          0 1
+Affc 'reserved'   1  95  -1 300  12          0 1
+Affc 'reserved'   1  95  -1   4   2          0 1
+Affc 'reserved'   1  95  -1   4   1          0 1
+ExDe owned by~ Celes
+~
+End
+
+#B
+Vnum 10121
+Nest 1
+ExtF 16777283
+Wear -1
+Lev  91
+Cost 21
+ExDe owned by~ Celes
+~
+End
+
+#B
+Vnum 4437
+Enchanted
+Nest 1
+ExtF 67
+Wear -1
+Cost 0
+Affc 'reserved'   1  91  -1   2   2          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1  60  12          0 1
+Affc 'reserved'   1  91  -1  40  13          0 1
+Affc 'enchant weapon'   1  99  -1   6  18          0 1
+Affc 'enchant weapon'   1  99  -1   6  19          0 1
+Affc 'reserved'   1  91  -1  -4  24          0 1
+Affc 'reserved'   1  91  -1   2  26          0 1
+End
+
+#B
+Vnum 20026
+Enchanted
+Nest 1
+Wt   0
+Wear -1
+Cost 62100
+Affc 'enchant weapon'   0  91  -1   2  18          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1  20  13          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
+End
+
+#B
+Vnum 10104
+Enchanted
+Nest 1
+ExtF 262211
+Wear -1
+Lev  91
+Cost 33000
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  93  -1  12  18          0 1
+Affc 'reserved'   1  93  -1  10  19          0 1
+Affc 'reserved'   1  93  -1  -6  20          0 1
+Affc 'reserved'   1  93  -1  80  12          0 1
+Affc 'reserved'   3  93  -1   0   0        512 1
+ExDe owned by~ Celes
+~
+End
+
+#B
+Vnum 3209
+Enchanted
+Nest 1
+ExtF 67633219
+Cond 93
+Wear -1
+Cost 100
+Affc 'reserved'   1  90  -1   2   1          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'enchant weapon'   1 100  -1  11  18          0 1
+Affc 'enchant weapon'   1 100  -1  11  19          0 1
+Affc 'reserved'   1  90  -1  80  12          0 1
+Affc 'reserved'   1  90  -1  30  13          0 1
+Affc 'reserved'   1  90  -1  -8  24          0 1
+End
+
+#B
+Vnum 11776
+Enchanted
+Nest 1
+ExtF 67
+Cond 95
+Wear -1
+Lev  91
+Cost 10000
+Affc 'enchant armor'   1 100  -1  -2  17          0 1
+Affc 'enchant weapon'   0 100  -1   6  18          0 1
+Affc 'enchant weapon'   1 100  -1   6  19          0 1
+Affc 'reserved'   1  92  -1   3   3          0 1
+Affc 'reserved'   1  92  -1   3   4          0 1
+Affc 'reserved'   1 100  -1 122  12          0 1
+Affc 'reserved'   1  92  -1  70  13          0 1
+Affc 'reserved'   0  92  -1   0   0        128 1
+ExDe owned by~ Celes
+~
+End
+
+#B
+Vnum 14013
+Enchanted
+Nest 1
+ExtF 1835075
+Cond 91
+Wear -1
+Cost 3500
+Affc 'reserved'   1  91  -1   3   1          0 1
+Affc 'reserved'   1  91  -1  18  18          0 1
+Affc 'reserved'   1  91  -1  18  19          0 1
+Affc 'reserved'   0  91  -1   0   0        124 1
+Affc 'enchant armor'   1  91  -1  -5  17          0 1
+End
+
+#B
+Vnum 4411
+Enchanted
+Nest 1
+ExtF 67
+Cond 96
+Wear -1
+Cost 2000
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1  60  12          0 1
+Affc 'reserved'   1  91  -1  30  13          0 1
+Affc 'enchant weapon'   1 100  -1   8  18          0 1
+Affc 'enchant weapon'   1 100  -1   8  19          0 1
+Affc 'reserved'   1  91  -1  -5  24          0 1
+End
+
+#B
+Vnum 14015
+Enchanted
+Nest 1
+ExtF 1048643
+Cond 99
+Wear -1
+Cost 15000
+Affc 'reserved'   4  91  -1   0   0       8192 1
+Affc 'reserved'   0  91  -1   0   0    1048576 1
+Affc 'enchant weapon'   1  99  -1  18  19          0 1
+Affc 'enchant weapon'   1  99  -1  12  18          0 1
+Affc 'reserved'   1  91  -1  75  12          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+End
+
+#B
+Vnum 11793
+Enchanted
+Nest 1
+ExtF 67
+Wear -1
+Lev  91
+Cost 55000
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'reserved'   1  95  -1 175  13          0 1
+Affc 'reserved'   1  95  -1 175  12          0 1
+Affc 'reserved'   1  95  -1   2   5          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1   2   2          0 1
+Affc 'reserved'   1  95  -1   2   1          0 1
+ExDe owned by~ Celes
+~
+End
+
+#B
+Vnum 11751
+Enchanted
+Nest 1
+ExtF 67
+Cond 95
+Wear -1
+Cost 15000
+Affc 'reserved'   1  91  -1   7  19          0 1
+Affc 'reserved'   1  91  -1   6  18          0 1
+Affc 'reserved'   1  91  -1  85  13          0 1
+Affc 'reserved'   1  91  -1  85  12          0 1
+Affc 'reserved'   1  91  -1  20   9          0 1
+Affc 'reserved'   1  91  -1   1   6          0 1
+Affc 'reserved'   1  91  -1   4   5          0 1
+Affc 'reserved'   1  91  -1   4   1          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#B
+Vnum 14110
+Nest 1
+Wear -1
+Cost 100000
+End
+
+#B
+Vnum 10112
+Nest 1
+ExtF 16777283
+Wear -1
+Lev  91
+Cost 500
+ExDe owned by~ Celes
+~
+End
+
+#B
+Vnum 13009
+Enchanted
+Nest 1
+ExtF 67
+Cond 99
+Wear -1
+Cost 660
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  40  12          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'reserved'   1  90  -1   1   1          0 1
+Affc 'reserved'   1  90  -1   3   4          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#B
+Vnum 13005
+Enchanted
+Nest 1
+ExtF 262211
+Cond 99
+Wear -1
+Cost 4500
+Affc 'enchant weapon'   1  91  -1  10  18          0 1
+Affc 'enchant weapon'   1  91  -1  10  19          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  -2  20          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   1   2          0 1
+Affc 'reserved'   1  90  -1  30  14          0 1
+Affc 'reserved'   1  90  -1  -2   9          0 1
+End
+
+#B
+Vnum 11709
+Enchanted
+Nest 1
+ExtF 67
+Wear -1
+Lev  88
+Cost 10000
+Affc 'enchant weapon'   1  91  -1   9  19          0 1
+Affc 'enchant weapon'   1  91  -1   9  18          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'reserved'   1  87  -1   5   3          0 1
+End
+
+#B
+Vnum 11709
+Enchanted
+Nest 1
+ExtF 67
+Wear -1
+Lev  88
+Cost 10000
+Affc 'reserved'   1  87  -1   5   3          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'enchant weapon'   1  91  -1   9  18          0 1
+Affc 'enchant weapon'   1  91  -1   9  19          0 1
+End
+
+#END

@@ -1,0 +1,855 @@
+#PLAYER
+Name Bovinity~
+Id   1018232678
+LogO 1023232606
+Vers 14
+Mexp 2
+Pass w1bbl3~
+Desc The vampiric figure of Bovinity looms before you, shrouded in darkness. 
+~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race vampire~
+Clan blackclaw~
+Cla  2
+Levl 35
+Tru  0
+Plyd 296052
+Back 249393
+Note 1022527101 1022120902 1020907845 1022459857 1022291946 1022457781 1022308665
+Scro 22
+Room 1251
+HMS  19 318 439
+Gold 886
+Silv 24
+Silver_in_bank 7000
+Gold_in_bank 700
+Exp  61363
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+Spou Tamara~
+Ptnr Maplearn
+~
+FImm 0
+FRes BM
+FVul NS
+Plr  AOU
+Video 0
+Act  CDEFGHJLSc
+AfBy T
+Comm DNOQYa
+Revk 0
+Cgrp A
+Cnsr A
+Prac 3
+Trai 1
+Wimp 0
+Atrib 19 16 21 22 17 15
+Afk {B[{CTue Jun  4 00:22:33 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl , Lord of {YMoo{W!~
+Immn ~
+Pnts 20
+Rank {cMoo~
+Aura ~
+TSex 1
+LLev 80
+Email bse@bakterium.com~
+Deit Marx~
+Lsit 12-219-176-56.client.mchsi.com~
+Ltim Tue Jun 04 17:39:55 2002
+~
+LSav Tue Jun 04 18:16:46 2002
+~
+Finf Please Sir tell me why my life's so pitiful, but the future's so bright?
+Well I'd look ahead, but it burns my retinas!
+-- Pitchshifter - Please Sir
+~
+HMSP 494 288 414
+THMS 4 0 0
+Cnd  0 0 9 1
+Sk 76 1 'armor'
+Sk 1 1 'cancellation'
+Sk 75 1 'dispel magic'
+Sk 1 1 'fireproof'
+Sk 75 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 1 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 75 1 'smokescreen'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 75 1 'ventriloquate'
+Sk 100 1 'dagger'
+Sk 90 1 'sword'
+Sk 100 1 'scan'
+Sk 73 1 'steal'
+Sk 71 1 'scrolls'
+Sk 75 1 'staves'
+Sk 74 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'illusion'
+Gr 'protective'
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 89
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Cond 93
+Wear 1
+Cost 1500
+End
+
+#O
+Vnum 4589
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 10135
+Nest 1
+Wear -1
+Cost 23
+End
+
+#O
+Vnum 4573
+Nest 1
+Wear -1
+Cost 1800
+End
+
+#O
+Vnum 3167
+Nest 1
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 4589
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 16058
+Nest 0
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16056
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16056
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16069
+Nest 0
+Cond 94
+Wear 4
+Cost 5300
+End
+
+#O
+Vnum 6
+Nest 0
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 16056
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16056
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16056
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16074
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 4584
+Nest 0
+Cond 81
+Wear 17
+Cost 1600
+End
+
+#O
+Vnum 4592
+Nest 0
+Cond 90
+Wear 0
+Cost 700
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 48 0 0 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 7603
+Nest 0
+Wear 3
+Cost 1000
+End
+
+#O
+Vnum 16007
+Nest 0
+Cond 96
+Wear 16
+Cost 4500
+End
+
+#O
+Vnum 641
+Nest 0
+Wear 7
+Cost 6300
+End
+
+#O
+Vnum 642
+Nest 0
+Cond 95
+Wear 8
+Cost 4100
+End
+
+#O
+Vnum 4595
+Nest 0
+Cond 95
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 24829
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 7614
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 7613
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 24829
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24829
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 643
+Nest 0
+Wear -1
+Cost 4300
+End
+
+#O
+Vnum 644
+Nest 0
+Cond 92
+Wear -1
+Cost 6300
+End
+
+#O
+Vnum 645
+Nest 0
+Cond 85
+Wear 11
+Cost 6000
+End
+
+#O
+Vnum 4481
+Nest 0
+Wear -1
+Cost 0
+Val  12 0 0 0 0
+End
+
+#O
+Vnum 24801
+Nest 0
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 24802
+Nest 0
+Cond 93
+Wear 9
+Cost 2000
+End
+
+#O
+Vnum 16058
+Nest 0
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 0
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 0
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 0
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 0
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 0
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 0
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 89
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 7614
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 16058
+Nest 0
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 0
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16013
+Nest 0
+Wear -1
+Cost 2100
+End
+
+#O
+Vnum 16001
+Nest 0
+Wear 5
+Cost 5000
+End
+
+#O
+Vnum 16080
+Nest 0
+Cond 93
+Wear 14
+Cost 2500
+End
+
+#O
+Vnum 16080
+Nest 0
+Cond 92
+Wear 15
+Cost 2500
+End
+
+#O
+Vnum 16078
+Nest 0
+Cond 88
+Wear 6
+Cost 1800
+End
+
+#O
+Vnum 7603
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 16041
+Enchanted
+Nest 0
+ExtF 67
+Cond 87
+Wear -1
+Lev  29
+Cost 5000
+Affc 'enchant weapon'   1  79  -1   6  19          0 1
+Affc 'enchant weapon'   1  79  -1   6  18          0 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#L
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 3004
+Nest 0
+Wear -1
+Cost 11
+Val  12 4 8 0 0
+End
+
+#L
+Vnum 3004
+Nest 0
+Wear -1
+Cost 11
+End
+
+#L
+Vnum 4580
+Enchanted
+Nest 0
+Wear -1
+Cost 1000
+Val  1 0 1 1 0
+Affc 'reserved'   1  10  -1   2   3          0 1
+End
+
+#L
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 3043
+Nest 0
+Wear -1
+Cost 640
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16090
+Nest 0
+Wear -1
+Cost 1500
+Spell 3 'fireball'
+End
+
+#L
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 2402
+Nest 0
+Wear -1
+Cost 310
+End
+
+#L
+Vnum 16074
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 1603
+Nest 0
+Cond 95
+Wear -1
+Cost 700
+End
+
+#L
+Vnum 3116
+Nest 0
+Wear -1
+Cost 1190
+End
+
+#L
+Vnum 9500
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#L
+Vnum 1211
+Nest 0
+Name letter s~
+ShD  {HThe letter S{x~
+Desc {HThe letter S{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16008
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 16048
+Nest 0
+Wear -1
+Cost 500
+End
+
+#L
+Vnum 4593
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3022
+Nest 0
+Wear -1
+Cost 610
+End
+
+#END

@@ -1,0 +1,337 @@
+0 REBIRTH REMORT REINCARNATION~
+{VRemort{x is available to mortals once they reach level {Y91{x.  Upon a 
+{Vremort{x, the player will return to {Ylevel 1{x with {Y20/100/100{x 
+for {Yhp/mana/movement{x. {VRemorted{x players are asked to select a 
+{Vrace{x, {Cdeity{x and {Mstatus/rank/second title{x.  The last two will 
+be displayed in the whois command with their {Vremort{x count. The 
+{Vremort{x count is equivalent to the number of remort ceremonies a
+player has been through.
+
+There is an automatic AC bonus which increases with level and remort count.
+Also, the usual level bonuses of 5 for buying, wearing and wielding 
+equipment as well as that of 7 above the player's level for storing equipment
+are increased by 1 on the first remort, again on the third, and once every
+3 remorts following that, though the restriction on equipment above level 
+91 remains.
+
+Starting with the first remort, players have access to special skills and 
+spells that generally far exceed normal skills and spells in power.  A number
+are available to each class, and may be gained like any other skill.  Remorts
+also have the opportunity to gain {Vextraclass{x skills, i.e. skills from 
+other classes with the 'extraclass' command. 
+See {RHELP EXTRACLASS{x and {RHELP REMORTSPELLS{x / {RREMORTSKILLS{x for more details.
+~
+
+0 REMORTSKILLS REMORTSPELLS~
+These abilities are not available before remorting. Like other spells
+and skills, they have certain class-based minimum levels. The spells are
+gained individually, not as part of a group. Costs for all of these are
+priced for well-statted remorts, and most of the abilities are well worth it
+for the additional power they bestow.
+
+ {BClass          {GSkill/Spell     {PDescription
+{c/=========================================================================\{x
+{c\ {BMage         {c|{GSheen          {c|{PProtects your armor and equipment         {c/{x  
+{c/              |{GFocus          {c|{PIncrease damage of your offensive spells  {c\{x
+{c\              |{GParalyze       {c|{PSlows your opponent's defense             {c/{x
+{c/ {BCleric       {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
+
+0 EXTRACLASS~
+{BSyntax: {Cextraclass{x
+        {Cextraclass {g<{Tskill or spell{g>{x  
+
+As a remort, besides access to more powerful skills and spells of your
+class, you also have the opportunity to learn one other of another 
+class. This process is decidedly harder than learning your own, and 
+unlike your own, these skills do not stay with you permanently; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+~
+
+0 SHEEN~
+{BSyntax: {Ccast 'sheen'{x
+
+Long ago, battlemages who sparred a lot with each other found themselves
+increasingly irritated by having to stop and repair their usually very 
+valuable magic equipment.  Thus, they developed a protective sheen that 
+surrounds equipment and inventory.  No more wear and tear or etching!
+
+{GREMORT CLASS: {YMage{x
+~
+
+0 FOCUS~
+{BSyntax: {Ccast 'focus'{x
+
+This arcane spell is one of the most powerful tools in a mage's arsenal.
+It increases the caster's concentration supernaturally, resulting in a 
+huge increase in the damage of offensive spells.
+
+{GREMORT CLASS: {YMage{x
+~
+
+0 PARALYZE~
+{BSyntax: {Ccast 'paralyze' {g<{Tvictim{g>{x
+
+This spell sends a huge bolt of energy into victim, effectively shocking 
+their muscles into grim submission.  With their muscles unresponsive, the
+victim's evasive abilities will drop immensely.  This spell can only be 
+cast in combat.
+
+{GREMORT CLASS: {YMage{x
+~
+
+0 DAZZLE~
+{BSyntax: {Ccast 'dazzle'{x
+
+Using his holy powers, a cleric can call forth a dazzling spray of light
+from his fingertips.  A victim, dazzled, is temporarily blinded and unable
+to continue battle.
+
+{GREMORT CLASS: {YCleric{x
+~
+
+0 BARRIER~
+{BSyntax: {Ccast 'barrier'{x
+
+This spell reflects a cleric's incredible defensive prowess.  This magical 
+barrier will absorb part of each damaging strike aimed at you.
+
+{GREMORT CLASS: {YCleric{x
+~
+
+0 'FULL HEAL'~
+{BSyntax: {gcast '{Yfull heal{g'{x
+
+Although clerical healing spells are common, this very uncommon spell can
+be used by only the true master cleric.  As the name would suggest, it
+completely restores the target's health level.  Naturally, this is a very 
+magically draining spell, but can often prove worth it.  The amount of 
+concentration needed for this spell is also extreme, and it cannot be used
+in battle situations.
+
+{GREMORT CLASS: {YCleric{x
+~
+
+0 HONE~
+{CSyntax: {Yhone{x
+
+This unique skill lets you sharpen the weapon you are wielding.  
+Difficult for even the best thieves, it requires the use of a high 
+quality whetstone, which not only is difficult to procure but could 
+be broken in the process of sharpening.
+
+{GREMORT CLASS: {YThief{x
+~
+
+0 SHADOWFORM~
+{BSyntax: {Cshadowform{x
+
+Many thieves would agree that the backstab is one of their most powerful
+skills. Thus, an ancient guild of thieves developed a method of 
+backstabbing even while in combat with an opponent.  Because the skill 
+involved tricking the victim with shadows, the skill was dubbed 
+shadowform, and allows thieves the ability to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+~
+
+0 MIDNIGHT~
+{BSyntax: {Ccast 'midnight'{x
+
+Obviously one of a thief's many prowesses is the ability to sneak 
+unnoticed.  The spell midnight renders you completely invisible to even
+the most wary for a short period of time.  However, the cloak of midnight
+cannot be maintained in battle.
+
+{GREMORT CLASS: {YThief{x
+~
+
+0 'FOURTH ATTACK'~
+Training in {Cfourth attack{x allows the character a chance at an additional strike
+in a combat, and increases the chance of a second and third attack as well.  Perfect
+{Cfourth attack{x does NOT assure four attacks per round.
+
+{GREMORT CLASS: {YWarrior{x{x
+~
+
+0 RIPOSTE~
+The riposte skill was taken from masters of swordplay and passed down the
+generations through warrior guilds.  It is a powerful skill once learned, 
+gifting the user with the ability to strike back at an opponent after a
+successful parry.
+
+{GREMORT CLASS: {YWarrior{x
+~
+
+0 RAGE~
+{BSyntax: {Crage{x
+
+This skill is very related to the warrior skill - berserk.  It involves
+summoning an intense burst of anger which fuels a quick flurry of attacks
+at everything close to you.  It is very physically intensive, and will tire
+you quickly.  Be careful not to take on more than you can handle!
+
+{GREMORT CLASS: {YWarrior{x
+~
+
+0 HEX~
+{BSyntax: {Ccast 'hex'{x
+
+This powerful curse surrounds the victim with an unholy aura, which
+lowers their defense drastically.  The victim becomes a helpless target 
+against attacks.
+
+{GREMORT CLASS: {YNecromancer{x
+~
+
+0 PAIN~
+{BSyntax: {Ccast 'pain'{x
+
+Maladictions are a necromancer's best friend, and a great necromancer of
+old experimented greatly with them.  He succeeded in binding several 
+hideous spells together and jokingly nicknamed his masterpiece "pain."
+Well, the victims of this spell would willingly agree with him, for the
+spell not only combines maladictions but packs a powerful punch as well.
+
+{GREMORT CLASS: {YNecromancer{x
+~
+
+0 SAP~
+{BSyntax: {Ccast 'sap'{x
+
+This spell reflects the twisted nature of many necromancers, and not only
+drains the victim of their health, but transfers a great deal of that drain
+to the caster.
+
+{BREMORT CLASS: {YNecromancer{x
+~
+
+0 'FORCE SHIELD'~
+{BSyntax: {Ccast 'force shield'{x
+
+The force shield is a spell derived from the cleric's barrier, but in
+actuality, works in quite a different way.  The magical shield, rather
+than absorbing damage, blocks a certain percentage of hits.  It is a 
+great defensive aid.
+
+{GREMORT CLASS: {YPaladin{x
+~
+
+0 HAMMERSTRIKE~
+{BSyntax: {Chammerstrike{x
+
+This powerful skill has been written about in many legends, and involves
+a paladin using his fervor to call down the power of the gods.  The affect
+was likened to a "hammer's strike" for it enhances the paladin's combat
+abilities by a great deal.  The spell's immense power cannot be held for
+anything more than a short period in a mortal body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+~
+
+0 'HOLY SWORD'~
+{BSyntax: {Ccast 'holy sword'{x
+
+The paladin's close relationship with the heavens provides him of much of
+his powers, and this spell is just yet another example.  The gods granted
+paladins the ability to summon a godly blade unto their grip, but beware,
+for you cannot free yourself of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+~
+
+0 'DUAL SECOND'~
+The bard's natural proficiency with weapons, aided with ambidexterity, is
+utilized in this skill, which allows an extra chance to strike with the
+second weapon in combat.
+ 
+{GREMORT CLASS: {YBard{x
+~
+
+0 ALIGN~
+{BSyntax: {Calign good{x
+	{Calign neutral{x
+	{Calign evil{x
+
+A bard's travels and great understanding of many races and populations 
+gives them the skill of choosing their own align at will.  This can prove
+very useful in many situations.
+
+{GREMORT CLASS: {YBard{x
+~
+
+0 BLUR~
+Blur is an extra evasive maneuver, quite similar to dodge.  It allows you
+to evade attacks with supernatural quickness, and when coupled with dodge
+and parry can make you quite difficult to hit.
+
+{GREMORT CLASS: {YBard{x
+~
+
+0 MARK RELOCATE~
+{BSyntax:{x {Cmark{x
+	{Crelocate{x
+
+This skill leaves a distinguishing mark in a certain room, so you can 
+easily and quickly return to that room. 
+
+Use {Cmark{x to remember your current room.
+Use {Crelocate{x to return there, from wherever you are.
+ 
+{GREMORT CLASS: {YRanger{x
+~
+
+0 STANDFAST~
+For the ranger who finds himself trekking, living, and fighting in any
+terrain, staying on their feet comes naturally.  This skill manifests 
+that ability, and makes the user close impossible to bash, trip, or
+knock down in any way.  
+
+{GREMORT CLASS: {YRanger{x
+~
+
+0 'CRITICAL BLOW'~
+{BSyntax: {Ycritical blow{x
+
+One of the ranger's many strengths is his perceptive eye in analyzing
+situations, areas, or others.  This skill uses that perception to
+look for a weakness in an opponent so that they may mortally wound
+them in a single strike.  Even if the blow misses, it does some
+damage, and as an opponent gets weaker and weaker, it becomes easier
+to critical blow them.
+
+{GREMORT CLASS: {YRanger{x
+~
+
+-2

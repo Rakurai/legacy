@@ -1,0 +1,143 @@
+#PLAYER
+Name Kell~
+Id   1012380600
+LogO 1012381486
+Vers 11
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dragon~
+Sex  1
+Cla  7
+Levl 1
+Plyd 148
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3757
+HMS  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  3300
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 5
+Trai 3
+Save  -1
+Alig  0
+Hit   1
+ACs 95 95 95 99
+Atrib 17 15 17 13 20 13
+AtMod 0 0 0 0 0 0
+Pass fishing~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 62
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Sturm~
+Lsit dvpt6-227.cot.brightok.net~
+Ltim Wed Jan 30 03:02:18 2002
+~
+LSav Wed Jan 30 03:04:46 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 32 44 40
+Sk 1 1 'acid blast'
+Sk 1 1 'acid breath'
+Sk 1 1 'burning hands'
+Sk 1 1 'chain lightning'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'fire breath'
+Sk 1 1 'fireball'
+Sk 1 1 'firestorm'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'lightning breath'
+Sk 1 1 'magic missile'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'wrath'
+Sk 40 1 'axe'
+Sk 1 1 'flail'
+Sk 1 1 'bash'
+Sk 1 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 1 1 'fast healing'
+Sk 1 1 'hide'
+Sk 1 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'combat'
+Gr 'draconian'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 196 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3719
+Nest 0
+Wear 16
+Cost 350
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

@@ -1,0 +1,1529 @@
+#AREA
+
+limbo.are~
+Limbo~
+{H{{ ALL } {MLotus   {TLimbo~
+1 199
+
+#MOBILES
+
+#1
+wedding usher old man~
+a wedding usher~
+An old man stands here, proudly greeting the wedding guests.
+~
+A tall man greets you with a warm smile, and directs you 
+to the pew. Sparkling blue eyes glisten with inner youth,
+although long white hair and wrinkles betray his age.
+~
+human~
+ABCJQTV CH 1000 0
+30 10 1d1+999 1d1+999 2d4+30 beating
+-15 -15 -15 -15
+ACEFHIKN ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#2
+skeleton undead~
+an animated skeleton~
+An animated skeleton looks upon you with an empty stare.
+~
+Feeling nothing, this minion of the Necromancer prepares to do
+battle once again in the afterlife.
+~
+human~
+BT DFV -1000 0
+30 3 3d9+550 7d9+200 4d6+3 crush
+-18 -18 -18 -11
+EFDHKNU AFLQ 0 NOK
+stand stand none 0
+0 0 medium 0
+
+#3
+zombie undead~
+an animated zombie~
+An animated zombie staggers about the room.
+~
+Feeling nothing, this minion of the Necromancer prepares to do
+battle once again in the afterlife.
+~
+human~
+BT KH -1000 0
+45 5 3d9+2000 7d9+500 10d6+3 smash
+-27 -27 -27 -21
+FDHIKNU AQICS 0 NOE
+stand stand none 0
+0 0 medium 0
+
+#4
+wraith undead~
+an animated wraith~
+An animated wraith floats around and moans softly.
+~
+Feeling nothing, this minion of the Necromancer prepares to do
+battle once again in the afterlife.
+~
+human~
+BTZ UTVH -1000 0
+60 9 30d9+4000 7d9+700 10d8+3 slime
+-36 -36 -36 -31
+FDHIKNU ADB 0 N
+stand stand none 0
+0 0 medium 0
+
+#5
+gargoyle undead~
+an animated gargoyle~
+An animated gargoyle is perched here screaming loudly.
+~
+Feeling nothing, this minion of the Necromancer prepares to do
+battle once again in the afterlife.
+~
+human~
+BRZ DFHTVaa -1000 0
+75 12 30d9+6000 7d9+900 10d10+3 acbite
+-45 -45 -45 -41
+FDHIKNU DBGK 0 NOS
+stand stand none 0
+0 0 large 0
+
+#6
+zombie~
+a zombie~
+A zombie is here, slaving away for its master.
+~
+This fiend of the undead is prepared to do anything its master
+asks, including bringing an early end to your existance!!!
+~
+human~
+BO 0 -800 0
+1 1 1d1+1 1d1+1 1d1+1 punch
+10 10 10 10
+DEIKO 0 0 0
+stand stand male 0
+0 0 medium 0
+
+#7
+Elly caterer woman~
+the young woman~
+A young woman stands behind the counter, twirling her hair.
+~
+A short girl smiles up to greet you. Her dark hair falls 
+gracefully across her bare shoulders, and her deep brown 
+eyes glitter flirtatiously towards you. A shiver runs up 
+and down your spine as she stands up, and straghtens her 
+skirt. A soft smile comes to your lips and of all of the 
+words to describe this glowing vision, the only one that 
+comes to mind is... "WOW!"
+~
+human~
+BCTV 0 1000 0
+108 10 1d1+999 1d1+999 2d4+30 slap
+-15 -15 -15 -15
+ACEFHIKN ABCD 0 0
+stand stand female 0
+0 0 small 0
+>all_greet_prog 100~
+say {GHi! Can I help you?{x!
+giggle
+~
+>speech_prog p Full Service~
+if isimmort($n)
+   bounce
+   beam $n
+   say {GOh{x! {GWhat a wonderful choice{x!
+   say {GOne moment, I'll be right back{x!
+   MPECHO She pauses to look at the menu, then skips off to the back room.
+   MPECHO A moment later she comes bursting back with a large {WWedding Cake{x.
+   smile $n
+   say {GHere is the cake and the rest will be delivered to the chapel{x.
+   MPAT 3032 MPOLOAD 56
+   give cake $n
+   say {GIt looks scrumptious{x!
+   giggle
+   say {GMy name is {CElly{G, by the way. Can I come watch the wedding{x?
+   say {GPlease{x?
+   puppy $n
+   MPAT 3032 MPOLOAD 49
+   MPAT 3032 clone 39*cheese
+   MPAT 7 drop all.chees
+   MPAT 3032 MPOLOAD 50
+   MPAT 3032 clone 39*crab
+   MPAT 7 drop all.crab
+   MPAT 3032 MPOLOAD 51
+   MPAT 3032 clone 39*salad
+   MPAT 7 drop all.salad
+   MPAT 3032 MPOLOAD 52
+   MPAT 3032 clone 39*round
+   MPAT 7 drop all.round
+   MPAT 3032 MPOLOAD 53
+   MPAT 3032 clone 39*duck
+   MPAT 7 drop all.duck
+   MPAT 3032 MPOLOAD 54
+   MPAT 3032 clone 39*lobster
+   MPAT 7 drop all.lobster
+   MPAT 3032 MPOLOAD 55
+   MPAT 3032 clone 39*wine
+   MPAT 7 drop all.wine
+endif
+~
+
+>speech_prog p Small Service~
+if isimmort($n)
+   bounce
+   hug $n
+   say {GOh{x!
+   giggle
+   say {GSmall orders are nice{x!
+   say {GOne second, I'll be right back{x!
+   MPECHO She skips off to the back room while humming a song.
+   MPECHO A moment later she comes bouncing back with a large {WWedding Cake{x.
+   smile $n
+   say {GHere is the cake and the rest will be delivered to the chapel{x.
+   MPAT 3032 MPOLOAD 56
+   give cake $n
+   say {GMy name is {CElly{G, by the way. Can I come watch the wedding{x?
+   say {GPlease{x?
+   puppy $n
+   MPAT 3032 MPOLOAD 49
+   MPAT 3032 clone 19*cheese
+   MPAT 7 drop all.chees
+   MPAT 3032 MPOLOAD 50
+   MPAT 3032 clone 19*crab
+   MPAT 7 drop all.crab
+   MPAT 3032 MPOLOAD 55
+   MPAT 3032 clone 19*wine
+   MPAT 7 drop all.wine
+endif
+~
+
+>speech_prog p yes~
+beam
+bearhug $n
+say {GThank you so much{x!
+say {GI do so love weddings{x!
+giggle
+~
+|
+
+#8
+Lyana waitress~
+Lyana the waitress~
+A waitress.. well.. waits here, ready to serve.
+~
+An older woman in a charming uniform stands near you
+with a cheerful smile and a glowing happiness coming 
+from her. It's obvious she enjoys her job very much.
+~
+human~
+BCTV 0 1000 0
+108 10 1d1+999 1d1+999 2d4+30 slap
+-15 -15 -15 -15
+ACEFHIKN ABCD 0 0
+stand stand female 0
+0 0 small 0
+
+>all_greet_prog 100~
+if sex($n)==0
+   mpechoat $n Lyana the waitress says 'Enjoy the party, umm...'
+else
+if sex($n)==2
+   mpechoat $n Lyana the waitress says 'Enjoy the party, Ma`am!'
+else
+if sex($n)==1
+   mpechoat $n Lyana the waitress says 'Enjoy the party, Sir!'
+endif
+~
+
+>give_prog wedding cake slice~
+mpat 3032 mpclone 40*cake
+~
+
+>act_prog p asks for a slice of cake.~
+give cake $n
+~
+
+>rand_prog 6~
+if rand(50)
+   say Aren't they a lovely couple?
+   emote gives a warm smile.
+else
+if rand(30)
+   say Would you like some cake?
+else
+if rand(25)
+   say What a beautiful bride!
+   smile
+else
+if rand(20)
+   say Oh! I love wedding parties!
+   giggle
+endif
+~ 
+|
+
+#85
+squestmob~
+~
+~
+~
+unique~
+BGJKb DFJ -1000 0
+100 20 3d9+5500 7d9+2000 4d60+3 crush
+-108 -108 -108 -101
+0 ABCD 0 0
+stand stand none 0
+0 0 medium 0
+
+#0
+
+#OBJECTS
+
+#6
+weddingring wedding ring~
+a wedding ring~
+a wedding ring~
+gold~
+weddingring U AR
+0 0 0 0 0
+0 10 1 I
+
+#10
+corpse~
+the corpse of %s~
+The corpse of %s is lying here.~
+meat~
+npc_corpse 0 A
+0 0 0 1 0
+0 1000 0 D
+
+#11
+corpse~
+the corpse of %s~
+The corpse of %s is lying here.~
+meat~
+pc_corpse O A
+0 0 0 1 0
+0 1000 0 D
+
+#12
+head~
+the head of %s~
+The severed head of %s is lying here.~
+meat~
+trash 0 A
+0 0 0 0 0
+0 50 0 D
+
+#13
+heart~
+the heart of %s~
+The torn-out heart of %s is lying here.~
+meat~
+food 0 A
+16 16 0 0 0
+0 20 0 D
+
+#14
+arm~
+the arm of %s~
+The sliced-off arm of %s is lying here.~
+meat~
+food 0 A
+20 20 0 0 0
+0 50 0 D
+
+#15
+leg~
+the leg of %s~
+The sliced-off leg of %s is lying here.~
+meat~
+food 0 A
+20 20 0 0 0
+0 50 0 D
+
+#16
+guts entrails~
+the guts of %s~
+A steaming pile of %s's entrails is lying here.~
+meat~
+food 0 A
+5 5 0 1 0
+0 20 0 D
+
+#17
+brains brain~
+the brains of %s~
+The splattered brains of %s are lying here.~
+meat~
+food 0 A
+10 10 0 0 0
+0 20 0 D
+
+#18
+holy unholy avenger sword~
+~
+A coldly gleaming blade lies here.~
+steel~
+weapon ABGHLMPUYZ AN
+sword 0 12 divine 0
+0 0 50000 I
+A
+18 0
+A
+19 0
+
+#20
+mushroom~
+a Magic Mushroom~
+A delicious magic mushroom is here.~
+food~
+food 0 A
+8 8 0 0 0
+0 10 0 P
+
+#21
+ball light~
+a bright ball of light~
+A bright ball of light shimmers in the air.~
+energy~
+light A A
+0 0 -1 0 0
+0 0 0 P
+
+#22
+spring~
+a magical spring~
+A magical spring flows from the ground.~
+water~
+fountain G 0
+100000 100000 'water' 0 0
+0 0 0 P
+
+#23
+disc disk floating black~
+a floating disc~
+A floating black disc hangs in the air.~
+energy~
+container GMPUYZ AQ
+0 E 0 0 0
+0 0 0 P
+
+#25
+gate portal~
+a shimmering gate~
+A shimmering black gate rises from the ground, leading to parts unknown.~
+shadow~
+portal GOT 0
+0 0 0 0 0
+0 0 0 P
+
+#26
+wedding bride bodice~
+{WA tightly cut {Ws{gat{Wi{gn {Wbodice with pale {Wl{ga{Wce {Pr{Ros{Pe{Rs{W.{x~
+A beautiful satin bodice lies in a pile on the floor.~
+{Ws{gat{Wi{gn{x~
+armor 0 AK
+5 5 5 5 0
+15 10 390 P
+E
+bodice~
+This bodice has obviously been designed to fit you perfectly, and  
+show you off at your very best! It feels so soft, yet you know it 
+will mold your figure, hugging you close in its embrace. Delicate 
+lace roses add just the right finishing touch.
+~
+
+#27
+wedding bride slippers~
+{WA pair of soft {gi{Wv{go{Wr{gy{W, leather slippers.{x~
+A pair of {Wivory{x slippers rest at your feet.~
+leather~
+armor 0 AG
+5 5 5 5 0
+15 10 390 P
+E
+wedding bride slippers~
+These small slippers are soft to the touch and give off 
+the faint scent of vanilla. Delicately woven ivory lace 
+and leather, they look very comfortable.
+~
+
+#28
+wedding bride veil~
+{WA flowing {Ws{gat{Wi{gn{W veil with a band of velvet {Pr{Ros{Pe{Rs{W.{x~
+A beautiful veil lies crumpled on the floor.~
+velvet~
+armor 0 AE
+5 5 5 5 0
+15 10 390 P
+E
+veil~
+description goes here :P
+~
+
+#29
+wedding bride bouquet~
+{WA large bouquet of {gl{Wil{gi{We{gs {Wand {Pr{Ros{Pe{Rs{W.{x~
+A large bouquet lies discarded on the ground.~
+{gl{Wil{gi{We{gs {Wand {Pr{Ros{Pe{Rs{x~
+armor 0 AO
+5 5 5 5 0
+15 10 390 P
+E
+bouquet~
+A large bouquet of intertwined {gl{Wil{gi{We{gs and {Pr{Ros{Pe{Rs{x,
+tied with a smooth, {Wwhite{x satin ribbon.
+~
+
+#30
+wedding bride band~
+{WA sheer band of woven lace.{x~
+A {Wstrip of l{ga{Wce{x lies here.~
+{Wl{ga{Wce{x~
+armor 0 AC
+5 5 5 5 0
+15 10 390 P
+
+#31
+wedding bride garter~
+{WA pale {Cblue{W lace garter.{x~
+A {Wlace garter belt{x lies here.~
+lace~
+armor 0 AF
+5 5 5 5 0
+15 10 390 P
+
+#32
+wedding bride gloves~
+{WA lengthy pair of smooth white gloves.{x~
+A pair of {WWhite gloves{x lies here.~
+satin~
+armor 0 AH
+5 5 5 5 0
+15 10 390 P
+E
+gloves~
+These {Wwhite{x gloves feel smooth as silk and 
+light as air. Putting them on, it feels as 
+if you've got a second skin on.
+~
+
+#33
+wedding bride train~
+{WA white satin chapel-length train trimmmed in lace and seed pearls{x~
+{WWhite chapel-length train lies here.~
+cloth~
+armor 0 AL
+5 5 5 5 0
+15 10 390 P
+
+#34
+wedding groom shoes~
+{cA shiny pair of black leather shoes.{x~
+{cBlack leather shoes{x lies here.~
+{cleather{x~
+armor 0 AG
+5 5 5 5 0
+15 10 390 P
+
+#35
+wedding groom hat~
+{cA solid black silk top hat.{x~
+{cA black top hat{x lies here.~
+{csilk{x~
+armor 0 AE
+5 5 5 5 0
+15 10 390 P
+A
+9 25
+
+#36
+wedding groom bow tie~
+{cA black satin bow tie.{x~
+{cA black bow tie{x lies here.~
+{csatin{x~
+armor 0 AC
+5 5 5 5 0
+15 10 390 P
+
+#37
+wedding groom tuxedo jacket~
+{cA slim black tuxedo jacket.{x~
+{cA black tuxedo jacket{x lies here.~
+{csilk{x~
+armor 0 AD
+5 5 5 5 0
+15 10 390 P
+
+#38
+wedding groom trousers~
+{cA pair of black tuxedo trousers.{x~
+{cBlack tuxedo trousers{x lies here.~
+{csilk{x~
+armor 0 AF
+5 5 5 5 0
+15 10 390 P
+
+#39
+wedding groom shirt~
+{WA white shirt with pearl buttons.{x~
+{WA white shirt{x lies here.~
+cloth~
+armor 0 AK
+5 5 5 5 0
+15 10 390 P
+
+#40
+wedding groom cumberbund~
+{MA ruffled maroon cumberbund.{x~
+{MA maroon cumberbund{x lies here.~
+{Msilk{x~
+armor 0 AL
+5 5 5 5 0
+15 10 390 P
+E
+cumberbund~
+A silky, ruffled {Mmaroon cumberbund{x.
+~
+ 
+#41
+wedding groom cufflink~
+{cA black pearl cufflink{x~
+{cA black pearl cufflink{x lies here.~
+cloth~
+armor 0 AM
+5 5 5 5 0
+15 10 390 P
+
+#42
+fountain wine~
+a Fountain of Wine~
+A marble fountain filled with a sparkling red wine.~
+marble~
+fountain BO 0
+10000 10000 'red wine' 0 0
+0 40 500 P
+E
+fountain wine~
+Rose-colored wine spills from the mouths of the five separate statues 
+of white swans surrounding the rim of the fountain. Being handcrafted 
+of the finest white marble, the fountain seems to give off a light of 
+it's own and you can see the tiny specks of jade and emerald swirling 
+through it.  Around the base is a small group of inscriptions, etched 
+in gold.
+~
+E
+inscriptions~
+======================================================================
+The Chapel of Thera has been created for the loving couples of Legacy.
+======================================================================
+Established 0-0-01 by the Legacy Immstaff.
+The Wedding of {Yno one{x and {Yno one{x.
+~
+
+#43
+closet~
+the closet~
+A large oak closet sits in the corner.~
+wood~
+container GO 0
+1000 1 0 100 50
+0 40 500 P
+E
+closet~
+Made of strong oak, lovingly made by the elven wizard for 
+the Theran Wedding Chapel, as a token of appreciation. It 
+appears small, but opening it, the inside is huge!! Space 
+for anything you could think of, and room for more. Small
+shelves line the side to hold your jewelery, and the back 
+has more than enough room to hold your armor.
+~
+
+
+#44
+pew~
+a pew~
+Hand-carved oak pews circle the large altar.~
+wood~
+furniture IO 0
+25 25000 BEHK 200 200
+0 50 250 P
+E
+pew~
+These pews are hand-crafted of the finest of woods and form a
+symmetrical diamond around the glass altar.  From every angle 
+in the room, you have a perfect view of the ceremony.
+~
+
+#45
+bottle wine~
+{Ma bottle of wedding wine{x~
+{MA crystal bottle of the finest wedding wine{x.~
+glass~
+drink IO A
+15 15 'white wine' 0 0
+0 50 25000 P
+E
+wine bottle~
+This is a bottle of Moxen Pearl White wine.  It is dated circa 12th
+century Thalos and is probably worth a small fortune in diamonds and
+rubies.  However, it probably tastes even better.
+~
+
+#46
+toast~
+a slice of burnt toast~
+A blackened slice of burnt toast is here.~
+food~
+food 0 A
+4 4 0 0 0
+0 10 0 P
+
+#47
+pizza~
+a Slice of Pizza~
+A zesty slice of pizza is here.~
+food~
+food 0 A
+6 6 0 0 0
+0 10 0 P
+
+#48
+table~
+a table~
+Small tables laden with delicacies in honor of the bride and groom.~
+wood~
+furniture O 0
+15 0 AD 150 150
+0 50 250 P
+E
+table~
+Small round tables covered with the finest white damask linen are
+set in a half circle facing the main table where the bride and groom
+sit. The tables are set with silver platters of specially prepared 
+food and wine. There are enough comfortable chairs, upholesterd in
+earth toned material, that are even strong enough for a dragon to sit
+upon. On each table are platinum candelabras, in the shape of a
+circle with eight slender white candles, that burn infinitely
+awaiting the next bride and groom. They represent the {YLight {Wof 
+{CEndless{x {PLove{x. There is a menu lying there for you to 
+peruse at your leisure. There is enough food and wine that no one
+should go away from the {Wwedding feast{x hungry ;) Enjoy !!!
+~
+E
+menu delicacies~
+.
+       {R*** ***{x                               {R*** ***{x
+       {R*  *  *{x        {WWedding {TFeast {WMenu{x     {R*  *  *{x
+        {R*   *{x                                 {R*   *{x
+         {R* *{x                                   {R* *{x
+          {R*{x                                     {R*{x
+
+                 {TCheese-stuffed Mushrooms{x
+ --++               {TCrab-Meat Diamonds{x               ++--
+   ++--              {TTheran House Salad{x            --++
+ --++                  {TSteamship Round{x               ++--
+                 {TRoast Duckling a la Orange{x      
+                    {TBroiled Lobster Tails{x
+                   {TValhalla Wine of the Gods{x
+                        {WWedding Cake{x
+
+
+            {CThe ideal marriage is not one in which
+             two people marry to be happy, but to 
+                   make each other happy.{x
+~
+
+#49
+cheese stuffed mushroom~
+{Ycheese stuffed {bmushroom{x~
+~
+mushroom~
+food 0 A
+8 8 0 0 0
+0 10 0 P
+E
+cheese stuffed mushroom~
+The freshest mushrooms grown deep in the shadows of the Moria hills
+were gathered and prepared special for this feast. Cured cheese,
+herbs, and dry sherry give it the special flavor.  
+~
+
+#50
+crab meat diamonds~
+{bcrab meat {Wdiamonds{x~
+~
+meat~
+food 0 A
+8 8 0 0 0
+0 10 0 P
+E 
+crab meat diamond~
+Fresh crab caught and the meat removed was used for this 
+delicacy. Combining the crab meat and various herbs, it adorns
+tiny pieces of freshly baked bread cut in the shape of diamonds.
+~
+
+#51
+Theran House Salad{x~
+{BTheran House {GSalad{x~
+~
+vegetable~
+food 0 A
+8 8 0 0 0
+0 10 0 P
+E
+theran house salad~
+This special salad combines fresh grown salad greens, several 
+varieties of cheese, hard-cooked eggs, boiled ham strips, cubed
+ripe tomatoes, and garlic bread cubes. It is lightly tossed
+with a special Valhalla Chef's dressing of herbs, cider vinegar,
+and vegetable oil. All vegetables were grown in the back gardens 
+of the Halls of the Gods. 
+~
+
+#52
+steamship round~
+{Wsteamship {bround{x~
+~
+meat~
+food 0 A
+8 8 0 0 0
+0 10 0 P
+E
+steamship round~
+Raised on nothing but grain, this is the finest beef in the land 
+of the gods. It is lean, tender and juicy, cooked to perfection.
+Thinly sliced and a touch of pink colors the fine beef used for
+this special {Wwedding feast{x. 
+~
+
+#53
+roast duckling orange~
+{bRoast {WDuckling {Pa l'Orange{x~
+~
+meat~
+food 0 A
+8 8 0 0 0
+0 10 0 P
+E
+roast duckling~
+Duckling is delicious when properly prepared, and the gods 
+know just the right combination for preparing it. By 
+pricking the skin gently with the tines of a fork, the
+fat is released and you get a crisp finished skin. 
+Seasoning the cavity with herbs and spices, stuffing it
+and then baking to perfection, this duckling melts in
+your mouth. Cooking it in Burgundy and then applying
+the special fresh orange sauce over it, teases your
+taste buds.
+~
+
+#54
+broiled lobster tail~
+{Pbroiled {Pl{Wo{Pb{Ws{Pt{We{Pr {Wt{Pa{Wi{Pl{x~
+~
+lobster~
+food 0 A
+8 8 0 0 0
+0 10 0 P
+E
+lobster tail~
+These tails come from specially harvested lobster in the
+seas near Mahn-Tor. A small alcove is hidden where the lobster
+are raised just for this feast. It is prepared by splitting
+the tails lengthwise and then fresh churned melted butter and
+seasonings are lavished upon it. Broiled to perfection ;)  
+~
+
+#55
+Vahalla Wedding Wine~
+{MV{Va{Mh{Va{Ml{Vl{Ma {WWedding {MWine{x~
+Some {MV{Va{Mh{Va{Ml{Vl{Ma {WWedding {MWine{x lies here.~
+wine~
+drink 0 A
+64 64 'rose wine' 0 0
+0 10 0 P
+E
+vahalla wedding wine~
+A special brew of red table wine. It is a rose wine, pinkish in
+color and is especially dry. It goes well with either the roast
+or the seafood. 
+~
+
+#56
+wedding cake slice~
+{Ma {Vslice {Mof {WWedding Cake{x~
+A {Vslice{x of {WWedding Cake{x lies here.~
+cake~
+food 0 A
+8 8 0 0 0
+0 10 0 P
+E
+wedding cake~
+This 8 tier wedding cake is designed with confectionary {Pred roses{x
+rimming the outline of each tier. There are marble swans with their
+head held high holding up each tier. At the base of the cake is a
+small fountain with a shooting spray of water in the center, colored
+lights twinkle beneath the water giving off a rainbow of colors.
+At the top of the cake is a bride and groom standing side-by-side,
+holding hands and smiling into each other's eyes. From the glowing
+expression on their faces, you can see the vows mirrored into
+their smiles.
+~
+
+#57
+wedding bride necklace~
+{WA delicate, {Rheart-shaped {Ygold pendant{x~
+A {Ygold pendant{x lies here.~
+gold~
+armor 0 AC
+5 5 5 5 0
+15 10 390 P
+
+#58
+wedding bride stockings~
+{WA pair of white silk stockings{x~
+{WA pair of white silk stockings{x lies here.~
+cloth~
+armor 0 AF
+5 5 5 5 0
+15 10 390 P
+
+#59
+wedding bride light~
+{WLight of {RLove{x~
+A {Wlight of {Rlove{x lies here.~
+love~
+light 0 A
+0 0 -1 0 0
+15 10 390 P
+
+#60
+wedding groom light~
+{WLight of Fidelity{x~
+A {Wlight of {Yfidelity{x lies here.~
+love~
+light 0 A
+0 0 -1 0 0
+15 10 390 P
+
+#61
+wedding groom cufflink~
+{cA black pearl cufflink{x~
+{cA black pearl cufflink{x lies here.~
+cloth~
+armor 0 AM
+5 5 5 5 0
+15 10 390 P
+
+#62
+wedding bride promise~
+{WAn Eternal {VPromise{x~
+An {Weternal {Vpromise{x lies here.~
+promise~
+armor 0 AQ
+5 5 5 5 0
+15 10 390 P
+
+#63
+wedding groom promise~
+{WAn Eternal {MPromise{x~
+An {Weternal {Mpromise{x lies here.~
+promise~
+armor 0 AQ
+5 5 5 5 0
+15 10 390 P
+
+#64
+Legacy Philharmonic Orchestra~
+{Wthe {BL{Ce{gg{Wa{Cc{By {CPhilharmonic {WOrchestra{x~
+~
+energy~
+jukebox O 0
+0 0 0 0 0
+0 0 0 P
+E
+legacy philharmonic orchestra~
+The {BL{Ce{gg{Wa{Cc{By {CPhilharmonic {WOrchestra{x sits off in the left corner
+of the room, and gentle melodic harmonies drift close, mixing 
+deliously with the smells of the wedding feast. The musicians
+lovingly caress their instruments, and the spirit and soul of 
+the music they play possesses you, weaving its spell, leaving 
+a smile on your face, and 
+ bride and groom and their guests. 
+   Type: '{Pplay list{x'
+~
+
+#65 
+blessing immortals~ 
+{Wa {Cb{Tl{We{Cs{Ts{Wi{Cn{Tg{x from the {MIm{Vm{Wo{Mr{Vt{Wa{Mls{x of {BL{Ce{gg{Wa{Cc{By{W!{x~ 
+{WThe {Cb{Tl{We{Cs{Ts{Wi{Cn{Tg{x of the {MIm{Vm{Wo{Mr{Vt{Wa{Mls{x of {BL{Ce{gg{Wa{Cc{By{W!{x floats here.~ 
+blessing~ 
+container AIPRSTY AP 
+200 A 0 20 0
+0 0 0 I 
+E 
+blessing immortals~ 
+From the {Wh{ge{Wa{gv{We{gn{Ws{x we've watched as {Rl{Po{Rve{x {Ybl{Wos{Yso{Wm{Yed{x in your 
+{Mh{Vea{Mr{Vt{Ms{x. We give you our {Cb{Tl{We{Cs{Ts{Wi{Cn{Tg{x, with {Rw{Pa{Yr{Rm{x wishes for a 
+long, and happy future... together.
+~
+
+#71
+doo doo~
+%s doo~
+A pile of %s's doo is lying here.~
+meat~
+food 0 A
+16 16 0 0 0
+0 20 0 D
+
+#72
+newbie starter kit~
+a {BL{Ce{gg{Wa{Cc{By {WS{Pt{Ya{Gr{Ct{Be{Vr {WKit{x~
+This kit contains everything you need to get started!~
+magic~
+container 0 A
+100 0 0 10 100
+0 10 30 G
+
+#73
+newbie shades sunglasses glasses~
+a pair of {RKewl Shades{x~
+This is really a pair of Brainy's glasses.~
+glass~
+clothing A AE
+0 0 0 0 0
+3 20 270 P
+A
+4 1
+A
+2 1
+
+#74
+newbie vampire pendant~
+a {BVampire Pendant{x~
+This is really Smurfette's Necklace.~
+pearl~
+jewelry A AC
+0 0 0 0 0
+3 20 550 P
+A
+3 1
+A
+26 1
+
+#75
+newbie mood ring~
+a {BL{Ce{gg{Wa{Cc{By {PM{Yo{Go{Cd {PR{Yi{Gn{Cg{x~
+This is really a pink ice ring.~
+ice~
+treasure G AB
+0 0 0 0 0
+3 10 620 G
+A
+13 4
+A
+1 1
+A
+26 1
+
+#76
+newbie gem~
+a {BL{Ce{gg{Wa{Cc{By {PN{Ye{Gw{Cb{Pi{Ye {GG{Ce{Pm{x~
+This is really a small golden sphinx.~
+gold~
+treasure G AO
+0 0 0 0 0
+5 50 550 P
+A
+4 2
+
+#77
+newbie cheesestick~
+a delicious {Ycheesestick{x~
+This is really a Magic Mushroom.~
+food~
+food 0 A
+8 8 0 0 0
+0 10 0 P
+
+#78
+newbie nike shoes crosstrainers~
+a pair of {GNike {BCross {GTrainers{x~
+This is really a pair of Muddy Boots.~
+leather~
+armor G AG
+3 3 3 0 0
+7 20 900 P
+A
+2 1
+
+#79
+newbie bottle coke coca-cola~
+a limited edition {Rb{Wo{Rt{Wt{Rl{We{x of {WCoca-Cola Classic{x~
+This is really a Water Jug filled with Coke.~
+plastic~
+drink 0 A
+150 150 'coke' 0 0
+0 20 200 P
+
+#80
+newbie mox jet magic card~
+a {PMox {YJet {GMagic {CCard{x~
+This is really a scarlet and blue stone.~
+paper~
+gem G AQ
+0 0 0 0 0
+5 10 550 P
+A
+3 1
+
+#81
+newbie share stock~
+a share of {BL{Ce{gg{Wa{Cc{By {VStock{x~
+This is really a pile of treasure.~
+gold~
+money 0 A
+400 3 0 0 0
+0 0 0 P
+
+#82
+newbie manual~
+the {CNewbie Manual{x~
+A {CNewbie Manual{x is lying here.~
+paper~
+map 0 A
+1 0 0 0 0
+0 10 500 P
+E
+newbie manual~
+Written by Lotus, last updated by Montrey on 5-19-01.
+
+To read the manual, you must look at or examine the pages.
+Contents:
+
+Page1           Stats
+Page2           Money
+Page3           Death
+Page4           Armor Class
+Page5           Hit & Dam
+~
+E
+page1 stats~
+Here is what the 6 basic stats of a Player do for you when you have
+them set as high as possible.
+
+Strength: Lets you hold more weight and allows you to push and drag
+more easily.
+Intelligence: Gives you more mana per level, and allows you to practice
+new spells/skills with fewer practice sessions.
+Wisdom: Gives you more practices per level, and also gives you a better
+chance at successfully casting your spells.
+Dexterity: Gives you more movement per level, increases the number of
+objects you can carry, and decreases your armor class.
+Constitution: Gives you more hit points per level.
+Charisma: Allows you to interact better with others.
+
+One of the commonly used patterns in training is this sequence...
+Wis, Con, Int, Dex, Chr, and then Str
+~
+E
+page2 money~
+Gold, Silver, and Diamonds are the currency used here at Thera.
+One diamond is worth 100 gold pieces.
+One gold piece is worth 100 silver pieces.
+
+The Bank of Thera, located in Midgaard, will take deposits of gold
+and silver to lighten the load on travelers.
+
+~
+E
+page3 death~
+When you die in the land of {BL{Ce{gg{Wa{Cc{By, your soul is returned to the
+Temple Altar. If you are below level 50, your corpse is taken to 
+the Morgue. {Rstand{x and go {Rd{x, {Rd{x from the Temple Altar 
+to recover your equipment ({Rget all from corpse{x).
+
+Death causes you to be set back in 2/3 of current exp earned this level.
+For example:
+
+Suppose you have 1000 exp per level.  While out killing smurfs, you
+gain 800 experience points.  You now have 200 exp left to go until you
+reach the next level, but unfortunately, Papa Smurf gets the best of
+you.  You will lose 533 (800 * 2/3) exp and you will need 733 exp
+before you will reach the next level.
+~
+E
+page4 armor class~
+Armor class is the numeric value for your defensive capabilities.  You
+always want your armor class to be as low as possible.  Therefore, an
+armor class of -178 is better than an armor class of 200.
+
+Saves vs. Spells work in a similar fashion.  Saves vs. Spells is the
+chance you will not be hit with certain spells and the chance that
+combat spells will not do as much damage.
+~
+E
+page5 hit dam~
+Hitroll and Damageroll are used in calculating how well you do in combat.
+You want these values to be as high as possible.  The Hitroll is used
+in conjunction with armor class to determine if you hit your opponent.
+Upon hitting your opponent, Damageroll is used to calculate the amount
+of damage you deal.
+~
+
+#83
+some newbie hints~
+some {Pnewbie hints{x~
+Some {Pnewbie hints{x are floating here.~
+thoughts~
+treasure A A
+0 0 0 0 0
+1 1 0 P
+E
+some newbie hints~
+Welcome to {BL{Ce{gg{Wa{Cc{By{x!
+We have some tips and some directions to newbie areas for you.
+
+If you want to see the tips, type: {GLOOK TIP{x
+If you want to see the directions, type: {GLOOK DIR{x
+
+Enjoy! :)
+~
+E
+tips~
+1 : Use the {GHELP{x command.
+2 : Read the {CNewbie Manual{x that you can find in your Newbie Bag.
+3 : Wear the equipment from your Newbie Bag. It is nice stuff.
+4 : Before you start killing mobs use your TRAINS to improve skills.
+    It's a good idea to start with WISDOM and CONSTITUTION.
+    You can train in the {YMUD SCHOOL{x.
+5 : Start your adventure in {YMUD SCHOOL{x to get some basic equipment.
+6 : Always {GCON{x (consider) a Mob before you attack it.
+7 : Always look for new and better equipment.
+    When you gain a level, you may qualify for better equipment.
+8 : You can {GCOMPARE{x equipment to see which has better armor effect, but...
+    COMPARE doesn't know about equipment effects on your stats. If in doubt,
+    do {GSCORE{x before and after wearing something new to see the effect.
+9 : If you get lost in your adventure you can usually {GRECALL{x.
+    This will bring you back to the {YThe Temple of Mota{x.
+10: {RIF YOU DIE{x, then {GSTAND{x and go {GD{x,{GD{x to the morgue, where your
+     corpse is.
+    {GGET ALL FROM CORPSE{x to recover your equipment.
+~
+E
+directions~
+To help you get started, here are some directions to a few newbie areas.
+All the directions start from {GRECALL{x (The Temple of Mota)
+{YMUD School{x: u, n
+{YDwarven Daycare{x: 2s, 6e, 3n, 2e, s
+{YSmurf Village{x: 2s, 7e, n
+{YMob Factory{x: 3s, 3w, s, e
+{YGnome Village{x: 2s, 8e, s
+
+Have fun!
+~
+
+#85
+squestobj~
+~
+~
+knowledge~
+trash ABT AP
+0 0 0 0 0
+0 0 0 I
+
+#97
+quest ring~
+{YQ{gu{Ye{gs{Yt{go{Yr{g's {YR{gi{Yn{gg{x~
+A glowing ring of light~
+light~
+armor G AB
+4 5 4 5 5
+10 10 620 P
+A
+3 1
+A
+4 1
+A
+18 1
+A
+19 1
+
+#108
+treasure~
+~
+~
+~
+treasure 0 A
+0 0 0 0 0
+0 0 0 P
+
+#119
+food~
+~
+~
+~
+food 0 A
+0 0 0 0 0
+0 0 0 P
+
+#120
+money~
+~
+~
+~
+money 0 A
+0 0 0 0 0
+0 0 0 P
+
+#0
+
+#ROOMS
+
+#1
+The Void~
+You are floating in nothing.
+~
+0 CD 1
+S
+
+#2
+Limbo~
+You are floating in a formless void, detached from all sensation of physical
+matter, surrounded by swirling glowing light, which fades into the relative
+darkness around you without any trace of edges or shadow.
+   There is a "No Tipping" notice pinned to the darkness.
+~
+0 DK 1
+D4
+~
+~
+0 -1 3001
+S
+
+#3
+{WThe {BL{Ce{gg{Wa{Cc{By {WWedding {YChapel{x~
+  Welcome to the {BL{Ce{gg{Wa{Cc{By {YChapel{x. Upon entering through the massive
+oak doors trimmed in brass, you notice the tile floor which is an
+ivory marble with natural earth shades woven in. The tile spans the
+entire chapel and spreads out to touch each of the four walls of this
+diamond-shaped room. The walls are also made out of a fine marble with
+specks of gold, silver, and platinum placed in strategic positions so
+they reflect the light from the skylight with a magnificent brilliance.
+Each wall has its own special carvings that were done by the hands of
+master craftsmen. The carvings depict the rise of female and male, and
+their union together to conquer things one cannot defeat alone. The sky
+light is designed to spread light equally to each part of the chapel. 
+It is made of stained glass and contains a rainbow of colors and designs.
+Some of those designs include the symbols of various gods and deities.
+Filling the room are oak pews carved with skill and patience. A grand
+alter occupies the center of the large chamber. It is made of crystal
+and gold, and with the right angle of light, it almost glows like a star.
+Two silver candelabras stand on each side of the alter. It is all an
+amazing sight for mortal eyes to behold.
+~
+0 CDKS 0
+D2
+To the south is the foyer to the chapel.
+~
+double doors~
+1 -1 4
+D1
+To the east is the groom's dressing room.
+~
+door~
+1 -1 5
+D3
+To the west is the bride's dressing room.
+~
+door~
+1 -1 6
+D0
+To the north is the garden for the wedding feast.
+~
+door~
+1 -1 7
+S
+
+#4
+{WThe {MFoyer {Wof {MWine {Wand {MGems{x~
+  The {Mfoyer{x to the Chapel of {BThera{x was designed to be welcoming
+and peaceful.  Its beauty is just as grand as the inside of
+of the alter room.  Marble walls with specks of {Prubies{x, {Gemeralds{x,
+and {Ytopaz{x surround a {Wsparkling {Cfountain{x of {Mwine{x.  Each of the
+gems within the walls shines and glows from the light of four
+torches spread evenly within this circular shaped room.  The
+torches are eternal and symbolize the never-ending values of
+love and marriage.  They are molded from crystal and gold.  The
+doors leading to the alter are oak with brass designs embedded
+into them.  These designs show the coming together of the gods
+and mortals for a joyous occasion.
+~
+0 CDKS 0
+D0
+To the north is the wedding chapel.
+~
+double doors~
+1 -1 3
+D2
+{BL{Ce{gg{Wa{Cc{By {WCatering{C!{Y!{G!{x
+~
+~
+0 -1 8
+S
+
+#5
+{MThe {cGroom's {MDressing Room{x~
+  The dark {Mmaroon{x walls of this room glow in the {Wl{Yi{Wght{x that 
+streams in through the {Ws{Ck{Wyl{Yi{Wght{x in the ceiling. In the left 
+corner of the room is a carved oaken {bcloset{x for anything of 
+value. The smell of {bwhiskey{x and clank of ice in glass draws 
+your attention to the humongous bar near you. You glance at 
+the {Tre{cfl{Tec{cti{Ton{x in the mirror beside you, but are jolted out 
+of your thoughts by the sudden clamour of people outside in 
+the {Wchapel{x, and go back to getting ready for the wedding.
+~
+0 CDKS 0
+D3
+To the west is the {Wwedding{x chapel.
+~
+door~
+1 -1 3
+S
+
+#6
+{MThe {WBride's {MDressing room{x~
+  The thick ceder walls of this room glow in the {Wl{Yi{Wght{x that 
+streams in through the {Ws{Ck{Wyl{Yi{Wght{x in the ceiling. In the left 
+corner of the room is a carved oaken {bcloset{x for anything of 
+value. The faint scent of {bapricot{x draws your attention near 
+a tray of fruit beside you. You glance at the {Tre{cfl{Tec{cti{Ton{x in
+the mirror beside you, and the sudden clamour of people out 
+in the {Wchapel{x shifts your thoughts back to your grand task; 
+preparing for this very happy occasion.
+~
+0 CDKS 0
+D1
+To the east is the wedding chapel.
+~
+door~
+1 -1 3
+S
+
+#7
+{WThe {BL{Ce{gg{Wa{Cc{By {WBanquet {GGarden{x~
+  The gods created a special garden honoring the bride and groom. An
+abundance of brilliantly colored flowers, gathered from all the regions 
+of {BThera{x, thrive and flourish continuously. Morning doves perched 
+high up in the trees coo their euphonic song.  The sun always shines, 
+kissing the dew upon the lush green grass that weaves its pattern in and
+around the meandering crystal clear stream. Little paths interlace the
+small forest and end at several footbridges that enable you to cross over
+to a small island where tables and chairs are set up. The {boak{x
+{btables{x are laden with a lavish banquet to honor the bride and groom.
+There are {Cmenus{x lying on the table for everyone to choose what they
+would like to eat. There is a smaller table to the side which holds 
+the 8-tier wedding cake. An {Vorchestra{x is on a dias off to the left
+side playing softly. The Immortals of {BL{Ce{gg{Wa{Cc{By{x wish the bride
+and groom much happiness.  Eat, drink, and be marry ;)
+~
+0 CDKS 0
+D2 
+To the south is the chapel.
+~
+door~
+1 -1 3
+S
+
+#8
+{BL{Ce{gg{Wa{Cc{By {WCatering{C!{Y!{G!{x~
+  You enter a small, homely store. {GF{Cl{Vo{Yw{Be{Rr{Hs{x are scattered on shelves 
+all around. Behind a tidy, though catalog covered, counter spanning 
+almost the entire back wall, is a short woman in a slim {cskirt{x and a 
+tiny {Wblouse{x that hangs off her shoulders. She gets a few things off 
+the counter to make space for you, then directs your attention to a
+small {bmenu board{x beside her.
+~
+0 KPNT 0
+D0
+{WThe {MFoyer {Wof {MWine {Wand {MGems{x
+~
+~
+0 0 4
+E
+menu board~
+.
+       {C*{G*{C*{G*{C*{G*{C*{x  Welcome to {BL{Ce{gg{Wa{Cc{By {WCatering{C!{Y!{G!{x  {C*{G*{C*{G*{C*{G*{C*{x
+
+    We have two packages at this time. One is our {Cfull
+ service{x pack which comes with an assortment of dinner
+ and snack items. Another option avalable is our {Csmall 
+ service{x, which comes with a small assortment of snack 
+ items.
+    Choose which selection best fits the occasion, and 
+ say what you would like to the woman at the counter.
+~
+S
+
+#0
+
+#RESETS
+
+O 0 42 1 4	* Load the Fountain of wine
+M 0 1  1 4 1	* Load usher
+G 0 26 1	* Give him a bunch of stuff
+G 0 27 1
+G 0 28 1
+G 0 29 1
+G 0 30 1
+G 0 31 1
+G 0 32 1
+G 0 33 1
+G 0 34 1
+G 0 35 1
+G 0 36 1
+G 0 37 1
+G 0 38 1
+G 0 39 1
+G 0 40 1
+G 0 41 2
+G 0 41 2
+G 0 57 1
+G 0 58 1
+G 0 59 1
+G 0 60 1
+G 0 61 1
+G 0 62 1
+G 0 63 1
+O 0 43 2 5
+O 0 43 2 6
+O 0 44 1 3
+O 0 45 2 5
+O 0 45 2 6
+O 0 48 1 7	* load table in garden
+O 0 64 1 7	* load orchestra
+M 0 7  1 8 1	* Elly the caterer
+M 0 8  1 7 1	* Lyana the waitress
+
+S
+
+#SHOPS
+
+0
+
+#SPECIALS
+
+M  5  spec_cast_mage
+M  2  spec_cast_undead
+
+S
+
+#$
+
+
+

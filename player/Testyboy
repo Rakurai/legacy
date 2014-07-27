@@ -1,0 +1,875 @@
+#PLAYER
+Name Testyboy~
+Id   1019241955
+LogO 1019320905
+Vers 13
+Mexp 2
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Sex  1
+Cla  0
+Levl 25
+Plyd 14664
+Back 0
+Note 1019253096 1019250514 0 1019260971 1011818534 0 0
+Scro 22
+Room 3054
+HMS  287 287 409 409 226 226
+Gold 481
+Silv 11
+Exp  24987
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 1
+PKRank 0
+Ptnr Urza~
+Act  CDEFGHJLQSc
+Comm NOY
+Revk 0
+Cgrp A
+Cnsr A
+Pos  5
+Prac 4
+Trai 21
+Alig  1000
+ACs 98 98 98 100
+Atrib 14 20 18 13 18 14
+AtMod 0 0 0 0 0 0
+SkillPnts 18
+Pass alpha1~
+Afk {B[{CFri Apr 19 22:43:02 2002{B] {CUnknown Departure.{x
+~
+Titl  <+++++ yup... that's ME!~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 3
+Deit {WUrza{x~
+Lsit dialup-ras0-152.eug.or.uspops.net~
+Ltim Fri Apr 19 23:11:45 2002
+~
+LSav Sat Apr 20 11:41:45 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMSP 287 409 226
+THMS 0 0 0
+Cnd  0 8 30 28
+Sk 1 1 'acid blast'
+Sk 75 1 'armor'
+Sk 1 1 'burning hands'
+Sk 1 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 75 1 'cure critical'
+Sk 2 1 'cure light'
+Sk 82 1 'cure serious'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'giant strength'
+Sk 75 1 'haste'
+Sk 1 1 'heal'
+Sk 1 1 'infravision'
+Sk 75 1 'invisibility'
+Sk 77 1 'lightning bolt'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 76 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 79 1 'refresh'
+Sk 75 1 'regeneration'
+Sk 75 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'smokescreen'
+Sk 75 1 'stone skin'
+Sk 1 1 'talon'
+Sk 1 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'wrath'
+Sk 75 1 'dagger'
+Sk 83 1 'sword'
+Sk 76 1 'shield block'
+Sk 1 1 'brew'
+Sk 1 1 'scribe'
+Sk 75 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'combat'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'protective'
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 1
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3092
+Nest 1
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 3081
+Nest 1
+Wear -1
+Cost 1000
+Spell 1 'sanctuary'
+End
+
+#O
+Vnum 3081
+Nest 1
+Wear -1
+Cost 1000
+Spell 1 'sanctuary'
+End
+
+#O
+Vnum 3081
+Nest 1
+Wear -1
+Cost 1000
+Spell 1 'sanctuary'
+End
+
+#O
+Vnum 14090
+Nest 1
+Wear -1
+Cost 330
+Spell 3 'stone skin'
+End
+
+#O
+Vnum 14090
+Nest 1
+Wear -1
+Cost 330
+Spell 3 'stone skin'
+End
+
+#O
+Vnum 14090
+Nest 1
+Wear -1
+Cost 330
+Spell 3 'stone skin'
+End
+
+#O
+Vnum 14090
+Nest 1
+Wear -1
+Cost 330
+Spell 3 'stone skin'
+End
+
+#O
+Vnum 3092
+Nest 1
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 3092
+Nest 1
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 3092
+Nest 1
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 3092
+Nest 1
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 3087
+Nest 0
+Wear -1
+Cost 230
+Spell 1 'cure blindness'
+End
+
+#O
+Vnum 3087
+Nest 0
+Wear -1
+Cost 230
+Spell 1 'cure blindness'
+End
+
+#O
+Vnum 3087
+Nest 0
+Wear -1
+Cost 230
+Spell 1 'cure blindness'
+End
+
+#O
+Vnum 3087
+Nest 0
+Wear -1
+Cost 230
+Spell 1 'cure blindness'
+End
+
+#O
+Vnum 3087
+Nest 0
+Wear -1
+Cost 230
+Spell 1 'cure blindness'
+End
+
+#O
+Vnum 3711
+Nest 0
+Name apprentice robes~
+ShD  {bApprentice Robes{x~
+Desc simple robes of an apprentice~
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 5113
+Enchanted
+Nest 0
+Name simple dagger~
+ShD  {bA simple dagger{x~
+Desc a plain non magical dagger~
+ExtF 64
+Wear 16
+Lev  0
+Cost 3300
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  50 100 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Urza.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Slice of Pizza~
+ShD  a Slice of Pizza~
+Desc A Slice of Pizza{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  50 100 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Urza.
+~
+End
+
+#O
+Vnum 7502
+Nest 0
+Name testyboy~
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 4608
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1212
+Nest 1
+Name token trivia kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wn{Cea{Bt {Bt{Cr{Wi{Cv{Wi{Ba {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wn{Cea{Bt {Bt{Cr{Wi{Cv{Wi{Ba {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name token trivia kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wn{Cea{Bt {Bt{Cr{Wi{Cv{Wi{Ba {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wn{Cea{Bt {Bt{Cr{Wi{Cv{Wi{Ba {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 150 0 0 0
+End
+
+#O
+Vnum 16007
+Nest 1
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 9924
+Nest 1
+Cond 95
+Wear -1
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 9909
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 9922
+Nest 1
+Cond 95
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 9923
+Nest 1
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 20028
+Nest 1
+ExtF 16777472
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16075
+Enchanted
+Nest 1
+Cond 98
+Wear -1
+Cost 954
+Affc 'reserved'   1  22  -1   2   2          0 1
+Affc 'reserved'   1  22  -1   1  18          0 1
+Affc 'reserved'   1  22  -1   2  19          0 1
+End
+
+#O
+Vnum 16066
+Nest 1
+Cond 91
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 16085
+Nest 1
+Wear -1
+Cost 1900
+End
+
+#O
+Vnum 16085
+Nest 1
+Wear -1
+Cost 1900
+End
+
+#O
+Vnum 16084
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 10126
+Nest 1
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 4582
+Nest 1
+Cond 93
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 10133
+Nest 1
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 4573
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10134
+Nest 1
+Cond 93
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 75
+Nest 1
+Cond 83
+Wear -1
+Cost 620
+End
+
+#END

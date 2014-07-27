@@ -1,0 +1,514 @@
+#PLAYER
+Name DarkMistress~
+Id   1013290310
+LogO 1015638359
+Vers 12
+Prom {C<{H%h/%HHP {W%m/%MMP {b%vST {V%XExp {Y%gG {g%sS {T%aAli {G%q/{C%j> ~
+Race vampire~
+Clan kindred~
+Sex  2
+Cla  4
+Levl 18
+Plyd 24694
+Age  0
+Back 24682
+Note 1015335975 1015335975 1015335975 1015335975 1015335975 1015517494
+Scro 22
+Room 25000
+HMS  277 277 406 406 189 189
+Gold 503
+Silv 49
+Exp  20095
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy NOTV
+FRes BM
+FVul NS
+Comm NO
+Revk 0
+Cgrp A
+Cnsr 0
+Pos  8
+Prac 13
+Save  -18
+Alig  -1000
+Hit   35
+Dam   28
+ACs -56 -59 -57 -13
+Atrib 19 22 22 20 17 19
+AtMod 9 5 6 9 6 0
+Pass sacredrose~
+Titl  Edea~
+Immn ~
+Pnts 40
+Rank {NP{gI{cL{x~
+Aura ~
+TSex 2
+LLev 5
+Email AIM irishrose583~
+Deit Jubei~
+Lsit AC9357A9.ipt.aol.com~
+Ltim Fri Mar 08 19:44:16 2002
+~
+LSav Fri Mar 08 19:45:59 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  O
+HMSP 152 316 199
+THMS 1 1 1
+Cnd  0 1 14 32
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 75 1 'armor'
+Sk 75 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 75 1 'blood moon'
+Sk 1 1 'call lightning'
+Sk 75 1 'cancellation'
+Sk 1 1 'channel'
+Sk 75 1 'control weather'
+Sk 75 1 'curse'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'energy drain'
+Sk 75 1 'faerie fire'
+Sk 75 1 'faerie fog'
+Sk 75 1 'fear'
+Sk 75 1 'fireproof'
+Sk 1 1 'flameshield'
+Sk 75 1 'giant strength'
+Sk 1 1 'haste'
+Sk 75 1 'infravision'
+Sk 75 1 'invisibility'
+Sk 75 1 'lightning bolt'
+Sk 1 1 'mass invis'
+Sk 1 1 'plague'
+Sk 75 1 'poison'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 75 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 1 1 'regeneration'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 75 1 'steel mist'
+Sk 1 1 'stone skin'
+Sk 1 1 'talon'
+Sk 1 1 'undo spell'
+Sk 75 1 'ventriloquate'
+Sk 77 1 'weaken'
+Sk 87 1 'dagger'
+Sk 75 1 'polearm'
+Sk 75 1 'scribe'
+Sk 76 1 'languages'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'enhancement'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'weather'
+Affc 'bless'   0  94  81  12  18          0 1
+Affc 'bless'   0  95  81 -12  24          0 1
+Affc 'blood moon'   0  93  75   8  19          0 1
+Affc 'blood moon'   0  98  75   4  18          0 1
+Affc 'haste'   0  97   5   4   2    2097152 1
+Affc 'giant strength'   0  13   2   2   1          0 1
+Affc 'protection good'   0  17  18  -1  24      16384 1
+Affc 'protection evil'   0  18  18  -1  24       8192 1
+Affc 'armor'   0  13  18 -20  17          0 1
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 0 0 0 0
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 10127
+Nest 0
+Cond 88
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear 13
+Cost 2500
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 11915
+Nest 0
+Cond 97
+Wear 18
+Cost 300
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 1
+Cost 1500
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 16075
+Nest 0
+Wear 10
+Cost 1600
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 16008
+Nest 0
+Wear 6
+Cost 5000
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 15
+Cost 1900
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 14
+Cost 1900
+End
+
+#O
+Vnum 4582
+Nest 0
+Cond 89
+Wear 17
+Cost 1200
+End
+
+#O
+Vnum 12709
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12701
+Nest 0
+Wear 5
+Cost 500
+End
+
+#O
+Vnum 12708
+Nest 0
+Wear 9
+Cost 500
+End
+
+#O
+Vnum 12710
+Nest 0
+Wear 16
+Cost 500
+End
+
+#O
+Vnum 12700
+Nest 0
+Wear 11
+Cost 500
+End
+
+#O
+Vnum 506
+Nest 0
+Wear 0
+Cost 1000
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25015
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25050
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 25050
+Nest 0
+Wear 8
+Cost 2000
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 25084
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'shield'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25086
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'regeneration'
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25015
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#L
+Vnum 55
+Nest 0
+Name amsterdoodlew urzaw wine tear stars~
+ShD  A {Bt{We{Wa{Br{x of {Yj{Po{Yy{x from the {Ws{Ct{ga{Cr{Ws{x for {VA{Bm{Vs{Bt{Ve{Br{Vd{Bo{Vo{Bd{Vl{Be{x and {RU{Tr{Rz{Ta{x~
+Desc A {Bt{We{Wa{Br{x of {Yj{Po{Yy{x from the {Ws{Ct{ga{Cr{Ws{x for {VA{Bm{Vs{Bt{Ve{Br{Vd{Bo{Vo{Bd{Vl{Be{x and {RU{Tr{Rz{Ta{x~
+Wear -1
+Cost 0
+Val  64 64 2 0 0
+End
+
+#L
+Vnum 9602
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1603
+Nest 0
+Cond 92
+Wear -1
+Cost 700
+End
+
+#END

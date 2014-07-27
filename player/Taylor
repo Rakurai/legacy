@@ -1,0 +1,1562 @@
+#PLAYER
+Name Taylor~
+Id   1007461745
+LogO 1026921400
+Vers 14
+Mexp 2
+Pass t@ylor~
+Prom %CV%h/%H %Cg%m/%M %Cb%v/%V %CW%X %c %CG%r %CC%z %CY%g %Cg%s %CP%p  ~
+Race seraph~
+Clan divinity~
+Cla  5
+Levl 71
+Tru  91
+Plyd 1578341
+Back 1543585
+Note 1026789814 1022813787 1026917859 1026792163 1026409721 1025960765 1026831915
+Scro 22
+Room 24240
+HMS  1696 1390 950
+Gold 1799
+Silv 43
+Gold_in_bank 6000
+Exp  78104
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  3
+PKRank   0
+Pos  8
+Alig 1000
+Spou Jubei~
+FImm 0
+FRes NS
+FVul MR
+Plr  AHKOQT
+Video 0
+Act  CDEFGHJLRSe
+AfBy T
+Comm DGNOZa
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 109
+Trai 44
+Wimp 0
+Atrib 21 18 20 17 20 23
+SkillPnts  151
+QuestPnts  159
+Afk {B[{CWed Jul 17 10:14:39 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl , {Tt{Ch{ce {gs{Ti{Cl{ce{gn{Tt {Ca{cn{gg{Te{Cl{x~
+Immn ~
+Pnts 40
+Rank {WA{gR{WC{x~
+Aura {TReb{Corn {cAng{gel{x~
+TSex 2
+LLev 425
+Deit {WJ{gu{Wb{ge{Wi{x~
+Stus {TA{Cn{cg{ge{Tl {Co{cf {gR{Te{Cb{ci{gr{Tt{Ch{x~
+RmCt 3
+ExSk 0
+Raff 913
+Lsit 129.29.123.217~
+Ltim Wed Jul 17 09:44:07 2002
+~
+LSav Wed Jul 17 10:56:40 2002
+~
+Finf {TOn{Ce l{cif{ge g{Civ{Ten{x
+{TAn{Cot{cher {gga{Cin{Ted{x
+
+{WD{co you hear, do you see
+{gI{cncarnate Divinity?
+{WV{campires once the world had known
+{gI{cnstead the brilliant light was shown.
+{WN{cow the darkness has receded
+{gI{cnto it the light proceeded.
+{WT{co yield the freedom we must learn
+{gY{cesterday is gone, today don't spurn.{x
+~
+HMSP 1381 810 940
+THMS 16 13 0
+Cnd  0 0 0 0
+Sk 100 1 'acid blast'
+Sk 84 1 'acid breath'
+Sk 75 1 'acid rain'
+Sk 1 1 'age'
+Sk 1 1 'animate skeleton'
+Sk 79 1 'animate wraith'
+Sk 91 1 'animate gargoyle'
+Sk 75 1 'animate zombie'
+Sk 97 1 'armor'
+Sk 94 1 'bless'
+Sk 77 1 'blindness'
+Sk 80 1 'blizzard'
+Sk 77 1 'blood blade'
+Sk 79 1 'blood moon'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 75 1 'cancellation'
+Sk 75 1 'chain lightning'
+Sk 75 1 'channel'
+Sk 75 1 'charm person'
+Sk 2 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'continual light'
+Sk 1 1 'control weather'
+Sk 90 1 'create food'
+Sk 1 1 'create parchment'
+Sk 76 1 'create rose'
+Sk 1 1 'create sign'
+Sk 76 1 'create spring'
+Sk 93 1 'create vial'
+Sk 1 1 'create water'
+Sk 75 1 'cure blindness'
+Sk 100 1 'cure critical'
+Sk 75 1 'cure disease'
+Sk 1 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 1 1 'cure serious'
+Sk 1 1 'curse'
+Sk 75 1 'dazzling light'
+Sk 75 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 62 1 'detect hidden'
+Sk 64 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 76 1 'dispel magic'
+Sk 75 1 'divine healing'
+Sk 72 1 'divine regeneration'
+Sk 1 1 'encampment'
+Sk 76 1 'enchant armor'
+Sk 84 1 'enchant weapon'
+Sk 1 1 'energy drain'
+Sk 99 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fear'
+Sk 84 1 'fire breath'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 81 1 'firestorm'
+Sk 84 1 'flame blade'
+Sk 96 1 'flameshield'
+Sk 88 1 'fly'
+Sk 1 1 'floating disc'
+Sk 100 1 'frenzy'
+Sk 75 1 'frost blade'
+Sk 75 1 'frost breath'
+Sk 81 1 'gas breath'
+Sk 97 1 'gate'
+Sk 94 1 'giant strength'
+Sk 89 1 'haste'
+Sk 100 1 'heal'
+Sk 1 1 'holy word'
+Sk 100 1 'identify'
+Sk 1 1 'infravision'
+Sk 77 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 77 1 'light of truth'
+Sk 77 1 'lightning bolt'
+Sk 75 1 'lightning breath'
+Sk 75 1 'locate life'
+Sk 78 1 'locate object'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 96 1 'pass door'
+Sk 75 1 'plague'
+Sk 75 1 'poison'
+Sk 1 1 'power word'
+Sk 1 1 'portal'
+Sk 1 1 'protect container'
+Sk 95 1 'protection evil'
+Sk 89 1 'protection good'
+Sk 1 1 'recharge'
+Sk 99 1 'refresh'
+Sk 75 1 'resurrect'
+Sk 97 1 'regeneration'
+Sk 62 1 'remove alignment'
+Sk 65 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 100 1 'sanctuary'
+Sk 86 1 'shield'
+Sk 75 1 'shock blade'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 75 1 'sleep'
+Sk 95 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 96 1 'steel mist'
+Sk 94 1 'stone skin'
+Sk 90 1 'summon'
+Sk 90 1 'summon object'
+Sk 88 1 'talon'
+Sk 1 1 'teleport'
+Sk 80 1 'teleport object'
+Sk 100 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 76 1 'vision'
+Sk 75 1 'weaken'
+Sk 79 1 'word of recall'
+Sk 93 1 'wrath'
+Sk 100 1 'dagger'
+Sk 100 1 'mace'
+Sk 100 1 'sword'
+Sk 100 1 'shield block'
+Sk 86 1 'brew'
+Sk 79 1 'bash'
+Sk 100 1 'circle'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 1 1 'envenom'
+Sk 100 1 'kick'
+Sk 100 1 'parry'
+Sk 75 1 'rescue'
+Sk 100 1 'second attack'
+Sk 100 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 95 1 'hunt'
+Sk 100 1 'fast healing'
+Sk 51 1 'hide'
+Sk 100 1 'meditation'
+Sk 93 1 'peek'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 67 1 'hammerstrike'
+Sk 76 1 'force shield'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 500
+Nest 0
+Cond 97
+Wear 5
+Cost 1000
+End
+
+#O
+Vnum 3204
+Nest 0
+Wear 18
+Cost 50
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 96
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 97
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 99
+Wear 3
+Cost 3800
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 98
+Wear 4
+Cost 3800
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 94
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 5608
+Nest 0
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 14030
+Nest 0
+Wear 19
+Cost 6000
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 93
+Wear 16
+Cost 6000
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token kenneth~
+ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 5611
+Nest 0
+Cond 97
+Wear 0
+Cost 2000
+End
+
+#O
+Vnum 24206
+Nest 0
+Wear 8
+Cost 6000
+End
+
+#O
+Vnum 24253
+Nest 0
+Wear 12
+Cost 3400
+End
+
+#O
+Vnum 5609
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 5609
+Nest 0
+Cond 98
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 3207
+Nest 0
+Cond 96
+Wear 9
+Cost 80
+End
+
+#O
+Vnum 3206
+Nest 0
+Wear 10
+Cost 70
+End
+
+#O
+Vnum 3208
+Nest 0
+Cond 98
+Wear -1
+Cost 90
+End
+
+#O
+Vnum 3208
+Nest 0
+Cond 97
+Wear -1
+Cost 90
+End
+
+#O
+Vnum 24229
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 4471
+Nest 1
+Name moon card~
+ShD  {WM{go{Wo{gn{x~
+Desc you gain one of three wishes ...~
+Mat love~
+Wt   0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 9602
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Enchanted
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+Affc 'reserved'   1  15  -1   1  26          0 1
+End
+
+#O
+Vnum 17104
+Nest 1
+Cond 91
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10408
+Nest 1
+Wear -1
+Cost 9400
+End
+
+#O
+Vnum 10408
+Nest 1
+Wear -1
+Cost 9400
+End
+
+#O
+Vnum 8203
+Nest 1
+Wear -1
+Cost 2744
+End
+
+#O
+Vnum 8203
+Nest 1
+Wear -1
+Cost 2744
+End
+
+#O
+Vnum 17104
+Nest 1
+Wear -1
+Cost 170
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24225
+Nest 1
+Wear -1
+Cost 400
+Val  450 0 0 0 0
+End
+
+#O
+Vnum 24226
+Nest 1
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24250
+Nest 0
+Wear 13
+Cost 5000
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 1111
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1207
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Slice of Pizza~
+ShD  a Slice of Pizza~
+Desc A Slice of Pizza{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  35 71 0 0 0
+ExDe chef~ This food was created by Taylor.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  35 71 0 0 0
+ExDe chef~ This food was created by Taylor.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#L
+Vnum 3388
+Nest 0
+Wear -1
+Cost 50000
+End
+
+#L
+Vnum 3382
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 3382
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 10281
+Nest 0
+Wear -1
+Cost 800
+End
+
+#L
+Vnum 4471
+Nest 1
+Name plushy taylor~
+ShD  {PT{Wa{Py{Wl{Po{Wr {PP{Wl{Pu{Ws{Ph{Wy{x~
+Desc {PI{Wt{Ps {Wa {Pl{Wi{Pt{Wt{Pl{We {Ps{Wt{Pu{Wf{Pf{We{Pd {WT{Pa{Wy{Pl{Wo{Pr {WP{Pl{Wu{Ps{Wh{Py{x~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name plushy jubei~
+ShD  {WJ{gu{Wb{ge{Wi {gP{Wl{gu{Ws{gh{Wy{x~
+Desc {WI{gt{Ws {ga {Wl{gi{Wt{gt{Wl{ge {Ws{gt{Wu{gf{Wf{ge{Wd {gJ{Wu{gb{We{gi {WP{gl{Wu{gs{Wh{gy{x~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name plushy napalm~
+ShD  {BN{Wa{Np{Wa{Bl{Wm {NP{Wl{Bu{Ws{Nh{Wy{x'~
+Desc {BI{Wt{Ns {Wa {Bl{Ni{Wt{Wt{Nl{Be {Ws{Bt{Nu{Nf{Bf{We{Wd {NN{Wa{Bp{Ba{Wl{Nm {WP{Bl{Nu{Ws{Nh{By{x~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name vegita plushy~
+ShD  {RV{Pe{Ygi{Pt{Ra {RP{Pl{Yus{Ph{Ry{x~
+Desc {RI{Pt{Ys a {Pl{Ri{Rt{Pt{Yle {Ps{Rt{Ru{Yff{Pe{Rd {RV{Pe{Ygi{Pt{Ra {RP{Pl{Yus{Ph{Ry{x~
+Mat Cotton~
+Wt   0
+Cond -1
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name azrael action figure~
+ShD  {RA{Pz{Rr{Pa{Re{Pl {RA{Pc{Rt{Pi{Ro{Pn {RF{Pi{Rg{Pu{Rr{Pe{x~
+Desc {RA huge {PDemonic {RDragon {WNecromancer {Rwith animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x~
+Mat Plastic~
+Wt   0
+Cond -1
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playgirl montrey december~
+ShD  {Tthe December 768 {VP{WL{VA{WY{VG{WI{VR{WL{T, featuring a centerfold of {gM{Wo{gn{Ct{gr{We{gy{T!!{x~
+Desc {VS{We{Vx{Wy {gM{Wo{gn{Ct{gr{We{gy{N is {Gposing {Nseductively here{C!{x~
+Mat smut~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playgirl montrey december~
+ShD  {Tthe December 768 {VP{WL{VA{WY{VG{WI{VR{WL{T, featuring a centerfold of {gM{Wo{gn{Ct{gr{We{gy{T!!{x~
+Desc {VS{We{Vx{Wy {gM{Wo{gn{Ct{gr{We{gy{N is {Gposing {Nseductively here{C!{x~
+Mat smut~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe January 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of Ta{Cyl{gor{T!!{x~
+Desc It's Taylor!  Naked!!  Don't get the pages all sticky ;)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name crystal rose~
+ShD  {WC{Cr{Wy{Cs{Wt{Ca{Wl {CR{Wo{Cs{We{x~
+Desc {WI{Ct{Ws {Ca {Wb{Ce{Wa{Cu{Wt{Ci{Wf{Cu{Wl {CR{Wo{Cs{We {Cm{Wa{Cd{We {Co{Wf {Cp{Wu{Cr{We {CCr{Wy{Cs{Wt{Ca{Wl {Ca{Wn{Cd {Wc{Cr{We{Ca{Wt{Ce{Wd {Ci{Wn {Ct{Wh{Ce {WF{Ca{Wr {CE{Wa{Cs{Wt {Cl{Wa{Cn{Wd {Co{Wf {CJ{Wi{Cp{Wa{Cn{Wg{x~
+Mat Crystal~
+Wt   0
+Cond -1
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 4471
+Nest 1
+Name Little Poney Card Valentines~
+ShD  a {PMy Little Poney {RV{Pa{Rl{Pe{Rn{Pt{Ri{Pn{Re{Ps{x~
+Desc a {PMy Little Poney {RV{Pa{Rl{Pe{Rn{Pt{Ri{Pn{Re{Ps{x~
+Mat love~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name taylot valentine card~
+ShD  {RA {Pv{Ra{Pl{Re{Pn{Rt{Pi{Rn{Pe {Rf{Po{Rr {PT{Ra{Py{Rl{Po{Rr{x~
+Desc {RR{Po{Rs{Pe{Rs {Pa{Rr{Pe {Rr{Pe{Rd{P, {RY{Po{Ru{Pr {Re{Py{Re{Ps {Rs{Ph{Ri{Pn{Re {Pl{Ri{Pk{Re {Pg{Ro{Pl{Rd{P, {RW{Ph{Re{Pn {RI {Pf{Ri{Pr{Rs{Pt {Rs{Pa{Rw {Py{Ro{Pu{R, {PI {Rk{Pn{Re{Pw {RI {Pw{Ra{Ps {Rs{Po{Rl{Pd{R.{x~
+Mat love~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name taylor valentine card~
+ShD  {RH{PA{Rp{PP{Ry {PV{Ra{Pl{Re{Pn{Rt{Pi{Rn{Pe{Rs {PD{Ra{Py {RH{Pu{Rn{P!{R!{x~
+Desc {RT{Pa{Ry{Pl{Ro{Pr {Ri{Ps {Ra {Pc{Ru{Pt{Ri{Pe {Rp{Pi{Re {P;){x~
+Mat love~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 10245
+Nest 1
+Name taylor chocolate box~
+ShD  {RB{Po{Rx {Po{Rf {PV{Ra{Pl{Re{Pn{Rt{Pi{Rn{Pe{Rs {PD{Ra{Py {bChocolate{x~
+Desc {RI{Pt{Rs {Pa {Rb{Po{Rx {Po{Rf {Pe{Rx{Pp{Re{Pn{Rs{Pi{Rv{Pe {Ra{Pn{Rd {Pv{Re{Pr{Ry {Pt{Ra{Ps{Rt{Py {bChocolates{x~
+Mat chocolate~
+Wt   0
+Wear -1
+Lev  0
+Cost 10
+End
+
+#L
+Vnum 10245
+Nest 1
+Name box chocolate~
+ShD  {RB{Po{Rx {Po{Rf {PV{Ra{Pl{Re{Pn{Rt{Pi{Rn{Pe{Rs {PD{Ra{Py {bChocolate{x~
+Desc {RI{Pt{Rs {Pa {Rb{Po{Rx {Po{Rf {Pe{Rx{Pp{Re{Pn{Rs{Pi{Rv{Pe {Ra{Pn{Rd {Pv{Re{Pr{Ry {Pt{Ra{Ps{Rt{Py {bChocolates{x~
+Mat chocolate~
+Wt   0
+Wear -1
+Lev  0
+Cost 10
+End
+
+#L
+Vnum 10245
+Nest 1
+Name taylor chocolate box~
+ShD  {RB{Po{Rx {Po{Rf {PV{Ra{Pl{Re{Pn{Rt{Pi{Rn{Pe{Rs {PD{Ra{Py {bChocolate{x~
+Desc {RI{Pt{Rs {Pa {Rb{Po{Rx {Po{Rf {Pe{Rx{Pp{Re{Pn{Rs{Pi{Rv{Pe {Ra{Pn{Rd {Pv{Re{Pr{Ry {Pt{Ra{Ps{Rt{Py {bChocolates{x~
+Mat chocolate~
+Wt   0
+Wear -1
+Lev  0
+Cost 10
+End
+
+#L
+Vnum 24202
+Nest 0
+Wear -1
+Cost 2666
+End
+
+#L
+Vnum 24201
+Nest 0
+Wear -1
+Cost 1666
+End
+
+#L
+Vnum 24201
+Nest 0
+Wear -1
+Cost 1666
+End
+
+#L
+Vnum 24202
+Nest 0
+Wear -1
+Cost 2666
+End
+
+#L
+Vnum 24200
+Nest 0
+Wear -1
+Cost 1666
+End
+
+#L
+Vnum 24200
+Nest 0
+Cond 98
+Wear -1
+Cost 1666
+End
+
+#L
+Vnum 24252
+Nest 0
+Cond 98
+Wear -1
+Cost 2200
+End
+
+#L
+Vnum 24251
+Nest 0
+Cond 98
+Wear -1
+Cost 4500
+End
+
+#L
+Vnum 4471
+Nest 0
+Name darkavatar leigh kiss kiss plushy~
+ShD  {WL{Ce{Wi{Cg{Wh {Ca{Wn{Cd {WD{ga{Wr{gk{WA{gv{Wa{gt{Wa{gr {WK{Ci{Ws{Cs {WK{Ci{Ws{Cs {WP{Cl{Wu{Cs{Wh{Ci{We{Cs{x~
+Desc {WA {Cc{Wu{Ct{We {Cp{Wa{Ci{Wr {Co{Wf {CP{Wl{Cu{Ws{Ch{Wi{Ce{Ws {Ct{Wh{Ca{Wt {Ch{Wa{Cv{We {Cm{Wa{Cg{Wn{Ce{Ct{Wi{Cc {Wl{Ci{Wp{Cs {Wt{Ch{Wa{Ct {Wk{Ci{Ws{Cs {Ww{Ch{We{Cn {Wp{Cu{Wt {Ct{Wo{Cg{We{Ct{Wh{Ce{Wr{x~
+Mat Cotton~
+Wt   0
+Cond -1
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 0
+Name yagyu diary~
+ShD  {RY{ba{Rg{by{Ru {bT{Ra{bb{Ri {bN{Ri{bk{Rk{bi{x~
+Desc A Travel Diary of Yagyu~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 0
+Name feather~
+ShD  {WFeather {Wo{Cf {WI{Cn{Wf{Ci{Wn{Ca{Wt{Ce {WS{Ch{Wa{Cr{Wp{Cn{We{Cs{Ws{x~
+Desc {WIts a feather that never gets dull{x ~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 89
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 96
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11748
+Nest 0
+Wear -1
+Cost 15000
+Val  2 12 11 11 138
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name sword Crimson Fang~
+ShD  {RC{Pr{Ri{Pm{Rs{Po{Rn{x {WFang{x{x~
+Desc A sword is here, forged by DarkAvatar's craftsmanship.~
+Mat platinum~
+ExtF 67
+Wt   90
+Wear -1
+Lev  91
+Cost 22
+Val  1 10 15 3 4
+Affc 'enchant weapon'   0  91  -1   8  18          0 1
+Affc 'enchant weapon'   1  91  -1   8  19          0 1
+ExDe sword Crimson Fang~ It is a marvellous sword, crafted from the finest platinum around.
+It was created in the Month of Courtship by a master paladin
+named DarkAvatar.  Legend holds that this seraph was a great weaponsmith.
+~
+End
+
+#B
+Vnum 1004
+Nest 0
+Name dagger A Gold Hilted Throwing Dagger~
+ShD  A {YG{Wo{Yl{Wd {YH{Wi{Yl{Wt{Ye{Wd {RThrowing Dagger{x~
+Desc A dagger is here, forged by Malenna's craftsmanship.~
+Mat iron~
+Wt   71
+Cond 97
+Wear -1
+Lev  73
+Cost 0
+Val  2 6 16 11 0
+ExDe dagger A Gold Hilted Throwing Dagger~ It is a marvellous dagger, crafted from the finest iron around.
+It was created in the Month of Peace by an experienced thief
+named Malenna.  Legend holds that this seraph was a great weaponsmith.
+~
+End
+
+#B
+Vnum 14025
+Nest 0
+Wear -1
+Cost 700
+Val  1 8 10 21 20
+End
+
+#B
+Vnum 11776
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 14013
+Nest 0
+ExtF 1835010
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 14013
+Nest 0
+ExtF 1835010
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 5409
+Nest 0
+ExtF 67
+Wear -1
+Cost 100000
+End
+
+#B
+Vnum 14111
+Nest 0
+Cond 94
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11660
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11793
+Nest 0
+ExtF 289
+Cond 96
+Wear -1
+Lev  91
+Cost 55000
+ExDe owned by~ Taylor
+~
+End
+
+#B
+Vnum 10107
+Nest 0
+Wear -1
+Cost 28000
+End
+
+#B
+Vnum 11791
+Nest 0
+Wear -1
+Lev  91
+Cost 55000
+ExDe owned by~ Taylor
+~
+End
+
+#B
+Vnum 11791
+Nest 0
+Wear -1
+Lev  91
+Cost 55000
+ExDe owned by~ Taylor
+~
+End
+
+#B
+Vnum 11709
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11709
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 20026
+Nest 0
+Wt   0
+Wear -1
+Cost 90000
+End
+
+#B
+Vnum 14013
+Nest 0
+ExtF 1835010
+Cond 95
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 14042
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11792
+Enchanted
+Nest 0
+Cond 94
+Wear -1
+Lev  91
+Cost 55000
+Affc 'reserved'   1  95  -1  50  19          0 1
+Affc 'reserved'   1 100  -1  40  18          0 1
+ExDe owned by~ Taylor
+~
+End
+
+#B
+Vnum 11748
+Nest 0
+Wear -1
+Cost 15000
+Val  2 12 11 11 137
+End
+
+#B
+Vnum 14110
+Nest 0
+Wear -1
+Cost 100000
+End
+
+#B
+Vnum 24229
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#B
+Vnum 10168
+Nest 1
+ExtF 16777219
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10168
+Nest 1
+ExtF 16777219
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 16016
+Nest 1
+Cond 97
+Wear -1
+Cost 4650
+End
+
+#B
+Vnum 9911
+Nest 1
+Wear -1
+Cost 8500
+End
+
+#B
+Vnum 24229
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#B
+Vnum 13010
+Nest 1
+Wear -1
+Cost 450
+End
+
+#B
+Vnum 13005
+Nest 1
+Cond 99
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 13011
+Nest 1
+Wear -1
+Lev  91
+Cost 1200
+ExDe owned by~ Taylor
+~
+End
+
+#B
+Vnum 14014
+Nest 1
+ExtF 17825856
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 14015
+Nest 1
+ExtF 1048656
+Wear -1
+Cost 15000
+End
+
+#B
+Vnum 13004
+Enchanted
+Nest 1
+Wear -1
+Cost 3700
+Val  28 24 24 23 0
+Affc 'reserved'   1  90  -1   7  18          0 1
+Affc 'reserved'   1  90  -1   7  19          0 1
+Affc 'reserved'   1  90  -1  50  12          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   1          0 1
+End
+
+#B
+Vnum 10121
+Nest 1
+ExtF 16777283
+Cond 97
+Wear -1
+Lev  91
+Cost 21
+ExDe owned by~ Taylor
+~
+End
+
+#B
+Vnum 5409
+Nest 1
+ExtF 67
+Wear -1
+Cost 100000
+End
+
+#B
+Vnum 10100
+Nest 1
+Wear -1
+Cost 32000
+End
+
+#B
+Vnum 3202
+Nest 0
+Wear -1
+Cost 30
+End
+
+#B
+Vnum 16016
+Nest 0
+Wear -1
+Cost 4650
+End
+
+#B
+Vnum 5615
+Nest 0
+Cond 97
+Wear -1
+Cost 2500
+End
+
+#B
+Vnum 3203
+Nest 0
+Cond 98
+Wear -1
+Cost 40
+End
+
+#B
+Vnum 24230
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#END

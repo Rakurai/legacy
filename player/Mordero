@@ -1,0 +1,375 @@
+#PLAYER
+Name Mordero~
+Id   1014932864
+LogO 1015297698
+Vers 12
+Prom %h/%Hhp %m/%Mmana %v/%Vmvs %Xtnl %gg  ~
+Race elf~
+Sex  1
+Cla  2
+Levl 14
+Plyd 14733
+Age  0
+Back 3927
+Note 0 0 0 0 0 0
+Scro 22
+Room 8543
+HMS  78 152 190 190 110 203
+Gold 203
+Silv 2367
+Exp  16318
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDGHJLQS
+AfBy T
+FRes B
+FVul Z
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 39
+Trai 1
+Alig  -1000
+Hit   6
+Dam   5
+ACs 69 66 65 80
+Atrib 11 21 18 18 16 14
+AtMod 5 2 4 1 0 2
+Pass deandre~
+Afk {B[{CSat Mar  2 23:51:38 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 1
+LLev 3
+Deit Lotus~
+Lsit 66-133-140-52.roc.frontiernet.net~
+Ltim Mon Mar 04 21:00:40 2002
+~
+LSav Mon Mar 04 21:08:18 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 148 180 203
+THMS 0 0 0
+Cnd  0 15 45 0
+Alias wh who~
+Sk 1 1 'acid blast'
+Sk 1 1 'burning hands'
+Sk 1 1 'chain lightning'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'fireball'
+Sk 1 1 'firestorm'
+Sk 1 1 'lightning bolt'
+Sk 75 1 'magic missile'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 1 1 'wrath'
+Sk 62 1 'dagger'
+Sk 11 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'combat'
+Gr 'enchantment'
+Affc 'shield'   0  66  44 -20  17          0 1
+Affc 'giant strength'   0  68  36   4   1          0 1
+Affc 'fly'   0  62  39   0   0     524288 1
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 90 15 0 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 90
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 93
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Cond 94
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 1603
+Enchanted
+Nest 0
+ExtF 67
+Cond 87
+Wear 16
+Lev  11
+Cost 700
+Affc 'reserved'   1   8  -1  10  12          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
+End
+
+#O
+Vnum 3351
+Nest 0
+Wear -1
+Cost 590
+End
+
+#O
+Vnum 1503
+Nest 0
+Wear -1
+Cost 730
+End
+
+#O
+Vnum 1503
+Nest 0
+Cond 92
+Wear -1
+Cost 730
+End
+
+#O
+Vnum 4581
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 1116
+Nest 0
+Wear -1
+Cost 480
+End
+
+#O
+Vnum 616
+Nest 0
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 3503
+Enchanted
+Nest 0
+Wear 4
+Cost 310
+Val  1 3 4 0 1
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear 0
+Cost 400
+End
+
+#O
+Vnum 4607
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#END

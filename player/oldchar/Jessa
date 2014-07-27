@@ -1,0 +1,132 @@
+#PLAYER
+Name Jessa~
+Id   1000826818
+LogO 1000829451
+Vers 6
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race wolf~
+Sex  2
+Cla  7
+Levl 1
+Plyd 2486
+Age  0
+Back 2470
+Note 0 0 0 930633430 0 1000827290
+Scro 22
+Room 3700
+HMV  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  1100
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm NOb
+Revk 0
+Pos  8
+Prac 5
+Trai 3
+Save  -1
+Alig  750
+Hit   1
+ACs 95 95 95 99
+Atrib 17 15 15 15 21 15
+AtMod 0 0 0 0 0 0
+Pass william~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Alisa~
+Lsit c1409305-a.jffsn1.mo.home.com~
+Ltim Tue Sep 18 10:29:23 2001
+~
+LSav Tue Sep 18 11:10:51 2001
+~
+MC 41
+Col 0 0 0 0 37 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  F
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 0 0 0
+Sk 1 'channel'
+Sk 1 'divine regeneration'
+Sk 1 'giant strength'
+Sk 1 'haste'
+Sk 1 'infravision'
+Sk 1 'refresh'
+Sk 1 'regeneration'
+Sk 1 'talon'
+Sk 1 'axe'
+Sk 1 'flail'
+Sk 1 'shield block'
+Sk 40 'sword'
+Sk 1 'enhanced damage'
+Sk 1 'hand to hand'
+Sk 1 'parry'
+Sk 1 'second attack'
+Sk 1 'third attack'
+Sk 1 'dual wield'
+Sk 1 'hunt'
+Sk 1 'languages'
+Sk 100 'scan'
+Sk 1 'scrolls'
+Sk 1 'staves'
+Sk 1 'wands'
+Sk 50 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'enhancement'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 145 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

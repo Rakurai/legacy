@@ -1,0 +1,2891 @@
+Sender  Kenneth~
+Date    Mon Jan  7 10:44:49 2002~
+Stamp   1010421889
+To      all~
+Subject Non-lowered hero weapons~
+Text
+In order to create some competition for the tempered throwing daggers,
+the Looneysword, Claws of Earth, and Tofstick have all been improved a bit. 
+Hopefully this will provide some variety in the non-lowered hero weapons. 
+(I know, none of them are the same average or higher, they're still better
+than before) 
+Kenneth
+~
+Sender  Montrey~
+Date    Tue Jan  8 12:27:40 2002~
+Stamp   1010514460
+To      all~
+Subject changes~
+Text
+bunch of lil changes and one big one.  mobs now check correctly for walking
+in air/water rooms, i.e. they need to fly or have a boat.  skill in swimming
+lets you walk into water rooms also.  'movement' has been changed to 'stamina',
+and most non-automatic skills cost stamina to perform.  regen and gains on leveling
+for stamina and mana have been reworked a lot, most of you won't see a difference
+in your mana regen, but stamina regen is increased significantly.  the command
+'skills' has a new look, goes along with 'spells', and it lists stamina costs to
+perform a skill.  a lot of you will see your stamina change when you log on, because
+of the change to how it's calculated when it's gained, i put something in to roll
+you a new stamina value the first time you come on after the change, so you won't
+find yourself slighted.  also, any hero or remort should be able to get level 92+
+items from the pit now :)
+~
+Sender  Montrey~
+Date    Tue Jan  8 22:10:26 2002~
+Stamp   1010549426
+To      all~
+Subject other change~
+Text
+i forgot to mention in my last note:  mages no longer regen mana in battle.
+this was created as a temporary fix a long time ago, to help balance out
+the underpowered magic users.  it's gone now, but in it's place, magic users
+(mages, necromancers, and clerics) can cast with less lag than other classes.
+~
+Sender  Montrey~
+Date    Wed Jan  9 21:26:33 2002~
+Stamp   1010633193
+To      all~
+Subject recall~
+Text
+whelp, we debated it, and decided with the now triple use of stamina
+for movement, recalling, and now combat, the price of recall is too high.
+sooo...  recall and clanrecall now only cost 1/4 of your moves, and doing so
+from a room in your clanhall doesn't cost anything :)  hope this helps
+~
+Sender  Montrey~
+Date    Thu Jan 10 11:02:10 2002~
+Stamp   1010682130
+To      all~
+Subject channels~
+Text
+next copyover will bring a behind the scenes change, in the way channels are
+handled.  you probably won't see much difference at all, but the new way it's
+coded saves about a thousand lines and makes adding or removing channels much
+less complicated.  if anyone sees something strange with it, let me know, cause
+something like this is almost impossible to test for every possible situation.
+~
+Sender  Montrey~
+Date    Thu Jan 10 16:36:40 2002~
+Stamp   1010702200
+To      all~
+Subject experience~
+Text
+the way experience is calculated for groups has been tweaked a bit.  the bonus
+for grouping is bigger, and how varied your party is matters also.  a hint:
+a lot of members of different classes means more exp :)  have fun
+~
+Sender  Montrey~
+Date    Wed Jan 16 10:40:22 2002~
+Stamp   1011199222
+To      all~
+Subject mobs and skills~
+Text
+xenith has been working on a new system of command handling for imms,
+and i've been doing war, sometimes what we're working on conflicts :)  so,
+mobs lost their ability to do commands for a little while, it's fixed now,
+they should be able to 'kill' 'rescue' and all that now
+~
+Sender  Montrey~
+Date    Tue Jan 22 11:43:06 2002~
+Stamp   1011721386
+To      all~
+Subject regen, fast healing, meditation, and divine regen~
+Text
+the above spells and skills will be evolvable next copyover.  they're a lot
+like the old mages mana regen in combat, except regen restores stamina, fast
+healing restores hp, meditation restores mana, and divine regen restores all 3,
+in small amounts while you're fighting.  all the classes should be able to evolve
+at least one.  have fun :)
+~
+Sender  Montrey~
+Date    Wed Jan 23 14:42:14 2002~
+Stamp   1011818534
+To      all~
+Subject holding items when quitting~
+Text
+fixed some problems with the mud checking for the level you can carry through
+quit/copyover, you won't lose level 92+ items if you're high enough level now.
+same thing with getting level 92+ items from the pit, you can get em if you're
+high enough level.
+~
+Sender  Montrey~
+Date    Thu Jan 24 16:56:12 2002~
+Stamp   1011912972
+To      all~
+Subject mob spells~
+Text
+you may notice that mobs with affects such as flameshield, faerie fire, haste, stuff like that, their stats are affected by them now
+~
+Sender  Kenneth~
+Date    Thu Jan 31 14:50:20 2002~
+Stamp   1012510220
+To      all~
+Subject Help files and guilds~
+Text
+Some rather pathetic additions have been slapped onto the regen, fast
+healing, and meditation help files to help explain the evolutions a bit. 
+Also, the new guild line is in place, which may not mean much to ya right
+now, but it'll let us do some cool stuff.  For example, eq bought with qp in
+your guild hall that would be tailored to your class.  And no, it would not
+be able to be shared around.  Anyway, that's just a couple current changes
+and something that'll probably happen in the future.  
+Kenneth
+~
+Sender  Montrey~
+Date    Thu Jan 31 20:53:54 2002~
+Stamp   1012532034
+To      all~
+Subject mana and stamina costs~
+Text
+the old method of calculating mana and stamina cost (50 when you get the skill
+or spell, goes down to the minimum from there) has been removed.  should
+make magic and skills not so terribly expensive for newbies
+~
+Sender  Xenith~
+Date    Sun Feb  3 04:34:27 2002~
+Stamp   1012732467
+To      all~
+Subject New stuff~
+Text
+Ok, I fiddled around and changed a bunch of stuff.  The thing you people
+might notice is that the mud will be up more.  I installed an autoboot
+script, that will boot the mud if it's not running.  The script checks for a
+running mud every 5 minutes.  I had to change around a bunch of stuff behind
+scenes to get this working correctly, and I don't know if the changes will
+make us crash or not.  So far everything is stable, but just be warned it
+might become unstable at any time and go boom.  So, enjoy more mud uptime. 
+;-) 
+
+
+Xenith, sexy shell goddess
+~
+Sender  Montrey~
+Date    Sun Feb  3 11:39:30 2002~
+Stamp   1012757970
+To      all~
+Subject little fix~
+Text
+hardly warrants a note, but the mud will pick players before mobiles
+on the social channel now, so you won't get 'They are not here.' when
+you type 'social bow great' (meaning GreatNinja).  had to do with how the
+mud looped through the list of all characters on the mud, it was stopping
+when it found a mob that matched, now it doesn't :)  and yes, Liriel asked
+me to fix this like 6 months ago, i'm slow ;)
+~
+Sender  Montrey~
+Date    Wed Feb  6 02:03:41 2002~
+Stamp   1012982621
+To      all~
+Subject changes~
+Text
+a few this time:
+biggest majority is changes to war and duels, which are well on their way in
+quite a few changes to imm things, removal of old useless commands, fixes to others
+mobile rotate is fixed again, they can't rotate while blind or resting now
+hammerstrike is adjusted down *ducks*
+fixed some bugs with disarming people you're not fighting
+the cost of skills is changed a bit, and there's a new method of calculating it when you're below level 50, the cost goes down
+brew and scribe change the long description on potions/scrolls now
+stamina shows in scon
+you can 'play stop' a jukebox in your inventory
+showlost will catch items in containers now
+~
+Sender  Montrey~
+Date    Thu Feb  7 03:22:33 2002~
+Stamp   1013073753
+To      all~
+Subject lurk, incog, herotalk, and philosophise~
+Text
+sorry to inform you guys, but the above have been removed.
+with the lessening importance of remorting in the grand scheme of
+things, it was decided that lurk wasn't needed, in fact only served to
+drive away newbies with people talking that they couldn't see.  herotalk
+is a derivative of the same, a means of communicating with lurkers so
+as not to give them away on public channels.  i'm using 'lurk' incorrectly,
+lurk was actually for clan leaders, and incog for heroes and remorts
+(they're both gone).  philosophise, well, we're trying to get rid of some
+of the old unused channels :)
+~
+Sender  Kenneth~
+Date    Tue Feb 12 22:47:18 2002~
+Stamp   1013575638
+To      all~
+Subject Claneq armor values~
+Text
+Yeah, from now on, using 1 point of the claneq junk on the ac value will
+decrease the ac of the piece of eq by 3 points insteada just 2.  This
+affects exactly 0 current pieces of eq, but just remember it for the future
+or whatever.  And yeah, it's in the helpfile.  
+Kenneth
+~
+Sender  Montrey~
+Date    Wed Feb 13 01:35:21 2002~
+Stamp   1013585721
+To      all~
+Subject changes~
+Text
+some imm stuff, notably that imms can clear the motd with 'motd clear' and you can't deny yourself anymore
+mobs can use remort spells, for you builders out there
+scribe and brew change the keyword name now, your potions won't be 'vials' anymore
+rage won't hit groupies anymore
+showlost fixed, won't find items you're going to lose and quit anyway now
+crash bug with ppl idling out fixed
+~
+Sender  Montrey~
+Date    Thu Feb 14 14:07:20 2002~
+Stamp   1013717240
+To      imm~
+Subject evolve~
+Text
+copyover fixed some bugs, and you can evolve your skills up to 4 now without SP cost or class restrictions
+~
+Sender  Kenneth~
+Date    Thu Feb 14 22:38:18 2002~
+Stamp   1013747898
+To      all~
+Subject Some random eq twiddling~
+Text
+Did some eq tweaking tonight on some old, rare pieces of eq out there. 
+You eq geeks should love the chance to go hunt this stuff down.  ;) Anyway,
+just to help out, the changed eq is, from Oran, the ring of prophecy,
+talisman of sholoha, cloak of hope, and sand shield; and from Strange World,
+the water snake, claw of earth, light bulb, wooden mask, and belt of fire.  
+Have at it!
+Kenneth
+~
+Sender  Liriel~
+Date    Fri Feb 15 17:49:07 2002~
+Stamp   1013816947
+To      all~
+Subject extraclass helpfiles~
+Text
+Extraclass helpfile is in, and all the remort skills/spells helpfiles
+have been updated.
+~
+Sender  Liriel~
+Date    Sat Feb 16 01:32:34 2002~
+Stamp   1013844754
+To      all~
+Subject Mostly mage stuff~
+Text
+Focus will no longer affect reciting.
+Recite lag has been increased, while zap and brandish lag have been
+decreased, all three are on the same level now.  Have fun.
+
+{BB{Ca{gl{Wa{gn{Cc{Be{x
+~
+Sender  Liriel~
+Date    Sat Feb 16 02:01:43 2002~
+Stamp   1013846503
+To      all~
+Subject Highlanders~
+Text
+Died.  Sorry, it has been totally inactive.
+~
+Sender  Kenneth~
+Date    Sat Feb 16 03:12:15 2002~
+Stamp   1013850735
+To      all~
+Subject guild eq~
+Text
+Ok, as of the next copyover, guildmasters will have the first set of
+guild eq.  This is eq only available for the class you're in, and it's only
+available in the guilds of Midgaard, right now.  So, I think it'd be a good
+idea for everyone to learn where their guild is.  Especially since I think I
+saw Elmer Fudd hanging around Crush's Temple, if you know what I mean...  
+Kenneth
+~
+Sender  Montrey~
+Date    Sun Feb 17 14:11:48 2002~
+Stamp   1013976708
+To      all~
+Subject pk changes~
+Text
+'twas discussed, decided that some stuff needed to change to make pk not stupid
+can't recall under a pk timer now (it's not *too* long, i'll make it show in score later)
+you can push or drag players with a pk timer out of safe rooms
+btw, a pk timer is set when you engage in pk, duh :)
+you can flee while slowed, but there's a chance based on your dex
+slow has to go through saves to work, and hits harder to your dex now
+~
+Sender  Montrey~
+Date    Sun Feb 17 20:10:26 2002~
+Stamp   1013998226
+To      all~
+Subject PK things~
+Text
+Sorry, was kinda in a hurry, guess I should explain what a PK timer is
+to those of you who haven't played muds with them.  When you engage in
+a player vs player fight, a timer is set on you, and while that timer is
+active, you're not safe.  You can be pushed or drug out of safe rooms,
+other players won't get a killer flag by attacking you in any case,
+and the gods will ignore your prayers for recall.  Along with this,
+you can now flee while slowed, except that your dexterity factors a
+great deal into the chances, and slow has been modified to increase
+the dexterity penalty.  Slow checks saves now, and saves have been
+adjusted a lot to be more based on actual saving throws rather than
+level.  Also, focus no longer affects scrolls/staves/wands, wrath and
+sunray have had their damage lowered somewhat, and focus affects
+chain spells a *little* more now, had to do it for the removal of
+focus effect from spells cast from objects.
+~
+Sender  Montrey~
+Date    Wed Feb 20 01:23:03 2002~
+Stamp   1014189783
+To      all~
+Subject changes~
+Text
+saves tweaked a little bit, worth a little more
+pk timer now at 30 seconds, it's removed when you die, and it shows in affects
+you no longer save vs spell trying to slow yourself
+'shrink' has been rewritten, there was a typo preventing you from getting brilliants
+~
+Sender  Liriel~
+Date    Fri Feb 22 01:45:06 2002~
+Stamp   1014363906
+To      all~
+Subject leadership and deputies~
+Text
+Please read help clanleadership (or help leader, or help deputy) for
+new clan structuring rules.  Any questions, please direct my way.  :)
+
+{WL{Ci{Br{Ci{Te{Wl{x
+~
+Sender  Montrey~
+Date    Mon Feb 25 14:10:03 2002~
+Stamp   1014667803
+To      all~
+Subject bug fixes~
+Text
+summoning pc corpses is more restricted now, you can't summon to clanhalls, guild rooms, among other places
+bug with invite fixed
+~
+Sender  Kenneth~
+Date    Mon Mar 11 22:18:42 2002~
+Stamp   1015906722
+To      all~
+Subject Marley~
+Text
+Since Marley's pretty pointless, and I'm annoyed with all the male people
+who are getting quests to rooms that can't be accessed by them, I just took
+it out.  The great square got moved to Midgaard, so it's all good.  
+Kenneth
+~
+Sender  Azrael~
+Date    Wed Mar 13 11:03:35 2002~
+Stamp   1016039015
+To      all~
+Subject Deity Selection during Character creation.~
+Text
+This is a little belated. but it is a FYI.
+Immortals marked with a '*' are former IMMs who still deserve the respect of being a worship'd deity.
+If you worship(as a player now) a diety who is no longer with us, contact an imm to have it changed to a current immortal.
+
+
+
+-{PA{rz{x
+~
+Sender  Montrey~
+Date    Thu Mar 14 01:46:40 2002~
+Stamp   1016092000
+To      all~
+Subject changes next copyover~
+Text
+some bugs with ignore fixed
+can't relocate out of combat now (duh)
+saves have been messed with, a lot of things that shouldn't have checked
+saves are changed, like cancellation and curative spells, they simply check
+a saving throw vs level now.  slow and dispel magic were tweaked a little bit
+the same way
+you can recite and quaff scrolls and potions you're holding now
+you can enter portals in combat now, it checks against your dexterity just like
+fleeing, this doesn't work with portable portals :)
+duel announcements won't show through turning off announcments or quiet mode
+chances of fleeing have been adjusted a lot, it now takes into account
+your opponent's dexterity vs yours, how many opponents you're fighting,
+and whether or not they're paying attention to you
+fixed a really tiny typo in quest stuff, if someone in your group kills your
+quest mob (pets, anything) you get the quest kill
+stealing your quest item counts toward your quest now
+~
+Sender  Liriel~
+Date    Thu Mar 14 03:28:33 2002~
+Stamp   1016098113
+To      all~
+Subject Smooch~
+Text
+put a new social in.  :)
+~
+Sender  Liriel~
+Date    Thu Mar 14 23:34:01 2002~
+Stamp   1016170441
+To      all ~
+Subject fear~
+Text
+Put a new social in, teehee.  Sorry, thought it was cute.
+~
+Sender  Montrey~
+Date    Fri Mar 15 03:08:17 2002~
+Stamp   1016183297
+To      all~
+Subject changes~
+Text
+first off, new token system is in, i'm sure Liriel has a better note than i
+can write about it :)
+flee has been worked on some more, shouldn't be nearly impossible now
+mana cost of full heal has been changed, instead of max mana/3, it's max hp/4
+the *actual* cost of spells is reflected in 'spells' now, instead of the
+cost before the remort affects of channelling are figured in
+drain/immune/res/vuln has been worked on, res/vuln cancel eachother out
+properly now
+more changes soon to come :)
+~
+Sender  Liriel~
+Date    Fri Mar 15 18:01:41 2002~
+Stamp   1016236901
+To      all~
+Subject Legacy Sets~
+Text
+Are in! :)  Imms are still working out a few kinks with the token objects,
+But please help {CLegacy Set{x to read up on the rules.  Any questions, ask! :)
+~
+Sender  Liriel~
+Date    Sat Mar 16 01:47:45 2002~
+Stamp   1016264865
+To      all~
+Subject Huzzah!~
+Text
+Legacy sets are OUT!  Plenty of my hiddens have been scattered randomly throughout
+the realm, and look for more to come from other imms.  :)  
+
+Loner has been destroyed, you no longer need to be in a clan to PK!  w00t w00t.
+
+Bug with room lighting has been fixed, so now you no longer should randomly
+have your light go kaput ;)
+~
+Sender  Montrey~
+Date    Sun Mar 17 15:04:05 2002~
+Stamp   1016399045
+To      all~
+Subject copyovers~
+Text
+Tokens that are out on the ground are saved through copyovers now,
+should make for less scavenger hunts ruined by yours truly ;)
+~
+Sender  Liriel~
+Date    Tue Mar 19 03:11:14 2002~
+Stamp   1016529074
+To      all~
+Subject Imm Organization~
+Text
+Just to help you guys out a little bit, our imm staff has been slightly
+restructured to serve you better.  Now, the IMPS of the mud have leader flags,
+you know who they are.  ;)  Imms with DEPUTY flags are level 100's who are there
+to help you for all your level 100 needs (enchants, level tokens, whatnot) and
+are heads of their respective departments.  Imms with no flags, are ... well
+your friendly loveable Legacy imms in general.  In general, try to go to an imm
+or a deputy imm with any problems before going to an IMP, cuz we are veeeewy busy.
+
+{CL{x
+~
+Sender  Montrey~
+Date    Tue Mar 19 04:27:43 2002~
+Stamp   1016533663
+To      all~
+Subject stuff~
+Text
+most of the changes only concerned imms, but the two you guys might
+care about are that when you're drowning, you won't get thirsty anymore,
+and that scan won't show up to viewers of duels anymore
+the health bar that shows to viewers is messed up, i'll fix that soon :)
+~
+Sender  Montrey~
+Date    Wed Mar 20 01:25:39 2002~
+Stamp   1016609139
+To      all~
+Subject changes~
+Text
+most of the changes are to the imm command 'flag', but we've got a few for
+ya :)  the health bar in duel rooms is fixed, it shows both combatants
+health when they're fighting.  and, auction has had a working over.  the
+minimum bid increase is now 5% instead of 1 gold, expensive auctions can
+get more expensive in a hurry.  you can just type 'auction bid' to
+wager 5% more than the current bid without typing numbers.  and, sorry
+guys, no more auctioning food you made with 'create food' ;)  oh, one
+more thing, auctions can deduct from your silver now as well as gold,
+no more rolling your pennies to take to Otho.  enjoy
+~
+Sender  Liriel~
+Date    Thu Mar 21 14:21:00 2002~
+Stamp   1016742060
+To      all~
+Subject clans, and wars~
+Text
+After a long, drawn out discussion ... lots of debate on the part of Montrey and I
+(we've been going at this for about a week), and lots of input and suggestions from
+other imms. we've come to a conclusion.  Most of you will like this, some of you
+will not.
+
+While we are certainly not trying to force PK on everybody, joining a clan has
+and will always be optional.  If you want to receive all the benefits of a clan
+such as your hall, your eq, etc ... there will now be a price to pay: You will have
+to fight for them.  
+
+War is now in, and all clans may declare war, and all clans may have war declared
+on them.  None shall be spared ;)
+~
+Sender  Liriel~
+Date    Thu Mar 21 22:52:16 2002~
+Stamp   1016772736
+To      all~
+Subject Jubei tokens~
+Text
+I will accept Jubei's tokens, now that he is no longer an imm, as part of my Legacy
+Set, in a 5 to 1 ratio.  Please do not turn them into me until the time of the
+redeeming of the Legacy Set.  Thank you.  This offer is a limited time offer so
+get those Jubei tokens out of circulation!  
+~
+Sender  Liriel~
+Date    Fri Mar 22 03:39:35 2002~
+Stamp   1016789975
+To      all~
+Subject charm~
+Text
+Just a heads up, you probably won't want to use this in PK.  It's not
+intended for use on players, for obvious practical reasons, and even though
+right now it can be used, they can just type nofol and get out of it anyway,
+so in the end I just suggest you not use it.  :)
+
+Just a heads up to let you know what's going on
+
+{CL{x
+~
+Sender  Montrey~
+Date    Sun Mar 24 02:10:12 2002~
+Stamp   1016957412
+To      all~
+Subject changes~
+Text
+There were some changes to notes, mainly having to do with noting to
+clans, those of you in clans can read it, the rest can see it in help clan
+soon hopefully.  In other changes, the code that saves items through
+copyovers has been rewritten, is much better, and now makes objects
+laying around copyover and crash proof.  For you aspiring area builders,
+we added the 'ismaster' and 'isleader' ifchcks to mobprogs, ask me
+if you want to know more.  There was a bug with hammerstrike and berserk
+causing them to multiply eachother's effects, it's been fixed.
+
+An autosave is forced at the end of a duel for the combatants now,
+just in case.  Also, you can't steal in there anymore, aaand...
+charm person and sing do not work on players anymore.  This was the
+alternative to making 'nofollow' not break you out of charm, which
+would have basically meant you'd be screwed if charmed.  Last little
+thing, notes that you forward won't be spam in your note list anymore,
+they won't show up :)
+~
+Sender  Montrey~
+Date    Mon Mar 25 01:20:44 2002~
+Stamp   1017040844
+To      all~
+Subject stuff~
+Text
+there's not a lot that'll affect you guys seriously, other than maybe
+some old bugs being gone that you didn't know were bugs :)  most of the
+changes were some serious reworking of internal things like calculating
+age, carried number of objects and weight, and how weight and numbers are
+worked into strongboxes and lockers.  the whole thing should be completely
+accurate now.  some streamlining of commands like 'put', 'get', 'drop'
+and so on happened, the little bug 'put all.something locker' doesn't
+work anymore, but mainly because it doesn't have to.  it used to not
+let you put a container with a weight modifier in your locker, it's an
+unnecessary precaution now so it's removed.
+
+oh yeah, and the stuff with mobs not showing messages when they clambered
+to their feet is fixed, so your bash triggers should work again :P
+~
+Sender  Kenneth~
+Date    Mon Mar 25 16:36:57 2002~
+Stamp   1017095817
+To      all~
+Subject Detect Hidden and Invis~
+Text
+Invisibility is a very impressive and actually rather rare spell, good
+for spooking the peasants and infiltrations alike.  However, it, hide, and
+the spells detect invis and detect hidden are a bit underused and
+underpowered because of the way eq and mobs are now.  So, after the next
+copyover, the belt of magic power and the sheandra junk will no longer
+detect hidden or invis.  Also, 60 mobs (well, 58 separate vnums, sue me for
+rounding) have lost the ability to detect invis or hidden thus far, and
+there will probably be more.  Not all of them are aggressive, but some were,
+so there are some definite positive sides.  Anyway, if there are any
+complaints, address them solely to me and Mont, I guess.  Try and hold down
+the name-calling, please.  ;) 
+Kenneth
+~
+Sender  Liriel~
+Date    Tue Mar 26 13:59:19 2002~
+Stamp   1017172759
+To      all~
+Subject alts~
+Text
+You guys didn't know yet?  Well wow, now you know.  Reveal somebody's alt, and
+you risk the chance of not only getting 1212'ed, but fried.  It's a serious 
+offense and destroys the playing environment we have.  Imms control multiplaying,
+the rest of you can chill.
+
+ps. we realize we cannot monitor tells, but public channels is definitely a no-no.
+
+{CL{x
+~
+Sender  Liriel~
+Date    Tue Mar 26 14:02:47 2002~
+Stamp   1017172967
+To      all~
+Subject Trade Notes~
+Text
+From now on, to reduce the bloody spam on public channels in which
+no imms are interested in seeing, all information regarding the trading of
+of tokens shall go on TRADE NOTES.  This means, no more gossiping "Hey anybody
+wanna trade ____ for ____" or flaming, or any other public channel.  USE TRADE NOTES
+OR TELLS.  Also, I'd like to thank the people who have been using trade notes 
+instead of regular notes to post their tokening.  Please, if you write it on the
+wrong board, delete it and rewrite it.  This is now a RULE and any violation of it
+will be treated as a violation to the spam rules.  Thank you and have a nice day ;)
+
+{WL{Ci{Br{Ci{Te{Wl{x
+~
+Sender  Liriel~
+Date    Wed Mar 27 01:40:12 2002~
+Stamp   1017214812
+To      all~
+Subject My first coding change ever!~
+Text
+hehe I actually did this one myself, even though it involved changing figures
+in like all of 3 lines :P  but still, I did it all myself!  so I'm pretty proud.
+Thanks to Montrey for having incredible patience for teaching me CVS, hopefull
+I'll get a lot better ;)
+
+Auction minimum bids hvae been changed from 5% to 10% of the last bid, to help
+reduce auction spam.
+~
+Sender  Liriel~
+Date    Thu Mar 28 21:09:05 2002~
+Stamp   1017371345
+To      all~
+Subject Azrael~
+Text
+Unfortunately is not with our immstaff anymore.  :(   After a hard decision
+by myself and Montrey, we felt he did not have the coding or imming experience
+necessary.  We bear no hard feelings towards him at all, and will miss him up in
+the heavens.
+
+{WL{Ci{Br{Ci{Te{Wl{x
+~
+Sender  Liriel~
+Date    Fri Mar 29 03:22:16 2002~
+Stamp   1017393736
+To      all~
+Subject Liriati~
+Text
+Liriati has started.  :)   Help Liriati for details.
+
+Enjoy :)
+~
+Sender  Montrey~
+Date    Sat Mar 30 00:03:32 2002~
+Stamp   1017468212
+To      all~
+Subject bug fixes:~
+Text
+underwater rooms will show messages about gasping for air correctly now
+can't disarm in safe rooms now
+problems with mobs backstabbing worked on, thief mobs have the skill now
+unjoin won't cause weird bugs with booting people from the clanhall
+forfeiting your quest at the wrong questgiver won't reset the wrong timer
+you can dual wield while resting
+the benefits of talon tweaked slightly for the better
+~
+Sender  Montrey~
+Date    Sun Mar 31 09:11:37 2002~
+Stamp   1017587497
+To      all~
+Subject bash~
+Text
+the chances of bash were being affected by your victim's AC vs
+bash/blunt weapons, i saw a typo in it the other day while looking at
+how the chances were calculated so i could use something similar elsewhere.
+thing was, your AC vs bash was being taken into account backwards, whoever
+whoever put it in, i assumed, had just forgotten that AC is negative,
+so it was actually making you easier to bash the better your armor class
+was.  i had one of my all too common moments of stupidity, and changed it
+thinking it was a typo, which is why all of a sudden it was so hard to
+bash anything.  thinking about it this morning, though, i realized it was
+very intentional.  AC vs bash is a misnomer, it should be AC vs blunt.
+AC vs blunt damage is gained through heavy armors, thick plate, shields, etc.
+all of which make you an easy target to be knocked down :)  so, after next
+copyover, it'll be back to normal.
+~
+Sender  Liriel~
+Date    Sun Mar 31 16:39:22 2002~
+Stamp   1017614362
+To      all~
+Subject Quest imms~
+Text
+It'd like for everybody to congratulate our two new quest imms ;)
+Marx and Kazander ... Kazander has already been immed and I have seen him preparing
+his first quest already.  Marx ... whenever he gets his butt on ;)  Hope to see
+their tokens and their quests soon ... please don't bite their nuts off too soon.
+~
+Sender  Liriel~
+Date    Sun Mar 31 17:30:25 2002~
+Stamp   1017617425
+To      all~
+Subject I know you love me~
+Text
+Bank limits (both clanbakn and personals) have been upped, enjoy ;)
+Kaz and Marx are now worshippable upon creation, I fixed Mont's sloppy formatting
+in notes.  Also, Mont fixed reconnect bugs, and some minor imm command tweaks.
+~
+Sender  Montrey~
+Date    Mon Apr  1 00:33:10 2002~
+Stamp   1017642790
+To      all~
+Subject stuff~
+Text
+Liriel put in a nice FYI to all when you accept an engagement offer, also,
+clanpower shows relative amounts differently (shouldn't make much difference,
+just get used to it) and a bug with put all is fixed.
+~
+Sender  Montrey~
+Date    Mon Apr  1 00:49:24 2002~
+Stamp   1017643764
+To      all~
+Subject some more changes~
+Text
+I didn't think walking around should be quite so fast, so after this
+next copyover, there'll be one second of lag when you move.  Also, I'll
+be removing recall and word of recall, cause they're kinda silly if you
+think about it, and the questmasters will now only give 1 qp per quest
+and heaps of gold instead.  Have fun all :)
+
+{gM{Wo{gn{Ct{gr{We{gy{x
+~
+Sender  Liriel~
+Date    Mon Apr  1 01:07:39 2002~
+Stamp   1017644859
+To      all~
+Subject help war~
+Text
+is in, sorry it took so long, thanks to Vegi for helping me with part of it :)
+~
+Sender  Montrey~
+Date    Mon Apr  1 20:03:04 2002~
+Stamp   1017712984
+To      all~
+Subject the previous change note~
+Text
+I won't mention names, but you know who you are.  Those of you who
+thought I was serious about removing recall and changing the questmaster
+and adding lag to moving around, in case you didn't figure it out,
+I was joking :)  Happy April Fools Day all ;)
+~
+Sender  Kenneth~
+Date    Mon Apr  8 20:05:34 2002~
+Stamp   1018314334
+To      all~
+Subject Guild Eq Stuff~
+Text
+Ok, next copyover will see the next installment of the class-based eq,
+something I'm sure no-one was awaiting with bated breath.  The next set will
+be level 12, and hopefully good and balanced enough to warrant some
+attention.  For those of you who don't know, class or guild eq can be bought
+from your guildmaster, and is geared primarily (well, totally, atm) towards
+the lower levels.  
+Kenneth
+~
+Sender  Liriel~
+Date    Wed Apr 10 02:17:02 2002~
+Stamp   1018423022
+To      all~
+Subject Viro~
+Text
+Congrats, we have another addition to our immstaff! :)  Viro has agreed to
+help out with coding, and I am very happy to add him to our much too short coding
+staff.  I think we've got a fullhouse of great imms now, and I'm really looking
+forward to Legacy getting even better! :)  Congratulate him and do whatever
+you want with Viro, just don't send any pictures to his mother.  ^_^
+~
+Sender  Montrey~
+Date    Thu Apr 11 02:30:27 2002~
+Stamp   1018510227
+To      all~
+Subject some stuff~
+Text
+mobs no longer bash you the instant you get up anymore, they'll wait til the next combat round
+and a little bug with war history showing inaccurate final scores fixed
+~
+Sender  Kenneth~
+Date    Tue Apr 16 12:34:42 2002~
+Stamp   1018978482
+To      all~
+Subject Shadow Grove~
+Text
+Shadow grove has been castrated.  While it still exists, the exits are no
+longer generated randomly.  Hopefully this change will cause zones like
+dragon tower, high tower of sorcery, budo school, and galaxy to be
+frequented a bit more often.  Although I wouldn't get too excited about
+galaxy, as that's just a horrible zone.  ;) 
+Kenneth
+~
+Sender  Montrey~
+Date    Tue Apr 16 15:51:45 2002~
+Stamp   1018990305
+To      all~
+Subject changes~
+Text
+Apart from changed areas, a few other changes went in.  An old method
+of determining your position (standing, resting, fighting) was redone,
+should be a lot more bug-free now.  Also, if you create a newbie,
+you'll see the first parts of the new creation process, which *shouldn't*
+be in yet.  But, we had to fix the bugs with position, so it's premature.
+Expect to see it finished in the next few days :)
+~
+Sender  Viro~
+Date    Thu Apr 18 15:05:09 2002~
+Stamp   1019160309
+To      all~
+Subject Copyover - Thursday Apr 18th~
+Text
+New bash code is in, leave feedback in a personal note to me.  Odds
+should be about the same for a fully successful bash, and damage has been
+upped significantly.  Also made minor changes to parry and dual parry so
+that your skill in the attacker's weapon matters.  Overal odds should also
+be about the same though.  
+
+And please, if you DO have feedback or opinions, I want to hear.  If it won't fit well in a note, I have an email, listed in my fingerinfo among other places.
+
+{HViro{x
+~
+Sender  Viro~
+Date    Thu Apr 18 22:27:06 2002~
+Stamp   1019186826
+To      all~
+Subject Another change~
+Text
+Okay, one major change added - mob stats.
+They are all much lower now, with a couple exceptions (level 100+ mobs may have 1 or 2 stats higher then before).  Hopefully this will also reduce the difficulty some people are finding with flee.
+
+{HViro{x
+~
+Sender  Liriel~
+Date    Fri Apr 19 00:39:08 2002~
+Stamp   1019194748
+To      all~
+Subject emails~
+Text
+A slight change has been made to emails, for those of you who constantly
+pester (I mean uh, contact) us by emails.  As always, please first note to
+imms if you have any questions, but just in case ... here is our email.
+
+Implementors: legacy@kyndig.com
+Coders: legacycoders@kyndig.com
+Builders: legacybuilders@kyndig.com (this is for helpfiles, clanrelated stuff,
+and personal rooms)
+Web: legacyweb@kyndig.com
+
+legacyimms@kyndig.com and legacyimms@yahoo.com are no longer in service,
+please do not use them.
+
+If anybody's confused, just let me know :)
+~
+Sender  Viro~
+Date    Sat Apr 20 15:47:04 2002~
+Stamp   1019335624
+To      all~
+Subject New Stuff~
+Text
+Besides some minor stuff, I've modified several spells.  If you get hit
+by a casting of plague, the STR penalty is variable.  Haste DEX bonuses have
+been changed, max out at 5 now.  Energy drain works different.  Try it out. 
+As always, feedback is appreciated, as are new ideas for changes.  Also
+changed mob stats a little more.  They should be slightly random now.  
+
+All this should come in at the next copyover.
+{HViro{x
+~
+Sender  Montrey~
+Date    Sat Apr 20 18:07:02 2002~
+Stamp   1019344022
+To      all~
+Subject War Points~
+Text
+Been meaning to do this for a long time, finally got around to it.
+War points are now on a curve, based around 30, so while you can still
+increase them, it matters less the higher you go.  The current war was
+affected also.
+~
+Sender  Montrey~
+Date    Sun Apr 21 00:59:00 2002~
+Stamp   1019368740
+To      all~
+Subject changes~
+Text
+Mostly little stuff and bug fixes:  you may notice some differences
+having to do with 'give' and money, nothing really noteworthy other
+than interacting with a money changer will figure out your max carry
+weight correctly, the rest is internal tweaks.  Fixed a crash bug with
+'unjoin', and some things with autoloot and autogold.  A lot of changes
+dealing with mobs fleeing and rotating, namely, they won't flee as
+much because they'll wait for the end of their combat round instead
+of in the middle of it.  Fire breath blindness is much decreased, should
+average out to 2 ticks, 3 at most.  Pets won't load their spell
+effects every time you log on now, had someone report their pet being
+affected by fly a dozen times :)  You can now have up to 30 aliases,
+quests and skill quests won't pick pet shop back rooms now.  More
+stuff will probably happen tomorrow, bout time to call it a night.
+~
+Sender  Montrey~
+Date    Sun Apr 21 18:53:45 2002~
+Stamp   1019433225
+To      all~
+Subject fixes~
+Text
+Sorry bout that, I should do some testing next time :)  Plague now
+affects strength negatively, money changers, autogold/sac/loot work
+again, fixed some color problems with war history, tweaked the
+improvement rate of disarm, and entering portals in combat works
+now.  Have fun :)
+~
+Sender  Montrey~
+Date    Mon Apr 22 21:38:33 2002~
+Stamp   1019529513
+To      all~
+Subject Fireball~
+Text
+Fireball is now evolvable, and thanks to Syveril we have a nice help
+file for it.  Thanks to those who were patient while we worked out
+the bugs :)
+~
+Sender  Montrey~
+Date    Mon Apr 29 19:55:52 2002~
+Stamp   1020128152
+To      all~
+Subject help files~
+Text
+Thanks to Syveril, we now have help files on all the spells in the
+'combat' group.  Enjoy :)
+~
+Sender  Montrey~
+Date    Tue Apr 30 21:09:38 2002~
+Stamp   1020218978
+To      all~
+Subject stuff~
+Text
+Bone Wall and Quick no longer show up on extraclass, gain points will
+no longer reset you to base exp per level, fixed some crash bugs with
+banking, the donation pit no longer shows you items that you can use as
+being just out of range.  Query now checks ignore, autosplit won't split
+with mobs, cure disease won't show you the healing message twice, recalling
+from your clan arena will now take you to recall, or clanrecall if you're
+in combat, bugs with breakup and engage stuff fixed.
+Sorry bout running it all together, but you can pick out the good stuff :)
+~
+Sender  Montrey~
+Date    Sun May  5 21:12:44 2002~
+Stamp   1020651164
+To      all~
+Subject color settings~
+Text
+Regrettably, sometimes work that is done on a mud is not well thought
+out, and causes major problems for change later when it must be
+expanded on or improved.  The way your personal color settings were
+coded is like this, whoever originally coded them left virtually no
+room for expansion on the system.  I have to rewrite it, in order
+for some new changes that are happening to work, the personal settings
+need to be expanded on.  Unfortunately, the only way to do this is
+by resetting everyone's color settings.  In a few days, you'll log
+on to find your channel and score colors reverted to the default,
+you'll have to set them again (if you even changed them in the
+first place).  I'm sorry about the trouble, but the way I'm coding
+it now leaves room for expansion to virtually no end.  Thanks
+for your patience :)
+~
+Sender  Vegita~
+Date    Mon May  6 23:37:57 2002~
+Stamp   1020746277
+To      imm~
+Subject helpfiles and me!~
+Text
+fixed: bladecraft,battle arena, help channel *removed non existant channels and added the ic channel*
+changed help clan, all pk referance removed, loner referance removed, loner keyword removed
+removed trolls,teilysas *sp?*, and monks
+changed heat metal *wrong groups listed* cosmetic work to calm, changed enhancement's section on talon to reflect the fact 
+that talon no longer gives you imm to be disarmed
+changed pk helpfiles, to reflect that you can pk outsied of a clan, removed the hgratz helpfile, removed shout from summary,
+remove shout from help gossip, remove social pose from pose helpfile
+
+will go thru clanhelp.are and rhelp.are tomorrow night
+
+ps: for the love of god please learn to keep the lenght of your lines to atleast 75, 80 chars MAX!
+if you don't the helpfile turns out VERY messy
+~
+Sender  Vegita~
+Date    Mon May  6 23:37:57 2002~
+Stamp   1020746298
+To      syveril~
+Subject {VFORWARD{W({VVegita{W){x: helpfiles and me!~
+Text
+fixed: bladecraft,battle arena, help channel *removed non existant channels and added the ic channel*
+changed help clan, all pk referance removed, loner referance removed, loner keyword removed
+removed trolls,teilysas *sp?*, and monks
+changed heat metal *wrong groups listed* cosmetic work to calm, changed enhancement's section on talon to reflect the fact 
+that talon no longer gives you imm to be disarmed
+changed pk helpfiles, to reflect that you can pk outsied of a clan, removed the hgratz helpfile, removed shout from summary,
+remove shout from help gossip, remove social pose from pose helpfile
+
+will go thru clanhelp.are and rhelp.are tomorrow night
+
+ps: for the love of god please learn to keep the lenght of your lines to atleast 75, 80 chars MAX!
+if you don't the helpfile turns out VERY messy
+~
+Sender  Montrey~
+Date    Fri May 10 20:08:47 2002~
+Stamp   1021079327
+To      all~
+Subject Colors, score, and other stuff~
+Text
+Okay, the color wipe I warned everyone about a few days ago has been done,
+everyone will need to set up their channel and score colors again.  Some major
+internal changes to this happened, it's expandable now, and even the command
+has changed a little bit.  Color settings are part of the config command now,
+type 'config' if you didn't know this was here.  Config color handles all of
+your personal colors, but I wouldn't leave you oldbies having to learn new
+commands, 'color' is a shortcut for 'config color', so you can still change
+or check your settings with the color command.  The syntax is:
+
+color <channel|score|misc> <name of field> <color name>
+
+Example, to change the color of gossip to {Yyellow{x:
+color channel gossip yellow
+
+The same syntax is used for your score and other settings.  Typing
+'color score' will show you all the possible fields you can color in your
+score, and what they're set at now.  There will hopefully be a help file
+explaining this soon :)
+
+Thanks to Kazander and Viro, we have a new version of score available for
+you guys to use.  It's automatically set on new characters, but you can
+type 'newscore' to change to the new one.  Check it out, it's nice looking, IMHO.
+
+Some smaller things have been fixed, such as push and drag, they've
+been rewritten.  The internal pc_index has been tweaked a bit, it won't
+mess up on players with multiple capitalized letters in their names now.
+Player to player visibility has been implemented as outlined in previous
+notes.  Gaining a skill now sets it to evolution 1, not 0.  EQ etched
+by acid has it's base armor class affected instead of an applied affect.
+Bugs with player sex checking have been fixed, nothing short of divine
+intervention can change a player's true sex now.
+
+Oh, and the spells quick and bone wall no longer show up on lists :P  that was
+a mistake, I've refunded those that bought them.
+~
+Sender  Montrey~
+Date    Fri May 10 20:39:26 2002~
+Stamp   1021081166
+To      all~
+Subject MyLegacy~
+Text
+You may notice on our entry screen that we are now MyLegacy v1.4.
+What this means is, that the mud now uses a very fast and powerful
+databasing engine called MySQL for some of it's information storage and
+retrieval.  We will depend on it increasingly over the next few months,
+as we move more and more of our outdated file system to the database.
+We will change to v2.0 when we have eliminated all text files from the
+mud's standard routine, including player files and area files.  If I'm
+not mistaken, at that point we will be unlike any ROM based mud in
+existance, so excuse me if I'm rather excited about it ;)  The first things
+that have been changed are our sitebans and disabled commands, eliminating
+two text files and one linked list from the mud.  Anyway, going to get
+back to work, just wanted to share that with everyone.  The next
+stuff to go in will probably be help files and a constant connected
+MySQL backend, while I'll be working on site indexing and some of
+the smaller hard coded tables.  We'll keep everyone informed.
+~
+Sender  Montrey~
+Date    Sat May 11 01:50:56 2002~
+Stamp   1021099856
+To      all~
+Subject more stuff~
+Text
+Our site logging (which makes the imm 'alternate' command work) and
+max logins and player count is now in MySQL.  You probably won't
+notice a chance, except that the command 'count' will show the most
+players on at once now, although I just started the number at 14
+since that was our last 'most since reboot' count.
+~
+Sender  Alara~
+Date    Sat May 11 16:13:35 2002~
+Stamp   1021151615
+To      imm~
+Subject helpfiles updated~
+Text
+help.are has been updated and reformatted.  Since I did that, tell
+Vegita, not me about any errors you find :P (hee hee) 
+~
+Sender  Montrey~
+Date    Mon May 13 14:23:58 2002~
+Stamp   1021317838
+To      all~
+Subject bug with logons~
+Text
+finally tracked down the bug that was cutting down your hp/mana/stamina
+when you logged on, has been fixed :)
+~
+Sender  Montrey~
+Date    Wed May 15 17:33:53 2002~
+Stamp   1021502033
+To      all~
+Subject player index~
+Text
+Our index that contains information on players, which is used to create our
+clanlists and lists of followers (for imms), has been moved to database form.
+Doing so cut our copyover times by 5-10 seconds.  Last copyover also brought in
+a database interface inside the mud so we can make changes on the fly.
+~
+Sender  Vegita~
+Date    Wed May 15 19:35:52 2002~
+Stamp   1021509352
+To      all~
+Subject RPP USAGE~
+Text
+{YBEHOLD!!!!!{x
+{GWE NOW HAVE A USE FOR RPP POINTS!!!! {x*waits for cheers*{x
+
+{PWE NOW ALLOW RPP TO BE USED TO GAIN LEVELS!!!!!!!!!{x
+
+{VTHE EXCHANGE RATE? {Y3 RPP FOR EVERY LEVEL!!!!!{x
+~
+Sender  Vegita~
+Date    Wed May 15 23:15:32 2002~
+Stamp   1021522532
+To      all~
+Subject not really a change,,, Unownering of eq~
+Text
+as of the time of this note, 
+{YWe do not unowner any piece of eq, at all{x
+
+too much can come of it,
+in the future the policy may differ somewhat but for right now thats how it is
+~
+Sender  Montrey~
+Date    Thu May 16 00:11:59 2002~
+Stamp   1021525919
+To      all~
+Subject affects~
+Text
+If you're using the new version of score, affects has a new look, and
+is somewhat colorable with the torch, border, and flame fields of your
+color settings.  It'll also show in score now if you have showaff turned on :)
+~
+Sender  Montrey~
+Date    Thu May 16 00:16:14 2002~
+Stamp   1021526174
+To      all~
+Subject affects~
+Text
+ok, there's a couple of little formatting oddities, they'll be fixed tomorrow
+~
+Sender  Montrey~
+Date    Fri May 17 12:21:58 2002~
+Stamp   1021656118
+To      all~
+Subject bug fixes~
+Text
+fixed a couple of bugs, next copyover.
+there was a problem with pfile saving, specifically with some of the flag
+sets such as censor options.  in that case, if you had no censor options
+turned on, it reset your censor to default when you logged on next.  the
+other problem was with the permanent stats of new characters, it turned
+out that it only actually saved your max hp, mana, and stamina the
+first time you leveled, so that's fixed now.  pfiles that were affected
+by this aren't changed, it'll just save them correctly now, sooo...
+if you log on and your censor settings are messed up, just set them how
+you want and they'll save correctly next time :)
+~
+Sender  Vegita~
+Date    Fri May 24 20:59:06 2002~
+Stamp   1022291946
+To      all~
+Subject rpp to levels price change~
+Text
+{YAs of the time of this note the prices for levels have changed
+{YInstead of {P3 rpp{Y per level it is now {P5 rpp{Y per level
+this is to compensate for abundance of rpp that we may hand out in one day
+
+Thank you pull around to window two!!!!{x
+
+Vegita {WI{cm{Wm{co{Wr{ct{Wa{cl {Wo{cf {WW{ca{Wr{x and {CP{Wu{Cr{Wv{Ce{Wy{Co{Wr{x of {VF{Mi{Vn{Me {VRPP Awards{x
+~
+Sender  Montrey~
+Date    Fri Jun  7 15:07:09 2002~
+Stamp   1023480429
+To      all~
+Subject helps~
+Text
+Just finished up a big internal change dealing with help files, namely,
+they're on a database now and saving about 300k of ram.  In any case,
+they should work just like you're used to, except that if a help file
+isn't found matching all your keywords, it'll display a list of possible
+matches (if there is any).
+~
+Sender  Liriel~
+Date    Mon Jun 17 00:11:24 2002~
+Stamp   1024290684
+To      all~
+Subject Me and Montrey~
+Text
+Montrey's computer went kaput on him, and he has no idea when he can
+get another one ... unsurprisingly, like most people, he's poor  (It 
+doesn't help that he has to pay for us!!!  And we appreciate it! :)  
+So, expect him to be AWOL for at least another week, maybe even more ... 
+In the mean time ... I graduated!!! :)  Yay!  This means I'm back!
+I know you guys have missed me, or at least you better have, cuz I
+missed you bunches.  Expect to see me, along with Alara, Teotwawki, and
+Vegita (the active deputies), and Kenneth (even though he'll be wizi!)
+up and about, we're going to get Legacy hopping again! 
+
+Lots of love, look forward to seeing you guys more!
+
+{WL{Ci{Br{Ci{Te{Wl{x
+~
+Sender  Liriel~
+Date    Mon Jun 17 01:29:47 2002~
+Stamp   1024295387
+To      all~
+Subject Tarrant~
+Text
+Congrats him on coming back to code for our mud! :)  His presence will
+be greatly appreciated, especially while Montrey's AWOL.  Please everybody
+give him a warm Legacy welcome ... for those of you who are newer,
+Tarrant was one of our original coders who helped us start the mud.
+
+Welcome back, Tarrant! :)
+~
+Sender  Liriel~
+Date    Mon Jun 17 01:29:47 2002~
+Stamp   1024349107
+To      tarrant~
+Subject {VFORWARD{W({VKenneth{W){x: Tarrant~
+Text
+Congrats him on coming back to code for our mud! :)  His presence will
+be greatly appreciated, especially while Montrey's AWOL.  Please everybody
+give him a warm Legacy welcome ... for those of you who are newer,
+Tarrant was one of our original coders who helped us start the mud.
+
+Welcome back, Tarrant! :)
+~
+Sender  Tarrant~
+Date    Tue Jun 18 02:11:49 2002~
+Stamp   1024384309
+To      all~
+Subject Propose, et al~
+Text
+It works now.  Go forth and multiply!
+~
+Sender  Montrey~
+Date    Fri Jun 21 18:11:23 2002~
+Stamp   1024701083
+To      all~
+Subject Me~
+Text
+Welp, this is the first time I've logged on in two weeks, but I'm afraid
+I'll be on here briefly for the next few days.  My hard drive totally
+cratered on me, and it turned out that my motherboard didn't support
+a UDMA drive, so I had to not only replace the drive but the motherboard
+as well.  Forced upgrading out of the stone ages, I guess :)  Anyway,
+I've gotta download a few hundred megs of software and get it all working
+properly, right now I'm running a completely bare Windows 98 and an
+outdated modem driver.  I'll be back in action very soon :)
+~
+Sender  Liriel~
+Date    Sun Jun 23 02:20:27 2002~
+Stamp   1024816827
+To      all~
+Subject Elder Tokens~
+Text
+I will be accepting Elder tokens (this means Qaz and Marx) as part of
+my own set in a 3:1 ratio, for a limited time only!  Please only turn 
+them in as part of a complete 150 token (or equivalent) set.  3:1 means
+for every 3 Qaz/Marx tokens you have, it equals 1 Liriel token!
+~
+Sender  Montrey~
+Date    Wed Jun 26 22:46:42 2002~
+Stamp   1025149602
+To      all~
+Subject changes~
+Text
+A few bug fixes and stuff this time:
+
+Single character help searches should work now, won't mess up the formatting
+Alignment won't go crazy when you kill a very high level mob anymore
+Fixed whatever was wrong with xsocials that wasn't letting you do some
+Filling a container from a poisoned fountain will poison the container now
+Vampires no longer *get* thirsty drinking blood
+A provision for mobiles resetting in random locations was added, it'll
+be in the builder's guide soon if its not already.
+
+More to come before long :)
+~
+Sender  Montrey~
+Date    Wed Jun 26 22:56:39 2002~
+Stamp   1025150199
+To      all~
+Subject evolve~
+Text
+One more change, I redid the list that shows evolvable skills and
+spells, because the old one was really just temporary until I got
+around to making it look nice.  I'm not sure that this does, to tell
+the truth, I made it, saw something that needed fixing, and forgot
+I had done it.  So, any input on making it look better, I'm all ears :)
+~
+Sender  Viro~
+Date    Thu Jul 11 12:48:41 2002~
+Stamp   1026409721
+To      all~
+Subject Spell changes~
+Text
+All breath spells do 1/3 less damage vs players.  They still win in
+damage, but aren't quite as ungodly in PK.  Energy drain has been tweaked, I
+will continue to monitor it for balance.  Sunray and Ray of Truth have been
+tweaked around, both should be less effective vs good aligns, more vs evil
+aligns.  Color spray is a little worse at blinding things, and has had the
+mana cost raised ever so slightly.  The harmful spell group should actually
+hurt things now, not just give them an itch.  Harm is redone.  Don't worry
+about that damage max of 100 and min of 20 any more.  
+~
+Sender  Vegita~
+Date    Sat Jul 20 01:27:52 2002~
+Stamp   1027146472
+To      all~
+Subject the entrance/greeting~
+Text
+Its been changed back to the same lovable flowers that you all have grown to love
+~
+Sender  Teotwawki~
+Date    Sun Jul 21 01:32:10 2002~
+Stamp   1027233130
+To      all~
+Subject inactive imm tokens~
+Text
+Ok guys we have a slight change on how the tokens of elder or gone imms
+will be handled.  We have decided that we will buy tokens of either elder
+imms or imms that have left our realm for 30 days from the time we notify
+you for {Y3 quest points{x each.  After 30 days the value of those tokens
+will decrease to {Y1 quest point{x each.  So here is your chance.  You have
+30 days to turn in any non- active imm tokens you may have for {Y3 qp{x To
+clerify non-active is any imm not on the wizlist.  In the future it will go
+by the date you are notified of that imm's departure from this realm.  Thank
+you and have a wonderful day.  
+~
+Sender  Teotwawki~
+Date    Sun Jul 28 15:32:02 2002~
+Stamp   1027888322
+To      all~
+Subject midgaard~
+Text
+Ok gang you will all notice changes to Midgaard.  These are good changes
+*smile*.  Please feel free to note me with any questions or comments. 
+Please keep in mind when critisizing it that Qaz and I spent countless hours
+working for your enjoyment so please do be gentle.  Also please report any
+and all typos to our typo file.  Thanks and I hope you all enjoy.  
+~
+Sender  Teotwawki~
+Date    Sun Jul 28 15:37:58 2002~
+Stamp   1027888678
+To      all~
+Subject PS~
+Text
+I forgot to mention that the maps for midgaard are inaccurate please give
+me time to fix them.  Thanks and have a wonderful day.  
+
+Teotwawki, Your humble builder.
+~
+Sender  Teotwawki~
+Date    Sun Jul 28 17:51:07 2002~
+Stamp   1027896667
+To      all~
+Subject New Quest immie~
+Text
+Please help me in congradulating and welcoming our newest quest immie
+Kismet.  I hope you all give him the same respect if not more than you do
+the rest of us.  Please do not hound Kismet give him a chance to get
+adjusted first.  We are very pleased to have him join us in making your
+experience here as enjoyable as possable.  I am sure it will not take him
+long to get adjusted as he is not a newbie to Legacy.  
+
+{PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x
+~
+Sender  Teotwawki~
+Date    Thu Aug  1 22:19:06 2002~
+Stamp   1028258346
+To      all~
+Subject guilds~
+Text
+I fixed the guildmasters so you should be able to train at your guilds
+again.  Please feel free to note myself or imms if there are any future
+problems.  Sorry for the delay and thank you for bringing it to my
+attention.  We only know if there is a problem when you guys note us or
+inform us.  Thanks again and have a wonderful night.  
+
+{PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x
+Your humble builder :)
+~
+Sender  Vegita~
+Date    Thu Aug  8 22:45:53 2002~
+Stamp   1028864753
+To      all~
+Subject Deity List~
+Text
+HURRAY MY FIRST CODING CHANGE! AND I DID IT MYSELF!
+
+Hush i know it was easy but anyways
+
+{Y Deity lists have been updated to reflect passing and new imms{x
+~
+Sender  Viro~
+Date    Fri Aug  9 10:27:48 2002~
+Stamp   1028906868
+To      all~
+Subject Changes (that's why it's on this board)~
+Text
+Okay, Ray of Truth and Demonfire should be balanced or almost there.  Oh,
+also, you newbie helpers (yeah, the elite few of you) can now enter newbie
+areas to futher help out our new adventurers.  
+
+{HViro{x
+~
+Sender  Teotwawki~
+Date    Sat Aug 17 18:51:14 2002~
+Stamp   1029628274
+To      all~
+Subject guildmasters~
+Text
+Your guildmasters should be back to normal now...  You should be able to
+buy from them again.  Thank you for your patience.  
+~
+Sender  Vegita~
+Date    Sun Aug 18 01:35:45 2002~
+Stamp   1029652545
+To      all~
+Subject A blessed wooden stake~
+Text
+Okay the blessed stake's saves have been dropped from -30 to -10 to balance out pk
+and other aspects, being able to dual wield and gaining -60 saves is WAY TOO MUCH.
+the average has also been dropped by 1 from 8 to 7
+
+I will be looking around for unaffected stakes, upon finding them, if they are restrung i'll change the restring to another
+weapon if asked, if i find stakes that still have the -30 I will take them, and if enchanted, load 
+another new copy of the stake and bestow upon it those enchants free of charge
+if not enchanted, then i will give you a new copy of the stake
+~
+Sender  Teotwawki~
+Date    Thu Aug 29 11:05:46 2002~
+Stamp   1030637146
+To      imms~
+Subject a bit of clean up~
+Text
+As of the next copyover rooms 1271 to 1280 have been removed from the
+immortal area.  These rooms belonged to Sorsha, Sturm and Alisa.  Thank you
+and have a nice day.  
+Teo
+~
+Sender  Alara~
+Date    Mon Sep  2 23:08:18 2002~
+Stamp   1031026098
+To      imps urza~
+Subject qp tokens available~
+Text
+Starting from today, clan leaders now have the opportunity to buy qp
+tokens from participating immortals using the clan's quest points.
+These tokens are meant to be used only for the clan's leaders to run
+quests or to award their clan members.
+
+For two (2) weeks, clan leaders will have the opportunity to take this
+system for a test drive without cost.  However, after that time, there
+will be a 10% charge in quest points, to be paid by the clan leader.
+***********************************************************
+
+That's what we're proposing.  Will you give your approval, Urza?
+~
+Sender  Montrey~
+Date    Sat Sep  7 14:30:37 2002~
+Stamp   1031427037
+To      all~
+Subject Fry~
+Text
+fry will have a little bug fix done next copyover, if you want to see why,
+look at my fingerinfo :)  *is still laughing*
+~
+Sender  Alara~
+Date    Sat Sep  7 15:11:56 2002~
+Stamp   1031429516
+To      imm~
+Subject helps~
+Text
+Viro/Urza/Kazander now have helpfiles, curtesy of yours truly.
+Don't like 'em?  Then send me what you want. :P  Until then,
+this is what you get. ;)  Enjoy!
+~
+Sender  Alara~
+Date    Sun Sep 15 22:04:59 2002~
+Stamp   1032145499
+To      all~
+Subject Necromancer Guildmaster~
+Text
+The Necromancer Guildmaster in Midgaard now trains as well as gains.
+~
+Sender  Teotwawki~
+Date    Wed Oct 16 06:35:44 2002~
+Stamp   1034764544
+To      all~
+Subject flame~
+Text
+I spoke to many of you regarding our policy with flame.  You all expressed
+the desire to see flame be 100 percent free for all.  We, the immortals,
+discussed this at length.  We have decided to grant you your request.  The
+restrictions have been lifted.  However we do not want to hear any r/t
+threats on peoples lives or your own life thank you .  The only thing I ask
+is if things are getting carried away and you are asked to tone it down that
+you please use good judgement and do so for the moment.  I thank you for all
+your input and I trust that you will all enjoy the luxury of verbally
+assulting one another thoroughly *wink*.  
+~
+Sender  Teotwawki~
+Date    Fri Oct 25 16:31:31 2002~
+Stamp   1035577891
+To      Divinity all~
+Subject no war~
+Text
+Hear Ye Hear Ye as of this date October 25th 2002 Divinity has been granted
+immunity from war again.  
+~
+Sender  Teotwawki~
+Date    Mon Oct 28 16:05:42 2002~
+Stamp   1035839142
+To      all~
+Subject Jubei~
+Text
+I know this will please you all and I speak on behalf of the immortals here
+we are thrilled to announce Jubei's return as a quest immortal.  Welcome back
+Jubei.  
+
+Stay tooned there are more to come :)
+~
+Sender  Teotwawki~
+Date    Tue Oct 29 18:28:05 2002~
+Stamp   1035934085
+To      all~
+Subject Kismet~
+Text
+Kismet's duties have changed some.  His new title is RolePlay/Public
+Relations.  His main responsibilities is to enhance the Role Play environment
+on Legacy and be here to hang with you fine mortals.  Kismet is your
+friend...  Please play nice with him :) His new helpfile will be in soon.  
+~
+Sender  Teotwawki~
+Date    Tue Oct 29 18:55:52 2002~
+Stamp   1035935752
+To      imms~
+Subject wizlist~
+Text
+Until we are settled with whom is doing what so on so forth I just listed the
+currant imms on the wizlist :P 
+~
+Sender  Teotwawki~
+Date    Wed Oct 30 20:13:44 2002~
+Stamp   1036026824
+To      all~
+Subject another addition ~
+Text
+Please welcome our newest quest immortal Navarre.  Please show him the same
+respect you show the rest of us.  *duck* Oh and there are more to come ;) 
+~
+Sender  Teotwawki~
+Date    Fri Nov  1 17:47:24 2002~
+Stamp   1036190844
+To      all~
+Subject New imm~
+Text
+Please help me in welcoming our newest builder immortal Whisper.  She is a
+lady and you are to treat her with the utmost respect.  More is to come?  Yes
+more is to come hehe.  
+~
+Sender  Teotwawki~
+Date    Mon Nov  4 14:28:03 2002~
+Stamp   1036438083
+To      all~
+Subject Kismet~
+Text
+Please help me in congradulating Kismet on his promotion to deputy.  
+~
+Sender  Teotwawki~
+Date    Tue Nov 12 19:16:45 2002~
+Stamp   1037146605
+To      all~
+Subject rules~
+Text
+Just a quick reminder that as things evolve around here some of the rules may
+be altered so please check the help rules on a regular basis.  It is your
+responsibility to know the rules and ignorance of them is not a defense.  BTW
+I added a rule today *nudge nudge*.  
+~
+Sender  Teotwawki~
+Date    Fri Nov 15 20:02:31 2002~
+Stamp   1037408551
+To      all~
+Subject Ebony~
+Text
+Please help me in welcoming our newest builder and immortal Ebony.  I know
+she will be a wonderful addition to our Legacy immortal staff.  Please treat
+her with respect and kindness.  
+~
+Sender  Teotwawki~
+Date    Mon Dec 30 18:00:39 2002~
+Stamp   1041289239
+To      all~
+Subject Answers to your questions~
+Text
+For all of you who know Asmadi he is the Head Coder and now owner of Shadow
+of Eternity.  He is also now the owner of Legacy.  I would like to explain a
+little to you on where we are wanting things to go with Legacy and SOE.  We
+would like to make a way for you to travel from one mud to the other when you
+sleep and are fully healed.  We plan to keep each mud as seperate entities
+and just give you the ability to play on each mud.  Myself and Viro are still
+the final say here.  Legacy will still be run the same way it has as far as
+chain of command and rules and stuff.  We are however looking to improve in
+areas that we and you feel need change.  We encourage you to ask questions
+and we will try our best to answer the best we can.  You may note imms and
+asmadi.  
+Thank you and have a nice day.
+TEO :)
+~
+Sender  Teotwawki~
+Date    Sun Jan 12 23:00:28 2003~
+Stamp   1042430428
+To      all~
+Subject Vegita~
+Text
+I am VERY VERY excited to announce that Vegita has rejoined balance and is no
+longer an elder anymore.  He is back as an active immortal and he currantly
+is part of our Admin.  Department.  Please make sure you give him the utmost
+respect.  I back his decisions completely.  
+
+Teo, aka the one that loves you all :)
+~
+Sender  Teotwawki~
+Date    Tue Jan 28 16:22:32 2003~
+Stamp   1043788952
+To      all~
+Subject copper bar~
+Text
+Iron Jack now sells a copper bar that you can use for forging.  
+
+Teo
+~
+Sender  Teotwawki~
+Date    Fri Jan 31 16:24:46 2003~
+Stamp   1044048286
+To      all~
+Subject rpp~
+Text
+You may now use your rpp to purchase global double quest time.  Please read
+help rpp for more information.  We are also currently working on more options
+for you to choose from.  We will keep you posted.  
+
+Teo
+~
+Sender  Asmadi~
+Date    Tue Feb 18 23:17:40 2003~
+Stamp   1045628260
+To      imm~
+Subject grant code~
+Text
+By request of Teo, immortal commands are now under a new security system. 
+For the time being...  You will notice all your immortal commands seem to be
+gone, until Teo or Viro can give them to you individually they will not be
+available.  
+
+For those of you with grant...
+Syntax: grant (imm) (command)   (duration)  <--- optional
+Revoke (imm) (command)
+gstat (imm)       <--- Shows what commands they have been granted
+~
+Sender  Asmadi~
+Date    Tue Feb 18 23:25:47 2003~
+Stamp   1045628747
+To      imms~
+Subject RE: grant~
+Text
+OH... one thing I forgot... you can also use the syntax:
+grant (imm) (command level)
+Ie..  grant asmadi 92
+This would give me all the level 92 commands
+~
+Sender  Teotwawki~
+Date    Tue Mar 11 15:36:19 2003~
+Stamp   1047414979
+To      all~
+Subject Help file~
+Text
+There is now a help file for Newbie Helpers.  
+~
+Sender  Teotwawki~
+Date    Thu Apr 24 23:53:27 2003~
+Stamp   1051242807
+To      all~
+Subject double quest canceled~
+Text
+I overruled this one and cancelled the double quest due to this not being a
+major holiday...  Sorry gang..  Any complaints should be addressed to me.  I
+love you all but you just had a double quest day for Easter.  
+
+Teo
+~
+Sender  Teotwawki~
+Date    Wed Jul  9 12:25:06 2003~
+Stamp   1057767906
+To      blackclaw imms divinity kindred order rebel all~
+Subject clan activity~
+Text
+After careful consideration, weighing what all players both mortal and
+immortal have voiced, and viewing logs I have made a decision regarding clan
+activity.  Let me start by saying there are not enough active players on
+Legacy for me to fairly evaluate the clans.  By active I do not mean signs
+on, reads notes or types who and leaves.  I mean actual players.  However
+some clans have MORE activity than others which in their opinion is not fair.
+Now originally I had noted the clans saying I was watching activity to start
+declaring clans fallen for lack of participation....  I changed my mind. 
+What I am going to do which I find to be fair due to the fact that membership
+affects your clanpower is this : 
+
+{YPeriodically I will be checking clanlists and checking all it's members to
+find out who was on when.  ANY clan member that has NOT been on in 30 or more
+days will be declanned by me.  {PThe exception to this is mortals that have
+requested to be in storage for a set time and purpose.  {x 
+
+{C This is a TEMPORARY SOLUTION that may be changed if and when we get more
+players.  {x 
+
+Please address any questions or comments respectfully to  me via note. Thank you and have a nice day.
+
+Teo
+~
+Sender  Teotwawki~
+Date    Wed Jul 23 03:01:48 2003~
+Stamp   1058943708
+To      all imm~
+Subject kismet~
+Text
+Unfortunately I need to announce that Kismet has joined our elders.  This is
+not because he wishes to not be here or that we wish for him not to be here. 
+Kismet has some rl issues to take care of.  I want to take the time to thank
+him for all he has done for Legacy and let him know that the door is always
+open for him to rejoin us actively.  Anyone holding Kismet tokens may redeam
+them for qp at this time.  
+Thank you and have a nice day.
+
+Teo
+~
+Sender  Teotwawki~
+Date    Mon Aug 11 01:50:00 2003~
+Stamp   1060581000
+To      all~
+Subject NEW IMMIE~
+Text
+WOOHOO We have found you all a new playmate..  Please welcome Nafai to our
+wonderful staff.  I am sure you will all love him.  *smirk* He will be
+running quests..  We are still interviewing for immortals but no questors
+please.  
+Teo
+~
+Sender  Teotwawki~
+Date    Fri Sep  5 20:16:01 2003~
+Stamp   1062807361
+To      all~
+Subject NEW CODER~
+Text
+Do not get up I will keep this brief...  Please welcome our new coder
+Outsider.  He is sure to please you all.  Any coding ideas you may send to
+him.  Please treat him with the UTMOST respect.  
+We are happy to have him aboard.
+
+Teo
+~
+Sender  Teotwawki~
+Date    Wed Sep 10 16:55:13 2003~
+Stamp   1063227313
+To      all~
+Subject flee~
+Text
+
+~
+Sender  Teotwawki~
+Date    Sat Sep 20 00:04:57 2003~
+Stamp   1064030697
+To      all~
+Subject Viro~
+Text
+Viro is now part of our Elder clan.  Unfortunately rl has come in and taken
+up most of his time.  He is still valued here and welcome anytime.  We
+appreciate all his time and hard work he has put in.  
+~
+Sender  Teotwawki~
+Date    Sat Sep 27 22:16:58 2003~
+Stamp   1064715418
+To      all~
+Subject Multiplaying~
+Text
+Ok we have decided to change this rule slightly.  I am going to be as
+specific as possible so that there are no misunderstandings or harsh feelings
+for this rule being broken.  Please refer to help rules and help multiplay
+for future reference.  We have decided to allow level 14 and below to have to
+characters signed on at the same time.  BOTH characters must be level 14 or
+below.  Remorts are not given this privilege.  This is strictly for the
+newbies.  Gang this is a privilege and like most things in life if you abuse
+it you lose it.  We the imms hope that this helps the new mortals have a more
+enjoyable start here on Legacy.  Please address any questions regarding this
+change to myself or to imms.  
+
+Thank you and have a lovely day.  Teo 
+~
+Sender  Outsider~
+Date    Mon Mar  1 02:35:33 2004~
+Stamp   1078126533
+To      asmadi all~
+Subject Spam Room~
+Text
+I would like to report that I have
+made some minor changes to the Spam
+room (1228). This prevents the game
+from kicking the player off-line when
+entering this room.
+
+I know this is a quick fix. But it
+is at least usable for now. I hope to
+find a better fix at a later date.
+
+Outsider
+~
+Sender  Outsider~
+Date    Fri Mar  5 19:39:50 2004~
+Stamp   1078533590
+To      all~
+Subject Some changes.~
+Text
+I would like to annouce a few minor changes that have taken effect in this last copyover.
+These include:
+1. Spelling/typo corrections.
+2. Players can now set their prompts to include their current level. This is done using the "prompt" command and the %l flag.
+3. Updated prompt help file.
+
+Please pass along any questions or comments to Outsider.
+~
+Sender  Outsider~
+Date    Mon Mar  8 17:29:56 2004~
+Stamp   1078784996
+To      all~
+Subject New to this copyover.~
+Text
+In this copyover we should have the following changes.
+The flee command now takes into consideration your dexxterity and your wisdom. It also checks your weight.
+So high-wisdom and low weight are good things.
+The owhere command no longer spams out aconnection (I think) and it condenses output. This prevents duplicate items in the same place from being displayed.
+The say command should display "yell" or "ask" if you end your sentence with a "!" or "?". This might not be working yet....
+
+If you have any questions, problems or comments, please let me know.
+Outsider
+~
+Sender  Outsider~
+Date    Tue Mar  9 12:45:20 2004~
+Stamp   1078854320
+To      all~
+Subject another change~
+Text
+You can now use the "!" mark to repeat old commands and add new arguments.
+For example, you can now use "cast armor" on yourself and then use "! bob" to cast armor on bob.
+
+As usual, please send bugs and comments to Outsider.
+~
+Sender  Outsider~
+Date    Wed Mar 10 08:54:49 2004~
+Stamp   1078926889
+To      all~
+Subject Remorting~
+Text
+I've done a little modifying to the remort command, which should benefit heros.
+Heros are characters that have reached level 91 and are ready to be reborn.
+Hero characters should now be able to perform a remort (rebirth) on themselves.
+To do so, please type:
+remort your_name new_race new_god new_title
+
+For example, remort outsider elf urza I'm cool
+
+This change has not yet been properly tested.
+So please note me or e-mail me (slicer69 at hotmail dot com) if you have any problems or questions.
+Also, please perform backups before you remort. Just in case.
+
+Your friendly coder,
+Outsider
+~
+Sender  Outsider~
+Date    Tue Mar 16 10:54:01 2004~
+Stamp   1079452441
+To      all~
+Subject banking~
+Text
+Another day, another copyover.
+Today's change brings about a fun, new feature.
+You can now use your money in the bank while you are in stores and shops.
+While in shops, the amount you have in the bank counts as money on hand.
+However, there is a small price to be paid for this. Whenever you don't have enough money on your character, the bank takes a 10% surcharge on your item.
+
+This only works in shops. The travelling sage, other characters, etc, don't take credit.
+Please send any questions or bug reports to Outsider. Thank you.
+~
+Sender  Outsider~
+Date    Fri Mar 19 17:16:29 2004~
+Stamp   1079734589
+To      all~
+Subject A few changes.~
+Text
+Good day all. I am happy to report a few small tweeks and changes to Legacy.
+First of all, I realized that the bank was taking too much money when using the new Debit feature.
+You now get back exact change for your purchases, no rounding up from the shop keepers.
+
+The big change, however, is for Paladins.
+Paladins may now learn and use the skill Lay on Hands. For those of you unfamiliar with this skill, it allows a Paladin to heal another character.
+Paladins may not heal themselves with Lay on Hands.
+The new "lay" skill heals minor amounts of damage done to other characters at no cost to the Paladin.
+A Paladin may use Lay a number of times per day, the number of times goes up with his/her level.
+At this time, non-paladins may not use the Lay on Hands skill.
+
+Your winged coder,
+Outsider
+~
+Sender  Asmadi~
+Date    Sat Mar 20 12:14:45 2004~
+Stamp   1079802885
+To      all~
+Subject look vs lay on hands~
+Text
+This has been corrected, you may now type "l" for look again.
+~
+Sender  Outsider~
+Date    Tue Mar 23 00:15:14 2004~
+Stamp   1080018914
+To      all~
+Subject Pets~
+Text
+Those of you with pets should like this new change.
+I have added a spell, called "scry", that lets a magic user remortly see the room in which his/her pet is staying.
+So, place your pet in a remote location and cast "scry". Hours of fun for the whole family.
+~
+Sender  Outsider~
+Date    Wed Mar 24 18:30:51 2004~
+Stamp   1080171051
+To      all~
+Subject Familiars~
+Text
+Legacy now allows a player to have a primitive familiar. To gain a familiar you must have two things:
+1. A pet.
+2. The Familiar skill.
+
+Use of the familiar skill bonds you pet to you, gaining you an ability point in the ability that shows up in the pet the most.
+A high dex pet would, for example, gain you a dexterity point. A strong pet would gain you a strength point.
+When your pet dies, your ability score returns to its previous state.
+
+~
+Sender  Outsider~
+Date    Sat Mar 27 08:32:00 2004~
+Stamp   1080394320
+To      all~
+Subject Familiars and Order~
+Text
+You can now order familiars who are not in the same room with you.
+~
+Sender  Outsider~
+Date    Mon Mar 29 09:31:01 2004~
+Stamp   1080570661
+To      all~
+Subject Worth~
+Text
+The Worth command, sometimes used as "wo", now displays the amount of money you have in the bank.
+The amount in the bank and the amount on your character are shown seperately.
+~
+Sender  Outsider~
+Date    Tue Mar 30 10:55:19 2004~
+Stamp   1080662119
+To      all~
+Subject Unarmed Combat~
+Text
+I have added a skill for unarmed combat.
+This is mostly for warriors...especially ones that drop their weapons a lot.
+The skill increases an unarmed character's chances of hitting atarget.
+It also increases the damage an unarmed character can do to a target.
+
+Please send bug reports, questions, etc to Outsider.
+~
+Sender  Outsider~
+Date    Sun Apr  4 09:20:34 2004~
+Stamp   1081084834
+To      all~
+Subject Pets and Clans~
+Text
+Laurana brought an interesting point to light recently.
+It seems that pets and familiars were not able to walk about the clan halls of their masters.
+Since it's always nice to have your companion along, I decided to fix this.
+
+Hense forth, you can clanrecall and bring your pet along with you. You can also walk about your clan hall and have your pet follow you.
+
+As usual, please report bugs, send comments and hate mail to Outsider.
+~
+Sender  Outsider~
+Date    Sun Apr  4 18:55:59 2004~
+Stamp   1081119359
+To      all~
+Subject New Skill~
+Text
+Ever wish that you had the ability to hold your guts in and keep fighting? Now you can!
+I've added a new skill, called "die hard", which gives you an extra little boost when you're near the end.
+This won't save you from a a dragon, but might keep you alive long enough to let you escape or finish off that cute, little kitten.
+
+Please send fan mail and bug reports to Outsider.
+~
+Sender  Outsider~
+Date    Tue Apr  6 06:31:48 2004~
+Stamp   1081247508
+To      all~
+Subject Trees~
+Text
+Lodasian brought up a good point yesterday. That is that some mob names don't match their discriptions.
+For example, "a walking tree" didn't show up when using "look tree" or "look walking"...etc.
+
+Trying to look at, kill or consider such a mob can be annoying to say the least.
+To get around this, you can use "con 1." or "look 2." The number being the position of the mob in the room.
+
+If you encounter such a mis-named mob, please send me a note with the following information.
+The area you were in, the discription of the mob or object you are trying to look at.
+For example:
+"I found a mob today that does not match its name with its discription. I was in the Old Wood and encountered a mob called "a walking tree". However, it does not match "walking" or "tree".
+
+Outsider
+~
+Sender  Outsider~
+Date    Wed Apr  7 14:56:34 2004~
+Stamp   1081364194
+To      imm~
+Subject New feature~
+Text
+Legacy now has the ability to connect to another MUD through a relay server.
+At this time, the new feature is fairly crude. The connection has to happen at startup, there is not yet a command to connect Legacy later.
+
+At this time, the only feature of the connection is to share gossip.
+If another copy of Legacy were to connect with us, the gossip channel would be shared by both sides.
+
+It is my hope to soon have a command to dynamically connect to the relay server and add some more functionaliy to the connection.
+Namely adding a shared "who" and "tell" command.
+~
+Sender  Outsider~
+Date    Thu Apr  8 08:55:08 2004~
+Stamp   1081428908
+To      all~
+Subject Names and A Skill~
+Text
+Porthios has pointed out that a TreeTrunk, held by Bella
+in the Redwall Abbey did not respond to the name "treetrunk".
+This has been fixed.
+
+Also, by popular demand, I have added a new remort skill for Warriors.
+Fighters may now gain the Blind Fight skill.
+Blind Fight gives you two advantages. The first being that you can
+disarm people while blind, if your skill level is high enough.
+The second advantage is that you may attack people while you are blind.
+You can't se 'em, but you can pick fights with them. In hind sight,
+this makes some sense, since blind people can attack other people in RL.
+
+As usual, please send you love, hate and bug reports to Outsider.
+~
+Sender  Outsider~
+Date    Sun Apr 11 18:47:22 2004~
+Stamp   1081723642
+To      all~
+Subject Flying~
+Text
+Sometimes, for roleplaying or combat reasons, it is nice to be able to stop flying.
+Keeping this in mind, I would like to annouce two new commands. These are "Fly" and "Land".
+These commands, oddly enough, allow your character to land and takeoff again.
+
+If a character is affected by a fly spell, a landing removes this affect.
+Only characters who can fly naturally (due to their race) can fly at will.
+
+Please send your love and easter chocolate to Outsider
+~
+Sender  Outsider~
+Date    Sun Apr 25 19:26:52 2004~
+Stamp   1082935612
+To      all~
+Subject A new change.~
+Text
+The changes that come with this copyover are:
+1. The Rebel clan got their request.
+2. The "who" command now shows any users on other MUDs.
+
+Send your cheque or money order to Outsider.
+~
+Sender  Outsider~
+Date    Sat May  1 10:48:25 2004~
+Stamp   1083422905
+To      all~
+Subject Speed~
+Text
+A few players have mentioned that Legacy seems slow to respond sometimes to commands.
+To address this annoyance, I have sped up the rate at which Legacy checks for new input from Players.
+Legacy now accepts input nearly 1000 times faster than before. Hopefully this will keep Legacy up to speed with your mad typing skillz.
+
+Outsider
+~
+Sender  Outsider~
+Date    Fri May  7 20:31:26 2004~
+Stamp   1083976286
+To      all~
+Subject Tell Me Something~
+Text
+Hi all,
+
+I am happy to report that the "Tell" command now works inter-MUD.
+You can now send tells both as you usually would, or to players on other (connected) MUDs.
+The format for this command is as follows:
+tell someone@mud Some text here....
+
+The username can be upper, lower or propercase. However, the MUD name (the part after the @) must be lowercase.
+For a list of people connected from other MUDs, type "who".
+
+Happy Telling,
+Outsider
+~
+Sender  Outsider~
+Date    Mon May 17 16:32:09 2004~
+Stamp   1084825929
+To      all~
+Subject Leaders~
+Text
+Due to overwhelming support for the idea, clans are now allowed to have as many leaders as they wish.
+~
+Sender  Outsider~
+Date    Tue May 25 14:35:29 2004~
+Stamp   1085510129
+To      imm~
+Subject FYI~
+Text
+FYI and general Announcements are now sent
+to other connected MUDs.
+~
+Sender  Outsider~
+Date    Tue May 25 19:59:13 2004~
+Stamp   1085529553
+To      imm~
+Subject Skill Points~
+Text
+You can now award players by giving them more skill points....or punish by deducting skill points.
+
+I have added the command "skillpoint".
+The syntax for this command is:
+skillpoint <award/deduct> <player> <amount>
+
+~
+Sender  Outsider~
+Date    Wed May 26 13:33:36 2004~
+Stamp   1085592816
+To      all~
+Subject Skill Points~
+Text
+Some players have pointed out that they have lots of skill points and nothing to do with them.
+Well, now you can spend all of those skill points on more practices.
+The new "convert" command will change your skill points into practice sessions at a 10 to 1 ratio.
+
+As usual, please send bug reports and money to Outsider.
+~
+Sender  Outsider~
+Date    Fri May 28 20:12:55 2004~
+Stamp   1085789575
+To      all~
+Subject Help Files~
+Text
+I have updated a number of the help files.
+I will perform more updates over the next few weeks to include next commands and changes.
+
+If there is something you want documented, please let me know.
+-- Outsider
+~
+Sender  Outsider~
+Date    Fri May 28 21:21:08 2004~
+Stamp   1085793668
+To      all~
+Subject Help Files~
+Text
+The following Help Files have been updated.
+Unarmed Combat, Die Hard, Blind Fight
+Fly/Land, Tell, Skillpoint and Convert.
+
+I apologize it took so long to get these updated.
+
+Familiar and Scry have also been updated.
+~
+Sender  Outsider~
+Date    Sat May 29 19:03:37 2004~
+Stamp   1085871817
+To      all~
+Subject Peeking~
+Text
+As someone was kind enough to point out,
+the autopeek feature wasn't using any stamina.
+This over sight has been corrected.
+Also on my change list, are some minor bug fixes. Hopefully, no one will notice any changes in game play. But if you do, please let me know.
+~
+Sender  Outsider~
+Date    Sat May 29 21:23:50 2004~
+Stamp   1085880230
+To      all~
+Subject A few minor changes.~
+Text
+Some of the changes in this copyover include:
+1. Fixed the Gate spell so you can gate to mobs of 1, 2 or 3 levels higher than yourself. Greater than 3 levels higher is still out of the question.
+
+2. If you forget to give a target when casting the Fireball spell, you no longer lose the mana for the spell.
+
+Fixed a typo in the help files.
+
+Your busy Outsider
+~
+Sender  Outsider~
+Date    Tue Jun  1 20:21:35 2004~
+Stamp   1086135695
+To      all~
+Subject I see no changes.~
+Text
+This copyover brings some long overdue changes and a few recent additions.
+For example, if a character is lying or sitting on an object, it may no longer be saccrificed.
+Order has requested and received a change in their EQ.
+
+And, of course, I added a monk class.
+....just kidding!
+Your suggestions are welcome.
+Outsider
+
+PS. If you haven't already done so, please join the Legacy Yahoo Group at: http://games.groups.yahoo.com/group/ageoflegacy/
+~
+Sender  Outsider~
+Date    Thu Jun  3 19:46:12 2004~
+Stamp   1086306372
+To      all~
+Subject Last change for a while, I hope.~
+Text
+This copyover brings a few corrections.
+Autoassist seems to be fixed now.
+If you die to PK, your PK flag should now be removed.
+And the Say command uses "exclaim" rather than "yell".
+
+For the most part, the remaining bugs on my todo list are fairly minor (some are already fixed); so this should be the last copyover for a little while.
+
+If you have any problems, complaints or uncover any bugs, please let me know.
+
+Your coder,
+Outsider
+~
+Sender  Outsider~
+Date    Mon Jun  7 00:50:52 2004~
+Stamp   1086583852
+To      all~
+Subject Big Spell Change~
+Text
+I've just finished two changes. The first, and most important is that wands with targeting spells work.
+For example, wands with fireball spells now work. Before they wouldn't hit the target.
+
+I've also added a command, "pet". This works as an alias for "order pet ...". Just to save you all some typing.
+Syntax: pet <command>
+
+Your busy Outsider
+~
+Sender  Outsider~
+Date    Mon Jun  7 12:57:09 2004~
+Stamp   1086627429
+To      all~
+Subject Me and my big mouth.~
+Text
+I thought I had most of the bugs taken out of Legacy. I was, of course, wrong.
+this copyover updates the help files some more. It also fixes the following bug.
+
+Previously, you could recite blank scrolls. This would simply destroy the scroll without any benefit.
+Now, if you try to recite a blank scroll, you are told it is blank, without any penelty.
+
+Headed for bed,
+Outsider
+~
+Sender  Outsider~
+Date    Mon Jun 14 12:19:47 2004~
+Stamp   1087229987
+To      all~
+Subject Fireball~
+Text
+I think I got this fix done before anyone caught my mistake.
+Mis-firing a wand of fireball, would previously give the caster more mana...even above their normal max amount.
+This no longer happens.
+
+What does everyone think about having a skill for Rangers that allows a character to create food and drink from a corpse?
+I say a Ranger skill, but it would be avail to other characters too. Just at higher levels.
+~
+Sender  Outsider~
+Date    Sat Jun 19 11:20:56 2004~
+Stamp   1087658456
+To      all~
+Subject Disarm~
+Text
+Good day everyone.
+I fixed a bug where a mob, once disarmed, would pick up its weapon, but not wield it.
+Mobs now use their weapons after picking them up again.
+~
+Sender  Outsider~
+Date    Sat Jun 19 19:27:14 2004~
+Stamp   1087687634
+To      all~
+Subject Spells and Objects~
+Text
+Okay, I tripped over a really odd bug today.
+If an object had a spell cast upon it that acted as an affect and if that spell was one that could only be cast on objects AND if that object was equiped by a character, the MUD would run into a series of memory issues.
+Basically it would choke trying to use the wearer as an object. Everything when down hill from there.
+
+The fix for this was to edit all of the spells that use objects only to make sure they didn't accidently target a character.
+I think I got them all. However, the first person to prove me wrong gets 5 QP.
+
+This can be tested by putting an object in your inventory, casting a spell upon it, then trying to wear it. If you get some error, then you've found the bug. If everything looks normal, then...well, I RULE.
+
+Your #1 coder,
+Outsider
+~
+Sender  Outsider~
+Date    Sun Jun 27 21:02:13 2004~
+Stamp   1088384533
+To      all~
+Subject Important notice.~
+Text
+Over the last several months, I have received a number of messages from players, stating that their characters no longer respond to commands.
+Any characters logging in will automatically be "repaired".
+Or that is at least my theory.
+
+If your character (or someone's you knew) didn't work, please log in with that character to test my theory.
+~
+Sender  Outsider~
+Date    Mon Jun 28 21:02:15 2004~
+Stamp   1088470935
+To      all~
+Subject Spouse Gate~
+Text
+I have now implemented the command "spousegate". This will allow married players to transport to their spouses.
+At this time, there are few restrictions to the command, while everyone "feels it out".
+Gating people may not be in arenas, in quest areas, in no-recall zones and the gater must be able to see their spouse (were they standing next to each other).
+
+I'd like everyone to sound off on this command. Should there be more restrictions? Stamina or Mana use? Or is it fine as is?
+
+For the purpose of political correctness, I have changed the phrase "man and wife" to "husband and wife".
+
+(Ducks),
+Outsider
+~
+Sender  Outsider~
+Date    Wed Jun 30 09:51:08 2004~
+Stamp   1088603468
+To      all~
+Subject An Object Name~
+Text
+In the insane asylem, there was a man carrynig a gold Rolex watch.
+Previously, the object didn't respond to the word "watch". It does now!
+~
+Sender  Outsider~
+Date    Sat Jul  3 12:06:25 2004~
+Stamp   1088870785
+To      all~
+Subject Scribe and Brew~
+Text
+A few small changes have been made for this copyover. They are, in no particular order:
+1. The scribe and brew skills now allow a wizard to create potions and vials of lower levels than the wizard herself.
+This allows lower level characters to use potions made by a high level wizard.
+The "level" paramter when brewing or scribing is optional, the default acts as before (using the wizard's level).
+Please see "help brew" more more information.
+
+2. On that note, I have updated some help files. Brew, Scribe and Wizgroup have been updated.
+
+Keep the ideas coming. This is your MUD; Let's shape it the way you want it.
+~
+Sender  Outsider~
+Date    Mon Jul  5 15:11:05 2004~
+Stamp   1089054665
+To      all~
+Subject Bug fixes~
+Text
+I know some of you may be unhappy about this, but I found some bugs that needed clearing up.
+One of which was that, previously, you didn't not need to _have_ spousegate to _use_ spousegate.
+I believe this has been corrected.
+Some other code clean up, ya-da ya-da.
+~
+Sender  Outsider~
+Date    Tue Jul  6 21:11:23 2004~
+Stamp   1089162683
+To      all~
+Subject Mobile in Toray~
+Text
+Porthios pointed out an odd bug to me today.
+Me mentioned that there were unseeable (even to imms) mobs running around without descriptions in Toray.
+This has now been corrected. I'm not sure exactly what was supposed to be there (the original builder being long gone) so I guessed.
+Feel free to go visit the Toray area and see our new...er old, yet newly visable "old man".
+~
+Sender  Outsider~
+Date    Thu Jul  8 17:09:34 2004~
+Stamp   1089320974
+To      all~
+Subject Brew and Scibe~
+Text
+Porthios brought to my attention a bug in the new way in which brew and scribe work.
+It seems that the potions and scrolls were not being created at the proper level in each case.
+I believe this issue to be fixed. Please make some scrolls, and brew some potions to let me know if I'm correct.
+
+To bring everyone up to speed, Brew and Scribe can now be used to make potions and scrolls at various levels, not just the level of the caster.
+
+If anyone can find a bug in the new brew and scribe commands, they will receive five QP for reporting the error.
+~
+Sender  Outsider~
+Date    Sat Jul 10 07:28:04 2004~
+Stamp   1089458884
+To      all~
+Subject Inter-MUD communication.~
+Text
+I just wanted to let everyone know that Asmadi and I did some work Friday night.
+SoE and Legacy now have better, cleaner inter-MUD communication.
+Remote Tells now work, and we may receive FYI messages from SoE.
+Please see "help tell" for more information.
+~
+Sender  Outsider~
+Date    Sun Jul 25 11:24:45 2004~
+Stamp   1090769085
+To      all~
+Subject Remote Text~
+Text
+Some people have noted that getting spammed from another MUD is annoying.
+To make you happy, I have made any data coming in from another MUD a channel.
+You can change whether you receive text from other MUDs (tells, gossip, who data) via the "remote" command.
+Please see "help remote" for more information.
+
+~
+Sender  Outsider~
+Date    Thu Jul 29 18:06:14 2004~
+Stamp   1091138774
+To      all~
+Subject Communication R Us~
+Text
+Hello everyone. I am happy to roll out a few more tweaks to Legacy's code.
+First off, I think I've finally got the following channels to send cross-MUD.
+These are: Grats, Flame, Music and non-predefined Socials.
+This is in addition to the Gossip and Tell we were sharing before.
+I don't think I have to mention this, but I will anyway. Please be
+respectful of everyone, on both MUDs. Now that we share many channels,
+including Flame, we should keep in mind other people's feelings.
+I'm sure everyone here is mature and respectful; that's why I'm happy to be a member of this community.
+
+This new string of code changes hasn't been completely tested and is not yet implemented on SoE. So it may still be buggy. Hopefully, with Asmadi's help, both MUDs will be talking up a storm soon.
+
+Another thing I am happy to report is the ability to Reply cross-MUD.
+This has been a long time coming and took a bit of an overhaul to perform.
+I hope (really hope) that I managed to add this feature without breaking anything. If you do find something doesn't work properly anymore and report it, you'll get a quest point.
+The Reply syntax is the same as before. So, if you get a Tell Message from bob@soe, you can send a Tell back by typing "reply hi there"
+
+I hope to have remote Finger abilities soon, as well as some other minor tweaks. As always, I would love to hear your suggestions.
+One more thing...I know I know, this is getting long.
+The begining of August marks the one year anniversery of my coming to code for Legacy.
+..(Waits for the clapping to die down.) ...
+As such, I will be scattering some special hidden tokens across the land.
+Buy 'em, trade 'em, cash them in for cool prizes.
+
+Your Coder on Your MUD for Your Legacy,
+Outsider
+~
+Sender  Outsider~
+Date    Thu Aug 19 18:12:53 2004~
+Stamp   1092953573
+To      all~
+Subject Finger~
+Text
+I have made a minor upgrade to the Finger command.
+You may now use Finger to get basic information about players on other MUDs.
+...That is as soon as the code on SoE is updated.
+In the mean time, you can practice by using commands like:
+"finger outsider@legacy".
+
+Please see "help finger" for more information.
+Your coder for the day,
+Outsider
+~
+Sender  Outsider~
+Date    Tue Aug 24 08:52:01 2004~
+Stamp   1093351921
+To      all~
+Subject Grant Command~
+Text
+Due to a special request from our fearless (and beautiful) leader, Teotwawki,
+I have created a new command for Immortals.
+This command is called Grant and allows an IMM
+to grant special access to one command by one mortal.
+This helps step around Wiz Groups, but should be used
+rarely. Most mortals will not need special access to commands.
+
+At this time, a player may be granted 32 commands.
+These commands are *remembered* by the system, and are
+not removed when they quit.
+Please also note that a command must be spelled out
+if it is granted. For example:
+This is correct: grant outsider add wizhelp
+This is _not_: grant outsider add wizh
+
+For further security, the player granted the command should also
+spell it out.
+
+Please see "help grant" for more information.
+Your Coder,
+Outsider
+~
+Sender  Outsider~
+Date    Tue Aug 24 14:54:32 2004~
+Stamp   1093373672
+To      all~
+Subject Granted Commands~
+Text
+Players can now check to see which commands have been granted to them.
+This is done with the Grantlist command.
+
+Please see "help grantlist" for more information.
+~
+Sender  Outsider~
+Date    Thu Sep  2 15:09:33 2004~
+Stamp   1094152173
+To      all~
+Subject Finger~
+Text
+I fixed a major Finger bug, which was causing Legacy to crash.
+Please feel free to finger everyone again.
+~
+Sender  Outsider~
+Date    Tue Sep  7 22:30:20 2004~
+Stamp   1094610620
+To      all~
+Subject Pets~
+Text
+Just a quick update and a reminder to everyone.
+1. I have just added a command, Rename.
+This allows you to rename your pet (if you have one)
+at anytime. This is handy, if you forget to name it when you first purchase your pet.
+
+2. Remember that you may order your pet using the Pet command.
+
+Please see "help rename" and "help pet" for more information.
+
+~
+Sender  Outsider~
+Date    Wed Sep  8 12:13:41 2004~
+Stamp   1094660021
+To      all~
+Subject More Pet News~
+Text
+In an effort to make pets more interactive, I have added the
+the feature of......drum roll.....pets leveling with you!
+Every few levels that you gain, your pet also gains a level.
+This will give you more time to get attached to Fluffy while
+while you're off killing monsters.
+
+This feature is still in testing, so please let me know how it goes.
+
+Outsider
+~
+Sender  Outsider~
+Date    Sat Sep 18 11:05:13 2004~
+Stamp   1095519913
+To      all~
+Subject Spelling and Grammar~
+Text
+I've made some minor changes this week, which I'd like to inform all of you about.
+1. Some work has been made to bring the MUDs (Legacy and SoE) closer together.
+Sadly, some of those changes have proven...unstable. As such they are not
+implemented yet. Please stay tuned.
+
+2. I went through the typo file and fixed a few dozen
+spelling and grammar errors this week. This is not my idea
+of fun, but it's been waiting a long time. So now it's done.
+
+Please send your questions, comments and complaints to Outsider.
+~
+Sender  Outsider~
+Date    Mon Oct 11 14:44:32 2004~
+Stamp   1097520272
+To      all~
+Subject Changes~
+Text
+Some of you may have noticed that Legacy was off-line
+today. Sorry about that.
+I was performing some security upgrades to the code
+and broke...ah nevermind. Anyway, it's fixed now.
+
+If you ever find Legacy has crashed, please e-mail me at
+slicer69@hotmail.com
+
+-- Outsider
+~
+Sender  Outsider~
+Date    Tue Nov 23 19:12:12 2004~
+Stamp   1101255132
+To      all~
+Subject New Spell~
+Text
+I would like to annouce that I have not received any
+suggestions lately. So, as I result, I've come
+up with a new spell for ya'll.
+
+The new spell is called "Starve" and causes the victim
+to become very hungry and thirsty.... More of an
+annoyance than a real threat. But, it's something to play with.
+
+Please see "help starve" for more information.
+Outsider
+~
+Sender  Outsider~
+Date    Sat Nov 27 20:43:56 2004~
+Stamp   1101606236
+To      all~
+Subject Ye Gods!~
+Text
+I just wanted to let everyone know that I've been doing some godly house cleaning.
+Navarre and I have now replaced two inactive IMMs in the deity list.
+New comers will now have the option of selecting us as the gods to follow.
+
+Please stroke our egos.
+~
+Sender  Outsider~
+Date    Tue Nov 30 12:23:25 2004~
+Stamp   1101835405
+To      all~
+Subject Maps and Areas~
+Text
+Maps and Areas
+In a long over due make-over,
+I have attached divided Souls to the
+rest of Legacy, via the mines of Moria.
+
+You may purchase a map of DS from Zelda, in Midgaard.
+~
+Sender  Outsider~
+Date    Thu Dec  2 00:38:31 2004~
+Stamp   1101965911
+To      all~
+Subject Bow Command~
+Text
+Due to a complete brain fade on my part,
+I forgot that "bow" as in to bow and "bow" as in bow and arrow
+are spelled the same.
+This makes it hard for someone to bow when they are trying to shoot a bow.
+Since "fire", "bow" and "shoot" were already taken, I have settled on
+"ranged" as the new way to shoot a bow (and arrow).
+
+Please see "help bow" OR "help ranged" for more info.
+~
+Sender  Vegita~
+Date    Tue Dec  7 15:47:42 2004~
+Stamp   1102452462
+To      all~
+Subject Kick~
+Text
+I'm proud to announce that Kick is now evolvable.
+*only took like 3 days too *cheers**
+Its available to all now.
+Warriors, Rangers, Thiefs, and Paladins can evolve it.
+Warriors and Rangers can go up to evolution 3.
+Thiefs and Paladins only up to evolution 2.
+
+so right now I'm done with it enjoy..... and read the helpfile *help kick*
+~
+Sender  Montrey~
+Date    Thu Dec  9 03:17:40 2004~
+Stamp   1102580260
+To      all~
+Subject batch of changes~
+Text
+ok, got a few things, most behind the scenes though.  just thought you
+guys should know.
+
+i put in a signal handler to help prevent some crashes, although with this
+latest copyover it may now be unnecessary, as i think i got the problem fixed.
+fixed a bug that was making it so clanned players in groups with people from
+other clans couldn't walk around in their clanhall.  removed a program we used
+to run called keep_alive, it was buggy and unnecessary (i was a n00b coder
+when i made it).  i put in a much updated mysql wrapper file that is much
+more useful than our old stuff, and saves a lot of code.  along with that,
+fixed a whole bunch of mysql things, again leftovers from my n00bdom.
+various other fixes, mostly having to do with mysql stuff.
+
+also, new help system put in, type 'help clan' to get an idea of what it can
+do.  i'll put in a help file for it tomorrow.
+
+oh yeah, and it's christmastime!!  the help files have our traditional blinky
+christmas lights again, and i changed the weather a bit for the season.
+
+many, many more changes still yet to come :)  have fun all
+~
+Sender  Montrey~
+Date    Fri Dec 10 14:28:09 2004~
+Stamp   1102706889
+To      all~
+Subject changes~
+Text
+smaller changes this time
+
+switched 'remove' and 'remote' on the command list, 'rem' will remove
+equipment once again.  more database debugging.  help 'help' has been
+updated, check it out.  someone pointed out a problem with the warrior
+remort skill 'rage', apparently somehow it was no longer lagging or deducting
+stamina.  this has been fixed.  added a stamina cost to 'lay on hands',
+24 stamina to use it.  more changes later, including some stuff from vegita
+i believe.
+~
+Sender  Vegita~
+Date    Fri Dec 10 22:50:52 2004~
+Stamp   1102737052
+To      all~
+Subject BOWS!!!~
+Text
+all bows that I could find now use the BOW weapon skill
+there are still some tweaks to be made to the bow system but it should soon be perfected....
+
+~
+Sender  Outsider~
+Date    Sat Dec 11 18:15:54 2004~
+Stamp   1102806954
+To      all~
+Subject Ranged Weapon Update~
+Text
+Weapons of the "Bow" type are now identified properly when using Lore or the Identify spell.
+~
+Sender  Vegita~
+Date    Mon Dec 13 15:43:04 2004~
+Stamp   1102970584
+To      all~
+Subject Forge~
+Text
+it is now evolvable, 
+warriors right now are the only class that can evolve to 3 right now
+with bards, and rangers hitting evolve 2
+
+~
+Sender  Vegita~
+Date    Tue Dec 14 05:00:33 2004~
+Stamp   1103018433
+To      all~
+Subject ranged weapons~
+Text
+You now have chance to gain on your bow weaponskill when you shoot it
+it was only doing it in combat rounds....
+expect more changes to it in the near future,
+~
+Sender  Outsider~
+Date    Tue Dec 14 12:34:04 2004~
+Stamp   1103045644
+To      all~
+Subject Remote Who, Ping, etc~
+Text
+I fixed the remote who, remote ping and FYI messages.
+If any other remote features seem broken, please let me know.
+~
+Sender  Outsider~
+Date    Tue Dec 14 16:04:07 2004~
+Stamp   1103058247
+To      all~
+Subject Affects~
+Text
+Spell affects are now displayed in order of duration from the longest to shortest.
+Honestly, I forget who suggested the idea, but I liked it. So, here you go.
+~
+Sender  Vegita~
+Date    Tue Dec 14 16:12:17 2004~
+Stamp   1103058737
+To      all~
+Subject Bows~
+Text
+Bow weapon class level changed, 
+these arn't set in stone and are negotiable if you can provide why it should
+be either a lower level or a higher one.
+~
+Sender  Vegita~
+Date    Tue Dec 14 17:40:43 2004~
+Stamp   1103064043
+To      all~
+Subject new bows you may find~
+Text
+keep checking back at the bowyer in elven foothills
+he may have new bows  as he does now
+~
+Sender  Teotwawki~
+Date    Thu Dec 16 06:23:08 2004~
+Stamp   1103196188
+To      all~
+Subject Xenith~
+Text
+I would like you all to help us in welcoming back Xenith.  We are very
+grateful to have her back working with us.  I know that you all will give her
+the same respect and courtacy as you give the rest of us cuz you guys are the
+best.  Xenith is another immortal you can count on to help you with any flaws
+you may find in our code.  We are working very hard to make this a world you
+will all enjoy.  
+Sooooooooo {CWELCOME BACK XENITH :){x
+
+Thank you, your humble immortal,
+{PT{YE{PO{x
+~
+Sender  Teotwawki~
+Date    Sun Dec 19 03:04:57 2004~
+Stamp   1103443497
+To      all~
+Subject new social~
+Text
+I made a new social it is 'bored' I hope you enjoy it.  
+~
+Sender  Teotwawki~
+Date    Sun Dec 19 04:19:21 2004~
+Stamp   1103447961
+To      all~
+Subject NEW SOCIAL~
+Text
+There is now a gripe social.  
+
+Humbly yours,
+Teo
+~
+Sender  Teotwawki~
+Date    Sun Dec 19 04:35:06 2004~
+Stamp   1103448906
+To      all ~
+Subject Moan Social~
+Text
+Moan has been fixed.
+~
+Sender  Montrey~
+Date    Sat Jul 26 11:47:03 2014~
+Stamp   1406400423
+To      all~
+Subject New race~
+Text
+You can now be a faerie if that's how you roll.  Have fun :)
+~

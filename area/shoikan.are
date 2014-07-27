@@ -1,0 +1,2165 @@
+#AREA
+shoikan.are~
+Shoikan Grove~
+{H{{25 45} {MAngreal {TShoikan Grove~
+28001 28072
+
+#MOBILES
+#28001
+twilight bloom tree~
+The twilight bloom~
+A twilight bloom stands beside you.
+~
+
+Fern-like foliage droop from the twilight bloom's branchless, scaled trunk.
+The smell of sweet perfume draws your attention to beautiful cup-shaped,
+lavender flowers with silvery stamens hiding amongst the fronds.  A fine
+mossy mat hugs the base of the tree.
+~
+
+human~
+ABG CEGZ 0 0
+25 13 5d10+500 5d10+250 2d10+7 sting
+-6 -6 -6 -1
+EN BLP Q HG
+stand stand none 0
+0 0 large 0
+#28002
+black oak tree~
+The black oak~
+A menacing black oak towers above you.
+~
+
+Gnarled scars twist their way around the trunk of this behemoth to form
+its bark.  An image of a dark knight seems trapped within these scars.
+Ebony leaves crown its lofty branches.
+~
+
+human~
+ABCFG CEGZc -365 0
+26 13 5d10+600 5d10+300 3d7+7 whip
+-7 -7 -7 -1
+ACEHNP AL Q HG
+stand stand none 0
+0 0 huge 0
+#28003
+black willow tree~
+The black willow~
+A gigantic black willow blocks the path.
+~
+Slim, whip-like branches dangle from the top of this tree's trunk.  Its
+opaque black bark seems to devour the light.  An acrid smelling, sticky
+sap coats its base.
+~
+
+human~
+ABFG CDEGZc -400 0
+28 14 6d12+703 6d12+300 2d12+8 digestion
+-8 -8 -8 -1
+AH ALP Q HG
+stand stand none 0
+0 0 huge 0
+#28004
+shadow guard~
+The shadow~
+A shadow guardian lunges at you.
+~
+A silhouette of nothingness swarms around you.  You sense its hunger.
+A chill grips your body and you shiver uncontrollably.
+~
+
+human~
+AFGOY BDFPQTUZ -825 0
+30 15 6d12+853 6d12+400 4d6+8 chill
+-9 -9 -9 -1
+P ABILQX D NS
+stand stand none 175
+0 0 medium 0
+#28005
+wraith guard~
+The wraith~
+A guardian wraith rises up before you from the ground.
+~
+
+You shudder as this midknight malevolence envelopes you.  Dark glowing
+orbs stare you point blank in the eyes.  The image of an evil grin
+impresses itself upon your mind, but the wraith has no mouth.
+~
+
+human~
+ACFGOY DFTUZ -1000 0
+34 17 10d10+1200 10d10+500 4d7+10 drain
+-11 -11 -11 -2
+P ABILQX D NS
+stand stand none 200
+0 0 medium 0
+#28006
+spectre guard~
+The spectre~
+A spectral guardian grabs at you.
+~
+
+The spectre looks through you.  Hate fills his translucent eyes.
+~
+
+human~
+AFGOY DFTUZ -1000 0
+38 19 10d10+1400 10d10+500 3d10+11 drain
+-13 -13 -13 -3
+P ABILQX D NS
+stand stand none 300
+0 0 medium 0
+#28007
+night dragon male~
+The night dragon~
+The night dragon glares at you.
+~
+Grey-streaked, black scales adorn the length and breadth of his body.
+You strain your eyes to see him as his form wavers in the cloaking
+darkness.  A glimpse of small, underdeveloped wings catches your eyes
+then fades from view.  You realize that the night dragon is not a true
+dragon, but a distant cousin:  a flightless dragon.  A land dragon.
+~
+dragon~
+AFGSW BDFJPQUZc -325 0
+45 25 25d10+2750 25d10+600 8d4+15 shbite
+-15 -15 -15 -4
+ABDHR ABJ E FS
+stand stand male 0
+0 0 giant 0
+#28008
+night dragon female~
+The night dragon~
+A female night dragon glowers at you.
+~
+
+The female night dragon rests atop her nest.  Her sinuous body nestles
+and protects her eggs.  You notice that she is much smaller than her male
+counterpart.
+~
+
+dragon~
+ABFGRW DFHJPQZc -325 0
+45 23 25d10+2800 25d10+600 3d12+14 shbite
+-15 -15 -15 -4
+ADHR ABJ E FS
+stand stand female 1166
+0 0 huge 0
+#28009
+Lady Crysania~
+Lady Crysania~
+Lady Crysania stands here.
+~
+
+Lady Crysania is praying to Paladine while she waits to enter the Tower.
+Her habit is blindingly white.  She clutches the platinum medallion that
+hangs around her neck in her hands.
+~
+
+human~
+ABCGH CGHN +850 0
+44 22 25d10+2800 25d10+600 3d12+14 divine
+-15 -15 -15 -2
+FJQ N O M
+stand stand female 125
+0 0 medium 0
+#0
+
+#OBJECTS
+#28001
+medallion paladine platinum~
+the Medallion of Paladine~
+A Medallion of Paladine lies here on the ground.~
+platinum~
+jewelry AGILKY AC
+0 0 0 0 0
+44 10 5000 P
+A
+12 5
+F 
+A 20 1 N
+E
+medallion paladine~
+The sinuous form of Bahamut, the Platinum Dragon, is embossed in the 
+center of this heavy medallion.  A triangular border bounds the image of 
+Bahamut.  The medallion and its chain seem to be made of the same silvery-
+white metal.
+~
+#28002
+habit white~
+the white habit~
+A bright white habit rests on the ground.~
+linen~
+clothing 0 AD
+1 1 1 0 0
+5 30 100 P
+E
+habit white~
+This garment is made of white linen.  The cut and style of the habit is 
+very austere.  The habit is billowy and hides the contours of the body.
+~
+#28003
+boots leather kid~
+a pair of kid leather boots~
+A pair of kid leather boots lies here.~
+kid leather~
+clothing 0 AG
+1 1 1 0 0
+5 30 45 P
+E
+boots leather kid~
+The boots are made of a very supple leather.  Leather laces run their way
+through the boot's eyes.  The mid-calf boots are form fitting and are 
+well worn.  The soles, however, seem to have been recently refurbished as
+they look brand new.
+~
+#28004
+stick incense~
+a stick of incense~
+A stick of incense has been dropped on the ground.~
+wood~
+wand G AO
+35 10 2 'dispel evil' 0
+45 10 1000 P
+E
+stick incense~
+This stick of incense smells of frankincense.
+~
+#28005
+egg dragon night~
+a night dragon egg~
+A night dragon egg lies undamaged on the ground.~
+shell~
+gem TW AO
+0 0 0 0 0
+1 60 15000 P
+E
+gem~
+The shell of the night dragon egg is the same grey-streaked, black color
+as the scales that covers its mother's body.
+~
+#28006
+hood dragonskin night~
+a night dragonskin hood~
+A night dragonskin hood lies on the ground.~
+dragonscale~
+armor GQTY AE
+15 15 15 4 1
+45 30 30000 P
+E
+hood night dragonskin~
+Grey-streaked, black scales overlap each other to form this hood.  The
+dragonskin hood is extremely pliable, yet durable.  The hood masks the 
+face of the wearer.
+~
+#28007
+mantle night dragonskin~
+a night dragonskin mantle~
+A night dragonskin mantle lies on the ground.~
+dragonscale~
+armor GQTY AC
+15 15 15 4 1
+45 30 20000 P
+E
+mantle night dragonskin~
+Grey-streaked, black scales overlap each other to form this mantle.  The
+dragonskin mantle is extremely supple, yet durable.  The mantle looks 
+like it has never been worn.
+~
+#28008
+armor night dragonskin~
+a suit of night dragonskin armor~
+A suit of night dragonskin armor rests on the ground.~
+dragonscale~
+armor GQTY AD
+15 15 15 4 1
+45 150 47500 P
+F 
+R 0 0 J
+F
+V 0 0 F
+E
+armor night dragonskin~
+Grey-streaked, black scales overlap each other to form this suit of 
+armor.  This form-fitting armor is extremely supple, yet sturdy.  The
+armor seems comparable to leather armor in weight or maybe a little
+lighter.
+~
+#28009
+girth night dragonskin~
+a night dragonskin girth~
+A night dragonskin girth rests on the ground.~
+dragonscale~
+armor GQTY AL
+15 15 15 4 1
+45 30 15000 P
+E
+girth night dragonskin~
+Grey-streaked, black scales overlap each other to form this girth.  The
+dragonskin is extremely supple, yet durable.  The girth looks undamaged.
+Its ivory buckle is fashioned of carved dragonbone.
+~
+#28010
+leggings night dragonskin~
+a pair of night dragonskin leggings~
+A pair of night dragonskin leggings rests on the ground.~
+dragonscale~
+armor GQTY AF
+15 15 15 4 1
+45 60 17500 P
+E
+leggings night dragonskin~
+Grey-streaked, black scales overlap each other to form this pair of 
+leggings.  These form-fitting leggings are supple, yet resistant to wear.
+They feel light weight.
+~
+#28011
+boots night dragonskin~
+a pair of night dragonskin boots~
+A pair of night dragonskin boots lies on the ground.~
+dragonscale~
+armor GQTY AG
+15 15 15 4 1
+45 30 35000 P
+E
+boots night dragonskin~
+Grey-streaked, black scales overlap each other to form this pair of 
+boots.  These form-fitting boots are extremely pliant, yet resistant 
+to wear.  The soles are soft with excellent tread.
+~
+#28012
+gloves night dragonskin~
+a pair of night dragonskin gloves~
+A pair of night dragonskin gloves lies on the ground.~
+dragonscale~
+armor GQTY AH
+15 15 15 4 1
+45 20 13500 P
+E
+gloves night dragonskin~
+Grey-streaked, black scales overlap each other to form this pair of 
+gloves.  These form-fitting gloves are extremely pliant, yet resistant 
+to wear.
+~
+#28013
+sleeves night dragonskin~
+a pair of night dragonskin sleeves~
+A pair of night dragonskin sleeves lies on the ground.~
+dragonscale~
+armor GQTY AI
+15 15 15 4 1
+45 30 13500 P
+E
+sleeves night dragonskin~
+Grey-streaked, black scales overlap each other to form this pair of 
+sleeves.  These form-fitting sleeves are supple, yet durable.  They feel
+light weight.
+~
+#28014
+jewel night key~
+a night jewel~
+A night jewel rests in the dirt.~
+crystal~
+key AGH AC
+0 0 0 0 0
+0 10 0 P
+A 
+1 -4 
+E
+crystal dark ~
+This dark, opaque crystal is black as dragon's blood.  You shiver as you 
+hold it.  Arctic thoughts of endless winter creep into your mind.
+Stranded.  Helpless.  Alone.
+~
+#28015
+onyx key~
+an onyx~
+An onyx lies on the ground.~
+quartz~
+key GP AO
+0 0 0 0 0
+0 10 0 P
+E
+onyx~
+This opaque black stone is cut in the shape of an oval.  Light seems to
+be devoured by it's myriad midknight facets.
+~
+#28016
+corpse musk ox~
+a musk ox corpse~
+A corpse lies on the ground.~
+food~
+food 0 A
+1 1 0 A 0
+0 100 5 P
+#0
+
+#ROOMS
+#28001
+Entrance to the Shoikan Grove~
+You stand in front of the entrance to the Shoikan Grove.  A dense ring of
+tall trees rises up before you.  Their vast spreading branches blot out
+the sunlight by day and the moonlight by night.  Rising up from the
+heart of this darkness you see three black spires reaching toward the 
+heavens like bleached fingerbones.  Each ebony minaret topped by a blood-
+red roof.     
+~ 
+0 0 3
+D0
+To the north lies the Entrance to the High Tower of Sorcery.
+~
+~
+0 -1 28050
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28002
+S
+#28002
+Path in the Shoikan Grove~
+The air is cold and damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28001
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28003
+S
+#28003
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28002
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28007
+D3
+~
+grove~
+1 -1 28004
+
+S
+#28004
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D1
+~
+~
+1 -1 28003
+D3
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28005
+S
+#28005
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D1
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28004
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28006
+S
+#28006
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  The path
+dead ends as the black trees cluster together to form an impassible 
+barrier.
+~
+0 AC 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28005
+S
+#28007
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28003
+D1
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+grove~
+1 -1 28008
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28016
+S
+#28008
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28009
+D3
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+1 -1 28007
+S
+#28009
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  The path
+dead ends as the black trees cluster together to form an impassible 
+barrier.
+~
+0 A 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28008
+D5
+~
+trap door~
+1 -1 28010
+S
+#28010
+Tunnel Underneath the Shoikan Grove~
+Smooth, opaque stone forms the walls, floor, and ceiling.  You notice no 
+mortar lines.  The walls are seemingly carved from a single block of black
+stone.  The walls are cool to the touch.  The room is silent.
+~
+0 AD 0  
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 28011
+D4
+You see the trap door.
+~
+trap door~
+1 -1 28009
+S
+#28011
+Tunnel Underneath the Shoikan Grove~
+The smooth, opaque walls continue unbroken by any lines of attachment.
+A faint buzzing sound comes from the south.    
+~
+0 AD 0
+D0
+The shadows cloud your vision.
+~
+~
+0 -1 28010
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 28012
+S
+# 28012
+Tunnel Underneath the Shoikan Grove~
+The smooth, opaque walls continue unbroken by any lines of attachment.
+A buzzing sound comes from the south.  The air smells stale, fetid. 
+~
+0 AD 0
+D0
+The shadows cloud your vision.
+~
+~
+0 -1 28011
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 28013
+S
+#28013
+Tunnel Underneath the Shoikan Grove~
+The drone of flies buzzing assaults your ears.  What appears to be the 
+half eaten corpse of a musk ox lies on the ground in front of you.  Flies 
+cover the corpse.  The putrid air makes you gag.  The smooth, opaque 
+walls continue unbroken by any lines of attachment.  The air seems warmer.  
+~
+0 AD 0
+D0
+The shadows cloud your vision.
+~
+~
+0 -1 28012
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 28014
+S
+#28014 Tunnel Underneath the Shoikan Grove~
+The smooth, opaque walls continue unbroken by any lines of attachment.
+A buzzing sound comes from the north.  The air is warm.  The air smells 
+stale, fetid.  
+~
+0 AD 0
+D0
+The shadows cloud your vision.
+~
+~
+0 -1 28013
+D2
+The shadows cloud your vision.
+~
+~
+0 -1 28015
+S
+#28015
+Tunnel Underneath the Shoikan Grove~
+The tunnel dead ends into this large antechamber.  Smooth, opaque stone 
+forms the walls, floor, and ceiling.  You notice no mortar lines.  The 
+walls are seemingly carved from a single block of black stone.  A pile of
+straw mixed with leaves and feathers is strewn about the floor.  The air
+is warm.
+~
+0 AD 0
+D0 
+The shadows cloud your vision.
+~
+~
+0 -1 28014
+D2
+~
+wall~
+4 29183 29103
+S
+#28016
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28007
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28019
+S
+#28017
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D1
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28018
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28022
+S
+#28018
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D1
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28019
+D3
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28017
+S
+#28019
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28016
+D1
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28020
+D3
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28018
+S
+#28020
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D1
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28021
+D3
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28019
+S
+#28021
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28023
+D3
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28020
+S
+#28022
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28017
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28024
+S
+#28023
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28021
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28028
+S
+#28024
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28022
+D1
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28025
+S
+#28025
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D1
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28026
+D3
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28026
+S
+#28026
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D1
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28027
+D2
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28033
+D3
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28025
+S
+#28027
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the
+faint echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .
+~
+0 A 3
+D1
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28028
+D3
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28026
+S
+#28028
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28023
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28027
+S
+#28029
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28030
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28038
+S
+#28030
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28031
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28029
+S
+#28031
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28032
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28030
+S
+#28032
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28039
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28031
+S
+#28033
+Tower Gates~
+Before you stand the midknight gates to the Ancient Tower of High Sorcery.
+Whispers and murmurs assault your ears from all sides.  You shudder as a 
+strange coldness flows through your veins.  Your bones ache.  A foul mist 
+rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you seems fluid.  It reminds you of a river.  A river of 
+ink flowing into a sea of perpetual night.
+~
+~
+0 -1 28026
+D1
+To the east is a plain oak door, leading into the tower.
+~
+~
+4 28014 29130
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28040
+E
+gate tower~
+The gates are forged of adamantite.  Each bar is tappered to a wicked,
+razor-sharp point.  You feel more than see the runes that are engraved
+into the surface of each bar.  Three circles intertwined on a field of
+black metal dominates the center of each gate.  One circle is red,
+another white, and the third black.
+~
+S
+#28034
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28035
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28041
+S
+#28035
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28036
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28034
+S
+#28036
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28037
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28035
+S
+#28037
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28042
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28036
+S
+#28038
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28029
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28043
+S
+#28039
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28032
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28040
+S
+#28040
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28033
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28041
+D3
+~
+darkness~
+2 -1 28039
+S
+#28041
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28034
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28040
+S
+#28042
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28037
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28044
+S
+#28043
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28038
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28045
+S
+#28044
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28042
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28048
+S
+#28045
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28043
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28046
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28049
+S
+#28046
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28050
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28045
+S
+#28047
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28048
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28051
+S
+#28048
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28044
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28052
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28047
+S
+#28049
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28045
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28050
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28053
+S
+#28050
+Entrance to the High Tower of Sorcery~
+A plain oak door stands before you.  Runes are carved on the outside of
+its surface.  The stones framing the door are raven black.  Darkness
+envelopes you.  The mist dissipates.  The aching in your bones is
+excruciating.  Your body trembles.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28046
+D1
+A plain oak door with runes etched into its outside surface.
+~
+door~
+1 -1 1312
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28054
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28049
+S
+#28051
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28047
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28052
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28055
+S
+#28052
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28048
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28056
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28051
+S
+#28053
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28049
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28054
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28057
+S
+#28054
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28050
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28053
+S
+#28055
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28051
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28056
+S
+#28056
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28052
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28058
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28055
+S
+#28057
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28053
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28059
+S
+#28058
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28056
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28063
+S
+#28059
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28057
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28064
+S
+#28060
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28061
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28067
+S
+#28061
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28062
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28068
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28060
+S
+#28062
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28069
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28061
+S
+#28063
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28058
+D2
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28072
+S
+#28064
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28059
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28065
+S
+#28065
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28066
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28064
+S
+#28066
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28067
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28065
+S
+#28067
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28060
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28068
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28066
+S
+#28068
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28061
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28069
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28067
+S
+#28069
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28062
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28070
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28068
+S
+#28070
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28071
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28069
+S
+#28071
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D1
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28072
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28070
+S
+#28072
+Path in the Shoikan Grove~
+The air is cold, damp.  Darkness surrounds you.  The ebony trunks of the
+towering trees crowd in on you.  No soft breeze blows.  You feel the keen
+echo of everlasting life that pulses from the heart of the grove.
+Everlasting life, everlasting misery, everlasting torment . . .  A foul 
+mist rises from the ground, rank with decay.
+~
+0 A 3
+D0
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~
+~
+0 -1 28063
+D3
+The path before you is shrouded in knee high grey-white mist.  Darkness
+abounds.  Only the mist is visible.  The gloomy, white mist.
+~  
+~
+0 -1 28071
+S
+#0
+
+#RESETS
+M 0 28001  2 28002 2     * the twilight bloom
+M 0 28001  2 28002 2     * the twilight bloom
+M 0 28002 31 28003 1     * the black oak
+M 0 28002 31 28004 2     * the black oak
+M 0 28002 31 28004 2     * the black oak
+M 0 28004 14 28005 3     * the shadow
+M 0 28002 31 28007 2     * the black oak
+M 0 28002 31 28007 2     * the black oak
+M 0 28003  8 28009 1     * the black willow
+M 0 28007  1 28013 2     * the very old male night dragon
+G 1 28006  6             * the night dragonskin hood
+G 1 28007 -1             * the night dragonskin mantle
+G 1 28011  6             * a pair of night dragonskin boots
+G 1 28012 -1             * a pair of night dragonskin gloves
+G 1 28013 -1             * a pair of night dragonskin sleeves
+O 0 28016 -1 28013       * a musk ox corpse
+M 0 28008  1 28015 2     * the adult female night dragon
+G 1 28008  6             * the night dragonskin armor
+G 1 28009 -1             * the night dragonskin girth
+G 1 28010 -1             * the night dragonskin leggings
+G 1 28005 13             * the night dragon egg
+E 0 28015 -1      17     * the onyx
+M 0 28003  8 28018 1     * the black willow
+M 0 28003  8 28020 1     * the black willow
+M 0 28004 14 28022 3     * the shadow
+M 0 28004 14 28023 3     * the shadow
+M 0 28004 14 28024 3     * the shadow
+M 0 28002 31 28025 2     * the black oak
+M 0 28002 31 28025 2     * the black oak
+M 0 28003  8 28026 1     * the black willow
+M 0 28002 31 28027 2     * the black oak
+M 0 28002 31 28027 2     * the black oak
+M 0 28004 14 28028 3     * the shadow
+M 0 28003  8 28029 1     * the black willow
+M 0 28005 11 28030 2     * the wraith
+M 0 28005 11 28031 2     * the wraith
+M 0 28002 31 28032 2     * the black oak
+M 0 28002 31 28032 2     * the black oak
+M 0 28004 14 28033 3     * the shadow
+M 0 28002 31 28034 2     * the black oak
+M 0 28002 31 28034 2     * the black oak
+M 0 28005 11 28035 2     * the wraith
+M 0 28005 11 28036 2     * the wraith
+M 0 28003  8 28037 1     * the black willow
+M 0 28006  7 28038 1     * the spectre
+M 0 28005 11 28040 2     * the wraith
+M 0 28006  7 28042 1     * the spectre
+M 0 28002 31 28043 3     * the black oak
+M 0 28002 31 28043 3     * the black oak
+M 0 28002 31 28043 3     * the black oak
+M 0 28002 31 28044 2     * the black oak
+M 0 28002 31 28044 2     * the black oak
+M 0 28005 11 28045 2     * the wraith
+M 0 28006  7 28045 1     * the spectre
+M 0 28004 14 28046 3     * the shadow
+M 0 28004 14 28046 3     * the shadow
+M 0 28004 14 28046 3     * the shadow
+M 0 28002 31 28047 2     * the black oak
+M 0 28002 31 28047 2     * the black oak
+M 0 28006  7 28049 1     * the spectre
+M 0 28009  1 28050 1     * Lady Crysania
+G 1 28004 -1             * a stick of incense
+E 0 28001  7       3     * medallion of paladine
+E 0 28002 -1       5     * the white habit
+E 0 28003 -1       8     * the kid leather boots
+E 0 28014 -1       4     * dark crystal key
+M 0 28006  7 28051 1     * the spectre
+M 0 28005 11 28053 2     * the wraith
+M 0 28006  7 28053 1     * the spectre
+M 0 28004 14 28054 3     * the shadow
+M 0 28004 14 28054 3     * the shadow
+M 0 28004 14 28054 3     * the shadow
+M 0 28002 31 28055 2     * the black oak
+M 0 28002 31 28055 2     * the black oak
+M 0 28005 11 28056 2     * the wraith
+M 0 28002 31 28057 3     * the black oak
+M 0 28002 31 28057 3     * the black oak
+M 0 28002 31 28057 3     * the black oak
+M 0 28002 31 28058 2     * the black oak
+M 0 28002 31 28058 2     * the black oak
+M 0 28004 14 28060 3     * the shadow
+M 0 28006  7 28061 1     * the spectre
+M 0 28004 14 28062 3     * the shadow
+M 0 28005 11 28063 2     * the wraith
+M 0 28003  8 28064 1     * the black willow
+M 0 28005 11 28066 2     * the wraith
+M 0 28002 31 28067 2     * the black oak
+M 0 28002 31 28067 2     * the black oak
+M 0 28002 31 28069 2     * the black oak
+M 0 28002 31 28069 2     * the black oak
+M 0 28005 11 28070 2     * the wraith
+M 0 28003  8 28072 1     * the black willow
+D 0 28003  3 1 B         * grove
+D 0 28004  1 1 B         * grove
+D 0 28009  5 1 B         * trap door
+D 0 28010  4 1 B         * trap door
+D 0 28015  2 2 BCF       * wall
+D 0 28040  3 2 BCF       * darkness 
+D 0 28033  1 2           * into the tower       
+R 0 28019 3
+R 0 28026 3
+R 0 28045 3
+R 0 28048 3
+R 0 28053 3
+R 0 28056 3
+R 0 28068 3
+S
+
+#SHOPS
+0
+
+#SPECIALS
+S
+
+#$
+
+

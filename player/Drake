@@ -1,0 +1,258 @@
+#PLAYER
+Name Drake~
+Id   1025279691
+LogO 1025287489
+Vers 14
+Mexp 0
+Pass liar5~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  0
+Levl 4
+Tru  0
+Plyd 2970
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 10002
+HMS  42 29 106
+Gold 5
+Silv 260
+Exp  5831
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -387
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 14 20 17 15 15 14
+Afk {B[{CFri Jun 28 11:21:43 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  the Vengfull Mage~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kenneth~
+Lsit 205.208.128.28~
+Ltim Fri Jun 28 12:57:37 2002
+~
+LSav Fri Jun 28 13:04:49 2002
+~
+HMSP 43 135 109
+THMS 0 0 0
+Cnd  0 36 44 9
+Sk 1 1 'acid blast'
+Sk 1 1 'acid breath'
+Sk 1 1 'acid rain'
+Sk 1 1 'blizzard'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'chain lightning'
+Sk 80 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 1 1 'demonfire'
+Sk 1 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 1 1 'earthquake'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fire breath'
+Sk 1 1 'fireball'
+Sk 1 1 'firestorm'
+Sk 1 1 'flameshield'
+Sk 1 1 'flamestrike'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'heat metal'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'lightning breath'
+Sk 80 1 'magic missile'
+Sk 1 1 'ray of truth'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'steel mist'
+Sk 1 1 'sunray'
+Sk 1 1 'wrath'
+Sk 1 1 'dagger'
+Sk 67 1 'sword'
+Sk 25 1 'shield block'
+Sk 1 1 'brew'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'attack'
+Gr 'combat'
+Gr 'draconian'
+Gr 'weather'
+Affc 'chill touch'   0   3   7  -2   1          0 1
+Affc 'blood moon'   0  56  38   3  18          0 1
+Affc 'blood moon'   0  58  38   5  19          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Cond 99
+Wear 0
+Cost 0
+Val  0 0 133 0 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Cond 94
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear 5
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 15
+Cost 112
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#END

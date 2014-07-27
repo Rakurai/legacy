@@ -1,0 +1,5 @@
+Typo File (ask an imp to delete when fixed)
+
+{Y[{x12/11{Y]{x {C[{x16174{C]{x Montrey: Leviathan                    North east corner on Wrym and Sunrise, should be Wyrm
+{Y[{x12/11{Y]{x {C[{x 1298{C]{x Montrey: someone flying, sleeping in a tree, when flying wears off they settle to the ground?  make it work different for sleeping in objects
+{Y[{x12/14{Y]{x {C[{x25053{C]{x Celes: blue pill (kindred) is -1 damroll

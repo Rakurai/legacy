@@ -1,0 +1,374 @@
+#PLAYER
+Name TulRei~
+Id   1004237063
+LogO 1009372357
+Vers 9
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%q%Cc/%CG%j%CCmin.> ~
+Race irda~
+Sex  2
+Cla  0
+Levl 10
+Plyd 4930
+Age  0
+Back 4850
+Note 1005554375 1005554375 1005554375 1005554375 1005554375 1005554375
+Scro 22
+Room 3001
+HMV  119 119 183 183 154 154
+Gold 19
+Silv 723
+Exp  14372
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDFGHJLQSTc
+AfBy V
+Comm NO
+Revk 0
+Cnsr AB
+Pos  8
+Save  -13
+Alig  -1000
+Hit   33
+Dam   23
+ACs 98 94 97 139
+Atrib 15 21 19 15 18 8
+AtMod 7 5 1 7 1 4
+QuestPnts 4
+Pass asshole~
+Titl  {B1{Ws{Ct {Bo{Wf {Ct{Bh{We {BC{Bo{Cn{Tc{Tl{Ca{Bv{Be{x~
+Immn ~
+Pnts 47
+Rank ~
+Aura ~
+TSex 2
+LLev 1
+Deit Lotus~
+Lsit cl3162441-a.baycty1.mi.home.com~
+Ltim Sat Nov 24 15:48:46 2001
+~
+LSav Wed Dec 26 07:12:37 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  AF
+HMVP 101 176 154
+THVP 0 0 0
+Cnd  0 0 5 23
+Sk 1 1 'acid blast'
+Sk 1 1 'age'
+Sk 75 1 'armor'
+Sk 1 1 'blindness'
+Sk 75 1 'burning hands'
+Sk 1 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 78 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure critical'
+Sk 76 1 'cure light'
+Sk 75 1 'cure serious'
+Sk 1 1 'curse'
+Sk 75 1 'dazzling light'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'energy drain'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'fly'
+Sk 1 1 'floating disc'
+Sk 1 1 'gate'
+Sk 1 1 'heal'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 78 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'portal'
+Sk 1 1 'protect container'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'recharge'
+Sk 75 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 75 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 1 1 'slow'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'vision'
+Sk 1 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 77 1 'dagger'
+Sk 75 1 'brew'
+Sk 75 1 'scribe'
+Sk 75 1 'lore'
+Sk 75 1 'meditation'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'combat'
+Gr 'creation'
+Gr 'detection'
+Gr 'enchantment'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Affc 'shield'   0  90  81 -20  17          0 1
+Affc 'haste'   0  88   4   4   2    2097152 1
+Affc 'frenzy'   0  87  12  70  17          0 1
+Affc 'frenzy'   0  86  12  15  19          0 1
+Affc 'frenzy'   0  88  12  15  18          0 1
+Affc 'blood moon'   0  88  73   4  18          0 1
+Affc 'blood moon'   0  86  73   7  19          0 1
+Affc 'bless'   0  86  20 -12  24          0 1
+Affc 'bless'   0  78  20  12  18          0 1
+Affc 'giant strength'   0  73   0   4   1          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 91 0 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 90 15 0 0
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 83
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 10126
+Nest 0
+Cond 94
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 12705
+Nest 0
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 12707
+Nest 0
+Cond 95
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 12701
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 12710
+Nest 0
+Cond 82
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 10129
+Nest 0
+Cond 96
+Wear 18
+Cost 122
+End
+
+#O
+Vnum 4581
+Nest 0
+Wear 17
+Cost 0
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#END

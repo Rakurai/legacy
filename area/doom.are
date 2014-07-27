@@ -1,0 +1,1727 @@
+#AREA
+doom.are~
+Doom~
+{H{{35 90} {MDemon   {TDoom~
+5400 5499
+
+#MOBILES
+#5401 
+soldier zombie~
+Zombie man~
+Zombie soldier is here, snarling, shooting and missing you.
+~
+It's a zombie. He used to be a soldier of the Deimos Garrison,
+ but the demons have turned him into the undead creature 
+you see before you. He aims at you, fires and misses. 
+The zombie's next shot clips you. It makes you MAD! 
+Kill  him now!
+~
+human~
+AGFCT ZI -1000 S
+25 -2  1d1+599 1d1+100 2d10+7 blast
+-2 -2 -2 0
+DKQ 0 0 K
+stand stand male 10
+0 0 medium 0
+#5402
+zombie sergeant shotgun guy~
+Zombie sergeant~
+A larger zombie is here, pointing his shotgun at you!
+~
+This zombie looks a lot more agile and aggressive then the
+zombie man. He comes up to you and shoots from his shotgun, 
+obviously trying to ventilate your internal organs.
+~
+troll~
+ACFGT Z -1000 S
+30 0 1d1+699 1d1+100 4d6+8 blast
+-3 -3 -3 -1
+DKQ 0 0 0
+stand stand male 10
+0 0 medium 0
+#5403
+imp monster~
+The imp~
+An imp is here, launching a fireball at you.
+~
+A large brown humanoid stands here. You notice it has sharp
+claws, fangs, and spikes that protrude from its shoulders.
+It looks at you, hisses and launches a fireball, than runs toward 
+you. Up close, those claws look even sharper...
+~
+troll~
+ACFGT Z -1000 S
+35 0 1d1+999 1d1+100 4d7+10 scratch
+-5 -5 -5 -2
+CEFKNQ A 0 F
+stand stand none 0
+0 0 medium 0
+#5404
+zombie marine soldier~
+Zombie marine~
+A real big and scary looking zombie stands here.
+~
+He used to be a space marine, and he still has a chain gun, which 
+is now trained squarely at you. The zombie presses the trigger ...
+~
+giant~
+AGFCT Zc -1000 S
+40 1 1d1+1499 1d1 +100 4d8+15 blast
+-8 -8 -8 -3
+ACDEFKIQ 0 0 0
+stand stand male 1000
+0 0 large 0
+#5405
+creature demon~
+Demon~
+A pink creature stands here on its powerful hind legs. 
+~
+This creature has large, bird like hind legs, and a pair of small arms. 
+But what draws your attention are its teeth, and its huge pair of jaws, 
+that can be extended forward. While you observe the demon with 
+understandable curiosity, it runs up to you at impressive speed, 
+and prepares to take a chunk out of you. 
+ACK!!!!!!
+~
+giant~
+ABCFT HVZc -1000 S
+50 1 1d1+1999 1d1+100 5d8+20 chomp
+-10 -10 -10 -5
+CDEFKHIQ AB E N
+stand stand male 0
+0 0 large 0
+#5406
+soul flaming skull~
+Lost Soul~
+A flaming skull hangs in the air.
+~
+You are looking at a large skull with a pair of horns. 
+It seems to be on fire, yet the fire does not consume it.
+This is the Lost Soul of Doom;  it starts moving toward you, 
+accelerates, and rams you. This would be a good time to duck.
+~
+wyvern~
+ABFT THZ -1000 S
+50 0 1d1+1699 1d1+300 5d8+15 charge
+-12 -12 -12 -6
+CFQKE AB C G
+stand stand none 0
+0 0 medium 0
+#5407
+demon cacodemon beholder sphere~
+Cacodemon~
+A large round red sphere floats around the room.
+~
+It's large round and red, has a huge mouth, lotsa teeth, one big green eye,
+and it ain't friendly... The Cacodemon looks a little like the beholder 
+from the Ruins of Thalos, but it is a lot meaner, as you are about to 
+find out. It opens its mouth and spits a lightning bolt at you -- it's 
+fight or flight now.
+~
+dragon~
+ABCFW HZDT -1000 S
+70 +1 1d1+6999 1d1+200 7d6+20 shbite
+-25 -25 -25 -15
+CEFQK ABE N 0
+stand stand none 1000
+0 0 large 0
+#5408
+pain elemental~
+Pain Elemental~
+A large brown demon is here, suspended in the air.
+~
+It looks like Cacodemon, but it is brown, not 
+red, and its single huge eye is eerie gold color 
+instead of green. The eye turns angry red, the 
+demon opens its mouth and sends a number of 
+Lost Souls in your direction.
+~
+dragon~
+ABCFW HZDT -1000 S
+70 1 1d1+6999 1d1+200 7d6+20 flbite
+-25 -25 -25 -15
+CEFKQ ABE N 0
+stand stand none 1000
+0 0 large 0
+#5409
+tall skeleton~
+Tall skeleton~
+A very tall skeleton stands here. You notice two strange-looking devices on its shoulders.
+~
+This is the Revenant of Doom. The terrifying creature stares at you with empty 
+eye sockets and launches a heat seeker from one of its two missile launchers. 
+Than it takes a giant step toward you, and swings its bony arm in a wide arc.
+~
+human~
+ABFT VHZ -1000 S
+75 3 1d1+6999 1d1+399 7d6+30 punch
+-30 -30 -30 -15
+ACEFIKQ AF I N
+stand stand none 0
+0 0 large 0
+#5410
+arachnotron spider~
+Arachnotron~
+A strange spider-like creature stands here. 
+You can see cybernetic implants in its body.
+~
+The arachnotron looks a lot like a spider, but it has only four legs. 
+Most of its body is a large brain, with two small arms attached to it.
+It is about as tall as you, and does not look very threatening. 
+But appearances are deceiving. The creature turns, and sends a 
+stream of plasma at you. The last thing you notice is that its 
+beautiful blue eyes turn red as it fires.
+~
+centipede~
+ABFT ZH -1000 S
+80 3 1d1+7999 1d1+400 7d8+20 wrath
+-30 -30 -30 -20
+ACFEKQ A B S
+stand stand none 1000
+0 0 large 0
+#5411
+mancubus monster~
+Mancubus~
+A big, burly monster is here, growling to itself. It's 
+piercing evil green eyes light up as it sees you.
+~
+The mancubus is a large creature, but he seems to be 
+rather slow and indexterous.  However, your confidence 
+in your ability to kill it disappears as soon as you notice 
+that the creature's hands are replaced with two flamethrowers.
+~
+giant~
+ABFT ZHc -1000 S
+85 3 1d1+7999 1d1+500 8d8+10 flame
+-35 -35 -35 -20
+ACDEFQ AP J HI
+stand stand none 0
+0 0 huge 0
+#5412
+minotaur baron hell~
+Baron of Hell~
+A great  minotaur with inverted knee joints stands here.  
+The monster has huge muscles and an evil look about it...
+~
+This demon is the Baron of Hell, one of the most terrifying creatures of Doom. 
+It looks like the biggest and toughest minotaur you've ever seen. It could 
+probably tie you in a knot! But, apparently, it has another plans for you. 
+The Baron of Hell lets out a terrifying roar, and stomps toward you. 
+It raises its great arm and proceeds to pound you into the ground.
+~
+giant~
+ABFT NHZ -1000 S
+90 7 1d1+8999 1d1+300 8d8+40 crush
+-40 -40 -40 -25
+ACDEFKIN AE JGO F
+stand stand none 0
+0 0 huge 0
+#5413
+arch vile creature~
+Arch Vile~
+A tall creature surrounded by golden aura occupies 
+this room. You sense immense power aminating from it.
+~
+This is the Arch Vile, the most powerful of the lesser demons 
+of Doom. The speed with which this creature moves astonishes 
+you. But, instead of running up to you, it stops some distance away, 
+and raises its hands upward.  Golden plasma discharges start 
+dancing around your head. You feel extra-crispy.
+~
+human~
+ABFRT CDEFGHJZ -1000 S
+100 3 1d1+4999 1d1+500 8d8+50 divine
+-45 -45 -45 -40
+ABEFHKQ AB CD Y
+stand stand none 0
+0 0 large 0
+#5414
+spider demon spiderdemon~
+Spiderdemon~
+A giant four-legged spider dominates this room.
+~
+A great demon stands here. It looks like a monstrous 
+brain mounted on four mechanical legs.  The Spiderdemon lets 
+out a shriek of rage as it sees you, and makes you aware
+of the fact that it has a real BIG machine gun.  Looks like you 
+are going to die...
+ oh well...
+~
+centipede~
+ABGFT HCZ -1000 S
+105 3 1d1+13999 1d1+500 8d8+50 blast
+-50 -50 -50 -40
+ACDEFKQ A 0 N
+stand stand none 10000
+0 0 giant 0
+#5415
+cyborg demon cybordemon~
+Cybordemon~
+The abominable Cybordemon towers over you!
+~
+The Cybordemon stands before you. It is truly the most 
+powerful creature that was ever spawned by Doom. It resembles 
+a huge minotaur, and its awesome bulk would make a tyrannosaur 
+look like a puny lizard in comparison. The great Demon utters 
+a groundshaking roar, and steps toward you.  As it turns, you see 
+that instead of its left hand it has a rocket launcher!  Large warheads start 
+exploding around you, and it seems that fleeing is the only option...
+~
+giant~
+ABFT DHZ -1000 S
+110 5 1d1+ 15999 1d1+500 8d8+60 blast
+-50 -50 -50 -45
+ACDEFKQ AHI M 0
+stand stand none 10000
+0 0 giant 0
+#5416
+doom player~
+Doom player~
+A novice Doom player is here, trying to hide from you.
+~
+Obviously, this guy never played Doom 
+before. He is terrified of the demons, and 
+anything that moves scares him. It doesn't 
+look like he is going to make it, good thing 
+he's got unlimited lives.
+~
+human~
+ABCHT Q 300 S
+40 -1 1d1+1199 1d1+100 4d8+5 blast
+-10 -10 -10 -5
+FKQ 0 0 L
+stand stand either 10
+0 0 medium 0
+#5417
+doom player~
+An intermediate Doom player~
+A moderately skilled Doom player stands here, playing with a chainsaw
+~
+This player managed to kill some monsters, and he found a chainsaw, 
+which he is eager to put to use.  Whatever this guy lacks in skill, he 
+compensates with guts.
+~
+human~
+ABCTS HZ 200 S
+70 +2 1d1+4999 1d1+500 7d6+30 slice
+-30 -30 -30 -15
+ACBEFIKQ 0 0 0
+stand stand male 2000
+0 0 medium 0
+
+#5418
+doom player great~
+A great Doom player~
+A really good Doom player is here.
+~
+This veteran stands proudly atop the mound 
+of corpses of demons that he had slayen.  
+His movements are very fast and sure, and it 
+looks like he can dodge practically any attack. 
+He has noticed you the moment you entered the 
+room, and casually aimed his weapon at you. 
+Yet, he does not fire -- it would seem he decided 
+to be sporty about it, and let you have the first shot. 
+Feel lucky?
+~
+human~
+ABT TVHZ 0 S
+90 4 1d1+6999 1d1+500 8d8+20 wrath
+-40 -40 -40 -20
+ACDEFIHKNQ AB 0 0
+stand stand male 10000
+0 0 medium 0
+#5419
+hero~
+Our Hero~
+Our Hero stands here.
+~
+You see before you the Hero of Doom. This is 
+the only surviving space marine of those who had
+come to Deimos base.  He had  defeated countless
+demons and brought about the end of their threat 
+to humanity. Our Hero stands here guarding the gateway 
+to the Demon Realm. To attack him would truly 
+be an act of insolence!
+~
+human~
+ABT CDEFGHJTZ  1000 S
+120 5 1d1+9999 1d1+599 9d9+30 divine
+-70 -70 -70 -50
+EFKQ 0 0 0
+stand stand male 20000
+0 0 large 0
+#5420
+specter demon~
+Specter~
+A horrid specter decloaks and runs toward you!
+~
+This monster looks like regular demon, 
+but it is invisible, which makes it a lot 
+harder to hit.
+~
+vampire~
+ACFGT BDPQUZ -1000 S
+55 2 1d1+1999 1d1+200 10d4+24 chomp
+-15 -15 -15 -5
+BCDEFKNQ A E J
+stand stand female 0
+0 0 large 0
+#5421
+hell knight~
+The Hell Knight~
+The Hell Knight stands here, guarding the plains of Doom from intruders.
+~
+This monster looks like the Baron of Hell, but it seems 
+somewhat weaker and smaller. Yet, underestimating it 
+would be the last mistake you'd ever make.
+~
+giant~
+ABCFT HBDPQUZ -1000 S
+75 2 1d1+6999 1d1+300 8d8+15 crush
+-25 -25 -25 -10
+CDEFKQ A G N
+stand stand male 10000
+0 0 huge 0
+#0
+
+#OBJECTS
+
+#5401
+pistol gun handgun~
+9mm pistol~
+A futuristic looking 9mm handgun is here.~
+steel~
+weapon A AN
+exotic 2 10 blast 0
+25 30 5000 P
+A 
+2 1
+A
+18 2
+A
+19 2
+E
+pistol gun handgun~
+This is a standard sidearm of a space marine.
+~
+#5402
+green armor~
+Green body armor~
+A standard body armor of a space marine is here.~
+adamantite~
+armor A AD
+16 17 17 17 2
+65 160 40000 P
+A
+1 2
+A
+5 2
+A
+13 40
+A
+18 2
+A
+19 2
+E
+green armor~
+A shiny green armor is here on the ground.  In
+places it is covered with blood of its previous
+owner.
+~
+#5403
+wand medkit~
+Medkit~
+A large white box with a red cross on it is here.~
+cardboard~
+wand GS AO
+30 5 5 'mass heal' 0
+50 20 0 P
+E
+wand medkit~
+If you could figure out how to use this medkit,
+you could probably heal yourself.  Unfortunately,
+the instructions are written in a strange language, 
+understood by the space marines only.
+~
+#5404
+stimpack~
+A stimpack~
+A stimpack is here on the ground.~
+food~
+pill GS AO
+40 'haste' 'cure critical' '' ''
+25 10 0 P
+E
+stimpack~
+This is a box full of caffeine pills.  
+~
+
+#5405
+chainsaw~
+Chainsaw~
+A chainsaw was left here.~
+steel~
+weapon BM AN
+sword  7 10 slice DEHC
+68 200 50000 P
+E
+chainsaw~
+A large chainsaw is here, buzzing quietly.
+It was recently used to slay many creatures
+of Doom and is covered by the poisonous
+demon blood.  On the handle you see a small
+stamp: "Space Development Power Tools Inc."
+As you wield it, your robes get tangled in the
+chainsaw's mechanism. It seems that you won't be
+putting it down for a while.
+~
+A
+1 1
+A
+2 -1
+A
+13 30
+A
+18 4
+A
+19 7
+
+#5406
+plasma weapon cannon gun~
+Plasma discharge cannon~
+A strange weapon is here on the ground.~
+steel~
+weapon BM AN
+mace 7 12 wrath G
+85 100 50000 P
+A
+3 2
+A
+12 10
+A
+18 6
+A
+19 7
+E
+plasma gun cannon~
+This is one of the most advanced weapons used by 
+the space marines. There is a small stamp on the weapon, 
+which says: "Space Marine Industries Inc.  Item number 
+PDC2134.8754".  When you try to use it, the plasma cannon 
+magnetically attaches itself to your armor.  It seems that you 
+are quite literally stuck with it, at least until you figure out 
+how to turn off its main power source.
+~
+#5407
+shotgun gun kidneybuster~
+A large shotgun, named  "Kidneybuster"~
+A large shotgun is propped against the wall here~
+steel~
+weapon B AN
+polearm 8 4 blast A
+30 100 5000 P
+A
+18 3
+A
+19 3
+E
+shotgun gun kidneybuster~
+This is one of the basic weapons in the space 
+marines arsenal. It used to belong to someone with a rather 
+unique sense of humor, which would explain why 
+the words "Kidneybuster" are ruggedly engraved 
+on the weapon, probably with use of a Swiss army knife.
+Bellow the engraving there is a familiar logo of 
+Space Marine Industries.
+~
+#5408
+machine gun chaingun~
+Chaingun~
+A mean looking machine gun is here~
+steel~
+weapon A AN
+exotic 9 5 blast A
+40 150 10000 P
+A
+18 4
+A
+19 4
+E
+chain gun machine~
+This is a powerful weapon. Perhaps you should get some 
+target practice before attempting to use it, though... 
+Or you might shoot yourself in the foot.
+~
+#5409
+weapon BFG9000~
+The BFG9000~
+The biggest weapon you've ever seen is here on the ground!~
+steel~
+weapon ABGM AN
+exotic 10 10 divine AG
+90 300 100000 P
+A 
+2 -2
+A
+18 6
+A
+19 6
+E
+weapon BFG9000 gun~
+This is the single most powerful hand held weapon 
+developed for use of the space marines.  There is 
+a small logo on the weapon, which reads "Phobos 
+High Energy Plasma Research Laboratories". You 
+wonder, what the hell could this mean? To wield BFG9000 
+you have to attach it to your belt, after which it magnetically 
+seals itself to your armor plate.
+~
+#5410
+blue body armor~
+Blue body armor~
+A blue body armor is here, glowing in the dark.~
+adamantite~
+armor AGHM AD
+21 21 21 21 2
+85 200 70000 P
+A
+1 2
+A
+2 2
+A
+5 2
+A
+12 50
+A
+13 40
+A
+18 4
+A
+19 3
+E
+armor plate~
+The armor looks new and shiny, plus it is very 
+light and seems virtually indestructible. Once 
+you pick it up, you just can not bring yourself 
+to put it down! On the left side of the breast 
+plate you can read:  "Property of Phobos High 
+Impact Testing Laboratories"
+~
+#5411
+eye beholder~
+Eye of the Beholder~
+A huge green eye is here, floating in the air.~
+silver~
+light AEGHMQ A
+0 0 -1 0 0
+70 10 30000 P
+A
+3 2
+A
+12 40
+A
+13 20
+A
+18 2
+A
+19 4
+E
+eye beholder~
+When you slew the Cacodemon, you took its magical eye. 
+It glows brightly with evil green light, and seems to light 
+up the room when you hold it up. You feel more powerful 
+when the Eye is in your hand, but you can not drop it...
+~
+#5412
+hoof hooves cybordemon~
+The hooves of the Cybordemon~
+A pair of immensely large metallic hooves rests here on the ground.~
+steel~
+armor AEJH AG
+23 23 23 23 0
+88 2000 70000 P
+A
+2 -2
+A
+5 2
+A
+12 40
+A
+13 60
+A
+14 -150
+A
+18 1
+A
+19 5
+E
+hoof hooves cybordemon~
+When the great Cybordemon was destroyed, all that 
+remained of it was the pair of hooves. They gleam dully 
+with strange light, which can be barely seen, for the hooves
+are covered with the dark blood of the Great Demon. 
+If you can pick them up, you can probably wear them.
+~
+#5413
+space marine signet ring~
+Space marine signet ring~
+A strange ring is here, glistening in the shadows.~
+gold~
+armor AGK AB
+25 25 25 24 0
+90 10 100000 P
+A
+1 2
+A
+2 2
+A
+3 -2
+A
+12 40
+A
+13 40
+A
+18 4
+A
+19 4
+A
+26 1
+E
+space marine signet ring~
+Such rings are worn by the graduates of the 
+Space Marine Academy.  If you are not one 
+of them, put it back where you found it!
+~
+#5414
+bar stardust~
+a bar of stardust~
+A bar of stardust has been left here.~
+stardust~
+material AJKS AO
+-25 0 4 0 0
+0 60 1000 P
+#0
+
+#ROOMS
+
+#5401
+Entryway~
+You are inside the arcade, in the realm of computer games. 
+To the east you see smoke filled sky, and gentle dust 
+saturated wind brings you the smell of decay, as well 
+inhuman piercing shrieks and low growls. High in the 
+orange-grey sky you see four giant letters, but you can 
+not quite make them out.  Maybe if you looked closer... 
+Bellow the sky there is a huge computer screen with 
+few lines written on it. The first line reads "Credits".
+~
+0 C 2
+D2
+To the south, you see what appears to be a Tavern.
+~
+game~
+1 -1 3352
+D1
+A dark corridor.
+~
+~
+0 -1 5402 
+E
+sky letters~
+D O O M
+~
+E
+computer screen credits~
+This area is coded by Warmanger.  Special thanks to Ralfa 
+for information and help provided. 
+
+I hope you will enjoy this area, but keep in mind, it 
+was not designed for squeamish mudders :).
+Hope you'll have as much fun playing in Doom 
+as much as i did writing it. Good luck.
+~
+S
+#5402
+Dark corridor~
+You stand in a dark corridor. It continues to east and west, 
+and there are doors to south and north. But if you intend to 
+move, take caution not to step into the pools of blood 
+that cover the floor.
+~
+0 A 0
+D0
+Low growling can be heard from that room.
+~
+door~
+1 -1 5409 
+D1
+Screams and sounds of weapons being fired come from that direction.
+~
+~
+0 -1 5403 
+D2
+Low growling can be heard from that room.
+~
+door~
+1 -1 5410 
+D3
+The Entryway.
+~
+~
+0 -1 5401
+S
+#5403
+Dark corridor~
+You stand in a dark corridor. It continues to east and west, 
+and there are doors to south and north. But if you intend to 
+move, take caution not to step into the pools of blood 
+that cover the floor.
+~
+0 A 0
+D0
+Low growling can be heard from that room.
+~
+door~
+1 -1 5411 
+D1
+Screams and sounds of weapons being fired come from that direction.
+~
+~
+0 -1 5404 
+D2
+Low growling can be heard from that room.
+~
+door~
+1 -1 5412 
+D3
+Screams and sounds of weapons being fired come from that direction.
+~
+~
+0 -1 5402 
+S
+#5404
+Dark corridor~
+You stand in a dark corridor. It continues to east and west, 
+and there are doors to south and north. But if you intend to 
+move, take caution not to step into the pools of blood 
+that cover the floor.
+~
+0 A 0
+D0
+Low growling can be heard from that room.
+~
+door~
+1 -1 5413 
+D1
+Screams and sounds of weapons being fired come from that direction.
+~
+~
+0 -1 5405 
+D2
+Low growling can be heard from that room.
+~
+door~
+1 -1 5414 
+D3
+Screams and sounds of weapons being fired come from that direction.
+~
+door~
+0 -1 5403 
+S
+#5405
+Dark corridor~
+You stand in a dark corridor. It continues to east and west, 
+and there are doors to south and north. But if you intend to 
+move, take caution not to step into the pools of blood 
+that cover the floor.
+~
+0 A 0
+D0
+Low growling can be heard from that room.
+~
+door~
+1 -1 5415 
+D1
+Screams and sounds of weapons being fired come from that direction.
+~
+~
+0 -1 5407
+D2
+Low growling can be heard from that room.
+~
+door~
+1 -1 5416 
+D3
+Screams and sounds of weapons being fired come from that direction.
+~
+~
+0 -1 5404 
+D1
+Moans, moans, and more moans from that way.
+~
+~
+0 -1 5406
+S
+#5406
+Dark corridor~
+You stand in a dark corridor. It continues the west, 
+and there are doors to south and north. To the east 
+there you see a great gate.  Be warned, beyond 
+those doors lies your DooM!
+~
+0 A 0
+D0
+Low growling can be heard from that room.
+~
+door~
+1 -1 5417 
+D1
+Going in there would be an act of utter futility.
+~
+door~
+1 -1 5407 
+D2
+The sounds of battle come from that door.
+~
+door~
+1 -1 5418 
+D3
+Screams and sounds of weapons being fired come from that direction.
+~
+~
+0 -1 5405
+S
+#5407
+The room of Futility.~
+As you enter this room, the great doors swing shut 
+behind you. The way back is blocked. Before you 
+lies an open arena, occupied by two immense creatures. 
+You realize that you have unwisely intruded into the keep 
+of the Great Demons of Doom, and most likely will pay 
+for this intrusion with your life. May Mota help you now!
+~
+0 N 10
+D1
+Your only escape!
+~
+~
+0 -1 5408 
+S
+#5408
+The Escape~
+You can safely recover here, and gather your 
+strength for the battle with the Great Demons. 
+Or you can recall, which would be a wiser choice 
+of action.
+~
+0 CK 2
+D3
+The room of Futility.
+~
+~
+0 -1 5407 
+S
+#5409
+The room of Demons.~
+You are inside a typical Doom room.  It is dark, hot, and 
+you are overwhelmed by the stench of decay.  In the center 
+of the room there is a decapitated corpse set on a stake. The 
+corpse somehow keeps twitching as if it were in great pain, 
+yet it can not be alive! Someone's body was smashed 
+into the eastern wall, and it is now covered with drying blood and 
+pieces of flesh. Under the mess there isa  visible engraving of human 
+skulls. The western wall is dominated by a huge portrait of a head 
+of a great minotaur. The creature has huge fangs and looks 
+irredeemably evil. Bellow the portrait you notice a small structure, 
+which looks like an altar. On the top of the altar lies a bleeding human 
+heart, beating with eerie regularity, and pumping out great quantities 
+of blood...
+~
+0 ADN 0
+D2
+The dark corridor.
+~
+~
+1 -1 5402 
+E
+corpse~
+It looks like this corpse used to belong to a zombie man. 
+Apparently, the zombie man is being punished for something.
+~
+E
+skull engraving~
+A number of human skull carvings is on the wall. 
+The more you look at it, the more it seems that all the 
+skulls are looking at you! You turn away from it in 
+dismay.
+~
+E
+portrait minotaur~
+This is a portrait of a great demon of Doom, worshipped 
+by the lesser demons.  Hopefully, you will not have to meet 
+this creature in person.
+~
+E
+altar heart~
+The bleeding heart seems to be an offering to the Cybordemon, 
+made by the lesser demons. The altar on which it lies is a source 
+of unholy magics, and it is not advisable to stand too close to it.
+~
+S
+#5410
+The room of Souls.~
+You are inside a typical Doom room.  It is dark, hot, and 
+you are overwhelmed by the stench of decay.  In the center 
+of the room there is a decapitated corpse set on a stake. The 
+corpse somehow keeps twitching as if it were in great pain, 
+yet it can not be alive! Someone's body was smashed 
+into the eastern wall, and it is now covered with drying blood and 
+pieces of flesh. Under the mess there is a visible engraving of human 
+skulls. The western wall is dominated by a huge portrait of a head 
+of a great minotaur. The creature has huge fangs and looks 
+irredeemably evil. Bellow the portrait you notice a small structure, 
+which looks like an altar. On the top of the altar lies a bleeding human 
+heart, beating with eerie regularity, and pumping out great quantities 
+of blood...
+~
+0 ADN 0
+D0
+The dark corridor.
+~
+~
+1 -1 5402 
+E
+corpse~
+It looks like this corpse used to belong to a zombie man. 
+Apparently, the zombie man is being punished for something.
+~
+E
+skull engraving~
+A number of human skull carvings is on the wall. 
+The more you look at it, the more it seems that all the 
+skulls are looking at you! You turn away from it in 
+dismay.
+~
+E
+portrait minotaur~
+This is a portrait of a great demon of Doom, worshipped 
+by the lesser demons.  Hopefully, you will not have to meet 
+this creature in person.
+~
+E
+altar heart~
+The bleeding heart seems to be an offering to the Cybordemon, 
+made by the lesser demons. The altar on which it lies is a source 
+of unholy magics, and it is not advisable to stand too close to it.
+~
+S
+#5411
+The room of the Beholder.~
+You are inside a typical Doom room.  It is dark, hot, and 
+you are overwhelmed by the stench of decay.  In the center 
+of the room there is a decapitated corpse set on a stake. The 
+corpse somehow keeps twitching as if it were in great pain, 
+yet it can not be alive! Someone's body was smashed 
+into the eastern wall, and it is now covered with drying blood and 
+pieces of flesh. Under the mess there is a visible engraving of human 
+skulls. The western wall is dominated by a huge portrait of a head 
+of a great minotaur. The creature has huge fangs and looks 
+irredeemably evil. Bellow the portrait you notice a small structure, 
+which looks like an altar. On the top of the altar lies a bleeding human 
+heart, beating with eerie regularity, and pumping out great quantities 
+of blood...
+~
+0 ADN 0
+D2
+The dark corridor.
+~
+~
+1 -1 5403 
+E
+corpse~
+It looks like this corpse used to belong to a zombie man. 
+Apparently, the zombie man is being punished for something.
+~
+E
+skull engraving~
+A number of human skull carvings is on the wall. 
+The more you look at it, the more it seems that all the 
+skulls are looking at you! You turn away from it in 
+dismay.
+~
+E
+portrait minotaur~
+This is a portrait of a great demon of Doom, worshipped 
+by the lesser demons.  Hopefully, you will not have to meet 
+this creature in person.
+~
+E
+altar heart~
+The bleeding heart seems to be an offering to the Cybordemon, 
+made by the lesser demons. The altar on which it lies is a source 
+of unholy magics, and it is not advisable to stand too close to it.
+~
+S
+#5412
+The room of Pain.~
+You are inside a typical Doom room.  It is dark, hot, and 
+you are overwhelmed by the stench of decay.  In the center 
+of the room there is a decapitated corpse set on a stake. The 
+corpse somehow keeps twitching as if it were in great pain, 
+yet it can not be alive! Someone's body was smashed 
+into the eastern wall, and it is now covered with drying blood and 
+pieces of flesh. Under the mess there is a visible engraving of human 
+skulls. The western wall is dominated by a huge portrait of a head 
+of a great minotaur. The creature has huge fangs and looks 
+irredeemably evil. Bellow the portrait you notice a small structure, 
+which looks like an altar. On the top of the altar lies a bleeding human 
+heart, beating with eerie regularity, and pumping out great quantities 
+of blood...
+~
+0 ADN 0
+D0
+The dark corridor.
+~
+~
+1 -1 5403
+E
+corpse~
+It looks like this corpse used to belong to a zombie man. 
+Apparently, the zombie man is being punished for something.
+~
+E
+skull engraving~
+A number of human skull carvings is on the wall. 
+The more you look at it, the more it seems that all the 
+skulls are looking at you! You turn away from it in 
+dismay.
+~
+E
+portrait minotaur~
+This is a portrait of a great demon of Doom, worshipped 
+by the lesser demons.  Hopefully, you will not have to meet 
+this creature in person.
+~
+E
+altar heart~
+The bleeding heart seems to be an offering to the Cybordemon, 
+made by the lesser demons. The altar on which it lies is a source 
+of unholy magics, and it is not advisable to stand too close to it.
+~
+S
+
+#5413
+The room of the Undead.~
+You are inside a typical Doom room.  It is dark, hot, and 
+you are overwhelmed by the stench of decay.  In the center 
+of the room there is a decapitated corpse set on a stake. The 
+corpse somehow keeps twitching as if it were in great pain, 
+yet it can not be alive! Someone's body was smashed 
+into the eastern wall, and it is now covered with drying blood and 
+pieces of flesh. Under the mess there is a visible engraving of human 
+skulls. The western wall is dominated by a huge portrait of a head 
+of a great minotaur. The creature has huge fangs and looks 
+irredeemably evil. Bellow the portrait you notice a small structure, 
+which looks like an altar. On the top of the altar lies a bleeding human 
+heart, beating with eerie regularity, and pumping out great quantities 
+of blood...
+~
+0 ADN 0
+D2
+The dark corridor.
+~
+~
+1 -1 5404 
+E
+corpse~
+It looks like this corpse used to belong to a zombie man. 
+Apparently, the zombie man is being punished for something.
+~
+E
+skull engraving~
+A number of human skull carvings is on the wall. 
+The more you look at it, the more it seems that all the 
+skulls are looking at you! You turn away from it in 
+dismay.
+~
+E
+portrait minotaur~
+This is a portrait of a great demon of Doom, worshipped 
+by the lesser demons.  Hopefully, you will not have to meet 
+this creature in person.
+~
+E
+altar heart~
+The bleeding heart seems to be an offering to the Cybordemon, 
+made by the lesser demons. The altar on which it lies is a source 
+of unholy magics, and it is not advisable to stand too close to it.
+~
+S
+#5414
+The room of Arachnos.~
+You are inside a typical Doom room.  It is dark, hot, and 
+you are overwhelmed by the stench of decay.  In the center 
+of the room there is a decapitated corpse set on a stake. The 
+corpse somehow keeps twitching as if it were in great pain, 
+yet it can not be alive! Someone's body was smashed 
+into the eastern wall, and it is now covered with drying blood and 
+pieces of flesh. Under the mess there is a visible engraving of human 
+skulls. The western wall is dominated by a huge portrait of a head 
+of a great minotaur. The creature has huge fangs and looks 
+irredeemably evil. Bellow the portrait you notice a small structure, 
+which looks like an altar. On the top of the altar lies a bleeding human 
+heart, beating with eerie regularity, and pumping out great quantities 
+of blood...
+~
+0 ADN 0
+D0
+The dark corridor.
+~
+~
+1 -1 5404 
+E
+corpse~
+It looks like this corpse used to belong to a zombie man. 
+Apparently, the zombie man is being punished for something.
+~
+E
+skull engraving~
+A number of human skull carvings is on the wall. 
+The more you look at it, the more it seems that all the 
+skulls are looking at you! You turn away from it in 
+dismay.
+~
+E
+portrait minotaur~
+This is a portrait of a great demon of Doom, worshipped 
+by the lesser demons.  Hopefully, you will not have to meet 
+this creature in person.
+~
+E
+altar heart~
+The bleeding heart seems to be an offering to the Cybordemon, 
+made by the lesser demons. The altar on which it lies is a source 
+of unholy magics, and it is not advisable to stand too close to it.
+~
+S
+#5415
+The room of Fire.~
+You are inside a typical Doom room.  It is dark, hot, and 
+you are overwhelmed by the stench of decay.  In the center 
+of the room there is a decapitated corpse set on a stake. The 
+corpse somehow keeps twitching as if it were in great pain, 
+yet it can not be alive! Someone's body was smashed 
+into the eastern wall, and it is now covered with drying blood and 
+pieces of flesh. Under the mess there is a visible engraving of human 
+skulls. The western wall is dominated by a huge portrait of a head 
+of a great minotaur. The creature has huge fangs and looks 
+irredeemably evil. Bellow the portrait you notice a small structure, 
+which looks like an altar. On the top of the altar lies a bleeding human 
+heart, beating with eerie regularity, and pumping out great quantities 
+of blood...
+~
+0 ADN 0
+D2
+The dark corridor.
+~
+~
+1 -1 5405 
+E
+corpse~
+It looks like this corpse used to belong to a zombie man. 
+Apparently, the zombie man is being punished for something.
+~
+E
+skull engraving~
+A number of human skull carvings is on the wall. 
+The more you look at it, the more it seems that all the 
+skulls are looking at you! You turn away from it in 
+dismay.
+~
+E
+portrait minotaur~
+This is a portrait of a great demon of Doom, worshipped 
+by the lesser demons.  Hopefully, you will not have to meet 
+this creature in person.
+~
+E
+altar heart~
+The bleeding heart seems to be an offering to the Cybordemon, 
+made by the lesser demons. The altar on which it lies is a source 
+of unholy magics, and it is not advisable to stand too close to it.
+~
+S
+#5416
+The room of Destruction.~
+You are inside a typical Doom room.  It is dark, hot, and 
+you are overwhelmed by the stench of decay.  In the center 
+of the room there is a decapitated corpse set on a stake. The 
+corpse somehow keeps twitching as if it were in great pain, 
+yet it can not be alive! Someone's body was smashed 
+into the eastern wall, and it is now covered with drying blood and 
+pieces of flesh. Under the mess there is a visible engraving of human 
+skulls. The western wall is dominated by a huge portrait of a head 
+of a great minotaur. The creature has huge fangs and looks 
+irredeemably evil. Bellow the portrait you notice a small structure, 
+which looks like an altar. On the top of the altar lies a bleeding human 
+heart, beating with eerie regularity, and pumping out great quantities 
+of blood...
+~
+0 ADN 0
+D0
+The dark corridor.
+~
+~
+1 -1 5405
+E
+corpse~
+It looks like this corpse used to belong to a zombie man. 
+Apparently, the zombie man is being punished for something.
+~
+E
+skull engraving~
+A number of human skull carvings is on the wall. 
+The more you look at it, the more it seems that all the 
+skulls are looking at you! You turn away from it in 
+dismay.
+~
+E
+portrait minotaur~
+This is a portrait of a great demon of Doom, worshipped 
+by the lesser demons.  Hopefully, you will not have to meet 
+this creature in person.
+~
+E
+altar heart~
+The bleeding heart seems to be an offering to the Cybordemon, 
+made by the lesser demons. The altar on which it lies is a source 
+of unholy magics, and it is not advisable to stand too close to it.
+~
+S
+#5417
+The room of Insanity.~
+You are inside a typical Doom room.  It is dark, hot, and 
+you are overwhelmed by the stench of decay.  In the center 
+of the room there is a decapitated corpse set on a stake. The 
+corpse somehow keeps twitching as if it were in great pain, 
+yet it can not be alive! Someone's body was smashed 
+into the eastern wall, and it is now covered with drying blood and 
+pieces of flesh. Under the mess there is a visible engraving of human 
+skulls. The western wall is dominated by one huge portrait of a head 
+of a great minotaur. The creature has huge fangs and looks 
+irredeemably evil. Bellow the portrait you notice a small structure, 
+which looks like an altar. On the top of the altar lies a bleeding human 
+heart, beating with eerie regularity, and pumping out great quantities 
+of blood...
+~
+0 ADN 0
+D2
+The dark corridor.
+~
+~
+1 -1 5406 
+E
+corpse~
+It looks like this corpse used to belong to a zombie man. 
+Apparently, the zombie man is being punished for something.
+~
+E
+skull engraving~
+A number of human skull carvings is on the wall. 
+The more you look at it, the more it seems that all the 
+skulls are looking at you! You turn away from it in 
+dismay.
+~
+E
+portrait minotaur~
+This is a portrait of a great demon of Doom, worshipped 
+by the lesser demons.  Hopefully, you will not have to meet 
+this creature in person.
+~
+E
+altar heart~
+The bleeding heart seems to be an offering to the Cybordemon, 
+made by the lesser demons. The altar on which it lies is a source 
+of unholy magics, and it is not advisable to stand too close to it.
+~
+S
+#5418
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D0
+The dark corridor.
+~
+door~
+1 -1 5406 
+D2
+The death match arena.
+~
+~
+0 -1 5419 
+S
+
+#5419
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D0
+The death match arena.
+~
+~
+0 -1 5418 
+D2
+The death match arena.
+~
+~
+0 -1 5420
+S
+
+#5420
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D0
+The death match arena.
+~
+~
+0 -1 5419 
+D1
+The death match arena.
+~
+~
+0 -1 5424 
+D2
+The death match arena.
+~
+~
+0 -1 5421 
+D3
+The death match arena.
+~
+~
+0 -1 5423 
+S
+
+#5421
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D0
+The death match arena.
+~
+~
+0 -1 5420
+D1
+The death match arena.
+~
+~
+0 -1 5427 
+D2
+The portal.
+~
+~
+0 -1 5430 
+D3
+The death match arena.
+~
+~
+0 -1 5428 
+S
+#5422
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D1
+The death match arena.
+~
+~
+0 -1 5423 
+D2
+The death match arena.
+~
+~
+0 -1 5429 
+S
+#5423
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D1
+The death match arena.
+~
+~
+0 -1 5420 
+D2
+The death match arena.
+~
+~
+0 -1 5428 
+D3
+The death match arena.
+~
+~
+0 -1 5428
+S
+#5424
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D1
+The death match arena.
+~
+~
+0 -1 5425 
+D2
+The death match arena.
+~
+~
+0 -1 5427 
+D3
+The death match arena.
+~
+~
+0 -1 5427 
+S
+#5425
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D2
+The death match arena.
+~
+~
+0 -1 5426 
+D3
+The death match arena.
+~
+~
+0 -1 5424 
+S
+#5426
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D0
+The death match arena.
+~
+~
+0 -1 5425 
+D3
+The death match arena.
+~
+~
+0 -1 5427 
+S
+#5427
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D0
+The death match arena.
+~
+~
+0 -1 5424 
+D1
+The death match arena.
+~
+~
+0 -1 5426
+D3
+The death match arena.
+~
+~
+0 -1 5421 
+S
+#5428
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D0
+The death match arena.
+~
+~
+0 -1 5423 
+D1
+The death match arena.
+~
+~
+0 -1 5421 
+D3
+The death match arena.
+~
+~
+0 -1 5429 
+S
+#5429
+The death match arena.~
+This is a place where Doom players meet to test 
+their skills against the demons and each other. 
+Corpses of recently killed monsters cover the 
+floor, and sounds of battle come from all directions. 
+~
+0 A 5
+D0
+The death match arena.
+~
+~
+0 -1 5422 
+D1
+The death match arena.
+~
+~
+0 -1 5428 
+S
+#5430
+The portal.~
+You stand inside the portal to the Demon realm. 
+Some time ago it was open for the demons to 
+travel into other dimensions, but the Hero has
+destroyed it. So now you can't go anywhere.
+Wanna recall?
+~
+0 CJ 0
+S
+#0
+
+#RESETS
+M 0 5401 3 5402 3
+E 0 5401 9 16
+M 0 5401 3 5402 3
+E 0 5401 9 16
+M 0 5401 3 5403 3
+E 0 5401 9 16
+M 0 5402 5 5403 5
+E 0 5407 9 16
+M 0 5402 5 5404 5
+E 0 5407 9 16
+M 0 5402 5 5424 5
+E 0 5407 9 16
+M 0 5402 5 5424 5
+E 0 5407 9 16
+M 0 5402 5 5428 5
+E 0 5407 9 16
+M 0 5403 4 5404 4
+M 0 5403 4 5405 4
+M 0 5403 4 5406 4
+M 0 5403 4 5406 4
+M 0 5404 3 5405 3
+E 0 5408 6 16
+M 0 5404 3 5406 3
+E 0 5408 6 16
+M 0 5404 3 5428 3
+E 0 5408 6 16
+M 0 5405 2 5409 2
+M 0 5405 2 5409 2
+M 0 5406 4 5410 4
+M 0 5406 4 5410 4
+M 0 5406 4 5412 4
+M 0 5406 4 5412 4
+M 0 5407 1 5411 1
+G 0 5411 4 
+M 0 5408 1 5412 1
+M 0 5409 1 5413 1
+M 0 5410 1 5414 1
+M 0 5411 1 5415 1
+M 0 5412 1 5416 1
+M 0 5413 1 5417 1
+M 0 5414 1 5407 1
+M 0 5415 1 5407 1
+E 0 5412 3 8
+M 0 5416 1 5418 1
+M 0 5417 1 5419 1
+E 0 5402 3 5
+E 0 5405 3 16
+G 0 5404 4 
+M 0 5418 1 5420 1
+E 0 5406 3 16
+E 0 5410 3 5
+G 0 5403 4 
+M 0 5419 1 5421 1
+E 0 5409 3 16
+E 0 5413 3 2
+M 0 5421 4 5423 4
+M 0 5420 4 5425 4
+M 0 5420 4 5427 4
+M 0 5420 4 5429 4
+M 0 5421 4 5422 4
+M 0 5421 4 5426 4
+G 1 5414 -1
+D 0 5402 0 1
+D 0 5401 2 1
+D 0 5402 2 1
+D 0 5403 0 1 
+D 0 5403 2 1 
+D 0 5404 0 1 
+D 0 5404 2 1 
+D 0 5405 0 1 
+D 0 5405 2 1 
+D 0 5406 0 1 
+D 0 5406 1 1 
+D 0 5406 2 1 
+D 0 5409 2 1 
+D 0 5410 0 1 
+D 0 5411 2 1 
+D 0 5412 0 1 
+D 0 5413 2 1 
+D 0 5414 0 1 
+D 0 5415 2 1 
+D 0 5416 0 1 
+D 0 5417 2 1 
+D 0 5418 0 1
+S
+
+#SPECIALS
+
+M 5403 spec_breath_fire
+M 5407 spec_breath_lightning
+M 5411 spec_breath_fire
+M 5413 spec_cast_mage
+S
+
+#$

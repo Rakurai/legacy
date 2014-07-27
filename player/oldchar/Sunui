@@ -1,0 +1,385 @@
+#PLAYER
+Name Sunui~
+Id   1005729218
+LogO 1006046408
+Vers 8
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nmv {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race giant~
+Sex  1
+Cla  3
+Levl 12
+Plyd 5883
+Age  0
+Back 5073
+Note 1005906747 1005856601 1005856601 1005856601 1005856601 1005856601
+Scro 22
+Room 8543
+HMV  217 217 163 163 136 136
+Gold 41
+Silv 3033
+Exp  13018
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm MNO
+Revk 0
+Pos  4
+Save  -2
+Alig  -1000
+Hit   12
+Dam   9
+ACs -23 -23 -22 5
+Atrib 22 14 17 16 19 10
+AtMod 5 4 1 2 1 4
+QuestPnts 2
+QuestNext 6
+Pass asshole~
+Afk {B[{CThu Nov 15 01:39:02 2001{B] {CUnknown Departure.{x
+~
+Titl  Follows the {YONE TRUE GOD: {GLotus{W!!!!!{x~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Lotus~
+Lsit cl3162441-a.baycty1.mi.home.com~
+Ltim Sat Nov 17 19:07:02 2001
+~
+LSav Sat Nov 17 19:20:08 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  AF
+HMVP 194 138 166
+THVP 0 0 0
+Cnd  0 32 45 42
+Query doomsmerf~
+Sk 1 1 'shield block'
+Sk 79 1 'sword'
+Sk 73 1 'bash'
+Sk 63 1 'enhanced damage'
+Sk 70 1 'kick'
+Sk 13 1 'parry'
+Sk 75 1 'second attack'
+Sk 1 1 'third attack'
+Sk 25 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 61 1 'fast healing'
+Sk 1 1 'forge'
+Sk 1 1 'repair'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Affc 'shield'   0  74   3 -20  17          0 1
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 18 15 0 0
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 10129
+Nest 0
+Cond 93
+Wear 18
+Cost 122
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1804
+Enchanted
+Nest 0
+ExtF 262211
+Wear 16
+Lev  14
+Cost 0
+Affc 'enchant weapon'   1  82  -1   6  19          0 1
+Affc 'enchant weapon'   1  82  -1   6  18          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'reserved'   1  10  -1   1   3          0 1
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 12708
+Nest 0
+Cond 99
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 12705
+Nest 0
+Cond 88
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 12702
+Nest 0
+Wear 19
+Cost 0
+End
+
+#O
+Vnum 10133
+Enchanted
+Nest 0
+ExtF 17039425
+Wear 8
+Lev  16
+Cost 0
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  15  -1   1   2          0 1
+Affc 'reserved'   1  15  -1   1  10          0 1
+Affc 'reserved'   1  15  -1  10  12          0 1
+Affc 'reserved'   1  15  -1  -1  20          0 1
+End
+
+#O
+Vnum 16051
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 2014
+Nest 0
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 506
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 16050
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 10127
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 10234
+Enchanted
+Nest 0
+ExtF 65
+Wear 15
+Lev  12
+Cost 0
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1  10  -1  15  12          0 1
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#END

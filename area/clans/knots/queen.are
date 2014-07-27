@@ -1,0 +1,3808 @@
+#AREA
+
+queen.are~
+Elementals~
+{H{{CLANS} {MCalvaria {TSadar's Keep~
+24000 24199
+
+#MOBILES
+
+#24000
+Lirrel healer~
+A healer~
+Lirrel, the {ga{ci{Wr{ge{x elemental of the Queen's Quarter Knot is resting here.
+~
+She is a sight to behold.  Her long white hair twinkles with the pearls
+and crystals braided into it.  She sits atop a while marbled dais covered
+with a thick blanket of pale blue down feathers.  You look up into her
+opaque eyes, colorless but not sightless.  Her elemental power carries
+information and knowledge by way of the gales and high winds.  Lirrel was
+once the rational strand of the Knot, forever bringing her sisters down
+to earth.  Both the younger and older Elementals come to her for advice
+and consulting.  She smiles at you and beckons for you to come sit with
+her.
+~
+human~
+BOQVa DFHT 1000 S
+100 12 1d1+9999 1d1+9999 10d10 +1 bite
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand female 0
+0 0 small 0
+
+#24001
+Zein~
+A trainer~
+Zein stands here, hunched between two outcroppings of granite.
+~
+Staring down over the craggy faces of the Avadares mountains, Zein leans
+his back against the sun-warmed stone and stretches.  He has been in Sadar
+since the Last Battle, when the Fire Queen destroyed her sisters.  His
+skin carries the markings of the trees and his clothing was of the old
+style, muted earth colors of rust and brown.  His strong build and vast
+knowledge in the art of warfare and magic makes him a great asset to the
+Knot.
+~
+human~
+BJKTVb DFHT 1000 S
+93 12 1d1+9999 1d1+9999 10d10+1 bite
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#24002
+Nyctasia~
+A shopkeeper~
+Nyctasia bustles about cleaning up after the Elementals' lir.
+~
+Humming to herself, the beautiful woman sweeps the earthen floor.  Her
+short black hair frames her face and reveals pointed pearl studded ears. 
+She looks at you through sea green eyes and wonders what lir you will
+choose as your lifelong companion.  Nyctasia is of the Namire, a race of
+elves born of the treasured ocean.  If you look close enough, you can see
+tiny gills behind her ears.  But these gills will never again feel the
+ocean spray.  Not since her sister took her dolphin lir's life, and with
+it Nyctasia's, has she felt the warm sands of a beach.
+~
+elf~
+BOQV DFHT 0 S
+93 12 1d1+9999 1d1+9999 10d10+1 bite
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand female 0
+0 0 small 0
+
+#24003
+Aidan~
+A shopkeeper~
+Aidan is busy repairing the Elemental's gear and weapons.
+~
+When you look at Aidan, you clearly know what element he possesses.  His
+bright red hair crackles with bright sparks.  Long ago in Oran, he fought
+beside Cali and the rest of the Elementals against Queen Zorah and her
+army.  He looks up and smiles at you.  His light amber eyes shimmer with
+an inner glow.  He has come to Thera and joined the Knots to aid them in
+their quest to balance the Land and also to bring a little of his own
+mischief.  
+~
+human~
+BOQV DFHT 0 S
+93 12 1d1+9999 1d1+9999 10d10+1 bite
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand male 1000000
+0 0 medium 0
+
+#24004
+Aslynn~
+Aslynn~
+The beautiful Aslynn sits here with Zein conversing.
+~
+Back against her sleeping black bear lir, Aslynn absently twirls a leafy
+oak branch around her fingers.  Zein has apparently asked her a deep
+rooted question and she is thinking on the answer.  The sun glow of her
+skin would deceive anyone into thinking she was real to the touch.  Her
+deep brown eyes light up as she jumps up with an exclamation.  She solved
+Zein's puzzle, waking Drakke with a start.
+~
+human~
+BJKTV DFHT  1000 S
+93 12 1d1+9999 1d1+9999 10d10+1 bite
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand female 5000
+0 0 small 0
+
+#24005
+Sebastian~
+Sebastian~
+Sebastian is busy making the party their favorite specialty drink.
+~
+Blond hair and blue eyed Sebastian would charm any one woman with his
+bright wide smile.  He was a member of the Regiment guard long ago, when
+the Quarter Knot was ruled with the four strands.  But when Zorah
+destroyed her rivals, he immediately denounced them and followed Cali to
+Thera to begin anew.  Although he does not possess an element, he is by
+far one of the most beloved of the clan.  He smiles at you and asks, "What
+will you have my friend?"
+~
+human~
+BJKTV DFHT 0 S
+93 12 1d1+9999 1d1+9999 10d10+1 bite
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand male 5000
+0 0 medium 0
+
+#24007
+alligator~
+an alligator~
+{HAn {Gall{Higa{Gtor{H lir smiles an evil grin at you.  Hmm...better watch your step.{x
+~
+Yup!  It's an alligator all right!  Big, nasty one too!  You look around for
+the Sea Elemental bonded with it and wonder just how the communication
+flow keeps intact.  But beware.  This reptile is by far more intelligent
+than any other ordinary alligator.
+~
+lizard~
+B 0 0 S
+70 11 20d100+50 1d500+0 12d5+0 chomp
+-35 -35 -35 -15
+NE 0 0 0
+stand stand male 5000
+0 0 large 0
+
+#24008
+fox~
+a red fox~
+{PSparks seem to emit from this {Rsc{Par{Rlet{P colored fox lir.{x
+~
+The fox glances your way with his small black eyes.  You hear the crackling
+of sparks as the beautiful lir looks for it's Flame Elemental bonded.
+~
+fox~
+B 0 0 S
+70 11 20d100+50 1d500+1 12d5+0 bite
+-35 -35 -35 -15
+HK 0 0 0
+stand stand female 5000
+0 0 small 0
+
+#24009
+ferret~
+a ferret~
+{bA cuddly {cfe{brr{get {bpicks up its nose and sniffs in your direction.{x
+~
+The ferret lirs are generally bonded with the Land Elementals.  They are 
+very clever and can normally get their bonded out of small sticky 
+situations. 
+~
+dog~
+B 0 0 S
+70 11 20d100+50 1d500+1 12d5+0 bite
+-35 -35 -35 -15
+KN 0 0 0
+stand stand male 5000
+0 0 tiny 0
+
+#24010
+griffin~
+a great griffin~
+{bA mystical {Yg{Wr{gi{Yf{Wf{bi{Yn{b hovers protectively over its bonded Elemental.{x
+~
+A mighty griffin has been spotted!  Generally bonded to the Aire
+Elementals, the griffins are an ancient and knowledgeable race of lirs.  
+This golden griffin turns its amber flecked eyes on you, and nods its 
+head.
+~
+dragon~
+B T 0 S
+70 11 20d100+50 1d500+5 12d5+0 claw
+-35 -35 -35 -15
+CF 0 0 0
+stand stand male 5000
+0 0 giant 0
+
+#24011
+fire drake~
+a fire drake~
+A scarlet fire drake rests here on its hunhes making tiny rings of {gsm{cok{ge{x.
+~
+A tiny puf of smoke drifts out of the pointed nostrils of the beautiful 
+drake.  Its scales radiate with an inner glow that only a Flame Elemental 
+could possess.
+~
+dragon~
+B T 0 S
+70 11 20d100+50 1d500+4 12d5+0 smash
+-35 -35 -35 -15
+CF 0 0 0
+stand stand male 5000
+0 0 giant 0
+
+#24012
+phoenix~
+a phoenix~
+What looks like a pyre of {Pfl{Ram{Pes,{x is really a gorgeous phoenix.
+~
+The phoenix lets out a piercing screech as it spreads its flaming wings 
+and arches into the sky to circle around its bonded.  The phoenix is not 
+to be trifled with.
+~
+song bird~
+B T 0 S
+70 11 20d100+50 1d500+0 12d5+0 blast
+-35 -35 -35 -15
+CF 0 0 0
+stand stand female 5000
+0 0 medium 0
+
+#24013
+owl~
+an owl~
+A fairly large {Wo{gw{cl{x is perched here, preening it's soft feathers.
+~
+The large twin discs of the owl's eyes peer out at you and measure you up.
+Hooting an approval, it launches itself into the sky to look for a small 
+snack.
+~
+song bird~
+B T 0 S
+70 11 20d100+50 1d500+3 12d5+0 peck
+-35 -35 -35 -15
+CF 0 0 0
+stand stand female 5000
+0 0 medium 0
+
+#24014
+sea lion~
+a sea lion~
+An adorable {Bs{Te{Ca {Nl{Bi{To{Cn{x wobbles up to you and snuzzles you with its muzzle.
+~
+You reach forward to pet the soft pallet of the sea lion's muzzle.  The 
+warm thick skin is slightly damp, revealing that the mammal just took a 
+dip in a nearby pool.
+~
+unique~
+B 0 0 S
+70 11 20d100+50 1d500+1 12d5+0 slap
+-35 -35 -35 -15
+CD 0 0 0
+stand stand female 5000
+0 0 large 0
+
+#24015
+tortoise~
+a giant tortoise~
+You realize that the giant rock you were sitting on is really a giant {Gto{Hrt{boi{Gse{x lir!
+~
+This ancient tortoise lir may look slow, but unlike most creatures, the 
+lirs are mythical and magical beasts that have abilities that far exceed 
+the normal animal capacity.
+~
+unique~
+B 0 0 S
+70 11 20d100+50 1d500+4 12d5+0 smash
+-35 -35 -35 -15
+CE 0 0 0
+stand stand male 5000
+0 0 large 0
+
+#24016
+Pegasus horse~
+a Pegasus~
+{gA beautiful winged {Yh{bo{Wr{Ys{be{g glides along the Aire currents.{x
+~
+With a snort, the beautiful winged horse glides to the ground to land 
+gracefully with a glop in front of you.  It's thick mane and tail groomed 
+to a shinning gleam.
+~
+unique~
+B T 0 S
+70 11 20d100+50 1d500+2 12d5+1 cleave
+-35 -35 -35 -15
+EI 0 0 0
+stand stand male 5000
+0 0 large 0
+
+#24018
+tayleb smith~
+Tayleb, the smith~
+{MTa{Nyl{Veb{M is giving forging advice to anyone who enters.{x
+~
+Her white highlighted, blue hair flows about her face and trickles over her
+shoulders. You are lulled into a comfortable dream by her deep blue eyes,
+only to be awakened by the dancing shimmer of her pale blue skin. She
+moves toward you with a fluid motion. In a soft voice that sounds like
+the crashing of waves, she asks, "Shall we begin or do you have other
+business you must tend to elsewhere?"
+~
+human~
+ABVGT DFHNO 0 S
+91 10 1d1+10000 1d1+5000 12d8+5 punch
+-60 -60 -60 -58
+CDFHK ABCD 0 0
+stand stand female 0
+0 0 large 0
+
+#24021
+Peasant~
+Peasant~
+A red bloodied peasant stands here waiting to be decanted.
+~
+The young peasant in the clothing of a local yokel has no distiguishing
+features unless it be that the clothing is very clean and their neck is kept
+bare.  The peasant is kept like a spare bottle of wine and is simply waiting
+to replace the current source of refreshment.
+~
+unique~
+BG 0 0 S
+15 0 15d20+150 1d10+2 0d0+0 punch
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand either 0
+0 0 medium 0
+
+#24022
+Airlord lord~
+The {WA{gi{Wr{gl{Wo{gr{Wd{x~
+The lord of the {Wa{gi{Wr{x is here helping {WA{gs{Wm{ga{Wd{gi{x in his voyages.
+~
+He resembles the same form as that of Asmadi.
+He is very difficult to see, seeing he is made of air.
+~
+unique~
+BG 0 0 S
+15 0 15d20+150 1d10+2 0d0+0 punch
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand male 0
+0 0 giant 0
+
+#24027
+Phill Banker~
+{bPhill the Banker{x~
+{bPhill the Banker{x is here, do you trust him with your money?
+~
+{bBefore you stands a plump man with a big grin.{x
+{bHe is dressed very nicely.{x
+{bHe is wearing a suit and a tie that makes him not so big.{x
+{bWhy the colour brown for his whole suit though is beyond you.{x
+~
+human~
+Bd DF 0 S
+1 1 10d10+10 10d10+10 1d1+2 slap
+0 0 0 0
+0 ABCD 0 0
+stand stand male 100000000000
+0 0 large 0
+
+#24028
+fire elemental jobber~
+Jobber~
+A fire elemental sits working on her spells.
+~
+Jobber is surrounded by {Rred{x flaming potions, her only sucess in magic.
+~
+human~
+BG 0 0 S
+15 1 1d1+599 1d1+299 1d1+1 bite
+0 0 0 0
+0 ABCD 0 0
+stand stand female 0
+0 0 small 0
+
+#24029
+zeenia shopkeeper~
+Zeenia~
+Zeenia is busy sorting though goods.
+~
+Zeenia is a frail woman, older in age, she allows Vaggers and 
+homeless stay in her shop out of the weather, giving them a warm
+cup of tea and a cot to rest on. Her smile is warm as her heart.
+~
+human~
+BG 0 0 S
+110 1 1d1+4999 1d1+4999 1d1+1 divine
+-90 -90 -90 -85
+0 ABCD 0 0
+stand stand female 0
+0 0 medium 0
+
+#0
+
+#OBJECTS
+
+#24000
+fountain~
+A cascading waterfall~
+A beautiful cascading {Twa{Cte{grf{Tall{x looks inviting~
+glass~
+fountain 0 0
+99999 99600 water 0 0
+0 0 0 P
+E
+waterfall~
+Water roars down the jagged rock to cascade into the pool below.
+~
+
+#24001
+stream~
+A trickling stream~
+A soft trickling stream softly flows the length of the room.~
+stone~
+fountain 0 0
+99999 99600 water 0 0
+0 0 0 P
+E
+stream~
+The tiny stream flows from the door of water and runs the length of the
+room to suddenly disappear before the far wall.
+~
+
+#24002
+table banquet~
+A banquet table~
+A banquet table spreads out before you.~
+wood~
+furniture 0 0
+8 99999 DG 150 150
+0 0 0 P
+E
+table~
+The massive table spreads to almost run the length of the northern wall.
+A thick tablecloth covers it's top, with a multitude of colors
+representing the four precious elements.
+~
+
+#24003
+white bench~
+A white wooden bench~
+A comfortable white wooden bench is shaded by a maple tree.~
+wood~
+furniture 0 0
+3 999 EHK 150 150
+0 0 0 P
+E 
+bench~
+A sturdy looking wooden bench was put under a huge maple tree.  It's
+long enough to pull up your feet and read a book.
+~
+
+#24004
+hammock~
+swinging hammock~
+Wow!  A cozy hammock has been set up between two trees!~
+cloth~
+furniture 0 0
+2 999 EHK 150 150
+0 0 0 P
+
+#24005
+gazebo~
+a secluded gazebo~
+Rose vines climb the frame of the secluded gazebo.~
+wood~
+furniture 0 0
+2 999 CFIL 150 150
+0 0 0 P
+E
+gazebo~
+A beautiful gazebo was built in this corner of the courtyard, for those
+that want privacy and a little bit of seclusion.  Tiny red, white, and
+pink roses dot the entire canopy and frame.
+~
+
+#24006
+spring~
+a spring~
+A small cool spring babbles to itself in the far corner.~
+glass~
+fountain 0 0
+99999 99600 water 0 0
+0 0 0 P
+
+#24007
+garden~
+vegetable garden~
+A well kept garden grows here in neat little rows.~
+stone~
+container 0 0
+300 0 0 100 100
+0 0 0 P
+E
+garden~
+You walk gently through the narrow neat rows of the garden.  Vegetables
+of every type are here.  The plump green sweetpeas look so tempting.
+~
+
+#24008
+huneysuckle~
+A huneysuckle bush~
+A very large bush of white huneysuckle grows in the corner.~
+stone~
+container 0 0
+300 0 0 100 100
+0 0 0 P
+E
+bush~
+The sweet aroma of the beautiful flowers fills your nostrils with
+childhood memories of outdoor play.  You look deep inside the bush for
+a thick branch to take with you.
+~
+
+#24009
+sweetpea~
+A plump green sweetpea~
+A juicy sweetpea is just waiting for the picking.~
+pill~
+pill G A
+15 'sanctuary'  'protection evil' 'protection good' 'create food'
+15 1 200 P
+E
+sweetpea~
+You must have gotten this from the Knot's garden.
+~
+
+#24010
+huneysuckle~
+A branch of huneysuckle~
+A beautiful scented branch of huneysuckle is here.~
+wood~
+treasure 0 A
+0 0 0 0 0
+0 2 0 P
+
+#24012
+tsunami~
+tsunami treasure~
+A shot glass made of sea glass is left here.~
+glass~
+drink 0 A
+3 3 'white wine' 0 0
+0 0 25 P
+E
+tsunami~
+The swirling blues and greens of this drink reminds you of a thunderous
+stormy ocean.
+~
+
+#24013
+twister~
+Thera twister~
+If you're the faint of heart, do not try this drink.~
+glass~
+drink 0 A
+4 4 'brandy' 0 0
+0 0 25 P
+E
+twister~
+This drink looks like a twirling tornado.
+~
+
+#24014
+tranquil~
+tranquil on the rocks~
+Someone left a murky fluid type drink.~
+glass~
+drink 0 A
+3 3 'ale' 0 0
+0 0 25 P
+E
+tranquil~
+The rich juices of the Land was used to make this tangy drink.
+~
+
+#24015
+nectar~
+nectar of the Land~
+A specialty drink is left here.  *hic*~
+glass~
+drink 0 A
+2 2 'white wine' 0 0
+0 0 25 P
+E
+nectar~
+Sebastian's specialty drink glows with a bright green aura.  You wonder
+what is really in this concoction.
+~
+
+#24016
+inferno~
+towering inferno~
+This drink could burn more than your taste buds.~
+glass~
+drink 0 A
+5 5 'firebreather' 0 0
+0 0 25 P
+E
+inferno~
+The drink is in a thick ruby red glass.  The spicy smell brings tears to
+your eyes.
+~
+
+#24017
+crystal~
+crystal water~
+A sparkling soothing drink was left here.~
+glass~
+drink 0 A
+5 5 'water' 0 0
+0 0 25 P
+E
+crystal~
+You taste a sip of the sparkling water.  With each sip afterwards, you
+discover a new taste.
+~
+
+#24018
+gale~
+gale ale~
+This drink will bring a soothing sensation like a calm gale of wind.~
+glass~
+drink 0 A
+3 3 'ale' 0 0
+0 0 25 P
+E
+gale~
+You look in this glass and swirl your fingertip around the soft white
+mist.
+~
+
+#24019
+fire~
+prairie fire~
+It looks like a shotglass is on fire!~
+glass~
+drink 0 A
+2 2 'firebreather' 0 0
+0 0 25 P
+E
+prairie fire~
+Wow!  This drink makes your eyes water just looking at it!
+~
+
+#24020
+noodles nicotine~
+{CN{Hyc{Cta{Hsi{Ca{H's {YNicotine {bNoodles{x~
+Some of {CN{Hyc{Cta{Hsi{Ca{H's {YNicotine {bNoodles{x were left here.~
+food~
+food 0 A
+34 40 0 0 0
+0 1 25 P
+E
+noodles nicotine~
+Hmmmm....these noodles look good! Smell good..well that's a different 
+matter.
+~
+
+#24021
+shortcake~
+{MSeb{Vast{Mian's {Wscrumptious {Pstra{Rwbe{Prry {bshortcake{x~
+A piece of {Wscrumptious {Pstra{Rwbe{Prry {bshortcake{x was left here.~
+food~
+food 0 A
+20 25 0 0 0
+0 1 20 P
+E
+shortcake~
+This shortcake is topped with fresh Oran strawberries and cream!
+~
+
+#24022
+tofu~
+{BTay{Nleb's {Ttan{Ctal{Tizi{Cng {Yto{Bfu{x~
+Makes you wonder why someone has left {BTay{Nleb's {Yto{Bfu{x here.~
+food~
+food 0 A
+30 35 0 0 0
+0 1 25 P
+E 
+tofu~
+Tofu that looks like seaweed is very healthy, may not look or taste 
+good, but then who eats things that are good for you?
+~
+
+#24023
+apricot~
+{bAsy{Hlynn's {WAma{Czin{Wg {bAp{Hric{bots{x~
+{bAsy{Hlynn's {bAp{Hric{bots{x were dropped here.~
+food~
+food 0 A
+15 25 0 0 0
+0 1 15 P
+E
+apricot~
+Dew drops glisten off this scrumptious apricot.
+~
+
+#24024
+zebra ziti~
+{HZei{Gn's {cZ{We{cb{Wr{ca {PZ{Ri{Pt{Ri{x~
+Tis a shame someone dropped their {cZ{We{cb{Wr{ca {PZ{Ri{Pt{Ri{x here.~
+food~
+food 0 A
+35 40 0 0 0
+0 1 30 P
+E
+zebra ziti~
+A bowl of tasty pasta with tender zebra strips is very filling.
+~
+
+#24030
+oran home portal painting~
+{BO{Wr{Ga{Rn{x~
+~
+energy~
+portal O 0
+0 0 A 5600 0
+0 0 0 P
+E
+painting oran portal~
+You gaze at the beautiful painting as emotions of hate, betrayal, and
+pity cloud your vision. The artist managed to capture a glimpse of
+Beldan, "Oran's City of Dreams", before the holocaust at Fire Circle.
+Elementals walk the market streets unafraid, and most of all happy
+and unknowing of the disaster that is about to occur.
+~
+
+#24031
+portal vortex chessboard~
+A {gswi{crlin{gg {WV{go{cr{Wte{cx{x~
+A swirling vortex of {cblack{x and {Wwhite {gmist{x is here.~
+energy~
+portal O 0
+0 0 A 29904 0
+0 0 0 P
+E
+vortex mist~
+You peer into the angry mist and can barely see a few figures puttering
+about, some white and some black.
+~
+
+#24032
+portal star hole~
+A {Ys{bt{Ya{br{x-shaped {Mhole{x~
+There is a star-shaped hole cut out in the ceiling of the gazebo~
+energy~
+portal O 0
+0 0 A 11702 0
+0 0 0 P
+E
+portal star hole~
+As you sit inside the gazebo you glance up to the ceiling.  A strange 
+{Mp{Vu{Mr{Vp{Ml{Ve{x light filters down to form a star on the gazebo's 
+floor. As your gaze becomes more intense you feel yerself being sucked into
+the tiny hole.
+~
+
+#24033
+anvil private knot~
+private anvil~
+A privately owned Anvil of Power rests here, no doubt a great clan's 
+heirloom.~
+steel~
+anvil RYOT 0
+0 3 1 0 3
+1 2500 100000 P
+E
+anvil private~
+A large, steel, well-used anvil is here. But The life has not yet been
+beaten out of it. You could still make a fine weapon on this hunk of 
+metal. There are an incredible number of tiny pockmarks and blemishes 
+on this piece of equipment but it is still serviceable and being put 
+to good use.
+~
+
+#24035
+heap fissure~
+A heap of rocks~
+A heap of rocks tumbles out of a fissure carved by the spring.~
+stone~
+container MO 0
+1000 0 0 1000 100
+1 1000 10 P
+E
+heap fissure~
+The spring seems to be dissolving limestone, breaking loose
+strange dark stones which are very heavy.
+~
+
+#24036
+sea water~
+very salty water~
+An inlet from the sea laps softly at the sand.~
+water~
+furniture MOIRY 0
+30 2000 CFIL 150 150
+1 2000 10 P
+E
+sea water~
+It seems to be saltier than normal sea water. You can float in it
+in full armor! Kind of reminds you of a sensory deprivation chamber,
+doesn’t it?  Doesn’t it?... Oh, are you asleep?  Pleasant dreams!
+~
+
+#24037
+spring~
+A clear, cold spring.~
+A spring enters the grotto from a great crack in the northeast wall.~
+water~
+fountain MO 0
+1000 1000 water 0 0
+1 1500 10 P
+E
+spring~
+It is clean and very cold.  Must come from a melting glacier somewhere.
+~
+
+#24038
+sleeves fire leadereq knots~
+{CSleeves{x of {RFire{x~
+Only a QuarterKnot Leader would be able to touch this fire.~
+fire~
+armor ABGORTY AI
+23 23 23 21 0
+50 0 8000 P
+A
+1 1
+A
+3 3
+A 
+4 1
+A
+5 3
+A
+12 40
+A
+13 60
+A
+18 5
+A
+19 5
+
+#24039
+sleeves air leadereq knots~
+{CSleeves{x of {WAire{x~
+Only a QuarterKnot Leader would be able to fly high enough to pick this up.~
+cloud~
+armor ABGORTY AI
+23 23 23 21 0
+50 0 8000 P
+A
+1 1
+A
+3 3
+A 
+4 1
+A
+5 3
+A
+12 40
+A
+13 60
+A
+18 5
+A
+19 5
+
+#24040
+sleeves water leadereq knots~
+{CSleeves{x of {BWater{x~
+Only a QuarterKnot Leader could swim this deep to pick these up.~
+water~
+armor ABGORTY AI
+23 23 23 21 0
+50 0 8000 P
+A
+1 1
+A
+3 3
+A 
+4 1
+A
+5 3
+A
+12 40
+A
+13 60
+A
+18 5
+A
+19 5
+
+#24041
+sleeves soil leadereq knots~
+{CSleeves{x of {bLand{x~
+Only a QuarterKnot Leader could hold such a blessed soil.~
+oran soil~
+armor ABGORTY AI
+23 23 23 21 0
+50 0 8000 P
+A
+1 1
+A
+3 3
+A 
+4 1
+A
+5 3
+A
+12 40
+A
+13 60
+A
+18 5
+A
+19 5
+
+#24050
+huld gift oran~
+{GH{Hu{gld{H'{Gs {GG{Hift {gof {GO{Hran{x~
+A small circle of granite made from Huld's Throne.~
+Granite~
+armor ABS AB
+6 6 6 5 0
+20 2 2000 P
+A
+13 10
+A
+17 -2
+A
+3 1
+A
+4 1
+E
+huld gift oran~
+Given by Huld to her Children to aid them when they are in need.
+~
+E
+eqstat~
+Huld's Gift of Oran
+stock: 4 points
+
+1 point: +10 hp
+1 point: -2 ac
+2 points: +1 int, +1 wis
+= 4 points
+~
+
+#24051
+spirit new moon~
+{CS{Tp{gir{Ti{Ct {Wo{gf {Wt{ghe {WN{cew {WM{coon{x~
+A faint glimpse of a battle Worn Soul redised here.~
+Spirit~
+armor ABHS AQ
+10 10 10 9 0
+30 3 3000 P
+A
+13 20
+A
+18 2
+A
+19 2
+A
+1 1
+E
+spirit new moon~
+Oran's small reminder of the {PFire {BCircle.{x
+~
+E
+eqstat~
+Spirit of the New Moon
+stock: 5 points
+
+2 points: +20 hp
+2 points: +2 hit/+2 dam
+1 point: +1 str
+= 5 points
+~
+
+#24052
+aura elemental power~
+{CA{Tur{Ca {gof {PE{Rl{Ge{Hm{We{gn{Ct{Ta{Wl {PP{Ro{Bw{Re{Pr{x~
+A circlet of swirling colors, {GGreen, {PRed, {gGrey, and {BBlue.{x~
+Rainbow~
+armor ABS AE
+11 11 11 10 0
+35 3 3500 P
+A
+12 10
+A
+13 15
+A
+18 2
+A
+19 2
+A
+5 1
+E
+aura elemental power~
+Instilling the wearer the power of the elements, this circlet beams the light to bring back the good or Oran.
+~
+E
+eqstat~
+Aura of Elemental Power
+stock: 5.5 points
+
+1.5 points: +15 hp
+1 point: +10 mana
+2 points: +2 hit/+2 dam
+1 point: +1 con
+= 5.5 points
+~
+
+#24053
+gauntlet oran~
+{HGa{cun{Gtl{Het{cs o{Gf O{Hra{Cn{x~
+Soft electrum gauntlets are left here.~
+Electrum~
+armor AB AH
+15 15 15 14 0
+45 4 4500 P
+A
+12 15
+A
+13 20
+A
+18 2
+A
+19 2
+A
+17 -2
+E
+gauntlet oran~
+These soft metal gauntlets were fashioned in the old Oran style out of the prescious metal found in Elemental Canyon.
+~
+E
+eqstat~
+Gauntlets of Oran
+stock: 6.5 points
+
+2 points: +20 hp
+1.5 points: +15 mana
+2 points: +2 hit/+2 dam
+1 point: -2 ac
+= 6.5 points
+~
+
+#24054
+swirling myst~
+{CSw{Wir{gli{Tng {CM{Wy{gs{Tt{x~
+A gently swirling myst of air forms on the ground.~
+Aire~
+armor ABS AC
+16 16 16 15 0
+50 5 5000 P
+A
+12 10
+A
+13 20
+A
+18 2
+A
+19 2
+A
+17 -2
+A
+4 1
+E
+swirling myst~
+The element of Aire forged into a small token of power.
+~
+E
+eqstat~
+Swirling Myst
+stock: 7 points
+
+2 points: +20 hp
+1 point: +10 mana
+2 points: +2 hit/+2 dam
+1 point: -2 ac
+1 point: +1 wis
+= 7 points
+~
+
+#24055
+boots beldan thief~
+{bBoots {Wof a {MB{Ve{Ml{Vd{Ma{Vn {MTh{Vi{Mef{x~
+A Beldan thief is walking around barefoot without his boots.~
+Leather~
+armor ABS AG
+18 18 18 17 0
+55 5 5500 P
+A
+14 25
+A
+18 2
+A
+19 2
+A
+20 -2
+A
+9 1
+E
+boots beldan thief~
+One of Kai's Waterling flock has left their muddy ol' boots here.
+~
+E
+eqstat~
+Boots of a Beldan Thief
+stock: 7.5 points
+
+2.5 points: +25 move
+2 points: +2 hit/+2 dam
+2 points: -2 saves
+1 point: +1 age
+~
+
+#24056
+reader cloak~
+{PR{Re{Ga{Hd{We{gr{C'{Ts {WC{gl{co{ga{Wk{x~
+A finely made cloak sits here. It will be worth many Silean coin in the underground market!~
+Silk~
+armor ABS AK
+20 20 20 19 0
+60 6 6000 P
+A
+12 20
+A
+13 20
+A
+18 4
+A
+19 4
+E
+reader cloak~
+A Traditional symbol of {PZorah's{x readers that the Oran children dred to see.
+~
+E
+eqstat~
+Reader's Cloak
+stock: 8 points
+
+2 points: +20 hp
+2 points: +20 mana
+4 points: +4 hit/+4 dam
+= 8 points
+~
+
+#24057
+band flame~
+{PB{Wa{Rn{Pd {gof {PF{Yl{Ra{Ym{Pe{x~
+A gently pulsating ring of fire.~
+Fire~
+armor ABS AB
+21 21 21 20 0
+65 6 6500 P
+A
+12 35
+A
+18 4
+A
+19 6
+E
+band flame~
+A ring made of the power of flame, amazingly cool to the touch.
+~
+E
+eqstat~
+Band of Flame
+stock: 8.5 points
+
+3.5 points: +35 mana
+5 points: +4 hit/+6 dam
+= 8.5 points
+~
+
+#24058
+lirrel sight~
+{WL{gi{cr{Wr{ge{cl{W'{gs {cS{Wi{gg{ch{Wt{x~
+A {gMis{Wt{gy{x white aura of air swirls on the ground.~
+Blindness~
+armor ABS AE
+23 23 23 22 0
+70 7 7000 P
+A
+13 20
+A
+18 6
+A
+19 6
+A
+17 -2
+E
+lirrel sight~
+Sightless Sight for the Oran Children in their battle against the {YSileans{x and {PZorah{x.
+~
+E
+eqstat~
+Lirrel's Sight
+stock: 9 points
+
+2 points: +20 hp
+6 points: +6 hit/+6 dam
+1 point: -2 ac
+= 9 points
+~
+
+#24059
+zorah oppression~
+{gZ{co{Prah{c'{gs {gOp{cpr{Pes{csi{gon{x~
+Battlesounds and tears of blood.~
+Wrath~
+armor ABHS AQ
+25 25 25 24 0
+75 7 7500 P
+A
+13 20
+A
+12 30
+A
+18 4
+A
+19 4
+E
+zorah oppression~
+A {PRa{Yg{Pi{Yng {PIn{Yf{Pe{Yr{Pno{Y,{x A {gSo{cf{gt B{cre{gez{ce{g,{x A {BRol{Cli{Bng {CWa{Bv{Ce{B,{x and A {GTre{Hm{Ybl{Gin{Yg {HEa{Yr{Gth{YQu{Ha{Gke{Y.{x
+~
+E
+eqstat~
+Zorah's Oppression
+stock: 9.5 points
+
+2 points: +20 hp
+3 points: +30 mana
+4 points: +4 hit/+4 dam
+= 9 points
+~
+
+#24080
+decanter water container~
+a {Wdecanter{x of {ge{Wn{gd{Wl{ge{Ws{gs {Tw{Ba{Tt{Be{Tr{x~
+A small container of {Tw{Ba{Tt{Be{Tr{x rests here.~
+Cut Diamond~
+fountain 0 0
+0 0 'water' 0 0
+0 1 0 P
+
+#24081
+potion health~
+a potion of great {Ph{Re{Pa{Rl{Pt{Rh{x~
+A potion rests here giving off the great feeling of {Wlife.{x~
+crystal~
+potion ABFGOY AO
+15 'flameshield' 'cure crit' 'sanctuary' 'pass door'
+15 0 0 P
+
+#24082
+pocket of air bed~
+a pocket of {Wa{gi{Wr{x~
+A pocket of {Wa{gi{Wr{x swirls here.~
+air~
+furniture 0 0
+2 0 ABFGOY 150 150
+10 30000 0 P
+E
+pocket air~
+A pocket of air swirls here.
+~
+
+#24083
+shefek lost feathers~
+{WS{Yhe{bfe{Yk'{Ws L{gos{Wt F{Yea{bth{Yer{Ws{x~
+A Jumbled pile of soft {bF{Ye{ba{Wt{Yh{ber{Ys{x~
+feathers~
+container ABHY AP
+750 0 0 50 50
+20 2 2000 P
+E
+shefek lost feathers~
+A Carefully woven bag of fine feathers made of a great {YK{bir{gi{ban{x.
+~
+
+#24084
+vaggers cot~
+{bVa{Ygg{ber{Ys{x Cot~
+A Slightly stained cot rests along the wall.~
+dirty canvas~
+furniture ABY AP
+2 0 BEHK 150 150
+20 10 2000 P
+E
+vaggers cot~
+A cot normally found in the Grinning Bird, some Vagger must have lifted it.
+~
+
+#24085
+avardes ore~
+{GAv{Pa{Grd{Pe{Gs O{Rre{x~
+A bar of ore sits here.~
+Avardes Ore~
+material 0 AO
+-2 2 -1 0 0
+50 5 30000 P
+E
+avardes ore~
+Avardes Ore.
+~
+
+#24086
+silean torch~
+{bSilean {YTo{Pr{Ych{x~
+Beldan's Butcherboys left their torch here.~
+fire~
+light ABIS A
+0 0 -1 0 0
+35 3 3500 P
+E
+silean torch~
+A Torch made from the materials found in an Oran Waterling tunnel.
+~
+
+#24088
+Pit~
+{MBo{btt{Bom{gle{Nss{x {bPi{bt{x {NOf{x {gWo{Bnd{ber{Ms?{x~
+{MBo{btt{Bom{gle{Nss{x {bPi{bt{x {NOf{x {gWo{Bnd{ber{Ms?{x~
+void~
+container ABGHILMORSTY 0
+100000 0 0 1000 30
+1 10 10 P
+E
+Pit~
+{WAs you look into this pit you can not see the bottom.{x
+{WYou see lots of items that you could use for yourself, but no bottom.{x
+{WYou wonder how something could be so deep.{x
+{WBeside the pit there's a hook that retrieves whatever you tell it you want.{x
+{WBefore you have time to wonder more the hook rises and waits for your commands.{x
+~
+
+#24089
+vial liquid fire~
+{RA Vial of {YLiquid {RFire{x~
+{RA Vial of {YLiquid {RFire{x sits by {RJobber{x~
+fire~
+potion 0 A
+15 'cure critical' 'cure critical' 'bless' 'pass door'
+15 0 0 P
+E
+vial liquid fire~
+{RYou are unsure of the contents but you  drink it anyway.{x
+~
+
+#24090
+kingsize bed~
+A Tall Kingsize bed with a canopy of {Rfl{Yam{Res{x~
+{RThe red silk sheets invite you to rest{x~
+wood~
+furniture OR P
+5 0 EHK 100 150
+1 100 0 P
+
+#0
+
+#ROOMS
+
+#24000
+Avardes {HMo{Gunt{Hai{Gns{x~
+The skyline that the mountains produce is simply breathtaking.
+Trees of every shape and size blanket the entire landscape.  In a few
+places, where the forest is sparse, you can see the craggy faces of the
+stone mountains.  To the north side you see a waterfall cascading down
+the jagged cliff.  When you gaze up in the {Ts{Ck{Ty{x you see the winged lirs
+circling, diving, and gliding through the warm {Wa{gi{cr{We{x current.
+~
+0 K 5
+D0
+A mountain path
+~
+~
+0 -1 9201
+D4
+A mountain path leading to Sadar's Keep.
+~
+~
+0 -1 24001
+S
+
+#24001
+{bP{Ya{bt{Yh{x to {MSa{bda{Br's {NK{ge{ce{Hp{x~
+	The rocky path leads you on a winding trail around the mountain. 
+You breathe the clear air in deeply.  How fresh and untainted it smells!
+Your step is quicker now as you climb the steep trail.  The birds call a 
+welcome to you.  How peaceful and wonderful this place is!
+~
+0 K 5
+D5
+The path leads back down the mountain.
+~
+~
+0 -1 24000
+D2
+A winding path.
+~
+~
+0 -1 24002
+S
+
+#24002
+A winding path~
+	Your head is bent as you progress up the mountain.  You wonder 
+when this path would end and bring you to Sadar's Keep.  There is a fawn 
+further down the path and if you look a little closer you can see it's
+mother watching protectively from beneath a very large shrub.  The rustling 
+in the tree tops above warn you that your every move is being watched by the 
+Knot.  Whether you are a member or friend, you have a deep respect for 
+the bond growing within it.
+~
+0 K 5
+D2
+You see a large fortress to the south.
+~
+south path~
+0 -1 24003
+D0
+The mountain path leads back down the mountain.
+~
+~
+0 -1 24001
+S
+
+#24003
+{MSa{bda{Br's {NK{ge{ce{Hp{x~
+	Standing in front of the massive fortress you suddenly feel tiny.  
+The materials that were used is of the Land;  wood, stone, and precious 
+minerals.  You hear noises from within, it is simply buzzing with activity.
+The rich color of the elements is displayed on the {Cbanners{x that
+flap in the wind above the walls.
+~
+0 K 1
+D0
+A winding path
+~
+~
+0 -1 24002
+D2
+An iron portcullis is the sole gate entrance to the Keep.
+~
+portcullis~
+1 -1 24004
+E
+banners~
+Banners or both draped over the fortress wall and flapping in the warm 
+breeze above you.  Brilliant colored symbols of the {PF{Rl{ba{Pm{Re, {HL{Ga{bn{Hd, {WA{gi{cr{ge{x, 
+and {TS{Be{Ca{x compliment the gray stones of the Keep.
+~
+S
+
+#24004
+{MCe{bnt{Ber {bco{Nur{gty{Har{Md{x~
+	Sun spills into this open courtyard.  Brilliant colored birds
+twitter and sing in the oak and cherry trees that grow up through the 
+cobblestoned covered ground.  Some of the Queen's Quarter Knot have come
+out for a picnic.  Their lir, some as small as a fox, and some as large 
+as a bear, rest and play not too far from their bonded.  The courtyard 
+stretches around both to the east and west to semicircle the Keep.
+~
+0 K 1
+D0
+The portcullis of Sadar's Keep.
+~
+portcullis~
+1 -1 24003
+D1
+Northeast Corner of the Courtyard.
+~
+~
+0 -1 24006
+D2
+Great Hall Entrance
+~
+Hall Entrance~
+1 -1 24005
+D3
+Northwest Corner of the Courtyard.
+~
+~
+0 -1 24007
+D5
+~
+~
+0 -1 24038
+S
+
+#24005
+{TGre{Cat Ha{bll E{Hntra{Ync{Pe{x~
+This long hallway stretches half the length of the Keep.  A thick
+deep blue carpet cushions your feet as you walk through the hall.  
+Tapestries of the Great Battles fought in Oran are hung on both sides.  
+Huge {Cstained glass {xwindows illuminate your journey, throwing a rainbow
+of color across your path.
+~
+0 DK 0
+D0
+Hall Entrance
+~
+hall entrance~
+1 -1 24004
+D2
+Great Hall extends south
+~
+~
+0 -1 24008
+E
+stained glass~
+The sunlight filters through theses panes of colored glass.  One window
+depicts a blazing {RF{Pl{Ya{Pm{Re{x.  {RReds, {boranges{x, and {Yyellows {xseem to
+sparkle and dance right before your eyes.  The other window portrays a 
+swirling gust of wind.  Spiraling greys, {Wwhites{x, and light {Cblues {x
+seem to float about as the sun brings it to life.
+~
+S
+
+#24006
+Northeast Corner of the {HCo{Gur{Hty{Gar{Hd{x~
+The courtyard is used by the Elementals as a place to relax and 
+enjoy the Land around them without having to deal with pressures and 
+cruelty of the world outside the Keep.  There are a few benches scattered
+about, some in the shade and some warming in the sun.
+~
+0 K 1
+D2
+The courtyard continues south.
+~
+~
+0 -1 24009
+D3
+The center courtyard
+~
+~
+0 -1 24004
+S
+
+#24007
+Northwest Corner of the {HCo{Gur{Hty{Gar{Hd{x~
+	Music and laughter can be heard all around you as the members and 
+friends of the Queen's Quarter Knot assemble in the courtyard to relax 
+after their long journeys and exciting adventures.
+~
+0 K 1
+D2
+The courtyard continues south.
+~
+~
+0 -1 24010
+D1
+The center courtyard
+~
+~
+0 -1 24004
+S
+
+#24008
+{WGr{gea{ct {MHa{Hll{x~
+	You walk to the southern end of the Great Hall.  Large solid oak 
+doors are to the south.  Gold and silver veins swirl in twisting patterns
+embedded in the deep color of the wood.  Two other {Cstained glass {xwindows
+are set in either side of the hall.  The muffled sound of rushing {Tw{Ca{Wt{Te{Cr{x 
+can be heard from behind the double doors.
+~
+0 DK 0
+D0
+The Great Hall continues north.
+~
+~
+0 -1 24005
+D2
+Double doors lead to the Ball Room.
+~
+double doors~
+1 -1 24011
+E
+stained glass~
+The windows portray the elements of {HL{Ga{bn{Hd{x and {TS{Ce{Ba{x.  To your left 
+is the array of deep and light blues of the {BSea.  {xThe rolling panes 
+give off a comfortable feeling of the sea after the calm.  The other 
+window is a motley of {Hgreens {xand {bbrowns{x.  Tiny woodland creatures
+peek out from under the cover of brush and trees.
+~
+S
+
+#24009
+{BSo{Nut{Bhe{Nas{Bt{x Corner of the {HCo{Gur{Hty{Gar{Hd{x~
+	There is a {Cgazebo{x in the center of the yard.  It is surrounded by
+a white terrace that is covered in {Rred{x, {Wwhite{x, and {Ppink{x roses climb and 
+cover.  A small spring {Cba{Wb{Ybl{Ces{x to itself in the far corner.  This area 
+makes a wonderful private meeting place.
+~
+0 KJ 1
+D0
+The courtyard extends to the north.
+~
+~
+0 -1 24006
+D1
+A simple door leads to the conservatory.
+~
+simple door~
+1 -1 24012
+S
+
+#24010
+{MSou{Vth{Mwe{Vst Corner of the {HCo{Gur{Hty{Gar{Hd{x~
+	A small garden of vegetables lines the southern end of the 
+courtyard.  Rows and rows of different flowers spread across the rest of 
+the yard.  A small stoned path leads a trail around for those that work
+with the {HL{Ga{bn{Hd{x.  An easel is set up to one side.  Looks as if an Elemental 
+had started a beautiful landscape {Cpa{Win{Yti{Cng{x.
+~
+0 K 1
+D0
+The courtyard extends to the north.
+~
+~
+0 -1 24007
+D3
+A simple door leads to the western conservatory.
+~
+simple door~
+1 -1 24013
+S
+
+#24011
+{TQu{Har{gte{Pr K{Yno{Wt B{Rall{G R{Co{Go{Cm{x~
+        The first thing your senses take in is the roar of the {Cwaterfall
+{xthat cascades from the north wall.  The entire wall looks as if the
+fortress was built around this natural {Cwaterfall{x.  The rush of the {Cwa{Tt{Wer{x
+flows over the {cdark {gg{cr{ga{cy{x jagged {cr{go{cc{gk{x to collect in a pond at the base.
+Schools of large {Porange{x and {Yyellow{x {Pgo{Yld{bf{Yis{Ph{x, with their pillowing fins and
+tails swim gently in the pond.  A group of ten or eleven monarch
+{bbu{Ytt{We{brf{Yli{We{bs{x flutter about dancing in the {Ysun{x particles that filtered
+through the crystal domed canopy overhead.  It is here were the Quarter
+Knot holds their many celebrations and ceremonies.  The room is truly
+magnificent.
+~
+0 DK 1
+D0
+Double doors lead out to the Great Hall.
+~
+double doors~
+1 -1 24008
+S
+
+#24012
+{ME{Va{Ms{Vt{M C{Vo{Mn{Vs{Me{Vr{Mv{Va{Mt{Vo{Mr{Vy{x~
+	{MYou step into the East Conservatory.  {VThe room is colored in tones 
+of {Mpu{Vrp{Mle{x and dark {Bb{Nlu{Be{x.  {BThe conservatories are normally used for studies 
+and quiet meetings.  {NA spiraling staircase leads up to the heart of the 
+fortress.{x
+~
+0 KD 1
+D3
+A simple door leads back to the courtyard.
+~
+simple door~
+1 -1 24009
+D4
+A spiraling metal staircase leads further into the Keep.
+~
+~
+0 -1 24014
+S
+
+#24013
+{GW{He{Gs{Ht {GC{Ho{Gn{Hs{Ge{Hr{Gv{Ha{Gt{Ho{Gr{Hy{x~
+	{GSoft cushioned chairs line the walls of this circular room. {H Soft 
+harp music can be heard coming from a magical {Ygo{bld{Yen {cd{Ya{ci{Ys{x.  {GThis room is 
+decorated in shades of {Ggr{Hee{Gn{x.  {HA spiraling metal staircase leads up 
+to the western part of the Keep.{x
+~
+0 KD 1
+D1
+A simple door leads back to the courtyard.
+~
+simple door~
+1 -1 24010
+D4
+A spiraling metal staircase leads further up into the Keep.
+~
+~
+ 0 -1 24016
+S
+#24014
+{MEa{Vste{Mrn{V L{Man{Vdi{Mng{x~
+	The staircase takes you up to a {Mdark purple{x colored landing.  
+Opened windows reveal the Land that surrounds the Keep on the Eastern 
+side.  The open archway to your south leads out to the catwalk.
+~
+0 DK 1
+D2
+A narrow open catwalk stretches to the south.
+~
+~
+0 -1 24015
+D5
+The spiral staircase leads back to the conservatory.
+~
+~
+0 -1 24012
+S
+
+#24015
+A somewhat narrow catwalk~
+	The walkway has been smoothed over from the many trips the 
+Elementals have made from inside the Keep to their courtyards outside.  
+It may look narrow, but it is wide enough to let even the largest of lir 
+pass without fear of falling.
+~
+0 K 1
+
+D0
+The landing and the staircase is to the north.
+~
+~
+0 -1 24014
+D2
+The end of the Elemental Hall lies to the south.
+~
+~
+0 -1 24018
+S
+
+#24016
+{HWe{Gst{Hern{G Lan{Hdi{Gng{x~
+	The staircase takes you to the {Gdark green{x colored Landing.  The 
+warm breeze which drifts in through the opened windows fill your nostrils
+with the earthen smells of both the dampness and dryness of the Land 
+outside.  The catwalk lies to your south.
+~
+0 DK 1
+D2
+A narrow open catwalk stretches to the south.
+~
+~
+0 -1 24017
+D5
+The spiral staircase leads back to the conservatory.
+~
+~
+0 -1 24013
+S
+
+#24017
+A somewhat narrow catwalk~
+	The well worn path reveals the many times the Elementals have 
+used this access to the inside of the Keep.  Over the embankment to the 
+far south, you can see the vast {TSi{Cl{Mea{Tn {WO{Tc{Ce{Wa{Tn{x.  The beginning of Elemental 
+Hall lays to the south.
+~
+0 K 1
+D0
+The landing and the staircase lays to the north.
+~
+~
+0 -1 24016
+D2
+The end of the Elemental Hall is to the south.
+~
+~
+0 -1 24028
+S
+
+#24018
+Elemental Hall~
+	This long hallway brings you to the heart of the Keep.  Down it's 
+length, there are various rooms depicting the different elements.  There 
+is a {Cb{Yo{Wo{Ck{x here lying on a sturdy wooden pedestal beneath a large, 
+closed glass window. The Knot insignia is imbedded on the cover.
+~
+0 K 0
+D0
+The open catwalk leads back to the stairwell.
+~
+~
+0 -1 24015
+D3
+The hallway is long and filled with treasured surprises.
+~
+~
+0 -1 24019
+E
+book~
+It apears to contain the histories of the Elementals.  As you flip open
+the first page, you notice that there are several {Csections{x to the book.
+~
+E
+sections~
+{CPage3{x     Calvaria
+{CPage4{x     Aerylene
+{CPage5{x     Ilyatha
+{CPage6{x     Danzig
+{CPage7{x     Aeris
+{CPage8{x     Ladyhawk
+{CPage9{x            
+Page10
+Page11
+Page12
+{CPage14{x    Suntzu
+{CPage15{x    Dakkon
+{CPage16{x    Alexia
+{CPage17{x    Tiddles
+{CPage18{x    Kismet
+{CPage19{x    Quasar
+{CPage20{x    Madcat
+{CPage21{x    Martijn
+{CPage22{x    Cinnamon
+{CPage23{x    Kvass
+{CPage24{x    Jello
+{CPage25{x    Cronus
+{CPage26{x    Radiant
+{CPage27{x    Clarissa
+{CPage28{x    Dogpack
+{CPage29{x    Holi
+{CPage30{x    Kyree
+{CPage31{x    Selene
+{Cpage32{x    Thor
+{Cpage33{x    Meagan
+{Cpage34{x    Temperant
+~
+E
+page3 page 3~
+.                {PDe{Rsi{Pre{cs t{ghe {PF{Rl{Ya{Pm{Re {ga{cn{gd {TMo{Cur{Wns{g t{ch{ge {TS{Ce{Ba{x 
+	       {G------{b'{G--------{b,{G------{b'{G---{P({R@
+
+	Many winters have passed since the tragic event which left a young 
+human girl desperate and afraid.  Calvaria was barely twenty winters old 
+when the evil Fire Queen Zorah, with her jealousy of the power of the 
+coming Elementals and fear of them overthrowing her, sent a 
+doppleganger of Calvaria's mother, Ladyhawk, into the wealthy merchant 
+home to wreak havoc.  Coming to her beloved mother's dying cries, Cali
+caught a glimpse of the fleeing intruder and let out a full chase only to 
+fall in a long hard magical battle in the courtyard, for all to witness, 
+including her bewildered and horrified father.  Exhausted and nearing 
+execution, Cali tapped to the fire element she secretly held and 
+disintegrated the doppleganger.  Watching on in disbelief, her father's 
+sanity slipped from his grasp.  How could his own daughter kill his love?  
+Screams coming from the flaming pyre chased Cali, as she raced back to her 
+mother.  When she stumbled into the room, Cali was shocked to find no trace
+of her mother's dying body.  The great seas raged that day as Calvaria wept
+for her mother.
+	Having nothing left after her father died, Cali and her wolven lir,
+Manticore, left Oran with a band of Elementals to come to Thera.  But not 
+before Cali got her revenge on the Fire Queen.  A massive battle roared 
+between Cali's force and Queen Zorah and her Regiment.  The battle ended 
+in a stalemate but not before Cali destroyed Zorah's defenses and took 
+from her the one thing she prized the most, her beauty.  With all the rage 
+and sorrow she carried with her, Cali unleashed a volcano of Flame to seer 
+and leave Zorah's face scarred with etches of her Flamestrike.
+	Along the hard journey to Thera, Cali lost most of her Elemental 
+Comrades.  Feeling desperate and alone she gave her dead life up for 
+living death and became an immortal vampire.  She dwelled with and lead 
+the Kindred vampires for a time, until Manticore returned to her and 
+reminded her of the real purpose of her existence.  Now she leads the 
+great tribe of Elementals in hopes of putting a new Queen's Quarter Knot 
+into the cycle.
+~
+E
+page4 page 4~
+.               {GRe{Hlis{Ghe{bs t{Hhe {GLa{bnd {gand {cSa{gnc{Wti{gfi{ces {gth{We A{cir{ge{x{W
+		 {R@{P){H-------{b'{G------{b,{G-----{b'{g---
+
+	Oran is the birthplace of the Queen's Quarter Knot.  On the morning
+of the Day of the Blessing, Month of Balance, identical twins were born to 
+a wealthy merchant and his lovely wife, Ladyhawk.  When a friend of the 
+family, a Seer, told the proud parents that both their daughters held 
+Elements, they were afraid they might have to give them up or hide them.  
+But when he told them that not only did they hold Elements, but between the 
+two, they possessed all four,  Ladyhawk started to sob to herself.  How 
+can she hide one baby from the Regiment let alone two?  Queen Zorah would 
+definitely send her Seers out to destroy her babies, if she found out.  
+Tears rolling down her cheeks, Ladyhawk came to the hardest choice she 
+would ever make.  She delicately covered each baby girl in a blanket and 
+put them side by side in their bassinet and told the Seer friend to come 
+pick one of the babies and take her far from them and raise her.  Ladyhawk 
+watched as the Seer, without revealing which child he took, rode off.  She 
+and her husband walked into the nursery to unwrap the tiny girl to reveal 
+her bright white curls.  The tiny baby reached over to where her sister 
+was lying and started to cry as she realized the spot was empty.
+	So that is how it came to pass.  Aerylene was taken from her 
+family and was raised far outside of Oran.  When she grew old enough, her 
+lir Bailey, a winter lynx bonded with her and told her where she can be 
+reunited with her mother and other half.  So together they journeyed to 
+the realm of Thera to be with them.  Each twin equally powerful:  Calvaria 
+with her fiery temper and soothing gentleness, and Aerylene with her 
+nurturing friendliness and graceful personality.  But together their four 
+elements and the Queen's Quarter Knot will bring the Fire Queen's reign 
+to an end. 
+~
+E
+page 5 page5~
+Ilyatha came from the Land of Endless Night.  The sun never shone and the
+moon never rose.  It was always dark so the people who lived there adapted
+to the darkness.  She lived in a shadow-people village where she grew up
+learning the skills of a warrior and the ferocious personality that the
+shadows pride themselves in.  During an attack on another clan of shadows
+Ilyatha saved some children because she felt sorry for them.  For this she
+was named an outcast, never to be allowed to return to her clan or village.
+She left the Endless Night Realm in search of adventure and a society
+that could deal with compassionate warriors.  She found a town where people
+liked you for who you were, not what you looked like or what your race was.
+She also found a clan that helped her increase her self security and to
+regain friends she had to leave behind.
+~
+E
+page 6 page6~
+Danzig is a shadowy figure, standing about 5 feet 9 inches.  He was born
+in Lodi, New Jersey in 1957 when the fast cars and slick backed hair was
+in.  His long black hair was slicked back, but not until '78 when the
+forming of his first band, The Misfits came about.  Driven by old horror
+and science fiction movies and comic books, the Misfits performed classic
+punk at its finest.  Unrelenting desire for control lead to Danzig's
+departure of the band, to form the devil lock wearing band known only as
+Samhain. This short lived venture eventually became the present day band
+which took the founder's name.  If you see him, the relatively short, yet
+extremely muscular man might tell you:
+
+"I was born in the dirt, I never had no home, and the places I've lived
+you don't want to know. But if you wanna hear evil, just come a little
+bit close."
+~
+E
+page 8 page8~
+A storm was brewing; everyone in Thera felt it.  The air which is
+normally clean and pure was filled with tension, thick and electrifying.
+Calvaria, barefooted, stood on the white sand just out of reach of the
+crashing waves, staring intently to the east.  The dark, black waves
+crashed violently on the rocks that jutted out of the small, secluded
+cove.  The alcove, which only her mother and she knew of and frequently
+visited when her mother was alive, was Calvaria's soul's revitalization
+spot.  The mist filled the air, as the wind intensified its rhythmic beat.
+Calvaria's sharp eyesight caught the lone figure approaching at a fast
+pace.  They are trying to outrun the incoming storm she thought; they seek
+shelter and I will accommodate.  A feeling of familiarity crept into
+Calvaria, first her sharp mind, then her broken heart.  As the lone, dark
+figure drew nearer, Calvaria's keen sense of intuition took over.
+Suddenly, her eyes sparkled, even in the foreboding darkness.  A smile
+appeared, with shoulders straight and squared, she slowly, hesitantly at
+first, started walking towards the direction of the lone figure
+approaching.  Could it possibly be she wondered, exactly what she had
+prayed, and deeply longed for all these lonely years.  Cautious now,
+because she didn't want to dispel the hope that had taken hold of her
+heart, then faster, breaking into a smooth run when she actually saw the
+face.  She cried out to her mother against the full force of the
+unyielding winds trying to hold her back.  But never could that happen,
+~
+E
+page9 page 9~
+not now, not when Calvaria was this close to being re-united with her
+mother, Ladyhawk.  Ladyhawk sat erect in the saddle seeming to be a part
+of the huge, golden beast who kept prancing around as if to his own beat.
+Ladyhawk floated to the ground and raised her slender arm, touching the
+pure white, flowing mane of the stallion with her small hand.  She
+whispered soft words into the laid back ears of the golden stallion,
+quieting him immediately.  The soft melodious voice of his beloved
+mistress was music to his ears.  He calmly stood waiting for her future
+bidding.  Ladyhawk turned, the dark green, velvet hooded robe she wore,
+swirled around her slender body.  Grasping Calvaria tightly in her arms,
+Calvaria cried out to her mother.  I thought you were dead, I saw you
+killed in the courtyard by the doppleganger.  Ladyhawk pulled her young
+daughter ever so close, their faces touching, their tears of joy mingling
+together.  For one brief moment in time remembered, air, earth, flame, and
+sea stood still as the two clung to each other.  Ladyhawk slowly drew her
+head back so she could gaze upon her loving daughter.  Ahh she sighed,
+could it be she thought, that so much time has past her young daughter
+was clearly before her, a beautiful young woman.  Ladyhawk drew a short
+breath, her large, round green eyes flashed bright, a delicate smile
+appeared.  Time had been good to her daughter, had it been as good to me
+she wondered.  She released Calvaria from her tight, loving embrace, took
+her small hand and led her to the rocks so that they could sit awhile.
+~
+E
+page10 page 10~
+The wind was picking up Ladyhawk's long, blonde tresses that peeked out
+of her hooded robe, tossing them lightly here and there.  Calvaria noticed
+this and reached up to brush a single wisp back from her mother's face.
+The gentle fact I remembered Calvaria thought.  Calvaria's voice quivered
+as she told her mother she didn't understand what had happened on the
+fateful day.  Come let's sit and I will explain all to thee, gently
+replied her mother.  No, cried out Calvaria, a violent storm is coming
+and we must seek shelter.  Ladyhawk turned, raised her arm straight up
+and pointed to the heavens.  She softly whispered "Be silent, be calm, be
+as you were for Calvaria and me."  The clouds rolled away quickly, allowing
+the full moon to cast its spell upon the calmed sea, twinkling, dancing,
+fairy lights.  Calvaria giggled politely at her mother.  Never ceasing to
+be amazed at Ladyhawk's grandeur, a woman surely not to be reckoned with
+Calvaria thought to herself.  Ladyhawk turned to her daughter and said
+that what she had to tell Calvaria would not be pleasant for her ears to
+hear, her sharp mind to comprehend, nor her heart to accept.  Calvaria's
+eyes widened, tilting her head slightly, she nodded.  The woman you saw
+slain in the courtyard by the doppleganger, said her mother, was my twin
+sister, Titan Arianna.  She was madly, and I do not say that lightly, in
+love with your father.  Since his heart and soul belonged to me, Titan
+Arianna's heart became black with jealously.  She plotted my death in order
+to take my place by your father's side.  She summoned me to her place in
+~
+E
+page11 page 11~
+Jarradine on the pretense of making amends for her jealousy.  The
+doppleganger was suppose to have overtaken me on the high road to Flaming
+Five.  My luck -- dopplegangers are very stupid killers.  Titan Arianna
+came into the courtyard just as the doppleganger was flying over heading
+towards Flaming Five.  Naturally the dumb beast mistook her for me and
+killed her.  I, however, was taken hostage by the slobbering, menacing
+tribe of trolls called Pointerswest.  Normally they would not have
+bothered me, but their King's son was ill and legend has it that he could
+be cured with a lock of blonde hair.  They swiftly carried me underground
+and kept me locked in a cage.  No harm came to me since the King commanded
+that I be treated royally for I had saved his son's life.  Royally, laughed
+Ladyhawk, in a dark, smelly cage underground all these years.  But how did
+you manage to escape questioned Calvaria.  Ladyhawk smiled and said it was
+all due to a wonderful mage named Suntzu.  He happened to be coming here
+to visit you;  you stole his heart and yet he never set eyes upon you,
+said Ladyhawk.  He's a young mage who works magic for the good of all.
+Calvaria thought for a moment, Mother, have I seen him, she questioned.
+No, for you would surely remember and never forget his kind, gentle face.
+His smile is warm like an early summer's day that warms your face.  His
+hands are strong, but yet disciplined.  His walk is with purpose, but not
+arrogant, nor boastful.  His build is of medium stature; however, do not
+be deceived of his strength. His manner of dress is somewhat peculiar for a
+~
+E
+page12 page 12~
+wizard, but then his active imagination knows no boundaries.  His robe is
+orange with embroidered gold threads weaving five gold stars down the right
+side and nine planets on the left.  His most potent talisman is a mystical dark
+ruby worn upon his right hand.  But his eyes are what you will remember most,
+ blue/green that twinkle with mirth.  His heart is his own, true, loyal, and
+honest, which he guards well.  A commitment to him is for life, not to
+be taken lightly.  Suntzu heard the troll guards talking loudly.  He was
+invisible as he often is when he walks unfamiliar road, his sense of
+security I guess, said Ladyhawk.  He stopped to listen, not an eavesdropper
+mind you, but curiosity is within us all, smiled Ladyhawk.  He heard of my
+plight and being the person he is, decided to teach the trolls a lesson as
+well as helping me out of my dilemma.  He cast a spell upon the troll
+guards and walked straight through the rocks, weaving in and around the
+narrow passageways to find me.  He recognized me from various descriptions
+given to him long ago.  And also for obvious reasons, I couldn't have been
+mistaken for one of those ugly, warty, dirty, squatty trolls, laughed
+Ladyhawk.  He decided then to take me under his protection.  He cast a
+spell for the seas to rage and the winds to swirl.  He stole the key and
+unlocked my cage just as the rivers underground began to swell.  He became
+visible for one brief second.  I smiled and thanked him and pledged that
+if I could do anything in return to only bid it so.  He bowed low, nodded
+and smiled, then waved good bye.  His parting words were "For Calvaria, 
+m'lady."  I ran to the swelling river and dove in deep under the water,
+swimming for my life.  I emerged in the sea on the other side of the
+Flaming Five Mountain.  There on the shore was my beloved steed, Cresque,
+waiting impatiently to bring me straight away to you.  No love is greater
+than mine for you.  Calvaria took her mother's hand and placed it to her
+cheek wet with tears.  You're home she whispered in the dark, the Flame
+burns bright, the Sea our memory.
+~
+E
+page7 page 7~
+As a young boy, I grew up in the nation of Yayalys and enjoyed peaceful 
+existance in the surroundings of nature. I learned of the nature of the 
+Elements and how they work together to support all existance. I became 
+intersted in the mysteries of the Wind and learned among the Elemental 
+Wizards of Wind.  Having mastered the skills necessary, I became their 
+student.  This continued for 5 years until the people began to expand. 
+Progress was appearing and I had no problems with this. Until, the 
+appreant disregard for the land became evident. I brought the matter before 
+the Elemental Masters, hoping the could do something about the problem. 
+Either they couldn't or wouldn't be either way the problems contiued. I 
+decided to set out on my own in hopes to reverse this destructive path. My 
+efforts where met with stiff opposition and I was banished from my home.
+I gathered my spell books and  books from my training and set out to find
+those who also cared to protect the very nature we need to survive.  I 
+searched many worlds, finding none who truly cared. Then, I came to Thera.  
+My research on the people here turned up a group, yours, the Queen's Quarter 
+Knots.  After reading that a very servant of the elements has turned evil,
+I felt that I must join this group. Bad enough when a normal mortal 
+destroys nature, but an element turning against the others would lead to 
+total destruction.  Coming to that realization that even chaos needs the 
+elements to survive and the world would be just a big void, I decided to 
+act, to protect, and to join those who share my ideals.  I joined the 
+Quarter Knots.  My element of choice is Aire.  My lir would be the graceful
+sylph. Calm yet willing to defend with their life.  True to my element, I 
+often do my own thing, yet will work for the greater good of the Elements.
+
+Aeris, Mystical Guardian of the Elements.
+~
+E
+page15 page 15~
+{PDa{Rkk{con{g B{Pla{Rck{cbl{gad{Pe{x.
+Human. Vampire. Necromancer. Legend.
+
+Dakkon Blackblade's life was simple enough. He was a wandering adventurer,
+always on the lookout for treasure and magical artifacts. He wasn't
+wealthy by any stretch of the word, but he did live comfortably, had good
+friends, and a healthy sense of adventure. But that would soon change..
+
+One day, while exploring the catacombs that ran deep under Sadar's Keep,
+Dakkon stumbled upon a hidden door that led deep into the earth. No one
+had traversed this path in centuries, the air still with death. In the
+ancient caverns, he found the signs of a battle fought long ago, bodies
+strewn everywhere. He took what little treasure he could find, and
+consecrated the corpses to give them a semblance of a proper burial.
+He was about to leave and venture back up, when he noticed a small room
+at the very edge of the cavern. His torchlight flickering against the stone
+walls, and against a jet black sword hanging on the wall on the far side
+of the room. Dakkon had never seen such a fantastic sword, fell with
+magical runes, surely it would aid him greatly in his adventuring! 
+As he gripped the sword and measured its heft in his hand, a clawed 
+hand shot from the ground where we was standing, and began to pull him 
+under. As he feebly struggled against the preternatural strength dragging
+him down, he heard a cold voice in his head speak to him, "If you like my
+possessions so much, then become one of them!". Dakkon screamed as he was 
+swallowed by the earth.
+
+Consciousness came back to him slowly, he blinked his eyes and found
+himself lying on the floor of the small room. Almost immediately, his
+gaze was met by a tall man who was standing over him, wearing clothes 
+of the darkest black, and an imperious look about him, as if he was of 
+royal descent. "I am Baron Sengir", spoke the man, "and I have not fed in
+quite some time. Arise, my minion, and serve me." Slowly, Dakkon understood
+the enormity of his situation. He checked his pulse and found none. He found
+the vibrant color of life in his skin was replaced with the cold pallor of
+a corpse. He was not dead, but he was not quite alive either. Enraged at
+Sengir for turning him into an abomination of nature, he lept at him,
+dark sword still in hand, and impaled the surprised Baron on his own sword.
+Baron Sengir's body convulsed in agony as black ichor oozed from the fatal
+wound. "Fool.., I have granted you immortality, and this is how you
+repay me?", were the last words of the dying vampire, before he collapsed
+into a pile of dust.
+
+Waiting until nightfall, Dakkon retrieved the ensorcelled sword and made
+his way to the surface. Never again will he see the sun rise or its warm
+caress on his face. Never again can he see his once friends, who would
+see him as a monster. Dakkon would travel alone for years, every feeding
+slowly eating away at his tormented soul. He was a monster, yet more
+human than the beast that changed him. His still heart longed for
+companionship, his soul called out into the night for someone. And one
+night, under a full moon, she came out of the shadows and into his life,
+And her name was...
+~
+E
+page16 Page 16~
+Alexia awoke suddenly from the screaming of strangers.  She was confused
+and lost.  She knew not where or who she was.  Did she have a home?  A
+family?  She had so many questions with no answers.  After many years of
+searching for her lost family, she decided to start a new life elsewhere. 
+Alexia had heard of a place not too far away called the Dizzy realm, and it
+was here that she called home.  Not too long after she entered these realms,
+she found a friend to confide in.  He helped her find a new life and
+friends; and they quickly fell in love.  They got married and built the
+Dizzy Knights, to fight Lotus' evil ways out of Thera.  When things started
+looking better in these realms, Kefta decided it was time for him to fight
+the battles of evil in other realms...  And not long after he left, Lex
+realized he would never return.  She mourned for him with all her heart and
+soul.  No matter where she went, she just seemed to get sadder each
+second...  Until her eyes showed no happiness at all.  Now, her eyes were a
+deep red, as if she herself were dead.  She tried to concentrate on keeping
+his clan strong, but realized that through all of the sadness, it was just
+too much for her.  She then fled Dizzy, trying to run from the utter
+loneliness she felt.  But not long after she left, she felt something draw
+her back to these realms, and she returned, still saddened, but slowly
+healing.  She was shocked to see the Dizzy Knights in shambles, but did not
+rejoin them to raise them again.  The Dizzy Knights were a part of her
+past...  As was her darling Kefta.  Ali then concentrated herself onto
+helping other people; making new friends within all of the clans.  Within
+these friends, she met Asmadi.  He was very different from anyone else, but
+she was drawn to him in many ways.  He helped her grow, train and fight; he
+was always quick to save her when she needed help.  They fell in love and
+married; And on their wedding day, her eyes lost their deep redness, finding
+their shinyness again.  Asmadi, along with some deep friends of hers
+(Calvaria and Jello) introduced Alexia to the QtrKt clan.  It was here that
+she truly found her home.  And now, from here and out, Asmadi and her are
+together, sharing their love with all of their clan members, and helping
+others when they need it.
+~
+E
+page17 Page 17~
+Born the runt of a fairly large litter, Tiddles was a nobody a nothing. Yet even at a very 
+young age there was something possibly even supernatural about him. Tiddles had a strange 
+affinity for water and was given command of a hunting party whenever they had to cross the 
+great river that passed through their land. However once across the river he'd hand back 
+command of the group to his elder brother who he always thought of as being far more capable 
+than he. Then during 1 particular hunt the party was attacked by a family of rather large bears 
+and decimated. Tiddles and his elder brother lay amidst the dead. Yet shortly after Tiddles' corpse
+and all that was on it was no where to be seen. Tiddles came back to consciousness in a small 
+room dominated by a large fountain pouring blood. His own corpse lying beside him Feeling a 
+little better than a grave robber, Tiddles took the equipment from his corpse and proceeded to 
+look about his new home. It was a short while after this that Tiddles made new friends
+and colleagues and he began to gain slowly in power as he tried to learn all he could.
+Then one day he awoke to find himself lying in a coffin. Well he knew some of his new friends 
+were vampires, but he hadn't expected this. Checking his neck he found two small swellings
+Checking himself in the mirror he was disturbed to discover that the mirror wasn't working properly
+there was obviosusly something wrong with it, it was no longer reflecting. Tiddles eventually joined 
+to the creature that would become his lir, a red fox. A he became a lir himself for a short
+while until his mistress dumped him for another.
+~
+E
+page18 Page 18~
+Kismet was always quite an entertainer. He could amuse young and old alike 
+with his vivid imagination.  Everyone thought his dreams and stories we so 
+wonderful and that he could make a career of it.  Sadly, his parents did not 
+share the same view and wished him to continue the family business.  So when 
+he came to me and wished to sneak out of town when I was to depart as well, it came as 
+no surprise.  He was barely 17 years of age and knew little about swordplay. Magic was 
+definately not his bag as he was not much of a scholar like myself.  The boy had something 
+about himself though and I knew he could do more for his life in the town of Midgaard than 
+he could at his old home.  I taught him a what little i knew of swordplay and the arts of 
+healing which i had gotten through my prayers and faith.  He spoke highly of joining a 
+noble cause and bringing enjoyment to those he came in contact with.  His talents were 
+best in his words for he could barely hold a sword to a bear as we traveled the countryside. <chuckle>
+The look in his eyes as we neared the city told of his eagerness to explore the "new world".
+It saddened me to leave him at the gates of the city, but I was confident of his abilities to 
+adapt and to make friends.  I was more than pleased to hear of his sucess and share of few 
+words of what I knew of him before he became part of your family.  Hopefully he is as joyful 
+to you as his was to me. Maybe if I'm lucky we'll cross paths again.
+As Kismet always says, "Best of luck to ya, till then..."
+
+Written by {cTarumin{x, as requested by "{TThe Order of the Knot{x"
+~
+E
+page19 Page 19~
+Long Ago, in a land far removed from ours, there is an island of mighty god
+forged magic.  On this island live the Dragons.  The dragons withdrew from
+the lands of men and elves to this isle, in order to let the mortals live
+their lives without interference Not too many years ago 2 of these dragons
+had a son, A small dragon they named Quasar, which means 'Star-born' in the
+dragon tongue.  Quasar's mother was a dragon warrior who served with the
+Elite guard, those special few dragons who defended the isle and its people. 
+Quasar's father was one of their most powerful dragon mages.  One day,
+Quasar's father simply disappeared.  The dragons searched high and low for
+him, but he was never found.  Some say that the old dragon mage was
+exploring another plane of existence.  Others say he was destroyed by a
+spell too powerful for him to control.  Quasar's mother was killed when the
+Elite Guard defended the island against an invasion of rebellious dragons
+who sought to conquer the mortal realms.  
+	This left poor Quasar an orphan.  So sunk in his despair and
+loneliness, he hung around his family cave and refused to speak or leave. 
+Several times this poor dragon wondered why he didn't end it all.  Then one
+day, he wandered into his father's study.  He had always been forbidden to
+enter before, but since his father wasn't around, Quasar didn't think it
+mattered.  In the center of the room, was a pale blue, swirling mist. 
+Quasar stepped into the mist, and was suddenly somewhere else.  He found
+himself in the woods on the outskirts of the city of Midgaard.  He roamed
+around for months, despairing, living in the woods, and stealing from
+peasants.  Quasar found that he enjoyed both magic, a trait he picked up
+from his father, and that he had sticky fingers, probably due to his dragon
+heritage.
+	One day, as Quasar rummaged in the woods, his keen ears heard
+footsteps.  He peeked out from the brush and saw a lady there.  A beautiful
+lady with alabaster skin, Ebony hair and ruby red lips.  Fangs glinted in
+the moonlight.  An aura of sadness surrounded her, and Quasar, being a small
+dragon Shrank back with fear.  The lady spied him and spoke in a soft,
+musical voice.  "Hello there, little dragon.   What brings you here?"
+Quasar could understand the language of mortals, for that was a gift of
+dragons, but hadn't been taught to speak it.  All he could do was eep
+softly.  "My name is Calvaria.  Do you have somewhere to stay?  " The lady
+picked up Quasar and hugged him gently, Quasar trembled violently, then
+calmed as he realized this vampire meant him no harm.  He began to purr
+softly and licked her face.  Calvaria took him into her household, taught
+him to speak, and kept him as her son.  And so the story continues...
+~
+E
+page20 Page 20~
+First I was born. 
+I was very young at this time and remember little
+though I have reason to believe I was hatched from
+an egg left under a gooseberry bush by a stork
+that later went on to become famous for it's 
+margarine monopoly. 
+I went to school again at a very young age, the other
+children didn't understand me. I was the only 
+feral there. 
+Even back then though I knew I'd be something
+special. And when the other children in the 
+school didn't understand when I explained to them
+the joke about the black cat in a snow storm. I knew
+my intellect was superior.
+Later that same day, I started work at a milleners
+I had no idea what I was supposed to be doing there
+though and eventually left when I decided my pay
+was more than my ability.
+Then came that fateful day I got married to a 
+a gooseberry bush. I guess I'd always had a thing
+about gooseberry bushes because my mother was one.
+but the marriage didn't last and I got a divorce
+when she ran off with a wild strawberry.
+Then I found a new family. And Calvaria, while not
+really describable as a gooseberry bush does make
+a very good substitute and leader of the family along 
+with Tiddles, Dakkon, Alexia and Kismet. None of whom
+are gooseberry bushes either. 
+I am very happy now with my new family and with my Lir
+a glass of advocat, some have said I can't have
+a drink as a lir, but I feel we are well suited 
+and have been together nearly three minutes now.
+Also theres Kwesterriforum, my pet tiger. 
+Many have claimed he's just a lion with a paint
+covering, but it's just a tiger thats been a little
+clumsy with it's decorating.
+~
+E
+page21 Page 21~
+Something had been  brooding all day long. Toward the evening the pressure 
+rose to almost  unbearable tenseness, water was smoking and there was fire 
+in the sky as all came to a climax ....
+
+The few people the  inhabited Thera's North Eastern parts, looking up, saw 
+an enormous flash far off in the sunset. Followed by a large tail of fire,
+something plunged towards earth and crash-landed in a shallow lake.
+All that was left of whatever came from wherever was some twisted metal in
+the  midst of  which the  bravest few of the Therans, who came to see what 
+strange things had  befallen Thera this time, found a baby wrapped in some 
+rags.
+
+One of them  took pity  for this baby and fostered him. Knowing no name to 
+call  the baby, the crowd that had gathered by that time suggested to call 
+the baby  {PMartijn{x  as that was  the only inscription the could find on the 
+rags.
+
+He grew up to become a  strapping young lad  with a fiery spirit. Quick to 
+laughter, steadfast in friendship and always  rushing into new experiences 
+and kicks. There were no really striking differences with the other kiddo's 
+that he grew up with.  Maybe the  only thing  was his feeling for justice, 
+always standing up for his views and believes.
+
+What started rumors about him was his never-ending search for, as the locals
+called it, loudness. His great interest in arts, performing and listening to 
+music preferably, was something disturbing to the uncultivated folks he lived 
+with. Drumming on the tables in class was his favorite business in school, 
+much to the teacher's discomfort, except for the arts teacher that is.
+
+As years progressed slowly, just flowing with the flue in these distant parts 
+of Thera, he grew less and less satisfied with his living. Being aware of the 
+resistance the community still showed to him and having no untrodden paths 
+for days and days around he set out to find new scenes and sounds.
+
+After long wanderings he heard some faints whispers of music torn by the winds.
+He found some amazing scenes and sounds and stared in wonder at the things
+that happened at the fair. He met all kinds of folks, which were at least not 
+directly showing to back away at his presence. He heard about lots and lots of
+far away places where other kinds of music where made. He found some bits of 
+all of them at this fair and nearby in Midgaard. The city which he soon 
+embraced and started calling home. He used this as a basis for more and further
+exploration of Thera in search for this last perfect note.
+
+He met with some souls he felt connected to. They helped him in his adventures.
+They gave him support, for the first time in his life he didn't have to learn 
+everything the hard way, through trail and error, all by himself.
+
+He joined his spirit with the forces of the Queen Quarter Knots. He hopes to 
+be of some help in restoring the harmonious balance into Thera once more, 
+uniting all elementals they were meant to. 
+
+For now, he has settled himself a bit within Midgaard trying to get his own
+balance, seeking all knowledge he can gain in this metropolis. Sorting out 
+all things that have been happening, all sounds he heard, all vapors he 
+smelled and all flavors he tasted during his long travels. Perhaps this might 
+once lead him to his escalator to the regions of the sky where he cam from.
+~
+E
+page22 Page 22~
+Far beyond the lapping shores of the sea, beyond perils many, there lies
+a land of dragons, large and small. Separated from the rest of Thera by the
+ocean for 1000's of years, the dragons of the land beyond the shining sea
+grew into a noble race. Soon the fair sons and daughters of the dragons
+forgot their cousins on the other side of the sea. Legends only they
+became, tales to be told around the fire ring, when the dragons gathered in
+celebration at the Feast of Fires every 7th year. In the 452nd Feast of
+Fires the dragons were gathered in the air above the land, preparing to hunt
+and there arose a sudden storm of such fury that it scattered them all like
+leaves. Not even two were left side by side or within sight of each other. 
+Many of the smaller dragons were never seen again in that land. Even some
+of the larger ones were hurt seriously, or did not return. The gathering for
+the Feast of Fires among that dragon race is now known as the Rending Time
+in remembrance of the loved ones, the draglets and elders that were lost in
+this storm. Of those lost, scattered by the storm was a small red dragon
+called Cinnamon.  
+
+When the storm's fury was unleashed, more terrible than any storm ever
+remembered before among the dragons, who were lords and masters of the air
+and fire themselves, Cinnamon was torn away from her family by a sheer of
+wind. Tossed by the wind, buffetted and cast about, the small dragon struggled 
+to right herself and fly, but the winds were far too strong and she had to 
+fold up her wings to keep them from being torn away by the fierceness of the
+storm. Perhaps luck, or maybe even pity of the Gods spared her life. A 
+tumultouous blast of wind thrust the small dragon up above the storm, casting 
+her out like the human legend of Jonah from the fish's mouth... 
+Up.. up.. up.. till she was slammed into the fast moving current of icy air
+that circles Thera.  Once she was caught within it.. Cinnamon could not escape 
+it till she was far beyond her fair homeland. Eventually she tumbled out of it,
+and was dumped in the ocean, exhausted and battered. Somehow the little dragon 
+made it to shore and laid on the beach as if dead for several hours. Nearly a 
+month she hid in a cave near the beach where she had come ashore untill 
+finally, she began to wander a bit farther each day. On one such day of 
+wandering, she met another dragon, Quasar... whom she eventually married. She 
+is mostly happy here.. but misses her family. Perhaps someday, she will find 
+them.
+~
+E
+page23 Page23~
+{CIn the begining (actually this is WAY after the "begining", if you really
+want to know what happened in the "begining", go to the Bible and go to the
+first page (for Jews and Christains) or go to the Koran if you are Islamic,
+if you are Hindu or Buddist, there was no "begining" silly!  You should know
+that *whap*) Ok, enough with the "begining" stuff. So anyhow there was this
+Czar (of Russia) and his name was Ivan, and Ivan wasn't too nice, but he's
+important because he advanced Russia a little. Ok, so now it's 1983. The
+U.S.S.R. is just begining to start to not be so good. Then, out of now
+where, this guy in a a suit walks into Red Square. The Sovites had just made
+a man called Billy leader for the day. The man in the suit charges the elite
+shouting "You damn red bastards!!!!" And starts busting some Kung Fu moves
+out. In the end of the day Billy, was smited, as well as most of the Sovite
+Elite. Never knew about this bit of Russian History? Most people don't.
+Anywho, the Sovites deported the man in the suit to a land far far away...
+The man's name was Kvass and the adventure continues today...{x
+~
+E
+page24 Page24~
+Once, a long time ago, there was an old mage named Ozzie *for short*. He was 
+a wise mage. Everyone came to him for spells, and his wisdom. He had a young 
+apprentice with him that helped him with his work. Her name was Jello. Jello 
+has been with him for years, studying his ways, and applying them to her own 
+ways. She decided one day, that she was ready to be on her own. She said her
+goodbyes to Ozzie and took off to a ship that was docked.
+
+As the ship set sail, she wondered..what is waiting for me in the land of
+the unknown? What will I see? Whom shall I meet?
+ 
+She waited on the ship for what seemed like days, then she heard the crew 
+members speaking about this new land called . ..  THERA.
+Soon, the ship docked, and Jello stepped out onto this new land. She wandered 
+around town, doing odd jobs for folks to earn her keep. Then she met these 
+strange but nice women name Calvaria and Alexia. Calvaria talked with Jello 
+for a bit and then invited her to come join a clan that she belonged to.
+All three women walked along a path and soon came to the entrance to what
+was to become Jellos new home. The Quarterknot's clan hall.
+Calvaria and Alexia wrapped their arms around Jello in a loving embrace and
+said "Welcome to our family." With a warm smile, Jello walked through the 
+door... And the rest is history. :o)
+~
+E
+page25 Page25~
+{WCronus was born of a merchant far west of Midgaard, near the High{x
+{WTower of Magic. Cronus's mother and father both possessed abnormal{x
+{bm{Wa{bg{Wi{bc{Wa{bl{W ability, and it seemed to pass to him.  As a child he had{x 
+{Wcaused some {Ystrange{W occurrences, which turned to more pranks as he{x 
+{Wlearned to control his power.  Those who knew Cronus in his youth{x 
+{Wwere basically required to have some sense of humor to be his friends.{x 
+
+{WAs Cronus became a young adult, he realized he could use his gift of magic{x
+{Wto become a magic using warrior.  Cronus decided the most interesting{x
+{Wtype of magic was {PNecromancy{W, so he spent a lot of time studying the{x
+{Re{Pv{Ri{Pl{W magics.  Although he used the {Re{Pv{Ri{Pl{W magic, he was not evil himself.{x  
+{WHe simply used his evil magic in combat.{x
+
+{WThe first clan that Cronus joined was the White Knights.  They were{x
+{Wgood to him, but he had fallen in love with one of the {TQueen's{x
+{TQuarter Knots{W.  He soon joined the Knots as an aire elemental.{x
+{WThe one he loved had soon passed away, but he remained loyal{x
+{Wto the Knots, as he is today.{x
+~
+E
+page26 page 26~
+{TBorn into a soldier's family, Radiant grew to know the art of the sword
+at an early age.  Training under his father, legendary Commander Zaknafein
+Silvermoon of Solace, he became a master swordsman.  After years of peace in
+Solace, trouble rose its ugly head.  At first it was a few, but soon
+hundreds of skeletons, and zombies stalked around town.  Killing innocents. 
+Radiant, his father, and the twenty knights of Solace armed for war.  The
+war came to Solace with horrible speed.  The army of the undead attacked the
+small town, and it's 20 guardsmen were beaten.  Only Radiant and his father
+survived to fight on.  The two knights fought bravely, and won their way to
+the stronghold of the Vampiric Master of the hordes.  Father and son,
+Standing side by side, prepared to fight this corruption of humanity, but it
+wasn't to be.  The Master was beyond quick, he moved like lightning, with a
+sick smile, he ran his fist through Zaknafein's heart, swiftly ending the
+famed warrior's life.  Radiant screamed with rage and sorrow.  With a
+skillful slice of his sword, he slit the Vampire's chest open, but it seemed
+the Master hadn't even noticed the wound, which would've killed a mortal. 
+The Master Vampire laughed, a cold hard laugh.  "Come child, honor me with
+your blood".  The fight was on.  Radiant was fast, and as skill with a sword
+as any human ever to walk Thera, but the power of the Vampire shamed even
+him.  In the time it takes to sigh, the fight was over.  Radiant lay
+bleeding on the ground, his neck slashed wide open.  The Master leaned over
+him, and in a laughing tone "You shall not die, you will suffer this
+contemptuous act for all eternity".  Radiant died then, not the death we all
+come to, a worse kind of death.  The death of his soul.  Since that day,
+Radiant has stalked the night alone, seeking refuge from the beasts within,
+and release from that which locks him from the light of day.  Cursed
+eternal, where be the freedom so desperately sought?
+~
+E
+page27~
+{MThe {Yblond-haired {bwooden {Wdoll{M was all that was left of the {Rhorror and
+ruin{M that ravaged a small town.  Brought to {Rl{Wi{Rf{We{M by last spells
+of a {Cmage{M, she now carries the {Wsouls{M of her dead 'family': a
+{Yfrightened {Bgirl{M who loved a doll and wrapped her in a blanket, a
+strong and patient {Bfather{M who defended his family to his last breath, a
+loving {Bmother{M who held her daughter away from {Rharm{M, sacrificing
+herself, a {Wold{M and {Bwise{C mage{M who spun his {Wsoul{M with the other
+three into the safety of a {bwooden{W doll{M, and gave her {Rl{Wi{Rf{We{M
+and {Hstrength{M.  Now human-sized and an apprentice to the {Wold{C mage{M
+who speaks to only her {gmind{M, Clarissa searches for a safe home and the
+power to set her family free.  Is she really a doll, still?  Look closely at
+the painted {Bblue{M' eyes and you may see much more.
+~
+E
+page28~
+{r{PA lone man from a village no longer even remembered.  As a teen he was{x
+{r{Pattacked by a wolf and thought it might be a werewolf.  After his village{x
+{r{Pburned to the ground, and him being the sole survivor, when he hit the age{x
+{r{Pyoung men do to become men, he thought it was the wolf's attack that made{x
+{r{Phim change.  Since he had no male role model to look after him, he didn't{x
+{r{Pknow how to shave, cut his hair, or any of the thing teens do to become{x
+{r{Pyoung men.  Since he was little he remembered hearing tales of werewolves{x
+{r{Pand that they had lots of hair and incredible strength.  He found himself{x
+{r{Pbecoming very hairy and very strong indeed.  He had no other way of{x
+{r{Pdescribing it besides he was a werewolf.  On his travels he came across a{x
+{r{Pgroup of people that called themselves Knots.  It turned out that this was{x
+{r{Pshort for Queen Quarter Knots.  He started talking to one of the leaders and{x
+{r{Pdecided that joining the group would be good.  They could teach him things{x
+{r{Pthat he did not know of.  Wonders he had yet to hear about, or see for that{x
+{r{Pmatter.  He thought it best to stay with these "Knots" for the time being.{x
+{r{PAfter a time he became quite fond of the group and decided to finally call{x
+{r{Psomewhere home.  As he finished growing he kept on learning.  There was so{x
+{r{Pmuch out there that he had to know about.  The nice thing about the clan is{x
+{r{Pthat it was like back home.  It reminded him of home so much that he would{x
+{r{Pgive his life to protect any of his new found family members.  Though{x
+{r{Phearing this may make you think he is a very strict man, he is just{x
+{r{Popposite.  Since he had grown up mostly on his own he didn't know how grown{x
+{r{Pup where suppose to act.  He still has times that he is more like a child{x
+{r{Pthen adult.  His jokes seem to go on forever when he is in a tormenting{x
+{r{Pmood.  But weather he is in his tormenting mood or not, he will always lend{x
+{r{Pa hand to the needy.  He once remembered the time that he was needy, and he{x
+{r{Pthinks that the best way to repay the people that helped him and to repay{x
+{r{Pthe people that will help him in the future is to help those that he can.{x
+{r{PIn the just of it he is still trying to grow up wile trying to survive in{x
+{r{Pthe world helping as many people that he can.  Because most are scared away{x
+{r{Pfrom all the hair on his face and what ever skin shows.  But now if he were{x
+{r{Pto remove his garments there might not be hair everywhere.  But who knows{x
+{r{Pbut his wife?  And you would be safe not to ask her either.  :-){x
+~
+E
+page29~
+
+I was born in a small village far from here, My mother was a human and my father was an elf. 
+Luckily I took my fathers race.  When I was just a baby some men came in the village and 
+attacked us. I was hidden but my parents were killed.  I have an older brother who I am 
+searching for. I have no information on him except he is here.  I searched the land until 
+I found New Thera since I was young and inexperienced. I took a few jobs hunting people that 
+did evil things.  I met a few people along the way. They were friendly to me, but then I 
+met Bingoboy. I fell in love.  He helped me when I was in trouble. I owed him my life. 
+He told me of a group of people I should meet.  That is how I met the Army of Darkness. 
+I knew I didn't belong there but I was new to the city and they took care of me. 
+After a few days I found out what type of people they are and decided to leave.  Then 
+I met Martijn and was told about the struggle.  I have always been in touch with the 
+sky. From a little girl I have sat all day long looking at the birds flying. Feeling the 
+wind on my face.  There is nothing like being free as the wind, from the most peaceful 
+day to the deadliest storms, Air shows us the true nature of man.
+~
+E
+page30~
+When Kyree was 12, his home was attacked by the vampires.  His friends
+and family tried to flee.  Most didn't make it Kyree ran off into the forest
+and lost track of the rest of his people.  While he was running he found a
+cave with a lake nearby.  He hid in the cave for a couple of days, then he
+went exploring.  While out he met some of the other creatures of the forest.
+He got to know these creatures really well, and considered them his new
+family.  After a while though, he got restless and left.  He traveled
+through the lands until he ended up in Thera.  Upon finding Thera he met
+many travelers like himself, and made friends among the local populace and
+forest creatures.  He decided he would stay in Thera, and begin a new life.
+His reason for choosing the element of Sea, is because it can be calm and
+soothing when at ease, yet fierce and scary when angered, which matches his
+personality. 
+~
+E
+page31~
+In the beginning in the midst of life, there was a space of emptiness.
+ 
+Then one day, a small gust of {Ww{gi{cn{Wd{x, carried a childs laughter, and a
+speck of {HT{Gh{be{Hr{Ga{x, into the midst of emptiness, and suddenly the emptiness
+was filled with a life...
+ 
+Within the heart of a childs laughter, and a speck of {HT{Gh{be{Hr{Ga{x, all things
+are possible, for children are the soul of {HT{Gh{be{Hr{Ga{x.
+ 
+{CS{Te{Wl{Ce{Tn{We{x was born of this union.
+
+Her eyes are a deep dark {cbrown{x, with mystical specks of {Ggreen{x, a physical
+gift from {HT{Gh{be{Hr{Ga{x herself, with a spark of Childlike innocence, which will
+never leave her.
+
+Her hair a {Rr{be{Yd{Rd{bi{Ys{Rh{g-{bb{Yl{Ro{bn{Yd{x mass of windswept curls, a gift from a union
+between the {Ysun{x and {Ww{gi{cn{Wd{x
+
+Her skin, kissed by the {Wmoon{x, and caressed by a {Bd{Ne{Cw {Td{Br{No{Cp{x, is creamy and
+smooth.
+
+This child of the {We{Yl{ce{Bm{We{Yn{ct{bs{x is bound to {HT{Gh{be{Hr{Ga{x by the spirit of all, and in
+her childlike ways, is destined to become wise and learned.
+
+{CS{Te{Wl{Ce{Tn{We{x was born a 16 yr old girl, and though she will age in yrs, her
+youthful looks and innocence will remain the same, for the {We{Yl{ce{Bm{We{Yn{ct{bs{x never
+age.
+
+So look out for her, this young girl who is only beginning to taste the
+essense of life, for within her unites all the {We{Yl{ce{Bm{We{Yn{ct{bs{x, {bL{Ga{Hn{bd{x, {RF{Yi{Rr{Ye{x, {NW{Ba{Ct{Te{Nr{x
+and {WA{gi{cr{x, yet the {Ww{gi{cn{Wd{x rules her {Rh{Pe{Ra{Pr{Rt{x, guiding her feet from place to place,
+her thirst for knowledge at times consuming her.
+
+You will find within {CS{Te{Wl{Ce{Tn{We{x all that makes life, for all formed her, yet
+over her head you will always see the {Ww{gi{cn{Wd{x, her voice reflects the husky
+flow of a soft {Wb{gr{ce{We{gz{ce{x, her hair is ever flowing, never still, and her
+laughter  rides the soft caresses of a summer {Wb{gr{ce{We{gz{ce{x, and breaks through
+the fierce howls of a {Ww{Bi{Nn{Wt{Be{Nr {Ws{Bt{No{Wr{Bm{x.
+~
+E
+page32~
+{YIn the beginning of time, before man existed, there were the gods. They 
+reigned on top of Mount Olympus, and created all that is Thera for their 
+pleasure and amusement. Therans, one of their most wonderous creations were 
+modeled in the fashion of the gods. Olympians had always wondered what would 
+become of themselves had they lost their powers, so the created such an 
+outcome. Therans were that outcome.
+{WIn their reckless haste they had created but one flaw, a streak of their 
+greed, jealousy, hatred, and evil deeds had been imbued in the Therans. 
+Without godlike restraints such as the Olympians had this evil ran amok among 
+Therans, and tainted many pure hearts and souls. Chaos and dissorder followed, 
+and eventually out of the gods control.
+{BAngered by this turn of events, the Olympians sought to destroy the Therans 
+outright lest this evil grow any stronger. Only one god opposed this action, 
+and his name was Thor. He saw the good in all Therans' hearts, and decided to 
+protect such rare beauty. By deciding against his peers, he was cast down to 
+the ranks of such mortals, never to return to Mount Olympus, until he had
+quelled this evil that he saught to tame. So they cast him out, and sealed
+the cave of Olympus, so he could not return.
+{CBeing of a blood more pure than the crude world the gods had created for 
+the Therans domain, he was instantly decomposed into that which made up the 
+world, the 4 elements of {PF{Ri{Pr{Re{C, {WA{gi{cr{{ke{C, {BW{Na{Ct{Te{Br{C, and {GE{Ha{Yr{bt{Gh{C. 
+Seeing the Therans, bicker amongst themselves for petty things saddened his 
+heart...until he found those who respected the very elements the he now was 
+made of. For the Queens' Quarter Knots alone were still pure of heart. Full 
+of spirit and passion, envigorated in life by the elements they so dearly 
+protected, He knew they could help him on his quest to free Therans of the 
+curse of evil bestowed upon them by their very creators. They would be his 
+army of Light, to battle the dark denizens of Evil.
+{YEven now he strives to gather forces of the just, and benevolent, to battle 
+against the evil that enslaves their race, and surely means imminent destruction 
+by the gods who created them. Join the battle, and gain your freedom.
+~
+E
+Page33 page33~
+Meagan's Homeland was destroyed by the evil Vamphyri and her parents were
+killed right before here eyes. She escaped just in time by running to the
+inner courtyard of the keep and jumping into the well. As the current
+surged and pressed in on all sides of the well. Meagan took a deep breath
+and swam under the current and out the side hole where the water came in.
+She surfacedpast the stone bridge which leads to the Keep and climbed up
+the embankment to safety. She took one last look behind her and then
+headed off north, towards Thera. Along the way, she met Ladyhawk, who was
+wondering around Mahn-Tor, and she was kind and loving toward the
+frightened girl. Ladyhawk adopted her and Calvaria and Aerylene became her
+family. They taught her everything about being a a warrior and ranger.
+During her travels around Thera, she was a mortal, immortal IMP and then
+returned to being mortal. She has watched people come and go and 
+circumstances happen, either for the good or the bad. Finally her history
+is posted. That's it, the end.
+Or.. rebeginning??
+~
+E
+page34 page 34~
+{RTemperant hails from the dark halls of Queen Zorah's castle in Bedlan.{x 
+{RBeing the highest Silean Regent under Zorah's power and one of her many 
+Readers, Temperant knew of struggle.{x
+{YHer ability to read the magical power that ran through so many Oran 
+children during firecircle and yet, holding the power of the flame within 
+herself was more than she could bare.{x
+{RThe screams of so many burnt lives traveled in the smoke above Bedlan
+and Temperant decided her fate.{x {RWhile leaving for the safety and 
+security of Sadar's Keep she stumbled across Zorah in the darkened hallway.{x
+{YTemperant had failed to keep her guard up and had let the coppery haze 
+of her aura show.{x {YZorah had spotted this instantly and rose her Fireblade 
+up to demolish the Oran traitor.{x
+{RTemperant, in feeling the white-hot blade upon the skin of her shoulder, 
+reacted and wretched away from the Queen and seized the Blade from her.{x
+
+{YNow traveling through the swamps past the Gripping Stone, she pauses and 
+rests upon Queen Huld's throne.{x {YShe gazes at the blade and feels a 
+power surge within her.{x {YThe air smells of copper and sparks entwine 
+into her flaming hair.{x {YTemperant feels the power of the Fireblade 
+surging through her veins of hot fire.{x
+
+{RThe Gripping Stone then shatters and blood oozes from her injured sholder 
+on to the lush green grass below{x {YThe Earth Queen carries a vengance 
+greater than any Temperant has ever seen.{x {YShe must reach Sadar.{x
+~
+S
+
+#24019
+{gW{Wi{cn{gd{Ws{x of Change~
+	{TAs soon as you step into this part of the hall, you immediately 
+feel the bree{gze that softly and lazily flows about.  There is no carpet on 
+the floor, just w{Thite quartz tile, arranged in swirling patterns much like 
+the stain glass from{g the Great Hall.  You hear soft singing coming from 
+the north.  You feel a s{Tense of calm here.  Just like any of the other 
+elements, air can be both f{gearsome as a lion and gentle as a kitten.  
+There are {Cportraits {xof the{T Air elementals hanging on the pale blue 
+walls. A {Cplaque {xgrabs your a{gttention as well.{x
+~
+0 K 0
+D0
+A beautiful white door with veins of silver is to the north.
+~
+white door~
+1 0 24020
+D1
+The end of the hall is to the east.
+~
+~
+0 -1 24018
+D3
+Sounds of water are coming from the west.
+~
+~
+0 -1 24021
+E
+plaque~
+"In every color there is the light, 
+Gales and blustery winds grant me sight."
+			  Lirrel, of the Trevisti
+~
+E
+portraits~
+To gaze at the Aire Elementals type:
+   look AireAerylene
+   look AireAeris
+   look AireAndrea
+   look AireKismet
+   look AireCronus
+   look AireSelene
+   look AireThor
+   look AireMeagan
+~
+E
+aireAeris~
+You notice a tall elf that is clad in loose flowing robes that catch his 
+beloved Aire Element. You notice a serious and thoughtful demanor on his
+face as he realizes the seriousness of his task.  You can see from his 
+narrow eyes that he is determined and loyal to the defense of the Elements.
+You can barely catch a climpse of his deep purple eyes, the result of his 
+infusion of the Aire Element. His shoulder length hair also is dark purple 
+and flows freely in the wind. His skin is slightly pale yet radiates a 
+magical aura, even from the portrait. His robes are made of silk and 
+colored silver with a purple cloak and hood about his body.  His lir, the 
+sylph, rest upon his shoulder, smiling brightly.  She has long purple hair 
+and purple eyes as well as result from the bond between them.  She wears a 
+small grey silk dress that flows. She wears a deep purple belt and you see 
+the tips of her leather boots. The scene is a grassy plain where a strong 
+gust blows at all times.
+~
+E
+AireAerylene~
+	The first thing that draws your attention to Aerylene, is that she 
+looks so familiar.  Then you realize that yes, this is Calvaria's twin 
+sister.  Their slender, shapely figures and beautifully featured face are 
+identical.  But that is where the similarities stop.  Aerylene's golden 
+tanned skin glows with a radiance of the sun warming the Land.  Her silver 
+eyes gleam without sightlessness, the marking of her Aire element.  A slim 
+black eyebrow is slightly lifted in her mischievous smile.  Where her 
+sister's white hair crackles and sparks, Aerylene's long thick black hair 
+is pulled back in a high ponytail to swing about.  Her body is clothed in 
+soft leather breeches and sleeveless tunic in the rich tones of the Land.  
+Curled about her kneelength boots is her winter lynx, Bailey.  The small 
+gorgeous cat gazes out at you with her deep amber colored eyes.  The 
+setting of the painting is atop Ladyhawk's mountain, where Aerylene can 
+feel the Aire and be with the Land.
+~
+E
+aireAndrea~
+A dark and enticing woman is depicted upon this canvas.  Her eyes, though
+just an artists' rendition of them, seem to peer into your soul, able to
+tell your real intentions.  Her picture guards the clanhall, and serves as a
+reminder of her presence.  Of the Aire element, she glides through
+life with a smile on her face and a warm heart.  Raven black hair cascades
+down her heavily armored body.  Though she is husky, she has a strange
+grace.  Her Vamphyri blood has given her immortality, and her ageless face
+has a serene look of peace on it.  The milk white of her skin, and the
+piercing {Cblue{x of her eyes contrasts with her hair.  She has lived a
+charmed life, and invites all to sit and listen to her weave a tale of love,
+life, and learning.
+~
+E
+aireKismet~
+As you gaze at this painting it seems to move before your eyes.
+On it stands a tall man with buzzed {cgrey{x hair and {gsilver{x eyes.
+The scene he stands in appears to be one of great joy.
+He stands in the {TKnot Courtyard{x looking like he is entertaining
+lir and member alike with another vivid {Mtale{x and {Msong{x.
+As you stop to admire the finely painted picture you swear
+you could hear music from somewhere, but you can't seem to place it.
+{cKismet{x appears to be not the powerfully built or quick, or even
+much of a scholar, but you can tell by the {Rtwo blades{x that he carries
+that you would want him on your side for a fight.His {btanned{x complexion 
+is a stark contrast to his light colored hair and you can tell by his 
+clothing that he is well traveled like the {cAire{x he represents. He 
+appears to be nothing special, but fascinating at the same time. At the 
+bottom of the portrait it reads...
+{Y"Half of life is {VLuck{Y, the other half is {VFate{Y. Make the most of 
+what you're dealt."
+{xQuote of{c Kismet, {MBard {xof the {TKnot{x
+~
+E
+aireCronus~
+{BCronus{W, the {PNecromancer{x
+{W------------------------------------------------------------------{x
+{WThe portrait of the {Ya{Wi{Yr{We elemental shows a tall {rwarrior{x with a{x
+{Wsomewhat {Md{ca{Mr{ck{W theme about him.  His eyes seem to glow a slight {rred{W,{x
+{Wand his sword seems to take on an odd shade of {Bblue{W. The setting for the{x
+{Wportait is a graveyard, a popular place for {Rnecromancers{W.  The painter who painted{x 
+{Wthe portrait must have either been very brave, or must have known Cronus well,{x
+{Wfor a Necromancer as powerful as Cronus could turn the entire graveyard into{x
+{Wa living {Ph{be{Pl{bl{W in a few seconds.  As you look more closely at the portrait{x
+{Wyou notice a slight smile on his face, suggesting that although he was{x
+{Wpowerful, he was really a {Ykind{W person.  However, he was only kind to his{x
+{Wfriends.  His enemies met with a very unpleasant {Rfate{W.{x
+
+{WYou continue to examine this picture, when you start to get the {Mstrange{x
+{Wfeeling that Cronus is staring back at you from the {Bportrait{W, and his{x
+{Wglowing eyes strike {cfear{W in you.  You decide to move {Caway{W.{x
+~
+E
+aireSelene~
+As you gaze at the picture of {CS{Te{Wl{Ce{Tn{We{x you notice it is different
+than any other portrait you have ever seen, for this portrait 
+has caught a moment in time...
+
+You notice {CS{Te{Wl{Ce{Tn{We{x standing by a {Tlake{x in a {Gg{Hr{Ga{Hs{Gs{Hy {Gm{He{Ga{Hd{Go{Gw{x, the {Ww{gi{cn{Wd{x 
+sensualy caressing her long curly locks of {Rr{be{Yd{Rd{bi{Ys{Rh{g-{bb{Yl{Ro{bn{Yd{Rh{ba{Yi{Rr{x, her 
+{Rl{Pi{Rp{Ps{x gently curved in a secret smile, as she listens intently to 
+the loving words the {Ww{gi{cn{Wd{x whispers in her ears...
+
+Her long thin {Wg{go{Ww{gn{x, like gentle hands, molded to her body, showing
+off her tall thin build, yet shaped so erotically as only a woman
+of the {We{Yl{ce{Bm{We{Yn{ct{bs{x can be...
+
+You lean closer and gasp, you smell her {be{Ga{Hr{bt{Gh{Hy{x scent, and feel the 
+heat of the {Ysun{x, you swear you see her deep dark {cbrown{x eyes with 
+{Ggreen{x flecks blink at you as her {Rl{Pi{Rp{Ps{x curl into a deeper smile, 
+her pale cheeks blush as the {Ww{gi{cn{Wd{x brushes the dew from her soft
+{Wmoonkissed{x skin... 
+
+You take a deep breath, close your eyes, and look once again, and 
+realise it was not a figmant of your imagination, The portrait of 
+{CS{Te{Wl{Ce{Tn{We{x is indeed a living capture of a moment in time.
+~
+E
+aireThor~
+{bYou see a portrait of a short round man, who looks of Norse descent. Hairy and rustic, he has the look of the {Hdeep 
+forest{b, his beard being the {Rcrimson {bof a {Ybrilliant {PS{Ru{bn{Pf{Rl{ba{Pr{Re{b. His clothes,
+ruffled and {ksoiled{b, are the lush growth of the {Hfertile {GE{Ha{Yr{bt{Gh{b. With a {gwanderlust {bin his eyes, a look 
+only a traveler by heart can bear, you are drawn into a {Bs{Na{Cp{Tp{Bh{Ni{Cr{Te {Bblue {bof the {Ndeep sea{b. He
+wields a massive hammer, inscribed on its head are the words: "{PA{cn{Wv{ci{Pl{gs' {PR{ca{Pg{ce{b", all the while
+{ggleaming {bthe {Wflash {gof a {Wwhite Lightning bolt{b. Around him floats an {Wa{gi{cr{ke {bof a {Pc{Ya{Wm{Pp{Yf{Wi{Pr{Ye{b, 
+as he prefers to sleep {Coutside {bunder the {Wstars{b. His low bassy voice sounds like the {Crumbling {Bof
+{Mthunder{b, as he emanates a {gprotective aura {babout him. A worthy companion, and loyal friend, you
+feel comfortable around him despite his rough appearance. He rides atop his {WGiant Griffin{b named {WB{ga{ch{ka{Wm{gu{ct{b, 
+skimming the {Tskies{b, as one of the {WA{gi{cr{ke {belement loves to frequent.
+~
+E
+airemeagan~
+Meagan's long, very {cblack hair{x falls to the ground. Most of the time
+she has doesn't care much for foo foo things. She isn't very tall, only
+about 4 foot and her feet are so tiny you wonder how she can run as fast
+as she does. But it's the eyes that catch you off balance. They are a deep
+{Mviolet{x, which reflects specks of {Ndeep blue{x and {cblack{x. They
+{Wsparkle{x on the outside, but inside there is a {Ysadness{x that many
+do not even comprehend. If you read her history, you will find out many
+things she does not often tell. Many thinks she is just {Wr{Ci{Wd{Ci{Wn{Cg
+{Won {Cthe {Ww{Ci{Wn{cd{x, with a {Pc{Ri{Wr{Pc{Ru{Ws{x mind, however she is
+very intelligent and has learned (finally) the {Tt{Mr{Tu{Mt{Th{x.
+~
+S
+
+#24020
+Lirrel's Sanctum~
+	Your eyes are almost eclipsed as you open the door to Lirrel's
+room.  A small twirling tornado spins quietly in one of the corners.  Here
+and there little gales sweep the sun particles in a myriad of dance 
+routines.  There is a large white rug in the center.  Windows line the 
+entire circular wall, and all are open to let in the winds.  There is a 
+pearl white dais in the center of the room.  You step down the two steps 
+from the entrance and walk closer to the dais to realize that what you 
+thought was a statue is really an apparition of Lirrel, a strand of the 
+Original Queen's Quarter Knot.  Long ago, when Lirrel's sister Zorah, 
+killed Lirrel's snow owl lir, {CTiernan{x, Lirrel died with him.  Now she 
+rests here eternally with the band of Elementals, counseling and healing 
+them.
+~
+0 K 0
+C knot~
+D2
+A white and silver door leads back to the hallway.
+~
+white door~
+1 0 24019
+E
+Tiernan~
+The pure white snow owl rests atop his crystal perch beside his
+beautiful bonded.  His large jet black eyes blink as he gazes about
+the room.  He ruffles his feathers up and steps off his perch to 
+nestle in Lirrel's lap.
+~ 
+S
+
+#24021
+{TS{Ce{Ba{Ts{x of Retribution~
+	{BWhen you walk into this room the first thing you notice is that a
+tiny stream is {Ntrickling from the waterlike door to the north.  It babbles 
+to itself as it twist{Bs and turns and disappears as it reaches the wall.  
+Many animal sounds {Ncome from the closed northern door.  As in the rooms 
+before and after this, ther{Be are {Cportraits {xof the Water Elementals. 
+A silver {Cplaque {xhangs a{Nbove the disappearing stream.{x
+~
+0 K 0
+
+D0
+A shimmering wall of water is to the north.
+~
+water~
+1 0 24022
+D1
+~
+~
+0 -1 24019
+D2
+~
+~
+0 -1 24032
+D3
+~
+~
+0 -1 24024
+D5
+~
+~
+0 -1 24029
+E
+plaque~
+Remember the shaman. when he said. "Man has the dream of the dolphin."
+~
+E
+portraits~
+To gaze at the mystical {TS{Ce{Ba{x Elementals type:
+   look SeaCalvaria
+   look SeaSuntzu
+   look SeaLadyhawk
+   look SeaSmiley	
+   look SeaTiddles
+   look SeaMara
+   look SeaAlexia
+   look SeaKvass
+   look SeaRyler
+   look SeaDarkLady
+~
+E
+SeaCalvaria~
+	{gAn {Mi{Vn{Md{Vi{Mg{Vo{x scarf is draped over the painting of a beautiful {Wwhite{g 
+haired woman.  This portrait you recognize, is of Calvaria.  She is 
+standing alongside the {TSi{Wle{Can{T Oc{Wea{Tn{x.  The vast sea green water mirrors 
+the intensity and depth of her almond shaped eyes.  Her long, unruly 
+ivory hair  is tied back with a piece of leather, only to let a few 
+locks spark and curl to frame her heartshaped face.  The paleness of her 
+skin reveals that she is no longer of the realm of the living, but an 
+undead vampire.  Her deep red lips are pulled back in a seductive smile 
+to reveal the tips of her fangs.  A swirl of {Bde{Nep {Bbl{Nue {gcloak drapes over 
+her slender shoulders to swing about her bare shapely legs.  Her long 
+sapphire colored dress is almost eclipsed by the folds of the cloak.  A 
+slender hand is nestled deep within the white fur of her wolven lir, 
+{MMa{Vnti{Tco{Cre{g, standing protectively beside her.  His deep emerald colored 
+eyes sparkle with both mature wisdom and childish mischief.  You stand
+back and admire the powerful priestess and her beloved companion.
+~
+E
+seaLadyhawk~
+As you stand and gaze upon the portrait of Ladyhawk, you see a figure,
+slight of build standing straight, only a mere 5 feet tall.  Long and
+thick dark eyelashes outline her wide, sea-green eyes that stare out to
+sea with a sense of deep calm.  Her dark, emerald green velvet hooded robe
+flowing gracefully to the ground.  The bodice is white, delicate hand
+crocheted lace just barely tipping over her swelling breasts.  Just
+peeking out from under the folds of her gown are small, black, soft glove
+leather shoes.  Her face is round, smooth pale skin, with a tiny scar on
+her lower right cheek.  (They say when she was a small child, she was high
+in a tree believing she could stretch her wings as her name implied.  Alas,
+not so, the ground was hard and unyielding, ending with a little kiss from
+the earth.)  The sun dances on her hair, long, blonde, like cornsilk.  Not
+overly thick, but  with a mind of its own, wisps stray here and there.
+There is but one piece of jewelry adorning her.  A small, delicate, gold
+chain around her neck.  On the chain is a piece fashioned to resemble a
+girl.  A round, clear, perfect diamond forms the head, below that a
+triangular aquamarine for the body/skirt with four tiny chains attached
+to symbolize the arms and legs.  A gift from her daughter, Calvaria, that
+Ladyhawk never takes off.  Ladyhawk stands next to her stallion, Cresue.
+A beautiful, large steed, shining gold in color and four white stocking
+legs, with a long white, flowing mane and tail.  Her slender arm poised
+with her small hand resting upon his withers.  They stand together on the
+high cliff overlooking the sea at Flaming Five Mountain.  The sky is
+sapphire blue, no clouds in sight.  A gentle breeze touching them ever so
+lightly.  They are calm, powerful, and in control.
+~
+E
+seaSuntzu~
+As you gaze upon the portrait of SunTzu, you are immediately seized by the
+power and compassion which appear in his ice blue eyes. His half-smiling 
+face is topped by a mass of light-brown hair, streaked with gray, and 
+pulled into a tail. Around his neck is an amulet of sapphire shaped to a 
+water droplet. He is dressed in the loose-fitting clothes of a wandering 
+samurai: oversized, loose shirt and pants of purple, white wrap-shirt 
+beneath. Tight around his waist are his katana and wakazashi. The gold 
+threads woven throughout his overshirt coalesce into 5 stars extending 
+down his left arm, and 9 planets down his right. He is standing upon the 
+shore, facing the ocean. White and pink cherry blossoms fill the air 
+behind him. Once again, you feel inexorably drawn to his smiling,
+penetrating eyes, and you know the greatness of SunTzu.
+~
+E
+seaSmiley~
+Smiley seems to glow as if she knows a long and forgotten secret.
+Her hair flies behind her as she seems to walk over the Theran Ocean.
+Even As you look at her, you just know she's part of something bigger.
+She has helped many, while being helped by her fellow {TQuarter Knots{x.
+She stands in the middle of four shrines. One goes to Dakkon - {PO{Rn{Pe 
+{RW{Pi{Rt{Ph {RT{Ph{Re {PF{Rl{Pa{Rm{Pe{x, one to Calvaria, {CL{Ta{Cd{Ty
+{CO{Tf {CT{Th{Ce {TO{Cc{Te{Ca{Tn{x, one to Jello - {BJ{Ci{Bg{Cg{Bl{Ce{Br
+{CL{Ba{Cd{By{x, and one to Kittens - {VF{Cu{gr{VW{Co{gm{Va{Cn.  You can tell
+that she is very {Pg{Br{Ya{Gt{Ve{Wf{Pu{Bl{x to these four people, and hopes
+to return the favors that they have given her.  While being helped by her
+fellow clanmembers and alongside her trusty Pegasus {WS{Yun{WS{Yhine{x, 
+she fights for {YT{Wruth, {YJ{Wustice, {YA{Wnd {YT{Whe {bL{Ye{Wga{Yc{by{x 
+{YW{Way{Y!{W!{Y!{W!{x
+~
+E
+seaTiddles~
+The sea seems calm and gentle as the rays of sunlight hit its surface 
+and are refracted into a myriad of pretty colours reflected off the 
+waves. On the shore in front of the water, his foot placed on a
+convienient rock stands Tiddles, obviously posing for the artist.
+Tiddles is fairly small for his kind, probably the runt of the litter,
+and though he poses in such a way to look as powerful and imposing as
+he can, he doesn't look as if he'd ever make a very good warrior.
+Tiddles is a feral, a cat-like creature with gentle orange, yellow,
+red and black stripes over his fur. He has black on yellow eyes and
+a set of fairly long well-kept whiskers. He also has a tail which seems
+to be curled up in a rather uncomfortable position, but it was obviously
+what the artist considered an ideal way for it to be and it does
+extenuate the rest of the portrait. Then there's the teeth. Ferals being
+cats are carnivores and do have fierce canines at the best of times.
+Tiddles', however, seem to be a fair bit longer than even a feral's 
+should be. Either the artist got them totally out of proportion, or
+there's more to Tiddles than meets the eye.  In fact, you could be
+forgiven for feeling that Tiddles doesn't belong out in the sun where 
+the artist has put him. Standing by the foot which is on the ground is
+a small blotch of red. This is the artist's representation of Tiddles'
+fox lir, though it's obvious by this time the artist just couldn't be
+bothered.
+~
+E
+seaMara~
+{RWhile looking though the portraits, you see a {bbutton{x that says "push me"
+on it.  So you think to yourself, "Ok, I'll push it and find out what
+happens."  As soon as you push the {Rlittle red button{x (Did I forget to
+say it was {Rred{x?  ) a big {Ccloud of mist{x surrounds you...  You soon
+see a attractive looking girl walking to you.  She doesn't look TOO old, but
+not TOO young either, maybe in her late {Rt{Ye{Ge{Cn{Ms{x.  As she comes up
+closer to you, you can make out that she is wearing short-shorts, Tivas, a
+{blight gold necklace{x, two small earrings, and a {Wwhite-sleeveless{x
+button down shirt (If you look closely enough, you can make out a {BBlue
+Bra!{x  She is about 5'6'', thin, and her {blight-brown hair{x runs just
+down to her neck.  She has a {blight tan{x as well, and all of these features
+make her VERY attractive...  WOW!!!  
+~
+E
+seaAlexia~
+Although Alexia doesn't glow or change into air like her spouse, she does
+have some outstanding qualities that make her stand out and be noticed. 
+When you look at her hair and eyes, you can't help but wonder if she's all
+human.  Her long blonde hair is loosely braided, hanging to the middle of
+her back.  Within these braids are black strands that are entangled within
+the hairs.  These black hairs do not look like normal human hair; Instead,
+they look rough, and make you quiver with uneasiness when you touch them,
+making it uncomfortable to.  She has bright blue eyes that seem to captivate
+you, leaving you feeling hollow inside.  It almost makes you quiver because
+you get the feeling that she's seen everything you are, and all of your
+secrets.  You study the eyes, remembering they are rumored to grow a deep
+red when she gets angered or upset.  The rest of her body appears to be of
+human form.  She has long, beautiful legs that keep you drawn to her.  Just
+as you can see why Alexia could fall in love with Asmadi, it is obvious why
+people are drawn to her.  She shows a lot of friendly features, and with her
+unusual traits, it shows just how extraordinary she really is.
+~
+E
+seaKvass~
+{CThere is a man at the center of this Portrait. He has on a pair of
+sunglass, a black three-button (gold) jacket, a pair of black pants, dress
+shoes, and blue polo shirt and a light blue tie. He is also holding a long,
+1inch in diameter pole, which he looks like he is twirling around in a very
+cool way. At his feet lay K.O.ed high-ranking Sovite officials (Stalin,
+Lenin, etc. [Not Gorby]) as well as Mao, and all those red commies. The man
+is standing in red-square. The bricks are cracked, and there are a few
+bondfires around. Red Communist flages burn in the background, and statues
+of Lenin, Mao, etc. are being removed. You can see a drunken-fat man on the
+Kremlin waving a Tri-Color flag. The fat guys looks like he's had a little
+too much Vodka, shall we say? (Note: The Vodka line is in honor of Mara, not
+that I'm comparing The fatty (Boris) to Mara, cause she doesn't look like
+that, but, never mind (Sorry Mara)) The man in the suit, who looks like he's
+just gotten revenge seems to have a certain look in his deep-brown eyes. His
+brown wavy hair is obviously being blown by the wind. Below the portrait is
+a golden-plaque which reads : Moscow, 1991, moments after the communists
+lost Power. Man in suit is Kvass, Fat-Drunken-Russian is Boris Yeltsin.
+"Never have I before kicked so much red ass before." - Kvass.{x
+~
+E
+seaRyler~
+The first thing you notice about {TR{gy{Cl{We{Tr{g'{Cs{x portrait is that there is a {Yy{be{Yl{bl{Yo{bw{x, 
+{Yg{bl{Yo{bw{Yi{bn{Yg {Ma{Vu{Mr{Va{x around him that immluminates the {gs{ch{Wa{gd{co{Ww{g'{cs{x. His skin looks as if 
+it has been {gs{Hm{Go{Wo{gt{Hh{Ge{Wd{x out by the {To{gc{Ce{Wa{Tn{gs{x for {gc{ce{Wn{gt{cu{Wr{gi{ce{Ws{x. His hair is a {Yg{bo{Yl{bd{Ye{bn{x 
+blond that {Ws{gp{Wa{gr{Wk{gl{We{gs{x in the {cd{ga{cr{gk{x. His eyes {Yg{bl{Yo{bw{x like {Rf{Pi{Re{Pr{Ry{x, {Ph{Yo{Rt {ce{gm{Wb{ce{gr{Ws{x and his
+{Ps{Ym{Gi{Cl{Ve {glike a {cw{ge{Wl{cc{go{Wm{ci{gn{Wg {Tw{Mh{Ci{Ts{Mp{Ve{Tr{x upon your neck. As you examine his face some 
+more you notice that his eyes are following you around the room as you move. 
+You feel a {Tc{Co{Tl{Cd {cs{gh{Wi{gv{ce{Wr{x go down your spine so you stop looking into his {cdeep{x,
+{Tb{Cl{Tu{Ce{x eyes. Since {TR{gy{Cl{We{Tr{x is part {Cs{Wm{Cu{Wr{Cf{x he has a {Tb{Cl{Tu{Ce{x tan to his skin. He looks
+so important in his portrait because he is standing infront of a giant, {Ww{gh{ci{Wt{ge
+{xpalace. {TR{gy{Cl{We{Tr{x is obviously part {YG{WO{YD{x because of his {Yg{bl{Yo{bw{Yi{bn{Yg {Ma{Vu{Mr{Va{x.
+~
+E
+seaDarklady~
+You see a large silver frame hanging on the wall.  You see a fair
+complected woman with long black hair and bright {Bblue{W eyes.  Her attire
+consists of a sleeveless top and wrap around skirt that are {Clight blue
+{Wand {Ggreen.  {W This along with the dark hair seems to make DarkLady's
+eyes stand out as if they are staring into your soul.  DarkLady stands along
+the {bbeach {Wof a vast {Cocean{W.  The wind blows her long flowing hair and
+clothes to the right.  There is a large beautiful smile across her face.
+Her lips are a beautiful {Rred{W color.  Her cheeks are rosy and glowing.
+In her hair she wears a string of white flowers across the top of her head.
+Along her shoulders she has a gorgious sheer silver shaw.  Her shoes are
+{bbrown {Wsandles to wear on the beach she knows all so well.{x
+~
+S
+
+#24022
+Nyctasia's Dwelling~
+	When you walk through the water wall you are amazed that not a 
+single drop has saturated your gear!  There is a whirling tidepool in the 
+center of the room.  You walk around the raised outer edge of the rim.  
+Lir of every kind inhabit this sanctuary.  Falconers, panthers, bears, 
+and even the creatures of the Sea all wait here till the time has come for 
+the bonded to choose a lir.  Lirs are very special and important to the 
+Knot.  If a lir is sick, the bonded gets sick.  And never mistake an 
+Elemental's lir for a "pet."  The lir are far more intelligent and 
+characteristically charmed for that.  Nyctasia, the once Water strand 
+of the Queen's Quarter Knot has taken it upon herself to take care of 
+the Lir.  {CNauticus {xher dolphin lir, was killed by Queen Zorah and 
+now lives in a sea of liquid never to feel it's wet surface again.  If 
+you look closely you can see the faint outline of a dolphin in the 
+shimmering whirlpool.
+~
+0 KM 0
+C knot~
+D2
+A shimmering wall of water leads back out to the hallway.
+~
+water~
+1 0 24021
+E
+Nauticus~
+You walk up to the edge of the whirlpool and gaze deep into it.  All of a 
+sudden the faint image of a bottlenosed dolphin emerges.  He looks at you 
+and measures you up.  With a short chortle he does a back flip to plunge 
+without a  splash back into the water's depths.
+~
+S
+
+#24023
+Nyctasia's Dwelling~
+This room is to house the pets for Nyctasia's Dwelling - Lotus
+~
+0 CDS 0
+C knot~
+S
+
+#24024
+Flicker of the Flame~
+	{RThis room is by far the warmest part of the Keep.  The dark ruby 
+polished sto{Pned floor is covered with scattered throw rugs, equal in 
+richness and be{Yauty.  You hear a slight humming noise as if an earthquake 
+is about to erupt.  T{Rhe Fire Elementals look to be fierce fighters as you
+look at their portraits.  {PThe Fire Queen Zorah killed her sisters' lirs 
+and with that, killed them.{Y  Now the fire Elementals look for a new fire 
+strand.  You look at the {Cpai{Rntings{x and wonder which it will be.{x
+~
+0 K 0
+D0
+A blazing wall of fire is to the north.
+~
+fire~
+1 0 24025
+D1
+~
+~
+1 0 24021
+D2
+~
+~
+0 -1 24042
+D3
+~
+~
+1 0 24026
+D4
+~
+~
+1 -1 24044
+E
+paintings~
+To view the fire elementals type:
+   look FlameCalvaria   
+   look FlameDakkon
+   look FlameMartijn
+   look FlameMadcat
+   look FlameCinnamon
+   look FlameRadiant
+   look FlameTemperant  
+~
+E
+flameCalvaria~
+	{gAn {Mi{Vn{Md{Vi{Mg{Vo{x scarf is draped over the painting of a beautiful {Wwhite{g 
+haired woman.  This portrait you recognize, is of Calvaria.  She is 
+standing alongside the {TSi{Wle{Can{T Oc{Wea{Tn{x.  The vast sea green water mirrors 
+the intensity and depth of her almond shaped eyes.  Her long, unruly 
+ivory hair  is tied back with a piece of leather, only to let a few 
+locks spark and curl to frame her heartshaped face.  The paleness of her 
+skin reveals that she is no longer of the realm of the living, but an 
+undead vampire.  Her deep red lips are pulled back in a seductive smile 
+to reveal the tips of her fangs.  A swirl of {Bde{Nep {Bbl{Nue {gcloak drapes over 
+her slender shoulders to swing about her bare shapely legs.  Her long 
+sapphire colored dress is almost eclipsed by the folds of the cloak.  A 
+slender hand is nestled deep within the white fur of her wolven lir, 
+{MMa{Vnti{Tco{Cre{g, standing protectively beside her.  His deep emerald colored 
+eyes sparkle with both mature wisdom and childish mischief.  You stand
+back and admire the powerful priestess and her beloved companion.
+~
+E
+flametemperant~
+{rA short, slender woman, with long coppery red hair and green eyes that{x
+{rseem to be looking into your soul. Her hair hides her naked body from{x
+{rsight while she rests in the sun.{x
+{rShe seems to have been swimming in a nearby lake and the water droplets{x
+{rglow on her creamy skin. She carries a great similarity to the infamous{x
+{rFire Queen, but something is different, something in her eyes that shows{x
+{rthat she cares. The smirk on her face shows that she is not a great one to{x
+{rmess with; yet you wish to try.{x
+~
+
+E
+flamedakkon~
+	Here lies the portrait of Dakkon Blackblade.
+{cThe first thing you notice is the way he almost blends into the dark,
+bleak background. His jet black hair, piercing dark eyes, and black 
+cloak all seem to fade in and out, as if to hide his presence. His 
+features are stern and emotionless, as if trying to shut out the mortal
+world, with all their foolish emotions and petty things. A great weapon
+rests on his back, the blade as black as midnight, merging with the rest
+of the portrait. By pure chance, you notice something odd with one of 
+the corners of the portrait, something you're sure that wasn't there 
+Before. It seems as if some c{golor is s{Wlow{Gly encroachi{Cng on the
+boundaries of the picture. Perhaps, {Hs{Go{gm{We{go{Gn{He {gexists, so full
+of {Pl{Ro{Pv{Re {gand compassion, that can soften his heart of
+{cs{gt{co{gn{ce{g?{x
+~
+E
+flameMartijn~
+All you see is a nicely decorated frame with fine ornaments. It bears a 
+label {RMartijn{x, but only shows the bare wall behind it on which it's hung.
+~
+E
+flameMadcat~
+Madcat stands, the very pillar of sanity on top
+of a rocky beach ball, his tail in a moebius
+loop, his head in a Klien bottle. 
+Behind him the background is purple with the sun
+dazzling everything with it's bubbley blue brightness
+in the distance a cucmber can be clearly seen 
+riding a bicycle, while a hamburger flies lazily
+in apparent circles about Madcat's head.
+sat at Madcat's feet is his Lir, an advocat
+called simon and his pet tiger call Kwesterriforum.
+His tiger is covered in clear yellow, black and
+red stripes and it's lionesque mane is quite 
+unusual.
+Madcat's seems to be smiling at the painter
+while he was painted which might account for the
+unusual splodges all over the canvass as if the
+painter was in a hurry to get away.
+~
+E
+flameCinnamon~
+Fluffy clouds swirl playfully around the figure of a small red dragon in
+this painting.  The frame is carved in geometricly styled clouds and fire,
+which draw your attention for a moment.  Looking back at the central figure
+in the painting, its apparent this dragon is an impish sort, hovering in a
+reclining position with a milkshake clutched in her front paws, sipping on
+the straw.  Her tail is tipped with black spikes, and is sort of kinked at
+the end like its used often as an extra hand.  Stepping closer to the
+painting, you can smell the faint wiff of cinnamon oil that was used in the
+paint.
+~
+E
+flameradiant~
+{T You gaze upon a man clad in powerful obsidian armor.  He is a warrior
+by the looks of it, and a strong one.  His face is a wall of mystery.  What
+have those eyes of blue flame seen?  What have those slightly pointed ears
+heard?  Those lips, what have they spoken, and cried for?  He is handsome,
+his expression the epitome of a hardened warrior.  His long flaming mane of
+black hair, and tanned skin hide his long history of pain well.  He has two
+long glowing blades at his side, powerful artifacts used in countless wars
+and battles.  What have these mithril swords slain?  Who have they saved? 
+The painting glows as you look upon it, a flame of blue and black burns
+within it, despite the fact this is but a canvas.  A heat engulfs your soul,
+and burning desire overtakes you, a pain, a hidden need for something you
+cannot name.  You are feeling this warriors soul.  An experience never to be
+forgotten.{x
+~
+S
+
+#24025
+Aidan's Armory~
+	A warm sensation washes over you as you gingerly walk through the 
+wall of fire to enter the Armory.  The room has a warm reddish glow to it, 
+even though the windows are clearly open to let the breeze come and filter  
+in.  Like the other elemental rooms, this room is constructed to have a pit 
+like center, with a relatively large walkway around the outer rim.  A 
+blazing fire emits sparks from the circular pit.  From the size of it, 
+you would think it would bring down the Keep in a towering inferno.  But 
+Aidan, a Fire Elemental tends to it and makes sure it doesn't get out of 
+hand.  You look over at him and wonder what it is he is constructing now.  
+{CHart{x, his red fox lir, lies at his feet, basking in the warmth of the 
+flaming pyre.
+~
+0 K 0
+C knot~
+D0
+To the north is the Elemental Smithy.
+~
+~
+0 -1 24031
+D2
+A blazing wall of fire is to the south.
+~
+fire~
+1 0 24024
+E
+Hart~
+Hart, Aidan's red fox lir, lies at his bonded's feet.  Use to Aidan always 
+being busy, Hart has compensated with many moments of napping.  His rich 
+red coat seems to radiate with his bonded's element.
+~
+S
+
+#24026
+Place of {HL{ba{Gn{Hd{x~
+	{HThe first thing you notice about this room, is the earthen floor 
+of packed d{birt.  A cedar tree grows out from the south end of the room, 
+only to branch{G out the window and canopy the entire end of the hall.  A 
+few birds have fo{Hund their home among the branches.  An {Cinscription{x 
+can be seen on one o{bf the branches of the sturdy little tree. 
+Sounds of fighting and b{Gattling can be heard from the north.{x
+~
+0 K 0
+
+D0
+A few branches block the entrance to the north.
+~
+branch~
+1 0 24027
+D1
+The Fire Elemental Quarter is to the east.
+~
+~
+0 -1 24024
+D2
+~
+~
+0 -1 24043
+D3
+The end of the hall lies to the west.
+~
+~
+0 -1 24028
+E
+inscription~
+"In every stone sleeps a crystal."
+		  - Aslynn  Snowblade
+To view the {GL{Ha{bn{Gd{x elementals type:
+    look LandAerylene
+    look LandIlyatha
+    look LandMnementh
+    look LandClarissa
+    look LandDogpack
+~
+E
+Landaerylene~
+	The first thing that draws your attention to Aerylene, is that she 
+looks so familiar.  Then you realize that yes, this is Calvaria's twin 
+sister.  Their slender, shapely figures and beautifully featured face are 
+identical.  But that is where the similarities stop.  Aerylene's golden 
+tanned skin glows with a radiance of the sun warming the Land.  Her silver 
+eyes gleam without sightlessness, the marking of her Aire element.  A slim 
+black eyebrow is slightly lifted in her mischievous smile.  Where her 
+sister's white hair crackles and sparks, Aerylene's long thick black hair 
+is pulled back in a high ponytail to swing about.  Her body is clothed in 
+soft leather breeches and sleeveless tunic in the rich tones of the Land.  
+Curled about her kneelength boots is her winter lynx, Bailey.  The small 
+gorgeous cat gazes out at you with her deep amber colored eyes.  The 
+setting of the painting is atop Ladyhawk's mountain, where Aerylene can 
+feel the Aire and be with the Land.
+~
+E
+landilyatha~
+As you look at the portrait of Ilyatha, you notice that it is hard to
+see her features real well since she is a shadow.  Her eyes seem to look
+seeing who you are and what you are, it sends a cold chill down your spine.
+Looking into her eyes, you see a hidden pain, which you cannot determine
+but it is always in her mind.  Her features are well defined yet hard to
+see.  She has long flowing pitch-black hair.  She is about 5'5" and
+extremely quick and agile.  Her reaction time is very quick, her senses
+are very acute, not much gets by her.  You can tell by her look that
+she is very emotional, anger or passionate.  She is also very muscular and
+strong.  She is almost always dressed in pitch-black silenced armor
+so she can sneak up on her opponents.  Ilyatha looks like a cold-hearted
+warrior that has a passionate side.
+~
+E
+landmnementh~
+Before you stands a portrait of Mnementh.  His interesting personality
+is shown well by the fact that he, a dragon, constantly in the air, chose
+the {HL{ba{Gn{Hd{x element as his own.  Many would wonder at this choice, but it
+made perfect sense to him.  He always loved the land, and also held a great
+respect for the other elements.  He tried always to lend a helping hand to
+those who needed it, and tried to allow everyone the benefit of the doubt.
+Mnementh appears to be a person that has strong beliefs and is willing to
+back them up with force, but only if there is no other way.
+~
+E
+landClarissa~
+{MThe {Yblond-haired {bwooden {Wdoll{M was all that was left of the {Rhorror and
+ruin{M that ravaged a small town.  Brought to {Rl{Wi{Rf{We{M by last spells
+of a {Cmage{M, she now carries the {Wsouls{M of her dead 'family': a
+{Yfrightened {Bgirl{M who loved a doll and wrapped her in a blanket, a
+strong and patient {Bfather{M who defended his family to his last breath, a
+loving {Bmother{M who held her daughter away from {Rharm{M, sacrificing
+herself, a {Wold{M and {Bwise{C mage{M who spun his {Wsoul{M with the other
+three into the safety of a {bwooden{W doll{M, and gave her {Rl{Wi{Rf{We{M
+and {Hstrength{M.  Now human-sized and an apprentice to the {Wold{C mage{M
+who speaks to only her {gmind{M, Clarissa searches for a safe home and the
+power to set her family free.  Is she really a doll, still?  Look closely at
+the painted {Bblue{M' eyes and you may see much more.{x
+~
+E
+landDogpack~
+{r{PYou see a VERY large man here.  As you look up to look him in the eyes{x
+{r{Pyou can't help to notice that he looks a lot like a werewolf, and with all{x
+{r{Pof the hair it just might be.  You start to wonder how someone can be so{x
+{r{Ptall and still be able to fight.  Then you notice the blood on his teeth and{x
+{r{Pstart to shake from fright.  Who or what had he just eaten.  Is he going to{x
+{r{Pturn to you and think you look good to eat?  Your mind starts to race with{x
+{r{Pideas of what kind of fellow you are facing.  All of a sudden he notices you{x
+{r{Pand with a little grin that shows more blood on his teeth he says "Hi.  Do{x
+{r{Pyou want some?"  Then you look at his hand and your breathing slows to its{x
+{r{Pnormal pace.  He was only eating a burger with lots of ketchup.{x
+~
+S
+
+#24027
+Zien's Camp~
+        As you step into this room you wonder if you didn't step outside.
+There are trees growing from one end of the room to the next.  Long stemmed
+leafy vines scatter and drape over the ceiling.  The smell of the dry
+leaves fills the room with warm and wonderful fragrances.  Aslynn, the
+Earth strand of the fabled Quarter Knot, is here.  Her great black bear
+lir, {CDrakke{x, rests atop a large sun warmed rock to one side of the vast
+room.  You smile in respect to the beautiful auburn haired woman seated
+beside the lir.  Zien is seated on a tree stump in the center ring.  He
+finds a certain companionship with his goddess and chooses to remain with
+her in the haven.  A screech from the tree tops brings a greeting to you
+from {CIsosdad{x, Zein's falcon lir.
+~
+0 K 0
+C knot~
+D2
+A small forest is to the south.
+~
+branches~
+1 0 24026
+E
+Drakke~
+The mound of thick black fur softly rises and lowers in rhythm to the
+sleeping bear's breathing pattern.  Drakke's massive head is slightly
+turned down and a great paw rests over his closed eyes, to shut out the
+light.  How adorable this huge beast is.
+~
+E
+Isosdad~
+Zein whistles a slight chirp and a brillant golden falcon screeches
+from the treetops, to perch lightly on his shoulder.  Her large golden
+eyes peer out at you with a vast intelligence.  She chirps a welcome
+to you and begins to nibble Zein's white ponytail.
+~
+S
+
+#24028
+Elemental Hallway~
+	This hallway leads to the heart of the Keep.  The many rooms are 
+tributes and havens to the spirits of the old fabled Queen's Quarter 
+Knot.  They have come to Thera to see that the Elementals will prosper 
+and one day put a new Knot into place.
+~
+0 K 0
+D0
+The open catwalk leads back to the stairwell.
+~
+~
+0 -1 24017
+D1
+The hallway is long and filled with treasured surprises.
+~
+~
+0 -1 24026
+S
+
+#24029
+A Dark and Quiet Grotto~
+Entering, you are struck by the cool and clammy air. You hear 
+condensation dripping from the walls, and a small gurgling spring 
+somewhere off to your left. You smell brine. As your eyes adjust to
+the light (whatever you brought with you, there is no light here
+at all), you see that you are standing on a black sandy beach in a 
+large cavern, obviously carved out both by an underground inlet from
+the sea to the south, and by the spring which enters the cavern from 
+above and to the east. The salt water is quite calm in here,
+although if you stand gawking at it long enough, you will be able to 
+measure its tidal flow, which amounts to a couple of feet, as you may 
+be able to tell by the barnacles, seaweed, and algae on the walls.  
+There are footprints in the sand, but no other evidence of habitation. 
+If anything lives here, it must be a creature of water, indeed!
+~
+0 K 0
+D4
+exit~
+This is an exit.
+~
+0 -1 24021
+S
+
+#24031
+{VQueen's Quarter Knot Elemental Smithy{x~
+  As you enter the room, the {Ca{Wi{Cr{x around you swirls to life keeping
+you safe from the immense roaring pillar of {Pf{Yl{Wa{Ym{Pe{x in the center
+of the room. Various items needed for forging are poised upon the walls, eager
+to assist. As you approach the flames, the air surrounding you remains cool.
+~
+0 DK 0
+C knot~
+D2
+To the south is the Armory.~
+~
+0 -1 24025
+S
+
+#24032
+The Grinning Bird~
+Warm Sweet smells waft from the urns of hot tea and the oven baking 
+stickbuns. Various tables are about with Vaggers hovering over their tea. 
+Zeenia, unloading a new shipment of goods, stands and smiles at your 
+warmply. Along one wall are various goods for sell, some of wich you might
+need.
+~
+0 DK 0
+C knot~
+D0
+~
+~
+0 -1 24021
+S
+
+#24038
+Room of {WA{gi{Wr{x~
+This is Asmadi's central portal to any place of vast importance
+to him.  It is very high up so that he can keep watch over his
+world below.  The objects in this room are nearly invisible and
+you can only make out the edges of each different item.  Cool
+breezes and warm currents blow about creating fronts where the
+humidity of the air forms small clouds of a multitude of colors.
+Large thunderclaps and lightning bolts can be heard and seen all
+around the room.
+~
+0 DKS 0
+D4
+~
+~
+0 -1 24004
+S
+
+#24042
+{YQueen Quarter Knot Bank{x~
+As you enter two big glass doors from the middle of nowhere you find yourself in a bank.
+Where did this come from?
+As you walk around you notice that this is a very big bank with lot's of security.
+SO DON'T THINK OF ROBBING IT!
+You probably wouldn't get much anyway.
+The vault looks like it could take a missile right at it and still be
+standing.
+~
+0 BDKU 0
+C knot~
+D0
+{PTwo big glass doors from the middle of nowhere. Where do they go to?{x
+~
+~
+0 1 24024
+E
+Queen Quarter Knot Locker Bank~
+Money Money Money ...
+~
+S
+
+#24043
+{PQ{Yu{Ge{Ce{Bn{V {PQ{Yu{Ga{Cr{Bt{Ve{Pr{Y {GK{Cn{Bo{Vt{P {YL{Go{Cc{Bk{Ve{Pr{Y {GR{Co{Bo{Vm{x~
+{PL{Yo{Go{Ck{Bi{Vn{Pg{Y {Ga{Cr{Bo{Vu{Pn{Yd{G,{C {By{Vo{Pu{Y {Gs{Ce{Be{V {Pr{Yo{Gw{Cs{B {Va{Pn{Yd{G {Cr{Bo{Vw{Ps{Y {Go{Cf{B {Vl{Po{Yc{Gk{Ce{Br{Vs{P.{x
+{PS{Yo{Gm{Ce{Bh{Vo{Pw{Y {Gy{Co{Bu{Vr{P {Yo{Gw{Cn{B {Vi{Ps{Y {Gr{Ci{Bg{Vh{Pt{Y {Gi{Cn{B {Vf{Pr{Yo{Gn{Ct{B {Vo{Pf{Y {Gy{Co{Bu{V.{x
+{PI{Yt{G {Cl{Bo{Vo{Pk{Ys{G {Ca{Bs{V {Pi{Yf{G {Ct{Bh{Ve{P {Yr{Go{Co{Bm{V {Pd{Yo{Ge{Cs{Bn{V'{Pt{Y {Gh{Ca{Bv{Ve{P {Ya{G {Cs{Bo{Vl{Pi{Yd{G {Cs{Bt{Va{Pt{Ye{G.{x
+{PI{Yt{G {Ck{Be{Ve{Pp{Ys{G {Cm{Bo{Vv{Pi{Yn{Gg{C {Ba{Vn{Pd{Y {Gc{Ch{Ba{Vn{Pg{Yi{Gn{Cg{B {Va{Pr{Yo{Gu{Cn{Bd{V {Py{Yo{Gu{C.{x
+{PD{Yi{Gd{C {Bi{Vt{P {Yc{Gh{Ca{Bn{Vg{Pe{Y {Gr{Ci{Bg{Vh{Pt{Y {Gt{Ch{Be{Vr{Pe{Y {Gi{Cn{B {Vt{Ph{Ye{G {Ce{Bd{Vg{Pe{Y {Go{Cf{B {Vy{Po{Yu{Gr{C {Bv{Vi{Ps{Yi{Go{Cn{B?{x
+{PI{Yn{G {Ct{Bh{Ve{P {Yb{Gl{Ci{Bn{Vk{P {Yo{Gf{C {Ba{Vn{P {Ye{Gy{Ce{B {Vy{Po{Yu{G {Cl{Bo{Vo{Pk{Y {Gi{Cn{Bt{Vo{P {Ya{G {Cc{Bo{Vm{Pp{Yl{Ge{Ct{Be{Vl{Py{Y {Gd{Ci{Bf{Vf{Pe{Yr{Ge{Cn{Bt{V {Ps{Yc{Ge{Cn{Be{V {P.{Y.{G.{x
+{PB{Ye{Gt{Ct{Be{Vr{P {Yg{Ge{Ct{B {Vy{Po{Yu{Gr{C {Bs{Vt{Pu{Yf{Gf{C {Bi{Vn{P {Yo{Gr{C {Bo{Vu{Pt{Y {Gn{Co{Bw{V {Py{Yo{Gu{C {Bh{Va{Pv{Ye{G {Ct{Bh{Ve{P {Yc{Gh{Ca{Bn{Vc{Pe{Y {G.{C.{B.{x
+{PT{Yh{Ge{C {Be{Vn{Pt{Yr{Ga{Cn{Bc{Ve{P {Yi{Gs{C {Bs{Vt{Pi{Yl{Gl{C {Bt{Vh{Pe{Yr{Ge{C,{B {Vw{Pi{Yl{Gl{C {Bi{Vt{P {Ys{Gt{Ci{Bl{Vl{P {Yb{Ge{C {Bi{Vn{P {Ya{Gn{Co{Bt{Vh{Pe{Yr{G {Cs{Bp{Vl{Pi{Yt{G {Cs{Be{Vc{Po{Yn{Gd{C {B.{V.{P.{x
+~ 
+0 CDEK 0 
+C knot~ 
+D0
+{HSomehow the entrance is still there where {byou stepped through it, will
+it still {Gbe there when you want to leave??? 
+~ 
+~ 
+0 -1 24026 
+E 
+queen quarter knot locker room~
+{PL{Yo{Gc{Ck{B {Vu{Pp{Y {Gt{Ch{Be{V {P.{Y.{G.{x
+~ 
+S 
+
+#24044
+{RTemperant's Escape{x~
+{RIt seems you have entered an {Yinf{Rer{Yno {Ras you look about the walls 
+made up of tall {Yfla{Rme{Ys, {Rand the floor looks to be hot coals, waiting 
+to blister your tender skin.  {YYet the {Rair is not smokey by anymeans. 
+Over to the far wall is a large bed with red silk sheets tumbled about as if 
+a {Yfl{Rame {Yele{Rmen{Ytal {Rhas awaken not moments before.  Next to the 
+bed is a small obsidian table with {Ygold {Rveins running through it.  
+Glancing about the room, you notice that there is a lack of closets and 
+dressers. What type of {Yfla{Yme e{Rlem{Yent{Ral wouldn't need clothing?{x
+~
+0 K 0
+C knot~
+D5
+~
+~
+0 -1 24024
+S
+
+#0
+
+#RESETS
+
+M 0 24000 1 24020 1   * Lirrel
+M 0 24001 1 24027 1   * Zein 
+M 0 24002 1 24022 1   * Nyctasia
+M 0 24003 1 24025 1   * Aidan
+G 0 24050 -1          * level 20 ring
+G 0 24051 -1          * level 30 floater
+G 0 24052 -1          * level 35 helm
+G 0 24053 -1          * level 45 gauntlet
+G 0 24054 -1          * level 50 necklace
+G 0 24055 -1          * level 55 boots
+G 0 24056 -1          * level 60 cloak
+G 0 24057 -1          * level 65 ring
+G 0 24058 -1          * level 70 helm
+G 0 24059 -1          * level 75 floater
+M 0 24004 1 24027 1   * Aslynn
+M 0 24005 1 24011 1   * Sebastian
+G 0 24012 50         * Drinks for Bartender
+G 0 24013 50
+G 0 24015 50
+G 0 24016 50
+G 0 24017 50
+G 0 24018 50
+G 0 24019 50
+G 0 24020 50             *noodles to Sebastian
+G 0 24021 50             *shortcake to Sebastian
+G 0 24022 50             *tofu to Sebastian
+G 0 24023 50             *apricot to Sebastian
+G 0 24024 50             *ziti to Sebastian
+O 0 24000 1 24011     * Waterfall
+O 0 24001 1 24021     * Stream
+O 0 24002 1 24011     * Table
+O 0 24003 1 24006     * Bench
+O 0 24004 1 24007     * Hammock
+O 0 24005 1 24009     * Gazebo
+O 0 24006 1 24009     * Spring
+O 0 24007 1 24010     * Garden
+O 0 24008 1 24010     * Bush
+P 0 24009 2 24007 2   * Sweetpea
+P 0 24010 1 24008 1   * Huneysuckle
+D 0 24003 2 1
+D 0 24004 0 1         * close Porticulis from inside and out
+M 0 24007 1 24023 1   * Lirs for Lir shop
+M 0 24008 1 24023 1
+M 0 24009 1 24023 1
+M 0 24010 1 24023 1
+M 0 24011 1 24023 1
+M 0 24012 1 24023 1
+M 0 24013 1 24023 1
+M 0 24014 1 24023 1
+M 0 24015 1 24023 1
+M 0 24016 1 24023 1
+O 0 24035 1 24029    *heap rocks
+O 0 24036 1 24029    *sea water
+O 0 24037 1 24029    *spring
+O 0 24030 0 24010    *load portal home Oran painting
+O 0 24031 0 24013    *load portal in Western Conservatory
+O 0 24032 0 24009    *load portal in Southeast Corner of Courtyard
+M 0 24018 1 24031 1  *Load Tayleb in Smithy
+O 0 24033 1 24031    *Load anvil in Smithy
+O 0 24088 1 24004    *pit to courtyard
+M 0 24027 1 24042 1 *phill the banker
+
+M 0 24029 1 24032 1  * Zeenia to the Grinning Bird
+G 0 24083 100        * level 20 bag
+G 0 24084 100        * level 20 furniture
+G 0 24086 100        * level 35 light
+G 0 24085 100        * level 50 material
+
+M 0 24022 1 24038 1  *AirLord in Asmadi’s room
+O 0 24082 1 24038    *pocket in Asmadi’s room
+O 0 24080 1 24038    *fountian in Asi’s room
+O 0 24081 1 24038    *potion in Asi's room
+
+M 0 24028 1 24044 1    * Elemental Jobber To Temp's Room
+O 0 24089 100 24044    * Potion to Temp's Room
+O 0 24090 1 24044      * Bed to Temps Room
+
+S
+
+#SHOPS
+
+24003     5  9 32 33  0      125  50       0 23   * Aidan
+24005     0  0  0  0  0      125  50       0 23   * Sebastian
+24029     0  0  0  0  0      125  50       0 23   * Zeenia
+
+0
+
+#SPECIALS
+
+M 24018 spec_blacksmith * Tayleb
+M 24018 spec_sage       * Tayleb
+
+S 
+
+#$
+
+

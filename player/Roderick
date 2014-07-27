@@ -1,0 +1,403 @@
+#PLAYER
+Name Roderick~
+Id   1016995436
+LogO 1017331159
+Vers 13
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Sex  1
+Cla  4
+Levl 6
+Plyd 6341
+Back 5307
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  55 55 155 155 123 123
+Gold 3
+Silv 777
+Exp  6083
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr 0
+Pos  8
+Prac 3
+Trai 1
+Save  -1
+Alig  -1000
+Hit   9
+Dam   11
+ACs 64 62 62 79
+Atrib 15 18 18 14 14 11
+AtMod 1 1 3 2 0 2
+Pass halls~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Email JadeShadowDragon@cs.com~
+Deit *Lotus~
+Lsit AC818549.ipt.aol.com~
+Ltim Thu Mar 28 09:25:00 2002
+~
+LSav Thu Mar 28 09:59:19 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMSP 51 155 123
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'acid blast'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 1 1 'armor'
+Sk 1 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 1 1 'blood moon'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'charm person'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 1 1 'curse'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 75 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel magic'
+Sk 1 1 'energy drain'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fear'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 1 1 'flameshield'
+Sk 1 1 'fly'
+Sk 1 1 'gate'
+Sk 1 1 'identify'
+Sk 75 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 75 1 'magic missile'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'power word'
+Sk 1 1 'portal'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'resurrect'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'sleep'
+Sk 1 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 1 1 'steel mist'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'vision'
+Sk 1 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 75 1 'dagger'
+Sk 40 1 'polearm'
+Sk 1 1 'scribe'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'necromancer default'
+Gr 'beguiling'
+Gr 'combat'
+Gr 'detection'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'fly'   0  40  14   0   0     524288 1
+Affc 'shield'   0  44  19 -20  17          0 1
+Affc 'blood moon'   0  50   2   3  18          0 1
+Affc 'blood moon'   0  51   2   5  19          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 27 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 97
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3020
+Enchanted
+Nest 0
+ExtF 67
+Cond 87
+Wear 16
+Lev  4
+Cost 157
+Affc 'enchant weapon'   0  85  -1   6  18          0 1
+Affc 'enchant weapon'   1  85  -1   6  19          0 1
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 1213
+Nest 1
+Name sivat hidden token~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3715
+Nest 1
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 3021
+Enchanted
+Nest 1
+ExtF 67
+Wear -1
+Lev  4
+Cost 250
+Val  1 1 5 1 128
+Affc 'poison'   5  55 286   0   0        128 1
+Affc 'enchant weapon'   0  85  -1   5  18          0 1
+Affc 'enchant weapon'   1  85  -1   5  19          0 1
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name azrael wild token~
+ShD  {PA{Rz{Pr{Ra{Pe{Rl{P's{x {PR{YA{GN{CD{VO{MM {C*{BW {RI{TL{ND{C* {YToKeN{x~
+Desc {PA{Rz{Pr{Ra{Pe{Rl{P's{x {PR{YA{GN{CD{VO{MM {C*{BW {RI{TL{ND{C* {YToKeN{x for {GF{Hi{Gg{Hh{Gt{Hi{Gn{Hg{x in {fthe{x {WA{cr{We{cn{Wa{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name azrael wild token~
+ShD  {PA{Rz{Pr{Ra{Pe{Rl{P's{x {PR{YA{GN{CD{VO{MM {C*{BW {RI{TL{ND{C* {YToKeN{x~
+Desc {PA{Rz{Pr{Ra{Pe{Rl{P's{x {PR{YA{GN{CD{VO{MM {C*{BW {RI{TL{ND{C* {YToKeN{x for {GF{Hi{Gg{Hh{Gt{Hi{Gn{Hg{x in {fthe{x {WA{cr{We{cn{Wa{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name azrael wild token~
+ShD  {PA{Rz{Pr{Ra{Pe{Rl{P's{x {PR{YA{GN{CD{VO{MM {C*{BW {RI{TL{ND{C* {YToKeN{x~
+Desc {PA{Rz{Pr{Ra{Pe{Rl{P's{x {PR{YA{GN{CD{VO{MM {C*{BW {RI{TL{ND{C* {YToKeN{x for {GF{Hi{Gg{Hh{Gt{Hi{Gn{Hg{x in {fthe{x {WA{cr{We{cn{Wa{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name azrael wild token~
+ShD  {PA{Rz{Pr{Ra{Pe{Rl{P's{x {PR{YA{GN{CD{VO{MM {C*{BW {RI{TL{ND{C* {YToKeN{x~
+Desc {PA{Rz{Pr{Ra{Pe{Rl{P's{x {PR{YA{GN{CD{VO{MM {C*{BW {RI{TL{ND{C* {YToKeN{x for {GF{Hi{Gg{Hh{Gt{Hi{Gn{Hg{x in {fthe{x {WA{cr{We{cn{Wa{x~
+Wear -1
+Cost 0
+End
+
+#END

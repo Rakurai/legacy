@@ -1,0 +1,424 @@
+#PLAYER
+Name Jenn~
+Id   1027034208
+LogO 1027213079
+Vers 14
+Mexp 0
+Pass 07192002~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Cla  1
+Levl 5
+Tru  0
+Plyd 44535
+Back 0
+Note 1027189445 1027170642 1027170642 1027170642 1027170642 1027170642 1027170642
+Scro 22
+Room 3054
+HMS  93 141 50
+Gold 2
+Silv 25
+Exp  5810
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 553
+FImm 0
+FRes 0
+FVul 0
+Plr  OU
+Video 0
+Act  CDEFGHIJLQSc
+AfBy 0
+Comm LNQ
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 18
+Atrib 14 14 17 13 14 13
+QuestPnts  6
+Afk {B[{CSat Jul 20 18:57:58 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 4
+Rank ~
+Aura ~
+TSex 2
+LLev 9
+Email jmick71@aol.com~
+Deit Qaz~
+Lsit ACA39769.ipt.aol.com~
+Ltim Sat Jul 20 19:57:10 2002
+~
+LSav Sat Jul 20 19:57:59 2002
+~
+HMSP 85 136 119
+THMS 3 0 0
+Cnd  0 17 3 39
+Sk 63 1 'continual light'
+Sk 32 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 63 1 'create water'
+Sk 1 1 'encampment'
+Sk 1 1 'floating disc'
+Sk 75 1 'mace'
+Sk 10 1 'scribe'
+Sk 100 1 'scan'
+Sk 10 1 'scrolls'
+Sk 10 1 'staves'
+Sk 20 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'cleric basics'
+Gr 'creation'
+Affc 'bless'   0  59  62   7  18          0 1
+Affc 'bless'   0  60  62  -7  24          0 1
+End
+
+#O
+Vnum 3704
+Nest 0
+Cond 95
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 94
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 93
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 6644
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 2400
+Nest 1
+Wear -1
+Cost 180
+Spell 3 'change sex'
+End
+
+#O
+Vnum 2400
+Nest 1
+Wear -1
+Cost 180
+Spell 3 'change sex'
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 138 15 0 0
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 150 0 0 0
+End
+
+#O
+Vnum 3138
+Nest 1
+Wear -1
+Cost 24
+Val  64 0 0 0 0
+End
+
+#O
+Vnum 3164
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 21
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Cond 82
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 87
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 90
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3709
+Nest 0
+Cond 88
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3022
+Nest 0
+Cond 80
+Wear 16
+Cost 610
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 6621
+Nest 0
+Wear 12
+Cost 780
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear 5
+Cost 430
+End
+
+#O
+Vnum 3071
+Nest 0
+Cond 82
+Wear 10
+Cost 220
+End
+
+#O
+Vnum 3068
+Nest 0
+Wear 7
+Cost 220
+End
+
+#O
+Vnum 3067
+Nest 0
+Cond 87
+Wear 6
+Cost 220
+End
+
+#O
+Vnum 3163
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 118 0 0 0
+End
+
+#O
+Vnum 2326
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 10129
+Nest 0
+Cond 96
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3031
+Nest 0
+Wear 0
+Cost 75
+Val  0 0 241 0 0
+End
+
+#PET
+Vnum 3092
+Name beagle dog pet~
+LogO 1027213079
+Desc The beagle looks like a fierce fighter.
+A collar around its neck says 'I belong to Jenn'.
+~
+Sex  1
+HMS  78 78 100 100 104 124
+Act  ABIU
+AfBy FS
+Comm W
+Pos  8
+Atrib 8 9 8 10 8 8
+AtMod -4 0 0 0 0 0
+Affc 'chill touch'   0   0   5  18  -4          1 1
+End
+#END

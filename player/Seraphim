@@ -1,0 +1,1050 @@
+#PLAYER
+Name Seraphim~
+Id   989624503
+LogO 1020574185
+Vers 13
+Mexp 2
+Desc Through the dense forest you spy a light that draws you closer and closer to its
+warmth.  Then, suddenly, you enter a clearing and behold Seraphim's
+magnificence.  Her fiery burgundy hair billows in the wind, and her scantily clad
+alabaster body entices you.  Her eerie glow makes you feel safe, even if her
+wings awe you into submission.  The very last thing you notice before her pearly
+white fangs drain you of your life force are her beautiful ruby-red lips smirking at you.
+~
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race elf~
+Clan divinity~
+Sex  2
+Cla  2
+Levl 61
+Plyd 377644
+Back 372606
+Note 1020574180 1020574180 1020574180 1020574180 1020574180 1020574180 1020574180
+Scro 22
+Room 24206
+HMS  1049 1049 874 874 741 741
+Gold 5962
+Silv 23
+Gold_in_bank 3000
+Exp  64050
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Spou Tenchu~
+Act  CDEFGHJLSTc
+AfBy DFJ
+FRes B
+FVul Z
+Comm NO
+Revk 0
+Cgrp A
+Cnsr A
+Pos  8
+Prac 7
+Save  -16
+Alig  321
+Hit   51
+Dam   37
+ACs -249 -246 -246 -242
+Atrib 16 20 18 23 15 18
+AtMod 3 5 5 6 9 3
+QuestPnts 96
+Pass angel~
+Afk {B[{CSat Mar 30 23:08:22 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl , {RTe{Pnc{Rhu{P's {BA{Tn{Cg{Te{Bl.~
+Immn ~
+Pnts 40
+Rank {WA{gC{WE~
+Aura ~
+TSex 2
+LLev 1
+Email sangre@graffiti.net~
+Deit Muaddib~
+Lsit 1Cust23.tnt8.shreveport.la.da.uu.net~
+Ltim Sat May 04 23:48:25 2002
+~
+LSav Sat May 04 23:49:45 2002
+~
+Finf Sometimes something
+And always nothing..
+and she..
+she with bright eyes
+and red-tipped fingers
+she would fall to her knees
+with a childish fury
+he with a beautiful truth
+and lonely hands
+would allow her to.
+so it went and came and went and..
+initiated at any early morning hour
+with miles of tapered candles
+and crumpled tissues
+and she...
+she would write until her heart bled tears of salt and wine
+and he..
+he would dance until she stopped writting..
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  CFR
+HMSP 819 389 741
+THMS 0 0 0
+Cnd  0 6 38 38
+Query zintros~
+Query darkavatar~
+Sk 78 1 'armor'
+Sk 75 1 'cancellation'
+Sk 1 1 'channel'
+Sk 1 1 'dazzling light'
+Sk 75 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 75 1 'detect magic'
+Sk 75 1 'detect poison'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 75 1 'fireproof'
+Sk 75 1 'giant strength'
+Sk 77 1 'haste'
+Sk 78 1 'identify'
+Sk 75 1 'infravision'
+Sk 75 1 'know alignment'
+Sk 75 1 'light of truth'
+Sk 75 1 'locate life'
+Sk 78 1 'locate object'
+Sk 1 1 'protect container'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 1 1 'recharge'
+Sk 75 1 'refresh'
+Sk 77 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 76 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 1 1 'shrink'
+Sk 79 1 'stone skin'
+Sk 77 1 'talon'
+Sk 75 1 'undo spell'
+Sk 1 1 'vision'
+Sk 94 1 'dagger'
+Sk 76 1 'backstab'
+Sk 84 1 'circle'
+Sk 83 1 'dodge'
+Sk 94 1 'enhanced damage'
+Sk 75 1 'hand to hand'
+Sk 79 1 'second attack'
+Sk 76 1 'third attack'
+Sk 81 1 'dual wield'
+Sk 79 1 'fast healing'
+Sk 75 1 'hide'
+Sk 76 1 'peek'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 75 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 51 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'detection'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'protective'
+End
+
+#O
+Vnum 20008
+Nest 0
+ExtF 16777536
+Cond 64
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 20006
+Nest 0
+ExtF 17039680
+Cond 61
+Wear 5
+Cost 999
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 91
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 5608
+Nest 0
+Cond 86
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 8205
+Nest 0
+Cond 90
+Wear 4
+Cost 3233
+End
+
+#O
+Vnum 8205
+Nest 0
+Cond 84
+Wear 3
+Cost 3233
+End
+
+#O
+Vnum 3808
+Nest 0
+Cond 81
+Wear 12
+Cost 30000
+End
+
+#O
+Vnum 10168
+Nest 0
+Wear 2
+Cost 2200
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 16071
+Nest 0
+ExtF 66
+Wt   150
+Cond 99
+Wear 16
+Lev  49
+Cost 5000
+End
+
+#O
+Vnum 16071
+Nest 0
+ExtF 66
+Wt   100
+Cond 93
+Wear 19
+Lev  50
+Cost 5000
+End
+
+#O
+Vnum 3806
+Nest 0
+Wear 18
+Cost 5000
+End
+
+#O
+Vnum 17100
+Nest 0
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 6
+Nest 0
+Name wedding heart theif~
+ShD  {RH{Pe{Ra{Pr{Rt {Hof a {BT{Ch{Bi{Ce{Bf{x~
+Desc {RH{Pe{Ra{Pr{Rt {Hof a {BT{Ch{Bi{Ce{Bf{x~
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 24200
+Nest 0
+Wear 1
+Cost 2000
+End
+
+#O
+Vnum 24205
+Nest 0
+Wear 8
+Cost 5500
+End
+
+#O
+Vnum 24201
+Nest 0
+Wear -1
+Cost 1666
+End
+
+#O
+Vnum 7502
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playgirl~
+ShD  {Tthe May 768 {YP{BL{PA{GY{VG{MI{CR{YL{T, featuring a centerfold of {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr!!{x~
+Desc That is one big... Halo :)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe January 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of Ta{Cyl{gor{T!!{x~
+Desc It's Taylor!  Naked!!  Don't get the pages all sticky ;)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe February 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {MS{Vo{Wrs{Vh{Ma{T!!{x~
+Desc Whoa, she can do some amazing things with that halo...~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe December 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {WL{Ci{Br{Ci{Te{Wl{T!!{x~
+Desc Whoa, those are some nice...  where'd the next page go??~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe August 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {gL{We{gi{Wg{gh{T!!{x~
+Desc Wow, who would have guessed she had such a nice pair of... wings :)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe July 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {HA{Gl{Wi{Gs{Ha{T!!{x~
+Desc *melt* *swoon* ...  the pages are kinda sticky.~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe August 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {gL{We{gi{Wg{gh{T!!{x~
+Desc Wow, who would have guessed she had such a nice pair of... wings :)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe {YP{BL{PA{GY{CB{VO{YY {VSpecial{T, {bLa{Ymi{bas {Tand {WL{gac{We{T!!{x~
+Desc Only available with subscription!~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe March 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {NS{Be{Cr{Ha{Gp{Wh{Ni{Bm{T!!{x~
+Desc *melt* *swoon* ...  the pages are kinda sticky.~
+Mat paper~
+Wear -1
+Cost 3500
+ExDe playboy march seraphim~ You know, if she catches you swooning over her picture like that,
+not to mention what else you may be doing, you might be in for an
+unpleasant surprise.
+~
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe March 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {NS{Be{Cr{Ha{Gp{Wh{Ni{Bm{T!!{x~
+Desc *melt* *swoon* ...  the pages are kinda sticky.~
+Mat paper~
+Wear -1
+Cost 3500
+ExDe playboy march seraphim~ You know, if she catches you swooning over her picture like that,
+not to mention what else you may be doing, you might be in for an
+unpleasant surprise.
+~
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe March 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {NS{Be{Cr{Ha{Gp{Wh{Ni{Bm{T!!{x~
+Desc *melt* *swoon* ...  the pages are kinda sticky.~
+Mat paper~
+Wear -1
+Cost 3500
+ExDe playboy march seraphim~ You know, if she catches you swooning over her picture like that,
+not to mention what else you may be doing, you might be in for an
+unpleasant surprise.
+~
+End
+
+#L
+Vnum 4471
+Nest 0
+Name restring token alisa~
+ShD  {Wa {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{x~
+Desc {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha {Wlies here.{x~
+Wear -1
+Cost 3500
+ExDe token~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
+~
+ExDe restring~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
+~
+End
+
+#L
+Vnum 4471
+Nest 0
+Name restring token~
+ShD  {ga restring token from {RM{Po{gntr{Pe{Ry{x~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 0
+Name enchant token liriel~
+ShD  {gA {Vlevel {Y100 {Be{Cn{Bc{Ch{Ba{Cn{Bt {gfrom {WL{Ci{Br{Ci{Te{Wl{x~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 17013
+Nest 0
+Wear -1
+Cost 50
+End
+
+#L
+Vnum 3000
+Nest 0
+Wear -1
+Cost 75
+Val  300 204 1 0 0
+End
+
+#L
+Vnum 1201
+Nest 0
+Name rice~
+ShD  {Wa bag of {gr{Wi{gc{We{x~
+Desc {Wa bag of {gr{Wi{gc{We{x~
+Mat {Wr{gi{Wce{x~
+Wear -1
+Cost 3
+ExDe rice~ {Wa bag of {gr{Wi{gc{We{x
+~
+End
+
+#L
+Vnum 108
+Nest 0
+Name rose~
+ShD  a {YFriendship{x rose~
+Desc A {YFriendship{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Brian.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#L
+Vnum 108
+Nest 0
+Name rose~
+ShD  a {NA {BB{Cl{Nu{Be {CP{Na{Bn{Cs{Ny{x{x rose~
+Desc A {NA {BB{Cl{Nu{Be {CP{Na{Bn{Cs{Ny{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Zintros.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#L
+Vnum 4211
+Nest 0
+Wear -1
+Cost 1
+End
+
+#L
+Vnum 1201
+Nest 0
+Name token poker chip~
+ShD  {RP{Wo{Bk{Re{Wr {BC{Rh{Wi{Bp{x~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1201
+Nest 0
+Name token poker chip~
+ShD  {RP{Wo{Bk{Re{Wr {BC{Rh{Wi{Bp{x~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 108
+Nest 0
+Name rose~
+ShD  a Gabriel had his way with you while you were gone{x rose~
+Desc A Gabriel had his way with you while you were gone{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Gabriel.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#L
+Vnum 5610
+Nest 0
+ExtF 17301507
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 10171
+Nest 0
+Wear -1
+Cost 3300
+End
+
+#L
+Vnum 11671
+Nest 0
+Cond 98
+Wear -1
+Cost 5560
+End
+
+#L
+Vnum 31
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 62
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 59
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 58
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 57
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 33
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 32
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 30
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 29
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 28
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 27
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 26
+Nest 0
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 1212
+Nest 0
+Name wedding gift~
+ShD  {gA {WW{ge{Wdd{gin{Wg {Tg{Ci{Tft {gfrom {HA{Gl{Wi{Gs{Ha{x~
+Desc {RG{Pes{Rt{Pan{Ri{Ps {xand {HT{Geo{Htw{Ga{Hwk{Gi{W's {WW{ge{Wdd{gin{Wg {Tg{Ci{Tft {xlies here.~
+ExtF 16777216
+Wear -1
+Cost 1000
+Val  100 5 0 100 30
+End
+
+#L
+Vnum 1205
+Nest 1
+ShD  {Wa bag of {gr{Wi{gce{x~
+Wear -1
+Cost 15
+ExDe rice~ {Wa bag of {gr{Wi{gce{x
+~
+End
+
+#L
+Vnum 6
+Nest 1
+ShD  oops, Seraphim lost the ring!~
+Desc oops, Seraphim lost the ring!~
+ExtF 1048577
+Wear -1
+Cost 1
+End
+
+#L
+Vnum 17105
+Nest 0
+Cond 94
+Wear -1
+Cost 145
+End
+
+#L
+Vnum 17106
+Nest 0
+Cond 94
+Wear -1
+Cost 133
+End
+
+#L
+Vnum 32
+Nest 0
+Wear -1
+Cost 390
+End
+
+#END

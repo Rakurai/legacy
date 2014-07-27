@@ -1,0 +1,700 @@
+#AREA
+chaos.are~
+Knights of Chaos Stronghold~
+{H{{CLANS} {MZandax {TKnights of Chaos Stronghold~
+24400 24599
+
+
+#MOBILES
+#24400
+Chaos Dragon~
+The Chaos Dragon~
+A Dragon of ungodly size stands before you.
+~
+The Dragon which stands for all that is Chaos stands here proudly awaiting your prayers.
+~
+Dragon~
+BTZGVa DFNOHVYZ -1000 S
+110 250 20000 20000 250
+drain
+-600 -600 -600 -600
+CDEFHIJNKO ABCD HIJKL P
+stand stand male 0
+0 0 large 0
+
+#24401
+Korn~
+The greater demon of Korn~
+Korn the Chaos lord of battle stands here.
+~
+A demon of ungodly power is here crafting armor.
+~
+human~
+BGVZ DF -1000 s
+110 250 20000 20000 250
+crush
+-600 -600 -600 -600
+CDEFHIJNKO ABCD HIJKL P
+stand stand male 0
+0 0 medium 0
+
+#24402
+Nurgle~
+The greater demon of Nurgle~
+Nurgle the Chaos lord of blessings is here.
+~
+A rather plump and disgusting demon is here cooking something tasty.
+~
+human~
+BGVZ DF -1000 s
+110 250 20000 20000 250
+crush
+-600 -600 -600 -600
+CDEFHIJNKO ABCD HIJKL P
+stand stand male 0
+0 0 medium 0
+
+#24403
+Chaos Knight~
+The Chaos Knight~
+A Chaos Knight and grand battlemaster stands here.
+~
+A Knight on a suit of jet black armor stands here preparing to instruct you on how to fight.
+~
+human~
+BGJKTUVZb DF -1000 s
+100 250 35000 20000 250 crush
+-1000 -1000 -1000 -1000
+CDEFHIJNKO ABCD HIJKL P
+stand stand male 0
+0 0 large 0
+
+#0
+
+#OBJECTS
+
+#24400
+dagger of lawful sacrifice~
+{RDagger {gof {WLawful {RSacrifice{x~
+A small dagger lies here.~
+iron~
+weapon AB AN
+dagger 1 10 pierce 0
+15 10 100 P
+
+#24401
+shield of protection law~
+{RShield {gof Protection Against {WLaw{x~
+A large battle worn shield sits here.~
+iron~
+armor C AJ
+5 5 5 5 0
+15 15 105 P
+
+#24402
+helm of chaos~
+{RHelm {gOf {RC{gh{Ra{go{Rs{x~
+A large helm sits here.~
+iron~
+armor C AE
+10 10 10 10 0
+30 18 7500 P
+A
+13 10
+
+#24403
+bracer of randomness~
+{BBracer {gOf {GR{Ca{cn{Yd{Po{Mm{Wn{He{bs{Ms{x~
+A large steel bracer sits here.~
+steel~
+armor C AM
+12 12 12 12 0
+40 20 7500 P
+A
+18 1
+A
+19 1
+A
+13 30
+A
+2 1
+A
+1 2
+A
+17 -4
+
+#24404
+ring of sin~
+{BRing {gOf {RSin{x~
+A small ring has been forgotten here.~
+steel~
+armor C AB
+12 12 12 12 0
+40 8 8000 P
+A
+13 15
+A
+12 10
+A
+3 2
+A
+4 2
+A
+17 -4
+
+#24405
+robe of dreadful deeds~
+{NRobe {gof {NDreadful Deeds{x~
+A large robe has been discarded here.~
+cloth~
+armor C AK
+15 15 15 15 0
+45 15 4500 P
+A
+13 30
+A
+1 1
+A
+2 1
+A
+5 1
+A
+17 -2
+
+#24406
+gauntlets of strangulation~
+{RGauntlets {gof {RStrangulation{x~
+A pair of strong looking gauntlets sit here.~
+steel~
+armor A AH
+15 15 15 15 0
+45 10 5500 P
+A
+13 20
+A
+12 30
+A
+18 1
+A
+19 2
+A
+1 1
+A
+2 2
+
+#24407
+sleeves of Salvation~
+{RSleeves {gof {RSalvations Bane{x~
+Some sleeves have been left here.~
+leather~
+armor A AI
+17 17 17 17 0
+50 5 6500 P
+A
+13 25
+A
+12 25
+A
+3 1
+A
+4 1
+A
+2 1
+A
+26 1
+
+#24408
+necklace of soul stealing~
+{RNecklace {gof {RSoul Stealing{x~
+There is a necklace of beads lying here.~
+pearl~
+armor A AC
+20 20 20 20 0
+60 15 7500 P
+A
+13 30
+A
+12 30
+A
+19 6
+A
+1 1
+A
+3 1
+A
+26 1
+A
+2 1
+A
+17 -2
+A
+20 -2
+
+#24409
+boots of speed~
+{HBoots {gof {HSpeed{x~
+Some boots sit here.~
+leather~
+armor A AG
+20 20 20 20 0
+60 10 7500 P
+A
+13 30
+A
+12 30
+A
+14 50
+A
+18 5
+A
+1 1
+A
+5 1
+A
+2 1
+A
+17 -3
+
+#24410
+bracer of murder~
+{BBracer {gof {VMurder{x~
+A large deadly looking bracer sits here.~
+steel~
+armor A AM
+22 22 22 22 0
+66 10 8000 P
+A
+12 65
+A
+19 6
+A
+1 1
+A
+2 2
+A
+5 1
+A
+9 2
+A
+20 -6
+
+#24411
+knights armor of chaos~
+{RK{gn{Ri{gg{Rh{gt{Rs {gArmor of {RC{gh{Ra{go{Rs{x~
+A large piece of body armor rests here.~
+steel~
+armor A AD
+22 22 22 22 0
+70 25 1000 P
+A
+13 70
+A
+18 1
+A
+19 3
+A
+9 2
+A
+17 -6
+
+#24412
+chaos portal~
+Chaos portal~
+A strange rift floats here.~
+nothing~
+container A A
+600 A 0 600 50
+15 0 100 P
+
+#24413
+camel of wisdom~
+{bCamel {Wof Wisdom{x~
+Someone has left a cigarette here~
+tobacco~
+armor C AE
+23 23 23 23 0
+75 1 7000 P
+A
+12 75
+A
+18 6
+A
+9 2
+A
+3 2
+A
+4 3 
+
+
+#24414
+leather trenchcoat~
+Leather Trenchcoat~
+A black leather trenchcoat sits here.~
+leather~
+armor C AK
+25 25 25 25 0
+80 1 6500 P
+A
+13 30
+A
+12 30
+A
+18 2
+A
+19 3
+A
+2 1
+A
+5 1
+A
+26 1
+A
+9 2
+A
+17 -2
+A
+20 -3
+
+#24415
+black dragonscale~
+Black Dragonscale~
+A black dragonscale lies here.~
+scales~
+pill C AO
+15 'sanctuary' 'haste' 'giant strength' 'talon'
+15 1 0 P
+
+#24416
+red dragonscale~
+Red Dragonscale~
+A red dragonscale lies here.~
+scales~
+pill C AO
+15 'flameshield' 'shield' 'armor' 'stoneskin'
+15 1 0 P
+
+#24417
+black iron gate~
+Black-iron gate~
+A large gate is set into the wall here.~
+iron~
+portal AB P
+0 0  A 1804 0
+0 0 0 P
+
+#24418
+chaos rift portal~
+Chaos Rift~
+A large black portal floats here.~
+energy~
+portal AB P
+0 0 A 4400 0
+0 0 0 P
+
+#24419
+nydis canal cavern~
+Nydis Canal~
+A large cavern drenched in slime leads into the wall~
+goo~
+portal AB P
+0 0 A 8200 0
+0 0 0 P
+
+#24420
+nurglings~
+Nurglings~
+A small squirmy creature is here trying to get away.~
+flesh~
+food 0 0
+20 40 0 0 0
+1 1 100 P
+
+#24421
+snotlings~
+Snotlings~
+A small orcish creature is here staring at you.~
+flesh~
+food 0 0
+20 40 0 0 0
+1 1 100 P
+
+#24422
+classic shake combo~
+Classic Shake Combo~
+A yummy classic shake combo sits here.~
+food~
+food 0 0
+40 60 0 0 0
+1 1 200 P
+
+#24423
+grand slam~
+Grand Slam breakfast~
+A great tasting Denny's grand slam sit here.~
+food~
+food 0 0
+20 40 0 0 0
+1 1 400 P
+
+#24424
+pack saltine crackers~
+Pack of Saltine crackers~
+A pack of saltine crackers is here and unopened.~
+crackers~
+food 0 0
+20 40 0 0 0
+1 1 250 P
+
+#24425
+bucket water~
+Bucket of water~
+A large bucket sit here.~
+metal~
+drink  0 0
+350 350 'water' 0 0
+1 1 10 P
+
+#24426
+jug ale~
+Jug of Ale~
+A huge jug rest here.~
+potery~
+drink  0 0
+200 200 'dark ale' 0 0
+1 1 500 P
+
+#24427
+pint guiness~
+Pint of Guiness~
+A bottle of Guiness sets here.~
+glass~
+drink  0 0
+244 150 'dark ale' 0 0
+1 1 200 P
+
+#24428
+pitcher budlight~
+Pitcher of Budlight~
+A huge pitcher of beer sets here.~
+glass~
+drink 0 0
+350 350 'beer' 0 0
+1 1 600 P
+
+#24429
+bottle goldschlager~
+Bottle of Goldschlager~
+A large bottle of cinnamon schnapps sets here.~
+glass~
+drink 0 0
+700 700 'schnapps' 0 0
+1 1 700 P
+
+#24430
+box~
+Ornate box~
+A very ornate box lies here.~
+Wood~
+container 0 0
+500 a 0 500 100
+1 3 0 P
+
+#24431
+Chair~
+A wooden chair~
+A chair sits here.~
+Wood~
+furniture A P
+10 0 EHK 150 150
+0 0 0 P
+#24432
+ring of chaos~
+{BRing {gOf {RC{gh{Ra{go{Rs{x~
+A small ring lies on the ground.~
+gold~
+armor 0 AB
+22 22 22 22 0
+66 1 4600 P
+A
+12 65
+A
+13 3
+A
+12 3
+A 
+3 2
+A
+4 2
+A 
+26 1
+A
+9 2
+A
+20 -6
+
+#0
+ 
+#ROOMS
+
+#24400
+Chaos Square~
+You are in a large courtyard complete with trees and other plantlife.
+There is a large dragon wich seems to be keeping guard over the entire area. 
+To the north is Nurgle's Eatery. To the west is Korn's Forge where you can by 
+armor. To the south is the chamber which houses the Council of Chaos. And to 
+the East is where member rooms are currently under construction. There is
+a sign here covering the east exit.
+~
+0 K 1
+C chaos~
+D0
+Nurgle's Eatery
+~
+~
+0 -1 24401
+D1
+The Underdark~
+~
+0 -1 16074
+D3
+Korn's Forge
+~
+~
+0 -1 24402
+D2
+Council Chamber
+~
+~
+0 -1 24403
+D5
+Knight's Chamber
+~
+~
+0 -1 24404
+E
+warning~
+You are about to leave the safety of out clanhall the road ahead stretches
+through Underdark and may be dangerous to some so be careful. If you want
+to get to recall from here go - all e, 7u,s,u,e,u,4n.
+~
+S
+
+#24401
+Nurgle's Eatery~
+You step through the door and are met by the smell of cooking food.
+The room is large and full of tables and chairs. It is surprisingly empty in 
+this high quality resturaunt. There is a large beast behind the counter waiting 
+for your order.
+~
+0 KD 1
+C chaos~
+D2
+Chaos Square
+~
+~
+0 -1 24400
+S
+
+#24402
+Korn's Forge~
+You find yourself in a large forge thick with the smell of burning coal.
+Many pieces of armor are hung on the walls. A number of smiths are forging
+pieces all aound the forge. A large Beast who greets as Korn asks if he can 
+help you.
+~
+0 KD 1
+C chaos~
+D1
+Chaos Square
+~
+~
+0 -1 24400
+S
+
+#24403
+Chamber of the Council of Chaos~
+You step through two large double doors into a grand chamber. In its center 
+is a large circular table bordered with a number of chairs. Many paintings are
+hung on the walls along with tapestries and other objects of worth.
+~
+0 KD 1
+C chaos~
+D0
+Chaos Square
+~
+~
+0 -1 24400
+S
+
+#24404
+Knight's Chamber~
+You descend a stairway into a dungeonlike room with stone walls and a dirt 
+floor. It has many sparing dummies scatterd about it's interior along with 
+wooden swords and shields. In the center a large Chaos Knight stands. From his
+breatsplate you can tell he is a master at the sword and has many merits to 
+his name.
+~
+0 D 0
+C chaos~
+D4
+Chaos Square
+~
+~
+0 -1 24400
+S
+
+#0
+
+#RESETS
+M 0 24400 1 24400 1 	* Load dragon
+
+M 0 24401 1 24402 1	* Load korn
+G 0 24400 1 		* Give star
+G 0 24401 1 		* Give shield
+G 0 24402 1 		* Give gauntlets
+G 0 24403 1 		* Give cape
+G 0 24404 1 		* Give helm
+G 0 24405 1 		* Give bracer
+G 0 24406 1 		* Give leggings
+G 0 24407 1 		* Give boots
+G 0 24408 1 		* Give chestplate
+G 0 24409 1 		* Give sleeves
+G 0 24410 1 		* Give belt
+G 0 24411 1 		* Give orb
+G 0 24412 1 		* Give portal
+G 0 24413 1 		* Give ring
+G 0 24414 1 		* Give robe
+G 0 24432 1             * Give ring
+
+M 0 24402 1 24401 1	* Load nurgle
+G 0 24420 1 		* Give nurglings
+G 0 24421 1 		* Give snotlings
+G 0 24422 1 		* Give classic
+G 0 24423 1 		* Give grand
+G 0 24424 1 		* Give saltines
+G 0 24425 1 		* Give bucket
+G 0 24426 1 		* Give jug
+G 0 24427 1 		* Give pint
+G 0 24428 1 		* Give pitcher
+G 0 24429 1 		* Give goldschlager
+
+M 0 24403 1 24404 1	* Load knight
+
+O 0 24430 1 24403 	* Box into council
+P 0 24416 500 24430 1 	* Scale in box
+P 0 24415 500 24430 1 	* Scale in box
+
+O 0 24419 1 24403 	* portal council
+O 0 24418 1 24403 	* portal council
+O 0 24417 1 24403 	* portal council
+
+S
+
+#SHOPS
+
+24402 0 0 0 0 0 125 75 0 23 * Nurgle
+24401 0 0 0 0 0 125 75 0 23 * Korn
+0
+
+#$
+

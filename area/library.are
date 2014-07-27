@@ -1,0 +1,918 @@
+#AREA
+library.are~
+Thera Library~
+{H{{ALL} {MMerlock {TLibrary~
+351 399
+
+#MOBILES
+#351
+old lady librarian~
+Librarian~
+The librarian shushes you as you enter.
+~
+A old lady seemingly as ancient as the library itself. She seems to
+be too old to take care of herself but assumptions are the mother
+of all screwups. She can whup your butt with ease and still not
+break a sweat.
+~
+human~
+BCGUZ HNO 0 S
+91 15 1d1+999 1d1+199 1d1+24 thwack
+-40 -40 -39 -35
+EK AB 0 0
+sit stand female 135
+0 0 medium 0
+#0
+
+#OBJECTS
+#351
+table~
+a table~
+A rectangular brown table stands here.~
+wood~
+trash RSY 0
+0 0 0 0 0
+1 100 500 A
+E
+table~
+The table is as old as the library itself, You can see scratches
+and etching in the table. You can see many unintelligible scratches
+in the tabletop.
+~
+E
+tabletop~
+There are many scratches here. In a corner, You can see initials.
+GK loves AE. You wonder what that means.
+~
+
+#352
+chair~
+a chair~
+A chair is here.~
+wood~
+furniture RSY 0
+5 0 F 100 100
+1 20 300 G
+E
+chair~
+You see an ordinary chair that complements the table in the room.
+~
+#353
+bookshelf~
+A bookshelf~
+A bookshelf half-full of books is here.~
+wood~
+trash RSY 0
+0 0 0 0 0
+1 3235 0 G
+E
+bookshelf shelf~
+It's an ordinary bookshelf with five shelves in it. There are books
+on the shelf. Perhaps you should read some.
+~
+#354
+world globe~
+A world globe~
+A spinning world globe is here.~
+plastic~
+light SU A
+0 0 10 0 0
+5 20 100 P
+E
+world globe~
+It's a ordinary spinning world globe. Wait a minute...the spinning
+isn't slowing down and there's a glow coming from it. Maybe it is
+not so ordinary?
+~
+#355
+fountain~
+A Water Fountain~
+A Water Fountain is spouting water here.~
+stone~
+fountain RSY 0
+0 0 coke 0 0
+1 3235 0 P
+E
+fountain~
+It's of an unique design. It has a column with three tubes spiraling down
+to the base. The water runs along the tubes, dripping off creating their
+own water pillars into the bowl around the column. The fountain is all
+white and there is candles all along the rim of the bowl. The candles have
+colorful cover that casts different colors that make different colors
+leaped and shimmers as the candles flickered from within.
+~
+#0
+
+#ROOMS
+#351
+Drama~
+There is a {Psculpture{x hanging on the wall. There is a platform in the 
+center of the room, where people can perform their own plays or from the 
+books. There are diverse books of dramas shelved throughout the room. Check 
+out the {Blist{x of books here.
+~
+0 DHKS 1
+H 200 M 200
+D1
+It goes east to Horror Room.
+~
+~
+0 -1 352
+D2
+It goes south to Comedy room.
+~
+~
+0 -1 354
+E
+sculpture~
+It is a metallic sculpture of many different things welded together. You try 
+to recognize each individual objects and succeeding at some but failing at 
+others. You can see the famed miniature scale of Trojan Horse, the poisoned 
+foil used in Hamlet, and others.
+~
+E
+platform~
+It is a black stage set in the center of the room.
+There are four short Greek columns at each corner of the
+stage. Atop of each column is the sculpture of 'Thinker'
+~
+E
+list~
+There are no stories currently available.
+~
+S
+
+#352
+Horror~
+It is dark, gloomy. You can barely see around with the dim candles on each 
+tables. You think you can see a twitching {gshadow{x on the wall. There are 
+empty chairs at several tables and books stacked either on the tables or on 
+the floor. You walk over to one of the table and you hear a squishy sound 
+as you walk. Not wanting to look down, you endeavored to ignore the sound 
+and push away the ghastly thoughts. There is a sign on the table. Perhaps 
+you should read it? Check out the {Blist{x of books here.
+~
+0 DHKS 1
+H 200 M 200
+D1
+It goes east to Fantasy room.
+~
+~
+0 -1 353
+D2
+It goes south to Mystery room.
+~
+~
+0 -1 355
+D3
+It goes west to Drama room.
+~
+~
+0 -1 351
+E
+shadow~
+As you get closer. It seem to be...a metal claw? Is that blood on it?
+Wait a minute. Is it moving...closer????? {RAHHHHHHH!!!!!!!!!!{x
+~
+E
+sign~
+This is not a board but a deathtrap. Now that you read this. You are now
+in a empty room surrounded by rooms full of level 150 aggressive mobs. You
+can't recall or teleport. Your mistake not mine MUWAHAHAHAHA
+~
+E
+list~
+There are no stories currently available.
+~
+S
+
+#353
+Fantasy~
+There is a picture on the wall. You can see decorations upon the bookshelves 
+throughout this room. On one bookshelf, you can see various models of races 
+of every kind: gnomes, vampires, hill and mountain dwarves, kenders, etc.  
+There are hovering magical carpets all around you. I guess you can just pick 
+out a book and sit on the carpet and prepare for the 'ride of your life'. 
+Check out the {Blist{x of books here.
+~
+0 DHKS 1
+H 200 M 200
+D2
+It goes south to the Library Entrance.
+~
+~
+0 -1 356
+D3
+It goes west to the Horror room.
+~
+~
+0 -1 352
+E
+picture~
+There is a unicorn rearing onto its rear legs. It's white horn sparkling
+in anticipation of a powerful and ever-present dark forces that seems
+to approaches somehow. You feel such awe over this power and you swear
+you can feel the power radiating from the picture.
+~
+E
+list~
+There is one story available:
+Unwilling
+~
+E
+Unwilling unwilling~
+There are 14 pages in Unwilling story. To read each page type
+uwpg<number>;. Make sure there are no space in any letters or numbers.
+E.g. look uwpg1, look uwpg2 and so forth.
+~
+E
+uwpg14~
+
+'I'll take the quest,' he heard himself say and then cursed himself, he
+was a character in a novel, he'd do anything the writer wanted him to do.
+The only time he'd have independent thought was when he could catch the
+writer unawared. 'I'm glad,' the priest said, 'Come over here to the table
+and I'll show you the map of the area in question. 3 of our most ardent
+missionaries are being held against their will in this range of 
+mountains,' he pointed to the map and Matthew squinted at it, wondering
+why a small village priest would be the one to find a questor. The writer
+again no doubt. 'Look,' Matthew said, the idea he'd had when he first saw
+the belltower returned to mind, 'Can we go up to the top of the belltower? 
+I might be able to see the map better up there.' 'Of course, ' the priest 
+replied, 'Follow me.' Matthew followed the priest up the worn wooden 
+stairwell that lead to the top of the tower and he glanced out at the
+crowd below, as he had anticipated, there were no railings here. Fear
+clutched his heart again as he thought about what he must do to free
+himself. He ignored the priest and took a step forward to address the
+crowd. Anticipation struck him as he knew he was going to outsmart the
+writer after all. He shouted, 'I refuse to be the puppet of any third rate
+author, I will not be the hero in any cliche-ridden piece of drivel,' and
+with that he jumped. It was on his way to his death that it occurred to
+him, 'this is what the writer had intended all along.' 
+~
+E
+uwpg13~
+
+the ignoring of one fight. He entered the village looking up at the
+church tower, he vowed to himself. I'm not going to go on any quest 
+regardless of who sends me. Let's see what sort of a book the writer ends
+up with if his main character refuses to perform. I'm not going to jump
+through any more hoops. The local priest appeared from the church and looked 
+at Matthew happily, he eyed the sword and gave Matthew a big grin. 'Oh my
+lord we are in dire need of....' 'No,' Matthew replied cold and hard, he 
+looked around him and saw a crowd gathering as if the writer was trying to
+shame him into accepting what was no doubt a quest. 'Please,' the priest
+said, 'It is a matter of great urgen....' 'No,' Matthew reiterated, but it
+wasn't easy, he felt as if something powerful was resisting his will and
+it took all his willpower to utter the word. He realized the writer could
+just ignore his exclamation, the priest could given him the quest whether
+he wanted it or not, then of course he just wouldn't do it.&amp;nbsp; Already
+the priest was heading back into the church, maybe the writer hadn't
+thought of that. 'Shame,' the townspeople started to boo and hiss at him,
+so this was what the writer had in mind, well it wouldn't work he decided
+but already found himself entering the church involuntarily following the
+priest. Well, the writer couldn't force him to take the quest at least.
+~
+E
+uwpg12~
+
+doubts and had done that deliberately to make Matthew think he was asleep
+after all. Matthew was a little confused, such a move would never get past
+the readership. Then again he didn't know the type of reader the writer
+was after and he had seen some pretty dire errors which were just ignored
+by authors in the past, especially by that Anthony Christopher. The
+thought occured, was this being written by Anthony Christopher? No, he
+decided, Anthony Christopher probably didn't even exist in the world where
+the writer of this particular novel was. He was a fake author in a fake
+world. But then when did Matthew become a character in the book? When did
+his life begin and why can he still remember his childhood so well? And
+why was the axeman standing totally still? Of course, the axeman was
+waiting for Matthew to stop thinking so that he could... Thinking, then
+every thought he'd had had been put there by the writer, this wasn't a
+fantasy novel after all, the whole thing was deliberate. Matthew have had
+enough, 'Kill me if you're going to,' he said and he walked passed the
+axeman ignoring him. The axeman seemed to consider attacking Matthew from
+the rear for a moment but then went to check on his dead comrades. Matthew
+wasn't surprised, the writer couldn't finish the novel if Matthew was
+killed, he wondered how the readership of the novel would suffer from just
+~
+E
+uwpg11~
+
+involuntarily followed through, hitting the coshman on the back. He fell
+like a bag of potatoes and lay still. Matthew felt an awful fear at the
+thought that he'd killed someone, but as he thought he knew the hand had
+slain at the command of another and he wasn't at fault. He wondered if any
+court in the land would accept such a defense. True to form, the daggerman
+stepped forward as the next victim. 'why only one at a time,' Matthew
+wondered, maybe the writer is giving him time to get the hang of the sword
+before the big fight with the axeman, or maybe the writer couldn't handle
+two antagonists at once. Matthew almost felt he was separate from his body
+as again the hand moved almost instinctively, the sword slashed and the 
+daggerman fell in a heap. Matthew shook his head sadly, he had no doubt he 
+was in a novel now, and a bad one at that. He waited patiently for the
+axeman and prepared himself to receive some sort of wound, a minor one but
+a wound nevertheless to make it looks as if it was a close fight. The man 
+lashed out with his sword and then jumped back. ready to defend or strike 
+again. Matthew watched in disbelief as the sword returned to being an axe, 
+was he asleep after all? No, he decided. He already knew the writer wasn't 
+very good, chances were he'd forgotten the weapons he'd given to the 
+antagonists. Or, maybe, just maybe the writer was becoming aware of his 
+~
+E
+uwpg10~
+
+here for me to find,' he muttered to himself. He shook his head, if this
+was a novel he had no doubt he'd be the finest swordsman in the world, or
+nearly, despite the fact that he'd never even seen a sword before. The
+only time he'd be beaten would be when it suited the plot and he was sure
+that as the first novel in a series he wouldn't meet such a man yet. It
+would be something to look forward to except he was sure the writer of
+such a story would never succeed in getting it published, that meant no
+sequel and no super swordsman to defeat. He buckled the sword around him
+and continued into the village, his heart sank as at the very outskirts of
+the village he was confronted by 3 ruffians, one armed with a dagger, the
+second with a cosh and the third with a axe. The hand of fear gripped him
+despite the fact he was sure he should triumph, nevertheless, he felt very
+nervous as he pulled the sword from it's scabbard. The rogues approached
+him with the scent of blood in their nostrils, the one with the cosh
+attacked first and Matthew wondered why when the one with the axe was
+probably the better choice, then he realized the writer wanted to dispatch
+the henchmen quickly and make it more of a fight between Matthew and the
+axeman. 'Well I'm not playing,' Matthew thought to himself and he stepped
+out of the way to let the coshman run past, unaware that his sword hand
+~
+E
+uwpg9~
+
+cold shiver ran along Matthew's back and he just caught himself before he 
+lost bladder control. Bladder control? He couldn't remember the last time 
+he'd visited the lavatory. He decided to put as much space between him and 
+the tree as he could, he didn't mind admitting the rhyme actually working 
+had spooked him. He passed the next quarter of a mile as quick as he could 
+and saw the outline of the village church up ahead. Maybe he could find
+something about this world and if it was a novel no doubt his reason for
+existance would make itself known there. He stopped suddenly, there was a 
+sword in the drainage ditch that ran parrallel to the road. He had no doubt 
+it'd be rusting into nothing, but the handle and scabbard at least looked ok,
+maybe it'd just been left there by a passing Knight. Why a Knight, he
+thought to himself, true he'd no evidence of modern technology but no
+evidence either that it didn't exist. Magic gave the case pretty strongly 
+that it was a fantasy world but who said magic couldn't work in a modern day 
+setting, if it was rare enough anyway. If everyone had a magical ability
+then the modern technologies wouldn't get a look in as everyone would do
+everything by magic, but was that necessarily so. He didn't know and
+didn't really care. He examined the sword closer, removing it carefully
+from it's scabbard. It was free of rust. 'As if someone purposely left it 
+~
+
+
+E
+uwpg8~
+
+many of them the magic worked simply through the use of rhyme, almost as if 
+all authors of books such as these followed the same rules. No, the author, 
+if he existed would also know that and would avoid it like the plague. He 
+smiled and had the feeling that if the writer was really as bad as he 
+suspected, then he'd probably felt no shame at all in using the same
+formula as so many others. He shrugged to himself, felt himself blushing and 
+decided he had nothing to lose by trying. But what rhyme? Well he'd be the
+first to admit he was no poet, but he suspected somehow it didn't matter. 
+This author seemed to be so cliched that the rhyme wasn't important. He 
+thought about it a little longer, he decided it should be a ridiculous
+rhyme so the magic effect would be something only the worst of writers
+would include in a book. But then what, he'd read some pretty dire drivel in 
+his time, a lot of writers seemed capable of including anything. Well,
+okay something that could only happen by the use of magic then. He glanced 
+at a nearby tree and tried to think of a rhyme. 'Tree tree, fly to me.' He 
+winced at the words even before he finished saying them, that was sure to do 
+nothing, even in the most dire of books. But he was wrong as the tree yanked 
+itself out of the ground, grew a pair of wings and flew over to him before 
+it planted itself back into the ground again directly in front of him. A 
+~
+
+E
+uwpg7~
+
+character at all, but if the author was one who couldn't be bothered, then 
+the book he was in had absolutely no chance of being published. He laughed
+at himself again and told himself to get a grip. Obviously he was 
+on the verge of a nervous breakdown, a character in a book indeed. No doubt 
+he was still suffering from being struck by lightning or something. 'Is
+there a town near here?' he asked the farmhand. The farmhand pointed down 
+the road and replied, 'There's a small village about two miles in that
+direction, a single constable, a church, a grocery store and a tavern. That 
+sort of thing.' 'That sounds fine, thanks,' Matthew replied and started 
+heading along the road, possible ideas coming and going and a nagging
+doubt that he was in some sort of novel. He decided to put it to the test. 
+If this was a novel and he, a man of the space age, has somehow entered a
+dimensional gateway to a fantasy world, then he must be the hero. He'd
+read maybe more of that type of book than he was willing to admit and he
+knew that despite the fact that magic didn't work on the 'real world' here, 
+he'd be the most powerful mage in existance. He giggled to himself at the 
+thought, what a ridiculous idea. Nevertheless, it would be easy to try, now 
+then, how did magic work in this realm. Matthew sighed and grinned as 
+another silly idea hit him, but he'd read so many books of this ilk and in 
+~
+
+E
+uwpg6~
+
+mean yes, but I'm not a wizard.' The farmhand smiled, 'we saw you 
+materialize, my lord, you cannot hide that from us, we saw you.' 'Perhaps a 
+wizard cast a spell on me sending me here,' Matthew replied trying to humor 
+him, 'I really don't remember.' 'There does not exist a wizard that can send 
+another such, yet.' Matthew glanced again at the farmhand. How would a 
+peasant know the abilities of a single wizard, let alone the limitations of 
+all of them. This was a bad dream or, no. The second idea wasn't worth the 
+consideration. What if, after all, he was the main character in a rather 
+badly written novel. Inwardly he laughed it off, what a ridiculous idea, but 
+there was a nagging doubt at the back of his mind, the farmhand would know 
+because the writer wanted the farm-hand to know, maybe he had no better way 
+of conveying his message to the expected readership. Then he wondered, 'Why 
+would I even consider such an idea, I know I'm real, I'm alive. But a
+writer, especially a bad one could put doubts in my head. But to what
+purpose, surely such doubts would simply ruin the story. Whoever heard of a 
+book character knowing he was a book character.' It was a silly idea. 'Are 
+you sure you're okay?' The farmhand asked. 'I'm fine thanks,' Matthew 
+replied. The archaic talk was still missing, it wasn't a novel, unless the 
+author just couldn't be bothered. Hmm, it was bad enough to be a book
+~
+E
+uwpg5~
+ 
+he thought to himself. 'My house will materialize behind me.' He turned 
+around and the farmhands gazed on wondering what he was looking at. Well,
+it wasn't his house. 'Now,' he thought, concentrating. No house. 'Now,' he 
+muttered softly, but still the house didn't appear. 'Now,' he spoke audibly 
+this time but the house adamantly refused to materialise before him. 'What 
+ails you wizard?' The farmhand spoke. That too was interesting, the farmhand 
+was still the same farmhand, that was rare in Matthew's dreams where
+things at least seemed to change their appearance regularly even if they 
+remained roughly what they had originally been. Indeed, the mere fact that
+he'd turned his back to the farmhand should probably have been enough to cast
+the man into oblivion, 
+out of sight out of mind became very real where dreams were concerned. He 
+looked about him now wondering again where he might be, there was no evidence 
+of technology, no vehicles, or indeed anything that looked more advanced than 
+something from the middle ages. 'Time travel,' he thought, 'No that was 
+unlikely, the farmhand had referred to him as 'you' and not 'thee', if
+he'd learnt one thing from that book, the people had a irritating habit of 
+talking in an archaic tongue. 'Are you okay, wizard?' the farmhand asked 
+again. 'Well,' he thought, 'if he'd truely travelled through time the locals 
+might well confuse him as some kind of wizard.' 'No,' he replied. 'er, I 
+~
+E
+uwpg4~
+
+and yet at the same time curious. Matthew tried to quickly take stock of his 
+situation and was worried to find he had absolutely no clue as to what had 
+happened, he could only surmise, he'd been struck by lightning and had 
+wondered around the rest of the night and most of the day in a daze. He
+shrugged helplessly and wondered how he could get home, perhaps one of these 
+approaching farmhands would be willing to give him a lift. If he'd somehow
+walked here he could probably walk back but he really had no idea where he
+was. The nearest of the farmhands held himself back a little waiting for 
+support from the others before he came any closer, something had obviously 
+spooked them. 'Wassup?' he said, his words sounded slurred even to himself, 
+maybe he was suffering slightly from concussion. The nearest farmhand took a 
+step back and then posed the question, 'What do you want here, Wizard?' 
+Matthew looked quite shocked by this, yet although the comment showed on his 
+face it still took a minute or two before it reached his brain. 'Wizard?'
+Matthew repeated. 'You did appear suddenly out of thin air, as a wizard
+would,' the farmhand told him. Matthew made a silent 'O' with his mouth as 
+he thought about it. It was obvious he was still asleep, dreaming. Well he 
+knew dreams, he'd caught himself dreaming before and he was able to
+control them once he knew beyond a doubt it was a dream. 'Something simple,'
+~
+E
+uwpg3~
+
+ever bother to finish it. He needed something to help alleviate the
+boredom. Maybe some food would help, he went out into the kitchen, but with 
+the power off, the best he could manage would be a sandwich of some 
+description. He yawned, a sandwich would be better than nothing. He wished 
+he'd got some candles in so he could at least see what he was doing. The
+lights flickered and then went out again. Well, at least the repair engineers 
+were on the right track, maybe the power would return properly before it got 
+too much darker. He had to admit he wouldn't have wanted to be with them in 
+this sort of weather. There was another flicker of light, this time from 
+outside, lightning. Matthew loved to watch the lightning, he decided he'd 
+venture as far as the front garden in the hope of spotting some more. 
+Watching the lightning would help to kill a few more minutes and maybe the
+power would be back by then. He hope so, he'd rather not miss his favorite 
+program and that was due to start in less than thirty minutes. Matthew
+felt dazed, he looked about himself a little confused as to where he was, it 
+seemed to be morning, or was it afternoon? Anyway the night had passed and
+his house had vanished. Indeed he seemed to be on some sort of country road, 
+a border demarking two farms and on each farm were farmhands, some running 
+in apparent terror, but a few of them headed towards him, obviously scared 
+~
+E
+uwpg2~
+
+the power failure, high winds knocking a tree into the power lines, hadn't 
+shown any sign of abating. He was just glad it was daylight enough so that 
+he could read. He yawned involuntarily and started the next chapter, but he 
+was tiring of the book, two hours of such drivel was more than enough and
+the words were starting to be meaningless to him. He couldn't concentrate 
+and found by the time he had got to the end of the second page he really had 
+no idea of when he had just read. His mind was numbing to the novel. 'I
+need a rest,' he muttered to himself and he placed the book carefully down 
+on the edge of his chair, leaving it open at the page he was on, placed face 
+down. He closed his eyes for a minute or two, just to rest them and to maybe 
+plan what he was going to do when it started to get dark. It was autumn now, 
+it got dark at about 6 already and that was far too early to call it a night. 
+Before the two minutes had passed though he had fallen asleep, he snored 
+loudly oblivious to the world around him, not that there was anything
+about that would he might disturb. Evening drew close and it was the change 
+in the light coming through the windows that finally caused Matthew to wake 
+up. He felt a little lost at first, where was he, why was the power off,
+but he soon realised what had happened. He got up, forgetting where he'd
+put the book and knocking it to the floor. He rescued the book, marking the
+page properly with a small piece of paper and wondered for a moment if he'd 
+~
+E
+uwpg1~
+Unwilling by Leveret
+
+It was simple boredom he knew. The book he had been reading up until 
+now was by a well reknowned author, people clamored to buy his books, but
+to Matthew Stiles it was third rate drivel. It was true Anthony
+Christopher,the author, had a very strong following the world over, people
+waited for the next novel to be issued the second they finished the one they
+were reading. But fantasy wasn't really Matthew's favorite Genre, he
+preferred Science fiction, and novels about a man living in a technological 
+age suddenly being displaced into a fantasy world where by some quirk of
+fate he became the most powerful man on the realm had quite simply been
+done to death. Then of course nearly all the books were the same, the author
+followed a formula. Not that Matthew could blame him, he was selling books 
+and giving his public what they wanted. It just wasn't what Matthew wanted. 
+If nothing else it was something to pass the time and he had plenty of time 
+to pass at the moment. He sighed again, it was two hours since the power
+line went down, cutting off his access to all other forms of
+entertainment, true he could go out, but even the phone didn't seem to be
+working at the moment so he couldn't call for a taxi and he lived too far 
+from anywhere to bother to try a walk. Besides the weather that had caused
+~
+S
+
+#354
+Comedy~
+There is an interesting model on the wall. Perhaps you can take a closer
+look at it. You hear all kinds of laughter everywhere. Hey, do you hear
+that famed laughter: 'heheheh *snort* *snort* hehehe...' ? Check out the
+{Blist{x of books here.
+~
+0 DHKS 1
+H 200 M 200
+D0
+It goes north to Drama room.
+~
+~
+0 -1 351
+D1
+It goes east to Mystery room.
+~
+~
+0 -1 355
+D2
+It goes south to Miscellanous room.
+~
+~
+0 -1 357
+E
+model~
+There is a gold-plated model of the famed three stooges here. If you
+listen closely, you can hear the boinks, bangs, thunks coming out of it.
+~
+E
+list~
+There is one story currently available.
+Elevator
+~
+E
+Elevator elevator~
+There are 4 pages in the story. 
+To read the pages type look epg&lt;pg. number&gt;
+e.g. look epg1 or look epg2
+~
+E
+epg1~
+The Elevator by David Dixon [Submitted by Salia]
+
+The elevator suddenly stopped, not the slow deceleration that indicated
+stopping at a floor, no, this was more abrupt. The elevator jerked to a
+halt, made a grinding noise and then nothing. Bill looked around in
+dismay. 'Oh, no,' he began. 'The elevator’s broken. Great.' He shook his
+head in disgust. Another man in the left rear corner of the elevator swore
+at the elevator. 'This is just bloody wonderful! Always happens like this
+too, right when I’m late! Life stinks,' he finished and then added another
+oath. 'Oh, that’s a way to look at it, Mr. Morbid,' piped up the man
+nearest the door. 'Just because the elevator’s stuck you think life
+stinks? What kind of attitude is that?' 'Look here, Mr.
+Rose-Colored-Glasses, just butt out of my business, all right?' Mr. Morbid
+replied testily. 'Um,' offered a short, quiet looking man from the right
+rear corner of the elevator, 'Just how long do you think we’ll be in 
+here?' 'Forever,' Mr. Morbid answered darkly, 'they’ll leave us in here
+‘till we’re skeletons and I’ll be bleedin’ late and get fired.' Mr.
+Rose-Colored-Glasses ignored Mr. Morbid and gave his own opinion: 'Three
+or four minutes max. We’ll be out of here in no time.' 'Sure,' Mr. Morbid
+~
+E
+epg2~
+agreed sarcastically. 'Wonder what caused it?' Short Man asked again.
+'Probably a fire,' ventured Mr. Morbid characteristically. 'Oh, my God,' 
+said the mousy, feminine looking man standing next to Mr.
+Rose-Colored-Glasses grabbing his chest; his voice was high with nervous
+excitement. 'Oh, my God, I saw a movie where all these people burned to
+death in an elevator' Mr. Rose-Colored-Glasses interrupted, 'Don’t listen
+to Mr. Morbid over there, he’s just got a sorry attitude.' Mr. Morbid, as
+he was now known, rolled his eyes and reached inside his pocket for a
+cigarette. 'So what do you think caused it, then?' asked Feminine Man, 
+his voice still high. 'Oh, it just probably had a little loss of power,
+nothing major,' Mr. Rose-Colored-Glasses said with a wave of his hand. 
+'Yeah,' agreed Mr. Morbid, 'Probably just a loss of power at the power
+plant. I’m sure we’ll be out of here in a few weeks. Course, we’ll be out
+of food.' Feminine Man nearly fainted but managed to gasp, 'I read, one 
+time, where these people had to eat each other to stay alive.' For the
+first time, Mr. Morbid smiled. 'You first,' he said looking at Feminine
+Man. Mr. Morbid started to light his cigarette. 'Don’t do that!' 
+Feminine Man said, aghast. 'Why not?' Short Man queried from his spot in
+the right rear corner. 'Because,' Feminine Man said, with some
+~
+E
+epg3~
+consternation, 'Secondhand Smoke is a dangerous killer, especially of
+people of my age group.' Mr. Morbid rolled his eyes. 'Look,' he said,
+with a hint of grin creeping onto his face, 'we’re all going to be dead
+anyway, and we’re going to eat you, so why not have you smoked? If one of
+us manages to live, what difference will a little smoke make?' He laughed 
+and thumbed his lighter. Nothing happened. Mr. Morbid swore again as his
+lighter stubbornly refused to produce a flame. 'Here you go,' said the man
+in the front right corner. The man tossed Mr. Morbid a book of matches. 
+'Who are you, the Cancer Advocate?' asked a man angrily from the front
+left corner. 'We’re in a hospital. You’re not supposed to smoke here,
+besides, I don’t want to breathe any secondhand smoke either.' 'And who
+are you, Mr. Pinko-Commie, trying to restrict my rights?' Cancer 
+Advocate replied defiantly. 'Hey,' said Feminine Man, 'He’s right, Cancer
+Advocate!' 'Thanks,' Mr. Pinko-Commie agreed. 'And for your information,
+I’m not a Pinko-Commie, I just don’t want an elevator full of smoke.' 
+'What does it matter? We’re all as good as dead anyway,' answered Mr.
+Morbid. 'Enough is enough, people,' Mr. Rose-Colored-Glasses said. 'Let’s
+just all be quiet and I’m sure we’ll be out of here soon.' 'Think happy 
+thoughts,' intoned Mr. Morbid sardonically. Cancer Advocate laughed. Mr.
+~
+E
+epg4~
+Morbid lit the first match. The fire alarm went off and the sprinkler in
+the elevator came on, showering everyone in the elevator. Mr. Morbid 
+let out a long string of expletives. 'See, I told you life stinks,' he
+said to Mr. Rose-Colored-Glasses. Mr. Morbid and Cancer Advocate’s matches
+were ruined. Feminine Man grinned smugly while Mr. Pinko-Commie 
+suppressed a chuckle. 'Gosh, aren’t these the most sensitive sprinkler
+systems you’ve ever seen?' Short Man wondered out loud as the cold water
+began to soak them all. 'Yeah, they are,' answered Mr.
+Rose-Colored-Glasses sincerely, 'but I feel a lot better now knowing that 
+everything’s well maintained and we’re safe.' 'If everything’s so well
+maintained, than why are we sitting in a broken elevator?' asked Mr.
+Morbid with a hint of sarcasm. 'We’re probably all going to drown.' 'Oh,
+my God,' began Feminine Man, 'I can’t swim!' 'My briefcase floats,' Mr.
+Rose-Colored-Glasses offered kindly, 'I’ll let you hold onto it but we’re
+not going to drown.' Feminine Man started to say something but was 
+interrupted. The elevator doors opened, and Bill could see that the
+elevator had stopped between the first and second floors of the hospital.
+Outside the doors was Doctor Marse. 'For the last time, Bill,' Doctor
+Marse said, shaking his head, 'We can’t treat your multiple personality
+disorder if you don’t stay in the ward.'
+~ 
+S
+
+#355
+Mystery~
+There is a costume on a mannequin next to the bookshelf. See if you know what 
+it is. There are people proclaiming that the butler or maid or even the dog 
+did it. Do you know who did it? Check out the {Blist{x of books here.
+~
+0 DHKS 1
+H 200 M 200
+D0
+It goes north to Horror room.
+~
+~
+0 -1 352
+D1
+It goes east to the Library Entrance.
+~
+~
+0 -1 356
+D2
+It goes south to Poetry room.
+~
+~
+0 -1 358
+D3
+It goes west to Comedy room.
+~
+~
+0 -1 354
+E
+costume~
+All of it is plaid. With that unique hat and the pipe hanging from
+the mannequin mouth. You can see the vest with the watch hanging out
+of it's watch pocket. You can see that the cloak is not plaid but
+black. It seems to be from the England. Wonder what famous detective
+lives there?
+~
+E
+list~
+There are no stories currently available.
+~
+S
+
+#356
+Library Entrance~
+You stand in front of Thera's libary.. It is colossal.. High stone walls reach
+up to the sky. Niches hold statues of the Immortals that rule Thera. As you
+look upwards, you see stone gargoyles sitting on corners of the roof, ready to
+spew down the rain. You proceed into the hall of the library as quiet as you 
+possibly can.
+An old librarian sitting behind a desk looks at you as you enter.. She nods
+at you as you quietly make your entrance in the library..
+~
+0 DHKS 1
+H 200 M 200
+D0
+It goes north to Fantasy room.
+~
+~
+0 -1 353
+D1
+It goes east to the Temple of Mota.
+~
+~
+0 -1 3001
+D2
+It goes south to Science Fiction room.
+~
+~
+0 -1 359
+D3
+It goes west to Mystery room.
+~
+~
+0 -1 355
+S
+
+#357
+Miscellaneous~
+This is a bare room. It seems to be empty as this room was set aside
+in case there's a reading material that can't be categorized. Wait
+a minute isn't there something in the corner? Check out the {Blist{x of
+books here.
+~
+0 DHKS 1
+H 200 M 200
+D0
+It goes north to Comedy room.
+~
+~
+0 -1 354
+D1
+It goes east to Poetry room.
+~
+~
+0 -1 358
+E
+list~
+There are no stories currently available.
+~
+S
+
+#358
+Poetry~
+There are many boards surrounding the rooms. Each one is full of short poems, 
+some several lines long, others only one or two lines. Almost all are 
+unreadable except for that one board which is almost devoid for some reason. 
+What does it say? Check out the {Blist{x of books here.
+~
+0 DHKS 1
+H 200 M 200
+D0
+It goes north to Mystery room.
+~
+~
+0 -1 355
+D1
+It goes east to Science Fiction room.
+~
+~
+0 -1 359
+D3
+It goes west to Miscellanous room.
+~
+~
+0 -1 357
+E
+board~
+'Once softly written,
+ changed into slow death.
+ Once quickly read,
+ changed into quick amnesia.
+ Once remembering this,
+ You are free, never forget.'
+~
+E
+list~
+There is one story currently available.
+Punishment
+~
+E
+Punishment punishment~
+Punishment 
+by Haze
+
+I was punished for going outside.
+There was a killer around my neighborhood.
+It scared me, but I did go.
+I was playing in the garden when it happened.
+I saw the killer, I screamed.
+My Heroes came to take him down.
+But I was punished for dirtying my gown.
+~
+S
+
+#359
+Science Fiction~
+Rockets, Robots, Technology, OH MY!!! You can see the twinkling
+stars and models of ships, stations, and planets hanging from the
+ceiling. Take a closer look, maybe you can recognize one. Check out
+the {Blist{x of books here.
+~
+0 DHKS 1
+H 200 M 200
+D0
+It goes north to Library Entrance.
+~
+~
+0 -1 356
+D3
+It goes west to Poetry room.
+~
+~
+0 -1 358
+E
+star stars~
+It's a small light bulb. Lighten up, you are not going to burn up being
+this close!
+~
+E
+ship ships~
+You can see many different ship from different books, Isn't that Star Trek
+Enterprise? isn't that a X-wing? Isn't that....
+~
+E
+station~
+You can see the famed Deep Space Nine, NASA space station, DeathStar I and
+II.
+~
+E
+planet planets~
+It has purple oceans and red land or maybe is that purple land and red
+lands? Well, it certainly is colorful.
+~
+E
+list~
+There are no stories currently available.
+~
+S
+#0
+
+#RESETS
+M 0 351 1 356 1   * Reset Librarian into Entrance room
+O 0 351 1 351     * Reset table into Drama room
+O 0 351 1 352     * Reset table into Horror room
+O 0 351 1 353     * Reset table into Fantasy room
+O 0 351 1 354     * Reset table into Comedy room
+O 0 351 1 355     * Reset table into Mystery room
+O 0 351 1 358     * Reset table into Poetry room
+O 0 351 1 359     * Reset table into Science Fiction room
+O 0 352 1 351     * Reset chair into Drama room
+O 0 352 1 352     * Reset chair into Horror room
+O 0 352 1 353     * Reset chair into Fantasy room
+O 0 352 1 354     * Reset chair into Comedy room
+O 0 352 1 355     * Reset chair into Mystery room
+O 0 352 1 358     * Reset chair into Poetry room
+O 0 352 1 359     * Reset chair into Sci-Fi room
+O 0 353 1 351     * Reset bookshelf into Drama room
+O 0 353 1 352     * Reset bookshelf into Horror room
+O 0 353 1 353     * Reset bookshelf into Fantasy room
+O 0 353 1 354     * Reset bookshelf into Comedy room
+O 0 353 1 355     * Reset bookshelf into Mystery room
+O 0 353 1 357     * Reset bookshelf into Miscellaneous room
+O 0 353 1 358	  * Reset bookshelf into Poetry room
+O 0 353 1 359	  * Reset bookshelf into Sci-fi room
+O 0 354 1 353	  * Reset globe into Fantasy room
+O 0 355 1 357	  * Reset fountain into Miscellaneous room
+S
+#$

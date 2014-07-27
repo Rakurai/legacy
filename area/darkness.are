@@ -1,0 +1,405 @@
+#AREA	
+darkness.are~
+Darkness~
+{H{{30 60} {MLotus   {TDarkness Within~
+500 599
+
+
+
+#MOBILES
+#500
+knight~
+A dark knight~
+A Knight of the Darkness stands before you.
+~
+This Knight symbolizes all that is dark and dismal.
+~
+human~
+BFGT CDEHJNQTZaa -1000 S
+15 10 10d10+500 1d1+599 1d10+10 pierce
+-10 -11 -11 -11
+ACDEFLU 0 0 N
+stand stand male 0
+0 0 large 0
+
+#501
+knight~
+A doom knight~
+A Knight of Doom stands before you.
+~
+This Knight symbolizes all that is foreboding and unstoppable.
+~
+human~
+BFGT CDEHJNQTZaa -1000 S
+25 20 10d10+100 1d1+599 2d10+10 pierce
+-20 -21 -21 -21
+ACDEFLU 0 0 N
+stand stand male 0
+0 0 large 0
+
+#502
+knight~
+A blood knight~
+A Knight of the Blood Moon stands before you.
+~
+This Knight symbolizes all that is eternal and evil.
+~
+human~
+BFGT CDEHJNQTZaa -1000 S
+40 30 10d10+2500 1d1+599 3d10+15 pierce
+-30 -31 -31 -31
+ACDEFLU 0 0 N
+stand stand male 0
+0 0 large 0
+
+#503
+knight~
+A death knight~
+A Knight of Death stands before you.
+~
+This Knight symbolizes all that is finite and fragile.
+~
+human~
+BFGT CDEHJNQTZaa -1000 S
+50 40 10d10+3500 1d1+599 4d10+15 pierce
+-40 -41 -41 -41
+ACDEFLU 0 0 N
+stand stand male 0
+0 0 large 0
+
+#504
+knight~
+A Demon knight~
+A Knight of the Demons stands before you.
+~
+This Knight symbolizes all that is eerie and deadly.
+~
+human~
+BFGT CDEHJNQTZaa -1000 S
+65 50 10d10+4000 1d1+599 4d10+25 pierce
+-50 -51 -51 -51
+ACDEFLU 0 0 N
+stand stand male 0
+0 0 large 0
+#0
+
+#OBJECTS
+#500
+suit shadowmail~
+shadowmail~
+A suit of shadowmail is here.~
+adamantite~
+armor AG AD
+10 8 8 3 0
+30 50 1000 P
+E
+suit shadowmail~
+It almost looks more like a swirling mist than armor.
+~
+A
+18 2
+A
+19 2
+A 
+2 3
+A
+24 -5
+#501
+shield dreams~
+Shield of Dreams~
+A glowing shield is here.~
+adamantite~
+armor AG AJ
+10 12 12 10 0
+50 42 1500 P
+E
+shield dreams~
+By holding this glowing shield, you feel an inner peace fill your
+soul.
+~
+A 
+18 6
+A
+1 3
+#502
+sign~
+a sign~
+You see big sign beckoning you to read it.~
+wood~
+trash S 0
+0 0 0 0 0
+0 0 0 P
+E
+sign~
+The Darkness Within was created for the mudders of Legacy who wanted
+better equipment to wear throughout their travels.  Beware, the mobs
+within these dark caverns are not to be trifled with.
+~
+#503
+sword necromancy~
+The Sword of Necromancy~
+The Sword of Necromancy is here.~
+adamantite~
+weapon AGJE AN
+sword 10 6 slash CE
+60 400 8800 P
+E
+sword necromancy~
+This sword is rumored to hold the key to life after death.
+If only you could unlock its secrets.
+~
+A
+4 3
+A
+12 15
+A
+18 3
+A
+19 5
+#504
+Death Bracer~
+a Death Bracer~
+A ebony plated bracer is here.~
+steel~
+armor ABEHM AM
+7 8 8 2 0
+25 10 312 G
+E
+death bracer~
+To wear these bracers is to show that you fear nothing.
+~
+A
+18 5
+A
+19 5
+#505
+helmet pandemonium~
+The Helm of Pandemonium~
+You see a dark and eerie helmet here.~
+steel~
+armor ABGE AE
+10 9 8 9 0
+45 25 950 P
+E
+helmet pandemonium~
+This helmet almost appears to be changing shape before your eyes.
+It must be possessed.
+~
+A
+1 2
+A
+5 2
+A
+12 40
+A
+13 40
+#506
+purple light~
+A Purple Light~
+A glowing light of purple lies here.~
+energy~
+light AGS A
+0 0 -1 0 0
+12 30 1000 P
+E
+light purple~
+It's almost the same color as the sky just before a blood moon.
+~
+A
+19 1
+A
+18 3
+A
+13 10
+#0
+
+
+
+#ROOMS
+#500
+Entrance to Oblivion~
+   By stepping into the room, you have forsaken your life as you once
+knew it.  Darkness swells within you, and you feel a force of extreme
+power trying to invade your mind and soul.  The force touches you,
+shows you your dark side, and then departs.  As the moment of nausea
+passes, you begin to ponder your own sanity.
+~
+5 AD 0
+D2
+You see the sacred tomb of necromancy.
+~
+~
+0 -1 1250
+D5
+You see, nothing!!!
+~
+~
+0 -1 501
+S
+#501
+Frozen Shadows~
+   A dark light fills the room and you can see your shadows cast upon
+each of the ten walls.  However, when you move, your shadows remain
+still.  The floor beneath you is soft and mushy.
+~
+5 AD 0
+D4
+You see, nothing!!!
+~
+~
+0 -1 500
+D5
+You see, nothing!!!
+~
+~
+0 -1 502
+S
+#502
+The Blood Moon~
+   The night of the Vampire, the dawn of eternity.  When the moon
+rises after dusk with its purple-red glow, you know it is time
+to run and hide.  For if you wander the night during this time of
+evil, then you may be wandering them forever.
+~
+5 AD 0
+D5
+You see, nothing!!!
+~
+~
+0 -1 507
+D4
+You see, nothing!!!
+~
+~
+0 -1 501
+D1
+You see, nothing!!!
+~
+~
+0 -1 503
+D2
+You see, nothing!!!
+~
+~
+0 -1 504
+D3
+You see, nothing!!!
+~
+~
+0 -1 505
+D0
+You see, nothing!!!
+~
+~
+0 -1 506
+S
+#503
+Haven of Light~
+  It must be a miracle that within these caverns of evil, there is a
+sanctuary for the adventurer who needs rest and peace.  Take a break
+and relax.  You might even consider sleeping.  But beware, even the
+safest of rooms cannot stay safe forever.
+~
+5 AD 0
+D3
+You see, nothing!!!
+~
+~
+0 -1 502
+S
+#504
+The Halls of Infinity~
+  Needless to say, the halls in this cavern stretch on for eternity.
+It is a hopeless journey to attempt to find the end.
+~
+5 AD 0
+D2
+You see, nothing!!!
+~
+~
+0 -1 504
+D0
+You see, nothing!!!
+~
+~
+0 -1 502
+S
+#505
+Caverns of Chaos~
+   Blood drips off the ceiling of stalactites into large pools
+on the ground.  The bones of fallen warriors lie along the
+path you walk.  Each footstep echoes in the distance and
+then fades silently into nothingness.  The caverns appear
+almost endless as you look around the chamber.
+~
+5 AD 0
+D1
+You see, nothing!!!
+~
+~
+0 -1 502
+S
+#506
+The Chasm of Despair~
+  A hungry mist swirls about you as a sense of new life fills 
+your body.  A grand chasm crosses the floor in front of you.   
+From within you can hear several distinctive chanting noises 
+and many muzzled voices.
+~
+5 AD 0
+D2
+You see, nothing!!!
+~
+~
+0 -1 502
+S
+#507
+The Demons under the Bed~
+  You always wondered as a small child whether they existed or
+not.  This tiny pit is doused in slime and goo.  It is not a
+pretty sight. 
+~
+5 AD 0
+D4
+You see, nothing!!!
+~
+~
+0 -1 502
+S
+#0
+
+
+
+#RESETS
+M 0 500   1 501  1       * Dark Knight
+E 0 506   5 0              * Purple Light
+M 0 501   1 505  1       * Doom Knight
+E 0 504   5 15             * Death Bracer
+M 0 502   1 504  1       * Blood Knight
+E 0 500   5 5              * Shadowmail
+M 0 503   1 506  1       * Death Knight
+E 0 505   5 6              * Pandemonium
+M 0 504   1 507  1       * Demon Knight
+E 0 503   1 16             * Sword of Necromancy
+O 0 501   5 503          * Shield of Dreams
+O 0 502   1 500          * Sign
+S
+
+
+
+#SHOPS
+0
+
+
+
+#SPECIALS
+M  500  spec_cast_mage
+M  501  spec_cast_mage
+M  502  spec_cast_mage
+M  503  spec_cast_mage
+M  504  spec_cast_mage
+S
+
+
+
+#$

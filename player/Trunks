@@ -1,0 +1,579 @@
+#PLAYER
+Name Trunks~
+Id   1024100352
+LogO 1026976305
+Vers 14
+Mexp 2
+Pass aceventura~
+Prom {Y%h/%HHp {G%m/%MMana {V%v/%VMov {Y%g{W/%s (%r) {P%XTnl {Y%a {W%q/{G%j{x ~
+Race human~
+Cla  3
+Levl 12
+Tru  0
+Plyd 7467
+Back 6794
+Note 1026967268 1026967268 1026967268 1026967268 1026967268 1026967268 1026967268
+Scro 22
+Room 4576
+HMS  93 155 219
+Gold 975
+Silv 176
+Exp  12330
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  AOU
+Video D
+Act  CDEFGHJLQSc
+AfBy 0
+Comm MNOa
+Revk 0
+Cgrp A
+Cnsr B
+Prac 0
+Trai 0
+Wimp 0
+Atrib 14 17 14 16 18 10
+QuestPnts  10
+Afk {B[{CSat Jun 15 00:26:00 2002{B] {CUnknown Departure.{x
+~
+Titl  The {B{WG{ghet{Wt{Bo {RS{Pa{Yiy{Pa{Rn{x~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Vegita~
+Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
+Ltim Thu Jul 18 02:11:08 2002
+~
+LSav Thu Jul 18 02:11:45 2002
+~
+HMSP 194 150 219
+THMS 0 0 0
+Cnd  0 0 1 34
+Colr 57 33 1
+Colr 58 32 1
+Colr 72 32 1
+Colr 73 33 1
+Alias lgrat soc emote slides his sword into the sheath on his back and smirks at~
+Sk 75 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'dispel magic'
+Sk 1 1 'fireproof'
+Sk 75 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 79 1 'sword'
+Sk 75 1 'bash'
+Sk 76 1 'enhanced damage'
+Sk 83 1 'parry'
+Sk 75 1 'second attack'
+Sk 1 1 'third attack'
+Sk 25 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 75 1 'fast healing'
+Sk 1 1 'forge'
+Sk 75 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'protective'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3033
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 10258
+Nest 0
+Name sivat's bottle snapple ice tea~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {WS{gn{Ba{Np{Bp{gl{We {YI{bc{Ye {bT{Ye{ba {YB{bo{Yt{bt{Yl{be{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {WS{gn{Ba{Np{Bp{gl{We {YI{bc{Ye {bT{Ye{ba {YB{bo{Yt{bt{Yl{be{x~
+Wear -1
+Cost 0
+Val  60 48 10 0 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 90 15 0 0
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 4203
+Nest 0
+Wear 13
+Cost 1000
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name Qaz quest~
+ShD  Qaz quest mudpie~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name Qaz quest~
+ShD  Qaz quest mudpie~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#O
+Vnum 4471
+Nest 0
+Name Bulma Plushy~
+ShD  {GB{Hu{Gl{Hm{Ga {HP{Gl{Hu{Gs{Hh{Gy{x~
+Desc {GI{Ht{Gs {Ha {Gu{Hn{Gi{Hq{Gu{He {Ga{Hn{Gd {He{Gx{Ht{Gr{He{Gm{He{Gl{Hy {Gr{Ha{Gr{He {GB{Hu{Gl{Hm{Ga {HP{Gl{Hu{Gs{Hh{Gy{x~
+Mat Cotton~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 12702
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 12701
+Nest 0
+Cond 93
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 10129
+Nest 0
+Wear 18
+Cost 122
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 10212
+Nest 0
+ExtF 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 3182
+Nest 0
+Wear 9
+Cost 1200
+ExDe owned by~ Trunks~
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 10133
+Nest 0
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 3500
+Nest 0
+Cond 100
+Wear 19
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#END

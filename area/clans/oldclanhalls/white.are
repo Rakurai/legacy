@@ -1,0 +1,4192 @@
+#AREA
+white.are~
+White Knight~
+{H{{CLANS} {MNature/Beowulf {TFortress of Light~
+12200 12499
+
+#MOBILES
+#12200
+Hwisprian~
+Hwisprian~
+Hwisprian, the {WWhite {BKnight{x clan physician, wanders among the wounded.
+~
+Hwisprian is here.  The teilysa wears a long robe and hood that shows
+only a quiet and concentrated face. This aged cleric's days of battling
+are over, and instead heals clan members in need of special healing.
+Hwisprian is so well-versed in all skills and spells that you can also
+heal, practice and/or train here.  Ask nothing else of Hwisprian;
+casting spells takes great concentration.
+~
+teilysa~
+ABGJKQVZab AHZ 0 S
+99 15 13d75+11001 21d15+3001 7d7+28 divine
+-40 -40 -40 -40
+0 ABCD 0 0
+stand stand none 0
+0 0 medium 0
+>rand_prog 10~
+if rand(70)
+   nod
+   emote offers you an empty cot on which you can rest.
+else
+   mpecho The infirmary is quiet and peaceful except for an occasional moan.
+   emote looks up and nods in greeting, then goes back to mixing a potion.
+endif
+~
+|
+
+#12201
+sir gaunt~
+Sir Gaunt~
+Sir Gaunt is relaxing near the pond.
+~
+Sir Gaunt is an old man who spends his time just lounging by the
+{WWhite {BKnight{x clan pond.  After his days as an active member of the
+{WWhite {BKnights{x came to an end, he returned to help his clan and be
+near his one remaining family member, his niece Hostess Quickly.
+He prefers to be here, where everything is at peace.
+~
+human~
+ABGTVZ DFHJW 0 S
+99 12 13d75+5501 9d10+751 6d6+19 thrust
+-43 -44 -45 -39
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+>all_greet_prog 40~
+if isimmort($n)
+   kneel $n
+   say Welcome, O great one!
+else
+   if isnpc($n)
+      bow
+   else
+      if isgood($n)
+	 smile $n
+	 say Welcome, $n!
+      else
+	 emote gives you a wry smile and trembles a little.
+	 say Well met, $n!
+      endif
+   endif
+endif
+~
+>all_greet_prog 50~
+if name($n) == Richard
+  pmote gazes longingly at Richard's {cD{g'{ch{ga{cr{ga{cn{g Armor.
+  emote sighs, almost as if dreaming.
+endif
+if name($n) == Chase
+  pmote gazes longingly at Chase's {cD{g'{ch{ga{cr{ga{cn{g Armor.
+  emote sighs regretfully.
+endif
+~
+>rand_prog 6~
+if rand(10)
+   grumble
+   say I see the pitcher is empty.
+   emote squeezes juice from two lemons into a pitcher and adds sugar.
+   mpecho He holds it under the cascading waters of the fountain. Ah...FRESH lemonade!
+else
+   if rand(10)
+      emote sighs as he wanders to a bench and sits down.
+   else
+      if rand(10)
+	 emote smiles as he takes crumbs from a pocket and drops them into the pond.
+	 mpecho Small goldfish bob up to the surface to nibble at the crumbs.
+      else
+	 mpecho The sounds and the scents of the courtyard drift quietly around you.
+	 emote pats a space next to him on the bench.
+	 say Sit here a spell, if you have any items you want identified, just say so.
+      endif
+   endif
+endif
+~
+|
+
+#12202
+hostess quickly~
+Hostess Quickly~
+Hostess Quickly wipes off her hands and smiles warmly at you.
+~
+Hostess Quickly is the best and most talented preparer of foods in
+all of Thera. Some say she was born with a tablespoon and wearing
+an apron! She has a sweet smell from her exotic elven perfume, but
+also from spending all day in the Boar's Head, the clan mess hall,
+and her face is powdery. As usual, she is intent upon fixing up a
+sumptuous meal.
+~
+superhuman~
+ABGRVZ DFHJTV 0 S
+95 12 13d150+7501 19d5+2001 10d3+20 beating
+-60 -58 -61 -65
+0 ABCD 0 0
+stand stand female 0
+0 0 large 0
+>all_greet_prog 100~
+if isimmort($n)
+   say "Welcome $n - I'm honored to have you here!
+   emote dusts off the best bench.
+   say Please sit here, if you please.
+else
+   say Welcome $n! Come have the finest food and drink around!
+   beam
+endif
+~
+>rand_prog 10~
+if rand(10)
+   beam
+   say Now, you don't need to tip me, I own the place.
+else
+   if rand(10)
+      emote looks up and sees Falstaff standing at the door of his shop.
+      emote blushes and blows a kiss to him.
+   else
+      mpecho Laughter and talk drift from a nearby table of knights.
+      mpecho The rowdy bunch cheers as Hostess Quickly carries a tray of food toward them.
+   endif
+endif
+~
+|
+
+#12203
+falstaff~
+Falstaff~
+Falstaff is here, trying on the armor and playing with the weapons.
+~
+Falstaff is a boastful fellow, always regaling his fellows (those unlucky
+enough to be around him) with his tales of rounding up escaped prisoners
+for Annabus and the times when he saved the mayor of Midgaard from an attack.
+He is a big man, with a blacksmith's arms and solid legs like an oak tree.
+~
+superhuman~
+ABGTVZ DFHJV 0 S
+95 20 13d150+9501 13d5+1001 10d5+30 crush
+-63 -64 -63 -57
+0 ABCD 0 0
+stand stand male 0
+0 0 huge 0
+>all_greet_prog 100~
+if isimmort($n)
+   emote tries his best to look humble as he bows deeply.
+   say How may I help you, your Greatness!
+   emote starts buffing his wares to look busy.
+else
+   emote bows with a sweeping flourish.
+   beam
+   say Welcome to my shop $n!
+endif
+~
+>rand_prog 10~
+if ispc($r)
+   if rand(5)
+      nudge $r
+      say You want to have some fun later?
+      mpecho  He sneaks his hand under a counter and brings up a set of Dominos.
+   else
+      if rand(5)
+	 say A might boring these days. I remember a time when Annabus gave me REAL quests.
+      else
+	 emote beams as he picks up some armor and helps you try it on.
+	 say I'll be sure you get the very best, or I'll not wear hair on my face more!
+      endif
+   endif
+endif
+~
+|
+
+#12204
+cid man~
+Cid~
+A man in a yellow trenchcoat stands here.
+~
+An older man with a mustache and yellow trenchcoat looks back at you.
+~
+human~
+BGZ H 1000 S
+1 7 1d1+1000 1d1+1000 2d5+1 pierce
+-25 -25 -25 -25
+C ABCD 0 0
+stand stand male 200
+0 0 large 0
+
+#12205
+baby whale~
+a {Bbaby whale{x~
+A {Bbaby whale {Yfrolics{x in the {Cr{We{Cf{Wr{Ce{Ws{Ch{Wi{Cn{Wg {Cw{Wa{Ct{We{Cr{Ws{x of the {Bpond{x.
+~
+This happy "little" whale was rescued by Beowulf after it had
+gotten into trouble and beached itself.  He summoned it into his room,
+thinking that his pond would be large enough for a whale to live in, and
+he takes special care of it so that it can enjoy its life here in the
+White Knights' Fortress.
+~
+unique~
+BGV DFHJN 800 S
+30 5 400d2+270 15d7+209 3d6+10 slap
+-19 -22 -21 -17
+ACO ABCDE 0 0
+stand stand none 0
+0 0 giant 0
+
+#12206
+wildlife~
+Abundant Wildlife~
+Abundant wildlife are here.
+~
+Abundant wildlife inhabiting the area seem to have
+taken up residence all around this treehouse.
+~
+unique~
+BGV 0 0 S
+16 1 1d1+1 1d1+1 1d1+1 bite
+-1 -1 -1 -1
+AR ABCDE 0 0
+sit sleep either 0
+0 0 small 0
+
+#12207
+taxidermy yeti~
+Taxidermy {WYeti{x~
+A Taxidermy {WYeti{x stands here, apparantly growling at you.
+~
+This extraordinarily large {Wyeti{x looks even larger than
+huge white apes of the Frigid Wastelands.  Its long arms end
+in long curved talons and its mouth is full of sharp teeth.
+~
+yeti~
+BGVZ DFHJVc 1000 S
+93 20 1d1+24999 1d1+4999 10d5+10 crush
+-60 -58 -59 -53
+CDE ABCDE 0 0
+stand stand none 0
+0 0 huge 0
+
+#12208
+Gratch gar short tailed~
+Gratch, the gar~
+Gratch, the short-tailed gar is relaxing here.
+~
+This is Gratch, a short-tailed gar. You may think that short-tailed gars
+are small but they are larger and smarter than long-tailed gars. He has
+{Ptaut pink{x skin covering his body with patches of {Rblood red{x fur at
+base of his wings. His eyes are a {Gbright green{x. His fangs and talons
+are extremely sharp and could rend the meat from your bones with just a
+few slices. He was orphaned as a baby and Richard saved him from becoming
+a quick meal for male gars in the area. The have since become best
+friends. Gratch loves to wrestle.
+~
+unique~
+BGTVZ DFJTVZa 1000 0
+120 200 1d1+29999 1d1+9999 100d100+200 claw
+-1000 -1000 -1000 -1000
+ACDEFHIMO ABCDEL 0 0
+rest rest male 0
+0 0 large 0
+
+#12210
+bubble golem~
+The {BBubbleful Bubble {GGolem{x~
+A {BBubbleful Bubble {GGolem {gstands in front of you made of {Bbubbles{x.
+{gYou notice the Golem is also breathing {Bbubbles{x.
+~
+The {BBubble {GGolem{x grins and blows you a {Bbubble {RKiss{x!
+~
+unique~
+BZ U 0 S
+15 40 100d10+100 1d1+699 1d1+39 lightning
+-15 -15 -15 -30
+ACDEFHIMO ABCDEL 0 0
+rest stand none 0
+0 0 large 0
+
+#12211
+small squirrel~
+a small squirrel~
+A small squirrel is gathering nuts from the branches above.
+~
+It is small and gray. It is so sickeningly adorable you want
+to pet it and hurl it the same time. You had better ignore the first
+notion, though, as it might be rabid.
+~
+unique~
+B 0 1000 S
+1 0 1d1+24 1d1+2 1d1+5 bite
+1 1 1 1
+0 ABCD 0 0
+stand rest male 0
+0 0 small 0
+
+#12214
+buffy vamphyri slayer~
+Buffy, Vamphyri Slayer~
+Buffy, Vamphyri Slayer, is here.
+~
+You see a tall blonde with a little sexy outfit holding a stake
+in her hands. She guards with her life Zenki's movie collection
+making sure no Vamphyri tamper with them.
+~
+human~
+BGVZ DFHJVc 1000 S
+93 20 1d1+24999 1d1+4999 10d5+10 crush
+-60 -58 -59 -53
+CDE ABCDE 0 0
+stand stand none 0
+0 0 medium 0
+
+#12215
+Davron blacksmith~
+Davron~
+Davron is here tending the fires and forging armor for Falstaff.
+~
+Davron is a brawny but relatively quiet man, with a pensive manner
+that takes Falstaff's armor designs and truns them into artistry.
+Davron somehow puts up with Falstaff's less than impressive tales
+of tournaments and quests. His giant torso and strong arms carry
+the scars from the battles of his youtha and the fires of his trade.
+Over his smithy garb, Davron wears an Elven Black Mithril Jacket,
+which protects him from the heat of the forge. Nearby his Sword
+of Victory is sheathed in a huge Belt of Might, awarded him by
+Sir William Rambone, Early of Rothshiem, after serving under him
+for many years. Though not exactly retired since he arrived in
+Thera, Davron prefers to forge armor to spinning tales in the
+Boar's Head Tavern across the way.
+~
+giant~
+BFGV HVbc 0 S
+90 10 30d40+5700 1d1+299 7d7+20 beating
+-46 -45 -45 -32
+CDFHJQ ABCD 0 0
+stand stand male 0
+0 0 huge 0
+>all_greet_prog 50~
+   emote glances up quietly, then continues with his work.
+   mpecho The roar of the fire increases as Davron works the bellows.
+~
+>rand_prog 10~
+   if rand(4)
+   mpecho CLANG! PING! CLANG! The impact of the hammer on searing hot metal rings out!
+      or rand(10)
+	 emote sighs as he looks over the order list for Falstaff's armor.
+	 say Will you be finished soon? I've got to rework this shield.
+      or rand(5)
+	 emote looks over your pile of metals as he stops to wipe his brow.
+	 say You're welcome to leave your extras here for others to use.
+      else rand(5)
+	 mpecho Sweat begins to pour off your forehead.
+	 mpecho TING! BANG! CLANG-PING!
+	 mpecho CHSSSSSssssss! Water sizzles as your finished weapon cools.
+      endif
+~
+|
+
+#12216
+kagato~
+Kagato~
+Kagato is here, being evil.
+~
+As you look upon him, you feel a wave of nausia.  He is so evil,
+it is frightening.  He is one of those mad scientist types, with a
+genuinely evil genius...
+~
+human~
+BG H -1000 S
+100 15 1d1+4999 1d1+4999 8d6+14 wrath
+-50 -50 -50 50
+J ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#12217
+washing machine~
+{CW{Wa{Cs{Wh{Ci{Wn{Cg {WM{Ca{Wc{Ch{Wi{Cn{We{x~
+The {WWhite {BKnight {CW{Wa{Cs{Wh{Ci{Wn{Cg {WM{Ca{Wc{Ch{Wi{Cn{We{x is here.
+~
+You feast your eyes upon a magnificent relic that almost automatically cleans
+laundry for you.  Imagine that!
+~
+unique~
+BG DFHJN 1000 0
+99 50 1d1+10000 1d1+15000 1d1+5000 smash
+-50 -50 -50 -50
+ACO ABCD 0 0
+stand stand male 0
+0 0 large 0
+
+#12218
+boomer~
+Boomer, Sabrina's BEST friend~
+Boomer is sitting here waiting for Sabrina.
+~
+Boomer looks extremely pleased with himself for devouring the very
+last of the Beanie Babies.
+~
+fido~
+BCGV HNOZab 1000 S
+100 15 1d1+4999 1d1+4999 8d6+14 wrath
+-50 -50 -50 50
+0 ABCD 0 0
+stand sleep male 0
+0 0 small 0
+
+#12219
+jeff drummer~
+Jeff the Drummer~
+Jeff, the Drummer, is practicing here.
+~
+Jeff here is playing his drums, and making very strange faces while doing
+so. He obviously enjoys playing, and he is very good. ...Doo bee doo bee
+doo...
+~
+human~
+BG H 1000 S
+100 15 1d1+9999 1d1+299 5d5+15 pound
+-65 -65 -65 -60
+J ABCD 0 0
+stand rest male 0
+0 0 medium 0
+
+#12220
+waitress blonde~
+Tall Blonde Waitress~
+A tall blonde waitress is here, ready to serve you some coffee.
+~
+This lovely efficient woman is dressed in casual attire covered by a long
+{Hdark green apron{x which covers most of her slender torso.  Her long
+{Yblonde hair{x is pulled back into a bun, accentuating her clean thin
+face.  Her {Bblue eyes{x sparkle a greeting that matches her broad
+{Rsmile{x.  She is carrying a fresh pot of coffee to freshen your cup.
+~
+human~
+BGZ DFHJVc 1000 S
+30 25 1d61+899 1d1+99 1d23+9 slap
+-10 -10 -10 -5
+CFHKO ABCD 0 0
+stand stand female 0
+0 0 small 0
+
+#12221
+stanley garage door opener~
+A Stanley garage door opener~
+A Stanley garage door opener is here.
+~
+A square plastic device stand in front of you, waiting for you to poke him so he
+can open the door.
+~
+unique~
+BGZ DFHJVc 1000 S
+30 25 1d61+899 1d1+99 1d23+9 crush
+-10 -10 -10 -6
+CFHKO ABCD 0 0
+stand stand none 0
+0 0 medium 0
+
+#12222
+waitress blonde stephanie~
+Stephanie the waitress~
+Stephanie, the waitress, is here, ready to take your order.
+~
+This lovely efficient woman is dressed in casual attire covered by a long
+{Wwhite apron{x which covers most of her slender torso.  Her long blonde hair is
+pulled back into a bun, accentuating her clean thin face.  Her {Bblue eyes{x
+sparkle a greeting that matches her broad {Rsmile{x.  She has a notepad in her
+hand and a glint in her eyes.
+~
+human~
+BGZ DFHJVc 1000 S
+30 25 1d1+10000 1d1+4500 1d23+9 slap
+-10 -10 -10 -8
+CFHKO ABCD 0 0
+stand stand female 0
+0 0 small 0
+
+
+#12224
+bookworm~
+A bookworm~
+A Tiny Bookworm is here eating a page from a favorite book.
+~
+The colorful and voracious bookworm eats his way through BigSexy's favorite
+books and even eats his own des riptin.
+~
+unique~
+BG 0 0 S
+15 0 15d20+150 1d10+2 0d0+0 digestion
+0 0 0 0
+0 0 0 0
+stand stand either 0
+0 0 small 0
+
+#12225
+Queen Dahlia~
+{WQu{ge{We{gn {YDa{bhl{Yia{x~
+{WQu{ge{We{gn {YDa{bhl{Yia {WS{gta{Wnd{gs {WHe{gre.{x
+~
+{WQu{ge{We{gn {YDa{bhl{Yia {Wst{gan{Wds {gbe{Wf{gor{We y{go{Wu {Wi{gn {Whe{gr {gsp{Wle{gn{Wdor.{x
+{Whe{gr {Wbe{ga{Wut{gy {Wst{gu{Wn{gs y{Wo{gu an{Wd leav{ge{Ws y{go{Wu sp{gee{Wch{gle{Wss.{x
+~
+human~
+BG 0 0 S
+15 0 15d20+150 0d10+2 0d0+0 thump
+-100 -100 -100 -100
+0 0 0 0
+stand stand female 1
+0 0 small 0
+
+#12226
+doctor kd~
+Doctor Kd~
+Doctor Kd is here, ready to "treat" any wound.
+~
+Doctor Kd looks like a very reputable doctor.  Certainly too reputable to
+practice in this clinic.. unless...
+~
+human~
+BG 0 0 S
+15 0 15d20+150 0d10+2 0d0+0 slice
+-104 -100 -101 -100
+0 0 0 0
+stand stand male 10
+0 0 small 0
+#12227
+smurf wizard alchemist~
+A Smurf Alchemist~
+A {TS{gm{Cu{Wr{Tf {PA{Yl{Gc{Bh{Ce{Vm{Pi{Ys{Gt{x stands here busily making potions.
+~
+{H This strange little creature eyes you untrustingly. With his funny 
+pointed hat and finely woven {Mr{Vo{Mb{Ve{Ms{H he looks as to be an important
+{Ts{gm{Cu{Wr{Tf{x. 
+  He has a cute little collar with the name {PW{Yi{Gz{Bi{H carved into it.
+  Obviously he is the {TS{gm{Cu{Wr{Tf {PA{Yl{Gc{Bh{Ce{Vm{Pi{Ys{Gt{H and belongs to Ryler.
+~
+unique~
+BG 0 -1000 S
+15 3 1d1+19 1d1+19 5d5+7 pierce
+11 9 10 6
+0 ABCD 0 0
+stand stand male 500
+0 0 small 0
+#12228
+sting hogan fighting~
+Sting and Hogan Fighting~
+Sting and Hogan are fighting in the ring here
+~
+~
+unique~
+BG 0 0 S
+100 50 1d1+10000 1d1+10000 1d1+50 punch
+11 9 10 6
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+#12229
+smurf cleaner~
+{W65 pound {BSmurf{x~
+{WA 65 pound {BSmurf {Wis cleaning the floors and walls in the Mush-Room.{x
+~
+There is a smurf running around like a maniac cleaning windows, rugs and
+other things in the room.
+~
+unique~
+BG 0 0 S
+100 50 10d10+20000 10d10+20000 10d10+50 punch
+11 9 10 6
+0 ABCD 0 0
+stand stand male 0
+0 0 small 0
+#12230
+padme naberrie queen amidala~
+Padme Naberrie~
+A petite brunette stands here, looking beautiful.
+~
+Padme Naberrie, the Queen Naboo herself stands here. She wears
+a blue tunic with a grey robe, and has her hair tied in a braid behind 
+her head. She is quite possibly the most exquitite creature you have
+ever laid eyes on.
+~
+unique~
+BG 0 0 S
+100 50 10d10+20000 10d10+20000 10d10+50 punch
+11 9 10 6
+0 ABCD 0 0 
+stand stand female 0
+0 0 medium 0
+#12231
+stalactites stalagmites~
+{WStalactites and Stalagmites{x~
+{WStalactites and Stalagmites are {Ball over {Wthe place!
+~
+{WYou see stalactites and stalagmites {Yglowing {Woff and on.  You
+start to hear cheery voices in your head, they must be telapathically
+speaking to you!
+~
+rock~
+BGQRSTZ DFHIT 1000 S
+120 0 1d1+999 1d1+999 5d10+50 stab
+-99 -99 -99 -99
+EFHIKN ABCDEQ 0 0
+stand stand either 0
+0 0 tiny 0
+#12232
+spider singer~
+{RS{Yp{Ri{Yd{Re{Yr{x~
+Spider, the lead singer for {RP{Yo{Rw{Ye{Rr{Ym{Ra{Yn {R5{Y0{R0{Y0{x, is here
+singing the song When Worlds C{fo{xl{fl{xi{fd{xe.
+~
+With his bleached hair, black sideburns, black goatee, and red tinted goggles on
+his forehead,
+Spider is vocalizing the song When Worlds C{fo{xl{fl{xi{fd{xe, from the CD
+Tonight the Stars
+Revolt! After the song he tells you, "Take the {RP{BM{Y5{MK{x."
+~
+human~
+BG DF 0 S
+50 5 5d5+25 1d20+1 5d2 slap
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand male 100
+0 0 medium 0
+
+#0
+
+
+#OBJECTS
+#12200
+fountain~
+a fountain~
+A large and lovely {Wmarble fountain{x graces the center of the
+courtyard.~
+marble~
+fountain 0 0
+9999 9999 'water' 0 0
+0 0 0 P
+E
+fountain~
+The large {Wmarble fountain{x has several tiers of stone statues.
+A large {Wturtle{x statue stands vigil at the top;  the lower circle
+of statues {Wfish{x and {Wfrogs{x all spout fresh spring water out
+from their mouths.The water cascades to a large {Bpool{x around the
+base of the fountain. The cool pools bear a tangle of {Gwater plants{x,
+and sometimes a few large {Ygoldfish{x peek out among them.
+~
+E
+turtle~
+The large {Wturtle{x statue has a small inscription: This shell is
+safe haven, but a turtle gets nowhere until it sticks its head out.
+~
+E
+fish~
+The large {Wfish{x statues all bear the same small inscription:
+A leap skyward helps a fish escape a stagnant pond.
+~
+E
+frog~
+The large {Wfrog{x statues all bear the same small inscription:
+A frog closes its eyes to danger as it leaps for safety."
+~
+
+#12201
+pitcher~
+a pitcher~
+A large {Wporcelain{x pitcher is here.~
+porcelain~
+fountain 0 0
+9999 9999 'lemonade' 0 0
+0 0 0 G
+E
+pitcher~
+Ooooooh! This pitcher contains freshly-made {Ylemonade{x!
+~
+
+#12202
+cot bed cots~
+a cot~
+Some {bcots{x are here.~
+wood~
+furniture 0 0
+3 0 EHK 100 100
+1 2000 1 P
+E
+cot bed~
+The cot looks comfortable for someone who is sick, but only an
+exhausted person would sleep here for long.
+~
+
+#12203
+chair~
+a chair~
+A number of {bchairs{x are arranged around the {Rfire{x and a large table.~
+wood~
+furniture 0 0
+8 0 EIL 150 150
+1 2000 1 P
+E
+chair~
+Hard to imagine a large leather and wood chair being so comfortable,
+but...(ahhhhhhh!)...you can't wait to sink into one.
+~
+
+#12204
+bench~
+a long wooden bench~
+Long {bwooden{x benches are here to sit on.~
+wood~
+furniture 0 0
+20 0 EHK 100 100
+1 2000 1 P
+E
+bench~
+Oh, the abuse these seats have taken! What have not been worn smooth
+by holding the weight of tired hungry bodies, have been scarred from
+weapons clanking against them.	Ask about the dents in them and you
+may get a story of a {WWhite {BKnight{x falling off one of the benches to
+the floor, or of an outburst of merriment that sent one flying across
+the room and crashing against a wall.
+~
+#12205
+white chocolate~
+A {WWhite {BKnight{x's {WChocolate{x~
+A delicious looking {WWhite Chocolate{x is here.   MMMmmmmmmmmmm!~
+chocolate~
+pill 0 A
+15 'haste' 'talon' 'shield' 'giant strength'
+15 1 1 P
+E
+white knight's chocolate~
+{WWhite chocolate{x! MMMMmmmmmmmmmmmm! The taste and texture melt into your
+mouth.	Wow! What a feeling of power!
+~
+#12206
+kumquat fruit~
+A kumquat~
+A small {Pbright-orange kumquat{x is here.~
+fruit~
+pill 0 A
+15 'flameshield' 'sanctuary' 'detect invis' 'detect hidden'
+15 1 1 P
+E
+kumquat~
+While your teeth are still ringing with the sour taste, this {Okumquat{x
+will begin to work its magic on the rest of your body!
+~
+#12207
+Oran red~
+a {Rred{x portal~
+~
+nothingness~
+portal OR 0
+0 0 A 5600 0
+10 1000 0 P
+E
+red~
+A seam in space and time is here.  Enter to quickly arrive at the
+{RRuins of Oran{x.
+~
+#12208
+Budo yellow~
+a {Yyellow{x portal~
+~
+nothingness~
+portal OR 0
+0 0 A 1801 0
+10 1000 0 P
+E
+yellow~
+A seam in space and time is here.  Enter to quickly arrive at the
+{YBudo School{x.
+~
+#12209
+Nataris castle blue~
+A {Bblue{x portal~
+~
+nothingness~
+portal 0 0
+0 0 A 8200 0
+10 1000 0 P
+E
+blue~
+A seam in space and time is here.  Enter to quickly arrive at
+{BNataris Castle{x.
+~
+#12210
+bowl~
+a bowl~
+A small wooden bowl is on the table.~
+wood~
+container 0 0
+50 0 0 5 100
+0 50 0 P
+E
+bowl~
+A {bbowl{x of {Rf{Yr{Gu{Oi{Pt is here on the table. The {Rapples{x, {Gmangos{x and
+{Ybananas{x all look appealing, but the {Okumquat{x on the top of the pile
+looks the best!
+~
+#12211
+box~
+a box~
+A small box is on the table.~
+cardboard~
+container 0 0
+50 0 0 5 100
+0 50 0 P
+E
+box~
+A small box of {WWhite {BKnight {Wwhite chocolates{x is here. Have one!
+~
+#12212
+note~
+A note~
+A note to Falstaff is here.~
+paper~
+trash 0 A
+0 0 0 0 0
+0 10 0 P
+E
+note~
+This is a sealed note from Hostess Quickly to Falstaff.  Certainly you
+wouldn't be so rude as to open and read someone else's private mail!
+Perhaps you should give it to Falstaff instead!
+~
+#12213
+bouquet~
+A bouquet of flowers~
+A small bouquet of {Ww{Yi{Cl{Gd{Rf{Pl{Bo{Tw{Ve{Gr{Os{x is here.~
+plant~
+trash 0 A
+0 0 0 0 0
+0 10 0 P
+E
+bouquet~
+Sniff them!  Ahhhh, how sweet smelling!
+~
+#12214
+lasagna~
+a dish of {Yl{Ra{Ws{Ra{Wg{Rn{Wa{x~
+Ooooooooh!  There's a dish of {Yl{Ra{Ws{Ra{Wg{Rn{Wa{x here!~
+food~
+food 0 A
+34 40 0 0 0
+0 1 25 P
+E
+lasagna~
+Hot gooey {Yc{Wh{Ye{We{Ys{We{x smothering the ground {bbeef{x in a rich
+{Rtomato sauce{x layered with those big wiggly {wnoodles{x. Mama Mia!
+~
+#12215
+bbq barbeque ribs hot spicy food~
+{RHot {bBa{Rrbe{bqued {RR{bi{Rb{bs{x~
+Some {RHOT {bBa{Rrbe{bqued {RR{bi{Rb{bs{x are here.~
+food~
+food 0 A
+34 40 0 0 0
+0 10 25 P
+E
+bbq barbeque hot ribs~
+{RDroooooool! {TOH Baby!{x Roll up your sleeves and grab some extra napkins!
+These {bribs{x are slathered with a {Yprize winning {Rsauce!{x
+~
+
+#12216
+donut~
+a donut~
+A luscious fresh donut is here.~
+food~
+food 0 A
+8 10 0 0 0
+0 1 10 P
+E
+donut~
+Baked cake or fried and puffy?	Filled with {Wcream{x, {Mj{Pe{Rl{Ml{Vy{X,
+{Ycustard{x or just plain?  {fGlazed{x, {Wpowdered{x or dripping with
+{Pfrosting{x and {Rs{Yp{Br{Gi{Hn{Ok{Vl{We{bs{x? Hey, you decide!
+~
+
+#12217
+California roll~
+a California roll~
+A fresh {HC{Wal{Gi{Rf{Go{Wrni{Ha{x roll lies here.~
+food~
+food 0 A
+20 25 0 0 0
+0 1 20 P
+E
+california roll~
+For those who do not know what a California roll is: crunchy {Hseaweed
+(nori){x wrapped around sweetened sticky {Wrice{x with {Gcucumber,
+avocado{x, some {Rfish{x or {Rmeat{x and that Japanese horseradish called
+{Gwasabi{x, with a touch of {bsoy sauce{x.   Otherwise you're in heaven
+chewing on the delicious combinations of {Rf{Wl{Ga{Wv{Go{Wr{Hs{x and
+textures when the {Gwasabe{x blows a {khole{x in your sinuses.
+{YW{VO{MW{P!{x
+~
+#12218
+better prozac chocolate brownie food~
+{RBETTER than {BProzac{x~
+An incredibly delicious {bchocolate brownie{x is here.~
+food~
+food 0 A
+10 15 0 0 0
+0 10 20 P
+E
+prozac better chocolate brownie~
+MMMMMMmmmmmmmmmmm! Unbelievable! A fudgey rich {bchocolate brownie{x with
+{bdark fudge frosting{x, {Wmarshmallow swirls{x, and {bdark chocolate chips{x
+melts in your mouth.
+~
+
+#12219
+brioche bread food~
+A {Ytasty {bbrioche{x~
+A light, crunchy, {Ybuttery {bbrioche{x is here.~
+food~
+food 0 A
+20 25 0 0 0
+0 10 20 P
+E
+platter~
+A selection of fruits, cheeses and breads fill this platter. Great for
+drinking with ale.
+~
+
+#12220
+taco~
+a {Yt{ba{Rc{bo{x~
+A {Yt{ba{Rc{bo{x is here.~
+food~
+food 0 A
+15 20 0 0 0
+0 1 10 P
+E
+taco~
+Your choice of crunchy or soft, chicken or beef, but the sauce is hot,
+hot, HOT!
+~
+#12221
+chocolate ice cream~
+A dish of {bchocolate ice cream{x~
+A dish of {bchocolate ice cream{x is here.~
+food~
+food 0 A
+15 20 0 0 0
+0 1 15 P
+E
+dish~
+Two HUGE scoops of rich delicious {bchocolate ice cream{x.
+~
+#12222
+vanilla ice cream food~
+a dish of {Wvanilla ice cream{x~
+A dish of {Wvanilla ice cream{x is here.~
+food~
+food 0 A
+15 20 0 0 0
+0 10 15 P
+E
+vanilla ice cream~
+Two HUGE scoops of rich delicious {Wvanilla ice cream{x.
+~
+
+#12223
+tankard ale~
+A tankard of ale~
+A HUGE tankard of ale is here.~
+metal~
+drink 0 A
+50 50 'ale' 0 0
+0 3 12 P
+E
+tankard ale~
+Woah...you sure this isn't a 'tanker' of ale?  HIC!
+~
+#12224
+caraff wine~
+A caraff of {Mwine{x~
+A fine {Mwine{x in a gleaming caraff has been left here to 'air'.~
+glass~
+drink 0 A
+36 36 'red wine' 0 0
+0 3 10 P
+E
+caraff wine~
+A fine wine to accompany a delicious meal. This is NOT Ripple!
+~
+#12225
+texas pitcher tea~
+a Texas pitcher of tea~
+A Texas-sized pitcher of iced tea is here.~
+glass~
+drink 0 A
+250 250 'tea' 0 0
+0 8 50 P
+E
+texas pitcher tea~
+A pitcher of iced tea, the way they serve it in Texas - in a pitcher
+the size of Texas! Enough tea to wash down a 4-person feast of spicy
+food!
+~
+#12226
+sake~
+a small caraff of sake~
+A small caraff of sake is here.~
+porcelain~
+drink 0 A
+15 15 'icewine' 0 0
+0 1 30 P
+E
+sake~
+If you're going to eat sushi, you HAVE to be drinking sake!
+~
+#12227
+pot cappuccino~
+a pot of cappuccino~
+A pot of cappuccino is here.~
+metal~
+drink 0 A
+36 36 'coffee' 0 0
+0 2 5 P
+E
+pot cappucino~
+Ahhhhhhhhhh!  This isn't just coffee.  It's espresso and steamed cream.
+Drink a pot and feel the Buzzzzzzzzzzzzzzzzzzzzzz!
+~
+#12228
+pumpkin pie~
+a {Yp{bu{Ym{bp{Yk{bi{Yn {bpie{x~
+A yummy {Yp{bu{Ym{bp{Yk{bi{Yn {bpie{x with {Wwhipped cream{x is here.~
+food~
+food 0 A
+3 3 0 0 0
+0 2 15 P
+E
+pumpkin pie~
+Golden brown and creamy filling in a flakey pastry shell, smothered
+with whipped cream, this pie would win Grandma the blue ribbon!
+~
+
+#12229
+diamond shield~
+a {WDiamond Shield{x~
+A light-catching shield of diamond lies here.~
+diamond~
+armor ARS AJ
+6 6 6 5 0
+20 30 2000 P
+E
+diamond shield~
+This is a shield crafted out of dozens of smaller diamonds, and put
+together in such a way by an expert armourer so that it is impossible to
+tell that it is not simply one huge diamond.
+~
+A
+13 20
+A
+1 1
+A
+2 1
+A
+5 1
+A
+17 -2
+
+#12230
+white duffle bag~
+a {WWhite Duffle Bag{x~
+A white duffle bag has been left here.~
+cloth~
+container ORY AP
+300 A 0 30 50
+20 20 2000 P
+E
+white duffle bag~
+This is a white duffle bag used by White Knights for carrying
+large loads of items.  It is especially handy, and it makes
+objects feel like only half their normal weight.  It is so well
+made that it still looks like new and hardly shows any signs of
+use.
+~
+
+#12231
+lucky star~
+{YL{Wu{Yc{Wk{Yy {WStar{x~
+A lucky star has fallen down to the ground.~
+stardust~
+armor ABIRY AQ
+7 7 7 6 0
+25 20 2500 P
+E
+lucky star~
+This star was taken from the heavens above by a powerful magic, so that
+it could be used to aid a White Knight.
+~
+A
+13 25
+A
+18 2
+A
+19 2
+A
+17 -1
+A
+4 1
+A
+20 -1
+A
+26 2
+
+#12232
+white leather boots~
+{WWhite Leather{x Boots~
+A pair of white leather boots stands on the floor.~
+leather~
+armor BRS AG
+9 9 9 8 0
+30 15 3000 P
+E
+white leather boots~
+Comfortable and snug, these boots will protect the travelling White
+Knight in one's quests throughout Thera.
+~
+A
+13 20
+A
+12 10
+A
+14 50
+A
+18 2
+A
+19 2
+A
+2 3
+
+#12233
+floating orb white light~
+a Floating Orb of {WWhite Light{x~
+A ball of light floats in mid-air.~
+photons~
+light ARY A
+0 0 -1 0 0
+40 10 4000 P
+E
+floating orb white light~
+This orb fluoresces an intense white light, hovering 10 feet above the
+ground.  It is able to herald the approach of a White Knight from a far
+distance away.
+~
+A
+13 20
+A
+12 20
+A
+18 3
+A
+19 3
+A
+3 2
+A
+26 1
+
+#12234
+white knight ring~
+A {WWhite Knight{x's Ring~
+A White Knight's Ring catches your eye.~
+diamond~
+armor ABRS AB
+11 11 11 10 0
+40 10 4000 P
+E
+white knights ring~
+It is a ring of amazing beauty, catching the illumination of the
+room and reflecting it back with increased intenstiy.  Although this ring
+is small in size, the aura which it emits signals that it is a powerful
+item.
+~
+A
+13 25
+A
+12 15
+A
+18 3
+A
+19 3
+A
+17 -3
+A
+1 1
+A
+2 1
+A
+5 1
+
+#12235
+feather cape~
+a {WF{ge{Wa{gt{Wh{ge{Wr{ge{Wd{x Cape~
+A cape of feathers is spread out over the ground.~
+feathers~
+armor AIRS AK
+13 13 13 11 0
+45 10 4500 P
+E
+feather cape~
+The feathers of legendary birds were enchanted by a powerful sorcerer, and
+then fitted into this cape.
+~
+A
+13 25
+A
+12 20
+A
+18 3
+A
+19 3
+A
+2 1
+A
+3 1
+A
+4 2
+
+#12236
+serpentskin sleeves~
+{GS{Pe{Gr{Pp{Ge{Pn{Gt{Ps{Gk{Pi{Gn{x Sleeves~
+A serpentskin lies on the ground.~
+serpentskin~
+armor ABRY AI
+14 14 14 13 0
+50 30 5000 P
+E
+serpentskin sleeves~
+Taken from the corpse of a magical serpent, this skin was designed to be
+worn on the arms.
+~
+A
+13 40
+A
+12 10
+A
+18 3
+A
+19 3
+A
+17 -4
+A
+1 1
+A
+2 1
+A
+5 1
+
+#12237
+crystal cuffs~
+{WC{Cr{Wy{Cs{Wt{Ca{Wl {CC{Wu{Cf{Wf{Cs{x~
+Cuffs made of crystal lie here.~
+crystal~
+armor ABRY AM
+14 14 14 13 0
+50 25 5000 P
+E
+crystal cuffs~
+These special cuffs were crafted by one of the armourers of the White
+Knights, to provide added protection.
+~
+A
+13 35
+A
+12 15
+A
+18 4
+A
+19 4
+A
+17 -4
+A
+1 1
+A
+2 1
+A
+3 1
+A
+5 1
+
+#12238
+white knight cape~
+A {WWhite Knight{x's Cape~
+A beautiful white cape is spread out over the ground.~
+silk~
+armor ABIRS AC
+16 16 16 14 0
+55 15 5500 P
+E
+white knight cape~
+This is obviously a cape to be worn around the neck, but it has a look of
+something which should be worn only by the mighty and valiant.	Even in
+the strongest winds, be they magical or natural, this cape would not flap
+or flutter.
+~
+A
+13 40
+A
+12 15
+A
+18 4
+A
+19 4
+A
+17 -4
+A
+1 2
+A
+2 2
+A
+9 1
+
+#12239
+gloves godly grip~
+Gloves of {WGodly {YGrip{x~
+A pair of gloves glows and hums here.~
+unknown~
+armor ABIRS AH
+17 17 17 15 0
+60 20 6000 P
+E
+gloves godly grip~
+These gloves were crafted using divine materials, to provide protection
+for the hands and to strengthen the wearer.
+~
+A
+13 45
+A
+12 15
+A
+18 4
+A
+19 4
+A
+17 -4
+A
+5 3
+A
+9 1
+
+#12240
+dragons skull~
+a Dragon's Skull~
+A {Gdragon{x's {cskull{x lays on the ground.~
+bone~
+armor ABRY AE
+19 19 19 16 0
+65 50 6500 P
+E
+dragons skull~
+Taken from a mighty dragon which was wreaking undue havoc upon Thera,
+this skull will provide great protection to attacks physical and mental,
+at the same time endowing the powers of a dragon.
+~
+A
+13 45
+A
+12 20
+A
+18 5
+A
+19 5
+A
+17 -5
+A
+4 3
+A
+5 1
+A
+9 1
+
+#12241
+enchanted leather leggings~
+{YEnchanted {WLeather Leggings{x~
+A pair of leather leggings is on the ground.~
+leather~
+armor ABIRY AF
+20 20 20 18 0
+70 30 7000 P
+E
+enchanted leather leggings~
+Outwardly, these leggings may seem to be of no special powers, no more
+than normal leggings.  But by the power of a great magician, they have
+been made into armor of the greatest strength.
+~
+A
+13 50
+A
+12 20
+A
+18 6
+A
+19 6
+A
+17 -7
+A
+2 1
+A
+3 3
+A
+9 2
+
+#12242
+ivory suit armor~
+an {WIvory Suit of Armor{x~
+A strong-looking suit of ivory armor lays upon the floor.~
+ivory~
+armor ABRY AD
+21 21 21 19 0
+75 50 7500 P
+E
+ivory suit armor~
+This suit of armor was crafted from beautiful white ivory, and empowered
+by mages to provide divine protection to its wearer.  Contrary to the
+looks of it, this suit is not too heavy that it can be worn by only the
+strongest warriors; as long as the will is strong, this armor will suit
+the wearer.
+~
+A
+13 55
+A
+12 20
+A
+18 6
+A
+19 6
+A
+17 -5
+A
+1 2
+A
+5 2
+A
+9 2
+
+#12243
+white knights helm heroism knight's~
+a {WWhite Knight{x's Helm of {YH{We{Yr{Wo{Yi{Ws{Ym{x~
+A white helm lays here, emanating an aura of power.~
+ivory~
+armor ABIOR AE
+26 26 26 23 0
+91 50 9500 P
+E
+white knights helm heroism knight's~
+This is one of the rarest objects to be found in all of Thera;
+a beautiful white helm, made from an intangible material(s).
+According to ancient lore, it was a gift given from the gods
+to be used by only the most worthy of the White Knights.  As
+such, only a few are ever able to lay a finger upon this
+exquisite armor.
+~
+
+#12244
+bed~
+a small bed~
+A small bed occupies a corner of the room.~ 
+wood~
+furniture RY 0
+2 8000 EHK 150 150
+0 0 5000 P
+E
+bed~
+You see a small, but comfortable looking bed in the northeast corner. It makes
+you feel very sleepy...     
+~
+
+#12245
+yummy fish pill~
+a yummy fish~
+A yummy fish is here.~
+pill~   
+pill 0 A
+15 'sanctuary' 'blood moon' 'talon' 'flameshield'
+15 5 5 P 
+E
+yummy fish~
+You see a yummy looking fish.
+~
+
+#12246
+bean coffee~
+A coffee bean~
+A coffee bean is here.~
+bean~
+pill KSY AO
+15 'cancellation' 'heal' 'slow' 'regeneration'
+15 0 0 P
+E
+bean~
+The dark brown color tells you this roasted coffee bean is one of the best
+and will produce the richest of flavors.
+~
+
+#12247
+large pristine pond~
+a {Cpristine pond{x~
+A large {Bpond{x filled with {Hplant{x and {Pw{Yi{Pl{Yd{Pl{Yi{Pf{Ye{x is in here.~
+earth~
+fountain 0 0
+0 0 'water' 0 0
+0 0 0 I
+E
+large pristine pond~
+The waters of this pond are crystal clear, perfectly suitable for
+drinking, and water plants float on the surface.  Beowulf keeps this pond
+because he has always loved the water and this is no ordinary water;  it
+has magical attributes that accelerate the healing process, and relax the
+mind, body and soul.  Also in the pond, you notice a baby blue whale
+breaching the surface of the water and slapping the water with its flukes.
+~
+
+#12248
+rowboat boat comfortable comfy~
+a {bcomfortable rowboat{x~
+There is a {browboat{x in the {Bpond{x.~
+wood~
+furniture 0 0
+2 0 IL 150 150
+1 250 999 P
+E
+rowboat boat comfortable comfy~
+A comfortable-looking rowboat.
+~
+
+#12249
+dried dry nice fish~
+a {bDried {RF{Yi{Rs{Yh{x~
+A nice-sized {Rf{Yi{Rs{Yh{x has been left to {bdry{x in the {Ysun{x.~
+fish~
+pill 0 A
+15 'sanctuary' 'talon' 'flameshield' 'stone skin'
+15 1 1 P
+E
+dried dry nice fish~
+A silvery fish with red and yellow markings has been left on a
+smooth stretch of ground, evidently to be dried.  It looks very tasty, and
+since it comes from Beowulf's pond, it may have some special magical
+effects also.
+~
+
+#12250
+dew drops~
+many dew drops~
+{bMany {Bd{We{Bw {Wd{Br{Wo{Bp{Ws {fglisten{x {bon the {Gleaves {bof the tree{x.~
+water~
+fountain 0 0
+0 0 'water' 0 0
+0 0 0 I
+E
+dew drops~
+The morning dew glistens on the leaves of this tree.
+~
+
+#12251
+hammock bed~
+a hammock~
+{bA large {Bco{Rlo{Yrf{Vul {Wha{Pmm{Gock {bis strung between the upper branches.{x~
+hemp~
+furniture 0 0
+2 0 IL 150 150
+1 100 999 I
+E
+hammock bed~
+The hammock swings gently with the swaying of the tree.
+Its colorful strings await to rest you in the air.
+~
+
+#12252
+some acorns~
+some acorns~
+{bA bowl of acorns sits here.  Have some!{x~
+nuts~
+pill 0 A
+15 'haste' 'talon' 'sanctuary' 'pass door'
+15 1 1 P
+E
+bowl some acorns~
+A bowl of acorns were gathered and placed in this bowl for you to enjoy.
+~
+
+#12253
+tea cup~
+a {Wcup{x of {btea{x~
+You see a small {Wcup{x of {btea{x, the {Wcup{x appears to be of fine china.~
+porcelin~
+fountain 0 0
+0 0 'tea' 0 0
+0 0 0 I
+
+#12254
+easy chair~
+a {bLaz-E-Tracker{x easy chair~
+A leather {bLaz-E-Tracker{x easy chair sits here for your comfort.~
+leather~
+furniture 0 0
+3 0 EHK 150 150
+1 200 999 I
+
+#12255
+bonbon~
+a {Wb{co{Wn{cb{Wo{cn{x~
+A bowl of {Wb{co{Wn{cb{Wo{cn{Ws{x rests here.~
+icecream~
+pill KSY A
+15 'frenzy' 'talon' 'bless' 'steel mist'
+15 1 1 P
+E
+bowl bonbon~
+You see a small bowl filled with delicious looking {Wb{co{Wn{cb{Wo{cn{Ws{x.
+~
+#12256
+oak bed~
+an oak frame bed~
+There is a large, comfortable oak frame bed here.~
+wood~
+furniture ORSTY 0
+2 O EFHIKL 150 150
+0 5000 0 I
+E
+large bed oak~
+This is a large bed made of oak.  The mattress looks very comfortable.
+There are two pillows and a well-made quilt.
+~
+E
+pillow pillows~
+These pillows are firm yet soft.
+~
+E
+quilt~
+The perfect quilt.  Warm in the winter and cool in the summer.
+~
+
+#12257
+night table~
+a night table~
+There is a oaken night table beside the bed.~
+wood~
+container OR P
+1 ACE 0 1 0
+0 200 0 I
+E
+night table~
+The night table has Richard's diary on it. There are some sheaves of
+paper on it.  On an open shelf you see some paints and paint brushes.
+~
+E
+diary~
+Richard's often used diary is here. Opening it up to a random page you
+see quite a few calculations and notes in High D'Haran, a language that
+few people now know. On another page you see only writing. Apparently it
+doubles as a spell/experiment book as well as a journal.
+~
+E
+brushes~
+They look well-used but they look like they have been taken care of.
+They seem to be used often.
+~
+E
+paint paints colours colors~
+There is a large assortment of colours here. Along with every
+conceivable shade of {Gg{Hr{Ge{He{Gn{x and {bbrown{x there are also
+various shades of {Bb{Nl{Bu{Ne{x, {Yyellow{x, {Ro{Yr{Ra{Yn{Rg{Ye{x,
+{Rred{x, {Ppink{x, and {Vpurple{x.
+~
+E
+paper sheaves~
+Most of the paper is blank.  There are four or five sheets of paper with
+writing on it.	Looking closer the writing twists itself into
+unrecognizable
+shapes.  This writing is for Fern's eyes only, whatever it may be.
+~
+
+#12258
+energy truth~
+Truth~
+The presence of pure truth shows you your true inner being.~
+energy~
+pill ABKO A
+15 'ray of truth' 'protection evil' 'detect evil' 'sanctuary'
+15 1 1 P
+E
+pure truth energy~
+This is a small ball of energy... It is pure white and seems to glow
+strangely...
+Revealing evil in its presence...  Beware...  The Power... of Truth...
+~
+
+#12259
+pot apple cider~
+a pot of apple cider~
+A pot of apple cider sits on the stove.~
+liquid~
+fountain 0 0
+0 0 'water' 0 0
+0 0 0 P
+E
+pot~
+The pot of apple cider steams, giving off a good smell.
+~
+
+#12260
+bottle beer~
+a bottle of beer~
+There's an open bottle of beer for you waiting on one of the tables.~
+beer~
+fountain EO 0 
+10000 10000 'beer' 0 0
+0 40 500 P
+E
+beer bottle~
+The smell of beer is ripe on this bottle.
+~
+
+#12261
+table chair~
+a chair~
+There are many tables in here, with comfortable chairs around them.~
+wood~
+furniture RY 0
+100 8000 BEHK 150 150
+0 0 5000 P
+E
+cold hard table~
+The table has been recently wiped clean.
+~
+
+#12262
+bubble bottle~
+a {Bbubble bottle{x~
+You see a Playschool {BBubble Bottle{x.~
+plastic~
+pill S AO
+15 'sanctuary' 'holy word' 'giant strength' 'bless'
+15 1 1 P
+E
+bubble bottle~
+This bottle seems to have an unending supply of {Bbubbles{x
+~
+
+#12263
+bubble pillow large purple~
+a large {Bbubble{x~
+A {GLarge {BBubble{x with a {VPurple{x {WPillow{x in it.~
+water~
+furniture OS P
+4 0 BEHKN 150 150
+1 100 0 I
+E
+bubble pillow large purple~
+As you look closer you notice that it is not an ordinary {Bbubble{x
+it is much stronger than the others which should allow it to hold
+your weight.
+~
+
+#12264
+pile leaves~
+a pile of leaves~
+A pile of leaves is sitting here, looking very comfortable and inviting.~
+DriedInoperativePhotsynthesisPanels~
+furniture BOR P
+4 0 CFIL 150 150
+1 200 0 W
+
+#12265
+nut cashew~
+a cashew~
+A single cashew has been laid out.~
+SclerifiedCashewButter~
+pill S AO
+15 'sanctuary' 'haste' 'stone skin' 'shield'
+15 1 1 P
+
+#12266
+futon bed~
+a {Yfuton{x~
+Here's a {Yfuton{x where Dapanda spends his time meditating.~
+cloth~
+furniture 0 0
+4 0 BEHKN 150 150
+0 0 0 P
+E
+futon bed~
+Just your ordinary {Yfuton{x.
+~
+
+#12267
+pill stick bamboo~
+a half eaten stick of {Gbamboo{x~
+A half eaten stick of {Gbamboo{x lies here.~
+bamboo~
+pill 0 A
+15 'haste' 'sanctuary' 'shield' 'armor'
+15 1 1 P
+E
+pill stick bamboo~
+Jut some {Gbamboo{x Dapanda munches on when meditating.
+~
+
+#12268
+mystical fountain~
+a mystical fountain~
+A {Cmystical fountain{x flows from the ground.~
+liquid~
+fountain 0 0
+0 0 'water' 0 0
+0 0 0 P
+E
+mystical fountain~
+Here's Dapanda's fountain that purifies all who drink from it.
+~
+
+#12269
+ziploc bag pretzels~
+a bag of pretzels~
+Some pretzels are here, in a clear ziploc bag.~
+pill~   
+pill 0 A
+15 'pass door' 'flameshield' 'stone skin' 'cure critical'
+15 1 1 P 
+E
+bag pretzels~
+These pretzels taste so good, you think you can probably eat the entire bag!
+~
+
+#12270
+jukebox~
+a jukebox~
+a jukebox stands in the corner waiting for a quarter.~
+wood~
+jukebox A 0
+0 0 0 0 0
+0 0 0 P
+E
+jukebox~
+This is one of the last genuine Legacy(tm) jukeboxes left. It's still
+complete and undamaged. 
+~
+
+#12275
+dragon ball orb~
+a {RDragon Ball{x~
+You see a large {Yyellow orb{x with a {Rred Z{x in the center.~
+energy~
+pill 0 A
+15 'sanctuary' 'frenzy' 'flameshield' 'talon'
+15 1 1 P
+E
+orb dragon ball~
+Zenki's large yellow orb.
+~
+#12276
+inflatable chair~
+an inflatable chair~
+An inflatable {YMiller {WLight {RSuper Bowl chair{x.~
+vinyl~
+furniture 0 0
+8 1000 BEHK 150 150
+0 0 0 P
+E
+inflatable chair~
+An inflatable chair with Super Bowl and Miller Light
+designs all over it. Reminds you of the one on TV.
+~
+#12277
+water hole~
+a water hole~
+There is a crystal clear substance in a large hole.~
+water~
+fountain 0 0
+0 0 'water' 0 0
+0 0 0 P
+E
+water hole~
+A large hole with crystal clear substance in it.
+~
+
+#12278
+anvil private white~
+private anvil~
+A privately owned Anvil of Power rests here, no doubt a great
+clan's heirloom.~
+steel~
+anvil RYOT 0
+0 3 1 0 3
+1 2500 100000 P
+E
+anvil private~
+A large, steel, well-used anvil is here.
+~
+#12279
+puddle rainwater~
+a puddle of rainwater~
+A puddle of rainwater has accumulated here..~
+mud~
+fountain 0 0
+0 0 'water' 0 0
+0 0 0 P
+E
+puddle rainwater~
+Eww.. there's something floating in there... I guess you could just
+try to drink around it..
+~
+
+#12280
+giant clam shell~
+a giant clam~
+A Giant Clam sits in the corner.~
+clam~
+furniture 0 0
+4 3000 CFIL 150 150
+0 0 0 P
+E
+giant clam shell~
+You see a Giant Clam
+~
+
+#12281
+drinking fountain fresh water~
+a drinking fountain~
+A drinking fountain is here.~
+water~
+fountain 0 0
+0 0 'water' 0 0
+0 0 0 P
+E
+drinking fountain fresh water~
+You see a drinking frountain with a label that says 'Fresh Water'
+~
+
+#12282
+pearl beautiful~
+a beautiful pearl~
+A beautiful pearl~
+pearl~
+pill A A
+15 'sanctuary' 'stone skin' 'bless' 'talon'
+15 1 1 P
+E
+pearl beautiful~
+You see a beautiful pearl.
+~
+
+#12283
+invis fountain~
+An invisible fountain of orange juice~
+~
+energy~
+fountain O 0
+0 0 'orange juice' 0 0
+100 100 100 P
+E
+fountain~
+A small fountain of...orange juice? is in the corner.  Upon
+examination, you see a small engraving on it.
+~
+E
+engraving~
+"Tenchi Muyo!" Rules
+~
+
+#12284
+hawk wing~
+A Light Hawk Wing~
+You see one of the fabled Wings of the Light Hawk here.~
+energy~
+pill 0 A
+15 'haste' 'talon' 'regeneration' 'giant strength'
+15 1 1 P
+E
+light hawk wing~
+As you look at it, it seems to be made out of pure energy.
+When you touch it, you can feel power tingling through you.
+~
+
+#12285
+chairs chair row~
+a chair~
+A row of chairs lines one of the walls.~
+steel~
+furniture AGOY P
+10 0 EHK 150 150
+91 500 0 P
+E
+chair chairs row~
+The row of chairs lined along the wall look very comfortable. Why don't
+you sit down?
+~
+
+#12286
+soda machine~
+a soda machine~
+A HUGE soda machine is here, free for all!~
+stone~
+fountain BGOY 0
+0 0 'root beer' 0 0
+91 1000 0 P
+E
+soda machine~
+The soda machine appears to be out of everything but root beer :(
+~
+
+#12287
+wire basket~
+a wire basket~
+A big wire basket on rollers is here to hold your clean laundry.~
+wire~
+container AGOY 0
+100000 A 0 1000 75
+0 0 0 P
+E
+wire basket~
+This wire basket is designed for the sole purpose of holding laundry.
+(COULD also be used to hold clan eq, *hint hint*)
+~
+
+#12289
+fountain beef water~
+a fountain of beef~
+A beef flavored water fountain sprays water around the room..you're getting
+quite wet.~
+beef~
+fountain O 0
+0 0 'water' 0 0
+0 1000 0 P
+E
+water~
+H30 the wettest water you've ever tasted!!!
+~
+E
+fountain ~
+A fountain made of the tastiest grade D meat you have ever seen sits in
+the middle of the room. This fountain looks as if it was made by a crazed
+butcher. The fountain has some small bite marks on it. You wonder what
+made them.
+~
+
+#12290
+bed crumpled~
+a crumpled up old dog bed~
+A dilapidated over stuffed pillow with embrodered dog bones is losing its
+stuffing.~
+cotton~
+furniture ABO 0
+6 1000 BEHK 150 150
+15 0 0 P
+E
+old bed crumpled~
+This bed looks like it has been in use for many, many, many years. It
+has various {bbrown{x and {Yyellow{x stains all over it. It also has been
+embroidered with the pictures of dog bones and bacon strips. There is
+stuffing all over the floor around it and as you look even closer, you
+can see that there is a large tear on the bottom of it.
+~
+
+#12291
+dog bone pill~
+a {Hputrid{x, {Rsplintered{x, {bdecaying{x bone~
+a {Hputrid{x, {Rsplintered{x, {bdecaying{x bone is lying next to the fountain.~
+bone~
+pill FSU A
+15 'sanctuary' 'giant strength' 'flameshield' 'talon'
+15 1 1 P
+E
+putrid splintered decaying~
+This appears to be the rib bone of a cat. It has been severely chewed and
+is now decaying into nothingness. On closer examination of the bone,
+you realize that there is still a little bit of flesh on one end of it.
+The flesh has long since turned green and is now beginning to turn
+shades of black <:-<>!!!
+~
+
+#12292
+mud puddle fountain~
+a mud puddle~
+The puddle at closer look has small particles of dirt in it. That must
+be why it's brown.~
+unique~
+fountain 0 0
+0 0 'water' 0 0
+0 0 0 P
+E
+mud puddle~
+Just a brown mud puddle.
+~
+
+#12293
+crate bed~
+a crate~
+This crate is just an ordinary plywood crate.~
+bed~
+furniture 0 0
+4 1000 CFIL 150 150
+0 0 0 P
+E
+crate~
+Just an ordinary crate. Nothing fancy.
+~
+
+#12294
+sandwich pill~
+a sandwich~
+A half eaten sandwich.~
+food~
+pill A A
+15 'frenzy' 'bless' 'stone skin' 'talon'
+15 1 1 P
+E
+sandwich~
+An ordinary peanut butter and jelly sandwich, with one huge bite out
+of it. The only thing different is that it seems to emit a faint
+amount of light.
+~
+
+#12295
+pill green guitar pick~
+a {Ggreen guitar{x pick~
+A {Ggreen guitar{x pick lies here.~
+powder~
+pill ABO A
+15 'frenzy' 'haste' 'sanctuary' 'talon'
+15 1 1 P
+E
+pill pick guitar~
+Seemingly an ordinary {Rguitar pick{x, made out of {Ggreen plastic{x. The
+odd thing is though, it almost looks {Bgood{x enough to {Beat{x...
+~
+
+#12296
+fountain coke~
+a fountain of Coke~
+An everlasting stream of {bCoke{x bursts out of a {Bfountain{x.~
+plastic~
+fountain O 0
+0 0 'coke' 0 0
+15 1 1 P
+E
+coke~
+It is a {bbrownish{x substance and there seem to be tiny bubbles
+surfacing as the liquid swirls in its container.
+~
+
+#12297
+bed strings~
+a pile of guitar strings~
+A pile of guitar strings here serves as a bed.~
+strings~
+furniture A 0
+5 0 FIL 150 150
+15 1 1 P
+E
+strings~
+The strings look to be quite expensive, not to mention comfortable!
+~
+
+#12298
+coffee cup~
+a cup of coffee~
+A large cup of delicious smelling coffee is on the small table next to your chair.~
+glass~
+fountain YOR 0
+0 0 'coffee' 0 0
+0 500 10 P
+
+#12299
+comfy chair~
+a comfy chair~
+A deep cushioned chair with a footrest is here for your comfort.~
+leather~
+furniture YOR 0
+3 0 EHK 150 150
+0 200 999 P
+
+
+
+#12300
+wrench~
+Yuip's favorite wrench~
+Yuip's Favorite Wrench is sitting here on the ground.~
+metal~
+pill KSY AO
+15 'frenzy' 'sanctuary' 'giant strength' 'haste'
+15 0 0 P
+E
+wrench~
+It has food, oil, and every other stain you can imagine on it.
+~
+
+#12301
+water fountain~
+a shiny water fountain~
+One of those silver-colored water fountains rests here.~
+silver~
+fountain YOR 0
+0 0 'water' 0 0
+0 500 10 P
+E
+water fountain~
+Looks just like the ones you remember from school.  All silver, with a push
+button that puts barely a small stream of wter out so you practically have to
+suck on the spout to get any water from it.  The water is deliciously cold.
+~
+
+#12302
+bus seat~
+an old bus seat~
+An old {Ybus {Bseat{x has been converted through {RYuip's {Gcraftstmanship{x
+into a {Nbed{x.
+~
+leather~
+furniture A 0
+3 0 EHK 150 150
+1 200 999 P
+
+#12303
+benches~
+a brown picnic bench~
+Some benches rest off to your right, for people to sit on with their food.~
+wood~
+furniture YOR 0
+15 0 BDHJ 150 150
+0 200 999 P
+E
+bench old brown picnic~
+The bench carries the character of Jubble's bar & grill, with it's various signs
+of wear and tear.
+~
+
+#12304
+steak sirloin~
+a big juicy sirloin steak~
+A big juicy steak is sitting here on a plate..	could it be a trap??~
+meat~
+pill KSY AO
+15 'sanctuary' 'haste' 'stone skin' 'armor'
+15 0 0 P
+
+#12305
+grill bbq~
+a giant grill~
+A giant bbq grill rests here, emitting smoke and sizzling crackles.~
+metal~
+container YOR 0
+500 A 0 100 50
+0 500 200 P
+
+#12309
+underground spring water~ 
+Underground Spring~
+An underground spring brings refreshing cold water to the lair.~
+enamel~
+fountain 0 A
+0 0 'water' 0 0
+0 30000 0 P
+
+#12310
+priceless gem~
+A Priceless Gem~
+A priceless {Rg{Be{Ym{x lies here.~
+unknown~
+pill 0 AO
+15 'steel mist' 'shield' 'stone skin' 'flameshield'
+15 1 120 P
+E
+priceless gem~
+A beautiful gem is laying here, some people actually eat them. (try it)
+~
+
+#12311
+bed pile treasure~
+A bed shaped pile of treasure~
+There is a huge mound of treasure here in the shape of a bed.~
+gold~
+furniture 0 0
+2 0 EHK 150 150
+10 300 0 P
+E
+Bed Treasure mound pile~
+This huge pile of treasure has been made to resemble a large bed
+by the occupant and is probably used as such.
+~
+#12312
+A Dazzling white fountain~
+{WA Wh{git{We Fou{gnta{Win{x~
+{WA Da{gzz{Wlin{gg Wh{git{We Fou{gntai{Wn St{gand{Ws By Th{ge {YTh{bron{Ye.{x~
+enamel~
+fountain 0 0 
+0 0 'water' 0 0
+0 500 0 P
+E
+fountain~
+{WA Wh{git{We Fou{gnta{Win Gu{gshes {WW{gat{Wer.{x
+~
+
+#12313
+Valour~
+Valour~
+{WV{gal{Wou{gr {WLi{ge{Ws He{gr{We.{x~
+unknown~
+pill 0 AO
+15 'sanctuary' 'bless' 'stone skin' 'haste'
+15 1 120 P
+E
+valour~
+{WVa{glo{Wur Awai{gt{Ws A He{gro.{x
+~
+
+#12314
+golden throne~
+{WA {YG{bol{Yde{bn {Yth{bro{Yn{be{x~
+{WA {YGo{blde{Yn Th{bron{Ye {WSt{gan{Wds H{ger{We.{x~
+gold~
+furniture 0 0 
+2 0 EHK 150 150
+10 300 0 P
+E
+golden throne~
+{WA {YG{bol{Yde{bn {YTh{bro{Yn{Be {WEn{glai{Wd Wi{gth {RGems {WSt{ga{Wnd{gs
+{WHe{gre.{x
+~
+
+#12315
+examination table~
+an {Pe{Rxa{bm{Pin{Rat{Pi{bon {Pta{bb{Rl{Pe{x~
+An {Pe{Rxa{bm{Pin{Rat{Pi{bon {Pta{bb{Rl{Pe{x is here waiting for you..~
+wood~
+furniture 0 0
+2 0 EHK 150 150
+10 300 0 P
+
+#12316
+water fountain~
+{Bw{Ca{Bt{Ce{Br {Bfou{gn{Bta{gi{Bn{x~
+A {Bw{Ca{Bt{Ce{Br {Bfou{gn{Bta{gi{Bn{x is here, with a continuous flow of rich water.~
+stone~
+fountain 0 0
+0 0 'water' 0 0
+0 400 0 P
+
+#12317
+kd pill~
+a {BK{Yd {BPi{Yll{x~
+a {BK{Yd {BPi{Yll{x lays on the examination table.{x~
+plastic~
+pill 0 AO
+15 'sanctuary' 'bless' 'stone skin' 'haste'
+15 1 120 P
+#12318
+pill blue cotton candy piece~
+A piece of {CB{Bl{Cu{Be {gC{Wo{gt{Wt{go{Wn {gC{Wa{gn{Wd{gy{x~
+A small piece of {CB{Bl{Cu{Be {gC{Wo{gt{Wt{go{Wn {gC{Wa{gn{Wd{gy{x floats here~
+cottton candy cloud~
+pill A AO
+15 'sanc' 'haste' 'giant' 'stone'
+15 3 1 P
+E
+candy cotton blue~
+This {CB{Bl{Cu{Be {gC{Wo{gt{Wt{go{Wn {gC{Wa{gn{Cd{gy{x is {Yg{gl{Yo{gw{Yi{gn{Yg{x strangely
+and is different from what you've ever seen. The {TS{gm{Cu{Wr{Tf
+{PA{Yl{Gc{Bh{Ce{Vm{Pi{Ys{Gt{x must have made it. It also look really
+delicious and sweet.
+~
+#12319
+fountain pool mist swirling~
+A {Bp{co{Bo{Cl{x of swirling {Mm{Vi{Ms{Vt{x~
+A {Bp{Co{Bo{Cl{x of swirling {Mm{Vi{Ms{Vt{M,{x {Cb{gu{Cb{gb{Cl{ge{Cs{x away on the floor.~
+root beer cloud~
+fountain B 0
+0 0 'root beer' 0 0
+0 0 0 P
+E
+fountain pool mist swirling~
+As you examine the {Bp{Co{bo{Cl{x more closely you see that the {Cb{gu{Cb{gb{Cl{gi{Cn{gg 
+{bbrown {Bliquid{x is {broot beer{x.
+~
+#12320
+hammock feathers griffen wild smurf.~
+A floating bed of {Tg{gr{Ci{Wf{Tf{ge{Cn {gf{We{ga{Wt{gh{We{gr{Ws{x.~
+A bed of {Tg{gr{Ci{Wf{Tf{ge{Cn {gf{We{ga{Wt{gh{We{gr{Ws{x floats here.~
+Smurf griffen feathers~
+furniture B 0
+5 0 KHEN 150 150
+0 0 0 P
+E
+hammock feathers griffen wild smurf~
+This hammock looks so soft and cozy that it makes you want to take 
+a long nap in it.  There is a hypnotising {Ma{Vu{Mr{Va{x about it that
+makes you sleepy and relaxed.
+~
+#12321
+sweat bucket~
+A Bucket of Sweat~
+A Bucket of Sweat sits at the corner of the ring.~
+sweat~
+fountain 0 0
+0 0 water 0 0
+0 0 0 P
+#12322
+wwf championship belt~
+The WWF Championship Belt~ 
+The WWF Championship Belt sit here awaiting the champion.~
+gold~
+pill 0 AO
+15 'frenzy' 'stone' 'giant' ' '
+15 1 0 P
+#12323
+stool~
+A stool~
+A stool for the wrestlers to sit on between rounds.~
+wood~
+furniture 0 0
+15 0 EHK 150 150
+0 0 0 P  
+#12324
+mushroom stone fountain~
+A Stone Mushroom~
+A Stone Mushroom fountain with a marble cobra wraped around it squirts a
+dark liquid brew from it's fangs.~
+stone~
+fountain 0 0
+0 0 coke 0 0
+0 0 0 P
+E
+mushroom stone fountain~
+A stone mushroom fountain with a Cobra is standing in the middle of the
+room. The liquid slides down the spine of the Cobra and ends up in the
+little mushroom fountain.
+~
+#12325
+red green mushroom~
+{WA Little {RRed {Wand {GGreen {WStriped {MMushRoom{x~
+{WA Little {RRed {Wand {GGreen {WStriped {MMushRoom{x {Bsits in the corner
+eating a rotton piece of wood.{x~
+mushroom~
+pill 0 AO
+15 'sanc' 'haste' 'regen' 'stone'
+15 0 0 P
+E
+red green mushroom~
+A little {Rred {Gand {GGreen{x Mushroom sits here waiting for the command
+of his leader Shroom.
+~
+#12326
+log chair bed smelly~
+A smelly log~
+An old smelly log sits in the middle of the room.~
+wood~
+furniture 0 0
+3 0 EHK 150 150
+0 0 0 P
+E
+log smelly~
+An old log layed with comfy moss sits here.
+~
+#12327
+small bed~
+A Small Bed~
+A Small bed lines one wall here.~
+wood~
+furniture 0 0
+2 0 EHK 150 150
+0 0 0 P
+E
+small bed~
+The bed is actually a matress atop a natural table of rock, which has been
+cut flat across the top. It is covered with blankets and looks rather 
+comfortable, even if it is only big enough for 2 people.
+~
+#12328
+freeze dried ration~
+A Freeze-dried ration~
+A rather unappetizing looking package of freeze dried food lies here.~
+somtehing~
+pill 0 AO
+15  'stone' 'shield' 'flameshield' 'armor'
+15 1 0 P
+#12329
+ice cube~
+{WI{Bc{We {Bc{Wu{Bb{We{x~
+{WThis is Celcius's personal I{Bc{We {Bc{Wu{Bb{We.~
+frozen water~
+pill GOY AO
+15 'haste' 'stone' 'frenzy' 'flameshield'
+15 0 1 P
+E
+cube ice~
+It is slightly melting, but it reforms after every few minutes.  Looks pretty
+yummy, go ahead and take it.
+~
+
+#12330
+water fountain drippy dripping~
+{BDripping {WWater{x~
+{WA large stalactite hangs from the center of the room, it is dripping {Bcold,
+{W
+refreshing, {Bwater{x.~
+stone~
+fountain O P
+0 0 water 0 0
+1 100000 50 P
+E
+water fountain drippy~
+{WThis lone stalactite is dripping {Br{We{Bf{Wr{Be{Ws{Bh{Wi{Bn{Bg water{W.
+The water is pure, and better then you can buy in the stores, have a sip.
+~
+
+#12331
+ice flow iceflow~
+{WI{Bc{We{Bf{Wl{Bo{Ww{x~
+{WYou see a small iceflow in a hole in the wall to the East.~
+frozen water~
+furniture IMOY 0
+2 0 BHEK 150 150
+0 30000 0 P
+E
+ice flow iceflow~
+{WIt slowly changes direction every few hours.  It looks as if the bed has a
+{Yglowing aura {Waround it.  Once you touch the ice flow, you feel curative
+powers
+{Bs{Wu{Br{Wg{Be{W through your body.  You also feel a little tired.
+~
+
+
+#12332
+pm5k metal chip~
+{RP{BM{Y5{MK{x~
+{RP{BM{Y5{MK{x is laying here on the work bench.
+~
+metal~
+pill 0 A
+15 'sanc' 'haste' 'giant' 'talon'
+15 5 10 P
+E
+pm5k metal chip~
+It's a small metal chip, with {RP{BM{Y5{MK{x inscribed on it.
+~
+#0
+
+#ROOMS
+#12200
+Fortress of Light - {WWhite {BKnight{x Clan Hall ~
+    The {Ggrass{x growing on this hill is noticeably greener and more
+lush than grasses seen anywhere else.  Atop the hill stands a huge {Wwhite
+marble fortress{x, gleaming brightly, as if all the light here emanates
+from the fortress itself.  The entry gates are swung open, allowing a peek
+at what's inside. Warm breezes flow up from the river and across the
+Eastern road.  They rustle the many {Rg{Ya{Gr{Ml{Va{Gn{Bd{Ps{x that hang from
+the roof, wafting their sweet scent of the surrounding lands.
+This is the majestic home of the {WWhite {BKnights{x. Huge {Wgyrfalcons{x
+perch atop the walls, eyeing the area below.
+~
+0 0 4
+D2
+To the south you see the Holy Grove.
+~
+~
+0 -1 8901
+D4
+The gate before you is open to members of the {WWhite {BKnight{x Clan; climb
+the steps to enter the courtyard.  For those who do not belong, it is a
+long walk down the hill to the east.
+~
+~
+0 -1 12201
+E
+fortress ~
+The sturdy though plain design of the fortress shows to all the strong,
+but concentrated intent of the {WWhite {BKnights{x to provide a haven for
+their members.	The polished stone with which it is made brightens your
+spirits. Except for the multitude of flowers and shrubs that grow around
+the base and cascade down the top, this fortress is unadorned, as the
+inhabitants would rather adventure, quest and help others than spend efforts
+on symbolic decor.  Built to last for ages, this fortress serves many
+generations of {WWhite {BKnights{x.
+~
+E
+gyrfalcon falcon ~
+The huge white falcons from the Arctic Woods have come here to guard
+the fortress.  As they rest on tops of the walls, they survey the
+surrounding lands.  Their keen raptor eyesight see Midgaard far to the
+west, the mountains to the north and northwest and New Thalos just
+beyond the Sands of Sorrow far to the east.
+~
+S
+#12201
+Courtyard~
+    Just inside the entrance of the massive {Wfortress{x, the sounds of
+people going about their daily business can be heard coming from all
+directions. The mosaic {Wf{Cl{To{Bo{Cr{x has a beautiful pattern and sheen to it,
+and everything about this fortress has an immaculate look and feel.
+The center of the courtyard has an unusual {Wfountain{x that sparkles with
+refreshing {Cwater{x. Sit here to relax on the benches that sit around the
+edges viewing the fountain, or proceed with your tasks.
+~
+0 DK 0
+C white~
+D0
+Northward lies a great hall with the look of a meeting area.
+~
+~
+0 0 12204
+D1
+>From the east drifts the aroma of foods gathered from every corner of
+Thera.
+~
+~
+0 0 12203
+D2
+South is an area set aside for healing, practicing and training.
+~
+~
+0 0 12205
+D3
+To the west is the shop for clan armoury.
+~
+~
+0 0 12202
+D4
+There is a winding stairway leading up to the upper level of the
+fortress.
+~
+~
+0 0 12206
+D5
+The front entrance of the fortress and the uncertain world of Thera
+wait downstairs.
+~
+~
+0 0 12200
+E
+Floor~
+The sound of your footsteps echo upward as you walk about admiring this
+treasure of an aquatic mosaic.	The blends of the many shades of {Bblue,
+{Ccyan, {Tturquoise and {Wwhite{x form a floor that waves and sparkles
+with the water droplets that splash from the fountain it surrounds.
+~
+S
+#12202
+{MFalstaff's {WArmoury{x~
+    This huge room is lined wall-to-wall with magnificent {Warmour{x.  For
+a price, {MFalstaff{x might even consider parting with it! It's wonder
+enough that {MFalstaff{x can handle the requests of all these adventurers
+by himself, but look around and see if you can find something you like.
+~
+0 DK 0
+C white~
+D1
+What you want to leave?  O.k. well then, head back to the courtyard.
+~
+~
+0 0 12201
+E
+Armour~
+Woah! Would you look at all this STUFF!
+~
+D0
+White Knight's Smithy
+~
+~
+0 0 12224
+S
+
+#12203
+{YBoar's Head{x Hall{x~
+    Set down your pack and pull a {bbench{x up to one of the long {btables{x.
+This cozy room can hold a throng of hungry folk, and quite a few of
+your fellow {Wknights{x are here enjoying their meal(s).  As some talk to
+their friends of their great {Ma{Vd{Hv{Pe{Rn{Gt{Tu{Or{Me{Ys{x (some made up),
+others quaff their {Yale{x and turn their tales of {Rcourage{x or {Bwoe{x into {Rs{Bo{Rn{Rg{Bs{x.
+~
+0 DK 0
+C white~
+D0
+You hear music and laughter from the north. It's the Karaoke bar!
+~
+~
+0 -1 12243
+D3
+When you've had your fill of food, drink and merriment, the door to the
+west leads back to the courtyard.
+~
+~
+0 0 12201
+E
+tables~
+Long wooden tables worn smooth by countless elbows leaning on them are
+laded with platters of hearty foods.  The tables may have brown stains
+from gravy and grog, or an occasional crumb left from a careless
+patron. If the tables aren't clean enough for your taste, Hostess Quickly
+will be happy to give you a wet rag to wipe the tables down.
+~
+S
+#12204
+{HMeeting Room{x~
+   This huge room looks quiet and comfortable.	At one end, there is a
+huge table with large {bchairs{x for the leaders and {bbenches{x for other
+{Wclan members{x set around it.  On the other end are some small {btables{x.
+One {btable{x has a open {bb{Wo{bx{x, another has a {bb{Ya{bs{Yk{be{Yt{x on it.
+In the center of the room is a large {Rhearth{x and several of the large
+{bchairs{x are set close to it. If there isn't a meeting, you're more tempted
+to curl up into one of the {bchairs{x for a rest.
+~
+0 DK 0
+C white~
+D2
+To the south is the courtyard.
+~
+~
+0 0 12201
+D1
+To the east is the library.
+~
+~
+0 0 12207
+E
+hearth fire~
+The fire in the hearth is little more than glowing embers.  If you poke
+at the coals and add a log or two, there'd be a lively comforting fire
+here.
+~
+S
+#12205
+{WInfirmary{x~
+   Sounds of {Rinjured{x and {Gailing {Wknights{x greet you as you enter this
+room. This area of the fortress is buffered from outside noises and
+the lights are dimmed in much of the area to allow the infirm to rest.
+There are shelves filled with {Tp{Yo{Pt{Ri{Po{Yn{Ts{x and {Gp{Vo{Ywde{Vr{Gs{x,
+{Wbandages{x and {bsplints{x, and all sorts of items needed for healing.
+Over by the {Cwindows{x, a {fwell-lit{x area is set aside for times when the
+knights are feeling better and are in need of training or practicing their
+skills and spells.
+~
+0 DK 0
+C white~
+D0
+North lies the courtyard.
+~
+~
+0 0 12201
+D1
+~
+~
+0 0 12247
+D5
+Down is The {WWhite {BKnight {YL{Pa{Gu{Cn{Yd{Wr{Py {GR{Co{Yo{Pm{x
+~
+~
+0 -1 12227
+S
+
+#12206
+{PSecond Floor Landing{x~
+   The view from the second floor is grand! To the north are the
+{Pmountains{x and the {Yplains{x north of {BMid{Rgaard{x, to the west lies the
+many small {Cvillages{x that cluster between this {Wfortress{x and {BMid{Rgaard{x.
+To the east you can see the {HHoly {GGrove{x and beyond that, far in the
+distance, the towers of {YNew Thalos{x.
+To the south are the {YS{ba{Yn{bd{Ys {bo{Yf {BS{Co{Br{Cr{Bo{Cw{x, the {Briver{x and the many
+mysterious {Hlands{x beyond it.  Private rooms are down the hallways in every direction.
+~
+0 DK 0
+C white~
+D0
+A door to the north leads to a small well-lit hallway.
+~
+~
+0 0 12208
+D1
+A door to the east leads to a small well-lit hallway.
+~
+~
+0 0 12209
+D2
+A door to the south leads to a small well-lit hallway.
+~
+~
+0 0 12210
+D3
+A door to the west leads to a small well-lit hallway.
+~
+~
+0 0 12211
+D4
+Above is the 3rd Floor Landing
+~
+~
+0 0 12236
+D5
+A flight of stairs leads back to the courtyard.
+~
+~
+0 0 12201
+S
+#12207
+{VLibrary{x~
+   This room is set aside to house the {Wclan's{x {fvaluable{x {Hbooks{x and
+other resources.  The walls are lined with shelves that hold a {Gwealth{x of
+knowledge, one such resource is the {YTome of Knowledge{x. More interesting
+is the case of maps in the center of the room.	The case has a large map of
+Thera on it, but you are more fascinated by the {Yp{Ru{Bs{Yh{Rp{Bi{Yn{Rs{x set at different
+points on the map.
+~
+0 DK 0
+C white~
+D3
+To the west is the meeting room.
+~
+~
+0 0 12204
+E
+pushpins~
+Odd....there is a {Yyellow pushpin{x in the western part of the map,
+a {Rred one{x in the north part, and a {Bblue one{x in the south section.
+Hmmmmm, wonder why those are there?
+~
+E
+tome of knowledge~
+Chapter 1. Pills of Thera available to White Knight Clan members as of
+ 7/12/98.  List compiled by Smiley and Nature.
+
+White Knight Clan Pills - level 15 spell, for level 15 and up.
+   (limit 5 to carry or store, except your own pill)
+White Knight's chocolate: haste, talon, shield, giant strength
+   box in Meeting Room of Clan Hall
+Kumquat: detect invis., detect hidden, sanc., flameshield
+   bowl in Meeting Room of Clan Hall
+
+White Knight Personal Room Pills - level 15 spell, for level 15 and up.
+Bonbon: frenzy, talon, bless, steel mist.  Kinson's Trophy Room
+Bubble bottle: sanc., holy word, giant strength, bless.  Merona's Bubble
+Cashew: sanc., haste, stone skin, shield.  Ness's Resort
+Flame: talon, flame shield, sanc, blood moon.  BuRner's Domain
+Mist: sanc., shield, stone skin, armor. Cronus's Cloud
+Truth: ray of truth, prot. evil, detect evil, sanc.  Chamber of the Seeker
+Half eaten stick of bamboo: sanc, haste, shield, armor.  Dapanda's Dojo
+Hockey puck: haste, sanc., giant., talon. Joe Lewis Arena
+Smile:	haste, sand., invisible. talon.  Smiley's Sanctuary of Smiles
+Mixed nuts:  sanc., haste, talon, pass door. Nature's Treehouse
+Dried fish: sanc., talon, flameshield, stone skin.  Beowulf's Refuge
+
+
+Other Pills (in public rooms or otherwise free) + directions from recall
+   (level 15 spell for level 15 or over, unless otherwise noted)
+Salt Tablet: refresh, 10,0. n,all up,e, buy from the Girl Scout
+Grapes: bless, giant, haste, sanc., 2s,6e,4s,2e,s,2e,d,2e,5n,(pass
+    door required),e (trunk)
+Taste of Vamphyrii: haste, sanc., giant, fly. The Gathering 1d
+Blackberry: sanc., refresh, regen., bless.  Meagan's Memory n,u,e
+Sleeping pill: sleep (level 50 spell, 15 or over) Public Restroom 3s,2w,2s
+    (medicine cabinet)
+Aspirin: cure light, cure poison, cure disease.  Public Restroom 3s,2w,2s
+    (medicine cabinet)
+Peach: protect evil, armor, sanc. Kymber's Haven 2s, 6e, u (basket)
+Mew Mix: haste, sanc., stone skin, cure light.	Mark's Room 2d
+
+Pills you can buy:  Name, spells, price, level of spell, level you have to
+    be to use them
+At the Fair 8s,3w
+ red gum drops: cure light. 200 silver,5,1
+ candy cane: cure poison. 500 silver,20,3
+ cotton candy: armor. 400 silver,10,3
+ green gum drops: cure serious, 400 silver,10,5
+ candied apple: bless, 500 silver,16,5
+ blue gum drops: cure critical, 600 silver,15,10
+Underdark 4s,d,w,d,n,7d,open west,16w,ds,Jiestis' place
+ large mushroom: bless, cure poison. 75 silver,15,5
+ dirty root: stone skin, armor, protection evil. 75 silver,25,10
+Kat's Klan House 3n,2e,2d, Watering Hole
+ liver pill: detect hidden. 287 silver,20,10
+ catnip pill: bless, protection good. 1150 silver,60,60
+ salmon pill: sanc. 920 silver,60,60
+ kidney pill: heal. 1725 silver,60,60
+Drakyri Island 2s,7w,2s,e,s,e,4s,enter pool,open gate,4e,up
+ energy pill: haste. 315 silver,65,55
+ indigo pill: sanc., bless. 892 silver,15,55
+ warp pill: teleport, change sex. 525 silver,65,55
+
+Pills from mobs or found in areas.
+Smurf Village 2s,7e,all north
+ smurfberries: change sex. 8,0 (smurfs gathering berries)
+Dwarf Village 2s,6e,3n2e,3n,w,open west,w (need key or pass door)
+ box of birth control pills: change sex. 20,0, dwarven doctor
+Elemental Canyon 2s,6e4s,2e,s,2e,d,s,4u,n,d
+ magic dust: detect invisible. 20,0 dust cloud and others
+Holy Grove 2s,8e,north
+ blackish herbs: blind. 5,0, Hierophant
+ orangish herbs: cure light. 5,0, druidess
+ reddish herbs: detect magic. 15,0, druidess
+ purplish herbs: change sex. 15,0, druidess
+ greyish herbs: giant strength. poison 5,5, druidess
+ pinkish herbs: cure poison. poison 5,6, druidess
+ bluish herbs: bless. 15,11, druidess
+Temple of Tao s,d,open south,s
+ bunny of the Tao pill: bless. 15,15  (give carrot to bunny)
+Crazy House 2s,10e,3n,enter house
+ Apple: cure critical. 40,10, apple tree or shelf
+Camelot 2s, all west, n
+ small black rock: bless, armor. 30,10 Cave of Questing Beast
+Descent to Hell u,open west,w,enter bedroom
+ antacid: pass door, refresh 54,14, Chief of Hell
+Underdark 4s,d,w,d,n,7d,open west,west
+ red moss: cure critical, giant strength. 20,15, trader, merchants etc.
+Arctic Woods 2s,3e,8s,2w,2s,3e,4u,4n,u
+ hoar frost: steel mist. 15,15, hoarhound or small ball of fur
+ sprig of heather: shield. 15,15, lying on the ground
+Doom 3s,e,n,open door,die.
+ stimpack: cure critical, haste, 40,25, Intermediate Doom Player
+Insane Asylum 3n,w,n
+ Prozac: sanc., shield, armor, stone skin. get key to medicine cabinet
+  from Head nurse on 2nd floor (1 level down)
+ Big Green Booger: haste, talon, giant strength.  kitchen worker
+~
+S
+#12208
+{BHallway of Truth{x~
+This hallway has doors leading to the private rooms of the clan
+members.
+~
+0 DK 0
+C white~
+D0
+To the north lies the chamber of the seeker.
+~
+~
+1 -1 12216
+D1
+To the east is Zenki's Lair.
+~
+~
+0 -1 12223
+D2
+To the south is the second floor landing.
+~
+~
+0 -1 12206
+D3
+West is {TMerona's Bubble{x.
+~
+~
+0 0 12218
+D4
+Upwards you peek into {bNature's {GTree{bhouse{x.
+~
+~
+1 -1 12214
+D5
+Downwards you peek into Beowulf's Refuge.
+~
+~
+1 -1 12213
+E
+hallway~
+A simple hallway, no one spends much time admiring the white walls with
+the black velvet paintings of dogs playing poker.
+~
+S
+
+#12209
+{RHallway of Courage{x~
+This hallway has doors leading to private rooms of clan members.
+~
+0 DK 0
+C white~
+D0
+To the north is Jubble's room
+~
+~
+0 -1 12233
+D3
+To the west is the second floor landing.
+~
+~
+0 0 12206
+D1
+To the east is Kinson's Trophy Room.
+~
+~
+1 -1 12215
+D4
+The Masaki Shrine
+~
+~
+0 -1 12226
+D5
+Shrimpy's Undersea Cave
+~
+~
+1 0 12225
+E
+Hallway~
+A simple hallway.  No one spends much time admiring the white walls
+hung with pictures of Precious Moments figures.
+~
+S
+#12210
+{YHallway of Generosity{x~
+This Hallway has doors leading to private rooms of clan members.
+~
+0 DK 0
+C white~
+D0
+To the north is the second floor landing.
+~
+~
+0 0 12206
+D1
+~
+~
+0 0 12246
+D3
+To the west lies Josta's room.
+~
+~
+0 0 12231
+D2
+South is The Dog Kennel.
+~
+~
+0 0 12228
+D5
+Down is Silverfox's Rehearsal Room.
+~
+~
+0 0 12230
+D4
+Up leads to Zap's Wonka Factory.
+~
+~
+0 0 8556
+E
+Hallway~
+A simple hallway.  No one spends much time looking through the Ages of
+Elvis portraits hung on the white walls.
+~
+S
+
+#12211
+{WHallway of Hope{x~
+This hallway leads to the private rooms of clan members.
+~
+0 DK 0
+C white~
+D0
+North is Dapanda's Dojo
+~
+~
+0 0 12220
+D2
+South is Endoid's Cardboard Box.
+~
+~
+0 0 12229
+D1
+To the east is the second floor landing.
+~
+~
+0 0 12206
+D3
+To the west is KingDragon's room.
+~
+~
+0 0 12242
+D4
+~
+~
+0 0 12244
+D5
+Down to Ness's Resort.
+~
+~
+0 0 12219
+E
+Hallway~
+A simple hallway.  Not much to look at other than the white walls, hung
+with paintings by that guy on TV who puts you to sleep with his
+monotone description of all those happy little brooks and farm fences.
+~
+S
+
+#12212
+A tiny, run down shack~
+The floorboards creak under your feet as you enter. The spartan furnishings 
+give the room a cold and forbidding feel, but at the same time, the room gives
+off an impression of desperate survival, as if it is on a deserted island. A 
+bed occupies one corner, a small wood stove the other. A small box rests 
+against one wall.  The sole window overlooks a lifeless, choppy sea.
+~
+0 DK 0
+D3
+To the west you see the Masaki Shrine
+~
+~
+1 -1 12226
+E
+box~
+A small, locked box rests against the east wall. Engraved in the lid is "Celes"
+~
+E
+creationdate~
+Celes' room, May 23rd by Clerve.
+~
+S
+
+
+#12213
+Beowulf's Refuge~
+Y
+ o
+  u de
+     sce
+	nd
+	 a {Rst
+	    eep
+	       {groc
+		  ky
+		   led
+		    ge{x
+into the most beautiful place you've ever seen.  The room is filled
+with {Hlush greenery{x growing on {brocky soil{x, with an extremely large
+{Bpond{x in the middle.  The {Cair is {Ys{Rw{Ye{Re{Yt{x with the scent of
+blooming {Pflowers{x growing here, gathered from all throughout the
+{bland{x, and a {Twarm gentle breeze soothes{x your body.  There is an
+opening in the roof so that the {Pwarming glow{x of the {Ysun{x can
+{Ccaress{x the {blandscape{x, and also to allow the occasional {Tmist{x to
+drift down to the {Hplants{x.
+~
+0 K 4
+C white~
+D4
+You can climb the rocky steps up to the Hallway of Truth.
+~
+~
+1 -1 12208
+D3
+You can climb the ladder up the tree to the west to enter Nature's
+Treehouse.
+~
+ladder~
+1 -1 12214
+S
+
+#12214
+{bNature's {GTree{bhouse{x~
+{bYou are in an astounding {Htree{bhouse braced by the trunks of several
+large {Htrees {bin the {Ggarden {bof the {WWhite {BKnight's {Wfortress{b. Out of
+the {Cwindows{b you see gorgeous {Gmeadows {band light {Hforests{b, chittering with
+wildlife. To the east you see a lovely {Cwaterfall {fcascading over {glarge
+boulders{b into a {Blarge clear pond below. {bHere in the room are many
+hanging baskets with {Rb{Bl{Yo{Wo{Vm{Pi{Cn{Mg {Gplants{b.  The fragrance of their
+{Vb{Yl{Ro{Cs{Ms{Wo{Bm{Ps {badds a light perfume to the already wonderful scent of the
+outdoors. You are surrounded by the best of Nature.{x
+~
+0 K 2
+C white~
+D5
+Go back down through the skylight to Hall of Truth.
+~
+skylight~
+1 -1 12208
+D1
+To the east is a ladder that leads down to Beowulf's Refuge
+~
+ladder~
+1 -1 12213
+E
+tree trees trunk~
+These astounding trees are centuries old and provide a year round canopy of
+coolness for Nature's treehouse.~
+S
+
+#12215
+Kinson's Trophy Room~
+You walk into a large, rather luxurious room filled with trophies.
+You see many trophy heads from safaris and hunts lined up on the
+walls.	Among them you see the head of an Ancient Wyvern, the head
+of a {WYeti{x, a minotaur, and many others.  You also see a giant {PPink
+Elephant's head{x and near that the head of a small {Ppink bunny{x, with
+a small drum and two drumsticks beneath it.  There are inscriptions
+on each of the plaques that the heads are on.  Each list the time,
+date and place where each of them were obtained.  Sitting next to
+one of the walls you see a large, leather {bLaz-E-Tracker{x easy chair
+next to a small end table.  On the end table you see a small {Wcup{x of
+{btea{x and a bowl filled with {WB{co{Wn{cb{Wo{cn{Ws{x.  Near one of the
+walls you see what looks like a Taxidermy {WYeti{x in the typical
+threatening position for a bear-like creature in a trophy room.
+~
+0 DKS 0
+C white~
+D3
+West lies the Hallway of courage
+~
+~
+1 -1 12209
+E
+head heads~
+You see many trophy heads mounted on the redwood paneled walls.
+Among them are Yetis, Wyverns, Dragons and many, many others.
+~
+E
+bunny~
+You see the head of a small, pink bunny.  Directly below the head
+is a pedestal with a small drum with two little drumsticks.
+~
+E
+elephant~
+You see the large head of a pink elephant.  It looks like a normal
+elephant, only pink.
+~
+S
+
+#12216
+Chamber of The Seeker~
+This is the personal room of The Seeker of Truth. The walls here have a
+large mural of a {Yp{Ge{Ya{Gc{Ye{Gf{Yu{Gl {Gf{Ho{br{Ge{Hs{bt{x painted on them. The west wall
+is covered in an impressive display of swords forged by The Seeker. By
+the north wall there is a large, comfortable bed just right for a rest
+after an adventure. Beside the bed is a night table. Above the bed on
+the wall is a painting of five people. On a night table is a vase full of
+{Bblue roses{x.
+~
+0 DKTS 0
+C white~
+D2
+There is a large oak door leading to {BThe Hallway of Truth{x.
+~
+oak door~
+1 -1 12208
+E
+painting picture five~
+This picture was obviously painted by a master artist. You stand there
+for a few minutes admiring the artistry and time that must have been put
+into it. When you turn your gaze to the people in the painting you
+suddenly realize that you recognize the people in it.  Beowulf is
+kneeling on the soft grass carpet, weapon in hand. Nature is standing
+behind Beowulf, smiling kindly. Beside Nature stands Merona, her whip
+coiled at her waist, and smiling like an angel. On the other side of
+Nature stands Zenki with a gnarled staff in one hand and a black book
+in the other. Kneeling beside Beowulf is Richard with black cape flowing
+to the ground with his swords strapped to his back. You see a large
+forest in the background.
+~
+E
+mural forest large north east~
+The mural takes up the north, south and east walls entirely. The Mural
+is of The Great Forest and shows life in the forest in great detail.
+The colors are vibrant and realistic!  The animals and birds seem
+almost alive! This mural shows the full Glory of the life in the
+forest! Captured within the paints and strokes of the brush is the
+day-to-day life of the animals, plants, Druids and Rangers who have
+sworn to protect the land with their very lives, willing to sacrifice
+everything they have to prevent the corruption of the lands and
+forests from the races of Thera.
+~
+E
+west wall weapons~
+These weapons are of excellent quality.  Looking closer you see they are
+all firmly attached to the wall.
+~
+S
+
+#12218
+{BMerona's Bubble{x~
+{TWelcome to Merona's Bubble{x. As you walk in you see many {Tbubbles{x
+falling from the air. As you look up you can't tell where they are
+coming from. In the middle is a {GLarge {TTeal {BBubble{x with a {VPurple
+{WPillow{x in it.
+~
+0 DKS 0
+C white~
+D1
+You see the Hallway of Truth to the east.
+~
+~
+0 0 12208
+D3
+You see Yuip's room to the west.
+~
+~
+0 0 12232
+S
+
+#12219
+Ness' Resort~
+Upon entering this secluded retreat, you feel a sense of
+peace, a tranquility inside of yourself. You can tell that here, if any
+place on Thera, is a place of rest. Looking around, you see all
+different kinds of flowers and bushes, resplendent in their vivid
+colors.
+~
+0 DKN 0
+C white~
+D4
+{WHallway of Hope{x
+~
+~
+0 0 12211
+S
+
+#12220
+Dapanda's Dojo~
+As you enter the room, you feel calm and relaxed. You can smell
+the slight burning of incence and hear the sound of tiny bells.
+A cool breeze passes through the room, and you can see a large
+futon in the middle of the room where Dapanda spends his time
+meditating.
+~
+0 K 0
+C white~
+D2
+{WHallway of Hope{x
+~
+~
+0 -1 12211
+S
+
+#12223
+{RZenki's Lair{x~
+You are in a big dark room with {Ystrobe {Wlights {Yf{Wl{Ya{Ws{Yh{Wi{Yn{Wg{x and
+{Rlasers {Bb{Yo{Bu{Yn{Bc{Yi{Bn{Yg{x off the walls. It reminds you of a nightclub. There is a
+large TV showing anime movies. There are many racks containing videos, movies
+all over the place. In the center of the room there is one of those
+large inflatable {YMiller {WLight {RSuper Bowl chairs{x.
+~
+0 KD 0
+C white~
+D3
+Hallway of Truth
+~
+~
+0 0 12208
+S
+
+#12224
+{WWhite Knight's Smithy{x ~
+You are overtaken by a brief heat wave as you enter the smithy.
+After you adjust to the hot climate and recover from your coughing
+caused by the large amounts of smoke, you are able to look around.
+The entire room is caked in soot and grime, which seems to be coming
+from the large furnace located in the left section of the room. A
+large, burly grime-covered man is tending the fire. He seems to enjoy
+the heat as he works on forging armor for Falstaff. You'd best not
+bother him, and get to your own work, it is mighty hot in here.
+There is a sign hanging on the wall near the anvil which reads:
+Welcome to the White Knight's Smithy!
+~
+0 KD 0
+C white~
+D2
+Falstaff's Armory
+~
+~
+0 0 12202
+S
+
+#12225
+Shrimpy's Undersea Cave~
+As you look around, you notice that you are now underwater. You struggle
+for air, but suddenly realize that you can breathe. As you scan the room,
+you see a giant clam in the corner, and a water fountain labeled 'Fresh Water'
+~
+0 KDS 0
+C white~
+D4
+Hallway of Courage.
+~
+~
+1 0 12209
+S
+
+#12226
+The Masaki Shrine~
+As you look around this room, you see many portraits. The first one
+you notice is of a young-looking girl with long, pink, spiked hair.
+Underneath the picture is a plaque that says "Washu". Next to that,
+you see a picture of a tall girl with blond hair tied up with a red
+ribbon in a ponytail in the back and the biggest eyes you've ever seen!
+Under this picture is a plaque that says "Mihoshi". Then you see a
+picture of a tall woman with long, dark green hair. Under this picture
+it says "Kiyone". Next is a picture of a woman looking very much like
+the first, only with blue hair instead of pink. Her plaque says "Ryoko".
+After her is a woman with deep purple hair named "Ayeka". Right next to
+that is a young girl with bright blue hair and a green diamond on her
+forehead named "Sasami". Lastly, you see a creature hard to describe
+with words, only that it looks like a brown rabbit, but with paws like a
+cat and ears bigger than its entire body, and a red jewel in its forehead.  
+Under it it says "Ryo-Ohki".  The walls are pretty much blank except for 
+those pictures.
+~
+0 DK 0
+C white~
+H 150 M 150
+D1
+~
+~
+1 -1 12212
+D5
+To the Hallway of Courage
+~
+~
+0 -1 12209
+S
+
+#12227
+The {WWhite {BKnight {YL{Pa{Gu{Cn{Yd{Wr{Py {GR{Co{Yo{Pm{x~
+{YW
+  {Ph
+  {Ge
+  {Ce
+  {Ye
+  {We
+  {Pe
+  {Ge
+  {Ce{x
+You drop abruptly down a {Yl{Po{Gn{Cg {Yc{Wh{Gu{Ct{Ye{x to the {cb{xa{cs{xe{cm{xe{cn{xt of the {BClan Hall{x.
+Your fall is stopped by the {Yhuge{x pile of {Pl{Ga{Cu{Yn{Wd{Gr{Cy{x at the bottom.
+Around you are all of the needs for a great {Pl{Ga{Cu{Yn{Wd{Gr{Cy{x day. The two rows
+of {Wwhite{x washing machines {Wg{Yl{We{Ya{Wm{x open wide, the dryers {Ph{Ro{Pt{Rl{Py{x await along
+one side, and the other side has a row of chairs. In the back are the
+change machine, {Ws{Co{Wa{Cp{x and {Ws{Co{Wf{Ct{We{Cn{We{Cr{x dispensers, and a HUGE {Ps{Wo{Pd{Wa {Pm{Wa{Pc{Wh{Pi{Wn{Pe{x.
+~
+0 DK 0
+C white~
+D1
+~
+~
+0 0 12245
+D3
+~
+~
+0 0 12249
+D4
+You see a faint light above
+~
+~
+0 -1 12205
+D5
+Below is BigSexy's lair
+~
+~
+0 -1 12235
+E
+chute~
+You are lucky you didn't hurt yourself coming down that. Look how far up it
+goes!!!~
+E
+pile~
+Look at that pile!  Imagine what the clan hall would be like without the
+laundry room!~
+S
+
+#12228
+{VThe {YDog {PKennel{x~
+This appears to be a large kennel that can hold many {Ydogs{x. The floor
+is littered with dog toys and bones of many colors. There is a {Cfountain{x
+in the center of the room spraying {Rbeef{x flavored {Bwater{x all over the room.
+You also notice that there is a crumpled up dog {Pbed{x in the corner.
+~
+0 DKS 0
+C white~
+D0
+North is the Hallway of Generosity.
+~
+~
+0 -1  12210
+E
+dogs~
+There are about 10 dogs here barking wildly. Each dog has a name tag that
+says "I belong to Sabrina." All the dogs look very well fed and healthy. It
+looks like the dogs would rather be here than anywhere else in Thera.
+~
+S
+
+#12229
+Endoid's Cardboard Box~
+You are on the inside of what looks like the discarded container for a
+very large refrigerator. There are large metal staples holding the ends
+together, and the door folds crudely back into place as you enter. Be
+careful and don't lean too much on the sides, or this cardboard box
+might collapse.
+~
+0 DKS 0
+C white~
+D0
+North is the Hallway of Hope
+~
+~
+0 -1 12211
+S
+
+#12230
+Silverfox's Rehearsal Room~
+Here we have a nice selection of finely crafted guitars of several brands,
+all owned by Silverfox. He usually practices his guitar here, and you can
+see he {Bdefinately{x has the right equipment. A {GHUGE{x amplifier lies in
+the corner, along with several guitars hanging on the wall (such as his
+{NFender Jaguar{x), and various stereo devices on the floor. Also on the
+wall are several posters.
+~
+0 DKS 0
+C white~
+D4
+Up is the Hallway of Generosity.
+~
+~
+0 -1 12210
+E
+posters~
+{VYou are mesmorized by the amount of tatoos BJ Armstrong has.{x
+~
+E
+cd discs~
+{VMost of these CDs are Green Day albums, but with some other cool music
+thrown in as well.{x
+~
+E
+vidboi vid boi~
+{VRyan Herriman (a.k.a Silverfox) is very talented. He plays the guitar
+fairly well, and is awesome at making levels for AVARA and Marathon.{x
+~
+E
+amp amplifier corner~
+{VThis amp is just a simple CRATE amp. Still fairly nice though.{x
+~
+S
+
+#12231
+Josta's Coffee House~
+The aroma of {bcoffee{x and feel of comfort overwhelms you as you enter
+this quiet room.  Light from the windows overlooking a
+{Gg{Ra{Cr{Hd{We{yn{x filters through the {Ghanging plants{x as you look
+around at the {Hcushioned {bfurnishings{x.  Dark {Bplush carpeting{x and
+{Hdark patterned wallpaper{x deepen your soothed feeling as you head for a
+comfortable {Bc{Hh{Ba{Hi{Br{x by the window.
+~
+0 DKS 0
+C white~
+D1
+East is the Hallway of Generosity.
+~
+~
+0 -1 12210
+S
+
+#12232
+Yuip's Room~
+As you enter the garage, the smell of gas and oil fumes hits your face like a
+battering ram.	You see tools, parts, sanders, buffers, paints, jacks, and many
+other mechanic tools lying around.  There is a Manager's desk along one side of
+the garage, and a bus seat made into a bed along the other wall.  There is a
+sign on the back of the wall.
+~
+0 DKS 0
+C white~
+D1
+East is Merona's Bubble.
+~
+~
+0 -1 12218
+S
+
+#12233
+Jubble's Bar & Grill~
+This is a nice family restaurant. There are people everywhere.. You can smell the
+delicious food, it makes you want to eat some.... But you can't cuz you have more
+important stuff to do. Off to the left is a nice oak bar, with people being served by a handsome bartender.  Ooh! Manhattan!
+~
+0 DKS 0
+C white~
+D2
+south is the Hallway of Courage
+~
+~
+0 -1 12209
+S
+
+#12235
+A Dragon's Lair~
+You are blinded by the light from a thousand {Rg{Be{Wm{Ys{x in a HUGE pile of
+treasure. Judging by the size of the trasure, this must be a HUGE dragon...
+The treasure is lumped in an odd shape looking somewhat like a bed.
+Nearby there is a bookshelf with all kinds of books the Dragon likes to read.
+You notice among the books there is an old parchment and a framed picture on the
+bookshelf.
+~
+0 DKS 0
+C white~
+D4
+The way up leads to the White Knights laundry room.
+~
+~
+0 -1 12227 
+E
+parchment agreement~
+This is an old worn parchment that says: This is the agreement between the White
+Knight leaders and the dragon known as BigSexy. This is the official contract in
+which the compromise was made that BigSexy would get this lair and the White
+Knights would get the rest of the forstress. It also states that he must promise
+that he would leave the knights alone and live a life of peace, and in doing so
+he would become a leader of the clan, the {WWhite {BKnights{x.
+signed:   Beowulf,Thresher,Merona,Nature,Bear,Kinson,Ness,Richard, and BigSexy.
+~
+S
+
+#12236
+3rd Floor Landing~
+As you stumble your way up to this marvelous place, the first thing you
+notice is that THIS view is even greater than the LAST one!  Your sight to
+the west sees FAR beyond Midgaard and the mighty forests that occupy the
+area.  Looking south, you see past the mighty river, and if you look really
+hard, you think you might see Mega City One.  Eastwards you see the mighty
+city of Old Thalos and just to the north of that is the Fourth Tower.  And
+finally as you glance at the northern sky, you see the Giant mountain that
+leads to Olympus.  
+Private rooms are down the hallways in every direction.
+~
+0 DKS 0
+C white~
+D0
+To the north lies the Hallway of Eternity
+~
+~
+0 -1 12237
+D4
+~
+~
+0 -1 12248
+D1
+To the east lies the Hallway of Justice
+~
+~
+0 -1 12240
+D2
+To the south lies the Hallway of Valor
+~
+~
+0 -1 12238
+D3
+To the west lies the Hallway of Trust
+~
+~
+0 -1 12239
+D5
+Below you is the 2nd Floor Landing
+~
+~
+0 -1 12206
+S
+
+#12237
+Hallway of {MEt{Be{Mrnity{x~
+This hallway has doors leading to personal rooms of clan memebers.
+~
+0 DKS 0
+C white~
+D2
+To the south lies the main 3rd Floor Landing
+~
+~
+0 -1 12236
+D0
+To the north is Dorls' room
+~
+door~
+1 -1 12241
+
+S
+
+#12238
+Hallway of {WV{ga{Wlor{x~
+This hallway has doors leading to personal rooms of clan members.
+~
+0 DKS 0
+C white~
+D0
+To the north is the 3rd Floor Landing
+~
+~
+0 -1 12236
+S
+
+#12239
+Hallway of {YTrust{x~
+This hallway has doors leading to personal rooms of clan members.
+~
+0 DKS 0
+C white~
+D1
+To the east lies the 3rd Floor Landing
+~
+~
+0 -1 12236
+S
+
+#12240
+Hallway of {cJ{gu{cs{gt{ci{gc{ce{x~
+This hallway has doors leading to personal rooms of clan members.
+~
+0 DKS 0
+C white~
+D3
+To the west lies the 3rd Floor Landing
+~
+~
+0 -1 12236
+S
+#12241
+{WD{go{Wrl{gs' {YTh{br{Yon{be~
+{WY{gou s{Wte{gp {Wi{gn{Wto a l{gar{Wge whi{gt{We r{goo{Wm.{x  {WAs {gy{Wou mo{gv{We t{gh{We {YS{bun{Yl{bi{Ygh{bt {f{WFl{x{gas{f{Whes o{x{gff
+{Wth{ge {WWh{git{We M{gar{Wble.{x  {WDoz{gen{Ws of W{ghi{Wte-cl{gad {WGua{grd{Ws St{gan{Wd at at{gten{Wtio{gn.{x
+{WAt {gth{We ce{gnt{Wer of th{ge {Wr{goo{Wm st{gand{Ws a {YGo{bld{Ye{bn {YTh{bron{Ye{W.{x
+{WA{gt {WIt{g's {WSi{gde {Wst{gan{Wds a {gSma{Wll{ge{Wr, bu{gt {Wn{go l{Wes{gs {Wma{gg{Wn{gifi{Wcen{gt {YTh{bro{Yn{be{W.{x
+~
+0 DKS 0
+C white~
+D2
+To the south lies the Hallway of Eternity
+~
+door~
+1 -1 12237
+S
+
+#12242
+{BK{Yi{Bn{Yg{BDragon{Y'{Bs {WDoctor{x~
+Welcome to {BK{Yi{Bn{Yg{BDragon{x's Clinic. The room looks like a {Wdoctor{x's room. You can see
+everything you would ever need from a {Wdoctor{x.  The room is also a little larger
+than normal for even a {BDragon{x often comes here. It is has {Bblue{x and
+{Yyellow{x colors everywhere.
+~
+0 DKS 0
+C white~
+D1
+To the east lies the Hallway of Hope
+~
+~
+0 -1 12211
+S
+
+#12243
+The Karaoke Bar~
+The doors leading into this room are left open at all times, allowing the
+clan bards or anyone who wishes to tell their tales or to sing along with
+their favorite tunes to walk in whenever the mood arises. On the walls are 
+pictures of all the great White Knights that have hung out here. Across the 
+room is an open bar that provides free drinks!
+~
+0 DK 0
+C white~
+D2
+~
+~
+0 -1 12203
+E
+creationdate~
+Neurot's room, May 30th 1999 by Clerve.
+~
+S
+#12244
+Ryler's {gC{Wl{go{Wu{gd{x Palace~
+As you enter the {Mm{Vi{Ms{Vt{My{x palace, all around you can see
+pillars of {Yl{bi{Yg{bh{Yt{x coming out of the floor.
+  In the middle of the room you notice a {Tb{Cl{Tu{Ce{x, floating
+hammock made of {gf{We{ga{Wt{gh{We{gr{Ws{x from a {Ts{gm{Cu{Wr{Tf  {bg{gr{bi{gf{bf{ge{bn{x.
+  To the left of that you see a  {Bp{go{Bo{gl{x of swirling {Mm{Vi{Ms{Vt{Ms{x
+{Cb{wu{Cb{Wb{Cl{Wi{Cn{Wg{x away in the ground of the {gc{Wl{go{Wu{gd{x.
+  At the far end of the {gc{Wl{go{Wu{gd{x you see a small {Ts{gm{Cu{Wr{Tf{x
+with a pointy {Pw{Yi{Gz{Ca{Br{Vd{P'{Ys{x hat, mixing some vials and test
+tubes on a {Ct{Br{Ca{Bn{Cs{Bl{Cu{Bs{Ce{Bn{Ct{x, {Tliquid{x table. 
+  Around the edge of the {gc{Wl{go{Wu{gd{x you find a hole that would only
+lead back down to the ground.
+~
+0 K 0
+C white~
+D5
+Looking down there is a {gc{Wl{go{Wu{gd{x stairway that leads back to the
+clan hall.
+~
+~
+0 -1 12211
+E
+cloud palace room~
+It looks like you've entered a {Bb{Tl{Bu{Te {gc{Wl{go{Wu{gd{x palace that
+surrounds you all around.
+  You can see everyone down below by peeking through a hole you found in
+the floor.
+~
+E
+hole~ 
+Leading out of the hole there are stairs that get you down to the ground
+safely.
+~
+E
+pillar light~
+The pillars are {Yb{gr{Yi{gg{Yh{gt{x and lighting up the whole rooms.
+~
+E
+tubes vials~
+There are an arrangement of tubes and vials full of {Tb{Cl{Tu{Ce{x and 
+{Mp{Vu{Mr{Vp{Ml{Ve{x liquids, making {cs{gh{ca{gd{co{gw{gs{x on the walls.
+~
+E
+liquid table~
+This table is like none that you've ever seen. By striking your hands
+right through the table, it washes them completely clean.
+~
+E
+builder~
+Leveret 7th august 1999
+~
+S
+#12245
+WWF Wrestling Ring~
+A wrestling ring standing 4 feet tall surrounded by a cage stand in the
+middle of the room with Hogan and Sting fighting in it the WWF heavyweight
+belt is here, and a bucket of sweat to quench your thirst.
+~
+0 DK 0
+C white~
+D3
+~
+~
+0 0 12227
+S
+#12246
+{BShroom's {GMu{Bsh{WRoom, Safe{x~
+You see that your in a cone shaped, musty, old mushroom that is about 20
+feet high. There is a stench that drifts in the air that makes you tired.
+The walls are slimy and damp with 3 windows on the walls, the mushroom is
+sheading all over the floor. 
+  The three windows stare into different worlds...
+  The first into the {Mswampland{x, ruled by wolves and demons,
+  The second one stares into a {GMystical Forest{x in total peace rule be
+the {WWhite Knight{x,
+  And the last one is a wasteland filled with {RVampires{x fighting with
+each other for the last human in their cage....
+  {BThe first and third windows are covered with blinds so the light of
+the mystical forest shines bright.{x
+~
+0 DK 0
+C white~
+D3
+~
+~
+0 0 12210
+S
+#12247
+A Small Cave Set Into The Cliffside~
+The steel door shuts behind you as you enter the natural sandstone cave.
+The cave is neat and tidy, except for the workbench lining one wall,
+which is strewn with electronic parts and tools. As you move for a closer
+look you notice that weapons in varying stages of completion are laying
+on the bench, along with diagrams, tools, a small furnace, and a gem
+polisher. Across the room is what could be called a kitchen, with an
+electric oven, dishwasher, and a cupboard with various utensils. Boxes of
+freeze dried food lay on the floor. A bed take up one wall, and above that
+is a window cut into the rock and set with clear glass. Flourescent lights
+flicker overhead, providing the only illumination for the room. The floor
+is natural sandstone and has a hole cut into it in the far corner. Filling
+te hole is a steel box, locked by a combination. The lid of the box is at
+floor level. The only other thing that you notice in the room is the
+brunette sitting at the workbench, studying diagrams.
+~
+0 DKS 0
+C white~
+D3
+~
+~
+0 0 12205
+S
+#12248
+{BCelcius's Base~
+   Your breath becomes more visible as you fall upon this {Bmajestic
+{Wcavern.  The walls of ice are (Blue with white back) brightly
+glimmering {Wfrom a unidentified light source in the distance.  You
+hear light jazz music echoing off the walls of the cavern coming from
+different spots throughout the room. The ground {Bs{Wh{Bi{Wm{Bm{We{Br{Ws
+as the hard ice reflects the light emanating from the walls.
+Occasionally, you find a stalagmite or stalactite hanging around along the
+sides of the walls.
+    There is a large clearing in the middle of the room where the floor
+softly {Bg{Wl{Bo{Ww{Bs{W through the ice.   In the middle of the
+clearing is very large stalactite that reaches down to about the height of
+your head.
+    Off to the side is a  large hole in the wall.  As you peek through, you
+see a miniature ice flow that switches directions every few hours.  To the
+left of that is a large built in Screen hooked up to small speakers hidden
+throughout the cavern.  There are small drawers next to the ice flow
+containing miscellaneous computer equipment and supplies.  It takes you
+awhile, but you just found out that this is {BCelcius's Base {W,
+unless you were invited, {Ryou better leave before he comes back.
+~
+0 0 0
+D5
+South the stairs continue.
+~
+~
+0 -1 12236
+S
+#12249
+Treestump's {BI{Wn{Bt{We{Br{Wg{Ba{Wl{Ba{Wc{Bt{Wi{Bc{x {CE{Gm{Cp{Gi{Cr{Ge{x~
+Spinning complacently in the {cdarkness{x, covered and blinded by a blanket of
+little lives,
+FALSE security has tranquilized the {Rm{Wa{Rd{Wn{Re{Ws{Rs{x of this world into a
+{gs{cl{gu{cm{gb{ce{gr{x. WAKE UP!! An {We{by{We{x is upon you, and {We{by{We{x
+ready to
+{f{Bblink.
+
+So face forward, with arms wide open and mind {Pr{Ye{Be{Gl{Vi{Cn{Wg{x.
+Your future has arrived... {RARE YOU READY TO GO?
+~
+0 K 0
+D1
+East you can get your clothes done, cheap!
+~
+~
+0 -1 12227
+E
+created~
+Created 10.10.99 -- Kenneth
+~
+S
+
+#0
+
+#RESETS
+M 0 12200 1 12205 1	*load Hwisprian (healer)
+M 0 12201 1 12201 1	*load Sir Gaunt
+M 0 12202 1 12203 1	*load Hostess Quickly in Boar's Head
+G 0 12214 50			*lasagna
+G 0 12215 50			*barbeque ribs
+G 0 12216 50			*donut
+G 0 12217 50			*California roll
+G 0 12218 50			*prozac brownie
+G 0 12219 50			*brioche bread
+G 0 12220 50			*taco
+G 0 12221 50			*chocolate ice cream
+G 0 12222 50			*vanilla ice cream
+G 0 12223 50			*tankard of ale
+G 0 12224 50			*caraff of wine
+G 0 12225 50			*Texas pitcher of iced tea
+G 0 12226 50			*sake
+G 0 12227 50			*pot of capuchino
+G 0 12228 50			*pumpkin pie
+M 0 12203 1 12202 1	*load Falstaff
+G 0 12229 50			*clan eq
+G 0 12230 50			*clan eq
+G 0 12231 50			*clan eq
+G 0 12232 50			*clan eq
+G 0 12233 50			*clan eq
+G 0 12234 50			*clan eq
+G 0 12235 50			*clan eq
+G 0 12236 50			*clan eq
+G 0 12237 50			*clan eq
+G 0 12238 50			*clan eq
+G 0 12239 50			*clan eq
+G 0 12240 50			*clan eq
+G 0 12241 50			*clan eq
+G 0 12242 50			*clan eq
+G 0 12243 50			*clan eq
+O 0 12200 1 12201	*load fountain in courtyard
+O 0 12201 1 12201	*load pitcher
+O 0 12202 1 12205	*load cot in infirmary
+O 0 12203 1 12204	*load chair in meeting room
+O 0 12204 1 12203	*load bench in Boar's Head
+O 0 12211 1 12204	*load box
+P 0 12205 15 12211 1	*load chocolate in box
+O 0 12210 1 12204	*load basket
+P 0 12206 15 12210 1	*load kumquat in basket
+O 0 12207 1 12207	*load red portal in library
+O 0 12208 1 12207	*load yellow portal in library
+O 0 12209 1 12207	*load blue portal in library
+
+M 0 12205 1 12213 1	*baby whale to Beowulf's Refuge
+O 0 12247 1 12213	*pond (fountain) to Beowulf's Refuge
+O 0 12248 1 12213	*rowboat (bed) to Beowulf's Refuge
+O 0 12249 15 12213	*fish (pill) to Beowulf's Refuge
+
+M 0 12206 1 12214 1     *wildlife to Nature's Treehouse
+O 0 12250 1 12214	*dewdrops (fountain) to Nature's Treehouse
+O 0 12251 1 12214	*hammock (bed) to Nature's Treehouse
+O 0 12252 15 12214	*nuts to Nature's Treehouse
+
+M 0 12207 1 12215 1	*Yeti to Kinson's Trophy Room
+O 0 12253 1 12215	*tea cup (fountain) to Kinson's Trophy Room
+O 0 12254 1 12215	*chair (bed) to Kinson's Trophy Room
+O 0 12255 15 12215	*bonbon (pill) to Kinson's Trophy Room
+D 0 12209 1 1		*Close door to Kinson's room
+D 0 12215 3 1		*Close door to hallway from Kinson's room
+
+M 0 12208 1 12216 1	*Gratch, the gar to Chamber of The Seeker
+O 0 12256 1 12216	*Oak Bed to Chamber of The Seeker
+O 0 12257 1 12216	*Night table to Chamber of The Seeker
+P 0 12258 15 12257 1	*Truth in Night table (pill)
+D 0 12216 2 1		*Close door to the south
+D 0 12208 0 1		*Close door to the north (from Hallway of Truth)
+
+M 0 12210 1 12218 1	*a bubble golem in Merona's Bubble
+O 0 12262 1 12218	*a bubble bottle <pill> to Merona's Bubble
+O 0 12263 1 12218	*a large bubble <bed> to Merona's Bubble
+
+M 0 12211 1 12219 1	*Squirrel to Ness's Resort
+O 0 12264 1 12219	*a pile of leaves <bed> to Ness's Resort
+O 0 12265 1 12219	*a cashew nut <pill> to Ness's Resort
+O 0 12279 1 12219	*puddle of rainwater <fountain> to Ness's Resort
+
+O 0 12266 1 12220	*futon <bed> to Dapanda's Dojo
+O 0 12267 1 12220	*stick of bamboo <pill> to Dapanda's Dojo
+O 0 12268 1 12220	*mystical fountain to Dapanda's Dojo
+
+M 0 12214 1 12223 1	*load Buffy in Zenki's Lair
+O 0 12275 1 12223	*load dragon ball in Zenki's Lair
+O 0 12276 1 12223	*load inflatable chair in Zenki's Lair
+O 0 12277 1 12223	*load water hole in Zenki's Lair
+
+M 0 12215 1 12224 1	*load Davron in Smithy
+O 0 12278 1 12224	*load anvil in Smithy
+
+O 0 12280 1 12225	*load Giant Clam <bed> in Shrimpy's room
+O 0 12281 1 12225	*load a drinking frountain in Shrimpy's room
+O 0 12282 1 12225	*load a pearl <pill> in Shrimpy's room
+D 0 12225 4 1		*close door in Shrimpy's room
+D 0 12209 5 1		*close door in hallway to Shrimpy's room
+
+M 0 12216 1 12226 1	*Kagato into Masaski Shrine
+O 0 12283 1 12226	*invis fountain into Masaki Shrine
+O 0 12284 1 12226	*Light Hawk Wing into Masaki shrine
+
+M 0 12218 1 12228 1	*Boomer in Sabrina's room Dog Kennel
+O 0 12289 1 12228	*fountain of beef in Sabrina's room
+O 0 12290 1 12228	*crumpled bed in Sabrina's room
+O 0 12291 1 12228	*dog bone pill in Sabrina's room
+
+O 0 12292 1 12229	*mud puddle fountain in Endoid's room
+O 0 12293 1 12229	*crate bed in Endoid's room
+O 0 12294 1 12229	*sandwich pill in Endoid's room
+
+M 0 12219 1 12230 1	*Jeff the drummer in Silverfox's room
+O 0 12295 1 12230	*guitar pick pill in Silverfox's room
+O 0 12296 1 12230	*fountain in Silverfox's room
+O 0 12297 1 12230	*guitar string bed in Silverfox's room
+
+M 0 12217 1 12227 1	*Washing machine (mob) in Laundry Room(Xingu)
+O 0 12285 1 12227	*a chair in Laundry Room
+O 0 12286 1 12227	*soda fountain in Laundry Room
+O 0 12287 1 12227	*wire basket (container) in Laundry Room
+
+M 0 12220 1 12231 1	*Hot blond chick(mob, unfortunately) in Josta's room
+O 0 12298 1 12231	*coffee to Josta's room
+O 0 12299 1 12231	*chair	to Josta's room
+O 0 12246 1 12231	*coffee bean to Josta's room
+
+M 0 12221 1 12232 1	*The garage opener to Yuip's Room
+O 0 12300 1 12232	*obj1 to Yuip's room
+O 0 12301 1 12232	*obj2 to Yuip's room
+O 0 12302 1 12232	*obj3 to Yuip's room
+
+M 0 12222 1 12233 1	*The blong waiter to Jubble's room
+O 0 12303 1 12233	*a bench to Jubb's room
+O 0 12305 1 12233	*grill to Jubb's room
+P 0 12304 1 12305 1	*steak to Jubb's room <<inside grill>>
+
+M 0 12224 1 12235 1     *mob to bigsexy's room
+O 0 12309 1 12235       *obj one to big's room
+O 0 12310 1 12235       *obj two to big's room
+O 0 12311 1 12235       *third obj to big's room
+
+M 0 12225 1 12241 1     *mob to dorls' room
+O 0 12312 1 12241       *obj1 ||
+O 0 12313 1 12241       *obj2 ||
+O 0 12314 1 12241       *obj3 ||
+
+M 0 12226 1 12242 1     *mob to kingdragon's room
+O 0 12315 1 12242       *obj1 ||
+O 0 12316 1 12242       *obj2 ||
+O 0 12317 1 12242       *obj3 ||
+
+M 0 12204 1 12212 1	*mob in Celes room
+O 0 12244 1 12212	* Pill
+O 0 12245 1 12212	* Bed
+O 0 12259 1 12212	* Fountain
+D 0 12212 3 1		* close the door to 12226
+D 0 12226 1 1		* close the door to 12212
+
+O 0 12260 1 12243	* Bottle of beer in Neurot's room
+O 0 12261 1 12243	* Table in Neurot's room
+O 0 12269 1 12243	* Pill in Neurot's room
+O 0 12270 1 12243	* Jukebox in Neurot's room
+M 0 12227 1 12244 1      * mob to rylers room
+O 0 12318 1 12244        * pill     "
+O 0 12319 1 12244        * fountain "
+O 0 12320 1 12244       * hammock   "   
+M 0 12228 1 12245 1     * mob to syxx room
+O 0 12321 1 12245       * sweat to " "
+O 0 12322 1 12245       * pill  to " "
+O 0 12323 1 12245       * stool to " " 
+M 0 12229 1 12246 1     * smurf to shrooms's room
+O 0 12324 1 12246       * fountain to " "
+O 0 12325 1 12246       * pill to " "
+O 0 12326 1 12246       * log to  " "
+M 0 12230 1 12247 1     * padme to Montrey's room
+O 0 12327 1 12247       * bed to     "         "
+O 0 12328 1 12247       * pill to    "         "
+M 0 12231 1 12248 1  *Stalactites into Celsius's room
+O 0 12329 15 12248 1 *Ice cube into Celsius's room
+O 0 12330 1 12248 1  *Dripping water into Celsius's room
+O 0 12331 1 12248 1  *iceflow into Celsius's room
+M 0 12232 1 12249 1  *Spider into Treestump's room
+O 0 12332 25 12249 1 *PM5k into Treestump's room
+
+
+********************************************************************************
+*Removed Satins's room 12227
+*Removed Satin's Mob 12217
+*Removed Satin's fountain 12285
+*Removed Satin's bed 12287
+*Removed Satin's shelves 12288
+*Removed Satin's pill 12286
+
+*Removed BuRner's Domain room 12212
+*Removed BuRner's MOB wall flames 12204
+*Removed BuRner's bed of coals 12244
+*Removed BuRner's fountain 12245
+*Removed BuRner's flame pill 12246<><><>
+
+*Removed Smiley's Sanctuary of Smiles room 12221
+*Removed Smiley's MOB Cheshire cat 12212
+*Removed Smiley's fountain of youth 12269
+*Removed Smiley's bed of roses 12270
+*Removed Smiley's smile pill 12271
+
+*Removed Cronus's Cloud room 12217
+*Removed Cronus's Cloud Spirit 12209 (mob)
+*Removed Cronus's some mist 12259 (pill)
+*Removed Cronus's bed of fog 12260
+*Removed Cronus's stone fountain 12261
+
+*Removed Michigan's room 12222
+*Removed Michihan's mob 12213
+*Removed Michigan's object 12272
+*Removed Michigan's object 12273
+*Removed Michigan's object 12274
+
+*VNUM 12246 Used.
+*********************************************************************************
+
+S
+
+#SHOPS
+12202 0 0 0 0 0 100 20 0 23 *Hostess Quickly
+12203 5 9 11 32 1 100 95 0 23 *Falstaff
+
+0
+
+#SPECIALS
+M 12215 spec_blacksmith * Davron
+M 12201 spec_sage	* Gaunt
+S
+
+
+#$
+
+

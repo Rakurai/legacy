@@ -1,0 +1,411 @@
+#PLAYER
+Name Anastrianna~
+Id   1023834760
+LogO 1024259902
+Vers 14
+Mexp 0
+Pass digger89~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race seraph~
+Cla  5
+Levl 8
+Tru  0
+Plyd 35603
+Back 0
+Note 1024091895 1024091895 1024091895 1024091895 1024091895 1024091895 1024091895
+Scro 22
+Room 3054
+HMS  143 178 170
+Gold 1014
+Silv 2569
+Exp  17744
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 1000
+FImm 0
+FRes NS
+FVul M
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 18 14 14 13 15 20
+Afk {B[{CFri Jun 14 19:58:21 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  The Defender of Law and Justice~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 2
+LLev 9
+Deit Montrey~
+Lsit ws22.ascenture.net~
+Ltim Sun Jun 16 15:02:12 2002
+~
+LSav Sun Jun 16 15:38:22 2002
+~
+HMSP 143 178 170
+THMS 3 4 0
+Cnd  0 0 3 0
+Sk 57 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 57 1 'create water'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 76 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 57 1 'cure serious'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'vision'
+Sk 1 1 'mace'
+Sk 68 1 'sword'
+Sk 22 1 'shield block'
+Sk 1 1 'scribe'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'paladin default'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'healing'
+Affc 'bless'   0  56  42  -7  24          0 1
+Affc 'bless'   0  58  42   7  18          0 1
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3705
+Nest 0
+Cond 97
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 86
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 91
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Cond 81
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3709
+Nest 0
+Cond 92
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Cond 95
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 81
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 80
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 78
+Nest 1
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 1
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 73
+Nest 1
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 3066
+Nest 0
+Cond 88
+Wear -1
+Cost 430
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear -1
+Cost 430
+End
+
+#O
+Vnum 3502
+Nest 0
+Cond 71
+Wear 6
+Cost 490
+End
+
+#O
+Vnum 3072
+Nest 0
+Wear -1
+Cost 850
+End
+
+#O
+Vnum 3021
+Enchanted
+Nest 0
+Wear -1
+Cost 250
+Affc 'reserved'   1   0  -1   1  13          0 1
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear -1
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 15
+Cost 112
+End
+
+#O
+Vnum 3021
+Nest 0
+Cond 76
+Wear 16
+Cost 250
+End
+
+#O
+Vnum 3066
+Nest 0
+Cond 89
+Wear 5
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 86
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 3116
+Nest 0
+Cond 40
+Wear 11
+Cost 1190
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear -1
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear -1
+Cost 112
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear -1
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear -1
+Cost 112
+End
+
+#END

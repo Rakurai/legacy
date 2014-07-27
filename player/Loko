@@ -1,0 +1,329 @@
+#PLAYER
+Name Loko~
+Id   1024546164
+LogO 1026306802
+Vers 14
+Mexp 0
+Pass digger~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  3
+Levl 10
+Tru  0
+Plyd 16586
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  132 129 207
+Gold 116
+Silv 1968
+Exp  10561
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -27
+FImm 0
+FRes 0
+FVul 0
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 21 18 18 15 14 17
+Afk {B[{CThu Jun 20 21:30:47 2002{B] {CUnknown Departure.{x
+~
+Titl  Psyco Emissary of Marx~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 1
+LLev 3
+Deit Marx~
+Lsit pt-006-00031.greenapple.com~
+Ltim Wed Jul 10 07:48:54 2002
+~
+LSav Wed Jul 10 08:13:22 2002
+~
+HMSP 128 139 207
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 79 1 'sword'
+Sk 81 1 'shield block'
+Sk 1 1 'bash'
+Sk 1 1 'dirt kicking'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 68 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 80 1 'parry'
+Sk 27 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'fast healing'
+Sk 1 1 'forge'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 6601
+Nest 0
+Cond 86
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 9538
+Nest 0
+Cond 96
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 3043
+Nest 1
+Cond 92
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 5024
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9536
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3167
+Nest 1
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 4572
+Nest 1
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9500
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3031
+Nest 1
+Wear -1
+Cost 0
+Val  0 0 246 0 0
+End
+
+#O
+Vnum 3031
+Nest 1
+Wear -1
+Cost 0
+Val  0 0 246 0 0
+End
+
+#O
+Vnum 7802
+Enchanted
+Nest 0
+Cond 95
+Wear 16
+Cost 0
+Affc 'reserved'   1   7  -1   1  18          0 1
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 85
+Wear 15
+Cost 112
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3074
+Nest 0
+Cond 96
+Wear 7
+Cost 420
+End
+
+#O
+Vnum 9548
+Nest 0
+Wear 12
+Cost 200
+End
+
+#O
+Vnum 9521
+Nest 0
+Cond 99
+Wear -1
+Cost 710
+End
+
+#O
+Vnum 10449
+Nest 0
+Wear 17
+Cost 0
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3075
+Nest 0
+Wear 8
+Cost 420
+End
+
+#O
+Vnum 3504
+Nest 0
+Wear 14
+Cost 690
+End
+
+#O
+Vnum 3077
+Nest 0
+Wear 10
+Cost 420
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3502
+Nest 0
+Wear 6
+Cost 490
+End
+
+#O
+Vnum 3076
+Nest 0
+Wear 9
+Cost 420
+End
+
+#O
+Vnum 9519
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 9586
+Nest 0
+Wear -1
+Cost 660
+End
+
+#END

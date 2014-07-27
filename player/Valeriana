@@ -1,0 +1,1370 @@
+#PLAYER
+Name Valeriana~
+Id   1021500123
+LogO 1025483261
+Vers 14
+Mexp 2
+Pass npowersucks~
+Prom [%z]%c<%h/%Hhp %m/%Mm %v/%Vmv %X> ~
+Race human~
+Cla  3
+Levl 91
+Tru  0
+Plyd 174886
+Back 160775
+Note 1025455102 1025317183 1025317183 1025465335 1025317183 1025317183 1025317183
+Scro 22
+Room 8543
+HMS  2335 1722 1287
+Gold 4664
+Silv 575
+Gold_in_bank 38000
+Exp  91061
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm LQ
+FRes 0
+FVul N
+Plr  AOU
+Video 0
+Act  CDEFGHJLSc
+AfBy NOTUVYb
+Comm NOb
+Revk 0
+Cgrp A
+Cnsr C
+Prac 96
+Trai 32
+Wimp 0
+Atrib 21 18 18 18 18 18
+SkillPnts  68
+RolePnts   2
+QuestPnts  281
+Afk {B[{CSat Jun 29 02:55:49 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  Ebonstar~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 2
+LLev 12
+Deit Xenith~
+Lsit CBL-bascha.hs.earthlink.net~
+Ltim Sun Jun 30 19:23:04 2002
+~
+LSav Sun Jun 30 19:27:41 2002
+~
+HMSP 1695 632 1257
+THMS 0 0 0
+Cnd  0 9 39 9
+Query algroth~
+Query Syveril~
+Query Alara~
+Sk 71 1 'acid rain'
+Sk 75 1 'age'
+Sk 76 1 'armor'
+Sk 86 1 'blindness'
+Sk 94 1 'blizzard'
+Sk 1 1 'call lightning'
+Sk 1 1 'cancellation'
+Sk 1 1 'channel'
+Sk 1 1 'control weather'
+Sk 75 1 'cure critical'
+Sk 73 1 'cure light'
+Sk 71 1 'cure serious'
+Sk 86 1 'curse'
+Sk 79 1 'dispel magic'
+Sk 78 1 'divine healing'
+Sk 72 1 'divine regeneration'
+Sk 81 1 'energy drain'
+Sk 86 1 'faerie fire'
+Sk 2 1 'faerie fog'
+Sk 2 1 'fireproof'
+Sk 74 1 'flameshield'
+Sk 73 1 'fly'
+Sk 87 1 'gate'
+Sk 75 1 'giant strength'
+Sk 75 1 'haste'
+Sk 71 1 'heal'
+Sk 71 1 'infravision'
+Sk 63 1 'lightning bolt'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 72 1 'pass door'
+Sk 73 1 'plague'
+Sk 73 1 'poison'
+Sk 36 1 'portal'
+Sk 76 1 'protection evil'
+Sk 82 1 'protection good'
+Sk 71 1 'refresh'
+Sk 71 1 'regeneration'
+Sk 83 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 79 1 'slow'
+Sk 74 1 'steel mist'
+Sk 74 1 'stone skin'
+Sk 67 1 'summon'
+Sk 71 1 'summon object'
+Sk 78 1 'talon'
+Sk 1 1 'teleport'
+Sk 76 1 'teleport object'
+Sk 76 1 'undo spell'
+Sk 76 1 'weaken'
+Sk 71 1 'word of recall'
+Sk 100 1 'dagger'
+Sk 100 1 'sword'
+Sk 93 1 'bash'
+Sk 90 1 'circle'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'parry'
+Sk 100 1 'second attack'
+Sk 97 1 'third attack'
+Sk 78 2 'dual wield'
+Sk 75 2 'fast healing'
+Sk 77 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 52 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'bless'   0  77  11  12  18          0 1
+Affc 'bless'   0  75  11 -12  24          0 1
+Affc 'armor'   0  88   3 -20  17          0 1
+Affc 'stone skin'   0  88  70 -40  17          0 1
+Affc 'giant strength'   0  89  71   5   1          0 1
+Affc 'flameshield'   0  86  25 -20  17  134217728 1
+Affc 'steel mist'   0  88  16  -9  17   16777216 1
+Affc 'protection evil'   0  89   4  -1  24       8192 1
+Affc 'protection good'   0  89   4  -1  24      16384 1
+Affc 'shield'   0  90  79 -20  17          0 1
+Affc 'blood moon'   0  96  83   8  19          0 1
+Affc 'blood moon'   0  95  83   5  18          0 1
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 1100
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 10129
+Nest 1
+Wear -1
+Cost 122
+End
+
+#O
+Vnum 9201
+Nest 1
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 2404
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 1
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 80
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 4203
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4205
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 3715
+Nest 1
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 10126
+Nest 1
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 73
+Nest 1
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 1
+Name sword Magi Blade~
+ShD  {CM{Va{Mg{Ti {WB{gl{Wa{gd{We{x{x~
+Desc A sword is here, forged by Disman's craftsmanship.~
+Mat stardust~
+ExtF 262465
+Wt   20
+Wear -1
+Lev  23
+Cost 2
+Val  1 5 7 3 0
+Affc 'enchant weapon'   0  20  -1   3  18          0 1
+Affc 'enchant weapon'   1  20  -1   3  19          0 1
+ExDe sword Magi Blade~ It is a marvellous sword, crafted from the finest stardust around.
+It was created in the Month of Courtship by a newbie mage
+named Disman.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 1
+Name sword Blade of The Tempered~
+ShD  {WB{gl{Wa{gd{We{x of The {PT{Pe{Rm{gp{ge{Rr{Pe{Pd{x{x~
+Desc A sword is here, forged by Disman's craftsmanship.~
+Mat stardust~
+ExtF 262209
+Wt   21
+Wear -1
+Lev  24
+Cost 2
+Val  1 5 8 3 0
+Affc 'enchant weapon'   0  20  -1   4  18          0 1
+Affc 'enchant weapon'   1  20  -1   4  19          0 1
+ExDe sword Blade of The Tempered~ It is a marvellous sword, crafted from the finest stardust around.
+It was created in the Month of Courtship by a newbie mage
+named Disman.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#O
+Vnum 2326
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 9201
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4593
+Nest 1
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 4593
+Nest 1
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 16029
+Nest 1
+Wear -1
+Cost 2300
+End
+
+#O
+Vnum 1804
+Nest 1
+Cond 96
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 1806
+Nest 1
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 2326
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 10203
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10135
+Nest 1
+Wear -1
+Cost 23
+End
+
+#O
+Vnum 9602
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 10127
+Nest 1
+Wear -1
+Cost 128
+End
+
+#O
+Vnum 9911
+Nest 0
+Wear 10
+Cost 8203
+End
+
+#O
+Vnum 17001
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 13009
+Nest 0
+Wear 7
+Cost 660
+End
+
+#O
+Vnum 14015
+Nest 0
+ExtF 1048656
+Wear 2
+Cost 15000
+End
+
+#O
+Vnum 14043
+Nest 0
+Wear 15
+Cost 12000
+End
+
+#O
+Vnum 13008
+Nest 0
+Cond 97
+Wear 9
+Cost 550
+End
+
+#O
+Vnum 9103
+Nest 0
+Wear 4
+Cost 4140
+End
+
+#O
+Vnum 20026
+Nest 0
+Cond 99
+Wear 5
+Cost 90000
+End
+
+#O
+Vnum 1345
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 1344
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 17046
+Nest 1
+Wear -1
+Cost 50000
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10202
+Nest 1
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10204
+Nest 1
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 17013
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 17010
+Nest 1
+Cond 88
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 20006
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Enchanted
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+Affc 'reserved'   1  15  -1   4  12          0 1
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10168
+Nest 1
+ExtF 16777219
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 505
+Enchanted
+Nest 1
+ExtF 67
+Cond 99
+Wear -1
+Lev  46
+Cost 950
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  45  -1   2   1          0 1
+Affc 'reserved'   1  45  -1   2   5          0 1
+Affc 'reserved'   1  45  -1  40  12          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+End
+
+#O
+Vnum 3809
+Nest 1
+Wear -1
+Cost 15000
+End
+
+#O
+Vnum 8204
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10427
+Nest 1
+Wear -1
+Cost 11800
+End
+
+#O
+Vnum 10424
+Nest 1
+Wear -1
+Cost 5500
+End
+
+#O
+Vnum 4594
+Nest 1
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 500
+Enchanted
+Nest 1
+Wt   0
+Wear -1
+Lev  33
+Cost 1000
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1  30  -1   2  18          0 1
+Affc 'reserved'   1  30  -1   2  19          0 1
+Affc 'reserved'   1  30  -1   3   2          0 1
+Affc 'reserved'   1  30  -1  -5  24          0 1
+End
+
+#O
+Vnum 504
+Nest 1
+ExtF 19
+Cond 100
+Wear -1
+Cost 312
+End
+
+#O
+Vnum 10205
+Nest 1
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10164
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10169
+Nest 1
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 10170
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 10167
+Nest 1
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16075
+Nest 1
+Wear -1
+Cost 1600
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 504
+Nest 1
+ExtF 19
+Cond 100
+Wear -1
+Cost 312
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4595
+Nest 1
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 16087
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'teleport'
+End
+
+#O
+Vnum 4579
+Nest 1
+Wear -1
+Cost 2800
+End
+
+#O
+Vnum 4594
+Nest 1
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 16085
+Nest 1
+Wear -1
+Cost 1900
+End
+
+#O
+Vnum 16085
+Nest 1
+Wear -1
+Cost 1900
+End
+
+#O
+Vnum 10206
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 9910
+Nest 1
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 9922
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 9909
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 78
+Nest 1
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 10100
+Nest 1
+Wear -1
+Cost 32000
+End
+
+#O
+Vnum 3808
+Nest 1
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 11713
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10167
+Nest 1
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 17013
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 20008
+Nest 1
+ExtF 16777536
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 1
+Name mace Baseball Bat~
+ShD  {NB{Was{Ne{Rb{Wal{Rl {bBat{x~
+Desc A mace is here, forged by Sharra's craftsmanship.~
+Mat platinum~
+ExtF 67
+Wt   41
+Wear -1
+Lev  91
+Cost 9
+Val  4 10 15 7 64
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'enchant weapon'   0  91  -1   6  18          0 1
+ExDe mace Baseball Bat~ It is a marvellous mace, crafted from the finest platinum around.
+It was created in the Month of Long Shadows by a master paladin
+named Sharra.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 11776
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 28008
+Nest 1
+ExtF 17301568
+Wear -1
+Cost 47500
+End
+
+#O
+Vnum 10215
+Nest 1
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10155
+Nest 1
+Wear -1
+Cost 1100
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token kenneth ultrarare~
+ShD  An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
+Desc An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x waits to be discovered.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9231
+Nest 1
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 1
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 1214
+Nest 1
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 11709
+Nest 0
+Cond 97
+Wear 3
+Cost 10000
+End
+
+#O
+Vnum 11712
+Nest 0
+Wear 1
+Cost 10000
+End
+
+#O
+Vnum 13005
+Nest 0
+Wear 12
+Cost 4500
+End
+
+#O
+Vnum 10107
+Nest 0
+Wear 13
+Cost 28000
+End
+
+#O
+Vnum 13010
+Nest 0
+Wear -1
+Cost 450
+End
+
+#O
+Vnum 11777
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 17038
+Nest 0
+Wear 8
+Cost 250
+End
+
+#O
+Vnum 3208
+Nest 0
+Wear -1
+Cost 90
+End
+
+#O
+Vnum 8832
+Nest 0
+ExtF 65
+Wear 19
+Cost 10000
+End
+
+#O
+Vnum 8206
+Nest 0
+Wear -1
+Cost 7435
+End
+
+#O
+Vnum 4436
+Nest 0
+ExtF 64
+Cond 96
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 10211
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 14042
+Nest 0
+Wear 14
+Cost 10000
+End
+
+#O
+Vnum 4405
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 4405
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 11748
+Nest 0
+Wear 16
+Cost 15000
+End
+
+#END

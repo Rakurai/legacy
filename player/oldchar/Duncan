@@ -1,0 +1,137 @@
+#PLAYER
+Name Duncan~
+Id   1009570944
+LogO 1009577637
+Vers 9
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race dwarf~
+Sex  1
+Cla  6
+Levl 1
+Plyd 1967
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3170
+HMV  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  1500
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQS
+AfBy J
+Comm GOP
+Revk 0
+Cnsr AB
+Pos  8
+Prac 5
+Trai 3
+Save  -1
+Alig  750
+Hit   1
+ACs 95 95 95 99
+Atrib 15 12 14 13 17 11
+AtMod 0 0 0 0 0 0
+QuestPnts 5
+Pass mpfdlis~
+Afk {B[{CFri Dec 28 16:10:16 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Alisa~
+Lsit ool-18b9b00c.dyn.optonline.net~
+Ltim Fri Dec 28 16:03:00 2001
+~
+LSav Fri Dec 28 16:13:57 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  B
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 0 5 5
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 40 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'berserk'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'forge'
+Sk 1 1 'haggle'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'sing'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'bard basics'
+Gr 'bard default'
+Gr 'weaponsmaster'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 157 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

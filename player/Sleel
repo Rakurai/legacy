@@ -1,0 +1,263 @@
+#PLAYER
+Name Sleel~
+Id   1026871637
+LogO 1026956332
+Vers 14
+Mexp 1
+Pass liverpool~
+Desc {cBefore you stands a mountain of a man nearly {P11 {cfeet tall with a wide body and broad shoulders.
+For as big as he is he's seems to be rather relaxed, but with a cocky edge to him.
+He seems to be good looking (for a giant anyway) and the weapon he carries looks like it could {Rreally hurt{c!
+Various pieces of armor cover his huge frame and you can tell some of it has seen many battles.
+The only odd feature that stands out is the symbol of a {Wfeathered cross {cwhich hangs from his neck.
+Actually, that's very odd since this giant is obviously not a paladin...
+
+Hmmm, might be wise to learn more about this unusual one and best to keep him on your side...
+~
+Prom <{C%h{Thp {G%m{Hmana {B%v{Nsta {c%X{x> ~
+Race giant~
+Cla  3
+Levl 10
+Tru  0
+Plyd 10251
+Back 10016
+Note 1026951633 1026926231 1026926231 1026926231 1026926231 1026926231 1026926231
+Scro 22
+Room 8543
+HMS  178 133 94
+Gold 65
+Silv 1137
+Exp  10646
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 1000
+FImm 0
+FRes HI
+FVul BP
+Plr  OU
+Video 0
+Act  DEFGJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr 0
+Prac 0
+Trai 0
+Wimp 0
+Atrib 25 14 17 12 19 12
+SkillPnts  2
+QuestPnts  11
+QuestNext  7
+SQuestNext 16
+Afk {B[{CWed Jul 17 14:41:01 2002{B] {CUnknown Departure.{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 2
+Deit Teotwawki~
+Lsit vn.24.171.82.133.charter-stl.com~
+Ltim Wed Jul 17 20:35:09 2002
+~
+LSav Wed Jul 17 20:38:52 2002
+~
+HMSP 156 133 217
+THMS 0 0 0
+Cnd  0 0 30 12
+Colr 3 37 1
+Colr 6 31 0
+Colr 7 34 1
+Alias a affect~
+Sk 1 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'dispel magic'
+Sk 1 1 'fireproof'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 74 1 'dagger'
+Sk 78 1 'sword'
+Sk 1 1 'bash'
+Sk 79 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 15 1 'parry'
+Sk 75 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 1 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'protective'
+Affc 'bless'   0  56  46   7  18          0 1
+Affc 'bless'   0  52  46  -7  24          0 1
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 85
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Cond 96
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Cond 89
+Wear 10
+Cost 72
+Val  1 1 0 0 0
+End
+
+#O
+Vnum 3172
+Nest 0
+Cond 97
+Wear 11
+Cost 600
+ExDe owned by~ Sleel~
+End
+
+#O
+Vnum 3050
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 7800
+Nest 0
+Cond 93
+Wear 5
+Cost 1080
+Val  4 2 4 2 0
+End
+
+#O
+Vnum 7801
+Nest 0
+Wear 8
+Cost 390
+End
+
+#O
+Vnum 7803
+Nest 0
+Wear 4
+Cost 900
+End
+
+#O
+Vnum 3182
+Nest 0
+Wear 9
+Cost 1200
+ExDe owned by~ Sleel~
+End
+
+#O
+Vnum 1604
+Nest 0
+Cond 97
+Wear 16
+Cost 910
+End
+
+#O
+Vnum 3504
+Nest 0
+Wear 15
+Cost 690
+End
+
+#O
+Vnum 3504
+Nest 0
+Wear 14
+Cost 690
+End
+
+#O
+Vnum 3503
+Nest 0
+Wear 3
+Cost 310
+End
+
+#O
+Vnum 3031
+Nest 0
+Wear 0
+Cost 75
+Val  0 0 222 0 0
+End
+
+#O
+Vnum 10014
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3074
+Nest 0
+Wear 7
+Cost 420
+End
+
+#END

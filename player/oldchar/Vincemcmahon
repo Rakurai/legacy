@@ -1,0 +1,283 @@
+#PLAYER
+Name Vincemcmahon~
+Id   989883484
+LogO 1005023406
+Vers 8
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
+Race human~
+Clan kindred~
+Sex  1
+Cla  2
+Levl 58
+Plyd 13169
+Age  360000
+Back 0
+Note 990305623 990306226 0 990302579 990310236 989791405
+Scro 22
+Room 3365
+HMV  1584 1584 636 636 465 465
+Gold 143
+Silv 323
+Exp  58999
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDFGHJLQSTc
+AfBy DF
+Comm NOZ
+Revk 0
+Pos  8
+Prac 8
+Save  -83
+Alig  864
+Hit   53
+Dam   42
+ACs -175 -175 -177 -173
+Atrib 18 18 18 21 18 17
+AtMod 0 9 11 3 10 9
+QuestPnts 33
+Pass wwfattitude~
+Afk {B[{CSat May 19 18:36:30 2001{B] {C{CA{Tuto-{CA{Tfk by {GL{Be{Nga{Bc{Gy{x
+~
+Titl , the {HMan{x in {HUniform{x.~
+Immn ~
+Pnts 40
+Rank {TM{gB{cR{x~
+Aura ~
+TSex 1
+LLev 1
+Deit Qaz~
+Lsit pm3-020.efn.org~
+Ltim Sat May 19 19:31:55 2001
+~
+LSav Mon Nov 05 23:10:06 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  EFH
+HMVP 1049 376 465
+THVP 0 0 0
+Cnd  0 0 0 0
+Alias so social~
+Alias se social emote~
+Alias k backstab~
+Alias t trip~
+Query liriel~
+Sk 75 1 'armor'
+Sk 75 1 'cancellation'
+Sk 1 1 'channel'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'fireproof'
+Sk 75 1 'giant strength'
+Sk 75 1 'haste'
+Sk 75 1 'infravision'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 75 1 'refresh'
+Sk 75 1 'regeneration'
+Sk 75 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 75 1 'stone skin'
+Sk 75 1 'talon'
+Sk 75 1 'undo spell'
+Sk 78 1 'dagger'
+Sk 75 1 'backstab'
+Sk 75 1 'circle'
+Sk 76 1 'dodge'
+Sk 77 1 'enhanced damage'
+Sk 77 1 'second attack'
+Sk 75 1 'third attack'
+Sk 76 1 'dual wield'
+Sk 76 1 'fast healing'
+Sk 75 1 'repair'
+Sk 75 1 'hide'
+Sk 75 1 'lore'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 75 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'enhancement'
+Gr 'protective'
+Affc 'bless'   0  94  82  12  18          0 1
+Affc 'bless'   0  95  82 -12  24          0 1
+End
+
+#O
+Vnum 3206
+Nest 0
+Wear 10
+Cost 70
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 9924
+Nest 0
+Wear 0
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 16046
+Nest 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 16044
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 8234
+Nest 0
+Wear -1
+Cost 4900
+Val  200 168 0 0 0
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3091
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'fly'
+End
+
+#O
+Vnum 3091
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'fly'
+End
+
+#O
+Vnum 20008
+Nest 0
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 20007
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 4471
+Nest 0
+Name token race~
+ShD  {Ya token for a free race change{x~
+Wear -1
+Cost 3500
+ExDe owned by~ Vincemcmahon
+~
+End
+
+#END

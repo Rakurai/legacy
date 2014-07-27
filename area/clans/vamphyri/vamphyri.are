@@ -1,0 +1,2059 @@
+#AREA
+vamphyri.are~
+Vamphyri Hall~
+{H{{CLANS} {MLoomis  {TVamphyri Clanhall~
+24200 24349
+
+#MOBILES
+#24200
+warrior~
+A {cGiant Warrior{x~
+A {cGiant Warrior {xstands before you with {Peyes{x.
+~
+Standing before you is a huge {cWarrior{x. This beast is composed of six people 
+morphed into one being by the {RVamphyrian {xscience.  Dangerously armed and 
+filled with the undying thirst for {Rblood{x, this creature is pure menace.  
+From its laser sharp teeth in its cavernous mouth to its horribly formed 
+claws; it is easy to see why the {RVamphyri {xare never bothered by unwanted 
+guests!  It watches your every move with malicious intent.
+~
+human~
+ABRTV BD 800 0
+91 5 1d1+9999 1d1+9999 10d8+24 magic
+-70 -70 -70 -70
+AEG ABCD 0 0
+stand stand either 0
+0 0 giant 0
+
+#24201
+warrior~
+A {cGiant Warrior{x~
+A {cGiant Warrior {xstands before you with {Beyes{x.
+~
+Standing before you is a huge {cWarrior{x. This beast is composed of six people 
+morphed into one being by the {RVamphyrian {xscience.  Dangerously armed and 
+filled with the undying thirst for {Rblood{x, this creature is pure menace.  
+From its laser sharp teeth in its cavernous mouth to its horribly formed 
+claws; it is easy to see why the {RVamphyri {xare never bothered by unwanted 
+guests!  It watches your every move with malicious intent.
+~
+human~
+ABRTV BD 800 0
+91 5 1d1+9999 1d1+9999 10d8+24 magic
+-70 -70 -70 -70
+AEG ABCD 0 0
+stand stand either 0
+0 0 giant 0
+
+#24202
+flyer~
+A {cTwisted Flyer{x~
+A horribly mutated {cFlyer {xlooks at you with {Yeyes{x!
+~
+Peering at you from the shadows...A {cFlyer {xlooks you over with great 
+interest.  It appears to be a mixture of a pegasus and a human mixed 
+together.  Large enough to hold three people and still fly hundreds 
+of miles, this creature is by far one of the deadliest ever devised.  
+At the end of its wings are what appear to be living grappling hooks 
+and inside its mouth are what looks like the claws from a crab as opposed 
+to teeth!  This creature doesn't chew its food...it rips it apart!
+~
+human~
+ABRTV BD 800 0
+91 5 1d1+9999 1d1+9999 10d8+24 magic
+-70 -70 -70 -70
+AEG ABCD 0 0
+stand stand either 0
+0 0 giant 0
+
+#24203
+flyer~
+A {cTwisted Flyer{x~
+A horribly mutated {cFlyer {xlooks at you with {Geyes{x!
+~
+Peering at you from the shadows...A {cFlyer {xlooks you over with great 
+interest.  It appears to be a mixture of a pegasus and a human mixed 
+together.  Large enough to hold three people and still fly hundreds 
+of miles, this creature is by far one of the deadliest ever devised.  
+At the end of its wings are what appear to be living grappling hooks 
+and inside its mouth are what look like the claws from a crab as opposed 
+to teeth!  This creature doesn't chew its food...it rips it apart!
+~
+human~
+ABRTV BD 800 0
+91 5 1d1+9999 1d1+9999 3d8+24 magic
+-70 -70 -70 -70
+AEG ABCD 0 0
+stand stand either 0
+0 0 giant 0
+
+#24204
+nosferatu vendor~
+{cNosferatu{x~
+{cNosferatu{x looks down on you with {ceyes {xthat have seen millenia...
+~
+Looking at you tiredly, this {RVamphyrian's {xmind seem like it is wandering 
+other places and times.  He has been on many raids throughout many different 
+worlds and has seen the {Rblood {xof many victims.  He now augments his monthly 
+retirement by working here.~
+human~
+ABV D 900 0
+91 5 1d1+9999 1d1+9999 3d8+24 magic
+-70 -70 -70 -70
+CDF ABCD 0 0
+stand stand male 200000
+0 0 medium 0
+
+#24205
+vendor~
+{WJulie McCoy{x~
+{WJulie McCoy{x is soooo glad you have come!
+~
+{WJulie {xstands here happy as a clam that you have decided to come here for 
+rest and relaxation.  We came into possesion of this slave when we visited 
+a world called {GE{Ba{Gr{Bt{Gh{x.  After contemplating our stay there it 
+was decided that we should continue seeking another world and though some 
+stayed...most left that world.  In the transdimensional backwash of the 
+{CGate{x, this strange person was pulled along with us.  She claimed to be 
+KROOZE DIREKTOR.  She would really make a better slave if she wasn't so 
+damn happy all the time!
+~
+human~
+ABV 0 900 0
+91 5 1d1+9999 1d1+9999 3d8+24 wrath
+-70 -70 -70 -70
+FHJN AB CD 0
+stand stand female 200000
+0 0 medium 0
+
+#24206
+wilmae deering vendor~
+{WWilma Deering{x~
+{WWilma Deering{x still looks confused about her role here!
+~
+Here stands {BCol{x. {WWilma Deering{x.  She also was brought to us by 
+transdimensional backwash.  This one is still very confused about 
+her role as a {RVamphyri{x.  She keeps trying to get her blood by putting
+her thumb and pinky on her victim's throats.  We have had her go 
+to counseling numerous times but she is convinced that she is doing 
+it right.  It was a very odd world this {GE{Ba{Gr{Bt{Gh {xplace!
+~
+human~
+ABV 0 900 0
+91 5 1d1+9999 1d1+9999 3d8+24 cleave
+-70 -70 -70 -70
+CEFJKN ABCD 0 0
+stand stand male 200000
+0 0 medium 0
+
+#24207
+healer~
+{WCam {xthe {cDamned{x~
+{WCam {xthe {cDamned{x is here.
+~
+Here stands an angel who before we came along and gave his worthless life 
+meaning, used to be involved in many different shady dealings throughout 
+many known worlds.  Now that he has been to the conditioning pens...let's 
+just say he does what he is told ...anything else is grounds for one 
+eternally painful death.
+~
+human~
+ABQVa DFH 1000 S
+100 5 1d1+9999 1d1+9999 3d8+24  divine
+-70 -70 -70 -70
+FHIK ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#24208
+albert einstein trainer~
+{WAlbert Einstein{x~
+{WAlbert Einstein{x is here.
+~
+Yes...it is the real {WAlbert Einstein{x.  Though this gentleman has not been 
+enhanced by the {RVamphyri {xbite he obliges our desires and in return, we 
+provide him with the facilities to do his research.  If you let him, this 
+man will teach you everything there is to know about spells and skills and 
+gaining those that you do not have.
+~
+human~
+ABJKb DFH 1000 S
+91 5 1d1+1999 1d1+1999 3d8+24 divine
+-70 -70 -70 -70
+FG ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#24209
+adam smith changer moneychanger~
+Adam Smith~
+Adam Smith is here waiting to help you with your financing.
+~
+~
+human~
+BGd 0 0 S
+91 1 1d1+9999 1d1+1 3d8+24 divine
+-70 -70 -70 -70
+0 ABCD 0 0
+stand stand male 200000
+0 0 medium 0
+
+#24210
+galileo galilei sage~
+Galileo Galilei~
+Galileo Galilei is waiting to see why you have intruded upon his research.
+~
+~
+human~
+BG 0 0 S
+91 1 1d1+9999 1d1+1 3d8+24 divine
+-70 -70 -70 -70
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#24211
+mygas~
+Mygas~
+Mygas is here waiting to be of service to you.
+~
+~
+human~
+BG 0 0 S
+91 1 1d1+9999 1d1+1 3d8+24 divine
+-70 -70 -70 -70
+0 ABCD 0 0
+stand stand male 200000
+0 0 medium 0
+
+#0
+
+#OBJECTS
+
+#24200
+band gate~
+{RB{Pa{Rn{Pd {go{cf t{gh{ce {TG{Ca{gt{Ce{x~
+This ring appears to shimmer between this world and another.~
+Etherealness~
+armor ABS AB
+6 6 6 5 0
+20 2 2000 P
+A
+18 2
+A
+19 2
+A
+3 1
+A
+4 1
+E
+eqstat~
+Band of the Gate
+stock: 4 points
+
+2 points: +2 hit/+2 dam
+2 points: +1 int/+1 wis
+= 4 points
+~
+
+#24201
+bracer bloodlust~
+{CBracer {cof {RBlood{PL{gu{Ps{ct{x~
+This bracer exudes an aura of thirst, thirst for blood!~
+Mithril~
+armor AB AM
+11 11 11 10 0
+35 3 3500 P
+A
+12 25
+A
+18 3
+A
+19 3
+E
+eqstat~
+Bracer of BloodLust
+stock: 5.5 points
+
+2.5 points: +25 mana
+3 points: +3 hit/+3 dam
+= 5.5 points
+~
+
+#24202
+dark sunglasses~
+{cDark {cS{gun{cgl{ga{css{ge{cs{x~
+Be thankful you cannot see the eyes behind these shades!~
+Mithril~
+armor AB AE
+11 11 11 10 0
+35 3 3500 P
+A
+13 25
+A
+1 1
+A
+2 1
+A
+5 1
+E
+eqstat~
+Dark Sunglasses
+stock: 5.5 points
+
+2.5 points: +25 hp
+3 points: +1 str/+1 con/+1 dex
+= 5.5 points
+~
+
+#24203
+screeching vampyre bat~
+{cSc{gr{ce{gec{ch{gi{cng {RVam{Pp{Ryre {gB{ca{gt{x~
+A hideous screeching fills the air surrounding this creature of the darkness.~
+Mithril~
+armor AB AQ
+13 13 13 12 0
+40 4 4000 P
+A
+12 10
+A
+13 10
+A
+18 2
+A
+19 2
+A
+17 -2
+A
+20 -1
+E
+eqstat~
+Screeching Vampyre Bat
+stock: 6 points
+
+2 points: +2 hit/+2 dam
+2 points: +10 hp/+10 mana
+1 point: -2 ac
+1 points: -1 saves
+= 6 points
+~
+
+#24204
+bloody ribcage~
+{RB{Pl{Roo{Pd{gy {cR{gi{cb{Pca{Rg{Pe{x~
+Do these bones conceal a coldly beating heart?~
+Bone~
+armor ABS AD
+16 16 16 15 0
+50 5 5000 P
+A
+18 3
+A
+19 3
+A
+1 1
+A
+3 1
+A
+4 1
+A
+5 1
+E
+eqstat~
+Bloody Ribcage
+stock: 7 points
+
+3 points: +3 hit/+3 dam
+4 points: +1 str/+1 con/+1 wis/+1 int
+= 7 points
+~
+
+#24205
+blood splattered jackboots boots~
+{PB{Pl{Ro{Po{Rd {PS{cp{Rl{Pa{ctt{Pe{cr{Pe{Rd {cJ{ga{cck{gboo{ct{gs{x~
+These boots were once spotless, until the Vamphyri claimed them.~
+Leather~
+armor ABS AG
+18 18 18 17 0
+55 5 5500 P
+A
+12 20
+A
+13 25
+A
+18 3
+A
+19 3
+E
+eqstat~
+Blood Splattered Jackboots
+stock: 7.5 points
+
+4.5 points: +25 hp/+20 mana
+3 points: +3 hit/+3 dam
+= 7.5 points
+~
+
+#24206
+aura starside~
+{BAu{Nr{Ba {gof {RStarside{x~
+A cloak of scintillating light to surround you.~
+Mithril~
+armor AB AK
+21 21 21 20 0
+65 6 6500 P
+A
+12 20
+A
+13 25
+A
+18 4
+A
+19 4
+E
+eqstat~
+Aura of Starside
+stock: 8.5 points
+
+4.5 points: +25 hp/+20 mana
+4 points: +4 hit/+4 dam
+= 8.5 points
+~
+
+#24207
+amulet darkness~
+{RAm{Pu{Rle{Pt {Bof {cD{ga{crkn{ge{css{x~
+This amulet seems to absorb any light surrounding it.~
+Darkness~
+armor ABS AC
+23 23 23 22 0
+70 7 7000 P
+A
+12 20
+A
+13 10
+A
+18 4
+A
+19 4
+A
+20 -2
+E
+eqstat~
+Amulet of Darkness
+stock: 9 points
+
+3 points: +10 hp/+20 mana
+4 points: +4 hit/+4 dam
+2 points: -2 saves
+= 9 points
+~
+
+#24208
+vamphyrian greaves~
+{PV{Ra{Pmp{Rh{Py{Rri{Pa{Rn {cGr{ge{cav{ge{cs{x~
+Armoured legplates, seemingly made of mithril, but with a blood-like sheen.~
+Mithril~
+armor AB AF
+26 26 26 25 0
+80 8 8000 P
+A
+12 20
+A
+13 30
+A
+18 5
+A
+19 5
+E
+eqstat~
+Vamphyrian Greaves
+stock: 10 points
+
+5 points: +30 hp/+20 mana
+5 points: +5 hit/+5 dam
+= 10 points
+~
+
+#24209
+vambraces immortality~
+{PV{Ram{Pb{Rr{Pac{Res {cof {gI{Wmm{gor{ct{gal{Wit{gy{x~
+Immortality only for {RVamphyri{x - {cdeath{x for all others.~
+Mithril~
+armor AB AI
+30 30 30 29 0
+90 9 9000 P
+A
+12 20
+A
+13 20
+A
+18 6
+A
+19 6
+E
+eqstat~
+Vambraces of Immortality
+stock: 10 points
+
+4 points: +20 hp/+20 mana
+6 points: +6 hit/+6 dam
+= 10 points
+~
+
+#24212
+potion~
+A glass of {Pwine~
+A glass of {Pwine~
+glass~
+potion ABG AO
+15 'regen' 'refresh' 'slow' ''
+15 10 0 P
+E
+wine~
+As you hold this glass up to the light and peer thorugh, you can see the 
+future and the future looks good.
+~
+
+#24215
+demon~
+A {PScreaming {CDemon{x~
+A {CDemon {xis here.~
+glass~
+drink 0 A
+300 300 'beer' 0 0
+0 160 75 P
+E
+demon~
+Oh look!  See how it wiggles trying not to be killed?
+~
+
+#24216
+shame~
+A {WPriest's {cShame{x~
+a {WPriest {xis here.~
+glass~
+drink 0 A
+16 16 'beer' 0 0
+0 10 5 P
+E
+priest~
+We know what you do when you think no one is watching...
+~
+
+#24217
+mary~
+A {RBloody Mary{x~
+{RMary {xstands here waiting for you! :)~
+glass~
+drink 0 A
+16 16 'ale' 0 0
+0 20 6 P
+E
+mary~
+Here lies one of the prettiest women of all time.
+~
+
+#24218
+bloodhound~
+A {RBlood{bhound{x~
+A very handsome dog is here.~
+glass~
+drink 0 A
+12 12 'firebreather' 0 0
+0 10 25 P
+E
+dog~
+A nice, quiet, lazy dog lies here.
+~
+
+#24219
+chaser~
+A {bGarlic Chaser{x~
+There is a powerful drink here.~
+glass~
+drink 0 A
+12 12 'firebreather' 1 0
+0 10 25 P
+E
+garlic~
+You are going to actually drink this?
+~
+
+#24220
+hellraiser~
+A {PHell{Yraiser{x~
+A lttle pick you up that will knock you down is here!~
+glass~
+drink O A
+1000 5 'slime mold juice' 0 0
+0 10 25 P
+E
+jug~
+And the best part is...it's reusable!
+~
+
+#24221
+puppies~
+A litter of {bp{Wu{cp{bp{Wi{ce{bs{x~
+A litter of the cutest {bp{Wu{cp{bp{Wi{ce{bs {xyou have ever seen play here.~
+food~
+food 0 A
+20 40 0 0 0
+0 20 22 P
+E
+puppies~
+Aren't they cute as they play with each other?
+~
+
+#24222
+kitty~
+A small {Wk{ci{Wt{ct{Wy{x~
+A small {Wk{ci{Wt{ct{Wy {xplays here.~
+food ~
+food 0 A
+18 12 0 0 0
+0 10 9 P
+E
+kitty~
+Here a small kitty plays in the sunlight.
+~
+
+#24223
+ticks~
+A handful of {bdeer{x-{cticks{x~
+There is a large number of {bdeer{x-{cticks {xcrawling all over the floor here!~
+food~
+food 0 A
+4 8 0 0 0
+0 10 16 P
+E
+deer~
+They squirm in your hand all jam-packed with the blood of their former 
+hosts.
+~
+
+#24224
+leeches~
+a double handful of {cleeches{x~
+There are leeches squirming all over everything in this room!~
+food~
+food 0 A
+8 10 0 0 0
+0 10 11 P
+E
+leeches~
+They ooze and squirm all over your hands leaving a nasty trail behind them!
+~
+
+#24225
+orphan~
+an orphaned infant~
+There is a small infant here.~
+food~
+food 0 A
+8 6 0 0 0
+0 10 5 P
+E
+infant~
+Plump...juicy...wiggling...tasty!:)
+~
+
+#24226
+hematoma~
+hematoma~
+The {PHematoma{x!~
+flesh~
+container O 0
+10000 0 0 1000 100
+0 0 0 P
+E
+hematoma~
+Putting in what you had and no longer need; taking what you need, now the 
+Hematoma no longer has.
+~
+
+#24227
+hemophiliac~
+A Hemophiliac~
+A tall hemophiliac, in perfect health, waits to be of service to you.~
+stone~
+fountain 0 0
+10000 10000 'blood' 0 0
+0 0 0 G
+E
+fountain~
+Ahhhhhhhhh...The blood is the life!
+~
+
+#24229
+throne~
+{WThalosian {YKing {WThrone{x~
+{WThalosian {YKing {WThrone{x~
+marble~
+furniture ABOT 0
+1 1000 EHK 150 150
+5 10000 0 P
+E
+king~
+Here is a nice throne. It's not richly done but neither are any of the 
+other ones here. Are you really that tired or is it actually trying to 
+ask you not to sit down?
+~
+
+#24230
+throne~
+{WThalosian {VQueen {WThrone{x~
+{WThalosian {VQueen {WThrone{x~
+marble~
+furniture ABOT 0
+1 1000 EHK 150 150
+5 10000 0 P
+E
+queen~
+This throne is a bit fancier than the others in here. It seems to be made 
+out of marble and some type of leather.  You must really be tired...did it 
+just wink at you?
+~
+
+#24231
+throne~
+The {PA{Wm{Gy{Br{Yi{bl{cy{Wn {xSeat~
+The {PA{Wm{Gy{Br{Yi{bl{cy{Wn {xSeat~
+leather~
+furniture ABOT 0
+1 1000 EHK 150 150
+5 10000 0 P
+E
+seat~
+This throne comes from a far off world that the {RVamphyri {xvisited a long 
+time ago.  As it was not a suitable world, we moved on without hesitation.  
+This throne has a haughty superior aura to it.
+~
+#24232
+mausoleum~
+{cThe {RVamphyri {cMausoleum{x~
+{cThe {RVamphyri {cMausoleum{x~
+marble~
+furniture ABOT 0
+4 4000 EHK 150 150 
+5 10000 0 P
+E
+mausoleum~
+Here is a mausolem where you may sleep or rest in the comfort that your 
+brothers and sisters are keeping an eye out for your welfare and safety.
+~
+
+#24233
+coffin~
+your coffin~
+Your coffin rests here filled with grave dirt from your home land.~
+wood~
+treasure Y P
+0 0 0 0 0
+0 0 0 I
+
+#24234
+ancient parchment~
+{RAncient {cParchment{x~
+An ancient parchment lies here.~
+parchment~
+scroll 0 AO
+0 -1 -1 -1 -1
+0 2 2000 P
+
+#24235
+stained red vial~
+{cStained {Rred vial{x~
+A stained red vial lies here.~
+glass~
+potion 0 AO
+0 -1 -1 -1 -1
+0 3 2000 P
+
+#24236
+vamphyrian coffin~
+{RV{ca{Rm{cp{Rh{cy{Rr{ci{Ra{cn {RC{Po{Rf{Pf{Ri{Pn{x~
+A coffin lies here...~
+wood~
+furniture ABSY AP
+2 0 BEHK 100 200
+0 30 2000 P
+
+#24237
+vamphyrian goblet~
+{RV{ca{Rm{cp{Rh{cy{Rr{ci{Ra{cn {RG{co{Rb{cl{Re{ct{x~
+A silver goblet lies here.~
+silver~
+drink AB A
+500 500 'blood' 0 0
+0 5 36 P
+
+#24238
+blood ore~
+{RB{cl{Ro{co{Rd {cO{Rr{ce{x~
+A blood red bar of metal lies here.~
+blood ore~
+material 0 AO
+-2 2 -1 0 0
+50 5 30000 P
+
+#24241
+chest~
+A large chest~
+A large chest~
+wood~
+portal MO 0
+0 0 AB 1225 0
+15 1000 10 P
+E
+chest~
+A large chest made of {Ygold {xand {Wivory {xsits here.  It appears to be 
+quite old though, in no way bad condition.  The {Bwood {xgleams from many 
+polishings over the centuries and seem to glow with a life all its own.
+On the other hand, don't judge a book by its cover ;)
+~
+
+#24245
+birdbath~
+a large bird bath~
+A large bird bath filled with spring water stands here.~
+marble~
+fountain MN 0
+100000 100000 water 0 0
+1 100 100 P
+E
+fountain~
+The bird bath is an ordinary stone bird bath that you see
+ouside many homes.
+~
+
+#24246
+chair~
+a lawn chair~
+A lazy man's lawn chair sits here in the bright sun.~
+wood~
+furniture AB 0
+2 1000 BEHK -500 -500
+1 1000 100 P
+E
+chair~
+This chair looks normal but it gives you the feeling that it is somehow
+backwards.
+~
+
+#24270
+vamphyrian gloves leadereq~
+The {RVamphyrian {gGloves{x~
+These gloves will eat your hands if you are not a Leader of the Vamphyri.~
+batwings~
+armor ABGORTY AH
+23 23 23 21 0
+50 0 8000 P
+A
+1 1
+A
+3 3
+A 
+4 1
+A
+5 3
+A
+12 40
+A
+13 60
+A
+18 5
+A
+19 5
+
+#24271
+pouchbelt~
+{cTaglar's {REver{cFull {RPouchbelt{x~
+A pouchbelt that can hold a whole lot of things lies here.~
+leather~
+container ABOTY AL
+200 0 0 25 50
+30 1 5000 P
+E
+pouchbelt~
+If you are a packrat like Taglar, then his pouchbelt is just the
+thing you will need to carry all that junk, Oops I mean your
+valuables ;)
+~
+
+#24274
+anvil private vamphyri~
+private anvil~
+A privately owned Anvil of Power rests here, no doubt a great clan's 
+heirloom.~
+steel~
+anvil RYOT 0
+0 3 1 0 3
+1 2500 100000 P
+E
+anvil private~
+A large, steel, well-used anvil is here. But The life has not yet been
+beaten out of it. You could still make a fine weapon on this hunk of 
+metal. There are an incredible number of tiny pockmarks and blemishes 
+on this piece of equipment but it is still serviceable and being put 
+to good use.
+~
+
+#24303
+sos~
+SOS potion~
+A huge anvil is bolted to the floor in the center of the room.~
+glass~
+potion G A
+5 'CURE CRITICAL' 'CURE CRITICAL' 'SANCUTUARY' 'SHIELD'
+15 50 100 P
+E
+sos~
+This is the biggest anvil you have ever seen; it must have
+taken several giants to drag it in here. You think you have 
+never seen this much heavy metal in one place. But then again,
+maybe you have been quaffing too much and it's just a figment
+of your imagination?
+~
+
+#24308
+tree~
+An apple tree~
+A large {Gapple tree{x stands here bearing sweet fruit.~
+wood~
+container MO 0
+90 0 0 90 100
+30 100 100 P
+E
+tree~
+This tree was planted and grown by Taglar.
+~
+
+#24309
+apple~
+a green apple~
+a lushish {Ggreen apple{x~
+pill~
+pill AB A
+15 'giant strength' 'cure light' 'shield' 'regeneration'
+15 30 10 P
+E
+apple~
+Yummm! Yummm! look how good these are! =)
+~
+
+#24310
+fountain~
+A large fountain~
+{CSpring {Wwater{x gushes from a large fountain~
+marble~
+fountain MN 0
+0 0 'water' 0 0
+1 100 100 P
+E
+fountain~
+Seemingly enough Taglar put this here so he can drink
+something after all the water!
+~
+
+#24311
+waterbed~
+A large waterbed~
+A large waterbed is here waiting for you to sleep in it~
+leather~
+furniture ABG 0 
+2 1000 FIL 150 150
+1 100 100 P
+E
+waterbed~
+WOW! Look how wavey it is....hum makes you wonder if you should
+lay down in it since Taglar has been here.
+~
+
+#24319
+dizzy knights trophy~
+Dizzy Knights Trophy~
+{WDizzy Knights Trophy{x~
+corpse~
+treasure E 0
+0 0 0 0 0
+0 0 0 P
+E
+dizzy knights trophy~
+   Before you sits one of the Vamphyri's war trophies. It's wide base
+is made out of what seems to be solid bone, stained red with the blood
+of the defeated. On your eye's horrific journey up this magnificent
+work of art, four pillars come into view. Thigh bones from various
+corpses have been sinisterly fashioned into the body pillars. The top
+of the trophy comes next into view. Its platform you cannot see, for
+it is draping on all sides by what looks to be..hair. Perhaps it is 
+bone, covered by a tanned scalp. You shudder at the thought. Upon
+the platform rests a scene of graphic, horrifying terror. The Dizzy
+castle sits behind a mummified corpse. Surrounding the corpse are what
+appear to be Dizzy Knights, clad in broken, bloody armor, on their
+knees. Scattered about the scene are figurines of the triumphant
+Vamphyri warriors. Women sob, naked, and bound to leashes that lie in 
+hands of the Vamphyri. Suddenly, the eyes of a man standing whom you 
+had not seen before open. He stands tall with a blood soaked blade held 
+high. His vampire eyes draw you in, swirling red. You start to hear the 
+voices of the night. The howling of the creatures, the sailing of the 
+moon across the sea of night. Within his eyes, you see the terror of what 
+came before and after the scene, on the trophy. The rape, and pilliage 
+of the Dizzy pride. The maiming, and killing of their warriors. You come 
+to think this might not be a trophy at all, but a vessel holding the 
+souls of the defeated. Finally, you see an engraving. It is hard to make 
+out, but you can..barely. It reads: "The night has come, the day is 
+bleak. The life of lives and souls we seek. In the passing of time..we 
+still shall stand. The Day of Triumph is close at hand."
+~
+
+#24320
+highlander trophy~
+Highlander Trophy~
+{YHighlander {WTrophy{x~
+corpse~
+treasure E 0
+0 0 0 0 0
+0 0 0 P
+E
+higlander trophy~
+  An eerie glow draws your attention from a glass case in the corner.
+Hanging above the case is a tattered kilt. The glow draws you closer..
+closer. Slowly a trophy comes into view. Its base is made of solid
+granite and coveered by moss. A low fog floats around the base, and 
+from time to time a miniature tombstone comes into view. A model of
+a graveyard rests at the bottom. The body pillars of the trophy are
+made up of four expertly crafted highland broadswords. From each of
+their hilts hangs a banner. They seem to be made of stretched, and
+tanned flesh. On each of the banner's is painted in red an ancient
+vamphyri glyph. If you are a scholar of the languages and history,
+you decifer them to be humiliation, pain, defeat, and servitude.
+The trophy's platform is made of earth, topped by soil, then grass.
+On top the grass is castle Camus, in ruins. Its once beautiful
+stone, shattered. The bonnie highland surrounding it burned. A chain
+of prisoners, women and children are walking sadly away from the 
+ruin, surrounded by Vamphyri slave drivers. Six Vamphyri heroes 
+walk at the lead of the chain. They are burdened by a mummified corpse
+on a stretcher, and in front of them is the same lone man as in all
+the other trophies. He walks with his head down..almost in
+contemplation, one hand on his sword, the other hooked on his belt.
+He seems oblivious to his surroundings. Perhaps he is pondering his
+next conquest, or perhaps it is what woman he will have first to grace
+his unholy bed. Upon the top of the ruined castle Camus is a broken
+cross. In its center is a ruby heart..at first it looks nothing more
+than a jewel, but a closer examination you see a swirling mist inside.
+A vision of the foolish attack on the Vamphyri comes to you. The
+humiliating defeat of the Highlanders unfolds before your eyes. Suddenly,
+you come back to your senses with a chill running up your spine. 
+Engraved on the trophy are the words: "The night has come, the day
+is bleak. The life of lives and souls we seek. In the passing of time..
+we still shall stand. The Day of Triumph is close at hand."
+~
+
+#0
+
+#ROOMS
+
+#24200
+The {YPalisade {xto the {RAerie{x.~
+This is the palisade in front of the {RVamphyri ClanHall{x. If you are a member,
+you may go north.  If you are not then go away!
+~
+0 C 7
+D0
+North is {YThe Grand EntryWay{x.~
+~
+0 -1 24201
+D3
+West is the sounding of the crashing ocean.~
+~
+0 -1 9786
+S
+
+#24201
+{YThe Grand EntryWay{x~
+This is {YThe Grand Entryway {xto the fabled {RVamphyri {x {cAerie{x: 
+{BSibStack{x.  Looking around, you realize that this place is huge! 
+The ceiling itself is over 30 feet above you!  At first it sounds like
+there is an army following you but then, you realize it is only your
+footsteps echoing off distant walls.  A cold clammy mist begins to form
+and seems to move toward you!  The {RVamphyri {xare watching you...
+~
+0 DN 0
+C vamphyri~
+D0
+North is center room of {HLevel 1{x.~
+~
+0 -1 24202
+D2
+South is the {YPalisade{x.~
+~
+0 -1 24200
+S
+
+#24202
+{HCenter Level 1{x~
+You are now on the lowest level of the {cAerie{x.  There is very little
+light down here and in the dimness you can see mist moving here and there
+as if it had a mind of its own...  There is some kind of hole in the
+floor...
+~
+11 CD 0
+C vamphryi~
+D0
+North is {RThe Bloody Glove{x.~
+~
+0 -1 24205
+D1
+East are {bThe GasBeast Pens{x.~
+~
+0 -1 24204
+D2
+South is {YThe Grand EntryWay{x.~
+~
+0 -1 24201
+D3
+West are {bThe GasBeast Pens{x.~
+~
+0 -1 24203
+D4
+Up is {HThe Second Level{x.~
+~
+0 -1 24206
+S
+
+#24203
+{bGasbeast Pens West{x~
+As you watch the gasbeasts in action; you can't help but stand in awe of
+the many talents of the {RVamphyri{x.  For they have taken simple human
+slaves and converted them into these living machines which exist only
+to produce propane gas for the {VVamphyri{x.  This gas is used for all the
+{cAeries {xheating requirements and cooks their food in their kitchens.
+~
+0 CD 0
+C vamphyri~
+D1
+East is {HThe First Level{x.~
+~
+0 -1 24202
+S
+
+#24204
+{bGasbeast Pens East{x~
+As the beasts snuffle and snort their food when it falls out of the feed
+chute...WOW!  Must have been a good raid!  Just look at all the spare body
+parts in there!...Every now and then, you can see a beast or two look at 
+you with something akin to the human intelligence they once possesed.  You
+begin to wonder if any of them remember what it was to be human...Oh well!
+Now they are jet black in color and the size of eight horses lined up side
+to side...definitely not human now!
+~
+0 CD 0
+C vamphyri~
+D3
+West is {HThe First Level{x.~
+~
+0 -1 24202
+S
+
+#24205
+{RThe Bloody Glove{x~
+Welcome fellow {Pblood {xdrinker!  Here you will find some of the tastiest
+vittles anywhere in Thera.  You see before you a number of tasty delights
+specially prepared in the kitchens upstairs.  They have been lovingly
+prepared with just the right blend of spices, while others, are intended
+to be eaten the way nature intended:  ALIVE!
+~
+0 D 0
+C vamphyri~
+D2
+South is {HThe First Level{x.~
+~
+0 -1 24202
+S
+
+#24206
+{HThe Second Level{x~
+Looking about you, you begin to notice that this level contains areas
+similar to the first level.  While not as dim as some levels are...it
+is still pretty dark.  This is most likely for the benefit of many of
+the {RVamphyrian {xbeasts...They do not deal well with any kind of light.
+But, since you do not need light to see...
+~
+0 CD 0
+C vamphyri~
+D0
+North is {BVictoria's {RVamphyrian {BSecret{x.~
+~
+0 -1 24207
+D1
+East are {bThe WaterSkimmer Vats East{x.~
+~
+0 -1 24208
+D2
+South is {bThe Conditioning Pens{x.~
+~
+0 -1 24209
+D3
+West are {bThe WaterSkimmer Vats West{x.~
+~
+0 -1 24210
+D4
+Up is {HThe Third Level{x.~
+~
+0 -1 24211
+D5
+Down is the {HThe First Level{x.~
+~
+0 -1 24202
+S
+
+#24207
+{BVictoria's {RVamphyrian {BSecret{x~
+With what little survives of the {RVamphyrian {xtechnology...the {cLeaders
+{xhave managed to create various pieces of equipment to aid you in your
+travels and raiding.  May they bring you much success and glory.
+~
+0 D 0
+C vamphyri~
+D2
+South is {HThe Second Level{x.~
+~
+0 -1 24206
+S
+
+#24208
+{bThe WaterSkimmer Vats East{x~
+These little {bWaterSkimmers{x swim through the water removing bugs and 
+debris from the water.  The water itself flows from deep artesian wells 
+under the Aerie.  You look closely at the skimmers...they are awfully 
+small.  Hm...you look even closer still at the entire room and see pipes
+tucked back in the corner...no...they aren't pipes.  What are those things?
+~
+0 CD 0
+C vamphyri~
+D3
+West is {HThe Second Level{x.~
+~
+0 -1 24206
+S
+
+#24209
+{bThe Conditioning Pens{x~
+Come to see a new slave adjusted?  Well, this is the place.  Through the
+power of the {RVamphyri{x...these formerly useless individuals are being
+given new purpose in their miserable lives.  They will serve us in any way
+we see fit.  As they will be {RVamphyrian {xin nature...that service will be
+for eternity!  Sometimes the conditioning doesn't take too well.  When that
+happens, unless an Advisor, Leader, Lord or Lady desires that particular
+slave for a trophy; the slave is eviscerated and thrown down a food chute
+to the pens and vats below.  The most entertaining thing about the
+conditioning process is leaving the slaves mind intact throughout 
+the process so that he or she can watch themselves being remade.  Remember
+how the {WKing of Thalos {xreacted when he realized that he was being 
+morphed into a toilet?  And that his mouth was to be the bowl?  THAT was 
+hysterical!
+~
+0 CD 0
+C vamphyri~
+D0
+North is {HThe Second Level{x.~
+~
+0 -1 24206
+S
+
+#24210
+{bThe Waterskimmer Vats West{x~
+In this room you can see a little better just what exactly is going on in
+the vats.  Yes...your suspicions are now confirmed; the skimmers were
+initially children two or three years old apiece, taken on raids.  They
+are just the right size for the job at hand.  There about twenty or thirty
+of these little flippered creatures taking in water through a strainer in
+their mouths.  Their feet have been replaced by steering fins and they seem
+to get around very well.  One of the creatures in particular catches your
+eye...it has the most beautiful {Geyes {xyou have ever seen!  It swims over
+nearer to you and then moves on over by the pipes or whatever they are,
+which in this room...they seem to be moving!
+~
+0 CD 0
+C vamphyri~
+D1
+East is {HThe Second Level{x.~
+~
+0 -1 24206
+S
+
+#24211
+{HThird Level{x~
+Welcome home!  The slaves have been awaiting your arrival.  They have
+cleaned and prepared many delightfully tasty treats to tempt your palette
+in the bakery for you.  If you are tired, you may proceed south and relieve
+yourself of the day's hardships and discomforts.  If you are in need of
+medical attention...please...proceed without delay to the north!  The
+healer there will take excellent care of you!
+~
+0 CD 0
+C vamphyri~
+D0
+North is {GThe Doc in the Box{x.~
+~
+0 -1 24212
+D1
+East are {bThe Landing Bays{x.~
+~
+0 -1 24213
+D2
+South is {VThe Royal Throne Room{x.~
+~
+0 -1 24214
+D3
+West are {YThe Officer's Club{x.~
+~
+0 -1 24215
+D4
+Up is {HThe Fourth Level{x.~
+~
+0 -1 24216
+D5
+Down is the {HThe Second Level{x.~
+~
+0 -1 24206
+S
+
+#24212
+{BDoc in the Box{x!~
+Welcome!  You're invited to sit awhile and have your medical needs taken
+care of professionally.  This room is spotlessly clean!  You can't see the
+tiniest dust-mote even in the air!  Cam sure keeps this place tidy!
+~
+0 D 0
+C vamphyri~
+D2
+South is {HThe Third Level{x.~
+~
+0 -1 24211
+S
+
+#24213
+{bThe Landing Bay{x~
+{bFLYERS{x! {bFlyers {xeverywhere you look!  These beasts are large enough
+that each beast could carry two fully grown giants and all their equipment! 
+Their huge wings while not specifically designed for fighting; they none 
+the less are equipped with a vast assortment of pincers and claws.  Their
+mouths have what have to be the deadliest set of teeth you have ever seen
+in any mouth whatsoever!
+~
+0 D 0
+C vamphyri~
+D3
+West is {HThe Third Level{x.~
+~
+0 -1 24211
+S
+
+#24214
+{VThe Royal Throne Room{x~
+This doesn't look like any throne room you have ever seen before!  Wait a
+minute!  These don't look like any thrones you have ever seen before! 
+What's going on here?  As you walk down the aisle, you notice that each of
+these {Vthrones{x has a small rug in front of it.  Though they are beautifully
+crafted rugs, if you sat on any one of these {Vthrones{x, you would only 
+have enough room for your feet on it.  And what are the little rolls of 
+parchment next to each {Vthrone{x?  Hm...they must be some odd form of 
+reading material...
+~
+0 CD 0
+C vamphryi~
+D0
+North is {HThe Third Level{x.~
+~
+0 -1 24211
+S
+
+#24215
+{YThe Officer's Club{x~
+As you enter into this room, you are overcome by a feeling of grandeur.
+On the walls of this room are beautiful tapestries woven from the finest
+silks in all of {CThera{x.  They depict epic battles and struggles the
+{RVamphyri{x have faced over the millennia.  There is an intriguing design 
+on the floor.  Halfway into the room there is a huge {Yfireplace{x giving off
+the majority of light and heat.  Across the room is a large bar that is so 
+old that many have forgotten where it came from.  It is made from one large 
+piece of {Wivory {xand the fixtures are made from {bwood{x.  This is the 
+original bar that sat in {RLoomis' private {RAerie {xback on {cStarside{x.
+It has {Yyellowed {xwith age giving it a fine {bwooden {xappearance that 
+has a lot of character to it.
+~
+0 D 0
+C vamphyri~
+D1
+East is {HThe Third Level{x.~
+~
+0 -1 24211
+E
+floor~
+{W_____________________________________________________________{x
+{W\            /{R\    //\    /\  /\  |--||  ||--||{W\            /{x
+{W \          /  {R\  //--\  /  \/  \ |__||--||__||{W \          /{x
+{W  \        /    {R\//    \/        \|   |  || \ |{W  \        /{x
+{W   \      /                                           \      /{x
+{W    \    /                                             \    /{x
+{W     \  / /\                                         /\ \  /{x
+{W      \/ /  \                                       /  \ \/{x
+{W        /    \                                     /    \{x
+{W       /      \ {R /\  /\  /\  /\  /\  /\  /\{W   /      \{x
+{W      /________\{R/__\/__\/__\/__\/__\/__\/__\{W /________\{x
+~
+S
+
+#24216
+{HFourth Level{x~
+As you go higher in the Aerie, doesn't it seem quieter up here?  So quiet
+that you can hear the heartbeats of newly trained slaves.  This level is
+more dedicated to assisting you to become more comfortable with your
+abilities and help you gain those you do not have.  There is a fountain
+here for you to refresh yourself in between training sessions.
+~
+11 CD 0
+C vamphyri~
+D0
+North are {NThe {BTraining {GFields {Yof {PGlory{x.~
+~
+0 -1 24217
+D1
+East are {bThe Warriors and Flyers Training Pens{x.~
+~
+0 -1 24218
+D2
+South are {WThe Kitchens{x.~
+~
+0 -1 24219
+D3
+West is {WThe {CM{Ry{Cs{Rt{Ci{Rc {WSmithy{x.~
+~
+0 -1 24220
+D4
+Up is {HThe Fifth Level{x.~
+~
+0 -1 24221
+D5
+Down is the {HThe Third Level{x.~
+~
+0 -1 24211
+S
+
+#24217
+{NThe {BTraining {GFields {Yof {PGlory{x~
+Come in and have a seat.  Here is where you will gain many abilities and
+instructed in how to use them.  This trainer whom you may recognize hails
+from a world different then ours and can show you things no one else can.
+He does not get out much anymore and would probably like to hear some news
+of what goes on in Thera.
+~
+11 D 0
+C vamphyri~
+D2
+South is {HThe Fourth Level{x.~
+~
+0 -1 24216
+S
+
+#24218
+{bThe Warriors and Flyers Training Pens{x~
+Here is where the {bWarriors {xand {bFlyers {xare trained to battle.  As 
+you walk in, many of them look you up and down.  They seem to be analyzing 
+you for weaknesses but they behave very well around you.  They are very 
+well fed and taken care of in general.  Of course, get them around 
+non-vampirical entities and all they want to do is KILL!  They seem excited 
+to see you! Their partially human faces show only contentment and joy...did 
+you bring them a small child or some other type of treat for them?
+~
+0 CD 0
+C vamphyri~
+D3
+West is {HThe Fourth Level{x.~
+~
+0 -1 24216
+S
+
+#24219
+{WKitchens{x~
+Hungry?  Here is where all the food and drinks are created for your
+enjoyment. Upon their completion here they are taken throughout the Aerie
+and delivered to the specific rooms where they belong.  WHOOPS!  You jump
+out of the way as a kitchen assistant with a basket load of kittens runs
+past you and out the door to deliver them.  The chef looks at you nervously
+and wipes his hands on his apron.  You have to admit...these people move
+as if their lives depended on it...Ain't conditioning great?
+~
+0 CD 0
+C vamphyri~
+D0
+North is {HThe Fourth Level{x.~
+~
+0 -1 24216
+S
+
+#24220
+The {CM{Ry{Cs{Rt{Ci{Rc{x Smithy~
+  The heat in this room is well-nigh unbearable.  Created by the
+combined {Ye{Rn{Ye{Rr{Yg{Ri{Ye{Rs{x of the clan, it exists in many spheres of 
+the multiverse, like the {RVamphyri {CGate{x.  On the walls are legendary 
+weapons of members long gone. TaHoe's {WT{Ph{Yu{Gn{Cd{Be{Vr{Ws{Pt{Gr{Ci{Bk{Ve{Yr{x, Loomis' {BI{Cc{Be{CS{Bw{Co{Br{Cd{x, 
+Elrac's {RE{Pr{Ra{Pd{Ri{Pc{Ra{Pt{Ro{Pr{x, and Sharra's {RR{Ya{Gi{Cn{Bb{Vo{cw{x are among the newest additions. 
+In a {Rr{Pu{Rd{Pd{Ry{x {Pblood red pentagram{x is the anvil of {RClan Vamphyri{x with figures 
+of {cobsidian{x and {Wdiamonds{x supporting the great forge. 
+One is a {Rd{ce{Rm{co{Rn{x, sneering in contempt of your paltry skills.  
+The other is an {Ya{Wng{Y{We{Yl{x, smiling in support of your endeavor.
+~
+0 CD 0
+C vamphyri~
+D1
+East is {HThe Fourth Level{x.~
+~
+0 -1 24216
+S
+
+#24221
+{HFifth Level{x~
+This level contains the last of the utilitarian beasts and is geared
+towards rest and relaxation.  If you are not a Lord or Lady, you may
+not go into the lounge to the west.
+~
+0 CD 0
+C vamphyri~
+D0
+North are {The Tombs{x.~
+~
+0 -1 24222
+D1
+East are {bThe Siphoneers East{x.~
+~
+0 -1 24223
+D2
+South are {RThe Blood Bath{x.~
+~
+0 -1 24225
+D3
+West are {The Siphoneers West{x.~
+~
+0 -1 24224
+D4
+Up is {HThe Sixth Level{x.~
+~
+0 -1 24226
+D5
+Down is the {HThe Fourth Level{x.~
+~
+0 -1 24216
+S
+
+#24222
+{cThe Tombs{x~
+Here you may rest in comfort knowing that your brother's and sisters of the
+night are watching your back as you watch theirs.  The light comes from a
+small {Ycandle {xlit in the corner.  There is a gentle dirge playing from the
+hidden Bose Soundsystem in the background.  The music gently washes over
+you, lulling you into a state of relaxation.  You go over the days events...
+and slowly...you fall...asleep.
+~
+0 CD 0
+C vamphyri~
+D2
+South is {HThe Fifth Level{x.~
+~
+0 -1 24221
+S
+
+#24223
+{bSiphoneers East{x~
+As with the pens across the hall, this room also houses {bSiphoneers{x. As
+you turn to leave you notice a peculiar bulge moving through one of the
+pipes towards a {bsiphoneer{x.  You listen carefully and your {RVamphyri
+{xears pick up a barely audible squealing.  You peer closer at the bulge
+and through the skin of the pipe you can just make out the skimmer you
+saw moving closely to the pipes down in the lower levels.  You begin
+to feel a little hungry as you watch the {bsiphoneer{x eat.
+~
+0 CD 0
+C vamphyri~
+D3
+West is {HThe Fifth Level{x.~
+~
+0 -1 24221
+S
+
+#24224
+{bSiphoneers West{x~
+Here the {bsiphoneers {xlay, huge bloated bodies, these beasts draw the water
+up through large pipe like arteries and veins from the artesian wells.
+They in turn disburse it throughout the Aerie to all fountains, bars, rooms
+and kitchens so equipped with plumbing facilities.
+~
+0 CD 0
+C vamphyri~
+D1
+East is {HThe Fifth Level{x.~
+~
+0 -1 24221
+S
+
+#24225
+{cThe {PBloodBath{x~
+This is the {PBloodBath{x.  Here many Lords and Ladies have brought a 
+multitude of slaves to their deaths.  The walls are made of four different 
+types of precious metals.  Each wall has the same scene depicted on it but 
+each wall focuses on a different aspect of that scene.  The scene is taken
+from The Dweller's garden back on {cStarside{x.  One scene is the {RVamphyri{x,
+another is the beasts, then the Living, and this one the Dead.  A very 
+interesting battle at that!  The floor is covered in what at first appear 
+to be tiles but upon closer inspection are revealed to be dragonscales.  
+These form a pattern that is also quite intriguing to the eye.  The bar is 
+composed of solid {Wplatinum {xwith {Ygold {xfixtures and has a fortune in 
+precious stones set into it.  The glasses on it are the finest crystal and 
+the liquor is garuanteed to knock you on your a$$!
+~
+0 D 0
+C vamphyri~
+D0
+North is {HThe Fifth Level{x.~
+~
+0 -1 24221
+E
+floor~
+{W_____________________________________________________________{x
+{W\            /{R\    //\    /\  /\  |--||  ||--||{W\            /{x
+{W \          /  {R\  //--\  /  \/  \ |__||--||__||{W \          /{x
+{W  \        /    {R\//    \/        \|   |  || \ |{W  \        /{x
+{W   \      /                                           \      /{x
+{W    \    /                                             \    /{x
+{W     \  / /\                                         /\ \  /{x
+{W      \/ /  \                                       /  \ \/{x
+{W        /    \                                     /    \{x
+{W       /      \ {R /\  /\  /\  /\  /\  /\  /\{W   /      \{x
+{W      /________\{R/__\/__\/__\/__\/__\/__\/__\{W /________\{x
+~
+S
+
+#24226
+{HSixth Level{x~
+The stairs continue up and down.
+~
+0 CD 0
+C vamphyri~
+D4
+Up is {HThe Seventh Level{x.~
+~
+0 -1 24227
+D5
+Down is the {HThe Fifth Level{x.
+~
+~
+0 -1 24221
+D2
+South is the {PVamphyri{x Trophy Room.
+~
+~
+0 -1 24241
+S
+
+#24227
+{HSeventh Level{x~
+The stairs continue up and down.
+~
+0 CD 0
+C vamphyri~
+D4
+Up is {HThe Eighth Level.{x
+~
+~
+0 -1 24228
+D5
+Down is the {HThe Sixth Level.{x
+~
+~
+0 -1 24226
+S
+
+#24228
+{HEighth Level{x~
+The stairs continue up and down.
+~
+0 CD 0
+C vamphyri~
+D4
+Up is {HThe Ninth Level{x.~
+~
+0 -1 24229
+D5
+Down is the {HThe Seventh Level{x.~
+~
+0 -1 24227
+S
+
+#24229
+{HNinth Level{x~
+The stairs continue up and down.
+~
+0 CD 0
+C vamphyri~
+D4
+Up is {HThe Tenth Level{x.~
+~
+0 -1 24230
+D5
+Down is the {HThe Eighth Level{x.~
+~
+0 -1 24228
+S
+
+#24230
+{HTenth Level{x~
+There are two slaves standing here awaiting their masters.
+Visit the beautiful Vamphyrian gardens.
+~
+0 CD 0
+C vamphyri~
+D4
+Up is {HThe Eleventh Level{x.~
+~
+0 -1 24238
+D5
+Down is the {HThe Ninth Level{x.~
+~
+0 -1 24229
+S
+
+#24233
+The {RVamphyrian {cClan {GGardens{x~
+This room exits out into four separate gardens from many different worlds
+that The Vamphyri have come across.  The {CGate {xthat shields us from the 
+sun warps time just enough to give the outer gardens a pleasant dusk to 
+them. You are free to walk about outside now without having to worry about 
+the sun's effects on you and yours.  You should visit each one for the full
+appreciation of the care they are given and require.
+~
+0 CD 3
+C vamphyri~
+D0
+North are The {WArctic {BGardens{x.~
+~
+0 -1 24234
+D1
+East are The {YSouthern {GGardens{x.~
+~
+0 -1 24235
+D2
+South are The {VOrbital {WGardens{x.~
+~
+0 -1 24236
+D3
+West are The {HV{Ge{Hn{Gu{Hs{Gi{Ha{Gn {BGardens{x.~
+~
+0 -1 24237
+D5
+Down is the {HThe Eleventh Level{x~
+~
+0 -1 24238
+S
+
+#24234
+The {WArctic {GGardens{x~
+Here there are many numerous plants from a cold world that Loomis wanted to
+stay on.  He was talked out of it by his fellow brothers and sisters but
+still feels a longing for this place.  He takes excellent care of it and
+treats the plants in here with the greatest of respect and tenderness. 
+There is {PF{Ri{Pr{Re{Pw{Re{Pe{Rd{x, {TLovelocks{x, {GC{Hl{Go{Hv{Ge{Hr{x, and {HPine {xin this plot. Over here
+you see {WArctic {Rroses{x, {GSweet Thorns{x, {NBlueberries{x, and {MWild Blackberries{x.  The plot
+over there contains {HCedar trees{x, {WBirches{x, {YAspens{x, and {GFirs{x.  Over to the right you
+see many different {WTundra {NW{Ri{Gl{Md{Yf{Pl{Bo{Ww{Ve{br{Cs{x, {YHay, {PApple trees{x, and {HFerns{x.
+~
+11 BKN 2
+C vamphyri~
+D2
+South is The {RVamphyrian {cClan {GGardens{x~
+~
+0 -1 24233
+S
+
+#24235
+The {YSouthern {GGardens{x~
+Here you can see a taste of the world {TTaHoe {xwanted to remain in.  To be
+truthful, many wanted to stay there.  But through the technology utilized
+by the {RVamphyri{x, it quickly becomes apparent that they know what they are
+doing when they put their minds to it.  The sound of crickets are everywhere
+and the evening is brilliantly lit by {Yfireflies{x. A warm breeze blows
+through this garden bringing with it many of the scents of flowers found 
+here. You can smell {YHoneysuckle{x, {VJasmin{x, {ROld Fashioned Roses{x, and
+{GMimosa{x. There are {RAzaleas{x of many colors to be found alongside 
+{PRhododendrons{x, {WBaby's Breath{x, {bH{Wo{br{Ws{be{Ws{bT{Wa{bi{wl{x, {GC{Hr{Ge{He{Gp{Hi{Gn{Hg {GI{Hv{Gy {xand {HKudzu{x
+...fortunately they have found a way to keep that tame! In another plot
+there are {WM{Ya{Wg{Yn{Wo{Yl{Wi{Ya{Ws, {RD{Po{Wg{Rw{Po{Wo{Rd{Ps{x,{WPeach trees{x, {WBradford Pears{x,
+{RJapanese Maples{x, and {GS{Wp{Gi{Wd{Ge{Wr {GG{Wr{Ga{Ws{Gs{x. Looking to your right
+you see {GElms{x, {PT{Wu{Yl{Bi{Rp{Ns{x, {BC{Vr{Bo{Mc{Bu{Vs{Be{Ms{x, {Psweet potatoe{x, and {bPeanut {Gbushes{x.
+~
+0 BKN 2
+C vamphyri~
+D3
+West is The {RVamphyrian {cClan {GGardens{x~
+~
+0 -1 24233
+S
+
+#24236
+The {VOrbital {WGardens{x~
+This is an {Codd {xplace filled with {Hmany {xplants from a {Tworld {xthat
+had so overgrown with {Ytechnology {xand artificial creations {Vthat {xthe
+plants were {cforced {xto adapt to their {Meverchanging {xworld which was
+busy {Ntrying {xto choke them out of {Wexistence{x. Not much is known
+{Wabout {Xthese plants and {Pflowers{x.  They are not {Cpoisonous {xthat we
+can determine {Rso {xwe have collected {Fthem {xand placed {Gthem {xhere in
+the hope that {Rthey {xwill thrive in their new surroundings {buncluttered
+{xby {Mthe race to kill {xeach other off {Rfor {xthe {Gsoil {xand nutrients.
+{bThey {xseem {Yto {xbe doing well {Rthough{x only time can tell on matters
+{Bsuch {xas {Wthese{x.
+~
+0 BKN 2
+C vamphyri~
+D0
+North is The {RVamphyrian {cClan {GGardens{x~
+~
+0 -1 24233
+S
+
+#24237
+The {HV{Ge{Hn{Gu{Hs{Gi{Ha{Gn {HG{Ga{Hr{Gd{He{Gn{Hs{x~
+This garden is composed of almost nothing but greens.  {HOnce again{x...
+{Hvery little is {Gknown about {xthese gardens.  {PW{Xe hope to have a
+member give the plants names {None {xday.  But we will have to wait a little
+{clonger {xfor that person.  This garden like the {VOrbital {WGarden {xis
+kept as close to {Gthe environment as possible {Hthat the plants were
+{xfound in.  The {Honly thing different {Ghere {xis like the {VOrbital
+{WGarden{x, these plants {Ghave all the food they {xcan {Beat {xand many
+that will care for them.  {HThere {xis no lack of {Gdesire {xhere for these
+plants.  {NThey {xseem to realize {Cthis {xand seem to be {Wdoing {xquite 
+{Twell{x.
+~
+0 BKN 2
+C vamphyri~
+D1
+East is The {RVamphyrian {GGardens{x~
+~
+0 -1 24233
+S
+
+#24238
+{HEleventh level{x~
+Welcome to the eleventh level of the tower.  To the east is the clan sage,
+he can help you identify your items.  To the west you will find the clan 
+vault, and to the north you will find the magic shop filled with helpful items 
+to aid you in battle.
+~
+0 BKN 0
+C vamphyri~
+D0
+North is the Vamphyri Bloodmoon Magic Shop.
+~
+~
+0 -1 24242
+D1
+East is Galileo's Observatory.
+~
+~
+0 -1 24240
+D3
+West is the Vamphyri Tombs.
+~
+~
+0 -1 24239
+D4
+Up is the {RVamphyrian {cClan {GGardens{x.
+~
+~
+0 -1 24233
+D5
+Down is the {HTenth Level{x.
+~
+~
+0 -1 24230
+S
+
+#24239
+Vamphyri Tombs~
+As you enter the room, the smell of fresh dirt and death assails your senses.
+Looking around the room you see several coffins filled with grave dirt and
+many valuables.  Across the room you see a man in a business suit sitting at
+a desk awaiting your needs with several parchments and contracts stacked on
+the desk.
+~
+0 BEKNU 0
+C vamphyri~
+D1
+East is the {HEleventh Level{x.
+~
+~
+0 -1 24238
+S
+
+#24240
+Galileo's Observatory~
+As you enter the room you see a huge base of a telescope that stretches out
+of the tower pointing towards the heavens. An elderly gentleman looks away
+from the eye piece of the telescope to see who has intruded upon his research.
+~
+0 BKN 0
+C vamphyri~
+D3
+West is the {HEleventh Level{x.
+~
+~
+0 -1 24238
+S
+
+#24241
+{PV{Ra{Pm{Rp{Ph{Ry{Pr{Ri {cT{gr{co{gp{ch{gy {cRoom{x~
+ The {cDarkness{x overwhelms you as you enter here. Soothing to only the
+Vamphyri, this room reeks of {cDeath{x to the other clans. This is the 
+clan trophy room and it is also the last room anyone sees before
+their {Rhearts{x are {Cripped{x beating from their chests and they are fed 
+to the {cFlyers{x. You see several {ct{gr{co{gp{ch{gi{ce{gs{x on a shelf, the only strange
+thing about it is they are actual {bcorpses{x mummified and reduced to
+only several inches high. It's then that you thank the {cDark {RMasters{x
+you were born {PVamphyri{x.
+~
+0 DK 0
+C vamphyri~
+D0
+North is the Sixth Level.~
+~
+0 -1 24226
+E 
+trophies corpses shelf shelves trophy~
+The First Clan War:
+July 12, 1998 at 19:34 The Vamphyri declared war against the DizzyKnights.
+July 15, 1998 at 19:04 The Vamphyri defeated the DizzyKnights.
+
+The Second Clan War:
+August 5, 1998 at 11:56 The Vamphyri declared war against the Highlanders.
+August 6, 1998 at 00:25 The Vamphyri defeated the Highlanders.
+~
+S
+
+#24242
+Vamphyri Bloodmoon Magic Shop~
+Intricate talismans hang from the walls of this small shop and the smell
+of blood and fresh herbs circle the room.  There are stacks of parchments 
+and vials in the corner of the room as wands and scrolls of all sorts lay 
+throught the shop.  As you walk in an aged wizard looks up at you ready to 
+assist you.
+~
+0 BKN 0
+C vamphyri~
+D2
+South is the {HEleventh Level{x.
+~
+~
+0 -1 24238
+S
+
+#24245
+{RT{PH{RE {PA{RS{PY{RL{PU{RM{x~
+You have entered a house that has been built inside out! The interior
+walls are paneled with weatherproof siding and on the exterior walls there
+are pictures, wallpaper and decorations. It gives you the feeling you are
+outside when you are inside, and that you are inside when you are ouside.
+The builder is standing here and he explains that since the world has gone
+mad, the asylum was built to keep all the lunatics safe within the
+asylum. You are safe outside the asylum as long as you stay here. The
+moment you leave, you are susceptable to meeting one of the mad inmates
+that wander around inside the asylum.
+~
+0 ADK 0
+C vampire~
+S
+
+#0
+
+#RESETS
+
+M 0 24200 1 24201 1       *load warrior
+M 0 24201 1 24201 1       *load warrior
+M 0 24202 1 24213 1       *load flyer
+M 0 24203 1 24213 1       *load flyer
+
+M 0 24204 1 24205 1       *load nosferatu
+G 0 24221 100             *load puppies on nosferatu
+G 0 24222 100             *load kitty on nosferatu
+G 0 24223 100             *load ticks on nosferatu
+G 0 24224 100             *load leeches on nosferatu
+G 0 24225 100             *load orphan on nosferatu
+
+M 0 24206 1 24207 1       *load wilma deering
+G 0 24200 100             * level 20 ring
+G 0 24201 100             * level 35 wrist
+G 0 24202 100             * level 35 head
+G 0 24203 100             * level 40 floater
+G 0 24204 100             * level 50 torso
+G 0 24205 100             * level 55 boots
+G 0 24206 100             * level 60 body
+G 0 24207 100             * level 70 neck
+G 0 24208 100             * level 80 legs
+G 0 24209 100             * level 90 arms
+
+M 0 24207 1 24212 1       *load cam
+
+M 0 24205 1 24215 1       *load julie mccoy
+G 0 24215 200             *load demon on julie mccoy
+G 0 24216 200             *load shame on julie mccoy
+G 0 24217 200             *load mary on julie mccoy
+G 0 24218 200             *load bloodhound on julie mccoy
+G 0 24219 200             *load chaser on julie mccoy
+G 0 24220 200             *load hellraiser on julie mccoy
+
+M 0 24208 1 24217 1       *load albert einstein
+M 0 24209 1 24239 1       *load adam smith (changer)
+O 0 24233 1 24239         *coffin (fake locker)
+M 0 24210 1 24240 1       *load galileo (sage)
+
+M 0 24211 1 24242 1       *Mygas (item shopkeeper)
+G 0 24237 200             *goblet
+G 0 24234 200             *parchment
+G 0 24235 200             *vial
+G 0 24236 200             *coffin
+G 0 24271 200             *taglar's everfull pouchbelt
+G 0 24238 200             *ore
+
+O 0 24226 1  24202        *load hematoma
+O 0 24227 5  24216        *load hemophiliac
+O 0 24229 1  24214        *load throne
+O 0 24230 1  24214        *load throne
+O 0 24231 1  24214        *load seat
+O 0 24274 1  24220        *load anvil
+O 0 24232 1  24222        *load mausoleum
+
+O 0 24245 1 24245         *Load birdbath
+O 0 24246 1 24245         *Load chair
+
+O 0 24319 1 24241         *dizzy knights trophy in Trophy Room
+O 0 24320 1 24241         *highlander trophy in Trophy Room
+
+S
+
+#SHOPS
+
+24204 0 0 0 0 0    125 50 0 23   *Nosferatu 
+24205 0 0 0 0 0    125 50 0 23   *Julie McCoy
+24206 1 5 9 11 0   125 50 0 23   *Wilma Deering
+24211 0 0 0 0 0    100 50 0 23   *Mygas
+
+0
+
+#SPECIALS
+
+M 24210 spec_sage                *galileo
+
+S
+
+#$
+

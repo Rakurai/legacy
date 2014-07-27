@@ -1,0 +1,1514 @@
+#PLAYER
+Name Rakurai~
+Id   989856238
+LogO 1406430105
+Vers 15
+Mexp 2
+Pass tierney~
+Desc You can't be sure that you ever saw Rakurai arrive, but he's here now, casually
+leaning against a wall that you're sure was unoccupied only a few moments ago.
+You wouldn't have noticed him in a crowd, his size and build are average, being
+only a little taller than five and a half feet, with a lithe frame covered by
+loose black clothing.  He might be seventeen years old, but his dark, penetrating
+eyes convey experience beyond his age.  His hair is just long enough to reach his
+shoulders, and is tied in a single ponytail.  It looks black at first glance, but
+you catch a faint burgundy hue when the light is behind him.  A katana... no, two
+katanas are sheathed across his back, positioned to be drawn with one hand should
+the need arise.  You notice he is looking past you... he tenses, and you look
+back to see what has his attention.  Seeing nothing out of the ordinary, you turn
+back, only to find the wall once again deserted.
+
+~
+Prom {W<{C%h{W/{C%H{Thp {G%m{W/{G%M{Hma {B%v{W/{B%V{Nmv {Y%g{W/{W%s {H({C%q{W/{G%j{H){W>{x ~
+Race seraph~
+Clan kindred~
+Cla  2
+Levl 91
+Plyd 737774
+Back 516825
+Note 1019370366 1018570350 1018570350 1018580998 1018570350 1019508481 1018580154
+Scro 100
+Room 4590
+HMS  2590 2051 1118
+Gold 2639
+Silv 16
+Silver_in_bank 106000
+Gold_in_bank 8000
+Exp  159259
+PCkills  3
+PCkilled 8
+Akills   16
+Akilled  9
+PKRank   1
+Pos  8
+Alig 1000
+Spou Ayelri~
+FImm L
+FRes NS
+FVul MN
+Plr  ACEFIMRd
+Video D
+Act  CDEFGHIJLQSTc
+AfBy TUVZ
+Comm MNOZ
+Revk 0
+Cgrp AIKLMO
+Cnsr 0
+Block_Remote 0
+Prac 74
+Trai 70
+Wimp 0
+Familiar 0
+Atrib 21 18 20 19 20 21
+FlagThief  68
+SkillPnts  134
+RolePnts   1
+QuestPnts  8
+QpDonated  1
+GlDonated  4000
+Afk {B[{CSat Jul 26 18:47:57 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  irleyA {M-{b-{T- {N({cd{gr{Wd{gn{cK{N) {cT{gN{bL{B- {W[{CnaR {PloW {B88   {W]{x~
+Immn ~
+Pnts 40
+Rank {HL{gE{cF~
+Aura {VA{My{ge{Bl{Vr{Mi{V'{gs{x~
+TSex 1
+LLev 197
+Email jasona@overland.net~
+Deit his favorite goddess {WL{Ci{Br{Ci{Te{Wl{x~
+Stus {GS{Hh{ci{Hn{Go{Hb{ci {HT{Gh{Hi{ce{Hf{x~
+RmCt 5
+ExSk 0
+Raff 5
+Lsit static-host-24-31-12-106.nctv.com~
+Ltim Sat Jul 26 20:01:15 2014
+~
+LSav Sat Jul 26 20:01:45 2014
+~
+HMSP 1515 566 1088
+THMS 0 0 0
+Cnd  0 0 0 0
+Alias a scan~
+Alias dhide c 'detect hidden'~
+Alias dinvis c 'detect invis'~
+Alias dis c 'dispel magic'~
+Alias pgood c 'protection good'~
+Alias pevil c 'protection evil'~
+Alias nn open north~
+Alias ee open east~
+Alias ss open south~
+Alias ww open west~
+Alias uu open up~
+Alias dd open down~
+Alias lirry drop gate|enter gate|get gate~
+Alias divheal c 'divine heal'~
+Alias mist drop mist|enter mist|get mist~
+Alias un c 'undo spell'~
+Alias li c 'lightning breath'~
+Alias goto c gate~
+Alias lo c 'locate obj'~
+Sk 81 1 'acid blast'
+Sk 80 1 'acid breath'
+Sk 84 1 'acid rain'
+Sk 79 1 'age'
+Sk 75 1 'animate skeleton'
+Sk 75 1 'animate wraith'
+Sk 75 1 'animate gargoyle'
+Sk 75 1 'animate zombie'
+Sk 90 1 'armor'
+Sk 91 1 'bless'
+Sk 80 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 76 1 'blood blade'
+Sk 81 1 'blood moon'
+Sk 76 1 'burning hands'
+Sk 75 1 'call lightning'
+Sk 75 1 'calm'
+Sk 77 1 'cancellation'
+Sk 75 1 'cause light'
+Sk 75 1 'cause serious'
+Sk 75 1 'cause critical'
+Sk 94 1 'chain lightning'
+Sk 78 1 'change sex'
+Sk 75 1 'channel'
+Sk 75 1 'charm person'
+Sk 75 1 'chill touch'
+Sk 76 1 'colour spray'
+Sk 81 1 'continual light'
+Sk 75 1 'control weather'
+Sk 80 1 'create food'
+Sk 80 1 'create parchment'
+Sk 75 1 'create rose'
+Sk 75 1 'create sign'
+Sk 75 1 'create spring'
+Sk 77 1 'create vial'
+Sk 75 1 'create water'
+Sk 75 1 'cure blindness'
+Sk 84 1 'cure critical'
+Sk 75 1 'cure disease'
+Sk 77 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 75 1 'cure serious'
+Sk 87 1 'curse'
+Sk 80 1 'dazzling light'
+Sk 75 1 'demonfire'
+Sk 76 1 'detect evil'
+Sk 76 1 'detect good'
+Sk 80 1 'detect hidden'
+Sk 79 1 'detect invis'
+Sk 75 1 'detect magic'
+Sk 76 1 'detect poison'
+Sk 75 1 'dispel evil'
+Sk 75 1 'dispel good'
+Sk 95 1 'dispel magic'
+Sk 77 1 'divine healing'
+Sk 75 1 'divine regeneration'
+Sk 75 1 'earthquake'
+Sk 75 1 'encampment'
+Sk 81 1 'enchant armor'
+Sk 85 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 79 1 'faerie fire'
+Sk 78 1 'faerie fog'
+Sk 75 1 'fear'
+Sk 79 1 'fire breath'
+Sk 75 1 'fireball'
+Sk 76 1 'fireproof'
+Sk 100 1 'firestorm'
+Sk 75 1 'flame blade'
+Sk 85 1 'flameshield'
+Sk 75 1 'flamestrike'
+Sk 87 1 'fly'
+Sk 75 1 'floating disc'
+Sk 83 1 'frenzy'
+Sk 75 1 'frost blade'
+Sk 82 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 100 1 'gate'
+Sk 84 1 'giant strength'
+Sk 75 1 'harm'
+Sk 93 1 'haste'
+Sk 76 1 'heal'
+Sk 75 1 'heat metal'
+Sk 75 1 'holy word'
+Sk 75 1 'identify'
+Sk 75 1 'infravision'
+Sk 81 1 'invisibility'
+Sk 75 1 'know alignment'
+Sk 78 1 'light of truth'
+Sk 75 1 'lightning bolt'
+Sk 81 1 'lightning breath'
+Sk 81 1 'locate life'
+Sk 81 1 'locate object'
+Sk 75 1 'magic missile'
+Sk 75 1 'mass healing'
+Sk 75 1 'mass invis'
+Sk 75 1 'nexus'
+Sk 90 1 'pass door'
+Sk 79 1 'plague'
+Sk 81 1 'poison'
+Sk 75 1 'power word'
+Sk 75 1 'polymorph'
+Sk 75 1 'portal'
+Sk 75 1 'protect container'
+Sk 92 1 'protection evil'
+Sk 93 1 'protection good'
+Sk 75 1 'ray of truth'
+Sk 75 1 'recharge'
+Sk 82 1 'refresh'
+Sk 75 1 'resurrect'
+Sk 79 1 'regeneration'
+Sk 81 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 96 1 'sanctuary'
+Sk 1 1 'scry'
+Sk 85 1 'shield'
+Sk 75 1 'shock blade'
+Sk 75 1 'shocking grasp'
+Sk 75 1 'shrink'
+Sk 78 1 'sleep'
+Sk 99 1 'slow'
+Sk 75 1 'smokescreen'
+Sk 1 1 'starve'
+Sk 78 1 'steel mist'
+Sk 83 1 'stone skin'
+Sk 81 1 'summon'
+Sk 75 1 'summon object'
+Sk 1 1 'sunray'
+Sk 89 1 'talon'
+Sk 75 1 'teleport'
+Sk 86 1 'teleport object'
+Sk 95 1 'undo spell'
+Sk 75 1 'ventriloquate'
+Sk 76 1 'vision'
+Sk 80 1 'weaken'
+Sk 85 1 'word of recall'
+Sk 82 1 'wrath'
+Sk 100 1 'axe'
+Sk 100 1 'dagger'
+Sk 75 1 'flail'
+Sk 100 1 'mace'
+Sk 78 1 'polearm'
+Sk 75 1 'spear'
+Sk 100 1 'sword'
+Sk 75 1 'whip'
+Sk 100 1 'shield block'
+Sk 75 1 'brew'
+Sk 77 1 'scribe'
+Sk 94 1 'backstab'
+Sk 75 1 'bash'
+Sk 75 1 'berserk'
+Sk 100 1 'circle'
+Sk 75 1 'dirt kicking'
+Sk 75 1 'disarm'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 78 1 'envenom'
+Sk 99 1 'hand to hand'
+Sk 79 1 'kick'
+Sk 100 1 'parry'
+Sk 77 1 'rescue'
+Sk 82 1 'trip'
+Sk 100 1 'second attack'
+Sk 100 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 75 1 'hunt'
+Sk 76 1 'swimming'
+Sk 100 1 'fast healing'
+Sk 75 1 'firebuilding'
+Sk 75 1 'forge'
+Sk 80 1 'repair'
+Sk 80 1 'rotate'
+Sk 100 1 'languages'
+Sk 92 1 'haggle'
+Sk 76 1 'hide'
+Sk 100 1 'lore'
+Sk 100 1 'meditation'
+Sk 85 1 'peek'
+Sk 75 1 'pick lock'
+Sk 100 1 'scan'
+Sk 79 1 'sneak'
+Sk 80 1 'steal'
+Sk 76 1 'sing'
+Sk 78 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 75 1 'recall'
+Sk 77 1 'sheen'
+Sk 83 1 'barrier'
+Sk 62 1 'midnight'
+Sk 80 1 'shadow form'
+Sk 65 1 'hone'
+Sk 1 1 'force shield'
+Sk 80 1 'align'
+Sk 100 1 'standfast'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+Gr 'attack'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'harmful'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'divine regeneration'   0  83  15   0   0   33554432 4
+End
+
+#O
+Vnum 10103
+Enchanted
+Nest 0
+ExtF 262211
+Cond 98
+Wear 18
+Lev  84
+Cost 22000
+Affc 'reserved'   1  81  -1   3   2          0 1
+Affc 'reserved'   1  81  -1  -3  21          0 1
+Affc 'reserved'   1  81  -1  60  12          0 1
+Affc 'enchant weapon'   1 100  -1  13  19          0 1
+Affc 'enchant weapon'   1 100  -1  11  18          0 1
+End
+
+#O
+Vnum 6
+Nest 0
+ShD  {gan {Ni{Bnt{Ni{Bm{Na{Bte {Wc{Va{Mre{Vs{Ws s{Yu{Wrr{You{Wnd{Ye{Wd{g by {Cso{Tf{Ct {Wk{Vi{Wss{Pe{Ws{x~
+Desc {gAn {Ni{Bnt{Ni{Bm{Na{Bte {Wc{Va{Mre{Vs{Ws s{Yu{Wrr{You{Wnd{Ye{Wd{g by {Cso{Tf{Ct {Wk{Vi{Wss{Pe{Ws{x.~
+ExtF 1048577
+Cond 94
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 28008
+Nest 0
+ExtF 17301573
+Cond 96
+Wear -1
+Cost 47500
+End
+
+#O
+Vnum 63
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 61
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 60
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 41
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 40
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 39
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 38
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 37
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 36
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 35
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 34
+Nest 1
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 1201
+Nest 1
+Name rice~
+ShD  {Wa bag of {gr{Wi{gc{We{x~
+Desc {Wa bag of {gr{Wi{gc{We{x~
+Wear -1
+Cost 3
+ExDe rice~ {Wa bag of {gr{Wi{gc{We{x
+~
+End
+
+#O
+Vnum 55
+Nest 1
+ShD  {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x~
+Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
+Wear -1
+Cost 0
+ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x~
+Desc {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
+Wear -1
+Cost 0
+ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wedding~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+End
+
+#O
+Vnum 55
+Nest 1
+ShD  {WA {Yb{Po{Yttl{Pe {Yo{Pf {Yw{Pi{Yne {Wto {Gce{Ble{Gbra{Bt{Ge {Wthe {Yunion {Wof {RTemperant {Wand her {PNakedSelf{x~
+Desc {xA {Yb{Po{Yttl{Pe {Yo{Pf {Yw{Pi{Yne {xfrom {RTemperant's {Wwedding {xto her {PNakedSelf{x~
+Wear -1
+Cost 0
+Val  64 54 21 0 0
+End
+
+#O
+Vnum 55
+Nest 1
+ShD  {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x~
+Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
+Wear -1
+Cost 0
+Val  64 39 21 0 0
+ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x~
+Desc {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
+Wear -1
+Cost 0
+ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wedding~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+End
+
+#O
+Vnum 4607
+Nest 1
+Name wedding cake slice~
+ShD  {gA {bs{Yli{bc{Ye {gof {Yj{bo{Yy {gfrom the {Wu{gn{Wi{go{Wn {gof {HT{Geo{Htw{Ga{Hwk{Gi{g and {RG{Pes{Rt{Pan{Ri{Ps{x~
+Desc {gA {bs{Yli{bc{Ye {gof {Yj{bo{Yy {gfrom the {Wu{gn{Wi{go{Wn {gof {HT{Geo{Htw{Ga{Hwk{Gi{g and {RG{Pes{Rt{Pan{Ri{Ps {glies here.~
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 55
+Nest 1
+ShD  {gA {Yb{bo{Ytt{bl{Ye {bo{Yf {bw{Yi{bne {gto {Wc{ge{Wl{ge{Wb{gr{Wa{gt{We {gthe {Wu{gn{Wi{go{Wn {gof {HT{Geo{Htw{Ga{Hwk{Gi{g and {RG{Pes{Rt{Pan{Ri{Ps{x~
+Desc {gA {Yb{bo{Ytt{bl{Ye {bo{Yf {bw{Yi{bne {gto {Wc{ge{Wl{ge{Wb{gr{Wa{gt{We {gthe {Wu{gn{Wi{go{Wn {gof {HT{Geo{Htw{Ga{Hwk{Gi{g and {RG{Pes{Rt{Pan{Ri{Ps {glies here.{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 11709
+Nest 0
+ExtF 1
+Cond 91
+Wear 4
+Cost 10000
+End
+
+#O
+Vnum 11709
+Nest 0
+ExtF 1
+Cond 93
+Wear 3
+Cost 10000
+End
+
+#O
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 13005
+Nest 0
+Cond 93
+Wear 12
+Cost 4500
+End
+
+#O
+Vnum 10121
+Nest 0
+Name katana Kikuichimoji~
+ShD  {gth{We {gk{Ga{Wt{ga{Wna{g, K{Wi{Gk{Wui{gc{Ghi{gm{Woj{gi{x~
+Desc {gA k{Ga{Wt{ga{Wna {glies here, gl{We{ga{Wm{gin{Wg {gin the s{Yun{gl{Yi{ggh{Yt{g.{x~
+ExtF 16777283
+Wt   0
+Cond 94
+Wear 19
+Lev  91
+Cost 21
+Val  1 9 17 3 202
+Affc 'poison'   5  33  82   0   0        128 1
+ExDe owned by~ Rakurai
+~
+End
+
+#O
+Vnum 14015
+Nest 0
+ExtF 1048641
+Cond 83
+Wear 2
+Cost 15000
+End
+
+#O
+Vnum 14015
+Nest 0
+ExtF 1048641
+Cond 98
+Wear 1
+Cost 15000
+End
+
+#O
+Vnum 14043
+Nest 0
+Cond 96
+Wear 15
+Cost 12000
+End
+
+#O
+Vnum 20026
+Nest 0
+Wt   0
+Cond 96
+Wear 5
+Cost 60750
+End
+
+#O
+Vnum 14110
+Enchanted
+Nest 0
+Cond 97
+Wear 6
+Cost 100000
+Affc 'enchant weapon'   1 100  -1  15  19          0 1
+Affc 'enchant weapon'   1 100  -1  13  18          0 1
+Affc 'reserved'   1  91  -1 120  13          0 1
+Affc 'reserved'   1  91  -1 120  12          0 1
+Affc 'reserved'   1  91  -1   3  26          0 1
+Affc 'reserved'   1  91  -1   3   5          0 1
+End
+
+#O
+Vnum 10100
+Nest 0
+Cond 99
+Wear 7
+Cost 32000
+End
+
+#O
+Vnum 10101
+Nest 0
+Cond 83
+Wear 8
+Cost 30000
+End
+
+#O
+Vnum 11791
+Enchanted
+Nest 0
+ExtF 323
+Cond 94
+Wear 14
+Lev  91
+Cost 55000
+Affc 'reserved'   0  95  -1   0   0    2097152 1
+Affc 'reserved'   1  95  -1  16  19          0 1
+Affc 'reserved'   1  95  -1  12  18          0 1
+Affc 'reserved'   1  95  -1 300  13          0 1
+Affc 'reserved'   1  95  -1 300  12          0 1
+Affc 'reserved'   1  95  -1   4   2          0 1
+Affc 'reserved'   1  95  -1   4   1          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+ExDe owned by~ Rakurai
+~
+End
+
+#O
+Vnum 11793
+Enchanted
+Nest 0
+ExtF 67
+Cond 84
+Wear 0
+Lev  91
+Cost 55000
+Affc 'reserved'   1  95  -1   2   1          0 1
+Affc 'reserved'   1  95  -1   2   2          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1   2   5          0 1
+Affc 'reserved'   1  95  -1 175  12          0 1
+Affc 'reserved'   1  95  -1 175  13          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
+ExDe owned by~ Rakurai
+~
+End
+
+#O
+Vnum 11748
+Nest 0
+ExtF 5
+Cond 96
+Wear -1
+Cost 15000
+End
+
+#O
+Vnum 5409
+Nest 0
+ExtF 67
+Cond 96
+Wear -1
+Cost 0
+Val  0 10 10 20 193
+Affc 'poison'   5  30 142   0   0        128 1
+End
+
+#O
+Vnum 14111
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#O
+Vnum 10107
+Nest 0
+Wear 13
+Cost 28000
+End
+
+#O
+Vnum 13002
+Nest 0
+Wear -1
+Cost 30
+Spell 3 'bless'
+End
+
+#O
+Vnum 11792
+Nest 0
+Name katana Chirijiraden~
+ShD  {gth{We {gk{Ca{Wt{ga{Wna{g, C{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x~
+Desc {gA k{Ca{Wt{ga{Wna {glies here, gl{We{ga{Wm{gin{Wg {gin the s{Yun{gl{Yi{ggh{Yt{g.{x~
+Mat {gha{Wmm{ge{Wr{ged m{Wi{Ct{Wh{gri{Wl{x~
+ExtF 16793671
+WeaF 40961
+Wt   0
+Cond 46
+Wear 16
+Lev  91
+Cost 55000
+ExDe owned by~ Rakurai
+~
+ExDe katana~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
+{ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
+{gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
+{gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
+{x
+{x   {g"{YF{Pl{Wam{gi{Yn{gg sword, swipe away the {ce{Rv{bi{cls{g!  C{Wh{Ci{Wri{gj{Cir{ga{Wde{gn!"{x
+~
+ExDe chirijiraden~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
+{ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
+{gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
+{gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
+{x
+{x   {g"{YF{Pl{Wam{gi{Yn{gg sword, swipe away the {ce{Rv{bi{cls{g!  C{Wh{Ci{Wri{gj{Cir{ga{Wde{gn!"{x
+~
+End
+
+#O
+Vnum 8403
+Nest 0
+Wear -1
+Cost 0
+Spell 1 'curse'
+Spell 2 'blindness'
+Spell 3 'heat metal'
+End
+
+#O
+Vnum 14063
+Nest 0
+Wear -1
+Time 89
+Cost 1000
+Spell 2 'plague'
+Spell 3 'weaken'
+Spell 4 'curse'
+End
+
+#O
+Vnum 8403
+Nest 0
+Wear -1
+Cost 0
+Spell 1 'curse'
+Spell 2 'blindness'
+Spell 3 'heat metal'
+End
+
+#O
+Vnum 11901
+Nest 0
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 11901
+Nest 0
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 8403
+Nest 0
+Wear -1
+Cost 0
+Spell 1 'curse'
+Spell 2 'blindness'
+Spell 3 'heat metal'
+End
+
+#O
+Vnum 119
+Nest 0
+Name food Syveril's free spellup begins -- NOW.~
+ShD  {WS{Ny{Bv{Ce{Br{Ni{Wl{x's {Yfree {Wspellup{x begins -- {WNOW.{x~
+Desc {WS{Ny{Bv{Ce{Br{Ni{Wl{x's {Yfree {Wspellup{x begins -- {WNOW.{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  45 91 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Syveril.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food For your devotion to kin and clan, a token of of my appreciation.~
+ShD  For your devotion to kin and clan, a token of of my appreciation.~
+Desc For your devotion to kin and clan, a token of of my appreciation.{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  45 91 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Syveril.
+~
+End
+
+#O
+Vnum 108
+Nest 0
+Name rose~
+ShD  a {NS{By{Tv{Ce{Tr{Bi{Nl{N's {WMomento:  {V<({C"{V^){x{x rose~
+Desc A {NS{By{Tv{Ce{Tr{Bi{Nl{N's {WMomento:  {V<({C"{V^){x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Syveril.
+~
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger the shortsword, 'Apocalypse'~
+ShD  {gthe shortsword, '{PA{Rp{Po{Rc{Pa{Rl{Py{Rp{Ps{Re{g'{x{x~
+Desc A dagger is here, forged by Rakurai's craftsmanship.~
+Mat tin~
+ExtF 16777283
+Wt   50
+Wear -1
+Lev  60
+Cost 6
+Val  2 7 12 11 12
+Affc 'enchant weapon'   1  68  -1   5  19          0 1
+Affc 'enchant weapon'   0  68  -1   5  18          0 1
+ExDe dagger the shortsword, 'Apocalypse'~ It is a marvellous dagger, crafted from the finest tin around.
+It was created in the Month of Continuity by an experienced thief
+named Rakurai.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#O
+Vnum 3210
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger the shortsword, 'Apocalypse'~
+ShD  {gthe shortsword, '{PA{Rp{Po{Rc{Pa{Rl{Py{Rp{Ps{Re{g'{x{x~
+Desc A dagger is here, forged by Rakurai's craftsmanship.~
+Mat steel~
+ExtF 16777283
+Wt   51
+Wear -1
+Lev  60
+Cost 6
+Val  2 6 14 11 9
+Affc 'enchant weapon'   1  68  -1   6  19          0 1
+Affc 'enchant weapon'   0  68  -1   6  18          0 1
+ExDe dagger the shortsword, 'Apocalypse'~ It is a marvellous dagger, crafted from the finest steel around.
+It was created in the Month of Continuity by an experienced thief
+named Rakurai.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#O
+Vnum 10102
+Enchanted
+Nest 0
+ExtF 262211
+Cond 99
+Wear 10
+Lev  91
+Cost 33333
+Affc 'reserved'   1  95  -1   5   9          0 1
+Affc 'reserved'   1  95  -1  25  19          0 1
+Affc 'reserved'   1  95  -1  20  18          0 1
+Affc 'reserved'   1  95  -1 -15  22          0 1
+Affc 'reserved'   1  95  -1   5   4          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+End
+
+#O
+Vnum 13003
+Enchanted
+Nest 0
+ExtF 67
+Wear -1
+Cost 9500
+Affc 'reserved'   1  92  -1   2   2          0 1
+Affc 'reserved'   1  92  -1  -1  20          0 1
+Affc 'reserved'   1  92  -1   2  26          0 1
+Affc 'reserved'   1  92  -1  65  12          0 1
+Affc 'reserved'   1  92  -1  65  13          0 1
+Affc 'enchant weapon'   1  92  -1   7  19          0 1
+Affc 'enchant weapon'   1  92  -1  10  18          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 13003
+Enchanted
+Nest 0
+ExtF 67
+Wear -1
+Cost 0
+Affc 'enchant weapon'   1  92  -1  10  18          0 1
+Affc 'enchant weapon'   1  92  -1   7  19          0 1
+Affc 'reserved'   1  92  -1  65  13          0 1
+Affc 'reserved'   1  92  -1  65  12          0 1
+Affc 'reserved'   1  92  -1   2  26          0 1
+Affc 'reserved'   1  92  -1  -1  20          0 1
+Affc 'reserved'   1  92  -1   2   2          0 1
+End
+
+#O
+Vnum 11787
+Enchanted
+Nest 0
+ExtF 323
+Cond 90
+Wear 9
+Lev  91
+Cost 50000
+Affc 'reserved'   1  95  -1  15  19          0 1
+Affc 'reserved'   1  95  -1  10  18          0 1
+Affc 'reserved'   1  95  -1 100  13          0 1
+Affc 'reserved'   1  95  -1   4   1          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+ExDe owned by~ Rakurai
+~
+End
+
+#O
+Vnum 1804
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 1258
+Nest 0
+Name gateway refuge liriel~
+ShD  {Wa {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{x~
+Desc {WA {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{W lies here, {Cs{Th{Ci{Tm{Cm{Te{Cr{Ti{Cn{Tg{x.~
+Wear -1
+Cost 0
+Val  0 0 4 1223 0
+End
+
+#O
+Vnum 12708
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12709
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12709
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12710
+Enchanted
+Nest 0
+Wear -1
+Lev  8
+Cost 500
+Affc 'reserved'   1  10  -1   2  18          0 1
+Affc 'reserved'   1  10  -1   1  19          0 1
+End
+
+#O
+Vnum 12708
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12709
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12710
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 1804
+Enchanted
+Nest 0
+ExtF 262211
+Wear -1
+Lev  14
+Cost 100
+Val  1 2 8 3 128
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'reserved'   1  10  -1   1   3          0 1
+Affc 'poison'   5  65 335   0   0        128 1
+End
+
+#O
+Vnum 8404
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 4 8400 0
+End
+
+#O
+Vnum 1258
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 12
+Nest 0
+ShD  the head of Alisa~
+Desc The severed head of Alisa is lying here.~
+ExtF 1
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 4471
+Nest 0
+Name something that has been strung!~
+ShD  {YSomething that has been strung!{x~
+Desc {gWoah! {TA{Cl{Wi{Cs{Ta{g actually managed to {Ystring {gsomething!!~
+Mat {WGuesswork!!{x~
+ExtF 524289
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name wedding gift~
+ShD  {gA {WW{ge{Wdd{gin{Wg {Tg{Ci{Tft {gfrom {HA{Gl{Wi{Gs{Ha{x~
+Desc {RG{Pes{Rt{Pan{Ri{Ps {xand {HT{Geo{Htw{Ga{Hwk{Gi{W's {WW{ge{Wdd{gin{Wg {Tg{Ci{Tft {xlies here.~
+ExtF 16777216
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 1258
+Nest 0
+Name gateway refuge liriel~
+ShD  {Wa {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{x~
+Desc {WA {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{W lies here, {Cs{Th{Ci{Tm{Cm{Te{Cr{Ti{Cn{Tg{x.~
+Wear -1
+Cost 0
+Val  0 0 4 1223 0
+End
+
+#L
+Vnum 13
+Nest 0
+ShD  the heart of {GTeam Meow Mascot{x~
+Desc The torn-out heart of {GTeam Meow Mascot{x is lying here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name M&M bag~
+ShD  {ga {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's{x~
+Desc {gOh no!! Someone dropped a {bbag {gof {WM&M{g's here! Hope none fell out!{x~
+Mat paper~
+ExtF 16793600
+Wear -1
+Cost 1000
+ExDe m&m~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
+~
+ExDe bag~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
+~
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name sword a sharp sword~
+ShD  a sharp sword{x~
+Desc A sword is here, forged by Rakurai's craftsmanship.~
+Mat tin~
+ExtF 323
+Wt   70
+Wear -1
+Lev  84
+Cost 9
+Val  1 7 15 3 0
+Affc 'enchant weapon'   0  79  -1   7  18          0 1
+Affc 'enchant weapon'   1  79  -1   7  19          0 1
+ExDe sword a sharp sword~ It is a marvellous sword, crafted from the finest tin around.
+It was created in the Month of Ancient Darkness by a master thief
+named Rakurai.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#B
+Vnum 506
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name mace a big club~
+ShD  a big club{x~
+Desc A mace is here, forged by Rakurai's craftsmanship.~
+Mat iron~
+ExtF 323
+Wt   71
+Wear -1
+Lev  84
+Cost 7
+Val  4 6 18 7 0
+Affc 'enchant weapon'   0  79  -1   6  18          0 1
+Affc 'enchant weapon'   1  79  -1   6  19          0 1
+ExDe mace a big club~ It is a marvellous mace, crafted from the finest iron around.
+It was created in the Month of Ancient Darkness by a master thief
+named Rakurai.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#B
+Vnum 1804
+Enchanted
+Nest 0
+ExtF 262211
+Cond 93
+Wear -1
+Lev  14
+Cost 100
+Affc 'reserved'   1  10  -1   1   3          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+End
+
+#B
+Vnum 16071
+Nest 0
+ExtF 3
+Cond 73
+Wear -1
+Cost 5000
+Val  2 9 6 11 12
+End
+
+#B
+Vnum 16071
+Nest 0
+ExtF 3
+Cond 98
+Wear -1
+Cost 5000
+Val  2 9 6 11 1
+End
+
+#B
+Vnum 16041
+Enchanted
+Nest 0
+ExtF 67
+Cond 96
+Wear -1
+Lev  30
+Cost 5000
+Val  1 6 6 3 4
+Affc 'reserved'   1  26  -1 -10  17          0 1
+Affc 'enchant weapon'   1 100  -1   8  18          0 1
+Affc 'enchant weapon'   1 100  -1   8  19          0 1
+End
+
+#B
+Vnum 16041
+Enchanted
+Nest 0
+ExtF 67
+Wear -1
+Lev  30
+Cost 5000
+Val  1 6 6 3 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
+Affc 'enchant weapon'   1 100  -1   8  18          0 1
+Affc 'enchant weapon'   1 100  -1   8  19          0 1
+End
+
+#B
+Vnum 504
+Nest 0
+ExtF 19
+Cond 95
+Wear -1
+Cost 312
+End
+
+#B
+Vnum 504
+Nest 0
+ExtF 19
+Cond 94
+Wear -1
+Cost 312
+End
+
+#B
+Vnum 16064
+Enchanted
+Nest 0
+ExtF 67
+Cond 78
+Wear -1
+Lev  21
+Cost 4500
+Affc 'reserved'   1  17  -1   1   1          0 1
+Affc 'reserved'   1  17  -1  10  13          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+End
+
+#B
+Vnum 10215
+Nest 0
+ExtF 65
+Cond 77
+Wear -1
+Cost 10000
+Val  1 8 5 21 28
+End
+
+#B
+Vnum 10215
+Nest 0
+ExtF 65
+Cond 75
+Wear -1
+Cost 10000
+Val  1 8 5 21 28
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name mace a mace~
+ShD  a mace{x~
+Desc A mace is here, forged by Rakurai's craftsmanship.~
+Mat platinum~
+ExtF 16777539
+Wt   90
+Wear -1
+Lev  91
+Cost 11
+Val  4 10 15 7 4
+Affc 'enchant weapon'   0  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+ExDe mace a mace~ It is a marvellous mace, crafted from the finest platinum around.
+It was created in the Month of Harmony by a master thief
+named Rakurai.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#B
+Vnum 3021
+Enchanted
+Nest 0
+ExtF 67
+Wear -1
+Lev  7
+Cost 250
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger the shortsword, Fury Unleashed~
+ShD  {gthe shortsword, {YF{bu{Yr{by {YU{bn{Yl{be{Ya{bs{Yh{be{Yd{x{x~
+Desc A dagger is here, forged by Rakurai's craftsmanship.~
+Mat platinum~
+ExtF 16777539
+Wt   80
+Cond 86
+Wear -1
+Lev  83
+Cost 40
+Val  2 10 12 11 0
+Affc 'enchant weapon'   0  80  -1   5  18          0 1
+Affc 'enchant weapon'   1  80  -1   5  19          0 1
+ExDe dagger the shortsword, Fury Unleashed~ It is a marvellous dagger, crafted from the finest platinum around.
+It was created in the Month of Endings by a master thief
+named Rakurai.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger a pointy dagger~
+ShD  a pointy dagger{x~
+Desc A dagger is here, forged by Rakurai's craftsmanship.~
+Mat tin~
+ExtF 323
+Wt   70
+Cond 99
+Wear -1
+Lev  85
+Cost 39
+Val  2 7 16 11 0
+Affc 'enchant weapon'   0  79  -1   6  18          0 1
+Affc 'enchant weapon'   1  79  -1   6  19          0 1
+ExDe dagger a pointy dagger~ It is a marvellous dagger, crafted from the finest tin around.
+It was created in the Month of Ancient Darkness by a master thief
+named Rakurai.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#B
+Vnum 10152
+Nest 0
+Cond 84
+Wear -1
+Cost 5500
+End
+
+#B
+Vnum 10152
+Nest 0
+Cond 68
+Wear -1
+Cost 5500
+End
+
+#B
+Vnum 3805
+Nest 0
+Cond 72
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 3805
+Nest 0
+Cond 71
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 14030
+Nest 0
+Cond 71
+Wear -1
+Cost 6000
+End
+
+#B
+Vnum 14030
+Nest 0
+Cond 76
+Wear -1
+Cost 6000
+End
+
+#END

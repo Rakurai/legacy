@@ -1,0 +1,705 @@
+#PLAYER
+Name GhostK~
+Id   1022703085
+LogO 1027051867
+Vers 14
+Mexp 2
+Pass w1bbl3~
+Desc He casts a spooky shadow, making him spookier than the rest.
+~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race elf~
+Cla  0
+Levl 42
+Tru  0
+Plyd 239428
+Back 219477
+Note 1026547040 1022813787 1026339553 1026585183 1026409721 0 1022729895
+Scro 22
+Room 8543
+HMS  344 139 170
+Gold 963
+Silv 904
+Silver_in_bank 4010
+Gold_in_bank 1003
+Exp  44329
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 1000
+FImm 0
+FRes B
+FVul Z
+Plr  AU
+Video 0
+Act  CDEFGHJLSc
+AfBy NOc
+Comm NOQ
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 7
+Trai 0
+Wimp 0
+Atrib 16 23 18 18 16 18
+Afk {B[{CThu Jul 18 22:56:17 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl , {cthe {Ys{Wp{Yo{Wo{Yk{Wy {csoul of {YMoo{W!~
+Immn ~
+Pnts 14
+Rank ~
+Aura ~
+TSex 1
+LLev 66
+Deit Kenneth~
+Lsit adsl-64-166-166-188.dsl.snlo01.pacbell.net~
+Ltim Thu Jul 18 22:30:32 2002
+~
+LSav Thu Jul 18 23:11:07 2002
+~
+HMSP 433 674 300
+THMS 2 8 0
+Cnd  0 0 17 0
+Sk 76 1 'acid blast'
+Sk 83 1 'armor'
+Sk 75 1 'burning hands'
+Sk 75 1 'cancellation'
+Sk 75 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 75 1 'chill touch'
+Sk 75 1 'colour spray'
+Sk 77 1 'dazzling light'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 76 1 'enchant armor'
+Sk 78 1 'enchant weapon'
+Sk 100 1 'fireball'
+Sk 75 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 76 1 'fly'
+Sk 77 1 'gate'
+Sk 82 1 'giant strength'
+Sk 82 1 'haste'
+Sk 76 1 'infravision'
+Sk 76 1 'lightning bolt'
+Sk 75 1 'magic missile'
+Sk 75 1 'nexus'
+Sk 75 1 'pass door'
+Sk 75 1 'portal'
+Sk 1 1 'protect container'
+Sk 90 1 'protection evil'
+Sk 82 1 'protection good'
+Sk 75 1 'recharge'
+Sk 76 1 'refresh'
+Sk 87 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 78 1 'sanctuary'
+Sk 82 1 'shield'
+Sk 75 1 'shocking grasp'
+Sk 75 1 'shrink'
+Sk 84 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 75 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 75 1 'undo spell'
+Sk 75 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 100 1 'dagger'
+Sk 75 1 'brew'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 75 1 'scrolls'
+Sk 75 1 'staves'
+Sk 76 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'combat'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'protective'
+Gr 'transportation'
+Affc 'protection evil'   0  41  13  -1  24       8192 1
+Affc 'armor'   0  37  13 -20  17          0 1
+Affc 'protection good'   0  35   7  -1  24      16384 1
+Affc 'regeneration'   0  39   3   0   0  268435456 1
+Affc 'shield'   0  37  13 -20  17          0 1
+Affc 'stone skin'   0  35   5 -40  17          0 1
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 3115
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10212
+Nest 0
+ExtF 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 10209
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 10209
+Nest 0
+Cond 92
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 76
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 10280
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3020
+Nest 1
+Cond 48
+Wear -1
+Cost 157
+End
+
+#O
+Vnum 10288
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 7603
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 7603
+Enchanted
+Nest 1
+Wear -1
+Cost 1119
+Affc 'reserved'   1  35  -1   3   2          0 1
+End
+
+#O
+Vnum 10284
+Nest 1
+Wear -1
+Cost 400
+Spell 3 'flamestrike'
+End
+
+#O
+Vnum 16052
+Nest 1
+Wear -1
+Cost 750
+End
+
+#O
+Vnum 12722
+Nest 1
+Cond 32
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 4596
+Nest 1
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 4578
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 4578
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 10281
+Nest 1
+Wear -1
+Cost 800
+End
+
+#O
+Vnum 2333
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 506
+Nest 0
+Wear 0
+Cost 1000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16066
+Nest 0
+Cond 99
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4481
+Nest 0
+Wear -1
+Cost 0
+Val  12 0 0 0 0
+End
+
+#O
+Vnum 29905
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 16054
+Nest 0
+Wear 15
+Cost 1500
+End
+
+#O
+Vnum 16054
+Nest 0
+Wear 14
+Cost 1500
+End
+
+#O
+Vnum 16053
+Nest 0
+Wear 7
+Cost 900
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear 18
+Cost 2600
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16048
+Enchanted
+Nest 0
+Cond 87
+Wear -1
+Lev  23
+Cost 500
+Affc 'enchant weapon'   1  35  -1   4  19          0 1
+Affc 'enchant weapon'   1  35  -1   4  18          0 1
+End
+
+#O
+Vnum 10293
+Nest 0
+Wear 12
+Cost 500
+End
+
+#O
+Vnum 7613
+Enchanted
+Nest 0
+ExtF 64
+Wear 11
+Lev  41
+Cost 1000
+Affc 'reserved'   1  40  -1   1  19          0 1
+Affc 'enchant armor'   1  40  -1   0  17          0 1
+Affc 'reserved'   1  40  -1  10  13          0 1
+End
+
+#O
+Vnum 3428
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10298
+Nest 0
+ExtF 64
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 10205
+Nest 0
+ExtF 64
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 10208
+Nest 0
+ExtF 64
+Cond 96
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16079
+Nest 0
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 4583
+Enchanted
+Nest 0
+ExtF 262209
+Wear 17
+Lev  16
+Cost 1200
+Affc 'enchant armor'   1  17  -1  -2  17          0 1
+Affc 'reserved'   1  15  -1   2   2          0 1
+Affc 'reserved'   1  15  -1   1  18          0 1
+End
+
+#O
+Vnum 9203
+Enchanted
+Nest 0
+ExtF 67
+Wear 16
+Lev  31
+Cost 0
+Affc 'enchant weapon'   1  40  -1   6  19          0 1
+Affc 'enchant weapon'   0  40  -1   2  18          0 1
+End
+
+#O
+Vnum 16016
+Nest 0
+Cond 92
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 10206
+Nest 0
+Cond 99
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 29902
+Nest 0
+Wear 3
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name sivat split wild token~
+ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#END

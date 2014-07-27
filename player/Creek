@@ -1,0 +1,448 @@
+#PLAYER
+Name Creek~
+Id   1017804512
+LogO 1021842384
+Vers 14
+Mexp 2
+Pass nathan~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Clan blackclaw~
+Cla  2
+Levl 20
+Tru  0
+Plyd 24269
+Back 0
+Note 1019007983 1019007983 1019007983 1019007983 1019007983 1019007983 1019007983
+Scro 22
+Room 24800
+HMS  272 222 309
+Gold 1169
+Silv 728
+Gold_in_bank 1000
+Exp  20046
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 280
+FImm 0
+FRes 0
+FVul 0
+Plr  A
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 17
+Trai 2
+Wimp 0
+Atrib 18 18 18 21 15 18
+QuestPnts  1
+Afk {B[{CTue Apr 16 21:10:05 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank {cNIN~
+Aura {CL{Ro{Cr{Rd {CC{Rr{Ce{Re{Ck{x~
+TSex 1
+LLev 5
+Deit Kazander~
+Lsit 207.193.154.37~
+Ltim Sun May 19 16:06:13 2002
+~
+LSav Sun May 19 16:06:24 2002
+~
+HMSP 212 195 309
+THMS 0 0 0
+Cnd  0 36 0 45
+Sk 1 1 'dagger'
+Sk 80 1 'sword'
+Sk 75 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'enhanced damage'
+Sk 78 1 'parry'
+Sk 75 1 'second attack'
+Sk 1 1 'third attack'
+Sk 100 1 'scan'
+Sk 75 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 96
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 4589
+Nest 0
+Cond 99
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 24801
+Nest 0
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 24802
+Nest 0
+Wear 9
+Cost 2000
+End
+
+#O
+Vnum 24803
+Nest 0
+Wear 8
+Cost 2000
+End
+
+#O
+Vnum 1605
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 16050
+Nest 0
+Wear 5
+Cost 650
+End
+
+#O
+Vnum 16107
+Nest 0
+Wear 15
+Cost 15000
+End
+
+#O
+Vnum 16052
+Nest 0
+Wear 11
+Cost 750
+End
+
+#O
+Vnum 16053
+Nest 0
+Wear 7
+Cost 900
+End
+
+#O
+Vnum 11915
+Enchanted
+Nest 0
+ExtF 557379
+Wear 18
+Lev  22
+Cost 0
+Affc 'reserved'   1  20  -1   2   1          0 1
+Affc 'reserved'   1  20  -1   2   5          0 1
+Affc 'reserved'   1  20  -1   3  19          0 1
+Affc 'reserved'   1  20  -1   3  18          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+End
+
+#O
+Vnum 16084
+Enchanted
+Nest 0
+ExtF 67
+Wear 2
+Lev  18
+Cost 1500
+Affc 'reserved'   1  15  -1   1  18          0 1
+Affc 'reserved'   1  15  -1  15  13          0 1
+Affc 'reserved'   1  15  -1  15  12          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+End
+
+#O
+Vnum 1616
+Enchanted
+Nest 0
+Wear 3
+Lev  7
+Cost 100
+Affc 'enchant armor'   1  91  -1  -6  17          0 1
+Affc 'reserved'   1   4  -1   1  18          0 1
+Affc 'reserved'   1   4  -1   1  26          0 1
+End
+
+#O
+Vnum 1615
+Enchanted
+Nest 0
+ExtF 67
+Wear 14
+Lev  15
+Cost 1540
+Affc 'reserved'   1  12  -1  -1  20          0 1
+Affc 'reserved'   1  12  -1  12  12          0 1
+Affc 'reserved'   1  12  -1   1   1          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+End
+
+#O
+Vnum 32116
+Nest 0
+Wear 6
+Cost 1100
+End
+
+#O
+Vnum 4585
+Nest 0
+Wear 17
+Cost 0
+End
+
+#O
+Vnum 7300
+Nest 0
+ExtF 1
+Cond 99
+Wear 12
+Cost 100
+Val  60 1 0 6 100
+End
+
+#O
+Vnum 16054
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 16054
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 16051
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 16107
+Nest 1
+Wear -1
+Cost 15000
+End
+
+#O
+Vnum 24817
+Nest 1
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 1
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 1
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 1
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24824
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 24821
+Nest 1
+Wear -1
+Cost 27
+End
+
+#O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24824
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 1713
+Enchanted
+Nest 1
+ExtF 65
+Wear -1
+Lev  8
+Cost 55
+Affc 'reserved'   1   5  -1   2  18          0 1
+Affc 'reserved'   1   5  -1   5  12          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+End
+
+#O
+Vnum 6
+Nest 1
+ShD  {CC{Rr{Ce{Re{Ck{R'{Cs {RH{Ce{Ra{Cr{Rt {CA{Rn{Cd {RS{Co{Ru{Cl~
+Desc {GLove {cFor {Gever~
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 16041
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear 1
+Cost 1280
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3021
+Enchanted
+Nest 0
+ExtF 67
+Cond 86
+Wear -1
+Lev  3
+Cost 0
+Affc 'enchant weapon'   1  84  -1   5  19          0 1
+Affc 'enchant weapon'   0  84  -1   5  18          0 1
+End
+
+#O
+Vnum 3021
+Enchanted
+Nest 0
+ExtF 67
+Wear -1
+Lev  6
+Cost 250
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
+End
+
+#END

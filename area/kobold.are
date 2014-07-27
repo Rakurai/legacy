@@ -1,0 +1,937 @@
+#AREA
+glitch.are~
+Glitchegummee Swamp~
+{H{{ 1  5} {MKenneth {TGlitchegummee Swamp~ 
+1900 1999
+
+#MOBILES
+
+#1900
+harfur glumtoes gnome~
+Harfur Glumtoes~
+A distressed looking gnome paces back and forth.
+~
+This is the famous (in his own mind) Harfur Glumtoes, gnome archaeologist.  He has a 
+penchant for moldy tomes and a weakness for tall women (over 4 feet tall!).
+~
+gnome~
+BG J 0 S
+2 0 1d3+15 1d1+19 1d4+3 slap
+8 8 8 8
+I 0 0 0
+stand stand male 130
+0 0 small 0
+
+#1901
+rhiannon bard woman~
+Rhiannon~
+A woman in a jade silk gown is crying her eyes out.
+~
+Her face is one marked by constant tragedy.  You've heard of her, though, she seeks it out
+because she loves it.  She is tall (by gnome standards), a massive 5 foot 2.
+~
+human~
+BG 0 0 S
+3 0 2d4+20 1d1+19 1d5+3 slap
+7 7 7 7
+F 0 0 0
+stand sit female 150
+0 0 medium 0
+
+#1902
+vampire moss~
+Vampire moss~
+A clump of very green moss is growing here.
+~
+This moss seems to grow an even brighter green under your close scrutiny.
+Say, are you feeling weaker?
+~
+moss~
+BG 0 -400 S
+4 0 2d6+22 1d1+19 1d5+3 drain
+7 7 7 7
+A 0 E H
+sit sit none 0
+0 0 tiny 0
+
+#1903
+crocodile log~
+Crocodile~
+A green-ish looking log floats here.
+~
+There's something funny about this log, but you just can't place it...
+~
+crocodile~
+BG 0 0 S
+6 1 10d2+20 1d1+19 1d5+4 bite
+6 6 6 6
+0 0 0 0
+sit sit none 0
+0 0 large 0
+
+#1904
+kobold small~
+A kobold~
+A small kobold wanders about here.
+~
+This is the oddest kobold you've ever seen, and that's saying a lot.  It has several poorly painted stars
+affixed about it's body, and is chanting such inanities as 'Kobold is spelled with a K just like kennel and keg.'
+~
+kobold~
+GY 0 -350 S
+3 0 2d5+17 1d1+19 1d3+4 bite
+7 7 7 7
+N 0 0 0
+stand stand either 100
+0 0 small 0
+>rand_prog 3~
+say If I thought that/The very earth should tremble about me
+~
+|
+#1905
+whizzo great kobold~
+The Great Whizzo~
+The Great Whizzo is here, chanting mightily in his high-pitched voice.
+~
+This kobold is wearing a floppy baker's hat covered in golden glitter, with large eyes painted all over
+it.  He is reading from a large book.  'Tempt me not/Lest I drown thee within mine eyes of blue, fair one.'
+~
+kobold~
+GY 0 -350 S
+5 1 9d2+30 1d1+19 1d5+4 bite
+6 6 6 6
+N 0 0 0
+stand stand male 250
+0 0 small 0
+>fight_prog 25~
+say Feel my wrath/Like a scalding bath!
+~
+|
+
+#1906
+campestri mushroom~
+A campestri~
+A small mushroom dashes about, squealing in a high-pitched voice.
+~
+Campestris resemble myconids without arms and have a stronger resemblance to mushrooms than their more highly evolved cousins.  Campestris are happy-go-lucky creatures with few cares or worries.
+~
+fungus~
+GH J 350 S
+1 0 1d6+1 1d4+1 1d2+1 digestion
+10 10 10 10
+0 0 0 0
+stand stand none 5
+0 0 tiny 0
+>rand_prog 3~
+whistle self
+~
+|
+
+#1907
+old man katan ranger~
+Old man Katan~
+An old man is here, sitting in a bath and bellowing loudly in an off-key voice.
+~
+He looks around 60, with white hair and brown eyes.  He is an acerbic old coot of a hermit with several annoying habits and idiosyncracies, and some equally redeeming qualities.  Imagine what you would be like if you had been living alone in a swamp for 30 years!
+~
+human~
+BG 0 350 S
+7 1 6d4+26 1d1+19 2d4+4 thwack
+5 5 5 5
+C 0 0 0
+stand stand male 210
+0 0 medium 0
+
+#1908
+giant mosquito bug skeeter~
+A giant mosquito~
+A giant mosquito buzzes around your head.
+~
+It looks to be about the size of a pressed ham!
+~
+bug~
+G T -350 S
+3 0 10d3+1 1d1+19 1d3+3 sting
+7 7 7 7
+F 0 0 0
+stand stand none 0
+0 0 small 0
+>rand_prog 3~
+emote buzzes about your head.
+~
+|
+
+#1909
+water moccasin snake~
+A water moccasin~
+An olive-brown snake slithers by your feet.
+~
+It doesn't *look* poisonous, but, well...
+~
+snake~
+G 0 0 S
+4 0 11d3+2 1d1+19 1d4+4 bite
+6 7 6 7
+0 0 0 0
+stand sit none 0
+0 0 small 0
+
+#1910
+spider large arachnophobia~
+A large spider~
+A large spider glares menacingly at all it surveys.
+~
+This spider is about as big as your hand.  Is it venomous?  It certainly looks venomous.
+~
+spider~
+G 0 0 S
+2 0 3d3+3 1d1+19 1d2+2 bite
+8 8 8 8
+0 0 0 0
+stand stand none 0
+0 0 tiny 0
+
+#1911
+will o' wisp ball light~
+The will o' wisp~
+A bright ball of light hovers before you.
+~
+So pretty....bright light....you're feeling very sleepy....
+~
+unique~
+BG T -500 S
+7 1 5d6+25 1d1+19 1d6+5 drain
+5 4 5 5
+H 0 BH NO
+stand stand none 0
+0 0 small 0
+
+#1912
+bog monster~
+The Bog Monster~
+The Bog Monster is hulking here!
+~
+The Bog Monster looks like nothing more than a shambling mound of vegetation.
+It seems to have a child-like intellect, however.
+~
+unique~
+BG 0 0 S
+8 2 3d4+45 1d1+19 2d4+4 pound
+4 4 4 4
+AC 0 E H
+stand stand none 0
+0 0 large 0
+
+#0
+
+#OBJECTS
+
+#1900
+cow-whip whip~
+A cow-whip~
+A whip lies coiled up on the ground.~
+cowhide~
+weapon S AN
+'whip' 1 4 whip 0
+2 20 35 G
+E
+whip cow-whip~
+Not as strong as a bullwhip, but....
+~
+
+#1901
+shortblade blade~
+A shortblade~
+A shortblade lies on the floor, collecting dust.~
+metal~
+weapon 0 AN
+'sword' 1 6 cleave 0
+3 30 50 G
+E
+shortblade blade~
+A small blade, it looks as if it could cut things very easily.
+~
+
+#1902
+magic dust~
+Some magic dust~
+A packet of magic dust shimmers in the light.~
+dust~
+weapon A AN
+'exotic' 1 4 magic G
+2 10 100 G
+E
+magic dust~
+This dust looks like it possesses some potent magic...
+~
+
+#1903
+ring twine~
+A ring of twine~
+A colored bit of twine lies on the floor.~
+twine~
+armor 0 AB
+1 1 1 0 0
+5 3 100 G
+E
+ring twine~
+This colored bit of twine is wrapped around a thin twig.
+~
+A
+1 1
+A
+13 4
+A
+12 1
+
+#1904
+colored stick wand~
+A colored stick~
+This stick looks like it's been dipped in paint.~
+wood~
+wand 0 AO
+3 3 3 'fly' 0
+3 6 25 G
+E
+colored stick wand~
+It's an ugly looking reddish color.
+~
+
+#1905
+book sappy drivelly love poems~
+The Big Book of Sappy, Drivelly Love Poems~
+A very large book lies on the ground.~
+paper~
+scroll 0 AO
+5 'charm person' '' '' ''
+3 10 50 G
+E
+book sappy drivelly love poems~
+Turning to page 37, you read:
+Oh!  Thou art as the light of dawn,
+Stirring my blood
+Till thou art gone.
+Burning away the morning mist,
+Steal my breath,
+With your sweetest kiss.
+Cast your spell
+Till I am too weak to stand.
+A puppet, yours to quell.
+~
+
+#1906
+gnome chair~
+A chair~
+A chair sized for a gnome is standing here.~
+wood~
+furniture 0 A
+1 0 EH 100 105
+0 200 0 G
+E
+chair gnome~
+It's just a normal, small, wooden chair.
+~
+
+#1907
+pillows pile~
+A pile of pillows~
+Pillows are strewn haphazardly about the floor.~
+fluff~
+furniture 0 0
+2 0 EHK 105 110
+0 200 0 G
+E
+pillows pile~
+The pillows are in all shapes, sizes, and colors.
+~
+
+#1908
+little song~
+A little song~
+A little song drifts through the air.~
+music~
+armor B AQ
+0 0 0 1 0
+1  2 20 G
+E
+little song~
+Sounds a bit like a dwarven work song...
+~
+A
+26 1
+
+#1909
+crocodile hide~
+A crocodile's hide~
+The hide of a crocodile lies here.~
+skin~
+armor 0 AK
+3 3 3 2 0
+6 200 60 G
+E
+crocodile hide~
+Green and scaly, it doesn't look very comfortable.
+~
+
+#1910
+Snakeskin belt skin~
+A snakeskin belt~
+A snakeskin lies crumpled on the ground.~
+skin~
+armor 0 AL
+2 2 2 0 0
+3 30 30 G
+E
+snakeskin belt skin~
+Looks like the skin off a water moccasin.
+~
+
+#1911
+black gold bracelet~
+A black and gold bracelet~
+A black and gold bracelet shimmers in the light.~
+gold~
+armor A AM
+4 3 3 2 0
+7 7 70 G
+E
+black gold bracelet~
+A bit encrusted with swamp muck, but it's still a very beautiful object.
+~
+A
+18 1
+A
+19 1
+
+#0
+
+#ROOMS
+
+#1900
+Town of Edgewater~
+You are in the middle of a small, suspicious little village.  Jack O'lanterns
+line the streets in an attempt to ward off evil spirits.  Most of the doors
+are closed, locked, and bolted, but a green house to the south looks inviting. 
+Several neatly lettered signs are placed in eye-catching positions.
+~
+0 S 1
+D1
+To the east lies the path to Gnome Village.
+~
+~
+0 -1 1501
+D2
+South lies the green house.
+~
+door white~
+1 -1 1901
+ D3
+To the west lies a long road.
+~
+~
+0 -1 1902
+E
+door white~
+This door has two doorknobs, one placed right at human size, and the other at a more gnomish level.
+~
+E
+sign~
+Brutish, yet historically inclined and discreet, adventurers required for
+a task of some delicacy.  Must be literate.  If interested, contact Harfur
+Glumtoes, Main Street.  Second house from left.  The green one.  With white
+trim.  Or just ask anyone in town and they'll show you.
+~
+S
+
+#1901
+Harfur Glumtoes' Abode~
+You behold piles of documents, books, and scrolls of every type scattered in 
+apparently random fashion about the large room.  Some of the piles stand 4 
+feet high, and a few seem to be on the very verge of collapse.  In fact, it 
+seems one of the larger stacks has just collapsed.
+~
+0 0 0
+D0
+North lies Main Street in Edgewater.
+~
+door white~
+1 -1 1900
+E
+door white~
+This door has two doorknobs, one placed right at human size, and the other at a more gnomish level.
+~
+E
+pile~
+Yes, this pile looks very hazardous.  Standing around it might be a bad idea.  Don't sneeze!
+~
+S
+
+#1902
+The Road~
+You've walked along perhaps a good quarter of a mile when the road gets 
+interesting.  It seems to stop, although continuing along would take you 
+right inside Rhiannon the Bard's house.  It diverges into Blackwater 
+Swamp to the south.
+~
+0 0 2
+D1
+East lies the town of Edgewater.
+~
+~
+0 -1 1900
+D2
+South lies Blackwater Swamp.
+~
+~
+0 -1 1904
+D3
+West lies the inside of Rhiannon's house.
+~
+~
+0 -1 1903
+S
+
+#1903
+Inside Rhiannon's house~
+This is a cozy dwelling, with pillows strewn casually about the floor.  
+The warm effect is slightly marred by depressing paintings, the most 
+prominent of which depicts a woman weeping as her husband is dragged to 
+the gallows.
+~
+0 0 0
+D1
+East lies the road.
+~
+~
+0 -1 1902
+S
+
+#1904
+Blackwater Swamp~
+You are at the beginning of Blackwater Swamp.  A sign leaning crookedly 
+reads 'I before E except after C or when E sounds like A as in Neighbor 
+or Weigh.'  An animal trail leads to the south.  All other paths are 
+fairly inaccessible.
+~
+0 0 3
+D0
+North lies the road.
+~
+~
+0 -1 1902
+D2
+South the animal trail continues.
+~
+~
+0 -1 1905
+S
+
+#1905
+Animal trail~
+The trail you are on is pretty unstable, and you are forced to walk a 
+narrow edge.  The swamp is rich with vegetation and wildlife.  A loon 
+makes the most hideous cacophony off somewhere to the south.
+~
+0 0 3
+D0
+North is the beginning of the swamp.
+~
+~
+0 -1 1904
+D1
+East you can hear the burbling of a river.
+~
+~
+0 -1 1906
+S
+
+#1906
+River crossing~
+Your walk through the swamp is rudely interrupted by a large river, which 
+shall take some work to get across.  Perhaps you can jump on those
+floating logs?
+~
+0 0 3
+D1
+East lies the Kobold Camp!
+~
+~
+0 -1 1907
+D2
+~
+~
+0 0 1911
+D3
+West lies the Animal Trail.
+~
+~
+0 -1 1905
+S
+
+#1907
+Kobold hut~
+You have entered what looks to be a fairly typical rotting heap of wood, 
+but unlike most kobold dwelling places, this one is covered with a 
+strange-ish kind of glitter.
+~
+0 D 0
+D0
+Another Kobold hut.
+~
+~
+0 -1 1908
+D1
+Yet another Kobold hut.
+~
+~
+0 -1 1909
+D3
+Back to the river.
+~
+~
+0 -1 1906
+E
+glitter~
+Fairly standard golden glitter, like cheap stage magicians use.
+~
+S
+
+#1908
+Kobold hut~
+You have entered what looks to be a fairly typical rotting heap of wood, 
+but unlike most kobold dwelling places, this one is covered with a 
+strange-ish kind of glitter.
+~
+0 D 0
+D2
+Back to the first Kobold hut.
+~
+~
+0 -1 1907
+E
+glitter~
+Fairly standard golden glitter, like cheap stage magicians use.
+~
+S
+
+#1909
+Kobold hut~
+You have entered what looks to be a fairly typical rotting heap of wood, 
+but unlike most kobold dwelling places, this one is covered with a 
+strange-ish kind of glitter.
+~
+0 D 0
+D2
+Enter the hut of The Great Whizzo!
+~
+~
+0 -1 1910
+D3
+Back to that first hut again.
+~
+~
+0 -1 1907
+E
+glitter~
+Fairly standard golden glitter, like cheap stage magicians use.
+~
+S
+
+#1910
+Hut of the Great Whizzo!~
+This is the largest hut you've seen yet, meaning it looks more like a 
+decrepit shack than a rotting woodpile.  Well, if you squint.  It's 
+obviously the hut of the Kobold's leader.  Carved into the wall are the 
+words:  'Homicide?!?  Foul, brutish beast.'  and  'Thine eyes weep/Like 
+two rivers deep.'  What kind of Kobolds are these?
+~
+0 D 0
+D0
+You see another Kobold hut.
+~
+~
+0 -1 1909
+E
+carvings writings~
+Well, whoever wrote this won't get any prizes for handwriting.
+~
+S
+
+#1911
+Dock on the River~
+A rather ramshackle looking dock, you shouldn't try and get several people 
+onto it.  Standard dock affair though, several posts sunk into the swamp,
+and planks laid in between.  Moss covers most of the structure, and several 
+of the planks look rotted through.
+~
+0 0 2
+D0
+The river continues.
+~
+~
+0 -1 1906
+D2
+The bulk of Glitchegummee swamp lies to the south.
+~
+~
+0 -1 1914
+D3
+A house looms westward.
+~
+~
+0 -1 1912
+E
+Moss~
+Just some scraggly looking green moss.
+~
+S
+
+#1912
+Outside Katan's House~
+A metal washtub is set up in the middle of the yard.  It looks to be 
+rusted from use.  Bushes lie all about, and the house shows signs of 
+being grown over.  It looks like whoever lives here wants to stay away 
+from people.
+~
+0 0 2
+D1
+Back to that rickety dock.
+~
+~
+0 -1 1911
+D3
+Into Katan's house!
+~
+house door~
+1 -1 1913
+E
+Washtub tub~
+Looks like someone was bathing in it recently, judging by the soap.
+~
+S
+
+#1913
+Katan's House~
+This is a very disorganized house.  Papers are strewn everywhere.  They 
+look to be notes on the swamp and environs, including flora and fauna.  
+A small cat naps in a sunbeam.  Once you come in, it dashes under the 
+table into a position of near inaccessibility.  There are also fish 
+everywhere.  The fishy smell fills the whole room.
+~
+0 D 0
+D1
+Outside the house again.
+~
+house door~
+1 -1 1912
+E
+Cat~
+It looks to be at least half bobcat, and is covered with mud. Not a very 
+attractive feline!
+~
+S
+
+#1914
+The Swamp~
+You're now fully in the swamp.  Teeming life pulses around you, and you 
+are constantly alerted by shrieks and yowls from all directions.  The 
+mucky water swirls in your presence, and you stifle a feeling of distaste 
+at some of what you see floating by.
+~
+0 0 6
+D0
+Back to the safety of the dock!
+~
+~
+0 -1 1911
+D1
+More swampy terrain.
+~
+~
+0 -1 1916
+D2
+Even more swamp.
+~
+~
+0 -1 1915
+S
+
+#1915
+The Swamp~
+The swamp is vile and disgusting.  Is that a dead cow that just went 
+floating past?  *boggle*  Must've been your imagination.  No wait, 
+there it goes again!
+~
+0 0 6
+D0
+More swamp, but it is the way out.
+~
+~
+0 -1 1914
+D1
+East leads into more swamp.
+~
+~
+0 -1 1917
+D2
+Looks like lots of Quicksand down there..
+~
+~
+0  -1 1919
+D3
+A rotting and dead looking tree lies over there.
+~
+~
+0 -1 1918
+E
+Cow~
+Yes, it's very dead, and bloated.~
+S
+
+#1916
+The Swamp~
+Trudging onward, you stop to take a short break and wish there was some 
+clean air around here.  Everything has a rancid smell.  A decrepit 
+looking sign sags into the water, but it's still barely legible.
+~
+0 0 6
+D2
+A lot more swamp.
+~
+~
+0 -1 1917
+D3
+You're getting tired of all this swamp.
+~
+~
+0 -1 1914
+E
+Sign~
+Welcome to Gli-tara-chemoghai-urumee.  Say, that's elvish, isn't it?  
+Loosely translated, you believe it means:  A soggy place where only 
+stupid people would live because the air reeks almost as badly as an 
+unwashed dwarf.  Hmmmm.
+~
+S
+
+#1917
+The Swamp~
+Swamp, swamp, and more swamp.  There goes that dead cow. You wonder what 
+would want to kill a cow and then not eat it.  Some inhuman screeching 
+comes from the bushes, but it's probably just Katan's maniacal cat.
+~
+0 0 6
+D0
+The swamp continues.
+~
+~
+0 -1 1916
+D2
+A menacing looking little lair.
+~
+~
+0 -1 1920
+D3
+My kingdom for some dry land!
+~
+~
+0 -1 1915
+S
+
+#1918
+Dead tree~
+You are at the base of a dead and rotting tree.  There is something 
+ominous about this creaking hulk.  Wait - what was that scuttling noise?  
+Is your mind playing tricks on you, because of your fears?  No!  
+spiders!  Lots of them!  Big and hairy ones!
+~
+0 A 3
+D1
+Back out into the safety(?!?) of the swamp!
+~
+~
+0 -1 1915
+S
+
+#1919
+Lair of the Will'o'wisp~
+Pools of quicksand dot this area, you'd better watch your step.  You
+hardly even notice though, fixated by a large ball of light that floats 
+in front of you swaying back and forth...back and...forth back...and forth...
+~
+0 A 6
+D0
+Back into the fun swampy place that we all know and hate.
+~
+~
+0 -1 1915
+S
+
+#1920
+The Bog Monster!~
+This is just a typical stagnant pool of water, much like many you've seen 
+in this trek through the Glitchegummee swamp.  But there seems to be 
+something more sinister about this one, almost as if something is lurking 
+here, just out of sight, maybe beneath the water...
+~
+0 0 6
+D0
+Off we go, into the swampy blue yonder.
+~
+~
+0 -1 1917
+S
+
+#0
+
+#RESETS
+
+M 0 1900 1 1901 1  *Harfur into his house
+E 0 1900 50 16     *Harfur's mighty cow-whip!
+M 0 1901 1 1903 1  *Rhiannon into her house
+E 0 1901 50 16           *Rhiannon gets the shortblade
+M 0 1902 2 1904 1  *Vampire moss into Blackwater Swamp
+M 0 1902 2 1905 1  *Vampire moss onto the Animal trail
+M 0 1903 1 1906 1  *The crocodile to the River Crossing
+M 0 1904 6 1907 2  *Small kobold to a Kobold Hut
+E 0 1902 50 16           *These kobolds get to wield Magic Dust
+M 0 1904 6 1908 2  *Small kobold to another Kobold Hut
+M 0 1904 6 1909 2  *Small kobold to yet another Kobold Hut
+E 0 1904 50 17           *While these just get some colored sticks
+M 0 1905 1 1910 1  *The Great Whizzo to his hut
+G 0 1905 50                *He also has the Big Book of Sappy, Drivelly Love Poems
+E 0 1903 50 1             *The Great Whizzo is wearing a bit of colored twine
+M 0 1906 10 1911 1   *One little campestri to the dock
+E 0 1908 50 18            * He's whistling a cute little song
+M 0 1906 10 1912 4   * Four more little campestris outside Katan's house
+M 0 1906 10 1913 3  *Three campestris inside Katan's house
+M 0 1907 1 1913 1    *Katan into his own house
+E 0 1901 50 16            *Katan is wielding a mighty shortblade
+M 0 1908 10 1914 2   *Mosquitoes in the swamp
+M 0 1908 10 1915 2   *More mosquitoes, more swamp
+M 0 1908 10 1916 2   *Mosquitoes love swamp
+M 0 1908 10 1917 2    *Yep, more mosquitoes in the swamp
+M 0 1909 3 1915 1     *Water snake into the swamp
+M 0 1909 3 1916 1     *Another snake into the swamp
+E 0 1910 50 13            *Snakeskin belt onto the snake
+M 0 1910 8 1918 6   *Spiders to the dead tree
+M 0 1911 1 1919 1     *The Will'O'Wisp to his lair
+G 0 1911 55                 *black and gold bracelet to the Wisp
+M 0 1912 1 1920 1    *The Bog Monster to his hidey hole!
+O 0 1906 2 1901      *The gnome chair into Harfur's house
+O 0 1907 1 1903      *The pillows into Rhiannon's house
+D 0 1912 3 1              *Close the door into Katan's
+D 0 1913 1 1              *Close the door out of Katan's
+D 0 1900 2 1               *Close the door into Harfur's
+D 0 1901 0 1               *Close the door out of Harfur's
+S
+
+#SHOPS
+0
+
+#SPECIALS
+S
+
+#$
+
+

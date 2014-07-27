@@ -1,0 +1,201 @@
+#PLAYER
+Name Lilcat~
+Id   1015018384
+LogO 1015018821
+Vers 12
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race feral~
+Sex  2
+Cla  2
+Levl 1
+Plyd 221
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 8543
+HMS  24 24 100 100 64 100
+Gold 3
+Silv 406
+Exp  1848
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy R
+FVul JR
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Save  -1
+Alig  0
+Hit   1
+ACs 95 95 95 99
+Atrib 15 17 16 21 13 9
+AtMod 1 2 3 1 0 2
+Pass turtle~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 43
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Kenneth~
+Lsit uhunix1.its.hawaii.edu~
+Ltim Fri Mar 01 15:36:40 2002
+~
+LSav Fri Mar 01 15:40:21 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 33 43 43
+Sk 1 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'dispel magic'
+Sk 1 1 'fireproof'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 75 1 'dagger'
+Sk 34 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'protective'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 195 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 78
+Nest 1
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#END

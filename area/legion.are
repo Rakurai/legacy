@@ -1,0 +1,1489 @@
+#AREA
+Legion.are~
+Legion~
+{H{{35 50} {MZheiden {TLegion's Battlefield~
+11900 11999
+
+#MOBILES
+#11900
+warrior barbarian~
+a singing warrior~
+A {gbarbarian{x searching for glory in battle stands here.
+~
+Covered in {gfurs{x and singing slightly off key, this wild 
+warrior seeks glory in death. He will fight anyone and 
+anything to prove himself worthy of {RK{Co{Rr{Ce{Rg{x's blessing.
+~
+human~
+GT VOZ -500 S
+35 5 65d4+700 1d1+200 2d23+5 punch
+-25 -25 -25 -15 
+EFHNKR BI HEP F
+stand stand male 20
+0 0 medium 0
+
+>greet_prog 100~
+if isnpc($n)
+   break
+endif
+if isimmort($n)
+   growl
+   break
+endif
+if rand (75)
+   yell Koreg! Help my blows strike true.
+   howl
+else
+   MPKILL $n
+   snarl $n
+   say DIE, LEGION LOVER!!    
+endif
+~
+|
+#11901
+shaman barbarian~
+a holy man~
+A {gbarbarian{x shaman wanders 'round, singing and killing the wounded.
+~
+Occasionally mumbling a hasty prayer, he slices the throats 
+of the unwary and the wounded. His clear voice sings the 
+praises of {RK{Co{Rr{Ce{Rg{x, the {CGod{x of {RWar{x. Noticing your 
+approach, he bows his head for a quick prayer.
+~
+human~
+CGQ Oc -500 S
+40 5 75d4+1000 1d1+599 2d25+3 punch
+-25 -25 -25 -25  
+EFHKR BINQ HM 0
+stand stand male 60
+0 0 medium 0
+
+>entry_prog 99~
+revel
+~
+>greet_prog 100~
+if isnpc($n)
+  break
+endif
+if isimmort($n)
+  sa BEGONE IN THE NAME OF KOREG!!!
+  break
+endif
+if rand (50)
+  emote wipes his bloody mace on his robes.
+  emote looks at you.
+else 
+  MPKILL $n
+  say Your time has come, infidel!
+  pmote swings his mace at $n's head.
+endif
+~
+>rand_prog 50~
+if inroom($i) == 11903
+or inroom($i) == 11906
+or inroom($i) == 11907
+or inroom($i) == 11910
+or inroom($i) == 11911
+or inroom($i) == 11924
+   emote wails and moans.
+   pall
+endif
+~
+|
+#11902
+berserker barbarian~
+a mad berserker~
+A {Gwild man{x, {Wfoaming{x at the mouth, attacks you.
+~
+Stripped to the waist, he sweats as though in the desert sun. 
+His wide, glazed eyes gleam with madness. Foam flies from 
+his mouth as he curses you mothers back four generations. 
+Swinging a vicious axe in both hands, he comes for you.
+~
+human~
+BFGT DFHOTVZabe -750 S
+45 10 75d4+1350 1d1+499 3d20+10 punch
+-30 -30 -30 -30 
+ABCDEFHKR BINQ HJKLME 0
+stand stand male 100
+0 0 large 0
+>greet_prog 99~
+if isimmort($n)
+  emote pants.
+else
+  if ispc($n)
+     scream
+     MPKILL $n
+  endif
+endif
+~
+>fight_prog 75~
+emote gibbers and slobbers.
+if rand(35)
+   howl
+else
+   emote gibbers and spits at you.
+endif
+~
+|
+#11903
+battlelord barbarian~
+the {gBarbarian Warlord{x~
+The tall Battlelord calmly surveys the carnage below.
+~
+As night is to day, is this man to his subjects. Calm, 
+collected, and calculating, he takes your measure and 
+prepares for you. A supreme aura of confidence flows 
+from him and he seems unconcerned about the battle 
+beneath him.
+~
+human~
+BTGZ HNOTUVZbe -1000 S
+55 10 125d4+2060 1d1+599 2d35+10 punch
+-35 -35 -35 -30  
+CDEFHJKR BHIPQ EJKLQ N
+stand stand male 200
+0 0 large 0
+
+>entry_prog 80~
+egrin $n
+~
+>give_prog icewing skull~
+emote looks at you and studies it.
+despair
+unlock chest
+open chest
+sob
+emote reaches into the chest to stroke a misty helm.
+MPJUNK skull
+~
+
+>give_prog all~
+emote laughs at you.
+sa FOOLS!! I'm not so stupid as my followers. BEGONE!
+~
+>fight_prog 50~
+cackle
+cast 'colour spray'
+~
+|
+#11904
+icewing dragon~
+{CI{Wc{Ce{Ww{Ci{Wn{Cg{x~
+A dragon tosses and turns in the throes of a dream.
+~
+Long ago put to sleep by the {YLegion{x's greatest magi, {CI{Wc{Ce{Ww{Ci{Wn{Cg{x's freedom 
+and the {YLegion{x's success can be found in the hands of 
+{RK{Co{Rr{Ce{Rg{x's most chosen. Only proof shall destroy the horde's will 
+and send them into retreat. {CI{Wc{Ce{Ww{Ci{Wn{Cg{x slumbers here. Do you dare 
+free him from his chains?
+~
+dragon~
+ABTGZ HNOTUVZb -1000 S
+95 20 250d4+9500 1d1+899 52d5+20 beating
+-70 -70 -70 -50 
+ACDFHKO BHILQ DJKM N
+stand stand male 400
+0 0 giant 0
+>rand_prog 75~
+if rand(75)
+   wake
+   emote rolls over, thrashing his tail.
+   sleep
+   snore
+else
+   wake
+   emote blinks his eyes lazily and sighs.
+   sleep
+endif
+~
+>fight_prog 76~
+if rand(45)
+   emote open his mouth and lets loose a DEAFENING ROOOOOOAAAAR!!!
+else
+   emote blinks his eyes sleepily.
+endif
+~
+|
+#11905
+sergeant legion~
+a {Ysergeant{x~
+Barking orders at his troops, the {Ysergeant{x carries out the battle.
+~
+Yelling and berating the troops, he keeps all the privates 
+in line. He knows one misstep can cost the battle and his 
+life. Faced with death every day, he chews on anything 
+under his command to stave off the reaper's call.
+~
+elf~
+AGT NV 600 S
+40 6 75d4+1100 1d1+499 2d25+5 punch
+-25 -25 -25 -15 
+CEFHKR 0 ILQ M
+stand stand male 20
+0 0 medium 0
+
+#11906
+lieutenant legion~
+a {Ylieutenant{x~
+Rushing around, the {Ylieutenant{x is the harried messenger to the line.
+~
+Learning from the {Ysergeants{x and {Ycaptains{x, he is in 
+constant motion. His first time in battle has given him an 
+adrenaline rush that will hit him like a wall tomorrow, if 
+he lives that long.
+~
+elf~
+AGT HNVc 700 S
+45 6 90d4+1125 1d1+499 2d28+3 punch
+30 30 30 25 
+CEFHKR L BIQ M
+stand stand male 50
+0 0 medium 0
+>greet_prog 50~
+if ispc($n)
+  if rand(80)
+     mutter
+     say What now? What NOW?! WHAT NOW!!?
+  else
+     emote looks around nervously and then breaks into tears.
+  endif
+endif
+~
+|
+#11907
+captain legion~
+a {Ycaptain{x~
+The {Ycaptain{x pours over the maps looking for an advantage.
+~
+Privy to the {Ygeneral{x's fear, the captain is searching for 
+some weakness to exploit. He is aware of some secret weapon 
+held in check by the {gbarbarians{x, but cannot discover its 
+location. A drop of sweat falls on the map.
+~
+elf~
+AGT HNVce 800 S
+50 7 85d4+1875 1d1+599 4d15+10 punch
+-35 -35 -35 -30
+CEFHKR LQ BEHIM 0
+stand stand male 100
+0 0 medium 0
+
+>greet_prog 50~
+if ispc($n)
+  if rand(90)
+   emote looks at his map.
+   grumble
+  else
+   emote looks at you.
+   say Get OUT!
+  endif
+endif
+~
+|
+#11908
+general legion~
+the {PK{Cn{Pi{Cg{Ph{Ct {YGeneral{x~
+The {PK{Cn{Pi{Cg{Ph{Ct {YGeneral{x grimly prepares for the last push.
+~
+Lines of worry etched in his face, you realize that he fears
+for his own life. Untouched by battle, this middle-aged man 
+faces his greatest challenge. Emotions flicker across his 
+face as he slides piece after piece of armor onto his body. 
+Straightening, he slaps his visor into place and says, 
+"Bring your worst, heathen."
+~
+elf~
+ABGT HNTVZbe 1000 S
+60 7 150d4+2850 1d1+699 5d14+5 punch
+-45 -45 -45 -40
+CEFHKR BHILMQ EJK S
+stand stand male 250
+0 0 large 0
+
+>greet_prog 50~
+if ispc($n)
+  if rand(90)
+   beam $n
+   say The battle is going well. We have them in our grasp.
+  else
+   peer $n
+   sigh
+   say We are all going to die. 
+  endif
+endif
+~
+|
+#0
+
+#OBJECTS
+
+#11900
+double axe~
+a double-bladed axe~
+A battered double half-moon axe lies here.~
+iron~
+weapon EI AN
+axe 4 10 cleave 0
+35 5 200 G
+E
+double axe~
+Used in battle for many years, it still carries a sharp edge.
+~
+A
+18 2
+A
+19 5
+
+#11901
+mace~
+a spiked mace~
+Gleaming with a holy aura, a spiked mace lies here.~
+iron~
+weapon AEIM AN
+mace 4 10 crush 0
+40 7 300 P
+E
+mace~
+Forged and blessed by the followers of {RK{Co{Rr{Ce{Rg{x, 
+this mace carries the strength of the wielder's faith.
+~
+A
+18 3
+A
+19 5
+
+#11902
+wicked hatchet~
+a wicked hatchet~
+With jagged edges and spikes, this wicked hatchet awaits a new slave.~
+iron~
+weapon ABEIM AN
+axe 10 5 cleave E
+45 8 800 P
+E
+wicked hatchet~
+Covered in {Rblood{x and {Pgore{x, the {gs{co{gu{cl{gs{x of the {gd{We{ga{Wd{x 
+have taken up residence within this vessel.
+~
+A
+18 3
+A
+19 5
+
+
+#11903
+ice axe~
+an axe of blackest ice~
+
+Humming with power and freezing to the touch, a black axe waits.~
+ice~
+weapon ABEIJM AN
+axe 4 14 cleave BE
+50 10 1500 P
+E
+ice axe~
+Carved from ice millions of years old, this axe cuts steel 
+like butter.
+~
+
+A
+18 3
+A
+19 7
+
+#11904
+iron spear~
+an iron-shod spear~
+An iron-shod spear lies here beside its former owner.~
+iron~
+weapon I AN
+staff 8 5 pierce 0
+40 5 200 P
+E
+iron spear~
+A simple short spear, it makes for excellent close quarters 
+work.
+~
+
+A
+18 4
+A
+19 4
+
+#11905
+spear~
+a brass bound spear~
+A short legionnaire's spear is stuck in the ground.~
+steel~
+weapon AGIK AN
+staff 3 15 pierce 0
+45 6 300 P
+E
+spear~
+Most often used by lieutenants, this spear functions much 
+like a sword.
+~
+A
+18 4
+A
+19 4
+
+#11906
+flaming Lance~
+a flaming lance~
+{PRed {Rhot{x to the touch, a 5' lance stands here.~
+adamantite~
+weapon ABGIK AN
+staff 2 25 pierce A
+50 7 1000 P  
+E
+flaming lance~
+Reserved for field officers, these weapons can devastate the 
+opposition's morale.
+~
+
+A
+18 5
+A
+19 5
+
+#11907
+obsidian spear~
+an obsidian spear~
+{gC{cr{gy{cs{gt{ca{gl{cl{gi{cn{ge {cobsidian{x has been carved into a mighty spear.~
+obsidian~
+weapon ABGIK AN
+staff 4 14 pierce AD
+60 10 2000 P
+E
+obsidian spear~
+Enchanted millennia ago, the general has come into possession 
+of a mighty artifact. Though it appears heavy as a boulder, 
+he wields it with one hand.
+~
+A
+18 6
+A
+19 6
+
+#11908
+axe dragon~
+a heavy axe of black ice~
+The {Td{cr{Ta{cg{To{cn{x on this axe watches you with unrelenting malevolence.~
+Ice~
+weapon ABPEGHIJ ANP
+axe 4 10 cleave 0
+25 30 400 G
+E
+axe dragon~
+Carved from {cblack ice{x, the blessing of Icewing bestows 
+great power on its wielder.
+~
+A
+3 1
+A
+4 1
+A
+18 1
+A
+19 3
+
+#11909
+helm dreams~
+the Helm of Dreams~
+An ethereal helm floats here.~
+mist~
+armor ABPFGILTY AE
+30 30 30 20 0
+90 0 9000 P
+E
+helm dreams~
+Made from mist, this helm fits snugly over your head and 
+low whispers invade your consciousness.
+~
+A
+12 70
+A
+18 7
+A
+19 7
+A
+24 -6
+A
+26 3
+F
+A 0 0 CG
+
+#11910
+icewing skull~
+the skull of Icewing~
+A dragon's skull rests here, glaring at you.~
+bone~
+armor AHEIMJTY AD
+30 35 30 20 0
+92 20 8000 P
+E
+skull~
+Staring at you with unblinking eyes, the malevolence of an 
+ancient dragon settles heavily on your shoulders.
+~
+A
+13 70
+A
+1 2
+A
+2 -2
+A
+9 20
+A
+14 -150
+A
+17 -5
+A
+18 7
+A
+19 7
+A
+24 -3
+F
+R 0 0 I
+
+#11911
+legion shield~
+a shield of the Legion~
+A {Rred{x and {Ygold{x shield lies here.~
+steel~
+armor AIK AJ
+10 10 10 5 0
+45 10 500 P
+E
+legion shield~
+Basic issue to lieutenants, this simple shield has a turret 
+painted on it.
+~
+A
+5 2
+A
+18 3
+A
+13 20
+
+#11912
+captain shield~
+a captain's shield~
+A burgundy and gold embossed turret is on this shield.~
+mithril~
+armor ABGIK AJ
+12 12 12 10 0
+50 900 15 P
+E
+captain shield~
+Embossed with a {Ygolden turret{x on a {Rburgundy background{x, 
+captains can escape most altercations without a scratch.
+~
+
+A
+2 1
+A
+1 2
+A
+18 3
+A
+19 2
+
+#11913
+cuirass~
+a red and gold cuirass~
+The general's cuirass lies here, abandoned.~
+adamantite~
+armor ABGIK AD
+17 18 17 12 0
+60 25 1500 P
+E
+cuirass~
+Made from adamantite, this sturdy piece of equipment served 
+each owner well and without a scratch.
+~
+A
+13 40
+A
+18 4
+A
+19 4
+A
+17 -2
+A
+24 -3
+
+#11914
+eagle shield~
+an eagle crested shield~
+A golden eagle spreads its wings, defending its possessor.~
+Adamantite~
+armor ABGIK AJ
+20 20 20 15 0
+60 25 1500 G
+E
+eagle shield~
+Also made from adamantite, this shield has survived many 
+battles, though its owner might have returned on it.
+~
+
+A
+18 5
+A
+24 -3
+A
+17 -4
+A
+12 40
+
+#11915
+song Koreg~
+the song of {RK{Co{Rr{Ce{Rg{x~
+A turbulent melody heartens and enflames you.~
+Valor~
+armor BPGIT AQ
+8 8 8 10 0 
+20 0 300 P
+E
+song Koreg~
+So powerful, you can almost feel the god's presence. 
+Trembling, you search for battle.
+~
+A
+18 3
+A
+19 3
+A
+5 2
+A
+1 2
+
+#11916
+blood berserker~
+{Rbitter blood{x~
+A smear of {Rblood{x is here.~
+blood~
+pill 0 A
+20 'frenzy' 'blood moon' '' ''
+20 0 300 P
+E
+blood~
+A taste of this burns your tongue and you feel a wildness 
+grow in your mind.
+~
+
+#11917
+blood legion~
+{Psweet blood{x~
+A puddle of {Pblood{x is here.~
+blood~
+pill 0 A
+20 'bless' 'armor' '' ''
+20 0 300 P
+E
+blood~
+The sweet taste leaves you emboldened and protected.
+~
+
+#11918
+key escape~
+a dwarf's escape key~
+An unbroken key lies here.~
+adamantite~
+key GT A
+0 0 0 0 0 
+0 0 0 P
+E
+key escape~
+Face north and look right/ There to find your path of flight.
+~
+
+#11919
+blue potion~
+a {Cblue potion{x~
+A {Cpale blue potion{x lies here, untouched.~
+aqua vitae~
+potion G A
+25 'cancel' 'slow' 'regen' 'cure critical'
+25 1 50 P
+E
+blue potion~
+Your {Pheart{x unclenches and pumps slower after tasting 
+the {Cblue liquid{x.
+~
+
+#11920
+corpse~
+a bleeding corpse~
+~
+flesh~
+container 0 0
+500 MORT 0 500 100
+0 1000 0 P
+E
+corpse~
+Something useful is inside this corpse.
+~
+
+#11921
+corpse~
+a bleeding corpse~
+~
+flesh~
+container 0 0
+500 MORT 0 500 100
+0 1000 0 P
+E
+corpse~
+Something useful is inside this corpse.
+~
+
+#11922
+corpse~
+a bleeding corpse~
+~
+flesh~
+container 0 0
+500 MORT 0 500 100
+0 1000 0 P
+E
+corpse~
+Something useful is inside this corpse.
+~
+
+#11923
+corpse~
+a bleeding corpse~
+~
+flesh~
+container 0 0
+500 MORT 0 500 100
+0 1000 0 P
+E
+corpse~
+Something useful is inside this corpse.
+~
+
+#11924
+corpse~
+a bleeding corpse~
+~
+flesh~
+container 0 0
+500 MORT 0 500 100
+0 1000 0 P
+E
+corpse~
+Something useful is inside this corpse.
+~
+
+#11925
+corpse~
+a bleeding corpse~
+~
+flesh~
+container 0 0
+500 MORT 0 500 100
+0 1000 0 P
+E
+corpse~
+Something useful is inside this corpse.
+~
+
+#11926
+chest~
+a crushed chest~
+~
+wood~
+container 0 0
+500 MORT 0 500 100
+0 1000 0 P
+E
+chest~
+Broken by the dragon's turbulent sleep, the contents are 
+exposed.
+~
+
+#11927
+chest~
+an iron braced chest~
+A sturdy wooden chest braced by iron rests here.
+~
+wood~
+container 0 0
+500 ABCD 11928 500 100
+0 1000 0 P
+
+#11928
+key escape~
+an iron key~
+~
+iron~
+key GTP AQ
+0 0 0 0 0 
+0 0 0 P
+
+#0
+
+#ROOMS
+
+#11900
+A Distant Battle~
+The cliffs rising to your right and left guide your trek. 
+As you continue walking,  echoes of singing and clashing 
+metal reach your ears. In the distance you see a level 
+field, surrounded by high cliff walls with many men engaged 
+in battle.
+~
+0 A 4
+D0
+A hidden pass lies north.
+~
+~
+0 -1 3800
+D2
+The path continues by a Guard Post.
+~
+~
+0 -1 11901
+S
+
+#11901
+Guard Post~
+Maintaining a watchful eye, this group of men guards the 
+only escape from the small valley. Eyeing you with suspicion, 
+they allow you to pass unmolested. "Watch your step stranger.
+These {gb{Ta{gr{Tb{ga{Tr{gi{Ta{gn{Ts{x are tougher than you might think," 
+is the only advice given to you.
+~
+0 A 4
+D0
+A path continues north.
+~
+~
+0 -1 11900
+D2
+A perimeter lies south.
+~
+~
+0 -1 11902
+D3
+A base camp is to your west.
+~
+~
+0 -1 11917
+S
+#11902
+A Wild Clamor~
+You stand on the perimeter of the battle. You see men in furs
+with wild eves battling heavily armored men in tight 
+formation. Surveying the situation you decide that the 
+armored men, the {YGolden Legion{x, has the upper hand. The 
+noise of battle falls upon your ears unhindered. Screams 
+from the injured and dying assault your ears, while the 
+clash of metal makes thinking difficult. The bitter tang of 
+spilled {Rb{Pl{Ro{Po{Rd{x and rusted metal assails your 
+nostrils as the battle beckons to you.
+~
+0 A 4
+D0
+A Guard Post is north.
+~
+~
+0 -1 11901
+D2
+A bloody Battlefield is south.
+~
+~
+0 -1 11903
+S
+
+#11903 
+The Battlefield~
+Surrounded by bodies, {Rblood{x, and fighting, you pick your way 
+through the fracas. Wild battle-cries clipped orders and 
+fervent singing fly across the battlefield, unseen arrows 
+striking fear deep into the souls of the combatants. You see
+the occasional warrior finish off an opponent only to be 
+immediately engaged by another. Corpses litter the {Rb{Pl{Re{Pe{Rd{Pi{Rn{Pg{x ground. Some 
+appear to still have useful items.
+~
+0 A 4
+D0
+A perimeter is north.
+~
+~
+0 -1 11902
+D1
+A bloody Battlefield is east.
+~
+~
+0 -1 11905
+D2
+A bloody Battlefield is south.
+~
+~
+0 -1 11906
+D3
+A bloody Battlefield is west.
+~
+~
+0 -1 11904
+S
+#11904 
+The Battlefield~
+Surrounded by bodies, {Rblood{x, and fighting, you pick your
+way through the fracas. Wild battle-cries clipped orders and 
+fervent singing fly across the battlefield, unseen arrows 
+striking fear deep into the souls of the combatants. You see
+the occasional warrior finish off an opponent only to be 
+immediately engaged by another. Corpses litter the {Rb{Pl{Re{Pe{Rd{Pi{Rn{Pg{x ground. Some 
+appear to still have useful items.
+~
+0 A 4
+D1
+A bloody Battlefield is east.
+~
+~
+0 -1 11903
+D2
+A bloody Battlefield is south.
+~
+~
+0 -1 11907
+S
+#11905 
+The Battlefield~
+Surrounded by bodies, {Rblood{x, and fighting, you pick your
+way through the fracas. Wild battle-cries clipped orders and 
+fervent singing fly across the battlefield, unseen arrows 
+striking fear deep into the souls of the combatants. You see the 
+occasional warrior finish off an opponent only to be immediately 
+engaged by another. Corpses litter the {Rb{Pl{Re{Pe{Rd{Pi{Rn{Pg{x ground. Some 
+appear to still have useful items.
+~
+0 A 4
+D2
+A bloody Battlefield is south.
+~
+~
+0 -1 11908
+D3
+A bloody Battlefield is west.
+~
+~
+0 -1 11903
+S
+#11906 
+The Battlefield~
+Surrounded by bodies, {Rblood{x, and fighting, you pick your way 
+through the fracas. Wild battle-cries clipped orders and 
+fervent singing fly across the battlefield, unseen arrows 
+striking fear deep into the souls of the combatants. You see the 
+occasional warrior finish off an opponent only to be 
+immediately engaged by another. Corpses litter the {Rb{Pl{Re{Pe{Rd{Pi{Rn{Pg{x ground. Some 
+appear to still have useful items.
+~
+0 A 4
+D0
+A bloody Battlefield is north.
+~
+~
+0 -1 11903
+D1
+A bloody Battlefield is east.
+~
+~
+0 -1 11908
+D2
+A bloody Battlefield is south.
+~
+~
+0 -1 11909
+D3
+A bloody Battlefield is west.
+~
+~
+0 -1 11907
+S
+#11907 
+The Battlefield~
+Surrounded by bodies, {Rblood{x, and fighting, you pick your way 
+through the fracas. Wild battle-cries clipped orders and 
+fervent singing fly across the battlefield, unseen arrows 
+striking fear deep into the souls of the combatants. You see the 
+occasional warrior finish off an opponent only to be 
+immediately engaged by another. Corpses litter the {Rb{Pl{Re{Pe{Rd{Pi{Rn{Pg{x ground. Some 
+appear to still have useful items.
+~
+0 A 4
+D0
+A bloody Battlefield is north.
+~
+~
+0 -1 11904
+D1
+A bloody Battlefield is east.
+~
+~
+0 -1 11906
+D2
+A bloody Battlefield is south.
+~
+~
+0 -1 11910
+D3
+A Bloody Pass is west.
+~
+~
+0 -1 11923
+S
+#11908 
+The Battlefield~
+Surrounded by bodies, {Rblood{x, and fighting, you pick your way 
+through the fracas. Wild battle-cries clipped orders and 
+fervent singing fly across the battlefield, unseen arrows 
+striking fear deep into the souls of the combatants. You see the 
+occasional warrior finish off an opponent only to be 
+immediately engaged by another. Corpses litter the {Rb{Pl{Re{Pe{Rd{Pi{Rn{Pg{x ground. Some 
+appear to still have useful items.
+~
+0 A 4
+D0
+A bloody Battlefield is north.
+~
+~
+0 -1 11905
+D2
+A bloody Battlefield is south.
+~
+~
+0 -1 11911
+D3
+A bloody Battlefield is west.
+~
+~
+0 -1 11906
+S
+#11909 
+The Battlefield~
+Surrounded by bodies, {Rblood{x, and fighting, you pick your way 
+through the fracas. Wild battle-cries clipped orders and 
+fervent singing fly across the battlefield, unseen arrows 
+striking fear deep into the souls of the combatants. You see the 
+occasional warrior finish off an opponent only to be 
+immediately engaged by another. Corpses litter the {Rb{Pl{Re{Pe{Rd{Pi{Rn{Pg{x ground. Some 
+appear to still have useful items.
+~
+0 A 4
+D0
+A bloody Battlefield is north.
+~
+~
+0 -1 11906
+D1
+A bloody Battlefield is east.
+~
+~
+0 -1 11911
+D3
+A bloody Battlefield is west.
+~
+~
+0 -1 11910
+S
+#11910
+The Battlefield~
+Surrounded by bodies, {Rblood{x, and fighting, you pick your way 
+through the fracas. Wild battle-cries clipped orders and 
+fervent singing fly across the battlefield, unseen arrows 
+striking fear deep into the souls of the combatants. You see the 
+occasional warrior finish off an opponent only to be 
+immediately engaged by another. Corpses litter the {Rb{Pl{Re{Pe{Rd{Pi{Rn{Pg{x ground. Some 
+appear to still have useful items.
+~
+0 A 4
+D0
+A bloody Battlefield is north.
+~
+~
+0 -1 11907
+D1
+A bloody Battlefield is east.
+~
+~
+0 -1 11909
+D2
+A guarded Bottleneck is south.
+~
+~
+0 -1 11919
+S
+#11911 
+The Battlefield~
+Surrounded by bodies, {Rblood{x, and fighting, you pick your way 
+through the fracas. Wild battle-cries clipped orders and 
+fervent singing fly across the battlefield, unseen arrows 
+striking fear deep into the souls of the combatants. You see the 
+occasional warrior finish off an opponent only to be 
+immediately engaged by another. Corpses litter the {Rb{Pl{Re{Pe{Rd{Pi{Rn{Pg{x ground. Some 
+appear to still have useful items.
+~
+0 A 4
+D0
+A bloody Battlefield is north.
+~
+~
+0 -1 11908
+D2
+A Narrow Canyon is south.
+~
+~
+0 -1 11912
+D3
+A bloody Battlefield is west.
+~
+~
+0 -1 11909
+S
+#11912
+Narrow Canyon~
+Almost big enough for three people, you squeeze through the 
+crevice. High walls of {cb{ga{cs{ga{cl{gt{x and {gg{Wr{ga{Wn{gi{Wt{ge{x climb to the sky above you. 
+An eerie silence defying the battle hangs over you here. The 
+air is colder and your feet crunch a thin layer of {Cice{x as 
+you walk.
+~
+0 A 4
+D0
+A bloody Battlefield is north.
+~
+~
+0 -1 11911
+D2
+A Narrow Canyon is south.
+~
+~
+0 -1 11913
+S
+#11913
+Narrow Canyon~
+Almost big enough for three people, you squeeze through the 
+crevice. High walls of {cb{ga{cs{ga{cl{gt{x and {gg{Wr{ga{Wn{gi{Wt{ge{x climb to the sky above you. 
+An eerie silence defying the battle hangs over you here. The
+air is colder and your feet crunch a thin layer of {Cice{x as 
+you walk.
+~
+0 A 4
+D0
+A Narrow Canyon is north.
+~
+~
+0 -1 11912
+D2
+A open Clearing is south.
+~
+~
+0 -1 11914
+S
+#11914
+{CIce{x Covered Clearing~
+Exiting the canyon, you stop to survey the clearing before 
+you. It is quite large, big enough for a fair sized 
+guesthouse and tavern. A layer of {Th{Ba{Tr{Bd {Tb{Bl{Tu{Be {Ti{Bc{Te{x covers the entire 
+area and in the center is a huge pit. The pit appears to be 
+covered with {Cice{x too, but there is a hole near the 
+center of the huge covering.
+~
+0 A 4
+D0
+A Narrow Canyon is north.
+~
+~
+0 -1 11913
+D3
+An ice covered pit is west.
+~
+~
+0 -1 11915
+S
+#11915
+A Deep Pit~
+A sense of {Rd{cr{Re{ca{Rd{x settles into your bones as you 
+approach this hole of night. There is indeed a hole in the 
+{Cice{x and you can peek in to see what might lay at the 
+bottom. Peering over the edge, all you see is the darkest 
+patch of {cnight{x never seen by the {Ysun{x. Whether your hands 
+shake from the bitter cold or growing fear, you do not know. 
+Like the pupil of a {Cgiant blue eye{x, the hole seems to widen, 
+beckoning.
+~
+0 A 4
+D1
+An open Clearing is east.
+~
+~
+0 -1 11914
+D5
+A jagged hole leads into darkness.
+~
+~
+0 -1 11916
+S
+#11916
+{CI{Wc{Ce{Ww{Ci{Wn{Cg{x's Pit~
+Falling through the hole, you land on {Cice-covered{x {Yt{Pr{Ye{Pa{Ys{Pu{Yr{Pe{x. A huge body 
+twists and turns through the mounds of piled riches. With 
+mounting dread, you realize that you have stumbled upon the 
+lair of a dragon. It dawns on you that there is no exit. 
+Except for the hole that brought you here, there is no way to
+escape. Frantically, you look around the sleeping dragon 
+(LUCKY!) for some egress and see only piles of {Cice-covered{x 
+{Ygold{x, {gsilver{x, weapons and armor fit for an army. However, 
+the {Cicy blue breath{x from the dragon's snoring has broken 
+through some chests, exposing the contents to the world.
+~
+0 AN 4
+D1
+~
+escape~
+4 11918 11912
+S
+#11917
+Bottom of the Slope~
+The planning area for the {YLegion{x is here. Officers mill 
+about, arguing strategies and sending messages to the 
+battlefield. Right now there seems to be an especially 
+heated discussion occurring over some nebulous threat. 
+Looking up the slope, you see one tent and a lone figure 
+standing at the summit.
+~
+0 A 4
+D1
+A Guard Post is east of here.
+~
+~
+0 -1 11901
+D4
+The General's tent is up this incline.
+~
+~
+0 -1 11918
+S
+#11918
+{RG{Ye{Rn{Ye{Rr{Ya{Rl{x's view~
+Finally reaching the high peak, you turn and gasp as you can 
+see a mural of battle painted with the {Yg{Rol{gd{x of the 
+{YL{Re{gg{Yi{Ro{gn{x, {Yg{Rr{ga{Yy{x of the {RB{ga{Yr{Rb{ga{Yr{Ri{ga{Yn{Rs{x, and {gb{Yl{Ro{go{Yd{x of the {Rd{ge{Ya{Rd{x.  You 
+see the general preparing for battle and hear him mumbling 
+and shaking his head. The only word you hear, "Gods, I do 
+love it. I love it so."
+~
+0 A 4
+D5
+~
+~
+0 -1 11917
+S
+#11919
+A Bottleneck~
+Here is the rearguard of the {gbarbarians{x, awaiting the 
+rush of the oncoming {YLegion{x. They can hold this strait 
+for two days using three grandmothers armed only with 
+broomsticks. You pass through their lines unnoticed because 
+of the fixation on the {Ygolden Legion{x. Be wary. A wrong 
+move can cost you your life.
+~
+0 A 4
+D0
+A bloody Battlefield is north.
+~
+~
+0 -1 11910
+D2
+The barbarian forces are regrouping to the south.
+~
+~
+0 -1 11920
+S
+#11920
+Regroup~
+{gBarbarian leaders{x shout and direct their underlings into some 
+semblance of order. They appear to be organizing for an all 
+out attack and there is an odd confidence, almost cockiness, 
+about them. It is as though they know they have already won.
+~
+0 A 4
+D0
+A wide clearing is to the west.
+~
+~
+0 -1 11919
+D3
+A narrow Bottleneck is north.
+~
+~
+0 -1 11921
+S
+#11921
+Below the Caverns~
+Walking around here, you can see stairs chiseled into the 
+rock. They are unnaturally smooth as though worn by constant
+use or carved by {Rm{ca{Rg{ci{Rc{x. On a ledge high above stand 
+another lone figure. He looks down and flashes a {Wbrilliant{x 
+{Wwhite smile{x in your direction.
+~
+0 A 4
+D1
+Barbarians are running east.
+~
+~
+0 -1 11920
+D4
+An overhang is above you.
+~
+~
+0 -1 11922
+S
+#11922
+{TB{ca{Tt{ct{Tl{ce{Tl{co{Tr{cd{x's Vantage~
+Looking over the edge, you see the mirror image of the {YLegion{x 
+general's view. The {TB{ca{Tt{ct{Tl{ce{Tl{co{Tr{cd{x strokes his shiny 
+black axe and helm, murmuring in soothing tones. The ledge 
+leads into a {gd{ca{gr{ck {gc{ca{gv{ce{x from which leaks the unmistakable 
+{Hm{bi{Ha{bs{Hm{ba{x of {gd{ca{gr{ck {Rm{ca{Rg{ci{Rc{x. The {TB{ca{Tt{ct{Tl{ce{Tl{co{Tr{cd{x turns to regard you 
+with a broad, {ce{Pv{ci{Pl{x, smile and pointedly returns his gaze to 
+the battle below.
+~
+0 A 4
+D2
+A dark entrance.
+~
+~
+0 -1 16500
+D5
+The clearing below is covered with barbarians.
+~
+~
+0 -1 11921
+S
+#11923
+A {PB{Rl{Po{Ro{Pd{Ry{x Pass~
+The cliffs are {Rb{Pl{Re{Pe{Rd{Pi{Rn{Pg{x. {RBlood{x is spattered everywhere, 
+gathered in pools and flowing in rivers. It looks as though 
+a group of barbarians were chased into this off-shoot and 
+slaughtered. The path continues and in this enclosed area 
+the smell of death makes your eyes water.
+~
+0 A 4
+D1
+A bloody Battlefield is to the east.
+~
+~
+0 -1 11907
+D3
+Piled bodies populate the western path.
+~
+~
+0 -1 11924
+S
+#11924
+Piles of Bodies~
+From wall to wall, bodies are everywhere. {gBarbarian{x and 
+{YLegion{x alike lie in various poses of death. You can almost
+feel the {cSpecter of Death{x looking at you. As you search 
+about, the bodies seem to cry out to you, the fixed rictus 
+of death on their faces. Shivering from the carnage, you 
+turn and see the final stand to the west.
+~
+0 A 4
+D1
+A Bloody Pass is to the east.
+~
+~
+0 -1 11923
+D2
+A dead end is south.
+~
+~
+0 -1 11925
+S
+#11925
+Rat Trap~
+In the center of a pile of bodies is a crazed berserker. He 
+spins and his eyes lock with yours......
+~
+0 A 4
+D0
+Piled bodies climb the walls north.
+~
+~
+0 -1 11924
+S
+#0
+
+#RESETS
+D 0 11916 1 2         *Lock Icewing's Egress 
+M 0 11900 5 11905 5    *Load Warrior
+E 0 11900 10 16       *Give Double axe Warrior
+M 0 11900 5 11907 5    *Load Warrior
+E 0 11900 10 16       *Give Double axe Warrior
+M 0 11900 5 11910 5    *Load Warrior
+E 0 11900 10 16       *Give Double axe Warrior
+M 0 11901 3 11921 3    *Load Shaman
+E 0 11901 10 16       *Give Mace Shaman
+M 0 11902 1 11925 1    *Load Berserker
+E 0 11902 5  16       *Give Wicked Axe Berserker
+M 0 11903 1 11922 1   *Load Battlelord
+E 0 11903 5  16        *Give Ice Axe to Battlelord
+E 0 11928 1  18        *Give iron key Battlelord
+O 0 11927 1 11922     *Load Chest by Battlelord
+P 0 11909 5 11927 1    *Load helm into chest
+M 0 11904 1 11916 1   *Load Icewing
+G 0 11910 5            *Give Skull Icewing
+M 0 11905 4 11909 4    *Load Sergeant
+E 0 11904 10 16       *Give Iron Spear Sergeant
+M 0 11905 4 11906 4    *Load Sergeant
+E 0 11904 10 16       *Give Iron Spear Sergeant
+M 0 11906 4 11903 4    *Load Lieutenant
+E 0 11905 10 16       *Give Short Spear LT
+E 0 11911 10 11       *Give Shield LT
+M 0 11906 4 11901 4    *Load Lieutenant
+E 0 11905 10 16       *Give Short Spear LT
+E 0 11911 10 11       *Give Shield LT
+M 0 11907 3 11917 3    *Load Captain
+E 0 11906 5  16       *Give Lance CPT
+E 0 11912 10 11       *Give Shield CPT
+G 0 11919 30          *Give Potion CPT
+M 0 11907 2 11917 2    *Load Captain
+E 0 11906 5  16       *Give Lance CPT
+E 0 11912 10 11       *Give Shield CPT
+G 0 11919 30          *Give Potion CPT
+M 0 11908 1 11918 1    *Load General 
+E 0 11907 3  16       *Give Obsidian GNL
+E 0 11913 10 5        *Give Cuirass GNL
+E 0 11914 10 11       *Give Eagle Shield GNL
+G 0 11919 30          *Give Potion GNL
+O 0 11920 1 11924      *Load Corpse into Piles of Bodies
+P 0 11908 3 11920 1    *Load dragon axe into corpse
+O 0 11921 1 11907      *Load corpse into Battlefield
+O 0 11922 1 11906      *Load corpse into Battlefield
+O 0 11923 1 11910      *Load corpse into Battlefield
+O 0 11924 1 11903      *Load corpse into Battlefield
+O 0 11925 1 11911      *Load corpse into Battlefield
+P 0 11915 10 11925 1   *Load song into corpse
+O 0 11926 1 11916      *Load chest into Icewing's Pit
+P 0 11918 10 11926 1   *Load key into chest
+S
+
+#SPECIALS
+M 11902 spec_nasty
+M 11901 spec_cast_cleric
+M 11903 spec_cast_mage
+M 11904 spec_cast_cleric
+S
+
+#$

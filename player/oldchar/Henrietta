@@ -1,0 +1,314 @@
+#PLAYER
+Name Henrietta~
+Id   1003269651
+LogO 1005883041
+Vers 8
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race seraph~
+Sex  2
+Cla  5
+Levl 9
+Plyd 34199
+Age  0
+Back 32357
+Note 0 0 0 992285878 0 0
+Scro 22
+Room 3001
+HMV  161 161 168 168 148 148
+Gold 44
+Silv 1638
+Exp  12530
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Spou ~
+Act  CDEFGHJLQSTc
+AfBy T
+Comm NO
+Revk 0
+Pos  8
+Alig  1000
+Hit   3
+Dam   1
+ACs 46 35 33 79
+Wimp  35
+Atrib 18 15 16 16 16 19
+AtMod 0 1 0 0 1 0
+Pass m649ufs~
+Afk {B[{CSat Oct 20 13:42:45 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  has seen too much too young~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 2
+LLev 6
+Email kirsty@saintly.demon.co.uk~
+Deit Xenith~
+Lsit ppp-1-9.cvx3.telinco.net~
+Ltim Thu Nov 15 21:56:42 2001
+~
+LSav Thu Nov 15 21:57:21 2001
+~
+Finf Henrietta is new to Legacy, but not new to playing at MUDs.
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FG
+HMVP 151 168 148
+THVP 2 1 0
+Cnd  0 0 0 0
+Alias gs get skin from bag~
+Alias ds drink skin~
+Alias ps put skin in bag~
+Alias clm cast 'cure light'~
+Alias csm cast 'cure serious'~
+Alias gp get pie from bag~
+Alias ep eat pie~
+Alias pp put pie in bag~
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 80 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 76 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'frenzy'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'mass healing'
+Sk 75 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 23 1 'shield block'
+Sk 77 1 'sword'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 38 1 'fast healing'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 64 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'curative'
+Gr 'healing'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3705
+Nest 0
+Cond 87
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3715
+Nest 1
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 3379
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1001
+Nest 1
+ShD  a {PY{Yo{Bu{Gr {Ca {TH{Go{Bt{Mt{Gi{Be{C!!{R{x rose~
+Desc A {PY{Yo{Bu{Gr {Ca {TH{Go{Bt{Mt{Gi{Be{C!!{R{x rose is lying on the ground.~
+Wear -1
+Cost 0
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#O
+Vnum 1001
+Nest 1
+ShD  a {Yyour still a hottie :){x rose~
+Desc A {Yyour still a hottie :){x rose is lying on the ground.~
+Wear -1
+Cost 0
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#O
+Vnum 3012
+Nest 1
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 1
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 1
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 1
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 2101
+Enchanted
+Nest 1
+Wear -1
+Cost 970
+Val  3 4 4 0 0
+End
+
+#O
+Vnum 3502
+Nest 1
+Cond 70
+Wear -1
+Cost 490
+End
+
+#O
+Vnum 3138
+Nest 1
+Wear -1
+Cost 24
+Val  64 0 0 0 0
+End
+
+#O
+Vnum 3074
+Nest 0
+Wear 7
+Cost 420
+End
+
+#O
+Vnum 3077
+Nest 0
+Wear 10
+Cost 420
+End
+
+#O
+Vnum 3045
+Nest 0
+Cond 84
+Wear 5
+Cost 850
+End
+
+#O
+Vnum 3504
+Nest 0
+Wear 15
+Cost 690
+End
+
+#O
+Vnum 3503
+Nest 0
+Wear 3
+Cost 310
+End
+
+#O
+Vnum 3504
+Nest 0
+Wear 14
+Cost 690
+End
+
+#O
+Vnum 3075
+Nest 0
+Cond 84
+Wear 8
+Cost 420
+End
+
+#O
+Vnum 3114
+Nest 0
+Wear 9
+Cost 660
+End
+
+#O
+Vnum 2104
+Nest 0
+Wear 11
+Cost 500
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear 16
+Cost 610
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 3201
+Nest 0
+Cond 89
+Wear 6
+Cost 20
+End
+
+#END

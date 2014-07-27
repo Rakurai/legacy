@@ -1,0 +1,508 @@
+#PLAYER
+Name Samson~
+Id   994024366
+LogO 1012335889
+Vers 11
+Desc {cStanding before you is the tallest, stockiest dwarf you have ever seen!
+His pitch-black hair is roughly gathered into a tail behind the nape of
+his neck by a cord, revealing a craggy, worn face, with deep-set eyes
+which seem to bore into you like a knife, searching out all your deepest
+fears and secrets.  As your gaze falters from those eyes, you realise how
+strong this dwarf appears. His muscles ripple with strictly confined power,
+and you shiver at the thought of that power unleashed. 
+As he turns away from you, resting a hefty axe effortlessly upon his
+bulky shoulder, you catch a glimpse of another side to this stern-
+looking dwarf. The care-worn, stern face seemed to crack into a wry grin,
+indicating a humorous twist to his personality which is not evident at
+first glance. Perhaps he has more to offer as a friend than you first
+thought - dare you risk exploring this possibility?
+~
+Prom %CV%h/%H%CMhp %CG%m/%M%CHm %CP%v/%V%CRmv %CB%X%CNtnl %CY%gg %CC%a%CTa%c~
+Race dwarf~
+Clan cirque~
+Sex  1
+Cla  3
+Levl 27
+Plyd 72966
+Age  0
+Back 60626
+Note 999733604 999629221 999422566 999667403 999501756 999281850
+Scro 22
+Room 8543
+HMS  591 591 226 226 258 420
+Gold 393
+Silv 5608
+Exp  35424
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy DFJR
+Comm GNO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  5
+Prac 25
+Trai 4
+Save  -5
+Alig  -1000
+Hit   31
+Dam   36
+ACs -42 -45 -45 23
+Atrib 22 16 19 14 21 16
+AtMod 7 4 9 4 3 4
+QpDonated 20
+Pass notsad~
+Afk {B[{CSun Jul 22 06:30:17 2001{B] {C{CA{Tuto-{CA{Tfk by {GL{Be{Nga{Bc{Gy{x
+~
+Titl  {c- strong and silent.{x~
+Immn ~
+Pnts 45
+Rank {PS{BT{YR{x~
+Aura ~
+TSex 1
+LLev 18
+Deit Tarrant~
+Lsit pc-62-31-4-42-bf.blueyonder.co.uk~
+Ltim Fri Sep 07 08:19:22 2001
+~
+LSav Tue Jan 29 14:24:49 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 36 0 0 0 0 0 0 0 0 0 0 0 0 0 0 32 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
+Plr  ABFH
+HMSP 476 196 420
+THMS 0 0 0
+Cnd  0 29 47 39
+Query cipher~
+Query scattercat~
+Query delilia~
+Sk 75 1 'cure critical'
+Sk 57 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'heal'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 86 1 'axe'
+Sk 1 1 'sword'
+Sk 1 1 'berserk'
+Sk 75 1 'disarm'
+Sk 75 1 'dodge'
+Sk 82 1 'kick'
+Sk 79 1 'parry'
+Sk 76 1 'second attack'
+Sk 75 1 'third attack'
+Sk 78 1 'dual wield'
+Sk 1 1 'forge'
+Sk 1 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'healing'
+End
+
+#O
+Vnum 3724
+Nest 0
+Wear -1
+Cost 100
+Val  60 1 0 6 100
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 1
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 3388
+Nest 1
+Wear -1
+Cost 50000
+Val  94 500 8 0 15
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 10131
+Enchanted
+Nest 1
+ExtF 17039427
+Wear -1
+Lev  14
+Cost 0
+Affc 'enchant weapon'   0  67  -1   5  18          0 1
+Affc 'reserved'   1  10  -1   1   5          0 1
+Affc 'enchant weapon'   1  67  -1   8  19          0 1
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 134 0 0 0
+End
+
+#O
+Vnum 10127
+Nest 0
+Cond 99
+Wear 7
+Cost 128
+End
+
+#O
+Vnum 12701
+Nest 0
+Wear 5
+Cost 500
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 11915
+Nest 0
+Cond 93
+Wear 18
+Cost 300
+End
+
+#O
+Vnum 12709
+Nest 0
+Cond 96
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 16075
+Nest 0
+Wear 10
+Cost 1600
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 504
+Enchanted
+Nest 0
+ExtF 19
+Cond 95
+Wear 15
+Cost 312
+Affc 'reserved'   1  25  -1   5  19          0 1
+Affc 'reserved'   1  25  -1   5  18          0 1
+Affc 'acid breath'   0  25  -1   1  17          0 1
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Cond 100
+Wear 14
+Cost 312
+End
+
+#O
+Vnum 11908
+Enchanted
+Nest 0
+ExtF 851
+Wear 19
+Lev  26
+Cost 0
+Affc 'reserved'   1  25  -1   1   3          0 1
+Affc 'reserved'   1  25  -1   1   4          0 1
+Affc 'enchant weapon'   1  68  -1   2  18          0 1
+Affc 'enchant weapon'   1  68  -1   4  19          0 1
+End
+
+#O
+Vnum 11908
+Enchanted
+Nest 0
+ExtF 851
+Cond 87
+Wear 16
+Lev  26
+Cost 0
+Affc 'reserved'   1  25  -1   1   3          0 1
+Affc 'reserved'   1  25  -1   1   4          0 1
+Affc 'enchant weapon'   1  68  -1   2  18          0 1
+Affc 'enchant weapon'   1  68  -1   4  19          0 1
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 1
+Cost 1500
+End
+
+#O
+Vnum 2390
+Nest 0
+Wear 9
+Cost 5800
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear 6
+Cost 1000
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 17302
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4594
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 4579
+Nest 0
+Wear -1
+Cost 2800
+End
+
+#O
+Vnum 4579
+Nest 0
+Wear -1
+Cost 2800
+End
+
+#O
+Vnum 4585
+Nest 0
+Wear -1
+Cost 1600
+End
+
+#O
+Vnum 4584
+Nest 0
+Wear -1
+Cost 1600
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#END

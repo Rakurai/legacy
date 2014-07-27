@@ -1,0 +1,336 @@
+0 DUEL ARENA DUELS CHALLENGE~
+Syntax:
+{V   duel issue {x<{Yplayer{x> <{Yname of arena{x>
+{V   duel accept{x
+{V   duel decline{x
+{V   duel ignore{x
+{V   duel view{x
+{V   duel arena{x
+{V   duel arena {x<{Yname{x>
+
+For some, disagreements can only be solved through a fight to
+the death.  Others may enjoy combat just to test their skill.
+For both, there is the duel arena, letting players challenge
+eachother to a one on one fight, without interference of any
+kind.  Only the supplies you bring and your wits can help you
+once you've committed to a duel, as only one person will leave
+alive.
+
+Duels are held in exotic locations set aside as battlegrounds,
+each provides their own strategic obstacles that you can use
+to your advantage, if you know how.  Use {Cduel arena{x to see a
+list of the possible arenas, and {Cduel arena {x<{Yname of arena{x>
+to learn more about it.
+
+To challenge someone to combat, use {Cduel issue {x<{Yname of player{x>.
+Leaving out the name of an arena will cause a random one to be
+picked.  There are some restrictions, however.  Players cannot
+duel until they are at least level 10, and the challenger and
+defender must be within 10 levels of eathother if their clans
+are at war.  If one does not wish to take part in duels at all,
+they may use {Cduel ignore{x to make themselves unchallengable.
+
+When a person is challenged, they have ten minutes to either
+{Cduel decline {xor {Cduel accept{x, or the challenge will expire.
+Nothing bad can happen if the duel expires or is declined, except
+perhaps a few taunts.
+
+Once a duel is accepted, both parties are transported to separate
+preparation rooms to get ready for the upcoming fight.  The
+opponents are spelled down, except for their equipment and racial
+abilities, and then have 60 seconds to do whatever they need to
+prepare.  Once this timer runs out, both are taken to the arena
+and battle may begin at any time.
+
+At any time after a duel is accepted, players that are not
+involved may {Cduel view{x to be taken to a special viewing room to
+watch the battle.  When a battle is finished, the opponents will
+find themselves taken back to their clanhalls or the Temple Altar.
+~
+
+0 KILLER THIEF~
+If you {PPK{x or {YPSteal{x from an injured player or a sleeping player, 
+then you will receive a {PKILLER{x or {BTHIEF{x flag.  Once you have one 
+of these flags, players outside of eight levels can attack you.  Once you 
+have initiated combat against someone, the injured player/sleep restriction is 
+lifted for that combat session. Thus, if your opponent flees, you can 
+still track them down.
+
+{PKILLER{x and {BTHIEF{x flags can be removed only at the discretion of 
+the Immortals.  At no time are the Imms of Legacy required to ever remove 
+a {PKILLER{x or {BTHIEF{x flag.
+~
+
+0 PKILL PKILLING PKILLER 'PLAYER KILLING' PSTEALING 'PLAYER STEALING' FLAMING~
+{PPlayer killing{x and {Yplayer stealing{x is restricted to only those who have their
+{PPK flag{x set to the {Ron{x position.  Also, {PPK{x is restricted to within
+eight levels. In addition, if you {PPK{x or {YPSteal{x from an injured player or a sleeping player, then you will receive a {PKILLER{x or {BTHIEF{x
+flag.  Once you have one of these flags, players outside of eight levels
+can attack you.  Once you have initiated combat against someone, the injured
+player restriction is lifted for that combat session.  Thus, if your opponent
+flees, you can still track them down.
+See also the {RPK{x command.
+
+For a friendly duel with no level restrictions and no serious losses, try
+going to the {RLand of {PFlaming {YSword{x! Tickets there are sold just north of
+Clan Road, all the way north from 'recall'. Once there, {WREAD SIGN{x
+for details!
+~
+
+0 PK PKFLAG~
+The {RPK ON{x command raises your PK flag. This is the prerequisites for 
+engaging in player killing, both killing and being killed. {VOnce you 
+raise your PK flag, you cannot lower it until you die to PK!{x Don't even 
+bother trying, there is no PK OFF command :)
+You can check you PK status by typing {RPK{x (without the {RON{x), which
+will tell you if your flag is up or down. Your remort, level, class and race
+will be outlined in {Pred brackets{x on the wholist if your pk is on.  You
+can also see who has a pk flag by typing {Ywho pk{x.
+~
+
+0 PAINTBALL RELOAD SHOOT~
+Syntax:
+   {Vshoot{x <{Yvictim{x>
+   {Vreload{x
+   {Wp{Pa{Yi{Gn{Ct{Bb{Va{Wl{Pl{x
+
+{WP{Pa{Yi{Gn{Ct{Bb{Va{Wl{Pl{x turns your PB flag {Gon{x and {Roff{x.  It signifies whether you are
+participating in the forever ongoing game of {Wp{Pa{Yi{Gn{Ct{Bb{Va{Wl{Pl{x on the mud.
+
+{VReload{x will take a {Ttube from{x your inventoy and {Mload{x it {Minto{x your gun.
+You must be {Yholding{x your paintgun for this to work.
+
+{VShoot{x will shoot your victim.  It is basically a random chance, but some
+guns are better than others.  Also, you have to wait a few seconds after
+each shot, so beware!  If you cast identify on a paintgun, here is what
+the rating numbers stand for:
+
+    {Bwait time{x/{Bhow damaged your gun is{x/{Phow good the gun is{x
+
+The {Bfirst two{x you want to be as {Blow{x as possible.  The {Pthird one{x you want
+to be {Phigh{x.  If your gun jams in combat it will be damaged, and eventually,
+damaged guns must be replaced.
+~
+
+0 CRUSH~
+Syntax: {Ccrush{x
+
+In a fight, this skill lets you do heavy physical damage to your opponent.
+It is envisioned as an extra-strong bearhug, resulting in crushed ribs
+and the like. (Think grapple)
+
+At the moment, this skill is not available for gaining, and is only usable
+by mobs. :(
+~
+
+0 KILL~
+Syntax: {Ckill{x <{Ytarget{x>
+
+This is the classical way to start a fight with another character, be it
+a mob or a player. Note that attacking other players is subject to
+numerous restrictions; see {Whelp pkill{x for details.
+
+*One* {Ckill{x command is sufficient until one of the fighting parties
+flees or dies. There is no need to repeat the command for the rest of
+the fight.
+
+Hint: Before deciding to {Ckill{x something, you should {Cconsider{x it
+to see if you stand a chance.
+
+{YSEE ALSO:{x help consider
+~
+
+0 DEFENSIVE~
+Syntax: {Cdefensive{x
+
+In a fight, it may be useful for you to see if your opponent is dodging
+or parrying your attacks. On the other hand, you may have so much going
+on that this extra information would just irritate you.
+
+{Cdefensive{x lets you choose whether or not you see defensive blocks
+(e.g. dodge, parry) in a fight or not. Type {Cdefensive{x once to stop
+seeing these moves, and again if you would rather see them after all.
+~
+
+0 BATTLE ARENA~
+The arena is built for PK tournaments among mortals.  Special rules and
+commands are as follows:
+
+1)  When you are in the arena, you will suffer no loss of exp or alignment.
+2)  You will suffer no loss of equipment through death or stealing.
+3)  When you die in the arena, you are teleported back to the temple
+    healer with all your equipment still on your body.
+4)  Breath spells donot provide the same affect in the arena as they 
+    do outside it.
+5)  The only way to exit the arena is through death or victory.
+6)  There is a fee for entering the arena which is announced upon the
+    declaration of battle.
+7)  To enter the arena after a battle is announced, {Ytype: battle{x.
+8)  There are no level/clan/ooc restrictions on PK within the arena.
+9)  Anything that is not listed as a special rule above is no longer valid.
+10) The victors within arena battle will accumulate their Arena Wins counter.
+
+There is a walk-in arena available to anyone above a minimum level, for
+a reasonable fee, called the Land of Flaming Sword.  Enter the door 3 north
+of recall and {Vread the sign{x there!
+~
+
+0 PUSH DRAG~
+Syntax: {Cpush{x <{Yvictim{x>
+        {Cdrag{x <{Yvictim{x>
+
+If you want to {Cpush{x a standing victim or {Cdrag{x a sitting/resting victim,
+{Cpush{x and {Cdrag{x is a skill all players have.  It is based on the relative
+strength of both individuals involved with a little random variation.
+{CPush{x and {Cdrag{x fall under the same restrictions as PK combat (must be
+within 8 levels, can't {Cpush{x/{Cdrag{x in a safe room, etc).  If you attempt
+to {Cpush{x/{Cdrag{x a mobile and fail, the mobile will attack you.
+~
+
+0 DEATH MORGUE~
+When your character dies, you are reincarnated back at the Altar of the
+Temple of Mota.  You corpse is relocated by an act of the dark god to the
+Altar of Necromancy together with all of your equipment.  If you are above
+level 50, your corpse will not be relocated and will be found in the room
+you perished.
+
+Any spells which were affecting you are canceled by death.
+
+You lose experience points for dying.  The amount you lose is two-thirds of
+the way back to the beginning of your level.
+
+A corpse will decay after time, and the objects inside the corpse will
+decay with them. A player's corpse will last *roughly* 30 hours of game
+time (15 minutes of real time). Only the player who died, or if you were
+grouped, someone in the same group, can retrieve objects from a player's
+corpse.  Objects on a player corpse will not be lost when it decays.
+~
+
+0 EXPERIENCE LEVEL XP~
+Your character advances in power by gaining experience.  You need a set
+amount of experience points for each level based on your creation points.
+
+You {Cgain{x experience when you kill a monster and when you are part of a
+group that kills a monster.
+
+You {Plose{x experience when you flee from combat, recalled out of combat,
+being the target of certain spells, and dying.
+
+The experience you get from a kill depends on several things: how many
+players are in your group; your level versus the level of the monster;
+your alignment versus the monster's alignment; how many of this monster
+have been killed lately; and some random variation.
+~
+
+0 FLEE~
+Syntax: {Cflee{x
+
+Once you start a fight, you can't just walk away from it.  If the fight
+is not going well, you can attempt to {Cflee{x, or another character can
+{Crescue{x you.  (You can also {CRECALL{x, but this is less likely to work,
+and will cost more experience points than fleeing.) The act of fleeing
+is based on your dexterity, the number of mobs you are currently fighting,
+level difference and random chance.  Flee does not automatically succeed
+though, as it is sometimes impossible to back away from a fight.
+
+If you lose your link during a fight, then your character will keep
+fighting, and will attempt to {CRECALL{x from time-to-time.  Your chances
+of making the {CRECALL{x are reduced, and you will lose much more experience.
+You can toggle this feature with the {Cautoflee{x command.
+~
+
+0 WIMPY~
+Syntax: {Cwimpy{x
+        {Cwimpy{x <{Ynumber{x>
+
+{CWimpy{x sets your {Cwimpy{x value.  When you take damage that reduces your hit
+points below your {Cwimpy{x value, you will automatically attempt to flee.
+You will only flee if your character is not in a wait state -- i.e. has
+not been using combat commands like cast, trip, and bash, and has not been
+tripped or bashed by an enemy.
+
+{CWimpy{x with no argument sets your {Cwimpy{x value to 20% of your maximum hp.
+
+Some monsters are wimpy.
+~
+
+80 SCON CONSIDER~
+Syntax: {Cscon{x <{Yvictim{x>
+	{Cscon{x <{Yvictim{x> {Gmore{x
+        {Cconsider{x <{Yvictim{x>
+
+The {Cscon{x command is a short consider that displays only hit points, mana,
+and level of a mobile.  If you add the {Gmore{x flag then you will also see
+affects, vulnerabilities, resistances, alignment, and immunities.
+
+The more powerful {Cconsider{x available to high level players will show a
+great deal of information, some useful, some not.  However, it is subject
+to change without warning. :)
+~
+
+0 CONSIDER~
+Syntax: {Cconsider{x <{Ycharacter{x>
+
+{CConsider{x tells you what your chances are of killing a monster.  Of course,
+it's only a rough estimate, based on level.
+~
+
+0 SPLIT~
+Syntax: {Csplit{x <{Ysilver{x> <{Ygold{x>
+
+{CSplit{x will split the amount of coins between you and all the members of
+your group who are in the same room as you.  It's customary to {Csplit{x the
+loot after a kill.  The first argument is the amount of silver (0 is
+acceptable), and the second gold (optional).
+
+Examples:
+{Msplit{x 30        --> split 30 silver
+{Msplit{x 20 50     --> split 20 silver, 50 gold
+{Msplit{x  0 10     --> split 10 gold
+~
+
+0 DAMAGE~
+Legacy Damage List:
+
+{c/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\{x
+
+  {Ymiss        {Mdecimate               {c::: {RDEMOLISH {c:::
+  {bscratch     {Vdevastate              {T*** {CSTOMP {T***
+  {Ggraze       {Pmaim                   {M@@@ {VINCINERATE {M@@@
+  {Hhit         {PM{cU{PT{cI{PL{cA{PT{cE               {N=== {BOBLITERATE {N===
+  {Ninjure      {BDI{NSE{BMB{NOW{BEL             {H>>> {GANNIHILATE {H<<<
+  {Cwound       {MDI{YSM{MEM{YBE{MR              {b<<< {YERADICATE {b>>>
+  {Bmaul        {BDE{bCA{BPI{bTA{BTE             {R[#[ {PVAPORIZE {R]#]
+
+{c\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/{x
+
+And in the far reaches of power, you can do {PUN{RSP{PEA{RKA{PBL{RE{x things to
+your opponent or even bring a touch of {RD{cE{RA{cT{RH{x to their soul.
+~
+
+0 SAVES ARMORCLASS THAC0 HITROLL DAMROLL~
+{GSome explanations of frequently misunderstood stats:{x
+
+    {YSAVES{x
+The {YSaves{x value represents your ability to resist spells; the lower the
+better, with {Cnegative{x values being very good.
+
+    {YARMOR CLASS{x
+The {YAC{x ({YArmor Class{x) values represent how hard it is to hit you.  A lower
+value means you are harder to hit.  There are four categories : pierce,
+bash, slash, and magic.  Again, {Cnegative{x values are even better than low
+positive values.
+
+    {YTHAC0{x
+The {YThac0{x ({YTo-Hit-AC-Zero{x) represents your base ability to hit enemies.
+This value only depends on your level and class.  A lower value means you
+hit more easily. {CNegative{x values are great.
+
+    {YHIT ROLL{x / {YDAM ROLL{x
+{YHit Roll{x and {YDam Roll{x represent your ability to hit enemies and to hurt
+them.  They depend on the objects you are wearing, on your weapon, and on
+your strength and dexterity.  The {Rhigher{x this value, the better a
+fighter you are.
+~
+
+-2

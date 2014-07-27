@@ -1,0 +1,381 @@
+#PLAYER
+Name Moiraine~
+Id   990662123
+LogO 1007180662
+Vers 8
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
+Race human~
+Clan knot~
+Sex  2
+Cla  2
+Levl 19
+Plyd 33050
+Age  0
+Back 32208
+Note 1007180367 1007180367 1007180367 1007180367 1007180367 1007180367
+Scro 22
+Room 24004
+HMV  401 401 229 229 164 308
+Gold 567
+Silv 1
+Exp  19011
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm NOV
+Revk 0
+Pos  8
+Trai 2
+Save  -2
+Alig  -1000
+Hit   8
+Dam   11
+ACs -26 -33 -29 9
+Wimp  20
+Atrib 16 18 18 20 15 12
+AtMod 5 8 7 4 8 0
+QuestPnts 8
+Pass roses~
+Afk {B[{CSat Jun  2 20:01:04 2001{B] {CUnknown Departure.{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank {RF{YL{RM{x~
+Aura ~
+TSex 2
+LLev 8
+Email whitetower@Cairhien.com~
+Deit Liriel~
+Lsit 63.172.254.41~
+Ltim Fri Nov 30 22:19:20 2001
+~
+LSav Fri Nov 30 22:24:22 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  BFGK
+HMVP 296 169 208
+THVP 0 0 0
+Cnd  0 0 0 0
+Sk 75 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'dispel magic'
+Sk 1 1 'fireproof'
+Sk 25 1 'protection evil'
+Sk 25 1 'protection good'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 1 1 'dagger'
+Sk 80 1 'sword'
+Sk 75 1 'backstab'
+Sk 79 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 75 1 'parry'
+Sk 77 1 'second attack'
+Sk 75 1 'fast healing'
+Sk 100 1 'scan'
+Sk 75 1 'steal'
+Sk 19 1 'scrolls'
+Sk 1 1 'staves'
+Sk 15 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'protective'
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 14
+Cost 1900
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 15
+Cost 1900
+End
+
+#O
+Vnum 9924
+Nest 0
+Wear 0
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 16064
+Nest 0
+Wear 16
+Cost 4500
+End
+
+#O
+Vnum 12719
+Nest 0
+Wear 6
+Cost 3000
+End
+
+#O
+Vnum 12718
+Nest 0
+Wear 7
+Cost 3000
+End
+
+#O
+Vnum 12717
+Nest 0
+Wear 10
+Cost 3000
+End
+
+#O
+Vnum 12713
+Nest 0
+Wear 5
+Cost 3000
+End
+
+#O
+Vnum 12712
+Nest 0
+Wear 11
+Cost 3000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear 13
+Cost 2500
+End
+
+#O
+Vnum 12720
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 12721
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 1345
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 1344
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4610
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4607
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 55
+Nest 1
+ShD  {Wa {gb{Wot{gtl{We {gof {Wwine {gfrom {VS{Mun{Vda{Mnc{Ver {gand {CM{go{Cn{Tt{gr{Cey{T's {Wwe{gd{Wdi{gn{Wg{x~
+Desc {xA {gb{Wot{gtl{We {xof {Wwine {xfrom {VS{Mun{Vda{Mnc{Ver {xand {CM{go{Cn{Tt{gr{Cey{T's {Wwe{gd{Wdi{gn{Wg{x has been left here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+ShD  {Wa {gb{Wot{gtl{We {gof {Wwine {gfrom {VS{Mun{Vda{Mnc{Ver {gand {CM{go{Cn{Tt{gr{Cey{T's {Wwe{gd{Wdi{gn{Wg{x~
+Desc {xA {gb{Wot{gtl{We {xof {Wwine {xfrom {VS{Mun{Vda{Mnc{Ver {xand {CM{go{Cn{Tt{gr{Cey{T's {Wwe{gd{Wdi{gn{Wg{x has been left here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 55
+Nest 1
+Wear -1
+Cost 0
+Val  64 64 21 1 0
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {Wa {gs{Wli{gc{We {gof {Wcake {gfrom {VS{Mun{Vda{Mnc{Ver {gand {CM{go{Cn{Tt{gr{Cey{T's {Wwe{gd{Wdi{gn{Wg{x~
+Desc {xA {gs{Wli{gc{We {xof {Wcake {xfrom {VS{Mun{Vda{Mnc{Ver {xand {CM{go{Cn{Tt{gr{Cey{T's {Wwe{gd{Wdi{gn{Wg{x has been left here. *drool*~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {Wa {gs{Wli{gc{We {gof {Wcake {gfrom {VS{Mun{Vda{Mnc{Ver {gand {CM{go{Cn{Tt{gr{Cey{T's {Wwe{gd{Wdi{gn{Wg{x~
+Desc {xA {gs{Wli{gc{We {xof {Wcake {xfrom {VS{Mun{Vda{Mnc{Ver {xand {CM{go{Cn{Tt{gr{Cey{T's {Wwe{gd{Wdi{gn{Wg{x has been left here. *drool*~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 56
+Nest 1
+ShD  {Wa {gs{Wli{gc{We {gof {Wcake {gfrom {VS{Mun{Vda{Mnc{Ver {gand {CM{go{Cn{Tt{gr{Cey{T's {Wwe{gd{Wdi{gn{Wg{x~
+Desc {xA {gs{Wli{gc{We {xof {Wcake {xfrom {VS{Mun{Vda{Mnc{Ver {xand {CM{go{Cn{Tt{gr{Cey{T's {Wwe{gd{Wdi{gn{Wg{x has been left here. *drool*~
+Wear -1
+Cost 0
+Val  8 8 0 1 0
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 66 15 0 0
+End
+
+#O
+Vnum 7503
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 4576
+Nest 0
+Wear 18
+Cost 2000
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear 17
+Cost 1200
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#END

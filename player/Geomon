@@ -1,0 +1,590 @@
+#PLAYER
+Name Geomon~
+Id   1006553445
+LogO 1027047940
+Vers 14
+Mexp 2
+Pass asshole~
+Prom <{C%h/%Hhp {G%m/%Mma {Y%v/%Vmv{x {Y%g/{g%s{x ({W%z) {Y%X{x {G%a{x {Y%q{W/{G%j{x ~
+Race dwarf~
+Clan divinity~
+Cla  3
+Levl 20
+Tru  0
+Plyd 16943
+Back 16218
+Note 1026853458 1026853458 1026853458 1026853458 1026853458 1026853458 1026853458
+Scro 22
+Room 3054
+HMS  404 234 380
+Gold 300
+Silv 19
+Gold_in_bank 1000
+Exp  22050
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
+FRes LQ
+FVul R
+Plr  AF
+Video 0
+Act  CDEFGHJLQSTc
+AfBy HJRc
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr B
+Prac 13
+Trai 6
+Wimp 0
+Atrib 21 16 16 15 21 13
+SQuestNext 8
+Afk {B[{CFri Nov 23 19:16:53 2001{B] {CUnknown Departure.{x
+~
+Titl  Please don't squeeze the Charmin.~
+Immn ~
+Pnts 41
+Rank {WS{gR{WP~
+Aura ~
+TSex 1
+LLev 3
+Deit Lotus~
+Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
+Ltim Tue Jul 16 16:04:15 2002
+~
+LSav Thu Jul 18 22:05:40 2002
+~
+HMSP 354 172 350
+THMS 0 0 0
+Cnd  0 0 2 33
+Colr 13 33 1
+Sk 81 1 'sword'
+Sk 75 1 'bash'
+Sk 1 1 'berserk'
+Sk 79 1 'enhanced damage'
+Sk 74 1 'kick'
+Sk 81 1 'parry'
+Sk 1 1 'rescue'
+Sk 75 1 'second attack'
+Sk 75 1 'third attack'
+Sk 76 1 'dual wield'
+Sk 75 1 'hunt'
+Sk 76 1 'fast healing'
+Sk 75 1 'forge'
+Sk 75 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Affc 'sanctuary'   0  54   4   0   0        128 1
+Affc 'giant strength'   0  55  50   4   1          0 1
+Affc 'armor'   0  53  19 -20  17          0 1
+Affc 'regeneration'   0  55  22   0   0  268435456 1
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 90 10 0 0
+End
+
+#O
+Vnum 9201
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 12708
+Nest 0
+Wear 9
+Cost 500
+End
+
+#O
+Vnum 4607
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4607
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 9909
+Nest 0
+Cond 96
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 7504
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  16
+Cost 100
+Affc 'reserved'   1  14  -1   2   5          0 1
+Affc 'reserved'   1  14  -1  20  13          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+End
+
+#O
+Vnum 32125
+Enchanted
+Nest 0
+ExtF 65
+Wear 5
+Lev  17
+Cost 350
+Affc 'reserved'   1  15  -1   1   1          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+End
+
+#O
+Vnum 11915
+Nest 0
+ExtF 524610
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 3201
+Nest 0
+Wear 6
+Cost 20
+End
+
+#O
+Vnum 3202
+Nest 0
+Wear 7
+Cost 30
+End
+
+#O
+Vnum 506
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear 13
+Cost 2500
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16064
+Nest 0
+Wear 16
+Cost 4500
+Val  1 5 5 21 4
+Affc 'blood blade'   5  72  19   0   0          4 1
+End
+
+#O
+Vnum 16007
+Nest 0
+Wear 19
+Cost 0
+End
+
+#O
+Vnum 1615
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24200
+Nest 0
+Wear 2
+Cost 1666
+End
+
+#O
+Vnum 24200
+Nest 0
+Wear 1
+Cost 1666
+End
+
+#O
+Vnum 24201
+Nest 0
+Wear 4
+Cost 1666
+End
+
+#O
+Vnum 24201
+Nest 0
+Wear 3
+Cost 1666
+End
+
+#O
+Vnum 24252
+Nest 0
+Wear 8
+Cost 2200
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24232
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24229
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 24230
+Nest 0
+Wear 0
+Cost 2400
+End
+
+#O
+Vnum 24226
+Nest 0
+Wear -1
+Cost 400
+End
+
+#L
+Vnum 4452
+Nest 0
+Wear -1
+Cost 0
+Val  300 1 4453 300 100
+End
+
+#L
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#END

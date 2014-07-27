@@ -1,0 +1,41 @@
+4
+test~
+The Test Arena~
+This is just a test arena.  It consists of 12 rooms:  9 arena rooms laid out
+in a 3x3 square, a challenger prep room, a defender prep room, and a viewing
+room.  Other arenas will have different layouts.
+~
+2723~
+2731~
+2720~
+2721~
+2722~
+island~
+A Desert Isle~
+This is a small, deserted island with black beaches and a forbidding 
+jungle.  It also has some stupid sunken boat, and a rock.
+~
+12203~
+12212~
+12200~
+12201~
+12202~
+cave~
+An underground cave~
+This is a tiny, cramped cave with lots of big mushrooms.
+~
+12223~
+12231~
+12220~
+12221~
+12222~
+coliseum~
+An underwater coliseum~
+This is the underwater arena of some ancient civilization.
+~
+12263~
+12271~
+12260~
+12261~
+12262~
+

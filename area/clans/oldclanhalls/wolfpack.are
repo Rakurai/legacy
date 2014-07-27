@@ -1,0 +1,1142 @@
+#AREA
+wolf.are~
+Caves of the Wolf Pack~
+{H{{CLANS} {MMeagan {TCaves of the Wolf Pack~
+11250 11299
+
+#MOBILES
+
+#11250
+master wolf~
+Master Wolf~
+The Master Wolf will train you and assist with practicing.
+~
+This wolf, wise in his old ways, having fought many battles,
+waged war with his past masters to become one of the strongest
+and bravest wolves within the pack. The training endurance occurs
+all throughout nature. You may also gain new skills from the Master
+Wolf.
+~
+wolf~
+ABJKRb DEFH 1000 S
+91 30 10000d1+1 10000d1+1 50d65+1 claw
+-50 -50 -50 -50
+BC ABC HI X
+stand stand male 10
+0 0 large 0
+
+#11251
+Rohack wolf~
+The wolf healer~
+The Healing Wolf stands ready to help her cubs.
+~
+This she-wolf's mystical gift for healing all the wolves within
+the pack, demonstrates the deep love that abides within a wolf
+pack. It is her timeless ritual to make her offspring strong. It
+is she who toughens them up, making them potent and enduring.
+~
+wolf~
+ABQRVa DEFH 1000 S
+91 30 10000d1+1 10000d1+1 50d65+1 claw
+-50 -50 -50 -50
+BC ABC HI X
+stand stand female 10
+0 0 large 0
+
+#11253
+wolf shopkeeper~
+The Shopkeeper~
+While calmly eyeing you, the Shopkeeper inquires, "May I help you?"
+~
+This kind wolf will assist you with purchasing gear
+specially made for the wolves within this pack. They will
+enhance your strengths, wisdom, and intelligence.
+~
+wolf~
+ABC DEFH 1000 S
+91 30 10000d1+1 10000d1+1 50d65+1 claw
+-50 -50 -50 -50
+BC ABC HI X
+stand stand male 10
+0 0 large 0
+
+#11254
+wolf guard~
+A wolf guard~
+The Guard Wolf maintains his vigilant surveillance for the pack's safety.
+~
+The Guard Wolf never sleeps. His eyes, ears, and mind are always
+alert ready to defend and protect any wolf from outside intruders.
+~
+wolf~
+ABC DEFH 1000 S
+91 30 10000d1+1 10000d1+1 50d65+1 claw
+-50 -50 -50 -50
+BC ABC HI X
+stand stand male 10
+0 0 large 0
+
+#11255
+mom wolf~
+The Mother Wolf~
+The Mother Wolf of all and the source of all bounty rests here.
+~
+Appointed by the Elder Wolves, this is the mother of all
+wolves. Her gentle heart and love for her pack never falters.
+~
+wolf~
+ABT HVC 1000 S
+90 4 1000d20+1 500d1+1 10d10+1 bite 
+-40 -40 -40 -40
+BCDE ABC XY L
+rest rest female 100
+0 0 large 0
+
+#11256
+wolf mother~
+Wolf Mother~
+The Mother Wolf is resting here offering her milk.
+~
+Brave, full of courage and leadership, marked by the Elder Wolf
+Leaders to be the wisest of the clan.
+~
+wolf~
+AR HVC 1000 S
+85 4 5000d1+1 500d1+1 10d10+1 bite
+-42 -42 -42 -42
+BCDE ABC XY L
+rest rest female 100
+0 0 large 0
+
+#11257
+moon-spirit moon spirit~
+a moon-spirit~
+A moon-spirit hovers silently about.
+~
+A moon-spirit lingers here, infusing the air with a silvery quality
+and casting moonbeams on the floor.
+~
+unique~
+BG BDFHT 500 S
+15 0 1d1+240 1d1+99 2d1+8 chill
+-10 -9 -10 -8
+F ABCD 0 0
+stand stand male 5
+0 0 small 0
+#11258
+aztec sheep dog~
+{CAztec{x~
+{CAztec{x is here, watching all who {Center{x.
+~
+A cute little sheep dog runs to and fro, wanting
+someone to stop and throw a ball to her.
+~
+dog~
+ABT 0 1000 S
+10 4 1d1+149 1d1+249 4d5+1 bite
+-05 -05 -05 20
+CDEKLTU ABCD 0 0
+stand sit female 0
+0 0 medium 0
+
+#0
+#OBJECTS
+#11250
+fountain~
+A small fountain~
+A small fountain of milk is here.~
+mithril~
+fountain ABMO 0
+100000 100000 milk 0 0
+1 100 100 P
+E
+fountain~
+Brought forth by the Goddess Amara, to the elder wolves, this
+fountain nourishes the Wolf Pack with the richness of a mother's milk.
+~
+
+#11251
+fur~
+A pile of furs~
+A pile of mystical furs is here for you to rest upon.~
+cloth~
+furniture AB 0
+5 10000 BEHK 150 150
+1 1000 100 P
+E
+fur~
+These furs, left by the elder wolves, have the mystical
+regenerating magic which have passed through the portals of time.
+~
+
+#11252
+boots wolvenkind~
+Boots of Wolvenkind~
+A sturdy pair of boots lies here.~
+cloth~
+armor AG AG
+7 7 7 6 0
+20 7 2500 P
+A
+18 2
+A
+19 2
+A
+13 20
+A
+4 3
+A
+14 50
+
+#11253
+cloak wolf~
+Cloak of the wolf~
+A cloak seems to have been disgarded here.~
+cloth~
+armor A AK
+10 10 10 10 0
+30 09 3300 P
+A
+19 1
+A 
+18 1
+A
+12 30
+A
+5 3
+A
+20 -3
+
+#11254
+ring shufie~
+Ring of Shufie~
+This is a ring of divine wolf wisdom.~
+wood~
+armor G AB
+12 12 12 11 0
+35 1 3800 P
+A
+18 3
+A
+19 3
+A
+13 35
+A
+3 2
+A
+4 1
+A
+20 -3
+
+#11255
+legging prowling~
+Legging of Prowling~
+A pair of legging lie here.~
+glass~
+armor AB AF
+14 14 14 13 0
+41 10 4600 P
+A
+18 2
+A
+19 2
+A 
+13 20
+A
+12 20
+A
+1 3
+
+#11256
+sleeves prowling~
+Sleeves of Prowling~
+Someone has left there sleeves here.~
+steel~
+armor ABG AI
+15 15 15 15 0
+45 15 5000 P
+A
+18 4
+A
+19 4
+A
+26 3
+
+#11257
+gloves of prowling~
+Gloves of Prowling.~
+A pair of gloves have been discared here~
+diamond~
+armor ABG AH
+17 17 17 17 16
+50 10 6000 P
+A
+18 5
+A
+19 5
+A
+13 20
+A
+1 1
+A
+2 1
+A
+5 1
+
+#11258
+amulet rowan~
+Rowan's Amulet~
+A shiny amulet has been left here.~
+glass~
+armor A AC
+19 19 19 18 0
+55 1 6600 P
+A
+18 5
+A
+19 5
+A
+13 25
+A
+12 30
+A
+1 1
+A
+5 1
+A 
+4 1
+A
+9 1
+A
+20 -5
+
+#11259
+belt faith~
+Belt of Faith~
+A large belt sits here.~
+cloth~
+armor AG AL
+20 20 20 20 0
+61 6 7500 P
+A
+13 30
+A
+12 30
+A
+2 1
+A
+5 1
+A
+3 1
+
+#11261
+sleeves sunset~
+Sleeves of Sunset~
+A beautiful and bright pair of sleeves have been left here.~
+steel~
+armor AB AI
+25 25 25 24 0
+65 10 8000 P
+A
+13 35
+A
+12 30
+A
+5 1
+A
+4 1
+A
+26 1
+A
+9 1
+A
+20 -6
+
+#11262
+merlock insight~
+Merlock's Insight~
+A great insight seems to have been discarded here.~
+adamantite~
+armor G AQ
+23 23 23 23 0
+70 1 9000 P
+A
+18 7
+A
+19 7
+A
+13 30
+A
+12 40
+A
+4 1
+A
+26 2
+A
+9 1
+A
+20 -7
+
+#11263
+grak leather chestpiece~
+Grak's Leather Chestpiece~
+A large chestpiece lies here~
+skin~
+armor IGS AD
+25 25 25 25 0
+76 12 9200 P
+A
+1 1
+A
+2 1
+A
+3 1
+A
+9 1
+
+#11264
+jaeden fur coat~
+Jaeden's Fur Coat~
+A very warm looking coat has been left here.~
+fur~
+armor ABG AD
+27 27 27 26 0
+80 8 10000 P
+A
+18 8
+A
+19 8
+A
+13 20
+A
+12 60
+A
+5 1
+A
+4 1
+A
+26 1
+A 
+9 1
+A
+20 -8
+
+#11265
+beoddu bracers~
+Beoddu's Bracers~
+Someone's left a bracer on the floor.~
+energy~
+armor AIGSB AM
+27 27 27 27 0
+81 5 10100 P
+A
+18 8
+A
+19 8
+A
+13 30
+A
+12 50
+A
+1 1
+A
+2 1
+A
+5 1
+A
+9 1
+A
+20 -8
+#11266
+sapphire leggings~
+Sapphire's Leggings~
+Leggings made of the finest fleece have been left here.~
+sheep wool~
+armor RAB AF
+28 28 28 28 0
+85 11 11000 P
+A
+13 20
+A
+12 65
+A
+3 1
+A
+4 1
+A
+26 1
+A
+9 1
+
+#11267
+viper dream~
+Viper's Dream~
+A helm ornately decorated with gems lies here.~
+silver~
+armor ABGKI AE
+29 29 29 28 0
+86 4 11500 P
+A
+9 1
+
+
+#11271
+fountain~
+A small fountain~
+A small fountain of milk is here.~
+mithril~
+fountain ABMO 0
+100 100 'milk' 0 0
+0 100 100 P
+E
+fountain~
+Brought forth by the Elder Wolf motheres to feed their children.
+~
+
+#11272
+furs~
+A pile of furs~
+A pile of fine furs are here for you to rest upon.~
+cloth~
+furniture AB 0
+2 100000 FK 150 150
+1 1000 100 P
+E
+furs~
+These furs were crafted from the finest furs found inside Thera.
+~
+
+#11273
+hole~
+A large hole~
+A large hole is here holding gifts from Elder Wolves.~
+glass~
+container MN 0
+1000 1 0 1000 100
+1 100 100 P
+E 
+hole~
+This very deep hole contains treasures that all wolves desire. 
+~
+#11274
+run wolf leadereq wolfpack~
+{GRun like a Wolf{x~
+With these on your feet you could run like the leader of the Pack.~
+wolf paw~
+armor ABGORTY AG
+23 23 23 21 0
+50 0 8000 P
+A
+1 1
+A
+3 3
+A 
+4 1
+A
+5 3
+A
+12 40
+A
+13 60
+A
+18 5
+A
+19 5
+
+#11275
+shufies blessings~
+Shufies blessings~
+Some radiant glowing pills lie here.~
+pill~
+pill GI A
+15 'sanctuary' 'talon' 'haste' 'stone skin'
+15 1 0 P
+
+#11276
+venison~
+Some Venison~
+A chunk of Venison lies here.~
+pill~
+pill GI A
+15 'fly' 'heal' 'shield' 'bless'
+15 1 0 P
+
+#11277
+crystal water pool~
+a crystal clear pool~
+There is a crystal clear pool of water glimmering and sparkling here.~
+moonlight~
+fountain A 0
+0 0 water 0 0
+0 320 7 P
+E
+crystal water glimmering sparkling pool~
+A shallow pool glimmers and sparkles in the half light of the cave.
+It's surface is silvery, and seems to dance with captured moonlight.
+~
+#11278
+wild strawberry strawberries~
+some wild strawberries~
+{WA tiny plant with small {Pheart-shaped red berries{W on it grows
+here.{x~
+melted strawberry crayon~
+pill ASTY AO
+15 'sanctuary' 'talon' 'haste' 'stone skin'
+15 1 1 P
+E
+wild strawberry strawberries~
+{WA tiny plant with small {Pheart-shaped red berries{W on it grows
+here. They look like yummy {Ws{Vt{Wr{Va{Ww{Vb{We{Vr{Wr{Vi{We{Vs{W.
+Maybe you should try some.{x
+~
+
+#11279
+patch moonlight~
+a patch of moonlight~
+A patch of moonlight lies like etherial vapor on the cave floor.~
+moonlight~
+furniture A 0
+3 0 FIL 150 150
+15 0 7 I
+E
+patch moonlight vapor~
+A patch of moonlight is splashed across the cave floor, though it's
+source can't be determined. It remains here, even in the dusk hours
+before sunset. It looks like a comfortable place for a wolf to sleep.
+~
+#11280
+clan anvil private wolf~
+The Merlock Memorial Anvil~
+The 'Merlock Memorial' Anvil waits to be used here.~
+iron~
+Anvil RYOT 0
+0 3 1 0 3
+0 0 0 P
+E
+Merlock~
+This anvil is dedicated to one of the most auspicious
+of the Wolf clan leaders, he eventually moved on to 
+better things, he become an immoortal.
+~
+E
+inscription~
+THIS ANVIL IS DEDICATED TO MERLOCK
+~
+E
+note~
+Fitted buy Leveret 15th July 1999
+~   
+#11281
+spring of mistle toe~
+{YSpring {Wof {GMistle {RToe{x~
+A {YSpring {Wof {GMistle {RToe{x is nestled here.~
+mist~
+pill A A
+15 'haste' 'sanctuary' 'talon' 'giant strength'
+15 1 0 P
+E
+mistletoe~
+A {YSpring {Wof {GMistle {RToe{x feels delicate in your hands.
+~
+
+#11282
+fountain of dreams~
+{WFountain of {CDreams{x~
+{WFountain of {CDreams{x~
+water~
+fountain 0 0
+1000 1000 'water' 0 0
+0 500 0 P
+E
+stone fountain~
+You see a small stone fountain, silently flowing with pure water.
+~
+
+#11283
+bed of shadows~
+{WBed of {cShadows{x~
+{WBed of {cShadows{x~
+shadow~
+furniture ABSY P
+10 0 BEHK 150 150
+0 500 OP
+#0
+
+
+
+#ROOMS
+#11250
+{WThe{x {GWolf Pack{x {gCave{x {WEntrance{x~
+The ability to enter the cave which houses the Wolf Pack Clan,
+is granted only to the members of the pack. The mystical
+power bestowed upon them by the Elder Wolves is one of the
+things that makes then unique. Wolves are very protective and
+loyal to their pack, and guard their secret well, secure in the
+knowledge none can penetrate their den.
+~
+11 D 0
+C wolf~
+D3
+{VThe Center Courtyard{x
+~
+~
+0 -1 11254
+S
+
+#11251
+{RElder's{x {WKeep{x~
+As wolves grow older their instinct to kill diminishes. The Elder
+wolves, during this time of their lives, take the opportunity to
+teach the young cubs of the pack the wisdom and knowledge of their
+many years of experience.  All creatures must learn that there exist 
+predators. Without this knowledge, you are unable to negotiate safely 
+within your own forest without being devoured. To understand the 
+predator is to become a mature animal who is not vulnerable out 
+of inexperience, naivete', or foolishness.
+~
+11 DK 0
+C wolf~
+D0
+{GThe Wolf Den{x
+~
+~
+0 -1 11257
+D1
+{WTeachings{x {Bof{x {Wthe{x {BArcane{x
+~
+~
+0 -1 11260
+S
+
+#11252
+{CTemple{x {Wof{x {CShufie{x~
+This room is sanctioned by the mighty Shufie, the Wolf Pack
+Clan god. It is where the wolves gather to pay homage, each
+in their own way, and to seek guidance and strength before
+venturing to the outside world. It is hallowed ground
+dedicated to all who fight a battle against oppression. On
+the far wall, look closely and you will see the inspiring
+words etched {R"We will be victorious in the end, and there
+will no longer be evil to torment our young."{x
+~
+11 DK 0
+C wolf~
+D2
+{VThe Center Courtyard{x
+~
+~
+0 -1 11254
+D3
+{GRohack's{x {WHealing{x {GRoom{x
+~
+~
+0 -1 11258
+S
+
+#11253
+{VGreat Dining Hall{x~
+Arranged in a horseshoe formation in the center of the room,
+are long, low tables and plush furs provided for comfort.
+A fire is burning in the hearth to illuminate the massive
+room and to aid in chasing away the chill. The female wolves'
+fine art for preparing meat in unmatched. Food is plentiful
+and none go hungry. The camaraderie is most evident in this
+room, as the wolves gather around to eat, to exchange tales
+of battles fought, and to enjoy time with one another.
+~
+11 DK 0
+C wolf~
+D0
+{VThe Center Courtyard{x
+~
+~
+0 -1 11254
+D4
+{GThe Wolf Den{x
+~
+~
+0 -1 11257
+S
+
+#11254
+{VThe Center Courtyard{x~
+Massive, {ggrey stone pillars{x support an arched gateway leading to
+the inner most courtyard.  Intricately placed {gstones{x line
+the courtyard in a circular fashion.  In the center of the
+courtyard, is a flower bed filled with beautiful, blooming {Rroses{x
+surrounded by {Wdaisies{x, with a small, underground-fed pool of
+fresh {Cwater{x in the center of the flowers.  From an opening at
+the top of the cave, you can smell and feel a gentle, fresh
+{Wbreeze{x and see rays of {Ylight{x spilling down upon the flower bed.
+There are a few benches lining the wall for you to sit and rest,
+and drink in the beauty of the elements.
+~
+11 K 0
+C wolf~
+D1
+{WThe{x {GWolf Pack{x {gCave{x {WEntrance{x 
+~
+~
+0 -1 11250
+D0
+{CTemple{x {Wof{x {CShufie{x
+~
+~
+0 -1 11252
+D2
+{VGreat Dining Hall{x
+~
+~
+0 -1 11253
+D3
+{GThe Wolf Den{x
+~
+~
+0 -1 11257
+D4
+{GRohack's{x {WHealing{x {GRoom{x
+~
+~
+0 -1 11258
+D5
+{WTeachings{x {Bof{x {Wthe{x {BArcane{x
+~
+~
+0 -1 11260
+S
+
+#11257
+{GThe Wolf Den{x~
+This room is where the Wolf Pack history is relived, not only
+through the vibrant tapestries adorning the walls depicting
+scenes of various adventures of the Elders, but also through
+conversation. Stories are passed from one to another down through
+the generations, never to be forgotten, of the freedom that they
+so desperately fought to obtain. On the wall is a large picture
+of Viper and Grak, two such leaders, standing side-by-side waging
+war against evil. {G"We Are Proud, And We Will Stand Together At
+All Cost"{x is emblazoned upon a banner over the entrance.
+~
+11 K 0
+C wolf~
+D0
+{GRohack's{x {WHealing{x {GRoom{x
+~
+~
+0 -1 11258
+D1
+{VThe Center Courtyard{x
+~
+~
+0 -1 11254
+D2
+{RElder's{x {WKeep{x
+~
+~
+0 -1 11251
+D3
+{VThe Inner Courtyard{x
+~
+~
+0 -1 11262
+D5
+{VGreat Dining Hall{x
+~
+~
+0 -1 11253
+S
+
+#11258
+{GRohack's{x {WHealing{x {GRoom{x~
+A healing room is extremely important and necessary for the
+renewal of body and spirit, essential for mental and soul health
+A healthy wolf is a strong life force, life-giving, robust,
+territorially aware, inventive, loyal, and roving.  It is as
+important to learn what not to do as it is to learn what to do.
+~
+11 DK 0
+C wolf~
+D0
+{RWeapons{s {Wand{x {RArmor{x {WShop{x
+~
+~
+0 -1 11259
+D1
+{CTemple{x {of{x {CShufie{x
+~
+~
+0 -1 11252
+D2
+{GThe Wolf Den{x
+~
+~
+0 -1 11257
+D3
+{GTraining{x {Wand{x {GPractice{x {WGrounds{x
+~
+~
+0 -1 11261
+D5
+{VThe Center Courtyard{x
+~
+~
+0 -1 11254
+S
+
+#11259
+{RWeapons {Wand{x {RArmor{x {WShop{x~
+This is where some of the finest weapons and armor is made,
+forged by expert wolf craftsman, learning and skills passed
+from one generation to another.
+~
+11 DK 0
+C wolf~
+D2
+{GRohack's{x {WHealing{x {GRoom{x
+~
+~
+0 -1 11258
+S
+
+#11260
+{WTeachings{x {Bof{x {Wthe{x {BArcane{x~
+Some of the greatest magic is woven within the minds of the
+Elder wolves. Knowledge is only dangerous if not used, if
+poured into the right vessel, it can be all powerful. The
+teachings are not lost, for the wolf's capacity to seek and
+learn is never-ending. In order to be strong and survive,
+one must react on the knowledge gained, and learn from
+the outcome of the experience.
+~
+11 DK 0
+C wolf~
+D4
+{VThe Center Courtyard{x
+~
+~
+0 -1 11254
+D3
+{RElder's{x {WKeep{x
+~
+~
+0 -1 11251
+S
+
+#11261
+{GTraining{x {Wand{x {GPractice {WGrounds{x~
+The teaching of endurance occurs all throughout nature. The pads
+of the wolf pups' paws are soft as clay when the pups are born.
+It is only the ranging, the roaming, the treks on which their
+parents take them that toughen them up. Then they can climb and
+bound over sharp gravel, over stinging nettle, even over broken
+glass, without being hurt. Wolf mothers plunge their pups into the
+coldest streams imaginable, run until a pup is splay-legged and can
+hardly keep up and then run some more. They are toughening up the
+sweet little spirit, investing it with strength and resilience
+making it potent and enduring. Training never stops to take a rest.
+~
+11 DK 0
+C wolf~
+D0
+{GThe Clan{x {WAnvil{x Room{x
+~
+~
+0 0 11265
+D1
+{GRohack's{x {WHealing{x {GRoom{x
+~
+~
+0 -1 11258
+S
+
+#11262
+{VThe Inner Courtyard{x~
+From here, deep within the cave, the clan leaders and members have
+their private dens.  This is where they come to rest and relax.
+~
+11 DK 0
+C wolf~
+D0
+Sunset's mound of dirt-err hill.
+~
+~
+0 -1 11264
+D2
+{RViper's{x {gWolf{x {RDen{x
+~
+~
+0 -1 11263
+D1
+{GThe Wolf Den{x
+~
+~
+0 -1 11257
+D4
+~
+~
+0 -1 11266
+S
+
+#11263
+{RViper's{x {gWolf{x {RDen{x~
+You have entered a room that has drawings, pictures of wolves
+hunting their enemies, that date back to Cro-Magnon man.  There
+is a large hole in the center of the room in which past elder wolves
+have left gifts for their children.  The patient Mother Wolf lays
+here offering her sweet milk for your adventures. Next to her is a
+pile of furs to rest the weary bodies of the Wolf Pack. "Please my
+children, lay here and sleep, and feed so that you will be strong
+in your travels" says the Mother Wolf.  The scent of peace fills
+the air, you feel safe, you feel Welcome.
+~
+11 DK 0
+C wolf~
+D0
+{VThe Inner Courtyard{x
+~
+~
+0 -1 11262
+S
+
+#11264
+Hillside Sunset Cave~
+{WMorning comes and goes, but never can break the spell of even'tide
+which shelters this cave under its wing. The mouth of the cave faces
+west, looking out over a splendid tree crowded {Gvalley{W. At evening
+the cave mouth is splashed with the red and gold glow of {Rs{Yu{Rn{Ys{Re{Yt{W,
+sprinkled with the first evening stars and a crescent pale moon.
+Then night comes, bringing the glory of the {Bebon sky{W, moving in all
+it's {Bwonder{W to view.  A tunnel slopes downward, turning south, from
+the rear of the cave.{x
+~
+0 DKS 0
+C wolf~
+D2
+A tunnel leads off south from the rear of the cave, sloping gently
+downward back to the inner courtyard of the clanhall.
+~
+~
+0 0 11262
+E
+valley~
+The land drops off sharply from the cave's mouth, too steep for any
+but a mountain goat or an eagle to get down, but the view is
+magnificent. Far below, the valley stretches out like a velvet shag
+carpet of pines, elms, and poplars. The air is so clear up here, it
+sparkles.
+~
+E
+ebon night wonder~
+The night sky spins above while the cool breezes brush across your
+face. Dark clouds occasionally blot out the stars in patches, or ring
+the moon in an eerie but beautiful halo. Somewhere, you can hear
+crickets chirping.
+~
+E
+glow sunset splash~
+Gold, scarlet, magenta, and amber orange light up the cave mouth and
+beyond the sky ripples with painted clouds as the sun goes down on the
+horizon. Above the clouds, the deepening blue of night is fading in,
+and stars are popping to life.
+~
+S
+#11265
+{GThe Wolf Clan Anvil Room{x~
+This room is very hot as there is a blast furnace in the corner kept
+to a temperature high enough for the forging of weapons. A large 
+anvil sits in the center of the room, on it's side is an inscription
+written in bold lettering. Behind the anvil by the far wall is an altar
+with two candle sitting in golden candlesticks which are kept burning
+at all times in memory of a much loved past clan leader 'Merlock.'
+~
+0 K 0
+C wolf~
+D2
+~
+~
+0 0 11261
+S
+#11266
+{BLorpay's {WMystical {VDreams{x~
+You enter a large open room lit only by the last remains of 
+{Ysunlight{x filtering in through massive open {cblack{x stone arches 
+stretching up to a vaulted ceiling that is lost in the dark 
+{cshadows{x...... A cool {Cocean{x breeze washes over you as it drifts 
+in through the open arches.  You can vaguely make out the 
+crystal {Bblue waters{x in the far distance,lost in the haze of 
+approaching darkness. A massive {cblack{x marble fireplace burns 
+quietly casting playful shadows across the {cblack{x tile and 
+stone walls.  You are hypnotized by the dancing {Rflames{x. Your 
+eyes are immediately drawn to the large ornately carved bed 
+in the middle of the room. Four strangely carved posters rise 
+up from each corner of the bed supporting a soft sheet of 
+lace that drapes down elegantly over the large bed. Across is 
+a fountain filled with sparkling {Bwater{x.  In the dark corners 
+you catch a glimpse of various {Ytreasures{x from times long past.
+A certain part of your soul wants to linger here forever...
+...lost in it's hazy {Vdream{x of comfort.
+~
+0 DK 0
+C wolf~
+D5
+To the south leads back to the clan hall.
+~
+~
+0 -1 11262
+E
+note~
+Xanderella's room
+~
+S
+
+#0
+#RESETS
+
+M 0 11250 1  11261 1 *Load master
+M 0 11251 1  11258 1 *Load wolf
+M 0 11253 1  11259 1 *Load wolf
+G 0 11252 200 *Load robe on wolf shopkeeper
+G 0 11253 200 *Load fur on wolf shopkeeper
+G 0 11254 200 *Load ring on wolf shopkeeper
+G 0 11255 200 *Load ring on wolf shopkeeper
+G 0 11256 200 *Load fang on wolf shopkeeper
+G 0 11257 200 *Load sword on wolf shopkeeper
+G 0 11258 200 *Load wolf eyes on shopkeeper
+G 0 11259 200 *Load wolf leggings on shopkeeper
+G 0 11262 200
+G 0 11261 200
+G 0 11264 200
+G 0 11263 200 *Load wolskin cape on shopkeeper
+G 0 11265 200 *Load full moon of light on shopkeeper
+G 0 11266 200 *load leggings
+G 0 11267 200 *LOAD BRACERS
+M 0 11254 1 11250 1 *Load guard
+M 0 11254 1 11257 1 *Load guard
+M 0 11255 1 11251 1 *Load mother
+M 0 11256 1 11263 1 *Load wolf mother
+O 0 11250 1 11251 *Load fountain
+O 0 11250 1 11253 *Load fountain
+O 0 11251 1 11251 *Load fur
+O 0 11251 1 11258 *Load fur
+O 0 11271 1 11263 *Load fountain
+O 0 11272 1 11263 *Load furs
+O 0 11273 1 11263 *Load hole
+O 0 11275 20 11251 *Load shufies blessings in elders Keep
+O 0 11276 20 11251 *Load venison in elders Keep
+
+M 0 11257 1 11264 1 *load sunset's mob
+O 0 11277 1 11264 *object one
+O 0 11278 1 11264
+O 0 11279 1 11264
+O 0 11280 1 11265 *anvil to anvil room
+M 0 11258 1 11266 1  *mob to lorpay room
+O 0 11281 1 11266 *{
+O 0 11282 1 11266 *{object to Lorpay's room
+O 0 11283 1 11266 *{
+S
+#SHOPS
+11253 5 4 3 3 2 110 50 0 23 * the wolf shopkeeper
+0
+
+#$
+

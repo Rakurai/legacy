@@ -1,0 +1,85 @@
+#PLAYER
+Name Citrix~
+Id   1010989650
+LogO 1010990085
+Vers 10
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Sex  1
+Cla  3
+Levl 1
+Plyd 354
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  1 20 100 100 77 100
+Gold 0
+Silv 0
+Exp  1000
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+Comm NO
+Revk 0
+Cnsr AB
+Pos  5
+Prac 5
+Trai 3
+Alig  750
+ACs 100 100 100 100
+Atrib 16 13 13 13 13 13
+AtMod 0 0 0 0 0 0
+Pass house44~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Xenith~
+Lsit 216.194.22.151~
+Ltim Mon Jan 14 00:28:48 2002
+~
+LSav Mon Jan 14 00:34:45 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  B
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 24 40 40
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'shield block'
+Sk 1 1 'spear'
+Sk 40 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'bash'
+Sk 1 1 'disarm'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'warrior default'
+Gr 'weaponsmaster'
+End
+
+#END

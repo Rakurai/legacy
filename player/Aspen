@@ -1,0 +1,346 @@
+#PLAYER
+Name Aspen~
+Id   1013733875
+LogO 1013735815
+Vers 12
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race giant~
+Sex  1
+Cla  3
+Levl 5
+Plyd 1802
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  70 99 107 109 103 149
+Gold 3
+Silv 628
+Exp  6367
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy HV
+FRes HI
+FVul BP
+Comm NOYa
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 8
+Trai 4
+Save  -11
+Alig  0
+Hit   17
+Dam   8
+ACs 87 85 85 100
+Atrib 24 11 13 13 22 12
+AtMod 1 2 3 6 0 2
+Pass adrian~
+Afk {B[{CThu Feb 14 19:08:49 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 42
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Urza~
+Lsit cpe0060674a65f6.cpe.net.cable.rogers.com~
+Ltim Thu Feb 14 18:46:45 2002
+~
+LSav Thu Feb 14 19:16:55 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 95 109 149
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'fly'
+Sk 1 1 'frenzy'
+Sk 1 1 'gate'
+Sk 1 1 'holy word'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'portal'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'word of recall'
+Sk 76 1 'sword'
+Sk 13 1 'bash'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'benedictions'
+Gr 'curative'
+Gr 'transportation'
+Affc 'haste'   0  98  13   4   2    2097152 1
+Affc 'sanctuary'   0  92   0   0   0        128 4
+Affc 'blood moon'   0  97  83   4  18          0 1
+Affc 'blood moon'   0  95  83   8  19          0 1
+Affc 'bless'   0  94  89 -12  24          0 1
+Affc 'bless'   0  96  89  12  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 199 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Cond 92
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3707
+Enchanted
+Nest 0
+Wear -1
+Cost 72
+Affc 'reserved'   1   0  -1   1   2          0 1
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Enchanted
+Nest 0
+Wear 4
+Cost 72
+Affc 'reserved'   1   0  -1   1  22          0 1
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#END

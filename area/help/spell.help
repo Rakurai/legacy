@@ -1,0 +1,1540 @@
+0 CAST~
+Syntax: {Ccast{x '{Yspell{x' <{Ytarget{x>
+
+Before you can cast a spell, you have to learn it by practicing it.  The
+more you practice, the higher chance you have of success when casting.
+Casting spells costs mana.
+
+The <{Ytarget{x> is optional.  Many spells which need targets will use an
+appropriate default target, especially during combat.
+
+If the spell name is more than one word, then you must quote the spell name.
+Example: {Ccast{x '{Ycure critical{x' frag.  Quoting is optional for single word
+spells.  You can abbreviate the spell name.
+
+When you cast an offensive spell, the victim usually gets a saving throw.
+The effect of the spell is reduced or eliminated if the victim makes the
+saving throw successfully.
+
+{YSEE ALSO:{x the help files for individual spells.
+~
+
+0 ATTACK~
+The {Rattack spells{x are essentially powerful curses, fueled by divine energy
+rather than magical power (like the combat spells are). They are less powerful
+than the combat spells, but can still deal out a stinging blow.  
+The {Rattack spell group{x consists of the following spells:
+
+{Cdemonfire{x     a powerful, but very evil, spell
+{Cdispel evil{x   torments evil foes
+{Cdispel good{x   calls down unholy power on good creatures
+{Cearthquake{x    brings the power of earth to bear against your foes
+{Cflamestrike{x   sends a column of flame from the heavens
+{Cray of truth{x  sends forth a blinding ray of holy energy
+{Csunray{x        calls down a divine searing beam of light.
+{Cheat metal{x    makes metal armor very hot
+~
+
+0 DEMONFIRE~
+Syntax: {Ccast{x {Ydemonfire{x <{Ytarget{x>
+
+{CDemonfire{x is a spell of blackest evil, and as such can only be used by
+those who follow the paths of darkness.  It conjures forth demonic spirits
+to inflict terrible wounds on the enemies of the caster.
+
+GROUP: {RAttack{x
+~
+
+0 'DISPEL EVIL'~
+Syntax: {Ccast{x '{Ydispel evil{x' <{Yvictim{x>
+
+This spell invokes the wrath of Mota on an evil victim. It can be very
+dangerous for casters who are evil.
+
+GROUP: {PAttack{x
+~
+
+0 'DISPEL GOOD'~
+Syntax: {Ccast{x '{Ydispel good{x' <{Yvictim{x>
+
+{CDispel good{x brings forth evil energies that inflict horrific torment on
+the pure of heart.  Good-aligned characters use this dark magic at their
+peril.
+
+GROUP: {RAttack{x
+~
+
+0 EARTHQUAKE~
+Syntax: {Ccast{x '{Yearthquake{x'
+
+This spell inflicts damage on every enemy character in the room that
+has their feet on the ground.  Beware that other characters who are
+not yet fighting may attack you as a result!
+
+GROUP: {RAttack{x
+~
+
+0 FLAMESTRIKE~
+Syntax: {Ccast{x '{Yflamestrike{x' <{Yvictim{x>
+
+{CFlamestrike{x invokes a bolt of fire to inflict damage on the victim.
+
+GROUP:	{RAttack{x
+~
+
+0 'HEAT METAL'~
+Syntax: {Ccast{x '{Yheat metal{x' <{Ytarget{x>
+
+{CHeat metal{x is a powerful clerical attack spell, with effects that vary
+according to the armor of the victim.  It heats up the metal equipment
+(assumed to be all weapons and armor at this point in time) on the target,
+causing him or her to drop them if possible, taking serious burns in the
+process (possibly fatal if the equipment is too heavy to remove easily).
+This spell does no damage to creatures who are immune to fire.
+
+GROUP: {RAlteration{x
+GROUP: {RAttack{x
+~
+
+0 'RAY OF TRUTH'~
+Syntax: {Ccast{x '{Yray of truth{x' <{Ytarget{x>
+
+{RRay of truth{x opens a portal to the planes of positive energy, bringing forth
+a beam of light of sufficient purity to harm or or annihilate the servants
+of evil.  It cannot harm the pure of heart, and will turn and strike
+casters who are tainted by evil.
+
+GROUP: {RAttack{x
+~
+
+0 SUNRAY~
+Syntax: {Ccast{x '{Ysunray{x' <{Ytarget{x>
+
+{CSunray{x is the most powerful of a clerics offensive arsenal, bringing down
+a divine light that sears the cleric's enemies both good and evil in nature.
+Used wisely, this will help clerics and paladins across Thera spread justice
+and order.
+
+GROUP: {RAttack{x
+~
+
+0 BEGUILING~
+This insidious spell group is used to invade the minds of others.  It
+consists of various charming magics, well suited for turning your foes
+to your cause.  The {Rbeguiling spell group{x consist of the following:
+
+{Ccalm{x          if successful, stops all fighting in the room
+{Ccharm person{x  turns an enemy into a trusted friend
+{Csleep{x         puts a foe into enchanted slumber
+{Cpower word{x    with one word, die, your victim will obey
+~
+
+0 'CHARM PERSON'~
+Syntax: {Ccast{x '{Ycharm person{x' <{Yvictim{x>
+
+This spell, if successful, causes the victim to follow and to take
+orders from you.  Use {WORDER{x to order your charmed followers.  You
+are responsible for the actions of your followers.
+
+GROUP: {RBeguiling{x
+~
+
+0 SLEEP~
+Syntax: {Ccast{x '{Ysleep{x' <{Yvictim{x>
+
+This spell causes the victim to fall into a magically induced slumber.
+They cannot be woken from this slumber while the spell is in affect
+unless they take damage.
+
+GROUP: {RBeguiling{x
+~
+
+0 'POWER WORD'~
+Syntax: {Ccast{x '{Ypower word{x' <{Yvictim{x>
+
+With a single word, the caster can cause a victim to die instantly.  Only
+lower level creatures are suspectible to death from {Cpower word{x.
+
+GROUP: {RBeguiling{x
+~
+
+0 BENEDICTIONS~
+{RBenedictions{x are priestly spells, used to bestow divine favor upon your
+allies.  They are sometimes restricted to targets of like alignment.    
+The {Rbenedictions spell group{x consists of the following:
+
+{Cbless{x         bestows divine favor upon the target
+{Ccalm{x          if successful, stops all fighting in the room
+{Cfrenzy{x        puts the recipient into beserker rage
+{Choly word{x     aids your allies while calling divine wrath upon your foes
+{Cremove curse{x  removes malevolent magic from players and items
+{Cremove invis{x  makes invisible items visible
+{Cremove align{x  removes the alignment from objects
+~
+
+0 BLESS~
+Syntax: {Ccast{x '{Ybless{x <{Ycharacter{x>
+        {Ccast{x '{Ybless{x' <{Yobject{x>
+
+This spell improves the to-hit roll and saving throw versus spell of the
+target character by 1 for every 8 levels of the caster. It may also be
+cast on an object to temporarily bless it (blessed weapons, for example,
+are more effective against demonic beings).  Bless may be cast only on
+characters of good alignment and never on fighting characters.
+
+GROUP: {RBenedictions{x
+~
+
+0 CALM~
+Syntax: {Ccast{x '{Ycalm{x'
+
+One of the most useful and often overlooked abilities of the master cleric
+is the {Ccalm{x spell, which can put an end to all violence in a room.  Calmed
+creatures will not attack of their own volition, and are at a disadvantage
+in combat as long as the spell soothes their minds.  The more violent
+activity there is in a room, the harder the spell, and it is all or nothing
+-- either all combat in the room is ended or none of it is.
+
+GROUP: {RBenedictions{x
+GROUP: {RBeguiling{x
+~
+
+0 FRENZY~
+Syntax: {Ccast{x '{Yfrenzy{x' <{Ytarget{x>
+
+The {Cfrenzy{x spell fills the target with righteous fury, greatly increasing
+his or her attack skill and damaging capacity.  Unfortunately, this divine
+wrath is coupled with a tendency to ignore threats to personal safety,
+making the character easier to hit.  {CFrenzy{x provides immunity to the calm
+spell, and may only be used on those of the caster's alignment.
+
+GROUP: {RBenedictions{x
+{YSEE ALSO:{x calm, berserk
+~
+
+0 'HOLY WORD'~
+Syntax: {Ccast{x '{Yholy word{x'
+
+{CHoly word{x is the invocation of the full power of a cleric's god, with
+disastrous effects upon the enemies of the priest coupled with powerful
+blessings on the priest's allies.  All creatures of like alignment in the
+room are blessed and filled with righteous divine wrath, while those of
+opposite morals (or both good and evil in the case of neutral priests)
+are struck down by holy (or unholy might) and cursed.  The cleric suffers
+greatly from the strain of this spell, being left unable to move and
+drained of vitality.  Experience loss is no longer associated with the spell.
+
+GROUP: {RBenedictions{x
+~
+
+0 'REMOVE CURSE'~
+Syntax: {Ccast{x '{Yremove curse{x' <{Ycharacter{x>
+        {Ccast{x '{Yremove curse{x' <{Yobject{x>
+
+This spell removes a {Ccurse{x from a character, and might possibly uncurse
+a cursed object.  It may also be targeted on an object in the caster's
+inventory, in which case its chance of success is significantly higher.
+
+GROUP: {RBenedictions{x
+~
+
+0 BLADECRAFT~
+The {Rweaponcraft spell group{x is the art of magically altering the abilities 
+of weapons.  The {Rbladecraft spell group{x consist of the following:
+
+{Cflame blade{x   adds the power of fire to your weapons.
+{Cfrost blade{x   adds the power of frost to your weapons.
+{Cblood blade{x   adds the power of energy drain to your weapons.
+{Cshock blade{x   adds the power of lightning to your weapons.
+~
+
+0 'FLAME BLADE' 'FROST BLADE' 'BLOOD BLADE' 'SHOCK BLADE' BLADE~
+Syntax: {Ccast{x '{Yflame blade{x' <{Yweapon{x>
+        {Ccast{x '{Yfrost blade{x' <{Yweapon{x>
+        {Ccast{x '{Yblood blade{x' <{Yweapon{x>
+        {Ccast{x '{Yshock blade{x' <{Yweapon{x>
+
+These spells add weapon flags to your favorite weapons for a limited
+period of time.  Only one bladecraft spell may be cast on a weapon at
+any time.
+
+GROUP: {RBladecraft{x
+~
+
+0 COMBAT~
+These sorcerous spells are, in the words of one famous mage, just 'more
+ways to toss energy around'.  They are the most powerful of the damaging
+spells, and considered an essential part of most wizards' collections. 
+In order of power, the {Rcombat spell group{x contains the following magics:
+
+{Cmagic missile{x    send a weak energy bolt into a foe
+{Cchill touch{x      weakens your enemy with a frigid grasp
+{Cburning hands{x    sends a blast of fire into your foe
+{Cshocking grasp{x   sends a powerful jolt into a foe
+{Clightning bolt{x   sends forth a single bolt of lightning into an enemy
+{Ccolour spray{x     blasts your opponent with a blinding rainbow spray
+{Cfireball{x         a powerful spell, great for burning your enemy to ashes
+{Cacid blast{x       sends forth a sphere of acid to eradicate your foes
+{Cchain lightning{x  sends lightning bolts arcing through foes
+{Cfirestorm{x        sends out arcing fire to your foes
+{Cwrath{x            a devastating manifestation of raw magical power
+~
+
+0 'MAGIC MISSILE'~
+Syntax: {Ccast {x'{Ymagic missile{x' <{Ytarget{x>
+
+{CMagic missile{x is first spell available to any student of combat magic,
+being the simplest and most direct conversion of magical power into
+an offensive attack.  The caster conjures a small bolt of force which
+flies into an opponent.  At higher levels, a caster develops greater
+willpower, and can conjure up multiple {Cmagic missiles{x with a single
+casting.  As with all combat spells, specifiying a target is optional
+when in combat; if you are fighting, casting without a target will direct
+the spell at your primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 'CHILL TOUCH'~
+Syntax: {Ccast {x'{Ychill touch{x' <{Ytarget{x>
+
+To cast {Cchill touch{x, a caster surrounds a finger with a cloud of
+freezing mist, and jabs the finger at an opponent.  The magically
+conjured vapor clings to the target and settles in, destroying a small
+section of tissue.  Occasionally, the touch will strike a vital area
+and cause the victim to lose strength.  As with all combat spells,
+specifiying a target is optional when in combat; if you are fighting,
+casting without a target will direct the spell at your primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 'BURNING HANDS'~
+Syntax: {Ccast {x'{Yburning hands{x' <{Ytarget{x>
+
+To cast {Cburning hands{x, a caster engulfs both hands with flames and
+drives them into an opponent.  As with all combat spells, specifiying
+a target is optional when in combat; if you are fighting, casting
+without a target will direct the spell at your primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 'SHOCKING GRASP'~
+Syntax: {Ccast {x'{Yshocking grasp{x' <{Ytarget{x>
+
+Similar to {Cchill touch{x and {Cburning hands{x, {Cshocking grasp{x involves the
+caster enveloping their hands with magic power.  In this case, charges
+of lightning are conjured and delivered by grasping the opponent.  As
+with all combat spells, specifiying a target is optional when in combat;
+if you are fighting, casting without a target will direct the spell at
+your primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 'LIGHTNING BOLT'~
+Syntax: {Ccast {x'{Ylightning bolt{x' <{Ytarget{x>
+
+{CLightning bolt{x is one of the classic spells in a magic-users arsenal
+of offensive weapons.  Ancient studies of weather elementals revealed
+that magic users could create extreme charge differentials between
+themselves and a target.  Magically encouraging the release of this
+stored energy causes what is essentially an oversized {Wstatic shock{x,
+zapping the target but somehow not causing harm to the caster.  As
+with all combat spells, specifiying a target is optional when in
+combat; if you are fighting, casting without a target will direct
+the spell at your primary opponent.
+
+GROUP: {RCombat{x
+GROUP: {RWeather{x
+~
+
+0 'COLOUR SPRAY'~
+Syntax: {Ccast {x'{Ycolour spray{x' <{Ytarget{x>
+
+Just like Jubilee's mutant power in X-Men!
+
+GROUP: {RCombat{x
+~
+
+0 FIREBALL~
+Syntax: {Ccast{x '{Yfireball{x' <{Ytarget{x>
+        {Ccast{x '{Yfireball{x' {Groom{x                      ({YEvolution 2{x)
+
+One of the most basic and universal combat spells, {Cfireball{x involves
+the conjuration of a sphere of fire and hurling it at an enemy.  It's
+also one of the more versatile combat spells.  With the encouragement
+of {WL{Ci{Br{Ci{Te{Wl{x, the archmage {NS{By{Tv{Ce{Tr{Bi{Nl{x has developed advanced modifications
+for {Cfireball{x.
+
+{GEvolved:{x
+When evolved, the {Cfireball{x spell becomes progressively more powerful
+and larger, allowing the caster to engulf an entire room with their
+{Hf{Gir{Web{Gal{Hl{x.  At higher evolution, a {Bf{Cir{Web{Cal{Bl{x is infused with explosive
+power, capable of knocking down enemies.
+
+GROUP: {RCombat{x
+~
+
+0 'ACID BLAST'~
+Syntax: {Ccast {x'{Yacid blast{x' <{Ytarget{x>
+
+With this spell, the caster encases a globe of corrosive acid within
+a sphere of force and hurls it at an enemy.  The sphere explodes upon
+impact, causing grievous injury to the victim.  As with all combat
+spells, specifiying a target is optional when in combat; if you are
+fighting, casting without a target will direct the spell at your
+primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 'CHAIN LIGHTNING'~
+Syntax : {Ccast{x '{Ychain lightning{x' <{Ytarget{x>
+
+{CChain lightning{x is a deadly spell, producing a powerful bolt of
+lightning that arcs from target to target in the room, until its force
+is fully expended.  Killable players will also be hit by this spell
+unless they are grouped with the caster, while the caster himself will
+not be struck unless no other viable target remains.  {CChain lightning{x
+is most effective when used on groups of creatures.
+
+GROUP: {RCombat{x
+~
+
+0 FIRESTORM~
+Syntax:  {Ccast {x'{Yfirestorm{x' <{Ytarget{x>
+
+{CFirestorm{x is very similar to {cchain lightning{x, as it is a fire-based
+variant on that spell.  A huge flame arcs out of the caster's hand in
+response to a casting of {Cfirestorm{x, and is considered even more deadly
+than the {Cchain lightning{x spell.
+
+GROUP: {RCombat{x
+~
+
+0 WRATH~
+Syntax:  {Ccast {x'{Ywrath{x' <{Ytarget{x>
+
+The ultimate manifestation of a caster's ability to translate magical
+power into devastation, {Cwrath{x bypasses the crutches of elemental fury and
+delivers large amounts of explosive force to an opponent.  To be sure,
+this requires great willpower and only magic users with a great deal of
+experience can attempt to cast {Cwrath{x.  As with all combat spells,
+specifiying a target is optional when in combat; if you are fighting,
+casting without a target will direct the spell at your primary opponent.
+
+GROUP: {RCombat{x
+~
+
+0 CREATION~
+The {Rcreation spell group{x is used to create objects, of temporary or permanent
+duration.  Skilled creators can travel without food or drink, and use their
+powers to create nourishment as required.
+The {Rcreation spell group{x contains the following:
+
+{Ccontinual light{x   creates an eternal light source
+{Ccreate food{x       produces a nourishing mushroom
+{Ccreate rose{x       creates a beautiful red rose
+{Ccreate spring{x     calls forth a small but pure spring from the ground
+{Ccreate water{x      fills any available container with water
+{Cfloating disc{x     creates a floating disc of force to hold items
+{Ccreate vial{x       creates a vial for brewing potions
+{Ccreate parchment{x  creates a parchment for scribing scrolls
+{Cencampment{x        creates a small campsite for one person
+{Ccreate sign{x       creates a magical sign for all to read
+~
+
+0 'CONTINUAL LIGHT'~
+Syntax: {Ccast{x '{Ycontinual light{x'
+        {Ccast{x '{Ycontinual light{x' <{Yobject{x>
+
+This spell creates a ball of light which you can hold as a light source.
+The ball of light will last indefinitely, and may also be used on an object
+to give it an enchanted glow.
+
+GROUP: {RCreation{x
+~
+
+0 'CREATE VIAL' 'CREATE PARCHMENT'~
+Syntax: {Ccast{x '{Ycreate vial{x'
+        {Ccast{x '{Ycreate parchment{x'
+
+These spells create items for brewing and scribing.
+
+GROUP: {RCreation{x
+~
+
+0 ENCAMPMENT~
+Syntax: {Ccast{x '{Yencampment{x'
+
+This spell creates a magical campsite for the traveling player.
+
+GROUP: {RCreation{x
+~
+
+0 'CREATE SIGN'~
+Syntax: {Ccast{x '{Ycreate sign{x' <{Ymessage{x>
+
+This spell creates a magical sign which others can see and read.
+
+GROUP: {RCreation{x
+~
+
+0 'CREATE FOOD'~
+Syntax: {Ccast{x '{Ycreate food{x' <{PFood name{x>
+
+This spell creates an item of food, which you or anyone else can eat.
+Like create rose, this spell can be used without an arguement, and
+will create a random food type of the Legacy Imm's favourite foods,
+or you can add your own flavor text (get the pun?), but be warned, as
+with other spells with message arguments, please use discretion so as
+to not to cause offense. {R:){x
+
+GROUP: {RCreation{x
+~
+
+0 'CREATE SPRING' 'CREATE WATER'~
+Syntax: {Ccast{x '{Ycreate spring{x'
+        {Ccast{x '{Ycreate water{x' <{Ydrink-container{x>
+
+{CCreate spring{x brings forth a magical spring from the ground which has the
+same properties as a fountain (although it will eventually run dry).
+
+{CCreate water{x replenishes a drinking container with water.
+GROUP: {RCreation{x
+~
+
+0 'CREATE ROSE'~
+Syntax: {Ccast{x '{Ycreate rose{x' <{Ycolor{x>
+
+A romantic spell that creates a fragrant rose, with utterly no game
+use whatsoever.  The default color is {Rred{x.
+
+GROUP: {RCreation{x
+~
+
+0 'FLOATING DISC'~
+Syntax: {Ccast{x '{Yfloating disc{x'
+
+This useful spell creates a floating field of force which follows the
+caster around, allowing him or her to pile treasure high with no fear
+of weight penalties.  It lasts no more than twice the casters level in
+hours, and usually less.  It can hold 10 pounds per level of the caster,
+with a maximum of five pounds per item.  The spell requires an open float
+location on the character, and the only way to remove the disc is to die
+or allow it to run out of energy.
+
+GROUP: {RCreation{x
+~
+
+0 CURATIVE~
+The {Rcurative spells{x are used to heal various unpleasant conditions that can
+befall an adventurer.   For healing of damage, see the healing spell group.
+The {Rcurative spell group{x contains the following:
+
+{Ccure blindness{x  restored sight to the blind
+{Ccure disease{x    heals the plague
+{Ccure poison{x     removes the harmful effects of poison
+~
+
+0 'CURE BLINDNESS'~
+Syntax: {Ccast{x '{Ycure blindness{x' <{Ycharacter{x>
+
+This spell cures blindness in one so unfortunate.
+
+GROUP: {RCurative{x
+~
+
+0 'CURE POISON'~
+Syntax: {Ccast{x '{Ycure poison{x' <{Ycharacter{x>
+
+This spell cures a character's poison, or your own poison if you don't
+specify a target.
+
+GROUP: {RCurative{x
+~
+
+0 'CURE DISEASE'~
+Syntax: {Ccast{x '{Ycure disease{x' <{Ycharacter{x>
+
+This spell cures a character's plague, or your own plague if you don't
+specify a target.
+
+GROUP: {RCurative{x
+~
+
+0 DETECTION~
+The {Rdetection spells{x have many uses, all related to gathering information. They
+can be used to see hidden objects, give information about treasure, or even
+scry out the true nature of your foe. 
+The {Rdetection spell group{x contains the following:
+
+{Cdetect evil{x     reveals the aura of evil monsters
+{Cdetect good{x     similar to above, only for good monsters
+{Cdetect hidden{x   shows the whereabouts of hidden foes
+{Cdetect invis{x    allows the caster to see the unseeable
+{Cdetect magic{x    reveals magical auras to the caster
+{Cdetect poison{x   determines if food is safe to eat
+{Cfarsight{x        allows to caster to see farther about him
+{Cidentify{x        gives information about the nature of an object
+{Cknow alignment{x  determines the moral character of a monster or person
+{Clocate object{x   finds a specific item
+{Clight of truth{x  enhances the detection capabilities of a light
+{Clocate life{x     searches out through the lands for a specific lifeform
+{Cvision{x          lets you see the contents of a room from afar
+~
+
+0 'DETECT EVIL'~
+Syntax: {Ccast{x '{Ydetect evil{x'
+
+This spell enables the caster to detect evil characters, who are revealed
+by a characteristic red aura.
+
+GROUP: {RDetection{x
+~
+
+0 'DETECT HIDDEN' 'DETECT INVIS'~
+Syntax: {Ccast{x '{Ydetect hidden{x'
+        {Ccast{x '{Ydetect invis{x'
+        
+{CDetect hidden{x enables the caster to detect hidden creatures.
+
+{CDetect invis{x will enable the caster to detect invisible objects,
+monsters, and players.
+
+GROUP: {RDetection{x
+~
+
+0 'DETECT MAGIC'~
+Syntax: {Ccast{x '{Ydetect magic{x'
+
+This spell enables the caster to detect magical objects.
+
+GROUP: {RDetection{x
+~
+
+0 'DETECT POISON'~
+Syntax: {Ccast{x '{Ydetect poison{x' <{Yobject{x>
+
+This spell detects the presence of poison in food or drink.
+
+GROUP: {RDetection{x
+~
+
+0 'DETECT GOOD'~
+Syntax: {Ccast{x '{Ydetect good{x'
+
+This spell enables the caster to detect good characters, who are revealed
+by a characteristic golden aura.
+
+GROUP: {RDetection{x
+~
+
+0 FARSIGHT~
+Syntax: {Ccast{x {Yfarsight{x
+        {Ccast{x {Yfarsight{x <{Ydirection{x>
+
+The {Cfarsight{x spell expands the caster's consciousness, allowing him or
+her to see far away beings like they were in the same room.  The spell may
+be used for a general scan that reaches a short distance in all directions,
+or with a directional component to see creatures much farther away.
+
+GROUP: {RDetection{x
+~
+
+0 IDENTIFY~
+Syntax: {Ccast{x '{Yidentify{x' <{Yobject{x>
+
+This spell reveals valuable information about the object.
+
+GROUP: {RDetection{x
+~
+
+0 'KNOW ALIGNMENT'~
+Syntax: {Ccast{x '{Yknow alignment{x' <{Ycharacter{x>
+
+This spell reveals the alignment of the target character.
+
+GROUP: {RDetection{x
+~
+
+0 'LIGHT OF TRUTH'~
+Syntax: {Ccast{x '{Ylight of truth{x' <{Yobject{x>
+
+This spell puts random detection spells on a light source for a limited time.
+
+GROUP: {RDetection{x
+~
+
+0 'LOCATE LIFE' 'LOCATE OBJECT'~
+Syntax: {Ccast{x '{Ylocate object{x' <{Yname{x>
+        {Ccast{x '{Ylocate life{x' <{Yvictim{x>
+
+{CLocate object{x reveals the location of all objects with the given name.
+
+{CLocate life{x reveals the location of all characters with the given name.
+Both spells have some limitations to their usefulness, and neither can
+detect objects or players that are higher level than the caster.
+
+GROUP: {RDetection{x
+~
+
+0 VISION~
+Syntax: {Ccast{x '{Yvision{x' <{Ytarget{x>
+
+This vision spell creates a mystical sphere from which you can look inside
+to see the location of your target.  The target must either be a player or
+a mobile.  Awake characters in the room with your vision target will 'feel
+a presence in the room'.
+
+GROUP: {RDetection{x
+~
+
+0 DRACONIAN~
+The {RDraconian spell group{x deals with the magic of dragons -- in this case,
+bringing forth the devastating power of their breath weapons upon your foes.
+The {Rdraconian spell group{x contains the following:
+
+{Cacid breath{x       uses the black dragon's attack upon an enemy
+{Cfire breath{x       calls forth the flames of a red dragon
+{Cfrost breath{x      drains the life from a foe with the power a white dragon
+{Cgas breath{x        suffocates your enemies with a green dragon's fumes
+{Clightning breath{x  summons the electrical fury of a blue dragon
+~
+
+0 'ACID BREATH' 'FIRE BREATH' 'FROST BREATH' 'GAS BREATH' 'LIGHTNING BREATH'~
+Syntax:
+   {Ccast{x '{Yacid breath{x'      <{Yvictim{x>
+   {Ccast{x '{Yfire breath{x'      <{Yvictim{x>
+   {Ccast{x '{Yfrost breath{x'     <{Yvictim{x>
+   {Ccast{x '{Ylightning breath{x' <{Yvictim{x>
+   {Ccast{x '{Ygas breath{x'       <{Yvictim{x>
+
+These spells are for the use of dragons; however, high level mages may
+also learn and cast these spells.  {CAcid{x and {Clightning{x breath damage one
+victim, whereas the others damage everyone in the room.  {CFire{x and {Cfrost{x
+can break objects, and {Cacid{x can damage armor.
+
+GROUP: {RDraconian{x
+~
+
+0 ENCHANTMENT~
+The {Renchantment spell group{x is used to imbue items with magical properties.
+The {Renchantment spell group{x contains the following:
+
+{Cenchant weapon{x     increases the hit and damage bonuses of a weapon
+{Cenchant armor{x      increases the protective value of armor
+{Cprotect container{x  permanantly protects a container, but for a price
+{Crecharge{x           restores power to a depleted wand or staff
+{Cremove invis{x       makes invisible items visible
+{Cremove align{x       removes the alignemnt from objects
+{Cshrink{x             reduces the weight of an object
+{Cdazzling light{x     increases the hit and damage bonuses of a light
+~
+
+0 'ENCHANT WEAPON'~
+Syntax: {Ccast{x '{Yenchant weapon{x' <{Yweapon{x>
+
+This spell magically enchants a weapon, increasing its to-hit and to-dam
+bonuses by one or two points.  Multiple enchants may be cast, but as the
+weapon grows more and more powerful, it is more likely to be drained or
+destroyed by the magic.  Also, every successful enchant increases the level
+of the weapon by one...and there is no turning back.  Casting this spell on
+armor will work, but it can have unusual effects on the item.
+
+GROUP: {REnchantment{x
+{YSEE ALSO:{x enchant armor
+~
+
+0 'ENCHANT ARMOR'~
+Syntax:  {Ccast{x '{Yenchant armor{x' <{Yarmor{x>
+
+The {Cenchant armor{x spell imbues armor with powerful protective magic.
+It is not nearly as reliable as enchant weapon, being far more prone to
+destructive effects.  Each successful enchant improves the armor bonus
+of an item by 1 or 2 points, and raises its level by one.
+
+GROUP: {REnchantment{x
+{YSEE ALSO:{x enchant weapon
+~
+
+0 'PROTECT CONTAINER'~
+Syntax: {Ccast{x '{Yprotect container{x' <{Yobject{x>
+
+This spell makes a container immune to destruction.  However, the spell
+costs a certain amount of gold depending on the capacity of the container.
+
+GROUP: {REnchantment{x
+~
+
+0 RECHARGE~
+Syntax: {Ccast{x {Yrecharge{Y <{Yitem{x>
+
+The {Crecharge{x spell can be used to restore energy to depleted wands and
+staves.  Fully exhausted items cannot be {Crecharged{x, and the difficulty
+of the spell is proportional to the number of charges used.  Magical
+items can only be {Crecharged{x once.
+
+GROUP: {REnchantment{x
+~
+
+0 'REMOVE ALIGNMENT' 'REMOVE INVISIBILITY'~
+Syntax: {Ccast{x '{Yremove alignment{x' <{Yobject{x>
+        {Ccast{x '{Yremove invis{x' <{Yobject{x>
+
+These spells change the properties of objects.	The {Cremove alignment{x
+spell makes an object that was once anti-evil no longer anti-evil.
+The same goes for anti-good and anti-neutral.  The {Cremove invisible{x
+spell makes an object visible.
+
+GROUP: {REnchantment{x
+GROUP: {RBenedictions{x
+~
+
+0 SHRINK~
+Syntax: {Ccast{x '{Yshrink{x' <{Yobject{x>
+
+This miracle spell can actually reduce the weight of an object.  The
+object's level is increased by one for each successful casting.
+
+GROUP: {REnchantment{x
+~
+
+0 'DAZZLING LIGHT'~
+Syntax: {Ccast{x '{Ydazzling light{x' <{Yobject{x>
+
+This spell increases the hit and damage bonuses of a light source for a
+limited time.  The amount depends on the caster's level.
+
+GROUP: {REnchantment{x
+~
+
+0 ENHANCEMENT~
+The {Renhancement spells{x improve upon the body's pontential, allowing feats of
+superhuman strength and speed.  However, these spells may often have harmful
+effects upon the recipient.
+The {Renhancement spell group{x contains the following:
+
+{Cgiant strength{x       grants increased strength
+{Chaste{x                doubles the speed of the target, but slows down healing
+{Cinfravision{x          allows monsters to be seen in the dark
+{Crefresh{x              restores energy to tired adventurers
+{Cregeneration{x         doubles the healing rate of the target
+{Ctalon{x                makes the target harder to disarm.
+{Cdivine regeneration{x  quadruples the healing rate of the target
+{Cchannel{x              channels mana from caster into the victim
+~
+
+0 'GIANT STRENGTH'~
+Syntax: {Ccast{x '{Ygiant strength{x' <{Ycharacter{x>
+
+This spell increases the strength of the target character.
+
+GROUP: {REnhancement{x
+~
+
+0 HASTE~
+Syntax: {Ccast{x '{Yhaste{x' <{Ytarget{x>
+
+The {Chaste{x spell increases the speed and agility of the recipient, allowing
+an extra attack (or even a backstab) in combat, and improving evasive
+abilities in combat.  However, it produces a great strain on the system,
+such that recuperative abilities are halved.  {CHaste{x is capable of negating
+the slow spell. (see 'help slow').
+
+GROUP: {REnhancement{x
+~
+
+0 INFRAVISION~
+Syntax: {Ccast{x '{Yinfravision{x' <{Ycharacter{x>
+
+This spell enables the target character to see warm blooded creatures even
+while in the dark, and exits of a room as well.
+
+GROUP: {REnhancement{x
+~
+
+0 REFRESH~
+Syntax: {Ccast{x '{Yrefresh{x' <{Ycharacter{x>
+
+This spell heals the stamina of a character.
+
+GROUP: {RHealing{x {REnhancements{x
+~
+
+0 'DIVINE REGENERATION' REGENERATION~
+Syntax: {Ccast{x '{Yregeneration{x' <{Ycharacter{x>
+        {Ccast{x '{Ydivine regeneration{x'
+
+This spell increases the regeneration rate of the target character.
+{CDivine regeneration{x can only be cast upon yourself and it also affects
+mana.
+
+{GEvolved:{x
+When evolved, the {Cregeneration{x spell will cause stamina to heal 
+during combat, and the {Cdivine regeneration{x spell causes stamina, 
+mana, and hp to regen during combat.
+
+GROUP: {REnhancement{x
+~
+
+0 TALON~
+Syntax: {Ccast{x '{Ytalon{x' <{Ycharacter{x>
+
+This spell makes the target character resistant to disarming.
+
+{GEvolved:{x
+When evolved, the {Ctalon{x spell strengthens the user's hands even more,
+making it even harder to disarm that character.
+
+GROUP: {REnhancement{x
+~
+
+0 'CHANNEL'~
+Syntax: {Ccast{x '{Ychannel{x' <{Yamount{x> <{Ytarget{x>
+
+This spell channels your magical energy into a target.
+
+GROUP: {REnhancement{x
+~
+
+0 HARMFUL~
+This spell group is the opposite of healing.  The {Rharmful spells{x are
+designed to tear flesh from bone, rupture arteries, and generally turn the
+body against itself.  
+In order of power, the {Rharmful spells{x are:
+
+{Ccause light{x     inflicts minor wounds on an enemy
+{Ccause serious{x   inflicts wounds on a foe
+{Ccause critical{x  causes major damage to the target
+{Charm{x            the most deadly harmful spell
+~
+
+0 'CAUSE LIGHT' 'CAUSE SERIOUS' 'CAUSE CRITICAL' 'HARM'~
+Syntax: {Ccast{x '{Ycause light{x'    <{Yvictim{x>
+        {Ccast{x '{Ycause serious{x'  <{Yvictim{x>
+        {Ccast{x '{Ycause critical{x' <{Yvictim{x>
+        {Ccast{x '{Yharm{x'           <{Yvictim{x>
+
+These spells inflict damage on the victim.  The higher-level spells do
+more damage.
+
+GROUP: {RHarmful{x
+~
+
+0 HEALING~
+The {Rhealing spells{x are used to cure the wounds that adventurers inevitably
+suffer in battle.  For curing other conditions, such as poison, see the
+{Wcurative{x spell group.  
+In order of power, the {Rhealing spells{x are:
+
+{Crefresh{x         restores vigor to a tired adventurer
+{Ccure light{x      heals minor wounds
+{Ccure serious{x    heals wounds
+{Ccure critical{x   closes all but the worst wounds
+{Cheal{x            the most powerful healing spell
+{Cmass healing{x    casts a heal spell on each player in the room
+{Cdivine healing{x  calls forth the power of the gods to perform a miracle
+~
+
+0 'CURE LIGHT' 'CURE SERIOUS' 'CURE CRITICAL' 'HEAL'~
+Syntax: {Ccast{x '{Ycure light{x'    <{Ycharacter{x>
+        {Ccast{x '{Ycure serious{x'  <{Ycharacter{x>
+        {Ccast{x '{Ycure critical{x' <{Ycharacter{x>
+        {Ccast{x '{Yheal{x'          <{Ycharacter{x>
+
+These spells cure damage on the target character.  The higher-level spells
+heal more damage.
+
+GROUP: {RHealing{x
+
+{YSEE ALSO:{x healer
+~
+
+0 'MASS HEALING'~
+Syntax: {Ccast{x '{Ymass healing{x'
+
+The {Cmass healing{x spell, as its name might suggest, performs a healing spell
+on all players in the room.  It also throws in a refresh spell for good
+measure.
+
+GROUP: {RHealing{x
+~
+
+0 'DIVINE HEALING'~
+Syntax: {Ccast{x '{Ydivine healing{x' <{Yvictim{x>
+
+This spell brings forth the power of the gods to heal a victim in need.
+As the name implies, it is much more powerful than 'heal'.
+
+GROUP: {RHealing{x
+~
+
+0 ILLUSION~
+The {Rillusions spells{x are dedicated to deception and trickery.  They can be
+used to mask appearances, or create distractions for the party.  Currently,
+the {Rillusion group{x is very small, but it will be expanded in the future.
+The {Rillusion spell group{x consist of the following:
+
+{Cinvis{x          turns the target invisible
+{Cmass invis{x     turns the caster's group invisible
+{Cventriloquate{x  allows the caster to put words in someone's mouth
+{Csmokescreen{x    creates a mysterious cloud of smoke in adjacent rooms
+~
+
+0 INVISIBILITY 'MASS INVIS'~
+Syntax: {Ccast{x '{Yinvisibility{x' <{Ycharacter{x>
+        {Ccast{x '{Yinvisibility{x' <{Yobject{x>
+        {Ccast{x '{Ymass invis{x'
+
+The {Cinvisibility{x spell makes the target character invisible.  Invisible
+characters will become visible when they attack.  You may also cast the
+spell on an object to render it invisible.
+
+The {Cmass invis{x spell makes all characters in the caster's group invisible,
+including the caster.
+
+GROUP: {RIllusion{x
+~
+
+0 VENTRILOQUATE~
+Syntax: {Ccast{x '{Yventriloquate{x' <{Yspeaker{x> <{Ymessage{x>
+
+This spell throws your voice, making it appear that some other object
+or character in the room is saying your message.  Victims who make
+their saving throw will know that someone is using ventriloquism, but
+not who.  Victims who fail their saving throw will think that the object
+or character really did say your message.
+
+GROUP: {RIllusion{x
+~
+
+0 SMOKESCREEN~
+Syntax: {Ccast{x '{Ysmokescreen{x' <{Ydirection{x>
+
+This spell conjures a cloud of smoke in an adjacent room, and all mobiles
+in that room will not be able to see you for a short period of time.
+
+GROUP: {RIllusion{x
+~
+
+0 MALADICTIONS~
+{RMaladictions{x are a group of curses and other baneful spells, designed to
+cripple, inconvenience, or torture, rather than kill outright.  
+The {Rmaladictions spell group{x consist of the following:
+
+{Cblindness{x     strikes the target blind
+{Ccurse{x         prevents recalling and weakens the target in combat
+{Cenergy drain{x  drains experiance and mana, while strengthening the caster
+{Cplague{x        causes the target to suffer a slow, painful death from plague
+{Cpoison{x        weaker than plague, but often fatal
+{Cslow{x          slows your enemies down, reducing their rate of attack	
+{Cweaken{x        drains the strength of the target
+{Cage{x           ages your victim
+~
+
+0 BLINDNESS~
+Syntax: {Ccast{x '{Yblindness{x' <{Yvictim{x>
+
+This spell clouds the eyes of the target, making them unable to see.
+
+GROUP: {RMaladictions{x
+~
+
+0 CURSE~
+Syntax: {Ccast{x '{Ycurse{x' <{Ycharacter{x>
+
+This spell reduces the character's to-hit roll and save versus spells.
+It also renders the character unclean in the eyes of Mota and unable
+to RECALL. Curse may be used to fill equipment with evil power, allowing
+(for example) weapons to do more damage to particularly holy opponents.
+
+GROUP: {RMaladictions{x
+~
+
+0 'ENERGY DRAIN'~
+Syntax: {Ccast{x '{Yenergy drain{x' <{Yvictim{x>
+
+This spell saps the experience points, mana, and movement points of its
+target, and transfers them to you (except the experience).
+
+GROUP:{RMaladictions{x {RNecromancy{x
+~
+
+0 SLOW~
+Syntax: {Ccast{x {Yslow{x <{Ytarget{x>
+
+Following popular mythology, {Cslow{x is the opposite of haste.  It is a spell
+with it's own unique set of effects.  When cast on an unfortunate victim,
+it slows its movements, making it easier to hit and reducing its rate
+of attack.  The effect of {Cslow{x also double movement costs and double
+healing rates.
+
+GROUP: {RMaladictions{x
+~
+
+0 PLAGUE~
+Syntax: {Ccast{x {Yplague{x <{Ytarget{x>
+
+The {Cplague{x spell infests the target with a magical disease of great virulence,
+sapping its strength and causing horrific suffering, possibly leading to
+death.  It is a risky spell to use, as the contagion can spread like
+wildfire if the victim makes it to a populated area.
+
+GROUP: {RMaladictions{x
+~
+
+0 'POISON'~
+Syntax: {Ccast{x '{Ypoison{x' <{Yvictim{x>
+        {Ccast{x '{Ypoison{x' <{Yobject{x>
+
+This spell reduces the strength of the victim by two, as well as reducing
+the victim's regeneration rate. It may also be used to poison food, drink,
+or a weapon in a fashion similar to envenom ('{Rhelp envenom{x'), but with
+drastically reduced effectiveness.
+
+GROUP: {RMaladictions{x
+~
+
+0 'WEAKEN'~
+Syntax: {Ccast{x '{Yweaken{x' <{Yvictim{x>
+
+This spell reduces the strength of the victim.
+
+GROUP: {PMaladictions{x
+~
+
+0 AGE~
+Syntax: {Ccast{x '{Yage{x' <{Yvictim{x>
+
+This spell reduces the strength and constitution of the victim while
+increasing their wisdom.  It also temporarily ages the victim by a number
+of years equal to the level of the caster.
+
+GROUP: {RMaladictions{x
+~
+
+0 NECROMANCY~
+The {Rnecromancy spell group{x is rooted in the black magic of evil mages.
+Mages who drew their power from the evil sides of their tainted souls.
+These mages were able to use this power to summon undead creatures to
+do their bidding.  Once summoned, these undead monsters would fight
+to protect their master.
+The {Rnecromancy spell group{x consist of the following:
+
+{Cblood moon{x        this spell summons the power of the vampires
+{Canimate skeleton{x  summons an undead skeleton to your side
+{Canimate zombie{x    summons a powerful zombie warrior to your side
+{Canimate wraith{x    summons a ghastly wraith to your side
+{Canimate gargoyle{x  summons a deadly gargoyle mage to your side
+{Cfear{x              this spell makes a victim call for their mother
+{Cresurrect{x         a high level spell that brings the dead to life
+{Cenergy drain{x      drains exp and mana, while strengthening the caster
+~
+
+0 BLOOD MOON~
+Syntax: {Ccast{x '{Yblood moon{x' <{Ycharacter{x>
+
+This spell invokes the powers of the vampire into a mortal, and should
+only be used upon those who serve evil well.
+
+GROUP: {RNecromancy{x
+~
+
+0 'ANIMATE SKELETON' 'ANIMATE ZOMBIE' 'ANIMATE WRAITH' 'ANIMATE GARGOYLE'~
+Syntax: {Ccast{x '{Yanimate skeleton{x'
+        {Ccast{x '{Yanimate zombie{x'
+        {Ccast{x '{Yanimate wraith{x'
+        {Ccast{x '{Yanimate gargoyle{x'
+
+These spells summon forth the power and abilities of the undead.  Only
+one mobile of each type may be summoned.  However, all of these animated
+creatures can be summoned for a single battle.	Once their time in this
+world has come to an end, these undead creatures will return to the
+netherworld from whence they came.
+
+GROUP: {RNecromancy{x
+~
+
+0 FEAR~
+Syntax: {Ccast{x '{Yfear{x' <{Yvictim{x>
+
+This spell adversely affects the victim's to-hit roll, damage roll, and
+saves vs spells.  Terror grips the victim's mind and they will flee if at
+all possible.
+
+GROUP: {RNecromancy{x
+~
+
+0 RESURRECT~
+Syntax: {Ccast{x '{Yresurrect{x' <{Ycorpse{x>
+
+This spell, when cast upon a corpse in the room, will create a zombie
+to rise and become your servant.
+
+GROUP: {RNecromancy{x
+~
+
+0 PROTECTIVE PROTECTION~
+The {Rprotective spells{x are used to shield against harm, whether from spells or
+physical attack.  They range from the weak armor spell to the sought-after
+sanctuary charm.  Also included in this group are several spells for dispeling
+hostile magics.  The {Rprotective spell group{x consists of the following spells:
+
+{Carmor{x            provides the target with an extra layer of defense
+{Ccancellation{x     a powerful dispel, used for removing spells from friends
+{Cdispel magic{x     removes spells from enemies, not as effective as cancel
+{Cundo spell{x       similar to cancellation, except it is spell specific
+{Cfireproof{x        shields items from the harmful effects of fire and acid
+{Cprotection evil{x  provides defense from the attacks of evil creatures
+{Cprotection good{x  protects from the attacks of good beings
+{Csanctuary{x        reduces all damage taken by the recipient by half
+{Cshield{x           puts a shimmering shield between you and your enemies
+{Cstoneskin{x        turns skin hard as stone, providing a huge armor boost
+~
+
+0 ARMOR~
+Syntax: {Ccast{x '{Yarmor{x' <{Ycharacter{x>
+
+This spell decreases (improves) the armor class of the target character
+by 20 points.
+
+GROUP: {RProtective{x
+~
+
+0 'DISPEL MAGIC' CANCELLATION~
+Syntax: {Ccast{x '{Ydispel magic{x' <{Ycharacter{x>
+        {Ccast{x '{Ycancellation{x' <{Ycharacter{x>
+
+Both of these spells attempt to remove magical effects from the target.
+{CDispel magic{x has a lower chance of working, and is considered an attack
+spell.  {CCancellation{x can only be used on allies, but is more effective
+and does not provoke attack.  Unfortunately, neither of these spells will
+discriminate between harmful and benign spells.
+
+The chance of dispelling is based on the level of the spell and the saves
+of the victim.  Permanent spells (such as mobile sanctuary) are much more
+difficult to remove. Certain spells may not be dispelled at all, such as
+plague and poison.
+
+GROUP: {RProtective{x
+{YSEE ALSO:{x 'undo spell'
+~
+
+0 'UNDO SPELL'~
+Syntax: {Ccast{x '{Yundo spell{x' <{Yspell{x> <{Ycharacter{x>
+
+This spell is similar to cancellation except that it is spell specific.
+
+GROUP: {RProtective{x
+~
+
+0 FIREPROOF~
+Syntax: {Ccast{x {Yfireproof{x <{Yobject{x>
+
+The {Cfireproof{x spell creates a short-lived protective aura around an
+object, to protect it from the harmful effects spells.  Items protected
+by this spell are not harmed by fire or the heat metal spell.  Although
+inexpensive to use, the spell's short duration makes it impractical for
+protecting large numbers of objects.
+
+GROUP: {RProtective{x
+~
+
+0 'PROTECTION GOOD' 'PROTECTION EVIL'~
+Syntax: {Ccast{x '{Yprotection evil{x'
+	{Ccast{x '{Yprotection good{x'
+
+The {Cprotection{x spells reduce the amount of damage taken from attackers
+of the appropriate ethos, and improve saving throws against all forms of
+magic. They may not be cast on others.
+
+GROUP: {RProtective{x
+~
+
+0 SANCTUARY~
+Syntax: {Ccast{x '{Ysanctuary{x'  <{Ycharacter{x>
+
+The {Csanctuary{x spell reduces the damage taken by the character from any
+attack by roughly one half.
+
+{GEvolved:{x
+When evolved, the {Csanctuary{x spell can reduce even more damage, weakens
+attacks by cursed characters and sometimes even stops them cold, and can
+deal holy damage to the attacker for violating the protective aura.
+
+GROUP: {RProtective{x
+~
+
+0 SHIELD 'STONE SKIN'~
+Syntax: {Ccast{x '{Yshield{x' <{Ycharacter{x>
+        {Ccast{x '{Ystone skin{x'
+
+These spells protect the caster by decreasing (improving) the caster's
+armor class.  {CShield{x provides 20 points of armor.  {CStone skin{x provides
+40 points of armor.  You may cast {Cshield{x but not {Cstone skin{x on another.
+
+GROUP: {RProtective{x
+~
+
+0 TRANSPORTATION~
+The {Rtransportation group{x is used for travel, whether by flight, magical
+teleportation, or walking through walls.  These spells are among the most 
+useful in the game.  The {Rtransportation spell group{x consists of the 
+following spells:
+
+{Cfly{x              allows the target to fly over nearly all obstacles
+{Cgate{x             transports the caster to the target
+{Cnexus{x            forms a two-way portal to a far off destination
+{Cpass door{x        allows the caster to walk through walls
+{Cportal{x           creates a one-way portal to a destination
+{Csummon{x           transports the target to the caster
+{Csummon object{x    transports an object to the caster
+{Cteleport{x         sends the target to a random location
+{Cteleport object{x  sends obejcts from one character to another
+{Cword of recall{x   transports the caster to safety in Midgaard
+~
+
+0 FLY~
+Syntax: {Ccast{x '{Yfly{x' <{Ycharacter{x>
+
+This spell enables the target character to fly.
+
+GROUP: {RTransportation{x
+~
+
+0 NEXUS~
+Syntax: {Ccast{x '{Ynexus{x' <{Ytarget{x>
+
+This spell is virtually identical to {Wportal{x, with the only difference
+being that while portal creates a one-way gate, a {Cnexus{x spell makes a
+two-sided gate.  It also lasts longer than the lower-powered portal
+spell.  Both spells require an additional power source, the secret
+of which has been lost...
+
+GROUP: {RTransportation{x
+~
+
+0 'PASS DOOR'~
+Syntax: {Ccast{x '{Ypass door{x' <{Ytarget{x>
+
+This spell enables the caster to become translucent in order to pass through
+closed doors.  Casting {cpass door{x without a target will target yourself.
+
+GROUP: {RTransportation{x
+~
+
+0 GATE~
+Syntax: cast '{Ygate{x' <{Ycharacter/mob{x>
+
+This spell is one of the most basic transportation spells.  It allows you
+to teleport yourself and your pet (if you have one) to another character
+of mob by use of a magical gate, with certain limitations.  You cannot
+{Cgate{x to a monster or player that is more than 3 levels higher than you,
+and monsters recieve a save against {Cgate{x.  You also cannot {Cgate{x to rooms
+belonging to Immortals, private rooms, and rooms that are no-recall, nor
+can you {cgate{x out of norecall rooms.
+
+GROUP: {RTransportation{x
+~
+
+0 PORTAL~
+Syntax: {Ccast{x '{Yportal{x' <{Ytarget{x>
+
+The {Cportal{x spell is similar to gate, but creates a lasting one-way
+portal to the target creature instead of transporting the caster.  Portals
+are entered using '{WENTER{x', as in 'enter portal'.  Portals cannot be made
+to  certain destinations, but can be used to reach norecall rooms. Portal
+requires a special source of power to be used, unfortunately the secret of
+this material component has been lost...
+
+GROUP: {RTransportation{x
+~
+
+0 SUMMON~
+Syntax: {Ccast{x '{Ysummon{x' <{Ycharacter{x>
+
+This spell summons a character from anywhere else in the world into your
+room.  Characters who are fighting may not be summoned.
+
+GROUP: {RTransportation{x
+{YSEE ALSO:{x nosummon
+~
+
+0 'SUMMON OBJECT'~
+Syntax: {Ccast{x '{Ysummon object{x' <{Yobject{x>
+
+This powerful spell can call forth objects from the far reaches of the
+world to the earth below your feet.  Objects cannot be summoned from
+places you cannot see, from powerful mobiles, from safe or private
+rooms, or from other players.  The object must also be close to your
+power level.
+
+GROUP: {RTransportation{x
+~
+
+0 TELEPORT 'TELEPORT OBJECT'~
+Syntax: {Ccast{x '{Yteleport{x'
+        {Ccast{x '{Yteleport object{x' <{Yobject{x> <{Yperson{x>
+
+{CTeleport{x will take you from your current location to a random location
+somewhere in the world.
+
+{CTeleport object{x will send an object across great distances to another.
+
+GROUP: {RTransportation{x
+~
+
+0 'WORD OF RECALL'~
+Syntax: {Ccast{x '{Yword of recall{x'
+
+This spell duplicates the built-in {WRECALL{x ability.  When successfully
+cast, {Cword of recall{x will allow you to recall out of combat more easily
+than using the {Wrecall{x command.
+
+GROUP: {RTransportation{x
+{YSEE ALSO:{x recall
+~
+
+0 WEATHER~
+These spells allow the caster to manipulate local weather conditions, as well
+as summon fog clouds, lightning, or even electrical glows. 
+The {Rweather spell group{x consists of the following spells:
+
+{Ccall lightning{x   summons a huge bolt from the heavens, if the weather is right
+{Ccontrol weather{x  changes the weather in the manner desired by the caster
+{Cfaerie fire{x      surrounds the target in a glowing aura
+{Cfaerie fog{x       reveals all hidden creatures in the room
+{Clightning bolt{x   sends a bolt of electricity into the target
+{Cflameshield{x      creates a circle of flames around your body
+{Csteel mist{x       lowers ac values and protects armor from damage
+{Cblizzard{x         sends a snow flurry avalanching at everyone in the room
+{Cacid rain{x        sends a torrent of acid rain at everyone in the room
+
+(the weather command, unrelated to this group, shows local weather conditions)
+~
+
+0 'CALL LIGHTNING'~
+Syntax: {Ccast{x '{Ycall lightning{x'
+
+This spell works only outdoors, and only when the weather is bad.  It
+calls down lightning bolts from the Heavens.
+
+GROUP: {RWeather{x
+{YSEE ALSO:{x 'control weather'
+~
+
+0 'CONTROL WEATHER'~
+Syntax: {Ccast{x '{Ycontrol weather{x' better
+        {Ccast{x '{Ycontrol weather{x' worse
+
+This spell makes the weather either better or worse.
+
+GROUP: {RWeather{x
+~
+
+0 'FAERIE FIRE'~
+Syntax: {Ccast{x '{Yfaerie fire{x' <{Yvictim{x>
+
+This spell increases (worsens) the armor class of its victim.  For each
+level of the caster, the victim's armor class is increased by two points.
+
+GROUP: {RWeather{x
+~
+
+0 'FAERIE FOG'~
+Syntax: {Ccast{x '{Yfaerie fog{x'
+
+This spell reveals all manner of invisible, hidden, and sneaking creatures in
+the same room as you.
+
+GROUP: {RWeather{x
+~
+
+0 FLAMESHIELD~
+Syntax: {Ccast{x '{Yflameshield{x'
+
+This spell creates a shield of flames that encircles your body.  Any
+individual who attemps to penetrate this shield with an attack may be
+burned by its magic.
+
+GROUP: {RWeather{x
+~
+
+0 'STEEL MIST'~
+Syntax: {Ccast{x '{Ysteel mist{x' <{Yvictim{x>
+
+This spell grants the victim special protection not only to their body,
+but also their armor.
+
+GROUP: {RWeather{x
+~
+
+0 BLIZZARD~
+Syntax : {Ccast{x '{Yblizzard{x' <{Ytarget{x>
+
+The {CBlizzard{x spell is well suited to demonstrating the power of nature.
+A flurry of ice and snow originates from the hands of the caster and
+quickly snowballs into an avalanche which rebounds between targets in
+the room until its force is fully expended.  Other players may be hit
+by this spell if both characters have their {Rpk flags{x raised and they are
+not grouped.  The caster will not be struck unless no other ungrouped,
+viable target remains.
+
+GROUP: {RWeather{x
+~
+
+0 'ACID RAIN'~
+Syntax : {Ccast{x '{Yacid rain{x' <{Ytarget{x>
+
+Similar to the {Cblizzard{x spell, this is a chain spell which attacks every
+legal target in the room with a torrent of {Cacid rain{x.
+
+GROUP: {RWeather{x
+~
+
+0 ALTERATION~
+This spell group contains spells used to alter the fabric of reality.  
+Alteration spells are mostly not combat-oriented, instead tending more 
+towards miscellaneous functions and situation-oriented strategies.
+The {Ralteration spell group{x consists of the following spells:
+
+{Cpolymorph{x    morphs your body into that of another kind
+{Cchange sex{x   changes the sex of the target
+{Cdarkness{x     creates a cloud of darkness that fills the room
+{Cheat metal{x   heats metal equipment to searing temperatures
+~
+
+0 DARKNESS~
+Syntax: {Ccast{x '{Ydarkness{x'
+
+{CDarkness{x is a utilitarian spell that causes the room to be 
+engulfed in darkness.  Infravision will still work in the room, 
+but lights will not.
+
+GROUP: {RAlteration{x
+~
+
+0 POLYMORPH~
+Syntax: {Ccast{x '{Ypolymorph{x' <{Ymobile name{x>
+
+This spell morphs your body into that of any mobile within your power
+to imitate.  When polymorphed, you do not assume the full power and
+toughness of the mobile.  It is merely an illusion to confuse your
+friends and enemies.  However, the polymorph spell does have a hidden
+advantage.
+
+GROUP: {RAlteration{x
+~
+
+0 'CHANGE SEX' SEX~
+Syntax: {Ccast{x '{Ychange sex{x' <{Yvictim{x>
+
+This spell temporarily changes the sex of the victim.
+
+GROUP: {RAlteration{x
+~
+
+-2

@@ -1,0 +1,146 @@
+#PLAYER
+Name Lophyte~
+Id   1018317638
+LogO 1018318089
+Vers 13
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race giant~
+Sex  1
+Cla  3
+Levl 1
+Plyd 369
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3758
+HMS  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  1575
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy HTUYZe
+FRes HI
+FVul BP
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 5
+Trai 3
+Save  -13
+Alig  -750
+Hit   18
+Dam   8
+ACs 45 45 45 49
+Atrib 17 7 13 12 16 14
+AtMod 0 0 0 0 0 0
+Pass canine21~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 50
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Marx~
+Lsit Toronto-HSE-ppp3697654.sympatico.ca~
+Ltim Mon Apr 08 21:01:59 2002
+~
+LSav Mon Apr 08 21:08:09 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 16 0 32
+Sk 40 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 1 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'bash'
+Sk 1 1 'disarm'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'warrior default'
+Gr 'weaponsmaster'
+Affc 'talon'   0 100   5   0   0 1073741824 4
+Affc 'steel mist'   0  98  29 -10  17   16777216 1
+Affc 'fly'   0  99  96   0   0     524288 1
+Affc 'pass door'   0  99  19   0   0    1048576 1
+Affc 'armor'   0  97  17 -20  17          0 1
+Affc 'shield'   0  98 101 -20  17          0 1
+Affc 'blood moon'   0  98  93   5  18          0 1
+Affc 'blood moon'   0 100  93   8  19          0 1
+Affc 'sanctuary'   0  97   9   0   0        128 4
+Affc 'divine regeneration'   0  99  93   0   0   33554432 4
+Affc 'bless'   0  98  99 -12  24          0 1
+Affc 'bless'   0 100  99  12  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 192 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3719
+Nest 0
+Wear 16
+Cost 350
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

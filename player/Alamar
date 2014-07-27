@@ -1,0 +1,84 @@
+#PLAYER
+Name Alamar~
+Id   1016204042
+LogO 1019482945
+Vers 13
+Mexp 2
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Sex  1
+Cla  4
+Levl 1
+Plyd 5757
+Back 0
+Note 0 0 0 0 1011721386 0 0
+Scro 22
+Room 3054
+HMS  30 30 110 110 100 100
+Gold 0
+Silv 0
+Exp  1100
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJQc
+AfBy T
+FRes BM
+FVul NS
+Comm NOZ
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  5
+Trai 1
+Alig  -750
+Hit   3
+Dam   5
+ACs 100 100 100 100
+Atrib 16 19 16 15 12 14
+AtMod 0 0 0 0 0 0
+Pass rrings~
+Afk {B[{CFri Mar 15 09:12:55 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 20
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Azrael~
+Lsit 131.109.88.95~
+Ltim Mon Apr 22 08:18:28 2002
+~
+LSav Mon Apr 22 08:42:25 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMSP 30 110 100
+THMS 1 1 0
+Cnd  0 0 0 0
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'smokescreen'
+Sk 45 1 'ventriloquate'
+Sk 23 1 'dagger'
+Sk 40 1 'polearm'
+Sk 1 1 'scribe'
+Sk 100 1 'scan'
+Sk 23 1 'scrolls'
+Sk 1 1 'staves'
+Sk 45 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'illusion'
+Affc 'blood moon'   0  53  22   5  19          0 1
+Affc 'blood moon'   0  55  22   3  18          0 1
+End
+
+#END

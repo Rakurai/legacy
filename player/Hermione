@@ -1,0 +1,305 @@
+#PLAYER
+Name Hermione~
+Id   1022806119
+LogO 1022807271
+Vers 14
+Mexp 2
+Pass acevenutra~
+Prom {Y%h/%HHp {G%m/%MMana {V%v/%VStm {Y%g{W/%s (%r) {P%XTNL {B%aAlign {W%q/{G%j{x ~
+Race human~
+Cla  3
+Levl 1
+Tru  0
+Plyd 978
+Back 764
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 8543
+HMS  24 100 100
+Gold 3
+Silv 267
+Exp  2649
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -750
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr B
+Prac 0
+Trai 0
+Wimp 0
+Atrib 17 14 14 14 15 12
+QuestNext  4
+SQuestNext 13
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 49
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Kenneth~
+Lsit AC8C3FA5.ipt.aol.com~
+Ltim Thu May 30 19:51:33 2002
+~
+LSav Thu May 30 20:07:51 2002
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 12 44 33
+Colr 57 33 1
+Colr 58 32 1
+Colr 72 33 1
+Sk 1 1 'age'
+Sk 1 1 'armor'
+Sk 1 1 'blindness'
+Sk 1 1 'cancellation'
+Sk 1 1 'curse'
+Sk 1 1 'dispel magic'
+Sk 1 1 'energy drain'
+Sk 1 1 'fireproof'
+Sk 1 1 'fly'
+Sk 1 1 'gate'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'portal'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'slow'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 75 1 'sword'
+Sk 1 1 'bash'
+Sk 37 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 1 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Affc 'blood moon'   0  56  41   3  18          0 1
+Affc 'blood moon'   0  56  41   5  19          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 178 0 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 100
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 138 15 0 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4475
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 2404
+Nest 0
+Cond 97
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 28003
+Nest 0
+Cond 63
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 4203
+Nest 0
+Wear 13
+Cost 1000
+End
+
+#O
+Vnum 4454
+Enchanted
+Nest 0
+Wear -1
+Cost 0
+Val  500 1 4455 500 100
+Affc 'reserved'   1   0  -1   1   3          0 1
+End
+
+#O
+Vnum 4477
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#END

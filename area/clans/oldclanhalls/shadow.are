@@ -1,0 +1,943 @@
+#AREA
+shadows.are~
+Domain of Shadows~
+{H{{CLANS} {MKyndig {TDomain of Shadows{x~
+28100 28200
+
+#MOBILES
+
+#28100
+Sirelia~
+{BS{ci{Mr{Be{cl{Mi{Ba{x~
+{BS{ci{Mr{Be{cl{Mi{Ba{x waits in the {gs{ch{ga{cd{go{cw{gs{x.
+~
+{BS{ci{Mr{Be{cl{Mi{Ba{x seems at home in the {gs{ch{ga{cd{go{cw{gs{x, her dark clothing
+making her seem to almost disappear when she stands still.
+~
+human~
+BGJKZab DFJ 0 S
+110 0 1d1+9999 1d1+9999 4d10+18 beating
+-70 -70 -70 -70
+FK ABCDEL 0 0
+stand stand female 500000
+0 0 medium 0
+
+#28101
+Purcelius~
+{BP{cu{Mr{Bc{ce{Ml{Bi{cu{Ms{x~
+{BP{cu{Mr{Bc{ce{Ml{Bi{cu{Ms{x blends into the {gs{ch{ga{cd{go{cw{gs{x as he studies the equipment.
+~
+{BP{cu{Mr{Bc{ce{Ml{Bi{cu{Ms{x takes his equipment very seriously, keeping
+it in perfect condition for you to buy.
+~
+human~
+BGZ DFJ 0 S
+100 0 1d1+9999 1d1+9999 4d10+18 beating
+-70 -70 -70 -70
+FK ABCDEL 0 0
+stand stand male 5000000
+0 0 medium 0
+
+#28102
+Kervilyn~
+{BK{ce{Mr{Bv{ci{Ml{By{cn{x~
+{BK{ce{Mr{Bv{ci{Ml{By{cn{x watches you from the {gs{ch{ga{cd{go{cw{gs{x, awaiting your order.
+~
+{BK{ce{Mr{Bv{ci{Ml{By{cn{x smiles at you in greeting, patiently
+waiting for you to decide what you would like.
+~
+human~
+BGZ DFJ 0 S
+100 0 1d1+9999 1d1+9999 4d10+18 beating
+-70 -70 -70 -70
+FK ABCDEL 0 0
+stand stand female 5000000
+0 0 medium 0
+
+#28103
+Veniar~
+{BV{ce{Mn{Bi{ca{Mr{x~
+{BV{ce{Mn{Bi{ca{Mr{x lounges in the {gs{ch{ga{cd{go{cw{gs{x, waiting to share his knowledge.
+~
+{BV{ce{Mn{Bi{ca{Mr{x looks wise beyond imagination, and he seems
+to be completely at ease in the {gs{ch{ga{cd{go{cw{gs{x, watching
+you with a patience that is almost unnerving.
+~
+human~
+BGZ DFJ 0 S
+100 0 1d1+9999 1d1+9999 4d10+18 beating
+-70 -70 -70 -70
+FK ABCDEL 0 0
+stand stand male 500000
+0 0 medium 0
+
+#28125 
+elder~ 
+An Elder~ 
+A elder is sitting on a throne. 
+~ 
+You see a elder dressed in white outer garment, and upon his head a 
+golden crown. His voice is like of thunder, and around him you see dark 
+lightning. 
+~ 
+human~ 
+BGZ HT 0 S 
+1 1 1d1+20 1d1+20 1d1 pound 
+-100 -100 -100 -100 
+P ABCD  0 0 
+stand stand male 1 
+0 0 medium 0 
+
+#0
+
+#OBJECTS
+
+#28100
+sphere shadows~
+{BS{cp{Mh{Be{cr{Me {Bo{cf {gS{ch{ga{cd{go{cw{gs{x~
+A {gs{ch{ga{cd{go{cw{gy{x sphere rests here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AQ
+7 7 7 6 0
+20 1 3850 P
+A
+18 2
+A
+19 2
+A
+20 -2
+A
+13 20
+
+#28101
+boots shadows~
+{BB{co{Mo{Bt{cs {Mo{Bf {gS{ch{ga{cd{go{cw{gs{x~
+Some {gs{ch{ga{cd{go{cw{gy{x boots lie here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AG
+15 15 15 15 0
+45 1 4400 P
+A
+5 2
+A
+2 2
+A
+14 50
+
+#28102
+belt shadows~
+{BB{ce{Ml{Bt {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+A {gs{ch{ga{cd{go{cw{gy{x belt rests here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AL
+20 20 20 20 20
+60 1 8400 P
+A
+18 3
+A
+19 3
+A
+9 1
+A
+5 2
+A
+4 2
+A
+12 55
+
+#28103
+band shadows~
+{BB{ca{Mn{Bd {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+A small, {gs{ch{ga{cd{go{cw{gy{x band lies here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AB
+14 14 14 13 0
+40 1 4200 P
+A
+18 4
+A
+19 4
+A
+20 -4
+A
+12 40
+A
+26 1
+A
+1 1
+
+#28104
+gauntlets shadows~
+{BG{ca{Mu{Bn{ct{Ml{Be{ct{Ms {Bo{cf {gS{ch{ga{cd{go{cw{gs{x~
+Some {gs{ch{ga{cd{go{cw{gy{x gaunlets lie here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AH
+9 9 9 8 0
+25 1 3900 P
+A
+18 2
+A
+19 2
+A
+20 -2
+A
+13 25
+A
+4 1
+A
+5 1
+
+#28105
+bracers shadows~
+{BB{cr{Ma{Bc{ce{Mr{Bs {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+Some {gs{ch{ga{cd{go{cw{gy{x bracers lie here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AI
+10 10 10 10 0
+30 1 4000 P
+A
+18 2
+A
+13 20
+A
+5 2
+
+#28106
+necklace shadows~
+{BN{ce{Mc{Bk{cl{Ma{Bc{ce {Mo{Bf {gS{ch{ga{cd{go{cw{gs{x~
+A {gs{ch{ga{cd{go{cw{gy{x necklace rests here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AC
+15 15 15 15 15
+45 1 4400 P
+A
+18 4
+A
+19 4
+A
+20 -4
+A
+12 45
+A
+5 2
+A
+2 2
+
+#28107
+bracelet shadows~
+{BB{cr{Ma{Bc{ce{Ml{Be{ct {Mo{Bf {gS{ch{ga{cd{go{cw{gs{x~
+A {gs{ch{ga{cd{go{cw{gy{x bracelet rests here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AM
+15 15 15 15 0
+45 1 4400 P
+A
+18 4
+A
+19 4
+A
+20 -4
+A
+12 45
+A
+5 2
+A
+2 2
+
+#28108
+tunic shadows~
+{BT{cu{Mn{Bi{cc {Mo{Bf {gS{ch{ga{cd{go{cw{gs{x~
+A {gs{ch{ga{cd{go{cw{gy{x tunic rests here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AD
+17 17 17 16 0
+50 1 7000 P
+A
+5 2
+A
+2 2
+
+#28109
+cape shadows~
+{BC{ca{Mp{Be {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+A {gs{ch{ga{cd{go{cw{gy{x cape rests here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AK
+22 22 22 21 0
+65 1 8400 P
+A
+12 65
+A
+9 1
+
+#28110
+helm shadows~
+{BH{ce{Ml{Bm {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+A {gs{ch{ga{cd{go{cw{gy{x helm rests here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AE
+19 19 19 18 0
+55 1 7200 P
+A
+9 1
+A
+19 2
+A
+3 2
+A
+4 2
+A
+12 55
+
+#28111
+ring shadows~
+{BR{ci{Mn{Bg {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+A small, {gs{ch{ga{cd{go{cw{gy{x ring lies here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AB
+7 7 7 6 0
+20 1 3850 P
+A
+18 2
+A
+19 2
+A
+20 -2
+A
+13 20
+A
+3 3
+
+#28112
+circlet shadows~
+{BC{ci{Mr{Bc{cl{Me{Bt {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+A small, {gs{ch{ga{cd{go{cw{gy{x circlet lies here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AB
+24 24 24 23 0
+70 1 9000 P
+A
+18 7
+A
+19 7
+A
+20 -7
+A
+12 70
+A
+2 2
+A
+26 2
+A
+9 2
+
+#28113
+cloak shadows~
+{BC{cl{Mo{Ba{ck {Mo{Bf {gS{ch{ga{cd{go{cw{gs{x~
+A {gs{ch{ga{cd{go{cw{gy{x cloak lies here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AC
+25 25 25 25 0
+75 1 9200 P
+A
+18 7
+A
+19 7
+A
+20 -7
+A
+12 75
+A
+1 2
+A
+5 2
+A
+9 2
+
+#28114
+wristband shadows~
+{BW{cr{Mi{Bs{ct{Mb{Ba{cn{Md {Bo{cf {gS{ch{ga{cd{go{cw{gs{x~
+A {gs{ch{ga{cd{go{cw{gy{x wristband lies here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AM
+27 27 27 26 0
+80 1 9400 P
+A
+18 8
+A
+19 8
+A
+20 -8
+A
+12 80
+A
+3 2
+A
+4 2
+A
+9 3
+
+#28115
+leadereq shadows talons~
+{gS{ch{ga{cd{go{cw {BT{ca{Ml{Bo{cn{Ms{x~
+A pair of {gs{ch{ga{cd{go{cw{gy{x talons lies here.~
+{gs{ch{ga{cd{go{cw{gs{x~
+armor ABTY AH
+23 23 23 21 0
+50 1 10 P
+A
+18 5
+A
+19 5
+A
+12 40
+A
+13 60
+A
+5 3
+A
+4 1
+A
+3 3
+A
+1 1
+
+#28116
+pond water~
+a clear pond~
+There is a crystal clear pond here.~
+water~
+fountain O P
+0 0 water 0 0
+1 5000 10 P
+
+#28117
+grass patch~
+a patch of grass~
+You see an inviting patch of grass.~
+grass~
+furniture O P
+20 0 BEHK 150 150
+1 500 10 P
+
+#28118
+sunlight beam~
+{Ysunlight{x~
+There is a trapped beam of {Ysunlight{x.~
+light~
+pill 0 A
+15 'cure crit' 'cure crit' 'haste' 'fly'
+15 5 10 P
+
+#28119
+shadows~
+{gs{ch{ga{cd{go{cw{gs{x~
+The {gs{ch{ga{cd{go{cw{gs{x seem to coalesce here.~
+{gs{ch{ga{cd{go{cw{x~
+pill 0 A
+15 'sanc' 'pass door' 'protection good' 'protection evil'
+15 5 10 P
+
+#28120
+pirate cave~
+{gs{ch{ga{cd{go{cw{gs{x~
+Through the {gs{ch{ga{cd{go{cw{gs{x you catch a glimpse of the Pirate Cave.~
+{gs{ch{ga{cd{go{cw{gs{x~
+portal O P
+0 0 A 4412 0
+1 500 10 P
+
+#28121
+strange world~
+{gs{ch{ga{cd{go{cw{gs{x~
+Through the {gs{ch{ga{cd{go{cw{gs{x you catch a glimpse of Strange World.~
+{gs{ch{ga{cd{go{cw{gs{x~
+portal O P
+0 0 A 801 0
+1 500 10 P
+
+#28122
+budo school~
+{gs{ch{ga{cd{go{cw{gs{x~
+Through the {gs{ch{ga{cd{go{cw{gs{x you catch a glimpse of the Budo School.~
+{gs{ch{ga{cd{go{cw{gs{x~
+portal O P
+0 0 A 1801 0
+1 500 10 P
+
+#28123
+anvil power shadows~
+An anvil~
+A privately owned anvil of power is here.~
+iron~
+anvil O P
+0 3 0 0 0
+1 2000 10 P
+
+#28125 
+power aaacs~ 
+Power of Aaacs~ 
+The power of aaacs is lying here. 
+~ 
+energy~ 
+pill GY A 
+15 'stone skin' 'shield' 'sanctuary' 'talon' 
+15 0 10 P 
+
+
+#28126 
+glassy pool~ 
+A Glassy Pool~ 
+A glassy pool like of crystal is here. ~ 
+crystal~ 
+fountain O P 
+0 0 'water' 0 0
+1 500 10 P 
+
+
+#28127 
+throne~ 
+A Throne~ 
+You see twenty-four thrones here.~ 
+gold~ 
+furniture O P 
+4 0 EHK 150 150 
+1 500 10 P 
+
+#0
+
+#ROOMS
+
+#28100
+{BC{ci{Mr{Bc{cl{Me {Bo{cf {gS{ch{ga{cd{go{cw{gs{x~
+You look around yourself and see that you are in the
+center of a circle of {gs{ch{ga{cd{go{cw{gs{x.  It seems a faint light
+is coming from below, but it's very hard to tell.  You
+notice that there are exits in every direction, then
+your eyes slowly start to form a shape out of the {gs{ch{ga{cd{go{cw{gs{x.
+~
+0 K 0
+C shadows~
+D0
+There seems to be a path northward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28105
+D1
+There seems to be a path eastward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28102
+D2
+There seems to be a path southward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28103
+D3
+There seems to be a path westward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28101
+D4
+There seems to be a path upward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28104
+D5
+This path seems to be brighter.
+~
+~
+0 -1 3014
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28101
+{gS{ch{ga{cd{go{cw{gy {BS{ch{Mo{Bp{x~
+You step through the {gs{ch{ga{cd{go{cw{gs{x into a room that, at first
+glance, seems very barren.  As you look, your eyes begin
+to make out the shapes of equipment.  Looks like you've
+found the clan shop.
+~
+0 K 0
+C shadows~
+D1
+There seems to be a path eastward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28100
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28102
+{gS{ch{ga{cd{go{cw{gy {BG{cr{Mo{Bv{ce{x~
+You are in a very {gs{ch{ga{cd{go{cw{gy{x clearing.  It takes your eyes a
+few moments to adapt before you begin to recognize the familiar
+shapes filling the room.
+~
+0 K 0
+C shadows~
+D3
+There seems to be a path westward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28100
+D1
+There seems to be a path eastward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28108
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28103
+{gS{ch{ga{cd{go{cw{gy {BB{ca{Mr{x~
+As you enter the room it takes you a moment to let your eyes
+adjust before you can discern the familiar shapes of a bar
+out of the {gs{ch{ga{cd{go{cw{gs{x.
+~
+0 K 0
+C shadows~
+D0
+There seems to be a path northward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28100
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28104
+{BR{co{Mo{Bm {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+You step into a room of {gs{ch{ga{cd{go{cw{gs{x.  You pause for a moment,
+expecting the {gs{ch{ga{cd{go{cw{gs{x to fade into more discernable shapes,
+but they remain.  As you gaze into them, you almost catch a
+glimpse of another place...
+~
+0 K 0
+C shadows~
+D5
+There seems to be a path downward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28100
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28105
+{BP{ca{Mt{Bh {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+You are walking down a well-tread path, but it is hard to
+see more than a little ways ahead of you because of the
+amount of {gs{ch{ga{cd{go{cw{gs{x.
+~
+0 K 0
+C shadows~
+D0
+There seems to be a path northward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28110
+D1
+There seems to be a path eastward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28107
+D2
+There seems to be a path southward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28100
+D3
+There seems to be a path westward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28106
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28106
+{BS{ca{Mg{Be {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+You step into a {gs{ch{ga{cd{go{cw{gy{x room.  As your eyes adjust, a
+wizened form seems to materialize from the {gs{ch{ga{cd{go{cw{gs{x.
+~
+0 K 0
+C shadows~
+D1
+There seems to be a path eastward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28105
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28107
+{gS{ch{ga{cd{go{cw{gy {BF{co{Mr{Bg{ce{x~
+As you step into the room your attention is instantly
+drawn to the object in the center of the room.  Unlike
+everything else, it seems to be untouched by the {gs{ch{ga{cd{go{cw{gs{x.
+Rather, it almost seems to BE a {gs{ch{ga{cd{go{cw{x, given form.
+~
+0 K 0
+C shadows~
+D3
+There seems to be a path westward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28105
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28108
+{gS{ch{ga{cd{go{cw{gy {BA{cr{Me{Bn{ca{x~
+You are standing in the middle of the {gs{ch{ga{cd{go{cw{gs{x, unable
+to see very far.  Strangely, every sound seems to be
+magnified because of your lack of sight.
+~
+0 K 20
+C shadows~
+D3
+There seems to be a path westward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28102
+D1
+There seems to be a path eastward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28109
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28109
+{gS{ch{ga{cd{go{cw{gy {BA{cr{Me{Bn{ca{x~
+You are standing in the middle of the {gs{ch{ga{cd{go{cw{gs{x, unable
+to see very far.  Strangely, every sound seems to be
+magnified because of your lack of sight.
+~
+0 K 20
+C shadows~
+D3
+There seems to be a path westward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28108
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28110
+{BP{ca{Mt{Bh {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+You are walking down a well-tread path, but it is hard to
+see more than a little ways ahead of you because of the
+amount of {gs{ch{ga{cd{go{cw{gs{x.
+~
+0 K 0
+C shadows~
+D0
+There seems to be a path northward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28112
+D2
+There seems to be a path southward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28105
+D3
+There seems to be a path westward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28111
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28111
+{gS{ch{ga{cd{go{cw{ge{cd {BC{co{Mn{Bf{ce{Mr{Be{cn{Mc{Be {cR{Mo{Bo{cm{x~
+You step into a room with a large table in the middle.
+The table seems to be crafted from {gs{ch{ga{cd{go{cw{gs{x somehow.  As
+you look upon this marvel, you suddenly realize that
+this must be a rather important room.
+~
+0 KV 0
+C shadows~
+D1
+There seems to be a path eastward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28110
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28112
+{BP{ca{Mt{Bh {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+You are walking down a well-tread path, but it is hard to
+see more than a little ways ahead of you because of the
+amount of {gs{ch{ga{cd{go{cw{gs{x.
+~
+0 K 0
+C shadows~
+D0
+There seems to be a path northward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28113
+D2
+There seems to be a path southward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28110
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28113
+{BP{ca{Mt{Bh {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+You are walking down a well-tread path, but it is hard to
+see more than a little ways ahead of you because of the
+amount of {gs{ch{ga{cd{go{cw{gs{x.
+~
+0 K 0
+C shadows~
+D0
+There seems to be a path northward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28114
+D2
+There seems to be a path southward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28112
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+#28114
+{BP{ca{Mt{Bh {co{Mf {gS{ch{ga{cd{go{cw{gs{x~
+You are walking down a well-tread path, but it is hard to
+see more than a little ways ahead of you because of the
+amount of {gs{ch{ga{cd{go{cw{gs{x.
+~
+0 K 0
+C shadows~
+D2
+There seems to be a path southward through the {gs{ch{ga{cd{go{cw{gs{x.
+~
+~
+0 -1 28113
+D4
+~
+~
+0 -1 28125
+E
+creator~
+Built by Kyndig, 3.22.2000
+~
+S
+
+
+#28125 
+In the shadow of Caz~ 
+As you enter the shadow of Caz, you hear a voice as of thunder saying: 
+"OBEY THE POWER". In the middle of the shadow there is a glassy pool, 
+like of crystal, and around it there are twenty-four thrones. Upon one 
+of the thrones there is seated a elder. 
+~ 
+0 D 0 
+C shadows~
+D5 
+Down is the Path of Shadows. 
+~ 
+~ 
+0 -1 28114 
+S 
+
+#0
+
+#RESETS
+
+M 0 28100 1 28100 1 * Sirelia to Circle of Shadows
+M 0 28101 1 28101 1 * Purcelius to Shadowy Shop
+G 0 28100 50 * give sphere
+G 0 28111 50 * give ring
+G 0 28104 50 * give gauntlets
+G 0 28105 50 * give bracers
+G 0 28103 50 * give band
+G 0 28106 50 * give necklace
+G 0 28107 50 * give bracelet
+G 0 28101 50 * give boots
+G 0 28108 50 * give tunic
+G 0 28110 50 * give helm
+G 0 28102 50 * give belt
+G 0 28109 50 * give cape
+G 0 28112 50 * give circlet
+G 0 28113 50 * give cloak
+G 0 28114 50 * give wristband
+M 0 28102 1 28103 1 * Kevrilyn to Shadowy Bar
+M 0 28103 1 28106 1 * Veniar to Sage of Shadows
+O 0 28116 1 28102 * pond to Shadowy Grove
+O 0 28117 1 28102 * grass to Shadowy Grove
+O 0 28118 50 28102 * sunlight to Shadowy Grove
+O 0 28119 50 28102 * shadows to Shadowy Grove
+O 0 28120 1 28104 * PC portal to Room of Shadows
+O 0 28121 1 28104 * SW portal to Room of Shadows
+O 0 28122 1 28104 * Budo School portal to Room of Shadows
+O 0 28123 1 28107 *anvil
+M 0 28125 1 28125 1               * Caz's Mob 
+O 0 28125 40 28125                * Caz's Pill 
+O 0 28126 1 28125                 * Caz's Fountain 
+O 0 28127 1 28125                 * Caz's Bed 
+S
+
+#SHOPS
+
+28101 9 0 0 0 0 125 75 0 23 * Purcelius' store
+28102 17 19 0 0 0 125 75 0 23 * Kevrilyn's store
+
+0
+
+#SPECIALS
+M 28103 spec_sage     *Veniar
+S
+
+#$
+
+
+

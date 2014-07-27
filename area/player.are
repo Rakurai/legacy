@@ -1,0 +1,764 @@
+#AREA
+player.are~
+Playpen~
+{H{{ All } {MCrush   {TPlayer's Playpen.~
+8400 8699
+
+#MOBILES
+
+#8401
+aztec sheep dog~
+{CAztec{x~
+{CAztec{x is here, watching all who {Center{x.
+~
+A cute little sheep dog runs to and fro, wanting
+someone to stop and throw a ball to her.
+~
+dog~
+ABT 0 1000 S
+10 4 1d1+149 1d1+249 4d5+1 bite
+-05 -05 -05 20
+CDEKLTU ABCD 0 0
+stand sit female 0
+0 0 medium 0
+
+#8402
+ryo-ohki ohki cabbit~
+Ryo-Ohki~
+A cute little cabbit munches happily on a carrot.
+~
+Awww ... what a cute little kitten, with cute little ... bunny ears?!? 
+You have in front of you an adorable, real-life cabbit.  She waits here 
+patiently for her owners, DarkAvatar, and Leigh, so she can cuddle with 
+them.  Her big brown eyes seem to melt into your heart, and you can't 
+resist scratching behind her ears.  Her name is Ryo-Ohki, go ahead, 
+pet her!
+~
+cabbit~
+BG DF 750 S
+50 10 30d9+400 30d5+350 3d6+5 bite
+-20 -20 -20 -20
+0 ABCD 0 0
+stand stand female 0
+0 0 small 0
+
+
+#8509
+hotshot mage~
+a hotshot mage~
+A mage with a high opinion of himself is here, haggling over magic items.
+~
+The mage is wearing all manner of equipment, all of it for sale, and he
+looks eager to put in a bid for just about anything magical.
+~
+human~
+ABV D -600 S
+23 0 1d1+999 1d1+999 1d8+32 magic
+-15 -15 -15 -15
+AF ABCD 0 0
+stand stand male 15000
+0 0 medium 0
+
+#8510
+richly clad richly-clad merchant~
+a richly-clad merchant~
+A richly-clad merchant is here bargaining with passersby.
+~
+The richly-clad merchant appraises your armor with a practiced eye, and
+wants to buy it all right off of you!
+~
+dwarf~
+ABV D -200 S
+23 0 1d1+999 1d1+999 1d8+32 beating
+-15 -15 -15 -15
+AF ABCD 0 0
+stand stand male 15000
+0 0 medium 0
+
+#8511
+itinerant weaponsmith smith~
+
+an itinerant weaponsmith~
+An itinerant weaponsmith has set up a booth to ply his trade.
+~
+The itinerant weaponsmith looks quite loaded down. He might give you a
+decent price for your weapons, though.
+~
+dwarf~
+ABV D 100 S
+23 0 1d1+999 1d1+999 1d8+32 slash
+-15 -15 -15 -15
+AF ABCD 0 0
+stand stand male 15000
+0 0 medium 0
+
+#8512
+farmer's daughter~
+some farmer's daughter~
+A farmer has sent his daughter here to sell produce from a pushcart.
+~
+She looks awfully nervous among so many travelling salesmen.
+~
+gnome~
+ABV D 900 S
+23 0 1d1+999 1d1+999 1d8+32 slap
+-15 -15 -15 -15
+AF ABCD 0 0
+stand stand female 15000
+0 0 small 0
+
+#8513
+jeweler fence~
+a jewel fence~
+A shifty-eyed jeweler is here shouting "Genuine DeBeers!".
+~
+He is reaching for your jewel stash! Noticing your attention, he says,
+"Oh, just checking. Appraisal is my hobby, don'tcha know. I'll give
+you good silver for those! Shiny silver!"
+~
+elf~
+ABV D -900 S
+23 0 1d1+999 1d1+999 1d8+32 slash
+-15 -15 -15 -15
+AF ABCD 0 0
+stand stand male 15000
+0 0 medium 0
+
+#8514
+snake-oil huckster~
+a snake-oil huckster~
+A snake-oil huckster has a cure for what ails you. Guaranteed!
+~
+Best not to inquire what he makes his stuff from. He is willing to
+buy things, too, without asking too closely as to their origins.
+~
+orc~
+ABV D -500 S
+23 0 1d1+999 1d1+999 1d8+32 slash
+-15 -15 -15 -15
+AF ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#8516
+camel calf~
+a little camel calf~
+An extremely young camel looks unsteady even at the sight of you.
+~
+This camel can probably be blown over by a weak breeze.
+~
+school monster~
+ABV Y 0 S
+1 -1 2d6+5 1d20+15 1d3+0 pound
+9 9 9 10
+0 0 0 E
+stand stand either 0
+AGV ACDEFHJKL medium 0
+
+#8517
+yearling camel~
+a yearling camel~
+A nearly full-grown camel is feeling his oats here.
+~
+This camel, though almost fully grown, is still young and rambunc-
+tious. He doesn't look nearly as mean as that leathery old ship of
+the desert over there.
+~
+school monster~
+ABV 0 0 S
+2 0 2d7+15 2d20+20 1d5+0 pound
+8 8 8 10
+HI 0 B 0
+stand stand either 0
+0 0 large 0
+
+#8518
+nasty old camel~
+a nasty old camel~
+A grumpy old camel delights in knocking things over.
+~
+Now this is a nasty camel! He looks like he can go weeks without
+water, and he looks like he has. The only sign of moisture about
+him is presently being expectorated, straight at you!
+~
+school monster~
+ABV Ga -200 S
+3 1 2d6+30 1d2+1 1d8+0 pound
+7 7 7 7
+DIJN B D 0
+stand stand either 0
+0 0 large 0
+
+#8538
+shadowfox~
+Shadowfox~
+Shadowfox stands here waiting to obey your orders.
+~
+A massive black dragon lies on a bed of treasure in the corner of 
+the room. He is here to obey Muaddib's every order. He is {cblack{x 
+as the {cnight{x and you can hardly see him in the {cshadows{x. He has 
+mastered all the forms of magic, ranging from the conventional 
+to the  little known magic uses.  You can see,  he is a deadly 
+dragon, not to be messed with.
+~
+dragon~
+BGJKQRSTVabd DFHJNOTUVYZabce 1000 S 
+100 100 1d1+19999 1d1+9999 10d10+100 crush 
+-500 -500 -500 -500 
+ABCDEFHIJKNO ABCD 0 0 
+stand stand male 0 
+0 0 giant 0
+
+#0
+
+#OBJECTS
+
+#8400
+bed~
+{gthe {Cb{Te{Cd{x~
+{gA large, soft looking {Cb{Te{Cd {gis here, {Yl{gi{Wt {gsoftly by the dancing {Wmo{go{Wn{gbe{Wa{gm{Ws{g.{x~
+{gsoftness{x~
+furniture AOSTY P
+2 0 BEHK 150 150
+0 2000 1000000 I
+E
+bed~
+{gThe {Cb{Te{Cd {gis simple, yet luxurious, and large enough to easily hold two, as it{x
+{gusually does.  Soft {Cbl{Ta{Cn{Tke{Ct{Ts {gare laid across the smooth {Csa{Tt{Ci{Tn s{Che{Te{Ct{Ts{g, with{x
+{gextras rolled and placed at the foot of the {Cb{Te{Cd {gfor colder {cni{gg{ch{gt{cs{g.{x
+~
+
+#8401
+waterfall falls~
+{gthe {Cwa{Tt{Ce{Trf{Ca{Tl{Cl{x~
+~
+{Cw{Ta{Ct{Te{Cr{x~
+fountain OSTY P
+0 0 'water' 0 0
+0 5000 0 I
+E
+waterfall falls~
+{gThe {Cc{Tas{Cca{Td{Ci{Tn{Cg w{Ta{Cte{Tr {gis dazzling in the {Wmo{go{Wn{gl{Wig{ght.  A light {Cmist {ghovers just{x
+{ginside the {Wcave{g, but comes no further in...{x
+~
+
+#8402
+wardrobe~
+{gthe {bwardrobe{x~
+~
+{Boak{x~
+container OSTY P
+1000 AC 0 1000 100
+0 6000 1000 I
+E
+wardrobe~
+{gThe {bwardrobe{g holds a great deal of Ayelri and Rakurai's clothing, along with a few other{x
+{gassorted items.{x
+~
+
+#8403
+tight scroll~
+a tightly bound {gs{bc{gro{bl{gl{x~
+A tightly bound {gs{bc{gro{bl{gl{x lies here.~
+parchment~
+scroll ABGIOSTY AOP
+25 'curse' 'blind' 'heat metal' ''
+15 0 0 P
+E
+tight scroll~
+It is a tightly bound scroll with magical spells...  you shudder uncomfortably as you look at
+the names.
+~
+
+#8404
+mist~
+{ga patch of {Cm{Tis{Ct{x~
+{gA patch of {Cm{Tis{Ct {gfloats here... you can almost hear a {Cwa{Tt{Ce{Trf{Ca{Tl{Cl{g, but not quite.{x~
+{Cw{Ta{Ct{Te{Cr{x~
+portal ABGIOSTY AP
+0 0 C 21006 0
+0 0 0 P
+E
+mist~
+{gAs you look at the {Cm{Tis{Ct{g, you hear a faint echo of the {Cwa{Tt{Ce{Trf{Ca{Tl{Cl{g, beckoning you come{x
+{ghome...{x
+~
+
+#8409
+canopy bed~
+a canopy bed~
+An extremely comfy looking canopy bed sits here.~
+satin~
+furniture BOSTY P
+2 0 BEHK 150 150
+1 100 9000 I 
+E
+canopy bed~
+This large queen size bed looks extremely comfortable and soft. The sheets
+are made of soft {Wsatin{x as {Wsilky{x lace drapes down from the top of
+the bed. On the head board is carved two intertwining {Phearts{x with the
+names {VLeigh{x and {CDarkAvatar engraved upon them...
+~
+ 
+#8410
+fountain~
+the fountain~
+A fountain of magical water flows forth here.~
+stone~
+fountain BOSTY P
+0 0 water 0 0
+1 100 9000 I
+E
+fountain~
+As you look upon the fountain in the room magical spring {Bwater{x flows
+forth from the top splashing down into the tiny pool of {Bwater{x below
+making soft enchating sounds of a {Yharp{x playing a soft melody.
+~
+
+#8411
+portal sanctuary~
+a portal to {VLeigh{x {Wand {CDarkAvatar's {WSanctuary{x~
+A mystical portal lies here.~
+magic~
+portal ABOSTY AP
+0 0 AC 8402 0
+1 0 0 I
+
+#8412
+key~
+a key to Zintros' room~
+A key lies here.~
+metal~
+key ABOSTY AP
+1 0 0 0 0
+1 0 0 I
+
+#8413
+waterbed bed~
+the waterbed~
+An enormous waterbed with a large black canopy and soft silk sheets.~
+water~
+furniture OSTY P
+2 0 BEHK 100 200
+1 0 0 I
+
+#8414
+jacuzzi~
+the onyx jacuzzi~
+An onyx jacuzzi with champagne swirling in it's depths.~
+onyx~
+fountain OSTY P
+0 0 champagne 0 0
+1 0 0 I
+
+#8415
+fireplace~
+the fireplace~
+A fireplace emitting cozy warmth.~
+fire~
+light AOSTY P
+0 0 -1 0 0
+1 0 0 I
+
+#8416
+oak chest~
+the oak chest~
+A large oak chest.~
+oak~
+container OSTY P
+100 AC 0 100 100
+1 0 0 I
+
+#8417
+spring of mistle toe~
+{YSpring {Wof {GMistle {RToe{x~
+A {YSpring {Wof {GMistle {RToe{x is nestled here.~
+mist~
+pill A A
+15 'haste' 'sanctuary' 'talon' 'giant strength'
+15 1 0 P
+E
+mistletoe~
+A {YSpring {Wof {GMistle {RToe{x feels delicate in your hands.
+~
+
+#8418
+fountain of dreams~
+{WFountain of {CDreams{x~
+{WFountain of {CDreams{x~
+water~
+fountain 0 0
+1000 1000 'water' 0 0
+0 500 0 P
+E
+stone fountain~
+You see a small stone fountain, silently flowing with pure water.
+~
+
+#8419
+bed of shadows~
+{WBed of {cShadows{x~
+{WBed of {cShadows{x~
+shadow~
+furniture ABSY P
+10 0 BEHK 150 150
+0 500 0 P
+
+#8420
+portal lorpay~
+{Wa portal to {BL{Co{Wrp{Ca{By's {WMystical {VDreams{x~
+{WA portal to {BL{Co{Wrp{Ca{By's {WMystical {VDreams{x lies here.~
+portal~
+portal ABOSTY AP
+0 0 AC 8404 0
+1 0 0 I
+
+#8421
+trickling spring~
+A {CT{Br{Ci{Bc{Ck{Bl{Ci{Bn{Cg{x {Bs{Cp{Br{Ci{Bn{Cg{x~
+A {CT{Br{Ci{Bc{Ck{Bl{Ci{Bn{Cg{x {Bs{Cp{Br{Ci{Bn{Cg{x making music as it bounces from pebble to pebble~
+water~
+fountain 0 0
+0 0 'water' 0 0
+0 40 500 P
+
+#8650
+tree~
+A giant tree~
+A giant tree stands before you.~
+wood~
+furniture ABGMO 0
+6 1000 FIL 150 150
+1 100 10 P
+E
+tree~
+This is the perfect place to meet with friends.
+~
+
+#8651
+river~
+a river~
+A river with crystal clear, refreshing water flows here.~
+water~
+fountain AMO 0
+10000 10000 water 0 0
+1 1000 10 P
+E
+river~
+The river looks like it contains the purest water on earth, cool and
+refreshing.
+~
+
+#8652
+fig~
+a fig~
+A large fig rests on the ground.~
+fig~
+pill A A
+15 'giant strength' 'haste' 'fly' 'sanctuary'
+15 0 10 P
+E
+fig~
+Looks exactly like every other fig.
+~
+
+#8672
+cloud~
+a fluffy white cloud~
+A fluffy white cloud floats in the middle of the 
+room looking very comfy.~
+nothingness~
+furniture ABGIORTY 0
+3 1000 BEHK 150 150
+1 1000 0 I
+
+#8673
+fountain~
+a fountain splashes here~
+a big {gdiamond{x fountain splashes gaily here in 
+the center of the room.~
+diamond~
+fountain ABGIOT 0
+0 0 'orange juice'  0 0
+1 10000  0 I
+
+#8674
+keymuaddib~
+the key to Muaddib's room~
+A key lies here on the immaculate stone floor. It is a very shiny 
+key made from an emerald.
+~
+emerald~
+key ABGHIPSTUY A
+1 0 0 0 0
+0 0 0 I
+
+#0
+
+#ROOMS
+
+#8400
+{gBehind the {CWa{Tt{Ce{Trf{Ca{Tl{Cl{x~
+{gYou stand in a natural cave carved out of the {Wwhite stone{g of the {cmo{gu{cn{gta{cin{g,{x
+{gcompletely hidden from outside view by the cascading {Cwa{Tt{Ce{Trf{Ca{Tl{Cl {gat the only{x
+{gentrance.  It is strangely {bdry{g here, as if some {Gm{Hag{Gi{Hc{Gal w{Har{Gd {ghas been{x
+{gplaced to prevent the {Ccool mist {gof the falling {Cw{Tat{Cer {gfrom entering.  The{x
+{glast {Wbe{ga{Wm{gs {gfrom the setting {Wm{goo{Wn {gshine through the thin {Cc{Tur{Cta{Ti{Cn {gof {Cw{Tat{Ce{Tr{c,{x
+{gd{Ya{gz{Wzl{gi{Yn{gg {gthe eyes with patches of {Wsoft light {gdancing across the pure {Wwhite{x
+{Wstone{g.  After taking a moment to gaze at the natural and breathtaking b{Ce{Wa{gu{Ct{gy{x
+{garound you, you realize that the {Wcave {gis not unoccupied.  {BR{Ta{gku{Wr{Ta{Bi {gand {VA{My{ge{Bl{Vr{Mi{x
+{ghave made this place their home, with simple {Wfu{gr{Cn{Wi{gsh{Wi{Cn{Wg{gs and d{We{gco{Yr{Wat{gi{Wo{Yn{gs in{x
+{gvarious places.  {bT{cr{be{ca{bd {gwarily, unwelcome visitors here seldom see the other{x
+{gside of the {Cwa{Tt{Ce{Trf{Ca{Tl{Cl {gagain.{x
+~
+0 DJST 0
+D1
+{gThrough the {Cwa{Tt{Ce{Trf{Ca{Tl{Cl {gis the {GD{Hwa{Gr{Hve{Gn F{Hor{Ge{Hst{g.{x
+~
+~
+0 -1 5281
+E
+mist ward~
+{gIt appears as if some {Gm{Ha{Ggi{Hca{Gl w{Har{Gd {gis preventing the {Cmist {gfrom the {Cwa{Tt{Ce{Trf{Ca{Tl{Cl{x
+{gfrom coming inside, keeping the room {bdry{g.  Now that you think of it, the{x
+{gnoise from the {Cf{Ta{Cl{Tl{Cs {gis slightly muffled as well...{x
+~
+E
+moon beams light~
+{gThe falling {Ccu{Tr{Ct{Tai{Cn {gof {Cw{Ta{Ct{Te{Cr {gbreaks up the {Wmo{go{Wn{gbe{Wa{gm{Ws {ginto patches of {Wlight{x
+{gthat {Wd{Ya{gnc{We {gacross the {Wwhite rock {gwalls.{x
+~
+E
+furnishings decorations~
+{gNothing overly fancy, just simple things to make a {Wcave {gmore livable, such{x
+{gas a {btable {gagainst one {Wwall{g, a thick, soft {Br{Nu{Bg {gon the floor, and a {bwardrobe{x
+{gnear the {Cb{Te{Cd{g.{x
+~
+E
+cave white walls~
+{gThe {Wwalls {gof the cave are of a {Wwhite rock {gseldom seen outside.  They are {Cg{Tlas{Cs{x
+{gsmooth, yet there are no sharp edges.{x
+~
+E
+creationdate~
+Created May 20, 2001 by Montrey.
+~
+S
+
+#8402 
+{VLeigh{x {Wand {CDarkAvatar's {WSanctuary{x~
+As you enter the room you immediatly notice the smell of {Prose pedals{x in
+the air as the room is basked in a soft warm {Yglow{x from the {Rfireplace.{x
+In the corner you notice a pet sitting on a pillow.  It looks like a {Wrabbit{x 
+but then you look harder and it looks like a {Bcat{x. Whatever it is .... its
+{Ccute{x.  As you look about the room further you see it is covered in a soft
+{Wwhite{x carpet with a large comfy looking canopy bed placed in the middle
+of the room.
+~
+0 K 0
+E
+fireplace~
+This {Rfireplace{x {Willuminates{x the room in a soft {Yglow{x filling it with
+gentle warmth.  {VLeigh{x and {CDarkAvatar{x have spent many nights holding
+eachother in front of this {Rfireplace{x.
+~
+E
+creationdate~
+Created June 19, 2001 by Sivat.
+~
+S
+
+#8403
+A Rocky Lair~
+Entering a lair that you could barely make out in the rocky cliffs, the 
+wonderful mingling of rugged masculinity and a delicate female scent 
+overtakes you.  Gazing about the room, you are stunned by a sense of 
+tasteful wealth.  You spy an enormous waterbed with a large black canopy and 
+soft silk sheets.  Nearby there is a fireplace emitting cozy warmth.  On the 
+opposing side of the room from the bed, there is a vanity full of feminine 
+stuffs that any female could not live without.  Next to the vanity, there is 
+an onyx Jacuzzi with champagne swirling in its depths.  Taking a closer look 
+at the vanity, you see many necklaces with precious stones in them.  
+Obviously, this couple doesn't want to be disturbed by anyone.  As you turn 
+to leave the room, you wonder how these two could have so much wealth out in 
+the middle of nowhere.  Ironically, you don't think that it is their wealth 
+you are seeing.
+~
+0 DJ 0
+D3
+~
+the door~
+4 8412 3800
+S
+
+#8404
+{BL{Co{Wrp{Ca{By's {WMystical {VDreams{x~
+You enter a large open room lit only by the last remains of 
+{Ysunlight{x filtering in through massive open {cblack{x stone arches 
+stretching up to a vaulted ceiling that is lost in the dark 
+{cshadows{x...... A cool {Cocean{x breeze washes over you as it drifts 
+in through the open arches.  You can vaguely make out the 
+crystal {Bblue waters{x in the far distance,lost in the haze of 
+approaching darkness. A massive {cblack{x marble fireplace burns 
+quietly casting playful shadows across the {cblack{x tile and 
+stone walls.  You are hypnotized by the dancing {Rflames{x. Your 
+eyes are immediately drawn to the large ornately carved bed 
+in the middle of the room. Four strangely carved posters rise 
+up from each corner of the bed supporting a soft sheet of 
+lace that drapes down elegantly over the large bed. Across is 
+a fountain filled with sparkling {Bwater{x.  In the dark corners 
+you catch a glimpse of various {Ytreasures{x from times long past.
+A certain part of your soul wants to linger here forever...
+...lost in it's hazy {Vdream{x of comfort.
+~
+0 DK 0
+E
+note~
+Xanderella's room
+~
+S
+
+#8520
+A raucous bazaar~
+Yow! This place is loud and dusty. A large sign sternly forbids the
+stabling of camels on the premises. Affixed to the bottom of that
+sign is a much larger and more colorful sign advertising camel
+punching contests, to be held every day at noon. A number of
+redoubtable camels are tied to posts. Maybe you can KO one of
+them, want to enter? Big prizes are promised. Dirty little boys
+dodge camel spit as they run in and out, carrying things out to the
+city and bringing more wares to the various sellers' booths.
+~
+0 0 1
+D3
+Super Helga is over there, scowling at all the racket from over here.
+~
+~
+0 -1 3001
+S
+
+#8543
+{RThe Gathering{x~
+A giant fig tree stands before you, it may be the largest tree you have ever seen. 
+The tree casts an inviting shadow on the ground giving you a cool place to rest. 
+A meandering river flows with crystal clear water not far from the tree. 
+This is the perfect place to meet a friend.
+~
+0 K 2
+D4
+exit~
+If you go up, recall and Helga is there.
+~
+0 -1 3001
+D3
+~
+~
+0 -1 3370
+S
+
+#8549
+Muaddib's room~
+You are in Muaddib's room. It is filled with lots of goodies from his
+travels around Thera. On one wall you see a collection of {Vweapons{x,
+ranging from the old mud school sword to the powerful shortsword
+Zedraikis. On another you see yet another collection of {Vstuff{x, this 
+time including interesting odds and ends he has picked up all over 
+dizzymud. Off in one corner you see a huge pile of {Ytreasure{x; beware 
+of {cshadowfox{x lying on it!
+~
+0 DKS 0
+D0
+To the north you see The Gathering. You see a giant tree and a bat
+there, grouped around the tree.
+~
+portcullis~
+4 8674 8543
+E
+weapons~
+On the wall is a large collection of assorted weapons. They are 
+mainly swords, but there are a few spears, maces, and daggers. They 
+are all spotlessly clean, immaculate. They range from a sub issue 
+sword to a drow noble's sword, thence through various forged swords.
+It runs up to tempered steel throwing daggers and the feared 
+shortsword zedraikis. Last but not least is definitely the almighty
+Thunderstriker.
+~
+E
+stuff~
+This collection is even bigger than the weapons collection. It is 
+absolutely massive, comprising armor, wands, scrolls, potions,
+an whatnot else. These items come from all over Thera, picked
+up in the darkest and least known parts, some things some mortal 
+players do not even know of. 
+~
+E
+treasure~
+An absolutely massive pile of tresure fills a corner of the room up to 
+the roof. It is composed of gold, silver, jewelry, diamonds, rubies, 
+emeralds, crowns lovingly adorned with gems, various bracelets made
+from stone to onyx, many inlaid with gems. Only {PONE SMALL 
+SLIGHT{x problem though!!! Shadowfox the dragon is guarding this 
+treasure hoard for Muaddib.
+~
+S
+
+#0
+
+#RESETS
+
+M 0 8509 1 8520 1       * The hotshot mage
+M 0 8510 1 8520 1       * The well-armored merchant
+M 0 8511 1 8520 1       * The itinerant weaponsmith
+M 0 8512 1 8520 1       * The farmer's daughter
+G 1 3009  -1            * a big pot pie
+G 1 3011  -1            * a bread
+G 1 3000  -1            * a barrel of beer
+M 0 8513 1 8520 1       * The jewel fence
+M 0 8514 1 8520 1       * The snake-oil huckster
+M 0 8516 1 8520 2       * The camel calf
+M 0 8517 1 8520 2       * The yearling camel
+M 0 8518 1 8520 2       * The great nasty camel
+
+O 0 8650 1 8543         * Load tree
+O 0 8651 1 8543         * Load river
+O 0 8652 1 8543         * Load fig
+
+M 0 8538 1 8549 1       * Shadowfox into Muaddib's room
+O 0 8672 1 8549         * cloud into Muaddib's room
+O 0 8673 1 8549         * fountain into muaddib's room
+
+O 0 8400 1 8400         * bed in Rakurai and Ayelri's room
+O 0 8401 1 8400         * waterfall in Rakurai and Ayelri's room
+O 0 8402 1 8400         * wardrobe in Rakurai and Ayelri's room
+P 0 8403 200 8402 1     * scroll in wardrobe
+M 0 8402 1 8402 1       * ryo-ohki to darkavatar's room
+
+O 0 8409 1 8402         * Bed in Leigh and DarkAvatar's room
+O 0 8410 1 8402         * Fountain in Leigh and DarkAvatar's room
+
+O 0 8413 1 8403         * Waterbed in Zintros' room
+O 0 8414 1 8403         * Jacuzzi (fountain) in Zintros' room
+O 0 8415 1 8403         * Fireplace (light) in Zintros' room
+O 0 8416 1 8403         * Chest in Zintros' room
+D 0 8403 3 2            * Lock door to the hidden pass west
+D 0 3800 1 2            * Lock door from the hidden pass east
+
+M 0 8401 1 8404 1       * mob to Lorpay's room
+O 0 8417 1 8404         *
+O 0 8418 1 8404         * object to Lorpay's room
+O 0 8419 1 8404         *
+
+S
+
+#SHOPS
+
+0
+
+#SPECIALS
+
+M 8538 spec_cast_adept  * Muaddib's Shadowfox
+
+S
+
+#$
+

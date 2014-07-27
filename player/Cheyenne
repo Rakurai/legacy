@@ -1,0 +1,175 @@
+#PLAYER
+Name Cheyenne~
+Id   1026495438
+LogO 1026528942
+Vers 14
+Mexp 1
+Pass love1~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  7
+Levl 6
+Tru  0
+Plyd 3695
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  79 122 68
+Gold 0
+Silv 454
+Exp  7294
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy TVYc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 16 18 15 14 18 15
+Afk {B[{CFri Jul 12 13:03:57 2002{B] {CUnknown Departure.{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 44
+Rank ~
+Aura ~
+TSex 2
+LLev 1
+Deit Teotwawki~
+Lsit 205.208.128.61~
+Ltim Fri Jul 12 21:24:36 2002
+~
+LSav Fri Jul 12 21:55:42 2002
+~
+HMSP 118 129 150
+THMS 1 0 0
+Cnd  0 0 7 31
+Sk 1 1 'axe'
+Sk 1 1 'flail'
+Sk 76 1 'whip'
+Sk 1 1 'bash'
+Sk 1 1 'dirt kicking'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 75 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 13 1 'fast healing'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Affc 'haste'   0  85   4   5   2    2097152 1
+Affc 'armor'   0  88   6 -20  17          0 1
+Affc 'fly'   0  86  76   0   0     524288 1
+Affc 'bless'   0  85  79 -11  24          0 1
+Affc 'bless'   0  90  79  11  18          0 1
+Affc 'steel mist'   0  88  17  -9  17   16777216 1
+Affc 'regeneration'   0  88  26   0   0  268435456 1
+Affc 'giant strength'   0  88  71   5   1          0 1
+Affc 'shield'   0  85  79 -20  17          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 118 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3721
+Nest 0
+Cond 85
+Wear 16
+Cost 330
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 96
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 0
+End
+
+#END

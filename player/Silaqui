@@ -1,0 +1,705 @@
+#PLAYER
+Name Silaqui~
+Id   1017704645
+LogO 1026917272
+Vers 14
+Mexp 2
+Pass valour~
+Desc A bard (duh) with a lute and lyre stands
+playing a lovely tune. She must
+know a bit of magic since the lute
+is playing on its own. 
+A namer of great power she is
+formed of a trinity.
+Music
+Lore
+Truith
+She is a Liringlas, 
+a Skysinger and the last of her kind.
+She controls basic elemental magick
+which is visable in her Emerald eyes and Fiery hair.
+She has the angular features of lirins
+with greater height and slender curves from human blood.
+A beautiful creature with all imperfections burned away 
+her music as haunting and alluring as Silaqui herself.
+~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race elf~
+Clan order~
+Cla  6
+Levl 29
+Tru  0
+Plyd 56536
+Back 55750
+Note 1026789814 1022813787 1026339553 1026792163 1026409721 1026877382 1025590922
+Scro 22
+Room 3001
+HMS  627 376 281
+Gold 1337
+Silv 708
+Exp  32206
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes B
+FVul Z
+Plr  AK
+Video 0
+Act  CDEFGHJLQSc
+AfBy NPQ
+Comm NOa
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 86
+Trai 1
+Wimp 0
+Atrib 14 21 16 23 16 14
+Afk {B[{CSun Jun 30 18:18:08 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {Ni{Bs {Cp{Tl{Na{By{Ci{Tn{Ng {Bi{Cn{T {Nt{Bh{Ce {Tr{Na{Bi{Cn{V...{Whmm {Yl{bi{Yg{bh{Yt{bn{Yi{bn{Yg{V!~
+Immn ~
+Pnts 40
+Rank {NR{Ce{Nc{x~
+Aura ~
+TSex 2
+LLev 15
+Email bohbofu16@hotmail.com~
+Deit Sivat~
+Lsit hlfx54-2a-210.ns.sympatico.ca~
+Ltim Wed Jul 17 09:39:06 2002
+~
+LSav Wed Jul 17 09:47:52 2002
+~
+HMSP 357 346 341
+THMS 0 0 0
+Cnd  0 0 0 6
+Sk 75 1 'dazzling light'
+Sk 75 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 75 1 'identify'
+Sk 75 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 1 1 'vision'
+Sk 18 1 'axe'
+Sk 75 1 'dagger'
+Sk 1 1 'flail'
+Sk 95 1 'sword'
+Sk 76 1 'backstab'
+Sk 94 1 'dodge'
+Sk 85 1 'parry'
+Sk 77 1 'trip'
+Sk 81 1 'second attack'
+Sk 76 1 'hide'
+Sk 100 1 'scan'
+Sk 76 1 'sneak'
+Sk 75 1 'sing'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'bard basics'
+Gr 'detection'
+Gr 'enchantment'
+Affc 'protection evil'   0  17   5  -1  24       8192 1
+Affc 'shield'   0  12   1 -20  17          0 1
+Affc 'sneak'   0  25   0   0   0      32768 1
+Affc 'hide'   0  20   0   0   0      65536 1
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 93
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear 17
+Cost 1200
+End
+
+#O
+Vnum 6505
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 1
+Cost 1500
+End
+
+#O
+Vnum 16069
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 9923
+Nest 0
+Cond 99
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 7502
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16058
+Nest 1
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 1
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 1
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 1
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 1
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16058
+Nest 1
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 16056
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16056
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16056
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16056
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16056
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4609
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4609
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Yummy Cheese Burger~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YY{bu{Ym{bm{Yy {YC{bh{Ye{be{Ys{be {YB{bu{Yr{bg{Ye{br{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YY{bu{Ym{bm{Yy {YC{bh{Ye{be{Ys{be {YB{bu{Yr{bg{Ye{br{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe chef~ This food was created by Sivat.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Yummy Cheese Burger~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YY{bu{Ym{bm{Yy {YC{bh{Ye{be{Ys{be {YB{bu{Yr{bg{Ye{br{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YY{bu{Ym{bm{Yy {YC{bh{Ye{be{Ys{be {YB{bu{Yr{bg{Ye{br{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe chef~ This food was created by Sivat.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Yummy Cheese Burger~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YY{bu{Ym{bm{Yy {YC{bh{Ye{be{Ys{be {YB{bu{Yr{bg{Ye{br{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YY{bu{Ym{bm{Yy {YC{bh{Ye{be{Ys{be {YB{bu{Yr{bg{Ye{br{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe chef~ This food was created by Sivat.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Yummy Cheese Burger~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YY{bu{Ym{bm{Yy {YC{bh{Ye{be{Ys{be {YB{bu{Yr{bg{Ye{br{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YY{bu{Ym{bm{Yy {YC{bh{Ye{be{Ys{be {YB{bu{Yr{bg{Ye{br{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe chef~ This food was created by Sivat.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Yummy Cheese Burger~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YY{bu{Ym{bm{Yy {YC{bh{Ye{be{Ys{be {YB{bu{Yr{bg{Ye{br{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YY{bu{Ym{bm{Yy {YC{bh{Ye{be{Ys{be {YB{bu{Yr{bg{Ye{br{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe chef~ This food was created by Sivat.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 1212
+Nest 1
+Name sivat trivia token ~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4608
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 2016
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 42 15 0 0
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16066
+Nest 1
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 21
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16054
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 16107
+Nest 1
+Wear -1
+Cost 15000
+End
+
+#O
+Vnum 16106
+Nest 1
+Wear -1
+Cost 50000
+End
+
+#O
+Vnum 16106
+Nest 1
+Wear -1
+Cost 50000
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3043
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24483
+Nest 1
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 4575
+Enchanted
+Nest 1
+Wear -1
+Cost 0
+Val  1 1 0 1 0
+Affc 'reserved'   1  20  -1   2   3          0 1
+Affc 'reserved'   1  20  -1   2   4          0 1
+Affc 'reserved'   1  20  -1   1  18          0 1
+Affc 'reserved'   1  20  -1   1  19          0 1
+End
+
+#O
+Vnum 16041
+Nest 1
+Cond 99
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 16107
+Nest 0
+Cond 98
+Wear 14
+Cost 15000
+End
+
+#O
+Vnum 16054
+Nest 0
+Wear 15
+Cost 1500
+End
+
+#O
+Vnum 16052
+Nest 0
+Wear 11
+Cost 750
+End
+
+#O
+Vnum 24400
+Nest 0
+Cond 98
+Wear 8
+Cost 2000
+End
+
+#O
+Vnum 24401
+Nest 0
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 16041
+Nest 0
+Cond 94
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear -1
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear -1
+Cost 112
+End
+
+#O
+Vnum 24474
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cancellation'
+Spell 2 'slow'
+Spell 3 'regeneration'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24410
+Nest 0
+Wear 6
+Cost 3000
+End
+
+#O
+Vnum 24404
+Nest 0
+Wear 9
+Cost 3000
+End
+
+#O
+Vnum 24403
+Nest 0
+Wear 18
+Cost 3000
+End
+
+#O
+Vnum 24411
+Nest 0
+Wear 7
+Cost 3000
+End
+
+#O
+Vnum 29905
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#END

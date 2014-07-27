@@ -1,0 +1,284 @@
+#PLAYER
+Name JoBu~
+Id   990081089
+LogO 1020572781
+Vers 13
+Mexp 2
+Desc {CI have seen the darkest of nights, so dark that you were covered in a thick coat of black paint and couldn't see the hand in front of your face
+{YI have seen the brightest of nights that you could see for miles and still hide in the shadows
+
+{PBUT, the best of nights are those served under the arena lights, lights so bright you could see the fear on the face of your oppenent 
+
+{WThose are the nights stories are made, passed down from generation to generation
+{WThose are the nights that legends are spun, hearts broken and heros are born
+
+{CAnd if that is the night you cross my path..........................
+{f{PYou will go and {Ysin {Pno more{x
+
+~
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race dragon~
+Sex  1
+Cla  3
+Levl 41
+Tru  91
+Plyd 80304
+Back 80292
+Note 1020572203 1020572203 1020572203 1020572203 1020572203 1020572203 1020572203
+Scro 22
+Room 3365
+HMS  876 876 324 329 477 616
+Gold 492
+Silv 484
+Exp  51396
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLRSTc
+AfBy DFT
+FRes EGN
+FVul F
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  4
+Prac 861
+Trai 9
+Save  -4
+Alig  -140
+Hit   10
+Dam   9
+ACs -44 -41 -42 -27
+Atrib 22 19 20 15 19 18
+AtMod 5 4 5 3 3 2
+QuestPnts 28
+Pass soccer~
+Afk {B[{CThu Feb  7 20:48:24 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {CYe {CG{WO {Ca{Bn{Wd {Ysin {Cn{Bo {Wm{Bo{Cr{We~
+Immn ~
+Pnts 20
+Rank {NR{Cu{Nm~
+Aura ~
+TSex 1
+LLev 12
+Deit Montrey~
+Stus JoBu~
+RmCt 2
+ExSk 0
+Raff 960
+Lsit 65.89.104.138~
+Ltim Sat May 04 23:16:27 2002
+~
+LSav Sat May 04 23:26:21 2002
+~
+Finf show
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 36 0 33 0 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  CEFGQ
+HMSP 776 274 596
+THMS 0 0 0
+Cnd  0 2 2 4
+Sk 75 1 'acid breath'
+Sk 1 1 'age'
+Sk 75 1 'armor'
+Sk 75 1 'bless'
+Sk 75 1 'blindness'
+Sk 75 1 'calm'
+Sk 75 1 'cancellation'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 75 1 'curse'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'energy drain'
+Sk 1 1 'fire breath'
+Sk 75 1 'fireproof'
+Sk 75 1 'fly'
+Sk 75 1 'frenzy'
+Sk 75 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 75 1 'gate'
+Sk 75 1 'giant strength'
+Sk 75 1 'haste'
+Sk 75 1 'heal'
+Sk 1 1 'holy word'
+Sk 75 1 'infravision'
+Sk 1 1 'lightning breath'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 75 1 'pass door'
+Sk 75 1 'plague'
+Sk 75 1 'poison'
+Sk 75 1 'portal'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 75 1 'refresh'
+Sk 75 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 71 1 'remove curse'
+Sk 75 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 75 1 'slow'
+Sk 1 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 75 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 75 1 'weaken'
+Sk 75 1 'word of recall'
+Sk 78 1 'sword'
+Sk 75 1 'bash'
+Sk 1 1 'circle'
+Sk 75 1 'dodge'
+Sk 75 1 'parry'
+Sk 75 1 'second attack'
+Sk 75 1 'third attack'
+Sk 76 1 'dual wield'
+Sk 76 1 'hunt'
+Sk 75 1 'lore'
+Sk 75 1 'pick lock'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 8 1 'staves'
+Sk 75 1 'wands'
+Sk 75 1 'recall'
+Sk 65 1 'riposte'
+Sk 1 1 'fourth attack'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'benedictions'
+Gr 'draconian'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+End
+
+#O
+Vnum 10204
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10207
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10298
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10203
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 10201
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 21
+Enchanted
+Nest 0
+ExtF 65
+Cond 65
+Wear 0
+Lev  21
+Cost 0
+Affc 'enchant weapon'   0  70  -1   1  18          0 1
+Affc 'enchant weapon'   1  70  -1   1  19          0 1
+End
+
+#O
+Vnum 10211
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 11911
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 16009
+Nest 0
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 16011
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 16012
+Nest 0
+ExtF 770
+Wear 3
+Cost 0
+End
+
+#END

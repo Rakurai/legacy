@@ -1,0 +1,204 @@
+#PLAYER
+Name Aziryn~
+Id   1020718536
+LogO 1021337673
+Vers 14
+Mexp 1
+Pass albrook~
+Prom {H<[%e] %g gold %s silver %h/%Hhp %m/%Mmp %vmv %Xxp>  ~
+Race feral~
+Cla  2
+Levl 3
+Tru  0
+Plyd 4438
+Back 0
+Note 1020779930 1020731070 0 1020860135 1020718882 0 1020718916
+Scro 22
+Room 3001
+HMS  43 110 118
+Gold 0
+Silv 50
+Exp  4297
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -483
+Act  CDEFGHJLQSc
+AfBy R
+Comm NO
+Cgrp A
+Cnsr AB
+Plr  A
+FVul JR
+Prac 2
+Trai 2
+Atrib 15 15 14 23 15 9
+Titl  ({VUnnewbie Aura{x)~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Marx~
+Lsit h24-64-38-26.cg.shawcable.net~
+Ltim Mon May 13 19:54:26 2002
+~
+LSav Mon May 13 19:54:33 2002
+~
+HMSP 43 110 118
+THMS 0 0 0
+Cnd  0 0 4 0
+Alias oo gossip~
+Alias a affect~
+Sk 71 1 'dagger'
+Sk 22 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 155 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Cond 96
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3709
+Enchanted
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 92
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 3020
+Nest 0
+Wear -1
+Cost 157
+End
+
+#O
+Vnum 1911
+Nest 0
+Wear 14
+Cost 70
+End
+
+#O
+Vnum 3013
+Nest 0
+Wear -1
+Cost 11
+End
+
+#END

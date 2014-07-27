@@ -1,0 +1,1166 @@
+#PLAYER
+Name Ayelri~
+Id   989894653
+LogO 1025581277
+Vers 14
+Mexp 2
+Pass ICH7Omaf~
+Prom %CW<%CC%h%CW/%CC%H%CWhp %CG%m%CW/%CG%M%CWma %CB%v%CWmv [%Cg%e%CW] %CR%X%CW [%Y%z%W]>  ~
+Race wolf~
+Clan kindred~
+Cla  7
+Levl 88
+Tru  0
+Plyd 252026
+Back 92100
+Note 1018239070 1018210887 1018210887 1018296282 1018210887 1018249220 1018297218
+Scro 22
+Room 25000
+HMS  2434 1247 1150
+Gold 441
+Silv 1256
+Silver_in_bank 1018
+Gold_in_bank 17000
+Exp  135589
+PCkills  0
+PCkilled 3
+Akills   1
+Akilled  3
+PKRank   0
+Pos  8
+Alig 1000
+Spou Rakurai~
+FImm 0
+FRes I
+FVul H
+Plr  CFHOR
+Video 0
+Act  CDEFGHJLNSTc
+AfBy CGPZ
+Comm DKNO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 109
+Trai 15
+Wimp 30
+Atrib 20 18 18 20 22 14
+SkillPnts  17
+QuestPnts  119
+Afk {B[{CMon Apr  8 15:36:26 2002{B] {C:)
+~
+Titl  {WiarukaR {M-{YR{T- {N({cd{gr{Wd{gn{cK{N) {cF{gE{HL  {P[{CihT {PreS {B46 {G5 {P]{x~
+Immn ~
+Pnts 48
+Rank {bL{gN{cT~
+Aura {BR{Na{Tk{gu{Tr{Na{Bi{T'{gs{x~
+TSex 2
+LLev 69
+Email lilqtgirl@yahoo.com~
+Deit Kenneth~
+Lsit 201.los-angeles-65-70rs.ca.dial-access.att.net~
+Ltim Mon Apr 08 14:07:36 2002
+~
+LSav Mon Jul 01 22:41:17 2002
+~
+HMSP 1929 492 1120
+THMS 0 0 0
+Cnd  0 0 0 0
+Alias bb bash~
+Alias mont drop vor;enter vor;get vor~
+Alias pevil c 'protection evil'~
+Alias pgood c 'protection good'~
+Query ramaru~
+Query cyanos~
+Query sharra~
+Query syveril~
+Query selgarin~
+Sk 92 1 'acid rain'
+Sk 1 1 'age'
+Sk 74 1 'armor'
+Sk 1 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 1 1 'call lightning'
+Sk 1 1 'cancellation'
+Sk 1 1 'channel'
+Sk 1 1 'control weather'
+Sk 76 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'curse'
+Sk 77 1 'demonfire'
+Sk 75 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 77 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'earthquake'
+Sk 1 1 'energy drain'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fireproof'
+Sk 74 1 'flameshield'
+Sk 1 1 'flamestrike'
+Sk 73 1 'giant strength'
+Sk 83 1 'haste'
+Sk 75 1 'heal'
+Sk 75 1 'heat metal'
+Sk 1 1 'infravision'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'mass healing'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 75 1 'protection evil'
+Sk 77 1 'protection good'
+Sk 88 1 'ray of truth'
+Sk 1 1 'refresh'
+Sk 79 1 'regeneration'
+Sk 76 1 'sanctuary'
+Sk 71 1 'shield'
+Sk 75 1 'slow'
+Sk 73 1 'steel mist'
+Sk 71 1 'stone skin'
+Sk 1 1 'sunray'
+Sk 71 1 'talon'
+Sk 72 1 'undo spell'
+Sk 1 1 'weaken'
+Sk 100 1 'axe'
+Sk 76 1 'dagger'
+Sk 1 1 'flail'
+Sk 77 1 'mace'
+Sk 100 1 'sword'
+Sk 87 1 'bash'
+Sk 71 1 'berserk'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 39 1 'hand to hand'
+Sk 100 1 'parry'
+Sk 93 1 'second attack'
+Sk 96 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 75 1 'hunt'
+Sk 87 1 'fast healing'
+Sk 75 1 'forge'
+Sk 67 1 'hide'
+Sk 75 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'attack'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'weather'
+Affc 'divine regeneration'   0  81   5   0   0   33554432 4
+Affc 'blood moon'   0  80   5   8  19          0 1
+Affc 'blood moon'   0  83   5   5  18          0 1
+Affc 'shield'   0  79  13 -20  17          0 1
+Affc 'giant strength'   0  72   3   4   1          0 1
+End
+
+#O
+Vnum 6
+Nest 0
+ShD  {Wt{gh{We {Ch{ge{Ca{Tr{Ct {Wan{gd {Ys{bou{Yl {go{Wf h{ger {Cl{Ti{Wf{ge{Cl{Wo{Tn{Cg c{To{Wm{Cp{gan{Ci{To{Cn{x~
+Desc {BR{Na{Tk{gu{Tr{Na{Bi{g's {Pl{Rov{Pe {glies here, {Yfo{br{Yg{bot{Yt{be{Yn{g...{x~
+ExtF 1048577
+Cond 88
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 97
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3808
+Nest 0
+Cond 89
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 5610
+Nest 0
+ExtF 17301507
+Cond 96
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3207
+Nest 0
+Cond 93
+Wear -1
+Cost 80
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 93
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 96
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 9103
+Nest 0
+Cond 92
+Wear 4
+Cost 4140
+End
+
+#O
+Vnum 9103
+Nest 0
+Cond 96
+Wear 3
+Cost 4140
+End
+
+#O
+Vnum 11680
+Nest 0
+Cond 97
+Wear -1
+Cost 4300
+End
+
+#O
+Vnum 10152
+Nest 0
+Cond 91
+Wear -1
+Cost 5500
+End
+
+#O
+Vnum 20008
+Nest 0
+ExtF 16777537
+Cond 95
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 3805
+Nest 0
+Cond 90
+Wear 2
+Cost 5000
+End
+
+#O
+Vnum 3805
+Nest 0
+Cond 97
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 13001
+Nest 0
+Wear 5
+Cost 8500
+End
+
+#O
+Vnum 10152
+Nest 0
+Cond 96
+Wear -1
+Cost 5500
+End
+
+#O
+Vnum 17320
+Nest 0
+ExtF 262146
+Wear -1
+Cost 2500
+Val  250 1 17321 40 30
+End
+
+#O
+Vnum 16009
+Nest 1
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 16009
+Nest 1
+ExtF 64
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion protection good~
+ShD  a potion of protection good~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 110 -1 -1 -1
+Spell 1 'protection good'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion protection evil~
+ShD  a potion of protection evil~
+Wear -1
+Lev  55
+Cost 2000
+Val  55 109 -1 -1 -1
+Spell 1 'protection evil'
+End
+
+#O
+Vnum 504
+Nest 1
+ExtF 19
+Cond 94
+Wear -1
+Cost 312
+End
+
+#O
+Vnum 2321
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14019
+Nest 1
+Cond 73
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 9231
+Nest 1
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 1
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 1
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 1
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 1
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 10215
+Nest 1
+ExtF 64
+Cond 91
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10215
+Nest 1
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 1258
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 504
+Nest 1
+ExtF 19
+Cond 86
+Wear -1
+Cost 312
+End
+
+#O
+Vnum 16016
+Nest 1
+Cond 95
+Wear -1
+Cost 4650
+End
+
+#O
+Vnum 11661
+Nest 1
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 17013
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 17013
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 25056
+Nest 1
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 5604
+Nest 1
+ExtF 17301507
+Cond 84
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 20
+Nest 1
+Wear -1
+Cost 0
+Val  43 87 0 0 0
+End
+
+#O
+Vnum 1004
+Nest 1
+Name sword a magical katana~
+ShD  {Wa {Bm{Ca{Bg{Ci{Bc{Ca{Bl {Wk{gatana{x{x~
+Desc A sword is here, forged by Ayelri's craftsmanship.~
+Mat iron~
+Wt   49
+Cond 95
+Wear -1
+Lev  52
+Cost 26
+Val  1 6 13 3 1
+ExDe sword a magical katana~ It is a marvellous sword, crafted from the finest iron around.
+It was created in the Month of Sacrifice by an experienced ranger
+named Ayelri.  Legend holds that this wolf was a great weaponsmith.
+~
+End
+
+#O
+Vnum 5608
+Nest 1
+Cond 94
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 1004
+Nest 1
+Name sword a gleaming katana~
+ShD  {Wa {ggl{We{gam{Wi{gng {Wk{gatana{x{x~
+Desc A sword is here, forged by Ayelri's craftsmanship.~
+Mat steel~
+Wt   50
+Cond 47
+Wear -1
+Lev  52
+Cost 13
+Val  1 7 13 3 34
+ExDe sword a gleaming katana~ It is a marvellous sword, crafted from the finest steel around.
+It was created in the Month of Sacrifice by an experienced ranger
+named Ayelri.  Legend holds that this wolf was a great weaponsmith.
+~
+End
+
+#O
+Vnum 10103
+Nest 1
+Wear -1
+Cost 22000
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 8404
+Nest 1
+Wear -1
+Cost 0
+Val  0 0 4 8400 0
+End
+
+#O
+Vnum 5608
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 5608
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 7330
+Nest 1
+ExtF 262208
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 25093
+Nest 1
+Wear -1
+Cost 15
+Val  15 38 38 119 42
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 25086
+Nest 1
+Wear -1
+Cost 0
+Val  15 119 102 115 132
+Spell 3 'regeneration'
+End
+
+#O
+Vnum 25084
+Nest 1
+Wear -1
+Cost 0
+Val  15 50 49 120 47
+Spell 3 'shield'
+End
+
+#O
+Vnum 25081
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9940
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 25084
+Nest 1
+Wear -1
+Cost 0
+Val  15 50 49 120 47
+Spell 3 'shield'
+End
+
+#O
+Vnum 16514
+Nest 1
+Cond 92
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion word of recall~
+ShD  a potion of word of recall~
+Wear -1
+Lev  46
+Cost 2000
+Val  46 139 -1 -1 -1
+Spell 1 'word of recall'
+End
+
+#O
+Vnum 3381
+Nest 1
+Name vial potion word of recall~
+ShD  a potion of word of recall~
+Wear -1
+Lev  46
+Cost 2000
+Val  46 139 -1 -1 -1
+Spell 1 'word of recall'
+End
+
+#O
+Vnum 25002
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25002
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25002
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25002
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25002
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25002
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25002
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25086
+Nest 1
+Wear -1
+Cost 0
+Val  15 119 102 115 132
+Spell 3 'regeneration'
+End
+
+#O
+Vnum 25084
+Nest 1
+Wear -1
+Cost 0
+Val  15 50 49 120 47
+Spell 3 'shield'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 25086
+Nest 1
+Wear -1
+Cost 0
+Val  15 119 102 115 132
+Spell 3 'regeneration'
+End
+
+#O
+Vnum 25086
+Nest 1
+Wear -1
+Cost 0
+Val  15 119 102 115 132
+Spell 3 'regeneration'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25016
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 1255
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 55
+Nest 1
+ShD  {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x~
+Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
+Wear -1
+Cost 0
+ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+End
+
+#O
+Vnum 27
+Nest 1
+Name sandals white strappy wedding~
+ShD  {Wwhite strappy high-heeled sandals{x~
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 28
+Nest 1
+Name orchid small two~
+ShD  {gtwo {Wsmall {Corc{Chids{x~
+Desc {gTwo {Wsmall {Corc{Chids{g rest daintily on the ground.{x~
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 26
+Nest 1
+Name dress white slinky spaghetti wedding~
+ShD  {ga {Wslinky spaghetti-strapped white dress{x~
+Desc {gA {Wslinky spaghetti-strapped white dress{g lies here, it'd look good on a curvy girl{x.~
+Cond 96
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 1212
+Nest 1
+Name M&M bag~
+ShD  {ga {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's{x~
+Desc {gOh no!! Someone dropped a {bbag {gof {WM&M{g's here! Hope none fell out!{x~
+Mat paper~
+ExtF 16793600
+Wear -1
+Cost 1000
+ExDe m&m~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
+~
+ExDe bag~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
+~
+End
+
+#O
+Vnum 3092
+Nest 1
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 3092
+Nest 1
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 3092
+Nest 1
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 5611
+Nest 0
+Wear 0
+Cost 2000
+End
+
+#O
+Vnum 13010
+Nest 0
+Cond 97
+Wear 8
+Cost 450
+End
+
+#O
+Vnum 13004
+Nest 0
+Wear 18
+Cost 3700
+End
+
+#O
+Vnum 13009
+Nest 0
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13005
+Nest 0
+Wear 12
+Cost 4500
+End
+
+#O
+Vnum 13009
+Nest 0
+Wear 7
+Cost 660
+End
+
+#O
+Vnum 13008
+Nest 0
+Wear 9
+Cost 550
+End
+
+#O
+Vnum 11909
+Nest 0
+ExtF 17334339
+Cond 98
+Wear 6
+Cost 9000
+End
+
+#O
+Vnum 11748
+Nest 0
+ExtF 80
+Wt   0
+Wear 19
+Cost 15000
+Val  2 12 11 11 140
+Affc 'blood blade'   5  64  16   0   0          4 1
+End
+
+#O
+Vnum 1105
+Nest 0
+Wear 1
+Cost 1660
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 0
+Name sword outline of an elven longsword~
+ShD  {co{gutlin{ce {xof an {Welven {Tlongsword{x~
+Desc A sword is here, forged by Syveril's craftsmanship.~
+Mat platinum~
+ExtF 67
+Wt   41
+Wear 16
+Lev  91
+Cost 11
+Val  1 10 14 3 129
+Affc 'enchant weapon'   0  91  -1   8  18          0 1
+Affc 'enchant weapon'   1  91  -1   8  19          0 1
+ExDe sword outline of an elven longsword~ It is a marvellous sword, crafted from the finest platinum around.
+It was created in the Month of Endings by a master mage
+named Syveril.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#L
+Vnum 5609
+Nest 0
+Cond 92
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5609
+Nest 0
+Cond 89
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3205
+Enchanted
+Nest 0
+Name chain mail bikini top~
+ShD  {Ba {cchain mail {Bbi{Nk{Bi{Nn{Bi {Nt{Bop{x~
+Desc Wow, Ayelri left her {Bbi{Nk{Bi{Nn{Bi {Nt{Bop {xlaying here.  You start glancing around excitedly for a peek.~
+Mat {Bch{Na{Bi{Nn {Bm{Na{Bil{x~
+ExtF 84672579
+Wt   0
+Cond 96
+Wear -1
+Lev  57
+Cost 0
+Affc 'reserved'   1  50  -1  30  13          0 1
+Affc 'reserved'   1  50  -1  40  12          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'reserved'   1  50  -1   2  26          0 1
+Affc 'reserved'   1  50  -1   2   5          0 1
+Affc 'reserved'   1  50  -1   1   2          0 1
+ExDe chain mail bikini top~ Oh my god, is this thing legal?  It's a bikini top crafted entirely from chain
+mail, with each ring made from a solid {Bblue sa{Np{Bp{Nh{Bire{x.  Even if a bikini made out
+of chainmail was in any way considered clothing, the fact that this is made from
+transparent jewels lends it even less practicality.  On the other hand...
+*damn* Ayelri looks good in it. ;)
+~
+End
+
+#L
+Vnum 3810
+Nest 0
+Wear -1
+Cost 30000
+End
+
+#L
+Vnum 10116
+Enchanted
+Nest 0
+ExtF 262209
+Cond 91
+Wear -1
+Lev  87
+Cost 25
+Affc 'enchant armor'   1  79  -1  -3  17          0 1
+Affc 'reserved'   1  85  -1  90  12          0 1
+Affc 'reserved'   1  85  -1  30  13          0 1
+Affc 'reserved'   1  85  -1   8  18          0 1
+Affc 'reserved'   1  85  -1   8  19          0 1
+Affc 'reserved'   1  85  -1   2  26          0 1
+End
+
+#END

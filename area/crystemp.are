@@ -1,0 +1,1107 @@
+#AREA
+crystemp.are~
+The Crystal Temple~
+{H{{50 70} {MNeffertini {TCrystal Temple~
+9800 9899
+
+#MOBILES
+#9800
+gatekeeper guard~
+the Gatekeeper~
+The Gatekeeper stands here.
+~
+This large man stands here guarding
+the Crystal Temple against intruders.
+Anyone who wants inside, must go
+through him.
+~
+human~
+BTUZ a 1000 S
+53 8 30d10+2200 10d200+500 5d5+15 beating
+-35 -35 -35 -28
+CJEF AB 0 JK
+stand stand male 500
+0 0 LARGE 0
+>all_greet_prog 100~
+say You will not enter this temple!
+say Only I hold the key!
+~
+|
+
+#9801
+royal prince~
+a Royal Prince~
+A Royal Prince is here.
+~
+This is one of the King's many sons.
+He is just going about his business.
+~
+human~
+GT LN 1000 S
+59 10 1d1+2499 1d1+499 5d5+16 pierce
+-36 -36 -36 -30
+CFU 0 0 Q
+stand stand male 2000
+0 0 medium 0
+>greet_prog 40~
+say Hello citizen, I have not seen you before.
+~
+>rand_prog 3~
+say I am a Royal Prince - Life is good!
+~
+|
+
+#9802
+royal princess~
+a Royal Princess~
+A Royal Princess stands here.
+~
+This beautiful lady is one of
+the King's own daughters. She
+is lovely to look at, but it is
+rumored that she is nasty in a fight.
+~
+human~
+GT LN 1000 S
+59 5 1d1+2499 1d1+1999 5d5+12 none
+-35 -35 -35 -33
+EFU B 0 JQ
+stand stand female 2400
+0 0 medium 0
+
+#9803
+temple guard guardian~
+a temple guard~
+A large guard is here.
+~
+Here stands a large brute. He
+is well trained to defend his 
+King. He is a force not to be
+taken lightly.
+~
+human~
+GT DEP 1000 S
+65 10 20d50+2800 1d1+200 5d6+15
+-38 -38 -38 -28
+EFU 0 0 0
+stand stand male 1400
+0 0 large 0
+>greet_prog 10~
+if ispc($n)
+Say Intruder!!
+say I will kill you!
+MPKILL $n
+else
+say Intruder!!
+endif
+~
+|
+
+#9804
+royal adviser~
+a royal adviser~
+A royal adviser to the king is here.
+~
+This powerful mage was hand
+chosen at birth, and trained
+to advise the King. His loyalty
+to his King does not waver.
+~
+human~
+FGR HINOad 1000 S
+62 4 200d10+2000 1d1+5000 5d5+19 divine
+-43 -43 -43 -43
+EHK AB 0 DE
+stand stand male 4000
+0 0 medium 0
+
+#9805
+servant~
+a servant~
+A servant of the Royalty is here.
+~
+This is just a low servant to the 
+King. He has no particular loyalty.
+It has been suggested that one might
+even be bribed to join a warrior. For
+a fee of course.
+~
+human~
+GSU KMX 0 S
+53 0 1d1+999 1d1+299 1d1+10 none
+-20 -20 -20 -20
+FIH AB 0 CEFG
+stand stand male 0
+0 0 medium 0
+>bribe_prog 1500~
+follow $n
+say You have bought my loyalty.
+say You can now group me, I follow you.
+~
+>bribe_prog 1~
+say That is a pitiful insulting amount!
+say If you want my loyalty, I need at least 1500 silver!
+~
+|
+
+#9806
+servant~
+a servant~
+A servant of the Royalty is here.
+~
+This servant is loyal to her King.
+While it is said some servants can
+be bribed, she is most definately not
+one of them.
+~
+human~
+GSU KMX 0 S
+53 0 1d1+2399 1d1+1999 5d5+14 none
+-31 -31 -31 -31
+BCEU AB 0 CEFG
+stand stand female 1000
+0 0 medium 0
+>bribe_prog 1~
+if ispc($n)
+say My loyalty is NOT for sale!
+say {RGUARDS!! GUARDS!!{x
+else
+say My loyalty is NOT for sale!
+endif
+~
+|
+
+#9807
+queen~
+The Queen~
+The Queen sits on her throne.
+~
+Such grace. Such beauty. To be in
+the presence of the Queen is almost
+undescribable. You are in awe of the
+power that she radiates.
+~
+human~
+BMSZ DFNe 1000 S
+70 13 1d1+4199 1d1+1999 5d5+20 pound
+-43 -43 -43 -35
+FN AB LK MG
+sit sit female 10000
+0 0 medium 0
+
+#9808
+the King~
+The King~
+The King sits on his throne.
+~
+The King is a large man. Fierce and
+ruling with an iron fist. He may just 
+turn that fist upon anyone who dared
+threaten his rule.
+~
+human~
+BMTZ DFHd 1000 S
+72 14 1d1+4499 1d1+2999 5d5+20 pound
+-43 -43 -43 -38
+CDEF AB LK MG
+sit sit male 12000
+0 0 large 0
+
+#0
+
+#OBJECTS
+
+#9800
+gate key~
+a key~
+The key to the Crystal Temple has been left here.~
+crystal~
+key PU AO
+0 0 0 0 0
+1 1 1 A
+E
+crystal~
+This key is used to open the 
+gate to the Crystal Temple.
+~
+E
+surface condition~
+This key is getting kind of worn
+and rusty. It probably won't last 
+you too long.
+~
+
+#9801
+crystal dagger~
+a crystal dagger~
+A sharp dagger of crystal has been left here.~
+Crystal~
+weapon AKSY AN
+dagger 5 5 pierce B
+35 300 2500 P
+E
+crystal dagger~
+This dagger is made of a rare
+crystal. It glimmers in front 
+of you, and is cold to the touch.
+~
+E
+surface edge~
+This is a sharp well crafted dagger.
+~
+
+#9802
+crystal wrist guard guards wristguards~
+a crystal wrist guard~
+A beautiful crystal wrist guard is here.~
+Crystal~
+armor ABS AM
+5 5 5 -1 0
+40 20 3000 P
+E
+crystal wrist guard guards wristguards~
+A beautiful crystal wristguard. Powerful
+and valuable.
+~
+
+#9803
+crystal crown~
+a crystal crown~
+A large crystal crown is laying here.~
+Crystal~
+armor KS AE
+3 3 3 2 0
+48 20 3000 P
+E
+crystal crown~
+A beautiful crown, made of crystal
+and coated with rare gems. It belonged 
+to a powerful king.
+~
+A
+3 1
+F
+A 0 0 B
+
+#9804
+crystal scepter~
+a crystal scepter~
+A large scepter made of crystal is here.~
+Crystal~
+weapon IS AN
+exotic 6 9 pound D
+52 40 3900 P
+E
+crystal scepter~
+This is a lovely piece of 
+craftsmanship. It is a powerful 
+and deadly weapon.
+~
+A
+2 1
+
+#9805
+gem powerful power~
+a powerful gem~
+A gem that radiates power is here.~
+crystal~
+gem TS AO
+0 0 0 0 0
+50 10 10000 P
+E
+gem power powerful~
+This gem looks like it might be
+useful to HOLD onto.
+~
+A
+18 2
+A
+19 2
+A
+1 2
+F
+A 0 0 IY
+
+#9806
+fountain water~
+a fountain~
+A fountain is here spouting water.~
+Crystal~
+fountain 0 0
+0 0 water 0 0
+100 100 100 P
+E
+fountain~
+This beautiful fountain is crafted of 
+crystals, and spouts water high into 
+the air.
+~
+
+#0
+
+#ROOMS
+
+#9800
+Gate before the {CCrystal Temple{x~
+You have arrived at a massive gate that leads to the
+{CCrystal Temple{x. It is guarded by an impressive looking
+guard, who looks quite alert. The gate is large and 
+solid. It has a small key hole, you guess that the guard
+holds the key.
+~
+0 0 2
+D0
+A large gate before the city is to the north.
+~
+gate~
+3 9800 9801
+
+D2
+Back to the plains
+~
+~
+0 -1 426
+E
+gate door~
+No one gets through this gate without being allowed
+by the guard, or with the key.
+~
+S
+
+#9801
+Entrance to the {CCrystal Temple{x~
+Just inside the massive gates, you can see the whole
+temple laid out before you. The sprawling courtyard, 
+and the magnificent temple to the north.
+~
+0 D 1
+D0
+To the north you see a large fountain.
+~
+~
+0 -1 9802
+D2
+The gate is to the south.
+~
+gate~
+3 9800 9800
+E
+gate~
+The large gate is to the south of you. Protecting
+the temple from intruders.
+~
+S
+#9802
+The {NCourtyard{x~
+You are standing at the south end of the large
+courtyard. Just to the north you see a magnificent
+fountain spouting water. The courtyard also goes
+east and west. From here you can see the walls that
+surround this temple, protecting it's inhabitants.
+~
+0 D 1
+D2
+This way leads back out
+~
+~
+0 -1 9801
+D0
+Directly north is the center of the courtyard.
+~
+~
+0 -1 9807
+D1
+The courtyard extends to the east.
+~
+~
+0 -1 9811
+D3
+The courtyard extends west.
+~
+~
+0 -1 9803
+S
+#9803
+The {NCourtyard{x~
+This is another section of the courtyard. 
+You are a smooth path, and green grass is
+all around you. The path through the
+courtyard leads east and west.
+~
+0 0 1
+D1
+The path leads east.
+~
+~
+0 -1 9802
+D3
+The path leads west.
+~
+~
+0 -1 9804
+E
+grass~
+The lush grass is all around the path.
+~
+E
+path~
+The scenic path leads you east and west.
+~
+S
+#9804
+The {NCourtyard{x~
+This is the west end of the courtyard.
+The path turns north and leads east. The walls
+come to a corner here, and tower over you. 
+~
+0 0 1
+D0
+The path turns north here.
+~
+~
+0 -1 9805
+D1
+The path leads to the east.
+~
+~
+0 -1 9803
+E
+wall walls~
+You have to tilt your head all the way back to look to the top.
+~
+S
+#9805
+The {NCourtyard{x~
+This is the north western end of the courtyard.
+The path continues east, and south down to the 
+south western end of the courtyard. The massive
+walls go further north around the temple.
+~
+0 0 1
+D1
+The path leads east.
+~
+~
+0 -1 9806
+D2
+The path leads south.
+~
+~
+0 -1 9804
+E
+wall walls~
+You have to tilt your head all the way back to look to the top.
+~
+S
+#9806
+The {NCourtyard{x~
+You are walking along the courtyard in the {CCrystal Temple{x.
+To the east a large fountain spouts water in the center of
+the courtyard. To the west, is the wall, and it looks like the
+path carries on to the south from there.
+~
+0 0 1
+D1
+The path leads to the center of the courtyard.
+~
+~
+0 -1 9807
+D3
+The path leads west.
+~
+~
+0 -1 9805
+E
+fountain~
+The fountain is off to the east.
+~
+S
+#9807
+The Center of the {NCourtyard{x~
+You stand in the center of the courtyard. There
+is a fountain here for decoration. There is a smooth
+path leading north to the temple, east and west into
+the courtyard, and south to the gate.
+~
+0 0 1
+D0
+The temple is to the north.
+~
+~
+0 -1 9812
+D1
+The path leads to the eastern courtyard.
+~
+~
+0 -1 9808
+D2
+The path leads south towards the gate.
+~
+~
+0 -1 9802
+D3
+The path leads to the western courtyard.
+~
+~
+0 -1 9806
+S
+#9808
+The {NCourtyard{x~
+You are walking along the courtyard in the {CCrystal Temple{x.
+To the west a large fountain spouts water in the center of
+the courtyard. To the east, is the wall, and it looks like the
+path carries on to the south from there.
+~
+0 0 1
+D1
+The path leads east from here.
+~
+~
+0 -1 9809
+D3
+The path leads west from here.
+~
+~
+0 -1 9807
+E
+fountain~
+You see the fountain to the west.
+~
+S
+#9809
+The {NCourtyard{x~
+You are standing in the northeast corner of the courtyard.
+The massive wall towers high above you. To the south the 
+path continues down to the courtyards southeast corner. 
+The path also goes west towards a large fountain.
+~
+0 0 1
+D2
+The path leads to the south eastern end of the courtyard.
+~
+~
+0 -1 9810
+D3
+The path leads towards the large fountain.
+~
+~
+0 -1 9808
+S
+#9810
+The {NCourtyard{x~
+This is the south eastern corner of the courtyard. The
+massive walls that protect the King's temple meet here.
+The have kept this kingdom safe for centuries, and they
+are intended to continue to do so.
+~
+0 0 1
+D0
+This path leads to the north.
+~
+~
+0 -1 9809
+D3
+This path leads towards the west.
+~
+~
+0 -1 9811
+E
+wall walls~
+The massive walls tower high above you.
+~
+S
+#9811
+The {NCourtyard{x~
+You are walking along the path through the temple
+courtyard. All around you members of the royal
+family play and carry on about their business.
+The path leads east and west.
+~
+0 0 1
+D1
+This path leads east.
+~
+~
+0 -1 9810
+D3
+This path leads west.
+~
+~
+0 -1 9802
+S
+#9812
+Entrance to the {CCrystal Temple{x~
+You are standing in the entrance to the grand temple.
+There is a wide spacious foyer north of you. The temple
+appears to be made entirely of crystal. It glimmers and
+shines. If the entrance looks this impressive, you can
+hardly imagine what the rest of the temple looks like.
+~
+0 D 0
+D0
+North leads to the foyer.
+~
+~
+0 -1 9815
+D2
+South leads back to the courtyard.
+~
+~
+0 -1 9807
+E
+walls wall temple~
+The crystals shine and glimmer in the light.
+~
+S
+#9815
+Foyer in the {CCrystal Temple{x~
+You arrive in the foyer. The crystal walls are 
+covered with intricate carvings of all forms of nature.
+The detail is impressive. The ceiling high above your
+head holds up a vast chandelier.
+~
+0 D 0
+D0
+The throne room is to the north of here.
+~
+~
+0 -1 9824
+D1
+The east wing is in that direction.
+~
+~
+0 -1 9816
+D2
+This leads out of the temple.
+~
+~
+0 -1 9812
+D3
+The west wing is in that direction.
+~
+~
+0 -1 9822
+E
+carvings walls wall carving~
+The carvings on the walls must have taken
+a skilled hand many hours. The detail is 
+almost beyond comprehension.
+~
+E
+chandelier ceiling~
+The chandelier is made of...you guessed it,
+crystal. There must be thousands of individual
+crystals up there reflecting the light around
+the room, causing dazzling bit of light to 
+dance all around you.
+~
+S
+#9816
+East Wing of the {CCrystal Temple{x~
+You are standing in the east wing of the {CCrystal Temple{x.
+There is a door to the north, that looks like it could 
+lead to a bedroom. The hallway continues east just a short 
+distance, and west back to the foyer.
+~
+0 D 0
+D0
+That could be a bedroom.
+~
+door~
+1 -1 9819
+D1
+To the end of the east wing.
+~
+~
+0 -1 9817
+D3
+Back to the foyer.
+~
+~
+0 -1 9815
+E
+door bedroom~
+The door infront of you looks like 
+it could lead to a bedroom. Wonder
+who sleeps there.
+~
+S
+#9817
+East Wing of the {CCrystal Temple{x~
+You are standing at the far end of the east wing.
+There is a door to the north that looks like it 
+could lead to a bedroom. The hallway ends here,
+but you can go back west towards the foyer.
+~
+0 D 0
+D0
+That looks like the door to a bedroom.
+~
+door~
+1 -1 9818
+D3
+Back down the hall.
+~
+~
+0 -1 9816
+E
+door~
+That could be the door to a private bedroom.
+I wonder who sleeps there.
+~
+S
+#9818
+Royal Bedroom~
+You are in the bedroom of a member of the royal
+family. This is large spacious room, there is 
+a window on the east wall, giving you a view of
+the plains around the temple. There is a canopy
+bed against the west wall, and a large walk in
+closet on the north end of the bedroom.
+~
+0 D 0
+D2
+Back to the east wing.
+~
+door~
+1 -1 9817
+E
+window stream~
+The window overlooks a beautiful stream in the
+plains around the temple. 
+~
+E
+bed canopy~
+This is a beautiful crystal canopy bed. It is 
+cover with soft blankets, and a soft matress.
+It is empty right now tho.
+~
+E
+closet~
+The closet is large, and filled with fine
+clothing. It looks to be female clothing,
+but who can tell with these Royals.
+~
+S
+#9819
+Servant's Bedroom~
+This is a smaller bedroom. It isnt very fancy at
+all. Tho, it's better that what you are used to 
+as and adventurer. There are no windows, a meager bed
+and a small rack that holds garments.
+~
+0 D 0
+D2
+Back to the hallway.
+~
+door~
+1 -1 9816
+E
+bed~
+The bed is more like a plain cot.
+~
+E
+rack~
+A simple rack holding clothing.
+~
+S
+#9822
+West Wing in the {CCrystal Temple{x~
+This is the west wing. The walls are decorated
+similar to the walls in the foyer. To the north
+of you is a door. The west wing ends just a little
+farther to the west, and the hall continues back
+to the foyer.
+~
+0 D 0
+D0
+Bedroom Door
+~
+door~
+1 -1 9820
+D3
+To the end of the west wing.
+~
+~
+0 -1 9823
+D1
+To the foyer
+~
+~
+0 -1 9815
+E
+door~
+This door could lead to a bedroom.
+~
+S
+#9823
+West Wing in the {CCrystal Temple{x~
+This is the end of the west wing.
+There is a door to the north of you.
+And the hallways leads back east towards
+the foyer.
+~
+0 D 0
+D0
+Bedroom door
+~
+door~
+1 -1 9821
+D1
+East towards the foyer
+~
+~
+0 -1 9822
+E
+door~
+A nice looking door
+~
+S
+#9821
+Royal Bedroom~
+This is an enormous bedroom. There are
+amazing carvings made of crystal all around.
+There is a large soft bed, that looks like
+it's usual occupant is quite large, judging
+by the indent in the mattress. There is a 
+large closet filled with clothing fit for
+only a King.
+~
+0 D 0
+D2
+South to the west wing
+~
+door~
+1 -1 9823
+E
+bed~
+This large bed seems to have an even larger occupant.
+Tho he isnt here right now. That is a relief.
+~
+E
+closet~
+A large walk in closet. It is filled with the King's
+Royal wardrobe.
+~
+E
+carving carvings~
+The carvings are of elk, and moose and other royal game.
+Quite nice work.
+~
+S
+#9820
+Servant's Bedroom~
+This is a smaller bedroom. It isnt very fancy at
+all. Tho, it's better that what you are used to 
+as and adventurer. There are no windows, a meager bed
+and a small rack that holds garments.
+~
+0 D 0
+D2
+Back to the hallway.
+~
+door~
+1 -1 9822
+E
+bed~
+The bed is more like a plain cot.
+~
+E
+rack~
+A simple rack holding clothing.
+~
+S
+#9824
+The {YThrone {xRoom~
+This is the lavishly decorated throne room.
+There are two large golden thrones at the north end.
+The King and Queen are not here. They must be somewhere
+else within the temple. There also appears to be a strange
+gap behind the thrones.
+~
+0 D 0
+D0
+There seems to be a passage behind the throne.
+~
+passage door~
+0 -1 9825
+D2
+Back to the foyer.
+~
+~
+0 -1 9815
+E
+throne thrones~
+The thrones are massive, covered in purple velvet.
+They appear to be made of gold and crystal.
+~
+E
+king queen~
+The King and the Queen are not here. Look somewhere else
+for them. Maybe there is something behind the throne.
+~
+S
+#9825
+The secret passage~
+You are behind the throne room in a secret passage.
+The room is rather plain compared to the rest of the temple.
+There are doors to the east and west of you.
+You can also go back south into the throne room.
+~
+0 AD 0
+D2
+South to the throne room.
+~
+~
+0 -1 9824
+D1
+There is a door to the east.
+~
+~
+1 -1 9826
+D3
+There is a door to the west.
+~
+~
+1 -1 9827
+E
+door~
+They are doors. Try going through them, you'll find out more.
+~
+S
+#9826
+The Queen's Private Study~
+This is the Queen's private study. It is filled with
+amazing things of great wealth. There is a large desk where
+the Queen is usually found working away. Maps of the temple
+and surrounding lands fill the walls.
+~
+0 D 0
+D3
+The door leads back west.
+~
+~
+1 -1 9825
+E
+map maps~
+There are large detailed maps all over the walls.
+~
+E
+desk~
+This is a large desk that the Queen uses for her studies.
+~
+E
+things thing wealth~
+There are nice exotic items here. Most likely souveniers from
+surrounding kingdoms.
+~
+S
+#9827
+The King's Private Study~
+You have found the King's private study. This
+is where the King spends most of his day. He writes
+laws from here, and rules his kingdom from this room 
+in his temple.
+~
+0 D 0
+D1
+East to the secret passage
+~
+~
+1 -1 9825
+E
+desk~
+This is a large desk the King uses for his work.
+~
+E
+laws~
+All your base are belong to us!
+~
+S
+
+#0
+
+#RESETS
+
+M 0 9808 1 9827 1 * King into Kings Study
+G 0 9803 1        * Crown
+E 0 9803 1 6      * wear on head
+G 0 9805 1        * Power gem
+M 0 9807 1 9826 1 * Queen into Queens Study
+G 0 9804 1        * scepter
+E 0 9804 1 16     * wield
+M 0 9800 1 9800 1 * Gatekeeper at Gate
+G 0 9800 10       * Key for gatekeeper
+M 0 9801 10 9801 1 * Prince at entrance
+G 0 9801 19        * Crystal dagger
+E 0 9801 10 16     * wield dagger
+M 0 9801 10 9802 2 * Prince in courtyard
+G 0 9801 19        * Crystal dagger
+E 0 9801 10 16     * wield dagger
+M 0 9801 10 9806 3 * Prince in courtyard
+G 0 9801 19        * Crystal dagger
+E 0 9801 10 16     * wield dagger
+M 0 9801 10 9809 1 * Prince in courtyard
+M 0 9801 10 9811 2 * Prince in courtyard
+M 0 9801 10 9804 1 * Prince in courtyard
+G 0 9801 19        * Crystal dagger
+E 0 9801 10 16     * wield dagger
+M 0 9802 10 9801 1 * Princess at entrance
+G 0 9802 19        * Crystal wristguards
+E 0 9802 10 14     * wristguards on left wrist
+M 0 9802 10 9807 2 * Princess in courtyard
+M 0 9802 10 9810 3 * Princess in Courtyard
+G 0 9802 19        * Crystal wristguards
+E 0 9802 10 14     * wristguards on left wrist
+M 0 9802 10 9805 3 * Princess in Courtyard
+M 0 9802 10 9803 1 * Princess in Courtyard
+G 0 9802 19        * Crystal wristguards
+E 0 9802 10 14     * wristguards on left wrist
+M 0 9803 9 9812 2 * Royal Guard at temple entrance
+M 0 9803 9 9815 2 * Royal guard in foyer
+M 0 9803 9 9822 1 * Royal Guard in west wing
+M 0 9803 9 9816 1 * Royal Guard in east wing
+M 0 9803 9 9825 2 * Royal Guard in secret room
+M 0 9803 9 9824 1 * Royal Guard in throne room
+M 0 9804 2 9824 1 * Advisor in throne room
+M 0 9804 2 9827 1 * Advisor with king
+M 0 9805 3 9819 1 * Bribe servant in east bedroom
+M 0 9805 3 9807 1 * Bribe servant at fountain
+M 0 9805 3 9827 1 * bribe servant in west wing
+M 0 9806 6 9816 1 * Servant in east wing
+M 0 9806 6 9817 1 * Servant in east wing
+M 0 9806 6 9826 1 * Servant with Queen
+M 0 9806 6 9806 2 * Servant in courtyard
+M 0 9806 6 9808 1 * Servant in Courtyard
+O 0 9806 1 9807 * Fountain in courtyard
+D 0 9800 0 2 * Lock gate
+D 0 9801 2 2 * Lock gate
+D 0 9816 0 1 * close bedroom door
+D 0 9819 2 1 * close bedroom door
+D 0 9817 0 1 * close bedroom door
+D 0 9818 2 1 * close bedroom door
+D 0 9822 0 1 * close bedroom door
+D 0 9820 2 1 * close bedroom door
+D 0 9823 0 1 * close bedroom door
+D 0 9821 2 1 * close bedroom door
+D 0 9825 1 1 * close door to queen
+D 0 9825 3 1 * close door to king
+D 0 9826 3 1 * close door to secret
+D 0 9827 1 1 * close door to secret
+S
+
+#SHOPS
+0
+
+#SPECIALS
+
+M 9802 spec_cast_mage * Princess
+M 9804 spec_cast_mage * Advisor
+M 9807 spec_cast_mage * Queen
+M 9808 spec_cast_cleric * King
+M 9806 spec_nasty  * non bribe servant
+S
+#$
+
+
+

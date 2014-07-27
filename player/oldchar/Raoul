@@ -1,0 +1,77 @@
+#PLAYER
+Name Raoul~
+Id   1009859442
+LogO 1009860494
+Vers 9
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race dragon~
+Sex  1
+Cla  0
+Levl 1
+Plyd 843
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3021
+HMV  20 20 100 100 29 100
+Gold 3
+Silv 542
+Exp  1250
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cnsr AB
+Pos  8
+Prac 5
+Trai 3
+Alig  0
+ACs 100 100 100 100
+Atrib 17 18 15 13 17 10
+AtMod 0 0 0 0 0 0
+Pass tamdinh~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 15
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Montrey~
+Lsit AC8A460A.ipt.aol.com~
+Ltim Mon Dec 31 22:34:09 2001
+~
+LSav Mon Dec 31 22:48:14 2001
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  B
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 0 29 30
+Sk 1 1 'acid breath'
+Sk 1 1 'fire breath'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'lightning breath'
+Sk 40 1 'dagger'
+Sk 1 1 'brew'
+Sk 1 1 'bash'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'draconian'
+End
+
+#END

@@ -1,0 +1,84 @@
+#PLAYER
+Name Alphamage~
+Id   1005703141
+LogO 1005703899
+Vers 8
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race human~
+Sex  2
+Cla  2
+Levl 1
+Plyd 670
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3001
+HMV  20 20 100 100 55 100
+Gold 0
+Silv 3
+Exp  1057
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm NO
+Revk 0
+Pos  8
+Prac 5
+Alig  -750
+Hit   3
+Dam   5
+ACs 100 100 100 100
+Atrib 13 14 14 16 14 13
+AtMod 0 0 0 0 0 0
+Pass druid~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Muaddib~
+Lsit c1631351-a.stcla1.sfba.home.com~
+Ltim Tue Nov 13 20:00:27 2001
+~
+LSav Tue Nov 13 20:11:39 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  F
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 3 0 33
+Sk 40 1 'dagger'
+Sk 1 1 'mace'
+Sk 1 1 'sword'
+Sk 1 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'hide'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+Affc 'blood moon'   0  60  58   3  18          0 1
+Affc 'blood moon'   0  60  58   5  19          0 1
+End
+
+#END

@@ -1,0 +1,1216 @@
+#AREA
+bluerose.are~
+Castle BlueRose~
+{H{{CLANS} {MKungFusmurf {TCastle BlueRose~
+24400 24599
+
+#MOBILES
+
+#24451
+Guard~
+Blue Rose Guard~
+A Guardian of the {BBlue {TRose{x.
+~
+This warrior has seen alot from the looks of things, they seem to
+have killed before. The drawn swords and large shields seem to 
+indicate they may do it again.
+~
+human~
+BGTU FJPQVcc 0 S
+91 50 1d50+7950 1d50+200 1d1+50 chop
+-60 -60 -60 -60
+CFIUL ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+
+
+#24454
+sally owens healer~
+Sally Owens~
+Sally Owens smiles at you knowingly.
+~
+This beautiful, dark-haired lady stands here with her collection of herbs 
+and potions. It is also said that she has a gift... the gift of magick.
+~
+super~
+BGQZa DFHJNZ 1000 S
+145 80 1d1+9998 1d1+9998 1d1+80 beating
+-90 -90 -90 -90
+EFKH ABCD 0 0
+stand stand female 0
+0 0 huge 0
+
+#24455
+sergeant zim trainer~
+Sergeant Zim~
+Sergeant Zim is going to make a soldier out of you or kill you trying.
+Perhaps even both.
+~
+Looking neat and immaculate in his black uniform, this big, mean-looking man is
+the very picture of a proper, efficient soldier. For some reason, though, he 
+doesn't look very happy to see you. You catch the occasional scathing comment 
+about the apes he is stuck having to babysit.
+~
+superhuman~
+BGJKZb DFJHZ 1000 S
+91 80 1d1+9998 1d1+9998 1d1+80 hit
+-80 -80 -80 -80
+CDEFHIKQL ABCD 0 0
+stand stand male 0
+0 0 huge 0
+
+#24456
+zoltek dwarf armorer~
+Zoltek~
+Zoltek, an ancient dwarf, stands here pondering at new ideas.
+~
+Zoltek has been forging items ever since he was a young dwarf, some 600
+years ago.  
+~
+dwarf~
+BGT DFIJ 1000 S
+91 80 1d1+9998 1d1+9998 1d1+80 hit
+-80 -80 -80 -80
+CDEFHIKQL ABCD 0 0
+stand stand male 0
+0 0 huge 0
+
+#24459
+Apparition of a past god~
+Apparition Of A Past God~
+An appariton of a past god doesn't seem to notice you enter.
+~
+This man does not seem to notice you, but keeps working on his decors.
+He looks as if he has god given talents.
+~
+human~
+ABG 0 0 S
+15 3 1d1+10 1d1+10 1d1+10 punch
+0 0 0 0
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#24461
+little spirit~
+The {WL{Bi{Wt{Bt{Wl{Be {WSpirit{x~
+A {WL{Bi{Wt{Bt{Wl{Be {WSpirit{x is boldly peeking back at you.
+~
+You see a teeny tiny {WL{Bi{Wt{Bt{Wl{Be {WSpirit{x boldly peeking back at you.
+~
+elf~
+BGZ DF 1000 S
+100 54 1d1+20000 1d1+20000 1d1+50 slap
+-10 -10 -10 -10
+CFHKO ABCD 0 0
+stand stand female 0
+0 0 small 0
+
+#24462
+large wolf~
+A large wolf~
+A large wolf is peacefully asleep in front of the {Pfire{xplace.
+~
+You see a large wolf, who seems to be peacefully asleep infront of the {Pfire{xplace.
+~
+wolf~
+BGZ DF 1000 S
+100 54 1d1+20000 1d1+20000 1d1+50 slap
+-10 -10 -10 -10
+CFHKO ABCD 0 0
+sleep sleep male 0
+0 0 large 0
+
+#24473
+old mage koontz~
+Old Mage Koontz~
+Old Mage Koontz holds his finger up to his lips signaling for you to be quiet.
+~
+Here stands a wiry old man, his beard barely that of what you would think
+a mage's should be. His Fiery red robe flows around him. You notice a
+ring on his finger, it has a flame pictured on it. You look into his
+gray eyes coming to realize that this man had once been of a group
+of very powerful mages. There are books scattered about around him.
+~
+Superhuman~
+BGR DFH 1000 S
+75 10 33d30+4400 33d30+4400 7d8+21 flame
+-30 -30 -30 -30
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+
+#0
+
+#OBJECTS
+
+#24400
+tabi traveller~
+{MT{Vab{Mi {Rof {Gthe {NT{Br{Ca{Wvel{Cl{Be{Nr{x~
+These split-toed boots look quite colourful.~
+leather~
+armor ABS AG
+6 6 6 5 0
+20 2 2000 P
+A
+13 20
+A
+18 2
+A
+19 2
+A
+5 2
+A
+17 -1
+A
+9 -1
+E
+eqstat~
+Boots of the Blue Rose
+stock: 4 points
+bought: 2 points
+
+2 points: +20 hp
+2 points: +2 hit/+2 dam
+2 points: +2 con
+0.5 points: -1 ac
+= 4.5 points
+
+-1 point: -1 age
+= -0.5 points
+~
+E
+tabi traveller~
+These colourful split-toe boots look sleek and rugged, perfect
+for travel.
+~
+
+#24401
+sleeves destiny travels~
+{cS{gl{Weev{ge{cs of {MD{Ve{Wsti{Vn{My's {NT{Br{Ca{Wv{Ce{Bl{Ns{x~
+Some sleeves lie here.~
+destiny~
+armor ABS AI
+6 6 6 5 0
+20 2 2000 P
+A
+13 20
+A
+18 2
+A
+19 2
+A
+3 2
+A
+17 -1
+A
+9 -1
+E
+eqstat~
+Sleeves of Spirituality
+stock: 4 points
+bought: 2 points
+
+2 points: +20 hp
+2 points: +2 hit/+2 dam
+2 points: +2 int
+0.5 points: -1 ac
+= 6.5 points
+
+-1 point: -1 age
+= -0.5 points
+~
+
+#24402
+wizardly illumination~
+{NW{Bi{Cz{War{Cd{Bl{Ny {MIl{Vlu{Wmina{Vti{Mon{x~
+A light hovers here.~
+light~
+light AB AO
+0 0 -1 0 0
+30 3 3000 P
+A
+13 30
+A
+18 3
+A
+19 3
+A
+17 -1
+A
+9 -1
+E
+eqstat~
+Wizardly Illumination
+stock: 5 points
+bought: 1 point
+
+3 points: +30 hp
+3 points: +3 hit/+3 dam
+0.5 points: -1 ac
+= 6.5 points
+
+-1 point: -1 age
+= -0.5 points
+~
+
+#24403
+focus discipline~
+{RF{Po{Wc{Pu{Rs and {cDi{gsc{Wip{gli{cne{x~
+Focus and discipline floats here.~
+discipline~
+armor ABS AQ
+10 10 10 9 0
+30 3 3000 P
+A
+13 30
+A
+18 3
+A
+19 3
+A
+17 -1
+A
+9 -1
+E
+eqstat~
+Focus and Discipline
+stock: 5 points
+bought: 1 point
+
+3 points: +30 hp
+3 points: +3 hit/+3 dam
+0.5 points: -1 ac
+= 6.5 points
+
+-1 point: -1 age
+= -0.5 points
+~
+
+#24404
+talons black thorn~
+{MT{Va{Wlo{Vn{Ms of the {cB{gl{Wa{gc{ck {cT{gh{Wo{gr{cn{x~
+These black gloves look as deadly as they do beautiful.~
+iron~
+armor AB AH
+10 10 10 9 0
+30 3 3000 P
+A
+13 30
+A
+18 3
+A
+19 3
+A
+17 -1
+A
+9 -1
+E
+eqstat~
+Talons of the black thorn
+stock: 5 points
+bought: 1 point
+
+3 points: +30 hp
+3 points: +3 hit/+3 dam
+0.5 points: -1 ac
+= 6.5 points
+
+-1 point: -1 age
+= -0.5 points
+~
+E
+talons black thorn~
+These gloves have claws at the tips of the fingers -- perfect for grasping 
+objects...or rending flesh and steel!
+~
+
+#24405
+medallion blue rose~
+{HMe{Gda{Wl{Gli{Hon of {Nt{Bh{Ne B{Blu{Ne R{Bos{Ne{x~
+A medallion lies here.~
+metal~
+armor AB AC
+13 13 13 12 0
+40 4 4000 P
+A
+5 1
+A
+13 40
+A
+18 4
+A
+19 4
+A
+20 -1
+A
+9 -2
+A
+4 1
+E
+eqstat~
+Medallion of the Blue Rose
+stock: 6 points
+bought: 4 points
+1 point: +1 wisdom
+4 points: +40 hp
+4 points: +4 hit/+4 dam
+1 point: -1 saves
+1 point: +1 con
+= 11 points
+
+-2 points: -2 age
+= -1 points
+~
+
+#24406
+honour first prince~
+{RH{Po{Wno{Pu{Rr of the {HF{Gi{Wr{Gs{Ht {NP{Br{Cin{Bc{Ne{x~
+A bracer radiates power here.~
+iron~
+armor AB AM
+13 13 13 12 0
+40 4 4000 P
+A
+13 40
+A
+18 4
+A
+19 4
+A
+20 -1
+A
+9 -2
+E
+eqstat~
+Smurf Bracer
+stock: 6 points
+bought: 2 points
+
+4 points: +40 hp
+4 points: +4 hit/+4 dam
+1 point: -1 saves
+= 9 points
+
+-2 points: -2 age
+= -1 points
+~
+E
+honour first prince~
+Designed by Prince Brian himself, this beautiful bracer reflects
+all the {Rc{Mo{Vl{Bo{Nu{Cr{Ts{x in the {Gr{Ha{bi{Yn{Pb{Ro{Mw{x.
+~
+
+#24407
+boots elvish stealth~
+{HB{Go{Wo{Gt{Hs of {ME{Vl{Wvi{Vs{Mh {cS{gt{Weal{gt{ch{x~
+These black boots appear to be of elvish design.~
+stealth~
+armor ABS AG
+16 16 16 15 0
+50 5 5000 P
+A
+13 50
+A
+18 5
+A
+19 5
+A
+20 -1
+A
+9 -2
+E
+boots elvish stealth~
+Designed by Queen Buttercup's true love, these sleek, black boots are also 
+quite rugged in design.
+~
+E
+eqstat~
+Boots of Stealth
+stock: 7 points
+bought: 3 points
+
+5 points: +50 hp
+5 points: +5 hit/+5 dam
+1 point: -1 saves
+= 11 points
+
+-2 points: -2 age
+= -1 point
+~
+
+#24408
+combat fatigues~
+{NC{Bo{Cmb{Ba{Nt F{Ba{Ct{Wig{Cu{Be{Ns{x~
+Some fatigues lie here.~
+steel~
+armor AB AF
+20 20 20 19 0
+60 6 6000 P
+A
+13 60
+A
+18 6
+A
+19 6
+A
+17 -1
+A
+20 -2
+A
+9 -3
+E
+eqstat~
+Combat Fatigues
+stock: 8 points
+bought: 5 points
+
+6 points: +60 hp
+6 points: +6 hit/+6 dam
+2 points: -2 saves
+0.5 points: -1 ac
+= 13.5 points
+
+-3 points: -3 age
+= -1.5 points
+~
+
+#24409
+signet guardian~
+{HS{Gi{Wgn{Ge{Ht of {Nt{Bh{Ne G{Bu{Ca{Wrd{Ci{Ba{Nn{x~
+A signet ring lies here.~
+steel~
+armor AB AB
+20 20 20 19 0
+60 6 6000 P
+A
+13 60
+A
+18 6
+A
+19 6
+A
+17 -1
+A
+20 -2
+A
+9 -3
+E
+eqstat~
+Signet of the Guardian
+stock: 8 points
+bought: 5 points
+
+6 points: +60 hp
+6 points: +6 hit/+6 dam
+2 points: -2 saves
+0.5 points: -1 ac
+= 13.5 points
+
+-3 points: -3 age
+= -1.5 points
+~
+
+#24410
+blue beret~
+{NB{Blu{Ne B{Be{Cr{Be{Nt{x~
+A {NB{Blu{Ne B{Be{Cr{Be{Nt{x with the insignia of the Order of the Blue Rose.~
+felt~
+armor ABS AE
+10 10 10 9 0
+30 5 3000 P
+A
+13 30
+A
+18 3
+A
+19 3
+A
+17 -1
+A
+14 -30
+A
+5 1
+A
+3 1
+E
+eqstats~
+Blue Beret
+stock: 5 points
+bought: 2 points
+
+3 points: +30 hp
+3 points: +3 hit/dam
+0.5 points: -1 ac
+1 point:  +1 int
+1 point:  +1 con
+= 8.5 points
+-1.5 points = -30 stamina
+= 5 points
+~
+E
+blue beret~
+This blue beret has the insignia of the Order of the Blue Rose. As you put 
+it on, you feel a rising of your spirits, making you feel like a tough, 
+brute soldier.
+~
+
+#24411
+pair hakama shimmering~
+{MSh{Vim{Wme{Vri{Mng {cH{ga{Wka{gm{ca{x~
+A pair of {ch{ga{Wka{gm{ca {Ms{Vh{Wimm{Ve{Mr{x here.~
+cloth~
+armor ABS AF
+10 10 10 10 0
+30 10 3000 P
+E
+eqstats~
+Stock:  5 points
+Bought: 3 points
+
+3 points:  +30 hp
+3 points:  +3 hit/dam
+0.5 points:  -1 ac
+1 point:  +1 con
+1 point:  +1 str
+1 point:  +1 dex
+= 9.5 points
+
+-1.5 points:  -30 stamina
+= 5 points
+~
+E
+hakama shimmering~
+These pleated, skirt-like trousers look to be both attractive and 
+functional as they shimmer blackly in the light.
+~
+A
+14 -30
+A
+17 -1
+A
+13 30
+A
+18 3
+A
+19 3
+A
+1 1
+A
+2 1
+A
+5 1
+
+#24412
+buttercup seal allegiance~
+{NB{Bu{Ct{Wter{Cc{Bu{Nps {cS{gea{cl of {RAl{Ple{Wgi{Pan{Rce{x~
+Buttercups Seal of Allegiance is here.~
+gold~
+armor AB AB
+11 11 11 10 0
+40 3 3000 P
+A
+9 -4
+A
+18 4
+A
+19 4
+A
+20 -1
+E
+eqstat~
+Buttercups Seal of Allegiance
+Stock 6 points
+~
+
+
+#24466
+tree bush~
+A {GTree{x in the {GGarden{x~
+There is a {Gtree{x here, growing fruits for the DizzyKnights.~
+wood~
+container G 0
+400 0 0 600 1
+1 999 50 P
+E
+fruits~
+You get dizzy as you look up into the tree.  However, you do see some
+goodies to grab!
+~
+
+#24467
+cranberry~
+{Pcranberry{x~
+There is a {Pcranberry{x here.~
+fruit~
+pill GI A
+15 'shield' 'haste' 'giant' 'frenzy'
+15 1 0 P
+
+#24468
+ambrosia~
+{YAmbrosia{x~
+The fruit of the gods lies here, for you to pick!~
+fruit~
+pill GI A
+15 'sanctuary' 'flameshield' 'armor' 'stone'
+15 1 0 P
+
+#24469
+glade~
+the clear {GGlade{x~
+A relaxing {GGlade{x is here for you to rest in.~
+grass~
+furniture SG 0
+20 20000 IFL 150 150
+1 9999 9999 P
+
+#24470
+fountain~
+{WA {YGolden{W Fountain{x~
+There is a {YGolden {Wfountain {x here, flowing with fruit juice.~
+gold~
+fountain BOT 0
+5000 5000 'cranberry juice' 0 0
+0 500 50 P
+
+#24472
+orb imperial wisdom leadereq~
+{CO{Wr{Cb {Yof {NI{Bm{Cp{Wer{Ci{Ba{Nl {HW{Gi{Wsd{Go{Hm{x~
+A lantern with the crest of the {BBlue {TRose{x lies here.~
+silver~
+light ABGORTY AO
+0 0 -1 0 0
+50 0 8000 I
+A
+1 1
+A
+3 3
+A 
+4 1
+A
+5 3
+A
+12 40
+A
+13 60
+A
+18 5
+A
+19 5
+A
+17 -23
+
+
+#24473
+chair~
+A chair~
+A chair is here for you to rest in if you so {Td{Ce{Ts{Ci{Tr{Ce{x.~
+wood~
+furniture O P
+4 0 EHK 100 200
+1 100 10 P
+
+#24474
+elixir potion healing~
+A healing potion~
+A potion of healing.~
+glass~
+potion 0 A
+15 'cancel' 'slow' 'regen' 'cure crit'
+15 6 10 P
+
+#24481
+enlightened pedestal~
+An Enlightened Pedestal~
+An Enlightened Pedestal is here, warm to the touch.~
+stone~
+furniture A 0
+3 0 BEHKN 150 150
+15 0 7 I
+
+#24482
+fountain~
+Everful Fountain~
+A table with an everful cup of wine on it stand to the right of the stairwell.~
+stone~
+fountain A 0
+0 0 'red wine' 0 0
+0 320 7 P
+E 
+fountain table cup~
+The cup on the table contains magnificent wine.
+~
+#24483
+pill godly gift~
+Godly Gift~
+A small pill sits here looking somewhat holy.~
+power~
+pill AB AO
+15 'shield' 'stone' 'armor' 'flameshield'
+15 1 1 P
+
+#24491
+portal catapult pirate cave~
+catapult to pirate cave.~
+This Catapult seems to be aimed at the Pirate Cave.~
+wood~
+portal 0 0
+0 0 A 4400 0
+0 0 0 P
+#24492
+portal catapult chessboard~
+catapult to chessboard~
+This Catapults seems to be aimed at the Chessboard.~
+wood~
+portal 0 0
+0 0 A 29904 0 
+0 0 0 P
+
+#24493
+portal catapult oran~
+catapult to Oran~
+This Catapult seems to be aimed at the Ruins Of Oran.~
+wood~
+portal 0 0
+0 0 A 5600 0
+0 0 0 P
+
+#24494
+anvil private dizzy~
+Dizzyknight anvil~
+The {WDizzy{MKnight{x Anvil is sitting here in the center of the room.~
+steel~
+anvil 0 0
+0 3 1 0 3
+0 0 0 P
+
+
+
+
+
+#0
+
+#ROOMS
+
+#24451
+{BT{Th{We {BG{Ta{Wt{Be{Ts{x~
+You stand before the {BO{Tr{Wd{Be{Tr {Wo{Bf {Tt{Wh{Be {TB{Wl{Bu{Te {WR{Bo{Ts{We{x.  
+You see before you the imposing gates, which lead southward 
+into the castle itself. There is a road following the moat to the
+east which appears to run around the castle. Above the
+gates is the crest of the order: A {BBlue {x rose perched upon a shield.
+Below the crest is a silverly white banner with the words: 
+{W"Our Final Heaven"{x   
+~
+0 0 2
+C order~
+D0
+The path to the north leads back into the dwarf forest.
+~
+~
+1 -1 24452 
+D3
+~
+~
+0 -1 24452
+D1
+~
+~
+0 -1 24452
+D2
+~
+~
+0 -1 24453
+S
+
+#24452
+{BBefore {Tthe {Whall {Tof {BHeroes{x~
+You stand before the Hall of Heros.  Off in the distance you can see the
+personal residences of the {BKnights{Tof {Wthe{BBlue {TRose{x .... Quite 
+impressive, even from a distance!
+~
+0 0 2
+C order~
+D3
+~
+~
+0 -1 24451
+D2
+~
+~
+0 -1 24462
+S
+
+#24453
+{BThe Entrance Hall{x~
+You enter into a darkened room. In the distance you see the flicker of a dim 
+{BBlue {xlight. To the east and west are fields of {Bblue {xroses. 
+To the south lies the Tomb of Lady Butter Cup. 
+~
+0 D 0
+C order~
+D0
+~
+~
+0 -1 24451
+D1
+~
+~
+0 -1 24454
+D2
+~
+~
+0 -1 24457
+D3
+~
+~
+0 -1 24455
+S
+
+#24454
+The {BGarden{x~
+You stand in a field of {BBlue{xroses, how did they come to be in such
+a terrible climate? It is unknown...  As you stand in the roses, you see several trees and bushes bearing some {Todd{x-looking fruits!
+~
+0 K 2
+C order~
+D1
+~
+~
+0 0 24469
+D3
+~
+~
+0 -1 24453
+E
+roses~
+The roses fleet into the sky, as the wind howls
+~
+S
+
+#24455
+The {BGarden{x~
+You stand in a field of {BBlue{xroses, how did they come to be in such
+a terrible climate? It is unknown...  As you stand in the roses, you see several 
+trees and bushes bearing some {Todd{x-looking fruits!  
+You hear sighs of moans coming from the west.
+~
+0 K 2
+C order~
+D3
+~
+~
+0 -1 24456
+D1
+~
+~
+0 -1 24453
+E
+roses~
+The roses fleet into the sky, as the wind howls
+~
+S
+
+#24456
+{HW{Gi{Wcc{Ga{Hn {RS{Ph{Wop{Pp{Re of {HH{Ge{Wr{Gb{Hs and {NM{Be{Cd{Wic{Ci{Bn{Ne{x~
+This bright, airy shop is stocked with herbs, potions and anything else you could
+Think of to heal the body, mind and spirit. At a corner of the shoppe, a bush grows
+beautiful {Nb{Blu{Ne r{Bo{Cs{Be{Ns{x. The proprietress stands here, waiting for your request.
+~
+0 K 2
+C order~
+D0
+~
+~
+0 -1 24473
+D1
+~
+~
+0 -1 24455
+E
+rose bush~
+Including the pot, this beautifully tended houseplant stands about a metre tall -- a
+perfect touch for this place. {NB{Blu{Ne r{Bo{Cs{Be{Ns{x grow abundantly here, their
+fragrance melding with those of the myriad other herbs and medicines here... a
+delight to the senses!
+~
+S
+
+#24457
+{BThe Tomb of the Fallen{x~
+You stand and gaze in wonder and fear at the large glass chamber
+in the middle of the room. The once beautiful princess lies in a solem silence
+in her final heaven. Underneath her lie hundreds of {BBlue{x roses, which fleet into
+the air as the wind howls a chilling scream. To the east you hear the crys and shrills of steel. {xTo
+the west, you see a once soulful man lie sad and silent. 
+~
+0 KD 0
+C order~
+D0
+~
+~
+0 -1 24453
+D1
+~
+~
+0 -1 24458
+D2
+~
+~
+0 -1 24460
+D3
+~
+~
+0 -1 24459
+D4
+~
+~
+0 0 24466
+S
+
+#24458
+The {BBlue {TRose {PB{Rl{Pa{Rc{Pk{RS{Pm{Ri{Pt{Rh {x~
+{xThis room smells on materials used to forge weapons,
+and armors. Steel, Iron, mithril, tin, gold, and adamantite 
+objects line the cold stone walls. Strange {BBlue Prints{x 
+sit upon a desk in the far corner of the room, all strange 
+designs of new weapons and new armors...
+~
+0 KD 0
+C order~
+D2
+~
+~
+0 0 24472
+D3
+~
+~
+0 -1 24457
+S
+
+#24459
+{NT{Ba{Crm{Ba{Nc{x~
+Under the sharp, critical scrutiny of the drill instructors, recruits putting
+in their various services for the {NO{Br{Cd{Be{Nr of the B{Blu{Ne R{Blu{Ne{x practise
+an endless variety of skills, from armed and unarmed combat to improvised weaponry;
+knife-throwing, magic, brewing, scribing and stealth manoeuvres to name but a few.
+For a very few truly brave souls, Sergeant Zim is here to offer more personal
+instruction. This skilled, dedicated craftsman never seems to crack a smile,
+though; as he catches your eye he barks out a command to fall in with the other
+apes.
+~
+0 KD 0
+C order~
+D1
+~
+~
+0 -1 24457
+S
+
+#24460
+{TThe Order of the {BBlue {TRose{x~
+You stand before a giant table, where many descions of {Pwar
+{xand {Rtrade{x are made. At the end of this hall there is a picture
+of the good lady {Ybuttercup {xin her fine {Ycrown {xand bright {Bblue 
+{xdress.{B Memorys{X fade into {Treality{x as you gaze into those 
+beautiful {Bblue{x eyes... Why are the ones so needed taken
+so soon?
+~
+0 KD 0
+C order~
+D0
+~
+~
+0 -1 24457
+D4
+~
+~
+0 0 24470
+S
+
+#24462
+Hall of Heroes~
+This road leads to the personal manors of the Lords of the Order of the
+{BBlue {TRose{x.
+~
+0 0 2
+C order~
+D0
+~
+~
+0 -1 24452
+E
+~
+~
+S
+
+#24466
+Banon's Room Of Guard~
+As you enter, you hear a gentle lute musique from the walls. In this room
+you feel VERY safe. There are twin altars at each side of the room and a
+giant pedestal at the front. You can make out a figure in the back of the
+room that keeps a close eye on you but does not seem to pose a threat. He
+seems to be creating an endless amount of emblems, crests and other
+decorations to increase the majesty of this place. As you approach the
+pedestal, a gentle light seems to fill the area.
+~
+0 DK 0
+C order~
+D5
+stairwell down to the hall of knights.
+~
+~
+0 0 24457
+S
+
+#24469
+The {BBlue {xRose Catapults{x~
+Upon entering this room you {Bmarvel{x at the three extremely large {Bcatapults{x 
+drawn taut, facing different directions in the room. You conclude that they 
+launch {BBlue {xRose Knights all over {GThera{x. You wonder what sort of wild ride 
+they will offer as you tentatively approach one. 
+~
+0 DKS 0
+C order~
+D3
+~
+~
+0 0 24454
+S
+
+#24470
+{WThe {TOrder {Bof {Tthe {WRoses{x ~
+This room leads off in all directions, each exit has a different colored rose incrested
+above it. The smell in this room is wonderful and the air is thick with the sweet smell
+of different roses.{x
+~
+0 DKS 0
+C order~
+D5
+~
+~
+0 0 24460
+D4
+~
+~
+0 0 24471
+S
+
+#24471
+The {BBlue {TRose{x {PStairway{x ~
+Up and down, all around, {BBlue {TRoses{x abound! Look {Wup{x! Look 
+{Gdown{x, {bEast{x, and {gWest{x, you will get no {Brest{x, the {Rstairs{x 
+keep {Wt{Pu{Yr{Gn{Ci{Bn{Vg{x and {Gt{Rw{bi{Ts{Pt{Wi{Mn{Cg{x, going and going, and 
+no one knows just where it's {Rgoing{x! 
+~
+0 DKS 0
+C order~
+D5
+~
+~
+0 0 24470
+S
+
+#24472
+{BBlue {TRose{x {PForging Hall{x~
+{xYour first impression of this room is the {Psearing {Rheat {xthat assults you as
+you enter. This is where many a {BBlue {TRose{x {xhas forged a weapon and made
+themselves legendary, not only as a renowned {GTheran {Wwarrior{x, but as a great
+weaponsmith as well. Shards of {gs{ct{ge{ce{gl, {ciron, {gadamantite, and other types
+of metal are strewn on the floor. The clan forge stands here, waiting to birth a new
+instrument of beauty...or of death. 
+~
+0 DKS 0
+C order~
+D0
+~
+~
+0 0 24458
+S
+
+#24473
+{RL{Pi{Rb{Pr{Ra{Pr{Ry{x~
+As you step through {Yw{bi{Yd{be {Ya{br{Yc{bh{Ye{bs {xleading into a
+library, your eyes widen at its sheer size. In the
+middle of the room stands a chair. This chair has a
+{Wwhite cushion {xwith a {Bb{Clu{Be r{Cos{Be {cembroidered{x on it. It is
+here for you to sit while you read if you so desire.
+There are shelves that reach high into the {Csky{x filled
+with books of all types. One modest-sized section
+holds {Vrecords{g dating back to times before the {NO{Br{Cd{Be{Nr of
+t{Bh{Ne B{Blu{Ne R{Bos{Ne {xcame into existence. Most the other books
+are either fiction or simply about cities, creatures,
+spells and world geography. Some even tell of myths that
+may actually be true; you never know.
+~
+0 K 0
+C order~
+D2
+~
+~
+0 -1 24456
+S
+
+#0
+
+
+#RESETS
+M 0 24451 12 24451 3     * Load Gaurd to the Moat
+M 0 24451 12 24451 3
+M 0 24451 12 24451 3
+M 0 24451 12 24452 3     * Load Gaurd to Before Manor Row
+M 0 24451 12 24452 3
+M 0 24451 12 24452 3
+M 0 24454 1 24456 1      * Load Father Spinn to the Sanctuary
+M 0 24455 1 24459 1      * Load Lord Whurl to the Training yard
+M 0 24456 1 24458 1      * Load Zoltek to the Armory
+G 0 24400 100            * level 20 boots
+G 0 24401 100            * level 20 sleeves
+G 0 24402 100            * level 30 ring
+G 0 24403 100            * level 30 floater
+G 0 24410 100            * level 30 hat
+G 0 24404 100            * level 30 gloves
+G 0 24405 100            * level 40 medallion
+G 0 24406 100            * level 40 bracer
+G 0 24407 100            * level 50 boots
+G 0 24408 100            * level 60 greaves
+G 0 24409 100            * level 60 ring
+G 0 24411 100            * level 30 rings
+O 0 24470 3 24454        * Load the Fountain to both gardens
+O 0 24470 3 24455
+O 0 24466 2 24454        * Load the trees to the garden 1
+P 0 24467 30 24466 1      * The tree bears cranberry
+P 0 24468 30 24466 1      * The tree bears ambrosia
+O 0 24469 1 24456        * load the glade to the sanctuary
+
+O 0 24491 1 24469        * portal to portal room
+O 0 24492 1 24469        *  "     "      "
+O 0 24493 1 24469        *  "     "      "
+O 0 24494 1 24472        * anvil to forge room
+
+M 0 24459 1 24466 1      * lesser god to Banon's room
+O 0 24481 1 24466        * pedestal to banon's room
+O 0 24482 1 24466        * fountain to banon's room
+O 0 24483 30 24466        * pill        "        " 
+
+M 0 24473 1 24473 1      * koontz to Malenna's room
+O 0 24473 1 24473        * chair
+O 0 24474 50 24473       * potion
+S
+
+#SHOPS
+
+24456 0 0 0 0 0  125 50 0 23                *Zoltec
+
+0
+
+#SPECIALS
+
+M 24456 spec_blacksmith   *Zoltek
+
+S
+
+#$
+

@@ -1,0 +1,359 @@
+#PLAYER
+Name Kelem~
+Id   1015301416
+LogO 1015387875
+Vers 12
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dwarf~
+Sex  1
+Cla  5
+Levl 8
+Plyd 10403
+Age  0
+Back 7247
+Note 1015379602 1015304955 1015387649 1015304955 1015304955 1015304955
+Scro 22
+Room 3054
+HMS  124 124 87 141 168 168
+Gold 32
+Silv 1799
+Exp  16287
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy JR
+FRes LQ
+FVul R
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 4
+Alig  1000
+ACs 59 55 54 93
+Atrib 17 14 20 11 19 17
+AtMod 1 4 4 2 0 3
+QuestPnts 2
+Pass tiger~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 57
+Rank ~
+Aura ~
+TSex 1
+LLev 2
+Deit Jubei~
+Lsit adsl-63-202-234-179.dsl.sndg02.pacbell.net~
+Ltim Tue Mar 05 21:22:13 2002
+~
+LSav Tue Mar 05 22:11:15 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 120 144 168
+THMS 0 0 0
+Cnd  0 12 14 36
+Alias cl c 'cure light'~
+Alias cs c 'cure serious'~
+Sk 75 1 'armor'
+Sk 75 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'continual light'
+Sk 75 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure critical'
+Sk 75 1 'cure light'
+Sk 76 1 'cure serious'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'fireproof'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 1 1 'vision'
+Sk 1 1 'mace'
+Sk 77 1 'sword'
+Sk 84 1 'shield block'
+Sk 1 1 'scribe'
+Sk 1 1 'berserk'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 76 1 'fast healing'
+Sk 1 1 'forge'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'paladin default'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'detection'
+Gr 'healing'
+Gr 'protective'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 97
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 114 15 0 0
+End
+
+#O
+Vnum 73
+Nest 1
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 2407
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 2401
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 2404
+Nest 0
+Cond 98
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 9521
+Nest 0
+Cond 96
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3022
+Nest 0
+Cond 77
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 9519
+Nest 0
+Cond 93
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 80
+Nest 0
+Cond 93
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 10126
+Nest 0
+Cond 95
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 2325
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 6646
+Nest 0
+Wear -1
+Time 698
+Cost 150
+Spell 1 'cure light'
+Spell 2 'armor'
+End
+
+#O
+Vnum 3115
+Nest 0
+Cond 97
+Wear 10
+Cost 660
+End
+
+#O
+Vnum 3053
+Nest 0
+Wear 13
+Cost 136
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 15
+Cost 112
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 14
+Cost 112
+End
+
+#END

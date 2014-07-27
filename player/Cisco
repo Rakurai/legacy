@@ -1,0 +1,259 @@
+#PLAYER
+Name Cisco~
+Id   998401944
+LogO 1020630385
+Vers 13
+Mexp 2
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race human~
+Sex  1
+Cla  3
+Levl 2
+Plyd 48835
+Back 0
+Note 1020584160 1020629210 1019757037 1020623661 1020218978 1013740277 1020275152
+Scro 22
+Room 1298
+HMS  35 35 102 102 124 124
+Gold 2
+Silv 727
+Exp  2914
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr B
+Pos  8
+Prac 3
+Trai 1
+Alig  503
+Hit   1
+ACs 96 96 96 100
+Atrib 16 13 16 13 13 13
+AtMod 1 2 3 1 0 2
+QuestPnts 9
+Pass 172839~
+Afk {B[{CSat May  4 11:14:14 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  = alloc_perm(sizeof(MY_BRAIN));~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 5
+Deit Vortayne~
+Lsit mke-24-209-140-211.wi.rr.com~
+Ltim Sun May 05 15:23:15 2002
+~
+LSav Sun May 05 15:26:25 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  BF
+HMSP 31 102 124
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 75 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'bash'
+Sk 1 1 'disarm'
+Sk 21 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'warrior default'
+Gr 'weaponsmaster'
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 78 15 0 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3021
+Enchanted
+Nest 0
+ExtF 67
+Wear -1
+Lev  5
+Cost 250
+Affc 'enchant weapon'   0  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+End
+
+#O
+Vnum 4471
+Nest 0
+Name playgirl montrey december~
+ShD  {Tthe December 768 {VP{WL{VA{WY{VG{WI{VR{WL{T, featuring a centerfold of {gM{Wo{gn{Ct{gr{We{gy{T!!{x~
+Desc {VS{We{Vx{Wy {gM{Wo{gn{Ct{gr{We{gy{N is {Gposing {Nseductively here{C!{x~
+Mat smut~
+ExtF 524292
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe April 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {BT{Car{Ba{T!!{x~
+Desc Brains&Beauty protected by a Ninja Cloak.~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#END

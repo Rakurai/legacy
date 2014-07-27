@@ -1,0 +1,530 @@
+#PLAYER
+Name Leif~
+Id   1014692217
+LogO 1015099520
+Vers 12
+Prom [%h/%Hhp %v/%Vmv] [%e] [%X] ~
+Race human~
+Clan order~
+Sex  1
+Cla  3
+Levl 23
+Plyd 43159
+Age  -144000
+Back 30607
+Note 1015034302 1014692483 1014692483 1014692483 1014692483 1014692483
+Scro 22
+Room 8543
+HMS  439 467 237 237 329 367
+Gold 226
+Silv 4555
+Silver_in_bank 8463
+Gold_in_bank 600
+Exp  23029
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJQc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  4
+Prac 9
+Trai 3
+Alig  35
+Hit   17
+Dam   8
+ACs 22 15 15 36
+Atrib 21 18 15 16 18 14
+AtMod 5 4 1 5 2 4
+QuestPnts 7
+Pass 1qaz2wsx~
+Afk {B[{CSat Mar  2 13:35:11 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  the frugal warrior~
+Immn ~
+Pnts 40
+Rank {NR{Ce{Nc~
+Aura ~
+TSex 1
+LLev 11
+Deit Urza~
+Lsit 168-138.idacpe.cableone.net~
+Ltim Sat Mar 02 10:35:43 2002
+~
+LSav Sat Mar 02 14:05:20 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 387 212 367
+THMS 0 0 0
+Cnd  0 6 43 43
+Sk 75 1 'dagger'
+Sk 89 1 'sword'
+Sk 76 1 'shield block'
+Sk 1 1 'circle'
+Sk 84 1 'enhanced damage'
+Sk 77 1 'kick'
+Sk 78 1 'second attack'
+Sk 76 1 'third attack'
+Sk 82 1 'dual wield'
+Sk 76 1 'fast healing'
+Sk 76 1 'forge'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Affc 'giant strength'   0  75   8   4   1          0 1
+Affc 'fly'   0  66  11   0   0     524288 1
+Affc 'shield'   0  77  15 -20  17          0 1
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 1902
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3138
+Nest 1
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3138
+Nest 1
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3030
+Nest 1
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 1
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 1
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 1
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 1
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 1
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 1
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 1
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 1
+Wear -1
+Cost 4
+Val  0 0 42 0 0
+End
+
+#O
+Vnum 3172
+Nest 1
+Wear -1
+Cost 600
+ExDe owned by~ Leif~
+End
+
+#O
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4607
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 78 15 0 0
+End
+
+#O
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 73
+Nest 0
+Cond 96
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 88
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 2404
+Nest 0
+Cond 90
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 82
+Wear 15
+Cost 112
+End
+
+#O
+Vnum 3054
+Nest 0
+Cond 82
+Wear 13
+Cost 220
+End
+
+#O
+Vnum 3068
+Nest 0
+Cond 75
+Wear 7
+Cost 220
+End
+
+#O
+Vnum 12701
+Enchanted
+Nest 0
+ExtF 65
+Wear 5
+Lev  12
+Cost 0
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1  10  -1   5  13          0 1
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 5222
+Nest 0
+Cond 90
+Wear 12
+Cost 410
+End
+
+#O
+Vnum 24400
+Nest 0
+Cond 98
+Wear 8
+Cost 2000
+End
+
+#O
+Vnum 24401
+Nest 0
+Cond 96
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 16066
+Nest 0
+Cond 99
+Wear 9
+Cost 3500
+End
+
+#O
+Vnum 16065
+Nest 0
+Cond 93
+Wear 14
+Cost 1000
+End
+
+#O
+Vnum 4593
+Nest 0
+Wear 2
+Cost 2400
+End
+
+#O
+Vnum 1004
+Nest 0
+Name sword a glinting mithril longsword~
+ShD  a glinting mithril longsword{x~
+Desc A sword is here, forged by Leif's craftsmanship.~
+Mat mithril~
+Wt   10
+Cond 86
+Wear 16
+Lev  18
+Cost 3
+Val  1 5 7 3 0
+ExDe sword a glinting mithril longsword~ It is a marvellous sword, crafted from the finest mithril around.
+It was created in the Month of Futility by a newbie warrior
+named Leif.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#O
+Vnum 16064
+Nest 0
+Wear 19
+Cost 4500
+End
+
+#O
+Vnum 506
+Nest 0
+Cond 95
+Wear 0
+Cost 1000
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#END

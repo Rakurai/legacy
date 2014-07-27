@@ -1,0 +1,1450 @@
+#AREA
+cathouse.are~
+Kat's Klanhouse~
+{H{{ ALL } {MShadow  {TKats Klanhouse~
+9900   9999
+
+#MOBILES
+#9900
+sentinel guard cat honor~
+A cat sentinel~
+A cat sentinel stands before the statue as an honor guard
+~
+A tiger warrior, completely armed and armored, stands as sentinel and
+honor guard.  Don't even think of attacking her. A nametag on her
+uniform says "Purrnice".
+~
+feral~
+BT DFHVaa 1000 S
+20 8 1d1+400 1d1+200 5d3+1 slice
+-10 -10 -10 0
+CBDFIKN ABCDEFGHIJKHOQS L X
+stand stand female 0
+0 0 medium 0
+
+#9901
+Barry barry Sanders sanders clerk~
+Barry Sanders~
+Barry Sanders, wearing a Detroit Lions jersey, is waiting to help you.
+~
+Ready to help you is Detroit Lion, Barry Sanders.  Since retiring, he has become an accomplished
+magician.  He radiates an aura of benevolate power.
+~
+human~
+BR DFHVaa 1000 S
+75 10 25d100+5000 25d100+5000  5d7+1 magic
+-50 -50 -48 -15
+EFK ABLQCFGJKNO 0  0
+stand stand male 0
+0 0 medium 0
+
+#9902
+trainer Gunter~
+Gunter~
+Gunter Gebel Willams is here, waiting to train you.
+~
+A man, wearing a live leapard accros his broad shoulders, is training 
+klan members and supervising practice.  He wants you inside NOW, so he
+can work your lazy ass.
+~
+human~
+BJKVb DFHVaa 0 S
+75 15 25d100+5000 25d100+5000 5d7+1 whip
+-50 -49 -48 -25
+DEFIKN ABLQ EO 0
+stand stand male 0
+0 0 large 0
+
+#9903
+leopard~
+a leopard~
+A leopard is laying accross the shoulders of a large man
+~
+A full grown leopard is eyeing you from the shoulders of a large man.
+~
+feral~
+BT DFSaa 0 S
+30 10 4d25+400 1d1+1 5d3+1 claw
+10 10 9 5
+CDFQTUR AB E NO
+rest rest male 0
+0 0 medium 0
+
+#9904
+leopard lounge~
+A leopard~
+A leopard is resting off to the side, watching you.
+~
+A trained leopard is crouched off to the side, watching you with 
+yellow eyes.  A low rumbling growl can be heard.
+~
+feral~
+BT DFSaa 0 S
+30 15 4d25+400 1d1+1 5d3+1 claw
+10 10 9 5
+CDFQTUR AB E NO
+rest rest female 0
+0 0 medium 0
+
+#9905
+Doolittle dr Dr~
+Dr Doolittle~
+Dr Doolittle, working at a table, looks up as you enter.
+~
+A cheerful man, wearing a white robe and black top hat, is working at a table covered with medical equipment.  He looks up at you and broadly smiles and asks, "How may I help you today?"  The benevolent power radiating from is overwhelming.
+~
+human~
+BCa DFH 1000 S
+100 15 25d100+9500 25d100+9500 10d10+1 slice
+-66 -65 -64 -35
+EFHKN ABKLNOQ 0 J
+stand stand male 0
+0 0 medium 0
+
+#9906
+puss Puss boots Puss-n-boots~
+Puss-n-Boots~
+A large, orange tabby cat is waiting for your order.
+~
+A large, orange tabby cat, wearing knee high boots and a dirty apron, 
+is waiting to take your order.  While waiting, he is using a knife to 
+slice a leg of antelope.
+~
+feral~
+BS H 500 S
+70 10 25d100+4000 5d30+300 5d7+1 slice
+-46 -45 -45 -22
+BDEFIKN AB H C
+stand stand male 0
+0 0 medium 0 
+#0
+
+#OBJECTS
+#9900
+jersey robe shirt~
+Lions jersey~
+A tourquoise shirt~
+cloth~
+armor ABK AK
+22 24 18 10 0
+75  5 100000 P
+E
+jersey~
+A light, tourquoise shirt with the word "LIONS" on the front and "B. SANDERS" on the back.  Both sides also has the number "20".  It is roomy enough to wear over armor.
+~
+A
+2 2
+A 
+4 1
+A 
+12 25
+A
+13 2
+A 
+14 2
+A
+17 -3
+A
+24 -2
+
+#9901
+box pit litter litterbox~
+A giant litterbox~
+A giant tray, filled with clay litter, covers the floor~
+marble~
+container 0 0
+999999 0 0 500 100
+100 9999 0 P
+E
+litter box pit litterbox~
+A giant marble tray, filled with clay litter, nearly covers the floor of this room.  Poking out of the litter are objects left here by Klan members for the use of others.
+~
+
+#9902
+key private~
+ShadowSpawn's key~
+A gold key lies on the ground.~
+gold~
+key 0 AO
+1 0 0 0 0
+20 1 0 P
+E
+key~
+A gold key with a lion head on one side and the name, "ShadowSpawn" on the other.
+~
+
+#9903
+key~
+A silver key~
+A silver key lies on the ground.~
+silver~
+key  0  AO
+0 0 0 0 0
+20 1 0 P
+E
+key~
+A large silver key has a lion etched on one side and the words, "conference room" on the other.
+~
+
+#9904
+key~
+A brass key~
+A brass key is lies on the ground.~
+brass~
+key 0 AO
+0 0 0 0 0
+20 1 0 P
+E
+key~
+A brass key with the words etched, "Room 1"
+~
+
+#9905
+key~
+A brass key~
+A brass key is lies on the ground.~
+brass~
+key 0 AO
+0 0 0 0 0
+20 1 0 P
+E
+key~
+A brass key with the words etched, "Room 2"
+~
+
+#9906
+key~
+A brass key~
+A brass key is lies on the ground.~
+brass~
+key 0 AO
+0 0 0 0 0
+20 1 0 P
+E
+key~
+A brass key with the words etched, "Room 3"
+~
+
+#9907
+key~
+A brass key~
+A brass key is lies on the ground.~
+brass~
+key 0 AO
+0 0 0 0 0
+20 1 0 P
+E
+key~
+A brass key with the words etched, "Room 4"
+~
+
+#9908
+key~
+A brass key~
+A brass key is lies on the ground.~
+brass~
+key 0 AO
+0 0 0 0 0
+20 1 0 P
+E
+key~
+A brass key with the words etched, "Room 5"
+~
+ 
+#9909
+leather collar~
+A {bleather collar{x~
+A {bleather collar{x with a lion medallion lies here.~
+leather~
+armor AB AC
+5 5 5 2 0
+20 2 2000  P
+E
+leather collar~
+A simple tooled leather collar.  Hanging from the collar is a small 
+medallion of a roaring lion.
+~
+A
+4 2
+A
+13 20
+A
+18 2
+A
+19 2
+
+#9910
+mesh cradle shirt mithral~
+cats cradle~
+A shirt of fine filaments lies on the ground.~
+mithral~
+armor AB AD
+10 11 9 5 0
+35 10 5000 P
+E
+mesh cradle shirt mithral~
+A very light shirt of woven metal filaments.  It is very supple and reeks of magic.
+~
+A
+2 1
+A
+5 1
+A
+13 15
+A
+18 1
+A
+19 1
+
+#9911
+bracer bracers power~
+{cBracers of {bCat {TPower{x~
+A pair of glowing bracers lie here.~
+adamantite~
+armor ABG AI
+18 17 17 9 0
+55 15 8500 P
+E
+bracer bracers power~
+A pair of adamantite bracers glowing with magical power.  
+Etched into them is the image of a springing black panther.
+~
+A
+1 2
+A
+2 2
+A
+12 25
+A
+13 25
+A
+18 3
+A
+19 2
+
+#9913
+ruby collar~
+A {RRuby-studded {bCollar{x~
+A {Rruby-studded {bcollar{x with a tiger medallion lies here.
+~
+leather~
+armor ABFI AC
+25 24 24 18 0 
+75 15 25000 P
+E
+ruby collar~
+A leather collar, studded with small rubies, glows with power.  Hanging from the collar is a small medallion shaped like a roaring tiger.
+~
+A
+3 2
+A
+4 1
+A
+12 60
+A
+18 3
+A
+19 4
+
+#9914
+tiger claw dagger~
+A {YT{bi{Yg{be{Yr {bClaw{x~
+A dagger with a curved blade lies here.~
+steel~
+weapon AB AN
+dagger 2 9 slice D
+20 15 1000 P
+E
+tiger claw dagger~
+A steel dagger with a curved blade and a tigers head for a 
+pommel reflects light like a mirror.  The edge is very sharp.
+~
+A
+2 1
+A
+18 2
+A
+19 2
+
+#9915
+sword claw~
+A {bClaw {TExtender{x~
+A long sword with a shielded claw handle lies here.~
+steel~
+weapon ABGHM AN
+mace 4 8 claw E
+40 25 10000 P
+E
+sword claw~
+A long, thin-bladed sword with a basket hilt is here.  The 
+pommel looks soft, like it would mold to a hand.  The blade 
+is etched with a cheetah running at full speed.
+~
+A
+2 2
+A
+13 10
+A
+18 4
+A
+19 4
+
+#9916
+dog leash whip~
+A {bDog {WLeash{x~
+A dog leash of plaited leather lies here.~
+leather~
+weapon ABHM AN
+whip 21 3 whip A
+60 20 15000 P
+E
+whip dog leash~
+You're looking at a glowing, plaited length of leather.  
+The looped handle is tooled with a dog getting flayed by a whip.  
+The other end has three small sharp blades. A nasty weapon indeed!
+~
+A
+2 2
+A
+18 6
+A
+19 6
+
+#9917
+hand catapult blaster tiger~
+A Hand Catapult~
+A small statue of a tiger with a handle lies here.~
+glass~
+weapon ABHM AN
+polearm 15 4 blast A
+80 30 25000 P
+E
+hand catapult blaster tiger~
+You see a small crystal statue of a leaping tiger, claws extended 
+and mouth agape as a handle drops down from its belly. If you hold 
+the handle, the tiger would lie across the top of your fist.
+~
+A
+1 1
+A
+2 2
+A
+18 7
+A
+19 4
+
+#9918
+wand catharsis~
+A {TWand {Vof {CCatharsis{x~
+An ivory wand lies here.~
+ivory~
+wand A AO
+20 20 20 'poison' 0
+20 5 500 P
+E
+wand ivory catharsis~
+You're looking at an ivory wand with a Mr. Ug face on the handle.
+~
+
+#9919
+rod glass cataclysm~
+{MRod {Cof {VCataclysm{x~
+A rod of glass lies here.~
+glass~
+wand A AO
+35 15 15 'acid blast' 0
+50 10 3000 P
+E
+rod glass cataclysm~
+You see a rod of glass and inside there appears to be a boiling 
+liquid, even though the glass is cool to the touch.
+~
+
+#9920
+staff catalepsy wood oak~
+{WStaff of {CCatalepsy{x~
+A staff made of oak lies here.~
+wood~
+staff A AO
+40 20 20 'sleep' 0
+40 10 1000 P
+E
+staff catalepsy wood oak~
+You're looking at a wooden staff with a carving of a sheep 
+jumping over a fence.
+~
+
+#9921
+wand adamantite catarrh~
+{MWand {Vof {MCatarrh{x~
+A wand of black stone lies here.~
+adamantite~
+wand A AO
+70 10 10 'energy drain' 0
+60 10 80000 P
+E
+wand adamantite catarrh~
+You see a wand of black stone.  It seems to absorb, rather 
+than reflect, light. There are no markings on it.
+~
+
+#9922
+robe cats revenge~
+{WRobe of {bCats {RRevenge{x~
+A {Wwhite robe{x with {cblack spots{x lies here.~
+leather~
+armor ABGI AK
+7 7 7 3 0
+20 10 1500 P
+E
+robe cats revenge~
+You're looking at a robe made from the pelts of a creature with 
+white fur with black spots.  It reeks of magic.
+~
+A
+3 2
+A
+4 2
+A
+17 -2
+A
+24 -2
+
+#9923
+belt lives nine~
+{bBelt {Yof {bNine {YLives{x~
+A segmented leather belt lies on the ground.~
+leather~
+armor AB AL
+6 6 6 5 0
+20 10 2500 P
+E
+belt lives nine~
+You see a leather belt made up of nine segments.  Each segment 
+is tooled with an image of a great cat, from a lynx to a tiger.
+~
+A
+1 2
+A
+2 2
+A
+5 1
+A
+13 20
+
+#9924
+cattail light~
+{WA Cattail{x~
+A cattail water reed lies here.~
+paper~
+light AG AO
+0 0 999 0 0
+20 5 500 P
+E
+cattail light~
+You see a water reed called the cattail. The stalk is green, 
+the head is singed, and it softly glows.
+~
+A
+4 1
+A
+5 1
+A
+13 15
+
+#9925
+book staff manual claw~
+Law of the Claw~
+A leather-bound book lies on the ground.~
+leather~
+staff AB AO
+30 2 2 'harm' 0
+30 5 0 P
+E
+book manual staff claw~
+You're holding a leather-bound book. Tooled into the leather 
+is a cat's paw with the claws extended.
+~
+A
+1 1
+A
+4 1
+A
+13 20
+
+#9926
+book staff manual fang~
+Law of the Fang~
+A leather-bound book lies on the ground.~
+leather~
+staff AB AO
+35 2 2 'chain lightning' 0
+35 5 0 P
+E
+book manual staff fang~
+You're holding a leather-bound book. Tooled into the leather 
+is a panther with fangs exposed.
+~
+A
+1 2
+A
+5 2
+A
+18 2
+A
+19 2
+
+#9927
+book manual staff speed~
+Manual of Leopard Speed~
+A leather-bound book lies here.~
+leather~
+staff AB AO
+60 2 2 'haste' 0
+50 5 0 P
+E
+book manual staff speed~
+You're holding a leather-bound book. Tooled into the leather 
+is a running leopard.
+~
+A
+1 1
+A
+2 1
+A
+4 2
+A
+19 4
+
+#9928
+manual book courage staff~
+Manual of Lion Courage~
+A leather-bound book lies on the ground~
+leather~
+staff AB AO
+75 2 2 'energy drain' 0
+65 5 0 P
+E
+book manual courage staff~
+You're looking at a leather-bound book, and tooled into the 
+leather is a proud lion.
+~
+
+#9929
+manual book staff~
+Manual of Purrfection~
+A leather-bound book lies here.~
+paper~
+staff AB AO
+90 2 2 'energy drain' 0
+80  5  0  P
+E
+book manual staff~
+You see a simple leather-bound book.
+~
+A
+13  65
+A
+17  -4
+
+#9930
+Kal Kan beef~
+Kal Kan Sliced Beef~
+A metal can lies on the ground.~
+steel~
+food 0 A
+4 0 0 0 0
+1 3 5 P
+E
+kal kan can beef~
+You're looking at a metal can, the top has a tab to remove the lid.  
+The label says, "Kal Kan Sliced Beef".
+~
+
+#9931
+sparrow~
+A live sparrow~
+A live sparrow with its wings trussed lies on the ground where 
+someone dropped it.
+~
+leather~
+food 0 A
+5 0 0 0 0
+1 3 10 P
+E
+live sparrow~
+You're looking at a pitiful little sparrow.  There is a leather 
+thong pinning its wings so it cannot fly.  It looks terrified.
+~
+
+#9932
+springbok burger~
+A Springbok burger~
+A very rare burger lies here.~
+leather~
+food 0 A
+8 0 0 0 0
+1 5 15 P
+E
+springbok burger~
+Someone dropped a delicious-looking burger.  It's very rare.
+~
+
+#9933
+antelope pie~
+An Antelope pie~
+A meat pie is sitting on the ground.~
+leather~
+food 0 A
+10 0 0 0 0
+1 5 20 P
+E
+pie~
+You see a pie made with some very rare exotic meat dropped here.
+~
+
+#9934
+leg okapi~
+A leg of Okapi~
+A leg of some animal lies here.~
+leather~
+food 0 A
+12 0 0 0 0
+1 7 24 P
+E
+leg okapi~
+A leg belonging to some animal with brown, black, and white stripes is here.
+~
+
+#9935
+saucer cream~
+A saucer of cream~
+A saucer of cream lies here.~
+glass~
+drink 0 A
+4 4 'milk' 0 0
+1 4 5 P
+E
+saucer cream~
+You see a saucer of thick cream. Yum Yum.
+~
+
+#9936
+bottle panther sweat~
+A bottle of Panther Sweat~
+A brown bottle with a label lies here.~
+glass~
+drink 0 A
+4 4 'firebreather' 0 0
+1 4 10 P
+E
+bottle~
+You see a corked brown bottle.  The label pictures a panther.
+~
+
+#9937
+sparrow juice~
+Sparrow juice~
+A glass bottle lies here.~
+glass~
+potion 0 A
+30 'armor' 'shield' 'stone skin'  0
+50 10 2100 P
+E
+sparrow juice potion~
+A small green bottle is on the ground.
+~
+
+#9938
+milk~
+Warm milk~
+A small white bottle is here.~
+glass~
+potion 0 A
+60 'cure serious' 0 0 0
+60 10 2100  P
+E
+milk potion~
+A small white bottle is on the ground.
+~
+
+#9939
+liver pill~
+Liver-flavored pill~
+A light brown pill lies forgotten on the ground.~
+pill~
+pill 0 A
+20 'detect invisible' 'detect hidden' 0 0
+20 7 500 P
+E
+liver pill~
+A small light brown pill.  Should you swallow it?
+~
+
+#9940
+kidney pill~
+A kidney-flavored pill~
+A dark brown pill lies here.~
+pill~
+pill 0 A
+60 'heal' 0 0 0
+60 10 2600 P
+E 
+kidney pill~
+A dark brown pill.
+~
+
+#9941
+catnip pill~
+A catnip pill~
+A light green pill lies here.~
+pill~
+pill 0 A
+60 'bless' 'protection good' 'protection evil' 0 
+60 10 1900  P
+E
+catnip pill~
+You see a light green pill.
+~
+
+#9942
+salmon pill~
+A salmon-flavored pill~
+A pink pill lies on the ground.~
+pill~
+pill 0 A
+60 'sanctuary' 'frenzy' 0 0
+60 10 2300 P
+E
+salmon pill~
+You see a pink pill.
+~
+
+#9943
+shelf~
+wooden shelf~
+A large wood shelf, filled with books, sits against the wall.
+~
+wood~
+container 0 0 
+1000 0 0 500 100
+1 100 0 P
+E
+wood shelf~
+You see a large wood shelf on the floor, against the wall.  
+All of the books appear to be the same.
+~
+
+#9944
+box pit litter~
+large litter box~
+A large litter box covers the floor.  Weapons and equipment stick 
+out of the litter.
+~
+metal~
+container 0 0
+999999 0 0 100 100
+20 9999 0 P
+E
+box litter pit~
+A large, metal litter box covers the floor.  It is half filled with clay litter.  Weapons and other equipment stick out of the liter.  
+~
+#0
+
+#ROOMS
+#9900
+Main Hallway~
+This is the main hallway in the Pride of Claw and Fang Klanhouse.  It runs
+north and south.  The hallway is painted like a savanna and there are real
+low-growing plants and ferns.  Your impression is of looking out of a jungle
+onto a plain.  The air is warm, dry, and still.  Before you, in the middle of
+the hall, stands a statue of ShadowSpawn, the founder of the Kats Klan.  There
+is a sign at the base of the statue.  Before the statue stands a single
+sentinal as honor guard.   The hallway continues north where you can see 
+stairs.  There is a door to the east.
+~
+99  DK  0
+D0
+The hallway continues north.
+~
+north~
+0  -1  9901
+D1
+closed door with a sign saying, "Private Meditation Room"
+~
+private door east~
+1  -1  9903
+D4
+closed portal leading to the outside world
+~
+portal door~
+4  -1  3316
+D5
+stair leading down to the Watering Hole
+~
+stairs down~
+0  -1  9910
+E
+sign note~
+This clan and clanhouse brought to you by ShadowSpawn
+~ 
+S
+
+#9901
+Main Hallway~
+This is the main hallway in the Pride of Claw and Fang Klanhouse.  It runs
+north and south.  The hallway is painted like a savanna and there are real
+low-growing plants and ferns.  Your impression is of looking out of a jungle
+onto a plain.  The air is warm, dry, and still.  The hallway continues to the
+north and south.  There is a door to the east.  A spiral staircase leads up.
+~
+99  DK  0
+D0
+the hallway continues north
+~
+north~
+0  -1  9902
+D1
+closed door with a sign saying, "Private Meditation Room"
+~
+private door east~
+1  -1  9904
+D2
+the hallway continues south
+~
+south~
+0  -1  9900
+D4
+stairs lead up into some private chambers.
+~
+~
+0 -1 9920
+S
+
+#9902
+Main Hallway~
+This is the main hallway in the Pride of Claw and Fang Klanhouse.  It runs
+north and south.  The hallway is painted like a savanna and there are real
+low-growing plants and ferns.  Your impression is of looking out of a jungle
+onto a plain.  The air is warm, dry, and still.  The hallway continues south,
+there are stairs going up.  There is a door to the east.
+~
+99  DK  0
+D1
+closed door with a sign saying, "Public Meditation Room"
+~
+public door east~
+1  -1  9905
+D2
+the hallway continues south
+~
+south~
+0  -1  9901
+D4
+stairs go up to the Klan services area
+~
+stairs up~
+0  -1  9906
+S
+
+#9903
+Private Meditation Room~
+A small room with a door insures complete privacy.  Indirect lighting assists
+with the contemplative mood.  In the middle of the floor is a large silver
+tray filled with clean kitty litter.  On the wall, within easy reach, is a
+magazine rack with "Playcat", "Catsmopoliton", "Cats Meow Catalog" and others.
+~
+99  DKL  0
+D3
+the exit is to the west
+~
+west door~
+1  -1  9900
+S
+
+#9904
+Private Meditation Room~
+A small room with a door insures complete privacy.  Indirect lighting assists
+with the contemplative mood.  In the middle of the floor is a large silver
+commode, trimmed with ermine.  On the wall, within easy reach, is a magazine
+rack with "Playboy", "Playgirl" , "Playgiant" and others.
+~
+99  DKL  0
+D3
+the exit is to the west
+~
+west door~
+1  -1  9901
+S
+
+#9905
+Public Meditation Room~
+A larger, more utilitarian room then the other meditation rooms.  There are
+two cat boxes and two toilets, each in its own stall.
+~
+99  DK  0
+D3
+the exit is to the west
+~
+west door~
+1  -1  9902
+S
+
+#9906
+Quartermasters Hall~
+Landing at the top of the stairs is painted like a savanna.  To the west is
+the Shoppe of the Ether and Neither.  Sounds of swordplay comes from the
+Barnum & Bailey Training room to the east.  To the north is the vet.  Stairs
+lead back down to the main hallway.
+~
+99  DK  0
+D0
+open doorway north to the vet and clinic
+~
+north~
+0  -1  9909
+D1
+swinging door leads to the training room
+~
+east training~
+0  -1  9908
+D3
+doorway leads to the Shoppe
+~
+west shop shoppe~
+-1  -1  9907
+D5
+stairs go down to the main hallway
+~
+stairs down~
+0  -1  9902
+S
+
+#9907
+Shoppe of the Either and Neither~
+You stand in awe upon entering.  The walls are lined with instruments of death
+and destruction.  Another wall contains special armor devices.  In the glass
+cases are the magical items for mages and clerics.  Barry Sanders, Detroit
+Lion (retired), is waiting to assist you.
+~
+99  CDK  0
+D1
+doorway leads back to Quartermasters Hall
+~
+hall east~
+0  -1  9906
+E
+note list~
+All prices are in silver.
+lv 20  Leather Collar           2000
+lv 35  Cats Cradle              5000
+lv 55  Bracers of Cat Power     7500
+lv 75  Ruby-Studded Collar           20000
+lv 20  Tiger Claw                       1000
+lv 40  Claw Extender                10000
+lv 60  Dog Leash                            15000
+lv 80  Hand Catapult                25000
+lv 20  Wand of Catharsis                  500
+lv 30  Rod of Cataclysm         1000
+lv 20  Staff of Catalepsy                 500
+lv 60  Wand of Catarrh            100000
+lv 20  Robe of Cat's Revenge    1500
+lv 40  Belt of Nine Lives               2500
+lv 20  Cattail                    500
+~
+S
+
+
+#9908
+Barnum and Baileys Training Center~
+This larger room is filled with machines and devices for the training of the
+body and mind.  Gunter Gebel Williams is here to help you train and practice.  
+~
+99  DK  0
+D3
+doorway leads back to the Quartermasters Hall
+~
+hall west~
+0  -1  9906
+S
+
+#9909
+The Vet and Clinic~
+You entered a white, sterile medical clinic.  Dr Doolittle is here to help you
+in any way.  There is a list of services at the check-in counter.
+~
+99  DK  0
+D2
+doorway leads back to the Quartermasters Hall
+~
+hall south~
+0  -1  9906
+E
+note list sign~
+Services available:
+cure light        5 gold
+cure serious    10 gold
+cure critical   20 gold
+cure heal       30 gold
+cure desease      1 gold
+cure poison       1 gold
+cure uncurse      1 gold
+cure refresh      5 gold
+cure mana       25 gold
+spaying           1 silver
+neutering         1 silver
+Type 'heal <spell>" to purchase
+~
+S
+
+#9910
+The Watering Hole~
+This room obviously is used to serve food.  A counter is on the western side
+with a railing attached to the front.  There are tables and chairs for eaters
+convenience, and a dance floor for parties.  There are Klan members with trays
+moving down the counter ordering food.  Puss-n-Boots is working behind the
+counter.  The menu is on the wall, over his head.  East is the Klan donation
+pit.  Down the stairs is the Altar of Consecration.
+~
+99  CD  0
+D1
+open doorway leads to the donation pit
+~
+east pit litter box~
+0  -1  9911
+D4
+stairs go up to the main hallway
+~
+stairs up hall hallway~
+0  -1  9900
+D5
+stairs go down to the room with the Altar of Consecration
+~
+down~
+0  -1  9912
+E
+menu note list~
+TODAY'S MENU
+all prices in silver
+
+Kal Kan Sliced Beef           5
+Live bird, sparrow          10
+Burgers, Springbok          15
+Pie, Antelope               20
+Fresh leg of Okapi          24
+
+Drinks:
+Saucer of Cream       5
+Panther Sweat, bottle       10
+
+Sides:
+Sparrow juice             500
+Warm milk                 500
+Liver-flavored pill       250
+Kidney-flavored pill      400
+Catnip Pill             1000
+Salmon-flavored pill    1500
+
+Have a nice day!
+~
+S
+
+#9911
+The Litter Box~
+The floor of this room is almost entirely covered by a giant litter box.  
+Sticking out of the clay litter are weapons and equipment clan members have
+left here for anyones use.  Exit to the west returns you to the Watering Hole.
+~
+99  CDK  0
+D3
+open doorway leads back to the Watering Hole
+~
+west~
+0  -1  9910
+S
+
+#9912
+Altar of Consecration Room~
+This large, circular room tiers down like an ampitheater.  At the bottom there
+is a statue of Vortayne, the Feral Immortal and a consecrated altar.  On the 
+altar there are live caged birds, balls of yarn, fresh catnip, and bowls of
+cream as gifts to the Immortal.  It is here that new members are accepted into
+the Pride of Claw and Fang.  
+~
+99  CDK  0
+D4
+stairs leads up to the Watering Hole
+~
+stairs up~
+0  -1  9910
+S
+
+#9913
+ShadowSpawn's Private Room~
+The room is decorated to look like a jungle along with live plants and ferns.  The purrfect home for a tiger.  In one corner there is a huge bed of grasses.  To one side is a table covered with glass jars and apparatice for the study of poisons.
+~
+99  CDJK  0
+D1
+door leads to the private hallway
+~
+door east~
+4  9902  9920
+S
+
+#9914
+Conference Room~
+Room is for private meetings of the Klan leaders.  A table and chairs is in the middle of the floor.  In the back is a wet bar.  There are five book shelves against the walls.
+~
+99  CDK  0
+D1
+door leads to the private hallway
+~
+east door~
+4  9903  9921
+S
+
+#9915
+Private Room~
+For a fee, a Klan member can buy a private room.  This one is unfurnished.
+~
+99  CDK  0
+D3
+door leads to the private hallway
+~
+west door~
+4  9904  9921
+S
+
+#9916
+Private Room~
+For a fee, a Klan member can buy a private room.  This one is unfurnished.
+~
+99  CDK  0
+D1
+door leads to the private hallway
+~
+east door~
+4  9905  9922
+S
+
+#9917
+Private Room~
+For a fee, a Klan member can buy a private room.  This one is unfurnished.
+~
+99  CDK  0
+D3
+door leads to the private hallway
+~
+west door~
+4  9906  9922
+S
+
+#9918
+Private Room~
+For a fee, a Klan member can buy a private room.  This one is unfurnished.
+~
+99  CDK  0
+D1
+door leads to the private hallway
+~
+east door~
+4  9907  9923
+S
+
+#9919
+Private Room~
+For a fee, a Klan member can buy a private room.  This one is unfurnished..
+~
+99  CDK  0
+D3
+door leads to the private hallway
+~
+west door~
+4  9908  9923
+S
+
+#9920
+Private Hallway~
+Narrow carpeted hallway runs north and south and allows access to private rooms.  There is a door to the west with a sign.  The hallway continues south.  Stairs go down to the Main Hallway.
+~
+99  CDK  0
+D2
+hallway continues south
+~
+south~
+0  -1  9921
+D3
+A door with a sign is to the west
+~
+west door~
+4  9902 9913
+D5
+A spiral staircase leads down.
+~
+~
+0 -1 9901
+E
+sign door note~
+ShadowSpawn's Private Room
+~
+S
+
+#9921
+Private Hallway~
+Narrow carpeted hallway runs north and south and allows access to private rooms.  There is a door to the west with a sign.  There is a door to the east that says "Vacancy".  The hallway continues north and south.  
+~
+99  CDK  0
+D0
+hallway continues north
+~
+north~
+0  -1  9920
+D1
+closed door goes to a private room
+~
+east~
+4  9904  9915
+D2
+hallway continues south
+~
+south~
+0  -1  9922
+D3
+closed door goes to the Conference Room
+~
+west~
+4  9903  9914
+E
+sign note~
+Conference Room
+~
+S
+
+#9922
+Private Hallway~
+Narrow carpeted hallway runs north and south and allows access to private rooms.  There are doors to the east and west  that say, "Vacancy".  The hallway continues north and south.  
+~
+99  CDK  0
+D0
+hallway continues north
+~
+north~
+0  -1  9921
+D1
+closed door goes to a private room
+~
+east~
+4  9906  9917
+D2
+hallway continues south
+~
+south~
+0  -1  9923
+D3
+closed door goes to the private room
+~
+west~
+4  9905  9916
+S
+
+#9923
+Private Hallway~
+Narrow carpeted hallway runs north and south and allows access to private rooms.  There are doors to the east and west  that say, "Vacancy".  The hallway continues north.  
+~
+99  CDK  0
+D0
+hallway continues north
+~
+north~
+0  -1  9922
+D1
+closed door goes to a private room
+~
+east~
+4  9908  9919
+D3
+closed door goes to the private room
+~
+west~
+4  9907  9918
+S
+#0
+
+#RESETS
+M  0  9900  1  9900  1          *Load sentinal in Main Hall
+E   0  9914  0      16          *Wield tiger claw
+E   0  9909  0        3         *Wear leather collar
+E   0  9923  0      13          *Wear belt of nine lives
+
+M  0  9901  1  9907  1          *Load Barry Sanders
+E   0  9900  0      12          *wear jersey
+G   0  9909  30                 *give leather collar
+G   0  9910  30                 *give cat's cradle
+G   0  9911  30                 *give Bracers of Cat Power
+G   0  9913  30                 *Give Ruby Collar
+G   0  9914  30                 *give tiger claw
+G   0  9915  30                         *give claw extender
+G   0  9916  30                 *give Dog Leash
+G   0  9917  30                 *give Hand Catapult
+G   0  9918  30                 *Give Wand of Catharsis
+G   0  9919  30                 *Give Rod of Cataclysm
+G   0  9920  30                 *Give Stave of Catalepsy
+G   0  9921  30                 *Give Wand of Catarrh
+G   0  9922  30                 *Give Robe of Dog Skin
+G   0  9923  30                 *Give Belt of Nine Lives
+G   0  9924  30                 *Give Cattail
+
+M  0  9902  1  9908  1          *Load Gunter
+E   0  9913  0        3         *Wear ruby collar
+E   0  9916  0      16          *Wield dog leash
+
+M  0  9903  1  1108  1          *Load shoulder leapard
+M  0  9904  2  1108  1          *Load 1 lounging leapards
+M  0  9904  2  1108  1          *Load 1 lounging leapards
+
+M  0  9905  1  9909  1          *Load Dr Doolittle
+E   0  9911  0      10          *load Bracers
+E   0  9913  0        3         *load ruby collar
+E   0  9913  0        4         *load ruby collar
+
+M  0  9906  1  9910  1          *load Puss-n-Boots
+E   0  9922  0      12          *load robe of dog skin
+E   0  9914  0      16          *wield tiger claw
+G   0  9930  1                  *give Kal Kan
+G   0  9931  1                  *give sparrows  
+G   0  9932  1                  *give springbok burgers
+G   0  9933  1                  *give Antelope Pie
+G   0  9934  1                  *give leg of Okapi
+G   0  9935  1                  *give saucers of cream - 30
+G   0  9936  1                  *give panther sweat - 30
+G   0  9937  1                  *give sparrow juice - 50
+G   0  9938  1                  *give warm milk - 50
+G   0  9939  1                  *give liver pills - 50
+G   0  9940  1                  *give kidney pill - 50
+G   0  9941  1                  *give catnip pill - 50
+G   0  9942  1                  *give salmon pill - 50
+
+O   0  9943  0  9914            *load shelf in conference room
+P    0  9925  0  9943  1                *put 20 manuals on shelf
+
+O   0  9943  0  9914            *load shelf in conference room
+P    0  9926  0  9943  1                *put 20 manuals (#2) on shelf
+
+O   0  9943  0  9914            *load shelf in conference room
+P    0  9927  0  9943  1                *put 20 manuals (#3) on shelf
+
+O   0  9943  0  9914            *load shelf in conference room
+P    0  9928  0  9943  1                *put 20 manuals (#4) on shelf
+
+O   0  9943  0  9914            *load shelf in conference room
+P    0  9929  0  9943  1                *put 20 manuals (#5) on shelf
+
+O   0  9944  0  9911            *load donation box
+S
+
+#SHOPS
+9901   5   9   26   0   0     115   50     0   23  *Barry
+9906   0   0     0   0   0     115   50     0   23  *Puss - n- Boots
+0
+
+#$

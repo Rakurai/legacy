@@ -1,0 +1,685 @@
+#PLAYER
+Name Umberto~
+Id   1006991903
+LogO 1015637341
+Vers 12
+Prom {W<{P%h{W/{P%H{Whp {Y%m{W/{Y%M{Wm {C%v{Wmv {G%X{Wtnl>{x ~
+Race irda~
+Sex  1
+Cla  0
+Levl 45
+Tru  91
+Plyd 774696
+Age  0
+Back 766161
+Note 1011127724 1011051897 1010964228 1010115797 1010702200 1011148369
+Scro 22
+Room 3001
+HMS  560 560 721 721 358 358
+Gold 261
+Silv 256
+Exp  47639
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 8
+PKRank 0
+Act  CDEGHJLQSc
+AfBy DF
+Comm MNOZ
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 304
+Trai 168
+Save  -10
+Alig  -254
+Hit   7
+Dam   9
+ACs -18 -19 -15 -1
+Wimp  100
+Atrib 18 23 21 18 18 15
+AtMod 2 2 2 8 -1 2
+SkillPnts 32
+RolePnts 65
+QuestPnts 179
+Pass jammer~
+Afk {B[{CTue Jan 15 21:22:57 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  Amphorio the {cM{Ca{Wst{Ce{cr Ca{Crt{Bo{Wgr{Ba{Cph{cer{x~
+Immn ~
+Pnts 40
+Rank {NM{Cs{Nt~
+Aura ~
+TSex 1
+LLev 214
+Email umbertoweb@cs.com~
+Deit Montrey~
+Stus Leveling Machine~
+RmCt 4
+ExSk 0
+Raff 4
+Lsit AC8C4909.ipt.aol.com~
+Ltim Tue Jan 15 20:02:54 2002
+~
+LSav Fri Mar 08 19:29:01 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  AHQ
+HMSP 500 686 338
+THMS 0 0 0
+Cnd  0 0 0 0
+Alias quit quit~
+Sk 100 1 'acid blast'
+Sk 100 1 'acid breath'
+Sk 75 1 'acid rain'
+Sk 1 1 'age'
+Sk 85 1 'animate skeleton'
+Sk 91 1 'animate wraith'
+Sk 83 1 'animate gargoyle'
+Sk 95 1 'animate zombie'
+Sk 100 1 'armor'
+Sk 83 1 'bless'
+Sk 80 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 75 1 'blood blade'
+Sk 77 1 'blood moon'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 81 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 85 1 'charm person'
+Sk 100 1 'chill touch'
+Sk 100 1 'colour spray'
+Sk 1 1 'continual light'
+Sk 1 1 'control weather'
+Sk 87 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 75 1 'create sign'
+Sk 83 1 'create spring'
+Sk 75 1 'create vial'
+Sk 1 1 'create water'
+Sk 75 1 'cure blindness'
+Sk 86 1 'cure critical'
+Sk 75 1 'cure disease'
+Sk 1 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 77 1 'cure serious'
+Sk 75 1 'curse'
+Sk 75 1 'darkness'
+Sk 75 1 'dazzling light'
+Sk 1 1 'demonfire'
+Sk 2 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 85 1 'detect hidden'
+Sk 82 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 90 1 'dispel magic'
+Sk 94 1 'divine healing'
+Sk 75 1 'divine regeneration'
+Sk 1 1 'earthquake'
+Sk 75 1 'encampment'
+Sk 41 1 'enchant armor'
+Sk 76 1 'enchant weapon'
+Sk 78 1 'energy drain'
+Sk 78 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 75 1 'fear'
+Sk 80 1 'fire breath'
+Sk 100 1 'fireball'
+Sk 2 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'flame blade'
+Sk 84 1 'flameshield'
+Sk 95 1 'flamestrike'
+Sk 100 1 'fly'
+Sk 1 1 'floating disc'
+Sk 94 1 'frenzy'
+Sk 75 1 'frost blade'
+Sk 100 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 100 1 'gate'
+Sk 75 1 'giant strength'
+Sk 89 1 'haste'
+Sk 100 1 'heal'
+Sk 75 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 97 1 'identify'
+Sk 2 1 'infravision'
+Sk 80 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 81 1 'lightning breath'
+Sk 75 1 'locate life'
+Sk 82 1 'locate object'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 92 1 'pass door'
+Sk 78 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'power word'
+Sk 75 1 'polymorph'
+Sk 1 1 'portal'
+Sk 1 1 'protect container'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 81 1 'ray of truth'
+Sk 1 1 'recharge'
+Sk 81 1 'refresh'
+Sk 76 1 'resurrect'
+Sk 99 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 76 1 'remove curse'
+Sk 99 2 'sanctuary'
+Sk 93 1 'shield'
+Sk 75 1 'shock blade'
+Sk 100 1 'shocking grasp'
+Sk 75 1 'shrink'
+Sk 1 1 'sleep'
+Sk 99 1 'slow'
+Sk 78 1 'smokescreen'
+Sk 94 1 'steel mist'
+Sk 92 1 'stone skin'
+Sk 91 1 'summon'
+Sk 1 1 'summon object'
+Sk 89 1 'sunray'
+Sk 75 1 'talon'
+Sk 75 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 100 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'vision'
+Sk 76 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 99 1 'wrath'
+Sk 100 1 'dagger'
+Sk 100 1 'sword'
+Sk 100 1 'shield block'
+Sk 1 1 'brew'
+Sk 64 1 'berserk'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'parry'
+Sk 100 1 'second attack'
+Sk 86 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 75 1 'swimming'
+Sk 99 1 'fast healing'
+Sk 2 1 'lore'
+Sk 100 1 'meditation'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 65 1 'recall'
+Sk 63 1 'sheen'
+Sk 76 1 'focus'
+Sk 77 1 'paralyze'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'attack'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Gr 'alteration'
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 16052
+Nest 0
+Wear 11
+Cost 750
+End
+
+#O
+Vnum 16046
+Nest 0
+Wear 5
+Cost 3500
+End
+
+#O
+Vnum 16066
+Nest 0
+Wear 9
+Cost 3500
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 17100
+Nest 0
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 10215
+Nest 0
+Wear 16
+Cost 10000
+End
+
+#O
+Vnum 10203
+Nest 0
+ExtF 64
+Wear 7
+Cost 10000
+End
+
+#B
+Vnum 10105
+Nest 0
+Wear -1
+Cost 33000
+End
+
+#B
+Vnum 10112
+Nest 0
+Wear -1
+Cost 500
+End
+
+#B
+Vnum 11713
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 16514
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 16512
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11913
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#B
+Vnum 13007
+Nest 0
+Wear -1
+Cost 770
+End
+
+#B
+Vnum 11748
+Nest 0
+Cond 88
+Wear -1
+Cost 15000
+Val  2 12 11 11 137
+End
+
+#B
+Vnum 11748
+Nest 0
+Wear -1
+Cost 15000
+Val  2 12 11 11 138
+End
+
+#B
+Vnum 14015
+Nest 0
+ExtF 1048656
+Cond 99
+Wear -1
+Cost 15000
+End
+
+#B
+Vnum 14042
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 14014
+Nest 0
+ExtF 17825856
+Cond 98
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 14042
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 13010
+Nest 0
+Wear -1
+Cost 450
+End
+
+#B
+Vnum 13005
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 10100
+Nest 0
+Wear -1
+Cost 32000
+End
+
+#B
+Vnum 11709
+Nest 0
+Cond 96
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11709
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 17041
+Nest 0
+Cond 95
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 13004
+Enchanted
+Nest 0
+Wear -1
+Cost 3700
+Val  28 24 24 23 0
+Affc 'reserved'   1  90  -1   2   1          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  50  12          0 1
+Affc 'reserved'   1  90  -1   7  19          0 1
+Affc 'reserved'   1  90  -1   7  18          0 1
+End
+
+#B
+Vnum 10107
+Nest 0
+Cond 98
+Wear -1
+Cost 28000
+End
+
+#B
+Vnum 20026
+Nest 0
+Wear -1
+Cost 90000
+End
+
+#B
+Vnum 14012
+Nest 0
+ExtF 1835010
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 14013
+Nest 0
+Mat Silk~
+ExtF 1835010
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 8227
+Nest 0
+Wear -1
+Cost 7055
+End
+
+#B
+Vnum 10121
+Nest 0
+Wear -1
+Lev  91
+Cost 21
+ExDe owned by~ Umberto
+~
+End
+
+#B
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#B
+Vnum 73
+Nest 1
+Cond 97
+Wear -1
+Cost 270
+End
+
+#B
+Vnum 78
+Nest 1
+Wear -1
+Cost 900
+End
+
+#B
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#B
+Vnum 74
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 76
+Nest 1
+Cond 91
+Wear -1
+Cost 550
+End
+
+#B
+Vnum 75
+Nest 1
+Cond 100
+Wear -1
+Cost 620
+End
+
+#B
+Vnum 3021
+Enchanted
+Nest 1
+ExtF 67
+Cond 100
+Wear -1
+Lev  5
+Cost 250
+Affc 'enchant weapon'   1  80  -1   6  19          0 1
+Affc 'enchant weapon'   0  80  -1   6  18          0 1
+End
+
+#B
+Vnum 14003
+Nest 0
+ExtF 18612305
+Wear -1
+Cost 100000
+End
+
+#B
+Vnum 5617
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11674
+Nest 0
+Wear -1
+Cost 2550
+End
+
+#B
+Vnum 11673
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11655
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11669
+Nest 1
+Wear -1
+Cost 8300
+End
+
+#B
+Vnum 11646
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11621
+Nest 1
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 11620
+Nest 1
+Wear -1
+Cost 4000
+End
+
+#B
+Vnum 11625
+Nest 1
+Wear -1
+Cost 5500
+End
+
+#B
+Vnum 11626
+Nest 1
+ExtF 262434
+Wear -1
+Cost 2200
+End
+
+#B
+Vnum 11633
+Nest 1
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 11643
+Nest 1
+Wear -1
+Cost 20
+End
+
+#B
+Vnum 11640
+Nest 1
+Wear -1
+Cost 200
+End
+
+#END

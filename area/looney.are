@@ -1,0 +1,1356 @@
+#AREA
+looney.are~
+Looney Tunes~
+{H{{70 91} {CM{go{Tn{Ct{gr{Cey {TLooney Tunes{x~
+2900 2999
+#MOBILES
+#2900
+yosemite sam pirate~
+{RYos{Nemite {RSam{x~
+The dreaded pirate Yosemite Sam stands here.
+~
+Yosemite Sam stands here.  He has a long bright {Rred{x mustache, and stands
+about three feet tall.  He is rather energetic, and runs around barking
+orders, mixed with an occasional muttered comment about some 'darned
+rabbit'.
+~
+human~
+BGT Z -1000 S
+85 18 1d1+6599 1d1-1 6d6+15 slash
+-60 -60 -60 -58
+DEIKN 0 G E
+stand stand male 1000
+0 0 medium 0
+>rand_prog 3~
+emote starts shouting orders.
+say Raise the anchor!  Hoist the mainsail!  Swab the poopdeck!
+say Get to work, you lazy varmints!
+~
+>fight_prog 4~
+emote furiously stomps up and down.
+say OOOOOOOOOOOOOOOOOHHH!!!
+say I'm gonna get you for that, you darned varmint!!!
+~
+|
+#2901
+daffy duck~
+{YDa{cffy Du{Yck{x~
+Daffy Duck stands here, scanning for ships on the horizon.
+~
+It looks like this poor guy has seen better days.  He wears a tattered
+rag around his body, hasn't shaved in quite a while, and hasn't bathed
+in even longer.  In other words, he looks like your typical castaway.
+~
+water fowl~
+BGT Z 0 S
+85 18 1d1+6599 1d1-1 6d6+5 peck
+-60 -60 -60 -58
+DEIKN 0 E G
+stand stand male 1000
+0 0 medium 0
+>rand_prog 3~
+sigh
+say The shame of it.  To think of me, Daffy Duck, the world's greatest performer, marooned on a deserted island!  And in such bad company!
+~
+|
+#2902
+speedy gonzales mouse~
+{bSpeedy Gonzales{x~
+A mouse lies here relaxing on the {Ysand{x.
+~
+Speedy Gonzales, the fastest mouse in all of Mexico, is lying here.  He
+is a castaway on this beach, but doesn't look nearly as worked up as
+Daffy about it.  He is laying back against a rock with his sombrero
+pulled over his face.
+~
+mouse~
+BGT V 1000 S
+85 18 1d1+6599 1d1-1 6d6+5 none
+-60 -60 -60 -58
+DEKN 0 F G
+rest rest male 1000
+0 0 tiny 0
+>rand_prog 3~
+groan
+say Oooh, what I wouldn't geeve for a nice fat burrito right now.
+say Senor Duck, why don't we go and see if those nice pirates have any burritos?
+~
+>fight_prog 4~
+say Epa, epa, ondele, ondele, eeeehaaa!!!
+emote runs circles around you.
+~
+|
+#2903
+Wiley Coyote~
+{RWi{ble {RE. {bCo{Ryo{bte{x~
+Wile E. Coyote stands here, strapping on some roller skates.
+~
+Wile E. Coyote, Super Genius, stands here.  He is strapping on a pair
+of rocket powered roller skates, probably another one of his schemes
+to catch the Road Runner.
+~
+coyote~
+BGT 0 -1000 S
+85 18 1d1+6599 1d1-1 6d6+5 beating
+-60 -60 -60 -58
+DEKN 0 G F
+stand stand male 1000
+0 0 medium 0
+>rand_prog 3~
+emote finishes tying the laces on his rocket skates, and presses the button.
+emote flies around in circles a few times, then smacks right into a huge {cboulder{x!
+~
+|
+#2904
+road runner bird~
+{YRo{Bad Runn{Yer{x~
+A bird streaks past you in a cloud of {bdust{x.
+~
+It looks like the Road Runner, the fastest bird in the desert.  He's out
+for another day of outrunning Wile E.'s traps.
+~
+road runner~
+BGHT V 1000 S
+90 18 1d1+6599 1d1-1 6d6+5 peck
+-60 -60 -60 -58
+DEKN 0 E F
+stand stand male 0
+0 0 small 0
+>rand_prog 3~
+emote looks at you and goes, 'Meep, meep!'
+emote rockets off leaving a trail of {bdust{x.
+~
+|
+#2905
+rabbit bugs bunny~
+{gBu{Wgs Bun{gny{x~
+A rabbit is here relaxing in his easy chair.
+~
+Bugs Bunny is here relaxing.  He is safe from Elmer here in his rabbit
+hole, since Elmer doesn't know where it is, but Bugs has a few tricks
+up his sleeve if Elmer ever finds it.
+~
+rabbit~
+BGT HZ 1000 S
+120 25 1d1+9999 1d1-1 8d8+9 beating
+-100 -100 -100 -95
+CDEFHIKN 0 0 0
+sit sit male 10000
+0 0 medium 0
+>rand_prog 3~
+emote wanders over next to you and leans on your sword.
+emote munches on a carrot.
+say Eh...  what's up, Doc?
+~
+|
+#2906
+elmer fudd man~
+{HEl{bmer Fu{Hdd{x~
+A short bald man walks around with a shotgun here.
+~
+Elmer Fudd is here, hunting that wascally wabbit.  He carries a shotgun
+and is wearing his hunting clothes, and is being vewy vewy quiet.
+~
+human~
+BGT HZ -1000 S
+100 21 1d1+7999 1d1-1 8d6+9 blast
+-70 -70 -70 -65
+CDEFIK 0 H I
+stand stand male 1000
+0 0 medium 0
+>rand_prog 3~
+emote slowly looks all around, then puts a finger to his mouth and makes a 'shhh' sound.
+say Be vewy vewy quiet...  I'm hunting wabbits.
+say Huhuhuhuhuhuh.
+smile
+~
+|
+#2907
+marvin martian~
+{cMa{Hrvin {cthe {HMarti{can{x~
+Marvin the Martian is here, looking menacing.
+~
+Marvin the Martian stands here, pressing buttons on the spaceship's
+controls.  He wears a green helmet on his head, and a ray gun is
+strapped to his side.
+~
+martian~
+BGT HZ -1000 S
+120 25 1d1+9999 1d1-1 8d8+9 blast
+-100 -100 -100 -95
+CDEFHIKN 0 0 0
+stand stand male 10000
+0 0 medium 0
+>rand_prog 3~
+say Oh, dear...  wherever did I put that space modulator?
+sigh
+~
+|
+#2908
+foghorn leghorn chicken~
+{YF{Wogho{Rrn L{Weghor{Yn{x~
+Foghorn Leghorn walks by, whistling.
+~
+Foghorn Leghorn is his usual cheerful self today.  Ordinarily it would
+be odd to see a five foot tall chicken walking around whistling, but
+hey, this is a cartoon, right?
+~
+chicken~
+BGT HZ 1000 S
+100 21 1d1+7999 1d1-1 8d6+9 peck
+-70 -70 -70 -65
+CDEFIK 0 I H
+stand stand male 1000
+0 0 medium 0
+>rand_prog 3~
+emote walks over to you.
+say C'mere, ah say, c'mere boy, let me show you something.  You see, you're holding that sword all wrong.  That's a sword, not a baseball bat.
+emote mutters to everyone else in the room, 'Kids these days, ain't got no common sense.'
+say Now, what you need to do is, get a good grip on that there sword.
+You see?  Now you can really clobber something with it.  Go ahead, find something to try it out on!
+~
+|
+#2909
+porky pig~
+{VP{Wo{Brky P{Wi{Vg{x~
+Porky Pig is here, feeding the chickens.
+~
+Hey, it's everyone's favorite pig, Porky.  He is wearing some overalls
+and a straw hat, and is feeding his beloved chickens.
+~
+pig~
+BGT HZ 1000 S
+100 21 1d1+7999 1d1-1 8d6+9 beating
+-70 -70 -70 -65
+CDEFIK 0 K J
+stand stand male 1000
+0 0 medium 0
+>rand_prog 3~
+say He-here you go chickens, here's your s-s-su-supp-su-sup-dinner.
+emote tosses some chickenfeed out on the ground.
+~
+|
+#2910
+sylvester cat~
+{WS{gyl{cves{gte{Wr{x~
+Sylvester is here, trying to figure out how to get to the birdcage.
+~
+Sylvester just never gives up!  He's standing here looking at Tweety
+and drooling.
+~
+cat~
+BGT HZ -1000 S
+100 21 1d1+8999 1d1-1 8d6+15 claw
+-70 -70 -70 -65
+CDEFIK 0 I K
+stand stand male 1000
+0 0 medium 0
+>rand_prog 3~
+emote looks at Tweety thoughtfully.
+emote starts building a catapult out of some boards and an anvil.
+MPECHO (We can all see where this is going, right?)
+~
+|
+#2911
+tweety bird~
+{YTweety{x~
+Tweety is here, swinging merrily in his birdcage.
+~
+Tweety is happily swinging in his birdcage.  He isn't too concerned
+about Sylvester plotting against him down below.
+~
+song bird~
+BGT HZ 1000 S
+100 21 1d1+8999 1d1-1 8d6+15 peck
+-70 -70 -70 -65
+CDEFIK 0 J K
+stand stand male 1000
+0 0 medium 0
+>rand_prog 3~
+whistle
+emote looks out over the edge of his cage at Sylvester.
+gasp
+say I tat I taw a puddy tat!
+emote looks out over the edge again.
+say I did!  I did!  I did tee a puddy tat!
+~
+|
+#0
+#OBJECTS
+#2912
+blue pirate jacket~
+a {Bblue{x pirate jacket~
+A {Bblue{x jacket lies here.~
+ink and paper~
+armor ABGJY AD
+25 25 25 25 0
+80 5 5000 P
+E
+blue pirate jacket~
+It is a jacket commonly worn by pirates on their voyages.  It is
+designed to withstand the rigors of traveling on the high seas.  It
+looks a little small to fit most pirates, though.
+~
+A
+5 2
+A
+12 50
+A
+18 5
+A
+19 5
+A
+20 -5
+#2913
+blue pirate hat~
+a {Bblue{x pirate hat~
+A {Bblue{x, wide-brimmed hat lies here.~
+ink and paper~
+armor ABGJY AE
+20 20 20 20 0
+80 2 5000 P
+E
+blue pirate hat~
+This is the traditional hat of a pirate captain.  It is {Bnavy blue{x with
+a wide brim folded and pinned up on both sides.
+~
+A
+3 2
+A
+12 50
+A
+18 4
+A
+19 4
+A
+20 -5
+#2914
+sam pirate sabre~
+{YS{Wam's Pirate Sabr{Ye{x~
+A long and sharp pirate sabre lies here.~
+ink and paper~
+weapon ABGY AN
+sword 13 7 slash D
+80 3 5000 P
+E
+sam pirate sabre~
+This is the sword of the dreaded pirate, Yosemite Sam.  It's long curved
+blade is designed to separate flesh from bone with deadly efficiency.
+~
+A
+18 4
+A
+19 4
+#2915
+duck bill~
+a {Yduck bill{x~
+Eww, a duck's {Ybill{x is lying on the ground here.~
+ink and paper~
+armor ABGY AE
+20 20 20 20 0
+80 2 5000 P
+E
+duck bill~
+This is kinda gross.  It's Daffy Duck's bill, but the rest of Daffy is
+nowhere to be found.
+~
+A
+26 2
+A
+12 50
+A
+13 20
+A
+18 3
+A
+19 3
+A
+20 -9
+#2916
+sombrero~
+a {bsombrero{x~
+A {bsombrero{x lies here.~
+ink and paper~
+armor ABGKY AE
+20 20 20 20 0
+80 2 5000 P
+E
+sombrero~
+This sombrero used to belong to Speedy Gonzales, the fastest mouse in
+all of Mexico.  It is made of straw and has a very wide brim.
+~
+A
+2 2
+A
+12 30
+A
+13 20
+A
+18 6
+A
+19 6
+A
+20 -7
+#2917
+rocket roller skates acme~
+{YA{GC{RM{BE{x(tm) {PRo{Yck{Pet{x-Powered Roller Skates~
+A pair of rocket roller skates lie here.~
+ink and paper~
+armor ABGJY AG
+20 20 20 20 0
+80 2 5000 P
+E
+rocket roller skates acme~
+These are ACME(tm) Brand Rocket-Powered Roller Skates, previously
+marketed under the name 'Strap-On Suicide'.  The name was changed for
+obvious reasons.
+~
+A
+12 30
+A
+13 30
+A
+14 60
+A
+18 4
+A
+19 4
+F
+A 0 0 V
+#2918
+carrot~
+a carrot~
+A carrot lies on the ground here.~
+ink and paper~
+food ABGY AO
+10 50 0 0 0
+85 1 5000 P
+E
+carrot~
+This is a carrot.  What more do you need to know?
+~
+A
+3 3
+A
+12 70
+A
+13 70
+A
+18 5
+A
+19 5
+A
+20 -8
+#2919
+white gloves~
+{Wwhite gloves{x~
+A pair of {Wwhite gloves{x lie here.~
+ink and paper~
+armor ABGKY AH
+24 24 24 24 0
+90 1 5000 P
+E
+white gloves~
+These are nice, comfortable white gloves.
+~
+A
+2 3
+A
+13 100
+A
+18 4
+A
+19 4
+#2920
+shotgun gun~
+a {bshotgun{x~
+A {bshotgun{x lies here.~
+ink and paper~
+weapon ABGJY AN
+exotic 13 7 blast A
+80 6 5000 P
+E
+shotgun~
+It's a shotgun, which Elmer uses for hunting wabbits.
+~
+A
+18 4
+A
+19 4
+#2921
+green helmet~
+a {Hgreen helmet{x~
+A {Hgreen helmet{x lies here.~
+ink and paper~
+armor ABGJY AE
+24 24 24 24 0
+90 2 5000 P
+E
+green helmet~
+It's Marvin the Martian's helmet.  It is made of a strange green metal,
+and covers the head well enough that the face cannot be seen.
+~
+A
+1 3
+A
+13 100
+A
+18 4
+A
+19 4
+#2922
+disintegrating gun~
+a {Wdis{gint{cegra{kting{x gun~
+A futuristic-looking gun lies on the ground here.~
+ink and paper~
+weapon ABGJPY AN
+exotic 10 10 blast BD
+90 1 5000 B
+E
+disintegrating gun~
+It looks like your standard high power disintegration implement.
+~
+A
+18 6
+A
+19 6
+#2924
+house key~
+a house key~
+A key lies on the ground here.~
+ink and paper~
+key 0 AO
+1 0 0 0 0
+0 1 0 P
+#2925
+straw hat~
+a {bstraw hat{x~
+A {bstraw hat{x lies here.~
+ink and paper~
+armor ABGKY AE
+22 22 22 22 0
+85 3 5000 P
+E
+straw hat~
+It's Porky's straw hat, designed to protect the head from the sun.
+~
+A
+4 2
+A
+12 40
+A
+13 70
+A
+18 5
+A
+19 5
+A
+20 -5
+#2926
+overalls~
+a pair of {Noveralls{x~
+A pair of {Noveralls{x lie here.~
+ink and paper~
+armor ABGKY AD
+27 27 27 27 0
+85 4 5000 P
+E
+overalls~
+A pair of denim overalls that cover the legs and torso.
+~
+A
+5 2
+A
+12 50
+A
+13 40
+A
+18 5
+A
+19 5
+A
+20 -5
+#0
+#ROOMS
+#2927
+Near Sam's Ship~
+You are still within sight of {bland{x, but still quite a way out at {Tsea{x.
+Before you stands a {bpi{cra{bte {cga{bll{ceo{bn{x, which you recognize as belonging to
+the pirate {RSam{x.  You can climb up the side to the {bdeck{x of the ship, or
+you can head back west toward the {Yc{Woas{Yt{x.
+~
+0 0 7
+D4
+Up from here is the {bdeck{x of the pirate ship.
+~
+~
+0 -1 2928
+D3
+West of here is the Theran {Yc{Woas{Yt{x.
+~
+~
+0 -1 2929
+E
+land coast~
+West of here is the Theran {Yc{Woas{Yt{x.
+~
+E
+pirate ship galleon side~
+It is a hundred foot long Spanish galleon, complete with two {bmasts{x and
+{ccannons{x lining the sides and bow.
+~
+E
+sea ocean water~
+The {Twater{x is warm due to your southern latitude, and a little on the
+salty side.
+~
+S
+#2928
+Deck of the Pirate Ship~
+You are on the deck of Yosemite Sam's pirate ship.  Around you pirates
+work on the {briggings{x, and a few are sanding the {bdeck{x.  From here you can
+go down to the {Tsea{x.
+~
+0 0 0
+D5
+Down from here is the {Yocean{x.
+~
+~
+0 -1 2927
+E
+deck~
+It's a {bwooden{x deck, commonly used on old seagoing vessels.
+~
+E
+riggings~
+Riggings are the {bropes{x uses to control and secure the {Ysails{x and {bmasts{x.
+Currently some pirates are moving about on them.
+~
+E
+pirates~
+Currently the pirates are hard at work maintaining the ship.
+~
+S
+#2929
+The Beach~
+You stand on a {Yw{Whit{Ye{x sandy beach.  This looks like a perfect spot to
+stretch out on a towel and {Ysunbathe{x, or maybe do some swimming in the
+warm {Twater{x lapping at the {Wsand{x.  The beach continues on to the north,
+and to the west the beginnings of a {bdesert{x can be seen.  Off to the
+east, you can make out a ship sailing.
+~
+0 0 10
+D3
+The {Yde{bse{Yrt{x lies to the west.
+~
+~
+0 -1 2930
+D0
+The {Yb{Weac{Yh{x continues on north of here.
+~
+~
+0 -1 4481
+D1
+East of here is the {Tocean{x.
+~
+~
+0 -1 2927
+E
+sand~
+The sand is bleached {Yw{Whit{Ye{x, and is pretty {Yhot{x.
+~
+E
+ship~
+It's an old galleon, apparently anchored just off the coast.  You can
+vaguely make out a {gJ{col{gl{cy R{go{cger{x atop the ship's mast.
+~
+E
+water~
+The {Tsurf{x looks warm and inviting.
+~
+S
+#2930
+Beginning of the Desert~
+Here the {Yw{Whit{Ye{x sands of the beach turn into the darker {bsands{x, {Rrocks{x, and
+{Rcliffs{x of the desert.  There are signs of civilization here, as {cpaved{x
+{chighways{x can be seen cutting through cliff faces and winding around
+{Rmountains{x.  To the west the {bdesert{x continues, and to the east you can
+faintly make out a {Ysunny{x beach and the {Tocean{x beyond.
+~
+0 0 10
+D1
+The {Yb{Weac{Yh{x lies to the east.
+~
+~
+0 -1 2929
+D3
+The {bdesert{x continues on to the west.
+~
+~
+0 -1 2931
+E
+highway~
+{cPaved roads{x help to transport people from one place to the next.
+~
+E
+desert sand rock cliff~
+It's your typical {bdesert{x scenery, common to areas with high temperatures
+and low precipitation.
+~
+E
+beach coast ocean~
+You can smell the salt air coming from the east, and can make out the
+{Tocean{x on the horizon.
+~
+S
+#2931
+The Desert~
+It is unbearably {Yhot{x here.  The landscape consists of many {Rrocky cliffs{x.
+The {croad{x you walk down might as well be made of lava, it radiates {Pheat{x
+just as well.  The {croad{x winds around and through the {Rcliffs{x, making for
+a treacherous journey.  Far to the northwest, though, you can see some
+{Hdarker{x land that might be a {Hforest{x.  The {bdesert{x continues east and west.
+~
+0 0 10
+D1
+Far to the east is the {Tocean{x.
+~
+~
+0 -1 2930
+D3
+The {bdesert{x continues on to the west.
+~
+~
+0 -1 2932
+E
+forest~
+Well, you're not sure that it's a {Hforest{x, it might just be a mirage.
+~
+E
+cliffs rock desert~
+This {bdesert{x consists of a lot of elevation changes.  {bCanyons{x and {Rrocky{x
+{Rcolumns{x make it impossible for the {croad{x to continue in a straight line.
+~
+E
+road highway pavement~
+The {croad{x continues east and west.
+~
+S
+#2932
+The Desert~
+The {bcanyons{x and {Rcliffs{x are starting to become less treacherous as you
+get near the edge of the {bdesert{x.  The dark {Hgreen{x to the northwest looks
+to be within a day's journey.  The road continues on west and east.
+~
+0 0 10
+D1
+The {bdesert{x continues on to the east.
+~
+~
+0 -1 2931
+D3
+To the west you can see the outskirts of a {Hforest{x.
+~
+~
+0 -1 2933
+E
+desert cliff canyon~
+{bDesert{x type scenery.
+~
+E
+road pavement highway~
+This {chighway{x continues east and west.
+~
+S
+#2933
+Beginning of the Forest~
+You stand at the point where the {bdesert{x turns into a deep {Hforest{x.  The
+{chighway{x angles off to the southwest, towards parts unknown.  Glancing
+at the distance on the {Gmile marker{x nearby, you opt not to head in that
+direction.  Northward are tall {Htrees{x, and to the east is the {Ydesert{x.
+~
+0 0 2
+D1
+The {bdesert{x begins to the east.
+~
+~
+0 -1 2932
+D0
+The {Hforest{x is to the north.
+~
+~
+0 -1 2934
+E
+forest tree~
+The {Hforest{x looks far more inviting than the {bdesert{x.
+~
+E
+mile marker distance~
+It's a {Ggreen{x sign next to the highway.  It reads:
+   {G_________________________________{x
+   {G|                               |{x
+   {G| {gTorayna Cri       116 leagues {G|{x
+   {G|_______________________________|{x
+
+It probably wouldn't be a good idea to try and walk it.
+~
+E
+highway pavement road~
+The {chighway{x continues on to the east and southwest.
+~
+E
+desert~
+The {bdesert{x looks hot and forbidding.
+~
+S
+#2934
+The Forest~
+You are just inside the southeast edge of the {Hforest{x.  Tall {Hoa{Gk {Htr{Ge{Hes{x
+surround you, all filled with {Chappy{x sounding birds and other wildlife.
+You are on a well worn {btrail{x that meanders among the {Htrees{x.  To the
+south you see the {bdesert{x, and to the north the {Hforest{x continues.
+~
+0 0 3
+D0
+The {Hforest{x continues to the north.
+~
+~
+0 -1 2935
+D2
+To the south is the {bdesert{x.
+~
+~
+0 -1 2933
+E
+forest oak tree~
+Tall {Hoa{Gk {Htr{Ge{Hes{x abound in this ancient {Hforest{x.
+~
+E
+bird wildlife~
+Birds and wildlife make {Chappy{x sounds all around you.
+~
+E
+trail~
+This {btrail{x looks to be well used.
+~
+E
+desert~
+To the south lies the {bdesert{x.
+~
+S
+#2935
+The Forest~
+You are deep in the {Hforest{x.  There are tall {Hoa{Gk {Htr{Ge{Hes{x everywhere, save
+for the {btrail{x you are on.  To the north and south the {btrail{x continues,
+and a barely discernable {bpath{x leads west.
+~
+0 0 3
+D0
+The {Hforest{x continues to the north.
+~
+~
+0 -1 2938
+D2
+The {Hforest{x continues to the south.
+~
+~
+0 -1 2934
+D3
+A faint {bpath{x leads to the west.
+~
+~
+0 -1 2936
+E
+trail~
+The forest {btrail{x looks well traveled, and every so often you can make
+out a faint boot print.
+~
+E
+path~
+The faint {bpath{x leads to the west.  Upon closer inspection, you can make
+out {Wrabbit prints{x on it.
+~
+E
+forest oak tree~
+Tall {Hoa{Gk {Htr{Ge{Hes{x abound in this ancient {Hforest{x.
+~
+S
+#2936
+Outside a Rabbit Hole~
+You stand next to a large {Hoa{Gk {Htr{Ge{He{x.  There is a small {bhole{x about three
+yards from the base of the {Htree{x, leading downwards.  To the east you can
+follow a faint {bpath{x, which leads back to the {Hforest {btrail{x.
+~
+0 0 3
+D1
+The {bpath{x leads to the east.
+~
+~
+0 -1 2935
+D5
+A small {bhole{x leads downwards.
+~
+~
+0 -1 2937
+E
+hole~
+It looks suspiciously like a {Wrabbit hole{x.
+~
+E
+path~
+The faint {bpath{x leads to the east.  Upon closer inspection, you can make
+out {Wrabbit prints{x on it.
+~
+E
+oak tree~
+It is your average {Hoa{Gk {Htr{Ge{He{x, nothing more.
+~
+S
+#2937
+Inside a Rabbit Hole~
+You stand inside {WBu{ggs Bun{Wny{x's elegantly furnished {Wrabbit hole{x.  A
+{bbookshelf{x lines one wall, and an {Measy chair{x occupies the center of the
+room.  A small {Wbed{x is situated in one corner, and the room is lit by a
+single {Ylamp{x next to the chair.  The only exit is through the {bladder{x you
+descended on.
+~
+0 0 0
+D4
+The {bladder{x leads up to the surface.
+~
+~
+0 -1 2936
+E
+hole~
+You are inside {WBu{ggs Bun{Wny{x's {Wrabbit hole{x.
+~
+E
+bookshelf shelf~
+The {bbookshelf{x was recently dusted, and holds numerous volumes, such as
+'The Common Rabbit's Shakespeare' 'The Illustrated History of Rabbits'
+and 'A Rabbit's Guide to Bartending'.
+~
+E
+easy chair~
+It is a comfortable looking {Mchair{x, albeit a little small for anyone
+larger than a {Wra{gbb{Wit{x.
+~
+E
+bed~
+The {Wbed{x is too small for you to lie down on.
+~
+E
+ladder~
+A {bladder{x leads back to the surface.
+~
+S
+#2938
+The Forest~
+You are on a well worn {btrail{x through the {Hoa{Gk {Hfo{Gr{Hest{x.  The {btrail{x splits
+into three directions here, one leading north to a {Gclearing{x, and the
+other two leading south and west through the {Hforest{x.
+~
+0 0 3
+D0
+A small {Gclearing{x is to the north.
+~
+~
+0 -1 2939
+D2
+The {Hforest{x continues to the south.
+~
+~
+0 -1 2935
+D3
+The {Hforest{x continues to the west.
+~
+~
+0 -1 2940
+E
+trail~
+A well worn {btrail{x leads north, south, and west.
+~
+E
+clearing~
+You see a {Hfi{cgu{Hre{x slowly moving around in the clearing.
+~
+E
+figure~
+You are too far away, maybe if you moved closer you could identify it.
+~
+E
+oak tree forest~
+There are plenty of {Htr{Ge{Hes{x here, it is a {Hforest{x after all.
+~
+S
+#2939
+A Small Clearing~
+You stand in the middle of a {Gclearing{x in the {Hforest{x.  There is short
+{Ggrass{x on the ground, and a {btrail{x leads to the south.
+~
+0 0 2
+D2
+The {Hforest{x continues to the south.
+~
+~
+0 -1 2938
+E
+clearing~
+A {Gclearing{x is a place in a {Hforest{x devoid of {Htr{Ge{Hes{x.
+~
+E
+grass~
+The {Ggrass{x is {Ggreen{x and springy, and feels good to walk on.
+~
+E
+trail~
+The {btrail{x leads to the south.
+~
+E
+tree forest~
+Tall {Htr{Ge{Hes{x make a ring around the {Gclearing{x.
+~
+S
+#2940
+West Edge of the Forest~
+You stand on the western edge of the {Hforest{x.  To the north and east a
+well worn {btrail{x leads away, and to the west you can see a small {Rfarm{x.
+~
+0 0 3
+D0
+You see a large {cobject{x blocking the {bpath{x further to the north.
+~
+~
+0 -1 2941
+D3
+To the west you see a small {Rfarm{x.
+~
+~
+0 -1 2943
+D1
+To the east the {Hforest{x continues.
+~
+~
+0 -1 2938
+E
+tree forest~
+You stand in the western edge of an {Hoa{Gk {Hfo{Gr{Hest{x.
+~
+E
+trail~
+A well worn {btrail{x leads deeper into the {Hforest{x.
+~
+E
+farm~
+It is too far to make out, but it looks to consist of a {Rbarn{x and a {Whouse{x.
+~
+E
+object~
+If you got closer you could probably see it better.
+~
+S
+#2941
+A Burnt Clearing~
+The air here is filled with {csmoke{x.  You stand in a large clearing, in
+the center of which is a fifty foot long football shaped {cobject{x with
+fins on the back.  {cSmoke{x billows from strange protusions just behind the
+fins.  A hole in the bottom of it leads up, and to the south you can see
+more of the {Hforest{x.  
+~
+0 0 2
+D2
+To the south the {Hforest{x continues.
+~
+~
+0 -1 2940
+D4
+Up from here you can see a hole in the belly of the {cobject{x.
+~
+~
+0 -1 2942
+E
+clearing~
+You are in a clearing in the {Hforest{x.
+~
+E
+tree forest~
+You are in the northwestern edge of a large {Hoa{Gk {Hfo{Gr{Hest{x.
+~
+E
+object spaceship football~
+It appears to be manmade.  It is constructed of {cmetal{x, but you have
+never seen anything like it before.
+~
+E
+fins~
+Fins protrude from the {cobject{x, but there is no telling what they are for.
+~
+E
+smoke protrusions~
+{cSmoke{x billows from strange protrusions on the back of the {ccraft{x.  Common
+sense would dictate that they are very {Rhot{x.
+~
+E
+hole belly~
+There is a hole in the bottom of the {ccraft{x, with a ladder hanging out of
+it.
+~
+E
+ladder~
+The ladder leads up into the {ccraft{x.
+~
+S
+#2942
+Inside the Spaceship~
+You stand inside the spaceship of {GM{Harv{cin the Ma{Hrtia{Gn{x.  There are
+blinking {Yl{Ci{Yg{Ch{Yt{Cs{x on virtually every surface, none of which make any sense
+to you.  Other than that, the interior of the ship is very plain, with
+no objects to speak of.  The hole you entered from is in the floor of
+the ship, and leads back to the {Hforest{x.
+~
+0 0 0
+D5
+Down from here you can exit the spaceship.
+~
+~
+0 -1 2941
+E
+spaceship~
+You are inside {HMa{crv{Hin{x's spaceship.
+~
+E
+lights surface~
+You fail to deduce what the blinking {Yl{Ci{Yg{Ch{Yt{Cs{x mean.
+~
+E
+hole~
+The hole leads back to the {Hforest{x.
+~
+S
+#2943
+Outside the Farm~
+You stand just outside the {Hoa{Gk {Hfo{Gr{Hest{x.  There is knee high {Ggreen grass{x
+on the ground, and the {Cair{x is fresh and clean.  To the west lies a small
+{Rfarm{x, with a couple of figures moving about.  East is the {Hforest{x, and
+you see a path leading in.
+~
+0 0 2
+D1
+The {Hforest{x lies to the east.
+~
+~
+0 -1 2940
+D3
+The {Rfarm{x is the the west.
+~
+~
+0 -1 2944
+E
+oak forest tree~
+East of here lies the {Hforest{x.
+~
+E
+path~
+It appears to be a path leading deep into the {Hforest{x.
+~
+E
+farm~
+The {Rfarm{x consists of three buildings, a {Rbarn{x, a {Whouse{x, and a smaller
+one you can't quite discern.
+~
+E
+air~
+The {Cair{x is fresh and clean, and devoid of the familiar smells of Midgaard.
+~
+E
+figures~
+You are too far away to see them clearly.
+~
+E
+grass~
+Tall {Ggreen grass{x carpets the ground.
+~
+S
+#2944
+The Farm~
+You are inside the front gate of the {Rfarm{x.  To the north you can see
+some {Wchicken coupes{x, and a {Rbarn{x lies to the south.  A {Wwhite{x house is to
+the west.
+~
+0 0 0
+D0
+The {Wchicken coupes{x are north of here.
+~
+~
+0 -1 2945
+D1
+The {Hforest{x is east of here.
+~
+~
+0 -1 2943
+D2
+The {Rbarn{x is south of here.
+~
+~
+0 -1 2946
+D3
+The {Wfarmhouse{x can be entered west of here.
+~
+door house farmhouse~
+1 2924 2947
+E
+front gate~
+It is a {Wwhite{x gate, which is currently open.
+~
+E
+chicken coupes~
+There are some {Wchicken coupes{x to the north.
+~
+E
+barn~
+It is an old fashioned {Rred barn{x, used to store {Yhay{x and other farm
+essentials.
+~
+E
+white house~
+A small {Wwhite house{x lies to the west.
+~
+S
+#2945
+Chicken Coupes~
+You stand outside the {Wchicken coupes{x.  Chickens scratch and peck at the
+{bground{x, looking for {Yseeds{x and other edibles.  You can see the {Rbarn{x to
+the south of here, and the {Whouse{x to the southwest.
+~
+0 0 2
+D2
+The rest of the {Rfarm{x lies to the south of here.
+~
+~
+0 -1 2944
+E
+barn~
+It is an old fashioned {Rred barn{x, used to store farming supplies.
+~
+E
+chicken coupes~
+The {Wchicken coupes{x are used to protect the chickens from the weather,
+and to give them a place to lay their {Weggs{x.  The coupes are painted
+{Wwhite{x.
+~
+E
+chickens~
+Chickens, the original {Wwhite{x meat.  They are doing chicken stuff,
+like scratching and clucking.
+~
+E
+house~
+The {Whouse{x is to the southwest.
+~
+E
+seed edible feed~
+The chickens already ate the seeds.
+~
+S
+#2946
+The Barn~
+You stand outside the {Rbarn{x.  You see the {Wchicken coupes{x to the north,
+and the {Whouse{x to the northwest.
+~
+0 0 2
+D0
+The rest of the {Rfarm{x is to the north of here.
+~
+~
+0 -1 2944
+E
+barn~
+The {Rbarn{x is painted the traditional {Rred{x, and has a large door in it.
+~
+E
+door~
+You don't really have time to be mucking about in the {Rbarn{x right now.
+Besides, there's not much of interest in there anyway.
+~
+E
+interest mucking~
+Trust me, there's nothing in the {Rbarn{x.
+~
+E
+chicken coupes~
+The {Wchicken coupes{x are north of here.
+~
+E
+house~
+The {Whouse{x is to the northwest.
+~
+S
+#2947
+Inside the Farmhouse~
+You are inside Porky's house.  A {Ybirdcage{x hangs from the ceiling, and
+there is a {Yf{Pir{Ye{x crackling merrily in the fireplace.  It is sparsely
+furnished, and really doesn't have anything of interest in it.  The
+only exit is to the east.
+~
+0 0 0
+D1
+Outside you can see the {Rfarm{x.
+~
+door house farmhouse~
+1 2924 2944
+E
+farmhouse house~
+You are currently inside the {Whouse{x.
+~
+E
+birdcage cage~
+A {Ybirdcage{x hangs from the ceiling, just out of reach of smaller animals.
+~
+E
+ceiling~
+It is made of {bwood{x, and used to cover the house.
+~
+E
+oak wood~
+Persistant, aren't you?  It's {boak{x, probably from the nearby {Hforest{x.
+~
+E
+fire fireplace~
+The fireplace currently has a {Yf{Pir{Ye{x in it.
+~
+S
+#0
+#RESETS
+M 0 2900 1 2928 1   * Sam in pirate ship
+E 0 2912 50 5       * equips Sam with jacket
+E 0 2913 50 6       * equips Sam with hat
+E 0 2914 50 16      * equips Sam with sabre
+M 0 2901 1 2929 1   * Daffy on beach
+E 0 2915 50 6       * equips Daffy with bill
+M 0 2902 1 2929 1   * Speedy on beach
+E 0 2916 50 6       * equips Speedy with sombrero
+M 0 2903 1 2932 1   * Wile in desert
+E 0 2917 30 8       * equips Wile with skates
+M 0 2904 1 2933 1   * R.R. in desert
+M 0 2905 1 2937 1   * Bugs in hole
+E 0 2918 100 17     * equips Bugs with carrot
+E 0 2919 30 9       * equips Bugs with gloves
+M 0 2906 1 2939 1   * Elmer in clearing
+E 0 2920 25 16      * equips Elmer with shotgun
+M 0 2907 1 2942 1   * Marvin in spaceship
+E 0 2921 30 6       * equips Marvin with helmet
+E 0 2922 20 16      * equips Marvin with disintegrating gun
+M 0 2908 1 2946 1   * Foghorn in barn
+M 0 2909 1 2945 1   * Porky in coupes
+G 0 2924 50         * gives Porky key
+E 0 2925 30 6       * equips Porky with hat
+E 0 2926 30 5       * equips Porky with overalls
+M 0 2910 1 2947 1   * Sylvester in farmhouse
+M 0 2911 1 2947 1   * Tweety in farmhouse
+D 0 2944 3 2        * closes and locks door farm entrance west to house
+D 0 2947 1 2        * closes and locks door house west to farm entrance
+S
+#$
+
+
+

@@ -1,0 +1,394 @@
+#PLAYER
+Name Amelak~
+Id   1013043082
+LogO 1013746216
+Vers 12
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dragon~
+Sex  0
+Cla  5
+Levl 5
+Plyd 5031
+Age  0
+Back 0
+Note 1013287559 1013287513 1013280828 1012966471 1013073753 0
+Scro 22
+Room 3700
+HMS  7 76 130 130 105 141
+Gold 6
+Silv 1277
+Exp  13735
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy EFGT
+FRes EG
+FVul F
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  4
+Prac 6
+Trai 1
+Save  -1
+Alig  -1000
+Hit   1
+ACs 72 70 70 79
+Atrib 15 15 18 12 18 16
+AtMod 5 2 3 2 0 3
+QuestPnts 1
+Pass fang1~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 55
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Neffertini~
+Lsit 142.177.94.188~
+Ltim Thu Feb 14 22:03:49 2002
+~
+LSav Thu Feb 14 22:10:16 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 72 130 141
+THMS 0 0 0
+Cnd  0 37 21 44
+Sk 1 1 'acid breath'
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'fire breath'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning breath'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'vision'
+Sk 76 1 'mace'
+Sk 69 1 'sword'
+Sk 56 1 'shield block'
+Sk 1 1 'scribe'
+Sk 1 1 'bash'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'paladin default'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'detection'
+Gr 'draconian'
+Gr 'healing'
+Affc 'shield'   0  78  23 -20  17          0 1
+Affc 'giant strength'   0  70  16   4   1          0 1
+Affc 'change sex'   0   6  12  -1   6          0 1
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 1
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 1
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 1
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 90 15 0 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 76
+Nest 0
+Cond 98
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 3716
+Nest 0
+Cond 92
+Wear 0
+Cost 0
+Val  0 0 93 0 0
+Affc 'light of truth'   0  71   1   0   0         64 1
+Affc 'light of truth'   0  73   1   0   0         32 1
+Affc 'light of truth'   0  71   1   0   0         16 1
+End
+
+#O
+Vnum 3700
+Nest 0
+Wear 16
+Cost 250
+End
+
+#O
+Vnum 2402
+Nest 0
+Wear -1
+Cost 310
+End
+
+#O
+Vnum 2403
+Nest 0
+Wear -1
+Cost 370
+End
+
+#O
+Vnum 2402
+Nest 0
+Wear -1
+Cost 310
+End
+
+#O
+Vnum 2400
+Nest 0
+Wear -1
+Cost 180
+Spell 3 'change sex'
+End
+
+#O
+Vnum 2404
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 2407
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 2402
+Nest 0
+Wear -1
+Cost 310
+End
+
+#O
+Vnum 2400
+Nest 0
+Wear -1
+Cost 180
+Spell 3 'change sex'
+End
+
+#O
+Vnum 2410
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear -1
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 14
+Cost 112
+End
+
+#END

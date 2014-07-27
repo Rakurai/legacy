@@ -1,0 +1,86 @@
+#PLAYER
+Name Alisa~
+Id   1010242855
+LogO 1019209975
+Vers 13
+Mexp 2
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNmv%CW> ~
+Race feral~
+Sex  2
+Cla  2
+Levl 1
+Plyd 7301
+Back 0
+Note 1014794606 1014345516 1014541117 1014530421 1014667803 1013740277 0
+Scro 22
+Room 3700
+HMS  20 20 100 100 109 109
+Gold 0
+Silv 1
+Exp  2200
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy R
+FVul JR
+Comm O
+Revk 0
+Cgrp A
+Cnsr B
+Pos  8
+Prac 5
+Trai 3
+Alig  750
+ACs 100 100 100 100
+Atrib 14 15 13 21 13 12
+AtMod 0 0 0 0 0 0
+Pass fuckoff~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 2
+LLev 1
+Deit Gabriel~
+Lsit host213-122-192-207.in-addr.btopenworld.com~
+Ltim Fri Apr 19 04:47:30 2002
+~
+LSav Fri Apr 19 04:52:55 2002
+~
+MC 44
+Col 32 0 0 0 0 0 0 0 0 32 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  B
+HMSP 20 100 109
+THMS 0 0 0
+Cnd  0 0 0 0
+Alias nn note +~
+Sk 1 1 'dagger'
+Sk 1 1 'mace'
+Sk 40 1 'sword'
+Sk 1 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'hide'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+End
+
+#END

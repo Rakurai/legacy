@@ -1,0 +1,1802 @@
+#AREA
+monopoly.are~
+MONOPOLY~
+{H{{30 50} {MTeo/Qaz {TMONOPOLY~
+7600 7699
+
+#MOBILES
+
+#7601
+house~
+{Hhouse{x~
+A cute little shoebox{H house{x stands here increasing the property value.
+~
+You see a plain, shiney, green, plastic{H house{x with two windows and a door.
+~
+unique~
+BGZ V -1000 S
+35 0 12d10+1300 1d10+400 5d5+30 crush
+-11 -12 -9 -8
+CFJ A 0 H
+stand stand none 1750
+0 0 giant 0
+
+#7602
+house~
+{Hhouse{x~
+A cute little shoebox{H house{x stands here increasing the property value.
+~
+You see a plain, shiney, green, plastic{H house{x with two windows and a door.
+~
+unique~
+BGZ V -1000 S
+40 1 16d10+1850 2d10+150 5d6+35 crush
+-12 -13 -14 -11
+CFJ A 0 H
+stand stand none 1800
+0 0 giant 0
+
+
+#7603
+house~
+{Hhouse{x~
+A cute little shoebox{H house{x stands here increasing the property value.
+~
+You see a plain, shiney, green, plastic{H house{x with two windows and a door.
+~
+unique~
+BGZ V -1000 S
+45 0 25d10+2600 1d10+650 7d4+12 crush
+-14 -14 -15 -13
+CFJ A 0 H
+stand stand none 1800
+0 0 giant 0
+
+#7604
+house~
+{Hhouse{x~
+A cute little shoebox{H house{x stands here increasing the property value.
+~
+You see a plain, shiney, green, plastic{H house{x with two windows and a door.
+~
+unique~
+BGZ V -1000 S
+50 0 50d10+5500 1d10+100 5d7+12 crush
+-18 -17 -18 -12
+CFHJ A 0 H
+stand stand none 2000
+0 0 giant 0
+
+#7605
+hotel~
+{PHotel{x~
+A luxurious, red carpet hotel sits beautifully before you. I would hate
+to have to pay the property taxes on this mother of all hotels.
+~
+For an expensive hotel, this place seems to have been decorated with
+supplies from the local five and dime store.
+~
+unique~
+BGZ V -1000 S
+55 1 50d10+7000 1d10+550 7d5+15 crush
+-25 -25 -24 -21
+CFHJ A 0 H
+stand stand none 2500
+0 0 giant 0
+
+#7606
+iron~
+iron~
+An ordinary metal iron sits here
+~
+{p{P*** HOT HOT HOT ***{x
+~
+unique~
+G b -1000 S
+30 0 6d12+853 1d10+300 4d6+8 flame
+-9 -10 -9 -7
+O 0 Z 0
+stand stand none 0
+0 0 small 0
+
+#7607
+terrier~
+{bterrier{x~
+The monopoly man's ugly, yappy, ill-tempered dog sits here.
+~
+The cleanest, most well groomed, purebred, sorry excuse for a dog you
+ever saw!
+~
+dog~
+G Pa -1000 S
+35  1 10d10+1300 10d10+600 4d7+11 bite
+-13 -12 -12 -11
+FJ 0 0 Q
+stand stand male 0
+0 0 small 0
+
+#7608
+shoe~
+{bleather shoe{x~
+A VERY old fashioned leather shoe has been carelessly left here and seems
+to be walking around on its own now.
+~
+High quality leather, fine craftmanship, the show was obviosly handmade
+by a real artisan.
+~
+unique~
+G 0 -1000 S
+30 0 6d12+853 1d10+150 4d6+10 pound
+-10 -9 -9 -8
+IJP 0 0 H
+stand stand none 100
+0 0 large 0
+
+#7609
+thimble~
+metal thimble~
+Hopping about is a thimble of the kind that you used to neglect to wear
+and so got all those pinpricks.
+~
+This thimble looks like it would make a very nice shotglass for a
+cockroach.
+~
+doll~
+GHS HNO -1000 S
+35 0 10d10+1300 17d9+100 4d6+8 hit
+-14 -17 -15 10
+KNO 0 0 0
+stand stand none 0
+0 0 small 0
+
+
+#7610
+wagon~
+{PRadio Flyer{x~
+A bright red Radio Flyer wagon wobbles here.
+~
+The {PRadio Flyer{x is in remarkably good condition. This must be the
+wagon equivalent of Christine.
+~
+unique~
+GT VH -1000 S
+35 1 10d10+1300 17d9+100 4d6+9 scratch
+-15 -16 -14 -12
+FJNO 0 0 0
+stand stand none 100
+0 0 small 0
+
+#7611
+horse~
+horse~
+A horse with a rider is here rearing up on his back legs, Lone Ranger style.
+~
+What a funny hat he is wearing!
+~
+unique~
+GT VH -1000 S
+40 8 1d1+1690 20d9+100 2d3+24 charge
+-27 -25 -26 -20
+CDEJNO BC HI 0
+stand stand male 2050
+0 0 large 0
+
+#7612
+car~
+antique car~
+A luxurous antique car rests here.
+~
+The car is quite the wonder... the Delorean of its day!
+~
+unique~
+GO cH -1000 S
+45 2 15d10+1750 1d10+100 5d5+25 smash
+-31 -29 -30 -20
+CFHO FJLPS 0 EK
+stand stand none 2000
+0 0 large 0
+
+#7613
+top hat~
+Top Hat~
+A formal hat rests here.
+~
+The hat is crafted of the highest quality materials and seems to be
+animated but you are not quite sure.
+~
+unique~
+G DFHNO -1000 S
+39 1 16d10+1850 1d10+150 5d5+32 thwack
+-13 -14 -10 -10
+CEHN L I H
+stand stand none 0
+0 0 small 0
+
+#7614
+cannon artillery~
+artillery cannon~
+An artillery piece is set up here, ready to fire.
+~
+By the looks of it, the artillery cannon looks to be the American made,
+"Model-T" of its day, manufactured about 1897.
+~
+unique~
+G HNOV -1000 S
+45 0 28d10+2300 1d10+600 6d4+13 blast
+-14 -14 -16 -13
+DK BC PL K
+stand stand none 0
+0 0 giant 0
+
+#7615
+battleship ship~
+{cbattleship{x~
+Huge and shiplike...HUGE!
+~
+Huge, grey, oceangoing (though currently floating on a cushion of air a
+few microns thick), with fixed turrets lining the decks. This is a
+battleship of the first order. You notice a plaque on the side that says,
+"handmade weapon of mass destruction inside lovingly built by the Parker
+Brothers."
+~
+unique~
+GT HNOT -1000 S
+50 0 29d15+2500 1d10+1000 9d6+13 wrath
+-15 -16 -16 -14
+CFH PB HI 0
+stand stand none 3000
+0 0 huge 0
+
+#7616
+monopoly man~
+Monopoly Man~
+The instantly recognizable, dressed in top hat and tails, Monopoly man!
+~
+The Monopoly man looks as though he is too busy to be bothered and may
+put up a fight if you interrupt his busy day.
+~
+human~
+G H -1000 S
+55 1 50d10+7000 1d10+550 10d4+23 wrath
+-25 -25 -24 -21
+DEFK 0 N 0
+stand stand male 7500
+0 0 medium 0
+
+#7617
+parker brothers~
+Parker Brothers~
+The Parker Brothers are being played today by this set of conjoined
+twins. Which warn you not to mess with them because they are in a foul mood.
+~
+For all the fame and fortune, the Parker Brothers do not seem very happy.
+Though they are surrounded by a divine looking aura, possibly
+stress-induced. To kill the Parker Brothers would be valuable only for
+bragging rights I would think. It seems as if they could do some real
+damage, even to a remort!
+~
+human~
+CGJKQSTUZab BHNOUVYZbe -1000 S
+120 25 1d1+30000 1d1+599 20d20+30 punch
+-70 -70 -70 -50
+AEFHKNO AB 0 0
+stand stand male 20000
+0 0 giant 0
+
+#7618
+taxman~
+taxman~
+~
+You can not see the Taxman. (no long desc) It is meant to just sit at the
+Income tax place and steal from players as they pass if they linger *smile*
+~
+modron~
+BGISZ H 0 S
+100 0 50d10+7000 1d10+550 10d4+23 scratch
+-10 -10 -10 -10
+0 0 0 0
+stand stand none 0
+0 0 giant 0
+
+#7619
+jailkeeper~
+~
+{x~
+This mob transes mobiles out of jail, to Pacific Avenue.
+~
+human~
+BG DF 0 S
+100 0 1d1+99 1d1+1 1d1+1 scratch
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand male 0
+0 0 medium 0
+>act_prog p slowly fades into existence.~
+	if isnpc($n)
+		MPTRANS $n 7635
+	endif
+~
+|
+
+#0
+
+#OBJECTS
+
+#7601
+dice~
+a pair of {Wdice{x~
+An ordinary pair of playing dice sits here~
+ivory~
+portal AS P
+0 0 A 7614 0
+1 1 0 P
+E
+die dice portal~
+In response to being stared at, a pair of dice comes up doubles and tells you "I am really a portal."!
+~
+
+
+#7602
+community chest~
+community chest~
+An old fashioned chest, just like the kind you might find on a monopoly board, sits here.~
+wood~
+container AOM P
+10000 AC 0 500 100
+1 100 0 I
+E
+community chest~
+It looks like a plain old chest except for the fact that the inside seems to be able to hold about 10 times what the overall size of the chest would suggest. Leave a trinket for the benefit of the community.
+~
+
+#7603
+collar~
+{bcollar{x~
+An expensive dog collar inlaid with small gems rests here.~
+leather~
+armor 0 AC
+12 11 13 10 0
+35 10 1000 I
+E
+collar~
+The collar has been treated with the latest Remco product which guarantees life-long service, or your money back.
+~
+A
+2 3
+
+#7604
+cannon~
+cannon~
+This is your basic AA cannon.~
+steel~
+weapon 0 AN
+exotic 6 7 blast A
+50 500 2000 P
+E
+cannon~
+This cannon was designed to incapacitate attacking aircraft and so should do quite well against your average cockroach.
+~
+
+#7605
+sword~
+sword~
+A rugged and dependable calvary sword rests here.~
+metal~
+weapon 0 AN
+sword 4 9 thrust D
+40 100 2000 P
+E
+sword~
+A delicate but sturdy weapon. It looks just like the sword carried by that big statue near where you grew up.
+~
+
+#7606
+cane~
+cane~
+A cane, more for show than support, has been left here.~
+wood~
+weapon 0 AN
+staff 9 9 thwack 0
+55 50 3000 P
+E
+cane~
+Deep, dark, and deadly, this finely crafted cane would make an excellent walking stick or could be used to brain your neighbor.
+~
+
+#7607
+laces~
+shoe {Bl{Ca{Bc{Ce{Bs{x~
+Someone left their shoe laces.~
+hemp rope~
+weapon B AN
+whip 7 7 sting 0
+30 1 20 P
+E
+shoe laces~
+Someone has written on the laces, "Nike sucks."
+~
+A
+12 10
+
+#7608
+treasure~
+treasure~
+Some treasure has been left here.~
+paper~
+treasure AX A
+0 0 0 0 0
+30 100 1000 P
+E
+treasure~
+Upon inspection, you discover a full run of "The Maxx," comic books.
+~
+
+#7609
+tribulation~
+tribulations~
+Someone tried to leave their tribulations behind.~
+{fagita{x~
+trash 0 A
+0 0 0 0 0
+30 15 0 I
+E
+tribulations~
+Distress or suffering resulting from oppression or persecution; also : a trying experience.
+~
+
+#7610
+safe~
+safe~
+~
+kryptonite~
+container R 0
+10000 ACD 7611 10000 100
+1 30000 30000 I
+E
+safe~
+You see a hidden safe.
+~
+
+#7611
+key~
+key~
+Someone dropped a key here.~
+onyx~
+key FUP A
+0 0 0 0 0
+1 1 1 I
+E
+key~
+This is the key that can make all your dreams come true.
+~
+
+#7612
+fountain~
+{CWater Works fountain{x~
+A huge fountain is here in the shape of a water tap.~
+iron~
+fountain 0 0
+0 0 water 0 0
+1 900 30000 P
+
+#7613
+chance cards~
+chance cards~
+A huge pile of orange cards is in the middle of the floor.~
+paper~
+armor 0 AJ
+13 12 14 11 0
+40 100 1000 P
+E
+chance cards~
+This large pile of orange cards seems to have become fused together in one giant mass. It is prolly the perfect size and shape to use as a shield.
+~
+A
+13 10
+A
+17 1
+A
+19 1
+
+#7614
+community chest cards~
+{Ycommunity chest cards{x~
+A huge pile of yellow cards is in the middle of the floor~
+paper~
+armor 0 AJ
+13 12 14 11 0
+40 100 1000 P
+E
+community chest cards~
+This large pile of yellow cards seems to have become fused together in one giant mass. It is prolly the perfect size and shape to use as a shield.
+~
+A
+12 10
+A
+18 2
+
+#7615
+light bulb~
+{Ylight bulb{x~
+A large glass sphere-like container with a thin metal, glowing filament sits atop a metal base that looks as if it might be screwed into something.~
+Edison~
+light AS A
+0 0 -1 0 0
+1 10 10 P
+E
+light bulb~
+A large glass spheroid with a thin metal, glowing filament sits atop a metal base. Oh yeah that is called a light bulb.
+~
+
+#7616
+garnet~
+a garnet~
+A garnet has been left here~
+garnet~
+jewelry W A
+0 0 0 0 0
+1 1 7500 P
+E
+diamond~
+A spectacular splash of light and color.
+~
+
+#0
+
+
+#ROOMS
+
+
+#7644
+{P{fGO{x~
+
+{P
+   @@@@         @@@@@
+ @@@   @@     @@@   @@@
+@@@     @@   @@@     @@@
+@@@          @@@     @@@
+@@@          @@@     @@@
+@@@   @@@@@  @@@     @@@
+@@@     @@   @@@     @@@
+ @@@  @@@     @@@   @@@
+   @@@@         @@@@@
+
+COLLECT $200.00 SALARY AS YOU PASS
+{x
+
+~
+0 D 0
+D4
+You see the chessboard.
+~
+~
+0 0 29904
+D0
+You see {MMediterranean Avenue{x.
+~
+~
+0 0 7606
+S
+
+#7601
+Jail~
+You find yourself in an uncomfortable cot with an itchy, wool blanket,
+a small metal toilet sits in the corner. The room is decorated in the
+unescapable, metal bars motiff................ welcome to jail. *hug*
+~
+0 ADKN 0
+E
+blanket toilet bars~
+You see what you think is some form of human secretion. You start to
+click you heels together and chant, "There's no place like home."
+~
+E
+walls~
+Some scratches on the wall read, "Michigan wuz here!!"
+~
+S
+
+#7602
+jail~
+GO TO JAIL
+~
+7603 CDKNLTWY 0
+E
+tele~
+The nice officer escorts you, bound and gagged to your new home in
+the BIG HOUSE!
+~
+S
+
+#7603
+jail~
+GO DIRECTLY TO JAIL
+~
+7604 CDKNLTWY 0
+E
+tele~
+Officer O'Donnell suggests you just leave the soap if you drop it in the
+shower from now on.
+~
+S
+
+#7604
+jail~
+DO NOT PASS GO
+~
+7605 CDKNLTWY 0
+E
+tele~
+The nice officer escorts you, bound and gagged to your new home in
+the BIG HOUSE!
+~
+S
+
+#7605
+jail~
+DO NOT COLLECT 200 DOLLARS!
+~
+7601 CDKNLTWY 0
+E
+tele~
+The nice officer escorts you, bound and gagged to your new home in
+the BIG HOUSE!
+~
+S
+
+#7606
+{MMediterranean Avenue{x~
+{MNo women in bikinis stroll the streets, no really cool people zipping
+about on motor scooters, no coffee shops where you can go to hear some
+good political/philosophical theories... Why was this street called
+Mediterranean Avenue anyways?{x
+~
+0 D 0
+E
+women bikinis~
+Wait, there goes one stunning woman about one hundred feet down the
+road. I say stunning because she seems to have 3 legs and no head,
+but she looks nice in that swimsuit.
+~
+E
+streets street Mediterranean~
+The more you look at this place, the more it looks like just a regular
+street in Atlantic City!
+~
+E
+coffee shops~
+There is that one Starbucks across the street, but they don't sell coffee.
+As is well known by now, Startbucks sells a liquid, mind-altering cocktail
+that makes yuppies everywhere their slaves. Once they have amassed an army
+large enough, they will go to war with Bill Gates if current rumor proves true.
+~
+D0
+You see {CCommunity Chest{x.
+~
+~
+0 0 7607
+S
+
+#7607
+{CCommunity Chest{x~
+{CYou enter a room that seemingly has no walls, ceiling or floor. In
+the middle of this infinite void sits the Community chest. It is a
+large, open, antique chest. It has treasures and tribulations inside.
+Perhaps this chest was once known in another land as Pandora's box.{x
+~
+0 D 0
+D0
+You see {MBaltic Avenue.{x
+~
+~
+0 0 7608
+E
+chest~
+This chest looks just like the ones you remember from all those cool
+pirate movies.
+~
+E
+walls floor ceiling~
+The void seems to be opening into a portal before your eyes. Oh wait...
+it was just your allergies acting up again. There is no portal.
+~
+E
+void~
+You know, like negative space man...
+~
+E
+treasures~
+Riches, prestige, fame, all the usual trappings of hell :)
+~
+E
+tribulations~
+Distress or suffering resulting from oppression or persecution;
+also : a trying experience.
+~
+S
+
+#7608
+{MBaltic Avenue{x~
+{MYou sit on a sailboat in the Baltic Sea wondering why you took
+this lousy, discount vacation. Estonia was sort of nice in that
+part of town that did not smell but now you just want to return
+home, strangle that travel agent and demand your money back...
+NO HOTEL should give you fleas after all.{x
+~
+0 D 0
+D0
+You see the {fINCOME TAX{x space, a space that works on national income
+in much the same way a black hole affects any matter anywhere near it.
+~
+~
+0 0 7609
+E
+Baltic~
+What does the Baltic look like anyways?!
+~
+S
+
+#7609
+{fIncome Tax{x~
+Bare walls, {Ybright Lights{x, hard, uncomfortable furniture...
+Is this a tax assessors office or an interrogation room??? The
+lone decoration is a small sign on the wall that you have to
+squint to read.
+~
+0 D 0
+D0
+You see and hear a railroad.
+~
+~
+0 0 7610
+E
+sign decoration~
+                           ____________________
+                          |                    |
+                          |                    |
+                          |  Pay 10% or $200   |
+                          |                    |
+                          |                    |
+                           --------------------
+
+You notice even smaller print on the sign which seems to say
+(Preferrably Under the table).
+~
+E
+{Ybright light lights{x~
+OUCH!
+~
+E
+furniture~
+Government issue! Definately Government issue furniture, made by the
+lowest bidder.
+~
+E
+walls wall~
+The stark, bare walls induce you into a coma-like state of mind that
+is not at all pleasant. You start to wish you had gone through with
+that plan you hatched when you were seven years old of running away
+with the circus.
+~
+S
+
+
+#7610
+{cReading Railroad{x~
+ o--------------              |***************|
+(***************0               |***********|
+ \**************0                \*********/
+  \*************0                 |*******|
+   \************|                 |*******|
+    \**********/                  |*******|
+    -------------------------------------------
+     0*******************************************o
+      \*******************************************o
+       \*******************************************o
+        |*******************************************0
+        |*******************************************0@
+        |*******************************************0
+       /*******************************************o
+      /*******************************************o
+     >_*****************************************_o
+         *******              *******   \  \ \ \ \
+        *********            *********   \  \ \ \ \
+         *******              *******     \  \ \ \ \
+           ***                  ***        --------->
+
+~
+0 D 0
+D0
+You see {COriental Avenue{x.
+~
+~
+0 0 7611
+D1
+You see the center of the board.
+~
+~
+0 0 7646
+S
+
+
+#7611
+{COriental Avenue{x~
+{CYou are standing on one of the few man-made structures visible
+from Earth orbit. The Great Wall of China sits sturdily beneath
+your feet as a full-scale Mongol attack is in progress. The attacking
+force is being squashed almost effortlessly and suddenly you realize
+why China is the longest lasting political entity on the planet.{x
+~
+0 D 0
+D0
+You see Chance.
+~
+~
+0 0 7645
+S
+
+
+#7612
+{CVermont Avenue{x~
+{CWelcome to the "Green Mountain State."
+You see maple trees EVERYWHERE!!! You must have walked into a maple
+tree orchard.  A tree bends over and casually warns you to be careful
+around the terrier running about the board because he is apt to urinate
+on you. He recounts countless stories of this happening to him. You
+are a little disturbed since the last time a tree talked to you was
+the time that elf slipped something into your wine and mugged you after
+you passed out.{x
+~
+0 D 0
+D0
+You see {CConnecticut Avenue{x.
+~
+~
+0 0 7613
+E
+tree~
+The beauty of these trees causes you to tap a tree for the syrup
+and start looking for that stack of pancakes you stuffed in your
+pocket earlier. The tree that warned you about the dog further
+informs you that to learn more about the state goto URL
+
+http://www.state.vt.us/
+
+~
+S
+
+
+#7613
+{CConnecticut Avenue{x~
+{CThe existence of Connecticut is actually a hoax. I mean have you ever
+MET anyone FROM Connecticut? And, have you ever noticed how all the
+pictures of the place look sucspiciously like Rhode Island? Next thing
+you know, people will be saying that a man has walked on the moon.{x
+~
+0 D 0
+D0
+You see a visiting room for the local jail.
+~
+~
+0 0 7614
+E
+Connecticut~
+For a brief second,out of the corner of your eye, you notice stage hands
+moving props around.
+~
+S
+
+
+#7614
+Just Visiting~
+You are in a bare room furnished with a government issue wooden chair and
+the scratched up table you see in the visiting rooms in jails everywhere.
+It has the comfy, down-home feel of a morgue. You think you can hear
+muffled screams from the cell block... Something like GET ME OUT OF HERE.
+~
+0 D 0
+D1
+You see {VSt. Charles Place{x.
+~
+~
+0 0 7615
+E
+room~
+One word comes to mind ... YUK!
+~
+E
+chair~
+The chair does not seem suitable to actually support someones weight with
+that missing leg and all.
+~
+E
+table~
+You see initials carved into the table and an invitation to call Vinnie @
+555.3456 for a good time. There is a limerick that is almost impossible
+to read because of wear but you can make out several references to
+biological functions.
+~
+E
+cell block~
+The cell block seems impenetrable. You see the words Michigan wuz here
+inscribed on the walls.
+~
+S
+
+
+#7615
+{VSt. Charles Place{x~
+{VSome guy named Charles is wandering around incessantly asking for
+directions to the Whorehouse in Underdark. He goes on and on about how he
+has been meeting with her regularly for weeks now and she is ready for
+conversion he thinks. You wonder why he seems so nervous about the whole
+story though.{x
+~
+0 D 0
+D1
+You see the {YElectric Company{x.
+~
+~
+0 0 7616
+S
+
+
+#7616
+{YElectric Company{x~
+{YBill Gates is here trying to negotiate a deal in order to corner the
+market on electric power now that we all can't live without our computer
+plugged in and running 24/7. He insists that the power grid is an integral
+part of the Windows operating system and can not be sold seperately.{x
+~
+0 D 0
+D1
+You see {VStates Avenue{x.
+~
+~
+0 0 7617
+E
+bill gates~
+Looks like the borg and at an almost undetectable level you can hear some
+device he is wearing murmuring, "Resistance is futile... you will be
+assimilated."
+~
+S
+
+
+#7617
+{VStates Avenue{x~
+{VRobert Klien is here singing, "I been to California, around the hub
+of Texas, up north to Dakota, south to Arkansas... I've been alot of
+places, seen an awful lot of faces. But the Bronx is beautiful, this
+time of year."{x
+~
+0 D 0
+D1
+You see {VVirginia Avenue{x.
+~
+~
+0 0 7618
+E
+robert klien~
+An American comedian who is getting on in his years, as of the year 2000.
+~
+S
+
+
+#7618
+{VVirginia Avenue{x~
+{VFor some reason this place is carpeted with tobacco leaves and American
+five cent pieces (nickels) lying face down. The virgin queen walks by
+without seeming to notice while saying to herself, "Virginia is for
+lovers."{x
+~
+0 D 0
+D1
+You see a railroad.
+~
+~
+0 0 7619
+E
+nickles~
+a lovely relief of Montechello, the famous architectual wonder designed
+by Thomas Jefferson and a famous landmark in Virginia, meets the eye
+~
+E
+tobacco leaves leaf~
+This is the American Indians' revenge on the European colonizing hoardes!
+Highly addictive and only minorly FATAL!          (MUAHAHAHAH)
+~
+E
+queen virgin~
+
+The state is eponymous for
+
+ELIZABETH I
+
+BORN: 7 SEPTEMBER 1533
+BECAME QUEEN: 17 NOVEMBER 1558
+DIED: 24 MARCH 1603
+~
+S
+
+
+#7619
+Pennsylvania Railroad~
+ o--------------              |***************|
+(***************0               |***********|
+ \**************0                \*********/
+  \*************0                 |*******|
+   \************|                 |*******|
+    \**********/                  |*******|
+    -------------------------------------------
+     0*******************************************o
+      \*******************************************o
+       \*******************************************o
+        |*******************************************0
+        |*******************************************0@
+        |*******************************************0
+       /*******************************************o
+      /*******************************************o
+     >_*****************************************_o
+         *******              *******   \  \ \ \ \
+        *********            *********   \  \ \ \ \
+         *******              *******     \  \ \ \ \
+           ***                  ***        --------->
+
+
+~
+0 D 0
+D1
+You see {RSt. James Place{x.
+~
+~
+0 0 7620
+D2
+You see the center of the board.
+~
+~
+0 0 7647
+S
+
+#7620
+{RSt. James Place{x~
+{RSome dude is here looking for his friend Charles because they have to
+attend to some important business of some kind in underdark. Before you
+leave, the man asks you if you know the way to a drugstore nearby. Before
+you can answer though, he leaves as he is distracted by the urgency of his
+mission.{x
+~
+0 D 0
+D1
+You see {CCommunity Chest{x.
+~
+~
+0 0 7621
+S
+
+
+#7621
+{CCommunity Chest{x~
+{CYou enter a room that seemingly has no walls, ceiling or floor. In the
+middle of this infinite void sits the Community chest. It is a
+large,open, antique chest. It has treasures and tribulations inside.
+Perhaps this chest was once known in another land as Pandora's box.{x
+~
+0 D 0
+D1
+You see {RTennessee Avenue{x.
+~
+~
+0 0 7622
+E
+chest~
+This chest looks just like the ones you remember from all those cool
+pirate movies.
+~
+E
+walls floor ceiling~
+The void seems to be opening into a portal before your eyes. {{{  }}} Oh
+wait... it was just your allergies acting up again. There is no portal.
+~
+E
+void~
+You know, like negative space man...
+~
+E
+treasures~
+Riches, prestige, fame, all the usual trappings of hell :)
+~
+E
+tribulations~
+Distress or suffering resulting from oppression or persecution; also : a
+trying experience.
+~
+S
+
+#7622
+{RTennessee Avenue{x~
+{RYou come upon a house in the middle of nowhere. The house has an
+outhouse nearby in the back and a clothesline strung between two trees.
+It has not been kept up very well but it looks as if it serves to keep
+the rain out at least. Two people are here on a porch in the bucolic
+countryside sitting in hickory chairs playing dueling banjos.{x
+~
+0 D 0
+D1
+You see {RNew York Avenue{x.
+~
+~
+0 0 7623
+E
+outhouse~
+You know it is an outhouse because you see the moon painted on the door.
+The smell is also a reliable indicator.
+~
+E
+people~
+You know, two arms, two legs, etc..
+~
+E
+porch~
+The porch is as run down as the rest of the house.
+~
+E
+bucolic~
+It means idyllic or charmingly rural.
+~
+S
+
+#7623
+{RNew York Avenue{x~
+
+{R
+                                   _______   _______
+                                   |ooooo|   |ooooo|
+                   .               |ooooo|   |ooooo|
+                   |               |ooooo|   |ooooo|
+                   +               |ooooo|   |ooooo|
+                  /.\              |ooooo|   |ooooo*******
+                 |...|             |ooooo|   |ooooo*******
+             ****|.*****     @@@@@ |ooo****** ooooo*******
+       ****  ****|.*****   **@@@@@ |ooo****@@@@@ooo*******####
+       ****  *@@@@@@****   **@@@@@ |ooo****@@@@@ooo*******####
+       *******@@@@@@****####*@@@@@ |ooo****@@@@@ooo*******####
+       *******@@@@@@****####*@@@@@ |ooo****@@@@@oo@@@@****####
+       *******@@@@@@****####*@@@@@ |ooo****@@@@@oo@@@@****####
+       *******@@@@@@****####*@@@@@ |ooo****@@@@@oo@@@@****####
+       *******@@@@@@****####*@@@@@ |ooo****@@@@@oo@@@@****####
+       *******@@@@@@****####*@@@@@ |ooo****@@@@@oo@@@@****####
+       *******@@@@@@****####*@@@@@ |ooo****@@@@@oo@@@@****####
+
+{x
+                 {YBright lights{x ........Big city!!!
+
+
+~
+0 D 0
+D1
+You see FREE PARKING.
+~
+~
+0 0 7624
+S
+
+#7624
+FREE PARKING~
+There is a large, antique car here and you are standing staring at the
+rear of it. For some inexplicable reason, you can't stop looking at the
+back end of this tin lizzie. Although it is a gorgeous car, the best of
+the best, it does not seem to warrant this much attention, particularly
+to the rear end of it.
+~
+0 D 0
+D2
+You see {PKentucky Avenue{x.
+~
+~
+0 0 7625
+E
+tin lizzie~
+The tin lizzie is a slang term for what automobile purist might prefer to
+call the Model 'T' Ford.
+~
+E
+end back~
+The spare wheel seems like it has been removed recently.
+~
+E
+spare wheel~
+After seeing how loose the spare is, you remove it and find a hidden panel.
+~
+E
+panel~
+Running your fingers across the panel causes it to swing open revealing a
+hidden safe.
+~
+S
+
+#7625
+{PKentucky Avenue{x~
+{PYou are awash in a sea of Kentucky's famous Bluegrass. Historic
+attractions abound. This is the land of Daniel Boone, Abe Lincoln, Civil
+War battlefields, the Shakers, and My Old Kentucky Home. And it has
+something you won't find anywhere else - the special ambiance and thrill
+surrounding Kentucky's world of horses. From the diversity of the
+Kentucky Horse Park, the Kentucky Derby Museum, and Bluegrass horse
+farms, to the excitement of thoroughbred racing, steeplechase and
+traditional polo matches. Everything you could possible dream of and more.{x
+~
+0 D 0
+D2
+You see Chance.
+~
+~
+0 0 7626
+E
+bluegrass~
+a kind of grass which, incidentally, is NOT blue.
+~
+S
+
+#7626
+Chance~
+There is a carnival-like atmosphere in this place. A paperboy is walking
+by like a town crier announcing that YOU have been elected chairman of
+the board. A little farther off someone is jumping for joy because he
+just got out of jail free. The person standing next to you screams as he
+is sucked into the clouds... an ominous voice says, "Advance to nearest
+railroad and pay owner Twice the Rental to which he is otherwise
+entitled. If Railroad is unowned, you may buy it from the bank."
+~
+0 D 0
+D2
+You see {PIndiana Avenue{x.
+~
+~
+0 0 7627
+S
+
+#7627
+{PIndiana Avenue{x~
+{PYou are standing, shoulder to shoulder with thousands of others,
+staring at a oval shaped track with signs everywhere that read INDY 500.
+There are cars zooming around the track at horrible speeds, making quite
+the din as they pass. You can't help thinking that if they would have
+just left a little earlier, those drivers would not have to go so fast.{x
+~
+0 D 0
+D2
+You see {PIllinois Avenue{x.
+~
+~
+0 0 7628
+E
+cars car~
+You see extremely slim metal frames with a large rear spoiler hurling
+people around an asphalt track. Of course you see this all mostly in your
+imagination because the cars are going way too fast to see clearly.
+~
+E
+others~
+Excuse me please but you are standing on my foot!
+~
+S
+
+#7628
+{PIllinois Avenue{x~
+{PYou are nearly blown off your feet, you surmise that you must have
+landed in the "Windy City." After you regain your footing, Oprah Winfrey
+accidentally bumps into you but politely excuses herself while giving you
+two complimentary tickets to be a member of her studio audience.{x
+~
+0 D 0
+D2
+You see the B&O railroad.
+~
+~
+0 0 7629
+E
+oprah~
+For those that do not know, she is a famous talk show host in America...
+She is beautiful as always.
+~
+S
+
+#7629
+B&O Railroad~
+ o--------------              |***************|
+(***************0               |***********|
+ \**************0                \*********/
+  \*************0                 |*******|
+   \************|                 |*******|
+    \**********/                  |*******|
+    -------------------------------------------
+     0*******************************************o
+      \*******************************************o
+       \*******************************************o
+        |*******************************************0
+        |*******************************************0@
+        |*******************************************0
+       /*******************************************o
+      /*******************************************o
+     >_*****************************************_o
+         *******              *******   \  \ \ \ \
+        *********            *********   \  \ \ \ \
+         *******              *******     \  \ \ \ \
+           ***                  ***        --------->
+
+~
+0 D 0
+D2
+You see {YAtlantic Avenue{x.
+~
+~
+0 0 7630
+D3
+The center of the board.
+~
+~
+0 0 7648
+S
+
+#7630
+{YAtlantic Avenue{x~
+{YWater water everywhere, and not a drop to drink. From out of nowhere
+water is rushing in at you. Suddenly you know what the Egyptian soldiers
+must have felt like when the Red Sea came crashing down around them in
+the book of Exodus. You grab ahold of your floater in order not to drown.{x
+~
+0 D 0
+D2
+You see {YVentor Avenue{x.
+~
+~
+0 0 7631
+E
+water~
+wet, fluid, tasteless, clear... water!
+~
+S
+
+#7631
+{YVentor Avenue{x~
+{YYou are standing, and you are not at all sure why, in what looks like a
+huge air conditioning duct. There are dead insect carcasses and dust
+balls strewn about. After a low grumbling motor is heard in the distance
+and the walls begin to vibrate you are hit with a blast of {Cfrigid {Yair.{x
+~
+0 D 0
+D2
+You see {CW{Ba{Ct{Be{Cr {BW{Co{Br{Ck{Bs{x.
+~
+~
+0 0 7632
+S
+
+#7632
+{CW{Ba{Ct{Be{Cr {BW{Co{Br{Ck{Bs{x~
+{CA HUGE faucet dominates this room. It is hovering in mid-air with no
+visible support and even though it is not attached to any pipe whatsoever
+it is leaking water drops the size of a large baby. Dodge the {Bdrops{C
+or be crushed like an ant.{x
+~
+0 D 0
+D2
+You see {YMarvin Gardens{x.
+~
+~
+0 0 7633
+S
+
+#7633
+{YMarvin Gardens{x~
+{YYou are in a grand, sprawling garden which has obviously been tended to
+daily with extreme care. It would be the most beautiful thing you had
+ever seen if not for the fact that there are a bunch of Marvins growing
+here and Marvin ain't too attractive.{x
+~
+0 D 0
+D2
+You see a nice police officer to the south.
+~
+~
+0 0 7634
+E
+marvin~
+Planar leaves, oddly shaped cotyledons, no fruiting bodies currently
+visible... hmmm.
+~
+E
+cotyledons~
+The first leaf or one of the first pair or whorl of leaves developed by
+the embryo of a seed plant or of some lower plants.
+~
+S
+
+#7634
+GO TO JAIL~
+Officer O'Donnell is here looking you over, considering his next step. As
+he looks you over for any suspicious activity, you can see in his eye,
+that for him, breathing is highly suspicious and warrents immediate
+action on his part. He has gotten many warnings from his superiors for
+his overzealous arresting of all passers-by, but so far, it has had no
+effect and he continues to grab pretty much anyone who blinks or breathes
+or puts one foot in front of the other.
+~
+7602 DW 0
+D3
+You see {HPacific Avenue{x.
+~
+~
+0 0 7635
+S
+
+#7635
+{HPacific Avenue{x~
+{HThis looks just like Atlantic Avenue 'cept the sun meets the horizon on
+the way down instead of up. There is all the water and in addition to
+that, some water. Just for kicks there is some extra water thrown in for
+free... But there's more! At no extra charge and with no further
+obligation, you get... more water.{x
+~
+0 D 0
+D3
+You see {HNorth Carolina Avenue{x.
+~
+~
+0 0 7636
+S
+
+#7636
+{HNorth Carolina Avenue{x~
+{HSometimes people have no idea what to call a state so they just tack a
+word like North onto the beginning of another state. Seeing how much of a
+good idea this was, North Dakota and West Virginia decided to follow
+suit.{x
+~
+0 D 0
+D3
+You see {CCommunity Chest{x.
+~
+~
+0 0 7637
+S
+
+#7637
+{CCommunity Chest{x~
+{CYou enter a room that seemingly has no walls, ceiling or floor. In the
+middle of this infinite void sits the Community chest. It is a
+large,open, antique chest. It has treasures and tribulations inside.
+Perhaps this chest was once known in another land as Pandora's box.{x
+~
+0 D 0
+D3
+You see {HPennsylvania Avenue{x.
+~
+~
+0 0 7638
+E
+chest~
+This chest looks just like the ones you remember from all those cool
+pirate movies.
+~
+E
+walls floor ceiling~
+The void seems to be opening into a portal before your eyes. Oh wait...
+it was just your allergies acting up again. There is no portal.
+~
+E
+void~
+You know, like negative space man...
+~
+E
+treasures~
+Riches, prestige, fame, all the usual trappings of hell :)
+~
+E
+tribulations~
+Distress or suffering resulting from oppression or persecution; also : a
+trying experience.
+~
+S
+
+#7638
+{HPennsylvania Avenue{x~
+{HBrotherly Love overtakes you and you run over to the nearest bell and
+crack it. Mr. Franklin runs by trailing a kite with a key attached to the
+string. A few minutes later you hear thunder and see lightning and a
+minute after that you smell what seems to be a BBQ in progress. You
+wonder who would be grilling meat in a rainstorm. As you turn to leave a
+crispy critter wanders by and hands you a copy of "Poor Richard's
+Alamanac."{x
+~
+0 D 0
+D3
+You see Short Line Railroad.
+~
+~
+0 0 7639
+S
+
+#7639
+Short Line~
+ o--------------              |***************|
+(***************0               |***********|
+ \**************0                \*********/
+  \*************0                 |*******|
+   \************|                 |*******|
+    \**********/                  |*******|
+    -------------------------------------------
+     0*******************************************o
+      \*******************************************o
+       \*******************************************o
+        |*******************************************0
+        |*******************************************0@
+        |*******************************************0
+       /*******************************************o
+      /*******************************************o
+     >_*****************************************_o
+         *******              *******   \  \ \ \ \
+        *********            *********   \  \ \ \ \
+         *******              *******     \  \ \ \ \
+           ***                  ***        --------->
+
+
+~
+0 D 0
+D3
+You see Chance.
+~
+~
+0 0 7640
+D0
+You see the center of the board.
+~
+~
+0 0 7649
+S
+
+#7640
+Chance~
+There is a carnival-like atmosphere in this place. A paperboy is walking
+by like a town crier announcing that YOU have been elected chairman of
+the board. A little farther off someone is jumping for joy because he
+just got out of jail free. The person standing next to you screams as he
+is sucked into the clouds... an ominous voice says, "Advance to nearest
+railroad and pay owner Twice the Rental to which he is otherwise
+entitled. If Railroad is unowned, you may buy it from the bank."
+~
+0 D 0
+D3
+You see {BPark Place{x.
+~
+~
+0 0 7641
+S
+
+#7641
+{BPark Place{x~
+{BYou are standing on black asphalt in the middle of two perpendicular
+lines painted on that lovely black hardtop. The lines are about the
+length of a car and about the width of a car apart. There is a cement bar
+at the one end of the lines that would be exactly the size and shape to
+impede the progress of a wheeled vehicle. Hey, this would be a great
+place to park a car. Especially how it is situated so close to the
+Boardwalk.{x
+~
+0 D 0
+D3
+You see the tax collector.
+~
+~
+0 0 7642
+S
+
+#7642
+{YL{xu{Yx{xu{Yr{xy {YT{xa{Yx{x~
+There is a talking ring here demanding $75 from you. You attempt to
+reason with it but it insists and threatens to call Officer O'Donnell.
+There is a coin on the ground counseling you to ignore the ring entirely
+because everybody here does.
+~
+0 D 0
+D3
+You see {BBoardwalk{x.
+~
+~
+0 0 7643
+S
+
+#7643
+{BBoardwalk{x~
+{BA beautiful wooden pier and a boardwalk extending for what seems like
+forever. This all rests right by the ocean with shops, game booths and
+small restaurants and more, galore. Artists and musicians ply their
+impressive skills as you pass them. Looking over to the luxurious hotel
+nearby you privately wish that you were the one that owned it.{x
+~
+0 D 0
+D3
+You see GO
+~
+~
+0 0 7644
+S
+
+#7645
+Chance~
+There is a carnival-like atmosphere in this place. A paperboy is walking
+by like a town crier announcing that YOU have been elected chairman of
+the board. A little farther off someone is jumping for joy because he
+just got out of jail free. The person standing next to you screams as he
+is sucked into the clouds... an ominous voice says, "Advance to nearest
+railroad and pay owner Twice the Rental to which he is otherwise
+entitled. If Railroad is unowned, you may buy it from the bank."
+~
+0 D 0
+D0
+You see Vermont Avenue.
+~
+~
+0 0 7612
+S
+
+#7646
+Center~
+This is the western center of the board.
+~
+0 D 0
+D3
+You see Reading Railroad
+~
+~
+0 0 7610
+D1
+You see the exact center of the board.
+~
+~
+0 0 7647
+S
+
+#7647
+Exact Center~
+This is the middle of the board. You feel balanced and centered.
+~
+0 D 0
+D0
+You see the norther center.
+~
+~
+0 0 7650
+D1
+You see the eastern center of the board.
+~
+~
+0 0 7648
+D2
+You see the souther center.
+~
+~
+0 0 7649
+D3
+You see the western center.
+~
+~
+0 0 7646
+S
+
+
+#7648
+Center~
+This is the eastern center of the board.
+~
+0 D 0
+D1
+You see B&O Railroad.
+~
+~
+0 0 7629
+D3
+You see the exact center of the board.
+~
+~
+0 0 7647
+S
+
+
+#7649
+Center~
+This is the southern center of the board.
+~
+0 D 0
+D2
+You see the Short Line Railroad.
+~
+~
+0 0 7639
+D0
+You see the exact center of the board.
+~
+~
+0 0 7647
+S
+
+#7650
+Center~
+This is the northern center of the board.
+~
+0 D 0
+D2
+You see the exact center of the board.
+~
+~
+0 0 7647
+D0
+You see Pennsylvania Railroad.
+~
+~
+0 0 7619
+S
+
+#0
+
+#RESETS
+O 0 7602 3 7607 	*load chest into community chest*
+O 0 7602 3 7621 	*load chest into community chest*
+O 0 7602 3 7637 	*load chest into community chest*
+O 0 7610 1 7624 	*load safe into free parking*
+O 0 7601 20 7601        *load dice into jail*
+O 0 7612 1 7632         *load fountain into Water Works*
+O 0 7613 20 7650        *load chance cards into northern center*
+O 0 7614 20 7649        *load community chest cards into southern center*
+O 0 7615 30 7616        *load lightbulb into Electric Company*
+P 0 7616 8 7610 8 	*load diamonds into hidden safe*
+P 0 7608 20 7602 1 	*load treasure into community chest*
+P 0 7609 20 7602 1	*load tribulation into community chest*
+M 0 7606 1 7606 1 	*load iron into Mediterranean Avenue*
+M 0 7607 1 7611 1 	*load terrier into {COriental Avenue{x*
+E 0 7603 20 4 		*load collar on terrier*
+M 0 7608 1 7617 1 	*load shoe into States Avenue*
+E 0 7607 20 16 		*load laces on shoes*
+M 0 7609 1 7622 1       *load thimble into Tennesee Avenue*
+M 0 7610 1 7627 1       *load wagon into Indiana Avenue*
+M 0 7611 1 7631 1       *load horse into Ventor Avenue*
+E 0 7605 20 16          *load sword on horse*
+M 0 7612 1 7635 1       *load car into Pacific Avenue*
+M 0 7613 1 7638 1       *load top hat into Pennsylvania Railroad*
+M 0 7614 1 7640 1       *load cannon into chance*
+M 0 7615 1 7641 1       *load battleship into Park Place*
+M 0 7616 1 7643 1       *load monopoly man into Board Walk*
+E 0 7606 20 16          *load cane on monopoly man*
+G 0 7611 10             *load key on monopoly man*
+M 0 7617 1 7647 1       *load Parker brothers into exact center*
+M 0 7618 1 7609 1       *load tax man into income tax*
+M 0 7601 3 7606 1       *load house into Mediterranean Avenue*
+M 0 7601 3 7608 1       *load house into Baltic Avenue*
+M 0 7601 3 7612 1       *load house into Vermont Avenue*
+M 0 7602 6 7615 2       *load house into St. Charles Avenue*
+M 0 7602 6 7615 2       *load house into St. Charles Avenue*
+M 0 7602 6 7617 1  	*load house into States Avenue*
+M 0 7602 6 7618 1 	*load house into Virginia Avenue*
+M 0 7602 6 7622 1	*load house into Tennessee Avenue*
+M 0 7602 6 7623 1 	*load house into New York Avenue*
+M 0 7603 3 7625 1    	*load house into Kentucky Avenue*
+M 0 7603 3 7628 1	*load house into Illinois Avenue*
+M 0 7603 3 7631 1 	*load house into Ventnor Avenue*
+M 0 7604 4 7635 1 	*load house into Pacific Avenue*
+M 0 7604 4 7636 1 	*load house into North Carolina Avenue*
+M 0 7604 4 7638 2 	*load house into Pennsylvania Avenue*
+M 0 7604 4 7638 2 	*load house into Pennsylvania Avenue*
+M 0 7605 2 7641 1	*load hotel into Park Place*
+M 0 7605 2 7643 1       *load hotel into Boardwalk*
+M 0 7619 1 7601 1       *load jailkeeper into jail*
+
+S
+
+#SPECIALS
+
+M 7617 spec_cast_cleric	*make parker brothers harder to kill*
+M 7617 spec_breath_any	*ditto*
+
+S
+#$

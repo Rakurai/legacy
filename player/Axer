@@ -1,0 +1,75 @@
+#PLAYER
+Name Axer~
+Id   1023217983
+LogO 1023221080
+Vers 14
+Mexp 2
+Pass yvonne~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race giant~
+Cla  3
+Levl 1
+Tru  0
+Plyd 1438
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3364
+HMS  20 100 100
+Gold 0
+Silv 0
+Exp  1050
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes HI
+FVul BP
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NOZ
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 5
+Trai 3
+Wimp 0
+Atrib 22 7 14 10 16 15
+Afk {B[{CTue Jun  4 14:33:09 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 10
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Teotwawki~
+Lsit tamqfl1-ar5-4-47-072-233.tamqfl1.dsl-verizon.net~
+Ltim Tue Jun 04 14:16:56 2002
+~
+LSav Tue Jun 04 15:04:40 2002
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 40 1 'sword'
+Sk 1 1 'bash'
+Sk 1 1 'second attack'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+End
+
+#END

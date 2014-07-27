@@ -1,0 +1,355 @@
+#PLAYER
+Name Genma~
+Id   1015100712
+LogO 1015119725
+Vers 12
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Sex  1
+Cla  5
+Levl 8
+Plyd 1964
+Age  0
+Back 0
+Note 1015100873 1015100873 1015100873 1015100873 1015100873 1015100873
+Scro 22
+Room 3001
+HMS  17 114 136 147 29 173
+Gold 3
+Silv 1150
+Exp  9335
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy H
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 16
+Trai 7
+Save  -1
+Alig  -1000
+Hit   5
+Dam   6
+ACs 46 36 36 49
+Atrib 17 11 12 16 15 17
+AtMod 6 2 3 1 0 3
+Pass genma~
+Afk {B[{CSat Mar  2 14:41:27 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  Onimusha~
+Immn ~
+Pnts 43
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Vegita~
+Lsit CPE0050ba2b4392.cpe.net.cable.rogers.com~
+Ltim Sat Mar 02 19:35:15 2002
+~
+LSav Sat Mar 02 19:42:05 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 105 147 173
+THMS 0 0 0
+Cnd  0 0 0 4
+Sk 1 1 'armor'
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'dazzling light'
+Sk 1 1 'dispel magic'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'fireproof'
+Sk 1 1 'fly'
+Sk 1 1 'frenzy'
+Sk 1 1 'gate'
+Sk 1 1 'holy word'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'portal'
+Sk 1 1 'protect container'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'shrink'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'word of recall'
+Sk 76 1 'sword'
+Sk 1 1 'shield block'
+Sk 1 1 'rescue'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'enchantment'
+Gr 'protective'
+Gr 'transportation'
+Affc 'sanctuary'   0  45   4   0   0        128 1
+Affc 'armor'   0  43  21 -20  17          0 1
+Affc 'blood moon'   0  48  18   5  19          0 1
+Affc 'blood moon'   0  53  18   3  18          0 1
+Affc 'shield'   0  60  37 -20  17          0 1
+Affc 'giant strength'   0  62  30   4   1          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 156 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear -1
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3066
+Nest 0
+Cond 88
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Cond 98
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4572
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4580
+Enchanted
+Nest 0
+Wear -1
+Cost 1000
+Affc 'reserved'   1  10  -1   2   3          0 1
+Affc 'reserved'   1  10  -1   1  22          0 1
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4589
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 4607
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 10129
+Nest 0
+Cond 94
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 1604
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 1616
+Nest 0
+Cond 94
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 6646
+Nest 0
+Wear -1
+Cost 0
+Spell 1 'cure light'
+Spell 2 'armor'
+End
+
+#O
+Vnum 4589
+Nest 0
+Wear -1
+Cost 500
+End
+
+#END

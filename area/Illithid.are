@@ -1,0 +1,670 @@
+#AREA
+Illithid.are~
+Illithids~
+{H{{25 55} {MGabriel&Sundancer {TThe Temple of the Illithids.{x~
+2500 2599
+
+#MOBILES
+
+#0
+
+#OBJECTS
+
+#0
+
+#ROOMS
+
+#2500
+{cThe Altar Chamber{x~
+{cYou have entered a vast room, with four black marble columns that spiral up
+into the ceiling, the huge domed roof glistens with an eerie blackness that
+seems to shun the light from your torch. For a moment, you can almost
+perceive a sensation of life emanating from the ornate platinum altar
+before you, but as your eyes lay to rest on this, the feeling disappears,
+as if realising it's being watched. Murals are carved into the walls, and
+appear to have a life of their own, but whenever you focus on them, they
+cease to dance. You see the priesthood glide gracefully around, almost like
+the floating Dabus' of the Lady of Pain in Sigil. Sometimes they may have a
+construct, either a boney hand, or homonculus scurrying about behind them,
+sometimes carrying small effects and running menial errands. Occasionally
+you glimpse out of the corner of your eye, one of the slaves, but you can't
+make him out in the dim corners of this vast chamber.{x
+~
+0 DNT 0
+D0
+{cA dark passageway leads to the north, disappearing into darkness as the 
+black marble swallows all the light.{x
+~
+~
+0 -1 2510
+D1
+{cA dark passageway leads to the east, disappearing into darkness as the 
+black marble swallows all the light.{x
+~
+~
+0 -1 2512
+D2
+{cTo the south, you can see the grand entryway to this vast temple.{x
+~
+~
+0 -1 2509
+D3
+{cA dark passageway leads to the west, disappearing into darkness as the
+black marble swallows all the light.{x
+~
+~
+0 -1 2511
+E
+roof ceiling~
+{cAs the light from your torch fades into nothingness at the very heights of
+this huge chamber, you can almost perceive a scene of dancing constructs...{x
+~
+E
+marble columns spiral~
+{cAs you peer intently at the columns, you can see a reflection of yourself,
+but it looks strangely mechanical as if you were looking at an artificial
+construct of yourself.{x
+~
+E
+corner~
+{cOut of the corner of your eye, you see this individual in slaves clothing,
+the only difference is that unlike the usual slaves being either Duergar or
+Human, this one is a Githzerai.{x
+~
+E
+murals pictures~
+{cYou could swear that these carvings in the black marble were dancing with
+the spirits of the artifice, in an erratic and jerky fashion, yet appearing
+as smooth a movement as if living, but as soon as you focus on these
+intricate motions, they cease as if aware of your intrusion.{x
+~
+S
+
+#2501
+{cThe Priests' Domicile{x~
+{cYou have entered a sparsely furnished room, which at first glance, appears
+to be merely a dormitory. On closer examination, you feel a sense of
+calming regeneration, a place for the priesthood to refresh their minds
+and bodies for their upcoming labours. The gentle sound of running water,
+that flows from the fountain in the southeast corner, running diagonally
+through an adamantium channel in the floor, and through a hole in the
+northwest corner of the room, imparts a soothing and strangely cooling
+quality to the atmosphere of the chamber.{x
+~
+0 DNT 0
+H 140 M 175
+D0
+{cIn the centre of the northern wall is a plain ebony door, with a black
+marble handle.  Either side of the door are two small balls of light
+hanging from obsidian clasps.{x
+~
+ebony door passageway
+~
+1 -1 2512
+E
+adamantium channel floor~
+{cAs you dip a finger tentatively into the channel, the icy quality of the
+running water chills your hand.  Instinctively you flinch backwards, and
+as you touch the flagstones of the floor surrounding the channel, the
+warmth pervading the stone feels unnatural but strangely comforting.{x
+~
+E
+hole~
+{cAs you peer into the hole that the water flows into, your eyes cannot
+penetrate the blackness even when you shine the light of your torch inside. 
+After a moment, however, your nose hairs tingle as if the air is alive within
+the bone dust and smoke that you can smell.{x
+~
+S
+
+#2502
+{cThe Artificer's Library{x~
+{cUpon entering this room, you become aware of an atmosphere of studious
+concentration. The silence is almost deafening, drowning out all but the
+foremost thoughts in your mind.  The walls gleam with an almost bronzed
+illumination, revealing shelves and shelves of tomes that appear to be
+forged of metal. You ponder the size of this room, as the rows of books
+extend far beyond where you believe the boundaries of this room should be. 
+An ornate ebony table lies centrally to the doorway, and has an open tome
+resting in the centre.  Priests glide gracefully from book to book, perusing,
+occasionally glancing upwards at you, then returning to their contemplations.{x
+~
+0 DNT 0
+D0
+{cThe heavily panelled ebony door in the centre of the northern wall silently
+closes after your passing, maintaining the stillness in the Library.{x
+~
+ebony door passageway
+~
+1 -1 2511
+E
+open tome~
+{cThis appears to be a guide to some of the more obscure grimoires in the
+Library. It refers to books on languages and rebuses, the art of mechanics,
+holy incantations and historical references.{x
+~
+E
+manual art mechanics~
+{cThis tome details the various materials necessary for the creation of
+different types of constructs, and the methods and rituals needed to obtain
+and fashion them into soulless yet animated creatures.  Occasionally, due
+to the magical nature of these constructs, there is a possibility that
+items may be forged from the fragments left behind when destroyed.  These
+strange artifacts can only be created by someone with the appropriate
+knowledge, and the willingness to bind the magicks necessary.  A final
+point of note was regarding the theory of animating constructs with a soul
+or intelligence.{x
+~
+E
+grimoire holy incantations~
+{cAs you turn the pages of this book, you begin to realise the purpose of
+this cult.  Inside these pages are references to summoning the living
+avatar of Fr'ai'llinii Canetic'gelte, the God of Artifice, who when
+released upon Thera would have the power to transmute living creatures
+into soulless automatons that the Illithid would then be able to control
+and feed upon. From what you can understand, the ritual requires the vocal
+expression of *rebuses* using the required artifact to correctly channel
+the energies surrounding the temple.{x
+~
+E
+historical references libram~
+{cThis appears to be a catalogue of various creations built by artificers
+throughout the ages. The most commonly read pages refer to the creation of
+the bone constructs, homonculi and stirge constructs.  Numerous attempts
+have been recorded of endeavours to produce semi-ethereal golems and other
+constructs, but within this book, no success has been recorded.{x
+~
+S
+
+#2503
+{cThe Meditation Chamber{x~
+{cThis room appears to be a shrine to Fr'ai'llinii Canetic'gelte, the God of
+Artifice, and multiple priests are kneeling here in silence, bowed heads at
+the shrine, which looks very artificial. The black marble walls are lined
+with bronze and silver metals and the shrine itself is made of platinum and
+adamantium. Two thuribles burn incense either side of the shrine, and the
+air itself smells alive, as if to warn you. The hairs on the back of your
+neck stand on end, and you get the feeling of being watched, yet each time
+you glance around, the shadows conceal the imagined observer watching you...{x
+~
+0 DNT 0
+D3
+{cThe heavily panelled door leads back out from this chamber of peace into
+the vast entryway beyond.{x
+~
+ebony door entryway
+~
+1 -1 2509
+E
+shrine platinum adamantium~
+{cA small humanoid figure stands in the centre of this shrine, with what
+appears to be strange forms of Modron bowing in reverence. This shrine,
+although still, appears to be alive, as if breathing, seeing, hearing,
+thinking... aware of your presence, but somehow still dead, or maybe just
+artifice. Maybe it's just in the air.{x
+~
+E
+thurible censer incense~
+{cThe two thuribles are made from obsidian, and eminate a strange but not
+uncomfortable warmth from them. The incense itself, although not
+unpleasantly scented gives you a very distorted perception especially when
+looking at the shrine.{x
+~
+S
+
+#2504
+{cThe Slave Quarters{x~
+{cAlthough this room is obviously intended for the slaves, it does not appear
+particularly uncomfortable. Most of the slaves here are willing, although
+compelled, and as such, their comfort is provided for in a manner fitting
+their station.  At the very edge of your vision, you see a strange figure
+curled up on one of the sleeping mats. He appears to be the only Githzerai
+slave that you have seen within the Temple.  The slaves, both human and
+duergar, observe your intrusion with quiet interest.{x
+~
+0 DNT 0
+D1
+{cThis ebony framed door is barred with adamantium, to allow easy observation
+of the slaves when they are locked in.{x
+~
+ebony door barred
+~
+1 -1 2509
+S
+
+#2505
+{cThe Master Artificer's Workshop{x~
+{cYou enter this room and gaze about at the walls, unlike the stark walls of
+the rest of this building, these ones are overflowing with diagrams and
+written equations regarding what you assume to be the construction of
+golems and other animated creations. From the ceiling hang cages, all with
+locked doors, containing a varied prize for these artificers, a pair of
+shrieking stirges, a very frustrated ethereal marauder, a couple of
+cloakers, a roper beast and a very distraught blink dog. There are several
+brass and iron tables, on which rest both artificial constructs and what
+appear to be the remains of once living creatures. Also, you've gone from
+what was also a relatively silent building to a loud clamorous room, with
+dull thunks, the odd loud crash and minor explosion. Illithids scurry from
+one table to the other, sometimes cutting bits off one thing on the table,
+and either disposing of it, or attaching it to another creature or
+construct in the room. You don't intend stepping too close to the tables
+in case you get caught up in their actions, or worse yet disturbing their
+work, as your intrusion may not be welcomed with enthusiasm.{x
+~
+0 DNT 0
+D2
+{cThe door to the south would be otherwise blurred by diagrams and notes if
+you hadn't already come through it.{x
+~
+bronze door passageway
+~
+1 -1 2512
+E
+bone diagram~
+{cThis portrays the building of the bone construct, and how two separate
+parts come together...{x
+~
+E
+cage blink~
+{cA poor blink dog lies here, quietly whimpering through it's muzzle. It's
+ability to escape has been curtailed by a magical collar that makes it
+suffer whenever it wishes for independent action.{x
+~
+E
+table remains~
+{cOn this table, there appears to be the remains of what you think... may be
+a drider. This insipid experiment seems to have failed, but poking the
+remains doesn't appear to you to be the brightest of ideas. ;){x
+~
+E
+table construct~
+{cThis table is bizarre... as the construct on it, although lifeless and yet
+unfinished... is semi-corporeal. Your hand passes through it with the
+minimum of resistance as if it were a mere illusion.{x
+~
+S
+
+#2506
+{cThe High Priest's Quarters{x~
+{cYour initial impression of this room is one of opulence and grandeur, but
+closer scrutiny reveals that the decor and furnishings are all functional,
+providing you with an insight into the High Priest's devotion to the grand
+purposes of his God. The walls are draped with tapestries depicting scenes
+from the past, present, and what would appear to be dreams of an ideal
+future, strangely warped and artificial somehow. A small shrine stands in
+the northeast corner of the room, fashioned from platinum inlaid with jet
+symbols and inscriptions. Several roses have been carefully placed here,
+obviously signifying a greater purpose than mere decoration.{x
+~
+0 DNT 0
+D3
+{cThere is a heavy obsidian door leading back out into the northern
+passageway.{x
+~
+obsidian door passageway
+~
+4 2508 2510
+E
+tapestry past~
+{cThis would appear to allude to a great artifact, once rumoured to slay
+artificial creations with a single strike, dispelling the magicks binding
+their form and obliterating their remains to dust. The last holder of this
+artifact was a Githzerai spiritual leader known as Zerthimon. There is an
+allusion to the fact that this artifact does still remain intact, although
+it's location is known only to a minority.{x
+~
+E
+tapestry present~
+{cIn this tapestry are scenes of the creation of constructs that surpass
+magically and in complexity all known possible golems. The word "golem"
+seems to be referred to here in an almost primitive fashion, as if it is
+now an obsolete technology.{x
+~
+E
+tapestry future~
+{cStrangely enough, this tapestry brings forth a sense of revulsion as the
+summoning of the God portrayed here would transform the world into one
+devoid of passion.{x
+~
+E
+rose shrine platinum~
+{cUnlike most of the religious artifacts in this temple, that all are
+mechanical or artificial in nature, this one depicts a balance of artifice
+and nature. The layout of the roses appear to refer to a rebus that from
+what little you perceive of them, looks like a chain?{x
+~
+S
+#2507
+{cThe Feeding Chambers{x~
+{cThe first thing that strikes you upon entering this chamber is the eerie
+atmosphere, like nothing you've encountered before. A strange stillness in
+the air, permeating the very stone of the room, subdues you with a sense of
+powerlessness, of an all encompassing conviction that all magical skill or
+knowledge you may possess will avail you of naught here. A rattling of
+chains draws your attention toward a bizarre and horrific looking
+aberration tethered to the western wall. Odd scraps of bone and entrail
+surrounding but ignored by this foul beast would indicate that it is
+accustomed to being well fed. The creature who greeted you on your entry
+seems to be growing impatient at your silence, it seems he requires, even
+demands a swift response.{x
+~
+0 DNT 0
+H 110 M 130
+D0
+{cTo the north, you see a solid-looking ebony door with a small barred window
+in the centre.{x
+~
+ebony barred door
+~
+4 2509 2508
+D2
+{cTo the south, you see a finely carved ebony door that leads back into the
+passageway.{x
+~
+carved ebony door
+~
+1 -1 2511
+E
+small window~
+{cAs you peer through this window, you can almost make out what looks like a
+cell, your breath misting as it enters the room through this window... You
+shiver uncomfortably, as this room beyond draws feelings of trepidation to
+the front of your mind.{x
+~
+S
+
+#2508
+{cThe Holding Cells{x~
+{cIt's cold in here, like a brief passing with death, blood retreating from
+your fingertips and toes. Your breath mists in the air slightly, before
+appearing to be absorbed by the darkness here, as if sucking the life out
+of you. Your feet are leaden, and your breathing is laboured, your heart
+beat is trying to race, as the adrenalin is desperately trying to bring you
+back to normal but it's failing, and you are slowing down. Eventually, you
+control the emotive flight reaction and look around this bizarre place. In
+the gloomy light, you see various shackles, chains and manacles, and the
+odd bunk, although the attached tethers would probably not enhance sleep
+there.{x
+~
+0 DNT 0
+H 0 M -50
+D2
+{cThe only exit to this room is the south wall, a barred ebony door, which
+would appear to be channeling all the life and spirit out of this room into
+the feeding chamber to the south.{x
+~
+ebony barred door
+~
+4 2509 2507
+S
+
+#2509
+{cThe Main Entryway{x~
+{cAwe is the only word to describe this palatial temple. Black marble arches
+surround an immense black granite flagstoned floor, that is inlaid with
+jet, onyx and platinum in intricate symbols. Magical balls of light hang
+on the sides of the walls from obsidian clasps. Although this corridor
+would appear to be well lit, the light dwindles as it reaches the arched
+ceiling, you can just make out the elaborate and detailed carvings on
+there. Emblazoned gold and red tapestries make a stark contrast to the
+single coloured temple entryway; suggesting a grand and wondrous purpose
+here...{x
+~
+0 DNT 0
+D0
+{cOut of the darkness to the north, you can just about make out an altar,
+gleaming in platinum far off in the distance, the room itself though is
+too huge for you to even guess at it's size.{x
+~
+~
+0 -1 2500
+D1
+{cThe heavily panelled door leads off to the east, strange markings are
+written on it.{x
+~
+heavily panelled door
+~
+1 -1 2503
+D2
+{cYou can see the dimly lit entrance to this temple from the Underdark.{x
+~
+~
+0 -1 2513
+D3
+{cYou can see a barred ebony door with a small window to the west, unusual
+markings are carved into it.{x
+~
+ebony barred door
+~
+1 -1 2504
+E
+heavily panelled door strange markings~
+{cAs you glance upon the pictograph, your vision fades and a searing white
+light etches an image of =-= ((___)) onto your imagination.{x
+~
+E
+ebony barred door unusual markings~
+{cAs you glance upon the pictograph, your vision fades and a searing white
+light etches an image of --_-- ((___)) onto your imagination.{x
+~
+E
+small window~
+{cAs you peer through the small window in the west, you can see what look
+like slaves quietly milling about, although one, of an unusual race,
+appears to be in meditation.{x
+~
+E
+granite flagstone floor ~
+{cAs you glance upon the pictograph, your vision fades and a searing white
+light etches an image of =(*)= ((___)) onto your imagination.{x
+~
+S
+
+#2510
+{cThe Northern Passageway{x~
+{cAs your vision penetrates the darkness of this corridor, a heavy obsidian
+door can be seen in the eastern wall ahead of you. Looking back from
+whence you came, you can still just make out a faint illumination from
+the altar to the south, but the darkly gleaming polished marble walls of
+the immense passageway seem to reflect and magnify your feelings of
+trepidation as the oppressive atmosphere of the temple permeates your soul.{x
+~
+0 DNT 0
+D1
+{cThere is a heavy obsidian door on your east, the pictographs on the door
+seem somewhat more resplendant than those you've seen before.{x
+~
+heavy obsidian door
+~
+4 2508 2506
+D2
+{cOut of the darkness to the north, you can just about make out an altar,
+gleaming in platinum far off in the distance.{x
+~
+~
+0 -1 2500
+E
+pictograph heavy obsidian door~
+{cAs you glance upon the pictograph, your vision fades and a searing white
+light etches an image of //+\\ ((___)) onto your imagination.{x
+~
+E
+granite flagstone floor~
+{cAs you glance upon the pictograph, your vision fades and a searing white
+light etches an image of =(*)= ((___)) onto your imagination.{x
+~
+S
+
+#2511
+{cThe Western Passageway{x~
+{cAs your vision penetrates the darkness of this corridor, a finely carved
+door can be seen to the north, with a heavy ebony door to the south.
+Looking back from whence you came, you can still just make out a faint
+illumination from the altar to the east, but the darkly gleaming polished
+marble walls of the immense passageway seem to reflect and magnify your
+feelings of trepidation as the oppressive atmosphere of the temple permeates
+your soul.{x
+~
+0 DNT 0
+D0
+{cThe northern door is finely carved, with intricate pictographs.{x
+~
+carved ebony door
+~
+1 -1 2507
+D1
+{cOut of the darkness to the east, you can just about make out an altar,
+gleaming in platinum far off in the distance.{x
+~
+~
+0 -1 2500
+D2
+{cThe door leading to the south, is a heavily panelled ebony door, with
+ornate pictographs on it. As you draw near to the door, you can smell a
+fragrant oil of sorts...{x
+~
+ebony panelled heavily
+~
+1 -1 2502
+E
+carved ebony door pictograph~
+{cAs you glance upon the pictograph, your vision fades and a searing white
+light etches an image of =<>= ((___)) onto your imagination. After a 
+moment, the vision fades, leaving you slightly disorientated.{x
+~
+E
+ebony panelled heavily pictograph~
+{cAs you glance upon the pictograph, your vision fades and a searing white
+light etches an image of ?+?=! ((___)) onto your imagination. After a 
+moment, the vision fades, leaving you slightly disorientated.{x
+~
+S
+
+#2512
+{cThe Eastern Passageway{x~
+{cAs your vision penetrates the darkness of this corridor, an inlaid precious
+metal door can be seen in the northern wall, and a plain ebony door opposite
+to the south. Looking back from whence you came, you can still just make out
+a faint illumination from the altar to the south, but the darkly gleaming
+polished marble walls of the immense passageway seem to reflect and magnify
+your feelings of trepidation as the oppressive atmosphere of the temple
+permeates your soul.{x
+~
+0 DNT 0
+D0
+{cThe door to the north, unlike the rest you've seen is made of bronze, with
+platinum and silver inlaid pictographs across it.{x
+~
+bronze door
+~
+1 -1 2505
+D2
+{cThe southern door is a plain ebony door with a simple pictograph on it,
+the door handle is a finely polished black marble handle, reflecting the
+image of your hand as you reach out to touch it... yet in it, you see bone
+fingers reaching up to grasp your hand.{x
+~
+plain ebony door
+~
+1 -1 2501
+D3
+{cOut of the darkness to the west, you can just about make out an altar,
+gleaming in platinum far off in the distance.{x
+~
+~
+0 -1 2500
+E
+granite flagstone floor~
+{cAs you glance upon the pictograph, your vision fades and a searing white
+light etches an image of =(*)= ((___)) onto your imagination. After a 
+moment, the vision fades, leaving you slightly disorientated.{x
+~
+E
+bronze door pictograph~
+{cAs you glance upon the pictograph, your vision fades and a searing white
+light etches an image of \\&// ((___)) onto your imagination. After a 
+moment, the vision fades, leaving you slightly disorientated.{x
+~
+E
+plain ebony door pictograph~
+{cAs you glance upon the pictograph, your vision fades and a searing white
+light etches an image of /+\ ((___)) onto your imagination. After a 
+moment, the vision fades, leaving you slightly disorientated.{x
+~
+S
+
+#2513
+{cA Grand Temple{x~
+{cAs you leave Wyrm St. and glance upwards into the fading light of the
+Underdark, an immense black granite temple reaches upwards and out of
+sight. You ponder briefly the cost in both lives and diamonds this awe
+inspiring structure ran to... It has a strangely outworldly look about it,
+as if not designed by a mind native to the world you know as Thera, almost
+dispassionate in nature, although beautiful and wondrous to look at, it
+chills your spine due to it's harsh, almost mechanical coldness. The air
+around you seems tense, as if you are leaving the safety of the world you
+call home and an eerie sound of motility leaves you feeling cold.{x
+~
+0 DNT 0
+D0
+{cAn enormous set of ornate obsidian doors loom upwards out of your vision.
+You could well believe that even the largest of the great elder wyrms would
+pass through without even a squeeze. The ominous blackness beckons you
+coldly inwards to your destiny.{x
+~
+~
+1 -1 2509
+E
+hidden~
+{cFor those of who you read this secret message, the co-authors of this 
+area,
+{WG{Ca{Wb{Cr{Wi{Ce{Wl{c and {VS{Mun{Vda{Mnc{Ver{c, we would like to thank 
+you very much, and send our own best wishes...
+so from me {WG{Ca{Wb{Cr{Wi{Ce{Wl{c, I'd like to say:
+C{Ca{cr{Cp{ce {YC{be{Yr{be{Yv{bi{Ys{bi{P!!!{c
+and from me {VS{Mun{Vda{Mnc{Ver{c, I'd also like to say:
+C{Ca{cr{Cp{ce {BA{Cu{Wre{Cu{Bs{P!!!{c
+Have fun and we hope you enjoy this area.{x
+~
+S
+#0
+
+#RESETS
+
+
+
+
+S
+
+#SHOPS
+
+
+
+
+
+
+0
+
+#SPECIALS
+
+
+
+
+
+
+
+S
+
+
+
+
+
+#$
+
+
+
+
+
+
+
+

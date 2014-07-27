@@ -1,0 +1,325 @@
+#PLAYER
+Name Shenron~
+Id   989790063
+LogO 1005710329
+Vers 8
+Prom %CW<%h/%Hhp %CB%m/%Mm %CP%v/%Vmv %CY%gg %Cg%XXnl %CY%qmin. ~
+Race dragon~
+Clan order~
+Sex  1
+Cla  4
+Levl 37
+Plyd 218021
+Age  0
+Back 190909
+Note 1005710282 1005710282 1005710282 1005710282 1005710282 1005710282
+Scro 22
+Room 24455
+HMV  445 445 490 490 337 337
+Gold 609
+Silv 13080
+Silver_in_bank 40608
+Gold_in_bank 5709
+Exp  61050
+PCkills 0
+PCkilled 1
+Akills 0
+Akilled 2
+PKRank 0
+Act  CDEFGHJLSTc
+AfBy DFJT
+Comm NO
+Revk 0
+Pos  8
+Prac 8
+Trai 4
+Save  -2
+Alig  -1000
+Hit   4
+Dam   7
+ACs -36 -42 -41 -24
+Atrib 16 21 20 14 19 18
+AtMod 5 2 2 5 3 2
+QuestPnts 4
+QpDonated 10
+Pass axxess~
+Afk {B[{CFri Jun  8 00:42:43 2001{B] {C{CA{Tuto-{CA{Tfk by {GL{Be{Nga{Bc{Gy{x
+~
+Titl , the {cN{go{Wt-{gS{co{x {bC{bo{Yn{Ys{Wt{Wa{Yn{Yt{bl{by {RD{Py{Ri{Pn{Rg {HD{Gr{Wag{Go{Hn{x~
+Immn ~
+Pnts 42
+Rank {BA{Cm{Bb~
+Aura ~
+TSex 1
+LLev 58
+Email Code_Man65@ignmail.com ~
+Deit Lotus~
+Lsit cx182135-d.tulsa1.ok.home.com~
+Ltim Tue Nov 13 21:56:57 2001
+~
+LSav Tue Nov 13 21:58:49 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  AF
+HMVP 385 430 317
+THVP 0 0 0
+Cnd  0 0 15 2
+Sk 78 1 'acid blast'
+Sk 92 1 'acid breath'
+Sk 1 1 'age'
+Sk 75 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 75 1 'armor'
+Sk 75 1 'blindness'
+Sk 77 1 'blood moon'
+Sk 75 1 'burning hands'
+Sk 75 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 75 1 'chill touch'
+Sk 75 1 'colour spray'
+Sk 75 1 'continual light'
+Sk 81 1 'create food'
+Sk 75 1 'create parchment'
+Sk 75 1 'create rose'
+Sk 75 1 'create sign'
+Sk 76 1 'create spring'
+Sk 75 1 'create vial'
+Sk 75 1 'create water'
+Sk 75 1 'cure blindness'
+Sk 75 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 75 1 'curse'
+Sk 75 1 'dispel magic'
+Sk 75 1 'encampment'
+Sk 75 1 'energy drain'
+Sk 75 1 'fear'
+Sk 1 1 'fire breath'
+Sk 75 1 'fireball'
+Sk 75 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'fly'
+Sk 75 1 'floating disc'
+Sk 75 1 'frost breath'
+Sk 90 1 'gas breath'
+Sk 81 1 'gate'
+Sk 100 1 'lightning bolt'
+Sk 76 1 'lightning breath'
+Sk 75 1 'magic missile'
+Sk 1 1 'nexus'
+Sk 78 1 'pass door'
+Sk 75 1 'plague'
+Sk 77 1 'poison'
+Sk 75 1 'portal'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 1 1 'resurrect'
+Sk 82 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 91 1 'shocking grasp'
+Sk 75 1 'slow'
+Sk 75 1 'stone skin'
+Sk 78 1 'summon'
+Sk 1 1 'summon object'
+Sk 75 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 75 1 'weaken'
+Sk 77 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 100 1 'dagger'
+Sk 75 1 'polearm'
+Sk 77 1 'shield block'
+Sk 75 1 'scribe'
+Sk 1 1 'bash'
+Sk 75 1 'repair'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'combat'
+Gr 'creation'
+Gr 'curative'
+Gr 'draconian'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'transportation'
+End
+
+#O
+Vnum 12721
+Nest 0
+Cond 99
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 9924
+Nest 0
+Wear 0
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 12720
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 3202
+Nest 0
+Cond 99
+Wear 7
+Cost 30
+End
+
+#O
+Vnum 9536
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 55
+Nest 1
+ShD  {gA {Yb{bo{Ytt{bl{Ye {bo{Yf {bw{Yi{bne {gto {Wc{ge{Wl{ge{Wb{gr{Wa{gt{We {gthe {Wu{gn{Wi{go{Wn {gof {HT{Geo{Htw{Ga{Hwk{Gi{g and {RG{Pes{Rt{Pan{Ri{Ps{x~
+Desc {gA {Yb{bo{Ytt{bl{Ye {bo{Yf {bw{Yi{bne {gto {Wc{ge{Wl{ge{Wb{gr{Wa{gt{We {gthe {Wu{gn{Wi{go{Wn {gof {HT{Geo{Htw{Ga{Hwk{Gi{g and {RG{Pes{Rt{Pan{Ri{Ps {glies here.{x~
+Wear -1
+Cost 0
+Val  64 4 21 0 0
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 0
+Val  150 18 24 0 0
+End
+
+#O
+Vnum 3381
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 29902
+Nest 1
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 3092
+Nest 1
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 16084
+Nest 1
+Cond 73
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 4595
+Nest 0
+Cond 99
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 3203
+Nest 0
+Cond 98
+Wear 12
+Cost 40
+End
+
+#O
+Vnum 16088
+Nest 0
+Cond 98
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 6
+Nest 0
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 29905
+Nest 0
+Wear 6
+Cost 10000
+End
+
+#O
+Vnum 1004
+Nest 0
+Name dagger (*)++{<<<<<<>~
+ShD  {Y({B{f*{x{Y)++{{<<<<<<>{x~
+Desc A dagger is here, forged by Eron's craftsmanship.~
+Mat mithril~
+ExtF 1
+Wt   29
+Cond 83
+Wear 16
+Lev  31
+Cost 0
+Val  2 5 10 11 0
+ExDe dagger (*)++{<<<<<<>~ It is a marvellous dagger, crafted from the finest mithril around.
+It was created in the Month of Endings by a young warrior
+named Eron.  Legend holds that this vampire was a great weaponsmith.
+~
+End
+
+#L
+Vnum 3201
+Nest 0
+Cond 98
+Wear -1
+Cost 20
+End
+
+#END

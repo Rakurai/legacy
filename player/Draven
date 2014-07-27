@@ -1,0 +1,576 @@
+#PLAYER
+Name Draven~
+Id   1024701143
+LogO 1027220639
+Vers 14
+Mexp 1
+Pass black~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Cla  2
+Levl 48
+Tru  0
+Plyd 232529
+Back 220697
+Note 1027189445 1022813787 1027144008 1027209569 1027146472 0 1026831915
+Scro 22
+Room 7636
+HMS  550 606 381
+Gold 2217
+Silv 797
+Exp  50579
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 1000
+FImm 0
+FRes B
+FVul Z
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy HT
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 4
+Trai 0
+Wimp 50
+Atrib 16 20 18 20 16 18
+SkillPnts  151
+QuestPnts  102
+Afk {B[{CSat Jul 20 16:46:43 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl , The Legend Continues...~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 63
+Deit Sivat~
+Lsit user-2ivfdk6.dialup.mindspring.com~
+Ltim Sat Jul 20 21:04:23 2002
+~
+LSav Sat Jul 20 22:03:59 2002
+~
+HMSP 722 426 520
+THMS 5 0 0
+Cnd  0 5 18 35
+Sk 76 1 'armor'
+Sk 75 1 'cancellation'
+Sk 75 1 'dazzling light'
+Sk 75 1 'dispel magic'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'fireproof'
+Sk 1 1 'protect container'
+Sk 75 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 77 1 'sanctuary'
+Sk 79 1 'shield'
+Sk 1 1 'shrink'
+Sk 75 1 'stone skin'
+Sk 75 1 'undo spell'
+Sk 100 1 'dagger'
+Sk 1 1 'mace'
+Sk 98 1 'sword'
+Sk 81 1 'backstab'
+Sk 93 1 'circle'
+Sk 74 1 'disarm'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 72 1 'trip'
+Sk 91 1 'second attack'
+Sk 79 1 'repair'
+Sk 76 1 'hide'
+Sk 78 1 'lore'
+Sk 72 1 'peek'
+Sk 81 1 'pick lock'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 75 1 'steal'
+Sk 33 1 'scrolls'
+Sk 2 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+Gr 'enchantment'
+Gr 'protective'
+Affc 'sanctuary'   0  47   1   0   0        128 1
+Affc 'fly'   0  12   2   0   0     524288 1
+Affc 'shield'   0  44  40 -20  17          0 1
+Affc 'armor'   0  43   8 -20  17          0 1
+End
+
+#O
+Vnum 1345
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name alara hidden token unending speck luminescence everlasting fires~
+ShD  {W*{RH{Pi{gdd{Pe{Rn{W* {gE{Wv{ge{Wrl{ga{Wst{gi{Wng {cM{gi{cdn{gi{cght {RF{Pi{Yr{Pe{Rs{x~
+Desc {W*{RH{Pi{gdd{Pe{Rn{W* {gA{Wn {gU{Wn{ge{Wnd{gi{Wng {gSp{Ye{gck {go{Wf {WL{Yu{Wm{Yi{Wn{Ye{Wsc{Ye{Wnc{Ye{x is here.~
+Mat {Yst{Wa{Yrl{Wi{Yght{x~
+Wear -1
+Cost 0
+ExDe fires~ An {ge{Wt{ge{Wrn{ga{Wl {gsp{Ye{gck {go{Wf {Yst{Wa{Yrl{Wi{Yght{x has been {gg{Wa{gth{we{gr{We{gd here.
+~
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 126 15 0 0
+End
+
+#O
+Vnum 6601
+Enchanted
+Nest 1
+Wt   20
+Wear -1
+Cost 620
+Affc 'reserved'   1   3  -1   1  26          0 1
+Affc 'reserved'   1   3  -1   1   1          0 1
+Affc 'reserved'   1   3  -1   4  13          0 1
+End
+
+#O
+Vnum 3031
+Nest 1
+Wear -1
+Cost 75
+Val  0 0 147 0 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name liriati tile letter Y~
+ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {P[{WY{P]{x~
+Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 928
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name teotwawki dust hidden~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name teotwawki dust hidden~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3715
+Nest 1
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 10449
+Nest 1
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3201
+Nest 0
+Wear 6
+Cost 20
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 4594
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear 0
+Cost 0
+Affc 'dazzling light'   0  47  94   5  19          0 1
+Affc 'dazzling light'   0  45  94   5  18          0 1
+End
+
+#O
+Vnum 17308
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 17306
+Nest 0
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 17311
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 29902
+Nest 0
+Wear 3
+Cost 3000
+End
+
+#O
+Vnum 10298
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 8806
+Enchanted
+Nest 0
+Cond 100
+Wear 17
+Cost 0
+Affc 'reserved'   1  45  -1   2  19          0 1
+Affc 'reserved'   1  45  -1  45  12          0 1
+Affc 'reserved'   1  45  -1   4   4          0 1
+Affc 'reserved'   1  45  -1   2   3          0 1
+End
+
+#O
+Vnum 17315
+Nest 0
+Wear 9
+Cost 6000
+End
+
+#O
+Vnum 17306
+Nest 0
+Wear 14
+Cost 4000
+End
+
+#O
+Vnum 4579
+Nest 0
+Wear 18
+Cost 2800
+End
+
+#O
+Vnum 3051
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10420
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 10420
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10420
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 16015
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 14018
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 14023
+Nest 0
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 3138
+Nest 0
+Cond 100
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear 12
+Cost 8000
+End
+
+#O
+Vnum 1004
+Nest 0
+Name dagger Hunter's Dagger~
+ShD  {GH{Hu{Gn{Ht{Ge{Hr{G'{Hs {xDagger{x~
+Desc A dagger is here, forged by Malenna's craftsmanship.~
+Mat steel~
+Wt   39
+Wear 16
+Lev  49
+Cost 0
+Val  2 6 10 11 0
+ExDe dagger Hunter's Dagger~ It is a marvellous dagger, crafted from the finest steel around.
+It was created in the Month of Reverence by a young thief
+named Malenna.  Legend holds that this feral was a great weaponsmith.
+~
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 9573
+Nest 0
+Wear -1
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 9573
+Nest 0
+Wear -1
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 9573
+Nest 0
+Wear -1
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#END

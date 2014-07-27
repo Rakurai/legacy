@@ -1,0 +1,581 @@
+#PLAYER
+Name CrystaRa~
+Id   1019768447
+LogO 1024817825
+Vers 14
+Mexp 2
+Pass angel~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race wolf~
+Cla  7
+Levl 12
+Tru  0
+Plyd 167723
+Back 165546
+Note 1024815403 1024815403 1024815403 1024815403 1024815403 1024815403 1024815403
+Scro 22
+Room 8543
+HMS  159 179 180
+Gold 1885
+Silv 5718
+Exp  25892
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 0
+FImm 0
+FRes I
+FVul H
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm DEFGKNOPRXYab
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 10
+Atrib 19 16 15 17 18 16
+Afk {B[{CSun Jun 23 02:06:20 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  (His)~
+Immn ~
+Pnts 58
+Rank ~
+Aura ~
+TSex 2
+LLev 41
+Deit Kenneth~
+Lsit vsat-148-63-166-80.c189.t7.mrt.starband.net~
+Ltim Sun Jun 23 01:56:35 2002
+~
+LSav Sun Jun 23 02:37:05 2002
+~
+HMSP 218 167 240
+THMS 0 0 2
+Cnd  0 0 0 3
+Sk 61 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'channel'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'fireproof'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'talon'
+Sk 1 1 'undo spell'
+Sk 67 1 'axe'
+Sk 86 1 'flail'
+Sk 1 1 'bash'
+Sk 79 1 'enhanced damage'
+Sk 61 1 'hand to hand'
+Sk 1 1 'kick'
+Sk 10 1 'parry'
+Sk 47 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 44 1 'hunt'
+Sk 75 1 'repair'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'enhancement'
+Gr 'protective'
+Affc 'fly'   0  86  68   0   0     524288 1
+Affc 'shield'   0  87  73 -20  17          0 1
+Affc 'giant strength'   0  84  65   5   1          0 1
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 1374
+Nest 0
+Cond 92
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 6621
+Nest 0
+Cond 100
+Wear 12
+Cost 780
+End
+
+#O
+Vnum 2326
+Nest 0
+Wear 15
+Cost 550
+End
+
+#O
+Vnum 10135
+Nest 0
+Cond 97
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 0
+Cond 88
+Wear -1
+Cost 4
+Val  0 0 19 0 0
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3029
+Enchanted
+Nest 0
+ExtF 65
+Cond 94
+Wear -1
+Lev  3
+Cost 77
+Affc 'reserved'   1   1  -1   1  17          0 1
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'enchant weapon'   0  91  -1   3  18          0 1
+End
+
+#O
+Vnum 3077
+Nest 0
+Wear 10
+Cost 420
+End
+
+#O
+Vnum 1911
+Nest 0
+Cond 100
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 620
+Nest 0
+Cond 94
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 10126
+Enchanted
+Nest 0
+ExtF 17039681
+Cond 98
+Wear 7
+Lev  8
+Cost 0
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+Affc 'reserved'   1   5  -1   1   4          0 1
+Affc 'reserved'   1   5  -1   5  12          0 1
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Enchanted
+Nest 0
+Wear -1
+Cost 700
+Val  43 38 -1 -1 -1
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 9225
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Enchanted
+Nest 0
+Wear -1
+Cost 700
+Affc 'reserved'   1  10  -1   1   3          0 1
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 624
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3066
+Nest 0
+Cond 86
+Wear 5
+Cost 430
+End
+
+#O
+Vnum 1234
+Nest 0
+Wear -1
+Cost 0
+Spell 1 'bless'
+Spell 2 'frenzy'
+Spell 3 'armor'
+Spell 4 'shield'
+End
+
+#O
+Vnum 1621
+Nest 0
+Wear -1
+Time 31
+Cost 0
+Spell 1 'cure blindness'
+Spell 2 'cure critical'
+End
+
+#O
+Vnum 9215
+Nest 0
+Wear 17
+Cost 0
+Spell 3 'fireball'
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear 16
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name vegita quest token~
+ShD  {WQ{GU{TE{YS{PT{B!{x Just a {Gp{Hi{Pe{Yc{Ve{x of rock{x~
+Desc {WQ{GU{TE{YS{PT{B!{x Just a {Gp{Hi{Pe{Yc{Ve{x of rock{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#END

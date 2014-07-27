@@ -1,0 +1,231 @@
+#PLAYER
+Name Nick~
+Id   1020551876
+LogO 1020556772
+Vers 13
+Mexp 2
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Sex  1
+Cla  2
+Levl 1
+Plyd 3144
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3718
+HMS  50 50 100 100 100 100
+Gold 0
+Silv 14
+Exp  1727
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+FRes B
+FVul Z
+Comm NOZ
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 5
+Save  -1
+Alig  750
+Hit   1
+ACs 95 95 95 99
+Wimp  10
+Atrib 11 15 13 18 11 14
+AtMod 0 0 0 0 0 0
+Pass remember~
+Afk {B[{CSat May  4 18:19:02 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 22
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Liriel~
+Lsit 209-162-38-94.thegrid.net~
+Ltim Sat May 04 17:43:08 2002
+~
+LSav Sat May 04 18:59:32 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMSP 50 100 100
+THMS 3 0 0
+Cnd  0 0 0 0
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 41 1 'dagger'
+Sk 1 1 'firebuilding'
+Sk 1 1 'languages'
+Sk 1 1 'hide'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'enchantment'
+Gr 'illusion'
+End
+
+#O
+Vnum 3716
+Nest 0
+Cond 93
+Wear 0
+Cost 0
+Val  0 0 98 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3723
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear -1
+Cost 72
+End
+
+#END

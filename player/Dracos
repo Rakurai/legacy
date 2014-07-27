@@ -1,0 +1,200 @@
+#PLAYER
+Name Dracos~
+Id   1020042934
+LogO 1020044563
+Vers 13
+Mexp 2
+Prom %CN<%Cc%h%Cc/%Hhp %CP%m%CP/%Mmp %CH%vst %CC%Xxp  ~
+Race vampire~
+Sex  1
+Cla  2
+Levl 2
+Plyd 1237
+Back 1225
+Note 1020043330 1020043330 1020043330 1020043330 1020043330 1020043330 1020043330
+Scro 22
+Room 8543
+HMS  41 41 108 108 80 110
+Gold 3
+Silv 490
+Exp  3785
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy TUVY
+FRes BM
+FVul NS
+Comm NO
+Revk 0
+Cgrp A
+Cnsr 0
+Pos  4
+Prac 3
+Trai 1
+Save  -1
+Alig  -750
+Hit   4
+Dam   5
+ACs 43 43 43 50
+Atrib 17 18 16 18 12 14
+AtMod 7 2 3 7 0 3
+Pass dragon~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Vegita~
+Lsit weymouth-as5200-1-058.weymouth.auracom.net~
+Ltim Sun Apr 28 20:22:06 2002
+~
+LSav Sun Apr 28 20:42:43 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 33 108 110
+THMS 0 0 0
+Cnd  0 0 40 30
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'dagger'
+Sk 75 1 'sword'
+Sk 19 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'illusion'
+Affc 'steel mist'   0  85  20  -9  17   16777216 1
+Affc 'giant strength'   0  87  75   5   1          0 1
+Affc 'haste'   0  87   5   5   2    2097152 1
+Affc 'pass door'   0  90   4   0   0    1048576 1
+Affc 'shield'   0  87  82 -20  17          0 1
+Affc 'armor'   0  89   7 -20  17          0 1
+Affc 'blood moon'   0  56  41   3  18          0 1
+Affc 'blood moon'   0  57  41   5  19          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 173 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 138 15 0 0
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 2
+Cost 0
+End
+
+#END

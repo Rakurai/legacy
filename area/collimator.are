@@ -1,0 +1,1676 @@
+#AREA
+collimator.are~
+the Rainbow Collimator~
+{H{{ 1  5} {MMagda  {TRainbow Collimator~
+4201 4249
+
+#MOBILES
+#4201
+rainbow tuner man silver~
+the {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner~
+A man dressed all in {Wpolished silver{x is here, checking the power output.
+~
+He has little mirrors on all his fingertips, and is fiddling with light
+as if he were molding clay. He has a big "No Paintballing, Please!" sign
+stuck in his belt, but doesn't seem to have been able to find a suitable
+place to put it.
+~
+human~
+ABGVZ DF 800 0
+23 0 1d1+999 1d1+999 1d8+32 light
+-15 -15 -15 -15
+AFQ ABCD 0 0
+stand stand male 1000
+0 0 medium 0
+>all_greet_prog 100~
+if level($n) <= 5
+     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner notices you, and says "Want to have a
+     MPECHO look around? Well, just don't track any mud in there. Take
+     MPECHO what you like... It all grows back. I can take your ticket
+     MPECHO here, but if this is your first visit, you should get a
+     MPECHO {Pguide book{x from the souvenir shop."
+else
+     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner, startled by your entrance, snarls
+     MPECHO some strands of light into a hopeless knot, which he then tries
+     MPECHO to slip into his pocket without your noticing it. "I'm sorry", he
+     MPECHO says, "but you are too dusty from all your adventuring to visit
+     MPECHO the prism itself. Feel free to visit the souvenir shop, but you
+     MPECHO will find you cannot fit through the filter any more."
+endif
+~
+>give_prog rainbow ticket~
+if level ($n) <= 5
+     MPOLOAD 4201
+     GIVE key $n
+     SAY Enjoy your tour!
+else
+     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner says "I am sorry, but you are too
+     MPECHO experienced to be impressed by anything we have here. But
+     MPECHO be sure to send your young friends!"
+endif
+MPJUNK all
+~
+>rand_prog 2~
+emote whines about how he never liked {Yyellow{x much in the first place.
+~
+>rand_prog 1~
+emote washes his hands in a beam of {Bblue{x light.
+~
+>rand_prog 3~
+MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner starts to search for something.
+MPECHO First he checks his pockets, then he looks all around him and under things.
+MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner looks east.
+SAY Have you seen my Number 5 filter?
+MUTTER
+MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner scoops up a handfull of {Yyellow{x light
+MPECHO and holds it to his ear, concentrating...
+if rand(50)
+     MPECHO "Darn", he says, sometimes they know. I'll have to try harder."
+     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner puts his right foot in, he takes
+     MPECHO his right foot out, he puts his right foot in, and he shakes it all
+     MPECHO about. He does the hokey-pokey and he turns himself around.
+endif
+MPECHO Suddenly, he holds a small {Mmagenta disc{x in his hand!
+smile
+~
+>rand_prog 3~
+MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner starts to search for something.
+MPECHO First he checks his pockets, then he looks all around him and under things.
+MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner looks up.
+SAY Have you seen my bottle of glass cleaner?
+MUTTER
+MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner drinks from a beam of {Ggreen{x light,
+MPECHO slurping down mass quantities. Then he sneezes.
+if rand(50)
+     MPECHO "Rats", he snorts, still looking a bit green. "That usually works.
+     MPECHO I'll have to call in a real expert."
+     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner performs the Rite of Ash' K'ente, and
+     MPECHO summons the {cSpirit of Death{x. He grabs it by the lapels and shakes
+     MPECHO it until it cries uncle and tells him what he wants to know...
+endif
+MPECHO Suddenly, he holds a bottle of {Cbluish fluid{x in his hand!
+smile
+~
+>rand_prog 3~
+MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner starts to search for something.
+MPECHO First he checks his pockets, then he looks all around him and under things.
+MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner looks down.
+SAY Have you seen my lint brush?
+MUTTER
+meditate
+if rand(50)
+     curse
+     say I hate it when that doesn't work. Oh, well, here goes plan B...
+     MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner sneaks up on a {Rred{x photon and
+     MPECHO tackles it, sniffing its bottom with a look of distaste.
+endif
+MPECHO Suddenly, he holds a small brush in his hand!
+smile
+~
+>speech_prog heart heart?~
+MPECHO The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x tuner says "I call that the 'central refractor',
+MPECHO actually. You can find it in the nest of crystals just beyond
+MPECHO the portal, up there."
+~
+|
+#4202
+staff naturalist specialist accomplished~
+the staff naturalist~
+An accomplished specialist in wild photon preservation sits at the
+{RW{PE{YL{GC{BO{VM{NE{x! desk.
+~
+He looks like he can actually appreciate the subtleties of the strange
+mirror-portraits. Unfortunately, he hasn't looked at himself in a
+normal mirror for some time. He has entropy trails in his hair and
+photon shell stains on his coat, but he looks pleasant enough.
+~
+human~
+ABGVZ DF 800 0
+23 0 1d1+999 1d1+999 1d8+32 light
+-15 -15 -15 -15
+AFQ ABCD 0 0
+stand stand male 1000
+0 0 medium 0
+>all_greet_prog 100~
+if level($n) <= 5
+     MPECHO The staff naturalist bows and says "Welcome to the Collimator!
+     MPECHO Please get a {Pguide book{x from the rack, you should find it
+     MPECHO most informative and helpful.
+else
+     MPECHO The staff naturalist bows and resumes contemplating some brightly
+     MPECHO colored lint of indeterminate origin.
+endif
+~
+>give_prog rainbow ticket~
+if level ($n) <= 5
+     MPOLOAD 4201
+     give key $n
+     say Enjoy your tour!
+else
+     MPECHO The naturalist says "I am sorry, but you are too experienced to be
+     MPECHO impressed by anything we have here. But be sure to send your young
+     MPECHO friends!"
+endif
+MPJUNK all
+~
+>rand_prog 2~
+emote whines about how he never liked {Yyellow{x much in the first place.
+~
+>rand_prog 1~
+emote washes his hands in a beam of {Bblue{x light.
+~
+>speech_prog heart heart?~
+MPECHO The naturalist says "Ah, yes, '{Vrefractor centralis{x'.
+MPECHO You can find this wondrous thing in the living center of the
+MPECHO heart of the prism. Go out those doors, unlock the filter
+MPECHO and go up, then enter the prism and you will see it right
+MPECHO there! Be sure and admire it in its setting before you just
+MPECHO go grabbing at it."
+~
+|
+#4203
+girl guide~
+a {HGirl Guide{x~
+A {HGirl Guide{x is manning the concession booth.
+~
+She's cute and smiling. But she's really just here to sell cookies.
+~
+human~
+ABGVZ 0 800 0
+10 0 2d7+121 1d1+99 2d4+2 stab
+1 1 1 1
+AFQ ABCD 0 0
+stand stand female 1000
+0 0 medium 0
+>act_prog p goes to sleep.~
+wake $n
+say Wouldn't you like to buy some cookies, $n?
+~
+>all_greet_prog 100~
+MPAT 3032 MPJUNK all.box
+MPAT 3032 MPJUNK all.cookie
+MPAT 3032 MPOLOAD 4212
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 put all.cookie in box
+MPAT 3032 close box
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPJUNK all.survival
+MPAT 3032 MPJUNK all.tablet
+MPAT 3032 MPOLOAD 4215
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 put all.tablet survival
+MPAT 3032 close survival
+MPAT 3032 MPOLOAD 4214
+~
+>act_prog p buys a box of girl guides cookies.~
+MPAT 3032 MPJUNK all.cookie
+MPAT 3032 MPOLOAD 4212
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 MPOLOAD 4211
+MPAT 3032 put all.cookie in box
+MPAT 3032 MPOLOAD 4211
+~
+>act_prog p buys a hot weather survival pack.~
+MPAT 3032 MPJUNK all.survival
+MPAT 3032 MPJUNK all.tablet
+MPAT 3032 MPOLOAD 4215
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 MPOLOAD 4214
+MPAT 3032 put all.tablet survival
+MPAT 3032 MPOLOAD 4214
+~
+>rand_prog 5~
+emote gets a whetstone from her trailpack.
+emote begins to industriously whet her {HGirl Guides{x pocketknife.
+emote smiles as she works.
+emote looks up, satisfied.
+emote closes up her pocketknife and puts the whetstone away again.
+~
+|
+
+#0
+
+#OBJECTS
+#4201
+rainbow key~
+the key to the {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x~
+A multicolored key lies here, slowly dissolving.~
+light~
+key AMPR A
+0 0 0 0 0
+1 1 1 P
+E
+rainbow key~
+It is fading... Use it right away!
+~
+#4202
+heart collimator crystal prism~
+the heart of the collimator crystal~
+A crystal-clear prism glints different colors wherever you look.~
+crystal~
+armor ABPRTUY AO
+3 3 3 0 1
+1 3 1000 P
+A 18 2
+E
+heart collimator crystal prism~
+It has so many facets that it is nearly an orb. As you try to fix
+on one, you are distracted by sparkles from other surfaces... All
+of them seem to be shifting, though you can never see one move.
+~
+#4203
+cyan hoop photons~
+a hoop of {Ccyan{x photons~
+{CCyan photons are rushing around in a tight circle here{x.~
+light~
+armor APT AL
+0 0 0 0 0
+1 0 1000 P
+A 5 2
+A 17 -2
+E
+cyan hoop photons~
+{CPacked densely together, the photons stream about, too fast
+to count. They nearly seem to form a solid hoop.{x
+~
+#4204
+magenta hoop photons~
+a hoop of {Vmagenta{x photons~
+{VMagenta photons are rushing around in a tight circle here{x.~
+light~
+armor APT AL
+0 0 0 0 0
+1 0 1000 P
+A 3 2
+A 17 -2
+E
+magenta hoop photons~
+{VPacked densely together, the photons stream about, too fast
+to count. They nearly seem to form a solid hoop.{x
+~
+#4205
+yellow hoop photons~
+a hoop of {Yyellow{x photons~
+{YYellow photons are rushing around in a tight circle here{x.~
+light~
+armor APT AL
+0 0 0 0 0
+1 0 1000 P
+A 2 2
+A 17 -2
+E
+yellow hoop photons~
+{YPacked densely together, the photons stream about, too fast
+to count. They nearly seem to form a solid hoop.{x
+~
+#4206
+nest crystals thicket~
+a dense thicket of growing crystals~
+~
+crystal~
+container RT 0 
+500 0 0 500 100
+0 100 300 P
+E
+nest crystals thicket~
+Small crystals are joining the scintillating lattice all the time,
+yet they leave jagged openings according to some arcane plan. It looks
+almost like a three-dimensional snowflake. Some openings might even
+admit your hand, if you are quick and don't mind getting it scratched
+a bit, because all the surfaces are sharp and moving.
+~
+#4207
+portal up insubstantial prism~
+the insubstantial prism~
+Above you is a multifaceted prism which seems to be solid, liquid,
+and gaseous all at once. Enter it if you dare!~
+crystal~
+portal ABGOR 0
+100 0 A 4203 0
+0 0 0 P
+E
+portal up insubstantial prism~
+It doesn't actually look dangerous. Go on, "enter prism".
+~
+#4208
+rainbow ticket~
+a ticket to the {RR{Pa{Yi{Gn{Bb{Vo{Nw{x collimator~
+Someone dropped a ticket to the {RR{Pa{Yi{Gn{Bb{Vo{Nw{x collimator!~
+cardboard~
+treasure N AO
+0 0 0 0 0
+0 0 30 P
+E
+rainbow ticket~
+It says:
+               The {RR{Pa{Yi{Gn{Bb{Vo{Nw{x collimator
+                      Admit one
+On the back you read:
+                NOT TRANSFERRABLE
+{RR{Pa{Yi{Gn{Bb{Vo{Nw{x collimator staff will redeem this ticket with
+the loan of one (1) key to the {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x collimator. 
+Visitors agree not to shoot paintballs, carry spray
+cans, bleed, or wear muddy boots during their visit.
+The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x collimator is located just a short walk up
+the {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x above the Temple of Mota, convenient to
+Midgaard's main shopping and hotel districts. Sorry, no
+stable facilities are provided.
+The {Rr{Pa{Yi{Gn{Bb{Vo{Nw{x collimator is CLOSED during eclipses and
+for both solstices.
+Enjoy your visit,
+     The Coalition for a Better {RR{Pa{Yi{Gn{Bb{Vo{Nw{x
+~
+#4209
+take display rack~
+a small display rack~
+A display rack with tourist pamphlets sits atop a desk. A sign on
+it says "Take one! Enjoy your stay! Midgaard Chamber of Commerce."~
+wood~
+container 0 0
+50 0 0 50 100
+0 60 10 P
+#4210
+collimator guide booklet pamphlet~
+a guide booklet for the {RR{Pa{Yi{Gn{Bb{Vo{Nw{x collimator~
+A bit of litter stirs in the light breeze.~
+paper~
+trash 0 AO
+0 0 0 0 0
+0 1 0 P
+E
+collimator guide booklet pamphlet~
+The first page starts out helpfully enough:
+"Welcome to the {RR{Pa{Yi{Gn{Bb{Vo{Nw{x Collimator! We, the Coalition for a Better {RR{Pa{Yi{Gn{Bb{Vo{Nw{x, 
+wish you a healthy and informative visit. Begin your tour by giving your 
+ticket to one of our helpful staff, the duty {Cstaff naturalist{x in the 
+souvenir shop or one of our busy {RR{Pa{Yi{Gn{Bb{Vo{Nw{x tuners, if you happen across 
+one. They will loan you a key to open the filter up into the collimator 
+itself. Please remove any dirty footwear at that time. Going up through 
+the filter, you will experience weightlessness in the seven-faceted 
+prism, and continue through a portal to the heart of the prism itself, 
+where you will be transformed into pure light for the rest of your journey! 
+Then you may wander freely through the rest of this natural wonder, 
+examining photons and whole beams of light in their natural habitat. The 
+{Cheart of the prism{x merits careful study: find it in the beautiful {Cnest{x 
+of glitter in the very center! To gain the fullest benefit from your visit, 
+{Clook{x in every direction as you move through the photons! As you know, 
+{Ylight{x always takes the shortest path, so following the {Pbeams{x will 
+keep you from getting lost in the intricacies of the refractive equipment."
+
+On the second page, someone evidently ran out of superlatives and simply 
+appended a short dissertation on the mathematical aspects of reflection and 
+refraction at various wavelengths. You tuck the booklet away for future 
+reference, like when you decide to pursue a degree in optics.
+~
+#4211
+cookie~
+a cookie~
+A cookie has fallen on the ground. You could brush it off, though.~
+stone~
+food N A
+1 1 0 0 0
+0 0 1 P
+E
+cookie~
+It is just a plain white cookie, cut in the shape of the {HGirl
+Guides{x seal, a crescent moon.
+~
+#4212
+box girl guides cookies~
+a box of girl guides cookies~
+A box lies here, with the {HGirl Guides{x seal upon it.~
+cardboard~
+container 0 AO
+15 A 0 3 100
+0 1 12 P
+E
+box girl guides cookies~
+It is just a box, with a silver crescent moon upon it.
+~
+#4213
+official Girl Guides canteen~
+an official {HGirl Guides{x canteen~
+Someone has left an official {HGirl Guides{x canteen here.~
+tin~
+drink N A
+120 120 'water' 0 0
+0 2 60 P
+E
+official Girl Guides canteen~
+It comes in a nice canvas case, with a handy carrying strap.
+A crescent moon is printed on the canvas cover.
+~
+#4214
+salt tablet~
+a salt tablet~
+A little white pill will get rained on if you leave it here.~
+salt~
+pill N A
+10 'refresh' '' '' ''
+0 0 2 P
+#4215
+hot weather survival pack~
+a hot weather survival pack~
+A tiny box with a hopeful title sits here.~
+cardboard~
+container 0 A
+10 A 0 3 100
+0 1 30 P
+E
+hot weather survival pack~
+Written on the front, below the {HGirl Guides{x crescent moon
+seal, it says "Hot Weather Survival Pack" and "Approved for use
+in deserts. Use with water. Always bring water."
+~
+#4216
+antitoxin vial~
+a vial of antitoxin~
+A small vial labelled "Tropical snake antitoxin" sits here.~
+glass~
+potion N A
+15 'cure poison' '' '' ''
+0 1 60 P
+E
+antitoxin vial~
+The fine print is less optimistic. It says "Developed for use in
+cases of livid yellow tree snake bites. May be less effective for
+other toxins."
+~
+#4217
+tourniquet strap~
+a tourniquet~
+A long narrow strap lies on the ground.~
+leather~
+trash N AN
+0 0 0 0 0
+0 1 10 P
+E
+tourniquet strap~
+It is just a leather strap, with a tag on it: "Not for use by
+untrained personnel. Refer to chapter 8 of the {HGirl Guides{x
+manual."
+~
+#4218
+girl guides pocketknife~
+an official {HGirl Guides{x pocketknife~
+A finely honed little pocketknife lies open here.~
+steel~
+weapon KY AN
+dagger 1 7 pierce D
+10 1 200 P
+E
+girl guides pocketknife~
+It is made of stainless steel, with some sort of greened hardwood
+panels on the sides to make a handle. It opens smoothly, to reveal
+a very sharp, single blade. Someone has been taking good care of
+it, sparing neither oil nor whetstones. Engraved on the heel plate
+is "Manufactured under contract for the {WGirl Guides{x by Merc
+Industries".
+~
+#4219
+girl guides cap~
+an official {HGirl Guides{x cap~
+An endlessly cute {HGirl Guides{x cap has been tossed aside by
+someone with no appreciation for nice things.~
+canvas~
+armor 0 AE
+2 2 2 0 0
+3 1 300 P
+E
+girl guides cap~
+Though it lacks any label, it is obviously of cheap smurf
+manufacture. But all the ladies will think you're so SWEET to
+wear it!
+~
+A 26 2
+#0
+
+#ROOMS
+#4201
+The {RR{Pa{Yi{Gn{Bb{Vo{Nw{x Focus~
+You stand bathed in {Yyellow{x, no, {Ggreen{x light... No, as you
+move, looking up, you realize that the strangely insubstantial
+medium above you is emitting a different color light in a perfectly
+filtered beam aiming straight down, all the colors of the rainbow.
+This must be the room ordained by the gods to point the way to the
+donation pit!
+~
+0 D 0
+D1
+A little souvenir shop is off to the east.
+~
+~
+0 -1 4237
+D4
+Sparks arc across the face of a strange sort of filter.  It looks
+like you could push right through it, with the right color light... 
+~
+filter~
+4 4201 4202
+D5
+Far, far below you, you see a {Yyellow{x donation pit... No, a 
+{Ggreen pit{x... Or {Bblue{x...
+~
+~
+0 -1 1213
+S
+#4202
+In the seven-faceted prism~
+You are adrift in a gelatinous goo, bumping into solid crystals
+and catching occasional breaths when you happen upon air pockets.
+In spite of all the disturbance you make as you struggle about,
+beams of light are still being focused properly, various gaseous
+or solid prisms catching different colors of light and lining them
+up in queues that seem to slowly drip out below you.
+~
+0 DR 6
+D5
+You can follow the light back down to the head of the rainbow.
+~
+filter~
+4 4201 4201
+S
+#4203
+The heart of the prism~
+A kaleidoscope of colors refracts into and out of every corner
+of this place.  It seems solid, though you have no trouble moving
+about, as if you were somehow made of light yourself. It is
+completely silent here... Or is it? Right at the edge of hearing,
+there just might be a high-pitched hum. Once you notice it,
+everything here seems to be vibrating. All around you, tiny
+{Ccrystals{x seem to be gravitating toward a {Cclump{x in the very center
+of this place, and moving and growing there.
+~
+0 DR 0
+D0
+{GA beam of green light enters from that direction.{x
+~
+~
+0 -1 4204
+D1
+{PA beam of orange light enters from that direction.{x
+~
+~
+0 -1 4208
+D2
+{YA beam of yellow light enters from that direction.{x
+~
+~
+0 -1 4210
+D3
+{VA beam of violet light enters from that direction.{x
+~
+~
+0 -1 4206
+D4
+{BA beam of blue light enters from that direction.{x
+~
+~
+0 -1 4216
+D5
+{RA beam of red light enters from that direction.{x
+~
+~
+0 -1 4225
+E
+clump~
+They are forming a sort of {Cnest{x, melding to each other and growing.
+You could reach right into the center of the {Cthicket{x of crystals,
+if you mind the sharp edges.
+~
+S
+#4204
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4205
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4203
+D3
+{GA beam of green light enters from that direction.{x
+~
+~
+0 -1 4207
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4213
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4222
+S
+#4205
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4208
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4204
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4214
+D5
+{PA beam of orange light enters from that direction.{x
+~
+~
+0 -1 4223
+S
+#4206
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4207
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4203
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4209
+D4
+{GA beam of green light enters from that direction.{x
+~
+~
+0 -1 4215
+D5
+{VA beam of violet light enters from that direction.{x
+~
+~
+0 -1 4224
+S
+#4207
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4204
+D2
+{GA beam of green light enters from that direction.{x
+~
+~
+0 -1 4206
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4212
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4221
+S
+#4208
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{PA beam of orange light enters from that direction.{x
+~
+~
+0 -1 4205
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4211
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4203
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4217
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4226
+S
+#4209
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4206
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4210
+D4
+{YA beam of yellow light enters from that direction.{x
+~
+~
+0 -1 4218
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4227
+S
+#4210
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4203
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4211
+D3
+{YA beam of yellow light enters from that direction.{x
+~
+~
+0 -1 4209
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4219
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4228
+S
+#4211
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4208
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4210
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4220
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4229
+S
+#4212
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4213
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4215
+D3
+{GA beam of green light enters from that direction.{x
+~
+~
+0 -1 4230
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4207
+S
+#4213
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D1
+{BA beam of blue light enters from that direction.{x
+~
+~
+0 -1 4214
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4216
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4212
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4204
+S
+#4214
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4236
+D2
+{BA beam of blue light enters from that direction.{x
+~
+~
+0 -1 4217
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4213
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4205
+S
+#4215
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{GA beam of green light enters from that direction.{x
+~
+~
+0 -1 4212
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4216
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4218
+D3
+{YA beam of yellow light enters from that direction.{x
+~
+~
+0 -1 4231
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4206
+S
+#4216
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{BA beam of blue light enters from that direction.{x
+~
+~
+0 -1 4213
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4217
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4219
+D3
+{YA beam of yellow light enters from that direction.{x
+~
+~
+0 -1 4215
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4203
+S
+#4217
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4214
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4236
+D2
+{BA beam of blue light enters from that direction.{x
+~
+~
+0 -1 4220
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4216
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4208
+S
+#4218
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4215
+D1
+{YA beam of yellow light enters from that direction.{x
+~
+~
+0 -1 4219
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4236
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4209
+S
+#4219
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{YA beam of yellow light enters from that direction.{x
+~
+~
+0 -1 4216
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4220
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4218
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4210
+S
+#4220
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4217
+D1
+{BA beam of blue light enters from that direction.{x
+~
+~
+0 -1 4232
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4219
+D5
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4211
+S
+#4221
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4222
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4224
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4236
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4207
+S
+#4222
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4223
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4225
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4221
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4204
+S
+#4223
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D1
+{RA beam of red light enters from that direction.{x
+~
+~
+0 -1 4236
+D2
+{PA beam of orange light enters from that direction.{x
+~
+~
+0 -1 4226
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4222
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4205
+S
+#4224
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4221
+D1
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4225
+D2
+{VA beam of violet light enters from that direction.{x
+~
+~
+0 -1 4227
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4236
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4206
+S
+#4225
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4222
+D1
+{RA beam of red light enters from that direction.{x
+~
+~
+0 -1 4226
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4228
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4224
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4203
+S
+#4226
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{RA beam of red light enters from that direction.{x
+~
+~
+0 -1 4223
+D1
+{PA beam of orange light enters from that direction.{x
+~
+~
+0 -1 4233
+D2
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4229
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4225
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4208
+S
+#4227
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4224
+D1
+{VA beam of violet light enters from that direction.{x
+~
+~
+0 -1 4228
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4236
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4209
+S
+#4228
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4225
+D1
+{VA beam of violet light enters from that direction.{x
+~
+~
+0 -1 4229
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4227
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4210
+S
+#4229
+Swimmin with the photons~
+You are moving about through something that smells and tastes
+like glass. It feels like air, though. Beams of light drip by in
+all directions. They look very slow. Or maybe it is just that you
+are moving really quickly?
+~
+0 DR 0
+D0
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4226
+D1
+{VA beam of violet light enters from that direction.{x
+~
+~
+0 -1 4234
+D3
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4228
+D4
+{NA beam of indigo light enters from that direction.{x
+~
+~
+0 -1 4211
+S
+#4230
+Sliding down the outside of the prism~
+OOOOPS! You suddenly find yourself outside the glassy stuff
+you've been refracting about for the last while, and you feel
+solid again yourself, too. You hold your breath against the
+vacuum and scrabble for purchase against the frictionless outer
+surface of the rainbow collimator, to no avail. Grab what you
+can, there's nowhere to go but down!
+~
+0 RN 0
+D5
+Far, far below you, you see the temple of Mota rushing up to
+meet you. Better hope you don't slide ALL the way down!
+~
+~
+0 -1 1213
+S
+#4231
+Sliding down the outside of the prism~
+OOOOPS! You suddenly find yourself outside the glassy stuff
+you've been refracting about for the last while, and you feel
+solid again yourself, too. You hold your breath against the
+vacuum and scrabble for purchase against the frictionless outer
+surface of the rainbow collimator, to no avail. There is nothing
+to grab on to, and nowhere to go but down!
+~
+0 RN 0
+D5
+Far, far below you, you see the temple of Mota rushing up to
+meet you. Better hope you don't slide ALL the way down!
+~
+~
+0 -1 1213
+S
+#4232
+Sliding down the outside of the prism~
+OOOOPS! You suddenly find yourself outside the glassy stuff
+you've been refracting about for the last while, and you feel
+solid again yourself, too. You hold your breath against the
+vacuum and scrabble for purchase against the frictionless outer
+surface of the rainbow collimator, to no avail. Grab what you
+can, there's nowhere to go but down!
+~
+0 RN 0
+D5
+Far, far below you, you see the temple of Mota rushing up to
+meet you. Better hope you don't slide ALL the way down!
+~
+~
+0 -1 1213
+S
+#4233
+Sliding down the outside of the prism~
+OOOOPS! You suddenly find yourself outside the glassy stuff
+you've been refracting about for the last while, and you feel
+solid again yourself, too. You hold your breath against the
+vacuum and scrabble for purchase against the frictionless outer
+surface of the rainbow collimator, to no avail. Grab what you
+can, there's nowhere to go but down!
+~
+0 RN 0
+D5
+Far, far below you, you see the temple of Mota rushing up to
+meet you. Better hope you don't slide ALL the way down!
+~
+~
+0 -1 1213
+S
+#4234
+Sliding down the outside of the prism~
+OOOOPS! You suddenly find yourself outside the glassy stuff
+you've been refracting about for the last while, and you feel
+solid again yourself, too. You hold your breath against the
+vacuum and scrabble for purchase against the frictionless outer
+surface of the rainbow collimator, to no avail. Grab what you
+can, there's nowhere to go but down!
+~
+0 RN 0
+D5
+Far, far below you, you see the temple of Mota rushing up to
+meet you. Better hope you don't slide ALL the way down!
+~
+~
+0 -1 1213
+S
+#4235
+Sliding down the outside of the prism~
+OOOOPS! You suddenly find yourself outside the glassy stuff
+you've been refracting about for the last while, and you feel
+solid again yourself, too. You hold your breath against the
+vacuum and scrabble for purchase against the frictionless outer
+surface of the rainbow collimator, to no avail. Grab what you
+can, there's nowhere to go but down!
+~
+0 RN 0
+D5
+Far, far below you, you see the temple of Mota rushing up to
+meet you. Better hope you don't slide ALL the way down!
+~
+~
+0 -1 1213
+S
+#4236
+Sliding down the outside of the prism~
+OOOOPS! You suddenly find yourself outside the glassy stuff
+you've been refracting about for the last while, and you feel
+solid again yourself, too. You hold your breath against the
+vacuum and scrabble for purchase against the frictionless outer
+surface of the rainbow collimator, to no avail. Grab what you
+can, there's nowhere to go but down!
+~
+0 RN 0
+D5
+Far, far below, you see the temple of Mota rushing up to meet
+you. Better hope you don't slide ALL the way down!
+~
+~
+0 -1 1213
+S
+#4237
+The {RR{Pa{Yi{Gn{Bb{Vo{Nw{x Souvenir Shop~
+This is a quiet, rustic, wood-panelled room. Needless to say, it
+is well-lit, though with a soft white light, except near the
+entrance, where an occasional beam of colored light peeks in for
+a short look around before heading back down toward the donation
+pit. There are a few portrait frames on the walls, labelled with
+the names of great lightshapers of the past, but BECAUSE they were
+so good at their jobs, they were hard to depict. The frames contain
+mirrors, tinted and distended in places, so that, for instance,
+this one here is trying to show you yourself stretched somewhat
+taller and wearing a sort of reddish-silver outfit. It makes your
+ears look longer, too: evidently Custodian Merwald was an elf.
+~
+0 DN 0
+D3
+Brightly colored beams of light flash from every surface out there.
+~
+~
+0 -1 4201
+S 
+#4238
+Beyond time and space~
+There is {Cnothing{x here.
+~
+0 0 0
+E
+nothing~
+It is curved.
+~
+S
+#0
+
+#RESETS
+M 0 4201 1 4201 1  * The rainbow tuner is in the rainbow focus
+O 0 4203 12 4233   * The cyan hoop
+O 0 4204 12 4230   * The magenta hoop
+O 0 4205 12 4232   * The yellow hoop
+M 0 4202 1 4237 1  * The staff naturalist is in the shop
+M 0 4203 1 4237 1  * The Girl Guide is in the shop
+E 0 4218 12 16     * The Girl Guide wields the mighty pocketknife
+E 0 4219 12 6      * The Girl Guide dons her cap
+G 0 4208 10        * give the Girl Guide a ticket to sell
+G 0 4213 10        * give the Girl Guide a canteen to sell
+G 0 4216 10        * give the Girl Guide antitoxin to sell
+G 0 4217 10        * give the Girl Guide a tourniquet to sell
+G 0 4218 10        * give the Girl Guide a pocketknife to sell
+G 0 4219 10        * give the Girl Guide a cap to sell (some items loaded by mobprog)
+O 0 4207 1 4202    * The portal up
+O 0 4206 1 4203    * The nest of crystals
+P 0 4202 12 4206 1 * Put the heart of the crystal in the nest
+O 0 4209 1 4237    * Put the "take one" rack in the shop
+P 0 4210 15 4209 3 * Put the guide pamphlet in the rack
+D 0 4201 4 2       * Lock the filter from below
+D 0 4202 5 2       * And lock it from above
+R 0 4203 6         * Start randomizing the maze
+R 0 4204 5
+R 0 4205 4
+R 0 4206 5
+R 0 4207 4
+R 0 4208 5
+R 0 4209 4
+R 0 4210 5
+R 0 4211 4
+R 0 4212 4
+R 0 4213 4
+R 0 4214 4
+R 0 4215 5
+R 0 4216 5
+R 0 4217 5
+R 0 4218 4
+R 0 4219 4
+R 0 4220 4
+R 0 4221 4
+R 0 4222 4
+R 0 4223 4
+R 0 4224 5
+R 0 4225 5
+R 0 4226 5
+R 0 4227 4
+R 0 4228 4
+R 0 4229 4 * Fin
+S
+
+#SHOPS
+4203 0 0 0 0 0 200 50 0 23
+0
+
+#SPECIALS
+S
+
+#$
+
+

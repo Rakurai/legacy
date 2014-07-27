@@ -1,0 +1,1950 @@
+#AREA
+fair.are~
+The Fair~
+{H{{ 1 10} {MElrac&Sharra {TThe Fair~
+4520 4569
+
+#MOBILES
+#4520
+little dog~
+the little dog~
+A little dog snuffles around here.
+~
+It is a cute little dog that searches for the food that the visitors
+of the fair might have dropped. There is always something lying around.
+~
+dog~
+G 0 0 S
+1 0 1d1+11 1d1+11 1d3+1 bite
+10 10 10 10
+0 0 0 0
+stand stand either 0
+0 0 small 0
+#4521
+little black cat~
+the little black cat~
+A little black cat slinks through the crowd.
+~
+It is a little black cat slinking through the crowd. It might be looking
+for someone to pet it.
+~
+cat~
+G 0 0 S
+1 0 1d1+11 1d1+11 1d3+1 scratch
+11 11 11 11
+0 0 0 0
+stand stand male 0
+0 0 small 0
+#4522
+gnome child~
+the gnome child~
+A gnome child walks by you.
+~
+This is a very young gnome child that came with his parents from Gnome
+Village to see the fair of Midgaard.
+~
+human~
+CG 0 0 S
+2 0 1d1+30 1d9+30 1d5+0 punch
+11 11 10 11
+FNU 0 0 0
+stand stand male 100
+0 0 small 0
+#4523
+young smurf~
+a young smurf~
+A young smurf is here, looking around with large eyes.
+~
+This is one of the young smurfs that came over from smurf village to
+visit the fair of Midgaard. They are here for the very first time and
+still can't believe how much enjoyment is offered here.
+~
+human~
+G 0 0 S
+3 0 1d1+42 1d9+40 1d6+0 hit
+10 10 10 11
+EFNU 0 0 0
+stand stand either 120
+0 0 small 0
+#4524
+young boy~
+a young boy~
+A young boy is here.
+~
+This young boy looks a bit ill. Maybe he had too many rounds on the
+roller coaster?
+~
+human~
+CG 0 0 S
+4 0 2d7+40 2d9+40 1d6+2 punch
+9 9 9 10
+EFNU 0 0 0
+stand stand male 140
+0 0 small 0
+#4525
+young girl~
+a young girl~
+A young girl stands here.
+~
+The girl considers what attraction she should go to next and for
+how many more her coins will be enough.
+~
+human~
+CG 0 0 S
+4 0 2d7+40 2d9+40 1d6+2 slap
+9 9 9 10
+EFNU 0 0 0
+stand stand female 140
+0 0 small 0
+#4526
+son squire~
+a son of a squire from Camelot~
+A son of a squire from Camelot is here.
+~
+The son of a squire is a nice person. He came over from Camelot to
+visit the fair of Midgaard. It was a long way and he is determined
+to enjoy himself as much as possible.
+~
+human~
+G 0 300 S
+5 0 2d7+55 3d9+50 1d7+1 punch
+7 7 7 10
+ENU 0 0 0
+stand stand male 160
+0 0 small 0
+#4527
+troll member~
+a troll gang member~
+A troll gang member from Ganglands is here.
+~
+The troll gang member has come with some friends from Ganglands, a
+dangerous neighborhood. Hmm... there could be trouble ahead as wherever
+they appear they try to stir up trouble.
+~
+human~
+G 0 -300 S
+5 0 2d7+55 3d9+50 1d7+1 punch
+7 7 7 10
+ENU 0 0 0
+stand stand male 160
+0 0 small 0
+#4528
+bad ghost~
+a bad ghost~
+A bad ghost screams nasty words in your ears.
+~
+This ghost is barely visible, more a shadow of a big, nasty creature.
+He is REALLY scary, but after all, that is his job in a haunted house,
+isn't it?
+~
+unique~
+BFG 0 -600 S
+6 0 2d7+71 3d9+70 1d7+1 claw
+4 4 4 10
+EN 0 0 0
+stand stand none 0
+0 0 small 0
+#4529
+ridiculous ghost~
+a ridiculous ghost~
+A ridiculous ghost laughs madly.
+~
+This ghost is just ridiculous. He wants to scare you with his laugh,
+but you only can laugh back.
+~
+unique~
+BFG 0 -600 S
+6 0 2d7+71 3d9+70 1d7+1 claw
+4 4 4 10
+EN 0 0 0
+stand stand none 0
+0 0 small 0
+#4530
+son samurai~
+the son of a samurai~
+The son of a samurai from Budo School is here.
+~
+The son of a samurai is a nice person. You can tell at first sight
+that he will become a great fighter, just like his dad is.
+Hmm... it might be better not to mess with him.
+~
+human~
+FG 0 500 S
+6 0 2d7+71 3d9+70 1d7+1 chop
+4 4 4 10
+ENU 0 0 0
+stand stand male 180
+0 0 small 0
+#4531
+young goblin~
+a young goblin~
+A young goblin is here.
+~
+This young goblin came from Miden'nir to visit the fair of Midgaard.
+He is dressed in his best sunday suit and looks like he is going
+to enjoy his day off from home.
+But don't be misled... goblins are evil folks, so you had better not
+step in his way!
+~
+goblin~
+FG 0 -500 S
+6 0 2d7+71 3d9+70 1d7+1 claw
+4 4 4 10
+ENU 0 0 0
+stand stand male 180
+0 0 small 0
+#4532
+nice elf~
+a nice elf~
+A nice elf stands here.
+~
+The elf is a visitor from the Elven Valley. She looks at you with a
+friendly smile. But don't take that as an invitation to visit her home.
+Elfs are nice people but don't like intruders in their home!
+~
+elf~
+G 0 500 S
+7 0 2d6+85 3d9+80 1d7+1 slap
+7 7 7 10
+EFNU 0 0 0
+stand stand female 250
+0 0 small 0
+#4533
+mean troll~
+the mean troll~
+A mean troll is here.
+~
+One wouldn't have thought that mean people like trolls really visit
+fairs. But apparently they do.
+~
+troll~
+G 0 -500 S
+7 0 2d6+85 3d9+80 1d7+1 bite
+7 7 7 10
+EFNU 0 0 0
+stand stand male 250
+0 0 small 0
+#4534
+nasty spectre~
+a nasty spectre~
+A nasty spectre stands here, trying to scare you.
+~
+The nasty spectre does its best to scare you. Is it doing a good job?
+~
+unique~
+BG 0 -600 S
+7 0 2d6+85 3d9+80 1d7+1 sting
+7 7 7 10
+EFNU 0 0 0
+stand stand none 0
+0 0 small 0
+#4535
+young dwarf~
+a young dwarf~
+A young dwarf is here enjoying the fair.
+~
+The young dwarf is a nice person. He is one of a group of young dwarfs
+that have taken a day off from their work in the dwarven mine and come
+all the long way from the Dwarven Kingdom to Midgaard to see the famous
+fair.
+~
+dwarf~
+CG 0 500 S
+8 0 3d7+100 8d4+100 1d7+2 punch
+6 5 6 9
+EFNU 0 0 0
+stand stand either 280
+0 0 small 0
+#4536
+nasty young ogre~
+a nasty young ogre~
+A nasty young ogre is here.
+~
+The ogres live in the Keep of Mahn-Thor. As you might have guessed,
+they are really nasty people. Better be careful that he doesn't choose
+you for his next meal!
+~
+human~
+CG 0 -500 S
+8 0 3d7+100 8d4+100 1d7+2 bite
+6 5 6 9
+EFNU 0 0 0
+stand stand male 280
+0 0 small 0
+#4537
+daughter cityguard~
+the daughter of a city guard~
+A daughter of a city guard is here.
+~
+You might have noticed how many city guards there are in Midgaard.
+So it is not very astonishing that you can meet quite a few of their
+children at the fair. As children of the city guards they are well
+educated and very nice kids.
+~
+human~
+G 0 500 S
+9 0 2d6+110 4d9+100 1d8+2 punch
+5 5 5 9
+EFNU 0 0 0
+stand stand female 300
+0 0 small 0
+#4538
+son city guard~
+the son of a city guard~
+A son of a city guard is here.
+~
+You might have noticed how many city guards there are in Midgaard.
+So it is not very astonishing that you can meet quite a few of their
+children at the fair. As children of the city guards they are well
+educated and very nice kids.
+~
+human~
+G 0 500 S
+9 0 2d6+110 4d9+100 1d8+2 punch
+5 5 5 9
+EFNU 0 0 0
+stand stand male 300
+0 0 small 0
+#4539
+son pirate~
+the son of a pirate~
+A son of a pirate is here.
+~
+This is one of a group of young Snake-pirates that has come out of
+their pirate cave to visit the fair of Midgaard. Snake-pirates are
+evil folks and so are their children, so you had better be careful!
+~
+human~
+G 0 -500 S
+9 0 2d6+110 4d9+100 1d8+2 hit
+5 5 5 9
+EFNU 0 0 0
+stand stand male 300
+0 0 small 0
+#4540
+daughter pirate~
+the daughter of a pirate~
+A daughter of a pirate is here.
+~
+This is one of a group of young Snake-pirates that has come out of
+their pirate cave to visit the fair of Midgaard. Snake-pirates are
+evil folks and so are their children, so you had better be careful!
+~
+human~
+G 0 -500 S
+9 0 2d6+110 4d9+100 1d8+2 slap
+5 5 5 9
+EFNU 0 0 0
+stand stand female 300
+0 0 small 0
+#4541
+son white knight~
+the son of a white knight~
+The son of a white knight is here.
+~
+The son of a white knight is still very young but nevertheless already
+practicing the art of fighting and quite good at it. As a white knight
+he certainly will always protect the good and innocent people!
+~
+human~
+G 0 500 S
+10 0 2d6+130 10d9+100 1d8+4 charge
+5 5 5 8
+EFU 0 0 0
+stand stand male 350
+0 0 small 0
+#4542
+son black knight~
+the son of a black knight~
+The son of a black knight is here.
+~
+Be careful! He is always looking for trouble and most always manages
+to cause it!
+~
+human~
+G 0 -500 S
+10 0 2d6+130 10d9+100 1d8+4 charge
+5 5 5 8
+EFU 0 0 0
+stand stand male 350
+0 0 small 0
+#4543
+old woman~
+an old woman~
+An old woman is here selling candies.
+~
+A nice looking old woman stands behind the candy stand and smiles
+in a friendly way while she waits for customers.
+~
+human~
+BGV 0 1000 S
+23 0 1d1+999 1d1+99 1d8+20 beating
+-15 -15 -15 -15
+CDF ABCD 0 0
+stand stand female 500
+0 0 medium 0
+#4544
+old man~
+an old man~
+An old man is here selling hot dogs.
+~
+The old man looks very discontented with his job. Apparently he would
+rather be somewhere else than here, selling those hot dogs he never
+liked in his life.
+~
+human~
+BGV 0 1000 S
+23 0 1d1+999 1d1+99 1d8+20 beating
+-15 -15 -15 -15
+CDF ABCD 0 0
+stand stand male 500
+0 0 medium 0
+#4545
+Olcay~
+Olcay, the owner of the ferris wheel~
+Olcay, the owner of the ferris wheel stands here.
+~
+Olcay is a rather young man. He is very proud of his ferris wheel and
+happy about every customer he can get to enter it. He shouts out the
+advantages of seeing Midgaard and its surroundings from the top of his
+wheel.
+~
+human~
+B H 0 S
+30 0 6d12+850 1d10+150 4d6+10 slash
+-10 -9 -9 -8
+FK HIJ 0 0
+stand stand male 500
+0 0 medium 0
+#4546
+Yusuf~
+Yusuf, the owner of the roller coaster~
+Yusuf, the owner of the roller coaster stands here.
+~
+Yusuf is an elderly man. He doesn't look as if he would enjoy a go
+on his roller coaster. But he certainly DOES enjoy the gold he makes
+from selling tickets for it.
+~
+human~
+B H 0 S
+30 0 6d12+850 1d10+150 4d6+10 slash
+-10 -9 -9 -8
+FK HIJ 0 0
+stand stand male 500
+0 0 medium 0
+#0
+
+#OBJECTS
+#4520
+green robe~
+a {Ggreen robe{x~
+A {Ggreen robe{x lies here.~
+cloth~
+armor G AK
+5 5 5 2 0
+10 15 200 P
+E
+green robe~
+It is a nice {Ggreen robe{x. You would be wise to wear it. :)
+~
+A
+4 1
+#4521
+blue sleeves~
+a pair of {Bblue sleeves{x~
+A pair of {Bblue sleeves{x lies here.~
+cloth~
+armor 0 AI
+4 4 3 1 0
+4 12 100 P
+E
+blue sleeves~
+This is a pair of {Bdeep blue sleeves{x. They offer some protecion
+for your arms.
+~
+#4522
+pink sleeves~
+a pair of {Ppink sleeves{x~
+A pair of {Ppink sleeves{x lies here.~
+cloth~
+armor 0 AI
+5 5 4 2 0
+9 12 200 P
+E
+pink sleeves~
+This is a pair of {Ppink sleeves{x. Nice color, isn't it?
+~
+#4523
+red boots~
+a pair of {Rred boots{x~
+A pair of {Rred boots{x lies here.~
+leather~
+armor 0 AG
+4 4 3 1 0
+5 18 180 P
+E
+red boots~
+A fine pair of {Rred boots{x. They look like they can protect your
+feet quite well in a fight.
+~
+#4524
+blue boots~
+a pair of {Bblue boots{x~
+A pair of {Bblue boots{x lies here.~
+leather~
+armor G AG
+4 4 5 2 0
+10 18 250 P
+E
+blue boots~
+A fine pair of {Bblue boots{. They look as if your kicks would be
+stronger when you wear them.
+~
+A
+1 1
+#4525
+golden ring red glass pearl~
+a {Ygolden ring{x with a {Rred glass pearl{x~
+A {Ygolden ring{x with a {Rred glass pearl{x lies here.~
+gold~
+jewelry G AB
+0 0 0 0 0
+10 4 280 P
+E
+golden ring red glass pearl~
+This is a {Ygolden ring{x with a {Rred glass pearl{x like children
+like to wear. Well, most children know what's good for them.
+~
+A
+3 1
+A
+4 1
+#4526
+yellow gloves~
+a pair of {Yyellow gloves{x~
+A pair of {Yyellow gloves{x lies here.~
+soft leather~
+armor G AH
+4 4 3 1 0
+7 8 140 P
+E
+yellow gloves~
+This is a pair of {Yyellow gloves{x. Wearing these and wielding a
+weapon, you would be sure to make an impression!
+~
+A
+19 1
+#4527
+pink hat~
+a {Ppink hat{x~
+A {Ppink hat{x lies here.~
+leather~
+armor 0 AE
+4 4 3 1 0
+2 11 100 P
+E
+pink hat~
+It is a small {Ppink hat{x. It looks like it might fit your head.
+~
+#4528
+pink leggings~
+a pair of {Ppink leggings{x~
+A pair of {Ppink leggings{x lies here.~
+cloth~
+armor G AF
+4 4 3 1 0
+3 15 180 P
+E
+pink leggings~
+This is a nice pair of {Ppink leggings{x. It might be good for your
+health to wear them.
+~
+A
+13 5
+#4529
+violet leggings~
+a pair of {Vviolet leggings{x~
+A pair of {Vviolet leggings{x lies here.~
+cloth~
+armor G AF
+4 3 4 3 0
+9 15 350 P
+E
+violet leggings~
+This is a pair of {Vviolet leggings{x. Wearing these, you might look
+like a skillful fighter.
+~
+A
+2 1
+#4530
+blue cloak~
+a {Bblue cloak{x~
+A {Bblue cloak{x lies here.~
+cloth~
+armor 0 AC
+3 5 4 1 0
+2 5 80 P
+E
+blue cloak~
+This is a nice {Bblue cloak{x. It could save your neck some day!
+~
+#4531
+shield hard leather~
+a shield made from hard leather~
+A shield made from hard leather lies here.~
+hard leather~
+armor G AJ
+4 4 4 2 0
+5 18 210 P
+E
+shield hard leather~
+This shield is made from hard leather. Somehow, whoever carries it
+seems to look more impressive.
+~
+A
+26 1
+#4532
+green jacket~
+a {Ggreen jacket{x~
+A {Ggreen jacket{x lies here.~
+cloth~
+armor 0 AD
+4 4 3 1 0
+3 15 100 P
+E
+green jacket~
+This is a nice {Ggreen jacket{x. Much better to wear it than to run
+around with a bare torso!
+~
+#4533
+yellow jacket~
+a {Yyellow jacket{x~
+A {Yyellow jacket{x lies here.~
+cloth~
+armor G AD
+5 5 5 1 0
+10 15 350 P
+E
+yellow jacket~
+This is a nice {Yyellow jacket{x, seen on the torso of many
+tireless fighters.
+~
+A
+5 1
+#4534
+violet belt~
+a {Vviolet belt{x~
+A {Vviolet belt{x lies here.~
+leather~
+armor 0 AL
+4 4 3 1 0
+4 6 90 P
+E
+violet belt~
+This is a {Vviolet belt{x. Not to wear it would be a waist of good
+equipment.
+~
+#4535
+pink belt~
+a {Ppink belt{x~
+A {Ppink belt{x lies here.~
+leather~
+armor G AL
+5 5 5 1 0
+9 6 340 P
+E
+pink belt~
+This is a {Ppink belt{x. It might be wise to wear it.
+~
+A
+4 1
+#4536
+blue leather bracelet~
+a {Bblue leather bracelet{x~
+A {Bblue leather bracelet{x lies here.~
+leather~
+armor 0 AM
+3 5 5 0 0
+2 3 40 P
+E
+blue leather bracelet~
+This is a small wrist {Bbracelet{x, made from {Bblue leather{x. It
+looks like it belongs to a little child.
+~
+#4537
+red plastic sword~
+a {Rred plastic sword{x~
+A {Rred plastic sword{x lies here.~
+plastic~
+weapon G AN
+sword 3 3 slice 0
+7 12 300 P
+E
+red plastic sword~
+This is a {Rred plastic sword{x, like children can buy at a fair.
+It looks pretty dangerous for a toy weapon - a child could get some
+nasty cuts from it!
+~
+A
+18 1
+#4538
+red plastic dagger~
+a {Rred plastic dagger{x~
+A {Rred plastic dagger{x lies here.~
+plastic~
+weapon G AN
+dagger 3 3 pierce 0
+7 12 300 P
+E
+red plastic dagger~
+This is a {Rred plastic dagger{x, like children can buy it at a fair.
+It looks rather sharp - in the hands of a careless child, it could
+easily take out an eye!
+~
+A
+18 1
+#4539
+red plastic mace~
+a {Rred plastic mace{x~
+A {Rred plastic mace{x lies here.~
+plastic~
+weapon G AN
+mace 3 3 crush 0
+7 12 300 P
+E
+red plastic mace~
+This is a {Rred plastic mace{x, like children can buy at a fair.
+It's surprisingly heavy, and could crush your toes if you drop it.
+~
+A
+18 1
+#4540
+red plastic spear~
+a {Rred plastic spear{x~
+A {Rred plastic spear{x lies here.~
+plastic~
+weapon G AN
+spear 3 3 pierce 0
+7 12 300 P
+E
+red plastic spear~
+This is a {Rred plastic spear{x, like children can buy at a fair.
+Children should be taught not to carry this while running, they could
+fall on it and poke a hole in themselves!
+~
+A
+18 1
+#4541
+red plastic whip~
+a {Rred plastic whip{x~
+A {Rred plastic whip{x lies here.~
+plastic~
+weapon G AN
+whip 3 3 whip 0
+7 12 300 P
+E
+red plastic whip~
+This is a {Rred plastic whip{x, like children can buy at a fair.
+Perfect for bad little children, as it can be used on their backsides
+if the need arises!
+~
+A
+18 1
+#4542
+red plastic axe~
+a {Rred plastic axe{x~
+A {Rred plastic axe{x lies here.~
+plastic~
+weapon G AN
+axe 3 3 slice 0
+7 12 300 P
+E
+red plastic axe~
+This is a {Rred plastic axe{x, like children can buy at a fair.
+It is rumored that Freddy Kruger started with just such a weapon.
+~
+A
+18 1
+#4543
+red plastic flail~
+a {Rred plastic flail{x~
+A {Rred plastic flail{x lies here.~
+plastic~
+weapon G AN
+flail 3 3 crush 0
+7 12 300 P
+E
+red plastic flail~
+This is a {Rred plastic flail{x, like children can buy at a fair.
+You want to stand clear of anyone swinging one of these around.
+~
+A
+18 1
+#4544
+red plastic lance~
+a {Rred plastic lance{x~
+A {Rred plastic lance{x lies here.~
+plastic~
+weapon G AN
+polearm 3 3 pierce 0
+7 12 300 P
+E
+red plastic lance~
+This is a {Rred plastic lance{x, like children can buy at a fair.
+An energetic child should get quite a charge out of it.
+~
+A
+18 1
+#4545
+stick cotton candy~
+{ba stick of {Wc{Co{Wt{Ct{Wo{Cn {Wc{Ca{Wn{Cd{Wy{x~
+A stick of {Wc{Co{Wt{Ct{Wo{Cn {Wc{Ca{Wn{Cd{Wy{x lies here.~
+sugar~
+pill G A
+10 'armor' '' '' ''
+3 8 200 P
+E
+stick cotton candy~
+Argh, SWEET! And sticky! If you try to eat it, it will stick all over
+you, I'm sure!
+~
+#4546
+candied apple~
+a {Rcandied apple{x~
+A {Rcandied apple{x lies here.~
+sugar~
+pill G A
+16 'bless' '' '' ''
+5 10 450 P
+E
+candied apple~
+Blessed with sweetness. :)
+~
+#4547
+candy cane~
+a {Rc{Wa{Rn{Wd{Ry {Wc{Ra{Wn{Re{x~
+A {Rc{Wa{Rn{Wd{Ry {Wc{Ra{Wn{Re{x lies here.~
+sugar~
+pill G A
+15 'cure poison' '' '' ''
+3 10 350 P
+E
+candy cane~
+It's so sweet, you might throw up if you eat it. On the other hand,
+you might feel less sick afterwards. :)
+~
+#4548
+red gum drop~
+a {Rred gum drop{x~
+A {Rred gum drop{x lies here.~
+sugar~
+pill G A
+5 'cure light' '' '' ''
+1 10 200 P
+E
+red gum drop~
+Hmm.. looks delicious. Eating it might make you feel better.
+~
+#4549
+green gum drop~
+a {Ggreen gum drop{x~
+A {Ggreen gum drop{x lies here.~
+sugar~
+pill G A
+10 'cure serious' '' '' ''
+5 10 400 P
+E
+green gum drop~
+Hmm.. looks delicious. Just the thing to make you feel better when
+you're feeling seriously down.
+~
+#4550
+blue gum drop~
+a {Bblue gum drop{x~
+A {Bblue gum drop{x lies here.~
+sugar~
+pill G A
+10 'cure critical' '' '' ''
+10 10 500 P
+E
+blue gum drop~
+Hmm.. looks delicious. Guaranteed to be good for your health!
+~
+#4551
+peanuts~
+some peanuts~
+some peanuts lie here.~
+food~
+food 0 A
+20 40 0 0 0
+1 10 15 P
+E
+peanuts~
+Ah, peanuts. For you or for the elephants? Aw heck, the elephants are
+fat enough!
+~
+#4552
+hot dog~
+a hot dog~
+A hot dog lies here.~
+food~
+food 0 A
+20 50 0 0 0
+1 10 20 P
+E
+hot dog~
+A hot dog with lots of {Rketchup{x. The hot dog vendor doesn't like
+them, but what does HE know?
+~
+#4553
+french fries~
+some french fries with {Rketchup{x and {Wmayonnaise{x~
+Some french fries with {Rketchup{x and {Wmayonnaise{x lie here.~
+food~
+food 0 A
+20 50 0 0 0
+1 10 15 P
+E
+french fries~
+Do you like {Rketchup{x and {Wmayonnaise{x mixed? *shudder*
+Well, each to his own tastes. At least they're filling.
+~
+
+#4554
+ice cream waffle~
+an {Pi{Wc{be {Pc{Wr{be{Pa{Wm {bwaffle{x~
+An {Pi{Wc{be {Pc{Wr{be{Pa{Wm {bwaffle{x was dropped here, be careful where you step.~
+food~
+food 0 A
+20 40 0 0 0
+1 10 30 P
+E
+ice cream waffle~
+Delicious strawberry, chocolate, and vanilla ice cream sandwiched
+between a large Belgium waffle...mmmmmm good. 
+~
+#0
+
+#ROOMS
+#4520
+Entrance to The Fair~
+You are standing at the entrance to the famous Midgaard fair.
+People, human and others, from all over Thera come here for some
+enjoyment. Especially the youngsters from all the kingdoms, cities,
+woods and lands are to be met here. You can make friends with them
+... or enemies, for that matter.
+~
+0 0 1
+D1
+To the east lies the park of Midgaard.
+~
+~
+0 -1 3107
+D3
+To the west is a candy stand.
+~
+~
+0 -1 4521
+S
+#4521
+At the {RC{Ga{Pn{Bd{Xy {RS{Gt{Pa{Bn{Xd{x~
+You are standing before the {Rc{Ga{Pn{Bd{Xy {Rs{Gt{Pa{Bn{Xd{x of the Midgaard fair.
+It is a rather small stand, but there are lots of sweets to be bought
+here nevertheless. The children LOVE them, and you might too!
+~
+0 0 1
+D0
+To the north you see the ferris wheel.
+~
+~
+0 -1 4522
+D1
+To the east lies the entrance to the fair.
+~
+~
+0 -1 4520
+D2
+To the south you see the merry-go-around.
+~
+~
+0 -1 4564
+S
+#4522
+Before the Ferris Wheel~
+You are standing before an impressive ferris wheel. It is so high
+you will be able to see all Midgaard and its surroundings from
+the top of it.
+~
+0 0 1
+D0
+To the north is the shooting gallery.
+~
+~
+0 -1 4531
+D2
+To the south you see the candy stand.
+~
+~
+0 -1 4521
+D4
+Going up you will enter the ferris wheel.
+~
+~
+0 -1 4523
+S
+#4523
+Starting Point of the Ferris Wheel~
+You are at the starting point of the ferris wheel. If you want to have
+a go, just go up. If you prefer to stay on safe ground, go down again.
+~
+0 0 1
+D4
+To the up is a gondola of the ferris wheel.
+~
+~
+0 -1 4524
+D5
+To the down you reach safe ground.
+~
+~
+0 -1 4522
+S
+#4524
+In a gondola of the ferris wheel. LOOK at that view!~
+You are in a gondola of the ferris wheel, on your way upwards.
+Already the candy stand and shooting stand lie at your feet.
+The higher you go, the more you will be able to see.
+Soon you will be able to see Midgaard and all its surrounding
+areas.
+~
+0 0 1
+D4
+To the up is a gondola of the ferris wheel.
+~
+~
+0 -1 4525
+S
+#4525
+In a gondola of the ferris wheel halfway up~
+You are in a gondola of the ferris wheel, on your way upwards.
+You have left the park and the Fair below you. To the east, you
+see Gangland and the graveyard *shudder*. To the north, you see
+the river flowing through Midgaard. Some rooftops are visible
+further to the north and you are eager to see more.
+~
+0 0 1
+D4
+To the up is a gondola of the ferris wheel.
+~
+~
+0 -1 4526
+S
+#4526
+In a gondola of the ferris wheel going upwards~
+You are in a gondola of the ferris wheel, on your way upwards.
+You are close to reaching the top. Now you can see all of the
+city of Midgaard. North of the river is Main Street with its
+shops, stretching between the east and west gates. In the northern
+heart of the city is the richly adorned Temple of Mota. Further north
+is Clan Road. Beyond that, you spy the north gate.
+~
+0 0 1
+D4
+To the up is a gondola of the ferris wheel.
+~
+~
+0 -1 4527
+S
+#4527
+On Top of the Ferris Wheel~
+The wheel stops for a moment and you can enjoy the view.
+Beyond the north gate of Midgaard you can make out the Northern Plains,
+the Valley of the Elves, Gilligan's Island, Ofcol and Olympus.
+To the east of Midgaard you see the Dwarven Kingdom, Thalos, the Wyvern
+Tower, Smurf Village, Gnome Village, the Holy Grove and the road to
+New Thalos. You can barely make out the city but can't see further.
+To the south of Midgaard you have a good view over Miden'nir. A big
+factory spoils the scenery near there.
+Past the west gate you see Haon Doar, Crystalmir Lake, Solace,
+The Shire, the Holy Grail, Camelot and the Old Marsh.
+~
+0 0 1
+D5
+To the down is a gondola of the ferris wheel.
+~
+~
+0 -1 4528
+S
+#4528
+In a gondola of the ferris wheel going down~
+You are in a gondola of the ferris wheel, on your way downwards.
+It's windy up here, and you are starting to feel a slight chill.
+~
+0 0 1
+D5
+To the down is a gondola of the ferris wheel.
+~
+~
+0 -1 4529
+S
+#4529
+In a gondola of the ferris wheel halfway down~
+You are in a gondola of the ferris wheel, on your way downwards.
+The gondola rocks slightly as the machinery hits a snag, and you
+briefly wonder what would happen if it were to break down.
+~
+0 0 1
+D5
+To the down is a gondola of the ferris wheel.
+~
+~
+0 -1 4530
+S
+#4530
+In a gondola of the ferris wheel going down~
+You are in a gondola of the ferris wheel, on your way downwards.
+It's been a long ride, and you are very much looking forward to
+getting your feet back on solid ground.
+~
+0 0 1
+D5
+To the down is the starting point of the ferris wheel.
+~
+~
+0 -1 4523
+S
+#4531
+At the Shooting Gallery~
+You are standing in front of a shooting gallery. The prizes that can
+be won are not very impressive but there are lots of customers.
+Especially the young men like to show off here a bit, impressing their
+girlfriends with their shooting abilities.
+~
+0 0 1
+D2
+To the south you see the ferris wheel.
+~
+~
+0 -1 4522
+D3
+To the west you see the roller coaster.
+~
+~
+0 -1 4532
+S
+#4532
+Before the Roller Coaster~
+You are standing in front of a big roller coaster. It has
+high ups and downs and goes REALLY fast. Are you sure you want to
+brave the ride?
+~
+0 0 1
+D1
+To the east is the shooting stand.
+~
+~
+0 -1 4531
+D2
+To the south is the ballthrowing stand.
+~
+~
+0 -1 4544
+D4
+Going up you will enter the roller coaster.
+~
+~
+0 -1 4533
+S
+#4533
+Starting Point of the Roller Coaster~
+You are at the starting point of the roller coaster.
+Some people are lined up here waiting for the next ride. You hear some
+nervous giggling. If you want to have a go, just go up. If you prefer
+to stay on safe ground, go down again.
+~
+0 0 1
+D4
+The roller coaster leads upwards.
+~
+~
+0 -1 4534
+D5
+To the down you reach safe ground.
+~
+~
+0 -1 4532
+S
+#4534
+On the roller coaster going upwards fast~
+You are on the roller coaster moving upwards very fast.
+~
+0 0 1
+D4
+The roller coaster leads upwards.
+~
+~
+0 -1 4535
+S
+#4535
+On the First Top of the Roller Coaster~
+You are on the first top of the roller coaster. It will go down
+in a moment and your stomach might go up a bit.
+~
+0 0 1
+D5
+The roller coaster leads downwards.
+~
+~
+0 -1 4536
+S
+#4536
+On the roller coaster going downwards fast~
+You are on the roller coaster moving downwards very fast.
+Your knuckles turn white as you hang on for dear life.
+~
+0 0 1
+D5
+The roller coaster leads downwards.
+~
+~
+0 -1 4537
+S
+#4537
+On the First Dip of the Roller Coaster~
+You are on the first dip of the roller coaster. It will go up again
+in a moment. You are starting to feel a bit sick.
+~
+0 0 1
+D4
+The roller coaster leads upwards.
+~
+~
+0 -1 4538
+S
+#4538
+On the roller coaster going upwards fast~
+You are on the roller coaster moving upwards very fast.
+Gravity and acceleration push you back in your seat as you struggle for
+breath.
+~
+0 0 1
+D4
+The roller coaster leads upwards.
+~
+~
+0 -1 4539
+S
+#4539
+On the Second Top of the Roller Coaster~
+You are on the second top of the roller coaster.
+You feel strangely light for a moment. The ride will go down
+soon and you are starting to feel really sick.
+~
+0 0 1
+D5
+The roller coaster leads downwards.
+~
+~
+0 -1 4540
+S
+#4540
+On the Second Dip of the Roller Coaster~
+You are on the second dip of the roller coaster.
+People in the cars in front of you and behind you are screaming.
+The ride will go up again in a moment. You wish it were over already.
+~
+0 0 1
+D4
+The roller coaster leads upwards.
+~
+~
+0 -1 4541
+S
+#4541
+On the Third Top of the Roller Coaster~
+You are on the third top of the roller coaster. It will go down
+in a moment and as you see that it is the last time before returning
+to the starting point you are beginning to enjoy the journey.
+~
+0 0 1
+D5
+The roller coaster leads downwards.
+~
+~
+0 -1 4542
+S
+#4542
+On the roller coaster going downwards fast~
+You are on the roller coaster moving downwards very fast.
+Your hair flies in the breeze.
+~
+0 0 1
+D5
+The roller coaster leads downwards.
+~
+~
+0 -1 4543
+S
+#4543
+On the roller coaster going downwards fast~
+You are on the roller coaster moving downwards very fast. You will
+reach the starting point in a moment and consider having another go.
+~
+0 0 1
+D5
+The roller coaster leads downwards to the starting point.
+~
+~
+0 -1 4533
+S
+#4544
+At the Ballthrowing Stand~
+You are standing before the ballthrowing stand. It is a less visited
+attraction at the fair, but there are still a few people standing there
+trying to hit those cans with little balls. Mostly they fail, but
+when they DO make the cans fall down, the clattering noise is impressive.
+~
+0 0 1
+D0
+To the north you see the roller coaster.
+~
+~
+0 -1 4532
+D2
+To the south you see the haunted house.
+~
+~
+0 -1 4545
+S
+#4545
+Before the Haunted House~
+To the west of you lies the haunted house. It is a very well visited
+attraction at the fair, although it looks really scary.  Well, to be
+honest, it not only LOOKS scary, it really IS dangerous.  So, if you do
+not feel up to some real adventures, you shouldn't go in there.
+~
+0 0 1
+D0
+To the north is the ballthrowing stand.
+~
+~
+0 -1 4544
+D2
+To the south is the hot dog stand.
+~
+~
+0 -1 4552
+D3
+To the west is the entrance to the haunted house.
+~
+~
+0 -1 4546
+S
+#4546
+Entrance to the Haunted House~
+You are standing in the entrance to the haunted house. You can still
+change your mind and leave to the east. If you go north you won't be
+able to come back that way. Actually you might not be able to come back
+out of there AT ALL. Not on your feet, anyway.
+~
+0 AC 0
+D0
+To the north there is darkness.
+~
+~
+0 -1 4547
+D1
+To the east is the exit. Better take it while you can.
+~
+~
+0 -1 4545
+S
+#4547
+A Room in the Haunted House~
+You are standing in a room in the haunted house. It is very dark here,
+You only can see some {Rred{x, {Yyellow{x and {Ppink{x spots that might be
+the eyes of some ghosts. You hear strange noises of which you don't even
+have a clue where they might be coming from. Something cold touches you and
+you shiver. Trying to figure out what it was, you don't see anything
+near you. Suddenly you hear a loud scream coming from.... deep inside you?
+Well, I warned you. You shouldn't have come here!
+~
+0 A 0
+D3
+To the west there is darkness.
+~
+~
+0 -1 4548
+S
+#4548
+A Room in the Haunted House~
+Your eyes slowly adapt to the darkness. You can see a bit more of your
+surroundings. Some skeletons for example. Looking closer, you notice they
+are only made of plastic and a bit of relief overcomes you. But on the
+other hand... there is this still that noise... there might be a ghost
+attacking you any moment!
+~
+0 A 0
+D2
+To the south there is darkness.
+~
+~
+0 -1 4549
+S
+#4549
+A Room in the Haunted House~
+This room is a bit brighter than the ones before. But you are not sure
+if you wouldn't prefer the darkness that prevented you from seeing those
+nasty things like that dead corpse hanging from the ceiling, blood dripping
+down from it. Or that shadow that might be just painted on the wall...
+but why does it MOVE then??? Not to mention that skeleton head that...
+you are sure... just TALKED to you!
+~
+0 A 0
+D2
+To the south there is darkness.
+~
+~
+0 -1 4550
+S
+#4550
+A Room in the Haunted House~
+Darkness again. You are barely able to see your own hands before your
+eyes. But are those your own hands??? They come closer to your throat
+and they... noooo... ah, gone again. You take a deep breath. But what is
+that... your chest is pressed by some chains around it... where did
+they come from? There is some motion behind you and you know for sure
+you will be attacked by something very terrible if you don't leave fast.
+~
+0 A 0
+D1
+To the east there is darkness.
+~
+~
+0 -1 4551
+S
+#4551
+A Room in the Haunted House~
+Entering this room you know the worst lies behind you. It looks more
+ridiculous than scary. All those assorted plastic bones and ketchup blood.
+All those ghosts made from some old clothes and artificial hair.
+You start to laugh... you laugh louder... and louder and... it
+is not you laughing any more... this comes from somewhere near you...
+are those ghosts alive after all?  And if so.. are they laughing at you?
+And will they ever stop laughing?  You have the sudden urge to stop their
+laughing!
+~
+0 A 0
+D0
+To the north there is darkness.
+~
+~
+0 -1 4546
+S
+#4552
+At the Hot Dog Stand~
+You are standing at a hot dog stand. Some people stand in a line for
+a hot dog or some french fries. The smell is not very inviting, though.
+~
+0 0 1
+D0
+To the north you see the haunted house.
+~
+~
+0 -1 4545
+D2
+To the south there is the bumper cars.
+~
+~
+0 -1 4553
+S
+#4553
+Before the Bumper Cars~
+You are standing before the bumper cars. From the west you can hear
+some people screaming that they have gotten lost, from the east you
+hear the noises of some slot machines.
+~
+0 0 1
+D0
+To the north is the hot dog stand.
+~
+~
+0 -1 4552
+D1
+To the east there is the gambling hall.
+~
+~
+0 -1 4563
+D2
+To the south is the bumper cars.
+~
+~
+0 -1 4554
+D3
+To the west you see the house of mirrors.
+~
+~
+0 -1 4555
+S
+#4554
+Bumper Car Platform~
+You are standing right in the middle of the bumper car platform. People
+drive around like crazy and are yelling for you to get out of the way.
+It is a miracle that they haven't run you over yet. But if you stay here
+longer that still might happen.
+~
+0 0 1
+D0
+To the north is the exit from the bumper cars platform.
+~
+~
+0 -1 4553
+S
+#4555
+Before the House of Mirrors~
+You are standing before the house of mirrors. Judging from the screaming
+people in there it must be great fun.  Or.. is it not?  Do they really
+enjoy it or are they screaming for help because they got lost?
+~
+0 0 1
+D1
+To the east you see the bumper cars.
+~
+~
+0 -1 4553
+D3
+To the west lies the entrance to the house of mirrors.
+~
+~
+0 -1 4556
+S
+#4556
+Entrance to the House of Mirrors~
+You are standing in the entrance to the house of mirrors.  You can still
+leave it to the east.  If you decide to go north or south, though, there
+might be no way back out.  It is a maze that tries to hold the people
+that are brave (or stupid?) enough to set a foot into it. So think
+twice!  Even if there is a way out, you might not find it!
+~
+0 0 0
+D0
+To the north there are lots of mirrors.
+~
+~
+0 -1 4557
+D1
+To the east is the exit from the house of mirrors.
+~
+~
+0 -1 4555
+D2
+To the south there are lots of mirrors.
+~
+~
+0 -1 4561
+S
+#4557
+Room in the House of Mirrors~
+You are surrounded by mirrors and see your reflection uncountable times
+in them.  There are other people to be seen as well, but you can't be sure
+if they are really here or just reflected by the mirrors. There are exits
+to the north, east, south, and west but you have no idea in which direction
+to head.
+~
+0 N 0
+D0
+To the north there are lots of mirrors.
+~
+~
+0 -1 4558
+D1
+To the east there are lots of mirrors.
+~
+~
+0 -1 4557
+D2
+To the south there are lots of mirrors.
+~
+~
+0 -1 4557
+D3
+To the west there are lots of mirrors.
+~
+~
+0 -1 4558
+S
+#4558
+Room in the House of Mirrors~
+You are surrounded by mirrors and see your reflection uncountable times
+in them.  There are other people to be seen as well, but you can't be sure
+if they are really here or just reflected by the mirrors. There are exits
+to the north, east, south, and west but you have no idea in which direction
+to head.
+~
+0 N 0
+D0
+To the north there are lots of mirrors.
+~
+~
+0 -1 4559
+D1
+To the east there are lots of mirrors.
+~
+~
+0 -1 4557
+D2
+To the south there are lots of mirrors.
+~
+~
+0 -1 4558
+D3
+To the west there are lots of mirrors.
+~
+~
+0 -1 4560
+S
+#4559
+Room in the House of Mirrors~
+You are surrounded by mirrors and see your reflection uncountable times
+in them. There are other people to be seen as well, but you can't be sure
+if they are really here or just reflected by the mirrors. There are exits
+to the north, east, south, and west but you have no idea in which direction
+to head.
+~
+0 N 0
+D0
+To the north there are lots of mirrors.
+~
+~
+0 -1 4557
+D1
+To the east there are lots of mirrors.
+~
+~
+0 -1 4558
+D2
+To the south there are lots of mirrors.
+~
+~
+0 -1 4560
+D3
+To the west there is the entrance to the house of mirrors.
+~
+~
+0 -1 4556
+S
+#4560
+Room in the House of Mirrors~
+You are surrounded by mirrors and see your reflection uncountable times
+in them. There are other people to be seen as well, but you can't be sure
+if they are really here or just reflected by the mirrors. There are exits
+to the north, east, south, and west but you have no idea in which direction
+to head.
+~
+0 N 0
+D0
+To the north there are lots of mirrors.
+~
+~
+0 -1 4560
+D1
+To the east there are lots of mirrors.
+~
+~
+0 -1 4560
+D2
+To the south there is the entrance to the house of mirrors.
+~
+~
+0 -1 4556
+D3
+To the west there is the entrance to the house of mirrors.
+~
+~
+0 -1 4556
+S
+#4561
+Room in the House of Mirrors~
+You are surrounded by mirrors and see your reflection uncountable times
+in them. There are other people to be seen as well, but you can't be sure
+if they are really here or just reflected by the mirrors. There are exits
+to the north, east, south, and west but you have no idea in which direction
+to head.
+~
+0 N 0
+D0
+To the north there are lots of mirrors.
+~
+~
+0 -1 4561
+D1
+To the east there are lots of mirrors.
+~
+~
+0 -1 4561
+D2
+To the south there are lots of mirrors.
+~
+~
+0 -1 4560
+D3
+To the west there are lots of mirrors.
+~
+~
+0 -1 4559
+S
+#4562
+In the Gambling Hall~
+You are standing in a gambling hall... well in fact it is a gambling tent.
+Lots of different types of slot machines are here. The people are busy
+throwing coins into them. They scream when they win... and scream when they
+lose.
+~
+0 A 1
+D0
+To the north is the exit of the gambling hall.
+~
+~
+0 -1 4563
+S
+#4563
+Before the Gambling Hall~
+You are standing before the gambling hall that lies south of you.
+To the north you see the merry-go-round and to the west the bumper cars.
+~
+0 0 1
+D0
+To the north you see the merry-go-round.
+~
+~
+0 -1 4564
+D2
+To the south you see the gambling hall.
+~
+~
+0 -1 4562
+D3
+To the west you see the bumper cars.
+~
+~
+0 -1 4553
+S
+#4564
+Before the Merry-Go-Round~
+You are standing before a small merry-go-round. It is made for little
+kids. Some horses and cars to sit on or in are moving around very
+slowly so the kids won't get hurt or afraid.
+~
+0 0 1
+D0
+To the north you see the candy stand.
+~
+~
+0 -1 4521
+D2
+To the south you see the gambling hall.
+~
+~
+0 -1 4563
+D4
+Going upwards you enter the merry-go-round.
+~
+~
+0 -1 4565
+S
+#4565
+On the Merry-Go-Round~
+You are standing on the merry-go-round between two horses made of wood.
+You could easily walk faster than it is moving. All around you are
+little children enjoying the ride.
+~
+0 0 1
+D5
+Going downwards you leave the merry-go-around.
+~
+~
+0 -1 4564
+S
+#0
+
+#RESETS
+M 0 4520 4 4520 1         *load dog
+M 0 4522 4 4520 1         *load gnome child
+E 0 4527 40 6             *load hat
+M 0 4521 4 4521 1         *load cat
+M 0 4523 4 4521 1         *load smurf
+E 0 4528 40 7             *load leggings
+M 0 4538 4 4521 1         *load son city guard
+E 0 4529 40 7             *load leggings
+M 0 4543 1 4521 1         *load old woman (shopkeeper)
+G 0 4551 1                *give peanuts
+G 0 4547 1                *give candy canes 
+G 0 4546 1                *give candied apple 
+G 0 4554 1		  *give ice cream waffle
+G 0 4545 1                *give cotton candy 
+M 0 4522 4 4522 1         *load gnome child
+E 0 4530 40 3             *load cloak
+M 0 4524 4 4522 1         *load young boy
+E 0 4521 40 10            *load sleeves
+M 0 4545 1 4522 1         *load Olcay
+M 0 4540 4 4522 1         *load daughter pirate
+E 0 4535 40 13            *load belt
+M 0 4530 4 4523 1         *load son samurai
+G 0 4548 40                *give red gum drops son samurai
+E 0 4523 40 8             *load boots
+M 0 4532 4 4523 1         *load elf
+E 0 4537 40 16            *load sword
+M 0 4535 4 4524 1         *load dwarf
+E 0 4526 40 9             *load gloves
+M 0 4526 4 4524 1         *load son squire
+E 0 4531 40 11            *load shield
+M 0 4531 4 4525 1         *load goblin
+G 0 4549 40                *give green gum drops goblin
+E 0 4523 40 8             *load boots
+M 0 4536 4 4525 1         *load ogre
+E 0 4538 40 16            *load dagger
+M 0 4537 4 4526 1         *load daughter city guard
+E 0 4526 40 9             *load gloves
+M 0 4539 4 4526 1         *load son pirate
+E 0 4539 40 16            *load maze
+M 0 4541 4 4527 1         *load son white knight
+E 0 4524 40 8             *load boots
+M 0 4540 4 4527 1         *load daughter pirate
+E 0 4540 40 16            *load spear
+M 0 4542 4 4528 1         *load son black knight
+G 0 4550 40                *give blue gum drops son black knight
+E 0 4525 40 1             *load ring
+M 0 4538 4 4528 1         *load son city guard
+E 0 4541 40 16            *load whip
+M 0 4536 4 4529 1         *load ogre
+E 0 4542 40 16            *load axe
+M 0 4533 4 4529 1         *load troll
+E 0 4544 40 16            *load flail
+M 0 4530 4 4530 1         *load son samurai
+E 0 4523 40 8             *load boots
+M 0 4531 4 4530 1         *load goblin
+E 0 4531 40 11            *load shield
+M 0 4520 4 4531 1         *load dog
+M 0 4522 4 4531 1         *load gnome child
+E 0 4536 40 15            *load bracer
+M 0 4539 4 4531 1         *load son pirate
+E 0 4535 40 13            *load belt
+M 0 4537 4 4531 1         *load daughter city guard
+E 0 4522 40 10            *load sleeves
+M 0 4524 4 4532 1         *load young boy
+E 0 4534 40 13            *load belt
+M 0 4527 4 4532 1         *load troll gang member
+E 0 4531 40 11            *load shield
+M 0 4546 1 4532 1         *load Yusuf
+M 0 4526 4 4533 1         *load son squire
+E 0 4523 40 8             *load boots
+M 0 4525 4 4533 1         *load girl
+E 0 4521 40 10            *load sleeves
+M 0 4530 4 4534 1         *load son samurai
+E 0 4534 40 13            *load belt
+M 0 4535 4 4535 1         *load dwarf
+E 0 4544 40 16            *load polearm
+M 0 4538 4 4536 1         *load son city guard
+E 0 4535 40 13            *load belt
+M 0 4542 4 4537 1         *load son black knight
+E 0 4529 40 7             *load leggings
+M 0 4539 4 4538 1         *load son pirate
+E 0 4537 40 16            *load sword
+M 0 4535 4 4539 1         *load dwarf
+E 0 4526 40 9             *load gloves
+M 0 4533 4 4540 1         *load troll
+E 0 4531 40 11            *load shield
+M 0 4532 4 4541 1         *load elf
+E 0 4523 40 8             *load boots
+M 0 4541 4 4542 1         *load son white knight
+E 0 4529 40 7             *load leggings
+M 0 4540 4 4543 1         *load daughter pirate
+E 0 4535 40 13            *load belt
+M 0 4521 4 4544 1         *load cat
+M 0 4523 4 4544 1         *load smurf
+E 0 4532 40 5             *load jacket
+M 0 4525 4 4545 1         *load girl
+E 0 4528 40 7             *load leggings
+M 0 4527 4 4545 1         *load troll gang member
+E 0 4534 40 13            *load belt
+M 0 4541 4 4545 1         *load son white knight
+E 0 4520 40 12            *load robe
+M 0 4534 2 4547 1         *load spectre
+M 0 4528 2 4548 1         *load bad ghost
+M 0 4534 2 4549 1         *load spectre
+M 0 4528 2 4550 1         *load bad ghost
+M 0 4529 1 4551 1         *load rediculous ghost
+M 0 4520 4 4552 1         *load dog
+M 0 4523 4 4552 1         *load smurf
+E 0 4532 40 5             *load jacket
+M 0 4544 1 4552 1         *load old man (shopkeeper)
+G 0 4552 1                *load hot dog
+G 0 4553 1                *load french fries
+M 0 4521 4 4553 1         *load cat
+M 0 4525 4 4553 1         *load girl
+E 0 4527 40 6             *load hat
+M 0 4531 4 4553 1         *load goblin
+E 0 4531 40 11            *load shield
+M 0 4533 4 4553 1         *load troll
+E 0 4537 40 16            *load sword
+M 0 4527 4 4554 1         *load troll gang member
+E 0 4521 40 10            *load sleeves
+M 0 4526 4 4554 1         *load son squire
+E 0 4528 40 7             *load leggings
+M 0 4532 4 4555 1         *load elf
+E 0 4538 40 16            *load dagger
+M 0 4533 4 4555 1         *load troll
+E 0 4526 40 9             *load gloves
+M 0 4542 4 4555 1         *load son black knight
+E 0 4533 40 5             *load jacket
+M 0 4538 4 4556 1         *load son city guard
+E 0 4522 40 10            *load sleeves
+M 0 4539 4 4556 1         *load son pirate
+E 0 4539 40 16            *load maze
+M 0 4536 4 4557 1         *load ogre
+E 0 4526 40 9             *load gloves
+M 0 4537 4 4557 1         *load daughter city guard
+E 0 4529 40 7             *load leggings
+M 0 4531 4 4558 1         *load goblin
+E 0 4532 40 5             *load jacket
+M 0 4540 4 4558 1         *load daughter pirate
+E 0 4535 40 13            *load belt
+M 0 4530 4 4559 1         *load son samurai
+E 0 4534 40 13            *load belt
+M 0 4542 4 4559 1         *load son black knight
+E 0 4520 40 12            *load robe
+M 0 4541 4 4560 1         *load son white knight
+E 0 4525 40 1             *load ring
+M 0 4532 4 4560 1         *load elf
+E 0 4537 40 16            *load sword
+M 0 4537 4 4561 1         *load daughter city guard
+E 0 4522 40 10            *load sleeves
+M 0 4535 4 4561 1         *load dwarf
+E 0 4521 40 10            *load sleeves
+M 0 4524 4 4562 1         *load young boy
+E 0 4532 40 5             *load jacket
+M 0 4527 4 4562 1         *load troll gang member
+E 0 4521 40 10            *load sleeves
+M 0 4526 4 4562 1         *load son squire
+E 0 4523 40 8             *load boots
+M 0 4521 4 4563 1         *load cat
+M 0 4522 4 4563 1         *load gnome child
+E 0 4530 40 3             *load cloak
+M 0 4520 4 4564 1         *load dog
+M 0 4523 4 4564 1         *load smurf
+E 0 4536 40 15            *load bracer
+M 0 4536 4 4564 1         *load ogre
+E 0 4538 40 16            *load dagger
+M 0 4524 4 4565 1         *load young boy
+E 0 4528 40 7             *load leggings
+M 0 4525 4 4565 1         *load girl
+E 0 4534 40 13            *load belt
+S
+
+#SHOPS
+4543   0 0 0 0 0   200 50   0 23   *old woman candy stand
+4544   0 0 0 0 0   200 50   0 23   *old man hot dog stand
+0
+
+#$
+

@@ -1,0 +1,278 @@
+#PLAYER
+Name Nox~
+Id   992054745
+LogO 1012350859
+Vers 11
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
+Race elf~
+Clan highlanders~
+Sex  1
+Cla  7
+Levl 45
+Tru  91
+Plyd 3411
+Age  0
+Back 2215
+Note 994311431 993758532 993862338 992742495 993589968 994279640
+Scro 22
+Room 25835
+HMS  825 825 282 282 369 615
+Gold 0
+Silv 0
+Exp  55199
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy J
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 821
+Trai 12
+Alig  750
+ACs 100 100 100 100
+Atrib 13 14 12 14 15 11
+AtMod 0 0 0 0 0 0
+Pass riven1~
+Titl ..."Ahhh now this feels better"~
+Immn ~
+Pnts 40
+Rank MBR~
+Aura ~
+TSex 1
+LLev 0
+Email Nox_Highland@hotmail.com~
+Deit Montrey~
+Stus blah~
+RmCt 3
+ExSk 0
+Raff 0
+Lsit 12.14.216.9~
+Ltim Thu Jul 05 03:20:01 2001
+~
+LSav Tue Jan 29 18:34:19 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  FH
+HMSP 825 282 615
+THMS 0 0 0
+Cnd  0 8 100 100
+Sk 75 1 'acid blast'
+Sk 1 1 'acid breath'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 75 1 'armor'
+Sk 75 1 'bless'
+Sk 1 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 1 1 'blood blade'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 75 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'cause light'
+Sk 1 1 'cause serious'
+Sk 1 1 'cause critical'
+Sk 1 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'curse'
+Sk 1 1 'dazzling light'
+Sk 1 1 'demonfire'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'earthquake'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'energy drain'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fire breath'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 1 1 'flame blade'
+Sk 1 1 'flameshield'
+Sk 1 1 'flamestrike'
+Sk 1 1 'fly'
+Sk 75 1 'frenzy'
+Sk 1 1 'frost blade'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 75 1 'gate'
+Sk 75 1 'giant strength'
+Sk 1 1 'harm'
+Sk 75 1 'haste'
+Sk 75 1 'heal'
+Sk 1 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'infravision'
+Sk 1 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'lightning breath'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 75 1 'pass door'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'polymorph'
+Sk 1 1 'portal'
+Sk 1 1 'protect container'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 1 1 'ray of truth'
+Sk 1 1 'recharge'
+Sk 1 1 'refresh'
+Sk 75 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 75 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 1 1 'shock blade'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 75 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 75 1 'steel mist'
+Sk 75 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'sunray'
+Sk 1 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 75 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'vision'
+Sk 1 1 'weaken'
+Sk 75 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 1 1 'axe'
+Sk 75 1 'dagger'
+Sk 1 1 'flail'
+Sk 75 1 'sword'
+Sk 1 1 'backstab'
+Sk 75 1 'bash'
+Sk 1 1 'circle'
+Sk 1 1 'disarm'
+Sk 75 1 'dodge'
+Sk 75 1 'enhanced damage'
+Sk 1 1 'envenom'
+Sk 75 1 'hand to hand'
+Sk 75 1 'kick'
+Sk 75 1 'parry'
+Sk 75 1 'second attack'
+Sk 75 1 'third attack'
+Sk 75 1 'dual wield'
+Sk 75 1 'hunt'
+Sk 75 1 'fast healing'
+Sk 75 1 'forge'
+Sk 75 1 'repair'
+Sk 75 1 'hide'
+Sk 1 1 'search'
+Sk 75 1 'lore'
+Sk 75 1 'meditation'
+Sk 75 1 'peek'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'sing'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 1 1 'sheen'
+Sk 75 1 'standfast'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'harmful'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 180 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear -1
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

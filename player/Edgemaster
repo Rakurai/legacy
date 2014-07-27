@@ -1,0 +1,340 @@
+#PLAYER
+Name Edgemaster~
+Id   1026880430
+LogO 1026882564
+Vers 14
+Mexp 2
+Pass aceventura~
+Prom {Y%h/%Hhp {G%m/%Mmana {P%v/%Vstm {Y%g{W/%s (%r) {P%XTNL {Y%aAlign {W%q/{G%j{x ~
+Race human~
+Cla  3
+Levl 9
+Tru  0
+Plyd 1791
+Back 1007
+Note 1026880777 1026880777 1026880777 1026880777 1026880777 1026880777 1026880777
+Scro 22
+Room 8543
+HMS  92 138 81
+Gold 19
+Silv 57
+Exp  9478
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  0
+Video D
+Act  CDEFGHJLQSc
+AfBy HV
+Comm NO
+Revk 0
+Cgrp A
+Cnsr B
+Prac 3
+Trai 1
+Wimp 0
+Atrib 16 17 16 15 18 10
+Afk {B[{CWed Jul 17 00:07:06 2002{B] {CUnknown Departure.{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Vegita~
+Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
+Ltim Tue Jul 16 23:39:28 2002
+~
+LSav Wed Jul 17 00:09:24 2002
+~
+HMSP 137 140 199
+THMS 0 0 0
+Cnd  0 0 0 31
+Sk 1 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'fireproof'
+Sk 1 1 'heal'
+Sk 1 1 'mass healing'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 77 1 'sword'
+Sk 75 1 'bash'
+Sk 1 1 'disarm'
+Sk 76 1 'enhanced damage'
+Sk 75 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 53 1 'fast healing'
+Sk 1 1 'forge'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'healing'
+Gr 'protective'
+Affc 'frenzy'   0  87  17  70  17          0 1
+Affc 'frenzy'   0  88  17  15  19          0 1
+Affc 'frenzy'   0  90  17  15  18          0 1
+Affc 'sanctuary'   0  87   2   0   0        128 1
+Affc 'haste'   0  88   9   5   2    2097152 1
+Affc 'shield'   0  91  86 -20  17          0 1
+Affc 'giant strength'   0  89  77   5   1          0 1
+Affc 'armor'   0  87  10 -20  17          0 1
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 126 15 0 0
+End
+
+#O
+Vnum 9201
+Nest 0
+Wear 1
+Cost 1140
+End
+
+#O
+Vnum 2326
+Enchanted
+Nest 0
+Wear 14
+Cost 550
+Affc 'reserved'   1   5  -1   1   5          0 1
+Affc 'reserved'   1   5  -1  -2  12          0 1
+End
+
+#O
+Vnum 1100
+Nest 0
+Wear 0
+Cost 550
+End
+
+#O
+Vnum 3172
+Nest 0
+Wear 11
+Cost 600
+ExDe owned by~ Edgemaster~
+End
+
+#O
+Vnum 10133
+Nest 0
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 3066
+Nest 0
+Cond 100
+Wear 5
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 100
+Wear 15
+Cost 112
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3077
+Nest 0
+Wear 10
+Cost 420
+End
+
+#O
+Vnum 3074
+Nest 0
+Wear 7
+Cost 420
+End
+
+#O
+Vnum 10134
+Nest 0
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 10129
+Nest 0
+Wear 18
+Cost 122
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 3182
+Nest 0
+Wear 9
+Cost 1200
+ExDe owned by~ Edgemaster~
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#END

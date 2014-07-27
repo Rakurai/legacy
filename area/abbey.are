@@ -1,0 +1,1579 @@
+#AREA
+abbey.are~
+Inside the Abbey~
+{H{{40 60} {MKenneth {TInside the Abbey~ 
+10151 10199
+
+
+#MOBILES
+
+#10151
+hugo friar mouse~
+Friar {bHugo{x~
+Friar {bHugo{x is here preparing for yet another big feast.
+~
+Friar {bHugo{x is one of the roundest mice you have ever seen.  He is
+constantly fanning himself with a large dock leaf held in his tail.
+~
+unique~
+BGQY J 1000 S
+55 10 40d200+500 1d20+55 10d5+3 claw
+-36 -35 -36 -32
+FH 0 0 0
+stand rest male 2050
+0 0 medium 0
+
+#10152
+squirrel~
+a {Psquirrel{x~
+A {Psquirrel{x bounces about here sharpening its arrows.
+~
+This {bbright{x-eyed and bushy-{Ptailed{x little creature is
+gazing about very intently while unconsciously sharpening
+its already sharp arrows.
+~
+unique~
+GQY J 1000 S
+55 10 40d200+500 1d20+55 10d5+3 claw
+-36 -35 -36 -32
+FH 0 0 0
+stand rest either 2050
+0 0 medium 0
+
+#10153
+otter~
+an {Cotter{x~
+An {Cotter{x walks about looking for slingstones.
+~
+This {Cotter{x twirls a sling about, and he already seems
+to have a large number of rocks, in case you were
+thinking of taking him now.....
+~
+unique~
+GQY J 1000 S
+55 10 40d200+500 1d20+55 10d5+3 claw
+-36 -35 -36 -32
+FH 0 0 0
+stand rest male 2050
+0 0 medium 0
+
+#10154
+foremole mole~
+{bForemole{x~
+{bForemole{x is here thinking over a deeper 'n' ever pie.
+~
+This leader of the {bmoles{x is also the toughest looking of
+the race you have ever encountered.  That pie he's holding
+looks awfully tasty, though....
+~
+unique~
+GT DJV 1000 S
+60 12 40d200+2000 3d20+500 8d7+3 claw
+-40 -40 -40 -37
+CJK 0 0 0
+stand stand male 3700
+0 0 medium 0
+
+#10155
+brother old mouse methusaleh~
+{TBrother{x Methusaleh~
+This is the oldest {Ymouse{x you have ever seen.
+~
+{TBrother{x Methusaleh looks at you with a twinkle in his wise, old
+eyes.  He may look old, but he is young at heart, and probably
+the wisest in {RRedwall{x.
+~
+unique~
+BGT DJV 1000 S
+60 12 40d200+2000 3d20+500 8d7+3 claw
+-40 -40 -40 -37
+CJK 0 0 0
+stand stand male 3700
+0 0 medium 0
+>give_prog pieceofstatue statue~
+MPJUNK piece
+   Say Interesting
+   Say It seems to be saying that there is a hidden container near where you found this
+   Say And that this will act as a key!
+    MPOLOAD 10174
+    give piece $n
+semote Methusaleh's eyes twinkle merrily.
+~
+|
+
+
+#10156
+brother mouse~
+a {Ymouse{x {Tbrother{x~
+A {Ymouse{x {TBrother{x is dashing about looking for wounded to tend.
+~
+He seems to be slightly, no, make that very, nervous about
+the prospect of fighting {bC{Rl{bu{Rn{by{R'{bs{x searats.  His habit seems
+a bit too big for him.
+~
+unique~
+GQY J 1000 S
+55 10 40d200+500 1d20+55 10d5+3 claw
+-36 -35 -36 -32
+FH 0 0 0
+stand rest male 2050
+0 0 medium 0
+
+#10157
+mouse sister~
+a {Ymouse{x {Nsister{x~
+A {Ymouse{x {NSister{x is dashing about looking for wounded to tend.
+~
+She seems to be slightly, no, make that very, nervous about
+the prospect of fighting {bC{Rl{bu{Rn{by{R'{bs{x army.  Her habit seems to fit
+her just fine.
+~
+unique~
+GQY J 1000 S
+55 10 40d200+500 1d20+55 10d5+3 claw
+-36 -35 -36 -32
+FH 0 0 0
+stand rest female 2050
+0 0 medium 0
+
+#10158
+sparra sparrow warrior bird~
+a {Rsparra{x warrior~
+A {Rsparra{x warrior is acting vicious here, as usual.
+~
+This {Rsparrow{x does not seem to be particularly nice,
+but that may just be because of the brute they have as a
+king right now....
+~
+unique~
+FBGTY JT -1000 S
+40 8 50d50+200 10d10+50 5d5+5 peck
+-22 -22 -22 -20
+F 0 0 0
+stand stand either 750
+0 0 medium 0
+
+#10159
+logalog bigclub shrew~
+{GLogalog {YBigclub{x~
+{GLogalog {YBigclub{x is here swinging his big club about his head.
+~
+This is the biggest {bshrew{x you have ever encountered.  As you
+look at his choice of weaponry, you notice how he managed to
+acquire his last name.
+~
+unique~
+BGTZ DFJV 1000 S
+65 13 40d300+1200 1d1+2999 20d2+8 pound
+-42 -42 -42 -39
+CO 0 0 0
+stand rest female 5000
+0 0 huge 0
+
+#10160
+cornflower mouse~
+{YCorn{gflower{x~
+{YCorn{gflower{x is here worrying about {gMatthias{x.
+~
+So this is {gMatthia's{x love.  You admit, she is a pretty looking
+{Ymouse{x, but then, she's a {Ymouse{x.  You probably would not be
+interested in a mere {Ymouse{x.
+~
+unique~
+GT DJV 1000 S
+60 12 40d200+2000 3d20+500 8d7+3 claw
+-40 -40 -40 -37
+CJK 0 0 0
+stand stand female 3700
+0 0 medium 0
+
+#10161
+bull sparra king bird~
+Bull {RSparra{x King~
+Bull {RSparra{x King is here squawking to himself under his breath.
+~
+This is a very big, very tough looking {RSparra{x.  He looks
+as if he could hold his own in a fight.  Maybe you'd better
+think about this.....
+~
+unique~
+BGTZ DFJV 1000 S
+65 13 40d300+1000 1d1+2999 20d2+8 pound
+-42 -42 -42 -39
+CO 0 0 0
+stand stand male 5000
+0 0 huge 0
+
+#10162
+john churchmouse mouse~
+John {PChurch{Ymouse{x~
+John {PChurch{Ymouse{x is dashing about looking for injured {RRedwallers{x.
+~
+He looks slightly frantic about having to face {bC{Rl{bu{Rn{by{R'{bs{x army.
+However, he is ready to defend his family against them.
+~
+unique~
+GT DJV 1000 S
+60 12 40d200+2000 3d20+500 8d7+3 claw
+-40 -40 -40 -37
+CJK 0 0 0
+stand stand male 3700
+0 0 medium 0
+
+#10163
+abbot mortimer~
+{gAbbot{x Mortimer~
+{gAbbot{x Mortimer stands here looking very wise.
+~
+{gAbbot{x Mortimer is a wise, old mouse, second only to Methusaleh.
+He understands what goes on in young {RRedwaller's{x hearts, and
+wishes he could help you understand yourself.
+~
+unique~
+BGT DJV 1000 S
+60 12 40d200+2000 3d20+500 8d7+3 claw
+-40 -40 -40 -37
+CJK 0 0 0
+stand stand male 3700
+0 0 medium 0
+
+#10164
+skipper otter~
+{BS{Yk{Bi{Yp{Bp{Ye{Br{x~
+The {BS{Yk{Bi{Yp{Bp{Ye{Br{x of {COtters{x is here wielding a sharp javelin easily.
+~
+This is the biggest, toughest, and wisest of {Cotters{x. That is why he
+was elected skipper. He has a {cblack{x eyepatch over one eye.
+~
+unique~
+GT DJV 1000 S
+60 12 40d200+2000 3d20+500 8d7+3 claw
+-40 -40 -40 -37
+CJK 0 0 0
+stand stand male 3700
+0 0 medium 0
+
+#10165
+ambrose spike hedgehog~
+Ambrose Spike~
+Ambrose Spike, the hedgehog, waves at you over some October ale.
+~
+I would advise against trying this hedgehog.  If he
+needs to, he can just wrap himself up in a ball and
+be protected from most harm.
+~
+unique~
+GT DJV 1000 S
+60 12 40d200+2000 3d20+500 8d7+3 claw
+-40 -40 -40 -37
+CJK 0 0 0
+stand stand male 3700
+0 0 medium 0
+
+#10166
+sunflash mace badger~
+Sunflash~
+Sunflash, the Mace, looks like a seasoned warrior.
+~
+*GULP* big badger!
+~
+unique~
+BGTZ DFJV 1000 S
+65 13 40d300+1500 1d1+2999 20d2+10 pound
+-42 -42 -42 -39
+CO 0 0 0
+stand stand male 5000
+0 0 huge 0
+>death_prog 100~
+   MPOLOAD 10172
+ drop piece
+~
+|
+
+#10167
+lady amber squirrel~
+Lady Amber~
+Lady Amber is resting here.
+~
+Lady Amber looks quite wise, with her glasses and all, but she
+looks joyful.  You almost want to sit down and have a chat!
+~
+unique~
+GT DJV 1000 S
+60 12 40d200+2000 3d20+500 8d7+3 claw
+-40 -40 -40 -37
+CJK 0 0 0
+stand stand female 3700
+0 0 medium 0
+
+#10168
+bella badger~
+Bella~
+Bella of Brockhall is here visiting.
+~
+Bella is a tower of muscle and a wisdom, with a heart of gold,
+willing to defend all good Redwallers and Woodlanders, and
+share her wisdom with all.  She truly is a sight!
+~
+unique~
+BGTZ DFJV 1000 S
+65 13 40d300+1000 1d1+2999 20d2+8 pound
+-42 -42 -42 -39
+CO 0 0 0
+stand stand female 5000
+0 0 huge 0
+
+#10169
+ant little~
+An {bAnt{x~
+An {bant{x is here completely clueless.
+~
+How does it hold that much weight?
+~
+unique~
+CGHT 0 0 S
+1 0 1d1+0 1d1+0 1d1+3 bite
+10 10 10 10
+DFHIU 0 0 0
+stand stand male 0
+0 0 small 0
+
+#0
+
+#OBJECTS
+
+#10151
+two handed cudgel~
+{RA {Yt{Rr{Ye{Re{Yt{Rr{Yu{Rn{Yk{x~
+A big old {Yt{Rr{Ye{Re{Yt{Rr{Yu{Rn{Yk{x has been felled here.~
+wood~
+weapon ABS AN
+'polearm' 8 11 beating F
+63 30 3300 P
+A
+18 4
+A
+19 7
+A
+1 2
+
+#10152
+axe boar~
+the {WAxe{x of {gBoar{x~
+A great gleaming two headed {Waxe{x has been welded into the floor.~
+meteoric steel~
+weapon ABY AN
+'axe' 8 11 cleave DEG
+65 20 5500 P
+A
+18 6
+A
+19 7
+A
+3 2
+A
+4 2
+A
+12 10
+A
+13 10
+
+#10153
+sunflash mace~
+{YSun{gflash's {Cm{ga{Cce{x~
+A wicked looking spiked and flanged mace lies here.~
+metal and flanges~
+weapon AB AN
+'mace' 9 6 crush 0
+60 15 4400 P
+A
+18 3
+A
+19 3
+A
+12 30
+
+#10154
+logalog's bigclub club~
+{GLogalog's {YBigclub{x~
+A *REALLY* big club lies here.~
+wood~
+weapon S AN
+'mace' 9 9 crush 0
+55 15 3300 P
+A
+18 1
+
+#10155
+deeper and ever pie pan~
+{ca deeper'n'ever {bpie{c pan{x~
+The pan from a deeper'n'ever pie has been discarded here.~
+foil~
+armor ABS AJ
+18 18 18 18 0
+55 5 1100 P
+A
+12 30
+A
+18 3
+A
+19 3
+A
+23 -3
+A
+17 -9
+A
+9 5
+
+#10156
+strawberry cordial~
+a glass of {Pstrawberry{x {Ccordial{x~
+A vial of {Pstrawberry{x {Ccordial{x lies on the floor.~
+water~
+drink SY AO
+50 50 cordial 0 0
+11 5 25 P
+E
+cordial~
+This small {Cglass{x vial is perfectly crystal clear, allowing you to see
+the beautiful-looking, undoubtedly wonderful tasting, {Pstrawberry {Ccordial{x.
+~ 
+
+#10157
+october ale~
+a mug of {coctober {Rale{x~
+A vial of {coctober {Rale{x lies on the floor.~
+water~
+drink SY AO
+50 50 ale 0 0
+34 5 25 P
+E
+vial october ale~
+This small {Cglass{x vial is perfectly crystal clear, allowing you
+to see the brownish liquid swirling within.
+~
+
+#10158
+summer bowl salad~
+a {Gsummer {Hsalad{x~
+A great heaping bowl of {Gsummer {Hsalad{x lies upon the floor.~
+slime~
+food S AO
+15 30 0 0 0
+1 7 20 P
+E
+bowl summer salad~
+This bowl of {Gsummer {Hsalad{x is full of all kinds of yummy {Ggreenery{x types.
+~
+
+#10159
+blackberry pudden pudding berry~
+a blackberry pudden~
+A blackberry pudden lies here..Better eat it up before the Dibbuns find it!~
+pudding~
+food S AO
+20 35 0 0 0
+1 6 30 P
+E
+pudden blackberry pudding~
+This bowl of blackberry pudding looks to have been made personally
+by Friar Hugo.  I'd take that as good cause to eat it very quickly-like,
+before some otherbeast finds it!
+~
+
+#10160
+deeper ever pie~
+a deeper'n'ever pie~
+This is a tater'n'turnip'n'beetroot deeper'n'ever pie.~
+pie~
+food S AO
+30 40 0 0 0
+1 15 100 P
+E
+pie deeper ever deeper'n'ever~
+This pie is SOOOO big, you imagine one of those little mole Dibbuns
+might just fall into it, if you let any of them near it.  I suggest you
+eat this wonderful snackeroo yerself, for the good of all moles.;)
+~
+
+#10161
+bed~
+an infirmary bed~
+An infirmary bed lies against the wall.~
+wood~
+furniture ABOS 0
+1 0 BEHKN 150 150
+2 800 500 P
+E
+bed infirmary~
+This lovely, soft-looking bed is piled with cushions and sheets.
+You imagine anybeast lying on them would heal up very quickly!
+~
+
+#10162
+table wooden~
+a wooden table~
+This table would look much better with lots of vittles on it!~
+wood~
+furniture S 0
+1 0 EN 100 100
+1 0 300 P
+E
+table wooden~
+This table bears the mark of many a goodbeasts' eating
+utensils.  If you have some food, maybe you can add
+to the marks on the table.
+~
+
+#10163
+chair wooden~
+a really nice, hand carved wooden chair.~
+A wooden chair with a green velvet seat sits by the table.~
+wood~
+furniture ABS 0
+1 0 FL 120 125
+1 0 100 P
+E
+chair wooden~
+This chair has held up many beasts before you came
+along, and it'll hold up many more after you leave.
+~
+
+#10164
+dock leaf~
+a dock leaf~
+a dock leaf lies on the floor.~
+leaf~
+armor ABSY AO
+20 20 20 20 0
+55 5 1350 P
+A
+3 2
+A
+4 2
+A
+19 2
+A
+18 5
+A
+12 30
+A
+13 20
+A
+9 5
+E
+leaf dock~
+You've heard that dock leaves are good for helping with
+burns and wounds, mayhaps this be good to use for
+something like that?
+~
+
+#10165
+tapestry~
+the Tapestry~
+A great and noble tapestry hangs upon the wall.~
+cloth~
+furniture IORSY P
+0 0 0 0 0
+25 1000 500 P
+E
+tapestry~
+The scene depicted on this tapestry is that of a courageous
+looking mouse leaning on his great sword, whilst various foxes,
+weasels, rats, and other sundry vermin-types flee in terror
+or lie dead on the ground.
+~
+E
+mouse courageous~
+The mouse affects a happy, carefree attitude as he leans on
+the sword.  You realize with a start that this must be Martin,
+the founder of the Order of {RRedwall{x!  He must have been a mighty
+warrior indeed.
+~
+
+#10166
+javelin sharp wooden~
+{ba jav{Ye{blin{x~
+A sharp wooden javelin sticks in the ground.~
+wood~
+weapon SY AN
+'spear' 6 10 stab D
+55 10 20 P
+A
+19 4
+A
+18 4
+A
+17 -5
+E
+javelin~
+This long stick has a finely sharpened point on the
+end, a testimony to its owners care for detail.
+~
+
+#10167
+scarf green~
+{Ha{x {Ggr{Hee{Gn sc{Ha{Grf{x~
+A Redwaller's scarf lies here.~
+soft leather~
+armor ABS AC
+15 15 15 13 0
+55 5 3800 P
+A
+2 2
+A
+12 60
+A
+18 3
+A
+19 3
+A
+1 2
+A
+13 10
+
+#10168
+redwall ring martinring~
+A Redwall Ring~
+A small ring inscribed with a sketch of Martin the Warrior.~
+silver~
+armor ABKY AB
+15 15 15 13 0
+55 5 2200 P
+A
+4 2
+A
+12 25
+A
+13 25
+A
+18 3
+A
+19 2
+A
+1 2
+
+#10169
+sparrow silver~
+A silver sparrow~
+A silver sparrow is here always pointing north.~
+silver~
+armor AB AQ
+15 15 15 13 0
+55 5 2200 P
+A
+1 1
+A
+5 1
+A
+12 40
+A
+18 2
+A
+19 2
+A
+26 3
+
+#10170
+redwall attire clothing~
+some Redwall attire~
+Some Redwall attire lies here shed by a sleeping dibbun.~
+cloth~
+armor AS AF
+15 15 15 14 0
+50 15 2000 P
+A
+4 2
+A
+12 25
+A
+13 15
+A
+18 3
+A
+19 2
+A
+20 -2
+
+#10171
+scabbard~
+a {Wglowing{x scabbard~
+A scabbard lies at the bottom of a mirky pond.~
+leather~
+light ABS A
+0 0 -1 0 0
+50 15 3300 P
+A
+17 -13
+A
+18 2
+A
+19 2
+A
+12 30
+A
+13 10
+A
+21 -2
+
+#10172
+pieceofstatue statue~
+{bA piece {Pof {bstatue{x~
+A small piece of {bstatue{x has been left here.~
+marble~
+trash 0 A
+0 0 0 0 0
+1 2 1 P
+
+#10173
+statue container~
+{bAbbess Ger{Pm{baine's statue{x~
+~
+marble~
+container O P
+60 ABCD 10174 40 50
+1 100 10 P
+
+#10174
+pieceofstatuekey key statue~
+{bA piece {Pof {bstatue{x~
+A small piece of {bstatue{x has been left here.~
+marble~
+key 0 A
+0 0 0 0 0
+1 2 1 P
+
+#0
+
+
+
+#ROOMS
+
+#10151
+Main Hall~
+You're in the vast main hall.  If it were not for the torches
+in the walls, this would be a pretty spooky place.  As it
+is, it feels homey.  The hall stretches north, east, and west
+of here.  Back south lies the way out, if you truly wish to
+leave..
+~
+0 D 0
+D0
+The Main Hall continues north.
+~
+~
+0 0 10153
+D1
+The Main Hall continues east.
+~
+~
+0 0 10152
+D2
+The doors to the Abbey lie south.
+~
+~
+1 0 10145
+D3
+The Main Hall continues west.
+~
+~
+0 0 10157
+E
+torch torches~
+The brightly flickering {Rf{bl{Ra{bm{Re{x burns brightly
+in its sconce in the wall, illuminating a small section of
+the room by itself, but with its companion torches, well,
+lets just say there is no lack of {glight{x.
+~
+S
+
+#10152
+The Main Hall~
+You're in the vast main hall.  If it were not for the torches
+in the walls, this would be a pretty spooky place.  As it
+is, it feels homey.  The hall stretches north and west.
+~
+0 D 0
+D0
+The hall continues to the north.
+~
+~
+0 0 10154
+D3
+The hall continues to the west.
+~
+~
+0 0 10151
+E
+torch torches~
+The brightly flickering {Rf{bl{Ra{bm{Re{x burns brightly
+in its sconce in the wall, illuminating a small section of
+the room by itself, but with its companion torches, well,
+lets just say there is no lack of {glight{x.
+~
+S
+
+#10153
+The Main Hall~
+You're in the vast main hall.  If it were not for the {Rt{bo{Rr{bc{Rh{be{Rs{x
+in the walls, this would be a pretty spooky place.  As it
+is, it feels homey.  The hall stretches north, west, south,
+and east.
+~
+0 D 0
+D0
+The northernmost end of the Main Hall
+~
+~
+0 0 10158
+D1
+The hall continues east.
+~
+~
+0 0 10154
+D2
+The hall continues to the south.
+~
+~
+0 0 10151
+D3
+The hall continues to the west.
+~
+~
+0 0 10156
+E
+torch torches~
+The brightly flickering {Rf{bl{Ra{bm{Re{x burns brightly
+in its sconce in the wall, illuminating a small section of
+the room by itself, but with its companion torches, well,
+lets just say there is no lack of {glight{x.
+~
+S
+
+#10154
+The Main Hall~
+You're in the vast main hall.  If it were not for the {Rt{bo{Rr{bc{Rh{be{Rs{x
+in the walls, this would be a pretty spooky place.  As it
+is, it feels homey.  The hall stretches west and  south,
+and some stairs lead down to the {VW{Mi{Vn{Me{Vc{Me{Vl{Ml{Va{Mr{x.
+~
+0 D 0
+D2
+The hall continues to the south.
+~
+~
+0 0 10152
+D3
+The hall continues to the west.
+~
+~
+0 0 10153
+D5
+The {VW{Mi{Vn{Me{Vc{Me{Vl{Ml{Va{Mr{x lies down the stairs.
+~
+~
+0 0 10155
+E
+torch torches~
+The brightly flickering {Rf{bl{Ra{bm{Re{x burns brightly
+in its sconce in the wall, illuminating a small section of
+the room by itself, but with its companion torches, well,
+lets just say there is no lack of {glight{x.
+~
+E
+stairs stair~
+The stairs are made out of {Rs{Ya{Rn{Yd{Rs{Yt{Ro{Yn{Re{x, the
+same as most things in this Abbey.
+~
+S
+
+#10155
+The {VW{Mi{Vn{Me{Vc{Me{Vl{Ml{Va{Mr{x~
+This is a big room!  Barrels of {Vw{Mi{Vn{Me{x lie about wherever you
+look.  It is a tad damp and drafty down here, though, so I suggest you
+hurry with whatever you're doing down here before you catch your death
+of cold.  You don't have warm fur insulating you like the rest of the
+creatures in this Abbey...
+~
+0 D 0
+D1
+~
+~
+0 0 10175
+D4
+Up the stairs, back to the Main Hall!
+~
+~
+0 0 10154
+S
+
+#10156
+The Main Hall~
+You're in the vast main hall.  If it were not for the {Rt{bo{Rr{bc{Rh{be{Rs{x
+in the walls, this would be a pretty spooky place.  As it
+is, it feels homey.  The hall stretches east and south.
+~
+0 D 0
+D1
+The hall continues east.
+~
+~
+0 0 10153
+D2
+The hall continues south.
+~
+~
+0 0 10157
+E
+torch torches~
+The brightly flickering {Rf{bl{Ra{bm{Re{x burns brightly
+in its sconce in the wall, illuminating a small section of
+the room by itself, but with its companion torches, well,
+lets just say there is no lack of {glight{x.
+~
+S
+
+#10157
+The Main Hall~
+You're in the vast main hall.  If it were not for the {Rt{bo{Rr{bc{Rh{be{Rs{x
+in the walls, this would be a pretty spooky place.  As it
+is, it feels homey.  The hall stretches east and north.
+~
+0 D 0
+D0
+The hall continues north.
+~
+~
+0 0 10156
+D1
+The hall continues east.
+~
+~
+0 0 10151
+E
+torch torches~
+The brightly flickering {Rf{bl{Ra{bm{Re{x burns brightly
+in its sconce in the wall, illuminating a small section of
+the room by itself, but with its companion torches, well,
+lets just say there is no lack of {Ylight{x.
+~
+S
+
+#10158
+North end of the Main Hall~
+You're in the vast main hall.  If it were not for the {Rt{bo{Rr{bc{Rh{be{Rs{x
+in the walls, this would be a pretty spooky place.  As it
+is, it feels homey.  The hall stretches to the south.
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x lies downward, and upwards lies the {YK{gi{Yt{gc{Yh{ge{Yn{gs{x,
+the {WD{go{Wr{gm{Wi{gt{Wo{gr{Wy{x, and the {PI{Wn{Pf{Wi{Pr{Wm{Pa{Wr{Py{x.
+~
+0 D 0
+D2
+The hall continues south.
+~
+~
+0 0 10153
+D4
+A long hallway lies up the stairs.
+~
+~
+0 0 10163
+D5
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x lies down the stairs.
+~
+~
+0 0 10159
+E
+torch torches~
+The brightly flickering {Rf{bl{Ra{bm{Re{x burns brightly
+in its sconce in the wall, illuminating a small section of
+the room by itself, but with its companion torches, well,
+lets just say there is no lack of {Ylight{x.
+~
+S
+
+#10159
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x~
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x is a vast, roomy underground
+place, built by the moles, which is where everyone
+partakes of their meals. {cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x extends
+to the north and west, and some stairs in the corner
+lead upwards.
+~
+0 D 0
+D0
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x continues to the north.
+~
+~
+0 0 10160
+D3
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x extends westward.
+~
+~
+0 0 10161
+D4
+The Main hall lies up the stairs.
+~
+~
+0 0 10158
+E
+stairs~
+The stairs appear to be well-made.  There are seven steps, and written
+on each step is one letter.  In ascending (or descending, depends
+on which side of the stairs you're on) order, they are:  R E D W A L L.
+The fourth step seems a little loose......
+~
+S
+
+#10160
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x~
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x is a vast, roomy underground
+place, built by the moles, which is where everyone
+partakes of their meals. {cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x extends
+to the south and west.
+~
+0 D 0
+D2
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x continues southward.
+~
+~
+0 0 10159
+D3
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x extends to the west.
+~
+~
+0 0 10162
+E
+wall~
+The walls are tightly packed dirt.
+~
+S
+
+#10161
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x~
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x is a vast, roomy underground
+place, built by the moles, which is where everyone
+partakes of their meals. {cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x extends
+to the north and east.
+~
+0 D 0
+D0
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x extends northward.
+~
+~
+0 0 10162
+D1
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x continues east.
+~
+~
+0 0 10159
+E
+floor~
+The floor is made of tightly packed dirt.
+~
+S
+
+#10162
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x~
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x is a vast, roomy underground
+place, built by the moles, which is where everyone
+partakes of their meals. {cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x extends
+to the south and east.
+~
+0 0 0
+D1
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x extends to the east.
+~
+~
+0 0 10160
+D2
+{cC{Ba{cv{Be{cr{Bn {cH{Bo{cl{Be{x continues south.
+~
+~
+0 0 10161
+E
+ceiling~
+The ceiling is made of tightly packed earth.
+~
+S
+
+#10163
+Long Hall~
+You are standing in a long hallway.  Stairs lead up and down, the hall
+goes north.  A wonderful aroma wafts down the hallway, mingled with
+the smell of the dormitory.  Lots of windows line the walls.
+~
+0 D 0
+D0
+To the north the hall continues.
+~
+~
+0 0 10164
+D4
+The stairs continue upward, towards the {YA{Pt{Yt{Pi{Yc{x.
+~
+~
+0 0 10169
+D5
+The stairs continue downward, down to the Main Hall.
+~
+~
+0 0 10158
+E
+stair stairs~
+The stairs are of finely-hewed stone.
+~
+E
+windows~
+Out the window, you can see the pond and the great walls or {RRedwall{x.
+~
+S
+
+#10164
+Long Hall~
+You are standing in a long hallway.  The dormitory lies east, the infirmary,
+west.  The hall goes north and south.  A wonderful aroma wafts down the
+hallway, mingled with the smell of the dormitory.  Lots of windows line
+the walls.
+~
+0 D 0
+D0
+To the north the hall continues.
+~
+~
+0 0 10167
+D1
+The dormitories lie to the east!
+~
+~
+0 0 10166
+D2
+The hallway continues southward.
+~
+~
+0 0 10163
+D3
+The {gI{bn{gf{bi{gr{bm{ga{br{gy{x is to the west.
+~
+~
+0 0 10165
+E
+windows window~
+Out of the windows you can see the majestic walls of {RRedwall{x.
+~
+S
+
+#10165
+The {PI{Wn{Pf{Wi{Pr{Wm{Pa{Wr{Py{x~
+Beds line the walls, which are painted in a friendly, eye-pleasing
+colour.  Nice-looking curtains cover the windows, and the room has
+a kind of sunny feeling to it.  There is an inscription in one of the
+beds.
+~
+0 D 0
+D1
+To the east is the Long Hall.
+~
+~
+0 0 10164
+E
+inscription~
+Matthias slept here!
+~
+E
+curtains~
+They're done in a spider-web fashion, kind of frilly and lacey.
+~
+S
+
+#10166
+Dormitories~
+This is a very large room, and almost all of it is covered with beds.
+There are "modesty curtains" in certain places, so that the mice can
+slip on their habits in peace, and lots of windows to let in sun.
+~
+0 DK 0
+D3
+The Long Hall is to the east.
+~
+~
+0 0 10164
+E
+curtain modesty curtains~
+They're basically just an opaque curtain, nothing fancy about them.
+~
+E
+windows~
+The window provides an excellent view of the walls, and the forest
+beyond.
+~
+S
+
+#10167
+Long Hall~
+You are standing in a long hallway.  The famed kitchens of {RRedwall{x lie
+to the east. I suggest you take a visit. The hall goes south.  A wonderful
+aroma wafts down the hallway, mingled with the smell of the dormitory.
+Lots of windows line the walls.
+~
+0 D 0
+D1
+The Kitchens are to the east!!!
+~
+~
+0 0 10168
+D2
+The Long Hall continues south.
+~
+~
+0 0 10164
+E
+window windows~
+The windows show the majestic walls of {RRedwall{x in all of their splendor.
+~
+S
+
+#10168
+The Kitchens of {RRedwall{x!!!~
+The kitchens are a bustle of activity!  All types of creatures scurry
+about constantly in here, always trying to make food, or snatch a little
+snack, or what-not.  The beautiful aroma wafts up towards the rafters.
+Wherever you look, you see food in one stage of its developmental process
+or another.  Trust me, this is the greatest food preparation place ever!
+Your nose is in Heaven, all these beautiful sights and smells!  Your tongue
+is salivating with anticipation.  Maybe you could help some Dibbuns snatch a
+little something in exchange for part of the loot?
+~
+0 D 0
+D3
+The Long Hall lies west, but why would you want to leave?
+~
+~
+0 0 10167
+E
+rafters~
+A bunch of wooden beams.
+~
+S
+
+#10169
+Below the Attic~
+The stairs continue to lead up towards the door to the attic.
+Gee, it's pretty spooky looking up there....Are you sure you want to
+go?  A very strange noise can be heard from above.
+~
+0 CD 0
+D4
+The (spooky) attic lies above you. *whimper* *shiver*
+~
+door~
+1 -1 10170
+D5
+The Long Hall is below you.  Safety from strange noises!  Woohoo!
+~
+~
+1 0 10163
+E
+door~
+The door is made of wood, yet seems strangely forboding.....
+~
+E
+stairs~
+The stairs are very well-made!  (Any comfort is better than none)
+~
+S
+
+#10170
+Domain of the Sparras~
+Hey, this attic isn't so bad.  Just noisy.  Very noisy.  And the noise
+seems to be gibberish.  Watch your step, the floor seems not to be that
+even. The place is full of Sparras (sparrows).  Hey, did that one just
+call you a "worm-thing"?  Grr.......
+~
+0 D 0
+D0
+The Domain of the Sparra's continues north.
+~
+~
+0 0 10171
+D1
+You can make out a throne to the east.
+~
+~
+0 0 10172
+D5
+The way out of the attic lows downward.
+~
+~
+1 0 10169
+E
+floor~
+All the constant tramping about by sparrows seems to have worn the
+floor down in same places, but not in others.
+~
+S
+
+#10171
+Domain of the Sparras~
+Hey, this attic isn't so bad.  Just noisy.  Very noisy.  And the noise
+seems to be gibberish.  Watch your step, the floor seems not to be that
+even. The place is full of Sparras (sparrows).  You wonder why the Sparras
+seem to be so aggressive.
+~
+0 D 0
+D1
+The Domain of the Sparra's extends east.
+~
+~
+0 0 10173
+D2
+The Domain of the Sparra's continues south.
+~
+~
+0 0 10170
+E
+floor~
+The continued prancing and fighting of the Sparras seems to have worn out
+the floor in varied places, but not all the places.
+~
+S
+
+#10172
+Throne of the Sparra King~
+The Sparra's brute of a leader, Bull Sparra King, governs (Ha!) his
+domain here.  Basically, he watches other Sparras fight, and makes bad
+jokes, which everybody has to laugh at.  Oh yeah, he also beats up anyone
+who opposes him (He's a pretty tough bird).
+~
+0 D 0
+D0
+The Domain of the Sparra's continues north.
+~
+~
+0 0 10173
+D1
+The Sparra King's quarters lie eastward.
+~
+~
+0 0 10174
+D3
+The Domain of the Sparra's extends west.
+~
+~
+0 0 10170
+E
+throne~
+It's a pretty shoddy throne, actually, but what do you expect?  It's not
+like sparrows have good manual dexterity.
+~
+S
+
+#10173
+Domain of the Sparras~
+Hey, this attic isn't so bad.  Just noisy.  Very noisy.  And the noise
+seems to be gibberish.  Watch your step, the floor seems not to be that
+even. The place is full of Sparras (sparrows).  You wonder why the Sparras
+seem to be so aggressive.
+~
+0 D 0
+D2
+There is a throne to the south.
+~
+~
+0 0 10172
+E
+ceiling rafters~
+The ceiling is very well-made, excellent work, top-notch, lots of
+wooden beams criss-crossing and what-not.
+~
+S
+
+#10174
+Sparra King's Quarters~
+Pretty sparse for a king.  There's a bed (not something most sparrows have),
+a couple chairs, and lots of ornamentation.  The floor here is more even
+than the rest of the attic, so you don't need to pay as close attention to
+your walking.
+~
+0 D 0
+D3
+The Sparra King's throne is to the west.
+~
+~
+0 0 10172
+E
+chair chairs~
+The chairs aren't that great, you get the feeling no one actually sits in
+them.
+~
+E
+bed~
+The bed is rather mussed up.  Honestly, doesn't the King have someone to make
+his bed for him?
+~
+S
+
+#10175
+A small path in the cellars of Redwall~
+In the passageway, you can see the "{blittle people{x", and as you continue on
+down the path the little people go about their tasks.  Where COULD this place
+lead to?
+~
+0 AD 0
+D0
+~
+~
+0 0 10176
+D3
+~
+~
+0 0 10155
+E
+little people~
+Ants, of course!~
+S
+
+#10176
+A small path in the cellars of Redwall~
+In the passageway, you can see the "{blittle people{x", and as you continue on down
+the path the little people go about their tasks. Where COULD this place
+lead to?
+~
+0 AD 0
+D1
+~
+~
+0 0 10177
+D2
+~
+~
+0 0 10175
+E
+little people~
+Ants, of course!~
+S
+
+#10177
+Outside Abbess Germaine's tomb~
+You stand before a giant wall... with a small hole in the corner, ants
+crawling in and out.  I wonder what's behind this wall...
+~
+0 AD 0
+D1
+~
+~
+2 0 10178
+D3
+~
+~
+0 0 10176
+E
+stone wall~
+This was built to keep her tomb safe, but good, of course, are welcome.
+~
+
+S
+
+#10178
+Inside Abbess Germaine's tomb~
+What a magnificent sight!  A huge statue of a mouse stands before you 
+looking just like the first mother of {RRedwall{x, {PAbbess Germaine{x! This is
+a truly special place for Redwall and is blocked off by a huge stone.
+~
+0 ADQ 0
+D3
+~
+~
+2 0 10177
+E
+sight huge statue mouse abbess germaine~
+What an awesome piece of work.  It is so peaceful here.
+~
+E
+ant little~
+The little ant is a pice of the statue. As you pull on it, it seems to 
+break loose, but really was meant to you guess, because a stone slate 
+came right out of the tome Abess Germaine's statue has in its hand. The
+ant must have been a pin!  The tome is in a language that nobody
+of this day can read. Except one.
+~
+S
+
+#0
+
+#RESETS
+
+M 0 10151 1 10168 1     * hugo to the kitchen
+E 0 10164 20 17         * dock leaf
+G 0 10159 30            * pudden
+M 0 10152 10 10152 2    * squirrels to main hall
+M 0 10152 10 10158 2    * squirrels to main hall
+M 0 10152 10 10162 2    * squirrels to cavern hole
+M 0 10152 10 10167 1    * squirrel to long hall
+E 0 10166 50 16         * javelin
+M 0 10153 10 10154 2    * otters to main hall
+M 0 10153 10 10160 2    * otters to cavern hole
+M 0 10153 10 10155 1    * otter to winecellar
+E 0 10166 50 16         * javelin
+M 0 10153 10 10166 1    * otter to dormitory
+E 0 10166 50 16         * javelin
+M 0 10154 1 10161 1     * foremole to cavern hole
+E 0 10155 10 11         * pie pan
+G 0 10160 50            * deeper'n'ever pie
+M 0 10155 1 10165 1     * methusaleh to infirmary
+E 0 10168 50 1          * martinring
+M 0 10156 5 10165 1     * brother mouse to infirmary
+M 0 10156 5 10163 1     * brother mouse to long hall
+E 0 10166 50 16         * javelin
+M 0 10156 5 10151 1     * brother mouse to main hall
+M 0 10157 5 10154 1     * sister mouse to main hall
+M 0 10157 5 10164 1     * sister mouse to long hall
+M 0 10157 5 10159 1     * sister mouse to cavern hole
+E 0 10166 50 16         * javelin
+M 0 10158 5 10170 1     * sparra to domain
+M 0 10158 5 10171 1     * sparra to domain
+M 0 10158 5 10173 1     * sparra to domain
+M 0 10159 1 10160 1     * logalog to cavern hole
+E 0 10154 5 16          * logalog's bigclub
+M 0 10160 1 10157 1     * cornflower to main hall
+E 0 10167 50 4          * green scarf
+M 0 10161 1 10172 1     * bull sparra king to throne
+E 0 10171 30 0          * scabbard
+M 0 10162 1 10156 1     * john churchmouse to main hall
+E 0 10170 30 7          * redwall attire
+M 0 10163 1 10168 1     * abbot mortimer to kitchen
+E 0 10169 30 18         * sparrow
+M 0 10164 1 10160 1     * skipper to cavern hole
+M 0 10165 1 10155 1     * spike to winecellar
+G 0 10157 30            * october ale
+M 0 10166 1 10178 1     * sunflash to inside tomb
+E 0 10153 20 16         * sunflash's mace
+M 0 10167 1 10175 1     * amber to path in cellars
+M 0 10168 1 10151 1     * bella to main hall
+E 0 10151 20 16         * treetrunk
+M 0 10169 10 10175 2    * ants to path
+M 0 10169 10 10176 2    * ants to path
+M 0 10169 10 10177 2    * ants to outside tomb
+M 0 10169 10 10178 2    * ants to inside tomb
+O 0 10156 30 10155      * strawberry cordial
+O 0 10158 30 10160      * summer salad
+O 0 10161 1 10165       * bed to infirmary
+O 0 10162 1 10162       * table to cavern hole
+O 0 10163 1 10162       * chair
+O 0 10165 1 10157       * tapestry
+O 0 10173 1 10178       * statue container
+P 0 10152 1 10173 1     * axe into statue
+
+S
+
+#SHOPS
+
+0
+
+#SPECIALS
+
+S
+
+#$
+
+

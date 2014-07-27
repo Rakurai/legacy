@@ -1,0 +1,855 @@
+#PLAYER
+Name Chynna~
+Id   1016410224
+LogO 1026805204
+Vers 14
+Mexp 2
+Pass zetaform~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Clan order~
+Cla  5
+Levl 56
+Tru  0
+Plyd 195789
+Back 127706
+Note 1022715337 1022120902 1020818598 0 1026409721 1026768316 1021602197
+Scro 22
+Room 5005
+HMS  1520 1152 694
+Gold 54
+Silv 54
+Exp  72372
+PCkills  2
+PCkilled 4
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+Spou Deedlit~
+FImm 0
+FRes 0
+FVul 0
+Plr  ATU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NOQ
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 8
+Trai 10
+Wimp 251
+Atrib 18 18 18 18 18 17
+QuestPnts  14
+Afk {B[{CTue Jul 16 02:36:05 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 46
+Rank {NC{Cp{Nl~
+Aura ~
+TSex 2
+LLev 50
+Deit Liriel~
+Lsit naio65.interpac.net~
+Ltim Tue Jul 16 00:45:36 2002
+~
+LSav Tue Jul 16 02:40:04 2002
+~
+HMSP 940 587 694
+THMS 0 0 0
+Cnd  0 0 0 0
+Colr 0 32 1
+Colr 8 32 1
+Colr 13 36 1
+Alias san c 'undo spell' sanc~
+Alias fo c 'undo spell' focus~
+Alias q c 'fire breath'~
+Alias z c slow~
+Alias m c 'lightning breath'~
+Alias wipe c 'dispel magic'~
+Alias blast recite lightning~
+Alias x c 'acid breath'~
+Alias foc c 'undo spell' focus~
+Alias hpu quaff heal~
+Query deedlit~
+Query tara~
+Query kahlan~
+Sk 74 1 'acid breath'
+Sk 1 1 'age'
+Sk 65 1 'armor'
+Sk 71 1 'blindness'
+Sk 71 1 'cancellation'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 71 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 76 1 'curse'
+Sk 91 1 'dispel magic'
+Sk 1 1 'encampment'
+Sk 1 1 'energy drain'
+Sk 73 1 'fire breath'
+Sk 1 1 'fireproof'
+Sk 77 1 'fly'
+Sk 1 1 'floating disc'
+Sk 74 1 'frost breath'
+Sk 71 1 'gas breath'
+Sk 74 1 'gate'
+Sk 72 1 'lightning breath'
+Sk 1 1 'nexus'
+Sk 74 1 'pass door'
+Sk 71 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'portal'
+Sk 69 1 'protection evil'
+Sk 69 1 'protection good'
+Sk 81 1 'sanctuary'
+Sk 73 1 'shield'
+Sk 82 1 'slow'
+Sk 73 1 'stone skin'
+Sk 71 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'teleport'
+Sk 61 1 'teleport object'
+Sk 74 1 'undo spell'
+Sk 77 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 94 1 'dagger'
+Sk 100 1 'sword'
+Sk 1 1 'shield block'
+Sk 67 1 'bash'
+Sk 71 1 'dirt kicking'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 91 1 'kick'
+Sk 100 1 'parry'
+Sk 1 1 'rescue'
+Sk 93 1 'second attack'
+Sk 88 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 100 1 'scan'
+Sk 70 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'creation'
+Gr 'draconian'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 52 0 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 4581
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 10129
+Nest 0
+Wear -1
+Cost 122
+End
+
+#O
+Vnum 9923
+Nest 0
+Cond 99
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 4572
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 24401
+Nest 0
+Cond 58
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 20028
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4596
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 4584
+Nest 0
+Wear -1
+Cost 1600
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24403
+Nest 0
+Cond 63
+Wear 18
+Cost 3000
+End
+
+#O
+Vnum 24411
+Nest 0
+Cond 87
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 24402
+Nest 0
+Cond 95
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 24404
+Nest 0
+Cond 82
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16041
+Nest 0
+Cond 85
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 16041
+Nest 0
+Cond 92
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 4595
+Nest 0
+Cond 84
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 17100
+Nest 0
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear -1
+Cost 133
+End
+
+#O
+Vnum 17103
+Nest 0
+Wear -1
+Cost 230
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear -1
+Cost 133
+End
+
+#O
+Vnum 24407
+Nest 0
+Cond 69
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 0 24 0 0
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 16068
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 10215
+Nest 0
+Cond 26
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 5604
+Nest 0
+ExtF 17301507
+Cond 78
+Wear 4
+Cost 1000
+End
+
+#O
+Vnum 5604
+Nest 0
+ExtF 17301507
+Wear 3
+Cost 1000
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 28001
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 28002
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24408
+Nest 0
+Cond 90
+Wear 7
+Cost 6000
+End
+
+#O
+Vnum 24409
+Nest 0
+Cond 98
+Wear 2
+Cost 6000
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 20008
+Nest 0
+Cond 94
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 20006
+Nest 0
+Cond 89
+Wear 5
+Cost 999
+End
+
+#O
+Vnum 24468
+Enchanted
+Nest 0
+Wear -1
+Lev  14
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 17101
+Nest 0
+Wear -1
+Cost 160
+End
+
+#O
+Vnum 17102
+Nest 0
+Cond 98
+Wear 0
+Cost 250
+End
+
+#O
+Vnum 5608
+Nest 0
+Cond 89
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 80
+Wear 19
+Cost 6000
+End
+
+#O
+Vnum 3808
+Nest 0
+Cond 92
+Wear 12
+Cost 30000
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 8204
+Nest 0
+Cond 84
+Wear 9
+Cost 3800
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 16071
+Nest 0
+Cond 53
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 5608
+Nest 0
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 24405
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 24405
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 24402
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 24403
+Nest 0
+Cond 99
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 8812
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 24405
+Nest 0
+Wear -1
+Cost 3840
+End
+
+#O
+Vnum 24409
+Nest 0
+Cond 93
+Wear 1
+Cost 6000
+End
+
+#O
+Vnum 7607
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 16011
+Nest 0
+Cond 80
+Wear -1
+Cost 7500
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 80
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 9922
+Nest 0
+Cond 70
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24474
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cancellation'
+Spell 2 'slow'
+Spell 3 'regeneration'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 96
+Wear 16
+Cost 6000
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#END

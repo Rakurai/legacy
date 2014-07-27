@@ -1,0 +1,2476 @@
+#AREA
+Portals.are~
+Portals~
+{H{{60 90} {MZheiden {TRipper's Cavern{x~
+16500 16599
+
+#MOBILES
+#16500
+assassin robe darkness~
+a {Cblack-robed{x assassin~
+A heavily robed figure moves within the darkness.
+~
+A piece of shadow moves in the darkness and in it walks a human
+shape. The person is garbed in pitch black robes and their face
+is hidden within a hood. Only the silent swish of cloth and a
+sense of movement within the shadows betrays its presence. You
+feel rather than hear the implied threat to your continued 
+presence.
+~
+irda~
+GS BDFHJPQVe -1000 S
+60 15 2000d1+400 240d1+1 5d4+28 pierce
+-40 -40 -40 -34
+BEFHJK B 0 0
+stand stand male 300
+0 0 medium 0
+>greet_prog 80~
+if isnpc($n)
+   break
+endif
+if isimmort($n)
+   break
+endif
+if level($n) <= 65
+   MPKILL $n
+   chortle
+else
+  if rand(20)
+     emote leaves.
+  else
+     if inroom($i) == 16534
+        MPECHO You hear a swish of cloth.
+        MPGOTO 16526
+     else
+        MPECHO You hear a swish of cloth.
+        MPGOTO 16534
+    endif
+  endif
+endif
+~
+|
+#16501
+shade~
+a screaming {cshade{x~
+A howling {cshade{x sets your nerves on edge with its grating wail.
+~
+Red holes pass for eyes and a yellow gash for a mouth. The black
+on black of the screaming shade follows you around the room and
+its voice pierces your skull with vile ephitets. Its arms and body
+pass through yours leaving a chill in your bones and a clenched
+fist on your heart.
+~
+irda~
+GMS DFHJTVa -1000 S
+60 12 2000d1+100 240d1+1 5d3+25 edrain
+-40 -40 -40 -37
+ACFHK BQL HIM 0
+stand stand male 100
+0 0 large 0
+>rand_prog 10~
+MPASOUND A howling wail invades your mind and rattles your nerves
+~
+>rand_prog 10~
+if rand(50)
+   MPECHO A shadow detaches itself from the night and flies at your head.
+else
+   MPECHO {PRed gashes{x for {Peyes{x and a {byellow slit{x as a {bmouth{x screech your name.
+endif
+~
+>fight_prog 20~
+emote pierces your body with its arm chilling your heart.
+MPCAST 'energy drain'
+~
+|
+#16502
+demon~
+a raging {Rd{be{Ym{bo{Rn{x~
+{YF{Pl{Ya{Pm{Ye{Ps{x engulf a traveling {Rd{be{Ym{bo{Rn{x.
+~
+Fire explodes from its body and vanish as quickly, leaving you
+stranded, blind in the darkness following the flash. You hear
+its deep breathing and throaty chuckle at your ear as it begins
+tearing at your flesh and mind.
+~
+superhuman~
+GT HTVb -1000 S
+75 15 4000d1+625 1500d1+1 5d5+30 flbite
+-53 -49 -53 -46
+ACFIKO BHLQ IODM 0
+stand stand male 200
+0 0 large 0
+>rand_prog 10~
+MPECHO The {Rd{be{Ym{bo{Rn{x is engulfed in {Pf{Yl{Pa{Ym{Pe{Ys{x.
+MPASOUND A pillar of {Pf{Yl{Pa{Ym{Pe{x bursts into existence in the next room.
+~
+>greet_prog 99~
+if isnpc($n)
+   break
+endif
+if isimmort($n)
+   snarl $n
+   say Be glad you are beyond my power, Ancient One.
+   break
+endif
+if isgood($n)
+   MPKILL $n
+   snarl
+   say Foul do-gooder! I'll have you on a spit for my dinner!!
+else
+   cackle
+   say I'm here to COLLECT YOUR SOUL!!!!!
+   say Prepare to feel the fires of {VG{Pe{Vh{Pe{Vn{Pn{Va{x, foolish mortal!!
+   MPKILL $n
+endif
+~
+>fight_prog 90~
+if rand(80)
+   sa Taste the wrath of HELL!!!
+   MPCAST 'demonfire'
+else
+   sa You won't need these....
+   MPCAST 'dispel magic'
+endif
+~
+|
+  
+#16503
+necromancer evil cowled evilcreator~
+a dark necromancer~
+Cowled in {cd{Re{ca{Rt{ch{x and reeking of {Pe{cv{Pi{cl{x, the necromancer searches.
+~
+He taps around the room with his staff, testing the power of the
+crossroads. His world, blasted and ruined, has nothing to offer
+and he seeks new conquests. His golem construct searches the 
+area as well. Be wary. The hunter can become the hunted in the
+blink of an eye.
+~
+unique~
+GR DFHOIJV -1000 S
+70 14 3000d1+500 840d1+1 5d4+28 magic
+-47 -47 -47 -43
+EFJKN B QLMO 0
+stand stand male 200
+0 0 medium 0
+>greet_prog 50~
+mpecho A sibilant hiss comes from the dark-robed figure before you.
+~
+
+>fight_prog 20~
+if rand(75)
+   MPCAST 'dispel good'
+else
+   emote mumbles an incantation.
+   if rand(50)
+      MPCAST 'energy drain'
+   else 
+      MPCAST 'dispel magic'
+   endif
+endif
+~
+|
+
+#16504
+flesh golem evilconstruct~
+a {Mf{Rl{Me{Rs{Mh {Rg{Mo{Rl{Me{Rm{x~
+Knitted together from castoff corpses, a {Mf{Rl{Me{Rs{Mh {Rg{Mo{Rl{Me{Rm{x waits.
+~
+It is made from the mismatched parts of dead bodies. Expertly
+sewn together, it moves with a silence matched only by the lurking
+assassins of all worlds. It searches for another exit to please
+its master.
+~
+unique~
+BGTZ HJNPVa -1000 S
+65 13 3000d1+250 260d1+1 5d5+28 crush
+-47 -47 -47 -40
+OCFHKR BMQ HIJKLO 0
+stand stand male 0
+0 0 medium 0
+>rand_prog 5~
+if rand(10)
+   emote pads around the room silently.
+else
+   emote watches you for a time.
+endif
+~
+
+>rand_prog 100~
+follow necromancer
+~
+|
+
+#16505
+goth raider~
+a goth raider~
+An insane goth, lost in his hunt for spoils, screams in rage.
+~
+Dressed in rags, the raving barbarian rages through the planes
+looking for a way home. Face with incomprehensible magic, he has
+gone insane with his search. Fear is permanently stamped on his
+features and anger fills his eyes. Perhaps it would be wise to
+leave.
+~
+human~
+GT HVa 0 S
+60 12 2000d1+600 240d1+1 5d3+25 charge
+-40 -40 -40 -34
+ACFIK BC QL 0
+stand stand male 50
+0 0 medium 0
+>greet_prog 50~
+if rand(50)
+   howl
+   emote ignores your presence and howls like a banshee.
+else
+   if isnpc($n)
+      break
+   endif
+   if isimmort($n)
+      scream
+      yell FREE ME!! LET ME LOOSE!!
+      break
+   endif
+   emote runs at you insane and enraged at your intrusion.
+   MPKILL $n
+endif
+~
+>rand_prog 30~
+if rand(25)
+   howl
+   MPASOUND You hear an insane screech from the next room.
+else
+   if rand(33)
+     scream
+     MPASOUND You hear an insane screech from the next room.
+   else
+      if rand(75)
+        boggle
+      else
+        scream
+        howl
+        MPASOUND You hear an insane screech from the next room.
+      endif
+   endif
+endif
+~
+|
+
+#16506
+unseen~
+the {bu{cn{Hs{be{ce{Hn{x~
+An {bu{cn{Hs{be{ce{Hn{x, but felt movement, alerts you to something's presence.
+~
+Its hide flows and mixes to match the background so much that
+your head begins to ache and your eyes to unfocus. The only
+sound you hear is the occasional click of its mandibles. Is it
+coming closer? You cannot tell.
+~
+human~
+GSC HPQV 0 S
+60 12 2000d1+100 240d1+1 5d3+25 chomp
+-40 -40 -40 -37
+CEFHK BMN HIJQL 0
+stand stand male 100
+0 0 medium 0
+>rand_prog 5~
+MPECHO The wall shifts and moves.
+~
+>fight_prog 50~
+MPCAST 'acid blast'
+spit $r
+~
+|
+#16507
+storm elemental~
+a {cs{Tt{co{Tr{cm {Ce{Tl{ce{Cm{Te{cn{Ct{Ta{cl{x~
+A {cr{bo{Ti{cl{bi{Tn{cg {cs{Tt{co{Tr{cm{x fills the room and thunders loudly in your ears.
+~
+A cloud of mist, thunder and lightning stands before you roiling
+and rolling. On a journey from or to its home plane, it can be
+guaranteed that it is not in a very good mood. Pretentious and
+arrogant mages have ways of angering the spirits of the earth
+that only death can fix.
+~
+superhuman~
+GT HVa 0 S
+75 15 5000d1+625 1350d1+1 5d5+30 shock
+-53 -50 -53 -43
+AEFKO BLQ OHIJKMN 0
+stand stand male 0
+0 0 huge 0
+>rand_prog 10~
+if rand(50)
+   MPECHO {WL{Yi{Wg{Yh{Wt{Yn{Wi{Yn{Wg{x flashes in the room.
+   MPASOUND *{YCRACK{x*BOOM*
+else
+   MPECHO {TT{cH{TU{cN{TD{cE{TR{x crashes all around you.
+   MPASOUND *{TC{CR{TA{cS{TH{x*{YCRACK{x*{YCRACK{x*BOOM*
+endif
+~
+>fight_prog 60~
+MPECHO The storm cloud envelopes you.
+MPCAST 'lightning breath'
+~
+|
+#16508
+elementalist mage neutralcreator~
+an {Pe{Cl{Ge{Bm{Pe{Cn{Gt{Ba{Pl{Ci{Gs{Bt{x~
+A {cg{gr{ce{gy{c-{gr{co{gb{ce{gd{x mage of the {Pe{Cl{Ge{Bm{Pe{Cn{Gt{Bs{x travels to his next meeting.
+~
+He is journeying from one plane to the next and, on his travels,
+has stopped to check on the guardian of the gateway. His robes
+are gray and his staff crackles with energy. He nods in greeting
+and continues, unfazed by your presence.
+~
+unique~
+GR HINOTb 0 S
+70 14 3000d1+850 840d1+1 5d4+28 magic
+-47 -47 -47 -43
+EFJK BMN HIJKLQ 0
+stand stand male 150
+0 0 medium 0
+>greet_prog 40~
+emote murmurs a greeting to you and continues.
+~
+
+>fight_prog 75~
+emote breathes deeply.
+if rand(50)
+   MPCAST 'frost breath'
+else
+   MPCAST 'flame breath'
+endif
+~
+|
+#16509
+iron golem neutralconstruct~
+an {Ri{br{Ro{bn {Rg{bo{Rl{be{Rm{x~
+The {Ri{br{Ro{bn {Rg{bo{Rl{be{Rm{x watches over the paths of neutrality.
+~
+The squeal of gears is the only evidence of this creature's
+life. Jaws work and fingers flex, but otherwise it is motionless.
+The eyes are glowing and seem to watch your actions in the room.
+Forbidding and reassuring, this guardian watches for all time
+the paths that the Ripper has opened.
+~
+unique~
+BGTZ HJVab 0 S
+65 13 4000d1+225 260d1+1 5d5+30 charge
+-50 -50 -50 -37
+AIFKOR BMNQL HIJ 0
+stand stand male 0
+0 0 huge 0
+
+>rand_prog 10~
+MPECHO Screeching gears alert you to the presence of the {Ri{br{Ro{bn {Rg{bo{Rl{be{Rm{x.
+MPASOUND Tortured screaming metal makes you cover your ears.
+~
+>rand_prog 100~
+follow elementalist
+~
+|
+#16510
+crusader fanatic~
+a {Wc{Pr{Wu{Ps{Wa{Pd{We{Pr{x~
+A fanatic {Wc{Pr{Wu{Ps{Wa{Pd{We{Pr{x travels the worlds, searching for converts.
+~
+He is hunting for infidels and heresy to destroy. A well practiced
+war cry fills the air and your ears as he lunges at you. The ugly 
+light of fanatacism fills his eyes and his swordhand shakes in 
+anticipation of your submission or your death.
+~
+human~
+GT DFHJNVa 1000 S
+60 12 2000d1+300 240d1+1 5d3+25 punch
+-45 -45 -45 -34
+CFHK BG QLM 0
+stand stand male 50
+0 0 medium 0
+>greet_prog 70~
+if isnpc($n)
+   break
+endif
+if isimmort($n)
+   emote pointedly ignores your presence.
+   break
+endif
+if isgood($n)
+   say May the light of goodness guard your rest.
+   bow $n
+else
+   yell INFIDEL!!!!
+   MPKILL $n
+endif
+~
+>rand_prog 10~
+if rand(50)
+   emote touches his heart and head and utters a blessing.
+else
+   emote drops to one knee and grasps his mace firmly.
+   emote glows with an unearthly light.
+endif
+~
+|
+#16511
+illusionist~
+an {ci{Wl{cl{Wu{cs{Wi{co{Wn{ci{Ws{ct{x~
+An {ci{Wl{cl{Wu{cs{Wi{co{Wn{ci{Ws{ct{x hastily casts spells to erase his presence.
+~
+Practioners of magic often misunderstand the less tangible arts of
+their cousin the illusionist. But, as we all know, finesse sometimes
+reaches the goal ahead of brute strength. He peers at you intently
+and slowly his form dissolves into vapor. And even as you turn
+around your memory begins to even doubt his existence.
+~
+human~
+GR BDFHJTVb 1000 S
+60 12 2000d1+100 240d1+1 5d3+25 magic
+-40 -40 -40 -37
+FHJK B OJM 0
+stand stand male 100
+0 0 medium 0
+>greet_prog 80~
+emote smiles faintly and nods at you.
+say Looking for the exit?
+~
+>rand_prog 10~
+say In order to reach the Ripper, You must search the very
+say corners of existence. Even then only the death of his
+say faithful servants will reveal the secret portal to his chambers.
+~
+>fight_prog 30~
+if hitprcnt($i) < 20
+  MPECHO A {Y{fBLINDING{x flash explodes from the illusionist.
+  MPECHO When your eyes clear, you are fighting....nothing.
+  if inroom($i) == 16505
+     MPGOTO 16514
+  else
+     MPGOTO 16505
+  endif
+endif
+~
+|
+#16512
+seraph~
+the {Ws{Ye{Wr{Ya{Wp{Yh{x~
+A {Ws{Ye{Wr{Ya{Wp{Yh{x travels the planes in search of those needing aid.
+~
+Clad in a nimbus of light and flowing white robes. Its hair is bright 
+white and skin is deeply tanned. No wings come from its back, but 
+its eyes are golden orbs that pierce your soul. At his side, he wears
+a long two-handed sword with a golden hilt and a silver blade. A
+confidence permeates his being as he strides from one plane to the
+next in search of the good he might effect.
+~
+superhuman~
+GT DFHJTNVab 1000 S
+75 15 5000d1+250 1200d1+1 5d5+30 wrath
+-50 -50 -50 -49
+ACFHKO BLQ HIJKDMN 0
+stand stand none 150
+0 0 large 0
+>greet_prog 50~
+if isnpc($n)
+   break
+endif
+if isimmort($n)
+   bow $n
+   say Your servant, Ancient One.
+   break
+endif
+if isgood($n)
+   emote bestows its blessing upon you.
+else
+   if rand(50)
+      emote watches your movements closely.
+   else
+      emote frowns at you.
+   endif
+endif
+~
+>hitprcnt_prog 20~
+if rand(50)
+   sa If I go, you come with me!!!
+   MPCAST 'lightning breath'
+else
+   MPCAST 'flame breath'
+   sa Don't expect to leave without a SCAR!
+endif
+~
+|
+#16513
+holy priest humble goodcreator~
+a {Wholy {Ypriest{x~
+A humble {Ypriest{x is on pilgrimage to his other followers.
+~
+In the minds of his followers, he is the right hand of the Creator.
+In his mind, he is but the humble servant of his flock. He is on a
+pilgrimage from one plane to the next to spread the goodness and
+light that comes from helping others. A purveyor of brotherhood and
+cooperation, he assists anyone that requires aid. He is attended by
+a clay golem that seems to have gone on its own path for the moment.
+~
+unique~
+GQ DFHIJNVbe 1000 S
+70 14 3000d1+500 840d1+1 5d4+28 divine
+-47 -47 -47 -43
+FHKO B MOHI 0
+stand stand male 100
+0 0 medium 0
+
+>greet_prog 40~
+emote bows and greets you with a humble prayer.
+~
+>fight_prog 80~
+if rand(75)
+   MPCAST 'ray of truth'
+else
+   MPCAST 'dispel magic'
+endif
+~
+
+|
+#16514
+clay golem goodconstruct~
+a {Rc{bl{Pa{Yy {Rg{bo{Pl{Ye{Rm{x~
+A {Rg{bo{Pl{Ye{Rm{x made of {Rc{bl{Pa{Yy{x stands in the room.
+~
+Striated like the dirt from which it was made, this construct stands
+impassive as the mountains. Its slight movements betray its nature,
+but do not hint at its purpose or power. Like all other constructs
+of magical nature, it has an annoying habit of looking at you no 
+matter where you are in the room.
+~
+unique~
+BGTZ HJVa 1000 S
+65 13 3000d1+575 260d1+1 5d5+25 crush
+-43 -43 -43 -43
+CFHKr BMNQL HIJO 0
+stand stand male 0
+0 0 large 0
+>rand_prog 10~
+MPECHO You remember the clay golem stands in the room.
+~
+>rand_prog 100~
+follow priest
+~
+|
+#16515
+diamond garr sentry~
+a {Wdiamond{x garr~
+A hulking garr created from pure {Wdiamond{x stands sentry.
+~
+The creature cannot be naturally occuring in any environment. The
+edges are smooth and features distinct, even though it is cut from
+pure diamond. Deep within its chest you see a fault in the crystal.
+Faint blue pulses from it through other fractures in the diamond.
+Its arms hang low, much like a gorilla's. But, at a height of seven
+feet, its power is self-evident and very potent.
+~
+unique~
+BGT HJVa 0 S
+80 16 6400d1+1 320d1+1 5d5+30 flbite
+-60 -60 -60 -46
+OFKCR BFQL CGHIJO 0
+stand stand male 0
+0 0 huge 0
+>death_prog 99~
+emote explodes violently.
+MPCAST 'chain lightning'
+~
+|
+#16516
+energy garr sentry~
+an {Yenergy{x garr~
+A crackling garr created from pure {Yenergy{x stands sentry.
+~
+Sparks jump and crackle along its entire seven foot frame. The low
+hanging arms brush the floor and its body pulses. From no world you
+have ever seen, this creature's presence is either a fluke (Doubt it)
+or he stands an impassive guard to would-be vistors to its Master.
+~
+unique~
+BGT HJVab 0 S
+80 16 6400d1+1 320d1+1 5d5+30 shbite
+-53 -53 -53 -51
+OFKCR BFJOQL CHI 0
+stand stand male 0
+0 0 large 0
+>death_prog 99~
+emote is consumed in flame.
+MPECHO A glowing soul springs from its mouth, opening a portal.
+MPOLOAD 16527
+~
+>greet_prog 99~
+MPPURGE soulgate
+~
+|
+#16517
+dimensional beast~
+a {Pd{Gi{Tm{He{Bn{Rs{Vi{Go{Cn{Wa{cl{x beast~
+A great, shifting hulk growls and gnashes its teeth.
+~
+It shifts and thumps its feet. The form is indistinct and constantly
+fluctuates, but it is *HUGE* and its mouth matches its proportions.
+The only other thing of which you are certain is the fire burning in
+its ever changing eyes. Claws clench and unclench and it slams into a
+wall, shaking the prison walls. Its eyes focus on you and it screams/
+roars/bellows at you. You body shakes and you have an understandable 
+urge to find an exit *fast*.
+~
+unique~
+GT DFHJNOTVYab -1000 S
+92 19 10000d1+120 1840d1+1 5d5+45 wrath
+-60 -60 -60 -53
+ACFHKO BMNQL CD 0
+stand stand male 0
+0 0 giant 0
+>rand_prog 40~
+if rand(25)
+   emote lets loose a LOUD ROAR, shaking you to your boots.
+   MPASOUND *ROAR*THUMP*
+else
+   if rand(33)
+      emote snarls loudly and crashes into the wall.
+      MPASOUND *SNARL*CRASH*
+   else
+      if rand(66)
+         emote peers around and lets loose a keening wail.
+         MPASOUND *SCREAM*GROWL*
+      else
+         emote paws the ground and launches itself toward a wall.
+         MPASOUND *SCRATCH*SCRATCH*CRASH*RUMBLE*
+      endif
+   endif
+endif
+~
+>rand_prog 20~
+if isimmort($n)
+   break
+endif
+if rand(50)
+   emote looks at you and growls.
+else
+   scream
+   MPKILL $r
+endif
+~
+|
+
+#16518
+ripper veils portals mage~
+{cRipper{x of {RV{Te{Hi{Ml{gs{x~
+The {cRipper{x of {RV{Te{Hi{Ml{gs{x, Mage of Portals, paces and mutters.
+~
+His black robe is slightly rumpled and his hair is in disarray. He
+mumbles and mutters magical formulae while scratching his chin. No
+overt notice is taken of you, but he occasional motions in your 
+direction as if dismissing you. When you do not leave, he stops and
+looks at you. Black pits exist where his eyes should be and the 
+ingrained lines of hate and loathing wrinkle into being. He growls,
+showing sharpened teeth and begins casting a spell.
+~
+human~
+GT DFHJNOTVYbce -1000 S
+95 21 9500d1+1 3230d1+1 5d5+42 magic
+-70 -70 -70 -60
+AFHKO BMNQL CD 0
+stand stand male 300
+0 0 medium 0
+>greet_prog 99~
+if isnpc($n)
+   break
+endif
+if isimmort($n)
+   say What now? You immortals, always mucking around in things you don't understand.
+   break
+endif
+if level($n) <= 85
+   MPECHO An e{W{fxp{Vlo{fs{xi{Yon{x of light blinds you.
+   MPTRANSFER $n Helga
+   MPAT $n say AND STAY OUT!!! Come back when you have grown up.
+else
+   grumble
+   say I *HATE* BEING INTERRUPTED!!
+   MPCAST 'wrath' $n
+endif
+~
+>fight_prog 75~
+if rand(50)
+   emote claps his hands.
+   MPCAST 'lightning breath'
+else
+   snarl
+   MPCAST 'acid breath'
+endif
+~
+|
+
+#16519
+stonesentry garr~
+a {cstone{x garr~
+A hulking garr created from pure {cstone{x stands sentry.
+~
+The creature cannot be naturally occuring in any environment. The
+edges are smooth and features distinct, even though it is cut from
+pure granite. You see cracks along the musculature and like the 
+others, its powerful arms hang low like a gorilla's.
+~
+unique~
+BGT HJNOVZa 0 S
+80 16 6400d1+1 320d1+1 5d5+30 flbite
+-60 -60 -60 -46
+OFKCR BFQL CGHIJO 0
+stand stand male 0
+0 0 huge 0
+
+#0
+
+#OBJECTS
+#16500
+adder tooth~
+an adder's tooth~
+A stilleto oozing poison is stuck in the ground.~
+steel~
+weapon EGHMJLT AN
+Class 2 30 bite H
+60 5 500 P
+E
+adder tooth~
+An ugly, putrid green substance coats the blade
+and when you touch it, a subtle whisper invades
+your thoughts.
+~
+A
+18 5
+A
+19 4
+#16501
+morning blessed mace~
+the warhammer, Blessed Morning~
+A long mithril hammer with gold etching lies here.~
+mithril~
+weapon AIKLT AN
+mace 2 33 divine B
+60 20 500 P
+E
+morning blessed~
+A soft song floats into you mind, blowing you
+cares to the winds and comforting your soul.
+Your touch on the smooth haft brings thoughts
+of vengeance and glory to your mind.
+~
+A
+18 4
+A
+19 5
+#16502
+spear fury~
+the spear, Fury~
+A spear vibrates and hums with your approach.~
+iron~
+weapon EGST AN
+staff 2 30 wrath D
+60 10 500 P
+E
+fury spear~
+A wail escapes your pain wracked body when you
+touch the spear, but a glowing, white-hot anger
+suffuses you with power.
+~
+A
+18 4
+A
+19 4
+#16503
+eye shade~
+the eye of a shade~
+A dark glistening eyeball glowers at you.~
+flesh~
+Light AIJLOT AO
+0 0 -1 0 0
+60 200 0 P
+E
+eye shade~
+The eye glows dimly and thoughts of death and night 
+grip you when your fingers touches it.
+~
+A
+18 3
+A
+19 4
+F
+A 0 0 J
+#16504
+light wand~
+a light wand~
+A wand tipped with a bright light lies in the dirt.~
+wood~
+Light AIKLOT AO
+0 0 -1 0 0 
+60 200 0 P
+E
+light wand~
+Graven into the end of the wand is "Illuminate".
+~
+A
+18 4
+A
+19 3
+F
+A 0 0 C
+#16505
+unseen skull~
+skull of the unseen~
+A vaporous skull rests in the dirt.~
+vapor~
+Light AIOT AO
+0 0 -1 0 0
+60 200 0 P
+E
+unseen skull~
+The skull wavers and shifts in your hand, but
+it provides you some protection, despite its
+ghastly looks.
+~
+A
+18 3
+A
+19 3
+F
+A 0 0 P
+#16506
+flesh heart~
+a flesh heart~
+A thumping grisly heart floats here.~
+flesh~
+armor AJLOT AQ
+22 22 22 16 0
+65 5 100 P
+E
+flesh heart~
+The fleshy heart thumps loudly, infused
+with the unholy power of a necromancer's
+dream of dominion.
+~
+A
+2 1
+A
+
+12 15
+A
+18 4
+A
+19 3
+A
+17 -1
+#16507
+clay heart~
+a clay heart~
+A slowly beating clay heart floats here.~
+clay~
+armor AKLOT AQ
+22 22 22 16 0
+65 5 100 P
+E
+clay heart~
+The clay moves and beats silently, rebuking
+its owner for the injustice of being ripped
+from the good priest's creation.
+~
+A
+4 1
+A
+12 10
+A
+18 4
+A
+19 4
+A
+20 -1
+#16508
+iron heart~
+an iron heart~
+Squealing loudly, an iron heart floats here~
+iron~
+armor AOT AQ
+22 22 22 16 0
+65 5 100 P
+E
+iron heart~
+Torn from the chest of an iron golem, it still has
+the securing wires attached and the clockwork parts
+still beating and squeal like a constant death knell.
+~
+A
+1 3
+A
+13 30
+A
+18 5
+A
+19 5
+#16509
+rod lepers~
+Rod of Lepers~
+A rotten piece of ironwood lies here.~
+wood~
+weapon IJL AN
+staff 2 35 drain C
+70 10 500 P
+E
+lepers staff rod~
+Grasping the staff firmly, you realize that
+the wood has rotted from within. It is slimy
+and crumbling to the touch, but it has the
+tenacity of a soul guaranteed death.
+~
+A
+13 50
+A
+18 6
+A
+19 6
+#16510
+sceptre life~
+Sceptre of Life~
+A polished mithril sceptre embossed with sun symbols is here.~
+mithril~
+weapon IKL AN
+staff 2 35 divine G
+70 10 500 P
+E
+sceptre life~
+Golden and light, the cool metal slides through your hands
+and comforts your heart. Glittering softly, a humming
+reaches your ears.
+~
+A
+13 50
+A
+18 6
+A
+19 6
+#16511
+staff nature~
+Staff of Nature~
+A polished staff of black oak bound in iron stands here.~
+wood~
+weapon I AN
+staff 14 5 wrath F
+70 20 500 P
+E
+staff nature~
+Made from solid black oak, this staff is warm and dry
+to the touch. A crackling noise flow from the ends
+of the thick shaft.
+~
+A
+13 25
+A
+18 5
+A
+19 5
+#16512
+demon strength~
+Demon's Strength~
+A set of black metal bracers glint evilly in the light.~
+adamantite~
+armor AEGIJLST AI
+25 25 25 19 0
+75 750 0 P
+E
+demon strength~
+Night envelopes you when you touch these evil bracers.
+~
+A
+1 2
+A
+12 30
+A
+18 3
+A
+19 3
+A
+17 -2
+#16513
+blessing light~
+Blessing of Light~
+A pair of white bands glow in the dirt.~
+ivory~
+armor AEGIKLST AI
+25 25 25 19 0
+75 750 0 P
+E
+blessing light~
+A warm glow climbs your arm and limns your body when
+you touch the ivory bracers.
+~
+A
+4 2
+A
+13 30
+A
+18 3
+A
+19 3
+A
+17 -2
+#16514
+wrath tempests~
+Wrath of Tempests~
+Grey-gold bands sit on the floor.~
+iron~
+armor AEGIST AI
+25 25 25 19 0
+75 750 0 P
+E
+wrath tempests~
+Holding these in your hands, you body trembles and shakes
+while explosions of thunder go off in your head.
+~
+A
+2 2
+A
+5 1
+A
+12 40
+A
+18 3
+A
+19 3
+A
+20 -1
+#16515
+portal~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x portal~
+A dimly glowing portal {WS{Ph{Gi{Cm{Vm{We{Pr{Gs{x and wavers.~
+energy~
+portal 0 0
+0 0 A 16532 0
+50 1000 0 P
+#16516
+portal~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x portal~
+A dimly glowing portal {WS{Ph{Gi{Cm{Vm{We{Pr{Gs{x and wavers.~
+energy~
+portal 0 0
+0 0 A 16522 0
+50 1000 0 P
+#16517
+portal~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x portal~
+A dimly glowing portal {WS{Ph{Gi{Cm{Vm{We{Pr{Gs{x and wavers.~
+energy~
+portal 0 0
+0 0 A 16509 0
+50 1000 0 P
+
+#16518
+nexus~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x nexus~
+~
+energy~
+portal 0 0
+0 0 A 16534 0
+50 1000 0 P
+E
+nexus~
+A shimmering pool of light beckons.
+~
+#16519
+nexus~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x nexus~
+~
+energy~
+portal 0 0
+0 0 A 16513 0
+50 1000 0 P
+E
+nexus~
+A shimmering pool of light beckons.
+~
+
+#16520
+gate~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x gate~
+~
+energy~
+portal 0 0
+0 0 A 16523 0
+50 1000 0 P
+E
+gate~
+A shimmering pool of light beckons.
+~
+
+#16521
+gate~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x gate~
+~
+energy~
+portal 0 0
+0 0 A 16508 0
+50 1000 0 P
+E
+gate~
+A shimmering pool of light beckons.
+~
+#16522
+portal~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x portal~
+~
+energy~
+portal 0 0
+0 0 A 16526 0
+50 1000 0 P
+E
+portal~
+A shimmering pool of light beckons.
+~
+#16523
+portal~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x portal~
+~
+energy~
+portal 0 0
+0 0 A 16518 0
+50 1000 0 P
+E
+portal~
+A shimmering pool of light beckons.
+~
+#16524
+nexus~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x nexus~
+~
+energy~
+portal 0 0
+0 0 A 16535 0
+50 1000 0 P
+E
+nexus~
+A shimmering pool of light beckons.
+~
+#16525
+tiny tear universe~
+a tiny tear in the universe~
+A small cosmic tear is here.~
+energy~
+portal 0 0
+0 0 A 16501 0
+50 1000 0 P
+
+#16526
+ripper veil~
+the Ripper's Veil~
+The Ripper's Veil, like a rip in time, opens here.~
+energy~
+portal 0 0
+0 0 E -1 0
+50 1000 0 P
+
+#16527
+garr gate soulgate~
+the Garr's Soul~
+The soul of a Garr floats here, an entrance into another plane.~
+energy~
+portal P 0
+0 0 A 16541 0
+80 600 0 P
+E
+soul~
+Looking into the soul, you can see another room.
+~
+
+#16528
+heart garr~
+the Garr's Heart~
+The heart of a Garr lies on the floor, motionless.~
+diamond~
+light BHMORT AO
+0 0 -1 0 0
+80 5 500 P
+E
+heart~
+Glittering with an inner light the crystal heart is smooth
+to the touch. You can feel a finger of energy enter your body
+when you touch it.
+~
+A
+1 2
+A
+5 2
+A
+12 50
+A
+13 30
+A
+18 5
+A
+19 5
+#16529
+beast claw~
+the Beast's Claw~
+The severed claw of the dimensional beast glows and shifts here.~
+keratin~
+weapon BIOT AN
+exotic 4 24 claw F
+92 20 500 P
+E
+claw beast~
+Cut from the beast's cooling corpse, it maintains its
+magical properties. A terrific trophy and a terrible
+weapon it is up to you to decide its use.
+~
+A
+18 10
+A
+19 10
+A
+12 50
+A
+13 50
+#16530
+ripper cowl~
+the Ripper's Cowl~
+A deep, heavy cowl lies formless upon the floor.~
+cloth~
+armor AOT AE
+20 20 20 30  0
+95 5 1000 P
+E
+ripper cowl~
+The ripper invested all his power in his headwear.
+It is an inconspicuous bit, but holding the fold of
+cloth fills your body with a tearing power that rips
+through your mind.
+~
+A
+18 8
+A
+19 8
+A
+12 50
+A
+13 100
+A
+17 -3
+A
+24 -6
+#16531
+portal~
+a {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x portal~
+A dimly glowing portal {WS{Ph{Gi{Cm{Vm{We{Pr{Gs{x and wavers.~
+energy~
+portal 0 0
+0 0 A 16501 0
+50 1000 0 P
+
+#0
+#ROOMS
+#16500
+A Dark Entrance~
+Stepping into the cave from the cliffside, you are immediately
+drowned in darkness. A chill enters your bones as you move 
+farther from the sunlight. The room to the south is filled 
+with a grey light emanating from the walls. The sound of the
+battle fades and a growing silence fills you with dread. Slow
+steps take you into the next room.
+~
+0 ADN 0
+D0
+The Battlelord's Vantage.
+~
+~
+0 -1 11922
+D2
+Rune Covered Room.
+~
+~
+0 -1 16501
+S
+#16501
+{RR{cu{Rn{ce{Rd{c-{Rc{co{Rv{ce{Rr{ce{Rd{x Walls~
+On the walls in this room are glowing {Rr{cu{Rn{ce{Rs{x. Looking around
+to the other walls you see shimmering portals waver and ripple
+like a lake lapping at the shore. A dead gate stands in this 
+room like so much motionless obsidian. The feeling of dread is
+stronger here and the {Rr{cu{Rn{ce{Rs{x draw your eyes as {Pf{Yl{Pa{Ym{Pe{Ys{x draw moths.
+~
+0 ADN 0
+D0
+Dark entrance.
+~
+~
+0 -1 16500
+D2
+Evil Portal Room.
+~
+~
+0 -1 16502
+D3
+Good Portal Room.
+~
+~
+0 -1 16504
+E
+wall runes~
+Enter the {Yp{Bo{Yr{Bt{Ya{Bl{Ys{x
+Of {Yyellow{x and {Bblue{x
+Never to return
+Lest walls fall
+And worlds burn
+Your life ends here
+You will never leave
+Until the {cRipper{x or his {RV{Te{Hi{Ml{x 
+Sets you free
+~
+E
+obsidian gate dead~
+Dark as midnight and cold as winter's ice, this slab
+of obsidian stands here collecting all stray shreds of
+light. It is the exit for a one way portal. Where is
+the entrance?
+~
+S
+#16502
+A {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x Gate~
+A dull grey light fills the room. It comes from a portal on the
+smooth obsidian wall. Running your fingers across the glowing 
+nexus, you note that it feels like hot water and your hand 
+pierces the glowing gate. Do you enter?
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16501
+D3
+More portals are west.
+~
+~
+0 -1 16503
+S
+#16503
+A {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x Gate~
+A dull grey light fills the room. It comes from a portal on the
+smooth obsidian wall. Running your fingers across the glowing 
+nexus, you note that it feels like warm water and your hand 
+pierces the glowing gate. Do you enter?
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16504
+D1
+More portals are east.
+~
+~
+0 -1 16502
+S
+#16504
+A {WS{Ph{Gi{Cm{Vm{We{Pr{Gi{Cn{Vg{x Gate~
+A dull grey light fills the room. It comes from a portal on the
+smooth obsidian wall. Running your fingers across the glowing 
+nexus, you note that it feels like cold water and your hand 
+pierces the glowing gate. Do you enter?
+~
+0 ADN 0
+D1
+More portals are east.
+~
+~
+0 -1 16501
+D2
+More portals are south.
+~
+~
+0 -1 16503
+S
+#16505
+A Room of {WLight{x~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {Glush {Hforests{x
+covered in {Wsnow{x with {Cblue {Wskies{x as background. Songs of beauty 
+and faeries' laughter reach your ears from these doors. You catch
+a glimpse of a {Rr{Pa{Yi{Gn{Hb{Bo{Cw{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16507
+S
+#16506
+A Room of {WLight{x~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {WA{Yn{Wg{Ye{Wl{Ys{x and
+{Wc{Pr{Wu{Ps{Wa{Pd{We{Pr{Ws{x explode into the room 
+and leave just as quickly. Some bow to you, others mumble prayers. 
+A few of the gates look as though you can enter them, but just as 
+you touch them they vanish.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16509
+D3
+More portals are west.
+~
+~
+0 -1 16507
+S
+#16507
+A Room of {WLight{x~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {Glush {Hforests{x
+covered in {Wsnow{x with {Cblue {Wskies{x as background. Songs of beauty 
+and faeries' laughter reach your ears from these doors. You catch
+a glimpse of a {Rr{Pa{Yi{Gn{Hb{Bo{Cw{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16510
+D1
+More portals are east.
+~
+~
+0 -1 16506
+D2
+More portals are south.
+~
+~
+0 -1 16505
+D3
+More portals are west.
+~
+~
+0 -1 16508
+S
+#16508
+A Room of {WLight{x~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Yg{Ba{Yt{Be{Ys{x to
+other worlds and dimensions. You catch glimpses of {Glush {Hforests{x
+covered in {Wsnow{x with {Cblue {Wskies{x as background. Songs of beauty 
+and faeries' laughter reach your ears from these doors. You catch
+a glimpse of a {Rr{Pa{Yi{Gn{Hb{Bo{Cw{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16511
+D1
+More portals are east.
+~
+~
+0 -1 16507
+S
+#16509
+A Room of {WLight{x~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {WA{Yn{Wg{Ye{Wl{Ys{x and
+{Wc{Pr{Wu{Ps{Wa{Pd{We{Pr{Ws{x explode into the room 
+and leave just as quickly. Some bow to you, others mumble prayers. 
+A few of the gates look as though you can enter them, but just as 
+you touch them they vanish.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16512
+D3
+More portals are west.
+~
+~
+0 -1 16510
+D2
+More portals are south.
+~
+~
+0 -1 16506
+S
+#16510
+A Room of {WLight{x~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {WA{Yn{Wg{Ye{Wl{Ys{x and
+{Wc{Pr{Wu{Ps{Wa{Pd{We{Pr{Ws{x explode into the room 
+and leave just as quickly. Some bow to you, others mumble prayers. 
+A few of the gates look as though you can enter them, but just as 
+you touch them they vanish.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16513
+D1
+More portals are east.
+~
+~
+0 -1 16509
+D2
+More portals are south.
+~
+~
+0 -1 16507
+D3
+More portals are west.
+~
+~
+0 -1 16511
+S
+#16511
+A Room of {WLight{x~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {Glush {Hforests{x
+covered in {Wsnow{x with {Cblue {Wskies{x as background. Songs of beauty 
+and faeries' laughter reach your ears from these doors. You catch
+a glimpse of a {Rr{Pa{Yi{Gn{Hb{Bo{Cw{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are east.
+~
+~
+0 -1 16514
+D1
+More portals are south.
+~
+~
+0 -1 16510
+D2
+More portals are west.
+~
+~
+0 -1 16508
+S
+#16512
+A Room of {WLight{x~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {WA{Yn{Wg{Ye{Wl{Ys{x and
+{Wc{Pr{Wu{Ps{Wa{Pd{We{Pr{Ws{x explode into the room 
+and leave just as quickly. Some bow to you, others mumble prayers. 
+A few of the gates look as though you can enter them, but just as 
+you touch them they vanish.
+~
+0 ADN 0
+D2
+More portals are south.
+~
+~
+0 -1 16509
+D3
+More portals are west.
+~
+~
+0 -1 16513
+S
+#16513
+A Room of {WLight{x~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Yn{Be{Yx{Bi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {Glush {Hforests{x
+covered in {Wsnow{x with {Cblue {Wskies{x as background. Songs of beauty 
+and faeries' laughter reach your ears from these doors. You catch
+a glimpse of a {Rr{Pa{Yi{Gn{Hb{Bo{Cw{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D1
+More portals are east.
+~
+~
+0 -1 16512
+D2
+More portals are south.
+~
+~
+0 -1 16510
+D3
+More portals are west.
+~
+~
+0 -1 16514
+S
+#16514
+A Room of {WLight{x~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {Glush {Hforests{x
+covered in {Wsnow{x with {Cblue {Wskies{x as background. Songs of beauty 
+and faeries' laughter reach your ears from these doors. You catch
+a glimpse of a {Rr{Pa{Yi{Gn{Hb{Bo{Cw{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D1
+More portals are east.
+~
+~
+0 -1 16513
+D2
+More portals are south.
+~
+~
+0 -1 16511
+S
+#16515
+A {bSandy{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {Boceanside{x
+{bbeaches{x backed by {Hpalm trees{x and grey skies. Speeches of 
+intricate theory and the sounds of the {Ctide{x reach your ears from 
+these doors. You catch a glimpse of a grey robe in one of the 
+{Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16517
+S
+#16516
+A {bSandy{x Room~
+{PG{Ga{Pt{Ge{Ps{x, {Yn{Be{Yx{Bi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {PM{ga{Pg{ge{Ps{x and
+{Pe{Yl{Ge{Cm{Pe{Yn{Gt{Ca{Pl{Ys{x explode into the room 
+and leave just as quickly. Some look at you, others mutter a quick
+greeting. Some of the gates look as though you can enter them, but 
+just as you touch them they vanish.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16519
+D3
+More portals are west.
+~
+~
+0 -1 16517
+S
+#16517
+A {bSandy{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {Boceanside{x
+{bbeaches{x backed by {Hpalm trees{x and grey skies. Speeches of 
+intricate theory and the sounds of the {Ctide{x reach your ears from 
+these doors. You catch a glimpse of a grey robe in one of the 
+{Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16520
+D1
+More portals are east.
+~
+~
+0 -1 16516
+D2
+More portals are south.
+~
+~
+0 -1 16515
+D3
+More portals are west.
+~
+~
+0 -1 16518
+S
+#16518
+A {bSandy{x Room~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Yp{Bo{Yr{Bt{Ya{Bl{Ys{x blink in and out of existence as you
+wander through the room. {PM{ga{Pg{ge{Ps{x and
+{Pe{Yl{Ge{Cm{Pe{Yn{Gt{Ca{Pl{Ys{x explode into the room 
+and leave just as quickly. Some look at you, others mutter a quick
+greeting. Some of the gates look as though you can enter them, but 
+just as you touch them they vanish.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16521
+D1
+More portals are east.
+~
+~
+0 -1 16517
+S
+#16519
+A {bSandy{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {Boceanside{x
+{bbeaches{x backed by {Hpalm trees{x and grey skies. Speeches of 
+intricate theory and the sounds of the {Ctide{x reach your ears from 
+these doors. You catch a glimpse of a grey robe in one of the 
+{Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16522
+D3
+More portals are west.
+~
+~
+0 -1 16520
+D2
+More portals are south.
+~
+~
+0 -1 16516
+S
+#16520
+A {bSandy{x Room~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {PM{ga{Pg{ge{Ps{x and
+{Pe{Yl{Ge{Cm{Pe{Yn{Gt{Ca{Pl{Ys{x explode into the room 
+and leave just as quickly. Some look at you, others mutter a quick
+greeting. Some of the gates look as though you can enter them, but 
+just as you touch them they vanish.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16523
+D1
+More portals are east.
+~
+~
+0 -1 16519
+D2
+More portals are south.
+~
+~
+0 -1 16517
+D3
+More portals are west.
+~
+~
+0 -1 16521
+S
+#16521
+A {bSandy{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {Boceanside{x
+{bbeaches{x backed by {Hpalm trees{x and grey skies. Speeches of 
+intricate theory and the sounds of the {Ctide{x reach your ears from 
+these doors. You catch a glimpse of a grey robe in one of the 
+{Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are east.
+~
+~
+0 -1 16524
+D1
+More portals are south.
+~
+~
+0 -1 16520
+D2
+More portals are west.
+~
+~
+0 -1 16518
+S
+#16522
+A {bSandy{x Room~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {PM{ga{Pg{ge{Ps{x and
+{Pe{Yl{Ge{Cm{Pe{Yn{Gt{Ca{Pl{Ys{x explode into the room 
+and leave just as quickly. Some look at you, others mutter a quick
+greeting. Some of the gates look as though you can enter them, but 
+just as you touch them they vanish.
+~
+0 ADN 0
+D2
+More portals are south.
+~
+~
+0 -1 16519
+D3
+More portals are west.
+~
+~
+0 -1 16523
+S
+#16523
+A {bSandy{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Yg{Ba{Yt{Be{Ys{x to
+other worlds and dimensions. You catch glimpses of {Boceanside{x
+{bbeaches{x backed by {Hpalm trees{x and grey skies. Speeches of 
+intricate theory and the sounds of the {Ctide{x reach your ears from 
+these doors. You catch a glimpse of a grey robe in one of the 
+{Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D1
+More portals are east.
+~
+~
+0 -1 16522
+D2
+More portals are south.
+~
+~
+0 -1 16520
+D3
+More portals are west.
+~
+~
+0 -1 16524
+S
+#16524
+A {bSandy{x Room~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {PM{ga{Pg{ge{Ps{x and
+{Pe{Yl{Ge{Cm{Pe{Yn{Gt{Ca{Pl{Ys{x explode into the room 
+and leave just as quickly. Some look at you, others mutter a quick
+greeting. Some of the gates look as though you can enter them, but 
+just as you touch them they vanish.
+~
+0 ADN 0
+D1
+More portals are east.
+~
+~
+0 -1 16523
+D2
+More portals are south.
+~
+~
+0 -1 16521
+S
+#16525
+A {cDark{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {bblasted{x
+{bplains{x covered in {bsand{x with {cblack skies{x. Howls of frustration
+and cries of pain reach your ears from these doors. You catch
+a glimpse of a {cshadow{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16527
+S
+#16526
+A {cDark{x Room~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Yp{Bo{Yr{Bt{Ya{Bl{Ys{x blink in and out of existence as you
+wander through the room. {cShades{x and {cd{Re{cm{Ro{cn{Rs{x explode into
+the room and leave just as quickly. Some glower at you, others scream in 
+terror. A few of the gates look as though you can enter them, but 
+just as you touch them they vanish.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16529
+D3
+More portals are west.
+~
+~
+0 -1 16527
+S
+#16527
+A {cDark{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {bblasted{x
+{bplains{x covered in {bsand{x with {cblack skies{x. Howls of frustration
+and cries of pain reach your ears from these doors. You catch
+a glimpse of a {cshadow{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16530
+D1
+More portals are east.
+~
+~
+0 -1 16526
+D2
+More portals are south.
+~
+~
+0 -1 16525
+D3
+More portals are west.
+~
+~
+0 -1 16528
+S
+#16528
+A {cDark{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {bblasted{x
+{bplains{x covered in {bsand{x with {cblack skies{x. Howls of frustration
+and cries of pain reach your ears from these doors. You catch
+a glimpse of a {cshadow{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16531
+D1
+More portals are east.
+~
+~
+0 -1 16527
+S
+#16529
+A {cDark{x Room~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {cShades{x and {cd{Re{cm{Ro{cn{Rs{x explode into 
+the room and leave just as quickly. Some glower at you, others scream in 
+terror. A few of the gates look as though you can enter them, but 
+just as you touch them they vanish.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16532
+D3
+More portals are west.
+~
+~
+0 -1 16530
+D2
+More portals are south.
+~
+~
+0 -1 16526
+S
+#16530
+A {cDark{x Room~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {cShades{x and {cd{Re{cm{Ro{cn{Rs{x explode into
+the room and leave just as quickly. Some glower at you, others scream in 
+terror. A few of the gates look as though you can enter them, but 
+just as you touch them they vanish.
+~
+0 ADN 0
+D0
+More portals are north.
+~
+~
+0 -1 16533
+D1
+More portals are east.
+~
+~
+0 -1 16529
+D2
+More portals are south.
+~
+~
+0 -1 16527
+D3
+More portals are west.
+~
+~
+0 -1 16531
+S
+#16531
+A {cDark{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {bblasted{x
+{bplains{x covered in {bsand{x with {cblack skies{x. Howls of frustration
+and cries of pain reach your ears from these doors. You catch
+a glimpse of a {cshadow{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D0
+More portals are east.
+~
+~
+0 -1 16534
+D1
+More portals are south.
+~
+~
+0 -1 16530
+D2
+More portals are west.
+~
+~
+0 -1 16528
+S
+#16532
+A {cDark{x Room~
+{PG{Ga{Pt{Ge{Ps{x, {Rn{Me{Rx{Mi{x, and {Vp{Go{Vr{Gt{Va{Gl{Vs{x blink in and out of existence as you
+wander through the room. {cShades{x and {cd{Re{cm{Ro{cn{Rs{x explode into
+the room and leave just as quickly. Some glower at you, others scream in 
+terror. A few of the gates look as though you can enter them, but 
+just as you touch them they vanish.
+~
+0 ADN 0
+D2
+More portals are south.
+~
+~
+0 -1 16529
+D3
+More portals are west.
+~
+~
+0 -1 16533
+S
+#16533
+A {cDark{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Rn{Me{Rx{Mi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {bblasted{x
+{bplains{x covered in {bsand{x with {cblack skies{x. Howls of frustration
+and cries of pain reach your ears from these doors. You catch
+a glimpse of a {cshadow{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D1
+More portals are east.
+~
+~
+0 -1 16532
+D2
+More portals are south.
+~
+~
+0 -1 16530
+D3
+More portals are west.
+~
+~
+0 -1 16534
+S
+#16534
+A {cDark{x Room~
+Walking through this you have to be careful to dodge the
+constantly opening and closing {Vp{Go{Vr{Gt{Va{Gl{Vs{x, {Yn{Be{Yx{Bi{x, and {Pg{Ga{Pt{Ge{Ps{x to
+other worlds and dimensions. You catch glimpses of {bblasted{x
+{bplains{x covered in {bsand{x with {cblack skies{x. Howls of frustration
+and cries of pain reach your ears from these doors. You catch
+a glimpse of a {cshadow{x in one of the {Rg{Yl{Hi{Pm{Tm{Ge{Cr{Vi{gn{Bg{x portals.
+~
+0 ADN 0
+D1
+More portals are east.
+~
+~
+0 -1 16533
+D2
+More portals are south.
+~
+~
+0 -1 16531
+S
+#16535
+An {Yexplosion{x of {Wlight{x accompanies your arrival in this room.~
+At your feet is a {Rp{ce{Rn{ct{Ra{cg{Rr{ca{Rm{x and a dead {cobsidian{x gate is behind
+you. It looks like you have found another portion of the complex.
+This has no blinking portals and the only light is that from your
+own light source. A crash and thud echo down the black walled
+corridor. Feeling the walls you notice bracing supports of some 
+sort. They are {cdeep black{x and have a {Bdull blue glow{x. They look
+like forged {Wa{cd{Wa{cm{Wa{cn{Wt{ci{Wt{ce{x.
+~
+0 ADN 0
+D2
+Entrance to the prison is south.
+~
+~
+0 -1 16536
+S
+#16536
+Before a Door~
+Two creatures stand on the eastern and southern walls. One stands
+before a heavy {Wa{cd{Wa{cm{Wa{cn{Wt{ci{Wt{ce{x door and the other before a blank wall.
+They are as impassive as the golems you saw in the other parts
+of this eerie creation. Close inspection reveals that one is made
+of {Wdiamond{x and the other crackles with {Yenergy{x. The walls here match
+the previous room and show some signs of a scuffle on the walls.
+*urk* Claw marks across forged and enchanted {Wa{cd{Wa{cm{Wa{cn{Wt{ci{Wt{ce{x struts?
+*BOOM* The door to the south shakes slightly and the guards blink.
+~
+0 ADN 0
+D0
+A portal exit is north.
+~
+~
+0 -1 16535
+D2
+A dimensional prison cell is south.
+~
+~
+3 -1 16537
+S
+#16537
+
+A Dimensional Prison Cell~
+The Ripper sometimes comes across creatures that prove less than
+tractable and this is where he puts them. The door to the north
+is extremely worn with claw marks and dents. The worst indicator
+though is that the door is solid {Wa{cd{Wa{cm{Wa{cn{Wt{ci{Wt{ce{x and the walls are 
+{Yglowing{x {cobsidian{x with enchanted {Wa{cd{Wa{cm{Wa{cn{Wt{ci{Wn{ce{x reinforcing beams.
+Even a cursory glance provides you with ample evidence of something
+{YHUGE{x and {PPOWERFUL{x living in this cell. {f*{xCLICK{f*{x Much like a lobster
+trap, once you step into this cell you do not leave it.
+~
+0 ADN 0
+D2
+A dimensional prison cell is south.
+~
+~
+0 -1 16538
+D3
+A dimensional prison cell is west.
+~
+~
+0 -1 16540
+S
+#16538
+A Dimensional Prison Cell~
+Claw and {Rscorch{x marks are the decorations for this cell. The 
+{bacrid{x smell of something pervades the room and you hear a raspy 
+breathing echo in the cell. There is no {cdust{x and it looks as 
+though something has swept the room. The sound of muffled rustling 
+comes to you. A {Cshiver{x sweeps your spine as the mystery of the 
+inhabitant looms in your mind.
+~
+0 ADN 0
+D0
+A dimensional prison cell is north.
+~
+~
+0 -1 16537
+D3
+A dimensional prison cell is west.
+~
+~
+0 -1 16539
+S
+#16539
+A Dimensional Prison Cell~
+A crude lair has been made of {bdirt{x and *sniff* {bdung{x. Even
+more scorings are evident on the walls here. There are even
+{Wc{cr{ga{cc{Wk{cs{x in the walls here as though most of its time was spent
+ramming the reinforced {cobsidian{x. The creature does *not* like 
+its prison. A heavy thump like something jumping up and down 
+startles you. Hopefully, you can evade the creature long enough 
+to escape.
+~
+0 ADN 0
+D0
+A dimensional prison cell is north.
+~
+~
+0 -1 16540
+D1
+A dimensional prison cell is east.
+~
+~
+0 -1 16538
+E
+cracks wall obsidian~
+Deep in one of the cracks you see a tiny tear in the fabric
+of the universe. If you crunch down, you can almost fit in the 
+crack.
+~
+S
+#16540
+A Dimensional Prison Cell~
+Claw and {rscorch{x marks are the decorations for this cell. The 
+{bacrid{x smell of something pervades the room and you hear a raspy 
+breathing echo in the cell. There is no {cdust{x and it looks as 
+though something has swept the room. The sound of muffled rustling 
+comes to you. A {Cshiver{x sweeps your spine as the mystery of the 
+inhabitant looms in your mind.
+~
+0 ADN 0
+D1
+A dimensional prison cell is east.
+~
+~
+0 -1 16537
+D2
+A dimensional prison cell is south.
+~
+~
+0 -1 16539
+S
+#16541
+Another Portal Exit~
+Again, an {Vexplosion{x surrounds your arrival through the portal.
+This time you appear in a gray stone corridor. The walls are
+bare of any adornment and there is a faint musty odor to the
+area. No dust has settled on the floor and there is but one
+exit. The {cobsidian{x slab behind you is testament to that.
+~
+0 ADKN 0
+D1
+Curve in the corridor.
+~
+~
+0 -1 16542
+S
+#16542
+A Stone Corridor~
+Your footsteps fall silent on the floor despite what seems to be
+poor acoustics. You continue walking, knowing there is only one 
+exit from this nightmare.
+~ 
+0 ADN 0
+D2
+Corridor continues south.
+~
+~
+0 -1 16543
+D3
+Corridor dead ends in the west.
+~
+~
+0 -1 16541
+S
+#16543
+A Stone Corridor~
+Your footsteps fall silent on the floor despite what seems to be
+poor acoustics. You continue walking, knowing there is only one 
+exit from this nightmare.
+~ 
+0 ADN 0
+D1
+Corridor curves east.
+~
+~
+0 -1 16544
+D0
+Corridor curves north.
+~
+~
+0 -1 16542
+S
+#16544
+A Stone Corridor~
+You see a pale light to the south and glimpse some furniture
+in the next room. You expected an inhabitant, but the woodwork
+to the south looks very civilized. The colors on the walls are 
+vivid and alive, but not overdone. It looks as if the owner has
+some taste and quite a few visitors.
+~ 
+0 ADN 0
+D2
+Living quarters are south.
+~
+~
+0 -1 16545
+D3
+Corridor curves west.
+~
+~
+0 -1 16543
+S
+#16545
+The Antechamber~
+Stepping into the chamber you realize that you are in a reception
+area. There are a few chairs grouped close for chatting and a 
+wooden cabinet on the wall, which when opened reveals some bottles
+of liquor. The walls depict a variety of creatures including all the
+ones you encountered in the gating crossroads. The silence settles and
+you hear faint music coming from the walls. Talk about odd.
+~
+0 ADN 0
+D0
+A corridor is north.
+~
+~
+0 -1 16544
+D2
+The study is south.
+~
+~
+0 -1 16546
+S
+#16546
+The Study~
+A large desk sits in the center of the room and the chair facing
+you. The walls are lined with shelves and the shelves with books.
+Thick or thin it looks like nothing is too large or small to escape 
+the notice of the Ripper. Stroking the books gives you a shock.
+You had best leave them alone. Not much else is here to do except to 
+admire the woodwork involved in the black oak desk and shelves. A
+closed curtain hangs over the eastern wall.
+~
+0 ADN 0
+D0
+The lab is antechamber.
+~
+~
+0 -1 16545
+D1
+The lab is east.
+~
+~
+0 -1 16547
+S
+#16547
+The Lab~
+Looking beyond the curtain you see this wreck of a laboratory. 
+Jars with pieces and bits of entities sit around and a general 
+mess touches the entire room. It looks as though the Ripper 
+suffers from the problems of genius. He never cleans his room,
+but he always knows where everthing is in his unique filing
+system. Of course, no one but him understands it. Flipping
+through some of the papers, you cannot make heads nor tails of
+it. However, you do know that the room has been used recently.
+~
+0 ADN 0
+D0
+The bedchamber is north.
+~
+~
+0 -1 16548
+D3
+The Study is west.
+~
+~
+0 -1 16546
+S
+#16548
+The Bedchamber~
+The lair of the greatest mind in interdimensional travel lies
+before you. The bed is unmade and there are a sheaf of papers on
+the desk to your right. The bed is a large affair and the desk
+is covered in scratches and pencil marks. It looks like his
+study is just for show. He does all of his work here and in the
+lab. One gruesome part of the room is the row of skulls glaring
+down at you from the top of the wall. Hmmmmmmm.....
+~
+0 ADN 0
+D2
+The lab is south.
+~
+~
+0 -1 16547
+D4
+~
+~
+0 -1 24603
+S
+#0
+#RESETS
+O 0 16515 1 16502 		*Load Portal to Evil
+O 0 16516 1 16503 		*Load Portal to Neutral
+O 0 16517 1 16504 		*Load Portal to Good
+O 0 16519 1 16534 		*Load Portal Evil to Good
+O 0 16523 1 16526 		*Load Portal Evil to Neutral
+O 0 16521 1 16523 		*Load Portal Neutral to Good
+O 0 16522 1 16518 		*Load Portal Neutral to Evil
+O 0 16520 1 16508 		*Load Portal Good to Neutral
+O 0 16518 1 16513 		*Load Portal Good to Evil
+O 0 16524 1 16516 		*Load Portal Planes to Complex
+O 0 16526 1 16547 		*Load Portal Ripper's Veil
+O 0 16525 1 16539 		*Load Portal Prison Exit
+M 0 16500 1 16534 1 		*Load Assassin
+E 0 16500 10 16 		*Load Adder's Tooth on Assassin
+M 0 16501 3 16525 3 		*Load Shade
+M 0 16501 3 16533 3 		*Load Shade
+M 0 16501 3 16526 3 		*Load Shade
+E 0 16503 10 0			*Load Eye on Shade
+M 0 16504 1 16528 1 		*Load Flesh Golem
+E 0 16506 10 18 		*Load Heart of Golem on F.Golem
+M 0 16503 1 16528 1 		*Load Necromancer
+E 0 16509 10 16 		*Load Rod of Lepers on Necromancer
+M 0 16502 1 16532 1 		*Load Demon
+E 0 16512 10 10 		*Load Demon's Strength on Demon
+M 0 16505 1 16515 1 		*Load Goth
+E 0 16502 10 16 		*Load Fury on Goth
+M 0 16506 3 16516 3 		*Load Unseen
+M 0 16506 3 16518 3 		*Load Unseen
+M 0 16506 3 16524 3 		*Load Unseen
+E 0 16505 10 0			*Load Skull on Unseen
+M 0 16509 1 16518 1 		*Load Iron Golem
+E 0 16508 10 18 		*Load Heart of Golem on I.Golem
+M 0 16508 1 16518 1 		*Load Elementalist
+E 0 16511 10 16 		*Load Staff of Nature on Elementalist
+M 0 16507 1 16521 1 		*Load Storm Elemental
+E 0 16514 10 10 		*Load Wrath of Tempests on Storm
+M 0 16510 1 16505 1 		*Load Crusader
+E 0 16501 10 16 		*Load Mace on Crusader
+M 0 16511 1 16507 1 		*Load Illusionist
+E 0 16504 10 0			*Load Wand of Light on Illusionist
+M 0 16514 1 16511 1 		*Load Clay Golem
+E 0 16507 10 18 		*Load Heart of Golem on C.Golem
+M 0 16513 1 16511 1 		*Load Priest
+E 0 16510 10 16 		*Load Sceptre of Life on Priest
+M 0 16512 3 16514 3 		*Load Seraph
+E 0 16513 10 10 		*Load Blessing of Light on Seraph
+M 0 16512 3 16510 3 		*Load Seraph
+M 0 16512 3 16510 3 		*Load Seraph
+M 0 16515 1 16536 1 		*Load Diamond Garr
+E 0 16528 10 17 		*Load Heart of Garr on D. Garr
+M 0 16516 1 16536 1 		*Load Energy Garr
+M 0 16517 1 16539 1 		*Load Dimensional Beast
+E 0 16529 5 16 			*Load Beast's Claw on Dim. Beast
+M 0 16518 1 16548 1 		*Load Ripper of Veils
+E 0 16530 5 6		 	*Load Ripper's Cowl on Ripper
+D 0 16536 2 1 			*Close door south to Prison Cell
+M 0 16519 1 16541 1             *Load Stone garr
+O 0 16531 1 16509 		*Load Exit Portal to Good Level
+O 0 16531 1 16522 		*Load Exit Portal to Neutral Level
+O 0 16531 1 16532 		*Load Exit Portal to Evil Level
+S
+
+#SPECIALS
+M 16506 spec_poison 		*Unseen Poisoned
+M 16513 spec_cast_cleric 	*Priest as Cleric
+S
+#$

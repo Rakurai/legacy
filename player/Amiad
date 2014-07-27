@@ -1,0 +1,315 @@
+#PLAYER
+Name Amiad~
+Id   1020218385
+LogO 1026874554
+Vers 14
+Mexp 0
+Pass jurumaster635~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dragon~
+Cla  4
+Levl 6
+Tru  0
+Plyd 7054
+Back 0
+Note 1026547040 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  39 162 42
+Gold 3
+Silv 946
+Exp  10607
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 6
+FImm 0
+FRes EG
+FVul F
+Plr  A
+Video 0
+Act  CDEFGHJLQS
+AfBy TZ
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 2
+Trai 1
+Wimp 0
+Atrib 19 18 13 12 15 14
+Afk {B[{CThu May  2 20:02:55 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  Ufgood~
+Immn ~
+Pnts 42
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Xenith~
+Lsit 208-58-249-247.s247.tnt1.nwhv.ct.dialup.rcn.com~
+Ltim Tue Jul 16 21:30:01 2002
+~
+LSav Tue Jul 16 21:55:54 2002
+~
+HMSP 63 145 127
+THMS 0 0 0
+Cnd  0 0 0 4
+Sk 1 1 'acid breath'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 75 1 'armor'
+Sk 1 1 'blood blade'
+Sk 1 1 'blood moon'
+Sk 1 1 'cancellation'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'energy drain'
+Sk 1 1 'fear'
+Sk 1 1 'fire breath'
+Sk 1 1 'fireproof'
+Sk 1 1 'flame blade'
+Sk 1 1 'frost blade'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'heal'
+Sk 1 1 'lightning breath'
+Sk 1 1 'mass healing'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'shock blade'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 77 1 'dagger'
+Sk 1 1 'polearm'
+Sk 75 1 'scribe'
+Sk 1 1 'bash'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 75 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'draconian'
+Gr 'healing'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Affc 'divine regeneration'   0  89  69   0   0   33554432 3
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 1215
+Nest 1
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 92
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 42 15 0 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 1603
+Nest 0
+Wear 16
+Cost 700
+End
+
+#O
+Vnum 2402
+Nest 0
+Wear 6
+Cost 310
+End
+
+#O
+Vnum 1514
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3165
+Nest 0
+Wear -1
+Cost 750
+End
+
+#O
+Vnum 1506
+Nest 0
+Wear -1
+Time 630
+Cost 480
+Spell 1 'cure blindness'
+Spell 2 'cure critical'
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 3031
+Nest 0
+Wear 0
+Cost 75
+Val  0 0 238 0 0
+End
+
+#END

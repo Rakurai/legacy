@@ -1,0 +1,1660 @@
+#AREA
+insane.are~
+Insane~
+{H{{55 90} {MKymber  {TInsane Asylum~
+8800 8899
+
+#MOBILES
+#8800
+woman manic~
+sobbing woman~
+A woman is shuffling around {Psobbing{x to herself.
+~
+A manic depressive woman is {Psobbing{x uncontrollably as she shuffles
+along, sniffing and wiping her {Wnose{x on the sleeve of her {Chospital gown{x.
+~
+human~
+ACHT b 0 S
+52 8 5d10+1700 1d1+99 10d7+1 whip
+-35 -34 -34 -15
+KHDFIN BN 0 D
+stand stand female 15
+0 0 medium 0
+
+#8801
+nurse aide~
+nurse aide~
+A nurse aide is resting here.
+~
+The Nurse Aide looks bored and tired from changing bed pans all day.
+~
+human~
+ACHQ KY 0 S
+55 9 5d10+1800 1d1+99 10d7+1 stab
+-36 -38 -32 -20
+HICEFK Q B KD
+stand stand female 30
+0 0 large 0
+
+#8802
+nurse~
+Floor Nurse~
+A floor nurse is busy handing out medication.
+~
+This attractive nurse, dressed all in {Wwhite{x, looks like she really
+knows her business.
+~
+human~
+ABR HRY 1000 S
+56 9 5d10+1930 1d1+99 10d7+1  stab
+-38 -36 -32 -25
+KBEFHQ 0 C D
+stand stand female 75
+0 0 medium 0
+
+#8803
+addict legacy woman mudder~
+Legacy Mudder~
+An addicted Legacy Mudder is typing on an imaginary keyboard.
+~
+This poor woman is obviously out of her mind!  She is staring at
+the {Cwall{x and appears to be typing on an invisible keyboard, all the
+time muttering to herself "too much lag, too much lag, too much
+lag............"
+~
+human~
+ABT KHaa 0 S
+58 10 5d10+2200 1d1+99 10d7+1  wrath
+-39 -37 -39 -28
+CDFK HJ K B
+stand stand female 50
+0 0 large 0
+
+#8804
+kitchen worker~
+Kitchen worker~
+A kitchen worker is loitering here.
+~
+What a loser!  No health certificate for this guy!  He's standing here
+picking his nose, watching you.
+~
+human~
+ABHS XHaa -300 S
+59 10 5d10+2400 1d1+99 10d7+1 stab
+-40 -36 -37 -20
+BCDEFN EQ B N
+stand stand male 75
+0 0 huge 0
+
+#8805
+cook~
+Greasy Cook~
+The cook is here, slopping together something awful!
+~
+The cook has on greasy, baggy clothes.  He is scratching his exposed
+butt crack with a large meat fork and then pokes around in the stew
+pot with it!  GROSS!
+~
+dwarf~
+ABT HMY -220 S
+60 10 5d10+2600 1d1+99 10d7+1 cleave
+-39 -38 -38 -10
+KBCDEFN EQ B N
+stand stand male 80
+0 0 huge 0
+
+#8806
+cockroach roach~
+A Giant Cockroach~
+The biggest cockroach you've ever seen!
+~
+An enormous roach jumps out of the cabinet.  It's as big as a housecat!
+~
+human~
+ACFS BMPHQaa -400 S
+61 10 5d10+2900 1d1+99 11d7+1  bite
+-39 -39 -38 -29
+FKDHN AB D EHK
+stand stand male 10
+0 0 giant 0
+
+#8807
+paranoid schizophrenic man~
+Paranoid Schizophrenic~
+A frightened little man is pacing around the room.
+~
+There is a strange little man pacing quickly back and forth across
+the room, ringing his hands together and muttering to himself.
+He screams with terror as you walk in the door!
+~
+elf~
+BG 0 -400 S
+35 6 5d10+1300 1d1+99 5d6+1 beating
+-26 -27 -27 -15
+HFCDK VK Q B
+stand stand male 25
+0 0 small 0
+>death_prog 100~
+MPOLOAD 8833
+MPECHO Paranoid dillusions escape the dying man, awaiting their next victim.
+~
+|
+
+#8808
+napoleon man~
+Napoleon~
+A man in a paper hat is here.
+~
+What a nut!  This guy really thinks he's Napoleon!  He's strutting
+around, looking important, suddenly he shouts, "VIVA NAPOLEON!"
+and attacks!
+~
+human~
+ABFT Vaa -300 S
+56 9 5d10+2300 1d1+99 10d8+1 claw
+-36 -37 -37 -30
+HFKD C J D
+stand stand male 20
+0 0 large 0
+
+#8809
+liar patient~
+Compulsive Liar~
+A patient is here spouting nonsense.
+~
+This patient is wandering about, spouting completely inconceivable
+stories to anyone who will listen, yea, that's the ticket!
+~
+feral~
+ACHS aa -250 S
+62  10 5d10+3000 1d1+99 11d9+1 claw
+-42 -45 -40 -30
+HFKD C J D
+stand stand male 20
+0 0 large 0
+
+#8810
+orderly~
+An Orderly~
+An Orderly is here subduing an unruly patient.
+~
+The orderly is a large muscular man.  He obviously is quite good at
+wrestling patients to the ground!
+~
+giant~
+AHT HWVY -400 S
+65 10 5d10+3500 1d1+99 12d7+1 crush
+-42 -40 -41 -35
+IEFHKN B E 0
+stand stand male 40
+0 0 huge 0
+
+#8811
+desk clerk~
+A desk clerk~
+A desk clerk is waiting to help you.
+~
+The clerk smiles pleasantly as you approach.  Her desk is in immaculate
+order, the phone is tucked snuggly under her chin.
+~
+human~
+ABQ HKaa 700 S
+65 10 5d10+3400 1d1+99 12d6+1 pierce
+-40 -39 -39 -30
+IEHNF BHN Q 0
+stand stand female 65
+0 0 medium 0
+
+#8812
+head nurse~
+The Head Nurse~
+The Head Nurse is filling out drug logs.
+~
+The nurse looks over her half glasses at you, a requisition form in her
+hand.
+~
+human~
+ABT HMVXY 600 S
+66 10 5d10+3800 1d1+99 12d6+1 stab
+-43 -42 -43 -33
+CBFHIN AB CEJ K
+stand stand female 150
+0 0 large 0
+
+#8813
+pingpong patient~
+Ping-Ponger~
+A patient is playing ping-pong by himself.
+~
+This patient is running from one end of the table to the other playing
+a game of ping-pong with himself, hey wait!  He doesn't even have a ball!
+~
+human~
+ABHT Haa 0 S
+67 10 5d10+4030 1d1+99 12d6+1 pound
+-44 -43 -42 -37
+CDE QJK CD 0
+stand stand male 10
+0 0 large 0
+
+#8814
+psychiatrist doctor man~
+Psychiatrist~
+A man in an expensive suit is here.
+~
+WOW! An Armani Suit and a Rolex!  WooWoo this guy must be loaded!
+~
+human~
+ABHT HW 750 S
+68 11 5d10+4080 1d1+99 12d6+1 stab
+-44 -43 -44 -37
+ICEFN BIN 0 0
+stand stand male 250
+0 0 large 0
+
+#8815
+naked nymphomaniac girl~
+Naked Psycho Nymphomaniac~
+A beautiful girl smiles seductively at you.
+~
+The only thing this girl has on is a smile and wicked looking fake
+{Pfingernails{x!
+~
+vampire~
+ABFT VHaa -550 S
+67 15 5d10+4230 1d1+99 14d6+1 claw
+-44 -45 -45 -44
+ICFN BIN 0 0
+stand stand female 15
+0 0 medium 0
+
+#8816
+compulsive eater man~
+Compulsive Eater~
+A huge man is hiding behind the door.
+~
+This guy is so big his hospital gown barely covers his belly!  His
+entire enormous butt is exposed!  He has food all over his face, Uh OH!!
+He thinks you want his donut, Quick RUN!
+~
+giant~
+ABFT Haa -450 S
+67 11 5d10+4180 1d1+99 12d8+1 smash
+-44 -47 -45 -39
+FC E B 0
+stand stand male 25
+0 0 giant 0
+
+#8817
+orderly~
+Head Orderly~
+A huge orderly stands by the door.
+~
+This guy would give Sylvester Stallone a run for his money!  He looks
+very strong, maybe you shouldn't try to push him around!
+~
+human~
+ABT HVWaa 800 S
+69 11 5d10+4200 1d1+99 13d6+1 pound
+-45 -44 -44 -45
+ICDF B E 0
+stand stand male 80
+0 0 giant 0
+
+#8818
+shocker patient~
+Shocker~
+A patient is here getting shock therapy.
+~
+Boy!  Her hair is frizzed everywhere!  I think she's had one too many
+shock treatments!
+~
+human~
+ABFQ IVHaa -400 S
+70 12 5d10+5000 1d1+99 13d6+1 charge
+-46 -45 -46 -40
+ID J 0 C
+stand stand female 15
+0 0 large 0
+
+#8819
+freud sigmund dr doctor~
+Sigmund Freud~
+Dr. Freud waits to help you.
+~
+Sigmund Freud, pen in hand, is waiting to analyze all of your problems.
+~
+human~
+ABR HK 0 S
+71 12 5d10+4800 1d1+99 13d6+1 wrath
+-46 -45 -45 -40
+BEFH AN Q 0
+stand stand male 200
+0 0 large 0
+
+#8820
+nurse~
+Follower of Charles Manson~
+A nurse stands among the bodies, smiling calmly.
+~
+Obviously, this woman is hypnotized!
+~
+human~
+ABT KH -1000 S
+75 12 5d10+5400 1d1+99 14d6+1 slice
+-48 -48 -46 -39
+FBIN  Q D CN
+stand stand female 65
+0 0 medium 0
+
+#8821
+charles manson~
+Charles Manson~
+Charles Manson is whispering to the nurse.
+~
+What kind of horrid things are going through this lunatics mind!
+You seriously consider backing away and running back up the stairs!
+~
+human~
+ABHS HKY -1000 S
+78 13 5d10+5600 1d1+99 15d7+1 wrath
+-57 -55 -60 -43
+FDOIN AB NQ 0
+stand stand male 50
+0 0 large 0
+
+#8822
+kruger man freddy~
+Freddy Kruger~
+A horribly scarred man attacks you!
+~
+He's even scarier than you thought he'd be!
+~
+human~
+ABFT Haa -1000 S
+80 13 5d10+6400 1d1+99 15d6+1 claw
+-54 -53 -53 -45
+HCDFN H 0 N
+stand stand male 40
+0 0 large 0
+
+#8823
+man Jason~
+Jason~
+A man in overalls and a goalie mask is here.
+~
+This man is huge!  He's swinging a table leg at you, you'd better
+watch out, he'll bash your skull in!
+~
+giant~
+ABFT Haa -1000 S
+79 13 5d10+7000 1d1+99 15d9+1 smash
+-60 -60 -60 -44
+FC 0 0 0
+stand stand male 40
+0 0 giant 0
+
+#8824
+dahmer jeffrey~
+Jeffrey Dahmer~
+Jeffrey Dahmer sits in the corner, chewing on an arm.
+~
+EEEEEEW!  He's covered with blood and when he smiles at you, you
+can see bits of flesh caught between his teeth!
+~
+human~
+ABT Haa -1000 S
+82 13 5d10+6500 1d1+99 15d7+1 bite
+-55 -55 -56 -48
+0 0 0 0
+stand stand male 20
+0 0 large 0
+
+#8825
+ripper man jack~
+Jack the Ripper~
+A man in a cloak and hat steps towards you!
+~
+Where did he get that huge knife!
+~
+human~
+ABFT VHaa -1000 S
+88 14 5d10+7400 1d1+99 15d7+1 slice
+-58 -57 -58 -50
+BEF C JK 0
+stand stand male 35
+0 0 large 0
+
+#8826
+dr doctor giggles man~
+Dr. Giggles~
+A giggling man is holding a bloody human heart.
+~
+Although he's wearing the equipment, you're quite certain this man
+is no doctor!
+~
+human~
+ABF HK -1000 S
+90 15 10d10+8500 1d1+99 18d7+7 pierce
+-60 -61 -59 -53
+CDFHIKNOE N B 0
+stand stand male 75
+0 0 giant 0
+
+#8827
+IMP~
+The IMP~
+A completely insane MUD Implementor is here!
+~
+He looks like the average, ordinary college student, but, BEWARE!
+He isn't!  Oh NO!!  He is completely off his rocker!  He's one of
+Legacy's IMPS!  He MUST be insane!
+~
+vampire~
+ABFT DTFHaa -1000 S
+100 16 10d10+9000 1d1+99 20d7+7 wrath
+-70 -69 -67 -75
+DEFHIKNO 0 0 0
+stand stand male 500
+0 0 large 0
+#0
+
+#OBJECTS
+#8800
+soggy whip~
+soggy handkerchief~
+A wet, soggy handkerchief~
+cloth~
+weapon H AN
+whip 9 6 whip 2
+50 2 20 W
+E
+handkerchief whip soggy~
+A very soggy, pink handkerchief, trimmed in lace, with flowers
+embroidered on one corner.
+~
+A
+18 3
+A
+19 5
+A
+1 1
+A
+5 1
+A
+6 1
+
+#8801
+shirt scrubs~
+Green Scrub Shirt~
+A green surgical scrub top~
+cloth~
+armor K AD
+13 14 13 5 0
+53 1 100 P
+E
+scrub shirt top~
+A common green scrub shirt
+~
+A
+19 1
+A
+12 40
+A
+5 1
+A
+2 2
+
+#8802
+scrubs pants~
+Green Scrub Pants~
+a pair of green surgical scrub pants.~
+cloth~
+armor K AF
+13 14 14 6 0
+52 1 200 P
+E
+scrubs pants green~
+A pair of common green surgical scrub pants.
+~
+A
+13 45
+A
+4 -2
+
+#8803
+bed pan~
+bed pan~
+A bed pan~
+steel~
+weapon AK AN
+mace 7 7 pound B
+53 2 150 P
+E
+pan bed~
+a stainless steel bed pan.
+~
+A
+18 3
+A
+19 4
+A
+13 30
+
+#8804
+stethascope~
+stethascope~
+A stethascope~
+silver~
+armor ABK AC
+13 14 13 9 0
+55 1 1500 P
+E
+stethascope~
+A silver stethascope.
+~
+A
+24 -5
+A
+19 2
+A
+18 -1
+A
+3 3
+
+#8805
+hypodermic needle~
+small hypodermic needle~
+a hypodermic needle with a clear medication inside.~
+glass~
+wand G AO
+75 5 5 'cure critical' 0
+55 1 2000 P
+E
+hypodermic needle~
+a small glass syringe with a clear liquid inside it.
+~
+
+#8806
+mud book manual~
+Complete HOW TO MUD Book~
+A thick book with worn, dog eared pages.~
+paper~
+armor AG AO
+11 12 14 4 0
+45 1 1000 W
+E
+book manual~
+A complete instruction manual on how to play Legacy.
+~
+A
+19 2
+A
+12 45
+A
+4 4
+A
+3 2
+
+#8807
+bunny slippers fuzzy~
+Fuzzy Bunny Slippers~
+A pair of warm fuzzy slippers.~
+cloth~
+armor G AG
+13 12 13 6 0
+55 1 2000 P
+E
+Bunny slippers shoes fuzzy~
+Cute little fuzzy pink slippers with a bunny head and big floppy ears.
+~
+A
+1 2
+A
+3 -1
+A
+4 -1
+A
+13 50
+A
+19 2
+
+#8808
+green booger~
+BIG GREEN BOOGER~
+a nasy green slimy booger~
+pill~
+pill GM AO
+40 'haste' 'giant strength' 'talon' ''
+58 0 0 A
+E
+booger~
+A really gross slimy booger.  EEEEEEEEW!  It's so sticky you can't
+flick it off your finger!
+~
+
+#8809
+knife~
+kitchen Knife~
+Dull rusty carving knife~
+iron~
+weapon B AN
+dagger 5 11 slice C
+59 1 1600 P
+E
+knife rusty~
+A rusty old knife in need of sharpening!
+~
+A
+18 2
+A
+19 2
+A
+1 1
+
+#8810
+fork~
+meat fork~
+A large kitchen utensil~
+steel~
+weapon AGL AN
+polearm 5 12 pierce A
+60 1 2000 P
+E
+fork~
+It's one of those non-sharp kind.
+~
+A
+19 2
+A
+18 3
+A
+13 20
+
+#8811
+newspaper paper hat~
+paper Napoleon hat~
+A piece of folded newspaper~
+paper~
+armor I AE
+14 13 14 10 0
+55 1 2000 P
+E
+hat newspaper paper~
+A silly hat made out of newspaper.
+~
+A
+3 -1
+A
+1 2
+A
+19 2
+
+#8812
+bracelet id~
+Hospital ID Bracelet~
+a strip of plastic~
+plastic~
+armor L AM
+14 13 14 5 0
+60 1 1000 P
+E
+ID Bracelet~
+A patient identification bracelet.
+~
+A
+12 15
+A
+13 20
+A
+19 2
+A
+18 2
+
+#8813
+blue potion~
+A crystal blue potion~
+A small vial of bright blue liquid.~
+glass~
+potion BL A
+60 'cure blindness' 'cure disease' 'cure poison' ''
+60 1 2000 P
+E
+vial potion blue~
+a clear vial filled with a thick blue liquid.
+~
+
+#8814
+letter opener~
+A letter opener~
+A long, slim Golden letter opener.~
+gold~
+weapon AK AN
+dagger 6 11 slice 0
+65 1 3600 P
+E
+letter opener~
+A beautiful gold letter opener with an ivory handle.
+~
+A
+17 -10
+A
+18 3
+A
+19 3
+A
+13 15
+A
+12 -10
+
+#8815
+cabinet~
+Drug Cabinet~
+A large locked cabinet~
+steel~
+container I 0
+55 15 8816 50 100
+0 40 500 P
+E
+cabinet~
+A large stainless steel cabinet with glass front doors hold an
+assortment of medications.
+~
+
+#8816
+key~
+brass key~
+A small key made of brass.~
+brass~
+key L A
+0 0 0 0 0
+0 1 1 P
+E
+key~
+The little key that opens the drug cabinet.
+~
+
+#8817
+bottle~
+A pill bottle~
+A small bottle of pills.~
+plastic~
+container L A
+50 1 0 5 100
+0 1 1000 P
+E
+bottle~
+The label on the bottle says Prozac <tm>
+~
+
+#8818
+prozac pill~
+Prozac <tm>~
+A Prozac Capsule.~
+gold~
+pill GL A
+80 'sanctuary' 'shield'  'armor' 'stone skin'
+85 1 2000 P
+E
+pill~
+A small green and white capsule.
+~
+
+#8819
+robe~
+Bath Robe~
+A fuzzy pink bath robe.~
+cloth~
+armor G AK
+18 17 15 10 0
+67 2 3000 P
+E
+pink robe~
+A comfy bathrobe made out of fuzzy pink material.
+~
+A
+12 100
+A
+2 1
+A
+19 2
+
+#8820
+paddle~
+Ping-Pong paddle~
+An ordinary ping-pong paddle.~
+wood~
+weapon B AN
+mace 7 10 pound C
+70 2 2000 P
+E
+paddle~
+a wooden paddle with green rubber pads on each side.
+~
+A
+18 3
+A
+19 6
+
+#8821
+watch~
+Rolex~
+a gold Rolex~
+gold~
+armor AKI AM
+18 16 17 8 0
+68 1 5000 P
+E
+watch~
+a gold Rolex with a diamond on the face.
+~
+A
+1 2
+A
+13 25
+A
+19 1
+
+#8822
+pen~
+Fountain Pen~
+A silver Fountain Pen~
+silver~
+weapon A AN
+dagger 6 11 slice A
+70 1 3000 P
+E
+pen~
+an elegant silver fountain pen.
+~
+A
+18 1
+A
+19 2
+
+#8823
+donut~
+a donut~
+A chocolate covered donut~
+food~
+food L A
+10 0 0 0 0
+0 1 10 P
+E
+Donut~
+A yummy Donut with gooey chocolate icing and coconut sprinkles.
+~
+
+#8824
+Ham Sandwich~
+A sandwich~
+A yummy Ham Sandwich~
+food~
+food L A
+24 0 0 0 0
+0 1 10 P
+E
+sandwich~
+A pile of smoked ham on wheat bread with a slice of swiss cheese and a touch of dijon mustard.
+~
+
+#8825
+couch~
+leather couch~
+a large dark leather couch~
+Leather~
+furniture AG 0
+3 2000 EHK 150 150
+0 0 0 P
+E
+couch~
+a dark brown leather couch.
+~
+
+#8826
+scalpel~
+scalpel~
+a surgical instrument~
+steel~
+weapon AH AN
+dagger 6 12 slice C
+75 1 2000 P
+E
+scalpel~
+a very sharp surgical tool.
+~
+A
+19 4
+A
+18 3
+
+#8827
+glove~
+Freddy's Glove~
+A leather glove with long sharp blades.~
+steel~
+weapon ALH AN
+axe 7 10 slice C
+75 1 1000 P
+E
+glove~
+long razor sharp blades extend from each finger of the glove.
+~
+A
+18 5
+A
+19 3
+A
+24 -5
+
+#8828
+leg~
+table leg~
+a large piece of wood~
+wood~
+weapon L AN
+mace 8 9 crush 0
+80 3 10 P
+E
+table leg~
+A heavy wooden table leg.
+~
+A
+18 2
+A
+19 5
+
+#8829
+arm~
+bloody arm~
+a dismembered arm.~
+flesh~
+weapon L AN
+flail 8 10 pound C
+82 1 0 R
+E
+arm~
+It appears to be the arm of a man that's been ripped off at the shoulder.
+~
+A
+24 5
+A
+19 3
+A
+18 3
+
+#8830
+knife~
+Butcher Knife~
+A huge knife~
+steel~
+weapon L AN
+dagger 7 12  pierce D
+85 1 100 P
+E
+knife~
+A big butcher knife.
+~
+A
+19 3
+A
+18 3
+
+#8831
+bonesaw saw~
+Bone saw~
+A large saw~
+steel~
+weapon AL AN
+exotic 8 11 cleave A
+88 2 1000 P
+E
+saw~
+A large saw used for amputating limbs.
+~
+A
+19 3
+A
+18 5
+
+#8832
+Looneysword sword~
+LooneySword~
+a finely crafted sword.~
+diamond~
+weapon AHGHI AN
+sword 11 11 slice B
+90 2 10000 P
+E
+sword~
+This is an incredibly beautiful weapon.  The blade is cut from an
+enourmous diamond, finely crafted and sharpened to a razor edge.
+It catches the light as you move it about, sending sparkling arcs
+of rainbow color in every direction.
+~
+A
+19 13
+A
+18 17
+A
+17 -10
+A
+1 2
+
+#8833
+paranoid delusions~
+the paranoid delusions~
+Some paranoid delusions draw you into their grasp.~
+insanity~
+portal 0 0
+0 0 D 11600 0
+0 0 1 P
+#0
+
+#ROOMS
+#8800
+
+{CEntryway{x~
+   {PWelcome{x to the {CThera Hospital{x for the Hopelessly Insane.  You are
+in the main lobby of the institution.  It is a pleasant waiting {Vroom{x.
+There is a {Thallway{x to the east and a {Ystairwell{x to the west.
+~
+88 CDK 0
+D1
+You see a hospital room.
+~
+~
+0 -1 8801
+D3
+You see a hospital room.
+~
+~
+0 -1 8807
+D2
+You see Clan road of Midgaard.
+~
+~
+0 -1 3303
+S
+
+#8801
+{THallway{x~
+   The {Thallway{x is {Wwhite and sterile{x.  Moans and strange noises come
+from everywhere.  You wonder what brought so many people to this place.
+Hospital personnel hustle up and down the {Thall{x with {Ycharts{x and
+{Gmedications{x.  A few patients are wandering around in the {Yhall{x,
+their eyes vacant, their feet shuffling along on the floor as they
+wander around.
+~
+88 D 0
+D1
+You see a hospital room.
+~
+~
+0 -1 8802
+D3
+You see a hospital room.
+~
+~
+0 -1 8800
+S
+
+#8802
+{MGroup Room{x~
+   This large {Mroom{x has patients milling about everywhere.  There is
+a circle of {Mchairs{x in the center of the room where a group of patients
+are discussing their {Gproblems{x.
+~
+88 D 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8803
+D1
+You see a hospital room.
+~
+~
+0 -1 8805
+D2
+You see a hospital room.
+~
+~
+0 -1 8804
+D3
+You see a hospital room.
+~
+~
+0 -1 8801
+S
+
+#8803
+{YPatient Room{x~
+   This is a small sterile {Yroom{x with a hospital {Cbed{x against one {Wwall{x.
+~
+88 D 0
+D2
+You see a hospital room.
+~
+~
+0 -1 8802
+S
+
+#8804
+{GPatient Room{x~
+   This is a small sterile {Groom{x with a hospital {Cbed{x against one {Wwall{x.
+~
+88 D 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8802
+S
+
+#8805
+{BDining Room{x~
+   You wonder what they could possibly be feeding these poor patients
+when you {Ysmell{x the stench coming from the {Gkitchen{x!  Patients sit at
+the tables eating from styrofoam dishes with plastic spoons.
+~
+88 D 0
+D1
+You see a hospital room.
+~
+~
+0 -1 8806
+D3
+You see a hospital room.
+~
+~
+0 -1 8802
+S
+
+#8806
+{GKitchen{x~
+   This is one {PNASTY place{x!  {cGrease{x and filth cover everything!  Roaches
+are crawling everywhere.  You slide across the {cgreasy floor{x, barely able
+to keep your feet under you.  There is a {Ycupboard{x on the east wall.
+~
+88 D 0
+D3
+You see a hospital room.
+~
+~
+0 -1 8805
+D1
+You see a hospital room.
+~
+cupboard east door~
+1 -1 8827
+S
+
+#8807
+{MMain Floor Stairwell{x~
+   You are in a {Mstairwell{x leading down.  You can hear {Ywailing{x and
+{Yscreaming{x coming from farther down the stairs.  Maybe you might want
+to consider going back to the east and leaving the nuts to the squirrels!
+~
+88 CDK 0
+D1
+You see a hospital room.
+~
+~
+0 -1 8800
+D5
+You see a hospital room.
+~
+~
+0 -1 8808
+S
+
+#8808
+{PSecond Level Stairwell{x~
+   You are in the {Pstairwell{x on the second level.  You can enter the
+{Yhallway{x to the east or continue down the {Pstairs{x to the third level.
+~
+88 CDK 0
+D1
+You see a hospital room.
+~
+~
+0 -1 8809
+D4
+You see a hospital room.
+~
+~
+0 -1 8807
+D5
+You see a hospital room.
+~
+~
+0 -1 8818
+S
+
+#8809
+{YNurses Station{x~
+   The second level {Ynurses station{x is neat and tidy.  {WNurses{x hustle
+and bustle about, reading charts and filling {Phypodermic needles{x for
+the daily medication rounds.  There is a small {Coffice{x to the north
+and the {Mhallway{x continues to the east.
+~
+88 D 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8810
+D1
+You see a hospital room.
+~
+~
+0 -1 8811
+D3
+You see a hospital room.
+~
+~
+0 -1 8808
+S
+
+#8810
+{GPharmaceutical Lock-Up{x~
+   WOW!  You've found the {Gmedication room{x!  A large glass {Ycabinet{x
+occupies the back wall.  Bottles of {Cpills{x and vials of {Bmedication{x
+line the shelves.
+~
+88 D 0
+D2
+You see a hospital room.
+~
+~
+0 -1 8809
+S
+
+#8811
+{CSocial Room{x~
+   There is a great deal of {Pnoise{x in this room.  Patients are watching
+{Vtelevision{x and playing {Yping-pong{x.  Orderlies stroll about, keeping
+everyone in order.
+~
+88 D 0
+D1
+You see a hospital room.
+~
+~
+0 -1 8812
+D3
+You see a hospital room.
+~
+~
+0 -1 8809
+S
+
+#8812
+{WHall{cway{x~
+   The {Whall{cway{x is {Wwhite{x and sterile.  Moans and strange noises come
+from everywhere.  Patient {Yrooms{x line the {Whall{x to the north and south,
+the {Whall{cway{x continues east.
+~
+88 D 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8813
+D1
+You see a hospital room.
+~
+~
+0 -1 8815
+D2
+You see a hospital room.
+~
+~
+0 -1 8814
+D3
+You see a hospital room.
+~
+~
+0 -1 8811
+S
+
+#8813
+{MPatient Room{x~
+   This is a small sterile {Mroom{x with a hospital {Cbed{x along one {Ywall{x.
+~
+88 D 0
+D2
+You see a hospital room.
+~
+~
+0 -1 8812
+S
+#8814
+{YPatient Room{x~
+   This is a small sterile {Yroom{x with a hospital {Cbed{x along one {Gwall{x.
+~
+88 D 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8812
+S
+
+#8815
+{PTreatment Holding Area{x~
+   This room is very plain.  A simple {Wwhite room{x with {Mchairs{x lining
+the walls.  Several patients wait here for their turns, but for what
+you don't know!  A receptionist {Ymotions{x for you to take a seat with
+the other patients.  She taps her pencil on the desk and seems to
+get very irritated when you don't sit down!  She motions to the orderly
+in the corner and points to you!
+~
+88 D 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8816
+D2
+You see a hospital room.
+~
+~
+0 -1 8817
+D3
+You see a hospital room.
+~
+~
+0 -1 8812
+S
+
+#8816
+{BShock{x {RTherapy{x {BRoom{x~
+  A strange {cmachine{x is in the center of the {Broom{x.  The technicians
+are {Pstruggling{x to keep a patient strapped down.
+~
+88 D 0
+D2
+You see a hospital room.
+~
+~
+0 -1 8815
+S
+
+#8817
+{YPsychiatrist's Office{x~
+   This is a plush {Yoffice{x lined with full bookshelves.  There is an
+overstuffed leather {ccouch{x in front of a huge mahogany desk.
+~
+88 D 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8815
+S
+
+#8818
+{TThird Level Stairwell{x~
+   You are at the bottom of the {Tstairwell{x.  The {Whall{cway{x to the east
+is dark and eerie.  A nurse runs toward you screaming, {Rblood pouring{x
+from dozens of {Rwounds{x!  Something is VERY wrong here!
+~
+88 CDK 0
+D1
+You see a hospital room.
+~
+~
+0 -1 8819
+D4
+You see a hospital room.
+~
+~
+0 -1 8808
+S
+
+#8819
+{VNurses {MStation{x~
+   The {Vnurses {Mstation{x is in shambles!  Charts and paperwork are strewn
+about and the {Rcarnage{x is indescribable!
+~
+88 AD 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8820
+D1
+You see a hospital room.
+~
+~
+0 -1 8822
+D2
+You see a hospital room.
+~
+~
+0 -1 8821
+D3
+You see a hospital room.
+~
+~
+0 -1 8818
+S
+
+#8820
+{CPatient Cell{x~
+   The barred door to this {Ccell{x is standing open! As you enter, you
+hear the distinct sound of metal scraping metal, there is a dead
+orderly lying here, long {Pgashes{x on his back {Rbleeding{x freely on the floor.
+~
+88 AD 0
+D2
+You see a hospital room.
+~
+~
+0 -1 8819
+S
+
+#8821
+{GPatient Cell{x~
+   The barred door to this {Gcell{x is ripped from its hinges!
+~
+88 AD 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8819
+S
+
+#8822
+{RHall{cway{x~
+   The {Rhall{cway{x used to be {Wwhite{x and sterile, but now it is splattered
+with {Pblood{x and {Pgore{x!  How could this have happened!
+~
+88 AD 0
+D1
+You see a hospital room.
+~
+~
+0 -1 8823
+D3
+You see a hospital room.
+~
+~
+0 -1 8819
+S
+
+#8823
+{RHall{cway{x~
+   The {Rblood{x and {Pgore{x continue into this part of the {Rhall{cway{x.  Most
+of the patient rooms in this area are still barred, you certainly hope
+they stay that way!  You can hear someone begging and pleading for {Ymercy{x
+to the south, you aren't sure you want to find out from what!
+~
+88 AD 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8824
+D1
+You see a hospital room.
+~
+~
+0 -1 8826
+D2
+You see a hospital room.
+~
+~
+0 -1 8825
+D3
+You see a hospital room.
+~
+~
+0 -1 8822
+S
+
+#8824
+{YPatient Cell{x~
+   The barred door to this {Ycell{x is standing open!  You try to be quiet
+as you enter and {Ppeak{x inside to see if anyone is here.
+~
+88 AD 0
+D2
+You see a hospital room.
+~
+~
+0 -1 8823
+S
+
+#8825
+{VPatient {MCell{x~
+   The barred door to this {Mcell{x is standing open!  You could hear
+screaming, but as you enter it abruptly stops, since this poor orderly
+is now {RDEAD{x!
+~
+88 AD 0
+D0
+You see a hospital room.
+~
+~
+0 -1 8823
+S
+
+#8826
+{BPatient {RCell{x~
+   PANIC! You've just entered the {Broom{x of the {Ymost{x insane person
+of all times!  There is no person on {Gearth{x more insane than this one!
+~
+88 AD 0
+D3
+You see a hospital room.
+~
+~
+0 -1 8823
+S
+
+#8827
+{YCupboard{x~
+   It's dark and damp in the {Ycupboard{x.
+~
+88 AD 0
+D3
+You see a hospital room.
+~
+door west cupboard~
+1 -1 8806
+S
+#0
+
+#RESETS
+M 0 8800 4 8801 4 *LOAD MANIC DEPRESSIVE
+E 0 8800 9 16 *LOAD HANDKERCHIEF ON MANIC DEPRESSIVE
+M 0 8800 4 8802  4 *LOAD MANIC DEPRESSIVE
+E 0 8800 9 16 *LOAD HANDKERCHIEF ON MANIC DEPRESSIVE
+M 0 8800 4 8803 4 *LOAD MANIC DEPRESSIVE
+E 0 8800 9 16 *LOAD HANDKERCHIEF ON MANIC DEPRESSIVE
+M 0 8801 3 8801 3 *LOAD NURSE AIDE
+E 0 8801 9 5 *LOAD SCRUB TOP ON NURSE AIDE
+E 0 8802 9 7 *LOAD SCRUB PANTS ON NURSE AIDE
+E 0 8803 9 16 *LOAD BED PAN ON NURSE AIDE
+M 0 8801 3 8802 3 *LOAD NURSE AIDE
+E 0 8801 9 5 *LOAD SCRUB TOP ON NURSE AIDE
+E 0 8802 9 7 *LOAD SCRUB PANTS ON NURSE AIDE
+E 0 8803 9 16 *LOAD BED PAN ON NURSE AIDE
+M 0 8801 3 8803 3 *LOAD NURSE AIDE
+E 0 8801 9 5 *LOAD SCRUB TOP ON NURSE AIDE
+E 0 8802 9 7 *LOAD SCRUB PANTS ON NURSE AIDE
+E 0 8803 9 16 *LOAD BED PAN ON NURSE AIDE
+M 0 8802 1 8802 1 *LOAD FLOOR NURSE
+E 0 8804 9 3 *LOAD STETHASCOPE ON FLOOR NURSE
+G 0 8805 9 *LOAD HYPODERMIC NEEDLE ON FLOOR NURSE
+M 0 8803 1 8802 1 *LOAD LEGACY MUDDER
+E 0 8806 3 17 *LOAD COMPLETE HOW TO MUD BOOK ON LEGACY MUDDER
+E 0 8807 9 8 *LOAD FUZZY BUNNY SLIPPERS ON LEGACY MUDDER
+M 0 8804 1 8805 1 *LOAD KITCHEN WORKER
+G 0 8808 9 *LOAD BIG GREEN BOOGER ON KITCHEN WORKER
+E 0 8809 9 16 *LOAD KITCHEN KNIFE ON KITCHEN WORKER
+M 0 8805 1 8806 1 *LOAD COOK
+E 0 8810 9 16 *LOAD MEAT FORK ON COOK
+M 0 8806 1 8827 1 *LOAD A COCKROACH
+M 0 8807 1 8803 1 *LOAD PARANOID SCHIZOPHRENIC
+M 0 8808 1 8804 1 *LOAD NAPOLEAN
+E 0 8811 9 6 *LOAD NEWSPAPER HAT ON NAPOLEAN
+M 0 8809 3 8809 3 *LOAD COMPULSIVE LIAR
+E 0 8812 9 14 *LOAD ID BRACELET ON COMPULSIVE LIAR
+M 0 8809 3 8811 3 *LOAD COMPULSIVE LIAR
+E 0 8812 9 15 *LOAD ID BRACELET ON COMPULSIVE LIAR
+M 0 8809 3 8812 3 *LOAD COMPULSIVE LIAR
+E 0 8812 9 14 *LOAD ID BRACELET ON COMPULSIVE LIAR
+M 0 8810 3 8809 3 *LOAD ORDERLY
+G 0 8813 9 *LOAD A CRYSTAL BLUE POTION ON ORDERLY
+M 0 8810 3 8811 3 *LOAD ORDERLY
+G 0 8813 9 *LOAD A CRYSTAL BLUE POTION ON ORDERLY
+M 0 8810 3 8812 3 *LOAD ORDERLY
+G 0 8813 9 *LOAD A CRYSTAL BLUE POTION ON ORDERLY
+M 0 8811 1 8809 1 *LOAD DESK CLERK
+E 0 8814 9 16 *LOAD LETTER OPENER ON DESK CLERK
+M 0 8812 1 8810 1 *LOAD HEAD NURSE
+E 0 8816 1 17 *LOAD BRASS KEY ON HEAD NURSE
+O 0 8815 1 8810 *LOAD DRUG CABINET
+P 0 8817 1 8815 1 *LOAD BOTTLE IN DRUG CABINET
+P 0 8818 9 8817 4 *LOAD PILL IN BOTTLE
+M 0 8813 1 8811 1 *LOAD PING-PONGER
+E 0 8819 9 12 *LOAD FUZY PINK BATHROBE ON PING-PONGER
+E 0 8820 9 16 *LOAD PADDLE ON PING-PONGER
+M 0 8814 1 8812 1 *LOAD PSYCHIATRIST
+E 0 8821 9 15 *LOAD ROLEX ON PSYCHIATRIST
+E 0 8822 9 16 *LOAD FOUNTAIN PEN ON PSYCHIATRIST
+M 0 8815 1 8813 1 *LOAD NAKED PSYCHO NYMPHOMANIAC
+M 0 8816 1 8814 1 *LOAD COMPULSIVE EATER
+G 0 8823 9 *LOAD DONUT ON COMPULSIVE EATER
+G 0 8824 9 *LOAD HAM SANDWICH ON C0MPULSIVE EATER
+M 0 8817 1 8815 1 *LOAD HEAD ORDERLY
+E 0 8805 9 17 *LOAD HYPODERMIC ON HEAD ORDERLY
+M 0 8818 1 8816 1 *LOAD SHOCKER
+M 0 8819 1 8817 1 *LOAD SIGMUND FREUD
+E 0 8822 9 16 *LOAD FOUNTAIN PEN ON SIGMUND FREUD
+O 0 8825 1 8817 *LOAD COUCH
+M 0 8820 1 8819 1 * LOAD FOLLOWR 9OF CHARLES MANSON
+E 0 8826 9 16 *LOAD SCALPEL ON FOLLOWER OF CHARLES MANSON
+M 0 8821 1 8819 1 *LOAD CHARLES MANSON
+M 0 8822 1 8820 1 *LOAD FREDDY KRUGER
+E 0 8827 9 16 *LOAD FREDDY'S GLOVE ON FREDDY kRUGER
+M 0 8823 1 8821 1 *LOAD JASON
+E 0 8828 9 16 *LOAD TABLE LEG ON JASON
+M 0 8824 1 8822 1 *LOAD JEFFREY DAHMER
+E 0 8829 9 16 *LOAD BLOODY ARM ON JEFFREY DAHMER
+M 0 8825 1 8824 1 *LOAD JACK THE RIPPER
+E 0 8830 9 16 *LOAD BUTCHER KNIFE ON JACK THE RIPPER
+M 0 8826 1 8825 1 *LOAD DR. GIGGLES
+E 0 8831 9 16 *LOAD BONE SAW ON DR. GIGGLES
+M 0 8827 1 8826 1 *LOAD LOTUS
+E 0 8832 9 16 *LOAD LOONEYSWORD ON LOTUS
+D 0 8806 1 1 *CLOSE DOOR
+D 0 8827 3 1 *CLOSE DOOR
+S
+
+#$

@@ -1,0 +1,651 @@
+#PLAYER
+Name Incubi~
+Id   1019639292
+LogO 1019681269
+Vers 13
+Mexp 2
+Prom <{P%h{x/{R%H{xhp {G%m{x/{H%M{xm {C%v{x/{B%V{xst {W%X tnl {Y%z{x> ~
+Race human~
+Sex  1
+Cla  3
+Levl 23
+Plyd 7399
+Back 0
+Note 1019640191 1019640191 1019640191 1019665147 1019640191 1019640191 1019640191
+Scro 22
+Room 8543
+HMS  528 562 228 244 58 356
+Gold 988
+Silv 2105
+Exp  23096
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy CDEFVYc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  4
+Prac 45
+Trai 7
+Save  -4
+Alig  1000
+Hit   21
+Dam   20
+ACs -57 -59 -54 -29
+Wimp  8
+Atrib 19 18 18 14 18 14
+AtMod 3 7 8 14 5 2
+Pass surge~
+Titl  like to bring {Rp{Bl{Re{Ba{Rs{Bu{Rr{Be{x.~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Xenith~
+Lsit ACAE9FBC.ipt.aol.com~
+Ltim Wed Apr 24 13:59:20 2002
+~
+LSav Wed Apr 24 15:47:49 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  O
+HMSP 432 232 356
+THMS 0 0 0
+Cnd  0 0 7 27
+Alias k kick~
+Query syveril~
+Query Bascha~
+Query algroth~
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 75 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 80 1 'dagger'
+Sk 76 1 'sword'
+Sk 1 1 'shield block'
+Sk 75 1 'bash'
+Sk 80 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 77 1 'kick'
+Sk 75 1 'parry'
+Sk 75 1 'second attack'
+Sk 75 1 'third attack'
+Sk 76 1 'dual wield'
+Sk 75 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'enhancement'
+Affc 'steel mist'   0  11  25  -1  17   16777216 1
+Affc 'stone skin'   0  15   4 -40  17          0 1
+Affc 'regeneration'   0  89  26   0   0  268435456 3
+Affc 'haste'   0  86   3   5   2    2097152 1
+End
+
+#O
+Vnum 73
+Nest 0
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 1
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 1
+Cond 99
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 4596
+Nest 1
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 4586
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 4578
+Nest 1
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 10129
+Nest 1
+Wear -1
+Cost 122
+End
+
+#O
+Vnum 4608
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 3172
+Nest 1
+Wear -1
+Cost 600
+ExDe owned by~ Incubi~
+End
+
+#O
+Vnum 4589
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 4582
+Nest 1
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4581
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4607
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1100
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 3715
+Nest 1
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16057
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4204
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 80
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 3703
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3716
+Nest 1
+Wear -1
+Cost 0
+Val  0 0 184 0 0
+End
+
+#O
+Vnum 4203
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 2404
+Nest 1
+Cond 97
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 2404
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 4590
+Nest 1
+Wear -1
+Cost 600
+Affc 'light of truth'   0  83  49   0   0         64 1
+Affc 'light of truth'   0  84  49   0   0          4 1
+Affc 'dazzling light'   0  85  75   4  19          0 1
+Affc 'dazzling light'   0  84  75   4  18          0 1
+End
+
+#O
+Vnum 9201
+Nest 0
+Wear 1
+Cost 1140
+End
+
+#O
+Vnum 2326
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 2326
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 9201
+Nest 0
+Cond 94
+Wear 2
+Cost 1140
+End
+
+#O
+Vnum 1603
+Nest 0
+Cond 92
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 1603
+Enchanted
+Nest 0
+Wear -1
+Lev  9
+Cost 700
+Affc 'reserved'   1   8  -1  10  12          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'enchant weapon'   1  91  -1   3  18          0 1
+End
+
+#O
+Vnum 16048
+Nest 0
+Wear 19
+Cost 500
+Val  2 5 6 11 4
+Affc 'blood blade'   5  71  23   0   0          4 1
+End
+
+#O
+Vnum 16048
+Nest 0
+Cond 96
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 16046
+Nest 0
+Wear 5
+Cost 3500
+End
+
+#O
+Vnum 10133
+Nest 0
+Wear 8
+Cost 120
+End
+
+#O
+Vnum 10127
+Nest 0
+Wear 7
+Cost 128
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear 13
+Cost 2500
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 16065
+Nest 0
+ExtF 0
+Wear 15
+Cost 1000
+End
+
+#O
+Vnum 16037
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 4576
+Nest 0
+Wear 18
+Cost 2000
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 16075
+Nest 0
+Wear 10
+Cost 1600
+End
+
+#O
+Vnum 7504
+Nest 0
+Wear 6
+Cost 100
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear 0
+Cost 700
+Affc 'light of truth'   0  88  70   0   0         16 1
+Affc 'light of truth'   0  88  70   0   0         32 1
+Affc 'light of truth'   0  88  70   0   0          8 1
+Affc 'light of truth'   0  87  70   0   0          4 1
+Affc 'dazzling light'   0  77  12   4  19          0 1
+Affc 'dazzling light'   0  76  12   4  18          0 1
+End
+
+#O
+Vnum 16076
+Nest 0
+Wear 14
+Cost 1400
+End
+
+#O
+Vnum 16065
+Nest 0
+ExtF 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 10281
+Nest 0
+ExtF 16777280
+Cond 99
+Wear -1
+Cost 800
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 16041
+Nest 0
+Wear 16
+Cost 5000
+Val  1 6 6 3 4
+Affc 'blood blade'   5  82  91   0   0          4 1
+End
+
+#END

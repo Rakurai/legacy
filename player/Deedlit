@@ -1,0 +1,758 @@
+#PLAYER
+Name Deedlit~
+Id   1014448721
+LogO 1026803123
+Vers 14
+Mexp 2
+Pass aqua24~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race seraph~
+Clan blackclaw~
+Cla  5
+Levl 43
+Tru  0
+Plyd 96286
+Back 79971
+Note 1022715337 0 0 1017160938 1019529513 1026258348 1018409759
+Scro 22
+Room 5005
+HMS  890 635 603
+Gold 726
+Silv 87
+Exp  61880
+PCkills  1
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   1
+Pos  6
+Alig 1000
+Spou Chynna~
+FImm 0
+FRes NS
+FVul M
+Plr  BU
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 17
+Trai 7
+Wimp 0
+Atrib 21 18 20 17 20 23
+SkillPnts  32
+QuestPnts  17
+QpDonated  45
+Afk {B[{CMon Jul 15 02:21:34 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {CS{Th{Ca{Td{Co{Tw {MApprentice~
+Immn ~
+Pnts 46
+Rank {cNIN~
+Aura ~
+TSex 2
+LLev 22
+Deit Jubei~
+Lsit crlspr-12.164.33.214.myacc.net~
+Ltim Tue Jul 16 00:45:48 2002
+~
+LSav Tue Jul 16 02:05:23 2002
+~
+HMSP 735 450 583
+THMS 0 0 0
+Cnd  0 0 0 0
+Colr 13 36 1
+Ignore rukus~
+Sk 77 1 'armor'
+Sk 75 1 'bless'
+Sk 75 1 'calm'
+Sk 75 1 'cancellation'
+Sk 75 1 'cure blindness'
+Sk 75 1 'cure critical'
+Sk 75 1 'cure disease'
+Sk 76 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 75 1 'cure serious'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 75 1 'fireproof'
+Sk 75 1 'fly'
+Sk 75 1 'frenzy'
+Sk 76 1 'gate'
+Sk 76 1 'heal'
+Sk 32 1 'holy word'
+Sk 75 1 'mass healing'
+Sk 73 1 'nexus'
+Sk 76 1 'pass door'
+Sk 75 1 'portal'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 76 1 'refresh'
+Sk 75 1 'remove alignment'
+Sk 49 1 'remove invisibility'
+Sk 50 1 'remove curse'
+Sk 78 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 1 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 75 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'word of recall'
+Sk 100 1 'sword'
+Sk 78 1 'shield block'
+Sk 76 1 'bash'
+Sk 100 1 'dodge'
+Sk 99 1 'enhanced damage'
+Sk 96 1 'kick'
+Sk 100 1 'parry'
+Sk 75 1 'rescue'
+Sk 84 1 'second attack'
+Sk 94 1 'dual wield'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'curative'
+Gr 'healing'
+Gr 'protective'
+Gr 'transportation'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 150 0 0 0
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 10127
+Nest 0
+Wear -1
+Cost 128
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Cond 80
+Wear 1
+Cost 1500
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 3
+Cond 61
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 9924
+Nest 0
+Cond 86
+Wear 0
+Cost 0
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 17320
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24818
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 24818
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 24818
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 24818
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 24818
+Nest 0
+Wear -1
+Cost 16
+Val  150 0 37 0 0
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24800
+Nest 0
+Wear 18
+Cost 2000
+End
+
+#O
+Vnum 24805
+Nest 0
+Cond 97
+Wear 5
+Cost 4000
+End
+
+#O
+Vnum 24804
+Nest 0
+Wear 3
+Cost 4000
+End
+
+#O
+Vnum 24804
+Nest 0
+Cond 88
+Wear 4
+Cost 4000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 17100
+Nest 0
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 10202
+Nest 0
+ExtF 64
+Cond 94
+Wear 10
+Cost 10000
+End
+
+#O
+Vnum 10203
+Nest 0
+ExtF 64
+Cond 95
+Wear 7
+Cost 10000
+End
+
+#O
+Vnum 10204
+Nest 0
+ExtF 64
+Cond 88
+Wear 9
+Cost 10000
+End
+
+#O
+Vnum 10205
+Nest 0
+ExtF 64
+Cond 92
+Wear 8
+Cost 10000
+End
+
+#O
+Vnum 10213
+Nest 0
+Wear 14
+Cost 500
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 78
+Wear 19
+Cost 10000
+End
+
+#O
+Vnum 7607
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 10409
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 17107
+Nest 0
+Wear -1
+Cost 150
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear -1
+Cost 133
+End
+
+#O
+Vnum 17104
+Nest 0
+Wear -1
+Cost 170
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear -1
+Cost 133
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 7607
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 17105
+Nest 0
+Wear -1
+Cost 145
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear -1
+Cost 133
+End
+
+#O
+Vnum 10215
+Nest 0
+Cond 94
+Wear 16
+Cost 10000
+End
+
+#O
+Vnum 17100
+Nest 0
+Wear -1
+Cost 159
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24826
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#END

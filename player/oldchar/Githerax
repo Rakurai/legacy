@@ -1,0 +1,281 @@
+#PLAYER
+Name Githerax~
+Id   1011167736
+LogO 1011170849
+Vers 11
+Prom <{C%h{x/{T%Hhp{G %m{Hm{B %v{Nmv{R %X{Ptnl{x> ~
+Race dwarf~
+Sex  1
+Cla  3
+Levl 6
+Plyd 2948
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  36 102 125 125 115 159
+Gold 7
+Silv 397
+Exp  6877
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDFGHJKLQSc
+AfBy JRV
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  4
+Save  -8
+Alig  -183
+Hit   11
+Dam   8
+ACs 78 76 76 94
+Wimp  15
+Atrib 18 12 19 10 21 11
+AtMod 5 3 4 6 0 2
+SkillPnts 2
+QuestPnts 5
+QuestNext 10
+SQuestNext 3
+Pass jammer~
+Titl  the Great~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Montrey~
+Lsit acad7c65.ipt.aol.com~
+Ltim Wed Jan 16 01:58:15 2002
+~
+LSav Wed Jan 16 02:47:29 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 98 118 159
+THMS 0 0 0
+Cnd  0 27 36 41
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 41 1 'sword'
+Sk 1 1 'berserk'
+Sk 10 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 14 1 'parry'
+Sk 31 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'swimming'
+Sk 22 1 'fast healing'
+Sk 1 1 'forge'
+Sk 2 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'enhancement'
+Affc 'giant strength'   0  90  80   4   1          0 1
+Affc 'haste'   0  88  11   4   2    2097152 1
+Affc 'blood moon'   0  94  71   4  18          0 1
+Affc 'blood moon'   0  97  71   8  19          0 1
+Affc 'bless'   0  49   5  -7  24          0 1
+Affc 'bless'   0  47   5   7  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Cond 96
+Wear 0
+Cost 0
+Val  0 0 134 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3021
+Nest 0
+Cond 84
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3379
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 97
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Cond 93
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#END

@@ -1,0 +1,8413 @@
+#AREA
+holycity.are~
+Holy City~
+{H{{1 91} {MLeveret {THoly City{x~
+14000 14299
+
+
+#MOBILES
+#14000
+pilgrim~
+Pilgrim~
+A pilgrim welcomes your company.
+~
+The pilgrim is on a long journey to visit the holy city.
+This looks a little like a cross between country peasant
+and a holy man. On the pilgrim's finger is a small ring
+that looks as if it was made of bone, whereas in his hand
+is a rough looking staff that could probably double easily
+as a weapon.
+~
+human~
+AGH 0 -350 S
+1 0 1d20+10 0d0+0 2d3+3 pound
+0 0 0 0
+0 0 0 0
+stand stand either 0
+0 0 medium 0
+>greet_prog 10~
+     emote utters a blessing
+~
+|
+#14001
+Citizen~
+Citizen~
+The citizen eyes you nervously.
+~
+A citizen of the holy city is nothing special to look at,
+wearing the dirt covered rags that mark his station and
+covered with a number of scars where he's been beaten by
+the soldiers that patrol the city.
+~
+human~
+ACGH 0 -250 S
+1 0 1d20+2 10d10+0 2d3+3 scratch
+0 0 0 0
+0 0 0 0
+stand stand either 10
+0 0 medium 0
+>greet_prog 25~
+   cower $n
+~
+|
+#14002
+Slave~
+Slave~
+The slave looks sad here.
+~
+A young naked human, the slave looks quite miserable with
+it's lot, covered in the scars of many a whipping and even
+the wounds of a blow or two with a sharp weapon.
+~
+human~
+AGH 0 0 S
+1 1 1d20+10 0d0+0 2d3+3 punch
+0 0 0 0
+0 0 0 0
+stand stand either 0
+0 0 medium 0
+>greet_prog 50~
+   emote notices you and suddenly gets busy.
+~
+|
+#14003
+Citizen~
+Starving Citizen~
+A very thin citizen searches for food here.
+~
+One of the thinest people you have ever seen, must be
+staying alive by sheer will. Obviously a citizen from
+the state of the clothing and the face that is covered
+with the scars of so many beatings, this one probably
+doesn't have too much longer to live.
+~
+human~
+ACGH 0 0 S
+1 1 1d10+10 1d2+2 2d3+3 punch
+0 0 0 0
+0 0 0 0
+stand stand either 0
+0 0 medium 0
+>greet_prog 75~
+   emote looks at $n hopefully for some food.
+~
+|
+#14004
+Barman Cecil~
+Cecil Pit~
+Cecil Pit, the barman, waits to serve you.
+~
+A fat balding archetypal Barman, the leaseholder on the
+only tavern left in the city, rumours say that Elvanshalee
+herself actually owned the tavern before she owned the
+whole city and thus has a soft spot for the place.
+~
+elf~
+ABG J 0 S
+1 0 1d20+10 0d0+0 0d0+0 pound
+0 0 0 0
+0 ABCD B 0
+stand stand male 0
+0 0 medium 0
+>greet_prog 99~
+   say what can I get you?
+~
+|
+
+#14005
+Receptionist~
+Receptionist~
+A receptionist stands here with a forced smile on her face
+~
+
+A receptionist. Almost like something out of a doctors
+surgery, the receptionist wears a long white coat, is
+wearing a pair of spectacles and has a quill tucked behind
+her ear.
+~
+elf~
+ABG J 0 S
+1 0 1d1+1 0d0+0 1d1+1 pound
+0 0 0 0
+0 ABCDEFGHIJKLMNOPRSTXYZ B Z
+stand stand female 0
+0 0 medium 0
+#14006
+Child~
+Child~
+A child is playing here.
+~
+The small child dressed in little more than rags seems
+to be far too interested in a game to pay you any attention.
+Or maybe the child is just wary of you, no knowing what
+the spies of the demoness look like these days.
+~
+human~
+ACGH 0 0 S
+1 0 1d20+10 1d10+10 2d3+3 scratch
+0 0 0 0
+0 0 0 0
+stand stand either 0
+0 0 medium 0
+#14007
+Bat~
+Bat~
+A bat is hanging upside down here.
+~
+A common bat, looks very tired as it hangs, but unable
+to sleep because people keep disturbing it.
+~
+bat~
+BG TZ 0 S
+1 1 1d20+10 0d0+0 2d3+3 scratch
+0 0 0 0
+FH 0 0 S
+sleep stand either 0
+0 0 small 0
+#14008
+Sacrifice Virgin~
+Sacrificial Virgin~
+This lovely woman is ready to give her life for her god.
+~
+A young woman in almost see through white robes, she is so
+devoted to her goddess/demoness that she is willing to
+give her life as part of a worship ritual.
+~
+elf~
+ABGQ J -300 S
+1 1 1d20+10 10d20+10 2d3+3 punch
+0 0 0 0
+U 0 B Z
+stand stand female 0
+0 0 medium 0
+>greet_prog 15~
+    say We must be allowed to die for our Goddess.
+~
+|
+#14009
+Goblin Waitress~
+Goblin Waitress~
+The goblin is here willing to serve.
+~
+A female goblin waits to serve you a drink wearing the
+standard uniform of the 'Demons Inn' tavern. A simple
+apron with the tiny figure of Elvanshalee pictured over
+the wearers heart.
+~
+orc~
+ABGHS 0 -50 S
+2 0 2d20+5 5d5+0 2d3+3 punch
+0 0 0 0
+F 0 0 0
+stand stand female 10
+0 0 medium 0
+>greet_prog 10~
+     say something to drink?
+~
+|
+#14010
+Fox~
+Fox~
+The Fox glares at you from it`s prison.
+~
+A Deeply red fox doesn't look like it's much of a match for
+anyone especially not a hardened warrior.
+~
+fox~
+ABG Z 0 S
+3 1 3d20+30 2d8+10 2d4+4 scratch
+0 0 0 0
+FH 0 0 0
+stand stand either 0
+0 0 medium 0
+#14011
+Chef~
+Chef~
+The chef is too busy to bother with you.
+~
+A human figure in a full white chefs outfit complete with
+hat, is rushing about the kitchen trying to prepare meals
+for the guests of the demoness, he doesn't have time to
+stop and chat as Elvanshalee is very strict about her staff.
+~
+human~
+ABGH HV -500 S
+64 13 64d75+640 5d10+0 5d12+20 pound
+0 0 0 0
+0 0 0 0
+stand stand male 100
+0 0 medium 0
+>greet_prog 15~
+   say do I know you?
+   say get out of here, can't you see we're busy.
+~
+|
+#14012
+Guest~
+Guest~
+The Guest greets you amicably.
+~
+You are looking at a fairly unextraordinary human, yet
+quite special for someone in the city as theres no a scar
+on the guests face nor does the guest doesn't seem to be
+too badly off being dressed mainly in silk.
+~
+human~
+AGH HV -800 S
+68 14 68d75+680 10d10+0 3d15+15 pound
+-3 -3 -3 -2
+F 0 0 0
+stand stand either 10
+0 0 medium 0
+>greet_prog 12~
+   say isn't Elvanshaless the greatest of hostesses?
+~
+|
+#14013
+
+Orc Soldier~
+Orc Soldier~
+The Orc Soldier patrols the area wishing his duty was over.
+~
+A simple orcish soldier in the livery of Elvanshalee, almost totally
+black leather armour with a blue and a green dragon painted onto the front.
+The Orc is armed with a nasty-looking weapon and a small buckler which
+also has the dragons' images on it.  Recruited soon after the Demonesses 
+arrival, it is this soldier's desire simply to survive long enough to 
+retire with whatever reward Elvanshalee deems to give him.  For this 
+soldier, life would be reward enough.
+~
+orc~
+AGHT 0 -200 S
+5 1 5d20+10 10d10+10 2d5+5 slash
+-7 -7 -7 -7
+EKP 0 0 0
+stand stand male 30
+0 0 medium 0
+>rand_prog 3~
+    emote checks his watch.
+    sigh
+    emote shoulders his weapon, breaths in 
+    sigh
+   
+~
+|
+#14014
+Market Shopper Customer~
+Market Shopper~
+A potential customer looks for bargains here.
+~
+An ordinary looking citizen of the city with perhaps just
+a little more money than the average citizen, clothing
+maybe a little less ragged but face just as scarred as
+any other citizen.
+~
+human~
+AGH 0 -120 S
+6 1 6d20+20 10d10+0 2d5+5 punch
+-4 -4 -4 -3
+0 0 0 0
+stand stand either 10
+0 0 medium 0
+#14015
+Wolf~
+wolf~
+The wolf licks it`s lips at you.
+~
+An Arctic wolf it looks a little uncomfortable in it's 
+surroundings and looks
+like it's been starved by the
+current regime. Maybe the only food it gets is the
+hapless adventurers that come into it's cage.
+~
+wolf~
+ABG Z 0 S
+7 2 7d20+70 3d11+20 2d5+5 none
+-5 -5 -5 -4
+FH 0 0 0
+stand stand either 0
+0 0 medium 0
+#14016
+Merchant~
+Merchant~
+The merchant is trying to make a profit.
+~
+A Stereotypical merchant complete in flowing long robe
+and a nice looking money belt.
+~
+human~
+ACGH 0 0 S
+20 2 20d10+200 1d10+0 1d12+0 thrust
+-6 -6 -6 -5
+0 0 0 0
+stand stand either 200
+0 0 medium 0
+#14017
+Assassin School Janitor~
+School Janitor~
+The Janitor is here moping up the blood.
+~
+A drow cleaner whos first year as a student in the school
+has to be spent cleaning up after the others in order to
+be allowed to learn the trade.
+The drow is dressed in simple peasants clothing, with
+an apron about the middle and armed with a broom which is
+currently being used to sweep with.
+~
+drow~
+ABCGS J -50 S
+9 2 9d20+40 10d20+20 2d5+5 pound
+-6 -6 -6 -5
+F 0 B SZ
+stand stand either 10
+0 0 medium 0
+>greet_prog 25~
+     emote screams at $n 'OY I just cleaned that bit'
+~
+|
+#14018
+Market Guard~
+Market Guard~
+A Guard stands here watching the preceedings.
+~
+A well armed soldier wearing the livery of one of the
+merchants patrols the area between the stalls of the
+market watching out for any trouble.
+The guard was chosen for muscles and does look quite
+an impressive sight even though armed only with a cosh.
+~
+drow~
+AGT J 0 S
+10 2 10d20+40 10d10+10 2d5+5 pound
+-7 -7 -6 -6
+FP 0 B SZ
+stand stand either 50
+0 0 medium 0
+>greet_prog 10~
+    emote watches every move $n is making.
+~
+|
+#14019
+Refugee~
+Refugee~
+A refugee from drow city is here.
+~
+You see a drow with some nasty scars caused by many
+fights with adventurers who invaded the drow homeland
+and killed for no reason other than to make a name for
+themselves.
+The refugee is wearing no more than the rags that they
+escaped the homeland wearing, with very little in the
+way of finances.
+~
+drow~
+AGH J -300 S
+10 2 10d20+50 1d100+50 2d5+5 pound
+-6 -6 -6 -5
+IK 0 B SZ
+stand stand either 5
+0 0 medium 0
+#14020
+Orc Guard~
+Orc Guard~
+The Orc stands here guarding the gate.
+~
+An orc soldier wearing the livery of Elvanshalee, a
+leather jerkin depicting the image of a blue and a
+green dragon, is watching the gate for any unwelcome
+guests not a very exciting job but he knows only to
+well the reward for failure.
+~
+orc~
+ABGT O -320 S
+10 2 10d20+100 10d10+10 2d5+5 slash
+-8 -8 -8 -8
+KP 0 0 0
+stand stand either 10
+0 0 medium 0
+>rand_prog 5~
+    yawn
+~
+|
+#14021
+Red Target~
+Red Practice Target~
+A man with a red ribbon round his arm stand here terrified.
+~
+An almost naked man with a red ribbon on his arm, his
+hair shaved and his body covered in the scars of many
+a battle.
+~
+human~
+AGT 0 400 S
+10 2 10d20+100 0d0+0 2d5+5 scratch
+-8 -8 -8 -8
+0 0 0 0
+stand stand male 0
+0 0 medium 0
+#14022
+Bear~
+Bear~
+A bear looks up for food.
+~
+A large black Bear looks very cuddly. It wanders over
+to you in the hope you have something for it, maybe in
+your backpack.. It'll save you the task of looking.
+~
+bear~
+ABFG 0 0 S
+10 2 10d20+100 10d5+5 2d5+5 crush
+-8 -8 -8 -8
+DEO 0 EI 0
+stand stand either 0
+0 0 large 0
+#14023
+Garrison Orc~
+Garrison Orc~
+An orc stands here unhappily.
+~
+The orc, dressed in the livery of Elvanshalee's border guard, doesn`t
+look too happy at having been assigned here. Armed with no more than a
+simple weapon and a light bucker with the image of a green and a blue
+dragon on it's surface, the orc seems to have an almost worried
+expression on his face.
+~
+orc~
+ACGT 0 -200 S
+12 2 12d20+120 5d5+12 1d12+6 thrust
+-8 -8 -8 -6
+EFU 0 0 0
+stand stand either 100
+0 0 medium 0
+>rand_prog 5~
+     yawn
+~
+|    
+#14024
+Flower Picker~
+Flower Picker~
+Someone is picking the flowers here.
+~
+A human is standing in a field picking the flowers, there
+seems to be no logical reason why he feels the need to
+pick flowers, maybe he has a sweetheart, or maybe
+Elvanshalee's regime has just got to him. He is wearing
+little more than the rags of a peasant and his body is
+covered with the scars of many many beatings.
+~
+human~
+ABGH 0 0 S
+12 3 12d20+120 4d5+0 2d6+6 pound
+-8 -8 -8 -7
+0 0 0 0
+stand stand male 0
+0 0 medium 0
+#14025
+Panther~
+Panther~
+The panther growls at you.
+~
+The panther looks quite vicious and
+wonders whether or not you might be edible.
+~
+cat~
+ABFG Z 0 S
+12 2 12d20+120 1d1+10 2d6+6 scratch
+-8 -9 -8 -8
+FH 0 0 0
+stand stand either 0
+0 0 medium 0
+#14026
+Flagellant~
+Flagellant~
+A flagellant is here whipping himself.
+~
+The flagellant, whose skin seems to be covered with
+welts caused by his own whip, is wearing nothing but
+rags and seems to have an uncontrollable urge to hit
+himself with a small whip every so often.
+~
+elf~
+ACGH J 0 S
+13 3 13d20+130 10d20+20 2d6+7 whip
+-8 -8 -8 -7
+E 0 B Z
+stand stand either 10
+0 0 medium 0
+>greet_prog 35~
+   whip flag
+~
+|
+#14027
+Succubus~
+Succubus~
+The Succubus stands here looking evil.
+~
+The succubus is one of the most beautiful women in the
+holy city, indeed other women have fallen in love with
+her despite their own wishes. The succubus wears a light
+metal armour, it clings to her every curve showing her
+body in its best light. She is well kempt and her body
+has not a blemish on it.
+~
+human~
+AGH O -400 S
+14 4 14d20+140 220d20+50 2d8+7 slash
+-9 -9 -9 -9
+F 0 0 0
+stand stand female 400
+0 0 medium 0
+>greet_prog 40~
+    emote flutters her eyelashes lustily at $n
+~
+|
+#14028
+Incubus~
+Incubus~
+The Incubus stands here looking evil.
+~
+The incubus is one of the most handsome of all the
+demons in the city, indeed members of the same sex
+have fallen in love with him despite their own wishes.
+The incubus wears a light metal armour, it clings to
+his every curve showing his body in its best light.
+He is well kempt and his body has not a blemish on it.
+~
+human~
+AGT O -400 S
+14 3 14d20+140 220d20+20 2d8+7 peck
+-9 -9 -9 -8
+F 0 0 0
+stand stand male 400
+0 0 medium 0
+>greet_prog 40~
+    say can I have your telephone number?
+    drool $n
+~
+|
+#14029
+Minor Demon~
+Minor Demon~
+A minor demon is trying to look human here.
+~
+A small horned biped with almost a lizardesque red skin
+is exporing the city of his lady and mistress, the
+Demoness Elvanshalee. He is little more than a tourist
+from his home plane, seeing how the other half lives.
+~
+human~
+ACGHT I -600 S
+15 3 15d30+150 10d10+0 2d8+8 sting
+0 0 0 0
+EF BLQ CH N
+stand stand male 20
+0 0 medium 0
+#14030
+Butler~
+Tantro's Butler~
+A butler is here getting some fresh air.
+~
+A butler complete with penguin suit and a bow tie. He
+is going bald, but has a little grey hair around the edges.
+~
+human~
+ABG 0 -200 S
+17 4 17d30+170 4d5+20 2d9+9 punch
+-14 -14 -14 -10
+I 0 0 0
+stand stand male 0
+0 0 medium 0
+#14031
+Trainee Assassin~
+Trainee Assassin~
+An assassin sits here learning.
+~
+A drow dressed in a black sneak suit is busy learning all
+that can be learned about the assassination business.
+~
+drow~
+ABCGHS J -250 S
+18 4 18d30+180 10d20+20 2d10+9 pound
+0 0 0 0
+F 0 0 S
+sit stand either 30
+0 0 medium 0 
+#14032
+Demon Soldier~
+Demon Soldier~
+A Demon Soldier patrols this area.
+~
+The demon soldier wears the livery of Elvanshalee, in this
+case a light chainmail with the image of a blue and a
+green dragon painted on the front. The soldier looks
+quite menacing and is armed with a large pitchfork.
+This Demon is totally loyal and will fight to the death
+rather than allow any threat to his lady.
+~
+human~
+ACGT 0 -800 S
+20 4 20d30+200 20d5+10 2d10+10 scratch
+-12 -12 -12 -10
+P 0 0 0
+stand stand either 0
+0 0 medium 0
+>greet_prog 50~
+    growl $n
+~
+|
+#14033
+Blue Target~
+Blue Practice Target~
+A man with a blue ribbon round his arm tries to look confident here.
+~
+An almost naked man with a blue ribbon on his arm, his
+hair shaved and his body covered in the scars of many
+a battle.
+~
+human~
+AGT 0 500 S
+20 4 20d30+200 10d10+10 2d10+10 punch
+-16 -16 -16 -16
+F 0 0 0
+stand stand male 0
+0 0 medium 0
+#14034
+Priest~
+Priest~
+A Priest is taking it relatively easy here.
+~
+The priest is wearing only the most basic of robes
+suggesting a very meager and holy lifestyle.
+~
+elf~
+AGHQ JOU -350 S
+22 4 22d30+220 100d10+40 2d11+11 beating
+-15 -15 -15 -12
+F 0 B Z
+stand stand male 50
+0 0 medium 0
+>greet_prog 25~
+     say  follow the Goddess.
+     say give generously to her church.
+~
+|
+#14035
+Priestess~
+Priestess~
+A Priestess is taking it relatively easy here.
+~
+The priestess is not wearing anything particularly
+marvelous suggesting a very meagre and holy lifestyle.
+~
+elf~
+AGHQ JOU -350 S
+22 4 22d30+220 100d10+40 2d11+11 beating
+-15 -15 -15 -12
+F 0 B Z
+stand stand female 50
+0 0 medium 0
+>greet_prog 25~
+    say repent your ways, give to the church
+~
+|
+#14036
+Plague Carrier~
+Plague Carrier~
+A poorly looking individual stands here.
+~
+A citizen wearing white ragged robes and covered in
+the scars of many, many beatings is also covered with
+plague sores. The citizen looks imploringly towards
+you for help.
+~
+elf~
+ACGH JX 0 S
+22 4 22d30+220 2d4+8 2d11+11 grep
+0 0 0 0
+0 0 B Z
+stand stand either 0
+0 0 medium 0
+#14037
+Rabid Rose~
+Rabid Rose~
+The rose bush looks quite dangerous.
+~
+A large rose bush with nasty looking thorns.  Not a
+lot can be said about a rose bush.  It just sits there
+swaying gently in the wind.
+~
+human~
+ABFG 0 0 S
+22 4 22d30+220 22d20+20 2d11+11 pierce
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 small 0
+#14038
+Freedom Fighter~
+Freedom Fighter~
+A Freedom Fighter is trying to find a way to oust Elvanshalee.
+~
+A Human who has spent most of their life trying to
+recapture the holy city from the clutches of Elvanshalee.
+The Freedom fighter is wearing little more than the rags
+worn as a citizen of the city and scars covering the
+Freedom Fighter's face are worn as reminders of the
+indignities that the population are put through every day.
+~
+human~
+AGT 0 400 S
+24 5 24d30+240 10d10+10 2d12+12 pound
+-20 -20 -20 -10
+EFJ 0 0 0
+stand stand either 5
+0 0 medium 0
+>greet_prog 30~
+   say Elvanshalee and all who follow her will die by fire and blade.
+   say and I'm not scared to say so
+~
+|
+#14039
+Terrible Tulip~
+Terrible Tulip~
+The tulip seems quite serene.
+~
+A tulip, planted and maintained by Tantro, the tulip
+helps add a bit of colour to an otherwise dull
+looking garden.
+~
+human~
+ABFG 0 0 S
+25 5 24d30+240 7d20+70 2d13+13 slap
+0 0 0 0
+D 0 0 0
+stand stand none 0
+0 0 small 0
+#14040
+Orc Captain~
+Orc Captain~
+The Orc Captain stands here checking on his men.
+~
+The Orc Captain is very impressive, looking for an orc
+and he seems very sure of himself.  He wears the standard
+livery of Elvenshalee; a leather jerkin with the painting
+of a blue and green dragon on it.
+~
+orc~
+AGT 0 -400 S
+25 5 25d30+250 4d4+0 2d13+13 slice
+-15 -15 -15 -12
+DFIKNP 0 0 0
+stand stand male 50
+0 0 medium 0
+#14041
+Devil's Daughter~
+Devil's Daughter~
+The Devils Daughter is punishing the civilians here.
+~
+A beautiful humanoid form armed with a nasty looking
+sword, and dressed in a beautiful red lace dress. She has
+two small horns growing out the top of her head and a
+lovely set of fangs.
+~
+human~
+ACGR 0 -650 S
+26 6 25d35+300 5d50+500 2d13+13 slash
+-20 -20 -20 -20
+EFN 0 0 0
+stand stand female 100
+0 0 medium 0
+>greet_prog 45~
+     say Hello deary.
+     giggle
+~
+|
+#14042
+Canny Chrysanthemum~
+Canny Chrysanthemum~
+A Chrysanthemum grows here.
+~
+A chrysanthemum, a pretty little plant well looked after
+and loved by the owner, this flower seem to have a
+life of its own at times.
+~
+human~
+ABFG 0 0 S
+26 5 26d30+260 10d10+10 2d13+13 scratch
+0 0 0 0
+DF 0 0 0
+stand stand none 0
+0 0 small S
+#14043
+Vrock Demon~
+Vrock~
+Vrock stands here resisting the urge to kill.
+~
+A funny looking demon about 6 foot high with birds wings
+and beak, it doesn't look as if it likes its position
+in the city.  It looks as if it longs to destroy the city
+and the population with it.
+~
+human~
+ACGT T -1000 S
+30 6 30d30+300 10d10+10 2d15+15 claw
+-20 -20 -21 -19
+EFK ALQ CHJ N
+stand stand either 2000
+0 0 large 0
+>greet_prog 10~
+   growl $n
+~
+|
+#14044
+Demon Captain~
+Demon Captain~
+The demon captain is here checking on his soldiers.
+~
+The demon captain doesn`t really look all that great.
+He wears the livery of Elvanshalee, a chain mail
+jerkin with the images of a blue and a green dragon
+on it. It is obvious from his demeanour that he fears
+the more powerful demons here.
+~
+human~
+AGT 0 -800 S
+30 6 30d30+300 12d10+30 2d15+15 cleave
+-20 -20 -20 -18
+CEFKP 0 0 0
+stand stand male 40
+0 0 medium 0
+>greet_prog 10~
+    growl $n
+~
+|
+#14045
+Mercenary~
+Mercenary~
+A mercenary watches the traffic here.
+~
+An unimpressive looking Dwarf in the livery of
+Elvanshalee, the uniform looks a little unkempt and
+has a few decorations which aren't regulation. He
+looks unshaven rather than bearded.
+~
+dwarf~
+ACGT J -350 S
+32 6 32d50+320 10d10+10 2d16+16 thwack
+-22 -22 -22 -17
+EKN 0 LQ R
+stand stand male 20
+0 0 medium 0
+>greet_prog 50~
+       salute $n
+~
+|
+#14046
+Green Target~
+Green Practice Target~
+A man with a green ribbon round his arm tries to look threatening.
+~
+An almost naked man with a green ribbon on his arm,
+his hair shaved and his body covered in the scars
+of many a battle.
+~
+human~
+AGT 0 600 S
+35 7 35d50+350 10d10+10 2d18+18 pound
+-25 -25 -25 -24
+EFI 0 0 0
+stand stand male 0
+0 0 medium 0
+#14047
+Demon Guard~
+Demon Guard~
+A Demon guard stands to attention here.
+~
+A small redish skinned humanoid figure is standing here
+blocking the road and protecting the darklands from all
+potential invaders.
+A simple red skinned creature with two horn protuding
+from the top of his head and a nasty set of claws. The
+demon is wearing the livery of Elvanshalee, A chainmail
+top with a blue and a green dragon painted on it.
+~
+human~
+AFG DF -600 S
+36 7 36d50+360 10d20+20 2d18+18 wrath
+-30 -30 -30 -20
+EFN 0 0 0
+stand stand either 200
+0 0 medium 0
+#14048
+Demon Guard~
+Demon Guard~
+The Demon Guard is lurking here.
+~
+A small redish skinned humanoid figure is standing here
+blocking the road and protecting the darklands from all
+potential invaders.
+A simple red skinned creature with two horn protuding
+from the top of his head and a nasty set of claws. The
+demon is wearing the livery of Elvanshalee, A chainmail
+top with a blue and a green dragon painted on it.
+~
+human~
+AFG DFPQ -600 S
+36 7 36d50+360 12d10+10 2d18+18 pound
+0 0 0 0
+EFKNP 0 0 0
+stand stand either 200
+0 0 medium 0
+#14049
+Assassin~
+Assassin~
+An assassin stands here looking for a client.
+~
+A drow figure dressed in a simple black, body hugging,
+sneak suit lurks about looking for a paying customer.
+~
+drow~
+ACGHS JPQ -500 S
+38 8 38d50+380 10d10+10 2d19+19 chop
+-28 -28 -28 -26
+EF 0 0 S
+stand stand either 200
+0 0 medium 0
+#14050
+Black Guard~
+Black Guard~
+A huge suit of black armour stands guard here.
+~
+The black guard appears to be nothing but a suit of armour,
+never moving from its post, not even swaying in the wind.
+~
+human~
+ABGT O -100 S
+50 8 50d100+400 10d10+0 2d25+25 slap
+-30 -30 -30 -30
+CDEHJK 0 0 0
+stand stand either 0
+0 0 medium 0
+#14051
+High Priest~
+High Priest~
+The High Priest is here smiling to himself.
+~
+A very well off looking individual. The high priest is
+dressed in fine white silken robes. Well groomed short
+hair and clean shaven The high priest doesn't seem to have
+a single bleamish.
+~
+drow~
+AGHQ HJU -750 S
+42 9 42d50+420 2d1000+500 2d21+21 smash
+-30 -30 -30 -25
+F 0 0 S
+stand stand male 200
+0 0 medium 0
+>greet_prog 65~
+    say come to repent?
+~
+|
+#14052
+High Priestess~
+High Priestess~
+The High Priestess is staying relatively calm.
+~
+A very well off looking individual. The high priestess
+is dressed in fine white silken robes. She is well
+groomed with short tidy hair, there isn't a bleamish
+on her body.
+~
+drow~
+AGHQ HJU -750 S
+42 9 42d50+420 2d1000+500 2d21+21 pound
+-30 -30 -30 -25
+F 0 0 S
+stand stand female 200
+0 0 medium 0
+>greet_prog 65~
+     say come to repent?
+~
+|
+#14053
+Assassin Teacher~
+Teacher~
+The Teacher stand here training the young assassins.
+~
+An elderly drow in a black sneak suit and a mortar board,
+is sitting in the classroom with a number of trainees
+giving them as much knowledge as possible of their desired
+occupation.
+~
+drow~
+ABCGHS JPQ -750 S
+48 10 48d50+480 20d10+10 2d24+24 punch
+-40 -40 -40 -38
+EFHKNP 0 0 S
+stand stand either 500
+0 0 medium 0
+#14054
+Palace Servant~
+Palace Servant~
+The palace servant doesn't seem to be in too much of a hurry.
+~
+A simple looking elf who doesn't seem to be too happy;as a servant. Performing
+tasks all day long for the
+Demoness or one of her daughters, it's probably a very
+low paid and thankless job.
+~
+drow~
+ACGH J -200 S
+50 10 50d75+500 10d20+0 5d10+25 smash
+-30 -30 -30 -20
+EF 0 0 S
+stand stand either 20
+0 0 medium 0
+>greet_prog 50~
+     emote notices $n watching and starts dusting.
+~
+|
+#14055
+Yellow Target~
+Yellow Practice Target~
+A man with a yellow ribbon round his left arm looks mean.
+~
+An almost naked man with a yellow ribbon on his arm, his
+hair shaved and his body covered in the scars of many
+a battle.
+~
+human~
+AGT 0 750 S
+50 10 50d75+500 10d10+10 5d10+25 slash
+-38 -38 -38 -35
+CEFIJKN 0 0 0
+stand stand male 0
+0 0 medium 0
+#14056
+Boss Guard~
+Boss Guard~
+The Leader of the Demons blocking the road is here.
+~
+A large red skinned demon who has two horns protruding
+from each of two heads and a large tail poking from a
+strategically positioned hole in his breaches. His
+uniform is heavy steel, the image of a blue and green
+dragon, the livery of Elvanshalee, dominates the front.
+He aspires to better himself and is a little unhappy at
+the mundane duty he has been given.
+~
+human~
+AFG DFHV -800 S
+52 11 52d100+520 200d20+400 4d13+26 pound
+-40 -40 -40 -35
+FINP 0 0 0
+stand stand male 1000
+0 0 large 0
+#14057
+Herbert Head Assassin~
+Herbert~
+Herbert, The school's head assassin stands here observing.
+~
+A well off assassin who has made quite a small fortune
+in the world before starting up his own assassin school.
+It is said that Herbert answers directly to Elvanshalee
+about the progress his students are making.
+Herbert is simply dressed, clothing that allows him to
+mingle easily with the city's population. He is clean-shaven 
+and short white hair which seems to be keep
+immaculately in place.
+~
+elf~
+ACGHS JPQUV -820 S
+52 11 52d100+520 10d10+30 4d13+26 smash
+-40 -40 -40 -40
+EFHIJKN 0 B Z
+stand stand male 1000
+0 0 medium 0
+#14058
+Basher Mercenary~
+Basher The Mercenary~
+Basher is here looking for someone to fight.
+~
+Getting fed up with what he considered to be far too
+easy jobs, he eventually came to join the army of
+Elvanshalee. He was disappointed when he discovered
+that she had no designs on the rest of the world but
+at least his post allows him to do what he likes to
+the locals.
+Basher is quite a mean looking dwarf, his hair tied
+into a pony tail behind his head, his face covered in
+the scars of a dozen battles, a long slightly greying
+beard reaches to his navel. Wearing heavy armour
+pitted an etched from past conflict, Basher looks
+a formidable opponent.
+~
+dwarf~
+AGT JV -850 S
+55 11 55d100+550 5d5+0 5d11+28 grep
+-35 -38 -40 -35
+CDEFKN 0 LQ R
+stand stand male 100
+0 0 medium 0
+#14059
+Filfaere~
+Filfaere~
+Filfaere is looking for a way into the palace, unnoticed.
+~
+The sister of Elvanshalee, Filfaere is also her sworn
+enemy and though of drow blood she will fight to the
+end for her principles.
+Some people say the sisters were good friends once;
+but then Elvanshalee sought the power of a demonlord
+and they have been enemies since.
+Filfaere is a drow and a warrior, wearing the rather
+unremarkable armour of her youth, her white hair is
+long and flowing reaching her waist.
+~
+drow~
+AGT J 700 S
+60 12 60d100+600 20d10+10 5d12+30 thrust
+-40 -40 -40 -35
+CDEFHIKN 0 0 S
+stand stand female 0
+0 0 medium 0
+>greet_prog 25~
+   say I can't find my way into the Palace.
+~
+
+>rand_prog 10~
+    say My sword? Yes, it was left to me by my father. In his will.
+    say I'm glad to say my sister got nothing.
+    say maybe if she had she'd be a better person now. 
+~
+>rand_prog 15~
+     say must find a way into the palace, must kill my sister.
+~
+|
+#14060
+Citizen~
+Citizen~
+The citizen eyes you nervously.
+~
+It is alway a good idea to take a closer look as this
+citizen is a member of Elvenshalee`s secret service.
+The citizen is wearing little more than rags similar to
+those of the people he emulates, they are dirty and smelly.
+He does however lack the scars and blemishes that the
+average citizen suffers and this is what makes him stand
+out.
+~
+elf~
+AGS JV -700 S
+70 14 90d100+700 70d10+0 7d10+35 scratch
+-5 -5 -5 -4
+EFHKN 0 B Z
+stand stand either 10
+0 0 medium 0
+#14061
+Merelith Demon~
+Merelith~
+A Merelith patrols the area here.
+~
+A large Demon with 5 arms and a snakelike tail, it seems
+indifferent to the population but has been killing without
+warning just for the fun of it.
+~
+human~
+AGT BHV -1000 S
+70 14 70d100+700 100d10+100 7d10+35 slice
+-48 -48 -47 -44
+CDEFHIJKN BLQ CHJK N
+stand stand either 1000
+0 0 large 0
+>greet_prog 20~
+   growl $n
+~
+|
+#14062
+Blossom Barbarian~
+Blossom The Barbarian~
+Blossom stands here looking lovely.
+~
+Blossom is a dwarf of a reasonably good alignment and
+yet is a good friend of Elvanshalee's as they had 
+adventured together before Elvanshalee's Alignment had
+gone irrevocably Evil. Her favourite weapon is the stump
+of a tree.
+Blossom's hair is long and black and is tied up in a
+pigtail which she has flung around her neck to give
+possible opponents less to grab hold of. She wears but
+light leather armour which has no distinguishing features.
+On her feet she wears sandals.
+~
+dwarf~
+ACGT J 800 S
+72 15 92d100+720 5d10+5 12d6+36 smash
+-55 -55 -55 -52
+CDEFIKN 0 LQ R
+stand stand female 300
+0 0 medium 0
+#14063
+Skeletal Guardian~
+Skeletal Guardian~
+A Skeletal Guardian protects this room.
+~
+A Skeletal figure seems to have been enhanced and left
+here to guard the room. The figure is about 6 feet high
+and is armed with a nasty looking staff.
+~
+doll~
+AFG 0 0 S
+75 15 75d100+750 1d1+10 3d25+38 smash
+-50 -50 -50 -50
+DFIKN ILMNPQR ES GHJKO
+stand stand none 0
+0 0 large 0
+#14064
+Balor~
+Balor~
+A Balor patrols the area here.
+~
+A large 10ft tall demon, two large feathered wings on
+it's back, a long vicious tail behind it, and a pair of horns
+emerging from it's head. It is armed with a nasty looking
+two handed sword. The creature's very body seems to be
+engulfed by flames though this seems to neither bother
+nor harm it.
+~
+human~
+AGT BIV -1000 S
+80 16 120d100+1200 100d20+100 16d5+40 pound
+-55 -55 -55 -52
+CDEFIK HLQ CJK N
+stand stand either 1500
+0 0 large 0
+>greet_prog 25~
+    growl $n
+~
+|
+
+#14065
+Daisy Thief~
+Daisy~
+The beautiful Halfling Thief Daisy is here.
+~
+Daisy is an old friend of Elvanshalee`s as they went
+on many escapades together. Although they rarely see
+each other these days Daisy is alway welcome on
+Elvanshalee's property.
+Not one to believe in wearing armour because it
+impedes her movement, Daisy has instead settled for a
+bright red well tailored dress, made from the loveliest
+material she could get her hands on. Her hair is long
+and flowing and black in colour, reaching halfway down
+her back.
+~
+human~
+ACGHS V -800 S
+82 16 82d150+820 10d300+20 17d5+41 thwack
+-60 -60 -60 -60
+EFKN 0 0 0
+stand stand female 1000
+0 0 medium 0
+>greet_prog 30~
+     say lovely day ain't it?
+~
+|
+#14066
+Kalana Priestess Matriarch~
+Kalana The Matriarch~
+Kalana watches you with a smile on her face.
+~
+Kalana is a drow priestess of extreme faith, Although
+her faith and Elvanshalee's don`t exactly see eye
+to eye, indeed Elvanshalee often claimed she could
+easily kill Kalana`s god. The two are old friends
+going back a long way.
+Wearing a heavy looking plate armour that has been moulded to fit her
+body, and wielding a large nasty looking mace Kalana appears to be quite
+a vicious looking opponent, her hair is short and her nails are long and
+her eyes seem to flash with an almost evil light.
+~
+drow~
+AGQ JOUV -900 S
+88 18 88d150+880 100d30+500 11d8+44 crush
+-66 -66 -67 -65
+CDFHIKN 0 0 S
+stand stand female 2000
+0 0 medium 0
+#14067
+Tantro's Guest Death~
+Death Warmed Up~
+Tantro`s guest stands here looking like death warmed up.
+~
+A large skeletal figure wearing a rotting robe and
+carrying a very nasty looking scythe.
+~
+human~
+ABFGOT HOV -1000 S
+95 19 150d150+1200 100d20+200 19d5+50 slice
+-70 -70 -70 -65
+ACDFHIKNO BMQ CK EIN
+stand stand either 1000
+0 0 medium 0
+>greet_prog 40~
+   say Is it your time? 
+   comf $n
+   say death comes to all in time.
+~
+|
+    
+#14068
+Tantro~
+Tantro~
+Tantro the master assassin eyes you up.
+~
+A dwarven assassin who is also one of Elvanshalee`s
+oldest friends. Tantro would do anything for the
+demoness and the reverse is probably also true.
+Tantro wears a very light chain mail suit with some sort
+of heraldic design on it, A large leaf dripping with
+blood. His favoured weapon is a small dagger which he
+keeps in a sheath by his side in easy reach.
+~
+dwarf~
+ACGS BHJV -1000 S
+97 20 200d200+2000 10d10+10 20d5+50 pierce
+-70 -67 -67 -62
+EFHKN AB LQ R
+stand stand male 2000
+0 0 medium 0
+>greet_prog 50~
+    say Who do I have to kill?
+~
+|
+#14069
+Grim Balor Demon~
+Grim The Balor~
+Grim stands by the side of his mistress.
+~
+Grim stands about 12 foot in height with a pair of large
+feathered wings protruding from his back and a vicious
+looking tail, from the top of his head grow two large
+horns. He is armed with a large two handed sword and
+a whip, he is the familiar of Elvanshalee and will
+willingly do anything she says.
+~
+human~
+ABGT BHIV -1000 S
+100 20 200d250+1000 20d20+100 20d10+60 wrath
+-60 -60 -60 -58
+CDEIKNOP ABLQ HJ N
+stand stand male 3000
+0 0 large 0
+>greet_prog 25~
+   growl $n
+~
+
+>rand_prog 2~
+    emote lights up a cigar and start smoking.
+~
+
+
+>rand_prog 1~
+   emote pounces on Elvanshalee and huggles her mercilessly.
+~
+
+>rand_prog 1~
+  emote kisses Elvanshalee passionately.
+~
+
+>rand_prog 1~
+    emote kisses Elvanshalee.
+~
+
+>rand_prog 1~
+    emote softly nuzzles Elvanshalee's neck.
+~
+
+>rand_prog 1~
+    emote cuddles Elvanshalee.
+~
+
+>rand_prog 1~
+   emote snuggles up to Elvanshalee.
+~
+>rand_prog 1~
+    emote peppers Elvanshalee with a myriad of tiny loving kisses.
+~
+>rand_prog 1~
+    emote is steaming up the windows with Elvanshalee. *whistle*
+~
+>fight_prog 1~
+   emote gates in a Balor
+   MPMLOAD 14080
+ ~
+|  
+#14070
+Charinida~
+Charinida~
+Charinida guards the outer sanctum.
+~
+The weakest of the adopted dragon daughters of
+Elvanshalee, born of an Emerald dragon, she vets
+all those who would visit her foster mother
+and kills those she decides are unworthy.
+A very pretty young drow in appearence, she wears
+a lovely green dress which seems to cling to her body.
+Her hair is long and well kempt, dark blonde it flows
+over her shoulders and approaches her waist.
+~
+drow~
+ABFGT DFHJVc -1000 S
+108 22 1d1+24999 35d5+100 25d10+40 chop
+-75 -75 -75 -72
+ACDEFHIJKN ABLQ CHJK NS
+stand stand female 5000
+0 0 medium 0
+>Death_prog 15~
+   MPAT 14200 MPCAST 'undo' fire
+   MPAT 14200 MPMLOAD 14081
+   MPAT 14200 MPFORCE Ariana MPOLOAD 14110
+   MPAT 14200 MPFORCE Ariana MPOLOAD 14111
+   MPAT 14200 MPFORCE Ariana wear all
+   MPTRANS Ariana
+   MPECHO Sensing her sister's mortal danger, Ariana materializes and attacks!{x
+~
+|
+
+#14071
+Jhaniss Demon Dragon~
+Jhaniss~
+Jhaniss guards the Inner Sanctum.
+~
+Jhaniss, the daughter of a pair of Sapphire dragons was
+adopted by Elvansalee after her parents were killed 
+(by same). Although though she is truly a dragon she
+has spent most of her life in the drow form that
+currently stands before you.
+Jhaniss appears to be a beautiful young creature of the
+drow race though most of this is probably magic. She wear
+a flimsy looking blue dress designed to extenuate her
+appearance, her movement is accompanied by the rattling
+sound of jewelry.
+~
+drow~
+ABFGT DFHJV -1000 S
+115 23 1d1+29999 200d200+20 30d10+40 chop
+-70 -70 -69 -66
+ACDEFHIJKNO ABLQ CHJKO NS
+stand stand female 5000
+0 0 medium 0
+>Death_prog 15~
+   MPAT 14200 MPMLOAD 14081
+   MPAT 14200 MPFORCE Ariana MPOLOAD 14110
+   MPAT 14200 MPFORCE Ariana MPOLOAD 14111
+   MPAT 14200 MPFORCE Ariana wear all
+   MPTRANS Ariana
+   MPECHO Sensing her sister's mortal danger, Ariana materializes and attacks!{x
+~
+|
+
+#14072
+elvanshalee demoness~
+Elvanshalee~
+Elvanshalee sits on the throne here.
+~
+Elvanshalee was born of drow stock, but somehow made
+her way into the ranks of the higher demons. She got
+bored with the petty squables of the other demonlords
+and so brought her small army to the surface to carve
+out a small kingdom for herself. She has no designs
+on the rest of the world but instead enjoys watching
+the attempts of the heroes that try to oast her.
+Elvanshalee wears little more than a skin tight black
+suit designed not to hamper her limbs, Indeed she is
+very thin and a lithe and even her hair has been closely
+cropped so it doesn't get in the way when she fights.
+Across her back is a longsword that appears as if it
+was made on a private forge.
+~
+elf~
+ABCGT DFHJQVZ -1000 S
+120 24 1d1+31998 350d100+500 100d4+90 chop
+-80 -80 -80 -74
+ACDEFHIKNP AHJLQ BCDEFG NYZ
+sit sit female 6000
+0 0 medium 0
+>greet_prog 99~
+   say YOU !??!?!?
+   giggle $n  
+~
+>fight_prog 2~
+   emote gates in a Balor.
+   MPMload 14080
+~         
+|   
+#14073
+
+emerald knight~
+Emerald Knight~
+An Emerald Knight watches you arrogantly.
+~
+The the main part, the emerald knights are the
+elite fighting force of Charinida, they answer
+only to her and have even been known to ignore
+direct commands from Elvanshalee. The Emerald
+Knights make up the bodyguard of Charinida
+and the most powerful of them are a match for
+the best any of the other forces have to offer
+The Emerald Knights can be made up from any rank
+of any of the main forces and it is an honour to
+be selected as such a knight, only the prestige
+of being a Sapphire Knight comes even close.
+This particular Emerald Knight is Elven, and
+unlike most of the armed forces whose armour is
+adorned by an image of both dragons, only the
+image of an emerald dragon adorns the knights
+armour.
+~
+drow~
+AGT HJVa -750 S
+62 13 62d50+620 0d0+0 11d6+31 slash
+-50 -50 -50 -48
+CDEFHIJKN 0 0 S
+stand stand either 400
+0 0 medium 0
+#14074
+Sapphire Knight~
+Sapphire Knight~
+The Sapphire Knight watches you arrogantly.
+~
+To the main part, the Sapphire Knights are the
+elite fighting force of Jhaniss, they answer
+only to her and have even been known to ignore
+direct commands from Elvanshalee. The Sapphire
+Knights make up the bodyguard of Jhaniss
+and the most powerful of them are a match for
+the best any of the other forces have to offer
+The Sapphire Knights can be made up from any rank
+of any of the main forces and it is an honour to
+be selected as such a knight, only the prestige
+of being an Emerald Knight comes even close.
+This particular Sapphire Knight is Elven, and
+unlike most of the armed forces who's armour is
+adorned by an image of both dragons, only the
+image of a sapphire dragon adorns the knights
+armour.
+~
+elf~
+AGT HJVa -850 S
+67 14 67d50+700 0d0+0 12d6+34 slash
+-50 -50 -50 -48
+CDEFHIJKN 0 B Z
+stand stand either 300
+0 0 medium 0
+#14075
+Barry M. Deep.~
+Barry M. Deep~
+Barry M. Deep judges your height here.
+~
+A small man with a top hat and tails, all dressed
+in black as if he's just been to a funeral.
+~
+human~
+ABC 0 0 S
+1 0 1d1+1 0d0+0 1d1+1 pound
+0 0 0 0
+0 ABCDEFGHIJKLMNOPQRSTXYZ 0 0
+stand stand male 100
+0 0 medium 0
+#14076
+Colin Alkarrs~
+Colin Alkarrs~
+A sly looking man watches you carefully
+~
+Not the sort of man you'd want you're daughter
+to marry, Colin has a perchant for getting into
+trouble, dealing with all sorts of illicit substances
+maybe he has just the thing for you
+~
+human~
+ACG U 0 S
+1 0 1d1+1 0d0+0 1d1+1 none
+0 0 0 0
+0 ABCDEFIJKLMNOPQRSTXYZ 0 0
+stand stand male 4
+0 0 medium 0
+>greet_prog 35~
+   say got a deal you can't refuse.
+   say honest Colin's the name
+   say everone trusts good old Colin.
+~
+|
+#14077
+Food Guard~
+Food Guard~
+Someone is standing here guarding the food.
+~
+The food guard is dooing exactly that
+no matter how little food there is here
+the food guard will die rather than
+let anyone steal any
+The food guard is dressed as a peasant
+clothing covered in the dirt an grime
+of the city overhead. Probably not a good
+choice of person to guard the food considering
+hygene. But then hygene isn't number one
+on Elvanshalee's list either.
+~
+human~
+ABCFGT HVc 1000 S
+99 18 99d160+4500 40d1+1 9d10+50 punch
+-90 -90 -90 -90
+BFIJK 0 0 0
+stand stand either 10
+0 0 medium 0
+#14078
+Resistance Leader~
+Resistance Leader~
+The leader of the resistance wonders if you've come to help.
+~
+Not a lot to look at, wearing only the rags
+that help him mingle with the civilians on
+the streets on the city. The leader also
+bears many scars given to him by the
+soldiers of the demoness. He looks means
+and ready to give no quarter.
+~
+human~
+ABGR HVc 1000 S
+120 22 116d100+20000 10d10+100 30d12+60 punch
+-110 -110 -100 -110
+ACDEFIJK F 0 0
+stand stand either 20
+0 0 medium 0
+#14079
+Hole Guard~
+Hole Guard~
+A man is guarding the hole in the wall here
+~
+The closest thing to an actual soldier you'll
+find in the caverns, he is dressed in the
+armour that has been captured during the
+odd skirmish with the demoness' forces.
+the armour hence bears the design of the
+Emerald and Sapphire dragons. He is standing
+to attention keeping careful guard on the entrance
+he will kill anyone he doesn't recognise first, and
+then ask questions.
+~
+human~
+ABCFG HQV 900 S
+80 16 80d150+8000 1d1+1 5d20+40 slash
+-70 -70 -65 -65
+CDHIJN 0 0 0
+stand stand male 1
+0 0 medium 0
+#14080
+Balor~
+Balor~
+A Balor growls at you.
+~
+A large 10ft tall demon, two large feathered wings on
+it's back, a long vicious tail behind it, and a pair of horns
+emerging from it's head. It is armed with a nasty looking
+two handed sword. The creature's very body seems to be
+engulfed by flames though this seems to neither bother
+nor harm it.
+~
+human~
+ABFGPT BIV -1000 S
+95 19 150d100+1200 100d20+100 20d5+40 pound
+-65 -65 -65 -62
+CDEFIK AHLQ CJK N
+stand stand either 0
+0 0 large 0
+>fight_prog 1~
+  emote gates in a Balor.
+  MPMLOAD 14080
+~
+|
+
+#14081
+Ariana Demon Dragon~
+Ariana~
+Ariana stands here, seeking vengeance.
+~
+Ariana is the third and youngest of the three dragons
+adopted by Elvanshalee, if far from the least powerful.
+She usually spends her time away from the throne room,
+but can sense trouble and usually comes to her sisters'
+aid.  She wears a long violet dress, and not much jewelry,
+but a mace is hung on a scabbard across her back.
+~
+drow~
+ABFGT DFHJV -1000 S
+125 27 1d1+29999 200d200+20 30d15+40 drain
+-90 -90 -89 -86
+ACDEFHIJKNO ABLQ CHJKO 0
+stand stand female 10000
+0 0 medium 0
+
+#14082
+demon invader~
+a Demon Invader~
+A Demon tries to sneak by you.
+~
+He must be part of Elvanshalee's invasion force!
+~
+unique~
+0 P -400 S
+1 0 1d1+9 1d1-1 1d1+1 beating
+-1 -1 -1 -1
+0 AB 0 0
+stand stand either 0
+0 0 small 0
+>death_prog 100~
+if rand(40)
+  MPOLOAD 1201
+  break
+  endif
+if rand(50)
+  MPOLOAD 1202
+  break
+  endif
+if rand(66)
+  MPOLOAD 1203
+  break
+  endif
+if rand(90)
+  MPOLOAD 1205
+  break
+  endif
+if rand(100)
+  MPOLOAD 14112
+  break
+  endif
+~
+|
+
+#14083
+vrock invader~
+a Vrock Invader~
+A Vrock tries to sneak by you.
+~
+He must be part of Elvanshalee's invasion force!
+~
+unique~
+0 P -400 S
+1 0 1d1+9 1d1-1 1d1+1 beating
+-1 -1 -1 -1
+0 AB 0 0
+stand stand either 0
+0 0 small 0
+>death_prog 100~
+if rand(40)
+  MPOLOAD 1201
+  break
+  endif
+if rand(50)
+  MPOLOAD 1202
+  break
+  endif
+if rand(66)
+  MPOLOAD 1203
+  break
+  endif
+if rand(90)
+  MPOLOAD 1205
+  break
+  endif
+if rand(100)
+  MPOLOAD 14112
+  break
+  endif
+~
+|
+
+#14084
+rutterkin invader~
+a Rutterkin Invader~
+A Rutterkin tries to sneak by you.
+~
+He must be part of Elvanshalee's invasion force!
+~
+unique~
+0 P -400 S
+1 0 1d1+9 1d1-1 1d1+1 beating
+-1 -1 -1 -1
+0 AB 0 0
+stand stand either 0
+0 0 small 0
+>death_prog 100~
+if rand(40)
+  MPOLOAD 1201
+  break
+  endif
+if rand(50)
+  MPOLOAD 1202
+  break
+  endif
+if rand(66)
+  MPOLOAD 1203
+  break
+  endif
+if rand(90)
+  MPOLOAD 1205
+  break
+  endif
+if rand(100)
+  MPOLOAD 14112
+  break
+  endif
+~
+|
+
+#14085
+nalfenshee invader~
+a Nalfenshee Invader~
+A Nalfenshee tries to sneak past you.
+~
+He must be part of Elvanshalee's invasion force!
+~
+unique~
+0 P -400 S
+1 0 1d1+9 1d1-1 1d1+1 beating
+-1 -1 -1 -1
+0 AB 0 0
+stand stand either 0
+0 0 small 0
+>death_prog 100~
+if rand(40)
+  MPOLOAD 1201
+  break
+  endif
+if rand(50)
+  MPOLOAD 1202
+  break
+  endif
+if rand(66)
+  MPOLOAD 1203
+  break
+  endif
+if rand(90)
+  MPOLOAD 1205
+  break
+  endif
+if rand(100)
+  MPOLOAD 14112
+  break
+  endif
+~
+|
+
+#14086
+demonloader~
+{x~
+{x~
+{x~
+unique~
+BG DFP 0 S
+120 0 1d1+5999 1d1-1 1d1+1 beating
+-1 -1 -1 -1
+0 ABCD 0 0
+stand stand either 0
+0 0 small 0
+>all_greet_prog 70~
+if rand(25)
+  MPMLOAD 14082
+  MPECHO Someone tries to sneak past you.
+  if rand(30)
+    MPGOTO 14200
+    MPPURGE $i
+    break
+  endif
+  break
+endif
+if rand(33)
+  MPMLOAD 14083
+  MPECHO Someone tries to sneak past you.
+  if rand(30)
+    MPGOTO 14200
+    MPPURGE $i
+    break
+  endif
+  break
+endif
+if rand(50)
+  MPMLOAD 14084
+  MPECHO Someone tries to sneak past you.
+  if rand(30)
+    MPGOTO 14200
+    MPPURGE $i
+    break
+  endif
+  break
+endif
+if rand(100)
+  MPMLOAD 14085
+  MPECHO Someone tries to sneak past you.
+  if rand(30)
+    MPGOTO 14200
+    MPPURGE $i
+    break
+  endif
+  break
+endif
+~
+|
+
+#0
+
+#OBJECTS
+#14000
+Grim's Lightning Sword~
+Grim's Lightning Sword~
+A huge sword with a jagged blade lies here.~
+diamond~
+weapon EGJMSTY AN
+sword 15 10 slash AEF
+90 200 20000 P
+A
+19 10
+A
+18 10
+A
+13 50
+A
+12 50
+A
+2 1
+A
+1 2
+E
+lightning~
+A 10 foot long jagged blade which looks like a flash of
+lightning.
+~
+E
+sword~
+A 10 foot long jagged blade which looks like a flash of
+lightning.
+~
+#14001
+Lightning Sword~
+Lightning sword~
+A large bladed jagged edged sword lies here.~
+diamond~
+weapon EGJMSTY AN
+sword 12 10 blast AEF
+80 200 10000 P
+A
+19 8
+A
+18 8
+A
+13 40
+A
+12 40
+A
+2 1
+A
+1 1
+E
+lightning~
+A 10 foot long 2 handed weapon with a jagged blade that
+looks like a flash of lightning.
+~
+E
+sword~
+A 10 foot long 2 handed weapon with a jagged blade that
+looks like a flash of lightning.
+~
+#14002
+Rose Thorn~
+Rose Thorn~
+A roses thorn lies here~
+wood~
+weapon JS AN
+dagger 1 10 sting DH
+22 10 220 P
+E
+thorn~
+It appears to have once been part of a rose bush.
+~
+#14003
+Elvanshalee's Longsword~
+Elvanshalee's Longsword~
+Evil really eminates from a sword lying here.-~
+obsidian~
+weapon AEFGSTUY AN
+sword 14 10 slash CEH
+91 200 100000 P
+F
+V 0 0 CNQ
+F
+R 0 0 B
+F
+I 0 0 A
+A
+19 25
+A
+18 20
+A
+13 75
+A
+12 75
+A
+3 2
+A
+2 1
+A
+1 2
+E
+runes~
+The runes are black on the black blade of the sword,
+near to the hilt, yet they do seem to glow occasionally
+with a fierce power.
+~
+E
+dent~
+Elvanshalee's sword is covered in the dents of many battles.
+~
+E
+longsword~
+A pure black longsword, it's possible that it has seen
+many many battles, it is covered in small dents and a
+series of runes near the hilt.
+~
+E
+elvanshalee~
+A pure black longsword, it's possible that it has seen
+many many battles, it is covered in small dents and a
+series of runes near the hilt.
+~
+#14004
+Grim's Whip~
+Grim's Whip~
+A nasty looking whip with nine tails lies here.-~
+kid leather~
+weapon GST AN
+whip 10 12 slash CEG
+90 30 10000 P
+F
+V 0 0 Q
+F
+A 0 0 Ic
+A
+19 8
+A
+18 8
+A
+12 60
+A
+2 1
+A
+1 2
+E
+whip~
+A long whip with a set of nine barbed tails.
+~
+E
+grim~
+Grimm whip
+A long whip with a set of nine barbed tails.
+~
+#14005
+Tantro's Dagger~
+Tantro's Dagger~
+A dagger rests here.-~
+steel~
+weapon FHPQY AN
+dagger 8 12 pierce EH
+80 30 6000 P
+F
+A 0 0 CDEFG
+A
+19 8
+A
+18 8
+A
+14 40
+A
+1 2
+E
+tantro~
+A small yet very nasty looking weapon, many are the
+victims of this weapon.
+~
+E
+dagger~
+A small yet very nasty looking weapon, many are the
+victims of this weapon.
+~
+#14006
+Pilgrim's Staff~
+Pilgrim's Staff~
+A long piece of wood lies here.-~
+wood~
+weapon S AN
+polearm 1 4 pound F
+1 70 10 D
+E
+staff~
+A staff made of wood and has been well worn from much
+use and possibly many pilgrimages.
+~
+#14007
+Key Ring~
+Pilgrims Small Ring~
+A small unimpressive ring sits here.~
+bone~
+key 0 AB
+0 0 0 0 0
+0 10 0 P
+E
+ring~
+A small bone ring which looks like it'll be quite dainty
+on your finger. There is no gem but where a gem would
+be is a small irregular raised area.
+~
+#14008
+sneak suit socks~
+Sneak Suit Socks~
+A pair of black socks sit here.-~
+silk~
+armor BFSTU AG
+35 35 35 35 0
+90 20 9000 P
+F
+A 0 0 V
+A
+14 90
+A
+2 3
+E
+socks~
+A pair of delicate black socks they don't look as if ;they'd survive long in a
+fight.
+~
+#14009
+hair pin~
+Hair Pin~
+A large needle has been left here.~
+steel~
+armor BFTU AE
+25 25 25 25 0
+91 5 3000 P
+F
+A 0 0 c
+A
+12 90
+A
+3 3
+E
+pin~
+A small pin looks like it was made to keep your hair in place.
+~
+#14010
+Sneak Suit Leggings~
+Sneak Suit Leggings~
+A set of black legging has been discarded here.~
+silk~
+armor BFSTU AF
+35 35 35 35 0
+91 40 7500 P
+F
+A 0 0 P
+A
+14 90
+A
+4 4
+E
+legging~
+A set of delicate black leggings, they don't look as ;if they'd survive for long
+in a fight.
+~
+#14011
+Sneak Suit Shirt~
+Sneak Suit Shirt~
+A black Shirt has been left here.~
+silk~
+armor BFSTU AD
+35 35 35 35 0
+91 50 8000 P
+F
+A 0 0 Q
+A
+13 90
+A
+5 3
+E
+shirt~
+A delicate black top, doesn't look as if it'd survive
+long in a fight.
+~
+#14012
+Sneak Suit Sleeves~
+Sneak Suit Sleeves~
+A set of black sleeves have been left here.~
+silk~
+armor BFSTU AI
+35 35 35 35 0
+91 30 5000 P
+A
+19 14
+A
+18 14
+A
+4 3
+E
+sleeves~
+Some delicate black sleeves, they don't look as if
+they'd survive long in a fight.
+~
+#14013
+Sneak Suit Gloves~
+Sneak Suit Gloves~
+A pair of black gloves sit here.~
+silk~
+armor BFSTU AH
+35 35 35 35 0
+91 10 3500 P
+F
+A 0 0 CDEFG
+A
+19 18
+A
+18 18
+A
+1 3
+E
+gloves~
+A pair of delicate black gloves they don't look as
+if they'd survive long in a fight.
+~
+#14014
+Emerald Ring~
+Emerald Ring~
+A beautiful ring with an emerald stone lies here.~
+gold~
+armor GQUY AB
+30 30 30 30 0
+91 5 10000 P
+F
+V 0 0 N
+F
+A 0 0 V
+A
+19 13
+A
+18 8
+A
+13 75
+A
+3 3
+E
+emerald~
+A lovingly designed ring made from a greenish gold
+with a beautiful emerald stone.
+~
+E
+ring~
+A lovingly designed ring made from a greenish gold
+with a beautiful emerald stone.
+~
+#14015
+Sapphire Ring~
+Sapphire Ring~
+A beautiful golden ring with a sapphire stone sits here.~
+gold~
+armor EGQU AB
+40 40 40 40 0
+91 5 15000 P
+F
+V 0 0 N
+F
+A 0 0 U
+A
+19 17
+A
+18 11
+A
+12 75
+A
+3 2
+A
+1 2
+E
+sapphire~
+A beautiful bluish golden ring with a lovingly crafted
+Sapphire stone.
+~
+E
+ring~
+A beautiful bluish golden ring with a lovingly crafted
+Sapphire stone.
+~
+#14016
+Punch Dagger~
+Punch Dagger~
+A small triangular blade lies here.~
+metal~
+weapon 0 AN
+dagger 7 6 pierce D
+68 60 500 P
+E
+punch~
+A small dagger with an almost equilateral triangle
+for a blade, it looks as if it was designed as a
+punching weapon.
+~
+E
+dagger~
+A small dagger with an almost equalateral triangle
+for a blade, it looks as if it was designed as a
+punching weapon.
+~
+#14017
+Feather Duster~
+Feather Duster~
+Some feathers grow out of a stick here.~
+wood~
+trash 0 AO
+0 0 0 0 0
+0 20 0 P
+E
+duster~
+A small stick with a lot of feather growing out of one
+end.
+~
+E
+feather~
+A small stick with a lot of feather growing out of one
+end.
+~
+#14018
+Tank Boots~
+Tank Boots~
+A large set of black boots sit here.~
+steel~
+armor Y AG
+20 20 20 20 0
+50 30 500 P
+A
+14 -40
+A
+13 50
+E
+boots~
+A very large set of boots but they don't look very
+flexible.
+~
+E
+tank~
+A very large set of boots but they don't look very
+flexible.
+~
+#14019
+tank breastplate sheet~
+Tank Breastplate~
+A large sheet of black metal sits here.-~
+steel~
+armor Y AD
+25 25 25 25 0
+50 90 300 P
+A
+14 -80
+A
+13 30
+A
+5 2
+A
+3 -1
+E
+breastplate~
+A huge sheet of thick steel seems to have been worked
+into some kind of breastplate but doesn't seem to allow
+much flexibility.
+~
+E
+tank~
+A huge sheet of thick steel seems to have been worked
+into some kind of breastplate but doesn't seem to allow
+much flexibility.
+~
+#14020
+tank gauntlets gloves~
+Tank Gauntlets~
+A huge set of Gauntlets sit here.~
+steel~
+armor Y AH
+18 18 18 18 0
+50 30 200 P
+A
+3 -2
+A
+1 3
+E
+gauntlets~
+A pair of thick metallic gauntlets sit here, probably
+you could wield a weapon wearing them, but they don't ;look as if they'd allow
+much else.
+~
+E
+tank~
+A pair of thick metallic gauntlets sit here, probably
+you could wield a weapon wearing them, but they don't ;look as if they'd allow
+much else.
+~
+#14021
+tanks leggings pipes~
+Tank Leggings~
+A Pair of large metal pipes sit here.~
+steel~
+armor Y AF
+22 22 22 22 0
+50 60 200 P
+A
+14 -40
+A
+3 -1
+#14022
+Tank helm bowl~
+Tank Helm~
+A huge bowl wobbles here.~
+steel~
+armor Y AE
+22 22 22 22 0
+50 50 200 P
+A
+12 20
+A
+3 -2
+A
+4 3
+E
+helm~
+A large metallic bowl, it's some kind of helmet,
+though how anyone can see out of it is a mystery
+until you actually try to wear it.
+~
+E
+tank~
+A large metallic bowl, it's some kind of helmet,
+though how anyone can see out of it is a mystery
+until you actually try to wear it.
+~
+#14023
+tank sleeves pipe~
+Tank Sleeves~
+A large set of pipes rests here.~
+steel~
+armor Y AI
+24 24 24 24 0
+50 90 200 P
+A
+3 -1
+A
+1 2
+E
+sleeves~
+A huge set of pipes with a small hinge about halfway
+along their length, they are probably designed to be
+worn as armplates, but flexibilty would seem to be
+greatly lowered.
+~
+E
+tank~
+A huge set of pipes with a small hinge about halfway
+along their length, they are probably designed to be
+worn as armplates, but flexibilty would seem to be
+greatly lowered.
+~
+#14024
+whip cat~
+Cat O' Nine Tails~
+A nasty looking whip lies here.~
+kid leather~
+weapon BE AN
+whip 10 8 slash CH
+80 10 8000 P
+A
+19 8
+A
+18 8
+A
+13 15
+E
+cat~
+A long nine tailed whip with a set of nasty looking
+barbs at the ends.
+~
+E
+whip~
+A long nine tailed whip with a set of nasty looking
+barbs at the ends.
+~
+#14025
+sharp scimitar~
+Sharp Scimitar~
+A sharp looking curved blade lies here.~
+steel~
+weapon A AN
+sword 8 10 cleave E
+70 15 700 P
+A
+19 5
+A
+18 5
+A
+13 15
+A
+1 1
+E
+scimitar~
+A long curved blade kept lovingly sharp by it's previous
+owner.
+~
+E
+sharp~
+A long curved blade kept lovingly sharp by it's previous
+owner.
+~
+#14026
+spear~
+Spear~
+A spear rests here.~
+wood~
+weapon S AN
+staff 1 8 stab 0
+5 100 50 P
+E
+spear~
+A small ugly looking weapon, seems to be of orcish
+design and manufacture.
+~
+#14027
+buckler~
+Buckler~
+A piece of hard leather rests here.~
+hard leather~
+armor S AJ
+3 3 3 3 0
+5 50 50 P
+A
+13 10
+E
+buckler~
+A small piece of wood covered with hide and designed
+for use as a shield. It is an ugly little thing and
+was probably made by orcs.
+There is a painting of two dragon one blue and one
+green, upon it's surface.
+~
+#14028
+pitchfork~
+Pitchfork~
+A pitchfork rests against the wall here.~
+corundum~
+weapon Y AN
+polearm 1 10 thrust D
+15 100 150 P
+A
+13 10
+A
+1 1
+E
+pitchfork~
+A long pole with a pair of tines at the end, it looks
+like it could deliver quite nasty wounds.
+~
+#14029
+orc sword~
+Orc Sword~
+A disgusting looking sword rests here.~
+steel~
+weapon Y AN
+sword 2 3 slash 0
+5 80 20 W
+A
+1 1
+E
+sword~
+Probably the worst designed weapon you've ever seen,
+the orc sword looks like it was forged quickly rather
+than with any attempt at skill.
+~
+E
+orc~
+Probably the worst designed weapon you've ever seen,
+the orc sword looks like it was forged quickly rather
+than with any attempt at skill.
+~
+#14030
+sword katana~
+Her Father's Katana~
+A beautiful looking blade glows here.~
+ebony~
+weapon AGY AN
+sword 8 9 cleave CEH
+60 110 6000 P
+A
+19 6
+A
+18 6
+A
+12 45
+E
+katana~
+A beautiful long bladed sword, tinted red for effect
+and to hide the myriad bloodstains that seem to adorn
+it's surface.
+~
+#14031
+war hammer~
+War Hammer~
+A large hammer rests here~
+iron~
+weapon Y AN
+mace 4 12 smash F
+45 50 2000 P
+A
+1 2
+E
+hammer~
+A huge hammer that seems to have been designed and
+weighted for use as a weapon.
+~
+#14032
+cosh~
+Cosh~
+A large stick of leather sits here.~
+hard leather~
+weapon S AN
+mace 1 8 beating 0
+10 10 100 P
+E
+cosh~
+A large stick used mainly to pacify crowds not really
+much of an offensive weapon.
+~
+#14033
+Basher's maul~
+Basher's Basher~
+A large Maul rests against the wall here.~
+crystal~
+weapon SY AN
+mace 6 12 smash F
+55 120 5500 P
+A
+19 4
+A
+18 4
+E
+basher~
+A very nasty looking cudgel, lovingly designed and well
+looked after by it's previous owner.
+~
+#14034
+Flagellant's whip~
+Flagellant's Whip~
+A light whip spawls here.~
+kid leather~
+weapon MY AN
+whip 1 2 slash D
+10 10 10 P
+A
+2 2
+E
+whip~
+A small one hand whip with a number of tails or small
+ribbons as they appear leading from a single piece of wood.
+~
+#14035
+broom~
+Broom~
+A sturdy broom has been left here.~
+wood~
+weapon S AN
+exotic 1 8 smash C
+9 40 10 P
+A
+13 5
+E
+broom~
+This was designed for use as a cleaning aid, it wasn't ;intended to be a weapon
+and is only ever used as such ;by those who can't find anything better.
+~
+E
+desc~
+This was designed for use as a cleaning aid, it wasn't;intended to be a weapon
+and is only ever used as such;by those who can't find anything better.
+~
+#14036
+tree~
+Big Tree~
+A Huge tree trunk has been dumped here.~
+wood~
+weapon 0 AN
+mace 8 10 smash F
+70 300 100 P
+A
+12 -20
+A
+13 50
+A
+3 -2
+A
+1 3
+E
+tree~
+A large part of a tree has simply been pulled out of
+the ground for use as a clubbing weapon.
+~
+#14037
+red lace dress~
+Red Lace Dress~
+A lovely looking red dress has been discarded here.~
+unknown~
+armor J AD
+8 8 8 8 0
+20 20 20 P
+A
+13 25
+A
+6 2
+E
+dress~
+A beautiful red lace dress, looks as if it'd suit you.
+~
+E
+red~
+A beautiful red lace dress, looks as if it'd suit you.
+~
+E
+lace~
+A beautiful red lace dress, looks as if it'd suit you.
+~
+#14038
+mace doom~
+Mace Of Doom~
+Evil radiates from a small mace here.~
+steel~
+weapon BEUY AN
+mace 9 8 pound CH
+88 150 10000 P
+A
+19 10
+A
+18 10
+A
+13 40
+A
+2 2
+E
+doom~
+A very small looking mace yet the feeling of evil
+emanating from it is almost too terrifying to believe.
+~
+E
+mace~
+A very small looking mace yet the feeling of evil
+emanating from it is almost too terrifying to believe.
+~
+#14039
+dagger fire~
+Dagger Of Fire~
+A small dagger sits here burning.~
+fire~
+weapon SUY AN
+dagger 5 6 wrath AD
+30 50 300 P
+A
+19 4
+A
+18 4
+A
+13 15
+E
+fire~
+A thin bladed dagger, the very material of which would
+appear to be fire, yet it isn't hot to the touch.
+~
+E
+dagger~
+A thin bladed dagger, the very material of which would
+appear to be fire, yet it isn't hot to the touch.
+~
+#14040
+main gauche~
+Main Gauche~
+A large unwieldy looking sword is here.~
+steel~
+weapon 0 AN
+sword 4 6 slash 0
+26 200 200 P
+A
+19 15
+A
+18 -8
+E
+gauche~
+A large glove which looks like it'd fit over your ;current gauntlets, a long
+bladed sword emerged from ;the end or it. It looks like it'd require some skill
+to use.
+~
+E
+main~
+A large glove which looks like it'd fit over your ;current gauntlets, a long
+bladed sword emerged from ;the end or it. It looks like it'd require some skill
+to use.
+~
+#14041
+pole death~
+Pole Of Death~
+A large pole with metallic ends sits here.~
+wood~
+weapon SU AN
+polearm 10 9 pound G
+75 120 750 P
+A
+19 6
+A
+18 6
+A
+14 -10
+A
+13 40
+E
+pole~
+A large stick with two metallic ends it looks like it
+could deliver quite a wallop.
+~
+#14042
+emerald bracelet~
+Emerald Bracelet~
+A small bracelet made from emerald lies here.~
+emerald~
+armor AGSUY AM
+35 35 35 35 0
+91 30 10000 P
+F
+I 0 0 Q
+A
+13 100
+A
+12 75
+A
+19 9
+A
+18 9
+E
+bracelet~
+A small bracelet made lovingly from Emerald.
+~
+#14043
+Sapphire Bracelet~
+Sapphire Bracelet~
+A small bracelet made from sapphire rests here.~
+sapphire~
+armor AGSUY AM
+40 40 40 40 0
+91 30 12000 P
+F
+I 0 0 L
+F
+A 0 0 V
+A
+19 17
+A
+18 14
+A
+13 120
+A
+12 100
+#14044
+Tower Key~
+A Small Key~
+A small key is lying here~
+iron~
+key V A
+0 0 0 0 0
+0 1 10 P
+E
+tower~
+A large iron key looks specailly made for a large iron gate.
+~
+#14056
+Arena Key~
+Arena Key~
+A small piece of bone lies here~
+bone~
+key V A
+0 0 0 0 0
+10 5 100 P
+E
+bone~
+A small bit of bone that looks otherwise quite boring
+~
+#14057
+posing pouch~
+Posing Pouch~
+A bit of material attached to a leather strap lies here.~
+kid leather~
+trash S AF
+0 0 0 0 0
+10 10 0 P
+E
+pouch~
+A small piece of material just big enough to cover the
+previous owners embaressment.
+~
+E
+posing~
+A small piece of material just big enough to cover the
+previous owners embaressment.
+~
+#14058
+pint of beer~
+Pint Of Beer~
+A Pint Mug sits here.~
+glass~
+drink 0 AO
+20 20 'beer' 0 0
+0 10 20 P
+E
+beer~
+A mug filled with the local beverage, known locally
+as 'Milk of Amnesia' 'Embalming Fluid' and 'Hero Juice'
+~
+E
+mug~
+A mug filled with the local beverage, known locally
+as 'Milk of Amnesia' 'Embalming Fluid' and 'Hero Juice'
+~
+#14059
+el's brew~
+El's Brew~
+A pint glass sits here.~
+glass~
+drink 0 AO
+20 20 'milk' 0 0
+0 50 60 P
+E
+brew~
+A flagon of milk with perhaps the tiniest hint of blood
+in it.
+~
+#14060
+rotting cloak~
+Rotting Cloak~
+A cloak seems to be growing fungus here.~
+cloth~
+armor SU AK
+25 25 25 35 0
+90 100 9000 B
+A
+19 7
+A
+18 9
+A
+13 40
+A
+12 60
+E
+cloak~
+A large piece of black material which looks like it'll 
+fall apart if you cough wearing it, it really can't
+protect you that much from the weather or the weapons
+of others.
+~
+#14061
+death's scythe~
+Death's Scythe~
+A large reaping scythe sits here.~
+wood~
+weapon S AN
+polearm 8 12 slash CEFGH
+90 100 10000 P
+A
+19 12
+A
+18 12
+A
+12 80
+A
+5 3
+A
+1 2
+E
+scythe~
+A huge scythe taller than a man and kept in nearly
+immaculate condition.
+~
+#14062
+Death's potion~
+Death's Potion~
+A potion sits here, so dark that light cannot escape.~
+glass~
+potion 0 AO
+90 'sanctuary' 'haste' 'frenzy' 'shield'
+70 10 1000 P
+E
+potion~
+A potion of black liquid, the effects are a mystery
+until you try it.
+~
+#14063
+death's potion~
+Death's Potion~
+A potion sits here, so dark that light cannot escape.~
+glass~
+potion 0 AO
+90 '' 'plague' 'weaken' 'curse'
+70 10 1000 P
+E
+potion~
+A potion of black liquid, the effects are a mystery
+until you try it.
+~
+#14064
+orc bed~
+orc captains bed~
+A Large bed is here.~
+wood~
+furniture 0 A
+B EIJKN EHK 150 150
+10 30000 0 P
+E
+bed~
+A large bed, looks very comforable and possibly capable
+of holding two people at a time.
+~
+E
+orc~
+A large bed, looks very comforable and possibly capable
+of holding two people at a time.
+~
+#14065
+beautiful marble fountain~
+beautiful marble fountain~
+A Large marble fountain bubbles with blood here.~
+enamel~
+fountain 0 A
+10000 10000 'blood' 0 0
+0 30000 0 P
+E
+creature~
+It's a small winged beast, like a mishappen bat, it
+could be an imp or some other small demon.
+~
+E
+fountain~
+A beautifully designed fountain, shows a statue of
+Elvanshalee herself with a small creature resting
+gently on her shoulder. The statue is carrying
+a cup and from the cup is pouring blood. Rumours
+suggest that this blood is the blood of her victims.
+~
+#14066
+emerald shield~
+Emerald Shield~
+A large kite shield with the image of an emerald dragon on it.~
+iron~
+armor 0 AJ
+21 21 21 21 0
+62 150 150 P
+A
+13 60
+A
+1 2
+A
+5 2
+#14067
+emerald sword~
+Emerald Sword~
+A large green sword lies here.~
+steel~
+weapon 0 AN
+sword 8 10 slash D
+62 200 300 P
+A
+20 -5
+A
+19 4
+A
+18 4
+#14068
+emerald helm~
+Emerald Helm~
+A small green helm lies here~
+unknown~
+armor 0 AE
+20 20 20 20 0
+62 50 200 P
+A
+3 2
+A
+4 2
+#14069
+Emerald Breastplate~
+Emerald Breastplate~
+A green breastplate lies here~
+unknown~
+armor 0 AD
+25 25 25 25 0
+62 200 400 P
+A
+5 3
+A
+13 40
+#14070
+sapphire shield~
+Sapphire Shield~
+A large kite shield with the image of a sapphire dragon on it.~
+steel~
+armor 0 AJ
+23 23 23 23 0
+67 150 150 P
+A
+5 2
+A
+1 2
+A
+13 65
+#14071
+Sapphire Sword~
+Sapphire Sword~
+A large blue sword lies here.~
+steel~
+weapon 0 AN
+sword 8 10 slash D
+67 150 400 P
+A
+18 4
+A
+19 5
+A
+20 -6
+#14072
+sapphire helm~
+Sapphire Helm~
+A small blue helm lies here.~
+steel~
+armor 0 AE
+22 22 22 22 0
+67 60 250 P
+A
+4 2
+A
+3 2
+A
+12 20
+#14073
+sapphire breastplate~
+Sapphire Breastplate~
+A large blue breastplate lies here.~
+steel~
+armor 0 AD
+28 28 28 28 0
+67 250 500 P
+A
+13 50
+A
+5 3
+A
+2 1
+#14080
+wooden casket~
+Wooden Casket~
+A roughly made wooden coffin lies here~
+wood~
+furniture S A
+A DFGHIJ FIL 110 110
+10 100 10000 P
+#14081
+metal casket~
+Metal Casket~
+An unimpressive metal coffin lies here.~
+steel~
+furniture 0 A
+A DFGHIJ FIL 120 120
+20 300 25000 P
+#14082
+deluxe casket~
+Deluxe Casket~
+A well made coffin lies here.~
+steel~
+furniture 0 A
+A DFGHIJ FIL 130 130
+30 500 50000 P
+#14083
+super deluxe~
+Super Deluxe~
+A well built coffin, complete with brass handles sits here~
+unknown~
+furniture 0 A
+A DFGHIJ FIL 140 140
+40 600 75000 P
+#14084
+imperial casket~
+Imperial Casket~
+A coffin fit for an empress lies here.~
+gold~
+furniture 0 A
+A DFGHIJ FIL 150 150
+50 750 120000 P
+#14085
+the family burial~
+Family Burial~
+A coffin big enough for a small family lies here.~
+steel~
+furniture 0 A
+C FHIJKL FIL 125 125
+20 1200 100000 P
+#14090
+bodyguard~
+Bodyguard~
+A small pill lies here.~
+unknown~
+pill 0 AO
+15 'armor' 'shield' 'stone skin' ''
+10 1 330 P
+#14091
+holy pill~
+Holy Pill~
+A small pill lies here~
+unknown~
+pill 0 AO
+60 'sanctuary' '' '' ''
+60 1 4000 P
+#14092
+dehydrated water~
+Dehydrated Water~
+A small pill lies here~
+unknown~
+pill 0 AO
+20 'create spring' '' '' ''
+10 1 230 P
+#14094
+adventurer~
+Adventurer~
+A small pill lies here.~
+unknown~
+pill 0 AO
+30 'fly' 'giant strength' 'haste' 'bless'
+25 1 500 P
+#14095
+trans~
+Trans~
+A small pill lies here.~
+unknown~
+pill 0 AO
+90 'change sex' '' '' ''
+25 1 50 P
+#14096
+doctor~
+Doctor~
+A small pill lies here~
+unknown~
+pill 0 AO
+60 'heal' 'refresh' '' ''
+60 1 2800 P
+#14097
+corpse~
+Corpse~
+The {gr{y{go{yt{yt{gi{yn{gg{x corpse of shopkeeper is lying here.~
+unknown~
+npc_corpse C A
+0 0 0 0 0
+0 100 0 P
+#14098
+crack~
+Crack~
+~
+unknown~
+container 0 0
+10 0 0 1 0
+0 0 0 P
+#14099
+cellar key~
+Cellar Key~
+A small key lies here~
+steel~
+key 0 AO
+0 0 0 0 0
+5 5 10 P
+#14100
+intricate key~
+Intricate Key~
+A intricate looking key lies here~
+unknown~
+key 0 A
+0 0 0 0 0
+5 1 10 P
+#14101
+firkin of beer barrel~
+a firkin of beer~
+A large beer barrel sits here~
+beer~
+drink 0 AP
+1000 1000 'beer' 0 0
+0 700 300 P
+#14102
+a firkin of ale barrel~
+firkin of ale~
+A large ale barrel sits here~
+unknown~
+portal 0 P
+1000 A A 14192 0
+0 700 0 P
+#14103
+room key~
+Room Key~
+A key to the communal inn room is here~
+unknown~
+key 0 A
+0 0 0 0 0
+0 1 400 P
+#14104
+chest~
+a chest of drawers~
+A chest of drawers sits in the corner of the room~
+unknown~
+container 0 0
+200 D 0 0 0
+0 200 0 P
+#14105
+odd key~
+An Odd Key~
+A funny looking key lies here~
+unknown~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+#14106
+safe~
+safe~
+An old and well rusted safe sits in the corner~
+unknown~
+container 0 0
+1000 ABCD 14105 5 1000
+0 0 0 P
+#14107
+gold~
+a pile of gold coins~
+A pile of gold coins~
+steel~
+money 0 A
+1000 10 0 0 0
+0 1500 0 P
+#14109
+hole~
+A Hole~
+A hole in the wall seems to end in a wooden door.~
+unknown~
+portal 0 P
+1000 A A 14188 0
+0 0 0 P
+#14110
+amethyst earring~
+Amethyst Earring~
+An earring made of amethyst lies here.~
+amethyst~
+armor ABG AE
+40 40 40 40 0
+91 0 100000 P
+A
+5 3
+A
+26 3
+A
+12 120
+A
+13 120
+A
+18 11
+A
+19 13
+
+#14111
+mace ruin~
+Mace of Ruin~
+A large nasty looking mace sits here.~
+steel~
+weapon ABG AN
+mace 10 14 crush EG
+91 25 0 P
+A
+18 22
+A
+19 30
+A
+12 50
+A
+13 75
+
+#14112
+enchant token~
+{Yan {Ce{Bn{Vc{Ph{Ga{Yn{Ct {Ytoken{x~
+A {Ytoken {xlies here.~
+nothing~
+treasure 0 A
+0 0 0 0 0
+0 0 0 P
+
+#0
+
+
+
+#ROOMS
+#14000
+{G Throne Room{x~
+The throne room of the demoness Elvanshalee seems to be quite sparse with
+nothing more than a large throne on the top of a plinth with a multicoloured
+mosaic placed a reasonable distance before it where all her followers
+kneel before her.
+~
+0 DH 1
+E
+throne~
+A large chair designed for the previous ruler of the
+city and therefore not covered in the gaudy forms or
+colours that Elvanshalee seems to like.
+~
+E
+mosaic~
+A lovely looking mosiac design covers the floor in
+gaudy bright colours, it is a diamond shape and it
+depicts the Demoness as herself and her two
+daughters in there more natural draconian forms.
+~
+D2
+There is a small area to the south through a gaudy looking archway
+~
+~
+0 -1 14001
+M 10 H 250
+S
+#14001
+{GInner Sanctum{x~
+You have entered the inner sanctum of Elvanshalee`s
+palace. Before you stands the more powerful of her
+two adopted daughters, Jhaniss. It's a relatively
+nice place with a few vases of flowers placed around
+by the Palace servants to brighten it up a bit.
+~
+0 D 0
+E
+vase~
+There are all sorts of flowers in the vases, it's clear
+whoever grew them has a green finger.
+~
+E
+flower~
+There are all sorts of flowers in the vases, it's clear
+whoever grew them has a green finger.
+~
+D0
+There is a small area to the north through a gaudy looking archway.
+~
+~
+0 -1 14000
+D2
+The way south leads to the outer sanctum.
+~
+~
+0 0 14002
+S
+#14002
+{GOuter Sanctum{x~
+The outer sanctum on the path to Elvanshalee`s throne
+room is guarded by the weaker of her two adopted
+daughters Charinida. Charinida checks the intent of all
+who enter the palace and usually kills those she finds not
+to her liking.
+~
+0 D 0
+D0
+There is a small area to the north through a gaudy
+looking archway.
+~
+~
+0 0 14001
+D2
+There is a small area to the south through a gaudy
+looking archway.
+~
+~
+0 0 14005
+S
+#14003
+{GPalace Hall South{x~
+You are standing in a large hall with Throne Room to
+the north. The room is well decorated and has a
+stylishly embossed motiff around near the ceiling
+repeated at the floor.
+The daughters of Elvanshalee can be sitting not far north
+of here, they have been known to attack people on sight
+just because they don't like the look of them, so be
+warned.
+~
+0 D 0
+E
+emboss~
+Very elegant swirls, you could get lost trying to
+follow the design.
+~
+E
+motiff~
+Very elegant swirls, you could get lost trying to
+follow the design.
+~
+D0
+The way north leads to the northen part of the hall.
+~
+~
+0 0 14005
+D1
+To the east is a large set of double doors.
+~
+double~
+1 0 14004
+D2
+To the south is the Front hall where most guest are
+welcomed into the palace.
+~
+~
+0 0 14019
+D4
+A set of stairs leads up to the next floor of the Palace.
+~
+~
+0 0 14007
+S
+#14004
+{GGreat Hall{x~
+You have entered the Great Hall. This is not an amazing
+place by any stretch of the imagination, it is just a
+place where guests of the demoness come when they are
+hungry and want to eat, there is often a guest of two
+here as there are no specific times set for the meals.
+A large table stretches from one side of the room to
+the other, with chairs positioned all around it, except
+at the head. That place in preserved for the demoness
+herself and she never joins her guest for meals. The
+table is laid with the best cutlery and exquisite looking
+candle holders. The diners are watched over by portraits
+of various nameless people.
+~
+0 D 0
+D0
+A small swing door leads the way north.
+~
+swing~
+1 0 14006
+D3
+To the west is a large set of double doors.
+~
+double~
+1 0 14003
+S
+#14005
+{GPalace Hall North{x~
+You are standing at the northern end of the palace`s
+main hall. The place is well decorated with murals and
+various tapestrys. In one corner sits a suit of armour
+but the metal is so thin that you can`t help but
+wonder how the wearer could hope to survive.
+At various postions on the walls are small candle
+holders, theses seem to be lit now and appear to
+never burn down as there is no evidence of dripping
+wax on the floor, the walls or even the candle itself.
+~
+0 D 0
+E
+armor~
+Paper thin armour probably designed only for display.
+~
+E
+mural~
+Artwork that depicts the story of Elvanshalees rise to
+Demonhood.
+~
+E
+tapestry~
+Intricate artwork depicting the fall of the city to
+it's current ruler.
+
+~
+D0
+To the north is the outer sanctum of the Demoness'
+throne room.
+~
+~
+0 0 14002
+D2
+To the south is the southern part of the hall.
+~
+~
+0 0 14003
+S
+#14006
+{GPalace Kitchens{x~
+You have entered the palace kitchens, A large number of
+cooks rush around here trying to prepare meals for the
+guests of Elvanshalee and don`t have time to answer
+your questions or indeed pay you any heed.
+The kitchen is well equiped with all the most modern of
+appliances, and the food lockers seem to be well stocked,
+since only the guests of the demoness dine in the Great
+Hall it is evident they are well looked after.
+~
+0 D 0
+D2
+A small swing door leads the way south.
+~
+swing~
+1 0 14004
+S
+#14007
+{GLanding{x~
+You are in a corridor with guest rooms on either side,
+a set of stairs at the southern end of the corridor
+leads down to the ground floor of the palace. The
+corridor is relatively bare, only the odd torch bracket
+breaking the walls.
+~
+0 D 0
+E
+torch~
+A small unexceptional bracket designed to carry a torch,
+it is currently empty.
+~
+D0
+The corridor continues north.
+~
+~
+0 0 14008
+D1
+A small blue door is to the east.
+~
+blue~
+1 0 14012
+D3
+A small red door is to the west.
+~
+red~
+1 0 14011
+D5
+A set of stair leads down to the hall below.
+~
+~
+0 0 14003
+S
+#14008
+{GCorridor{x~
+You are standing in a corridor with guest rooms to
+either side, the walls appear to be bare other than
+the occasional torch bracket and the guest rooms on
+either side. Rumours you might have heard about how
+Elvanshalee is so well off, might be proved to be
+wrong by the lack of anything much here. But then
+again, this might simply be an area that she doesn't
+bother to come to anymore.
+~
+0 D 0
+E
+torch~
+A small unexceptional bracket designed to carry a torch,
+it is currently empty.
+~
+D0
+The corridor continues north
+~
+~
+0 0 14009
+D1
+A small green door leads east
+~
+green~
+1 0 14014
+D2
+The landing is to the south.
+~
+~
+0 0 14007
+D3
+A small grey door leads west
+~
+grey~
+1 0 14013
+S
+#14009
+{GCorridor{x~
+You are standing in a corridor with rooms to the east
+and west, the walls are bare accept for the occasional
+torch bracket and doors leading to guest rooms on either
+side of you.
+~
+0 D 0
+E
+torch~
+A small unexceptional bracket designed to carry a torch,
+it is currently empty.
+~
+D0
+The corridor continues north.
+~
+~
+0 0 14010
+D1
+A small black door lies east
+~
+black~
+1 0 14016
+D2
+The corridor continues south.
+~
+~
+0 0 14008
+D3
+A small yellow door leads west
+~
+yellow~
+1 0 14015
+S
+#14010
+{GCorridor{x~
+You have come to the end of the corridor, There are
+doors to both the east and west. At the end of the
+corridor on an otherwise plain wall is a fine painting.
+If anything seemed out of the ordinary to you as you
+walked along the corridor, it was probably the absence
+of any sort of master bedroom. Whereever the demoness
+sleeps, if she sleeps, it isn't here.
+~
+0 D 0
+E
+torch~
+A small unexceptional bracket designed to carry a torch,
+it is currently empty.
+~
+E
+portrait~
+A well painted portrait of Elvanshalee and her children
+in there more common drow forms, even the painting
+feels evil.
+~
+E
+painting~
+A well painted portrait of Elvanshalee and her children
+in there more common drow forms, even the painting
+feels evil.
+~
+D1
+A small white door leads east
+~
+white~
+1 0 14018
+D2
+The corridor continues south.
+~
+~
+0 0 14009
+D3
+A small purple door lead east
+~
+purple~
+1 0 14017
+S
+#14011
+{GGuest Room{x~
+You are standing in a well furnished room in the palace
+of Elvaneshalee. The room seems to be dominated by a
+large bed and a bedside cabinet but this room does have
+its own fire which is currently alight.
+~
+0 D 0
+D1
+~
+red~
+1 0 14007
+S
+#14012
+{GGuest Room{x~
+You have entered a small room in the palace of
+Elvanshalee. This is one of the guest rooms, The room
+is dominated by a large bed and a small bedside cabinet.
+~
+0 D 0
+D3
+A small blue door leads the way west
+~
+blue~
+1 0 14007
+S
+#14013
+{GGuest Room{x~
+You have entered a guest room, The room is filled with
+a thick layer of dust suggesting that no one is currently
+staying here.
+~
+0 D 0
+E
+dust~
+Lots of dust all over the room making you feel like
+sneezing.
+~
+D1
+A small grey door leads east
+~
+grey~
+1 0 14008
+S
+#14014
+{GGuest Room{x~
+You have entered a guest room. The room is dominated by
+a large bed on which the current occupants things have
+been discarded haphazardly.
+~
+0 D 0
+E
+things~
+clothing and other miscellaneous travel equipment has
+just been dumped.
+~
+D3
+A small green door sits to the west
+~
+green~
+1 0 14008
+S
+#14015
+{GGuest Room{x~
+You have entered a room whose most dominating feature
+is the large bed besides which sits a small cabinet.
+The current occupant however seems more interested in
+using a conveinient chair to put things on.
+~
+0 D 0
+E
+chair~
+A small chair designed for sitting on is currently in
+use as a clothes horse.;;
+~
+D1
+A small black door leads east.
+~
+black~
+1 0 14009
+S
+#14016
+{GGuest Room{x~
+You have entered a room dominated by a large bed and
+a small cabinet. There is a fire burning in the corner.
+~
+0 D 0
+D3
+A small black door leads out of the room
+~
+black~
+1 0 14009
+S
+#14017
+{GGuest Room{x~
+You have entered a large guest room intended for two
+people. A large four poster bed dominates the room and
+doesn`t leave much room for anything else.
+~
+0 D 0
+E
+bed~
+A large bed with closeable curtains designed for two
+people to sleep in.
+~
+D1
+A small purple door leads from the room
+~
+~
+1 0 14010
+S
+#14018
+{GGuest Room{x~
+You have entered a large room dominated by a four poster
+bed in the middle. This room seems to have been designed
+for use by two people but there is no sign of curent
+residency.
+~
+0 D 0
+E
+bed~
+A large bed usable by two people and complete with
+closeable curtains.
+~
+D3
+A small white door leads from the room.
+~
+white~
+1 0 14010
+S
+#14019
+{GFront Hall{x~
+You are standing in the front hall of the palace of
+Elvanshalee. To your left you can see some suits of
+armour lining the wall while to your right the wall
+is a mixture of paintings placed strategically around a
+large tapestry.
+~
+0 D 0
+E
+armour~
+2 suits of armour seem to guard the hallway, they are
+well designed and&nbsp; would probable defend the wearer well,
+unfortunately the suits are heavily trapped and not
+removable from their current homes.
+~
+E
+armor~
+2 suits of armour seem to guard the hallway, they are
+well designed and&nbsp; would probable defend the wearer well,
+unfortunately the suits are heavily trapped and not
+removable from their current homes.
+~
+E
+painting~
+The walls are lined with the portraits of Blosson,
+Flower, Kalana and Tantro. A fifth painting seems
+to have been destroyed and though lovingly restored
+the subject matter is difficult to make out, it
+seems to be some drow though.
+~
+E
+tapestry~
+The tapestries tell the story of the life of Elvanshalee
+long before she even thought of attempting demon hood.
+They show all her friends Blossom, Flower, Kalana, Tanto
+and there is even a depiction of her sister Filfaere.
+~
+D0
+The way north leads to the main part of the hall.
+~
+~
+0 0 14003
+D2
+A large set of Oaken doors mark the way out of the palace.
+~
+oak~
+1 0 14020
+S
+#14020
+{GPalace Doors{x~
+You are standing atop a set of steps before the doors of
+the palace of the demoness.  Two huge figures in very
+thick and blocky looking armour stand here guarding
+the doors from unwelcome invaders.
+~
+0 0 1
+D0
+A large set of oaken doors lead the way into the palace
+~
+oak~
+1 0 14019
+D2
+The way south leads down the steps into the palace garden
+~
+~
+0 0 14021
+S
+#14021
+{GIn Front Of The Palace{x~
+You are in a large garden that surrounds the palace, all
+around you can see figures practising their military
+manuevres in front of the main palace doors. You see
+north a set of steps leading up to two huge figures on
+the doors neither of these figures seem to take the
+slightest notice of anything going on around them and
+from the size of the armour you could be excused for
+thinking there was no one inside them.
+~
+0 C 1
+E
+gates~
+Intricately designed and beautifully looked after, they
+must be worth a fair bit, shame their guarded by half
+the cities militia and probably weigh a couple of tons
+each.
+~
+D0
+A set of steps lead up to the main palace doors
+~
+~
+0 0 14020
+D2
+The way south leads through a set of large golden
+gates and out of the Palace grounds.
+~
+gates~
+1 0 14022
+S
+#14022
+{GPalace Road{x~
+You are standing just south of Elvanshalee`s palace.
+The road you are on extends both east and west, to
+the east can just be made out the definite hustle
+and bustle of the city`s market.
+~
+0 0 1
+E
+gate~
+Intricately designed and beautifully looked after,
+they must be worth a fair bit, shame their guarded
+by half the cities militia and probably weigh a couple
+of tons each.
+~
+D0
+The way north leads through a set of large golden gates
+and into the Palace.
+~
+gates~
+1 0 14021
+D1
+Palace road continues east you can see the market
+in the distance.
+~
+~
+0 0 14023
+D2
+South walk starts to south of here.
+~
+~
+0 0 14055
+D3
+Palace road continues west.
+~
+~
+0 0 14039
+S
+#14023
+{GPalace Road - East{x~
+You are traversing Palace Road and are currently
+standing just east of the main gates of the palace.
+This is a popular road for tourists and pilgrims
+alike as the Palace of the Demoness Elvanshalee brings
+a lot of attention.
+~
+0 0 1
+D1
+To the east lies the road known as East Walk, just
+beyond that is the market.
+~
+~
+0 0 14024
+D3
+Palace Road continues to the west.
+~
+~
+0 0 14022
+S
+#14024
+{GEast Walk{x~
+You are standing just to the east of the palace and just
+the the west of the market.
+~
+0 0 1
+D1
+~
+~
+0 0 14025
+D3
+To the west lies the palace.
+~
+~
+0 0 14023
+S
+#14025
+{GMarket West{x~
+You are at the Western most end of the market.
+All around you merchants vie for what little business
+they can get selling what appears to be little more
+than rubbish to anyone who might take an interest.
+They definitely don't seem to have anything that
+would even slightly interest you.
+~
+0 0 1
+D0
+The market continues north
+~
+~
+0 0 14034
+D1
+The market continues east.
+~
+~
+0 0 14026
+D2
+The market continues south
+~
+~
+0 0 14038
+D3
+To the west lies East Walk and then in the distance,
+the Palace.
+~
+~
+0 0 14024
+S
+#14026
+{GCentral Western Market{x~
+You are in the market, Shoppers and Merchants are busy
+all around you. There's an overall feeling of fear
+though as even this sort of trading could soon be
+outlawed by a whim of the Demoness.
+~
+0 0 1
+D0
+The market continues north.
+~
+~
+0 0 14033
+D1
+The market continues east.
+~
+~
+0 0 14027
+D2
+The market continues south.
+~
+~
+0 0 14037
+D3
+The market continues west.
+~
+~
+0 0 14025
+S
+#14027
+{GCentral Eastern Market{x~
+You are in the market, Shoppers and Merchants are busy
+all around you. There's an overall feeling of fear
+though as even this sort of trading could soon be
+outlawed by a whim of the Demoness.
+~
+0 0 1
+D0
+The market continues north.
+~
+~
+0 0 14032
+D1
+The market continues east.
+~
+~
+0 0 14028
+D2
+The market continues south.
+~
+~
+0 0 14036
+D3
+The market continues west
+~
+~
+0 0 14026
+S
+#14028
+{GEastern Market{x~
+You are standing at the Eastern most end of the market.
+Beyond the market to the east can be made out the main
+city gates.
+As you are looking about, one of the merchants offers
+to show you his wares, but what he has is just rubbish.
+You might almost think he was just picking stuff up off
+the streets and selling it for whatever he can get. His
+prices seem extortionate too.
+~
+0 0 1
+D0
+The market continues north.
+~
+~
+0 0 14031
+D1
+To the east lie the great Eastern gates to the city.
+All around you are the normal denizens of the city
+going about there business and trying to keep themselves
+to themselves. There is an overall feeling of oppression
+here.
+~
+~
+0 0 14029
+D2
+The market continues south.
+~
+~
+0 0 14035
+D3
+The market continues west.
+~
+~
+0 0 14027
+S
+#14029
+{GEast Main{x~
+You are currently just east of the market with the
+main road east heading towards the main city gates.
+Despite the overall feeling of repression the city
+does seem to be quite busy and the market place to
+the west is doing a roaring trade.
+~
+0 0 1
+D1
+The Main Eastern gates lie this way.
+~
+~
+0 0 14030
+D3
+The market lies just to the west of here.
+~
+~
+0 0 14028
+S
+#14030
+{GEastern Gates{x~
+You are standing at the eastern most gates of the
+city. West is the market whilst other roads continue
+north and south, of course you could alway leave the
+city if you wish, especially as the overall atmosphere
+seems quite oppressive. The guards on the gates watch
+you suspiciously though others seem to just ignore you.
+~
+0 0 1
+D0
+To the north lies the road known as Barracks walk.
+~
+~
+0 0 14153
+D1
+To the east lies a large set of gates usually found open.
+~
+gates~
+1 0 14154
+D2
+The path west leads to East Main and then the city market.
+The south path leads to the road simply called Death road.
+~
+~
+0 0 14073
+D3
+The path west leads to East Main and then the city market.
+~
+~
+0 0 14029
+S
+#14031
+{GNorth Eastern Market{x~
+You are standing in the middle of the market, Merchants
+and Shoppers are doing business all around you. There are
+shops to the north but these have been put out of business
+by the high taxes the demoness charged
+~
+0 0 1
+D2
+The market continues south.
+~
+~
+0 0 14028
+D3
+The market continues west.
+~
+~
+0 0 14032
+S
+#14032
+{GNorthern Market - East{x~
+You are standing in the middle of the market as
+Shoppers and Merchants do business all around you.
+There were shops to the north but they were put out
+of business by the high taxes the demoness charged.
+
+An undertaker seems to have set up shop here.
+~
+0 0 1
+D1
+The market continues east.
+~
+~
+0 0 14031
+D2
+The market continues south.
+~
+~
+0 0 14027
+D3
+The market continues west.
+~
+~
+0 0 14033
+S
+#14033
+{GNorthen Market - West{x~
+You are standing in the middle of the market as
+Shoppers and Merchants do business all around you.
+There were shops to the north but these were put out
+of business by the high taxes the demoness charged.
+~
+0 0 1
+D1
+The market continues east.
+~
+~
+0 0 14032
+D2
+The market continues south
+~
+~
+0 0 14026
+D3
+~
+~
+0 0 14034
+S
+#14034
+{GNorth Western Market{x~
+You are standing in the market as Merchants and
+Shoppers do business all around you. There were shops
+to the north and west but these were put out of business
+by the high taxes the demoness charges.
+~
+0 0 1
+D1
+The market continues east.
+~
+~
+0 0 14033
+D2
+The market continues south
+~
+~
+0 0 14025
+S
+#14035
+{GSouth Eastern Market{x~
+You are standing in the market as Shoppers and Merchants
+are doing business all around you. There were shops to
+the south but these were put out of business by the high
+taxes the demoness charged.
+~
+0 0 1
+D0
+The market continues north
+~
+~
+0 0 14028
+D3
+The market continues west.
+~
+~
+0 0 14036
+S
+#14036
+{GSouthern Market - East{x~
+You are standing in the market as Shoppers and Merchants
+are doing business all around you. There were shops to the
+south but these were put out of business by the high taxes
+the demoness charged.
+~
+0 0 1
+D0
+The market continues north.
+~
+~
+0 0 14027
+D1
+The market continues east.
+~
+~
+0 0 14035
+D3
+The market continues west.
+~
+~
+0 0 14037
+S
+#14037
+{GSouthern Market - West{x~
+You are standing in the middle of the market as Shoppers
+and Merchants do business all around you. There were shops
+to the south but these were put out of business by the high
+taxes the demoness charged.
+~
+0 0 1
+D0
+The market continues north
+~
+~
+0 0 14026
+D1
+The market continues east.
+~
+~
+0 0 14036
+D3
+The market continues west.
+~
+~
+0 0 14038
+S
+#14038
+{GSouth Western Market{x~
+You are standing at the edge of the market as Merchants
+and Shoppers do business all around you. There were shops
+the the south but these have been put out of business buy
+the high taxes the demoness charged and have now been boarded
+up because of vandals.
+~
+0 0 1
+D0
+The market continues north.
+~
+~
+0 0 14025
+D1
+The market continues east.
+~
+~
+0 0 14037
+D2
+The way south is bloacked by boards
+~
+boards~
+1 0 14186
+S
+#14039
+{GPalace Road - West{x~
+You are just to the west of the main doors of the palace.
+Off in the distance to the east you can see the market
+whereas to the west of you there seems to be some sort of
+school.
+~
+0 0 1
+D1
+Palaces road contines east.
+~
+~
+0 0 14022
+D3
+The road to the west is called West Walk.
+~
+~
+0 0 14040
+S
+#14040
+{GWest Walk{x~
+You can still see the palace from here and even at this
+distance it is a fantastic view. This is a popular area
+of the city for Pilgrims and tourist alike as the
+magnificence of the Palace is a sight almost worth dying
+to see.
+~
+0 0 1
+D0
+The road to the north is called Animal road and seem
+to lead to the City Zoo.
+~
+~
+0 0 14105
+D1
+To the East is Palace road and the Palace of the Demoness.
+~
+~
+0 0 14039
+D3
+~
+~
+1 0 14042
+S
+#14041
+{GAssassin School - Lobby{x~
+You are standing in the lobby of the assassin school.
+A long corridor heads north of here. You can see
+a set of stairs just to the west. There seems to be no
+one here to greet your visit to the school, perhaps you
+had just better go right in.
+~
+0 D 0
+D0
+A long corridor goes to the north.
+~
+~
+0 0 14043
+D1
+To the east is a small wooden door
+~
+wooden~
+1 0 14042
+D3
+There is a stairwell to the west
+~
+~
+0 0 14049
+S
+#14042
+{GAssassin School - Courtyard{x~
+You are standing in the courtyard of the assassin
+school. A class of assassins are here learning the
+fundamentals of combat. You can enter the school proper
+to the west or return to the street.
+~
+0 0 1
+D1
+The path to the East lead back to West Walk.
+~
+~
+1 0 14040
+D3
+To the west is a small wooden door.
+and leads into the main building.
+~
+wooden~
+1 0 14041
+S
+#14043
+{GAssassin School - Corridor{x~
+You are standing in a north south corridor in the
+assassin school, there are doors to both the east
+and west, noises coming from them would suggest
+classes in session.
+~
+0 D 0
+D0
+The corridor continues north.
+~
+~
+0 0 14046
+D1
+A small door with the number 1B on it leads into a room to the east.
+~
+1b~
+1 0 14045
+D2
+To the south lies the reception lobby for the school.
+~
+~
+0 0 14041
+D3
+A small door with the number 1A on it leads into a room to the west.
+~
+1a~
+1 0 14044
+S
+#14044
+{GAssassin School - Class 1A{x~
+You have entered a class room in the assassin school.
+The teacher and his students don`t seem very happy about
+your intrusion.
+~
+0 D 0
+D1
+A wooden door leads from the room
+~
+wooden~
+1 0 14043
+S
+#14045
+{GAssassin School - Class 1B{x~
+You have entered a class room interrupting the teacher
+and his students in the middle of their studies. They
+don`t look very pleased.
+~
+0 D 0
+D3
+A small wooden door leads from the room.
+~
+wooden~
+1 0 14043
+S
+#14046
+{GAssassin School - Corridor{x~
+You have come to a dead end in this corridor, the only
+exit is south though there are doors to the east and
+west.
+~
+0 D 0
+D1
+A small wooden door with the number 2Bpainted on it lies to the
+east.
+~
+2b~
+1 0 14048
+D2
+The corridor continues south.
+~
+~
+0 0 14043
+D3
+A small wooden door with the number 2A painted on it lies to the
+west
+~
+~
+1 0 14047
+S
+#14047
+{GAssassin School - Class 2A{x~
+You have entered a class in the Assassin school,
+neither the teacher nor the students seem too happy
+about your intrusion.
+~
+0 D 0
+D1
+A small wooden door leads out of the classroom.
+~
+wooden~
+1 0 14046
+S
+#14048
+{GAssassin School - Class 2B{x~
+You have entered a classroom in the assassin school.
+Fortunately this class is empty while a school janitor
+cleans it out.
+~
+0 D 0
+D3
+A small wooden door leads out of the classroom.
+~
+wooden~
+1 0 14046
+S
+#14049
+{GAssassin School - Stairwell{x~
+You have entered the stairwell and are currently standing
+at the bottom. To the east you can see the lobby.
+~
+0 D 0
+D1
+To the east lies the main lobby of the assassin school.
+~
+~
+0 0 14041
+D4
+A set of stairs leads up to the next floor of the school.
+~
+~
+0 0 14050
+S
+#14050
+{GAssassin School - Upper Landing{x~
+You are currently standing at the top of the assassin
+school stairwell. Ahead of you is a short corridor with
+a number of doors leading off.
+~
+0 D 0
+D0
+To the north is a short corridor off of which are a
+couple of small wooden doors.
+~
+~
+0 0 14051
+D5
+A set of stairs lead to the floor below.
+~
+~
+0 0 14049
+S
+#14051
+{GAssassin School - Upper Floor{x~
+You are standing in a short corridor, To the south is
+the stairwell, To the east, west and north are small
+rooms.
+~
+0 D 0
+D0
+A dull wooden door leads into a small office North.
+~
+wooden~
+1 0 14054
+D1
+A small wooden door with 3B painted on it lies to the east.
+~
+3b~
+1 0 14053
+D2
+To the south lies the upper landing and the stairwell.
+~
+~
+0 0 14050
+D3
+A small wooden door with 3A painted on it lies to the west.
+~
+3a~
+1 0 14052
+S
+#14052
+{GAssassin School - Class 3A{x~
+You enter a class room in the middle of an important
+lecture. Neither the students nor the teacher seem too
+happy.
+~
+0 D 0
+D1
+A small door leads from the classroom
+~
+small~
+1 0 14051
+S
+#14053
+{GAssassin School - Class 3B{x~
+You have entered a classroom in the assassin school
+in the middle of a lecture. They don't seem too happy
+about your intrusion.
+~
+0 D 0
+D3
+A small wooden door leads from the classroom
+~
+wooden~
+1 0 14051
+S
+#14054
+{GAssassin School - Herbert's Office{x~
+You have entered the office of Herbert, the successful
+young assassin who started the school. A large desk
+dominates the room, but there's also a trophy cabinet
+showing his success in the assassin business, and there
+is even a medal given to him by the demoness herself.
+On the wall behind the desk is a large sheet of paper
+attached to the wall.
+~
+0 D 0
+E
+desk~
+A very cluttered looking desk
+~
+E
+cabinet~
+This is filled with trophies only some of which have
+been awarded for assassination.
+~
+E
+paper~
+Award allowing Herbert to practice his trade in the
+holy city.
+~
+D2
+A small wooden door leads from the office.
+~
+wooden~
+1 0 14051
+S
+#14055
+{GSouth Walk{x~
+You are walking along a north south street with the
+City`s common land just to the south of you and the
+famous Palace of Elvanshalee to the north. Off in the
+distance to the south you can clearly make out the form
+of the Tower of Tantro.
+~
+0 0 1
+D0
+To the north lies Palace Road and then the Palace itself.
+~
+~
+0 0 14022
+D2
+The the south lies the cities common land.
+~
+~
+0 0 14056
+S
+#14056
+{GCommon Land - Northern Entrance{x~
+You are standing the northern gates in the railing
+which surrounds the City common. To the distant north
+you can see the magnificent Palace of the Demoness Empress,
+to the south beyond the common you can see the maginificent
+edifice that is the Tower of Tantro.
+~
+0 0 1
+D0
+To the north is a short walkway leading to the Palace
+Road and the Palace.
+~
+~
+0 0 14055
+D2
+To the south lies the common proper, through a set of
+iron gates.
+~
+gate~
+1 0 14057
+S
+#14057
+{GNorthern Common{x~
+You are at the northern end of the common, there are
+children all around you playing some have there parents
+with them. The military presence here doesn`t seem any
+less threatening.
+~
+0 0 2
+D0
+The way north leads to the walkway known as South walk,
+through a set of iron gates.
+~
+gate~
+1 0 14056
+D1
+The common continues this way
+~
+~
+0 0 14063
+D2
+The common continues this way
+~
+~
+0 0 14058
+D3
+The common continues this way.
+~
+~
+0 0 14064
+S
+#14058
+{GCentral Common{x~
+You are at the very centre of the City`s common.
+Children seem to gather all around you playing, some
+have brought their parents with them.
+~
+0 0 2
+D0
+The common continues this way.
+~
+~
+0 0 14057
+D1
+The common continues this way.
+~
+~
+0 0 14061
+D2
+The common continues this way.
+~
+~
+0 0 14059
+D3
+The common continues this way.
+~
+~
+0 0 14062
+S
+#14059
+{GSouthern Common{x~
+You are standing at the south end of the common.
+Children are playing all around you, some have even
+brought there parents with them, yet the military
+presense doesn`t seem to be any less here than anywhere
+else.
+~
+0 0 2
+D0
+The common continues this way.
+~
+~
+0 0 14058
+D1
+The common continues this way.
+~
+~
+0 0 14065
+D2
+There are some iron gates to the south marking the
+boundary of the common.
+~
+gate~
+1 0 14060
+D3
+The common continues this way.
+~
+~
+0 0 14066
+S
+#14060
+{GCommon Land - Southern Entrance{x~
+You have arrived at the southern entrance into the
+city`s common land. The common itself is surrounded
+by railings with just a northern and a southern exit.
+Directly south of you is the tower owned by the dwarf
+assassin, Tantro.
+~
+0 0 2
+D0
+There are some iron gates to the north of here demarking
+the entrance to the common.
+~
+gate~
+1 0 14059
+D2
+There is a road to the south, a small sign tells you it
+is tower road.
+~
+~
+0 0 14067
+S
+#14061
+{GEastern Common{x~
+You are at the eastern railings of the common land,
+Children run around everywhere some have brought their
+parents with them.
+~
+0 0 2
+D0
+The common continues this way
+~
+~
+0 0 14063
+D2
+The common continues this way.
+~
+~
+0 0 14065
+D3
+The common continues this way
+~
+~
+0 0 14058
+S
+#14062
+{GWestern Common{x~
+You are at the railing on the western side of the common.
+Children are rushing round you, some have brought their
+parents.
+~
+0 0 2
+D0
+The common continues this way.
+~
+~
+0 0 14064
+D1
+The common continues this way.
+~
+~
+0 0 14058
+D2
+The common continues this way.
+~
+~
+0 0 14066
+S
+#14063
+{GNorth Eastern Common{x~
+You are standing at the railings at the north eastern
+end of the common. Children play all around you, some
+have brought their parents.
+~
+0 0 2
+D2
+The common continues this way.
+~
+~
+0 0 14061
+D3
+The common continues this way.
+~
+~
+0 0 14057
+S
+#14064
+{GNorth Western Common{x~
+You are at the north western railings surrounding the
+city`s common ground. Children play all around you,
+some have brought their parents.
+~
+0 0 2
+D1
+The common continues this way.
+~
+~
+0 0 14057
+D2
+The common continues this way.
+~
+~
+0 0 14062
+S
+#14065
+{GSouth Eastern Common{x~
+You are standing at the south eastern railing of the
+citys common ground. Children run around you without
+a care in the world although some have brought their
+parents.
+~
+0 0 2
+D0
+The common continues this way.
+~
+~
+0 0 14061
+D3
+The common continues this way.
+~
+~
+0 0 14059
+S
+#14066
+{GSouth Western Common{x~
+You are standing at the south western railing of the
+City common. Children run all around you, some of them
+have brought their parents.
+~
+0 0 2
+D0
+The common continues this way.
+~
+~
+0 0 14062
+D1
+The common continues this way.
+~
+~
+0 0 14059
+S
+#14067
+{GTower Road{x~
+You stand before the gates that lead into the garden
+of the Tower of Tantro. Many men have tried and few
+have succeeded in raiding the place. To the West is a
+small tavern called the Demons Inn, it is claimed that
+Elvanshalee owned the deeds to that inn long before she
+even considered conquering the whole city.
+~
+0 0 1
+D0
+To the north is the site of the cities common land.
+~
+~
+0 0 14060
+D1
+The way east leads to Tantro's road and the City arena.
+~
+~
+0 0 14075
+D2
+To the south is a large wrought iron gate
+~
+gate~
+1 14044 14070
+D3
+To the west is the door into the tavern known only as
+the Demon's Inn.
+~
+~
+0 0 14068
+S
+#14068
+{GDemon's Inn{x~
+You are standing the Demons inn tavern. Claims are
+that this inn is actually owned by the demoness herself.
+It is further said that any wandering minstrel that is
+lucky enough to play the right piece of music while
+Elvanshalee is listening will have his or her dreams
+come true. Unfortunatly there is very little choice these
+day with the embargo.
+~
+0 D 0
+D1
+East is the door out of the tavern.
+~
+~
+0 0 14067
+D4
+A set of stairs lead up
+~
+~
+0 0 14189
+D5
+A small door, the wood of which appears to have been warped
+from disuse
+~
+trapdoor~
+1 14100 14188
+S
+#14069
+{GTantro's Tower - Ground Level{x~
+Not a great deal of interest here, just a set of stairs
+going up to a trapdoor and the next floor. This room is
+obviously only used as a means of passage between the
+outside and the next floor.
+~
+0 D 0
+D0
+To the north lies the door into the garden.
+~
+~
+1 0 14070
+D4
+There is a small trap door separating here from the
+next level up.
+~
+trapdoor~
+1 0 14071
+S
+#14070
+{GGarden Of Picturesque Beauty{x~
+This garden seems to be a whole mixture of colour as
+the various plants do their best to dominate the colour.
+Here is also some evidence of Tantro`s meddling with the
+supernatural as some of the plants seem to be alive.
+The door to the tower itself is directly south.
+~
+0 0 1
+D0
+To the north is a large set of iron gates that protect
+the garden from the rest of the city.
+~
+gate~
+1 14044 14067
+D2
+To the south is a small door that leads into the tower
+itself.
+~
+~
+1 0 14069
+S
+#14071
+{GChamber Of The Guardians{x~
+You are in a small room containing a set of stairs
+going up and a trapdoor to the floor below. More
+evidence of the experiments of Tantro dominate this
+room in the form of Skeletal guardians. The room seems
+otherwise bare accept for a small table covered with
+papers. There is no chair on which you'd expect Tantro
+to sit while he was working.
+~
+0 D 0
+D4
+A spiral staircase leads up to the next floor.
+~
+~
+0 0 14072
+D5
+A trapdoor in the floor leads down to the floor below.
+~
+trapdoor~
+1 0 14069
+S
+#14072
+{GTantro's Tower - Top Floor{x~
+So you`ve reached what seems to be the top floor of
+the tower and are probably quite unhappy to find that
+there is nothing here except a small bed and of course
+a staircase leading back down.
+~
+0 D 0
+D4
+There is something not quite right about part of the ceiling{x
+~
+secret~
+1 0 14143
+D5
+A spiral staircase leads down to the floor below.
+~
+~
+0 0 14071
+S
+#14073
+{GDeath Road{x~
+You are in a north - south road, to the north is the main
+Eastern gates, to the south are the cities infamous
+training ground.
+~
+0 0 1
+D0
+To the north are a groups of soldiers gathered around
+the Eastern gates.
+~
+~
+0 0 14030
+D2
+To the south are the infamous training grounds.
+~
+~
+0 0 14074
+S
+#14074
+{GTraining Grounds{x~
+You stand before the mighty door of the training ground.
+To the north of you is the Eastern gate of the city and
+to the west is the large tower of Tantro.
+~
+0 0 1
+D0
+To the north lies Death road and the Eastern gate of
+the city.
+~
+~
+0 0 14073
+D2
+To the south is a small door leading into the training
+grounds.
+~
+small~
+1 0 14078
+D3
+In the distance to the west you can see the Tower of
+Tantro between there and here is Tantro's Road.
+~
+~
+0 0 14075
+S
+#14075
+{GTantro's Road{x~
+Renamed after the dwarf assassin this is a short road
+that leads from his tower and the Demon inn to the
+training ground here he often goes to get practice.
+A short road to the south leads to the Southern gates.
+~
+0 0 1
+D1
+To the east is the infamous training grounds.
+~
+~
+0 0 14074
+D2
+To the south are the southern gates out of the holy city
+~
+~
+0 0 14076
+D3
+To the west is the Tower of Tantro.
+~
+~
+0 0 14067
+S
+#14076
+{GSouthern Gates{x~
+You are standing at the main southern gates of the
+holy city. Beyond the walls to the south you can clearly
+see the farmland that is used to feed the population of
+the holy city.
+~
+0 0 1
+D0
+The way north leads to Tantro's road.
+~
+~
+0 0 14075
+D2
+To the south is the farmland that's used to feed the
+population of the holy city. There are a large set of
+gates there often kept open.
+~
+gate~
+1 0 14077
+S
+#14077
+{GSouthern Farmland{x~
+You are wandering about the farmland to the south of
+the holy city. There are a few people busy at work in
+the fields. In the distanace you can see roads that
+lead to other areas of the Darklands but you get the
+feeling that reaching them might be harder than getting
+here was.
+~
+0 0 2
+D0
+A large set of gate demark the entrance of the city.
+~
+gate~
+1 0 14076
+S
+#14078
+{GTraining Ground - Reception Room{x~
+You are standing in a small room, to one side is a desk
+with a young woman sat behind it, she looks at you with
+a smile and says, `In order to participate your party
+must first purchase a pass key.`
+~
+0 D 0
+D0
+To the north is a small door leading out of the
+training ground.
+~
+~
+1 0 14074
+D2
+To the south is a small door, it probably leads into
+the arena.
+~
+~
+1 14056 14079
+S
+#14079
+{GRest Room{x~
+You are in a small room in the training area where you
+may safely rest between bouts. The door to the south
+leads into the arena. There is a sign on the wall here.
+~
+0 1036 0
+E
+sign~
+The practice targets in the arena beyond the southern
+door are colour coded for the convienience of our
+customers. The targets wearing red ribbons are easy,
+blue for slightly harder, green for a little harder
+still and yellow for the hardest. We regret that for
+security reasons we daren`t train our targets beyond
+yellow. Money is not returnable, have a nice day.
+~
+D0
+A door to the north leads back to the reception area
+~
+~
+1 14056 14078
+D2
+To the south is the main arena.
+~
+~
+1 0 14080
+M 120 H 120
+S
+#14080
+{GThe Arena - North Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed
+daily. To the north is the Rest room which you can
+use for recovery.
+city
+~
+0 0 1
+D0
+To the north is a small chamber you could rest in.
+~
+~
+1 0 14079
+D1
+The arena continues east.
+~
+~
+0 0 14095
+D2
+The arena continues south.
+~
+~
+0 0 14081
+D3
+The arena continues west
+~
+~
+0 0 14085
+S
+#14081
+{GThe Arena - North Centre{x~
+You are in a large arena, the sand is already stained
+with the blood of many previous victims and it gets
+changed daily.
+~
+0 0 1
+D0
+The arena continues north.
+~
+~
+0 0 14080
+D1
+The arena continues east.
+~
+~
+0 0 14096
+D2
+The arena continues south.
+~
+~
+0 0 14082
+D3
+The arena continues west
+~
+~
+0 0 14086
+S
+#14082
+{GThe Arena - Centre{x~
+This is the very center of the arena. The area seems to
+be littered with the bones of previous victims. The
+sand is covered with the blood of the slaves that have
+died here and yet the sand does get changed regularly
+once a day.
+~
+0 0 1
+D0
+The arena continues north.
+~
+~
+0 0 14081
+D1
+The arena continues east.
+~
+~
+0 0 14097
+D2
+The arena continues south.
+~
+~
+0 0 14083
+D3
+The arena continues west.
+~
+~
+0 0 14087
+S
+#14083
+{GThe Arena - South Centre{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed
+daily. There is a small plaque resting lightly on the
+ground, it reads 'In honourable memory of the slave 
+Derykk Panning, who defeated 4 opponents before he met 
+his match.'
+~
+0 0 1
+D0
+The arena continues north
+~
+~
+0 0 14082
+D1
+The arena continues east.
+~
+~
+0 0 14098
+D2
+The arena continues south.
+~
+~
+0 0 14084
+D3
+The arena continues west.
+~
+~
+0 0 14088
+S
+#14084
+{GThe Arena - South Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily
+~
+0 0 1
+D0
+The arena continues north.
+~
+~
+0 0 14083
+D1
+~
+~
+0 0 14099
+D3
+The arena continues west.
+~
+~
+0 0 14089
+S
+#14085
+{GThe Arena - North Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily.
+You notice a couple of fresh kills here. It seems by
+their wounds that the two slaves had some sort of
+disagreement with each other and dicided to sort it
+out between them.
+~
+0 0 1
+D1
+The arena continues east.
+~
+~
+0 0 14080
+D2
+The arena continues south.
+~
+~
+0 0 14086
+D3
+The arena continues west.
+~
+~
+0 0 14090
+S
+#14086
+{GThe Arena - North West Centre{x~
+You are in a large arena, the sand is stained with
+the blood of many previous victims and it gets changed
+daily.
+~
+0 0 1
+D0
+The arena continues north.
+~
+~
+0 0 14085
+D1
+The arena continues east
+~
+~
+0 0 14081
+D2
+The arena continues south.
+~
+~
+0 0 14087
+D3
+The arena continues west.
+~
+~
+0 0 14091
+S
+#14087
+{GThe Arena - West Centre{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily
+~
+0 0 1
+D0
+The arena continues north.
+~
+~
+0 0 14086
+D1
+The arena continues east.
+~
+~
+0 0 14082
+D2
+The arena continues south.
+~
+~
+0 0 14088
+D3
+The arena continues west.
+~
+~
+0 0 14092
+S
+#14088
+{GThe Arena - South West Centre{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily.
+A small pile of rusted and useless equipment lies here
+as a testament to how vicious the slave can get when
+they feel cornered.
+~
+0 0 1
+D0
+The arena continues
+north.
+~
+~
+0 0 14087
+D1
+The arena continues east.
+~
+~
+0 0 14083
+D2
+The arena continues south.
+~
+~
+0 0 14089
+D3
+The arena continues west.
+~
+~
+0 0 14093
+S
+#14089
+{GThe Arena - South Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily.
+~
+0 0 1
+D0
+The arena continues north
+~
+~
+0 0 14088
+D1
+The arena continues east.
+~
+~
+0 0 14084
+D3
+The arena continues west.
+~
+~
+0 0 14094
+S
+#14090
+{GThe Arena - North West Wall{x~
+You are in a large arena, the sand is stained with
+the blood of many previous victims and it gets changed
+daily. Just above this part of the arena you can see
+the old imperial box, there was a time when the ruler
+of the city would watch the fights. She hasn't done that
+for a long time, prefering to kill her own victims.
+~
+0 0 1
+D1
+The arena continues east.
+~
+~
+0 0 14085
+D2
+The arena continues south.
+~
+~
+0 0 14091
+S
+#14091
+{GThe Arena - West Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily
+~
+0 0 1
+D0
+The arena continues north
+~
+~
+0 0 14090
+D1
+The arena continues east
+~
+~
+0 0 14086
+D2
+The arena continues south.
+~
+~
+0 0 14092
+S
+#14092
+{GThe Arena - West Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily
+~
+0 0 1
+D0
+The arena continues north
+~
+~
+0 0 14091
+D1
+The arena continues east.
+~
+~
+0 0 14087
+D2
+The arena continues south.
+~
+~
+0 0 14093
+S
+#14093
+{GThe Arena - West Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed
+daily. A banner seems to have been draped lightly 
+over the wall to advertise something or other, it
+isn't easy to make out what as the banner became 
+a favourite target to the sword slashes of the slaves 
+who disliked it's appearence and decided they
+had nothing to lose.
+~
+0 0 1
+D0
+The arena continues north
+~
+~
+0 0 14092
+D1
+The arena continues east.
+~
+~
+0 0 14088
+D2
+The arena continues south.
+~
+~
+0 0 14094
+S
+#14094
+{GThe Arena - South West Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily.
+There is a small area set up here, when the slaves can
+practice their martial skills when they aren't under
+attack.
+~
+0 0 1
+D0
+The arena continues north
+~
+~
+0 0 14093
+D1
+The arena continues east.
+~
+~
+0 0 14089
+S
+#14095
+{GThe Arena - North Wall{x~
+You are in a large arena, the sand is stained with
+the blood of many previous victims and it gets changed
+daily. There is some damage to the wall to the north,
+where a couple of slaves tried to break their way through
+before being stopped.
+~
+0 0 1
+D1
+The arena continues east.
+~
+~
+0 0 14100
+D2
+The arena continues south.
+~
+~
+0 0 14096
+D3
+The arena continues west.
+~
+~
+0 0 14080
+S
+#14096
+{GThe Arena - North East Centre{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily
+~
+0 0 1
+D0
+The arena continues north.
+~
+~
+0 0 14095
+D1
+The arena continues east.
+~
+~
+0 0 14101
+D2
+The arena continues south
+~
+~
+0 0 14097
+D3
+The arena continues west.
+~
+~
+0 0 14081
+S
+#14097
+{GThe Arena - East Centre{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily.
+~
+0 0 1
+D0
+The arena continues north
+~
+~
+0 0 14096
+D1
+The arena continues east
+~
+~
+0 0 14102
+D2
+The arena continues south.
+~
+~
+0 0 14098
+D3
+The arena continues west.
+~
+~
+0 0 14082
+S
+#14098
+{GThe Arena - South East Centre{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily.
+~
+0 0 1
+D0
+The arena continues north.
+~
+~
+0 0 14097
+D1
+The arena continues east.
+~
+~
+0 0 14103
+D2
+The arena continues south.
+~
+~
+0 0 14099
+D3
+The arena continues west.
+~
+~
+0 0 14083
+S
+#14099
+{GThe Arena - South Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed
+daily. A large blood stain marks the southern wall,
+with holes in the brick work where slaves that disobey
+their orders are tied and summarily executed.
+~
+0 0 1
+D0
+The arena continues north
+~
+~
+0 0 14098
+D1
+The arena continues east.
+~
+~
+0 0 14104
+D3
+The arena continues west.
+~
+~
+0 0 14084
+S
+#14100
+{GThe Arena - North East Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily
+~
+0 0 1
+D2
+The arena continues south.
+~
+~
+0 0 14101
+D3
+The arena continues west.
+~
+~
+0 0 14095
+S
+#14101
+{GThe Arena - East Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily.
+~
+0 0 1
+D0
+The arena continues north.
+~
+~
+0 0 14100
+D2
+The arena continues south.
+~
+~
+0 0 14102
+D3
+The arena continues west.
+~
+~
+0 0 14096
+S
+#14102
+{GThe Arena - East Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily.
+~
+0 0 1
+D0
+The arena continues north
+~
+~
+0 0 14101
+D2
+The arena continues south
+~
+~
+0 0 14103
+D3
+The arena continues west.
+~
+~
+0 0 14097
+S
+#14103
+{GThe Arena - East Wall{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily
+~
+0 0 1
+D0
+The arena continues north.
+~
+~
+0 0 14102
+D2
+The arena continues south.
+~
+~
+0 0 14104
+D3
+The arena continues west.
+~
+~
+0 0 14098
+S
+#14104
+{GThe Arena - South East Corner{x~
+You are in a large arena, the sand is stained with the
+blood of many previous victims and it gets changed daily
+~
+0 0 1
+D0
+The arena continues north
+~
+~
+0 0 14103
+D3
+The arena continues west.
+~
+~
+0 0 14099
+S
+#14105
+{GAnimal Road{x~
+You are walking along a north-south road. To the south
+is the famous assassin school whereas to the north are
+the west gates and the zoo. To your immediate east you
+can see the walls surrounding the grounds of the palace
+of the Demoness Elvanshalee herself.
+~
+0 0 1
+D0
+Assassin Road lies in this direction.
+Just before Assassin road are the western gates.
+~
+~
+0 0 14106
+D2
+West walk lies to the south.
+~
+~
+0 0 14040
+S
+#14106
+{GWest Gates{x~
+You are standing at The Western most gates of the city.
+Just beyond the gates you can clearly make out the tents
+of the refugees that have been gradually emigrating here.
+~
+0 0 1
+D0
+To the north lies Assassin Road.
+~
+~
+0 0 14117
+D2
+Animal Road lies to the south.
+~
+~
+0 0 14105
+D3
+A large set of open city gates mark the exit to the city.
+~
+gate~
+0 0 14107
+S
+#14107
+{GOutside The Western Gate{x~
+The road which used to lead here to the west as well
+as all the fields and farmland in the area has been
+taken over by the refugees that have been flooding
+into the area recently.
+~
+0 0 1
+D1
+A large set of open gate to the east mark the western
+entrance into the city.
+~
+gate~
+0 0 14106
+D3
+The refugee camp spralls to the west.
+~
+~
+0 0 14108
+S
+#14108
+{GRefugee Camp{x~
+You are in a refugee camp, there are tents are all around you.
+~
+0 0 2
+D0
+The refugee camp spralls to the&nbsp; north
+~
+~
+0 0 14111
+D1
+The refugee camp spralls to the east.
+The city lies to the east
+~
+~
+0 0 14107
+D2
+The refugee camp spralls to the south.
+~
+~
+0 0 14114
+D3
+The refugee camp spralls to the west.
+~
+~
+0 0 14109
+S
+#14109
+{GRefugee Camp{x~
+You are in the middle of a refugee camp, their tents
+are all around you. The refugees themselves watch you
+suspiciously and ready to defend themselves should the
+need arise.
+~
+0 0 2
+D0
+The refugee camp spralls to the north.
+~
+~
+0 0 14112
+D1
+The refugee camp spralls to the east.
+~
+~
+0 0 14108
+D2
+The refugee camp spralls to the south.
+~
+~
+0 0 14115
+D3
+The refugee camp spralls to the west.
+~
+~
+0 0 14110
+S
+#14110
+{GRefugee Camp{x~
+You are at the western most end of a refugee camp.
+Their tents are all around you, unfortunately the
+path west is no long usable.
+~
+0 0 2
+D0
+The refugee camp spralls to the north.
+~
+~
+0 0 14113
+D1
+The refugee camp spralls to the east.
+~
+~
+0 0 14109
+D2
+The refugee camp spralls to the south.
+~
+~
+0 0 14116
+S
+#14111
+{GRefugee Camp{x~
+You are standing in a refugee camp, the mess is
+unbelievable, This area doesn`t seem to be used much
+for habitation but the smell suggests it is used for
+something.
+~
+0 0 2
+D2
+The refugee camp spralls to the south.
+~
+~
+0 0 14108
+D3
+The refugee camp spralls to the west
+~
+~
+0 0 14112
+S
+#14112
+{GRefugee Camp{x~
+You are standing at the north end of a refugee camp.
+There are tents all around you. There was once a path
+to the north but this is now overgrown and impassable
+~
+0 0 2
+D1
+The refugee camp spralls to the east.
+~
+~
+0 0 14111
+D2
+The refugee camp spralls to the south.
+~
+~
+0 0 14109
+D3
+The refugee camp spralls to the west.
+~
+~
+0 0 14113
+S
+#14113
+{GRefugee Camp{x~
+You are standing in the middle of a refugee camp,
+there are tents erected all around you.
+~
+0 0 2
+D1
+The refugee camp spralls to the east.
+~
+~
+0 0 14112
+D2
+The refugee camp spralls to the south.
+~
+~
+0 0 14110
+S
+#14114
+{GRefugee Camp{x~
+You are standing In the middle of a field where a
+large number of refugees have decided to erect their tents
+~
+0 0 2
+D0
+The refugee camp spralls to the north.
+~
+~
+0 0 14108
+D3
+The refugee camp spralls to the west.
+~
+~
+0 0 14115
+S
+#14115
+{GRefugee Camp{x~
+You are standing in the middle of a refugee camp
+surrounded by their tents. The refugees eye your
+every movement, ready to attack if you turn out to
+be hostile.
+~
+0 0 2
+D0
+The refugee camp spralls to the north.
+~
+~
+0 0 14109
+D1
+The refugee camp spralls to the east.
+~
+~
+0 0 14114
+D3
+The refugee camp spralls to the west.
+~
+~
+0 0 14116
+S
+#14116
+{GRefugee Camp{x~
+You are standing at the edge of a refugee camp being
+eyed by the residents possibly as a likely meal.
+~
+0 0 2
+D0
+The refugee camp spralls to the north.
+~
+~
+0 0 14110
+D1
+The refugee camp spralls to the east.
+~
+~
+0 0 14115
+S
+#14117
+{GAssassin Avenue{x~
+You are walking along a north-south road, To the
+north is the zoo whereas to the south is the
+western gate and the assassin school.
+~
+0 0 1
+D0
+A gap in the fence marks the entrance to the zoo.
+~
+~
+0 0 14118
+D2
+The western gate is directly to the south and beyond that
+is Animal road.
+~
+~
+0 0 14106
+S
+#14118
+{GThe Zoo{x~
+You are standing in front of the zoo entrance. One of
+the things that Elvanshalee has done to her credit is
+open the zoo up to the general public free of charge.
+Many see this as a blatant attempt to keep people busy
+from plotting against her.
+~
+0 0 1
+D0
+The zoo entrance is directly north.
+~
+~
+0 0 14119
+D1
+To the east lies Holy road and the path to the City's
+temple.
+~
+~
+0 0 14126
+D2
+Assassin road is dirctly south of here.
+~
+~
+0 0 14117
+S
+#14119
+{GThe Zoo - Entrance{x~
+The cage immediately to your north contains bats, the
+one to your east contains foxes. The pathway continues
+west.
+~
+0 0 1
+D0
+A large bats cage lies to the north, you are protected
+by a flimsy cage door.
+~
+bat~
+1 0 14120
+D1
+~
+fox~
+1 0 14121
+D2
+The way south leads back out the entrance of the zoo.
+~
+~
+0 0 14118
+D3
+The zoo continues round to the west.
+~
+~
+0 0 14122
+S
+#14120
+{GThe Bat's Cage{x~
+You have entered a cage filled with bats.
+~
+0 0 1
+D2
+A flimsy door stand between you and the way out.
+~
+cage~
+1 0 14119
+S
+#14121
+{GFox Cage{x~
+You have entered the fox cage.
+~
+0 0 1
+D3
+A flimsy door stand between you and the way out.
+~
+cage~
+1 0 14119
+S
+#14122
+{GZoo Main{x~
+You are at the end of he zoo, perhaps a little
+disappointed at it`s apparent lack of size. The bears
+are to the north, the wolves to the south and the panthers
+east.
+~
+0 0 1
+D0
+To the north is the bear's cage, you are protect by a
+flimsy cage door
+~
+bear~
+1 0 14123
+D1
+The way east leads to the other part of the zoo.
+~
+~
+0 0 14119
+D2
+The wolves cage sits to the south with nothing between
+you and it except a flimsy cage door.
+~
+wolf~
+1 0 14124
+D3
+The panthers cages sits to the west with nothing
+between you and it except a flimsy cage door.
+~
+panther~
+1 0 14125
+S
+#14123
+{GBear Cage{x~
+You have entered the bear cage.
+~
+0 0 1
+D2
+A flimsy door stand between you and the way out.
+~
+bear~
+1 0 14122
+S
+#14124
+{GWolves Cage{x~
+You have entered the wolf cage.
+~
+0 0 1
+D0
+A flimsy door stand between you and the way out.
+~
+wolf~
+1 0 14122
+S
+#14125
+{GPanther Cage{x~
+You have entered the panther cage.
+~
+0 0 1
+D1
+A flimsy door stand between you and the way out.
+~
+panther~
+1 0 14122
+S
+#14126
+{GHoly Road{x~
+You are walking along and east-west street with the
+zoo to the immediate west of you and the temple to the
+east.
+~
+0 0 1
+D1
+This way you see a large temple.
+~
+~
+0 0 14127
+D3
+This way you see the zoo.
+~
+~
+0 0 14118
+S
+#14127
+{GBefore The Temple{x~
+You stand before one of the most impressive buildings
+in the city, the temple that is dedicated to the
+Demoness Elvanshalee herself. The main road continues
+west to the zoo or east to the barracks, there is also
+a short walk path north to the northern gates.
+~
+0 0 1
+D0
+The main northern gates of the city lie in this direction.
+~
+~
+0 0 14128
+D1
+To the East lies War road which leads to the Barracks.
+~
+~
+0 0 14144
+D2
+A large welcoming look entrance way beckons you south
+to the temple.
+~
+~
+0 0 14129
+D3
+to the west lies the zoo.
+~
+~
+0 0 14126
+S
+#14128
+{GThe Northern Gates{x~
+You stand beside a pile of rubble that is all that
+remains of the northern gates of the city after the
+local mage caved them in as part of fending off an
+attack by freedom fighters. As a matter of course the
+area is still guarded against possible further incursions.
+~
+0 0 1
+D2
+To the south lies a large temple with a huge welcoming
+looking doorway.
+~
+~
+0 0 14127
+S
+#14129
+{GThe City Temple{x~
+You are standing in a large impressive room with a
+large golden statue of the Demoness Elvanshalee
+dominating the southern most part of it. People come
+here regularly to worship before her image in the hope
+that this might somehow appease her wrath towards them.
+You see a small door in the south wall almost hidden by
+the statue and another in the eastern most wall.
+~
+0 D 0
+E
+elvanshalee~
+A carefully carved and flattering sculpture made from
+the finest gold, rumours say that many have tried to
+steal the monolith, but no one has yet got out of the
+templ alive with so much as an arm. The statue is far
+to heavy for one person to carry alone.
+~
+E
+statue~
+A carefully carved and flattering sculpture made from
+the finest gold, rumours say that many have tried to
+steal the monolith, but no one has yet got out of the
+templ alive with so much as an arm. The statue is far
+to heavy for one person to carry alone.
+~
+D0
+To the north lies the way out of the temple.
+~
+~
+0 0 14127
+D1
+A small steel door blocks the way
+~
+steel~
+1 0 14130
+D2
+The door to the south is almost totally hidden by a large statue.
+~
+hidden~
+1 0 14131
+S
+#14130
+{GSmall Office{x~
+You have entered a priests small office. This is the
+room where the priest would write their sermons to the
+public telling them how bad they have been of late.
+~
+0 D 0
+D3
+A small steel door leads west back into the main part
+of the temple.
+~
+steel~
+1 0 14129
+S
+#14131
+{GThe Pit{x~
+You are in a small room with a large pit in the center.
+To one side is a large blood stained pit that is probably
+used for the sacrifices these priests and priestesses
+make. The only exits are north to the main temple or you
+could enter the pit.
+~
+0 D 0
+D0
+A small door marks the northern exit of the room.
+~
+~
+1 0 14129
+D5
+Why anyone would want to enter a scarificial pit is
+beyond me, but that's where down leads.
+~
+~
+0 0 14132
+S
+#14132
+{GIn The Pit{x~
+You are standing in the pit surrounded by the remains
+of the virgins that have been sacrificed here over the
+last few years, obviously the smell is almost unbelievable
+and yet here in this carnage is a small door leading back
+north.
+~
+0 D 0
+D0
+A small door leads north.
+~
+small~
+1 0 14133
+D4
+The way up leads out of the pit.
+~
+~
+0 0 14131
+S
+#14133
+{GCorridor{x~
+You are in a very sparsely decorated north south corridor
+with a small cell to the east and west.
+~
+0 D 0
+D0
+The corridor continues north.
+~
+~
+0 0 14136
+D1
+A small door bars the way east
+~
+~
+1 0 14135
+D2
+A small door leads south to the pit.
+~
+small~
+1 0 14132
+D3
+A small door bars the way west
+~
+~
+1 0 14134
+S
+#14134
+{GCell{x~
+You have entered a priests living quarters. Other than
+a wooden bed without any covers and a small table, on
+which is sitting a holy book, there is nothing in the
+cell.
+~
+0 D 0
+D1
+A small door exits east.
+~
+~
+1 0 14133
+S
+#14135
+{GCell{x~
+You have entered a priestesses living quarters. Other
+the a small uncomfortable looking bed, devoid of
+matress or covers, and a small table on which sits an
+unlit candle and a holy book, there is nothing of
+interest here.
+~
+0 D 0
+D3
+A small door leads out of the cell
+~
+~
+1 0 14133
+S
+#14136
+{GCorridor{x~
+You are in a north south corridor with rooms to the
+east and west and north.
+~
+0 D 0
+D0
+A small door lies north.
+~
+small~
+1 0 14139
+D1
+A small door bars your way east.
+~
+~
+1 0 14138
+D2
+The corridor continues in this direction.
+~
+~
+0 0 14133
+D3
+A small door bars your way west.
+~
+~
+1 0 14137
+S
+#14137
+{GCell{x~
+You have entered a priests living quarters. The room
+is sparsely decorated, there is a small bed against the
+wall, a single blanket covering it. A table contains an
+unlit candle. On the far wall is a line of books, this
+could be the cell of the next high priest.
+~
+0 D 0
+D1
+A small door exits east
+~
+~
+1 0 14136
+S
+#14138
+{GCell{x~
+You are standing in a priests living quarters. Other
+than a wooden bed which seems to have come under attack
+from woodworm, and a small table similarly afflicted,
+the room is empty.
+~
+0 D 0
+D3
+A small door exits west.
+indoors
+~
+~
+1 0 14136
+S
+#14139
+{GCommunal Room{x~
+You have entered the communal room of the priests
+and priestesses of the city. Beds are laid out in neat
+rows with no regard for the sex of the person using
+it, anything could go on here and probably does. There
+is a door to the east and another to the west.
+~
+0 D 0
+D1
+There is a large impressive door to the east.
+~
+~
+1 0 14140
+D2
+There is a small door to the south.
+~
+small~
+1 0 14136
+D3
+An impressive looking door blocks the way west.
+~
+~
+1 0 14141
+D4
+There is a funny looking outline in the ceiling.
+~
+secret~
+1 0 14142
+S
+#14140
+{GThe High Priests Room{x~
+You have entered the high priests room. This room is
+a big improvement from the cells you passed to get
+here, it is well decorated and almost luxerious.
+~
+0 D 0
+D3
+A large impressive door blocks the path.
+west name impressive
+~
+impressive~
+1 0 14139
+S
+#14141
+{GThe High Priestess' Room{x~
+You have entered the high priests room. This room is
+a big improvement from the cells you passed to get
+here, it is well decorated and almost luxerious.
+~
+0 D 0
+D1
+A large impressive door blocks the path.
+~
+impressive~
+1 0 14139
+S
+#14142
+{GKalana's Room{x~
+You have entered Kalana`s room, the Matriarch doesn`t
+literally follow the same religion, but being a good
+friend of Elvanshalee she is given a room here whenever
+she stays in the city. Chances are that she isn`t
+actually in though as she prefers to wander the streets
+looking to exercise her mace arm.
+~
+0 D 0
+D5
+A small trapdoor in the floor leads down to the communal
+room.
+~
+trapdoor~
+1 0 14139
+S
+#14143
+{GGuest Room{x~
+Look who Tantro has staying for a guest!!!
+~
+0 D 0
+D5
+A trapdoor leads down.
+~
+trapdoor~
+1 0 14072
+S
+#14144
+{GWar Road{x~
+You are walking along a short road that links the city
+Temple to the barracks.
+~
+0 0 1
+D1
+To the east lies the barracks{x
+~
+~
+0 0 14145
+D3
+To the west lies the temple.
+~
+~
+0 0 14127
+S
+#14145
+{GBefore The Barracks{x~
+You are standing in a road that heads east to the temple
+or south to the eastern gates. To the North of you is
+the main Orc barracks. For some reason there`s no barracks
+in the city for the demons.
+~
+0 0 1
+D0
+The main gates of the city's orc barrack lie to the ;north. Where the demons
+train has alway been a mystery, ;many have specualated they don't bother.
+~
+~
+0 0 14146
+D2
+Barrack's road runs south of here.
+~
+~
+0 0 14153
+D3
+The way west leads to the temple.
+~
+~
+0 0 14144
+S
+#14146
+{GBarracks Gates{x~
+You are standing at the main gates of the orc barracks,
+through the gates you can see all sorts of activity as
+the soldiers are constantly drilled.
+~
+0 0 1
+D0
+A set of gates leads into the barracks.
+~
+gate~
+1 0 14147
+D2
+The way south leads back to the road.
+~
+~
+0 0 14145
+S
+#14147
+{GBarracks{x~
+A set of gates leads into the barracks.
+and you find yourself standing in the compound as orc are
+drilling all around you.
+~
+0 0 1
+D0
+The barracks compound continues north.
+~
+~
+0 0 14148
+D2
+The gate of the garrison lie south of here.
+~
+gate~
+1 0 14146
+D3
+The compound continues this way.
+~
+~
+0 0 14149
+S
+#14148
+{GBarracks{x~
+You are standing in the barracks compound as orcs are
+drilling all around you.
+~
+0 0 0
+D2
+~
+~
+0 0 14147
+D3
+The compound continues this way.
+~
+~
+0 0 14150
+S
+#14149
+{GBarracks{x~
+You are standing the barracks compound as orcs are
+drilling all around you.
+~
+0 0 0
+D0
+The compound continues this way.
+~
+~
+0 0 14150
+D1
+The compound continues this way.
+~
+~
+0 0 14147
+S
+#14150
+{GBarracks{x~
+You are standing the barracks compound as orcs are
+drilling all around you.
+~
+0 0 1
+D0
+A small door leads into a building to the north.
+~
+small~
+1 0 14151
+D1
+The compound continues this way.
+~
+~
+0 0 14148
+D2
+The compound continues this way.
+~
+~
+0 0 14149
+S
+#14151
+{GBarracks - Sleeping Quarters{x~
+You have entered the main sleeping quarters of the orc
+barracks. Most of the orcs are out drilling in the
+courtyard and even the captain of the orc guard seems
+to be absent from his office.
+~
+0 D 0
+D0
+The is a wooden door to the north.
+~
+wooden~
+1 0 14152
+D2
+The is a small door to the south
+indoors
+~
+small~
+1 0 14150
+S
+#14152
+{GOrc Captain's Room{x~
+The orc captains room is a mess of papers on large desk
+in the center of the room with a large bed in the corner.
+It is very rare to find the orc captain in.
+~
+0 D 0
+D2
+To the south lies a small wooden door.
+~
+wooden~
+1 0 14151
+S
+#14153
+{GBarracks Walk{x~
+You are walking along a north-south pathway with the
+orc barracks to the north and the eastern gates to the
+south.
+~
+0 0 1
+D0
+To the north are the orchish barracks.
+~
+~
+0 0 14145
+D2
+To the south are the main Eastern gates into the city.
+~
+~
+0 0 14030
+S
+#14154
+{GOutside The Eastern Gates{x~
+You are standing just outside the eastern gates of the
+magnificent Holy city. The capital of the Darklands
+and the seat of power for the demoness herself who has
+taken over the palace that used to belong to the old
+Emperor. Everything in the city has been turned to evil
+but forces are on the move that oppose her.
+~
+0 A 2
+D1
+To the east lies a large field filled with flowers.
+~
+~
+0 0 14155
+D3
+To the west lies a large set of gates usually found open
+~
+gate~
+1 0 14030
+S
+#14155
+{GField Of Flowers{x~
+A magnificent field of flowers which some of the local
+can not resist picking. The holy city is to the west
+whereas to the east is the start of a climb through the
+mountains.
+~
+0 A 2
+D1
+To the east lies the pilgrim road.
+~
+~
+0 0 14156
+D3
+To the west lie the main Eastern gates of the holy city
+~
+~
+0 0 14154
+S
+#14156
+{GPilgrim Road{x~
+You are at the end of the pilgrim Road. To the west
+is a vast field of flowers and beyond that the gates
+to the holy City itself. To the north and east are
+narrow paths through the mountain.
+~
+0 A 5
+D0
+A narrow trail leads north through the mountains.
+~
+~
+0 0 14157
+D1
+Pilgrim road continues to the east.
+~
+~
+0 0 14159
+D3
+A vast field of flowers look magnificent to the west.
+~
+~
+0 0 14155
+S
+#14157
+{GA Narrow Trail Through The Mountains{x~
+You are in a narrow trail heading north - south, the
+south path leads to the pilgrim road, but the northern
+path seems to be leading to a settlement of some kind.
+~
+0 A 5
+D0
+The way north leads to a small encampment.
+~
+~
+0 0 14158
+D2
+The way south leads back to pilgrim road.
+~
+~
+0 0 14156
+S
+#14158
+{GA Small Encampment{x~
+You have entered the small camp of the freedom fighters.
+A group of desparate men and women who are trying to free
+their city, the holy city, from the evil clutches of
+the vile Demoness Elvanshalee.
+~
+0 A 5
+D2
+~
+~
+0 0 14157
+S
+#14159
+{GPilgrim Road{x~
+You are travelling a narrow road that heads west
+towards the holy city and south.
+~
+0 A 5
+D2
+Pilgrim road continues south.
+~
+~
+0 0 14160
+D3
+Pilgrim road continues west.
+~
+~
+0 0 14156
+S
+#14160
+{GPilgrim Road{x~
+You are travelling Pilgrim road, the road goes north
+and south and is getting harder to follow the further
+north you go.
+~
+0 A 5
+D0
+Pilgrim road continues north.
+~
+~
+0 0 14159
+D2
+Pilgrim road continues south.
+~
+~
+0 0 14161
+S
+#14161
+{GPilgrim Road{x~
+You are travelling along Pilgrim road. The road goes
+north, east and west. The road is becoming less and
+less like a road the further into the Darklands you get.
+~
+0 A 5
+D0
+Pilgrim road continues north.
+~
+~
+0 0 14160
+D1
+Pilgrim road continues east.
+~
+~
+0 0 14172
+D3
+Orc path is to the west.
+~
+~
+0 0 14162
+S
+#14162
+{GOrc Path{x~
+You are travelling along an old well worn path,
+there are signs that orcs have been in this area recently.
+~
+0 A 5
+D1
+To the east is pilgrim road.
+~
+~
+0 0 14161
+D2
+Orc path continues south.
+~
+~
+0 0 14163
+S
+#14163
+{GOrc Path.{x~
+The path continues north and south.
+~
+0 A 5
+D0
+The path continues north.
+~
+~
+0 0 14162
+D2
+The path continues south
+~
+~
+0 0 14164
+S
+#14164
+{GOrc Path{x~
+You are travelling a north -south path way. To the
+immediate south there seems to be some sort of settlement
+~
+0 A 5
+D0
+Orc path contiues north.
+~
+~
+0 0 14163
+D2
+Orc path continues south to the gates of a small garrison.
+~
+~
+0 0 14165
+S
+#14165
+{GGarrison Gates{x~
+You are at the main gates of a large garrison compound.
+The garrison is posted here to prevent posible invasion
+via the mountains, there are probably many such garrisons
+all over the borders of the nation.
+~
+0 A 5
+D0
+To the north is orc path.
+~
+~
+0 0 14164
+D2
+A set of gates leads south into the orcish garrison
+proper.
+~
+gate~
+1 0 14166
+S
+#14166
+{GGarrison{x~
+You are standing in an orc Garrison camp, tents surround
+you the orcs don`t look happy at your invasion.
+~
+0 A 5
+D0
+A set of gate leads north out of the garrison.
+~
+gate~
+1 0 14165
+D1
+The garrison spawls to the east.
+~
+~
+0 0 14167
+D2
+The garrison spawls to the south.
+~
+~
+0 0 14170
+D3
+The garrison spawls to the west.
+~
+~
+0 0 14168
+S
+#14167
+{GGarrison{x~
+You are standing in an Orc Garrison camp, there are
+tents all around you, the orcs don`t look happy at
+your invasion.
+~
+0 A 5
+D2
+The garrison spawls to the south.
+~
+~
+0 0 14171
+D3
+~
+~
+0 0 14166
+S
+#14168
+{GGarrison{x~
+You are standing in an Orc Garrison camp. Tents are
+all around you, the orcs don`t look happy at your
+invasion.
+~
+0 A 5
+D1
+The garrison spawls to the east.
+~
+~
+0 0 14166
+D2
+The garrison spawls to the south.
+~
+~
+0 0 14169
+S
+#14169
+{GGarrison{x~
+You are standing in an Orc Garrison camp. There are
+tents all around you, the orcs don`t seem too happy at
+your invasion.
+~
+0 A 5
+D0
+The garrison spawls to the north.
+~
+~
+0 0 14168
+D1
+The garrison spawls to the east.
+~
+~
+0 0 14170
+S
+#14170
+{GGarrison{x~
+You are standing in an Orc Garrison camp. Their tents
+are all around you, the orcs don`t seem too happy at
+your invasion.
+~
+0 A 5
+D0
+The garrison spawls to the north.
+~
+~
+0 0 14166
+D1
+The garrison spawls to the east.
+~
+~
+0 0 14171
+D3
+The garrison spawls to the west.
+~
+~
+0 0 14169
+S
+#14171
+{GGarrison{x~
+You are standing in an Orc Garrison camp. There are
+tents all around you. The orcs don`t seem too happy
+at your invasion.
+~
+0 A 5
+D0
+The garrison spawls to the north.
+~
+~
+0 0 14167
+D3
+The garrison spawls to the west.
+~
+~
+0 0 14170
+S
+#14172
+{GPilgrim Road{x~
+You are travelling the pilgrim road, it currently heads
+east-west. The mountain scenery around you is breath
+taking and you think you can hear the sound of running
+water in the distance.
+~
+0 A 5
+D1
+Pilgrim road continues east.
+~
+~
+0 0 14173
+D3
+Pilgrim road continues west
+~
+~
+0 0 14161
+S
+#14173
+{GPilgrim Road{x~
+You are travelling Pilgrim road, The road currently
+heads east - west. The mountain scenery is breathtaking,
+a large mountain sitting right in front of you seems
+almost too tall to climb.
+~
+0 A 5
+D1
+Pilgrim road continues east.
+~
+~
+0 0 14174
+D3
+Pilgrim road continues west.
+~
+~
+0 0 14172
+S
+#14174
+{GPilgrim Road{x~
+You are travelling Pilgrim road, it currently heads
+east - west. The mountain scenery is breathtaking,
+but ruined by the knowledge that there is a check point
+not far away.
+~
+0 C 5
+D1
+There is a Check Point to the east.
+~
+~
+0 0 14175
+D2
+A large rock blocks a tunnel heading south.
+~
+rock~
+1 14007 14179
+D3
+Pilgrim road continues west.
+~
+~
+0 0 14173
+S
+#14175
+{GCheck Point{x~
+A Demon patrol checks all those wishing to leave the
+country for their suitability to do so.
+~
+0 A 5
+D1
+The east is another part of the checkpoint.
+~
+~
+0 0 14176
+D3
+Pilgrim road continues west.
+~
+~
+0 0 14174
+S
+#14176
+{GCheck Point{x~
+The members of a demon patrol take their ease here,
+but they`ll jump to attack if anyone gets passed the
+first line without being vetted properly.
+~
+0 A 5
+D1
+The east is another part of the checkpoint
+~
+~
+0 0 14177
+D3
+The west is another part of the checkpoint
+~
+~
+0 0 14175
+S
+#14177
+{GCheck Point{x~
+You have arrived at the checkpoint where demon guards
+check everyone entering the darklands for their suitability
+~
+0 A 5
+D1
+Pilgrim road is to the east.
+~
+~
+0 0 14178
+D3
+The west is another part of the checkpoint
+~
+~
+0 0 14176
+S
+#14178
+{GPilgrim Road{x~
+You are standing on an east west road, the east heads
+toward what appears to be a check point. The west road
+continues down the mountain side.
+
+{RIt's said that the check point guards attack anyone
+on sight, yet the pilgrims are undeterred by this,
+perhaps they know of another path{x
+~
+0 C 5
+D0
+The way north leads into a dark tunnel past a large rock
+~
+rock~
+1 14007 14182
+D1
+Pilgrim road continues east.
+~
+~
+0 0 14183
+D3
+There is some sort of check point to the west.
+~
+~
+0 0 14177
+S
+#14179
+{GA Tunnel{x~
+You are in a dark tunnel that travels under part of the
+mountain. The tunnel continues south, there is a door to
+the north.
+~
+0 D 5
+D0
+To the north sits a large rock blocking you way out of
+the tunnel.
+~
+rock~
+1 14007 14174
+D2
+The tunnel continues south.
+~
+~
+0 0 14180
+S
+#14180
+{GA Tunnel{x~
+You are walking along a north - east tunnel. There is
+no natural light here.
+~
+0 D 5
+D0
+The tunnel goes north.
+~
+~
+0 0 14179
+D2
+The tunnel continues south.
+~
+~
+0 0 14181
+S
+#14181
+{GA Tunnel{x~
+You are walking along an East west tunnel, the walls are
+damp here and the smell of bat guano is strong.
+~
+0 D 5
+D0
+The tunnel continues north
+~
+~
+0 0 14180
+D3
+The tunnel goes west
+~
+~
+0 0 14182
+S
+#14182
+{GA Tunnel{x~
+You are walking along an east-south passage. The tunnel
+continues to the west, to the South is a door.
+~
+0 D 5
+D1
+The tunnel continues east.
+~
+~
+0 0 14181
+D2
+To the south lies a large rock blocking your exit.
+~
+rock~
+1 14007 14178
+S
+#14183
+{GPilgrim Road{x~
+You are walking along an east - west road. A large
+forest appears to be at the bottom of these hills to
+the east whereas to the west the hills become mountains
+~
+0 A 4
+D1
+Pilgrim road continues east
+~
+~
+0 0 14184
+D3
+Pilgrim road continues west
+~
+~
+0 0 14178
+S
+#14184
+{GPilgrim Road{x~
+You are walking along and north - west road. The west
+path takes you up a hill into the nearby mountains and
+the area known as the Darklands, the north road takes
+you deeper into the forest.
+~
+0 A 4
+D0
+Pilgrim road continues north
+~
+~
+0 0 14185
+D3
+Pilgrim road continues west
+~
+~
+0 0 14183
+S
+#14185
+{GPilgrim Road{x~
+You are walking along a north - south road through the
+forest. There is a lot of evidence that this is a well
+walked area.
+~
+0 A 4
+D0
+~
+~
+0 0 3521
+D2
+Pilgrim road continues south.
+~
+~
+0 0 14184
+S
+#14186
+{GWeaponshop{x~
+This used to be the shop from which the citizens
+could buy there weapons and armor. Unfortunately
+when the demoness took over she didn't like the idea
+of all and sundry having access to weapons, so she shut
+the place down in the most violent of ways.
+The signs of the fight are still evident, and the
+shopkeeper far from being given a decent burial was
+left here to rot.
+the official line is that the weaponshop owner had
+started an underground movement against the demoness
+Most say she hadn't giving him enough time to start anything.
+~
+0 D 0
+D0
+The way north is blocked by boards
+~
+boards~
+1 0 14038
+D5
+A trapdoor is hidden in the corner behind some boards
+~
+trapdoor~
+1 14099 14187
+S
+#14187
+{GCellar{x~
+This was the cellar of the weapon shop, where the
+shopkeeper kept all his spare goods. The room has
+been ransacked and not so much as a bow string remains.
+The walls are covered with sword blows, perhaps
+this area was used for practice. One part of the
+wall has even been cut open making quite a formidable crack.
+~
+0 D 0
+E
+crack~
+There is a crack in the wall that looks as if it was made by a large
+sword slash.
+~
+D4
+A trapdoor leads to the room ubove
+~
+trapdoor~
+1 14099 14186
+S
+#14188
+{GBeer Cellar{x~
+This is the cellar of the Barman Cecil Pit
+this is where he keeps all his wines and
+beers.
+He claims to have lost a key to this room
+a long time ago, yet by the looks of it
+the room is fairly well stocked
+~
+0 D 0
+D4
+The trapdoor leads out of the cellar
+~
+trapdoor~
+1 14100 14068
+S
+#14189
+{GLanding{x~
+A simple area with a door to the left leading
+to the communal room, while a door to the right
+leads to Cecil, the barman own private room
+both doors are locked, but you can buy a key
+to the communal room from Cecil
+~
+0 D 0
+D1
+The door leads into the communal room
+~
+~
+4 14103 14190
+D3
+The door leads into Cecil's room
+~
+~
+1 0 14191
+D5
+Some stairs lead down to the barroom below
+~
+~
+0 0 14068
+S
+#14190
+{GCommunal Room{x~
+A fairly large room where a number of rooms seem to have
+been knocked together to try and get as many cots in as possible
+There is a feeling of good will about the room, you could
+probably sleep like a log here.
+~
+0 D 0
+D3
+~
+~
+4 14103 14189
+M 150 H 150
+S
+#14191
+{GCecil's Room{x~
+You have entered Cecil's own private little room
+other than a fairly large bed and a chest of drawers
+the room seems to be empty
+~
+0 D 0
+D1
+~
+~
+1 0 14189
+S
+#14192
+{GEntrance To The Underground{x~
+This is the entrance of the underground resitance
+movement. It is guarded at all times by two
+mean looking guards.
+In the wall to the north is a small hollow
+backed at the end by what appears to be a
+wooden door.
+~
+0 D 0
+D2
+~
+~
+0 0 14193
+S
+#14193
+{GTunnels Of The Resistance{x~
+main rooms that keep the resistance alive here
+the tunnels are like a safe house for the resistance
+the forces of Elvanshalee have been searching for them
+for years, but have yet to find them.
+Part of the reason the is that they are only used
+in the direst of need by the agents of the resistance
+actually in the city.
+~
+0 D 0
+D0
+~
+~
+0 0 14192
+D1
+~
+~
+0 0 14197
+D2
+~
+~
+0 0 14194
+D3
+~
+~
+0 0 14198
+S
+#14194
+{GTunnels Of The Resistance{x~
+main rooms that keep the resistance alive here
+the tunnels are like a safe house for the resistance
+the forces of Elvanshalee have been searching for them
+for years, but have yet to find them.
+Part of the reason the is that they are only used
+in the direst of need by the agents of the resistance
+actually in the city.
+~
+0 D 0
+D0
+~
+~
+0 0 14193
+D2
+~
+~
+0 0 14195
+S
+#14195
+{GTunnels Of The Resistance{x~
+The tunnels are short and servicable, leading only between
+main rooms that keep the resistance alive here
+the tunnels are like a safe house for the resistance
+the forces of Elvanshalee have been searching for them
+for years, but have yet to find them.
+Part of the reason the is that they are only used
+in the direst of need by the agents of the resistance
+actually in the city.
+~
+0 D 0
+D0
+~
+~
+0 0 14194
+D1
+~
+~
+0 0 14196
+D2
+~
+~
+0 0 14199
+S
+#14196
+{GFood Stores{x~
+This place is a lot sparser than it might be expected
+at most there is three days supply of foodstuffs here
+for the tunnel dwellers.
+The occupant of the tunnel probably have as much
+difficulty getting supplies as the average citizen
+in the city above. Hence the very zealous guard
+protecying it.
+~
+0 D 0
+D3
+~
+~
+0 0 14195
+S
+#14197
+{GPlanning Room{x~
+This room is dominated by a large table.
+Drawn onto the tabletop itself is a large map,
+showing the city and it's immediate surrounds
+and the general location of the major forces
+of the demoness.
+Other than this there are a few close up maps
+of particular areas pinned to the walls
+of this cavern room.
+~
+0 D 0
+D3
+~
+~
+0 0 14193
+S
+#14198
+{GDormitories{x~
+This room is just filled with beds and hammocks
+occupying every spare inch of space in the room
+there are far more beds here than there are
+occupants of the tunnel area, but those occupants
+are ready for the worst. There is even a small
+pile of sleepingbags in one corner in case
+they have to spread out into the corridors.
+~
+0 D 0
+D1
+~
+~
+0 0 14193
+S
+#14199
+{GLeader's Billet{x~
+You are standing in the billet of the leader of the
+resistance.
+the walls here are just as cave like as the rest of
+the tunnels, and the room is just as sparsely decorated
+the leader is not taking any profit from the activities
+of himself and his band of warriors.
+~
+0 D 0
+D0
+~
+~
+0 0 14195
+S
+#14200
+Blank Room~
+This is a blank room, nothing more.
+~
+0 0 0
+S
+#0
+
+
+
+#SPECIALS
+M 14001 spec_thief
+M 14015 spec_fido
+M 14016 spec_thief
+M 14017 spec_janitor
+M 14022 spec_fido
+M 14024 spec_janitor
+M 14025 spec_fido
+M 14027 spec_poison
+M 14028 spec_poison
+M 14029 spec_poison
+M 14031 spec_thief
+M 14034 spec_cast_cleric
+M 14035 spec_cast_cleric
+M 14041 spec_cast_mage
+M 14043 spec_fido
+M 14047 spec_breath_fire
+M 14048 spec_breath_fire
+M 14049 spec_nasty
+M 14051 spec_cast_cleric
+M 14052 spec_cast_cleric
+M 14053 spec_nasty
+M 14056 spec_breath_fire
+M 14057 spec_nasty
+M 14060 spec_thief
+M 14061 spec_poison
+M 14064 spec_breath_fire
+M 14065 spec_thief
+M 14066 spec_cast_cleric
+M 14067 spec_cast_undead
+M 14068 spec_thief
+M 14069 spec_cast_cleric
+M 14070 spec_cast_mage
+M 14071 spec_cast_mage
+M 14072 spec_cast_mage
+M 14073 spec_cast_cleric
+M 14074 spec_cast_cleric
+M 14080 spec_cast_undead
+S
+
+
+
+#RESETS
+D 0 14007 1 1
+D 0 14007 3 1
+D 0 14008 1 1
+D 0 14008 3 1
+D 0 14009 1 1
+D 0 14009 3 1
+D 0 14010 1 1
+D 0 14010 3 1
+D 0 14011 1 1
+D 0 14012 3 1
+D 0 14014 3 1
+D 0 14015 1 1
+D 0 14016 3 1
+D 0 14017 1 1
+D 0 14018 3 1
+D 0 14019 2 1
+D 0 14020 0 1
+D 0 14038 2 1
+D 0 14040 3 1
+D 0 14041 1 1
+D 0 14042 1 1
+D 0 14042 3 1
+D 0 14043 1 1
+D 0 14043 3 1
+D 0 14044 1 1
+D 0 14045 3 1
+D 0 14046 1 1
+D 0 14046 3 1
+D 0 14047 1 1
+D 0 14048 3 1
+D 0 14051 0 1
+D 0 14051 1 1
+D 0 14051 3 1
+D 0 14052 1 1
+D 0 14053 3 1
+D 0 14054 2 1
+D 0 14067 2 2
+D 0 14068 5 2
+D 0 14069 0 1
+D 0 14069 4 1
+D 0 14070 0 2
+D 0 14070 2 1
+D 0 14071 5 1
+D 0 14072 4 1
+D 0 14074 2 1
+D 0 14078 0 1
+D 0 14078 2 2
+D 0 14079 0 2
+D 0 14079 2 1
+D 0 14080 0 1
+D 0 14119 0 1
+D 0 14119 1 1
+D 0 14120 2 1
+D 0 14121 3 1
+D 0 14122 0 1
+D 0 14122 2 1
+D 0 14122 3 1
+D 0 14123 2 1
+D 0 14124 0 1
+D 0 14125 1 1
+D 0 14129 1 1
+D 0 14129 2 1
+D 0 14130 3 1
+D 0 14131 0 1
+D 0 14132 0 1
+D 0 14133 1 1
+D 0 14133 2 1
+D 0 14133 3 1
+D 0 14134 1 1
+D 0 14135 3 1
+D 0 14136 0 1
+D 0 14136 1 1
+D 0 14136 3 1
+D 0 14137 1 1
+D 0 14138 3 1
+D 0 14139 1 1
+D 0 14139 2 1
+D 0 14139 3 1
+D 0 14139 4 1
+D 0 14140 3 1
+D 0 14141 1 1
+D 0 14142 5 1
+D 0 14143 5 1
+D 0 14146 0 1
+D 0 14147 2 1
+D 0 14150 0 1
+D 0 14151 0 1
+D 0 14151 2 1
+D 0 14152 2 1
+D 0 14165 2 1
+D 0 14166 0 1
+D 0 14174 2 2
+D 0 14178 0 2
+D 0 14179 0 2
+D 0 14182 2 2
+D 0 14186 0 1
+D 0 14186 5 2
+D 0 14187 4 2
+D 0 14188 4 2
+D 0 14189 1 2
+D 0 14189 3 2
+D 0 14190 3 2
+D 0 14191 1 2
+M 0 14072 1 14000 1
+E 0 14003 3 16
+E 0 14011 3 5
+E 0 14009 3 6
+E 0 14010 3 7
+E 0 14008 3 8
+E 0 14013 3 9
+E 0 14012 3 10
+M 0 14069 1 14000 1
+E 0 14000 3 16
+G 0 14004 3
+M 0 14071 1 14001 1
+E 0 14015 3 2
+E 0 14043 3 15
+M 0 14070 1 14002 1
+E 0 14014 5 2
+E 0 14042 5 15
+M 0 14012 10 14004 3
+E 0 14016 20 16
+M 0 14054 6 14004 1
+E 0 14017 100 17
+M 0 14011 4 14006 4
+M 0 14054 6 14008 1
+E 0 14017 100 17
+M 0 14012 10 14011 1
+E 0 14016 20 16
+M 0 14012 10 14015 2
+E 0 14016 20 16
+M 0 14012 10 14016 2
+E 0 14016 20 16
+M 0 14054 6 14016 1
+E 0 14017 100 17
+M 0 14012 10 14017 2
+E 0 14016 20 16
+M 0 14054 6 14019 3
+E 0 14017 100 17
+M 0 14050 2 14020 2
+E 0 14023 10 10
+E 0 14020 10 9
+E 0 14018 10 8
+E 0 14021 10 7
+E 0 14022 10 6
+E 0 14019 10 5
+O 0 14065 0 14021
+M 0 14001 30 14022 1
+M 0 14003 10 14022 1
+M 0 14061 3 14022 1
+E 0 14025 7 16
+M 0 14064 2 14023 1
+E 0 14024 5 16
+M 0 14029 15 14023 1
+M 0 14001 30 14023 2
+M 0 14028 3 14023 1
+M 0 14043 5 14024 2
+M 0 14029 15 14024 1
+M 0 14068 1 14024 1
+E 0 14005 3 16
+M 0 14059 1 14024 1
+E 0 14030 10 16
+M 0 14016 8 14025 1
+M 0 14018 5 14025 1
+E 0 14032 100 16
+M 0 14014 10 14025 1
+M 0 14014 10 14026 2
+M 0 14016 8 14026 2
+M 0 14013 24 14027 1
+E 0 14027 100 11
+E 0 14026 100 16
+M 0 14018 5 14027 1
+E 0 14032 100 16
+M 0 14014 10 14027 1
+M 0 14018 5 14028 1
+E 0 14032 100 16
+M 0 14014 10 14028 1
+M 0 14073 3 14028 1
+E 0 14066 10 11
+E 0 14067 10 16
+E 0 14068 10 6
+E 0 14069 10 5
+M 0 14043 5 14029 1
+M 0 14013 24 14029 3
+E 0 14026 100 16
+E 0 14027 100 11
+M 0 14020 24 14030 4
+E 0 14027 100 11
+E 0 14026 100 16
+M 0 14014 10 14031 2
+M 0 14016 8 14031 1
+M 0 14075 1 14032 1
+G 0 14080 0
+G 0 14081 0
+G 0 14082 0
+G 0 14083 0
+G 0 14084 0
+G 0 14085 0
+M 0 14014 10 14033 1
+M 0 14032 15 14033 1
+E 0 14028 30 16
+M 0 14016 8 14034 1
+M 0 14073 3 14034 1
+E 0 14068 10 6
+E 0 14069 10 5
+E 0 14067 10 16
+E 0 14066 10 11
+M 0 14016 8 14035 1
+M 0 14018 5 14035 1
+E 0 14032 100 16
+M 0 14014 10 14035 2
+M 0 14018 5 14036 1
+E 0 14032 100 16
+M 0 14016 10 14036 1
+M 0 14014 10 14037 1
+M 0 14016 10 14038 1
+M 0 14076 1 14038 1
+G 0 14090 0
+G 0 14091 0
+G 0 14092 0
+G 0 14094 0
+G 0 14095 0
+G 0 14096 0
+M 0 14043 5 14039 1
+M 0 14032 15 14039 1
+E 0 14028 30 16
+M 0 14049 10 14039 1
+M 0 14026 5 14039 1
+E 0 14034 100 16
+M 0 14029 15 14040 1
+M 0 14026 5 14040 1
+E 0 14034 100 16
+M 0 14036 10 14040 1
+M 0 14049 10 14042 3
+M 0 14031 24 14042 4
+M 0 14053 6 14042 1
+M 0 14049 10 14043 1
+M 0 14053 6 14044 1
+M 0 14031 24 14044 4
+M 0 14031 24 14045 4
+M 0 14053 6 14045 1
+M 0 14049 10 14046 2
+M 0 14053 6 14047 1
+M 0 14031 24 14047 4
+M 0 14017 1 14048 1
+E 0 14035 100 16
+M 0 14049 10 14051 1
+M 0 14031 24 14052 4
+M 0 14053 6 14052 1
+M 0 14031 24 14053 4
+M 0 14053 6 14053 1
+M 0 14057 1 14054 1
+M 0 14045 10 14055 1
+M 0 14029 15 14056 1
+M 0 14006 12 14056 2
+M 0 14045 10 14056 1
+M 0 14029 15 14057 2
+M 0 14019 15 14057 1
+M 0 14032 15 14058 1
+E 0 14028 30 16
+M 0 14006 12 14058 2
+M 0 14064 2 14059 1
+E 0 14001 5 16
+M 0 14032 15 14060 1
+E 0 14028 30 16
+M 0 14041 3 14060 1
+E 0 14037 25 5
+E 0 14040 25 16
+M 0 14026 5 14061 1
+E 0 14034 100 16
+M 0 14002 8 14061 1
+M 0 14006 12 14061 1
+M 0 14013 24 14062 1
+E 0 14026 100 16
+E 0 14027 100 11
+M 0 14001 30 14062 2
+M 0 14036 10 14062 1
+M 0 14029 15 14063 1
+M 0 14002 8 14063 1
+M 0 14006 12 14064 4
+M 0 14001 30 14064 4
+M 0 14060 3 14064 1
+M 0 14019 15 14065 1
+M 0 14045 10 14065 1
+M 0 14029 15 14066 1
+M 0 14001 30 14066 1
+M 0 14045 10 14066 1
+M 0 14006 12 14066 1
+M 0 14032 15 14067 1
+E 0 14028 30 16
+M 0 14027 3 14067 1
+M 0 14030 1 14067 1
+G 0 14044 0
+M 0 14043 5 14067 1
+M 0 14066 1 14068 1
+E 0 14038 4 16
+M 0 14004 1 14068 1
+G 0 14103 0
+G 0 14058 0
+G 0 14059 0
+M 0 14009 5 14068 5
+M 0 14037 1 14070 1
+E 0 14002 0 16
+M 0 14042 1 14070 1
+M 0 14039 1 14070 1
+M 0 14063 2 14071 2
+E 0 14041 8 16
+M 0 14013 24 14073 2
+E 0 14029 100 16
+E 0 14027 100 11
+M 0 14036 10 14073 1
+M 0 14003 10 14073 1
+M 0 14001 30 14074 3
+M 0 14062 1 14074 1
+E 0 14036 10 16
+M 0 14032 15 14075 1
+E 0 14028 30 16
+M 0 14003 10 14075 1
+M 0 14028 3 14075 1
+M 0 14044 1 14075 1
+E 0 14039 20 16
+M 0 14020 24 14076 4
+E 0 14026 100 16
+E 0 14027 100 11
+M 0 14001 30 14077 2
+M 0 14060 3 14077 1
+M 0 14038 10 14077 2
+M 0 14005 1 14078 1
+G 0 14056 0
+M 0 14046 8 14090 8
+E 0 14057 100 7
+M 0 14055 8 14094 8
+E 0 14057 100 7
+M 0 14033 8 14100 8
+E 0 14057 100 7
+M 0 14021 8 14104 8
+E 0 14057 100 7
+M 0 14032 15 14105 1
+E 0 14028 30 16
+M 0 14013 24 14105 1
+E 0 14026 100 16
+E 0 14027 100 11
+M 0 14061 3 14105 1
+E 0 14025 7 16
+M 0 14020 24 14106 4
+E 0 14027 100 11
+E 0 14026 100 16
+M 0 14019 15 14108 7
+M 0 14019 15 14109 2
+M 0 14074 1 14115 2
+E 0 14070 8 11
+E 0 14072 8 6
+E 0 14073 8 5
+E 0 14071 8 16
+M 0 14001 30 14117 1
+M 0 14026 5 14117 1
+E 0 14034 100 16
+M 0 14061 3 14117 1
+E 0 14025 7 16
+M 0 14045 10 14117 1
+M 0 14032 15 14118 1
+E 0 14028 30 16
+M 0 14028 3 14118 1
+M 0 14036 10 14118 1
+M 0 14029 15 14119 1
+M 0 14001 30 14119 1
+M 0 14065 1 14119 1
+M 0 14002 8 14119 1
+M 0 14040 2 14119 1
+M 0 14007 20 14120 8
+M 0 14010 1 14121 1
+M 0 14029 15 14122 1
+M 0 14001 30 14122 1
+M 0 14026 5 14122 1
+E 0 14034 100 16
+M 0 14036 10 14122 1
+M 0 14022 1 14123 1
+M 0 14015 2 14124 2
+M 0 14025 1 14125 1
+M 0 14013 24 14126 1
+E 0 14026 100 16
+E 0 14027 100 11
+M 0 14029 15 14126 2
+M 0 14034 10 14126 1
+M 0 14035 10 14126 1
+M 0 14036 10 14127 1
+M 0 14020 24 14128 8
+E 0 14027 100 11
+E 0 14026 100 16
+M 0 14043 5 14129 1
+M 0 14035 10 14130 1
+M 0 14034 10 14131 1
+M 0 14035 10 14131 1
+M 0 14008 6 14131 6
+M 0 14034 10 14138 1
+M 0 14034 10 14139 4
+M 0 14034 4 14139 4
+M 0 14035 10 14139 4
+M 0 14051 1 14140 1
+E 0 14031 25 16
+M 0 14052 1 14141 1
+E 0 14031 25 16
+M 0 14067 1 14143 1
+E 0 14060 10 12
+E 0 14061 10 16
+G 0 14062 100
+G 0 14063 100
+M 0 14001 30 14144 1
+M 0 14060 3 14144 1
+M 0 14002 8 14144 2
+M 0 14041 3 14144 1
+E 0 14040 100 16
+E 0 14037 100 5
+M 0 14032 15 14145 2
+E 0 14028 30 16
+M 0 14029 15 14145 1
+M 0 14003 10 14145 1
+M 0 14020 24 14146 2
+E 0 14026 100 16
+E 0 14027 100 11
+M 0 14001 30 14146 1
+M 0 14041 3 14146 1
+E 0 14037 100 5
+E 0 14040 100 16
+M 0 14013 24 14147 1
+E 0 14027 100 11
+E 0 14026 100 16
+M 0 14013 24 14148 3
+E 0 14026 100 16
+E 0 14027 100 11
+M 0 14013 24 14149 2
+E 0 14027 100 11
+E 0 14029 100 16
+M 0 14013 24 14150 1
+E 0 14029 100 16
+E 0 14027 100 11
+M 0 14013 24 14151 6
+E 0 14027 100 11
+E 0 14026 100 16
+O 0 14064 0 14152
+M 0 14001 30 14153 1
+M 0 14019 20 14153 1
+M 0 14058 1 14153 1
+E 0 14033 12 16
+M 0 14027 3 14153 1
+M 0 14024 3 14155 3
+M 0 14000 12 14156 2
+E 0 14007 100 2
+E 0 14006 100 16
+M 0 14038 10 14157 2
+M 0 14038 10 14158 6
+M 0 14000 12 14159 2
+E 0 14006 100 16
+E 0 14007 100 2
+M 0 14000 12 14160 1
+E 0 14007 100 2
+E 0 14006 100 16
+M 0 14000 12 14161 1
+E 0 14007 100 2
+E 0 14006 100 16
+M 0 14020 24 14165 2
+E 0 14026 100 16
+E 0 14027 100 11
+M 0 14023 20 14166 4
+E 0 14027 100 11
+E 0 14026 100 16
+M 0 14023 20 14167 4
+E 0 14026 100 16
+E 0 14027 100 11
+M 0 14023 20 14168 4
+E 0 14026 100 16
+E 0 14027 100 11
+M 0 14040 2 14169 2
+M 0 14000 12 14172 1
+E 0 14006 100 16
+E 0 14007 100 2
+M 0 14000 12 14173 1
+E 0 14006 100 16
+E 0 14007 100 2
+M 0 14047 10 14175 4
+M 0 14048 10 14175 3
+M 0 14047 10 14176 3
+M 0 14048 10 14176 4
+M 0 14056 1 14176 1
+M 0 14048 10 14177 3
+M 0 14047 10 14177 3
+M 0 14007 20 14179 2
+M 0 14007 20 14180 2
+M 0 14007 20 14181 6
+M 0 14007 20 14182 4
+M 0 14000 12 14183 1
+E 0 14006 100 16
+E 0 14007 100 2
+M 0 14000 12 14185 4
+E 0 14006 100 16
+E 0 14007 100 2
+O 0 14097 0 14186
+P 0 14099 20 14097 1
+O 0 14098 0 14187
+P 0 14100 20 14098 1
+O 0 14101 0 14188
+O 0 14102 0 14188
+O 0 14106 0 14188
+P 0 14107 20 14106 1
+O 0 14104 0 14191
+P 0 14105 20 14104 1
+O 0 14109 0 14192
+M 0 14079 2 14192 2
+M 0 14038 2 14194 2
+M 0 14077 1 14196 1
+M 0 14038 2 14198 2
+M 0 14078 1 14199 1
+S
+
+
+
+#SHOPS
+14004 0 0 0 0 0 150 100 0 23
+14005 0 0 0 0 0 100 100 0 23
+14075 0 0 0 0 0 150 100 0 23
+14076 0 0 0 0 0 120 90 0 23
+0
+
+
+#$

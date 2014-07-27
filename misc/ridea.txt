@@ -1,0 +1,77 @@
+RIDEA file: Random Ideas waiting for consideration.  DO NOT DELETE unless implemented.
+
+{Y[{x10/22{Y]{x {C[{x 1208{C]{x Montrey: been talking this around a bit, what if we changed over from players being able to hold
+{Y[{x10/22{Y]{x {C[{x 1202{C]{x Montrey: a certain number of items, to a certain amount of space?  like, objects would be different sizes, tiny, small, medium, large, etc
+{Y[{x10/22{Y]{x {C[{x 1202{C]{x Montrey: the size would count against the player's encumbrance...  so, a player might be able to hold 5 size large objects, and max out, but could hold lots of size tiny ones.  containers, instead of the ridiculous weight limit,
+{Y[{x10/22{Y]{x {C[{x 1202{C]{x Montrey: would have a maximum volume, and be able to put that much in it.  i think this is what should have been done in the first place, instead of number of items,
+{Y[{x10/22{Y]{x {C[{x 1202{C]{x Montrey: but laziness often prevails when you're trying to make a mud in a hurry :)  we could use area file versioning so we wouldn't have to change everything all at once
+{Y[{x10/22{Y]{x {C[{x 1208{C]{x Kenneth: Since light slot sucks so much, make lights take up a hold slot and have "torchmonkey" pets to hold your lights
+{Y[{x10/22{Y]{x {C[{x 1205{C]{x Kenneth: lights could take up other slots besides hold, too, like a floater or wield (glowing dagger)
+{Y[{x10/22{Y]{x {C[{x 1205{C]{x Kenneth: deitychannel like spousechannel
+{Y[{x10/22{Y]{x {C[{x 1298{C]{x Montrey: do something with haggle and item cost, it lowers the value of the item to how much you pay for it.  not very realistic, let's come up with something better
+{Y[{x10/22{Y]{x {C[{x 1205{C]{x Kenneth: Why not just make it so that the shopkeeper recognizes an item that was bought at his shop with haggle?
+{Y[{x10/22{Y]{x {C[{x 1205{C]{x Kenneth: Then he can say like "Didn't I sell you that?" and refuse to buy it back.  Plus, then there's actually a slim
+{Y[{x10/22{Y]{x {C[{x 1205{C]{x Kenneth: possibility of merchants haggling at one store then walking down to, I dunno, UD to sell off stuff.  Have to make it not a guarantee, tho.
+{Y[{x10/23{Y]{x {C[{x 1298{C]{x Montrey: something to work on if i'm really bored:  redo jukeboxes a bit, namely portable ones.  have customizable messages, insead of just 'bops', play stop, play pause, play fastforward <lines>, play rewind <lines>, etc.  would have to be pretty bored :)
+{Y[{x10/25{Y]{x {C[{x 1223{C]{x Liriel: Sharra thinks we should have a godwars like prompt system where hp and etc color changes with hits
+{Y[{x10/26{Y]{x {C[{x 9599{C]{x Montrey: michigan suggested this:  a command to see a list of ppl with a particular pk rating, or see the highest ranked players
+{Y[{x10/26{Y]{x {C[{x 9599{C]{x Montrey: the prompt thing could be done, we do have a battle prompt ("soandso has some big nasty wounds and scratches"), it just isn't customizable atm.  what if we made battle prompt customizable, and made it so your regular prompt doesn't show in combat, 
+{Y[{x10/26{Y]{x {C[{x 9599{C]{x Montrey: just BP?  could prolly add in something for changing colors based on hp/mana/move % levels
+{Y[{x10/27{Y]{x {C[{x 1298{C]{x Montrey: occurs to me...  should we really have the remove alignment spell?  i mean, doesn't it kinda make anti alignment flags on objects pointless, or at most a minor inconvenience?
+{Y[{x10/27{Y]{x {C[{x 1298{C]{x Montrey: was thinking, would be nice if when we built something that's supposed to be anti-good, it matters, means you cannot use it if you're of good alignment, not just have to go get a mage to do a quick remove alignment on it
+{Y[{x10/30{Y]{x {C[{x 1223{C]{x Montrey: ok, think seriously before you reject this idea completely.  how about a skill to coat a weapon with acid?  you go out, find vials of acid that can vary in power (evolution level).  you coat a weapon with it, giving the weapon maybe a life span of
+{Y[{x10/30{Y]{x {C[{x 1223{C]{x Montrey: 2 ticks before it's mush, depending on acid power.  the duration of the weapon would just be etching the weapon every few seconds until it's destroyed.  now, the acid would
+{Y[{x10/30{Y]{x {C[{x 1223{C]{x Montrey: wear off just like envenom, every hit takes some off.  if you wear it off in combat before the weapon dissolves, it's just a very etched weapon.  while the weapon has acid on it, it's a very powerful
+{Y[{x10/30{Y]{x {C[{x 1223{C]{x Montrey: flag, doing acid damage and etching eq on whatever you hit with it.  short lived, messes up the weapon badly, but potentially powerful.
+{Y[{x12/02{Y]{x {C[{x 1208{C]{x Kenneth: Wouldn't it be cool to set it so you could have zones that changed their link to other zones randomly?  Like, one day it's linked to the Plains, then the next day it's linked to Strange World?
+{Y[{x12/02{Y]{x {C[{x 1208{C]{x Kenneth: like, changes an exit every copyover?
+{Y[{x12/03{Y]{x {C[{x 1205{C]{x Montrey: i like the spellstorm idea, being able to cast multiple spells.  cost may be a bit extreme, i think
+{Y[{x01/03{Y]{x {C[{x 1223{C]{x Liriel: a spell that goes in the illusion group that, unlike polymorph, just turns your short desc into whatever mob your'e trying to look like
+{Y[{x01/03{Y]{x {C[{x 1223{C]{x Liriel: Scoreboard:  Most hours, mkills, pkills, levels gained
+{Y[{x01/16{Y]{x {C[{x 1298{C]{x Montrey: what if your pets gained exp, and leveled up with you? :)
+{Y[{x01/22{Y]{x {C[{x 1298{C]{x Montrey: DA suggested this:  an herbalist skill, actually an addition to brew.  you can find herbs and ingredients, or buy some, and brew non-magical potions that heal, refresh, or heal mana (mana healing potions would require some rare ingredients)
+{Y[{x01/22{Y]{x {C[{x 1223{C]{x Liriel: c preserve, preserves corpses/parts/doo?
+{Y[{x01/23{Y]{x {C[{x 1298{C]{x Montrey: Leigh suggested a birthday thing for your characters, i was thinking, it wouldn't be hard to do, for the mud to store your creation date.  however, current players don't have one.
+{Y[{x01/23{Y]{x {C[{x 1298{C]{x Montrey: so, i could make it so the mud prompts you to input your birthday the first time you log on after the change, if we do it.  would be nice to keep track of how old your character is :)
+{Y[{x01/23{Y]{x {C[{x 1298{C]{x Montrey: i like the preserve spell idea, maybe evolved uses could be to preserve items other than corpses/parts/doo(food).  all items have a decay timer, most are 0, but some like potions and scrolls are set when you brew/scribe
+{Y[{x01/23{Y]{x {C[{x 1298{C]{x Montrey: there are other cases, can't think of them off hand.  also, high evolve might remove rot_death?  *shrug*  just an idea.  if that were the case, i'd like to see trying to preserve items other than corpse/part/food have a chance of destroying
+{Y[{x02/03{Y]{x {C[{x 8549{C]{x Vegita: Maplearn a bulliten board of currently going quests, i like the idea alot actually
+{Y[{x02/05{Y]{x {C[{x 1298{C]{x Montrey: when someone types in a help that doesn't exist, save it to a file, so we know what helps people are looking for
+{Y[{x02/06{Y]{x {C[{x 1298{C]{x Montrey: we should move hunt up a few levels at least for warriors, they get it at the same level as rangers for some reason, hunt is pretty obviously a ranger specialty
+{Y[{x02/09{Y]{x {C[{x 4404{C]{x Liriel: spell that goes from stamina to mana
+{Y[{x02/09{Y]{x {C[{x 3370{C]{x Liriel: a destructive song for bards
+{Y[{x02/10{Y]{x {C[{x 1223{C]{x Liriel: obstacle course to be hardcoded in :)
+{Y[{x02/16{Y]{x {C[{x17034{C]{x Montrey: {W[Exits: north east {csouth {Wwest]{x, make closed doors show up in a different color in autoexit
+{Y[{x02/16{Y]{x {C[{x17034{C]{x Montrey: make it so you can flag a door as secret, maybe make it only show up if you try to open that door or examine that direction?
+{Y[{x02/16{Y]{x {C[{x17034{C]{x Montrey: wandering scroll/potion merchants
+{Y[{x02/16{Y]{x {C[{x 1208{C]{x Kenneth: taxidermy skill and skin shop
+{Y[{x02/19{Y]{x {C[{x 8549{C]{x Vegita: marx brought up when defending clanhall the defenders get a bonus and the attackers a minus
+{Y[{x02/23{Y]{x {C[{x 1298{C]{x Montrey: tokens that can be bought with rpp for clans, placed in the clanhall, they give bonuses to clanmembers while in posession of the clan, like a token might be +2% hp or something.  lootable in clanhall invasions
+{Y[{x03/03{Y]{x {C[{x 1298{C]{x Montrey: napalm had an idea about critical blow being able to target limbs, to impair them, think about someday making affects based on different parts of the body being impaired (like if your leg is broken, you can't walk)
+{Y[{x03/03{Y]{x {C[{x 1298{C]{x Montrey: make materials on items more important, and universal.  certain materials have properties, etc.  (someday)
+{Y[{x03/13{Y]{x {C[{x 1281{C]{x Montrey: Barron suggested using SP/RPP for creating unique spells for your character, think about it later :)
+{Y[{x03/25{Y]{x {C[{x 1298{C]{x Montrey: mpdamage
+{Y[{x04/01{Y]{x {C[{x 1270{C]{x Sorsha: If someone is denied.. maybe at acess tell them that they are.. and beable to list how long the punishment will last
+{Y[{x04/23{Y]{x {C[{x 1298{C]{x Montrey: ^ good idea, make deny like ban, a linked list, with options like how long.  would remove an unnecesary pcdata flag
+{Y[{x05/04{Y]{x {C[{x 1223{C]{x Alara: okay, before I spam out the whole world... we really need to let locate life and locate object and vision go a few levels higher than the caster
+{Y[{x05/05{Y]{x {C[{x 1226{C]{x Alara: the builder's guide affect flag table says certain spells don't have an affect (ie faerie fire), but I think we changed that?
+{Y[{x05/07{Y]{x {C[{x 9185{C]{x Alara: Upgrade disarm, maybe?  Str doesn't appear to matter very much..
+{Y[{x05/07{Y]{x {C[{x 9185{C]{x Alara: helpfile for what's not allowed during duels (steal, charm - although this is pk overall I think) and maybe how heat metal is diff.... I've noted vegita already
+{Y[{x05/09{Y]{x {C[{x 1226{C]{x Alara: move the gtell synonym to something other than ;... maybe , ?
+{Y[{x05/13{Y]{x {C[{x 1226{C]{x Alara: let's fix bash before I have a nervous breakdown about the connections working exactly 95% of the time
+{Y[{x05/14{Y]{x {C[{x 1266{C]{x Vegita: tours like dizzy has, but make them more unique and more roleplay orientated
+{Y[{x05/15{Y]{x {C[{x 1226{C]{x Alara: have poofin/poofout and gamein/gameout ignore coloring when searching for names, just like followerlist does now
+{Y[{x05/15{Y]{x {C[{x 7800{C]{x Vegita: sell weghtless holding bags, the lower the bag weight the more costly
+{Y[{x05/15{Y]{x {C[{x 7800{C]{x Vegita: player owned shops, like vendors on ultima online *something for when we have lots of ppl
+{Y[{x06/05{Y]{x {C[{x 1298{C]{x Montrey: kazander wrote an idea note about maybe making it so each time you extraclass something, it costs a little less, or when you don't extraclass it for a while it gets more expensive
+{Y[{x06/05{Y]{x {C[{x 1298{C]{x Montrey: syveril suggested making clanrecall and clan portals cost a weekly clanqp fee
+{Y[{x07/06{Y]{x {C[{x 1201{C]{x Alara: kill the "donate" command - too much stupid shit and too much good shit - should be purposeful
+{Y[{x08/01{Y]{x {C[{x 1266{C]{x Vegita: spec_mime protocol
+{Y[{x08/08{Y]{x {C[{x 1266{C]{x Alara: frost spell:  icicle lance - sorta like fireball
+{Y[{x08/08{Y]{x {C[{x 1266{C]{x Alara: alteration/weather spell:  water based for drowning - flood
+{Y[{x08/13{Y]{x {C[{x 1266{C]{x Vegita: have vamps be able to drink blood from mobs, results unknown right now
+{Y[{x09/25{Y]{x {C[{x 1288{C]{x Vegita: language based stuff *taylor's note* if your elf you only can speak elf but learn other languages 
+{Y[{x09/26{Y]{x {C[{x 1288{C]{x Vegita: bigsexy> remorting gives a 10 sp bonus
+{Y[{x10/01{Y]{x {C[{x 1288{C]{x Alara: Marx had this idea of letting players open up shops.  It's not practicable considering our staff and our pbase, but if we get more of each, it's a really good idea.
+{Y[{x12/08{Y]{x {C[{x 1288{C]{x Vegita: from elli and myself: mining for ore for forging
+{Y[{x01/03{Y]{x {C[{x  351{C]{x Vegita: corpses inherit owners name, submitted by fedora

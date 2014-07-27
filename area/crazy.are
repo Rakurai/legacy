@@ -1,0 +1,3598 @@
+#AREA
+crazy.are~
+Crazy House~
+{H{{10 30} {MElrac&Sharra {TCrazy House~
+4570 4619
+
+#MOBILES
+#4570
+umbrella stand~
+An {Rumbrella stand{x~
+An {Rumbrella stand{x stands here, what did you expect?
+~
+It would be just an ordinary {Rumbrella stand{x, were it not for the fact
+that it is ALIVE!
+~
+Unique~
+BG 0 0 S
+10 0 2d6+130 10d9+100 1d8+4 thwack
+5 5 5 8
+F 0 0 0
+stand stand none 0
+0 0 small 0
+#4571
+wardrobe~
+A wardrobe~
+A wardrobe stands here.
+~
+This is an ordinary wardrobe. Wait! Do ordinary wardrobes have faces?
+Do they jump at you when you enter the room?
+~
+Unique~
+BG 0 0 S
+10 0 2d6+130 10d9+100 1d8+4 crush
+5 5 5 8
+F 0 0 0
+stand stand none 0
+0 0 small 0
+#4572
+chest drawers~
+A chest of drawers~
+A chest of drawers stands here.
+~
+This is a huge chest of drawers. But all the drawers are empty,
+so its chest is heaving with sobs. No doubt, a very sad-looking chest
+of drawers.
+~
+Unique~
+BG 0 0 S
+10 0 2d6+130 10d9+100 1d8+4 pound
+5 5 5 8
+F 0 0 0
+stand stand none 0
+0 0 small 0
+#4573
+kitchen table~
+A {Ykitchen table{x~
+A {Ykitchen table{x stands here, lost in the middle of the floor.
+~
+This {Ykitchen table{x is fairly large for a table and has seen some
+use in its day. The once-shiny tabletop is scratched and gouged.
+Could those be fight marks?
+~
+Unique~
+BG 0 0 S
+10 0 2d6+130 10d9+100 1d8+4 thrust
+5 5 5 8
+F 0 0 0
+stand stand none 0
+0 0 medium 0
+#4574
+kitchen chair~
+A {Ykitchen chair{x~
+A {Ykitchen chair{x invites you to park yourself.
+~
+This is a well-worn {Ykitchen chair{x. It has probably borne a lot of weight
+in its life. A little wobbly in the legs, this chair is still pretty
+serviceable.
+~
+Unique~
+BG 0 0 S
+10 0 2d6+130 10d9+100 1d8+4 bite
+5 5 5 8
+F 0 0 0
+stand stand none 0
+0 0 medium 0
+#4575
+kitchen sink~
+A {Wkitchen sink{x~
+A {Wkitchen sink{x awaits dirty dishes here.
+~
+This {Wkitchen sink{x is a bit dirty and the bowl is a bit chipped.
+Basically, what one would expect from a kitchen sink that has seen
+a hard life.
+~
+Unique~
+BCG 0 0 S
+12 0 2d10+150 6d9+100 1d10+3 pound
+0 0 0 8
+EF 0 0 0
+stand stand none 0
+0 0 medium 0
+#4576
+stove~
+A stove~
+A stove stands here, busy baking a cake.
+~
+The stove is very hot and and glows with a contented smile as
+it watches the cake inside it getting ready.
+~
+Unique~
+BCG 0 0 S
+12 0 2d10+150 6d9+100 1d10+3 pound
+0 0 0 8
+EF 0 0 0
+stand stand none 0
+0 0 medium 0
+#4577
+shelf~
+A shelf~
+A shelf stands here, holding the food store of the crazy wizard.
+~
+The shelf is almost empty, but the few fruits and vegetables that are
+still in there look quite delicious.
+~
+Unique~
+BCG 0 0 S
+12 0 2d10+150 6d9+100 1d10+3 pound
+0 0 0 8
+EF 0 0 0
+stand stand none 0
+0 0 medium 0
+#4578
+floor lamp~
+A {Yfloor {Blamp{x~
+A {Yfloor {Blamp{x stands here, spreading soft light.
+~
+The {Yfloor {Blamp{x looks quite beautiful. A golden {Ybase{x is crowned with a
+large blue {Blampshade{x made from silk.
+~
+Unique~
+BG 0 0 S
+14 0 2d10+190 1d10+140 1d12+3 punch
+-1 0 0 1
+FI 0 0 0
+stand stand none 0
+0 0 medium 0
+#4579
+glass cupboard~
+A glass cupboard~
+A glass cupboard stands here, looking rather sad.
+~
+The cupboard is empty. It knows that it was made to hold lots of
+beautiful things to be displayed in it. And now there is nothing it
+can display. It could be starting to cry any moment.
+~
+Unique~
+BG 0 0 S
+14 0 2d10+190 1d10+140 1d12+3 punch
+-1 0 0 1
+FI 0 0 0
+stand stand none 0
+0 0 medium 0
+#4580
+book shelf~
+A book shelf~
+A book shelf stands here.
+~
+It is a nice little book shelf, fitting well into a living room.
+~
+Unique~
+BG 0 0 S
+14 0 2d10+190 1d10+140 1d12+3 punch
+-1 0 0 1
+FI 0 0 0
+stand stand none 0
+0 0 small 0
+#4581
+sofa~
+A sofa~
+A very comfortable looking sofa stands here.
+~
+It is a very comfortable looking sofa made from brown leather.
+One might feel the urge to sit on it. But it might not be a good
+idea, considering the rocking around the sofa performs. One might
+become nauseous.
+~
+Unique~
+BG 0 0 S
+14 0 2d10+190 1d10+140 1d12+3 crush
+-1 0 0 1
+FI 0 0 0
+stand stand none 0
+0 0 medium 0
+#4582
+small table~
+A small table~
+A small table stands here.
+~
+It is a very small table, just big enough to hold a couple of glasses
+and bottles. Judging from the marks on it, it does that quite often.
+~
+Unique~
+BG 0 0 S
+14 0 2d10+190 1d10+140 1d12+3 pierce
+-1 0 0 1
+FI 0 0 0
+stand stand none 0
+0 0 small 0
+#4583
+easy chair~
+An easy chair~
+An easy chair stands here.
+~
+A very comfortable looking easy chair, made from brown leather.
+It must be a relative of the sofa.
+~
+Unique~
+BG 0 0 S
+14 0 2d10+190 1d10+140 1d12+3 punch
+-1 0 0 1
+FI 0 0 0
+stand stand none 0
+0 0 small 0
+#4584
+rocking chair~
+A rocking chair~
+A rocking chair rocks softly to an unheard rhythm.
+~
+The rocking chair looks so happy. Rocking softly, it is content with
+itself and the whole world.
+~
+Unique~
+BCG 0 0 S
+16 0 3d9+233 1d10+160 2d6+4 pound
+-3 -1 -1 0
+J 0 0 0
+stand stand none 0
+0 0 medium 0
+#4585
+beautiful rose~
+A beautiful {Rrose{x~
+A beautiful {Rrose{x grows here.
+~
+The {Rrose{x looks and smells beautiful. And it knows it. The {Rrose{x
+is very proud of itself and always expecting admiration from
+anybody passing by.
+~
+Unique~
+BG 0 0 S
+16 0 3d9+233 1d10+160 2d6+4 sting
+-3 -1 -1 0
+J 0 0 0
+stand stand none 0
+0 0 small 0
+>all_greet_prog 25~
+    say I am so beautiful! Look at me! Smell me! I am so beautiful!
+~
+|
+#4586
+cactus~
+A {Gcactus{x~
+A small {Gcactus{x grows here.
+~
+Just a small green {Gcactus{x. Compared to the {Rroses{x around, people tend
+to not notice it. But once in a while, it produces a really beautiful
+{Pf{Yl{Go{Cw{Be{Vr.
+~
+Unique~
+BG 0 0 S
+18 0 3d9+283 1d10+180 2d8+5 sting
+-4 -4 -5 -2
+DF 0 0 0
+stand stand none 0
+0 0 small 0
+>all_greet_prog 25~
+    emote looks jealously at some roses.
+    sob
+~
+|
+#4587
+apple tree~
+An {Rapple{x tree~
+An {Rapple{x tree grows here.
+~
+The {Rapple{x tree is very huge and provides lots of shadow to rest in.
+~
+Unique~
+BG 0 0 S
+18 0 3d9+283 1d10+180 2d8+5 crush
+-4 -4 -5 -2
+DF 0 0 0
+stand stand none 0
+0 0 huge 0
+#4588
+deck chair~
+A deck chair~
+A deck chair stands here.
+~
+The deck chair looks quite comfortable to take a little nap in.
+On the other hand... given your experiences with the furniture in this
+crazy house you might give it a second thought and not try.
+~
+Unique~
+BG 0 0 S
+18 0 3d9+283 1d10+180 2d8+5 stab
+-4 -4 -5 -2
+DF 0 0 0
+stand stand none 0
+0 0 small 0
+#4589
+bath tub~
+A {Wbath tub{x~
+A {Wbath tub{x stands here, filled with water.
+~
+The {Wbath tub{x is filled with water with lots of soapy bubbles.
+Somebody must be planning to take a bath here in the near future.
+~
+Unique~
+BG 0 0 S
+20 0 3d9+333 10d9+100 2d8+5 digestion
+-4 -4 -4 7
+EFN 0 0 0
+stand stand none 0
+0 0 medium 0
+#4590
+toilet~
+A {Wtoilet{x~
+A {Wtoilet{x stands here.
+~
+A {Wtoilet{x. You don't want to look too close, do you?
+~
+Unique~
+BG 0 0 S
+20 0 3d9+333 10d9+100 2d8+5 suction
+-4 -4 -4 7
+EFN 0 0 0
+stand stand none 0
+0 0 medium 0
+>all_greet_prog 25~
+    emote flushes noisily, casting a slight spray around itself.
+~
+|
+#4591
+hand basin~
+A {Whand basin{x~
+A {Whand basin{x is here.
+~
+Well, you are in a bath room.
+You wouldn't think of leaving here without washing your hands, would you?
+~
+Unique~
+BG 0 0 S
+20 0 3d9+333 10d9+100 2d8+5 pound
+-4 -4 -4 7
+EFN 0 0 0
+stand stand none 0
+0 0 medium 0
+#4592
+picture old man~
+A picture of an old man~
+A picture of an old man is here.
+~
+The picture shows an rather old man. It is quite well painted.
+The painter must have been a man with inspiration. The man on it
+is too old to be the crazy wizard, but it might be his father.
+~
+Unique~
+BG 0 0 S
+20 0 3d9+333 10d9+100 2d8+5 wrath
+-4 -4 -4 7
+EFN 0 0 0
+stand stand none 0
+0 0 medium 0
+#4593
+bed~
+An ordinary bed~
+An ordinary bed stands here.
+~
+Well, as I said. an ordinary bed. It looks comfortable, just as a bed
+should.
+~
+Unique~
+BG 0 0 S
+20 0 3d9+333 10d9+100 2d8+5 charge
+-4 -4 -4 7
+EFN 0 0 0
+stand stand none 0
+0 0 medium 0
+#4594
+bedside table~
+A bedside table~
+A bedside table stands here.
+~
+This is a rather small bedside table. When it's not walking around,
+it stands beside a bed.
+~
+Unique~
+BG 0 0 S
+20 0 3d9+333 10d9+100 2d8+5 bite
+-4 -4 -4 7
+EFN 0 0 0
+stand stand none 0
+0 0 small 0
+#4595
+chair~
+A chair~
+A chair stands here.
+~
+A chair. Looks like a chair, behavious like a chair... no wait, it
+doesn't. A chair wouldn't dance around, would it?
+~
+Unique~
+BG 0 0 S
+20 0 3d9+333 10d9+100 2d8+5 chomp
+-4 -4 -4 7
+EFN 0 0 0
+stand stand none 0
+0 0 small 0
+#4596
+desk~
+A desk~
+A desk stands here.
+~
+It's a nice little mahogany desk. A neat piece of artwork. It can
+be proud of itself and it is.
+~
+Unique~
+BG 0 0 S
+20 0 3d9+333 10d9+100 2d8+5 beating
+-4 -4 -4 7
+EFN 0 0 0
+stand stand none 0
+0 0 small 0
+#4597
+mahogany book shelf~
+A mahogany book shelf~
+A mahogany book shelf stands here.
+~
+It is quite an impressive book shelf, although it contains but one
+single book. On the other hand, quality counts, not quantity.
+Looking more closely you notice that it the very book shelf that made
+silly faces at you when you were standing in front of the Crazy House.
+~
+Unique~
+BG 0 0 S
+20 0 3d9+333 10d9+100 2d8+5 cleave
+-4 -4 -4 7
+EFN 0 0 0
+stand stand none 0
+0 0 large 0
+#4598
+night light~
+A {Ynight light{x~
+A {Ynight light{x emits a dim light here.
+~
+This nice little {Ynight light{x flickers happily. Must be in a good mood.
+~
+Unique~
+BG 0 0 S
+20 0 3d9+333 10d9+100 2d8+5 flbite
+-4 -4 -4 7
+EFN 0 0 0
+stand stand none 0
+0 0 small 0
+#4599
+big pile old unusable rubbish~
+A big pile of old unusable rubbish~
+A big pile of old unusable rubbish stands here.
+~
+This big pile of old unusable rubbish contains lots of different
+things. But no matter how hard you try, you can't make out its
+various components. They are all messed together and all together covered
+by a thick layer of dust and spider webs. Nobody would ever want
+to touch such a mess.
+~
+Unique~
+BCG 0 0 S
+22 0 5d10+400 11d9+100 3d5+6 chomp
+-6 -6 -6 6
+EFN 0 0 0
+stand stand none 0
+0 0 large 0
+>all_greet_prog 25~
+    say I am so old and useless! I am so old and useless!.
+    cry
+~
+|
+#4600
+big old chest rubbish~
+A big old chest full of rubbish~
+A big old chest full of rubbish stands here.
+~
+This is a very old chest. It is so full of rubbish that the lid won't
+close. It is covered with dust and spider webs.
+~
+Unique~
+BCG 0 0 S
+24 0 5d10+500 1d10+240 2d10+5 pound
+-6 -5 -4 -4
+CI 0 0 0
+stand stand none 0
+0 0 medium 0
+#4601
+tile~
+A {Rtile{x~
+A {Rtile{x is here.
+~
+Well, it is a {Rtile{x like most roofs have them. Just be careful not
+to break it while running around on the roof. What are you doing here
+anyway?
+~
+Unique~
+BCG 0 0 S
+26 0 5d10+600 26d9+100 2d10+7 blast
+-7 -7 -7 -5
+EIK 0 0 0
+stand stand none 0
+0 0 small 0
+#4602
+wine bottle~
+A {Gwine bottle{x~
+A {Gwine bottle{x stands here.
+~
+This is a rather old {Gwine bottle{x. It looks a bit drunk from the
+wine. Well, at least it has gotten into the spirit of things.
+~
+Unique~
+BCG 0 0 S
+28 0 6d12+700 15d9+100 4d5+8 smash
+-8 -8 -8 -6
+EFN 0 0 0
+stand stand none 0
+0 0 small 0
+>all_greet_prog 25~
+    emote staggers around enjoying itself.
+    laugh
+    giggle
+~
+|
+#4603
+old shelf~
+An old shelf~
+An old shelf stands here.
+~
+This old shelf was long ago put out of use. It must have been here for
+ages, judging from all the dust and spider webs that cover it.
+~
+Unique~
+BCG 0 0 S
+28 0 6d12+700 15d9+100 4d5+8 crush
+-8 -8 -8 -6
+EFN 0 0 0
+stand stand none 0
+0 0 large 0
+#4604
+old tester bed~
+An old tester bed~
+An old tester bed stands here.
+~
+In its earlier days, this tester bed must have been really pretty.
+In fact it is a shame that it stands here unused instead of being
+repaired and used again. It's hard to understand that the Crazy Wizard
+ever replaced this great tester bed with those ordinary beds he has in
+his bedrooms. Well, romanticism doesn't seem to play a great role in the
+Wizard's life.
+~
+Unique~
+BCG 0 0 S
+28 0 6d12+700 15d9+100 4d5+8 crush
+-8 -8 -8 -6
+EFN 0 0 0
+stand stand none 0
+0 0 large 0
+#4605
+weird idea~
+A {Cweird idea{x of the crazy wizard's~
+A {Cweird idea{x of the crazy wizard's floats around here.
+~
+This is a long forgotten {Cweird idea{x of the Crazy Wizard's. He created
+and tested it, but after that forgot about it. So now it is floating
+uselessly around in the secret rooms of the Crazy House seeking for
+a way back into the mind of the Crazy Wizard.
+~
+Unique~
+BCG BT 0 S
+30 0 6d12+853 15d9+100 4d6+8 magic
+-9 -9 -9 -6
+EFN 0 0 0
+stand stand none 0
+0 0 medium 0
+>all_greet_prog 25~
+    emote whispers: "Aren't I a good {Cidea{x? Don't let me be forgotten!
+    sigh
+~
+|
+#4606
+crazy wizard~
+The {PC{Yr{Ga{Cz{By {VWizard{x~
+The {PC{Yr{Ga{Cz{By {VWizard{x is here, laughing and snickering madly.
+~
+Ah, here he is. The {PC{Yr{Ga{Cz{By {VWizard{x! Apparently he really went completely
+insane. You might have known after looking around in his house, but
+now you can tell for sure. He doesn't even recognize your intrusion
+in his home. He might think you are just one of the many pieces of
+furniture he has brought to life long ago. Once in a while he tries
+to cast some spells, but none of them work.
+~
+human~
+BCG B 0 S
+30 0 6d12+853 15d9+100 4d6+8 wrath
+-9 -9 -9 -6
+EFN 0 0 0
+stand stand none 0
+0 0 medium 0
+>all_greet_prog 75~
+    snicker
+~
+>rand_prog 10~
+    laugh
+~
+>rand_prog 10~
+    snicker
+~
+>rand_prog 5~
+    chuckle
+~
+>rand_prog 5~
+    rofl
+~
+|
+#0
+
+
+#OBJECTS
+#4570
+umbrella~
+an {Bu{Vm{Pb{Yr{Ge{Cl{Bl{Va{x~
+An {Bu{Vm{Pb{Yr{Ge{Cl{Bl{Va{x lies here.~
+silk~
+armor GS AQ
+1 1 1 1 0
+10 10 1200 P
+E
+umbrella~
+This is a colorful {Bu{Vm{Pb{Yr{Ge{Cl{Bl{Va{x. You shouldn't leave the house without one.
+~
+A
+5 2
+#4571
+table cloth~
+a table cloth~
+A table cloth has been left here.~
+plastic~
+armor GS AQ
+1 1 1 1 0
+10 10 1200 P
+E
+table cloth~
+This is a table cloth from a kitchen table. It was made from plastic
+so it is easy to keep it clean.
+~
+A
+3 2
+#4572
+magic mirror~
+a {Wmagic mirror{x~
+A {Wmagic mirror{x has been left here.~
+glass~
+armor GS AQ
+1 1 1 1 0
+10 10 1200 P
+E
+magic mirror~
+A real {Wmagic mirror{x! If you only knew how to use it, you could see your
+future. But on the other hand... it might be a blessing that you never
+will be able to figure it out!
+~
+A
+4 2
+#4573
+cushion~
+a {Bcushion{x~
+A {Bcushion{x lies here.~
+cotton~
+armor GS AQ
+1 1 1 1 0
+14 10 1800 P
+E
+cushion~
+A nice soft {Bcushion{x. But sitting on it might not the best thing to do
+with it.
+~
+A
+3 1
+A
+5 2
+#4574
+sweet smell~
+a {Csweet smell{x~
+A {Csweet smell{x hangs in the air.~
+fragrance~
+armor G AQ
+1 1 1 1 0
+16 0 2200 P
+E
+sweet smell~
+It smells like a {Rrose{x.
+~
+A
+3 1
+A
+4 1
+A
+5 1
+#4575
+rubber ducky~
+a {Yrubber ducky{x~
+A {Yrubber ducky{x squeaks here.~
+rubber~
+armor GS AQ
+1 1 1 1 0
+20 10 2000 P
+E
+rubber ducky~
+{YRubber ducky{x you're the one, you make bath time so much fun....
+~
+A
+3 2
+A
+4 2
+A
+18 1
+A
+19 1
+#4576
+inspiration~
+an inspiration~
+An inspiration floats here.~
+thought~
+armor GS AQ
+1 1 1 1 0
+20 0 2000 P
+E
+inspiration~
+You sense that this is a great inspiration like artists need.
+~
+A
+3 2
+A
+5 2
+A
+18 1
+A
+19 1
+#4577
+old conjuring trick~
+an old conjuring trick~
+An old conjuring trick has been left here.~
+trick~
+armor GS AQ
+1 1 1 1 0
+24 10 2400 P
+E
+old conjuring trick~
+It's an old conjuring trick of the Crazy Wizard's. He used it in his
+younger days, when his real magic wouldn't yet work very well. He
+could use it again now that he can't cast a working spell any more.
+But unfortunately, he's forgotten about it.
+~
+A
+3 2
+A
+18 2
+A
+19 1
+A
+26 2
+#4578
+spirit~
+a {Yspirit{x~
+A {Yspirit{x floats here.~
+alcohol~
+armor G AQ
+1 1 1 1 0
+28 0 2600 P
+E
+spirit~
+It is a {Yspirit{x of wine that has freed itself from out of the bottle.
+Be careful, it might make you drunk!
+~
+A
+3 2
+A
+5 2
+A
+18 2
+A
+19 1
+#4579
+magical rainbow~
+a {Rm{Ya{Gg{Bi{Vc{Ra{Yl {Gr{Ba{Vi{Rn{Yb{Go{Bw{x~
+A {Rm{Ya{Gg{Bi{Vc{Ra{Yl {Gr{Ba{Vi{Rn{Yb{Go{Bw{x is to be seen here.~
+color~
+armor GS AQ
+1 1 1 1 0
+30 0 2800 P
+E
+rainbow~
+{RRed{x, {Yyellow{x, {Ggreen{x, {Bblue{x, {Vviolet{x and some more in between.
+Perhaps it leads the way to a pot of gold? Even if not -- enjoy the
+colors!
+~
+A
+3 2
+A
+5 2
+A
+18 2
+A
+19 2
+#4580
+hat stand~
+a hat stand~
+A hat stand, well, stands here.~
+metal~
+armor G AO
+1 1 1 1 0
+10 10 1000 P
+E
+hat stand~
+It's made for holding hats or for being held. It is said that the Crazy
+Wizard once brought it to a dance.
+~
+A
+3 2
+#4581
+dish cloth~
+a {Bd{Wi{Bs{Wh {Bc{Wl{Bo{Wt{Bh{x~
+A {Bd{Wi{Bs{Wh {Bc{Wl{Bo{Wt{Bh{x has been left here.~
+cotton~
+armor GS AO
+1 1 1 1 0
+10 10 1000 P
+E
+dish cloth~
+Would you like to do the dishes?
+~
+A
+2 2
+#4582
+science fiction novel~
+a science fiction novel~
+A science fiction novel has been left here.~
+paper~
+armor GS AO
+1 1 1 1 0
+14 10 1200 P
+E
+science fiction novel~
+It reads:
+{RDOUGLAS ADAMS{x
+Life, the Universe and Everything
+The Hitch Hiker's Guide to the Galaxy 3
+~
+A
+5 2
+A
+18 1
+#4583
+prick cactus~
+a {Ycactus prick{x~
+A {Ycactus prick{x lies here.~
+plant~
+armor GS AO
+1 1 1 1 0
+15 10 1200 P
+E
+prick cactus~
+A tiny little {Ycactus prick{x. But if there are more of them, they can sting,
+believe me.
+~
+A
+2 2
+A
+18 1
+#4584
+pencil~
+a pencil~
+A pencil lies here.~
+graphite~
+armor GS AO
+1 1 1 1 0
+20 10 1600 P
+E
+pencil~
+This is not just an ordinary pencil. Hold it in your hand and you'll
+see.
+~
+A
+5 2
+A
+18 1
+A
+24 -3
+#4585
+detective novel~
+a detective novel~
+A detective novel has been left here.~
+paper~
+armor GS AO
+1 1 1 1 0
+20 10 1600 P
+E
+detective novel~
+It reads:
+{RDOROTHY L. SAYERS{x
+MURDER MUST ADVERTISE
+~
+A
+13 20
+A
+24 -3
+A
+26 2
+#4586
+old newspaper~
+an old newspaper~
+An old newspaper has been left here.~
+paper~
+armor GS AO
+1 1 1 1 0
+25 10 2000 P
+E
+old newspaper~
+It must be quite a few years old. The paper is dark brown by now and
+you can barely read the letters. As far as you can tell its seems to
+be a story about a well-known Wizard of Thera who created a living
+house. Judging from what you can read, people must have been very
+upset about it in those days.
+~
+A
+5 1
+A
+18 1
+A
+19 1
+A
+26 2
+#4587
+brain wave~
+a {Cbrain wave{x~
+A {Cbrain wave{x floats here.~
+thought~
+armor GS AO
+1 1 1 1 0
+30 0 3000 P
+E
+brain wave~
+It is a {Cbrain wave{x of the Crazy Wizard from the times when he had
+not yet gone completely insane. So it might be of some value.
+~
+A
+3 1
+A
+4 1
+A
+5 1
+A
+13 20
+A
+18 1
+A
+19 1
+#4588
+flame~
+a {Yflame{x~
+A {Yflame{x flickers here.~
+fire~
+light AGS A
+0 0 -1 0 0
+10 0 400 P
+E
+flame~
+It is the {Yflame{x from a stove and thus quite hot.
+Don't burn your fingers!
+~
+A
+4 1
+#4589
+light bulb~
+a {Wlight bulb{x~
+A {Wlight bulb{x emits a soft glowing light.~
+glass~
+light AGS A
+0 0 -1 0 0
+14 0 500 P
+E
+light bulb~
+It is just an ordinary {Wlight bulb{x from a lamp.
+~
+A
+18 1
+A
+19 1
+#4590
+dim light~
+a dim light~
+A dim light barely illuminates the surroundings.~
+light~
+light AGS A
+0 0 -1 0 0
+20 0 600 P
+E
+dim light~
+The light is only dim, but it enables you to see your surroundings.
+Not very clearly, but enough not to stumble over anything.
+~
+A
+18 1
+A
+19 1
+A
+26 2
+#4591
+reflection sun~
+the reflection of the {Ysun{x~
+The reflection of the {Ysun{x is dazzlingly bright here.~
+brightness~
+light AGS A
+0 0 -1 0 0
+25 0 700 P
+E
+reflection sun~
+The reflection of the {Ysun{x gives a dazzling bright light, illuminating all
+your surroundings.
+~
+A
+18 2
+A
+19 2
+A
+26 2
+#4592
+flash genius~
+a {Yflash of genius{x~
+A {Yflash of genius{x brightens up your thoughts.~
+thoughts~
+light AGS A
+0 0 -1 0 0
+30 0 700 P
+E
+flash genius~
+Trying to have a closer look at the {Yflash of genius{x, you have to
+realize that you are unable to catch it.
+~
+A
+13 20
+A
+18 3
+A
+19 3
+A
+26 2
+#4593
+small golden ring~
+a small golden {Yring{x~
+A small golden {Yring{x lies here.~
+gold~
+armor AG AB
+3 3 3 3 0
+20 0 2400 P
+E
+small golden ring~
+It is a very simple golden {Yring{x. Nevertheless, it looks nice.
+~
+A
+18 1
+A
+19 1
+A
+26 2
+#4594
+ring crazy wizard~
+the ring of the {Pc{Yr{Ga{Cz{By {Vwizard{x~
+The ring of the {Pc{Yr{Ga{Cz{By {Vwizard{x lies here.~
+gold~
+armor AG AB
+5 5 5 5 0
+30 0 8000 P
+E
+ring crazy wizard~
+This is the ring of the {Pc{Yr{Ga{Cz{By {Vwizard{x. It once had powerful magic in
+it, but now, with his owner having completely lost his sanity of mind,
+only very little of the magic is left.
+~
+A
+5 1
+A
+18 1
+A
+19 1
+A
+24 -2
+A
+26 2
+#4595
+belt magic power~
+a {Bbelt of magic power{x~
+A {Bbelt of magic power{x lies here.~
+silk~
+armor ABGS AL
+10 10 10 10 0
+30 10 8000 P
+E
+belt magic power~
+This {Bbelt{x has powerful magic to offer to those who can see it.
+~
+A
+1 2
+A
+5 1
+A
+13 20
+A
+18 1
+A
+19 1
+A
+24 -2
+A
+26 2
+
+#4596
+canopy~
+a {Ccanopy{x~
+A {Ccanopy{x lies here.~
+silk~
+armor GS AJ
+8 8 8 5 0
+26 40 2400 P
+E
+canopy~
+This is a rather large tester bed {Ccanopy{x.
+You can use it to hide behind.
+~
+A
+18 1
+A
+19 1
+A
+26 2
+#4597
+amulet grinning face~
+an {Vamulet with a grinning face on it{x~
+An {Vamulet with a grinning face on it{x lies here.~
+silver~
+armor AGS AC
+9 9 9 7 0
+30 10 4400 P
+E
+amulet grinning face~
+This {Vamulet{x was once magically created by the Crazy Wizard. He put
+his own face on it and from the evil grin you can tell that insanity
+was already starting to overcome him. Nevertheless, some of
+his earlier wisdom is still in the amulet.
+~
+A
+4 2
+A
+5 1
+A
+18 2
+A
+19 2
+#4598
+house~
+a magical entrance into the {PC{Yr{Ga{Cz{By {VHouse{x~
+~
+stone~
+portal O 0
+0 0 A 4573 0
+0 0 0 P
+E
+house~
+This is the {Chouse{x of the Crazy Wizard. A long time ago, when his mental
+confusion just started, but his magic powers still worked, he cast
+life on nearly all furniture in there and on the house itself.
+In those days, people in Thera weren't used to such powerful magic and
+felt threatened by the Crazy Wizard. Thus they avoided to come even
+close to his home and the poor old man started to be very lonely.
+This certainly didn't help his mental sanity and so today he is gone
+completely crazy. {RIf you don't fear him, you may enter his house{x.
+~
+#4599
+magical barrier~
+a magical barrier~
+~
+energy~
+portal O 0
+0 0 A 4604 0
+0 0 0 P
+E
+magical barrier~
+The {Cmagical barrier{x flickers unsteadily. It doesn't work properly
+any more so if you are lucky you can enter it to be able to reach the
+cellar of the Crazy House.
+~
+#4600
+wardrobe~
+a wardrobe~
+~
+wood~
+portal O 0
+0 0 A 4594 0
+0 0 0 P
+E
+wardrobe~
+It is a quite big wardrobe, one of the few pieces of furniture the
+Crazy Wizard never bothered to cast life upon. The door stands a little
+bit open and taking a look inside you notice that it is so big, there is
+easily enough space for a person to enter.
+~
+#4601
+hole ceiling~
+a hole in the ceiling~
+~
+nothingness~
+portal O 0
+0 0 A 4595 0
+0 0 0 P
+E
+hole ceiling~
+The hole in the ceiling leads to the attic of the Crazy house.
+Climbing the ladder, you would be able to enter the hole to reach
+the attic.
+~
+#4602
+large hole~
+a large hole in the wall~
+~
+nothingness~
+portal O 0
+0 0 A 4615 0
+0 0 0 P
+E
+large hole ~
+The hole leads to the secret chamber of the Crazy House, in which
+the Crazy Wizard is to be found most of the times.
+~
+#4603
+magical barrier~
+a magical barrier~
+~
+energy~
+portal O 0
+0 0 A 4587 0
+0 0 0 P
+E
+magical barrier~
+The {Cmagical barrier{x flickers unsteadily. It doesn't work properly
+any more but if you are lucky you can enter it to leave the
+cellar of the Crazy House.
+~
+#4604
+west walls~
+a wall~
+~
+stone~
+portal O 0
+0 0 A 4607 0
+0 0 0 P
+E
+west walls~
+The west wall is not really a wall, it just looks like one. You can't
+understand the magic behind it but you realize that for some reason
+you are able to enter the wall to reach the cellar of the Crazy House.
+~
+#4605
+east walls~
+a wall~
+~
+stone~
+portal O 0
+0 0 A 4610 0
+0 0 0 P
+E
+east walls~
+The east wall is not really a wall, it just looks like one. You can't
+understand the magic behind it but you realize that for some reason
+you are able to enter the wall to reach some secret rooms in the
+Crazy House.
+~
+#4606
+window roof~
+a window~
+~
+glass~
+portal O 0
+0 0 A 4602 0
+0 0 0 P
+E
+window roof~
+The window leads to the roof. Through it the chimney-sweep can reach
+the roof to do his job.
+~
+#4607
+cake~
+a cake~
+A cake has been left here.~
+food~
+food S A
+20 50 0 0 0
+0 10 15 P
+E
+cake~
+A chocolate cake. Hmmm... I just love those.
+Not very healthy, but delicious!
+~
+#4608
+potatoes~
+some potatoes~
+Some potatoes are lying here.~
+food~
+food S A
+20 20 0 0 0
+0 10 15 P
+E
+potatoes~
+Some raw potatoes. You are not going to eat them like this, are you?
+~
+#4609
+carrot~
+a {Rcarrot{x~
+A {Rcarrot{x lies here.~
+food~
+food S A
+10 10 0 0 0
+0 10 15 P
+E
+carrot~
+Well, if you were a rabbit, you now would get excited!
+~
+#4610
+apple~
+an {Rapple{x~
+An {Rapple{x lies here.~
+fruit~
+pill GS A
+40 'cure critical' '' '' ''
+10 8 700 P
+E
+apple~
+One of these a day keeps the healer away.
+~
+#4611
+tiny key~
+a tiny key~
+A tiny key lies here.~
+steel~
+key 0 A
+0 0 0 0 0
+0 1 0 P
+E
+tiny key~
+A tiny key. It looks like it could fit into a drawer.
+~
+#4612
+secret drawer~
+a secret drawer~
+~
+wood~
+container 0 0
+300 ACD 4611 300 100
+0 300 0 P
+E
+secret drawer~
+This is a secret drawer in the wardrobe. It might be the place where
+the Crazy Wizard hides his valuables.
+~
+#4613
+hole~
+a hole in the wall~
+~
+hole~
+container 0 0
+300 0 0 300 100
+0 300 0 P
+E
+hole~
+This is a very small hole in the wall. Just big enough to put your
+hand into it if you choose to do so.
+But be careful... there might be something in it to bite or sting you.
+~
+#0
+
+#ROOMS
+#4570
+Small Path~
+You are walking along a small path. East and west of you are {Ycorn fields{x,
+to the south lies the Eastern Road. In the far north you can make out a
+small building.
+~
+0 0 2
+D0
+To the north the path continues.
+~
+~
+0 -1 4571
+D2
+To the south lies the Eastern Road.
+~
+~
+0 -1 3528
+E
+path ground~
+It is a small sandy path.
+~
+E
+corn fields~
+The {Ycorn fields{x look beautiful. The corn is nearly ripe and reflects the
+golden {Ysun{x. You wouldn't dare to set foot into it, I hope!
+~
+E
+road~
+The Eastern Road connects Midgaard and New Thalos.
+~
+E
+building~
+The small building is the house of the Crazy Wizard. Probably as a result
+of popular superstition, it was forgotten for a long time by most people
+in Thera and just recently discovered again.
+~
+S
+#4571
+Small Path~
+You are walking along a small path. East and west of you are {Ycorn fields{x,
+to the far south lies the Eastern Road.
+In the north you can make out a small building.
+~
+0 0 2
+D0
+To the north lies the Crazy House.
+~
+~
+0 -1 4572
+D2
+To the south the small path continues.
+~
+~
+0 -1 4570
+E
+path ground~
+It is a small sandy path.
+~
+E
+corn fields~
+The {Ycorn fields{x look beautiful. The corn is nearly ripe and reflects the
+golden {Ysun{x. You wouldn't dare to set foot into it, I hope!
+~
+E
+road~
+The Eastern Road connects Midgaard and New Thalos.
+~
+E
+building~
+The small building is the house of the Crazy Wizard. Probably as a result
+of popular superstition, it was forgotten for a long time by most people
+in Thera and just recently discovered again.
+~
+S
+#4572
+Before the {PC{Yr{Ga{Cz{By {VHouse{x~
+You are standing right in front of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Oddly enough, it seems to move. Or at least parts of it do.
+There... this window.... didn't it just wave to you? The {Rtiles{x on the
+roof seem to dance around happily. And through the window you catch
+a view of a book shelf making silly faces at you.
+If you wanted to enter the house to have a closer look you might
+have a problem now... there seems to be no door.
+~
+0 0 2
+D2
+To the south lies a small path.
+~
+~
+0 -1 4571
+E
+window~
+There are some windows to be seen. Especially the one in the second
+floor draws your attention as it seems to wave to you. It whispers:
+Come into the house! Play with us!
+~
+E
+book shelf faces~
+The book shelf behind the window makes silly faces at you. It is not
+really unfriendly, it just likes to make fun of people.
+~
+E
+tiles~
+The {Rtiles{x on the roof dance around happily. It is a marvelous view
+to see them catching the {Ysun's rays{x and reflecting them.
+~
+S
+#4573
+Entrance Hall~
+You are standing in the Entrance Hall of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back. The ceiling seems to breathe and
+the entrance door you now see to the south seems to play hide and
+seek with you as it certainly wasn't there when you wanted to enter
+the house earlier.
+~
+0 D 0
+D0
+To the north lies a door leading to the Living Room.
+~
+~
+1 -1 4577
+D1
+To the east there is a Corridor.
+~
+~
+0 -1 4587
+D2
+To the south you can leave the Crazy House.
+~
+~
+1 -1 4572
+D3
+To the west lies a door leading to the Kitchen.
+~
+~
+1 -1 4574
+E
+entrance hall~
+You are standing in the middle of the Entrance Hall. Have a look to
+see your surroundings.
+~
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+ceiling~
+The ceiling breathes softly going a bit up and down with the moves
+of its breath.
+~
+E
+doors~
+There are doors to the north, south and west. The one to the south seems
+to be in an especially good mood and tries to play with you a bit.
+~
+S
+#4574
+Kitchen~
+You are standing in the Kitchen of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back.
+The Kitchen looks as if it hasn't been used for quite a time. Although
+tidy, a thin layer of dust covers all things that are here.
+~
+0 D 0
+D1
+To the east there is a door leading to the Entrance Hall.
+~
+door~
+1 -1 4573
+D2
+To the south the Kitchen continues.
+~
+~
+0 -1 4575
+E
+kitchen~
+You are standing in the north part of the kitchen, where the Crazy
+Wizard used to eat. The place to prepare the meals lies to the south.
+~
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+doors~
+There is a door to the east, leading to the Entrance Hall.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+layer dust~
+A thin layer of dust covers each and everything in here.
+~
+S
+#4575
+Kitchen~
+You are standing in the Kitchen of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back.
+The Kitchen looks as if it wasn't been used for quite a time. Although
+tidy, a thin layer of dust covers all things that are here.
+~
+0 D 0
+D0
+To the north the kitchen continues.
+~
+~
+0 -1 4574
+D3
+To the west lies a door leading to the Pantry.
+~
+door~
+1 -1 4576
+E
+kitchen~
+You are standing in the south part of the kitchen. This is the place
+where the Crazy Wizard used to prepare his meals.
+~
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+doors~
+There is a door to the west, leading to the Pantry.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+layer dust~
+A thin layer of dust covers each and everything in here.
+~
+S
+#4576
+Pantry~
+You are standing in the Pantry of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back.
+There is not much being left over here. Looks like the Crazy Wizard
+doesn't care much about his food any more.
+~
+0 D 0
+D1
+To the east lies a door leading to the Kitchen.
+~
+door~
+1 -1 4575
+E
+pantry~
+Yes, you are standing in the Pantry. Have a look to see your
+surroundings.
+~
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+doors~
+There is a door to the east, leading to the Kitchen.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+food fruits vegetables~
+There is not much food left. Just a few fruits and vegetables.
+~
+S
+#4577
+Living Room~
+You are standing in the Living Room of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back.
+A large window to the north offers a view into a nice looking garden.
+~
+0 D 0
+D2
+To the south lies a door leading to the Entrance Hall.
+~
+door~
+1 -1 4573
+D3
+To the west the Living Room continues.
+~
+~
+0 -1 4578
+E
+living room~
+Yes, you are standing in the Living Room. Have a look to see your
+surroundings.
+~
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+doors~
+There is a door to the south, leading to the Entrance Hall.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+window~
+The window offers a view into a nice looking garden. It can't be opened,
+though.
+~
+E
+garden~
+The garden is full of {Rroses{x and {Gcacti{x. A very unusual combination I must
+admit, but such seems to be the taste of the Crazy Wizard.
+~
+S
+#4578
+Living Room~
+You are standing in the Living Room of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back.
+To the north is a large glass door through which you can see a terrace
+and a garden behind it.
+~
+0 D 0
+D0
+To the north stands a door leading to the Terrace.
+~
+door~
+1 -1 4579
+D1
+To the east the Living Room continues.
+~
+~
+0 -1 4577
+E
+living room~
+Yes, you are standing in the Living Room. Have a look to see your
+surroundings.
+~
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+glass door~
+Through the glass door you can see the Terrace. Certainly you might as
+well open it and step out to enjoy the fresh air.
+~
+E
+garden~
+The garden is full of {Rroses{x and {Gcacti{x. A very unusual combination I must
+admit, but such seems to be the taste of the Crazy Wizard.
+~
+E
+terrace~
+It is a rather small terrace. Just room for one rocking chair. But it
+must be nice to sit there, enjoying the {Ysun{x and the view upon the garden.
+~
+S
+#4579
+Terrace~
+You are standing on the Terrace of the {PC{Yr{Ga{Cz{By {VHouse{x.
+It is a rather small terrace. Just room for one rocking chair. But it
+must be nice to sit here, enjoying the {Ysun{x and the view upon the garden.
+~
+0 0 1
+D0
+To the north lies the Garden.
+~
+~
+0 -1 4580
+D2
+To the south a glass door leads into the Living Room.
+~
+~
+1 -1 4578
+E
+terrace~
+Yes, you are standing on the Terrace. Have a look to see your
+surroundings.
+~
+E
+house~
+From here you can't see much of the house as you are standing close to
+its northern walls. Only the large glass door and the window of the
+Living room.
+~
+E
+sun~
+You shouldn't look into the {Ysun{x, it would hurt your eyes.
+~
+E
+view~
+The garden is pretty to look at.
+~
+E
+glass door window~
+Through the glass door and the window you can have a look into the
+living room. But you might as well step through the door and have a
+look inside.
+~
+E
+garden~
+The garden is full of {Rroses{x and {Gcacti{x. A very unusual combination I must
+admit, but such seems to be the taste of the Crazy Wizard.
+~
+E
+rocking chair~
+Hmm.. don't you see it here? Well, if not, somebody must have stolen it
+or even worse, killed it!
+~
+S
+#4580
+Garden~
+You are standing in the Garden of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Lots of {Rroses{x and {Gcacti{x grow here. The air is filled with the sweet
+smell of the {Rroses{x. You see some {Bbutter{Vflies{x and {Ybees{x flying from one
+plant to another.
+To the south lies the Terrace, to the north and west the Garden continues.
+~
+0 0 2
+D0
+To the north the Garden continues.
+~
+~
+0 -1 4583
+D2
+To the south lies the Terrace.
+~
+~
+0 -1 4579
+D3
+To the west the Garden continues.
+~
+~
+0 -1 4581
+E
+terrace~
+The Terrace to the south leads back into the Crazy House.
+~
+E
+house~
+From here you can see the north side of the Crazy House. You can
+hear soft murmuring from inside it, all that living furniture might
+be having some nice chats. The windows seem to watch your doings. The
+tiles on the roof are still dancing around happily.
+~
+E
+tiles~
+The tiles are dancing around happily. You hear them call: "Come up!
+It's nice here!"
+~
+E
+windows~
+There are quite a few windows to be seen. All of them seem to watch
+you curiously, as windows are apt to do.
+~
+E
+garden roses cacti plants~
+The garden is full of {Rroses{x and {Gcacti{x. A very unusual combination I must
+admit, but such seems to be the taste of the Crazy Wizard.
+~
+E
+butterflies bees~
+The {Bbutter{Vflies{x and {Ybees{x are flying from one plant to another. But as
+hard as you might try, you won't be able to catch the butterflies.
+As for the bees... I wouldn't try if I were you.
+~
+S
+#4581
+Garden~
+You are standing in the Garden of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Lots of {Rroses{x and {Gcacti{x grow here. The air is filled with the sweet
+smell of the {Rroses{x. You see some {Bbutter{Vflies{x and {Ybees{x flying from one
+plant to another.
+The Garden continues to the north and east.
+~
+0 0 2
+D0
+To the north the Garden continues.
+~
+~
+0 -1 4582
+D1
+To the east the Garden continues.
+~
+~
+0 -1 4580
+E
+house~
+From here you can see the north side of the Crazy House. You can
+hear soft rumor from inside it, all those living furniture might
+have some nice chats. The windows seem to watch your doing. The
+tiles on the roof are still dancing around happily.
+~
+E
+tiles~
+The tiles are dancing around happily. You hear them call: "Come up!
+It's nice here!"
+~
+E
+windows~
+There are quite a few windows to be seen. All of them seem to watch
+you curiously.
+~
+E
+garden roses cacti plants~
+The garden is full of {Rroses{x and {Gcacti{x. A very unusual combination I must
+admit, but such seems to be the taste of the Crazy Wizard.
+~
+E
+butterflies bees~
+The {Bbutter{Vflies{x and {Ybees{x are flying from one plant to another. But as
+hard as you might try, you won't be able to catch the butterflies.
+As for the bees... I wouldn't try if I were you.
+~
+S
+#4582
+Garden~
+You are standing in the Garden of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Lots of {Rroses{x and {Gcacti{x grow here. The air is filled with the sweet
+smell of the {Rroses{x. You see some {Bbutter{Vflies{x and {Ybees{x flying from one
+plant to another.
+The Garden continues to the north and east and south.
+~
+0 0 2
+D0
+To the north the Garden continues.
+~
+~
+0 -1 4585
+D1
+To the east the Garden continues.
+~
+~
+0 -1 4583
+D2
+To the south the Garden continues.
+~
+~
+0 -1 4581
+E
+house~
+From here you can see the north side of the Crazy House. You can
+hear soft murmuring from inside it, all that living furniture might
+be having some nice chats. The windows seem to watch your doing,
+as windows are wont to do. The tiles on the roof are still dancing
+around happily.
+~
+E
+tiles~
+The tiles are dancing around happily. You hear them call: "Come up!
+It's nice here!"
+~
+E
+windows~
+There are quite a few windows to be seen. All of them seem to watch
+you curiously.
+~
+E
+garden roses cacti plants~
+The garden is full of {Rroses{x and {Gcacti{x. A very unusual combination I must
+admit, but such seems to be the taste of the Crazy Wizard.
+~
+E
+butterflies bees~
+The {Bbutter{Vflies{x and {Ybees{x are flying from one plant to another. But as
+hard as you might try, you won't be able to catch the butterflies.
+As for the bees... I wouldn't try if I were you.
+~
+S
+#4583
+Garden~
+You are standing in the Garden of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Lots of {Rroses{x and {Gcacti{x grow here. The air is filled with the sweet
+smell of the {Rroses{x. You see some {Bbutter{Vflies{x and {Ybees{x flying from one
+plant to another.
+The Garden continues to the north and south and west.
+~
+0 0 2
+D0
+To the north the Garden continues.
+~
+~
+0 -1 4584
+D2
+To the south the Garden continues.
+~
+~
+0 -1 4580
+D3
+To the west the Garden continues.
+~
+~
+0 -1 4582
+E
+house~
+From here you can see the north side of the Crazy House. You can
+hear soft murmurs from inside it, all that living furniture might
+have some nice chats. The windows seem to watch your doing as
+windows are wont to do. The tiles on the roof are still dancing
+around happily.
+~
+E
+tiles~
+The tiles are dancing around happily. You hear them call: "Come up!
+It's nice here!"
+~
+E
+windows~
+There are quite a few windows to be seen. All of them seem to watch
+you curiously.
+~
+E
+garden roses cacti plants~
+The garden is full of {Rroses{x and {Gcacti{x. A very unusual combination I must
+admit, but such seems to be the taste of the Crazy Wizard.
+~
+E
+butterflies bees~
+The {Bbutter{Vflies{x and {Ybees{x are flying from one plant to another. But as
+hard as you might try, you won't be able to catch the butterflies.
+As for the bees... I wouldn't try if I were you.
+~
+S
+#4584
+Garden~
+You are standing in the Garden of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Lots of {Rroses{x and {Gcacti{x grow here. The air is filled with the sweet
+smell of the {Rroses{x. You see some {Bbutter{Vflies{x and {Ybees{x flying from one
+plant to another.
+The Garden continues to the south and west.
+~
+0 0 2
+D2
+To the south the Garden continues.
+~
+~
+0 -1 4583
+D3
+To the west the Garden continues.
+~
+~
+0 -1 4585
+E
+house~
+From here you can see the north side of the Crazy House. You can
+hear soft murmurs from inside it, all that living furniture might
+be having some nice chats. The windows seem to watch your doing. The
+tiles on the roof are still dancing around happily.
+~
+E
+tiles~
+The tiles are dancing around happily. You hear them call: "Come up!
+It's nice here!"
+~
+E
+windows~
+There are quite a few windows to be seen. All of them seem to watch
+you curiously.
+~
+E
+garden roses cacti plants~
+The garden is full of {Rroses{x and {Gcacti{x. A very unusual combination I must
+admit, but such seems to be the taste of the Crazy Wizard.
+~
+E
+butterflies bees~
+The {Bbutter{Vflies{x and {Ybees{x are flying from one plant to another. But as
+hard as you might try, you won't be able to catch the butterflies.
+As for the bees... I wouldn't try if I were you.
+~
+S
+#4585
+Garden~
+You are standing in the Garden of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Lots of {Rroses{x and {Gcacti{x grow here. The air is filled with the sweet
+smell of the {Rroses{x. You see some {Bbutter{Vflies{x and {Ybees{x flying from one
+plant to another.
+The Garden continues to the east and south. To the west lies a small
+arbor.
+~
+0 0 2
+D1
+To the east the Garden continues.
+~
+~
+0 -1 4584
+D2
+To the south the Garden continues.
+~
+~
+0 -1 4582
+D3
+To the west lies a small arbor.
+~
+~
+0 -1 4586
+E
+house~
+From here you can see the north side of the Crazy House. You can
+hear soft murmuring from inside it, all that living furniture might
+be having some nice chats. The windows seem to watch your doing. The
+tiles on the roof are still dancing around happily.
+~
+E
+tiles~
+The tiles are dancing around happily. You hear them call: "Come up!
+It's nice here!"
+~
+E
+windows~
+There are quite a few windows to be seen. All of them seem to watch
+you curiously.
+~
+E
+garden roses cacti plants~
+The garden is full of {Rroses{x and {Gcacti{x. A very unusual combination I must
+admit, but such seems to be the taste of the Crazy Wizard.
+~
+E
+butterflies bees~
+The {Bbutter{Vflies{x and {Ybees{x are flying from one plant to another. But as
+hard as you might try, you won't be able to catch the butterflies.
+As for the bees... I wouldn't try if I were you.
+~
+E
+arbor~
+The arbor is overgrown completely with {Rroses{x. The smell of which starts
+to be a bit overwhelming.
+~
+S
+#4586
+Arbor~
+You are standing in an Arbor in the Garden of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The Arbor is completely overgrown with {Rroses{x. Thus you are standing
+in complete shadow. It would be a really nice place to rest if the
+smell of the {Rroses{x wouldn't tend to be a bit too strong.
+~
+0 0 2
+D1
+To the east lies the Garden.
+~
+~
+0 -1 4585
+E
+garden~
+The garden is full of {Rroses{x and {Gcacti{x. A very unusual combination I must
+admit, but such seems to be the taste of the Crazy Wizard.
+~
+E
+house~
+You can't see the Crazy House from here. The roses overgrowing the
+arbor prevent your view.
+~
+E
+arbor~
+You are standing in the arbor that is overgrown completely with {Rroses{x,
+the smell of which starts to be a bit overwhelming.
+~
+E
+roses~
+The {Rroses{x overgrow the Arbor completely, preventing you from seeing
+anything around you but to the exits to the east, the only way a bit
+of light comes into here.
+~
+S
+#4587
+Corridor~
+You are standing in the Corridor on the first floor of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back. The floor moves slightly, giving you
+the feeling of being on a ship. You notice a {Cs{Yh{Ci{Ym{Cm{Ye{Cr{Yi{Cn{Yg {Cr{Ye{Cf{Yl{Ce{Yc{Ct{Yi{Co{Yn{x
+from some parts of the floor.
+~
+0 D 0
+D0
+To the north lies a door leading to the Bath Room.
+~
+door~
+1 -1 4588
+D3
+To the west lies the Entrance Hall.
+~
+~
+0 -1 4573
+D4
+Looking up you see a staircase leading to the second floor.
+~
+~
+0 -1 4589
+E
+floor~
+the floor moves slightly. On some spots you notice a {Cs{Yh{Ci{Ym{Cm{Ye{Cr{Yi{Cn{Yg 
+{Cr{Ye{Cf{Yl{Ce{Yc{Ct{Yi{Co{Yn{x. Without closer inspection you can't tell where it might come
+from.
+~
+E
+shimmering reflection spots~
+Looking more closely at the {Cr{Ye{Cf{Yl{Ce{Yc{Ct{Yi{Co{Yn{x you come to the conclusion that
+it might be some kind of a {Cmagical barrier{x. Hmm...would it be safe
+to examine that?
+~
+E
+ship~
+No, no, there isn't really a ship here. The swaying of the floor just
+gives you the feeling of riding a ship.
+~
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+corridor~
+Yes, you are standing in the corridor of the first floor. Take a look
+to see your surroundings.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+doors~
+There is a door to the north, leading to the Bath Room.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+S
+#4588
+Bath Room~
+You are standing in The Bath Room of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back.
+~
+0 D 0
+D2
+To the south lies a door leading to a corridor.
+~
+door~
+1 -1 4587
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+doors~
+There is a door to the south, leading to the corridor.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+bath room~
+Yes, you are standing in the bath room. Take a look to see your surroundings.
+~
+S
+#4589
+On the Staircase~
+You are on the Staircase that connects the first with the second floor.
+The stairs moan softly while you step on them. Not that they really mind,
+it is their function in life to carry people, they just want to let
+you know that they feel your weight.
+The banisters wriggle around, reminding you of big snakes.
+~
+0 D 0
+D4
+Upwards is the corridor of the second floor.
+~
+~
+0 -1 4590
+D5
+Downwards is the corridor of the first floor.
+~
+~
+0 -1 4587
+E
+staircase stairs~
+The wooden stairs are moaning softly with each step of yours.
+~
+E
+floor~
+Looking up you see a corridor on the second floor. Looking down you
+see a corridor on the first floor.
+~
+E
+corridor~
+There is a corridor to the up and one to the down. Go there if you
+want to have a closer look.
+~
+E
+wood~
+The stairs are made of wood. So are the banisters.
+~
+E
+banisters~
+The banisters wiggle around like big snakes, making it a bit hard
+to hold on them.
+~
+E
+snakes~
+No, no, no snakes here. Those are just living banisters.
+~
+S
+#4590
+Corridor~
+You are standing in the Corridor on the second floor of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back. A wooden ladder stands on the west wall
+of the room, right beyond a large hole in the ceiling.
+~
+0 D 0
+D0
+To the north lies a door leading to the Bedroom.
+~
+door~
+1 -1 4593
+D1
+To the east lies a door leading to the Study.
+~
+door~
+1 -1 4592
+D2
+To the south lies a door leading to the Guest Chamber.
+~
+door~
+1 -1 4591
+D5
+A staircase leads down to the first floor.
+~
+staircase stairs~
+0 -1 4589
+E
+ladder~
+The ladder stands right beyond a large hole in the ceiling.
+~
+E
+wood~
+The ladder is made of wood.
+~
+E
+doors~
+There are doors to the north, east and south.
+~
+E
+west~
+On the west wall stands a wooden ladder.
+~
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you. On the west wall stands a wooden ladder.
+~
+E
+corridor floor~
+Yes, you are standing in the corridor of the second floor. Take a look
+to see your surroundings.
+~
+E
+attic~
+You can't see much of the attic from down here, but you could reach
+it by entering the hole in the ceiling.
+~
+S
+#4591
+Guest Chamber~
+You are standing in the Guest Chamber of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back. The Guest Chamber wasn't used for
+many years and a thick layer of dust covers each and everything in
+here.
+~
+0 D 0
+D0
+To the north lies a door leading to the Corridor.
+~
+door~
+1 -1 4590
+E
+dust~
+A thick layer of dust covers each and everything in here.
+~
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+doors~
+There is a door to the norht, leading to the Corridor.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+Guest Chamber~
+Yes, you are standing in the Guest Chamber of the Crazy House.
+Take a look to see your surroundings.
+~
+S
+#4592
+Study~
+You are standing in the Study of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Even the walls are
+rocking gently forth and back. Oddly enough, the east wall stands
+perfectly still, though. There doesn't seem to be any life in it.
+Looking out of the window, you see some people standing in front of
+the house, searching for a way to enter it.
+~
+0 D 0
+D3
+To the west lies a door leading to the Corridor.
+~
+door~
+1 -1 4590
+E
+window people~
+Through the window you notice some people standing in front of the
+house. They are examining the house very closely.
+~
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive.
+~
+E
+doors~
+There is a door to the west, leading to the Corridor.
+~
+E
+walls east~
+The north, south and west walls rock gently forth and back. The east
+wall stands perfectly still. Looking more closely you notice that there is
+a special {Rbrick{x in the center of the wall that doesn't fit in tightly.
+~
+E
+special brick~
+While examining the {Rbrick{x you move it a bit and all of a sudden parts
+of the wall slide aside, opening a large hole in the east wall.
+~
+E
+Study~
+Yes, you are standing in the Study of the Crazy House.
+Take a look to see your surroundings.
+~
+S
+#4593
+Bedroom~
+You are standing in the Bedroom of the {PC{Yr{Ga{Cz{By {VHouse{x.
+The furniture around you seems to be alive. Just this large wardrobe
+standing at the north wall doesn't move at all. The room is untidy but
+clean. Well, at least compared to other rooms in this crazy house, that
+is.
+~
+0 D 0
+D2
+To the south lies a door leading to the Corridor.
+~
+door~
+1 -1 4590
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+furniture~
+All the furniture around you seems to be alive, except this large
+wardrobe standing at the north wall.
+~
+E
+doors~
+There is a door to the south, leading to the Corridor.
+~
+E
+bedroom room~
+Yes, you are standing in the Bedroom of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls north~
+The walls rock gently forth and back. At the north wall stands
+a large wardrobe.
+~
+S
+#4594
+Inside a Wardrobe~
+You are standing inside a large Wardrobe.
+It is dark in here but your light source suffices to let you see your
+surroundings. As you might have guessed, the wardrobe is made of wood.
+Although it is large enough for you to stand in, there now is not
+enough space left for anybody else to follow you. A perfect place
+to hide if need should be. Some clothes of the Crazy Wizard are hanging
+here, but they are of no interest as they wouldn't fit you.
+~
+0 ADL 0
+D2
+Going south you can leave the wardrobe to go back into the Bedroom.
+~
+~
+0 -1 4593
+E
+clothes~
+Examining the clothes of the Crazy Wizard confirms that you can't
+use any of them. Nevertheless, while fiddling with them you find
+a secret drawer!
+~
+E
+crazy wizard~
+The Crazy Wizard isn't here. Just some of his clothes.
+~
+E
+wardrobe place~
+Yes, you are standing in wardrobe. Look around to see your surroundings.
+~
+E
+wood~
+The wardrobe is made of wood.
+~
+S
+#4595
+Attic~
+You are standing in the Attic of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back. This room wasn't cleaned up for AGES!
+Everything is covered by a thick layer of dust and spider webs.
+The Attic continues to the north and west. There is a hole in the
+floor through which you can go down to the Corridor.
+~
+0 AD 0
+D0
+To the north the Attic continues.
+~
+~
+0 -1 4596
+D3
+To the west the Attic continues.
+~
+~
+0 -1 4597
+D5
+Going down you will reach the Corridor of the second floor.
+~
+~
+0 -1 4590
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+attic room~
+Yes, you are standing in the Attic of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+layer dust spider webs~
+Everything is covered by a thick layer of dust and spider webs. You
+wouldn't want to touch it.
+~
+E
+hole floor corridor~
+Through a hole in the floor you can see the corridor. Just go down
+to get back there.
+~
+S
+#4596
+Attic~
+You are standing in the Attic of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back. This room wasn't cleaned up for AGES!
+Everything is covered by a thick layer of dust and spider webs.
+The Attic continues to the west and south.
+~
+0 AD 0
+D2
+To the south the Attic continues.
+~
+~
+0 -1 4595
+D3
+To the west the Attic continues.
+~
+~
+0 -1 4598
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+attic room~
+Yes, you are standing in the Attic of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+layer dust spider webs~
+Everything is covered by a thick layer of dust and spider webs. You
+wouldn't want to touch it.
+~
+S
+#4597
+Attic~
+You are standing in the Attic of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back. This room wasn't cleaned up for AGES!
+Everything is covered by a thick layer of dust and spider webs.
+The Attic continues to the north, east and west.
+~
+0 AD 0
+D0
+To the north the Attic continues.
+~
+~
+0 -1 4598
+D1
+To the east the Attic continues.
+~
+~
+0 -1 4595
+D3
+To the west the Attic continues.
+~
+~
+0 -1 4599
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+attic room~
+Yes, you are standing in the Attic of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+layer dust spider webs~
+Everything is covered by a thick layer of dust and spider webs. You
+wouldn't want to touch it.
+~
+S
+#4598
+Attic~
+You are standing in the Attic of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back. This room wasn't cleaned up for AGES!
+Everything is covered by a thick layer of dust and spider webs.
+There is a window here, but the glass is so dirty that you can't see
+anything through it, nor does it let much light fall in.
+The Attic continues to the east, south and west.
+~
+0 AD 0
+D1
+To the east the Attic continues.
+~
+~
+0 -1 4596
+D2
+To the south the Attic continues.
+~
+~
+0 -1 4597
+D3
+To the west the Attic continues.
+~
+~
+0 -1 4600
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+attic room~
+Yes, you are standing in the Attic of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+layer dust spider webs~
+Everything is covered by a thick layer of dust and spider webs. You
+wouldn't want to touch it.
+~
+S
+#4599
+Attic~
+You are standing in the Attic of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back. This room wasn't cleaned up for AGES!
+Everything is covered by a thick layer of dust and spider webs.
+The Attic continues to the north and east.
+~
+0 AD 0
+D0
+To the north the Attic continues.
+~
+~
+0 -1 4600
+D1
+To the east the Attic continues.
+~
+~
+0 -1 4597
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+attic room~
+Yes, you are standing in the Attic of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+layer dust spider webs~
+Everything is covered by a thick layer of dust and spider webs. You
+wouldn't want to touch it.
+~
+S
+#4600
+Attic~
+You are standing in the Attic of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back. This room wasn't cleaned up for AGES!
+Everything is covered by a thick layer of dust and spider webs.
+The Attic continues to the east and south.
+~
+0 AD 0
+D1
+To the east the Attic continues.
+~
+~
+0 -1 4598
+D2
+To the south the Attic continues.
+~
+~
+0 -1 4599
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+attic room~
+Yes, you are standing in the Attic of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+E
+layer dust spider webs~
+Everything is covered by a thick layer of dust and spider webs. You
+wouldn't want to touch it.
+~
+S
+#4601
+On the {RRoof{x~
+You are standing on the {RRoof{x of the {PC{Yr{Ga{Cz{By {VHouse{x.
+From here you have a marvelous view over the {Ycorn fields{x surrounding
+the Crazy House. To the south you can make out the Eastern Road.
+The Roof continues to the east.
+~
+0 0 1
+D1
+To the east the Roof continues.
+~
+~
+0 -1 4602
+E
+house~
+You are on the Roof of the Crazy House. You can't see the house itself.
+~
+E
+roof~
+Yes, you are standing on the Roof of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+view~
+It is a marvelous view over the corn fields surrounding the Crazy House.
+~
+E
+corn fields~
+The corn fields surround the Crazy House.
+~
+E
+eastern road south~
+The Eastern Road connects Midgaard with New Thalos. You can't see the
+cities from here though, they are too far away.
+~
+S
+#4602
+On the {RRoof{x~
+You are standing on the {RRoof{x of the {PC{Yr{Ga{Cz{By {VHouse{x.
+From here you have a marvelous view over the {Ycorn fields{x surrounding
+the Crazy House. To the south you can make out the Eastern Road.
+The Roof continues to the east and west. Going down you can reach
+the Attic of the Crazy house.
+~
+0 0 1
+D1
+To the east the Roof continues.
+~
+~
+0 -1 4603
+D3
+To the west the Roof continues.
+~
+~
+0 -1 4601
+D5
+Downwards lies the Attic.
+~
+~
+0 -1 4598
+E
+house~
+You are on the Roof of the Crazy House. You can't see the house itself.
+~
+E
+roof~
+Yes, you are standing on the Roof of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+view~
+It is a marvelous view over the corn fields surrounding the Crazy House.
+~
+E
+corn fields~
+The corn fields surround the Crazy House.
+~
+E
+eastern road south~
+The Eastern Road connects Midgaard with New Thalos. You can't see the
+cities from here though, they are too far away.
+~
+E
+attic~
+You can't see much of the attic from up here. But you can take a step
+down and you will be right there.
+~
+S
+#4603
+On the {RRoof{x~
+You are standing on the {RRoof{x of the {PC{Yr{Ga{Cz{By {VHouse{x.
+From here you have a marvelous view over the {Ycorn fields{x surrounding
+the Crazy House. To the south you can make out the Eastern Road.
+The Roof continues to the west.
+~
+0 0 1
+D3
+To the west the Roof continues.
+~
+~
+0 -1 4602
+E
+house~
+You are on the Roof of the Crazy House. You can't see the house itself.
+~
+E
+roof~
+Yes, you are standing on the Roof of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+view~
+It is a marvelous view over the corn fields surrounding the Crazy House.
+~
+E
+corn fields~
+The corn fields surround the Crazy House.
+~
+E
+eastern road south~
+The Eastern Road connects Midgaard with New Thalos. You can't see the
+cities from here though, they are too far away.
+~
+S
+#4604
+Cellar~
+You are standing in the Cellar of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back. Coming down from the ceiling to the
+west wall you see a strange {Cs{Yh{Ci{Ym{Cm{Ye{Cr{Yi{Cn{Yg {Cr{Ye{Cf{Yl{Ce{Yc{Ct{Yi{Co{Yn{x.
+The Cellar continues to the east and south.
+~
+0 AD 0
+D1
+To the east the Cellar continues.
+~
+~
+0 -1 4605
+D2
+To the south the Cellar continues.
+~
+~
+0 -1 4606
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+cellar~
+Yes, you are standing in the Cellar of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls west~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you. On the west wall you notice a {Cs{Yh{Ci{Ym{Cm{Ye{Cr{Yi{Cn{Yg {Cr{Ye{Cf{Yl{Ce{Yc{Ct{Yi{Co{Yn{x coming
+down from the ceiling.
+~
+E
+ceiling~
+A {Cs{Yh{Ci{Ym{Cm{Ye{Cr{Yi{Cn{Yg {Cr{Ye{Cf{Yl{Ce{Yc{Ct{Yi{Co{Yn{x comes down from the ceiling to the west wall.
+~
+E
+shimmering reflection~
+Looking closer at the {Cr{Ye{Cf{Yl{Ce{Yc{Ct{Yi{Co{Yn{x you come to the conclusion that
+it might be some kind of a {Cmagical barrier{x. Hmm...would it be safe
+to examine that?
+~
+S
+#4605
+Cellar~
+You are standing in the Cellar of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back.
+The Cellar continues to the west and south.
+~
+0 AD 0
+D2
+To the south the Cellar continues.
+~
+~
+0 -1 4607
+D3
+To the west the Cellar continues.
+~
+~
+0 -1 4604
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+cellar~
+Yes, you are standing in the Cellar of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+S
+#4606
+Cellar~
+You are standing in the Cellar of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back.
+The Cellar continues to the north, east and south.
+~
+0 AD 0
+D0
+To the north the Cellar continues.
+~
+~
+0 -1 4604
+D1
+To the east the Cellar continues.
+~
+~
+0 -1 4607
+D2
+To the south the Cellar continues.
+~
+~
+0 -1 4608
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+cellar~
+Yes, you are standing in the Cellar of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+S
+#4607
+Cellar~
+You are standing in the Cellar of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back. The east wall seems to be out of
+rhythm, though.
+The Cellar continues to the north, west and south.
+~
+0 AD 0
+D0
+To the north the Cellar continues.
+~
+~
+0 -1 4605
+D2
+To the south the Cellar continues.
+~
+~
+0 -1 4609
+D3
+To the west the Cellar continues.
+~
+~
+0 -1 4606
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+cellar~
+Yes, you are standing in the Cellar of the Crazy House.
+Take a look to see your surroundings.
+~
+S
+#4608
+Cellar~
+You are standing in the Cellar of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back.
+The Cellar continues to the north and east.
+~
+0 AD 0
+D0
+To the north the Cellar continues.
+~
+~
+0 -1 4606
+D1
+To the east the Cellar continues.
+~
+~
+0 -1 4609
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+cellar~
+Yes, you are standing in the Cellar of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+S
+#4609
+Cellar~
+You are standing in the Cellar of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back.
+The Cellar continues to the north and west.
+~
+0 AD 0
+D0
+To the north the Cellar continues.
+~
+~
+0 -1 4607
+D3
+To the west the Cellar continues.
+~
+~
+0 -1 4608
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+cellar~
+Yes, you are standing in the Cellar of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+S
+#4610
+Secret Passage~
+You are standing in a Secret Passage of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back. The west wall seems to be out of
+rhythm, though.
+The Secret Passage continues to the east.
+~
+0 AD 0
+D1
+To the east the Secret Passage continues.
+~
+~
+0 -1 4611
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+secret passage~
+Yes, you are standing in a Secret Passage of the Crazy House.
+Take a look to see your surroundings.
+~
+S
+#4611
+Secret Passage~
+You are standing in a Secret Passage of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back.
+The Secret Passage continues to the west and upwards.
+~
+0 AD 0
+D3
+To the west the Secret Passage continues.
+~
+~
+0 -1 4610
+D4
+To the up the Secret Passage continues.
+~
+~
+0 -1 4612
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+secret passage~
+Yes, you are standing in a Secret Passage of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+S
+#4612
+Secret Passage~
+You are standing in a Secret Passage of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back.
+The Secret Passage continues to the up and down.
+~
+0 AD 0
+D4
+The Secret Passage continues.
+~
+~
+0 -1 4613
+D5
+The Secret Passage continues.
+~
+~
+0 -1 4611
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+secret passage~
+Yes, you are standing in a Secret Passage of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+S
+#4613
+Secret Passage~
+You are standing in a Secret Passage of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back. The walls seem to whisper to you
+but you can't understand a word of it.
+The Secret Passage continues to the up and down.
+~
+0 AD 0
+D4
+The Secret Passage continues.
+~
+~
+0 -1 4614
+D5
+The Secret Passage continues.
+~
+~
+0 -1 4612
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+secret passage~
+Yes, you are standing in a Secret Passage of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. They whisper something that you
+can't understand. The west wall giggles as it notices your confusion.
+~
+E
+west~
+Taking a closer look at the west wall you notice a tiny hole in it!
+~
+S
+#4614
+Secret Passage~
+You are standing in a Secret Passage of the {PC{Yr{Ga{Cz{By {VHouse{x.
+Everything around you seems to be alive. Even the walls are
+rocking gently forth and back.
+The Secret Passage continues to the down.
+~
+0 AD 0
+D4
+Looking up you catch a look at the Secret Chamber.
+~
+~
+0 -1 4615
+D5
+The Secret Passage continues.
+~
+~
+0 -1 4613
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+secret passage~
+Yes, you are standing in a Secret Passage of the Crazy House.
+Take a look to see your surroundings.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+S
+#4615
+Secret Chamber~
+You are standing in a Secret Chamber of the {PC{Yr{Ga{Cz{By {VHouse{x.
+This is the place where the Crazy Wizard is to be found most of the
+time. One can't understand why, though. There is nothing in this room.
+No furniture, no magical devices, nothing. Just a simple, empty room.
+But then again... the Crazy Wizard is completely mentally insane. He
+might live in his own world of imagination and see all the stuff you
+are missing here.
+~
+0 AD 0
+D3
+To the west lies the Study.
+~
+~
+0 -1 4592
+D5
+Downwards there is a Secret Passage.
+~
+~
+0 -1 4614
+E
+house~
+Well, you are inside of the Crazy House, so you don't see much of it
+but for the room you are standing in at the moment.
+~
+E
+secret chamber room~
+Yes, you are standing in a Secret Chamber of the Crazy House.
+There is nothing to be seen here.
+~
+E
+walls~
+The walls rock gently forth and back. You can only hope that they won't
+fall on you.
+~
+S
+#0
+
+#RESETS
+O 0 4598 1 4572       *Load portal to enter house
+M 0 4570 1 4573 1     *Load umbrella stand
+E 0 4570 40 18        *umbrella
+M 0 4571 1 4573 1     *Load wardrobe
+E 0 4580 40 17        *hat stand
+M 0 4572 1 4573 1     *Load chest of drawers
+E 0 4572 40 18        *magic mirror
+M 0 4573 1 4574 1     *Load kitchen table
+E 0 4571 40 18        *table cloth
+M 0 4574 3 4574 3     *Load kitchen chair
+M 0 4574 3 4574 3     *Load kitchen chair
+M 0 4574 3 4574 3     *Load kitchen chair
+M 0 4575 1 4575 1     *Load kitchen sink
+E 0 4581 40 17        *dish cloth
+M 0 4576 1 4575 1     *Load stove
+E 0 4588 40 0         *flame
+G 0 4607 40           *cake
+M 0 4577 3 4576 3     *Load self
+G 0 4608 40           *potatoe
+G 0 4609 40           *carrot
+M 0 4577 3 4576 3     *Load self
+G 0 4610 40           *apple
+G 0 4609 40           *carrot
+M 0 4577 3 4576 3     *Load self
+G 0 4610 40           *apple
+G 0 4608 40           *potatoe
+M 0 4578 1 4577 1     *Load floor lamp
+E 0 4589 40 0         *bulb
+M 0 4579 1 4577 1     *Load glass cupboard
+M 0 4580 1 4577 1     *Load book shelf
+E 0 4582 40 17        *science fiction novel
+M 0 4581 1 4578 1     *Load sofa
+E 0 4573 40 18        *cushion
+M 0 4582 1 4578 1     *Load small table
+M 0 4583 3 4578 3     *Load easy chair
+E 0 4573 40 18        *cushion
+M 0 4583 3 4578 3     *Load easy chair
+E 0 4573 40 18        *cushion
+M 0 4583 3 4578 3     *Load easy chair
+E 0 4573 40 18        *cushion
+M 0 4584 1 4579 1     *Load rocking chair
+E 0 4573 40 18        *cushion
+M 0 4585 10 4580 2    *Load rose
+E 0 4574 40 18        *sweet smell
+M 0 4586 10 4580 2    *Load cactus
+E 0 4583 40 17        *cactus prick
+M 0 4585 10 4581 2    *Load rose
+E 0 4574 40 18        *sweet smell
+M 0 4586 10 4581 2    *Load cactus
+E 0 4583 40 17        *cactus prick
+M 0 4585 10 4582 2    *Load rose
+E 0 4574 40 18        *sweet smell
+M 0 4586 10 4582 2    *Load cactus
+E 0 4583 40 17        *cactus prick
+M 0 4587 1 4582 1     *Load apple tree
+G 0 4610 40           *apple
+G 0 4610 40           *apple
+M 0 4585 10 4583 2    *Load rose
+E 0 4574 40 18        *sweet smell
+M 0 4586 10 4583 2    *Load cactus
+E 0 4583 40 17        *cactus prick
+M 0 4585 10 4584 2    *Load rose
+E 0 4574 40 18        *sweet smell
+M 0 4586 10 4584 2    *Load cactus
+E 0 4583 40 17        *cactus prick
+M 0 4585 10 4585 2    *Load rose
+E 0 4574 40 18        *sweet smell
+M 0 4586 10 4585 2    *Load cactus
+E 0 4583 40 17        *cactus prick
+M 0 4588 1 4586 1     *Load deck chair
+O 0 4599 1 4587       *Load portal (to cellar)
+M 0 4589 1 4588 1     *Load bath tub
+E 0 4575 40 18        *rubber ducky
+M 0 4590 1 4588 1     *Load toilet
+M 0 4591 1 4588 1     *Load hand basin
+M 0 4592 1 4590 1     *Load picture
+E 0 4576 40 18        *inspiration
+O 0 4601 1 4590       *Load portal (to attic)
+M 0 4593 2 4591 1     *Load bed
+E 0 4573 40 18        *cushion
+M 0 4594 2 4591 1     *Load bedside table
+G 0 4593 40           *ring
+M 0 4595 3 4591 1     *Load chair
+M 0 4598 2 4591 1     *Load night light
+E 0 4590 40 0         *dim light
+M 0 4596 1 4592 1     *Load desk
+E 0 4584 40 17        *pencil
+M 0 4595 3 4591 1     *Load chair
+M 0 4597 1 4592 1     *Load book shelf
+E 0 4585 40 17        *detective novel
+O 0 4602 1 4592       *Load portal (to secret chamber)
+M 0 4593 2 4593 1     *Load bed
+E 0 4573 40 18        *cushion
+M 0 4594 2 4593 1     *Load bedside table
+M 0 4595 3 4593 1     *Load chair
+M 0 4598 2 4593 1     *Load night light
+E 0 4590 40 0         *dim light
+O 0 4600 1 4593       *Load portal (to wardrobe)
+O 0 4612 1 4594       *Load secret drawer
+P 0 4595 10 4612 1    *belt of magic power
+M 0 4599 6 4595 1     *Load big pile of rubbish
+M 0 4600 6 4595 1     *Load big old chest
+M 0 4599 6 4596 1     *Load big pile of rubbish
+M 0 4600 6 4596 1     *Load big old chest
+E 0 4577 40 18        *old conjuring trick
+M 0 4599 6 4597 1     *Load big pile of rubbish
+M 0 4600 6 4597 1     *Load big old chest
+M 0 4599 6 4598 1     *Load big pile of rubbish
+M 0 4600 6 4598 1     *Load big old chest
+E 0 4577 40 18        *old conjuring trick
+O 0 4606 1 4598       *Load portal (to roof)
+M 0 4599 6 4599 1     *Load big pile of rubbish
+M 0 4600 6 4599 1     *Load big old chest
+M 0 4599 6 4600 1     *Load big pile of rubbish
+M 0 4600 6 4600 1     *Load big old chest
+E 0 4577 40 18        *old conjuring trick
+M 0 4601 6 4601 2     *Load tile
+E 0 4591 40 0         *reflection of the sun
+M 0 4601 6 4601 2     *Load tile
+E 0 4591 40 0         *reflection of the sun
+M 0 4601 6 4602 2     *Load tile
+E 0 4591 40 0         *reflection of the sun
+M 0 4601 6 4602 2     *Load tile
+E 0 4591 40 0         *reflection of the sun
+M 0 4601 6 4603 2     *Load tile
+E 0 4591 40 0         *reflection of the sun
+M 0 4601 6 4603 2     *Load tile
+E 0 4591 40 0         *reflection of the sun
+M 0 4602 6 4604 2     *Load old wine bottle
+E 0 4578 40 18        *spirit
+O 0 4603 1 4604       *Load portal (to Corridor)
+M 0 4602 6 4605 2     *Load old wine bottle
+E 0 4578 40 18        *spirit
+M 0 4603 2 4606 1     *Load old shelf
+E 0 4586 40 17        *old newspaper
+M 0 4602 6 4606 2     *Load old wine bottle
+E 0 4578 40 18        *spirit
+M 0 4602 6 4607 2     *Load old wine bottle
+E 0 4578 40 18        *spirit
+M 0 4604 1 4607 1     *Load tester bed
+E 0 4596 40 11        *canopy
+O 0 4605 1 4607       *Load portal (to secret passage)
+M 0 4603 2 4607 1     *Load old shelf
+E 0 4586 40 17        *old newspaper
+M 0 4602 6 4608 2     *Load old wine bottle
+E 0 4578 40 18        *spirit
+O 0 4604 1 4610       *Load portal (from secret passage to cellar)
+M 0 4605 8 4610 2     *Load weird idea
+E 0 4592 40 0         *flash of genius
+M 0 4605 8 4610 2     *Load weird idea
+E 0 4587 40 17        *brainwave
+M 0 4605 8 4611 2     *Load weird idea
+E 0 4592 40 0         *flash of genius
+M 0 4605 8 4611 2     *Load weird idea
+M 0 4605 8 4612 2     *Load weird idea
+E 0 4587 40 17        *brainwave
+O 0 4613 1 4613       *Load hole in wall
+P 0 4597 30 4613 1    *amulet with a grinning face
+M 0 4605 8 4613 2     *Load weird idea
+E 0 4592 40 0         *flash of genius
+M 0 4605 8 4613 2     *Load weird idea
+E 0 4587 40 17        *brainwave
+M 0 4606 1 4615 1     *Load crazy wizard
+E 0 4594 30 1         *ring of the crazy wizard
+E 0 4579 40 18        *magical rainbow
+G 0 4611 5            *key
+D 0 4573 0 1          *door Entrance Hall
+D 0 4573 2 1          *door Entrance Hall
+D 0 4573 3 1          *door Entrance Hall
+D 0 4574 1 1          *door Kitchen
+D 0 4575 3 1          *door Kitchen
+D 0 4576 1 1          *door Pantry
+D 0 4577 2 1          *door Living Room
+D 0 4578 0 1          *door Living Room
+D 0 4579 2 1          *door Terrace
+D 0 4587 0 1          *door Corridor
+D 0 4588 2 1          *door Bath Room
+D 0 4590 0 1          *door Corridor
+D 0 4590 1 1          *door Corridor
+D 0 4590 2 1          *door Corridor
+D 0 4591 0 1          *door Guest Chamber
+D 0 4592 3 1          *door Study
+D 0 4593 2 1          *door Bedroom
+S
+
+#$
+
+

@@ -1,0 +1,971 @@
+0 VERSION~
+{WMy{BL{Ce{gg{Wa{Cc{By {gv{W1.4{x
+
+Legacy is currently stable.  Some bugs pop up, but we are doing our best
+to squash them immediately.  The 'My' in 'MyLegacy' refers to our dependence
+on MySQL, a very fast and powerful databasing engine used for increasing
+amounts of our information storage and retrieval.
+~
+
+0 MERC~
+This mud is based on Merc 2.1, created by Furey, Hatchet, and Kahn.  
+Merc 2.1 is available as Merc_21.tar.gz from ftp.tcp.com and 
+ftp.math.okstate.edu.
+E-mail to 'majordomo@webnexus.com' to join the merc mailing list.
+
+Thanks to ...
+  ... Diku Mud for starting it all.
+  ... The Free Software Foundation and DJ Delorie for kick-ass tools.
+  ... Copper Mud and Alfa Mud for releasing their code and worlds.
+  ... Aod of Generic for ... well, everything.  You're a hoopy frood, Aod.
+  ... Alander for many ideas and contributions.
+  ... John Brothers of Silly for permission to use Silly code and worlds.
+  ... Zrin for administering the mailing list.
+  ... Abaddon for proofreading our comm.c.
+  ... Hind, Quin, Vic, Diavolo, Oleg, Trienne, and others for porting help.
+  ... Diavolo, Grodyn, Morgenes, and others for code and bug fixes.
+  ... Raff, Doctor, VampLestat, Nirrad, Tyrst, PinkF, Chris, Glop for worlds.
+  ... the players and imps of Mud Dome, Final Mud, Mud Lite, Vego Mud, Rivers
+      of Mud, Ruhr Mud, and Mystic Realms for bug reports, ideas, new code,
+      and hours of enjoyment.
+
+Also see "help ROM" for information about the Rivers of Mud code base.
+~
+
+0 ROM~
+ROM started in early February 1993, using Merc 1.0 code. In July of 1993,  
+ROM II was started, eventually replacing the original ROM.  ROM was up for
+a little over a year, after which the code (version 2.3) was released,
+and various other ROM muds were started, including Rivers of Mud under
+a new management (Zump's ROM), at rom.org 9000.
+
+Alander's current project is Athen, the sequel to the ROM code. It can
+be found on Rehobaom's Legacy, at hypercube.org 9000.
+
+The following people contributed to the ROM flavor of the merc base code:
+
+Socials --  Kelsey and Liralen
+
+New, Improved Valhalla --  Liralen
+
+Puff's new special proc and improved poofin/poofout code --  Seth
+
+Maps and map shop --  Ezra, Regnan (Olympus)
+
+Nirvana zone --  Forstall (mobiles rewritten by Alander)
+
+Mob Factory --
+    Pinkfloyd (originally written for ROM, mobiles rewritten by Alander)
+
+Geographically correct Midgaard (tm) --  Alander
+
+Ideas and playtesting --  Thousands of dedicated mudders around the world
+
+The New Thalos area was donated by Onivel of Jedi, who was also the
+originator of the ASCII flags used in the zone files
+
+Beta testing --
+    Ken Blosser, Doug Araya, and Sherene Neil all helped with bugs reports
+    and suggestions, saving a lot of headaches
+
+Bug reports --
+    Thanks to Shad Muegge, Jerome Despret, Phoenix, Will Hongach,
+    Erwin S. Andreasen, Adam Debus and especially Gary Turkington
+    (author of the ROM FAQ) for help spotting bugs
+
+ROM 2.4 was developed during my time with Moosehead mud, and the release
+shares many of the features I wrote while I was there.  Additional code
+was written by Seth Scott (the new poofin/poofout), and many contributions
+and ideas from the Merc list were used.  Portions of Rusty's work on
+Moosehead also remain.
+
+The new features of 2.4 were largely produced in bull sessions with
+Gabrielle Taylor and Brian Moore, without whom this release wouldn't
+have happened.  In particular, the new privacy code, furniture, and
+wiznet are the results of Gabrielle's ideas.
+
+Changes to the standard diku mob and object format, as well as the changes
+to Merc 2.1 source code, were done by Alander over many a late night of
+hair-pulling. Hope you enjoy it.
+
+(my apologies if anyone was forgotten in this list)
+~
+
+-1 DIKU~
+.		     Original game idea, concept, and design:
+
+	  Katja Nyboe		    [Superwoman] (katz@freja.diku.dk)
+	  Tom Madsen		  [Stormbringer] (noop@freja.diku.dk)
+	  Hans Henrik Staerfeldt	   [God] (bombman@freja.diku.dk)
+	  Michael Seifert		  [Papi] (seifert@freja.diku.dk)
+	  Sebastian Hammer		 [Quinn] (quinn@freja.diku.dk)
+
+
+Developed at: DIKU -- The Department of Computer Science
+		      at the University of Copenhagen.
+~
+
+0 MOBINFO~
+.	     Our Mobiles have been infused with the breath of a
+	     shy faerie to give them a slightly warmer nature.
+	     Perhaps you have noticed this already.  If not, do
+	     take a moment to ask a mobile to tea.  The code is
+	     written by J Murphy, N'Atas-Ha of ThePrincedom and
+	     based on a concept created on Worlds of Carnage by
+	     Aaron Buhr. questions/comments to murph@cs.cmu.edu
+	     A little rewriting of the code/DOC/INSTALL done by
+	     Kahn of MERC Industries and tested extensively on
+	     Marble Mud.
+~
+
+0 WIZLIST~
+.
+    {P,{x                                                             {P,{x
+   {P'`,{x                                                           {P'`,{x
+   {P`,{x                                                            {P`,{x
+   {Y.:.{x               {WThe {GImmortal Staff {Wof {BL{Ce{gg{Wa{Cc{By{x                {Y.:.{x
+   {b)X({x                                                           {b)X({x
+  {b[{Y%%%{b]{x                                                         {b[{Y%%%{b]{x
+   {b|#|{N-----------------------------------------------------------{b|#|{x
+   {b|#|                                                           |#|{x
+   {b|#|         {CCoders{x                          {CAdmin{x             {b|#|{x
+   {b|#|   {G*{W=-=-=-=-=-=-=-=-=-={G*{x           {G*{W=-=-=-=-=-=-=-=-=-={G*   {b|#|{x
+   {b|#|         {YMontrey                         {YLidda             {b|#|{x
+   {b|#|         {YXenith                                            {b|#|{x 
+   {b|#|                                                           {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|                     {GL{Wegacy{G@{Wkyndig{G.{Wcom{x                     {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|         {CBuilders{x                        {CQwestors{x          {b|#|{x
+   {b|#|   {G*{W=-=-=-=-=-=-=-=-=-={G*{x           {G*{W=-=-=-=-=-=-=-=-=-={G*{x   {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|                                                           {b|#|{x
+   {b|#|{N-----------------------------------------------------------{b|#|{x
+   {b|#|                                                           {b|#|{x
+  {b[[|]]{x                                                         {b[[|]]{x
+~
+
+-1 GREETING~
+.
+{N         ____                                                    ____
+{N        (____)                 {gAge {Wof {BL{Ce{gg{Wa{Cc{By                    {N(____)
+{N        /____\                                                  /____\
+{N        |___{V.-^-.-^-.       {T______________________       {V.-^-.-^-.{N___|
+{N        |__{V(  __|__  )_  {T-=(_)____________________)=-  {V_(  __|__  ){N__|
+{N        |{V/ \/\_/^\._)/ \    {T/                   _/    {V/ \(_./^\_/\/ \{N|
+{V        (  (__{{({YO{V)}\_)  )  {T/-   {WMy{BL{Ce{gg{Wa{Cc{By {gv{W1.4   {T/    {V(  (_/{{({YO{V)}__)  )
+{N        |{V\_/ (/(_)\_))_/  {T(-                   (      {V\_((_/(_)\) \_/{N|
+{N  ______|_{V(  (__)_)_/ )    {T\     {BFounded by:    {T\      {V( \_(_(__)  ){N_|______
+{N /_________{V\_/  |  \_/      {T\                    \      {V\_/  |  \_/{N_________\
+{N|/   {G/' {W|\  /{V'-^'^-'{N\|       {T\_  {WL{Ci{Br{Ci{Te{Wl           {T\     {N|/{V'-^'^-'{W\  /| {G'\   {N\|
+{G    |  ({W| \/ |                {T\      {gM{Wo{gn{Ct{gr{We{gy       {T\            {W| \/ |{G)  |
+{G    |   `\   {W|                 {T\_        {Band {GE{Hdge  {T-\           {W|   {G/`   |
+{G     `\  `\  {W|    {G___           {T)                    )   {G___    {W|  {G/`  /`
+{G       `\  `\{W|  {G/' ..'>        {T/-   {CVisit us at    {T_/  {G<'..  '\ {W|{G/`  /`
+{G      __{W|{G`\  `\: ,' /'        {T/ {Clegacy.kyndig.com  {T/    {G'\ '  :/`  /`{W|{G___
+{G    /' _ /''`\  '__'        {T_/____________________/       {G'__'  /`''\ _ '\
+{G   < .'./'   {W|  {G|        {T-=(_)____________________)=-        {G|  {W|   {G'\.'. >
+{G    `^' {W|    |  {G|                                            |  {W|    |{G '^`
+{W        |    |{G/'       {NROM 2.4 (c)1993-1995 Russ Taylor      {G '\{W|    |
+{W        |    |    {NBased on Merc 2.1 by Hatchet, Furey, Kahn     {W|    |
+{W         \  /  {NDiku: Staerfeldt, Madsen, Nyboe, Seifert, Hammer  {W\  /
+{W          \/                                                      \/
+
+{YBy what name do you wish to be known?{x ~
+
+-1 MOTD~
+{WWelcome to {BL{Ce{gg{Wa{Cc{By{W!
+
+{Y* {BMake sure you know and understand the {Yrules{B which govern your characters
+  before you start playing.  It will help you tremendously.
+{Y* {BPlease read {Vhelp censor{B.  If you are punished for disregarding them,
+  there is NO excuse!
+{Y* {BYou can return to this message by typing {Ghelp motd{B at any time.
+{Y* {BIf you have any questions/comments/suggestions, please contact the
+  immortals via notes, or at {CLegacyImms@kyndig.com{B.
+{Y* {BThere will be absolutly no revealing of a person's alt identity. To 
+  do so will result in being 1212'd, then fried.
+
+
+
+{WRemember ...
+{BRespect both immortals and mortals, for only by working together do we 
+make this happen.  All ideas, comments, and constructive criticism is 
+appreciated here, and remember, above all, ENJOY YOURSELF!  :){x
+
+{WNew {PL{Ye{Vg{Ga{Bc{Cy {RBuilding Guide: {Whttp://legacy.kyndig.com/building/index.html{x
+{WDownloadable version {R({Bupdated nightly{R): {Whttp://legacy.kyndig.com/building/build.zip{x
+~
+
+92 IMOTD~
+Welcome Immortal!
+
+You are responsible for following the laws of immortal behavior. These can
+be found by typing 'help laws' or 'help commandments'.
+
+* Your actions represent the entire immstaff, remember that.
+
+* Do not ask to be promoted.
+
+* If at any time you have no clue what you're doing, ask.
+
+{WNew {PL{Ye{Vg{Ga{Bc{Cy {RBuilding Guide: {Whttp://legacy.kyndig.com/building/index.html{x
+{WDownloadable version {R({Bupdated nightly{R): {Whttp://legacy.kyndig.com/building/build.zip{x
+
+[Hit Return to Continue]
+~
+
+-1 AUTOMOTD~
+{C--------------------------------------------------------------------------------
+{WWelcome to {BL{Ce{gg{Wa{Cc{By{W!
+
+{Y* {BMake sure you know and understand the {Yrules{B which govern your characters
+  before you start playing.  It will help you tremendously.
+{Y* {BPlease read {Vhelp censor{B.  If you are punished for disregarding them,
+  there is NO excuse!
+{Y* {BYou can return to this message by typing {Ghelp motd{B at any time.
+{Y* {BIf you have any questions/comments/suggestions, please contact the
+  immortals via notes, or at {CLegacyImms@kyndig.com{B.
+
+{WRemember ...
+{BRespect both immortals and mortals, for only by working together do we 
+make this happen.  All ideas, comments, and constructive criticism are 
+appreciated here, and remember, above all, ENJOY YOURSELF!  :){x
+{C--------------------------------------------------------------------------------
+~
+
+0 BACKGROUND STORY~
+Let me sit you down, young traveler, and tell you a tale ...
+
+Long ago, the universe was very different.  Worlds existed only to
+themselves, and one such world called as Thera.  It was a thriving
+land, and together with its inhabitants, it was the realm known to
+all as Dizzy.  Filled with immortals and mortals alike, it thrived
+and prospered.  But then one day, it all ended.  Looking back, we can
+only guess that another realm had collided with Dizzy, but we still
+are not certain.  All we know is that everything as we knew it had
+been shattered, and all around us lay the bits and pieces of what was
+once our world.  
+
+Somehow, within the utter chaos, a separate, new universe had been
+born, and whether by the grace of Lady Luck or Lady Fate, three
+individuals stumbled upon it.  They saw what was before their eyes
+with crystal clarity, and knew what they had to do.  Slowly, and with
+painstaking effort, they took each shard they could find, and shaped
+it, melding them together to create a crude imitation of what they
+had known before.  
+
+But it was not enough.  For when they finished and glanced around
+themselves, only then did they begin to see the potential.  The earth
+was new, undisturbed.  The air was fresh, clean.  All around them lay 
+silence, but it was not unwelcome.  There was so much that could be.
+And so they started anew, breaking apart what they had just made, and
+reshaping, creating, drawing upon magicks and energy that even they
+did not know existed, until they had tried.  At the end, when it was
+finished, all three were exhausted.  But they looked around them, saw
+the joy, anguish, love, pain, and happiness that would take place 
+in what they had created, and it was worth it.
+
+Slowly, travelers started trickling in, and finding the peaceful, 
+open atmosphere to their liking, settled down and stayed.  Many more
+came, curious as to this realm where fantasy was reality, where the
+world was built into a whole, where mortals and immortals appreciated 
+alike, and where each and every traveler such as you will find
+something to captivate their interest and might adventure, explore,
+or just rest one's weary heart for a while.
+
+For yes, your guess is right ... that realm that I speak of is the
+very one you are in right now.  Enjoy your stay at Legacy.
+
+SEE ALSO: HELP VERSION
+~
+
+0 RULE RULES~
+{gThe {BRules {gof {BL{Ce{Wg{ga{Cc{By{x
+
+These are the rules of Legacy.  They are here to ensure that this mud is
+fair and enjoyable for everybody.  As a player of Legacy, you agree not to
+break any of the below rules - EVEN IF you do not agree with what they say.
+Ignorance is not an excuse, and violation of the rules is an indication
+that you do not wish to play, and the immortals will act accordingly.
+
+{Y*{x Harassment of players, especially newbies, in any form is not tolerated.
+{Y*{x Do not use clients or triggers to do any of the following:  bot, auto-
+  reconnect, or keep your character idle.  If you are suspected of such
+  activity and do not respond, your character shall be punished.
+{Y*{x Multiple playing and logins is strictly prohibited.  Helping your own 
+  characters by ANY method is considered cheating: this includes but is not
+  limited to giving gold to your other chars, spelling them, grouping with
+  them, weakening mobs, or transferring eq in any way (as in dropping it
+  and logging on to an alt to go pick it up).
+{Y*{x Spam is rude and disrespectful to everybody else on the mud.  Do not do
+  it.  Repeating anything 3 times in quick succession is one way spam will 
+  be identified, but not the only way.  Also, conflicts inevitably arise on 
+  muds between players.  Please keep it to private channels or tells.
+{Y*{x Do not advertise other muds on Legacy.  There are many places to do so,
+  such as www.mudconnect.com as well as usenet groups.  Logging on just to
+  advertise your own mud is frowned upon everywhere, and will get you a
+  quick nochannel.
+{Y*{x If you find a bug, please report it, and do not use it.  The immortals 
+  will get back to you.  
+{Y*{x If you have any questions regarding these rules, ASK THE IMMS!  We will
+  be more than happy to answer them.  If you go ahead and do something
+  without asking us, do not blame us if you are punished.
+
+Lastly, just because a rule is not posted here does not mean that it is not
+cheating.  Anybody found cheating can expect to find the smell of smoke and
+a small pile of ashes where their character used to be.  
+
+{YSEE ALSO:{x  Help Censor
+~
+
+0 IMMORTALS STAFF~
+The term "Immortals" (or Imms) refers to the staff of Legacy who work
+hard to provide a great mudding experience for you, the player.  The
+Imms run the mud, and are here to help you, but please do not ask any
+imms to assist you in any way that might interfere with game balance,
+for example: killing a mob, gathering EQ, locating objects, etc ... 
+Because the Imms have much more power than ordinary mortals, they have 
+many more rules they must follow.
+
+If you have a question or concern regarding the game or your character,
+you may address it to the Imms - that is what they are here for.  You
+can either note to Imms or use the pray channel.  Also, if an Immortal
+requests you to do something (or to stop doing something), please obey
+them immediately.  An Immortal's word is final in every case.
+
+{YSEE ALSO:{x Wizlist, Help Deity, Help Pray
+~
+
+0 LAG~
+Lag is a state of flux in the great Internet web in which you send a message 
+to a friend and they receive it sometime next century.
+~
+
+0 NEWBIE INFO~
+Ah! Another mortal, seeking adventure.  You should go through mudschool first,
+to gain experience to face the trials outside.  Be sure to practice a weapon
+in the guild room, or your stay with us shall be very short indeed.  Type
+'equipment' to see what your are wielding, 'spells' to see your spells,
+'skills' to see your skills, and 'commands' for a list of commands. Help is
+available on most commands and abilities.
+
+Please type 'help rules' to see the Rules of ROM.
+~
+
+0 | PIPE~
+Syntax: <{Ycommand{x> {P|{x <{Ycommand{x>
+
+The {Ppipe{x allows you to "{Ystack{x" commands.  You can {Ystack{x as many commands
+as you wish  (assuming you do not exceed the maximum input length for
+your list of commands).
+
+You can place {Ytwo {Ppipes{x next to each other to nullify the separation
+of commands.  Instead, it will just print {Yone{x {P|{x instead of the {P||{x you
+typed.	(This is useful for putting {Ppiped{x commands into aliases).
+
+{VFor example{x: {Yn{P|{Yscore{P|{Yw{P|{Yw{P|{Ycast 'blood' self{P|{Ys{P|{Yd{x
+~
+
+0 ROOMS AREA BUILDING~
+Our goal is to make {bL{Ye{Wga{Yc{by{x one of the best MUDs you will ever find.  Our
+uniqueness manifests in many ways, one of which is allowing players {Yof
+level 35 and up{x to have their own personal room complete with one mob and
+3 objects.  It is {Y100 quest points{x if your room is open to all, or
+{Y200 quest points{x if it is closed/private. You will need to work out all
+the details listed below.  Clan rooms are {Y50 quest points{x, and are always
+open to the entire clan.
+
+1. {PName{x of the room, general {Pdescription{x of the room, and
+   type of room ({Psafe{x, {Pnorecall{x, etc).
+
+2. Location of the room (which {Parea{x), {Pwhat existing room{x it is to
+   be connected to, {Pin which direction{x, and by what type of door
+   ({Pno door{x, {Ppass door only{x, etc).
+
+3. {YOne mobile{x and {Y3 objects{x ({Pfurniture/{Pbed{x, {Pfountain{x/{Pdrink{x,
+   {Ppill{x/{Ppotion{x/{Pwand{x/{Pscroll{x), subject to the following restrictions:
+
+   The {Pbed{x will be {P150/150 regen rate{x. The {Ppill{x/{Ppotion{x is {Ylevel 15{x,
+   with {Yfour level 15 spells{x. The {CIMP{x reserves the right to restrict all
+   spells on objects.  The {Pwand{x/{Pscroll{x level may be {Yno lower than level 15{x,
+   with 3 charges of a spell {Yno higher than level 25{x.
+   -The {Pwand{x/{Pscroll{x can also be a {Pfountain{x or another object, at the sole
+    discretion of the {Cbuilders{x.
+
+Due to {bL{Ye{Wga{Yc{by{x's EPA regulations, we can only allow one personal room
+per player, and since we have become more aware of protecting our
+environment, no portals are allowed in personal rooms. This ruling is
+because there are several portals already established and maintained.
+
+When you have completed all descriptions for room, mob, and objects,
+submit it by {Pemail{V(preferably){x or by {Pnote{V(not recommended){x to the {Cbuilders{x,
+or the {PI{Ym{Gp{Bl{Ve{Pm{Ye{Gn{Bt{Vo{Pr{x, who will check it and give it
+to a {Cbuilder{x to code. Once your room is submitted and approved, it cannot be
+changed (except for typos/bugs). Make sure it is {Y*exactly*{x the way you want it.
+The {Cbuilders{x at Legacy are extremely helpful and will advise you if you run
+into a problem.
+~
+
+0 HEALER~
+The {Ghealer{x decided to grab a quick buck, and now charges for her heals.  Some
+services are still {Cfree{x to players of level {Y10 or below{x.  To see
+a full listing of the healer's services, type '{Gheal{x' at her residence. To
+receive healing, bring plenty of money, and type '{Gheal <{Yspell{x>'.
+~
+
+0 AUTOTICK AUTOLIST AUTOLOOT AUTOGOLD AUTOSAC AUTOEXIT AUTOASSIST AUTORECALL AUTOSPLIT AUTOPEEK~
+ROM uses various {Vautomatic actions{x to ease the boredom of always splitting
+gold, sacrificing corpses and similar repetitive tasks.  The commands are:
+
+{Vautolist{x  {c| {Ylist all automatic actions{x ({Gsee below{x)
+{c--------------------------------------------------------------
+{Vautoloot{x  {c| {Btake all {Yequipment from dead mobiles{x
+{Vautogold{x  {c| {Btake all {Ygold from dead mobiles{x
+{Vautosac{x   {c| {Msacrifice {Ydead monsters (if autoloot is on, only empty corpes){x
+{Vautoexit{x  {c| {Cdisplay {Yroom exits upon entering a room{x
+{Vautosplit{x {c| {Gsplit up {Yspoils from combat among your group members{x
+{Vautoassist{x{c| {Pmakes {Yyou help group members in combat{x
+{Vautotick{x  {c| {Cdisplays {Ya message when a tick occurs{x
+{Vautorecall{x{c| When {Rlinkdead, {Yyou will repeatedly attempt to recall{x
+{Vautopeek{x  {c| {Rpeek {Yat a character when you look at him/her/it{x
+
+Typing a command sets the action , typing it again removes it.
+~
+
+0 AURA~
+Syntax:
+   {Vaura{x
+
+The {Vaura{x command is used to give a gimmic aura to mortals.  This can be
+done for several purposes.  It can be used for followers: {V({WL{Ci{Br{Ci{Te{Wl{x {GA{Hura{V){x, or
+it can be used for punishment: {V(Probation Aura){x.  Auras are a gift, not a right,
+and thus can be revoked or changed at any time at the discretion of the
+Immortals.
+
+{Vaura{x alone shows you your current aura.
+~
+
+-1 DEITY DEITIES~
+A deity is the Immortal your character worships.  Each Immortal of this
+mud may be either aligned Good, Neutral, or Evil.  Additionally, they
+may be lawful, or chaotic.  Please pick a deity who best represents who
+your character admires and strives to be like.  Although your first
+deity is selected during character creation, you may decide to change who
+you worship when you remort.  
+
+{YSEE ALSO:{x Wizlist
+~
+
+0 RESTRING~
+A {Crestring{x is the process of taking an item of equipment or a pet
+and renaming them for a more personal touch.  {CRestrings{x are usually
+a prize offered for valiant efforts during a quest.  When redeeming
+a {Crestring{x, please provide the following information:
+
+{VKeywords{x: {YWords that identify{x the item/pet
+	  (sword, twilight, dreamslayer)(kitten moxie)
+{VShort{x:    Description seen when you type "{YInventory{x" or "{YEquipment{x"
+	  or pet's basic name.
+	  (Twilight Dreamslayer)(Moxie the Kitten)
+{VLong{x:     Description of something {Ysitting in a room or on the ground{x
+	  (a cold sword lies here)(Moxie is here, licking her paws)
+{VExtended{x: *{GObjects Only{x* Extra Keywords and Descriptions for stuff
+	  that you have to {Yexplicitly look at{x.
+	  ('hilt' - The hilt is carved from an ebony bone)
+~
+
+0 SHOWLAST FINGER FINGERINFO~
+Syntax:
+   {Vfinger{x <{Ycharacter{x>
+   {Vfinger private{x
+   {Vfingerinfo{x
+   {vshowlast{x
+
+This command will display the last time a character was playing on
+{bL{Ye{Wga{Yc{by{x along with several items of other useful unformation.
+Abbreviations cannot be used for character names.
+
+The {Vfinger private{x command will toggle the appearance of your {Yemail{x
+{Yaddress{x in the {Vfinger data{x.  This setting defaults to off.
+
+The {Vfingerinfo{x command is identical to the description command.  It
+can be used to add additional information to your {Vfinger data{x.
+
+The {Vshowlast{x command will toggle whether a player's last time on
+displays in the finger listing.
+
+{YNOTE{x: The {Vfinger data{x does not {Yupdate{x until your character has been
+saved by either the {Yautosave feature{x or by typing the {Ysave{x command.
+~
+
+0 SUICIDE DELETE~
+Use the delete command to erase unwanted characters, so the name will be
+available for use.  This command must be typed twice to delete a character,
+and you cannot be forced to delete.  Typing delete with an argument will
+return your character to 'safe' status if you change your mind after the
+first delete.
+~
+
+0 QUEST QUESTS~
+Certain characters in the game will allow you to go on {Yquests{x to recover
+an item or {Pkill{x a mob. To go on a {Yquest{x, you must be in the
+same room with a questmaster. When you successfully complete a {Yquest{x, you
+will receive a certain number of {Yquest {Gpoints{x ({YQP{x). These points
+may be saved up and used to buy restrings, practices, or player rooms. See
+{RHELP QP{x for other uses for Quest Points.
+
+The {YQUEST{x command is used for information about your current {Yquest{x,
+to request a {Yquest{x from a questmaster, etc. Commands are as follows:
+
+{YQUEST {MPOINTS{x - Gives your current number of {Yquest {Mpoints{x. This
+command may be used anywhere.
+
+{YQUEST {BINFO{x - If you are on a {Yquest{x, this will remind you who or
+what you are after.
+
+{YQUEST {CTIME{x - Gives the amount of {Ctime{x remaining on your current
+{Yquest{x, or the amount of {Ctime{x until you can request another {Yquest{x.
+This command may be used anywhere.
+
+{YQUEST {VREQUEST{x - Petitions the questmaster to send you on a {Yquest{x.
+If you accept the {Yquest{x, you will be given a real time limit (in minutes)
+in which you must complete the {Yquest{x. If you are on a {Yquest{x to kill a
+creature, when you come across that creature you will see a {P[TARGET]{x
+notice before it. This is the creature you are to kill.
+
+{YQUEST {GCOMPLETE{x - Once you have completed your {Yquest{x and recovered
+the item or killed the mob or whatever, you must return to the questmaster
+who sent you on the {Yquest{x and use this command. If you have successfully
+completed your {Yquest{x, he will reward you with {Yquest {Mpoints{x. Once
+you complete a {Yquest{x you cannot request another for 10 minutes.
+
+{YQUEST {PFORFEIT{x - This option will stop the current {Yquest{x and
+{Pforfeit{x your prize. You will have you wait to {Yquest{x again for another
+{M10{x minutes.
+
+{cQuest Code (c) 1996 Ryan Addams{x
+~
+
+0 QP QPPRICE~
+You can purchase a number of useful oddities from immortals with qp.
+The following is a list, with prices. 
+
+      {BOne Spell{x         : {Y50 QP
+      {BOne Restring{x      : {Y25 QP
+      {BA Lesser Enchant{x  : {Y35 QP
+      {BA Greater Enchant{x : {Y50 QP
+      {BOne Practice{x      : {Y20 QP
+      {BOne Train{x         : {Y200 QP{x
+
+{CEnchants{x can be either weapon or armor.  Lesser enchants are from
+immortals level 99 or below, and have a small chance to be brilliant
+blue.  Greater enchants are from level 100 imms and are guaranteed
+to be brilliant blue.  Weapon and armor enchants will not exceed {P+14{x
+above original stats or {P+18{x total, whichever is lower.  Trade-ins 
+and refunds are not accepted after enchanting of equipment.
+
+You may also {Glower{x equipment that is above the mortal plane with qp.
+You must be a hero (level 91) in order to have eq lowered.  The
+following are the prices.
+
+{Y125 qp{x to lower any piece of level {P92{x equipment
+{Y150 qp{x to lower any piece of level {P93{x equipment
+{Y175 qp{x to lower any piece of level {P94 and above{x equipment
+~
+
+0 BACKUP~
+Syntax: {Cbackup{x
+
+This command saves a backup copy of your character in a separate directory.
+Unlike {Csave{x, this is *not* automatic but needs {Yyou{x to do it.
+Having a backup copy of your character is good if your player file becomes
+damaged somehow, the Imms can then restore your character from the backup.
+We recommend doing {Rbackup{x about once a day.
+
+Everytime you log in, the mud will notify you if it has been an hour or
+longer since your last backup.	After 24 hours, the message will change
+colors to catch your attention.
+
+{YSEE ALSO:{x Save
+~
+
+0 STRENGTH STR~
+{CStrength{x as the name suggests is a mark on how strong you are. The
+stronger you are the more damage you do, the more you can carry (weight
+wise) and you are able to wield heavier weaponry. 
+~
+
+0 DEXTERITY DEX~
+{CDexterity{x is a measure of your agility and prowess. The higher
+it is the easier it is to avoid attacks.
+~
+
+0 INTELLIGENCE INT~
+{CIntelligence{x is a mark of how clever you are. Intelligence is used for 
+gaining more mana per level, specifically by magic-using classes. It also
+guides how much of a percentage increase you get when you practice.
+~
+
+0 WISDOM WIS~
+{CWisdom{x is used to define how wise you are, and marks how many practices
+you get per level.
+~
+
+0 CONSTITUTION CON~
+{CConstitution{x is the mark of how healthy you are, the higher your
+constitution the more hit point you'll gain per level.
+~
+
+0 CHARISMA CHR~
+{CCharisma{x affects how you interact with monsters and the Hidden Fates.
+Specifically, a high charisma makes aggressive monsters less likely to
+attack you (they may hesitate just long enough for you to wander on by,
+or long enough for you to have a nice nap). Also, with a high charisma,
+you have a chance of getting 2 {Ytrains{x {G(!){x each time you gain a level.
+~
+
+0 VIDEO DARK VT100 FLASH~
+Syntax: {Cvideo flash <{Yon, off, or underline{x>
+        {Cvideo dark  <{Ynormal or modify{x>
+        {Cvideo vt100 <{Yon or off{x>
+        {Cvideo codes <{Yshow or hide{x>
+
+{Cvideo flash{x controls how text designed to flash ({{f) will appear on your
+screen (flashing, normal, or underlined). Underlined text may appear as
+reversed video, depending on your screen emulator. {Cvideo dark{x controls
+how you will see black ({{k) and charcoal ({{c) text (normal means you
+see them as black or charcoal, modify means black and charcoal will appear
+as grey). {Cvideo vt100{x {Yon{x sends output to your terminal in vt100 mode
+(which may well not be what you want, so {Cvideo vt100{x {Yoff{x will fix it).
+{Cvideo codes{x {Yshow{x will show you the code sequences used in colored strings
+that you see.  This will probably give you a headache, so you can use
+{Cvideo codes{x {Yoff{x to turn it off again.
+~
+
+0 CLEAR~
+Syntax: {Cclear{x
+
+Clears the screen.
+~
+
+0 MULTIPLAY MULTIPLAYING MULTIPLAYERS MULTI~
+The act of simultaneously playing more than one character at the same time
+is call Multiplaying. This is an illegal act here on Legacy.  Playing more
+than one character makes it easier for you to level, true, but it takes
+away from the roleplaying experience and fun you can have when you just
+try and flesh out one character.  It also gives you an unfair advantage
+over those who try to follow the rules.  Having two characters on at the
+same time, even if they aren't interacting with each other.  Even if one
+is playing while the other is recovering (sleeping) is still multiplaying.
+The point is, no logging on with multiple Characters.
+~
+
+0 SUMMARY~
+MOVEMENT                            GROUP
+north south east west up down       follow group gtell split
+exits recall scan search hide
+sleep wake rest stand
+
+OBJECTS                             INFORMATION / COMMUNICATION
+get put drop give sacrifice         help credits commands areas
+wear wield hold second              report score time weather
+recite quaff zap brandish           description password title
+lock unlock open close pick         bug idea typo
+inventory equipment look compare    gossip say tell yell query
+eat drink fill pour                 emote pose semote pray
+list buy sell value auction         note
+forge repair lore                   who shortwho where hunt
+brew scribe envenom steal
+
+COMBAT                              OTHER
+kill flee kick rescue disarm        ! save quit
+backstab cast wimpy                 practice train
+bash trip circle dirt sing          auto
+
+For more help, type '{Phelp{x <{Ytopic{x>' for any command, skill, or spell.
+Also help on: DAMAGE DEATH EXPERIENCE NEWS STORY TICK WIZLIST
+~
+
+0 PET PETS~
+You can buy pets in the pet shop.  You may own only one pet at a time, and
+after the old one dies you may purchase a replacement.  When you buy your
+pet, you are given a chance to name it; the syntax is:
+     {Ybuy {c<petspecies> {R<name>{x.
+Thereafter, you can refer to your pet by its name in {Yorders{x, {Ylook{x, and
+other commands.
+~
+
+0 TICK~
+Many of the game actions are based upon interval timers, including combat,
+most autonomous monster actions, hp/mana/move regeneration, spell 
+duration, weather, and area resetting.
+
+Of these timers, the hp/mana/move regeneration timer is popularly called
+the 'tick'.  Ticks on this mud average 45 seconds of real time, but the
+actual amount varies randomly from 30 seconds to 60 seconds.
+
+Area resetting happens roughly every 3 minutes if no one is in the area;
+less often (15 minutes) if someone is.  Also note that objects lying on
+the ground won't be regenerated if anyone is in the area when it resets.
+~
+
+0 !~
+Syntax: !
+
+! repeats the last command you typed.
+~
+
+0 STORAGE VACATION~
+If you are leaving for an extended period of time, you may request that
+your character be put in storage, to avoid the necessary cleanup of
+inactive characters.  If you wish to do this, post a note to immortal
+or send an email to legacy@kyndig.com.
+~
+
+0 BUG TYPO~
+Syntax: {Cbug{x <{Ymessage{x>
+        {Ctypo{x <{Ymessage{x>
+
+These commands will take your message and record it into a file as feedback
+to the mud implementors.
+~
+
+0 QUIT	RENT SAVE~
+Syntax: {Cquit{x
+        {Csave{x
+
+{CSave{x saves your character and objects.  The game saves your character
+every 15 minutes, and this is the preferred method of saving.  Typing {Csave{x
+will block all other commands for about 20 seconds, so use it sparingly.
+(90+ players all typing save every 30 seconds generated too much lag.)
+
+Some objects, such as certain keys, may not be saved.
+
+{CQuit{x leaves the game.  You may {Cquit{x anywhere.  When you re-enter the game
+you will be back in the same room.
+
+{CQuit{x automatically does a {Ysave{x, so you can safely leave the game with just
+one command.  Nevertheless it's a good idea to {Ysave{x before {Cquit{x.  If you
+get into the habit of using {Cquit{x without {Ysave{x, and then you play some other
+mud that doesn't save before quitting, you're going to regret it.
+
+There is no {PRENT{x in this mud.  Just {Ysave{x and {Cquit{x whenever you want to leave.
+
+{YSEE ALSO:{x backup
+~
+
+0 TRUST~
+Having trust enables your character to have access to commands at 
+your trust level.  However, it does not change the permanant stats 
+of your character.  Thus, having trust of 91 allows your character 
+to have access to the hero channel and the scon command even though 
+you are below the required level.
+~
+
+0 HERO~
+{WHero{x is the only mortal level with a name. It is the name of level 91,
+the last non-immortal level. It takes a lot of work to get here, so
+heroes are usually held in high regard in the game. Heroes gain a number
+of convenient privileges when they reach this level. For one, they can
+die without losing experience.
+
+On the other hand, heroes do not gain experience. When they are done
+showing off their newly-found power, their best bet is to ask an Imm
+for a {CREMORT{x and start over as a rather powerful newbie.
+
+{YSEE ALSO:{x remort
+~
+
+0 NEWBIE INFO~
+Helpful Commands for Newbies:
+
+{CHELP FILES{x - Auto, Death, Gold, Player, Rooms, Clans, Changes,
+Color, Credits, Levels, and Email.
+
+{VNON NEWBIES{x: The majority of your auto commands have been set to
+'ON' for your convenience.
+
+You are born with a newbiebag token in your hand. Give it to the
+healer 1 north of recall to get your very own newbiebag! It holds
+several useful items including a manual and hints on MUDding.
+~
+
+0 COPYOVER~
+{CCOPYOVER{x is an imm command which is used to re-load the game for
+changes in areas or program software. {YMortals{x should know this:
+
+A copyover is not always successful, it may crash the game. You should
+{CSAVE{x when a copyover is announced.
+
+If the copyover crashes the game, try to reconnect again soon. The game
+should be back up within less than a minute.
+
+A copyover always results in a complete game reset. If you were fighting a
+mob at the time of copyover, when it's over you may be facing a brand new
+and healthy copy of the mob, whereas you will have the same wounds you had
+before the copyover.  If you are in an aggressive mob's room at copyover
+time, that mob will be there after the copyover and will attack you.  All
+quests will be forfeited. The donation pit will also be emptied, all shop-
+keepers will revert to their normal inventory, and you will lose anything in
+your inventory which is more than seven levels above you. Thus,
+
+- When {CCOPYOVER{x is announced, {Yfinish any current fight as soon as
+  possible, and move to some place where you will be safe from aggressive
+  mobs!{x  {PDo not start any new quests or fights!{x
+
+- If you are in the middle of a quest or a fight and need some time to
+  finish up, use {WGOSSIP{x to inform the immortal and (s)he will usually
+  give you a chance to get ready.
+
+- Buy anything in the shop that you might have been saving for, and get
+  what you need from the pit. And get someone of higher level to hold that
+  precious item you just bought at auction but can't use for a few levels.
+
+When you see a message saying
+   {W*** COPYOVER by (immortal) ... please remain seated!{x
+then you can start playing as soon as you can move again.
+~
+
+0 MOOCHING~
+As in real life, there are players who accomplish a lot on their own through
+hard work and using their head, and there are the {Ymoochers{x who loudly (and
+often obnoxiously) beg everyone for help in getting experience, equipment,
+gold or spell-ups. The clever workers and explorers get a lot more out of the
+game, believe me! It's OK to ask for help if you get into unexpected trouble,
+the helpful folks at Legacy will be happy to assist if they can. You can ask
+for the occasional bit of information if you've tried to come by it on your
+own and can't seem to find it. It's {Pnot{x OK to try to get people to help
+you with every step because you're {Ytoo lazy!{x Check all these resources
+before {Ywhining{x for help:
+- You are born with a token for a {Cnewbie bag{x in your hand. If you give
+  it to Deirdre, the Healer 1 north of the Temple of Mota (Recall), she will
+  give you a newbie bag with useful equipment and helpful hints in it, even
+  some food and drink.
+- Other equipment and some silver can be gotten by killing mobs in MUD school
+  and the Fair. The directions to the Fair are in the {CNewbie Bag{x.
+- You are born with a map of Midgaard in your hand. There is also a {Cmap shop{x
+  at the west end of Poor Alley, which runs a bit south of Main Street.
+- Before you ask '{GWhere can I go to level?{x', try exploring on your own
+  for a while! Check the list from the {RAREAS{x command for reference.
+- If you do need to ask for help, be polite. People have their own characters
+  to level here, and are doing you a favor by helping you.
+~
+
+91 APPLICATION~
+Applying for Immortality
+
+The final step for any mortal is the assumption of immortal power. In order
+to climb the last few steps to immortality, you must submit an application.
+This help file will give you some direction as to the content of that
+application.
+
+First, what this application should not be:
+Too long
+Too short
+A glorification of you
+A diatribe of us
+and, most importantly,
+DO NOT BE VAGUE
+
+What your submission must include:
+
+1. Tell us what you have done.
+Have you been a Clan leader? Can you code? Can you build? Have you coded
+for us already? Have you been building for us in your spare time? Knowing
+what you have done can help us picture what you will accomplish in your
+immortality.
+
+2. Tell us what you want to do.
+Everyone has plans for the mud. Many applications address this point, but
+we want you to understand the importance of your ideas. We want highly
+motivated imms who know what they want to do and to not need to be told
+what to do. If you do not tell us what you want to do, then it seems you do
+not want to do anything.
+
+3. Tell us how you want to do it.
+This is the section where everyone has problems. Applicants talk about
+changing the mud. They weave fine tapestries of gold and light to produce a
+picture of the mud as it would be if they were an immortal. Then, they
+forget to tell us how they plan to make their dream real. Every good idea
+has a workable plan. You must tell us your plan or suffer from the sad
+reality that we cannot read your mind.
+
+Something your application can include:
+Flavor/Personality
+If you like to roleplay, write the note in character. Nothing is more
+pleasing than to have an immortal who has personality. Write in your
+accent. Use your mannerisms. We enjoy a good read as much as the next
+person. A word of caution though: Do not overwhelm the intent of the paper
+with your roleplay. The submission is there to be evaluated on your ability
+to contribute to the mud, not how convincingly you can portray a down and
+out blacksmith with only one hand and a lisp.
+
+Remember:
+This is just a *guide*. Do not follow this help file to the letter. You are
+writing a paper that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
+
+0 LEGACY SET IMMLEGACIES~
+Besides the Questmaster, the immortals also will hold frequently hold
+quests for your enjoyment.  You can collect a legacy set from any imm
+using that imm's tokens.  The {BI{Cmm {BL{Cegacy {BS{Cystem{x is as follows.
+
+There will be three types of tokens:
+
+    {GHidden{x tokens, dropped randomly throughout the realm
+    {VTrivia{x tokens, given for when trivia is held
+    {YQuest{x tokens, as rewards for quests the imm holds
+
+In order to receive a particular imm's legacy set, you must collect
+fifty ({P50{x) of each token.  Sometimes, rare {Ww{Vi{Cl{Bd{x tokens might be 
+available that count as any one.  Once you have collected the {P150
+tokens{x, you turn it in to that particular imm, who will give you your
+choice of {BL{Cegacy {BS{Cet{x.
+
+{WNote: Imp legacies require 150 tokens, but in no particular assortment.
+        The rule of 50 of each token does not apply.{x
+
+1.{x A token for {Y1,000 {xquest points{x  ({Y2,000{x if it is an {BI{Cmp{B L{Cegacy{x)
+2.{x A token for {G90 levels{x (2 tokens if it is an {BI{Cmp{B L{Cegacy{x)
+3.{x {BTwo pieces of eq{x, ownered and designed by you, using the points system.
+   The rules on ClanEQ will apply ({BI{Cmp {Bl{Cegacies{x will have their own unique, 
+   pre-designed eq, if you choose this option)
+
+{VGood luck!{x :)
+~
+
+0 ALTERNATE ALTERNATES ALT ALTS~
+An {Calternate{x, or '{Calt{x', is a character played by the same person as
+another character.  This is allowed, and even encouraged, as part of the
+fun is trying out classes and races that you may be unfamiliar with.  Many
+players have more than one character, and most try to roleplay them
+separately from their other characters.  This too is encouraged, many
+find the challenge of roleplaying different characters stimulating.
+
+Roleplay is not forced on {BL{Te{gg{Wa{Tc{By, but this should not be confused with
+tolerance of making it difficult to roleplay.  Players work hard to keep
+their alts separate, but alas, it is natural to blur the difference
+between player and character.  People tend to familiarize themselves with
+the player, and in doing so, often fail to treat their characters as
+individuals.  Thus, many players do not reveal the identities of all their
+characters.
+
+If you know who a player's alts are, do NOT reveal them to others without
+express permission from that player.  It is considered rude and extremely
+bad etiquette, and is not tolerated on Legacy.  This applies to any form
+of communication on the mud, including notes and channels.  {PPunishment{x for
+revealing alts is swift and harsh.  Please, respect your fellow players,
+don't destroy the possibility of roleplay for others.
+~
+
+-2

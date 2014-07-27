@@ -1,0 +1,310 @@
+pc_index
+drop table if exists pc_index;
+create table pc_index (name	varchar(15), title tinyblob, deity tinyblob, deity_nocol tinyblob, cgroup integer, level tinyint unsigned, is_imm tinyint unsigned, remort tinyint unsigned, clan varchar(15), rank varchar(25));
+name			varchar(15)
+title			tinyblob
+deity			tinyblob
+deity_nocol		tinyblob
+cgroup			integer
+level			tinyint unsigned
+is_imm			tinyint unsigned
+remort			tinyint unsigned
+clan			varchar(15)
+rank			varchar(25)
+
+
+clans
+drop table if exists clans;
+create table clans (name varchar(15) not null primary key unique, current tinyint unsigned, who_name varchar(40), clanname varchar(100), creator varchar(100), hall smallint unsigned, minvnum smallint unsigned, maxvnum smallint unsigned, independent tinyint unsigned, clanqp integer, gold integer, score smallint, warcpmod smallint);
+name			varchar(15) not null primary key unique
+current			tinyint unsigned
+who_name		varchar(40)
+clanname		varchar(100)
+creator			varchar(100)
+hall			smallint unsigned
+minvnum			smallint unsigned
+maxvnum			smallint unsigned
+independent		tinyint unsigned
+clanqp			integer
+gold			integer
+score			smallint
+warcpmod		smallint
+
+
+records
+drop table if exists records;
+create table records (logins integer, players smallint unsigned);
+logins			integer
+players			smallint unsigned
+
+
+helps
+drop table if exists helps;
+create table helps (filename varchar(14), level tinyint, cgroup integer, keywords tinyblob, helptext blob);
+filename		varchar(14)
+level			tinyint
+cgroup			integer
+keywords		tinyblob
+helptext		blob
+
+
+sites
+drop table if exists sites;
+create table sites (name varchar(15), site tinyblob, ssite tinyblob, lastlog timestamp(10));
+name			varchar(15)
+site			tinyblob
+ssite			tinyblob
+lastlog			TIMESTAMP(10)
+
+
+disabled
+drop table if exists disabled;
+create table disabled (command varchar(50), immortal varchar(15), reason varchar(45));
+command			varchar(50)
+immortal		varchar(15)
+reason			varchar(45)
+
+
+bans
+drop table if exists bans;
+create table bans (site varchar(30), banner varchar(15), flags integer, reason varchar(45));
+site			varchar(30)
+banner			varchar(15)
+flags			integer
+reason			varchar(45)
+
+
+players
+drop table if exists players;
+create table players (id varchar(14) not null primary key unique,
+id				varchar(14)
+master_id		varchar(14)
+name			varchar(100)
+short_descr		varchar(255)
+long_descr		varchar(255)
+description		blob
+race			varchar(50)
+clan			varchar(16)
+level			smallint
+room			smallint unsigned
+hp				smallint
+mana			smallint
+stamina			smallint
+gold			integer
+silver			integer
+position		tinyint
+alignment		smallint
+imm_flags		integer
+res_flags		integer
+vuln_flags		integer
+act_flags		integer
+perm_str		tinyint
+perm_int		tinyint
+perm_wis		tinyint
+perm_dex		tinyint
+perm_con		tinyint
+perm_chr		tinyint
+quest_count		tinyint
+
+
+// used for both player affects and object affects
+player-obj_affects
+drop table if exists player_affects;
+create table player_affects(p_id varchar(14),
+p_id			varchar(14)
+name			varchar(255)
+afwhere			tinyint
+level			smallint
+duration		smallint
+modifier		smallint
+location		smallint
+evolution		tinyint
+bitvector		integer
+
+
+player_pcdata
+drop table if exists player_pcdata;
+create table player_pcdata(p_id varchar(14),
+p_id			varchar(14)
+cname			tinyblob
+prompt			tinyblob
+spouse			varchar(15)
+whisper			varchar(15)
+partner			varchar(15)
+bamfin			tinyblob
+bamfout			tinyblob
+gamein			tinyblob
+gameout			tinyblob
+afk				tinyblob
+title			tinyblob
+immname			tinyblob
+rank			tinyblob
+aura			tinyblob
+email			varchar(255)
+deity			varchar(255)
+status			tinyblob
+fingerinfo		blob
+plr				integer
+video			integer
+comm			integer
+revoke			integer
+cgroup			integer
+censor			integer
+wiznet			integer
+mud_exp			tinyint
+class			tinyint
+played			integer
+last_note		integer
+last_idea		integer
+last_roleplay	integer
+last_immquest	integer
+last_changes	integer
+last_personal	integer
+last_trade		integer
+scroll			tinyint
+silver_in_bank	integer
+gold_in_bank	integer
+exp				integer
+pckills			smallint
+pckilled		smallint
+arenakills		smallint
+arenakilled		smallint
+pkrank			tinyint
+mark_room		smallint
+practice		smallint
+train			smallint
+wimpy			smallint
+flag_killer		smallint
+flag_thief		smallint
+invis_level		tinyint
+lurk_level		tinyint
+secure_level	tinyint
+gold_donated	integer
+skillpoints		smallint
+rolepoints		smallint
+questpoints		smallint
+questpoints_donated	smallint
+points			smallint
+true_sex		tinyint
+last_level		integer
+remort_count	tinyint
+perm_hit		smallint
+perm_mana		smallint
+perm_stam		smallint
+trains_to_hit	smallint
+trains_to_mana	smallint
+trains_to_stam	smallint
+condition1		tinyint
+condition2		tinyint
+condition3		tinyint
+condition4		tinyint
+squest_count	tinyint
+
+
+player_skills
+drop table if exists player_skills;
+create table player_skills(p_id varchar(14), name varchar(30), learned tinyint, evolution tinyint);
+p_id			varchar(14)
+name			varchar(255)
+learned			tinyint
+evolution		tinyint
+
+
+player_extraskills
+drop table if exists player_extraskills;
+create table player_extraskills(p_id varchar(14),
+p_id			varchar(14)
+slot			tinyint
+skill			varchar(255)
+
+
+player_raffects
+drop table if exists player_raffects;
+create table player_raffects(p_id varchar(14),
+p_id			varchar(14)
+slot			tinyint
+raffect			smallint
+
+
+player_colors
+drop table if exists player_colors;
+create table player_colors(p_id varchar(14),
+p_id			varchar(14)
+slot			tinyint unsigned
+color			tinyint
+bold			tinyint
+
+
+player_ignore
+drop table if exists player_ignore;
+create table player_ignore(p_id varchar(14),
+p_id			varchar(14)
+name			varchar(15)
+
+
+player_alias
+drop table if exists player_alias;
+create table player_alias(p_id varchar(14),
+p_id			varchar(14)
+alias_str		varchar(50)
+alias_sub		tinyblob
+
+
+player_query
+drop table if exists player_query;
+create table player_query(p_id varchar(14),
+p_id			varchar(14)
+name			varchar(15)
+
+
+player_skgroups
+drop table if exists player_skgroups;
+create table player_skgroups(p_id varchar(14),
+p_id			varchar(14)
+name			varchar(50)
+
+
+player_objects
+drop table if exists player_objects;
+create table player_objects(id varchar(14), p_id varchar(14),
+id				varchar(14)
+p_id			varchar(14)
+vnum			smallint
+enchanted		tinyint
+nest			tinyint unsigned
+name			varchar(255)
+short_descr		tinyblob
+description		blob
+material		tinyblob
+extra_flags		integer
+wear_flags		integer
+item_type		smallint
+weight			integer
+condition		tinyint
+wear_loc		tinyint
+level			smallint
+timer			smallint
+cost			integer
+v0				integer
+v1				integer
+v2				integer
+v3				integer
+v4				integer
+item_where		tinyint
+
+
+player_obj_spells
+drop table if exists player_obj_spells;
+create table player_obj_spells(p_id varchar(14),
+p_id			varchar(14)
+spell_name		varchar(255)
+spell_lev		smallint
+
+
+player_obj_extras
+drop table if exists player_obj_extras;
+create table player_obj_extras(p_id varchar(14),
+p_id			varchar(14)
+keyword			varchar(255)
+description		blob
+

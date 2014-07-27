@@ -1,0 +1,1289 @@
+#AREA
+warrior.are~
+Warrior Remort Area~
+{H{{80 91} {WL{Ci{Br{Ci{Te{Wl{Y&{CM{go{Tn{Ct{gr{Cey {TWarrior Remort Area{x~
+27100 27199
+
+#MOBILES
+
+#27100
+gatekeeper~
+the Gatekeeper~
+The Gatekeeper stands here.
+~
+A horrendous looking ogre stands here, preventing all entry into the
+castle.  His monstrous hulking form is intimidating enough, but his
+sneering ugly face covered with warts makes you wish you were home in
+bed.  You realize that if you have any hope of getting into the
+castle, you're going to have to defeat this guy...
+~
+human~
+BGT EFHNOUVZ -1000 S
+91 200 10d50+2799 10d50+1799 13d12+250 cleave
+-80 -80 -80 -75
+ADEFHIK ABC 0 0
+stand stand either 0
+0 0 large 0
+
+#27101
+goblin~
+a regular goblin~
+A regular goblin stands here.
+~
+This little goblin is armed and ready for battle.  It's ugly little
+face has fangs poking out of it, and it's ears stick out from under
+a leather cap.  Although small, goblins come in swarms, and this one
+sure has backup.
+~
+goblin~
+FGHTY EFHNOVZ -700 S
+91 190 10d50+1750 10d50+1100 10d11+190 beating
+-60 -61 -65 -52
+DEFHIKP ABC 0 0
+stand stand either 0
+0 0 small 0
+
+#0
+
+#OBJECTS
+
+#27100
+key~
+a key~
+A key lies here.~
+steel~
+key 0 AO
+0 0 0 0 0
+0 0 0 P
+
+#27101
+key~
+a key~
+A key lies here.~
+steel~
+key 0 AO
+0 0 0 0 0
+0 0 0 P
+
+#27102
+key~
+a key~
+A key lies here.~
+steel~
+key 0 AO
+0 0 0 0 0
+0 0 0 P
+
+#27103
+key~
+a key~
+A key lies here.~
+steel~
+key 0 AO
+0 0 0 0 0
+0 0 0 P
+
+#27198
+armor~
+some armor~
+some armor~
+armor~
+armor 0 AE
+400 400 400 400 0
+1 0 0 I
+
+#27199
+map~
+a map~
+A map lies here.~
+parchment~
+treasure 0 A
+0 0 0 0 0
+0 0 0 I
+E
+map~
+numbers in rooms are {Gkeys{x, a locked door north/south is {P+{x, east to west is -{P|{x-, a staircase is {Y/{x.
+the number next to a locked door is of the corresponding key.
+first floor:  
+              /
+            [ ] 
+             |
+[ ]---[ ]---[ ]---[ ]---[ ]
+ |                       |
+[ ]   [ ]---[ ]---[ ]   [{G2{x]
+ |     |     |     |     |
+[ ]   [{G3{x]---[ ]---[ ]   [ ]
+ |     |     |     |     |
+[ ]   [ ]---[ ]---[ ]   [ ]
+ |           |           |
+[ ]---[ ]---[ ]---[ ]---[ ]
+             {P+1{x
+            [{G1{x]
+             |
+            [ ]
+             |
+            [ ]
+
+second floor:
+            [ ]
+    {P3       {Y/{P+2       3{x
+[ ]-{P|{x-[ ]---[ ]---[ ]-{P|{x-[ ]
+ |     |     |     |     |
+[ ]   [ ]---[ ]---[ ]   [ ]
+ |     |     |{Y/{x    |     |
+[ ]   [ ]---[ ]---[ ]   [ ]
+ |                       |
+[ ]---[ ]---[ ]---[ ]---[ ]
+ |     |     |     |     |
+[ ]---[ ]---[ ]---[{G4{x]---[ ]
+
+third floor:
+
+         [ ]
+          {P+4{x
+         [ ]
+         /
+
+~
+
+#0
+
+#ROOMS
+
+#27100
+Stepping out of the Forest~
+As you step out of the forest, you notice a forbidding castle looming
+in the distance.  Rumor has it that a princess is trapped inside there.
+Dare you go and rescue her?
+
+~
+0 0 0
+D0
+~
+~
+0 -1 27101
+D2
+~
+~
+0 -1 6124
+S
+
+#27101
+In front of the Castle~
+The forest melts away behind you, and you find yourself standing on a 
+drawbridge in front of the castle.  There is a moat all around you.
+~
+0 0 0
+D0
+~
+~
+0 -1 27102
+D2
+~
+~
+0 -1 27100
+S
+
+#27102
+In front of the Gate~
+~
+0 0 0
+D0
+~
+gate~
+4 27100 27103
+D2
+~
+~
+0 -1 27101
+S
+
+#27103
+In the Castle~
+This looks like the inside of any other ordinary castle.  Stone walls,
+a few dusty tables and chairs here and there, nothing of interest.  But 
+things are quiet ... a bit too quiet.  You know the princess is in here 
+somewhere, but where?
+~
+0 C 0
+D0
+~
+~
+0 -1 27104
+D1
+~
+~
+0 -1 27113
+D2
+~
+gate~
+4 27100 27102
+D3
+~
+~
+0 -1 27127
+S
+
+#27104
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can go in all 
+directions.
+~
+0 0 0
+D0
+~
+~
+0 -1 27108
+D1
+~
+~
+0 -1 27105
+D2
+~
+~
+0 -1 27103
+D3
+~
+~
+0 -1 27106
+S
+
+#27105
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north
+or west.
+~
+0 0 0
+D0
+~
+~
+0 -1 27107
+D3
+~
+~
+0 -1 27104
+S
+
+#27106
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north
+or east.
+~
+0 0 0
+D0
+~
+~
+0 -1 27109
+D1
+~
+~
+0 -1 27104
+S
+
+#27107
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north,
+south, or west.  
+~
+0 0 0
+D0
+~
+~
+0 -1 27112
+D2
+~
+~
+0 -1 27105
+D3
+~
+~
+0 -1 27108
+S
+
+#27108
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can go in all
+directions.
+~
+0 0 0
+D0
+~
+~
+0 -1 27111
+D1
+~
+~
+0 -1 27107
+D2
+~
+~
+0 -1 27104
+D3
+~
+~
+0 -1 27109
+S
+
+#27109
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north,
+east, or south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27110
+D1
+~
+~
+0 -1 27108
+D2
+~
+~
+0 -1 27106
+S
+
+#27110
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go east
+or south.
+~
+0 0 0
+D1
+~
+~
+0 -1 27111
+D2
+~
+~
+0 -1 27109
+S
+
+#27111
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go east,
+west, or south.
+~
+0 0 0
+D1
+~
+~
+0 -1 27112
+D2
+~
+~
+0 -1 27108
+D3
+~
+~
+0 -1 27110
+S
+
+#27112
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go west,
+or south.
+~
+0 0 0
+D2
+~
+~
+0 -1 27107
+D3
+~
+~
+0 -1 27111
+S
+
+#27113
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go east,
+or west.
+~
+0 0 0
+D1
+~
+~
+0 -1 27114
+D3
+~
+~
+0 -1 27103
+S
+
+#27114
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north
+or west.
+~
+0 0 0
+D0
+~
+~
+0 -1 27115
+D3
+~
+~
+0 -1 27113
+S
+
+#27115
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north
+or south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27116
+D2
+~
+~
+0 -1 27114
+S
+
+#27116
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north
+or south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27117
+D2
+~
+~
+0 -1 27115
+S
+
+#27117
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north
+or south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27118
+D2
+~
+~
+0 -1 27116
+S
+
+#27118
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go west
+or south.
+~
+0 0 0
+D2
+~
+~
+0 -1 27117
+D3
+~
+~
+0 -1 27119
+S
+
+#27119
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go east
+or west.
+~
+0 0 0
+D1
+~
+~
+0 -1 27118
+D3
+~
+~
+0 -1 27120
+S
+
+#27120
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north,
+east, or west.
+~
+0 0 0
+D0
+~
+~
+0 -1 27128
+D1
+~
+~
+0 -1 27119
+D3
+~
+~
+0 -1 27121
+S
+
+#27121
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go east
+or west.
+~
+0 0 0
+D1
+~
+~
+0 -1 27120
+D3
+~
+~
+0 -1 27122
+S
+
+#27122
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go east
+or south.
+~
+0 0 0
+D1
+~
+~
+0 -1 27121
+D2
+~
+~
+0 -1 27123
+S
+
+#27123
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north
+or south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27122
+D2
+~
+~
+0 -1 27124
+S
+
+#27124
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north
+or south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27123
+D2
+~
+~
+0 -1 27125
+S
+
+#27125
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north
+or south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27124
+D2
+~
+~
+0 -1 27126
+S
+
+#27126
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go north
+or east.
+~
+0 0 0
+D0
+~
+~
+0 -1 27125
+D1
+~
+~
+0 -1 27127
+S
+
+#27127
+In the Castle~
+This looks like the inside of any other ordinary castle.  You realize 
+you hear footsteps running in your direction.  You can either go east
+or west.
+~
+0 0 0
+D1
+~
+~
+0 -1 27103
+D3
+~
+~
+0 -1 27126
+S
+
+#27128
+The bottom of a Staircase~
+Finally, you come to a break from the monotony of the castle.  It's not
+much of a break though.  It still looks like the inside of any other 
+castle, but you are at the bottom of a staircase that probably leads up
+into a tower.  You can either go up the stairs or south to where you 
+came from.
+~
+0 0 0
+D2
+~
+~
+0 -1 27120
+D4
+~
+~
+0 -1 27129
+S
+
+#27129
+Up the stairs~
+At the top of the staircase, you find yourself in a small room, with 
+nothing of interest in it.  On one side, is a huge, wooden door, that
+looks like it's locked.  
+~
+0 0 0
+D2
+You wonder what's behind this huge wooden door.  
+~
+door~
+4 27101 27130
+D5
+~
+~
+0 -1 27128
+S
+
+#27130
+In the Tower~
+What at first seemed to be a little tower all of a sudden seems to be
+much bigger than you imagined.  You have a feeling the princess is
+near, but be on your guard.  After fighting through all the monsters
+below, you have a feeling there will be more to come.  
+~
+0 C 0
+D0
+A huge wooden door lies to the north.  
+~
+door~
+4 27101 27129
+D1
+~
+~
+0 -1 27131
+D2
+~
+~
+0 -1 27134
+D3
+~
+~
+0 -1 27132
+S
+
+#27131
+In the Tower~
+You are in the tower of the castle.  Other than your location, the
+monotony of the castle still hasn't changed.  Exits are to the west and
+to the south, and a door lies to your east.
+~
+0 0 0
+D1
+Another wooden door, this one looks like it leads outside. 
+~
+door~
+4 27102 27139
+D2
+~
+~
+0 -1 27135
+D3
+~
+~
+0 -1 27130
+S
+
+#27132
+In the Tower~
+You are in the tower of the castle.  Other than your location, the
+monotony of the castle still hasn't changed.  Exits are to the east and
+south, and a door lies to your west.
+~
+0 0 0
+D1
+~
+~
+0 -1 27130
+D2
+~
+~
+0 -1 27133
+D3
+Another wooden door, this one looks like it leads outside.  
+~
+door~
+4 27102 27154
+S
+
+#27133
+In the Tower~
+You are in the tower of the castle.  Other than your location, the
+monotony of the castle still hasn't changed.  Exits are to the north,
+east, and south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27132
+D1
+~
+~
+0 -1 27134
+D2
+~
+~
+0 -1 27136
+S
+
+#27134
+In the Tower~
+You are in the tower of the castle.  Other than your location, the
+monotony of the castle still hasn't changed.  Exits lie in all 
+directions.
+~
+0 0 0
+D0
+~
+~
+0 -1 27130
+D1
+~
+~
+0 -1 27135
+D2
+~
+~
+0 -1 27137
+D3
+~
+~
+0 -1 27133
+S
+
+#27135
+In the Tower~
+You are in the tower of the castle.  Other than your location, the
+monotony of the castle still hasn't changed.  Exits are to the north,
+west, and south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27131
+D2
+~
+~
+0 -1 27138
+D3
+~
+~
+0 -1 27134
+S
+
+#27136
+In the Tower~
+You are in the tower of the castle.  Other than your location, the
+monotony of the castle still hasn't changed.  Exits are to the north
+and east.
+~
+0 0 0
+D0
+~
+~
+0 -1 27133
+D1
+~
+~
+0 -1 27137
+S
+
+#27137
+In the Tower~
+You are in the tower of the castle.  Other than your location, the
+monotony of the castle still hasn't changed.  Exits are to the north,
+east, and west.  However, looking around more closely, you also notice
+a little staircase carved into the side of one wall.  You wonder where
+it leads.  
+~
+0 0 0
+D0
+~
+~
+0 -1 27134
+D1
+~
+~
+0 -1 27138
+D3
+~
+~
+0 -1 27136
+D4
+~
+~
+0 -1 27155
+S
+
+#27138
+In the Tower~
+You are in the tower of the castle.  Other than your location, the
+monotony of the castle still hasn't changed.  Exits are to the north
+and the west.
+~
+0 0 0
+D0
+~
+~
+0 -1 27135
+D3
+~
+~
+0 -1 27137
+S
+
+#27139
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go back inside
+or head south.  
+~
+0 0 0
+D2
+~
+~
+0 -1 27140
+D3
+A wooden door leads inside.  
+~
+door~
+4 27102 27131
+S
+
+#27140
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north or
+south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27139
+D2
+~
+~
+0 -1 27141
+S
+
+#27141
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north or
+south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27140
+D2
+~
+~
+0 -1 27142
+S
+
+#27142
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north,
+west, or south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27141
+D2
+~
+~
+0 -1 27143
+D3
+~
+~
+0 -1 27144
+S
+
+#27143
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north or
+west.
+~
+0 0 0
+D0
+~
+~
+0 -1 27142
+D3
+~
+~
+0 -1 27145
+S
+
+#27144
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go east, west,
+or south.~
+0 0 0
+D1
+~
+~
+0 -1 27142
+D2
+~
+~
+0 -1 27145
+D3
+~
+~
+0 -1 27146
+S
+
+#27145
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north, east,
+or west.
+~
+0 0 0
+D0
+~
+~
+0 -1 27144
+D1
+~
+~
+0 -1 27143
+D3
+~
+~
+0 -1 27147
+S
+
+#27146
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go east, west,
+or south.
+~
+0 0 0
+D1
+~
+~
+0 -1 27144
+D2
+~
+~
+0 -1 27147
+D3
+~
+~
+0 -1 27148
+S
+
+#27147
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north, east,
+or west.
+~
+0 0 0
+D0
+~
+~
+0 -1 27146
+D1
+~
+~
+0 -1 27145
+D3
+~
+~
+0 -1 27149
+S
+
+#27148
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go east, west,
+or south.
+~
+0 0 0
+D1
+~
+~
+0 -1 27146
+D2
+~
+~
+0 -1 27149
+D3
+~
+~
+0 -1 27151
+S
+
+#27149
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north, east,
+or west.
+~
+0 0 0
+D0
+~
+~
+0 -1 27148
+D1
+~
+~
+0 -1 27147
+D3
+~
+~
+0 -1 27150
+S
+
+#27150
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north or
+east.
+~
+0 0 0
+D0
+~
+~
+0 -1 27151
+D1
+~
+~
+0 -1 27149
+S
+
+#27151
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north, east,
+or south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27152
+D1
+~
+~
+0 -1 27148
+D2
+~
+~
+0 -1 27150
+S
+
+#27152
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north or
+south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27153
+D2
+~
+~
+0 -1 27151
+S
+
+#27153
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go north or
+south.
+~
+0 0 0
+D0
+~
+~
+0 -1 27154
+D2
+~
+~
+0 -1 27152
+S
+
+#27154
+On the Battlement~
+You find yourself on the battlement outside the tower.  You get a
+pretty good view of the forest outside, surrounding the castle.
+Nothing terribly interesting though.  You can go either go back inside
+or head south.~
+0 0 0
+D1
+A wooden door leads inside.  
+~
+door~
+4 27102 27132
+D2
+~
+~
+0 -1 27153
+S
+
+#27155
+Top Floor~
+As you step up the stairs, you are greeted with the sight of another 
+room.  However, this room is slightly better furnished, with a few
+chairs that look quite sturdy.  A narrow window in this tower room lets
+some light in, exposing an impressive rack of weapons in the corner.
+You have a feeling the owner is behind the huge wooden door. 
+~
+0 0 0
+D0
+This huge wooden door is quite imposing.  You hear a scream behind it.
+~
+door~
+4 27103 27156
+D5
+~
+~
+0 -1 27137
+S
+
+#27156
+A Large Chamber~
+As you step into this large chamber, you notice even more racks of
+assorted weapons along the back wall.  And then there's the huge giant
+in the middle of the room, glaring down at you.  Uh oh.  
+~
+0 0 0
+D2
+~
+door~
+4 27103 27155
+S
+
+#27157
+In the Castle~
+~
+0 0 0
+S
+
+#0
+
+#RESETS
+
+M 0 27100 1 27102 1    * Gatekeeper
+E 0 27100 5 17         * Key to Gatekeeper
+D 0 27102 0 2          * Locks 27102 N
+D 0 27103 2 2          * Locks 27103 S
+D 0 27129 2 2          * Locks 27129 S
+D 0 27130 0 2          * Locks 27130 N
+D 0 27131 1 2          * Locks 27131 E
+D 0 27139 3 2          * Locks 27139 W
+D 0 27132 3 2          * Locks 27132 W
+D 0 27154 1 2          * Locks 27154 E
+D 0 27155 0 2          * Locks 27155 N
+D 0 27156 2 2          * Locks 27156 S
+
+S
+
+#SHOPS
+0
+
+#SPECIALS
+S
+
+#$
+
+

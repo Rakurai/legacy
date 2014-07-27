@@ -1,0 +1,665 @@
+#PLAYER
+Name Alara~
+Id   1013235189
+LogO 1406417490
+Vers 14
+Mexp 2
+Pass disochak~
+Prom %Cx<%CT%R %CB(%Cx%z%CB) %CH[%w] %CW%e%Cx> ~
+Race vampire~
+Cla  7
+Levl 100
+Plyd 724936
+Back 709755
+Note 1027095770 1024690924 1027144008 1027087211 1027146472 1027142394 1026831915
+Scro 100
+Room 1202
+HMS  30032 30009 30011
+Gold 10000
+Silv 0
+Gold_in_bank 50000
+Exp  490000
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   5
+Pos  5
+Alig 700
+Mark 9185
+FImm 0
+FRes BM
+FVul NS
+Plr  AHMNOU
+Video 0
+Act  CEFGHLQSc
+AfBy T
+Comm MNO
+Revk 0
+Cgrp ABCEFGI
+Cnsr C
+Block_Remote 0
+Prac 5
+Trai 102
+Wimp 0
+Familiar 0
+Wizn AEIJRSTUVZab
+Invi 92
+Lurk 92
+Secu 2
+Atrib 25 25 25 25 25 25
+SkillPnts  5000
+RolePnts   5000
+QuestPnts  5000
+Bin  Alara arrives.~
+Bout Alara leaves.~
+GameIn  {gA{Hl{Ga{Hr{ga{x arrives in Thera.~
+GameOut {gA{Hl{Ga{Hr{ga{x leaves Thera.~
+Afk {B[{CSat Jul 20 02:01:10 2002{B] {CUnknown Departure.{x
+~
+Titl , {WG{Yo{Wdde{Ys{Ws {gof {cSt{Ya{crl{Yi{cght {gand {MS{Ton{Mg{x ~
+Immn {W[{x {W-< {gA{Hl{Ga{Hr{ga {W>-{x  {W]{x~
+Pnts 68
+Rank {W[|]~
+Aura ~
+TSex 2
+LLev 194
+Email dusksong@yahoo.com~
+Deit {WL{Ci{Br{Ci{Te{Wl{x ~
+Stus ~
+RmCt 99
+ExSk 0 0 0 0 0
+Raff 0 0 0 0 0 0 0 0 0 0
+Lsit 137-118-226-163.altrionet.com~
+Ltim Sat Jul 20 15:33:32 2002
+~
+LSav Sat Jul 26 16:31:30 2014
+~
+Finf Liriel says 'Quit fodding the poor mobs :P'
+
+{PMontrey [IMM]: hehe, the first area i ever built... 
+{PMontrey [IMM]: huge, too
+{PMontrey [IMM]: based on sailor moon *scuff*
+{PAlara [IMM]: *whapwhap*
+{YIn the distance you hear the thundering roar of a Finger Of Death!
+{YXenith has struck down Montrey!
+{PXenith [IMM]: That was called for.
+{PAlara [IMM]: Thanks, Xenith{x
+{PXenith [IMM]: <g>{x
+
+{G<W{HizNe{Gt>{x Vegita has gone AFK.
+{G<W{HizNe{Gt>{x Vegita has returned to his keyboard.
+{G<W{HizNe{Gt>{x Vegita has gone AFK.
+{G<W{HizNe{Gt>{x Vegita has returned to his keyboard.
+{G<W{HizNe{Gt>{x Vegita has gone AFK.
+{G<W{HizNe{Gt>{x Vegita has returned to his keyboard.
+
+{PMontrey [IMM]: imping can drive people insane{x
+You peer intently at Montrey.
+
+
+{G<W{HizNe{Gt>{x [*****] BUG: Char_to_room: NULL.
+{G<W{HizNe{Gt>{x [*****] BUG: Vegita
+{W[FYI] Vegita has been slain by Vegita.{x
+{G<W{HizNe{Gt>{x [*****] BUG: Char_to_room: NULL.
+{G<W{HizNe{Gt>{x [*****] BUG: Urza
+[FYI] Urza has been slain by Urza.{x
+
+{PVegita [IMM]: all i get is gay porn{x
+~
+HMSP 30024 30009 30011
+THMS 0 0 0
+Cnd  0 -1 100 100
+Alias myprompt prompt  %Cx<%CT%R %CB(%Cx%z%CB) %CH[%w] %CW%e%Cx>~
+Alias ga get all~
+Alias titledefault title , {WG{Yo{Wdde{Ys{Ws {gof {cSt{Ya{crl{Yi{cght {gand {MS{Ton{Mg{x~
+Alias so string obj~
+Alias echo gecho {gA{Hl{Ga{Hr{ga{W:~
+Query bascha~
+Query selgarin~
+Query valeriana~
+Query liriel~
+Sk 100 1 'reserved'
+Sk 100 1 'acid blast'
+Sk 100 1 'acid breath'
+Sk 100 1 'acid rain'
+Sk 100 1 'age'
+Sk 100 1 'animate skeleton'
+Sk 100 1 'animate wraith'
+Sk 100 1 'animate gargoyle'
+Sk 100 1 'animate zombie'
+Sk 100 1 'armor'
+Sk 100 1 'bless'
+Sk 100 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 100 1 'blood blade'
+Sk 100 1 'blood moon'
+Sk 100 1 'burning hands'
+Sk 100 1 'call lightning'
+Sk 100 1 'calm'
+Sk 100 1 'cancellation'
+Sk 100 1 'cause light'
+Sk 100 1 'cause serious'
+Sk 100 1 'cause critical'
+Sk 100 1 'chain lightning'
+Sk 100 1 'change sex'
+Sk 100 1 'channel'
+Sk 100 1 'charm person'
+Sk 100 1 'chill touch'
+Sk 100 1 'colour spray'
+Sk 100 1 'continual light'
+Sk 100 1 'control weather'
+Sk 100 1 'create food'
+Sk 100 1 'create parchment'
+Sk 100 1 'create rose'
+Sk 100 1 'create sign'
+Sk 100 1 'create spring'
+Sk 100 1 'create vial'
+Sk 100 1 'create water'
+Sk 100 1 'cure blindness'
+Sk 100 1 'cure critical'
+Sk 100 1 'cure disease'
+Sk 100 1 'cure light'
+Sk 100 1 'cure poison'
+Sk 100 1 'cure serious'
+Sk 100 1 'curse'
+Sk 100 1 'darkness'
+Sk 100 1 'dazzling light'
+Sk 100 1 'demonfire'
+Sk 100 1 'detect evil'
+Sk 100 1 'detect good'
+Sk 100 1 'detect hidden'
+Sk 100 1 'detect invis'
+Sk 100 1 'detect magic'
+Sk 100 1 'detect poison'
+Sk 100 1 'dispel evil'
+Sk 100 1 'dispel good'
+Sk 100 1 'dispel magic'
+Sk 100 1 'divine healing'
+Sk 100 4 'divine regeneration'
+Sk 100 1 'earthquake'
+Sk 100 1 'encampment'
+Sk 100 1 'enchant armor'
+Sk 100 1 'enchant weapon'
+Sk 100 1 'energy drain'
+Sk 100 1 'faerie fire'
+Sk 100 1 'faerie fog'
+Sk 100 1 'farsight'
+Sk 100 1 'fear'
+Sk 100 1 'fire breath'
+Sk 100 4 'fireball'
+Sk 100 1 'fireproof'
+Sk 100 1 'firestorm'
+Sk 100 1 'flame blade'
+Sk 100 1 'flameshield'
+Sk 100 1 'flamestrike'
+Sk 100 1 'fly'
+Sk 100 1 'floating disc'
+Sk 100 1 'frenzy'
+Sk 100 1 'frost blade'
+Sk 100 1 'frost breath'
+Sk 100 1 'gas breath'
+Sk 100 1 'gate'
+Sk 100 1 'general purpose'
+Sk 100 1 'giant strength'
+Sk 100 1 'harm'
+Sk 100 1 'haste'
+Sk 100 1 'heal'
+Sk 100 1 'heat metal'
+Sk 100 1 'high explosive'
+Sk 100 1 'holy word'
+Sk 100 1 'identify'
+Sk 100 1 'infravision'
+Sk 100 1 'invisibility'
+Sk 100 1 'know alignment'
+Sk 100 1 'light of truth'
+Sk 100 1 'lightning bolt'
+Sk 100 1 'lightning breath'
+Sk 100 1 'locate life'
+Sk 100 1 'locate object'
+Sk 100 1 'magic missile'
+Sk 100 1 'mass healing'
+Sk 100 1 'mass invis'
+Sk 100 1 'nexus'
+Sk 100 1 'pass door'
+Sk 100 1 'plague'
+Sk 100 1 'poison'
+Sk 100 1 'power word'
+Sk 100 1 'polymorph'
+Sk 100 1 'portal'
+Sk 100 1 'protect container'
+Sk 100 1 'protection evil'
+Sk 100 1 'protection good'
+Sk 100 1 'ray of truth'
+Sk 100 1 'recharge'
+Sk 100 1 'refresh'
+Sk 100 1 'resurrect'
+Sk 100 4 'regeneration'
+Sk 100 1 'remove alignment'
+Sk 100 1 'remove invisibility'
+Sk 100 1 'remove curse'
+Sk 100 4 'sanctuary'
+Sk 100 1 'shield'
+Sk 100 1 'shock blade'
+Sk 100 1 'shocking grasp'
+Sk 100 1 'shrink'
+Sk 100 1 'sleep'
+Sk 100 1 'slow'
+Sk 100 1 'smokescreen'
+Sk 100 1 'steel mist'
+Sk 100 1 'stone skin'
+Sk 100 1 'summon'
+Sk 100 1 'summon object'
+Sk 100 1 'sunray'
+Sk 100 4 'talon'
+Sk 100 1 'teleport'
+Sk 100 1 'teleport object'
+Sk 100 1 'undo spell'
+Sk 100 1 'ventriloquate'
+Sk 100 1 'vision'
+Sk 100 1 'weaken'
+Sk 100 1 'word of recall'
+Sk 100 1 'wrath'
+Sk 100 1 'axe'
+Sk 100 1 'dagger'
+Sk 100 1 'flail'
+Sk 100 1 'mace'
+Sk 100 1 'polearm'
+Sk 100 1 'spear'
+Sk 100 1 'sword'
+Sk 100 1 'whip'
+Sk 1 1 'bow'
+Sk 100 1 'shield block'
+Sk 100 1 'brew'
+Sk 100 1 'scribe'
+Sk 100 1 'backstab'
+Sk 100 1 'bash'
+Sk 100 1 'berserk'
+Sk 100 1 'circle'
+Sk 100 1 'crush'
+Sk 100 1 'dirt kicking'
+Sk 100 4 'disarm'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'envenom'
+Sk 100 1 'hand to hand'
+Sk 100 1 'kick'
+Sk 100 1 'parry'
+Sk 100 1 'rescue'
+Sk 100 1 'trip'
+Sk 100 1 'second attack'
+Sk 100 1 'third attack'
+Sk 100 4 'dual wield'
+Sk 100 1 'hunt'
+Sk 100 1 'swimming'
+Sk 100 4 'fast healing'
+Sk 100 1 'firebuilding'
+Sk 100 1 'forge'
+Sk 100 1 'repair'
+Sk 100 1 'rotate'
+Sk 100 1 'languages'
+Sk 100 1 'haggle'
+Sk 100 1 'hide'
+Sk 100 1 'lore'
+Sk 100 4 'meditation'
+Sk 100 4 'peek'
+Sk 100 1 'pick lock'
+Sk 100 1 'scan'
+Sk 100 1 'sneak'
+Sk 100 1 'steal'
+Sk 100 1 'sing'
+Sk 100 1 'scrolls'
+Sk 100 1 'staves'
+Sk 100 1 'wands'
+Sk 100 1 'recall'
+Sk 1 1 'familiar'
+Sk 100 1 'sheen'
+Sk 100 1 'focus'
+Sk 100 1 'paralyze'
+Sk 100 1 'barrier'
+Sk 100 1 'dazzle'
+Sk 100 1 'full heal'
+Sk 100 1 'midnight'
+Sk 100 1 'shadow form'
+Sk 100 1 'hone'
+Sk 100 1 'riposte'
+Sk 100 1 'fourth attack'
+Sk 100 1 'rage'
+Sk 100 1 'sap'
+Sk 100 1 'pain'
+Sk 100 1 'hex'
+Sk 100 1 'hammerstrike'
+Sk 100 1 'force shield'
+Sk 100 1 'holy sword'
+Sk 100 1 'align'
+Sk 100 1 'blur'
+Sk 100 1 'dual second'
+Sk 100 1 'standfast'
+Sk 100 1 'mark'
+Sk 100 1 'critical blow'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'illusion'
+Gr 'protective'
+End
+
+#O
+Vnum 75
+Nest 0
+Name circle flames~
+ShD  a {WC{gircl{We{x of {RF{Pl{Ya{bm{Pe{Rs{x~
+Desc You see a tiny hoop of flames.~
+Mat {Rf{Pl{Ya{Pm{Re{x~
+ExtF 16777284
+Cond -1
+Wear 2
+Lev  99
+Cost 10000
+ExDe owned by~ Alara
+~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1003
+Nest 1
+WeaF 1
+Wear -1
+Time -1
+Cost 0
+ExDe carpenter~ This road sign was created by Alara.
+~
+ExDe sign~ {gA{Hl{Ga{Hr{ga{x, {WG{Yo{Wdde{Ys{Ws {gof {cSt{Ya{crl{Yi{cght {gand {MS{Ton{Mg{x was here!
+~
+End
+
+#O
+Vnum 1254
+Nest 1
+ExtF 17580355
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4493
+Nest 1
+WeaF 8193
+Wt   0
+Wear -1
+Cost 20000
+Val  0 100 100 6 123
+End
+
+#O
+Vnum 75
+Nest 0
+Name ice ring~
+ShD  an {CIce {BRing{x~
+Desc A small circle of frozen liquid is here.~
+Mat {Cice{x~
+ExtF 16777284
+Wt   1
+Cond -1
+Wear 1
+Lev  99
+Cost 10000
+ExDe owned by~ Alara
+~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name alara hidden token unending speck luminescence everlasting fires~
+ShD  {W*{RH{Pi{gdd{Pe{Rn{W* {gE{Wv{ge{Wrl{ga{Wst{gi{Wng {cM{gi{cdn{gi{cght {RF{Pi{Yr{Pe{Rs{x~
+Desc {W*{RH{Pi{gdd{Pe{Rn{W* {gA{Wn {gU{Wn{ge{Wnd{gi{Wng {gSp{Ye{gck {go{Wf {WL{Yu{Wm{Yi{Wn{Ye{Wsc{Ye{Wnc{Ye{x is here.~
+Mat {Yst{Wa{Yrl{Wi{Yght{x~
+Wear -1
+Cost 0
+ExDe fires~ An {ge{Wt{ge{Wrn{ga{Wl {gsp{Ye{gck {go{Wf {Yst{Wa{Yrl{Wi{Yght{x has been {gg{Wa{gth{we{gr{We{gd here.
+~
+End
+
+#O
+Vnum 1214
+Nest 1
+Name alara quest token vigilance hunter aura~
+ShD  {W*{CQu{Te{Cst{W* {WV{gi{Rg{bi{Yl{ba{Rn{gc{We {go{Wf {Wth{ge {GH{bu{Hnt{be{Gr{x~
+Desc {W*{CQu{Te{Cst{W*{x You feel a {WV{gi{Rg{bil{Ra{gn{Wt {GA{bu{Hr{Ga{x guarding this place.~
+Mat {Wa{gl{Re{br{Yt{bn{Re{gs{Ws{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name alara wild token dance firefly dancing fireflies~
+ShD  {W*{MW{Vil{Md{W* {cD{Wa{gn{Wc{ce {go{Wf {Wth{ge {RF{gi{cr{Re{Yfly{x~
+Desc {W*{MW{Vil{Md{W* {RF{gi{cr{Re{cf{gl{Yies {ga{Wr{ge {cD{Wa{gn{cc{Wi{gn{cg {xhere.~
+Mat {Wv{Yi{Ws{Yio{Wns{x~
+Wear -1
+Cost 0
+ExDe fireflies~ Looking into this {Ms{Vp{Whe{Vr{Me {go{Wf {Yr{Wa{Yw {Nm{Ba{Tg{Ci{Tc{Ba{Nl {Cp{Bo{Nw{Be{Nr{x, you see {Rf{gi{cr{Re{cf{gl{Yies {cd{Wa{gn{cc{Wi{gn{cg{x.
+~
+ExDe dancing~ Looking into this {Ms{Vp{Whe{Vr{Me {go{Wf {Yr{Wa{Yw {Nm{Ba{Tg{Ci{Tc{Ba{Nl {Cp{Bo{Nw{Be{Nr{x, you see {Rf{gi{cr{Re{cf{gl{Yies {cd{Wa{gn{cc{Wi{gn{cg{x.
+~
+End
+
+#O
+Vnum 1211
+Nest 1
+Name equipment protection token~
+ShD  an {GEq{Tui{Cp{Tme{Gnt {WP{Yr{got{cec{gti{Yo{Wn{x token~
+Desc Isn't that a bit of {WP{Yr{got{cec{gti{Yv{We{x aura lying on the ground?~
+Wear -1
+Cost 0
+ExDe token~ Adds the burn_proof flag to one piece of equipment.
+~
+ExDe protection~ Adds the burn_proof flag to one piece of equipment.
+~
+ExDe equipment~ Adds the burn_proof flag to one piece of equipment.
+~
+End
+
+#O
+Vnum 1211
+Nest 1
+Name greater equipment protection token~
+ShD  a {PG{br{Ye{Wa{Yt{be{Pr {GEq{Tui{Cp{Tme{Gnt {WP{Yr{got{cec{gti{Yo{Wn{x token{x~
+Desc It's a {Rp{Po{Ww{ger{Wf{Pu{Rl {Wp{Yr{got{cec{gti{Yv{We{x aura, spinning like a top!~
+Wear -1
+Cost 0
+ExDe greater~ Makes an item invulnerable!
+~
+ExDe equipment~ Makes an item invulnerable!
+~
+ExDe protection~ Makes an item invulnerable!
+~
+ExDe token~ Makes an item invulnerable!
+~
+End
+
+#O
+Vnum 1334
+Nest 1
+Name book records~
+ShD  my record book~
+Desc Alara's book of records is here.~
+Mat dead trees~
+ExtF 17711105
+WeaF 1
+Wear -1
+Cost 0
+ExDe wild~ Wild:  4
+~
+ExDe trivia~ Trivia:  30
+~
+ExDe records~ This is where Alara keeps records of how many tokens she has distributed.  (Each type has a separate extended description.)
+~
+ExDe hidden~ Hidden: 10
+~
+ExDe quest~ Quest:  2
+~
+End
+
+#O
+Vnum 24221
+Nest 1
+Name alara musical ring jukebox~
+ShD  {gA{Hl{Ga{Hr{ga{x's {gM{Wu{gs{Wi{Cc{Wa{gl{x {WR{gi{Wng{x~
+Desc No way!  It's {gA{Hl{Ga{Hr{ga{x's {gM{Wu{gs{Wi{Cc{Wa{gl{x {WR{gi{Wng{x!~
+WeaF 32771
+Wear -1
+Cost 10
+Val  -1 -1 -1 -1 -1
+End
+
+#O
+Vnum 17331
+Nest 0
+Mat emeralds~
+Cond -1
+Wear 3
+Cost 500000
+End
+
+#O
+Vnum 7803
+Nest 0
+Name elegant evening gown~
+ShD  an elegant evening gown~
+Desc A {Wg{gl{Wi{gt{Wt{ge{Wr{gi{Wn{gg{x gown is lying carelessly tossed aside here.~
+Mat silk~
+ExtF 16777216
+WeaF 9
+Cond -1
+Wear 5
+Cost 10000
+Val  300 300 300 300 0
+ExDe gown~ This is a soft silvery gown that sparkles as if {Wd{gi{Wa{gm{Wo{gn{Wd{gs{x were sewn into the fabric.
+~
+ExDe elegant~ This is a soft silvery gown that sparkles as if {Wd{gi{Wa{gm{Wo{gn{Wd{gs{x were sewn into the fabric.
+~
+ExDe evening~ This is a soft silvery gown that sparkles as if {Wd{gi{Wa{gm{Wo{gn{Wd{gs{x were sewn into the fabric.
+~
+End
+
+#B
+Vnum 1212
+Nest 0
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1214
+Nest 0
+Name alara quest token vigilance hunter aura~
+ShD  {W*{CQu{Te{Cst{W* {WV{gi{Rg{bi{Yl{ba{Rn{gc{We {go{Wf {Wth{ge {GH{bu{Hnt{be{Gr{x~
+Desc {W*{CQu{Te{Cst{W*{x You feel a {WV{gi{Rg{bil{Ra{gn{Wt {GA{bu{Hr{Ga{x guarding this place.~
+Mat {Wa{gl{Re{br{Yt{bn{Re{gs{Ws{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1213
+Nest 0
+Name alara hidden token unending speck luminescence everlasting fires~
+ShD  {W*{RH{Pi{gdd{Pe{Rn{W* {gE{Wv{ge{Wrl{ga{Wst{gi{Wng {cM{gi{cdn{gi{cght {RF{Pi{Yr{Pe{Rs{x~
+Desc {W*{RH{Pi{gdd{Pe{Rn{W* {gA{Wn {gU{Wn{ge{Wnd{gi{Wng {gSp{Ye{gck {go{Wf {WL{Yu{Wm{Yi{Wn{Ye{Wsc{Ye{Wnc{Ye{x is here.~
+Mat {Yst{Wa{Yrl{Wi{Yght{x~
+Wear -1
+Cost 0
+ExDe fires~ An {ge{Wt{ge{Wrn{ga{Wl {gsp{Ye{gck {go{Wf {Yst{Wa{Yrl{Wi{Yght{x has been {gg{Wa{gth{we{gr{We{gd here.
+~
+End
+
+#B
+Vnum 1215
+Nest 0
+Name alara wild token dance firefly dancing fireflies~
+ShD  {W*{MW{Vil{Md{W* {cD{Wa{gn{Wc{ce {go{Wf {Wth{ge {RF{gi{cr{Re{Yfly{x~
+Desc {W*{MW{Vil{Md{W* {RF{gi{cr{Re{cf{gl{Yies {ga{Wr{ge {cD{Wa{gn{cc{Wi{gn{cg {xhere.~
+Mat {Wv{Yi{Ws{Yio{Wns{x~
+Wear -1
+Cost 0
+ExDe dancing~ Looking into this {Ms{Vp{Whe{Vr{Me {go{Wf {Yr{Wa{Yw {Nm{Ba{Tg{Ci{Tc{Ba{Nl {Cp{Bo{Nw{Be{Nr{x, you see {Rf{gi{cr{Re{cf{gl{Yies {cd{Wa{gn{cc{Wi{gn{cg{x.
+~
+ExDe fireflies~ Looking into this {Ms{Vp{Whe{Vr{Me {go{Wf {Yr{Wa{Yw {Nm{Ba{Tg{Ci{Tc{Ba{Nl {Cp{Bo{Nw{Be{Nr{x, you see {Rf{gi{cr{Re{cf{gl{Yies {cd{Wa{gn{cc{Wi{gn{cg{x.
+~
+End
+
+#B
+Vnum 1211
+Nest 0
+Name greater equipment protection token~
+ShD  a {PG{br{Ye{Wa{Yt{be{Pr {GEq{Tui{Cp{Tme{Gnt {WP{Yr{got{cec{gti{Yo{Wn{x token{x~
+Desc It's a {Rp{Po{Ww{ger{Wf{Pu{Rl {Wp{Yr{got{cec{gti{Yv{We{x aura, spinning like a top!~
+Wear -1
+Cost 0
+ExDe token~ Makes an item invulnerable!
+~
+ExDe protection~ Makes an item invulnerable!
+~
+ExDe equipment~ Makes an item invulnerable!
+~
+ExDe greater~ Makes an item invulnerable!
+~
+End
+
+#B
+Vnum 1211
+Nest 0
+Name equipment protection token~
+ShD  an {GEq{Tui{Cp{Tme{Gnt {WP{Yr{got{cec{gti{Yo{Wn{x token~
+Desc Isn't that a bit of {WP{Yr{got{cec{gti{Yv{We{x aura lying on the ground?~
+Wear -1
+Cost 0
+ExDe equipment~ Adds the burn_proof flag to one piece of equipment.
+~
+ExDe protection~ Adds the burn_proof flag to one piece of equipment.
+~
+ExDe token~ Adds the burn_proof flag to one piece of equipment.
+~
+End
+
+#END

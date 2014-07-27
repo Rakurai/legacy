@@ -1,0 +1,166 @@
+#PLAYER
+Name Synthalis~
+Id   1015033923
+LogO 1015036275
+Vers 12
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race feral~
+Sex  1
+Cla  6
+Levl 1
+Plyd 2135
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 3053
+HMS  20 20 100 100 2 100
+Gold 0
+Silv 12
+Exp  4249
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy R
+FVul JR
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Save  -1
+Alig  0
+Hit   1
+ACs 90 89 89 99
+Atrib 12 15 13 22 12 9
+AtMod 0 0 0 0 0 0
+Pass snarffa~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Urza~
+Lsit 168-138.idacpe.cableone.net~
+Ltim Fri Mar 01 19:55:28 2002
+~
+LSav Fri Mar 01 20:31:15 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 30 0
+Sk 1 1 'axe'
+Sk 55 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 21 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'haggle'
+Sk 15 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'sing'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'bard basics'
+Gr 'bard default'
+Gr 'weaponsmaster'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 152 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 1911
+Nest 0
+Wear -1
+Cost 70
+End
+
+#END

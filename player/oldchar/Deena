@@ -1,0 +1,159 @@
+#PLAYER
+Name Deena~
+Id   1000742288
+LogO 1001784416
+Vers 7
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race seraph~
+Sex  2
+Cla  0
+Levl 1
+Plyd 823
+Age  0
+Back 0
+Note 1001369498 1001117288 1001373665 1000363878 1001283641 0
+Scro 22
+Room 3700
+HMV  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  1500
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSTc
+AfBy T
+Comm NO
+Revk 0
+Pos  8
+Prac 5
+Trai 3
+Save  -1
+Alig  -750
+Hit   5
+Dam   7
+ACs 55 55 55 59
+Atrib 13 17 16 10 17 18
+AtMod 0 0 0 0 0 0
+Pass william~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Tarrant~
+Lsit c1409305-a.jffsn1.mo.home.com~
+Ltim Sat Sep 29 12:26:22 2001
+~
+LSav Sat Sep 29 12:26:56 2001
+~
+MC 41
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  F
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 0 0 31
+Sk 1 1 'armor'
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'channel'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 1 1 'cure serious'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'fireproof'
+Sk 1 1 'frenzy'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'infravision'
+Sk 1 1 'mass healing'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'talon'
+Sk 1 1 'undo spell'
+Sk 1 1 'dagger'
+Sk 40 1 'sword'
+Sk 1 1 'brew'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'benedictions'
+Gr 'curative'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'protective'
+Affc 'armor'   0  90  21 -20  17          0
+Affc 'blood moon'   0  89  88   4  18          0
+Affc 'blood moon'   0  90  88   7  19          0
+Affc 'shield'   0  91  96 -20  17          0
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 183 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

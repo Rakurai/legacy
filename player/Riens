@@ -1,0 +1,125 @@
+#PLAYER
+Name Riens~
+Id   1016535593
+LogO 1016624000
+Vers 13
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dragon~
+Sex  1
+Cla  3
+Levl 1
+Plyd 581
+Age  0
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3005
+HMS  20 20 100 100 100 100
+Gold 0
+Silv 0
+Exp  1250
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy T
+FRes EG
+FVul F
+Comm NOQY
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Prac 5
+Trai 3
+Save  -1
+Alig  0
+Hit   1
+ACs 95 95 95 99
+Atrib 20 15 13 12 17 13
+AtMod 0 0 0 0 0 0
+Pass kids3708~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 15
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Sturm~
+Lsit 211.227.62.70~
+Ltim Wed Mar 20 05:09:07 2002
+~
+LSav Wed Mar 20 05:33:20 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  H
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 2 0
+Sk 1 1 'acid breath'
+Sk 1 1 'fire breath'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'lightning breath'
+Sk 40 1 'sword'
+Sk 1 1 'bash'
+Sk 1 1 'second attack'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'draconian'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 154 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

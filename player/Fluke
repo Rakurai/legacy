@@ -1,0 +1,84 @@
+#PLAYER
+Name Fluke~
+Id   1018546217
+LogO 1018550716
+Vers 13
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Sex  1
+Cla  7
+Levl 1
+Plyd 4065
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  20 20 100 100 97 100
+Gold 0
+Silv 0
+Exp  1200
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+FRes B
+FVul Z
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  5
+Prac 5
+Alig  0
+ACs 100 100 100 100
+Wimp  4
+Atrib 14 18 12 13 14 15
+AtMod 0 0 0 0 0 0
+Pass slacker~
+Afk {B[{CThu Apr 11 13:32:38 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 5
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Sorsha~
+Lsit www.atler.com~
+Ltim Thu Apr 11 13:21:53 2002
+~
+LSav Thu Apr 11 13:45:16 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 40 1 'axe'
+Sk 1 1 'flail'
+Sk 1 1 'dual wield'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'enchantment'
+End
+
+#END

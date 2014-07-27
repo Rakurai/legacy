@@ -1,0 +1,2513 @@
+#AREA
+eilyndrae.are~
+Eilyndrae~
+{H{{90 91} {WL{Ci{Br{Ci{Te{Wl{x {TEilyndrae{x~
+200 299
+
+#MOBILES
+#200
+fairy gate eilyndrae~
+a fairy~
+A fairy maintains faithful watch, so that only the true might enter.
+~
+This fairy reminds you of the water sprites of the ancient myths,
+so slender and beautiful she is.  Her pale blue hair glistens in the
+unnatural light that surrounds her, making her skin seem almost
+translucent.  If you dared reach out to touch her, you'd realize that
+any form of weapons or even magic go right through her.
+~
+sprite~
+BGcc CDEFGHV 0 S
+250 95 100d12+17000 1d100+15000 11d10+51 magic
+-50 -50 -50 -50
+U ABCD 0 0
+stand stand female 0
+0 0 small 0
+
+#201
+guardian eilyndrae protector cloak maiden~
+the Guardian of Eilyndrae~
+A cloaked maiden walks among the forest, smiling at the creatures around her.
+~
+This slim maiden, although short of stature, has an aura that
+radiates power and magic.  Her cloaked form seems to fit in naturally
+with the forest, as if she had been born to protect this realm.
+~
+unique~
+GQRTZ BDFHNOVZ 1000 S
+250 100 100d12+17000 1d100+15000 11d10+80 frbite
+-99 -99 -99 -99
+FHK ABIOY D K
+stand stand female 0
+0 0 small 0
+
+#202
+serpent~
+the Serpent~
+A huge black serpent is coiled in filth, smirking at you.
+~
+"Epitome of Evil" is what comes to your mind, as you stare in horror
+at this massive serpent.  He is easily as tall as the tallest giant
+in the realm, and then ... you notice that more than half of his
+length is coiled around the room.  Your mind struggles with panic as
+he turns to you, his face twisted in a smirk, and slowly advances.
+~
+demon~
+BFGOTZ CDEFGHIKVaacc -1000 S
+200 50 1d1+14999 1d1+4999 10d20+100 crush
+-75 -75 -75 -50
+CDEFHKOQ AB HKLM NOPS
+stand rest male 10000
+0 0 giant 0
+
+#203
+imp demon~
+an imp~
+A disgusting imp shrieks gibberish as it hurls itself towards you.
+~
+This filthy, slime covered demon-spawn seems very intent to kill you.
+A dark, muted red that is tainted by some sort of mucus that covers
+its body, even though its form is twisted and scrawny, the rage in
+its eyes shows you that this imp has serious battle frenzy.
+~
+imp~
+CFGOSTZ DEFGHIKV -1000 S
+120 45 15d15+4000 15d15+1000 12d9+0 stab
+-69 -69 -69 -49
+CDEFHIJK AB HM N
+stand stand either 20
+0 0 small 0
+
+#204
+gray wolf timberwolf~
+a timberwolf~
+A large gray timberwolf lopes past you.
+~
+This gray timberwolf is huge, but then again, that's the way they all
+are.  The wolf turns briefly to gaze with you with intelligent eyes,
+and you get the eery sense you are being analyzed.  It's sharp fangs
+gleam in the moonlight, and it's big paws move noiselessly across the
+forest.
+~
+wolf~
+GHTW DFHVZ 1000 S
+120 45 99d50+9000 10d50+5000 18d5+0 bite
+-60 -80 -80 -60
+CDFHKQU AB 0 0
+stand stand either 0
+0 0 large 0
+
+#205
+brown grizzly bear~
+a grizzly bear~
+A huge grizzly bear grunts as it searches for grubs.
+~
+The sheer power that is obvious in this bear's massive, brown and
+silver fur-covered body amazes you.  The traits that mark it as a
+grizzly bear include the huge head surmounted by small ears and with
+tiny eyes.  When the bear moves it's arms, you can see the thick
+black claws that are on the ends of each paw.  It turns it's shaggy
+head to observe you curiously.
+~
+bear~
+CGT DFHVZ 1000 S
+120 35 99d80+9000 10d50+5000 18d7+0 claw
+-80 -60 -80 -60
+ACDEFHKOQU AB 0 0
+stand stand either 0
+0 0 huge 0
+
+#206
+snowshoe rabbit~
+a snowshoe rabbit~
+A brown snowshoe rabbit bounds away, it's big feet thumping against the ground.
+~
+This brown rabbit has enormous ears, used for detecting and evading
+predators.  Already, it's fur is starting to streak white, for winter
+is approaching, and as all snowshoe rabbits, the fur will change
+colors to blend with their surroundings.
+~
+rabbit~
+GHT DFHVZ 1000 S
+120 65 80d45+8000 10d50+5000 13d6+0 hit
+-80 -80 -60 -6
+DEFHIJKPU AB 0 0
+stand stand either 0
+0 0 small 0
+
+
+
+
+#0
+
+#OBJECTS
+
+#200
+staff miracles liriel~
+{YStaff{g of {WM{Cir{Bac{Tl{Ce{Ws{x~
+A pure beam of energy pulsates here ... you are irresistably drawn to it.~
+energy~
+weapon ABGIPSTUY AN
+exotic 16 9 frbite AE
+95 200 300000 I
+E
+staff miracles~
+Even resting in your hands, you can feel this staff's unbelievable
+power.  Once again, you are put in awe of the Sorceress's power,
+and of the weapon she created for her own personal use.  You cannot
+even begin to imagine wielding this in combat, but you also cannot
+wait to find out.  ;)
+~
+A
+12 300
+A
+13 300
+A
+18 10
+A
+19 10
+A
+24 -20
+F
+A 0 0 U
+F
+R 0 0 M
+
+#201
+cloak mystics~
+Cloak of the Mystics~
+A dull looking cloak lies here.~
+magic~
+armor ABFGPSU AK
+40 40 40 35 0
+95 20 30000 P
+E
+cloak mystics~
+What at first appears to be a dull, plain cloak is on closer
+inspection, an unusual artifact.  You cannot decipher the intricate
+embroidery around the edges, hem, and hood, but you recognize it
+as Drow sorcery.  Interesting ... Liriel, friends with the dark elves?
+No matter, there must have been a good reason the Guardian of
+Eilyndrae was wearing this, and you intend to find out why.
+~
+A
+3 3
+A
+4 3
+A
+9 20
+A
+12 50
+A
+18 10
+A
+19 10
+A
+24 -10
+F
+A 0 0 CDEFG
+F
+R 0 0 D
+F
+V 0 0 JKLQ
+
+#202
+mark serpent~
+Mark of the Serpent~
+A gleaming reddish token catches your eye.  It looks valuable.~
+evil~
+armor ABEGHJLMRSUZ AIP
+20 20 20 20 0
+95 300 299999 R
+E
+mark serpent~
+You cannot begin to imagine what this is, but the pagan sigils carved
+into it peak your curiosity.  Go ahead, try it on.
+~
+A
+1 2
+A
+5 2
+A
+6 1
+A
+13 200
+A
+18 55
+A
+19 55
+F
+A 0 0 IKOQ
+F
+R 0 0 HKLQ
+F
+V 0 0 INOS
+
+#203
+petal~
+a petal~
+A petal lies here.~
+nature~
+key FGTUS A
+0 0 0 0 0
+0 1 0 A
+E
+petal~
+A pretty little petal.  You wonder what you should do with it.
+~
+
+#204
+mushroom~
+a mushroom~
+A mushroom lies here.~
+nature~
+key FGTUS A
+0 0 0 0 0
+0 1 0 A
+E
+root~
+A nubby little mushroom.  You wonder what you should do with it.
+~
+
+#205
+seashell~
+a seashell~
+A seashell lies here.~
+nature~
+key FGTUS A
+0 0 0 0 0
+0 1 0 A
+E
+stem~
+A colorful little seashell.  You wonder what you should do with it.
+~
+
+#206
+shard quartz~
+a shard of quartz~
+A shard of quartz lies here.~
+nature~
+key FGTUS A
+0 0 0 0 0
+0 1 0 A
+E
+shard quartz~
+A little shard of quartz.  You wonder what you should do with it.
+~
+
+#207
+twig~
+a twig~
+A twig lies here.~
+nature~
+key FGTUS A
+0 0 0 0 0
+0 1 0 A
+E
+twig~
+A funny little twig.  You wonder what you should do with it.
+~
+
+#208
+seed~
+a seed~
+A seed lies here.~
+nature~
+key FGTUS A
+0 0 0 0 0
+0 1 0 A
+E
+seed~
+A small little seed.  You wonder what you should do with it.
+~
+
+#209
+leaf~
+a leaf~
+A leaf lies here.~
+nature~
+key FGTUS A
+0 0 0 0 0
+0 1 0 A
+E
+leaf~
+A little green leaf.  You wonder what you should do with it.
+~
+
+#210
+thorn~
+a thorn~
+A thorn lies here.~
+nature~
+key FGTUS A
+0 0 0 0 0
+0 1 0 A
+E
+thorn~
+A little sharp thorn.  You wonder what you should do with it.
+~
+
+#211
+pebble~
+a pebble~
+A pebble lies here.~
+nature~
+key FGTUS A
+0 0 0 0 0
+0 1 0 A
+E
+pebble~
+A little smooth pebble.  You wonder what you should do with it.
+~
+
+#212
+grove palm trees~
+the grove of palm trees~
+{x~
+trees~
+portal O 0
+0 0 A 290 0
+0 0 0 P
+E
+grove palm trees~
+Although at first glance, this grove of palm trees seems inpenetrable,
+when looking more carefully, you realize you might have been wrong.
+If you try very carefully, you might be able to slip through ... feel
+up to it?
+~
+
+#0
+
+
+#ROOMS
+
+#200
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east.  A pile of seaweed blocks any
+vision to the west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 201
+D3
+~
+~
+4 0 9798
+S
+
+#201
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east and west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 202
+D3
+~
+~
+0 -1 200
+S
+
+#202
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east and west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 203
+D3
+~
+~
+0 -1 201
+S
+
+#203
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east and west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 204
+D3
+~
+~
+0 -1 202
+S
+
+#204
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east and west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 205
+D3
+~
+~
+0 -1 203
+S
+
+#205
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on towards the west, where you just came from.
+Here, there's a bit of a jog in the tunnel and it finally turns.
+~
+0 ACILN 5
+D2
+~
+~
+0 -1 206
+D3
+~
+~
+0 -1 204
+S
+#206
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the west.  North is where you came from.
+~
+0 ACILN 5
+D0
+~
+~
+0 -1 205
+D3
+~
+~
+0 -1 207
+S
+
+#207
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east and west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 206
+D3
+~
+~
+0 -1 208
+S
+
+#208
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east and west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 207
+D3
+~
+~
+0 -1 209
+S
+
+#209
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east and west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 208
+D3
+~
+~
+0 -1 210
+S
+
+#210
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east.  Here, the tunnel slopes down
+sharply, and you nearly fall.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 209
+D5
+~
+~
+0 -1 211
+S
+
+#211
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 212
+D4
+~
+~
+0 -1 210
+S
+
+#212
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east and west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 213
+D3
+~
+~
+0 -1 211
+S
+
+#213
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the west.  Here is a sharp slope that
+levels and then slopes again.
+~
+0 ACILN 5
+D3
+~
+~
+0 -1 212
+D5
+~
+~
+0 -1 214
+S
+
+#214
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on to the east.  Here is a sharp slope that levels
+and then slopes again.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 215
+D4
+~
+~
+0 -1 213
+S
+
+#215
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel stretches on to the west, where you came from.  You slide down what
+you hope is the last slope.
+~
+0 ACILN 5
+D3
+~
+~
+0 -1 214
+D5
+~
+~
+0 -1 216
+S
+
+#216
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on to the east.  The tunnel slopes sharply up to the
+west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 217
+D4
+~
+~
+0 -1 215
+S
+
+#217
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east and west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 218
+D3
+~
+~
+0 -1 216
+S
+
+#218
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  All around is complete darkness, and the
+tunnel just stretches on and on to the east and west.
+~
+0 ACILN 5
+D1
+~
+~
+0 -1 219
+D3
+~
+~
+0 -1 217
+S
+
+#219
+A Hidden Tunnel~
+  This narrow tunnel is so dark that almost nothing can be seen except the
+water that covers half of it.  However, it seems as if there's a slight
+sliver of light coming in, from goodness knows where.  You are baffled by
+the apparent dead end... no way you just came all this way for no reason!
+~
+0 ACILN 5
+D0
+~
+~
+4 0 220
+D3
+~
+~
+0 -1 209
+S
+
+#220
+Mysterious Pathway~
+~
+0 CN 2
+S
+
+#221
+Mysterious Pathway~
+~
+0 CN 2
+S
+
+#222
+In the Light~
+~
+0 CN 2
+S
+
+#223
+Moonlit Clearing~
+  As your eyes slowly adjust to the gleaming darkness, you take in the
+shape of tall, imposing trees all around you.  This clearing is decidedly
+large, and you breathe in the clear, sharp air that can only be found in
+a deciduous forest.  You are amazed by the sense of peace and belonging
+you feel in this realm.
+~
+0 CN 2
+D0
+~
+~
+0 -1 224
+D1
+~
+~
+0 -1 225
+D2
+~
+~
+0 -1 226
+D3
+~
+~
+0 -1 227
+S
+
+#224
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 243
+D1
+~
+~
+0 -1 241
+D2
+~
+~
+0 -1 223
+D3
+~
+~
+0 -1 245
+S
+
+#225
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 241
+D1
+~
+~
+0 -1 228
+D2
+~
+~
+0 -1 237
+D3
+~
+~
+0 -1 223
+S
+
+#226
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 223
+D1
+~
+~
+0 -1 237
+D2
+~
+~
+0 -1 234
+D3
+~
+~
+0 -1 231
+S
+
+#227
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruce, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 245
+D1
+~
+~
+0 -1 223
+D2
+~
+~
+0 -1 231
+D3
+~
+~
+0 -1 229
+S
+
+#228
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 239
+D1
+~
+~
+0 -1 248
+D2
+~
+~
+0 -1 237
+D3
+~
+~
+0 -1 225
+S
+
+#229
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 246
+D1
+~
+~
+0 -1 227
+D2
+~
+~
+0 -1 230
+D3
+~
+~
+0 -1 200
+S
+
+#230
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 229
+D1
+~
+~
+0 -1 231
+D2
+~
+~
+0 -1 232
+S
+
+#231
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 246
+D1
+~
+~
+0 -1 227
+D2
+~
+~
+0 -1 230
+D3
+~
+~
+0 -1 266
+S
+
+#232
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 230
+D1
+~
+~
+0 -1 233
+S
+
+
+#233
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 231
+D1
+~
+~
+0 -1 234
+D2
+~
+~
+0 -1 266
+D3
+~
+~
+0 -1 232
+S
+
+#234
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 226
+D1
+~
+~
+0 -1 235
+D3
+~
+~
+0 -1 233
+S
+
+#235
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 237
+D1
+~
+~
+0 -1 236
+D3
+~
+~
+0 -1 234
+S
+
+#236
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 237
+D1
+~
+~
+0 -1 236
+D3
+~
+~
+0 -1 234
+S
+
+#237
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 225
+D1
+~
+~
+0 -1 238
+D2
+~
+~
+0 -1 235
+D3
+~
+~
+0 -1 226
+S
+
+#238
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 228
+D2
+~
+~
+0 -1 236
+D3
+~
+~
+0 -1 237
+S
+
+#239
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 240
+D2
+~
+~
+0 -1 228
+D3
+~
+~
+0 -1 241
+S
+
+#240
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D2
+~
+~
+0 -1 239
+D3
+~
+~
+0 -1 242
+S
+
+#241
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 242
+D1
+~
+~
+0 -1 239
+D2
+~
+~
+0 -1 225
+D3
+~
+~
+0 -1 224
+S
+
+#242
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 266
+D1
+~
+~
+0 -1 240
+D2
+~
+~
+0 -1 241
+D3
+~
+~
+0 -1 243
+S
+
+#243
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D1
+~
+~
+0 -1 242
+D2
+~
+~
+0 -1 224
+D3
+~
+~
+0 -1 244
+S
+
+#244
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D1
+~
+~
+0 -1 243
+D2
+~
+~
+0 -1 245
+D3
+~
+~
+0 -1 247
+S
+
+#245
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 244
+D1
+~
+~
+0 -1 224
+D2
+~
+~
+0 -1 227
+D3
+~
+~
+0 -1 246
+S
+
+#246
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D0
+~
+~
+0 -1 247
+D1
+~
+~
+0 -1 245
+D2
+~
+~
+0 -1 229
+S
+
+#247
+Forest~
+  The silver moonlight and twinkling stars give all the light you need as
+they reveal the interesting variety of trees all around you.  Sequoias,
+redwoods, oaks, pines, evergreens, spruces, you name it and it is here.
+An occasional low hoot breaks the silence and you sometimes perceive the
+shape of a small furry creature scampering through the shadows.
+~
+0 N 3
+D1
+~
+~
+0 -1 244
+D2
+~
+~
+0 -1 246
+S
+
+#248
+A Steep Trail~
+  This dirt trail leads away from the forest towards a forbidding rocky
+craig.  However, the lack of footprints and accumulation of wild growth
+blurring and interrupting the trail leads you to believe that it has not
+been used for some time.  That is no wonder, for it looks very steep and
+difficult to climb.
+~
+0 CN 5
+D1
+~
+~
+0 -1 249
+D3
+~
+~
+0 -1 228
+S
+
+#249
+Steep Trail~
+  This is the path in between the forest and a separate section of
+Eilyndrae.
+~
+0 CN 5
+D1
+~
+~
+0 -1 250
+D3
+~
+~
+0 -1 248
+S
+
+#250
+Beginning of the Evil~
+  As you stand on the crest of the ridge and look down at the
+landscape before your eyes, you are shocked by how utterly different
+it is from the rest of Eilyndrae.  Desolate and bleak, you see
+nothing but dry leaves, brittle shrubs, and dead, thorny trees that
+reach out as if to ensnare you.  Whereas the rest of the area was
+filled with a clean, sweet smell, you suddenly are surrounded by a
+foul, stagnant stench that seems to permeate and suffocate you.  The
+path leads on deeper into the desolation.
+~
+0 N 4
+D2
+~
+~
+0 -1 251
+D3
+~
+~
+0 -1 249
+S
+
+#251
+Along the Path~
+  The barren landscape continues, the jagged path twisting and
+turning but always leading deeper into the darkness.  If you looked
+closely enough at the rocks, gravel, and dirt underneath your feet,
+you would also see crusted, dried blood, and also a few cracked bones
+from age old skeletons.  You realize the stench you smell is of
+decomposing flesh, from the corpses that you know lay around you,
+hidden by brush ... are you sure you want to continue?
+
+~
+0 N 4
+D0
+~
+~
+0 -1 250
+D2
+~
+~
+0 -1 252
+S
+
+#252
+Path of Darkness~
+  The number of imps along this path seem to be never-ending, as they
+rush out to take you down.  Countless other creatures of evil seem to
+lie behind the shadows, laughing at you, mocking you.  The dirt path
+you walk on makes it hard for battle, and the thorns from the bushes
+all around you make it so you may not stand elsewhere.  You cannot
+shake the feeling of corruption and dirtiness that overwhelms you,
+and you wish you were anywhere but here.
+~
+0 N 4
+D0
+~
+~
+0 -1 251
+D2
+~
+~
+0 -1 253
+S
+
+#253
+Right Before the Evil~
+  Here the path finally ends, with forbidding stony walls jutting out
+in front of you.  You find yourself outside what appears to be a
+large den, and you hear excited chattering from inside.  The stench
+seems to grow stronger as you near the entrance, and even though you
+have left littered wasteland and demonic monsters behind, the heat
+coming from the den and eerie light and shadows that dance within
+make you wonder if you are not about to step into something worse.
+~
+0 N 4
+D0
+~
+~
+0 -1 252
+D2
+~
+~
+0 -1 254
+S
+
+#254
+Den of Evil~
+  As you walk into this den, the first thing you realize is that the
+evil you feel here seems to permeate through anything, come from
+everything, and penetrate through your very soul. Eerie black flames
+jump all around you, the heat from them near-suffocating.  The foul
+stench that you have noticed seems to be created from this very den,
+and your stomach heaves and threatens to empty its contents.  And
+then you notice, that besides yet another horde of imps running at
+you, there seems to be a very large serpent coiled in this room as
+well ...
+~
+0 N 6
+D0
+~
+~
+0 -1 253
+D4
+~
+~
+0 -1 255
+S
+
+#255
+Gateway~
+
+~
+1 CDHILNW 0
+S
+
+#256
+Through the Trees~
+  As you walk further and further south you notice an interesting
+change taking place in your surroundings.  The temperature seems to
+be getting warmer and more humid, lessening the chill of the night.
+The undergrowth seems to change, and the moonlight occasionally
+reveals a bright splash of color, which appears to be from plants.
+This path leads out of the forest; unfortunately, in the darkness of
+the night, you cannot see to where.
+~
+0 N 3
+D0
+The chilly moonlit forest lies to the north.
+~
+~
+0 -1 233
+D2
+A few vines and the darkness block your view to the south.
+~
+~
+0 -1 257
+S
+
+#257
+Into the Jungle~
+  You enter a place that can only be described as a tropical
+rainforest.  Even in the night time, a pleasant warmth surrounds you,
+and the pale moonlight streaks through the canopy of trees to reveal
+the exotic plants and colorful blooms.  Leafy vines creep along the
+trunks of the tall treees, though a few swing freely in your face.
+You see a flash of bright color in the corner of your eye as some
+exotic bird returns to it's nest.
+~
+0 N 3
+D0
+The path back to the forest is north.
+~
+~
+0 -1 256
+D1
+You see more of the tropical jungle.
+~
+~
+0 -1 258
+D2
+You see more of the tropical jungle.
+~
+~
+0 -1 263
+D3
+You see more of the tropical jungle.
+~
+~
+0 -1 259
+S
+
+#258
+Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even
+in the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D2
+You see more of the tropical jungle.
+~
+~
+0 -1 264
+D3
+You see more of the tropical jungle.
+~
+~
+0 -1 257
+S
+
+#259
+Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even
+in the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D1
+You see more of the tropical jungle.
+~
+~
+0 -1 257
+D2
+You see more of the tropical jungle.
+~
+~
+0 -1 262
+D3
+You see more of the tropical jungle.
+~
+~
+0 -1 260
+S
+
+#260
+Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even
+in the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D1
+You see more of the tropical jungle.
+~
+~
+0 -1 259
+D2
+You see more of the tropical jungle.
+~
+~
+0 -1 261
+S
+
+#261
+Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even
+in the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D0
+You see more of the tropical jungle.
+~
+~
+0 -1 260
+D1
+You see more of the tropical jungle.
+~
+~
+0 -1 262
+D2
+You see more of the tropical jungle.
+~
+~
+0 -1 268
+S
+
+#262
+Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even in
+the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D0
+You see more of the tropical jungle.
+~
+~
+0 -1 259
+D1
+You see more of the tropical jungle.
+~
+~
+0 -1 263
+D2
+You see more of the tropical jungle.
+~
+~
+0 -1 267
+D3
+You see more of the tropical jungle.
+~
+~
+0 -1 261
+S
+
+#263Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even in
+the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D0
+You see more of the tropical jungle.
+~
+~
+0 -1 257
+D1
+You see more of the tropical jungle.
+~
+~
+0 -1 264
+D2
+You see more of the tropical jungle.
+~
+~
+0 -1 266
+D3
+You see more of the tropical jungle.
+~
+~
+0 -1 262
+S
+
+#264
+Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even in
+the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D0
+You see more of the tropical jungle.
+~
+~
+0 -1 258
+D2
+You see more of the tropical jungle.
+~
+~
+0 -1 265
+D3
+You see more of the tropical jungle.
+~
+~
+0 -1 263
+S
+
+#265
+Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even in
+the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D0
+You see more of the tropical jungle.
+~
+~
+0 -1 264
+D2
+The trees start to grow more sparsely, the jungle not as thick to the south.
+~
+~
+0 -1 272
+D3
+You see more of the tropical jungle.
+~
+~
+0 -1 266
+S
+
+#266
+Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even in
+the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D0
+You see more of the tropical jungle.
+~
+~
+0 -1 263
+D1
+You see more of the tropical jungle.
+~
+~
+0 -1 265
+D2
+The trees start to grow more sparsely, the jungle not as thick to the south.
+~
+~
+0 -1 271
+D3
+You see more of the tropical jungle.
+~
+~
+0 -1 267
+S
+
+#267
+Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even in
+the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D0
+You see more of the tropical jungle.
+~
+~
+0 -1 262
+D1
+You see more of the tropical jungle.
+~
+~
+0 -1 266
+D2
+The trees start to grow more sparsely, the jungle not as thick to the south.
+~
+~
+0 -1 270
+D3
+You see more of the tropical jungle.
+~
+~
+0 -1 268
+S
+
+#268
+Inside the Jungle~
+  This place can only be described as a tropical rainforest.  Even in
+the night time, a pleasant warmth surrounds you, and the pale
+moonlight streaks through the canopy of trees to reveal the exotic
+plants and colorful blooms.  Leafy vines creep along the trunks of
+the tall trees, though a few swing freely in your face.
+~
+0 N 3
+D0
+You see more of the tropical jungle.
+~
+~
+0 -1 261
+D1
+You see more of the tropical jungle.
+~
+~
+0 -1 267
+D2
+The trees start to grow more sparsely, the jungle not as thick to the south.
+~
+~
+0 -1 269
+S
+
+#269
+Leaving the Jungle~
+  Whereas in the heart of the jungle, the trees and vines were so
+thick, you had to shove or cut your way through, here the trees and
+plants start to grow more sparsely.  A fair breeze ruffles your hair
+softly, and you catch an open area and a glimmer of moonlight to the
+south.
+~
+0 N 3
+D0
+North would take you deeper into the jungle.
+~
+~
+0 -1 268
+D1
+You see more of the same scenery to the east.
+~
+~
+0 -1 270
+D2
+You think you catch a glimpse of white sand to the south.
+~
+~
+0 -1 276
+S
+
+#270
+Leaving the Jungle~
+  Whereas in the heart of the jungle, the trees and vines were so
+thick, you had to shove or cut your way through, here the trees and
+plants start to grow more sparsely.  A fair breeze ruffles your hair
+softly, and you catch an open area and a glimmer of moonlight to the
+south.
+~
+0 N 3
+D0
+North would take you deeper into the jungle.
+~
+~
+0 -1 267
+D1
+You see more of the same scenery to the east.
+~
+~
+0 -1 271
+D2
+You think you catch a glimpse of white sand to the south.
+~
+~
+0 -1 275
+D3
+You see more of the same scenery to the west.
+~
+~
+0 -1 269
+S
+
+#271
+Leaving the Jungle~
+  Whereas in the heart of the jungle, the trees and vines were so
+thick, you had to shove or cut your way through, here the trees and
+plants start to grow more sparsely.  A fair breeze ruffles your hair
+softly, and you catch an open area and a glimmer of moonlight to the
+south.
+~
+0 N 3
+D0
+North would take you deeper into the jungle.
+~
+~
+0 -1 266
+D1
+You see more of the same scenery to the east.
+~
+~
+0 -1 272
+D2
+You think you catch a glimpse of white sand to the south.
+~
+~
+0 -1 274
+D3
+You see more of the same scenery to the west.
+~
+~
+0 -1 270
+S
+
+#272
+Leaving the Jungle~
+  Whereas in the heart of the jungle, the trees and vines were so
+thick, you had to shove or cut your way through, here the trees and
+plants start to grow more sparsely.  A fair breeze ruffles your hair
+softly, and you catch an open area and a glimmer of moonlight to the
+south.
+~
+0 N 3
+D0
+North would take you deeper into the jungle.
+~
+~
+0 -1 265
+D2
+You think you catch a glimpse of white sand to the south.
+~
+~
+0 -1 273
+D3
+You see more of the same scenery to the west.
+~
+~
+0 -1 271
+S
+
+#273
+The Edge of the Beach~
+  You find yourself standing on the edge of a stretch of unbroken,
+beautiful white beach.  You feel the soft warm sand underneath your
+toes, as well as the chilly breeze, carrying the slightly salty smell
+of the ocean with it.  On the shoreline, the gentle tide laps against
+the shore, inviting you to wade in it, while the calm ocean reflects
+an exquisite full moon brightly.
+~
+0 N 2
+D0
+The edge of the jungle lies to the north.
+~
+~
+0 -1 272
+D2
+Looking to the south, you see the tide lapping against the shore.
+~
+~
+0 -1 279
+D3
+The white sands of the beach stretches west.
+~
+~
+0 -1 274
+S
+
+#274
+The Edge of the Beach~
+  You find yourself standing on the edge of a stretch of unbroken,
+beautiful white beach.  You feel the soft warm sand underneath your
+toes, as well as the chilly breeze, carrying the slightly salty smell
+of the ocean with it.  On the shoreline, the gentle tide laps against
+the shore, inviting you to wade in it, while the calm ocean reflects
+an exquisite full moon brightly.
+~
+0 N 2
+D0
+The edge of the jungle lies to the north.
+~
+~
+0 -1 271
+D1
+The white sands of the beach stretches east.
+~
+~
+0 -1 273
+D2
+Looking to the south, you see the tide lapping against the shore.
+~
+~
+0 -1 280
+D3
+The white sands of the beach stretches west.
+~
+~
+0 -1 275
+S
+
+#275
+The Edge of the Beach~
+  You find yourself standing on the edge of a stretch of unbroken,
+beautiful white beach.  You feel the soft warm sand underneath your
+toes, as well as the chilly breeze, carrying the slightly salty smell
+of the ocean with it.  On the shoreline, the gentle tide laps against
+the shore, inviting you to wade in it, while the calm ocean reflects
+an exquisite full moon brightly.
+~
+0 N 2
+D0
+The edge of the jungle lies to the north.
+~
+~
+0 -1 270
+D1
+The white sands of the beach stretches east.
+~
+~
+0 -1 274
+D2
+Looking to the south, you see the tide lapping against the shore.
+~
+~
+0 -1 281
+D3
+The white sands of the beach stretches west.
+~
+~
+0 -1 276
+S
+
+#276
+The Edge of the Beach~
+  You find yourself standing on the edge of a stretch of unbroken,
+beautiful white beach.  You feel the soft warm sand underneath your
+toes, as well as the chilly breeze, carrying the slightly salty smell
+of the ocean with it.  On the shoreline, the gentle tide laps against
+the shore, inviting you to wade in it, while the calm ocean reflects
+an exquisite full moon brightly.
+~
+0 N 2
+D0
+The edge of the jungle lies to the north.
+~
+~
+0 -1 269
+D1
+The white sands of the beach stretches east.
+~
+~
+0 -1 275
+D2
+Looking to the south, you see the tide lapping against the shore.
+~
+~
+0 -1 282
+S
+
+#277
+The Edge of the Beach~
+  You find yourself standing on the edge of a stretch of unbroken,
+beautiful white beach.  You feel the soft warm sand underneath your
+toes, as well as the chilly breeze, carrying the slightly salty smell
+of the ocean with it.  On the shoreline, the gentle tide laps against
+the shore, inviting you to wade in it, while the calm ocean reflects
+an exquisite full moon brightly.
+~
+0 N 2
+D0
+The edge of the jungle lies to the north.
+~
+~
+0 -1 271
+D1
+The white sands of the beach stretches east.
+~
+~
+0 -1 273
+D2
+Looking to the south, you see the tide lapping against the shore.
+~
+~
+0 -1 280
+D3
+The white sands of the beach stretches west.
+~
+~
+0 -1 275
+S
+
+#278
+At the Shoreline~
+  You see the tide gently rush up, and feel the chilly water surround
+your feet before slipping back down to the ocean it belongs to.  The
+sand underneath your feet feels like wet silk, and your toes sink
+delightfully into it.  If you'd turn around and look, you could see
+your footprints leaving a trail behind you.  A bit further out lies
+the ocean beckons to you, but so do the delightful white sands you
+left behind.
+~
+0 N 2
+D0
+The white sands of the beach lie to the north.
+~
+~
+0 -1 277
+D2
+The gleaming ocean, looking deceptively peaceful, pulls you towards the south.
+~
+~
+0 -1 287
+D3
+The shoreline stretches on to the west.
+~
+~
+0 -1 279
+S
+
+#279
+At the Shoreline~
+  You see the tide gently rush up, and feel the chilly water surround
+your feet before slipping back down to the ocean it belongs to.  The
+sand underneath your feet feels like wet silk, and your toes sink
+delightfully into it.  If you'd turn around and look, you could see
+your footprints leaving a trail behind you.  A bit further out lies
+the ocean beckons to you, but so do the delightful white sands you
+left behind.
+~
+0 N 2
+D0
+The white sands of the beach lie to the north.
+~
+~
+0 -1 273
+D1
+The shoreline stretches on to the west.
+~
+~
+0 -1 278
+D2
+The gleaming ocean, looking deceptively peaceful, pulls you towards the south.
+~
+~
+0 -1 286
+D3
+The shoreline stretches on to the west.
+~
+~
+0 -1 280
+S
+
+#280
+At the Shoreline~
+  You see the tide gently rush up, and feel the chilly water surround
+your feet before slipping back down to the ocean it belongs to.  The
+sand underneath your feet feels like wet silk, and your toes sink
+delightfully into it.  If you'd turn around and look, you could see
+your footprints leaving a trail behind you.  A bit further out lies
+the ocean beckons to you, but so do the delightful white sands you
+left behind.
+~
+0 N 2
+D0
+The white sands of the beach lie to the north.
+~
+~
+0 -1 274
+D1
+The shoreline stretches on to the east.
+~
+~
+0 -1 279
+D2
+The gleaming ocean, looking deceptively peaceful, pulls you towards the south.
+~
+~
+0 -1 285
+D3
+The shoreline stretches on to the west.
+~
+~
+0 -1 281
+S
+
+#281
+At the Shoreline~
+  You see the tide gently rush up, and feel the chilly water surround
+your feet before slipping back down to the ocean it belongs to.  The
+sand underneath your feet feels like wet silk, and your toes sink
+delightfully into it.  If you'd turn around and look, you could see
+your footprints leaving a trail behind you.  A bit further out lies
+the ocean beckons to you, but so do the delightful white sands you
+left behind.
+~
+0 N 2
+D0
+The white sands of the beach lie to the north.
+~
+~
+0 -1 275
+D1
+The shoreline stretches on to the east.
+~
+~
+0 -1 280
+D2
+The gleaming ocean, looking deceptively peaceful, pulls you towards the south.
+~
+~
+0 -1 284
+D3
+The shoreline stretches on to the west.
+~
+~
+0 -1 282
+S
+
+#282
+At the Shoreline~
+  You see the tide gently rush up, and feel the chilly water surround
+your feet before slipping back down to the ocean it belongs to.  The
+sand underneath your feet feels like wet silk, and your toes sink
+delightfully into it.  If you'd turn around and look, you could see
+your footprints leaving a trail behind you.  A bit further out lies
+the ocean beckons to you, but so do the delightful white sands you
+left behind.
+~
+0 N 2
+D0
+The white sands of the beach lie to the north.
+~
+~
+0 -1 276
+D1
+The shoreline stretches on to the east.
+~
+~
+0 -1 281
+D2
+The gleaming ocean, looking deceptively peaceful, pulls you towards the south.
+~
+~
+0 -1 283
+S
+
+#283
+In the Ocean~
+  Wading about knee deep into the water, you enjoy the serenity of
+hearing nothing but the waves lapping around you, but realize that
+the water is much colder than you first realized.  You'd probably
+freeze to death if you actually tried swimming in it, but wading is
+fine, as long as you don't stay here too long!  The ocean stretches
+out for a bit to the east, and sheer vertical cliffs block the west.
+~
+0 N 2
+D0
+The relative safety of the shoreline lies to the north.
+~
+~
+0 -1 282
+D1
+The ocean stretches on towards the east.
+~
+~
+0 -1 284
+S
+
+#284
+In the Ocean~
+  Wading about knee deep into the water, you enjoy the serenity of
+hearing nothing but the waves lapping around you, but realize that
+the water is much colder than you first realized.  You'd probably
+freeze to death if you actually tried swimming in it, but wading is
+fine, as long as you don't stay here too long!  The ocean stretches
+out for a bit to the east and west.
+~
+0 N 2
+D0
+The relative safety of the shoreline lies to the north.
+~
+~
+0 -1 281
+D1
+The ocean stretches on towards the east.
+~
+~
+0 -1 285
+D3
+The ocean stretches on towards the west.
+~
+~
+0 -1 283
+S
+
+#285
+In the Ocean~
+  Wading about knee deep into the water, you enjoy the serenity of
+hearing nothing but the waves lapping around you, but realize that
+the water is much colder than you first realized.  You'd probably
+freeze to death if you actually tried swimming in it, but wading is
+fine, as long as you don't stay here too long!  The ocean stretches
+out for a bit to the east and west.
+~
+0 N 2
+D0
+The relative safety of the shoreline lies to the north.
+~
+~
+0 -1 280
+D1
+The ocean stretches on towards the east.
+~
+~
+0 -1 286
+D3
+The ocean stretches on towards the west.
+~
+~
+0 -1 284
+S
+
+#286
+In the Ocean~
+  Wading about knee deep into the water, you enjoy the serenity of
+hearing nothing but the waves lapping around you, but realize that
+the water is much colder than you first realized.  You'd probably
+freeze to death if you actually tried swimming in it, but wading is
+fine, as long as you don't stay here too long!  The ocean stretches
+out for a bit to the east and west.
+~
+0 N 2
+D0
+The relative safety of the shoreline lies to the north.
+~
+~
+0 -1 278
+D1
+The ocean stretches on towards the east.
+~
+~
+0 -1 287
+D3
+The ocean stretches on towards the west.
+~
+~
+0 -1 285
+S
+
+#287
+In the Ocean~
+  Wading about knee deep into the water, you enjoy the serenity of
+hearing nothing but the waves lapping around you, but realize that
+the water is much colder than you first realized.  You'd probably
+freeze to death if you actually tried swimming in it, but wading is
+fine, as long as you don't stay here too long!  The ocean stretches
+out for a bit to the west, with sheer vertical cliffs to the east.
+~
+0 N 2
+D0
+The relative safety of the shoreline lies to the north.
+~
+~
+0 -1 278
+D3
+The ocean stretches on towards the west.
+~
+~
+0 -1 286
+S
+
+#288
+Sand Path~
+  This sandy path leads away from the rest of the beach, although
+you are not quite sure to where.  You think you see some trees or
+something break the relatively flat landscape to the north, but you
+can't be sure.  This path continues into the darkness to the north,
+and west leads you back to the main beach.
+~
+0 N 2
+D0
+The sandy path continues into the darkness.
+~
+~
+0 -1 289
+D3
+The white sands of the beach lies to the west.
+~
+~
+0 -1 277
+S
+
+#289
+End of the Path~
+  The sandy trail seems to end here at a thick grove of palm trees.
+Very strange, for this is the only place on the entire beach that you
+have seen any trees or growth whatsoever.  The tall trees seem like
+they would provide some nice shade in the daytime, when the sun would
+reflect off the sand, but only moonlight shines now.  South takes you
+back to the path that leads to the beach.
+~
+0 N 2
+D2
+The sandy path leads back to the beach.
+~
+~
+0 -1 288
+S
+
+#290
+Inside the Grove~
+  Wow!  As you step inside the grove of palm trees, you realized you
+have entered some sort of private paradise.  The trees are rather
+close together, but leave open in between them an open space, big
+enough so that maybe three or even four people could fit inside
+comfortably.  Somehow, plum tree branches have grafted themselves
+onto the palm trees, and plum blossoms are everywhere, lending both
+a sweet appearance and smell to all around.  Hummingbirds dart here
+and there, taking advantage of the nectar all around them; the
+branches act as sort of a canopy, with streaks of moonlight filtering
+past them.  Fallen palm leaves are intertwined underneath your feet,
+acting as some sort of mat, and this place is insulated from the cold
+of night, and probably from the heat of day as well.  Plump plums
+dangle tantalizingly from some of the branches ... you feel
+incredibly drawn to stay and just rest in here.
+~
+0 IKNT 2
+H 200 M 200
+D2
+You can slip out of the grove to the sandy path.
+~
+~
+0 -1 289
+S
+
+
+#0
+
+
+#RESETS
+M 0 201 1 223 1     * guardian to moonlit clearing
+E 0 201 10 12       * cloak of mystics to guardian
+M 0 202 1 254 1     * serpent to den of evil
+E 0 202 10 10       * mark to serpent
+M 0 203 6 250 30    * imp to beginning
+M 0 203 6 250 30    * imp to beginning
+M 0 203 6 250 30    * imp to beginning
+M 0 203 6 251 30    * imp to path
+M 0 203 6 251 30    * imp to path
+M 0 203 6 251 30    * imp to path
+M 0 203 6 252 30    * imp to path2
+M 0 203 6 252 30    * imp to path2
+M 0 203 6 252 30    * imp to path2
+M 0 203 6 253 30    * imp to right before
+M 0 203 6 253 30    * imp to right before
+M 0 203 6 253 30    * imp to right before
+M 0 203 6 254 30    * imp to den
+M 0 203 6 254 30    * imp to den
+M 0 203 6 254 30    * imp to den
+M 0 203 6 254 30    * imp to den
+O 0 212 1 289       * grove portal to sandy path
+
+S
+
+
+#SPECIALS
+M 201 spec_cast_mage
+M 202 spec_cast_undead
+S
+
+
+#$
+
+

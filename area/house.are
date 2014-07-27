@@ -1,0 +1,345 @@
+#AREA
+House.are~
+TaHoe and Chyanne's House~
+{H{{ All } {MTaHoe   {TTaHoe and Chyanne's House~
+3800 3899
+
+
+#MOBILES
+#3800
+snow kitty~
+Snowball~
+Snowball lies here warming by the fire playing with a ball of string
+~
+This cute little kitty looks so cute the sight of her makes for feel good,
+She also has a collar on her neck that reads 'I belong to Chyanne'.
+~
+cat~
+HQ HISV 1000 S
+60 3 10000d1+1 1000d1+1 30d30+1 scratch
+-200 -200 -200 -200
+EJN ABK Z DF
+rest rest female 0
+0 0 small 0
+
+#3801
+horse sandy~
+{CS{Ta{Cn{Td{Cy{x~
+{CS{Ta{Cn{Td{Cy{x stands here nuzzelling your neck.
+~
+This beautiful Palomino stands here proud and true to Chyanne.She has taken Chyanne through many journeys
+and adventures.She is the one who brought Chyanne to TaHoe many years ago.
+~
+horse~
+HR HISV 1000 S
+60 3 10000d1+1 1000d1+1 30d30+1 pound
+-200 -200 -200 -50
+CIJKN AC CH X
+stand stand female 100
+0 0 large 0
+
+#3802
+horse spirit~
+{PS{Rp{Pi{Rr{Pi{Rt{x~
+{PS{Rp{Pi{Rr{Pi{Rt{x stands here waiting for you to take a ride.
+~
+This brave stallion rides with TaHoe through the thick and thin. His courage seems 
+to be glowing around him to kill him would be a disgrace as well as a challenge.
+~
+horse~
+BR HISTV 1000 S
+80 5 10000d1+5000 10000d1+1 70d3+5 crush
+-200 -200 -200 -150
+BCDIJKNQ ABD KL Y
+stand stand male 1000
+0 0 large 0
+#0
+
+#OBJECTS
+#3800
+swing~
+A porch swing~
+A porch swing is hanging here for relaxation.~
+wood~
+furniture ABGKMO 0
+2 1000 FIL 75 75
+1 10000 1000 P
+E
+swing~
+This swing seems sturdy and strong.  Looks as if TaHoe spent a pretty 
+pennie on this one.
+~
+#3802
+couch~
+A blue couch~
+A {Bblue{x wrap around couch sets here in front of the fireplace pit.~
+leather~
+furniture ABGIMO 0
+3 10000 FIL 100 100
+1 10000 10000 P
+E
+couch~
+This fine material is hand crafted from the finest leather in Thera.
+Chyanne bought this in Mega City when she and TaHoe moved here.
+~
+
+#3803
+bed~
+A comfy bed~
+A bed of peaceful and pleasant dreams lies here.~
+mithril~
+furniture ABGIMO 0
+2 10000 FIL 150 150
+1 10000 10000 P
+E
+bed~
+WOW! this bed look confy! This is Where Chyanne and TaHoe rest their wery 
+body and minds.
+~
+#3804
+sword~
+TaHoe's {WT{PH{YU{GN{CD{BE{VR{WS{PT{GR{CI{BK{VE{YR{x~
+This sword here will KICK YOUR ASS!~
+diamond~
+weapon ABCGHIMO AN
+exotic 30 30 cracking 0
+94 0 1000000 P
+A
+1 10
+A
+2 10
+A
+3 10
+A
+4 10
+A
+5 10
+A
+26 10
+A
+12 300
+A
+13 300
+A
+14 300
+A
+17 -100
+A
+18 200
+A
+19 250
+A
+24 -100
+#0
+
+#ROOMS
+#3800
+{CTaHoe and Chyanne's Cabin{x~
+Nestled in a secluded valley surrounded by snow capped mountains, you see 
+a log cabin near a crystal clear lake.  As you get nearer, you feel the 
+silence and sense the majestic beauty overwhelming you, caressing your 
+senses.  As you walk up the gravel path, leading to the cabin, you pass 
+under a trellis laden with dark red roses.  The path leads north to the 
+front steps.  To the west is a corral and barn, and to the east the path 
+cuts down towards the lake.
+~
+0 DK 0
+D1
+This is a door.
+~
+door~
+0 -1 1022
+D0
+~
+~
+0 -1 3801
+D3
+~
+~
+0 -1 3802
+D1
+~
+~
+0 -1 3804
+S
+
+#3801
+{TPorch{x~
+You walk up wide hand-cut stone steps to the wrap around porch.  It was 
+designed for relaxing on cool nights, to sit on the swing and gaze at the 
+clear, black skies, heavy laden with brilliant twinkling stars and full 
+moon smiling.  Double, massive hand-carved doors grace the front 
+entrance, with 8' stain glass windows flanking both sides.
+~
+0 DK 0
+D2
+This is a door.
+~
+door~
+0 -1 3800
+D0
+~
+~
+0 -1 3805
+S
+
+#3802
+Gravel Path~
+The gravel path leads you down a gradual wooded slope, wildflowers 
+everywhere, rabbits, squirrels, and deer here and there.  You can see the 
+two horses standing in the corral next to the barn. They wait patiently 
+for Chyanne and TaHoe, a golden palomino and a large black stallion.  You 
+continue west.
+~
+0 N 2
+D1
+This is a door.
+~
+door~
+0 -1 3800
+D3
+~
+~
+0 -1 3803
+S
+
+#3803
+Corral {Y/{x Barn~
+The two horses at the fence came to greet you, head hanging over waiting 
+for a gentle petting between the ears.  Near your feet is a covered 
+bucket with sugar, carrots and apples to feed them.  Sandy, the palomino, 
+and Spirit, the black stallion, are gentle, but fiercely loyal to 
+their partners.  Chyanne and TaHoe take long rides through the fields and 
+woods of their 100 acre "little bit of heaven", taking sleeping bags and 
+food with them, for overnight camping.
+~
+0 DK 0
+D1
+This is a door.
+~
+door~
+0 -1 3802
+D3 
+~
+~
+0 -1 3804
+S
+
+#3804
+{CCrystal {TLake{x~
+A gravel path slopping down to the side and back of the cabin, leads you 
+to the dock over the lake.  There is a flag stone path, off to the gravel 
+path, that leads to a wooden bench nestled among a grove of pine trees.  
+Wildflowers sway in the gentle breeze. Is it a trick of the mind and 
+senses?  You seem to hear the melody "Don't forget to dance."
+~
+0 AX 6
+D3
+This is a door.
+~
+door~
+0 -1 3800
+S
+
+#3805
+Great Room~
+As you enter the Great Room, a massive field stone fireplace on the north 
+wall flanked with large double French doors, is the first thing you see. 
+The tongue and grove ceiling, with massive beams running the width, rise 
+18'. The hardwood floors shine with a golden glow, mellowed with age, 
+various colorful, hand-woven native rugs are scattered here and there.  
+Step down to the pit in front of the fireplace,  where a circular, blue 
+couch wraps around for snuggling before the fire. Several tables hold 
+candles in all shapes and sizes, the only light used here (can you tell 
+romance is in the air). To the right are stairs leading up to the bedroom 
+loft, and to the west is the large, eat-in kitchen,  north leads to the 
+deck.
+~
+0 D 0
+D2
+These Large pine doors were made from the finest wood workers in Thera.
+~
+door~
+1 -1 3801
+D4
+This door is stained glass,If you look hard enough you might catch a glimpes 
+of the treasures inside.
+~
+stainedglass glass~
+4 3806 3806
+D1
+~
+~
+0 -1 3807
+S
+
+#3806
+Loft Bedroom~
+The loft bedroom overlooks the Great Room, and to the right is an alcove 
+with 2 chairs and a small table, walls lined with books, a quiet reading 
+corner. A place to come and visit the worlds of master poets and story 
+tellers.  The far wall, on a raised platform is the king-size waterbed.  
+To the left of the bed are French doors leading to the outside small, 
+private deck, just right for dancing in the moonlight to the music that 
+is piped throughout the cabin.  The bed is covered with a blue silk down 
+comforter, just right to snuggle under during long winter nights.
+~
+0 AJK 0
+D5
+This door is stained glass,If you look hard enough you might catch a glimpes 
+of the treasures inside.
+~
+stainedglass glass~
+4 3806 3805
+S
+
+#3807
+The Kitchen~
+The kitchen has an eat-in half circle breakfast nook lined with windows 
+to let in the bright morning light, or the warm afternoon sun on the 
+north wall.  You can enjoy the view of the lake while sitting here.  In 
+the middle, on the right wall, is another fireplace and with a sitting 
+area, warmed by the sun filtering through the skylights overhead.  The 
+cabinets lining the south wall and part of the east wall are all hand 
+made of aged oak, carved with intricate designs of oak leaves and vines, 
+with stain glass doors cabinet doors. A door leads to the wraparound 
+porch.
+~
+0 DK 0
+D3
+This is a door.
+~
+door~
+0 -1 3805
+S
+
+#3808
+Deck~
+This deck is part of the wraparound porch and here it leads down stairs 
+to a wooden walkway to a boat dock out over the water.  At the end of the 
+dock is a circular gazebo with Adirondeck furniture to relax in, and a 
+hammock strung across the beams to sleep in.  Many moonlit nights were 
+spent here, sleeping in the hammock, counting stars, making wishes, and 
+waking to dew moist lips (TaHoe is a frisky vampire as everyone knows).  
+The time spent here is cherished, because of the peace and solitude, 
+nature all around, embracing all that is unsoiled and virtuous.
+~
+0 DK 0
+D2
+This is a door.
+~
+door~
+0 -1 3805
+S
+#0
+#RESETS
+D 0 3805 4 2
+M 0 3801 1 3803 1 *Load Sandy
+M 0 3802 1 3803 1 *Load Spirit
+M 0 3800 1 3805 1 *Load Snowball
+O 0 3800 1 3801 *Load swing
+O 0 3802 1 3805 *Load couch
+O 0 3803 1 3806 *Load bed
+S
+
+#$

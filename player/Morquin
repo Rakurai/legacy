@@ -1,0 +1,383 @@
+#PLAYER
+Name Morquin~
+Id   1026829931
+LogO 1026907908
+Vers 14
+Mexp 1
+Pass pyllemand~
+Prom {W%h/%Hhp %m/%Mma %v/%Vmv [%X]> ~
+Race giant~
+Cla  3
+Levl 10
+Tru  0
+Plyd 14589
+Back 0
+Note 1026789814 0 1026877089 1026792163 1026409721 0 1026831915
+Scro 22
+Room 3054
+HMS  84 143 212
+Gold 16
+Silv 43
+Exp  10607
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig -1000
+FImm 0
+FRes HI
+FVul BP
+Plr  U
+Video 0
+Act  CDEFGHJLQS
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 9
+Trai 0
+Wimp 0
+Atrib 22 14 17 14 22 9
+Afk {B[{CWed Jul 17 05:16:44 2002{B] {CUnknown Departure.{x
+~
+Titl  {x~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 3
+Deit Qaz~
+Lsit 195.249.159.148~
+Ltim Wed Jul 17 04:05:14 2002
+~
+LSav Wed Jul 17 07:11:48 2002
+~
+HMSP 174 138 212
+THMS 0 0 0
+Cnd  0 5 1 10
+Sk 76 1 'sword'
+Sk 1 1 'shield block'
+Sk 1 1 'bash'
+Sk 1 1 'dodge'
+Sk 75 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 15 1 'parry'
+Sk 75 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'swimming'
+Sk 21 1 'fast healing'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Affc 'blood moon'   0  55  20   3  18          0 1
+Affc 'blood moon'   0  55  20   5  19          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 5 0 0
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Cond 86
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Cond 98
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 92
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 80
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3011
+Nest 1
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 1
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 0 15 0 0
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 99
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 78
+Nest 0
+Cond 96
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 1511
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1512
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1514
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3031
+Nest 0
+Wear 0
+Cost 75
+Val  0 0 82 0 0
+End
+
+#O
+Vnum 1804
+Nest 0
+Wear 16
+Cost 100
+End
+
+#O
+Vnum 1511
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1513
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1511
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1512
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1514
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 6644
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 6621
+Nest 0
+Wear 12
+Cost 780
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 3115
+Nest 0
+Wear 10
+Cost 660
+End
+
+#O
+Vnum 3114
+Nest 0
+Wear 9
+Cost 660
+End
+
+#O
+Vnum 3112
+Nest 0
+Wear 7
+Cost 660
+End
+
+#O
+Vnum 3110
+Nest 0
+Wear 5
+Cost 1320
+End
+
+#END

@@ -1,0 +1,616 @@
+#PLAYER
+Name Kakarot~
+Id   1007040048
+LogO 1027094676
+Vers 14
+Mexp 2
+Pass pacman~
+Prom <{Y%h/%H {G%m/%M {Y%v/%V {Y%g{W/%s (%r) {P%aAlign {Y%Xtnl {W%q/{G%j{W> ~
+Race human~
+Clan rebel~
+Cla  5
+Levl 72
+Tru  0
+Plyd 173040
+Back 169457
+Note 0 0 1026271687 0 0 1026553267 0
+Scro 22
+Room 24606
+HMS  1506 912 1108
+Gold 2102
+Silv 169
+Exp  90006
+PCkills  0
+PCkilled 3
+Akills   0
+Akilled  2
+PKRank   0
+Pos  4
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  H
+Video D
+Act  CDEFGHJLSc
+AfBy Qbc
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr B
+Prac 8
+Trai 3
+Wimp 0
+Atrib 17 18 18 18 18 14
+QuestPnts  1
+Afk {B[{CSat Mar  9 00:43:57 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  the night crawler~
+Immn ~
+Pnts 45
+Rank {GP{HD{cW~
+Aura ~
+TSex 1
+LLev 44
+Deit Edge~
+Lsit 12-229-8-254.client.attbi.com~
+Ltim Fri Jul 19 09:48:21 2002
+~
+LSav Fri Jul 19 11:04:36 2002
+~
+HMSP 1131 717 898
+THMS 0 1 0
+Cnd  0 0 0 0
+Alias dispel c 'dispel magic'~
+Alias slow c slow~
+Alias undo c 'undo spell'~
+Alias cc c 'cure critical'~
+Sk 1 1 'age'
+Sk 79 1 'armor'
+Sk 76 1 'bless'
+Sk 75 1 'blindness'
+Sk 1 1 'calm'
+Sk 75 1 'cancellation'
+Sk 1 1 'channel'
+Sk 1 1 'continual light'
+Sk 81 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 99 1 'cure critical'
+Sk 75 1 'cure light'
+Sk 75 1 'cure serious'
+Sk 1 1 'curse'
+Sk 77 1 'dispel magic'
+Sk 75 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'encampment'
+Sk 75 1 'energy drain'
+Sk 1 1 'fireproof'
+Sk 1 1 'floating disc'
+Sk 75 1 'frenzy'
+Sk 75 1 'giant strength'
+Sk 83 1 'haste'
+Sk 87 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'infravision'
+Sk 75 1 'mass healing'
+Sk 75 1 'plague'
+Sk 75 1 'poison'
+Sk 78 1 'protection evil'
+Sk 80 1 'protection good'
+Sk 75 1 'refresh'
+Sk 80 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 79 1 'sanctuary'
+Sk 76 1 'shield'
+Sk 91 1 'slow'
+Sk 76 1 'stone skin'
+Sk 75 1 'talon'
+Sk 76 1 'undo spell'
+Sk 77 1 'weaken'
+Sk 100 1 'sword'
+Sk 81 1 'shield block'
+Sk 90 1 'bash'
+Sk 78 1 'circle'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 75 1 'rescue'
+Sk 94 1 'second attack'
+Sk 91 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 89 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 68 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+End
+
+#O
+Vnum 17005
+Nest 0
+Wear 18
+Cost 200
+End
+
+#O
+Vnum 24613
+Nest 0
+Wear 10
+Cost 3500
+End
+
+#O
+Vnum 24614
+Nest 0
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 24617
+Nest 0
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 24620
+Nest 0
+Wear 7
+Cost 7000
+End
+
+#O
+Vnum 14030
+Nest 0
+Wear 19
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 0 11 0 0
+End
+
+#O
+Vnum 3381
+Nest 0
+Name vial potion pass door~
+ShD  a potion of pass door~
+Wear -1
+Lev  41
+Time 424
+Cost 2000
+Val  41 102 -1 -1 -1
+Spell 1 'pass door'
+End
+
+#O
+Vnum 1229
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 119
+Nest 0
+Name food food~
+ShD  food~
+Desc Food{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  34 69 0 0 0
+ExDe chef~ This food was created by Kakarot.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food food~
+ShD  food~
+Desc Food{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  34 69 0 0 0
+ExDe chef~ This food was created by Kakarot.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food food~
+ShD  food~
+Desc Food{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  34 69 0 0 0
+ExDe chef~ This food was created by Kakarot.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food food~
+ShD  food~
+Desc Food{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  34 69 0 0 0
+ExDe chef~ This food was created by Kakarot.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food food~
+ShD  food~
+Desc Food{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  34 69 0 0 0
+ExDe chef~ This food was created by Kakarot.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food food~
+ShD  food~
+Desc Food{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  34 69 0 0 0
+ExDe chef~ This food was created by Kakarot.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food food~
+ShD  food~
+Desc Food{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  34 69 0 0 0
+ExDe chef~ This food was created by Kakarot.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food food~
+ShD  food~
+Desc Food{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  34 69 0 0 0
+ExDe chef~ This food was created by Kakarot.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 4442
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4442
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4442
+Nest 0
+Cond 93
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 17001
+Nest 0
+Wear 0
+Cost 2000
+End
+
+#O
+Vnum 17013
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 17012
+Nest 0
+Wear -1
+Time 622
+Cost 25
+Spell 1 'giant strength'
+Spell 2 'frenzy'
+End
+
+#O
+Vnum 17003
+Nest 0
+Wear 12
+Cost 200
+End
+
+#O
+Vnum 17014
+Enchanted
+Nest 0
+Cond 89
+Wear -1
+Cost 500
+Spell 3 'frost breath'
+Affc 'reserved'   1  75  -1  50  12          0 1
+End
+
+#O
+Vnum 17010
+Nest 0
+Wear 13
+Cost 200
+End
+
+#O
+Vnum 17011
+Nest 0
+Cond 99
+Wear 5
+Cost 500
+End
+
+#O
+Vnum 17009
+Nest 0
+Wear 6
+Cost 200
+End
+
+#O
+Vnum 20004
+Nest 0
+ExtF 65
+Wear 4
+Cost 1000
+End
+
+#O
+Vnum 20004
+Nest 0
+ExtF 65
+Wear 3
+Cost 1000
+End
+
+#O
+Vnum 17013
+Nest 0
+Wear 2
+Cost 50
+End
+
+#O
+Vnum 5608
+Nest 0
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 0
+Name sword Durable Rune Katana~
+ShD  Durable Rune Katana{x~
+Desc A sword is here, forged by Shurg's craftsmanship.~
+Mat tin~
+ExtF 65
+Wt   59
+Cond 97
+Wear 16
+Lev  67
+Cost 6
+Val  1 7 12 3 0
+Affc 'enchant weapon'   1  60  -1   4  19          0 1
+Affc 'enchant weapon'   0  60  -1   4  18          0 1
+ExDe sword Durable Rune Katana~ It is a marvellous sword, crafted from the finest tin around.
+It was created in the Month of Harmony by an experienced bard
+named Shurg.  Legend holds that this giant was a great weaponsmith.
+~
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 5609
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 4420
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 2405
+Nest 0
+Wear -1
+Time 670
+Cost 160
+Spell 1 'armor'
+Spell 2 'cure blindness'
+End
+
+#O
+Vnum 2409
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16041
+Nest 0
+ExtF 3
+Cond 93
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 16041
+Nest 0
+Cond 94
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 19
+Cond 100
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10215
+Enchanted
+Nest 0
+ExtF 67
+Cond 71
+Wear -1
+Lev  41
+Cost 10000
+Affc 'reserved'   1  40  -1  -5  23          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   1  91  -1   3  18          0 1
+End
+
+#L
+Vnum 10215
+Enchanted
+Nest 0
+ExtF 67
+Wear -1
+Lev  41
+Cost 10000
+Affc 'enchant weapon'   1  91  -1   3  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'reserved'   1  40  -1  -5  23          0 1
+End
+
+#L
+Vnum 16041
+Enchanted
+Nest 0
+ExtF 67
+Cond 96
+Wear -1
+Lev  29
+Cost 5000
+Affc 'reserved'   1  26  -1 -10  17          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
+End
+
+#END

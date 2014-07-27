@@ -1,0 +1,1036 @@
+#PLAYER
+Name Lestat~
+Id   1020627610
+LogO 1027066409
+Vers 14
+Mexp 2
+Pass aceventura~
+Prom {Y%h/%Hhp {G%m/%Mmana {P%v/%Vstm {Y%g{W/%s (%r) {P%Xtnl {Y%aAlign {W%q/{G%j{x ~
+Race vampire~
+Clan order~
+Cla  4
+Levl 50
+Tru  0
+Plyd 44686
+Back 44016
+Note 1027021105 1027008536 1027008536 1027008536 1027008536 1027049006 1027008536
+Scro 22
+Room 24456
+HMS  957 442 154
+Gold 367
+Silv 399
+Exp  55356
+PCkills  1
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   1
+Pos  4
+Alig -1000
+FImm 0
+FRes BM
+FVul NS
+Plr  AOT
+Video D
+Act  CDEFGHJLQSc
+AfBy T
+Comm MNO
+Revk 0
+Cgrp A
+Cnsr B
+Prac 21
+Trai 2
+Wimp 0
+Atrib 19 22 22 19 17 16
+SkillPnts  2
+QuestPnts  26
+Afk {B[{CFri Jul 19 02:58:34 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  A {RVa{Pm{gp{Pi{Rre{x and A {CGe{Wnt{gl{Wem{Can{x~
+Immn ~
+Pnts 40
+Rank {NP{CF{NC~
+Aura ~
+TSex 1
+LLev 11
+Deit Kazander~
+Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
+Ltim Fri Jul 19 02:17:53 2002
+~
+LSav Fri Jul 19 03:13:29 2002
+~
+HMSP 517 724 397
+THMS 0 1 0
+Cnd  0 0 0 15
+Colr 3 33 1
+Colr 13 33 1
+Colr 51 32 0
+Colr 57 33 1
+Colr 58 31 1
+Colr 59 36 1
+Colr 60 37 1
+Colr 66 33 1
+Colr 72 37 1
+Colr 73 32 1
+Alias invis c 'invisibility'~
+Alias burn c 'burning hands'~
+Alias shock c 'shocking grasp'~
+Alias weak c weaken~
+Alias pe c 'protection evil'~
+Alias pg c 'protection good'~
+Alias blind c blindness~
+Alias ed c 'energy drain'~
+Alias bolt c 'lightning bolt'~
+Alias curse c curse~
+Alias dispel c 'dispel magic'~
+Alias fire c 'faerie fire'~
+Alias ball c 'fireball'~
+Alias slow c slow~
+Alias hel order all rescue lestat~
+Alias blast c 'acid blast'~
+Alias heat c 'heat metal'~
+Alias undo c 'undo spell'~
+Alias lb c 'lightning breath'~
+Alias fb c 'fire breath'~
+Query malenna~
+Sk 78 1 'acid blast'
+Sk 75 1 'acid breath'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 77 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 76 1 'animate zombie'
+Sk 75 1 'armor'
+Sk 78 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 75 1 'blood blade'
+Sk 77 1 'blood moon'
+Sk 93 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 78 1 'cancellation'
+Sk 76 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 78 1 'chill touch'
+Sk 86 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 75 1 'curse'
+Sk 75 1 'darkness'
+Sk 77 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'energy drain'
+Sk 78 1 'faerie fire'
+Sk 75 1 'faerie fog'
+Sk 1 1 'fear'
+Sk 79 1 'fire breath'
+Sk 100 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'flame blade'
+Sk 1 1 'flameshield'
+Sk 82 1 'fly'
+Sk 75 1 'frost blade'
+Sk 75 1 'frost breath'
+Sk 77 1 'gas breath'
+Sk 75 1 'gate'
+Sk 76 1 'giant strength'
+Sk 81 1 'haste'
+Sk 81 1 'heat metal'
+Sk 75 1 'infravision'
+Sk 75 1 'invisibility'
+Sk 90 1 'lightning bolt'
+Sk 75 1 'lightning breath'
+Sk 91 1 'magic missile'
+Sk 75 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 76 1 'pass door'
+Sk 75 1 'plague'
+Sk 75 1 'poison'
+Sk 1 1 'polymorph'
+Sk 75 1 'portal'
+Sk 75 1 'protection evil'
+Sk 81 1 'protection good'
+Sk 75 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 79 1 'regeneration'
+Sk 81 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 75 1 'shock blade'
+Sk 75 1 'shocking grasp'
+Sk 79 1 'slow'
+Sk 75 1 'smokescreen'
+Sk 75 1 'steel mist'
+Sk 76 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 80 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 78 1 'weaken'
+Sk 75 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 86 1 'dagger'
+Sk 1 1 'polearm'
+Sk 98 1 'sword'
+Sk 75 1 'scribe'
+Sk 100 1 'dodge'
+Sk 75 1 'repair'
+Sk 78 1 'meditation'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'combat'
+Gr 'draconian'
+Gr 'enhancement'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Gr 'alteration'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 10128
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16084
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 501
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10215
+Nest 1
+ExtF 64
+Cond 97
+Wear -1
+Cost 10000
+Val  1 8 5 21 28
+Affc 'blood blade'   5  40  64   0   0          4 1
+End
+
+#O
+Vnum 8806
+Nest 1
+Cond 100
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16001
+Nest 1
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 150 24 0 0
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear 13
+Cost 2500
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 24402
+Nest 0
+Wear 0
+Cost 3000
+End
+
+#O
+Vnum 24403
+Nest 0
+Wear 18
+Cost 3000
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24405
+Nest 0
+Wear 4
+Cost 4000
+End
+
+#O
+Vnum 24406
+Nest 0
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 24406
+Nest 0
+Wear 14
+Cost 4000
+End
+
+#O
+Vnum 10211
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24411
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24483
+Enchanted
+Nest 0
+Wear -1
+Cost 1
+Val  17 120 128 9 72
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 16016
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 4594
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 24407
+Nest 0
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 1807
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear 16
+Cost 20
+Val  0 6 10 2 12
+Affc 'blood blade'   5  45  74   0   0          4 1
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 3
+Cost 3800
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 10155
+Nest 0
+Wear 11
+Cost 1100
+End
+
+#O
+Vnum 9911
+Nest 0
+Wear 10
+Cost 8500
+End
+
+#O
+Vnum 3809
+Nest 0
+Wear 17
+Cost 15000
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 14021
+Nest 0
+Wear 7
+Cost 200
+End
+
+#O
+Vnum 14022
+Nest 0
+Wear 6
+Cost 200
+End
+
+#O
+Vnum 14019
+Nest 0
+Wear 5
+Cost 300
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 10155
+Nest 0
+Wear -1
+Cost 1100
+End
+
+#O
+Vnum 10160
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#L
+Vnum 12714
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16040
+Nest 0
+Wear -1
+Cost 9800
+End
+
+#L
+Vnum 16042
+Nest 0
+Wear -1
+Cost 5600
+End
+
+#L
+Vnum 16048
+Nest 0
+Cond 98
+Wear -1
+Cost 500
+End
+
+#L
+Vnum 16041
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 1211
+Nest 0
+Name songquest token opening theme~
+ShD  Opening Theme~
+Desc A single song whistles through the air~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 2287
+Enchanted
+Nest 0
+ExtF 66
+Wear -1
+Lev  11
+Cost 0
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'enchant weapon'   0  91  -1   6  18          0 1
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 19
+Cond 100
+Wear -1
+Cost 312
+End
+
+#END

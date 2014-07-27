@@ -1,0 +1,234 @@
+#PLAYER
+Name Lucious~
+Id   989723426
+LogO 1004023449
+Vers 8
+Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Race feral~
+Sex  1
+Cla  2
+Levl 24
+Plyd 84599
+Age  0
+Back 83754
+Note 1003978954 1003595038 991879861 1003883560 1003727164 991954546
+Scro 22
+Room 3001
+HMV  438 438 241 241 243 243
+Gold 146
+Silv 2245
+Exp  26976
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 2
+PKRank 0
+Act  DEFGHJLQSTc
+AfBy J
+Comm LNO
+Revk 0
+Pos  8
+Trai 6
+Save  -2
+Alig  480
+Hit   16
+Dam   15
+ACs 30 31 30 53
+Atrib 18 14 18 24 18 11
+AtMod 2 5 8 3 5 2
+QuestPnts 28
+Pass lokmijn~
+Afk {B[{CTue Jun  5 01:49:42 2001{B] {C{CA{Tuto-{CA{Tfk by {GL{Be{Nga{Bc{Gy{x
+~
+Titl  {VF{Mrisky {CK{Titten{x~
+Immn ~
+Pnts 40
+Rank {RS{cO{RL{x~
+Aura ~
+TSex 1
+LLev 20
+Deit Lotus~
+Lsit ACB5C792.ipt.aol.com~
+Ltim Thu Oct 25 10:18:44 2001
+~
+LSav Thu Oct 25 10:24:09 2001
+~
+MC 41
+Col 37 0 0 0 0 0 0 0 0 36 0 0 0 0 0 0 0 0 31 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  F
+HMVP 333 181 243
+THVP 0 0 0
+Cnd  0 0 0 0
+Sk 75 1 'dagger'
+Sk 90 1 'sword'
+Sk 79 1 'backstab'
+Sk 1 1 'circle'
+Sk 79 1 'dodge'
+Sk 78 1 'second attack'
+Sk 75 1 'forge'
+Sk 75 1 'repair'
+Sk 75 1 'hide'
+Sk 75 1 'peek'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 75 1 'steal'
+Sk 1 1 'scrolls'
+Sk 29 1 'staves'
+Sk 75 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 9924
+Nest 0
+Cond 97
+Wear 0
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 9909
+Nest 0
+Cond 96
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 9923
+Nest 0
+Cond 99
+Wear 13
+Cost 2500
+End
+
+#O
+Vnum 16084
+Nest 0
+Cond 97
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Cond 88
+Wear 1
+Cost 1500
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 15
+Cost 1900
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Cond 86
+Wear 14
+Cost 312
+End
+
+#O
+Vnum 16064
+Nest 0
+Cond 90
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4586
+Nest 0
+Wear 17
+Cost 2000
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear 18
+Cost 2600
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 16041
+Nest 0
+Cond 93
+Wear 16
+Cost 5000
+End
+
+#O
+Vnum 4586
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#END

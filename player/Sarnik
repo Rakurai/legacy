@@ -1,0 +1,350 @@
+#PLAYER
+Name Sarnik~
+Id   1027219024
+LogO 1027220864
+Vers 14
+Mexp 2
+Pass qwerty~
+Prom {W<{C%h{Thp {G%m{Hma {B%v{Nst {W[{g%e{W] {R%X{W>{x ~
+Race human~
+Cla  1
+Levl 4
+Tru  0
+Plyd 1750
+Back 0
+Note 1027219117 1027219117 1027219117 1027219117 1027219117 1027219117 1027219117
+Scro 22
+Room 8543
+HMS  48 69 64
+Gold 3
+Silv 537
+Exp  5208
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 964
+FImm 0
+FRes 0
+FVul 0
+Plr  0
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 1
+Trai 0
+Wimp 0
+Atrib 15 18 18 15 15 11
+QuestNext  6
+SQuestNext 15
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 46
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Teotwawki~
+Lsit 12-225-97-97.client.attbi.com~
+Ltim Sat Jul 20 21:38:35 2002
+~
+LSav Sat Jul 20 22:07:44 2002
+~
+HMSP 47 132 116
+THMS 0 0 0
+Cnd  0 0 9 9
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 75 1 'armor'
+Sk 75 1 'bless'
+Sk 1 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'cause light'
+Sk 1 1 'cause serious'
+Sk 1 1 'cause critical'
+Sk 1 1 'continual light'
+Sk 1 1 'control weather'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 79 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 1 1 'cure serious'
+Sk 1 1 'curse'
+Sk 1 1 'demonfire'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'earthquake'
+Sk 1 1 'encampment'
+Sk 1 1 'energy drain'
+Sk 75 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fireproof'
+Sk 1 1 'flameshield'
+Sk 1 1 'flamestrike'
+Sk 1 1 'fly'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'gate'
+Sk 1 1 'harm'
+Sk 1 1 'heal'
+Sk 1 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'portal'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'ray of truth'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'slow'
+Sk 1 1 'steel mist'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'sunray'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'vision'
+Sk 1 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 76 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 75 1 'shield block'
+Sk 1 1 'scribe'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'cleric basics'
+Gr 'cleric default'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'harmful'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 161 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Cond 98
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 86
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 6621
+Nest 0
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 9521
+Nest 0
+Cond 96
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 94
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 94
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear 17
+Cost 1140
+End
+
+#END

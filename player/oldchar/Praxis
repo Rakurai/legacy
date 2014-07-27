@@ -1,0 +1,256 @@
+#PLAYER
+Name Praxis~
+Id   1010527196
+LogO 1010528555
+Vers 10
+Prom {C<%h/%Hhp %mm %vs %Xtnl>{x ~
+Race wolf~
+Sex  1
+Cla  3
+Levl 4
+Plyd 1251
+Age  0
+Back 0
+Note 1010528370 1010527310 1010527320 1010115797 1010527306 0
+Scro 22
+Room 3054
+HMS  78 78 110 110 103 135
+Gold 3
+Silv 477
+Exp  5259
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDFGHJLQSc
+Comm NO
+Revk 0
+Cnsr AB
+Pos  8
+Save  -3
+Alig  750
+Hit   4
+ACs 85 83 83 100
+Atrib 18 13 15 16 21 14
+AtMod 1 2 3 2 0 2
+Pass jammer~
+Titl  Moonchaser~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Sorsha~
+Lsit ACA04785.ipt.aol.com~
+Ltim Tue Jan 08 16:01:38 2002
+~
+LSav Tue Jan 08 16:22:35 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 74 110 135
+THMS 0 0 0
+Cnd  0 0 20 20
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 40 1 'sword'
+Sk 33 1 'bash'
+Sk 1 1 'dodge'
+Sk 17 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 29 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'hunt'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'enhancement'
+Affc 'bless'   0  26   9  -3  24          0 1
+Affc 'bless'   0  22   9   3  18          0 1
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Cond 98
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 99
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#END

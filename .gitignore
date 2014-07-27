@@ -1,0 +1,10 @@
+nohup.out
+*.o
+.DS*
+bootfile
+*~
+core
+legacy
+legacy.bak
+sand_server
+*.log

@@ -1,0 +1,3058 @@
+#AREA
+oran.are~
+Ruins of Oran~
+{H{{60 91} {MMeagan&Magda {TRuins of Oran~
+5600 5699
+
+#MOBILES
+#5600
+mud elemental~
+a {bmud{x elemental~
+A wall of {bmud{x begins to collapse on you.
+~
+It is just {bmud{x.
+~
+unique~
+BGT DFHIac -1000 S
+55 10 1d1+3500 1d1+199 4d35+20 crush
+-30 -29 -27 -20
+CDEFO LG HI F
+stand stand none 500
+0 0 medium 0
+
+#5601
+steam elemental~
+a {Cs{Wt{Ce{Wa{Cm{x elemental~
+{WSwirls{x of {Cs{Wt{Ce{Wa{Cm{x coalesce into a {Cmisty{x figure.
+~
+It may be just your imagination. It sure looks like {Cs{Wt{Ce{Wa{Cm{x.
+~
+unique~
+BGS BHQa -1000 S
+55 11 1d1+3550 1d1+199 4d40+20 wrath
+-30 -29 -27 -20
+DFHK LG HI F
+stand stand none 500
+0 0 medium 0
+
+#5602
+lava elemental~
+a {Pl{Ra{Pv{Ra{x elemental~
+Some of the hotter {Pl{Ra{Pv{Ra{x looks like it wants to slap you around.
+~
+{Y(Glowing) {T(Humming) {Pl{Ra{Pv{Ra{x
+~
+unique~
+BGQ DFHIab -1000 S
+55 11 1d1+3500 1d1+199 4d45+22 flame
+-31 -30 -330 -20
+CDEFO GH JO I
+stand stand none 500
+0 0 medium 0
+
+#5603
+hurricane elemental~
+a {bh{Wu{Br{br{Wi{Bc{ba{Wn{Be{x elemental~
+{ROuch!{x That last bit of {Ww{Bi{Wn{Bd{x felt awfully substantial!
+~
+You do not {Ysee{x that here. Not clearly, anyway.
+~
+unique~
+BGT BHQTUc -1000 S
+55 11 1d1+3575 1d1+199 10d9+20 charge
+-30 -29 -28 -25
+DEFHJ BGH E J
+stand stand none 550
+0 0 medium 0
+
+#5604
+flashfire elemental~
+a {Wflash{Rfire{x elemental~
+The {Rfire{x reaches out for you.
+~
+It is really pretty fascinating, especially if you can see {Rinfrared{x.
+~
+unique~
+BGR DFHIc -1000 S
+55 12 1d1+3575 1d1+199 10d9+23 flame
+-30 -28 -28 -25
+CDFJO BGH 0 I
+stand stand none 600
+0 0 medium 0
+
+#5605
+sandstorm elemental~
+a {bsand{Ws{bt{Wo{br{Wm{x elemental~
+You are thrown about and {bstung{x mercilessly.
+~
+What, you want to _{Wsee{x_ it, too? Count your blessings.
+~
+unique~
+BGT HVZa -1000 S
+55 12 1d1+3600 1d12+199 10d7+23 sting
+-31 -31 -30 -24
+CDEFHK GH CK 0
+stand stand none 650
+0 0 medium 0
+
+#5606
+grystlie~
+a {ggr{cys{gtl{cie{x~
+A {ggr{cys{gtl{cie{x lifts its clawed limb in salute of your death.
+~
+It is vaguely man-like in appearance, two legs, two arms, a torso,
+hands and feet, and a head, but its body is knotted and muscled
+grotesquely and covered with some sort of rough hide. Its face is
+almost featureless, but the {Peyes{x glow {Rred{x as they peer at you.
+~
+unique~
+BGT HVIab -1000 S
+60 8 30d30+3550 1d1+299 10d9+15 claw
+-28 -28 -27 -20
+CEFKN G BHKLN FIJL
+stand stand none 1000
+0 0 medium 0
+
+#5607
+Wraith Hellsbane~
+a {cW{gr{ca{gi{ct{gh{x of {PH{Re{Pl{Rl{Ps{Rb{Pa{Rn{Pe{x~
+A {cW{gr{ca{gi{ct{gh{x of {PH{Re{Pl{Rl{Ps{Rb{Pa{Rn{Pe{x rises from the {C{Cm{Wi{Cs{Wt{x{x.
+~
+A {cW{gr{ca{gi{ct{gh{x of {PH{Re{Pl{Rl{Ps{Rb{Pa{Rn{Pe{x hisses with pleasure and approval
+for the feast it is about to enjoy.
+~
+unique~
+BGT DHIJTVa -1000 S
+63 12 1d1+4100 1d1+199 10d9+18 claw
+-27 -27 -27 -20
+DFKNO LQ G C
+stand stand none 1000
+0 0 medium 0
+
+#5608
+SheAndra stone warrior~
+a {MSheAndra {gstone {Wwarrior{x~
+A {MSheAndra {gStone {WWarrior{x draws upon your life force to come alive.
+~
+Lumps of misshapen {cstone{x crackle in a {Wwhite aura{x engendered by the
+strange magic flux in this place. It seems to intensify as you come
+closer. Once great {Wwarriors{x of {BO{Wr{Ga{Rn{x, the {RFire {BQueen's{x revenge
+has put them at the mercy of the {Ce{Pl{Ge{Wm{Ce{Pn{Gt{Ws{x that they once protected.
+~
+unique~
+BCGT DHabc 1000 S
+63 8 1d1+4100 1d1+149 10d7+20 crush
+-38 -40 -39 -25
+BCDKNO G HJL KJ
+stand stand none 1000
+0 0 medium 0
+
+#5609
+apprentice~
+an {Yap{Wpr{Yen{Wti{Yce {Pso{Rrc{Per{Rer{x~
+An {Yap{Wpr{Yen{Wti{Yce {Pso{Rrc{Per{Rer{x, whose wits have left him, scurries from chamber to chamber.
+~
+A {Wshivering{x, wretched creature that cowers in the dim {Ylight{x. This
+pitiful, terror-stricken youth doesn't know which way to turn, since
+any way he runs will turn out to be the {Pwrong{x way.
+~
+human~
+GHT BHIJTb -1000 S
+64 10 1d1+4850 1d1+199 7d10+20 frbite
+-29 -28 -27 -20
+DFNO C FK 0
+stand stand male 900
+0 0 medium 0
+
+#5610
+Baylan guard~
+a {MBaylan {VGuard{x~
+A {MBaylan {VGuard{x comes running across the curve of the street.
+~
+His sword drips {Rblood{x, his face fixed in a hideous grin, his eyes wild
+and bulging. Hacked and mutilated {Pbodies{x lie in the street, {Rblood{x
+everywhere. His torment is neverending. He stood his vigilent guard
+over {MBaylan{x, but now he destroys it and anything that enters. The
+{Cair{x, once {Wclean and fresh{x, is now riddled with {csmoke{x and the stench
+of {gdeath{x.
+~
+unique~
+BGT HIabc -1000 S
+65 11 1d1+4900 1d1+199 5d5+20 slash
+-32 -30 -32 -25
+DEFHK 0 0 K
+stand stand male 1000
+0 0 medium 0
+
+#5611
+gypsy tree~
+an ancient {Bg{Yy{Rp{Vs{By {Gt{Hr{Ge{He{x~
+An ancient {Bg{Yy{Rp{Vs{By {Gt{Hr{Ge{He{x spreads its limbs like outstretched arms.
+~
+Come to notice, a lot of the {Gt{Hr{Ge{He{Gs{x here look pretty much the same.
+Watch your back since the {RFire {BQueen's{x revenge on the {Ge{ba{Hr{Gt{bh{x elemental
+affected the whole {Gf{bo{Hr{Ge{bs{Ht{x. This ancient {Bg{Yy{Rp{Vs{By {Gt{Hr{Ge{He{x escaped
+her wrath for its {Ymagical {Wpower{x was far greater in strength 
+than hers.
+~
+unique~
+BGT HZac 1000 S
+65 15 1d1+4900 1d1+199 5d5+23 smash
+-32 -30 -32 -25
+CDEO EG ILQ H
+stand stand none 800
+0 0 large 0
+
+#5612
+Kyleia lady mist~
+{BKyleia{x, the {CLady {Wof the {CM{Wi{Cs{Wt{x~
+{BKyleia{x, the {CLady {Wof the {CM{Wi{Cs{Wt{x appears before you.
+~
+Her face is {Wserene{x and smooth, no hint of fear, all {Wpale skin{x and {cdark{x
+{chair{x, flawless and perfect. Her lithe body {Wglistens{x, as if clad in
+{Wsilver{x and {Wpearls{x, but it's only the {Cm{Wi{Cs{Wt{x enveloping her.
+~
+unique~
+BGT HQVbc 1000 S
+68 6 30d30+3900 1d1+99 5d10+20 wrath
+-26 -24 -25 -20
+FHNO N QLH FI
+stand stand female 1500
+0 0 medium 0
+
+#5613
+cave guard~
+a {gC{ca{gv{ce {gG{cu{ga{cr{gd{x~
+A {gC{ca{gv{ce {gG{cu{ga{cr{gd{x rises from the {gshadows{x.
+~
+His shrieks echo through the emptiness as he shapes into something
+new and powerful. At one time there were many guards, but now there
+is only him.  He does not realize he guards not only the evil who
+dwell within, but others sentenced here for their affiliation with
+the children of {BO{Wr{Ga{Rn{x.
+~
+unique~
+BGT HI 1000 S
+70 6 30d30+3750 1d1+130 5d5+23 beating
+-30 -28 -28 -18
+DEFJK 0 0 K
+stand stand male 1000
+0 0 medium 0
+
+#5614
+sorcerer~
+a {Pso{Rrc{Per{Rer{x~
+A {Pso{Rrc{Per{Rer{x, young, thin, and sweating nervously, is wringing his hands.
+~
+His secondhand {Yrobe{x is clammy with chill and soaked through with his
+own perspiration. He has every reason to be nervous. The summoning of
+a {Wspirit{x from the {YAbyssal {WPlanes{x is no small task, one he has totally
+botched.
+~
+human~
+BGR BHIJTb -1000 S
+70 6 30d30+3850 1d1+149 5d7+22 magic
+-30 -31 -30 -20
+BDEK C GM FK
+stand stand male 1000
+0 0 medium 0
+     
+#5615
+green brume~
+the {Gbrume{x~
+The {Gbrume{x eats away at the silent {cdarkness{x.
+~
+The {Gbrume{x flickers like {Rfire{x and hisses like {Pacid{x, moving
+forward, changing appearance, tearing mercilessly at anything in
+its path.
+~
+unique~
+BGS BOPQUZ -1000 S
+72 13 1d1+6150 1d1+299 8d12+23 acbite
+-33 -30 -30 -27
+EFHKN HJG L 0
+stand stand none 2000
+0 0 medium 0
+
+#5616
+shades death~
+{PS{ch{Pa{cd{Pe{cs {Po{cf {PD{ce{Pa{ct{Ph{x~
+{PS{ch{Pa{cd{Pe{cs {Po{cf {PD{ce{Pa{ct{Ph{x is all that remains of what was once human. 
+~
+{PS{ch{Pa{cd{Pe{cs {Po{cf {PD{ce{Pa{ct{Ph{x are the screams of men who once fought
+the brave battle and lost. They are the screams of the {RFire {BQueens's{x
+vengence and the Seekers' victims.  Screams captured forever from a
+memory of what once was, but now just trapped souls wandering the Keep.
+~
+unique~
+BGT HIYac -1000 S
+75 9 30d30+6150 1d1+149 5d5+22 wrath
+-37 -36 -36 -28
+DFKO EG 0 I
+stand stand none 1500
+0 0 medium 0
+
+#5617
+Lhiannon lady light~
+{VLhiannon{W, the {CLady {Wof {YLight{x~
+{VLhiannon{W, the {CLady {Wof {YLight{x, soft as a lover's whisper.
+~
+{VLhiannon{W, the {CLady {Wof {YLight{x is a creature born of the elements,
+like the murmur of {Wwind{x among the branches of a {Gf{bo{Hr{Ge{bs{Ht{x, or the soft,
+gentle babble of {Cwater{x over {gstones{x, caressing them as it glides
+over them, neverending.
+~
+unique~
+BGT HQVbc 1000 S
+75 8 30d30+6200 1d1+149 5d5+26 divine
+-35 -34 -34 -23 
+DFHN H N 0
+stand stand female 2000
+0 0 medium 0
+
+#5618
+Macellius demon~
+{RM{ca{Rc{ce{Rl{cl{Ri{cu{Rs{x~
+{RM{ca{Rc{ce{Rl{cl{Ri{cu{Rs{x, High {RDemon{x of {PA{Yb{Pa{Yd{Pd{Yo{Pn{x bids you welcome.
+~
+{RM{ca{Rc{ce{Rl{cl{Ri{cu{Rs{x stands before you, a maelstrom of sound and fury, of magic
+unleashed and gone wild.  You feel the {Rhot breath{x on your neck and hear
+the scrape of its claws, a {gnightmare{x intruder from the netherworld.
+~
+unique~
+BGQ HIVYab -1000 S
+78 10 30d30+7050 1d1+159 4d4+25 flbite
+-36 -36 -39 -25
+DFKNO HK GJN FI
+stand stand none 1000
+0 0 large 0
+
+#5619
+forest watcher~
+a {GF{bo{Hr{Ge{bs{Ht {YWatcher{x~
+The {GF{bo{Hr{Ge{bs{Ht {YWatcher{x steps out of the {gs{ch{ga{cd{go{cw{gs{x.
+~
+The {GF{bo{Hr{Ge{bs{Ht {YWatcher{x, in flowing {Gemerald{x and {Ygold{x robes, has its own
+way of revealing itelf: a {Yf{Wl{Yi{Wc{Yk{We{Yr{x of body or limbs (never a face), 
+a {Chint{x of color or shape.  Your senses tell you it is near, always
+watching, ever faithful to the lost {Ge{ba{Hr{Gt{bh {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{Bl{x children of {BO{Wr{Ga{Rn{x!
+~
+unique~
+BGO IJQ 1000 S
+80 10 30d30+7150 1d1+199 5d5+25 smash
+-40 -40 -39 -35
+DEFIJO BHJ GN EFK
+stand stand none 1500
+0 0 large 0
+
+#5620
+ShadowWalker~
+a {gSh{cad{gow{cWa{glk{cer{x~
+A {gSh{cad{gow{cWa{glk{cer's{x screams fill the air.
+~
+You feel the vaguest rumble in the {bground{x, a great belch of {csmoke{x
+billows up a fissure, its stench cloaking you. You glimpse {Reyes{x, a
+billion {Reyes{x, all opening at once blinking and rolling in their
+sockets. Tentacles begin to grope, something gradually hauling itself
+up from the pit of darkest imagination, of {cblackest dreams{x.
+~
+unique~
+BGT HVZa -1000 S
+85 11 30d40+7000 1d1+249 7d7+21 claw
+-47 -47 -47 -30
+FKNO GHL L I
+stand stand none 2500
+0 0 medium 0
+
+#5621
+spirit Maura~
+the {WSpirit {Yof {MM{Wa{Mu{Wr{Ma{x~
+{WSpirit {Yof {MM{Wa{Mu{Wr{Ma{x
+~
+A figure towers and {Ys{Wh{Yi{Wm{Ym{We{Yr{Ws{x, a reality in no way dependent on your
+mind for its existence. The hairs on the back of your neck rise in
+horror. In its arms it holds the body of a {Rslaughtered{x child, the sum
+and total of all the dead of Baylan. Its face lifted in anguish,
+ravaged by an {Wexpression{x of {Pinhuman {Rgrief{x, it wails.
+~
+unique~
+BGO HITac 1000 S
+85 12 30d40+7350 1d1+249 8d8+22 wrath
+-50 -48 -48 -40
+DFKHO G 0 I
+stand stand female 3000
+0 0 medium 0
+
+#5622
+Corac~
+{RCorac{x~
+{RCorac{x, a {cdemon{x from the {YAbyssal {WPlanes{x.
+~
+A creature of {Gserpentine{x beauty, the very image of everything
+that a mage had ever dreamed of in conjuring a {Pd{Re{Pm{Ro{Pn{x. His eyes glow from
+within, a rich {Rruby color{x reminiscent of {Pwine{x catching {Ysunlight{x.
+They promise and beckon, filled with omniscient power. 
+~
+unique~
+BGO HIVac -1000 S
+90 15 30d40+8500 1d1+399 5d5+21 crush
+-48 -45 -45 -40
+DFJKO 0 G E
+stand stand male 2500
+0 0 large 0
+>greet_prog 99~
+if ispc($n)
+  egrin $n
+  say {P"Oh fool, I promise no pity upon your soul."{x
+endif
+~
+|
+
+#5623
+druid Baylan~
+the {WDruid of {MBaylan{x~
+{WDruid of {MBaylan{x, a coalescence of {gd{ca{gr{ck{gn{ce{gs{cs{x that slowly takes shape.
+~
+The {WDruid of {MBaylan{x wears {cblack{x, like all the Druids, cloaked and
+hooded, wrapped darker than the {gshadows{x he passes through. He is not
+a big man, neither tall nor well-muscled. His {Geyes{x, when visible, are
+vaguely {Ggreen{x. They gleam like those of an animal caught in a fragment
+of {Ylight{x - feral, piercing, hypnotic. His {Whair{x and {Wbeard{x are {Wwhite{x,
+the strands wispy and thin like tangled {Wspiderwebs{x. Once the revered
+{WDruid of {MBaylan{x, now a prisoner here sentenced forever by the
+{RFire {BQueen{x.
+~
+unique~
+BFGQ DHIZab 1000 S
+91 10 30d40+8800 1d1+299 7d7+20 crush
+-45 -42 -40 -30
+BDEFN 0 G J
+stand stand male 3000
+0 0 large 0
+
+#5624
+Sachai~
+{WS{Ga{Wc{Gh{Wa{Gi{x~
+{WS{Ga{Wc{Gh{Wa{Gi{x has been waiting for you.
+~
+{WS{Ga{Wc{Gh{Wa{Gi{x is a tall and {Ygolden-skinned{x elf with sharp features and
+large, slightly slanted {Bblue eyes{x. His pure {Wsilver-white hair{x hangs
+unconfined to his waist with two braids framing his face. No wonder
+you didn't notice him. His clothing is {Ggreen{x, all colors of {Gg{Hr{Ge{He{Gn{x,
+with tiny braided {Wsilver{x and {Wcrystals{x adorning his clothing.
+His confinement to this cave by the {RFire {BQueen{x, was his punishment
+for being a friend to the {BO{Wr{Ga{Rn{x people.
+~
+elf~
+BGT DHIZab 1000 S
+95 12 30d40+9500 1d1+349 7d10+21 crush
+-50 -48 -50 -39
+CEDFKNO 0 F I
+stand stand male 4000
+0 0 large 0
+
+#5625
+Janisch~
+{VJ{Ya{Pn{Gi{Bs{Wc{Ch{x~
+{VJ{Ya{Pn{Gi{Bs{Wc{Ch{x seems to shift with the ever-changing {Cc{Wo{Bl{Go{Pr{Ys{x.
+~
+Just for a moment, it seems that {VJ{Ya{Pn{Gi{Bs{Wc{Ch{x is an old man, bearded and
+robed... Then, you gasp as you look into his penetrating {cblack eyes{x,
+and realize he is one that you have unfortunately underestimated.
+~
+unique~
+BFGR DHIZab -1000 S
+95 11 30d40+9500 1d1+349 9d10+21 smash
+-51 -50 -45 -43
+DEFKNO 0 G J
+stand stand male 5000
+0 0 large 0
+
+#5626
+priest prophecy~
+the {VPriest {Wof {MP{Vr{Mo{Vp{Mh{Ve{Mc{Vy{x~
+The {VPriest {Wof {MP{Vr{Mo{Vp{Mh{Ve{Mc{Vy{x comes from the shadows of pain.
+~
+He stands before you, an impressive figure in {Mpurple{x and {Wsilver{x
+threaded robes, tall and slender, {chair black{x as {conyx{x, and eyes of
+{Ygold{x, with his hands tucked in the sleeves of his robe. You stumble
+over disemboweled bodies, bodies the priest no longer wanted or 
+needed, for they had already served their purpose.  These walls and
+{gs{ch{ga{cd{go{cw{gs{x are his eternal sentence for predicting that the
+children of {BO{Wr{Ga{Rn{x will one day rise again in strength and defeat
+the {RFire {BQueen{x and her evil minions.
+~
+unique~
+BGR DFHJNOVZ 1000 S
+102 10 100d10+20000 1d100+5000 10d10+35 divine
+-65 -65 -65 -64
+CDEFHKO 0 D 0
+stand stand male 3000
+0 0 large 0
+
+#5627
+Aaykre~
+{bAaykre{x~
+{bAaykre{x, {RKeeper {Wof the {CSheAndra {YTalisman{x, is here.
+~
+He is the very antithesis of anything that might be called voluble or
+melodious. The {gnegative {cs{gh{ca{gd{co{gw{x of voice and song. His uptilted face is
+pulled into a rictus of suffering, his {Wteeth{x clenched to splinters,
+and beneath his chin where his hands are knotted, he holds a {Ytalisman{x.
+~
+unique~
+BGR BHIMXab -1000 S
+100 13 100d10+15000 1d1+549 5d5+30 pierce
+-55 -55 -50 -41
+DEFIKN 0 0 H
+stand stand male 5000
+0 0 large 0
+#0
+
+#OBJECTS
+#5600
+portal prophecy~
+the Door of Prophecy~
+~
+stone~
+portal O 0
+0 0 A 5642 0
+0 0 0 P
+E
+portal prophecy~
+You hear stone grating on stone.
+~
+
+#5601
+vision dream hope~
+{PV{Yi{Gs{Vi{Bo{Cn {Wof {VH{Mo{Vp{Me{x~
+~
+energy~
+portal O 0
+0 0 A 8200 0
+0 0 0 P
+E
+portal vision dream hope~
+The {Pv{Yi{Gs{Vi{Bo{Cn {Wof {Vh{Mo{Vp{Me{x beckons you to enter and dream.
+~
+
+#5602
+thick stone key~
+a thick stone key~
+A thick stone key lies here.~
+stone~
+key 0 A
+0 0 0 0 0
+0 3 0 P
+
+#5603
+flaming necklace~
+{RA {PF{Rl{Pa{Rm{Pi{Rn{Pg {RNecklace{x~
+A {Rnecklace{x spitting {Pflames{x of {Pf{Ri{Pr{Re{x lies here.~
+fire~
+armor ABHJTY AC
+14 15 15 12 0
+55 5 1000 P
+E
+necklace flaming~
+A blazing necklace of gold and fire
+That once brought comfort to the earth.
+But now because of Zorah's desire 
+All that's left is but a curse.
+~
+A
+4 2
+A
+5 2
+A
+12 60
+A 
+18 2
+A
+19 3
+
+#5604
+flaming necklace~
+{RA {PF{Rl{Pa{Rm{Pi{Rn{Pg {RNecklace{x~
+A {Rnecklace{x spitting {Pflames{x of {Pf{Ri{Pr{Re{x lies here.~
+fire~
+armor ABHJTY AC
+14 15 15 12 0
+55 5 1000 P
+E
+necklace flaming~
+A blazing necklace of gold and fire
+That once brought comfort to the earth.
+But now because of Zorah's desire 
+All that's left is but a curse.
+~
+A
+4 2
+A
+5 2
+A
+13 60
+A 
+18 2
+A
+19 3
+    
+#5605
+sand shield~
+{YS{ba{Yn{bd {YS{bh{Yi{be{Yl{bd{x~
+A {Ys{bh{Yi{be{Yl{bd{x of compressed {Ys{ba{Yn{bd{x granules has been left here.~
+sand~
+armor ABJTY AJ
+18 17 18 10 0
+55 30 1000 P
+E
+sand shield~
+The {Ysand{x that once 
+  met the sea
+Is now a storm 
+  that rages on
+It swirls and twirls 
+  gathering speed
+Never stopping 
+  it's never gone.
+~
+A
+17 -8
+A
+5 2
+A 
+12 60
+A
+18 5
+A
+20 -2
+
+#5606
+raging storm~
+Raging Storm~
+The storm has almost ceased while lying here.~
+energy~
+armor ABFGQTY AQ
+15 14 16 16 0
+55 10 3000 P
+E
+storm raging~
+Within {BO{Wr{Ga{Rn{x a
+  storm raged
+Black as night
+  a demon caged
+When unleashed
+  it did the job
+To conquer, kill,
+  rule, and rob
+What once was rage
+  has now been calmed.
+The promise of {BO{Wr{Ga{Rn{x
+  still lives on.
+~
+A
+1 3
+A
+2 2
+A
+12 60
+A
+18 4
+
+#5607
+sheandra stone bracelet~
+{MSheAndra {cS{gt{co{gn{ce {gBracelet{x~
+A very heavy {cs{gt{co{gn{ce {gbracelet{x lies here.~
+stone~
+armor ABTY AM
+20 18 15 15 0
+60 30 2000 P
+E
+stone bracelet sheandra~
+Stone from the mountain
+  carved and worn,
+Around the wrist of 
+  the lost and sworn.
+Warriors strong 
+  and great were they,
+Zorah's curse
+  took it all away.
+~
+A
+12 60
+A
+18 3
+A
+19 3
+
+#5608
+sheandra granite bracer~
+{MSheAndra {cG{gr{ca{gn{ci{gt{ce {gBracer{x~
+A very heavy {cg{gr{ca{gn{ci{gt{ce {gbracer{x lies here.~
+granite~
+armor ABTY AM
+20 18 15 15 0
+60 30 2000 P
+E
+granite bracer sheandra~
+Stone from the mountain
+  carved and worn,
+Around the wrist of
+  the lost and sworn.
+Warriors strong
+  and great were they,
+Now the curse
+  took it all away.
+~
+A
+13 60
+A
+18 3
+A
+19 3
+ 
+
+#5609
+ring mourning mists~
+{VM{Mo{Vu{Mr{Vn{Mi{Vn{Mg {CM{Wi{Cs{Wt{Cs{ {MRing{x~
+There is a ring of {Bmist{x hovering just above the ground.~
+water~
+armor ABGY AB
+20 20 20 18 0
+68 3 0 P
+E
+mourning mist~
+The mourning mists cry
+  for the once clean land
+That rang with laughter
+  from the children of {BO{Wr{Ga{Rn{x.
+~
+A
+9 3
+A
+12 30
+A
+13 35
+A
+18 3
+A
+26 2
+
+#5610
+crystalline circlet~
+{CC{Pr{Yy{Bs{Vt{Ga{Cl{Pl{Yi{Bn{Ve {WCirclet{x~
+A {Wcirclet{x of shimmering {Cc{Wr{Yy{Vs{Pt{Ya{Wl{Cs{x lies here.~
+ice~
+armor ABJTY AE
+18 19 19 15 0
+65 30 2000 P
+E
+circlet crystalline~
+Crystals shimmer with  
+  rainbow brillance
+Bright in the sun
+  never melting, nor cold
+Pleasing to the eyes
+  an awareness of beauty
+In the simplest of forms.
+~
+A
+12 65
+A
+17 -15
+A
+18 4
+A
+19 4
+
+#5611
+flame light Lhiannon eternal~
+{VLhiannon's {MEternal {YFlame{x~
+A {Ylight{x flickers on the ground.~
+energy~
+light ATY A
+0 0 -1 0 0
+70 15 2000 P
+E
+light lhiannon flame eternal~
+An eternal flame 
+  will forever burn
+Guiding your footsteps
+  at every turn.
+Her curse that is
+  upon the land
+Does not touch
+  nor burn the hand.
+It was hidden from
+  the {RFire {BQueen's{x wrath
+To guide you safely
+  and light your path.
+~
+A
+3 1
+A
+4 2
+A
+5 2
+A
+12 40
+A
+13 40
+A
+18 3
+A
+19 4
+
+#5612
+sash of fire~
+{YS{Pa{Rs{Yh {Po{Rf {YF{Pi{Rr{Ye{x~
+A piece of {Yc{Pl{Ro{Pt{Yh{x was left burning here.~
+cloth~
+armor ABTY AL
+15 15 15 13 0
+70 2 3000 P
+E
+sash fire~
+About the waist
+  the cloth will burn
+Never scarring
+  you will learn
+The tales of old
+  be told to you
+Listen carefully
+  truth rings true
+~
+A
+5 3
+A
+12 35
+A
+13 40
+A
+18 2
+A
+19 5
+
+#5613
+wind sandals~
+{CW{Wi{Cn{Wd {bSandals{x~
+Just a pair of {bsandals{x lie here.~
+energy~
+armor ABGY AG
+22 21 21 22 0
+80 1 5000 P
+E
+sandals wind~
+ Powerful, raging
+   cold, moving
+ Gentle, caressing
+   warm, still
+ The power 
+   of the wind 
+ Friend or foe
+~
+A
+12 35
+A
+13 40
+A
+14 50
+A
+18 3
+A
+19 5
+
+#5614
+cloak of hope~
+{VC{Wl{Mo{Wa{Vk {Wof {VH{Mo{Vp{Ve{x~
+{VH{Mo{Vp{Me{x has been left behind.~
+cloth~
+armor ABGY AK
+21 19 21 19 0
+80 1 4000 P
+E
+cloak hope~
+The threads that
+  bind this cloak
+Are really 
+  very simple.
+The laughter, dreams
+  and the ones who care
+{VH{Wappy {MO{Wran {VP{Weople {ME{Wverywhere{x
+~
+A
+1 1
+A
+3 3
+A
+12 80
+A
+18 4
+A
+19 4
+A
+24 -7
+
+#5615
+storm gauntlets~
+Storm Gauntlets~
+A pair of gauntlets ravaged by a storm are on the ground.~
+adamantite~
+armor ABGY AH
+22 22 23 23 0
+85 20 2500 P
+E
+gauntlets storm~
+Somewhere the storm begins
+ Trying quickly to reach its pinnacle
+  Over deserts, over plains, and seas
+   Racing to make its cries known
+    Maybe it is within...your own
+~
+A 
+4 4
+A
+12 30
+A
+13 45
+A
+18 2
+A
+19 6
+
+#5616
+talisman shohola~
+{GS{Yh{Bo{Rh{Bo{Yl{Ga {YTalisman{x~
+A shimmering crystal {Ytalisman{x was left here.~
+crystal~
+wand ABGY AO
+75 10 7 'chain' 0
+90 0 3000 P
+E
+talisman shohola~
+The sacred talisman
+   that you hold,
+Isn't just a
+   a crystal globe.
+It holds the dew
+   from the Prophecy Mists,
+And a piece of granite
+   from the ancient cliffs.
+Raised to the sun
+   a flame burns within,
+The elemental's promise
+   will one day begin.
+~
+A
+12 100
+A
+13 25
+A
+18 6
+A
+19 6
+A
+17 -20
+
+#5617
+prophecy ring~
+Ring of Prophecy~
+Just a ring lies here.~
+gold~
+armor ABGIMY AB
+25 25 25 26 0
+92 5 0 P
+E
+prophecy ring~
+Once long ago
+  it was told
+That Children born
+  would not grow old.
+A wise old priest
+  would not believe
+The dream he saw 
+  and be deceived.
+He spread the word
+  far and near
+Children of {BO{Wr{Ga{Rn{x
+  will again come here.
+~
+A
+3 3
+A
+4 4
+A
+12 125
+A
+13 25
+A
+14 50
+A
+18 8
+A
+19 7
+#0
+
+#ROOMS
+#5600
+{VThe {PAbandoned {CWell{x~
+This is a nondescript {Pabandoned {Cwell{x. It is {cdark{x, but you can feel
+your way down, as the wall is made of large, poorly joined {gstones{x.
+You might feel better if you have a {Ylight{x, though. Then again, you
+might see what you smell, and that might not be so good after all.
+~
+0 0 5
+D4
+The way up looks like a challenge.
+~
+~
+0 -1 441
+D5
+The way down looks worse than up!
+~
+~
+0 -1 5601
+S
+
+#5601
+{VBottom of an {PAbandoned {CWell{x~
+You have arrived at the muck at the bottom of an {Pabandoned {Cwell{x.
+There is not much to see, unless you are a collector of {Gmolds{x or
+{Gfungi{x. If you are an engineer or mason, you will realize the
+importance of getting out from under these {Crock walls{x in short order.
+~
+0 0 2
+D1
+A {bmuddy hole{x leads down to the east.
+~
+~
+0 -1 5602
+D4
+Back up? That looks like a good idea about now.
+~
+~
+0 -1 5600
+S
+
+#5602
+{VA {PMoldy {cTunnel{x~
+You are in a {ctunnel{x. The walls are not shored up at all, and you
+cannot tell whether the {bmud{x is holding up the {Gmold{x, or the other
+way round. It is very humid here, and {C{Cm{Wi{Cs{Wt{x{x is coming from the east.
+~
+0 0 2
+D1
+The tunnel continues to slope down, and gets even damper.
+~
+~
+0 -1 5603
+D3
+There is just a hint of dim {Ylight{x ahead.
+~
+~
+0 -1 5601
+S
+
+#5603
+{VThe {GE{Hl{Re{bm{We{cn{Pt{Ca{Bl {RSauna{x~
+It is very {Phot{x and {Bs{Wt{Be{Wa{Bm{Wy{x here; you are bathed in sweat already. It
+is hard even to breathe, and you cannot see far in the thick {Wcloud{x
+of {Bs{Wt{Be{Wa{Bm{x that seems thicker to the south, from which direction you
+hear a loud {Rs{Pi{Rz{Pz{Rl{Pi{Rn{Pg{x.
+~
+0 0 2
+D2
+The {Bs{Wt{Be{Wa{Bm{x is coming from that direction.
+~
+~
+0 -1 5604
+D3
+It is cooler that way, but muddy.
+~
+~
+0 -1 5602
+S
+
+#5604
+{VA {PRiver {Wof {RMolten {gRock{x~
+{RLava{x bubbles and roils in this huge cavern. {CWater{x pouring onto the
+eastern edge flashes to {Ws{Ct{We{Ca{Wm{x and rushes north in a superheated
+stream, but hardly cools even the edge of the {Rlava{x. A number of
+thick {bwooden{x overshoes shaped like boats have been left on both
+sides of the {Rmolten{x portion of the floor; evidently at least SOMEONE
+has made the passage, and more than once.  Strapping the heavy
+attachments with {bleather thongs{x, you pick your way out along ridges
+that aren't glowing {YTOO{x brightly.
+~
+0 0 10
+D0
+The {Ws{Ct{We{Ca{Wm{x rushes past you, heading north.
+~
+~
+0 -1 5603
+D1
+You hear the rush of {Cwater{x pouring in and flashing to {Ws{Ct{We{Ca{Wm{x.
+~
+~
+0 -1 5605
+S
+
+#5605
+{VA {PRaging {CTorrent{x~
+{CWater{x pours in here, frothing and churning, as if the {Bs{Ce{Ba{x itself were
+draining into the {Gearth{x. With luck and a trusty boat, you might cross
+it going east, as there is a howling gale of {Ws{Ct{We{Ca{Wm{x blowing east.
+Crossing going west looks nearly impossible. Can you control weather?
+It might help.
+~
+0 0 7
+D1
+Ozone-laden {Wair{x rushes up and to the east as if fleeing the {Cwater{x.
+~
+~
+0 -1 5606
+D3
+You cannot bear even to look that way, it is so {Rhot{x.
+~
+~
+0 -1 5604
+S
+
+#5606
+{VThe {WEye of the {CH{Wu{Cr{Wr{Ci{Wc{Ca{Wn{Ce{x~
+The jet of {Ws{Ct{We{Ca{Wm{x whipping east from the {Rlava{x, and full of briny spray
+from the cascade of {Cwater{x west of here, turns south at this point.
+The turn is too sharp, and it curls back upon itself, forming a
+{Yw{Wh{Yi{Wr{Yl{Wi{Yn{Wg{x vortex. You stand in the center, and can hardly see the
+walls through the whirling spray.
+~
+0 0 2
+D2
+What could be next?
+~
+~
+0 -1 5607
+D3
+The rush of {Wair{x fueling this hurricane is coming from down there.
+Are you sure you can even force your way upwind?
+~
+~
+0 -1 5605
+S
+
+#5607
+{WA {PF{Rl{Pa{Rs{Ph{Rf{Pi{Rr{Pe{R!{x~
+Overpressured {Wair{x has hit a {ccoal{x seam here, and some {Yspark{x (are you
+wearing hobnail boots, perhaps?) has set it off!  Sheets of {Rflame{x
+roar all about you, and you rush blindly forward, singed arms
+over your face.
+~
+0 0 2
+D0
+A howling vortex alternately sucks at you and throws you back.
+~
+~
+0 -1 5606
+D1
+You've got no other choice, anyway.
+~
+~
+0 -1 5608
+S
+
+#5608
+{VYou {Yare {cBlinded!{x~
+Your eyes and nostrils clog with {bsand{x, and you feel your way forward,
+your ears stung by whirling {bsand{x.
+~
+0 0 2
+D1
+You crawl into some {grocks{x to escape the stinging {Ww{Ci{Wn{Cd{x.
+~
+~
+0 -1 5609
+D3
+The source of this gritty {Ww{Ci{Wn{Cd{x is that way. Think again.
+~
+~
+0 -1 5607
+S
+
+#5609
+{VJust {Yout {Gof the {WWind{x~
+It is very loud here, despite the {Wwindbreak{x afforded by some {crocks{x.
+Occasional gusts still blow {Bsand{x and {bgrit{x onto you from the {bsandstorm{x
+to the west.
+~
+0 0 2
+D3
+A howling {bsandstorm{x rages over there. Stay under cover.
+~
+~
+0 -1 5608
+D4
+Keep your back to the {Ww{Ci{Wn{Cd{x and you might be able to climb up these {crocks{x.
+~
+~
+0 -1 5610
+S
+
+#5610
+{VAtop a {cRocky {gEscarpment{x~
+You are on the lower northern end of the spur of a great {Pvolcano{x to
+the south. The {crocks{x crunch under your boots, and occasional vents
+of sulphurous gas give the {Wair{x a musty tang. You look down into a
+terrible {bsandstorm{x; a great {Ww{Ci{Wn{Cd{x seems to be coming up from the
+bowels of the {Ge{Ha{Gr{Ht{Gh{x.
+~
+0 0 4
+D2
+You can scramble south along the {gescarpment{x.
+~
+~
+0 -1 5611
+D5
+There is a {bsandstorm{x raging down there, best stay up here where the
+{Wair{x is clear.
+~
+~
+0 -1 5609
+S
+
+#5611
+{gEscarpment {Yabove {GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+You stand on jagged lumps of igneous {crock{x, which breaks underfoot and
+scratches everything it touches. The {Cs{Wk{Cy{x is {ggrey{x and brooding, and
+sweat pours off you from the exertion of climbing in the hot and
+humid air.  Northwest you see an ominous {Rf{go{Pr{ct{Rr{ge{Ps{cs{x, but this {Plava{x spur
+does not reach there. You can only go north to the {RFire {BQueen's{x
+cauldron, or try to descend into a thick {Gf{Ho{br{Ge{Hs{bt{x below the {Rf{go{Pr{ct{Rr{ge{Ps{cs{x.
+~
+0 0 4
+D0
+You can scramble back north along the {gescarpment{x.
+~
+~
+0 -1 5610
+D5
+If you pick your way carefully, you may be able to get to the {Gf{Ho{br{Ge{Hs{bt{x.
+floor.
+~
+~
+0 -1 5612
+S
+
+#5612
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+It is as if the world from which you had come and into which you are
+going had melted away.  It is as if nothing remained but the small bit
+of {Ge{Ha{Gr{Ht{Gh{x across which you stand, materializing ahead, disappearing
+behind, never there longer than the few moments it takes you to pass
+by. The {Gf{Ho{br{Ge{Hs{bt{x that the {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{Vs{x once knew is but a memory.
+~
+0 0 3
+D0
+{GMoss{x covers heaps of {cstones{x between you and the east (and evidently
+older) end of the great {Rf{go{Pr{ct{Rr{ge{Ps{cs{x.
+~
+~
+0 -1 5676
+D3
+The {Gf{Ho{br{Ge{Hs{bt{x continues west.
+~
+~
+0 -1 5613
+D4
+It looks like a hard climb, over treacherous {crocks{x.
+~
+~
+0 -1 5611
+S
+
+#5613
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+This {Gf{Ho{br{Ge{Hs{bt{x has to be incredibly ancient, certainly the {bt{Gr{be{Ge{bs{x are
+larger than any you are familiar with.  They tower for yards before
+branching out, and some {btree{x trunks are so large several adults could
+circle it with their arms without touching hand to hand.  The path
+is no more than a goat track now.  The watchers of the {Gf{Ho{br{Ge{Hs{bt{x are
+within sensing distance.
+~
+0 0 3
+D0
+A heavily barred gate leads to a "garden" of the {Rf{Go{Pr{ct{Rr{Ge{Ps{cs{x which looms
+above.
+~
+barred gate~
+1 -1 5623
+D1
+The {Gf{Ho{br{Ge{Hs{bt{x continues east.
+~
+~
+0 -1 5612
+D2
+The way south slopes down, and {Cm{Wi{Cs{Wt{cs{x gather in the {Gf{Ho{br{Ge{Hs{bt{x below.
+~
+~
+0 -1 5631
+D3
+The {Gf{Ho{br{Ge{Hs{bt{x continues west.
+~
+~
+0 -1 5614
+S
+
+#5614
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+Huge {Gevergreens{x loom everywhere you look, their branches cutting off
+almost every scrap of {Bsky{x and {Ylight{x overhead.  The {Gf{Ho{br{Ge{Hs{bt{x floor is
+chilly and damp, and the smell of resin is overwhelming, clinging to
+everything, even your food.
+~
+0 0 3
+D1
+The {Gf{Ho{br{Ge{Hs{bt{x continues east.
+~
+~
+0 -1 5613
+D3
+The {Gf{Ho{br{Ge{Hs{bt{x continues west.
+~
+~
+0 -1 5617
+D0
+The {Gf{Ho{br{Ge{Hs{bt{x continues north.
+~
+~
+0 -1 5616
+D2
+The {Gf{Ho{br{Ge{Hs{bt{x continues south.
+~
+~
+0 -1 5615
+S
+
+#5615
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+Huge {Gevergreens{x loom everywhere you look, their branches cutting off
+almost every scrap of {Bsky{x and {Ylight{x overhead.  The {Gf{Ho{br{Ge{Hs{bt{x floor is
+chilly and damp, and the smell of resin is overwhelming, clinging to
+everything, even your food.
+~
+0 0 2
+D1
+The {Gf{Ho{br{Ge{Hs{bt{x continues east.
+~
+~
+0 -1 5618
+D3
+The {Gf{Ho{br{Ge{Hs{bt{x continues west.
+~
+~
+0 -1 5619
+D0
+The {Gf{Ho{br{Ge{Hs{bt{x continues north.
+~
+~
+0 -1 5614
+D2
+The {Gf{Ho{br{Ge{Hs{bt{x continues south.
+~
+~
+0 -1 5616
+S
+
+#5616
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+Huge {Gevergreens{x loom everywhere you look, their branches cutting off
+almost every scrap of {Bsky{x and {Ylight{x overhead.  The {Gf{Ho{br{Ge{Hs{bt{x floor is
+chilly and damp, and the smell of resin is overwhelming, clinging to
+everything, even your food.
+~
+0 0 2
+D1
+The {Gf{Ho{br{Ge{Hs{bt{x continues east.
+~
+~
+0 -1 5619
+D3
+The {Gf{Ho{br{Ge{Hs{bt{x continues west.
+~
+~
+0 -1 5618
+D0
+The {Gf{Ho{br{Ge{Hs{bt{x continues north.
+~
+~
+0 -1 5615
+D2
+The {Gf{Ho{br{Ge{Hs{bt{x continues south.
+~
+~
+0 -1 5614
+S
+
+#5617
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+Huge {Gevergreens{x loom everywhere you look, their branches cutting off
+almost every scrap of {Bsky{x and {Ylight{x overhead.  The {Gf{Ho{br{Ge{Hs{bt{x floor is
+chilly and damp, and the smell of resin is overwhelming, clinging to
+everything, even your food.
+~
+0 0 2
+D1
+The {Gf{Ho{br{Ge{Hs{bt{x continues east.
+~
+~
+0 -1 5614
+D3
+The {Gf{Ho{br{Ge{Hs{bt{x continues west.
+~
+~
+0 -1 5620
+D0
+The {Gf{Ho{br{Ge{Hs{bt{x continues north.
+~
+~
+0 -1 5619
+D2
+The {Gf{Ho{br{Ge{Hs{bt{x continues south.
+~
+~
+0 -1 5618
+S
+
+#5618
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+Huge {Gevergreens{x loom everywhere you look, their branches cutting off
+almost every scrap of {Bsky{x and {Ylight{x overhead.  The {Gf{Ho{br{Ge{Hs{bt{x floor is
+chilly and damp, and the smell of resin is overwhelming, clinging to
+everything, even your food.
+~
+0 0 2
+D1
+The {Gf{Ho{br{Ge{Hs{bt{x continues east.
+~
+~
+0 -1 5616
+D3
+The {Gf{Ho{br{Ge{Hs{bt{x continues west.
+~
+~
+0 -1 5615
+D0
+The {Gf{Ho{br{Ge{Hs{bt{x continues north.
+~
+~
+0 -1 5617
+D2
+The {Gf{Ho{br{Ge{Hs{bt{x continues south.
+~
+~
+0 -1 5619
+S
+
+#5619
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+Huge {Gevergreens{x loom everywhere you look, their branches cutting off
+almost every scrap of {Bsky{x and {Ylight{x overhead.  The {Gf{Ho{br{Ge{Hs{bt{x floor is
+chilly and damp, and the smell of resin is overwhelming, clinging to
+everything, even your food.
+~
+0 0 2
+D1
+The {Gf{Ho{br{Ge{Hs{bt{x continues east.
+~
+~
+0 -1 5615
+D3
+The {Gf{Ho{br{Ge{Hs{bt{x continues west.
+~
+~
+0 -1 5616
+D0
+The {Gf{Ho{br{Ge{Hs{bt{x continues north.
+~
+~
+0 -1 5618
+D2
+The {Gf{Ho{br{Ge{Hs{bt{x continues south.
+~
+~
+0 -1 5617
+S
+
+#5620
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+Still no relief from the darkness of {GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs{x.  You don't see any
+birds, for they are all where the {Ysun{x shines, but the echoes of their
+far-off singing only makes the empty corridors between the {btree{x
+trunks seem more desolate.
+~
+0 0 2
+D0
+The {Gf{Ho{br{Ge{Hs{bt{x continues north, sloping up.
+~
+~
+0 -1 5622
+D1
+The {Gf{Ho{br{Ge{Hs{bt{x continues east.
+~
+~
+0 -1 5617
+D2
+The {Gf{Ho{br{Ge{Hs{bt{x continues south, sloping up.
+~
+~
+0 -1 5621
+D3
+The way turns sharply up toward a pass.
+~
+~
+0 -1 5646
+S
+
+#5621
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x {GPass{x~
+The {Gf{Ho{br{Ge{Hs{bt{x thins atop this rise. To the north you can see the full range
+of the {Gf{Ho{br{Ge{Hs{bt{x, and the great {CKeep{x above it. To the west you can see a
+sort of glade of tended hardwoods.
+~
+0 0 2
+D0
+The way north slopes down, back into the {Gf{Ho{br{Ge{Hs{bt{x.
+~
+~
+0 -1 5620
+D3
+The thicket is fifty yards back among the larger {bt{Gr{be{Ge{bs{x.  It appears to
+be a patch of dense brush surrounding a small hollow.  The ground in the
+hollow is marshy, and there is a {Cs{Wp{Cr{Wi{Cn{Wg{x at its center.
+~
+~
+0 -1 5644
+D1
+To the east is a circle of {Rfire{x.
+~
+~
+0 -1 5623
+S
+
+#5622
+{GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x {GPass{x~
+You pass out of the deep {Gf{Ho{br{Ge{Hs{bt{x, {Ysun{x creeping over the rise of the
+{cSh{gea{cnd{gra {cPass, pouring through breaks in the {btrees{x to warm the Mother
+Earth. The {btrees{x thin before you, and ahead the {CKeep{x, at the top of
+the mountain, rises out of the {Cm{Wi{Cs{Wt{Cy{x light.
+~
+0 0 3
+D0
+The {CKeep's{x portcullis stands open.
+~
+~
+0 -1 5627
+D2
+The {Gf{Ho{br{Ge{Hs{bt{x continues south.
+~
+~
+0 -1 5620
+S
+
+#5623
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x~
+By entering here, you have summoned them from the world of the {cdead{x
+to the world of the {Yliving{x.  First the whispers, soft and distant,
+rising invisible sparks, and then come the cries, long and deep,
+increasing in volume growing from a few to many. The {YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x
+starts to hiss with dissatisfaction, and begin to burn as rapidly
+as the grey clouds overhead pass, stirred by their own coming storm.
+~
+0 0 2
+D0
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x continues north.
+~
+~
+0 -1 5624
+D2
+You should get back south out of this, into the {Gf{Ho{br{Ge{Hs{bt{x. Don't forget to
+bar the gate!
+~
+barred gate~
+1 0 5613
+D1
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x continues east.
+~
+~
+0 -1 5626
+D3
+Looks like a {Gf{Ho{br{Ge{Hs{bt{x to the west.
+~
+~
+0 -1 5621
+S
+
+#5624
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x~
+The spirits rise from the {Pembers{x, small, white filaments of {Yl{Wi{Yg{Wh{Yt{x
+given vaguely human form, bodies basked in a firefly radiance that
+glimmers against the {cblackness{x of the clouded sky. The spirits spiral
+snake-like, lifting from the dark dead air of their afterlife home
+to visit briefly the world they had once inhabited.
+~
+0 0 2
+D2
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x continues south.
+~
+~
+0 -1 5623
+D1
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x continues west.
+~
+~
+0 -1 5625
+S
+
+#5625
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x~
+Something breaks from the exact center of the raging {Rfire{x, a figure
+cloaked in {cblack{x that dwarfs the smaller glowing forms, scattering
+them with its coming, soaking up their fragile {Ylight{x, and leaves them
+whirling and twisting like dead leaves in the {Ww{Ci{Wn{Cd{x.  The cloaked
+figure hovers above the blazing {YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x, a {cw{gr{ca{gi{ct{gh{x
+without flesh and bones yet of firmer stuff than the small creatures 
+it dominates.
+~
+0 0 2
+D1
+Some ruins are east.
+~
+~
+0 -1 5663
+D2
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x continues south.
+~
+~
+0 -1 5626
+D3
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x continues west.
+~
+~
+0 -1 5624
+S
+         
+#5626
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x~
+{cW{gr{ca{gi{ct{gh{cs{x out of control, cries and whimpers from the dead, seeking a
+way back to the netherworld from which they had come.  The {WCircle{x
+{Pof {RF{Yi{Rr{Ye{x continually explodes as they appear and disappear,
+breaking apart the silence and dead air.  The {Pfl{Ya{Pme{x that once gave
+warmth and light, now used for destruction and torture.
+~
+0 0 2
+D0
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x continues north.
+~
+~
+0 -1 5625
+D1
+There seems to be a {Gf{Ho{br{Ge{Hs{bt{x to the east.
+~
+~
+0 -1 5645
+D3
+{YC{Ri{Yr{Rc{Yl{Re {Yof {RF{Yi{Rr{Ye{x continues west.
+~
+~
+0 -1 5623
+S
+
+#5627
+{CThe Keep{x~
+The {CKeep{x is a massive {gstone{x citadel seated on a foundation of {crock{x 
+that juts from the {Ge{Ha{Gr{Ht{Gh{x like a fist. {CM{Wi{Cs{Wt{x clings to the high reaches,
+and swathes {gdarker {cshadows{x at the {CKeep's{x base. Higher levels vanish 
+in {cshadows{x; it is impossible to tell the exact size. It is an impressive
+sight, one which leaves you to wonder what will await you within the
+walls.
+~
+0 0 2
+D0
+You can enter through the {CKeep {bgate{x, if you dare!
+~
+~
+0 -1 5628
+D2
+Southwards the {Gf{Ho{br{Ge{Hs{bt{x thickens and descends into {Cm{Wi{Cs{Wt{x.
+~
+~
+0 -1 5622
+S
+
+#5628
+{CThe Keep{x~
+As you enter the {CKeep{x, a keening begins and swiftly grows louder 
+and more distinct. The sound is soon a chorus of moaning {Pcries{x 
+punctuated by occasional shrieks. Behind it all, and seeming to carry 
+and sustain all the other sounds, is a dreadful wailing, a {Ysingle{x 
+{Yvoice{x, but so vast and all-encompassing it seems to reverberate 
+inside your head, erasing all thought.
+~
+0 0 2
+D1
+A crumbling {cstone{x archway leads deeper into the {CKeep{x.
+~
+~
+0 -1 5629
+D2
+You can flee out the {CKeep {bgate{x and return to the {Gf{Ho{br{Ge{Hs{bt{x.
+~
+~
+0 -1 5627
+D3
+To the west are some ruins.
+~
+~
+0 -1 5625
+S
+
+#5629
+{CThe Keep{x~
+Around you the wailing grows louder, and the chorus of moans and 
+shrieks become more distinct.  Filmy, half-formed tatters of shape 
+begin to appear, floating across the {bground{x. A once mighty {Rf{go{Pr{ct{Rr{ge{Ps{cs{x 
+built to protect the children of {CO{Wr{Ga{Rn{x, lies in ruins all around you. 
+The {RFire {BQueen's{x death and destruction echo the cries of the slain 
+and lost.  The {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{Bs{x cry in anguish for their lost land.
+~
+0 0 2
+D2
+A constant wailing issues from the even lower-ceilinged room to the south.
+~
+~
+0 -1 5630
+D3
+>From the west you hear a great moaning, no less audible for being
+completely silent.
+~
+~
+0 -1 5628
+S
+
+#5630
+{CThe Keep{x~
+You hear the lamenting of the lost and as you turn to look back, a
+{Ys{Wh{Yi{Wm{Ym{We{Yr{Wi{Yn{Wg{x sphere catches your eye. It just hovers there, over the
+only {Ggreen{x patch of {Ggrass{x in the land. {YLight{x dances from within, tiny
+sparks of {Yyellow{x, {Porange{x, and {Rred{x flickers of {Pf{Rl{Ya{Rm{Pe{x.  As you approach
+this strange and wonderous oddity, the air around it is clean and
+fresh, as you once remembered it. A faint {Cm{Wi{Cs{Wt{x half surrounds it,
+like a halo. No, not a halo, but a crown of renewal. A tiny
+{Br{Ya{Vi{Pn{Vb{Yo{Bw{x forms right before your eyes. Could this be a dream, a 
+{Pv{Yi{Gs{Vi{Bo{Cn {Wof {Vh{Mo{Vp{Me{x amongst all this death and destruction?
+~
+0 0 2
+D0
+Wailing punctuated by dying gurgles come from the large room to the north.
+~
+~
+0 -1 5629
+D2
+The ruined gate is to the south, and beyond it, the relative safety of
+the {Gf{Ho{br{Ge{Hs{bt{x.
+~
+~
+0 -1 5676
+S
+
+#5631
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+The {Gf{Ho{br{Ge{Hs{bt{x and this {Bri{Wv{Ber{x go on and do not show any sign of ending. They
+show no change.  There are no people or animals.  There is something...
+You wrap yourself as if you are cold, although the air is warm and humid.
+And the {Bri{Wv{Ber{x flows on, the {Gf{Ho{br{Ge{Hs{bt{x stretches away and the {Cm{Wi{Cs{Wt{x and gray
+permeate everything. You cannot see where the {Bri{Wv{Ber{x comes from; the only
+way along it seems to be downstream, where it disappears into the {Cm{Wi{Cs{Wt{x,
+its flat gray surface stretching away like a smooth stone. No fish jump
+from its depths, it bends and twists like a demon serpent.
+~
+0 0 7
+D0
+A thick {Gf{Ho{br{Ge{Hs{bt{x lies up there.
+~
+~
+0 -1 5613
+D2
+The {Bri{Wv{Ber{x extends downstream, no telling how far.
+~
+~
+0 -1 5632
+S
+
+#5632
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+The rumble of discontent comes almost immediately. From the {Bri{Wv{Ber{x you
+have emerged only to stumble upon an encampment of {ggr{cys{gtl{cies{x,
+formidable in the dim light, massive bodies uncoiling, claws and
+teeth gleaming like knives. And, the {Bri{Wv{Ber{x flows on, the {Gf{Ho{br{Ge{Hs{bt{x stretches away and the {Cm{Wi{Cs{Wt{x
+and gray permeates everything.
+~
+0 0 2
+D0
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5631
+D3
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5635
+D2
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5637
+D1
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5633
+S
+
+#5633
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+And the {Bri{Wv{Ber{x flows on, the {Gf{Ho{br{Ge{Hs{bt{x stretches away and the {Cm{Wi{Cs{Wt{x and gray
+permeate everything. You cannot see where the {Bri{Wv{Ber{x comes from; the only
+way along it seems to be downstream, where it disappears into the {Cm{Wi{Cs{Wt{x,
+its flat {ggray{x surface stretching away like a smooth {Cstone{x. No fish jump
+from its depths, it bends and twists like a demon serpent.
+~
+0 0 2
+D0
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5637
+D2
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5636
+D1
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5634
+D3
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5632
+S
+
+#5634
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+The rumble of discontent comes almost immediately. From the {Bri{Wv{Ber{x you
+have emerged only to stumble upon an encampment of {ggr{cys{gtl{cies{x, 
+formidable in the dim light, massive bodies uncoiling, claws and
+teeth gleaming like knives.  And, the {Bri{Wv{Ber{x flows on, the {Gf{Ho{br{Ge{Hs{bt{x
+stretches away and the {Cm{Wi{Cs{Wt{x and gray permeate everything.
+~
+0 0 2
+D0
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5635
+D2
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5635
+D1
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5637
+D3
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5633
+S
+
+#5635
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+And the {Bri{Wv{Ber{x flows on, the {Gf{Ho{br{Ge{Hs{bt{x stretches away and the {Cm{Wi{Cs{Wt{x and gray
+permeate everything. You cannot see where the {Bri{Wv{Ber{x comes from; the only
+way along it seems to be downstream, where it disappears into the {Cm{Wi{Cs{Wt{x,
+its flat {ggray{x surface stretching away like a smooth {Wtone{x. No fish jump
+from its depths, it bends and twists like a demon serpent.
+~
+0 0 2
+D0
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5634
+D2
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5634
+D1
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5632
+D3
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5639
+S
+
+#5636
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+And the {Bri{Wv{Ber{x flows on, the {Gf{Ho{br{Ge{Hs{bt{x stretches away and the {Cm{Wi{Cs{Wt{x and gray
+permeate everything. You cannot see where the {Bri{Wv{Ber{x comes from; the only
+way along it seems to be downstream, where it disappears into the {Cm{Wi{Cs{Wt{x,
+its flat {ggray{x surface stretching away like a smooth {cstone{x. No fish jump
+from its depths, it bends and twists like a demon serpent.
+~
+0 0 2
+D0
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5633
+D2
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5638
+D1
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5639
+D3
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5637
+S
+
+#5637
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+And the {Bri{Wv{Ber{x flows on, the {Gf{Ho{br{Ge{Hs{bt{x stretches away and the {Cm{Wi{Cs{Wt{x and gray
+permeate everything. You cannot see where the {Bri{Wv{Ber{x comes from; the only
+way along it seems to be downstream, where it disappears into the {Cm{Wi{Cs{Wt{x,
+its flat {ggray{x surface stretching away like a smooth {cstone{x. No fish jump
+from its depths, it bends and twists like a demon serpent.
+~
+0 0 2
+D0
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5632
+D2
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5633
+D1
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5636
+D3
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5634
+S
+
+#5638
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+The rumble of discontent comes almost immediately. From the {Bri{Wv{Ber{x you
+have emerged only to stumble upon an encampment of {ggr{cys{gtl{cies{x, 
+formidable in the dim light, massive bodies uncoiling, claws and
+teeth gleaming like knives.  And, the {Bri{Wv{Ber{x flows on, the {Gf{Ho{br{Ge{Hs{bt{x
+stretches away and the {Cm{Wi{Cs{Wt{x and gray permeate everything.
+~
+0 0 2
+D0
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5637
+D2
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5636
+D1
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5634
+D3
+The {Bri{Wv{Ber{x continues, no telling how far.
+~
+~
+0 -1 5632
+S
+
+#5639
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+You look around searching for something that is familiar, tangible,
+but it all feels artificial, as if it were created by dreams, where
+everything happens a short step out of time from how we know things to
+be.  She is there just within reach... or is she? And the {Bri{Wv{Ber{x flows
+on, the {Gf{Ho{br{Ge{Hs{bt{x stretches away and the {Cm{Wi{Cs{Wt{x and gray permeate everything.
+~
+0 0 2
+D0
+The {Bri{Wv{Ber{x continues downstream, no telling how far.
+~
+~
+0 -1 5640
+D1
+The {Bri{Wv{Ber{x continues upstream, no telling how far.
+~
+~
+0 -1 5638
+D3
+The {Bri{Wv{Ber{x continues upstream, no telling how far.
+~
+~
+0 -1 5636
+S
+
+#5640
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+The {Ylight{x is all but screened away by the interlocking branches of the
+trees overhead. You descend a steep slope to a dense thicket of brush
+against a rocky overhang. There in the clearing you see her, you feel her
+presence in your mind, The {CLady {Wof {YLight{x.  And the {Bri{Wv{Ber{x flows on, the
+{Gf{Ho{br{Ge{Hs{bt{x stretches away and the {Cm{Wi{Cs{Wt{x and gray permeate everything.
+~
+0 0 2
+D0
+The {Bri{Wv{Ber{x continues upstream, no telling how far.
+~
+~
+0 -1 5637
+D1
+The {Bri{Wv{Ber{x continues upstream, no telling how far.
+~
+~
+0 -1 5633
+D2
+The {Bri{Wv{Ber{x continues upstream, no telling how far.
+~
+~
+0 -1 5639
+D3
+A small clearing.
+~
+~
+0 -1 5641
+S
+
+#5641
+{WT{Ch{We {CP{Wr{Co{Wp{Ch{We{Cc{Wy {CM{Wi{Cs{Wt{Cs{x~
+Easing your way past the brush, you enter a small clearing that has
+thirteen stones lines in a half horseshoe design.  As your eyes
+sweep the stones, you notice the middle stone is larger than the
+others, a massive flat stone which has symbols carved on both sides
+and across the top. This must be the {cStone {Wof {CP{Wr{Co{Wp{Ch{We{Cc{Wy{x the elementals
+hid long ago. 
+~
+0 0 2
+D1
+The {Bri{Wv{Ber{x continues upstream, no telling how far.
+~
+~
+0 -1 5640
+S
+
+#5642
+{PPassage {WTo {CP{Wr{Co{Wp{Ch{We{Cc{Wy{x~
+You watch the {cblack{x opening of the cave come into focus. The darkening
+atmosphere of the cave seems to tighten down like a coffin lid.
+~
+0 0 0
+D3
+The cave widens into a large chamber to the west.
+~
+~
+0 -1 5643
+D0
+You left the door open.
+~
+~
+0 -1 5641
+S
+
+#5643
+{WThe {VPriest {Wof {MP{Vr{Mo{Vp{Mh{Ve{Mc{Vy{x~
+You are in a single circular chamber that rises to a high domed
+ceiling. For a single instant, the {Yshrine{x is whole again. Murals 
+painted around undamaged walls tell the old sacred stories anew, with 
+precious {Gg{Re{Ym{Bs{Vt{Bo{Yn{Re{Gs{x depicting the symbols of wheel and {Ysun{x. A heavy 
+cloth of {Ygold{x blankets the altar, where glowing alabaster lamps burn 
+scented oils. In a niche a statue stands with arms outstretched.  
+Somewhere voices chant an ancient hymn of praise. 
+~
+0 D 0
+D1
+A dark passage.
+~
+~
+0 -1 5642
+S
+
+#5644
+{WThe {PH{Re{Pa{Rr{Pt{x {Wof {GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+The {PH{Re{Pa{Rr{Pt{x was sacred ground, the wellspring of {CO{Wr{Ga{Rn{x's magic and
+the touchstone of her life. Before the {RFire {BQueen's{x destruction,
+it was a clearing amid giant broad-leaved trees, its perimeter was 
+encircled by {BBonnie Blues{x, the floor a mix of {Ggreen{x, {Ygold{x, 
+and {Pcrimson{x grasses. In the center was a dais set with massive
+white candles always burning.  Now....the {PH{Re{Pa{Rr{Pt{x is still, lifeless,
+cold...waiting for one day to live again.
+~
+0 0 2
+D0
+The {Gf{Ho{br{Ge{Hs{bt{x edge is to the north.
+~
+~
+0 -1 5645
+D1
+A thinly wooded {Gf{Ho{br{Ge{Hs{bt{x pass is to the east.
+~
+~
+0 -1 5621
+D5
+Down looks very {Cm{Wi{Cs{Wt{Cy{x.
+~
+~
+0 -1 5631
+S
+
+#5645
+{VOutside {Wthe {GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x~
+There is nothing stirring outside the circle of {btrees{x, the eerie
+landscape remains quiet. You look at the {bdirt{x at the foot of the
+{btrees{x noticing tracks, many tracks. Some remotely identifiable.
+~
+0 0 2
+D0
+The path north goes into the foothills of the {MSheAndra{x Mountains.
+~
+~
+0 -1 5646
+D2
+The path south goes to the {PH{Re{Pa{Rr{Pt{x of {Gf{Ho{br{Ge{Hs{bt{x.
+~
+~
+0 -1 5644
+D3
+There is a {Rfire{x burning to the west.
+~
+~
+0 -1 5626
+S
+
+#5646
+{MBreakline {Win the {MSheAndra{x {GM{go{Gu{gn{Gt{ga{Gi{gn{Gs{x~
+You have walked out of the {Gf{Ho{br{Ge{Hs{bt{x and into a grove with towering
+hardwoods, set back within a blind draw. You see a shallow ravine,
+growth thick with ash and white birch. A {Cm{Wi{Cs{Wt{x clouds the whole land in
+roiling {ggray{x, but your senses tell you there is something there. The
+narrow path leads north up a jagged precipice.
+~
+0 0 5
+D0
+A narrow path leads toward the top of a {Gm{go{Gu{gn{Gt{ga{Gi{gn{x.
+~
+~
+0 -1 5655
+D1
+The way east slopes down into the {Cm{Wi{Cs{Wt{Cy {Gevergreens{x.
+~
+~
+0 -1 5620
+D2
+The {Gf{Ho{br{Ge{Hs{bt{x thins somewhat to the south.
+~
+~
+0 -1 5645
+D3
+A worn path slopes down into the dark ravine.
+~
+~
+0 -1 5647
+S
+
+#5647
+{gThe {cBlack {gCave{x~
+The walls and floor are absolutely smooth, almost polished. It is cool
+here, but does not have a bitter chill, no musty smell as you might
+expect. The {Tchamber{x is perfectly round, about 100 feet in diameter,
+walls curving inward as you gaze up. The eerie stillness belies the
+intensity of {Ypower{x within this tiny, bare, {grock-walled{x {Tchamber{x. The
+only light in the room is from an oil-fed {Pf{Yl{Pa{Ym{Pe{x burning on a low table
+against the far wall. Something has been set loose in response to your
+coming, and it is rising to seek you out.
+~
+0 D 0
+D1
+You can see your way out through the crevice, back up to the pass
+~
+~
+0 -1 5646
+D3
+A {Br{Ya{Vi{Pn{Vb{Yo{Bw{x of colors comes through the door to the next cavernous chamber.
+~
+stone door~
+3 5602 5648
+S
+
+#5648
+{TWest Chamber {Wof the {cBlack {gCave{x~
+A blazing {Rfire{x burns in a pit in the middle of the room, the lighting
+refracting through the {Yc{Wr{Yy{Ws{Yt{Wa{Yl{Wl{Yi{Wn{Ye{x structure of the rock itself. The
+entire room glows with a myriad of shifting colors, filling the chamber
+with a soft, multihued radiance.  What is that sound you hear?
+~
+0 D 0
+D1
+The entrance to the {ccave{x is that way.
+~
+~
+1 5602 5647
+D3
+A dark tunnel leads west out of this well-lit {Tchamber{x.
+~
+~
+0 -1 5650
+D4
+A stone staircase with oversize steps leads up into ominous darkness.
+~
+~
+1 -1 5649
+S
+ 
+#5649
+{RCorac's {TChamber{x~
+Incandescent {Rruby{x smoke rises and fills the interior of the diagram
+that is carefully chalked on the floor of this cluttered, dark, high
+ceilinged {gstone{x {Tchamber{x.  It completely hides whatever is forming
+within the bespelled {Yhexacle{x, or does it?  There is something there
+moving within the veiling {gsmoke{x.
+~
+0 D 0
+D5
+~
+~
+1 -1 5648
+S
+
+#5650
+{MTunnel {Win the {cBlack {gCave{x~
+You continue down a long, very narrow tunnel.
+~
+0 D 0
+D1
+There is a multicolored glow coming from the next {Tchamber{x.
+~
+~
+0 -1 5648
+D3
+A dark and silent {Tchamber{x lies to the west.
+~
+~
+0 -1 5651
+S
+
+#5651
+{TChamber {Win the {cBlack {gCave{x~
+Before you seems to be a blank wall, black and higher than anything
+you've ever seen, impenetrable and silent beyond your comprehension.
+Suddenly, the walls start to {Yglow{x, and ring as if a bell had been
+struck deep inside the mountain. The sound {Ys{Wh{Yi{Wm{Ym{We{Yr{Ws{x, filling the air
+inside the {Tchamber{x with a vibrant ringing. The {Ylights{x in the walls
+suddenly flare with a searing brightness.
+~
+0 D 0
+D1
+The {cblack{x tunnel leads out.
+~
+~
+0 -1 5650
+D4
+A {Ywell-lit{x {Tchamber{x smelling of incense is at the head of a stairway.
+~
+wooden door~
+1 -1 5652
+D5
+A ladder enters an uncovered well. A very dark well.
+~
+~
+1 -1 5653
+D3
+Looks like a blank {gstone{x wall.
+~
+blank stone wall~
+1 -1 5654
+S
+          
+#5652
+{TDruid {Wof {MBaylan{x~
+A {Tchamber{x flooded with opalescent light.  The walls are polished
+stone, as {Wwhite{x as porcelain, trapping some of the {Ylight{x within
+their depths.  On a low table inlaid with onyx and pearl, decanters
+hold {Pjewel-like wines{x, while other tables offer baskets of fruit
+and platters heaped with cheeses and sweetmeats. The floor is
+covered with a thick carpet, colors in {Ggreens{x, {Bblues{x, {Rreds{x,
+and {Wmilky whites{x.
+~
+0 D 0
+D5
+The room below is glowing and humming.
+~
+~
+1 -1 5651
+S
+
+#5653
+{PCellar {TChamber{x~
+You have entered a musty {Pcellar {Tchamber{x. Torches on the walls waver
+and smoke, their odor of hot pitch nearly overwhelming you.  Mice
+squeak and scuttle along the rafters overhead.  {cDread{x cloaks itself
+on your trembling shoulders.
+~
+0 D 0
+D4
+The room above is {Yglowing{x and {Chumming{x.
+~
+~
+1 -1 5651
+S
+
+#5654
+{VJanisch's {TChamber{x~
+A chill permeates the {Cair{x, a cold that sweeps through your senses,
+penetrating your bones.  The {Ylight{x, a sort of dim phosphorescence,
+is wedded to the rock, gleaming like {Wsilver{x ore scattered in patches
+and random stretches.  A scattering of stalactites jut down from the
+ceiling like a medieval spear trap. A bed is to one side, a table with
+potions and vials in all shapes, sizes, and colors is in the middle of
+the room.  A beaker bubbles with a strange, pungent smell sending
+curling {gsmoke{x upwards.  Books are scattered all over, some still
+lie open to passages of spells, left forgotten.  You don't see
+anyone, but your other senses tell you differently.
+~
+0 D 0
+D1
+Just a blank {cstone{x wall.
+~
+~
+1 -1 5651
+S
+
+#5655
+{MSheAndra{x {GM{go{Gu{gn{Gt{ga{Gi{gn {bPass{x~
+You wind your way up the {Gm{go{Gu{gn{Gt{ga{Gi{gn{x wall, the {Cm{Wi{Cs{Wt{x clearing as the
+stone giants rise up before you.  The narrow path is cut to cross back
+and forth up the side, a slithering reptile, dangerous, unforgiving
+of any slip.
+~
+0 0 5
+D2
+The way south leads down, back into the {Gf{Ho{br{Ge{Hs{bt{x.
+~
+~
+0 -1 5646
+D4
+The {Tpath{x continues to climb the {Gm{go{Gu{gn{Gt{ga{Gi{gn{x.
+~
+~
+0 -1 5656
+S
+
+#5656
+{MSheAndra{x {GM{go{Gu{gn{Gt{ga{Gi{gn {bPass{x~
+The mountains lift to the heavens as if trying to climb free of the
+world, outstretched arms of giants frozen in time.  A barrier trying
+to forbid passage, a living fortress against encroachment, the stone
+comes alive.
+~
+0 0 5
+D4
+The path continues to climb the {Gm{go{Gu{gn{Gt{ga{Gi{gn{x.
+~
+~
+0 -1 5657
+D5
+Going down looks even harder than continuing up!
+~
+~
+0 -1 5655
+S
+
+#5657
+{MSheAndra{x {GM{go{Gu{gn{Gt{ga{Gi{gn {bPass{x~
+Now a wall of jagged rock, of peaks that soar skyward until they
+disappear into the clouds, of cliffs that fall away in sheer drops
+of thousands of feet, massive outcroppings and ragged splits formed
+by devastation and evil spells of the {RFire {BQueen{x, from a time
+when she tried to overtake the {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{Ts{x.  You can continue
+your climb or go back, but be forewarned, one slip and your fate
+will rise to meet you.
+~
+0 0 5
+D2
+The path south looks like a treacherous short-cut.
+~
+~
+0 -1 5658
+D4
+The path continues to climb the {Gm{go{Gu{gn{Gt{ga{Gi{gn{x.
+~
+~
+0 -1 5659
+D5
+You may be able to pick your way back down, but then again,
+maybe you can't.
+~
+~
+0 -1 5656
+S
+
+#5658
+Short-cut~
+{PUh-Oh{x, now that wasn't too smart, you can only go up or down.
+Next time, look before you leap.  Pray quickly, the rocks below
+look sharp.
+~
+0 C 0
+S
+
+#5659
+{MSheAndra{x {GM{go{Gu{gn{Gt{ga{Gi{gn {bPass{x~
+The air grows increasingly thinner, you begin to hear a faint,
+faraway ringing, and you find yourself swallowing repeatedly in an
+effort to relieve the pressure of your ears. You look out, perceiving
+nothing at first.  Then you see a {gdulled {Ysun{x, a {cleaden {Csky{x, a
+{ggrayness{x over the horizon where {Gearth{x and {Ysun{x once met, the
+definition between the two blurring and shifting. 
+~
+0 0 5
+D3
+There is a relatively level route around the shoulder of the peak that
+way; maybe it will turn uphill, and be easier.
+~
+~
+0 -1 5660
+D4
+The path continues up; now, at least, you can see the summit plateau.
+~
+~
+0 -1 5661
+D5
+The path below goes back and forth, back and forth... A looooooong way
+down.
+~
+~
+0 -1 5657
+S
+
+#5660
+{TWest {GM{go{Gu{gn{Gt{ga{Gi{gn {bPath{x~
+You become aware of sound, although "sound" might not be the correct
+description for what is actually the absence of sound, the denial of
+sound, a rumble so deep, so low, so subterranean in its intensity that
+it seems to suck away the {Wa{Ci{Wr{x rather that to cause it to vibrate.
+A subtraction from the world's accumulated babble. Then, all at once,
+you discern a {cdark{x silhouette.  You sense in the silky, dangerous
+voice the lingering smell of death.  A power threatening to strangle
+everything with invisible fingers.
+~
+0 0 2
+D0
+The path north leads easily up to the plateau atop the {Gm{go{Gu{gn{Gt{ga{Gi{gn{x.
+~
+~
+0 -1 5661
+D1
+A level path leads east back to the main switchback route up the 
+{GM{go{Gu{gn{Gt{ga{Gi{gn{x.
+~
+~
+0 -1 5659
+S
+
+#5661
+{MSheAndra{x {GM{go{Gu{gn{Gt{ga{Gi{gn {bPlateau{x~
+You stand on the mountain's pinnacle, atop a nearly endless zigzag
+trail that leads down into the dark {GT{Ha{bl{Ge{Ha{bd{Gr{Ha{bs {GF{Ho{br{Ge{Hs{bt{x. There
+is not a breath of {Cwind{x; the entire world is paused and awaiting an
+event of some importance.  The air around has become a perfect
+vacuum of sound.
+~
+0 0 2
+D1
+A {Gm{go{Gu{gn{Gt{ga{Gi{gn{x saddle leads east. It looks relatively safe.
+~
+~
+0 -1 5662
+D2
+There is a relatively easy way down to the south.
+~
+~
+0 -1 5660
+D5
+The switchback trail down looks like a major challenge,
+tired as you are.
+~
+~
+0 -1 5659
+S
+         
+#5662
+{MBaylan{x~
+The track of what was once a road is dimly visible through the grass.
+You wind to the top of a hill, looking down and see the destruction of
+{MBaylan{x. The street is laid out in a spiral winding in toward a broad
+circular plaza in the precise center of the ruins.  
+~
+0 0 2
+D2
+South is the way down the hill, around the spiral, into the ruined
+{Mc{Vi{Mt{Vy{x. Smoke is still rising from something just ahead.
+~
+~
+0 -1 5663
+D3
+You can descend onto a saddleback and climb to a plateau atop the
+great {Gm{go{Gu{gn{Gt{ga{Gi{gn{x.
+~
+~
+0 -1 5661
+S
+
+#5663
+{MBaylan{x~
+As you start down the hill, {gg{Wh{go{Ws{gt{Ws{x rise to hinder your sojourn. The
+wailing grows louder and more distinct, having thought it was a
+chorus, you realize it is one single, mighty voice, filled with a
+grief so vast that it reverberates through all time and senses. You
+hear only screams.  Escape is your only thought.
+~
+0 0 2
+D0
+You can flee the smoke and screams, back up to the hill summit.
+~
+~
+0 -1 5662
+D1
+The road ahead curves left, descending into the ruined {Mc{Vi{Mt{Vy{x.
+~
+~
+0 -1 5664
+D3 
+A {Rfire{x rages to the west.
+~
+~
+0 -1 5625
+S
+         
+#5664
+{MBaylan{x~
+You approach the ruined {Mc{Vi{Mt{Vy{x, stepping through one of the walls,
+disappearing through the solid-looking stone and then re-emerging
+several yards down the street. The whole {Mc{Vi{Mt{Vy{x is an illusion. There
+is no laughter of children, no singing, no chatter of voices among
+friends, merchants, or townspeople, no sounds.  Destruction was
+complete.
+~
+0 0 2
+D0
+The {Mc{Vi{Mt{Vy{x grows colder and darker along the path down toward the center.
+~
+~
+0 -1 5665
+D3
+You can leave the {Mc{Vi{Mt{Vy{x and head through the smoke, up the hill.
+~
+~
+0 -1 5663
+D1
+A dark {Gf{Ho{br{Ge{Hs{bt{x looms ahead.
+~
+~
+0 -1 5667
+S
+
+#5665
+{MBaylan{x~
+The {ci{Wc{Cy {Ww{Ci{Wn{Cd{x howls, and the sound of swords chopping through flesh and
+bone seem to chill your entire mind.  The air grows darker.
+~
+0 0 2
+D2
+You can head back up the spiral, and hope to escape the {Mc{Vi{Mt{Vy{x.
+~
+~
+0 -1 5664
+D3
+The central plaza of the ruined {Mc{Vi{Mt{Vy{x is to the west. If anyone is left
+alive, they must be there.
+~
+~
+0 -1 5666
+S
+
+#5666
+{MBaylan's {vCentral {MPlaza{x~
+The {cstones{x of the plaza hold the illusionary memory of uncounted
+scores of {MBaylan{x dead lying beneath dense smoke. You can see their
+translucent shapes crowded close around a great open-mouthed granite
+head, their arms stretched toward it in supplication. Their faces are
+twisted in terror and desperate hope, eyes fixed on the {Rfire{x issuing
+from the gaping mouth.  Pray for poor {MBaylon{x the Fair, the {Mc{Vi{Mt{Vy{x that
+immolated itself for pure fear.
+~
+0 0 2
+D1
+Leave weeping.
+~
+~
+0 -1 5665
+D0
+A dark {Gf{Ho{br{Ge{Hs{bt{x looms ahead.
+~
+~
+0 -1 5667
+S
+
+#5667
+{cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x~
+Once mannered and manicured, groomed and tamed, now it belongs to
+itself far more than it did to any human force. Where once it guided
+the lives and destinies of the {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{Bl{Ms{x, now it cannot even
+rule its own.  A {Gf{Ho{br{Ge{Hs{bt{x ravaged by the hatred of what the {RFire
+{BQueen{x could not fully possess is all that remains.  Where children
+laughed and sang while they danced with their lirs under low bending
+{btree{x boughs, only echoes remain embedded in the {cs{gh{ca{gd{co{gw{cs{x.  Fresh 
+streams are only gutted trenches, devoid of life that once fed many
+creatures.  Tread carefully, for the {cs{gh{ca{gd{co{gw{cs{x walk.
+~
+0 0 2
+D3
+Looks like the ruins of a {Mc{Vi{Mt{Vy{x.
+~
+~
+0 -1 5664
+D2
+Looks like smoke rising out of some ruins.
+~
+~
+0 -1 5666
+D1
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5668
+S
+
+#5668
+{cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x~
+{bTrees{x that once stood tall, reaching for the sun, are now broken
+and dead.  The gentle sounds of the {Gf{Ho{br{Ge{Hs{bt{x creatures have been
+silenced.  The lush {Ggreen{x grass is {bbrown{x, flowers a thing of the
+past, and the rich fertile land is dry and cracked. The {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{cs{x
+weep for the children of {CO{Wr{Ga{Rn{x who come no more.
+~
+0 0 2
+D0
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5670
+D2
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5669
+D3
+The {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5667
+D1
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5672
+S
+
+#5669
+{cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x~
+{bTrees{x that once stood tall, reaching for the sun, are now broken
+and dead.  The gentle sounds of the {Gf{Ho{br{Ge{Hs{bt{x creatures have been
+silenced.  The lush {Ggreen{x grass is {bbrown{x, flowers a thing of the
+past, and the rich fertile land is dry and cracked. The {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{cs{x
+weep for the children of {CO{Wr{Ga{Rn{x who come no more.
+~
+0 0 2
+D0
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5668
+D2
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5671
+D1
+A overgrown path to the {CKeep{x.
+~
+~
+0 -1 5627
+D3
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5672
+S
+
+#5670
+{cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x~
+{bTrees{x that once stood tall, reaching for the sun, are now broken
+and dead.  The gentle sounds of the {Gf{Ho{br{Ge{Hs{bt{x creatures have been
+silenced.  The lush {Ggreen{x grass is {bbrown{x, flowers a thing of the
+past, and the rich fertile land is dry and cracked. The {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{cs{x
+weep for the children of {CO{Wr{Ga{Rn{x who come no more.
+~
+0 0 2
+D0
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5673
+D2
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5668
+D1
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5671
+D3
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5674
+S
+
+#5671
+{cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x~
+{bTrees{x that once stood tall, reaching for the sun, are now broken
+and dead.  The gentle sounds of the {Gf{Ho{br{Ge{Hs{bt{x creatures have been
+silenced.  The lush {Ggreen{x grass is {bbrown{x, flowers a thing of the
+past, and the rich fertile land is dry and cracked. The {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{cs{x
+weep for the children of {CO{Wr{Ga{Rn{x who come no more.
+~
+0 0 2
+D0
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5669
+D1
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5674
+D2
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5672
+D3
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5670
+S
+
+#5672
+{cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x~
+{bTrees{x that once stood tall, reaching for the sun, are now broken
+and dead.  The gentle sounds of the {Gf{Ho{br{Ge{Hs{bt{x creatures have been
+silenced.  The lush {Ggreen{x grass is {bbrown{x, flowers a thing of the
+past, and the rich fertile land is dry and cracked. The {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{cs{x
+weep for the children of {CO{Wr{Ga{Rn{x who come no more.
+~
+0 0 2
+D0
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5671
+D1
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5669
+D2
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5673
+D3
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5668
+S
+
+#5673
+{cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x~
+{bTrees{x that once stood tall, reaching for the sun, are now broken
+and dead.  The gentle sounds of the {Gf{Ho{br{Ge{Hs{bt{x creatures have been
+silenced.  The lush {Ggreen{x grass is {bbrown{x, flowers a thing of the
+past, and the rich fertile land is dry and cracked. The {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{cs{x
+weep for the children of {CO{Wr{Ga{Rn{x who come no more.
+~
+0 0 2
+D0
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5672
+D1
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5675
+D2
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5670
+D3
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5674
+S
+
+#5674
+{cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x~
+{bTrees{x that once stood tall, reaching for the sun, are now broken
+and dead.  The gentle sounds of the {Gf{Ho{br{Ge{Hs{bt{x creatures have been
+silenced.  The lush {Ggreen{x grass is {bbrown{x, flowers a thing of the
+past, and the rich fertile land is dry and cracked. The {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{cs{x
+weep for the children of {CO{Wr{Ga{Rn{x who come no more.
+~
+0 0 2
+D0
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5673
+D1
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5670
+D2
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5675
+D3
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5671
+S
+
+#5675
+{cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x~
+{bTrees{x that once stood tall, reaching for the {Ysun{x, are now broken
+and dead.  The gentle sounds of the {Gf{Ho{br{Ge{Hs{bt{x creatures have been
+silenced.  The lush {Ggreen{x grass is {bbrown{x, flowers a thing of the
+past, and the rich fertile land is dry and cracked. The {Ce{Wl{Ve{Hm{ce{Yn{Pt{Ga{bl{cs{x
+weep for the children of {CO{Wr{Ga{Rn{x who come no more.
+~
+0 0 2
+D0
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5674
+D1
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5672
+D3
+Deeper into the {cS{gh{ca{gd{co{gw{cs {gG{ca{gt{ce{x.
+~
+~
+0 -1 5673
+D2
+An overgrown path to the {CKeep{x.
+~
+~
+0 -1 5627
+S
+
+#5676
+{MThe {VRuined {MGate{x~
+You are clambering over heaps of great canted {cstones{x, covered with
+{Gmoss{x. Brushing some of the {Gmoss{x aside, you can see evidence of
+cracking and shattering that could only have been caused by a great
+conflagration, probably magical in origin. There is not a whisper to
+be heard here, though you sense high-pitched noise to the north, from
+the upright portions of the {CKeep{x. It seems strange to you to sense
+this noise, as it has not yet begun. Or maybe it stopped long ago?
+~
+0 0 2
+D0
+You can enter the low and dark structure, where the noise will,
+or maybe did, come.
+~
+~
+0 -1 5630
+D2
+The {Gf{Ho{br{Ge{Hs{bt{x does not seem uninviting, now that you have seen
+(and felt) the {CKeep{x at close range.
+~
+~
+0 -1 5612
+S
+
+#0
+
+
+#RESETS
+O 0 5600 0 5641  *The Portal of Prophecy
+O 0 5601 0 5630  *load portal Vision of Hope (to Aeris area)
+
+M 0 5600 1 5602 1  *The mud elemental
+M 0 5601 1 5603 1  *The steam elemental
+M 0 5602 1 5604 1  *The lava elemental
+E 0 5603 5 3         *load necklace on lava
+M 0 5603 1 5606 1  *The hurricane elemental
+E 0 5606 5 18        *load storm on hurricane
+M 0 5604 1 5607 1  *The flashfire elemental
+E 0 5604 5 3         *load necklace on flashfire
+M 0 5605 1 5608 1  *The sandstorm elemental
+E 0 5605 5 11        *load shield on sandstorm
+M 0 5606 2 5632 2  *grystlie
+M 0 5606 2 5634 2  *grystlie
+M 0 5606 2 5638 2  *grystlie
+M 0 5607 3 5624 3  *The wraiths from Hellsbane
+M 0 5608 3 5656 3  *The SheAndra stone warrior
+E 0 5607 5 14        *load bracelet on warrior
+M 0 5608 2 5659 2  *The SheAndra stone warrior
+E 0 5608 5 15        *load bracer on warrior
+M 0 5609 1 5648 1  *An apprentice sorcerer
+M 0 5609 1 5651 1  *An apprentice sorcerer
+M 0 5610 2 5663 2  *Baylan Guard
+E 0 5610 8 6         *load circlet on guard
+M 0 5610 2 5665 2  *Baylan Guard
+M 0 5611 1 5613 1  *The gypsy tree
+M 0 5611 1 5615 1  *The gypsy tree
+M 0 5612 1 5639 1  *Kyleia, The Lady of Mist
+E 0 5609 5 2       *load mourning mists on Kyleia
+M 0 5613 1 5647 1  *The cave guard
+G 0 5602 1           *give key to the Black Cave guard
+M 0 5614 1 5648 1  *A sorcerer
+M 0 5614 1 5651 1  *A sorcerer
+M 0 5615 2 5615 2  *The green brume
+M 0 5615 1 5617 1  *The green brume
+M 0 5615 2 5619 2  *The green brume
+M 0 5616 3 5629 3  *Shades of Death
+M 0 5617 1 5640 1  *Lhiannon, The Lady of Light
+E 0 5611 5 0         *load light on Lhiannon
+M 0 5618 1 5625 1  *Macellius
+E 0 5612 5 13        *load sash on Macellius
+M 0 5619 1 5621 1  *The Forest Watcher
+M 0 5620 3 5668 2  *ShadowWalker
+E 0 5613 5 8         *load sandals on ShadowWalker
+M 0 5620 2 5673 2  *ShadowWalker
+M 0 5620 2 5674 2  *ShadowWalker
+E 0 5613 5 8         *load sandals on ShadowWalker
+M 0 5621 1 5666 1  *Maura
+E 0 5614 5 12        *load cloak on Maura
+M 0 5622 1 5649 1  *Corac
+E 0 5615 5 9         *load gauntlets on Corac
+M 0 5623 1 5652 1  *Druid of Baylan
+M 0 5624 1 5653 1  *Sachai
+M 0 5625 1 5654 1  *Janisch
+M 0 5626 1 5643 1  *The Priest of Prophecy
+E 0 5617 5 2         *load ring on Priest
+M 0 5627 1 5660 1  *Aaykre
+E 0 5616 5 17        *load talisman on Aaykre
+D 0 5613 0 1 *close the "garden" gate
+D 0 5623 2 1 *and from the other side
+D 0 5647 3 2 *lock the door to the Black Cave
+D 0 5648 1 2 *and from the other side
+D 0 5651 4 1 *close the door to the Druid
+D 0 5652 5 1 *and from the other side
+D 0 5651 5 1 *close the door to Sachai
+D 0 5653 4 1 *and from the other side
+D 0 5651 3 1 *close the door to Janisch
+D 0 5654 1 1 *and from the other side
+
+R 0 5668 1 *make maze random
+R 0 5669 2 *make maze random
+R 0 5670 1 *make maze random
+R 0 5671 1 *make maze random
+R 0 5672 2 *make maze random
+R 0 5673 1 *make maze random
+R 0 5674 1 *make maze random
+R 0 5675 2 *make maze random
+
+S
+
+#SPECIALS
+M 5601 spec_breath_lightning             a steam elemental
+M 5602 spec_breath_fire                  a lava elemental
+M 5603 spec_breath_lightning             a hurricane elemental
+M 5604 spec_breath_fire                  a flashfire elemental
+M 5609 spec_breath_frost                 an apprentice sorcerer
+M 5614 spec_cast_mage                    a sorcerer
+M 5615 spec_breath_acid                  a green brume
+M 5618 spec_cast_cleric                  Macellius
+M 5619 spec_cast_undead                  Forest Watcher
+M 5621 spec_cast_undead                  Maura
+M 5622 spec_cast_undead                  Corac
+M 5623 spec_cast_cleric                  Druid of Baylan
+M 5624 spec_breath_fire                  Sachai
+M 5625 spec_cast_undead                  Janisch
+M 5626 spec_cast_mage                    Priest of Prophecy
+M 5626 spec_breath_gas                   Priest of Prophecy
+M 5627 spec_cast_mage                    Aaykre
+S
+
+
+#$
+
+
+
+
+

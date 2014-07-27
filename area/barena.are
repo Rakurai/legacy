@@ -1,0 +1,730 @@
+#AREA
+barena.are~
+Battle Arenas~
+{H{{ ALL } {MKenneth {TBattle Arenas~
+12200 12699
+
+
+#MOBILES
+
+#0
+
+#OBJECTS
+
+#0
+
+#ROOMS
+
+#12200
+A secluded hut~
+You find yourself in a small hut, raised up on stilts. The door is 
+merely an opening covered with a blanket, and the window is a place 
+where the grass and leaves have not been woven together properly.  
+Through that gaping hole you can see the tropical jungle, and you 
+can hear the crash of waves.  Soon enough, you will descend from 
+this hut and fight for your life and honor.
+~
+0 K 0
+S
+
+#12201
+Atop a rise~
+From on top of this small hill you can see the island in all its 
+variety - the tropical jungle, the beaches, the ocean, the hull 
+of a broken-down ship. The only thing you cannot see is your 
+opponent, the person you'll soon be locked in a desperate struggle 
+with, as you fight to defend your honor.
+~
+0 K 0
+S
+
+#12202
+Up in a crow's nest~
+From up in this rickety, somewhat rotten crow's nest, you have a 
+commanding view of the entire island battlefield. This crow's nest 
+is one of the few parts of the ship not entirely submerged, but if 
+the fighting gets too vigorous, this whole place could go down.  A 
+stray fireball would be an especially important thing to watch out 
+for.
+~
+0 KS 0
+S
+
+#12203
+A slippery rock~
+Waves beat relentlessly on this rock, located about ten yards 
+from the shore.  While the water here is not excessively deep, 
+it is rather rough, with a treacherous current flowing between 
+this rock and the shore.
+~
+0 0 7
+D2
+~
+~
+0 -1 12204
+S
+
+#12204
+The beach~
+This is a rather desolate beach.  The black sand does not provide 
+a great contrast to the dark gray, tempestuous sea and the lighter 
+gray of the stormy sky.  The eerie cries of the jungle taunt your 
+ears from the south, but they may be more welcome than the endless 
+crashing of the waves.
+~
+0 0 10
+D0
+~
+~
+0 -1 12203
+D2
+~
+~
+0 -1 12206
+D3
+~
+~
+0 -1 12205
+S
+
+#12205
+The beach~
+This is a rather desolate beach.  The black sand does not provide 
+a great contrast to the dark gray, tempestuous sea and the lighter 
+gray of the stormy sky.  A craggy face has arisen all around you, 
+leaving in a sort of natural cul-de-sac - perhaps not the most 
+defensible position.
+~
+0 0 10
+D1
+~
+~
+0 -1 12204
+S
+
+#12206
+The jungle~
+The noisy, muggy jungle surrounds you.  It is hard to tell, from 
+the inside, just how large it is. While outside observation reveals 
+that it only takes up the small, central portion of the island, 
+in your current position it seems to be the whole world. 
+~
+0 T 3
+D0
+~
+~
+0 -1 12204
+D1
+~
+~
+0 -1 12207
+D2
+~
+~
+0 -1 12209
+S
+
+#12207
+The jungle~
+The noisy, muggy jungle surrounds you.  It is hard to tell, from 
+the inside, just how large it is. While outside observation reveals 
+that it only takes up the small, central portion of the island, in 
+your current position it seems to be the whole world. 
+~
+0 T 3
+D2
+~
+~
+0 -1 12208
+D3
+~
+~
+0 -1 12206
+S
+
+#12208
+The beach~
+This is a rather desolate beach.  The black sand does not provide 
+a great contrast to the dark gray, tempestuous sea and the lighter 
+gray of the stormy sky.  The jungle encroaches in on the beach from 
+both the north and the west, and in fact, just about reaches the 
+water directly north of you.  The dark sand stretches away to the 
+south. 
+~
+0 0 10
+D0
+~
+~
+0 -1 12207
+D2
+~
+~
+0 -1 12211
+D3
+~
+~
+0 -1 12209
+S
+
+#12209
+The jungle~
+The noisy, muggy jungle surrounds you.  It is hard to tell, from 
+the inside, just how large it is. While outside observation reveals 
+that it only takes up the small, central portion of the island, in 
+your current position it seems to be the whole world. 
+~
+0 T 3
+D0
+~
+~
+0 -1 12206
+D1
+~
+~
+0 -1 12208
+D2
+~
+~
+0 -1 12210
+S
+
+#12210
+The beach~
+This is a rather desolate beach.  The black sand does not provide 
+a great contrast to the dark gray, tempestuous sea and the lighter 
+gray of the stormy sky.  The darkness of the island's interior, a 
+foreboding jungle, presses in on the beach from the north, while 
+the water-soaked sand stretches east.  The remains of a ship can 
+be seen across the waves to the south.
+~
+0 0 10
+D0
+~
+~
+0 -1 12209
+D1
+~
+~
+0 -1 12211
+D2
+~
+~
+0 -1 12212
+S
+
+#12211
+The beach~
+This is a rather desolate beach.  The black sand does not provide 
+a great contrast to the dark gray, tempestuous sea and the lighter 
+gray of the stormy sky.  This melancholy scene continues all around 
+you, though to the south-west you can barely make out the crow's 
+nest of a long-forgotten ship, and a lively jungle seems to lie to 
+the north-west.
+~
+0 0 10
+D0
+~
+~
+0 -1 12208
+D3
+~
+~
+0 -1 12210
+S
+
+#12212
+Forecastle of a broken ship~
+You are standing on the rotting forecastle of a sunken ship.  
+Waves crash endlessly against the hull, and the wind keeps 
+the tattered remains of the sails snapping, adding to the din 
+created by the stormy seas.  The deck slants at a precarious 
+angle, and the numerous missing planks, combined with the waves 
+and wind, would make this a treacherous place to duel.
+~
+0 0 7
+D0
+~
+~
+0 -1 12210
+S
+
+#12220
+A side tunnel~
+There are some small patches of glowing moss to light the room, but 
+otherwise this small side tunnel is completely dark.  Several large 
+mushrooms are growing on the walls and floor, but none of these are large 
+enough to impair movement.  Soon you will be heading out into the larger 
+cave area to duel for your honor and gain.
+~
+0 AK 0
+S
+
+#12221
+A side tunnel~
+There are some small patches of glowing moss to light the room, but 
+otherwise this small side tunnel is completely dark.  Several large 
+mushrooms are growing on the walls and floor, but none of these are large 
+enough to impair movement.  Soon you will be heading out into the larger 
+cave area to defend the honor of your clan.
+~
+0 AK 0
+S
+
+#12222
+Atop a giant mushroom~
+If it weren't so dark, you would be able to see the entire cave from atop 
+this huge mushroom.  As it is, only small patches are illuminated, where 
+you shine your light or where some glowing moss lights up a bit of the 
+room.
+~
+0 AKS 0
+S
+
+#12223
+An underground pool~
+You're at the bottom of a small underground pool.  This is the best lit 
+area of the cave, with lots of glowing fish, but it is also the easiest 
+place to find someone, what with all the splashing around.  
+~
+0 X 6
+D0
+~
+~
+0 -1 12224
+D2
+~
+~
+0 -1 12225
+S
+
+#12224
+In an underground mushroom forest~
+You can barely make out your surroundings, but you do know enough of 
+what's around you to feel cramped.  The low ceiling, the dark, the deep 
+gray and brown mushrooms to all sides, all these factors contribute to a 
+sense of unease.  Some of these mushrooms are huge, scraping the ceiling, 
+while some barely make it over the tip of your foot.  You can see the 
+glow of a small pool to the south.
+~
+0 AT 5
+D0
+~
+~
+0 -1 12226
+D1
+~
+~
+0 -1 12229
+D2
+~
+~
+0 -1 12223
+D3
+~
+~
+0 -1 12230
+S
+
+#12225
+In an underground mushroom forest~
+You can barely make out your surroundings, but you do know enough of 
+what's around you to feel cramped.  The low ceiling, the dark, the deep 
+gray and brown mushrooms to all sides, all these factors contribute to a 
+sense of unease.  Some of these mushrooms are huge, scraping the ceiling, 
+while some barely make it over the tip of your foot.  You can see the 
+glow of a small pool to the north.
+~
+0 AT 5
+D0
+~
+~
+0 -1 12223
+D1
+~
+~
+0 -1 12228
+D2
+~
+~
+0 -1 12227
+D3
+~
+~
+0 -1 12231
+S
+
+#12226
+In a cramped cave~
+You seem to have walked into a small cave set into the northern edge of 
+this cavern.  The ceiling gets really low here, but on the plus side, the 
+mushrooms seem to only thrive in the larger section of the cave, to the 
+south. The tight spacing, however, would make this an awkward place to 
+fight.
+~
+0 AT 5
+D2
+~
+~
+0 -1 12224
+S
+
+#12227
+In a cramped cave~
+You seem to have walked into a small cave set into the southern edge of 
+this cavern.  The ceiling gets really low here, but on the plus side, the 
+mushrooms seem to only thrive in the larger section of the cave, to the 
+north. The tight spacing, however, would make this an awkward place to 
+fight.
+~
+0 AT 5
+D0
+~
+~
+0 -1 12225
+S
+
+#12228
+Southeast corner of the mushroom forest~
+You can barely make out your surroundings, but you do know enough of 
+what's around you to feel cramped.  The low ceiling, the dark, the deep 
+gray and brown mushrooms to all sides, all these factors contribute to a 
+sense of unease.  Some of these mushrooms are huge, scraping the ceiling, 
+while some barely make it over the tip of your foot.  The eastern wall 
+presses inward on you, enhancing the feelings of claustrophobia.
+~
+0 AT 5
+D0
+~
+~
+0 -1 12229
+D3
+~
+~
+0 -1 12225
+S
+
+#12229
+Northeastern corner of the mushroom forest~
+You can barely make out your surroundings, but you do know enough of 
+what's around you to feel cramped.  The low ceiling, the dark, the deep 
+gray and brown mushrooms to all sides, all these factors contribute to a 
+sense of unease.  Some of these mushrooms are huge, scraping the ceiling, 
+while some barely make it over the tip of your foot.  The eastern wall 
+presses inward on you, enhancing the feelings of claustrophobia.
+~
+0 AT 5
+D2
+~
+~
+0 -1 12228
+D3
+~
+~
+0 -1 12224
+S
+
+#12230
+Northwestern corner of the mushroom forest~
+You can barely make out your surroundings, but you do know enough of 
+what's around you to feel cramped.  The low ceiling, the dark, the deep 
+gray and brown mushrooms to all sides, all these factors contribute to a 
+sense of unease.  Some of these mushrooms are huge, scraping the ceiling, 
+while some barely make it over the tip of your foot.  The western wall 
+presses inward on you, enhancing the feelings of claustrophobia.
+~
+0 AT 5
+D1
+~
+~
+0 -1 12224
+D2
+~
+~
+0 -1 12231
+S
+
+#12231
+Southwestern corner of the mushroom forest~
+You can barely make out your surroundings, but you do know enough of 
+what's around you to feel cramped.  The low ceiling, the dark, the deep 
+gray and brown mushrooms to all sides, all these factors contribute to a 
+sense of unease.  Some of these mushrooms are huge, scraping the ceiling, 
+while some barely make it over the tip of your foot.  The western wall 
+presses inward on you, enhancing the feelings of claustrophobia.
+~
+0 AT 5
+D0
+~
+~
+0 -1 12230
+D1
+~
+~
+0 -1 12225
+S
+
+#12260
+A pen~
+This small pen happens to be in an airpocket, so luckily you won't have 
+to worry about breathing until you get out into the coliseum.  Apparently 
+you're in the arena of some ancient, underwater civilization, now in 
+ruins.  The water looks murky, but it's not completely opaque, so you 
+should have no trouble finding your opponent.
+~
+0 K 0
+S
+
+#12261
+An animal pen~
+This small pen happens to be in an airpocket, so luckily you won't have to 
+worry about breathing until you get out into the coliseum.  Apparently you
+are in the arena of some ancient, underwater civilization, now in ruins. 
+You seem to be in the pen used to store animals before a battle.  The 
+water looks murky, but it's not completely opaque, so you should have no 
+trouble finding your opponent.
+~
+0 K 0
+S
+
+#12262
+The color commentary box~
+This, the announcer box, happens to be in an airpocket, so luckily you 
+won't have to worry about breathing, unlike the contestants.  You seem to 
+be in an arena of some ancient civilization, now in ruins and underwater.  
+The water is murky, but you can still see the action as it goes down.
+~
+0 KS 0
+S
+
+
+
+#12263
+An underwater coliseum~
+Due to the murky water, it is difficult to get your bearings in this arena.  
+What little you can see of the ruined city beyond the walls hints at a 
+civilization that was well beyond the somewhat barbaric city of Midgaard.  
+Sweeping cupolas and arches abound, all done in an elegant gray marble.  
+Naturally, only the fancier parts of the city would survive, but what you 
+see is a remarkable architectural achievement.  Thoughts of beauty are 
+suddenly driven from your mind as you remember the objective before you: 
+the declaration of the supremacy of your clan.
+~
+0 X 6  
+D1
+~
+~
+0 -1 12264
+D2
+~
+~
+0 -1 12268
+S
+
+#12264
+An underwater coliseum~
+Your passage has served to stir up the dust in this section of the arena, 
+possibly for the first time in centuries.  Years ago, when this city was 
+above the surface of the waves, gladiators trod the same turf you're now 
+swimming by, seeking honor and glory through brutal combat.  Now you do 
+the same, albeit with more refined and subtle techniques and magicks.  
+For the honor of your clan!
+~
+0 X 6  
+D1
+~
+~
+0 -1 12265
+D2
+~
+~
+0 -1 12266
+D3
+~
+~
+0 -1 12263
+S
+
+#12265
+An underwater coliseum~
+Due to the murky water, it is difficult to get your bearings in this arena.  
+What little you can see of the ruined city beyond the walls hints at a 
+civilization that was well beyond the somewhat barbaric city of Midgaard.  
+Sweeping cupolas and arches abound, all done in an elegant gray marble.  
+Naturally, only the fancier parts of the city would survive, but what you 
+see is a remarkable architectural achievement.  Thoughts of beauty are 
+suddenly driven from your mind as you remember the objective before you: 
+the declaration of the supremacy of your clan.
+~
+0 X 6  
+D2
+~
+~
+0 -1 12267
+D3
+~
+~
+0 -1 12264
+S
+
+#12266
+The center of an underwater coliseum~
+A sudden current causes the dust to swirl around you, creating a tornado 
+effect in the center of the arena.  The very middle itself is clear and 
+untouched by all the silt, but surrounding about a twenty foot diameter 
+area is a rising cloud of dirt and debris.  It seems that there is an 
+ancient enchantment here to make fights in the center of the arena feel 
+amazingly dramatic, with the two contestants battling it out, completely 
+isolated from the rest of the world.
+~
+0 X 6
+D0
+~
+~
+0 -1 12264
+D1
+~
+~
+0 -1 12267
+D2
+~
+~
+0 -1 12270
+D3
+~
+~
+0 -1 12268
+S
+
+#12267
+An underwater coliseum~
+The water swirls past you, creating a stir among the dust and seaweed that 
+has long held total dominance over this place. The hard marble wall looms 
+behind you, a solemn survivor of a bygone era.  This wall has witnessed 
+hundreds of battles, gallons of blood spilled.  It is a humbling thought. 
+~
+0 X 6
+D0
+~
+~
+0 -1 12265
+D2
+~
+~
+0 -1 12271
+D3
+~
+~
+0 -1 12266
+S
+
+#12268
+An underwater coliseum~
+The water swirls past you, creating a stir among the dust and seaweed that 
+has long held total dominance over this place. The hard marble wall looms 
+behind you, a solemn survivor of a bygone era.  This wall has witnessed 
+hundreds of battles, gallons of blood spilled.  You are merely the newest 
+entry in the long history of this place.
+~
+0 X 6
+D0
+~
+~
+0 -1 12263
+D1
+~
+~
+0 -1 12266
+D2
+~
+~
+0 -1 12269
+S
+
+#12269
+An underwater coliseum~
+Due to the murky water, it is difficult to get your bearings in this arena.  
+What little you can see of the ruined city beyond the walls hints at a 
+civilization that was well beyond the somewhat barbaric city of Midgaard.  
+Sweeping cupolas and arches abound, all done in an elegant gray marble.  
+Naturally, only the fancier parts of the city would survive, but what you 
+see is a remarkable architectural achievement.  Thoughts of beauty are 
+suddenly driven from your mind as you remember the objective before you: 
+the declaration of the supremacy of your clan.
+~
+0 X 6  
+D0
+~
+~
+0 -1 12268
+D1
+~
+~
+0 -1 12270
+S
+
+#12270
+An underwater coliseum~
+Your passage has served to stir up the dust in this section of the arena, 
+possibly for the first time in centuries.  Years ago, when this city was 
+above the surface of the waves, gladiators trod the same turf you're now 
+swimming by, seeking honor and glory through brutal combat.  Now you do 
+the same, albeit with more refined and subtle techniques and magicks.  
+For the honor of your clan!
+~
+0 X 6  
+D0
+~
+~
+0 -1 12266
+D1
+~
+~
+0 -1 12271
+D3
+~
+~
+0 -1 12269
+S
+
+#12271
+An underwater coliseum~
+Due to the murky water, it is difficult to get your bearings in this arena.  
+What little you can see of the ruined city beyond the walls hints at a 
+civilization that was well beyond the somewhat barbaric city of Midgaard.  
+Sweeping cupolas and arches abound, all done in an elegant gray marble.  
+Naturally, only the fancier parts of the city would survive, but what you 
+see is a remarkable architectural achievement.  Thoughts of beauty are 
+suddenly driven from your mind as you remember the objective before you: 
+the declaration of the supremacy of your clan.
+~
+0 X 6  
+D0
+~
+~
+0 -1 12267
+D3
+~
+~
+0 -1 12270
+S
+
+
+#0
+
+#RESETS
+
+S
+
+#SHOPS
+
+0
+
+#SPECIALS
+
+S
+
+#$
+
+
+
+

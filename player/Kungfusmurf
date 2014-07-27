@@ -1,0 +1,701 @@
+#PLAYER
+Name KungfuSmurf~
+Id   990654576
+LogO 1026875634
+Vers 14
+Mexp 2
+Pass kungfurox~
+Desc {BK{Tu{Bn{Tg{Bf{Tu{Bs{Tm{Bu{Tr{Bf{x
+
+Before you stands a small blue smurf, wearing a {WKarate-Gi{x and a {WSmurf hat{x incrested with
+a {YYing-Yang{x. He seems very {Hmellow{x, {Gcalm{x, and {Hcollective{x. He holds a small staff in his
+right hand, it {Ts{Wh{Ti{Wm{Tm{We{Tr{Ws{x with a strange {Paura{x slowly you notice the words {T"Liriel"{x appear 
+on its hilt...
+
+The {Tsmurf{x smiles happily and peers up at you with content in his eyes... 
+~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race dwarf~
+Clan blackclaw~
+Cla  5
+Levl 51
+Tru  91
+Plyd 359468
+Back 296185
+Note 1026789814 1018952318 1026339553 1026792163 1026409721 1026258348 1026831915
+Scro 22
+Room 24803
+HMS  1119 982 675
+Gold 3713
+Silv 45
+Exp  56562
+PCkills  0
+PCkilled 2
+Akills   0
+Akilled  4
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes LQ
+FVul R
+Plr  ABCFQT
+Video 0
+Act  CDEFGHJLSTc
+AfBy HJRZ
+Comm NOQ
+Revk 0
+Cgrp A
+Cnsr 0
+Prac 29
+Trai 4
+Wimp 0
+Atrib 21 16 20 15 21 18
+SkillPnts  12
+RolePnts   34
+QuestPnts  37
+GameIn  {T"{WE{Tv{We{Tr{Wy{Tb{Wo{Td{Wy {GW{Ha{Gs {PK{Ru{Pn{Rg{PF{Ru {PF{Ri{Pg{Rh{Pt{Ri{Pn{Rg{P!{R"{x~
+GameOut {T"{WE{Tv{We{Tr{Wy{Tb{Wo{Td{Wy {YS{Wt{Yo{Wp{Ys {PK{Ru{Pn{Rg{PF{Ru {PF{Ri{Pg{Rh{Pt{Ri{Pn{Rg{P!{R"{x~
+Afk {B[{CThu Feb 21 21:43:44 2002{B] {CUnknown Departure.{x
+~
+Titl  {TK{Cu{Tn{Cg{TF{Cu {VN{Mi{Vn{Mj{Va{x~
+Immn ~
+Pnts 40
+Rank {PB{Rl{Wt~
+Aura {RK{Pu{Yn{Wg{YF{Pu {RM{Pa{Ys{Wt{Ye{Pr{x~
+TSex 1
+LLev 98
+Email Goblinkabob@hotmail.com~
+Deit Sivat~
+Stus Advocate~
+RmCt 1
+ExSk 0
+Raff 107
+Lsit hlfx64-1-72.ns.sympatico.ca~
+Ltim Tue Jul 16 22:09:36 2002
+~
+LSav Tue Jul 16 22:13:54 2002
+~
+HMSP 954 539 675
+THMS 4 0 0
+Cnd  0 0 0 0
+Query endo~
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 75 1 'armor'
+Sk 75 1 'bless'
+Sk 75 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 75 1 'call lightning'
+Sk 75 1 'calm'
+Sk 75 1 'cancellation'
+Sk 75 1 'cause light'
+Sk 75 1 'cause serious'
+Sk 75 1 'cause critical'
+Sk 1 1 'change sex'
+Sk 75 1 'charm person'
+Sk 75 1 'continual light'
+Sk 75 1 'control weather'
+Sk 81 1 'create food'
+Sk 75 1 'create parchment'
+Sk 75 1 'create rose'
+Sk 75 1 'create sign'
+Sk 75 1 'create spring'
+Sk 75 1 'create vial'
+Sk 75 1 'create water'
+Sk 95 1 'cure critical'
+Sk 79 1 'cure light'
+Sk 75 1 'cure serious'
+Sk 76 1 'curse'
+Sk 75 1 'dazzling light'
+Sk 75 1 'demonfire'
+Sk 75 1 'dispel evil'
+Sk 75 1 'dispel good'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 75 1 'earthquake'
+Sk 75 1 'encampment'
+Sk 75 1 'enchant armor'
+Sk 75 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 75 1 'faerie fire'
+Sk 75 1 'faerie fog'
+Sk 75 1 'fireproof'
+Sk 1 1 'flameshield'
+Sk 75 1 'flamestrike'
+Sk 76 1 'fly'
+Sk 75 1 'floating disc'
+Sk 76 1 'frenzy'
+Sk 77 1 'gate'
+Sk 92 1 'harm'
+Sk 92 1 'heal'
+Sk 75 1 'heat metal'
+Sk 76 1 'holy word'
+Sk 75 1 'lightning bolt'
+Sk 75 1 'mass healing'
+Sk 75 1 'nexus'
+Sk 75 1 'pass door'
+Sk 75 1 'plague'
+Sk 75 1 'poison'
+Sk 1 1 'power word'
+Sk 75 1 'portal'
+Sk 1 1 'protect container'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 84 1 'ray of truth'
+Sk 75 1 'recharge'
+Sk 75 1 'refresh'
+Sk 75 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 79 1 'sanctuary'
+Sk 79 1 'shield'
+Sk 75 1 'shrink'
+Sk 75 1 'sleep'
+Sk 82 1 'slow'
+Sk 75 1 'steel mist'
+Sk 75 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'sunray'
+Sk 75 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 75 1 'undo spell'
+Sk 77 1 'weaken'
+Sk 75 1 'word of recall'
+Sk 75 1 'dagger'
+Sk 70 1 'polearm'
+Sk 100 1 'sword'
+Sk 49 1 'whip'
+Sk 75 1 'shield block'
+Sk 75 1 'brew'
+Sk 75 1 'scribe'
+Sk 1 1 'berserk'
+Sk 1 1 'circle'
+Sk 100 1 'dodge'
+Sk 84 1 'hand to hand'
+Sk 100 1 'parry'
+Sk 49 1 'rescue'
+Sk 93 1 'second attack'
+Sk 76 1 'third attack'
+Sk 98 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 1 1 'forge'
+Sk 78 1 'lore'
+Sk 88 1 'meditation'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 1 1 'staves'
+Sk 75 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'attack'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'enchantment'
+Gr 'harmful'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'sanctuary'   0  99  13   0   0        128 4
+Affc 'frenzy'   0  99  16  16  18          0 1
+Affc 'frenzy'   0  96  16  16  19          0 1
+Affc 'frenzy'   0  96  16  80  17          0 1
+Affc 'divine regeneration'   0 100  86   0   0   33554432 3
+End
+
+#O
+Vnum 6
+Nest 0
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 17320
+Nest 0
+Wear -1
+Cost 2500
+Val  250 1 17321 40 30
+End
+
+#O
+Vnum 3202
+Nest 1
+Cond 82
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 119
+Nest 1
+Name food a Kungfu Styled Breakfast~
+ShD  {Ba {TK{Wu{Tn{Bg{Tf{Wu {BS{Tt{Wy{Tl{Be{Td {WB{Tr{Be{Ta{Wk{Tf{Ba{Ts{Wt{x~
+Desc {Ba {TK{Wu{Tn{Bg{Tf{Wu {BS{Tt{Wy{Tl{Be{Td {WB{Tr{Be{Ta{Wk{Tf{Ba{Ts{Wt{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  23 46 0 0 0
+ExDe chef~ This food was created by KungfuSmurf.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food a Kungfu Styled Breakfast~
+ShD  {Ba {TK{Wu{Tn{Bg{Tf{Wu {BS{Tt{Wy{Tl{Be{Td {WB{Tr{Be{Ta{Wk{Tf{Ba{Ts{Wt{x~
+Desc {Ba {TK{Wu{Tn{Bg{Tf{Wu {BS{Tt{Wy{Tl{Be{Td {WB{Tr{Be{Ta{Wk{Tf{Ba{Ts{Wt{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  23 46 0 0 0
+ExDe chef~ This food was created by KungfuSmurf.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food a Kungfu Styled Breakfast~
+ShD  {Ba {TK{Wu{Tn{Bg{Tf{Wu {BS{Tt{Wy{Tl{Be{Td {WB{Tr{Be{Ta{Wk{Tf{Ba{Ts{Wt{x~
+Desc {Ba {TK{Wu{Tn{Bg{Tf{Wu {BS{Tt{Wy{Tl{Be{Td {WB{Tr{Be{Ta{Wk{Tf{Ba{Ts{Wt{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  23 46 0 0 0
+ExDe chef~ This food was created by KungfuSmurf.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food a Kungfu Styled Breakfast~
+ShD  {Ba {TK{Wu{Tn{Bg{Tf{Wu {BS{Tt{Wy{Tl{Be{Td {WB{Tr{Be{Ta{Wk{Tf{Ba{Ts{Wt{x~
+Desc {Ba {TK{Wu{Tn{Bg{Tf{Wu {BS{Tt{Wy{Tl{Be{Td {WB{Tr{Be{Ta{Wk{Tf{Ba{Ts{Wt{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  23 46 0 0 0
+ExDe chef~ This food was created by KungfuSmurf.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 10168
+Nest 1
+ExtF 16777219
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 10207
+Nest 1
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10204
+Nest 1
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10298
+Nest 1
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1204
+Nest 1
+ShD  {YToken for a free restore by Sorsha{x~
+Desc {YToken for a free restore by Sorsha{x~
+Wear -1
+Cost 12
+End
+
+#O
+Vnum 10167
+Nest 1
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 4594
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4594
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9923
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9922
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9911
+Nest 1
+Wear -1
+Cost 8500
+End
+
+#O
+Vnum 4595
+Nest 0
+Cond 99
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 96
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 10171
+Nest 0
+Cond 97
+Wear 0
+Cost 3300
+End
+
+#O
+Vnum 10215
+Enchanted
+Nest 0
+Name sivat sharp claws~
+ShD  {RS{Pi{Rv{Pa{Rt{Ps {YS{bh{Ya{br{Yp {WC{gl{Wa{gw{Ws{x~
+Desc {RS{Pi{Rv{Pa{Rt{Ps {YS{bh{Ya{br{Yp {WC{gl{Wa{gw{Ws{x~
+ExtF 67
+Wear 19
+Lev  42
+Cost 10000
+Affc 'reserved'   1  40  -1  -5  23          0 1
+Affc 'enchant weapon'   1  91  -1   9  19          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+End
+
+#O
+Vnum 10215
+Enchanted
+Nest 0
+Name sivat sharp claws~
+ShD  {RS{Pi{Rv{Pa{Rt{Ps {YS{bh{Ya{br{Yp {WC{gl{Wa{gw{Ws{x~
+Desc {RS{Pi{Rv{Pa{Rt{Ps {YS{bh{Ya{br{Yp {WC{gl{Wa{gw{Ws{x~
+ExtF 67
+Cond 97
+Wear 16
+Lev  41
+Cost 0
+Affc 'reserved'   1  40  -1  -5  23          0 1
+Affc 'enchant weapon'   1  91  -1   8  19          0 1
+Affc 'enchant weapon'   1  91  -1   4  18          0 1
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Wear 14
+Cost 312
+End
+
+#O
+Vnum 17306
+Nest 0
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 11646
+Nest 0
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 16016
+Nest 0
+Wear -1
+Cost 4650
+End
+
+#O
+Vnum 16009
+Nest 0
+Wear 10
+Cost 4500
+End
+
+#O
+Vnum 16011
+Nest 0
+Wear 5
+Cost 7500
+End
+
+#O
+Vnum 16012
+Nest 0
+ExtF 258
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 10205
+Nest 0
+ExtF 64
+Wear 8
+Cost 10000
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16012
+Nest 0
+ExtF 258
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 24805
+Nest 0
+Wear 12
+Cost 4000
+End
+
+#O
+Vnum 24804
+Nest 0
+Wear 4
+Cost 4000
+End
+
+#O
+Vnum 24804
+Nest 0
+Wear 3
+Cost 4000
+End
+
+#O
+Vnum 24807
+Nest 0
+Wear 1
+Cost 5000
+End
+
+#O
+Vnum 24807
+Nest 0
+Wear 2
+Cost 5000
+End
+
+#O
+Vnum 24806
+Nest 0
+Wear 9
+Cost 5000
+End
+
+#B
+Vnum 56
+Nest 0
+ShD  {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Desc {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 56
+Nest 0
+ShD  {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Desc {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 56
+Nest 0
+ShD  {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Desc {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 56
+Nest 0
+ShD  {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Desc {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 56
+Nest 0
+ShD  {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Desc {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 56
+Nest 0
+ShD  {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Desc {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 63
+Nest 0
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 60
+Nest 0
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 41
+Nest 0
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 41
+Nest 0
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 40
+Nest 0
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 39
+Nest 0
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 38
+Nest 0
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 37
+Nest 0
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 36
+Nest 0
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 35
+Nest 0
+Wear -1
+Cost 390
+End
+
+#B
+Vnum 34
+Nest 0
+Wear -1
+Cost 390
+End
+
+#END

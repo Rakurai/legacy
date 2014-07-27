@@ -1,0 +1,247 @@
+#PLAYER
+Name Razor~
+Id   1013213904
+LogO 1013216448
+Vers 12
+Prom [%z]%c<%h/%Hhp %m/%Mm %vmv [%e] %X> ~
+Race human~
+Sex  1
+Cla  3
+Levl 5
+Plyd 1970
+Age  0
+Back 0
+Note 0 0 0 0 0 0
+Scro 22
+Room 19904
+HMS  37 81 121 121 32 139
+Gold 0
+Silv 154
+Exp  10295
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Act  CDEFGHJLQSc
+AfBy TVc
+Comm NO
+Revk 0
+Cgrp A
+Cnsr 0
+Pos  8
+Save  -11
+Alig  1000
+Hit   12
+ACs 75 75 75 79
+Atrib 16 18 13 15 18 13
+AtMod 4 4 6 5 4 2
+Pass bloopbloop~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 58
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Xenith~
+Lsit 99.dallas-23rh15rt-tx.dial-access.att.net~
+Ltim Fri Feb 08 18:28:14 2002
+~
+LSav Fri Feb 08 19:00:48 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+HMSP 81 121 139
+THMS 0 0 0
+Cnd  0 19 4 44
+Sk 78 1 'sword'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 76 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 1 1 'kick'
+Sk 75 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'trip'
+Sk 75 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'rotate'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Affc 'haste'   0  90   9   4   2    2097152 1
+Affc 'fly'   0  84  57   0   0     524288 1
+Affc 'regeneration'   0  81   7   0   0  268435456 1
+Affc 'bless'   0  85  59 -11  24          0 1
+Affc 'bless'   0  86  59  11  18          0 1
+Affc 'giant strength'   0  84  53   4   1          0 1
+Affc 'shield'   0  83  61 -20  17          0 1
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Cond 98
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 2326
+Nest 0
+Wear 14
+Cost 550
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 98
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 2326
+Nest 0
+Wear 15
+Cost 550
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 78
+Nest 1
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 80
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 9201
+Nest 0
+Cond 94
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 9201
+Nest 0
+Wear 2
+Cost 1140
+End
+
+#O
+Vnum 4570
+Nest 0
+Wear 18
+Cost 1200
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear 0
+Cost 400
+End
+
+#END

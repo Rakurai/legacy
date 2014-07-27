@@ -1,0 +1,2247 @@
+#AREA
+highland.are~
+Highlanders Clanhall~
+{H{{CLANS} {MTaglar {THighlander's Clanhall~
+25800 25999
+
+#MOBILES
+#25800
+sean connery~
+Sean Connery~
+Sean Connery stands here, waiting to tell you of his latest movie.
+~
+You see an old, grey-haired actor who loves to talk about his movies.
+~
+Human~
+BGRZVX 0 0 S
+91 5 1d1+9999 1d1+9999 3d8+24 magic
+-70 -70 -70 -70
+CDF ABCD 0 0
+stand stand male 0
+0 0 large 0
+
+#25801
+iona celtic goddess~
+Iona, The Celtic Goddess~
+Before you stands Iona, The Celtic goddess.
+~
+The power which emanates from this being is too much to take in. In all 
+your years of adventuring you have never felt the air so alive with 
+power and beauty. This being is the embodiment of goodness and her wrath 
+is quickly unleashed on those aligned with the ways of darkness. 
+~
+human~
+BQZ BDFHTUaa 1000 S
+100 15 20d100+10000 20d100+10000 2d5+50 wrath
+-70 -70 -70 -60 
+CEFHK ABJNS EFG HKZ
+stand stand female 0
+0 0 giant 0
+>all_greet_prog 45~
+if ispc($n)
+   if isimmort($n)
+      say Welcome Immortal
+      bow $n
+   else
+      say Greetings $n
+      grin $n
+   endif
+endif
+~
+|
+
+#25802
+alistair forbes-mackay~
+Alistair Forbes-Mackay~
+Alistair Forbes-Mackay stands here looking at you with knowing eyes.
+~
+You see a very knowledgeable man who can heal anything that happens
+to you.
+~
+Human~
+BGQZVa DEFGH 0 S
+119 5 1d1+9999 1d1+9999 3d8+24  divine
+-70 -70 -70 -70
+FHIK ABCD 0 0
+stand stand male 0
+0 0 large 0
+
+#25803
+lord john boyd-orr~
+Lord John Boyd-Orr~
+Lord John Boyd-Orr is here with flour on his face and food dishes
+on the table before him.
+~
+You see a plump character who looks like he has been cooking for hours.
+~
+Human~
+BGTZVX 0 0 S
+91 5 1d1+9999 1d1+9999 3d8+24 magic
+-70 -70 -70 -70
+CDF ABCD 0 0
+stand stand male 0
+0 0 large 0
+
+#25804
+thomas makdougall brisbane~
+{HSir Thomas Makdougall Brisbane{x~
+{HSir Thomas Makdougall Brisbane{x is here, ready to train you.
+~
+{HSir Thomas Makdougall Brisbane{x could be your trainer.
+~
+Human~
+BGJKTZVXb DFH 0 S
+91 5 1d1+1999 1d1+1999 3d8+24 divine
+-70 -70 -70 -70
+FG ABCD 0 0
+stand stand male 0
+0 0 large 0
+
+#25805
+william wallace~
+{RWilliam Wallace{x~
+{RWilliam Wallace{x stands here, waiting to sell you everything
+you will need to protect you in your journeys. 
+~
+You see a man who was once the leader of a powerful clan and who
+now makes sure that you can be as strong or stronger than he ever was.
+~
+Human~
+BGTZVX 0 0 S
+91 5 1d1+9999 1d1+9999 3d8+24 cleave
+-70 -70 -70 -70
+CEFJKN ABCD 0 0
+stand stand male 0
+0 0 large 0
+
+#25806
+some sounds~
+some sounds~
+Listen to some sounds.
+~
+Some sounds.
+~
+noise~
+BCOVX BDFJPQTW 0 S
+108 20 10d100+1 10d100+1 10d100+1 frbite
+-90 -90 -90 90
+OFEC ABCD 0 0
+stand stand either 150
+0 0 huge 0
+>all_greet_prog 100~
+MPAT 3032 wizi 100
+~
+>all_greet_prog 10~
+if ispc($n)
+ if rand(50)
+    MPECHO This area hums with power, the sound of many voices can be heard in the wind.
+ else
+    MPECHO One of the columns sparks and brightens.
+ endif
+endif
+~
+>rand_prog 3~
+  MPASOUND You can hear a slight humming to the south.
+~
+>rand_prog 2~
+  MPASOUND The sounds of battle can be heard in the distance.
+~
+>rand_prog 2~
+  MPASOUND The sound of many people can be heard to the south.
+~
+>rand_prog 2~ 
+  MPASOUND A howl of rage and anguish echoes from the south.
+~
+>rand_prog 3~
+  MPASOUND You see a sudden and bright light flash to the south.
+~
+|
+
+#25807
+flint fireforge master smith~
+Flint Fireforge the Master Smith~
+A scarred and battle worn dwarf is working hard at the forge.
+~
+Flint is heavily scarred from many battles and you guess that he has 
+hefted many of the weapons his skills have made. Muscles ripple over his 
+squat, firm dwarven frame as he tirelessly and endlessly hefts his 
+hammer forging the tools of tomorrow's heroes.
+~
+hill dwarf~
+BCOVX DFJPTW 0 S
+108 20 10d100+1 10d100+1 10d100+1 frbite
+-90 -90 -90 90
+OFEC ABCD 0 0
+stand stand male 150
+0 0 small 0
+>all_greet_prog 100~
+if sex($n)==0
+mpechoat $n Flint Fireforge gives you a strange look.
+mpechoat $n Flint Fireforge says 'Ye sure be a strange one.'
+else
+if sex($n)==2
+mpechoat $n Flint Fireforge says 'Hello me lass!'
+else
+if sex($n)==1
+mpechoat $n Flint Fireforge says 'Hello me lad!'
+endif
+~
+>rand_prog 2~
+say Back in my day I'd have taken this weapon out and whacked a few monsters myself.
+~
+>rand_prog 2~
+say Be careful with my forge youngster! One scratch and I'll have your hide!
+~
+>rand_prog 2~
+yell Tasselhoff!!! Where's me tongs?
+~
+>rand_prog 2~
+peer
+say Now where be me tongs? 
+~
+>rand_prog 2~
+say Ha! That be a fine weapon there!
+~
+>rand_prog 3~
+  MPASOUND Piiinnng!!! Paaanng!!! Woosh!!!
+~
+>rand_prog 3~
+  MPASOUND Woosh! Woosh!
+~
+>rand_prog 3~
+  MPASOUND A small child with a topknot and a pair of tongs in his hands skips by you.
+~
+>rand_prog 1~
+  MPASOUND Check your pockets.
+~
+>rand_prog 3~
+  MPASOUND Shriinng!! Shriing!!
+~
+|
+
+#25808
+ancient sage morton~
+Morton the sage~
+Morton the ancient sage sits here meditating.
+~
+You see an old man wearing a brown robe and smoking from an old and worn pipe.
+~
+human~
+BCOVX DFJPTW 0 S
+108 20 10d100+1 10d100+1 10d100+1 frbite
+-90 -90 -90 90
+OFEC ABCD 0 0
+stand stand male 150
+0 0 medium 0
+>all_greet_prog 100~
+if sex($n)==0
+mpechoat $n Morton the sage gives you a strange look.
+mpechoat $n Morton the sage says 'Hmmm.. Your an interesting find.'
+else
+if sex($n)==2
+mpechoat $n Morton the sage says 'Welcome {G$n{x!'
+hand $n
+else
+if sex($n)==1
+mpechoat $n Morton the sage says 'Welcome  {G$n{x!'
+nod $n
+endif
+~
+>rand_prog 2~
+say Thought I found the quietest place around in the middle of this rock
+say and a dwarf moves in next door to me and builds a forge!
+~
+>rand_prog 2~
+say Have you seen my lucky pipe?
+say I had it when that little boy last visited me.
+~
+>rand_prog 2~
+emote starts to meditate.
+~
+>rand_prog 2~
+  MPASOUND Morton the sage yells 'Keep it down out there!'
+  MPASOUND Morton the sage yells 'I'm trying to concentrate!'
+~
+|
+
+#25809
+tasslehoff kender~
+Tasslehoff~
+A small man with a topknot stands here.
+~
+I small man wearing a topknot bounds around
+from behind a crate. He looks at you with a
+very curious smile.
+~
+kender~
+BCOVX DFJPTW 0 S
+108 20 10d100+1 10d100+1 10d100+1 frbite
+-90 -90 -90 90
+OFECN ABCD 0 0
+stand stand male 1000000
+0 0 small 0
+>all_greet_prog 100~
+hop
+skip
+if sex($n)==0
+mpechoat $n Tasslehoff Burfoot gives you a strange look.
+mpechoat $n Tasslehoff Burfoot says 'Oh! wow are you really an it?'
+mpechoat $n Tasslehoff Burfoot says 'Oooh! what is that?'
+look $n
+else
+if sex($n)==2
+mpechoat $n Tasslehoff Burfoot says 'Hello There! You have such lovely eyes.'
+mpechoat $n Tasslehoff Burfoot says 'Ooh! Is that for me?'
+look $n 
+else
+if sex($n)==1
+mpechoat $n Tasslehoff Burfoot says 'Hello There! Welcome to my shop!'
+mpechoat $n Tasslehoff Burfoot says 'Ooh! Is that a pouch you have?'
+mpechoat $n Tasslehoff Burfoot says 'Can I have a look?'
+look $n
+endif
+~
+|
+
+#25810
+maccawber mr mister~
+{GMr MacCawber{x~
+{R(Fierce Aura) {GMr MacCawber glares at you warningly.{x
+~
+When you eventually manage to tear your gaze from this man's 
+piercing eyes, you see that he isnt really as fearsome as he
+seems. He is about 5' tall, and skinny as a rail, and has a
+shock of brilliant red hair worthy of a true Scot! He is
+dressed somberly, as befits a bank manager, although you feel
+that he transforms himself after the bank closes - but would 
+you really like to meet him at the {RP{Ya{Br{Gt{Cy{x?
+~
+human~
+BGd DF 1000 S
+50 5 100d100+300 10d10+30 3d7+4 hit
+-3 -4 -3 -3
+0 ABCD 0 0
+stand stand male 10000000
+0 0 medium 0
+
+#25850
+vulcrow crow vul~
+a vulcrow~ 
+A black vulcrow perches in the window watching you.
+~
+The vulcrow eyes you warily as you move around the room
+~
+unique~
+BGV DFHJN 0 S
+15 1 1d999+1 1d999+1 1d999+1 peck
+-10 -10 -10 -10
+0 ABCD 0 0 
+stand stand male 0
+0 0 small 0
+
+#25851
+spirit iona~
+the Spirit of Iona~
+The proud spirit of Iona pervades the room.
+~
+You sense a pervading presence of pride and ferocity here. If you look closely, and are
+a true highlander at heart, you can just make out the vague outline of a majestic figure...
+Iona, Goddess of the Highlanders!
+~
+god~
+BGTd CDEFGHNOUVZ 1000 S
+91 18 1d1+9999 1d1+19999 9d8+48 divine
+-90 -90 -90 -90
+EFHK ABCD 0 0
+stand stand female 0
+0 0 giant 0
+
+#25852
+watcher~
+A Watcher~
+A Watcher.....well...watches you.
+~
+As you look at the Watcher you wonder......."Is he watching me!?" You also noticed a small tatto on his left wrist.
+~
+human~
+BGV DFHNOVace 1000 S
+50 10 1d1+18000 1d1+5000 1d1+85 punch
+-100 -100 -100 -90
+ADFHI ABCD 0 0
+stand stand male 10
+0 0 small 0
+
+#0
+
+#OBJECTS
+
+#25800
+clanleader kilt leadereq highlander~
+{RC{Gl{Ra{Gn{Rl{Ge{Ra{Gd{Re{Gr {RK{Gi{Rl{Gt{x~
+Out of the corner of your eye you notice a large piece of cloth cut in the 
+shape of a square. The pattern on the kilt clearly is the mark of a 
+Highlander.~
+cloth~
+armor ABGK AL
+23 23 23 21 0
+50 0 1000 I
+E
+Garment Shadow~
+This Kilt seems to be made by the heavens and given to mankind.
+~
+A
+1 1
+A
+3 3
+A 
+4 1
+A
+5 3
+A
+12 40
+A
+13 60
+A
+18 5
+A
+19 5
+
+#25801
+hot toddy~
+Hot Toddy~
+A Hot Toddy has been left here.~
+Shot Glass~
+drink 0 A
+300 300 'ale' 0 0
+0 160 75 P
+
+#25802
+golden pale brew~
+Golden Pale~
+A golden Scottish brew has been left here.~
+glass~
+drink 0 A
+16 16 'ale' 0 0
+0 10 5 P
+
+#25803
+edinburg strong ale~
+Edinburg Strong Ale~
+A strong Scottish ale has been left here.~
+glass~
+drink 0 A
+16 16 'ale' 0 0
+0 20 6 P
+
+#25804
+scotch whiskey~
+Whiskey~
+The whiskey that made Scotland famous to drinkers lies here.~
+bottle~
+drink 0 A
+12 12 'local specialty' 0 0
+0 10 11 P
+
+#25805
+notice~
+A notice~
+{bThere is a notice displayed prominently on the the wall.{x~
+paper~
+scroll O P
+1 '' '' '' ''
+1 3 10 P
+E
+notice~
+"Please do not ask for credit, as a smack in the mouth often offends."
+~
+
+#25810
+haggis~
+A Haggis~
+A rare scottish food has been left here.~
+food~
+food 0 A
+20 40 0 0 0
+0 20 22 P
+
+#25811
+crowdie~
+a Crowdie~
+A Scottish Crowdie has been left here.~
+food~
+food 0 A 
+18 12 0 0 0
+0 10 9 P
+
+#25812
+colcannon~
+a Colcannon~
+A colcannon has been left here.~
+food~
+food 0 A
+4 8 0 0 0 
+0 10 16 P
+
+#25813
+bannocks~
+a Bannocks~
+A Bannocks has been left here.~
+food~
+food 0 A
+8 10 0 0 0
+0 10 11 P
+
+#25821
+boots lowlands~
+{WBoots of the {HL{bo{Yw{Gl{ba{Yn{bd{Hs{x~
+Some sturdy leather boots lie here.~
+leather~
+armor ABS AG
+6 6 6 5 0
+20 2 2000 P
+A
+12 10
+A
+13 10
+A
+18 2
+A
+19 2
+A
+20 -1
+A
+2 1
+A
+3 1
+E
+boots lowlands~
+Sturdy boots, to give you firm footing over the rough lowland terrain.
+~
+E
+eqstat~
+Boots of the Lowlands
+stock: 4 points
+bought: 3 points
+
+2 points: +2 hit/+2 dam
+2 point: +10 hp, +10 mana
+1 point: -1 saves
+2 points: +1 int, +1 dex
+= 7 points
+~
+
+#25822
+sleeves somerled~
+{WSleeves of {HS{bo{Gm{Ye{br{Gl{be{Hd{x~
+A pair of sleeves lie here.~
+cloth~
+armor ABS AI
+10 10 10 9 0
+30 3 3000 P
+A
+13 30
+A
+18 3
+A
+19 3
+A
+5 2
+E
+sleeves somerled~
+These sleeves were originally worn by the legendary hero, Somerled.
+~
+E
+eqstat~
+Sleeves of Somerled
+stock: 5 points
+bought: 3 points
+
+3 points: +30 hp
+3 points: +3 hit/+3 dam
+2 points: +2 con
+= 8 points
+~
+
+#25823
+captured hearthlight light~
+{WCaptured {HH{be{Ya{Gr{bt{Hh{Yl{Pi{Ygh{Pt{x~
+A warm glow from the hearth has fallen here.~
+fire~
+light ABS A
+0 0 -1 0 0
+30 3 3000 P
+A
+12 10
+A
+18 3
+A
+19 3
+A
+20 -2
+A
+3 2
+E
+captured hearthlight light~
+This little bit of hearthlight has been captured so a Highlander can always
+carry a reminder of their home!
+~
+E
+eqstat~
+Captured Hearthlight
+stock: 5 points
+bought: 3 points
+
+1 point: +10 mana
+3 points: +3 hit/+3 dam
+2 points: -2 saves
+2 points: +2 int
+= 8 points
+~
+
+#25824
+tartan trews~
+{HT{ba{Yr{Gt{ba{Hn {WTrews{x~
+A pair of wool trews lie here.~
+wool~
+armor ABS AF
+10 10 10 9 0
+30 3 3000 P
+A
+12 20
+A
+13 10
+A
+18 3
+A
+19 3
+A
+20 -1
+A
+26 1
+E
+tartan trews~
+A pair of trews, woven from the finest wool, proudly displaying the family
+tartan.
+~
+E
+eqstat~
+Tartan Trews
+stock: 5 points
+bought: 3 points
+
+3 points: +10 hp, +20 mana
+3 points: +3 hit/+3 dam
+1 point: -1 saves
+1 point: +1 chr
+= 8 points
+~
+
+#25825
+ring clanship~
+{WRing of {HC{bl{Ya{Gn{bs{Yh{bi{Hp{x~
+A signet ring of the Highlanders lies here.~
+silver~
+armor AB AB
+13 13 13 12 0
+40 4 4000 P
+A
+12 10
+A
+13 20
+A
+18 3
+A
+19 3
+A
+20 -2
+A
+26 1
+E
+ring clanship~
+To wear this ring without belonging to the clan could mean {cdeath{x!
+~
+E
+eqstat~
+Ring of Clanship
+stock: 6 points
+bought: 3 points
+
+3 points: +20 hp, +10 mana
+3 points: +3 hit/+3 dam
+2 points: -2 saves
+1 point: +1 chr
+= 9 points
+~
+
+#25826
+string amber necklace~
+{WA String of {YA{bm{Yb{be{Yr{x~
+An amber necklace lies here.~
+amber~
+armor ABS AC
+13 13 13 12 0
+40 4 4000 P
+A
+12 30
+A
+13 10
+A
+18 4
+A
+19 4
+A
+20 -2
+A
+3 1
+A
+5 1
+E
+string amber necklace~
+Amber necklaces, favoured by the Vikings, adopted by the Highlanders for
+their beautiful tawny colour.
+~
+E
+eqstat~
+String of Amber
+stock: 6 points
+bought: 6 points
+
+4 points: +10 hp/+30 mana
+4 points: +4 hit/+4 dam
+2 points: -2 saves
+2 points: +1 int, +1 con
+= 11 points
+~
+
+#25827
+iona favor~
+{WIona's {HF{ba{Yv{bo{Hr{x~
+A silk kerchief lies here.~
+silk~
+armor ABS AM
+13 13 13 12 0
+40 4 4000 P
+A
+13 30
+A
+18 4
+A
+19 4
+A
+20 -2
+A
+4 1
+A
+9 2
+E
+iona favor~
+A fine silken kerchief, blessed favor of the goddess herself!
+~
+E
+eqstat~
+Iona's Favor
+stock: 6 points
+bought: 6 points
+
+3 points: +30 hp
+4 points: +4 hit/+4 dam
+2 points: -2 saves
+1 point: +1 wis
+2 points: +2 age
+= 11 points
+~
+
+#25828
+boots highlands~
+{WBoots of the {HH{bi{Yg{bh{Gl{ba{Yn{bd{Hs{x~
+A heavy looking pair of boots lie here.~
+leather~
+armor ABS AG
+20 20 20 19 0
+60 6 6000 P
+A
+12 30
+A
+13 30
+A
+18 4
+A
+19 4
+A
+20 -3
+A
+3 2
+A
+14 -20
+E
+boots highlands~
+They may be somewhat cumbersome, but these boots will see you through.
+~
+E
+eqstat~
+Boots of the Highlands
+stock: 8 points
+bought: 6 points
+
+6 points: +30 hp, +30 mana
+4 points: +4 hit/+4 dam
+3 points: -3 saves
+2 points: +2 int
+= 15 points
+
+-2 points: -20 move
+= -1 point
+~
+
+#25851
+highlander small map~
+A small map~
+{VThis is a complete map of the {bHighlander {Vclanhall, and all of its rooms.{x~
+vellum~
+treasure 0 A
+0 0 0 0 0
+1 0 3000 P
+E
+map highland~
+.              	     -----
+		     \    \
+		      \(26)\
+		       -+---
+	        	|
+		     ---+-
+	 	     \    \
+		      \(24)\
+	  	       -+---
+			|
+		     ---+-   -----   -----
+		     \    \  \    \  \    \
+		      \(16)\  \(22)\  \(23)\
+	 	       -+---   -----   -----
+			| \       \       \
+	      -----	|-----   -----   -----
+	       \   \____|\    \__\    \__\    \
+		\(27)\	| \(17)\  \(18)\  \(19)\
+		 -----	|  -----   -----   -----
+			|             \       \
+			|            -----   -----
+			|            \    \  \    \
+			|             \(20)\  \(21)\
+			|              -----   -----        -----
+			|                                   \    \ 
+     -----           ---+-           -----   -----     ----- \(28)\
+     \    \          \    \          \    \  \    \    \    \ -----
+      \(13)\          \(15)\          \(8) \  \(5) \    \(2) \ |
+       -----           -----           -----   -----     ----- |
+          \               \               \       \         \  |
+         -----   -----   -----           -----   -----     -----
+         \    \__\    \__\    \__________\    \__\    \____\    \____
+          \(12)\  \(11)\  \(10)\          \(7) \  \(4) \    \(1) \
+           -----   -----   -----           -----   -----     -+---
+              \              	              \       \       | \
+	     -----	                       \       \   ---+- \
+	     \    \                             \       \  \    \ \
+	      \(14)\	                         \       \  \(25)\ \
+	       -----	                          \       \  -----  \
+			                           \       \         \  
+			      	         	  -----   -----     -----
+		                        	  \    \  \    \    \    \
+		                        	   \(9) \  \(6) \    \(3) \
+		                         	    -+---   -----     -----
+                                                     |
+                                                  ---+-
+         {G1) Clanrecall{x                            \    \
+         {G2) Clan Healer{x                            \(10)\
+         {G3) Clan Portal Room{x                        -----
+         {G4) Clan Fountain, Hallway
+         5) Clan Bed
+         6) Clan Drink Shop
+         7) Hallway
+         8) Clan Church
+         9) Clan Food Shop
+	10) Hallway
+	11) Tunnel
+	12) Clan Forge
+	13) Clan Sage
+	14) Clan Shop
+	15) Bottom of Stairs
+        16) Stairway
+	17) Hallway
+	18) Hallway
+	19) Hallway
+	20) Clan Trainer
+	21) Clan Armoury
+	22) Clan Pillroom
+	23) Clan Bank
+	24) Dorrin's Tower
+	25) Sundancer's Hearth
+	26) Cipher's Observatory{x
+       {G 27) Clan Room{x	
+       {G 28) Nox's Room{x
+{P	--------------------------------------------------------
+	{CClan Portal Room: West-Divided Souls
+                            East-New Thalos
+                            South- Ruins of Oran
+
+	Clan Drink Store: Golden Pale, 6 sp
+                          Edinburg Strong Ale, 7 sp
+                          Whiskey, 13 sp
+                          Hot Toddy, 93 sp
+
+	Clan Food Store:  Crowdie, 11 sp
+                          Bannocks, 13 sp
+                          Colcannon, 20 sp
+                          Haggis, 27 sp
+
+
+	Dorrin's Room: Some Herbs (regeneration, bless, sanctuary, talon)
+	
+	Sundancer's Room: Ember (sanctuary, talon, stone skin, haste)
+	
+	Cipher's Room: Dundee Cake (talon, haste, pass door, fly)
+
+	Clan Pillroom: Dirt Clod (sanctuary, armor, detect invisible, steel mist)
+		       Piece of Plaid (frenzy, haste, stone skin, giant strength)
+
+	Clan Armoury:
+          Item	                     Level   Price (sp)
+         |--------------------------|-------|----------
+          Boots of the Highlands     60      7500
+          Iona's Favor               40      5000
+          A String of Amber          40      5000
+          Ring of Clanship           40      5000
+          Tartan Trews               30      3750
+          Captured Hearthlight       30      3750
+          Sleeves of Somerled        30      3750
+          Boots of the Lowlands      20      2500
+         |--------------------------|-------|----------
+~
+
+#25852
+crystal doorknob~
+A crystal doorknob~
+A crystal doorknob lies here.~
+crystal~
+treasure 0 A
+0 0 0 0 0
+1 0 10000 I
+
+#25860
+root cellar pit~
+a root cellar~
+~
+stone~
+container O 0
+10000 0 0 1000 0
+0 0 0 P
+E
+root cellar pit~
+You see a root cellar filled with all sorts of parishables.
+You better take what you can use now, you never know when they may
+be gone.
+~
+
+#25861
+anvil forge large private highlander~
+a large forge~
+A large forge~
+iron~
+anvil 0 0
+0 3 0 0 3
+0 0 0 P
+E
+anvil forge large~
+You see a large forge made of granite and blackened with use.
+~
+
+#25862
+cushion pile~
+a pile of cushions~
+A pile of cushions.~
+cloth~
+furniture 0 0
+10 9999 BEHK 150 150
+0 0 0 I
+E
+cushion pile~
+You see pile of many colored cushions.
+~
+
+#25863
+bed~
+a comfy bed~
+There is a comfy bed in the corner.~
+Goose Down~
+Furniture ABGORT 0
+3 20000 EHK 150 150
+1 0 0 P
+E
+bed~
+A nice comfy bed to lay down till the effects from the party go away.
+~
+
+#25864
+Fountain~
+Fountain of crystal clear water from the Loch~
+There is a Fountain of crystal clear water from the Loch here.~
+Marble~
+Fountain ABGORT 0
+0 0 'water' 0 0
+1 0 0 P
+
+#25865
+east pirate caves~
+the eastern column~
+The eastern column.~
+stone~
+portal ABG 0
+0 1 A 4412 0
+0 0 0 P
+
+#25866
+west new thalos chessboard~
+the western column~
+The western column.~
+stone~
+portal ABG 0
+0 1 A 9555 0
+0 0 0 P
+
+#25867
+southern ancient ruins massive keep oran gate forest~
+the southern column~
+The southern column.~
+stone~
+portal ABG 0
+0 1 D 5676 0
+0 0 0 P
+E
+southern ancient ruins massive keep oran gate forest~
+The mists part to reveal the ancient ruins of a massive keep just past a 
+ruined gate. The forest grows and curls over the ruins making you 
+realize that this ancient keep can only be part of the magnificent 
+{HRuins {bof {MOran{x.
+~
+
+#25868
+northern blackened blasted ruble~
+the northern column~
+The blackened and blasted northern column.~
+stone~ 
+trash JB 0
+0 0 0 0 0
+0 0 0 P
+E
+northern blackened blasted ruble~
+A blasted and blackened pile of rubble almost resembling a column
+stands before you. A {Gplaque{x has been nailed to it.
+~
+E
+plaque sign~
+Dear friends,
+     This was an attempt by our clan to create a portal to
+hell. Many men died sealing this cursed portal and we leave
+it here as a warning to those who follow in our foot steps.
+				
+					Gods be willing,
+				     {R*{xname scratched out{R*{x
+~
+
+#25869
+pill piece plaid~
+{PPiece {Gof {PP{Gl{Pa{Gi{Pd{x~
+A piece of {Pp{Gl{Pa{Gi{Pd{x cloth lies here.~
+energy~
+pill AB A
+15 'frenzy' 'haste' 'stone skin' 'giant strength'
+15 1 1 P
+
+#25870
+pill dirt clod~
+{bdirt clod{x~
+A {bclod of dirt{x lies on the ground.~
+energy~
+pill AB A
+15 'sanctuary' 'armor' 'detect invis' 'steel mist' 
+15 1 1 P
+
+#25880
+bed wood lorken~
+the bed~
+A bed made of wood from a lorken tree sits in the corner.~
+wood~
+furniture RO 0
+4 1000 KHEB 150 150
+15 500 1000 P
+E
+bed wood lorken~
+The bed is made of dark wood and looks very comfortable.
+~
+
+#25881
+pitcher redberry~
+a chilled pitcher of redberry~
+A pitcher of ice-cold redberry sits here. Thirsty?~
+glass~
+fountain RS P
+0 0 'cranberry' 0 0 
+0 0 0 P
+E
+pitcher redberry~
+Perfectly chilled redberry is here...waiting to quench your thirst.
+~
+
+#25882
+herbs astra willow bark~
+some herbs~
+Some herbs are here...crushed astra and willow bark.~
+herb~
+pill 0 AO
+15 'regeneration' 'bless' 'sanctuary' 'talon'
+15 1 0 P
+E
+herbs astra willow bark~
+These herbs are for healing and protecting you.
+~
+
+#25883
+wood ember~
+a faintly {Yglowing{x fragment of wood~
+An {Re{Pm{Yb{Re{Pr {xfrom the {Pf{Yi{Rr{Pe {xhas fallen onto the hearth.~
+wood~
+pill AY A
+15 'sanctuary' 'talon' 'stone skin' 'haste'
+15 0 0 P
+
+#25884
+tass mystery pack~
+{bTass's {WMystery {GPack{x~
+A worn and well made pack lies here upon the ground.~
+cloth~
+container YS AK
+2000 1 0 2000 50
+15 10 3000 P
+
+#25885
+fountain water~
+a fountain~
+A fountain of cold, refreshing, highland springwater stands here.~
+stone~
+fountain IO P
+0 0 'water' 0 0
+0 0 0 I
+
+#25886
+chairs~
+a comfortable wooden chair~
+Comfortable wooden chairs tempt you to relax for a while.~
+wood~
+furniture GO P
+4 0 BEHK 150 150
+0 0 0 I
+
+#25887
+sofa~
+a huge, soft-leather sofa~
+An old leather sofa looks remarkably inviting.~
+leather~
+furniture OSTY P
+4 0 BEHK 120 180
+0 0 0 I
+E
+sofa~
+A sofa made of dark, well-worn leather looks good to snuggle up on.
+~
+
+#25888
+red cow~
+a shaggy {Rr{Ye{Rd {xcow~
+A shaggy {Rr{Ye{Rd {xcow suggests a healthy drink!{x~
+beef~
+fountain OSTY P
+0 0 milk 0 0
+0 0 0 I
+E
+red cow~
+A shaggy {Rr{Ye{Rd {xAberdeen Angus stares back at you enigmatically.
+~
+
+#25889
+dundee cake~
+a piece of {bd{Yu{bnd{Ye{be c{Ya{bk{Ye{x~
+A tempting piece of rich fruit cake sits on the table.{x~
+cake~
+pill 0 A
+15 'talon' 'haste' 'pass door' 'fly'
+15 3 0 P
+E
+dundee cake~
+A piece of rich dundee cake.
+~
+
+#25890
+comfy straw bed~
+a comfy straw bed~
+A comfy straw bed greets you with sweet dreams.~
+wood~
+furniture 0 0
+3 0 EHK 150 150
+1 300 10 P
+E
+comfy straw bed~
+Just looking at the bed makes you Dr...dro.ww.s..yy..*yawn*......zz.z.zzz...z....
+~
+
+#25891
+voice highlands~
+The Voice Of The Highlands~
+The Voice of the Highlands speaks to you in a Scottish accent.~
+pill~
+pill 0 AO
+15 'sanc' 'haste' 'giant' 'frenzy'
+1 1 1 P
+E
+pill voice highlands~
+Looking at the pill makes you wonder what the Voice of the Highlands can offer you.
+~
+
+#25892
+fountain of honor~
+the Fountain of Honor~
+A large ivory fountain of honor sits in the center of the room.~
+ivory~
+fountain 0 0
+0 0 water 0 0
+0 0 0 P
+E
+fountain honor ivory~
+Looking closely at the fountain you see the names of fallen Highlanders...
+William Wallace...........Robert the Bruce..........Kenneth  I....Rob Roy......as you read the names a tear falls down your cheek.....
+~
+
+#0
+
+#ROOMS
+
+#25805
+The Brahms and Liszt~
+You have entered one of the most popular clubs in the Highlands,
+where none other than {bSean Connery{x serves you the finest 
+drinks known to any Highlander. The {bbagpipes{x are once again
+sounding the call of Highlander Pride as you sit down to order 
+your favorite drink.
+~
+0 DK 1
+C Highlander~            
+D0
+To the north there is an opening to the courtyard.
+~
+~
+0 -1 25823
+E 
+Brahms and Liszt~
+A grey haired man stands behind the bar waiting to tell you of 
+his favorite among the movies he appeared in.
+~
+S
+
+#25806
+A Small Beach~
+On the eastern shore of the River of Lost Souls, you discover a small 
+opening in the rocky terrain which lines the river. Upon further
+inspection you discover a thin, but well trodden, trail leading up and 
+away from the river, apparently to higher ground.
+~
+0 0 2
+D4
+~
+~
+0 -1 25807
+D3
+~
+~
+0 -1 9736
+S
+
+#25807 
+The End of the Climb~
+A long walk up the trail brings you to a spectacular view of eastern 
+Thera. From here you can see New Thalos, and the seas beyond it. A wave 
+of calm washes over you as you take in the majesty of it all. Once you 
+decide to continue your journey, you notice the bridge that you saw 
+crossing the river. It appears to be the only way to continue.
+~
+0 0 2
+D3
+~
+~
+0 -1 25808
+D5
+~
+~
+0 -1 25806
+S
+
+#25808
+The Beginning of the Bridge~
+You seem to recall the BRIDGE being a lot shorter when you saw it from 
+below. Maybe that is because it was so high up.  As you begin to cross, 
+you hope that the wind doesn't pick up, and that you aren't wearing too 
+much armor. Oh yeah, don't look DOWN.
+~
+0 L 1
+D3
+~
+~
+0 -1 25809
+D1
+~
+~
+0 -1 25807
+E
+bridge~
+The bridge is a simple construction of wood and rope, and appears rather 
+narrow.  It also looks very old, better cross one at a time.
+~
+E
+down~
+Below you, the rapids caused by the river escaping the confines of the 
+mountains are churning up incredible amounts of white water.  Better not 
+fall off.
+~
+S
+
+#25809
+Halfway Across~
+Well, you made it this far, no sense in turning back.  You are a little 
+concerned when you see that the rope which served as a railing has broken
+on either side of the bridge.  You could step off the bridge now if you 
+really wanted to.
+~
+0 L 1
+D0
+~
+~
+0 -1 25810
+D2
+~
+~
+0 -1 25810
+D3 
+~
+~
+0 -1 25811
+D1
+~
+~
+0 -1 25808
+S
+
+#25810
+AAAAAAAIIIIIIIEEEEEEEE!!!!!!~
+Well, that was dumb.  As you plummet to your death in the rapids below, 
+you contemplate the meaning of life, and just as you reach a conclusion... 
+SPLAT.
+~
+0 K 0
+S
+
+#25811
+The End of the Bridge~
+Having managed to cross the bridge without much difficulty, you now stand 
+on the edge of a sparsely wooded area.  A path leads westward, over rocky  
+terrain. Two large, moss-covered {HBOULDERS{x stand on either side of the 
+path ahead. 
+~
+0 L 1
+D3
+~
+~
+0 -1 25812
+D1
+~
+~
+0 -1 25809
+E
+boulders~
+Inscribed on one boulder is a verse written in Gaelic, while the 
+other boulder contains its translation into the Common tongue.
+
+Na sloigh as fearr san gcruinne
+a muirn a mire a bhfoghnamh;
+ni comhnairt bheith 'na bhfeagmhais:
+ni h-eibhneas gan Chlainn Somerled
+
+----++----
+
+The best people in the round world,-
+their joyousness, their keenness, their effectiveness;
+with them is no strength; 
+it is no joy without Clan Somerled
+~
+S
+
+#25812
+Before the Castle~
+After a brief walk, you begin to see the outline of a large castle 
+through the damp fog which seems to permeate the area. A short distance 
+to the north, you see a shepherd tending his flock of sheep; this rocky 
+ground seems good for little else. As you continue on your journey, the 
+path leads you directly to the castle's main gates. Soldiers look down 
+upon you from the battlements, but do not move from their posts.
+~
+0 0 1 
+D3
+A huge, fortified gate prevents all from gaining entrance to the castle.
+~
+gate~
+1 -1 25813
+D1
+~
+~
+0 -1 25811
+S
+
+#25813
+The Courtyard of Castle Camus~
+Having gained entry to the castle with Iona's blessing, you stand in the
+courtyard of an immense stone castle. People mill about, performing
+duties or training in the arts of warfare. In the center of the courtyard
+stands an intricately chisled statue of the Celtic goddess Iona. Very
+intricate indeed. In fact, if you didn't know better you'd have thought
+that it wasn't a statue at all, but Iona herself instead.
+~
+0 DK 1
+C highlanders~
+D0
+To the north lies Alistair's Clinic.
+~
+~
+0 -1 25822
+D1
+A huge, fortified gate prevents all from gaining entrance to the castle.
+~
+gate~
+1 -1 25812
+D2
+{WA {RM{Py{Ms{Rt{Pi{Mc{Ra{Pl {cs{gt{co{gn{ce {Bc{Ti{Nr{Bc{Tl{Ne{x
+~
+~
+0 -1 25848
+D3
+To the west the Courtyard continues.
+~
+~
+0 -1 25823
+D4
+Nox's room is above.
+~
+~
+0 -1 25903
+D5
+A crackling fireplace can be heard below.
+~
+~
+0 -1 25901
+S
+
+#25822
+{BAlistair's Clinic{x~
+Here is where {BAlistair{x works so diligently to provide
+you with the best service avaiable for when you are {cill{x.
+He will make all dedication to taking whatever {RDemon{x is
+inside you out.  He will also provide the {CHealing Touch{x
+that will replenish your resources in urgent times.
+~
+0 DK 1
+C Highlander~
+D2
+To the south is Iona, your Goddess.
+~
+~
+0 -1 25813
+E
+Clinic~
+A very wise man stands ready to heal you of your ailments.
+~
+S
+
+#25823
+{YCourtyard{x~
+You are standing in a {WMajestic {bCourtyard{x filled
+with serfs and peasants that you fight to protect.  Looking
+North you see some fellow {bClan Members{x at what appears
+to be a {RP{Ya{Br{Gt{Cy{x.  You can go south for your
+favorite drinks or west to a {bhallway{x. East goes back to your
+{CGoddess{x.
+~
+0 DK 1
+C Highlander~
+D0   
+To the north you see flashing lights and people dancing.
+~
+~
+0 -1 25824
+D1
+To the east you see Iona the Goddess.
+~
+~
+0 -1 25813
+D2
+~
+~
+0 -1 25805
+D3
+To the west you see a hallway.
+~
+~
+0 -1 25826
+E
+Courtyard~
+Many serfs and peasants are here, watching you with pride in their eyes. 
+~
+S
+
+#25824
+{RP {Ya {Br {Gt {Cy{x~
+As you enter the room you notice the bagpipes are a-soundin' and the 
+air smells of whisky. Scotch Whisky. The Highlanders are having a 
+{RP{YA{BR{GT{CY{x!!!! The only way out of this place is south back to 
+the {YCourtyard{x. There is a bed in the corner for the really badly off.
+~
+0 DK 1
+C Highlander~
+D2 
+To the south you hear the hussle and bussle of the {YCourtyard{x
+~
+~
+0 -1 25823
+E
+Party~
+This place is really happening.  Be hard to leave such a festive place.
+~
+S
+
+#25826
+{bHallway{x~
+A long {bHallway{x has opened up to you.  You can smell great treats 
+to the south and it makes your mouth start to water. But first maybe 
+you should repent all your sins in the {WChurch{x to the north. The 
+{bHallway{x continues on to the west with the {YCourtyard{x to the east.
+~
+0 DK 1
+C Highlander~
+D0
+To the north you see crosses and pews.
+~
+~
+0 -1 25827
+D1
+To the east you hear the hussle and bussle of the {YCourtyard{x
+~
+~
+0 -1 25823
+D2 
+To the south you can smell wonderful food a-cookin'
+~
+~
+0 -1 25828
+D3
+To the west you see a turn in the hallway.
+~
+~
+0 -1 25829
+E
+Hallway~
+A long hallway between two rooms.
+~
+S
+
+#25827
+{WChurch{x~
+The Holy aura in this room overwhelms you as you feel the urge 
+to drop to your knees and beg the {WGods{x to forgive you for 
+all your sins.
+~
+0 DK 1
+C Highlander~
+D2
+To the south is a {bHallway{x
+~
+~
+0 -1 25826
+E
+Church~
+This room is full of pews with bibles on the seats.
+~
+S
+
+#25828
+{TLord John's Eatery{x~
+The smell in this place is WONDERFUL!!  Lord John Boyd-Orr has 
+been cooking since early this morning so that you could have a 
+full meal to give you strength for your next journey.
+~
+0 DK 1
+C Highlander~
+D0
+To the north is a {bHallway{x
+~
+~
+0 -1 25826
+E
+Eatery~
+This room has all the greatest Scottish eats.
+~
+S
+
+#25829
+{bEnd of the Hall{x~
+You have reached the end of the {bHallway{x.  You can either 
+go back east or north to a set of stairs.
+~  
+0 DK 1
+C Highlander~
+D0
+To the north you see a set of stairs going up.
+~
+~
+0 -1 25830
+D1
+To the east is a {bHallway{x
+~
+~
+0 -1 25826
+D3
+{bA small tunnel{x
+~
+~
+0 -1 25849
+E
+End~
+This is the end of the hallway.
+~
+S
+
+#25830
+{MStairwell{x~
+You have reached the end of the First floor.  You can either continue
+on up the stairs or go back south on your way out.
+~
+0 DK 1
+C Highlander~
+D2 
+To the south is the way back out.
+~
+~
+0 -1 25829
+D4
+Up is the Second Floor.
+~
+~
+0 -1 25831
+E
+Stairs~
+A long spiraling stairwell is here
+~
+S
+
+#25831
+{MStairwell{x~
+You have reached the beginning of the Second floor.  You can either continue
+on south or go back down the stairs on your way out.
+~
+0 DK 1
+C Highlander~
+D4
+If you look up the stairs then you will feel the vertigo.
+~
+~
+0 -1 25900
+D2
+To the south you see turn in the {bHallway{x.
+~
+~
+0 -1 25832
+D5
+If you look down the stairs then you will feel the vertigo.
+~
+~
+0 -1 25830
+E
+Stairs~
+A long spiraling stairwell is here
+~
+S
+
+#25832
+{bHallway{x~
+Once again there is a picture depicting one of the great battles
+fought by the {bHighlanders{x.  This time you see a name.  As you 
+look closer you can read the name.  {RMorgan{x!
+~
+0 DK 1
+C Highlander~
+D0
+To the north you see a set of stairs going down.
+~
+~
+0 -1 25831
+D1
+The {bHallway{x continues to the east.
+~
+~
+0 -1 25833
+E
+Hallway~
+A dark corner in the {bHallway{x with a picture on the wall.
+~
+D3
+~
+~
+0 -1 25837
+S
+
+#25833
+{bHallway{x~
+A long {bHallway{x has opened up to you.  You can hear metal clashing 
+together and loud screaming to the south. If you need a reminder of who   
+you are and what you fight for maybe you should go to the north.  The 
+{bHallway{x continues on to the east with a corner to the east.
+~
+0 DK 1
+C Highlander~
+D0
+To the north you a room with many pictures and books.
+~
+~
+0 -1 25834
+D1
+To the east is the last room of the {bHallway{x.
+~
+~
+0 -1 25836
+D2 
+To the south you can train and practice what you have learned.
+~
+~
+0 -1 25835
+D3
+To the west you see a turn in the {bHallway{x.
+~
+~
+0 -1 25832
+E
+Hallway~
+A long hallway between two rooms.
+~
+S
+
+#25835
+{cSword {Wand {RSorcery {BAcademy{x~
+{HSir Thomas Makdougall Brisbane{x awaits you so that he can
+teach you everything you need to know for the upcoming battles
+that you will surely encounter.
+~
+0 DK 1
+C Highlander~
+D0
+To the north is the {bHallway{x.
+~
+~
+0 -1 25833
+E
+Trainer~
+You will be able to practice, train, and gain anything you like to learn here.
+~
+S
+
+#25834
+{TRoom {Wof {MRemembrance{x~
+This room has all the written histories of the good times and 
+the bad times of the {bHighlanders{x.  Have a seat, grab a 
+book and recall how your brethren fought to make what you fight
+for what it is today.
+~
+0 DK 1
+C Highlander~
+D2
+To the south is the {bHallway{x.
+~
+~
+0 -1 25833
+E
+room~
+Remember who and what you fight for here.
+~
+S
+
+#25836
+{cEnd {Wof the {bHallway{x~
+You have finally reached the {cend {Wof the {bhallway{x, with one door
+going north to the bank, and one room going south where you can
+hear more screaming, but this time it is about the prices!
+~
+0 DK 1
+C highlander~
+D0
+~
+~
+0 -1 25852
+D2
+To the south you see many pieces of armor hanging on the walls.
+~
+~ 
+0 -1 25838
+D3
+To the west the Hallway continues.
+~
+~
+0 -1 25833
+E
+End~
+This is as far as the {bHallway{x will go.
+~
+S
+
+#25837
+{WThe {BRoom {Wof {RLegends{x~
+Many a family and many a loner have shared the legends of 
+the {bHighlanders{x in this room.  Come on in and join them.
+~
+0 DK 1
+C Highlander~
+D1
+~
+~
+0 -1 25832
+E
+Room~
+Wide eyes on the children and confident looks on the Elders.  That
+is all you will ever see in this room.
+~
+S
+#25838
+{cArmoury of{x {RWilliam Wallace{x~ 
+You have entered the {cArmoury of{x {RWilliam Wallace{x  when not long after you entered you notice
+that {RWilliam Wallace{x himself has come to sell you the finest equipment in the lands.
+~
+0 DK 1
+C Highlander~
+D0
+To the north is the {bHallway{x.
+~
+~
+0 -1 25836
+E
+Armoury~
+Many pieces of the finiest armor in the land hang on the wall
+ready for the next hero to wear.
+~
+S
+
+#25839
+iona room~
+~
+0 D 0
+C highlander~
+S
+
+#25848
+{WA {RM{Py{Ms{Rt{Pi{Mc{Ra{Pl {cs{gt{co{gn{ce {Bc{Ti{Nr{Bc{Tl{Ne{x~
+You are standing on a short grassy knoll surrounded my four mammoth 
+{cs{gt{co{gn{ce{x columns arranged in rough circle. Tattered {Rwar  
+{Bbanners{x hang low at the entrance to the circle as a solemn reminder 
+of the Highlander Clan spirit and pride. Nothing stirs within the 
+circle and upon closer inspection you notice that three of the columns 
+{Yhum{x and {Gvibrate{x with pure {Vmagical{x energy.
+~
+0 AK 4
+C highlander~
+D0
+{PThe Courtyard of Castle Camus{x
+~
+~
+0 -1 25813
+S
+
+#25849
+{bA small tunnel{x~
+You have entered a small tunnel leading off from the main hall.
+It slopes downward slightly. Strange noises can be heard from
+the other end.
+~
+0 DK 0
+C highlander~
+D1
+{bEnd of the Hall{x
+~
+~
+0 -1 25829
+D3
+{bAn Ancient {cSmoke-filled {bForge{x
+~
+~
+0 -1 25850
+S
+
+#25850
+{bAn Ancient {cSmoke-filled {bForge{x~
+{cSmoke{x and {gdust{x hang heavily in the air throughout this dimly lit 
+hall. {RFiery{x flickers dance along the walls from the giant furnace that 
+dominates the room. The clang of metal on metal sounds echo in your 
+ears. You can only imagine the great battles that have been won with the 
+legendary weapons that have come from this tireless place. You almost melt
+from the {Pheat{x as the {gsoot{x clouds your vision, but aside from that you 
+feel a sense of awe standing in the birthplace of legends. Amazing the 
+only clean thing in the room is a glittering {Wmithril{x plaque etched in 
+glimmering {Ygolden{x letters.
+~
+0 DK 0
+C Highlander~
+D0
+{bA small cave{x
+~
+~
+0 -1 25851
+D1
+{bA small tunnel{x
+~
+~
+0 -1 25849
+D2
+{bTasslehoff's {BWhat {YNot {BShop{x
+~
+~
+0 -1 25855
+E
+plaque sign letters~
+.
+This was dedicated to the highlanders by:
+
+{G*{C*{G*{C*{x         {GGrembane{x             {G*{C*{G*{C*{x
+{G*{C*{G*{C*{x         {bDorrin{x               {G*{C*{G*{C*{x  
+{G*{C*{G*{C*{x         {CMontana{x              {G*{C*{G*{C*{x
+{G*{C*{G*{C*{x         {VApril{x                {G*{C*{G*{C*{x 
+{G*{C*{G*{C*{x         {PEairlye{x              {G*{C*{G*{C*{x
+{G*{C*{G*{C*{x         {RNox{x                  {G*{C*{G*{C*{x
+{G*{C*{G*{C*{x         {WDon Lucciano{x         {G*{C*{G*{C*{x
+{G*{C*{G*{C*{x         {YViro{x                 {G*{C*{G*{C*{x
+{G*{C*{G*{C*{x         {cArtek{x                {G*{C*{G*{C*{x
+~
+S
+
+
+#25851
+{bA Small Cave{x~
+You have stepped into a small and very dry cave. The 
+smell of pipe {csmoke{x fills the air. A small man sits 
+on a {Vcushion{x in the middle of the floor. A small sign 
+{Yglowing{x with {Cmagical{x {Wlight{x can be seen on the back 
+wall and a pile of many colored cushions are spread all 
+around the small man.
+~
+0 DK 0
+C highlander~
+D2
+{bAn Ancient {cSmoke-filled {bForge{x
+~
+~
+0 -1 25850
+E
+sign~
+The sign says '{WNo smoking please.{x'
+~
+S
+
+#25852
+{YRoyal {GBank {cof the {HH{bi{Yg{bh{Gl{ba{Yn{bd{Hs{x~
+This room is lined with lockers on two walls, each
+with the name of a {HH{bi{Yg{bh{Gl{ba{Hn{bd{Ye{br{x engraved into the metal
+of the heavily armoured door. Opposite the door you
+see a wooden counter with a glass partition above it.
+Sitting behind the counter is a fierce looking man who
+peers at you intently as you enter. His stern glare and
+his aura of authority, assure you that no unauthorised
+withdrawals would ever be allowed! Your fortunes are
+safe in his hands!
+~
+0 DEU 0
+C highlanders~
+D2
+~
+~
+0 -1 25836
+S
+
+
+#25855
+{bTasslehoff's {BWhat {YNot {BShop{x~
+As you enter the {bshop{x you are {Pshaken{x out of your {breverie{x by
+the {Pshrill{x dingling of the {bbell{x above the door.  Shelves line
+the walls, filled with all manner of items.  {bMaps{x, stacked in one corner
+threaten to fall over if you so much as {Cbreath{x at them.  {bPouches{x
+hang from the low ceiling causing you to duck as you weave your way through
+them.  Suddenly a head pops up from behind the open lid of a {bchest{x.  
+Beaming happily, {YT{Ba{Ys{Bs{Yl{Be{Yh{Bo{Yf{Bf{x hops up to greet you.  
+~
+0 DK 0 
+C Highlander~
+D0
+{bAn Ancient {cSmoke-filled {bForge{x
+~
+~
+0 -1 25850
+E
+shelf shelves~
+You see a small shelf with some odds and ends.
+~
+S
+
+#25900
+Black Tower~
+This is {GDorrin{x's sanctuary. The walls are made up of a black stone.
+Order seems to flow from the masonry and permeates the entire room.
+You feel calm and relaxed. The room is sparsely decorated except for a
+couple of personal decorations. A small figurine of an angel sits here.
+A window looks out of the tower onto the surrounding area...offering
+a great view. Sit, relax, and ponder the depths of your mind.
+~
+0 DK 1
+D4
+Cipher's Observatory is above.
+~
+~
+0 -1 25902
+D5
+a stairwell leading down.
+~
+stair stairwell down~
+0 -1 25831
+S
+
+#25901
+{HH{bi{Yg{bh{Gl{ba{Hn{bd{Ye{br{Hs' H{be{Ya{Gr{bt{Hh{x~
+     As you bow your head to enter this room, a feeling of peace and
+security fills your soul. Beams of {Wu{gne{Wa{cr{gt{Wh{gly {Wl{ci{gg{Wh{gt descend from the
+courtyard above, you look up and see the source - the {WGoddess Iona{g - her
+spirit filling the room with fierce family pride, the pride of the
+{HH{bi{Hg{bh{Hl{ba{Hn{bd{He{br{Hs{g. Looking around the room, your eyes fall upon a display
+of weaponry on the wall, a selection of dirks and skhean dhus surrounding
+a centrepiece of crossed claymores on a round shield. A {cs{gto{cne{g table
+in the centre of the room holds a large book with the title {bRemembrances{x
+{bof Honour and Courage{g, a record of past {HH{bi{Hg{bh{Hl{ba{Hn{bd{He{br{g victories
+on the field of battle. Around the hearth itself you see wooden chairs,
+their seats padded and trimmed with {Pp{Gl{Ha{Gi{Pd{Hs{g, an area to rest
+and warm yourself while you discuss clan business or just socialise with
+fellow clanmembers. A {Pb{Yl{Ra{Yz{Pi{Yn{Rg {blog {Pf{Yi{Rr{Pe{g warms the room and adds
+to its homely atmosphere. A fountain fed by a {Wclear highland spring{g
+stands in the corner, an open invitation to refresh yourself.{x
+~
+0 DT 0
+C highlanders~
+D4
+You see the Courtyard of Castle Camus.
+~
+~
+0 -1 25813
+E
+light beams~
+Unearthly light, descending from the courtyard above, fills this room with
+a soft glow, embracing everything in its reach.
+~
+E
+fire~
+A blazing log fire burns in the hearth, filling the room with warmth and
+comfort. Don't get too close though, it seems to be spitting embers!
+~
+E
+stone table~
+A small table, carved from highland stone, has pride of place in the centre of 
+the room. It has obviously been made for an important purpose.
+~
+E
+book~
+Just nearing it's aged pages, a sense of solemnity overwhelms you. Your eyes
+drift over the pages, absorbing each name and the acts of courage that earned
+them a place in this ancient record of valour. You can't help but hope that
+one day you too may be remembered with such honour and respect.
+~
+E
+creationdate~
+Created June 3, 2001 by Montrey.
+~
+S
+
+#25902
+{cThe O{gbs{cer{gva{cto{gry {cof {HC{bi{Hp{bh{He{br{x~
+{cAs you enter this room your senses are assailed by {Tm{Ru{bl{Nt{Mi{Hfa{Mr{Ni{bo{Ru{Ts {csmells,{x
+{cemanating from the neat rows of {Bex{Co{Bti{Cc {cglassware arranged on the large {boak{x
+{ctable.  The table also has a number of blank parchments and discarded hand{x
+{cweapons on it, evidence of failed enchantments maybe?  The wood panelled{x
+{cwalls and the few {Noil {clamps lend a comforting dimness to the room.  Around{x
+{cthe walls hangings, made from a strangely {gsh{Wi{gm{cm{ge{cr{Wi{gng {cmaterial, depict{x
+{cscenes which seem not of this world!  They seem to add to the sombre{x
+{caspect of the room rather than contrast with it.  A number of wheels and{x
+{cpulleys run from handles, attached to the walls, up to the wooden panels{x
+{ccomprising the domed roof.  A black tubular device stands on a tripod near{x
+{cthe wall, the glass end-pieces suggest it has a visual function.  A small,{x
+{clow, dark wooden table and a huge leather sofa stand before the dying{x
+{Rem{bbe{Rrs {cof a large log fire.  A piece of {bd{Yu{bnd{Ye{be c{Ya{bk{Ye{c, a small, interesting-{x
+{clooking tome, and a glass of {Wmilk {cstand on the table.  You are {gst{Wa{grtl{We{gd{x
+{cto see a {Rc{Yo{Rw {cstanding motionless in one corner of the room!  You approach{x
+{cin a mixture of wonder and amusement, noticing a small pipe protruding from{x
+{cit's mouth as you get closer.  Pushing gently on the hinged lower jaw you{x
+{cjump back in surprise as a trickle of white liquid {Wsp{gl{Wat{gt{Wer{gs {con the wooden{x
+{cfloor.  {WMilk{c!!{x
+~
+0 DK 0
+D5
+~
+~
+0 -1 25900
+E
+tome~
+A book entitled 'Observations on Theran Life Forms' lies on the table.  It
+appears to be a diary of sorts, it's well-thumbed appearance suggesting
+great age.  As you handle it, it falls open at an oft visited page...
+~
+E
+page~
+The page is titled "Feral Species", and seems to be a particularly in-depth
+study of a race which apparently holds a special fascination for Cipher!
+~
+E
+device~
+As you examine this device, you wonder if you could use it to see that blonde
+beauty in Midgaard who you have had your eye on for a while...
+~
+E
+creationdate~
+Created June 19, 2001 by Montrey.
+~
+S
+
+#25903
+ {YA {TH{Yi{Tg{Yh{Tl{Ya{Tn{Yd {TH{Yi{Td{Ye{Ta{Yw{Ta{Yy{x~
+As you walk in the room your nostrils are filled with a musty smell
+and ears filled with the the music of the bagpipes that makes you want 
+to jig. On the gray, stone brick walls you see posters from the movie 
+Braveheart and Highlander: The series and movies. In the left- far corner 
+you see a shelf with trophies, medals, and pictures of the Highland Games 
+showing you that {TNox {xloves to play. Also on the shelf is some Scotish 
+style weapons, some of {TNox{x's favorites {Y:){x. Letting your eyes wander 
+to the right you see in the back of the room is a straw bed with sheets of plaid 
+and posts of oak. Next to the bed is a small shrine honoring the Celtic Druids. 
+In the very center of the room is a large ivory fountain to honor all the fallen 
+Highlander brothers........As you leave the room you realize this is a room of a 
+true Highlander.........a true Highland Leader.....
+~
+0 DKS 0
+C Highlander~
+D5 
+~
+~
+0 -1 25813
+E 
+creationdate~
+Nox's room by Leveret 3rd october 1999
+~
+S
+
+#0
+
+#RESETS
+M 0 25800 1 25805 1     * Load Sean Connery
+G 0 25801 1             * load hot on Sean Connery
+G 0 25802 1             * load golden  on Sean Connery
+G 0 25803 1             * load edinburg  on Sean Connery
+G 0 25804 1             * load scotch  on Sean Connery  
+
+M 0 25803 1 25828 1     * Load Lord John Boyd-Orr
+G 0 25810 1             * Load on Lord John Boyd-Orr
+G 0 25811 1             * Load on Lord John Boyd-Orr
+G 0 25812 1             * Load on Lord John Boyd-Orr
+G 0 25813 1             * Load on Lord John Boyd-Orr
+
+M 0 25805 1 25838 1     * Load William Wallace
+G 0 25821 1             * level 20 boots
+G 0 25822 1             * level 30 sleeves
+G 0 25823 1             * level 30 light
+G 0 25824 1             * level 30 leggings
+G 0 25825 1             * level 40 rings
+G 0 25826 1             * level 40 necklaces
+G 0 25827 1             * level 40 bracers
+G 0 25828 1             * level 60 boots
+
+M 0 25809 1 25855 1     * Tasslehoff
+G 0 25884 1             * Pack
+G 0 25851 1             * Map
+G 0 25852 1             * Doorknob
+
+M 0 25802 1 25822 1     * Load Alistair Forbes-Mackay
+M 0 25807 1 25850 1     * Flint Fireforge in Forge
+M 0 25802 1 25822 1     * Load Alistair Forbes-Mackay
+M 0 25804 1 25835 1     * Load Sir Thomas Makdougall Brisbane
+M 0 25808 1 25851 1     * Morton the sage in a small cave
+M 0 25806 1 25848 1     * some sounds at the portal room
+M 0 25801 1 25813 1     * Load Iona
+E 0 25800 10 13         * Load Kilt
+
+O 0 25861 1 25850       * forge <anvil> in Forge
+O 0 25862 1 25851       * Cushion <bed> in a small cave
+O 0 25863 1 25824 1     * Load bed in Party
+O 0 25864 1 25823 1     * Load fountain
+
+O 0 25865 1 25848       * a portal at the portal room
+O 0 25866 1 25848       * a portal at the portal room
+O 0 25867 1 25848       * a portal at the portal room
+O 0 25868 1 25848       * a face portal at the portal room
+
+O 0 25869 100 25834     * load pill Room of Rememberance
+O 0 25870 100 25834     * load pill Room of Rembererance
+
+D 0 25812 3 1           * Closes outside of clanhall west
+D 0 25813 1 1           * Closes inside of clanhall east
+
+M 0 25850 1 25900 1     * vulcow to Black Tower
+O 0 25880 1 25900       * bed to Black Tower
+O 0 25881 1 25900       * pitcher <fountain> to Black Tower
+O 0 25882 100 25900     * herbs <pill> to Black Tower
+
+M 0 25851 1 25901 1     * spirit of iona into Sundancer's room
+O 0 25883 50 25901      * ember into Sundancer's room
+O 0 25885 1 25901       * fountain into Sundancer's room
+O 0 25886 1 25901       * chairs into Sundancer's room
+
+O 0 25887 1 25902       * couch in Cipher's room
+O 0 25888 1 25902       * cow (fountain) in Cipher's room
+O 0 25889 50 25902      * cake (pill) in Cipher's room 
+
+M 0 25852 1 25903 1     * Watcher into Nox's room
+O 0 25890 1 25903       * Bed in Nox's room
+O 0 25891 50 25903      * Pill in Nox's room
+O 0 25892 1 25903       * Fountain in Nox's room
+
+M 0 25810 1 25852 1     * MacCawbor, money changer
+O 0 25805 1 25852       * notice into the bank
+
+S
+
+#SHOPS
+
+25803 0 0 0 0 0  125 50 0 23     *Lord John Boyd-Orr
+25800 0 0 0 0 0  125 50 0 23     *Sean Connery 
+25805 5 9 0 0 0  125 50 0 23     *William Wallace 
+25809 1 8 9 5 33 125 50 0 23     *Tass's Shop
+
+0
+
+#SPECIALS
+
+M 25807 spec_blacksmith          * Flint Fireforge
+M 25808 spec_sage                * Morton the sage
+
+S
+
+#$
+

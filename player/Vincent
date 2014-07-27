@@ -1,0 +1,448 @@
+#PLAYER
+Name Vincent~
+Id   989840157
+LogO 1017855067
+Vers 13
+Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
+Race human~
+Sex  1
+Cla  2
+Levl 50
+Tru  91
+Plyd 42746
+Back 38347
+Note 992057548 992055834 991101017 991101017 992037076 992036364 0
+Scro 22
+Room 3054
+HMS  1000 1000 714 714 630 635
+Gold 909
+Silv 727
+Gold_in_bank 2000
+Exp  50231
+PCkills 0
+PCkilled 0
+Akills 0
+Akilled 0
+PKRank 0
+Mark 17123
+Act  CDEFGHIJLQRSTc
+FRes P
+Comm LNO
+Revk 0
+Cgrp A
+Cnsr AB
+Pos  8
+Save  -10
+Alig  -719
+Hit   36
+Dam   43
+ACs -135 -137 -136 -114
+Wimp  100
+Atrib 18 18 18 21 18 18
+AtMod 2 7 9 7 11 4
+QuestPnts 2
+Pass nagasaki~
+GameIn  {cV{Bi{Cn{cc{Ce{Bn{ct {Tarrives, and the {bb{Ye{be{Yr {Tstarts to flow!{x~
+GameOut {cV{Bi{Cn{cc{Ce{Bn{ct {Thits the floor. {W({gProp me up against the bar, please{W){x~
+Afk {B[{CWed Apr  3 11:24:13 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl , {CL{Ta{ge{Wr{gk{Ta{Ci {BD{Nr{Be{Na{Bd{Nn{Ba{Nu{Bg{Nh{Bt{x~
+Immn ~
+Pnts 40
+Rank {GL{YN{GD{x~
+Aura ~
+TSex 1
+LLev 10
+Email Vincent-x@angelfire.com~
+Deit Edge~
+Stus Advocate~
+RmCt 5
+ExSk 0
+Raff 962
+Lsit mplsdslgw18poolD138.mpls.uswest.net~
+Ltim Wed Apr 03 11:14:48 2002
+~
+LSav Wed Apr 03 11:31:07 2002
+~
+MC 44
+Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+Plr  ABCFKMQ
+HMSP 930 341 635
+THMS 0 0 0
+Cnd  0 0 0 0
+Query radiant~
+Query gabriel~
+Query alisa~
+Query napalm~
+Query sundancer~
+Query legalos~
+Query jestera~
+Query scar~
+Query dogpack~
+Sk 75 1 'acid blast'
+Sk 75 1 'acid breath'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 76 1 'armor'
+Sk 1 1 'bless'
+Sk 75 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 1 1 'blood blade'
+Sk 1 1 'blood moon'
+Sk 75 1 'burning hands'
+Sk 75 1 'call lightning'
+Sk 1 1 'calm'
+Sk 75 1 'cancellation'
+Sk 75 1 'chain lightning'
+Sk 1 1 'change sex'
+Sk 1 1 'channel'
+Sk 75 1 'charm person'
+Sk 75 1 'chill touch'
+Sk 75 1 'colour spray'
+Sk 75 1 'continual light'
+Sk 75 1 'control weather'
+Sk 75 1 'create food'
+Sk 1 1 'create parchment'
+Sk 75 1 'create rose'
+Sk 75 1 'create sign'
+Sk 75 1 'create spring'
+Sk 1 1 'create vial'
+Sk 75 1 'create water'
+Sk 1 1 'cure blindness'
+Sk 75 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 75 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 75 1 'cure serious'
+Sk 75 1 'curse'
+Sk 76 1 'dazzling light'
+Sk 1 1 'demonfire'
+Sk 76 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 75 1 'detect magic'
+Sk 75 1 'detect poison'
+Sk 1 1 'dispel evil'
+Sk 75 1 'dispel good'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'earthquake'
+Sk 75 1 'encampment'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 75 1 'faerie fire'
+Sk 75 1 'faerie fog'
+Sk 75 1 'fear'
+Sk 75 1 'fire breath'
+Sk 75 1 'fireball'
+Sk 75 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 1 1 'flame blade'
+Sk 1 1 'flameshield'
+Sk 75 1 'flamestrike'
+Sk 75 1 'fly'
+Sk 75 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'frost blade'
+Sk 75 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 75 1 'gate'
+Sk 75 1 'giant strength'
+Sk 77 1 'haste'
+Sk 77 1 'heal'
+Sk 1 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 75 1 'identify'
+Sk 75 1 'infravision'
+Sk 75 1 'invisibility'
+Sk 75 1 'know alignment'
+Sk 75 1 'light of truth'
+Sk 75 1 'lightning bolt'
+Sk 75 1 'lightning breath'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
+Sk 75 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 75 1 'mass invis'
+Sk 75 1 'nexus'
+Sk 75 1 'pass door'
+Sk 75 1 'plague'
+Sk 75 1 'poison'
+Sk 1 1 'power word'
+Sk 1 1 'polymorph'
+Sk 75 1 'portal'
+Sk 1 1 'protect container'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 1 1 'ray of truth'
+Sk 1 1 'recharge'
+Sk 75 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 75 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 77 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 1 1 'shock blade'
+Sk 75 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 75 1 'sleep'
+Sk 79 1 'slow'
+Sk 75 1 'smokescreen'
+Sk 76 1 'steel mist'
+Sk 75 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'sunray'
+Sk 1 1 'talon'
+Sk 75 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 75 1 'undo spell'
+Sk 75 1 'ventriloquate'
+Sk 1 1 'vision'
+Sk 75 1 'weaken'
+Sk 75 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 75 1 'axe'
+Sk 89 1 'dagger'
+Sk 75 1 'flail'
+Sk 75 1 'mace'
+Sk 75 1 'polearm'
+Sk 75 1 'spear'
+Sk 75 1 'sword'
+Sk 75 1 'whip'
+Sk 71 1 'shield block'
+Sk 1 1 'brew'
+Sk 1 1 'scribe'
+Sk 75 1 'backstab'
+Sk 1 1 'bash'
+Sk 1 1 'berserk'
+Sk 74 1 'circle'
+Sk 75 1 'dirt kicking'
+Sk 71 1 'disarm'
+Sk 85 1 'dodge'
+Sk 88 1 'enhanced damage'
+Sk 75 1 'envenom'
+Sk 72 1 'hand to hand'
+Sk 75 1 'kick'
+Sk 74 1 'parry'
+Sk 1 1 'rescue'
+Sk 75 1 'trip'
+Sk 75 1 'second attack'
+Sk 74 1 'third attack'
+Sk 78 1 'dual wield'
+Sk 75 1 'hunt'
+Sk 75 1 'swimming'
+Sk 78 1 'fast healing'
+Sk 75 1 'firebuilding'
+Sk 75 1 'forge'
+Sk 78 1 'repair'
+Sk 75 1 'rotate'
+Sk 75 1 'languages'
+Sk 75 1 'haggle'
+Sk 75 1 'hide'
+Sk 75 1 'lore'
+Sk 82 1 'meditation'
+Sk 75 1 'peek'
+Sk 75 1 'pick lock'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 75 1 'steal'
+Sk 1 1 'sing'
+Sk 75 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 75 1 'recall'
+Sk 1 1 'sheen'
+Sk 1 1 'focus'
+Sk 1 1 'barrier'
+Sk 65 1 'shadow form'
+Sk 44 1 'hone'
+Sk 76 1 'riposte'
+Sk 75 1 'align'
+Sk 75 1 'standfast'
+Sk 75 1 'mark'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'weaponsmaster'
+Gr 'attack'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 3388
+Nest 0
+Cond 96
+Wear -1
+Cost 42000
+End
+
+#O
+Vnum 3205
+Nest 0
+Wear 5
+Cost 60
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 16071
+Nest 0
+ExtF 3
+Wear 19
+Cost 5000
+End
+
+#O
+Vnum 11646
+Nest 0
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 20043
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 5603
+Nest 0
+ExtF 17302019
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 8205
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 11671
+Nest 0
+ExtF 262145
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 16017
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 11644
+Nest 0
+ExtF 262145
+Wear 7
+Cost 10
+End
+
+#O
+Vnum 17105
+Nest 0
+ExtF 16777217
+Wear 8
+Cost 145
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear 10
+Cost 133
+End
+
+#O
+Vnum 16071
+Nest 0
+ExtF 3
+Wear 16
+Cost 5000
+End
+
+#O
+Vnum 17102
+Nest 0
+Wear 0
+Cost 250
+End
+
+#O
+Vnum 17108
+Nest 0
+Wear 15
+Cost 350
+End
+
+#O
+Vnum 4471
+Nest 0
+Name token race~
+ShD  {Ya token for a free race change{x~
+Wear -1
+Cost 3500
+ExDe owned by~ Vincent
+~
+End
+
+#O
+Vnum 17108
+Nest 0
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 10168
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 5409
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END
