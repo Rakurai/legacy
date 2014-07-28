@@ -2330,42 +2330,67 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	// size affects dodge rate - Montrey (2014)
 	chance -= (ch->size - SIZE_MEDIUM) * 5;  // bonus 10% for tiny, -15% for giant
 
+	// evasion checks moved to general dodge/blur - Montrey (2014)
+	// stats
+	chance += 5 * ( (get_curr_stat(ch,STAT_DEX)) - (get_curr_stat(victim,STAT_DEX)) );
+
+	// speed and spells
+	if (IS_SET(victim->off_flags,OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
+		chance += 10;
+	if (IS_SET(ch->off_flags,OFF_FAST) || IS_AFFECTED(ch, AFF_HASTE))
+		chance -= 10;
+	if (IS_AFFECTED(victim, AFF_SLOW))
+		chance -= 10;
+	if (IS_AFFECTED(ch, AFF_SLOW))
+		chance += 10;
 	if (!can_see(victim,ch))
-		chance /= 2;
+		chance -= 20;
+	if (!can_see(ch,victim))
+		chance += 20;
+
+//	if (!can_see(victim,ch))
+//		chance /= 2;
 
 	if (get_affect(victim->affected,gsn_paralyze))
 		chance /= 2;
 
-	if (number_percent() >= chance + victim->level - ch->level )
+	chance += victim->level - ch->level;
+
+	/*Moderate the result*/
+	chance = URANGE(5, chance, 95);
+
+	if (number_percent() >= chance)
 	{
 		check_improve(victim, gsn_dodge, FALSE, 10);
 		return FALSE;
 	}
 
-	/* dodge is good, let's figure out the damage message */
-	if ( dt >= 0 && dt < MAX_SKILL )
-		attack = skill_table[dt].noun_damage;
-	// hack to get a specific damage type in here without making it a skill
-	else if ( dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
-		attack = attack_table[dt - TYPE_HIT].noun;
-	else
-	{
-		bug( "Dam_message: bad dt %d.", dt );
-		dt  = TYPE_HIT;
-		attack  = attack_table[0].name;
-	}
+//	if (dt != gsn_bash) {
+		/* dodge is good, let's figure out the damage message */
+		if ( dt >= 0 && dt < MAX_SKILL )
+			attack = skill_table[dt].noun_damage;
+		// hack to get a specific damage type in here without making it a skill
+		else if ( dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
+			attack = attack_table[dt - TYPE_HIT].noun;
+		else
+		{
+			bug( "Dam_message: bad dt %d.", dt );
+			dt  = TYPE_HIT;
+			attack  = attack_table[0].name;
+		}
 
-	if (!IS_SET(victim->act,PLR_DEFENSIVE))
-	{
-		sprintf(buf, "{BYou dodge $n's {B%s.{x", attack);
-		act(buf, ch, NULL, victim, TO_VICT);
-	}
+		if (!IS_SET(victim->act,PLR_DEFENSIVE))
+		{
+			sprintf(buf, "{BYou dodge $n's {B%s.{x", attack);
+			act(buf, ch, NULL, victim, TO_VICT);
+		}
 
-	if (!IS_SET(ch->act,PLR_DEFENSIVE))
-	{
-		sprintf(buf, "{R$N{R dodges your %s.{x", attack);
-		act(buf, ch, NULL, victim, TO_CHAR);
-	}
+		if (!IS_SET(ch->act,PLR_DEFENSIVE))
+		{
+			sprintf(buf, "{R$N{R dodges your %s.{x", attack);
+			act(buf, ch, NULL, victim, TO_CHAR);
+		}
+//	}
 
 	check_improve(victim,gsn_dodge,TRUE,6);
 	return TRUE;
@@ -2387,41 +2412,66 @@ bool check_blur( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	// size affects blur rate - Montrey (2014)
 	chance -= (ch->size - SIZE_MEDIUM) * 3;  // bonus 6% for tiny, -9% for giant
 
+	// evasion checks moved to general dodge/blur - Montrey (2014)
+	// stats
+	chance += 5 * ( (get_curr_stat(ch,STAT_DEX)) - (get_curr_stat(victim,STAT_DEX)) );
+
+	// speed and spells
+	if (IS_SET(victim->off_flags,OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
+		chance += 10;
+	if (IS_SET(ch->off_flags,OFF_FAST) || IS_AFFECTED(ch, AFF_HASTE))
+		chance -= 10;
+	if (IS_AFFECTED(victim, AFF_SLOW))
+		chance -= 10;
+	if (IS_AFFECTED(ch, AFF_SLOW))
+		chance += 10;
 	if (!can_see(victim,ch))
-		chance /= 2;
+		chance -= 20;
+	if (!can_see(ch,victim))
+		chance += 20;
+
+//	if (!can_see(victim,ch))
+//		chance /= 2;
 
 	if (get_affect(victim->affected,gsn_paralyze))
 		chance /= 2;
 
-	if (number_percent() >= chance + victim->level - ch->level )
+	chance += victim->level - ch->level;
+
+	/*Moderate the result*/
+	chance = URANGE(5, chance, 95);
+
+	if (number_percent() >= chance)
 	{
 		check_improve(victim, gsn_blur, FALSE, 10);
 		return FALSE;
 	}
 
-	/* blur is good, let's figure out the damage message */
-	if (dt >= 0 && dt < MAX_SKILL)
-		attack = skill_table[dt].noun_damage;
-	else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
-		attack = attack_table[dt - TYPE_HIT].noun;
-	else
-	{
-		bug("Dam_message: bad dt %d.",dt);
-		dt = TYPE_HIT;
-		attack = attack_table[0].name;
-	}
+//	if (dt != gsn_bash) {
+		/* blur is good, let's figure out the damage message */
+		if (dt >= 0 && dt < MAX_SKILL)
+			attack = skill_table[dt].noun_damage;
+		else if (dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
+			attack = attack_table[dt - TYPE_HIT].noun;
+		else
+		{
+			bug("Dam_message: bad dt %d.",dt);
+			dt = TYPE_HIT;
+			attack = attack_table[0].name;
+		}
 
-	if (!IS_SET(victim->act,PLR_DEFENSIVE))
-	{
-		sprintf(buf, "{V$n's {V%s is no match for your speed.{x", attack);
-		act(buf, ch, NULL, victim, TO_VICT);
-	}
+		if (!IS_SET(victim->act,PLR_DEFENSIVE))
+		{
+			sprintf(buf, "{V$n's {V%s is no match for your speed.{x", attack);
+			act(buf, ch, NULL, victim, TO_VICT);
+		}
 
-	if (!IS_SET(ch->act,PLR_DEFENSIVE))
-	{
-		sprintf(buf, "{M$N {Mblurs with speed as $E evades your %s.{x", attack);
-		act(buf, ch, NULL, victim, TO_CHAR);
-	}
+		if (!IS_SET(ch->act,PLR_DEFENSIVE))
+		{
+			sprintf(buf, "{M$N {Mblurs with speed as $E evades your %s.{x", attack);
+			act(buf, ch, NULL, victim, TO_CHAR);
+		}
+//	}
 
 	check_improve(victim, gsn_blur, TRUE, 6);
 	return TRUE;
@@ -3346,7 +3396,7 @@ void do_bash( CHAR_DATA *ch, char *argument )
 
 	one_argument(argument,arg);
 
-	if ((chance = get_skill(ch,gsn_bash)) == 0
+	if (get_skill(ch,gsn_bash) == 0
 	 || (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_BASH))
 	 || (!IS_NPC(ch) && ch->level < skill_table[gsn_bash].skill_level[ch->class]))
 	{
@@ -3415,64 +3465,19 @@ void do_bash( CHAR_DATA *ch, char *argument )
 
 	/* modifiers */
 
-	/* size as a factor */
-	if (ch->size > victim->size)
-		chance -= (ch->size - victim->size) * 10;
-
-	/* stats */
-	chance += 5 * ( (get_curr_stat(ch,STAT_DEX)) - (get_curr_stat(victim,STAT_DEX)) );
-
-	/* speed and other spell mods*/
-	if (IS_SET(ch->off_flags,OFF_FAST) || IS_AFFECTED(ch,AFF_HASTE))
-		chance += 10;
-	if (IS_SET(victim->off_flags,OFF_FAST) || IS_AFFECTED(victim,AFF_HASTE))
-		chance -= 15;
-	if (IS_AFFECTED(ch,AFF_SLOW))
-		chance -= 10;
-	if (IS_AFFECTED(victim,AFF_SLOW))
-		chance += 15;
-	if (!can_see(victim,ch))
-		chance += 20;
-	if (!can_see(ch,victim))
-		chance -= 20;
-
-	/* level */
-	chance += (ch->level - victim->level);
-	
-	/* this is intentional!  AC_BASH is armor class vs blunt weapons, gained through
-	   thick armors and stuff.  the penalty for it is not a typo, it is supposed to
-	   count against you -- Montrey */
-	chance -= get_armor_ac(victim, AC_BASH) / 20;
-
-	/* Hitroll matters, maybe in the future */
-	/*if (GET_HITROLL(ch) <120)
-		chance += (GET_HITROLL(ch) / 8);
-	else
-	{
-		chance += 15;
-		chance += ((GET_HITROLL(ch) - 120) / 16);
-	}*/
-
-	/*Dodge and Blur modifiers*/
-	chance -= get_skill(victim, gsn_dodge) / 5;
-
-	if (CAN_USE_RSKILL(victim,gsn_blur))
-		chance -= get_skill(victim,gsn_blur) / 4;
-
-	/* less bashable if translucent -- Elrac */
-	if ( IS_AFFECTED(victim,AFF_PASS_DOOR) )
-		chance -= chance / 3;
-
-	/*Moderate the result*/
-	chance = URANGE(5, chance, 95);
+   // new bash mods - Montrey (2014)
+   // split now into two checks.  we first check for evasion (dodge/blur), and then
+   // for chance of being knocked down
 
 	/* now the attack */
 	check_killer(ch,victim);
 
+	if (ch->fighting == NULL)
+		set_fighting(ch, victim);
+
 	/*check for successful hit*/
-	if (number_percent() > chance )   /*Failed hit*/
-	{
-		if (ch->fighting == NULL) set_fighting(ch, victim);
+	if (check_dodge(ch, victim, gsn_bash)
+	 || check_blur(ch, victim, gsn_bash)) {
 
       /* We missed. However, if bash is evolved, we keep our footing. -- Outsider */
       if (evolution_level < 2)   /* fail */
@@ -3494,11 +3499,33 @@ void do_bash( CHAR_DATA *ch, char *argument )
       return;
 	}
 
-	/*Successful hit*/
+	// connect, check to see if knocked down
 	chance = get_skill(ch,gsn_bash);
 
-	/*Size modifiers to the knockdown*/
-	chance += (ch->size - victim->size) * 20;
+    // size is a factor twice - here for knockdown, and in dodge/blur for evasion
+	if (ch->size > victim->size)
+		chance -= (ch->size - victim->size) * 15;
+
+	/* level */
+	chance += (ch->level - victim->level);
+	
+	/* this is intentional!  AC_BASH is armor class vs blunt weapons, gained through
+	   thick armors and stuff.  the penalty for it is not a typo, it is supposed to
+	   count against you -- Montrey */
+	chance -= get_armor_ac(victim, AC_BASH) / 20;
+
+	/* Hitroll matters, maybe in the future */
+	/*if (GET_HITROLL(ch) <120)
+		chance += (GET_HITROLL(ch) / 8);
+	else
+	{
+		chance += 15;
+		chance += ((GET_HITROLL(ch) - 120) / 16);
+	}*/
+
+	/* less bashable if translucent -- Elrac */
+//	if ( IS_AFFECTED(victim,AFF_PASS_DOOR) )
+//		chance -= chance / 3;
 
 	/*Change in chance based on STR and score and stamina*/
 	chance += 5 * (get_curr_stat(ch, STAT_STR) - get_curr_stat(victim, STAT_STR));
