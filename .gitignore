@@ -3,7 +3,9 @@ nohup.out
 .DS*
 bootfile
 *~
-core
+core*
+player/backup/*
+player/oldchar
 legacy
 legacy.bak
 sand_server

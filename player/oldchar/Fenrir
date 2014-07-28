@@ -1,273 +1,0 @@
-#PLAYER
-Name Fenrir~
-Id   1010356287
-LogO 1010359600
-Vers 9
-Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nmv {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
-Race wolf~
-Sex  1
-Cla  3
-Levl 4
-Plyd 3080
-Age  0
-Back 0
-Note 1010356518 1010356518 1010356518 1010356518 1010356518 1010356518
-Scro 22
-Room 3743
-HMV  66 66 110 110 63 118
-Gold 3
-Silv 432
-Exp  5830
-PCkills 0
-PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
-Act  CDEFGHJLQSc
-AfBy Z
-Comm NO
-Revk 0
-Cnsr AB
-Pos  8
-Save  -8
-Alig  750
-Hit   13
-Dam   8
-ACs 78 70 73 98
-Atrib 20 14 18 15 19 15
-AtMod 1 2 3 2 0 2
-Pass archangel~
-Titl  the Ice Wolf.~
-Immn ~
-Pnts 41
-Rank ~
-Aura ~
-TSex 1
-LLev 0
-Deit Gabriel~
-Lsit mplsdslgw18C130.mpls.uswest.net~
-Ltim Sun Jan 06 16:35:13 2002
-~
-LSav Sun Jan 06 17:26:40 2002
-~
-Finf 
-{NLo there do I see my father
-{NLo there do I see my mother and my sisters and my brothers
-{NLo there do I see the line of my people, back to the beginning.
-{NLo, they do call to me
-They bid me take my place among them
-In the halls of Valhalla 
-Where the brave...may live...forever.
-
-{TFrom a battle Ive come 
-{TTo a battle I ride
-{TBlazing up to the sky
-{TChains of fate
-{THold a firey stride
-{TIll see you again when a die
-
-{THigh and mighty alone we are kings
-{TWhirlwinds of fire we ride
-{TProvidence brought us the crown and the ring
-{TCovered with blood and our pride
-
-{THeroes await me
-{TMy enemies ride fast
-{TKnowing not this rides their last
-{TSaddle my horse as I drink my last ale
-{TBow string and steel will prevail
-
-{THigh and mighty alone we are kings
-{TWhirlwinds of fire we ride
-{TProvidence brought us the crown and the ring
-{TCovered with blood and our pride
-
-{TOdin I await thee
-{TYour true son am I
-{TI hail you now as I die
-{TI pledge you my sword and to no man I kneel
-{TOurs is the kingdom of steel
-
-{THigh and mighty alone weare kings
-{TWhirlwinds of fire we ride
-{TProvidence brought us the crown and the ring
-{TCovered with blood and our pride.
-{x
-~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  C
-HMVP 62 110 118
-THVP 0 0 0
-Cnd  0 0 0 0
-Sk 1 1 'channel'
-Sk 1 1 'divine regeneration'
-Sk 1 1 'giant strength'
-Sk 1 1 'haste'
-Sk 1 1 'infravision'
-Sk 1 1 'refresh'
-Sk 1 1 'regeneration'
-Sk 1 1 'talon'
-Sk 75 1 'sword'
-Sk 1 1 'dodge'
-Sk 21 1 'enhanced damage'
-Sk 1 1 'hand to hand'
-Sk 64 1 'parry'
-Sk 1 1 'second attack'
-Sk 1 1 'third attack'
-Sk 1 1 'hunt'
-Sk 1 1 'fast healing'
-Sk 100 1 'scan'
-Sk 1 1 'scrolls'
-Sk 1 1 'staves'
-Sk 1 1 'wands'
-Sk 50 1 'recall'
-Gr 'rom basics'
-Gr 'warrior basics'
-Gr 'enhancement'
-Affc 'blood moon'   0  93  69   5  18          0 1
-Affc 'blood moon'   0  92  69   8  19          0 1
-Affc 'divine regeneration'   0  92  68   0   0   33554432 1
-Affc 'bless'   0  50   1  -7  24          0 1
-Affc 'bless'   0  42   1   7  18          0 1
-End
-
-#O
-Vnum 3716
-Nest 0
-Wear 0
-Cost 0
-Val  0 0 132 0 0
-End
-
-#O
-Vnum 3702
-Nest 0
-Cond 95
-Wear 16
-Cost 360
-End
-
-#O
-Vnum 2101
-Nest 0
-Wear 5
-Cost 0
-End
-
-#O
-Vnum 76
-Nest 0
-Wear 17
-Cost 0
-End
-
-#O
-Vnum 73
-Nest 0
-Wear 6
-Cost 270
-End
-
-#O
-Vnum 74
-Nest 0
-Wear 3
-Cost 550
-End
-
-#O
-Vnum 75
-Nest 0
-Wear 2
-Cost 620
-End
-
-#O
-Vnum 2104
-Nest 0
-Wear 11
-Cost 0
-End
-
-#O
-Vnum 1344
-Nest 0
-Cond 92
-Wear 1
-Cost 0
-End
-
-#O
-Vnum 3707
-Nest 0
-Wear 7
-Cost 72
-End
-
-#O
-Vnum 3712
-Nest 0
-Wear 13
-Cost 72
-End
-
-#O
-Vnum 3711
-Nest 0
-Wear 12
-Cost 72
-End
-
-#O
-Vnum 3705
-Nest 0
-Wear 4
-Cost 72
-End
-
-#O
-Vnum 3713
-Nest 0
-Wear 14
-Cost 48
-End
-
-#O
-Vnum 3724
-Nest 0
-Wear -1
-Cost 100
-Val  60 1 0 6 100
-End
-
-#O
-Vnum 3713
-Nest 0
-Wear 15
-Cost 48
-End
-
-#O
-Vnum 3162
-Nest 0
-Wear -1
-Cost 500
-End
-
-#O
-Vnum 80
-Nest 0
-Wear 18
-Cost 0
-End
-
-#O
-Vnum 78
-Nest 0
-Wear 8
-Cost 900
-End
-
-#END
