@@ -2327,6 +2327,9 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 
 	chance = get_skill(victim,gsn_dodge) / 2;
 
+	// size affects dodge rate - Montrey (2014)
+	chance -= (ch->size - SIZE_MEDIUM) * 5;  // bonus 10% for tiny, -15% for giant
+
 	if (!can_see(victim,ch))
 		chance /= 2;
 
@@ -2342,6 +2345,7 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	/* dodge is good, let's figure out the damage message */
 	if ( dt >= 0 && dt < MAX_SKILL )
 		attack = skill_table[dt].noun_damage;
+	// hack to get a specific damage type in here without making it a skill
 	else if ( dt >= TYPE_HIT && dt <= TYPE_HIT + MAX_DAMAGE_MESSAGE)
 		attack = attack_table[dt - TYPE_HIT].noun;
 	else
@@ -2379,6 +2383,9 @@ bool check_blur( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 		return FALSE;
 
 	chance = get_skill(victim,gsn_blur) / 3;
+
+	// size affects blur rate - Montrey (2014)
+	chance -= (ch->size - SIZE_MEDIUM) * 3;  // bonus 6% for tiny, -9% for giant
 
 	if (!can_see(victim,ch))
 		chance /= 2;
