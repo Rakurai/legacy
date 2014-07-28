@@ -1,7 +1,7 @@
 #PLAYER
 Name Montrey~
 Id   989562832
-LogO 1406468155
+LogO 1406581936
 Vers 15
 Mexp 2
 Pass psychomoop~
@@ -10,13 +10,13 @@ Race vampire~
 Clan balance~
 Cla  5
 Levl 100
-Plyd 9632296
+Plyd 9699224
 Back 3286077
-Note 1025818974 1024690924 1024989569 1025744365 1024816827 1025822889 1025590922
+Note 1025818974 1024690924 1024989569 1025744365 1406400423 1025822889 1025590922
 Scro 100
 Room 1298
-HMS  29658 30180 22736
-Gold 993029
+HMS  29658 30180 29498
+Gold 988034
 Silv 517
 Exp  200000
 PCkills  4
@@ -24,16 +24,16 @@ PCkilled 0
 Akills   1
 Akilled  1
 PKRank   1
-Pos  8
+Pos  5
 Alig 0
-Spou Sorsha~
+Spou ~
 Wspr Liriel~
 Ptnr Teotwawki~
 Mark 1298
 FImm D
 FRes BM
 FVul LNS
-Plr  ACFIMNQRTUd
+Plr  ACFIMNQTUd
 Video D
 Act  CDEGLQST
 AfBy T
@@ -46,9 +46,9 @@ Prac 500
 Trai 500
 Wimp 0
 Lay 10
-Lay_Next 1
+Lay_Next 9
 Familiar 0
-Wizn ACEFIJRSUVZabc
+Wizn ACDEFIJMNOQRSUVZabc
 Invi 0
 Lurk 0
 Secu 2
@@ -76,10 +76,10 @@ Stus ~
 RmCt 1
 ExSk 0
 Raff 907
-Lsit static-host-24-31-12-106.nctv.com~
-Ltim Sun Jul 27 05:32:26 2014
+Lsit 24.31.12.106~
+Ltim Mon Jul 28 11:44:35 2014
 ~
-LSav Sun Jul 27 06:35:55 2014
+LSav Mon Jul 28 14:12:16 2014
 ~
 Finf {PAlisa [92]: by god, I rule{x
 
@@ -174,6 +174,7 @@ Alias gech gecho {WA whisper of enlightenment thunders in your skull: ~
 Alias realcopyover copyover~
 Alias copyover whap self~
 Alias send c 'teleport object'~
+Alias test say blah|say blah~
 Query napalm~
 Query nightowl~
 Query syveril~
@@ -432,12 +433,12 @@ Cond 89
 Wear -1
 Lev  91
 Cost 55000
-ExDe katana~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
+ExDe chirijiraden~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
 {ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
 {gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
 {gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
 ~
-ExDe chirijiraden~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
+ExDe katana~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
 {ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
 {gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
 {gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
@@ -449,7 +450,7 @@ Vnum 7502
 Nest 0
 Name his pants~
 ShD  his pants~
-Wear -1
+Wear 12
 Cost 5000
 End
 
@@ -487,9 +488,9 @@ ShD  {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C th
 Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
 Wear -1
 Cost 0
-ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
-~
 ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 End
 
@@ -519,34 +520,6 @@ Desc {xIt looks like {GA{Hl{Wi{Hs{Ga{x and {VS{Mun{Vda{Mnc{Ver{x spilled wine he
 Wear -1
 Cost 25000
 Val  15 5 18 0 0
-End
-
-#O
-Vnum 12
-Nest 1
-ShD  the head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x~
-Desc The severed head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x is lying here.~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 14085
-Nest 1
-Name jumbled pile fluffy quilts~
-ShD  {Wa jumbled pile of {Vf{Wl{gu{Wf{gf{Vy {Yq{Gu{Ci{Gl{Ct{Ys{x~
-Desc {WA jumbled pile of {Vc{Wo{gm{Wf{Vy {Yq{Gu{Ci{Gl{Ct{Ys {Wlie strewn about the floor.{x~
-Mat {gs{Ti{Ws{gt{Te{Wr{gh{Too{gd{x~
-ExtF 17055811
-WeaF 32769
-Wt   5
-Wear -1
-Lev  0
-Cost 0
-ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
-~
-ExDe owned by~ Alisa
-~
 End
 
 #O
@@ -612,23 +585,6 @@ Cost 0
 End
 
 #O
-Vnum 7502
-Nest 1
-Name leather bound binder~
-ShD  {Wa {bleather bound {Wtr{ga{Wd{gin{Wg c{gar{Wd bi{gn{Wd{ger{x~
-Desc {WSomeone has left a {bleather bound{W binder here.{x~
-ExtF 16777475
-WeaF 32769
-Wt   10
-Wear -1
-Lev  0
-Cost 0
-Val  300 1 0 1 20
-ExDe leather bound binder~ It's a {bleather{x binder designed to hold trading cards.
-~
-End
-
-#O
 Vnum 1215
 Nest 1
 Name hug wild token choice montrey liriel~
@@ -685,11 +641,11 @@ ShD  {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the
 Desc {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
 Wear -1
 Cost 0
-ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 ExDe wedding~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
-ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 End
 
@@ -724,9 +680,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  33 67 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Peliar.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -752,9 +708,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Liriel.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -768,9 +724,54 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
+ExDe florist~ This rose was created by Shadowhunter.
+~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Shadowhunter.
+End
+
+#O
+Vnum 7502
+Nest 1
+Name leather bound binder~
+ShD  {Wa {bleather bound {Wtr{ga{Wd{gin{Wg c{gar{Wd bi{gn{Wd{ger{x~
+Desc {WSomeone has left a {bleather bound{W binder here.{x~
+ExtF 16777475
+WeaF 32769
+Wt   10
+Wear -1
+Lev  0
+Cost 0
+Val  300 1 0 1 20
+ExDe leather bound binder~ It's a {bleather{x binder designed to hold trading cards.
+~
+End
+
+#O
+Vnum 12
+Nest 1
+ShD  the head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x~
+Desc The severed head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x is lying here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14085
+Nest 1
+Name jumbled pile fluffy quilts~
+ShD  {Wa jumbled pile of {Vf{Wl{gu{Wf{gf{Vy {Yq{Gu{Ci{Gl{Ct{Ys{x~
+Desc {WA jumbled pile of {Vc{Wo{gm{Wf{Vy {Yq{Gu{Ci{Gl{Ct{Ys {Wlie strewn about the floor.{x~
+Mat {gs{Ti{Ws{gt{Te{Wr{gh{Too{gd{x~
+ExtF 17055811
+WeaF 32769
+Wt   5
+Wear -1
+Lev  0
+Cost 0
+ExDe owned by~ Alisa
+~
+ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
 ~
 End
 
@@ -924,9 +925,9 @@ Enchanted
 Nest 1
 Wear -1
 Cost 0
-Affc 'enchant weapon'   0 100  -1   2  18          0 1
-Affc 'enchant weapon'   1 100  -1   2  19          0 1
 Affc 'reserved'   1  95  -1 -20  24          0 1
+Affc 'enchant weapon'   1 100  -1   2  19          0 1
+Affc 'enchant weapon'   0 100  -1   2  18          0 1
 End
 
 #O
@@ -1587,9 +1588,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  45 91 0 0 0
-ExDe chef~ This food was created by Doomsmerf.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Doomsmerf.
 ~
 End
 
@@ -1603,9 +1604,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1626,9 +1627,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1642,9 +1643,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1665,9 +1666,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe chef~ This food was created by Urza.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Urza.
 ~
 End
 
@@ -1858,17 +1859,6 @@ End
 #O
 Vnum 4471
 Nest 1
-Name playgirl~
-ShD  {Tthe May 768 {YP{BL{PA{GY{VG{MI{CR{YL{T, featuring a centerfold of {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr!!{x~
-Desc That is one big... Halo :)~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
 Name playboy~
 ShD  {Tthe April 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {BT{Car{Ba{T!!{x~
 Desc Brains&Beauty protected by a Ninja Cloak.~
@@ -1950,17 +1940,6 @@ End
 #O
 Vnum 4471
 Nest 1
-Name playgirl montrey december~
-ShD  {Tthe December 768 {VP{WL{VA{WY{VG{WI{VR{WL{T, featuring a centerfold of {gM{Wo{gn{Ct{gr{We{gy{T!!{x~
-Desc {VS{We{Vx{Wy {gM{Wo{gn{Ct{gr{We{gy{N is {Gposing {Nseductively here{C!{x~
-Mat smut~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
 Name playboy~
 ShD  {Tthe December 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {WL{Ci{Br{Ci{Te{Wl{T!!{x~
 Desc Whoa, those are some nice...  where'd the next page go??~
@@ -1970,24 +1949,25 @@ Cost 3500
 End
 
 #O
-Vnum 1213
-Nest 0
-Name silver dagger thievery trading card Montrey RARE~
-ShD  {Wa {gS{Wi{gl{Wv{ge{Wr {gD{Wa{gg{Wg{ge{Wr {go{Wf {TT{Ch{Ti{Ce{Tv{Ce{Tr{Cy {Wtr{ga{Wd{gin{Wg c{gar{Wd {P({Rrare{P){x~
-Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Vnum 4471
+Nest 1
+Name playgirl~
+ShD  {Tthe May 768 {YP{BL{PA{GY{VG{MI{CR{YL{T, featuring a centerfold of {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr!!{x~
+Desc That is one big... Halo :)~
 Mat paper~
 Wear -1
-Cost 0
-ExDe her fathers katana trading card~ Left to Filfaere by her father, this blade's destiny is to some day
-cut down the evil Elvanshalee and do honor to their family.  The
-day when Filfaere and Elvanshalee lock blades may yet be far off,
-though, as Filfaere seems to prefer standing in the marketplace
-over trying to enter the palace.
-~
-ExDe silver dagger thievery trading card~ The silver blade of Xenith, the World Forger.  As sightings of the
-goddess by mortals are seldom, few know of this legendary dagger,
-and thankfully even less have seen it brandished in anger.
-~
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name playgirl montrey december~
+ShD  {Tthe December 768 {VP{WL{VA{WY{VG{WI{VR{WL{T, featuring a centerfold of {gM{Wo{gn{Ct{gr{We{gy{T!!{x~
+Desc {VS{We{Vx{Wy {gM{Wo{gn{Ct{gr{We{gy{N is {Gposing {Nseductively here{C!{x~
+Mat smut~
+Wear -1
+Cost 3500
 End
 
 #O
@@ -2031,9 +2011,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  45 91 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Sharra.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -2047,9 +2027,9 @@ Wear -1
 Lev  91
 Cost 500000
 Val  60 60 60 60 0
-Affc 'reserved'   1 100  -1 150  13          0 1
-Affc 'reserved'   1 100  -1   3  18          0 1
 Affc 'reserved'   1 100  -1  -3  20          0 1
+Affc 'reserved'   1 100  -1   3  18          0 1
+Affc 'reserved'   1 100  -1 150  13          0 1
 End
 
 #O
@@ -2202,9 +2182,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 1 0
-ExDe chef~ This food was created by Urza.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Urza.
 ~
 End
 
@@ -2218,9 +2198,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Alara.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Alara.
 ~
 End
 
@@ -2234,9 +2214,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Alara.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Alara.
 ~
 End
 
@@ -2247,9 +2227,9 @@ WeaF 1
 Wear -1
 Time -1
 Cost 0
-ExDe carpenter~ This road sign was created by Alara.
-~
 ExDe sign~ {gA{Hl{Ga{Hr{ga{x, {WG{Yo{Wdde{Ys{Ws {gof {cSt{Ya{crl{Yi{cght {gand {MS{Ton{Mg{x was here!
+~
+ExDe carpenter~ This road sign was created by Alara.
 ~
 End
 
@@ -2263,9 +2243,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe chef~ This food was created by Urza.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Urza.
 ~
 End
 
@@ -2279,9 +2259,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -2540,9 +2520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2940,9 +2920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3340,9 +3320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3740,9 +3720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4140,9 +4120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4540,9 +4520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4940,9 +4920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5340,9 +5320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5740,9 +5720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6140,9 +6120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6540,9 +6520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6940,9 +6920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7340,9 +7320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7740,9 +7720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8140,9 +8120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8540,9 +8520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8940,9 +8920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9340,9 +9320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9740,9 +9720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10140,9 +10120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10540,9 +10520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10940,9 +10920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11340,9 +11320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11740,9 +11720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12140,9 +12120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12540,9 +12520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12940,9 +12920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -13340,9 +13320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -13740,9 +13720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -14140,9 +14120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -14540,9 +14520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -14940,9 +14920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -15340,9 +15320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -15740,9 +15720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -16140,9 +16120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -16540,9 +16520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -16940,9 +16920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -17340,9 +17320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -17740,9 +17720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -18140,9 +18120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -18540,9 +18520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -18940,9 +18920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -19340,9 +19320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -19740,9 +19720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -20140,9 +20120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -20540,9 +20520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -20940,9 +20920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -21340,9 +21320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -21740,9 +21720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -22140,9 +22120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -22540,9 +22520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -22940,9 +22920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -23340,9 +23320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -23740,9 +23720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -24140,9 +24120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -24540,9 +24520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -24940,9 +24920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -25340,9 +25320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -25740,9 +25720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -26140,9 +26120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -26540,9 +26520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -26940,9 +26920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -27340,9 +27320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -27740,9 +27720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -28140,9 +28120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -28540,9 +28520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -28940,9 +28920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -29340,9 +29320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -29740,9 +29720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -30140,9 +30120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -30540,9 +30520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -30940,9 +30920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -31340,9 +31320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -31740,9 +31720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -32140,9 +32120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -32540,9 +32520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -32940,9 +32920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -33340,9 +33320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -33740,9 +33720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -34140,9 +34120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -34540,9 +34520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -34940,9 +34920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -35340,9 +35320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -35740,9 +35720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -36140,9 +36120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -36540,9 +36520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -36940,9 +36920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -37340,9 +37320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -37740,9 +37720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -38140,9 +38120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -38540,9 +38520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -38940,9 +38920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -39340,9 +39320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -39740,9 +39720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -40140,9 +40120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -40540,9 +40520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -40940,9 +40920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -41340,9 +41320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -41740,9 +41720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -42140,9 +42120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -42540,9 +42520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -42940,9 +42920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -43340,9 +43320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -43740,9 +43720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -44140,9 +44120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -44540,9 +44520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -44940,9 +44920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -45340,9 +45320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -45740,9 +45720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -46140,9 +46120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -46540,9 +46520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -46940,9 +46920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -47340,9 +47320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -47740,9 +47720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -48140,9 +48120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -48540,9 +48520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -48940,9 +48920,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -49340,9 +49320,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -49740,9 +49720,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -50140,9 +50120,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -50540,9 +50520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -50748,9 +50728,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe chef~ This food was created by Urza.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Urza.
 ~
 End
 
@@ -50767,38 +50747,13 @@ Wt   5
 Wear -1
 Lev  0
 Cost 0
-ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
-~
 ExDe owned by~ Alisa
 ~
+ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
+~
 End
 
-#L
-Vnum 1205
-Nest 0
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 1205
-Nest 0
-Wear -1
-Cost 15
-End
-
-#B
-Vnum 1201
-Nest 0
-Name part montreypc motherboard 386~
-ShD  {Tan extremely overclocked {C386 {Tmotherboard and {CCPU{x~
-Desc {TAn extremely overclocked {C386 {Tmotherboard and {CCPU{T lies here, smoking.{x~
-Mat {cburnt silicon{x~
-Wear -1
-Cost 3
-End
-
-#B
+#O
 Vnum 7502
 Nest 0
 Name box~
@@ -50810,7 +50765,7 @@ Lev  26
 Cost 5000
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50825,7 +50780,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50840,7 +50795,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50855,7 +50810,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50870,7 +50825,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50885,7 +50840,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50900,7 +50855,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50915,7 +50870,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50930,7 +50885,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50945,7 +50900,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50960,7 +50915,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50975,7 +50930,7 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
@@ -50990,13 +50945,94 @@ ExDe part montreypc~ It's a piece of one of Montrey's computers.  Collect the wh
 ~
 End
 
-#B
+#O
 Vnum 4471
 Nest 1
 Name piece computer part montreypc~
 ShD  (null)~
 Wear -1
 Cost 3500
+End
+
+#O
+Vnum 1201
+Nest 0
+Name part montreypc motherboard 386~
+ShD  {Tan extremely overclocked {C386 {Tmotherboard and {CCPU{x~
+Desc {TAn extremely overclocked {C386 {Tmotherboard and {CCPU{T lies here, smoking.{x~
+Mat {cburnt silicon{x~
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 11792
+Nest 0
+Name katana Chirijiraden~
+ShD  {gth{We {gk{Ca{Wt{ga{Wna{g, C{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x~
+Desc {gA k{Ca{Wt{ga{Wna {glies here, gl{We{ga{Wm{gin{Wg {gin the s{Yun{gl{Yi{ggh{Yt{g.{x~
+Mat {gha{Wmm{ge{Wr{ged m{Wi{Ct{Wh{gri{Wl{x~
+ExtF 16793671
+WeaF 40961
+Wt   0
+Cond 93
+Wear -1
+Lev  91
+Cost 55000
+ExDe owned by~ Alisa
+~
+ExDe chirijiraden~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
+{ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
+{gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
+{gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
+~
+ExDe katana~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
+{ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
+{gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
+{gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
+~
+End
+
+#O
+Vnum 20043
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name silver dagger thievery trading card Montrey RARE~
+ShD  {Wa {gS{Wi{gl{Wv{ge{Wr {gD{Wa{gg{Wg{ge{Wr {go{Wf {TT{Ch{Ti{Ce{Tv{Ce{Tr{Cy {Wtr{ga{Wd{gin{Wg c{gar{Wd {P({Rrare{P){x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe silver dagger thievery trading card~ The silver blade of Xenith, the World Forger.  As sightings of the
+goddess by mortals are seldom, few know of this legendary dagger,
+and thankfully even less have seen it brandished in anger.
+~
+ExDe her fathers katana trading card~ Left to Filfaere by her father, this blade's destiny is to some day
+cut down the evil Elvanshalee and do honor to their family.  The
+day when Filfaere and Elvanshalee lock blades may yet be far off,
+though, as Filfaere seems to prefer standing in the marketplace
+over trying to enter the palace.
+~
+End
+
+#L
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
 End
 
 #END

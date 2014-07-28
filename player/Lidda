@@ -1,7 +1,7 @@
 #PLAYER
 Name Lidda~
 Id   1406388859
-LogO 1406466272
+LogO 1406575996
 Vers 15
 Mexp 2
 Pass bluebutt~
@@ -10,9 +10,9 @@ Race seraph~
 Clan balance~
 Cla  1
 Levl 100
-Plyd 34366
-Back 0
-Note 1406389926 0 0 0 1406400423 0 0
+Plyd 68625
+Back 51866
+Note 1406559493 0 0 0 1406555570 0 0
 Scro 22
 Room 1200
 HMS  30000 30000 30000
@@ -26,16 +26,17 @@ Akilled  0
 PKRank   0
 Pos  8
 Alig 0
+Mark 1200
 FImm 0
 FRes NS
 FVul M
-Plr  U
+Plr  MU
 Video 0
 Act  CDEFGHJLQS
 AfBy T
 Comm NO
 Revk 0
-Cgrp BCEGIKLMO
+Cgrp BCEFGIKLMO
 Cnsr 0
 Block_Remote 0
 Prac 5
@@ -56,10 +57,10 @@ Aura ~
 TSex 2
 LLev 0
 Deit Montrey~
-Lsit localhost~
-Ltim Sun Jul 27 06:04:22 2014
+Lsit 24.31.12.106~
+Ltim Mon Jul 28 11:45:30 2014
 ~
-LSav Sun Jul 27 06:04:32 2014
+LSav Mon Jul 28 12:33:16 2014
 ~
 HMSP 30000 30000 30000
 THMS 0 0 0
@@ -299,6 +300,17 @@ Gr 'rom basics'
 Gr 'cleric basics'
 Gr 'benedictions'
 Gr 'curative'
+End
+
+#O
+Vnum 4471
+Nest 0
+Name montrey plushy~
+ShD  {gM{Go{Wn{gt{Gr{We{gy {gP{Gl{Wu{gs{Gh{Wy{x~
+Desc {WI{gt{Gs {ga {Gl{Wi{gt{Wt{gl{We {Gs{gt{Wu{Wf{gf{We{Gd {gM{Go{Wn{gt{Gr{We{Gy {gP{Gl{Wu{gs{Gh{Wy{x~
+Mat Cotton~
+Wear 17
+Cost 3500
 End
 
 #END

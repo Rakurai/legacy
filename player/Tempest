@@ -1,7 +1,7 @@
 #PLAYER
 Name Tempest~
 Id   1406400519
-LogO 1406431161
+LogO 1406575710
 Vers 15
 Mexp 2
 Pass bluebutt~
@@ -9,16 +9,18 @@ Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race faerie~
 Clan kindred~
 Cla  0
-Levl 18
-Plyd 15903
-Back 6784
-Note 1406414941 1406414941 1406414941 1406414941 1406414941 1406414941 1406414941
+Levl 25
+Plyd 28060
+Back 28048
+Note 1406559493 1406414941 1406414941 1406414941 1406555570 1406414941 1406414941
 Scro 22
-Room 25004
-HMS  301 357 109
-Gold 1045
-Silv 1251
-Exp  19716
+Room 25000
+HMS  376 257 83
+Gold 888
+Silv 57
+Silver_in_bank 1800
+Gold_in_bank 5000
+Exp  26580
 PCkills  0
 PCkilled 0
 Akills   0
@@ -32,19 +34,19 @@ FVul 0
 Plr  U
 Video D
 Act  CDEFGHJLQSc
-AfBy TVZ
+AfBy NOTVY
 Comm NO
 Revk 0
 Cgrp IK
 Cnsr AB
 Block_Remote 0
-Prac 36
-Trai 33
+Prac 41
+Trai 24
 Wimp 2
 Familiar 0
 Atrib 11 22 18 20 14 15
 RolePnts   1
-Afk {B[{CSat Jul 26 16:39:20 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CMon Jul 28 12:05:30 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  ({VNewbie Aura{x)~
 Immn ~
@@ -52,25 +54,27 @@ Pnts 14
 Rank ~
 Aura ~
 TSex 2
-LLev 3
+LLev 7
 Deit Whisper~
-Lsit static-host-24-31-12-106.nctv.com~
-Ltim Sat Jul 26 20:03:14 2014
+Lsit 24.31.12.106~
+Ltim Mon Jul 28 11:45:36 2014
 ~
-LSav Sat Jul 26 20:19:21 2014
+LSav Mon Jul 28 12:28:30 2014
 ~
-HMSP 171 324 152
+HMSP 238 414 174
 THMS 2 0 0
-Cnd  0 20 44 48
+Cnd  0 12 44 35
 Alias crecall clanrecall~
+Alias crit cast 'cure critical'~
 Sk 1 1 'acid blast'
 Sk 1 1 'acid rain'
-Sk 75 1 'armor'
+Sk 76 1 'armor'
 Sk 1 1 'blizzard'
 Sk 1 1 'burning hands'
 Sk 1 1 'call lightning'
 Sk 1 1 'cancellation'
 Sk 1 1 'chain lightning'
+Sk 1 1 'channel'
 Sk 1 1 'chill touch'
 Sk 1 1 'colour spray'
 Sk 1 1 'control weather'
@@ -79,30 +83,38 @@ Sk 1 1 'cure light'
 Sk 1 1 'cure serious'
 Sk 1 1 'dispel magic'
 Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
 Sk 75 1 'faerie fire'
 Sk 75 1 'faerie fog'
-Sk 1 1 'fireball'
+Sk 76 1 'fireball'
 Sk 1 1 'fireproof'
 Sk 1 1 'firestorm'
 Sk 1 1 'flameshield'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
 Sk 1 1 'heal'
-Sk 75 1 'lightning bolt'
-Sk 75 1 'magic missile'
+Sk 1 1 'infravision'
+Sk 88 1 'lightning bolt'
+Sk 76 1 'magic missile'
 Sk 1 1 'mass healing'
 Sk 1 1 'protection evil'
 Sk 1 1 'protection good'
-Sk 1 1 'refresh'
-Sk 1 1 'sanctuary'
-Sk 1 1 'shield'
+Sk 4 1 'refresh'
+Sk 76 1 'regeneration'
+Sk 75 1 'sanctuary'
+Sk 77 1 'shield'
 Sk 1 1 'shocking grasp'
-Sk 75 1 'steel mist'
+Sk 76 1 'steel mist'
 Sk 1 1 'stone skin'
+Sk 1 1 'talon'
 Sk 1 1 'undo spell'
 Sk 1 1 'wrath'
-Sk 85 1 'dagger'
+Sk 91 1 'dagger'
 Sk 75 1 'sword'
 Sk 1 1 'brew'
-Sk 1 1 'dodge'
+Sk 78 1 'dodge'
+Sk 75 1 'lore'
+Sk 75 1 'meditation'
 Sk 100 1 'scan'
 Sk 1 1 'scrolls'
 Sk 1 1 'staves'
@@ -111,11 +123,15 @@ Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'mage basics'
 Gr 'combat'
+Gr 'enhancement'
 Gr 'healing'
 Gr 'protective'
 Gr 'weather'
-Affc 'giant strength'   0  10   0   2   1          0 1
-Affc 'divine regeneration'   0  82   4   0   0   33554432 4
+Affc 'steel mist'   0  20  13  -2  17   16777216 1
+Affc 'shield'   0  20   9 -20  17          0 1
+Affc 'protection good'   0  13   7  -1  24      16384 1
+Affc 'protection evil'   0  12   7  -1  24       8192 1
+Affc 'armor'   0  18   1 -20  17          0 1
 End
 
 #O
@@ -127,55 +143,10 @@ Cost 0
 End
 
 #O
-Vnum 3704
-Nest 0
-Wear 11
-Cost 0
-End
-
-#O
 Vnum 3162
 Nest 0
 Wear -1
 Cost 500
-End
-
-#O
-Vnum 79
-Nest 0
-Wear -1
-Cost 200
-Val  150 102 15 0 0
-End
-
-#O
-Vnum 82
-Nest 0
-Wear -1
-Cost 500
-End
-
-#O
-Vnum 83
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 3713
-Nest 0
-Cond 94
-Wear 15
-Cost 48
-End
-
-#O
-Vnum 3713
-Nest 0
-Cond 94
-Wear 14
-Cost 48
 End
 
 #O
@@ -187,101 +158,10 @@ Cost 57
 End
 
 #O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 10135
-Nest 0
-Cond 93
-Wear 9
-Cost 23
-End
-
-#O
-Vnum 10134
-Nest 0
-Wear 6
-Cost 120
-End
-
-#O
-Vnum 4588
-Nest 0
-Cond 92
-Wear -1
-Cost 400
-Affc 'dazzling light'   0  70  27   5  19          0 1
-Affc 'dazzling light'   0  59  27   5  18          0 1
-End
-
-#O
 Vnum 4610
 Nest 0
 Wear -1
 Cost 700
-End
-
-#O
-Vnum 4610
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4593
-Nest 0
-Wear 2
-Cost 2400
-End
-
-#O
-Vnum 4573
-Nest 0
-Cond 93
-Wear 18
-Cost 1800
-End
-
-#O
-Vnum 12710
-Enchanted
-Nest 0
-ExtF 66
-Cond 93
-Wear 16
-Lev  15
-Cost 500
-Val  2 4 3 2 4
-Affc 'blood blade'   5  65  11   0   0          4 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-Affc 'enchant weapon'   1  91  -1   7  18          0 1
-End
-
-#O
-Vnum 4596
-Nest 0
-Wear -1
-Cost 2400
-End
-
-#O
-Vnum 4585
-Nest 0
-Wear 17
-Cost 1600
-End
-
-#O
-Vnum 4577
-Nest 0
-Wear -1
-Cost 2400
 End
 
 #O
@@ -292,17 +172,10 @@ Cost 2000
 End
 
 #O
-Vnum 16084
-Nest 0
-Wear 1
-Cost 1500
-End
-
-#O
 Vnum 504
 Nest 0
 ExtF 19
-Wear -1
+Wear 15
 Cost 312
 End
 
@@ -311,7 +184,7 @@ Vnum 504
 Nest 0
 ExtF 19
 Cond 79
-Wear -1
+Wear 14
 Cost 312
 End
 
@@ -320,14 +193,6 @@ Vnum 9922
 Nest 0
 Wear 12
 Cost 1373
-End
-
-#O
-Vnum 9924
-Nest 0
-Wear 0
-Cost 380
-Val  0 0 -1 0 0
 End
 
 #O
@@ -352,30 +217,6 @@ Cost 1930
 End
 
 #O
-Vnum 25015
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'pass door'
-End
-
-#O
-Vnum 25015
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'pass door'
-End
-
-#O
-Vnum 25015
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'pass door'
-End
-
-#O
 Vnum 25016
 Nest 0
 Wear -1
@@ -440,11 +281,67 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 25086
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25016
 Nest 0
 Wear -1
 Cost 0
-Spell 3 'fly'
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25084
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'detect good'
 End
 
 #O
@@ -456,11 +353,19 @@ Spell 3 'cure serious'
 End
 
 #O
-Vnum 25093
+Vnum 25081
 Nest 0
 Wear -1
-Cost 15
-Spell 3 'cure serious'
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25084
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'detect good'
 End
 
 #O
@@ -472,11 +377,27 @@ Spell 3 'cure serious'
 End
 
 #O
-Vnum 25093
+Vnum 25081
 Nest 0
 Wear -1
-Cost 15
-Spell 3 'cure serious'
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25084
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'detect good'
 End
 
 #O
@@ -488,11 +409,53 @@ Spell 3 'cure serious'
 End
 
 #O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
 Vnum 25093
 Nest 0
 Wear -1
 Cost 15
 Spell 3 'cure serious'
+End
+
+#O
+Vnum 25090
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4596
+Nest 0
+Wear 11
+Cost 2400
+End
+
+#O
+Vnum 12710
+Enchanted
+Nest 0
+ExtF 66
+Cond 77
+Wear 16
+Lev  15
+Cost 500
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+End
+
+#O
+Vnum 4594
+Nest 0
+Wear 2
+Cost 8000
 End
 
 #O
@@ -515,6 +478,71 @@ ExDe owned by~ Alisa
 End
 
 #O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 4594
+Nest 0
+Wear 1
+Cost 8000
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear 17
+Cost 3000
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear 0
+Cost 700
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 0
+Val  150 54 15 0 0
+End
+
+#O
+Vnum 25051
+Nest 0
+Wear 6
+Cost 3000
+End
+
+#O
+Vnum 25052
+Nest 0
+Wear 9
+Cost 3000
+End
+
+#O
+Vnum 25053
+Nest 0
+Wear 10
+Cost 3000
+End
+
+#O
+Vnum 25054
+Nest 0
+Wear 18
+Cost 3000
+End
+
+#O
 Vnum 25016
 Nest 0
 Wear -1
@@ -528,6 +556,45 @@ Nest 0
 Wear -1
 Cost 0
 Spell 3 'pass door'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25084
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'detect good'
+End
+
+#O
+Vnum 25086
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'fly'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25090
+Nest 0
+Wear -1
+Cost 0
 End
 
 #END

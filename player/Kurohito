@@ -1,47 +1,49 @@
 #PLAYER
 Name Kurohito~
 Id   1406427858
-LogO 1406428999
-Vers 14
+LogO 1406577589
+Vers 15
 Mexp 2
 Pass iamone~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race faerie~
 Cla  4
 Levl 1
-Plyd 376
+Plyd 3014
 Back 0
 Note 0 0 0 0 0 0 0
 Scro 22
-Room 3044
-HMS  24 100 98
-Gold 3
-Silv 400
-Exp  1300
+Room 8543
+HMS  14 19 74
+Gold 6
+Silv 797
+Exp  2035
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  8
-Alig -750
+Pos  4
+Alig -1000
 FImm 0
 FRes 0
 FVul 0
 Plr  U
 Video 0
 Act  CDEFGHJLQSc
-AfBy HTV
+AfBy V
 Comm NO
 Revk 0
-Cgrp 0
+Cgrp I
 Cnsr AB
 Block_Remote 0
-Prac 5
-Trai 3
+Prac 0
+Trai 0
 Wimp 0
 Familiar 0
-Atrib 11 20 14 19 12 12
+Atrib 14 20 14 19 12 12
+Afk {B[{CMon Jul 28 12:43:05 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
 Titl  ({VNewbie Aura{x)~
 Immn ~
 Pnts 40
@@ -50,14 +52,14 @@ Aura ~
 TSex 1
 LLev 0
 Deit Kenneth~
-Lsit 66-87-64-76.pools.spcsdns.net~
-Ltim Sat Jul 26 19:37:03 2014
+Lsit 66.87.64.246~
+Ltim Mon Jul 28 12:15:45 2014
 ~
-LSav Sat Jul 26 19:43:19 2014
+LSav Mon Jul 28 12:59:49 2014
 ~
 HMSP 20 100 100
 THMS 0 0 0
-Cnd  0 24 40 40
+Cnd  0 0 44 3
 Sk 1 1 'acid blast'
 Sk 1 1 'acid rain'
 Sk 1 1 'age'
@@ -94,7 +96,7 @@ Sk 1 1 'giant strength'
 Sk 1 1 'haste'
 Sk 1 1 'infravision'
 Sk 1 1 'lightning bolt'
-Sk 1 1 'magic missile'
+Sk 78 1 'magic missile'
 Sk 1 1 'nexus'
 Sk 1 1 'pass door'
 Sk 1 1 'plague'
@@ -121,9 +123,9 @@ Sk 1 1 'undo spell'
 Sk 1 1 'weaken'
 Sk 1 1 'word of recall'
 Sk 1 1 'wrath'
-Sk 40 1 'dagger'
+Sk 75 1 'dagger'
 Sk 1 1 'polearm'
-Sk 1 1 'scribe'
+Sk 21 1 'scribe'
 Sk 1 1 'dodge'
 Sk 1 1 'meditation'
 Sk 100 1 'scan'
@@ -140,7 +142,6 @@ Gr 'necromancy'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'sanctuary'   0  97   8   0   0        128 1
 End
 
 #O
@@ -148,7 +149,7 @@ Vnum 3716
 Nest 0
 Wear 0
 Cost 0
-Val  0 0 192 0 0
+Val  0 0 133 0 0
 End
 
 #O
@@ -161,6 +162,7 @@ End
 #O
 Vnum 3701
 Nest 0
+Cond 92
 Wear 16
 Cost 210
 End
@@ -189,36 +191,29 @@ End
 #O
 Vnum 73
 Nest 0
-Wear 6
+Wear -1
 Cost 270
 End
 
 #O
 Vnum 74
 Nest 0
-Wear 3
+Wear 4
 Cost 550
 End
 
 #O
 Vnum 75
 Nest 0
-Wear 1
+Wear 2
 Cost 620
 End
 
 #O
 Vnum 76
 Nest 0
-Wear 17
-Cost 550
-End
-
-#O
-Vnum 77
-Nest 0
 Wear -1
-Cost 0
+Cost 550
 End
 
 #O
@@ -236,13 +231,6 @@ Cost 200
 End
 
 #O
-Vnum 80
-Nest 0
-Wear 18
-Cost 550
-End
-
-#O
 Vnum 82
 Nest 0
 Wear -1
@@ -254,6 +242,106 @@ Vnum 83
 Nest 0
 Wear -1
 Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 80
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 138 15 0 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 80
+Nest 0
+Cond 99
+Wear 18
+Cost 550
 End
 
 #END

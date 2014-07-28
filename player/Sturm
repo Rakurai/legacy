@@ -1,7 +1,7 @@
 #PLAYER
 Name Sturm~
 Id   989815888
-LogO 1406432550
+LogO 1406574928
 Vers 15
 Mexp 2
 Pass tikcus~
@@ -10,14 +10,14 @@ Race elf~
 Clan rebel~
 Cla  2
 Levl 62
-Plyd 1207135
-Back 1204607
-Note 1406389926 1022120902 1026877089 1026792163 1406400423 1027158380 1026831915
+Plyd 1222656
+Back 1216010
+Note 1406559493 1022120902 1026877089 1026792163 1406555570 1027158380 1026831915
 Scro 22
-Room 1269
-HMS  1128 1297 878
-Gold 324
-Silv 27
+Room 3365
+HMS  1128 1297 1288
+Gold 240
+Silv 7
 Exp  65117
 PCkills  1
 PCkilled 3
@@ -49,7 +49,7 @@ RolePnts   21
 QuestPnts  47
 GameIn  {gsteps {Nout{x {Cof {RC{ch{RA{co{RS{x {band{x {Ginto {NT{Th{Ne{Tr{Na~
 GameOut {gleaves {NT{Th{Ne{Tr{Na{x {Bback{x {Cinto{x {RC{ch{RA{co{RS{x~
-Afk {B[{CSat Jul 20 19:17:47 2002{B] {CUnknown Departure.{x
+Afk {B[{CMon Jul 28 10:19:02 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  :)~
 Immn ~
@@ -63,10 +63,10 @@ Stus OutKast Kensai~
 RmCt 4
 ExSk 1300
 Raff 10
-Lsit 66-87-64-76.pools.spcsdns.net~
-Ltim Sat Jul 26 20:38:21 2014
+Lsit 66.87.64.246~
+Ltim Mon Jul 28 12:14:57 2014
 ~
-LSav Sat Jul 26 20:42:30 2014
+LSav Mon Jul 28 12:15:28 2014
 ~
 Finf the ghetto's of america are breeding grounds for the criminal minded
 
@@ -84,7 +84,7 @@ Finf the ghetto's of america are breeding grounds for the criminal minded
 ~
 HMSP 843 552 678
 THMS 0 0 0
-Cnd  0 0 0 22
+Cnd  0 0 0 15
 Alias go gossip~
 Query alisa~
 Query sundancer~
@@ -723,7 +723,7 @@ End
 Vnum 17036
 Nest 0
 Wear -1
-Time 1121
+Time 668
 Cost 650
 Spell 1 'fireball'
 Spell 2 'curse'
@@ -745,52 +745,26 @@ Cost 22
 End
 
 #O
-Vnum 3009
+Vnum 24619
 Nest 0
 Wear -1
-Cost 22
+Cost 6000
 End
 
 #O
-Vnum 3009
+Vnum 1213
 Nest 0
+Name katana chirijiraden trading card Montrey RARE~
+ShD  {gth{We {gk{Ca{Wt{ga{Wna{g, C{Wh{Ci{Wri{gj{Cir{ga{Wde{gn {Wtr{ga{Wd{gin{Wg c{gar{Wd {P({Rrare{P){x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
 Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
+Cost 0
+ExDe katana chirijiraden trading card~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
+{ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
+{gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
+{gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
+~
 End
 
 #L

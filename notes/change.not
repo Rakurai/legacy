@@ -2889,3 +2889,17 @@ Subject New race~
 Text
 You can now be a faerie if that's how you roll.  Have fun :)
 ~
+Sender  Montrey~
+Date    Mon Jul 28 06:52:50 2014~
+Stamp   1406555570
+To      all~
+Subject bash, dodge, blur~
+Text
+Some notable changes: 
+
+Size, haste, slow, and dexterity now affect your rate of dodge and blur.
+Bash now checks against doe and blur.  
+Pass door no longer matters for bash (for now).
+
+Montrey
+~
