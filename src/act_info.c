@@ -33,7 +33,7 @@
 #include <ctype.h>
 #include <time.h>
 #include <sys/stat.h>
-#include <mysql/mysql.h>
+#include <mysql.h>
 #include "merc.h"
 #include "magic.h"
 #include "recycle.h"

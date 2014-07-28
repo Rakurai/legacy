@@ -33,7 +33,7 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include <sys/resource.h>
-#include <mysql/mysql.h>
+#include <mysql.h>
 
 #include "merc.h"
 #include "memory.h"

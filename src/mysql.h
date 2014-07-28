@@ -5,8 +5,8 @@
  *
  */
 
-#include <mysql/errmsg.h>
-#include <mysql/mysql.h>
+#include <errmsg.h>
+#include <mysql.h>
 #include <stdio.h>
 #ifndef __MYSQL_H
 #define __MYSQL_H

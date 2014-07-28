@@ -20,7 +20,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <signal.h>
-#include <mysql/mysql.h>
+#include <mysql.h>
 #include "merc.h"
 #include "tables.h"
 #include "recycle.h"
