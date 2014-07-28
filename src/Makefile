@@ -1,7 +1,7 @@
 CC      = gcc
 WARNING = -Wall -Winline
 DEBUG   = -ggdb
-DEFINE  = -Dlinux -DSQL -DDEBUG
+DEFINE  = -Dlinux -Dunix -DSQL -DDEBUG
 #INCLUDE = -I/usr/include -I/usr/include/mysql
 INCLUDE = -I/usr/include $(shell mysql_config --cflags)
 C_FLAGS = -O ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}
