@@ -326,7 +326,7 @@ int hit_gain( CHAR_DATA *ch )
     if (IS_AFFECTED(ch, AFF_PLAGUE))
         gain /= 8;
 
-    if (IS_AFFECTED(ch,AFF_HASTE))
+    if (IS_AFFECTED(ch,AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
         gain /=2 ;
     if (IS_AFFECTED(ch,AFF_SLOW))
         gain *=2 ;
@@ -401,7 +401,7 @@ int mana_gain( CHAR_DATA *ch )
 	if (IS_AFFECTED(ch, AFF_PLAGUE))
 		gain /= 8;
 
-	if (IS_AFFECTED(ch, AFF_HASTE))
+	if (IS_AFFECTED(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2;
 
 	if (IS_AFFECTED(ch, AFF_SLOW))
@@ -467,7 +467,7 @@ int stam_gain( CHAR_DATA *ch )
 	if (IS_AFFECTED(ch, AFF_PLAGUE))
 		gain /= 8;
 
-	if (IS_AFFECTED(ch, AFF_HASTE))
+	if (IS_AFFECTED(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 3;
 
 	if (IS_AFFECTED(ch, AFF_SLOW))
