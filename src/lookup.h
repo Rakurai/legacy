@@ -31,3 +31,4 @@ int 		sex_lookup		args((const char *name));
 int 		size_lookup		args((const char *name));
 char *		condition_lookup	args((int condition));
 int		drink_lookup		args((const char *name));
+char *	sector_lookup		args((int type));

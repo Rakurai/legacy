@@ -154,6 +154,13 @@ struct color_type
 	int bold;
 };
 
+// sector types - Montrey (2014)
+struct sector_type {
+    char *name;
+    sh_int type;
+};
+
+
 /* game tables */
 extern  const   struct  position_type   position_table[];
 extern  const   struct  sex_type        sex_table[];
@@ -176,6 +183,7 @@ extern	const	struct	ftoa_type	ftoa_table[];		/* flags to alpha */
 extern	const	struct	csetting_type	csetting_table[];	/* color settings table */
 extern	const	struct	color_type	color_table[];		/* color table */
 extern	const	struct	helpfile_table_type	helpfile_table[];	/* help name group table */
+extern	const	struct  sector_type sector_table[];
 
 /* flag tables */
 extern	const	char			*field_cand[];
@@ -200,4 +208,3 @@ extern  const   struct  flag_type       portal_flags[];
 extern  const   struct  flag_type       room_flags[];
 extern  const   struct  flag_type       exit_flags[];
 extern  const   struct  flag_type       cgroup_flags[];
-

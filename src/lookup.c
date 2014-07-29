@@ -127,6 +127,14 @@ char *condition_lookup(int condition)
         return "unknown";
 }
 
+char *sector_lookup(int type) {
+  int i;
+  for (i = 0; sector_table[i].name != NULL; i++)
+    if (sector_table[i].type == type)
+      return sector_table[i].name;
+  return "unknown";
+}
+
 int drink_lookup (const char *name)
 {
 	int pos;

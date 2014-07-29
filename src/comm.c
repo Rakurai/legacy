@@ -1889,6 +1889,14 @@ void bust_a_prompt( CHAR_DATA *ch )
 				i = buf2;
 				break;
 
+			case 't':
+				if (ch->in_room != NULL)
+					sprintf(buf2, "%s", sector_lookup(ch->in_room->sector_type));
+				else
+					sprintf(buf2, " ");
+				i = buf2;
+				break;
+
 			case 'q':
 				if (!IS_QUESTOR(ch))
 					sprintf(buf2,"%d",ch->nextquest);

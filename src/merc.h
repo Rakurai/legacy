@@ -571,8 +571,6 @@ struct  shop_data
     sh_int      close_hour;             /* First closing hour           */
 };
 
-
-
 /*
  * Per-class stuff.
  */
@@ -1598,6 +1596,7 @@ struct  kill_data
 #define SECT_MAX                     11
 #define SECT_ARENA                   20
 #define SECT_CLANARENA	             21
+#define SECT_NULL                   99
 
 
 

@@ -546,6 +546,25 @@ const struct ftoa_type ftoa_table[] =
 	{ "ee", ee },	{ NULL, 0 }
 };
 
+const struct sector_type sector_table [] = 
+{
+	{	"indoors",	SECT_INSIDE		},
+	{	"city",		SECT_CITY		},
+	{	"field",	SECT_FIELD		},
+	{	"forest",	SECT_FOREST		},
+	{	"hills",	SECT_HILLS		},
+	{	"mountain",	SECT_MOUNTAIN	},
+	{	"water",	SECT_WATER_SWIM	},
+	{	"ocean",	SECT_WATER_NOSWIM	},
+	{	"unused",	SECT_UNUSED		},
+	{	"air",		SECT_AIR		},
+	{	"desert",	SECT_DESERT		},
+	{	"MAX",		SECT_MAX		},
+	{	"arena",	SECT_ARENA		},
+	{	"clan arena",	SECT_CLANARENA	},
+	{	NULL,		SECT_NULL		}
+};
+
 /* various flag tables */
 const struct flag_type act_flags[] =
 {
