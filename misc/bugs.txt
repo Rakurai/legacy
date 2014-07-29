@@ -31,3 +31,5 @@ Bug File, clear when fixed.
 {Y[{x07/26{Y]{x {C[{x 3001{C]{x Montrey: helps still need work, need testing with newbie creation
 {Y[{x07/26{Y]{x {C[{x 3001{C]{x Montrey: strike the above thing about wiznet showing missing helps, log those to a file
 {Y[{x07/26{Y]{x {C[{x 3365{C]{x Montrey: newbies should get some kind of warning if they finish customization without using up 40 CP
+{Y[{x07/28{Y]{x {C[{x 7606{C]{x Montrey: somebody change houses from dodge to shield block or something, it's just stupid
+{Y[{x07/28{Y]{x {C[{x 1298{C]{x Montrey: should be able to fly/land while fighting

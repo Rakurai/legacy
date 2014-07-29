@@ -2328,11 +2328,11 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	chance = get_skill(victim,gsn_dodge) / 2;
 
 	// size affects dodge rate - Montrey (2014)
-	chance -= (ch->size - SIZE_MEDIUM) * 5;  // bonus 10% for tiny, -15% for giant
+	chance -= (victim->size - SIZE_MEDIUM) * 5;  // bonus 10% for tiny, -15% for giant
 
 	// evasion checks moved to general dodge/blur - Montrey (2014)
 	// stats
-	chance += 5 * ( (get_curr_stat(ch,STAT_DEX)) - (get_curr_stat(victim,STAT_DEX)) );
+	chance += 5 * ( (get_curr_stat(victim,STAT_DEX)) - (get_curr_stat(ch,STAT_DEX)) );
 
 	// speed and spells
 	if (IS_SET(victim->off_flags,OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
@@ -2351,10 +2351,10 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 //	if (!can_see(victim,ch))
 //		chance /= 2;
 
+	chance += victim->level - ch->level;
+
 	if (get_affect(victim->affected,gsn_paralyze))
 		chance /= 2;
-
-	chance += victim->level - ch->level;
 
 	/*Moderate the result*/
 	chance = URANGE(5, chance, 95);
@@ -2410,11 +2410,11 @@ bool check_blur( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	chance = get_skill(victim,gsn_blur) / 3;
 
 	// size affects blur rate - Montrey (2014)
-	chance -= (ch->size - SIZE_MEDIUM) * 3;  // bonus 6% for tiny, -9% for giant
+	chance -= (victim->size - SIZE_MEDIUM) * 3;  // bonus 6% for tiny, -9% for giant
 
 	// evasion checks moved to general dodge/blur - Montrey (2014)
 	// stats
-	chance += 5 * ( (get_curr_stat(ch,STAT_DEX)) - (get_curr_stat(victim,STAT_DEX)) );
+	chance += 5 * ( (get_curr_stat(victim,STAT_DEX)) - (get_curr_stat(ch,STAT_DEX)) );
 
 	// speed and spells
 	if (IS_SET(victim->off_flags,OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
@@ -2433,10 +2433,10 @@ bool check_blur( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 //	if (!can_see(victim,ch))
 //		chance /= 2;
 
+	chance += victim->level - ch->level;
+
 	if (get_affect(victim->affected,gsn_paralyze))
 		chance /= 2;
-
-	chance += victim->level - ch->level;
 
 	/*Moderate the result*/
 	chance = URANGE(5, chance, 95);

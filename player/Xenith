@@ -1,7 +1,7 @@
 #PLAYER
 Name Xenith~
 Id   997915456
-LogO 1406439269
+LogO 1406584671
 Vers 15
 Mexp 2
 Pass 955321~
@@ -10,11 +10,11 @@ Race human~
 Clan balance~
 Cla  2
 Levl 100
-Plyd 8803642
-Back 8766589
-Note 1406389926 1024690924 1027144008 1027209569 1406400423 1027142394 1026831915
+Plyd 8858249
+Back 8840516
+Note 1406559493 1024690924 1027144008 1027209569 1406555570 1027142394 1026831915
 Scro 44
-Room 1202
+Room 3001
 HMS  21404 26459 24538
 Gold 102
 Silv 1008331
@@ -25,7 +25,7 @@ Akills   1
 Akilled  0
 PKRank   10
 Pos  8
-Alig 755
+Alig 750
 Mark 1202
 FImm 0
 FRes 0
@@ -43,7 +43,7 @@ Prac -26
 Trai 48
 Wimp 1000
 Familiar 0
-Wizn ACEIJRSUVZa
+Wizn ACDEIJMNOQRSUVZa
 Invi 0
 Lurk 0
 Secu 2
@@ -64,10 +64,10 @@ TSex 2
 LLev 2292
 Email xenith@xenith.org~
 Deit {HXenith, {TThe {RWorld {bForger{x~
-Lsit 74-93-181-149-Sacramento.hfc.comcastbusiness.net~
-Ltim Sat Jul 26 15:56:33 2014
+Lsit 204.212.183.131~
+Ltim Mon Jul 28 14:57:49 2014
 ~
-LSav Sat Jul 26 22:34:29 2014
+LSav Mon Jul 28 14:57:51 2014
 ~
 HMSP 21374 26359 24538
 THMS 3 1 1
@@ -246,7 +246,7 @@ Sk 100 1 'shield block'
 Sk 100 1 'brew'
 Sk 100 1 'scribe'
 Sk 100 1 'backstab'
-Sk 100 1 'bash'
+Sk 100 4 'bash'
 Sk 100 1 'berserk'
 Sk 100 1 'circle'
 Sk 100 1 'crush'
@@ -256,7 +256,7 @@ Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
 Sk 100 1 'envenom'
 Sk 100 1 'hand to hand'
-Sk 100 1 'kick'
+Sk 100 4 'kick'
 Sk 100 1 'parry'
 Sk 100 1 'rescue'
 Sk 100 1 'trip'
@@ -267,7 +267,7 @@ Sk 100 1 'hunt'
 Sk 100 1 'swimming'
 Sk 100 4 'fast healing'
 Sk 100 1 'firebuilding'
-Sk 100 1 'forge'
+Sk 100 4 'forge'
 Sk 100 1 'repair'
 Sk 100 1 'rotate'
 Sk 100 1 'languages'
@@ -396,45 +396,11 @@ ExDe owned by~ Xenith
 End
 
 #O
-Vnum 4471
-Nest 0
-Name playboy~
-ShD  {Tthe July 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {HA{Gl{Wi{Gs{Ha{T!!{x~
-Desc *melt* *swoon* ...  the pages are kinda sticky.~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 0
-Name playboy~
-ShD  {Tthe December 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {WL{Ci{Br{Ci{Te{Wl{T!!{x~
-Desc Whoa, those are some nice...  where'd the next page go??~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
 Vnum 77
 Nest 0
 Wear -1
 Cost 0
 Val  48 97 0 0 0
-End
-
-#O
-Vnum 4607
-Nest 0
-Name passion cake~
-ShD  {x{ga tasty {bchocolate {gcake to {Wce{gl{We{gb{Wra{gt{We {gthe {Pp{Ra{Pss{Rio{Pn {gand {Tt{Cen{Td{Ce{Trn{Ce{Ts{Cs {gbetween {HA{Gl{Wi{Gs{Ha {gand {VS{Mun{Vda{Mnc{Ver{x~
-Desc {VS{Mun{Vda{Mnc{Ver {gand {HA{Gl{Wi{Gs{Ha {gseem to have smeared {bchocolate {gcake all over the floor... *hmm*{x~
-Wear -1
-Cost 15
-ExDe frosting~ Don't lick the {Wf{gr{Wo{gs{Wti{gn{Wg {xoff, it's already been done...
-~
 End
 
 #O
@@ -1798,20 +1764,20 @@ Wt   0
 Wear 5
 Lev  57
 Cost 0
-Affc 'reserved'   1  50  -1  30  13          0 1
-Affc 'reserved'   1  50  -1  40  12          0 1
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
-Affc 'enchant weapon'   1 100  -1  17  18          0 1
-Affc 'reserved'   1  50  -1   2  26          0 1
-Affc 'reserved'   1  50  -1   2   5          0 1
 Affc 'reserved'   1  50  -1   1   2          0 1
+Affc 'reserved'   1  50  -1   2   5          0 1
+Affc 'reserved'   1  50  -1   2  26          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'reserved'   1  50  -1  40  12          0 1
+Affc 'reserved'   1  50  -1  30  13          0 1
+ExDe owned by~ Xenith
+~
 ExDe chain mail bikini top~ Oh my god, is this thing legal?  It's a bikini top crafted entirely from chain
 mail, with each ring made from a solid {Bblue sa{Np{Bp{Nh{Bire{x.  Even if a bikini made out
 of chainmail was in any way considered clothing, the fact that this is made from
 transparent jewels lends it even less practicality.  On the other hand...
 *damn* Ayelri looks good in it. ;)
-~
-ExDe owned by~ Xenith
 ~
 End
 
@@ -1826,6 +1792,8 @@ WeaF 17
 Wear 6
 Cost 0
 Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
@@ -2076,8 +2044,6 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 End
 
 #O
@@ -2148,9 +2114,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe florist~ This rose was created by Syveril.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Syveril.
 ~
 End
 
@@ -2164,13 +2130,13 @@ Desc {gA {WF{gl{Wo{ga{Wt{gi{Wn{gg {WW{gh{Wi{gt{We {gL{Wi{gg{Wh{gt {Wh{go{Wv{ge{W
 ExtF 262403
 Wear 18
 Cost 2200
-Affc 'reserved'   1  45  -1   3  19          0 1
-Affc 'reserved'   1  45  -1  60  12          0 1
-Affc 'reserved'   1  45  -1   2   4          0 1
-Affc 'reserved'   1 100  -1 1000  18          0 1
-Affc 'reserved'   1 100  -1 1000  19          0 1
-Affc 'reserved'   1 100  -1 -300  17          0 1
 Affc 'reserved'   1 100  -1 -100  20          0 1
+Affc 'reserved'   1 100  -1 -300  17          0 1
+Affc 'reserved'   1 100  -1 1000  19          0 1
+Affc 'reserved'   1 100  -1 1000  18          0 1
+Affc 'reserved'   1  45  -1   2   4          0 1
+Affc 'reserved'   1  45  -1  60  12          0 1
+Affc 'reserved'   1  45  -1   3  19          0 1
 ExDe owned by~ Xenith
 ~
 End
@@ -2196,6 +2162,1377 @@ Wear -1
 Cost 0
 End
 
+#O
+Vnum 12
+Nest 0
+ShD  the head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x~
+Desc The severed head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x is lying here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4471
+Nest 0
+Name playboy~
+ShD  {Tthe December 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {WL{Ci{Br{Ci{Te{Wl{T!!{x~
+Desc Whoa, those are some nice...  where'd the next page go??~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 0
+Name playboy~
+ShD  {Tthe July 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {HA{Gl{Wi{Gs{Ha{T!!{x~
+Desc *melt* *swoon* ...  the pages are kinda sticky.~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 1111
+Nest 0
+Name clothes~
+ShD  clothes~
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                         {YMMM::::::::::::MM{x~
+Desc {x                         {YMMM::::::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                         {YMMM:::::::::::::MM{x~
+Desc {x                         {YMMM:::::::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                         {YMMM:::::::::::::MM{x~
+Desc {x                         {YMMM:::::::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                         {YMM::::::::::::::MMM{x~
+Desc {x                         {YMM::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                        {YMMM:::::::::::::::MM{x~
+Desc {x                        {YMMM:::::::::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                        {YMMM:::::::::::::::MM{x~
+Desc {x                        {YMMM:::::::::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                        {YMMM:::::::::::::::MM{x~
+Desc {x                        {YMMM:::::::::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                        {YMMM:::::::::::::::MM{x~
+Desc {x                        {YMMM:::::::::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                        {YMM::::::::::::::::MM{x~
+Desc {x                        {YMM::::::::::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                       {YMMM::::::::::::::::Mm{x~
+Desc {x                       {YMMM::::::::::::::::Mm{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                       {YMMM::::::::::::::::M{x~
+Desc {x                       {YMMM::::::::::::::::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                       {YMMM::::::::::::::::M{x~
+Desc {x                       {YMMM::::::::::::::::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                       {YMMM:::::::::::::::M:{x~
+Desc {x                       {YMMM:::::::::::::::M:{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                       {YMMM:::::::::::::::M:{x~
+Desc {x                       {YMMM:::::::::::::::M:{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                       {YMM:::M:::::::::::MM{x~
+Desc {x                       {YMM:::M:::::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                       {YMM::MM::::::::::M:m{x~
+Desc {x                       {YMM::MM::::::::::M:m{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                       {YMM::MM:::::::::M:M{x~
+Desc {x                       {YMM::MM:::::::::M:M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                      {YMM::MMM::::::::M:M{x~
+Desc {x                      {YMM::MMM::::::::M:M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                     {YmMM:::M:::::::M:M:M{x~
+Desc {x                     {YmMM:::M:::::::M:M:M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                    {YmMM::::MM:::::::MMMM{x~
+Desc {x                    {YmMM::::MM:::::::MMMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                    {YMM:::::::::::::::MMM{x~
+Desc {x                    {YMM:::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                    {YMM::::::::::::::::MMM{x~
+Desc {x                    {YMM::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                     {YM:::::::::::::::::MMM{x~
+Desc {x                     {YM:::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                    {YMMM::::::::::::::::::MMM{x~
+Desc {x                    {YMMM::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                   {YMM:M:::::::::::::::::::MMM{x~
+Desc {x                   {YMM:M:::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                   {YMM::M:::::::::::::::::::MMM{x~
+Desc {x                   {YMM::M:::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                  {YMM:::M::::::::::::::::::::MMM{x~
+Desc {x                  {YMM:::M::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                  {YMM::::M::::::::::::::::::::MMM{x~
+Desc {x                  {YMM::::M::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                 {YMM:::::M:::::::::::::::::::::MMM{x~
+Desc {x                 {YMM:::::M:::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                 {YMM::::::M:::::::::::::::::::::MMM{x~
+Desc {x                 {YMM::::::M:::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                {YMM:::::::M::::::::::::::::::::::MMM{x~
+Desc {x                {YMM:::::::M::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                {YM:::::::::M::::::::::::::::::::::MMM{x~
+Desc {x                {YM:::::::::M::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x               {YMM:::::::::M:::::::::::::::::::::::MMM{x~
+Desc {x               {YMM:::::::::M:::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x               {YM:::::::::::M:::::::::::::::::::::::MMM{x~
+Desc {x               {YM:::::::::::M:::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x              {YMM:::::::::::M::::::::::::::::::::::::MMM{x~
+Desc {x              {YMM:::::::::::M::::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x              {YM:::::::::::::M::::::::::::::::::::::::MMM{x~
+Desc {x              {YM:::::::::::::M::::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x             {YMM:::::::::::::M:::::::::::::::::::::::::MMM{x~
+Desc {x             {YMM:::::::::::::M:::::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x             {YM:::::::::::::::M:::::::::::::::::::::::::MMM{x~
+Desc {x             {YM:::::::::::::::M:::::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x            {YMM:::::::::::::::M::::::::::::::::::::::::::MMM{x~
+Desc {x            {YMM:::::::::::::::M::::::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x            {YM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
+Desc {x            {YM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {YMM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
+Desc {x           {YMM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {YM:::::::::::::::::::M::::::::::::::::::::::::::MMM{x~
+Desc {x           {YM:::::::::::::::::::M::::::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {YM:::::::::::::::::{R88{YM::::::::::::::::::::::::::MMM{x~
+Desc {x           {YM:::::::::::::::::{R88{YM::::::::::::::::::::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {YM:::::::::::::::{R88888{YM:::::::::::::::::::::::::M:MM{x~
+Desc {x           {YM:::::::::::::::{R88888{YM:::::::::::::::::::::::::M:MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {YM::::::::::::::{R888888{YM:::::::::::::::::::::::::M::MM{x~
+Desc {x           {YM::::::::::::::{R888888{YM:::::::::::::::::::::::::M::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {YM:::::::::::::{R88888888{YM:::::::::::::::::::::::::M::MM{x~
+Desc {x           {YM:::::::::::::{R88888888{YM:::::::::::::::::::::::::M::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {YM::::::::::::{R8888888888{YM::::::::::::::::::::::::MM::MM{x~
+Desc {x           {YM::::::::::::{R8888888888{YM::::::::::::::::::::::::MM::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {YM:::::::::::M{R88{Y:::::::::M:::::::::::::::::::::::MM::MMM{x~
+Desc {x           {YM:::::::::::M{R88{Y:::::::::M:::::::::::::::::::::::MM::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {YMM:::::::::M:::::::::::::M:::::::::::::::::::::M:M:::MM{x~
+Desc {x           {YMM:::::::::M:::::::::::::M:::::::::::::::::::::M:M:::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x            {YM::::::::M:::::::::::::::::::::::::::::::::::M::M:::MM{x~
+Desc {x            {YM::::::::M:::::::::::::::::::::::::::::::::::M::M:::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x            {YMM::::::m:::::::::::::::::::::::::::::::::::M::MM:::MM{x~
+Desc {x            {YMM::::::m:::::::::::::::::::::::::::::::::::M::MM:::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x             {YM:::::::::::::::::::::::::M:::::::::::::::mM::MM:::Mm{x~
+Desc {x             {YM:::::::::::::::::::::::::M:::::::::::::::mM::MM:::Mm{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x  {R8888       {YMM:::::::::::::::::::::::::MM:::::::::::::mM::MM:::M:{x~
+Desc {x  {R8888       {YMM:::::::::::::::::::::::::MM:::::::::::::mM::MM:::M:{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x     {R888      {YM:::::M::::::::::::::::::::MMM::::::::::::M::mm:::M{x~
+Desc {x     {R888      {YM:::::M::::::::::::::::::::MMM::::::::::::M::mm:::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x      {R8888    {YMM::::Mm:::::::::::::::::::::MMMM:::::::::m::m:::M{x~
+Desc {x      {R8888    {YMM::::Mm:::::::::::::::::::::MMMM:::::::::m::m:::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x        {R888    {YM:::::Mm::::::::::::::::::::::MMM:::::::::M::::M{x~
+Desc {x        {R888    {YM:::::Mm::::::::::::::::::::::MMM:::::::::M::::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x         {R8888   {YM:::::M:::::::::::::::::::::::MMM::::::::M:::M{x~
+Desc {x         {R8888   {YM:::::M:::::::::::::::::::::::MMM::::::::M:::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x          {R8888   {YM:::::M:::::::::::::::::::::::MM:::::::M:::M{x~
+Desc {x          {R8888   {YM:::::M:::::::::::::::::::::::MM:::::::M:::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x          {R88888   {YM:::::m::::::::::{b@{Y::::::::::Mm:::::::M:::M{x~
+Desc {x          {R88888   {YM:::::m::::::::::{b@{Y::::::::::Mm:::::::M:::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {R88888   {YM:::::::::::::::{b@@{Y::::::::::::::::::M::M{x~
+Desc {x           {R88888   {YM:::::::::::::::{b@@{Y::::::::::::::::::M::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x            {R88888   {YM::::::::::::::{b@@@{Y::::::::::::::::M::M{x~
+Desc {x            {R88888   {YM::::::::::::::{b@@@{Y::::::::::::::::M::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x             {R88888   {YM::::::::::::::{b@@{Y:::::::::::::::M::M{x~
+Desc {x             {R88888   {YM::::::::::::::{b@@{Y:::::::::::::::M::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x             {R888888  {YM:::::M:::::::::{b@{Y::::::::::::::M::M{x~
+Desc {x             {R888888  {YM:::::M:::::::::{b@{Y::::::::::::::M::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x             {R888888  {YM:::::M::::::::::::::::::::::::M:M{x~
+Desc {x             {R888888  {YM:::::M::::::::::::::::::::::::M:M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x              {R888888 {YM::::::M:::::::::::::::::::M:::MM{x~
+Desc {x              {R888888 {YM::::::M:::::::::::::::::::M:::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {R8  888888 {YM:::::::MM:::::::::::::::::M:::M{x~
+Desc {x           {R8  888888 {YM:::::::MM:::::::::::::::::M:::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {R88 8888888{YM:::::::::MMM::::::::::::::M:::M{x~
+Desc {x           {R88 8888888{YM:::::::::MMM::::::::::::::M:::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x            {R88888888{YMM:::::::::::MMM:::::::::::MM:::M{x~
+Desc {x            {R88888888{YMM:::::::::::MMM:::::::::::MM:::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x             {R888888{YMM:::::::::::::MMM:::::::::MMM:::M{x~
+Desc {x             {R888888{YMM:::::::::::::MMM:::::::::MMM:::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x             {R88888{YMM:::::::::::::::MMM:::::::mM:::::MM{x~
+Desc {x             {R88888{YMM:::::::::::::::MMM:::::::mM:::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x              {R888{YMM::::::::::::::::::MM::::::MM::::::MM{x~
+Desc {x              {R888{YMM::::::::::::::::::MM::::::MM::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x          {R8   88{YMM::::::::::::::::::::::M:::M::::::::MM{x~
+Desc {x          {R8   88{YMM::::::::::::::::::::::M:::M::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x         {R88   8{YMM::::::::::::::::::::::::::::::::::MMMMMM{x~
+Desc {x         {R88   8{YMM::::::::::::::::::::::::::::::::::MMMMMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x        {R88    {YMM::::::::::::MMMMMMM::::::::::::::MMMMMMMMMM{x~
+Desc {x        {R88    {YMM::::::::::::MMMMMMM::::::::::::::MMMMMMMMMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x       {R88    {YMM:::::::::MMMMMMMMMMMMMMM::::::::MMM::::::::MMM{x~
+Desc {x       {R88    {YMM:::::::::MMMMMMMMMMMMMMM::::::::MMM::::::::MMM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x      {R88     {YM::::::::MMMM:::::::::::MMMM:::::MM::::::::::::MM{x~
+Desc {x      {R88     {YM::::::::MMMM:::::::::::MMMM:::::MM::::::::::::MM{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x     {R888    {YMM:::::::MMM::::::::::::::::MM:::MM:::::::::::::::M{x~
+Desc {x     {R888    {YMM:::::::MMM::::::::::::::::MM:::MM:::::::::::::::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x     {R888    {YM:::::::MM:::::::::::::::::::MM::M::::::::::::::::{P*8{x~
+Desc {x     {R888    {YM:::::::MM:::::::::::::::::::MM::M::::::::::::::::{P*8{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x    {R8888   {YMM::::::MM:::::::::::::::::::::MM:::::::::::::::::{P88@@{x~
+Desc {x    {R8888   {YMM::::::MM:::::::::::::::::::::MM:::::::::::::::::{P88@@{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x    {R88888  {YM:::{R8{Y::MM:::::::::{P*88*{Y::::::::::M:::::::::::::::::{P88@@{x~
+Desc {x    {R88888  {YM:::{R8{Y::MM:::::::::{P*88*{Y::::::::::M:::::::::::::::::{P88@@{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x    {R888888{YMM::{R88{Y::MM::::::::{P88@@88{Y:::::::::M:::{R8{Y::::::::::::::{P*8{x~
+Desc {x    {R888888{YMM::{R88{Y::MM::::::::{P88@@88{Y:::::::::M:::{R8{Y::::::::::::::{P*8{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x    {R888888{YM:::{R88{Y::M:::::::::{P88@@88{Y:::::::::M::{R88{Y::::::::::::::M{x~
+Desc {x    {R888888{YM:::{R88{Y::M:::::::::{P88@@88{Y:::::::::M::{R88{Y::::::::::::::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x     {R88888{YM:::{R88{Y::M::::::::::{P*88*{Y::::::::::M:{R88{Y::::::::::::::M{x~
+Desc {x     {R88888{YM:::{R88{Y::M::::::::::{P*88*{Y::::::::::M:{R88{Y::::::::::::::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x   {R8 88888{YM:::{R88{Y::M:::::::::::::::::::::::MM:{R88{Y::::::::::::M{x~
+Desc {x   {R8 88888{YM:::{R88{Y::M:::::::::::::::::::::::MM:{R88{Y::::::::::::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x    {R88888{YM:::::{R88{Y:M::::::::::{R8{Y:::::::::::M:::{R8888{Y::::::M::M{x~
+Desc {x    {R88888{YM:::::{R88{Y:M::::::::::{R8{Y:::::::::::M:::{R8888{Y::::::M::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x     {R8888{YM:::::{R888{YMM::::::::{R8{Y:::::::::::M::::{R8888{Y::::M::::M{x~
+Desc {x     {R8888{YM:::::{R888{YMM::::::::{R8{Y:::::::::::M::::{R8888{Y::::M::::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x      {R88{YMM:::::{R8888{YM:::::::{R88{Y::::::::{R8{Y:::::{R888888{Y:::M:::::M{x~
+Desc {x      {R88{YMM:::::{R8888{YM:::::::{R88{Y::::::::{R8{Y:::::{R888888{Y:::M:::::M{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x       {R8{YM:::::::{R8888{YM:::::{R888{Y:::::::{R88{Y:::{R8888888{Y::::::::Mm    {R2{x~
+Desc {x       {R8{YM:::::::{R8888{YM:::::{R888{Y:::::::{R88{Y:::{R8888888{Y::::::::Mm    {R2{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x   {R8   {YMM::::::::{R8888{YM:::{R8888{Y:::::{R888888888888{Y::::::::Mm{R8     4{x~
+Desc {x   {R8   {YMM::::::::{R8888{YM:::{R8888{Y:::::{R888888888888{Y::::::::Mm{R8     4{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x   {R88  {YM::::::::::{R8888M{Y::{R88888{Y::{R888888888888{Y:::::::Mm{R88888    88{x~
+Desc {x   {R88  {YM::::::::::{R8888M{Y::{R88888{Y::{R888888888888{Y:::::::Mm{R88888    88{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x   {R88  {YM::::::::::::{R8888{Y:{R88888888888888888{Y::::::Mm{R8   88888   888{x~
+Desc {x   {R88  {YM::::::::::::{R8888{Y:{R88888888888888888{Y::::::Mm{R8   88888   888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x  {R888  {YM::::::::::::M{R8888{Y:{R888888888888{Y::::m::Mm{R88888 888888   8888{x~
+Desc {x  {R888  {YM::::::::::::M{R8888{Y:{R888888888888{Y::::m::Mm{R88888 888888   8888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x {R888   {YM:::::::::::::M{R8888888888888{YM:::::mM{R888888888888888    8888{x~
+Desc {x {R888   {YM:::::::::::::M{R8888888888888{YM:::::mM{R888888888888888    8888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x{R8888   {YM::::::::::::::M{R88888888888{Y::::::MM{R888888888888888    88888{x~
+Desc {x{R8888   {YM::::::::::::::M{R88888888888{Y::::::MM{R888888888888888    88888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x{R888888 {YM:::::::::::::::M{R888888888{Y:::::::MM{R88888888888888   8888888{x~
+Desc {x{R888888 {YM:::::::::::::::M{R888888888{Y:::::::MM{R88888888888888   8888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x{R888888888{Y:::::{R8{Y:::::::::M{R8888888{YMAmmmAMVMM{R888{Y*{R88888888   88888888{x~
+Desc {x{R888888888{Y:::::{R8{Y:::::::::M{R8888888{YMAmmmAMVMM{R888{Y*{R88888888   88888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
+Desc {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
+Desc {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x  {R88888888888{Y:{R888{Y::::::::::M:::::{P"@a@"{Y:::::M{R8{Yi{R888888888888888{x~
+Desc {x  {R88888888888{Y:{R888{Y::::::::::M:::::{P"@a@"{Y:::::M{R8{Yi{R888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x {R8  8888888888888{Y:::::::::::M::{P"@@@@@@@"{Y::::{R8{Yw{R8888888888888888{x~
+Desc {x {R8  8888888888888{Y:::::::::::M::{P"@@@@@@@"{Y::::{R8{Yw{R8888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x {R88  88888888888{Y:::{R8{Y:::::::::M:::::::::::::{R88{Y:{R88888888888888888{x~
+Desc {x {R88  88888888888{Y:::{R8{Y:::::::::M:::::::::::::{R88{Y:{R88888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x  {R88   8888888888{Y::{R88{Y::::{R8{Y::::M:::::::::::::{R888888888888888 8888{x~
+Desc {x  {R88   8888888888{Y::{R88{Y::::{R8{Y::::M:::::::::::::{R888888888888888 8888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x  {R8888888888888888888{Y:::{R8{Y::::::M::aAa::::::::{RM8888888888       8{x~
+Desc {x  {R8888888888888888888{Y:::{R8{Y::::::M::aAa::::::::{RM8888888888       8{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x   {R88888888888888888{Y::::{R88{Y::::::M:::::::::::::{R888888888{x~
+Desc {x   {R88888888888888888{Y::::{R88{Y::::::M:::::::::::::{R888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x    {R88888888888888888{Y:::{R8888{Y:::::M:::::::::::{R88888888    8{x~
+Desc {x    {R88888888888888888{Y:::{R8888{Y:::::M:::::::::::{R88888888    8{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x     {R88888888888888888{Y:::{R88888{Y::::M:::{No*{BM{N*o:{R888888888    88{x~
+Desc {x     {R88888888888888888{Y:::{R88888{Y::::M:::{No*{BM{N*o:{R888888888    88{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
+Desc {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
+Desc {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
+Desc {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
+Desc {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
+Desc {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x        {R8888888888888888888888{Y:::::::::M{R8888888888888888{x~
+Desc {x        {R8888888888888888888888{Y:::::::::M{R8888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x        {R88888888888888888888{Y::::::::::::M{R88888888888888{x~
+Desc {x        {R88888888888888888888{Y::::::::::::M{R88888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x         {R888888888888888888{Y:M:::::::::::{R8888888888888{x~
+Desc {x         {R888888888888888888{Y:M:::::::::::{R8888888888888long {x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x           {R88{Y::::{R88888888{Y::::m::::::::::{R88888888888    8{x~
+Desc {x           {R88{Y::::{R88888888{Y::::m::::::::::{R88888888888    8{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x        {R888 8{Y::{R888888{Y::::::::::::::::::{R88888888888   888{x~
+Desc {x        {R888 8{Y::{R888888{Y::::::::::::::::::{R88888888888   888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x          {R88888888{Y::::{R8{Y:::::::::::{R88888888888888888888{x~
+Desc {x          {R88888888{Y::::{R8{Y:::::::::::{R88888888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x            {R88{Y::::::::{R888{Y:::{R8888888888888888888888888{x~
+Desc {x            {R88{Y::::::::{R888{Y:::{R8888888888888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x             {R8888{Y::::::{R8888888888888888888888888888{x~
+Desc {x             {R8888{Y::::::{R8888888888888888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x               {R8888{Y:::{R8888888888888888888888888{x~
+Desc {x               {R8888{Y:::{R8888888888888888888888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 4471
+Nest 1
+Name babe~
+ShD  {x                    {R8888  8888888{x~
+Desc {x                    {R8888  8888888{x~
+ExtF 0
+Wear -1
+Cost 3500
+End
+
 #L
 Vnum 14085
 Nest 0
@@ -2209,9 +3546,9 @@ Wt   5
 Wear -1
 Lev  0
 Cost 0
-ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
-~
 ExDe owned by~ Alisa
+~
+ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
 ~
 End
 

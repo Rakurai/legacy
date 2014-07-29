@@ -28,3 +28,5 @@
 {Y[{x01/03{Y]{x {C[{x25000{C]{x Outsider: Took out calloc call in Write_To_Server().
 
 {Y[{x07/27{Y]{x {C[{x 1298{C]{x Montrey: imms can now 'mark' an imm only room :P
+{Y[{x07/28{Y]{x {C[{x 1200{C]{x Montrey: now possible to dodge/blur a bash, not just skill modifiers.
+{Y[{x07/28{Y]{x {C[{x 1200{C]{x Montrey: size, slow, haste, and dexterity now affect dodge/blur

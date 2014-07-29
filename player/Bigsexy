@@ -1,27 +1,26 @@
 #PLAYER
 Name BigSexy~
 Id   994662231
-LogO 1027203632
-Vers 14
+LogO 1406579118
+Vers 15
 Mexp 2
 Pass mattb13~
 Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%q%Cc/%CG%j%CCmin.> ~
 Race human~
 Clan rebel~
 Cla  3
-Levl 21
-Tru  91
-Plyd 851617
+Levl 42
+Plyd 862731
 Back 812020
-Note 1027189445 1023604333 1027144008 1027087211 1027146472 1025664276 1026831915
+Note 1406559493 1023604333 1027144008 1027087211 1406555570 1406561131 1026831915
 Scro 22
 Room 24606
-HMS  266 260 52
-Gold 4698
-Silv 79
+HMS  772 289 140
+Gold 5491
+Silv 39
 Silver_in_bank 140205
 Gold_in_bank 10000
-Exp  21017
+Exp  42155
 PCkills  4
 PCkilled 3
 Akills   4
@@ -35,18 +34,22 @@ FRes J
 FVul 0
 Plr  AFMOQ
 Video D
-Act  CDEFGHJLNSTc
-AfBy NO
+Act  CDEFGHJLSTc
+AfBy NOV
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AIKLMN
 Cnsr 0
-Prac 2345
-Trai 276
+Block_Remote 0
+Prac 2429
+Trai 297
 Wimp 0
+Familiar 0
 Atrib 21 18 18 17 18 18
-SkillPnts  110
-QuestPnts  257
+SkillPnts  164
+QuestPnts  266
+QuestNext  9
+SQuestNext 9
 GameIn  {WT{gh{We {Yu{bn{Ym{bi{Ys{bt{Ya{bk{Ya{bb{Yl{be {Thum {Wof {Ya {RL{Pi{Rg{Ph{Rt{Ps{Ra{Pb{Rr{Pe {Nf{Bi{Nl{Bl{Ns {HY{Go{Hu{Gr {We{Ya{Wr{Ys{W.{x~
 GameOut {WIn {Ya {RR{ke{Rd B{Pl{Ru{Pr {BB{Wi{Bg{WS{Be{Wx{By {Wis {Yg{bo{Yn{be{W.{x~
 Afk {B[{CFri Jul 19 19:48:08 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
@@ -57,16 +60,16 @@ Pnts 40
 Rank {GM{HS{cT~
 Aura {WL{ko{Wu{kD{Wo{kg{x~
 TSex 1
-LLev 236
+LLev 239
 Deit {HA{Gl{Wi{Gs{Ha{x~
 Stus {BR{Wo{Bb{Wb{Bi{Wn {YThe {RH{Go{Ro{Gd{x~
 RmCt 10
 ExSk 0
 Raff 8 955
-Lsit dialup1-68.cass.net~
-Ltim Sat Jul 20 16:07:14 2002
+Lsit 97.107.89.116~
+Ltim Mon Jul 28 12:16:54 2014
 ~
-LSav Sat Jul 20 17:20:32 2002
+LSav Mon Jul 28 13:25:18 2014
 ~
 Finf Alisa gossips 'I'll be your victim ;)'
 S Alisa licks her mouth and smiles.
@@ -76,9 +79,9 @@ Finf Alisa gossips 'I'll be your victim ;)'
 Tara tells you 'and i thought you were a GIRL!!'
 You are now a member of The Rebel Alliance.
 ~
-HMSP 337 206 360
+HMSP 669 341 642
 THMS 0 0 0
-Cnd  0 0 6 8
+Cnd  0 0 32 28
 Alias cr clanrecall~
 Alias 6 c 'lightning breath'~
 Alias 7 c 'dispel magic'~
@@ -118,15 +121,15 @@ Sk 1 1 'chill touch'
 Sk 1 1 'colour spray'
 Sk 75 1 'continual light'
 Sk 71 1 'control weather'
-Sk 90 1 'create food'
+Sk 91 1 'create food'
 Sk 75 1 'create parchment'
-Sk 75 1 'create rose'
+Sk 76 1 'create rose'
 Sk 76 1 'create sign'
 Sk 87 1 'create spring'
 Sk 2 1 'create vial'
 Sk 1 1 'create water'
 Sk 75 1 'cure blindness'
-Sk 96 1 'cure critical'
+Sk 98 1 'cure critical'
 Sk 75 1 'cure disease'
 Sk 76 1 'cure light'
 Sk 78 1 'cure poison'
@@ -203,6 +206,7 @@ Sk 72 1 'remove alignment'
 Sk 76 1 'remove invisibility'
 Sk 78 1 'remove curse'
 Sk 94 1 'sanctuary'
+Sk 1 1 'scry'
 Sk 80 1 'shield'
 Sk 75 1 'shock blade'
 Sk 2 1 'shocking grasp'
@@ -210,6 +214,7 @@ Sk 76 1 'shrink'
 Sk 75 1 'sleep'
 Sk 94 1 'slow'
 Sk 2 1 'smokescreen'
+Sk 1 1 'starve'
 Sk 80 1 'steel mist'
 Sk 82 1 'stone skin'
 Sk 82 1 'summon'
@@ -228,11 +233,12 @@ Sk 100 1 'axe'
 Sk 100 1 'dagger'
 Sk 100 1 'polearm'
 Sk 100 1 'sword'
+Sk 1 1 'bow'
 Sk 82 1 'shield block'
 Sk 1 1 'brew'
 Sk 75 1 'scribe'
 Sk 81 1 'backstab'
-Sk 97 1 'bash'
+Sk 100 1 'bash'
 Sk 77 1 'berserk'
 Sk 100 1 'circle'
 Sk 1 1 'dirt kicking'
@@ -258,7 +264,7 @@ Sk 86 1 'haggle'
 Sk 75 1 'hide'
 Sk 82 1 'lore'
 Sk 100 1 'meditation'
-Sk 80 1 'peek'
+Sk 81 1 'peek'
 Sk 75 1 'pick lock'
 Sk 100 1 'scan'
 Sk 78 1 'sneak'
@@ -292,18 +298,9 @@ Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'protection evil'   0  15  10  -1  24       8192 1
-Affc 'protection good'   0  16  10  -1  24      16384 1
-Affc 'bless'   0  17  11  -2  24          0 1
-Affc 'bless'   0  16  11   2  18          0 1
-Affc 'armor'   0  13  10 -20  17          0 1
-End
-
-#O
-Vnum 77
-Nest 0
-Wear -1
-Cost 0
+Affc 'haste'   0  39  12   3   2    2097152 1
+Affc 'protection good'   0  39   9  -1  24      16384 1
+Affc 'protection evil'   0  37   9  -1  24       8192 1
 End
 
 #O
@@ -311,14 +308,7 @@ Vnum 79
 Nest 0
 Wear -1
 Cost 200
-Val  150 54 15 0 0
-End
-
-#O
-Vnum 10133
-Nest 0
-Wear 8
-Cost 120
+Val  150 18 11 0 0
 End
 
 #O
@@ -329,65 +319,17 @@ Cost 23
 End
 
 #O
-Vnum 10134
-Nest 0
-Wear 6
-Cost 120
-End
-
-#O
 Vnum 10127
 Nest 0
+Cond 90
 Wear 7
 Cost 128
 End
 
 #O
-Vnum 16084
-Nest 0
-Cond 98
-Wear 2
-Cost 1500
-End
-
-#O
-Vnum 16084
-Nest 0
-Wear 1
-Cost 1500
-End
-
-#O
-Vnum 16057
-Nest 0
-Wear -1
-Cost 50
-End
-
-#O
-Vnum 16046
-Nest 0
-Wear 5
-Cost 3500
-End
-
-#O
-Vnum 16044
-Nest 0
-Wear 15
-Cost 2000
-End
-
-#O
-Vnum 16039
-Nest 0
-Wear 14
-Cost 100
-End
-
-#O
 Vnum 9922
 Nest 0
+Cond 93
 Wear 12
 Cost 1500
 End
@@ -395,44 +337,16 @@ End
 #O
 Vnum 9923
 Nest 0
-Wear 13
+Cond 92
+Wear -1
 Cost 2500
 End
 
 #O
-Vnum 9909
-Nest 0
-Wear 4
-Cost 2000
-End
-
-#O
-Vnum 9909
-Nest 0
-Wear 3
-Cost 2000
-End
-
-#O
-Vnum 29900
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#O
-Vnum 16064
-Nest 0
-Cond 91
-Wear 19
-Cost 4500
-End
-
-#O
 Vnum 9573
 Nest 0
 Wear -1
-Time 947
+Time 700
 Cost 820
 Spell 1 'haste'
 End
@@ -441,61 +355,7 @@ End
 Vnum 9573
 Nest 0
 Wear -1
-Time 825
-Cost 820
-Spell 1 'haste'
-End
-
-#O
-Vnum 9573
-Nest 0
-Wear -1
-Time 716
-Cost 820
-Spell 1 'haste'
-End
-
-#O
-Vnum 9573
-Nest 0
-Wear -1
-Time 651
-Cost 820
-Spell 1 'haste'
-End
-
-#O
-Vnum 9573
-Nest 0
-Wear -1
-Time 670
-Cost 820
-Spell 1 'haste'
-End
-
-#O
-Vnum 9573
-Nest 0
-Wear -1
-Time 630
-Cost 820
-Spell 1 'haste'
-End
-
-#O
-Vnum 9573
-Nest 0
-Wear -1
-Time 761
-Cost 820
-Spell 1 'haste'
-End
-
-#O
-Vnum 9573
-Nest 0
-Wear -1
-Time 639
+Time 578
 Cost 820
 Spell 1 'haste'
 End
@@ -508,17 +368,118 @@ Cost 122
 End
 
 #O
-Vnum 16041
+Vnum 24611
 Nest 0
+Cond 94
+Wear 0
+Cost 3000
+End
+
+#O
+Vnum 24612
+Nest 0
+Cond 98
+Wear 5
+Cost 3500
+End
+
+#O
+Vnum 24613
+Nest 0
+Cond 89
+Wear 10
+Cost 3500
+End
+
+#O
+Vnum 17334
+Nest 0
+Wear 6
+Cost 4000
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 92
+Wear 19
+Cost 10000
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 92
 Wear 16
+Cost 10000
+End
+
+#O
+Vnum 24614
+Nest 0
+Cond 99
+Wear 14
+Cost 4000
+End
+
+#O
+Vnum 24614
+Nest 0
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 24615
+Nest 0
+Wear 4
+Cost 4000
+End
+
+#O
+Vnum 24615
+Nest 0
+Wear 3
+Cost 4000
+End
+
+#O
+Vnum 24616
+Nest 0
+Cond 96
+Wear 1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Cond 98
+Wear 2
+Cost 4500
+End
+
+#O
+Vnum 24617
+Nest 0
+Wear 8
 Cost 5000
 End
 
 #O
-Vnum 24611
+Vnum 4594
 Nest 0
-Wear 0
-Cost 3000
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
 End
 
 #L
@@ -1989,6 +1950,88 @@ Wear -1
 Cost 0
 End
 
+#L
+Vnum 16046
+Nest 0
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 10134
+Nest 0
+Wear -1
+Cost 120
+End
+
+#L
+Vnum 16041
+Nest 0
+Cond 80
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 16064
+Nest 0
+Cond 95
+Wear -1
+Cost 4500
+End
+
+#L
+Vnum 9909
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 9909
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 16039
+Nest 0
+ExtF 1
+Wear -1
+Cost 100
+End
+
+#L
+Vnum 16044
+Nest 0
+Cond 98
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 16084
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 16084
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 10133
+Nest 0
+Cond 92
+Wear -1
+Cost 120
+End
+
 #B
 Vnum 5409
 Nest 0
@@ -2039,164 +2082,6 @@ ExDe sword The Spirit of Michigan~ It is a marvellous sword, crafted from the fi
 It was created in the Month of Harmony by an experienced warrior
 named BigSexy.  Legend holds that this dragon was a great weaponsmith.
 ~
-End
-
-#B
-Vnum 10215
-Nest 0
-ExtF 64
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 10215
-Nest 0
-ExtF 64
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 10171
-Nest 0
-Cond 94
-Wear -1
-Cost 3300
-End
-
-#B
-Vnum 1004
-Enchanted
-Nest 0
-Name sword The Spirit of Michigan~
-ShD  {WT{Rh{We {BS{Wp{Bi{Wr{Bi{Wt {cof {BM{Yi{Bc{Yh{Bi{Yg{Ba{Yn{x~
-Desc A sword is here, forged by BigSexy's craftsmanship.~
-Mat tin~
-ExtF 16777539
-Wt   69
-Cond 69
-Wear -1
-Lev  75
-Cost 7
-Val  1 7 15 3 4
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
-Affc 'enchant weapon'   0 100  -1  18  18          0 1
-ExDe sword The Spirit of Michigan~ It is a marvellous sword, crafted from the finest tin around.
-It was created in the Month of Harmony by an experienced warrior
-named BigSexy.  Legend holds that this dragon was a great weaponsmith.
-~
-End
-
-#B
-Vnum 7502
-Nest 0
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 17003
-Nest 1
-Cond 86
-Wear -1
-Cost 200
-End
-
-#B
-Vnum 17008
-Nest 1
-Cond 94
-Wear -1
-Cost 200
-End
-
-#B
-Vnum 14041
-Nest 1
-Cond 85
-Wear -1
-Cost 750
-End
-
-#B
-Vnum 17013
-Nest 1
-Cond 79
-Wear -1
-Cost 50
-End
-
-#B
-Vnum 17005
-Nest 1
-Cond 95
-Wear -1
-Cost 200
-End
-
-#B
-Vnum 9911
-Nest 1
-Cond 94
-Wear -1
-Cost 6630
-End
-
-#B
-Vnum 17010
-Nest 1
-Cond 82
-Wear -1
-Cost 200
-End
-
-#B
-Vnum 17009
-Nest 1
-Cond 85
-Wear -1
-Cost 200
-End
-
-#B
-Vnum 5607
-Nest 1
-Cond 84
-Wear -1
-Cost 2000
-End
-
-#B
-Vnum 5608
-Nest 1
-Cond 76
-Wear -1
-Cost 2000
-End
-
-#B
-Vnum 3205
-Nest 1
-Cond 84
-Wear -1
-Cost 60
-End
-
-#B
-Vnum 10152
-Nest 1
-Cond 70
-Wear -1
-Cost 5500
-End
-
-#B
-Vnum 10152
-Nest 1
-Cond 74
-Wear -1
-Cost 5500
 End
 
 #B
@@ -2404,6 +2289,148 @@ Affc 'reserved'   1  59  -1 100  14          0 1
 Affc 'reserved'   1  59  -1   3   2          0 1
 Affc 'enchant weapon'   1 100  -1  12  19          0 1
 Affc 'enchant weapon'   0 100  -1  12  18          0 1
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name sword The Spirit of Michigan~
+ShD  {WT{Rh{We {BS{Wp{Bi{Wr{Bi{Wt {cof {BM{Yi{Bc{Yh{Bi{Yg{Ba{Yn{x~
+Desc A sword is here, forged by BigSexy's craftsmanship.~
+Mat tin~
+ExtF 16777539
+Wt   69
+Cond 69
+Wear -1
+Lev  75
+Cost 7
+Val  1 7 15 3 4
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   0 100  -1  18  18          0 1
+ExDe sword The Spirit of Michigan~ It is a marvellous sword, crafted from the finest tin around.
+It was created in the Month of Harmony by an experienced warrior
+named BigSexy.  Legend holds that this dragon was a great weaponsmith.
+~
+End
+
+#B
+Vnum 10171
+Nest 0
+Cond 94
+Wear -1
+Cost 3300
+End
+
+#B
+Vnum 7502
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 17003
+Nest 1
+Cond 86
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 17008
+Nest 1
+Cond 94
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 14041
+Nest 1
+Cond 85
+Wear -1
+Cost 750
+End
+
+#B
+Vnum 17013
+Nest 1
+Cond 79
+Wear -1
+Cost 50
+End
+
+#B
+Vnum 17005
+Nest 1
+Cond 95
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 17010
+Nest 1
+Cond 82
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 17009
+Nest 1
+Cond 85
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 3205
+Nest 1
+Cond 84
+Wear -1
+Cost 60
+End
+
+#B
+Vnum 10152
+Nest 1
+Cond 70
+Wear -1
+Cost 5500
+End
+
+#B
+Vnum 10152
+Nest 1
+Cond 74
+Wear -1
+Cost 5500
+End
+
+#B
+Vnum 9911
+Nest 1
+Cond 94
+Wear -1
+Cost 6630
+End
+
+#B
+Vnum 5607
+Nest 1
+Cond 84
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 5608
+Nest 1
+Cond 76
+Wear -1
+Cost 2000
 End
 
 #END

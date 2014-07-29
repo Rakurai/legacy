@@ -1,1 +1,1 @@
--v -bad -bap -bbb -nbc -br -c33 -cd33 -ncdb -ce -ci4 -cli0 -cp33 -d0 -di12 -nfc1 -nfca -i4  -ip4  -l120 -lp -npcs -npsl -nsc -nsob -nss -ts8 -sob -d0 -cdb -sc -nbc
+-v -bad -bap -bbb -nbc -br -c33 -cd33 -ncdb -nce -ci4 -cli0 -d0 -di12 -nfc1 -i4  -ip4  -l120 -lp -npcs -npsl -nsc -nsob -sob -d0 -cdb -sc -nbc

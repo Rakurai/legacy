@@ -1,7 +1,7 @@
 #PLAYER
 Name Rakurai~
 Id   989856238
-LogO 1406430105
+LogO 1406478745
 Vers 15
 Mexp 2
 Pass tierney~
@@ -24,14 +24,14 @@ Race seraph~
 Clan kindred~
 Cla  2
 Levl 91
-Plyd 737774
+Plyd 739220
 Back 516825
 Note 1019370366 1018570350 1018570350 1018580998 1018570350 1019508481 1018580154
 Scro 100
-Room 4590
-HMS  2590 2051 1118
-Gold 2639
-Silv 16
+Room 3001
+HMS  2590 1809 705
+Gold 2638
+Silv 76
 Silver_in_bank 106000
 Gold_in_bank 8000
 Exp  159259
@@ -46,10 +46,10 @@ Spou Ayelri~
 FImm L
 FRes NS
 FVul MN
-Plr  ACEFIMRd
+Plr  ACEFHIMRd
 Video D
 Act  CDEFGHIJLQSTc
-AfBy TUVZ
+AfBy TUV
 Comm MNOZ
 Revk 0
 Cgrp AIKLMO
@@ -82,9 +82,9 @@ RmCt 5
 ExSk 0
 Raff 5
 Lsit static-host-24-31-12-106.nctv.com~
-Ltim Sat Jul 26 20:01:15 2014
+Ltim Sun Jul 27 08:44:13 2014
 ~
-LSav Sat Jul 26 20:01:45 2014
+LSav Sun Jul 27 09:32:25 2014
 ~
 HMSP 1515 566 1088
 THMS 0 0 0
@@ -326,7 +326,6 @@ Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'divine regeneration'   0  83  15   0   0   33554432 4
 End
 
 #O
@@ -338,11 +337,11 @@ Cond 98
 Wear 18
 Lev  84
 Cost 22000
-Affc 'reserved'   1  81  -1   3   2          0 1
-Affc 'reserved'   1  81  -1  -3  21          0 1
-Affc 'reserved'   1  81  -1  60  12          0 1
-Affc 'enchant weapon'   1 100  -1  13  19          0 1
 Affc 'enchant weapon'   1 100  -1  11  18          0 1
+Affc 'enchant weapon'   1 100  -1  13  19          0 1
+Affc 'reserved'   1  81  -1  60  12          0 1
+Affc 'reserved'   1  81  -1  -3  21          0 1
+Affc 'reserved'   1  81  -1   3   2          0 1
 End
 
 #O
@@ -461,9 +460,9 @@ ShD  {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C th
 Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
 Wear -1
 Cost 0
-ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
-~
 ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 End
 
@@ -474,11 +473,11 @@ ShD  {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the
 Desc {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
 Wear -1
 Cost 0
-ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 ExDe wedding~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
-ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 End
 
@@ -500,9 +499,9 @@ Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C th
 Wear -1
 Cost 0
 Val  64 39 21 0 0
-ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
-~
 ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 End
 
@@ -513,11 +512,11 @@ ShD  {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the
 Desc {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
 Wear -1
 Cost 0
-ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 ExDe wedding~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
-ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 End
 
@@ -613,7 +612,7 @@ Wear 19
 Lev  91
 Cost 21
 Val  1 9 17 3 202
-Affc 'poison'   5  33  82   0   0        128 1
+Affc 'poison'   5  19  18   0   0        128 1
 ExDe owned by~ Rakurai
 ~
 End
@@ -660,12 +659,12 @@ Nest 0
 Cond 97
 Wear 6
 Cost 100000
-Affc 'enchant weapon'   1 100  -1  15  19          0 1
-Affc 'enchant weapon'   1 100  -1  13  18          0 1
-Affc 'reserved'   1  91  -1 120  13          0 1
-Affc 'reserved'   1  91  -1 120  12          0 1
-Affc 'reserved'   1  91  -1   3  26          0 1
 Affc 'reserved'   1  91  -1   3   5          0 1
+Affc 'reserved'   1  91  -1   3  26          0 1
+Affc 'reserved'   1  91  -1 120  12          0 1
+Affc 'reserved'   1  91  -1 120  13          0 1
+Affc 'enchant weapon'   1 100  -1  13  18          0 1
+Affc 'enchant weapon'   1 100  -1  15  19          0 1
 End
 
 #O
@@ -693,14 +692,14 @@ Cond 94
 Wear 14
 Lev  91
 Cost 55000
-Affc 'reserved'   0  95  -1   0   0    2097152 1
-Affc 'reserved'   1  95  -1  16  19          0 1
-Affc 'reserved'   1  95  -1  12  18          0 1
-Affc 'reserved'   1  95  -1 300  13          0 1
-Affc 'reserved'   1  95  -1 300  12          0 1
-Affc 'reserved'   1  95  -1   4   2          0 1
-Affc 'reserved'   1  95  -1   4   1          0 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  95  -1   4   1          0 1
+Affc 'reserved'   1  95  -1   4   2          0 1
+Affc 'reserved'   1  95  -1 300  12          0 1
+Affc 'reserved'   1  95  -1 300  13          0 1
+Affc 'reserved'   1  95  -1  12  18          0 1
+Affc 'reserved'   1  95  -1  16  19          0 1
+Affc 'reserved'   0  95  -1   0   0    2097152 1
 ExDe owned by~ Rakurai
 ~
 End
@@ -714,15 +713,15 @@ Cond 84
 Wear 0
 Lev  91
 Cost 55000
-Affc 'reserved'   1  95  -1   2   1          0 1
-Affc 'reserved'   1  95  -1   2   2          0 1
-Affc 'reserved'   1  95  -1   2   3          0 1
-Affc 'reserved'   1  95  -1   2   4          0 1
-Affc 'reserved'   1  95  -1   2   5          0 1
-Affc 'reserved'   1  95  -1 175  12          0 1
-Affc 'reserved'   1  95  -1 175  13          0 1
-Affc 'enchant weapon'   1 100  -1  14  18          0 1
 Affc 'enchant weapon'   1 100  -1  14  19          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'reserved'   1  95  -1 175  13          0 1
+Affc 'reserved'   1  95  -1 175  12          0 1
+Affc 'reserved'   1  95  -1   2   5          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1   2   2          0 1
+Affc 'reserved'   1  95  -1   2   1          0 1
 ExDe owned by~ Rakurai
 ~
 End
@@ -744,7 +743,7 @@ Cond 96
 Wear -1
 Cost 0
 Val  0 10 10 20 193
-Affc 'poison'   5  30 142   0   0        128 1
+Affc 'poison'   5  13  78   0   0        128 1
 End
 
 #O
@@ -770,9 +769,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #O
@@ -804,7 +803,12 @@ Cond 46
 Wear 16
 Lev  91
 Cost 55000
-ExDe owned by~ Rakurai
+ExDe chirijiraden~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
+{ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
+{gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
+{gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
+{x
+{x   {g"{YF{Pl{Wam{gi{Yn{gg sword, swipe away the {ce{Rv{bi{cls{g!  C{Wh{Ci{Wri{gj{Cir{ga{Wde{gn!"{x
 ~
 ExDe katana~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
 {ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
@@ -813,12 +817,7 @@ ExDe katana~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes,
 {x
 {x   {g"{YF{Pl{Wam{gi{Yn{gg sword, swipe away the {ce{Rv{bi{cls{g!  C{Wh{Ci{Wri{gj{Cir{ga{Wde{gn!"{x
 ~
-ExDe chirijiraden~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
-{ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
-{gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
-{gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
-{x
-{x   {g"{YF{Pl{Wam{gi{Yn{gg sword, swipe away the {ce{Rv{bi{cls{g!  C{Wh{Ci{Wri{gj{Cir{ga{Wde{gn!"{x
+ExDe owned by~ Rakurai
 ~
 End
 
@@ -836,7 +835,7 @@ End
 Vnum 14063
 Nest 0
 Wear -1
-Time 89
+Time 25
 Cost 1000
 Spell 2 'plague'
 Spell 3 'weaken'
@@ -887,9 +886,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  45 91 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Syveril.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -903,9 +902,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  45 91 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Syveril.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -919,9 +918,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Syveril.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -939,8 +938,8 @@ Wear -1
 Lev  60
 Cost 6
 Val  2 7 12 11 12
-Affc 'enchant weapon'   1  68  -1   5  19          0 1
 Affc 'enchant weapon'   0  68  -1   5  18          0 1
+Affc 'enchant weapon'   1  68  -1   5  19          0 1
 ExDe dagger the shortsword, 'Apocalypse'~ It is a marvellous dagger, crafted from the finest tin around.
 It was created in the Month of Continuity by an experienced thief
 named Rakurai.  Legend holds that this human was a great weaponsmith.
@@ -968,8 +967,8 @@ Wear -1
 Lev  60
 Cost 6
 Val  2 6 14 11 9
-Affc 'enchant weapon'   1  68  -1   6  19          0 1
 Affc 'enchant weapon'   0  68  -1   6  18          0 1
+Affc 'enchant weapon'   1  68  -1   6  19          0 1
 ExDe dagger the shortsword, 'Apocalypse'~ It is a marvellous dagger, crafted from the finest steel around.
 It was created in the Month of Continuity by an experienced thief
 named Rakurai.  Legend holds that this human was a great weaponsmith.
@@ -985,12 +984,12 @@ Cond 99
 Wear 10
 Lev  91
 Cost 33333
-Affc 'reserved'   1  95  -1   5   9          0 1
-Affc 'reserved'   1  95  -1  25  19          0 1
-Affc 'reserved'   1  95  -1  20  18          0 1
-Affc 'reserved'   1  95  -1 -15  22          0 1
-Affc 'reserved'   1  95  -1   5   4          0 1
 Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1  95  -1   5   4          0 1
+Affc 'reserved'   1  95  -1 -15  22          0 1
+Affc 'reserved'   1  95  -1  20  18          0 1
+Affc 'reserved'   1  95  -1  25  19          0 1
+Affc 'reserved'   1  95  -1   5   9          0 1
 End
 
 #O
@@ -1000,14 +999,14 @@ Nest 0
 ExtF 67
 Wear -1
 Cost 9500
-Affc 'reserved'   1  92  -1   2   2          0 1
-Affc 'reserved'   1  92  -1  -1  20          0 1
-Affc 'reserved'   1  92  -1   2  26          0 1
-Affc 'reserved'   1  92  -1  65  12          0 1
-Affc 'reserved'   1  92  -1  65  13          0 1
-Affc 'enchant weapon'   1  92  -1   7  19          0 1
-Affc 'enchant weapon'   1  92  -1  10  18          0 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'enchant weapon'   1  92  -1  10  18          0 1
+Affc 'enchant weapon'   1  92  -1   7  19          0 1
+Affc 'reserved'   1  92  -1  65  13          0 1
+Affc 'reserved'   1  92  -1  65  12          0 1
+Affc 'reserved'   1  92  -1   2  26          0 1
+Affc 'reserved'   1  92  -1  -1  20          0 1
+Affc 'reserved'   1  92  -1   2   2          0 1
 End
 
 #O
@@ -1017,13 +1016,13 @@ Nest 0
 ExtF 67
 Wear -1
 Cost 0
-Affc 'enchant weapon'   1  92  -1  10  18          0 1
-Affc 'enchant weapon'   1  92  -1   7  19          0 1
-Affc 'reserved'   1  92  -1  65  13          0 1
-Affc 'reserved'   1  92  -1  65  12          0 1
-Affc 'reserved'   1  92  -1   2  26          0 1
-Affc 'reserved'   1  92  -1  -1  20          0 1
 Affc 'reserved'   1  92  -1   2   2          0 1
+Affc 'reserved'   1  92  -1  -1  20          0 1
+Affc 'reserved'   1  92  -1   2  26          0 1
+Affc 'reserved'   1  92  -1  65  12          0 1
+Affc 'reserved'   1  92  -1  65  13          0 1
+Affc 'enchant weapon'   1  92  -1   7  19          0 1
+Affc 'enchant weapon'   1  92  -1  10  18          0 1
 End
 
 #O
@@ -1035,11 +1034,11 @@ Cond 90
 Wear 9
 Lev  91
 Cost 50000
-Affc 'reserved'   1  95  -1  15  19          0 1
-Affc 'reserved'   1  95  -1  10  18          0 1
-Affc 'reserved'   1  95  -1 100  13          0 1
-Affc 'reserved'   1  95  -1   4   1          0 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  95  -1   4   1          0 1
+Affc 'reserved'   1  95  -1 100  13          0 1
+Affc 'reserved'   1  95  -1  10  18          0 1
+Affc 'reserved'   1  95  -1  15  19          0 1
 ExDe owned by~ Rakurai
 ~
 End
@@ -1090,8 +1089,8 @@ Nest 0
 Wear -1
 Lev  8
 Cost 500
-Affc 'reserved'   1  10  -1   2  18          0 1
 Affc 'reserved'   1  10  -1   1  19          0 1
+Affc 'reserved'   1  10  -1   2  18          0 1
 End
 
 #O
@@ -1124,11 +1123,11 @@ Wear -1
 Lev  14
 Cost 100
 Val  1 2 8 3 128
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'poison'   5  50 271   0   0        128 1
 Affc 'reserved'   1  10  -1   1   3          0 1
-Affc 'poison'   5  65 335   0   0        128 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
 End
 
 #O
@@ -1209,9 +1208,9 @@ Mat paper~
 ExtF 16793600
 Wear -1
 Cost 1000
-ExDe m&m~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
-~
 ExDe bag~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
+~
+ExDe m&m~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
 ~
 End
 
@@ -1229,8 +1228,8 @@ Wear -1
 Lev  84
 Cost 9
 Val  1 7 15 3 0
-Affc 'enchant weapon'   0  79  -1   7  18          0 1
 Affc 'enchant weapon'   1  79  -1   7  19          0 1
+Affc 'enchant weapon'   0  79  -1   7  18          0 1
 ExDe sword a sharp sword~ It is a marvellous sword, crafted from the finest tin around.
 It was created in the Month of Ancient Darkness by a master thief
 named Rakurai.  Legend holds that this human was a great weaponsmith.
@@ -1258,8 +1257,8 @@ Wear -1
 Lev  84
 Cost 7
 Val  4 6 18 7 0
-Affc 'enchant weapon'   0  79  -1   6  18          0 1
 Affc 'enchant weapon'   1  79  -1   6  19          0 1
+Affc 'enchant weapon'   0  79  -1   6  18          0 1
 ExDe mace a big club~ It is a marvellous mace, crafted from the finest iron around.
 It was created in the Month of Ancient Darkness by a master thief
 named Rakurai.  Legend holds that this human was a great weaponsmith.
@@ -1275,10 +1274,10 @@ Cond 93
 Wear -1
 Lev  14
 Cost 100
-Affc 'reserved'   1  10  -1   1   3          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
-Affc 'enchant weapon'   1  91  -1   7  18          0 1
 Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'reserved'   1  10  -1   1   3          0 1
 End
 
 #B
@@ -1311,9 +1310,9 @@ Wear -1
 Lev  30
 Cost 5000
 Val  1 6 6 3 4
-Affc 'reserved'   1  26  -1 -10  17          0 1
-Affc 'enchant weapon'   1 100  -1   8  18          0 1
 Affc 'enchant weapon'   1 100  -1   8  19          0 1
+Affc 'enchant weapon'   1 100  -1   8  18          0 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
 End
 
 #B
@@ -1325,9 +1324,9 @@ Wear -1
 Lev  30
 Cost 5000
 Val  1 6 6 3 1
-Affc 'reserved'   1  26  -1 -10  17          0 1
-Affc 'enchant weapon'   1 100  -1   8  18          0 1
 Affc 'enchant weapon'   1 100  -1   8  19          0 1
+Affc 'enchant weapon'   1 100  -1   8  18          0 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
 End
 
 #B
@@ -1357,10 +1356,10 @@ Cond 78
 Wear -1
 Lev  21
 Cost 4500
-Affc 'reserved'   1  17  -1   1   1          0 1
-Affc 'reserved'   1  17  -1  10  13          0 1
-Affc 'enchant weapon'   1  91  -1   7  18          0 1
 Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'reserved'   1  17  -1  10  13          0 1
+Affc 'reserved'   1  17  -1   1   1          0 1
 End
 
 #B
@@ -1397,8 +1396,8 @@ Wear -1
 Lev  91
 Cost 11
 Val  4 10 15 7 4
-Affc 'enchant weapon'   0  91  -1   6  18          0 1
 Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'enchant weapon'   0  91  -1   6  18          0 1
 ExDe mace a mace~ It is a marvellous mace, crafted from the finest platinum around.
 It was created in the Month of Harmony by a master thief
 named Rakurai.  Legend holds that this human was a great weaponsmith.
@@ -1413,8 +1412,8 @@ ExtF 67
 Wear -1
 Lev  7
 Cost 250
-Affc 'enchant weapon'   0  91  -1   7  18          0 1
 Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
 End
 
 #B
@@ -1432,8 +1431,8 @@ Wear -1
 Lev  83
 Cost 40
 Val  2 10 12 11 0
-Affc 'enchant weapon'   0  80  -1   5  18          0 1
 Affc 'enchant weapon'   1  80  -1   5  19          0 1
+Affc 'enchant weapon'   0  80  -1   5  18          0 1
 ExDe dagger the shortsword, Fury Unleashed~ It is a marvellous dagger, crafted from the finest platinum around.
 It was created in the Month of Endings by a master thief
 named Rakurai.  Legend holds that this human was a great weaponsmith.
@@ -1455,8 +1454,8 @@ Wear -1
 Lev  85
 Cost 39
 Val  2 7 16 11 0
-Affc 'enchant weapon'   0  79  -1   6  18          0 1
 Affc 'enchant weapon'   1  79  -1   6  19          0 1
+Affc 'enchant weapon'   0  79  -1   6  18          0 1
 ExDe dagger a pointy dagger~ It is a marvellous dagger, crafted from the finest tin around.
 It was created in the Month of Ancient Darkness by a master thief
 named Rakurai.  Legend holds that this human was a great weaponsmith.

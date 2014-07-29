@@ -1,20 +1,19 @@
 #PLAYER
 Name Sorsha~
 Id   1024689758
-LogO 1027219015
-Vers 14
+LogO 1406523121
+Vers 15
 Mexp 2
 Pass blue11~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race seraph~
 Cla  0
 Levl 1
-Tru  0
 Plyd 67667
 Back 55185
 Note 1027107921 1026340951 1027144008 1027087211 1027146472 1026340951 1026340951
 Scro 22
-Room 1270
+Room 1200
 HMS  20 100 100
 Gold 0
 Silv 0
@@ -26,21 +25,23 @@ Akilled  0
 PKRank   0
 Pos  5
 Alig 0
-Spou Montrey~
+Spou ~
 FImm 0
 FRes NS
 FVul M
-Plr  RU
+Plr  HU
 Video 0
 Act  CDEFGHJLQSc
 AfBy T
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AI
 Cnsr AB
+Block_Remote 0
 Prac 5
 Trai 3
 Wimp 0
+Familiar 0
 Atrib 16 17 14 13 15 16
 Afk {B[{CSat Jul 20 01:43:40 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
@@ -55,7 +56,7 @@ Deit Sorsha~
 Lsit ACAA088A.ipt.aol.com~
 Ltim Sat Jul 20 21:17:51 2002
 ~
-LSav Sat Jul 20 21:36:55 2002
+LSav Sun Jul 27 21:52:01 2014
 ~
 HMSP 20 100 100
 THMS 0 0 0
@@ -126,11 +127,13 @@ Sk 1 1 'remove alignment'
 Sk 1 1 'remove invisibility'
 Sk 1 1 'remove curse'
 Sk 1 1 'sanctuary'
+Sk 1 1 'scry'
 Sk 1 1 'shield'
 Sk 1 1 'shocking grasp'
 Sk 1 1 'sleep'
 Sk 1 1 'slow'
 Sk 1 1 'smokescreen'
+Sk 1 1 'starve'
 Sk 1 1 'steel mist'
 Sk 1 1 'stone skin'
 Sk 1 1 'summon'
@@ -152,6 +155,7 @@ Sk 1 1 'scrolls'
 Sk 1 1 'staves'
 Sk 1 1 'wands'
 Sk 50 1 'recall'
+Sk 1 1 'familiar'
 Gr 'rom basics'
 Gr 'mage basics'
 Gr 'mage default'
