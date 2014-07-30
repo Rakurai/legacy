@@ -1014,7 +1014,7 @@ You are just outside the northern gate of Midgaard.  You can continue along
 the trail to the east or west, head onwards to the plains of the north, or
 enter Midgaard to the south.  You can just barely make out the buildings of
 Midgaard from here, the Temple of Mota looks impressive even from this
-distance.Above you there appears to be a treehouse.  
+distance. Above you there appears to be a treehouse.  
 ~
 0 0 2
 D0
@@ -1332,12 +1332,17 @@ S
 #4017
 The large cave~
 You are in the east end of the large cave.
+To the east is a small tunnel.
 ~
 0 AD 2
 D3
 ~
 ~
 0 0 4016
+D1
+~
+~
+0 0 11633
 S
 #4018
 The cave~

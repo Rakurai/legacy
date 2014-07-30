@@ -9,7 +9,7 @@ Mobile Analysis
 #6      0 active   0 killed     a zombie
 #7      1 active   0 killed     the young woman
 #8      1 active   0 killed     Lyana the waitress
-#85     0 active   0 killed     
+#85     4 active   0 killed     
 #200    0 active   0 killed     a fairy
 #201    1 active   0 killed     the Guardian of Eilyndrae
 #202    1 active   0 killed     the Serpent
@@ -19,23 +19,23 @@ Mobile Analysis
 #206    0 active   0 killed     a snowshoe rabbit
 #351    1 active   0 killed     Librarian
 #400    1 active   0 killed     Aruncus the Druid
-#401    1 active   0 killed     Sorbus the Hermit
-#403    4 active   0 killed     the citizen
-#404    4 active   0 killed     the citizen
+#401    1 active   1 killed     Sorbus the Hermit
+#403    5 active   0 killed     the citizen
+#404    5 active   0 killed     the citizen
 #405    1 active   0 killed     Shudde-M'ell
 #406    1 active   0 killed     Luxan
 #408    1 active   0 killed     the Innkeeper
-#409    8 active   0 killed     the cute rabbit
+#409   10 active   5 killed     the cute rabbit
 #450    1 active   0 killed     the pet dragon
 #500    1 active   0 killed     A dark knight
-#501    1 active   0 killed     A doom knight
+#501    1 active   2 killed     A doom knight
 #502    1 active   0 killed     A blood knight
 #503    1 active   0 killed     A death knight
 #504    1 active   0 killed     A Demon knight
-#600    8 active   0 killed     the {YOfcol{x {bc{Yi{bt{Yy{bg{Yu{ba{Yr{bd{x
+#600    8 active   1 killed     the {YOfcol{x {bc{Yi{bt{Yy{bg{Yu{ba{Yr{bd{x
 #601    1 active   0 killed     {YM{Wa{Yr{Ws{Yh{Wa{Yl{Wl{x Diana
 #602    1 active   0 killed     {YC{Ba{Yp{Bt{Ya{Bi{Yn{x Derrick
-#603    1 active   0 killed     {YC{Ba{Yp{Bt{Ya{Bi{Yn{x Jacklyn
+#603    1 active   1 killed     {YC{Ba{Yp{Bt{Ya{Bi{Yn{x Jacklyn
 #604    1 active   0 killed     Jim the Blacksmith
 #605    1 active   0 killed     Sam
 #606    1 active   0 killed     Madam Tracy
@@ -67,12 +67,12 @@ Mobile Analysis
 #632    2 active   0 killed     an attendant of the dragon
 #633    3 active   0 killed     a {YD{Rr{Ya{Rg{Yo{Rn{Yk{Rn{Yi{Rg{Yh{Rt{x
 #634    3 active   0 killed     the {YOfcol{x {bc{Yi{bt{Yy{bg{Yu{ba{Yr{bd{x
-#801    9 active   0 killed     A stone-head creature
-#802    6 active   0 killed     A bird-head creature
-#803    5 active   0 killed     A magnet-head
+#801    9 active   2 killed     A stone-head creature
+#802    6 active   5 killed     A bird-head creature
+#803    5 active   1 killed     A magnet-head
 #804    5 active   0 killed     A flying-disc
 #805    5 active   0 killed     Skull-head
-#806    1 active   0 killed     Pacman
+#806    1 active  14 killed     Pacman
 #807    3 active   0 killed     An evil bomb
 #808    1 active   0 killed     Windman
 #809    1 active   0 killed     Thunderman
@@ -110,11 +110,11 @@ Mobile Analysis
 #924    3 active   0 killed     a pegasus
 #925    4 active   0 killed     A Cook
 #926    1 active   0 killed     The Jailer
-#1000   6 active   0 killed     A fairy dragon
-#1001   2 active   0 killed     A griffin
+#1000  10 active   0 killed     A fairy dragon
+#1001   3 active   0 killed     A griffin
 #1100   1 active   0 killed     the Elven Wizard
-#1101   1 active   0 killed     the Keeper of the Ring
-#1102   1 active   0 killed     Farmer Gamgee
+#1101   1 active   1 killed     the Keeper of the Ring
+#1102   1 active   1 killed     Farmer Gamgee
 #1103   6 active   0 killed     a toddler
 #1104   2 active   0 killed     a nursemaid
 #1105   3 active   0 killed     a cow
@@ -126,10 +126,10 @@ Mobile Analysis
 #1111   4 active   0 killed     a shiriff
 #1112   1 active   0 killed     the Thain
 #1113   1 active   0 killed     the Innkeeper
-#1114   1 active   0 killed     the Miller
-#1115   6 active   0 killed     the mill worker
-#1116   1 active   0 killed     the elven warrior
-#1117   1 active   0 killed     the dwarven prince
+#1114   1 active   1 killed     the Miller
+#1115   6 active   4 killed     the mill worker
+#1116   1 active   1 killed     the elven warrior
+#1117   1 active   1 killed     the dwarven prince
 #1118   1 active   0 killed     the shopkeeper
 #1119   1 active   0 killed     the grocer
 #1120   1 active   0 killed     the blacksmith
@@ -140,7 +140,7 @@ Mobile Analysis
 #1125   1 active   0 killed     a halfling beauty
 #1126   3 active   0 killed     a trainee
 #1127   7 active   0 killed     a chic urbanite
-#1128   4 active   0 killed     a country bumpkin
+#1128   4 active   1 killed     a country bumpkin
 #1130   1 active   0 killed     the Innkeeper
 #1131   1 active   0 killed     the receptionist
 #1132   0 active   0 killed     a shiriff
@@ -157,7 +157,7 @@ Mobile Analysis
 #1301   1 active   0 killed     a lost adventurer
 #1302   1 active   0 killed     Edgar
 #1303   1 active   0 killed     the golem
-#1304   6 active   0 killed     a mage
+#1304   7 active   0 killed     a mage
 #1305   1 active   0 killed     Strick the bartender
 #1306   1 active   0 killed     Tatorious
 #1307   1 active   0 killed     Ezmerelda
@@ -172,7 +172,7 @@ Mobile Analysis
 #1316   2 active   0 killed     a young apprentice
 #1317   2 active   0 killed     a young apprentice
 #1318   3 active   0 killed     A young apprentice
-#1319   1 active   0 killed     a small kitten
+#1319   1 active   1 killed     a small kitten
 #1320   4 active   0 killed     a student
 #1321   1 active   0 killed     an instructor of magic
 #1322   4 active   0 killed     a student of spells
@@ -219,55 +219,55 @@ Mobile Analysis
 #1363   1 active   0 killed     A calico cat
 #1364   1 active   0 killed     The Grand Mistress
 #1365   0 active   0 killed     a wizard
-#1500   3 active   0 killed     a gnome child
-#1501   3 active   0 killed     a gnome woman
-#1502   3 active   0 killed     a gnome man
-#1503   3 active   0 killed     a gnome scientist
-#1504   6 active   0 killed     a gnome guard
+#1500   3 active  12 killed     a gnome child
+#1501   3 active   8 killed     a gnome woman
+#1502   3 active  18 killed     a gnome man
+#1503   3 active   5 killed     a gnome scientist
+#1504   6 active  10 killed     a gnome guard
 #1505   1 active   0 killed     the chief gnome
 #1507   1 active   0 killed     a small troll
 #1508   2 active   0 killed     a field mouse
-#1509   2 active   0 killed     a rat
-#1510   2 active   0 killed     a large rat
-#1511   2 active   0 killed     a giant rat
+#1509   3 active   1 killed     a rat
+#1510   3 active   1 killed     a large rat
+#1511   3 active   0 killed     a giant rat
 #1512   1 active   0 killed     the troll
 #1513  10 active   0 killed     a black bat
 #1514  10 active   0 killed     the zombie gnome
 #1515   1 active   0 killed     the fire bat
 #1516   0 active   0 killed     the hobgoblin guard
-#1517  20 active   0 killed     the hobgoblin soldier
+#1517  20 active   4 killed     the hobgoblin soldier
 #1518   5 active   0 killed     the hobgoblin bodyguard
 #1519   1 active   0 killed     the king of the hobgoblins
-#1520   6 active   0 killed     a hobgoblin miner
+#1520   6 active  27 killed     a hobgoblin miner
 #1521   1 active   0 killed     the treasurer
 #1522   3 active   0 killed     a gnome prisoner
 #1523   2 active   0 killed     a human prisoner
-#1524   1 active   0 killed     a hermit
-#1526   1 active   0 killed     the cook
-#1601   4 active   0 killed     {xa {Rki{cll{Rer {Gf{Hr{Go{Hg{x
-#1602   6 active   0 killed     {xa {cstone gargoyle{x
-#1603   3 active   0 killed     an angry {Rg{ca{Rr{cg{Ro{cy{Rl{ce{x
-#1604   4 active   0 killed     the {Welite gargoyle{x
-#1605   1 active   0 killed     the gargoyle {Cs{Bh{Ca{Bm{Ba{Cn{x
+#1524   1 active   6 killed     a hermit
+#1526   1 active   4 killed     the cook
+#1601   4 active   2 killed     {xa {Rki{cll{Rer {Gf{Hr{Go{Hg{x
+#1602   6 active   2 killed     {xa {cstone gargoyle{x
+#1603   3 active   1 killed     an angry {Rg{ca{Rr{cg{Ro{cy{Rl{ce{x
+#1604   4 active   4 killed     the {Welite gargoyle{x
+#1605   1 active   1 killed     the gargoyle {Cs{Bh{Ca{Bm{Ba{Cn{x
 #1606   1 active   0 killed     a {HCarnivorous plant{x
-#1607   1 active   0 killed     a {Yg{Br{Yu{Be{Ys{Bo{Ym{Be {Cogre{x
-#1608   2 active   0 killed     a shadow
-#1609   1 active   0 killed     an evil {bw{Yi{bg{Yh{bt{x
-#1610   2 active   0 killed     a {cb{gu{cr{gl{cy {bminotaur{x
+#1607   1 active   1 killed     a {Yg{Br{Yu{Be{Ys{Bo{Ym{Be {Cogre{x
+#1608   4 active   0 killed     a shadow
+#1609   1 active   1 killed     an evil {bw{Yi{bg{Yh{bt{x
+#1610   2 active   3 killed     a {cb{gu{cr{gl{cy {bminotaur{x
 #1612   1 active   0 killed     the savage minotaur
-#1613   1 active   0 killed     the captain
+#1613   1 active   1 killed     the captain
 #1614   1 active   0 killed     the {cblack pudding{x
-#1615   2 active   0 killed     a {Nl{We{Ns{Ws{Ne{Wr {HGolem{x
-#1616   1 active   0 killed     the {Ya{bn{Yc{bi{Ye{bn{Yt {Mw{Vy{Mv{Ve{Mr{Vn{x
-#1617   1 active   0 killed     the {Ws{gp{We{gc{Wt{gr{We{x
-#1702   2 active   0 killed     a {Gt{Hr{Ga{Hp{Gp{He{Gr{x
+#1615   2 active   2 killed     a {Nl{We{Ns{Ws{Ne{Wr {HGolem{x
+#1616   1 active   1 killed     the {Ya{bn{Yc{bi{Ye{bn{Yt {Mw{Vy{Mv{Ve{Mr{Vn{x
+#1617   1 active   1 killed     the {Ws{gp{We{gc{Wt{gr{We{x
+#1702   2 active   1 killed     a {Gt{Hr{Ga{Hp{Gp{He{Gr{x
 #1704   2 active   0 killed     a {ch{bu{cn{bt{ce{br{x
 #1706   1 active   0 killed     a {RR{Pa{RN{Pg{RE{Pr{x
 #1707   0 active   0 killed     a ranger leader
 #1708   0 active   0 killed     the Lord of the Rangers
 #1710   3 active   0 killed     a centaur
-#1711   2 active   0 killed     a centaur
-#1712   3 active   0 killed     an old centaur
+#1711   2 active   1 killed     a centaur
+#1712   3 active   1 killed     an old centaur
 #1714   3 active   0 killed     an elder centaur
 #1715   2 active   0 killed     a centaur guard
 #1716   1 active   0 killed     the centaur chief
@@ -284,17 +284,17 @@ Mobile Analysis
 #1810   1 active   0 killed     Lonely european
 #1811   5 active   0 killed     Guest master
 #1812   1 active   0 killed     Pet monkey
-#1900   1 active   0 killed     Harfur Glumtoes
+#1900   1 active   1 killed     Harfur Glumtoes
 #1901   1 active   0 killed     Rhiannon
-#1902   2 active   0 killed     Vampire moss
-#1903   1 active   0 killed     Crocodile
-#1904   6 active   0 killed     A kobold
+#1902   2 active   2 killed     Vampire moss
+#1903   1 active   1 killed     Crocodile
+#1904   6 active   2 killed     A kobold
 #1905   1 active   0 killed     The Great Whizzo
-#1906   5 active   0 killed     A campestri
+#1906  10 active   3 killed     A campestri
 #1907   1 active   0 killed     Old man Katan
-#1908   8 active   0 killed     A giant mosquito
-#1909   2 active   0 killed     A water moccasin
-#1910   2 active   0 killed     A large spider
+#1908  10 active   0 killed     A giant mosquito
+#1909   3 active   0 killed     A water moccasin
+#1910   8 active   0 killed     A large spider
 #1911   1 active   0 killed     The will o' wisp
 #1912   1 active   0 killed     The Bog Monster
 #2001   3 active   0 killed     a bat
@@ -321,7 +321,7 @@ Mobile Analysis
 #2204   1 active   0 killed     the holy Draconian
 #2205   1 active   0 killed     the Draconian King
 #2206   5 active   0 killed     a concubine
-#2207  11 active   0 killed     A bodyguard
+#2207  15 active   0 killed     A bodyguard
 #2220   1 active   0 killed     Tiamat
 #2221   1 active   0 killed     the Great Red Dragon
 #2222   1 active   0 killed     the Great Black Dragon
@@ -354,10 +354,10 @@ Mobile Analysis
 #2318   1 active   0 killed     the {HMinotaur {cGatekeeper{x
 #2319   2 active   0 killed     the {BHigh {HMinotaur {bGuard{x
 #2320   2 active   0 killed     the {RRoyal {HMinotaur {gGuard{x
-#2321   2 active   0 killed     the {MElite {HMinotaur {gGuard{x
+#2321   2 active   1 killed     the {MElite {HMinotaur {gGuard{x
 #2322   5 active   0 killed     the Harem Girl
 #2323   1 active   0 killed     the Minotaur Butler
-#2324   1 active   0 killed     the {HMinotaur {WRing-Keeper{x
+#2324   1 active   1 killed     the {HMinotaur {WRing-Keeper{x
 #2325   1 active   0 killed     {gGorak{x
 #2326   1 active   0 killed     Darkoth
 #2327   1 active   0 killed     Tyrgoth
@@ -367,18 +367,18 @@ Mobile Analysis
 #2331   1 active   0 killed     Belrak
 #2332   1 active   0 killed     Dorgar
 #2333   1 active   0 killed     Mahn-Tor
-#2401   8 active   1 killed     a {Cs{Wm{Cu{Wr{Cf{x
-#2402   3 active   0 killed     a {Cs{Wm{Cu{Wr{Cf{x
+#2401   8 active   8 killed     a {Cs{Wm{Cu{Wr{Cf{x
+#2402   3 active   1 killed     a {Cs{Wm{Cu{Wr{Cf{x
 #2403   1 active   0 killed     {GB{Cr{Ga{Ci{Gn{Cy{x {CS{Wm{Cu{Wr{Cf{x
 #2404   1 active   0 killed     {bH{Ca{bn{Cd{by{x {CS{Wm{Cu{Wr{Cf{x
-#2405   1 active   0 killed     {BS{Cl{Be{Ce{Bp{Cy{x {CS{Wm{Cu{Wr{Cf{x
-#2406   1 active   0 killed     {PH{Ce{Pf{Ct{Py{x {CS{Wm{Cu{Wr{Cf{x
+#2405   1 active   1 killed     {BS{Cl{Be{Ce{Bp{Cy{x {CS{Wm{Cu{Wr{Cf{x
+#2406   1 active   1 killed     {PH{Ce{Pf{Ct{Py{x {CS{Wm{Cu{Wr{Cf{x
 #2407   1 active   0 killed     {cG{Cr{cu{Cm{cp{Cy{x {CS{Wm{Cu{Wr{Cf{x
-#2408   1 active   0 killed     {PJ{Yo{Pk{Ye{Py{x {CS{Wm{Cu{Wr{Cf{x
-#2409   1 active   0 killed     {YS{Cm{Yu{Cr{Yf{Ce{Yt{Ct{Ye{x
+#2408   1 active   1 killed     {PJ{Yo{Pk{Ye{Py{x {CS{Wm{Cu{Wr{Cf{x
+#2409   1 active   1 killed     {YS{Cm{Yu{Cr{Yf{Ce{Yt{Ct{Ye{x
 #2410   1 active   0 killed     {PPapa {CS{Wm{Cu{Wr{Cf{x
-#2411   1 active   0 killed     {bG{Ra{br{Rg{ba{Rm{be{Rl{x
-#2412   1 active   0 killed     {bA{gz{br{ge{ba{gl{x
+#2411   1 active   1 killed     {bG{Ra{br{Rg{ba{Rm{be{Rl{x
+#2412   1 active   1 killed     {bA{gz{br{ge{ba{gl{x
 #2600   1 active   0 killed     the old man
 #2601   2 active   0 killed     
 #2602   2 active   0 killed     
@@ -399,92 +399,92 @@ Mobile Analysis
 #2806  10 active   0 killed     a fat worm
 #2807   1 active   0 killed     the roving beast
 #2808   1 active   0 killed     the medium troll
-#2900   1 active   0 killed     {RYos{Nemite {RSam{x
-#2901   1 active   0 killed     {YDa{cffy Du{Yck{x
-#2902   1 active   0 killed     {bSpeedy Gonzales{x
-#2903   1 active   0 killed     {RWi{ble {RE. {bCo{Ryo{bte{x
-#2904   1 active   0 killed     {YRo{Bad Runn{Yer{x
+#2900   1 active   1 killed     {RYos{Nemite {RSam{x
+#2901   1 active  19 killed     {YDa{cffy Du{Yck{x
+#2902   1 active  17 killed     {bSpeedy Gonzales{x
+#2903   1 active   2 killed     {RWi{ble {RE. {bCo{Ryo{bte{x
+#2904   1 active   8 killed     {YRo{Bad Runn{Yer{x
 #2905   1 active   0 killed     {gBu{Wgs Bun{gny{x
-#2906   1 active   0 killed     {HEl{bmer Fu{Hdd{x
+#2906   1 active   2 killed     {HEl{bmer Fu{Hdd{x
 #2907   1 active   0 killed     {cMa{Hrvin {cthe {HMarti{can{x
 #2908   1 active   0 killed     {YF{Wogho{Rrn L{Weghor{Yn{x
-#2909   1 active   0 killed     {VP{Wo{Brky P{Wi{Vg{x
-#2910   1 active   0 killed     {WS{gyl{cves{gte{Wr{x
-#2911   1 active   0 killed     {YTweety{x
+#2909   1 active   1 killed     {VP{Wo{Brky P{Wi{Vg{x
+#2910   1 active   1 killed     {WS{gyl{cves{gte{Wr{x
+#2911   1 active   1 killed     {YTweety{x
 #3000   1 active   0 killed     the wizard
 #3001   1 active   0 killed     the baker
 #3002   1 active   0 killed     the grocer
 #3003   1 active   0 killed     the weaponsmith
-#3004   1 active   0 killed     the armourer
-#3005   4 active   0 killed     the thief
+#3004   1 active   0 killed     the armorer
+#3005  10 active   2 killed     the thief
 #3006   1 active   0 killed     the captain
-#3007   0 active   0 killed     the sailor
 #3008   1 active   0 killed     the pet shop boy
 #3009   1 active   0 killed     the jeweler
 #3010   1 active   0 killed     the leather worker
-#3011   1 active   0 killed     Super Helga
 #3012   1 active   0 killed     the healer
 #3020   1 active   0 killed     the guildmaster
 #3021   1 active   0 killed     the guildmaster
 #3022   1 active   0 killed     the guildmaster
 #3023   1 active   0 killed     the guildmaster
 #3024   1 active   0 killed     the sorcerer
-#3025   1 active   0 killed     the knight templar
-#3026   1 active   0 killed     the assassin
+#3025   1 active   1 killed     the knight templar
+#3026   1 active   1 killed     the assassin
 #3027   1 active   0 killed     the knight
-#3040   1 active   0 killed     the bartender
+#3040   0 active   0 killed     the bartender
 #3041   0 active   0 killed     the waiter
 #3042   1 active   0 killed     the waiter
 #3043   1 active   0 killed     the waiter
 #3044   1 active   0 killed     the waiter
 #3045   1 active   0 killed     the waiter
-#3046   1 active   0 killed     Filthy
-#3060  18 active   0 killed     the cityguard
-#3061   4 active   0 killed     the janitor
-#3062  16 active   0 killed     the beastly fido
-#3063   4 active   0 killed     the vagabond
-#3064   3 active   0 killed     the drunk
-#3065   2 active   0 killed     the beggar
-#3066   1 active   0 killed     an alley cat
+#3046   1 active   0 killed     an old man
+#3047   1 active   0 killed     Arnamentia
+#3060  18 active   7 killed     the cityguard
+#3061  10 active  17 killed     a hooded avatar
+#3062  16 active  65 killed     a small puffy poodle
+#3063  10 active   7 killed     a young couple
+#3064  10 active  13 killed     a little boy named Johney
+#3065  10 active  18 killed     a woman
+#3066   1 active   1 killed     a cute, cuddly kitty cat
 #3067   2 active   0 killed     the cityguard
-#3068   2 active   0 killed     the cityguard
-#3069   4 active   0 killed     the cityguard
+#3068   2 active   1 killed     the cityguard
+#3069  10 active   2 killed     the cityguard
 #3070   1 active   0 killed     the ancient potion-brewer
 #3071   2 active   0 killed     the cityguard
 #3072   1 active   0 killed     the cityguard
-#3090   1 active   0 killed     the kitten
+#3090   2 active   2 killed     the kitten
 #3091   1 active   0 killed     the puppy
-#3092   1 active   0 killed     the beagle
+#3092   1 active   1 killed     the beagle
 #3093   1 active   0 killed     the rottweiler
 #3094   1 active   0 killed     the wolf
 #3095   0 active   0 killed     the monkey
-#3100   1 active   0 killed     the maid
-#3121   1 active   0 killed     the swan
-#3122   1 active   0 killed     the duckling
-#3123   1 active   0 killed     the sparrow
-#3124   2 active   0 killed     the duck
-#3140   1 active   0 killed     the captain
-#3141   4 active   0 killed     the cityguard
-#3142   1 active   0 killed     the secretary
-#3143   1 active   0 killed     the mayor
-#3144   1 active   0 killed     the town crier
-#3150   1 active   0 killed     Esme
-#3160   1 active   0 killed     Melancholy
-#3161   1 active   0 killed     Lister
-#3162   1 active   0 killed     Otho the Changer
-#3163   1 active   0 killed     the thief
+#3100   0 active   0 killed     the maid
+#3121  10 active   6 killed     a citizen
+#3122  10 active  14 killed     a professional
+#3123   0 active   0 killed     the sparrow
+#3124   0 active   0 killed     the duck
+#3125  10 active   8 killed     a citizen
+#3140   0 active   0 killed     the captain
+#3141   0 active   0 killed     the cityguard
+#3142   0 active   0 killed     the secretary
+#3143   0 active   0 killed     the mayor
+#3144   0 active   0 killed     the town crier
+#3150   1 active   0 killed     Donna
+#3160   1 active   0 killed     Zelda
+#3161   1 active   0 killed     Slimer
+#3162   1 active   0 killed     Louis the Changer
+#3163   5 active   1 killed     the thief
 #3164   1 active   0 killed     the guildmaster
 #3165   1 active   0 killed     the guildmaster
 #3166   1 active   0 killed     the guildmaster
 #3167   1 active   0 killed     the guildmaster
-#3168   1 active   0 killed     Joe Bob
-#3169   1 active   0 killed     {YA{xnnabus, The {YQ{xuestmaster
+#3168   1 active   0 killed     Desiderius
+#3169   1 active   0 killed     {YE{xldareth, The {YQ{xuestmaster
 #3170   1 active   0 killed     the sage
-#3171   1 active   0 killed     Griswald
+#3171   1 active   0 killed     Karolus
 #3172   1 active   0 killed     a ticket salesgnome
 #3173   1 active   0 killed     a ticket salesgnome
 #3174   0 active   0 killed     the wandering old man
-#3200   1 active   0 killed     {YR{xaychyl, The {YS{xkillsmistress
+#3200   1 active   0 killed     {YR{xaychyl , The {YS{xkillsmistress
 #3400   8 active   0 killed     the bony skeleton
 #3401   7 active   0 killed     the undead zombie
 #3402  10 active   0 killed     The ghoul
@@ -503,12 +503,12 @@ Mobile Analysis
 #3415   1 active   0 killed     The spectral etcher's wife
 #3416   4 active   0 killed     The half-decomposed body
 #3500   2 active   0 killed     the wyvern
-#3501  10 active   0 killed     the goblin
+#3501  10 active  17 killed     the goblin
 #3502   1 active   0 killed     the small boy
 #3503   1 active   0 killed     the Innkeeper
 #3504   1 active   0 killed     the bard
-#3505   4 active   0 killed     the dark horseman
-#3506   4 active   0 killed     the goblin lieutenant
+#3505   4 active   2 killed     the dark horseman
+#3506   4 active   1 killed     the goblin lieutenant
 #3507   1 active   0 killed     the goblin leader
 #3600   1 active   0 killed     Henry the Gardener
 #3601   1 active   0 killed     the rotting zombie
@@ -517,26 +517,26 @@ Mobile Analysis
 #3604   4 active   0 killed     a dusty skeleton
 #3605   3 active   0 killed     the rotting zombie
 #3700   1 active   0 killed     a priestess of Alisa
-#3701   1 active   0 killed     the blob
-#3702   1 active   1 killed     the monster
-#3703   1 active   1 killed     the wimpy monster
-#3704   1 active   1 killed     the aggressive monster
-#3705   1 active   1 killed     the wimpy aggressive monster
-#3706   1 active   0 killed     the big creature
+#3701   1 active   1 killed     the blob
+#3702   1 active  24 killed     the monster
+#3703   1 active  29 killed     the wimpy monster
+#3704   1 active  26 killed     the aggressive monster
+#3705   1 active  25 killed     the wimpy aggressive monster
+#3706   1 active   7 killed     the big creature
 #3707   1 active   0 killed     the adept of Liriel
 #3708   1 active   0 killed     the acolyte of Montrey
-#3709   4 active   0 killed     the rabbit
-#3710   3 active   0 killed     the lizard
-#3711   3 active   0 killed     the boar
-#3712   3 active   0 killed     the fox
-#3713   5 active   0 killed     the snail
-#3714   1 active   0 killed     the beast
-#3715   2 active   0 killed     the bear
-#3716   2 active   0 killed     the wolf
+#3709   4 active  64 killed     the rabbit
+#3710   3 active  49 killed     the lizard
+#3711   3 active  65 killed     the boar
+#3712   3 active  49 killed     the fox
+#3713   5 active  71 killed     the snail
+#3714   1 active   4 killed     the beast
+#3715   2 active   9 killed     the bear
+#3716   2 active   8 killed     the wolf
 #3717   1 active   0 killed     the adept of Xenith
 #3718   1 active   0 killed     the adept of Chilalin
 #3719   1 active   0 killed     the priest of Cyanos
-#3720   1 active   0 killed     Neffertini's incarnation
+#3720   1 active   4 killed     Neffertini's incarnation
 #3800   2 active   0 killed     A lupine shadow
 #3801   2 active   0 killed     A lupine shadow
 #3802   1 active   0 killed     A snarling ball of fur
@@ -549,8 +549,8 @@ Mobile Analysis
 #4000   1 active   0 killed     the huge python
 #4001   2 active   0 killed     the garter snake
 #4002   3 active   0 killed     the centipede
-#4003   3 active   0 killed     the kobold
-#4004   2 active   0 killed     the orc
+#4003   6 active   2 killed     the kobold
+#4004   3 active   0 killed     the orc
 #4005   1 active   0 killed     the large orc
 #4050   1 active   0 killed     the warrior
 #4051   4 active   0 killed     the warrior
@@ -565,8 +565,8 @@ Mobile Analysis
 #4101   1 active   0 killed     the troll
 #4102   3 active   0 killed     the guardian snake
 #4103   1 active   0 killed     the thief
-#4104   2 active   0 killed     the orc
-#4105   2 active   0 killed     a centipede
+#4104   3 active   0 killed     the orc
+#4105   3 active   0 killed     a centipede
 #4106   2 active   0 killed     the Warrior
 #4107   1 active   0 killed     the green kobold
 #4150   2 active   0 killed     the blue bat
@@ -586,24 +586,24 @@ Mobile Analysis
 #4400   1 active   0 killed     The pirate gate guardian
 #4401   1 active   0 killed     The pirate peace guard
 #4402   1 active   0 killed     The old pirate with a wooden leg
-#4403   1 active   0 killed     A young pirate
+#4403   1 active   1 killed     A young pirate
 #4404   1 active   0 killed     The slightly drunken pirate
 #4405   1 active   0 killed     A young pirate
 #4406   1 active   0 killed     A pirate with a big nose
-#4407   1 active   0 killed     The old female pirate
+#4407   1 active   2 killed     The old female pirate
 #4408   1 active   0 killed     A pirate girl
-#4409   1 active   0 killed     A pirate boy
+#4409   1 active   4 killed     A pirate boy
 #4410   2 active   0 killed     An average pirate
-#4411   2 active   0 killed     An average pirate
+#4411   2 active  26 killed     An average pirate
 #4412   2 active   0 killed     A bully pirate
-#4413   2 active   0 killed     A timid pirate
+#4413   2 active  22 killed     A timid pirate
 #4414   1 active   0 killed     The spy from the dwarfen kingdom
 #4415   2 active   0 killed     A very drunken pirate
-#4416   2 active   0 killed     A very drunken pirate
-#4417   2 active   0 killed     An aggressive pirate
-#4418   2 active   0 killed     A bored pirate
+#4416   2 active   6 killed     A very drunken pirate
+#4417   2 active   2 killed     An aggressive pirate
+#4418   2 active   1 killed     A bored pirate
 #4419   2 active   0 killed     An ugly pirate
-#4420   2 active   0 killed     An ugly pirate
+#4420   2 active   1 killed     An ugly pirate
 #4421   2 active   0 killed     A handsome pirate
 #4422   2 active   0 killed     A very beautiful pirate
 #4423   2 active   0 killed     A pirate with a big belly
@@ -614,9 +614,9 @@ Mobile Analysis
 #4428   1 active   0 killed     A very tall and strong pirate warrior
 #4429   1 active   0 killed     The strong pirate peace guard
 #4430   2 active   0 killed     A slim pirate
-#4431   2 active   0 killed     A slim pirate
+#4431   2 active   2 killed     A slim pirate
 #4432   1 active   0 killed     The pirate cook
-#4433   1 active   0 killed     The pirate craftsman
+#4433   1 active   1 killed     The pirate craftsman
 #4434   1 active   0 killed     The pirate craftsman
 #4435   1 active   0 killed     The pirate sea guard
 #4436   1 active   0 killed     The pirate prison guard
@@ -624,87 +624,87 @@ Mobile Analysis
 #4438   1 active   0 killed     The king of darklands
 #4439   1 active   0 killed     The queen of summerland
 #4440   1 active   0 killed     The queen of winterland
-#4441   1 active   0 killed     The pirate captain
+#4441   1 active   1 killed     The pirate captain
 #4442   1 active   0 killed     The pirate captain
-#4443   1 active   0 killed     The guard of honor
+#4443   1 active   1 killed     The guard of honor
 #4444   1 active   0 killed     The guard of honor
 #4445   1 active   0 killed     The pirate admiral
 #4446   1 active   0 killed     The pirate admiral
-#4447   1 active   0 killed     The pirate queen
+#4447   1 active   1 killed     The pirate queen
 #4448   1 active   0 killed     The pirate king
 #4449   1 active   0 killed     The pirate hermit
 #4450   1 active   0 killed     The pirate woman
 #4451   2 active   0 killed     The spy from the dwarfen kingdom
 #4452   1 active   0 killed     The spy from the dwarfen kingdom
 #4453   1 active   0 killed     The pirate sea guard
-#4570   1 active   0 killed     An {Rumbrella stand{x
-#4571   1 active   1 killed     A wardrobe
-#4572   1 active   1 killed     A chest of drawers
-#4573   1 active   0 killed     A {Ykitchen table{x
-#4574   3 active   0 killed     A {Ykitchen chair{x
-#4575   1 active   0 killed     A {Wkitchen sink{x
-#4576   1 active   0 killed     A stove
-#4577   3 active   0 killed     A shelf
-#4578   1 active   0 killed     A {Yfloor {Blamp{x
-#4579   1 active   0 killed     A glass cupboard
-#4580   1 active   0 killed     A book shelf
-#4581   1 active   0 killed     A sofa
-#4582   1 active   0 killed     A small table
-#4583   3 active   0 killed     An easy chair
-#4584   1 active   0 killed     A rocking chair
-#4585  10 active   0 killed     A beautiful {Rrose{x
-#4586  10 active   0 killed     A {Gcactus{x
-#4587   1 active   0 killed     An {Rapple{x tree
+#4570   1 active  29 killed     An {Rumbrella stand{x
+#4571   1 active  26 killed     A wardrobe
+#4572   1 active  33 killed     A chest of drawers
+#4573   1 active  21 killed     A {Ykitchen table{x
+#4574   3 active  64 killed     A {Ykitchen chair{x
+#4575   1 active  15 killed     A {Wkitchen sink{x
+#4576   1 active  16 killed     A stove
+#4577   3 active  36 killed     A shelf
+#4578   1 active  21 killed     A {Yfloor {Blamp{x
+#4579   1 active  20 killed     A glass cupboard
+#4580   1 active  23 killed     A book shelf
+#4581   1 active  12 killed     A sofa
+#4582   1 active  15 killed     A small table
+#4583   3 active  60 killed     An easy chair
+#4584   1 active   5 killed     A rocking chair
+#4585  10 active  24 killed     A beautiful {Rrose{x
+#4586  10 active  20 killed     A {Gcactus{x
+#4587   1 active   5 killed     An {Rapple{x tree
 #4588   1 active   0 killed     A deck chair
 #4589   1 active   0 killed     A {Wbath tub{x
 #4590   1 active   0 killed     A {Wtoilet{x
-#4591   1 active   0 killed     A {Whand basin{x
-#4592   1 active   0 killed     A picture of an old man
+#4591   1 active   1 killed     A {Whand basin{x
+#4592   1 active   6 killed     A picture of an old man
 #4593   2 active   0 killed     An ordinary bed
 #4594   2 active   0 killed     A bedside table
 #4595   2 active   0 killed     A chair
-#4596   1 active   0 killed     A desk
-#4597   1 active   0 killed     A mahogany book shelf
+#4596   1 active   1 killed     A desk
+#4597   1 active   1 killed     A mahogany book shelf
 #4598   2 active   0 killed     A {Ynight light{x
-#4599   6 active   0 killed     A big pile of old unusable rubbish
-#4600   6 active   0 killed     A big old chest full of rubbish
+#4599   6 active   1 killed     A big pile of old unusable rubbish
+#4600   6 active   2 killed     A big old chest full of rubbish
 #4601   6 active   0 killed     A {Rtile{x
-#4602   6 active   0 killed     A {Gwine bottle{x
-#4603   2 active   0 killed     An old shelf
+#4602   6 active   1 killed     A {Gwine bottle{x
+#4603   2 active   1 killed     An old shelf
 #4604   1 active   0 killed     An old tester bed
-#4605   8 active   0 killed     A {Cweird idea{x of the crazy wizard's
-#4606   1 active   0 killed     The {PC{Yr{Ga{Cz{By {VWizard{x
+#4605   8 active   5 killed     A {Cweird idea{x of the crazy wizard's
+#4606   1 active   3 killed     The {PC{Yr{Ga{Cz{By {VWizard{x
 #5000   3 active   0 killed     The dervish
 #5001   1 active   0 killed     The dervish
-#5002   2 active   0 killed     The coral snake
-#5003   2 active   0 killed     The small scorpion
+#5002   5 active   0 killed     The coral snake
+#5003   5 active   0 killed     The small scorpion
 #5004   1 active   0 killed     The giant, purple sand worm
 #5005   1 active   0 killed     the brass dragon
 #5006   1 active   0 killed     The nomad leader
 #5007   1 active   0 killed     The nomad commander
-#5008   2 active   0 killed     The nomad warrior
-#5009   2 active   0 killed     The slave
+#5008   5 active   0 killed     The nomad warrior
+#5009   6 active   0 killed     The slave
 #5010   1 active   0 killed     The dracolich
-#5011   2 active   0 killed     The drider
-#5012   2 active   0 killed     The dark dwarf
-#5013   2 active   0 killed     the myconoid
+#5011   3 active   1 killed     The drider
+#5012   3 active   0 killed     The dark dwarf
+#5013   4 active   0 killed     the myconoid
 #5014   1 active   0 killed     The myconoid shaman
 #5015   4 active   0 killed     The dustdigger
 #5017   1 active   0 killed     The rabid camel
-#5100   2 active   0 killed     the goblin slave
-#5101   4 active   0 killed     the drow commoner
+#5100  15 active   0 killed     the goblin slave
+#5101  10 active   0 killed     the drow commoner
 #5102   4 active   0 killed     the drow warrior noble
 #5103   4 active   0 killed     the drow mage noble
 #5104   4 active   0 killed     the drow priestess
-#5105   3 active   0 killed     The drow master
+#5105   3 active   1 killed     The drow master
 #5106   2 active   0 killed     The weapons master
-#5107   3 active   0 killed     the matron mother
+#5107   3 active   1 killed     the matron mother
 #5108   1 active   0 killed     the matron mother
 #5109   1 active   0 killed     the yochlol
 #5110   0 active   0 killed     the drow guard
 #5111   0 active   0 killed     the drow scout
 #5200   1 active   0 killed     The mighty beholder
-#5201  12 active   0 killed     The lamia
+#5201  12 active   2 killed     The lamia
 #5202   1 active   0 killed     The mimic
 #5203   1 active   0 killed     The mimic
 #5204   1 active   0 killed     The mimic
@@ -730,14 +730,14 @@ Mobile Analysis
 #5315   1 active   0 killed     the librarian
 #5316   2 active   0 killed     a young scholar
 #5317   1 active   0 killed     an old wizard
-#5318   2 active   0 killed     a beautiful masseuse
+#5318   4 active   0 killed     a beautiful masseuse
 #5319   2 active   0 killed     a man
 #5320   3 active   0 killed     An imperial cityguard
 #5321   2 active   0 killed     an imperial cityguard
 #5322   2 active   0 killed     a doe
 #5323   3 active   0 killed     a deer
 #5324   1 active   0 killed     a stag
-#5325   2 active   0 killed     a small bunny
+#5325   3 active   0 killed     a small bunny
 #5326   4 active   0 killed     a harmless snake
 #5327   2 active   0 killed     a druid
 #5328   2 active   0 killed     a druidess
@@ -745,7 +745,7 @@ Mobile Analysis
 #5330   1 active   0 killed     bard of Thalos
 #5331   1 active   0 killed     the cityguard
 #5332   2 active   0 killed     the janitor
-#5333   2 active   0 killed     the beastly fido
+#5333   3 active   0 killed     the beastly fido
 #5334   1 active   0 killed     the cityguard
 #5401   3 active   0 killed     Zombie man
 #5402   5 active   0 killed     Zombie sergeant
@@ -759,9 +759,9 @@ Mobile Analysis
 #5410   1 active   0 killed     Arachnotron
 #5411   1 active   0 killed     Mancubus
 #5412   1 active   0 killed     Baron of Hell
-#5413   1 active   0 killed     Arch Vile
-#5414   1 active   0 killed     Spiderdemon
-#5415   1 active   0 killed     Cybordemon
+#5413   1 active   1 killed     Arch Vile
+#5414   1 active   1 killed     Spiderdemon
+#5415   1 active   1 killed     Cybordemon
 #5416   1 active   0 killed     Doom player
 #5417   1 active   0 killed     An intermediate Doom player
 #5418   1 active   0 killed     A great Doom player
@@ -772,11 +772,11 @@ Mobile Analysis
 #5601   1 active   0 killed     a {Cs{Wt{Ce{Wa{Cm{x elemental
 #5602   1 active   0 killed     a {Pl{Ra{Pv{Ra{x elemental
 #5603   1 active   0 killed     a {bh{Wu{Br{br{Wi{Bc{ba{Wn{Be{x elemental
-#5604   1 active   0 killed     a {Wflash{Rfire{x elemental
+#5604   1 active   1 killed     a {Wflash{Rfire{x elemental
 #5605   1 active   0 killed     a {bsand{Ws{bt{Wo{br{Wm{x elemental
 #5606   2 active   0 killed     a {ggr{cys{gtl{cie{x
-#5607   2 active   0 killed     a {cW{gr{ca{gi{ct{gh{x of {PH{Re{Pl{Rl{Ps{Rb{Pa{Rn{Pe{x
-#5608   3 active   0 killed     a {MSheAndra {gstone {Wwarrior{x
+#5607   3 active   0 killed     a {cW{gr{ca{gi{ct{gh{x of {PH{Re{Pl{Rl{Ps{Rb{Pa{Rn{Pe{x
+#5608   3 active   2 killed     a {MSheAndra {gstone {Wwarrior{x
 #5609   1 active   0 killed     an {Yap{Wpr{Yen{Wti{Yce {Pso{Rrc{Per{Rer{x
 #5610   2 active   0 killed     a {MBaylan {VGuard{x
 #5611   1 active   0 killed     an ancient {Bg{Yy{Rp{Vs{By {Gt{Hr{Ge{He{x
@@ -784,8 +784,8 @@ Mobile Analysis
 #5613   1 active   0 killed     a {gC{ca{gv{ce {gG{cu{ga{cr{gd{x
 #5614   1 active   0 killed     a {Pso{Rrc{Per{Rer{x
 #5615   2 active   0 killed     the {Gbrume{x
-#5616   2 active   0 killed     {PS{ch{Pa{cd{Pe{cs {Po{cf {PD{ce{Pa{ct{Ph{x
-#5617   1 active   0 killed     {VLhiannon{W, the {CLady {Wof {YLight{x
+#5616   3 active   0 killed     {PS{ch{Pa{cd{Pe{cs {Po{cf {PD{ce{Pa{ct{Ph{x
+#5617   1 active   1 killed     {VLhiannon{W, the {CLady {Wof {YLight{x
 #5618   1 active   0 killed     {RM{ca{Rc{ce{Rl{cl{Ri{cu{Rs{x
 #5619   1 active   0 killed     a {GF{bo{Hr{Ge{bs{Ht {YWatcher{x
 #5620   3 active   0 killed     a {gSh{cad{gow{cWa{glk{cer{x
@@ -795,16 +795,16 @@ Mobile Analysis
 #5624   1 active   0 killed     {WS{Ga{Wc{Gh{Wa{Gi{x
 #5625   1 active   0 killed     {VJ{Ya{Pn{Gi{Bs{Wc{Ch{x
 #5626   1 active   0 killed     the {VPriest {Wof {MP{Vr{Mo{Vp{Mh{Ve{Mc{Vy{x
-#5627   1 active   0 killed     {bAaykre{x
-#6000   1 active   0 killed     John the Lumberjack
+#5627   1 active  11 killed     {bAaykre{x
+#6000   1 active   3 killed     John the Lumberjack
 #6002   1 active   0 killed     the brown bear
 #6003   0 active   0 killed     the ferocious rabbit
 #6004   1 active   0 killed     the fallow deer
-#6005   2 active   0 killed     the brown fox
+#6005   2 active   5 killed     the brown fox
 #6100   2 active   0 killed     the vicious warg
 #6101   2 active   0 killed     the ferocious warg
-#6102   4 active   0 killed     the large, grey wolf
-#6103   4 active   0 killed     the large, black wolf
+#6102   4 active   1 killed     the large, grey wolf
+#6103   4 active   1 killed     the large, black wolf
 #6112   1 active   0 killed     the huge, green dragon
 #6115   1 active   0 killed     Shargugh
 #6116   1 active   0 killed     the elder druid
@@ -826,40 +826,40 @@ Mobile Analysis
 #6515   4 active   0 killed     the man in waiting
 #6516   1 active   0 killed     the mazekeeper
 #6517   2 active   0 killed     the giant snake
-#6600   7 active   0 killed     the dwarven youth
+#6600   7 active   4 killed     the dwarven youth
 #6601   2 active   0 killed     a teddy bear
-#6602   2 active   0 killed     a raggedy anne doll
-#6603   4 active   0 killed     a toy soldier
+#6602   2 active   1 killed     a raggedy anne doll
+#6603   4 active   8 killed     a toy soldier
 #6604   2 active   0 killed     the ugly bear
-#6605   3 active   0 killed     an old doll
-#6606   2 active   0 killed     the nanny
+#6605   3 active   3 killed     an old doll
+#6606   2 active   3 killed     the nanny
 #6607   1 active   0 killed     the armed guard
 #6608   1 active   0 killed     the spoiled brat
 #7000   8 active   0 killed     the horrifying mudmonster
-#7001   8 active   0 killed     the small bat
-#7002   5 active   0 killed     the great sewer rat
-#7003   8 active   0 killed     the small spider
-#7004   2 active   0 killed     the giant earth beetle
-#7005   6 active   0 killed     the maggot
-#7006   6 active   0 killed     the slithering snake
-#7007   2 active   0 killed     the evil wanderer
-#7008   2 active   0 killed     the homonculus
+#7001  12 active   3 killed     the small bat
+#7002   7 active   2 killed     the great sewer rat
+#7003   8 active   1 killed     the small spider
+#7004   3 active   0 killed     the giant earth beetle
+#7005   7 active   2 killed     the maggot
+#7006   6 active   2 killed     the slithering snake
+#7007   3 active   0 killed     the evil wanderer
+#7008   4 active   0 killed     the homonculus
 #7010   2 active   0 killed     the evil chreffn
-#7011   2 active   0 killed     the shadowy morkoth
+#7011   3 active   0 killed     the shadowy morkoth
 #7013   4 active   0 killed     the horrifying mudmonster
 #7040   1 active   0 killed     the red dragon
 #7041   2 active   0 killed     the sea hag
 #7042   2 active   0 killed     the guardian naga
-#7043   2 active   0 killed     the scaled basilisk
-#7044   2 active   0 killed     the lemure blob
+#7043   3 active   0 killed     the scaled basilisk
+#7044   6 active   0 killed     the lemure blob
 #7045   1 active   0 killed     Jones
 #7046   1 active   0 killed     Herald
 #7200   1 active   0 killed     the master mindflayer
 #7201   1 active   0 killed     the senior mindflayer
 #7202   2 active   0 killed     the junior mindflayer
-#7203   9 active   0 killed     the ugly wererat
+#7203  10 active   0 killed     the ugly wererat
 #7204   1 active   0 killed     the gigantic rat
-#7330   6 active   0 killed     A weapon factory worker
+#7330   6 active   1 killed     A weapon factory worker
 #7331   5 active   0 killed     A very strong looking weaponsmith
 #7332   3 active   0 killed     The security guard
 #7333   4 active   0 killed     A young man
@@ -894,14 +894,14 @@ Mobile Analysis
 #7522   1 active   0 killed     The rabbit
 #7523   1 active   0 killed     3 headed person
 #7524   0 active   0 killed     Sir Not-appearing-in-this-film
-#7601   3 active   0 killed     {Hhouse{x
-#7602   6 active   0 killed     {Hhouse{x
-#7603   3 active   0 killed     {Hhouse{x
-#7604   4 active   0 killed     {Hhouse{x
+#7601   3 active   5 killed     {Hhouse{x
+#7602   6 active   4 killed     {Hhouse{x
+#7603   3 active   3 killed     {Hhouse{x
+#7604   4 active   4 killed     {Hhouse{x
 #7605   2 active   0 killed     {PHotel{x
 #7606   1 active   0 killed     iron
 #7607   1 active   0 killed     {bterrier{x
-#7608   1 active   0 killed     {bleather shoe{x
+#7608   1 active   1 killed     {bleather shoe{x
 #7609   1 active   0 killed     metal thimble
 #7610   1 active   0 killed     {PRadio Flyer{x
 #7611   1 active   0 killed     horse
@@ -943,10 +943,10 @@ Mobile Analysis
 #8012   2 active   0 killed     a bite fighter
 #8200   8 active   0 killed     A sylph child
 #8201  10 active   0 killed     A fire sylph
-#8202   9 active   0 killed     A wind sylph
+#8202   9 active   2 killed     A wind sylph
 #8203  13 active   0 killed     A water sylph
 #8204   6 active   0 killed     An earth sylph
-#8205   8 active   0 killed     A caretaker
+#8205   8 active   1 killed     A caretaker
 #8206   1 active   0 killed     Terlei
 #8207   1 active   0 killed     Terii
 #8208   1 active   0 killed     Ignar
@@ -983,9 +983,9 @@ Mobile Analysis
 #8512   1 active   0 killed     some farmer's daughter
 #8513   1 active   0 killed     a jewel fence
 #8514   1 active   0 killed     a snake-oil huckster
-#8516   1 active   0 killed     a little camel calf
-#8517   1 active   0 killed     a yearling camel
-#8518   1 active   0 killed     a nasty old camel
+#8516   1 active   4 killed     a little camel calf
+#8517   1 active   4 killed     a yearling camel
+#8518   1 active   4 killed     a nasty old camel
 #8538   1 active   0 killed     Shadowfox
 #8700   6 active   0 killed     A horrible asp
 #8701   4 active   0 killed     A hooded cobra snake
@@ -1004,21 +1004,21 @@ Mobile Analysis
 #8714   2 active   0 killed     A criosphinx
 #8715   1 active   0 killed     An androsphinx
 #8716   1 active   0 killed     The great sphinx
-#8717   1 active   0 killed     Ramses the Damned
-#8800   4 active   0 killed     sobbing woman
-#8801   3 active   0 killed     nurse aide
-#8802   1 active   0 killed     Floor Nurse
+#8717   1 active   1 killed     Ramses the Damned
+#8800   4 active   6 killed     sobbing woman
+#8801   3 active  11 killed     nurse aide
+#8802   1 active   1 killed     Floor Nurse
 #8803   1 active   0 killed     Legacy Mudder
-#8804   1 active   0 killed     Kitchen worker
+#8804   1 active   1 killed     Kitchen worker
 #8805   1 active   0 killed     Greasy Cook
 #8806   1 active   0 killed     A Giant Cockroach
 #8807   1 active   0 killed     Paranoid Schizophrenic
-#8808   1 active   0 killed     Napoleon
-#8809   3 active   0 killed     Compulsive Liar
-#8810   3 active   0 killed     An Orderly
+#8808   1 active   4 killed     Napoleon
+#8809   3 active   5 killed     Compulsive Liar
+#8810   3 active   1 killed     An Orderly
 #8811   1 active   0 killed     A desk clerk
-#8812   1 active   0 killed     The Head Nurse
-#8813   1 active   0 killed     Ping-Ponger
+#8812   1 active  24 killed     The Head Nurse
+#8813   1 active   1 killed     Ping-Ponger
 #8814   1 active   0 killed     Psychiatrist
 #8815   1 active   0 killed     Naked Psycho Nymphomaniac
 #8816   1 active   0 killed     Compulsive Eater
@@ -1030,7 +1030,7 @@ Mobile Analysis
 #8822   1 active   0 killed     Freddy Kruger
 #8823   1 active   0 killed     Jason
 #8824   1 active   0 killed     Jeffrey Dahmer
-#8825   1 active   0 killed     Jack the Ripper
+#8825   1 active   1 killed     Jack the Ripper
 #8826   1 active   0 killed     Dr. Giggles
 #8827   1 active   0 killed     The IMP
 #8900   1 active   0 killed     The Hierophant
@@ -1041,11 +1041,11 @@ Mobile Analysis
 #8905   2 active   0 killed     a deer
 #8906   1 active   0 killed     a stag
 #8907   4 active   0 killed     a small bunny
-#8908   2 active   0 killed     a harmless snake
+#8908   9 active   0 killed     a harmless snake
 #8909   2 active   0 killed     a druid
 #8910   2 active   0 killed     a druidess
 #9000  10 active   0 killed     the tridrone
-#9001   6 active   0 killed     the quadrone
+#9001   9 active   0 killed     the quadrone
 #9002   6 active   0 killed     the pentadrone
 #9003   1 active   0 killed     the decaton
 #9004   1 active   0 killed     the nonaton
@@ -1064,12 +1064,12 @@ Mobile Analysis
 #9105   1 active   0 killed     the gigantic roc
 #9106   1 active   0 killed     the gigantic roc
 #9107   1 active   0 killed     the ugly, wicked witch
-#9201   3 active   0 killed     the mountain climber
+#9201   3 active   2 killed     the mountain climber
 #9202   0 active   0 killed     the cyclops
-#9203  14 active   0 killed     a tiny {Cel{Pem{Gent{Wal{x
+#9203  15 active   0 killed     a tiny {Cel{Pem{Gent{Wal{x
 #9204   1 active   0 killed     the {Cel{Pem{Gent{Wal{x guardian
-#9205  12 active   0 killed     a small {Cel{Pem{Gent{Wal{x
-#9206   8 active   0 killed     a medium {Cel{Pem{Gent{Wal{x
+#9205  15 active   4 killed     a small {Cel{Pem{Gent{Wal{x
+#9206   9 active   0 killed     a medium {Cel{Pem{Gent{Wal{x
 #9207   6 active   0 killed     a large {Cel{Pem{Gent{Wal{x
 #9208   1 active   0 killed     the {GEarth{x Ruler
 #9209   1 active   0 killed     the {PFire{x Ruler
@@ -1077,7 +1077,7 @@ Mobile Analysis
 #9211   1 active   0 killed     The {YLightning{x Ruler
 #9212   1 active   0 killed     The {CWater{x Ruler
 #9214  15 active   0 killed     a {Bpuddle{x
-#9215  12 active   0 killed     a {Pflame{x
+#9215  15 active   2 killed     a {Pflame{x
 #9216   5 active   0 killed     a small snowflake
 #9217  15 active   0 killed     a small {Yrock{x
 #9218  15 active   0 killed     a small {Yspark{x
@@ -1093,12 +1093,12 @@ Mobile Analysis
 #9228   1 active   0 killed     the {TIce Bandit{x
 #9229   1 active   0 killed     the {YRock Monster{x
 #9230   1 active   0 killed     the {CHurri{Wcane{x
-#9231   4 active   0 killed     an {Cel{Pem{Gent{Wal{x magician
-#9232   4 active   0 killed     a {Rr{Pa{Yi{Gn{Bb{No{Vw{x warrior
-#9233   6 active   0 killed     an illusionist
-#9234   4 active   0 killed     an alchemist
+#9231   5 active   0 killed     an {Cel{Pem{Gent{Wal{x magician
+#9232   8 active   1 killed     a {Rr{Pa{Yi{Gn{Bb{No{Vw{x warrior
+#9233   8 active   0 killed     an illusionist
+#9234   6 active   1 killed     an alchemist
 #9235   2 active   0 killed     a baby {Rr{Pa{Yi{Gn{Bb{No{Vw{x dragon
-#9236  14 active   0 killed     a little imp
+#9236  15 active   0 killed     a little imp
 #9237   0 active   0 killed     a HUGE {Cel{Pem{Gent{Wal{x
 #9238   1 active   0 killed     the elixir vendor
 #9301   3 active   0 killed     a poor mudder
@@ -1133,11 +1133,11 @@ Mobile Analysis
 #9330   1 active   0 killed     Cassiopeia the Queen
 #9331   1 active   0 killed     Cepheus the King
 #9332   1 active   0 killed     Polaris, the polar star
-#9401   5 active   0 killed     The {Gm{Bu{Yt{Ga{Bn{Yt{x beastly fido
+#9401   5 active   5 killed     The {Gm{Bu{Yt{Ga{Bn{Yt{x beastly fido
 #9402   1 active   0 killed     Foreman Floyd
-#9403   7 active   0 killed     The Cityguard {Rhead{x
+#9403   7 active   1 killed     The Cityguard {Rhead{x
 #9404   4 active   0 killed     The revolving drunk
-#9405   7 active   0 killed     The {Pt{Yo{Px{Yi{Yc{x slime
+#9405   7 active   5 killed     The {Pt{Yo{Px{Yi{Yc{x slime
 #9406   8 active   0 killed     The {cfactory{x worker
 #9407   3 active   0 killed     The factory worker
 #9500   1 active   0 killed     the guildmaster
@@ -1149,7 +1149,7 @@ Mobile Analysis
 #9506   1 active   0 killed     Brother John
 #9507   1 active   0 killed     a panhandler
 #9508   1 active   0 killed     a panhandler
-#9509   2 active   0 killed     a beggar
+#9509  20 active   0 killed     a beggar
 #9510   1 active   0 killed     the baker
 #9511   1 active   0 killed     the shopkeeper
 #9512   1 active   0 killed     Nabil
@@ -1173,18 +1173,18 @@ Mobile Analysis
 #9530   1 active   0 killed     Mustafah
 #9531   1 active   0 killed     Fatima
 #9532   1 active   0 killed     Kareem
-#9533  11 active   0 killed     A nomad merchant
+#9533  20 active   2 killed     A nomad merchant
 #9534   0 active   0 killed     A bodyguard
 #9535   3 active   0 killed     the skinny kid
-#9536  14 active   0 killed     the dockworker
+#9536  18 active   7 killed     the dockworker
 #9537   2 active   0 killed     the tax collector
 #9538   1 active   0 killed     Gord
 #9539   1 active   0 killed     Caramon
-#9540   1 active   0 killed     Raistlin
+#9540   1 active   1 killed     Raistlin
 #9541   1 active   0 killed     Curley GreenLeaf
-#9542  14 active   0 killed     the wandering prophet
-#9543  10 active   0 killed     the alley cat
-#9544  20 active   0 killed     the vulture
+#9542  20 active   1 killed     the wandering prophet
+#9543  13 active   5 killed     the alley cat
+#9544  20 active   6 killed     the vulture
 #9545   2 active   0 killed     the old man
 #9546   0 active   0 killed     Conan the Librarian
 #9547   1 active   0 killed     the dirt devil
@@ -1201,14 +1201,14 @@ Mobile Analysis
 #9558   1 active   0 killed     the guildguard
 #9559   1 active   0 killed     the guildguard
 #9560   2 active   0 killed     a servant boy
-#9561  20 active   0 killed     the sultan's guard
-#9562  16 active   0 killed     the sultans guard
+#9561  20 active   3 killed     the sultan's guard
+#9562  20 active   0 killed     the sultans guard
 #9563   0 active   0 killed     The chief guard
 #9564   1 active   0 killed     the mercenary
 #9565   1 active   0 killed     the shipwright
 #9566   1 active   0 killed     the blacksmith
 #9567   6 active   0 killed     a horse
-#9568   4 active   0 killed     a tourist
+#9568  15 active   0 killed     a tourist
 #9570   1 active   0 killed     the cryohydra
 #9571   1 active   0 killed     the minotaur lizard
 #9572   5 active   0 killed     the death dog
@@ -1217,7 +1217,7 @@ Mobile Analysis
 #9575   1 active   0 killed     the chimera
 #9576   1 active   0 killed     the couatl
 #9577   1 active   0 killed     the giant hornet
-#9578   1 active   0 killed     the pegasus
+#9578   1 active   1 killed     the pegasus
 #9579   1 active   0 killed     Elvira
 #9580   1 active   0 killed     Braheem
 #9581   1 active   0 killed     the high priest
@@ -1234,7 +1234,7 @@ Mobile Analysis
 #9592  14 active   0 killed     the bodyguard
 #9593   1 active   0 killed     the eagle
 #9594   1 active   0 killed     the lion
-#9595   1 active   0 killed     the tiger
+#9595   2 active   1 killed     the tiger
 #9900   1 active   0 killed     A cat sentinel
 #9901   1 active   0 killed     Barry Sanders
 #9902   1 active   0 killed     Gunter
@@ -1247,68 +1247,68 @@ Mobile Analysis
 #10003   1 active   0 killed     Riverwind
 #10004   1 active   0 killed     Baaz Draconian
 #10005   1 active   0 killed     The Farmer
-#10006   1 active   0 killed     farm worker
+#10006   6 active   0 killed     farm worker
 #10007   1 active   0 killed     Barracuda
-#10008   1 active   0 killed     turtle dragon
+#10008   1 active   1 killed     turtle dragon
 #10009   2 active   0 killed     Farmer's guard dog
-#10010  12 active   0 killed     strange fish
-#10011   4 active   0 killed     hobgoblin flunky
+#10010  20 active   1 killed     strange fish
+#10011  17 active   1 killed     hobgoblin flunky
 #10012   1 active   0 killed     the White Stag
 #10013   1 active   0 killed     old pooh bear
-#10014   3 active   0 killed     a large rat
+#10014   7 active   0 killed     a large rat
 #10015   1 active   0 killed     a field mouse
-#10100  10 active   0 killed     a rat
-#10101  10 active   0 killed     a ferret
-#10102   4 active   0 killed     a stoat
-#10103   5 active   0 killed     a weasel
+#10100  10 active   7 killed     a rat
+#10101  10 active   5 killed     a ferret
+#10102   5 active   2 killed     a stoat
+#10103   5 active   1 killed     a weasel
 #10104   1 active   0 killed     {bC{Rl{bu{Rn{by{x the {PScourge{x
-#10105   3 active   0 killed     A Guosim Shrew
-#10106   1 active   0 killed     Darkclaw
-#10107   1 active   0 killed     {RRed{Wtooth{x
+#10105   5 active   2 killed     A Guosim Shrew
+#10106   1 active   2 killed     Darkclaw
+#10107   1 active   1 killed     {RRed{Wtooth{x
 #10108   1 active   0 killed     Cheesethief
 #10109   1 active   0 killed     Scrag
 #10110   1 active   0 killed     Stryk Redkite
-#10111   1 active   0 killed     Tsarmina
-#10112   1 active   0 killed     Fortunata
+#10111   1 active   1 killed     Tsarmina
+#10112   1 active   1 killed     Fortunata
 #10113   1 active   0 killed     Asmodeus
 #10114   1 active   0 killed     {RBasil {YStag {gHare{x
 #10115   1 active   0 killed     {gMatthias{x
-#10126   2 active   1 killed     A {cmole{x
-#10127   0 active   1 killed     Constance
-#10128   1 active   0 killed     {gSilent{x Sam
-#10129   0 active   2 killed     a young {Ymouse{x {HDibbun{x
-#10130   0 active   2 killed     a young {Mhedgehog{x {HDibbun{x
-#10131   2 active   0 killed     a young {Cotter{x {HDibbun{x
-#10132   0 active   2 killed     a young {Psquirrel{x {HDibbun{x
-#10133   2 active   0 killed     a young {cmole{x {HDibbun{x
+#10126   5 active  16 killed     A {cmole{x
+#10127   1 active   0 killed     Constance
+#10128   1 active   3 killed     {gSilent{x Sam
+#10129   2 active  28 killed     a young {Ymouse{x {HDibbun{x
+#10130   4 active  29 killed     a young {Mhedgehog{x {HDibbun{x
+#10131   4 active  31 killed     a young {Cotter{x {HDibbun{x
+#10132   3 active  25 killed     a young {Psquirrel{x {HDibbun{x
+#10133   3 active  26 killed     a young {cmole{x {HDibbun{x
 #10134   5 active   0 killed     a {GBIG {Wfish{x
-#10135   0 active   5 killed     a {Gfield{Ymouse{x
-#10136   0 active   4 killed     an {Cotter{x
-#10137   1 active   0 killed     Brother Alf
-#10138   0 active   1 killed     Baby Rollo
-#10139   1 active   0 killed     Jess Squirrel
-#10140   0 active   1 killed     Sister May
-#10141   2 active   2 killed     a {Mhedgehog{x
+#10135   5 active  12 killed     a {Gfield{Ymouse{x
+#10136   5 active  18 killed     an {Cotter{x
+#10137   1 active   3 killed     Brother Alf
+#10138   1 active   4 killed     Baby Rollo
+#10139   1 active   1 killed     Jess Squirrel
+#10140   1 active   2 killed     Sister May
+#10141   5 active  18 killed     a {Mhedgehog{x
 #10151   1 active   0 killed     Friar {bHugo{x
-#10152   7 active   0 killed     a {Psquirrel{x
-#10153   6 active   0 killed     an {Cotter{x
+#10152  10 active  42 killed     a {Psquirrel{x
+#10153  10 active  28 killed     an {Cotter{x
 #10154   1 active   0 killed     {bForemole{x
-#10155   1 active   0 killed     {TBrother{x Methusaleh
-#10156   3 active   0 killed     a {Ymouse{x {Tbrother{x
-#10157   3 active   0 killed     a {Ymouse{x {Nsister{x
+#10155   1 active   1 killed     {TBrother{x Methusaleh
+#10156   5 active  24 killed     a {Ymouse{x {Tbrother{x
+#10157   5 active  23 killed     a {Ymouse{x {Nsister{x
 #10158   3 active   0 killed     a {Rsparra{x warrior
-#10159   1 active   0 killed     {GLogalog {YBigclub{x
-#10160   1 active   0 killed     {YCorn{gflower{x
-#10161   1 active   0 killed     Bull {RSparra{x King
-#10162   1 active   0 killed     John {PChurch{Ymouse{x
+#10159   1 active   1 killed     {GLogalog {YBigclub{x
+#10160   1 active   3 killed     {YCorn{gflower{x
+#10161   1 active   1 killed     Bull {RSparra{x King
+#10162   1 active   1 killed     John {PChurch{Ymouse{x
 #10163   1 active   0 killed     {gAbbot{x Mortimer
-#10164   1 active   0 killed     {BS{Yk{Bi{Yp{Bp{Ye{Br{x
-#10165   1 active   0 killed     Ambrose Spike
-#10166   1 active   0 killed     Sunflash
+#10164   1 active   2 killed     {BS{Yk{Bi{Yp{Bp{Ye{Br{x
+#10165   1 active   1 killed     Ambrose Spike
+#10166   1 active   1 killed     Sunflash
 #10167   1 active   0 killed     Lady Amber
 #10168   1 active   0 killed     Bella
-#10169   8 active   0 killed     An {bAnt{x
-#10201   1 active   0 killed     Captain of the Guard
+#10169  10 active  11 killed     An {bAnt{x
+#10201   1 active   1 killed     Captain of the Guard
 #10202   1 active   0 killed     Lieutenant Commander
 #10203   1 active   0 killed     Sergeant at Arms
 #10204  12 active   0 killed     Townguard
@@ -1322,7 +1322,7 @@ Mobile Analysis
 #10212   1 active   0 killed     Ghost of Jander
 #10213   3 active   0 killed     ghost of waiter
 #10214   1 active   0 killed     ghost of a barkeeper
-#10215  20 active   0 killed     Townguard
+#10215  20 active   1 killed     Townguard
 #10216  10 active   0 killed     field rat
 #10217   1 active   0 killed     Town Clerk
 #10218   4 active   0 killed     Treasury Guards
@@ -1406,7 +1406,7 @@ Mobile Analysis
 #10444   1 active   0 killed     Santa Claus
 #10445   1 active   0 killed     High Priest of Hell
 #10446   1 active   0 killed     a bowl of blood
-#10447   2 active   0 killed     jury member
+#10447   6 active   0 killed     jury member
 #10448   1 active   0 killed     Judge Whopper
 #10449   1 active   0 killed     Lawyer from Hell
 #10450   1 active   0 killed     Complaints Officer
@@ -1438,7 +1438,7 @@ Mobile Analysis
 #11604   1 active   0 killed     {Wthe student{x
 #11605   1 active   0 killed     a {gstatue of the Mage{x
 #11606   1 active   0 killed     the {WUnicorn{x
-#11607   1 active   0 killed     {Wstatue of the Dreamer{x
+#11607   1 active   1 killed     {Wstatue of the Dreamer{x
 #11608   3 active   0 killed     a {WWhite Knight{x
 #11609   1 active   0 killed     {WLady Justice{x
 #11610   1 active   0 killed     {RMad {GGardener{x
@@ -1448,7 +1448,7 @@ Mobile Analysis
 #11614   5 active   0 killed     a {Wwhite rabbit{x
 #11615   1 active   0 killed     {GDruid of Peace{x
 #11616   1 active   0 killed     the {gcrying spirit{x
-#11617   1 active   0 killed     a bit of {Cfaith{x
+#11617   1 active   1 killed     a bit of {Cfaith{x
 #11618   1 active   0 killed     a stray {Cthought{x
 #11619   1 active   0 killed     some {Cmemories{x
 #11620   1 active   0 killed     an {Cidea{x
@@ -1456,7 +1456,7 @@ Mobile Analysis
 #11622   1 active   0 killed     {WLonari{x
 #11623   1 active   0 killed     {gMyrl{x
 #11624   1 active   0 killed     the {ghellhawk{x
-#11625   6 active   0 killed     a {gsilent stalker{x
+#11625   6 active   2 killed     a {gsilent stalker{x
 #11626   1 active   0 killed     a {gTwisted Being{x
 #11627   1 active   0 killed     a {Rscreaming soul{x
 #11628   1 active   0 killed     {gDark Necromancer{x
@@ -1470,7 +1470,7 @@ Mobile Analysis
 #11636   1 active   0 killed     a {gpatch of Nothingness{x
 #11637   5 active   0 killed     the {Yfurry lemming{x
 #11638   1 active   0 killed     the {BWarlord{x
-#11639   1 active   0 killed     the {Rvampire {Wjanitor{x
+#11639   1 active   2 killed     the {Rvampire {Wjanitor{x
 #11640   1 active   0 killed     some {Clost dreams{x
 #11641   1 active   0 killed     Tainted {gknowledge{x
 #11642   1 active   0 killed     some {gforgotten lies{x
@@ -1508,10 +1508,10 @@ Mobile Analysis
 #11674   1 active   0 killed     a normal person
 #11675   1 active   0 killed     the {Wtoilet monster{x
 #11676   1 active   0 killed     the mole
-#11677   1 active   0 killed     {PX{Wy{Br{Yi{Cs{Vt{x
+#11677   1 active   3 killed     {PX{Wy{Br{Yi{Cs{Vt{x
 #11678   1 active   0 killed     {RFax{x
 #11700   1 active   0 killed     Lechandre
-#11701   1 active   0 killed     Noriek
+#11701   1 active   1 killed     Noriek
 #11702   1 active   0 killed     Dyrli
 #11703   1 active   0 killed     Roweni
 #11704   1 active   0 killed     Xanil
@@ -1519,29 +1519,29 @@ Mobile Analysis
 #11706   1 active   0 killed     Nalyss
 #11707   1 active   0 killed     Daeman
 #11708   1 active   0 killed     Ykandres
-#11709   1 active   0 killed     Zeion
+#11709   1 active   1 killed     Zeion
 #11710   1 active   0 killed     the lab assistant
-#11711   4 active   0 killed     a mage in training
+#11711   4 active   3 killed     a mage in training
 #11712   1 active   0 killed     a writhing form
-#11713   2 active   0 killed     a glyph of warding
+#11713   2 active   3 killed     a glyph of warding
 #11714   1 active   0 killed     Dosandre
 #11715   1 active   0 killed     Denylis
 #11716   1 active   0 killed     Kaele
 #11717   1 active   0 killed     Rexena
 #11718   1 active   0 killed     Deis
-#11719   1 active   0 killed     Lyrene
+#11719   1 active   1 killed     Lyrene
 #11720   1 active   0 killed     Josreke
 #11721   1 active   0 killed     Rodwen
-#11722   4 active   0 killed     a white clad paladin
+#11722   4 active   2 killed     a white clad paladin
 #11723   1 active   0 killed     Rachal
-#11724   1 active   0 killed     Toryan
-#11725   1 active   0 killed     Janalis
+#11724   1 active   1 killed     Toryan
+#11725   1 active   1 killed     Janalis
 #11726   1 active   0 killed     Dreyva
-#11727   1 active   0 killed     Delyrus
-#11728   1 active   0 killed     Kranali
+#11727   1 active   1 killed     Delyrus
+#11728   1 active   1 killed     Kranali
 #11729   1 active   0 killed     Sorina
-#11730   1 active   0 killed     Loryn
-#11731   1 active   0 killed     Chake
+#11730   1 active   1 killed     Loryn
+#11731   1 active   1 killed     Chake
 #11732   1 active   0 killed     the hellish guardian
 #11733   1 active   0 killed     a howling beast
 #11734   1 active   0 killed     a demonic figure
@@ -1549,17 +1549,17 @@ Mobile Analysis
 #11736   1 active   0 killed     a mass of writhing tentacles
 #11737   1 active   0 killed     a summoned demon
 #11738   1 active   0 killed     Jaena
-#11739   1 active   0 killed     Neraikis
-#11740   1 active   0 killed     Katyre
+#11739   1 active   1 killed     Neraikis
+#11740   1 active   1 killed     Katyre
 #11741   1 active   0 killed     Ryxis
-#11742   1 active   0 killed     Gydeas
-#11743   1 active   0 killed     Dyraena
+#11742   1 active   1 killed     Gydeas
+#11743   1 active   2 killed     Dyraena
 #11744   1 active   0 killed     Nyxi
 #11745   1 active   0 killed     Delise
 #11746   1 active   0 killed     a black panther
 #11747   1 active   0 killed     a shadow lynx
-#11748   1 active   0 killed     a night hawk
-#11749   1 active   0 killed     the stalker
+#11748   1 active   1 killed     a night hawk
+#11749   1 active   1 killed     the stalker
 #11750   1 active   0 killed     the hunter
 #11751   1 active   0 killed     Dyana
 #11752   1 active   0 killed     Ryke
@@ -1571,38 +1571,38 @@ Mobile Analysis
 #11758   1 active   0 killed     the grey lion
 #11759   1 active   0 killed     the white lion
 #11760   2 active   0 killed     a guardian knight
-#11761   2 active   0 killed     a warrior in training
-#11762   2 active   0 killed     a sparring warrior
-#11763   1 active   0 killed     Yxanes
+#11761   2 active   1 killed     a warrior in training
+#11762   2 active   2 killed     a sparring warrior
+#11763   1 active   3 killed     Yxanes
 #11764   1 active   0 killed     Nerael
 #11765   1 active   0 killed     Jorinne
 #11766   1 active   0 killed     Lerylke
 #11767   1 active   0 killed     Nerr
 #11768   1 active   0 killed     Yllyra
-#11769   1 active   0 killed     Dryna
-#11770   1 active   0 killed     Voryl
+#11769   1 active   1 killed     Dryna
+#11770   1 active   1 killed     Voryl
 #11771   1 active   0 killed     the white cat
-#11772   1 active   0 killed     the grey cat
-#11773   1 active   0 killed     the guardian spirit
+#11772   1 active   1 killed     the grey cat
+#11773   1 active   1 killed     the guardian spirit
 #11774   1 active   0 killed     The Flame
 #11775   1 active   0 killed     The Shield
 #11776   1 active   0 killed     The Claw
-#11777   1 active   0 killed     The Shadow
+#11777   1 active   1 killed     The Shadow
 #11778   1 active   0 killed     The Fist
 #11779   1 active   0 killed     The Hand
 #11780   1 active   0 killed     the Laerkai Master
 #11781   1 active   0 killed     The Guardian
 #11782   1 active   0 killed     The Mediator
-#11783   6 active   0 killed     a drakyri knight protector
+#11783   6 active   2 killed     a drakyri knight protector
 #11784   7 active   0 killed     a drakyri mage protector
-#11785   5 active   0 killed     a drakyri healer
-#11786   3 active   0 killed     a drakyri assassin
+#11785   5 active   1 killed     a drakyri healer
+#11786   3 active   1 killed     a drakyri assassin
 #11787   1 active   0 killed     a frail old man
 #11788   1 active   0 killed     The Warden
-#11900   5 active   0 killed     a singing warrior
-#11901   2 active   0 killed     a holy man
+#11900   5 active   1 killed     a singing warrior
+#11901   3 active   4 killed     a holy man
 #11902   1 active   0 killed     a mad berserker
-#11903   1 active   0 killed     the {gBarbarian Warlord{x
+#11903   1 active   1 killed     the {gBarbarian Warlord{x
 #11904   1 active   0 killed     {CI{Wc{Ce{Ww{Ci{Wn{Cg{x
 #11905   4 active   0 killed     a {Ysergeant{x
 #11906   4 active   0 killed     a {Ylieutenant{x
@@ -1613,18 +1613,18 @@ Mobile Analysis
 #12002   1 active   0 killed     The {cBlack Gryphon{x
 #12003   1 active   0 killed     The {WWhite Gryphon{x
 #12004   1 active   0 killed     The {gS{ci{gl{cv{ge{cr {WGryphon{x
-#12701  10 active   0 killed     A male servant
-#12702  10 active   0 killed     A female servant
-#12703   8 active   0 killed     A page
-#12704   6 active   0 killed     A young squire
-#12705  16 active   0 killed     A knight in training
+#12701  10 active   2 killed     A male servant
+#12702  10 active   2 killed     A female servant
+#12703  10 active   2 killed     A page
+#12704   6 active   4 killed     A young squire
+#12705  20 active   6 killed     A knight in training
 #12706   6 active   0 killed     A cleric's apprentice
 #12707   8 active   0 killed     A wizard's apprentice
-#12708   4 active   0 killed     A scout's apprentice
-#12709   8 active   0 killed     A visiting merchant
+#12708   6 active   0 killed     A scout's apprentice
+#12709   8 active   1 killed     A visiting merchant
 #12710   1 active   0 killed     A clerk
 #12711   1 active   0 killed     A stablemaster
-#12712   8 active   0 killed     A minor noble
+#12712   8 active   1 killed     A minor noble
 #12713   4 active   0 killed     A swordsman
 #12714   4 active   0 killed     A priest
 #12715   4 active   0 killed     A mage
@@ -1634,81 +1634,81 @@ Mobile Analysis
 #12719   1 active   0 killed     Delilah
 #12720   1 active   0 killed     Mageddon
 #12721   1 active   0 killed     Vision
-#13000   3 active   0 killed     a {Pwh{Wo{Pre{x
-#13001   4 active   0 killed     a raga{bmu{Yff{bin{x
-#13002   3 active   0 killed     a {csku{Nl{cker{x
-#13003   3 active   0 killed     a {cst{gabb{cer{x
-#13004   2 active   0 killed     a {cc{Yutte{cr{x
-#13005   6 active   0 killed     a {cba{bsh{cer{x
-#13006   2 active   0 killed     a {cbur{Mg{clar{x
-#13007   2 active   0 killed     a {cpug{Ril{cist{x
-#13008   2 active   0 killed     a {cb{Tagma{cn{x
+#13000   5 active   0 killed     a {Pwh{Wo{Pre{x
+#13001   5 active   1 killed     a raga{bmu{Yff{bin{x
+#13002   5 active   1 killed     a {csku{Nl{cker{x
+#13003   5 active   0 killed     a {cst{gabb{cer{x
+#13004   3 active   1 killed     a {cc{Yutte{cr{x
+#13005   9 active   1 killed     a {cba{bsh{cer{x
+#13006   3 active   0 killed     a {cbur{Mg{clar{x
+#13007   3 active   0 killed     a {cpug{Ril{cist{x
+#13008   3 active   1 killed     a {cb{Tagma{cn{x
 #13009   1 active   0 killed     the {cR{Va{Pg{Cm{Ya{cn{x
-#13010   4 active   0 killed     a {ctof{Cs{cman{x
+#13010   4 active   1 killed     a {ctof{Cs{cman{x
 #13011   3 active   0 killed     a {clie{Buten{cant{x
 #13012   1 active   0 killed     {cMid{Nni{cght{x
-#13013   9 active   0 killed     {GA p{Hri{Gest o{Hf t{Ghe {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x
-#13014   1 active   0 killed     {WAp{Gr{Wil{x
+#13013   9 active   6 killed     {GA p{Hri{Gest o{Hf t{Ghe {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x
+#13014   1 active   1 killed     {WAp{Gr{Wil{x
 #13015   1 active   0 killed     {cM{gay{x
-#13016   1 active   0 killed     {CJ{gun{Ce{x
+#13016   1 active   1 killed     {CJ{gun{Ce{x
 #13017   1 active   0 killed     {BKy'{Rur'{Bla'{Rno'{Btha{x
 #13018   1 active   0 killed     {GNya{crl{Gath{cot{Gep{x
-#14000  11 active   0 killed     Pilgrim
-#14001  15 active   4 killed     Citizen
-#14002   5 active   0 killed     Slave
-#14003   4 active   1 killed     Starving Citizen
+#14000  12 active   4 killed     Pilgrim
+#14001  20 active 166 killed     Citizen
+#14002   8 active  16 killed     Slave
+#14003  10 active 109 killed     Starving Citizen
 #14004   1 active   0 killed     Cecil Pit
 #14005   1 active   0 killed     Receptionist
-#14006   8 active   0 killed     Child
-#14007  10 active   0 killed     Bat
-#14008   2 active   0 killed     Sacrificial Virgin
-#14009   2 active   0 killed     Goblin Waitress
+#14006  12 active  22 killed     Child
+#14007  20 active   0 killed     Bat
+#14008   6 active   0 killed     Sacrificial Virgin
+#14009   5 active   0 killed     Goblin Waitress
 #14010   1 active   0 killed     Fox
-#14011   2 active   0 killed     Chef
-#14012   9 active   0 killed     Guest
-#14013  14 active   3 killed     Orc Soldier
-#14014  10 active   0 killed     Market Shopper
+#14011   4 active   0 killed     Chef
+#14012  10 active   1 killed     Guest
+#14013  20 active  36 killed     Orc Soldier
+#14014  10 active   1 killed     Market Shopper
 #14015   2 active   0 killed     wolf
-#14016   8 active   0 killed     Merchant
+#14016  10 active   0 killed     Merchant
 #14017   1 active   0 killed     School Janitor
-#14018   5 active   0 killed     Market Guard
-#14019   7 active   0 killed     Refugee
-#14020  12 active   0 killed     Orc Guard
-#14021   2 active   0 killed     Red Practice Target
+#14018   5 active   1 killed     Market Guard
+#14019  15 active   6 killed     Refugee
+#14020  20 active   4 killed     Orc Guard
+#14021   8 active   0 killed     Red Practice Target
 #14022   1 active   0 killed     Bear
-#14023   6 active   0 killed     Garrison Orc
-#14024   2 active   0 killed     Flower Picker
+#14023  20 active   0 killed     Garrison Orc
+#14024   3 active   0 killed     Flower Picker
 #14025   1 active   0 killed     Panther
-#14026   5 active   0 killed     Flagellant
-#14027   2 active   0 killed     Succubus
-#14028   3 active   0 killed     Incubus
-#14029  13 active   0 killed     Minor Demon
+#14026   5 active   6 killed     Flagellant
+#14027   3 active   0 killed     Succubus
+#14028   3 active   1 killed     Incubus
+#14029  15 active   0 killed     Minor Demon
 #14030   1 active   0 killed     Tantro's Butler
-#14031  12 active   0 killed     Trainee Assassin
-#14032  10 active   0 killed     Demon Soldier
-#14033   2 active   0 killed     Blue Practice Target
-#14034   5 active   0 killed     Priest
-#14035   5 active   0 killed     Priestess
-#14036   6 active   0 killed     Plague Carrier
+#14031  20 active   0 killed     Trainee Assassin
+#14032  15 active   0 killed     Demon Soldier
+#14033   8 active   0 killed     Blue Practice Target
+#14034  10 active   0 killed     Priest
+#14035  10 active   0 killed     Priestess
+#14036   6 active 624 killed     Plague Carrier
 #14037   1 active   0 killed     Rabid Rose
-#14038   6 active   0 killed     Freedom Fighter
+#14038  10 active   0 killed     Freedom Fighter
 #14039   1 active   0 killed     Terrible Tulip
 #14040   2 active   0 killed     Orc Captain
-#14041   3 active   0 killed     Devil's Daughter
-#14042   1 active   0 killed     Canny Chrysanthemum
+#14041   3 active   6 killed     Devil's Daughter
+#14042   1 active   1 killed     Canny Chrysanthemum
 #14043   5 active   0 killed     Vrock
-#14044   1 active   0 killed     Demon Captain
-#14045   5 active   0 killed     Mercenary
-#14046   2 active   0 killed     Green Practice Target
-#14047   6 active   0 killed     Demon Guard
-#14048   6 active   0 killed     Demon Guard
-#14049   7 active   0 killed     Assassin
+#14044   1 active   1 killed     Demon Captain
+#14045  10 active   1 killed     Mercenary
+#14046   8 active   0 killed     Green Practice Target
+#14047  10 active   0 killed     Demon Guard
+#14048  10 active   0 killed     Demon Guard
+#14049  10 active   0 killed     Assassin
 #14050   2 active   0 killed     Black Guard
 #14051   1 active   0 killed     High Priest
 #14052   1 active   0 killed     High Priestess
 #14053   6 active   0 killed     Teacher
-#14054   5 active   0 killed     Palace Servant
-#14055   2 active   0 killed     Yellow Practice Target
+#14054   6 active   0 killed     Palace Servant
+#14055   8 active   0 killed     Yellow Practice Target
 #14056   1 active   0 killed     Boss Guard
 #14057   1 active   0 killed     Herbert
 #14058   1 active   0 killed     Basher The Mercenary
@@ -1726,12 +1726,12 @@ Mobile Analysis
 #14070   1 active   0 killed     Charinida
 #14071   1 active   0 killed     Jhaniss
 #14072   1 active   0 killed     Elvanshalee
-#14073   2 active   0 killed     Emerald Knight
+#14073   3 active   0 killed     Emerald Knight
 #14074   1 active   0 killed     Sapphire Knight
 #14075   1 active   0 killed     Barry M. Deep
 #14076   1 active   0 killed     Colin Alkarrs
 #14077   1 active   0 killed     Food Guard
-#14078   1 active   0 killed     Resistance Leader
+#14078   1 active   1 killed     Resistance Leader
 #14079   2 active   0 killed     Hole Guard
 #14080   0 active   0 killed     Balor
 #14081   0 active   0 killed     Ariana
@@ -1740,20 +1740,20 @@ Mobile Analysis
 #14084   0 active   0 killed     a Rutterkin Invader
 #14085   0 active   0 killed     a Nalfenshee Invader
 #14086   0 active   0 killed     {x
-#16001  20 active   0 killed     The enforcer eye
-#16002  20 active   0 killed     The floating eye
+#16001  20 active   2 killed     The enforcer eye
+#16002  20 active   7 killed     The floating eye
 #16003   3 active   0 killed     The prisoner
 #16004   2 active   0 killed     The great enforcing eye
 #16005   1 active   0 killed     The huge beholder
 #16006   1 active   0 killed     The beholder
-#16007  16 active   0 killed     The svirfneblin
-#16008  12 active   0 killed     The drow trader
-#16009  18 active   0 killed     The duergar
+#16007  16 active   9 killed     The svirfneblin
+#16008  12 active   3 killed     The drow trader
+#16009  18 active   1 killed     The duergar
 #16010   1 active   0 killed     The necromancer
 #16011   1 active   0 killed     The behir
 #16012   1 active   0 killed     The fighter
 #16013   1 active   0 killed     A high priest of Xevior
-#16014  10 active   0 killed     The lizard man
+#16014  10 active   1 killed     The lizard man
 #16015   1 active   0 killed     The purple worm
 #16016   1 active   0 killed     The huge purple worm
 #16017   3 active   0 killed     The beholder's underling
@@ -1777,10 +1777,10 @@ Mobile Analysis
 #16035   4 active   0 killed     The stone golem
 #16036   1 active   0 killed     Itreres
 #16037   1 active   0 killed     The imp
-#16038   2 active   0 killed     The babau
+#16038   2 active   1 killed     The babau
 #16039   2 active   0 killed     The servant
 #16040   1 active   0 killed     The gibbering mouther
-#16041   3 active   0 killed     The worker of the night
+#16041   3 active   1 killed     The worker of the night
 #16042   2 active   0 killed     A maid of passion
 #16043   1 active   0 killed     A granter of pleasure
 #16044   2 active   0 killed     A preferred customer
@@ -1795,8 +1795,8 @@ Mobile Analysis
 #16053   1 active   0 killed     Jarre
 #16054   3 active   0 killed     The serving wench
 #16055   1 active   0 killed     The Slave Dealer
-#16056  13 active   0 killed     The slave trader
-#16057  11 active   0 killed     A slave buyer
+#16056  15 active  34 killed     The slave trader
+#16057  12 active  32 killed     A slave buyer
 #16058   1 active   0 killed     The orc slave
 #16059   1 active   0 killed     The goblin slave
 #16060   1 active   0 killed     A male human slave
@@ -1805,13 +1805,13 @@ Mobile Analysis
 #16063   1 active   0 killed     The elven slave
 #16064   1 active   0 killed     The dwarven slave
 #16065   1 active   0 killed     The Bar Tender
-#16066   1 active   0 killed     Prax
-#16067   1 active   0 killed     Thespan
-#16068   1 active   0 killed     Endolar
+#16066   1 active   2 killed     Prax
+#16067   1 active   4 killed     Thespan
+#16068   1 active   3 killed     Endolar
 #16069   1 active   0 killed     Snaromba
-#16070   1 active   0 killed     Anmictes
+#16070   1 active   1 killed     Anmictes
 #16071   1 active   0 killed     Emba
-#16072   1 active   0 killed     Shillikif
+#16072   1 active   1 killed     Shillikif
 #16073   1 active   0 killed     Yie'Stei
 #16074   1 active   0 killed     Zae'tres
 #16075   1 active   0 killed     Raesarnt
@@ -1822,7 +1822,7 @@ Mobile Analysis
 #16080   1 active   0 killed     The caretaker
 #16081  16 active   0 killed     The footpad
 #16082   5 active   0 killed     The cutpurse
-#16083   5 active   0 killed     The filcher
+#16083   5 active   1 killed     The filcher
 #16084   5 active   0 killed     The rogue
 #16085   8 active   0 killed     The sharper
 #16086   3 active   0 killed     The magsman
@@ -1830,9 +1830,9 @@ Mobile Analysis
 #16088   1 active   0 killed     The head thief
 #16089   1 active   0 killed     Meliadus
 #16090   1 active   0 killed     The trainer
-#16091   6 active   0 killed     The bravo
-#16092   6 active   0 killed     The murderer
-#16093   6 active   0 killed     The thug
+#16091   6 active   3 killed     The bravo
+#16092   6 active   5 killed     The murderer
+#16093   6 active   4 killed     The thug
 #16094   3 active   0 killed     The killer
 #16095   2 active   0 killed     The assassin
 #16096   3 active   0 killed     The expert assassin
@@ -1858,17 +1858,17 @@ Mobile Analysis
 #16116   1 active   0 killed     Methuen
 #16117   1 active   0 killed     Cedrena
 #16118   1 active   0 killed     The inn keep
-#16119   3 active   0 killed     The demon clan member
-#16120   3 active   0 killed     A demon clan mage
-#16121   3 active   0 killed     A demon clan fighter
-#16122   3 active   0 killed     The demon summoner
+#16119   3 active   2 killed     The demon clan member
+#16120   3 active   2 killed     A demon clan mage
+#16121   3 active   1 killed     A demon clan fighter
+#16122   3 active   2 killed     The demon summoner
 #16123   2 active   0 killed     The cambion
 #16124   2 active   0 killed     A noble cambion
 #16125   1 active   0 killed     Irmugar
-#16126   1 active   0 killed     The hezron
-#16127   4 active   0 killed     An eye of fear and flame
+#16126   1 active   1 killed     The hezron
+#16127   4 active   7 killed     An eye of fear and flame
 #16128   6 active   0 killed     The revenant
-#16129   7 active   0 killed     The eye killer
+#16129   7 active   3 killed     The eye killer
 #16500   1 active   0 killed     a {Cblack-robed{x assassin
 #16501   3 active   0 killed     a screaming {cshade{x
 #16502   1 active   0 killed     a raging {Rd{be{Ym{bo{Rn{x
@@ -1901,7 +1901,7 @@ Mobile Analysis
 #17010   1 active   0 killed     An apprentice
 #17011   1 active   0 killed     An apprentice
 #17012   1 active   0 killed     An apprentice
-#17013   1 active   0 killed     {CMat{Tias{x the Older
+#17013   1 active   1 killed     {CMat{Tias{x the Older
 #17014   1 active   0 killed     {CMat{Tias{x the Younger
 #17030   1 active   0 killed     {MBarney{x
 #17031   4 active   0 killed     A towndweller
@@ -1912,13 +1912,13 @@ Mobile Analysis
 #17036   1 active   0 killed     A chasme
 #17037   1 active   0 killed     {cSm{gok{ce P{gar{ca-{gel{cem{gen{cta{gl{x
 #17038   3 active   0 killed     A wight
-#17039   1 active   0 killed     {RF{Wle{Ra{W-{Rb{Wi{Rt{We{Rr{x
-#17040   1 active   0 killed     {YR{Wa{Yt{W-{Ys{Wt{Ya{Wb{Yb{We{Yr{x
+#17039   0 active  17 killed     {RF{Wle{Ra{W-{Rb{Wi{Rt{We{Rr{x
+#17040   1 active  28 killed     {YR{Wa{Yt{W-{Ys{Wt{Ya{Wb{Yb{We{Yr{x
 #17041   1 active   0 killed     {RFar{Past{Ru Ge{Phre{Rlet{Ph{x
-#17042   3 active   0 killed     A {Rsa{kl{Ram{ka{Rnd{ke{Rr{x
-#17043   2 active   0 killed     A {Rfi{kr{Re b{ka{Rt{x
+#17042   3 active   1 killed     A {Rsa{kl{Ram{ka{Rnd{ke{Rr{x
+#17043   3 active   0 killed     A {Rfi{kr{Re b{ka{Rt{x
 #17044   1 active   0 killed     A spectre
-#17045   1 active   0 killed     A {Ch{Ty{Cdr{To{Cl{Toth{x
+#17045   1 active   1 killed     A {Ch{Ty{Cdr{To{Cl{Toth{x
 #17046   1 active   0 killed     A {Nwat{Ter e{Nle{Tme{Nnta{Tl{x
 #17047   1 active   0 killed     A {Pst{bon{Pe {bg{Po{bl{Pe{bm{x
 #17048   1 active   0 killed     {WZathis {CII{x
@@ -1933,39 +1933,39 @@ Mobile Analysis
 #17104   1 active   0 killed     {NBae{Mt{Nhs{Mha{Ne{Mra{x
 #17105   1 active   0 killed     {BT{Rhe{B H{Rezr{Bou{x
 #17106   1 active   0 killed     {gV{Ra{gr{Ra{gk {RRe{gds{Rhi{gel{Rd{x
-#17107   1 active   0 killed     A {cla{Mc{ced{Mo{cn g{Mh{cas{Mt{x
+#17107   1 active  71 killed     A {cla{Mc{ced{Mo{cn g{Mh{cas{Mt{x
 #17108   1 active   0 killed     A dazing headache
 #17109   0 active   0 killed     {GA me{Hs{Gsen{Hge{Gr o{Hf t{Ghe {cSc{Ga{cly {GD{cea{Gt{ch Tr{Gi{cbe{x
-#17301   8 active   0 killed     The knight of reknown
-#17302  10 active   0 killed     The squire
-#17303   9 active   0 killed     The knight of quality
-#17304   1 active   0 killed     King Arthur
-#17305   1 active   0 killed     Sir Benlad de Haudtesert (the green knight)
+#17301   9 active   1 killed     The knight of reknown
+#17302  12 active   1 killed     The squire
+#17303   9 active   1 killed     The knight of quality
+#17304   1 active   1 killed     King Arthur
+#17305   1 active   1 killed     Sir Benlad de Haudtesert (the green knight)
 #17306   1 active   0 killed     Sir Galahad
-#17307   1 active   0 killed     The black knight
-#17308   1 active   0 killed     Sir Gareth
-#17309   1 active   0 killed     Sir Garlon
+#17307   1 active   1 killed     The black knight
+#17308   1 active   1 killed     Sir Gareth
+#17309   1 active   1 killed     Sir Garlon
 #17310   1 active   0 killed     Sir Gawaine
 #17311   1 active   0 killed     Sir Lamorak
-#17312   1 active   0 killed     Sir Lancelot du Lake
+#17312   1 active   1 killed     Sir Lancelot du Lake
 #17313   1 active   0 killed     Merlin
 #17314   1 active   0 killed     Morgan Le Fey
-#17315   1 active   0 killed     King Pellinore
+#17315   1 active   1 killed     King Pellinore
 #17316   1 active   0 killed     The Questing Beast
 #17317   1 active   0 killed     Sir Tristram of Lyoness
-#17318   1 active   0 killed     Mordred
+#17318   1 active   1 killed     Mordred
 #17319   5 active   0 killed     Charmed knight of reknown
 #17320   3 active   0 killed     Charmed knight of quality
 #17321   7 active   0 killed     A lady in waiting
 #17322   1 active   0 killed     Queen Gwenivere
 #17323   7 active   0 killed     Charmed Squire
 #17324   1 active   0 killed     Barant Les Apres (King of the Hundred Knights)
-#17325   1 active   0 killed     Dagonet (Arthur's Court Jester)
-#17326   1 active   0 killed     Turquine
-#17327   1 active   0 killed     Perimones (the Red Knight)
+#17325   1 active   1 killed     Dagonet (Arthur's Court Jester)
+#17326   1 active   2 killed     Turquine
+#17327   1 active   3 killed     Perimones (the Red Knight)
 #17328   1 active   0 killed     A damsel in distress
 #17329   1 active   0 killed     A nobleman
-#17330   4 active   0 killed     A serf
+#17330   4 active   1 killed     A serf
 #17331   2 active   0 killed     A merchant
 #17332   2 active   0 killed     A monk
 #17333   1 active   0 killed     A troubadour
@@ -1979,12 +1979,12 @@ Mobile Analysis
 #17341   1 active   0 killed     A medium warhorse
 #17342   1 active   0 killed     A heavy warhorse
 #17343   1 active   0 killed     A Saxon raider
-#17344   1 active   0 killed     A slave
+#17344   2 active   0 killed     A slave
 #17345   1 active   0 killed     A Saxon chief
 #17346   1 active   0 killed     A northern border guard
 #17347   1 active   0 killed     The northern outpost commander
-#17348   1 active   0 killed     A Scot clansman
-#17349   1 active   0 killed     The Scot clan chief
+#17348   1 active   1 killed     A Scot clansman
+#17349   1 active   1 killed     The Scot clan chief
 #17350   4 active   0 killed     A busy serf
 #17351   2 active   0 killed     An Angle raider
 #17352   1 active   0 killed     The Angle chief
@@ -1998,7 +1998,7 @@ Mobile Analysis
 #17360   1 active   0 killed     Gaheris
 #17361   1 active   0 killed     The southern outpost commander
 #17362   2 active   0 killed     A southern border guard
-#17363   1 active   0 killed     A slave
+#17363   2 active   0 killed     A slave
 #19900  20 active   0 killed     A small bunny
 #19901   0 active   0 killed     The lop-eared bunny
 #19902  20 active   0 killed     A small butterfly
@@ -2014,7 +2014,7 @@ Mobile Analysis
 #20009   1 active   0 killed     Marish the Mad
 #20010   1 active   0 killed     Gruff Greybeard
 #20011   1 active   0 killed     Father Gerold
-#20012   1 active   0 killed     Lorin Talesinger
+#20012   1 active   1 killed     Lorin Talesinger
 #20013   1 active   0 killed     Targsys the Chronicler
 #20014   1 active   0 killed     A french maid
 #20015   1 active   0 killed     Illy
@@ -2025,7 +2025,7 @@ Mobile Analysis
 #20020   1 active   0 killed     A black cat
 #20021   1 active   0 killed     A giant mouse
 #20022   1 active   0 killed     A huge bull
-#20023   1 active   0 killed     A vampire bat
+#20023   3 active   0 killed     A vampire bat
 #24200   1 active   0 killed     Sakura Shinguuji
 #24201   1 active   0 killed     Drizzt Do' Urden
 #24202   1 active   0 killed     Chibi-Dragon
@@ -2066,8 +2066,10 @@ Mobile Analysis
 #24808   1 active   0 killed     {WS{cp{Wi{ck{We{x
 #24809   1 active   0 killed     {CA{Ty{Cl{Te{Ce{x
 #25000   1 active   0 killed     {cVa{Wn{ge{Ws{cha{x
-#25001   1 active   0 killed     {cA{gs{Wh{gn{co{Wd{x
+#25001   1 active   0 killed     {cK{gi{Wt{gi{ca{Wr{ca{x
 #25002   1 active   0 killed     {CD{Wy{Bs{Wt{Ca{Wn{Be{Wx{x
+#25004   1 active   0 killed     {gLh{caex{gis{x
+#25005   1 active   0 killed     Learned Hand
 #25050   1 active   0 killed     Cid
 #25051   1 active   0 killed     a {PDemon Yoshi{x
 #25052   1 active   0 killed     a portrait of Liriel
@@ -2079,7 +2081,7 @@ Mobile Analysis
 #28006   7 active   0 killed     The spectre
 #28007   1 active   0 killed     The night dragon
 #28008   1 active   0 killed     The night dragon
-#28009   1 active   0 killed     Lady Crysania
+#28009   1 active   1 killed     Lady Crysania
 #29100   3 active   0 killed     a pair of disembodied eyes
 #29101   4 active   0 killed     a Live One
 #29102   1 active   0 killed     The iron golem
@@ -2090,18 +2092,18 @@ Mobile Analysis
 #29107   1 active   0 killed     the wind torrents
 #29108   1 active   0 killed     a coughing fit
 #29109   1 active   0 killed     Raistlin
-#29900   8 active   0 killed     a white pawn
+#29900   8 active   9 killed     a white pawn
 #29901   2 active   0 killed     a white rook
 #29902   2 active   0 killed     a white knight
 #29903   2 active   0 killed     a white bishop
 #29904   1 active   0 killed     a white queen
-#29905   1 active   0 killed     a white king
-#29906   8 active   0 killed     a black pawn
+#29905   1 active   2 killed     a white king
+#29906   8 active  91 killed     a black pawn
 #29907   2 active   0 killed     a black rook
-#29908   2 active   0 killed     a black knight
+#29908   2 active   3 killed     a black knight
 #29909   1 active   0 killed     the black queen
-#29910   1 active   0 killed     the black king
-#29911   2 active   0 killed     the black bishop
+#29910   1 active   1 killed     the black king
+#29911   2 active   2 killed     the black bishop
 #32101   1 active   0 killed     Gilligan
 #32102   1 active   0 killed     The Skipper
 #32103   1 active   0 killed     The Professor
@@ -2122,7 +2124,7 @@ Mobile Analysis
 #32118   1 active   0 killed     Robinson Crusoe
 #32119   1 active   0 killed     Friday
 #32120   1 active   0 killed     A Land Shark
-#32121   1 active   0 killed     A Chicken Person
+#32121   2 active   0 killed     A Chicken Person
 #32122   1 active   0 killed     A Monkey
 #32123   1 active   0 killed     Hurricane Andrew
 #32124   1 active   0 killed     A Sumo

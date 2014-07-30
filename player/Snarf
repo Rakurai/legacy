@@ -1,52 +1,53 @@
 #PLAYER
 Name Snarf~
 Id   997865059
-LogO 1016575089
-Vers 13
+LogO 1082918694
+Vers 14
+Mexp 2
+Pass fuckoff~
 Prom %CH%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%q%Cc/%CG%}%CCmin. ~
 Race human~
 Clan rebel~
-Sex  1
 Cla  3
 Levl 20
 Tru  91
-Plyd 120452
-Age  0
+Plyd 129057
 Back 92407
-Note 1006758535 1006806444 1005803248 1009844235 1010027820 1009098152 0
+Note 1060826878 1006806444 1005803248 1060729639 1060581000 1057375013 0
 Scro 22
-Room 24606
-HMS  26 371 86 167 256 342
+Room 24600
+HMS  371 167 342
 Gold 375
 Silv 3685
 Silver_in_bank 17000
-Exp  20115
-PCkills 0
+Exp  20105
+PCkills  0
 PCkilled 1
-Akills 1
-Akilled 1
-PKRank 0
+Akills   1
+Akilled  1
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  F
+Video 0
 Act  CDEFGHIJLSTc
-AfBy HVYe
+AfBy 0
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
 Prac 88
 Trai 33
-Save  -12
-Alig  1000
-Hit   37
-Dam   24
-ACs 109 107 109 115
+Wimp 0
+Familiar 0
 Atrib 18 17 17 18 18 17
-AtMod 5 1 2 7 0 1
-SkillPnts 22
-QpDonated 11
-GlDonated 11000
-Pass fuckoff~
-Afk {B[{CMon Nov 26 14:23:42 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+SkillPnts  22
+QpDonated  11
+GlDonated  11000
+Afk {B[{CWed Aug 13 22:17:57 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  Snarf!~
 Immn ~
@@ -60,15 +61,11 @@ Stus Snarf says, SNARF SNARF!~
 RmCt 1
 ExSk 0
 Raff 6
-Lsit dialup1-72.cass.net~
-Ltim Tue Mar 19 15:43:56 2002
+Lsit 216.90.101.62~
+Ltim Sun Apr 25 14:44:03 2004
 ~
-LSav Tue Mar 19 15:58:09 2002
+LSav Sun Apr 25 14:44:54 2004
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  F
 HMSP 331 167 342
 THMS 0 0 0
 Cnd  0 0 0 0
@@ -156,16 +153,6 @@ Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'steel mist'   0  88  33  -9  17   16777216 1
-Affc 'frenzy'   0  91  26  70  17          0 1
-Affc 'frenzy'   0  91  26  15  19          0 1
-Affc 'frenzy'   0  91  26  15  18          0 1
-Affc 'bless'   0  89  93 -11  24          0 1
-Affc 'bless'   0  90  93  11  18          0 1
-Affc 'talon'   0  90   7   0   0 1073741824 1
-Affc 'giant strength'   0  91  87   4   1          0 1
-Affc 'sanctuary'   0  90  11   0   0        128 1
-Affc 'haste'   0  91  18   4   2    2097152 1
 End
 
 #O
@@ -232,27 +219,6 @@ Cost 22
 End
 
 #O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
 Vnum 16057
 Nest 0
 Wear -1
@@ -262,6 +228,7 @@ End
 #O
 Vnum 16008
 Nest 0
+Cond 93
 Wear 6
 Cost 5000
 End

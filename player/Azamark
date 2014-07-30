@@ -1,13 +1,12 @@
 #PLAYER
 Name Azamark~
 Id   1021764151
-LogO 1022272965
+LogO 1060018238
 Vers 14
 Mexp 2
 Pass 123ken~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race human~
-Clan blackclaw~
 Cla  2
 Levl 44
 Tru  0
@@ -15,8 +14,8 @@ Plyd 80760
 Back 0
 Note 1022207939 1021599019 0 1022166545 1021656118 0 1021614554
 Scro 22
-Room 10157
-HMS  107 56 489
+Room 3001
+HMS  552 402 515
 Gold 2209
 Silv 1577
 Exp  50970
@@ -30,7 +29,7 @@ Alig -1000
 FImm 0
 FRes 0
 FVul 0
-Plr  AMO
+Plr  AHMO
 Video 0
 Act  CDEFGHJLSc
 AfBy HNTVYc
@@ -57,7 +56,7 @@ Deit Urza~
 Lsit AC8483EC.ipt.aol.com~
 Ltim Fri May 24 14:39:00 2002
 ~
-LSav Fri May 24 15:42:45 2002
+LSav Mon Aug 04 13:30:38 2003
 ~
 HMSP 477 342 515
 THMS 0 0 0
@@ -111,15 +110,15 @@ Gr 'thief basics'
 Gr 'thief default'
 Gr 'enhancement'
 Gr 'protective'
-Affc 'sanctuary'   0  44   5   0   0        128 1
-Affc 'stone skin'   0  43  42 -40  17          0 1
-Affc 'haste'   0  43  19   3   2    2097152 1
-Affc 'fly'   0  58  46   0   0     524288 1
-Affc 'giant strength'   0  56  43   4   1          0 1
-Affc 'shield'   0  59  51 -20  17          0 1
-Affc 'steel mist'   0  59  15  -6  17   16777216 1
-Affc 'armor'   0  59   3 -20  17          0 1
 Affc 'regeneration'   0  42   0   0   0  268435456 1
+Affc 'armor'   0  59   3 -20  17          0 1
+Affc 'steel mist'   0  59  15  -6  17   16777216 1
+Affc 'shield'   0  59  51 -20  17          0 1
+Affc 'giant strength'   0  56  43   4   1          0 1
+Affc 'fly'   0  58  46   0   0     524288 1
+Affc 'haste'   0  43  19   3   2    2097152 1
+Affc 'stone skin'   0  43  42 -40  17          0 1
+Affc 'sanctuary'   0  44   5   0   0        128 1
 End
 
 #O

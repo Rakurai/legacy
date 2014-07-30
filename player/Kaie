@@ -1,0 +1,501 @@
+#PLAYER
+Name Kaie~
+Id   1049348334
+LogO 1050869276
+Vers 14
+Mexp 1
+Pass mystic1~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Cla  7
+Levl 17
+Tru  0
+Plyd 77045
+Back 0
+Note 1050851691 1046507965 1048197521 1049082959 1047414979 0 0
+Scro 60
+Room 3054
+HMS  318 214 253
+Gold 226
+Silv 3932
+Silver_in_bank 15973
+Gold_in_bank 360
+Exp  51188
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig 829
+FImm 0
+FRes B
+FVul Z
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy K
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 3
+Trai 1
+Wimp 50
+Atrib 16 21 18 21 18 13
+QuestPnts  9
+Afk {B[{CFri Apr 11 17:52:24 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 65
+Rank ~
+Aura ~
+TSex 1
+LLev 21
+Deit Urza~
+Lsit 207.164.197.41~
+Ltim Sun Apr 20 15:33:12 2003
+~
+LSav Sun Apr 20 16:07:56 2003
+~
+HMSP 308 214 253
+THMS 0 0 0
+Cnd  0 0 15 4
+Alias qr quest request~
+Alias qc quest complete~
+Alias qt quest time~
+Alias qi quest info~
+Alias df drink fountain~
+Alias kit l in kit~
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 84 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 82 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 84 1 'sword'
+Sk 1 1 'whip'
+Sk 80 1 'shield block'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 90 1 'enhanced damage'
+Sk 87 1 'kick'
+Sk 95 1 'parry'
+Sk 17 1 'trip'
+Sk 78 1 'second attack'
+Sk 76 1 'third attack'
+Sk 80 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 1 1 'swimming'
+Sk 76 1 'fast healing'
+Sk 1 1 'forge'
+Sk 1 1 'repair'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'enchantment'
+Affc 'curse'   0   9   1   2  24       1024 1
+Affc 'curse'   0  11   1  -2  18       1024 1
+End
+
+#O
+Vnum 10130
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 16007
+Nest 0
+Wear 19
+Cost 0
+End
+
+#O
+Vnum 4593
+Nest 0
+Wear 2
+Cost 2400
+End
+
+#O
+Vnum 4593
+Nest 0
+Wear 1
+Cost 2400
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10127
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 506
+Nest 0
+Wear 0
+Cost 1000
+End
+
+#O
+Vnum 3503
+Nest 0
+Cond 100
+Wear 4
+Cost 310
+End
+
+#O
+Vnum 1507
+Nest 0
+Wear 3
+Cost 480
+End
+
+#O
+Vnum 3045
+Nest 0
+Cond 100
+Wear 5
+Cost 850
+End
+
+#O
+Vnum 3114
+Nest 0
+Wear 9
+Cost 660
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 150 0 0 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3077
+Nest 0
+Wear 10
+Cost 420
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 100
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 3163
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 3167
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 1
+Name reroll token~
+ShD  {WA {PPowerful {TREROLL {YToken{x~
+Desc A mysterious token lies here.~
+Wear -1
+Cost 0
+ExDe reroll token~ This token will let you undo fate's hold upon your current life and bond it back anew.
+~
+End
+
+#O
+Vnum 1215
+Nest 1
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3364
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10131
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name jubei chi earth token hidden~
+ShD  {WE{ga{Wr{gt{Wh {gC{Wh{gi {W*{YHidden{W*{x~
+Desc {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 404
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4576
+Nest 0
+Wear 18
+Cost 2000
+End
+
+#O
+Vnum 8307
+Nest 0
+Wear -1
+Time 784
+Cost 690
+Spell 1 'cure critical'
+End
+
+#O
+Vnum 8307
+Nest 0
+Wear -1
+Time 667
+Cost 690
+Spell 1 'cure critical'
+End
+
+#O
+Vnum 8307
+Nest 0
+Wear -1
+Time 809
+Cost 690
+Spell 1 'cure critical'
+End
+
+#O
+Vnum 8307
+Nest 0
+Wear -1
+Time 657
+Cost 690
+Spell 1 'cure critical'
+End
+
+#O
+Vnum 8307
+Nest 0
+Wear -1
+Time 633
+Cost 690
+Spell 1 'cure critical'
+End
+
+#O
+Vnum 8307
+Nest 0
+Wear -1
+Time 733
+Cost 690
+Spell 1 'cure critical'
+End
+
+#O
+Vnum 8307
+Nest 0
+Wear -1
+Time 598
+Cost 690
+Spell 1 'cure critical'
+End
+
+#O
+Vnum 8302
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

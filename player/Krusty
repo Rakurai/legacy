@@ -1,50 +1,49 @@
 #PLAYER
 Name Krusty~
 Id   1018368852
-LogO 1019517659
-Vers 13
+LogO 1060018421
+Vers 14
 Mexp 2
+Pass chris~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race giant~
-Clan blackclaw~
-Sex  1
 Cla  3
-Levl 64
-Plyd 127153
+Levl 65
+Tru  0
+Plyd 146577
 Back 0
 Note 0 1017034993 0 1018580998 1017040844 0 0
 Scro 22
-Room 24802
-HMS  1762 1762 1099 1099 900 1066
-Gold 363
-Silv 78
+Room 3001
+HMS  1902 1053 1077
+Gold 654
+Silv 493
 Gold_in_bank 14800
-Exp  67843
-PCkills 0
-PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
-Act  CDEFGHJLSc
+Exp  68112
+PCkills  0
+PCkilled 1
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 954
+FImm 0
 FRes HI
 FVul BP
+Plr  BH
+Video 0
+Act  CDEFGHJLSc
+AfBy c
 Comm NO
 Revk F
 Cgrp A
 Cnsr AB
-Pos  8
-Prac 15
-Trai 6
-Save  -19
-Alig  1000
-Hit   42
-Dam   49
-ACs -341 -337 -342 -354
+Prac 3
+Trai 1
+Wimp 0
 Atrib 25 14 17 16 22 18
-AtMod 6 2 4 12 6 4
-QuestPnts 1
-Pass chris~
-Afk {B[{CSat Apr 13 10:49:46 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+QuestPnts  1
+Afk {B[{CTue Oct 22 02:00:50 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {g*{RK{ci{Rl{cl{Re{cr{g*~
 Immn ~
@@ -52,50 +51,46 @@ Pnts 34
 Rank {cNIN~
 Aura ~
 TSex 1
-LLev 35
+LLev 40
 Deit Qaz~
-Lsit 198.64.164.148~
-Ltim Mon Apr 22 17:51:30 2002
+Lsit ACA3FACB.ipt.aol.com~
+Ltim Tue Feb 11 23:01:43 2003
 ~
-LSav Mon Apr 22 18:20:59 2002
+LSav Mon Aug 04 13:33:41 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  H
-HMSP 1477 369 906
-THMS 21 0 0
-Cnd  0 0 5 0
+HMSP 1557 373 917
+THMS 27 0 0
+Cnd  0 0 27 6
 Alias cc cough~
 Alias rr recall~
 Alias rc clanrecall~
 Sk 1 1 'cure critical'
 Sk 1 1 'cure light'
 Sk 1 1 'cure serious'
-Sk 1 1 'divine healing'
+Sk 75 1 'divine healing'
 Sk 1 1 'fly'
 Sk 78 1 'gate'
-Sk 88 1 'heal'
-Sk 43 1 'mass healing'
-Sk 57 1 'nexus'
+Sk 91 1 'heal'
+Sk 75 1 'mass healing'
+Sk 75 1 'nexus'
 Sk 75 1 'pass door'
-Sk 1 1 'portal'
+Sk 9 1 'portal'
 Sk 75 1 'refresh'
 Sk 75 1 'summon'
 Sk 1 1 'summon object'
-Sk 1 1 'teleport'
+Sk 18 1 'teleport'
 Sk 75 1 'teleport object'
-Sk 1 1 'word of recall'
+Sk 18 1 'word of recall'
 Sk 100 1 'sword'
 Sk 75 1 'bash'
 Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
 Sk 100 1 'parry'
 Sk 97 1 'second attack'
-Sk 90 1 'third attack'
+Sk 92 1 'third attack'
 Sk 100 1 'dual wield'
 Sk 75 1 'swimming'
-Sk 85 1 'fast healing'
+Sk 88 1 'fast healing'
 Sk 100 1 'scan'
 Sk 75 1 'scrolls'
 Sk 75 1 'staves'
@@ -105,8 +100,6 @@ Gr 'rom basics'
 Gr 'warrior basics'
 Gr 'healing'
 Gr 'transportation'
-Affc 'blood moon'   0  91  56   8  19          0 1
-Affc 'blood moon'   0  91  56   4  18          0 1
 End
 
 #O
@@ -130,21 +123,6 @@ Nest 1
 Cond 91
 Wear -1
 Cost 2000
-End
-
-#O
-Vnum 1805
-Enchanted
-Nest 1
-ExtF 262211
-Cond 85
-Wear -1
-Lev  28
-Cost 200
-Affc 'reserved'   1  25  -1   1   2          0 1
-Affc 'reserved'   1  25  -1  25  13          0 1
-Affc 'enchant weapon'   1  61  -1   6  18          0 1
-Affc 'enchant weapon'   1  61  -1   5  19          0 1
 End
 
 #O
@@ -256,8 +234,8 @@ ExtF 322
 Wear -1
 Lev  23
 Cost 0
-Affc 'enchant weapon'   1  73  -1   5  19          0 1
 Affc 'enchant weapon'   1  73  -1   6  18          0 1
+Affc 'enchant weapon'   1  73  -1   5  19          0 1
 End
 
 #O
@@ -329,9 +307,9 @@ Cond 63
 Wear -1
 Lev  41
 Cost 10000
-Affc 'enchant weapon'   1  63  -1   3  18          0 1
-Affc 'enchant weapon'   1  63  -1   7  19          0 1
 Affc 'reserved'   1  40  -1  -5  23          0 1
+Affc 'enchant weapon'   1  63  -1   7  19          0 1
+Affc 'enchant weapon'   1  63  -1   3  18          0 1
 End
 
 #O
@@ -528,113 +506,92 @@ Cost 11
 End
 
 #O
-Vnum 24817
+Vnum 1213
 Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
 Wear -1
-Cost 11
+Cost 0
 End
 
 #O
-Vnum 24817
+Vnum 1213
 Nest 1
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
 Wear -1
-Cost 11
+Cost 0
 End
 
 #O
-Vnum 24817
+Vnum 1213
 Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
-Cost 11
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
 End
 
 #O
-Vnum 24817
+Vnum 7505
 Nest 1
 Wear -1
-Cost 11
+Cost 10000
 End
 
 #O
-Vnum 24817
+Vnum 10166
 Nest 1
+Cond 97
 Wear -1
-Cost 11
+Cost 20
 End
 
 #O
-Vnum 24817
+Vnum 10166
 Nest 1
 Wear -1
-Cost 11
+Cost 20
 End
 
 #O
-Vnum 24817
+Vnum 1805
+Enchanted
 Nest 1
+ExtF 262211
+Cond 85
 Wear -1
-Cost 11
+Lev  28
+Cost 200
+Affc 'enchant weapon'   1  61  -1   5  19          0 1
+Affc 'enchant weapon'   1  61  -1   6  18          0 1
+Affc 'reserved'   1  25  -1  25  13          0 1
+Affc 'reserved'   1  25  -1   1   2          0 1
 End
 
 #O
-Vnum 24817
+Vnum 24807
 Nest 1
 Wear -1
-Cost 11
+Cost 5000
 End
 
 #O
-Vnum 24817
+Vnum 11629
 Nest 1
+ExtF 1
 Wear -1
-Cost 11
-End
-
-#O
-Vnum 24817
-Nest 1
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 24817
-Nest 1
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 24817
-Nest 1
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 24817
-Nest 1
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 24817
-Nest 1
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 24817
-Nest 1
-Wear -1
-Cost 11
+Cost 0
 End
 
 #O
 Vnum 24806
 Nest 0
+Cond 79
 Wear 9
 Cost 5000
 End
@@ -642,14 +599,8 @@ End
 #O
 Vnum 24807
 Nest 0
+Cond 97
 Wear 2
-Cost 5000
-End
-
-#O
-Vnum 24807
-Nest 0
-Wear 1
 Cost 5000
 End
 
@@ -664,6 +615,7 @@ End
 Vnum 20006
 Nest 0
 ExtF 17039680
+Cond 92
 Wear 5
 Cost 999
 End
@@ -679,6 +631,7 @@ End
 Vnum 20004
 Nest 0
 ExtF 65
+Cond 92
 Wear 3
 Cost 1000
 End
@@ -686,6 +639,7 @@ End
 #O
 Vnum 5607
 Nest 0
+Cond 92
 Wear 15
 Cost 0
 End
@@ -699,16 +653,10 @@ Cost 50
 End
 
 #O
-Vnum 10166
-Nest 0
-Wear -1
-Cost 20
-End
-
-#O
 Vnum 20004
 Nest 0
 ExtF 65
+Cond 84
 Wear 4
 Cost 1000
 End
@@ -716,6 +664,7 @@ End
 #O
 Vnum 24808
 Nest 0
+Cond 99
 Wear 7
 Cost 6000
 End
@@ -723,6 +672,7 @@ End
 #O
 Vnum 10171
 Nest 0
+Cond 88
 Wear 0
 Cost 3300
 End
@@ -737,6 +687,7 @@ End
 #O
 Vnum 9911
 Nest 0
+Cond 99
 Wear 10
 Cost 8500
 End
@@ -758,55 +709,87 @@ End
 #O
 Vnum 3810
 Nest 0
+Cond 92
 Wear 18
 Cost 30000
 End
 
 #O
-Vnum 24822
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'cure critical'
-End
-
-#O
-Vnum 24826
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'sanctuary'
-End
-
-#O
-Vnum 10166
-Nest 0
-Cond 97
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24822
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'cure critical'
-End
-
-#O
 Vnum 14030
 Nest 0
+Cond 89
 Wear 16
 Cost 0
 End
 
 #O
-Vnum 24824
+Vnum 24822
 Nest 0
 Wear -1
 Cost 10
-Spell 3 'talon'
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 24831
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'refresh'
+End
+
+#O
+Vnum 24835
+Nest 0
+Wear -1
+Cost 100
+Spell 3 'protection good'
+End
+
+#O
+Vnum 24829
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 24817
+Nest 0
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 17013
+Enchanted
+Nest 0
+ExtF 16777281
+Cond 77
+Wear 1
+Lev  66
+Cost 0
+Affc 'enchant armor'   1  83  -1  -2  17          0 1
+Affc 'reserved'   1  65  -1  60  13          0 1
+Affc 'reserved'   1  65  -1   2  18          0 1
+Affc 'reserved'   1  65  -1   3  19          0 1
+Affc 'reserved'   0  65  -1   0   0  268435456 1
+End
+
+#O
+Vnum 3040
+Nest 0
+Wear -1
+Cost 890
+Spell 1 'identify'
 End
 
 #O
@@ -818,11 +801,19 @@ Spell 3 'sanctuary'
 End
 
 #O
-Vnum 24824
+Vnum 24829
 Nest 0
 Wear -1
 Cost 10
-Spell 3 'talon'
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24831
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'refresh'
 End
 
 #O
@@ -834,11 +825,68 @@ Spell 3 'cure critical'
 End
 
 #O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
 Vnum 24826
 Nest 0
 Wear -1
 Cost 10
 Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24829
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24831
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'refresh'
+End
+
+#O
+Vnum 24835
+Nest 0
+Wear -1
+Cost 100
+Spell 3 'protection good'
+End
+
+#O
+Vnum 17318
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 17320
+Nest 0
+Wear -1
+Cost 2500
+Val  250 1 17321 40 30
+End
+
+#O
+Vnum 1213
+Nest 0
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
 End
 
 #END

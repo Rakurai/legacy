@@ -1,7 +1,7 @@
 #PLAYER
 Name Eli~
 Id   1020400102
-LogO 1027198024
+LogO 1103277809
 Vers 14
 Mexp 2
 Pass aceventura~
@@ -9,57 +9,64 @@ Prom {Y%h/%Hhp {G%m/%Mmana {P%v/%Vstm {Y%g{W/%s (%r) {P%Xtnl {Y%aalign {G%q{Y/%j
 Race human~
 Clan divinity~
 Cla  4
-Levl 25
-Tru  0
-Plyd 16622
-Back 15746
-Note 1027189445 1027080246 1027144008 1027087211 1027146472 1027080246 1027080246
+Levl 35
+Plyd 37781
+Back 36786
+Note 1102452518 1102408820 1102408820 1102408820 1102452462 1102408820 1102408820
 Scro 22
-Room 8543
-HMS  351 454 286
-Gold 1084
-Silv 95
-Exp  25053
-PCkills  0
+Room 24201
+HMS  404 406 385
+Gold 1530
+Silv 272
+Gold_in_bank 4000
+Exp  35325
+PCkills  2
 PCkilled 0
 Akills   0
 Akilled  0
-PKRank   0
-Pos  4
-Alig -1000
+PKRank   2
+Pos  8
+Alig 1000
 FImm 0
-FRes 0
+FRes E
 FVul 0
-Plr  O
+Plr  AOQ
 Video D
 Act  CDEFGHJLQSc
-AfBy 0
+AfBy FHOUVY
 Comm MNO
 Revk 0
-Cgrp A
+Cgrp AIKLM
 Cnsr B
-Prac 6
-Trai 8
+Block_Remote 0
+Prac 17
+Trai 0
 Wimp 0
+Familiar 0
 Atrib 18 20 18 18 18 13
-Afk {B[{CSat Jul 20 15:37:16 2002{B] {CUnknown Departure.{x
+QpDonated  4
+Afk {B[{CTue Dec  7 16:40:51 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  Sinclair, The {Yl{Yi{bg{gh{bt{Ye{Yr{x side of {PN{Pe{Pc{Rr{go{gm{Ra{Pn{Pc{Py{x~
 Immn ~
 Pnts 40
-Rank {WCRB~
+Rank {PM{Re{Ww~
 Aura ~
 TSex 2
-LLev 4
-Deit Kenneth~
-Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
-Ltim Sat Jul 20 14:28:59 2002
+LLev 10
+Deit Alara~
+Stus Lighter Side of Necromancy~
+RmCt 1
+ExSk 0
+Raff 952
+Lsit cpe-066-056-234-018.ec.rr.com~
+Ltim Fri Dec 17 04:57:26 2004
 ~
-LSav Sat Jul 20 15:47:04 2002
+LSav Fri Dec 17 05:03:29 2004
 ~
-HMSP 266 392 220
-THMS 0 0 0
-Cnd  0 0 10 0
+HMSP 583 782 375
+THMS 7 18 0
+Cnd  0 20 42 46
 Colr 3 33 1
 Colr 13 33 1
 Alias burn c 'burning hands'~
@@ -76,80 +83,183 @@ Alias curse c curse~
 Alias ball c 'fireball'~
 Alias slow c slow~
 Alias as c 'animate skel'~
-Sk 1 1 'acid blast'
-Sk 1 1 'age'
-Sk 75 1 'animate skeleton'
-Sk 1 1 'animate wraith'
-Sk 1 1 'animate gargoyle'
-Sk 1 1 'animate zombie'
-Sk 75 1 'armor'
-Sk 76 1 'blindness'
+Alias undo c 'undo spell'~
+Alias lore c ident~
+Alias ll c 'locate life'~
+Alias lo c 'locate object'~
+Alias di c 'detect invis'~
+Alias dh c 'detect hidden'~
+Alias fire c 'faerie fire'~
+Alias hex c hex~
+Alias cc c 'cure critical'~
+Sk 75 1 'acid blast'
+Sk 75 1 'acid breath'
+Sk 83 1 'acid rain'
+Sk 75 1 'age'
+Sk 80 1 'animate skeleton'
+Sk 79 1 'animate wraith'
+Sk 78 1 'animate gargoyle'
+Sk 76 1 'animate zombie'
+Sk 82 1 'armor'
+Sk 89 1 'blindness'
+Sk 86 1 'blizzard'
+Sk 75 1 'blood blade'
 Sk 75 1 'blood moon'
-Sk 84 1 'burning hands'
-Sk 75 1 'cancellation'
-Sk 1 1 'chain lightning'
-Sk 1 1 'channel'
+Sk 86 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 77 1 'cancellation'
+Sk 75 1 'chain lightning'
+Sk 75 1 'channel'
 Sk 1 1 'chill touch'
 Sk 78 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 76 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
 Sk 75 1 'curse'
-Sk 75 1 'dispel magic'
+Sk 80 1 'dazzling light'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 88 1 'dispel magic'
+Sk 82 1 'divine healing'
 Sk 1 1 'divine regeneration'
-Sk 75 1 'energy drain'
+Sk 86 1 'enchant armor'
+Sk 85 1 'enchant weapon'
+Sk 83 1 'energy drain'
+Sk 75 1 'faerie fire'
+Sk 75 1 'faerie fog'
 Sk 75 1 'fear'
-Sk 75 1 'fireball'
+Sk 75 1 'fire breath'
+Sk 96 1 'fireball'
 Sk 1 1 'fireproof'
 Sk 1 1 'firestorm'
-Sk 75 1 'fly'
-Sk 75 1 'gate'
+Sk 75 1 'flame blade'
+Sk 81 1 'flameshield'
+Sk 77 1 'fly'
+Sk 75 1 'frost blade'
+Sk 75 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 80 1 'gate'
 Sk 75 1 'giant strength'
-Sk 75 1 'haste'
+Sk 87 1 'haste'
+Sk 1 1 'heal'
+Sk 75 1 'identify'
 Sk 75 1 'infravision'
-Sk 96 1 'lightning bolt'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 99 1 'lightning bolt'
+Sk 86 1 'lightning breath'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
 Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
 Sk 1 1 'nexus'
 Sk 75 1 'pass door'
 Sk 75 1 'plague'
 Sk 76 1 'poison'
 Sk 1 1 'portal'
+Sk 1 1 'protect container'
 Sk 75 1 'protection evil'
 Sk 75 1 'protection good'
+Sk 1 1 'recharge'
 Sk 75 1 'refresh'
-Sk 1 1 'resurrect'
+Sk 75 1 'resurrect'
 Sk 75 1 'regeneration'
-Sk 1 1 'sanctuary'
+Sk 79 1 'remove alignment'
+Sk 78 1 'remove invisibility'
+Sk 75 1 'sanctuary'
+Sk 1 1 'scry'
 Sk 78 1 'shield'
+Sk 75 1 'shock blade'
 Sk 83 1 'shocking grasp'
-Sk 75 1 'slow'
+Sk 75 1 'shrink'
+Sk 86 1 'slow'
+Sk 1 1 'starve'
+Sk 75 1 'steel mist'
 Sk 75 1 'stone skin'
 Sk 75 1 'summon'
-Sk 1 1 'summon object'
-Sk 1 1 'talon'
+Sk 75 1 'summon object'
+Sk 75 1 'talon'
 Sk 1 1 'teleport'
-Sk 1 1 'teleport object'
-Sk 1 1 'undo spell'
+Sk 75 1 'teleport object'
+Sk 75 1 'undo spell'
+Sk 75 1 'vision'
 Sk 75 1 'weaken'
-Sk 1 1 'word of recall'
+Sk 75 1 'word of recall'
 Sk 1 1 'wrath'
-Sk 91 1 'dagger'
-Sk 1 1 'polearm'
-Sk 85 1 'shield block'
+Sk 76 1 'axe'
+Sk 94 1 'dagger'
+Sk 40 1 'polearm'
+Sk 81 1 'sword'
+Sk 100 1 'shield block'
 Sk 75 1 'scribe'
-Sk 2 1 'dodge'
-Sk 1 1 'repair'
-Sk 77 1 'meditation'
+Sk 100 1 'dodge'
+Sk 77 1 'second attack'
+Sk 75 1 'repair'
+Sk 80 1 'meditation'
 Sk 100 1 'scan'
-Sk 1 1 'scrolls'
+Sk 75 1 'scrolls'
 Sk 1 1 'staves'
 Sk 1 1 'wands'
 Sk 50 1 'recall'
+Sk 66 1 'hex'
 Gr 'rom basics'
 Gr 'necromancer basics'
 Gr 'combat'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
 Gr 'enhancement'
+Gr 'healing'
 Gr 'maladictions'
 Gr 'necromancy'
+Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
+Gr 'weather'
+Affc 'detect hidden'   0  34  33   0   0         32 1
+Affc 'steel mist'   0  15  34  -1  17   16777216 1
+Affc 'stone skin'   0  15  13 -40  17          0 1
+Affc 'giant strength'   0  15  13   2   1          0 1
+Affc 'haste'   0  14   5   2   2    2097152 1
+Affc 'frenzy'   0  13   2  10  17          0 1
+Affc 'frenzy'   0  15   2   2  19          0 1
+Affc 'frenzy'   0  15   2   2  18          0 1
+Affc 'bless'   0  15  18  -1  24          0 1
+Affc 'bless'   0  14  18   1  18          0 1
+Affc 'armor'   0  34  21 -20  17          0 1
+Affc 'shield'   0  35  40 -20  17          0 1
+Affc 'protection good'   0  34  21  -1  24      16384 1
+Affc 'pass door'   0  34   6   0   0    1048576 1
+Affc 'sanctuary'   0  35   2   0   0        128 1
+End
+
+#O
+Vnum 10126
+Nest 0
+Cond 95
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 4203
+Nest 0
+Cond 92
+Wear 13
+Cost 1000
+End
+
+#O
+Vnum 10129
+Nest 0
+Cond 93
+Wear 18
+Cost 122
 End
 
 #O
@@ -160,29 +270,6 @@ Cost 500
 End
 
 #O
-Vnum 77
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 3176
-Nest 0
-Wear 10
-Cost 600
-ExDe owned by~ Eli~
-End
-
-#O
-Vnum 3181
-Nest 0
-Wear 6
-Cost 1200
-ExDe owned by~ Eli~
-End
-
-#O
 Vnum 4608
 Nest 0
 Wear -1
@@ -190,34 +277,6 @@ Cost 15
 End
 
 #O
-Vnum 4609
-Nest 0
-Wear -1
-Cost 15
-End
-
-#O
-Vnum 4609
-Nest 0
-Wear -1
-Cost 15
-End
-
-#O
-Vnum 4582
-Nest 0
-Wear 17
-Cost 1200
-End
-
-#O
-Vnum 12706
-Nest 0
-Wear 7
-Cost 0
-End
-
-#O
 Vnum 3009
 Nest 0
 Wear -1
@@ -250,64 +309,6 @@ Vnum 3009
 Nest 0
 Wear -1
 Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 119
-Nest 0
-Name food a Slice of Pizza~
-ShD  a Slice of Pizza~
-Desc A Slice of Pizza{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  45 91 0 0 0
-ExDe chef~ This food was created by Maplearn.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 16046
-Nest 0
-Wear 5
-Cost 0
-End
-
-#O
-Vnum 9922
-Nest 0
-Wear 12
-Cost 0
 End
 
 #O
@@ -315,13 +316,6 @@ Vnum 32133
 Nest 0
 Wear 4
 Cost 1400
-End
-
-#O
-Vnum 16066
-Nest 0
-Wear 9
-Cost 0
 End
 
 #O
@@ -333,43 +327,9 @@ Spell 3 'talon'
 End
 
 #O
-Vnum 24246
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'shield'
-End
-
-#O
-Vnum 24234
-Nest 0
-Wear -1
-Time 696
-Cost 10
-Spell 1 'haste'
-Spell 2 'frenzy'
-Spell 3 'talon'
-Spell 4 'giant strength'
-End
-
-#O
-Vnum 24201
-Nest 0
-Wear 3
-Cost 1666
-End
-
-#O
-Vnum 24252
-Nest 0
-Wear 8
-Cost 2200
-End
-
-#O
 Vnum 24230
 Nest 0
-Wear 0
+Wear -1
 Cost 2400
 End
 
@@ -378,28 +338,6 @@ Vnum 24229
 Nest 0
 Wear -1
 Cost 2400
-End
-
-#O
-Vnum 1603
-Enchanted
-Nest 1
-ExtF 67
-Cond 87
-Wear -1
-Lev  13
-Cost 700
-Affc 'reserved'   1   8  -1  10  12          0 1
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
-Affc 'enchant weapon'   1  91  -1   8  18          0 1
-End
-
-#O
-Vnum 1911
-Nest 1
-Cond 100
-Wear -1
-Cost 70
 End
 
 #O
@@ -416,15 +354,94 @@ Affc 'enchant weapon'   1  71  -1   5  19          0 1
 End
 
 #O
-Vnum 16084
+Vnum 10131
+Nest 1
+Cond 92
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 75
+Nest 1
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 1911
+Nest 1
+Cond 100
+Wear -1
+Cost 70
+End
+
+#O
+Vnum 80
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 10134
+Nest 1
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 4590
+Nest 1
+Wear -1
+Cost 600
+End
+
+#O
+Vnum 16044
 Nest 1
 Wear -1
 Cost 0
 End
 
 #O
+Vnum 1603
+Enchanted
+Nest 1
+ExtF 67
+Wear -1
+Lev  13
+Cost 700
+Affc 'reserved'   1   8  -1  10  12          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   1  91  -1   8  18          0 1
+End
+
+#O
+Vnum 10128
+Nest 1
+Wear -1
+Cost 98
+End
+
+#O
+Vnum 10133
+Nest 1
+Wear -1
+Cost 120
+End
+
+#O
 Vnum 16044
 Nest 1
+Cond 99
 Wear -1
 Cost 0
 End
@@ -437,11 +454,51 @@ Cost 400
 End
 
 #O
-Vnum 24225
+Vnum 24245
 Nest 0
 Wear -1
-Cost 400
-Val  450 450 0 0 0
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
 End
 
 #O
@@ -461,44 +518,201 @@ Spell 3 'blood moon'
 End
 
 #O
-Vnum 1211
+Vnum 16084
 Nest 0
-Name letter y~
-ShD  {BThe letter Y{x~
-Desc {BThe letter Y{x~
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 138 10 0 0
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Enchanted
+Nest 0
+Wear -1
+Cost 700
+Affc 'reserved'   1  10  -1  -1  22          0 1
+End
+
+#O
+Vnum 16046
+Nest 0
 Wear -1
 Cost 0
 End
 
 #O
-Vnum 24246
+Vnum 16041
 Nest 0
 Wear -1
-Cost 10
-Spell 3 'shield'
+Cost 0
+End
+
+#O
+Vnum 3181
+Nest 0
+Wear -1
+Cost 1200
+ExDe owned by~ Eli~
 End
 
 #O
 Vnum 504
 Nest 0
-ExtF 19
 Cond 100
 Wear 14
 Cost 0
 End
 
 #O
-Vnum 4596
+Vnum 4585
 Nest 0
-Wear -1
-Cost 2400
+Wear 17
+Cost 1600
 End
 
 #O
-Vnum 4578
+Vnum 4591
+Nest 0
+Wear 0
+Cost 700
+End
+
+#O
+Vnum 16040
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 9203
+Nest 0
+Cond 77
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
 Nest 0
 Wear -1
-Cost 2600
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24252
+Nest 0
+Wear 8
+Cost 2200
+End
+
+#O
+Vnum 16042
+Nest 0
+Wear 16
+Cost 0
+Val  2 6 6 11 1
+Affc 'flame blade'   5  34  92   0   0          1 1
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 500
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 1612
+Nest 0
+Wear 11
+Cost 1530
+End
+
+#O
+Vnum 2371
+Nest 0
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 24202
+Nest 0
+Cond 99
+Wear 15
+Cost 2666
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24253
+Nest 0
+Wear 12
+Cost 3400
+End
+
+#O
+Vnum 7607
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 24232
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
 End
 
 #O
@@ -518,158 +732,6 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'shield'
-End
-
-#O
-Vnum 24238
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'blood moon'
-End
-
-#O
-Vnum 24232
-Nest 0
-Wear -1
-Cost 10
-Spell 1 'cure serious'
-Spell 2 'cure serious'
-Spell 3 'cure critical'
-Spell 4 'cure critical'
-End
-
-#O
-Vnum 4586
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 4578
-Nest 0
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 10129
-Nest 0
-Wear 18
-Cost 122
-End
-
-#O
-Vnum 4578
-Nest 0
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 4578
-Nest 0
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 4578
-Nest 0
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 4578
-Nest 0
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 4586
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 4578
-Nest 0
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 4578
-Nest 0
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9203
-Nest 0
-Wear 16
-Cost 0
-End
-
-#O
-Vnum 4586
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 4596
-Nest 0
-Wear -1
-Cost 2400
-End
-
-#O
-Vnum 4591
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4591
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4591
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4591
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4591
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 2313
-Nest 0
-Wear 11
-Cost 0
 End
 
 #O
@@ -680,59 +742,32 @@ Cost 0
 End
 
 #O
-Vnum 4594
-Nest 0
-Wear 2
-Cost 0
-End
-
-#O
-Vnum 9923
-Nest 0
-Wear 13
-Cost 2500
-End
-
-#O
-Vnum 24202
-Nest 0
-Wear 15
-Cost 2666
-End
-
-#O
-Vnum 24245
+Vnum 8652
 Nest 0
 Wear -1
 Cost 10
-Spell 3 'talon'
+Spell 3 'fly'
 End
 
 #O
-Vnum 24246
+Vnum 29905
 Nest 0
-Wear -1
-Cost 10
-Spell 3 'shield'
+Wear 6
+Cost 10000
 End
 
 #O
-Vnum 24238
+Vnum 29900
 Nest 0
 Wear -1
-Cost 10
-Spell 3 'blood moon'
+Cost 1000
 End
 
 #O
-Vnum 24234
+Vnum 29900
 Nest 0
 Wear -1
-Cost 10
-Spell 1 'haste'
-Spell 2 'frenzy'
-Spell 3 'talon'
-Spell 4 'giant strength'
+Cost 1000
 End
 
 #O
@@ -741,6 +776,252 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 7607
+Nest 0
+Wear -1
+Cost 20
+End
+
+#B
+Vnum 11710
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 24205
+Nest 0
+Wear -1
+Cost 5333
+End
+
+#B
+Vnum 24207
+Nest 0
+Wear -1
+Cost 6666
+End
+
+#B
+Vnum 24254
+Nest 0
+Wear -1
+Cost 6700
+End
+
+#B
+Vnum 24254
+Nest 0
+Wear -1
+Cost 6700
+End
+
+#B
+Vnum 24208
+Nest 0
+Wear -1
+Cost 6666
+End
+
+#B
+Vnum 24208
+Nest 0
+Wear -1
+Cost 6666
+End
+
+#B
+Vnum 24206
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#B
+Vnum 24209
+Nest 0
+Wear -1
+Cost 6666
+End
+
+#B
+Vnum 24209
+Nest 0
+Wear -1
+Cost 6666
+End
+
+#B
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#B
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#B
+Vnum 10298
+Nest 0
+ExtF 64
+Cond 96
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 16082
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 8806
+Nest 0
+Cond 100
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 6621
+Enchanted
+Nest 0
+ExtF 65
+Cond 100
+Wear -1
+Lev  46
+Cost 0
+Affc 'reserved'   1   4  -1   1   4          0 1
+Affc 'reserved'   1   4  -1   5  12          0 1
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'enchant weapon'   0  91  -1   3  18          0 1
+End
+
+#B
+Vnum 10170
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10211
+Nest 0
+ExtF 64
+Wt   200
+Wear -1
+Lev  41
+Cost 0
+End
+
+#B
+Vnum 24250
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 24251
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 24203
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#B
+Vnum 9203
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10129
+Nest 0
+Wear -1
+Cost 122
+End
+
+#B
+Vnum 504
+Nest 0
+ExtF 19
+Cond 100
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 24225
+Nest 0
+Wear -1
+Cost 400
+Val  450 354 0 0 0
+End
+
+#B
+Vnum 11903
+Nest 0
+ExtF 787
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 4593
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#B
+Vnum 4594
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 16015
+Nest 0
+Wear -1
+Cost 0
 End
 
 #END

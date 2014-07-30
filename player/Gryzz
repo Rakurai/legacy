@@ -1,0 +1,247 @@
+#PLAYER
+Name Gryzz~
+Id   1079648737
+LogO 1079661185
+Vers 14
+Mexp 1
+Pass triper~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race seraph~
+Cla  5
+Levl 4
+Tru  0
+Plyd 2798
+Back 0
+Note 1079298411 0 0 0 1079452441 0 0
+Scro 22
+Room 3734
+HMS  58 111 123
+Gold 0
+Silv 15
+Exp  4693
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes NS
+FVul M
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 10
+Trai 0
+Wimp 6
+Atrib 13 15 20 13 19 17
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Teotwawki~
+Lsit AC93AC08.ipt.aol.com~
+Ltim Thu Mar 18 20:49:48 2004
+~
+LSav Thu Mar 18 20:53:05 2004
+~
+HMSP 61 118 123
+THMS 0 0 0
+Cnd  0 0 36 29
+Sk 32 1 'armor'
+Sk 32 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'dispel magic'
+Sk 1 1 'fireproof'
+Sk 1 1 'frenzy'
+Sk 1 1 'holy word'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 73 1 'sword'
+Sk 2 1 'shield block'
+Sk 1 1 'dodge'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'curative'
+Gr 'protective'
+Affc 'bless'   0   4   8   0  24          0 1
+Affc 'bless'   0   4   8   0  18          0 1
+Affc 'armor'   0   4  22 -20  17          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 138 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Cond 76
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Cond 97
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3705
+Nest 0
+Cond 95
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Cond 98
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 95
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear 17
+Cost 1140
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#END

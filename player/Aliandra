@@ -1,0 +1,156 @@
+#PLAYER
+Name Aliandra~
+Id   1083635495
+LogO 1083636882
+Vers 14
+Mexp 2
+Pass jacklyn~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race elf~
+Cla  7
+Levl 1
+Tru  0
+Plyd 1071
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3700
+HMS  20 100 100
+Gold 0
+Silv 0
+Exp  1200
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 750
+FImm 0
+FRes B
+FVul Z
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 5
+Trai 3
+Wimp 0
+Familiar 0
+Atrib 11 15 13 15 14 14
+Afk {B[{CMon May  3 22:02:58 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Urza~
+Lsit 142.177.84.150~
+Ltim Mon May 03 21:56:51 2004
+~
+LSav Mon May 03 22:14:42 2004
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 24 24
+Sk 1 1 'acid blast'
+Sk 1 1 'burning hands'
+Sk 1 1 'chain lightning'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'dazzling light'
+Sk 1 1 'divine healing'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'fireball'
+Sk 1 1 'firestorm'
+Sk 1 1 'heal'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 1 1 'wrath'
+Sk 1 1 'axe'
+Sk 1 1 'flail'
+Sk 40 1 'sword'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 1 1 'repair'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'combat'
+Gr 'enchantment'
+Gr 'healing'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 176 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

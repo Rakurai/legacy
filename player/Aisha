@@ -1,23 +1,22 @@
 #PLAYER
 Name Aisha~
 Id   1014734605
-LogO 1026241273
+LogO 1060017656
 Vers 14
 Mexp 2
 Pass sacredrose~
 Prom <{H%h/%HHP {B%m/%MMP {Y%v/%VST {V%XEXP {Y%gG {g%sS {C%aAli {R%q/{P%j{x> ~
 Race elf~
-Clan divinity~
 Cla  1
 Levl 15
 Tru  0
-Plyd 15063
-Back 15051
-Note 1017817283 1017691131 1017591692 1017860800 1017712984 1018293484 1017821887
+Plyd 19747
+Back 19735
+Note 1031802749 1031802749 1031802749 1031802749 1031802749 1046243878 1031802749
 Scro 22
-Room 8543
-HMS  206 303 222
-Gold 2920
+Room 3001
+HMS  236 313 222
+Gold 2918
 Silv 80
 Exp  18319
 PCkills  0
@@ -25,15 +24,15 @@ PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  6
+Pos  8
 Alig 1000
 FImm 0
 FRes B
 FVul Z
-Plr  AG
+Plr  AGH
 Video 0
 Act  CDEFGHJLQSc
-AfBy 0
+AfBy Ze
 Comm NO
 Revk 0
 Cgrp A
@@ -52,14 +51,14 @@ Aura ~
 TSex 2
 LLev 2
 Deit Ubiquitous~
-Lsit ACA627FE.ipt.aol.com~
-Ltim Tue Apr 09 19:52:33 2002
+Lsit AC89FFA1.ipt.aol.com~
+Ltim Sun Mar 30 10:31:56 2003
 ~
-LSav Tue Jul 09 14:01:13 2002
+LSav Mon Aug 04 13:20:56 2003
 ~
 HMSP 169 250 171
 THMS 0 0 0
-Cnd  0 8 28 10
+Cnd  0 0 2 40
 Sk 1 1 'acid rain'
 Sk 1 1 'age'
 Sk 75 1 'armor'
@@ -144,6 +143,11 @@ Gr 'healing'
 Gr 'maladictions'
 Gr 'protective'
 Gr 'weather'
+Affc 'talon'   0  97   2   0   0 1073741824 1
+Affc 'bless'   0  98  96  12  18          0 1
+Affc 'bless'   0  99  96 -12  24          0 1
+Affc 'divine regeneration'   0 100  90   0   0   33554432 1
+Affc 'giant strength'   0  99  90   6   1          0 1
 End
 
 #O
@@ -588,67 +592,11 @@ Cost 20
 End
 
 #O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
 Vnum 24225
 Nest 1
 Wear -1
 Cost 400
-Val  450 438 10 0 0
+Val  450 402 10 0 0
 End
 
 #O
@@ -660,6 +608,34 @@ Lev  17
 Cost 1000
 Affc 'enchant weapon'   1  78  -1   4  18          0 1
 Affc 'enchant weapon'   1  78  -1   2  19          0 1
+End
+
+#O
+Vnum 24214
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 24214
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 24214
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 24214
+Nest 0
+Wear -1
+Cost 20
 End
 
 #L

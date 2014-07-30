@@ -59,6 +59,10 @@ Syntax: {Rforge{x <{Yweapon type{x> <{Yweapon name{x>
 make your weapon stronger or weaker.  In addition, forged weapons will
 take on the magical properties of the material that is used in making them.
 
+{GEvolved:{x
+Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
+Thereby making your weapon hit even harder.{x
+
 The SECOND form of forging adds one of four magical attributes to a weapon
 you are wielding. The weapon attribute can be any one of the following:
 {Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
@@ -68,6 +72,11 @@ Syntax: {Rforge{x <{Yweapon type{x> <{Yweapon name{x>
 Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
 succeeding at this task depends on your skill at forging. If you fail, your
 weapon will be destroyed!
+
+{GEvolved:{x
+{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
+enhance a weapon with a second permenate flag. The cost for this 
+is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
 
 This second type of forging is now also able to let you make a weapon
 stronger and more powerful.  The downside, however, is that the added

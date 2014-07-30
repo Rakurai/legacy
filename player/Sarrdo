@@ -1,0 +1,384 @@
+#PLAYER
+Name Sarrdo~
+Id   1055322932
+LogO 1055740633
+Vers 14
+Mexp 2
+Pass napalm666~
+Desc A pink angry scar in the shape of an eye has been carved
+into this Irda's forhead.  His arms are covered with strange 
+mystic symbols of pitch black ink.  
+~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race irda~
+Cla  0
+Levl 9
+Tru  0
+Plyd 25353
+Back 16638
+Note 1055287073 0 0 1053644628 1047414979 0 0
+Scro 22
+Room 3054
+HMS  89 207 128
+Gold 19
+Silv 105
+Silver_in_bank 4700
+Gold_in_bank 65
+Exp  18398
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  AU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm LMNOY
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 24
+Trai 0
+Wimp 0
+Atrib 13 23 21 14 17 13
+SQuestNext 14
+Afk {B[{CThu Jun 12 18:03:42 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  of the Eyes~
+Immn ~
+Pnts 58
+Rank ~
+Aura ~
+TSex 1
+LLev 6
+Deit {WUrza{x {RG{To{Rd {To{Rf {TM{Ra{Tg{Ri{Tc{x~
+Lsit 4.62.226.68~
+Ltim Mon Jun 16 01:16:33 2003
+~
+LSav Mon Jun 16 01:17:13 2003
+~
+HMSP 81 202 128
+THMS 0 0 0
+Cnd  0 8 34 12
+Alias 5 cast mag~
+Alias 6 cast chill~
+Alias 1 get bread bag~
+Alias 2 eat bread~
+Alias 3 drink skin~
+Alias 7 cast 'detect invis' sarrdo~
+Alias 8 cast burn~
+Alias 0 cast refresh~
+Sk 1 1 'acid blast'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 76 1 'armor'
+Sk 1 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 90 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 1 1 'charm person'
+Sk 82 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 1 1 'curse'
+Sk 1 1 'demonfire'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 77 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'earthquake'
+Sk 1 1 'energy drain'
+Sk 79 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 1 1 'flameshield'
+Sk 1 1 'flamestrike'
+Sk 1 1 'fly'
+Sk 1 1 'gate'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'heat metal'
+Sk 1 1 'identify'
+Sk 75 1 'infravision'
+Sk 75 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
+Sk 96 1 'magic missile'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'power word'
+Sk 1 1 'portal'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'ray of truth'
+Sk 75 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'sleep'
+Sk 1 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 1 1 'steel mist'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'sunray'
+Sk 1 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'vision'
+Sk 1 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 80 1 'dagger'
+Sk 1 1 'brew'
+Sk 1 1 'lore'
+Sk 75 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'mage default'
+Gr 'attack'
+Gr 'beguiling'
+Gr 'combat'
+Gr 'detection'
+Gr 'enhancement'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 3703
+Nest 0
+Cond 93
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 93
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 82
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 32 0 0 0
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 93
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3709
+Nest 0
+Cond 96
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 91
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 1910
+Nest 0
+Wear 13
+Cost 30
+End
+
+#O
+Vnum 3117
+Nest 0
+Cond 95
+Wear 11
+Cost 510
+End
+
+#O
+Vnum 6621
+Nest 0
+Cond 89
+Wear 12
+Cost 780
+End
+
+#O
+Vnum 6601
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 1507
+Nest 0
+Wear 4
+Cost 480
+End
+
+#O
+Vnum 3020
+Nest 0
+Wear 16
+Cost 157
+End
+
+#O
+Vnum 1509
+Nest 0
+Wear -1
+Cost 220
+End
+
+#O
+Vnum 76
+Nest 0
+Cond 98
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 3074
+Nest 0
+Wear 7
+Cost 420
+End
+
+#O
+Vnum 3077
+Nest 0
+Wear 10
+Cost 420
+End
+
+#O
+Vnum 3031
+Nest 0
+Wear 0
+Cost 75
+Val  0 0 165 0 0
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#END

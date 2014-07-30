@@ -1,428 +1,1000 @@
 #PLAYER
 Name Switch~
 Id   1023575166
-LogO 1024434771
+LogO 1060017208
 Vers 14
 Mexp 1
 Pass Muffl1ng~
-Prom %CV%h/%H%CMhp %CG%m/%M%CHm %CP%v/%V%CRmv %CB%X%CNtnl %CY%gg %CC%a%CTa%c~
+Prom %CV%h/%H%CMhp %CG%m/%M%CHm %CP%v/%V%CRmv %CB%X%CNtnl %CY%gg %CC%a%CTa %Cg%z %c~
 Race feral~
 Cla  2
-Levl 12
+Levl 59
 Tru  0
-Plyd 20712
-Back 4697
-Note 1024390312 1023589121 1023589121 1024397981 1024384309 1023589121 1023589121
+Plyd 773069
+Back 763721
+Note 1043617180 1043366796 1041650925 1041981356 1042430428 1043091924 1034982849
 Scro 22
-Room 3029
-HMS  229 218 218
-Gold 575
-Silv 1779
-Exp  21839
+Room 3001
+HMS  1396 1137 715
+Gold 3007
+Silv 99
+Gold_in_bank 500
+Exp  98564
 PCkills  0
 PCkilled 0
 Akills   0
-Akilled  0
+Akilled  1
 PKRank   0
 Pos  8
-Alig 1000
+Alig 999
 FImm 0
 FRes 0
 FVul JR
-Plr  HU
+Plr  AHTU
 Video 0
-Act  CDEFGHJLQSc
+Act  CDEFGHJLSc
 AfBy R
-Comm NOZ
+Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Prac 1
-Trai 0
+Prac 39
+Trai 4
 Wimp 0
-Atrib 16 13 13 22 18 13
-QuestPnts  35
-Afk {B[{CTue Jun 18 15:30:51 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Atrib 16 13 18 22 18 17
+SkillPnts  805
+QuestPnts  1246
+Afk {B[{CWed Oct 30 05:27:46 2002{B] {CUnknown Departure.{x
 ~
-Titl  ({VNewbie Aura{x)~
+Titl  (    )~
 Immn ~
-Pnts 53
-Rank ~
+Pnts 50
+Rank {WC{gH{WS~
 Aura ~
 TSex 2
-LLev 5
-Deit Kenneth~
-Lsit pc-62-31-4-21-bf.blueyonder.co.uk~
-Ltim Tue Jun 18 14:57:43 2002
+LLev 202
+Email tyraelie@yahoo.co.uk~
+Deit {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Lsit pc-80-194-51-149-bf.blueyonder.co.uk~
+Ltim Mon Jan 27 03:20:31 2003
 ~
-LSav Tue Jun 18 16:12:51 2002
+LSav Mon Aug 04 13:13:28 2003
 ~
-HMSP 174 159 218
+HMSP 896 432 715
 THMS 0 0 0
-Cnd  0 0 0 0
+Cnd  0 0 6 10
 Colr 3 35 1
+Colr 13 31 1
+Alias qr quest request~
+Alias qt quest time~
+Alias qi quest info~
+Alias qc quest complete~
+Alias c/ clanrecall~
+Query Ami~
+Sk 92 1 'armor'
+Sk 2 1 'cancellation'
+Sk 1 1 'channel'
+Sk 90 1 'cure critical'
+Sk 2 1 'cure light'
+Sk 4 1 'cure serious'
 Sk 1 1 'detect evil'
 Sk 1 1 'detect good'
-Sk 1 1 'detect hidden'
-Sk 1 1 'detect invis'
+Sk 84 1 'detect hidden'
+Sk 86 1 'detect invis'
 Sk 1 1 'detect magic'
-Sk 1 1 'detect poison'
-Sk 1 1 'fly'
-Sk 1 1 'gate'
+Sk 5 1 'detect poison'
+Sk 97 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 2 1 'fireproof'
+Sk 86 1 'fly'
+Sk 100 1 'gate'
+Sk 2 1 'giant strength'
+Sk 80 1 'haste'
+Sk 81 1 'heal'
 Sk 1 1 'identify'
-Sk 1 1 'know alignment'
-Sk 1 1 'light of truth'
-Sk 73 1 'locate life'
-Sk 73 1 'locate object'
+Sk 1 1 'infravision'
+Sk 2 1 'know alignment'
+Sk 83 1 'light of truth'
+Sk 81 1 'locate life'
+Sk 77 1 'locate object'
+Sk 1 1 'mass healing'
 Sk 1 1 'nexus'
-Sk 1 1 'pass door'
+Sk 94 1 'pass door'
 Sk 1 1 'portal'
-Sk 1 1 'summon'
+Sk 86 1 'protection evil'
+Sk 84 1 'protection good'
+Sk 88 1 'refresh'
+Sk 82 2 'regeneration'
+Sk 89 1 'sanctuary'
+Sk 83 1 'shield'
+Sk 86 1 'stone skin'
+Sk 82 1 'summon'
 Sk 1 1 'summon object'
-Sk 1 1 'teleport'
-Sk 1 1 'teleport object'
+Sk 89 1 'talon'
+Sk 2 1 'teleport'
+Sk 75 1 'teleport object'
+Sk 83 1 'undo spell'
 Sk 1 1 'vision'
 Sk 1 1 'word of recall'
-Sk 1 1 'dagger'
-Sk 47 1 'sword'
-Sk 55 1 'backstab'
-Sk 43 1 'dodge'
-Sk 1 1 'second attack'
-Sk 1 1 'hunt'
-Sk 1 1 'fast healing'
-Sk 1 1 'hide'
-Sk 55 1 'lore'
-Sk 1 1 'peek'
+Sk 100 1 'dagger'
+Sk 100 1 'sword'
+Sk 85 1 'backstab'
+Sk 100 1 'circle'
+Sk 100 1 'dodge'
+Sk 100 1 'second attack'
+Sk 86 1 'hunt'
+Sk 88 2 'fast healing'
+Sk 82 1 'hide'
+Sk 84 1 'lore'
+Sk 83 1 'peek'
 Sk 100 1 'scan'
-Sk 1 1 'sneak'
-Sk 1 1 'steal'
-Sk 1 1 'scrolls'
-Sk 1 1 'staves'
+Sk 81 1 'sneak'
+Sk 76 1 'steal'
+Sk 3 1 'scrolls'
+Sk 4 1 'staves'
 Sk 1 1 'wands'
-Sk 50 1 'recall'
+Sk 53 1 'recall'
 Gr 'rom basics'
 Gr 'thief basics'
 Gr 'detection'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'protective'
 Gr 'transportation'
 End
 
 #O
-Vnum 3162
+Vnum 17100
 Nest 0
-Wear -1
-Cost 500
+Cond 97
+Wear 6
+Cost 159
 End
 
 #O
-Vnum 72
+Vnum 24229
 Nest 0
+Name bag carrier~
+ShD  {YKi{Hp{Gpl{He {YCa{Hrr{Gie{Hr{x~
+Desc A strange looking bag lies on its side, intriguing {Yki{Hp{Gpl{He {xoverflowing from the seemingly stuffed pouch.~
 Wear -1
-Cost 30
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 73
-Nest 0
-Wear -1
-Cost 270
-End
-
-#O
-Vnum 74
-Nest 0
-Wear 4
-Cost 550
+Cost 2400
+ExDe carrier~ This seemingly stuffed pouch overflows with {Yki{Hp{Gpl{He{x A tiny label is sewn into the seam, almost hidden by the {Yki{Hp{Gpl{He{x strewn fabric.
+~
+ExDe label~ You notice a tiny piece of fabric seemingly out of place with the bag's coloration. Brushing the assorted {Yki{Hp{Gpl{He{x aside, you strain to read the small print on the label. It seems to be a definition.
+~
+ExDe definition~ {YKi{Hp{Gpl{He{x (kip'l) n. An incongruous assortment of items collected over a period of time. Incomprehensibly, reaching a saturation point where it multiplies without anyone actively adding to the collection.
+~
+ExDe kipple~ As you further examine the assorted random items strewn around the bag, your eyes are involuntarily drawn towards a huge metal bolt lying amidst the hoard.  Its purpose is unknown, and unknowable!
+~
 End
 
 #O
 Vnum 79
-Nest 0
+Nest 1
 Wear -1
 Cost 200
-Val  150 6 15 0 0
+Val  150 86 0 0 0
 End
 
 #O
-Vnum 82
-Nest 0
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name kismet trivia token star sapphire~
+ShD  {TKismet's {B"Sapphire Star of {NTrivia{B"{x~
+Desc {NA {BSapphire {Nstar twinkles on the ground{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name kismet trivia token star sapphire~
+ShD  {TKismet's {B"Sapphire Star of {NTrivia{B"{x~
+Desc {NA {BSapphire {Nstar twinkles on the ground{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 17108
+Nest 1
+Cond 92
+Wear -1
+Cost 350
+End
+
+#O
+Vnum 3203
+Nest 1
+Cond 91
+Wear -1
+Cost 40
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name kismet trivia token star sapphire~
+ShD  {TKismet's {B"Sapphire Star of {NTrivia{B"{x~
+Desc {NA {BSapphire {Nstar twinkles on the ground{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name kismet wild token amethyst chance~
+ShD  {MKismet's "{WWILD {VAmethyst {Mof Chance"{x~
+Desc {MA {WSparkling {VAmethyst {Mfilled with color and mystery lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name kismet wild token amethyst chance~
+ShD  {MKismet's "{WWILD {VAmethyst {Mof Chance"{x~
+Desc {MA {WSparkling {VAmethyst {Mfilled with color and mystery lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name kismet wild token amethyst chance~
+ShD  {MKismet's "{WWILD {VAmethyst {Mof Chance"{x~
+Desc {MA {WSparkling {VAmethyst {Mfilled with color and mystery lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name kismet wild token amethyst chance~
+ShD  {MKismet's "{WWILD {VAmethyst {Mof Chance"{x~
+Desc {MA {WSparkling {VAmethyst {Mfilled with color and mystery lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name kismet trivia token star sapphire~
+ShD  {TKismet's {B"Sapphire Star of {NTrivia{B"{x~
+Desc {NA {BSapphire {Nstar twinkles on the ground{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name kismet trivia token star sapphire~
+ShD  {TKismet's {B"Sapphire Star of {NTrivia{B"{x~
+Desc {NA {BSapphire {Nstar twinkles on the ground{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Sucess{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name kismet trivia token star sapphire~
+ShD  {TKismet's {B"Sapphire Star of {NTrivia{B"{x~
+Desc {NA {BSapphire {Nstar twinkles on the ground{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name kismet trivia token star sapphire~
+ShD  {TKismet's {B"Sapphire Star of {NTrivia{B"{x~
+Desc {NA {BSapphire {Nstar twinkles on the ground{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name kismet wild token amethyst chance~
+ShD  {MKismet's "{WWILD {VAmethyst {Mof Chance"{x~
+Desc {MA {WSparkling {VAmethyst {Mfilled with color and mystery lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14039
+Nest 1
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 3163
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 3162
+Nest 1
 Wear -1
 Cost 500
 End
 
 #O
-Vnum 83
-Nest 0
+Vnum 28008
+Nest 1
+ExtF 17301568
 Wear -1
-Cost 0
+Cost 47500
 End
 
 #O
-Vnum 2404
-Nest 0
-Cond 96
-Wear 3
-Cost 550
-End
-
-#O
-Vnum 2407
-Nest 0
+Vnum 3205
+Nest 1
+Cond 89
 Wear -1
-Cost 0
+Cost 60
+Val  17 14 17 17 0
 End
 
 #O
-Vnum 3712
-Nest 0
-Cond 99
-Wear 13
-Cost 72
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
 End
 
 #O
-Vnum 10135
-Nest 0
-Cond 96
-Wear 9
-Cost 23
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
 End
 
 #O
-Vnum 6621
-Nest 0
-Wear 12
-Cost 780
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
 End
 
 #O
-Vnum 8652
-Nest 0
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 24245
+Nest 1
 Wear -1
 Cost 10
-Spell 3 'fly'
+Spell 3 'talon'
 End
 
 #O
-Vnum 12701
-Nest 0
-Wear 5
-Cost 0
+Vnum 24234
+Nest 1
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
 End
 
 #O
-Vnum 12705
-Nest 0
-Wear 10
-Cost 0
+Vnum 24238
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'blood moon'
 End
 
 #O
-Vnum 12702
-Nest 0
-Cond 93
-Wear 16
-Cost 0
+Vnum 5610
+Nest 1
+Wear -1
+Cost 2000
 End
 
 #O
-Vnum 9061
-Nest 0
-Wear 15
-Cost 310
+Vnum 16508
+Nest 1
+Wear -1
+Cost 100
 End
 
 #O
-Vnum 1615
+Vnum 10170
 Nest 0
-Wear 14
-Cost 1540
+Wear 7
+Cost 2000
 End
 
 #O
-Vnum 4573
+Vnum 10168
 Nest 0
-Wear 18
-Cost 1800
+Cond 95
+Wear 2
+Cost 2200
 End
 
 #O
-Vnum 506
+Vnum 10171
 Nest 0
+Cond 85
 Wear 0
-Cost 1000
+Cost 3300
 End
 
 #O
-Vnum 4610
+Vnum 10168
 Nest 0
-Wear -1
-Cost 700
+ExtF 16777219
+Cond 88
+Wear 1
+Cost 2200
 End
 
 #O
-Vnum 4610
+Vnum 17105
 Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4610
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 3116
-Enchanted
-Nest 0
-ExtF 64
-Wear 11
-Lev  14
-Cost 0
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
-End
-
-#O
-Vnum 4610
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4610
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 10133
-Nest 0
-Cond 97
 Wear 8
 Cost 0
 End
 
 #O
-Vnum 16084
+Vnum 5604
 Nest 0
-Wear 2
-Cost 1500
+ExtF 17301507
+Cond 84
+Wear 4
+Cost 1000
 End
 
 #O
-Vnum 16084
+Vnum 3809
 Nest 0
-Wear 1
-Cost 1500
-End
-
-#O
-Vnum 10127
-Nest 0
-Wear 7
-Cost 128
-End
-
-#O
-Vnum 4582
-Nest 0
+Cond 93
 Wear 17
+Cost 15000
+End
+
+#O
+Vnum 5604
+Nest 0
+ExtF 17301507
+Cond 84
+Wear 3
+Cost 1000
+End
+
+#O
+Vnum 24225
+Nest 0
+Wear -1
+Cost 400
+Val  450 386 0 0 0
+End
+
+#O
+Vnum 3808
+Nest 0
+Cond 89
+Wear 12
+Cost 30000
+End
+
+#O
+Vnum 20008
+Nest 0
+Cond 79
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 5608
+Nest 0
+Cond 90
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 90
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 3206
+Nest 0
+Cond 99
+Wear 10
+Cost 70
+End
+
+#O
+Vnum 8204
+Nest 0
+Cond 80
+Wear 9
+Cost 3800
+End
+
+#O
+Vnum 8241
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3204
+Nest 0
+Cond 94
+Wear 18
+Cost 50
+Val  16 16 15 16 0
+End
+
+#O
+Vnum 16071
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 14066
+Nest 0
+Cond 82
+Wear 11
+Cost 150
+End
+
+#O
+Vnum 29178
+Nest 0
+Wear -1
+Cost 12
+End
+
+#O
+Vnum 29180
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 20006
+Nest 0
+Cond 94
+Wear 5
 Cost 0
 End
 
 #O
+Vnum 3801
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 76
+Wear 16
+Cost 6000
+End
+
+#L
+Vnum 24201
+Nest 0
+Wear -1
+Cost 1666
+End
+
+#L
+Vnum 16084
+Nest 0
+Cond 97
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 12714
+Enchanted
+Nest 0
+ExtF 323
+Cond 78
+Wear -1
+Lev  23
+Cost 4000
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   1  91  -1   8  18          0 1
+End
+
+#L
+Vnum 1604
+Enchanted
+Nest 0
+ExtF 67
+Cond 97
+Wear -1
+Lev  16
+Cost 0
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+End
+
+#L
+Vnum 2276
+Nest 0
+Wear -1
+Cost 1910
+End
+
+#L
 Vnum 3201
 Nest 0
-Wear 6
+Cond 93
+Wear -1
 Cost 20
 End
 
-#O
-Vnum 4583
+#L
+Vnum 16085
 Nest 0
+Cond 94
 Wear -1
-Cost 1200
+Cost 1900
 End
 
-#O
-Vnum 4583
+#L
+Vnum 16085
 Nest 0
+Cond 99
 Wear -1
-Cost 1200
+Cost 1900
 End
 
-#O
-Vnum 4583
+#L
+Vnum 24202
 Nest 0
 Wear -1
-Cost 1200
+Cost 2666
 End
 
-#O
-Vnum 4583
+#L
+Vnum 9922
 Nest 0
 Wear -1
-Cost 1200
+Cost 1500
 End
 
-#O
-Vnum 4583
+#L
+Vnum 16071
 Nest 0
 Wear -1
-Cost 1200
-End
-
-#O
-Vnum 4583
-Nest 0
-Wear -1
-Cost 1200
+Cost 5000
 End
 
 #END

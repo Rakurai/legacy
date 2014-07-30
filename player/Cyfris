@@ -1,65 +1,63 @@
 #PLAYER
 Name Cyfris~
 Id   1009062635
-LogO 1019958761
-Vers 13
+LogO 1046230515
+Vers 14
 Mexp 2
+Pass lookout~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nmv {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race elf~
-Sex  1
 Cla  7
-Levl 6
-Plyd 14082
-Back 12910
-Note 0 0 0 0 0 0 0
+Levl 12
+Tru  0
+Plyd 55655
+Back 52108
+Note 1035855229 0 0 0 0 0 0
 Scro 22
 Room 3001
-HMS  100 100 126 126 170 170
-Gold 1002
-Silv 609
-Exp  9314
-PCkills 0
+HMS  211 193 232
+Gold 452
+Silv 22
+Exp  18766
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
-Act  CDFGHJLQSc
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
 FRes B
 FVul Z
+Plr  U
+Video 0
+Act  CDFGHJLQSc
+AfBy 0
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
-Prac 3
-Trai 3
-Save  -1
-Alig  0
-Hit   7
-Dam   7
-ACs 93 93 93 100
-Atrib 13 17 11 18 13 18
-AtMod 1 1 3 2 0 2
-Pass lookout~
-Afk {B[{CTue Mar 26 19:01:33 2002{B] {CUnknown Departure.{x
+Prac 0
+Trai 0
+Wimp 20
+Atrib 16 18 12 18 18 18
+QuestPnts  3
+Afk {B[{CMon Oct 28 22:47:29 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl .~
+Titl  {R(pimpin' aura)~
 Immn ~
 Pnts 45
 Rank ~
 Aura ~
 TSex 1
-LLev 3
+LLev 13
 Deit Sivat~
-Lsit hlfx44-159.ns.sympatico.ca~
-Ltim Sat Apr 27 20:50:12 2002
+Lsit hlfx02-3177.ns.aliant.net~
+Ltim Tue Feb 25 22:35:03 2003
 ~
-LSav Sat Apr 27 20:52:41 2002
+LSav Tue Feb 25 22:35:15 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-HMSP 96 126 170
+HMSP 197 161 232
 THMS 0 0 0
 Cnd  0 0 0 0
 Sk 1 1 'dazzling light'
@@ -76,16 +74,16 @@ Sk 1 1 'flail'
 Sk 1 1 'mace'
 Sk 1 1 'polearm'
 Sk 1 1 'spear'
-Sk 78 1 'sword'
+Sk 83 1 'sword'
 Sk 1 1 'whip'
-Sk 1 1 'shield block'
+Sk 4 1 'shield block'
 Sk 1 1 'disarm'
-Sk 66 1 'enhanced damage'
+Sk 75 1 'enhanced damage'
 Sk 1 1 'kick'
-Sk 1 1 'parry'
+Sk 64 1 'parry'
 Sk 1 1 'trip'
-Sk 1 1 'second attack'
-Sk 1 1 'dual wield'
+Sk 77 1 'second attack'
+Sk 10 1 'dual wield'
 Sk 1 1 'hunt'
 Sk 1 1 'hide'
 Sk 100 1 'scan'
@@ -102,67 +100,10 @@ Gr 'enchantment'
 End
 
 #O
-Vnum 3703
-Nest 0
-Wear 5
-Cost 0
-End
-
-#O
-Vnum 3704
-Nest 0
-Cond 99
-Wear 11
-Cost 0
-End
-
-#O
-Vnum 72
-Nest 0
-Wear -1
-Cost 30
-End
-
-#O
-Vnum 83
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 82
-Nest 1
-Wear -1
-Cost 500
-End
-
-#O
-Vnum 79
-Nest 1
-Wear -1
-Cost 200
-Val  150 138 15 0 0
-End
-
-#O
-Vnum 3162
-Nest 1
-Wear -1
-Cost 500
-End
-
-#O
-Vnum 73
-Nest 0
-Wear 6
-Cost 270
-End
-
-#O
 Vnum 74
 Nest 0
-Wear 3
+Cond 98
+Wear 4
 Cost 550
 End
 
@@ -174,45 +115,303 @@ Cost 620
 End
 
 #O
-Vnum 76
+Vnum 10126
 Nest 0
-Wear 17
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 10234
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 3504
+Nest 0
+Wear 14
+Cost 690
+End
+
+#O
+Vnum 10236
+Nest 0
+Cond 97
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 2336
+Enchanted
+Nest 0
+ExtF 65
+Cond 94
+Wear 6
+Lev  11
+Cost 0
+Affc 'enchant armor'   1  73  -1  -2  17          0 1
+End
+
+#O
+Vnum 3115
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4588
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 10133
+Nest 0
+Cond 94
+Wear 8
+Cost 120
+End
+
+#O
+Vnum 1504
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 1504
+Nest 0
+Cond 96
+Wear 19
+Cost 0
+End
+
+#O
+Vnum 10237
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10237
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4583
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10159
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10159
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10133
+Enchanted
+Nest 1
+Wear -1
+Cost 0
+Affc 'reserved'   1  15  -1  -1  20          0 1
+Affc 'reserved'   1  15  -1  10  12          0 1
+Affc 'reserved'   1  15  -1   1   2          0 1
+Affc 'reserved'   1  15  -1  -1  17          0 1
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4471
+Nest 1
+Name teotwawki plushy~
+ShD  {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {YP{Pl{Yu{Ps{Yh{Py{x~
+Desc {YI{Pt{Ys {Pa {Yl{Pi{Yt{Pt{Yl{Pe {Ys{Pt{Yu{Pf{Yf{Pe{Yd {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {YP{Pl{Yu{Ps{Yh{Py{x~
+Mat Cotton~
+Wt   0
+Cond -1
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 10234
+Nest 1
+Cond 98
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 150 0 0 0
+End
+
+#O
+Vnum 28003
+Nest 1
+Cond 99
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 506
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 76
+Nest 1
+Cond 93
+Wear -1
 Cost 550
 End
 
 #O
-Vnum 78
-Nest 0
-Wear 8
-Cost 900
+Vnum 73
+Nest 1
+Wear -1
+Cost 270
 End
 
 #O
-Vnum 1212
-Nest 0
-Name trivia token glimmer brilliance montrey~
-ShD  {b*{Ytrivia{b* {Wa {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge{x~
-Desc {WA {ggl{Wi{gm{Wme{gr {Wof {Ybr{Wi{gll{Wi{Ya{Wnc{ge {Wis here, inspiring you.{x~
+Vnum 3704
+Nest 1
+Cond 96
 Wear -1
 Cost 0
-ExDe owned by~ Montrey
-~
 End
 
 #O
-Vnum 3021
-Enchanted
-Nest 0
-ExtF 323
-Wear 16
-Lev  5
-Cost 250
-Val  1 1 5 1 129
-Affc 'poison'   5  79 307   0   0        128 1
-Affc 'flame blade'   5  77  13   0   0          1 1
-Affc 'enchant weapon'   0  91  -1   7  18          0 1
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
-Affc 'bless'   1  73  20  -1  20        256 1
+Vnum 3703
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3011
+Nest 1
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 1
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 1
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 1
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 1
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 1
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 1
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 1
+Wear -1
+Cost 9
 End
 
 #END

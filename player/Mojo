@@ -1,13 +1,12 @@
 #PLAYER
 Name Mojo~
 Id   1019186580
-LogO 1026270527
+LogO 1060017994
 Vers 14
 Mexp 2
 Pass shadow~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race human~
-Clan blackclaw~
 Cla  0
 Levl 25
 Tru  0
@@ -31,7 +30,7 @@ Spou Quickening~
 FImm 0
 FRes 0
 FVul 0
-Plr  U
+Plr  HU
 Video 0
 Act  CDEFGHJLSc
 AfBy 0
@@ -57,11 +56,11 @@ Deit Montrey~
 Lsit adsl-64-108-193-201.dsl.chcgil.ameritech.net~
 Ltim Sun May 26 00:42:28 2002
 ~
-LSav Tue Jul 09 22:08:47 2002
+LSav Mon Aug 04 13:26:34 2003
 ~
 HMSP 221 383 238
 THMS 0 0 0
-Cnd  0 27 0 41
+Cnd  0 24 0 40
 Sk 76 1 'armor'
 Sk 75 1 'bless'
 Sk 1 1 'calm'
@@ -171,7 +170,7 @@ Vnum 3381
 Nest 0
 Wear -1
 Lev  23
-Time 755
+Time 754
 Cost 2000
 Val  23 -1 -1 -1 -1
 End
@@ -233,10 +232,10 @@ Nest 0
 Wear -1
 Cost 1000
 Val  7 6 5 4 0
-Affc 'reserved'   1  21  -1   5  19          0 1
-Affc 'reserved'   1  21  -1  -4  18          0 1
-Affc 'reserved'   1  21  -1  -2   5          0 1
 Affc 'reserved'   1  21  -1  -4   4          0 1
+Affc 'reserved'   1  21  -1  -2   5          0 1
+Affc 'reserved'   1  21  -1  -4  18          0 1
+Affc 'reserved'   1  21  -1   5  19          0 1
 End
 
 #O
@@ -322,7 +321,7 @@ End
 Vnum 3381
 Nest 0
 Wear -1
-Time 595
+Time 594
 Cost 2000
 End
 
@@ -330,7 +329,7 @@ End
 Vnum 3381
 Nest 0
 Wear -1
-Time 845
+Time 844
 Cost 2000
 End
 
@@ -338,7 +337,7 @@ End
 Vnum 3381
 Nest 0
 Wear -1
-Time 766
+Time 765
 Cost 2000
 End
 
@@ -346,7 +345,7 @@ End
 Vnum 3381
 Nest 0
 Wear -1
-Time 688
+Time 687
 Cost 2000
 End
 
@@ -354,7 +353,7 @@ End
 Vnum 3381
 Nest 0
 Wear -1
-Time 428
+Time 427
 Cost 2000
 End
 
@@ -362,7 +361,7 @@ End
 Vnum 3381
 Nest 0
 Wear -1
-Time 847
+Time 846
 Cost 2000
 End
 
@@ -370,7 +369,7 @@ End
 Vnum 3381
 Nest 0
 Wear -1
-Time 396
+Time 395
 Cost 2000
 End
 
@@ -378,7 +377,7 @@ End
 Vnum 3381
 Nest 0
 Wear -1
-Time 524
+Time 523
 Cost 2000
 End
 
@@ -386,7 +385,7 @@ End
 Vnum 3381
 Nest 0
 Wear -1
-Time 597
+Time 596
 Cost 2000
 End
 
@@ -394,7 +393,7 @@ End
 Vnum 3381
 Nest 0
 Wear -1
-Time 493
+Time 492
 Cost 2000
 End
 
@@ -648,8 +647,8 @@ Nest 0
 ExtF 19
 Wear 15
 Cost 312
-Affc 'reserved'   1  25  -1   5  18          0 1
 Affc 'reserved'   1  25  -1   5  19          0 1
+Affc 'reserved'   1  25  -1   5  18          0 1
 End
 
 #O

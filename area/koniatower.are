@@ -1,0 +1,1470 @@
+#AREA
+Koniatower.are~
+Konia's Tower~
+{H{{50 91} {PV{Re{Ygi{Rt{Pa{x {TKoniatower~
+xx01 x180
+
+#MOBILES
+#xx01
+gatekeeper~
+The Keeper of the Gate~
+A huge ugly, nasty looking being stands before you
+~
+giant~
+BGVZ IUV 0 S
+75 20 1d1+9999 1d1+9999 5d1+42 punch
+-52 -51 -53 -49
+DEJ ABP BP S
+stand stand either 7500
+0 0 giant 0
+
+#xx02
+gaurd 1st floor~
+1st Floor Guard~
+One of Konia's Newbie guards lashes out at you!
+~
+human~
+FG OT 0 S
+60 14 1d3+3495 1d5+3495 1d2+34 stab
+-41 -39 -40 -34
+EFG L C Q
+stand stand either 6000
+0 0 medium 0
+>fight_prog 50~
+if ( rand(50) )
+   emote tries to attack your eyes~
+   MPCAST 'blindness' $n
+   break
+endif
+if ( rand(10) )
+   emote tries to stop the fight~
+   MPCAST 'dazzle'
+   break
+endif
+~
+|
+#xx03
+guard 2nd floor~
+2nd Floor Guard~
+One of Konia's 2nd year guards lashes out at you!
+~
+human~
+FG DNTUV 0 S
+69 20 1d3+4495 1d5+4495 1d2+38 slash
+-47 -49 -45 -42
+EIK H E N
+stand stand either 6300
+0 0 medium 0
+>fight_prog 70~
+if ( rand(46) )
+    emote conjures up a fireball!
+    MPCAST 'fireball' $n
+    break
+endif
+if ( rand(25) )
+    emote smiles softly.
+    MPCAST 'blindness' $n
+    break
+endif
+~
+|
+#x180
+konia mistress~
+Konia Mistress of The Tower~
+A tall standing girl of slim stature is here. Her long golden hair 
+travels down the length of her back. At the tips, a bluish hue can
+be seen. Her long slender arms show no signs of scars or other
+blemishes. Her silver robe flows down to the floor, with the bottom
+flaring out.
+~
+The mistress stands before you.
+~
+human~
+BFGVWZ DFHINOTUVbc 0
+120 80 1d1+29999 1d1+29999 1d1+149 shbite
+-60 -60 -50 -69
+AFIJK ABJ CMN L
+stand stand female 500
+0 0 medium 0
+>fight_prog 75~
+if ( rand(40) )
+   MPCAST 'demonfire' $n
+   break
+endif
+if ( rand(35) )
+   MPCAST 'fireball' $n
+   MPCAST 'colour spray' $n
+   break
+endif
+if ( rand(10) )
+   MPCAST 'teleport' %n
+   break
+endif
+~
+>fight_prog 25~
+if ( rand(50) )
+   MPECHO Konia burps.
+   MPCAST 'fire breath' $n
+   MPCAST 'fire breath' $n
+   break
+endif
+if ( rand(40) )
+   MPCAST 'wrath' $n
+   MPCAST 'blindness' $n
+   MPCAST 'slow' $n
+   MPCAST 'plague' $n
+   MPCAST 'curse' $n
+   MPCAST 'dispel magic' $n
+   break
+endif
+if ( rand(25) )
+   MPECHO Konia calls upon the Sphere of Fire.
+   MPCAST 'fireball' $n
+   MPCAST 'fireball' $n
+   MPCAST 'flamestrike' $n
+   MPCAST 'fire breath' $n
+   break
+endif
+~
+>fight_prog 39~
+if ( rand(30) )
+   MPECHO Konia raises her hand and a purple ball appears.
+   MPCAST 'blindness' $n
+   MPCAST 'heat metal' $n
+   MPCAST 'demonfire' $n
+   MPCAST 'sunray' $n
+   MPCAST 'ray of truth' $n
+   MPCAST 'slow' $n
+   MPCAST 'hex' $n
+   break
+endif
+~
+>fight_prog 25~
+if ( rand(100) )
+   MPCAST 'force shield' $i
+   break
+endif
+~ 
+>death_prog 100~
+ say You've deserved this.
+ MPCAST 'divine heal' $n
+ MPCAST 'divine heal' $n
+ MPCAST 'divine heal' $n
+ MPCAST 'divine heal' $n
+ MPCAST 'divine heal' $n
+ MPCAST 'divine heal' $n       
+ MPCAST 'divine heal' $n
+ MPCAST 'divine heal' $n
+ MPCAST 'divine heal' $n
+~
+|
+#0
+
+#OBJECTS
+#xx01 
+chest treasure~
+A Treasure Chest is here~
+A Treasure Chest is here~
+mist~
+container ABO P 0
+50 A 0 5 0
+1 1 1 P
+E
+chest~
+A chest made of mist, it radiates with a silverish glow.
+~
+
+#xx02
+hilt gold~
+A Gold Inlaid Hilt~
+A shining, gold hilt lies here~
+gold~
+treasure ABEGIJKLORST A
+0 0 0 0 0
+1 1 1 P
+E
+hilt~
+Seems to be one of three pieces to a sword. The ends of the hilt 
+have holes that seem to be able to hold gems of some sort.
+~
+
+#xx03
+gem silverish~
+A silverish gem~
+A silverish gem lies here~
+mystic~
+treasure ABEGIJKLORST A
+0 0 0 0 0
+1 1 300 P
+
+#xx04
+vial potion gold~
+A vial filled with gold liquid~
+A vial is here filled with a gold colored liquid~
+liquid~
+potion S A
+35 'haste' 'fly' 'pass door' 'frenzy'
+30 1 0 P
+
+#xx05
+key~
+Key to Konia's Tower~
+a key is laying here in the dust~
+ethereal~
+key S A
+0 0 0 0 0
+1 1 1 P
+
+#xx06
+chest treasure~
+A Treasure Chest is here~
+A Treasure Chest is here~
+mist~
+container ABO P 0
+50 A 0 5 0
+1 1 1 P
+E
+chest~
+A chest made of mist, it radiates with a silverish glow.
+~
+
+#xx07
+chest treasure~
+A Treasure Chest is here~
+A Treasure Chest is here~
+mist~
+container ABO P 0
+50 A 0 5 0
+1 1 1 P
+E
+chest~
+A chest made of mist, it radiates with a silverish glow.
+~
+
+#xx08
+chest treasure~
+A Treasure Chest is here~
+A Treasure Chest is here~
+mist~
+container ABO P 0
+50 A 0 5 0
+1 1 1 P
+E
+chest~
+A chest made of mist, it radiates with a silverish glow.
+~
+
+#xx09
+chest treasure~
+A Treasure Chest is here~
+A Treasure Chest is here~
+mist~
+container ABO P 0
+50 A 0 5 0
+1 1 1 P
+E
+chest~
+A chest made of mist, it radiates with a silverish glow.
+~
+
+#xx10
+chest treasure~
+A Treasure Chest is here~
+A Treasure Chest is here~
+mist~
+container ABO P 0
+50 A 0 5 0
+1 1 1 P
+E
+chest~
+A chest made of mist, it radiates with a silverish glow.
+~
+
+#xx11
+chest treasure~
+A Treasure Chest is here~
+A Treasure Chest is here~
+mist~
+container ABO P 0
+50 A 0 5 0
+1 1 1 P
+E
+chest~
+A chest made of mist, it radiates with a silverish glow.
+~
+
+#xx12
+chest treasure~
+A Treasure Chest is here~
+A Treasure Chest is here~
+mist~
+container ABO P 0
+50 A 0 5 0
+1 1 1 P
+E
+chest~
+A chest made of mist, it radiates with a silverish glow.
+~
+
+
+#0
+
+#ROOMS
+#xx01
+Before the tower~
+You stand a few steps before a giant tower. As you look up you notice it 
+goes up about 5 stories. At the top of it you notice a cloud with many 
+colors barreling thru it. Sorta like a turmoiled rainbow.  
+~
+0 T 3
+H 100 M 100
+D1
+You see the entrance to the tower a little in front of you, it seems
+to pulse in and out as if it doesn't really exist in this realm.
+~
+~
+0 -1 xx02
+E
+tower giant~
+You behold a truely beautiful tower. The bricks seem to fade in and out,
+each time being a different color.
+~
+S
+#xx02
+Almost at the Entrance~
+You are two steps away from the pulsing door. With every glance it seems
+that your not getting any closer, yet your not getting any farther away.
+0 T 3
+H 100 M 100
+D1
+Almost, but not quite there yet.
+~
+~
+0 -1 xx03
+E
+pulsing door~
+You are still too far away for your eyes to fully grasp what you have
+been seeing.
+~
+S
+#xx03
+Before The Gates~
+You stand before the gates to the tower. The gate before you seems to
+pulse as it fades in and out of your view. The ever faithful gatekeeper
+can be seen standing to the side of the gate.
+~
+0 T 3
+H 100 M 100
+D1
+A bluish gate stands before you. No wait, now its yellow, now redish
+pink...
+~
+~
+4 xx05 xx04
+S
+#xx04
+Front Entrance~
+You stand before a grand entrance of sorts. White marble pillars
+are scattered about the room. Inscriptions and markings that you 
+can't seem to read litter the pillars. The room is basked in a 
+eerie bluish glow. As you take a step forward you hear a laugh
+sound from what seems the very top of the tower. You wonder who 
+or what it could be from.
+The only exit, or is it the only entrance?, is to the east.
+~
+0 D 0
+H 100 M 100
+D1
+The entrance to the tower, or it seems. The doorway is surrounded 
+by a gold trim depicting the same markings you seen on the pillars.
+~
+~
+0 -1 xx05
+E
+pillars~
+The pillars tower over you. Where they end you can't see.
+Exotic markings are on them. You take a closer look and see:
+		^	          ^
+		^^^^^^^^    ^^^^^^^^
+		^^^^^   ****  ^^^^^^
+                ^^^^^ &&&&&&& ^^^^^^
+		^^^^^  #   #  ^^^^^^
+		^^^^^ ##   ## ^^^^^^
+		^^^^^^^^^^^^^^^^^^^^
+		^^^^^^^^^^^^^^^^^^^^
+~
+S
+#xx05
+1st Floor~
+You are now on the first floor of the tower. You can see more of
+the same pillars you seen in the entrance. These pillars seem 
+different though from the rest. The room glows with a yellowish
+light. As you walk on the tiles, they light up in different
+colors.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx09
+D1
+The hall continues east.
+~
+~
+0 -1 xx06
+D2
+The hall continues south.
+~
+~
+0 -1 xx13
+E
+pillars~
+These ones seem as tall as the first ones you encountered in the
+entrance. The markings seem different though.
+
+		*		*
+		*****       *****
+		***^   (-)   ^***
+		**^    %%%    ^**
+		*****************
+		*****************
+~
+S
+#xx06
+Almost at the Center~
+You stand almost at the center of the first floor. To the east
+you can see stairs that lead upwards to the second floor.
+~
+0 D 0
+H 100 M 100
+D1
+You see stairs to the east as the hall continues.
+~
+~
+0 -1 xx07
+D3
+You see the entrance off in the distance to the west.
+~
+~
+0 -1 xx05
+S
+#xx07
+The Center of The 1st Floor~
+You stand in the very center of the tower. A set of stairs
+stretches upwards before you. This room is mysteriously 
+without any type of glow whatsoever.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx08
+D3
+The hall continues west.
+~
+~
+0 -1 xx06
+D4
+The stairs go upwards.
+~
+~
+0 -1 xx40
+E
+stairs~
+The stairs spiral upwards leading to the second floor. A 
+rainbow effect flashes thru the length of the stairs.
+~
+S
+#xx08
+Almost At the Center~
+You stand almost at the center of the first floor. To the west
+you can see stairs that lead upwards to the second floor.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx18
+D3
+You see stairs off to the west.
+~
+~
+0 -1 xx07
+S
+#xx09
+An Empty Room~
+You stand in an empty room. There doesn't seem to be anything here.
+~
+0 D 0
+H 100 M 100
+D0
+~
+~
+0 -1 xx20
+S
+#xx10
+An Empty Room~
+You stand in an empty room. There doesn't seem to be anything here.
+~
+0 D 0
+H 100 M 100
+D0
+~
+~
+0 -1 xx21
+S
+#xx11
+An Empty Room~
+You stand in an empty room. There doesn't seem to be anything here.
+~
+0 D 0
+H 100 M 100
+D0
+~
+~
+0 -1 xx22
+S
+#xx12
+An Empty Room~
+You stand in an empty room. There doesn't seem to be anything here.
+~
+0 D 0
+H 100 M 100
+D0
+~
+~
+0 -1 xx23
+S
+#xx13
+An Empty Room~
+You stand in an empty room. There doesn't seem to be anything here.
+~
+0 D 0
+H 100 M 100
+D2
+~
+~
+0 -1 xx25
+S
+#xx14
+An Empty Room~
+You stand in an empty room. There doesn't seem to be anything here.
+~
+0 D 0
+H 100 M 100
+D2
+~
+~
+0 -1 xx26
+S
+#xx15
+An Empty Room~
+You stand in an empty room. There doesn't seem to be anything here.
+~
+0 D 0
+H 100 M 100
+D2
+~
+~
+0 -1 xx27
+S
+#xx16
+An Empty Room~
+You stand in an empty room. There doesn't seem to be anything here.
+~
+0 D 0
+H 100 M 100
+D2
+~
+~
+0 -1 xx28
+S
+#xx17
+East Part of Floor 1~
+You stand in the eastern side of the first floor. Pillars stand
+everywhere around you.
+~
+0 D 0
+H 100 M 100
+D0
+The North-east corner of the 1st floor.
+0 -1 xx24
+~
+~
+D2
+The Eastern Center of the 1st floor.
+~
+~
+0 -1 xx18
+E
+pillars~
+These ones seem as tall as the first ones you encountered in the
+entrance. The markings seem different though.
+
+		*		*
+		*****       *****
+		***^   (-)   ^***
+		**^    %%%    ^**
+		*****************
+		*****************
+~
+S
+#xx18
+East End of the 1st Floor.~
+More pillars stand in this room. Off to the west you can see
+the stairs that lead to the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall leads north.
+~
+~
+0 -1 xx17
+D2
+The hall leads south.
+~
+~
+0 -1 xx19
+E
+pillars~
+These ones seem as tall as the first ones you encountered in the
+entrance. The markings seem different though.
+
+		*		*
+		*****       *****
+		***^   (-)   ^***
+		**^    %%%    ^**
+		*****************
+		*****************
+~
+S
+#xx19
+East Hall~
+You stand in the eastern side of the first floor. Pillars stand
+everywhere around you.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx18
+D2
+The South-Eastern corner.
+~
+~
+0 -1 xx29
+S
+#xx20
+North-Eastern Hall~
+You stand at the very north east of the floor. Nothing seems to 
+be around you but emptiness.
+~
+0 D 0
+H 100 M 100
+D2
+An empty room.
+~
+~
+0 -1 xx09
+D1
+The hall continues to the west.
+~
+~
+0 -1 xx21
+S
+#xx21 
+North Hall~
+You stand in an empty hall... 
+~
+~
+0 D 0
+H 100 M 100
+D2
+An empty room.
+~
+~
+0 -1 xx10
+D1
+The hall continues east.
+~
+~
+0 -1 xx22
+D3
+The hall continues west.
+~
+~
+0 -1 xx20
+S
+#xx22
+North Hall~
+You stand in an empty hall..
+~
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx23
+D2
+An empty room.
+~
+~
+0 -1 xx11
+D3
+The hall continues west.
+~
+~
+0 -1 xx21
+S
+#xx23
+North Hall~
+You stand in an empty hall..
+~
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx22
+D2
+An empty room.
+~
+~
+0 -1 xx12
+D3
+The hall continues west.
+~
+~
+0 -1 xx24
+S
+#xx24
+North-West Hall~
+The north-west corner of the hall...
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx23
+D2
+The hall continues south.
+~
+~
+0 -1 xx17
+S
+#xx25
+South Hall~
+You stand in an empty hall.
+~
+0 D 0
+H 100 M 100
+D0
+An empty room.
+~
+~
+0 -1 xx13
+D1
+The hall continues east.
+~
+~
+0 -1 xx26
+S
+#xx26
+South Hall~
+You stand in an empty hall.
+~
+0 D 0
+H 100 M 100
+D0
+An empty room.
+~
+~
+0 -1 xx14
+D1
+The hall continues east.
+~
+~
+0 -1 xx27
+D3
+The hall continues west.
+~
+~
+0 -1 xx25
+S
+#xx27
+South Hall~
+You stand in an empty hall.
+~
+0 D 0
+H 100 M 100
+D0
+An empty room.
+~
+~
+0 -1 xx15
+D1
+The hall continues east.
+~
+~
+0 -1 xx28
+D3
+The hall continues west.
+~
+~
+0 -1 xx26
+S
+#xx28
+South Hall~
+You stand in an empty hall.
+~
+0 D 0
+H 100 M 100
+D0
+An empty room.
+~
+~
+0 -1 xx16
+D1
+The south-eastern part of the hall.
+~
+~
+0 -1 xx29
+D3
+The hall continues west.
+~
+~
+0 -1 xx27
+S
+#xx29
+South-Eastern Hall~
+You stand in the south-eastern part of the south hall.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx19
+D3
+The hall continues west.
+~
+~
+0 -1 xx28
+S
+#xx30
+North Hall~
+You stand in the north hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx31
+D3
+The hall continues west.
+~
+~
+0 -1 xx33
+S
+#xx31
+North Hall~
+You stand in the north hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx32
+D3 
+The hall continues west.
+~
+~
+0 -1 xx30
+S
+#xx33
+North Hall~
+You stand in the north hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx30
+D2
+The hall continues south.
+~
+~
+0 -1 xx34
+S
+#xx34
+West Hall~
+You stand in the west hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D2
+The hall continues south.
+~
+~
+0 -1 xx38
+S
+#xx35
+Inner Hall~
+You stand in the inner hall of the 2nd floor. Pillars stand all 
+around you.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx36
+D2
+The hall continues south.
+~
+~
+0 -1 xx39
+E
+pillar~
+These pillars stand about 10 feet tall and glow with a eerie yellow
+aura. They also seem to have inscriptions on them as well
+~
+E
+inscriptions~
+Upon closer examination you see:
+		*		*
+		*****       *****
+		***^   (*)   ^***
+		**^    +++    ^**
+		*****************
+		*****************
+~
+S
+#xx36
+Inner Hall~
+You stand in the inner hall of the 2nd floor. Pillars stand all 
+around you.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx37
+D3
+The hall continues west.
+~
+~
+0 -1 xx35
+E
+pillar~
+These pillars stand about 10 feet tall and glow with a eerie yellow
+aura. They also seem to have inscriptions on them as well
+~
+E
+inscriptions~
+Upon closer examination you see:
+		*		*
+		*****       *****
+		***^   (*)   ^***
+		**^    +++    ^**
+		*****************
+		*****************
+~
+S
+#xx37
+Inner Hall~
+You stand in the inner hall of the 2nd floor. Pillars stand all 
+around you.
+~
+0 D 0
+H 100 M 100
+D2
+The hall continues south.
+~
+~
+0 -1 xx41
+D3
+The hall continues west.
+~
+~
+0 -1 xx36
+E
+pillar~
+These pillars stand about 10 feet tall and glow with a eerie yellow
+aura. They also seem to have inscriptions on them as well
+~
+E
+inscriptions~
+Upon closer examination you see:
+		*		*
+		*****       *****
+		***^   (*)   ^***
+		**^    +++    ^**
+		*****************
+		*****************
+~
+S
+#xx38
+West Hall
+You stand in the west hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx34
+D1
+The hall continues east.
+~
+~
+0 -1 xx39
+D2
+The hall continues south.
+~
+~
+0 -1 xx42
+S
+#xx39
+Inner Hall~
+You stand in the inner hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx35
+D1
+Stairs off to the east
+~
+~
+0 -1 xx40
+D2
+The hall continues to the south.
+~
+~
+0 -1 xx43
+E
+pillar~
+These pillars stand about 10 feet tall and glow with a eerie yellow
+aura. They also seem to have inscriptions on them as well
+~
+E
+inscriptions~
+Upon closer examination you see:
+		*		*
+		*****       *****
+		***^   (*)   ^***
+		**^    +++    ^**
+		*****************
+		*****************
+~
+S
+#xx40
+The Center of the 2nd floor~
+You stand in the center of the 2nd floor. Stairs lead down to the 
+1st floor and up to the 3rd floor.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx41
+D3
+The hall continues west.
+~
+~
+0 -1 xx39
+D4
+The stairs lead up to the 3rd floor.
+~
+~
+0 -1 xx67
+D5
+The stairs lead down to the 1st floor.
+~
+~
+0 -1 xx07
+E
+stairs~
+The stairs spiral upwards leading to the second floor. A 
+rainbow effect flashes thru the length of the stairs.
+~
+S
+#xx41
+Inner Hall~
+You stand in the inner hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx37
+D1
+The hall continues east.
+~
+~
+0 -1 xx48
+D2
+The hall continues south.
+~
+~
+0 -1 xx45
+D3
+Stairs off to the west.
+~
+~
+0 -1 xx40
+E
+pillar~
+These pillars stand about 10 feet tall and glow with a eerie yellow
+aura. They also seem to have inscriptions on them as well
+~
+E
+inscriptions~
+Upon closer examination you see:
+		*		*
+		*****       *****
+		***^   (*)   ^***
+		**^    +++    ^**
+		*****************
+		*****************
+~
+S
+#xx42
+West Hall~
+You stand in the west hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues to the north.
+~
+~
+0 -1 xx38
+D2
+The hall continues to the south.
+~
+~
+0 -1 xx50
+S
+#xx43
+Inner Hall~
+You stand in the inner hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx39
+D1
+The hall continues east.
+~
+~
+0 -1 xx44
+E
+pillar~
+These pillars stand about 10 feet tall and glow with a eerie yellow
+aura. They also seem to have inscriptions on them as well
+~
+E
+inscriptions~
+Upon closer examination you see:
+		*		*
+		*****       *****
+		***^   (*)   ^***
+		**^    +++    ^**
+		*****************
+		*****************
+~
+S
+#xx44
+Inner hall~
+You stand in the inner hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx45
+D3
+The hall continues west.
+~
+~
+0 -1 xx43
+E
+pillar~
+These pillars stand about 10 feet tall and glow with a eerie yellow
+aura. They also seem to have inscriptions on them as well
+~
+E
+inscriptions~
+Upon closer examination you see:
+		*		*
+		*****       *****
+		***^   (*)   ^***
+		**^    +++    ^**
+		*****************
+		*****************
+~
+S
+#xx45
+Inner Hall~
+You stand in the inner hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues to the north.
+~
+~
+0 -1 xx41
+D3
+The hall continues to the west.
+~
+~
+0 -1 xx44
+E
+pillar~
+These pillars stand about 10 feet tall and glow with a eerie yellow
+aura. They also seem to have inscriptions on them as well
+~
+E
+inscriptions~
+Upon closer examination you see:
+		*		*
+		*****       *****
+		***^   (*)   ^***
+		**^    +++    ^**
+		*****************
+		*****************
+~
+S
+#xx46
+North-East Hall~
+You stand in the north-eastern part of the hall.
+~
+0 D 0
+H 100 M 100
+D2
+The hall continues south.
+~
+~
+0 -1 xx47
+D3
+The hall continues west.
+~
+~
+0 -1 xx32
+S
+#xx47
+East Hall~
+You stand in the east hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx46
+D2
+The hall continues south.
+~
+~
+0 -1 xx48
+S
+#xx48
+East Hall~
+You stand in the east hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx47
+D1
+A room is off to the east.
+~
+~
+0 -1 x170
+D2
+The hall continues south.
+~
+~
+0 -1 xx49
+S
+#x170
+A Room off the East Hall~
+You stand in a room that is just off the east hall.
+~
+0 AD 0
+H 100 M 100
+D3
+The east hall.
+~
+~
+0 -1 xx48
+S
+#xx49
+East Hall~
+You stand in the east hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx48
+D2
+The hall continues south.
+~
+~
+0 -1 xx54
+S
+#xx50
+South-East Hall~
+You stand in the south-east part of the hall.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx42
+D3
+The hall continues west.
+~
+~
+0 -1 xx51
+S
+#xx51
+South Hall~
+You stand in the south hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx52
+D3
+The hall continues west.
+~
+~
+0 -1 xx50
+S
+#xx52
+South Hall~
+You stand in the south hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx53
+D3
+The hall continues west.
+~
+~
+0 -1 xx51
+S
+#xx53
+South Hall~
+You stand in the south hall of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D1
+The hall continues east.
+~
+~
+0 -1 xx54
+D3
+The hall continues west.
+~
+~
+0 -1 xx52
+S
+#xx54
+South-West Hall~
+You stand in the south-western part of the 2nd floor.
+~
+0 D 0
+H 100 M 100
+D0
+The hall continues north.
+~
+~
+0 -1 xx49
+D3
+The hall continues west.
+~
+~
+0 -1 xx53
+S
+#0
+
+#RESETS
+
+M 0 xx01 1 xx03 1		*Load Gatekeeper ()()BEGIN 1ST FLOOR()()
+G 0 xx05 1			*give key to Gatekeeper
+
+M 0 xx02 2 xx20 12		*Load 1st floor aggy guard
+M 0 xx02 2 xx22 12
+M 0 xx02 2 xx18 12
+M 0 xx02 2 xx07 12
+M 0 xx02 2 xx15 12
+M 0 xx02 2 xx26 12
+
+O 0 xx01 1 xx011		*Load chest at xx11
+P 0 xx03 3 xx01 3		*Put Silverish Gem in chest at xx11
+O 0 xx06 1 xx10			*load chest
+P 0 xx02 1 xx06 1		*put hilt in chest
+O 0 xx07 1 xx16			*load chest
+P 0 xx04 1 xx07 1		*put gold potion chest ()()END 1ST FLOOR()()
+
+M 0 

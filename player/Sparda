@@ -1,53 +1,54 @@
 #PLAYER
 Name Sparda~
 Id   1006468863
-LogO 1026528803
+LogO 1085393830
 Vers 14
 Mexp 2
-Pass ayanamirei~
-Prom H:%h/%H M:%m/%M V:%v/%V xp:%X ~
+Pass letmein~
+Prom H:%h/%H M:%m/%M V:%v/%V xp:%X (%z) <%q> [%j] ~
 Race human~
-Clan blackclaw~
 Cla  3
-Levl 77
+Levl 83
 Tru  91
-Plyd 463124
-Back 357313
-Note 1025615772 1022813787 1024989569 1025465335 1025150199 1025303978 1024965844
+Plyd 532547
+Back 467998
+Note 1085393544 1085393544 1085393544 1085393544 1085393544 1085393544 1085393544
 Scro 22
-Room 24803
-HMS  643 663 692
-Gold 2108
-Silv 96
+Room 3001
+HMS  1106 646 701
+Gold 5947
+Silv 39
 Silver_in_bank 18000
-Gold_in_bank 3500
-Exp  77257
+Gold_in_bank 500
+Exp  83175
 PCkills  0
-PCkilled 1
+PCkilled 2
 Akills   0
 Akilled  5
 PKRank   0
 Pos  8
-Alig 903
+Alig 1000
 FImm 0
 FRes 0
 FVul 0
-Plr  FQTU
-Video 0
-Act  CDEFGHJLSTc
-AfBy QV
+Plr  FQT
+Video D
+Act  CDGHJLSTc
+AfBy HNOQUVbce
 Comm NO
 Revk 0
 Cgrp A
 Cnsr 0
-Prac 12
-Trai 14
+Prac 28
+Trai 5
 Wimp 0
+Familiar 0
 Atrib 21 18 18 18 18 18
-SkillPnts  114
-QuestPnts  12
-SQuestNext 8
-Afk {B[{CWed Jul  3 23:01:43 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+SkillPnts  321
+QuestPnts  101
+QuestNext  7
+SQuestNext 7
+Afk {B[{CThu Oct  2 14:04:49 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {GSide{Hkick{c of {NSuper{Bdan~
 Immn ~
@@ -55,26 +56,38 @@ Pnts 40
 Rank {RB{Pl{Wt~
 Aura ~
 TSex 1
-LLev 125
+LLev 144
 Email aznxkwan@hotmail.com~
 Deit montrey~
 Stus (insert title here)~
 RmCt 2
 ExSk 0
 Raff 104
-Lsit ACBE7098.ipt.aol.com~
-Ltim Fri Jul 12 21:43:44 2002
+Lsit 128.120.182.2~
+Ltim Mon May 24 06:12:21 2004
 ~
-LSav Fri Jul 12 21:53:23 2002
+LSav Mon May 24 06:17:10 2004
 ~
-HMSP 1404 398 1037
+HMSP 1516 435 1107
 THMS 0 0 0
-Cnd  0 0 31 31
+Cnd  0 12 40 40
+Alias gate c 'gate'~
+Alias dm cast 'dispel magic'~
+Alias undo cast 'undo spell'~
+Alias ff cast 'faerie fire'~
+Alias proe cast 'protection evil'~
+Alias prog c 'protection good'~
+Alias qr quest req~
+Alias qc quest com~
+Alias bliz c blizzard~
+Alias ed c 'energy drain'~
+Alias crit c 'cure critical'~
+Alias ar c 'acid rain'~
 Sk 76 1 'acid rain'
-Sk 1 1 'age'
-Sk 84 1 'armor'
+Sk 75 1 'age'
+Sk 86 1 'armor'
 Sk 76 1 'bless'
-Sk 75 1 'blindness'
+Sk 76 1 'blindness'
 Sk 80 1 'blizzard'
 Sk 1 1 'call lightning'
 Sk 1 1 'calm'
@@ -85,70 +98,73 @@ Sk 1 1 'control weather'
 Sk 1 1 'cure blindness'
 Sk 100 1 'cure critical'
 Sk 1 1 'cure disease'
-Sk 1 1 'cure light'
-Sk 1 1 'cure poison'
+Sk 2 1 'cure light'
+Sk 2 1 'cure poison'
 Sk 1 1 'cure serious'
 Sk 77 1 'curse'
 Sk 1 1 'detect evil'
 Sk 1 1 'detect good'
-Sk 1 1 'detect hidden'
+Sk 75 1 'detect hidden'
 Sk 75 1 'detect invis'
 Sk 1 1 'detect magic'
 Sk 1 1 'detect poison'
 Sk 76 1 'dispel magic'
-Sk 77 1 'divine healing'
+Sk 78 1 'divine healing'
 Sk 1 1 'divine regeneration'
 Sk 1 1 'energy drain'
-Sk 86 1 'faerie fire'
+Sk 87 1 'faerie fire'
 Sk 1 1 'faerie fog'
 Sk 36 1 'fireproof'
-Sk 1 1 'flameshield'
-Sk 81 1 'fly'
+Sk 77 1 'flameshield'
+Sk 82 1 'fly'
 Sk 90 1 'frenzy'
-Sk 89 1 'gate'
+Sk 90 1 'gate'
 Sk 76 1 'giant strength'
 Sk 88 1 'haste'
 Sk 1 1 'heal'
 Sk 1 1 'holy word'
-Sk 82 1 'identify'
+Sk 84 1 'identify'
 Sk 1 1 'infravision'
 Sk 1 1 'know alignment'
-Sk 1 1 'light of truth'
+Sk 2 1 'light of truth'
 Sk 1 1 'lightning bolt'
 Sk 77 1 'locate life'
 Sk 84 1 'locate object'
 Sk 1 1 'mass healing'
-Sk 1 1 'nexus'
+Sk 3 1 'nexus'
 Sk 86 1 'pass door'
 Sk 1 1 'plague'
 Sk 1 1 'poison'
 Sk 75 1 'portal'
-Sk 1 1 'protection evil'
-Sk 1 1 'protection good'
+Sk 77 1 'protection evil'
+Sk 75 1 'protection good'
 Sk 1 1 'refresh'
 Sk 79 1 'regeneration'
-Sk 75 1 'remove alignment'
+Sk 76 1 'remove alignment'
 Sk 1 1 'remove invisibility'
 Sk 75 1 'remove curse'
-Sk 95 1 'sanctuary'
-Sk 81 1 'shield'
-Sk 97 1 'slow'
+Sk 98 1 'sanctuary'
+Sk 1 1 'scry'
+Sk 82 1 'shield'
+Sk 98 1 'slow'
 Sk 1 1 'steel mist'
-Sk 85 1 'stone skin'
-Sk 78 1 'summon'
+Sk 86 1 'stone skin'
+Sk 79 1 'summon'
 Sk 1 1 'summon object'
-Sk 88 1 'talon'
+Sk 89 1 'talon'
 Sk 1 1 'teleport'
-Sk 77 1 'teleport object'
+Sk 78 1 'teleport object'
 Sk 95 1 'undo spell'
 Sk 75 1 'vision'
-Sk 75 1 'weaken'
-Sk 75 1 'word of recall'
-Sk 79 1 'axe'
+Sk 76 1 'weaken'
+Sk 76 1 'word of recall'
+Sk 82 1 'axe'
+Sk 90 1 'polearm'
 Sk 100 1 'sword'
-Sk 84 1 'backstab'
+Sk 85 1 'backstab'
 Sk 76 1 'bash'
 Sk 100 1 'circle'
+Sk 75 1 'dirt kicking'
 Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
 Sk 100 1 'kick'
@@ -157,15 +173,16 @@ Sk 100 1 'second attack'
 Sk 100 1 'third attack'
 Sk 100 1 'dual wield'
 Sk 79 1 'hunt'
+Sk 83 1 'fast healing'
 Sk 76 1 'forge'
 Sk 75 1 'hide'
 Sk 100 1 'scan'
 Sk 1 1 'scrolls'
 Sk 1 1 'staves'
-Sk 1 1 'wands'
-Sk 50 1 'recall'
+Sk 76 1 'wands'
+Sk 51 1 'recall'
 Sk 100 1 'riposte'
-Sk 77 1 'fourth attack'
+Sk 87 1 'fourth attack'
 Sk 67 1 'rage'
 Gr 'rom basics'
 Gr 'warrior basics'
@@ -178,296 +195,14 @@ Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'bless'   0  81   4  12  18          0 1
-Affc 'bless'   0  77   4 -12  24          0 1
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 4595
-Nest 0
-Cond 81
-Wear 13
-Cost 0
-End
-
-#O
-Vnum 20006
-Nest 0
-ExtF 17039680
-Cond 84
-Wear 5
-Cost 999
-End
-
-#O
-Vnum 11655
-Nest 0
-ExtF 262146
-Cond 90
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 14030
-Nest 0
-Cond 98
-Wear 19
-Cost 6000
-End
-
-#O
-Vnum 17013
-Nest 0
-Cond 84
-Wear -1
-Cost 50
-End
-
-#O
-Vnum 17013
-Nest 0
-Cond 92
-Wear -1
-Cost 50
-End
-
-#O
-Vnum 17009
-Nest 0
-Cond 93
-Wear 6
-Cost 200
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 17001
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 17004
-Nest 0
-Wear 18
-Cost 200
-End
-
-#O
-Vnum 24808
-Nest 0
-Cond 94
-Wear 7
-Cost 6000
-End
-
-#O
-Vnum 24807
-Nest 0
-Cond 94
-Wear 2
-Cost 5000
-End
-
-#O
-Vnum 24806
-Nest 0
-Cond 91
-Wear 9
-Cost 5000
-End
-
-#O
-Vnum 24801
-Nest 0
-Cond 96
-Wear 10
-Cost 2000
-End
-
-#O
-Vnum 24804
-Nest 0
-Cond 94
-Wear 4
-Cost 4000
-End
-
-#O
-Vnum 24822
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'cure critical'
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
+Affc 'flameshield'   0  82  38 -20  17  134217728 1
+Affc 'armor'   0  83  20 -20  17          0 1
+Affc 'protection good'   0  81  20  -1  24      16384 1
+Affc 'protection evil'   0  82  20  -1  24       8192 1
+Affc 'sanctuary'   0  83   9   0   0        128 1
+Affc 'talon'   0  83   6   0   0 1073741824 1
+Affc 'hide'   0  82  78   0   0      65536 1
+Affc 'pass door'   0  81  15   0   0    1048576 1
 End
 
 #O
@@ -478,50 +213,12 @@ Cost 90
 End
 
 #O
-Vnum 24805
-Nest 0
-Wear 12
-Cost 4000
-End
-
-#O
-Vnum 24804
-Nest 0
-Wear 3
-Cost 4000
-End
-
-#O
 Vnum 2917
 Nest 0
 ExtF 16777283
+Cond 83
 Wear 8
 Cost 5000
-End
-
-#O
-Vnum 14041
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 14041
-Nest 0
-Cond 97
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 3092
-Nest 0
-Wear -1
-Cost 290
-Spell 1 'detect invis'
-Spell 2 'detect magic'
-Spell 3 'detect hidden'
 End
 
 #O
@@ -532,48 +229,287 @@ Cost 2000
 End
 
 #O
-Vnum 8652
+Vnum 2914
 Nest 0
+Cond 94
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 17013
+Nest 0
+Wear 2
+Cost 50
+End
+
+#O
+Vnum 8204
+Nest 0
+Cond 93
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 2916
+Nest 0
+ExtF 16777283
+Cond 90
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 2912
+Nest 0
+ExtF 16777283
+Cond 90
+Wear 5
+Cost 5000
+End
+
+#O
+Vnum 3808
+Nest 0
+Wear -1
+Cost 30000
+End
+
+#O
+Vnum 17320
+Nest 0
+Wear 12
+Cost 2500
+Val  250 1 17321 40 30
+End
+
+#O
+Vnum 11661
+Nest 1
+Cond 92
 Wear -1
 Cost 10
-Spell 3 'fly'
 End
 
 #O
-Vnum 5607
-Nest 0
+Vnum 10152
+Nest 1
+Cond 99
 Wear -1
-Cost 2000
-End
-
-#O
-Vnum 5607
-Nest 0
-Wear 15
-Cost 2000
+Cost 5500
 End
 
 #O
 Vnum 14030
-Nest 0
-Cond 81
-Wear 16
+Nest 1
+Wear -1
 Cost 6000
+End
+
+#O
+Vnum 17001
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 17036
+Nest 1
+Wear -1
+Time 513
+Cost 650
+Spell 1 'fireball'
+Spell 2 'curse'
+Spell 3 'fireball'
+End
+
+#O
+Vnum 17008
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 17008
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 20004
+Nest 1
+ExtF 65
+Cond 90
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 14030
+Nest 1
+Cond 87
+Wear -1
+Cost 6000
+ExDe sword katana~ A beautiful looking blade glows here.
+There are some personal {Cengravings{x on this weapon.
+~
 ExDe engravings~ [12/10/01] {YSuPerDaN{W {YDa {PAzN {CSuPaHeRo{x engraved {Ythis{x:
  "Presented to SuPerDaN 12.9.01".
 [12/10/01] {YSuPerDaN{W {YDa {PAzN {CSuPaHeRo{x engraved {Ythis{x:
  "Level 58".
 ~
-ExDe sword katana~ A beautiful looking blade glows here.
-There are some personal {Cengravings{x on this weapon.
-~
 End
 
 #O
-Vnum 24807
+Vnum 17004
+Nest 1
+Cond 96
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 17009
+Nest 1
+Cond 85
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 4405
+Enchanted
 Nest 0
+ExtF 67
+Cond 94
+Wear 10
+Lev  86
+Cost 0
+Affc 'reserved'   1  85  -1   2   2          0 1
+Affc 'reserved'   1  85  -1   2   5          0 1
+Affc 'reserved'   1  85  -1  50  12          0 1
+Affc 'reserved'   1  85  -1  20  13          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'reserved'   1  85  -1  -3  24          0 1
+End
+
+#O
+Vnum 4430
+Nest 0
+Wear 13
+Cost 2000
+End
+
+#O
+Vnum 4422
+Nest 0
+ExtF 64
+Cond 93
+Wear 7
+Cost 3400
+End
+
+#O
+Vnum 4441
+Nest 0
+Cond 95
+Wear 19
+Cost 1800
+End
+
+#O
+Vnum 4416
+Nest 0
+Cond 83
 Wear 1
-Cost 5000
+Cost 5800
+End
+
+#O
+Vnum 1204
+Nest 0
+Wear -1
+Cost 12
+End
+
+#O
+Vnum 14041
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10103
+Nest 0
+Wear -1
+Cost 22000
+End
+
+#O
+Vnum 2914
+Nest 0
+Cond 81
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10103
+Nest 0
+Cond 94
+Wear 18
+Cost 22000
+End
+
+#O
+Vnum 4441
+Nest 0
+Cond 98
+Wear 16
+Cost 1800
+End
+
+#O
+Vnum 11759
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 11669
+Nest 0
+Cond 97
+Wear 4
+Cost 8300
+End
+
+#O
+Vnum 11669
+Nest 0
+Wear 3
+Cost 8300
+End
+
+#O
+Vnum 14041
+Nest 0
+Cond 97
+Wear -1
+Cost 750
+End
+
+#O
+Vnum 4502
+Nest 0
+Wear -1
+Cost 6000
 End
 
 #L
@@ -613,24 +549,6 @@ Cost 200
 End
 
 #B
-Vnum 4405
-Enchanted
-Nest 0
-ExtF 67
-Cond 84
-Wear -1
-Lev  86
-Cost 0
-Affc 'reserved'   1  85  -1  -3  24          0 1
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'reserved'   1  85  -1  20  13          0 1
-Affc 'reserved'   1  85  -1  50  12          0 1
-Affc 'reserved'   1  85  -1   2   5          0 1
-Affc 'reserved'   1  85  -1   2   2          0 1
-End
-
-#B
 Vnum 17100
 Nest 0
 Cond 89
@@ -639,10 +557,20 @@ Cost 159
 End
 
 #B
-Vnum 11669
+Vnum 20004
 Nest 0
+ExtF 65
+Cond 94
 Wear -1
-Cost 8300
+Cost 1000
+End
+
+#B
+Vnum 9911
+Nest 0
+Cond 95
+Wear -1
+Cost 8500
 End
 
 #END

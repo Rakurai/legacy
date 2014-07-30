@@ -1,22 +1,20 @@
 #PLAYER
 Name SuPerDaN~
 Id   1005711169
-LogO 1026881816
+LogO 1105578098
 Vers 14
 Mexp 2
 Pass gafsd~
 Prom {W<{C%h/%Hhp {G%m/%Mma {Y%vmv {P%X{Rexp{W> ~
 Race giant~
-Clan order~
 Cla  3
 Levl 73
-Tru  0
 Plyd 274293
 Back 273944
 Note 1026881481 1026881481 1026881481 1026881481 1026881481 1026881481 1026881481
 Scro 22
-Room 24453
-HMS  479 827 240
+Room 3001
+HMS  1731 1025 985
 Gold 618
 Silv 47
 Silver_in_bank 169
@@ -32,17 +30,19 @@ Alig 698
 FImm 0
 FRes HI
 FVul BP
-Plr  FU
+Plr  FHU
 Video 0
 Act  CDEFGHJLSTc
 AfBy HUVe
 Comm NOc
 Revk 0
-Cgrp A
+Cgrp AI
 Cnsr C
+Block_Remote 0
 Prac 0
 Trai 1
 Wimp 20
+Familiar 0
 Atrib 25 14 17 16 22 18
 SkillPnts  57
 QuestPnts  127
@@ -58,15 +58,15 @@ LLev 73
 Email leechieboi@hotmail.com~
 Deit Liriel~
 Lsit 66-81-159-167-modem.o1.com~
-Ltim Tue Jul 16 23:51:07 2002
+Ltim Wed Jul 17 00:51:07 2002
 ~
-LSav Tue Jul 16 23:56:56 2002
+LSav Wed Jan 12 20:01:38 2005
 ~
 Finf When in need, call SUPERDAN! Da AzN SuPaHeRo
 ~
 HMSP 1336 345 985
 THMS 0 0 0
-Cnd  0 0 18 26
+Cnd  0 0 48 48
 Sk 1 1 'age'
 Sk 75 1 'armor'
 Sk 1 1 'blindness'
@@ -108,6 +108,7 @@ Sk 1 1 'regeneration'
 Sk 83 1 'sanctuary'
 Sk 78 1 'shield'
 Sk 77 1 'slow'
+Sk 1 1 'starve'
 Sk 75 1 'stone skin'
 Sk 76 1 'summon'
 Sk 1 1 'summon object'
@@ -119,6 +120,7 @@ Sk 75 1 'undo spell'
 Sk 1 1 'weaken'
 Sk 1 1 'word of recall'
 Sk 100 1 'sword'
+Sk 1 1 'bow'
 Sk 86 1 'shield block'
 Sk 88 1 'bash'
 Sk 100 1 'dodge'
@@ -142,14 +144,14 @@ Gr 'healing'
 Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
-Affc 'haste'   0  72  34   4   2    2097152 1
-Affc 'talon'   0  73   7   0   0 1073741824 1
-Affc 'armor'   0  71  21 -20  17          0 1
-Affc 'stone skin'   0  71  70 -40  17          0 1
-Affc 'sanctuary'   0  73   9   0   0        128 1
-Affc 'giant strength'   0  62  34   4   1          0 1
-Affc 'shield'   0  65  42 -20  17          0 1
-Affc 'pass door'   0  72   9   0   0    1048576 1
+Affc 'haste'   0  71  32   4   2    2097152 1
+Affc 'talon'   0  73   5   0   0 1073741824 1
+Affc 'armor'   0  71  19 -20  17          0 1
+Affc 'stone skin'   0  71  68 -40  17          0 1
+Affc 'sanctuary'   0  73   7   0   0        128 1
+Affc 'giant strength'   0  61  32   4   1          0 1
+Affc 'shield'   0  65  40 -20  17          0 1
+Affc 'pass door'   0  71   7   0   0    1048576 1
 End
 
 #O

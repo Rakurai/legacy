@@ -1,0 +1,129 @@
+#PLAYER
+Name Lashen~
+Id   1085862090
+LogO 1085862212
+Vers 14
+Mexp 1
+Pass pelase~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  4
+Levl 1
+Tru  0
+Plyd 25
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3700
+HMS  20 100 100
+Gold 0
+Silv 0
+Exp  1000
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 5
+Trai 3
+Wimp 0
+Familiar 0
+Atrib 14 17 12 14 14 15
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 6
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kismet~
+Lsit 209.142.139.123~
+Ltim Sat May 29 16:23:07 2004
+~
+LSav Sat May 29 16:23:32 2004
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 48 48 48
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 1 1 'blood moon'
+Sk 1 1 'energy drain'
+Sk 1 1 'fear'
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'resurrect'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 40 1 'dagger'
+Sk 1 1 'polearm'
+Sk 1 1 'scribe'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'illusion'
+Gr 'necromancy'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

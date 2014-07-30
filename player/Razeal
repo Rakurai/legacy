@@ -1,24 +1,23 @@
 #PLAYER
 Name Razeal~
 Id   1025748814
-LogO 1027068601
+LogO 1057793734
 Vers 14
 Mexp 2
 Pass sk8rdude~
 Prom %CW<%CC%h%CW/%CT%Hhp %CG%m%CW/%CH%Mmp %CY%v%CW/%Cb%Vmv%CW> [%CG%XXnl%CW] (%CR%z%CW) [%CP%q%CW] ~
 Race elf~
-Clan kindred~
 Cla  2
 Levl 82
 Tru  91
-Plyd 26971
-Back 0
-Note 0 0 0 0 0 1026877162 0
+Plyd 27554
+Back 27476
+Note 0 0 0 0 0 1027810204 0
 Scro 22
 Room 3054
 HMS  1674 1171 818
-Gold 355
-Silv 15
+Gold 354
+Silv 35
 Exp  86317
 PCkills  0
 PCkilled 0
@@ -30,10 +29,10 @@ Alig 422
 FImm 0
 FRes B
 FVul Z
-Plr  MQU
+Plr  HMQU
 Video 0
 Act  CDEFGHJLQSc
-AfBy DFPc
+AfBy DFPQc
 Comm NO
 Revk 0
 Cgrp A
@@ -43,7 +42,6 @@ Trai 3
 Wimp 0
 Atrib 16 21 18 23 16 18
 QuestPnts  104
-QuestNext  9
 Afk {B[{CThu Jul 11 00:55:22 2002{B] {CUnknown Departure.{x
 ~
 Titl  Draconis, {TC{Nr{Be{Ca{Bt{No{Tr {Ha{Gn{Hd {bD{Re{Ps{Rt{br{Ro{Py{Re{br~
@@ -58,14 +56,14 @@ Stus blah~
 RmCt 2
 ExSk 0
 Raff 100
-Lsit pavilion.willamette.net~
-Ltim Fri Jul 19 03:46:44 2002
+Lsit ppp01-132.nws.orst.edu~
+Ltim Fri Dec 20 01:12:25 2002
 ~
-LSav Fri Jul 19 03:50:01 2002
+LSav Wed Jul 09 19:35:34 2003
 ~
 HMSP 1194 736 868
 THMS 0 0 0
-Cnd  0 0 7 7
+Cnd  0 0 0 0
 Sk 43 1 'acid breath'
 Sk 75 1 'acid rain'
 Sk 75 1 'age'
@@ -213,9 +211,10 @@ Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
 Gr 'alteration'
-Affc 'detect invis'   0  82  79   0   0          8 1
-Affc 'detect hidden'   0  82  79   0   0         32 1
-Affc 'sneak'   0  79  77   0   0      32768 1
+Affc 'hide'   0  81  73   0   0      65536 1
+Affc 'sneak'   0  77  64   0   0      32768 1
+Affc 'detect hidden'   0  79  66   0   0         32 1
+Affc 'detect invis'   0  79  66   0   0          8 1
 End
 
 #O
@@ -306,9 +305,9 @@ Nest 0
 Wear 19
 Cost 0
 Val  1 8 9 21 212
-Affc 'reserved'   1  60  -1  45  12          0 1
-Affc 'reserved'   1  60  -1   6  18          0 1
 Affc 'reserved'   1  60  -1   6  19          0 1
+Affc 'reserved'   1  60  -1   6  18          0 1
+Affc 'reserved'   1  60  -1  45  12          0 1
 End
 
 #O
@@ -354,6 +353,13 @@ Wear 8
 Cost 500
 End
 
+#O
+Vnum 17101
+Nest 0
+Wear -1
+Cost 0
+End
+
 #L
 Vnum 119
 Nest 0
@@ -364,9 +370,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -404,11 +410,11 @@ Nest 0
 Cond 94
 Wear -1
 Cost 0
-Affc 'reserved'   1  91  -1  10  18          0 1
-Affc 'reserved'   1  91  -1  50  13          0 1
-Affc 'reserved'   1  91  -1 110  12          0 1
-Affc 'reserved'   1  91  -1   3   1          0 1
 Affc 'reserved'   1  91  -1   2  22          0 1
+Affc 'reserved'   1  91  -1   3   1          0 1
+Affc 'reserved'   1  91  -1 110  12          0 1
+Affc 'reserved'   1  91  -1  50  13          0 1
+Affc 'reserved'   1  91  -1  10  18          0 1
 End
 
 #B
@@ -535,10 +541,10 @@ ExtF 17039425
 Wear -1
 Lev  71
 Cost 0
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1  70  -1   4  18          0 1
-Affc 'reserved'   1  70  -1   2  19          0 1
 Affc 'reserved'   1  70  -1   5   1          0 1
+Affc 'reserved'   1  70  -1   2  19          0 1
+Affc 'reserved'   1  70  -1   4  18          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
 End
 
 #B

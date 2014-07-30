@@ -1,72 +1,71 @@
 #PLAYER
 Name Blackhart~
 Id   996003223
-LogO 1025744390
+LogO 1105578158
 Vers 14
 Mexp 2
 Pass freaky~
 Prom %CV%h/%H%CMhp %CG%m/%M%CHm %CP%v/%V%CRmv%CT %CW%X%Cgex %CC(%CC%Q %q) %CB%z ~
 Race giant~
-Clan rebel~
 Cla  7
-Levl 70
-Tru  0
-Plyd 233490
+Levl 71
+Plyd 263182
 Back 124002
-Note 1024228877 1024228877 1024228877 1024228877 1024228877 1025664276 1024228877
+Note 1035416197 1034885753 1035385634 1034787428 1034764544 1034983659 1034982849
 Scro 22
-Room 8543
-HMS  1867 801 1009
-Gold 4816
-Silv 1946
-Exp  84347
+Room 3001
+HMS  1878 961 1020
+Gold 3937
+Silv 974
+Exp  86148
 PCkills  0
-PCkilled 1
+PCkilled 3
 Akills   0
 Akilled  0
 PKRank   0
-Pos  4
-Alig -1000
+Pos  8
+Alig -6
 FImm 0
 FRes HI
 FVul BP
-Plr  ACF
+Plr  ACFH
 Video 0
 Act  CDEFGHIJLQSTc
-AfBy Ybc
+AfBy TVYZc
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AI
 Cnsr AB
+Block_Remote 0
 Prac 0
-Trai 0
+Trai 1
 Wimp 0
+Familiar 0
 Atrib 18 14 17 11 23 11
 SkillPnts  10
 QuestPnts  25
-QpDonated  69
-Afk {B[{CWed Jul  3 19:45:55 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CSun Oct 20 16:58:39 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  Is a itty bit on the wierd side~
 Immn ~
 Pnts 40
-Rank {GP{HD{cW{x~
+Rank {GP{HD{cW~
 Aura ~
 TSex 1
-LLev 61
+LLev 72
 Email Gonzoe_69@yahoo.com~
 Deit Liriel~
 Lsit 12-220-49-150.client.insightBB.com~
-Ltim Wed Jul 03 19:33:24 2002
+Ltim Wed Oct 23 19:59:58 2002
 ~
-LSav Wed Jul 03 19:59:50 2002
+LSav Wed Jan 12 20:02:38 2005
 ~
 Finf ICQ# 128260684
 web page: http://www.geocities.com/Gonzoe_69/index.html
 ~
-HMSP 1512 380 909
+HMSP 1533 386 920
 THMS 0 0 0
-Cnd  0 0 0 0
+Cnd  0 0 100 100
 Alias b bash~
 Alias h c 'divine healing'~
 Alias [ c slow~
@@ -84,9 +83,11 @@ Alias l c curse~
 Alias - c weaken~
 Alias z recall~
 Alias a aff~
+Query seraphim~
+Query bigsexy~
 Sk 1 1 'acid breath'
 Sk 1 1 'acid rain'
-Sk 1 1 'age'
+Sk 46 1 'age'
 Sk 77 1 'armor'
 Sk 75 1 'blindness'
 Sk 1 1 'blizzard'
@@ -100,7 +101,7 @@ Sk 1 1 'cure light'
 Sk 1 1 'cure serious'
 Sk 75 1 'curse'
 Sk 1 1 'dispel magic'
-Sk 76 1 'divine healing'
+Sk 77 1 'divine healing'
 Sk 1 1 'divine regeneration'
 Sk 1 1 'energy drain'
 Sk 1 1 'faerie fire'
@@ -111,7 +112,7 @@ Sk 35 1 'flameshield'
 Sk 82 1 'fly'
 Sk 1 1 'frost breath'
 Sk 1 1 'gas breath'
-Sk 75 1 'gate'
+Sk 80 1 'gate'
 Sk 81 1 'giant strength'
 Sk 79 1 'haste'
 Sk 83 1 'heal'
@@ -120,17 +121,18 @@ Sk 1 1 'lightning bolt'
 Sk 89 1 'lightning breath'
 Sk 1 1 'mass healing'
 Sk 1 1 'nexus'
-Sk 77 1 'pass door'
+Sk 80 1 'pass door'
 Sk 1 1 'plague'
 Sk 75 1 'poison'
 Sk 1 1 'portal'
 Sk 79 1 'protection evil'
-Sk 76 1 'protection good'
+Sk 77 1 'protection good'
 Sk 1 1 'refresh'
 Sk 78 1 'regeneration'
 Sk 77 1 'sanctuary'
 Sk 78 1 'shield'
 Sk 86 1 'slow'
+Sk 1 1 'starve'
 Sk 54 1 'steel mist'
 Sk 79 1 'stone skin'
 Sk 75 1 'summon'
@@ -144,17 +146,18 @@ Sk 75 1 'word of recall'
 Sk 40 1 'axe'
 Sk 2 1 'flail'
 Sk 100 1 'sword'
+Sk 1 1 'bow'
 Sk 83 1 'bash'
 Sk 100 1 'enhanced damage'
-Sk 47 1 'hand to hand'
+Sk 54 1 'hand to hand'
 Sk 100 1 'parry'
-Sk 91 1 'second attack'
+Sk 92 1 'second attack'
 Sk 89 1 'third attack'
 Sk 100 1 'dual wield'
-Sk 88 1 'fast healing'
+Sk 89 1 'fast healing'
 Sk 78 1 'repair'
 Sk 76 1 'lore'
-Sk 84 1 'meditation'
+Sk 87 1 'meditation'
 Sk 100 1 'scan'
 Sk 1 1 'scrolls'
 Sk 1 1 'staves'
@@ -169,11 +172,14 @@ Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'flameshield'   0  60   5 -20  17  134217728 1
-Affc 'steel mist'   0  65   6  -7  17   16777216 1
-Affc 'shield'   0  61  48 -20  17          0 1
-Affc 'stone skin'   0  62  40 -40  17          0 1
-Affc 'giant strength'   0  62  40   4   1          0 1
+Affc 'steel mist'   0  66  16  -7  17   16777216 1
+Affc 'haste'   0  65  14   4   2    2097152 1
+Affc 'fly'   0  63  42   0   0     524288 1
+Affc 'stone skin'   0  62  11 -40  17          0 1
+Affc 'giant strength'   0  57  10   4   1          0 1
+Affc 'blood moon'   0  89  39   5  18          0 1
+Affc 'blood moon'   0  90  39   8  19          0 1
+Affc 'divine regeneration'   0  90  39   0   0   33554432 3
 End
 
 #O
@@ -181,14 +187,14 @@ Vnum 79
 Nest 0
 Wear -1
 Cost 0
-Val  150 118 0 0 0
+Val  150 0 0 0 0
 End
 
 #O
 Vnum 10168
 Nest 0
 ExtF 16777219
-Wear -1
+Wear 2
 Cost 0
 End
 
@@ -197,37 +203,33 @@ Vnum 20008
 Enchanted
 Nest 0
 ExtF 16777537
+Cond 96
 Wear 13
 Lev  60
 Cost 0
-Affc 'enchant weapon'   0  86  -1   1  18          0 1
-Affc 'enchant weapon'   1  86  -1   1  19          0 1
-Affc 'reserved'   1  59  -1   2   5          0 1
-Affc 'reserved'   1  59  -1 100  12          0 1
-Affc 'reserved'   1  59  -1  50  13          0 1
 Affc 'reserved'   1  59  -1  -8  24          0 1
+Affc 'reserved'   1  59  -1  50  13          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
+Affc 'reserved'   1  59  -1   2   5          0 1
+Affc 'enchant weapon'   1  86  -1   1  19          0 1
+Affc 'enchant weapon'   0  86  -1   1  18          0 1
 End
 
 #O
 Vnum 11655
 Nest 0
 ExtF 262146
-Wear -1
+Cond 96
+Wear 9
 Cost 0
 End
 
 #O
 Vnum 10167
 Nest 0
+Cond 96
 Wear 4
 Cost 3800
-End
-
-#O
-Vnum 11644
-Nest 0
-Wear 7
-Cost 10
 End
 
 #O
@@ -248,6 +250,7 @@ End
 #O
 Vnum 5607
 Nest 0
+Cond 98
 Wear 14
 Cost 2000
 End
@@ -276,13 +279,6 @@ Cost 950
 End
 
 #O
-Vnum 14030
-Nest 0
-Wear 19
-Cost 0
-End
-
-#O
 Vnum 3032
 Nest 0
 Wear -1
@@ -295,49 +291,6 @@ Nest 1
 Wear -1
 Cost 10
 Spell 3 'fly'
-End
-
-#O
-Vnum 24619
-Nest 0
-Wear -1
-Cost 6000
-End
-
-#O
-Vnum 24616
-Nest 0
-Wear 2
-Cost 4500
-End
-
-#O
-Vnum 24618
-Nest 0
-Wear 9
-Cost 5500
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
 End
 
 #O
@@ -363,16 +316,16 @@ ExtF 16777281
 Wear 8
 Lev  53
 Cost 0
-Affc 'enchant armor'   1  76  -1  -5  17          0 1
-Affc 'reserved'   1  50  -1   2  18          0 1
-Affc 'reserved'   1  50  -1   2  19          0 1
 Affc 'reserved'   1  50  -1  -4  20          0 1
+Affc 'reserved'   1  50  -1   2  19          0 1
+Affc 'reserved'   1  50  -1   2  18          0 1
+Affc 'enchant armor'   1  76  -1  -5  17          0 1
 End
 
 #O
 Vnum 10171
 Nest 0
-Wear 0
+Wear -1
 Cost 3300
 End
 
@@ -380,36 +333,23 @@ End
 Vnum 3808
 Enchanted
 Nest 0
+Cond 99
 Wear 12
 Lev  61
 Cost 0
-Affc 'enchant armor'   1  76  -1  -2  17          0 1
-Affc 'reserved'   1  60  -1   2   5          0 1
-Affc 'reserved'   1  60  -1  75  12          0 1
-Affc 'reserved'   1  60  -1  50  13          0 1
-Affc 'reserved'   1  60  -1   3  18          0 1
-Affc 'reserved'   1  60  -1   3  19          0 1
 Affc 'reserved'   1  60  -1  -3  24          0 1
-End
-
-#O
-Vnum 1277
-Nest 0
-Wear -1
-Cost 10000
-End
-
-#O
-Vnum 826
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'teleport'
+Affc 'reserved'   1  60  -1   3  19          0 1
+Affc 'reserved'   1  60  -1   3  18          0 1
+Affc 'reserved'   1  60  -1  50  13          0 1
+Affc 'reserved'   1  60  -1  75  12          0 1
+Affc 'reserved'   1  60  -1   2   5          0 1
+Affc 'enchant armor'   1  76  -1  -2  17          0 1
 End
 
 #O
 Vnum 9911
 Nest 0
+Cond 90
 Wear 10
 Cost 8500
 End
@@ -422,13 +362,6 @@ Cost 1000
 End
 
 #O
-Vnum 14030
-Nest 0
-Wear 16
-Cost 0
-End
-
-#O
 Vnum 14016
 Nest 0
 Wear -1
@@ -438,6 +371,7 @@ End
 #O
 Vnum 10169
 Nest 0
+Cond 97
 Wear 18
 Cost 0
 End
@@ -448,6 +382,136 @@ Nest 0
 ExtF 64
 Cond 96
 Wear 5
+Cost 0
+End
+
+#O
+Vnum 17001
+Nest 0
+Cond 99
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 48 0 0 0
+End
+
+#O
+Vnum 24620
+Nest 0
+Wear 7
+Cost 7000
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 99
+Wear 19
+Cost 0
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 92
+Wear -1
 Cost 0
 End
 

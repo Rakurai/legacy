@@ -1,31 +1,31 @@
 #PLAYER
 Name Teiko~
 Id   1016819372
-LogO 1025553327
+LogO 1060655788
 Vers 14
 Mexp 2
 Pass matmat~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race vampire~
 Cla  4
-Levl 20
+Levl 22
 Tru  0
-Plyd 45641
-Back 19082
-Note 1023297740 1023297740 1023297740 1023297740 1023297740 1023297740 1023297740
+Plyd 55106
+Back 55094
+Note 1060583430 1060583430 1060583430 1060583430 1060583430 1060583430 1060583430
 Scro 22
-Room 8543
-HMS  162 278 152
+Room 9415
+HMS  233 404 211
 Gold 215
-Silv 927
-Gold_in_bank 7701
-Exp  22600
+Silv 1845
+Gold_in_bank 5701
+Exp  24273
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  4
+Pos  8
 Alig -1000
 FImm 0
 FRes BM
@@ -33,16 +33,16 @@ FVul NS
 Plr  U
 Video 0
 Act  CDEFGHJLQSc
-AfBy HTUVYZ
+AfBy T
 Comm NO
 Revk 0
 Cgrp A
 Cnsr B
-Prac 29
-Trai 2
+Prac 39
+Trai 1
 Wimp 0
-Atrib 19 22 22 20 11 12
-Afk {B[{CTue Jun 18 23:13:43 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Atrib 19 22 22 20 14 12
+Afk {B[{CMon Aug 11 03:01:54 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  R/C~
 Immn ~
@@ -50,16 +50,17 @@ Pnts 40
 Rank ~
 Aura ~
 TSex 2
-LLev 12
+LLev 13
 Deit Vegita~
-Lsit ool-43536293.dyn.optonline.net~
-Ltim Mon Jul 01 14:29:59 2002
+Lsit 68.171.188.213~
+Ltim Mon Aug 11 22:06:56 2003
 ~
-LSav Mon Jul 01 14:55:27 2002
+LSav Mon Aug 11 22:36:28 2003
 ~
-HMSP 144 357 200
+HMSP 159 383 211
 THMS 0 2 0
-Cnd  0 18 47 36
+Cnd  0 0 9 2
+Colr 3 37 1
 Query Matuga~
 Sk 1 1 'acid blast'
 Sk 1 1 'acid rain'
@@ -68,7 +69,7 @@ Sk 1 1 'animate skeleton'
 Sk 1 1 'animate wraith'
 Sk 1 1 'animate gargoyle'
 Sk 1 1 'animate zombie'
-Sk 75 1 'armor'
+Sk 76 1 'armor'
 Sk 76 1 'blindness'
 Sk 1 1 'blizzard'
 Sk 75 1 'blood moon'
@@ -79,7 +80,7 @@ Sk 75 1 'cancellation'
 Sk 1 1 'chain lightning'
 Sk 1 1 'charm person'
 Sk 79 1 'chill touch'
-Sk 78 1 'colour spray'
+Sk 80 1 'colour spray'
 Sk 75 1 'control weather'
 Sk 76 1 'curse'
 Sk 75 1 'dispel magic'
@@ -92,8 +93,8 @@ Sk 75 1 'fireproof'
 Sk 1 1 'firestorm'
 Sk 1 1 'flameshield'
 Sk 75 1 'invisibility'
-Sk 85 1 'lightning bolt'
-Sk 88 1 'magic missile'
+Sk 87 1 'lightning bolt'
+Sk 89 1 'magic missile'
 Sk 1 1 'mass invis'
 Sk 1 1 'plague'
 Sk 78 1 'poison'
@@ -113,7 +114,7 @@ Sk 1 1 'undo spell'
 Sk 1 1 'ventriloquate'
 Sk 75 1 'weaken'
 Sk 1 1 'wrath'
-Sk 84 1 'dagger'
+Sk 88 1 'dagger'
 Sk 75 1 'polearm'
 Sk 75 1 'scribe'
 Sk 100 1 'scan'
@@ -130,17 +131,6 @@ Gr 'maladictions'
 Gr 'necromancy'
 Gr 'protective'
 Gr 'weather'
-Affc 'haste'   0  14   1   2   2    2097152 1
-Affc 'giant strength'   0  14   9   2   1          0 1
-Affc 'blood moon'   0  99  90   5  18          0 1
-Affc 'blood moon'   0  98  90   8  19          0 1
-Affc 'pass door'   0  98  14   0   0    1048576 1
-Affc 'sanctuary'   0  98   6   0   0        128 4
-Affc 'divine regeneration'   0  98  90   0   0   33554432 4
-Affc 'steel mist'   0  98  26 -10  17   16777216 1
-Affc 'shield'   0  96  98 -20  17          0 1
-Affc 'bless'   0  99  96 -12  24          0 1
-Affc 'bless'   0  99  96  12  18          0 1
 End
 
 #O
@@ -155,16 +145,6 @@ Vnum 72
 Nest 0
 Wear -1
 Cost 30
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token kenneth ultrarare~
-ShD  An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
-Desc An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x waits to be discovered.~
-Wear -1
-Cost 0
 End
 
 #O
@@ -199,16 +179,6 @@ End
 #O
 Vnum 83
 Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 0
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
 Wear -1
 Cost 0
 End
@@ -262,7 +232,7 @@ Vnum 1905
 Nest 0
 Cond 85
 Wear -1
-Time 1393
+Time 1180
 Cost 50
 Spell 1 'charm person'
 End
@@ -366,7 +336,7 @@ End
 #O
 Vnum 16065
 Nest 0
-Cond 99
+Cond 97
 Wear 15
 Cost 1000
 End
@@ -466,13 +436,6 @@ Cost 22
 End
 
 #O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
 Vnum 9924
 Nest 0
 Wear 0
@@ -524,9 +487,9 @@ Enchanted
 Nest 0
 Wear -1
 Cost 1200
-Affc 'reserved'   1  15  -1   1  18          0 1
-Affc 'reserved'   1  15  -1   2   2          0 1
 Affc 'reserved'   1  15  -1   1  23          0 1
+Affc 'reserved'   1  15  -1   2   2          0 1
+Affc 'reserved'   1  15  -1   1  18          0 1
 End
 
 #O
@@ -583,14 +546,6 @@ Spell 3 'charm person'
 End
 
 #O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
 Vnum 79
 Nest 0
 Wear -1
@@ -619,8 +574,79 @@ End
 #O
 Vnum 9914
 Nest 0
+Cond 93
 Wear 16
 Cost 1000
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 4578
+Nest 0
+Wear -1
+Cost 2600
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 1214
+Nest 0
+Name liriel orb gleaming quest~
+ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
+Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 0
+Name liriati tile letter J~
+ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {V[{WJ{V]{x~
+Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
 End
 
 #O
@@ -643,6 +669,20 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
 End
 
 #END

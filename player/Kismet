@@ -1,81 +1,93 @@
 #PLAYER
 Name Kismet~
 Id   1012770047
-LogO 1027193522
-Vers 14
+LogO 1406688584
+Vers 15
 Mexp 2
 Pass liverpool~
-Desc {cA well traveled, thin built man stands before you. Just in from another adventure.
-His {gsilver{c eyes shine with wisdom and the blades he carries appear well used.
-He is most definately human, but his dark hair with {gsilver{c streaks in it leaves you to wonder a little.
-The rumors say that he's quicker than he appears, but quite an entertainer to those he likes.
-The winds pick up just slightly as he passes and you can swear you hear music coming from somewhere.
-Better watch your pack, women, and {bchampagne{c closely. {TKismet {cis back in town.{x
+Desc {TStanding amidst onlookers is a {CBard {Tof well-earned reputation. Traveling Thera from an
+early time he has an {gageless {Tquality about him while still possessing the rugged good
+looks of his youth.  Just stopping to tell of his latest adventure he captures his
+audiences with his {cdazzling silver eyes {Tand {Mhypnotizing voice{T. Wisdom and patience
+shine in his eyes and you hardly notice he is well armed with the {Hlegendary elven
+sword {RD{ce{Rs{ct{Ri{cn{Ry{c'{Rs {cB{Rl{ca{Rd{ce , {Talong with another remarkable weapon forged by the elven smiths
+for his use alone. His {Cs{co{Cn{cg {Twas magically bound to the sword making him master of his
+own {Wfate{T. Wisps of {csilver {Thighlight his otherwise raven black hair. You move closer
+and notice he is taller than first appearances lead on and moves with a grace that
+lets no motion he makes go wasted. A {Cs{co{Cn{cg {Tstarts buzzing in your ears and everything
+seems to {Nslow {Tto a lingering pace; its rumored he has mastered the {BOcarina of time{T.
+
+{bWith champagne in hand, {Ma story to tell, {Rand hearts to break: {HK{ci{Hs{cm{He{ct {His back in town.{x
 ~
-Prom {W<{C%h{Thp {G%m{Hmp {B%v{Nst {c%X{W>{x ~
+Prom {W<{C%h{Thp {G%m{Hma {B%v{Nst{W>{x ~
 Race human~
-Clan order~
+Clan elders~
 Cla  6
-Levl 91
-Tru  91
-Plyd 1339205
-Back 1339168
-Note 1027189445 1022813787 1027144008 1027087211 1027146472 1027049006 1026831915
+Levl 100
+Plyd 1939889
+Back 1937347
+Note 1062137615 1046507965 1051589887 1062137622 1060581000 1062134791 1034982849
 Scro 22
-Room 24456
-HMS  2498 2279 1024
-Gold 2615
-Silv 70
-Gold_in_bank 50000
-Exp  91017
+Room 1290
+HMS  31059 31426 30042
+Gold 890
+Silv 62
+Gold_in_bank 47000
+Exp  100000
 PCkills  4
 PCkilled 8
 Akills   0
 Akilled  1
 PKRank   1
 Pos  8
-Alig 1000
+Alig 0
 FImm 0
 FRes 0
-FVul LN
-Plr  AMOQU
+FVul N
+Plr  AHIMOQU
 Video 0
-Act  CDEFGJLNQSc
-AfBy CDFGHTVYc
+Act  DEFGJLQRSc
+AfBy CGHTVY
 Comm NO
 Revk 0
-Cgrp A
+Cgrp ABIKLM
 Cnsr 0
-Prac 4
-Trai 34
+Block_Remote 0
+Prac 18
+Trai 62
 Wimp 0
+Familiar 0
+Wizn 0
+Invi 0
+Lurk 0
+Secu 2
 Atrib 18 18 18 21 18 18
-SkillPnts  15
-RolePnts   11
-QuestPnts  458
-QpDonated  100
-GlDonated  12000
-GameIn  {TT{ch{Te {Ww{gi{Wn{gd{Ws {Tb{ce{Tg{ci{Tn {ct{To {cw{Th{ci{Ts{cp{Te{cr {Tw{ci{Tt{ch {Vm{Mu{Vs{Mi{Vc {Ta{cs {BK{Ni{Bs{Nm{Be{Nt {Te{cn{Tt{ce{Tr{cs {Tt{ch{Te {cr{Te{ca{Tl{cm{T.{x~
-GameOut {TT{ch{Te {Ww{gi{Wn{Wd{gs {Ts{cl{To{cw {Ta{cn{Td {ct{Th{ce {Vm{Mu{Vs{Mi{Vc {Tq{cu{Ti{ce{Tt{cs {Ta{cs {BK{Ni{Bs{Nm{Be{Nt {Tf{ca{Td{ce{Ts {ca{Tw{ca{Ty{c.{x~
-Afk {B[{CThu Jul 18 00:00:34 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+SkillPnts  20
+RolePnts   41
+QuestPnts  471
+Bin  {TYou feel a tap on your shoulder and you {PJUMP {Tas you realize {HK{ci{Hs{cm{He{ct{T is here...{x~
+Bout {YDon't Blink!!! {x- Too Late!!! {HK{ci{Hs{cm{He{ct {xis gone...~
+GameIn  {bThe {Ww{gi{Wn{gd{Ws {bbegin to whisper with {Vm{Mu{Vs{Mi{Vc {bas {HK{ci{Hs{cm{He{ct {benters the realm.{x~
+GameOut {bThe {Ww{gi{Wn{gd{Ws {bslow and the {Vm{Mu{Vs{Mi{Vc {bquiets as {HK{ci{Hs{cm{He{ct {bfades away.~
+Afk {B[{CSat Feb  1 15:52:10 2003{B] {CUnknown Departure.{x
 ~
-Titl  - Riding the winds of the Fates~
-Immn ~
+Titl  - Needs a title... Hmm...~
+Immn {W[{x {HB{ca{Hr{cd {Ho{cf {HT{ci{Hm{ce{x {W]{x~
 Pnts 40
-Rank {NG{Cr{NA~
-Aura ~
+Rank {G?{H?{G?{x~
+Aura {c???{x~
 TSex 1
-LLev 366
+LLev 476
 Email jazzerman19@yahoo.com~
-Deit {gA{Hl{Ga{Hr{ga{x~
+Deit {PThe {YBeautiful {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Stus {VMaster {cof {Tyour {WDestiny{x~
-RmCt 5
-ExSk 1201
-Raff 907
-Lsit 208.132.95.119~
-Ltim Sat Jul 20 14:28:04 2002
+RmCt 6
+ExSk 1700
+Raff 107
+Lsit 67.124.77.247~
+Ltim Tue May 04 23:34:19 2004
 ~
-LSav Sat Jul 20 14:32:02 2002
+LSav Tue Jul 29 19:49:44 2014
 ~
 Finf {cThis and that in the world of {WLegacy{c...
 {TAnnabus, The Questmaster could slay you in one blow.
@@ -94,13 +106,18 @@ Finf {cThis and that in the world of {WLegacy{c...
 {HMontrey gossips 'I really hope my pfile doesn't get messed up, I haven't backed up in 1700 hours'{x
 {W[FYI] You have been slain by something pretty damn evil.
 {TAs of this time I have made my way into {C3 {TImm fingerinfos. <cackles>{x
+{gTeotwawki forces you to FOD DarkAvatar. - You strike DarkAvatar down with your {YFinger of {RDeath{g!{x
+{G<W{Hizne{Gt> {gMithrank is attempting to murder Jubei{x
 ~
-HMSP 1458 864 994
+HMSP 30019 30011 30012
 THMS 0 0 0
-Cnd  0 0 29 29
+Cnd  0 27 100 100
+Colr 1 31 1
 Colr 3 37 1
 Colr 6 31 0
 Colr 7 34 1
+Colr 10 31 0
+Colr 11 36 0
 Colr 13 30 1
 Alias a affect~
 Alias bb backstab~
@@ -108,7 +125,6 @@ Alias ll lore~
 Alias arm cast 'armor'~
 Alias rr repair~
 Alias dm cast 'dispel magic'~
-Alias cr clanrecall~
 Alias sh cast 'shield'~
 Alias ss cast 'stone skin'~
 Alias sanc cast 'sanc'~
@@ -125,172 +141,226 @@ Alias cl cast 'cure light'~
 Alias cs cast 'cure serious'~
 Alias cc cast 'cure critical'~
 Alias kk kick~
-Sk 77 1 'acid blast'
-Sk 75 1 'acid breath'
-Sk 76 1 'acid rain'
-Sk 76 1 'age'
-Sk 75 1 'animate skeleton'
-Sk 75 1 'animate wraith'
-Sk 75 1 'animate gargoyle'
-Sk 75 1 'animate zombie'
-Sk 99 1 'armor'
-Sk 84 1 'bless'
-Sk 76 1 'blindness'
-Sk 75 1 'blizzard'
-Sk 75 1 'blood blade'
-Sk 75 1 'blood moon'
-Sk 76 1 'burning hands'
-Sk 75 1 'call lightning'
-Sk 76 1 'calm'
-Sk 78 1 'cancellation'
-Sk 75 1 'cause light'
-Sk 75 1 'cause serious'
-Sk 75 1 'cause critical'
-Sk 75 1 'chain lightning'
-Sk 76 1 'channel'
-Sk 75 1 'chill touch'
-Sk 75 1 'colour spray'
-Sk 75 1 'control weather'
-Sk 75 1 'cure blindness'
+Sk 100 1 'reserved'
+Sk 100 1 'acid blast'
+Sk 100 1 'acid breath'
+Sk 100 1 'acid rain'
+Sk 100 1 'age'
+Sk 100 1 'animate skeleton'
+Sk 100 1 'animate wraith'
+Sk 100 1 'animate gargoyle'
+Sk 100 1 'animate zombie'
+Sk 100 1 'armor'
+Sk 100 1 'bless'
+Sk 100 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 100 1 'blood blade'
+Sk 100 1 'blood moon'
+Sk 100 1 'burning hands'
+Sk 100 1 'call lightning'
+Sk 100 1 'calm'
+Sk 100 1 'cancellation'
+Sk 100 1 'cause light'
+Sk 100 1 'cause serious'
+Sk 100 1 'cause critical'
+Sk 100 1 'chain lightning'
+Sk 100 1 'change sex'
+Sk 100 1 'channel'
+Sk 100 1 'charm person'
+Sk 100 1 'chill touch'
+Sk 100 1 'colour spray'
+Sk 100 1 'continual light'
+Sk 100 1 'control weather'
+Sk 100 1 'create food'
+Sk 100 1 'create parchment'
+Sk 100 1 'create rose'
+Sk 100 1 'create sign'
+Sk 100 1 'create spring'
+Sk 100 1 'create vial'
+Sk 100 1 'create water'
+Sk 100 1 'cure blindness'
 Sk 100 1 'cure critical'
-Sk 75 1 'cure disease'
-Sk 80 1 'cure light'
-Sk 75 1 'cure poison'
-Sk 75 1 'cure serious'
-Sk 75 1 'curse'
-Sk 75 1 'dazzling light'
-Sk 75 1 'detect evil'
-Sk 76 1 'detect good'
-Sk 90 1 'detect hidden'
-Sk 82 1 'detect invis'
-Sk 76 1 'detect magic'
-Sk 76 1 'detect poison'
+Sk 100 1 'cure disease'
+Sk 100 1 'cure light'
+Sk 100 1 'cure poison'
+Sk 100 1 'cure serious'
+Sk 100 1 'curse'
+Sk 100 1 'darkness'
+Sk 100 1 'dazzling light'
+Sk 100 1 'demonfire'
+Sk 100 1 'detect evil'
+Sk 100 1 'detect good'
+Sk 100 1 'detect hidden'
+Sk 100 1 'detect invis'
+Sk 100 1 'detect magic'
+Sk 100 1 'detect poison'
+Sk 100 1 'dispel evil'
+Sk 100 1 'dispel good'
 Sk 100 1 'dispel magic'
-Sk 75 1 'divine healing'
-Sk 75 1 'divine regeneration'
-Sk 75 1 'enchant armor'
-Sk 77 1 'enchant weapon'
-Sk 76 1 'energy drain'
-Sk 95 1 'faerie fire'
-Sk 75 1 'faerie fog'
-Sk 75 1 'fear'
-Sk 75 1 'fire breath'
-Sk 75 1 'fireball'
-Sk 77 1 'fireproof'
-Sk 75 1 'firestorm'
-Sk 75 1 'flame blade'
-Sk 79 1 'flameshield'
-Sk 77 1 'fly'
-Sk 75 1 'frenzy'
-Sk 75 1 'frost blade'
-Sk 75 1 'frost breath'
-Sk 75 1 'gas breath'
-Sk 85 1 'gate'
-Sk 81 1 'giant strength'
-Sk 75 1 'harm'
+Sk 100 1 'divine healing'
+Sk 100 1 'divine regeneration'
+Sk 100 1 'earthquake'
+Sk 100 1 'encampment'
+Sk 100 1 'enchant armor'
+Sk 100 1 'enchant weapon'
+Sk 100 1 'energy drain'
+Sk 100 1 'faerie fire'
+Sk 100 1 'faerie fog'
+Sk 100 1 'farsight'
+Sk 100 1 'fear'
+Sk 100 1 'fire breath'
+Sk 100 1 'fireball'
+Sk 100 1 'fireproof'
+Sk 100 1 'firestorm'
+Sk 100 1 'flame blade'
+Sk 100 1 'flameshield'
+Sk 100 1 'flamestrike'
+Sk 100 1 'fly'
+Sk 100 1 'floating disc'
+Sk 100 1 'frenzy'
+Sk 100 1 'frost blade'
+Sk 100 1 'frost breath'
+Sk 100 1 'gas breath'
+Sk 100 1 'gate'
+Sk 100 1 'general purpose'
+Sk 100 1 'giant strength'
+Sk 100 1 'harm'
 Sk 100 1 'haste'
-Sk 75 1 'heal'
-Sk 77 1 'holy word'
-Sk 75 1 'identify'
-Sk 78 1 'infravision'
-Sk 75 1 'invisibility'
-Sk 76 1 'know alignment'
-Sk 75 1 'light of truth'
-Sk 75 1 'lightning bolt'
-Sk 75 1 'lightning breath'
-Sk 80 1 'locate life'
-Sk 80 1 'locate object'
-Sk 75 1 'magic missile'
-Sk 75 1 'mass healing'
-Sk 75 1 'mass invis'
-Sk 76 1 'nexus'
-Sk 75 1 'pass door'
-Sk 75 1 'plague'
-Sk 77 1 'poison'
-Sk 77 1 'portal'
-Sk 76 1 'protect container'
-Sk 78 1 'protection evil'
-Sk 80 1 'protection good'
-Sk 75 1 'recharge'
-Sk 89 1 'refresh'
-Sk 75 1 'resurrect'
-Sk 90 2 'regeneration'
-Sk 79 1 'remove alignment'
-Sk 82 1 'remove invisibility'
-Sk 75 1 'remove curse'
-Sk 94 1 'sanctuary'
-Sk 95 1 'shield'
-Sk 75 1 'shock blade'
-Sk 75 1 'shocking grasp'
-Sk 75 1 'shrink'
-Sk 95 1 'slow'
-Sk 75 1 'smokescreen'
-Sk 75 1 'steel mist'
-Sk 95 1 'stone skin'
-Sk 75 1 'summon'
-Sk 75 1 'summon object'
-Sk 97 1 'talon'
-Sk 87 1 'teleport'
-Sk 75 1 'teleport object'
+Sk 100 1 'heal'
+Sk 100 1 'heat metal'
+Sk 100 1 'high explosive'
+Sk 100 1 'holy word'
+Sk 100 1 'identify'
+Sk 100 1 'infravision'
+Sk 100 1 'invisibility'
+Sk 100 1 'know alignment'
+Sk 100 1 'light of truth'
+Sk 100 1 'lightning bolt'
+Sk 100 1 'lightning breath'
+Sk 100 1 'locate life'
+Sk 100 1 'locate object'
+Sk 100 1 'magic missile'
+Sk 100 1 'mass healing'
+Sk 100 1 'mass invis'
+Sk 100 1 'nexus'
+Sk 100 1 'pass door'
+Sk 100 1 'plague'
+Sk 100 1 'poison'
+Sk 100 1 'power word'
+Sk 100 1 'polymorph'
+Sk 100 1 'portal'
+Sk 100 1 'protect container'
+Sk 100 1 'protection evil'
+Sk 100 1 'protection good'
+Sk 100 1 'ray of truth'
+Sk 100 1 'recharge'
+Sk 100 1 'refresh'
+Sk 100 1 'resurrect'
+Sk 100 2 'regeneration'
+Sk 100 1 'remove alignment'
+Sk 100 1 'remove invisibility'
+Sk 100 1 'remove curse'
+Sk 100 1 'sanctuary'
+Sk 1 1 'scry'
+Sk 100 1 'shield'
+Sk 100 1 'shock blade'
+Sk 100 1 'shocking grasp'
+Sk 100 1 'shrink'
+Sk 100 1 'sleep'
+Sk 100 1 'slow'
+Sk 100 1 'smokescreen'
+Sk 1 1 'starve'
+Sk 100 1 'steel mist'
+Sk 100 1 'stone skin'
+Sk 100 1 'summon'
+Sk 100 1 'summon object'
+Sk 100 1 'sunray'
+Sk 100 1 'talon'
+Sk 100 1 'teleport'
+Sk 100 1 'teleport object'
 Sk 100 1 'undo spell'
-Sk 75 1 'ventriloquate'
-Sk 76 1 'vision'
-Sk 78 1 'weaken'
-Sk 76 1 'word of recall'
-Sk 75 1 'wrath'
+Sk 100 1 'ventriloquate'
+Sk 100 1 'vision'
+Sk 100 1 'weaken'
+Sk 100 1 'word of recall'
+Sk 100 1 'wrath'
 Sk 100 1 'axe'
 Sk 100 1 'dagger'
-Sk 77 1 'flail'
+Sk 100 1 'flail'
 Sk 100 1 'mace'
 Sk 100 1 'polearm'
-Sk 76 1 'spear'
+Sk 100 1 'spear'
 Sk 100 1 'sword'
 Sk 100 1 'whip'
-Sk 75 1 'brew'
-Sk 75 1 'scribe'
+Sk 100 1 'shield block'
+Sk 100 1 'brew'
+Sk 100 1 'scribe'
 Sk 100 1 'backstab'
-Sk 75 1 'bash'
+Sk 100 1 'bash'
+Sk 100 1 'berserk'
 Sk 100 1 'circle'
-Sk 75 1 'dirt kicking'
-Sk 75 1 'disarm'
+Sk 100 1 'crush'
+Sk 100 1 'dirt kicking'
+Sk 100 1 'disarm'
 Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
-Sk 75 1 'envenom'
+Sk 100 1 'envenom'
 Sk 100 1 'hand to hand'
-Sk 80 1 'kick'
+Sk 100 1 'kick'
 Sk 100 1 'parry'
-Sk 75 1 'rescue'
-Sk 75 1 'trip'
+Sk 100 1 'rescue'
+Sk 100 1 'trip'
 Sk 100 1 'second attack'
 Sk 100 1 'third attack'
 Sk 100 3 'dual wield'
-Sk 81 1 'hunt'
-Sk 75 1 'swimming'
+Sk 100 1 'hunt'
+Sk 100 1 'swimming'
 Sk 100 2 'fast healing'
-Sk 75 1 'firebuilding'
-Sk 78 1 'forge'
-Sk 82 1 'repair'
-Sk 75 1 'rotate'
-Sk 96 1 'languages'
-Sk 75 1 'haggle'
-Sk 82 1 'hide'
-Sk 88 1 'lore'
+Sk 100 1 'firebuilding'
+Sk 100 1 'forge'
+Sk 100 1 'repair'
+Sk 100 1 'rotate'
+Sk 100 1 'languages'
+Sk 100 1 'haggle'
+Sk 100 1 'hide'
+Sk 100 1 'lore'
 Sk 100 1 'meditation'
-Sk 80 2 'peek'
-Sk 91 1 'pick lock'
+Sk 100 2 'peek'
+Sk 100 1 'pick lock'
 Sk 100 1 'scan'
-Sk 75 1 'sneak'
-Sk 82 1 'steal'
-Sk 81 1 'sing'
-Sk 78 1 'scrolls'
-Sk 78 1 'staves'
-Sk 76 1 'wands'
-Sk 80 1 'recall'
-Sk 54 1 'shadow form'
-Sk 69 1 'align'
+Sk 100 1 'sneak'
+Sk 100 1 'steal'
+Sk 100 1 'sing'
+Sk 100 1 'scrolls'
+Sk 100 1 'staves'
+Sk 100 1 'wands'
+Sk 100 1 'recall'
+Sk 100 1 'sheen'
+Sk 100 1 'focus'
+Sk 100 1 'paralyze'
+Sk 100 1 'barrier'
+Sk 100 1 'dazzle'
+Sk 100 1 'full heal'
+Sk 100 1 'midnight'
+Sk 100 1 'shadow form'
+Sk 100 1 'hone'
+Sk 100 1 'riposte'
+Sk 100 1 'fourth attack'
+Sk 100 1 'rage'
+Sk 100 1 'sap'
+Sk 100 1 'pain'
+Sk 100 1 'hex'
+Sk 100 1 'bone wall'
+Sk 100 1 'hammerstrike'
+Sk 100 1 'force shield'
+Sk 100 1 'holy sword'
+Sk 100 1 'align'
 Sk 100 1 'blur'
 Sk 100 1 'dual second'
-Sk 60 1 'standfast'
+Sk 100 1 'quick'
+Sk 100 1 'standfast'
+Sk 100 1 'mark'
+Sk 100 1 'critical blow'
 Gr 'rom basics'
 Gr 'bard basics'
 Gr 'weaponsmaster'
@@ -310,1934 +380,27 @@ Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'stone skin'   0  84  46 -40  17          0 1
-Affc 'detect hidden'   0  79  48   0   0         32 1
-Affc 'detect invis'   0  81  48   0   0          8 1
-Affc 'bless'   0  81  70  11  18          0 1
-Affc 'bless'   0  87  70 -11  24          0 1
-Affc 'regeneration'   0  84  18   0   0  268435456 2
-Affc 'shield'   0  88  78 -20  17          0 1
-Affc 'armor'   0  89   3 -20  17          0 1
-End
-
-#O
-Vnum 1344
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 11657
-Nest 0
-ExtF 17039360
-Wear -1
-Cost 9540
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name alara hidden token unending speck luminescence everlasting fires~
-ShD  {W*{RH{Pi{gdd{Pe{Rn{W* {gE{Wv{ge{Wrl{ga{Wst{gi{Wng {cM{gi{cdn{gi{cght {RF{Pi{Yr{Pe{Rs{x~
-Desc {W*{RH{Pi{gdd{Pe{Rn{W* {gA{Wn {gU{Wn{ge{Wnd{gi{Wng {gSp{Ye{gck {go{Wf {WL{Yu{Wm{Yi{Wn{Ye{Wsc{Ye{Wnc{Ye{x is here.~
-Mat {Yst{Wa{Yrl{Wi{Yght{x~
-Wear -1
-Cost 0
-ExDe fires~ An {ge{Wt{ge{Wrn{ga{Wl {gsp{Ye{gck {go{Wf {Yst{Wa{Yrl{Wi{Yght{x has been {gg{Wa{gth{we{gr{We{gd here.
-~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name viro glimmer hope bushido wild token~
-ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
-Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name viro glimmer hope bushido wild token~
-ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
-Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name viro glimmer hope bushido wild token~
-ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
-Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name viro glimmer hope bushido wild token~
-ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
-Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1215
-Nest 1
-Name teotwawki wild token~
-ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#O
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1111
-Nest 1
-Name liriati tile holder~
-ShD  {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x~
-Desc {gA {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{g lies here on the ground, awaiting tiles.{x~
-Mat wood~
-ExtF 17301504
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 1211
-Nest 2
-Name liriati tile letter O~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {Y[{WO{Y]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1211
-Nest 2
-Name liriati triple letter tile~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {B[{Ntriple letter{B] {Btile{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1211
-Nest 2
-Name liriati tile letter L~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {Y[{WL{Y]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
+Grant immtalk
+Grant wizhelp
+Grant goto
 End
 
 #O
 Vnum 13004
 Nest 0
-Cond 99
+Name stone colors~
+ShD  {cStone of everchanging {GC{bo{Bl{Wo{Rr{Vs{x~
+Desc {cStone of everchanging {GC{bo{Bl{Wo{Rr{Vs{x~
 Wear 18
-Cost 3700
-End
-
-#O
-Vnum 13000
-Nest 0
-Wear -1
-Cost 3700
-End
-
-#O
-Vnum 13000
-Nest 0
-Wear -1
 Cost 3700
 End
 
 #O
 Vnum 11709
 Nest 0
-Cond 99
+Name cloak fates~
+ShD  {TCloak of {WThe Fates{x~
+Desc {TA Cloak of {WThe Fates{x~
 Wear 4
 Cost 10000
 End
@@ -2245,30 +408,30 @@ End
 #O
 Vnum 11709
 Nest 0
-Cond 84
+Name cloak fates~
+ShD  {TCloak of {WThe Fates{x~
+Desc {TA Cloak of {WThe Fates{x~
 Wear 3
 Cost 10000
 End
 
 #O
-Vnum 13005
-Nest 0
-Cond 85
-Wear 12
-Cost 4500
-End
-
-#O
 Vnum 17037
 Nest 0
-Cond 81
-Wear 14
+Name peace~
+ShD  {NThe Power of {BP{ge{Ba{gc{Be{x~
+Desc {NThe Power of {BP{ge{Ba{gc{Be{x~
+ExtF 1
+Wear 15
 Cost 0
 End
 
 #O
 Vnum 3209
 Nest 0
+Name belt dragonskin~
+ShD  {HBelt of Dragonskin{x~
+Desc {HBelt of Dragonskin{x~
 Wear 13
 Cost 100
 Val  28 27 28 28 0
@@ -2277,7 +440,10 @@ End
 #O
 Vnum 17038
 Nest 0
-Cond 93
+Name boots aire~
+ShD  {HBoots of the {cA{gi{cr{ge{x~
+Desc {HBoots of the {cA{gi{cr{ge{x~
+ExtF 1
 Wear 8
 Cost 0
 End
@@ -2285,7 +451,9 @@ End
 #O
 Vnum 20026
 Nest 0
-Cond 89
+Name silver armor~
+ShD  {cSilver Suit of Armor{x~
+Desc {cA silver suit of armor is just lying here.{x~
 Wear 5
 Cost 82350
 End
@@ -2293,55 +461,29 @@ End
 #O
 Vnum 10100
 Nest 0
-Cond 94
+Name leggings angel wings~
+ShD  {NLeggings of {BAngel {WWings{x~
+Desc {BLeggings made of {WAngel feathers {Bare here.~
 Wear 7
 Cost 32000
 End
 
 #O
-Vnum 14014
-Nest 0
-ExtF 17825856
-Cond 83
-Wear 2
-Cost 0
-End
-
-#O
-Vnum 11793
-Nest 0
-ExtF 257
-Cond 88
-Wear 0
-Lev  91
-Cost 55000
-ExDe owned by~ Kismet
-~
-End
-
-#O
 Vnum 17041
 Nest 0
-Cond 77
+Name helm knowledge~
+ShD  Helm of {YKnow{gle{Ydge{x~
+Desc A helmet {Yshines {xhere brilliantly~
 Wear 6
 Cost 5000
 End
 
 #O
-Vnum 11776
-Nest 0
-Cond 79
-Wear 1
-Lev  91
-Cost 0
-ExDe owned by~ Kismet
-~
-End
-
-#O
 Vnum 13011
 Nest 0
-Cond 89
+Name armplates time~
+ShD  {TArmplates of {CTime{x~
+Desc {TArmplates of {CTime{x~
 Wear 10
 Lev  91
 Cost 1200
@@ -2352,8 +494,10 @@ End
 #O
 Vnum 11791
 Nest 0
-Cond 89
-Wear 15
+Name chaos~
+ShD  {RThe Power of {PC{Wh{Pa{Wo{Ps{x~
+Desc {RThe Power of {PC{Wh{Pa{Wo{Ps{x~
+Wear 14
 Lev  91
 Cost 0
 ExDe owned by~ Kismet
@@ -2363,7 +507,9 @@ End
 #O
 Vnum 13008
 Nest 0
-Cond 93
+Name simple leather gloves~
+ShD  {bSimple leather gloves{x~
+Desc {bSimple leather gloves{x~
 Wear 9
 Cost 550
 End
@@ -2371,12 +517,11 @@ End
 #O
 Vnum 10121
 Nest 0
-Name sword kismet song gleaming martin~
+Name kismet song~
 ShD  {TK{ci{Ts{cm{Te{ct{T'{cs {TS{co{Tn{cg{x~
 Desc {TK{ci{Ts{cm{Te{ct{T'{cs {TS{co{Tn{cg{x~
 ExtF 16777283
-Cond 76
-Wear 19
+Wear 16
 Lev  91
 Cost 21
 ExDe owned by~ Kismet
@@ -2386,14 +531,133 @@ End
 #O
 Vnum 11792
 Nest 0
-Name honed shortsword zedraikis kismet destiny blade~
+Name kismet destiny blade~
 ShD  {RD{ce{Rs{ct{Ri{cn{Ry{c'{Rs {cB{Rl{ca{Rd{ce{x~
 Desc {RD{ce{Rs{ct{Ri{cn{Ry{c'{Rs {cB{Rl{ca{Rd{ce{x~
-Wear 16
+Wear 19
 Lev  91
 Cost 55000
 ExDe owned by~ Kismet
 ~
+End
+
+#O
+Vnum 13005
+Nest 0
+Name robe travels~
+ShD  {MRobe of many {VTravels{x~
+Desc {MRobe of many {VTravels{x~
+Wear 12
+Cost 4500
+End
+
+#O
+Vnum 11793
+Nest 0
+Name flame balance~
+ShD  {PFlame {cof {BBalance{x~
+Desc {PFlame {cof {BBalance{x~
+ExtF 257
+Wear 0
+Lev  91
+Cost 55000
+ExDe owned by~ Kismet
+~
+End
+
+#O
+Vnum 11776
+Nest 0
+Name destiny protection~
+ShD  {HD{ce{Hs{ct{Hi{cn{Hy{c'{Hs {WProtection{x~
+Desc A feeling of divine protection lies here.~
+Wear 1
+Lev  91
+Cost 0
+ExDe owned by~ Kismet
+~
+End
+
+#O
+Vnum 14014
+Nest 0
+Name gems~
+ShD  {GG{Re{Bm{Vs {cof {WPower{x~
+Desc {GG{Re{Bm{Vs {cof {WPower{x~
+ExtF 17891393
+Wear 2
+Cost 10000
+End
+
+#O
+Vnum 1111
+Nest 0
+Name mystery~
+ShD  {HK{ci{Hs{cm{He{ct{H'{cs {bbag of {HM{cy{Hs{ct{He{cr{Hy{x~
+Desc {cA strange bag lies here. It fabric looking as if it were almost alive to the touch.{x~
+Wear -1
+Cost 11
+End
+
+#O
+Vnum 3379
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1206
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1207
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name kismet trivia token star sapphire~
+ShD  {TKismet's {B"Sapphire Star of {NTrivia{B"{x~
+Desc {NA {BSapphire {Nstar twinkles on the ground{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name kismet wild token amethyst chance~
+ShD  {MKismet's "{WWILD {VAmethyst {Mof Chance"{x~
+Desc {MA {WSparkling {VAmethyst {Mfilled with color and mystery lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
 End
 
 #L
@@ -2406,82 +670,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  39 78 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Doomsmerf.
 ~
-End
-
-#L
-Vnum 1206
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 5414
-Nest 0
-ExtF 262145
-Wear -1
-Cost 1000
-End
-
-#L
-Vnum 5414
-Nest 0
-ExtF 262145
-Wear -1
-Cost 1000
-End
-
-#L
-Vnum 3379
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 3379
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 3379
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 3379
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1206
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1207
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1344
-Nest 0
-Wear -1
-Cost 0
+ExDe food~ It looks delicious.
+~
 End
 
 #L
@@ -2494,9 +686,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -2526,15 +718,15 @@ Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
 Mat paper~
 Wear -1
 Cost 0
+ExDe silver dagger thievery trading card~ The silver blade of Xenith, the World Forger.  As sightings of the
+goddess by mortals are seldom, few know of this legendary dagger,
+and thankfully even less have seen it brandished in anger.
+~
 ExDe her fathers katana trading card~ Left to Filfaere by her father, this blade's destiny is to some day
 cut down the evil Elvanshalee and do honor to their family.  The
 day when Filfaere and Elvanshalee lock blades may yet be far off,
 though, as Filfaere seems to prefer standing in the marketplace
 over trying to enter the palace.
-~
-ExDe silver dagger thievery trading card~ The silver blade of Xenith, the World Forger.  As sightings of the
-goddess by mortals are seldom, few know of this legendary dagger,
-and thankfully even less have seen it brandished in anger.
 ~
 End
 
@@ -2738,72 +930,11 @@ ExDe jagged long sword trading card~ This weapon's jagged edge rips through fles
 End
 
 #L
-Vnum 5414
-Nest 0
-ExtF 262145
-Wear -1
-Cost 1000
-End
-
-#L
-Vnum 1344
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#L
-Vnum 1312
-Nest 0
-Wear -1
-Cost 5000
-End
-
-#L
-Vnum 3379
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 3379
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 5414
-Nest 0
-ExtF 262145
-Wear -1
-Cost 1000
-End
-
-#L
 Vnum 3388
 Nest 0
 Wear -1
 Cost 33500
 Val  500 500 8 0 15
-End
-
-#L
-Vnum 506
-Enchanted
-Nest 0
-Name holy light~
-ShD  {Wa h{gol{Wy light{x~
-ExtF 262211
-Wear -1
-Lev  6
-Cost 0
-Affc 'reserved'   1  12  -1  10  13          0 1
-Affc 'enchant weapon'   1 100  -1   7  18          0 1
-Affc 'enchant weapon'   1 100  -1   5  19          0 1
-Affc 'enchant armor'   1 100  -1  -4  17          0 1
-Affc 'reserved'   1 100  -1   5   9          0 1
 End
 
 #L
@@ -2828,26 +959,74 @@ Cost 55
 End
 
 #B
-Vnum 10112
+Vnum 3208
 Nest 0
-ExtF 16777283
-Cond 94
 Wear -1
-Cost 500
+Cost 90
 End
 
 #B
-Vnum 11776
+Vnum 9101
+Nest 0
+Wear -1
+Cost 2800
+End
+
+#B
+Vnum 3805
 Nest 0
 Wear -1
 Cost 0
 End
 
 #B
-Vnum 11791
+Vnum 3208
 Nest 0
 Wear -1
-Cost 0
+Cost 90
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger Liquid Groove~
+ShD  {HL{bi{Hq{bu{Hi{bd {HG{br{Ho{bo{Hv{be{x{x~
+Desc A dagger is here, forged by Kismet's craftsmanship.~
+Mat platinum~
+ExtF 323
+Wt   69
+Wear -1
+Lev  80
+Cost 37
+Val  2 10 12 11 1
+Affc 'enchant weapon'   1  75  -1   7  19          0 1
+Affc 'enchant weapon'   0  75  -1   7  18          0 1
+ExDe dagger Liquid Groove~ It is a marvellous dagger, crafted from the finest platinum around.
+It was created in the Month of Long Shadows by an experienced bard
+named Kismet.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#B
+Vnum 13000
+Nest 0
+Wear -1
+Cost 3700
+End
+
+#B
+Vnum 13000
+Nest 0
+Wear -1
+Cost 3700
+End
+
+#B
+Vnum 3202
+Nest 0
+Wear -1
+Cost 30
 End
 
 #B
@@ -2876,20 +1055,6 @@ Cost 312
 End
 
 #B
-Vnum 3202
-Nest 0
-Wear -1
-Cost 30
-End
-
-#B
-Vnum 3203
-Nest 0
-Wear -1
-Cost 40
-End
-
-#B
 Vnum 1004
 Enchanted
 Nest 0
@@ -2903,8 +1068,8 @@ Wear -1
 Lev  50
 Cost 11
 Val  2 5 13 11 1
-Affc 'enchant weapon'   1  60  -1   6  19          0 1
 Affc 'enchant weapon'   0  60  -1   6  18          0 1
+Affc 'enchant weapon'   1  60  -1   6  19          0 1
 ExDe dagger Thorn of a Blue Rose~ It is a marvellous dagger, crafted from the finest stardust around.
 It was created in the Month of Sacrifice by a young bard
 named Kismet.  Legend holds that this human was a great weaponsmith.
@@ -2925,8 +1090,8 @@ Wear -1
 Lev  50
 Cost 5
 Val  2 5 13 11 2
-Affc 'enchant weapon'   1  60  -1   5  19          0 1
 Affc 'enchant weapon'   0  60  -1   5  18          0 1
+Affc 'enchant weapon'   1  60  -1   5  19          0 1
 ExDe dagger Thorn of a Blue Rose~ It is a marvellous dagger, crafted from the finest stardust around.
 It was created in the Month of Sacrifice by a young bard
 named Kismet.  Legend holds that this human was a great weaponsmith.
@@ -2934,156 +1099,24 @@ ExDe dagger Thorn of a Blue Rose~ It is a marvellous dagger, crafted from the fi
 End
 
 #B
-Vnum 10121
+Vnum 3203
 Nest 0
-ExtF 16778307
 Wear -1
-Cost 0
+Cost 40
 End
 
 #B
-Vnum 10152
+Vnum 825
 Nest 0
 Wear -1
-Cost 5500
+Cost 200
 End
 
 #B
-Vnum 1004
-Enchanted
-Nest 0
-Name dagger Legacy of the Past~
-ShD  {MLegacy {Tof {bthe {cPast{x{x~
-Desc A dagger is here, forged by Kismet's craftsmanship.~
-Mat stardust~
-ExtF 262467
-Wt   61
-Wear -1
-Lev  65
-Cost 6
-Val  2 5 17 11 1
-Affc 'enchant weapon'   1  60  -1   6  19          0 1
-Affc 'enchant weapon'   0  60  -1   6  18          0 1
-ExDe dagger Legacy of the Past~ It is a marvellous dagger, crafted from the finest stardust around.
-It was created in the Month of Peace by an experienced bard
-named Kismet.  Legend holds that this human was a great weaponsmith.
-~
-End
-
-#B
-Vnum 3205
-Nest 0
-Wear -1
-Cost 60
-End
-
-#B
-Vnum 3204
-Nest 0
-Wear -1
-Cost 50
-End
-
-#B
-Vnum 1004
-Enchanted
-Nest 0
-Name dagger Legacy of the Past~
-ShD  {MLegacy {Tof {bthe {cPast{x{x~
-Desc A dagger is here, forged by Kismet's craftsmanship.~
-Mat stardust~
-ExtF 262211
-Wt   60
-Wear -1
-Lev  65
-Cost 15
-Val  2 5 17 11 1
-Affc 'enchant weapon'   1  60  -1   5  19          0 1
-Affc 'enchant weapon'   0  60  -1   5  18          0 1
-ExDe dagger Legacy of the Past~ It is a marvellous dagger, crafted from the finest stardust around.
-It was created in the Month of Reverence by an experienced bard
-named Kismet.  Legend holds that this human was a great weaponsmith.
-~
-End
-
-#B
-Vnum 3207
-Nest 0
-Wear -1
-Cost 80
-End
-
-#B
-Vnum 3208
-Nest 0
-Wear -1
-Cost 90
-End
-
-#B
-Vnum 9101
-Nest 0
-Wear -1
-Cost 2800
-End
-
-#B
-Vnum 3805
-Nest 0
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 3206
-Nest 0
-Wear -1
-Cost 70
-End
-
-#B
-Vnum 3208
-Nest 0
-Wear -1
-Cost 90
-End
-
-#B
-Vnum 1004
-Enchanted
-Nest 0
-Name dagger Liquid Groove~
-ShD  {HL{bi{Hq{bu{Hi{bd {HG{br{Ho{bo{Hv{be{x{x~
-Desc A dagger is here, forged by Kismet's craftsmanship.~
-Mat platinum~
-ExtF 323
-Wt   69
-Wear -1
-Lev  80
-Cost 37
-Val  2 10 12 11 1
-Affc 'enchant weapon'   0  75  -1   7  18          0 1
-Affc 'enchant weapon'   1  75  -1   7  19          0 1
-ExDe dagger Liquid Groove~ It is a marvellous dagger, crafted from the finest platinum around.
-It was created in the Month of Long Shadows by an experienced bard
-named Kismet.  Legend holds that this human was a great weaponsmith.
-~
-End
-
-#B
-Vnum 11785
-Nest 0
-Wear -1
-Cost 1
-End
-
-#B
-Vnum 11748
+Vnum 8227
 Nest 1
-ExtF 80
-Wt   0
 Wear -1
-Cost 15000
+Cost 0
 End
 
 #B
@@ -3103,10 +1136,110 @@ Cost 15000
 End
 
 #B
-Vnum 8227
+Vnum 11776
 Nest 1
 Wear -1
 Cost 0
+End
+
+#B
+Vnum 11791
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 3204
+Nest 0
+Cond 90
+Wear -1
+Cost 50
+End
+
+#B
+Vnum 3207
+Nest 0
+Wear -1
+Cost 80
+End
+
+#B
+Vnum 3206
+Nest 0
+Cond 85
+Wear -1
+Cost 70
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger Legacy of the Past~
+ShD  {MLegacy {Tof {bthe {cPast{x{x~
+Desc A dagger is here, forged by Kismet's craftsmanship.~
+Mat stardust~
+ExtF 262467
+Wt   61
+Cond 93
+Wear -1
+Lev  65
+Cost 6
+Val  2 5 17 11 1
+Affc 'enchant weapon'   0  60  -1   6  18          0 1
+Affc 'enchant weapon'   1  60  -1   6  19          0 1
+ExDe dagger Legacy of the Past~ It is a marvellous dagger, crafted from the finest stardust around.
+It was created in the Month of Peace by an experienced bard
+named Kismet.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger Legacy of the Past~
+ShD  {MLegacy {Tof {bthe {cPast{x{x~
+Desc A dagger is here, forged by Kismet's craftsmanship.~
+Mat stardust~
+ExtF 262211
+Wt   60
+Cond 94
+Wear -1
+Lev  65
+Cost 15
+Val  2 5 17 11 1
+Affc 'enchant weapon'   0  60  -1   5  18          0 1
+Affc 'enchant weapon'   1  60  -1   5  19          0 1
+ExDe dagger Legacy of the Past~ It is a marvellous dagger, crafted from the finest stardust around.
+It was created in the Month of Reverence by an experienced bard
+named Kismet.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#B
+Vnum 3205
+Nest 0
+Cond 92
+Wear -1
+Cost 60
+End
+
+#B
+Vnum 11785
+Nest 0
+Wear -1
+Cost 1
+End
+
+#B
+Vnum 11748
+Nest 1
+ExtF 80
+Wt   0
+Wear -1
+Cost 15000
 End
 
 #END

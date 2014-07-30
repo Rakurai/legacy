@@ -1,0 +1,127 @@
+#PLAYER
+Name Darc~
+Id   1093899726
+LogO 1093901580
+Vers 14
+Mexp 1
+Pass mor_es~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Cla  1
+Levl 1
+Tru  0
+Plyd 221
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3700
+HMS  20 100 100
+Gold 0
+Silv 3
+Exp  1303
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes B
+FVul Z
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Block_Remote 0
+Prac 5
+Trai 3
+Wimp 0
+Familiar 0
+Atrib 11 15 16 15 11 14
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 5
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kismet~
+Lsit cpe-24-197-104-155.bft.sc.charter.com~
+Ltim Mon Aug 30 17:05:20 2004
+~
+LSav Mon Aug 30 17:33:00 2004
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 11 11
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 40 1 'mace'
+Sk 1 1 'scribe'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'cleric basics'
+Gr 'enchantment'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 163 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3700
+Nest 0
+Wear 16
+Cost 250
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

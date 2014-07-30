@@ -1,85 +1,73 @@
 #PLAYER
 Name Malak~
-Id   1013337259
-LogO 1013346011
-Vers 12
+Id   1045043772
+LogO 1045072104
+Vers 14
+Mexp 1
+Pass panther~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race feral~
-Sex  1
 Cla  2
-Levl 5
-Plyd 5510
-Age  0
-Back 4304
-Note 1013343230 1013343230 1013343230 1013343230 1013343230 1013343230
+Levl 4
+Tru  0
+Plyd 6907
+Back 297
+Note 0 0 0 0 0 0 0
 Scro 22
-Room 3001
-HMS  73 73 121 121 132 132
-Gold 1
-Silv 242
-Exp  8150
-PCkills 0
+Room 8543
+HMS  54 113 95
+Gold 3
+Silv 467
+Exp  4823
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -897
+FImm 0
+FRes 0
+FVul JR
+Plr  U
+Video 0
 Act  CDEFGHJLQSc
 AfBy R
-FVul JR
-Comm NOZ
+Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
-Save  -2
-Alig  21
-Hit   6
-Dam   6
-ACs 81 71 71 97
-Wimp  8
-Atrib 15 15 16 24 15 12
-AtMod 1 1 2 0 0 1
-Pass panther~
-Afk {B[{CSun Feb 10 06:21:09 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Prac 0
+Trai 0
+Wimp 4
+Atrib 15 13 13 22 17 12
+Afk {B[{CWed Feb 12 11:46:48 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  {PBlood Thirsty {HFeral~
+Titl  ({VNewbie Aura{x)~
 Immn ~
-Pnts 46
+Pnts 41
 Rank ~
 Aura ~
 TSex 1
-LLev 0
-Deit Sturm~
-Lsit 21.richmond-01-02rs16rt.va.dial-access.att.net~
-Ltim Sun Feb 10 05:04:50 2002
+LLev 1
+Deit Montrey~
+Lsit 85.cambridge-24rh15rt.ma.dial-access.att.net~
+Ltim Wed Feb 12 10:58:14 2003
 ~
-LSav Sun Feb 10 07:00:11 2002
+LSav Wed Feb 12 12:48:24 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  H
-HMSP 69 121 132
+HMSP 54 113 128
 THMS 0 0 0
-Cnd  0 0 0 0
+Cnd  0 0 0 36
 Alias b backstab~
 Alias k kill~
-Sk 1 1 'armor'
-Sk 1 1 'cancellation'
-Sk 1 1 'dispel magic'
-Sk 1 1 'fireproof'
-Sk 1 1 'protection evil'
-Sk 1 1 'protection good'
-Sk 1 1 'sanctuary'
-Sk 1 1 'shield'
-Sk 1 1 'stone skin'
-Sk 1 1 'undo spell'
-Sk 40 1 'dagger'
-Sk 19 1 'backstab'
+Sk 1 1 'dagger'
+Sk 58 1 'sword'
+Sk 51 1 'backstab'
 Sk 1 1 'circle'
-Sk 1 1 'dirt kicking'
-Sk 55 1 'dodge'
-Sk 1 1 'trip'
+Sk 1 1 'dodge'
+Sk 1 1 'second attack'
+Sk 1 1 'swimming'
 Sk 1 1 'hide'
 Sk 100 1 'scan'
 Sk 1 1 'sneak'
@@ -90,218 +78,8 @@ Sk 1 1 'wands'
 Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'thief basics'
-Gr 'protective'
-End
-
-#O
-Vnum 3716
-Nest 0
-Wear 0
-Cost 0
-Val  0 0 57 0 0
-End
-
-#O
-Vnum 3704
-Nest 0
-Wear 11
-Cost 0
-End
-
-#O
-Vnum 3162
-Nest 0
-Wear -1
-Cost 500
-End
-
-#O
-Vnum 3020
-Enchanted
-Nest 0
-ExtF 66
-Cond 89
-Wear 16
-Lev  6
-Cost 154
-Affc 'enchant weapon'   0  65  -1   6  18          0 1
-Affc 'enchant weapon'   1  65  -1   6  19          0 1
-End
-
-#O
-Vnum 3707
-Nest 0
-Wear 7
-Cost 72
-End
-
-#O
-Vnum 3712
-Nest 0
-Wear 13
-Cost 72
-End
-
-#O
-Vnum 3705
-Nest 0
-Wear 4
-Cost 72
-End
-
-#O
-Vnum 3705
-Nest 0
-Wear 3
-Cost 72
-End
-
-#O
-Vnum 3706
-Nest 0
-Wear 6
-Cost 72
-End
-
-#O
-Vnum 3711
-Nest 0
-Wear 12
-Cost 72
-End
-
-#O
-Vnum 3708
-Nest 0
-Wear 8
-Cost 72
-End
-
-#O
-Vnum 3709
-Nest 0
-Wear 9
-Cost 72
-End
-
-#O
-Vnum 3710
-Nest 0
-Wear 10
-Cost 72
-End
-
-#O
-Vnum 3713
-Nest 0
-Wear -1
-Cost 48
-End
-
-#O
-Vnum 72
-Nest 0
-Wear -1
-Cost 30
-End
-
-#O
-Vnum 73
-Nest 0
-Wear -1
-Cost 270
-End
-
-#O
-Vnum 74
-Nest 0
-Wear -1
-Cost 550
-End
-
-#O
-Vnum 75
-Nest 0
-Wear 1
-Cost 620
-End
-
-#O
-Vnum 76
-Nest 0
-Wear 17
-Cost 550
-End
-
-#O
-Vnum 78
-Nest 0
-Wear -1
-Cost 900
-End
-
-#O
-Vnum 79
-Nest 0
-Wear -1
-Cost 200
-Val  150 66 15 0 0
-End
-
-#O
-Vnum 80
-Nest 0
-Wear 18
-Cost 550
-End
-
-#O
-Vnum 3021
-Nest 0
-Wear -1
-Cost 250
-End
-
-#O
-Vnum 3066
-Nest 0
-Wear 5
-Cost 430
-End
-
-#O
-Vnum 3052
-Nest 0
-Wear 15
-Cost 112
-End
-
-#O
-Vnum 3021
-Nest 0
-Wear -1
-Cost 250
-End
-
-#O
-Vnum 3066
-Nest 0
-Wear -1
-Cost 430
-End
-
-#O
-Vnum 3052
-Nest 0
-Wear 14
-Cost 112
-End
-
-#O
-Vnum 3043
-Nest 0
-Wear 2
-Cost 640
+Affc 'blood moon'   0  60  56   3  18          0 1
+Affc 'blood moon'   0  57  56   5  19          0 1
 End
 
 #END

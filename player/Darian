@@ -1,0 +1,276 @@
+#PLAYER
+Name Darian~
+Id   1061862389
+LogO 1105578524
+Vers 14
+Mexp 0
+Pass letmein~
+Prom H:%h/%H M:%m/%M V:%v/%V xp:%X ali:%a [%q] <%j> (%z) ~
+Race human~
+Cla  0
+Levl 5
+Plyd 7294
+Back 0
+Note 1068346219 1062535868 1062535868 1069061520 1097520272 1062535868 1062535868
+Scro 22
+Room 8543
+HMS  55 150 115
+Gold 7
+Silv 443
+Exp  6138
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  HU
+Video 0
+Act  CDGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp AI
+Cnsr AB
+Block_Remote 0
+Prac 5
+Trai 1
+Wimp 0
+Familiar 0
+Atrib 15 16 18 15 14 16
+Afk {B[{CTue Aug 26 06:03:22 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 43
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Viro~
+Lsit c-24-6-176-46.client.comcast.net~
+Ltim Mon Dec 20 18:04:51 2004
+~
+LSav Wed Jan 12 20:08:44 2005
+~
+HMSP 47 143 115
+THMS 0 0 0
+Cnd  0 0 37 37
+Alias mm c 'magic missile'~
+Alias ct cast 'chill touch'~
+Sk 1 1 'acid blast'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 1 1 'armor'
+Sk 1 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 1 1 'blood moon'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 81 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 1 1 'curse'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'energy drain'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fear'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 1 1 'flameshield'
+Sk 1 1 'fly'
+Sk 1 1 'gate'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'identify'
+Sk 1 1 'infravision'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 84 1 'magic missile'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'portal'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 1 1 'regeneration'
+Sk 1 1 'sanctuary'
+Sk 1 1 'scry'
+Sk 1 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'slow'
+Sk 1 1 'starve'
+Sk 1 1 'steel mist'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'vision'
+Sk 1 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 40 1 'dagger'
+Sk 1 1 'shield block'
+Sk 1 1 'brew'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'combat'
+Gr 'detection'
+Gr 'enhancement'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 2404
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 6601
+Nest 0
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3704
+Nest 0
+Cond 94
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Cond 99
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 16 0 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#END

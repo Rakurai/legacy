@@ -1,7 +1,7 @@
 #PLAYER
 Name Tia~
 Id   1014001970
-LogO 1023949528
+LogO 1107468962
 Vers 14
 Mexp 2
 Pass matmat~
@@ -10,26 +10,24 @@ Race wolf~
 Clan blackclaw~
 Cla  7
 Levl 56
-Tru  0
-Plyd 168746
-Back 167850
-Note 1023848353 1023848353 1023848353 1023848353 1023848353 1023848399 1023848353
+Plyd 188054
+Back 168031
+Note 1107468907 1107468907 1107468907 1107468907 1107468907 1107468907 1107468907
 Scro 22
-Room 24814
-HMS  1266 613 702
-Gold 102
-Silv 1162
+Room 24800
+HMS  1286 598 702
+Gold 58
+Silv 37
 Silver_in_bank 14500
 Gold_in_bank 4593
-Exp  70851
+Exp  70806
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  6
+Pos  8
 Alig -1000
-Spou Shadowhunter~
 FImm 0
 FRes I
 FVul H
@@ -39,18 +37,20 @@ Act  CDEFGHJLSc
 AfBy 0
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AIK
 Cnsr B
-Prac 9
-Trai 7
+Block_Remote 0
+Prac 0
+Trai 4
 Wimp 75
+Familiar 0
 Atrib 20 18 18 20 23 14
-SkillPnts  100
+SkillPnts  40
 RolePnts   12
 QuestPnts  100
-Afk {B[{CWed May 15 16:25:42 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CWed Dec 22 20:07:14 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  is engaged to Shadowhunter(again hehe)~
+Titl  in moruning~
 Immn ~
 Pnts 43
 Rank {cNIN{x~
@@ -58,21 +58,21 @@ Aura ~
 TSex 2
 LLev 43
 Deit Kenneth~
-Lsit ool-43536293.dyn.optonline.net~
-Ltim Thu Jun 13 01:23:37 2002
+Lsit pool-68-238-59-43.port.east.verizon.net~
+Ltim Thu Feb 03 16:15:01 2005
 ~
-LSav Thu Jun 13 01:25:28 2002
+LSav Thu Feb 03 16:16:02 2005
 ~
-HMSP 1186 498 742
-THMS 0 1 0
-Cnd  0 0 0 0
+HMSP 1186 528 742
+THMS 0 4 0
+Cnd  0 22 19 24
 Colr 13 37 1
 Ignore rukus~
 Alias ll get axe~
 Alias kk wear axe~
-Sk 1 1 'acid rain'
-Sk 2 1 'blizzard'
-Sk 1 1 'call lightning'
+Sk 75 1 'acid rain'
+Sk 75 1 'blizzard'
+Sk 75 1 'call lightning'
 Sk 1 1 'channel'
 Sk 1 1 'control weather'
 Sk 75 1 'demonfire'
@@ -104,14 +104,15 @@ Sk 1 1 'sunray'
 Sk 1 1 'talon'
 Sk 75 1 'teleport'
 Sk 1 1 'teleport object'
-Sk 1 1 'word of recall'
+Sk 75 1 'word of recall'
 Sk 77 1 'axe'
-Sk 1 1 'flail'
+Sk 31 1 'flail'
 Sk 100 1 'sword'
+Sk 1 1 'bow'
 Sk 81 1 'bash'
 Sk 75 1 'berserk'
 Sk 95 1 'enhanced damage'
-Sk 13 1 'hand to hand'
+Sk 43 1 'hand to hand'
 Sk 76 1 'kick'
 Sk 100 1 'parry'
 Sk 86 1 'second attack'
@@ -123,7 +124,7 @@ Sk 100 1 'scan'
 Sk 1 1 'scrolls'
 Sk 1 1 'staves'
 Sk 1 1 'wands'
-Sk 51 1 'recall'
+Sk 75 1 'recall'
 Gr 'rom basics'
 Gr 'ranger basics'
 Gr 'attack'
@@ -152,7 +153,7 @@ End
 Vnum 24200
 Nest 0
 Cond 93
-Wear 1
+Wear -1
 Cost 1666
 End
 
@@ -484,7 +485,7 @@ End
 Vnum 17318
 Nest 0
 ExtF 0
-Cond 95
+Cond 88
 Wear 7
 Cost 1000
 End
@@ -543,7 +544,7 @@ Vnum 24225
 Nest 0
 Wear -1
 Cost 400
-Val  450 290 0 0 0
+Val  450 0 0 0 0
 End
 
 #O
@@ -556,6 +557,7 @@ End
 #O
 Vnum 821
 Nest 0
+Cond 90
 Wear 9
 Cost 1000
 End
@@ -568,9 +570,9 @@ ExtF 67
 Wear -1
 Lev  53
 Cost 1000
-Affc 'reserved'   1  54  -1   2   5          0 1
-Affc 'reserved'   1  54  -1  10   9          0 1
 Affc 'reserved'   1  54  -1  35  13          0 1
+Affc 'reserved'   1  54  -1  10   9          0 1
+Affc 'reserved'   1  54  -1   2   5          0 1
 End
 
 #O
@@ -626,9 +628,9 @@ Cond 76
 Wear -1
 Lev  13
 Cost 110
-Affc 'enchant weapon'   1  66  -1   6  19          0 1
-Affc 'reserved'   1  10  -1   1   5          0 1
 Affc 'enchant weapon'   0  66  -1   3  18          0 1
+Affc 'reserved'   1  10  -1   1   5          0 1
+Affc 'enchant weapon'   1  66  -1   6  19          0 1
 End
 
 #O
@@ -646,13 +648,6 @@ Wear -1
 Cost 10
 Spell 3 'blood moon'
 Affc 'reserved'   1  15  -1   7  12          0 1
-End
-
-#O
-Vnum 824
-Nest 0
-Wear -1
-Cost 1000
 End
 
 #O
@@ -682,6 +677,7 @@ End
 #O
 Vnum 24204
 Nest 0
+Cond 92
 Wear 5
 Cost 4666
 End
@@ -713,28 +709,6 @@ Spell 3 'blood moon'
 End
 
 #O
-Vnum 24234
-Nest 0
-Wear -1
-Cost 10
-Spell 1 'haste'
-Spell 2 'frenzy'
-Spell 3 'talon'
-Spell 4 'giant strength'
-End
-
-#O
-Vnum 24234
-Nest 0
-Wear -1
-Cost 10
-Spell 1 'haste'
-Spell 2 'frenzy'
-Spell 3 'talon'
-Spell 4 'giant strength'
-End
-
-#O
 Vnum 24245
 Nest 0
 Wear -1
@@ -789,14 +763,6 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 24245
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
 Vnum 24232
 Nest 0
 Wear -1
@@ -816,14 +782,6 @@ Spell 3 'shield'
 End
 
 #O
-Vnum 24238
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'blood moon'
-End
-
-#O
 Vnum 8800
 Nest 0
 Wear -1
@@ -840,25 +798,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by DeathStrike.
 ~
-End
-
-#O
-Vnum 119
-Nest 0
-Name food The Subtlety Award~
-ShD  The Subtlety Award~
-Desc The Subtlety Award{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
-ExDe chef~ This food was created by Alara.
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -872,9 +814,9 @@ Wear -1
 Lev  41
 Cost 10000
 Val  1 8 5 21 28
-Affc 'enchant weapon'   1  91  -1   4  18          0 1
-Affc 'enchant weapon'   1  91  -1   8  19          0 1
 Affc 'reserved'   1  40  -1  -5  23          0 1
+Affc 'enchant weapon'   1  91  -1   8  19          0 1
+Affc 'enchant weapon'   1  91  -1   4  18          0 1
 End
 
 #O
@@ -887,51 +829,230 @@ Wear -1
 Lev  41
 Cost 10000
 Val  1 8 5 21 28
-Affc 'enchant weapon'   1  91  -1   4  18          0 1
-Affc 'enchant weapon'   1  91  -1   8  19          0 1
 Affc 'reserved'   1  40  -1  -5  23          0 1
+Affc 'enchant weapon'   1  91  -1   8  19          0 1
+Affc 'enchant weapon'   1  91  -1   4  18          0 1
 End
 
 #O
-Vnum 14030
-Nest 0
-Wear 16
-Cost 0
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {CI{Y'{Rm {GS{Wo{Rr{Br{Cy{x rose~
-Desc A {CI{Y'{Rm {GS{Wo{Rr{Br{Cy{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe florist~ This rose was created by Shadowhunter.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-End
-
-#O
-Vnum 3092
+Vnum 24822
 Nest 0
 Wear -1
-Cost 290
-Spell 1 'detect invis'
-Spell 2 'detect magic'
-Spell 3 'detect hidden'
+Cost 10
+Spell 3 'cure critical'
 End
 
 #O
-Vnum 6
+Vnum 24831
 Nest 0
-ShD  {CS{Yh{Ca{Yd{Co{Yw{C'{Ys {CH{Ye{Ca{Yr{Ct {Y& {CS{Yo{Cu{Yl~
-Desc {CEven thought we are apart each day i think of you~
-Wear 20
-Cost 1
+Wear -1
+Cost 10
+Spell 3 'refresh'
+End
+
+#O
+Vnum 24829
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24835
+Nest 0
+Wear -1
+Cost 100
+Spell 3 'protection good'
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24835
+Nest 0
+Wear -1
+Cost 100
+Spell 3 'protection good'
+End
+
+#O
+Vnum 24831
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'refresh'
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3358
+Nest 0
+Wear -1
+Cost 450
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3354
+Nest 0
+Wear -1
+Cost 810
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3360
+Nest 0
+Wear -1
+Cost 450
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3358
+Enchanted
+Nest 0
+Wear -1
+Lev  4
+Cost 450
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3043
+Nest 0
+Wear 1
+Cost 640
+End
+
+#O
+Vnum 24822
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'cure critical'
 End
 
 #O
@@ -940,6 +1061,60 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24824
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24831
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'refresh'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 6
+Nest 0
+ShD  {YSOME{x {PHOT{x {NLOVIN{x~
+Desc {YSOME{x {PHOT{x {NLOVIN{x~
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 824
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24819
+Nest 0
+Wear -1
+Cost 13
+End
+
+#O
+Vnum 24819
+Nest 0
+Wear -1
+Cost 13
 End
 
 #END

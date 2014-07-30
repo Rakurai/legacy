@@ -787,6 +787,7 @@ S
 #7815
 The Valley of the Elves~
 You are in the Valley of the Elves.  The valley continues in all directions.
+You notice a sign that says: Bowyer Shop
 ~
 0 0 2
 D0
@@ -809,6 +810,11 @@ The valley continues west.
 ~
 ~
 0 0 7814
+D4
+The Bowyer shop is up.
+~
+~
+0 0 24350
 S
 #7816
 The Valley of the Elves~

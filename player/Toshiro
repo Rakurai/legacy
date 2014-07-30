@@ -1,0 +1,220 @@
+#PLAYER
+Name Toshiro~
+Id   1055261854
+LogO 1055262382
+Vers 14
+Mexp 2
+Pass kaisanen~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race feral~
+Cla  5
+Levl 1
+Tru  0
+Plyd 230
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3714
+HMS  12 100 92
+Gold 3
+Silv 406
+Exp  2422
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes 0
+FVul JR
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy R
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 5
+Atrib 11 13 18 19 13 11
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 42
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Teotwawki~
+Lsit ua152d31hel.dial.kolumbus.fi~
+Ltim Tue Jun 10 12:22:31 2003
+~
+LSav Tue Jun 10 12:26:22 2003
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 33 43 43
+Sk 75 1 'sword'
+Sk 17 1 'shield block'
+Sk 1 1 'dodge'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 195 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#END

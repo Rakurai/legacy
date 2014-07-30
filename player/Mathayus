@@ -1,47 +1,48 @@
 #PLAYER
 Name Mathayus~
 Id   1017315091
-LogO 1019796659
-Vers 13
+LogO 1053764654
+Vers 14
 Mexp 2
+Pass 1dragon1~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race human~
-Sex  1
 Cla  3
 Levl 50
-Plyd 69674
+Tru  0
+Plyd 71577
 Back 0
-Note 1019280693 1019448587 1018338011 1019260971 1019194748 0 1019050221
+Note 1019280693 1019448587 1051589887 1019260971 1019194748 0 1019050221
 Scro 22
-Room 3054
-HMS  790 1104 351 459 568 710
-Gold 1014
-Silv 7962
-Exp  62536
-PCkills 0
+Room 10165
+HMS  944 509 574
+Gold 1114
+Silv 8421
+Exp  62817
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
 Act  CDEFGHJLQSc
-AfBy NOTUc
+AfBy NOd
 Comm NOQ
 Revk 0
 Cgrp A
 Cnsr 0
-Pos  8
-Prac 9
+Prac 7
 Trai 6
-Save  -20
-Alig  -1000
-Hit   33
-Dam   39
-ACs -139 -137 -139 -102
-Wimp  121
+Wimp 121
 Atrib 19 18 18 17 18 15
-AtMod 6 2 9 5 4 2
-QuestPnts 9
-Pass 1dragon1~
+SkillPnts  6
+QuestPnts  9
 Afk {B[{CSat Apr 20 05:22:11 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {HS{Gm{Wa{Gl{Hl {RS{bc{Po{Yrp{Pi{bo{Rn~
@@ -52,17 +53,17 @@ Aura ~
 TSex 1
 LLev 19
 Deit Montrey~
-Lsit naio26.interpac.net~
-Ltim Thu Apr 25 23:20:53 2002
+Lsit 1Cust65.tnt3.hilo.hi.da.uu.net~
+Ltim Sat May 24 04:05:59 2003
 ~
-LSav Thu Apr 25 23:50:59 2002
+LSav Sat May 24 04:24:14 2003
 ~
-MC 44
-Col 32 0 0 0 33 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 HMSP 854 359 710
 THMS 0 0 0
-Cnd  0 30 25 40
+Cnd  0 0 14 21
+Alias san c undo sanc~
+Alias m c 'lightning breath'~
+Alias sa c 'energy drain'~
 Sk 71 1 'acid breath'
 Sk 1 1 'age'
 Sk 71 1 'armor'
@@ -70,7 +71,7 @@ Sk 71 1 'blindness'
 Sk 1 1 'cancellation'
 Sk 71 1 'curse'
 Sk 71 1 'dispel magic'
-Sk 1 1 'energy drain'
+Sk 71 1 'energy drain'
 Sk 1 1 'fire breath'
 Sk 1 1 'fireproof'
 Sk 71 1 'fly'
@@ -102,8 +103,8 @@ Sk 72 1 'bash'
 Sk 69 1 'dirt kicking'
 Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
-Sk 89 1 'kick'
-Sk 99 1 'parry'
+Sk 92 1 'kick'
+Sk 100 1 'parry'
 Sk 81 1 'second attack'
 Sk 82 1 'third attack'
 Sk 94 1 'dual wield'
@@ -121,12 +122,12 @@ Gr 'draconian'
 Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
-Affc 'pass door'   0  48   0   0   0    1048576 1
-Affc 'protection evil'   0  46  12  -1  24       8192 1
-Affc 'protection good'   0  45  12  -1  24      16384 1
-Affc 'regeneration'   0  83  25   0   0  268435456 2
-Affc 'fly'   0  43  17   0   0     524288 1
-Affc 'stone skin'   0  42  13 -40  17          0 1
+Affc 'slow'   0  49  22  -6   2  536870912 1
+Affc 'shield'   0  44  39 -20  17          0 1
+Affc 'armor'   0  48   5 -20  17          0 1
+Affc 'stone skin'   0  48  31 -40  17          0 1
+Affc 'protection evil'   0  46   5  -1  24       8192 1
+Affc 'protection good'   0  46   5  -1  24      16384 1
 End
 
 #O
@@ -198,7 +199,7 @@ Vnum 504
 Nest 0
 ExtF 19
 Cond 83
-Wear 14
+Wear -1
 Cost 312
 End
 
@@ -271,7 +272,7 @@ End
 Vnum 9909
 Nest 0
 Cond 98
-Wear 3
+Wear -1
 Cost 2000
 End
 
@@ -294,7 +295,7 @@ End
 Vnum 9924
 Nest 0
 Cond 89
-Wear 0
+Wear -1
 Cost 500
 Val  0 0 -1 0 0
 End
@@ -323,7 +324,7 @@ End
 #O
 Vnum 10129
 Nest 0
-Wear -1
+Wear 18
 Cost 122
 End
 
@@ -418,7 +419,7 @@ End
 #O
 Vnum 16084
 Nest 0
-Cond 83
+Cond 72
 Wear 1
 Cost 1500
 End
@@ -456,7 +457,7 @@ End
 #O
 Vnum 10135
 Nest 0
-Wear -1
+Wear 9
 Cost 23
 End
 
@@ -585,7 +586,7 @@ End
 #O
 Vnum 11915
 Nest 0
-Wear 18
+Wear -1
 Cost 300
 End
 
@@ -663,7 +664,7 @@ End
 #O
 Vnum 16085
 Nest 0
-Wear -1
+Wear 14
 Cost 1900
 End
 
@@ -701,7 +702,7 @@ End
 #O
 Vnum 4592
 Nest 0
-Wear -1
+Wear 0
 Cost 700
 End
 
@@ -814,7 +815,7 @@ End
 #O
 Vnum 16016
 Nest 0
-Wear 9
+Wear -1
 Cost 4650
 End
 
@@ -939,6 +940,53 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 93
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 80
+Nest 0
+Cond 93
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear -1
+Cost 2000
 End
 
 #L

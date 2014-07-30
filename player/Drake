@@ -1,132 +1,123 @@
 #PLAYER
 Name Drake~
-Id   1025279691
-LogO 1025287489
+Id   1096393917
+LogO 1110404817
 Vers 14
-Mexp 0
-Pass liar5~
+Mexp 1
+Pass person~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
-Race human~
-Cla  0
-Levl 4
-Tru  0
-Plyd 2970
+Race seraph~
+Cla  6
+Levl 1
+Plyd 150
 Back 0
 Note 0 0 0 0 0 0 0
 Scro 22
-Room 10002
-HMS  42 29 106
-Gold 5
-Silv 260
-Exp  5831
+Room 8520
+HMS  17 100 100
+Gold 0
+Silv 0
+Exp  3500
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  4
-Alig -387
+Pos  8
+Alig 750
 FImm 0
-FRes 0
-FVul 0
+FRes NS
+FVul M
 Plr  U
 Video 0
 Act  CDEFGHJLQSc
-AfBy 0
+AfBy T
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AI
 Cnsr AB
-Prac 0
-Trai 0
+Block_Remote 0
+Prac 5
+Trai 3
 Wimp 0
-Atrib 14 20 17 15 15 14
-Afk {B[{CFri Jun 28 11:21:43 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
-~
-Titl  the Vengfull Mage~
+Familiar 0
+Atrib 16 14 14 16 15 16
+Titl  ({VNewbie Aura{x)~
 Immn ~
-Pnts 45
+Pnts 60
 Rank ~
 Aura ~
 TSex 1
 LLev 0
-Deit Kenneth~
-Lsit 205.208.128.28~
-Ltim Fri Jun 28 12:57:37 2002
+Deit Teotwawki~
+Lsit me-naples-cmts1b-68-68-43-205.agstme.adelphia.net~
+Ltim Wed Mar 09 15:45:13 2005
 ~
-LSav Fri Jun 28 13:04:49 2002
+LSav Wed Mar 09 15:46:57 2005
 ~
-HMSP 43 135 109
+HMSP 20 100 100
 THMS 0 0 0
-Cnd  0 36 44 9
-Sk 1 1 'acid blast'
-Sk 1 1 'acid breath'
-Sk 1 1 'acid rain'
-Sk 1 1 'blizzard'
-Sk 1 1 'burning hands'
-Sk 1 1 'call lightning'
-Sk 1 1 'chain lightning'
-Sk 80 1 'chill touch'
-Sk 1 1 'colour spray'
-Sk 1 1 'control weather'
-Sk 1 1 'demonfire'
-Sk 1 1 'dispel evil'
-Sk 1 1 'dispel good'
-Sk 1 1 'earthquake'
-Sk 1 1 'faerie fire'
-Sk 1 1 'faerie fog'
-Sk 1 1 'fire breath'
-Sk 1 1 'fireball'
-Sk 1 1 'firestorm'
-Sk 1 1 'flameshield'
-Sk 1 1 'flamestrike'
-Sk 1 1 'frost breath'
-Sk 1 1 'gas breath'
-Sk 1 1 'heat metal'
-Sk 1 1 'lightning bolt'
-Sk 1 1 'lightning breath'
-Sk 80 1 'magic missile'
-Sk 1 1 'ray of truth'
-Sk 1 1 'shocking grasp'
-Sk 1 1 'steel mist'
-Sk 1 1 'sunray'
-Sk 1 1 'wrath'
+Cnd  0 36 44 44
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'frenzy'
+Sk 1 1 'holy word'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 40 1 'axe'
 Sk 1 1 'dagger'
-Sk 67 1 'sword'
-Sk 25 1 'shield block'
-Sk 1 1 'brew'
-Sk 1 1 'lore'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 1 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'haggle'
+Sk 1 1 'hide'
 Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'sing'
 Sk 1 1 'scrolls'
 Sk 1 1 'staves'
 Sk 1 1 'wands'
 Sk 50 1 'recall'
 Gr 'rom basics'
-Gr 'mage basics'
-Gr 'attack'
-Gr 'combat'
-Gr 'draconian'
-Gr 'weather'
-Affc 'chill touch'   0   3   7  -2   1          0 1
-Affc 'blood moon'   0  56  38   3  18          0 1
-Affc 'blood moon'   0  58  38   5  19          0 1
+Gr 'bard basics'
+Gr 'bard default'
+Gr 'weaponsmaster'
+Gr 'benedictions'
+Gr 'curative'
 End
 
 #O
 Vnum 3716
 Nest 0
-Cond 99
 Wear 0
 Cost 0
-Val  0 0 133 0 0
+Val  0 0 196 0 0
 End
 
 #O
-Vnum 3702
+Vnum 3703
 Nest 0
-Cond 94
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3719
+Nest 0
 Wear 16
-Cost 360
+Cost 350
 End
 
 #O
@@ -144,115 +135,10 @@ Cost 500
 End
 
 #O
-Vnum 3711
-Nest 0
-Wear 12
-Cost 72
-End
-
-#O
-Vnum 3707
-Nest 0
-Wear 7
-Cost 72
-End
-
-#O
-Vnum 3712
-Nest 0
-Wear 13
-Cost 72
-End
-
-#O
-Vnum 3708
-Nest 0
-Wear 8
-Cost 72
-End
-
-#O
-Vnum 3705
-Nest 0
-Wear 3
-Cost 72
-End
-
-#O
-Vnum 3066
-Nest 0
-Wear 5
-Cost 430
-End
-
-#O
-Vnum 3052
-Nest 0
-Wear 15
-Cost 112
-End
-
-#O
-Vnum 73
-Nest 0
-Wear 6
-Cost 270
-End
-
-#O
-Vnum 74
-Nest 0
-Wear 4
-Cost 550
-End
-
-#O
-Vnum 75
-Nest 0
-Wear 1
-Cost 620
-End
-
-#O
-Vnum 3052
-Nest 0
-Wear 14
-Cost 112
-End
-
-#O
-Vnum 3011
+Vnum 3379
 Nest 0
 Wear -1
-Cost 9
-End
-
-#O
-Vnum 3011
-Nest 0
-Wear -1
-Cost 9
-End
-
-#O
-Vnum 3011
-Nest 0
-Wear -1
-Cost 9
-End
-
-#O
-Vnum 3011
-Nest 0
-Wear -1
-Cost 9
-End
-
-#O
-Vnum 3011
-Nest 0
-Wear -1
-Cost 9
+Cost 0
 End
 
 #END

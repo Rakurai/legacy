@@ -1,0 +1,213 @@
+#PLAYER
+Name Shrink~
+Id   1066839707
+LogO 1066840748
+Vers 14
+Mexp 1
+Pass martin~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race wolf~
+Cla  3
+Levl 1
+Tru  0
+Plyd 551
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3014
+HMS  10 100 85
+Gold 3
+Silv 412
+Exp  3380
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -143
+FImm 0
+FRes I
+FVul H
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 5
+Trai 3
+Wimp 7
+Atrib 20 14 12 14 15 12
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 64
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Urza~
+Lsit 68.232.178.143~
+Ltim Wed Oct 22 12:29:57 2003
+~
+LSav Wed Oct 22 12:39:08 2003
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 12 36 36
+Sk 1 1 'blood blade'
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'flame blade'
+Sk 1 1 'frost blade'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'shock blade'
+Sk 1 1 'talon'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 40 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'hand to hand'
+Sk 1 1 'kick'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'weaponsmaster'
+Gr 'enhancement'
+Gr 'bladecraft'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 188 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Cond 96
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Cond 94
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

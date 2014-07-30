@@ -1,25 +1,25 @@
 #PLAYER
 Name Kakarot~
 Id   1007040048
-LogO 1027094676
+LogO 1105578442
 Vers 14
 Mexp 2
 Pass pacman~
 Prom <{Y%h/%H {G%m/%M {Y%v/%V {Y%g{W/%s (%r) {P%aAlign {Y%Xtnl {W%q/{G%j{W> ~
 Race human~
-Clan rebel~
 Cla  5
 Levl 72
-Tru  0
-Plyd 173040
-Back 169457
+Plyd 179956
+Back 173082
 Note 0 0 1026271687 0 0 1026553267 0
 Scro 22
-Room 24606
-HMS  1506 912 1108
-Gold 2102
-Silv 169
-Exp  90006
+Room 8543
+HMS  1451 872 1098
+Gold 0
+Silv 0
+Silver_in_bank 1870
+Gold_in_bank 2232
+Exp  89968
 PCkills  0
 PCkilled 3
 Akills   0
@@ -30,20 +30,24 @@ Alig -1000
 FImm 0
 FRes 0
 FVul 0
-Plr  H
+Plr  EH
 Video D
-Act  CDEFGHJLSc
+Act  CDEFGHJLSVc
 AfBy Qbc
 Comm MNO
 Revk 0
-Cgrp A
+Cgrp AI
 Cnsr B
+Block_Remote 0
 Prac 8
 Trai 3
 Wimp 0
+Lay 8
+Lay_Next 12
+Familiar 0
 Atrib 17 18 18 18 18 14
 QuestPnts  1
-Afk {B[{CSat Mar  9 00:43:57 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CWed Dec  8 21:16:16 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  the night crawler~
 Immn ~
@@ -53,14 +57,14 @@ Aura ~
 TSex 1
 LLev 44
 Deit Edge~
-Lsit 12-229-8-254.client.attbi.com~
-Ltim Fri Jul 19 09:48:21 2002
+Lsit cpe-066-056-234-018.ec.rr.com~
+Ltim Sun Dec 12 11:17:18 2004
 ~
-LSav Fri Jul 19 11:04:36 2002
+LSav Wed Jan 12 20:07:22 2005
 ~
 HMSP 1131 717 898
 THMS 0 1 0
-Cnd  0 0 0 0
+Cnd  0 36 100 100
 Alias dispel c 'dispel magic'~
 Alias slow c slow~
 Alias undo c 'undo spell'~
@@ -91,7 +95,7 @@ Sk 1 1 'encampment'
 Sk 75 1 'energy drain'
 Sk 1 1 'fireproof'
 Sk 1 1 'floating disc'
-Sk 75 1 'frenzy'
+Sk 76 1 'frenzy'
 Sk 75 1 'giant strength'
 Sk 83 1 'haste'
 Sk 87 1 'heal'
@@ -110,13 +114,14 @@ Sk 75 1 'remove curse'
 Sk 79 1 'sanctuary'
 Sk 76 1 'shield'
 Sk 91 1 'slow'
+Sk 1 1 'starve'
 Sk 76 1 'stone skin'
 Sk 75 1 'talon'
 Sk 76 1 'undo spell'
 Sk 77 1 'weaken'
 Sk 100 1 'sword'
 Sk 81 1 'shield block'
-Sk 90 1 'bash'
+Sk 91 1 'bash'
 Sk 78 1 'circle'
 Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
@@ -148,46 +153,10 @@ Cost 200
 End
 
 #O
-Vnum 24613
-Nest 0
-Wear 10
-Cost 3500
-End
-
-#O
-Vnum 24614
-Nest 0
-Wear 15
-Cost 4000
-End
-
-#O
-Vnum 24617
-Nest 0
-Wear 8
-Cost 5000
-End
-
-#O
-Vnum 24620
-Nest 0
-Wear 7
-Cost 7000
-End
-
-#O
 Vnum 14030
 Nest 0
 Wear 19
 Cost 0
-End
-
-#O
-Vnum 79
-Nest 0
-Wear -1
-Cost 200
-Val  150 0 11 0 0
 End
 
 #O
@@ -197,7 +166,7 @@ Name vial potion pass door~
 ShD  a potion of pass door~
 Wear -1
 Lev  41
-Time 424
+Time 237
 Cost 2000
 Val  41 102 -1 -1 -1
 Spell 1 'pass door'
@@ -370,18 +339,8 @@ End
 #O
 Vnum 17013
 Nest 0
-Wear -1
+Wear 1
 Cost 50
-End
-
-#O
-Vnum 17012
-Nest 0
-Wear -1
-Time 622
-Cost 25
-Spell 1 'giant strength'
-Spell 2 'frenzy'
 End
 
 #O
@@ -389,17 +348,6 @@ Vnum 17003
 Nest 0
 Wear 12
 Cost 200
-End
-
-#O
-Vnum 17014
-Enchanted
-Nest 0
-Cond 89
-Wear -1
-Cost 500
-Spell 3 'frost breath'
-Affc 'reserved'   1  75  -1  50  12          0 1
 End
 
 #O
@@ -455,13 +403,6 @@ Cost 2000
 End
 
 #O
-Vnum 10166
-Nest 0
-Wear -1
-Cost 20
-End
-
-#O
 Vnum 1004
 Enchanted
 Nest 0
@@ -485,13 +426,6 @@ ExDe sword Durable Rune Katana~ It is a marvellous sword, crafted from the fines
 End
 
 #O
-Vnum 10166
-Nest 0
-Wear -1
-Cost 20
-End
-
-#O
 Vnum 8652
 Nest 0
 Wear -1
@@ -510,7 +444,7 @@ End
 #O
 Vnum 5609
 Nest 0
-Wear 1
+Wear -1
 Cost 0
 End
 
@@ -533,7 +467,7 @@ End
 Vnum 2405
 Nest 0
 Wear -1
-Time 670
+Time 483
 Cost 160
 Spell 1 'armor'
 Spell 2 'cure blindness'
@@ -544,6 +478,225 @@ Vnum 2409
 Nest 0
 Wear -1
 Cost 0
+End
+
+#O
+Vnum 1201
+Nest 0
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3355
+Nest 0
+Wear -1
+Cost 510
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3355
+Nest 0
+Wear -1
+Cost 510
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3355
+Enchanted
+Nest 0
+Wear -1
+Cost 510
+Affc 'reserved'   1   5  -1   1  17          0 1
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3356
+Nest 0
+Wear -1
+Cost 450
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3355
+Nest 0
+Wear -1
+Cost 510
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3356
+Nest 0
+Wear -1
+Cost 450
 End
 
 #L

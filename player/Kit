@@ -1,13 +1,12 @@
 #PLAYER
 Name Kit~
 Id   1014376601
-LogO 1025947475
+LogO 1060017543
 Vers 14
 Mexp 2
 Pass elfquest~
 Prom <%Xexp %h/%Hh  %m/%Mm %e %z %r %j> ~
 Race human~
-Clan divinity~
 Cla  3
 Levl 41
 Tru  0
@@ -15,8 +14,8 @@ Plyd 164318
 Back 164306
 Note 1022105606 1018036772 1020818598 1018036772 1018036772 1025627518 1018036772
 Scro 22
-Room 24228
-HMS  818 421 555
+Room 3001
+HMS  858 431 555
 Gold 30
 Silv 40
 Silver_in_bank 133
@@ -33,7 +32,7 @@ Ptnr Vegita~
 FImm 0
 FRes 0
 FVul 0
-Plr  U
+Plr  HU
 Video 0
 Act  CDEFGHJLQSc
 AfBy 0
@@ -58,7 +57,7 @@ Deit Azrael~
 Lsit naio51.interpac.net~
 Ltim Sat Jul 06 04:21:15 2002
 ~
-LSav Sat Jul 06 04:24:35 2002
+LSav Mon Aug 04 13:19:03 2003
 ~
 HMSP 643 301 545
 THMS 0 0 0
@@ -399,9 +398,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -415,9 +414,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe chef~ This food was created by Urza.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Urza.
 ~
 End
 
@@ -431,9 +430,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by DeathStrike.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -447,9 +446,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe florist~ This rose was created by DeathStrike.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by DeathStrike.
 ~
 End
 
@@ -570,9 +569,9 @@ Wt   1
 Cond -1
 Wear -1
 Cost 100000
-ExDe azrael~ '{Ra huge {PDemonic{R Dragon {WNecromancer{R with animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x
-~
 ExDe poseable figurine figure~ '{Ra huge {PDemonic{R Dragon {WNecromancer{R with animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x
+~
+ExDe azrael~ '{Ra huge {PDemonic{R Dragon {WNecromancer{R with animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x
 ~
 End
 

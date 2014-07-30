@@ -1,0 +1,238 @@
+#PLAYER
+Name Vizoux~
+Id   1044338154
+LogO 1061172899
+Vers 14
+Mexp 1
+Pass amethyst83~
+Prom %CC<%CP%h/%CR%Hhp %CC%m/%CT%Mm %CG%v/%CH%Vmv %CW%gg %CR%ss %CV%Xtnl %CB%a %CW%q%CC>% %Cx ~
+Race human~
+Cla  3
+Levl 8
+Tru  0
+Plyd 3300
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  120 140 175
+Gold 28
+Silv 74
+Exp  8838
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHIJLQSc
+AfBy 0
+Comm NOQ
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 21
+Trai 7
+Wimp 5
+Atrib 18 15 15 13 14 14
+Titl  {NT{Mh{Te{x {NS{Mh{ka{Td{Ho{bw{x {NW{Ma{kl{Tk{He{br{x{\~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Vegita~
+Lsit cdm-66-149-162-bcst.cox-internet.com~
+Ltim Sun Aug 17 22:10:12 2003
+~
+LSav Sun Aug 17 22:14:59 2003
+~
+HMSP 116 133 178
+THMS 0 0 0
+Cnd  0 9 47 18
+Sk 1 1 'dagger'
+Sk 78 1 'sword'
+Sk 75 1 'bash'
+Sk 1 1 'dodge'
+Sk 76 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 78 1 'parry'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Affc 'blood moon'   0  59  55   3  18          0 1
+Affc 'blood moon'   0  59  55   5  19          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 127 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 90 15 0 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 10134
+Nest 0
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 10129
+Nest 0
+Wear -1
+Cost 122
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 1605
+Nest 0
+Cond 80
+Wear -1
+Cost 1510
+End
+
+#END

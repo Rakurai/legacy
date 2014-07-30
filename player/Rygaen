@@ -1,0 +1,328 @@
+#PLAYER
+Name Rygaen~
+Id   1107621981
+LogO 1107624140
+Vers 14
+Mexp 1
+Pass ereleene~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  2
+Levl 2
+Plyd 2042
+Back 0
+Note 1106660230 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  9 106 110
+Gold 3
+Silv 275
+Exp  4037
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 750
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQS
+AfBy 0
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Block_Remote 0
+Prac 1
+Trai 1
+Wimp 0
+Familiar 0
+Atrib 14 15 10 18 16 12
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Outsider~
+Lsit dynamic-129-120-231-13.dynamic.unt.edu~
+Ltim Sat Feb 05 10:48:16 2005
+~
+LSav Sat Feb 05 11:22:20 2005
+~
+HMSP 35 106 110
+THMS 0 0 0
+Cnd  0 0 13 23
+Sk 71 1 'dagger'
+Sk 1 1 'mace'
+Sk 1 1 'sword'
+Sk 1 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 22 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hide'
+Sk 1 1 'lore'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 157 0 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 138 15 0 0
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Wear -1
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3020
+Nest 0
+Wear -1
+Cost 157
+End
+
+#END

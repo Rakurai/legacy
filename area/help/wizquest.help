@@ -84,4 +84,11 @@ Syntax: {Coclone{x <{Yobject{x> <{Yowner{x>
 inventory.
 ~
 
+92 SKILLPOINT~
+Syntax: {Cskillpoint{x <{Yaward|deduct{x> <{Yplayer{x> <{Yamount{x>
+
+Skill point allows you to grant or remove skill points from a player.
+This is good for side quests or punishment.
+~
+
 -2

@@ -1,0 +1,171 @@
+#PLAYER
+Name Belgantard~
+Id   1069964981
+LogO 1069967957
+Vers 14
+Mexp 0
+Pass 51423~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dragon~
+Cla  6
+Levl 1
+Tru  0
+Plyd 538
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3702
+HMS  20 100 100
+Gold 0
+Silv 0
+Exp  30000
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes EG
+FVul F
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 5
+Trai 0
+Wimp 0
+Atrib 18 16 12 16 15 16
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 125
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kismet~
+Lsit modemcable031.173-201-24.mc.videotron.ca~
+Ltim Thu Nov 27 15:46:26 2003
+~
+LSav Thu Nov 27 16:19:17 2003
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 4 0
+Sk 1 1 'acid breath'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 1 1 'blood moon'
+Sk 1 1 'calm'
+Sk 1 1 'charm person'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'demonfire'
+Sk 1 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 1 1 'earthquake'
+Sk 1 1 'energy drain'
+Sk 1 1 'fear'
+Sk 1 1 'fire breath'
+Sk 1 1 'flamestrike'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'heat metal'
+Sk 1 1 'lightning breath'
+Sk 1 1 'power word'
+Sk 1 1 'ray of truth'
+Sk 1 1 'resurrect'
+Sk 1 1 'sleep'
+Sk 1 1 'sunray'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 40 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 1 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'backstab'
+Sk 1 1 'bash'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'swimming'
+Sk 1 1 'languages'
+Sk 1 1 'haggle'
+Sk 1 1 'hide'
+Sk 1 1 'lore'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'sing'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'bard basics'
+Gr 'bard default'
+Gr 'weaponsmaster'
+Gr 'attack'
+Gr 'beguiling'
+Gr 'curative'
+Gr 'draconian'
+Gr 'necromancy'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 156 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3720
+Nest 0
+Wear 16
+Cost 310
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

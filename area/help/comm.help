@@ -39,8 +39,6 @@ Syntax:
 it turns {Ysour{x sometimes.  Whether you're wanting to marry, or be divorced,
 it must be performed by an {CImmortal{x.  With marriage comes the ability
 to communicate exclusively to your spouse via your own private channel.
-The tremendous responsibility associated with being married requires that
-bride and groom {Gboth{x be at least level {P12{x.
 
 Getting married is now free of charge.  Getting divorced now costs QPs,
 25 for the player wanting the divorce or 10 each if it's mutual.
@@ -96,11 +94,12 @@ Syntax: {Cafk{x <{Ymessage{x>
 to quit.
 ~
 
-0 ORDER~
+0 ORDER PET~
 Syntax: {Corder{x <{Ycharacter{x> <{Ycommand{x>
         {Corder all{x <{Ycommand{x>
         {Corder{x <{Ypet{x> {Ystay{x
         {Corder{x <{Ypet{x> {Yfollow{x
+          {Cpet{x <{Ycommand{x>
 
 {COrder{x orders one or all of your charmed followers (including pets) to
 perform any command.  The command may have arguments.  You are responsible
@@ -109,6 +108,8 @@ Syntax: {Corder{x <{Ycharacter{x> <{Ycommand{x>
 Most charmed creatures lose their aggressive nature (while charmed).
 
 By ordering your pet to stay or follow, you can control your pet's location.
+
+You can also use the PET command in place of "order pet ...".
 ~
 
 0 GTELL~
@@ -120,7 +121,8 @@ Syntax:  {Cgtell{x <{Ymessage{x>
 ~
 
 0 TELL REPLY DEAF~
-Syntax: {Ctell{x  <{Ymessage{x>
+Syntax: {Ctell{x  <{Yplayer{x> <{Ymessage{x>
+        {Ctell{x  <{Yplayer@mud{x> <{Ymessage{x>
         {Creply{x <{Ymessage{x>
         {Creply lock{x
         {Cdeaf{x
@@ -133,6 +135,10 @@ Syntax: {Ctell{x  <{Ymessage{x>
 all your replies set to a certain player.  If you don't want to receive
 tells from other players, type '{Cdeaf{x'.  You can type {Cdeaf{x again to turn
 tells back on.
+
+You can also send tell messages to players on other connected MUDs.
+This is done by placing an "@" in the player's name. For example:
+tell bob@soe Nice day, isn't it?
 ~
 
 0 SAY~
@@ -573,13 +579,12 @@ Syntax: {Rc{Pensor{x
   the censor shall be punished immediately and harshly.
 
 {T*{x {PFlame{x is a {Bfree-for-all channel{x.  Period.  If you do not like what
-  is being said on {Pflame{x, you may turn it off.  However, please note
-  the last rule ...
+  is being said on {Pflame{x, you may turn it off. 
 
-{T* Racial, gender, or sexual slurs will NOT be tolerated on Legacy.
-  This encompasses ALL public and private channels (including Flame!)
-  and anybody found harassing in such a manner shall not be welcome
-  on this mud.{x
+{T* Racial, gender, sexual, and sexual orientation slurs will NOT be
+  tolerated on Legacy.  This encompasses ALL public and private channels
+  (excluding Flame,see above statement) 
+  and anybody found harassing in such a manner shall be punished.{x
 
 {VNOTE:{x Punishments for violators of the {Rc{Pensor rules{x will be determined
       on a case by case basis, but generally will be as follows:  1) 
@@ -603,6 +608,23 @@ Syntax: {Rc{Pensor{x
 Remember that if courtesy is not enough to help keep you from spamming, then
 the {YImmortals{x may have to take action against you. You can be warned, have
 your communication channels turned off or even be banned. {CTake heed!{x
+~
+
+0 REMOTE~
+Syntax: {premote{x [{Yon|off{x]
+
+The remote command turns incoming messages (from other MUDs) on or off.
+You may use Remote in the following ways:
+Remote on      -- Turns the remote channel on
+Remote off     -- blocks incoming messages from other MUDs
+Remote         -- Show the remote channel's status.
+~
+
+0 RENAME~
+Syntax: {prename{x <{Ypet name{x>
+
+The Rename command allows you to name your pet at any time.
+You have a pet? Don't like its name? Change it using Rename.
 ~
 
 -2

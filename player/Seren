@@ -1,0 +1,195 @@
+#PLAYER
+Name Seren~
+Id   1069596034
+LogO 1069596426
+Vers 14
+Mexp 0
+Pass brewer~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race wolf~
+Cla  2
+Levl 1
+Tru  0
+Plyd 12
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3700
+HMS  20 100 98
+Gold 0
+Silv 0
+Exp  54600
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes I
+FVul H
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 5
+Trai 3
+Wimp 0
+Atrib 15 13 14 19 16 14
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 139
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kismet~
+Lsit 208-58-224-30.s30.tnt1.clmb.md.dialup.rcn.com~
+Ltim Sun Nov 23 09:06:54 2003
+~
+LSav Sun Nov 23 09:07:06 2003
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 48 48 48
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 1 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 1 1 'blood blade'
+Sk 1 1 'call lightning'
+Sk 1 1 'channel'
+Sk 1 1 'control weather'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'curse'
+Sk 1 1 'dazzling light'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'energy drain'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'flame blade'
+Sk 1 1 'flameshield'
+Sk 1 1 'frost blade'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'heal'
+Sk 1 1 'identify'
+Sk 1 1 'infravision'
+Sk 1 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shock blade'
+Sk 1 1 'shrink'
+Sk 1 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 1 1 'steel mist'
+Sk 1 1 'talon'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'vision'
+Sk 1 1 'weaken'
+Sk 40 1 'dagger'
+Sk 1 1 'mace'
+Sk 1 1 'sword'
+Sk 1 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'hand to hand'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'hunt'
+Sk 1 1 'hide'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+Gr 'detection'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'bladecraft'
+Gr 'weather'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

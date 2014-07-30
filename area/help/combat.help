@@ -11,7 +11,7 @@ Syntax:
 For some, disagreements can only be solved through a fight to
 the death.  Others may enjoy combat just to test their skill.
 For both, there is the duel arena, letting players challenge
-eachother to a one on one fight, without interference of any
+each other to a one on one fight, without interference of any
 kind.  Only the supplies you bring and your wits can help you
 once you've committed to a duel, as only one person will leave
 alive.
@@ -331,6 +331,33 @@ Legacy Damage List:
 them.  They depend on the objects you are wearing, on your weapon, and on
 your strength and dexterity.  The {Rhigher{x this value, the better a
 fighter you are.
+~
+
+0 UNARMED~
+Unarmed Combat:
+This skill allows you to fight mobs with your bare hands. This is
+a similar, but simpler skill, to hand-to-hand. If you think of
+hand-to-hamd as martial arts, unarmed combat is more like basic
+boxing. It lets you do more damage easier to low level opponents.
+~
+
+0 DIE HARD~
+Die Hard:
+This skill gets you going when the going gets tough. If you are near
+death, and have the Die Hard skill, your character still has a chance!
+You automatically get the chance to gain a few extra hit points to
+help you get through another round of combat. This may help you kill
+off low level mobs and give higher level characters gain time to
+get away.
+~
+
+0 BLIND FIGHT~
+Blind Fight:
+This skill allows you to fight enemies, even when blinded. Want to
+throw yourself at the person next to you in a fit of
+rage, but can't see them? Blind fight is for you! Tired of losing
+combat bonuses because yo ucan't see? The Blind Fight skill is
+ideal for you.
 ~
 
 -2

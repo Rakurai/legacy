@@ -1,0 +1,168 @@
+#AREA
+
+vegita.are~
+MiscMudStuff~
+{H{{ All } {MVegita {TMiscStuff~
+24350 24399
+
+#MOBILES
+
+#24350
+bowyer archery~
+A Bowyer~
+A rather frail looking man is tending to a bow he is crafting.
+~
+Standing at around 4 foot 5 inches, this elf seems to be very wise in his 
+old years. His hair is rather distainfully colored yellow, kinda uncommon
+some might say.
+~
+elf~
+BGV DEHc 0 S
+350 21 20d400+234 20d500+149 20d40+1 thwack
+-49 -25 -25 -19
+EK AB O Y
+stand stand male 250
+0 0 medium 0
+>greet_prog 100~
+peer
+say AHA! Welcome traveller! Come in search of a nice elven bow?
+~
+>rand_prog 5~
+grumble
+say I know I left that pile of wool somewhere!!!
+~
+|
+
+#0
+
+#OBJECTS
+#24350
+elven bow~
+A simple elven bow~
+a simple bow of elvish design~
+wood~
+weapon S AN
+bow 6 2 sting 0
+5 4 259 P
+E
+simple bow elvish~
+Simple decorations adorn this bow. They seem to be in elfish and rather
+crudely etched.
+~
+A
+18 3
+A
+26 1
+
+#24351
+apprentice bow~
+A rather decent elven bow~
+A decently crafted elven bow~
+wood~
+weapon S AN
+bow 2 12 sting 0
+15 3 560 P
+E
+elven bow decent~
+This bow seems that a tad bit of care was observed in its crafting.
+The string seems to be fairly worn.
+~
+A
+2 1
+A
+18 3
+A
+19 3
+
+#24352
+adept bow~
+An adeptly crafted bow~
+An adeptly crafted bow~
+wood~
+weapon AGS AN
+bow 8 4 sting 0
+35 3 690 P
+E
+adeptly bow~
+Semi-intricate decorations adonish this bow. The elf that crafted this
+knew what he or she was doing.
+~
+A
+3 2
+A
+12 10
+A
+18 5
+A
+19 1
+
+#24353
+razor bow~
+{xA {WR{ga{Wz{go{Wr {xBow{x~
+a rather sharp looking bow~
+steel~
+weapon AG AN
+bow 3 10 pierce D
+20 5 790 P
+E
+razor bow~
+A bow that was crafted from steel. The crafter failed to round off
+the edges are rather sharp to the touch.
+~
+A
+19 1
+
+#24354
+abalest~
+{WThe {YAb{ba{Yl{bes{Yt{x~
+an epic bow seems to have just been tossed here carelessly~
+oak~
+weapon AG AN
+bow 3 10 scratch F
+25 15 850 P
+E
+abalest~
+a bow, crafted from the finest oak around. It appears to be quite heavy.
+~
+A
+18 3
+A
+19 1
+A
+2 1
+#0
+
+#ROOMS
+#24350
+The Bowyer Shop~
+The smell of wood sneaks its way into your nose. An old elf 
+can be seen toiling over a strip of bent wood. Various strings of
+all sizes can been seen hanging everywhere along with hanging
+strings of feathers tied to them.
+~
+0 KS 0
+D5
+The exit back to the Valley.
+~
+~
+0 -1 7815
+S
+#0
+
+#RESETS
+M 0 24350 1 24350 1		*Load bowyer to his shop
+
+G 0 24354 100
+G 0 24353 100
+G 0 24352 100			*Bowyer's supply
+G 0 24351 100
+G 0 24350 100
+
+S
+
+#SHOPS
+24350	5 0 0 0 0	250 50		0 23	*Bowyer
+
+0
+
+#$

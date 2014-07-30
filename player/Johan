@@ -1,0 +1,268 @@
+#PLAYER
+Name Johan~
+Id   1049562086
+LogO 1051152781
+Vers 14
+Mexp 2
+Pass planhold~
+Prom {W<{C%h{Thp {G%m{Hma {B%v{Nst {W[{g%e{W] {R%X{W>{x ~
+Race human~
+Cla  5
+Levl 3
+Tru  100
+Plyd 13593
+Back 0
+Note 1050971995 1046507965 1048197521 1049082959 1047414979 1050971888 0
+Scro 22
+Room 1227
+HMS  82 421 170
+Gold 13
+Silv 407
+Exp  3688
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr A
+Prac 11
+Trai 5
+Wimp 0
+Wizn 0
+Invi 0
+Lurk 0
+Secu 92
+Atrib 13 13 13 13 13 16
+QuestPnts  4
+Afk {B[{CSat Apr  5 14:13:19 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 3
+Deit Vegita~
+Lsit 80.57.41.233~
+Ltim Tue Apr 22 11:20:03 2003
+~
+LSav Wed Apr 23 22:53:01 2003
+~
+HMSP 48 111 120
+THMS 0 0 0
+Cnd  0 11 100 100
+Alias 1 get katana|wield katana~
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'vision'
+Sk 1 1 'mace'
+Sk 40 1 'sword'
+Sk 1 1 'shield block'
+Sk 1 1 'scribe'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'paladin default'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'detection'
+Gr 'healing'
+Grant 'immtalk' -1
+Grant 'goto' -1
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 20026
+Nest 0
+Wt   0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 9201
+Nest 0
+Cond 99
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 504
+Nest 0
+ExtF 19
+Cond 100
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 8214
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 813
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 11715
+Nest 0
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 14020
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 3077
+Nest 0
+Cond 92
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3358
+Nest 0
+Wear -1
+Cost 450
+End
+
+#O
+Vnum 14030
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 9500
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

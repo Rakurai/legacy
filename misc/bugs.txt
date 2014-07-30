@@ -33,3 +33,7 @@ Bug File, clear when fixed.
 {Y[{x07/26{Y]{x {C[{x 3365{C]{x Montrey: newbies should get some kind of warning if they finish customization without using up 40 CP
 {Y[{x07/28{Y]{x {C[{x 7606{C]{x Montrey: somebody change houses from dodge to shield block or something, it's just stupid
 {Y[{x07/28{Y]{x {C[{x 1298{C]{x Montrey: should be able to fly/land while fighting
+{Y[{x07/28{Y]{x {C[{x 7643{C]{x Celes: fireball casting without an argument when not in combat shows cast message, lags
+{Y[{x07/29{Y]{x {C[{x 1200{C]{x Montrey: divorce doesn't remove the engagement flag, can't seem to unengage
+{Y[{x07/29{Y]{x {C[{x17317{C]{x Celes: i think the exits (up and down) in this room are messed up, should be north/south?
+{Y[{x07/29{Y]{x {C[{x25000{C]{x Celes: necromancy in evo list?

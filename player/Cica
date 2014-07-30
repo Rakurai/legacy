@@ -1,0 +1,336 @@
+#PLAYER
+Name Cica~
+Id   1075752680
+LogO 1082732247
+Vers 14
+Mexp 1
+Pass IMIimi~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Cla  7
+Levl 12
+Tru  0
+Plyd 98533
+Back 33512
+Note 1076383441 0 0 1076087190 0 1076353329 0
+Scro 22
+Room 3054
+HMS  235 145 202
+Gold 10
+Silv 184
+Silver_in_bank 1000
+Exp  14546
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 1000
+FImm 0
+FRes B
+FVul Z
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NOZ
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Familiar 0
+Atrib 16 15 15 21 18 14
+Afk {B[{CFri Apr  9 09:42:30 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 5
+Rank ~
+Aura ~
+TSex 1
+LLev 25
+Deit Xenith~
+Lsit toto.sch.bme.hu~
+Ltim Fri Apr 23 10:32:49 2004
+~
+LSav Fri Apr 23 10:57:27 2004
+~
+HMSP 235 155 202
+THMS 2 0 0
+Cnd  0 0 0 0
+Alias ` score~
+Alias 1 skill~
+Alias 2 spell~
+Alias 3 inventory~
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 84 1 'axe'
+Sk 1 1 'flail'
+Sk 38 1 'dual wield'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 10 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'enchantment'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3724
+Nest 0
+Wear 12
+Cost 100
+Val  60 1 0 6 100
+End
+
+#O
+Vnum 3074
+Nest 0
+Cond 95
+Wear 7
+Cost 420
+End
+
+#O
+Vnum 3075
+Nest 0
+Wear 8
+Cost 420
+End
+
+#O
+Vnum 3077
+Nest 0
+Cond 93
+Wear 10
+Cost 420
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3043
+Nest 0
+Wear 2
+Cost 640
+End
+
+#O
+Vnum 3502
+Nest 0
+Cond 100
+Wear 6
+Cost 490
+End
+
+#O
+Vnum 1213
+Nest 0
+ShD  Outsider's Hidden Token~
+Desc Outsider's shiny token.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3026
+Nest 0
+Cond 87
+Wear -1
+Cost 650
+End
+
+#O
+Vnum 3503
+Nest 0
+Cond 100
+Wear 4
+Cost 310
+End
+
+#O
+Vnum 3504
+Nest 0
+Cond 85
+Wear 15
+Cost 690
+End
+
+#O
+Vnum 3504
+Nest 0
+Cond 100
+Wear 14
+Cost 690
+End
+
+#O
+Vnum 3503
+Nest 0
+Cond 100
+Wear 3
+Cost 310
+End
+
+#O
+Vnum 3076
+Nest 0
+Wear 9
+Cost 420
+End
+
+#O
+Vnum 3043
+Nest 0
+Wear 1
+Cost 640
+End
+
+#O
+Vnum 9062
+Nest 0
+Wear 13
+Cost 310
+End
+
+#O
+Vnum 1201
+Nest 0
+Name lid spam can~
+ShD  a lid of a Spam Can~
+Desc The lid of a can of spam lies here on the ground.~
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 2404
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 400
+Nest 0
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 9519
+Nest 0
+Wear 5
+Cost 1280
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3025
+Nest 0
+Cond 84
+Wear 16
+Cost 310
+End
+
+#O
+Vnum 3025
+Nest 0
+Wear 19
+Cost 310
+End
+
+#END

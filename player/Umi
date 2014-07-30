@@ -1,67 +1,80 @@
 #PLAYER
 Name Umi~
 Id   1013901640
-LogO 1018345416
-Vers 13
+LogO 1064039067
+Vers 14
+Mexp 2
+Pass sacredrose~
+Desc {TAs you look at this girl she appears to be in high school
+but at a second glance you notice she has {Cw{Ta{Ci{Ts{Ct {Tl{Co{Tn{Cg {Tc{Cy{Ta{Cn 
+{Th{Ca{Ti{Cr {Tand is about 5ft if not a bit taller. You also notice that
+{Tthere seems to be a {Bblue dragon {Tnear her and that the girl
+{Thas a {Nw{Br{Te{Ta{Bt{Nh {Wof {Mf{Vl{Po{Rw{Pe{Vr{Ms {Ton her head and a {Bb{Nl{Bu{Ne {Bgown {Ton.
+As you watch her the blue dragon sees you and comes closer
+to this girl who looks at you and as she is looking at you. You 
+notice that she seems to be in a garden of some sort. There are
+{Vviolets {Tand {Rroses {Tand even some {Gweeping willows {Talong with 
+other flowers. Thats when you notice that the girl is sitting under 
+one of the {Gweeping willows {Tand she seems pretty interested in one
+of the books she is reading. As you keep looking at her you notice
+the dragon is making it so you can't come closer to her and destract
+her.. You then decide its time to leave before the dragon decides you
+are a threat to her.
+~
 Prom <{H%h/%HHP {B%m/%MMP {Y%v/%VST {V%XEXP {Y%gG {g%sS {C%aAli {R%q/{P%j{x> ~
 Race human~
-Clan order~
-Sex  2
 Cla  5
-Levl 31
-Plyd 73366
-Back 73354
-Note 1018334819 1018166134 1018338011 1018332646 1018314334 1018166134 1018336772
+Levl 38
+Tru  0
+Plyd 147496
+Back 147484
+Note 1048679420 1048679420 1048679420 1048679420 1048679420 1048679420 1048679420
 Scro 22
-Room 24453
-HMS  767 767 374 374 381 381
-Gold 60
-Silv 1034
+Room 3001
+HMS  1099 412 425
+Gold 245
+Silv 1463
 Silver_in_bank 5000
-Exp  31983
-PCkills 0
+Exp  38158
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 1
-PKRank 0
+Akills   0
+Akilled  1
+PKRank   0
+Pos  6
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  ABGHOT
+Video 0
 Act  CDEFGHJLSc
-AfBy DF
+AfBy 0
 Comm NO
 Revk 0
 Cgrp A
 Cnsr 0
-Pos  8
-Prac 35
-Trai 12
-Save  -5
-Alig  1000
-Hit   35
-Dam   24
-ACs -89 -84 -87 -57
+Prac 12
+Trai 5
+Wimp 0
 Atrib 18 18 18 18 18 21
-AtMod 5 5 6 5 4 4
-Pass sacredrose~
-Afk {B[{CWed Mar  6 20:47:26 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CMon Dec 23 14:46:50 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  Ryuuzaki {NM{Ca{Bg{Ni{Cc {BK{Nn{Ci{Bg{Nh{Ct{x~
+Titl  {WRyuuzaki, {cN{ce{gp{gh{Wl{Wi{gt{ge{c'{cs {NM{Ba{Tg{Bi{Nc {CK{Bn{Ti{Tg{Bh{Ct~
 Immn ~
 Pnts 40
 Rank {NP{CF{NC~
 Aura ~
 TSex 2
-LLev 17
+LLev 40
 Email irishrose583 AIM~
 Deit Jubei~
-Lsit ACA627FE.ipt.aol.com~
-Ltim Tue Apr 09 04:40:02 2002
+Lsit AC8E0152.ipt.aol.com~
+Ltim Wed Mar 26 04:50:02 2003
 ~
-LSav Tue Apr 09 04:43:36 2002
+LSav Sat Sep 20 02:24:27 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  ABGOT
-HMSP 477 344 411
+HMSP 609 412 485
 THMS 0 0 0
 Cnd  0 0 0 0
 Sk 1 1 'acid rain'
@@ -71,74 +84,54 @@ Sk 75 1 'call lightning'
 Sk 75 1 'cancellation'
 Sk 1 1 'channel'
 Sk 75 1 'control weather'
+Sk 1 1 'cure critical'
+Sk 75 1 'cure light'
+Sk 75 1 'cure serious'
 Sk 75 1 'dispel magic'
+Sk 1 1 'divine healing'
 Sk 1 1 'divine regeneration'
-Sk 75 1 'faerie fire'
+Sk 76 1 'faerie fire'
 Sk 75 1 'faerie fog'
 Sk 75 1 'fireproof'
 Sk 1 1 'flameshield'
-Sk 76 1 'giant strength'
-Sk 1 1 'haste'
+Sk 78 1 'giant strength'
+Sk 75 1 'haste'
+Sk 75 1 'heal'
 Sk 75 1 'infravision'
-Sk 75 1 'lightning bolt'
+Sk 77 1 'lightning bolt'
+Sk 1 1 'mass healing'
 Sk 76 1 'protection evil'
 Sk 76 1 'protection good'
 Sk 76 1 'refresh'
 Sk 79 1 'regeneration'
-Sk 78 1 'sanctuary'
-Sk 1 1 'shield'
-Sk 75 1 'steel mist'
+Sk 80 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 77 1 'steel mist'
 Sk 1 1 'stone skin'
 Sk 1 1 'talon'
 Sk 1 1 'undo spell'
-Sk 91 1 'sword'
-Sk 84 1 'shield block'
-Sk 82 1 'enhanced damage'
-Sk 87 1 'kick'
-Sk 96 1 'parry'
+Sk 98 1 'sword'
+Sk 91 1 'shield block'
+Sk 91 1 'enhanced damage'
+Sk 88 1 'kick'
+Sk 100 1 'parry'
 Sk 75 1 'rescue'
-Sk 77 1 'second attack'
+Sk 80 1 'second attack'
+Sk 75 1 'dual wield'
 Sk 75 1 'repair'
+Sk 31 1 'peek'
 Sk 100 1 'scan'
 Sk 75 1 'scrolls'
 Sk 75 1 'staves'
 Sk 75 1 'wands'
-Sk 74 1 'recall'
+Sk 75 1 'recall'
 Gr 'rom basics'
 Gr 'paladin basics'
 Gr 'enhancement'
+Gr 'healing'
 Gr 'protective'
 Gr 'weather'
-End
-
-#O
-Vnum 16084
-Nest 0
-Wear 2
-Cost 1500
-End
-
-#O
-Vnum 16084
-Nest 0
-Wear 1
-Cost 1500
-End
-
-#O
-Vnum 16065
-Nest 0
-ExtF 0
-Wear 15
-Cost 1000
-End
-
-#O
-Vnum 16065
-Nest 0
-ExtF 0
-Wear 14
-Cost 1000
+Affc 'shield'   0  37  32 -20  17          0 1
 End
 
 #O
@@ -156,240 +149,12 @@ Cost 2000
 End
 
 #O
-Vnum 9909
-Nest 0
-Wear 4
-Cost 2000
-End
-
-#O
-Vnum 9909
-Nest 0
-Wear 3
-Cost 2000
-End
-
-#O
 Vnum 9918
 Nest 0
+Cond 95
 Wear 17
 Cost 500
 Spell 3 'poison'
-End
-
-#O
-Vnum 3032
-Nest 0
-Wear -1
-Cost 9
-End
-
-#O
-Vnum 4610
-Nest 1
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3013
-Nest 1
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 3013
-Nest 1
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 3013
-Nest 1
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 3013
-Nest 1
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 16057
-Nest 1
-Wear -1
-Cost 50
-End
-
-#O
-Vnum 16057
-Nest 1
-Wear -1
-Cost 50
-End
-
-#O
-Vnum 4610
-Nest 1
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4610
-Nest 1
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4610
-Nest 1
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 9923
-Nest 1
-Wear -1
-Cost 2500
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 3138
-Nest 1
-Wear -1
-Cost 24
-Val  64 32 0 0 0
-End
-
-#O
-Vnum 4596
-Nest 0
-Wear 11
-Cost 0
-End
-
-#O
-Vnum 10127
-Enchanted
-Nest 0
-Wear 7
-Cost 0
-Affc 'reserved'   1  15  -1   1   1          0 1
-Affc 'reserved'   1  15  -1   1   2          0 1
-Affc 'reserved'   1  15  -1  -1  20          0 1
-Affc 'reserved'   1  15  -1   1  19          0 1
-Affc 'reserved'   1  15  -1   1  18          0 1
-Affc 'reserved'   1  15  -1  -1  19          0 1
 End
 
 #O
@@ -400,15 +165,9 @@ Cost 8000
 End
 
 #O
-Vnum 24402
-Nest 0
-Wear 0
-Cost 3000
-End
-
-#O
 Vnum 24410
 Nest 0
+Cond 98
 Wear 6
 Cost 3000
 End
@@ -430,16 +189,9 @@ End
 #O
 Vnum 9922
 Nest 0
+Cond 97
 Wear 12
 Cost 0
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
 End
 
 #O
@@ -458,28 +210,316 @@ Cost 5000
 End
 
 #O
-Vnum 3009
+Vnum 4596
+Enchanted
 Nest 0
+Wear 11
+Cost 2400
+Affc 'reserved'   1  26  -1   1  18          0 1
+Affc 'reserved'   1  26  -1   1  19          0 1
+Affc 'reserved'   1  26  -1   2  26          0 1
+End
+
+#O
+Vnum 24411
+Nest 0
+Cond 98
+Wear 7
+Cost 3000
+End
+
+#O
+Vnum 6
+Nest 0
+ShD  {RC{Po{We{Pu{Rr d'{cO{gm{Wb{gr{ce~
+Desc Through the light and the dark, we are one.~
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 24402
+Nest 0
+Wear 0
+Cost 3000
+End
+
+#O
+Vnum 24474
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cancellation'
+Spell 2 'slow'
+Spell 3 'regeneration'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24474
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cancellation'
+Spell 2 'slow'
+Spell 3 'regeneration'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24406
+Nest 0
+Wear 14
+Cost 4000
+End
+
+#O
+Vnum 24406
+Nest 0
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 24405
+Nest 0
+Wear 4
+Cost 4000
+End
+
+#O
+Vnum 24405
+Nest 0
+Wear 3
+Cost 4000
+End
+
+#O
+Vnum 24412
+Nest 0
+Wear 1
+Cost 3000
+End
+
+#O
+Vnum 24412
+Nest 0
+Wear 2
+Cost 3000
+End
+
+#O
+Vnum 7502
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 1
 Wear -1
 Cost 22
 End
 
 #O
-Vnum 4596
-Enchanted
-Nest 0
+Vnum 3009
+Nest 1
 Wear -1
-Cost 2400
-Affc 'reserved'   1  26  -1   2  26          0 1
-Affc 'reserved'   1  26  -1   1  19          0 1
-Affc 'reserved'   1  26  -1   1  18          0 1
+Cost 22
 End
 
 #O
-Vnum 4586
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 1
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 8652
 Nest 0
 Wear -1
-Cost 2000
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 0 0 0 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
 End
 
 #L

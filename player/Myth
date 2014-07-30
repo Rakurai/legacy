@@ -1,0 +1,399 @@
+#PLAYER
+Name Myth~
+Id   1067073047
+LogO 1067607723
+Vers 14
+Mexp 2
+Pass sparty~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Cla  5
+Levl 5
+Tru  0
+Plyd 11152
+Back 10424
+Note 1067408155 1067073540 1067073540 1067242413 1067073540 1067073540 1067073540
+Scro 22
+Room 29177
+HMS  70 134 138
+Gold 1
+Silv 195
+Silver_in_bank 217
+Gold_in_bank 23
+Exp  12844
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes BM
+FVul NS
+Plr  U
+Video 0
+Act  CDEFGHJLQS
+AfBy T
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 16 18 21 19 10 19
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 48
+Rank ~
+Aura ~
+TSex 1
+LLev 2
+Deit Navarre~
+Lsit 67.73.154.20~
+Ltim Fri Oct 31 08:37:11 2003
+~
+LSav Fri Oct 31 08:42:03 2003
+~
+HMSP 66 134 138
+THMS 0 0 0
+Cnd  0 0 5 3
+Sk 78 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'cure critical'
+Sk 77 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'fireproof'
+Sk 1 1 'heal'
+Sk 1 1 'invisibility'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 75 1 'refresh'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'smokescreen'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 75 1 'sword'
+Sk 77 1 'shield block'
+Sk 1 1 'enhanced damage'
+Sk 75 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'swimming'
+Sk 1 1 'rotate'
+Sk 49 1 'languages'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'healing'
+Gr 'illusion'
+Gr 'protective'
+Affc 'bless'   0  52  32  -7  24          0 1
+Affc 'bless'   0  54  32   7  18          0 1
+Affc 'armor'   0   2   4 -20  17          0 1
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 2410
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 3031
+Nest 1
+Wear -1
+Cost 75
+End
+
+#O
+Vnum 3031
+Nest 1
+Wear -1
+Cost 75
+End
+
+#O
+Vnum 73
+Nest 0
+Cond 96
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 96
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Cond 90
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 54 15 0 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 99
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 95
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3724
+Nest 0
+Wear -1
+Cost 100
+Val  60 1 0 6 100
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 48 0 0 0
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear 16
+Cost 610
+End
+
+#O
+Vnum 3114
+Nest 0
+Wear 9
+Cost 660
+End
+
+#O
+Vnum 3097
+Nest 0
+Wear 11
+Cost 750
+End
+
+#O
+Vnum 3115
+Nest 0
+Wear 10
+Cost 660
+End
+
+#O
+Vnum 3110
+Nest 0
+Wear 5
+Cost 1320
+End
+
+#O
+Vnum 3112
+Nest 0
+Wear 7
+Cost 660
+End
+
+#O
+Vnum 3031
+Nest 0
+Wear 0
+Cost 75
+Val  0 0 209 0 0
+End
+
+#O
+Vnum 3117
+Nest 0
+Wear -1
+Cost 510
+End
+
+#O
+Vnum 3117
+Nest 0
+Wear -1
+Cost 510
+End
+
+#O
+Vnum 3117
+Nest 0
+Wear -1
+Cost 510
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear -1
+Cost 610
+End
+
+#O
+Vnum 3114
+Nest 0
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 4003
+Nest 0
+Wear -1
+Cost 165
+End
+
+#O
+Vnum 4003
+Nest 0
+Wear -1
+Cost 165
+End
+
+#O
+Vnum 1201
+Nest 0
+Name chunk raw spam~
+ShD  a chunk of raw Spam~
+Desc A chunk of raw spam lies here, devoid of it's can.~
+Wear -1
+Cost 3
+End
+
+#END

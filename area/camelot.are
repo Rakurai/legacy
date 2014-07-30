@@ -980,6 +980,8 @@ A
 18 2
 A
 19 2
+
+
 #17302
 spided mace knight knight's~
 a knight's mace~
@@ -992,6 +994,8 @@ A
 18 1
 A
 19 3
+
+
 #17303
 lance knight knight's~
 a knight's lance~
@@ -1006,8 +1010,10 @@ A
 19 3
 E
 pole~
-This pole looks alot like a lance.
+This pole looks a lot like a lance.
 ~
+
+
 #17304
 armor green~
 a suit of green armor~
@@ -1026,6 +1032,8 @@ E
 crest hautdesert~
 The crest has a stag on a verdant field.
 ~
+
+
 #17305
 axe benlad benlad's~
 benlad's axe~
@@ -1044,6 +1052,8 @@ E
 crest~
 The crest has a stag on a verdant field.
 ~
+
+
 #17306
 bracer white~
 a white bracer~
@@ -1060,6 +1070,8 @@ A
 18 3
 A
 19 3
+
+
 #17307
 grail holy~
 the holy grail~
@@ -1068,6 +1080,7 @@ hardwood~
 drink BKLS AO
 100 100 'water' 0 0
 40 10 10 P
+
 #17308
 cloak many orkney~
 a many colored cloak~
@@ -1080,6 +1093,9 @@ A
 2 2
 A
 13 30
+
+
+
 #17309
 shield~
 a shield of many colors~
@@ -1090,6 +1106,8 @@ armor BK AJ
 33 70 5000 P
 A
 19 2
+
+
 #17310
 sword excalibur~
 Excalibur~
@@ -1116,6 +1134,8 @@ dead, it is up to you to right what he wrought. Seek out and destroy Mordred
 and Morgan Le Fey. They are destroying Camelot." The voice and the light 
 gradually fade leaving you with only a lingering warm feeling.
 ~
+
+
 #17311
 scabbard arthur arthur's golden~
 Arthur's scabbard~
@@ -1130,6 +1150,8 @@ A
 23 -2
 A
 24 -2
+
+
 #17312
 armband armbands garlon garlon's~
 Garlon's invisible armbands~
@@ -1142,6 +1164,10 @@ A
 17 -3
 A
 5 2
+
+
+
+
 #17313
 helm horned gawaine gawaine's~
 Gawaine's horned helm~
@@ -1152,6 +1178,8 @@ armor 0 AE
 34 50 5000 P
 A
 1 3
+
+
 #17314
 spurs silver lamorak lamorak's~
 Lamorak's spurs~
@@ -1164,6 +1192,8 @@ A
 19 2
 A
 18 2
+
+
 #17315
 gauntlets bravery~
 Gauntlets of Bravery~
@@ -1176,6 +1206,8 @@ A
 18 3
 A
 19 2
+
+
 #17316
 ring incubus crest gold~
 The Incubus Crest Ring~
@@ -1190,6 +1222,8 @@ A
 3 1
 A
 4 2
+
+
 #17317
 staff merlin merlin's~
 Merlin's Staff~
@@ -1202,6 +1236,8 @@ A
 12 50
 A
 24 -3
+
+
 #17318
 greaves blackened steel~
 a pair of blackened steel greaves~
@@ -1220,6 +1256,8 @@ You look at the inscription. It reads "I do hereby swear to not reveal my
 crest until I have stopped all from entering Camelot for a period of 5 years, 
 as I have promised Morgana in exchange for the favor of Eveline."
 ~
+
+
 #17319
 wand rod marble~
 a marble rod with a white hot tip~
@@ -1235,6 +1273,8 @@ the previous wand's owner, Morgan Le Fey. You hear a cackling laughter and
 red eyes bore into your head. As the vison fades you hear the message '
 ...with each charmed, your soul belongs a little more to me...'.
 ~
+
+
 #17320
 pack backpack trailpack leather pellinore pellinore's~
 Pellinore's trailpack~
@@ -1252,6 +1292,8 @@ of items you carry will decrease, and you will be able to travel long
 distances without tiring. I have made this pack lockable (use the key with 
 the letter P). May you succeed in your quest!     - Merlin".
 ~
+
+
 #17321
 key p letter~
 a key with the letter "P" on it~
@@ -1260,6 +1302,8 @@ bronze~
 key 0 AO
 0 0 0 0 0
 25 10 0 P
+
+
 #17322
 rations trail~
 some trail rations~
@@ -1268,6 +1312,8 @@ food~
 food S A
 15 15 0 0 0
 5 10 100 P
+
+
 #17323
 flask wine~
 a flask of a nice red wine~
@@ -1280,6 +1326,8 @@ E
 wine flask~
 The wine is a beautiful deep red in color, and it goes well with all food.
 ~
+
+
 #17324
 bones bone pile~
 a pile of bones~
@@ -1288,6 +1336,8 @@ bone~
 trash S A
 0 0 0 0 0
 10 10 0 P
+
+
 #17325
 skull human~
 a human skull~
@@ -1296,6 +1346,8 @@ bone~
 trash S A
 0 0 0 0 0
 10 10 0 P
+
+
 #17326
 rock black small~
 a small black rock~
@@ -1315,6 +1367,8 @@ Persistant, huh? Well yes it seems like that mage buddy of yours once was
 talking about rune wafers that could be eaten and have magical effects 
 happen. This looks like one of those.
 ~
+
+
 #17327
 letter love~
 a love letter~
@@ -1340,6 +1394,8 @@ Forever and totally in your thrall,
 
 Isolde
 ~
+
+
 #17328
 armor golden~
 a suit of golden armor~
@@ -1352,6 +1408,8 @@ A
 15 5000
 A
 17 -5
+
+
 #17329
 spear unholy~
 a spear glowing in an unholy dark light~
@@ -1372,6 +1430,8 @@ You look at the unholy light surrounding the spear. Your vision darkens.
 Out of the darkness red glowing eyes laugh and dance at you. A rage slowly 
 fills you, you want to kill. Rend. Tear. Murder - ahhahahahah!
 ~
+
+
 #17330
 favor silken~
 a silken favor~
@@ -1380,6 +1440,8 @@ silk~
 clothing S AO
 0 0 0 0 0
 1 10 0 P
+
+
 #17331
 emerald necklace~
 an emerald necklace~
@@ -1388,6 +1450,8 @@ emerald~
 jewelry 0 AC
 0 0 0 0 0
 12 10 5000 P
+
+
 #17332
 ball chain~
 a massive spiked ball and chain~
@@ -1398,6 +1462,8 @@ mace 7 4 smash 0
 28 400 1000 P
 A
 19 4
+
+
 #17333
 motley fool fools~
 fool's motley~
@@ -1408,6 +1474,8 @@ clothing S AE
 30 50 100 P
 A
 3 -1
+
+
 #17334
 helm wolf helmet~
 a wolf helm~
@@ -1420,6 +1488,8 @@ A
 18 1
 A
 19 2
+
+
 #17335
 armor shimmering red~
 a suit of shimmering red armor~
@@ -1430,6 +1500,8 @@ armor AGS AD
 32 100 3500 P
 A
 17 -7
+
+
 #17336
 key rusty~
 a rusty key~
@@ -1438,6 +1510,8 @@ iron~
 key 0 A
 0 0 0 0 0
 0 0 0 P
+
+
 #17337
 deed payment reward~
 the reward~
@@ -1446,6 +1520,8 @@ gold~
 money 0 A
 1000 0 0 0 0
 8 50 1000 P
+
+
 #17338
 key room~
 a room key~
@@ -1454,6 +1530,8 @@ brass~
 key 0 A
 0 0 0 0 0
 0 0 0 P
+
+
 #17339
 purse heavy~
 a rather heavy looking purse~
@@ -1462,6 +1540,8 @@ hard leather~
 container S AO
 80 AC 0 10 100
 15 100 10 P 
+
+
 #17340
 cloak lice infested~
 a lice infested cloak~
@@ -1474,6 +1554,8 @@ A
 1 2
 A
 5 -1
+
+
 #17341
 sword broad steel commander commander's~
 a commander's steel broad sword~
@@ -1486,6 +1568,8 @@ A
 18 2
 A
 19 2
+
+
 #17342
 skin whiskey~
 a skin of whiskey~
@@ -1494,6 +1578,8 @@ hard leather~
 drink S AO
 10 10 'vodka' 0 0
 25 50 500 P
+
+
 #17343
 ship dragon~
 a dragon ship~
@@ -1502,6 +1588,8 @@ hardwood~
 furniture 0 0
 100 50000 CFILO 100 100
 0 0 0 P
+
+
 #17344
 angle~
 an angle~
@@ -1514,6 +1602,8 @@ A
 18 -3
 A
 19 4
+
+
 #17345
 rod command~
 a rod of command~
@@ -1535,6 +1625,8 @@ dims and you see two hot red eyes cutting though you. A demonic cackle
 sends chills down your spine, and as it fades you hear " with every use, 
 you become mine..."
 ~
+
+
 #17346
 banner war persante blue~
 the blue war banner of Persante of Inde~
@@ -1553,6 +1645,8 @@ E
 banner blue~
 The banner depicts a Griffon on a pale blue sky
 ~
+
+
 #17347
 lifecutter blue black crusader sword~
 lifecutter~
@@ -1573,6 +1667,8 @@ As you look at the sword, you hear inside your head the words "My name is
 Lifecutter, and my last master was Dodinas le Savage. Take me and lets 
 slay evil!
 ~
+
+
 #17348
 armor plate full~
 a suit of full plate armor~
@@ -1583,6 +1679,8 @@ armor 0 AD
 30 200 2000 P
 A
 17 -8
+
+
 #17349
 enormous axe~
 an enormous axe~
@@ -1597,6 +1695,8 @@ E
 axe~
 The axe handle has the name 'Gaheris' inscibed on it.
 ~
+
+
 #17350
 hat top black Lok Lok's~
 Lok's black top hat~
@@ -1615,6 +1715,15 @@ E
 hat~
 Inscribed in the hatband is the message 'I belong to Lok.'
 ~
+
+#17351
+bar copper~
+a bar of copper~
+A bar of copper has been left here.~
+copper~
+material 0 AO
+-5 0 2 0 0
+0 150 5000 P
 #0
 
 
@@ -3991,6 +4100,7 @@ M 1 17338 1 17348 1                    *Iron Jack in armory
 G 1 17301 -1                    *Give him the squires dagger
 G 1 17302 -1                    *Give him a knights mace
 G 1 17303 -1                    *Give him a knights lance
+G 1 17351 -1                    *Give him the copper bar
 M 1 17339 1 17398 1                    *Stirrup in stables
 M 1 17340 1 17399 1                    *load in riding horse
 M 1 17341 1 17399 1                    *med warhorse

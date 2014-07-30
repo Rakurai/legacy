@@ -1,7 +1,7 @@
 #PLAYER
 Name Kyndig~
 Id   1013660074
-LogO 1024534179
+LogO 1087713018
 Vers 14
 Mexp 2
 Pass fantasy~
@@ -10,9 +10,9 @@ Race dwarf~
 Cla  3
 Levl 1
 Tru  0
-Plyd 2725
+Plyd 4341
 Back 0
-Note 0 0 0 0 0 0 0
+Note 0 0 0 0 1037408551 0 0
 Scro 22
 Room 1202
 HMS  20 100 100
@@ -29,7 +29,7 @@ Alig 0
 FImm 0
 FRes LQ
 FVul R
-Plr  B
+Plr  BHU
 Video 0
 Act  CDEFGHJLQSc
 AfBy JR
@@ -40,6 +40,7 @@ Cnsr AB
 Prac 5
 Trai 3
 Wimp 0
+Familiar 0
 Atrib 19 12 13 11 15 12
 Titl  ({VNewbie Aura{x)~
 Immn ~
@@ -49,10 +50,10 @@ Aura ~
 TSex 1
 LLev 0
 Deit Kenneth~
-Lsit localhost~
-Ltim Wed Jun 19 19:48:35 2002
+Lsit ACA27A94.ipt.aol.com~
+Ltim Sun Jun 20 02:06:24 2004
 ~
-LSav Wed Jun 19 19:49:39 2002
+LSav Sun Jun 20 02:30:18 2004
 ~
 HMSP 20 100 100
 THMS 0 0 0
@@ -74,6 +75,7 @@ Sk 1 1 'parry'
 Sk 1 1 'rescue'
 Sk 1 1 'second attack'
 Sk 1 1 'third attack'
+Sk 1 1 'unarmed'
 Sk 1 1 'forge'
 Sk 100 1 'scan'
 Sk 1 1 'scrolls'
@@ -91,7 +93,7 @@ Vnum 3716
 Nest 0
 Wear 0
 Cost 0
-Val  0 0 139 0 0
+Val  0 0 71 0 0
 End
 
 #O

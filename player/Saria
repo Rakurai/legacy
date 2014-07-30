@@ -1,7 +1,7 @@
 #PLAYER
 Name Saria~
 Id   1018934039
-LogO 1026589915
+LogO 1074020824
 Vers 14
 Mexp 2
 Pass spanish~
@@ -9,19 +9,19 @@ Prom <%h/%Hhp %m/%Mmn %v/%Vmv (%a) %X> ~
 Race elf~
 Clan order~
 Cla  2
-Levl 28
+Levl 30
 Tru  0
-Plyd 136848
+Plyd 206481
 Back 133348
-Note 1026547040 1022813787 1026339553 1026585183 1026409721 1026551393 1025590922
+Note 1074020791 1074020791 1074020791 1074020791 1074020791 1074020791 1074020791
 Scro 22
 Room 24453
-HMS  679 350 279
-Gold 2921
-Silv 62
+HMS  707 366 297
+Gold 3918
+Silv 1956
 Silver_in_bank 3496
 Gold_in_bank 694
-Exp  37270
+Exp  39921
 PCkills  0
 PCkilled 0
 Akills   0
@@ -34,35 +34,35 @@ FRes B
 FVul Z
 Plr  BU
 Video D
-Act  CDEFGHJLSc
+Act  CDEFGHJLS
 AfBy 0
 Comm NO
 Revk 0
 Cgrp A
 Cnsr 0
-Prac 18
-Trai 2
+Prac 23
+Trai 0
 Wimp 0
 Atrib 16 21 18 23 16 18
-SkillPnts  108
-QuestPnts  3
+SkillPnts  147
+QuestPnts  33
 QpDonated  100
-Afk {B[{CWed Jun 26 23:18:30 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CFri Aug  8 04:09:02 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  the thief in the shadows~
 Immn ~
 Pnts 45
-Rank {NC{Cm{Nd~
+Rank {TE{Cn{Ts~
 Aura ~
 TSex 2
-LLev 36
+LLev 42
 Deit Xenith~
-Lsit rnos-98-127.resnet.ohio-state.edu~
-Ltim Sat Jul 13 14:00:35 2002
+Lsit 66.72.64.16~
+Ltim Tue Jan 13 14:06:27 2004
 ~
-LSav Sat Jul 13 14:51:55 2002
+LSav Tue Jan 13 14:07:04 2004
 ~
-HMSP 354 295 339
+HMSP 382 311 357
 THMS 0 0 0
 Cnd  0 0 0 0
 Alias bs backstab~
@@ -81,11 +81,12 @@ Sk 75 1 'backstab'
 Sk 1 1 'circle'
 Sk 75 1 'disarm'
 Sk 100 1 'dodge'
-Sk 84 1 'trip'
-Sk 83 1 'second attack'
-Sk 75 1 'hide'
+Sk 87 1 'trip'
+Sk 84 1 'second attack'
+Sk 75 1 'hunt'
+Sk 76 1 'hide'
 Sk 75 1 'peek'
-Sk 75 1 'pick lock'
+Sk 76 1 'pick lock'
 Sk 100 1 'scan'
 Sk 76 1 'sneak'
 Sk 75 1 'steal'
@@ -114,9 +115,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #O
@@ -127,35 +128,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#O
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
 End
 
 #O
@@ -218,9 +193,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #O
@@ -231,9 +206,66 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#O
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#O
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name jubei chi earth token hidden~
+ShD  {WE{ga{Wr{gt{Wh {gC{Wh{gi {W*{YHidden{W*{x~
+Desc {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
 End
 
 #O
@@ -241,14 +273,7 @@ Vnum 79
 Nest 0
 Wear -1
 Cost 200
-Val  150 114 24 0 0
-End
-
-#O
-Vnum 4610
-Nest 0
-Wear -1
-Cost 700
+Val  150 30 24 0 0
 End
 
 #O
@@ -305,13 +330,6 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
-End
-
-#O
-Vnum 4583
-Nest 0
-Wear -1
-Cost 1200
 End
 
 #O
@@ -358,7 +376,6 @@ End
 #O
 Vnum 9909
 Nest 0
-Cond 96
 Wear 4
 Cost 2000
 End
@@ -366,16 +383,9 @@ End
 #O
 Vnum 9909
 Nest 0
+Cond 98
 Wear 3
 Cost 2000
-End
-
-#O
-Vnum 9922
-Nest 0
-Cond 93
-Wear -1
-Cost 1500
 End
 
 #O
@@ -460,7 +470,6 @@ End
 #O
 Vnum 24401
 Nest 0
-Cond 92
 Wear 10
 Cost 2000
 End
@@ -468,7 +477,6 @@ End
 #O
 Vnum 24400
 Nest 0
-Cond 94
 Wear 8
 Cost 2000
 End
@@ -664,22 +672,6 @@ Cost 50
 End
 
 #O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
 Vnum 504
 Nest 0
 ExtF 19
@@ -698,6 +690,7 @@ End
 #O
 Vnum 24403
 Nest 0
+Cond 97
 Wear 18
 Cost 3000
 End
@@ -712,15 +705,8 @@ End
 #O
 Vnum 24411
 Nest 0
-Cond 93
+Cond 92
 Wear 7
-Cost 3000
-End
-
-#O
-Vnum 24402
-Nest 0
-Wear 0
 Cost 3000
 End
 
@@ -749,12 +735,13 @@ End
 Vnum 16041
 Enchanted
 Nest 0
+Cond 95
 Wear 16
 Cost 5000
 Val  1 6 6 3 64
-Affc 'reserved'   1  26  -1 -10  17          0 1
-Affc 'reserved'   1  26  -1   2  18          0 1
 Affc 'reserved'   1  26  -1   2  19          0 1
+Affc 'reserved'   1  26  -1   2  18          0 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
 End
 
 #O
@@ -774,63 +761,8 @@ End
 #O
 Vnum 16001
 Nest 0
+Cond 88
 Wear 5
-Cost 5000
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 16001
-Nest 0
-Wear -1
 Cost 5000
 End
 
@@ -839,41 +771,6 @@ Vnum 4587
 Nest 0
 Wear 17
 Cost 3000
-End
-
-#O
-Vnum 29900
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#O
-Vnum 29900
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#O
-Vnum 29900
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#O
-Vnum 29900
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#O
-Vnum 29900
-Nest 0
-Wear -1
-Cost 1000
 End
 
 #O
@@ -926,11 +823,151 @@ Cost 40
 End
 
 #O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 24402
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 24402
+Nest 0
+Wear 0
+Cost 3000
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 4591
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 3351
+Nest 0
+Wear -1
+Cost 590
+End
+
+#O
+Vnum 3351
+Nest 0
+Wear -1
+Cost 590
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 16075
+Nest 0
+Wear -1
+Cost 1600
+End
+
+#O
+Vnum 10402
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
 Vnum 8652
 Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
+End
+
+#O
+Vnum 16075
+Nest 0
+Wear -1
+Cost 1600
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16087
+Nest 0
+Wear -1
+Cost 5000
+Spell 3 'teleport'
 End
 
 #L
@@ -968,55 +1005,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
 End
 
 #L
@@ -1030,6 +1021,52 @@ Cost 0
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
 End
 
 #L

@@ -1,13 +1,12 @@
 #PLAYER
 Name Branton~
 Id   990320241
-LogO 1025513153
+LogO 1057794872
 Vers 14
 Mexp 2
 Pass colleen~
 Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
 Race wolf~
-Clan kindred~
 Cla  7
 Levl 36
 Tru  0
@@ -15,8 +14,8 @@ Plyd 43460
 Back 0
 Note 996111553 996111553 996111553 996111553 1009643038 1018674029 0
 Scro 22
-Room 25000
-HMS  1347 287 510
+Room 3001
+HMS  1087 417 520
 Gold 1577
 Silv 20
 Exp  74388
@@ -43,7 +42,6 @@ Trai 1
 Wimp 0
 Atrib 20 18 18 20 22 18
 QuestPnts  62
-QpDonated  55
 Afk {B[{CSat Apr 13 23:57:19 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  hates everyone.~
@@ -57,7 +55,7 @@ Deit Liriel~
 Lsit dial244.as5200-2.alpine.overland.net~
 Ltim Sun May 05 04:07:01 2002
 ~
-LSav Mon Jul 01 03:45:53 2002
+LSav Wed Jul 09 19:54:32 2003
 ~
 HMSP 787 247 520
 THMS 0 0 0
@@ -221,21 +219,6 @@ Spell 3 'regeneration'
 End
 
 #O
-Vnum 25057
-Nest 0
-Cond 96
-Wear 15
-Cost 4000
-End
-
-#O
-Vnum 25057
-Nest 0
-Wear 14
-Cost 4000
-End
-
-#O
 Vnum 25056
 Nest 0
 Cond 99
@@ -248,22 +231,6 @@ Vnum 25056
 Nest 0
 Cond 98
 Wear 3
-Cost 4000
-End
-
-#O
-Vnum 25055
-Nest 0
-Cond 92
-Wear 2
-Cost 4000
-End
-
-#O
-Vnum 25055
-Nest 0
-Cond 95
-Wear 1
 Cost 4000
 End
 
@@ -291,13 +258,6 @@ Desc {WA {Bg{Ca{Bt{Ce{Bw{Ca{By{W to {Vrefuge{W lies here, {Cs{Th{Ci{Tm{Cm{Te{Cr{
 Wear -1
 Cost 0
 Val  0 0 4 1223 0
-End
-
-#O
-Vnum 25060
-Nest 0
-Wear 0
-Cost 4000
 End
 
 #O
@@ -634,10 +594,10 @@ Wear 19
 Lev  41
 Cost 10000
 Val  1 8 5 21 156
-Affc 'reserved'   1  40  -1  -5  23          0 1
-Affc 'enchant weapon'   1 100  -1   8  19          0 1
-Affc 'enchant weapon'   1 100  -1   4  18          0 1
 Affc 'poison'   5  71 366   0   0        128 1
+Affc 'enchant weapon'   1 100  -1   4  18          0 1
+Affc 'enchant weapon'   1 100  -1   8  19          0 1
+Affc 'reserved'   1  40  -1  -5  23          0 1
 End
 
 #O

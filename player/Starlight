@@ -1,0 +1,1560 @@
+#PLAYER
+Name Starlight~
+Id   1102724963
+LogO 1113751938
+Vers 14
+Mexp 1
+Pass sable~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Clan order~
+Cla  1
+Levl 91
+Plyd 259488
+Back 232674
+Note 1113260642 1105162385 1107312677 1112736317 1111163025 1112661925 1102726618
+Scro 22
+Room 24456
+HMS  2210 2646 805
+Gold 2312
+Silv 61
+Silver_in_bank 100
+Gold_in_bank 93
+Exp  109203
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig 300
+Spou Ami~
+FImm 0
+FRes 0
+FVul 0
+Plr  TU
+Video 0
+Act  CDEFGHIJLQSc
+AfBy CDEFGQV
+Comm NO
+Revk 0
+Cgrp AIKLM
+Cnsr A
+Block_Remote 0
+Prac 0
+Trai 0
+Wimp 346
+Familiar 0
+Atrib 18 18 21 18 18 13
+SkillPnts  8
+QuestPnts  20
+Afk {B[{CFri Apr  1 18:36:50 2005{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  crazy little star in the sky~
+Immn ~
+Pnts 44
+Rank {TR{Cc{Tt~
+Aura ~
+TSex 2
+LLev 64
+Email angelstar21@hotmail.com~
+Deit Navarre~
+Lsit cpe-24-93-135-104.maine.res.rr.com~
+Ltim Sun Apr 17 10:31:37 2005
+~
+LSav Sun Apr 17 10:32:18 2005
+~
+HMSP 1210 1096 775
+THMS 0 0 12
+Cnd  0 0 0 21
+Alias heal c 'heal'~
+Alias good c 'protection good'~
+Alias food c 'create food'~
+Alias crit c 'cure critical'~
+Alias detin c 'detect invis'~
+Alias drain c 'energy drain'~
+Alias cur c 'cure disease'~
+Alias vis c 'cure blindness'~
+Alias rcur c 'remove curse'~
+Alias evil c 'protection evil'~
+Alias div c 'divine regeneration'~
+Alias dis c 'cure disease'~
+Sk 82 1 'acid rain'
+Sk 75 1 'age'
+Sk 75 1 'armor'
+Sk 75 1 'bless'
+Sk 1 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 1 1 'call lightning'
+Sk 75 1 'calm'
+Sk 75 1 'cancellation'
+Sk 75 1 'change sex'
+Sk 1 1 'channel'
+Sk 1 1 'continual light'
+Sk 75 1 'control weather'
+Sk 75 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 75 1 'create water'
+Sk 75 1 'cure blindness'
+Sk 100 1 'cure critical'
+Sk 75 1 'cure disease'
+Sk 75 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 75 1 'cure serious'
+Sk 75 1 'curse'
+Sk 1 1 'darkness'
+Sk 75 1 'dazzling light'
+Sk 80 1 'demonfire'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 75 1 'dispel evil'
+Sk 75 1 'dispel good'
+Sk 1 1 'dispel magic'
+Sk 77 1 'divine healing'
+Sk 75 1 'divine regeneration'
+Sk 75 1 'earthquake'
+Sk 1 1 'encampment'
+Sk 75 1 'enchant armor'
+Sk 75 1 'enchant weapon'
+Sk 88 1 'energy drain'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fireproof'
+Sk 75 1 'flameshield'
+Sk 91 1 'flamestrike'
+Sk 75 1 'fly'
+Sk 1 1 'floating disc'
+Sk 82 1 'frenzy'
+Sk 87 1 'gate'
+Sk 75 1 'giant strength'
+Sk 80 1 'haste'
+Sk 92 1 'heal'
+Sk 1 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 75 1 'identify'
+Sk 1 1 'infravision'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 75 1 'lightning bolt'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 75 1 'mass healing'
+Sk 75 1 'nexus'
+Sk 79 1 'pass door'
+Sk 75 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'polymorph'
+Sk 75 1 'portal'
+Sk 1 1 'protect container'
+Sk 76 1 'protection evil'
+Sk 76 1 'protection good'
+Sk 86 1 'ray of truth'
+Sk 1 1 'recharge'
+Sk 75 1 'refresh'
+Sk 79 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 81 1 'sanctuary'
+Sk 75 1 'scry'
+Sk 76 1 'shield'
+Sk 75 1 'shrink'
+Sk 78 1 'slow'
+Sk 75 1 'starve'
+Sk 82 1 'steel mist'
+Sk 75 1 'stone skin'
+Sk 75 1 'summon'
+Sk 75 1 'summon object'
+Sk 81 1 'sunray'
+Sk 76 1 'talon'
+Sk 75 1 'teleport'
+Sk 75 1 'teleport object'
+Sk 78 1 'undo spell'
+Sk 1 1 'vision'
+Sk 75 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 79 1 'mace'
+Sk 100 1 'sword'
+Sk 100 1 'shield block'
+Sk 78 1 'brew'
+Sk 1 1 'scribe'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'parry'
+Sk 18 1 'hide'
+Sk 96 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 55 1 'recall'
+Gr 'rom basics'
+Gr 'cleric basics'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Gr 'alteration'
+Affc 'hide'   0  91  85   0   0      65536 1
+End
+
+#O
+Vnum 24401
+Nest 0
+Cond 91
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 17102
+Nest 0
+Cond 90
+Wear 0
+Cost 250
+End
+
+#O
+Vnum 20008
+Nest 0
+ExtF 16777536
+Cond 81
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 24409
+Nest 0
+Cond 75
+Wear 2
+Cost 6000
+End
+
+#O
+Vnum 24495
+Nest 0
+Cond 93
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 24495
+Nest 0
+Cond 80
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 11709
+Nest 0
+Cond 96
+Wear 4
+Cost 10000
+End
+
+#O
+Vnum 10100
+Nest 0
+Wear 7
+Cost 32000
+End
+
+#O
+Vnum 17041
+Nest 0
+Cond 97
+Wear 6
+Cost 5000
+End
+
+#O
+Vnum 17042
+Nest 0
+Cond 72
+Wear 11
+Cost 1000
+End
+
+#O
+Vnum 11712
+Nest 0
+Cond 93
+Wear 1
+Cost 10000
+End
+
+#O
+Vnum 11709
+Nest 0
+Cond 95
+Wear 3
+Cost 10000
+End
+
+#O
+Vnum 14013
+Nest 0
+ExtF 1835010
+Cond 95
+Wear 9
+Cost 3500
+End
+
+#O
+Vnum 4436
+Nest 0
+ExtF 64
+Cond 96
+Wear 18
+Cost 0
+End
+
+#O
+Vnum 13005
+Nest 0
+Wear 12
+Cost 4500
+End
+
+#O
+Vnum 10101
+Nest 0
+Cond 90
+Wear 8
+Cost 30000
+End
+
+#O
+Vnum 20026
+Nest 0
+Wt   0
+Cond 84
+Wear 5
+Cost 89550
+End
+
+#O
+Vnum 6
+Nest 0
+ShD  {RC{Po{cu{Pr{Re  {Wde {BM{Ne{Cr{Wc{Ce{Nr{By~
+Wear 20
+Cost 1
+End
+
+#O
+Vnum 11713
+Nest 0
+Cond 90
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion heal~
+ShD  a potion of heal~
+Desc A potion of heal lies here.
+~
+Wear -1
+Lev  25
+Cost 2000
+Val  25 85 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion heal~
+ShD  a potion of heal~
+Desc A potion of heal lies here.
+~
+Wear -1
+Lev  25
+Cost 2000
+Val  25 85 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 16057
+Enchanted
+Nest 0
+Wt   3
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Lev  91
+Cost 2000
+Val  91 -1 -1 -1 -1
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion heal~
+ShD  a potion of heal~
+Desc A potion of heal lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 85 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion heal~
+ShD  a potion of heal~
+Desc A potion of heal lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 85 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 11748
+Nest 0
+ExtF 80
+Wt   0
+Wear -1
+Cost 15000
+End
+
+#O
+Vnum 11791
+Nest 0
+Cond 99
+Wear 15
+Lev  91
+Cost 55000
+ExDe owned by~ Starlight
+~
+End
+
+#O
+Vnum 17040
+Nest 0
+Cond 91
+Wear 16
+Cost 750
+End
+
+#O
+Vnum 11791
+Nest 0
+Wear 14
+Lev  91
+Cost 55000
+ExDe owned by~ Starlight
+~
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3381
+Nest 0
+Wear 17
+Lev  91
+Cost 2000
+Val  91 -1 -1 -1 -1
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion heal~
+ShD  a potion of heal~
+Desc A potion of heal lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 85 -1 -1 -1
+Spell 1 'heal'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion heal~
+ShD  a potion of heal~
+Desc A potion of heal lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 85 -1 -1 -1
+Spell 1 'heal'
+End
+
+#B
+Vnum 11785
+Nest 0
+Wear -1
+Cost 1
+End
+
+#B
+Vnum 10121
+Nest 1
+ExtF 16777283
+Wear -1
+Cost 21
+End
+
+#B
+Vnum 10112
+Nest 1
+ExtF 16777283
+Wear -1
+Cost 500
+End
+
+#B
+Vnum 11793
+Nest 1
+ExtF 1793
+Wear -1
+Cost 55000
+End
+
+#B
+Vnum 11792
+Nest 1
+ExtF 322
+Wt   0
+Wear -1
+Cost 55000
+End
+
+#B
+Vnum 13012
+Nest 1
+Wear -1
+Cost 10
+End
+
+#B
+Vnum 13011
+Nest 1
+Wear -1
+Cost 1200
+End
+
+#B
+Vnum 10102
+Nest 1
+Wear -1
+Cost 33333
+End
+
+#B
+Vnum 14030
+Nest 1
+Cond 86
+Wear -1
+Cost 6000
+End
+
+#B
+Vnum 20006
+Nest 1
+ExtF 17039680
+Cond 81
+Wear -1
+Cost 999
+End
+
+#B
+Vnum 13001
+Nest 1
+Wear -1
+Cost 8500
+End
+
+#B
+Vnum 3808
+Nest 1
+Cond 97
+Wear -1
+Cost 30000
+End
+
+#B
+Vnum 17101
+Nest 1
+ExtF 1
+Cond 85
+Wear -1
+Cost 160
+End
+
+#B
+Vnum 17036
+Nest 1
+Wear -1
+Time 1556
+Cost 650
+Spell 1 'fireball'
+Spell 2 'curse'
+Spell 3 'fireball'
+End
+
+#B
+Vnum 20016
+Nest 1
+ExtF 262208
+Wear -1
+Cost 9000
+End
+
+#B
+Vnum 8204
+Nest 1
+Cond 96
+Wear -1
+Cost 3800
+End
+
+#B
+Vnum 16041
+Nest 1
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 6
+Nest 1
+Wear -1
+Cost 1
+End
+
+#B
+Vnum 17317
+Nest 1
+ExtF 262211
+Cond 95
+Wear -1
+Cost 8000
+Spell 3 'colour spray'
+End
+
+#B
+Vnum 3809
+Nest 1
+Cond 91
+Wear -1
+Cost 15000
+End
+
+#B
+Vnum 10215
+Nest 1
+ExtF 64
+Cond 60
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 9923
+Nest 1
+Cond 94
+Wear -1
+Cost 2500
+End
+
+#B
+Vnum 20028
+Nest 1
+ExtF 16777472
+Cond 96
+Wear -1
+Cost 700
+End
+
+#B
+Vnum 9922
+Nest 1
+Cond 92
+Wear -1
+Cost 1388
+End
+
+#B
+Vnum 4427
+Nest 1
+ExtF 64
+Wear -1
+Cost 5800
+End
+
+#B
+Vnum 4426
+Nest 1
+ExtF 64
+Cond 97
+Wear -1
+Cost 6800
+End
+
+#B
+Vnum 5610
+Nest 1
+ExtF 17301507
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 3810
+Enchanted
+Nest 1
+Wear -1
+Cost 30000
+Affc 'reserved'   1  65  -1  -3  24          0 1
+Affc 'reserved'   1  65  -1   4  19          0 1
+Affc 'reserved'   1  65  -1  40  13          0 1
+Affc 'reserved'   1  65  -1  40  12          0 1
+Affc 'reserved'   1  65  -1   2   5          0 1
+Affc 'reserved'   1  65  -1   2   1          0 1
+End
+
+#B
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#B
+Vnum 1213
+Nest 1
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1215
+Nest 1
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha{x~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#B
+Vnum 1215
+Nest 1
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha{x~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk{x~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1111
+Nest 0
+Name glass onion~
+ShD  {TG{Cl{Wa{Cs{Ts{x {bO{Yn{Wi{Yo{bn{x~
+Wear -1
+Cost 11
+End
+
+#B
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1215
+Nest 1
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha{x~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1215
+Nest 1
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha{x~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#B
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#END

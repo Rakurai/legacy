@@ -1,51 +1,50 @@
 #PLAYER
 Name Rocky~
 Id   990156225
-LogO 1018919416
-Vers 13
+LogO 1076317315
+Vers 14
+Mexp 2
+Pass justin~
 Desc he looks like a wolf.
 ~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race wolf~
-Sex  1
 Cla  7
 Levl 66
 Tru  91
-Plyd 127615
+Plyd 128029
 Back 0
-Note 1016949714 1016949714 1016949714 1017329568 1016949714 1017415307 1016949714
+Note 1076035765 1016949714 1016949714 1017329568 1016949714 1017415307 1016949714
 Scro 22
-Room 3365
-HMS  1806 1806 862 862 866 866
-Gold 389
-Silv 133
+Room 3005
+HMS  1876 898 824
+Gold 390
+Silv 226
 Exp  72197
-PCkills 4
+PCkills  4
 PCkilled 3
-Akills 3
-Akilled 6
-PKRank 0
-Act  CDGHJLQSTc
-AfBy DFc
+Akills   3
+Akilled  6
+PKRank   0
+Pos  8
+Alig -638
+FImm 0
 FRes I
 FVul EH
+Plr  ACFQ
+Video 0
+Act  CDGHJLQSTc
+AfBy DFc
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
 Prac 29
 Trai 3
-Save  -14
-Alig  -632
-Hit   34
-Dam   34
-ACs -171 -164 -165 -142
+Wimp 0
 Atrib 20 18 18 20 23 14
-AtMod 2 2 4 5 9 2
-SkillPnts 80
-QuestNext 12
-Pass justin~
+SkillPnts  80
+QuestNext  5
 Afk {B[{CSun Mar  3 00:30:42 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl .~
@@ -60,18 +59,14 @@ Stus Advocate~
 RmCt 1
 ExSk 0
 Raff 902
-Lsit adsl-21-165-9.bix.bellsouth.net~
-Ltim Fri Mar 29 11:22:29 2002
+Lsit adsl-210-181-103.bix.bellsouth.net~
+Ltim Mon Feb 09 03:51:24 2004
 ~
-LSav Mon Apr 15 20:10:16 2002
+LSav Mon Feb 09 04:01:55 2004
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  ACFHQ
 HMSP 1476 407 866
 THMS 0 0 0
-Cnd  0 0 0 17
+Cnd  0 0 0 3
 Sk 76 1 'acid blast'
 Sk 1 1 'acid rain'
 Sk 1 1 'age'
@@ -212,7 +207,7 @@ End
 Vnum 10171
 Nest 0
 Cond 94
-Wear -1
+Wear 0
 Cost 0
 End
 
@@ -243,7 +238,7 @@ End
 Vnum 14030
 Nest 0
 Cond 82
-Wear -1
+Wear 19
 Cost 0
 End
 
@@ -263,7 +258,7 @@ ShD  {CW{Ta{Ct{x~
 Desc A dagger is here, forged by Rocky's craftsmanship.~
 Mat tin~
 Wt   60
-Wear 19
+Wear -1
 Lev  63
 Cost 21
 Val  2 7 11 11 0
@@ -292,12 +287,12 @@ Mat tin~
 ExtF 323
 Wt   49
 Cond 85
-Wear 16
+Wear -1
 Lev  61
 Cost 5
 Val  2 7 10 11 4
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
 Affc 'enchant weapon'   0  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
 ExDe dagger Rocky's Hateblade~ It is a marvellous dagger, crafted from the finest tin around.
 It was created in the Month of Abundance by an experienced ranger
 named Rocky.  Legend holds that this wolf was a great weaponsmith.
@@ -316,7 +311,7 @@ End
 Vnum 14030
 Nest 0
 Cond 85
-Wear -1
+Wear 16
 Cost 0
 End
 
@@ -385,7 +380,7 @@ End
 Vnum 5608
 Nest 0
 Cond 76
-Wear -1
+Wear 14
 Cost 2000
 End
 

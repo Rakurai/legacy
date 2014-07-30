@@ -688,7 +688,7 @@ if isimmort($n)
 endif
 if level($n) <= 85
    MPECHO An e{W{fxp{Vlo{fs{xi{Yon{x of light blinds you.
-   MPTRANSFER $n Helga
+   MPTRANSFER $n 3001
    MPAT $n say AND STAY OUT!!! Come back when you have grown up.
 else
    grumble

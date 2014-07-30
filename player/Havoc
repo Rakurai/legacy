@@ -1,7 +1,7 @@
 #PLAYER
 Name Havoc~
 Id   1012470487
-LogO 1026703673
+LogO 1105579645
 Vers 14
 Mexp 2
 Pass moonbeam~
@@ -10,47 +10,46 @@ Race human~
 Clan blackclaw~
 Cla  2
 Levl 13
-Tru  91
-Plyd 810646
+Plyd 818070
 Back 791565
-Note 1018993527 1019065451 1018993527 1019065202 1019160309 1025595273 1019050221
+Note 1018993527 1019065451 1018993527 1019065202 1019160309 1038717789 1019050221
 Scro 49
-Room 24800
-HMS  15 186 202
-Gold 872
+Room 3365
+HMS  207 184 202
+Gold 2760
 Silv 64
-Gold_in_bank 2000
+Gold_in_bank 50000
 Exp  13083
 PCkills  5
 PCkilled 12
 Akills   0
 Akilled  7
 PKRank   0
-Pos  5
+Pos  8
 Alig -2
-Spou Kitty~
 Ptnr Disman~
 FImm 0
 FRes 0
 FVul R
-Plr  AKMOQ
+Plr  AHKMOQ
 Video 0
-Act  CDEFGHJLNQSc
+Act  CDEFGHJLQSc
 AfBy 0
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AIKLMN
 Cnsr C
+Block_Remote 0
 Prac 168
 Trai 54
 Wimp 0
+Familiar 0
 Atrib 14 18 18 17 15 11
 SkillPnts  375
 RolePnts   1
-QuestPnts  13
-QpDonated  197
+QpDonated  210
 GlDonated  49486
-Afk {B[{CWed Jul  3 21:45:57 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CFri Jul 11 01:52:06 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  Thunderstriker~
 Immn ~
@@ -64,10 +63,10 @@ Stus {cSilent Death{x~
 RmCt 4
 ExSk 0
 Raff 913
-Lsit 12-224-199-77.client.attbi.com~
-Ltim Sun Jul 14 22:15:40 2002
+Lsit 12-203-62-84.client.attbi.com~
+Ltim Sat Sep 20 05:27:26 2003
 ~
-LSav Sun Jul 14 22:27:53 2002
+LSav Wed Jan 12 20:27:25 2005
 ~
 Finf Rukus ignores you.
 Rukus stops ignoring you.
@@ -99,7 +98,8 @@ Finf Rukus ignores you.
 ~
 HMSP 148 179 202
 THMS 0 0 0
-Cnd  0 0 0 0
+Cnd  0 0 100 100
+Ignore mithrank~
 Alias a aff~
 Alias dm c 'dispel magic'~
 Alias cc c 'cure crit'~
@@ -193,11 +193,13 @@ Sk 42 1 'remove alignment'
 Sk 1 1 'remove invisibility'
 Sk 71 1 'remove curse'
 Sk 89 1 'sanctuary'
+Sk 1 1 'scry'
 Sk 80 1 'shield'
 Sk 1 1 'shocking grasp'
 Sk 1 1 'sleep'
 Sk 87 1 'slow'
 Sk 1 1 'smokescreen'
+Sk 1 1 'starve'
 Sk 72 1 'steel mist'
 Sk 87 1 'stone skin'
 Sk 76 1 'summon'
@@ -280,14 +282,14 @@ End
 #O
 Vnum 80
 Nest 0
-Wear 18
+Wear -1
 Cost 550
 End
 
 #O
 Vnum 78
 Nest 0
-Wear 8
+Wear -1
 Cost 900
 End
 
@@ -322,7 +324,7 @@ End
 #O
 Vnum 10135
 Nest 0
-Wear 9
+Wear -1
 Cost 23
 End
 
@@ -339,6 +341,34 @@ Nest 0
 Cond 91
 Wear 16
 Cost 110
+End
+
+#O
+Vnum 24800
+Nest 0
+Wear 18
+Cost 2000
+End
+
+#O
+Vnum 24801
+Nest 0
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 24802
+Nest 0
+Wear 9
+Cost 2000
+End
+
+#O
+Vnum 24803
+Nest 0
+Wear 8
+Cost 2000
 End
 
 #L
@@ -758,8 +788,6 @@ ExtF 65
 Cond 97
 Wear -1
 Cost 10000
-Val  1 11 11 1 130
-Affc 'poison'   5  37  25   0   0        128 1
 End
 
 #B
@@ -769,8 +797,6 @@ ExtF 65
 Cond 90
 Wear -1
 Cost 10000
-Val  1 11 11 1 130
-Affc 'poison'   5  31  18   0   0        128 1
 End
 
 #B

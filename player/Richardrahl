@@ -1,27 +1,26 @@
 #PLAYER
 Name RichardRahl~
 Id   1013635740
-LogO 1026072430
+LogO 1060018019
 Vers 14
 Mexp 2
 Pass satan~
 Prom %CN<%Cc%h%Cc/%Hhp %CP%m%CP/%Mmp %CH%vst %CC%Xxp %CR%a %CCSP%jmin QP%qmin %Cc%z%CB> ~
 Race human~
-Clan blackclaw~
 Cla  6
-Levl 21
+Levl 26
 Tru  0
-Plyd 18777
+Plyd 25024
 Back 12212
-Note 1018685694 1018685694 1018685694 1018685694 1018685694 1025595273 1018685694
+Note 1040262946 1037300907 1037300907 1040084430 1037408551 1038717789 1037300907
 Scro 22
-Room 3054
-HMS  374 289 287
-Gold 945
-Silv 1131
+Room 3001
+HMS  460 338 336
+Gold 591
+Silv 42
 Silver_in_bank 4877
 Gold_in_bank 1000
-Exp  21083
+Exp  26297
 PCkills  0
 PCkilled 2
 Akills   0
@@ -32,23 +31,21 @@ Alig -1000
 FImm 0
 FRes 0
 FVul 0
-Plr  A
+Plr  AH
 Video 0
 Act  CDEFGHJLQSc
-AfBy 0
+AfBy NO
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Prac 6
-Trai 0
+Prac 26
+Trai 6
 Wimp 0
 Atrib 15 13 18 17 17 18
 SkillPnts  1
-QuestPnts  1
-QuestNext  6
-SQuestNext 14
-Afk {B[{CMon Feb 25 02:13:11 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+QuestPnts  5
+Afk {B[{CThu Dec 19 01:47:36 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {cThe Seeker Of Truth~
 Immn ~
@@ -56,14 +53,14 @@ Pnts 40
 Rank {cNIN{x~
 Aura ~
 TSex 1
-LLev 3
+LLev 6
 Deit Vegita~
-Lsit HSE-Toronto-ppp301769.sympatico.ca~
-Ltim Sun Jul 07 15:03:19 2002
+Lsit 216.95.250.78~
+Ltim Tue Jun 17 11:00:19 2003
 ~
-LSav Sun Jul 07 15:07:10 2002
+LSav Mon Aug 04 13:26:59 2003
 ~
-HMSP 246 229 289
+HMSP 321 263 336
 THMS 0 0 0
 Cnd  0 0 0 0
 Sk 75 1 'armor'
@@ -71,18 +68,18 @@ Sk 1 1 'cancellation'
 Sk 1 1 'dispel magic'
 Sk 1 1 'fireproof'
 Sk 35 1 'protection evil'
-Sk 35 1 'protection good'
+Sk 36 1 'protection good'
 Sk 1 1 'sanctuary'
 Sk 1 1 'shield'
 Sk 1 1 'stone skin'
 Sk 1 1 'undo spell'
 Sk 1 1 'axe'
 Sk 1 1 'flail'
-Sk 85 1 'sword'
+Sk 88 1 'sword'
 Sk 75 1 'backstab'
-Sk 80 1 'dodge'
+Sk 81 1 'dodge'
 Sk 76 1 'second attack'
-Sk 80 1 'dual wield'
+Sk 82 1 'dual wield'
 Sk 75 1 'hide'
 Sk 75 1 'lore'
 Sk 100 1 'scan'
@@ -95,6 +92,9 @@ Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'bard basics'
 Gr 'protective'
+Affc 'protection evil'   0  21   1  -1  24       8192 1
+Affc 'armor'   0  20   1 -20  17          0 1
+Affc 'protection good'   0  24   1  -1  24      16384 1
 End
 
 #O
@@ -110,38 +110,6 @@ Nest 0
 Cond 83
 Wear 2
 Cost 620
-End
-
-#O
-Vnum 75
-Nest 0
-Wear 1
-Cost 0
-End
-
-#O
-Vnum 3702
-Enchanted
-Nest 0
-ExtF 65
-Cond 92
-Wear 19
-Lev  7
-Cost 360
-Affc 'enchant weapon'   1  78  -1   4  19          0 1
-Affc 'enchant weapon'   0  78  -1   4  18          0 1
-End
-
-#O
-Vnum 3350
-Enchanted
-Nest 0
-ExtF 65
-Wear 16
-Lev  18
-Cost 0
-Affc 'enchant weapon'   1  78  -1   4  18          0 1
-Affc 'enchant weapon'   1  78  -1   4  19          0 1
 End
 
 #O
@@ -162,6 +130,7 @@ End
 #O
 Vnum 9922
 Nest 0
+Cond 99
 Wear 12
 Cost 1500
 End
@@ -176,6 +145,7 @@ End
 #O
 Vnum 9909
 Nest 0
+Cond 91
 Wear 3
 Cost 2000
 End
@@ -190,6 +160,7 @@ End
 #O
 Vnum 24802
 Nest 0
+Cond 99
 Wear 9
 Cost 2000
 End
@@ -197,6 +168,7 @@ End
 #O
 Vnum 24803
 Nest 0
+Cond 96
 Wear 8
 Cost 2000
 End
@@ -219,6 +191,7 @@ End
 #O
 Vnum 16008
 Nest 0
+Cond 93
 Wear 6
 Cost 0
 End
@@ -226,8 +199,39 @@ End
 #O
 Vnum 10127
 Nest 0
+Cond 94
 Wear 7
 Cost 0
+End
+
+#O
+Vnum 24800
+Nest 0
+Cond 96
+Wear 18
+Cost 2000
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 16041
+Nest 0
+Cond 97
+Wear 16
+Cost 5000
+End
+
+#O
+Vnum 16041
+Nest 0
+Wear 19
+Cost 5000
 End
 
 #O
@@ -235,28 +239,6 @@ Vnum 7502
 Nest 0
 Wear -1
 Cost 0
-End
-
-#O
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 4610
-Nest 1
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4610
-Nest 1
-Wear -1
-Cost 700
 End
 
 #O
@@ -294,14 +276,6 @@ Spell 3 'talon'
 End
 
 #O
-Vnum 24822
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'cure critical'
-End
-
-#O
 Vnum 24824
 Nest 1
 Wear -1
@@ -331,6 +305,46 @@ Nest 1
 Wear -1
 Cost 10
 Spell 3 'cure critical'
+End
+
+#O
+Vnum 24824
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24835
+Nest 1
+Wear -1
+Cost 100
+Spell 3 'protection good'
 End
 
 #O
@@ -358,6 +372,45 @@ Spell 3 'cure critical'
 End
 
 #O
+Vnum 24826
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'sanctuary'
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
+Vnum 16038
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 24829
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24822
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'cure critical'
+End
+
+#O
 Vnum 8652
 Nest 1
 Wear -1
@@ -367,49 +420,249 @@ End
 
 #O
 Vnum 8652
-Nest 0
+Nest 1
 Wear -1
 Cost 10
 Spell 3 'fly'
 End
 
 #O
-Vnum 24822
-Nest 0
+Vnum 8652
+Nest 1
 Wear -1
 Cost 10
-Spell 3 'cure critical'
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
 End
 
 #O
 Vnum 24824
-Nest 0
+Nest 1
 Wear -1
 Cost 10
 Spell 3 'talon'
 End
 
 #O
-Vnum 24826
-Nest 0
+Vnum 3350
+Enchanted
+Nest 1
+ExtF 65
 Wear -1
-Cost 10
-Spell 3 'sanctuary'
+Lev  18
+Cost 0
+Affc 'enchant weapon'   1  78  -1   4  19          0 1
+Affc 'enchant weapon'   1  78  -1   4  18          0 1
 End
 
 #O
-Vnum 24800
-Nest 0
-Wear 18
-Cost 2000
+Vnum 3702
+Enchanted
+Nest 1
+ExtF 65
+Cond 92
+Wear -1
+Lev  7
+Cost 360
+Affc 'enchant weapon'   0  78  -1   4  18          0 1
+Affc 'enchant weapon'   1  78  -1   4  19          0 1
 End
 
 #O
-Vnum 8652
+Vnum 3022
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 29900
 Nest 0
 Wear -1
-Cost 10
-Spell 3 'fly'
+Cost 1000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
 End
 
 #L
@@ -449,8 +702,8 @@ ExtF 65
 Wear -1
 Lev  3
 Cost 0
-Affc 'enchant weapon'   1  78  -1   4  19          0 1
 Affc 'enchant weapon'   0  78  -1   4  18          0 1
+Affc 'enchant weapon'   1  78  -1   4  19          0 1
 End
 
 #L
@@ -473,6 +726,318 @@ Nest 0
 Cond 97
 Wear -1
 Cost 270
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
 End
 
 #END

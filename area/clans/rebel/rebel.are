@@ -47,7 +47,7 @@ Jabba The Hutt~
 Jabba The Hutt squirms around you.
 ~
 A giant lizard like creature slithers around slowly.  He seems 
-to be nothing more that a slobbering mass of think rubber-like skin and 
+to be nothing more that a slobbering mass of thick rubber-like skin and 
 blubber, his large red glowing eyes watch your every move.
 ~
 hutt~
@@ -59,7 +59,7 @@ stand stand male 100000
 0 0 huge 0
 
 #24603
-medical droid onebee two-onebee~
+medical droid healer onebee two-onebee~
 Two-Onebee~
 Two-Onebee, the medical droid, is here to administer to your pains.
 ~
@@ -68,8 +68,8 @@ up war wounds.
 ~
 droid~
 BGa DF 1000 S
-159 5 100d100+10000 100d100+100 10d10+10 pound
--50 -50 -50 -50
+200 5 100d100+10000 100d100+100 10d10+20 pound
+-105 -100 -105 -100
 F ABCD 0 0
 stand stand male 10000
 0 0 medium 0
@@ -90,6 +90,23 @@ BG 0 750 S
 stand stand either 0
 0 0 small 0
 
+#24605
+elf maid kitara~
+Kitara, the daughter of Demonheart~
+A beautiful elven maid, obviously skilled at gardening.
+~
+Standing before you is a very beautiful elven woman named
+Kitara. She is the only daughter of Demonheart. She is under
+Blackfire's care while Demonheart is off studying ancient
+magics in a far away land.
+~
+elf~
+BGYZ 0 200 S
+30 5 30d30+50 1d1+1 10d10+5 beating
+-200 -250 -175 -250
+EFIN AB 0 HI
+sit stand female 300
+0 0 medium 0
 #0
 
 #OBJECTS
@@ -136,7 +153,7 @@ Bacta Tank~
 A large bacta tank, filled with blueish-green bacta, sits here.~
 glass~
 furniture O P
-2 0 FIL 100 200
+6 0 FIL 100 200
 1 1000 10 P
 
 #24605
@@ -345,9 +362,9 @@ bought: 6 points
 1 point: +1 strength
 1 point: +1 dex 
 4 points: +40 mana
-4 points: +4 hit/+4 dam
+8 points: +8 hit/+8 dam
 2 points: -2 saves
-= 12 points
+= 16 points
 ~
 A
 1 1
@@ -356,9 +373,9 @@ A
 A
 13 40
 A
-18 4
+18 8
 A
-19 4
+19 8
 A
 20 -2
 
@@ -385,10 +402,10 @@ bought: 6 points
 
 1 point: +1 wisdom
 4 points: +40 mana
-4 points: +4 hit/+4 dam
+8 points: +8 hit/+8 dam
 2 points: -2 saves
 1 point: +1 con
-= 12 points
+= 16 points
 ~
 A
 4 1
@@ -397,9 +414,9 @@ A
 A
 13 40
 A
-18 4
+18 8
 A
-19 4
+19 8
 A
 20 -2
 
@@ -431,18 +448,18 @@ bought: 6 points
 1 point: +1 intelligence
 1 point: +1 charisma
 4 points: +40 mana
-4 points: +4 hit/+4 dam
+8 points: +8 hit/+8 dam
 2 points: -2 saves
-= 12 points
+= 16 points
 ~
 A
 3 1
 A
 13 40
 A
-18 4
+18 8
 A
-19 4
+19 8
 A
 20 -2
 A
@@ -623,17 +640,89 @@ Portal to Meeting Place~
 A portal to the meeting place in the Pirate's Cave is here.~
 shimmery~
 portal O P
-0 0 A 4429 0
+0 0 A 4427 0
 1 100 10 P
 
 #24627
-portal hall damned hell~
-Portal to the Hall of the Damned~
-A portal to the Hall of the Damned in Hell is here.~
+portal chessboard~
+Portal to the Chessboard~
+A portal to the Chessboard is here.~
 shimmery~
 portal O P
-0 0 A 10406 0
+0 0 A 29904 0
 1 100 10 P
+
+#24628
+stream~
+a stream flows throw the garden~
+A clear stream flows through here.~
+water~
+fountain OSH P
+0 0 'water' 0 0
+1 1 0 P
+E
+stream~
+The stream is clean and pure. Probably safe to drink.
+~
+
+#24629
+pill purple~
+a little purple pill sits here~
+A little purple pills waits to be eaten.~
+pill~
+pill 0 AOP
+15 'flameshield' 'talon' 'sanctuary' ''
+15 1 530 P
+E
+pill~
+The pill is just waiting to fill your body with useful energy.
+~
+
+#24630
+pillow bed~
+a large pillow bed sits in the corner~
+A pillow bed sits in the corner.~
+silk~
+furniture O P
+2 0 EHK 110 110
+1 100 140 G
+E
+pillow~
+This pillow looks like it would make a good, soft
+bed. Room enough for two.
+~
+
+#24631
+locket necklace~
+Locket containing Demonheart's picture~
+A small, golden locket, holding a picture of Demonheart.~
+gold~
+jewelry AB ACO
+0 0 0 0 0
+1 1 250 P
+E
+locket~
+The locket contains a picture of Kitara's father, Demonheart.
+~
+
+#24632
+forge anvil stone table~
+A Large {cS{gt{co{gn{ce{x Table{x~
+A Large {cS{gt{co{gn{ce{x Table sits in the middle of the room with a fire under it.{x~
+{cS{gt{co{gn{ce{x~
+anvil OR 0
+0 3 0 0 3
+0 1 1000 P
+E
+forge anvil stone table~
+A Large {cS{gt{co{gn{ce{x Table sits in the middle of the room with a fire under it.{x
+~ 
+
+
+
+
+
+
 #0
 
 
@@ -803,7 +892,7 @@ S
 #24606
 Sick Bay~
 This room is designed to be stark and to make patients want to get well so they 
-can get out of there as soon as possible.
+can get out of here as soon as possible.
 ~
 0 N 0
 C rebel~
@@ -823,6 +912,10 @@ D3
 ~
 ~
 0 -1 24607
+D5
+~
+~
+1 -1 24621
 S
 
 #24607
@@ -967,11 +1060,16 @@ D3
 S
 
 #24614
-blank~
-This is a blank room.
+The Armory~
+As you enter the armory you begin to get a warm feeling, but with a furnace, 
+lots of sparks, and red hot steel who wouldn't.  You see piles of {RL{Ri{Pg{Rh{Pt{Rs{Pa{Rb{Pr{Re{Ps{x 
+that did not pass the rigorous testing sitting in the corner. There are racks 
+of almost any weapon you could want, go ahead pick one! You could also try your 
+hand at making your own {RL{Ri{Pg{Rh{Pt{Rs{Pa{Rb{Pr{Re{x if you feel up to it.
 ~
-0 N 0
+0 DK 0
 C rebel~
+H 100 M 100
 D0
 ~
 ~
@@ -985,10 +1083,16 @@ D2
 ~
 0 -1 24613
 D3
+West is Watto's Armor Shop
 ~
 ~
 0 -1 24601
-S
+E
+creationdate~
+Febuary 7th by {ML{Vi{Cd{Td{Ma{x
+~
+S 
+
 
 #24615
 blank~
@@ -1090,6 +1194,22 @@ D2
 0 -1 24606
 S
 
+#24621
+Blackfire's Sanctuary~
+This room is much warmer than the rest of the Rebel headquarters.
+There is a small garden here, with a small stream flowing through
+in one corner. It seems a safe and peaceful place.
+~
+0 DJK 0
+C rebel
+O Blackfire~
+D4
+The exit east leads up to sick bay.
+~
+~
+1 -1 24606
+S
+
 #0
 
 #RESETS
@@ -1121,6 +1241,16 @@ O 0 24607 1 24608      * tea
 O 0 24625 1 24603      * portal
 O 0 24626 1 24603      * portal
 O 0 24627 1 24603      * portal
+M 0 24605 1 24621 1 * Kitara placed in Blackfire's room
+E 0 24631 1 3 * Kitara's locket on her neck
+O 0 24628 1 24621 * stream in Blackfire's room
+O 0 24629 1 24621 * pill in Blackfire's room
+O 0 24630 1 24621 * pillow in Blackire's room
+D 0 24621 4 1 * closed door from Blackfire's sanc
+D 0 24606 5 1 * closed door from sickbay to blackfire's room
+O 0 24632 1 24614          *Anvil in The Armory
+
+
 S
 
 #SHOPS

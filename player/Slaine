@@ -1,20 +1,20 @@
 #PLAYER
 Name Slaine~
 Id   999735368
-LogO 1016681832
-Vers 13
+LogO 1009653727
+Vers 9
 Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
 Race wolf~
 Sex  2
 Cla  3
 Levl 1
-Plyd 31267
+Plyd 13700
 Age  0
-Back 13700
-Note 1016681298 1016681298 1016681298 1016681298 1016681298 1016681298 1016681298
+Back 0
+Note 1009565512 1003595038 1002562060 1003883560 1009643038 999735581
 Scro 22
-Room 8543
-HMS  24 24 100 100 38 113
+Room 3731
+HMV  24 24 100 100 100 100
 Gold 3
 Silv 408
 Exp  2016
@@ -24,25 +24,21 @@ Akills 0
 Akilled 0
 PKRank 0
 Act  CDEFGHJLQSTc
-FRes I
-FVul H
 Comm NO
 Revk 0
-Cgrp A
 Cnsr AB
 Pos  8
 Prac 5
 Trai 3
-Save  -7
 Alig  750
-Hit   8
-ACs 95 95 94 99
+Hit   1
+ACs 96 96 96 100
 Atrib 20 15 15 13 18 14
 AtMod 1 2 3 1 0 2
 Pass patpat~
-Afk {B[{CSat Jan  5 00:23:45 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CTue Oct 23 22:19:37 2001{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  {Ploves you all.....almost{x~
+Titl  {W*{B*{R*{W*{B*{R*{W*{B*{R*{W*{B*{R*{W*{B*{R*{W*{B*{R*{W*{B*{x~
 Immn ~
 Pnts 44
 Rank ~
@@ -51,22 +47,19 @@ TSex 2
 LLev 1
 Email melanie@hoosiermail.net~
 Deit Kenneth~
-Lsit ool-43536293.dyn.optonline.net~
-Ltim Wed Mar 20 21:28:14 2002
+Lsit ool-18b9b313.dyn.optonline.net~
+Ltim Sat Dec 29 13:22:03 2001
 ~
-LSav Wed Mar 20 21:37:12 2002
+LSav Sat Dec 29 13:08:52 2001
 ~
 MC 44
 Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 Plr  AF
-HMSP 20 100 113
-THMS 0 0 0
-Cnd  0 9 47 0
-Ignore umberto~
+HMVP 20 100 100
+THVP 0 0 0
+Cnd  0 0 0 0
 Alias mm scan~
-Alias ooc gossip~
-Query Gabriel~
 Sk 1 1 'acid blast'
 Sk 1 1 'burning hands'
 Sk 1 1 'chain lightning'
@@ -91,9 +84,9 @@ Sk 1 1 'ray of truth'
 Sk 1 1 'refresh'
 Sk 1 1 'regeneration'
 Sk 1 1 'shocking grasp'
-Sk 1 1 'sunray'
 Sk 1 1 'talon'
 Sk 1 1 'wrath'
+Sk 1 1 'sunray'
 Sk 40 1 'sword'
 Sk 1 1 'enhanced damage'
 Sk 1 1 'hand to hand'
@@ -110,8 +103,6 @@ Gr 'warrior basics'
 Gr 'attack'
 Gr 'combat'
 Gr 'enhancement'
-Affc 'bless'   0  58  56  -7  24          0 1
-Affc 'bless'   0  57  56   7  18          0 1
 End
 
 #O
@@ -166,7 +157,7 @@ End
 #O
 Vnum 75
 Nest 0
-Wear -1
+Wear 1
 Cost 620
 End
 
@@ -175,6 +166,13 @@ Vnum 76
 Nest 0
 Wear 17
 Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
 End
 
 #O
@@ -209,29 +207,6 @@ End
 Vnum 83
 Nest 0
 Wear -1
-Cost 0
-End
-
-#O
-Vnum 80
-Nest 0
-Cond 94
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 10264
-Nest 0
-Wear 1
-Cost 0
-End
-
-#O
-Vnum 6601
-Nest 0
-Cond 87
-Wear 2
 Cost 0
 End
 

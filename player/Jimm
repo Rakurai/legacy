@@ -1,0 +1,137 @@
+#PLAYER
+Name Jimm~
+Id   1047109672
+LogO 1047112616
+Vers 14
+Mexp 2
+Pass hello~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race wolf~
+Cla  3
+Levl 1
+Tru  0
+Plyd 1265
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3709
+HMS  20 100 100
+Gold 0
+Silv 0
+Exp  2500
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes I
+FVul H
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NOZ
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 5
+Trai 0
+Wimp 0
+Atrib 20 13 14 17 16 14
+Afk {B[{CSat Mar  8 03:06:07 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kismet~
+Lsit 202.180.86.17~
+Ltim Sat Mar 08 02:52:00 2003
+~
+LSav Sat Mar 08 03:36:56 2003
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 40 1 'spear'
+Sk 1 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'bash'
+Sk 1 1 'disarm'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'warrior default'
+Gr 'weaponsmaster'
+Gr 'enhancement'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 140 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3718
+Nest 0
+Cond 93
+Wear 16
+Cost 290
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

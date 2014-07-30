@@ -1,0 +1,388 @@
+#PLAYER
+Name Calesta~
+Id   1088746482
+LogO 1098917098
+Vers 14
+Mexp 1
+Pass godess~
+Prom %CN<%Cc%h%Cc/%Hhp %CP%m%CP/%Mmp %CH%vmv %CC%Xxp %CR%a %CCSP%jmin QP%qmin %Cc%z%CB> ~
+Race seraph~
+Cla  4
+Levl 9
+Tru  0
+Plyd 45492
+Back 36222
+Note 1089556971 1088897078 1088747078 1088747078 1089458884 1088747078 1088747078
+Scro 22
+Room 8543
+HMS  99 187 144
+Gold 1
+Silv 2470
+Exp  19167
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -1000
+Ptnr florist~
+FImm 0
+FRes NS
+FVul M
+Plr  U
+Video 0
+Act  CDEFGHJLSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp AG
+Cnsr A
+Block_Remote 0
+Prac 11
+Trai 3
+Wimp 14
+Familiar 0
+Atrib 18 18 20 12 18 18
+SkillPnts  14
+Afk {B[{CSun Jul 11 12:44:06 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 2
+LLev 11
+Deit Vegita~
+Lsit pool-151-203-3-186.bos.east.verizon.net~
+Ltim Wed Oct 27 18:44:44 2004
+~
+LSav Wed Oct 27 18:44:58 2004
+~
+HMSP 91 180 144
+THMS 0 0 0
+Cnd  0 30 42 34
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'demonfire'
+Sk 1 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 1 1 'earthquake'
+Sk 1 1 'flamestrike'
+Sk 1 1 'frenzy'
+Sk 1 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 1 1 'ray of truth'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sunray'
+Sk 81 1 'dagger'
+Sk 1 1 'polearm'
+Sk 77 1 'shield block'
+Sk 1 1 'scribe'
+Sk 77 1 'languages'
+Sk 75 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'curative'
+Affc 'blood moon'   0  55  47   5  19          0 1
+Affc 'blood moon'   0  58  47   3  18          0 1
+End
+
+#O
+Vnum 3703
+Nest 0
+Cond 94
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 108
+Nest 1
+Name rose~
+ShD  a gold{x rose~
+Desc A gold{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe florist~ This rose was created by DeathStrike.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 4588
+Nest 1
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 30 15 0 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 90
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3706
+Nest 0
+Cond 96
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 98
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 10135
+Nest 0
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 3020
+Enchanted
+Nest 0
+ExtF 66
+Cond 86
+Wear 16
+Lev  6
+Cost 157
+Affc 'enchant weapon'   1  85  -1   6  19          0 1
+Affc 'enchant weapon'   0  85  -1   6  18          0 1
+End
+
+#O
+Vnum 2404
+Nest 0
+Cond 86
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 3724
+Nest 0
+Cond 92
+Wear -1
+Cost 100
+Val  60 1 0 6 100
+End
+
+#O
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1211
+Nest 1
+Name token outsider pizza~
+ShD  a yummy, vegatarian pizza~
+Desc Outsider's vegatarian pizza with green peppers, mushrooms and pineapple~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 6601
+Nest 0
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 2404
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 6601
+Nest 0
+Cond 87
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 1100
+Nest 0
+Wear 0
+Cost 550
+End
+
+#O
+Vnum 4607
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4581
+Nest 0
+Cond 92
+Wear 17
+Cost 1000
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 4572
+Nest 0
+Wear 18
+Cost 1200
+End
+
+#O
+Vnum 4607
+Nest 0
+Wear -1
+Cost 15
+End
+
+#END

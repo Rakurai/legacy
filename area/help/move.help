@@ -148,4 +148,25 @@ Syntax: {Cscan{x
 you what is off in the distance, and also will show closed doors.
 ~
 
+0 FLY LAND~
+Synxtax: {Cfly{x
+         {Cland{x
+
+The Fly and Land commands allow your character to takeoff or
+land. This is mostly for roleplaying purposes. Only characters
+who can naturally fly can takeoff at will. Any flying character
+can land.
+Note: You land automatically if you sit or lie down.
+~
+
+0 SPOUSE SPOUSEGATE~
+Syntax: {Cspousegate{x
+
+Spousegate allows you to travel instantly to where your spouse
+is currently located. There are some restrictions to this transportation.
+Neither of you may be in an arena, in a quest area, in a no-recall
+room. Also, you may not be fighting. Your spouse must also be
+visable to you.
+~
+
 -2

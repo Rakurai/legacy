@@ -1,59 +1,63 @@
 #PLAYER
 Name Xenith~
 Id   997915456
-LogO 1406584671
+LogO 1406693652
 Vers 15
 Mexp 2
 Pass 955321~
+ShD  Xenith~
+LnD  none
+~
 Prom %CG[%CP%w%CG] [%z%CG] [%CW%r%CG] [%CY%R%CG] [%CB%e%CG]>>>%Cx ~
 Race human~
 Clan balance~
 Cla  2
 Levl 100
-Plyd 8858249
-Back 8840516
-Note 1406559493 1024690924 1027144008 1027209569 1406555570 1027142394 1026831915
+Plyd 15027096
+Back 14144807
+Note 1406559493 1105162385 1107312677 1112736317 1406555570 1113489214 1102829824
 Scro 44
-Room 3001
-HMS  21404 26459 24538
-Gold 102
-Silv 1008331
+Room 1202
+HMS  20495 26086 13140
+Gold 489
+Silv 1008560
 Exp  91000
-PCkills  2
+PCkills  5
 PCkilled 0
 Akills   1
 Akilled  0
 PKRank   10
 Pos  8
-Alig 750
+Alig 998
+Ptnr Alisa~
 Mark 1202
 FImm 0
 FRes 0
 FVul 0
-Plr  ABCEFIJKNOUd
-Video D
+Plr  ABFIJKNOUd
+Video 0
 Act  DEFGLQST
 AfBy 0
-Comm MNOQ
+Comm DGMNOQYa
 Revk 0
 Cgrp BCEFGIKLMO
-Cnsr BC
+Cnsr C
 Block_Remote 0
-Prac -26
-Trai 48
+Prac 51
+Trai 976
 Wimp 1000
 Familiar 0
-Wizn ACDEIJMNOQRSUVZa
+Wizn ABCDEIJMNOPQRSUVZa
 Invi 0
 Lurk 0
 Secu 2
 Atrib 25 25 25 25 25 25
 SkillPnts  1850
-RolePnts   1501
+RolePnts   1500
 QuestPnts  1409
 GameIn  {BHere I am!~
 GameOut {BThere I go!~
-Afk {B[{CTue May 28 20:52:17 2002{B] {CGoooone
+Afk {B[{CWed Jan 12 21:58:00 2005{B] {CUnknown Departure.{x
 ~
 Titl  {x~
 Immn {W[{x {RWorld {bForger {W]{x~
@@ -61,20 +65,21 @@ Pnts 20
 Rank {b---~
 Aura {RWorld {bForger{x~
 TSex 2
-LLev 2292
-Email xenith@xenith.org~
-Deit {HXenith, {TThe {RWorld {bForger{x~
-Lsit 204.212.183.131~
-Ltim Mon Jul 28 14:57:49 2014
+LLev 2739
+Email xenith@ageoflegacy.com~
+Deit Xenith~
+Lsit 74-93-181-149-Sacramento.hfc.comcastbusiness.net~
+Ltim Tue Jul 29 20:06:39 2014
 ~
-LSav Mon Jul 28 14:57:51 2014
+LSav Tue Jul 29 21:14:12 2014
 ~
-HMSP 21374 26359 24538
+HMSP 20465 25986 23960
 THMS 3 1 1
 Cnd  0 0 100 100
 Colr 0 32 1
 Colr 1 31 0
 Colr 3 31 1
+Colr 8 32 0
 Colr 13 34 1
 Colr 15 33 1
 Query liriel~
@@ -211,7 +216,7 @@ Sk 100 1 'remove alignment'
 Sk 100 1 'remove invisibility'
 Sk 100 1 'remove curse'
 Sk 100 4 'sanctuary'
-Sk 1 1 'scry'
+Sk 75 1 'scry'
 Sk 100 1 'shield'
 Sk 100 1 'shock blade'
 Sk 100 1 'shocking grasp'
@@ -219,7 +224,7 @@ Sk 100 1 'shrink'
 Sk 100 1 'sleep'
 Sk 100 1 'slow'
 Sk 100 1 'smokescreen'
-Sk 1 1 'starve'
+Sk 75 1 'starve'
 Sk 100 1 'steel mist'
 Sk 100 1 'stone skin'
 Sk 100 1 'summon'
@@ -242,6 +247,7 @@ Sk 100 1 'polearm'
 Sk 100 1 'spear'
 Sk 100 1 'sword'
 Sk 100 1 'whip'
+Sk 75 1 'bow'
 Sk 100 1 'shield block'
 Sk 100 1 'brew'
 Sk 100 1 'scribe'
@@ -264,6 +270,7 @@ Sk 100 1 'second attack'
 Sk 100 1 'third attack'
 Sk 100 4 'dual wield'
 Sk 100 1 'hunt'
+Sk 75 1 'unarmed'
 Sk 100 1 'swimming'
 Sk 100 4 'fast healing'
 Sk 100 1 'firebuilding'
@@ -282,9 +289,13 @@ Sk 100 1 'sneak'
 Sk 100 1 'steal'
 Sk 100 1 'sing'
 Sk 100 1 'scrolls'
+Sk 75 1 'spousegate'
 Sk 100 1 'staves'
 Sk 100 1 'wands'
 Sk 100 1 'recall'
+Sk 75 1 'lay'
+Sk 75 1 'familiar'
+Sk 75 1 'die hard'
 Sk 100 1 'sheen'
 Sk 100 1 'focus'
 Sk 100 1 'paralyze'
@@ -344,33 +355,13 @@ Cost 220
 End
 
 #O
-Vnum 45
-Nest 0
-Name springwater flask~
-ShD  {Wa {gb{co{gt{gt{gl{ce {Wo{cf {Ww{gh{Wi{gt{We {Yw{bi{Yn{be {Wf{gr{co{gm {GA{Hl{Wi{Hs{Ga {Wa{gn{cd {VS{Mun{Vda{Mnc{Ver{x~
-Desc {xIt looks like {GA{Hl{Wi{Hs{Ga{x and {VS{Mun{Vda{Mnc{Ver{x spilled wine here.{x~
-Wear -1
-Cost 25000
-Val  15 5 18 0 0
-End
-
-#O
-Vnum 12
-Nest 0
-ShD  the head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x~
-Desc The severed head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x is lying here.~
-Wear -1
-Cost 0
-End
-
-#O
 Vnum 3388
 Nest 0
 Name paintball gun~
 ShD  {PS{Ht{Pe{Ha{Pl{Ht{Ph {HP{Pa{Hi{Pn{Ht{Pb{Ha{Pl{Hl {PG{Hu{Pn{x~
 Wear 17
 Cost 43250
-Val  352 500 8 8 15
+Val  345 500 8 8 15
 ExDe owned by~ Xenith
 ~
 End
@@ -381,1374 +372,6 @@ Nest 0
 Cond 100
 Wear 8
 Cost 220
-End
-
-#O
-Vnum 1254
-Nest 0
-Name holy dagger thievery~
-ShD  {gS{Wi{gl{Wv{ge{Wr {gD{Wa{gg{Wg{ge{Wr {go{Wf {TT{Ch{Ti{Ce{Tv{Ce{Tr{Cy{x~
-ExtF 17580355
-Wear 19
-Cost 0
-ExDe owned by~ Xenith
-~
-End
-
-#O
-Vnum 77
-Nest 0
-Wear -1
-Cost 0
-Val  48 97 0 0 0
-End
-
-#O
-Vnum 1111
-Nest 0
-Name clothes~
-ShD  clothes~
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                         {YMMM::::::::::::MM{x~
-Desc {x                         {YMMM::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                         {YMMM:::::::::::::MM{x~
-Desc {x                         {YMMM:::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                         {YMMM:::::::::::::MM{x~
-Desc {x                         {YMMM:::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                         {YMM::::::::::::::MMM{x~
-Desc {x                         {YMM::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                        {YMMM:::::::::::::::MM{x~
-Desc {x                        {YMMM:::::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                        {YMMM:::::::::::::::MM{x~
-Desc {x                        {YMMM:::::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                        {YMMM:::::::::::::::MM{x~
-Desc {x                        {YMMM:::::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                        {YMMM:::::::::::::::MM{x~
-Desc {x                        {YMMM:::::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                        {YMM::::::::::::::::MM{x~
-Desc {x                        {YMM::::::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMMM::::::::::::::::Mm{x~
-Desc {x                       {YMMM::::::::::::::::Mm{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMMM::::::::::::::::M{x~
-Desc {x                       {YMMM::::::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMMM::::::::::::::::M{x~
-Desc {x                       {YMMM::::::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMMM:::::::::::::::M:{x~
-Desc {x                       {YMMM:::::::::::::::M:{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMMM:::::::::::::::M:{x~
-Desc {x                       {YMMM:::::::::::::::M:{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMM:::M:::::::::::MM{x~
-Desc {x                       {YMM:::M:::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMM::MM::::::::::M:m{x~
-Desc {x                       {YMM::MM::::::::::M:m{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMM::MM:::::::::M:M{x~
-Desc {x                       {YMM::MM:::::::::M:M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                      {YMM::MMM::::::::M:M{x~
-Desc {x                      {YMM::MMM::::::::M:M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                     {YmMM:::M:::::::M:M:M{x~
-Desc {x                     {YmMM:::M:::::::M:M:M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                    {YmMM::::MM:::::::MMMM{x~
-Desc {x                    {YmMM::::MM:::::::MMMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                    {YMM:::::::::::::::MMM{x~
-Desc {x                    {YMM:::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                    {YMM::::::::::::::::MMM{x~
-Desc {x                    {YMM::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                     {YM:::::::::::::::::MMM{x~
-Desc {x                     {YM:::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                    {YMMM::::::::::::::::::MMM{x~
-Desc {x                    {YMMM::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                   {YMM:M:::::::::::::::::::MMM{x~
-Desc {x                   {YMM:M:::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                   {YMM::M:::::::::::::::::::MMM{x~
-Desc {x                   {YMM::M:::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                  {YMM:::M::::::::::::::::::::MMM{x~
-Desc {x                  {YMM:::M::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                  {YMM::::M::::::::::::::::::::MMM{x~
-Desc {x                  {YMM::::M::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                 {YMM:::::M:::::::::::::::::::::MMM{x~
-Desc {x                 {YMM:::::M:::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                 {YMM::::::M:::::::::::::::::::::MMM{x~
-Desc {x                 {YMM::::::M:::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                {YMM:::::::M::::::::::::::::::::::MMM{x~
-Desc {x                {YMM:::::::M::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                {YM:::::::::M::::::::::::::::::::::MMM{x~
-Desc {x                {YM:::::::::M::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x               {YMM:::::::::M:::::::::::::::::::::::MMM{x~
-Desc {x               {YMM:::::::::M:::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x               {YM:::::::::::M:::::::::::::::::::::::MMM{x~
-Desc {x               {YM:::::::::::M:::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x              {YMM:::::::::::M::::::::::::::::::::::::MMM{x~
-Desc {x              {YMM:::::::::::M::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x              {YM:::::::::::::M::::::::::::::::::::::::MMM{x~
-Desc {x              {YM:::::::::::::M::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {YMM:::::::::::::M:::::::::::::::::::::::::MMM{x~
-Desc {x             {YMM:::::::::::::M:::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {YM:::::::::::::::M:::::::::::::::::::::::::MMM{x~
-Desc {x             {YM:::::::::::::::M:::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {YMM:::::::::::::::M::::::::::::::::::::::::::MMM{x~
-Desc {x            {YMM:::::::::::::::M::::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {YM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-Desc {x            {YM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YMM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-Desc {x           {YMM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM:::::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-Desc {x           {YM:::::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM:::::::::::::::::{R88{YM::::::::::::::::::::::::::MMM{x~
-Desc {x           {YM:::::::::::::::::{R88{YM::::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM:::::::::::::::{R88888{YM:::::::::::::::::::::::::M:MM{x~
-Desc {x           {YM:::::::::::::::{R88888{YM:::::::::::::::::::::::::M:MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM::::::::::::::{R888888{YM:::::::::::::::::::::::::M::MM{x~
-Desc {x           {YM::::::::::::::{R888888{YM:::::::::::::::::::::::::M::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM:::::::::::::{R88888888{YM:::::::::::::::::::::::::M::MM{x~
-Desc {x           {YM:::::::::::::{R88888888{YM:::::::::::::::::::::::::M::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM::::::::::::{R8888888888{YM::::::::::::::::::::::::MM::MM{x~
-Desc {x           {YM::::::::::::{R8888888888{YM::::::::::::::::::::::::MM::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM:::::::::::M{R88{Y:::::::::M:::::::::::::::::::::::MM::MMM{x~
-Desc {x           {YM:::::::::::M{R88{Y:::::::::M:::::::::::::::::::::::MM::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YMM:::::::::M:::::::::::::M:::::::::::::::::::::M:M:::MM{x~
-Desc {x           {YMM:::::::::M:::::::::::::M:::::::::::::::::::::M:M:::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {YM::::::::M:::::::::::::::::::::::::::::::::::M::M:::MM{x~
-Desc {x            {YM::::::::M:::::::::::::::::::::::::::::::::::M::M:::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {YMM::::::m:::::::::::::::::::::::::::::::::::M::MM:::MM{x~
-Desc {x            {YMM::::::m:::::::::::::::::::::::::::::::::::M::MM:::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {YM:::::::::::::::::::::::::M:::::::::::::::mM::MM:::Mm{x~
-Desc {x             {YM:::::::::::::::::::::::::M:::::::::::::::mM::MM:::Mm{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x  {R8888       {YMM:::::::::::::::::::::::::MM:::::::::::::mM::MM:::M:{x~
-Desc {x  {R8888       {YMM:::::::::::::::::::::::::MM:::::::::::::mM::MM:::M:{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x     {R888      {YM:::::M::::::::::::::::::::MMM::::::::::::M::mm:::M{x~
-Desc {x     {R888      {YM:::::M::::::::::::::::::::MMM::::::::::::M::mm:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x      {R8888    {YMM::::Mm:::::::::::::::::::::MMMM:::::::::m::m:::M{x~
-Desc {x      {R8888    {YMM::::Mm:::::::::::::::::::::MMMM:::::::::m::m:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x        {R888    {YM:::::Mm::::::::::::::::::::::MMM:::::::::M::::M{x~
-Desc {x        {R888    {YM:::::Mm::::::::::::::::::::::MMM:::::::::M::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x         {R8888   {YM:::::M:::::::::::::::::::::::MMM::::::::M:::M{x~
-Desc {x         {R8888   {YM:::::M:::::::::::::::::::::::MMM::::::::M:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x          {R8888   {YM:::::M:::::::::::::::::::::::MM:::::::M:::M{x~
-Desc {x          {R8888   {YM:::::M:::::::::::::::::::::::MM:::::::M:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x          {R88888   {YM:::::m::::::::::{b@{Y::::::::::Mm:::::::M:::M{x~
-Desc {x          {R88888   {YM:::::m::::::::::{b@{Y::::::::::Mm:::::::M:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {R88888   {YM:::::::::::::::{b@@{Y::::::::::::::::::M::M{x~
-Desc {x           {R88888   {YM:::::::::::::::{b@@{Y::::::::::::::::::M::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {R88888   {YM::::::::::::::{b@@@{Y::::::::::::::::M::M{x~
-Desc {x            {R88888   {YM::::::::::::::{b@@@{Y::::::::::::::::M::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {R88888   {YM::::::::::::::{b@@{Y:::::::::::::::M::M{x~
-Desc {x             {R88888   {YM::::::::::::::{b@@{Y:::::::::::::::M::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {R888888  {YM:::::M:::::::::{b@{Y::::::::::::::M::M{x~
-Desc {x             {R888888  {YM:::::M:::::::::{b@{Y::::::::::::::M::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {R888888  {YM:::::M::::::::::::::::::::::::M:M{x~
-Desc {x             {R888888  {YM:::::M::::::::::::::::::::::::M:M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x              {R888888 {YM::::::M:::::::::::::::::::M:::MM{x~
-Desc {x              {R888888 {YM::::::M:::::::::::::::::::M:::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {R8  888888 {YM:::::::MM:::::::::::::::::M:::M{x~
-Desc {x           {R8  888888 {YM:::::::MM:::::::::::::::::M:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {R88 8888888{YM:::::::::MMM::::::::::::::M:::M{x~
-Desc {x           {R88 8888888{YM:::::::::MMM::::::::::::::M:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {R88888888{YMM:::::::::::MMM:::::::::::MM:::M{x~
-Desc {x            {R88888888{YMM:::::::::::MMM:::::::::::MM:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {R888888{YMM:::::::::::::MMM:::::::::MMM:::M{x~
-Desc {x             {R888888{YMM:::::::::::::MMM:::::::::MMM:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {R88888{YMM:::::::::::::::MMM:::::::mM:::::MM{x~
-Desc {x             {R88888{YMM:::::::::::::::MMM:::::::mM:::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x              {R888{YMM::::::::::::::::::MM::::::MM::::::MM{x~
-Desc {x              {R888{YMM::::::::::::::::::MM::::::MM::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x          {R8   88{YMM::::::::::::::::::::::M:::M::::::::MM{x~
-Desc {x          {R8   88{YMM::::::::::::::::::::::M:::M::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x         {R88   8{YMM::::::::::::::::::::::::::::::::::MMMMMM{x~
-Desc {x         {R88   8{YMM::::::::::::::::::::::::::::::::::MMMMMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x        {R88    {YMM::::::::::::MMMMMMM::::::::::::::MMMMMMMMMM{x~
-Desc {x        {R88    {YMM::::::::::::MMMMMMM::::::::::::::MMMMMMMMMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x       {R88    {YMM:::::::::MMMMMMMMMMMMMMM::::::::MMM::::::::MMM{x~
-Desc {x       {R88    {YMM:::::::::MMMMMMMMMMMMMMM::::::::MMM::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x      {R88     {YM::::::::MMMM:::::::::::MMMM:::::MM::::::::::::MM{x~
-Desc {x      {R88     {YM::::::::MMMM:::::::::::MMMM:::::MM::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x     {R888    {YMM:::::::MMM::::::::::::::::MM:::MM:::::::::::::::M{x~
-Desc {x     {R888    {YMM:::::::MMM::::::::::::::::MM:::MM:::::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x     {R888    {YM:::::::MM:::::::::::::::::::MM::M::::::::::::::::{P*8{x~
-Desc {x     {R888    {YM:::::::MM:::::::::::::::::::MM::M::::::::::::::::{P*8{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R8888   {YMM::::::MM:::::::::::::::::::::MM:::::::::::::::::{P88@@{x~
-Desc {x    {R8888   {YMM::::::MM:::::::::::::::::::::MM:::::::::::::::::{P88@@{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R88888  {YM:::{R8{Y::MM:::::::::{P*88*{Y::::::::::M:::::::::::::::::{P88@@{x~
-Desc {x    {R88888  {YM:::{R8{Y::MM:::::::::{P*88*{Y::::::::::M:::::::::::::::::{P88@@{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R888888{YMM::{R88{Y::MM::::::::{P88@@88{Y:::::::::M:::{R8{Y::::::::::::::{P*8{x~
-Desc {x    {R888888{YMM::{R88{Y::MM::::::::{P88@@88{Y:::::::::M:::{R8{Y::::::::::::::{P*8{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R888888{YM:::{R88{Y::M:::::::::{P88@@88{Y:::::::::M::{R88{Y::::::::::::::M{x~
-Desc {x    {R888888{YM:::{R88{Y::M:::::::::{P88@@88{Y:::::::::M::{R88{Y::::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x     {R88888{YM:::{R88{Y::M::::::::::{P*88*{Y::::::::::M:{R88{Y::::::::::::::M{x~
-Desc {x     {R88888{YM:::{R88{Y::M::::::::::{P*88*{Y::::::::::M:{R88{Y::::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x   {R8 88888{YM:::{R88{Y::M:::::::::::::::::::::::MM:{R88{Y::::::::::::M{x~
-Desc {x   {R8 88888{YM:::{R88{Y::M:::::::::::::::::::::::MM:{R88{Y::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R88888{YM:::::{R88{Y:M::::::::::{R8{Y:::::::::::M:::{R8888{Y::::::M::M{x~
-Desc {x    {R88888{YM:::::{R88{Y:M::::::::::{R8{Y:::::::::::M:::{R8888{Y::::::M::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x     {R8888{YM:::::{R888{YMM::::::::{R8{Y:::::::::::M::::{R8888{Y::::M::::M{x~
-Desc {x     {R8888{YM:::::{R888{YMM::::::::{R8{Y:::::::::::M::::{R8888{Y::::M::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x      {R88{YMM:::::{R8888{YM:::::::{R88{Y::::::::{R8{Y:::::{R888888{Y:::M:::::M{x~
-Desc {x      {R88{YMM:::::{R8888{YM:::::::{R88{Y::::::::{R8{Y:::::{R888888{Y:::M:::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x       {R8{YM:::::::{R8888{YM:::::{R888{Y:::::::{R88{Y:::{R8888888{Y::::::::Mm    {R2{x~
-Desc {x       {R8{YM:::::::{R8888{YM:::::{R888{Y:::::::{R88{Y:::{R8888888{Y::::::::Mm    {R2{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x   {R8   {YMM::::::::{R8888{YM:::{R8888{Y:::::{R888888888888{Y::::::::Mm{R8     4{x~
-Desc {x   {R8   {YMM::::::::{R8888{YM:::{R8888{Y:::::{R888888888888{Y::::::::Mm{R8     4{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x   {R88  {YM::::::::::{R8888M{Y::{R88888{Y::{R888888888888{Y:::::::Mm{R88888    88{x~
-Desc {x   {R88  {YM::::::::::{R8888M{Y::{R88888{Y::{R888888888888{Y:::::::Mm{R88888    88{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x   {R88  {YM::::::::::::{R8888{Y:{R88888888888888888{Y::::::Mm{R8   88888   888{x~
-Desc {x   {R88  {YM::::::::::::{R8888{Y:{R88888888888888888{Y::::::Mm{R8   88888   888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x  {R888  {YM::::::::::::M{R8888{Y:{R888888888888{Y::::m::Mm{R88888 888888   8888{x~
-Desc {x  {R888  {YM::::::::::::M{R8888{Y:{R888888888888{Y::::m::Mm{R88888 888888   8888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x {R888   {YM:::::::::::::M{R8888888888888{YM:::::mM{R888888888888888    8888{x~
-Desc {x {R888   {YM:::::::::::::M{R8888888888888{YM:::::mM{R888888888888888    8888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x{R8888   {YM::::::::::::::M{R88888888888{Y::::::MM{R888888888888888    88888{x~
-Desc {x{R8888   {YM::::::::::::::M{R88888888888{Y::::::MM{R888888888888888    88888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x{R888888 {YM:::::::::::::::M{R888888888{Y:::::::MM{R88888888888888   8888888{x~
-Desc {x{R888888 {YM:::::::::::::::M{R888888888{Y:::::::MM{R88888888888888   8888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x{R888888888{Y:::::{R8{Y:::::::::M{R8888888{YMAmmmAMVMM{R888{Y*{R88888888   88888888{x~
-Desc {x{R888888888{Y:::::{R8{Y:::::::::M{R8888888{YMAmmmAMVMM{R888{Y*{R88888888   88888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
-Desc {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
-Desc {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x  {R88888888888{Y:{R888{Y::::::::::M:::::{P"@a@"{Y:::::M{R8{Yi{R888888888888888{x~
-Desc {x  {R88888888888{Y:{R888{Y::::::::::M:::::{P"@a@"{Y:::::M{R8{Yi{R888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x {R8  8888888888888{Y:::::::::::M::{P"@@@@@@@"{Y::::{R8{Yw{R8888888888888888{x~
-Desc {x {R8  8888888888888{Y:::::::::::M::{P"@@@@@@@"{Y::::{R8{Yw{R8888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x {R88  88888888888{Y:::{R8{Y:::::::::M:::::::::::::{R88{Y:{R88888888888888888{x~
-Desc {x {R88  88888888888{Y:::{R8{Y:::::::::M:::::::::::::{R88{Y:{R88888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x  {R88   8888888888{Y::{R88{Y::::{R8{Y::::M:::::::::::::{R888888888888888 8888{x~
-Desc {x  {R88   8888888888{Y::{R88{Y::::{R8{Y::::M:::::::::::::{R888888888888888 8888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x  {R8888888888888888888{Y:::{R8{Y::::::M::aAa::::::::{RM8888888888       8{x~
-Desc {x  {R8888888888888888888{Y:::{R8{Y::::::M::aAa::::::::{RM8888888888       8{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x   {R88888888888888888{Y::::{R88{Y::::::M:::::::::::::{R888888888{x~
-Desc {x   {R88888888888888888{Y::::{R88{Y::::::M:::::::::::::{R888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R88888888888888888{Y:::{R8888{Y:::::M:::::::::::{R88888888    8{x~
-Desc {x    {R88888888888888888{Y:::{R8888{Y:::::M:::::::::::{R88888888    8{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x     {R88888888888888888{Y:::{R88888{Y::::M:::{No*{BM{N*o:{R888888888    88{x~
-Desc {x     {R88888888888888888{Y:::{R88888{Y::::M:::{No*{BM{N*o:{R888888888    88{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
-Desc {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
-Desc {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-Desc {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-Desc {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-Desc {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x        {R8888888888888888888888{Y:::::::::M{R8888888888888888{x~
-Desc {x        {R8888888888888888888888{Y:::::::::M{R8888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x        {R88888888888888888888{Y::::::::::::M{R88888888888888{x~
-Desc {x        {R88888888888888888888{Y::::::::::::M{R88888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x         {R888888888888888888{Y:M:::::::::::{R8888888888888{x~
-Desc {x         {R888888888888888888{Y:M:::::::::::{R8888888888888long {x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {R88{Y::::{R88888888{Y::::m::::::::::{R88888888888    8{x~
-Desc {x           {R88{Y::::{R88888888{Y::::m::::::::::{R88888888888    8{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x        {R888 8{Y::{R888888{Y::::::::::::::::::{R88888888888   888{x~
-Desc {x        {R888 8{Y::{R888888{Y::::::::::::::::::{R88888888888   888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x          {R88888888{Y::::{R8{Y:::::::::::{R88888888888888888888{x~
-Desc {x          {R88888888{Y::::{R8{Y:::::::::::{R88888888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {R88{Y::::::::{R888{Y:::{R8888888888888888888888888{x~
-Desc {x            {R88{Y::::::::{R888{Y:::{R8888888888888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {R8888{Y::::::{R8888888888888888888888888888{x~
-Desc {x             {R8888{Y::::::{R8888888888888888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x               {R8888{Y:::{R8888888888888888888888888{x~
-Desc {x               {R8888{Y:::{R8888888888888888888888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                    {R8888  8888888{x~
-Desc {x                    {R8888  8888888{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 32101
-Nest 0
-ShD  {Wan "I was here when Michigan was toasted by Super Helga." t-shirt{x~
-Wear -1
-Cost 200
 End
 
 #O
@@ -2054,69 +677,12 @@ Cost 3500
 End
 
 #O
-Vnum 9540
-Nest 0
-Name cheesecake creamy~
-ShD  {WCreamy {YCheesecake{x~
-Desc large slice of cheesecake~
-Mat cream cheese~
-Wt   0
-Wear -1
-Cost 4
-End
-
-#O
-Vnum 9540
-Nest 0
-Name oreo blizzard~
-ShD  {bO{Wr{be{Wo {WBlizzard{x~
-Desc {WIts an Oreo Blizzard{x~
-Mat cream~
-Wt   0
-Wear -1
-Cost 4
-End
-
-#O
-Vnum 119
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 3379
-Nest 0
-Name gold token~
-ShD  {ga {Y5000{bgp {Wt{go{Tk{ge{Wn{x~
-Desc {ga {Y5000{bgp {Wt{go{Tk{ge{Wn{x~
-Wear -1
-Cost 0
-End
-
-#O
 Vnum 21
 Nest 0
 ShD  {gA {Wb{gl{Wi{gn{Wd{gi{Wn{gg {Ww{gh{Wi{gt{We {gl{Wi{gg{Wh{gt{x~
 Wear 0
 Cost 0
 ExDe owned by~ Xenith
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {NS{By{Tv{Ce{Tr{Bi{Nl{N's {WMomento:  {V<({C"{V^){x{x rose~
-Desc A {NS{By{Tv{Ce{Tr{Bi{Nl{N's {WMomento:  {V<({C"{V^){x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Syveril.
 ~
 End
 
@@ -2146,11 +712,35 @@ Vnum 1254
 Nest 0
 Name holy dagger thievery~
 ShD  {gS{Wi{gl{Wv{ge{Wr {gD{Wa{gg{Wg{ge{Wr {go{Wf {TT{Ch{Ti{Ce{Tv{Ce{Tr{Cy{x~
+Desc {CA {Ww{gh{Wi{gt{We {gd{Wa{gg{Wg{ge{Wr {Tl{Ci{Te{Cs {Th{Ce{Tr{Ce {Tg{Cl{To{Cw{Ti{Cn{Tg {Cb{Tr{Ci{Tg{Ch{Tt{Cl{Ty{C.{x~
 ExtF 17580355
 Wear 16
 Cost 0
 ExDe owned by~ Xenith
 ~
+End
+
+#O
+Vnum 1254
+Nest 0
+Name holy dagger thievery~
+ShD  {gS{Wi{gl{Wv{ge{Wr {gD{Wa{gg{Wg{ge{Wr {go{Wf {TT{Ch{Ti{Ce{Tv{Ce{Tr{Cy{x~
+Desc {CA {Ww{gh{Wi{gt{We {gd{Wa{gg{Wg{ge{Wr {Tl{Ci{Te{Cs {Th{Ce{Tr{Ce {Tg{Cl{To{Cw{Ti{Cn{Tg {Cb{Tr{Ci{Tg{Ch{Tt{Cl{Ty{C.{x~
+ExtF 17580355
+Wear 19
+Cost 0
+ExDe owned by~ Xenith
+~
+End
+
+#O
+Vnum 3379
+Nest 0
+Name gold token~
+ShD  {ga {Y5000{bgp {Wt{go{Tk{ge{Wn{x~
+Desc {ga {Y5000{bgp {Wt{go{Tk{ge{Wn{x~
+Wear -1
+Cost 0
 End
 
 #O
@@ -2163,1374 +753,380 @@ Cost 0
 End
 
 #O
-Vnum 12
+Vnum 7502
 Nest 0
-ShD  the head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x~
-Desc The severed head of {PL{Be{Px{By {Ht{Th{He {CD{Ti{Cl{Tl{Cu{Ts{Ci{To{Cn{Ta{Cl {bdog{x is lying here.~
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 10164
+Nest 1
 Wear -1
 Cost 0
 End
 
 #O
-Vnum 4471
-Nest 0
-Name playboy~
-ShD  {Tthe December 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {WL{Ci{Br{Ci{Te{Wl{T!!{x~
-Desc Whoa, those are some nice...  where'd the next page go??~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 0
-Name playboy~
-ShD  {Tthe July 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {HA{Gl{Wi{Gs{Ha{T!!{x~
-Desc *melt* *swoon* ...  the pages are kinda sticky.~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 1111
-Nest 0
-Name clothes~
-ShD  clothes~
-Wear -1
-Cost 11
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                         {YMMM::::::::::::MM{x~
-Desc {x                         {YMMM::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                         {YMMM:::::::::::::MM{x~
-Desc {x                         {YMMM:::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                         {YMMM:::::::::::::MM{x~
-Desc {x                         {YMMM:::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                         {YMM::::::::::::::MMM{x~
-Desc {x                         {YMM::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                        {YMMM:::::::::::::::MM{x~
-Desc {x                        {YMMM:::::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                        {YMMM:::::::::::::::MM{x~
-Desc {x                        {YMMM:::::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                        {YMMM:::::::::::::::MM{x~
-Desc {x                        {YMMM:::::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                        {YMMM:::::::::::::::MM{x~
-Desc {x                        {YMMM:::::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                        {YMM::::::::::::::::MM{x~
-Desc {x                        {YMM::::::::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMMM::::::::::::::::Mm{x~
-Desc {x                       {YMMM::::::::::::::::Mm{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMMM::::::::::::::::M{x~
-Desc {x                       {YMMM::::::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMMM::::::::::::::::M{x~
-Desc {x                       {YMMM::::::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMMM:::::::::::::::M:{x~
-Desc {x                       {YMMM:::::::::::::::M:{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMMM:::::::::::::::M:{x~
-Desc {x                       {YMMM:::::::::::::::M:{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMM:::M:::::::::::MM{x~
-Desc {x                       {YMM:::M:::::::::::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMM::MM::::::::::M:m{x~
-Desc {x                       {YMM::MM::::::::::M:m{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                       {YMM::MM:::::::::M:M{x~
-Desc {x                       {YMM::MM:::::::::M:M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                      {YMM::MMM::::::::M:M{x~
-Desc {x                      {YMM::MMM::::::::M:M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                     {YmMM:::M:::::::M:M:M{x~
-Desc {x                     {YmMM:::M:::::::M:M:M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                    {YmMM::::MM:::::::MMMM{x~
-Desc {x                    {YmMM::::MM:::::::MMMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                    {YMM:::::::::::::::MMM{x~
-Desc {x                    {YMM:::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                    {YMM::::::::::::::::MMM{x~
-Desc {x                    {YMM::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                     {YM:::::::::::::::::MMM{x~
-Desc {x                     {YM:::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                    {YMMM::::::::::::::::::MMM{x~
-Desc {x                    {YMMM::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                   {YMM:M:::::::::::::::::::MMM{x~
-Desc {x                   {YMM:M:::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                   {YMM::M:::::::::::::::::::MMM{x~
-Desc {x                   {YMM::M:::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                  {YMM:::M::::::::::::::::::::MMM{x~
-Desc {x                  {YMM:::M::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                  {YMM::::M::::::::::::::::::::MMM{x~
-Desc {x                  {YMM::::M::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                 {YMM:::::M:::::::::::::::::::::MMM{x~
-Desc {x                 {YMM:::::M:::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                 {YMM::::::M:::::::::::::::::::::MMM{x~
-Desc {x                 {YMM::::::M:::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                {YMM:::::::M::::::::::::::::::::::MMM{x~
-Desc {x                {YMM:::::::M::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x                {YM:::::::::M::::::::::::::::::::::MMM{x~
-Desc {x                {YM:::::::::M::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x               {YMM:::::::::M:::::::::::::::::::::::MMM{x~
-Desc {x               {YMM:::::::::M:::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x               {YM:::::::::::M:::::::::::::::::::::::MMM{x~
-Desc {x               {YM:::::::::::M:::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x              {YMM:::::::::::M::::::::::::::::::::::::MMM{x~
-Desc {x              {YMM:::::::::::M::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x              {YM:::::::::::::M::::::::::::::::::::::::MMM{x~
-Desc {x              {YM:::::::::::::M::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {YMM:::::::::::::M:::::::::::::::::::::::::MMM{x~
-Desc {x             {YMM:::::::::::::M:::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {YM:::::::::::::::M:::::::::::::::::::::::::MMM{x~
-Desc {x             {YM:::::::::::::::M:::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {YMM:::::::::::::::M::::::::::::::::::::::::::MMM{x~
-Desc {x            {YMM:::::::::::::::M::::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {YM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-Desc {x            {YM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YMM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-Desc {x           {YMM:::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM:::::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-Desc {x           {YM:::::::::::::::::::M::::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM:::::::::::::::::{R88{YM::::::::::::::::::::::::::MMM{x~
-Desc {x           {YM:::::::::::::::::{R88{YM::::::::::::::::::::::::::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM:::::::::::::::{R88888{YM:::::::::::::::::::::::::M:MM{x~
-Desc {x           {YM:::::::::::::::{R88888{YM:::::::::::::::::::::::::M:MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM::::::::::::::{R888888{YM:::::::::::::::::::::::::M::MM{x~
-Desc {x           {YM::::::::::::::{R888888{YM:::::::::::::::::::::::::M::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM:::::::::::::{R88888888{YM:::::::::::::::::::::::::M::MM{x~
-Desc {x           {YM:::::::::::::{R88888888{YM:::::::::::::::::::::::::M::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM::::::::::::{R8888888888{YM::::::::::::::::::::::::MM::MM{x~
-Desc {x           {YM::::::::::::{R8888888888{YM::::::::::::::::::::::::MM::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YM:::::::::::M{R88{Y:::::::::M:::::::::::::::::::::::MM::MMM{x~
-Desc {x           {YM:::::::::::M{R88{Y:::::::::M:::::::::::::::::::::::MM::MMM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {YMM:::::::::M:::::::::::::M:::::::::::::::::::::M:M:::MM{x~
-Desc {x           {YMM:::::::::M:::::::::::::M:::::::::::::::::::::M:M:::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {YM::::::::M:::::::::::::::::::::::::::::::::::M::M:::MM{x~
-Desc {x            {YM::::::::M:::::::::::::::::::::::::::::::::::M::M:::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {YMM::::::m:::::::::::::::::::::::::::::::::::M::MM:::MM{x~
-Desc {x            {YMM::::::m:::::::::::::::::::::::::::::::::::M::MM:::MM{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {YM:::::::::::::::::::::::::M:::::::::::::::mM::MM:::Mm{x~
-Desc {x             {YM:::::::::::::::::::::::::M:::::::::::::::mM::MM:::Mm{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x  {R8888       {YMM:::::::::::::::::::::::::MM:::::::::::::mM::MM:::M:{x~
-Desc {x  {R8888       {YMM:::::::::::::::::::::::::MM:::::::::::::mM::MM:::M:{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x     {R888      {YM:::::M::::::::::::::::::::MMM::::::::::::M::mm:::M{x~
-Desc {x     {R888      {YM:::::M::::::::::::::::::::MMM::::::::::::M::mm:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x      {R8888    {YMM::::Mm:::::::::::::::::::::MMMM:::::::::m::m:::M{x~
-Desc {x      {R8888    {YMM::::Mm:::::::::::::::::::::MMMM:::::::::m::m:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x        {R888    {YM:::::Mm::::::::::::::::::::::MMM:::::::::M::::M{x~
-Desc {x        {R888    {YM:::::Mm::::::::::::::::::::::MMM:::::::::M::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x         {R8888   {YM:::::M:::::::::::::::::::::::MMM::::::::M:::M{x~
-Desc {x         {R8888   {YM:::::M:::::::::::::::::::::::MMM::::::::M:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x          {R8888   {YM:::::M:::::::::::::::::::::::MM:::::::M:::M{x~
-Desc {x          {R8888   {YM:::::M:::::::::::::::::::::::MM:::::::M:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x          {R88888   {YM:::::m::::::::::{b@{Y::::::::::Mm:::::::M:::M{x~
-Desc {x          {R88888   {YM:::::m::::::::::{b@{Y::::::::::Mm:::::::M:::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x           {R88888   {YM:::::::::::::::{b@@{Y::::::::::::::::::M::M{x~
-Desc {x           {R88888   {YM:::::::::::::::{b@@{Y::::::::::::::::::M::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x            {R88888   {YM::::::::::::::{b@@@{Y::::::::::::::::M::M{x~
-Desc {x            {R88888   {YM::::::::::::::{b@@@{Y::::::::::::::::M::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {R88888   {YM::::::::::::::{b@@{Y:::::::::::::::M::M{x~
-Desc {x             {R88888   {YM::::::::::::::{b@@{Y:::::::::::::::M::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {R888888  {YM:::::M:::::::::{b@{Y::::::::::::::M::M{x~
-Desc {x             {R888888  {YM:::::M:::::::::{b@{Y::::::::::::::M::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x             {R888888  {YM:::::M::::::::::::::::::::::::M:M{x~
-Desc {x             {R888888  {YM:::::M::::::::::::::::::::::::M:M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
+Vnum 14023
 Nest 1
-Name babe~
-ShD  {x              {R888888 {YM::::::M:::::::::::::::::::M:::MM{x~
-Desc {x              {R888888 {YM::::::M:::::::::::::::::::M:::MM{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 200
 End
 
 #O
-Vnum 4471
+Vnum 14018
 Nest 1
-Name babe~
-ShD  {x           {R8  888888 {YM:::::::MM:::::::::::::::::M:::M{x~
-Desc {x           {R8  888888 {YM:::::::MM:::::::::::::::::M:::M{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 500
 End
 
 #O
-Vnum 4471
+Vnum 14022
 Nest 1
-Name babe~
-ShD  {x           {R88 8888888{YM:::::::::MMM::::::::::::::M:::M{x~
-Desc {x           {R88 8888888{YM:::::::::MMM::::::::::::::M:::M{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 200
 End
 
 #O
-Vnum 4471
+Vnum 14019
 Nest 1
-Name babe~
-ShD  {x            {R88888888{YMM:::::::::::MMM:::::::::::MM:::M{x~
-Desc {x            {R88888888{YMM:::::::::::MMM:::::::::::MM:::M{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 300
 End
 
 #O
-Vnum 4471
+Vnum 10167
 Nest 1
-Name babe~
-ShD  {x             {R888888{YMM:::::::::::::MMM:::::::::MMM:::M{x~
-Desc {x             {R888888{YMM:::::::::::::MMM:::::::::MMM:::M{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 3800
 End
 
 #O
-Vnum 4471
+Vnum 20004
 Nest 1
-Name babe~
-ShD  {x             {R88888{YMM:::::::::::::::MMM:::::::mM:::::MM{x~
-Desc {x             {R88888{YMM:::::::::::::::MMM:::::::mM:::::MM{x~
-ExtF 0
+ExtF 65
 Wear -1
-Cost 3500
+Cost 1000
 End
 
 #O
-Vnum 4471
+Vnum 20008
 Nest 1
-Name babe~
-ShD  {x              {R888{YMM::::::::::::::::::MM::::::MM::::::MM{x~
-Desc {x              {R888{YMM::::::::::::::::::MM::::::MM::::::MM{x~
-ExtF 0
+ExtF 16777536
+Cond 96
 Wear -1
-Cost 3500
+Cost 50
 End
 
 #O
-Vnum 4471
+Vnum 3808
 Nest 1
-Name babe~
-ShD  {x          {R8   88{YMM::::::::::::::::::::::M:::M::::::::MM{x~
-Desc {x          {R8   88{YMM::::::::::::::::::::::M:::M::::::::MM{x~
-ExtF 0
+Cond 97
 Wear -1
-Cost 3500
+Cost 30000
 End
 
 #O
-Vnum 4471
+Vnum 17101
 Nest 1
-Name babe~
-ShD  {x         {R88   8{YMM::::::::::::::::::::::::::::::::::MMMMMM{x~
-Desc {x         {R88   8{YMM::::::::::::::::::::::::::::::::::MMMMMM{x~
-ExtF 0
+ExtF 1
 Wear -1
-Cost 3500
+Cost 160
 End
 
 #O
-Vnum 4471
+Vnum 5607
 Nest 1
-Name babe~
-ShD  {x        {R88    {YMM::::::::::::MMMMMMM::::::::::::::MMMMMMMMMM{x~
-Desc {x        {R88    {YMM::::::::::::MMMMMMM::::::::::::::MMMMMMMMMM{x~
-ExtF 0
+Cond 98
 Wear -1
-Cost 3500
+Cost 2000
 End
 
 #O
-Vnum 4471
+Vnum 5607
 Nest 1
-Name babe~
-ShD  {x       {R88    {YMM:::::::::MMMMMMMMMMMMMMM::::::::MMM::::::::MMM{x~
-Desc {x       {R88    {YMM:::::::::MMMMMMMMMMMMMMM::::::::MMM::::::::MMM{x~
-ExtF 0
+Cond 97
 Wear -1
-Cost 3500
+Cost 2000
 End
 
 #O
-Vnum 4471
+Vnum 6
 Nest 1
-Name babe~
-ShD  {x      {R88     {YM::::::::MMMM:::::::::::MMMM:::::MM::::::::::::MM{x~
-Desc {x      {R88     {YM::::::::MMMM:::::::::::MMMM:::::MM::::::::::::MM{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 1
 End
 
 #O
-Vnum 4471
+Vnum 17102
 Nest 1
-Name babe~
-ShD  {x     {R888    {YMM:::::::MMM::::::::::::::::MM:::MM:::::::::::::::M{x~
-Desc {x     {R888    {YMM:::::::MMM::::::::::::::::MM:::MM:::::::::::::::M{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 0
 End
 
 #O
-Vnum 4471
+Vnum 10281
 Nest 1
-Name babe~
-ShD  {x     {R888    {YM:::::::MM:::::::::::::::::::MM::M::::::::::::::::{P*8{x~
-Desc {x     {R888    {YM:::::::MM:::::::::::::::::::MM::M::::::::::::::::{P*8{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 800
 End
 
 #O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R8888   {YMM::::::MM:::::::::::::::::::::MM:::::::::::::::::{P88@@{x~
-Desc {x    {R8888   {YMM::::::MM:::::::::::::::::::::MM:::::::::::::::::{P88@@{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R88888  {YM:::{R8{Y::MM:::::::::{P*88*{Y::::::::::M:::::::::::::::::{P88@@{x~
-Desc {x    {R88888  {YM:::{R8{Y::MM:::::::::{P*88*{Y::::::::::M:::::::::::::::::{P88@@{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R888888{YMM::{R88{Y::MM::::::::{P88@@88{Y:::::::::M:::{R8{Y::::::::::::::{P*8{x~
-Desc {x    {R888888{YMM::{R88{Y::MM::::::::{P88@@88{Y:::::::::M:::{R8{Y::::::::::::::{P*8{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R888888{YM:::{R88{Y::M:::::::::{P88@@88{Y:::::::::M::{R88{Y::::::::::::::M{x~
-Desc {x    {R888888{YM:::{R88{Y::M:::::::::{P88@@88{Y:::::::::M::{R88{Y::::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x     {R88888{YM:::{R88{Y::M::::::::::{P*88*{Y::::::::::M:{R88{Y::::::::::::::M{x~
-Desc {x     {R88888{YM:::{R88{Y::M::::::::::{P*88*{Y::::::::::M:{R88{Y::::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x   {R8 88888{YM:::{R88{Y::M:::::::::::::::::::::::MM:{R88{Y::::::::::::M{x~
-Desc {x   {R8 88888{YM:::{R88{Y::M:::::::::::::::::::::::MM:{R88{Y::::::::::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x    {R88888{YM:::::{R88{Y:M::::::::::{R8{Y:::::::::::M:::{R8888{Y::::::M::M{x~
-Desc {x    {R88888{YM:::::{R88{Y:M::::::::::{R8{Y:::::::::::M:::{R8888{Y::::::M::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x     {R8888{YM:::::{R888{YMM::::::::{R8{Y:::::::::::M::::{R8888{Y::::M::::M{x~
-Desc {x     {R8888{YM:::::{R888{YMM::::::::{R8{Y:::::::::::M::::{R8888{Y::::M::::M{x~
-ExtF 0
+Vnum 3394
+Nest 2
 Wear -1
-Cost 3500
+Cost 2000
 End
 
 #O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x      {R88{YMM:::::{R8888{YM:::::::{R88{Y::::::::{R8{Y:::::{R888888{Y:::M:::::M{x~
-Desc {x      {R88{YMM:::::{R8888{YM:::::::{R88{Y::::::::{R8{Y:::::{R888888{Y:::M:::::M{x~
-ExtF 0
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x       {R8{YM:::::::{R8888{YM:::::{R888{Y:::::::{R88{Y:::{R8888888{Y::::::::Mm    {R2{x~
-Desc {x       {R8{YM:::::::{R8888{YM:::::{R888{Y:::::::{R88{Y:::{R8888888{Y::::::::Mm    {R2{x~
-ExtF 0
+Vnum 3162
+Nest 2
 Wear -1
-Cost 3500
+Cost 500
 End
 
 #O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x   {R8   {YMM::::::::{R8888{YM:::{R8888{Y:::::{R888888888888{Y::::::::Mm{R8     4{x~
-Desc {x   {R8   {YMM::::::::{R8888{YM:::{R8888{Y:::::{R888888888888{Y::::::::Mm{R8     4{x~
-ExtF 0
+Vnum 3163
+Nest 2
 Wear -1
-Cost 3500
+Cost 1500
 End
 
 #O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x   {R88  {YM::::::::::{R8888M{Y::{R88888{Y::{R888888888888{Y:::::::Mm{R88888    88{x~
-Desc {x   {R88  {YM::::::::::{R8888M{Y::{R88888{Y::{R888888888888{Y:::::::Mm{R88888    88{x~
-ExtF 0
+Vnum 3164
+Nest 2
 Wear -1
-Cost 3500
+Cost 1000
 End
 
 #O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x   {R88  {YM::::::::::::{R8888{Y:{R88888888888888888{Y::::::Mm{R8   88888   888{x~
-Desc {x   {R88  {YM::::::::::::{R8888{Y:{R88888888888888888{Y::::::Mm{R8   88888   888{x~
-ExtF 0
+Vnum 3168
+Nest 2
 Wear -1
-Cost 3500
+Cost 2000
 End
 
 #O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x  {R888  {YM::::::::::::M{R8888{Y:{R888888888888{Y::::m::Mm{R88888 888888   8888{x~
-Desc {x  {R888  {YM::::::::::::M{R8888{Y:{R888888888888{Y::::m::Mm{R88888 888888   8888{x~
-ExtF 0
+Vnum 3167
+Nest 2
 Wear -1
-Cost 3500
+Cost 2500
 End
 
 #O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x {R888   {YM:::::::::::::M{R8888888888888{YM:::::mM{R888888888888888    8888{x~
-Desc {x {R888   {YM:::::::::::::M{R8888888888888{YM:::::mM{R888888888888888    8888{x~
-ExtF 0
+Vnum 3165
+Nest 2
 Wear -1
-Cost 3500
+Cost 750
 End
 
 #O
-Vnum 4471
-Nest 1
-Name babe~
-ShD  {x{R8888   {YM::::::::::::::M{R88888888888{Y::::::MM{R888888888888888    88888{x~
-Desc {x{R8888   {YM::::::::::::::M{R88888888888{Y::::::MM{R888888888888888    88888{x~
-ExtF 0
+Vnum 3166
+Nest 2
 Wear -1
-Cost 3500
+Cost 1500
 End
 
 #O
-Vnum 4471
+Vnum 8234
 Nest 1
-Name babe~
-ShD  {x{R888888 {YM:::::::::::::::M{R888888888{Y:::::::MM{R88888888888888   8888888{x~
-Desc {x{R888888 {YM:::::::::::::::M{R888888888{Y:::::::MM{R88888888888888   8888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 4900
+Val  200 168 0 0 0
 End
 
 #O
-Vnum 4471
+Vnum 17013
 Nest 1
-Name babe~
-ShD  {x{R888888888{Y:::::{R8{Y:::::::::M{R8888888{YMAmmmAMVMM{R888{Y*{R88888888   88888888{x~
-Desc {x{R888888888{Y:::::{R8{Y:::::::::M{R8888888{YMAmmmAMVMM{R888{Y*{R88888888   88888888{x~
-ExtF 0
+Cond 98
 Wear -1
-Cost 3500
+Cost 0
 End
 
 #O
-Vnum 4471
+Vnum 17013
 Nest 1
-Name babe~
-ShD  {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
-Desc {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
-ExtF 0
+ExtF 16777217
+Cond 97
 Wear -1
-Cost 3500
+Cost 0
 End
 
 #O
-Vnum 4471
+Vnum 10170
+Enchanted
 Nest 1
-Name babe~
-ShD  {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
-Desc {x{R8888888888{Y:::::{R8{Y:::::::::M{R88888{Y:::::::::MM{R888{Y!{R888888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 2000
+Affc 'reserved'   1  50  -1   2  21          0 1
+Affc 'reserved'   1  50  -1   2   4          0 1
+Affc 'reserved'   1  50  -1  25  12          0 1
+Affc 'reserved'   1  50  -1  15  13          0 1
+Affc 'reserved'   1  50  -1   3  18          0 1
+Affc 'reserved'   1  50  -1   2  19          0 1
+Affc 'reserved'   1  50  -1  -2  20          0 1
 End
 
 #O
-Vnum 4471
+Vnum 14020
 Nest 1
-Name babe~
-ShD  {x  {R88888888888{Y:{R888{Y::::::::::M:::::{P"@a@"{Y:::::M{R8{Yi{R888888888888888{x~
-Desc {x  {R88888888888{Y:{R888{Y::::::::::M:::::{P"@a@"{Y:::::M{R8{Yi{R888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 200
 End
 
 #O
-Vnum 4471
+Vnum 3009
 Nest 1
-Name babe~
-ShD  {x {R8  8888888888888{Y:::::::::::M::{P"@@@@@@@"{Y::::{R8{Yw{R8888888888888888{x~
-Desc {x {R8  8888888888888{Y:::::::::::M::{P"@@@@@@@"{Y::::{R8{Yw{R8888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 22
 End
 
 #O
-Vnum 4471
+Vnum 3009
 Nest 1
-Name babe~
-ShD  {x {R88  88888888888{Y:::{R8{Y:::::::::M:::::::::::::{R88{Y:{R88888888888888888{x~
-Desc {x {R88  88888888888{Y:::{R8{Y:::::::::M:::::::::::::{R88{Y:{R88888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 22
 End
 
 #O
-Vnum 4471
+Vnum 3009
 Nest 1
-Name babe~
-ShD  {x  {R88   8888888888{Y::{R88{Y::::{R8{Y::::M:::::::::::::{R888888888888888 8888{x~
-Desc {x  {R88   8888888888{Y::{R88{Y::::{R8{Y::::M:::::::::::::{R888888888888888 8888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 22
 End
 
 #O
-Vnum 4471
+Vnum 3009
 Nest 1
-Name babe~
-ShD  {x  {R8888888888888888888{Y:::{R8{Y::::::M::aAa::::::::{RM8888888888       8{x~
-Desc {x  {R8888888888888888888{Y:::{R8{Y::::::M::aAa::::::::{RM8888888888       8{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 22
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x   {R88888888888888888{Y::::{R88{Y::::::M:::::::::::::{R888888888{x~
-Desc {x   {R88888888888888888{Y::::{R88{Y::::::M:::::::::::::{R888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x    {R88888888888888888{Y:::{R8888{Y:::::M:::::::::::{R88888888    8{x~
-Desc {x    {R88888888888888888{Y:::{R8888{Y:::::M:::::::::::{R88888888    8{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x     {R88888888888888888{Y:::{R88888{Y::::M:::{No*{BM{N*o:{R888888888    88{x~
-Desc {x     {R88888888888888888{Y:::{R88888{Y::::M:::{No*{BM{N*o:{R888888888    88{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
-Desc {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
-Desc {x      {R88888888888888888{Y:::{R88888{Y:::::M{R888888888888888   8888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-Desc {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-Desc {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-Desc {x        {R8888888888888888{Y::{R88888{Y::::::M{R88888888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x        {R8888888888888888888888{Y:::::::::M{R8888888888888888{x~
-Desc {x        {R8888888888888888888888{Y:::::::::M{R8888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x        {R88888888888888888888{Y::::::::::::M{R88888888888888{x~
-Desc {x        {R88888888888888888888{Y::::::::::::M{R88888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x         {R888888888888888888{Y:M:::::::::::{R8888888888888{x~
-Desc {x         {R888888888888888888{Y:M:::::::::::{R8888888888888long {x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x           {R88{Y::::{R88888888{Y::::m::::::::::{R88888888888    8{x~
-Desc {x           {R88{Y::::{R88888888{Y::::m::::::::::{R88888888888    8{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x        {R888 8{Y::{R888888{Y::::::::::::::::::{R88888888888   888{x~
-Desc {x        {R888 8{Y::{R888888{Y::::::::::::::::::{R88888888888   888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x          {R88888888{Y::::{R8{Y:::::::::::{R88888888888888888888{x~
-Desc {x          {R88888888{Y::::{R8{Y:::::::::::{R88888888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x            {R88{Y::::::::{R888{Y:::{R8888888888888888888888888{x~
-Desc {x            {R88{Y::::::::{R888{Y:::{R8888888888888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x             {R8888{Y::::::{R8888888888888888888888888888{x~
-Desc {x             {R8888{Y::::::{R8888888888888888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8237
 Nest 1
-Name babe~
-ShD  {x               {R8888{Y:::{R8888888888888888888888888{x~
-Desc {x               {R8888{Y:::{R8888888888888888888888888{x~
-ExtF 0
 Wear -1
-Cost 3500
+Cost 55
 End
 
 #O
-Vnum 4471
+Vnum 8814
 Nest 1
-Name babe~
-ShD  {x                    {R8888  8888888{x~
-Desc {x                    {R8888  8888888{x~
-ExtF 0
+ExtF 1
 Wear -1
-Cost 3500
+Cost 3600
 End
 
 #L

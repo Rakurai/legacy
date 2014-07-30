@@ -1,7 +1,7 @@
 #PLAYER
 Name Cipher~
 Id   989852835
-LogO 1027206283
+LogO 1060017077
 Vers 14
 Mexp 2
 Pass Soult~
@@ -21,16 +21,16 @@ Race irda~
 Cla  0
 Levl 91
 Tru  91
-Plyd 1348975
-Back 1339456
-Note 1026353746 1022813787 1026339553 1026100171 1025150199 1007865352 1025590922
+Plyd 1642836
+Back 1638220
+Note 1038031470 1037537821 1036974085 1039776385 1037408551 1037386163 1034982849
 Scro 22
-Room 8543
-HMS  1300 1795 100
-Gold 765
-Silv 2571
+Room 3001
+HMS  1310 1795 130
+Gold 663
+Silv 9
 Silver_in_bank 246000
-Gold_in_bank 14000
+Gold_in_bank 6500
 Exp  95623
 PCkills  0
 PCkilled 0
@@ -38,32 +38,31 @@ Akills   0
 Akilled  2
 PKRank   0
 Pos  4
-Alig -25
+Alig 1000
 FImm 0
 FRes 0
 FVul NQ
 Plr  CFHQ
 Video 0
 Act  CDEFGHJLSTc
-AfBy BDFIVc
+AfBy BDFHIJNOTUVYZbc
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Prac 9
+Prac 5
 Trai 0
 Wimp 0
-Atrib 16 23 21 18 17 15
-SkillPnts  34
-QuestPnts  59
-QpDonated  15
-GlDonated  45500
-Afk {B[{CTue Jun 18 15:24:16 2002{B] {CUnknown Departure.{x
+Atrib 16 23 21 18 18 15
+SkillPnts  99
+QuestPnts  253
+SQuestNext 16
+Afk {B[{CSun Oct 27 18:26:34 2002{B] {CUnknown Departure.{x
 ~
 Titl  {HSo{bm{He t{bh{Hin{bg{Hs {bar{He b{bes{Ht {bh{Hid{bd{Hen{b!{x~
 Immn ~
 Pnts 40
-Rank {MW{NI{MZ{x~
+Rank {WW{gI{WZ~
 Aura ~
 TSex 1
 LLev 265
@@ -73,10 +72,10 @@ Stus {cA mage and proud of it!{x~
 RmCt 2
 ExSk 0
 Raff 6
-Lsit 62.31.4.21~
-Ltim Sat Jul 20 17:34:38 2002
+Lsit pc-80-194-51-149-bf.blueyonder.co.uk~
+Ltim Tue Feb 04 11:18:09 2003
 ~
-LSav Sat Jul 20 18:04:43 2002
+LSav Mon Aug 04 13:11:17 2003
 ~
 Finf Lights streaked across the darkened sky, flashing between
 the clouds. One light breaks through a cloud, descending,
@@ -97,15 +96,15 @@ Finf Lights streaked across the darkened sky, flashing between
 ~
 HMSP 20 100 100
 THMS 2 8 0
-Cnd  0 0 0 0
+Cnd  0 27 24 42
 Ignore seth~
 Query samson~
 Query alisa~
 Query cailet~
 Sk 100 1 'acid blast'
 Sk 100 1 'acid breath'
-Sk 95 1 'acid rain'
-Sk 83 1 'age'
+Sk 98 1 'acid rain'
+Sk 85 1 'age'
 Sk 75 1 'animate skeleton'
 Sk 75 1 'animate wraith'
 Sk 75 1 'animate gargoyle'
@@ -113,111 +112,111 @@ Sk 75 1 'animate zombie'
 Sk 100 1 'armor'
 Sk 100 1 'bless'
 Sk 78 1 'blindness'
-Sk 75 1 'blizzard'
+Sk 76 1 'blizzard'
 Sk 92 1 'blood blade'
-Sk 75 1 'blood moon'
+Sk 76 1 'blood moon'
 Sk 100 1 'burning hands'
 Sk 75 1 'call lightning'
 Sk 75 1 'calm'
 Sk 76 1 'cancellation'
-Sk 76 1 'cause light'
+Sk 77 1 'cause light'
 Sk 75 1 'cause serious'
 Sk 75 1 'cause critical'
 Sk 84 1 'chain lightning'
-Sk 78 1 'change sex'
+Sk 79 1 'change sex'
 Sk 78 1 'channel'
 Sk 75 1 'charm person'
 Sk 100 1 'chill touch'
 Sk 76 1 'colour spray'
-Sk 75 1 'continual light'
+Sk 77 1 'continual light'
 Sk 75 1 'control weather'
-Sk 87 1 'create food'
-Sk 86 1 'create parchment'
+Sk 93 1 'create food'
+Sk 88 1 'create parchment'
 Sk 76 1 'create rose'
-Sk 75 1 'create sign'
-Sk 85 1 'create spring'
+Sk 78 1 'create sign'
+Sk 86 1 'create spring'
 Sk 100 1 'create vial'
-Sk 75 1 'create water'
-Sk 76 1 'cure blindness'
-Sk 75 1 'cure critical'
+Sk 76 1 'create water'
+Sk 77 1 'cure blindness'
+Sk 76 1 'cure critical'
 Sk 75 1 'cure disease'
 Sk 75 1 'cure light'
-Sk 76 1 'cure poison'
+Sk 78 1 'cure poison'
 Sk 82 1 'cure serious'
-Sk 76 1 'curse'
-Sk 77 1 'dazzling light'
+Sk 77 1 'curse'
+Sk 79 1 'dazzling light'
 Sk 75 1 'demonfire'
-Sk 75 1 'detect evil'
+Sk 77 1 'detect evil'
 Sk 75 1 'detect good'
-Sk 92 1 'detect hidden'
-Sk 90 1 'detect invis'
+Sk 94 1 'detect hidden'
+Sk 94 1 'detect invis'
 Sk 75 1 'detect magic'
 Sk 75 1 'detect poison'
 Sk 75 1 'dispel evil'
 Sk 76 1 'dispel good'
-Sk 81 1 'dispel magic'
+Sk 89 1 'dispel magic'
 Sk 80 1 'divine healing'
-Sk 78 1 'divine regeneration'
+Sk 83 1 'divine regeneration'
 Sk 75 1 'earthquake'
-Sk 76 1 'encampment'
-Sk 84 1 'enchant armor'
-Sk 99 1 'enchant weapon'
-Sk 87 1 'energy drain'
+Sk 79 1 'encampment'
+Sk 88 1 'enchant armor'
+Sk 100 1 'enchant weapon'
+Sk 91 1 'energy drain'
 Sk 75 1 'faerie fire'
 Sk 75 1 'faerie fog'
 Sk 75 1 'fear'
 Sk 100 1 'fire breath'
-Sk 100 1 'fireball'
+Sk 75 2 'fireball'
 Sk 76 1 'fireproof'
-Sk 85 1 'firestorm'
+Sk 87 1 'firestorm'
 Sk 75 1 'flame blade'
-Sk 95 1 'flameshield'
-Sk 75 1 'flamestrike'
+Sk 99 1 'flameshield'
+Sk 76 1 'flamestrike'
 Sk 100 1 'fly'
-Sk 75 1 'floating disc'
-Sk 95 1 'frenzy'
+Sk 78 1 'floating disc'
+Sk 98 1 'frenzy'
 Sk 76 1 'frost blade'
-Sk 98 1 'frost breath'
+Sk 100 1 'frost breath'
 Sk 84 1 'gas breath'
 Sk 100 1 'gate'
-Sk 80 1 'giant strength'
+Sk 82 1 'giant strength'
 Sk 75 1 'harm'
-Sk 94 1 'haste'
+Sk 96 1 'haste'
 Sk 100 1 'heal'
-Sk 76 1 'heat metal'
+Sk 77 1 'heat metal'
 Sk 75 1 'holy word'
-Sk 76 1 'identify'
-Sk 75 1 'infravision'
-Sk 95 1 'invisibility'
-Sk 75 1 'know alignment'
-Sk 76 1 'light of truth'
+Sk 77 1 'identify'
+Sk 76 1 'infravision'
+Sk 100 1 'invisibility'
+Sk 76 1 'know alignment'
+Sk 77 1 'light of truth'
 Sk 75 1 'lightning bolt'
 Sk 100 1 'lightning breath'
-Sk 94 1 'locate life'
-Sk 86 1 'locate object'
+Sk 100 1 'locate life'
+Sk 89 1 'locate object'
 Sk 100 1 'magic missile'
 Sk 75 1 'mass healing'
 Sk 75 1 'mass invis'
 Sk 75 1 'nexus'
 Sk 100 1 'pass door'
-Sk 78 1 'plague'
-Sk 76 1 'poison'
+Sk 80 1 'plague'
+Sk 77 1 'poison'
 Sk 77 1 'power word'
 Sk 75 1 'polymorph'
-Sk 75 1 'portal'
+Sk 76 1 'portal'
 Sk 76 1 'protect container'
 Sk 100 1 'protection evil'
-Sk 76 1 'protection good'
-Sk 92 1 'ray of truth'
-Sk 76 1 'recharge'
-Sk 80 1 'refresh'
+Sk 85 1 'protection good'
+Sk 93 1 'ray of truth'
+Sk 77 1 'recharge'
+Sk 91 1 'refresh'
 Sk 75 1 'resurrect'
-Sk 94 1 'regeneration'
-Sk 86 1 'remove alignment'
-Sk 75 1 'remove invisibility'
-Sk 78 1 'remove curse'
-Sk 81 2 'sanctuary'
-Sk 92 1 'shield'
+Sk 75 2 'regeneration'
+Sk 87 1 'remove alignment'
+Sk 78 1 'remove invisibility'
+Sk 82 1 'remove curse'
+Sk 94 2 'sanctuary'
+Sk 97 1 'shield'
 Sk 75 1 'shock blade'
 Sk 100 1 'shocking grasp'
 Sk 76 1 'shrink'
@@ -225,24 +224,24 @@ Sk 75 1 'sleep'
 Sk 100 1 'slow'
 Sk 75 1 'smokescreen'
 Sk 100 1 'steel mist'
-Sk 94 1 'stone skin'
-Sk 83 1 'summon'
+Sk 97 1 'stone skin'
+Sk 93 1 'summon'
 Sk 75 1 'summon object'
-Sk 75 1 'sunray'
-Sk 79 2 'talon'
+Sk 89 1 'sunray'
+Sk 100 2 'talon'
 Sk 75 1 'teleport'
-Sk 84 1 'teleport object'
+Sk 86 1 'teleport object'
 Sk 100 1 'undo spell'
 Sk 75 1 'ventriloquate'
 Sk 75 1 'vision'
-Sk 97 1 'weaken'
+Sk 99 1 'weaken'
 Sk 82 1 'word of recall'
-Sk 84 1 'wrath'
+Sk 87 1 'wrath'
 Sk 100 1 'dagger'
 Sk 100 1 'flail'
 Sk 100 1 'polearm'
 Sk 100 1 'whip'
-Sk 92 1 'brew'
+Sk 93 1 'brew'
 Sk 83 1 'scribe'
 Sk 85 1 'dirt kicking'
 Sk 100 1 'dodge'
@@ -252,24 +251,24 @@ Sk 100 1 'parry'
 Sk 100 1 'second attack'
 Sk 100 1 'third attack'
 Sk 100 1 'dual wield'
-Sk 99 1 'hunt'
+Sk 100 1 'hunt'
 Sk 75 1 'swimming'
 Sk 100 1 'fast healing'
 Sk 86 1 'forge'
 Sk 84 1 'repair'
 Sk 100 1 'languages'
-Sk 87 1 'haggle'
-Sk 89 1 'lore'
-Sk 100 1 'meditation'
+Sk 88 1 'haggle'
+Sk 91 1 'lore'
+Sk 88 2 'meditation'
 Sk 86 1 'peek'
-Sk 75 1 'pick lock'
+Sk 76 1 'pick lock'
 Sk 100 1 'scan'
 Sk 76 1 'scrolls'
 Sk 76 1 'staves'
 Sk 75 1 'wands'
-Sk 82 1 'recall'
-Sk 80 1 'sheen'
-Sk 73 1 'focus'
+Sk 84 1 'recall'
+Sk 81 1 'sheen'
+Sk 79 1 'focus'
 Sk 92 1 'standfast'
 Gr 'rom basics'
 Gr 'mage basics'
@@ -292,17 +291,28 @@ Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'shield'   0  72   3 -20  17          0 1
-Affc 'invisibility'   0  76  36   0   0          2 1
-Affc 'detect hidden'   0  86  45   0   0         32 1
-Affc 'detect invis'   0  86  45   0   0          8 1
-End
-
-#O
-Vnum 13004
-Nest 0
-Wear 18
-Cost 3700
+Affc 'steel mist'   0  85   0  -9  17   16777216 1
+Affc 'divine regeneration'   0  79  23   0   0   33554432 1
+Affc 'infravision'   0  71  68   0   0        512 1
+Affc 'sheen'   0  83  63   0  27          0 1
+Affc 'detect hidden'   0  84  67   0   0         32 1
+Affc 'detect invis'   0  86  67   0   0          8 1
+Affc 'flameshield'   0  89  23 -20  17  134217728 1
+Affc 'invisibility'   0  84  82   0   0          2 1
+Affc 'frenzy'   0  85  11  15  18          0 1
+Affc 'frenzy'   0  87  11  15  19          0 1
+Affc 'frenzy'   0  90  11  70  17          0 1
+Affc 'pass door'   0  87   4   0   0    1048576 1
+Affc 'focus'   0  85  12   0  29          0 1
+Affc 'stone skin'   0  90  73 -40  17          0 1
+Affc 'fly'   0  88  78   0   0     524288 1
+Affc 'protection evil'   0  86  10  -1  24       8192 1
+Affc 'protection good'   0  88  10  -1  24      16384 1
+Affc 'sanctuary'   0  87   1   0   0        128 2
+Affc 'armor'   0  89  12 -20  17          0 1
+Affc 'shield'   0  89  89 -20  17          0 1
+Affc 'bless'   0  89  91  11  18          0 1
+Affc 'bless'   0  89  91 -11  24          0 1
 End
 
 #O
@@ -336,15 +346,15 @@ ExtF 323
 Wear 0
 Lev  91
 Cost 55000
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
-Affc 'enchant weapon'   1 100  -1  18  18          0 1
-Affc 'reserved'   1  95  -1 175  13          0 1
-Affc 'reserved'   1  95  -1 175  12          0 1
-Affc 'reserved'   1  95  -1   2   5          0 1
-Affc 'reserved'   1  95  -1   2   4          0 1
-Affc 'reserved'   1  95  -1   2   3          0 1
-Affc 'reserved'   1  95  -1   2   2          0 1
 Affc 'reserved'   1  95  -1   2   1          0 1
+Affc 'reserved'   1  95  -1   2   2          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1   2   5          0 1
+Affc 'reserved'   1  95  -1 175  12          0 1
+Affc 'reserved'   1  95  -1 175  13          0 1
+Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
 ExDe owned by~ Cipher
 ~
 End
@@ -364,14 +374,6 @@ Lev  91
 Cost 55000
 ExDe owned by~ Cipher
 ~
-End
-
-#O
-Vnum 14060
-Nest 0
-Cond 100
-Wear 12
-Cost 9000
 End
 
 #O
@@ -506,8 +508,8 @@ Wear -1
 Lev  91
 Cost 22
 Val  6 6 19 8 4
-Affc 'enchant weapon'   0  91  -1   7  18          0 1
 Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
 ExDe flail Bopper!~ It is a marvellous flail, crafted from the finest steel around.
 It was created in the Month of Endings by a master mage
 named Cipher.  Legend holds that this irda was a great weaponsmith.
@@ -597,8 +599,8 @@ Wear -1
 Lev  91
 Cost 15
 Val  7 6 19 4 4
-Affc 'enchant weapon'   0  91  -1   7  18          0 1
 Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
 ExDe whip ------+~ It is a marvellous whip, crafted from the finest steel around.
 It was created in the Month of Endings by a master mage
 named Cipher.  Legend holds that this irda was a great weaponsmith.
@@ -1025,57 +1027,6 @@ Spell 1 'talon'
 End
 
 #O
-Vnum 1277
-Nest 1
-Wear -1
-Cost 10000
-End
-
-#O
-Vnum 1004
-Enchanted
-Nest 0
-Name flail Bonker!~
-ShD  Bonker!{x~
-Desc A flail is here, forged by Cipher's craftsmanship.~
-Mat steel~
-ExtF 322
-Wt   89
-Wear -1
-Lev  91
-Cost 91
-Val  6 6 19 8 4
-Affc 'enchant weapon'   0  91  -1   7  18          0 1
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
-ExDe flail Bonker!~ It is a marvellous flail, crafted from the finest steel around.
-It was created in the Month of Endings by a master mage
-named Cipher.  Legend holds that this irda was a great weaponsmith.
-~
-End
-
-#O
-Vnum 1004
-Enchanted
-Nest 0
-Name whip +-------~
-ShD  +-------{x~
-Desc A whip is here, forged by Cipher's craftsmanship.~
-Mat steel~
-ExtF 323
-Wt   91
-Wear -1
-Lev  91
-Cost 13
-Val  7 6 20 4 4
-Affc 'enchant weapon'   0  91  -1   8  18          0 1
-Affc 'enchant weapon'   1  91  -1   8  19          0 1
-ExDe whip +-------~ It is a marvellous whip, crafted from the finest steel around.
-It was created in the Month of Endings by a master mage
-named Cipher.  Legend holds that this irda was a great weaponsmith.
-~
-End
-
-#O
 Vnum 10115
 Nest 0
 Wear 6
@@ -1102,13 +1053,6 @@ End
 #O
 Vnum 11748
 Nest 0
-Wear -1
-Cost 15000
-End
-
-#O
-Vnum 11748
-Nest 0
 Wear 19
 Cost 15000
 End
@@ -1120,24 +1064,14 @@ Nest 0
 Wt   0
 Wear 5
 Cost 75150
-Affc 'reserved'   1  91  -1 100  12          0 1
-Affc 'reserved'   1  91  -1  20  13          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   1   2          0 1
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
 Affc 'enchant weapon'   0 100  -1  18  18          0 1
-End
-
-#O
-Vnum 10105
-Nest 0
-Wear -1
-Lev  91
-Cost 33000
-ExDe owned by~ Cipher
-~
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1  20  13          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
 End
 
 #O
@@ -1148,10 +1082,10 @@ ExtF 323
 Wear 4
 Lev  90
 Cost 10000
-Affc 'enchant weapon'   1  98  -1  13  19          0 1
-Affc 'enchant weapon'   1  98  -1  13  18          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
 Affc 'reserved'   1  87  -1   5   3          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'enchant weapon'   1  98  -1  13  18          0 1
+Affc 'enchant weapon'   1  98  -1  13  19          0 1
 End
 
 #O
@@ -1162,10 +1096,10 @@ ExtF 323
 Wear 3
 Lev  90
 Cost 10000
-Affc 'enchant weapon'   1  98  -1  13  19          0 1
-Affc 'enchant weapon'   1  98  -1  13  18          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
 Affc 'reserved'   1  87  -1   5   3          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'enchant weapon'   1  98  -1  13  18          0 1
+Affc 'enchant weapon'   1  98  -1  13  19          0 1
 End
 
 #O
@@ -1176,28 +1110,188 @@ Cost 550
 End
 
 #O
-Vnum 17320
+Vnum 13005
 Nest 0
-Wear -1
-Cost 2500
-Val  250 1 17321 40 30
+Wear 12
+Cost 4500
 End
 
 #O
-Vnum 4471
-Nest 1
-Name pink feather~
-ShD  a {Pp{Ri{Mn{Rk {Yf{He{ba{Gt{Yh{He{Gr{x~
-Desc A {Pp{Ri{Mn{Rk {Yf{He{ba{Gt{Yh{He{Gr{x is searching for the inside of {BC{Yi{Gp{Th{Me{Br{T'{Vs{x ear.~
-Mat feather~
+Vnum 24229
+Nest 0
 Wear -1
-Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+Cost 2280
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 11709
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 11709
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 1
+Name whip +-------~
+ShD  +-------{x~
+Desc A whip is here, forged by Cipher's craftsmanship.~
+Mat steel~
+ExtF 323
+Wt   91
+Wear -1
+Lev  91
+Cost 13
+Val  7 6 20 4 4
+Affc 'enchant weapon'   1  91  -1   8  19          0 1
+Affc 'enchant weapon'   0  91  -1   8  18          0 1
+ExDe whip +-------~ It is a marvellous whip, crafted from the finest steel around.
+It was created in the Month of Endings by a master mage
+named Cipher.  Legend holds that this irda was a great weaponsmith.
 ~
-ExDe paw~ A very small, and unmistakeably feline, paw print.
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 1
+Name flail Bonker!~
+ShD  Bonker!{x~
+Desc A flail is here, forged by Cipher's craftsmanship.~
+Mat steel~
+ExtF 322
+Wt   89
+Wear -1
+Lev  91
+Cost 91
+Val  6 6 19 8 4
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
+ExDe flail Bonker!~ It is a marvellous flail, crafted from the finest steel around.
+It was created in the Month of Endings by a master mage
+named Cipher.  Legend holds that this irda was a great weaponsmith.
 ~
-ExDe print~ A very small, and unmistakeably feline, paw print.
-~
+End
+
+#O
+Vnum 5607
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
 End
 
 #O
@@ -1208,10 +1302,32 @@ Cost 1000
 End
 
 #O
-Vnum 1213
+Vnum 10450
 Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 17046
+Nest 1
+Wear -1
+Cost 50000
+End
+
+#O
+Vnum 13004
+Nest 1
+Wear -1
+Cost 3700
+End
+
+#O
+Vnum 1214
+Nest 1
+Name vegita quest token~
+ShD  {WQ{GU{TE{YS{PT{B!{x Just a {Gp{Hi{Pe{Yc{Ve{x of rock{x~
+Desc {WQ{GU{TE{YS{PT{B!{x Just a {Gp{Hi{Pe{Yc{Ve{x of rock{x~
 Wear -1
 Cost 0
 End
@@ -1219,40 +1335,359 @@ End
 #O
 Vnum 1213
 Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
 Wear -1
 Cost 0
 End
 
 #O
-Vnum 16085
-Nest 0
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
 Wear -1
-Cost 1900
+Cost 0
 End
 
 #O
-Vnum 16085
-Nest 0
+Vnum 11748
+Nest 1
 Wear -1
-Cost 1900
+Cost 15000
 End
 
 #O
-Vnum 11715
-Nest 0
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
 Wear -1
-Cost 9000
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
 End
 
 #O
-Vnum 13010
-Nest 0
-Cond 82
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
 Wear -1
-Cost 450
-Val  25 23 26 25 0
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll lightning breath~
+ShD  a scroll of lightning breath~
+Desc A scroll of lightning breath lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 95 -1 -1 -1
+Spell 1 'lightning breath'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll weaken~
+ShD  a scroll of weaken~
+Desc A scroll of weaken lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 138 -1 -1 -1
+Spell 1 'weaken'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll weaken~
+ShD  a scroll of weaken~
+Desc A scroll of weaken lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 138 -1 -1 -1
+Spell 1 'weaken'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll weaken~
+ShD  a scroll of weaken~
+Desc A scroll of weaken lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 138 -1 -1 -1
+Spell 1 'weaken'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll weaken~
+ShD  a scroll of weaken~
+Desc A scroll of weaken lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 138 -1 -1 -1
+Spell 1 'weaken'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll weaken~
+ShD  a scroll of weaken~
+Desc A scroll of weaken lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 138 -1 -1 -1
+Spell 1 'weaken'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll weaken~
+ShD  a scroll of weaken~
+Desc A scroll of weaken lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 138 -1 -1 -1
+Spell 1 'weaken'
+End
+
+#O
+Vnum 10102
+Nest 0
+Wear -1
+Cost 33333
+End
+
+#O
+Vnum 10115
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 10116
+Nest 0
+Wear -1
+Cost 25
+End
+
+#O
+Vnum 3811
+Nest 0
+ExtF 51118161
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3810
+Nest 0
+Cond 85
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 13004
+Nest 0
+Wear 18
+Cost 3700
+End
+
+#O
+Vnum 24209
+Nest 0
+Wear -1
+Cost 6666
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion talon~
+ShD  a potion of talon~
+Desc A potion of talon lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 132 -1 -1 -1
+Spell 1 'talon'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  91
+Cost 2000
+Val  91 56 -1 -1 -1
+Spell 1 'divine healing'
 End
 
 #O
@@ -1263,66 +1698,10 @@ Cost 0
 End
 
 #O
-Vnum 13010
+Vnum 13000
 Nest 0
 Wear -1
-Cost 450
-End
-
-#O
-Vnum 11901
-Nest 0
-Wear -1
-Cost 300
-End
-
-#O
-Vnum 11901
-Nest 0
-Wear -1
-Cost 300
-End
-
-#O
-Vnum 11900
-Nest 0
-Wear -1
-Cost 200
-End
-
-#O
-Vnum 11900
-Nest 0
-Wear -1
-Cost 200
-End
-
-#O
-Vnum 11915
-Nest 0
-Wear -1
-Cost 300
-End
-
-#B
-Vnum 501
-Nest 0
-Wear -1
-Cost 1500
-End
-
-#B
-Vnum 1606
-Nest 0
-Wear -1
-Cost 1550
-End
-
-#B
-Vnum 20008
-Nest 0
-Wear -1
-Cost 50
+Cost 3700
 End
 
 #B
@@ -1339,8 +1718,8 @@ Wear -1
 Lev  78
 Cost 8
 Val  7 6 17 4 4
-Affc 'enchant weapon'   0  72  -1   8  18          0 1
 Affc 'enchant weapon'   1  72  -1   8  19          0 1
+Affc 'enchant weapon'   0  72  -1   8  18          0 1
 ExDe whip ++----~ It is a marvellous whip, crafted from the finest steel around.
 It was created in the Month of Awakening by an experienced mage
 named Cipher.  Legend holds that this irda was a great weaponsmith.
@@ -1361,12 +1740,69 @@ Wear -1
 Lev  78
 Cost 36
 Val  7 6 17 4 4
-Affc 'enchant weapon'   0  72  -1   7  18          0 1
 Affc 'enchant weapon'   1  72  -1   7  19          0 1
+Affc 'enchant weapon'   0  72  -1   7  18          0 1
 ExDe whip ----++~ It is a marvellous whip, crafted from the finest steel around.
 It was created in the Month of Awakening by an experienced mage
 named Cipher.  Legend holds that this irda was a great weaponsmith.
 ~
+End
+
+#B
+Vnum 4426
+Nest 0
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 4426
+Nest 0
+ExtF 64
+Wear -1
+Cost 6800
+End
+
+#B
+Vnum 16530
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 4415
+Nest 0
+ExtF 64
+Cond 98
+Wear -1
+Cost 5800
+End
+
+#B
+Vnum 10105
+Nest 0
+Wear -1
+Lev  91
+Cost 33000
+ExDe owned by~ Cipher
+~
+End
+
+#B
+Vnum 14060
+Nest 0
+Cond 100
+Wear -1
+Cost 9000
+End
+
+#B
+Vnum 11788
+Nest 0
+Wear -1
+Cost 50000
 End
 
 #B
@@ -1383,12 +1819,42 @@ Wear -1
 Lev  78
 Cost 7
 Val  6 6 17 8 4
-Affc 'enchant weapon'   0  71  -1   8  18          0 1
 Affc 'enchant weapon'   1  71  -1   8  19          0 1
+Affc 'enchant weapon'   0  71  -1   8  18          0 1
 ExDe flail Whacker!!~ It is a marvellous flail, crafted from the finest iron around.
 It was created in the Month of Challenge by an experienced mage
 named Cipher.  Legend holds that this irda was a great weaponsmith.
 ~
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger Piercer!!~
+ShD  Piercer!!{x~
+Desc A dagger is here, forged by Cipher's craftsmanship.~
+Mat tin~
+ExtF 323
+Wt   71
+Wear -1
+Lev  77
+Cost 10
+Val  2 7 14 11 4
+Affc 'enchant weapon'   0  71  -1   8  18          0 1
+Affc 'enchant weapon'   1  71  -1   8  19          0 1
+ExDe dagger Piercer!!~ It is a marvellous dagger, crafted from the finest tin around.
+It was created in the Month of Continuity by an experienced mage
+named Cipher.  Legend holds that this irda was a great weaponsmith.
+~
+End
+
+#B
+Vnum 17013
+Nest 0
+Cond 99
+Wear -1
+Cost 0
 End
 
 #B
@@ -1405,8 +1871,8 @@ Wear -1
 Lev  78
 Cost 10
 Val  6 7 14 8 4
-Affc 'enchant weapon'   1  71  -1   7  19          0 1
 Affc 'enchant weapon'   0  71  -1   7  18          0 1
+Affc 'enchant weapon'   1  71  -1   7  19          0 1
 ExDe flail Whopper!~ It is a marvellous flail, crafted from the finest tin around.
 It was created in the Month of Continuity by an experienced mage
 named Cipher.  Legend holds that this irda was a great weaponsmith.
@@ -1427,42 +1893,12 @@ Wear -1
 Lev  78
 Cost 24
 Val  2 7 15 11 4
-Affc 'enchant weapon'   0  72  -1   6  18          0 1
 Affc 'enchant weapon'   1  72  -1   6  19          0 1
+Affc 'enchant weapon'   0  72  -1   6  18          0 1
 ExDe dagger Poker!!~ It is a marvellous dagger, crafted from the finest tin around.
 It was created in the Month of Awakening by an experienced mage
 named Cipher.  Legend holds that this irda was a great weaponsmith.
 ~
-End
-
-#B
-Vnum 1004
-Enchanted
-Nest 0
-Name dagger Piercer!!~
-ShD  Piercer!!{x~
-Desc A dagger is here, forged by Cipher's craftsmanship.~
-Mat tin~
-ExtF 323
-Wt   71
-Wear -1
-Lev  77
-Cost 10
-Val  2 7 14 11 4
-Affc 'enchant weapon'   1  71  -1   8  19          0 1
-Affc 'enchant weapon'   0  71  -1   8  18          0 1
-ExDe dagger Piercer!!~ It is a marvellous dagger, crafted from the finest tin around.
-It was created in the Month of Continuity by an experienced mage
-named Cipher.  Legend holds that this irda was a great weaponsmith.
-~
-End
-
-#B
-Vnum 3808
-Nest 0
-Cond 87
-Wear -1
-Cost 30000
 End
 
 #B
@@ -1473,72 +1909,10 @@ Cost 3500
 End
 
 #B
-Vnum 4426
-Nest 0
-ExtF 64
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 4426
-Nest 0
-ExtF 64
-Wear -1
-Cost 6800
-End
-
-#B
 Vnum 9101
 Nest 0
 Wear -1
 Cost 2800
-End
-
-#B
-Vnum 11718
-Nest 0
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 16530
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#B
-Vnum 11713
-Nest 0
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 17013
-Nest 0
-Cond 99
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 10168
-Nest 0
-ExtF 16777219
-Wear -1
-Cost 2200
-End
-
-#B
-Vnum 4415
-Nest 0
-ExtF 64
-Cond 98
-Wear -1
-Cost 5800
 End
 
 #B
@@ -1553,6 +1927,41 @@ Vnum 10112
 Nest 0
 Wear -1
 Cost 0
+End
+
+#B
+Vnum 1606
+Nest 0
+Wear -1
+Cost 1550
+End
+
+#B
+Vnum 11718
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11713
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 2916
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 501
+Nest 0
+Wear -1
+Cost 1500
 End
 
 #END

@@ -1,47 +1,46 @@
 #PLAYER
 Name Angel~
 Id   1010429366
-LogO 1019089077
-Vers 13
+LogO 1079334784
+Vers 14
 Mexp 2
+Pass onica~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nmv {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race seraph~
-Sex  2
 Cla  5
 Levl 8
+Tru  0
 Plyd 10357
 Back 10341
 Note 0 0 0 0 0 0 0
 Scro 22
 Room 3749
-HMS  141 141 153 153 183 183
+HMS  141 153 183
 Gold 1888
 Silv 520
 Exp  9107
-PCkills 0
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
-Act  CDEFGHJLQSc
-AfBy HT
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
 FRes NS
 FVul M
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy HT
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
 Prac 2
 Trai 1
-Save  -1
-Alig  1000
-Hit   1
-ACs 63 59 60 94
-Wimp  10
+Wimp 10
 Atrib 17 18 14 13 18 19
-AtMod 1 4 3 1 0 3
-Pass onica~
 Titl  {CThe {WSilver {CWinged {YGoddess~
 Immn ~
 Pnts 40
@@ -53,11 +52,8 @@ Deit Xenith~
 Lsit mailserv.awec.EDnet.NS.CA~
 Ltim Thu Feb 14 08:59:08 2002
 ~
-LSav Wed Apr 17 19:17:57 2002
+LSav Mon Mar 15 02:13:04 2004
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 HMSP 128 153 183
 THMS 1 0 0
 Cnd  0 0 0 0

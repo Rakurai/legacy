@@ -1,7 +1,7 @@
 #PLAYER
 Name Thriest~
 Id   1003698299
-LogO 1026515019
+LogO 1050440854
 Vers 14
 Mexp 2
 Pass black1~
@@ -10,9 +10,9 @@ Race human~
 Cla  0
 Levl 1
 Tru  0
-Plyd 60756
-Back 0
-Note 1018752332 1006910058 0 1004828214 1017468212 1013740277 1024965844
+Plyd 103668
+Back 102186
+Note 1032984996 1030931126 1031926628 1032929183 1036438083 1027810204 1024965844
 Scro 22
 Room 5281
 HMS  20 100 106
@@ -41,7 +41,7 @@ Prac 5
 Trai 3
 Wimp 0
 Atrib 14 18 14 15 14 10
-Afk {B[{CSat Jun 29 18:40:55 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CFri Nov  1 19:41:12 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  ({VNewbie Aura{x)~
 Immn ~
@@ -51,10 +51,10 @@ Aura ~
 TSex 1
 LLev 1
 Deit Xenith~
-Lsit 22dyn36.utr.casema.net~
-Ltim Fri Jul 12 15:05:14 2002
+Lsit 514487d4.cable.wanadoo.nl~
+Ltim Tue Apr 15 17:07:29 2003
 ~
-LSav Fri Jul 12 18:03:39 2002
+LSav Tue Apr 15 17:07:34 2003
 ~
 HMSP 20 100 106
 THMS 0 0 0
@@ -190,6 +190,13 @@ End
 Vnum 3379
 Nest 0
 Wear -1
+Cost 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
 Cost 0
 End
 

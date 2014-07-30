@@ -1,0 +1,127 @@
+#PLAYER
+Name Dextel~
+Id   1063296040
+LogO 1063296321
+Vers 14
+Mexp 2
+Pass marble~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dragon~
+Cla  5
+Levl 1
+Tru  0
+Plyd 7
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3700
+HMS  20 100 100
+Gold 0
+Silv 0
+Exp  1500
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes EG
+FVul F
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 5
+Trai 3
+Wimp 0
+Atrib 16 12 15 11 16 17
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Montrey~
+Lsit AC8004AA.ipt.aol.com~
+Ltim Thu Sep 11 12:05:14 2003
+~
+LSav Thu Sep 11 12:05:21 2003
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 48 48 48
+Sk 1 1 'acid breath'
+Sk 1 1 'fire breath'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'lightning breath'
+Sk 40 1 'sword'
+Sk 1 1 'shield block'
+Sk 1 1 'bash'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 1 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'draconian'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

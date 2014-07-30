@@ -1,7 +1,7 @@
 #PLAYER
 Name Selesti~
 Id   990314957
-LogO 1025631791
+LogO 1057793781
 Vers 14
 Mexp 2
 Pass ICH7Omaf~
@@ -17,7 +17,6 @@ Desc {gDreamy blue eyes turn towards you, sparkling as the light hits them.
 ~
 Prom %CW<%CC%h%CW/%CC%H%CWhp %CG%m%CW/%CG%M%CWma %CB%v%CWmv [%Cg%e%CW] %CR%X%CW [%Y%z%W]>  ~
 Race irda~
-Clan kindred~
 Cla  0
 Levl 89
 Tru  91
@@ -25,7 +24,7 @@ Plyd 569489
 Back 337837
 Note 1025460538 1025460538 1025460538 1025550075 1025460538 1025460538 1025460538
 Scro 50
-Room 25000
+Room 3001
 HMS  1663 2244 625
 Gold 5673
 Silv 2288
@@ -57,7 +56,6 @@ Wimp 0
 Atrib 18 23 21 18 18 15
 SkillPnts  301
 QuestPnts  184
-QpDonated  100
 Afk {B[{CMon Jul  1 22:51:15 2002{B] {Cnot here.
 ~
 Titl  Montrey Kazander Tokens Bring Them Here~
@@ -76,7 +74,7 @@ Raff 961
 Lsit 58.los-angeles-73-74rs.ca.dial-access.att.net~
 Ltim Mon Jul 01 21:40:24 2002
 ~
-LSav Tue Jul 02 12:43:11 2002
+LSav Wed Jul 09 19:36:21 2003
 ~
 HMSP 1008 1084 625
 THMS 0 0 0
@@ -309,10 +307,10 @@ Cond 95
 Wear 12
 Lev  89
 Cost 10000
-Affc 'reserved'   1  87  -1 130  12          0 1
-Affc 'reserved'   1  87  -1   3   3          0 1
-Affc 'enchant weapon'   1  84  -1   2  19          0 1
 Affc 'enchant weapon'   0  84  -1   2  18          0 1
+Affc 'enchant weapon'   1  84  -1   2  19          0 1
+Affc 'reserved'   1  87  -1   3   3          0 1
+Affc 'reserved'   1  87  -1 130  12          0 1
 End
 
 #O
@@ -793,11 +791,11 @@ Nest 0
 ExtF 262211
 Wear 9
 Cost 0
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'enchant armor'   1  99  -1 -22  17          0 1
-Affc 'enchant weapon'   1  99  -1  12  18          0 1
 Affc 'enchant weapon'   1  99  -1  12  19          0 1
+Affc 'enchant weapon'   1  99  -1  12  18          0 1
+Affc 'enchant armor'   1  99  -1 -22  17          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
 End
 
 #O
@@ -1072,12 +1070,12 @@ Nest 1
 Wear -1
 Lev  61
 Cost 30000
-Affc 'reserved'   1  60  -1  -3  24          0 1
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'reserved'   1  60  -1  50  13          0 1
-Affc 'reserved'   1  60  -1  75  12          0 1
 Affc 'reserved'   1  60  -1   2   5          0 1
+Affc 'reserved'   1  60  -1  75  12          0 1
+Affc 'reserved'   1  60  -1  50  13          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
+Affc 'reserved'   1  60  -1  -3  24          0 1
 End
 
 #O
@@ -1197,14 +1195,14 @@ Nest 1
 Cond 90
 Wear -1
 Cost 30
-Affc 'acid breath'   0  50  -1   1  17          0 1
-Affc 'reserved'   1  20  -1   1   1          0 1
-Affc 'reserved'   1  20  -1   1   2          0 1
-Affc 'reserved'   1  20  -1   1   5          0 1
-Affc 'reserved'   1  20  -1   1  18          0 1
-Affc 'reserved'   1  20  -1   2  19          0 1
-Affc 'reserved'   1  20  -1  20  12          0 1
 Affc 'reserved'   1  20  -1  20  14          0 1
+Affc 'reserved'   1  20  -1  20  12          0 1
+Affc 'reserved'   1  20  -1   2  19          0 1
+Affc 'reserved'   1  20  -1   1  18          0 1
+Affc 'reserved'   1  20  -1   1   5          0 1
+Affc 'reserved'   1  20  -1   1   2          0 1
+Affc 'reserved'   1  20  -1   1   1          0 1
+Affc 'acid breath'   0  50  -1   1  17          0 1
 End
 
 #O
@@ -1277,9 +1275,9 @@ Nest 1
 Cond 89
 Wear -1
 Cost 2500
-Affc 'acid breath'   0  88  -1   2  17          0 1
-Affc 'reserved'   1  80  -1   3   2          0 1
 Affc 'reserved'   1  80  -1 100  14          0 1
+Affc 'reserved'   1  80  -1   3   2          0 1
+Affc 'acid breath'   0  88  -1   2  17          0 1
 End
 
 #O
@@ -1431,10 +1429,10 @@ Cond 99
 Wear -1
 Lev  61
 Cost 3800
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'reserved'   1  60  -1  55  12          0 1
 Affc 'reserved'   1  60  -1   3   5          0 1
+Affc 'reserved'   1  60  -1  55  12          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
 End
 
 #O
@@ -1471,12 +1469,12 @@ Cond 88
 Wear -1
 Lev  51
 Cost 3000
-Affc 'reserved'   1  30  -1   1   3          0 1
-Affc 'reserved'   1  30  -1   1   4          0 1
-Affc 'reserved'   1  30  -1   1   5          0 1
-Affc 'reserved'   1  30  -1  20  13          0 1
-Affc 'enchant weapon'   1  91  -1   3  18          0 1
 Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'enchant weapon'   1  91  -1   3  18          0 1
+Affc 'reserved'   1  30  -1  20  13          0 1
+Affc 'reserved'   1  30  -1   1   5          0 1
+Affc 'reserved'   1  30  -1   1   4          0 1
+Affc 'reserved'   1  30  -1   1   3          0 1
 End
 
 #O
@@ -1592,9 +1590,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1605,13 +1603,13 @@ ExtF 262211
 Wear -1
 Lev  51
 Cost 4000
-Affc 'reserved'   1  40  -1  -2   9          0 1
-Affc 'reserved'   1  40  -1   1   2          0 1
-Affc 'reserved'   1  40  -1   1   1          0 1
-Affc 'reserved'   1  40  -1  -2  20          0 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
 Affc 'reserved'   1  40  -1  40  13          0 1
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'reserved'   1  40  -1  -2  20          0 1
+Affc 'reserved'   1  40  -1   1   1          0 1
+Affc 'reserved'   1  40  -1   1   2          0 1
+Affc 'reserved'   1  40  -1  -2   9          0 1
 End
 
 #L
@@ -1623,13 +1621,13 @@ Cond 94
 Wear -1
 Lev  51
 Cost 4000
-Affc 'reserved'   1  40  -1  -2   9          0 1
-Affc 'reserved'   1  40  -1   1   2          0 1
-Affc 'reserved'   1  40  -1   1   1          0 1
-Affc 'reserved'   1  40  -1  -2  20          0 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
 Affc 'reserved'   1  40  -1  40  13          0 1
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'reserved'   1  40  -1  -2  20          0 1
+Affc 'reserved'   1  40  -1   1   1          0 1
+Affc 'reserved'   1  40  -1   1   2          0 1
+Affc 'reserved'   1  40  -1  -2   9          0 1
 End
 
 #L
@@ -1641,13 +1639,13 @@ Cond 84
 Wear -1
 Lev  41
 Cost 2000
-Affc 'reserved'   1  20  -1  -1  20          0 1
-Affc 'reserved'   1  20  -1   1   3          0 1
-Affc 'reserved'   1  20  -1   1   5          0 1
-Affc 'enchant weapon'   1  45  -1   4  19          0 1
-Affc 'enchant weapon'   1  45  -1   4  18          0 1
-Affc 'reserved'   1  20  -1 -10  14          0 1
 Affc 'reserved'   1  20  -1  20  13          0 1
+Affc 'reserved'   1  20  -1 -10  14          0 1
+Affc 'enchant weapon'   1  45  -1   4  18          0 1
+Affc 'enchant weapon'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  20  -1   1   5          0 1
+Affc 'reserved'   1  20  -1   1   3          0 1
+Affc 'reserved'   1  20  -1  -1  20          0 1
 End
 
 #L
@@ -1666,11 +1664,11 @@ Cond 83
 Wear -1
 Lev  51
 Cost 3000
-Affc 'reserved'   1  30  -1  -1   9          0 1
-Affc 'reserved'   1  30  -1   1   1          0 1
-Affc 'enchant weapon'   1  45  -1   5  19          0 1
-Affc 'enchant weapon'   1  45  -1   5  18          0 1
 Affc 'reserved'   1  30  -1  30  13          0 1
+Affc 'enchant weapon'   1  45  -1   5  18          0 1
+Affc 'enchant weapon'   1  45  -1   5  19          0 1
+Affc 'reserved'   1  30  -1   1   1          0 1
+Affc 'reserved'   1  30  -1  -1   9          0 1
 End
 
 #L
@@ -1719,12 +1717,12 @@ Cond 97
 Wear -1
 Lev  51
 Cost 2000
-Affc 'reserved'   1  50  -1  -2  20          0 1
-Affc 'enchant weapon'   1  91  -1   4  19          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'reserved'   1  50  -1  15  13          0 1
-Affc 'reserved'   1  50  -1  25  12          0 1
 Affc 'reserved'   1  50  -1   2   4          0 1
+Affc 'reserved'   1  50  -1  25  12          0 1
+Affc 'reserved'   1  50  -1  15  13          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   4  19          0 1
+Affc 'reserved'   1  50  -1  -2  20          0 1
 End
 
 #L
@@ -1745,9 +1743,9 @@ ShD  an {Ce{Bn{Vc{Ph{Ga{Yn{Ct {Ntoken {Mimprinted {Hwith {bthe {glikeness {cof {
 Desc an {Ce{Bn{Vc{Ph{Ga{Yn{Ct {Ntoken {Mimprinted {Hwith {bthe {glikeness {cof {RKaz{Pan{Rder{x lies here~
 Wear -1
 Cost 0
-ExDe enchant~ This token is to be redeemed only by {RKaz{Pan{Rder{x
-~
 ExDe kazander~ This token is to be redeemed only by {RKaz{Pan{Rder{x
+~
+ExDe enchant~ This token is to be redeemed only by {RKaz{Pan{Rder{x
 ~
 End
 
@@ -2113,9 +2111,9 @@ Wear -1
 Lev  0
 Cost 0
 Val  300 1 0 1 20
-ExDe owned by~ Selesti
-~
 ExDe leather bound binder~ It's a {bleather{x binder designed to hold trading cards.
+~
+ExDe owned by~ Selesti
 ~
 End
 
@@ -3888,9 +3886,9 @@ Cond 96
 Wear -1
 Lev  30
 Cost 5000
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
 Affc 'reserved'   1  26  -1 -10  17          0 1
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
 End
 
 #B
@@ -3918,11 +3916,11 @@ Cond 88
 Wear -1
 Lev  51
 Cost 4000
-Affc 'reserved'   1  40  -1  -2   9          0 1
-Affc 'reserved'   1  40  -1  -2  20          0 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
 Affc 'reserved'   1  40  -1  40  13          0 1
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'reserved'   1  40  -1  -2  20          0 1
+Affc 'reserved'   1  40  -1  -2   9          0 1
 End
 
 #B
@@ -3942,14 +3940,14 @@ Cond 96
 Wear -1
 Lev  51
 Cost 8000
-Affc 'reserved'   1  30  -1   2   1          0 1
-Affc 'reserved'   1  30  -1   1   5          0 1
-Affc 'reserved'   1  30  -1  20  13          0 1
-Affc 'enchant weapon'   1  91  -1   3  18          0 1
-Affc 'enchant weapon'   1  91  -1   3  19          0 1
-Affc 'reserved'   1  30  -1  -2  24          0 1
-Affc 'reserved'   1  30  -1   2  26          0 1
 Affc 'reserved'   0  30  -1   0   0         40 1
+Affc 'reserved'   1  30  -1   2  26          0 1
+Affc 'reserved'   1  30  -1  -2  24          0 1
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'enchant weapon'   1  91  -1   3  18          0 1
+Affc 'reserved'   1  30  -1  20  13          0 1
+Affc 'reserved'   1  30  -1   1   5          0 1
+Affc 'reserved'   1  30  -1   2   1          0 1
 End
 
 #B
@@ -3970,13 +3968,13 @@ Cond 96
 Wear -1
 Lev  51
 Cost 4000
-Affc 'reserved'   1  40  -1  -2   9          0 1
-Affc 'reserved'   1  40  -1   1  26          0 1
-Affc 'reserved'   1  40  -1   1   2          0 1
-Affc 'reserved'   1  40  -1  -2  20          0 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
 Affc 'reserved'   1  40  -1  40  13          0 1
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'reserved'   1  40  -1  -2  20          0 1
+Affc 'reserved'   1  40  -1   1   2          0 1
+Affc 'reserved'   1  40  -1   1  26          0 1
+Affc 'reserved'   1  40  -1  -2   9          0 1
 End
 
 #B
@@ -3996,12 +3994,12 @@ Cond 91
 Wear -1
 Lev  51
 Cost 159
-Affc 'reserved'   1  45  -1   2   2          0 1
-Affc 'enchant weapon'   1  91  -1   4  18          0 1
-Affc 'enchant weapon'   1  91  -1   4  19          0 1
-Affc 'reserved'   1  45  -1  35  12          0 1
-Affc 'reserved'   1  45  -1  20  13          0 1
 Affc 'reserved'   1  45  -1  -1  20          0 1
+Affc 'reserved'   1  45  -1  20  13          0 1
+Affc 'reserved'   1  45  -1  35  12          0 1
+Affc 'enchant weapon'   1  91  -1   4  19          0 1
+Affc 'enchant weapon'   1  91  -1   4  18          0 1
+Affc 'reserved'   1  45  -1   2   2          0 1
 End
 
 #B
@@ -4090,14 +4088,14 @@ Nest 0
 ExtF 321
 Wear -1
 Cost 10000
-Affc 'reserved'   0  92  -1   0   0        128 1
-Affc 'reserved'   1  92  -1  70  13          0 1
-Affc 'reserved'   1  92  -1  80  12          0 1
-Affc 'reserved'   1  92  -1   3   4          0 1
-Affc 'reserved'   1  92  -1   3   3          0 1
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'enchant weapon'   1  91  -1   3  19          0 1
 Affc 'enchant weapon'   0  91  -1   3  18          0 1
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1  92  -1   3   3          0 1
+Affc 'reserved'   1  92  -1   3   4          0 1
+Affc 'reserved'   1  92  -1  80  12          0 1
+Affc 'reserved'   1  92  -1  70  13          0 1
+Affc 'reserved'   0  92  -1   0   0        128 1
 End
 
 #B
@@ -4196,13 +4194,13 @@ Cond 81
 Wear -1
 Lev  56
 Cost 1350
-Affc 'reserved'   1  55  -1   2   3          0 1
-Affc 'reserved'   1  55  -1   2   4          0 1
-Affc 'enchant weapon'   1  91  -1   4  19          0 1
-Affc 'enchant weapon'   1  91  -1   7  18          0 1
-Affc 'reserved'   1  55  -1  30  12          0 1
-Affc 'reserved'   1  55  -1  20  13          0 1
 Affc 'reserved'   1  55  -1   5   9          0 1
+Affc 'reserved'   1  55  -1  20  13          0 1
+Affc 'reserved'   1  55  -1  30  12          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   4  19          0 1
+Affc 'reserved'   1  55  -1   2   4          0 1
+Affc 'reserved'   1  55  -1   2   3          0 1
 End
 
 #B
@@ -4214,10 +4212,10 @@ Cond 94
 Wear -1
 Lev  51
 Cost 9800
-Affc 'reserved'   1  28  -1  60  12          0 1
-Affc 'reserved'   1  28  -1   2   2          0 1
-Affc 'enchant weapon'   1  91  -1   3  19          0 1
 Affc 'enchant weapon'   0  91  -1   3  18          0 1
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'reserved'   1  28  -1   2   2          0 1
+Affc 'reserved'   1  28  -1  60  12          0 1
 End
 
 #B
@@ -4270,10 +4268,10 @@ Cond 83
 Wear -1
 Lev  51
 Cost 4000
-Affc 'reserved'   1  40  -1  40  13          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
 Affc 'reserved'   1  40  -1  -2   9          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
+Affc 'reserved'   1  40  -1  40  13          0 1
 End
 
 #B

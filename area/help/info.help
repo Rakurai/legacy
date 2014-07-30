@@ -1,3 +1,43 @@
+0 Newbie Helper~
+Newbie helpers (denoted by an H in the HR* in the who display) are usually 
+very experienced players who will take it upon themselves to assist new players 
+as needed, so that they can better get along in the mud. The object is to teach 
+the newbies so that they may do things themselves or teach others. Newbie helper 
+flags are granted to mortals by the immortals this is not a flag you can put up and 
+take down.They are empowered to create Newbie Kits (Newbie Helpers type Newbie to 
+create one) for newbies as needed, as well as to go into the MUD School to "show 
+them the ropes". NO OTHER MORTAL PLAYER CAN DO THIS! At times, the Newbie Helper  may 
+render other assistance, like spells and finding equipment.
+
+1. Newbie Helpers generally do their job via imparting bits of supplemental 
+information. This means that they may fill in pieces of the puzzle for 
+newbies .. Newbie Helpers may or may not, at their option, spell newbies 
+up. {CIf you are a newbie please understand that spell ups are not an obligation 
+they are a gift and you should thank the person spelling you up.{x
+
+2. NH assistance is only intended as a SUPPLEMENT for player efforts, not a 
+substitute. This means that Helpers may lend the occasional helping hand and 
+coaching but they will not do all the work; contrary to what some people 
+seem to think everyone is STILL responsible for their own successes and 
+failures. Newbie Helpers are more than welcome to lend a hand upon request, 
+but we do ask that they not make a habit of doing all the work; this can 
+lead to mooching and newbie helpers are not doing anyone a favor by playing the 
+game for them.. Your duties do not excuse anyone from earning their own crust.
+
+One other thing to remember: those of you who are Newbie Helpers must remember 
+that people look up to you. Therefore, do your best to be friendly and courteous 
+with other people, especially newbies. Whether you like to think of it that way or not, 
+you ARE rolemodels for the mud to see. So, please make sure that your advice is as good 
+as you can make it; treat others with respect; show them the proper uses of channels, eq etc. 
+do NOT act better than... we have all been newbies at one time or another. In short, just be 
+the nice friendly mortals we know you are. And by all means do NOT ignore newbies completely. 
+If you are busy at least respond letting them know your busy.
+
+{WNote to newbies: Please remember that these players are also playing the game. They may not 
+always have time right when you want it. And remember that pestering them for things will only 
+cause them to ignore you or resent their flag.{x
+~
+
 0 SKILLS SPELLS~
 The {Cskills{x and {Cspells{x commands are used to display your character's list
 of available {Cskills{x (or {Cspells{x, as the case may be).  They are listed in
@@ -34,11 +74,44 @@ The {Cskills{x and {Cspells{x commands tell you about the skills and spells
 are not in any spell group you have gained, it shows you this fact too.
 ~
 
+99 Quest Double~
+This is a reward that we are offering to mortals on special occasions. Due
+to the over use of this command it is temporarily limited to the following 
+events:
+
+{CHiring of a new immortal
+Major Holidays example: Thanksgiving, Christmas, Easter, etc.....{x
+
+We are working on other ideas regarding this command. Do NOT turn it on for
+birthdays or personal joys or celebrations. 
+Thank you
+~
+
 0 LEVELS~
 Syntax: {Clevels{x <{Yclassname{x>
 
 This command will provide information on spell levels for a specific class.
 It will then follow the spell levels with a listing of skill levels.
+~
+
+0 Rpp~
+Rpp points are awarded to mortals for roleplaying. Although we are not a
+roleplay enforced mud we do strongly encourage it. We have created a way of
+rewarding mortals for their roleplay efforts. 
+
+Generally if you are seen using IC channel for roleplay or you write roleplay
+notes we award you with rpp points (the amount is up to the immortals).
+
+You may then purchase double quest time with these rpp points.
+1 rpp = 5 minutes double quest time
+
+This could be used in many ways to enhance the game play. You may use these
+as individual rewards orrrr you could get together as a clan and group your 
+time together to maybe promote your clan. Really it is up to you when and how
+and when you use these points. All you need is an available immortal to turn
+on and off the double quest and the rpp to pay for it :) 
+
+{W* We are in the process of working on more options for you to choose from.{x
 ~
 
 0 PRACTICE~
@@ -59,7 +132,7 @@ Syntax: {Cpractice{x
 {CPractice %{x will show your skills and spells sorted in decreasing
 order of proficiency.
 
-{CPractice groups{x will show your your skills and spells by skill/
+{CPractice groups{x will show you your skills and spells by skill/
 spell groups. If you type a group name after the {Rgroups{x, the list
 will be limited to that group or those groups matching what you typed.
 
@@ -125,6 +198,11 @@ This command is used to show all the spells affecting your character. At
 '{Vshowraff{x' command.
 ~
 
+0 SHOWRAFF~
+This command toggles whether to print Remort Affects in the
+Affects table. Please see "help affects" for more information.
+~
+
 0 AREAS~
 Syntax: {Careas{x
         {Careas{x <{Ylevel{x>
@@ -158,8 +236,6 @@ Syntax: {Cworth{x
 {CWorth{x tells you how much gold, silver and experience you have on you,
 as well as how many quest points and skill points you have accumulated.
 If you only want to know this, it's much more convenient than {Cscore{x.
-Note that this command does {Ynot{x tell you how much money you have
-in the bank!
 
 {YSEE ALSO:{x bank
 ~
@@ -259,6 +335,7 @@ Syntax: {Cprompt{x
         %V :  Display your maximum moves
         %x :  Display your current experience
         %X :  Display experience to level
+        %l :  Display your level
         %g :  Display your gold held
         %s :  Display silver carried
         %a :  Display your alignment
@@ -388,7 +465,10 @@ Syntax: {Chelp{x
 {CHelp{x without any arguments shows a one-page command summary.
 
 {CHelp{x <{Ykeyword{x> shows a page of help on that keyword.  The keywords include
-all the commands, spells, and skills listed in the game.
+all the commands, spells, and skills listed in the game.  If more than one
+match is found, a list of keywords will be displayed after the first match
+is shown.  If only partial matches are found to your keywords, you will
+still get a list of files with partially matching keywords.
 
 {CHelp{x <{Yletter{x> will show all the help files that contain at least one
 keyword starting with that letter.
@@ -527,6 +607,124 @@ Syntax: {Cpropose{x <{Yplayer{x>
 {Cpropose{x to the character in question.  They must then either {Caccept{x
 or {Creject{x your proposal, depending on how they feel about the idea. 
 If either person changes their mind, they may {Cbreakup{x at any time.
+~
+
+0 COMMANDLIST~
+Syntax: {Ccommandlist{x
+
+This command lists all commands (except commands EVERYONE can perform)
+and the level required to perform the command.
+The output is messy at this time, but may come in handy
+when giving level rank to an IMM.
+~
+
+0 BOW RANGED~
+Syntax: {Cranged{x <{Ytarget{x> [{Ydirection{x]
+
+This command allows you to fire your bow at a creature
+in another room. Your {Ytarget{x must be the name of
+the creature you wish to shoot. {YDirection{x may
+be North, South, East, West, Up or Down.
+
+Be warned that most creatures react poorly to being
+shot.
+~
+
+0 OUTSIDER~
+Outsider (that's me) has been coding for Legacy since the fall of 2003.
+His main (and on-going) goals are to:
+1. Make sure everyone has fun.
+2. Make Legacy a stable and user-friendly game.
+3. Connecting Legacy with the game Shadow of Eternity.
+
+You may send questions, comments and complaints to Outsider at
+slicer69@hotmail.com with the subject line "Legacy".
+For more information please see http://slicer69.tripod.com/
+~
+
+0 MAP~
+{YSyntax:{x {Pmap{x
+
+This command displays a small map of the local area. At
+the centre of the map is the {Y*{x symbol. That's you!
+Around the {Y*{x you will find a few symbols relating
+the surrounding environment.
+
+The numbers represent the number of people (mobs and players) in a given room.
+The {YD{x symbols represent doors.
+The {Y.{x symbols represent ... well, they're the background.
+The lines are open door ways to other rooms.
+
+Below is an example map showing just one room. The
+room has three people in it, has exits to the North
+and Up. Closed doors are to the West and Down.
+There are no exits to the East or South.
+
+   \|
+   D3
+     D
+
+~
+
+
+0 EDIT~
+The {REDIT{x command provides you with a small but powerful editor for notes
+(this includes {YNOTE{xs, {YIDEA{xs, {YROLEPLAY{x notes, etc.) and your {Ydescription{x.
+
+You can't use {REDIT{x to *create* a new text, you have to start it with
+{RNOTE SUBJECT{x (etc.) or {RDESC +{x . Once there is something there, you can
+switch into the editor with {REDIT NOTE{x or {REDIT DESCRIPTION{x. {REDIT NOTE{x will
+figure out which {Ykind{x of note you've started and go to work on it.
+
+You then use the {CEDIT{x commands to work on your text. For your convenience,
+most commands abbreviate to {RED{x and a single character. Here's the list.
+All numbers given are {P*examples*{x.
+
+{RED{xIT             - gives you your current status and a little bit of
+                   helpful information, including a reference here.
+
+{RED{xIT {RNOTE{x        - starts editing a note, idea, roleplay, etc.
+{RED{xIT {RDESC{xRIPTION - starts editing your description.
+
+{RED{xIT {RDO{xNE        - finishes editing and saves the changes to your text.
+{RED{xIT {RCANCEL{x      - stops editing and discards any changes edited.
+
+{RED{xIT {RL{xIST        - prints out your whole text
+{RED{xIT {R3 9 L{xIST    - prints out lines 3 through 9 of your text.
+   When you do something, {CEDIT{x only shows you a few of the lines around
+   the current line. But you can use {RED{xIT {RL{xIST any time to see all text.
+
+{RED{xIT {R8{x               - moves the {W<current line>{x to line 8.
+
+{RED{xIT {RI{xNSERT {RHello!{x   - inserts 'Hello!' after the {W<current line>{x.
+{RED{xIT {R0 I{xNSERT {RHello!{x - inserts 'Hello!' after line 0 (the beginning).
+{RED{xIT {R6 I{xNSERT        - inserts a blank line after line 6.
+   The {W<current line>{x moves to the line you just inserted, so you can
+   quickly enter multiple lines of text by typing
+      {RED I blah blah blah{x
+      {RED I blah blah blah{x
+
+{RED{xIT {RD{xELETE          - deletes the {W<current line>{x.
+{RED{xIT {R1 D{xELETE        - deletes line 1.
+{RED{xIT {R2 4 D{xELETE      - deletes lines 2 through 4.
+
+{RED{xIT {RC{xHANGE {Rmox magic{x         - changes 'mox' to 'magic' on {W<current line>{x.
+{RED{xIT {R8 C{xHANGE {Rtwo six{x                   - changes 'two' to 'six' on line 8.
+{RED{xIT {RC{xHANGE {Rgarbage{x            - changes 'garbage' to nothing (removes it).
+{RED{xIT {RC{xHANGE {{{g{ggrey{x{{{x {{{C{Ccyan{x{{{x         - of course color codes work too.
+{RED{xIT {RC{xHANGE {R'3 blind mice' '7 seas'{x              - use quotes where needed.
+
+{RED{xIT {RS{xPLIT {Rbrown{x    - splits 'how now brown cow' into 'how now'
+                                                      'brown cow'
+{RED{xIT {R2 S{xPLIT {Rbrown{x  - ditto, at line 2.
+
+{RED{xIT {RW{xRAP   - word-wraps the current paragraph (lines between blank lines).
+{RED{xIT {R2 6 W{xRAP - word-wraps lines 2 through 6.
+   {CEDIT{x knows about color codes. Colored lines get the correct length.
+
+{RED{xIT {RUNDO{x - undoes your most recent change, in case you goofed.
+            {PWARNING{x: There is no 'multiple undo'. This will only work
+                     {Yonce{x to undo {Yone{x change.
 ~
 
 -2

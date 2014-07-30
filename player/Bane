@@ -1,0 +1,310 @@
+#PLAYER
+Name Bane~
+Id   1092773511
+LogO 1092777843
+Vers 14
+Mexp 1
+Pass flash~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  3
+Levl 3
+Tru  0
+Plyd 2519
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  56 107 130
+Gold 0
+Silv 45
+Exp  3487
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes 0
+FVul 0
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Block_Remote 0
+Prac 0
+Trai 0
+Wimp 0
+Familiar 0
+Atrib 19 14 15 13 14 10
+QuestPnts  1
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 25
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kismet~
+Lsit mudconnector.com~
+Ltim Tue Aug 17 16:18:40 2004
+~
+LSav Tue Aug 17 17:24:03 2004
+~
+HMSP 56 107 130
+THMS 1 0 1
+Cnd  0 0 0 0
+Sk 8 1 'axe'
+Sk 76 1 'sword'
+Sk 53 1 'shield block'
+Sk 1 1 'berserk'
+Sk 1 1 'dodge'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 4 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Affc 'shield'   0  86  31 -20  17          0 1
+Affc 'bless'   0  85  28 -12  24          0 1
+Affc 'bless'   0  78  28  12  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 112 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3707
+Enchanted
+Nest 0
+Wear -1
+Cost 118
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 9935
+Nest 0
+Wear -1
+Cost 5
+Val  4 0 10 0 0
+End
+
+#END

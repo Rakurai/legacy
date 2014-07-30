@@ -1,13 +1,12 @@
 #PLAYER
 Name Ayelri~
 Id   989894653
-LogO 1025581277
+LogO 1057793931
 Vers 14
 Mexp 2
 Pass ICH7Omaf~
 Prom %CW<%CC%h%CW/%CC%H%CWhp %CG%m%CW/%CG%M%CWma %CB%v%CWmv [%Cg%e%CW] %CR%X%CW [%Y%z%W]>  ~
 Race wolf~
-Clan kindred~
 Cla  7
 Levl 88
 Tru  0
@@ -15,7 +14,7 @@ Plyd 252026
 Back 92100
 Note 1018239070 1018210887 1018210887 1018296282 1018210887 1018249220 1018297218
 Scro 22
-Room 25000
+Room 3001
 HMS  2434 1247 1150
 Gold 441
 Silv 1256
@@ -35,7 +34,7 @@ FRes I
 FVul H
 Plr  CFHOR
 Video 0
-Act  CDEFGHJLNSTc
+Act  CDEFGHJLSTc
 AfBy CGPZ
 Comm DKNO
 Revk 0
@@ -61,7 +60,7 @@ Deit Kenneth~
 Lsit 201.los-angeles-65-70rs.ca.dial-access.att.net~
 Ltim Mon Apr 08 14:07:36 2002
 ~
-LSav Mon Jul 01 22:41:17 2002
+LSav Wed Jul 09 19:38:51 2003
 ~
 HMSP 1929 492 1120
 THMS 0 0 0
@@ -156,11 +155,11 @@ Gr 'healing'
 Gr 'maladictions'
 Gr 'protective'
 Gr 'weather'
-Affc 'divine regeneration'   0  81   5   0   0   33554432 4
-Affc 'blood moon'   0  80   5   8  19          0 1
-Affc 'blood moon'   0  83   5   5  18          0 1
-Affc 'shield'   0  79  13 -20  17          0 1
-Affc 'giant strength'   0  72   3   4   1          0 1
+Affc 'giant strength'   0  72   2   4   1          0 1
+Affc 'shield'   0  79  12 -20  17          0 1
+Affc 'blood moon'   0  83   4   5  18          0 1
+Affc 'blood moon'   0  80   4   8  19          0 1
+Affc 'divine regeneration'   0  81   4   0   0   33554432 4
 End
 
 #O
@@ -913,9 +912,9 @@ ShD  {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C th
 Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
 Wear -1
 Cost 0
-ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
-~
 ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 End
 
@@ -959,9 +958,9 @@ Mat paper~
 ExtF 16793600
 Wear -1
 Cost 1000
-ExDe m&m~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
-~
 ExDe bag~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
+~
+ExDe m&m~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
 ~
 End
 
@@ -1062,7 +1061,7 @@ Wt   0
 Wear 19
 Cost 15000
 Val  2 12 11 11 140
-Affc 'blood blade'   5  64  16   0   0          4 1
+Affc 'blood blade'   5  63  15   0   0          4 1
 End
 
 #O
@@ -1086,8 +1085,8 @@ Wear 16
 Lev  91
 Cost 11
 Val  1 10 14 3 129
-Affc 'enchant weapon'   0  91  -1   8  18          0 1
 Affc 'enchant weapon'   1  91  -1   8  19          0 1
+Affc 'enchant weapon'   0  91  -1   8  18          0 1
 ExDe sword outline of an elven longsword~ It is a marvellous sword, crafted from the finest platinum around.
 It was created in the Month of Endings by a master mage
 named Syveril.  Legend holds that this human was a great weaponsmith.
@@ -1124,13 +1123,13 @@ Cond 96
 Wear -1
 Lev  57
 Cost 0
-Affc 'reserved'   1  50  -1  30  13          0 1
-Affc 'reserved'   1  50  -1  40  12          0 1
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
-Affc 'enchant weapon'   1 100  -1  17  18          0 1
-Affc 'reserved'   1  50  -1   2  26          0 1
-Affc 'reserved'   1  50  -1   2   5          0 1
 Affc 'reserved'   1  50  -1   1   2          0 1
+Affc 'reserved'   1  50  -1   2   5          0 1
+Affc 'reserved'   1  50  -1   2  26          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'reserved'   1  50  -1  40  12          0 1
+Affc 'reserved'   1  50  -1  30  13          0 1
 ExDe chain mail bikini top~ Oh my god, is this thing legal?  It's a bikini top crafted entirely from chain
 mail, with each ring made from a solid {Bblue sa{Np{Bp{Nh{Bire{x.  Even if a bikini made out
 of chainmail was in any way considered clothing, the fact that this is made from
@@ -1155,12 +1154,12 @@ Cond 91
 Wear -1
 Lev  87
 Cost 25
-Affc 'enchant armor'   1  79  -1  -3  17          0 1
-Affc 'reserved'   1  85  -1  90  12          0 1
-Affc 'reserved'   1  85  -1  30  13          0 1
-Affc 'reserved'   1  85  -1   8  18          0 1
-Affc 'reserved'   1  85  -1   8  19          0 1
 Affc 'reserved'   1  85  -1   2  26          0 1
+Affc 'reserved'   1  85  -1   8  19          0 1
+Affc 'reserved'   1  85  -1   8  18          0 1
+Affc 'reserved'   1  85  -1  30  13          0 1
+Affc 'reserved'   1  85  -1  90  12          0 1
+Affc 'enchant armor'   1  79  -1  -3  17          0 1
 End
 
 #END

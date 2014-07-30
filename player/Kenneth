@@ -1,8 +1,8 @@
 #PLAYER
 Name Kenneth~
 Id   997314931
-LogO 1026872177
-Vers 14
+LogO 1406688525
+Vers 15
 Mexp 2
 Pass =montesquieu~
 Desc Kenneth has very tanned, almost leathery skin, which is fairly 
@@ -19,13 +19,12 @@ Race feral~
 Clan elders~
 Cla  2
 Levl 100
-Tru  100
-Plyd 3406885
-Back 3406689
-Note 1026083577 1024690924 1024989569 1025889908 1025150199 1026128344 1025590922
+Plyd 3599857
+Back 3599857
+Note 1086354852 1046507965 1083289505 1085735431 1086627429 1082136677 1034982849
 Scro 30
-Room 1201
-HMS  30009 30090 30007
+Room 1290
+HMS  30007 30087 30006
 Gold 11
 Silv 3364
 Exp  192500
@@ -36,32 +35,33 @@ Akilled  0
 PKRank   0
 Pos  8
 Alig 0
-Spou ~
 FImm 0
 FRes 0
 FVul JNR
 Plr  FGHJKMU
 Video AB
-Act  CDEFGHJLQSTe
+Act  CDEFGHJLQST
 AfBy RU
 Comm NO
 Revk 0
-Cgrp ABCDEFGH
+Cgrp ABDEHIKLMN
 Cnsr B
+Block_Remote 0
 Prac 98
 Trai 103
 Wimp 0
-Wizn ABCDEFHIJLMNOPQRSTUVZabc
-Invi 92
-Lurk 92
-Secu 92
-Atrib 25 25 25 25 25 25
+Familiar 0
+Wizn 0
+Invi 0
+Lurk 0
+Secu 2
+Atrib 18 19 18 24 18 17
 SkillPnts  4680
 RolePnts   30
-QuestPnts  4832
+QuestPnts  4829
 Bin  Kenneth creeps in warily.~
-Bout Kenneth leaves in a rush, eager to be gone.~
-Afk {B[{CMon Jun 17 15:50:33 2002{B] {CHelping mom unload the car
+Bout Kenneth checks all directions and then slinks out, watching his back.~
+Afk {B[{CWed Feb 19 18:16:27 2003{B] {CCan't freakin' quit
 ~
 Titl  {x~
 Immn {W[{x   {B*{C>{W\{C^{W/{C<{B*{x    {W]{x~
@@ -69,23 +69,15 @@ Pnts 55
 Rank {NN{B-{NE{x~
 Aura ~
 TSex 1
-LLev 640
-Email krusnak@kolozsvar.ro~
+LLev 983
+Email krusnak@email.ro~
 Deit Montrey~
-Lsit superpop18-214.innova.net~
-Ltim Tue Jul 09 08:13:31 2002
+Lsit adsl-4-152-248.gsp.bellsouth.net~
+Ltim Thu Jun 10 11:54:41 2004
 ~
-LSav Tue Jul 16 21:16:17 2002
+LSav Tue Jul 29 19:48:45 2014
 ~
-Finf {HJohnny Bravo: "Hot babe..with a treehouse.  What's not to like?"
-
-In "-rez avp2 +runworld %WorldName%" we trust.  
-Amen.
-
-{H"No!  Nuns in a station wagon loaded with high explosives!
-{H Just my luck!"
-~
-HMSP 30009 30015 30007
+HMSP 30007 30012 30006
 THMS 1 0 0
 Cnd  0 32 100 100
 Sk 100 1 'reserved'
@@ -305,6 +297,12 @@ Sk 100 1 'critical blow'
 Gr 'rom basics'
 Gr 'thief basics'
 Gr 'thief default'
+Grant goto
+Grant immtalk
+Grant wizhelp
+Grant immtalk
+Grant wizhelp
+Grant goto
 End
 
 #O
@@ -330,13 +328,6 @@ ShD  A thin silver band~
 ExtF 1114196
 Wear 1
 Cost 15000
-End
-
-#O
-Vnum 1270
-Nest 1
-Wear -1
-Cost 0
 End
 
 #O
@@ -1062,6 +1053,36 @@ Wear -1
 Cost 0
 End
 
+#O
+Vnum 119
+Nest 0
+Name food A yummy chocolate chip bagel~
+ShD  {VA {Py{Yu{Gm{Bm{Vy {bc{Yh{bo{Yc{bo{Yl{ba{Yt{be {Wchip {bbagel{x~
+Desc {VA {Py{Yu{Gm{Bm{Vy {bc{Yh{bo{Yc{bo{Yl{ba{Yt{be {Wchip {bbagel{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  34 68 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Laurana.
+~
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 1312
+Nest 0
+Wear -1
+Cost 5000
+End
+
 #B
 Vnum 119
 Nest 0
@@ -1155,13 +1176,6 @@ Cost 12
 End
 
 #B
-Vnum 1270
-Nest 0
-Wear -1
-Cost 0
-End
-
-#B
 Vnum 1204
 Nest 0
 Name restring~
@@ -1209,13 +1223,6 @@ ShD  {A token for one restring{x~
 Desc {A token for one restring{x~
 Wear -1
 Cost 12
-End
-
-#B
-Vnum 1270
-Nest 0
-Wear -1
-Cost 0
 End
 
 #B

@@ -713,9 +713,11 @@ Syntax:
    {Ccast{x '{Ygas breath{x'       <{Yvictim{x>
 
 These spells are for the use of dragons; however, high level mages may
-also learn and cast these spells.  {CAcid{x and {Clightning{x breath damage one
-victim, whereas the others damage everyone in the room.  {CFire{x and {Cfrost{x
-can break objects, and {Cacid{x can damage armor.
+also learn and cast these spells. Acid Breath and Lightning Breath
+effect either the given {Yvictim{x or everyone who is currently fighting
+the caster. Fire, Frost and Gas Breath effect all non-friendly targets
+in the room.
+{CFire{x and {Cfrost{x can break objects, and {Cacid{x can damage armor.
 
 GROUP: {RDraconian{x
 ~
@@ -1268,6 +1270,15 @@ Syntax: {Ccast{x '{Ysanctuary{x'  <{Ycharacter{x>
 GROUP: {RProtective{x
 ~
 
+0 SCRY~
+Syntax: {Ccast{x {Yscry{x
+
+Scry allows you to see the contents of a room where your
+pet is currently located. This can be used by leaving your pet
+some place then using "cast scry" to see who/what is in that
+room.
+~
+
 0 SHIELD 'STONE SKIN'~
 Syntax: {Ccast{x '{Yshield{x' <{Ycharacter{x>
         {Ccast{x '{Ystone skin{x'
@@ -1331,7 +1342,7 @@ Syntax: cast '{Ygate{x' <{Ycharacter/mob{x>
 
 This spell is one of the most basic transportation spells.  It allows you
 to teleport yourself and your pet (if you have one) to another character
-of mob by use of a magical gate, with certain limitations.  You cannot
+or mob by use of a magical gate, with certain limitations.  You cannot
 {Cgate{x to a monster or player that is more than 3 levels higher than you,
 and monsters recieve a save against {Cgate{x.  You also cannot {Cgate{x to rooms
 belonging to Immortals, private rooms, and rooms that are no-recall, nor
@@ -1535,6 +1546,17 @@ Syntax: {Ccast{x '{Ychange sex{x' <{Yvictim{x>
 This spell temporarily changes the sex of the victim.
 
 GROUP: {RAlteration{x
+~
+
+0 STARVE~
+Syntax: {Ccast{x {Ystarve{x <{Yvictim{x>
+
+This spell makes your victim very hungry and
+thirsty (on success) and nothing on failure.
+This spell works only on PCs, mobs are not
+effected.
+
+GROUP: {RMaladictions{x
 ~
 
 -2

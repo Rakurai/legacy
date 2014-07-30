@@ -1,38 +1,38 @@
 #PLAYER
 Name Radiant~
-Id   1026575221
-LogO 1026583733
+Id   1080668524
+LogO 1080670202
 Vers 14
-Mexp 0
-Pass liar5~
-Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
-Race seraph~
-Cla  5
-Levl 5
+Mexp 2
+Pass moonstarr~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race human~
+Cla  3
+Levl 1
 Tru  0
-Plyd 3222
-Back 0
+Plyd 1505
+Back 1493
 Note 0 0 0 0 0 0 0
 Scro 22
-Room 3054
-HMS  81 129 140
-Gold 0
-Silv 350
-Exp  6354
+Room 8543
+HMS  14 100 45
+Gold 2
+Silv 25
+Exp  1478
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
 Pos  4
-Alig 1000
+Alig -809
 FImm 0
-FRes NS
-FVul M
-Plr  U
+FRes 0
+FVul 0
+Plr  0
 Video 0
 Act  CDEFGHJLQSc
-AfBy T
+AfBy 0
 Comm NO
 Revk 0
 Cgrp A
@@ -40,85 +40,75 @@ Cnsr AB
 Prac 0
 Trai 0
 Wimp 0
-Atrib 20 14 18 13 16 18
-Afk {B[{CSat Jul 13 11:20:24 2002{B] {CUnknown Departure.{x
+Familiar 0
+Atrib 20 16 12 14 12 14
+Afk {B[{CTue Mar 30 13:06:52 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  {GA{Br{Gc{Bh{Ga{Bn{Gg{Be{Gl{B of {YTruth{Y~
+Titl  ({VNewbie Aura{x)~
 Immn ~
-Pnts 42
+Pnts 43
 Rank ~
 Aura ~
-TSex 1
+TSex 2
 LLev 0
-Deit Xenith~
-Lsit 216.29.223.89~
-Ltim Sat Jul 13 13:02:17 2002
+Deit Kismet~
+Lsit mctn1-142166196181.nb.aliant.net~
+Ltim Tue Mar 30 12:44:57 2004
 ~
-LSav Sat Jul 13 13:08:53 2002
+LSav Tue Mar 30 13:10:02 2004
 ~
-HMSP 89 129 140
-THMS 1 0 0
-Cnd  0 45 47 22
-Sk 75 1 'armor'
-Sk 1 1 'bless'
-Sk 1 1 'calm'
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 0 14
+Sk 1 1 'armor'
 Sk 1 1 'cancellation'
-Sk 1 1 'cure blindness'
-Sk 1 1 'cure critical'
-Sk 1 1 'cure disease'
-Sk 1 1 'cure light'
-Sk 1 1 'cure poison'
-Sk 1 1 'cure serious'
 Sk 1 1 'dispel magic'
-Sk 1 1 'divine healing'
 Sk 1 1 'fireproof'
-Sk 1 1 'frenzy'
-Sk 1 1 'heal'
-Sk 1 1 'holy word'
-Sk 1 1 'mass healing'
 Sk 1 1 'protection evil'
 Sk 1 1 'protection good'
-Sk 1 1 'refresh'
-Sk 1 1 'remove alignment'
-Sk 1 1 'remove invisibility'
-Sk 1 1 'remove curse'
 Sk 1 1 'sanctuary'
 Sk 1 1 'shield'
 Sk 1 1 'stone skin'
 Sk 1 1 'undo spell'
-Sk 77 1 'sword'
-Sk 75 1 'shield block'
-Sk 1 1 'parry'
-Sk 1 1 'rescue'
+Sk 75 1 'sword'
+Sk 1 1 'bash'
+Sk 1 1 'dodge'
+Sk 14 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 21 1 'parry'
+Sk 1 1 'second attack'
 Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'unarmed'
+Sk 1 1 'fast healing'
 Sk 100 1 'scan'
 Sk 1 1 'scrolls'
 Sk 1 1 'staves'
 Sk 1 1 'wands'
 Sk 50 1 'recall'
 Gr 'rom basics'
-Gr 'paladin basics'
-Gr 'benedictions'
-Gr 'curative'
-Gr 'healing'
+Gr 'warrior basics'
 Gr 'protective'
-Affc 'bless'   0  55  42   7  18          0 1
-Affc 'bless'   0  56  42  -7  24          0 1
 End
 
 #O
 Vnum 3716
 Nest 0
-Cond 98
 Wear 0
 Cost 0
-Val  0 0 128 0 0
+Val  0 0 166 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
 End
 
 #O
 Vnum 3702
 Nest 0
-Cond 95
 Wear 16
 Cost 360
 End
@@ -138,11 +128,59 @@ Cost 500
 End
 
 #O
-Vnum 3711
+Vnum 72
 Nest 0
-Cond 95
-Wear 12
-Cost 72
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
 End
 
 #O
@@ -155,8 +193,21 @@ End
 #O
 Vnum 3712
 Nest 0
-Cond 99
 Wear 13
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
 Cost 72
 End
 
@@ -168,60 +219,24 @@ Cost 72
 End
 
 #O
-Vnum 74
+Vnum 3705
 Nest 0
-Cond 99
 Wear 3
-Cost 550
+Cost 72
 End
 
 #O
-Vnum 73
-Nest 0
-Wear 6
-Cost 270
-End
-
-#O
-Vnum 78
+Vnum 3708
 Nest 0
 Wear 8
-Cost 900
+Cost 72
 End
 
 #O
-Vnum 75
-Nest 0
-Wear 1
-Cost 620
-End
-
-#O
-Vnum 77
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 3066
-Nest 0
-Wear 5
-Cost 430
-End
-
-#O
-Vnum 3052
-Nest 0
-Wear 15
-Cost 112
-End
-
-#O
-Vnum 3052
+Vnum 3713
 Nest 0
 Wear 14
-Cost 112
+Cost 48
 End
 
 #END

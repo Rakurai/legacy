@@ -1,26 +1,25 @@
 #PLAYER
 Name Elsie~
 Id   1016410362
-LogO 1026636587
+LogO 1057797082
 Vers 14
 Mexp 2
 Pass aqua24~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race human~
-Clan order~
 Cla  5
-Levl 44
+Levl 51
 Tru  0
-Plyd 105261
+Plyd 132955
 Back 0
-Note 1024855767 1023571007 1023571007 1024197091 1023571007 1026626263 1023571007
+Note 1045495077 1045495080 1027791892 1045495086 1023571007 1043789411 1023571007
 Scro 22
-Room 24472
-HMS  1183 666 523
-Gold 2796
-Silv 1507
-Gold_in_bank 6000
-Exp  44985
+Room 3001
+HMS  1382 697 598
+Gold 445
+Silv 1843
+Gold_in_bank 12000
+Exp  51910
 PCkills  1
 PCkilled 0
 Akills   0
@@ -28,47 +27,45 @@ Akilled  0
 PKRank   1
 Pos  8
 Alig 1000
-Spou Matilda~
 FImm 0
 FRes 0
 FVul 0
-Plr  ABIK
+Plr  AHIKU
 Video 0
 Act  CDEFGHJLQSc
-AfBy 0
+AfBy T
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Prac 12
-Trai 2
+Prac 40
+Trai 10
 Wimp 0
 Atrib 18 18 18 18 18 21
 SkillPnts  91
-QuestPnts  50
-QpDonated  4
-Afk {B[{CSun Jul 14 03:09:30 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+QuestPnts  54
+Afk {B[{CMon Feb 17 10:31:01 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl .~
 Immn ~
 Pnts 40
-Rank {NC{Ce{Nn~
+Rank {c2{gL{ct~
 Aura ~
 TSex 2
-LLev 25
+LLev 36
 Deit Montrey~
-Lsit crlspr-12.164.33.214.myacc.net~
-Ltim Sun Jul 14 00:57:38 2002
+Lsit crlspr-24.233.162.130.myacc.net~
+Ltim Tue Feb 25 18:28:34 2003
 ~
-LSav Sun Jul 14 03:49:47 2002
+LSav Wed Jul 09 20:31:22 2003
 ~
-HMSP 713 471 553
+HMSP 842 532 628
 THMS 0 0 0
-Cnd  0 0 0 0
+Cnd  0 0 26 30
 Colr 13 36 1
 Sk 1 1 'age'
-Sk 75 1 'armor'
-Sk 76 1 'blindness'
+Sk 76 1 'armor'
+Sk 78 1 'blindness'
 Sk 75 1 'cancellation'
 Sk 75 1 'cure critical'
 Sk 75 1 'cure light'
@@ -79,7 +76,7 @@ Sk 1 1 'divine healing'
 Sk 1 1 'energy drain'
 Sk 75 1 'fireproof'
 Sk 76 1 'fly'
-Sk 81 1 'gate'
+Sk 82 1 'gate'
 Sk 78 1 'heal'
 Sk 75 1 'mass healing'
 Sk 75 1 'nexus'
@@ -91,26 +88,26 @@ Sk 76 1 'protection evil'
 Sk 76 1 'protection good'
 Sk 81 1 'refresh'
 Sk 76 1 'sanctuary'
-Sk 76 1 'shield'
-Sk 76 1 'slow'
+Sk 77 1 'shield'
+Sk 84 1 'slow'
 Sk 75 1 'stone skin'
 Sk 75 1 'summon'
 Sk 1 1 'summon object'
 Sk 75 1 'teleport'
 Sk 1 1 'teleport object'
 Sk 75 1 'undo spell'
-Sk 75 1 'weaken'
+Sk 79 1 'weaken'
 Sk 71 1 'word of recall'
 Sk 100 1 'sword'
 Sk 75 1 'shield block'
-Sk 86 1 'bash'
+Sk 92 1 'bash'
 Sk 75 1 'dirt kicking'
 Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
 Sk 89 1 'kick'
 Sk 100 1 'parry'
 Sk 75 1 'rescue'
-Sk 83 1 'second attack'
+Sk 88 1 'second attack'
 Sk 100 1 'dual wield'
 Sk 100 1 'scan'
 Sk 75 1 'scrolls'
@@ -123,46 +120,13 @@ Gr 'healing'
 Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
-End
-
-#O
-Vnum 16084
-Nest 0
-Cond 75
-Wear 2
-Cost 0
-End
-
-#O
-Vnum 16084
-Nest 0
-Cond 91
-Wear 1
-Cost 0
-End
-
-#O
-Vnum 16064
-Nest 0
-Cond 91
-Wear 19
-Cost 4500
-End
-
-#O
-Vnum 24401
-Nest 0
-Cond 95
-Wear 10
-Cost 2000
-End
-
-#O
-Vnum 24400
-Nest 0
-Cond 94
-Wear 8
-Cost 2000
+Affc 'stone skin'   0  13   1 -40  17          0 1
+Affc 'armor'   0  12  10 -20  17          0 1
+Affc 'shield'   0  72  24 -20  17          0 1
+Affc 'giant strength'   0  75  16   5   1          0 1
+Affc 'bless'   0  78  22  11  18          0 1
+Affc 'bless'   0  82  22 -11  24          0 1
+Affc 'fly'   0  76  20   0   0     524288 1
 End
 
 #O
@@ -174,16 +138,9 @@ Cost 3000
 End
 
 #O
-Vnum 24404
-Nest 0
-Cond 93
-Wear -1
-Cost 3000
-End
-
-#O
 Vnum 20028
 Nest 0
+Cond 90
 Wear 5
 Cost 700
 End
@@ -191,7 +148,7 @@ End
 #O
 Vnum 4595
 Nest 0
-Cond 92
+Cond 80
 Wear 13
 Cost 8000
 End
@@ -199,7 +156,7 @@ End
 #O
 Vnum 24402
 Nest 0
-Cond 93
+Cond 85
 Wear 0
 Cost 3000
 End
@@ -207,6 +164,7 @@ End
 #O
 Vnum 24405
 Nest 0
+Cond 99
 Wear 4
 Cost 4000
 End
@@ -214,7 +172,7 @@ End
 #O
 Vnum 24405
 Nest 0
-Cond 91
+Cond 76
 Wear 3
 Cost 4000
 End
@@ -222,7 +180,7 @@ End
 #O
 Vnum 24406
 Nest 0
-Cond 94
+Cond 82
 Wear 15
 Cost 4000
 End
@@ -300,13 +258,6 @@ Cost 22
 End
 
 #O
-Vnum 3009
-Nest 1
-Wear -1
-Cost 22
-End
-
-#O
 Vnum 16057
 Nest 1
 Wear -1
@@ -375,14 +326,6 @@ Cost 290
 Spell 1 'detect invis'
 Spell 2 'detect magic'
 Spell 3 'detect hidden'
-End
-
-#O
-Vnum 9573
-Nest 1
-Wear -1
-Cost 820
-Spell 1 'haste'
 End
 
 #O
@@ -454,14 +397,6 @@ Cost 50000
 End
 
 #O
-Vnum 24468
-Nest 1
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
 Vnum 24483
 Nest 1
 Wear -1
@@ -529,38 +464,6 @@ Cost 750
 End
 
 #O
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
 Vnum 3080
 Nest 0
 Wear -1
@@ -594,7 +497,7 @@ End
 #O
 Vnum 3204
 Nest 0
-Cond 91
+Cond 81
 Wear 18
 Cost 50
 End
@@ -617,6 +520,7 @@ End
 #O
 Vnum 16016
 Nest 0
+Cond 86
 Wear 9
 Cost 4650
 End
@@ -624,18 +528,181 @@ End
 #O
 Vnum 3203
 Nest 0
-Cond 97
+Cond 96
 Wear 12
 Cost 40
+End
+
+#O
+Vnum 10212
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 10215
+Nest 0
+Cond 94
+Wear 19
+Cost 10000
+End
+
+#O
+Vnum 17103
+Nest 0
+Wear -1
+Cost 230
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear 10
+Cost 133
+End
+
+#O
+Vnum 24407
+Nest 0
+Cond 92
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 17104
+Nest 0
+Wear -1
+Cost 170
 End
 
 #O
 Vnum 10215
 Nest 0
 ExtF 64
-Cond 94
+Cond 63
 Wear 16
 Cost 10000
+End
+
+#O
+Vnum 17103
+Nest 0
+Wear -1
+Cost 230
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 1213
+Nest 0
+Name jubei chi earth token hidden~
+ShD  {WE{ga{Wr{gt{Wh {gC{Wh{gi {W*{YHidden{W*{x~
+Desc {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1211
+Nest 0
+Name Thank You! token~
+ShD  Thank You!~
+Desc Thanks for your activity contribution to Age of Legacy.  {HViro{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24412
+Nest 0
+Wear 2
+Cost 3000
+End
+
+#O
+Vnum 24412
+Nest 0
+Wear 1
+Cost 3000
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
 End
 
 #O
@@ -647,19 +714,11 @@ Spell 3 'armor'
 End
 
 #O
-Vnum 8652
+Vnum 24467
 Nest 0
 Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
+Cost 0
+Spell 3 'giant strength'
 End
 
 #O

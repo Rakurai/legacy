@@ -100,7 +100,7 @@ stand stand none 0
 0 0 small 0
 
 #7607
-terrier~
+terrier dog~
 {bterrier{x~
 The monopoly man's ugly, yappy, ill-tempered dog sits here.
 ~
@@ -151,7 +151,7 @@ stand stand none 0
 
 
 #7610
-wagon~
+wagon radio flyer~
 {PRadio Flyer{x~
 A bright red Radio Flyer wagon wobbles here.
 ~
@@ -1224,7 +1224,7 @@ something you won't find anywhere else - the special ambiance and thrill
 surrounding Kentucky's world of horses. From the diversity of the
 Kentucky Horse Park, the Kentucky Derby Museum, and Bluegrass horse
 farms, to the excitement of thoroughbred racing, steeplechase and
-traditional polo matches. Everything you could possible dream of and more.{x
+traditional polo matches. Everything you could possibly dream of and more.{x
 ~
 0 D 0
 D2

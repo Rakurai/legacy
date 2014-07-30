@@ -1,48 +1,47 @@
 #PLAYER
 Name Ella~
 Id   1015969524
-LogO 1016829118
-Vers 13
+LogO 1060017815
+Vers 14
+Mexp 2
+Pass guitar~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race human~
-Clan blackclaw~
-Sex  2
 Cla  7
 Levl 17
+Tru  0
 Plyd 47018
-Age  0
 Back 0
 Note 0 0 1015387649 0 0 0 0
 Scro 22
-Room 3054
-HMS  361 361 214 214 254 254
+Room 3001
+HMS  361 214 254
 Gold 943
 Silv 5269
 Exp  17865
-PCkills 0
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  H
+Video 0
 Act  CDEFGHJLS
 AfBy T
 Comm NOY
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  5
 Prac 12
 Trai 15
-Save  -1
-Alig  -1000
-Hit   12
-Dam   2
-ACs 12 12 16 57
-Wimp  30
+Wimp 30
 Atrib 14 12 18 16 18 10
-AtMod 5 2 3 6 3 1
-QuestPnts 2
-Pass guitar~
+QuestPnts  2
 Afk {B[{CSun Mar 17 19:42:09 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  *.*.*~
@@ -54,14 +53,10 @@ TSex 2
 LLev 12
 Deit Jubei~
 Lsit 207-172-132-200.c3-0.lex-ubr1.sbo-lex.ma.cable.rcn.com~
-Ltim Fri Mar 22 13:52:04 2002
+Ltim Fri Mar 22 12:52:04 2002
 ~
-LSav Fri Mar 22 14:31:58 2002
+LSav Mon Aug 04 13:23:35 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  H
 HMSP 311 169 254
 THMS 0 0 0
 Cnd  0 0 0 0
@@ -94,8 +89,8 @@ Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'ranger basics'
 Gr 'protective'
-Affc 'fly'   0  53  18   0   0     524288 1
-Affc 'giant strength'   0  52  15   4   1          0 1
+Affc 'fly'   0  53  15   0   0     524288 1
+Affc 'giant strength'   0  51  12   4   1          0 1
 End
 
 #O

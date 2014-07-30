@@ -1,0 +1,259 @@
+#PLAYER
+Name Aurwen~
+Id   1061865487
+LogO 1066968199
+Vers 14
+Mexp 2
+Pass 12345~
+Prom <%hhp %mma %vst %Xtnl> ~
+Race seraph~
+Cla  4
+Levl 4
+Tru  0
+Plyd 24830
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3760
+HMS  29 67 57
+Gold 0
+Silv 198
+Exp  14988
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 608
+FImm 0
+FRes NS
+FVul M
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NOPa
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 4
+Trai 0
+Wimp 0
+Atrib 19 18 15 15 17 15
+Afk {B[{CSun Oct 19 12:29:20 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 51
+Rank ~
+Aura ~
+TSex 1
+LLev 4
+Deit Teotwawki~
+Lsit 66.244.73.19~
+Ltim Thu Oct 23 23:59:56 2003
+~
+LSav Fri Oct 24 00:03:19 2003
+~
+HMSP 43 131 112
+THMS 0 0 0
+Cnd  0 8 40 2
+Sk 1 1 'acid breath'
+Sk 1 1 'acid rain'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 1 1 'armor'
+Sk 1 1 'bless'
+Sk 1 1 'blizzard'
+Sk 1 1 'blood moon'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'change sex'
+Sk 1 1 'continual light'
+Sk 1 1 'control weather'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'darkness'
+Sk 1 1 'dazzling light'
+Sk 1 1 'dispel magic'
+Sk 1 1 'encampment'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'energy drain'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fear'
+Sk 1 1 'fire breath'
+Sk 1 1 'fireproof'
+Sk 1 1 'flameshield'
+Sk 3 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'lightning breath'
+Sk 1 1 'polymorph'
+Sk 1 1 'protect container'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'recharge'
+Sk 1 1 'resurrect'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'shrink'
+Sk 1 1 'steel mist'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 77 1 'dagger'
+Sk 1 1 'polearm'
+Sk 14 1 'scribe'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 75 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'curative'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'weather'
+Gr 'alteration'
+End
+
+#O
+Vnum 3020
+Nest 0
+Cond 87
+Wear 16
+Cost 157
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Cond 92
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear 17
+Cost 1140
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#END

@@ -1,0 +1,2838 @@
+#PLAYER
+Name Lodasian~
+Id   1079079769
+LogO 1105578572
+Vers 14
+Mexp 2
+Pass kickass~
+Desc Lodasian looks to be an elf at first glance, until you notice the lack of pupils indicative of an Irda mage. He wears a long robe that seems to wave around his feet, with a dim blue glow coming from underneath it.
+~
+Prom {g<{C%h{T/{C%H{Thp {G%m{H/{G%M{Hma {B%v{N/{B%V{Nst {b%g{bgp {W-%X{gxp> ~
+Race irda~
+Cla  0
+Levl 70
+Plyd 866209
+Back 770509
+Note 1082143770 0 0 1081980376 1081723642 1082345854 0
+Scro 80
+Room 3001
+HMS  1235 1260 450
+Gold 227
+Silv 296
+Silver_in_bank 55841
+Gold_in_bank 18182
+Exp  74327
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  HOU
+Video 0
+Act  DEFGHJLSc
+AfBy 0
+Comm GNOPQ
+Revk 0
+Cgrp AI
+Cnsr AB
+Block_Remote 0
+Prac 0
+Trai 0
+Wimp 200
+Familiar 0
+Atrib 15 23 21 18 16 10
+SkillPnts  33
+QuestPnts  30
+Afk {B[{CMon Apr 19 06:46:02 2004{B] {CUnknown Departure.{x
+~
+Titl  the translucent~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 224
+Email joshua@bbeg.org~
+Deit Whisper~
+Lsit blk2-227-13.eastlink.ca~
+Ltim Sun Apr 18 05:21:55 2004
+~
+LSav Wed Jan 12 20:09:32 2005
+~
+HMSP 720 990 450
+THMS 0 0 0
+Cnd  0 0 100 100
+Alias cure cast 'cure critical'~
+Alias loot get all cor~
+Alias ref cast refresh~
+Alias inv cast invis~
+Alias dinv cast 'detect invis'~
+Alias ww scan w~
+Alias ee scan e~
+Alias nn scan n~
+Alias ss scan s~
+Alias bolt cast lightning~
+Alias dh cast 'detect hidden'~
+Alias loc cast 'locate object'~
+Alias fire cast fireball~
+Alias gate cast gate~
+Alias charm cast 'charm person' ~
+Alias 2 hold vial~
+Alias 3 brew divine~
+Alias atk order all kill ~
+Alias acid ca 'acid blast'~
+Alias q quaff divine~
+Alias or order all remove all~
+Alias od order all drop all~
+Alias acidb ca 'acid breath'~
+Alias fireb ca 'fire breath'~
+Alias TRIGGER clear~
+Alias 1 cast 'create vial'~
+Sk 100 1 'acid blast'
+Sk 100 1 'acid breath'
+Sk 90 1 'acid rain'
+Sk 76 1 'age'
+Sk 78 1 'animate skeleton'
+Sk 77 1 'animate wraith'
+Sk 75 1 'animate gargoyle'
+Sk 77 1 'animate zombie'
+Sk 92 1 'armor'
+Sk 80 1 'bless'
+Sk 84 1 'blindness'
+Sk 93 1 'blizzard'
+Sk 75 1 'blood moon'
+Sk 94 1 'burning hands'
+Sk 75 1 'call lightning'
+Sk 76 1 'calm'
+Sk 78 1 'cancellation'
+Sk 81 1 'chain lightning'
+Sk 75 1 'channel'
+Sk 100 1 'charm person'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 84 1 'continual light'
+Sk 75 1 'control weather'
+Sk 88 1 'create food'
+Sk 1 1 'create parchment'
+Sk 75 1 'create rose'
+Sk 75 1 'create sign'
+Sk 1 1 'create spring'
+Sk 100 1 'create vial'
+Sk 79 1 'create water'
+Sk 77 1 'cure blindness'
+Sk 100 1 'cure critical'
+Sk 79 1 'cure disease'
+Sk 79 1 'cure light'
+Sk 76 1 'cure poison'
+Sk 87 1 'cure serious'
+Sk 79 1 'curse'
+Sk 1 1 'dazzling light'
+Sk 75 1 'demonfire'
+Sk 77 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 87 1 'detect hidden'
+Sk 91 1 'detect invis'
+Sk 75 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 76 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 83 1 'dispel magic'
+Sk 92 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 87 1 'earthquake'
+Sk 78 1 'encampment'
+Sk 77 1 'enchant armor'
+Sk 89 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 75 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 75 1 'fear'
+Sk 89 1 'fire breath'
+Sk 100 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 82 1 'flameshield'
+Sk 75 1 'flamestrike'
+Sk 85 1 'fly'
+Sk 79 1 'floating disc'
+Sk 82 1 'frenzy'
+Sk 75 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 98 1 'gate'
+Sk 92 1 'giant strength'
+Sk 92 1 'haste'
+Sk 98 1 'heal'
+Sk 79 1 'heat metal'
+Sk 75 1 'holy word'
+Sk 1 1 'identify'
+Sk 77 1 'infravision'
+Sk 90 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 100 1 'lightning bolt'
+Sk 100 1 'lightning breath'
+Sk 80 1 'locate life'
+Sk 92 1 'locate object'
+Sk 90 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 43 1 'nexus'
+Sk 82 1 'pass door'
+Sk 78 1 'plague'
+Sk 75 1 'poison'
+Sk 75 1 'power word'
+Sk 43 1 'portal'
+Sk 75 1 'protect container'
+Sk 76 1 'protection evil'
+Sk 76 1 'protection good'
+Sk 1 1 'ray of truth'
+Sk 1 1 'recharge'
+Sk 89 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 83 1 'regeneration'
+Sk 46 1 'remove alignment'
+Sk 43 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 88 1 'sanctuary'
+Sk 77 1 'scry'
+Sk 87 1 'shield'
+Sk 94 1 'shocking grasp'
+Sk 79 1 'shrink'
+Sk 75 1 'sleep'
+Sk 100 1 'slow'
+Sk 79 1 'smokescreen'
+Sk 1 1 'starve'
+Sk 79 1 'steel mist'
+Sk 88 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'sunray'
+Sk 77 1 'talon'
+Sk 79 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 80 1 'undo spell'
+Sk 75 1 'ventriloquate'
+Sk 75 1 'vision'
+Sk 80 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 100 1 'dagger'
+Sk 100 1 'shield block'
+Sk 93 1 'brew'
+Sk 84 1 'dodge'
+Sk 76 1 'repair'
+Sk 81 1 'languages'
+Sk 87 1 'lore'
+Sk 100 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 43 1 'staves'
+Sk 1 1 'wands'
+Sk 52 1 'recall'
+Sk 1 1 'lay'
+Sk 2 1 'familiar'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'attack'
+Gr 'beguiling'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 4594
+Nest 0
+Cond 98
+Wear 2
+Cost 8000
+End
+
+#O
+Vnum 17105
+Nest 0
+Wear 8
+Cost 145
+End
+
+#O
+Vnum 505
+Nest 0
+Wear 6
+Cost 950
+End
+
+#O
+Vnum 16016
+Nest 0
+Wear 9
+Cost 4650
+End
+
+#O
+Vnum 17108
+Nest 0
+Wear 15
+Cost 350
+End
+
+#O
+Vnum 17101
+Enchanted
+Nest 0
+ExtF 67
+Cond 98
+Wear 11
+Lev  56
+Cost 0
+Affc 'reserved'   1  55  -1 -10  17          0 1
+Affc 'reserved'   1  55  -1  30  13          0 1
+Affc 'enchant weapon'   1  57  -1   5  18          0 1
+Affc 'enchant weapon'   1  57  -1   5  19          0 1
+Affc 'reserved'   1  55  -1  -6  20          0 1
+End
+
+#O
+Vnum 5604
+Nest 0
+ExtF 17301507
+Cond 97
+Wear 4
+Cost 1000
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 14069
+Nest 0
+Wear 5
+Cost 400
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 97
+Wear 3
+Cost 3800
+End
+
+#O
+Vnum 17001
+Nest 0
+Wear 0
+Cost 2000
+End
+
+#O
+Vnum 4425
+Enchanted
+Nest 0
+ExtF 65
+Wear 7
+Lev  71
+Cost 2400
+Affc 'enchant weapon'   0  70  -1   2  18          0 1
+Affc 'enchant weapon'   1  70  -1   2  19          0 1
+Affc 'reserved'   1  70  -1  70  13          0 1
+End
+
+#O
+Vnum 4433
+Nest 0
+Cond 88
+Wear 17
+Cost 7000
+End
+
+#O
+Vnum 4403
+Nest 0
+Cond 96
+Wear 12
+Cost 1000
+End
+
+#O
+Vnum 4408
+Nest 0
+Wear 10
+Cost 800
+End
+
+#O
+Vnum 4431
+Nest 0
+Cond 99
+Wear 14
+Cost 6000
+End
+
+#O
+Vnum 17008
+Nest 0
+Cond 96
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 10281
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 119
+Nest 1
+Name food counter~
+ShD  counter~
+Desc Counter{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  33 66 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Lodasian.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food counter~
+ShD  counter~
+Desc Counter{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  35 70 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Lodasian.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food counter~
+ShD  counter~
+Desc Counter{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  35 70 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Lodasian.
+~
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Enchanted
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+Affc 'reserved'   1  15  -1  -1   5          0 1
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 9576
+Nest 0
+Name barrel beer water~
+ExtF 64
+Wt   0
+Wear -1
+Lev  1
+Cost 120
+Val  150 114 10 0 0
+End
+
+#O
+Vnum 17104
+Nest 0
+Cond 96
+Wear -1
+Cost 170
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  68
+Cost 2000
+Val  68 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  68
+Cost 2000
+Val  68 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  68
+Cost 2000
+Val  68 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  68
+Cost 2000
+Val  68 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  68
+Cost 2000
+Val  68 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  68
+Cost 2000
+Val  68 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 4438
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  73
+Cost 0
+Affc 'enchant armor'   1  70  -1  -5  17          0 1
+Affc 'reserved'   1  70  -1  40  12          0 1
+Affc 'reserved'   1  70  -1   2  18          0 1
+Affc 'reserved'   1  70  -1   1  19          0 1
+End
+
+#O
+Vnum 4423
+Nest 0
+Wear -1
+Cost 3400
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion divine healing~
+ShD  a potion of divine healing~
+Desc A potion of divine healing lies here.
+~
+Wear -1
+Lev  70
+Cost 2000
+Val  70 56 -1 -1 -1
+Spell 1 'divine healing'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 26001
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 119
+Nest 0
+Name food counter~
+ShD  counter~
+Desc Counter{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  35 70 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Lodasian.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food counter~
+ShD  counter~
+Desc Counter{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  35 70 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Lodasian.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food counter~
+ShD  counter~
+Desc Counter{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  35 70 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Lodasian.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food counter~
+ShD  counter~
+Desc Counter{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  35 70 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Lodasian.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food counter~
+ShD  counter~
+Desc Counter{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  35 70 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Lodasian.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food counter~
+ShD  counter~
+Desc Counter{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  35 70 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Lodasian.
+~
+End
+
+#L
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 911
+Nest 0
+Wear -1
+Cost 6900
+End
+
+#L
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 16009
+Enchanted
+Nest 0
+Wear -1
+Lev  40
+Cost 4500
+Affc 'reserved'   1  41  -1  55  12          0 1
+Affc 'reserved'   1  41  -1   2   3          0 1
+End
+
+#L
+Vnum 16009
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#L
+Vnum 16009
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#L
+Vnum 923
+Nest 0
+Wear -1
+Cost 6800
+End
+
+#L
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 908
+Nest 0
+Wear -1
+Cost 2900
+End
+
+#L
+Vnum 923
+Nest 0
+Wear -1
+Cost 6800
+End
+
+#L
+Vnum 16009
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#L
+Vnum 7608
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 17320
+Nest 0
+ExtF 262146
+Wear -1
+Cost 0
+Val  250 1 17321 40 30
+End
+
+#L
+Vnum 16090
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'fireball'
+End
+
+#L
+Vnum 9576
+Nest 0
+Wear -1
+Cost 120
+End
+
+#L
+Vnum 9576
+Nest 0
+Wear -1
+Cost 120
+End
+
+#L
+Vnum 9576
+Nest 0
+Wear -1
+Cost 120
+End
+
+#L
+Vnum 9590
+Nest 0
+Wear -1
+Cost 380
+End
+
+#L
+Vnum 4590
+Nest 0
+Cond 92
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 4592
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 17015
+Nest 0
+Wear -1
+Cost 200
+Val  500 480 31 0 0
+End
+
+#L
+Vnum 3505
+Nest 0
+Wear -1
+Cost 420
+End
+
+#L
+Vnum 17016
+Nest 0
+Wear -1
+Cost 55
+End
+
+#L
+Vnum 16010
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 16043
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#L
+Vnum 825
+Nest 0
+Wear -1
+Cost 200
+End
+
+#L
+Vnum 14037
+Nest 0
+Wear -1
+Cost 20
+End
+
+#L
+Vnum 506
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 16010
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 16010
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 16010
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 16010
+Nest 0
+Cond 95
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 17108
+Nest 0
+Wear -1
+Cost 350
+End
+
+#L
+Vnum 17108
+Nest 0
+Wear -1
+Cost 350
+End
+
+#L
+Vnum 17108
+Enchanted
+Nest 0
+ExtF 16777539
+Wear -1
+Lev  54
+Cost 350
+Affc 'enchant weapon'   1  53  -1   5  18          0 1
+Affc 'enchant weapon'   1  53  -1   6  19          0 1
+Affc 'reserved'   1  53  -1   2   3          0 1
+Affc 'reserved'   1  53  -1  30  12          0 1
+Affc 'reserved'   1  53  -1  -1  20          0 1
+End
+
+#L
+Vnum 17108
+Enchanted
+Nest 0
+ExtF 16777539
+Wear -1
+Lev  54
+Cost 350
+Affc 'enchant weapon'   1  53  -1   5  18          0 1
+Affc 'enchant weapon'   1  53  -1   6  19          0 1
+Affc 'reserved'   1  53  -1   2   3          0 1
+Affc 'reserved'   1  53  -1  30  12          0 1
+Affc 'reserved'   1  53  -1  -1  20          0 1
+End
+
+#L
+Vnum 16090
+Nest 0
+Wear -1
+Cost 1500
+Spell 3 'fireball'
+End
+
+#L
+Vnum 10280
+Nest 0
+Wt   0
+Wear -1
+Lev  16
+Cost 500
+End
+
+#L
+Vnum 16010
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 16017
+Nest 0
+Wear -1
+Cost 5600
+End
+
+#L
+Vnum 9576
+Nest 0
+Wear -1
+Cost 120
+End
+
+#L
+Vnum 1313
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 1312
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 1311
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 1311
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 17101
+Nest 0
+Wear -1
+Cost 160
+End
+
+#L
+Vnum 501
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 16072
+Nest 0
+Wear -1
+Cost 5500
+End
+
+#L
+Vnum 4469
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 825
+Nest 0
+Wear -1
+Cost 200
+End
+
+#L
+Vnum 17108
+Nest 0
+Wear -1
+Cost 350
+End
+
+#L
+Vnum 16104
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 17102
+Enchanted
+Nest 0
+ExtF 16777283
+Cond 97
+Wear -1
+Lev  56
+Cost 0
+Affc 'reserved'   1  55  -1  50  12          0 1
+Affc 'enchant weapon'   1  55  -1   4  19          0 1
+Affc 'enchant weapon'   1  55  -1   4  18          0 1
+Affc 'reserved'   1  55  -1   2   4          0 1
+Affc 'reserved'   1  55  -1   2   3          0 1
+End
+
+#L
+Vnum 505
+Nest 0
+Wear -1
+Cost 950
+End
+
+#L
+Vnum 14067
+Nest 0
+Wear -1
+Cost 300
+End
+
+#L
+Vnum 14066
+Nest 0
+Wear -1
+Cost 150
+End
+
+#L
+Vnum 14068
+Nest 0
+Wear -1
+Cost 200
+End
+
+#L
+Vnum 8205
+Nest 0
+Wear -1
+Cost 3233
+End
+
+#L
+Vnum 16011
+Nest 0
+Cond 99
+Wear -1
+Cost 7500
+End
+
+#L
+Vnum 3000
+Nest 0
+Wear -1
+Cost 75
+End
+
+#L
+Vnum 1004
+Nest 0
+Name dagger Grey Shadow~
+ShD  Grey Shadow{x~
+Desc A dagger is here, forged by Blackfire's craftsmanship.~
+Mat adamantite~
+Wt   40
+Cond 87
+Wear -1
+Lev  48
+Cost 48
+Val  2 5 10 11 0
+ExDe dagger Grey Shadow~ It is a marvellous dagger, crafted from the finest adamantite around.
+It was created in the Month of Ancient Darkness by a young ranger
+named Blackfire.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#L
+Vnum 1004
+Enchanted
+Nest 0
+Name dagger Grey Sliver~
+ShD  Grey Sliver{x~
+Desc A dagger is here, forged by Blackfire's craftsmanship.~
+Mat silver~
+ExtF 66
+Wear -1
+Lev  49
+Cost 8
+Val  2 5 9 11 0
+Affc 'enchant weapon'   0  51  -1   5  18          0 1
+Affc 'enchant weapon'   1  51  -1   5  19          0 1
+ExDe dagger Grey Sliver~ It is a marvellous dagger, crafted from the finest silver around.
+It was created in the Month of Long Shadows by a young ranger
+named Blackfire.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#L
+Vnum 16069
+Nest 0
+Cond 87
+Wear -1
+Cost 5300
+End
+
+#L
+Vnum 7351
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 7350
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 7351
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 7352
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 7353
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 7350
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 7351
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 7352
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 7353
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 7350
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 923
+Nest 0
+Wear -1
+Cost 6800
+End
+
+#L
+Vnum 902
+Nest 0
+Wear -1
+Cost 7300
+End
+
+#L
+Vnum 904
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#L
+Vnum 1310
+Nest 0
+Wear -1
+Cost 100
+End
+
+#L
+Vnum 1311
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 1312
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 1313
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 1386
+Nest 0
+Wear -1
+Cost 1440
+End
+
+#L
+Vnum 1401
+Nest 0
+Wear -1
+Cost 17800
+End
+
+#L
+Vnum 1382
+Nest 0
+Wear -1
+Cost 2900
+End
+
+#L
+Vnum 503
+Nest 0
+ExtF 81
+Wear -1
+Cost 8800
+End
+
+#L
+Vnum 1390
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#L
+Vnum 1399
+Nest 0
+Wear -1
+Cost 5100
+End
+
+#L
+Vnum 1387
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#L
+Vnum 10014
+Nest 0
+Wear -1
+Cost 100
+End
+
+#L
+Vnum 3000
+Nest 0
+Wear -1
+Cost 75
+Val  300 156 10 0 0
+End
+
+#L
+Vnum 8807
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 8806
+Nest 0
+Cond 40
+Wear -1
+Cost 1000
+Val  8 12 14 4 0
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Enchanted
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+Affc 'reserved'   1  15  -1   1  12          0 1
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 14037
+Nest 0
+ExtF 0
+Wear -1
+Cost 20
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 17105
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 17104
+Enchanted
+Nest 0
+Cond 74
+Wear -1
+Cost 170
+Val  2 7 6 11 64
+Affc 'reserved'   1  50  -1   5  18          0 1
+Affc 'reserved'   1  50  -1   3  19          0 1
+Affc 'reserved'   1  50  -1  35  14          0 1
+Affc 'reserved'   1  50  -1  -3  17          0 1
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 4424
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#L
+Vnum 16009
+Nest 0
+ExtF 64
+Wear -1
+Cost 4500
+End
+
+#L
+Vnum 16073
+Enchanted
+Nest 0
+ExtF 65
+Wear -1
+Lev  51
+Cost 4500
+Affc 'reserved'   1  35  -1   2   3          0 1
+Affc 'reserved'   1  35  -1  50  12          0 1
+Affc 'enchant weapon'   1  42  -1   1  19          0 1
+Affc 'enchant weapon'   0  42  -1   1  18          0 1
+End
+
+#L
+Vnum 4454
+Nest 0
+Wear -1
+Cost 20
+End
+
+#L
+Vnum 4474
+Nest 1
+Wear -1
+Cost 10
+End
+
+#L
+Vnum 4477
+Nest 1
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 4438
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 4439
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 7502
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 1213
+Nest 1
+Name token hidden outsider orb~
+ShD  a small, blue orb~
+Desc A small, shiny, light blue orb lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name token hidden outsider orb~
+ShD  a small, blue orb~
+Desc A small, shiny, light blue orb lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name token hidden outsider orb~
+ShD  a small, blue orb~
+Desc A small, shiny, light blue orb lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name token hidden outsider~
+ShD  A feather token from Outsider~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name token trivia outsider~
+ShD  A shiny, trvia token.~
+Desc A shiny trivia token from Outsider~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name token trivia outsider~
+ShD  A shiny, trvia token.~
+Desc A shiny trivia token from Outsider~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name token trivia outsider~
+ShD  A shiny, trvia token.~
+Desc A shiny trivia token from Outsider~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name token hidden outsider orb~
+ShD  a small, blue orb~
+Desc A small, shiny, light blue orb lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1212
+Nest 1
+Name token trivia outsider~
+ShD  A shiny, trvia token.~
+Desc A shiny trivia token from Outsider~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name token trivia outsider~
+ShD  A shiny, trvia token.~
+Desc A shiny trivia token from Outsider~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1201
+Nest 1
+Name lid spam can~
+ShD  a lid of a Spam Can~
+Desc The lid of a can of spam lies here on the ground.~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1201
+Nest 1
+Name chunk raw spam~
+ShD  a chunk of raw Spam~
+Desc A chunk of raw spam lies here, devoid of it's can.~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1201
+Nest 1
+Name lid spam can~
+ShD  a lid of a Spam Can~
+Desc The lid of a can of spam lies here on the ground.~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1201
+Nest 1
+Name chunk raw spam~
+ShD  a chunk of raw Spam~
+Desc A chunk of raw spam lies here, devoid of it's can.~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1201
+Nest 1
+Name spam can~
+ShD  a Spam Can~
+Desc An empty can of spam lies here.~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1201
+Nest 1
+Name spam can~
+ShD  a Spam Can~
+Desc An empty can of spam lies here.~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name token hidden outsider~
+ShD  a bottle of fireflies~
+Desc Outsider's bottle of magical fireflies~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1201
+Nest 1
+Name chunk raw spam~
+ShD  a chunk of raw Spam~
+Desc A chunk of raw spam lies here, devoid of it's can.~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1201
+Nest 1
+Name spam can~
+ShD  a Spam Can~
+Desc An empty can of spam lies here.~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1201
+Nest 1
+Name chunk raw spam~
+ShD  a chunk of raw Spam~
+Desc A chunk of raw spam lies here, devoid of it's can.~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 1201
+Nest 1
+Name chunk raw spam~
+ShD  a chunk of raw Spam~
+Desc A chunk of raw spam lies here, devoid of it's can.~
+Wear -1
+Cost 3
+End
+
+#L
+Vnum 17108
+Nest 0
+Cond 98
+Wear -1
+Cost 350
+End
+
+#END

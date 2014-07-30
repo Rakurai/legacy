@@ -1,263 +1,642 @@
 #PLAYER
 Name Sleel~
 Id   1026871637
-LogO 1026956332
+LogO 1057793992
 Vers 14
 Mexp 1
 Pass liverpool~
 Desc {cBefore you stands a mountain of a man nearly {P11 {cfeet tall with a wide body and broad shoulders.
-For as big as he is he's seems to be rather relaxed, but with a cocky edge to him.
-He seems to be good looking (for a giant anyway) and the weapon he carries looks like it could {Rreally hurt{c!
-Various pieces of armor cover his huge frame and you can tell some of it has seen many battles.
-The only odd feature that stands out is the symbol of a {Wfeathered cross {cwhich hangs from his neck.
-Actually, that's very odd since this giant is obviously not a paladin...
-
-Hmmm, might be wise to learn more about this unusual one and best to keep him on your side...
+He carries himself with a very calm presence despite the cocky edge that radiates off of him.
+He seems to be good looking (for a giant anyway) and the weapons he carries look like
+they could fall a large tree in just a slash or two. Various pieces of armor cover his
+huge frame and you can tell some of it has seen many battles. Several {Rstrange runes{c
+are carved into the swords which seen to be made out of some strange black substance.
+Hard to say what motivates this large one, but best to stay clear of him for now...{x
 ~
 Prom <{C%h{Thp {G%m{Hmana {B%v{Nsta {c%X{x> ~
 Race giant~
 Cla  3
-Levl 10
+Levl 81
 Tru  0
-Plyd 10251
-Back 10016
-Note 1026951633 1026926231 1026926231 1026926231 1026926231 1026926231 1026926231
+Plyd 227178
+Back 227166
+Note 1045516050 1045516050 1045516050 1045516050 1045516050 1045516050 1045516050
 Scro 22
-Room 8543
-HMS  178 133 94
-Gold 65
-Silv 1137
-Exp  10646
+Room 3001
+HMS  1975 851 1115
+Gold 274
+Silv 89
+Gold_in_bank 29000
+Exp  85006
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  4
-Alig 1000
+Pos  8
+Alig -1000
 FImm 0
 FRes HI
 FVul BP
-Plr  OU
+Plr  AHOU
 Video 0
-Act  DEFGJLQSc
-AfBy 0
+Act  DFGJLQRSc
+AfBy HTbc
 Comm NO
 Revk 0
 Cgrp A
 Cnsr 0
-Prac 0
-Trai 0
+Prac 8
+Trai 3
 Wimp 0
-Atrib 25 14 17 12 19 12
-SkillPnts  2
-QuestPnts  11
-QuestNext  7
-SQuestNext 16
-Afk {B[{CWed Jul 17 14:41:01 2002{B] {CUnknown Departure.{x
+Atrib 25 14 17 16 22 18
+SkillPnts  44
+RolePnts   3
+QuestPnts  84
+QuestNext  1
+SQuestNext 4
+Afk {B[{CMon Feb 17 16:15:25 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  ({VNewbie Aura{x)~
+Titl  of the House of {cBlack Steel{x~
 Immn ~
 Pnts 40
-Rank ~
+Rank {RB{gL{cD{x~
 Aura ~
 TSex 1
-LLev 2
-Deit Teotwawki~
-Lsit vn.24.171.82.133.charter-stl.com~
-Ltim Wed Jul 17 20:35:09 2002
+LLev 62
+Deit {PV{Re{Ygi{Rt{Pa{x~
+Lsit monrwinas01pool0-a188.wi.tds.net~
+Ltim Mon Feb 17 15:07:18 2003
 ~
-LSav Wed Jul 17 20:38:52 2002
+LSav Wed Jul 09 19:39:52 2003
 ~
-HMSP 156 133 217
+Finf {ga {Wwhite rabbit {gmust be severly dealt with for this injustice.{x
+{BYou parry God's wrath. *EG*{x
+~
+HMSP 1560 451 1115
 THMS 0 0 0
-Cnd  0 0 30 12
+Cnd  0 16 40 32
 Colr 3 37 1
 Colr 6 31 0
 Colr 7 34 1
+Colr 13 30 1
 Alias a affect~
-Sk 1 1 'armor'
-Sk 1 1 'cancellation'
-Sk 1 1 'dispel magic'
-Sk 1 1 'fireproof'
-Sk 1 1 'protection evil'
-Sk 1 1 'protection good'
-Sk 1 1 'sanctuary'
-Sk 1 1 'shield'
-Sk 1 1 'stone skin'
-Sk 1 1 'undo spell'
-Sk 74 1 'dagger'
-Sk 78 1 'sword'
-Sk 1 1 'bash'
-Sk 79 1 'enhanced damage'
-Sk 1 1 'kick'
-Sk 15 1 'parry'
-Sk 75 1 'second attack'
-Sk 1 1 'third attack'
-Sk 1 1 'dual wield'
-Sk 1 1 'fast healing'
-Sk 1 1 'repair'
+Alias kk kick~
+Alias rr repair~
+Alias arm cast 'armor'~
+Alias dm cast 'dispel magic'~
+Alias sanc cast 'sanctuary'~
+Alias cr clanrecall~
+Alias sh cast 'shield'~
+Alias ss cast 'stone skin'~
+Alias bh bash~
+Alias tal cast 'talon'~
+Sk 82 1 'armor'
+Sk 76 1 'cancellation'
+Sk 75 1 'channel'
+Sk 99 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 76 1 'fireproof'
+Sk 75 1 'fly'
+Sk 76 1 'gate'
+Sk 75 1 'giant strength'
+Sk 87 1 'haste'
+Sk 75 1 'infravision'
+Sk 75 1 'nexus'
+Sk 75 1 'pass door'
+Sk 75 1 'portal'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 77 1 'refresh'
+Sk 83 1 'regeneration'
+Sk 87 1 'sanctuary'
+Sk 81 1 'shield'
+Sk 77 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 81 1 'talon'
+Sk 75 1 'teleport'
+Sk 76 1 'teleport object'
+Sk 92 1 'undo spell'
+Sk 75 1 'word of recall'
+Sk 100 1 'axe'
+Sk 100 1 'dagger'
+Sk 100 1 'mace'
+Sk 100 1 'sword'
+Sk 100 1 'bash'
+Sk 90 1 'disarm'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 89 1 'hand to hand'
+Sk 94 1 'kick'
+Sk 100 1 'parry'
+Sk 100 1 'second attack'
+Sk 98 1 'third attack'
+Sk 100 2 'dual wield'
+Sk 78 1 'hunt'
+Sk 76 2 'fast healing'
+Sk 75 1 'forge'
+Sk 79 1 'repair'
 Sk 100 1 'scan'
-Sk 1 1 'scrolls'
-Sk 1 1 'staves'
-Sk 1 1 'wands'
-Sk 50 1 'recall'
+Sk 75 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 80 1 'recall'
 Gr 'rom basics'
 Gr 'warrior basics'
+Gr 'enhancement'
 Gr 'protective'
-Affc 'bless'   0  56  46   7  18          0 1
-Affc 'bless'   0  52  46  -7  24          0 1
+Gr 'transportation'
+Affc 'armor'   0  77   6 -20  17          0 1
+Affc 'fly'   0  77  70   0   0     524288 1
+Affc 'stone skin'   0  77  67 -40  17          0 1
+Affc 'regeneration'   0  78  26   0   0  268435456 1
+Affc 'sanctuary'   0  79   0   0   0        128 1
+Affc 'shield'   0  80  82 -20  17          0 1
 End
 
 #O
-Vnum 73
+Vnum 3206
 Nest 0
-Wear 6
-Cost 270
-End
-
-#O
-Vnum 75
-Nest 0
-Cond 85
-Wear 1
-Cost 620
-End
-
-#O
-Vnum 76
-Nest 0
-Cond 96
-Wear 17
-Cost 550
-End
-
-#O
-Vnum 3712
-Nest 0
-Wear 13
-Cost 72
-End
-
-#O
-Vnum 3711
-Nest 0
-Wear 12
-Cost 72
-End
-
-#O
-Vnum 3710
-Nest 0
-Cond 89
+Cond 86
 Wear 10
-Cost 72
-Val  1 1 0 0 0
+Cost 70
 End
 
 #O
-Vnum 3172
-Nest 0
-Cond 97
-Wear 11
-Cost 600
-ExDe owned by~ Sleel~
-End
-
-#O
-Vnum 3050
-Nest 0
-Wear -1
-Cost 400
-End
-
-#O
-Vnum 7800
-Nest 0
-Cond 93
-Wear 5
-Cost 1080
-Val  4 2 4 2 0
-End
-
-#O
-Vnum 7801
-Nest 0
-Wear 8
-Cost 390
-End
-
-#O
-Vnum 7803
-Nest 0
-Wear 4
-Cost 900
-End
-
-#O
-Vnum 3182
-Nest 0
-Wear 9
-Cost 1200
-ExDe owned by~ Sleel~
-End
-
-#O
-Vnum 1604
-Nest 0
-Cond 97
-Wear 16
-Cost 910
-End
-
-#O
-Vnum 3504
+Vnum 25057
 Nest 0
 Wear 15
-Cost 690
+Cost 6000
 End
 
 #O
-Vnum 3504
+Vnum 25059
 Nest 0
-Wear 14
-Cost 690
+Cond 99
+Wear 8
+Cost 6000
 End
 
 #O
-Vnum 3503
+Vnum 3207
+Nest 0
+Cond 99
+Wear 9
+Cost 80
+End
+
+#O
+Vnum 1004
+Nest 0
+Name dagger Black Hilted Shortsword~
+ShD  {cBlack Hilted Shortsword{x{x~
+Desc A dagger is here, forged by Sleel's craftsmanship.~
+Mat platinum~
+Wt   69
+Wear 19
+Lev  70
+Cost 35
+Val  2 10 9 11 0
+ExDe dagger Black Hilted Shortsword~ It is a marvellous dagger, crafted from the finest platinum around.
+It was created in the Month of Endings by an experienced warrior
+named Sleel.  Legend holds that this giant was a great weaponsmith.
+~
+End
+
+#O
+Vnum 11661
+Nest 0
+Wear 4
+Cost 10
+End
+
+#O
+Vnum 11661
 Nest 0
 Wear 3
-Cost 310
+Cost 10
 End
 
 #O
-Vnum 3031
+Vnum 25060
 Nest 0
+Cond 93
 Wear 0
-Cost 75
-Val  0 0 222 0 0
+Cost 8000
 End
 
 #O
-Vnum 10014
+Vnum 2912
+Nest 0
+Cond 79
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 2913
+Nest 0
+Cond 95
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 17003
+Nest 0
+Wear 12
+Cost 200
+End
+
+#O
+Vnum 3208
+Nest 0
+Cond 80
+Wear 14
+Cost 90
+End
+
+#O
+Vnum 1344
 Nest 0
 Wear -1
-Cost 100
+Cost 1000
 End
 
 #O
-Vnum 72
+Vnum 2914
 Nest 0
 Wear -1
 Cost 0
 End
 
 #O
-Vnum 3074
+Vnum 825
 Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {Gv{Hi{Wn{ge {Gw{Hr{Wa{gp{Wp{ge{Wd {gw{Wi{Gn{Ht{We{gr{x{x rose~
+Desc A {Gv{Hi{Wn{ge {Gw{Hr{Wa{gp{Wp{ge{Wd {gw{Wi{Gn{Ht{We{gr{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Laurana.
+~
+End
+
+#O
+Vnum 11696
+Nest 1
+Wear -1
+Cost 5500
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3379
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {YG{bo{Wl{gd{Ye{bn {YFe{ga{Wt{gh{Yer {YS{gu{Ym{gm{Ye{gr{x{x rose~
+Desc A {YG{bo{Wl{gd{Ye{bn {YFe{ga{Wt{gh{Yer {YS{gu{Ym{gm{Ye{gr{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe florist~ This rose was created by Laurana.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {CC{Tr{Wy{gs{Wt{ga{Wl shards {Csp{Ba{Wrkl{Bi{Cng{W with {Ym{bo{Wr{gn{Yi{bn{Wg {Cd{We{Cw{x{x rose~
+Desc A {CC{Tr{Wy{gs{Wt{ga{Wl shards {Csp{Ba{Wrkl{Bi{Cng{W with {Ym{bo{Wr{gn{Yi{bn{Wg {Cd{We{Cw{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe florist~ This rose was created by Laurana.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1004
+Nest 0
+Name mace Black Hilted Mace~
+ShD  {cBlack Hilted Mace{x{x~
+Desc A mace is here, forged by Sleel's craftsmanship.~
+Mat platinum~
+Wt   71
+Wear -1
+Lev  75
+Cost 12
+Val  4 10 11 7 0
+ExDe mace Black Hilted Mace~ It is a marvellous mace, crafted from the finest platinum around.
+It was created in the Month of Rapture by an experienced warrior
+named Sleel.  Legend holds that this giant was a great weaponsmith.
+~
+End
+
+#O
+Vnum 17004
+Nest 0
+Cond 92
+Wear 18
+Cost 200
+End
+
+#O
+Vnum 11691
+Nest 0
+Cond 81
 Wear 7
-Cost 420
+Cost 0
+End
+
+#O
+Vnum 1004
+Nest 0
+Name mace Black Hilted Mace~
+ShD  {cBlack Hilted Mace{x{x~
+Desc A mace is here, forged by Sleel's craftsmanship.~
+Mat platinum~
+Wt   70
+Wear -1
+Lev  75
+Cost 15
+Val  4 10 11 7 0
+ExDe mace Black Hilted Mace~ It is a marvellous mace, crafted from the finest platinum around.
+It was created in the Month of Rapture by an experienced warrior
+named Sleel.  Legend holds that this giant was a great weaponsmith.
+~
+End
+
+#O
+Vnum 11715
+Nest 0
+Cond 91
+Wear 13
+Cost 9000
+End
+
+#O
+Vnum 3805
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 3805
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 2914
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 1004
+Nest 0
+Name dagger Black Hilted Shortsword~
+ShD  {cBlack Hilted Shortsword{x{x~
+Desc A dagger is here, forged by Sleel's craftsmanship.~
+Mat platinum~
+Wt   70
+Cond 93
+Wear 16
+Lev  70
+Cost 7
+Val  2 10 9 11 0
+ExDe dagger Black Hilted Shortsword~ It is a marvellous dagger, crafted from the finest platinum around.
+It was created in the Month of Endings by an experienced warrior
+named Sleel.  Legend holds that this giant was a great weaponsmith.
+~
+End
+
+#O
+Vnum 8207
+Nest 0
+Wear -1
+Cost 8300
+End
+
+#O
+Vnum 8206
+Nest 0
+Wear -1
+Cost 7435
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 19
+Cond 85
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 19
+Cond 84
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16084
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16084
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 8241
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 8241
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5414
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 5414
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 3204
+Nest 0
+Wear -1
+Cost 50
+End
+
+#L
+Vnum 14030
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#L
+Vnum 14030
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#L
+Vnum 10152
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10152
+Nest 0
+Wear -1
+Cost 0
 End
 
 #END

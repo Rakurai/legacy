@@ -1,26 +1,39 @@
 #PLAYER
 Name Wyldmage~
 Id   1017464401
-LogO 1026705613
+LogO 1060018142
 Vers 14
 Mexp 2
 Pass vampire~
+Desc The first thing you notice when you look at Wyldmage is his flowing hair.
+At first it seems to be pearl white, but it is ever so slightly off, and
+almost radiates it's own light.  As you continue to study him, your eyes
+sweep over his sky-blue eyes, pale skin, and angular jawline.  Continuing
+down his body, you are struck by his simple clothing.  He is wearing a
+yellow and orange kimono, with green trim.  The kimono is held shut by a
+green obi tied tightly about his waist.  From the obi hangs a pair of
+small blades and several pouches.  In his left hand he has a spellbook,
+and a buckler clings to his forearm.  His fingers are long are slender,
+hinting at his reluctance to part from his studies to eat.  Finally,
+visible under the low-hanging hem of the kimono, a pair of wooden sandels
+cling to his feet.  They are elevated about an inch from the ground by a
+pair of smell wooden slats.
+~
 Prom %Cg<%CW%h%Cc/%Hhp %CW%m%Cc/%Mmp %CW%v%Cc/%Vst %CG%X%CHxp %CP%q/%j%CRqt %Cb%z %CY%e%Cg>%c~
 Race seraph~
-Clan blackclaw~
 Cla  0
-Levl 34
-Tru  0
-Plyd 100945
+Levl 36
+Tru  100
+Plyd 139024
 Back 7327
-Note 1026547040 1026255933 1026341064 1026585183 1026409721 1026258348 1026255933
+Note 1043530618 1043530618 1043530618 1043530618 1043530618 1043613438 1043530618
 Scro 22
-Room 24801
-HMS  249 419 124
-Gold 882
-Silv 523
+Room 3001
+HMS  562 644 321
+Gold 1407
+Silv 490
 Silver_in_bank 1700
-Exp  62194
+Exp  54024
 PCkills  0
 PCkilled 1
 Akills   0
@@ -31,41 +44,42 @@ Alig 1000
 FImm 0
 FRes NS
 FVul M
-Plr  AOU
+Plr  AHOU
 Video 0
-Act  CDEFGHJKLQSc
-AfBy NOTVZ
+Act  CDEFGHJLOQSc
+AfBy T
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AC
-Prac 10
-Trai 2
+Prac 17
+Trai 1
 Wimp 0
+Wizn 0
+Invi 0
+Lurk 0
+Secu 92
 Atrib 18 20 20 17 20 18
-SkillPnts  30
-QuestPnts  64
-QpDonated  120
-QuestNext  12
-SQuestNext 7
-Afk {B[{CSat Jul 13 03:06:09 2002{B] {CUnknown Departure.{x
+SkillPnts  71
+QuestPnts  91
+Afk {B[{CFri Aug 30 01:26:41 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl , token fencer.~
 Immn ~
-Pnts 44
+Pnts 40
 Rank {cNIN~
 Aura ~
 TSex 1
-LLev 27
+LLev 32
 Deit Liriel~
-Lsit 12-224-199-77.client.attbi.com~
-Ltim Sun Jul 14 21:52:27 2002
+Lsit 12.225.108.142~
+Ltim Wed Feb 19 14:00:06 2003
 ~
-LSav Sun Jul 14 23:00:13 2002
+LSav Mon Aug 04 13:29:02 2003
 ~
-HMSP 435 507 307
+HMSP 463 530 321
 THMS 0 0 0
-Cnd  0 9 41 41
+Cnd  0 0 100 100
 Colr 0 36 1
 Colr 3 31 1
 Colr 8 36 0
@@ -81,7 +95,7 @@ Sk 1 1 'animate gargoyle'
 Sk 1 1 'animate zombie'
 Sk 81 1 'armor'
 Sk 77 1 'bless'
-Sk 75 1 'blindness'
+Sk 77 1 'blindness'
 Sk 1 1 'blood moon'
 Sk 80 1 'burning hands'
 Sk 1 1 'calm'
@@ -89,22 +103,22 @@ Sk 1 1 'cancellation'
 Sk 1 1 'chain lightning'
 Sk 1 1 'channel'
 Sk 75 1 'chill touch'
-Sk 90 1 'colour spray'
+Sk 91 1 'colour spray'
 Sk 1 1 'continual light'
 Sk 75 1 'create food'
 Sk 1 1 'create parchment'
-Sk 1 1 'create rose'
+Sk 2 1 'create rose'
 Sk 1 1 'create sign'
-Sk 1 1 'create spring'
+Sk 75 1 'create spring'
 Sk 75 1 'create vial'
 Sk 75 1 'create water'
 Sk 2 1 'cure blindness'
 Sk 81 1 'cure critical'
 Sk 75 1 'cure disease'
 Sk 79 1 'cure light'
-Sk 1 1 'cure poison'
+Sk 2 1 'cure poison'
 Sk 81 1 'cure serious'
-Sk 75 1 'curse'
+Sk 78 1 'curse'
 Sk 1 1 'detect evil'
 Sk 1 1 'detect good'
 Sk 3 1 'detect hidden'
@@ -117,14 +131,14 @@ Sk 1 1 'divine regeneration'
 Sk 1 1 'encampment'
 Sk 80 1 'energy drain'
 Sk 75 1 'fear'
-Sk 84 2 'fireball'
+Sk 91 2 'fireball'
 Sk 1 1 'fireproof'
 Sk 1 1 'firestorm'
 Sk 1 1 'fly'
 Sk 1 1 'floating disc'
 Sk 76 1 'frenzy'
 Sk 75 1 'gate'
-Sk 75 1 'giant strength'
+Sk 80 1 'giant strength'
 Sk 80 1 'haste'
 Sk 1 1 'heal'
 Sk 1 1 'holy word'
@@ -144,17 +158,17 @@ Sk 75 1 'poison'
 Sk 1 1 'portal'
 Sk 78 1 'protection evil'
 Sk 79 1 'protection good'
-Sk 82 1 'refresh'
+Sk 85 1 'refresh'
 Sk 1 1 'resurrect'
 Sk 77 1 'regeneration'
 Sk 1 1 'remove alignment'
 Sk 1 1 'remove invisibility'
 Sk 1 1 'remove curse'
 Sk 79 1 'sanctuary'
-Sk 77 1 'shield'
+Sk 78 1 'shield'
 Sk 79 1 'shocking grasp'
 Sk 75 1 'slow'
-Sk 78 1 'stone skin'
+Sk 79 1 'stone skin'
 Sk 1 1 'summon'
 Sk 1 1 'summon object'
 Sk 1 1 'talon'
@@ -167,7 +181,7 @@ Sk 75 1 'word of recall'
 Sk 1 1 'wrath'
 Sk 97 1 'dagger'
 Sk 75 1 'brew'
-Sk 80 1 'meditation'
+Sk 83 1 'meditation'
 Sk 100 1 'scan'
 Sk 1 1 'scrolls'
 Sk 1 1 'staves'
@@ -186,19 +200,6 @@ Gr 'maladictions'
 Gr 'necromancy'
 Gr 'protective'
 Gr 'transportation'
-Affc 'frenzy'   0  32   5  20  17          0 1
-Affc 'frenzy'   0  31   5   5  19          0 1
-Affc 'frenzy'   0  34   5   5  18          0 1
-Affc 'giant strength'   0  33  28   3   1          0 1
-Affc 'stone skin'   0  33  28 -40  17          0 1
-Affc 'shield'   0  33  36 -20  17          0 1
-Affc 'armor'   0  33  18 -20  17          0 1
-Affc 'protection evil'   0  34  17  -1  24       8192 1
-Affc 'protection good'   0  31  17  -1  24      16384 1
-Affc 'haste'   0  33  10   3   2    2097152 1
-Affc 'divine regeneration'   0  94  63   0   0   33554432 3
-Affc 'blood moon'   0  95  59   5  18          0 1
-Affc 'blood moon'   0  95  59   8  19          0 1
 End
 
 #O
@@ -1102,6 +1103,66 @@ Cost 0
 End
 
 #O
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name alara hidden token unending speck luminescence everlasting fires~
+ShD  {W*{RH{Pi{gdd{Pe{Rn{W* {gE{Wv{ge{Wrl{ga{Wst{gi{Wng {cM{gi{cdn{gi{cght {RF{Pi{Yr{Pe{Rs{x~
+Desc {W*{RH{Pi{gdd{Pe{Rn{W* {gA{Wn {gU{Wn{ge{Wnd{gi{Wng {gSp{Ye{gck {go{Wf {WL{Yu{Wm{Yi{Wn{Ye{Wsc{Ye{Wnc{Ye{x is here.~
+Mat {Yst{Wa{Yrl{Wi{Yght{x~
+Wear -1
+Cost 0
+ExDe fires~ An {ge{Wt{ge{Wrn{ga{Wl {gsp{Ye{gck {go{Wf {Yst{Wa{Yrl{Wi{Yght{x has been {gg{Wa{gth{we{gr{We{gd here.
+~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
 Vnum 73
 Nest 0
 Cond 95
@@ -1114,13 +1175,13 @@ Vnum 79
 Nest 0
 Wear -1
 Cost 200
-Val  150 42 10 0 0
+Val  150 54 0 0 0
 End
 
 #O
 Vnum 75
 Nest 0
-Cond 84
+Cond 80
 Wear 2
 Cost 0
 End
@@ -1173,7 +1234,7 @@ End
 #O
 Vnum 4582
 Nest 0
-Cond 84
+Cond 79
 Wear 17
 Cost 1200
 End
@@ -1202,16 +1263,6 @@ Cost 1540
 End
 
 #O
-Vnum 1621
-Nest 0
-Wear -1
-Time 317
-Cost 320
-Spell 1 'cure blindness'
-Spell 2 'cure critical'
-End
-
-#O
 Vnum 4583
 Nest 0
 Wear -1
@@ -1226,13 +1277,6 @@ Cost 1000
 End
 
 #O
-Vnum 9922
-Nest 0
-Wear 12
-Cost 1500
-End
-
-#O
 Vnum 9909
 Nest 0
 Cond 89
@@ -1241,17 +1285,9 @@ Cost 2000
 End
 
 #O
-Vnum 9909
-Nest 0
-Cond 96
-Wear 3
-Cost 2000
-End
-
-#O
 Vnum 24803
 Nest 0
-Cond 93
+Cond 88
 Wear 8
 Cost 2000
 End
@@ -1259,7 +1295,7 @@ End
 #O
 Vnum 24802
 Nest 0
-Cond 91
+Cond 83
 Wear 9
 Cost 2000
 End
@@ -1323,15 +1359,9 @@ Cost 8000
 End
 
 #O
-Vnum 16057
-Nest 0
-Wear -1
-Cost 50
-End
-
-#O
 Vnum 29900
 Nest 0
+Cond 92
 Wear 6
 Cost 1000
 End
@@ -1374,13 +1404,6 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
-End
-
-#O
-Vnum 16057
-Nest 0
-Wear -1
-Cost 50
 End
 
 #O
@@ -1442,7 +1465,7 @@ End
 #O
 Vnum 1603
 Nest 0
-Cond 68
+Cond 60
 Wear 16
 Cost 700
 End
@@ -1487,19 +1510,74 @@ Cost 11
 End
 
 #O
-Vnum 8652
+Vnum 16041
 Nest 0
+Cond 96
 Wear -1
-Cost 10
-Spell 3 'fly'
+Cost 0
 End
 
 #O
-Vnum 8652
+Vnum 24819
 Nest 0
 Wear -1
-Cost 10
-Spell 3 'fly'
+Cost 13
+End
+
+#O
+Vnum 24819
+Nest 0
+Wear -1
+Cost 13
+End
+
+#O
+Vnum 24819
+Nest 0
+Wear -1
+Cost 13
+End
+
+#O
+Vnum 24819
+Nest 0
+Wear -1
+Cost 13
+End
+
+#O
+Vnum 24819
+Nest 0
+Wear -1
+Cost 13
+End
+
+#O
+Vnum 24819
+Nest 0
+Wear -1
+Cost 13
+End
+
+#O
+Vnum 24819
+Nest 0
+Wear -1
+Cost 13
+End
+
+#O
+Vnum 24805
+Nest 0
+Wear 12
+Cost 4000
+End
+
+#O
+Vnum 24804
+Nest 0
+Wear 3
+Cost 4000
 End
 
 #L

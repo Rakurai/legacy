@@ -1,47 +1,49 @@
 #PLAYER
 Name Grosh~
 Id   1012675289
-LogO 1018501088
-Vers 13
+LogO 1057818128
+Vers 14
+Mexp 2
+Pass pillow~
 Prom {W[{x%z{W]%c{T<%h/%Hhp %m/%Mm %vmv {W[{x%e{W]{x %X{T>  ~
 Race giant~
 Clan kindred~
-Sex  1
 Cla  7
 Levl 15
-Plyd 27121
+Tru  0
+Plyd 27639
 Back 26571
-Note 1018500504 1018500504 1018500504 1018500504 1018500504 1018500504 1018500504
+Note 1057818038 1057818038 1057818038 1057818038 1057818038 1057818038 1057818038
 Scro 100
 Room 25000
-HMS  442 442 222 222 216 288
-Gold 465
-Silv 62
-Exp  47092
-PCkills 1
+HMS  422 222 223
+Gold 489
+Silv 96
+Exp  47057
+PCkills  1
 PCkilled 0
-Akills 4
-Akilled 0
-PKRank 1
-Act  EFGHJLQSc
-AfBy NOPQUVY
+Akills   4
+Akilled  0
+PKRank   1
+Pos  8
+Alig 84
+FImm 0
 FRes HI
 FVul BP
+Plr  O
+Video 0
+Act  CEFGHJLQSc
+AfBy DEFNOY
 Comm MNO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
-Save  -5
-Alig  84
-Hit   6
-Dam   5
-ACs -54 -52 -52 -41
+Prac 0
+Trai 0
+Wimp 0
 Atrib 20 10 14 13 21 12
-AtMod 6 2 2 6 6 2
-SkillPnts 2
-QpDonated 18
-Pass disochak~
+SkillPnts  5
+QuestPnts  8
 Afk {B[{CFri Feb  8 19:14:11 2002{B] {CUnknown Departure.{x
 ~
 Titl  Nosh~
@@ -52,18 +54,14 @@ Aura ~
 TSex 1
 LLev 5
 Deit Urza~
-Lsit dyn-420w119-214-192.dyn.columbia.edu~
-Ltim Wed Apr 10 23:49:09 2002
+Lsit 216.165.232.139~
+Ltim Thu Jul 10 02:20:35 2003
 ~
-LSav Wed Apr 10 23:58:08 2002
+LSav Thu Jul 10 02:22:08 2003
 ~
-MC 44
-Col 33 0 37 37 37 0 0 0 37 35 37 0 0 37 0 0 36 0 0 0 0 0 0 0 0 0 0 0 0 0 0 36 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 1 0 0 1 1 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  O
 HMSP 384 171 278
 THMS 4 0 0
-Cnd  0 0 29 14
+Cnd  0 0 15 13
 Alias / clanrec~
 Query succubi~
 Query napalm~
@@ -94,16 +92,13 @@ Sk 1 1 'wands'
 Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'ranger basics'
-Affc 'protection good'   0  15  18  -1  24      16384 1
-Affc 'protection evil'   0  14  18  -1  24       8192 1
-Affc 'sneak'   0  12   0   0   0      32768 1
-Affc 'hide'   0  15   0   0   0      65536 1
-Affc 'giant strength'   0  19   3   2   1          0 1
-Affc 'shield'   0  64  59 -20  17          0 1
-Affc 'armor'   0  61  11 -20  17          0 1
-Affc 'pass door'   0  63   5   0   0    1048576 1
-Affc 'steel mist'   0  61  24  -6  17   16777216 1
-Affc 'haste'   0  59   4   4   2    2097152 1
+Affc 'steel mist'   0  60  10  -6  17   16777216 1
+Affc 'shield'   0  62  45 -20  17          0 1
+Affc 'protection evil'   0  13   4  -1  24       8192 1
+Affc 'protection good'   0  14   4  -1  24      16384 1
+Affc 'detect invis'   0   8   7   0   0          8 1
+Affc 'detect magic'   0   9   7   0   0         16 1
+Affc 'detect hidden'   0   9   7   0   0         32 1
 End
 
 #O
@@ -271,8 +266,8 @@ Nest 1
 ExtF 524289
 Wear -1
 Cost 0
-Affc 'reserved'   1   1  -1  -2  17          0 1
 Affc 'reserved'   1   1  -1   2   3          0 1
+Affc 'reserved'   1   1  -1  -2  17          0 1
 End
 
 #O
@@ -280,6 +275,7 @@ Vnum 25084
 Nest 1
 Wear -1
 Cost 0
+Val  15 50 49 120 47
 Spell 3 'shield'
 End
 
@@ -328,9 +324,9 @@ ExtF 17039425
 Wear -1
 Lev  5
 Cost 0
-Affc 'enchant armor'   1  91  -1  -5  17          0 1
-Affc 'reserved'   1   2  -1   1   3          0 1
 Affc 'reserved'   1   2  -1   2  12          0 1
+Affc 'reserved'   1   2  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -5  17          0 1
 End
 
 #O
@@ -361,9 +357,9 @@ ExtF 17039427
 Wear -1
 Lev  12
 Cost 110
-Affc 'enchant weapon'   0  91  -1   2  18          0 1
-Affc 'reserved'   1  10  -1   1   5          0 1
 Affc 'enchant weapon'   1  91  -1   5  19          0 1
+Affc 'reserved'   1  10  -1   1   5          0 1
+Affc 'enchant weapon'   0  91  -1   2  18          0 1
 End
 
 #O
@@ -396,6 +392,7 @@ Vnum 25084
 Nest 1
 Wear -1
 Cost 0
+Val  15 50 49 120 47
 Spell 3 'shield'
 End
 
@@ -409,9 +406,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  21 43 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tara.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -420,6 +417,7 @@ Vnum 25084
 Nest 1
 Wear -1
 Cost 0
+Val  15 50 49 120 47
 Spell 3 'shield'
 End
 
@@ -437,8 +435,8 @@ Wear -1
 Lev  17
 Cost 2
 Val  5 5 4 25 0
-Affc 'enchant weapon'   0  43  -1   3  18          0 1
 Affc 'enchant weapon'   1  43  -1   3  19          0 1
+Affc 'enchant weapon'   0  43  -1   3  18          0 1
 ExDe axe Grim~ It is a marvellous axe, crafted from the finest steel around.
 It was created in the Month of Long Shadows by a newbie ranger
 named Grosh.  Legend holds that this giant was a great weaponsmith.
@@ -455,9 +453,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  21 43 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tara.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -580,13 +578,6 @@ Val  5 5 5 25 0
 End
 
 #O
-Vnum 25050
-Nest 0
-Wear 8
-Cost 2000
-End
-
-#O
 Vnum 506
 Nest 0
 Wear 0
@@ -610,19 +601,9 @@ End
 #O
 Vnum 6601
 Nest 0
-Cond 100
+Cond 98
 Wear 1
 Cost 0
-End
-
-#O
-Vnum 3092
-Nest 0
-Wear -1
-Cost 290
-Spell 1 'detect invis'
-Spell 2 'detect magic'
-Spell 3 'detect hidden'
 End
 
 #O
@@ -670,6 +651,7 @@ Vnum 25093
 Nest 0
 Wear -1
 Cost 15
+Val  15 38 38 119 42
 Spell 3 'sanctuary'
 End
 
@@ -678,7 +660,64 @@ Vnum 25086
 Nest 0
 Wear -1
 Cost 0
+Val  15 119 102 115 132
 Spell 3 'regeneration'
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25015
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25084
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'detect good'
+End
+
+#O
+Vnum 25086
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
 End
 
 #END

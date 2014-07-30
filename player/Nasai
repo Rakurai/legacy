@@ -1,25 +1,23 @@
 #PLAYER
 Name Nasai~
 Id   992896857
-LogO 1027220071
+LogO 1105578384
 Vers 14
 Mexp 2
 Pass timmsa~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race elf~
 Cla  3
-Levl 73
-Tru  0
-Plyd 513889
-Back 512232
-Note 1027132888 1027132888 1027132888 1027132888 1027132888 1027198009 1027132888
-Scro 22
+Levl 74
+Plyd 614840
+Back 608354
+Note 1102527771 1102527771 1102527771 1102527771 1102527771 1102527771 1102527771
+Scro 35
 Room 8543
-HMS  1644 990 1021
-Gold 139
-Silv 470
-Silver_in_bank 61697
-Exp  80723
+HMS  1661 997 1035
+Gold 37
+Silv 228
+Exp  81557
 PCkills  1
 PCkilled 0
 Akills   0
@@ -30,55 +28,55 @@ Alig 1000
 FImm 0
 FRes B
 FVul Z
-Plr  AFIOU
+Plr  AFHIOU
 Video 0
 Act  CDEFGHJLSTc
-AfBy QT
+AfBy Q
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AI
 Cnsr AB
+Block_Remote 0
 Prac 5
-Trai 2
+Trai 3
 Wimp 0
+Familiar 0
 Atrib 18 19 18 19 15 15
 RolePnts   1
-QuestPnts  22
-QpDonated  45
-Afk {B[{CSat Jul 20 11:18:11 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+QuestPnts  10
+Afk {B[{CWed Nov 24 15:34:21 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  {VLeader {COf {GThe {RZZZZZZZZZZZZZ's~
+Titl  needer of remortation....~
 Immn ~
 Pnts 40
-Rank {x  ~
+Rank {WC{gH{WS~
 Aura ~
 TSex 1
-LLev 131
-Email scooter_hello@yahoo.com~
+LLev 162
+Email timmie_2003@yahoo.com~
 Deit Qaz~
-Lsit 12-224-198-57.client.attbi.com~
-Ltim Sat Jul 20 21:54:14 2002
+Lsit c-67-171-200-147.client.comcast.net~
+Ltim Wed Dec 08 12:42:48 2004
 ~
-LSav Sat Jul 20 21:54:31 2002
+LSav Wed Jan 12 20:06:24 2005
 ~
-Finf Many people look at me and wonder who I am.  I am the one your mother warned
-you of.  I'm the one that your father fears.  That your family runs from.
-Oh well enough of the past. Now to the FUTURE!!! The future of the circus!!!
-
-He he me monkey boy.  No not the disgusting way, the Monkey Tamer.
-People come on get your minds out of the gutter!!!
-Laters!! See you wandering all over Thera.
-
-Bye!!
+Finf My name is one known to few.... i hide in the shadows.
+But yet i still am found to be wandering Thera...
+The time has come for me to fulfill my destiny!
+*He slips back on his cowl, and slides back into the shadow*
+Perhaps our paths will cross another time...
+Perhaps...
+Another day shall pass... Take it easy me brother!
 ~
-HMSP 1124 415 966
+HMSP 1141 422 980
 THMS 0 0 0
-Cnd  0 9 47 8
+Cnd  0 0 100 100
 Query gallum~
 Query delqira~
 Query Daeqor~
 Query Kerra~
 Query Amsterdoodle~
+Query reqs~
 Sk 86 1 'armor'
 Sk 1 1 'cancellation'
 Sk 86 1 'cure critical'
@@ -86,42 +84,43 @@ Sk 1 1 'cure light'
 Sk 1 1 'cure serious'
 Sk 80 1 'dazzling light'
 Sk 74 1 'dispel magic'
-Sk 91 1 'divine healing'
+Sk 92 1 'divine healing'
 Sk 75 1 'enchant armor'
-Sk 77 1 'enchant weapon'
+Sk 78 1 'enchant weapon'
 Sk 1 1 'fireproof'
-Sk 75 1 'fly'
-Sk 86 1 'gate'
+Sk 76 1 'fly'
+Sk 90 1 'gate'
 Sk 98 1 'heal'
 Sk 76 1 'mass healing'
 Sk 75 1 'nexus'
-Sk 78 1 'pass door'
+Sk 79 1 'pass door'
 Sk 1 1 'portal'
 Sk 1 1 'protect container'
 Sk 84 1 'protection evil'
 Sk 77 1 'protection good'
 Sk 1 1 'recharge'
-Sk 76 1 'refresh'
+Sk 79 1 'refresh'
 Sk 76 1 'remove alignment'
 Sk 1 1 'remove invisibility'
 Sk 85 1 'sanctuary'
-Sk 80 1 'shield'
+Sk 84 1 'shield'
 Sk 1 1 'shrink'
-Sk 79 1 'stone skin'
-Sk 1 1 'summon'
+Sk 80 1 'stone skin'
+Sk 75 1 'summon'
 Sk 1 1 'summon object'
 Sk 75 1 'teleport'
-Sk 1 1 'teleport object'
+Sk 75 1 'teleport object'
 Sk 3 1 'undo spell'
 Sk 75 1 'word of recall'
 Sk 75 1 'axe'
-Sk 92 1 'polearm'
+Sk 100 1 'polearm'
 Sk 100 1 'sword'
+Sk 1 1 'bow'
 Sk 75 1 'shield block'
-Sk 95 1 'bash'
+Sk 97 1 'bash'
 Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
-Sk 89 1 'hand to hand'
+Sk 95 1 'hand to hand'
 Sk 100 1 'kick'
 Sk 100 1 'parry'
 Sk 100 1 'trip'
@@ -132,7 +131,7 @@ Sk 100 1 'fast healing'
 Sk 75 1 'forge'
 Sk 84 1 'repair'
 Sk 75 1 'hide'
-Sk 87 1 'lore'
+Sk 90 1 'lore'
 Sk 100 1 'scan'
 Sk 75 1 'sneak'
 Sk 75 1 'scrolls'
@@ -145,41 +144,18 @@ Gr 'enchantment'
 Gr 'healing'
 Gr 'protective'
 Gr 'transportation'
-Affc 'shield'   0  57   4 -20  17          0 1
+End
+
+#O
+Vnum 17004
+Nest 0
+Wear 18
+Cost 0
 End
 
 #O
 Vnum 825
 Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 17002
-Enchanted
-Nest 1
-ExtF 17039425
-Wear -1
-Lev  66
-Cost 0
-Affc 'reserved'   1  65  -1  -3  20          0 1
-Affc 'reserved'   1  65  -1   3  19          0 1
-Affc 'reserved'   1  65  -1   5  18          0 1
-Affc 'reserved'   1  65  -1   3   2          0 1
-Affc 'enchant armor'   1  86  -1  -2  17          0 1
-End
-
-#O
-Vnum 17006
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 17006
-Nest 1
 Wear -1
 Cost 0
 End
@@ -191,6 +167,44 @@ Name enchant token liriel~
 ShD  {gA {Vlevel {Y100 {Be{Cn{Bc{Ch{Ba{Cn{Bt {gfrom {WL{Ci{Br{Ci{Te{Wl{x~
 Wear -1
 Cost 3500
+End
+
+#O
+Vnum 1208
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
 End
 
 #O
@@ -260,20 +274,429 @@ Cost 2000
 End
 
 #O
-Vnum 1213
+Vnum 3806
+Enchanted
 Nest 1
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+Val  20 20 20 16 0
+Affc 'reserved'   1  65  -1   5  24          0 1
+Affc 'reserved'   1  65  -1   3  19          0 1
+Affc 'reserved'   1  65  -1   3  18          0 1
+Affc 'reserved'   1  65  -1  65  12          0 1
+Affc 'reserved'   1  65  -1   3   3          0 1
+End
+
+#O
+Vnum 17003
+Nest 1
 Wear -1
 Cost 0
 End
 
 #O
-Vnum 1208
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 11632
+Nest 1
+ExtF 1
+Cond 99
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 13002
 Nest 1
 Wear -1
 Cost 0
+Spell 3 'bless'
+End
+
+#O
+Vnum 13002
+Nest 1
+Wear -1
+Cost 0
+Spell 3 'bless'
+End
+
+#O
+Vnum 10215
+Nest 1
+ExtF 64
+Cond 97
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10258
+Nest 1
+Wear -1
+Cost 10
+Val  60 0 0 0 0
+End
+
+#O
+Vnum 20006
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14041
+Enchanted
+Nest 1
+ExtF 66
+Wear -1
+Lev  81
+Cost 0
+Val  8 10 9 7 0
+Affc 'enchant weapon'   0  73  -1   6  18          0 1
+Affc 'enchant weapon'   1  73  -1   6  19          0 1
+End
+
+#O
+Vnum 14073
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 9101
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 17036
+Nest 1
+Wear -1
+Time 792
+Cost 0
+Spell 1 'fireball'
+Spell 2 'curse'
+Spell 3 'fireball'
+End
+
+#O
+Vnum 3808
+Enchanted
+Nest 0
+Cond 87
+Wear 12
+Lev  61
+Cost 0
+Affc 'reserved'   1  60  -1  -3  24          0 1
+Affc 'reserved'   1  60  -1   3  19          0 1
+Affc 'reserved'   1  60  -1   3  18          0 1
+Affc 'reserved'   1  60  -1  50  13          0 1
+Affc 'reserved'   1  60  -1  75  12          0 1
+Affc 'reserved'   1  60  -1   2   5          0 1
+Affc 'enchant armor'   1  99  -1  -2  17          0 1
+End
+
+#O
+Vnum 4420
+Nest 0
+Cond 90
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 14041
+Nest 0
+Wear -1
+Cost 750
+End
+
+#O
+Vnum 14041
+Nest 0
+Cond 97
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14041
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14041
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 14041
+Nest 0
+Wear 19
+Cost 750
+End
+
+#O
+Vnum 16512
+Enchanted
+Nest 0
+ExtF 786769
+Wear 10
+Lev  76
+Cost 0
+Affc 'reserved'   1  75  -1   2   1          0 1
+Affc 'reserved'   1  75  -1  30  12          0 1
+Affc 'reserved'   1  75  -1   3  18          0 1
+Affc 'reserved'   1  75  -1   3  19          0 1
+Affc 'enchant armor'   1  75  -1  -4  17          0 1
+End
+
+#O
+Vnum 5608
+Nest 0
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 5611
+Nest 0
+Cond 93
+Wear 0
+Cost 0
+Affc 'dazzling light'   0  70  33   2  18          0 1
+Affc 'dazzling light'   0  69  33   2  19          0 1
 End
 
 #O
@@ -284,243 +707,25 @@ Cost 0
 End
 
 #O
-Vnum 14072
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 5608
-Nest 0
-Wear 15
-Cost 2000
-End
-
-#O
 Vnum 5609
 Nest 0
-Wear 2
-Cost 0
-End
-
-#O
-Vnum 5609
-Nest 0
+Cond 98
 Wear 1
 Cost 0
 End
 
 #O
-Vnum 3000
-Nest 0
-Wear -1
-Cost 75
-Val  300 76 0 0 0
-End
-
-#O
-Vnum 20006
-Enchanted
-Nest 0
-ExtF 17039681
-Wear 5
-Lev  60
-Cost 999
-Affc 'reserved'   1  59  -1 100  12          0 1
-Affc 'reserved'   1  59  -1  -3  24          0 1
-Affc 'reserved'   1  59  -1   3  26          0 1
-Affc 'reserved'   1  59  -1 -30   9          0 1
-Affc 'enchant armor'   1  71  -1  -2  17          0 1
-End
-
-#O
-Vnum 3808
-Enchanted
-Nest 0
-Wear 12
-Lev  61
-Cost 0
-Affc 'enchant armor'   1  99  -1  -2  17          0 1
-Affc 'reserved'   1  60  -1   2   5          0 1
-Affc 'reserved'   1  60  -1  75  12          0 1
-Affc 'reserved'   1  60  -1  50  13          0 1
-Affc 'reserved'   1  60  -1   3  18          0 1
-Affc 'reserved'   1  60  -1   3  19          0 1
-Affc 'reserved'   1  60  -1  -3  24          0 1
-End
-
-#O
-Vnum 5611
-Nest 0
-Wear 0
-Cost 0
-Affc 'dazzling light'   0  63  37   3  18          0 1
-Affc 'dazzling light'   0  57  37   3  19          0 1
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 11661
-Nest 0
-Wear 4
-Cost 0
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Enchanted
-Nest 0
-Wear -1
-Cost 10
-Val  16 82 84 74 119
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 5607
-Nest 0
-Wear 14
-Cost 2000
-End
-
-#O
 Vnum 9101
 Nest 0
+Cond 92
 Wear 8
 Cost 0
 End
 
 #O
-Vnum 8652
+Vnum 17009
 Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 14041
-Nest 0
-Wear 19
-Cost 0
-End
-
-#O
-Vnum 11661
-Nest 0
-Wear 3
-Cost 0
-End
-
-#O
-Vnum 16512
-Nest 0
-ExtF 786769
-Wear 10
+Wear 6
 Cost 0
 End
 
@@ -532,6 +737,42 @@ Cost 0
 End
 
 #O
+Vnum 20006
+Enchanted
+Nest 0
+ExtF 17039681
+Wear 5
+Lev  60
+Cost 999
+Affc 'enchant armor'   1  71  -1  -2  17          0 1
+Affc 'reserved'   1  59  -1 -30   9          0 1
+Affc 'reserved'   1  59  -1   3  26          0 1
+Affc 'reserved'   1  59  -1  -3  24          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
+End
+
+#O
+Vnum 5609
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 11661
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 11661
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
 Vnum 8652
 Nest 0
 Wear -1
@@ -540,10 +781,83 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 4608
+Vnum 8652
 Nest 0
 Wear -1
-Cost 15
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 13002
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'bless'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 83
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
 End
 
 #O
@@ -551,220 +865,13 @@ Vnum 14071
 Enchanted
 Nest 0
 ExtF 66
+Cond 91
 Wear -1
 Lev  68
 Cost 400
-Affc 'enchant weapon'   1  69  -1   5  18          0 1
-Affc 'enchant weapon'   1  69  -1   6  19          0 1
 Affc 'reserved'   1  67  -1  -6  20          0 1
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 4608
-Nest 0
-Wear -1
-Cost 15
-End
-
-#O
-Vnum 4609
-Nest 0
-Wear -1
-Cost 15
-End
-
-#O
-Vnum 4608
-Nest 0
-Wear -1
-Cost 15
-End
-
-#O
-Vnum 4609
-Nest 0
-Wear -1
-Cost 15
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 4608
-Nest 0
-Wear -1
-Cost 15
-End
-
-#O
-Vnum 4609
-Nest 0
-Wear -1
-Cost 15
-End
-
-#O
-Vnum 4608
-Nest 0
-Wear -1
-Cost 15
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 17009
-Nest 0
-Wear 6
-Cost 0
-End
-
-#O
-Vnum 17004
-Nest 0
-Wear 18
-Cost 0
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 4610
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4610
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4610
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 4610
-Nest 0
-Wear -1
-Cost 700
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 14041
-Nest 0
-Wear 16
-Cost 0
-End
-
-#O
-Vnum 14071
-Enchanted
-Nest 0
-ExtF 66
-Cond 94
-Wear -1
-Lev  68
-Cost 400
-Affc 'enchant weapon'   1  69  -1   5  18          0 1
 Affc 'enchant weapon'   1  69  -1   6  19          0 1
-Affc 'reserved'   1  67  -1  -6  20          0 1
+Affc 'enchant weapon'   1  69  -1   5  18          0 1
 End
 
 #O
@@ -776,25 +883,59 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 8652
+Vnum 3162
 Nest 0
 Wear -1
-Cost 10
-Spell 3 'fly'
+Cost 500
 End
 
 #O
-Vnum 8652
+Vnum 3163
 Nest 0
 Wear -1
-Cost 10
-Spell 3 'fly'
+Cost 1500
 End
 
 #O
-Vnum 4420
+Vnum 3165
 Nest 0
-Wear 9
+Wear -1
+Cost 750
+End
+
+#O
+Vnum 3166
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 3167
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 3168
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3164
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 20015
+Nest 0
+Cond 97
+Wear -1
 Cost 0
 End
 
@@ -807,59 +948,292 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 4610
+Vnum 8652
 Nest 0
 Wear -1
-Cost 700
+Cost 10
+Spell 3 'fly'
 End
 
 #O
-Vnum 4608
+Vnum 3011
 Nest 0
 Wear -1
-Cost 15
+Cost 9
 End
 
 #O
-Vnum 4610
+Vnum 3011
 Nest 0
 Wear -1
-Cost 700
+Cost 9
 End
 
 #O
-Vnum 4609
+Vnum 3011
 Nest 0
 Wear -1
-Cost 15
+Cost 9
 End
 
 #O
-Vnum 4608
+Vnum 3011
 Nest 0
 Wear -1
-Cost 15
+Cost 9
 End
 
 #O
-Vnum 4609
+Vnum 3011
 Nest 0
 Wear -1
-Cost 15
+Cost 9
 End
 
 #O
-Vnum 4610
+Vnum 3011
 Nest 0
 Wear -1
-Cost 700
+Cost 9
 End
 
 #O
-Vnum 4610
+Vnum 3011
 Nest 0
 Wear -1
-Cost 700
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
 End
 
 #O

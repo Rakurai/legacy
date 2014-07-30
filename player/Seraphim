@@ -1,9 +1,10 @@
 #PLAYER
 Name Seraphim~
 Id   989624503
-LogO 1020574185
-Vers 13
+LogO 1060017178
+Vers 14
 Mexp 2
+Pass angel~
 Desc Through the dense forest you spy a light that draws you closer and closer to its
 warmth.  Then, suddenly, you enter a clearing and behold Seraphim's
 magnificence.  Her fiery burgundy hair billows in the wind, and her scantily clad
@@ -13,48 +14,48 @@ Desc Through the dense forest you spy a light that draws you closer and closer t
 ~
 Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
 Race elf~
-Clan divinity~
-Sex  2
 Cla  2
 Levl 61
-Plyd 377644
-Back 372606
-Note 1020574180 1020574180 1020574180 1020574180 1020574180 1020574180 1020574180
+Tru  0
+Plyd 383919
+Back 383621
+Note 1036970501 1036890144 1036890144 1036925552 1036890144 1036953596 1036890144
 Scro 22
-Room 24206
-HMS  1049 1049 874 874 741 741
-Gold 5962
-Silv 23
+Room 3001
+HMS  1079 904 741
+Gold 5939
+Silv 3
 Gold_in_bank 3000
 Exp  64050
-PCkills 0
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 321
 Spou Tenchu~
-Act  CDEFGHJLSTc
-AfBy DFJ
+FImm 0
 FRes B
 FVul Z
+Plr  CFHRT
+Video 0
+Act  CDEFGHJLSTc
+AfBy DFJ
 Comm NO
 Revk 0
 Cgrp A
 Cnsr A
-Pos  8
-Prac 7
-Save  -16
-Alig  321
-Hit   51
-Dam   37
-ACs -249 -246 -246 -242
+Prac 0
+Trai 0
+Wimp 0
 Atrib 16 20 18 23 15 18
-AtMod 3 5 5 6 9 3
-QuestPnts 96
-Pass angel~
-Afk {B[{CSat Mar 30 23:08:22 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+QuestPnts  46
+GameIn  {cThe sky burns {RBr{Pim{Rst{Pon{Re {cas {BS{Te{Craph{Ti{Bm {cfalls from the {NH{Be{Ca{Hv{Ge{Wn{Ns{B.{C.{x~
+GameOut {cYour {Ph{Rear{Pt {cis ripped through your {Yth{bro{Yat {cas {BS{Te{Craph{Ti{Bm {ctakes f{gl{Wig{gh{ct.{x~
+Afk {B[{CTue Oct  8 21:47:30 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl , {RTe{Pnc{Rhu{P's {BA{Tn{Cg{Te{Bl.~
+Titl , {Rthe {HEt{Ger{Hna{Gl M{His{Gus{Hed.~
 Immn ~
 Pnts 40
 Rank {WA{gC{WE~
@@ -63,10 +64,10 @@ TSex 2
 LLev 1
 Email sangre@graffiti.net~
 Deit Muaddib~
-Lsit 1Cust23.tnt8.shreveport.la.da.uu.net~
-Ltim Sat May 04 23:48:25 2002
+Lsit adsl-33-195-65.lft.bellsouth.net~
+Ltim Sun Nov 10 17:32:19 2002
 ~
-LSav Sat May 04 23:49:45 2002
+LSav Mon Aug 04 13:12:58 2003
 ~
 Finf Sometimes something
 And always nothing..
@@ -87,19 +88,15 @@ Finf Sometimes something
 and he..
 he would dance until she stopped writting..
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  CFR
 HMSP 819 389 741
 THMS 0 0 0
-Cnd  0 6 38 38
-Query zintros~
-Query darkavatar~
+Cnd  0 0 23 16
+Query BigSexy~
+Query Blackhart~
 Sk 78 1 'armor'
 Sk 75 1 'cancellation'
 Sk 1 1 'channel'
-Sk 1 1 'dazzling light'
+Sk 75 1 'dazzling light'
 Sk 75 1 'detect evil'
 Sk 75 1 'detect good'
 Sk 75 1 'detect hidden'
@@ -108,8 +105,8 @@ Sk 75 1 'detect magic'
 Sk 75 1 'detect poison'
 Sk 75 1 'dispel magic'
 Sk 1 1 'divine regeneration'
-Sk 1 1 'enchant armor'
-Sk 1 1 'enchant weapon'
+Sk 75 1 'enchant armor'
+Sk 22 1 'enchant weapon'
 Sk 75 1 'fireproof'
 Sk 75 1 'giant strength'
 Sk 77 1 'haste'
@@ -277,20 +274,6 @@ ShD  {RH{Pe{Ra{Pr{Rt {Hof a {BT{Ch{Bi{Ce{Bf{x~
 Desc {RH{Pe{Ra{Pr{Rt {Hof a {BT{Ch{Bi{Ce{Bf{x~
 Wear 20
 Cost 1
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
 End
 
 #O

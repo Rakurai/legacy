@@ -1,47 +1,46 @@
 #PLAYER
 Name Orinon~
 Id   1019270761
-LogO 1019327915
-Vers 13
+LogO 1057633192
+Vers 14
 Mexp 1
+Pass tommy~
 Prom <{R%h/%H {G%m/%M {M%X {Y%g/%s{X> ~
 Race vampire~
-Sex  1
 Cla  4
 Levl 6
-Plyd 2913
-Back 0
+Tru  0
+Plyd 3749
+Back 3723
 Note 0 0 0 0 1011721386 0 0
 Scro 22
-Room 9406
-HMS  45 62 64 151 93 123
+Room 3054
+HMS  62 151 123
 Gold 3
-Silv 657
-Exp  7182
-PCkills 0
+Silv 777
+Exp  7510
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
-Act  CDEFGHJLQSc
-AfBy T
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -49
+FImm 0
 FRes BM
 FVul NS
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
 Prac 16
 Trai 1
-Save  -1
-Alig  -152
-Dam   1
-ACs 65 63 63 79
-Wimp  10
+Wimp 10
 Atrib 16 22 19 15 16 14
-AtMod 1 2 3 2 -1 2
-Pass tommy~
 Titl  ({VNewbie Aura{x)~
 Immn ~
 Pnts 41
@@ -50,17 +49,14 @@ Aura ~
 TSex 1
 LLev 0
 Deit Kazander~
-Lsit 66.76.72.152~
-Ltim Sat Apr 20 13:35:32 2002
+Lsit 172.158.80.92~
+Ltim Mon Jul 07 22:59:18 2003
 ~
-LSav Sat Apr 20 13:38:35 2002
+LSav Mon Jul 07 22:59:52 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 HMSP 58 151 123
 THMS 0 0 0
-Cnd  0 0 4 15
+Cnd  0 0 0 0
 Sk 1 1 'acid blast'
 Sk 1 1 'age'
 Sk 1 1 'animate skeleton'
@@ -89,7 +85,7 @@ Sk 1 1 'haste'
 Sk 1 1 'infravision'
 Sk 75 1 'invisibility'
 Sk 1 1 'lightning bolt'
-Sk 78 1 'magic missile'
+Sk 83 1 'magic missile'
 Sk 1 1 'mass invis'
 Sk 1 1 'plague'
 Sk 1 1 'poison'
@@ -125,7 +121,6 @@ Gr 'illusion'
 Gr 'maladictions'
 Gr 'necromancy'
 Gr 'protective'
-Affc 'armor'   0   5  22 -20  17          0 1
 End
 
 #O
@@ -134,7 +129,7 @@ Nest 0
 Cond 85
 Wear 0
 Cost 0
-Val  0 0 136 0 0
+Val  0 0 85 0 0
 End
 
 #O
@@ -147,6 +142,7 @@ End
 #O
 Vnum 3722
 Nest 0
+Cond 96
 Wear 16
 Cost 183
 End
@@ -190,7 +186,7 @@ End
 #O
 Vnum 76
 Nest 0
-Cond 99
+Cond 96
 Wear 17
 Cost 550
 End
@@ -214,7 +210,7 @@ Vnum 79
 Nest 0
 Wear -1
 Cost 200
-Val  150 78 15 0 0
+Val  150 42 15 0 0
 End
 
 #O

@@ -1,24 +1,23 @@
 #PLAYER
 Name Osiris~
 Id   1016318444
-LogO 1022366630
+LogO 1060017594
 Vers 14
 Mexp 2
 Pass mark2~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race wolf~
-Clan divinity~
 Cla  7
 Levl 23
 Tru  0
-Plyd 101942
+Plyd 102474
 Back 75603
 Note 1021055647 1016318957 1016318957 1016318957 1016318957 1016318957 0
 Scro 22
-Room 24207
-HMS  437 288 96
+Room 3001
+HMS  462 278 345
 Gold 4
-Silv 23
+Silv 128
 Exp  25333
 PCkills  0
 PCkilled 0
@@ -52,10 +51,10 @@ Aura ~
 TSex 1
 LLev 26
 Deit Teotwawki~
-Lsit sprint254-49.bbc.net~
-Ltim Sat May 25 17:06:49 2002
+Lsit 24-116-89-123.cpe.cableone.net~
+Ltim Fri May 09 20:13:03 2003
 ~
-LSav Sat May 25 17:43:50 2002
+LSav Mon Aug 04 13:19:54 2003
 ~
 HMSP 427 236 345
 THMS 0 0 0
@@ -382,11 +381,17 @@ Cost 0
 End
 
 #O
-Vnum 24245
+Vnum 4580
 Nest 0
 Wear -1
-Cost 10
-Spell 3 'talon'
+Cost 1000
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
 End
 
 #END

@@ -1,0 +1,269 @@
+#PLAYER
+Name Leonin~
+Id   1106280617
+LogO 1106282661
+Vers 14
+Mexp 1
+Pass cl1989~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dragon~
+Cla  5
+Levl 1
+Plyd 544
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3721
+HMS  30 59 100
+Gold 0
+Silv 23
+Exp  3425
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes EG
+FVul F
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Block_Remote 0
+Prac 0
+Trai 0
+Wimp 0
+Lay 1
+Lay_Next 5
+Familiar 0
+Atrib 19 13 13 11 15 18
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 55
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Navarre~
+Lsit ppp-70-243-65-57.dsl.snantx.swbell.net~
+Ltim Thu Jan 20 22:11:53 2005
+~
+LSav Thu Jan 20 22:44:21 2005
+~
+HMSP 30 100 100
+THMS 1 0 0
+Cnd  0 0 4 0
+Sk 1 1 'acid breath'
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'continual light'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 1 1 'cure critical'
+Sk 76 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'fire breath'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning breath'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'scry'
+Sk 1 1 'vision'
+Sk 1 1 'mace'
+Sk 41 1 'sword'
+Sk 17 1 'shield block'
+Sk 1 1 'scribe'
+Sk 1 1 'bash'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'rotate'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 1 1 'lay'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'paladin default'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'detection'
+Gr 'draconian'
+Gr 'healing'
+Affc 'bless'   0  25   7  -3  24          0 1
+Affc 'bless'   0  24   7   3  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 193 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Cond 92
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3723
+Nest 0
+Wear 0
+Cost 4
+Val  0 0 13 0 0
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#END

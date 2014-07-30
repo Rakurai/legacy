@@ -91,7 +91,7 @@ the grocer~
 A grocer stands at the counter with a slightly impatient look on his face.
 ~
 A tall grocer who moves two 200 pound bags of flour around on his shoulders.
-He is wearing a pair of trousers and a nice shirt with a tie. He is seems to
+He is wearing a pair of trousers and a nice shirt with a tie. He seems to
 want to help you.
 ~
 human~
@@ -163,7 +163,7 @@ armorer armorer~
 the armorer~
 An armorer stands here.
 ~
-An old but very strong armorer, he has made more amours in his
+An old but very strong armorer who has made more armors in his
 lifetime than you have ever seen.
 ~
 human~
@@ -186,7 +186,7 @@ endif
 ~
 >rand_prog 5~
 if rand(35)
-   say I remember once this guy came in and sold me some amour made of gold!
+   say I remember once this guy came in and sold me some armor made of gold!
    smile
    say It weighed a ton. He had to use a wagon to carry it.
 else
@@ -372,7 +372,7 @@ vast amount of knowledge she possesses. She is wearing fine magic clothing,
 and you notice that she is surrounded by a blue shimmering aura.
 ~
 elf~
-ABKRV DEFZ 1000 0
+ABJKRVb DEFZ 1000 0
 36 0 1d1+1999 1d1+999 3d8+24 magic
 -15 -15 -15 -15
 FG ABCD 0 0
@@ -389,7 +389,7 @@ You are in no doubt that this guildmaster is truly close to your god; he has
 a peaceful, loving look. You notice that he is surrounded by a white aura.
 ~
 human~
-ABKQV CDEFHZ 1000 0
+ABJKQVb CDEFHZ 1000 0
 36 0 1d1+1999 1d1+999 3d8+24 divine
 -15 -15 -15 -15
 EFHIK ABCD 0 0
@@ -407,7 +407,7 @@ the way of the true thief.  She is dressed in poor clothing, having
 the appearance of a beggar.
 ~
 human~
-ABKSV DFZ 1000 0
+ABJKSVb DFZ 1000 0
 36 0 1d1+1999 1d1+199 3d8+24 punch
 -15 -15 -15 -15
 BEFHJN ABCD 0 0
@@ -425,7 +425,7 @@ across his body prove that he was using arms before you were born.  He
 has a calm look on his face.
 ~
 dwarf~
-ABKTV DF 1000 0
+ABJKTVb DF 1000 0
 36 0 1d1+1999 1d1+199 3d8+24 beating
 -20 -20 -20 -20
 ACDEIK ABCD 0 0
@@ -589,10 +589,9 @@ stand stand male 150
 #3045
 waiter~
 the waiter~
-A waiter who easily could kill you, and still carry quite a few fire breathers.
+A waiter who easily could kill you, and still carry quite a few fire breathers.~
 He is a very tall man. He is very clean cut.  He has a mustache that is nicely
 trimmed.  He looks as if he is in his late 40s. 
-~
 ~
 human~
 ABTV 0 600 0
@@ -623,8 +622,8 @@ stand stand male 200
 
 
 #3047
-arnamentia~
-arnamentia~
+Arnamentia~
+Arnamentia~
 Arnamentia is smiling greeting all the travelers as they pass through.
 ~
 Arnamentia is a very beautiful woman. She has long blonde hair and blue eyes.
@@ -706,7 +705,7 @@ a small puffy poodle~
 A small puffy poodle is looking for someone to pet her.
 ~
 This is a small, white, puffy, poodle. She has a little black nose. She is 
-well groomed and by his look he is very well cared for. She is very little,
+well groomed and by her look she is very well cared for. She is very little,
 you could probably fit her in your pocket.
 ~
 fido~
@@ -750,12 +749,12 @@ stand stand male 18
 
 
 #3064
-Johney little boy~
-a little boy named Johney~
-Johney is walking around looking for his mommy.
+Johnny little boy~
+a little boy named Johnny~
+Johnny is walking around looking for his mommy.
 ~
-Johney is a little boy about 8 years old. He has blonde hair and blue eyes. 
-Johney has the cutest little dimples. Johney is a centimeter shy of being 4'
+Johnny is a little boy about 8 years old. He has blonde hair and blue eyes. 
+Johnny has the cutest little dimples. Johnny is a inch shy of being 4'
 tall. He is wearing baggy pants and a red and blue stripped shirt. 
 ~
 human~
@@ -772,7 +771,7 @@ woman~
 a woman~
 A woman is walking around looking in all the different stores.
 ~
-The woman looks like she wants to spend money. She is wearing a red silk
+This woman looks like she wants to spend money. She is wearing a red silk
 blouse with a black ankle length skirt. Her hair is soft brown waist length 
 and wavy. She is carrying a small black purse.
 ~
@@ -1018,8 +1017,8 @@ citizen~
 a citizen~
 A citizen is walking around enjoying the city.
 ~
-The citizen looks independently wealthy. They are walking around admiring the
-hooded avatar's work. They are wearing top of the line clothing. The citizen
+The citizen looks independently wealthy. He is walking around admiring the
+hooded avatar's work. He is wearing top of the line clothing. The citizen
 is counting money by the hundreds.
 ~
 human~
@@ -1038,7 +1037,7 @@ The professional is on his way to Starlight Reach.
 ~
 The professional is a well dressed, young man. His hair is freshly trimmed. 
 He is wearing a fine, silk suit that he bought yesterday. You can smell his 
-cologne, it is very gentle to your nose.
+cologne, which is very gentle to your nose.
 ~
 human~
 AG 0 1000 0
@@ -1077,6 +1076,23 @@ AGU 0 1000 0
 1 0 2d6+5 1d1+99 1d4+0 peckb
 10 10 10 10
 FR 0 0 C
+stand stand either 0
+0 0 small 0
+
+#3125
+citizen~
+a citizen~
+A citizen is walking around enjoying the city.
+~
+The citizen looks independently wealthy. She is walking around admiring the
+hooded avatar's work. She is wearing top of the line clothing. The citizen
+is counting money by the hundreds.
+~
+human~
+AG 0 1000 0
+4 0 2d6+10 1d1+99 1d5+4 peck
+8 8 8 10
+CFR 0 0 C
 stand stand either 0
 0 0 small 0
 
@@ -1260,7 +1276,7 @@ vast amount of knowledge she possesses.  She is wearing a black robe and
 an Ankh symbolizing the legends of Lotus.
 ~
 elf~
-ABKRVb DEFZ 1000 0
+ABJKRVb DEFZ 1000 0
 36 0 1d1+1999 1d1+999 3d8+24 magic
 -15 -15 -15 -15
 FG ABCD 0 0
@@ -1277,7 +1293,7 @@ You are in no doubt that this guildmaster is truly at peace.  You notice
 that he is surrounded by a white aura.
 ~
 human~
-ABKQVb CDEFHZ 1000 0
+ABJKQVb CDEFHZ 1000 0
 36 0 1d1+1999 1d1+999 3d8+24 divine
 -15 -15 -15 -15
 EFHIK ABCD 0 0
@@ -1294,7 +1310,7 @@ Your guildmaster is dressed in a comfortable set of clothing.  She is
 playing a flute as she rests in the corner.
 ~
 human~
-ABKSVb DFZ 1000 0
+ABJKSVb DFZ 1000 0
 36 0 1d1+1999 1d1+199 3d8+24 punch
 -15 -15 -15 -15
 BEFHJN ABCD 0 0
@@ -1311,7 +1327,7 @@ He looks very strong and very skillful with his swords.  You wonder
 how many years he has spent becoming a master of his trade.
 ~
 human~
-ABKTVb DF 1000 0
+ABJKTVb DF 1000 0
 36 0 1d1+1999 1d1+199 3d8+24 beating
 -20 -20 -20 -20
 ACDEIK ABCD 0 0
@@ -1864,6 +1880,20 @@ drink S A
 E
 bottle local~
 You can not tell what this is no matter how long you look at it... makes ya think huh?
+~
+
+#3005
+chrismas tree~
+{PA {f{HC{Ph{Yr{Bi{Gs{Ht{Pm{Ya{Bs {HT{Gr{He{Ge{x~
+{PA {f{HC{Ph{Yr{Bi{Gs{Ht{Pm{Ya{Bs {HT{Gr{He{Ge{x is here.~
+pine~
+furniture ABGMO 0
+6 1000 FIL 150 150
+1 100 10 P
+E
+tree~
+This is a rather large pine tree with {YBRIGHT flashing{x bulbs and many 
+decorations.
 ~
 
 
@@ -3421,11 +3451,7 @@ A white key has been left here.~
 ivory~
 key 0 AO
 0 0 0 0 0
-0 10 0 G
-E
-key white~
-A key of this size must fit a very strong lock.
-~
+0 5 5 P
 
 
 #3162
@@ -3438,47 +3464,56 @@ map 0 A
 0 10 500 P
 E
 map midgaard~
-.
+
                         * * * MIDGAARD * * *
                          = = ========== = =
 
-                                     Rainbow Bridge (Asgard and Valhalla)
+                                     Rainbow Bridge (Asgard and Rainbow Focus)
                                     /
           North            Temple Altar   Mud School <--- ** NEWBIES **
-            |   /Up        (Healer, pit)      |           ** GO HERE **
-            | /                  |       /Entrance to
-     West---+---East             |     /  Mud School----Questmaster's Lair
-          / |                 Temple of       |
-    Down/   |                   Mota        Arena
-          South               (Recall)
-                                 |
-                                 |   /In the Air   /City Bank & Locker Room
-                  Cleric         | /             /
-       Northern   Guild----Temple Square---Grunting---Bar    Northern
-       Midgaard              (Fountain)    Boar Inn          Midgaard
-     (Loreley Road) Magic           |                      (Loreley Road)
-           |     Shop   Bakery   |    Grocer    Weaponsmith     |
-           |       |      |      |       |           |          |
+            |   /Up        (Healer, Pit)      |           ** GO HERE **
+            | /            /      |       /Entrance to
+     West---+---East     /        |     /  Mud School----Questmaster's 
+Quarters
+          / |      Tomb of   The Legacy      |
+    Down/   |     Necromancy   Temple       Arena
+          South       /       (Recall)
+Altar of Necromancy (morgue)    /|
+School of Skills---The Gathering  |   /In the Air
+                  Cleric          | /
+       Northern   Guild----Temple Square---City Bank	     Northern
+       Midgaard              (Fountain)      /               Midgaard
+   			          |   City Bank(locker rooom)
+   (Loreley Road) 		  |        		 (Loreley Road)
+		 Magic            |    General   The Weapon
+           |     Shop   Bakery    |     Store       Shop         |
+           |       |      |       |       |           |          |
 To    <---West---Main-Street---Market----Main-Street-+--------East--->Cross
-Shire,    Gate     |      |    Square    |           |        Gate    Roads
-Forest of  |     Mage  Armoury   |     Jeweler    Warrior       |
-Haon-Dor   |     Guild           |                 Guild     Wall Way
-          Wall                  |                              |
-          Way  Leather  Map     |    Grebe's  Pet   Apothecary |
-           |     Shop    Shop    |    Tavern   Shop  (Potions)  |
-           |      |       |    Common   |       |       |       |
-          Wall---Poor-Alley----Square---Dark-Alley------+----Wall Way
-          Way    |       |      |      |       |       |       |
-           |   Temple   Grubby   |   Thieves  Levee   Warehouse |
-           |  Of Knowledge  Inn     |    Guild   (Boats) (Sailor)  |
-           |                    Dump            |               |
-          Wall  Mob      Sewers/ |              |             Wall
-          Way--Factory          |              |              Way
-           |                   South         Midgaard           |         To the
-         Bridge                Bridge         River---------> Bridge <--> Sands
-           |                     |                              |           of
-        Southern              Southern                       Southern     Sorrow
+Shire,    Gate     |      |    Square     |           |       Gate    Roads
+Forest of  |     Magic Armoury    |     Jeweler    Swordsmen's   |
+Haon-Dor   |  User's Guild        |                 Guild     Wall Way
+          Wall                    |                              |
+          Way   Leather  Zelda's  |  Grebe's    Pet   Apothecary |
+           |     Shop    Maps     |  Jailhouse  Shop  (Potions)  |
+           |      |       |    Common    |       |       |       |
+          Wall---Apotheosis----Square---Apotheosis------+-----Wall
+          Way      Avenue                 Avenue              Way
+           |      |       |       |      |       |       |       |
+           |   Temple Hospitality |   Rogues  Quay     Warehouse |
+           |  Of Knowledge Inn    |   Guild    (Boats)           |
+           |                    Near the Bridge  |               |
+          Wall  Mob      Sewers/  |(Dump)        |             Wall
+          Way --Factory           |              |             Way
+           |                   South         Midgaard           |         To 
+                                                                          the
+         Bridge                Bridge         River---------> Bridge <--> 
+                                                                         Sands
+           |                      |                              |           
+                                                                          of
+        Southern              Southern                       Southern     
+                                                                        Sorrow
         Midgaard              Midgaard                       Midgaard
+
 ~
 
 
@@ -4949,6 +4984,35 @@ The sign reads:
    if killed and gain none if you kill. If you {CRECALL{x out, you are out
    until you buy your way back in."
 ~
+
+#3394
+map divided souls~
+a map of Divided Souls~
+A rolled up map is here.~
+paper~
+map 0 A
+1 0 0 0 0
+0 10 2000 P
+E
+map divided souls~
+.
+     MAP OF DIVIDED SOULS
+    =======================
+inside birdfeeder---Up a large tree    Redwood Platform
+                           |                   |
+                          UP                   |
+                           |                   |
+                   Base of large tree-----Garden Path---Hippo fountain-----------------Garden Path
+                           |                   |               |                           |
+                           |                   |             Gazebo                        |
+                           |                   |               |                           |
+                       Ash Grove          Garden Path          UP                     Garden Path
+                                               |               |                           |
+                                               |       Shimmering Tunnel - Globe of light  |
+                                               |                                           |
+                                          Garden Path--------------Garden Path---------Garden Path
+~
+
 #0
 
 
@@ -4957,16 +5021,16 @@ The sign reads:
 
 #3001
 The Legacy Temple~
-You are in the southern end of the temple hall in the Legacy Temple.
-The temple has been constructed from giant marble blocks, eternal in
-appearance, and most of the walls are covered by ancient wall paintings
-picturing gods, giants and peasants. The place has an aura of power.
+{VY{Wo{Vu{W a{Vr{We{V i{Wn{V t{Wh{Ve{W s{Vo{Wu{Vt{Wh{Ve{Wr{Vn{W e{Vn{Wd{V o{Wf{V t{Wh{Ve{W t{Ve{Wm{Vp{Wl{Ve{W h{Va{Wl{Vl{W i{Vn{W t{Vh{We{V L{We{Vg{Wa{Vc{Wy{V T{We{Vm{Wp{Vl{We{V.{W
+T{Vh{We{V t{We{Vm{Wp{Vl{We{V h{Wa{Vs{W b{Ve{We{Vn{W c{Vo{Wn{Vs{Wt{Vr{Wu{Vc{Wt{Ve{Wd{V f{Wr{Vo{Wm{V g{Wi{Va{Wn{Vt{W m{Va{Wr{Vb{Wl{Ve{W b{Vl{Wo{Vc{Wk{Vs{W,{V e{Wt{Ve{Wr{Vn{Wa{Vl{W i{Vn{W
+a{Vp{Wp{Ve{Wa{Vr{Wa{Vn{Wc{Ve{W,{V a{Wn{Vd{W m{Vo{Ws{Vt{W o{Vf{W t{Vh{We{V w{Wa{Vl{Wl{Vs{W a{Vr{We{V c{Wo{Vv{We{Vr{We{Vd{W b{Vy{W a{Vn{Wc{Vi{We{Vn{Wt{V w{Wa{Vl{Wl{V p{Wa{Vi{Wn{Vt{Wi{Vn{Wg{Vs{W
+p{Vi{Wc{Vt{Wu{Vr{Wi{Vn{Wg{V g{Wo{Vd{Ws{V,{W g{Vi{Wa{Vn{Wt{Vs{W a{Vn{Wd{V b{We{Va{Ws{Va{Wn{Vt{Ws{V.{W T{Vh{We{V p{Wl{Va{Wc{Ve{W h{Va{Ws{V a{Wn{V a{Wu{Vr{Wa{V o{Wf{V p{Wo{Vw{We{Vr{W.{V
 
-   Large steps lead down through the grand temple gate, descending the huge
-mound upon which the temple is built and ending on the temple square below.
-Equally large steps lead UP through a small door into the ENTRANCE to MUD
-SCHOOL.  (type 'up' to go to MUD SCHOOL.)  A small plaque is on this wall.
-A large sign is hung by the paintings on the stone wall.
+   L{Wa{Vr{Wg{Ve{W s{Vt{We{Vp{Ws{V l{We{Va{Wd{V d{Wo{Vw{Wn{V t{Wh{Vr{Wo{Vu{Wg{Vh{W t{Vh{We{V g{Wr{Va{Wn{Vd{W t{Ve{Wm{Vp{Wl{Ve{W g{Va{Wt{Ve{W,{V d{We{Vs{Wc{Ve{Wn{Vd{Wi{Vn{Wg{V t{Wh{Ve{W h{Vu{Wg{Ve{W
+m{Vo{Wu{Vn{Wd{V u{Wp{Vo{Wn{V w{Wh{Vi{Wc{Vh{W t{Vh{We{V t{We{Vm{Wp{Vl{We{V i{Ws{V b{Wu{Vi{Wl{Vt{W a{Vn{Wd{V e{Wn{Vd{Wi{Vn{Wg{V o{Wn{V t{Wh{Ve{W t{Ve{Wm{Vp{Wl{Ve{W s{Vq{Wu{Va{Wr{Ve{W b{Ve{Wl{Vo{Ww{V.{W
+E{Vq{Wu{Va{Wl{Vl{Wy{V l{Wa{Vr{Wg{Ve{W s{Vt{We{Vp{Ws{V l{We{Va{Wd{V U{WP{V t{Wh{Vr{Wo{Vu{Wg{Vh{W a{V s{Wm{Va{Wl{Vl{W d{Vo{Wo{Vr{W i{Vn{Wt{Vo{W t{Vh{We{V E{WN{VT{WR{VA{WN{VC{WE{V t{Wo{V M{WU{VD{W
+S{VC{WH{VO{WO{VL{W.{V  ({Wt{Vy{Wp{Ve{W '{Vu{Wp{V'{W t{Vo{W g{Vo{W t{Vo{W M{VU{WD{V S{WC{VH{WO{VO{WL{V.{W){V  A{W s{Vm{Wa{Vl{Wl{V p{Wl{Va{Wq{Vu{We{V i{Ws{V o{Wn{V t{Wh{Vi{Ws{V w{Wa{Vl{Wl{V.{W
+A{V l{Wa{Vr{Wg{Ve{W s{Vi{Wg{Vn{W i{Vs{W h{Vu{Wn{Vg{W b{Vy{W t{Vh{We{V p{Wa{Vi{Wn{Vt{Wi{Vn{Wg{Vs{W o{Vn{W t{Vh{We{V s{Wt{Vo{Wn{Ve{W w{Va{Wl{Vl{W.{x
 ~
 0 CDS 0
 D0
@@ -5092,13 +5156,13 @@ S
 
 #3005
 The Temple Square~
-You are standing on the temple square. Huge marble steps lead up to the
+You are standing on the Temple Square. Huge marble steps lead up to the
 temple gate.  The marble of the steps is highly polished and like most of 
-the city the square is immaculate. There are also tress planted along the 
+the city the square is immaculate. There are also trees planted along the 
 perimeter of the square to break the monotony of gleaming white stone. It 
 strikes a nice balance between being imposing and warm.
 
-  The entrance to the Clerics Guild is to the west, and the city bank, is to 
+  The entrance to the Clerics Guild is to the west and the city bank is to 
 the east.  Just south of here you see the center of town, Market Square.
 ~
 0 S 1
@@ -5448,7 +5512,7 @@ S
 Entrance to Magic User's Guild~
 The entrance hall is a small, poorly lit room. What little light there is 
 shows that there is nothing much to see. The room seems to function only as 
-a conduit to the nest room.
+a conduit to the next room.
 ~
 0 DS 0
 D0
@@ -5523,7 +5587,7 @@ S
 
 #3020
 The Armory~
-All kinds of amour is on the walls and in displayed in the window: helmets, 
+All kinds of armor are on the walls and displayed in the window: helmets, 
 shields, chain mail and every other kind of protection from arrow, blade or
 projectile.  On the wall is a small note. 
 
@@ -5823,7 +5887,7 @@ S
 Near the Bridge~
 You stand on the wide paved road leading from the Legacy Temple to the
 under-construction Starlight Reach. The majestic trees that line the 
-main roads of the city, are even more in evidence here near the river.
+main roads of the city are even more evident here near the river.
 
   Just south is the bridge extending over the Midgaard River, and the entrance 
 to the sewer system is through a man-sized hole in the ground.
@@ -6894,7 +6958,7 @@ S
 #3160
 Zelda's Maps~
 As you walk in, a sudden gust of wind enters the shop and sends several scraps 
-of paper fly around the room. You blink as you take a look around the shop. 
+of paper flying around the room. You blink as you take a look around the shop. 
 This shop is stuffed with old pieces of parchment, and stacks of books. A small 
 desk with slightly less on it than is on the shelves is in front of you. A 
 scroll case full of scrolls is behind the desk.  A bookcase is to the right, and 
@@ -7177,8 +7241,8 @@ S
 #3254
 The South Bridge~
 You are standing on a large white marble bridge leading from the Legacy Temple 
-to the under-construction Starlight Reach. Below you are the currents of 
-the Midgaard river.
+to the under-construction Starlight Reach. Below you are the currents of the 
+Midgaard river.
 ~
 0 S 1
 D0
@@ -7221,11 +7285,11 @@ S
 
 #3256
 Outside the South Gate of Midgaard~
-You are standing outside the strong wooden gate on the
-southern walls of Midgaard.  Guards eye you suspiciously from the two
-towers on either side of the gate, as they stand watch to protect the city
-from the goblins of this forest.  The trees and goblins of the Miden'nir
-are south, the gate back to Midgaard lies north.
+You are standing outside the strong wooden gate on the southern walls of Midgaard.  
+Guards eye you suspiciously from the two towers on either side of the gate, 
+as they stand watch to protect the city from the goblins of this forest.  The 
+trees and goblins of the Miden'nir are south, the gate back to Midgaard lies 
+north.
 ~
 0 S 3
 D0
@@ -8313,6 +8377,7 @@ G 1 3165  -1            *   a map of the Dwarven Kingdom
 G 1 3164  -1            *   a map of southern Midgaard
 G 1 3163  -1            *   a map of Thera
 G 1 3162  -1            *   a map of the city of Midgaard
+G 1 3394  -1            *   a map of Divided Souls
 M 0 3161   1 3160  1    * Slimer
 D 0 3160   0    2       * Zelda's Map's north
 D 0 3352   0    1       * Entrance to Doom
@@ -8461,10 +8526,14 @@ M 0 3121 10 3012 10    * Load citizen
 M 0 3121 10 3016 10    * Load citizen 
 M 0 3121 10 3011 10    * Load citizen 
 M 0 3121 10 3033 10    * Load citizen
+M 0 3125 10 3012 10    * Load citizen 
+M 0 3125 10 3016 10    * Load citizen 
+M 0 3125 10 3011 10    * Load citizen 
+M 0 3125 10 3033 10    * Load citizen
 M 0 3065 10 3034 7     * Load woman 
 M 0 3065 10 3044 7     * Load woman .
 M 0 3065 10 3048 7     * Load woman
-M 0 3064 10 3255 5     * load Johney
+M 0 3064 10 3255 5     * load Johnny
 M 0 3063 10 3049 5     * Load young couple
 M 0 3063 10 3047 5     * Load young couple
 M 0 3122 10 3016 5     * Load Professional
@@ -8508,6 +8577,14 @@ S
 3160  0  0  0  0  0      100 100         0 23   * Zelda
 3168  0  0  0  0  0      100 100         0 23   * Desiderius
 3169 999 0  0  0  0      100  35         0 23   *Eldareth (quest items)
+3020  0  0  0  0  0      100  75         0 23   * mage guildmaster
+3021  0  0  0  0  0      100  75         0 23   * cleric guildmaster
+3022  0  0  0  0  0      100  75         0 23   * thief guildmaster
+3023  0  0  0  0  0      100  75         0 23   * warrior guildmaster
+3164  0  0  0  0  0      100  75         0 23   * necro guildmaster
+3165  0  0  0  0  0      100  75         0 23   * paladin guildmaster
+3166  0  0  0  0  0      100  75         0 23   * bard guildmaster
+3167  0  0  0  0  0      100  75         0 23   * ranger guildmaster
 0
 
 

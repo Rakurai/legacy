@@ -19,7 +19,7 @@
 #define DB_PORT			0
 #define DB_SOCKET		NULL
 #define DB_CLIENT_FLAG	0
-#define DB_NAME			"newlegacy"
+#define DB_NAME			"legacy"
 #define DB_USER			"legacy"
 #define DB_PASS			NULL
 

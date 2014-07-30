@@ -72,9 +72,10 @@ MPAT 2607 MPECHO You involuntarily freeze as your ears barely discern the sound 
 |
 
 #2601
-savior~
+savior man~
+a small man~
+A slight man of about 33 sits here.
 ~
-{x~
 This mob transes people to the old man's house, when they get lost in the wastelands.
 ~
 human~
@@ -93,8 +94,9 @@ MPTRANS $n 2601
 
 #2602
 savior~
+a small man~
+A slight man of about 33 stands here.
 ~
-{x~
 This mob transes people to the inn in Torayna Cri, when they get lost in the wastelands.
 ~
 human~

@@ -1,7 +1,7 @@
 #PLAYER
 Name Aadien~
 Id   1013288166
-LogO 1027158824
+LogO 1077171492
 Vers 14
 Mexp 2
 Pass justin~
@@ -9,27 +9,26 @@ Desc {cHe is a {gs{ch{gr{co{gu{cd{ge{cd individual with {Pr{Re{Pd {ceyes...oh ye
 ~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race human~
-Clan kindred~
 Cla  0
 Levl 85
 Tru  91
-Plyd 414081
+Plyd 424280
 Back 362201
-Note 1027107921 1014345516 1027144008 1027087211 1027146472 1027094615 1026831915
+Note 1077158783 1014345516 1027791892 1076087190 1027233130 1027810204 1026831915
 Scro 22
-Room 25000
-HMS  1528 2451 623
-Gold 6564
-Silv 267
+Room 3001
+HMS  1503 2426 623
+Gold 6592
+Silv 226
 Gold_in_bank 11000
-Exp  85133
+Exp  85152
 PCkills  1
 PCkilled 2
 Akills   6
 Akilled  2
 PKRank   0
 Pos  8
-Alig 1000
+Alig 834
 Spou Bascha~
 FImm L
 FRes F
@@ -42,15 +41,13 @@ Comm NOa
 Revk 0
 Cgrp A
 Cnsr B
-Prac 88
-Trai 29
+Prac 8
+Trai 37
 Wimp 0
 Atrib 18 21 18 15 18 14
 SkillPnts  35
 RolePnts   5
-QpDonated  276
-GlDonated  14500
-Afk {B[{CWed Jul 10 02:49:59 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CThu Feb 12 21:07:29 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl .~
 Immn ~
@@ -64,14 +61,14 @@ Stus {NS{Bo{Tr{Cc{Te{Br{To{Br{x~
 RmCt 1
 ExSk 0
 Raff 912
-Lsit adsl-63-184-51.bix.bellsouth.net~
-Ltim Sat Jul 20 04:53:41 2002
+Lsit adsl-1-54-174.bix.bellsouth.net~
+Ltim Thu Feb 19 01:17:11 2004
 ~
-LSav Sat Jul 20 04:53:44 2002
+LSav Thu Feb 19 01:18:12 2004
 ~
 HMSP 1023 1181 593
 THMS 0 0 0
-Cnd  0 0 2 0
+Cnd  0 0 0 0
 Query mithrank~
 Sk 99 1 'acid blast'
 Sk 88 1 'acid breath'
@@ -117,7 +114,7 @@ Sk 75 1 'detect hidden'
 Sk 76 1 'detect invis'
 Sk 1 1 'detect magic'
 Sk 1 1 'detect poison'
-Sk 75 1 'dispel evil'
+Sk 76 1 'dispel evil'
 Sk 75 1 'dispel good'
 Sk 81 1 'dispel magic'
 Sk 93 1 'divine healing'
@@ -130,7 +127,7 @@ Sk 75 1 'energy drain'
 Sk 80 1 'faerie fire'
 Sk 1 1 'faerie fog'
 Sk 1 1 'fear'
-Sk 79 1 'fire breath'
+Sk 81 1 'fire breath'
 Sk 92 1 'fireball'
 Sk 1 1 'fireproof'
 Sk 75 1 'firestorm'
@@ -162,7 +159,7 @@ Sk 75 1 'magic missile'
 Sk 1 1 'mass healing'
 Sk 1 1 'mass invis'
 Sk 75 1 'nexus'
-Sk 86 1 'pass door'
+Sk 87 1 'pass door'
 Sk 1 1 'plague'
 Sk 75 1 'poison'
 Sk 76 1 'power word'
@@ -417,19 +414,11 @@ Spell 3 'protection evil'
 End
 
 #O
-Vnum 25016
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'protection evil'
-End
-
-#O
 Vnum 7503
 Nest 0
 Wear -1
 Cost 0
-Val  500 436 0 0 0
+Val  500 388 0 0 0
 End
 
 #O
@@ -452,297 +441,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
 ExDe food~ It looks delicious.
 ~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
 ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food Sivat's Bite Sized Cookie~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  49 99 0 0 0
-ExDe chef~ This food was created by Sivat.
-~
-ExDe food~ It looks delicious.
 ~
 End
 
@@ -759,6 +460,294 @@ Val  49 99 0 0 0
 ExDe food~ It looks delicious.
 ~
 ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Sivat.
+~
+End
+
+#O
+Vnum 119
+Nest 1
+Name food Sivat's Bite Sized Cookie~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {bB{Yi{bt{Ye {bS{Yi{bz{Ye{bd {WC{go{Wo{gk{Wi{ge{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  49 99 0 0 0
+ExDe chef~ This food was created by Sivat.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -821,7 +810,7 @@ Vnum 10168
 Nest 0
 ExtF 16777219
 Cond 81
-Wear 2
+Wear -1
 Cost 2200
 End
 
@@ -849,10 +838,10 @@ Nest 0
 Cond 74
 Wear -1
 Cost 748
-Affc 'reserved'   1  60  -1  60  13          0 1
-Affc 'reserved'   1  60  -1   2  18          0 1
-Affc 'reserved'   1  60  -1   3  19          0 1
 Affc 'reserved'   0  60  -1   0   0         40 1
+Affc 'reserved'   1  60  -1   3  19          0 1
+Affc 'reserved'   1  60  -1   2  18          0 1
+Affc 'reserved'   1  60  -1  60  13          0 1
 End
 
 #O
@@ -871,18 +860,6 @@ Cost 0
 End
 
 #O
-Vnum 9540
-Nest 0
-Name oreo blizzard~
-ShD  {bO{Wr{be{Wo {WBlizzard{x~
-Desc {WIts an Oreo Blizzard{x~
-Mat cream~
-Wt   0
-Wear -1
-Cost 4
-End
-
-#O
 Vnum 14030
 Nest 0
 Cond 76
@@ -895,20 +872,6 @@ Vnum 11696
 Nest 0
 Wear -1
 Cost 5500
-End
-
-#O
-Vnum 25004
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25004
-Nest 0
-Wear -1
-Cost 100
 End
 
 #O
@@ -951,19 +914,11 @@ Cond 91
 Wear 4
 Lev  90
 Cost 10000
-Affc 'reserved'   1  87  -1   7  19          0 1
-Affc 'reserved'   1  87  -1   7  18          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
-Affc 'reserved'   1  87  -1   5   3          0 1
 Affc 'enchant armor'   1  91  -1  -3  17          0 1
-End
-
-#O
-Vnum 8832
-Nest 0
-ExtF 65
-Wear 16
-Cost 0
+Affc 'reserved'   1  87  -1   5   3          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'reserved'   1  87  -1   7  18          0 1
+Affc 'reserved'   1  87  -1   7  19          0 1
 End
 
 #O
@@ -982,13 +937,13 @@ ExtF 67
 Cond 96
 Wear 7
 Cost 660
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  40  12          0 1
-Affc 'reserved'   1  90  -1   5  19          0 1
-Affc 'reserved'   1  90  -1   5  18          0 1
-Affc 'reserved'   1  90  -1   1   1          0 1
-Affc 'reserved'   1  90  -1   3   4          0 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  90  -1   3   4          0 1
+Affc 'reserved'   1  90  -1   1   1          0 1
+Affc 'reserved'   1  90  -1   5  18          0 1
+Affc 'reserved'   1  90  -1   5  19          0 1
+Affc 'reserved'   1  90  -1  40  12          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
 End
 
 #O
@@ -1062,7 +1017,7 @@ Nest 0
 ExtF 64
 Wt   100
 Cond 89
-Wear -1
+Wear 16
 Cost 15000
 End
 
@@ -1114,19 +1069,59 @@ ExtF 262211
 Wear -1
 Lev  56
 Cost 0
-Affc 'reserved'   1  55  -1   2   2          0 1
-Affc 'reserved'   1  55  -1  60  12          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-Affc 'reserved'   1  55  -1   2   1          0 1
 Affc 'reserved'   1  55  -1  10  13          0 1
+Affc 'reserved'   1  55  -1   2   1          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'reserved'   1  55  -1  60  12          0 1
+Affc 'reserved'   1  55  -1   2   2          0 1
 End
 
 #O
-Vnum 3205
+Vnum 8817
 Nest 0
 Wear -1
-Cost 60
+Cost 1000
+End
+
+#O
+Vnum 8818
+Nest 1
+Wear -1
+Cost 2000
+Spell 3 'armor'
+End
+
+#O
+Vnum 8818
+Nest 1
+Wear -1
+Cost 2000
+Spell 3 'armor'
+End
+
+#O
+Vnum 8818
+Nest 1
+Wear -1
+Cost 2000
+Spell 3 'armor'
+End
+
+#O
+Vnum 8818
+Nest 1
+Wear -1
+Cost 2000
+Spell 3 'armor'
+End
+
+#O
+Vnum 8832
+Nest 0
+ExtF 65
+Wear -1
+Cost 0
 End
 
 #B
@@ -1160,18 +1155,6 @@ Cost 450
 End
 
 #B
-Vnum 4471
-Nest 0
-Name card~
-ShD  {gV{Wi{gz{Wi{ge{Wr{x~
-Desc I will help you with your next problem with guidence{x~
-Mat love~
-Wt   0
-Wear -1
-Cost 3500
-End
-
-#B
 Vnum 16010
 Nest 0
 Wear -1
@@ -1201,12 +1184,12 @@ Cond 92
 Wear -1
 Lev  89
 Cost 10000
-Affc 'reserved'   1  91  -1   3   3          0 1
-Affc 'reserved'   1  91  -1  75  13          0 1
-Affc 'reserved'   1  91  -1   8  18          0 1
-Affc 'reserved'   1  91  -1  13  19          0 1
-Affc 'reserved'   0  91  -1   0   0    2097152 1
 Affc 'reserved'   4  91  -1   0   0       8192 1
+Affc 'reserved'   0  91  -1   0   0    2097152 1
+Affc 'reserved'   1  91  -1  13  19          0 1
+Affc 'reserved'   1  91  -1   8  18          0 1
+Affc 'reserved'   1  91  -1  75  13          0 1
+Affc 'reserved'   1  91  -1   3   3          0 1
 End
 
 #B
@@ -1280,8 +1263,8 @@ Wear -1
 Lev  60
 Cost 6
 Val  2 6 14 11 1
-Affc 'enchant weapon'   0  91  -1   5  18          0 1
 Affc 'enchant weapon'   1  91  -1   5  19          0 1
+Affc 'enchant weapon'   0  91  -1   5  18          0 1
 ExDe dagger the dagger, 'Bloody Angel'~ It is a marvellous dagger, crafted from the finest steel around.
 It was created in the Month of Futility by an experienced necromancer
 named Celes.  Legend holds that this vampire was a great weaponsmith.
@@ -1302,8 +1285,8 @@ Wear -1
 Lev  60
 Cost 18
 Val  2 7 12 11 4
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
 Affc 'enchant weapon'   0  91  -1   6  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
 ExDe dagger the dagger, 'Bloody Angel'~ It is a marvellous dagger, crafted from the finest tin around.
 It was created in the Month of Futility by an experienced necromancer
 named Celes.  Legend holds that this vampire was a great weaponsmith.
@@ -1343,11 +1326,11 @@ Cond 95
 Wear -1
 Lev  81
 Cost 0
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'reserved'   1  80  -1  50  14          0 1
-Affc 'reserved'   1  80  -1  40  13          0 1
 Affc 'reserved'   1  80  -1  35  12          0 1
+Affc 'reserved'   1  80  -1  40  13          0 1
+Affc 'reserved'   1  80  -1  50  14          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
 End
 
 #B

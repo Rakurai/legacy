@@ -1,0 +1,355 @@
+#PLAYER
+Name Starla~
+Id   1049472711
+LogO 1057797480
+Vers 14
+Mexp 1
+Pass princess~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race wolf~
+Cla  3
+Levl 29
+Tru  0
+Plyd 36194
+Back 30347
+Note 1049559225 0 0 1049082959 0 1049845218 0
+Scro 22
+Room 3001
+HMS  722 311 508
+Gold 1066
+Silv 2542
+Silver_in_bank 5000
+Gold_in_bank 590
+Exp  36495
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig 1000
+FImm 0
+FRes I
+FVul H
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy Vb
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 9
+Trai 3
+Wimp 0
+Atrib 22 18 18 20 21 17
+QuestPnts  37
+QuestNext  4
+Afk {B[{CTue Apr  8 15:02:29 2003{B] {CUnknown Departure.{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank {TM{Cs{Tm~
+Aura ~
+TSex 2
+LLev 9
+Deit Kenneth~
+Lsit 12.223.223.68~
+Ltim Mon Apr 14 22:00:01 2003
+~
+LSav Wed Jul 09 20:38:00 2003
+~
+HMSP 527 231 458
+THMS 0 0 0
+Cnd  0 15 34 40
+Alias g get sword~
+Alias ws wear sword~
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'giant strength'
+Sk 75 1 'haste'
+Sk 73 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 75 1 'dagger'
+Sk 93 1 'sword'
+Sk 86 1 'dodge'
+Sk 93 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 93 1 'parry'
+Sk 82 1 'second attack'
+Sk 85 1 'dual wield'
+Sk 76 1 'hunt'
+Sk 75 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'enhancement'
+Affc 'armor'   0  11   2 -20  17          0 1
+Affc 'shield'   0  13   1 -20  17          0 1
+Affc 'stone skin'   0  14  12 -40  17          0 1
+Affc 'flameshield'   0  15   4 -20  17  134217728 1
+Affc 'haste'   0  14   4   2   2    2097152 1
+Affc 'giant strength'   0  15  12   2   1          0 1
+Affc 'frenzy'   0  14   2   2  18          0 1
+Affc 'frenzy'   0  14   2   2  19          0 1
+Affc 'frenzy'   0  15   2  10  17          0 1
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 90
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 97
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 12706
+Nest 0
+Wear 7
+Cost 500
+End
+
+#O
+Vnum 4576
+Nest 0
+Cond 96
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3163
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 16066
+Nest 0
+Wear 9
+Cost 3500
+End
+
+#O
+Vnum 16007
+Nest 0
+Cond 95
+Wear 19
+Cost 4500
+End
+
+#O
+Vnum 16008
+Nest 0
+Cond 96
+Wear 6
+Cost 5000
+End
+
+#O
+Vnum 16074
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 24400
+Nest 0
+Wear 8
+Cost 2000
+End
+
+#O
+Vnum 24401
+Nest 0
+Cond 93
+Wear 10
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear 3
+Cost 2000
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear 13
+Cost 2500
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear 12
+Cost 1500
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 16084
+Nest 0
+Cond 98
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear 1
+Cost 1500
+End
+
+#O
+Vnum 20028
+Nest 0
+Wear 5
+Cost 700
+End
+
+#O
+Vnum 11915
+Nest 0
+Cond 93
+Wear 18
+Cost 300
+End
+
+#O
+Vnum 9924
+Nest 0
+Wear 0
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16041
+Nest 0
+Cond 84
+Wear 16
+Cost 5000
+End
+
+#O
+Vnum 16001
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 24474
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cancellation'
+Spell 2 'slow'
+Spell 3 'regeneration'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 16088
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 1213
+Nest 0
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jubei chi earth token hidden~
+ShD  {WE{ga{Wr{gt{Wh {gC{Wh{gi {W*{YHidden{W*{x~
+Desc {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#END

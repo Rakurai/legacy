@@ -1,0 +1,116 @@
+#PLAYER
+Name Lareth~
+Id   1100310726
+LogO 1100385197
+Vers 14
+Mexp 1
+Pass earthy~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  7
+Levl 1
+Tru  0
+Plyd 3615
+Back 0
+Note 0 0 0 0 1092953573 0 0
+Scro 22
+Room 3030
+HMS  20 110 3
+Gold 0
+Silv 11
+Exp  3078
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp AG
+Cnsr AB
+Block_Remote 0
+Prac 5
+Trai 0
+Wimp 0
+Familiar 0
+Atrib 15 14 14 14 19 14
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 69
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Whisper~
+Lsit adsl-64-161-52-201.digitalputty.com~
+Ltim Sat Nov 13 17:25:57 2004
+~
+LSav Sat Nov 13 17:33:17 2004
+~
+HMSP 20 110 100
+THMS 0 1 0
+Cnd  0 0 0 0
+Sk 1 1 'acid blast'
+Sk 1 1 'blood blade'
+Sk 1 1 'burning hands'
+Sk 1 1 'chain lightning'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'fireball'
+Sk 1 1 'firestorm'
+Sk 1 1 'flame blade'
+Sk 1 1 'frost blade'
+Sk 1 1 'heal'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 1 1 'shock blade'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'wrath'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 40 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'disarm'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 1 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 1 1 'familiar'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'combat'
+Gr 'healing'
+Gr 'bladecraft'
+End
+
+#END

@@ -1,7 +1,7 @@
 #PLAYER
 Name Celes~
 Id   990587341
-LogO 1406431314
+LogO 1406693742
 Vers 15
 Mexp 2
 Pass tierney~
@@ -9,17 +9,17 @@ Prom {W<{C%h{W/{C%H{Thp {G%m{W/{G%M{Hma {B%v{Nmv {Y%g{W/{g%s {P%X{Rxp {W({C%q{W/
 Race vampire~
 Clan kindred~
 Cla  4
-Levl 32
-Plyd 837210
+Levl 40
+Plyd 846735
 Back 830494
 Note 1025153820 1025153820 1025153820 1025153820 1025153820 1025153820 1025153820
 Scro 100
-Room 25005
-HMS  755 580 145
-Gold 1463
-Silv 63
+Room 16093
+HMS  649 611 151
+Gold 1435
+Silv 44
 Gold_in_bank 9000
-Exp  35363
+Exp  44115
 PCkills  16
 PCkilled 6
 Akills   9
@@ -32,24 +32,26 @@ FRes BM
 FVul NS
 Plr  ACFIMO
 Video D
-Act  DEFGHIJLQSTc
-AfBy T
+Act  CDEFGHIJKLQSTc
+AfBy NOT
 Comm MNO
 Revk 0
 Cgrp AIKLMN
 Cnsr 0
 Block_Remote 0
-Prac 160
-Trai 96
+Prac 193
+Trai 104
 Wimp 0
 Familiar 0
 Atrib 19 22 22 20 17 19
-SkillPnts  23
+SkillPnts  32
 RolePnts   1
-QuestPnts  51
+QuestPnts  61
 QpDonated  174
 GlDonated  15020
-Afk {B[{CTue Jul  2 00:01:46 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+QuestNext  12
+SQuestNext 9
+Afk {B[{CMon Jul 28 20:43:23 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl , {GB{Ha{ct{Wt{gle{Wm{ca{Hg{Ge {Wof the {cD{Wa{grkne{Ws{cs{x~
 Immn ~
@@ -57,16 +59,16 @@ Pnts 40
 Rank {RB{gL{cD~
 Aura ~
 TSex 2
-LLev 231
+LLev 234
 Deit {WL{Ci{Br{Ci{Te{Wl{x~
 Stus {GB{Ha{ct{Wt{gle{Wm{ca{Hg{Ge {Wof the {cD{Wa{grkne{Ws{cs{x~
 RmCt 6
 ExSk 0
 Raff 3
 Lsit static-host-24-31-12-106.nctv.com~
-Ltim Sat Jul 26 20:01:57 2014
+Ltim Tue Jul 29 20:27:35 2014
 ~
-LSav Sat Jul 26 20:21:54 2014
+LSav Tue Jul 29 21:15:42 2014
 ~
 Finf {x
 {HYour blast of lightning {Tbrings a touch of {RD{cE{RA{cT{RH {Tto {HThor! [213]{x
@@ -74,9 +76,9 @@ Finf {x
 {W<{C4{W/{C1012{Thp {G421{W/{G1482{Hma {B308{Nmv {Y5814{W/{g91 {P343{Rxp {W({C0{W/{G0{W)>{x
 {HYour sap {Tbrings a touch of {RD{cE{RA{cT{RH {Tto {Hthe ghostly air elemental! [1875]{x
 ~
-HMSP 345 481 285
+HMSP 429 581 332
 THMS 0 0 0
-Cnd  0 0 0 5
+Cnd  0 0 14 0
 Alias uu open up~
 Alias dd open down~
 Alias nn open north~
@@ -100,12 +102,12 @@ Alias divreg c 'divine regen'~
 Alias crit c 'cure crit'~
 Alias ch c 'chain lightning'~
 Alias ll c 'locate life'~
-Alias m order all rescue celes~
 Alias ener c 'energy'~
-Alias , o all bash~
 Alias dis c 'dispel magic'~
 Alias bu c 'burning hand'~
 Alias sh c 'shocking grasp'~
+Alias ab c 'acid blast'~
+Alias fb c 'fireball'~
 Query ramaru~
 Query syveril~
 Query sharra~
@@ -231,13 +233,13 @@ Sk 1 1 'scry'
 Sk 92 1 'shield'
 Sk 75 1 'shock blade'
 Sk 100 1 'shocking grasp'
-Sk 84 1 'shrink'
+Sk 88 1 'shrink'
 Sk 76 1 'sleep'
 Sk 100 1 'slow'
 Sk 76 1 'smokescreen'
 Sk 1 1 'starve'
 Sk 96 1 'steel mist'
-Sk 98 1 'stone skin'
+Sk 99 1 'stone skin'
 Sk 92 1 'summon'
 Sk 78 1 'summon object'
 Sk 100 1 'sunray'
@@ -325,6 +327,9 @@ Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
 Gr 'alteration'
+Affc 'weaken'   0  40   4  -8   1          0 1
+Affc 'protection evil'   0  33   5  -1  24       8192 1
+Affc 'protection good'   0  36   5  -1  24      16384 1
 End
 
 #O
@@ -382,7 +387,7 @@ End
 #O
 Vnum 10134
 Nest 0
-Wear 6
+Wear -1
 Cost 120
 End
 
@@ -489,159 +494,10 @@ Cost 2775
 End
 
 #O
-Vnum 2335
-Nest 0
-Wear -1
-Cost 500
-End
-
-#O
-Vnum 10126
-Nest 1
-Wear -1
-Cost 57
-End
-
-#O
-Vnum 9201
-Nest 1
-ExtF 65
-Wt   0
-Wear -1
-Lev  8
-Cost 1140
-End
-
-#O
-Vnum 1612
-Nest 1
-Cond 97
-Wear -1
-Cost 1530
-End
-
-#O
-Vnum 1100
-Enchanted
-Nest 1
-ExtF 65
-Wt   0
-Wear -1
-Lev  9
-Cost 550
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   5  -1   1   4          0 1
-End
-
-#O
-Vnum 2326
-Enchanted
-Nest 1
-ExtF 65
-Wt   0
-Wear -1
-Lev  9
-Cost 550
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1   5  -1   1   5          0 1
-End
-
-#O
-Vnum 2326
-Enchanted
-Nest 1
-ExtF 65
-Wt   0
-Wear -1
-Lev  9
-Cost 550
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   5  -1   1   5          0 1
-End
-
-#O
-Vnum 2401
-Enchanted
-Nest 1
-ExtF 65
-Wt   0
-Wear -1
-Lev  6
-Cost 270
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   3  -1   1   4          0 1
-Affc 'reserved'   1   3  -1   1   2          0 1
-End
-
-#O
-Vnum 2404
-Enchanted
-Nest 1
-ExtF 65
-Wt   0
-Cond 88
-Wear -1
-Lev  6
-Cost 550
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   3  -1   1   3          0 1
-Affc 'reserved'   1   3  -1   1  26          0 1
-End
-
-#O
-Vnum 2404
-Enchanted
-Nest 1
-ExtF 65
-Wt   0
-Wear -1
-Lev  6
-Cost 550
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
-Affc 'reserved'   1   3  -1   1   3          0 1
-Affc 'reserved'   1   3  -1   1  26          0 1
-End
-
-#O
-Vnum 7209
-Nest 1
-ExtF 65
-Wt   100
-Wear -1
-Lev  9
-Cost 900
-End
-
-#O
-Vnum 6621
-Enchanted
-Nest 1
-ExtF 65
-Wt   0
-Wear -1
-Lev  8
-Cost 780
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   4  -1   5  12          0 1
-Affc 'reserved'   1   4  -1   1   4          0 1
-End
-
-#O
-Vnum 3072
-Enchanted
-Nest 1
-ExtF 65
-Wt   0
-Wear -1
-Lev  9
-Cost 566
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
-End
-
-#O
 Vnum 20028
 Nest 0
 ExtF 16777472
+Cond 97
 Wear 5
 Cost 700
 End
@@ -649,7 +505,7 @@ End
 #O
 Vnum 11915
 Nest 0
-Wear 18
+Wear -1
 Cost 300
 End
 
@@ -663,7 +519,7 @@ End
 #O
 Vnum 3203
 Nest 0
-Cond 82
+Cond 81
 Wear 12
 Cost 40
 End
@@ -671,6 +527,7 @@ End
 #O
 Vnum 4595
 Nest 0
+Cond 98
 Wear 13
 Cost 8000
 End
@@ -712,7 +569,7 @@ Vnum 16041
 Enchanted
 Nest 0
 ExtF 67
-Cond 73
+Cond 68
 Wear 16
 Lev  32
 Cost 5000
@@ -754,31 +611,10 @@ Val  150 126 13 0 0
 End
 
 #O
-Vnum 25057
-Nest 0
-Wear 15
-Cost 3320
-End
-
-#O
-Vnum 25057
-Nest 0
-Wear 14
-Cost 3520
-End
-
-#O
 Vnum 25056
 Nest 0
 Wear 3
 Cost 3120
-End
-
-#O
-Vnum 25060
-Nest 0
-Wear 0
-Cost 3980
 End
 
 #O
@@ -793,46 +629,6 @@ Vnum 25055
 Nest 0
 Wear 2
 Cost 2640
-End
-
-#O
-Vnum 1212
-Nest 0
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 0
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 0
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 0
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
 End
 
 #O
@@ -855,18 +651,174 @@ ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{R
 End
 
 #O
-Vnum 25007
+Vnum 25006
+Nest 0
+Wear -1
+Cost 85
+Val  500 500 0 0 0
+End
+
+#O
+Vnum 25004
 Nest 0
 Wear -1
 Cost 100
-Val  500 494 13 0 0
+End
+
+#O
+Vnum 25004
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25004
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25004
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25004
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25004
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25004
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25004
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25051
+Nest 0
+Wear 6
+Cost 2580
+End
+
+#O
+Vnum 25054
+Nest 0
+Cond 95
+Wear 18
+Cost 2760
+End
+
+#O
+Vnum 9203
+Nest 0
+Wear -1
+Cost 2800
+End
+
+#O
+Vnum 9204
+Nest 0
+Wear -1
+Cost 3100
+End
+
+#O
+Vnum 25058
+Nest 0
+Wear -1
+Cost 3440
 End
 
 #O
 Vnum 25006
 Nest 0
 Wear -1
-Cost 85
+Cost 100
+End
+
+#O
+Vnum 25006
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25006
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25006
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25006
+Nest 0
+Wear -1
+Cost 98
+End
+
+#O
+Vnum 25006
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25006
+Nest 0
+Wear -1
+Cost 93
+End
+
+#O
+Vnum 25006
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25006
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 25008
+Nest 0
+Wear -1
+Cost 97
+Val  500 500 0 0 0
 End
 
 #L
@@ -978,6 +930,196 @@ Nest 0
 Name viro glimmer hope bushido wild token~
 ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
 Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 2335
+Nest 0
+Wear -1
+Cost 500
+End
+
+#L
+Vnum 10126
+Nest 1
+Wear -1
+Cost 57
+End
+
+#L
+Vnum 9201
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  8
+Cost 1140
+End
+
+#L
+Vnum 1612
+Nest 1
+Cond 97
+Wear -1
+Cost 1530
+End
+
+#L
+Vnum 1100
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  9
+Cost 550
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   5  -1   1   4          0 1
+End
+
+#L
+Vnum 2326
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  9
+Cost 550
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
+End
+
+#L
+Vnum 2326
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  9
+Cost 550
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
+End
+
+#L
+Vnum 2401
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  6
+Cost 270
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   3  -1   1   4          0 1
+Affc 'reserved'   1   3  -1   1   2          0 1
+End
+
+#L
+Vnum 2404
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Cond 88
+Wear -1
+Lev  6
+Cost 550
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#L
+Vnum 2404
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  6
+Cost 550
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#L
+Vnum 7209
+Nest 1
+ExtF 65
+Wt   100
+Wear -1
+Lev  9
+Cost 900
+End
+
+#L
+Vnum 6621
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  8
+Cost 780
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   4  -1   5  12          0 1
+Affc 'reserved'   1   4  -1   1   4          0 1
+End
+
+#L
+Vnum 3072
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  9
+Cost 566
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+End
+
+#L
+Vnum 1212
+Nest 0
+Name liriel crystal shimmering trivia~
+ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
+Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name liriel crystal shimmering trivia~
+ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
+Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name liriel crystal shimmering trivia~
+ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
+Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name liriel crystal shimmering trivia~
+ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
+Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
 Wear -1
 Cost 0
 End

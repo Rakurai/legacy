@@ -1,32 +1,32 @@
 #PLAYER
 Name Kazuya~
 Id   1022745118
-LogO 1026808122
+LogO 1045800900
 Vers 14
 Mexp 2
 Pass emmais~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race human~
 Cla  5
-Levl 30
+Levl 31
 Tru  0
-Plyd 182686
+Plyd 202949
 Back 0
-Note 0 0 0 0 1017587497 0 0
+Note 1045337066 1045426636 1045012765 1044398779 1044048286 0 0
 Scro 22
-Room 3005
-HMS  512 376 373
-Gold 13
-Silv 3074
-Silver_in_bank 16455
-Gold_in_bank 2928
-Exp  29932
+Room 8543
+HMS  529 387 384
+Gold 448
+Silv 2814
+Silver_in_bank 21355
+Gold_in_bank 3384
+Exp  31775
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  8
+Pos  4
 Alig 1000
 FImm 0
 FRes 0
@@ -39,28 +39,28 @@ Comm MNOQa
 Revk 0
 Cgrp A
 Cnsr AB
-Prac 5
-Trai 0
+Prac 9
+Trai 1
 Wimp 15
 Atrib 18 17 18 18 18 13
 QuestPnts  5
-Afk {B[{CMon Jul 15 05:40:31 2002{B] {CUnknown Departure.{x
+Afk {B[{CWed Feb 19 15:28:20 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  is {Wl{Go{Wn{Ge{Wl{gy and needs {Rc{Go{Rm{Gp{Ra{Gn{Ry~
+Titl  the {BLonely {WPaladin~
 Immn ~
 Pnts 40
 Rank ~
 Aura ~
 TSex 1
-LLev 47
+LLev 53
 Email aphex_monster@homail.com~
 Deit Xenith~
-Lsit 64-30-104-123.ftth.sac.winfirst.net~
-Ltim Tue Jul 16 03:26:57 2002
+Lsit venture2s03d02.hiscs.org~
+Ltim Thu Feb 20 22:34:50 2003
 ~
-LSav Tue Jul 16 03:28:42 2002
+LSav Thu Feb 20 23:15:00 2003
 ~
-HMSP 432 326 373
+HMSP 449 337 384
 THMS 0 2 0
 Cnd  0 0 0 0
 Alias cure cast 'cure critical'~
@@ -82,7 +82,7 @@ Sk 78 1 'cure light'
 Sk 90 1 'cure serious'
 Sk 1 1 'detect evil'
 Sk 1 1 'detect good'
-Sk 75 1 'detect hidden'
+Sk 76 1 'detect hidden'
 Sk 75 1 'detect invis'
 Sk 1 1 'detect magic'
 Sk 1 1 'detect poison'
@@ -106,7 +106,7 @@ Sk 1 1 'refresh'
 Sk 37 1 'remove alignment'
 Sk 1 1 'remove invisibility'
 Sk 75 1 'remove curse'
-Sk 75 1 'sanctuary'
+Sk 76 1 'sanctuary'
 Sk 1 1 'shield'
 Sk 1 1 'stone skin'
 Sk 1 1 'undo spell'
@@ -117,7 +117,7 @@ Sk 100 1 'shield block'
 Sk 1 1 'scribe'
 Sk 100 1 'parry'
 Sk 1 1 'rescue'
-Sk 87 1 'second attack'
+Sk 89 1 'second attack'
 Sk 76 1 'third attack'
 Sk 1 1 'rotate'
 Sk 100 1 'scan'
@@ -244,7 +244,7 @@ End
 Vnum 5202
 Nest 0
 ExtF 64
-Cond 98
+Cond 97
 Wear 9
 Cost 2700
 End
@@ -259,49 +259,20 @@ Cost 3100
 End
 
 #O
-Vnum 5206
-Nest 0
-ExtF 64
-Cond 98
-Wear -1
-Cost 5200
-End
-
-#O
 Vnum 5205
 Nest 0
 ExtF 64
-Cond 97
+Cond 89
 Wear 7
 Cost 3100
 End
 
 #O
-Vnum 17312
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#O
-Vnum 17308
-Nest 0
-Wear -1
-Cost 5000
-End
-
-#O
 Vnum 17309
 Nest 0
+Cond 89
 Wear 11
 Cost 5000
-End
-
-#O
-Vnum 17312
-Nest 0
-Wear -1
-Cost 1000
 End
 
 #O
@@ -321,13 +292,6 @@ Cost 5000
 End
 
 #O
-Vnum 17312
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#O
 Vnum 17320
 Nest 0
 Wear -1
@@ -344,6 +308,7 @@ End
 #O
 Vnum 17313
 Nest 0
+Cond 95
 Wear 6
 Cost 5000
 End
@@ -356,30 +321,6 @@ ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
 Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
 Wear -1
 Cost 0
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
 End
 
 #O
@@ -420,6 +361,7 @@ End
 #O
 Vnum 16041
 Nest 0
+Cond 90
 Wear 16
 Cost 5000
 End
@@ -434,6 +376,7 @@ End
 #O
 Vnum 16044
 Nest 0
+Cond 97
 Wear 14
 Cost 2000
 End
@@ -442,6 +385,7 @@ End
 Vnum 4579
 Enchanted
 Nest 0
+Cond 99
 Wear 18
 Cost 2800
 Val  1 1 0 1 0
@@ -454,6 +398,7 @@ End
 #O
 Vnum 4594
 Nest 0
+Cond 96
 Wear 1
 Cost 8000
 End
@@ -479,19 +424,98 @@ Wear -1
 Cost 50
 End
 
-#PET
-Vnum 9595
-Name tiger pet~
-LogO 1026808122
-Desc The large, striped tiger looks like a savage fighter.
-A collar around its neck says 'I belong to Kazuya'.
-~
-Sex  2
-HMS  343 343 100 100 201 201
-AfBy FS
-Comm W
-Pos  8
-Atrib 11 12 11 13 11 11
-AtMod 0 0 0 0 0 0
+#O
+Vnum 17318
+Nest 0
+Wear -1
+Cost 1000
 End
+
+#O
+Vnum 17342
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 1214
+Nest 0
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 17327
+Nest 0
+Wear -1
+Time 1861
+Cost 0
+Spell 1 'invisibility'
+Spell 2 'pass door'
+Spell 3 'fly'
+End
+
+#O
+Vnum 17311
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 17312
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 17308
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3351
+Nest 0
+Wear -1
+Cost 590
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
 #END

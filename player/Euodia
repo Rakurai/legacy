@@ -1,0 +1,1785 @@
+#PLAYER
+Name Euodia~
+Id   1030240349
+LogO 1088235043
+Vers 14
+Mexp 1
+Pass syntyche~
+Prom {W<{C%h{Thp {G%m{Hma {B%v{Nst {W[{g%e{W] {R%X{W>{x ~
+Race seraph~
+Clan divinity~
+Cla  1
+Levl 42
+Tru  0
+Plyd 260207
+Back 246693
+Note 1066527878 1046507965 1051589887 1066699094 1064715418 1064086000 1034982849
+Scro 22
+Room 3001
+HMS  693 733 399
+Gold 4632
+Silv 44
+Gold_in_bank 400
+Exp  79381
+PCkills  0
+PCkilled 1
+Akills   0
+Akilled  3
+PKRank   0
+Pos  8
+Alig -1000
+Spou Nephlite~
+FImm 0
+FRes NS
+FVul M
+Plr  AU
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr ABC
+Prac 0
+Trai 0
+Wimp 99
+Familiar 0
+Atrib 16 14 17 14 15 16
+SkillPnts  164
+QuestPnts  75
+Afk {B[{CMon May 12 03:53:39 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl .~
+Immn ~
+Pnts 50
+Rank {WC{gR{WB~
+Aura ~
+TSex 2
+LLev 70
+Email cveipi@yahoo.com~
+Deit Urza~
+Lsit c-24-21-146-99.client.comcast.net~
+Ltim Sat Jun 26 03:01:19 2004
+~
+LSav Sat Jun 26 03:30:43 2004
+~
+HMSP 478 508 389
+THMS 2 0 0
+Cnd  0 0 35 0
+Alias eh enter house~
+Alias ga get all~
+Alias f flee~
+Alias q quest~
+Alias os open south~
+Alias on open north~
+Alias ow open west~
+Alias oe open east~
+Alias ou open up~
+Alias od open down~
+Alias cc c 'cure critic~
+Alias st sleep tree~
+Alias qr quest req~
+Alias et eat apple~
+Alias ccc c 'cure serious~
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 80 1 'armor'
+Sk 76 1 'bless'
+Sk 90 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 1 1 'call lightning'
+Sk 75 1 'calm'
+Sk 75 1 'cancellation'
+Sk 75 1 'continual light'
+Sk 1 1 'control weather'
+Sk 1 1 'create food'
+Sk 75 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 75 1 'create vial'
+Sk 1 1 'create water'
+Sk 75 1 'cure blindness'
+Sk 89 1 'cure critical'
+Sk 76 1 'cure disease'
+Sk 100 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 76 1 'cure serious'
+Sk 87 1 'curse'
+Sk 76 1 'demonfire'
+Sk 76 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 82 1 'dispel evil'
+Sk 88 1 'dispel good'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 76 1 'earthquake'
+Sk 75 1 'encampment'
+Sk 80 1 'energy drain'
+Sk 93 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fireproof'
+Sk 1 1 'flameshield'
+Sk 88 1 'flamestrike'
+Sk 1 1 'fly'
+Sk 75 1 'floating disc'
+Sk 76 1 'frenzy'
+Sk 75 1 'gate'
+Sk 76 1 'heal'
+Sk 75 1 'heat metal'
+Sk 75 1 'holy word'
+Sk 78 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 75 1 'pass door'
+Sk 81 1 'plague'
+Sk 79 1 'poison'
+Sk 75 1 'portal'
+Sk 78 1 'protection evil'
+Sk 78 1 'protection good'
+Sk 1 1 'ray of truth'
+Sk 75 1 'refresh'
+Sk 75 1 'remove alignment'
+Sk 35 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 77 1 'sanctuary'
+Sk 1 1 'scry'
+Sk 75 1 'shield'
+Sk 76 1 'slow'
+Sk 76 1 'steel mist'
+Sk 76 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'sunray'
+Sk 75 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 75 1 'undo spell'
+Sk 1 1 'vision'
+Sk 83 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'flail'
+Sk 99 1 'mace'
+Sk 98 1 'sword'
+Sk 100 1 'shield block'
+Sk 75 1 'brew'
+Sk 75 1 'scribe'
+Sk 100 1 'dodge'
+Sk 76 1 'repair'
+Sk 85 1 'meditation'
+Sk 100 1 'scan'
+Sk 75 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'cleric basics'
+Gr 'cleric default'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 150 0 0 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 0
+Val  150 0 0 0 0
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 2333
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24200
+Nest 0
+Wear 2
+Cost 1666
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24238
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 16040
+Nest 0
+Cond 98
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear 6
+Cost 1000
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 3203
+Nest 0
+Wear 12
+Cost 40
+End
+
+#O
+Vnum 16001
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 759
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 759
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 437
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 383
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 800
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 476
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 10208
+Nest 0
+ExtF 64
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 10205
+Nest 0
+ExtF 64
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 10206
+Nest 0
+ExtF 64
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 24202
+Nest 0
+Wear 14
+Cost 2666
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 553
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 788
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 687
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 11645
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 16090
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'fireball'
+End
+
+#O
+Vnum 16090
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'fireball'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24232
+Nest 0
+Wear -1
+Time 583
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 24226
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 24251
+Nest 0
+Cond 97
+Wear 10
+Cost 4500
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24232
+Nest 0
+Wear -1
+Time 710
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24250
+Nest 0
+Wear 13
+Cost 5000
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24232
+Enchanted
+Nest 0
+Cond 66
+Wear -1
+Time 774
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24246
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'shield'
+End
+
+#O
+Vnum 11644
+Nest 0
+Cond 96
+Wear 7
+Cost 10
+End
+
+#O
+Vnum 24232
+Enchanted
+Nest 0
+Wear -1
+Lev  12
+Time 817
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24232
+Nest 0
+Wear -1
+Time 343
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 664
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 16084
+Nest 0
+Cond 98
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear 0
+Cost 700
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Time 501
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#O
+Vnum 17315
+Nest 0
+ExtF 320
+Wear 9
+Cost 6000
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 96
+Wear 16
+Cost 10000
+End
+
+#O
+Vnum 24232
+Nest 0
+Wear -1
+Time 778
+Cost 10
+Spell 1 'cure serious'
+Spell 2 'cure serious'
+Spell 3 'cure critical'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear 15
+Cost 1000
+End
+
+#O
+Vnum 907
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3204
+Nest 0
+Cond 89
+Wear 18
+Cost 50
+End
+
+#O
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16012
+Nest 0
+ExtF 770
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4587
+Nest 0
+Wear 17
+Cost 0
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24246
+Enchanted
+Nest 0
+Wear -1
+Cost 10
+Val  13 119 128 121 127
+Spell 3 'shield'
+End
+
+#O
+Vnum 24238
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 10004
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16074
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 24200
+Nest 0
+Wear -1
+Cost 1666
+End
+
+#L
+Vnum 16085
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16065
+Nest 0
+ExtF 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1215
+Nest 1
+Name teotwawki wild token~
+ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name Ebony's wild token Deadly Kiss~
+ShD  {c({YW{bil{Yd{c) A {TD{Re{Ba{Td{Rl{By {RK{Pi{Rs{Ps{x~
+Desc a kiss lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name Ebony's wild token Deadly Kiss~
+ShD  {c({YW{bil{Yd{c) A {TD{Re{Ba{Td{Rl{By {RK{Pi{Rs{Ps{x~
+Desc a kiss lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name kismet wild token amethyst chance~
+ShD  {MKismet's "{WWILD {VAmethyst {Mof Chance"{x~
+Desc {MA {WSparkling {VAmethyst {Mfilled with color and mystery lies here{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Ebony's quest token Potion Necromancy~
+ShD  {c({PQ{Vu{We{Vs{Pt{c) {YPotion {cof {TNe{Hcr{gom{Han{Tcy{x~
+Desc a vial lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1602
+Nest 0
+Cond 96
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16084
+Nest 0
+Cond 95
+Wear -1
+Cost 0
+Val  6 2 6 5 0
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 24234
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'haste'
+Spell 2 'frenzy'
+Spell 3 'talon'
+Spell 4 'giant strength'
+End
+
+#L
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 504
+Enchanted
+Nest 0
+ExtF 19
+Cond 100
+Wear -1
+Cost 0
+Affc 'reserved'   1  25  -1   5  18          0 1
+Affc 'reserved'   1  25  -1   5  19          0 1
+End
+
+#END

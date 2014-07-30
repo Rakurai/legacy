@@ -24,7 +24,6 @@ stand stand male 0
 0 0 medium 0
 
 
-
 #24454
 sally owens healer~
 Sally Owens~
@@ -35,11 +34,12 @@ and potions. It is also said that she has a gift... the gift of magick.
 ~
 super~
 BGQZa DFHJNZ 1000 S
-145 80 1d1+9998 1d1+9998 1d1+80 beating
--90 -90 -90 -90
+180 80 1d1+9998 1d1+9998 1d1+95 beating
+-105 -100 -105 -100
 EFKH ABCD 0 0
 stand stand female 0
 0 0 huge 0
+
 
 #24455
 sergeant zim trainer~
@@ -60,6 +60,7 @@ CDEFHIKQL ABCD 0 0
 stand stand male 0
 0 0 huge 0
 
+
 #24456
 zoltek dwarf armorer~
 Zoltek~
@@ -75,6 +76,7 @@ BGT DFIJ 1000 S
 CDEFHIKQL ABCD 0 0
 stand stand male 0
 0 0 huge 0
+
 
 #24459
 Apparition of a past god~
@@ -92,6 +94,7 @@ ABG 0 0 S
 stand stand male 0
 0 0 medium 0
 
+
 #24461
 little spirit~
 The {WL{Bi{Wt{Bt{Wl{Be {WSpirit{x~
@@ -107,6 +110,7 @@ CFHKO ABCD 0 0
 stand stand female 0
 0 0 small 0
 
+
 #24462
 large wolf~
 A large wolf~
@@ -121,6 +125,7 @@ BGZ DF 1000 S
 CFHKO ABCD 0 0
 sleep sleep male 0
 0 0 large 0
+
 
 #24473
 old mage koontz~
@@ -176,7 +181,6 @@ bought: 2 points
 2 points: +2 con
 0.5 points: -1 ac
 = 4.5 points
-
 -1 point: -1 age
 = -0.5 points
 ~
@@ -185,6 +189,7 @@ tabi traveller~
 These colourful split-toe boots look sleek and rugged, perfect
 for travel.
 ~
+
 
 #24401
 sleeves destiny travels~
@@ -211,16 +216,15 @@ eqstat~
 Sleeves of Spirituality
 stock: 4 points
 bought: 2 points
-
 2 points: +20 hp
 2 points: +2 hit/+2 dam
 2 points: +2 int
 0.5 points: -1 ac
 = 6.5 points
-
 -1 point: -1 age
 = -0.5 points
 ~
+
 
 #24402
 wizardly illumination~
@@ -245,15 +249,14 @@ eqstat~
 Wizardly Illumination
 stock: 5 points
 bought: 1 point
-
 3 points: +30 hp
 3 points: +3 hit/+3 dam
 0.5 points: -1 ac
 = 6.5 points
-
 -1 point: -1 age
 = -0.5 points
 ~
+
 
 #24403
 focus discipline~
@@ -278,15 +281,14 @@ eqstat~
 Focus and Discipline
 stock: 5 points
 bought: 1 point
-
 3 points: +30 hp
 3 points: +3 hit/+3 dam
 0.5 points: -1 ac
 = 6.5 points
-
 -1 point: -1 age
 = -0.5 points
 ~
+
 
 #24404
 talons black thorn~
@@ -311,12 +313,10 @@ eqstat~
 Talons of the black thorn
 stock: 5 points
 bought: 1 point
-
 3 points: +30 hp
 3 points: +3 hit/+3 dam
 0.5 points: -1 ac
 = 6.5 points
-
 -1 point: -1 age
 = -0.5 points
 ~
@@ -325,6 +325,7 @@ talons black thorn~
 These gloves have claws at the tips of the fingers -- perfect for grasping 
 objects...or rending flesh and steel!
 ~
+
 
 #24405
 medallion blue rose~
@@ -343,7 +344,7 @@ A
 A
 19 4
 A
-20 -1
+20 -2
 A
 9 -2
 A
@@ -356,14 +357,12 @@ bought: 4 points
 1 point: +1 wisdom
 4 points: +40 hp
 4 points: +4 hit/+4 dam
-1 point: -1 saves
+2 point: -2 saves
 1 point: +1 con
-= 11 points
-
+= 12 points
 -2 points: -2 age
-= -1 points
+= 0 points
 ~
-
 #24406
 honour first prince~
 {RH{Po{Wno{Pu{Rr of the {HF{Gi{Wr{Gs{Ht {NP{Br{Cin{Bc{Ne{x~
@@ -379,7 +378,7 @@ A
 A
 19 4
 A
-20 -1
+20 -2
 A
 9 -2
 E
@@ -387,20 +386,18 @@ eqstat~
 Smurf Bracer
 stock: 6 points
 bought: 2 points
-
 4 points: +40 hp
 4 points: +4 hit/+4 dam
-1 point: -1 saves
-= 9 points
-
+2 point: -2 saves
+= 10 points
 -2 points: -2 age
-= -1 points
 ~
 E
 honour first prince~
 Designed by Prince Brian himself, this beautiful bracer reflects
 all the {Rc{Mo{Vl{Bo{Nu{Cr{Ts{x in the {Gr{Ha{bi{Yn{Pb{Ro{Mw{x.
 ~
+
 
 #24407
 boots elvish stealth~
@@ -417,7 +414,7 @@ A
 A
 19 5
 A
-20 -1
+20 -2
 A
 9 -2
 E
@@ -430,15 +427,14 @@ eqstat~
 Boots of Stealth
 stock: 7 points
 bought: 3 points
-
 5 points: +50 hp
 5 points: +5 hit/+5 dam
-1 point: -1 saves
-= 11 points
-
+2 point: -2 saves
+= 12 points
 -2 points: -2 age
-= -1 point
+= 0 point
 ~
+
 
 #24408
 combat fatigues~
@@ -457,7 +453,7 @@ A
 A
 17 -1
 A
-20 -2
+20 -3
 A
 9 -3
 E
@@ -465,16 +461,15 @@ eqstat~
 Combat Fatigues
 stock: 8 points
 bought: 5 points
-
 6 points: +60 hp
 6 points: +6 hit/+6 dam
-2 points: -2 saves
+3 points: -3 saves
 0.5 points: -1 ac
-= 13.5 points
-
+= 14.5 points
 -3 points: -3 age
-= -1.5 points
+= -.5 points
 ~
+
 
 #24409
 signet guardian~
@@ -485,6 +480,8 @@ armor AB AB
 20 20 20 19 0
 60 6 6000 P
 A
+2 1
+A
 13 60
 A
 18 6
@@ -493,7 +490,7 @@ A
 A
 17 -1
 A
-20 -2
+20 -3
 A
 9 -3
 E
@@ -501,16 +498,15 @@ eqstat~
 Signet of the Guardian
 stock: 8 points
 bought: 5 points
-
 6 points: +60 hp
 6 points: +6 hit/+6 dam
-2 points: -2 saves
+3 points: -3 saves
 0.5 points: -1 ac
-= 13.5 points
-
+= 14.5 points
 -3 points: -3 age
-= -1.5 points
+= -.5 points
 ~
+
 
 #24410
 blue beret~
@@ -539,7 +535,6 @@ eqstats~
 Blue Beret
 stock: 5 points
 bought: 2 points
-
 3 points: +30 hp
 3 points: +3 hit/dam
 0.5 points: -1 ac
@@ -556,6 +551,7 @@ it on, you feel a rising of your spirits, making you feel like a tough,
 brute soldier.
 ~
 
+
 #24411
 pair hakama shimmering~
 {MSh{Vim{Wme{Vri{Mng {cH{ga{Wka{gm{ca{x~
@@ -568,7 +564,6 @@ E
 eqstats~
 Stock:  5 points
 Bought: 3 points
-
 3 points:  +30 hp
 3 points:  +3 hit/dam
 0.5 points:  -1 ac
@@ -576,7 +571,6 @@ Bought: 3 points
 1 point:  +1 str
 1 point:  +1 dex
 = 9.5 points
-
 -1.5 points:  -30 stamina
 = 5 points
 ~
@@ -602,13 +596,14 @@ A
 A
 5 1
 
+
 #24412
 buttercup seal allegiance~
 {NB{Bu{Ct{Wter{Cc{Bu{Nps {cS{gea{cl of {RAl{Ple{Wgi{Pan{Rce{x~
 Buttercups Seal of Allegiance is here.~
 gold~
 armor AB AB
-11 11 11 10 0
+13 13 13 12 0
 40 3 3000 P
 A
 9 -4
@@ -617,12 +612,21 @@ A
 A
 19 4
 A
-20 -1
+20 -2
+A 
+13 40
 E
 eqstat~
 Buttercups Seal of Allegiance
 Stock 6 points
+2 points gotten through a sacrifice of -4 age
+2 point purchased for extra clanqps
+_________________________________
+10 total points
+-10 points used
+0 points remaining
 ~
+
 
 
 #24466
@@ -639,6 +643,7 @@ You get dizzy as you look up into the tree.  However, you do see some
 goodies to grab!
 ~
 
+
 #24467
 cranberry~
 {Pcranberry{x~
@@ -647,6 +652,7 @@ fruit~
 pill GI A
 15 'shield' 'haste' 'giant' 'frenzy'
 15 1 0 P
+
 
 #24468
 ambrosia~
@@ -657,6 +663,7 @@ pill GI A
 15 'sanctuary' 'flameshield' 'armor' 'stone'
 15 1 0 P
 
+
 #24469
 glade~
 the clear {GGlade{x~
@@ -666,6 +673,7 @@ furniture SG 0
 20 20000 IFL 150 150
 1 9999 9999 P
 
+
 #24470
 fountain~
 {WA {YGolden{W Fountain{x~
@@ -674,6 +682,7 @@ gold~
 fountain BOT 0
 5000 5000 'cranberry juice' 0 0
 0 500 50 P
+
 
 #24472
 orb imperial wisdom leadereq~
@@ -712,6 +721,7 @@ furniture O P
 4 0 EHK 100 200
 1 100 10 P
 
+
 #24474
 elixir potion healing~
 A healing potion~
@@ -721,6 +731,7 @@ potion 0 A
 15 'cancel' 'slow' 'regen' 'cure crit'
 15 6 10 P
 
+
 #24481
 enlightened pedestal~
 An Enlightened Pedestal~
@@ -729,6 +740,7 @@ stone~
 furniture A 0
 3 0 BEHKN 150 150
 15 0 7 I
+
 
 #24482
 fountain~
@@ -742,6 +754,8 @@ E
 fountain table cup~
 The cup on the table contains magnificent wine.
 ~
+
+
 #24483
 pill godly gift~
 Godly Gift~
@@ -751,6 +765,7 @@ pill AB AO
 15 'shield' 'stone' 'armor' 'flameshield'
 15 1 1 P
 
+
 #24491
 portal catapult pirate cave~
 catapult to pirate cave.~
@@ -759,6 +774,8 @@ wood~
 portal 0 0
 0 0 A 4400 0
 0 0 0 P
+
+
 #24492
 portal catapult chessboard~
 catapult to chessboard~
@@ -768,6 +785,7 @@ portal 0 0
 0 0 A 29904 0 
 0 0 0 P
 
+
 #24493
 portal catapult oran~
 catapult to Oran~
@@ -776,6 +794,7 @@ wood~
 portal 0 0
 0 0 A 5600 0
 0 0 0 P
+
 
 #24494
 anvil private dizzy~
@@ -787,6 +806,26 @@ anvil 0 0
 0 0 0 P
 
 
+#24495
+cosmic power elements presence~
+{x{cC{go{Wsm{gi{cc{x {BP{Co{Ww{Ce{Br{x~
+The very elements seem focussed on this powerful cosmic presence.~
+power~
+armor ABSY AM
+20 20 20 19 0
+60 10 6000 P
+A
+4 1
+A
+9 -6
+A
+13 60
+A
+20 -3
+A
+18 2
+A
+19 2
 
 
 
@@ -825,6 +864,7 @@ D2
 0 -1 24453
 S
 
+
 #24452
 {BBefore {Tthe {Whall {Tof {BHeroes{x~
 You stand before the Hall of Heros.  Off in the distance you can see the
@@ -842,6 +882,7 @@ D2
 ~
 0 -1 24462
 S
+
 
 #24453
 {BThe Entrance Hall{x~
@@ -869,6 +910,7 @@ D3
 0 -1 24455
 S
 
+
 #24454
 The {BGarden{x~
 You stand in a field of {BBlue{xroses, how did they come to be in such
@@ -889,6 +931,7 @@ roses~
 The roses fleet into the sky, as the wind howls
 ~
 S
+
 
 #24455
 The {BGarden{x~
@@ -912,6 +955,7 @@ roses~
 The roses fleet into the sky, as the wind howls
 ~
 S
+
 
 #24456
 {HW{Gi{Wcc{Ga{Hn {RS{Ph{Wop{Pp{Re of {HH{Ge{Wr{Gb{Hs and {NM{Be{Cd{Wic{Ci{Bn{Ne{x~
@@ -937,6 +981,7 @@ fragrance melding with those of the myriad other herbs and medicines here... a
 delight to the senses!
 ~
 S
+
 
 #24457
 {BThe Tomb of the Fallen{x~
@@ -970,6 +1015,7 @@ D4
 0 0 24466
 S
 
+
 #24458
 The {BBlue {TRose {PB{Rl{Pa{Rc{Pk{RS{Pm{Ri{Pt{Rh {x~
 {xThis room smells on materials used to forge weapons,
@@ -990,6 +1036,7 @@ D3
 0 -1 24457
 S
 
+
 #24459
 {NT{Ba{Crm{Ba{Nc{x~
 Under the sharp, critical scrutiny of the drill instructors, recruits putting
@@ -1007,7 +1054,12 @@ D1
 ~
 ~
 0 -1 24457
+D3
+~
+~ 
+0 -1 24461
 S
+
 
 #24460
 {TThe Order of the {BBlue {TRose{x~
@@ -1030,6 +1082,49 @@ D4
 0 0 24470
 S
 
+
+#24461 
+{cD{Ha{cr{Hk {cF{Ho{cr{He{cs{Ht{x~ 
+You enter into a clearing surrounded by large {Gtrees{x that block out all 
+{Ylight{x. {GL{be{Ga{bv{Ge{bs{x rustle beneath your feet and fearsome howls fill the
+nights air. {CS{gp{Cl{ga{Cs{gh{Ci{gn{Cg{x and the smell of {Cfresh water{x tickles your senses.
+{PRed little beady eyes{x stare at you from the {cdarkness{x of the shrubberies
+around you. {YW{gi{Yn{gd{x blows through bringing a {Cc{Th{Ci{Tl{Cl{x along with it. As you
+breathe out {Yair{x you can see it {Cm{gi{Cs{gt{x before your eyes. Looking upward,
+you see that the {Gtrees{x block out even the minimal {Ylight{x the {Ym{go{Yo{gn{x would 
+normally afford.
+~
+0 CNY 20 
+C order~
+D1
+~
+~
+0 -1 24459
+E
+trees light moon~
+The canopy formed by the trees soars overhead blocking out the sky and
+shrouding the forest in darkness.
+~
+E
+leaves~
+A thick carpet of leaves has been shed by the many deciduous trees of this
+forest.
+~
+E
+splashing water~
+A flowing brook burbles nearby.
+~
+E
+red beady eyes darkness~
+The many animals of the forest can be seen looking out of the shrubbery,
+their eyes glowing red in the torchlight.
+~
+E
+wind chill air mist~
+A chill breeze blows through.  Could it be preceding an as yet unseen evil?
+~
+S
+
 #24462
 Hall of Heroes~
 This road leads to the personal manors of the Lords of the Order of the
@@ -1045,6 +1140,7 @@ E
 ~
 ~
 S
+
 
 #24466
 Banon's Room Of Guard~
@@ -1065,6 +1161,7 @@ stairwell down to the hall of knights.
 0 0 24457
 S
 
+
 #24469
 The {BBlue {xRose Catapults{x~
 Upon entering this room you {Bmarvel{x at the three extremely large {Bcatapults{x 
@@ -1079,6 +1176,7 @@ D3
 ~
 0 0 24454
 S
+
 
 #24470
 {WThe {TOrder {Bof {Tthe {WRoses{x ~
@@ -1098,6 +1196,7 @@ D4
 0 0 24471
 S
 
+
 #24471
 The {BBlue {TRose{x {PStairway{x ~
 Up and down, all around, {BBlue {TRoses{x abound! Look {Wup{x! Look 
@@ -1112,6 +1211,7 @@ D5
 ~
 0 0 24470
 S
+
 
 #24472
 {BBlue {TRose{x {PForging Hall{x~
@@ -1129,6 +1229,7 @@ D0
 ~
 0 0 24458
 S
+
 
 #24473
 {RL{Pi{Rb{Pr{Ra{Pr{Ry{x~
@@ -1172,12 +1273,15 @@ G 0 24402 100            * level 30 ring
 G 0 24403 100            * level 30 floater
 G 0 24410 100            * level 30 hat
 G 0 24404 100            * level 30 gloves
+G 0 24411 100            * level 30 rings
+G 0 24412 100            * level 40 rings
 G 0 24405 100            * level 40 medallion
 G 0 24406 100            * level 40 bracer
 G 0 24407 100            * level 50 boots
 G 0 24408 100            * level 60 greaves
 G 0 24409 100            * level 60 ring
-G 0 24411 100            * level 30 rings
+G 0 24495 100            * level 60 cosmic power
+
 O 0 24470 3 24454        * Load the Fountain to both gardens
 O 0 24470 3 24455
 O 0 24466 2 24454        * Load the trees to the garden 1

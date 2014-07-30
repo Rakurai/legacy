@@ -1,7 +1,7 @@
 #PLAYER
 Name Geomon~
 Id   1006553445
-LogO 1027047940
+LogO 1043732376
 Vers 14
 Mexp 2
 Pass asshole~
@@ -11,12 +11,12 @@ Clan divinity~
 Cla  3
 Levl 20
 Tru  0
-Plyd 16943
+Plyd 17206
 Back 16218
-Note 1026853458 1026853458 1026853458 1026853458 1026853458 1026853458 1026853458
+Note 1026853458 1026853458 1026853458 1026853458 1026853458 1043729018 1026853458
 Scro 22
 Room 3054
-HMS  404 234 380
+HMS  434 244 380
 Gold 300
 Silv 19
 Gold_in_bank 1000
@@ -34,7 +34,7 @@ FVul R
 Plr  AF
 Video 0
 Act  CDEFGHJLQSTc
-AfBy HJRc
+AfBy JR
 Comm MNO
 Revk 0
 Cgrp A
@@ -43,7 +43,7 @@ Prac 13
 Trai 6
 Wimp 0
 Atrib 21 16 16 15 21 13
-SQuestNext 8
+SQuestNext 4
 Afk {B[{CFri Nov 23 19:16:53 2001{B] {CUnknown Departure.{x
 ~
 Titl  Please don't squeeze the Charmin.~
@@ -54,14 +54,14 @@ Aura ~
 TSex 1
 LLev 3
 Deit Lotus~
-Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
-Ltim Tue Jul 16 16:04:15 2002
+Lsit 03-187.008.popsite.net~
+Ltim Tue Jan 28 00:38:16 2003
 ~
-LSav Thu Jul 18 22:05:40 2002
+LSav Tue Jan 28 00:39:36 2003
 ~
 HMSP 354 172 350
 THMS 0 0 0
-Cnd  0 0 2 33
+Cnd  0 0 0 0
 Colr 13 33 1
 Sk 81 1 'sword'
 Sk 75 1 'bash'
@@ -84,10 +84,7 @@ Sk 1 1 'wands'
 Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'warrior basics'
-Affc 'sanctuary'   0  54   4   0   0        128 1
-Affc 'giant strength'   0  55  50   4   1          0 1
-Affc 'armor'   0  53  19 -20  17          0 1
-Affc 'regeneration'   0  55  22   0   0  268435456 1
+Affc 'giant strength'   0  47  12   4   1          0 1
 End
 
 #O
@@ -287,8 +284,6 @@ Vnum 16064
 Nest 0
 Wear 16
 Cost 4500
-Val  1 5 5 21 4
-Affc 'blood blade'   5  72  19   0   0          4 1
 End
 
 #O
@@ -477,13 +472,6 @@ Cost 1666
 End
 
 #O
-Vnum 24252
-Nest 0
-Wear 8
-Cost 2200
-End
-
-#O
 Vnum 24245
 Nest 0
 Wear -1
@@ -521,70 +509,6 @@ Vnum 24226
 Nest 0
 Wear -1
 Cost 400
-End
-
-#L
-Vnum 4452
-Nest 0
-Wear -1
-Cost 0
-Val  300 1 4453 300 100
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
 End
 
 #END

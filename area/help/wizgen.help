@@ -714,4 +714,25 @@ Syntax: {Cviolate{x {Ycharacter{x
 private rooms occupied by 2 or more characters.
 ~
 
+92 GRANT~
+Syntax: {Cgrant{x <{Yplayer{x> <{Yadd/remove{x> <{Ycommand{x>
+
+This command allows you to grant access to a single command
+to a player. At this time any one player can have special
+access to 32 commands.
+
+Please note that {Ycommand{x must be spelled out. Please
+use "wizhelp", for example, rather than "wizh".
+
+Access to the command may be revoked using the {Yremove{x flag.
+~
+
+0 GRANTLIST~
+Syntax: {Cgrantlist{x [{Yplayer{x]
+
+This command displays the commands which have been granted to
+you. If you are an immortal, you may check the granted commands
+of other players.
+~
+
 -2

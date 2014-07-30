@@ -1,7 +1,7 @@
 #PLAYER
 Name Caley~
 Id   1007402627
-LogO 1025825992
+LogO 1093128784
 Vers 14
 Mexp 2
 Pass nothing~
@@ -11,15 +11,15 @@ Clan blackclaw~
 Cla  0
 Levl 62
 Tru  0
-Plyd 447917
-Back 430295
-Note 1020779930 1017545900 1017160817 1018307898 1019529513 1024252824 1017247140
+Plyd 532795
+Back 467882
+Note 1092361264 1088897078 1051589887 1053644628 1091138774 1075059290 1017247140
 Scro 10
-Room 24801
-HMS  1156 968 647
-Gold 8
-Silv 18
-Exp  92955
+Room 8801
+HMS  1121 968 647
+Gold 11
+Silv 44
+Exp  92951
 PCkills  0
 PCkilled 2
 Akills   0
@@ -31,21 +31,23 @@ Spou ~
 FImm 0
 FRes NS
 FVul M
-Plr  AOT
+Plr  ABIOTU
 Video 0
-Act  CDEFGHLRSc
-AfBy DTc
-Comm NQ
+Act  CDEFGHLSc
+AfBy Tc
+Comm NZ
 Revk 0
-Cgrp A
+Cgrp AG
 Cnsr A
+Block_Remote 0
 Prac 47
 Trai 2
 Wimp 120
+Familiar 0
 Atrib 21 20 20 17 20 21
 QpDonated  54
 GlDonated  121
-Afk {B[{CThu May 30 10:13:53 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CSun Aug 15 14:17:49 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {R@{G}{Y;{G--- {TShadow {MNinja~
 Immn ~
@@ -56,10 +58,10 @@ TSex 1
 LLev 100
 Email snowclown_2001@hotmail.com~
 Deit Azrael~
-Lsit pm4-26.samlink.com~
-Ltim Thu Jul 04 18:39:06 2002
+Lsit 237.sub-69-82-251.myvzw.com~
+Ltim Sat Aug 21 18:52:29 2004
 ~
-LSav Thu Jul 04 18:39:52 2002
+LSav Sat Aug 21 18:53:04 2004
 ~
 Finf snowclown_2001@hotmail.com
 {B
@@ -137,8 +139,8 @@ Sk 75 1 'fire breath'
 Sk 80 1 'fireball'
 Sk 75 1 'fireproof'
 Sk 1 1 'firestorm'
-Sk 77 1 'flameshield'
-Sk 79 1 'fly'
+Sk 78 1 'flameshield'
+Sk 80 1 'fly'
 Sk 76 1 'frenzy'
 Sk 75 1 'frost breath'
 Sk 75 1 'gas breath'
@@ -172,12 +174,13 @@ Sk 75 1 'remove alignment'
 Sk 75 1 'remove invisibility'
 Sk 75 1 'remove curse'
 Sk 84 1 'sanctuary'
+Sk 1 1 'scry'
 Sk 77 1 'shield'
 Sk 75 1 'shocking grasp'
 Sk 75 1 'shrink'
 Sk 87 1 'slow'
 Sk 60 1 'steel mist'
-Sk 77 1 'stone skin'
+Sk 79 1 'stone skin'
 Sk 75 1 'summon'
 Sk 1 1 'summon object'
 Sk 76 1 'talon'
@@ -212,37 +215,15 @@ Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'detect invis'   0  57  50   0   0          8 1
-End
-
-#O
-Vnum 16057
-Nest 0
-Wear -1
-Cost 50
 End
 
 #O
 Vnum 3388
 Nest 0
 Cond 98
-Wear -1
+Wear 17
 Cost 50000
-Val  59 500 8 0 15
-End
-
-#O
-Vnum 16057
-Nest 0
-Wear -1
-Cost 50
-End
-
-#O
-Vnum 16057
-Nest 0
-Wear -1
-Cost 50
+Val  159 500 8 0 15
 End
 
 #O
@@ -255,10 +236,129 @@ Cost 5000
 End
 
 #O
-Vnum 3382
+Vnum 3808
+Nest 0
+Cond 89
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 5608
+Nest 0
+Cond 87
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 17013
+Nest 0
+Cond 66
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 10171
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 20004
+Nest 0
+ExtF 65
+Wear 4
+Cost 1000
+End
+
+#O
+Vnum 16022
+Nest 0
+Wear 13
+Cost 9800
+End
+
+#O
+Vnum 17013
+Nest 0
+Wear 1
+Cost 50
+End
+
+#O
+Vnum 20004
+Nest 0
+ExtF 65
+Wear 3
+Cost 1000
+End
+
+#O
+Vnum 11633
+Nest 0
+ExtF 1
+Cond 93
+Wear 7
+Cost 4500
+End
+
+#O
+Vnum 14018
+Nest 0
+Wear 8
+Cost 500
+End
+
+#O
+Vnum 821
+Nest 0
+Wear 9
+Cost 1000
+End
+
+#O
+Vnum 3205
+Nest 0
+Wear 5
+Cost 60
+End
+
+#O
+Vnum 14030
+Enchanted
+Nest 0
+ExtF 64
+Cond 95
+Wear 16
+Lev  63
+Cost 0
+Val  1 8 9 21 0
+Affc 'enchant weapon'   0  60  -1   3  18          0 1
+Affc 'enchant weapon'   1  60  -1   3  19          0 1
+End
+
+#O
+Vnum 16057
 Nest 0
 Wear -1
-Cost 2000
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
 End
 
 #O
@@ -266,22 +366,6 @@ Vnum 3382
 Nest 0
 Wear -1
 Cost 2000
-End
-
-#O
-Vnum 14090
-Nest 0
-Wear -1
-Cost 330
-Spell 3 'stone skin'
-End
-
-#O
-Vnum 14090
-Nest 0
-Wear -1
-Cost 330
-Spell 3 'stone skin'
 End
 
 #O
@@ -333,50 +417,12 @@ Cost 0
 End
 
 #O
-Vnum 3808
-Nest 0
-Cond 89
-Wear 12
-Cost 0
-End
-
-#O
 Vnum 20006
 Nest 0
 ExtF 17039680
 Cond 71
 Wear -1
 Cost 999
-End
-
-#O
-Vnum 5607
-Nest 0
-Wear 15
-Cost 0
-End
-
-#O
-Vnum 5608
-Nest 0
-Cond 87
-Wear 14
-Cost 0
-End
-
-#O
-Vnum 17013
-Nest 0
-Cond 66
-Wear 2
-Cost 0
-End
-
-#O
-Vnum 10171
-Nest 0
-Wear 0
-Cost 0
 End
 
 #O
@@ -390,9 +436,9 @@ Wt   1
 Cond -1
 Wear -1
 Cost 100000
-ExDe poseable figurine figure~ '{Ra huge {PDemonic{R Dragon {WNecromancer{R with animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x
-~
 ExDe azrael~ '{Ra huge {PDemonic{R Dragon {WNecromancer{R with animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x
+~
+ExDe poseable figurine figure~ '{Ra huge {PDemonic{R Dragon {WNecromancer{R with animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x
 ~
 End
 
@@ -405,45 +451,6 @@ Cost 3800
 End
 
 #O
-Vnum 20004
-Nest 0
-ExtF 65
-Wear 4
-Cost 1000
-End
-
-#O
-Vnum 16022
-Nest 0
-Wear 13
-Cost 9800
-End
-
-#O
-Vnum 17013
-Nest 0
-Wear 1
-Cost 50
-End
-
-#O
-Vnum 20004
-Nest 0
-ExtF 65
-Wear 3
-Cost 1000
-End
-
-#O
-Vnum 11633
-Nest 0
-ExtF 1
-Cond 93
-Wear 7
-Cost 4500
-End
-
-#O
 Vnum 11629
 Nest 0
 ExtF 1
@@ -452,23 +459,9 @@ Cost 5200
 End
 
 #O
-Vnum 14018
-Nest 0
-Wear 8
-Cost 500
-End
-
-#O
-Vnum 821
-Nest 0
-Wear 9
-Cost 1000
-End
-
-#O
 Vnum 824
 Nest 0
-Wear 17
+Wear -1
 Cost 1000
 End
 
@@ -533,24 +526,234 @@ Cost 0
 End
 
 #O
-Vnum 3205
+Vnum 3365
 Nest 0
-Wear 5
-Cost 60
+Wear -1
+Cost 640
 End
 
 #O
-Vnum 14030
-Enchanted
+Vnum 3364
 Nest 0
-ExtF 64
-Cond 95
-Wear 16
-Lev  63
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3355
+Nest 0
+Wear -1
+Cost 510
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear -1
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear -1
+Cost 112
+End
+
+#O
+Vnum 3351
+Nest 0
+Wear -1
+Cost 590
+End
+
+#O
+Vnum 3351
+Nest 0
+Wear -1
+Cost 590
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3359
+Nest 0
+Wear -1
+Cost 450
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3356
+Nest 0
+Wear -1
+Cost 450
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3355
+Nest 0
+Wear -1
+Cost 510
+End
+
+#O
+Vnum 3007
+Nest 0
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 3008
+Nest 0
+Wear -1
 Cost 0
-Val  1 8 9 21 0
-Affc 'enchant weapon'   1  60  -1   3  19          0 1
-Affc 'enchant weapon'   0  60  -1   3  18          0 1
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 640
+End
+
+#O
+Vnum 3364
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3350
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 3353
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 3357
+Nest 0
+Wear -1
+Cost 450
+End
+
+#O
+Vnum 3349
+Nest 0
+Wear -1
+Cost 3100
 End
 
 #L

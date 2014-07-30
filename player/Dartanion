@@ -1,0 +1,1103 @@
+#PLAYER
+Name Dartanion~
+Id   1041402906
+LogO 1060016828
+Vers 14
+Mexp 2
+Pass krisgriebe~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dragon~
+Cla  3
+Levl 54
+Tru  91
+Plyd 724497
+Back 719260
+Note 1047241265 1046507965 1047002741 1044398779 1047414979 1046795046 0
+Scro 22
+Room 3001
+HMS  1546 828 791
+Gold 773
+Silv 1716
+Gold_in_bank 16000
+Exp  68072
+PCkills  5
+PCkilled 5
+Akills   3
+Akilled  0
+PKRank   1
+Pos  4
+Alig -1000
+Ptnr Laurana~
+FImm 0
+FRes EG
+FVul F
+Plr  AHQU
+Video 0
+Act  CDEFGHJLSW
+AfBy NOTVc
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr 0
+Prac 211
+Trai 56
+Wimp 0
+Atrib 22 19 20 16 20 18
+SkillPnts  9
+RolePnts   12
+QuestPnts  86
+SQuestNext 2
+Afk {B[{CFri Feb 28 18:49:10 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl , The local RPer~
+Immn ~
+Pnts 40
+Rank {PX{RX{PX{x~
+Aura ~
+TSex 1
+LLev 201
+Deit {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Stus {WS{gi{Wl{gv{We{gr {RD{Pr{Yag{Po{Rn {Cof the {WD{gi{Wv{gi{Wn{ge{x~
+RmCt 5
+ExSk 0
+Raff 5
+Lsit 209.8.155.25~
+Ltim Thu Mar 13 00:19:55 2003
+~
+LSav Mon Aug 04 13:07:08 2003
+~
+Finf [FYI] Michigan has been slain by Dartanion.
+~
+HMSP 1321 413 771
+THMS 30 0 0
+Cnd  0 0 9 15
+Colr 3 37 1
+Colr 13 34 1
+Sk 94 1 'acid blast'
+Sk 89 1 'acid breath'
+Sk 75 1 'acid rain'
+Sk 82 1 'age'
+Sk 75 1 'animate skeleton'
+Sk 75 1 'animate wraith'
+Sk 75 1 'animate gargoyle'
+Sk 75 1 'animate zombie'
+Sk 88 1 'armor'
+Sk 81 1 'bless'
+Sk 81 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 75 1 'blood blade'
+Sk 75 1 'blood moon'
+Sk 75 1 'burning hands'
+Sk 75 1 'call lightning'
+Sk 75 1 'calm'
+Sk 80 1 'cancellation'
+Sk 75 1 'chain lightning'
+Sk 75 1 'channel'
+Sk 76 1 'chill touch'
+Sk 76 1 'colour spray'
+Sk 75 1 'continual light'
+Sk 75 1 'control weather'
+Sk 81 1 'create food'
+Sk 75 1 'create parchment'
+Sk 76 1 'create rose'
+Sk 75 1 'create sign'
+Sk 75 1 'create spring'
+Sk 75 1 'create vial'
+Sk 75 1 'create water'
+Sk 76 1 'cure blindness'
+Sk 100 1 'cure critical'
+Sk 75 1 'cure disease'
+Sk 75 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 75 1 'cure serious'
+Sk 78 1 'curse'
+Sk 75 1 'dazzling light'
+Sk 75 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 78 1 'detect hidden'
+Sk 76 1 'detect invis'
+Sk 75 1 'detect magic'
+Sk 75 1 'detect poison'
+Sk 95 1 'dispel magic'
+Sk 76 1 'divine healing'
+Sk 76 1 'divine regeneration'
+Sk 75 1 'encampment'
+Sk 75 1 'enchant armor'
+Sk 75 1 'enchant weapon'
+Sk 79 1 'energy drain'
+Sk 97 1 'faerie fire'
+Sk 75 1 'faerie fog'
+Sk 1 1 'fear'
+Sk 76 1 'fire breath'
+Sk 77 1 'fireball'
+Sk 76 1 'fireproof'
+Sk 75 1 'firestorm'
+Sk 75 1 'flame blade'
+Sk 78 1 'flameshield'
+Sk 93 1 'fly'
+Sk 75 1 'floating disc'
+Sk 76 1 'frenzy'
+Sk 75 1 'frost blade'
+Sk 82 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 92 1 'gate'
+Sk 81 1 'giant strength'
+Sk 100 1 'haste'
+Sk 78 1 'heal'
+Sk 78 1 'holy word'
+Sk 81 1 'identify'
+Sk 76 1 'infravision'
+Sk 75 1 'know alignment'
+Sk 75 1 'light of truth'
+Sk 75 1 'lightning bolt'
+Sk 82 1 'lightning breath'
+Sk 76 1 'locate life'
+Sk 77 1 'locate object'
+Sk 76 1 'magic missile'
+Sk 75 1 'mass healing'
+Sk 75 1 'nexus'
+Sk 84 1 'pass door'
+Sk 79 1 'plague'
+Sk 76 1 'poison'
+Sk 75 1 'portal'
+Sk 75 1 'protect container'
+Sk 81 1 'protection evil'
+Sk 90 1 'protection good'
+Sk 75 1 'recharge'
+Sk 90 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 81 1 'regeneration'
+Sk 78 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 93 1 'sanctuary'
+Sk 87 1 'shield'
+Sk 75 1 'shock blade'
+Sk 75 1 'shocking grasp'
+Sk 75 1 'shrink'
+Sk 88 1 'slow'
+Sk 77 1 'steel mist'
+Sk 81 1 'stone skin'
+Sk 77 1 'summon'
+Sk 75 1 'summon object'
+Sk 89 1 'talon'
+Sk 75 1 'teleport'
+Sk 75 1 'teleport object'
+Sk 92 1 'undo spell'
+Sk 75 1 'vision'
+Sk 76 1 'weaken'
+Sk 75 1 'word of recall'
+Sk 75 1 'wrath'
+Sk 100 1 'axe'
+Sk 100 1 'dagger'
+Sk 75 1 'flail'
+Sk 79 1 'mace'
+Sk 76 1 'polearm'
+Sk 75 1 'spear'
+Sk 100 1 'sword'
+Sk 78 1 'whip'
+Sk 100 1 'shield block'
+Sk 79 1 'backstab'
+Sk 100 1 'bash'
+Sk 76 1 'berserk'
+Sk 86 1 'circle'
+Sk 84 1 'disarm'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'hand to hand'
+Sk 79 1 'kick'
+Sk 100 1 'parry'
+Sk 76 1 'rescue'
+Sk 100 1 'second attack'
+Sk 100 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 80 1 'hunt'
+Sk 75 1 'swimming'
+Sk 75 3 'fast healing'
+Sk 75 1 'firebuilding'
+Sk 77 1 'forge'
+Sk 80 1 'repair'
+Sk 75 1 'rotate'
+Sk 87 1 'languages'
+Sk 77 1 'hide'
+Sk 100 1 'meditation'
+Sk 80 1 'peek'
+Sk 75 1 'pick lock'
+Sk 100 1 'scan'
+Sk 80 1 'sneak'
+Sk 75 1 'steal'
+Sk 75 1 'scrolls'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 78 1 'recall'
+Sk 100 1 'riposte'
+Sk 98 1 'fourth attack'
+Sk 93 1 'rage'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'shield'   0  44  25 -20  17          0 1
+Affc 'armor'   0  52  15 -20  17          0 1
+Affc 'regeneration'   0  51  17   0   0  268435456 1
+Affc 'protection good'   0  50  15  -1  24      16384 1
+Affc 'protection evil'   0  52  15  -1  24       8192 1
+Affc 'haste'   0  52  19   4   2    2097152 1
+End
+
+#O
+Vnum 9924
+Nest 0
+Cond 67
+Wear 0
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 29905
+Nest 0
+Cond 92
+Wear 6
+Cost 10000
+End
+
+#O
+Vnum 24202
+Nest 0
+Cond 76
+Wear -1
+Cost 2666
+End
+
+#O
+Vnum 24202
+Nest 0
+Cond 80
+Wear -1
+Cost 2666
+End
+
+#O
+Vnum 24225
+Nest 0
+Wear -1
+Cost 400
+Val  450 258 0 0 0
+End
+
+#O
+Vnum 24251
+Nest 0
+Cond 97
+Wear 10
+Cost 4500
+End
+
+#O
+Vnum 24252
+Nest 0
+Cond 81
+Wear 8
+Cost 2200
+End
+
+#O
+Vnum 24253
+Nest 0
+Cond 99
+Wear 12
+Cost 3400
+End
+
+#O
+Vnum 24250
+Nest 0
+Cond 86
+Wear 13
+Cost 5000
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 95
+Wear -1
+Cost 10000
+Val  1 8 5 21 28
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 29901
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a delicious cheesestick~
+ShD  a delicious {Ycheesestick{x~
+Desc A delicious {Ycheesestick{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  22 45 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Dartanion.
+~
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 93
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 24204
+Nest 0
+Cond 99
+Wear 5
+Cost 4666
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 89
+Wear 3
+Cost 3800
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Cond 85
+Wear 2
+Cost 2200
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Cond 81
+Wear 1
+Cost 2200
+End
+
+#O
+Vnum 10169
+Nest 0
+Cond 87
+Wear 18
+Cost 2200
+End
+
+#O
+Vnum 17315
+Nest 0
+ExtF 320
+Cond 90
+Wear 9
+Cost 6000
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 90
+Wear 4
+Cost 3800
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 43
+Wear 19
+Cost 0
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 76
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 5608
+Nest 0
+Cond 67
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 13
+Wear -1
+Cost 10000
+Val  1 8 5 21 28
+End
+
+#O
+Vnum 10155
+Nest 0
+Cond 96
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10169
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 86
+Wear 16
+Cost 0
+End
+
+#L
+Vnum 1100
+Nest 0
+Cond 93
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 9201
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#L
+Vnum 9922
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 2326
+Nest 0
+Cond 84
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 16007
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#L
+Vnum 10237
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 73
+Nest 0
+Wear -1
+Cost 270
+End
+
+#L
+Vnum 73
+Nest 0
+Cond 90
+Wear -1
+Cost 270
+End
+
+#L
+Vnum 76
+Nest 0
+Cond 97
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 75
+Nest 0
+Cond 97
+Wear -1
+Cost 620
+End
+
+#L
+Vnum 75
+Nest 0
+Wear -1
+Cost 620
+End
+
+#L
+Vnum 74
+Nest 0
+Cond 97
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 74
+Nest 0
+Cond 98
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 76
+Nest 0
+Cond 94
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 16041
+Nest 0
+Cond 70
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 5105
+Enchanted
+Nest 0
+Cond 86
+Wear -1
+Cost 2100
+Val  1 4 6 3 0
+Affc 'reserved'   1  21  -1   2  18          0 1
+Affc 'reserved'   1  21  -1   2  19          0 1
+End
+
+#L
+Vnum 14040
+Nest 0
+Cond 81
+Wear -1
+Cost 200
+End
+
+#L
+Vnum 10237
+Nest 0
+Cond 89
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 80
+Nest 0
+Cond 91
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#L
+Vnum 1213
+Nest 1
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name jubei token award trivia~
+ShD  {WJ{gu{Wb{ge{Wi{g'{Ws {gY{Wo{gu{Wr {gn{Wo{gt {Wa {gm{Wo{gr{Wo{gn {WA{gw{Wa{gr{Wd {W*{YTrivia{W*{x~
+Desc {WI{gt{Ws {ga{Wn {gA{Ww{ga{Wr{gd {Ws{gh{Wo{gw{Wi{gn{Wg {gy{Wo{gu {Wh{ga{Wv{ge {Ws{go{Wm{ge {Wc{go{Wm{gm{Wo{gn {Ws{ge{Wn{gs{We{g, {Wt{gh{Wa{gt{Ws {gr{Wa{gr{We {gt{Wh{ge{Ws{ge {Wd{ga{Wy{gs {Wy{ga {Wk{gn{Wo{gw{W?{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name jubei token award trivia~
+ShD  {WJ{gu{Wb{ge{Wi{g'{Ws {gY{Wo{gu{Wr {gn{Wo{gt {Wa {gm{Wo{gr{Wo{gn {WA{gw{Wa{gr{Wd {W*{YTrivia{W*{x~
+Desc {WI{gt{Ws {ga{Wn {gA{Ww{ga{Wr{gd {Ws{gh{Wo{gw{Wi{gn{Wg {gy{Wo{gu {Wh{ga{Wv{ge {Ws{go{Wm{ge {Wc{go{Wm{gm{Wo{gn {Ws{ge{Wn{gs{We{g, {Wt{gh{Wa{gt{Ws {gr{Wa{gr{We {gt{Wh{ge{Ws{ge {Wd{ga{Wy{gs {Wy{ga {Wk{gn{Wo{gw{W?{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name jubei token award trivia~
+ShD  {WJ{gu{Wb{ge{Wi{g'{Ws {gY{Wo{gu{Wr {gn{Wo{gt {Wa {gm{Wo{gr{Wo{gn {WA{gw{Wa{gr{Wd {W*{YTrivia{W*{x~
+Desc {WI{gt{Ws {ga{Wn {gA{Ww{ga{Wr{gd {Ws{gh{Wo{gw{Wi{gn{Wg {gy{Wo{gu {Wh{ga{Wv{ge {Ws{go{Wm{ge {Wc{go{Wm{gm{Wo{gn {Ws{ge{Wn{gs{We{g, {Wt{gh{Wa{gt{Ws {gr{Wa{gr{We {gt{Wh{ge{Ws{ge {Wd{ga{Wy{gs {Wy{ga {Wk{gn{Wo{gw{W?{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name jubei token award trivia~
+ShD  {WJ{gu{Wb{ge{Wi{g'{Ws {gY{Wo{gu{Wr {gn{Wo{gt {Wa {gm{Wo{gr{Wo{gn {WA{gw{Wa{gr{Wd {W*{YTrivia{W*{x~
+Desc {WI{gt{Ws {ga{Wn {gA{Ww{ga{Wr{gd {Ws{gh{Wo{gw{Wi{gn{Wg {gy{Wo{gu {Wh{ga{Wv{ge {Ws{go{Wm{ge {Wc{go{Wm{gm{Wo{gn {Ws{ge{Wn{gs{We{g, {Wt{gh{Wa{gt{Ws {gr{Wa{gr{We {gt{Wh{ge{Ws{ge {Wd{ga{Wy{gs {Wy{ga {Wk{gn{Wo{gw{W?{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name jubei token award trivia~
+ShD  {WJ{gu{Wb{ge{Wi{g'{Ws {gY{Wo{gu{Wr {gn{Wo{gt {Wa {gm{Wo{gr{Wo{gn {WA{gw{Wa{gr{Wd {W*{YTrivia{W*{x~
+Desc {WI{gt{Ws {ga{Wn {gA{Ww{ga{Wr{gd {Ws{gh{Wo{gw{Wi{gn{Wg {gy{Wo{gu {Wh{ga{Wv{ge {Ws{go{Wm{ge {Wc{go{Wm{gm{Wo{gn {Ws{ge{Wn{gs{We{g, {Wt{gh{Wa{gt{Ws {gr{Wa{gr{We {gt{Wh{ge{Ws{ge {Wd{ga{Wy{gs {Wy{ga {Wk{gn{Wo{gw{W?{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14012
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 20026
+Nest 0
+Cond 61
+Wear -1
+Cost 89100
+End
+
+#B
+Vnum 24229
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#B
+Vnum 13003
+Nest 1
+Wear -1
+Cost 9500
+End
+
+#B
+Vnum 11792
+Nest 1
+Wear -1
+Cost 55000
+End
+
+#B
+Vnum 17009
+Nest 1
+Cond 81
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 13005
+Nest 1
+Cond 96
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 11748
+Nest 1
+Cond 80
+Wear -1
+Cost 15000
+Val  2 12 11 11 140
+End
+
+#B
+Vnum 13010
+Nest 1
+Cond 95
+Wear -1
+Cost 450
+End
+
+#B
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#B
+Vnum 11691
+Nest 1
+Cond 89
+Wear -1
+Cost 6500
+End
+
+#B
+Vnum 14014
+Nest 1
+ExtF 17825856
+Cond 74
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13008
+Nest 1
+Cond 91
+Wear -1
+Cost 550
+End
+
+#B
+Vnum 11709
+Nest 1
+Cond 54
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 17041
+Nest 1
+Cond 71
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10107
+Nest 1
+Cond 91
+Wear -1
+Cost 28000
+End
+
+#B
+Vnum 10101
+Nest 1
+Cond 80
+Wear -1
+Cost 30000
+End
+
+#B
+Vnum 17101
+Nest 1
+ExtF 1
+Cond 85
+Wear -1
+Cost 160
+End
+
+#B
+Vnum 11910
+Nest 1
+ExtF 17302289
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10152
+Nest 1
+Wear -1
+Cost 5500
+End
+
+#B
+Vnum 2914
+Nest 1
+Cond 54
+Wear -1
+Cost 5000
+Val  1 13 7 3 12
+End
+
+#B
+Vnum 2914
+Nest 1
+Cond 53
+Wear -1
+Cost 5000
+Val  1 13 7 3 12
+End
+
+#B
+Vnum 5609
+Nest 1
+Cond 78
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 16037
+Nest 1
+Cond 91
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 10152
+Nest 1
+Cond 78
+Wear -1
+Cost 5500
+End
+
+#B
+Vnum 11791
+Nest 1
+Wear -1
+Cost 55000
+End
+
+#B
+Vnum 11792
+Nest 1
+Cond 93
+Wear -1
+Cost 55000
+End
+
+#B
+Vnum 10164
+Nest 1
+Cond 99
+Wear -1
+Cost 1350
+End
+
+#B
+Vnum 5617
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11776
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11680
+Nest 1
+Cond 63
+Wear -1
+Cost 4300
+End
+
+#B
+Vnum 11793
+Nest 1
+ExtF 257
+Wear -1
+Lev  91
+Cost 55000
+ExDe owned by~ Dartanion
+~
+End
+
+#B
+Vnum 11792
+Nest 1
+Cond 64
+Wear -1
+Lev  91
+Cost 55000
+ExDe owned by~ Dartanion
+~
+End
+
+#B
+Vnum 13004
+Nest 1
+Cond 63
+Wear -1
+Cost 3700
+End
+
+#B
+Vnum 11713
+Nest 1
+Cond 89
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11712
+Nest 1
+Cond 97
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 4406
+Nest 1
+ExtF 64
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 5615
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 5612
+Nest 1
+Cond 55
+Wear -1
+Cost 3000
+End
+
+#B
+Vnum 3207
+Nest 1
+Cond 51
+Wear -1
+Cost 80
+End
+
+#END

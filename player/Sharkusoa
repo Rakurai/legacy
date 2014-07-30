@@ -1,7 +1,7 @@
 #PLAYER
 Name SharkusoA~
 Id   1018667992
-LogO 1027183077
+LogO 1060020027
 Vers 14
 Mexp 2
 Pass spaen~
@@ -31,47 +31,45 @@ Desc {C"Offense taken by my family and friends offends me."{x
 ~
 Prom %CG<%h%CGhp %CC%m%CCm %CY%v%CYmv> %CP%XTnl %Cb%z%c~
 Race human~
-Clan blackclaw~
 Cla  3
-Levl 76
+Levl 80
 Tru  91
-Plyd 1280337
-Back 1280263
-Note 1027107921 1022813787 1027144008 1027087211 1027146472 1027094615 1026831915
+Plyd 1295358
+Back 1291551
+Note 1056293023 1046507965 1051589887 1053644628 1051242807 1032346458 1030723157
 Scro 22
-Room 24802
-HMS  1682 1173 1155
-Gold 4162
-Silv 26
+Room 3001
+HMS  1756 1200 1209
+Gold 3644
+Silv 29
 Gold_in_bank 58000
-Exp  76113
+Exp  80391
 PCkills  1
 PCkilled 6
 Akills   0
 Akilled  0
 PKRank   0
-Pos  4
+Pos  8
 Alig 1000
 FImm 0
 FRes T
 FVul 0
-Plr  AIMOQU
+Plr  AHIMOQU
 Video 0
-Act  CDGHJLNQSc
-AfBy DFHTYbd
+Act  CDGHJLQSc
+AfBy DFTb
 Comm NOQ
 Revk 0
 Cgrp A
 Cnsr B
-Prac 2052
-Trai 393
+Prac 2068
+Trai 397
 Wimp 5
 Atrib 21 18 18 18 18 18
 SkillPnts  136
 RolePnts   6
 QuestPnts  379
-GlDonated  20000
-Afk {B[{CMon Jun 24 21:37:42 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CSat Aug 17 04:11:35 2002{B] {CUnknown Departure.{x
 ~
 Titl  de Paenguardia~
 Immn ~
@@ -79,21 +77,21 @@ Pnts 40
 Rank {PL{RD{RR~
 Aura ~
 TSex 1
-LLev 355
+LLev 358
 Email markaln@hotmail.com~
 Deit Urza~
 Stus {TT{ch{Te {cP{Th{ca{Tn{ct{To{cm {TA{cm{Tp{ce{Tr{cs{Ta{cn{Td {C({c&{C){x~
 RmCt 8
 ExSk 0
 Raff 965
-Lsit sdn-ar-002casfrMP095.dialsprint.net~
-Ltim Sat Jul 20 11:37:09 2002
+Lsit 158.252.220.201~
+Ltim Sun Jun 22 14:50:33 2003
 ~
-LSav Sat Jul 20 11:37:57 2002
+LSav Mon Aug 04 14:00:27 2003
 ~
-HMSP 1392 523 1080
+HMSP 1466 550 1134
 THMS 0 0 0
-Cnd  0 0 35 10
+Cnd  0 0 0 0
 Alias myprompt %CG<%h%CGhp %CC%m%CCm %CY%v%CYmv> %CP%XTnl %Cb%z~
 Alias fb cast 'fire breath'~
 Alias mytitle title t{ch{We {BP{Wh{ca{wn{Bt{Wo{cm {wA{Bm{Wp{ce{wr{Bs{Wa{cn{wd {x(&)~
@@ -156,7 +154,7 @@ Sk 75 1 'demonfire'
 Sk 75 1 'detect evil'
 Sk 76 1 'detect good'
 Sk 78 1 'detect hidden'
-Sk 81 1 'detect invis'
+Sk 82 1 'detect invis'
 Sk 75 1 'detect magic'
 Sk 75 1 'detect poison'
 Sk 75 1 'dispel evil'
@@ -182,7 +180,7 @@ Sk 91 1 'frenzy'
 Sk 78 1 'frost breath'
 Sk 75 1 'gas breath'
 Sk 96 1 'gate'
-Sk 85 1 'giant strength'
+Sk 86 1 'giant strength'
 Sk 100 1 'haste'
 Sk 79 1 'heal'
 Sk 75 1 'heat metal'
@@ -202,7 +200,7 @@ Sk 77 1 'plague'
 Sk 78 1 'poison'
 Sk 75 1 'portal'
 Sk 75 1 'protect container'
-Sk 86 1 'protection evil'
+Sk 89 1 'protection evil'
 Sk 84 1 'protection good'
 Sk 75 1 'ray of truth'
 Sk 76 1 'recharge'
@@ -216,7 +214,7 @@ Sk 100 1 'sanctuary'
 Sk 88 1 'shield'
 Sk 75 1 'shrink'
 Sk 100 1 'slow'
-Sk 86 1 'steel mist'
+Sk 87 1 'steel mist'
 Sk 84 1 'stone skin'
 Sk 77 1 'summon'
 Sk 76 1 'summon object'
@@ -289,20 +287,8 @@ Gr 'necromancy'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'giant strength'   0  57  23   4   1          0 1
-Affc 'shield'   0  64  38 -20  17          0 1
-Affc 'bless'   0  70  41   9  18          0 1
-Affc 'bless'   0  67  41  -9  24          0 1
-Affc 'stone skin'   0  67  50 -40  17          0 1
-Affc 'steel mist'   0  69  11  -7  17   16777216 1
-Affc 'age'   0  71   0  -3   1          0 1
-Affc 'age'   0  72   0  -3   5          0 1
-Affc 'age'   0  70   0   1   4          0 1
-Affc 'age'   0  71   0  75   9          0 1
-Affc 'detect invis'   0  72  62   0   0          8 1
-Affc 'detect hidden'   0  71  62   0   0         32 1
-Affc 'sanctuary'   0  70   0   0   0        128 1
-Affc 'slow'   0  75  27  -8   2  536870912 1
+Affc 'detect hidden'   0  76  44   0   0         32 1
+Affc 'detect invis'   0  71  10   0   0          8 1
 End
 
 #O
@@ -360,8 +346,8 @@ ExtF 16777280
 Wear -1
 Lev  42
 Cost 1000
-Affc 'enchant weapon'   0  63  -1   2  18          0 1
 Affc 'enchant weapon'   1  63  -1   2  19          0 1
+Affc 'enchant weapon'   0  63  -1   2  18          0 1
 End
 
 #O
@@ -558,14 +544,13 @@ Vnum 20013
 Nest 1
 Wear -1
 Cost 600
-Val  30 0 11 57 0
+Val  30 0 5 57 0
 Spell 3 'divine regeneration'
 End
 
 #O
 Vnum 10170
 Nest 0
-Cond 12
 Wear 7
 Cost 0
 End
@@ -573,7 +558,6 @@ End
 #O
 Vnum 10167
 Nest 0
-Cond 56
 Wear 4
 Cost 0
 End
@@ -581,7 +565,6 @@ End
 #O
 Vnum 10167
 Nest 0
-Cond 57
 Wear 3
 Cost 0
 End
@@ -589,7 +572,6 @@ End
 #O
 Vnum 9911
 Nest 0
-Cond 38
 Wear 10
 Cost 0
 End
@@ -598,7 +580,6 @@ End
 Vnum 10168
 Nest 0
 ExtF 16777219
-Cond 65
 Wear 2
 Cost 0
 End
@@ -607,7 +588,6 @@ End
 Vnum 10168
 Nest 0
 ExtF 16777219
-Cond 31
 Wear 1
 Cost 0
 End
@@ -615,7 +595,6 @@ End
 #O
 Vnum 17108
 Nest 0
-Cond 57
 Wear 15
 Cost 0
 End
@@ -623,7 +602,6 @@ End
 #O
 Vnum 17108
 Nest 0
-Cond 52
 Wear 14
 Cost 0
 End
@@ -631,7 +609,6 @@ End
 #O
 Vnum 3205
 Nest 0
-Cond 61
 Wear 5
 Cost 60
 End
@@ -639,7 +616,6 @@ End
 #O
 Vnum 8204
 Nest 0
-Cond 82
 Wear 9
 Cost 3800
 End
@@ -649,20 +625,18 @@ Vnum 5610
 Enchanted
 Nest 0
 ExtF 17301507
-Cond 37
 Wear 6
 Cost 2000
-Affc 'reserved'   1  65  -1   4  19          0 1
-Affc 'reserved'   1  65  -1   4  18          0 1
-Affc 'reserved'   1  65  -1 -15  17          0 1
 Affc 'reserved'   1  65  -1  65  12          0 1
+Affc 'reserved'   1  65  -1 -15  17          0 1
+Affc 'reserved'   1  65  -1   4  18          0 1
+Affc 'reserved'   1  65  -1   4  19          0 1
 End
 
 #O
 Vnum 20008
 Nest 0
 ExtF 16777537
-Cond 78
 Wear 13
 Cost 0
 End
@@ -670,7 +644,6 @@ End
 #O
 Vnum 10152
 Nest 0
-Cond 85
 Wear 19
 Cost 5500
 End
@@ -678,7 +651,6 @@ End
 #O
 Vnum 10152
 Nest 0
-Cond 91
 Wear 16
 Cost 5500
 End
@@ -686,7 +658,6 @@ End
 #O
 Vnum 17005
 Nest 0
-Cond 74
 Wear 18
 Cost 0
 End
@@ -694,7 +665,6 @@ End
 #O
 Vnum 9101
 Nest 0
-Cond 49
 Wear 8
 Cost 2800
 End
@@ -702,7 +672,6 @@ End
 #O
 Vnum 17001
 Nest 0
-Cond 93
 Wear 0
 Cost 2000
 End
@@ -710,9 +679,25 @@ End
 #O
 Vnum 17003
 Nest 0
-Cond 92
 Wear 12
 Cost 200
+End
+
+#O
+Vnum 13009
+Nest 0
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 1213
+Nest 0
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
 End
 
 #L
@@ -927,9 +912,9 @@ Nest 0
 Cond 69
 Wear -1
 Cost 1550
-Affc 'reserved'   1  14  -1   2  18          0 1
-Affc 'reserved'   1  14  -1  15  12          0 1
 Affc 'reserved'   1  14  -1   1   1          0 1
+Affc 'reserved'   1  14  -1  15  12          0 1
+Affc 'reserved'   1  14  -1   2  18          0 1
 End
 
 #L
@@ -956,9 +941,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe florist~ This rose was created by Shadowhunter.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Shadowhunter.
 ~
 End
 
@@ -972,9 +957,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe florist~ This rose was created by Shadowhunter.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Shadowhunter.
 ~
 End
 
@@ -1059,9 +1044,9 @@ Cond 80
 Wear -1
 Lev  27
 Cost 5000
-Affc 'reserved'   1  26  -1 -10  17          0 1
-Affc 'enchant weapon'   1  73  -1   3  18          0 1
 Affc 'enchant weapon'   1  73  -1   3  19          0 1
+Affc 'enchant weapon'   1  73  -1   3  18          0 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
 End
 
 #L
@@ -1087,8 +1072,8 @@ Nest 0
 Wear -1
 Cost 0
 Val  0 9 5 11 0
-Affc 'reserved'   1  36  -1   2  19          0 1
 Affc 'reserved'   1  36  -1   4  18          0 1
+Affc 'reserved'   1  36  -1   2  19          0 1
 End
 
 #L
@@ -1106,8 +1091,8 @@ Nest 0
 ExtF 64
 Wear -1
 Cost 0
-Affc 'reserved'   1  32  -1  10  13          0 1
 Affc 'reserved'   1  32  -1  25  14          0 1
+Affc 'reserved'   1  32  -1  10  13          0 1
 End
 
 #L
@@ -1656,9 +1641,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1669,9 +1654,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1693,9 +1678,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1706,9 +1691,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1740,9 +1725,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1753,9 +1738,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1800,9 +1785,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1813,9 +1798,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1877,43 +1862,6 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
@@ -1930,32 +1878,6 @@ Cost 0
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
 End
 
 #L
@@ -1990,9 +1912,72 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#L
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
 End
 
 #L
@@ -2147,11 +2132,11 @@ ExtF 321
 Wear -1
 Lev  89
 Cost 0
-Affc 'reserved'   1  87  -1  60  14          0 1
-Affc 'reserved'   1  87  -1  50  13          0 1
-Affc 'reserved'   1  87  -1  50  12          0 1
-Affc 'reserved'   1  87  -1   3   1          0 1
 Affc 'enchant armor'   1  91  -1  -4  17          0 1
+Affc 'reserved'   1  87  -1   3   1          0 1
+Affc 'reserved'   1  87  -1  50  12          0 1
+Affc 'reserved'   1  87  -1  50  13          0 1
+Affc 'reserved'   1  87  -1  60  14          0 1
 End
 
 #B
@@ -2176,8 +2161,8 @@ Wear -1
 Lev  70
 Cost 63
 Val  7 6 15 4 0
-Affc 'enchant weapon'   0  63  -1   9  18          0 1
 Affc 'enchant weapon'   1  63  -1   9  19          0 1
+Affc 'enchant weapon'   0  63  -1   9  18          0 1
 ExDe whip Wispy Strand~ It is a marvellous whip, crafted from the finest iron around.
 It was created in the Month of Abundance by an experienced warrior
 named SharkusoA.  Legend holds that this human was a great weaponsmith.
@@ -2198,8 +2183,8 @@ Wear -1
 Lev  70
 Cost 6
 Val  7 6 15 4 0
-Affc 'enchant weapon'   0  63  -1   8  18          0 1
 Affc 'enchant weapon'   1  63  -1   8  19          0 1
+Affc 'enchant weapon'   0  63  -1   8  18          0 1
 ExDe whip Wispy Strand~ It is a marvellous whip, crafted from the finest iron around.
 It was created in the Month of Ancient Darkness by an experienced warrior
 named SharkusoA.  Legend holds that this human was a great weaponsmith.
@@ -2420,8 +2405,8 @@ Wear -1
 Lev  69
 Cost 0
 Val  3 6 15 34 0
-Affc 'enchant weapon'   1  63  -1   8  19          0 1
 Affc 'enchant weapon'   0  63  -1   8  18          0 1
+Affc 'enchant weapon'   1  63  -1   8  19          0 1
 ExDe staff Iron Stud~ It is a marvellous staff, crafted from the finest iron around.
 It was created in the Month of Long Shadows by an experienced warrior
 named SharkusoA.  Legend holds that this human was a great weaponsmith.
@@ -2443,8 +2428,8 @@ Wear -1
 Lev  69
 Cost 0
 Val  3 6 15 34 0
-Affc 'enchant weapon'   1  63  -1   8  19          0 1
 Affc 'enchant weapon'   0  63  -1   8  18          0 1
+Affc 'enchant weapon'   1  63  -1   8  19          0 1
 ExDe staff Iron Stud~ It is a marvellous staff, crafted from the finest iron around.
 It was created in the Month of Long Shadows by an experienced warrior
 named SharkusoA.  Legend holds that this human was a great weaponsmith.

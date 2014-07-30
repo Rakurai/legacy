@@ -1,0 +1,446 @@
+#PLAYER
+Name Tavaron~
+Id   1028052692
+LogO 1057796673
+Vers 14
+Mexp 2
+Pass liverpool~
+Desc Tavaron is a short and kind of stocky lad. Average strength, but rumored to
+be fairly quick. His clothes are well groomed and he carries an arrogance about him
+all the way down to his shiny blades. He is rumored though to be trained by one of the best
+{Hb{ca{Hr{cd{Hs {xin the land though which could explain his mannerisms. As he looks around the room you feel that
+he's watching you possessions more than you yourself. If that doesn't make you feel uneasy enough,
+you notice a {cmysterious {xmulti-colored gem which hangs on a necklace he wears.
+~
+Prom <{C%h{Thp {G%m{Hma {B%v{Nst {c%X{x> ~
+Race human~
+Cla  6
+Levl 55
+Tru  0
+Plyd 87013
+Back 87001
+Note 1043190228 1043190228 1043190228 1043190228 1043190228 1043190228 1043190228
+Scro 22
+Room 3001
+HMS  1286 762 607
+Gold 529
+Silv 91
+Gold_in_bank 4000
+Exp  55001
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1
+FImm 0
+FRes 0
+FVul 0
+Plr  AHOU
+Video 0
+Act  DFGJLQSc
+AfBy c
+Comm NO
+Revk 0
+Cgrp A
+Cnsr 0
+Prac 0
+Trai 0
+Wimp 0
+Atrib 18 18 18 21 18 18
+SkillPnts  213
+QuestPnts  21
+SQuestNext 9
+Afk {B[{CSun Jan  5 14:45:11 2003{B] {CUnknown Departure.{x
+~
+Titl  {W({VSome Kind Of Aura{W){x~
+Immn ~
+Pnts 40
+Rank {TM{Cs{Tm~
+Aura ~
+TSex 1
+LLev 24
+Deit {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Lsit monrwinas01pool0-a114.wi.tds.net~
+Ltim Tue Jan 21 17:03:40 2003
+~
+LSav Wed Jul 09 20:24:33 2003
+~
+HMSP 776 537 607
+THMS 0 0 0
+Cnd  0 27 41 41
+Colr 3 37 1
+Colr 6 31 0
+Colr 7 34 1
+Colr 13 30 1
+Alias a affect~
+Alias ll lore~
+Alias bb backstab~
+Alias arm cast 'armor'~
+Alias cr clanrecall~
+Alias rr repair~
+Alias dm cast 'dispel magic'~
+Alias sh cast 'shield'~
+Alias ss cast 'stone skin'~
+Alias sanc cast 'sanctuary'~
+Sk 77 1 'armor'
+Sk 75 1 'cancellation'
+Sk 1 1 'channel'
+Sk 80 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 75 1 'fireproof'
+Sk 75 1 'giant strength'
+Sk 78 1 'haste'
+Sk 75 1 'infravision'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 75 1 'refresh'
+Sk 77 1 'regeneration'
+Sk 77 1 'sanctuary'
+Sk 78 1 'shield'
+Sk 75 1 'stone skin'
+Sk 75 1 'talon'
+Sk 80 1 'undo spell'
+Sk 80 1 'axe'
+Sk 97 1 'dagger'
+Sk 75 1 'flail'
+Sk 100 1 'sword'
+Sk 79 1 'backstab'
+Sk 81 1 'circle'
+Sk 100 1 'dodge'
+Sk 98 1 'enhanced damage'
+Sk 87 1 'second attack'
+Sk 17 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 76 1 'lore'
+Sk 100 1 'scan'
+Sk 75 1 'sing'
+Sk 77 1 'scrolls'
+Sk 76 1 'staves'
+Sk 76 1 'wands'
+Sk 76 1 'recall'
+Gr 'rom basics'
+Gr 'bard basics'
+Gr 'enhancement'
+Gr 'protective'
+Affc 'stone skin'   0  39   0 -40  17          0 1
+Affc 'shield'   0  43  16 -20  17          0 1
+Affc 'regeneration'   0  49   3   0   0  268435456 1
+Affc 'armor'   0  52  10 -20  17          0 1
+End
+
+#O
+Vnum 24404
+Nest 0
+Wear 9
+Cost 3000
+End
+
+#O
+Vnum 24406
+Nest 0
+Cond 99
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 24406
+Nest 0
+Cond 92
+Wear 14
+Cost 4000
+End
+
+#O
+Vnum 7502
+Nest 0
+Name sivats survival pack~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {BS{Nu{Br{Nv{Bi{Na{Bl {YP{ba{Yc{bk{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {BS{Nu{Br{Nv{Bi{Na{Bl {YP{ba{Yc{bk{x: A bag full of prizes for all ages!~
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1212
+Nest 1
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name sivat trivia token ~
+ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
+Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1203
+Nest 1
+Name trick or treat token~
+ShD  {RT{Yi{Rc{Yk {Ro{Yr {RT{Yr{Re{Ya{Rt {YT{Ro{Yk{Re{Yn{x~
+Desc its a halloween token!~
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 1205
+Nest 1
+Name Chirijiraden token 5~
+ShD  {WC{gh{Wi{gr{Wi{gj{Wi{gr{Wa{gd{We{gn{x~
+Desc {YA mysterious katana blade is here radiating energy{x~
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1344
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 24403
+Nest 0
+Cond 79
+Wear 18
+Cost 3000
+End
+
+#O
+Vnum 11643
+Nest 0
+Cond 83
+Wear 13
+Cost 20
+End
+
+#O
+Vnum 24407
+Nest 0
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 96
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 3205
+Nest 0
+Cond 92
+Wear 5
+Cost 60
+End
+
+#O
+Vnum 29904
+Nest 0
+Cond 99
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 10166
+Nest 0
+Cond 91
+Wear 19
+Cost 20
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 3
+Cost 3800
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 93
+Wear 4
+Cost 3800
+End
+
+#O
+Vnum 17106
+Nest 0
+Cond 99
+Wear 10
+Cost 133
+End
+
+#O
+Vnum 10171
+Nest 0
+Cond 77
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 92
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 91
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10166
+Nest 0
+Cond 96
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 24409
+Nest 0
+Wear 2
+Cost 6000
+End
+
+#O
+Vnum 24409
+Nest 0
+Wear 1
+Cost 6000
+End
+
+#O
+Vnum 24408
+Nest 0
+Wear 7
+Cost 6000
+End
+
+#L
+Vnum 16084
+Nest 0
+Cond 87
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16084
+Nest 0
+Cond 83
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16064
+Nest 0
+Cond 77
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16064
+Nest 0
+Cond 88
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 19
+Cond 100
+Wear -1
+Cost 312
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 19
+Cond 100
+Wear -1
+Cost 312
+End
+
+#L
+Vnum 1211
+Nest 0
+Name token plushy golden~
+ShD  {YGolden {CP{Gl{Ru{Ys{Bh{Wy{x~
+Desc {YIts a solid gold plushy ... it looks very valuable{x~
+Wear -1
+Cost 0
+End
+
+#END

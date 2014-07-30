@@ -1,7 +1,7 @@
 #PLAYER
 Name Edgemaster~
 Id   1026880430
-LogO 1026882564
+LogO 1057372422
 Vers 14
 Mexp 2
 Pass aceventura~
@@ -10,12 +10,12 @@ Race human~
 Cla  3
 Levl 9
 Tru  0
-Plyd 1791
+Plyd 1818
 Back 1007
-Note 1026880777 1026880777 1026880777 1026880777 1026880777 1026880777 1026880777
+Note 1057372402 1057372402 1057372402 1057372402 1057372402 1057372402 1057372402
 Scro 22
-Room 8543
-HMS  92 138 81
+Room 3054
+HMS  164 138 199
 Gold 19
 Silv 57
 Exp  9478
@@ -24,7 +24,7 @@ PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  4
+Pos  8
 Alig -1000
 FImm 0
 FRes 0
@@ -33,7 +33,7 @@ Plr  0
 Video D
 Act  CDEFGHJLQSc
 AfBy HV
-Comm NO
+Comm MNO
 Revk 0
 Cgrp A
 Cnsr B
@@ -51,10 +51,10 @@ Aura ~
 TSex 1
 LLev 0
 Deit Vegita~
-Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
-Ltim Tue Jul 16 23:39:28 2002
+Lsit 24.247.171.161~
+Ltim Fri Jul 04 22:33:15 2003
 ~
-LSav Wed Jul 17 00:09:24 2002
+LSav Fri Jul 04 22:33:42 2003
 ~
 HMSP 137 140 199
 THMS 0 0 0
@@ -94,14 +94,14 @@ Gr 'rom basics'
 Gr 'warrior basics'
 Gr 'healing'
 Gr 'protective'
-Affc 'frenzy'   0  87  17  70  17          0 1
-Affc 'frenzy'   0  88  17  15  19          0 1
-Affc 'frenzy'   0  90  17  15  18          0 1
-Affc 'sanctuary'   0  87   2   0   0        128 1
-Affc 'haste'   0  88   9   5   2    2097152 1
-Affc 'shield'   0  91  86 -20  17          0 1
-Affc 'giant strength'   0  89  77   5   1          0 1
 Affc 'armor'   0  87  10 -20  17          0 1
+Affc 'giant strength'   0  89  77   5   1          0 1
+Affc 'shield'   0  91  86 -20  17          0 1
+Affc 'haste'   0  88   9   5   2    2097152 1
+Affc 'sanctuary'   0  87   2   0   0        128 1
+Affc 'frenzy'   0  90  17  15  18          0 1
+Affc 'frenzy'   0  88  17  15  19          0 1
+Affc 'frenzy'   0  87  17  70  17          0 1
 End
 
 #O
@@ -189,8 +189,8 @@ Enchanted
 Nest 0
 Wear 14
 Cost 550
-Affc 'reserved'   1   5  -1   1   5          0 1
 Affc 'reserved'   1   5  -1  -2  12          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
 End
 
 #O

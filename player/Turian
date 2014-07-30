@@ -1,0 +1,341 @@
+#PLAYER
+Name Turian~
+Id   1067644592
+LogO 1067663553
+Vers 14
+Mexp 1
+Pass twisted~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Cla  7
+Levl 4
+Tru  0
+Plyd 17753
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3759
+HMS  80 120 127
+Gold 4
+Silv 2049
+Exp  50525
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 75
+FImm 0
+FRes BM
+FVul NS
+Plr  U
+Video 0
+Act  CDFGHJLQS
+AfBy T
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 16 16 16 18 19 13
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 96
+Rank ~
+Aura ~
+TSex 1
+LLev 4
+Deit Kismet~
+Lsit 172.169.85.199~
+Ltim Fri Oct 31 19:16:32 2003
+~
+LSav Sat Nov 01 00:12:33 2003
+~
+HMSP 76 123 127
+THMS 0 0 0
+Cnd  0 2 9 14
+Sk 1 1 'cure critical'
+Sk 41 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'heal'
+Sk 1 1 'invisibility'
+Sk 1 1 'mass healing'
+Sk 1 1 'mass invis'
+Sk 1 1 'refresh'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 80 1 'sword'
+Sk 1 1 'whip'
+Sk 2 1 'shield block'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 75 1 'enhanced damage'
+Sk 1 1 'envenom'
+Sk 1 1 'kick'
+Sk 3 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 1 1 'fast healing'
+Sk 1 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'healing'
+Gr 'illusion'
+End
+
+#O
+Vnum 3704
+Nest 0
+Cond 92
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3707
+Nest 0
+Cond 85
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 95
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3709
+Nest 0
+Cond 91
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Cond 99
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1202
+Nest 0
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Cond 98
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 97
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 89
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Cond 88
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Cond 95
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Cond 94
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear -1
+Cost 610
+End
+
+#O
+Vnum 3022
+Nest 0
+Cond 74
+Wear 16
+Cost 610
+End
+
+#O
+Vnum 6013
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 3066
+Nest 0
+Cond 89
+Wear 5
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 86
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 3725
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear -1
+Cost 4
+End
+
+#O
+Vnum 3030
+Nest 0
+Wear 0
+Cost 4
+Val  0 0 46 0 0
+End
+
+#END

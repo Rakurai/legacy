@@ -1,46 +1,10 @@
-11
-Alara~
-Xenith~
-Sat Jul 26 16:31:33 2014~
-
-Dogpack~
+2
+Dogpack~
 Montrey~
 Sun Mar 24 02:10:01 2002~
-
-Kazander~
-Xenith~
-Sat Jul 26 16:29:57 2014~
-
-Liriel~
-Xenith~
-Sat Jul 26 16:31:35 2014~
 
 Omidon~
 Montrey~
 Sun Mar 24 02:03:01 2002~
-
-Tarrant~
-Xenith~
-Sat Jul 26 16:30:44 2014~
-
-Teotwawki~
-Xenith~
-Sat Jul 26 16:29:08 2014~
-
-Trubble~
-Liriel~
-Thu Jan 31 04:00:37 2002~
-
-Urza~
-Xenith~
-Sat Jul 26 16:29:12 2014~
-
-Vegita~
-Xenith~
-Sat Jul 26 16:30:52 2014~
-
-Viro~
-Xenith~
-Sat Jul 26 16:30:48 2014~
 
 

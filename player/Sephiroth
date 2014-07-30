@@ -1,7 +1,7 @@
 #PLAYER
 Name Sephiroth~
 Id   1006800901
-LogO 1026887502
+LogO 1041451982
 Vers 14
 Mexp 2
 Pass asshole~
@@ -11,12 +11,12 @@ Clan rebel~
 Cla  2
 Levl 19
 Tru  0
-Plyd 8648
+Plyd 9714
 Back 8422
-Note 1026887313 1026887313 1026887313 1026887313 1026887313 1026887313 1026887313
+Note 1041451902 1041451902 1041451902 1041451902 1041451902 1041451902 1041451902
 Scro 22
-Room 29901
-HMS  271 200 269
+Room 3054
+HMS  354 200 320
 Gold 28
 Silv 90
 Exp  24783
@@ -33,7 +33,7 @@ FVul 0
 Plr  AO
 Video D
 Act  CDEFGHJLQSc
-AfBy HTV
+AfBy HYZ
 Comm MNO
 Revk 0
 Cgrp A
@@ -43,7 +43,6 @@ Trai 4
 Wimp 0
 Atrib 18 18 18 20 18 13
 QpDonated  3
-SQuestNext 6
 Titl  {x~
 Immn ~
 Pnts 45
@@ -52,14 +51,14 @@ Aura ~
 TSex 1
 LLev 2
 Deit Lotus~
-Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
-Ltim Wed Jul 17 01:28:28 2002
+Lsit 03-023.008.popsite.net~
+Ltim Wed Jan 01 14:56:57 2003
 ~
-LSav Wed Jul 17 01:31:42 2002
+LSav Wed Jan 01 15:13:02 2003
 ~
 HMSP 259 178 300
 THMS 0 0 0
-Cnd  0 4 8 42
+Cnd  0 0 0 18
 Colr 13 33 1
 Ignore snarf~
 Alias ki back~
@@ -79,10 +78,15 @@ Sk 1 1 'wands'
 Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'thief basics'
-Affc 'sanctuary'   0  15   1   0   0        128 1
-Affc 'haste'   0  15   6   2   2    2097152 1
-Affc 'giant strength'   0  13   6   1   1          0 1
-Affc 'fly'   0  13   9   0   0     524288 1
+Affc 'sanctuary'   0  98  12   0   0        128 4
+Affc 'blood moon'   0  99  95   4  18          0 1
+Affc 'blood moon'   0  97  95   8  19          0 1
+Affc 'bless'   0  98 101 -12  24          0 1
+Affc 'bless'   0  98 101  12  18          0 1
+Affc 'divine regeneration'   0  96  95   0   0   33554432 4
+Affc 'steel mist'   0  98  32  -9  17   16777216 1
+Affc 'armor'   0  97  20 -20  17          0 1
+Affc 'shield'   0  98 103 -20  17          0 1
 End
 
 #O

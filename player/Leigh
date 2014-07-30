@@ -1,1461 +1,148 @@
 #PLAYER
 Name Leigh~
-Id   989824541
-LogO 1022522989
+Id   1078458172
+LogO 1078458383
 Vers 14
 Mexp 2
 Pass scarletrose~
-Desc {CY{Wo{cu {Ws{Ce{We {CL{We{Ci{Wg{Ch {WS{Ct{Wa{Cr{Wg{Ca{Wz{Ce{Wr {Cs{Wt{Ca{Wn{Cd{Wi{Cn{Wg {Ch{We{Cr{We{C.{x
-{WS{Ch{We {Ch{Wa{Cs {Wl{Co{Wn{Cg {Rr{Pe{Rd {Rh{Pa{Ri{Pr {Wr{Ci{Wd{Ci{Wn{Cg {Wt{Ch{We {Nw{Bi{Nn{Bd {Ca{Wn{Cd {Vp{Mu{Vr{Mp{Vl{Mi{Vs{Mh {kb{gl{ka{gc{kk {Vw{Mi{kn{gg{Ws.{x 
-{WH{Ce{Wr {Ce{Wy{Ce{Ws {Ca{Wr{Ce {gg{Wr{ge{Wy{gi{Ws{gh{W-{Nb{Bl{Nu{Be {Wa{Cn{Wd {Cs{Wh{Ce {Wl{Co{Wo{Ck{Ws {Cl{Wi{Ck{We {Cs{Wh{Ce {Wi{Cs {Wd{Ce{We{Cp {Wi{Cn {Wt{Ch{Wo{Cu{Wg{Ch{Wt{C.{x
-{CY{Wo{Cu {Wa{Cl{Ws{Co {Wn{Co{Wt{Ci{Wc{Ce {Wt{Ch{Wa{Ct {Ws{Ch{We {Ci{Ws {Cs{Wl{Ci{Wm{Cm{Wl{Cy {Wb{Cu{Wi{Cl{Wt {Ca{Wn{Cd {Wo{Cn{Wl{Cy {Ws{Ct{Wa{Cn{Wd{Cs {Wo{Cv{We{Cr {W5 {Cf{Wo{Co{Wt {Ci{Wn {Ch{We{Ci{Wg{Ch{Wt{C.{x 
-{WA{Cs {Wy{Co{Wu {Ck{We{Ce{Wp {Cl{Wo{Co{Wk{Ci{Wn{Cg {Wa{Ct {Wh{Ce{Wr {Cy{Wo{Cu {Wn{Co{Wt{Ci{Wc{Ce {Ws{Ch{We {Cr{We{Cs{We{Cm{Wb{Cl{We{Cs {Wa{Cn {WA{gr{Wc{gh {WA{gn{Wg{ge{Wl{x 
-{WB{Cu{Wt {Ca{Ws {Cy{Wo{Cu {Wk{Ce{We{Cp {Wl{Co{Wo{Ck{Wi{Cn{Wg {Ca{Wt {Ch{We{Cr {Wy{Co{Wu {Cc{Wo{Cn{Wc{Cl{Wu{Cd{We {Cs{Wh{Ce {Wl{Co{Wo{Ck{Ws {Ca {Wl{Ci{Wt{Ct{Wl{Ce {Wf{Cr{Wa{Cg{Wi{Cl{We{C.{x
-{WT{Ch{We {Cy{Wo{Cu {Wn{Co{Wt{Ci{Wc{Ce {Wt{Ch{We {gsilver {gheart {glocket
-{Ca{Wr{Co{Wu{Cn{Wd {Ch{We{Cr {Wn{Ce{Wc{Ck {Wa{Cn{Wd {Cs{We{Ce {Wa {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg {Co{Wn {Ch{We{Cr 
-{Wf{Ci{Wn{Cg{We{Cr {Ww{Ci{Wt{Ch {Wt{Ch{We {Cn{Wa{Cm{we {Co{Wf {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr {Co{Wn {Ci{Wt{C.{x
-{WA{Cs {Wq{Cu{Wi{Cc{Wk{Cl{Wy {Ca{Ws {Cy{Wo{Cu {Wn{Co{Wt{Ci{Wc{Ce {Wt{Ch{Wi{Cs {Ws{Ch{We {Ci{Ws {Vg{Wo{Vn{We{V.{x
-~
-Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%q%Cc/%CG%j%CCmin.> ~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race seraph~
 Cla  3
-Levl 35
-Tru  91
-Plyd 1120519
-Back 1120507
-Note 1018434114 1018357946 1018338011 1018428534 1018423022 1018293484 1018409759
+Levl 1
+Tru  0
+Plyd 40
+Back 0
+Note 0 0 0 0 0 0 0
 Scro 22
-Room 1212
-HMS  685 339 556
-Gold 852
-Silv 53
-Silver_in_bank 567
-Gold_in_bank 3031
-Exp  44133
+Room 3700
+HMS  20 100 100
+Gold 0
+Silv 0
+Exp  1625
 PCkills  0
 PCkilled 0
-Akills   1
+Akills   0
 Akilled  0
 PKRank   0
 Pos  8
-Alig 1000
-Spou DarkAvatar~
+Alig 750
 FImm 0
-FRes NQS
+FRes NS
 FVul M
-Plr  ABFGHOQR
+Plr  U
 Video 0
-Act  CDEFGHJLSTc
-AfBy DFT
+Act  CDEFGHJLQSc
+AfBy T
 Comm NO
 Revk 0
 Cgrp A
-Cnsr 0
-Prac 58
-Trai 12
+Cnsr AB
+Prac 5
+Trai 3
 Wimp 0
-Atrib 23 18 20 17 20 21
-SkillPnts  70
-RolePnts   25
-QuestPnts  188
-GameIn  {ND{Ta{Nr{Tk{NA{Tv{Na{Tt{Na{Tr{N'{Ts {YA{Wn{Yg{We{Yl {gappears in a {Ms{Ww{Mi{Wr{Ml {gof {Rr{co{Rs{ce {Vp{We{Vt{Wa{Vl{Ws{x~
-GameOut {kv{ga{kn{gi{ks{gh{ke{gs {gin a {Ns{Tt{No{Tr{Nm {gof {Rr{co{Rs{ce {Vp{We{Vt{Wa{Vl{Ws{x~
-Afk {B[{CWed Mar 20 14:23:43 2002{B] {CUnknown Departure.{x
-~
-Titl  {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr{Bs {YA{Wn{Yg{We{Yl{Wi{Yc {VPr{Win{Vce{Ws{Vs{x~
+Atrib 19 14 17 14 13 18
+Titl  ({VNewbie Aura{x)~
 Immn ~
-Pnts 40
-Rank {VP{WR{VS~
-Aura {YA{Wn{Yg{We{Yl{Wi{Yc {VPr{Win{Vce{Ws{Vs{x~
+Pnts 46
+Rank ~
+Aura ~
 TSex 2
-LLev 305
-Email irishhottie83181@aol.com~
-Deit {WJ{gu{Wb{ge{Wi{x~
-Stus {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr{Bs {YA{Wn{Yg{We{Yl{Wi{Yc {VPr{Win{Vce{Ws{Vs{x~
-RmCt 3
-ExSk 0
-Raff 958
-Lsit AC9ACDE4.ipt.aol.com~
-Ltim Wed Apr 10 08:54:50 2002
+LLev 0
+Deit Jubei~
+Lsit dialup-67.30.192.81.Dial1.Atlanta1.Level3.net~
+Ltim Thu Mar 04 22:45:43 2004
 ~
-LSav Mon May 27 13:09:49 2002
+LSav Thu Mar 04 22:46:23 2004
 ~
-Finf {gRanks {Wfor {gthe {WD{gi{Wv{gi{Wn{gi{Wt{gy lv 1-25 [{WSRP{x{g] {glv 26-50 [{WCRB{x{g] {glv 51-75 [{WCHS{x{g] {glv 76-90 [{WANG{x{g]
-{W[FYI] Leigh is out for blood - En guarde, Taylor!
-
-{WLeigh and DarkAvatar's Anniversay March 8, 2001{x
-~
-HMSP 625 289 546
+HMSP 20 100 100
 THMS 0 0 0
-Cnd  0 0 0 0
-Ignore tara~
-Sk 75 1 'acid blast'
-Sk 76 1 'acid rain'
-Sk 77 1 'age'
-Sk 77 1 'animate skeleton'
-Sk 77 1 'animate wraith'
-Sk 84 1 'animate gargoyle'
-Sk 76 1 'animate zombie'
-Sk 86 1 'armor'
-Sk 87 1 'bless'
-Sk 85 1 'blindness'
-Sk 75 1 'blizzard'
-Sk 75 1 'blood moon'
-Sk 75 1 'burning hands'
-Sk 75 1 'call lightning'
-Sk 75 1 'calm'
-Sk 83 1 'cancellation'
-Sk 76 1 'chain lightning'
-Sk 75 1 'change sex'
-Sk 75 1 'channel'
-Sk 1 1 'charm person'
-Sk 76 1 'chill touch'
-Sk 75 1 'colour spray'
-Sk 75 1 'control weather'
-Sk 75 1 'cure blindness'
-Sk 75 1 'cure critical'
-Sk 75 1 'cure disease'
-Sk 76 1 'cure light'
-Sk 75 1 'cure poison'
-Sk 76 1 'cure serious'
-Sk 75 1 'curse'
-Sk 75 1 'demonfire'
-Sk 75 1 'detect evil'
-Sk 75 1 'detect good'
-Sk 77 1 'detect hidden'
-Sk 78 1 'detect invis'
-Sk 75 1 'detect magic'
-Sk 75 1 'detect poison'
-Sk 75 1 'dispel evil'
-Sk 75 1 'dispel good'
-Sk 78 1 'dispel magic'
-Sk 85 1 'divine healing'
-Sk 80 1 'divine regeneration'
-Sk 75 1 'earthquake'
-Sk 75 1 'energy drain'
-Sk 95 1 'faerie fire'
-Sk 76 1 'faerie fog'
-Sk 75 1 'fear'
-Sk 76 1 'fireball'
-Sk 76 1 'fireproof'
-Sk 76 1 'firestorm'
-Sk 76 1 'flameshield'
-Sk 76 1 'flamestrike'
-Sk 91 1 'fly'
-Sk 91 1 'frenzy'
-Sk 93 1 'gate'
-Sk 86 1 'giant strength'
-Sk 87 1 'haste'
-Sk 80 1 'heal'
-Sk 76 1 'heat metal'
-Sk 75 1 'holy word'
-Sk 75 1 'identify'
-Sk 76 1 'infravision'
-Sk 1 1 'invisibility'
-Sk 75 1 'know alignment'
-Sk 75 1 'light of truth'
-Sk 75 1 'lightning bolt'
-Sk 75 1 'locate life'
-Sk 78 1 'locate object'
-Sk 78 1 'magic missile'
-Sk 75 1 'mass healing'
-Sk 1 1 'mass invis'
-Sk 78 1 'nexus'
-Sk 96 1 'pass door'
-Sk 76 1 'plague'
-Sk 76 1 'poison'
-Sk 1 1 'power word'
-Sk 75 1 'portal'
-Sk 90 1 'protection evil'
-Sk 90 1 'protection good'
-Sk 92 1 'ray of truth'
-Sk 79 1 'refresh'
-Sk 76 1 'resurrect'
-Sk 87 1 'regeneration'
-Sk 77 1 'remove alignment'
-Sk 75 1 'remove invisibility'
-Sk 76 1 'remove curse'
-Sk 97 1 'sanctuary'
-Sk 90 1 'shield'
-Sk 76 1 'shocking grasp'
-Sk 1 1 'sleep'
-Sk 100 1 'slow'
-Sk 75 1 'smokescreen'
-Sk 90 1 'steel mist'
-Sk 85 1 'stone skin'
-Sk 80 1 'summon'
-Sk 79 1 'summon object'
-Sk 75 1 'sunray'
-Sk 89 1 'talon'
-Sk 75 1 'teleport'
-Sk 75 1 'teleport object'
-Sk 77 1 'undo spell'
-Sk 1 1 'ventriloquate'
-Sk 75 1 'vision'
-Sk 78 1 'weaken'
-Sk 75 1 'word of recall'
-Sk 75 1 'wrath'
-Sk 100 1 'dagger'
-Sk 100 1 'mace'
-Sk 100 1 'polearm'
-Sk 100 1 'sword'
-Sk 81 1 'backstab'
-Sk 83 1 'bash'
-Sk 75 1 'berserk'
-Sk 100 1 'circle'
-Sk 100 1 'dodge'
-Sk 100 1 'enhanced damage'
-Sk 100 1 'kick'
-Sk 100 1 'parry'
-Sk 100 1 'second attack'
-Sk 100 1 'third attack'
-Sk 100 2 'dual wield'
-Sk 96 1 'hunt'
-Sk 87 2 'fast healing'
-Sk 81 1 'repair'
-Sk 75 1 'rotate'
-Sk 100 1 'languages'
-Sk 80 1 'hide'
-Sk 80 1 'lore'
-Sk 100 1 'meditation'
-Sk 75 1 'pick lock'
+Cnd  0 45 47 47
+Sk 1 1 'age'
+Sk 1 1 'armor'
+Sk 1 1 'bless'
+Sk 1 1 'blindness'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'curse'
+Sk 1 1 'dispel magic'
+Sk 1 1 'energy drain'
+Sk 1 1 'fireproof'
+Sk 1 1 'frenzy'
+Sk 1 1 'holy word'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'slow'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 1 1 'weaken'
+Sk 40 1 'sword'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
 Sk 100 1 'scan'
-Sk 75 1 'scrolls'
-Sk 75 1 'staves'
-Sk 75 1 'wands'
-Sk 75 1 'recall'
-Sk 92 1 'riposte'
-Sk 1 1 'fourth attack'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'warrior basics'
-Gr 'attack'
-Gr 'beguiling'
 Gr 'benedictions'
-Gr 'combat'
 Gr 'curative'
-Gr 'detection'
-Gr 'enhancement'
-Gr 'healing'
-Gr 'illusion'
 Gr 'maladictions'
-Gr 'necromancy'
 Gr 'protective'
-Gr 'transportation'
-Gr 'weather'
 End
 
 #O
-Vnum 6
+Vnum 3716
 Nest 0
-ShD  {CBand {Wof {Can {WA{Yn{Wg{Ye{Wl {Wknown {Cas {RD{Pa{Rr{Pk{RA{Pv{Ra{Pt{Ra{Pr{x~
-Desc {YGary&Lisa Forever{x~
-Wear 20
-Cost 1
-End
-
-#O
-Vnum 3707
-Nest 0
-Cond 96
-Wear 7
-Cost 72
-End
-
-#O
-Vnum 24201
-Nest 0
-Wear 4
-Cost 1666
-End
-
-#O
-Vnum 24201
-Nest 0
-Cond 95
-Wear 3
-Cost 1666
-End
-
-#O
-Vnum 24200
-Nest 0
-Wear 1
-Cost 1666
-End
-
-#O
-Vnum 24200
-Nest 0
-Wear 2
-Cost 1666
-End
-
-#O
-Vnum 24230
-Nest 0
-Cond 88
 Wear 0
-Cost 2400
+Cost 0
+Val  0 0 199 0 0
 End
 
 #O
-Vnum 9922
+Vnum 3703
 Nest 0
-Cond 97
-Wear 12
-Cost 1500
-End
-
-#O
-Vnum 9918
-Nest 0
-Cond 99
-Wear 17
-Cost 500
-Spell 3 'poison'
-End
-
-#O
-Vnum 24229
-Nest 0
-Wear -1
-Cost 2400
-End
-
-#O
-Vnum 24226
-Nest 1
-Wear -1
+Wear 5
 Cost 0
 End
 
 #O
-Vnum 24215
-Nest 1
-Wear -1
-Cost 24
-End
-
-#O
-Vnum 24215
-Nest 1
-Wear -1
-Cost 24
-End
-
-#O
-Vnum 24215
-Nest 1
-Wear -1
-Cost 24
-End
-
-#O
-Vnum 24215
-Nest 1
-Wear -1
-Cost 24
-End
-
-#O
-Vnum 24215
-Nest 1
-Wear -1
-Cost 24
-End
-
-#O
-Vnum 24215
-Nest 1
-Wear -1
-Cost 24
-End
-
-#O
-Vnum 24215
-Nest 1
-Wear -1
-Cost 24
-End
-
-#O
-Vnum 24215
-Nest 1
-Wear -1
-Cost 24
-End
-
-#O
-Vnum 24215
-Nest 1
-Wear -1
-Cost 24
-End
-
-#O
-Vnum 24215
-Nest 1
-Wear -1
-Cost 24
-End
-
-#O
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 24246
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'shield'
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24214
-Nest 1
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 24245
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
-Vnum 24234
-Nest 1
-Wear -1
-Cost 10
-Spell 1 'haste'
-Spell 2 'frenzy'
-Spell 3 'talon'
-Spell 4 'giant strength'
-End
-
-#O
-Vnum 24238
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'blood moon'
-End
-
-#O
-Vnum 24225
-Nest 1
-Wear -1
-Cost 400
-Val  450 0 0 0 0
-End
-
-#O
-Vnum 8411
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 3201
+Vnum 3702
 Nest 0
-Cond 99
-Wear 6
-Cost 20
-End
-
-#O
-Vnum 1804
-Enchanted
-Nest 0
-ExtF 262211
-Cond 79
 Wear 16
-Lev  14
-Cost 100
-Affc 'reserved'   1  10  -1   1   3          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Cost 360
 End
 
 #O
-Vnum 4595
+Vnum 3704
 Nest 0
-Wear 13
-Cost 8000
-End
-
-#O
-Vnum 24252
-Nest 0
-Wear 8
-Cost 2200
-End
-
-#O
-Vnum 24202
-Nest 0
-Wear 14
-Cost 2666
-End
-
-#O
-Vnum 24202
-Nest 0
-Wear 15
-Cost 2666
-End
-
-#O
-Vnum 16075
-Nest 0
-Wear 10
+Wear 11
 Cost 0
 End
 
 #O
-Vnum 24232
+Vnum 3162
 Nest 0
 Wear -1
-Cost 10
-Spell 1 'cure serious'
-Spell 2 'cure serious'
-Spell 3 'cure critical'
-Spell 4 'cure critical'
+Cost 500
 End
 
 #O
-Vnum 24232
-Nest 0
-Wear -1
-Cost 10
-Spell 1 'cure serious'
-Spell 2 'cure serious'
-Spell 3 'cure critical'
-Spell 4 'cure critical'
-End
-
-#O
-Vnum 24246
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'shield'
-End
-
-#O
-Vnum 24232
-Nest 0
-Wear -1
-Cost 10
-Spell 1 'cure serious'
-Spell 2 'cure serious'
-Spell 3 'cure critical'
-Spell 4 'cure critical'
-End
-
-#O
-Vnum 24246
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'shield'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#L
-Vnum 56
-Nest 0
-ShD  {Ma {Vslice {Mof {RZi{cnt{Rr{co{Rs{g {Mand {NS{Be{Cr{Ha{Gp{Wh{Ni{Bm{H's {WWedding Cake{x~
-Desc {MA {Vslice {Mof {RZi{cnt{Rr{co{Rs{g {Mand {NS{Be{Cr{Ha{Gp{Wh{Ni{Bm{H's {WWedding Cake{x.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 55
+Vnum 3379
 Nest 0
 Wear -1
 Cost 0
-Val  64 59 21 0 0
-End
-
-#L
-Vnum 3377
-Nest 0
-Wear -1
-Cost 10000
-End
-
-#L
-Vnum 3377
-Nest 0
-Wear -1
-Cost 10000
-End
-
-#L
-Vnum 24224
-Nest 0
-Wear -1
-Cost 10
-Val  15 3 3 17 0
-Spell 3 'calm'
-End
-
-#L
-Vnum 108
-Nest 0
-Name rose~
-ShD  a awsome room!{x rose~
-Desc A awsome room!{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-End
-
-#L
-Vnum 4471
-Nest 0
-Name playboy~
-ShD  {Tthe August 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {gL{We{gi{Wg{gh{T!!{x~
-Desc Wow, who would have guessed she had such a nice pair of... wings :)~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#L
-Vnum 4471
-Nest 0
-Name playgirl~
-ShD  {Tthe May 768 {YP{BL{PA{GY{VG{MI{CR{YL{T, featuring a centerfold of {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr!!{x~
-Desc That is one big... Halo :)~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#L
-Vnum 3386
-Nest 0
-Wear -1
-Cost 10000
-Val  25 100 16 5 5
-End
-
-#L
-Vnum 4471
-Nest 0
-Name token hug~
-ShD  a big, giant, kitty hug~
-Desc {xA {Y10{bqp {Wt{go{Tk{ge{Wn{x lies here.~
-Wear -1
-Cost 3500
-ExDe token~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
-~
-ExDe qp~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
-~
-ExDe token hug~ {gA {Y5{bqp{g token.{x
-~
-End
-
-#L
-Vnum 1203
-Nest 0
-Name prism shard water~
-ShD  {CWater {CPrismShard{x~
-Desc {YPrism Shard signifying the element of water{x~
-Wear -1
-Cost 9
-End
-
-#L
-Vnum 1203
-Nest 0
-Name prism shard ice~
-ShD  {BIce {CPrismShard{x~
-Desc {YPrism Shard signifying the element of ice{x~
-Wear -1
-Cost 9
-End
-
-#L
-Vnum 1203
-Nest 0
-Name prism shard fire~
-ShD  {RFire {CPrismShard{x~
-Desc {YPrism Shard signifying the element of fire{x~
-Wear -1
-Cost 9
-End
-
-#L
-Vnum 1203
-Nest 0
-Name prism shard holy~
-ShD  {WHoly {CPrismShard{x~
-Desc {YPrism Shard signifying the element of Light{x~
-Wear -1
-Cost 9
-End
-
-#L
-Vnum 1203
-Nest 0
-Name prism shard dark~
-ShD  {kDark {CPrismShard{x~
-Desc {YPrism Shard signifying the element of darkness{x~
-Wear -1
-Cost 9
-End
-
-#L
-Vnum 1203
-Nest 0
-Name prism shard wind~
-ShD  {YWind {CPrismShard{x~
-Desc {YPrism Shard signifying the element of wind{x~
-Wear -1
-Cost 9
-End
-
-#L
-Vnum 1203
-Nest 0
-Name prism shard earth~
-ShD  {HEarth {CPrismShard{x~
-Desc {YPrism Shard signifying the element of earth{x~
-Wear -1
-Cost 9
-End
-
-#L
-Vnum 4471
-Nest 0
-Name leigh roses~
-ShD  {RA {PD{Ro{Pz{Re{Pn {RL{Po{Rn{Pg {RS{Pt{Re{Pm {RR{Po{Rs{Pe{Rs{x~
-Desc {RI{Pt{Rs {Pa {Rd{Po{Rz{Pe{Rn {Pr{Ro{Ps{Re{Ps {Rw{Pi{Rt{Ph {Ra {Ps{Rm{Pa{Rl{Pl {Rt{Pa{Rg {Pw{Ri{Pt{Rh {Pt{Rh{Pe {Rn{Pa{Rm{Pe {RG{Pa{Rr{Py {Ro{Pn {Ri{Pt{x~
-Mat roses~
-Wt   0
-Wear -1
-Cost 3500
-End
-
-#L
-Vnum 10245
-Nest 0
-Name leigh chocolate box~
-ShD  {RB{Po{Rx {Po{Rf {PV{Ra{Pl{Re{Pn{Rt{Pi{Rn{Pe{Rs {PD{Ra{Py {bChocolate{x~
-Desc {RI{Pt{Rs {Pa {Rb{Po{Rx {Po{Rf {Pe{Rx{Pp{Re{Pn{Rs{Pi{Rv{Pe {Ra{Pn{Rd {Pv{Re{Pr{Ry {Pt{Ra{Ps{Rt{Py {bChocolates{x~
-Mat chocolate~
-Wt   0
-Wear -1
-Lev  0
-Cost 10
-End
-
-#L
-Vnum 4471
-Nest 0
-Name vegita plushy~
-ShD  {RV{Pe{Ygi{Pt{Ra {RP{Pl{Yus{Ph{Ry{x~
-Desc {RI{Pt{Ys a {Pl{Ri{Rt{Pt{Yle {Ps{Rt{Ru{Yff{Pe{Rd {RV{Pe{Ygi{Pt{Ra {RP{Pl{Yus{Ph{Ry{x~
-Mat Cotton~
-Wear -1
-Cost 3500
-End
-
-#L
-Vnum 4471
-Nest 0
-Name leigh plushy~
-ShD  {WL{Ce{Wi{Cg{Wh {CP{Wl{C{Wu{Cs{Wh{Cy{x~
-Desc {WI{Ct{Ws {Ca {Wl{Ci{Wt{Ct{Wl{Ce {Ws{Ct{Wu{Cf{Wf{Ce{Wd {CL{We{Ci{Wg{Ch {WP{Cl{Wu{Cs{Wh{Cy{x~
-Mat Cotton~
-Wear -1
-Cost 3500
-End
-
-#L
-Vnum 4471
-Nest 0
-Name jubei plushy~
-ShD  {WJ{gu{Wb{ge{Wi {gP{Wl{gu{Ws{gh{Wy{x~
-Desc {WI{gt{Ws {ga {Wl{gi{Wt{gt{Wl{ge {Ws{gt{Wu{gf{Wf{ge{Wd {gJ{Wu{gb{We{gi {WP{gl{Wu{gs{Wh{gy{x~
-Mat Cotton~
-Wear -1
-Cost 3500
-End
-
-#L
-Vnum 4471
-Nest 0
-Name leigh card valentine~
-ShD  {RV{Pa{Rl{Pe{Rn{Pt{Ri{Pn{Re {Pf{Ro{Pr {Ra {PP{Rr{Pi{Rn{Pc{Re{Ps{Rs{x~
-Desc {RT{Po {Rm{Py {Rb{Pe{Rl{Po{Rv{Pe{Rd {Pw{Ri{Pf{Re {PL{Ri{Ps{Ra{P, {RL{Po{Rv{Pe {RG{Pa{Rr{Py{x~
-Mat love~
-Wear -1
-Cost 3500
-End
-
-#L
-Vnum 24224
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'charm person'
-End
-
-#B
-Vnum 11748
-Nest 0
-Wear -1
-Cost 15000
-Val  2 12 11 11 137
-End
-
-#B
-Vnum 4471
-Nest 0
-Name enchant token liriel~
-ShD  {gA {Vlevel {Y100 {Be{Cn{Bc{Ch{Ba{Cn{Bt {gfrom {WL{Ci{Br{Ci{Te{Wl{x~
-Wear -1
-Cost 3500
-End
-
-#B
-Vnum 1206
-Nest 0
-Name jubei token enchant~
-ShD  {YFree EQ Enchant From Jubei{x~
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 4471
-Nest 0
-Name tower urza~
-ShD  {WUrza's {gT{Wo{gw{We{gr{x~
-Desc A token for the protects~
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 4471
-Nest 0
-Name armor urza~
-ShD  {WUrza's Armor{x~
-Desc A token for 3 enchants~
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 5409
-Nest 0
-ExtF 67
-Wear -1
-Cost 100000
-End
-
-#B
-Vnum 5409
-Nest 0
-ExtF 67
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 3021
-Nest 0
-Wear -1
-Cost 250
-End
-
-#B
-Vnum 7502
-Nest 0
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 3209
-Nest 1
-Wear -1
-Cost 100
-End
-
-#B
-Vnum 10121
-Nest 1
-ExtF 16777283
-Wear -1
-Lev  91
-Cost 21
-ExDe owned by~ Leigh
-~
-End
-
-#B
-Vnum 13011
-Nest 1
-Wear -1
-Lev  91
-Cost 1200
-ExDe owned by~ Leigh
-~
-End
-
-#B
-Vnum 14013
-Nest 1
-ExtF 1835010
-Wear -1
-Cost 3500
-End
-
-#B
-Vnum 11793
-Nest 1
-ExtF 257
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Leigh
-~
-End
-
-#B
-Vnum 11791
-Nest 1
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Leigh
-~
-End
-
-#B
-Vnum 11791
-Nest 1
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Leigh
-~
-End
-
-#B
-Vnum 11792
-Nest 1
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Leigh
-~
-End
-
-#B
-Vnum 13004
-Nest 1
-Wear -1
-Cost 3700
-End
-
-#B
-Vnum 10101
-Nest 1
-Wear -1
-Cost 30000
-End
-
-#B
-Vnum 10100
-Nest 1
-Wear -1
-Cost 32000
-End
-
-#B
-Vnum 13005
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 11709
-Nest 1
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 20026
-Nest 1
-Wt   1950
-Wear -1
-Cost 90000
-End
-
-#B
-Vnum 11709
-Nest 1
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 14110
-Nest 1
-Wear -1
-Cost 100000
-End
-
-#B
-Vnum 11776
-Nest 1
-Wear -1
-Lev  91
-Cost 10000
-ExDe owned by~ Leigh
-~
-End
-
-#B
-Vnum 5617
-Nest 1
-ExtF 16777539
-Wear -1
-Lev  91
-Cost 0
-ExDe owned by~ Leigh
-~
-End
-
-#B
-Vnum 1105
-Nest 1
-Wear -1
-Cost 1660
-End
-
-#B
-Vnum 7502
-Nest 0
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 17100
-Nest 1
-Cond 99
-Wear -1
-Cost 159
-End
-
-#B
-Vnum 14030
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 14030
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 10215
-Nest 1
-ExtF 64
-Wear -1
-Cost 10000
-Val  1 8 5 21 25
-End
-
-#B
-Vnum 10215
-Nest 1
-ExtF 64
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 10166
-Nest 1
-Wear -1
-Cost 20
-End
-
-#B
-Vnum 14041
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 10166
-Enchanted
-Nest 1
-ExtF 17039426
-Cond 91
-Wear -1
-Lev  56
-Cost 0
-Val  0 6 10 2 9
-Affc 'reserved'   1  55  -1  -5  17          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-End
-
-#B
-Vnum 14041
-Nest 1
-Cond 87
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 14041
-Nest 1
-Cond 96
-Wear -1
-Cost 750
-End
-
-#B
-Vnum 10154
-Enchanted
-Nest 1
-ExtF 262210
-Cond 97
-Wear -1
-Lev  60
-Cost 0
-Val  4 9 9 8 1
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
-End
-
-#B
-Vnum 10154
-Enchanted
-Nest 1
-ExtF 262211
-Cond 80
-Wear -1
-Lev  59
-Cost 3300
-Val  4 9 9 8 1
-Affc 'enchant weapon'   1  63  -1   5  19          0 1
-Affc 'enchant weapon'   1  63  -1   6  18          0 1
-End
-
-#B
-Vnum 1004
-Enchanted
-Nest 1
-Name dagger Dark Saber~
-ShD  {RDark Saber{x{x~
-Desc A dagger is here, forged by DarkAvatar's craftsmanship.~
-Mat tin~
-ExtF 67
-Wt   49
-Wear -1
-Lev  54
-Cost 0
-Val  2 7 10 11 1
-Affc 'enchant weapon'   1  50  -1   6  19          0 1
-Affc 'enchant weapon'   0  50  -1   6  18          0 1
-ExDe dagger Dark Saber~ It is a marvellous dagger, crafted from the finest tin around.
-It was created in the Month of Long Shadows by a young paladin
-named DarkAvatar.  Legend holds that this seraph was a great weaponsmith.
-~
 End
 
 #END

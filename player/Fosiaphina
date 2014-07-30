@@ -1,0 +1,471 @@
+#PLAYER
+Name Fosiaphina~
+Id   1027874463
+LogO 1060017617
+Vers 14
+Mexp 2
+Pass 07252002~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
+Race irda~
+Cla  2
+Levl 23
+Tru  0
+Plyd 128769
+Back 89418
+Note 1033000769 1027889037 1030201273 1030562808 1029652545 1030660577 1030723157
+Scro 22
+Room 3001
+HMS  366 254 242
+Gold 134
+Silv 688
+Silver_in_bank 23661
+Gold_in_bank 3184
+Exp  30524
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  HOU
+Video 0
+Act  CDEFGHJLQSc
+AfBy CDEFGY
+Comm NOQ
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 59
+Atrib 18 21 21 16 18 15
+SkillPnts  12
+QuestPnts  31
+Afk {B[{CSun Aug 11 22:58:16 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  a Female Irda Thief~
+Immn ~
+Pnts 21
+Rank {WSRP~
+Aura ~
+TSex 2
+LLev 34
+Email jmick71@aol.com~
+Deit Sorsha~
+Lsit sutphen.sutphencorp.com~
+Ltim Fri Sep 27 10:22:16 2002
+~
+LSav Mon Aug 04 13:20:17 2003
+~
+HMSP 306 224 292
+THMS 0 0 0
+Cnd  0 0 21 1
+Sk 75 1 'continual light'
+Sk 75 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 75 1 'create water'
+Sk 76 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 73 1 'detect invis'
+Sk 73 1 'detect magic'
+Sk 75 1 'detect poison'
+Sk 1 1 'encampment'
+Sk 1 1 'floating disc'
+Sk 61 1 'identify'
+Sk 75 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
+Sk 1 1 'vision'
+Sk 1 1 'dagger'
+Sk 98 1 'sword'
+Sk 76 1 'lore'
+Sk 73 1 'meditation'
+Sk 100 1 'scan'
+Sk 75 1 'steal'
+Sk 67 1 'scrolls'
+Sk 73 1 'staves'
+Sk 13 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'creation'
+Gr 'detection'
+Affc 'detect magic'   0  17   2   0   0         16 1
+Affc 'detect good'   0  19   5   0   0         64 1
+Affc 'detect evil'   0  19   5   0   0          4 1
+Affc 'detect invis'   0  21   5   0   0          8 1
+Affc 'detect hidden'   0  21   6   0   0         32 1
+Affc 'stone skin'   0  12   3 -40  17          0 1
+Affc 'shield'   0  11  11 -20  17          0 1
+Affc 'steel mist'   0  14  24  -1  17   16777216 1
+Affc 'giant strength'   0  11   4   2   1          0 1
+Affc 'frenzy'   0  15   1   2  18          0 1
+Affc 'frenzy'   0  15   1   2  19          0 1
+Affc 'frenzy'   0  15   1  10  17          0 1
+End
+
+#O
+Vnum 24201
+Nest 0
+Wear 4
+Cost 1666
+End
+
+#O
+Vnum 24200
+Nest 0
+Wear 2
+Cost 1666
+End
+
+#O
+Vnum 24200
+Nest 0
+Wear 1
+Cost 1666
+End
+
+#O
+Vnum 4574
+Nest 0
+Wear 18
+Cost 2200
+End
+
+#O
+Vnum 10236
+Nest 0
+Wear 5
+Cost 1000
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear 14
+Cost 1000
+End
+
+#O
+Vnum 16044
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 32120
+Enchanted
+Nest 0
+ExtF 65
+Wear 13
+Lev  17
+Cost 1000
+Affc 'enchant armor'   1  85  -1  -3  17          0 1
+Affc 'reserved'   1  15  -1  20  13          0 1
+End
+
+#O
+Vnum 24229
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#O
+Vnum 3164
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 3167
+Nest 1
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 3166
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 24230
+Nest 0
+Wear 0
+Cost 2400
+End
+
+#O
+Vnum 24224
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'charm person'
+End
+
+#O
+Vnum 24224
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'charm person'
+End
+
+#O
+Vnum 16066
+Nest 0
+Wear 9
+Cost 3500
+End
+
+#O
+Vnum 24225
+Nest 0
+Name angel grail water~
+Wear -1
+Cost 400
+Val  450 370 0 0 0
+End
+
+#O
+Vnum 2328
+Nest 0
+Wear 12
+Cost 0
+End
+
+#O
+Vnum 9205
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 5203
+Nest 0
+ExtF 64
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 4596
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 16067
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 24238
+Enchanted
+Nest 0
+Wear -1
+Cost 10
+Val  17 119 76 14 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 3163
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 17318
+Nest 0
+Wear 7
+Cost 1000
+End
+
+#O
+Vnum 24238
+Enchanted
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+Affc 'reserved'   1  15  -1   1   5          0 1
+End
+
+#O
+Vnum 16008
+Nest 0
+Wear 6
+Cost 5000
+End
+
+#O
+Vnum 16007
+Nest 0
+Cond 96
+Wear 16
+Cost 4500
+End
+
+#O
+Vnum 16065
+Nest 0
+Wear 15
+Cost 1000
+End
+
+#O
+Vnum 16002
+Nest 0
+Wear 17
+Cost 1000
+Spell 3 'flamestrike'
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  45 91 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Cipher.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  45 91 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Cipher.
+~
+End
+
+#O
+Vnum 24238
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 17319
+Nest 0
+ExtF 262721
+Wear -1
+Cost 2000
+Spell 3 'charm person'
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24238
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'blood moon'
+End
+
+#O
+Vnum 24226
+Nest 0
+Wear -1
+Cost 400
+End
+
+#O
+Vnum 24245
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 3168
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 3165
+Nest 0
+Wear -1
+Cost 750
+End
+
+#L
+Vnum 16039
+Nest 0
+Wear -1
+Cost 100
+End
+
+#L
+Vnum 16065
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 1510
+Enchanted
+Nest 0
+Wear -1
+Lev  14
+Cost 930
+Affc 'enchant weapon'   0  85  -1   2  18          0 1
+Affc 'enchant weapon'   1  85  -1   2  19          0 1
+End
+
+#END

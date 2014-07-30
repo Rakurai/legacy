@@ -347,6 +347,34 @@ token ORSTWY A
 0 0 0 0 0
 0 0 0 P
 
+#1209
+fountain manhood god~
+the manhood of a {WG{go{cd{x~
+~
+{WMarble{x~
+fountain HMOR 0
+0 0 water 0 0
+1 1 1 I
+E
+manhood fountain god~
+{WDon't ask...Just enjoy.
+~ 
+
+
+#1210
+arm arms goddess~
+the arms of the {WG{go{Wdd{ge{Ws{gs{x~
+~
+{WMarble{x~
+furniture HMOR 0
+4 0 I 150 150
+1 1 1 I
+E
+goddess arm arms~
+{WDivine Love is Bliss{x.
+~
+
+
 
 #1211
 token~
@@ -396,6 +424,29 @@ magic~
 token ABGSTY AP
 0 0 0 0 0
 0 1 0 I
+
+#1216
+bed mat~ 
+{Ya small mat{x~ 
+A small mat rests before the hut and is extreamly comfortable~ 
+staw~ 
+furniture S P 
+10 0 BEHKN 100 100
+1 5000 5000 P
+E 
+bed mat~ 
+{bIts a straw mat that surprisingly enough is quite comfortable, you could easily 
+fall asleep on it{x 
+~ 
+
+#1217
+kettle sake~ 
+a {ckettle{x of {VS{Wa{Vk{We{x~ 
+A {ckettle{x of {Phot{x {VS{Wa{Vk{We{x sits here.~ 
+wine~ 
+drink S P 
+900 900 'white wine' 0 0
+1 20 9000 P
 
 
 #1226
@@ -579,57 +630,6 @@ the sea, and continually visited and abandoned by the tides.
 ~
 
 
-#1245 
-shabby frayed rug~ 
-a {Ys{gh{ba{Yb{gb{by{x, {Cf{gr{Ta{Cy{ge{Td {crug{x~ 
-{gA {Ys{gh{ba{Yb{gb{by{g, {Cf{gr{Ta{Cy{ge{Td {crug{g lies near the wall.{x~ 
-rug~ 
-furniture S 0 
-4 0 EHK 0 0
-0 50 500 W 
-E 
-shabby frayed rug~ 
-{gThough it looks dingy at first glance, looking again, this soft rug has a{x
-{gcomforting appeal that tempts you to lie down and snuggle up to something{x
-{gor someone on it.{x 
-~ 
-E
-soft spot~
-{gThe plush carpeting has been worn down toward the center of the rug, leaving{x
-{ga soft spot, the perfect size to curl up in.{x
-~
-
-
-#1246
-shoe box shoebox~ 
-an old {Ns{Rh{bo{Ne{bbox{x~ 
-{gA tattered {Ns{Rh{bo{Ne{bbox {grests on a pile of toys.{x~ 
-paper~ 
-container ST P 
-500 ABC 0 50 0 
-0 10 100 W 
-E 
-tattered shoe box shoebox~ 
-{gLooking at this torn and shredded box, it is obvious it has been a well used{x
-{gsubstitute for a scratching post. The lid is almost nonexistant, but looking{x
-{gclosely at the label you realize this used to hold some lucky newbie's first{x
-{gpair of {GNike {BCross {GTrainers{g.{x 
-~
-
- 
-#1248 
-crickets handful~ 
-a handful of crickets~ 
-A small handful of crickets chirp noisily in the corner.~ 
-meat~ 
-food PS AO 
-0 0 0 0 0 
-0 0 0 G 
-E 
-crickets handful~ 
-Oooh! *giggle* They hop around, tickling your hand.
-~
-
 
 #1254
 arwen holy sword~
@@ -738,15 +738,6 @@ harmed by any {Pe{Rv{Pi{Rl {Bf{No{Br{Nc{Be{Ns{x.
 ~
 
 
-#1270
-key sorsha~
-a key to Sorsha's Castle~
-A small silver key lies here.~
-silver~
-key 0 A
-1 0 0 0 0
-0 0 0 I
-
 
 #1274
 spam~
@@ -794,36 +785,6 @@ magical well~
 {WLooking inside the {Cm{Wa{Cg{Wi{Cc{Wa{Cl {Bwell{W, you find it brimming with clear,
 pure {Bw{Ca{Bt{Ce{Br{W.  Even though {WL{Ci{Br{Ti{Ce{Wl often uses this as her {Ccrystal ball{W, the
 water looks like it'd be {Vd{Wel{Vi{Wci{Vo{Wus.  She won't mind if you drink some.  :)
-~
-
-
-#1277 
-portal hole~ 
-a dark hole{x~ 
-A small {chole{x in the ground looks just large enough to crawl inside.~ 
-{cnothing{x~ 
-portal ABOS AOP 
-0 0 C 1277 0 
-0 0 10000 P 
-E 
-hole portal~ 
-A {chole{x. What did you expect?
-~
-
-
-#1278 
-light hole ceiling~
-a hole in the ceiling~ 
-Light seems to come in through a large hole in the ceiling.{x~ 
-light~ 
-portal OT P 
-0 0 A 3001 0 
-0 0 5000 I 
-E 
-light hole ceiling~ 
-Small beams of light drift in, warming your face as you lean closer to 
-see what's on the other side, dismissing it as nothing special, you go 
-back to exploring this dark, but friendly, room.
 ~
 
 
@@ -913,32 +874,6 @@ Now you can {Geat{x it and see what will {Yhappen{x, but you have a
 slight {Bh{Nu{Bn{Nc{Bh{x that there is something very {Cv{Wa{Cl{Wu{Ca{Wb{Cl{We{x about this ...
 ~
 
-#1295
-arms goddess woman~
-{gthe arms of the {WG{go{Wd{gd{We{gs{Ws{x~
-~
-love~
-furniture OSY 0
-4 0 CFIL 140 130
-1 200 200 P
-E
-woman goddess arms~
-Divine love is Bliss
-~
-
-
-#1296
-fountain man manhood~
-{gthe manhood of a {WG{go{cd{x~
-~
-strength~
-fountain OSY 0
-0 0 'protein shake' 0 0
-1 200 20 P
-E
-man fountain manhood~
-Don't ask...just enjoy.
-~
 
 #1297
 dummystrongbox~
@@ -960,26 +895,7 @@ look IN it!
 
 #ROOMS
 
-#1200
-{WT{ch{We {gS{Wa{gc{Wr{ge{Wd {GG{Ha{Gr{Hd{Ge{Hn{x~ 
-The sound of cascading {Cw{Ta{Bt{Ce{Tr{x tickles your ears as you enter the
-beautiful {Gg{Ha{Gr{Hd{Ge{Hn{x. The {Wp{gu{Wr{ge, {Vs{Mw{Ve{Me{Vt{x fragrance's of the many {Cf{Tl{Go{Hw{Ve{Mr{Vs{x 
-tease your nose as their beauty captivates your eyes. Your senses 
-dance as you look about the garden, feeling as if you have landed 
-in {WM{go{Wt{gh{We{gr {HN{Ga{Wt{Hu{Wr{Ge{W'{Hs{x lap itself. The {Cw{Ta{Bt{Ne{Cr{Tf{Ba{Nl{Bl{x showers  into a circular 
-{cs{gt{co{gn{ce {Wp{go{Wol{x in the center of the {Gg{Ha{Gr{Hd{Ge{Hn{Gs{x, pooling around a grand {WIvory 
-statue{x. The man and woman of the statue seem eternally frozen in 
-time, human, and yet, immortal. As if ready to embrace, the woman 
-holds her arms out, her face understanding, compassionate, all 
-knowing.  The man kneels before her, his head resting in her lap 
-as water dances around them.
-~
-0 DKT 0
-E
-creationdate~
-April 21st, by {VL{Mi{Cd{Td{Ma{x
-~
-S
+
 
 #1201
 Nothingness~
@@ -1037,6 +953,26 @@ If you want to know what is up there, you shall have to go look...
 ~
 0 -1 1
 S
+
+
+#1204 
+{WT{gh{We {gc{We{gn{Wt{ge{Wr{x {go{Wf {gt{Wh{ge {bB{Ga{bm{Gb{bo{Go {bf{Go{br{Ge{bs{Gt{x~ 
+{WSnow blankets the ground in a soft white powder, large {bb{Ga{bm{Gb{bo{Go 
+{bs{Gt{ba{Gl{bk{Gs{x {Wstretch high above your head into the air. In the center 
+of this clearing is a small hut made of {bgrass and wood{W, stacks 
+of fire {bwood{W adorn the side of the hut and a few animal skins 
+have been hung above the ground beside the house to dry for 
+blankets.  A small group of {Ws{gp{Wa{gr{Wo{gw{Ws {Wscatter across the ground 
+picking at the soft snow trying to find some food.{x
+~
+0 CDN 0
+D2
+You see a bunch of confused travelers deciding on where to go next.
+~
+door~
+4 1217 3001
+S 
+
 
 
 #1205
@@ -1580,7 +1516,7 @@ sign~
 {CNippers - {Wcutting through wire
 {CPitch Fork - {Wthrusting into sheaves, bundles of hay, so that they could 
                be pitched into a cart
-{CSharp Blade -{Wcutting through leather
+{CSharp Blade - {Wcutting through leather
 {CShearing Shears - {Wcutting fleece from sheep
 {CSickle - {Wcutting crops
 {CSnip - {Wcutting sheets of metal
@@ -1751,6 +1687,141 @@ Remember this, and build your own code of honour to follow."
 S
 
 
+#1228
+Please do not spam~
+{PS{YP{GA{VM{x
+ {PS{YP{GA{VM{x
+  {PS{YP{GA{VM{x
+   {PS{YP{GA{VM{x
+    {PS{YP{GA{VM{x
+     {PS{YP{GA{VM{x
+      {PS{YP{GA{VM{x
+       {PS{YP{GA{VM{x
+        {PS{YP{GA{VM{x
+         {PS{YP{GA{VM{x
+          {PS{YP{GA{VM{x
+           {PS{YP{GA{VM{x
+            {PS{YP{GA{VM{x
+             {PS{YP{GA{VM{x
+              {PS{YP{GA{VM{x
+               {PS{YP{GA{VM{x
+                {PS{YP{GA{VM{x
+                 {PS{YP{GA{VM{x
+                  {PS{YP{GA{VM{x
+                   {PS{YP{GA{VM{x
+                    {PS{YP{GA{VM{x
+                     {PS{YP{GA{VM{x
+                      {PS{YP{GA{VM{x
+                       {PS{YP{GA{VM{x
+                        {PS{YP{GA{VM{x
+                         {PS{YP{GA{VM{x
+                          {PS{YP{GA{VM{x
+                           {PS{YP{GA{VM{x
+                            {PS{YP{GA{VM{x
+                             {PS{YP{GA{VM{x
+                              {PS{YP{GA{VM{x
+                               {PS{YP{GA{VM{x
+                                {PS{YP{GA{VM{x
+                                 {PS{YP{GA{VM{x
+                                  {PS{YP{GA{VM{x
+                                   {PS{YP{GA{VM{x
+                                    {PS{YP{GA{VM{x
+                                     {PS{YP{GA{VM{x
+                                      {PS{YP{GA{VM{x
+                                       {PS{YP{GA{VM{x
+                                        {PS{YP{GA{VM{x
+                                         {PS{YP{GA{VM{x
+                                          {PS{YP{GA{VM{x
+                                           {PS{YP{GA{VM{x
+                                            {PS{YP{GA{VM{x
+                                             {PS{YP{GA{VM{x
+                                              {PS{YP{GA{VM{x
+                                               {PS{YP{GA{VM{x
+                                                {PS{YP{GA{VM{x
+                                                 {PS{YP{GA{VM{x
+                                                  {PS{YP{GA{VM{x
+                                                   {PS{YP{GA{VM{x
+                                                    {PS{YP{GA{VM{x
+                                                     {PS{YP{GA{VM{x
+                                                      {PS{YP{GA{VM{x
+                                                       {PS{YP{GA{VM{x
+                                                        {PS{YP{GA{VM{x
+                                                         {PS{YP{GA{VM{x
+                                                          {PS{YP{GA{VM{x
+                                                           {PS{YP{GA{VM{x
+                                                            {PS{YP{GA{VM{x
+                                                             {PS{YP{GA{VM{x
+                                                              {PS{YP{GA{VM{x
+                                                               {PS{YP{GA{VM{x
+                                                                {PS{YP{GA{VM{x
+                                                                 {PS{YP{GA{VM{x
+                                                                  {PS{YP{GA{VM{x
+                                                                   {PS{YP{GA{VM{x
+                                                                    {PS{YP{GA{VM{x
+                                                                     {PS{YP{GA{VM{x
+                                                                      {PS{YP{GA{VM{x
+
+
+Please do not {PS{YP{GA{VM{x...
+~
+3001 DNKWY 0
+E
+tele~
+{G
+{H                                                __,..--'""
+{G                                       _,..--'""
+{H                               _,..-'""
+{G                        _,..-'"
+{H                  _,.-'"
+{G             _.-'"
+{H         _.-"
+{G      .-'
+{H    .'
+{G   /
+{H  ;
+{G  ;
+{H   \
+{G    `.
+{H      `-.
+{G         "-._
+{H             "`-._
+{G                  "`-.,_
+{H                        "`-..,_
+{G                               ""`-..,_
+{H                                       ""`--..,_
+{G                                                ""`--..,__
+{H							  `-.
+{G							     `.
+{H							      ;
+{G							      ;
+{H							     /
+{H							   ;`
+{H							.;`
+{H						       ;;'  
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H						       ;;
+{H                                    		       ;;
+{G					       `,  ,  '{H;;{G'  ,   ,'
+{G						 ;  ;  `{H'{G  ;   ;
+{G					      `.__\__{HSPLAT!___/__.'{x
+~
+S
+
+
 #1250
 Tomb of Necromancy~
   Evil lurks on the walls as you peer around at the shadows
@@ -1894,222 +1965,6 @@ rebirth or immortality.
 S
 
 
-#1270
-Sorsha's Office~
-A large oak table sits in the middle of the room, with a few comfy chairs
-surrounding it. Papers are scattered about the desk, and building plans
-are stretched out in one corner. A skylight allows the suns rays into the
-room. All around the walls tapestries are hung, and other special mementos
-to Sorsha.
-~
-0 KC 0
-S
-
-
-#1271
-Below some massive clouds~
-The path stops here, and the sunlight beats down upon you, in the distance
-the sound of wings flapping can be heard. The clouds seem to stay in place
-and hover about you. The suns rays part though the clouds. This truly is a
-glorious place!
-~
-0 CKS 0
-D0
-~
-~
-0 -1 5281
-D4
-~
-~
-0 -1 1272
-S
-
-
-#1272
-Before Sorsha's Domain~
-You stand on top of a huge billowing cloud, the sun beats down on you, making 
-your face warm. A huge castle stands before you, and a wrought iron gate blocks 
-entrance into the castle. This must be as far as you can go.
-~
-0 CKS 0
-D5
-~
-~
-0 -1 1271
-D0
-A massive wrought iron gate blocks the way.  There is a tiny
-keyhole in the center, though...
-~
-gate~
-4 1270 1273
-S
-
-
-#1273
-Within a large castle~
-A strong scent of roses surround you upon your entrance. A red carpet 
-lines the long hallways that go off toward the north and south. A grand 
-stair case leads upstairs.  A soft and gentle melody plays in your head, 
-that almost inspires you to start dancing right here in front of everyone.
-~
-0 CKS 0
-D0
-~
-~
-0 -1 1279
-D1
-~
-~
-0 -1 1274
-D2
-A massive wrought iron gate blocks the way.  There is a
-tiny keyhole in the center, though...
-~
-gate~
-4 1270 1272
-D3
-~
-~
-0 -1 1276
-S
-
-
-#1274
-Grand Hallway~
-Large stain glass windows give light to this room. Soft candles burn off 
-in the distance that give the castle a warm and welcoming feeling. Large 
-paintings that depict Sorsha's birth to her ascension into the heavens 
-line this hallway. You can't help but look, and gaze in sheer wonder.
-~
-0 CKS 0
-D0
-~
-~
-0 -1 1270
-D3
-~
-~
-0 -1 1273
-S
-
-
-#1276
-Large Hallway~
-Grand arches give support to this hallway.  Vases are mounted along the 
-brick walls where fresh flowers gathered from around the realm sit, and 
-provide a lovely scent to the atmosphere.  It's kept up well and very 
-clean. The whole castle leaves you in awe.
-~
-0 CKS 0
-D1
-~
-~
-0 -1 1273
-D2
-~
-~
-0 -1 1280
-S
-
-
-#1279
-Large sitting room~
-Throw pillows and sofas line the room, with a solid walnut table in the 
-middle. A few left over tea cups sit on it from past conversations. The 
-whole room looks so comfortable, you just want to plop down and take a nap. 
-~
-0 CKS 0
-D2
-~
-~
-0 -1 1273
-S
-
-
-#1280
-Sorsha's bedroom~
-Soft curtains blow in the breeze, a gentle smell of roses enters the room. 
-Soft pillows and silky sheets make up the bed. A single red rose has been 
-placed between the two pillows.  From the balcony you can see the entire 
-realm. A lounge chair has been placed out there to provide Sorsha with a 
-place to relax.
-~
-0 CKS 0
-D0
-~
-~
-0 -1 1276
-S
-
-
-#1277 
-Down a Dark Hole~ 
-{cSlipping down inside to the shadowy space below, you maneuver around the{x
-{Ws{gp{Wid{ger{Ww{ge{Wbs{c and other various obstacles in your path.  Your eyes catch a soft,{x
-{ctrampled spot on the {Cf{gr{Ta{Cy{ge{Td {grug{c in the corner... it looks very comfortable,{x
-{cand judging by the mess of catnip, {Ws{gh{Wre{gdd{We{gd {Wpaper{c, and other various toys{x
-{csurrounding it, someone else thinks so, too.{x
-{c  Glancing around, you can tell this untidy little {Wh{gi{cd{ge{Wa{cw{Wa{gy{c is visited often,{x
-{cand {Rl{Po{Rv{Pe{Rd{c dearly.  Filled with {Nh{Bea{Nr{Bt{Nw{Bar{Nmi{Bn{Ng{c personal touches, it just {Yr{Wa{Yd{Wia{Yt{We{Ys{x
-{can overwhelming sense of safety and peace of mind. You almost don't notice the{x
-{cplace is damp, dark and smells oddly of {Cfish{c.  A {gpainting{c sits on top of a tall{x
-{cstack of books by the bed.{x
-{c  Off to the left you see a torn {Ns{Rh{bo{Ne{bbox{c, and wonder what treasures in might{x
-{chold. The {bhomeliness{c of it all just fills you with {Rw{Ya{Pr{Rm{c, fuzzy feelings, and{x
-{cyou can't help but smile to yourself and wonder {Wwho{c it is that calls this tiny{x
-{Hk{Gi{Htt{Gy {Hc{Gav{Her{Gn{c her home.{x
-~
-0 DEJNS 0 
-E
-spiderwebs~
-{gDangling in the {ccorners{g of the room are a few delicatly woven {Ws{gp{Wid{ger{Ww{ge{Wbs{g.{x
-~
-E
-shredded paper~
-{gWhat a treat! A few pieces of {Ws{gh{Wre{gdd{We{gd {Wpaper{g lie here, rolled into little{x
-{gballs, just begging you to bat them around!{x
-~
-E
-books~
-A few books any kitty's library would be incomplete without; 'Mousing in Style', 
-'Sunbathing Made Easy', 'Grooming for Pros', and 'Scratch Posts For Dummies'.
-~
-E
-toys~
-Ball toys! Wool toys! Leather toys! Feather toys!!
-It's enough to make your head swim!!
-~
-E
-painting picture~
-{gBefore you stands a slender, {Wwhite {gfurred, feline. Her soft, {Cg{cr{Ca{cy{g-{Cb{cl{Cu{Ce{x
-{Ce{cy{Ce{cs{g draw your gaze like a magnet, and her waist length, {Rf{Pi{Ye{Pr{Ry {Pred {ghair{x
-{gcascades over her shoulders in a molten waterfall.  Soft, full lips,{x
-{gpainted to perfection, seem to beg to be {Rk{Mis{Rse{Md{x{g, but something makes{x
-{gyou stop and think... would you dare?{x
-~
-S
-
-
-#1278
-{GSturms{x {bCave{x {Mof{x {VWonders{x~
-{TAs you enter this eerie place it seems very dimly lit in the far left 
-corner is one torch and under this torch is a shrine on it sits a what 
-seems to be a old lamp...{x {Ryou want to leave but for some strange 
-reason you're drawn to it you move closer to it suddenly out of the 
-corner of your eye a shadowy figure moves past you oddly enough you're 
-not worried{x {byou notice in the right hand corner is two large statues 
-standing side by side the statues seem to be female you examine them the
-first seems to be cat-like the second is also cat-like and even more 
-beautiful then the first you move to touch one of them and the shadowy 
-figure steps out in front of you and reveals himself to be Maverick the 
-Bard{x  "{Pno one is allowed to touch the statue of Lady {MS{Vu{Mn{Vd{Ma{Vn{Mc{Ve{Mr{x 
-without permission," he explains, "and this other statue is Sturm's deity 
-{HA{Gl{Wi{Gs{Ha please stick around and stay awhile and please enjoy 
-your stay."
-~
-0 D 0
-S
-
 
 #1281
 Montrey's Shrine~
@@ -2230,6 +2085,41 @@ Portraits of Liriel seem to be in the majority, oddly enough. :)
 ~
 S
 
+#1288
+{RV{Pe{Ygi{Pt{Ra{x and {gA{Hl{Ga{Hr{ga{x's Office~
+This office is shared by the head implementors of {BL{Ce{gg{Wa{Cc{By{x, {RV{Pe{Ygi{Pt{Ra{x and {gA{Hl{Ga{Hr{ga{x.
+Statistical charts line the walls, tracing everything from clan events to
+the incidence of plague.  The walls are lined with shelves packed full of
+records and files.  A pair of desks are in the middle of the room, facing
+each other.  Both have huge stacks of paper with data collected from this
+realm, but one of the desks has a model of battlefield, with toy soldiers
+set in opposing armies.  On the other desk rests a miniature jukebox, and
+several music books stacked on top of nature books.
+~
+0 CDST 0
+S
+
+#1290
+{WT{ch{We {gS{Wa{gc{Wr{ge{Wd {GG{Ha{Gr{Hd{Ge{Hn{x~
+The sound of cascading {Cw{Ta{Bt{Ce{Tr{x tickles your ears as you enter the beautiful
+{Gg{Ha{Gr{Hd{Ge{Hn{x. The {Wp{gu{Wr{ge, {Vs{Mw{Ve{Me{Vt{x fragrance's of the many {Cf{Tl{Go{Hw{Ve{Mr{Vs{x tease your nose as
+their beauty captivate your eyes. Your senses dance as you look about the
+garden, feeling as if you have landed in {WM{go{Wt{gh{We{gr {HN{Ga{Wt{Hu{Wr{Ge{W'{Hs{x lap itself. The
+{Cw{Ta{Bt{Ne{Cr{Tf{Ba{Nl{Bl{x showers into a circular {cs{gt{co{gn{ce {Wp{go{Wol{x in the center of the {Gg{Ha{Gr{Hd{Ge{Hn{Gs{x,
+pooling around a grand {WIvory statue{x. The man and woman of the statue seem
+eternally frozen in time, human, and yet, immortal. As if ready to embrace,
+the woman holds her arms out, her face understanding, compassionate, all
+knowing.  The man kneels before her, his head resting in her lap as water
+dances around them. As you gaze in awe at the splendid beauty of the
+exquisite gardens, the {cw{gi{Wn{gd {Cca{Tr{ge{Ws{Ts{Ces{x your ears....
+~
+0 DJKNT 0
+H 150 M 150
+E
+creationdate(s)~
+January 10th, 2005 by {ML{Vi{Cd{Td{Ma{x~
+S 
+
 
 #1298
 {WCloser to Heaven{x~
@@ -2244,7 +2134,7 @@ always changing, ever unchanged panorama.  A question enters your mind...
 Coherent thoughts soon flee in face of such an awesome scene, however... so
 you sit back, relax, and lose yourself watching the {Wcl{go{Wu{gds{Wc{ga{Wpe{x far below.
 ~
-0 JPT 9
+0 JT 9
 S
 
 #1299
@@ -2267,54 +2157,53 @@ S
 #RESETS
 
 D 0 1203 2    1         * Valhalla south
+D 0 1204 2    2         * The door to Recall from Jubei's room should be locked 
 D 0 1211 2    1         * Arena of Judgement south
 D 0 1218 0    1         * Valhalla north
 D 0 1225 4    1        *close door going up from 1225 to 1224
 D 0 1224 5    1        *close door going up from 1224 to 1225  
-D 0 1272 0    2         * To Sorsha's Castle north
-D 0 1273 2    2         * From Sorsha's Castle south
-
-O 0 1295 1 1200         *furniture in Garden
-O 0 1296 1 1200         *fountain in Garden
 
 M 0 1203 1 1269 1       * guardian into strongbox (seasons) room
-O 0 1297 1 1269         * dummystrongbox into seasons room
-
-M 0 1201 1 1206 1       * load dragon into a dark cavern
-
-M 0 1253 1 1281 1       * Arwen into Montrey's Shrine
-E 0 1254 10 16          * Equip Arwen with Arwen's Sword
-O 0 1256 1 1281         * Couch into Montrey's Shrine
+O 0 1297 1 1269         * dummystrongbox into seasons room      
+                                                                
+O 0 1209 1 1290       *God fountain in Lidda's Sacred Garden    
+O 0 1210 1 1290       *Goddess furniture in Lidda's Sacred Garden
+                                                                
+                                                                
+M 0 1201 1 1206 1       * load dragon into a dark cavern        
+                                                                
+M 0 1253 1 1281 1       * Arwen into Montrey's Shrine           
+E 0 1254 10 16          * Equip Arwen with Arwen's Sword        
+O 0 1256 1 1281         * Couch into Montrey's Shrine           
 O 0 1257 5 1281         * Portal to recall into Montrey's Shrine
-
-O 0 1264 1 1223         * Energy bed in Refuge of a Sorceress
-O 0 1276 1 1223         * Magical Well in Refuge of a Sorceress
-M 0 1262 1 1223 1       * Pegasus in Refuge of a Sorceress
-
-O 0 1226 1 1226         * Bed in Liriel's Bedroom
-M 0 1226 1 1226 1       * Puppy in Liriel's Bedroom
-
-O 0 1278 1 1277         * Light (portal) in Alisa's room
-O 0 1245 1 1277         * Rug in Alisa's room
-O 0 1246 1 1277         * Shoebox (container) in Alisa's room
-P 0 1248 100 1246 1     * Crickets (food) in shoebox
-
-O 0 1227 1 1282         * Bed in Montrey's Bedroom
-O 0 1228 1 1282         * Cooler in Montrey's Bedroom
-P 0 1229 10 1228 2      * Coke in cooler
-
-
-S
-
-#SHOPS
-
-0
-
-#SPECIALS
-
-M 1218 spec_cast_cleric    * mon capitaine
-
-S
-
-#$
-
+                                                                
+O 0 1264 1 1223         * Energy bed in Refuge of a Sorceress   
+O 0 1276 1 1223         * Magical Well in Refuge of a Sorceress 
+M 0 1262 1 1223 1       * Pegasus in Refuge of a Sorceress      
+                                                                
+O 0 1226 1 1226         * Bed in Liriel's Bedroom               
+M 0 1226 1 1226 1       * Puppy in Liriel's Bedroom             
+                                                                
+O 0 1216 1 1204           * Place bed into Jubei's room         
+O 0 1217 1 1204           * Place kettle into Jubei's room      
+                                                                
+                                                                
+O 0 1227 1 1282         * Bed in Montrey's Bedroom              
+O 0 1228 1 1282         * Cooler in Montrey's Bedroom           
+P 0 1229 10 1228 2      * Coke in cooler                        
+                                                                
+                                                                
+S                                                               
+                                                                
+#SHOPS                                                          
+                                                                
+0                                                               
+                                                                
+#SPECIALS                                                       
+                                                                
+M 1218 spec_cast_cleric    * mon capitaine                      
+                                                                
+S                                                               
+                                                                
+#$                                                              
+                                                                

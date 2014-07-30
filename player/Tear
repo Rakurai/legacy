@@ -1,47 +1,47 @@
 #PLAYER
 Name Tear~
 Id   1016068044
-LogO 1017834983
-Vers 13
+LogO 1060017269
+Vers 14
+Mexp 2
+Pass 288785493~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race irda~
-Clan divinity~
-Sex  1
 Cla  5
 Levl 53
-Plyd 202525
+Tru  0
+Plyd 202573
 Back 0
 Note 1017817283 1017691131 1017591692 1017763758 1017712984 1017560266 1017821887
 Scro 22
-Room 24207
-HMS  653 1052 120 922 398 643
+Room 3001
+HMS  1052 922 643
 Gold 4482
 Silv 1674
 Exp  76994
-PCkills 1
+PCkills  1
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 1
+Akills   0
+Akilled  0
+PKRank   1
+Pos  8
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  HU
+Video 0
 Act  CDEFGHJLSc
-AfBy TV
+AfBy 0
 Comm GNO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  4
 Prac 10
 Trai 1
-Save  -19
-Alig  1000
-Hit   71
-Dam   57
-ACs -290 -294 -290 -263
-Wimp  80
+Wimp 80
 Atrib 18 21 21 18 18 17
-AtMod 16 4 10 13 2 5
-QuestPnts 1
-Pass 288785493~
+QuestPnts  1
 Afk {B[{CWed Apr  3 05:11:54 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  Of The Gold Phoenix~
@@ -52,17 +52,14 @@ Aura ~
 TSex 1
 LLev 55
 Deit Liriel~
-Lsit 211.41.88.165~
-Ltim Wed Apr 03 04:32:06 2002
+Lsit 210.222.50.12~
+Ltim Fri Sep 06 23:44:59 2002
 ~
-LSav Wed Apr 03 05:56:23 2002
+LSav Mon Aug 04 13:14:29 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 HMSP 857 542 633
 THMS 0 0 0
-Cnd  0 0 22 11
+Cnd  0 0 0 0
 Sk 78 1 'acid rain'
 Sk 78 1 'armor'
 Sk 78 1 'bless'
@@ -151,17 +148,11 @@ Gr 'healing'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'fly'   0  12   6   0   0     524288 1
-Affc 'bless'   0  50  46  -6  24          0 1
-Affc 'bless'   0  51  46   6  18          0 1
-Affc 'frenzy'   0  48   4  40  17          0 1
-Affc 'frenzy'   0  49   4   8  19          0 1
-Affc 'frenzy'   0  50   4   8  18          0 1
-Affc 'haste'   0  51  13   4   2    2097152 1
-Affc 'giant strength'   0  50  39   4   1          0 1
-Affc 'armor'   0  51  10 -20  17          0 1
-Affc 'shield'   0  51  47 -20  17          0 1
-Affc 'stone skin'   0  52  39 -40  17          0 1
+Affc 'stone skin'   0  43   5 -40  17          0 1
+Affc 'shield'   0  46  13 -20  17          0 1
+Affc 'giant strength'   0  39   5   4   1          0 1
+Affc 'bless'   0  47  12   6  18          0 1
+Affc 'bless'   0  43  12  -6  24          0 1
 End
 
 #O
@@ -171,8 +162,8 @@ Nest 0
 Cond 67
 Wear 9
 Cost 1000
-Affc 'acid breath'   0  50  -1   1  17          0 1
 Affc 'reserved'   1  52  -1   3  18          0 1
+Affc 'acid breath'   0  50  -1   1  17          0 1
 End
 
 #O
@@ -198,11 +189,11 @@ Nest 0
 Cond 56
 Wear 14
 Cost 4000
-Affc 'acid breath'   0  51  -1   1  17          0 1
-Affc 'reserved'   1  40  -1   1   1          0 1
-Affc 'reserved'   1  40  -1   1   2          0 1
-Affc 'reserved'   1  40  -1   3  18          0 1
 Affc 'reserved'   1  40  -1   3  19          0 1
+Affc 'reserved'   1  40  -1   3  18          0 1
+Affc 'reserved'   1  40  -1   1   2          0 1
+Affc 'reserved'   1  40  -1   1   1          0 1
+Affc 'acid breath'   0  51  -1   1  17          0 1
 End
 
 #O
@@ -228,13 +219,13 @@ Nest 0
 Cond 70
 Wear 5
 Cost 4666
-Affc 'acid breath'   0  51  -1   1  17          0 1
-Affc 'reserved'   1  50  -1   4  18          0 1
-Affc 'reserved'   1  50  -1   4  19          0 1
-Affc 'reserved'   1  50  -1   1   1          0 1
-Affc 'reserved'   1  50  -1   1   2          0 1
-Affc 'reserved'   1  50  -1   1   5          0 1
 Affc 'reserved'   1  50  -1   1  26          0 1
+Affc 'reserved'   1  50  -1   1   5          0 1
+Affc 'reserved'   1  50  -1   1   2          0 1
+Affc 'reserved'   1  50  -1   1   1          0 1
+Affc 'reserved'   1  50  -1   4  19          0 1
+Affc 'reserved'   1  50  -1   4  18          0 1
+Affc 'acid breath'   0  51  -1   1  17          0 1
 End
 
 #O
@@ -776,7 +767,7 @@ End
 Vnum 8813
 Nest 0
 Wear -1
-Time 821
+Time 788
 Cost 2000
 Spell 1 'cure blindness'
 Spell 2 'cure disease'
@@ -795,7 +786,7 @@ End
 Vnum 8813
 Nest 0
 Wear -1
-Time 685
+Time 652
 Cost 2000
 Spell 1 'cure blindness'
 Spell 2 'cure disease'
@@ -805,7 +796,7 @@ End
 #PET
 Vnum 24203
 Name Mesa Pegasus~
-LogO 1017834983
+LogO 1060017269
 Desc Before a woman marries in the village of Sursi, she must visit the land 
 of the {WMesa Pegasus{x. Legend has it that if the woman is pure of heart 
 and her love is true, a {WMesa Pegasus{x will appear, blessing her family with 
@@ -818,7 +809,6 @@ Act  AIQU
 AfBy DFS
 Comm W
 Pos  8
-ACs  -350 -320 -340 -300
 Atrib 25 23 26 22 23 23
 AtMod 0 0 0 0 0 0
 End

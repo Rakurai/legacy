@@ -1,0 +1,462 @@
+#PLAYER
+Name Phoric~
+Id   1053969131
+LogO 1054394903
+Vers 14
+Mexp 1
+Pass aliasalias~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  3
+Levl 11
+Tru  0
+Plyd 29032
+Back 25384
+Note 1054381215 1046507965 1051589887 1053644628 1051242807 0 0
+Scro 22
+Room 3054
+HMS  177 159 223
+Gold 83
+Silv 1089
+Exp  11085
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NOQ
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 19 18 18 13 16 12
+Afk {B[{CFri May 30 12:32:00 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  seeker of...~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 7
+Email phoric@hotmail.com~
+Deit Urza~
+Lsit adsl-65-65-195-22.dsl.stlsmo.swbell.net~
+Ltim Sat May 31 11:27:56 2003
+~
+LSav Sat May 31 11:28:23 2003
+~
+HMSP 173 154 208
+THMS 0 0 0
+Cnd  0 1 15 0
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 79 1 'sword'
+Sk 1 1 'whip'
+Sk 3 1 'shield block'
+Sk 56 1 'bash'
+Sk 1 1 'disarm'
+Sk 77 1 'enhanced damage'
+Sk 70 1 'parry'
+Sk 1 1 'rescue'
+Sk 76 1 'second attack'
+Sk 1 1 'third attack'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'warrior default'
+Gr 'weaponsmaster'
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 93
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 96
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear 17
+Cost 1140
+End
+
+#O
+Vnum 2312
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 80
+Nest 0
+Cond 93
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 3365
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 161 0 0
+End
+
+#O
+Vnum 73
+Nest 0
+Cond 97
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 1508
+Nest 0
+Cond 95
+Wear 2
+Cost 270
+End
+
+#O
+Vnum 1509
+Nest 0
+Wear 3
+Cost 220
+End
+
+#O
+Vnum 1510
+Nest 0
+Wear 16
+Cost 930
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 4102
+Nest 1
+Wear -1
+Time 821
+Cost 840
+Spell 1 'identify'
+End
+
+#O
+Vnum 4000
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 2410
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 3716
+Nest 1
+Wear -1
+Cost 0
+Val  0 0 4 0 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3111
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 6601
+Nest 1
+Wear -1
+Cost 620
+End
+
+#O
+Vnum 1215
+Nest 1
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 86 0 0 0
+End
+
+#O
+Vnum 3116
+Nest 0
+Wear 11
+Cost 1190
+End
+
+#O
+Vnum 3115
+Nest 0
+Wear 10
+Cost 660
+End
+
+#O
+Vnum 3114
+Nest 0
+Wear 9
+Cost 660
+End
+
+#O
+Vnum 3113
+Nest 0
+Wear 8
+Cost 660
+End
+
+#O
+Vnum 3112
+Nest 0
+Wear 7
+Cost 660
+End
+
+#O
+Vnum 3110
+Nest 0
+Wear -1
+Cost 1320
+End
+
+#O
+Vnum 403
+Nest 0
+Wear -1
+Cost 20
+Val  2 0 13 0 0
+End
+
+#O
+Vnum 4210
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 2366
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 6646
+Nest 0
+Wear -1
+Time 405
+Cost 150
+Spell 1 'cure light'
+Spell 2 'armor'
+End
+
+#O
+Vnum 6621
+Nest 0
+Wear 12
+Cost 780
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3011
+Nest 0
+Wear -1
+Cost 9
+End
+
+#PET
+Vnum 3094
+Name wolf pet~
+LogO 1054394903
+Desc The wolf looks like a strong, fearless fighter.
+A collar around its neck says 'I belong to Phoric'.
+~
+Sex  1
+HMS  102 102 100 100 143 143
+Act  ABIU
+AfBy FS
+Comm W
+Pos  8
+Atrib 11 9 10 12 13 11
+AtMod 0 0 0 0 0 0
+End
+#END

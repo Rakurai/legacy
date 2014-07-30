@@ -1,7 +1,7 @@
 #PLAYER
 Name Zsuzsanna~
 Id   989719599
-LogO 1027098814
+LogO 1050645857
 Vers 14
 Mexp 2
 Pass reddog~
@@ -10,11 +10,11 @@ Race elf~
 Cla  2
 Levl 26
 Tru  0
-Plyd 64213
+Plyd 68438
 Back 27566
-Note 1027095770 1022813787 1027084263 1027087211 1026409721 1017456706 1019982389
+Note 1050603982 1046507965 1048197521 1049082959 1047414979 1017456706 1019982389
 Scro 22
-Room 4602
+Room 5281
 HMS  444 298 378
 Gold 649
 Silv 454
@@ -42,7 +42,7 @@ Trai 5
 Wimp 0
 Atrib 16 20 18 23 15 18
 QuestPnts  7
-Afk {B[{CMon Mar 25 02:04:19 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CMon Dec 30 03:25:10 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {BBlah{x~
 Immn ~
@@ -52,10 +52,10 @@ Aura ~
 TSex 2
 LLev 1
 Deit Leveret~
-Lsit sprint254-43.bbc.net~
-Ltim Fri Jul 19 12:08:02 2002
+Lsit 63.172.254.59~
+Ltim Fri Apr 18 02:00:07 2003
 ~
-LSav Fri Jul 19 12:13:34 2002
+LSav Fri Apr 18 02:04:17 2003
 ~
 HMSP 360 213 378
 THMS 0 0 0

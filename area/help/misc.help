@@ -127,22 +127,27 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
    {b)X({x                                                           {b)X({x
   {b[{Y%%%{b]{x                                                         {b[{Y%%%{b]{x
    {b|#|{N-----------------------------------------------------------{b|#|{x
-   {b|#|                                                           |#|{x
-   {b|#|         {CCoders{x                          {CAdmin{x             {b|#|{x
-   {b|#|   {G*{W=-=-=-=-=-=-=-=-=-={G*{x           {G*{W=-=-=-=-=-=-=-=-=-={G*   {b|#|{x
-   {b|#|         {YMontrey                         {YLidda             {b|#|{x
-   {b|#|         {YXenith                                            {b|#|{x 
+   {b|#|                     {W Teotwawki    {YAdmin/Builder           {b|#|{x
+   {b|#|                     {W Asmadi       {YAdmin/Coder             {b|#|{x
+   {b|#|                     {W Montrey      {YAdmin/Coder             {b|#|{x
+   {b|#|                     {W Xenith{x       {YServer Admin/Coder{x      {b|#|{x
+   {b|#|                     {W Navarre{x      {YQuestor                 {b|#|{x 
+   {b|#|                     {W Vegita       {YCoder                   {b|#|{x
+   {b|#|                     {W Outsider     {YCoder                   {b|#|{x
+   {b|#|                     {W Lidda        {YBuilder/Web Site        {b|#|{x
    {b|#|                                                           {b|#|{x
    {b|#|                                                           {b|#|{x
    {b|#|                                                           {b|#|{x
-   {b|#|                     {GL{Wegacy{G@{Wkyndig{G.{Wcom{x                     {b|#|{x
-   {b|#|                                                           {b|#|{x
-   {b|#|         {CBuilders{x                        {CQwestors{x          {b|#|{x
-   {b|#|   {G*{W=-=-=-=-=-=-=-=-=-={G*{x           {G*{W=-=-=-=-=-=-=-=-=-={G*{x   {b|#|{x
-   {b|#|                                                           {b|#|{x
-   {b|#|                                                           {b|#|{x
-   {b|#|                                                           {b|#|{x
-   {b|#|                                                           {b|#|{x
+   {b|#|                                                           {b|#|   
+   {b|#|                                                           |#|   
+   {b|#|                           {CElders{x                          {b|#|{x
+   {b|#|                     {W Viro         {YAdmin/Coder{b             |#|{x
+   {b|#|                      {WEbony        {YBuilder                 {b|#|
+   {b|#|                      {WLiriel{Y       Admin{x                   {b|#|{x
+   {b|#|                      {WTarrant{Y      Coder{x                   {b|#|{x
+   {b|#|                      {WBlackmage  {Y  Questor{x                 {b|#|{x
+   {b|#|                      {WKismet{Y       Roleplay{x                {b|#|{x
+   {b|#|                      {WJubei{Y        Questor                 {b|#|{x
    {b|#|                                                           {b|#|{x
    {b|#|{N-----------------------------------------------------------{b|#|{x
    {b|#|                                                           {b|#|{x
@@ -157,7 +162,7 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
 {N        |___{V.-^-.-^-.       {T______________________       {V.-^-.-^-.{N___|
 {N        |__{V(  __|__  )_  {T-=(_)____________________)=-  {V_(  __|__  ){N__|
 {N        |{V/ \/\_/^\._)/ \    {T/                   _/    {V/ \(_./^\_/\/ \{N|
-{V        (  (__{{({YO{V)}\_)  )  {T/-   {WMy{BL{Ce{gg{Wa{Cc{By {gv{W1.4   {T/    {V(  (_/{{({YO{V)}__)  )
+{V        (  (__{{({YO{V)}\_)  )  {T/-   {WMy{BL{Ce{gg{Wa{Cc{By {gv{W1.6   {T/    {V(  (_/{{({YO{V)}__)  )
 {N        |{V\_/ (/(_)\_))_/  {T(-                   (      {V\_((_/(_)\) \_/{N|
 {N  ______|_{V(  (__)_)_/ )    {T\     {BFounded by:    {T\      {V( \_(_(__)  ){N_|______
 {N /_________{V\_/  |  \_/      {T\                    \      {V\_/  |  \_/{N_________\
@@ -166,7 +171,7 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
 {G    |   `\   {W|                 {T\_        {Band {GE{Hdge  {T-\           {W|   {G/`   |
 {G     `\  `\  {W|    {G___           {T)                    )   {G___    {W|  {G/`  /`
 {G       `\  `\{W|  {G/' ..'>        {T/-   {CVisit us at    {T_/  {G<'..  '\ {W|{G/`  /`
-{G      __{W|{G`\  `\: ,' /'        {T/ {Clegacy.xenith.org  {T/    {G'\ '  :/`  /`{W|{G___
+{G      __{W|{G`\  `\: ,' /'        {T/ {Clegacy.kyndig.com  {T/    {G'\ '  :/`  /`{W|{G___
 {G    /' _ /''`\  '__'        {T_/____________________/       {G'__'  /`''\ _ '\
 {G   < .'./'   {W|  {G|        {T-=(_)____________________)=-        {G|  {W|   {G'\.'. >
 {G    `^' {W|    |  {G|                                            |  {W|    |{G '^`
@@ -186,7 +191,7 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
   there is NO excuse!
 {Y* {BYou can return to this message by typing {Ghelp motd{B at any time.
 {Y* {BIf you have any questions/comments/suggestions, please contact the
-  immortals via notes, or at {Clegacy@xenith.org{B.
+  immortals via notes, or at {CLegacyImms@kyndig.com{B.
 {Y* {BThere will be absolutly no revealing of a person's alt identity. To 
   do so will result in being 1212'd, then fried.
 
@@ -197,8 +202,6 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
 make this happen.  All ideas, comments, and constructive criticism is 
 appreciated here, and remember, above all, ENJOY YOURSELF!  :){x
 
-
-NOTE: If you have copies of these, please send them to us.
 {WNew {PL{Ye{Vg{Ga{Bc{Cy {RBuilding Guide: {Whttp://legacy.kyndig.com/building/index.html{x
 {WDownloadable version {R({Bupdated nightly{R): {Whttp://legacy.kyndig.com/building/build.zip{x
 ~
@@ -295,15 +298,19 @@ Let me sit you down, young traveler, and tell you a tale ...
 Ignorance is not an excuse, and violation of the rules is an indication
 that you do not wish to play, and the immortals will act accordingly.
 
+{Y*{x Discussion of alts is strictly prohibited on Legacy. This is a roleplay
+  environment and revealing alts damages this atmosphere so {WDON'T DO IT{x
 {Y*{x Harassment of players, especially newbies, in any form is not tolerated.
 {Y*{x Do not use clients or triggers to do any of the following:  bot, auto-
   reconnect, or keep your character idle.  If you are suspected of such
   activity and do not respond, your character shall be punished.
-{Y*{x Multiple playing and logins is strictly prohibited.  Helping your own 
-  characters by ANY method is considered cheating: this includes but is not
-  limited to giving gold to your other chars, spelling them, grouping with
-  them, weakening mobs, or transferring eq in any way (as in dropping it
-  and logging on to an alt to go pick it up).
+{Y*{x Multiple playing and logins is strictly limited to characters level 
+  14 and below. These people may have 2 low level characters on at once.
+  For levels 15 and above helping your own  characters by ANY method is 
+  considered cheating: this includes but is not limited to giving gold to 
+  your other chars, spelling them, grouping with them, weakening mobs, or 
+  transferring eq in any way (as in dropping it and logging on to an alt 
+  to go pick it up).
 {Y*{x Spam is rude and disrespectful to everybody else on the mud.  Do not do
   it.  Repeating anything 3 times in quick succession is one way spam will 
   be identified, but not the only way.  Also, conflicts inevitably arise on 
@@ -319,8 +326,8 @@ Let me sit you down, young traveler, and tell you a tale ...
   without asking us, do not blame us if you are punished.
 
 Lastly, just because a rule is not posted here does not mean that it is not
-cheating.  Anybody found cheating can expect to find the smell of smoke and
-a small pile of ashes where their character used to be.  
+cheating or harrassment. Any person having reasonable complaints should feel
+free to respectfully note the immortals.
 
 {YSEE ALSO:{x  Help Censor
 ~
@@ -484,6 +491,7 @@ A {Crestring{x is the process of taking an item of equipment or a pet
 0 SHOWLAST FINGER FINGERINFO~
 Syntax:
    {Vfinger{x <{Ycharacter{x>
+   {Vfinger{x <{Ycharacter{x>@<{Ymud{x>
    {Vfinger private{x
    {Vfingerinfo{x
    {vshowlast{x
@@ -491,6 +499,10 @@ Syntax:
 This command will display the last time a character was playing on
 {bL{Ye{Wga{Yc{by{x along with several items of other useful unformation.
 Abbreviations cannot be used for character names.
+
+You can also use finger to get information on characters from
+other MUDs. For example:
+finger bob@soe
 
 The {Vfinger private{x command will toggle the appearance of your {Yemail{x
 {Yaddress{x in the {Vfinger data{x.  This setting defaults to off.
@@ -657,14 +669,12 @@ Syntax: {Cclear{x
 
 0 MULTIPLAY MULTIPLAYING MULTIPLAYERS MULTI~
 The act of simultaneously playing more than one character at the same time
-is call Multiplaying. This is an illegal act here on Legacy.  Playing more
-than one character makes it easier for you to level, true, but it takes
-away from the roleplaying experience and fun you can have when you just
-try and flesh out one character.  It also gives you an unfair advantage
-over those who try to follow the rules.  Having two characters on at the
-same time, even if they aren't interacting with each other.  Even if one
-is playing while the other is recovering (sleeping) is still multiplaying.
-The point is, no logging on with multiple Characters.
+is call Multiplaying. This is limited to characters level 14 and below. 
+Only these low level characters are permitted to have 2 characters playing 
+at the same time. Let me be perfectly clear on this {WBOTH{x characters 
+you have on must be level 14 or below. Remorts are not allowed this 
+privilege. And with all other privileges here if you abuse it you will 
+lose it.
 ~
 
 0 SUMMARY~
@@ -954,7 +964,7 @@ An {Calternate{x, or '{Calt{x', is a character played by the same person as
 separately from their other characters.  This too is encouraged, many
 find the challenge of roleplaying different characters stimulating.
 
-Roleplay is not forced on {BL{Te{gg{Wa{Tc{By, but this should not be confused with
+Roleplay is not forced on {BL{Ce{gg{Wa{Cc{By{x, but this should not be confused with
 tolerance of making it difficult to roleplay.  Players work hard to keep
 their alts separate, but alas, it is natural to blur the difference
 between player and character.  People tend to familiarize themselves with

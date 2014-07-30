@@ -72,6 +72,8 @@ Syntax: {Cdisable{x
 
 When a command is disabled, no players can use it. It is useful for
 disabling buggy commands or disabling certain commands for use with quests.
+
+To re-able a command, use "disable <{Ycommand{x>".
 ~
 
 100 100 REBOOT~

@@ -1,7 +1,7 @@
 #AREA
 kindred.are~
 Caverns of Darkness~
-{H{{CLANS} {MAyelri/Celes {TCaverns of Darkness~
+{H{{CLANS} {MAyelri/Celes/Syveril {TCaverns of Darkness~
 25000 25199
 
 #MOBILES
@@ -11,10 +11,11 @@ Vanesha healer trainer~
 {cVa{Wn{ge{Ws{cha{x~
 A figure garbed in midnight black robes is here, tending to the altar of Akira.
 ~
-A tall, mysterious figure is dressed in black robes, blending in easily with
-the darkness around it.  The hooded cloak obscures the features of the 
-hidden face, and for as long as Kindred members can remember, this mysterious
-acolyte of Akira has served the Darkness faithfully.  
+A tall, mysterious figure is dressed in black robes, blending in
+easily with the darkness around it.  The hooded cloak obscures
+the features of the hidden face, and for as long as the Kindred
+can remember, this mysterious acolyte of Akira has served the 
+Darkness faithfully.  
 ~
 unique~
 BGJKabd CDEFGHJKNOPVYZd -1000 S
@@ -25,15 +26,16 @@ stand stand female 0
 0 0 medium 0
 
 #25001
-Ashnod equipment shopkeeper master~
-{cA{gs{Wh{gn{co{Wd{x~
+Kitiara shopkeeper~
+{cK{gi{Wt{gi{ca{Wr{ca{x~
 A slender maiden tends to the equipment before her with quick and nimble hands.
 ~
-The air around the maiden before you hums with energy and power.  Her slender
-frame belies her great strength, and yet she is also stunningly beautiful.
-Raven hair cascades down her back in ringlets, ending near mid-back, and large
-almond eyes study her surroundings carefully.  The intelligence and knowledge 
-carried in those eyes shows why Ashnod is the equipment master of the Kindred.
+The air around the maiden before you hums with energy and power.
+Her slender frame belies her great strength, and yet she is also
+stunningly beautiful.  Raven hair cascades down her back in ringlets, 
+ending near mid-back, and large almond eyes study her surroundings
+carefully.  The intelligence and knowledge carried in  those eyes 
+shows why {cK{gi{Wt{gi{ca{Wr{ca{x is the equipment master of the Kindred.
 ~
 unique~
 BG CDEFGHJNOPVYZ -1000 S
@@ -48,23 +50,71 @@ dystanex food shopkeeper storekeeper~
 {CD{Wy{Bs{Wt{Ca{Wn{Be{Wx{x~
 {CD{Wy{Bs{Wt{Ca{Wn{Be{Wx{x stands here with a bloody apron and a shiny steel cleaver.
 ~
-{CD{Wy{Bs{Wt{Ca{Wn{Be{Wx{Cs{x chamber reflects on the man
-himself. Very much like the many different types of body parts strewn
-about, his body is made up of many different kinds of creatures. His head
-is scaly and lizard like, his arms are covered in a dark fur, matted with
-blood. He stands on the legs of what could be called nothing other than a
-dragon's, and his torso appears to be that of a cat. Wings
-protrude from his back, and the leathery hide that spands between them
-would suggest they came from a bat. Grinning evily he looks at you and
-asks, "What'll it be?"
+This is {CD{Wy{Bs{Wt{Ca{Wn{Be{Wx, the master chef of Kindred.  Like the food he
+creates, his body consists of dazzling variety.  He possesses a
+vaguely humanoid lizard-head, his arms are covered in dark fur,
+he stands on the legs of a dragon, and his torso is spotted like
+that of a hunting cat.  Huge leathery wings protrude from behind
+his body, just like that of a bat.  Fortunately, his hands look
+like completely normal human hands, with the requisite dexterity
+of the culinary profession.
 ~
 unique~
-BG CDEFGHJNOPVYZ -1000 S
+BG CDEFGHJNOPVYZ 0 S
 120 0 1d1+9999 1d1+9999 10d10+5 wrath
 -1000 -1000 -1000 -1000
 0 ABCD 0 0
 stand stand male 200000
 0 0 large 0
+
+#25004
+lhaexis item shopkeeper storekeeper~
+{gLh{caex{gis{x~
+{gLh{caex{gis{x is here, keeping shop.
+~
+A medium sized dark-haired man is here, seated comfortable atop
+a wooden stool, scratching entries onto a balance sheet with a
+pen.  A wondrous device, he finds no need to pause and refill the
+ink, and indeed, you see no inkwell nearby.  This is only one of
+the many rare and unique devices acquired by him over the years,
+the result of his excellent skills at trading.  His nondescript
+looks have lent him numerous guises when out in the marketplaces,
+from a stone-faced hard-driving merchant to an innocent farmer
+selling vegetables (complete with dimples).  Currently occupying
+the position of Kindred's item procurer, he glances up every now
+and then, waiting for clan members to place orders.  His nametag
+reads, {w"{gLh{caex{gis{W"{x.
+~
+human~
+BG CDEFGHJNOPVYZ 0 S
+120 0 1d1+999 1d1+9999 10d10+5 punch
+-1000 -1000 -1000 -1000
+0 ABCD 0 0
+stand stand male 200000
+0 0 medium 0
+
+
+#25005
+learned hand sage~
+Learned Hand~
+Learned Hand is here, ready to dispense his knowledge.
+~
+Kindred's sage appears to be reading a tome of contemporary
+legal theories.  He sits comfortable in his armchair, the book
+open in his lap and a sphere of light hovering close by.  The
+sage has white hair combed neatly to the side, and wears a pair
+of spectacles - wizards must be allowed their eccentricities in
+appearance, after all.  He glances up, instantly recognizing
+you, and you understand that he would have no trouble answering
+questions of obscure lore.
+~
+human~
+BG CDEFGHJNOPVYZ 0 S
+120 0 1d1+999 1d1+9999 10d10+5 wrath
+-1000 -1000 -1000 -1000
+0 ABCD 0 0
+sit sit male 200000
+0 0 medium 0
 
 #25050
 cid man~
@@ -86,11 +136,10 @@ demon yoshi~
 a {PDemon Yoshi{x~
 A {PDemon Yoshi{x stands here.
 ~
-This {PDemon Yoshi{x is incredibly cute, and
-incredibly scary at the same time. But for the eyes,
-it would appear to be a cute cartoon character, but
-the eyes show more knowledge of pain, fury, and
-killing than you have seen before in your life.
+This {PDemon Yoshi{x is incredibly cute, and incredibly scary at
+the same time.  But for the eyes, it would appear to be a cute
+cartoon character, but the eyes show more knowledge of pain, fury,
+and killing than you have seen before in your life.
 ~
 yoshi~
 BGZ H 0 S
@@ -105,9 +154,9 @@ portrait~
 a portrait of Liriel~
 A living portrait of Liriel is gazing at you.
 ~
-You see a beautiful picture of Liriel hanging on the
-wall. It seems almost alive, maybe because it IS! She
-smiles at you and all of your troubles float away.
+You see a beautiful picture of Liriel hanging on the wall.  It
+seems almost alive, maybe because it IS!  She smiles at you
+and all of your troubles float away.
 ~
 portrait~
 BGZ H 0 S
@@ -130,65 +179,102 @@ fountain GIOSY P
 0 0 water 0 0
 0 0 0 I
 
+#25018
+water fountain~
+the water fountain~
+~
+stone~
+fountain GIOSY P
+0 0 water 0 0
+0 0 0 I
+E
+niche fountain~
+Water trickles through this niche, creating a water fountain
+for clanmembers who come here as smiths.
+~
+
+#25019
+iced tea cooler~
+an iced tea cooler~
+A glass container full of iced tea is here.~
+glass~
+fountain GIOSY P
+0 0 tea 0 0
+0 0 0 I
+E
+tea cooler~
+The cooler is made of glass and looks like a vertcally oriented aquarium.
+Slices of lemon and chunks of ice fill the cooler.
+~
+
 #25001
-leg food knot~
-the leg of a {TKnot{x~
-The severed leg of a {Tknot{x lies here, slowly decomposing.~
-flesh~
+chicken wing~
+a chicken wing~
+A small chicken wing is here.~
+chicken~
 food ISY AO
 1 50 0 0 0
 0 1 100 P
 
 #25002
-arm food highlander~
-the arm of a {bHighlander{x~
-The arm of a {bHighlander{x twitches on the ground.~
-flesh~
+banana~
+a banana~
+Yellow and tasty, a {Ybanana{x lies here.~
+banana~
 food ISY AO
 1 50 0 0 0
 0 1 100 P
 
 #25003
-hand food blue rose~
-the hand of a {BB{Clu{Be R{Cos{Be{x~
-The hand of a {BB{Clu{Be R{Cos{Be{x lies here.~
-flesh~
+sesame bun~
+a sesame seed bun~
+A small bun covered in sesame seeds is here.~
+pastry~
 food ISY AO
 1 50 0 0 0 
 1 1 100 P
 
 #25004
-paw lir knot~
-the paw of a {TKnot's Lir{x~
-A paw lies on the ground here, severed from the body of a {TKnot's Lir{x.~
-flesh~
+lotus mooncake cake~
+a lotus seed mooncake~
+Mmm.  It's a lotus seed mooncake!  Wonder if it has yolk...~
+mooncake~
 food ISY AO
 1 50 0 0 0
 1 1 100 P
 
 #25005
-kidney food macdougal~
-the {Rkidney{x of a {GMa{HcDo{Rugall{x~
+curly fries~
+an order of curly fries~
+Fried and curly, it's a medium order of curly fries.~
+potato~
+food ISY AO
+1 50 0 0 0
+1 1 100 P
+
+#25006
+cheese pizza~
+a slice of cheese pizza~
+An exotic food from some boot country, a slice of pie dripping with cheese is here.~
+pizza~
+food ISY AO
+1 50 0 0 0
+1 1 100 P
+
+#25007
+kidney~
+the {Rkidney{x of a sacrifice victim~
 A lump of {Rred{x flesh lies here.{x~
 flesh~
 food ISY AO
 0 0 0 1 0
 55 0 100 P
 
-#25006
-vampire skull drink~
-A hollow {Rvampire{x skull~
-A hollowed out {Rvampire{x skull holding some sort of liquid is resting on the ground.~
-bone~
-drink ISY AEO
-500 500 blood 0 0
-1 1 100 P
-
-#25007
-stomach lining drink~
-Stomach Lining of a {bHighlander{x~
-The stomach lining of a {bHighlander{x has been ripped from their still living body and discarded.~
-flesh~
+#25008
+blood bad~
+blood in a bag~
+It appears to be a bag of O negative.~
+blood~
 drink ISY AO
 500 500 blood 0 0
 1 1 100 P
@@ -265,16 +351,18 @@ anvil ABIOSTY P
 1 4000 0 I
 E
 anvil kindred~
-An unholy artifact from eons long past, this anvil was unearthed from the very place
-where it now resides, buried before time was recorded.  It's meteoric steel is pure
-black, but shines with an unearthly black glow that warps light around it, making it
-blur before the eyes.  Many deadly weapons have been forged on it, and reforging
-blades stained with the blood of outsiders only seems to make it grow in power.
+An unholy artifact from eons long past, this anvil was unearthed
+from the very place where it now resides, buried before time was
+recorded.  It's meteoric steel is pure black, but shines with an
+unearthly black glow that warps light around it, making it blur
+before the eyes.  Many deadly weapons have been forged on it, and
+reforging blades stained with the blood of outsiders only seems to
+make it grow in power.
 ~
 E
 black marble pedestal~
-The pedestal is a round slab of black marble, as flat and smooth as glass.  The
-Kindred's anvil rests atop it.
+The pedestal is a round slab of black marble, as flat and smooth as glass.
+The Kindred's anvil rests atop it.
 ~
 
 #25049
@@ -310,37 +398,35 @@ silence midnight~
 A chill runs down your spine as the silence overwhelms you.~
 silence~
 armor ABS AG
-6 6 6 5 0
-20 2 2000 P
+10 10 10 9 0
+30 3 3000 P
 A
-13 20
+13 30
 A
-14 -10
+18 3
 A
-18 2
-A
-19 2
+19 3
 A
 5 1
 A
 3 1
 A
+4 1
+A
 20 -1
 E
 eqstat~
 the silence of midnight
-stock: 4 points
-bought: 2.5 points
+stock: 5 points
+bought: 5 points
 
-2 points: +20 hp
-2 points: +2 hit/+2 dam
+3 points: +30 hp
+3 points: +3 hit/+3 dam
 1 point: +1 con
 1 point: +1 int
+1 point: +1 wis
 1 point: -1 saves
-= 7 points
-
--1 point: -1 age
-= -0.5 points
+= 10 points
 ~
 
 #25051
@@ -352,28 +438,29 @@ armor ABS AE
 10 10 10 9 0
 30 3 3000 P
 A
-13 30
-A
 18 3
 A
 19 3
 A
 4 1
 A
-9 -1
+3 1
+A
+26 1
+A
+12 30
 E
 eqstat~
 a ninja's mask
 stock: 5 points
-bought: 1.5 points
+bought: 4 points
 
-3 points: +30 hp
+3 points: +30 mana
 3 points: +3 hit/+3 dam
 1 point: +1 wis
-= 7 points
-
--1 point: -1 age
-= -0.5 points
+1 point: +1 int
+1 point: +1 chr
+= 9 points
 ~
 
 #25052
@@ -385,28 +472,29 @@ armor ABS AH
 10 10 10 9 0
 30 3 3000 P
 A
-13 30
+12 30
 A
 18 3
 A
 19 3
 A
-1 1
+3 1
 A
-9 -1
+4 1
+A
+26 1
 E
 eqstat~
 bloodspattered gloves
 stock: 5 points
-bought: 1.5 points
+bought: 4 points
 
-30 points: +30 hp
+3 points: +30 mana
 3 points: +3 hit/+3 dam
-1 point: +1 str
-= 7 points
-
--1 point: -1 age
-= -0.5 points
+1 point: +1 int
+1 point: +1 wis
+1 point: +1 chr
+= 9 points
 ~
 
 #25053
@@ -443,11 +531,11 @@ bought: 1.5 points
 ~
 
 #25054
-shroud utter darkness~
-{ga {cshroud of utter darkness{x~
-A complete absence of light floats here.~
-darkness~
-armor ABS AQ
+tan insignia bracer green~
+a {btan{x bracer with a {Hdark green{x insignia~
+A circle of leather with a {Hgreen{x rune inscribed is lying here.~
+leather~
+armor ABS AM
 10 10 10 9 0
 30 3 3000 P
 A
@@ -459,7 +547,9 @@ A
 A
 2 1
 A
-9 -1
+1 1
+A
+5 1
 E
 eqstat~
 a shroud of utter darkness
@@ -469,48 +559,48 @@ bought: 1.5 points
 3 points: +30 hp
 3 points: +3 hit/+3 dam
 1 point: +1 dex
-= 7 points
-
--1 point: -1 age
-= -0.5 points
+1 point: +1 str
+1 point: +1 con
+= 9 points
 ~
 
 #25055
-ring sign kindred~
+onyx ring kindred~
 {ga {cring{g bearing the {Nsig{Nn{g of the {cK{Wi{gndr{We{cd{x~
 An onyx ring bearing a demonic sign lies here.~
 onyx~
 armor ABS AB
-13 13 13 12 0
-40 4 4000 P
+16 16 16 15 0
+50 5 5000 P
 A
-13 40
+13 20
 A
-18 4
+12 20
 A
-19 4
+5 1
+A
+18 5
+A
+19 5
 A
 20 -2
 A
 2 1
 A
 26 1
-A
-9 -2
 E
 eqstat~
 a ring bearing the sign of the Kindred
-stock: 6 points
-bought: 5 points
+stock: 7 points
+bought: 7 points
 
-4 points: +40 hp
-4 points: +4 hit/+4 dam
-2 point: -2 saves
-2 point: +1 chr, +1 str
-= 12 points
-
--2 points: -2 age
-= -1 points
+4 points: +20 hp/+20 mana
+5 points: +5 hit/+5 dam
+2 points: -2 saves
+1 point: +1 chr
+1 point: +1 str
+1 point: +1 con
+= 14 points
 ~
 
 #25056
@@ -519,31 +609,29 @@ patience mirror~
 A magical aura fills you with competence and wisdom.~
 patience~
 armor ABS AC
-13 13 13 12 0
-40 4 4000 P
+10 10 10 9 0
+30 3 3000 P
 A
-13 40
+12 30
 A
-18 4
+3 1
 A
-19 4
+4 2
 A
-20 -2
+18 3
 A
-9 -2
+19 3
 E
 eqstat~
 Patience of the Mirror
-stock: 6 points
-bought: 3 points
+stock: 5 points
+bought: 4 points
 
-4 points: +40 hp
-4 points: +4 hit/+4 dam
-2 point: -2 saves
-= 10 points
-
--2 points: -2 age
-= -1 points
+3 points: +30 mana
+3 points: +3 hit/+3 dam
+2 points: +2 wis
+1 point: +1 int
+= 9 points
 ~
 
 #25057
@@ -552,36 +640,32 @@ fury blade~
 A fighting spirit fills you with a demonic rage.~
 fury~
 armor ABS AM
-13 13 13 12 0
-40 4 4000 P
+20 20 20 19 0
+60 6 6000 P
 A
-13 40
+18 6
 A
-18 4
+19 6
 A
-19 4
-A
-20 -2
+20 -3
 A
 1 1
 A
 2 1
 A
-9 -2
+5 1
 E
 eqstat~
 Fury of the Blade
-stock: 6 points
-bought: 5 points
+stock: 8 points
+bought: 4 points
 
-4 points: +40 hp
-4 points: +4 hit/+4 dam
-2 point: -2 saves
-2 points: +1 str, +1 dex
+6 points: +6 hit/+6 dam
+3 points: -3 saves
+1 point: +1 str
+1 point: +1 dex
+1 point: +1 con
 = 12 points
-
--2 points: -2 age
-= -1 points
 ~
 
 #25058
@@ -589,32 +673,36 @@ faith pillar~
 {NFaith{g of the {NP{ci{gll{ca{Nr{x~
 A bond of friendship inspires trust and loyalty in you.~
 faith~
-armor ABS AI
-16 16 16 15 0
-50 5 5000 P
+armor ABS AD
+13 13 13 12 0
+40 4 4000 P
 A
-13 40
+13 30
 A
-18 3
+18 4
 A
-19 3
+19 4
+A
+3 1
+A
+4 1
+A
+26 1
 A
 20 -2
-A
-9 -2
 E
 eqstat~
 Faith of the Pillar
-stock: 7 points
-bought: 1 point
+stock: 6 points
+bought: 6 points
 
-4 points: +40 hp
-3 points: +3 hit/+3 damage
+3 points: +30 hp
+4 points: +4 hit/+4 damage
 2 points: -2 saves
-= 9 points
-
--2 points: -2 age
-= -1 points
+1 point: 1 int
+1 point: 1 wis
+1 point: 1 chr
+= 12 points
 ~
 
 #25059
@@ -626,28 +714,26 @@ armor ABS AG
 20 20 20 19 0
 60 6 6000 P
 A
-13 45
+13 30
 A
-18 3
+12 10
 A
-19 3
+18 4
+A
+19 4
 A
 20 -3
-A
-9 -3
 E
 eqstat~
 Stealth of the Leaf
 stock: 8 points
-bought: 1 point
+bought: 3 point
 
-4.5 points: +45 hp
-3 points: +3 hit/+3 dam
+3 points: +30 hp
+4 points: +3 hit/+3 dam
 3 points: -3 saves
-= 10.5 points
-
--3 points: -3 age
-= -1.5 points
+1 point: +10 mana
+= 11 points
 ~
 
 #25060
@@ -657,27 +743,31 @@ A guiding beam inspires you with the glory of the Darkness.~
 cunning~
 light ABS AP
 0 0 -1 0 0
-40 4 4000 P
+80 8 8000 P
 A
-13 40
+18 8
 A
-18 4
+19 8
 A
-19 4
+20 -4
 A
-9 -2
+3 2
+A
+4 2
+A
+26 2
 E
 eqstat~
 Cunning of the Lantern
-stock: 6 points
-bought: 1 points
+stock: 10 points
+bought: 8 points
 
-4 points: +40 hp
-4 points: +4 hit/+4 dam
-= 8 points
-
--2 points: -2 age
-= -1 point
+8 points: +8 hit/+8 dam
+4 points: -4 saves
+2 points: 2 int
+2 points: 2 wis
+2 points: 2 chr
+= 18 points
 ~
 
 #25080
@@ -776,12 +866,10 @@ fountain GIOSY P
 0 0 0 I
 E
 fountain~
-Upon closer inspection you see a sign deep within the
-fountain. You lean in closer to get a better view. The
-sign reads "If you can read this sign you are about to
-fall i.." You slipped in! You're drenched in delicious
-lemonade. Now you're all sticky...perhaps you should
-find someone to hug.
+Upon closer inspection you see a sign deep within the fountain.  You lean
+in closer to get a better view.  The sign reads "If you can read this sign
+you are about to fall i.."  You slipped in!  You're drenched in delicious
+lemonade.  Now you're all sticky... perhaps you should find someone to hug.
 ~
 
 #25088
@@ -794,11 +882,10 @@ furniture GIOSY P
 0 0 0 I
 E
 liriel bed~
-A bed that looks like the goddess herself. Hey!
-Stains?....You sure hope that's lemonade! You can see
-two little stuffed Yoshi's guarding this bed. One is
-Red and one is Yellow. They seem very determined to
-protect Liriel. Better keep your distance.
+A bed that looks like the goddess herself.  Hey!  Stains?....You sure hope
+that's lemonade!  You can see two little stuffed Yoshi's guarding this bed.
+One is Red and one is Yellow.  They seem very determined to protect Liriel.
+Better keep your distance.
 ~
 
 #25089
@@ -816,7 +903,7 @@ a large cookie~
 A large cookie sits on the table.~
 sugar~
 food S A
-10 20 0 0 0
+10 25 0 0 0
 1 1 0 P
 E
 cookie~
@@ -842,8 +929,8 @@ fountain GIOSY P
 0 0 0 I
 E
 plastic beverage cooler~
-This cooler is magically enchanted to be constantly filled
-with sparkling water.
+This cooler is magically enchanted to be constantly filled with
+sparkling water.
 ~
 
 #25093
@@ -861,8 +948,8 @@ Don't take this on an empty stomach!
 
 #25094
 rocking chair~
-a wooden rocking chair, painted white~
-A wooden rocking chair is here.  It looks like a good place to sit.~
+a rocking chair~
+A white wooden rocking chair is here.  It looks like a good place to sit.~
 wood~
 furniture O P
 2 0 EHK 125 175
@@ -880,9 +967,22 @@ E
 bed sharra's~
 This is Sharra's bed.  It looks like it would only fit one person,
 but it's clean and fresh.  The base and headboard are made of solid oak, 
-and the mattress is fitted with pale yellow bedsheets.  You also see a 
+and the mattress is fitted with pale {byellow{x bedsheets.  You also see a 
 pair of large pillows and a comforter with embroidered designs
-of leaves and flowers.
+of {Hl{Ge{bav{Ge{Hs and {Vf{Ml{Wo{gw{Ve{Mr{Ws{x.~
+
+#25100
+donation pit wooden barrel~
+the donation barrel~
+A wooden donation barrel is here, ready to accept your gifts.~
+wood~
+container GIOSY P
+1000 0 0 1000 0
+0 0 0 I
+E
+barrel~
+This barrel has been enchanted to accept donations to the clan,
+and has a practically unlimited amount of storage space.
 ~
 
 #0
@@ -891,88 +991,182 @@ of leaves and flowers.
 
 #25000
 Chamber of Darkness~
-Any tiny sound is magnified to hundreds of degrees as your eyes struggle
-to pierce the blanket of darkness that cloaks this large chamber 
-completely.  However, the Kindred are very much at home in this eerie 
-abode, and a small altar devoted to Akira reminds all of the members of 
-their true roots.  An occasional robed member shuffles by silently, each 
-intent on their own business.  
+This, then, is the ground floor of {cK{Wi{gndr{We{cd{x clanhall.  Any tiny sound 
+is magnified to hundreds of degrees as your eyes struggle to pierce 
+the {Nblanket{x of {cdarkness{x that cloaks this large chamber completely.  
+Slowly, they adjust and you make out your surroundings ... The entire
+chamber is carved out of stone, the craftsmanship rivaling even the 
+tunnels of the dwarves.  The floor has been evened out with packed 
+earth, and the {cwalls{x are very slightly curved.  The soft {Pr{Red glo{Pw{x of 
+light comes from {Rr{Pu{gn{Pe{Rs{x carved at even intervals along the sides of 
+the cavern.  The entire cavern is large, roughly the size of a 
+dragon's lair.  {cP{gathway{cs{x branch out in all the cardinal directions.
 ~
 0 DT 0
 C Kindred~
 D0
+An area of rest and recuperation is to the north.
 ~
 ~
 0 -1 25001
 D1
+A palpable sense of raw magical power emanates from the east.
 ~
 ~
 0 -1 25002
 D2
+A shimmering portal is set to take you to another realm.
 ~
 ~
 0 -1 25010
 D3
+The pathway leads further into the caverns.
 ~
 ~
 0 -1 25003
 D4
+A sloping walkway spirals up into the darkness.
 ~
 ~
 0 -1 25007
+E
+walls~
+The {cwalls{x draw light away from them, contributing to a general
+aura of {cdarkness{x and {Nsecrecy{x.
+~
+E
+runes~
+You can make out more {Rr{Pu{gn{Pe{Rs{x adjacent to the runes of light, and it 
+seems that the {Rr{Pu{gn{Pe{Rs{x run continuously through the cavern.  However, 
+the {cdarkness{x within the walls suck out illumination, and there is
+no way to be sure.
+~
+E
+pathways~
+{gR{co{gc{ck{gs{x and {cb{goulder{cs{x have been embedded into the earth, and polished
+flat to created {cp{gathway{cs{x.
+~
+E
+altar~
+A little {baltar{x devoted to the demon {RAkira{x stands at the front of the
+cavern.  You could easily walk by it and not have noticed it if it
+were not for the faithful attendant.  It stands here to remind all
+{cK{Wi{gndr{We{cd{x of their true roots.
+~
 S
 
+
 #25001
-Regen Room~
+Communal Sanctuary~
+This is a small den used for recuperation.  An aura of {Ghealing{x is 
+pervasive throughout the area, and clean fresh air circulates
+throughout this room.  There seems to be no source of this wind,
+but the peaceful character of this room suppresses concern.  A
+stone {cp{gathwa{cy{x leads south.
 ~
 0 DT 0
 C Kindred~
 D2
+The pathway leads to a large cavern.
 ~
 ~
 0 -1 25000
+E
+pathway~
+{gR{co{gc{ck{gs{x and {cb{goulder{cs{x have been embedded into the earth, and polished
+flat to created a {cp{gathwa{cy{x.
+~
 S
 
 #25002
 Portal Room~
+The {Rr{Pu{gn{Pe{Rs{x here run along the entire height of the cavern walls, even 
+on the ceiling some twenty yards above the carvern floor.  This area 
+is filled with {Tm{Ca{Tg{Ci{Tc{Ca{Tl{x potential, as it should, for this is the portal
+room of {cK{Wi{gndr{We{cd{x clanhall.  A stone {cp{gathwa{cy{x leads west.
 ~
 0 DT 0
 C Kindred~
 D3
+The pathway leads to a large cavern.
 ~
 ~
 0 -1 25000
+E
+pathway~
+{gR{co{gc{ck{gs{x and {cb{goulder{cs{x have been embedded into the earth, and polished 
+flat to created a {cp{gathwa{cy{x.
+~
 S
 
 #25003
-Bank, Locker, Pit Access~
+The West Wing~
+This is the West Wing of {cK{Wi{gndr{We{cd{x clanhall, one of the most
+important centers of activity.  The cavern has narrowed here,
+and forms an elongated chamber.  Wooden beams have been added
+to support the ceiling, and lanterns hang from these beams.
+A {Wmetal plate{x outfitted with strange glowing runes and several
+slots has been placed along one of the {cwalls{x, and on the
+opposite side, several curtained booths have set up.  Off to
+the side, you see a large round {bbarrel{x without a cover.
+
+A stone {cp{gathwa{cy{x leads east, and tunnels have been carved north,
+west and south.
 ~
 0 DETU 0
 C Kindred~
 D0
+There's a shop to the north.
 ~
 ~
 0 -1 25004
 D1
+The pathway leads to a large cavern.
 ~
 ~
 0 -1 25000
 D2
+A delicious smell comes from the shop to the south.
 ~
 ~
 0 -1 25006
 D3
+There's a shop to the west.
 ~
 ~
 0 -1 25005
+E
+walls~
+The {cwalls{x draw light away from them, contributing to a general
+aura of {cdarkness{x and {Nsecrecy{x.
+~
+E
+metal plate atm~
+The inscription reads, "Versateller".  There are several signs
+attached, reading {W"{BV{Wis{Ya{W"{x, {W"{RMaster{Ycard{W"{x, {W"{BAmerican {WExpress"{x and
+{W"{cD{Yiscove{cr{W"{x.  Whatever that means...
+~
+E
+pathway~
+{gR{co{gc{ck{gs{x and {cb{goulder{cs{x have been embedded into the earth, and polished 
+flat to created a {cp{gathwa{cy{x.
+~
 S
 
 #25004
 Item Shop~
+This is the lobby of the Kindred Item Shop.  A varnished hardwood
+{bcounter{x separates the lobby from the rest of the shop.  In the
+back, rows of shelves are neatly stacked with items.  At the back
+of the shop, a dim light coming from an exit tunnel reveals the
+depth of this cavern.  A shopkeeper sits on a stool behind the
+counter, writing into a pad.  An exit to the south leads back to
+the West Wing of Kindred clanhall.
 ~
 0 DT 0
 C Kindred~
 D2
+To the south is Kindred's Activity Center.
 ~
 ~
 0 -1 25003
@@ -980,63 +1174,116 @@ S
 
 #25005
 Clan EQ Shop~
+This is the equipment shop of Kindred Clanhall.  There are large
+piles of exotic materials waiting to be transformed into pieces
+of equipment, but there are no discernable finished products.
+Instead, you see a blue sphere glowing softly off to the side,
+where finished pieces of equipment, having been crafted with the
+greatest care and imbued with extraordinary power are stored
+until they are needed.  An exit to the east leads back to the
+West Wing of Kindred Clanhall.
 ~
 0 DT 0
 C Kindred~
 D1
+To the east is Kindred's Activity Center.
 ~
 ~
 0 -1 25003
+E
+sphere~
+This is a softly glowing azure sphere, hovering a few feet off
+the store floor, perhaps two yards in diameter.
+~
 S
 
 #25006
 Food Shop~
+This is the Kindred Food Shop.  There are shelves of freshly...
+made goods.  The food items themselves are so varied that it is
+difficult to determine what they are, much less how they were
+prepared.  Smells of different styles of food linger in the air,
+probably a reflection of the varying tastes of the Kindred.  An
+exit to the north leads back to the West Wing of Kindred Clanhall.
 ~
 0 DT 0
 C Kindred~
 D0
+To the north is Kindred's Activity Center
 ~
 ~
 0 -1 25003
 S
 
 #25007
-Almost the bottom level (*shrug*)~
+Second Floor (Work Rooms)~
+This section of the cavern consists of a large vertical column.
+A spiraling wooden balcony has been built along the side of the
+shaft.  Soft red illumination comes from {Rr{Pu{gn{Pe{Rs{x carved at even
+intervals along the sides of the cavern, at about the height of
+a human standing on the balcony.  Carved granite blocks support
+{cg{gatewa{cys{x in all cardinal directions.  Below you, the shaft opens
+up to a spacious cavern.
 ~
 0 DT 0
 C Kindred~
 D0
+To the north is a room with a huge furnace.
 ~
 ~
 0 -1 25008
 D1
+To the east is a pet shop.  Strangely, there are no animal sounds.
 ~
 ~
 0 -1 25009
 D2
+To the south is a dark room.
 ~
 ~
 0 -1 25040
 D3
+A meeting room is west of here.
 ~
-~
-0 -1 25011
+door~
+1 -1 25011
 D4
+The cavern stretches upwards into the darkness.
 ~
 ~
 0 -1 25012
 D5
+The spiral balcony leads to a spacious cavern, ending in an dirt ramp.
 ~
 ~
 0 -1 25000
+E
+gateways~
+The stones that constitute the gateways glow brighter than the
+runes illuminating this section of the shaft.  The gateways
+themselves are moderately sized -- barely large enough for a
+giant to squeeze through.
+~
+E
+runes~
+You can make out more {Rr{Pu{gn{Pe{Rs{x adjacent to the runes of light, and it 
+seems that the {Rr{Pu{gn{Pe{Rs{x run continuously through the cavern.  However, 
+the {cdarkness{x within the walls suck out illumination, and there is
+no way to be sure.
+~
 S
 
 #25008
-Anvil Room~
+Forging Room~
+This is a large room with a nifty anvil in the center.  This
+anvil is free for all members of Kindred to use.  A small
+niche on one of the walls houses a fountain.  Forging weapons
+is thirsty work, after all.
 ~
 0 DT 0
 C Kindred~
 D2
+To the south is the balcony lining the sceond floor of the clanhall.
 ~
 ~
 0 -1 25007
@@ -1044,104 +1291,230 @@ S
 
 #25009
 Pet Shop~
+The Kindred have hired expert trainers to tame companions that
+are worthy to accompany them on their missions.  This is where
+they arrive to pick up their pets, a small shop carved out of
+the stone.  There are no animals kept here; rather, a glowing
+portal is maintained, allowing the shopkeeper to retrieve the
+pets from their training grounds.
 ~
 0 DT 0
 C Kindred~
 D3
+To the west is the balcony lining the second floor of the clanhall.
 ~
 ~
 0 -1 25007
+E
+portal~
+A magical portal is in back of the shop, allowing Xar to move
+to the surface and return with requested pets.
+~
 S
+
 
 #25010
 Sage's Room~
+Walking along the pathway, you pass through a shimmering portal.
+The room you have entered seems to be a living room of a famous
+wizard.  A {bgl{Yo{bb{Ye{x and a {Wcrystal ball{x dominate the room, reflecting
+light from a {Rfi{Pr{Yepl{Pa{Rce{x.  A gray-haired old man is here, seated
+in an {Marmchair{x.  Through the other side of the portal, you can
+see a stone {cP{gathway{c leading north.
 ~
 0 DT 0
 C Kindred~
 D0
+The portal leads back to the caverns of Kindred clanhall.
 ~
 ~
 0 -1 25000
+E
+pathways~
+Though hazy through the portal, you can see that this is the pathway
+leads back to the Ground Floor of Kindred Clanhall.
+~
+E
+globe~
+This is a magical construct, consisting entirely of light.  Half
+of the globe is darkened to represent night, and the surface of
+the globe constantly changes to reflect changes in the world.
+~
+E
+crystal ball~
+A spherical scrying crystal rests the claw of a carved wooden
+stand.  Right now, it is in standby mode, mostly dark with a
+point of light in the very center.
+~
+E
+armchair~
+This is an upholstered armchair, upon which the Kindred's sage
+sits to browse through the clan's expansive library.
+~
+E
+fireplace~
+A fireplace burns merrily here, filling the room with warmth
+and cheer.  The logs in the fireplace don't seem to burn, but
+that seems hardly extraordinary considering the magical power
+a high wizard of Kindred must possess.
+~
 S
 
 #25011
-Meeting Room~
+Conference Room~
+This is the meeting room of the Kindred.  A couch wrapped around a table
+dominates the center of the room.  Maps of Thera line the wall, and to the
+side there is a counter set with liquid refreshment.
 ~
 0 DT 0
 C Kindred~
 D1
+To the east is the balcony lining the second floor of the clanhall.
 ~
+door~
+1 -1 25007
+E
+counter~
+A wooden counter is here, with a glass container full of iced tea.
 ~
-0 -1 25007
+E
+coffee table~
+A mahogany table is in the center of the large couch.  Small pads dot the
+table, functioning as built-in coasters.
+~
 S
 
 #25012
-Going down...~
+Third Floor (Personal Rooms)~
+This section of the cavern consists of a large vertical column.
+A spiraling wooden balcony has been built along the side of the
+shaft.  Soft red illumination comes from {Rr{Pu{gn{Pe{Rs{x carved at even
+intervals along the sides of the caver, at about the height of 
+human standing on the balcony.  Carved granite blocks support
+{cg{gatewa{cys{x in all cardinal directions.  Each gateway has a sign
+next to it.  Perhaps if you looked in each direction, you could
+read the signs.  Above and below you, the shaft continues.
 ~
 0 DT 0
 C Kindred~
 D0
-To the north you see the inside of a small shack.
+Bamboo frames a sign that reads "Shack of Celes".
 ~
 ~
 0 -1 25050
 D4
+The balcony continues into the darkness.
 ~
 ~
 0 -1 25013
 D5
+The balcony continues into the darkness.
 ~
 ~
 0 -1 25007
+E
+runes~
+You can make out more {Rr{Pu{gn{Pe{Rs{x adjacent to the runes of light, and it 
+seems that the {Rr{Pu{gn{Pe{Rs{x run continuously through the cavern.  However, 
+the {cdarkness{x within the walls suck out illumination, and there is
+no way to be sure.
+~
+E
+signs~
+There are signs in each cardinal direction.
+~
+E
+gateways~
+The stones that constitute the gateways glow brighter than the
+runes illuminating this section of the shaft.  The gateways
+themselves are moderately sized -- barely large enough for a
+giant to squeeze through.
+~
 S
 
 #25013
-Going down...~
+Fourth Floor (Personal Rooms)~
+This section of the cavern consists of a large vertical column.
+A spiraling wooden balcony has been built along the side of the
+shaft.  Soft red illumination comes from {Rr{Pu{gn{Pe{Rs{x carved at even
+intervals along the sides of the cave, at about the height of 
+human standing on the balcony.  Carved granite blocks support
+{cg{gatewa{cys{x in all cardinal directions.  Each gateway has a sign
+next to it.  Perhaps if you looked in each direction, you could
+read the signs.  Above and below you, the shaft continues.
 ~
 0 DT 0
 C Kindred~
 D0
-A small, mushroom house is to the north.
+A sign has been painted in bright red letters on a parchment
+framed with oak.  It reads, "Yoshi!"
 ~
 ~
 0 -1 25051
 D1
-Sharra's Room is to the east.
+A bronze plate is here.  It has been engraved to read -
+"Sharra / Syveril".
 ~
 ~
 0 -1 25053
+D2
+A small framed sign made of steel has been bolted into the wall.
+On top of the frame, a glass plate creates room for card, which
+presently reads, {W"{xFor Rent{W"{x.
+~
+~
+0 -1 25054
 D3
-The Domain of the Signkeeper is to the west.
+Intricate wrought iron frames a sheet of admantite.  Fine gold
+lettering reads, "Keep out!  This means you! - The Signkeeper".
 ~
 ~
 0 -1 25052
 D4
+The balcony ends in a cavern.
 ~
 ~
 0 -1 25014
 D5
+The balcony continues into the darkness.
 ~
 ~
 0 -1 25012
+E
+signs~
+There are signs in each cardinal direction.
+~
 S
 
 #25014
-Going down...~
+Four Strong Winds~
+This section of the clanhall is a large, sloping cavern cloaked
+in an almost palpable darkness.  A current of air flows through
+the cave, fast enough to raise a chorus of wails from the holes
+on the sides of the cave.  The cavern continues, opening up and
+plunging down into the darkness.
 ~
 0 DT 0
 C Kindred~
 D4
+The cavern slopes upwards.
 ~
 ~
 0 -1 25015
 D5
+A wooden pathway with a railing spirals down into the darkness.
 ~
 ~
 0 -1 25013
 S
 
 #25015
-Going down...~
+Lair of Eenie and Meenie~
+A waterwall feeds an underground stream in this cavern.  There
+are many {Mstalagmites{x and {Vstalactites{x growing here, some of them
+glowing an eerie {Mpu{Vrpli{Msh{x color.  Off to the corner, there is a
+heap of bones, right next to a side-cave curtained off with an
+enormous hunk of {bdungaree{x.
 ~
 0 DT 0
 C Kindred~
@@ -1150,30 +1523,61 @@ D4
 ~
 0 -1 25016
 D5
+The cavern continues.
 ~
 ~
 0 -1 25014
+E
+heap bones~
+Interesting - not all of these are animal bones.  In fact, very
+few of them are.  They are bones from various humanoid races.
+~
+E
+stalagmites stalagtites~
+Stalagmites and stalagtites grow here, the product of countless
+drops of mineral water.
+~
+E
+side-cave cave~
+A low rumbling noise can be heard from the cave.  Probably one
+of the Smash brothers snoring.
+~
+E
+dungaree curtain~
+{Wdungaree{x <{Nnoun{x>:  a coarse durable twill-weave cotton fabric
+~
 S
 
 #25016
-{cE{gn{ct{gr{ca{gn{cc{ge {ct{go {RD{Pe{Rv{Pi{Rl{P{Rs {cC{ga{cv{ge{cr{gn~
-A {gsharply{x {cd{Re{gc{ca{Ry{gi{cn{Rg{x odor seeps from the cavern you now stand in. 
-{RC{Wa{Rr{Wn{Ra{Wg{Re{x seems to be growing from the walls, falling in clumps of 
-{cr{Ro{Wt{ct{Ri{Wn{cg{x and putrid flesh into piles on the gory floor. You walk 
-through the {cm{gu{cc{gk{x on the cavernfloor, compelled into the deep {kdarkness{x
-that leads into the depths of the {WK{cindred {Wo{cf {WD{carkness{W{x, 
-or quite simply, {RHell{x.
+In an Underground Pool~
+You are in an underground pool, submerged in the near freezing
+brackish water.  The cave is almost completely dark - the only
+lights native to the cave are the elusive flickers of {Yglow fish{x
+blinking in and out in the depths of the pool.  The pool feeds
+a waterfall the plunges into the darkness of caverns beyond.
 ~
-0 DT 0
+0 DT 6
 C Kindred~
 D4
+Heat emanates from the ceiling, in sharp contrast to this water.
 ~
 ~
 0 -1 10422
 D5
+What lies beyond the depths of these dark waters?
 ~
 ~
 0 -1 25015
+E
+rune~
+This is the insignia representing allegiance to the great Demon
+Akira, marking this as territory of {cK{Wi{gndr{We{cd{x of the {cD{Wa{grkne{Ws{cs{x.
+~
+E
+glow fish~
+These fish seem to be centered around a rune at the bottom of
+the pool.
+~
 S
 
 #25017
@@ -1184,26 +1588,31 @@ C Kindred~
 S
 
 #25040
-{RB{co{Ro{ct {RC{ca{Rm{cp{x~
-{WOh, you thought you *were* in {PH{Rel{Pl{W?  Now you've done it, you stand in the{x
-{Wtraining room of the K{cindred {Wo{cf {WD{carkness{W.  Here young fighters duel, often{x
-{Wto the {cdeath{W, to practice their skills.  The {cdark grey{W stone walls are{x
-{Wscarred by {gchips{W from weapon impacts and blackened in places by the{x
-{Woccasional stray blast of {Yf{Pir{Ye{W.  Dark patches on the stone floor attest to{x
-{Wthe {Rblood{W often spilled here, and seldom cleaned.  A thick chain suspends{x
-{Wan {ciron{W chandelier of torches from the vaulted stone ceiling, bathing the{x
-{Wroom in a deep {Rred{W hue that doesn't quite provide enough light to see by.{x
-{WYou are overcome by a sense of {cd{br{ce{ba{cd{W, and can barely resist the urge to{x
-{Wleave north to safety.{x
+{cK{Wi{gndr{We{cd{x {RArena{x~
+This is the battle-arena of the {cK{Wi{gndr{We{cd{x.  Wide pillars have
+been left to support the weight of this extended cavern.  The
+ceiling is low, with only minimal light from glowing {Gfungi{x
+along the pillars.  Even though this entire cavern has been
+reinforced magically to be resistant to wear, portions of
+some pillars can been charred and worn.
 ~
 0 DT 21
 C Kindred~
 H 90 M 90
 D0
-You can leave north back to the safety of the clanhall.
+You can leave north back to the relative safety of the clanhall.
 ~
 ~
 0 -1 25007
+E
+pillars~
+These pillars have been magically reinforced to resist the
+wear and tear that occurs to a room during battle training.
+~
+E
+fungus fungi~
+Bioluminescent fungi grow along some of the pillars.
+~
 S
 
 #25050
@@ -1294,6 +1703,19 @@ This is a tight weave rug, consisting of bright circles of color.
 ~
 S
 
+#25054
+Room for Rent~
+This room for rent.  Contact a {bL{Ya{gn{ct{ge{Yr{bn{x if you are interested.
+~
+0 DT 0
+C Kindred~
+D0
+North leads back to the clanhall.
+~
+~
+0 -1 25013
+S
+
 #0
 
 #RESETS
@@ -1301,17 +1723,18 @@ S
 M 0 25000 1 25000 1          * Vanesha (healer, train, gainer) to Clanrecall
 
 M 0 25001 1 25005 1          * Ashnod (CEQ shopkeeper) to his shop
-G 0 25050 1000               * Level 20 Boots
+G 0 25050 1000               * Level 30 Boots
 G 0 25051 1000               * Level 30 Helm
-G 0 25052 1000               * Level 30 Greaves
+G 0 25052 1000               * Level 30 Gloves
 G 0 25053 1000               * Level 30 Sleeves
-G 0 25054 1000               * Level 30 Floater
-G 0 25055 1000               * Level 40 Ring
-G 0 25060 1000               * Level 40 Light
-G 0 25056 1000               * Level 40 Neck
-G 0 25057 1000               * Level 40 Wrist
-G 0 25058 1000               * Level 50 Sleeves
+G 0 25054 1000               * Level 30 Wrist
+G 0 25056 1000               * Level 30 Ring
+G 0 25058 1000               * Level 40 Torso
+G 0 25055 1000               * Level 50 Ring
 G 0 25059 1000               * Level 60 Boots
+G 0 25057 1000               * Level 60 Wrist
+G 0 25060 1000               * Level 80 Light
+
 
 M 0 25002 1 25006 1          * Dystanex (Food shopkeeper) to his shop
 G 0 25001 1000
@@ -1320,7 +1743,16 @@ G 0 25003 1000
 G 0 25004 1000
 G 0 25005 1000
 G 0 25006 1000
+G 0 25008 1000
 G 0 25007 1000
+
+O 0 25100 1 25003            * Barrel (donation pit) to Activity Center (West Wing)
+
+M 0 25004 1 25004 1          * Lhaexis (Item shopkeeper) to his shop
+G 0 3380 1000                * clean parchment
+G 0 3381 1000                * empty vial
+
+M 0 25005 1 25010 1          * Learned Hand (sage) to his room
 
 O 0 25000 1 25001            * Load fountain in 25001
 O 0 25011 1 25002            * Load portal in 25002
@@ -1330,6 +1762,8 @@ O 0 25014 1 25001            * Load couch in 25001
 O 0 25015 100 25001          * Red pill in 25001
 O 0 25016 100 25001          * Blue pill in 25001
 O 0 25017 1 25008            * Anvil in 25008
+O 0 25018 1 25008            * Load water fountain in 25008
+O 0 25019 1 25011            * Load iced tea cooler in 25011
 
 M 0 25050 1 25050 1          * Cid in Celes' room
 O 0 25080 100 25050          * Yummy fish (pill) in Celes' room
@@ -1360,8 +1794,15 @@ S
 
 25001  9 1 0 0 0 100 75 0 23   * Ashnod
 25002 19 17 0 0 0 125 50 0 23   * Dystanex
+25004 28 8 33 37 15 125 50 0 23   * Lhaexis
 
 0
+
+#SPECIALS
+
+M 25005 spec_sage            * Learned Hand is a Sage
+
+S
 
 #$
 

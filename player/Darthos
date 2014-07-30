@@ -1,0 +1,438 @@
+#PLAYER
+Name Darthos~
+Id   1083462671
+LogO 1083626976
+Vers 14
+Mexp 1
+Pass meatloaf69~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Cla  0
+Levl 5
+Tru  0
+Plyd 8163
+Back 6277
+Note 1083536760 0 1083289505 0 1083422905 0 0
+Scro 22
+Room 9412
+HMS  59 103 96
+Gold 3
+Silv 1188
+Exp  13016
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -863
+FImm 0
+FRes BM
+FVul NS
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 1
+Trai 0
+Wimp 8
+Familiar 0
+Atrib 15 17 16 14 17 14
+Afk {B[{CMon May  3 00:52:24 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 58
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Kenneth~
+Lsit 172.148.207.59~
+Ltim Mon May 03 19:25:04 2004
+~
+LSav Mon May 03 19:29:36 2004
+~
+HMSP 57 142 116
+THMS 0 0 0
+Cnd  0 12 20 48
+Sk 1 1 'acid blast'
+Sk 1 1 'acid rain'
+Sk 1 1 'age'
+Sk 75 1 'armor'
+Sk 1 1 'blindness'
+Sk 1 1 'blizzard'
+Sk 1 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 1 1 'charm person'
+Sk 77 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 1 1 'curse'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 76 1 'detect invis'
+Sk 75 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'energy drain'
+Sk 1 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 1 1 'flameshield'
+Sk 1 1 'fly'
+Sk 1 1 'gate'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'identify'
+Sk 1 1 'infravision'
+Sk 75 1 'invisibility'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 85 1 'magic missile'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'power word'
+Sk 1 1 'portal'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'sanctuary'
+Sk 1 1 'scry'
+Sk 1 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'sleep'
+Sk 1 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 1 1 'steel mist'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'vision'
+Sk 1 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 76 1 'dagger'
+Sk 1 1 'brew'
+Sk 75 1 'languages'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 1 1 'familiar'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'mage default'
+Gr 'beguiling'
+Gr 'combat'
+Gr 'detection'
+Gr 'enhancement'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'armor'   0   3  20 -20  17          0 1
+Affc 'blood moon'   0  52  16   5  19          0 1
+Affc 'blood moon'   0  50  16   3  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Cond 92
+Wear 0
+Cost 0
+Val  0 0 17 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Cond 86
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 95
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Cond 93
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Cond 98
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 80
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 0 15 0 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3709
+Nest 0
+Cond 92
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#O
+Vnum 1502
+Nest 0
+Wear -1
+Cost 730
+End
+
+#O
+Vnum 1503
+Nest 0
+Wear -1
+Cost 730
+End
+
+#O
+Vnum 1502
+Nest 0
+Wear -1
+Cost 730
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear 5
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 0
+Val  150 54 15 0 0
+End
+
+#O
+Vnum 3500
+Nest 0
+Wear -1
+Cost 460
+End
+
+#O
+Vnum 3045
+Nest 0
+Wear -1
+Cost 850
+End
+
+#O
+Vnum 1211
+Nest 0
+Name token outsider pizza~
+ShD  a yummy, vegatarian pizza~
+Desc Outsider's vegatarian pizza with green peppers, mushrooms and pineapple~
+Wear -1
+Cost 0
+End
+
+#END

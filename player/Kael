@@ -1,0 +1,87 @@
+#PLAYER
+Name Kael~
+Id   1091154585
+LogO 1091167045
+Vers 14
+Mexp 0
+Pass jerben~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race wolf~
+Cla  7
+Levl 1
+Tru  0
+Plyd 4454
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  20 100 100
+Gold 0
+Silv 14
+Exp  1107
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig 0
+FImm 0
+FRes I
+FVul H
+Plr  HU
+Video 0
+Act  CDEFGHJQc
+AfBy 0
+Comm NOZ
+Revk 0
+Cgrp AG
+Cnsr AB
+Block_Remote 0
+Prac 0
+Trai 0
+Wimp 0
+Familiar 0
+Atrib 17 14 11 15 20 12
+Afk {B[{CFri Jul 30 01:22:52 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 20
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kismet~
+Lsit mta.prod1.dngr.net~
+Ltim Fri Jul 30 01:05:37 2004
+~
+LSav Fri Jul 30 01:57:25 2004
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 61 1 'axe'
+Sk 1 1 'flail'
+Sk 1 1 'hand to hand'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 7 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'enhancement'
+End
+
+#END

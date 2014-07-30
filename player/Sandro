@@ -1,46 +1,47 @@
 #PLAYER
 Name Sandro~
 Id   1015948736
-LogO 1016864389
-Vers 13
+LogO 1060017942
+Vers 14
+Mexp 2
+Pass 01320177~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race human~
-Clan blackclaw~
-Sex  1
 Cla  3
 Levl 24
+Tru  0
 Plyd 56634
-Age  0
 Back 53408
 Note 1016864285 1016864285 1016864285 1016864285 1016864285 1016864285 1016864285
 Scro 22
 Room 3001
-HMS  457 457 256 256 405 405
+HMS  457 256 405
 Gold 64
 Silv 248
 Exp  48356
-PCkills 0
+PCkills  0
 PCkilled 2
-Akills 0
-Akilled 1
-PKRank 0
+Akills   0
+Akilled  1
+PKRank   0
+Pos  8
+Alig -17
+FImm 0
+FRes 0
+FVul 0
+Plr  HT
+Video 0
 Act  CDEFGHJLS
 AfBy a
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
-Save  -2
-Alig  -17
-Hit   20
-Dam   21
-ACs 30 35 30 89
-Wimp  88
+Prac 0
+Trai 0
+Wimp 88
 Atrib 21 18 18 18 18 18
-AtMod 5 3 7 4 2 0
-QuestPnts 3
-Pass 01320177~
+QuestPnts  3
 Afk {B[{CWed Mar 13 20:21:53 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {TS{Ch{Ta{Cd{To{Cw {MNinja~
@@ -52,14 +53,10 @@ TSex 1
 LLev 15
 Deit *Alisa~
 Lsit Brampton-ppp70393.sympatico.ca~
-Ltim Sat Mar 23 00:19:14 2002
+Ltim Fri Mar 22 22:19:14 2002
 ~
-LSav Sat Mar 23 00:19:49 2002
+LSav Mon Aug 04 13:25:42 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  T
 HMSP 352 196 405
 THMS 0 0 0
 Cnd  0 0 23 19

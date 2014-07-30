@@ -1,25 +1,25 @@
 #PLAYER
 Name Aoveron~
 Id   1406398274
-LogO 1406570368
+LogO 1406688306
 Vers 15
 Mexp 1
 Pass 955321~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race dragon~
-Clan highlanders~
 Cla  0
-Levl 5
-Plyd 12328
-Back 12295
+Levl 12
+Plyd 24006
+Back 23994
 Note 1406559493 0 0 0 1406555570 0 0
 Scro 22
 Room 3001
-HMS  57 152 94
-Gold 0
-Silv 934
-Gold_in_bank 3
-Exp  12424
+HMS  135 253 148
+Gold 12
+Silv 1642
+Silver_in_bank 7000
+Gold_in_bank 149
+Exp  26376
 PCkills  0
 PCkilled 0
 Akills   0
@@ -30,21 +30,21 @@ Alig -1000
 FImm 0
 FRes EG
 FVul F
-Plr  U
+Plr  HU
 Video D
 Act  CDEFGHJLQSc
-AfBy TZ
-Comm MNO
+AfBy BCDEGHJOTZ
+Comm MNOQ
 Revk 0
 Cgrp IKO
 Cnsr B
 Block_Remote 0
 Prac 0
 Trai 0
-Wimp 0
+Wimp 20
 Familiar 0
-Atrib 16 21 18 12 20 13
-Afk {B[{CSun Jul 27 15:51:04 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Atrib 19 21 20 14 20 13
+Afk {B[{CMon Jul 28 20:01:43 2014{B] {CUnknown Departure.{x
 ~
 Titl .~
 Immn ~
@@ -52,25 +52,26 @@ Pnts 55
 Rank ~
 Aura ~
 TSex 1
-LLev 3
+LLev 6
 Email xenith@xenith.org~
 Deit Xenith~
 Lsit 204.212.183.131~
-Ltim Mon Jul 28 10:58:39 2014
+Ltim Tue Jul 29 10:05:26 2014
 ~
-LSav Mon Jul 28 10:59:28 2014
+LSav Tue Jul 29 19:45:06 2014
 ~
-HMSP 53 145 114
+HMSP 131 233 148
 THMS 0 0 0
-Cnd  0 44 47 22
+Cnd  0 0 23 0
+Colr 0 32 1
 Sk 1 1 'acid blast'
 Sk 1 1 'acid breath'
 Sk 1 1 'acid rain'
 Sk 1 1 'age'
 Sk 78 1 'armor'
-Sk 1 1 'blindness'
+Sk 75 1 'blindness'
 Sk 1 1 'blizzard'
-Sk 1 1 'burning hands'
+Sk 90 1 'burning hands'
 Sk 1 1 'call lightning'
 Sk 1 1 'calm'
 Sk 1 1 'cancellation'
@@ -81,8 +82,8 @@ Sk 79 1 'chill touch'
 Sk 1 1 'colour spray'
 Sk 1 1 'control weather'
 Sk 1 1 'curse'
-Sk 1 1 'detect evil'
-Sk 1 1 'detect good'
+Sk 75 1 'detect evil'
+Sk 75 1 'detect good'
 Sk 1 1 'detect hidden'
 Sk 75 1 'detect invis'
 Sk 75 1 'detect magic'
@@ -90,7 +91,7 @@ Sk 1 1 'detect poison'
 Sk 1 1 'dispel magic'
 Sk 1 1 'divine regeneration'
 Sk 1 1 'energy drain'
-Sk 1 1 'faerie fire'
+Sk 75 1 'faerie fire'
 Sk 1 1 'faerie fog'
 Sk 1 1 'fire breath'
 Sk 1 1 'fireball'
@@ -101,18 +102,18 @@ Sk 1 1 'fly'
 Sk 1 1 'frost breath'
 Sk 1 1 'gas breath'
 Sk 1 1 'gate'
-Sk 1 1 'giant strength'
+Sk 75 1 'giant strength'
 Sk 1 1 'haste'
 Sk 1 1 'identify'
-Sk 1 1 'infravision'
-Sk 56 1 'invisibility'
+Sk 75 1 'infravision'
+Sk 75 1 'invisibility'
 Sk 1 1 'know alignment'
 Sk 1 1 'light of truth'
 Sk 1 1 'lightning bolt'
 Sk 1 1 'lightning breath'
-Sk 1 1 'locate life'
-Sk 1 1 'locate object'
-Sk 92 1 'magic missile'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
+Sk 100 1 'magic missile'
 Sk 1 1 'mass invis'
 Sk 1 1 'nexus'
 Sk 1 1 'pass door'
@@ -121,13 +122,13 @@ Sk 1 1 'poison'
 Sk 1 1 'power word'
 Sk 1 1 'portal'
 Sk 1 1 'protection evil'
-Sk 1 1 'protection good'
-Sk 1 1 'refresh'
+Sk 75 1 'protection good'
+Sk 75 1 'refresh'
 Sk 1 1 'regeneration'
 Sk 1 1 'sanctuary'
 Sk 1 1 'scry'
 Sk 1 1 'shield'
-Sk 1 1 'shocking grasp'
+Sk 87 1 'shocking grasp'
 Sk 1 1 'sleep'
 Sk 1 1 'slow'
 Sk 1 1 'smokescreen'
@@ -142,17 +143,17 @@ Sk 1 1 'teleport object'
 Sk 1 1 'undo spell'
 Sk 1 1 'ventriloquate'
 Sk 1 1 'vision'
-Sk 1 1 'weaken'
+Sk 76 1 'weaken'
 Sk 1 1 'word of recall'
 Sk 1 1 'wrath'
-Sk 77 1 'dagger'
-Sk 17 1 'brew'
+Sk 79 1 'dagger'
+Sk 75 1 'brew'
 Sk 1 1 'bash'
-Sk 1 1 'lore'
+Sk 75 1 'lore'
 Sk 100 1 'scan'
-Sk 1 1 'scrolls'
+Sk 36 1 'scrolls'
 Sk 1 1 'staves'
-Sk 49 1 'wands'
+Sk 75 1 'wands'
 Sk 74 1 'recall'
 Sk 1 1 'familiar'
 Gr 'rom basics'
@@ -168,10 +169,17 @@ Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'divine regeneration'   0  91  38   0   0   33554432 4
-Affc 'armor'   0   5  18 -20  17          0 1
-Affc 'blood moon'   0  51   5   3  18          0 1
-Affc 'blood moon'   0  48   5   5  19          0 1
+Affc 'sanctuary'   0  96   3   0   0        128 4
+Affc 'detect evil'   0  10   7   0   0          4 1
+Affc 'detect good'   0  11   7   0   0         64 1
+Affc 'detect invis'   0  10   7   0   0          8 1
+Affc 'detect magic'   0  11   7   0   0         16 1
+Affc 'giant strength'   0  11   8   2   1          0 1
+Affc 'armor'   0  10  16 -20  17          0 1
+Affc 'infravision'   0  12  19   0   0        512 1
+Affc 'protection good'   0  11  20  -1  24      16384 1
+Affc 'invisibility'   0  11  20   0   0          2 1
+Affc 'divine regeneration'   0  97  88   0   0   33554432 4
 End
 
 #O
@@ -205,6 +213,7 @@ End
 #O
 Vnum 75
 Nest 0
+Cond 83
 Wear 1
 Cost 620
 End
@@ -212,7 +221,7 @@ End
 #O
 Vnum 76
 Nest 0
-Cond 93
+Cond 87
 Wear 17
 Cost 550
 End
@@ -230,7 +239,7 @@ Vnum 79
 Nest 0
 Wear -1
 Cost 200
-Val  150 138 15 0 0
+Val  150 66 15 0 0
 End
 
 #O
@@ -238,13 +247,6 @@ Vnum 82
 Nest 0
 Wear -1
 Cost 500
-End
-
-#O
-Vnum 83
-Nest 0
-Wear -1
-Cost 0
 End
 
 #O
@@ -258,22 +260,15 @@ End
 Vnum 3711
 Enchanted
 Nest 0
-Cond 97
+Cond 94
 Wear 12
 Cost 82
 End
 
 #O
-Vnum 3701
-Nest 0
-Wear 16
-Cost 210
-End
-
-#O
 Vnum 3704
 Nest 0
-Cond 99
+Cond 96
 Wear 11
 Cost 0
 End
@@ -286,22 +281,17 @@ Cost 23
 End
 
 #O
-Vnum 3066
-Nest 0
-Wear 5
-Cost 430
-End
-
-#O
 Vnum 3052
 Nest 0
-Wear 14
+Cond 87
+Wear 15
 Cost 112
 End
 
 #O
 Vnum 3071
 Nest 0
+Cond 86
 Wear 10
 Cost 220
 End
@@ -309,6 +299,7 @@ End
 #O
 Vnum 3053
 Nest 0
+Cond 88
 Wear 13
 Cost 136
 End
@@ -316,122 +307,154 @@ End
 #O
 Vnum 3052
 Nest 0
-Wear 15
+Cond 82
+Wear 14
 Cost 112
 End
 
 #O
-Vnum 3011
-Nest 0
-Wear -1
-Cost 9
-End
-
-#O
-Vnum 3011
-Nest 0
-Wear -1
-Cost 9
-End
-
-#O
-Vnum 3011
-Nest 0
-Wear -1
-Cost 9
-End
-
-#O
-Vnum 3011
-Nest 0
-Wear -1
-Cost 9
-End
-
-#O
-Vnum 3011
-Nest 0
-Wear -1
-Cost 9
-End
-
-#O
-Vnum 3716
-Nest 0
-Wear 0
-Cost 0
-Val  0 0 167 0 0
-End
-
-#O
-Vnum 10126
-Enchanted
+Vnum 10127
 Nest 0
 Wear 7
-Cost 57
-Affc 'reserved'   1   5  -1   5  12          0 1
-Affc 'reserved'   1   5  -1   1   4          0 1
-Affc 'reserved'   1   5  -1   1  14          0 1
+Cost 128
 End
 
 #O
-Vnum 10126
+Vnum 6646
+Nest 0
+Wear -1
+Time 474
+Cost 150
+Spell 1 'cure light'
+Spell 2 'armor'
+End
+
+#O
+Vnum 21
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4589
+Nest 0
+Wear 0
+Cost 500
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear -1
+Cost 1560
+End
+
+#O
+Vnum 9909
+Nest 0
+Cond 91
+Wear -1
+Cost 1930
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 3012
+Nest 0
+Wear -1
+Cost 16
+End
+
+#O
+Vnum 12710
 Enchanted
 Nest 0
-Wear -1
-Cost 57
-Val  4 4 4 1 0
-Affc 'reserved'   1   5  -1   5  12          0 1
-Affc 'reserved'   1   5  -1   1   4          0 1
+ExtF 66
+Cond 59
+Wear 16
+Lev  15
+Cost 500
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
 End
 
 #O
-Vnum 10126
+Vnum 3177
 Nest 0
-Wear -1
-Cost 57
+Wear 18
+Cost 600
+ExDe owned by~ Aoveron~
 End
 
 #O
-Vnum 10126
+Vnum 3185
 Nest 0
-Wear -1
-Cost 57
-End
-
-#O
-Vnum 10126
-Nest 0
-Wear -1
-Cost 57
-End
-
-#O
-Vnum 10126
-Nest 0
-Wear -1
-Cost 57
-End
-
-#O
-Vnum 10126
-Nest 0
-Wear -1
-Cost 57
-End
-
-#O
-Vnum 10126
-Nest 0
-Wear -1
-Cost 57
-End
-
-#O
-Vnum 10126
-Nest 0
-Wear -1
-Cost 57
+Wear 5
+Cost 1200
+ExDe owned by~ Aoveron~
 End
 
 #END

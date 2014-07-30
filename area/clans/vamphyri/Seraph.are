@@ -113,6 +113,8 @@ ABV 0 900 0
 CEFJKN ABCD 0 0
 stand stand female 200000
 0 0 medium 0
+
+
 #24207
 aleric elf healer~
 {WAleric{x~
@@ -123,11 +125,13 @@ healing and medical techniques.
 ~
 human~
 ABQVa DFH 1000 S
-140 5 1d1+9999 1d1+9999 3d8+24  divine
--70 -70 -70 -70
+158 5 1d1+9999 1d1+9999 3d8+42  divine
+-95 -95 -95 -95
 FHIK ABCD 0 0
 stand stand male 0
 0 0 medium 0
+
+
 #24208
 albert einstein trainer~
 {WAlbert Einstein{x~
@@ -285,21 +289,31 @@ armor AB AB
 7 7 7 7 0
 20 5 1666 P
 A
-18 3
+18 2
 A
-19 3
+19 2
 A
 4 1
 A
 9 1
+A
+5 1
+A
+13 10
+A
+12 10
 E
 eqstats~
 stock:  4 points
-bought 1 points
+bought 4 points
 3 points:  +3 hit/dam
 1 point:   +1 age
 1 point:   +1 wis
-= 5 points
+1 point:   +1 con
+1 point:   +10 mana
+1 point:   +10 hp
+= 8 points
+This eq is maxed
 ~
 
 #24201
@@ -313,20 +327,31 @@ armor AB AC
 A
 12 10
 A
-18 3
+18 2
 A
-19 3
+19 2
 A
 9 1
+A
+3 1
+A
+5 1
+A
+13 10
 E
 eqstats~
 stock:  4 points
-bought 1 points
+bought 4 points
 1 point:  +10 mana
 3 points: +3 hit/dam
 1 point:  +1 age
-=5 points
+1 point:  +1 int
+1 point:  +1 con
+1 point:  +10hp
+=8 points
+This eq is maxed
 ~
+
 
 #24202
 bracelet zoe~
@@ -339,7 +364,7 @@ armor AB AM
 A
 12 10
 A
-13 10
+13 20
 A
 18 3
 A
@@ -349,12 +374,12 @@ A
 E
 eqstats~
 stock:  5 points
-bought 1 points
+bought 2 points
 1 point:  +10 mana
-1 point:  +10 hp
+2 point:  +20 hp
 3 points: +3 hit/dam
 1 point:  +1 str
-=6 points
+=7 points
 ~
 
 #24203
@@ -389,6 +414,7 @@ bought 1 points
 =7 points
 ~
 
+
 #24204
 holy plate~
 {WHoly Plate{x~
@@ -418,6 +444,7 @@ bought 1 points
 =8 points
 ~
 
+
 #24205
 heavenly helm~
 {YHeavenly {BHelm{x~
@@ -435,16 +462,20 @@ A
 A
 1 1
 A
-13 10
+13 30
+A
+12 20
 E
 eqstats~
 stock:  8 points
-bought 1 points
+bought 5 points
 6 points:  +6 hit/dam
 2 points:  +1 str/con
-1 point:   +10 hp
-=9 points
+3 point:   +30 hp
+2 points:  +20 mana
+=13 points
 ~
+
 
 #24206
 holy sandals~
@@ -472,6 +503,7 @@ bought 0 points
 =9 points
 ~
 
+
 #24207
 seraphic garb~
 {RSeraphic {WGarb{x~
@@ -485,17 +517,18 @@ A
 A
 13 30
 A
-18 4
+18 5
 A
-19 4
+19 5
 E
 eqstats~
 stock:  10 points
-bought 0 points
+bought 1 points
 6 points:  +30 hp/mana
-4 points:  +4 hit/dam
-=10 points
+5 points:  +5 hit/dam
+=11 points
 ~
+
 
 #24208
 angel armband~
@@ -508,20 +541,21 @@ armor AB AM
 A
 12 30
 A
-18 6
+18 7
 A
-19 6
+19 7
 A
 26 1
 E
 eqstats~
 stock:  10 points
-bought 0 points
+bought 1 points
 3 points:  +30 mana
-6 points:  +6 hit/dam
+7 points:  +7 hit/dam
 1 point:   +1 chr
-=10 points
+=11 points
 ~
+
 
 #24209
 band gods~
@@ -548,6 +582,7 @@ bought 0 points
 =10 points
 ~
 
+
 #24210
 ivory fountain~
 An {WIvory{x fountain~
@@ -567,6 +602,7 @@ food 0 A
 6 10 0 0 0
 1 3 4 P
 
+
 #24212
 devils food cake~
 {RDevils {bfood Cake{x~
@@ -575,6 +611,7 @@ cake~
 food 0 A
 12 12 0 0 0
 1 3 8 P
+
 
 #24213
 cheesecake cake~
@@ -585,6 +622,7 @@ food 0 A
 18 12 0 0 0
 1 3 16 P
 
+
 #24214
 angels food cake~
 {WAngels Food Cake{x~
@@ -593,6 +631,7 @@ cake~
 food 0 A
 20 14 0 0 0
 1 3 20 P
+
 
 #24215
 blueberry angels food cake~
@@ -604,6 +643,7 @@ food 0 A
 25 30 0 0 0
 1 4 24 P
 
+
 #24216
 cranberry juice cocktail~
 {Pc{Rr{Pa{Rn{Pb{Re{Pr{Rr{Py {Rjuice cocktail{x~
@@ -612,6 +652,7 @@ cranberry juice~
 drink 0 A
 25 25 'cranberry juice' 0 0
 1 4 4 P
+
 
 #24217
 kiwi lime shooter~
@@ -622,6 +663,7 @@ drink 0 A
 40 40 'lemonade' 0 0
 1 4 16 P
 
+
 #24218
 apple juice cocktail~
 {YApple Juice cocktail{x~
@@ -630,6 +672,7 @@ apple juice~
 drink 0 A
 60 60 'orange juice' 0 0
 1 4 24 P
+
 
 #24219
 root beer~
@@ -640,6 +683,7 @@ drink 0 A
 30 30 'root beer' 0 0
 1 4 8 P
 
+
 #24220
 strawberry daquiri~
 {PStrawberry {RDaquiri{x~
@@ -648,6 +692,7 @@ strawberries~
 drink 0 A
 50 50 'sherry' 0 0
 1 4 20 P
+
 
 #24221
 jukebox~
@@ -663,6 +708,7 @@ Woooow how strange a little device flips a little silver shiny
 disc over and the next thing you know music comes out ... this
 is really AMAZING!
 ~
+
 
 #24222
 anvil power~
@@ -681,6 +727,7 @@ on this piece of equipment but it is still serviceable and being put
 to good use.
 ~
 
+
 #24224
 conductors baton~
 Conductors baton~
@@ -694,6 +741,7 @@ conductors baton~
 Its a conductors baton that you can use to create beautiful music.
 ~
 
+
 #24225
 angel grail~
 {WAngel Grail{x~
@@ -702,6 +750,7 @@ gold~
 drink ABSY A
 450 10 'water' 0 0
 1 5 400 P
+
 
 #24226
 fluffy cloud~
@@ -712,6 +761,7 @@ furniture SY A
 1 0 EHK 150 150
 1 10 400 P
 
+
 #24227
 blessed parchment~
 {WBlessed {bParchment{x~
@@ -720,6 +770,7 @@ parchment~
 scroll G AO
 40 '' '' '' ''
 1 5 750 P
+
 
 #24228
 crystal vial~
@@ -730,6 +781,7 @@ potion G AO
 40 '' '' '' ''
 1 5 750 P
 
+
 #24229
 bag miracles~
 {WBag{x of {CMiracles{x~
@@ -739,6 +791,7 @@ container SY A
 250 A 0 100 25
 20 50 2400 P
 
+
 #24230
 holy light~
 {WHoly Light{x~
@@ -747,14 +800,7 @@ light~
 light SY AO
 0 0 -1 0 0
 20 40 2400 P
-A
-18 4
-A
-19 4
-A
-12 10
-A
-13 10
+
 
 #24231
 water fountain~
@@ -769,6 +815,8 @@ water fountain~
 This is a regular water fountain that you see most everywhere.
 It is made out of steel and looks a little old.
 ~
+
+
 #24232
 angel tear crystal vial~
 {CAngel {BTear{x~
@@ -777,6 +825,8 @@ crystal~
 potion 0 A
 15 'cure serious' 'cure serious' 'cure crit' 'cure crit'
 15 10 10 P
+
+
 #24233
 canopy bed~
 A comfy canopy bed~
@@ -792,6 +842,8 @@ fluffy pillows also in black satin. It is draped in black lace and the headboard
 has two hearts intertwining with the names Leigh and DarkAvatar engraved 
 upon them.
 ~
+
+
 #24234
 can jolt cola~
 {YJ{Go{Yl{Gt {YC{Go{Yl{Ga{x~
@@ -805,6 +857,8 @@ can jolt cola~
 It's a nice frosty can of jolt cola drink; be careful, too many of these and 
 your head may explode.
 ~
+
+
 #24235
 waterbed bed~
 A big waterbed~
@@ -818,6 +872,8 @@ waterbed bed~
 It's a big comfy water bed coverd in black silk sheets and large pillows with the names
 DarkAvatar and Leigh sewn into them.
 ~
+
+
 #24236
 featherbed bed~
 A featherbed~
@@ -834,6 +890,8 @@ and enjoy yourself. Its four posts are exquisitely carved and
 adorned with fine that drape from its canopy. the design itself
 give a romantic appeal to the atmosphere.
 ~
+
+
 #24237
 nectar goblets~
 A pair of {BBlue Crystal Goblets{x~
@@ -848,6 +906,8 @@ Blue crystal goblets float by the bed within easy reach if you don't
 want to get up. The elvish wine, favoured by elves is sweet and is
 known to drown the drinker in waves of ecstasy.
 ~
+
+
 #24238
 wild berries batch~
 A batch of {TW{Vi{Tl{Vd {TB{Ve{Tr{Vr{Ti{Ve{Ts{x~
@@ -857,6 +917,8 @@ berries~
 pill 0 A
 15 'sanc' 'frenzy' 'blood moon' 'bless'
 15 5 10 P
+
+
 #24239
 mirror arena portal~
 A {Cshimmering{x mirror~
@@ -869,6 +931,8 @@ E
 mirror arena portal~
 This portal lead to the small arena under the clan hall.
 ~
+
+
 #24240
 portal oran~
 Portal to Oran~
@@ -877,6 +941,8 @@ glass~
 portal O P
 0 0 A 5610 0
 1 10 10 P
+
+
 #24241
 portal looney tunes~
 Portal to Looney Tunes~
@@ -885,6 +951,8 @@ glass~
 portal O P
 0 0 A 2927 0
 1 10 10 P
+
+
 #24242
 portal divided souls~
 Portal to Divided Souls~
@@ -988,22 +1056,6 @@ cloth~
 armor ABY AL
 15 15 15 15 0
 45 2 5000 P
-E
-belt~
-A {Ygold <<*><*>> belt{x made by the heavens and given to mankind.
-~
-E
-eqstat~
-stock:  6
-bought: 1
-
-3 points:  +3 hit/dam
-1 point:   +1 age
-1 point:   +10 mana
-1 point:   +10 hp
-1 point:   +10 stamina
-= 7 points
-~
 A
 9 1
 A 
@@ -1013,9 +1065,26 @@ A
 A
 14 10
 A
-18 3
+18 4
 A
-19 3
+19 4
+E
+belt~
+A {Ygold <<*><*>> belt{x made by the heavens and given to mankind.
+~
+E
+eqstat~
+stock:  6
+bought: 2
+
+3 points:  +4 hit/dam
+1 point:   +1 age
+1 point:   +10 mana
+1 point:   +10 hp
+1 point:   +10 stamina
+= 8 points
+~
+
 
 #24251
 sleeves~
@@ -1059,21 +1128,11 @@ Someone from {CDivinity{x has left their boots on the ground.~
 stardust~
 armor ABY AG
 8 8 8 8 0
-25 0 2200 P
-E
-boots~
-Specially crafted boots from stardust.
-~
-E
-eqstat~
-stock:  4 points
-bought: 1 points
-
-1 point:  +1 age
-1 point:  +10 stamina
-3 points: +3 hit and dam
-= 5 points 
-~
+30 0 2200 P
+A
+1 1
+A
+2 1
 A
 9 1
 A
@@ -1082,6 +1141,23 @@ A
 18 3
 A
 19 3
+E
+boots~
+Specially crafted boots from stardust.
+~
+E
+eqstat~
+stock:  5 points
+bought: 2 points
+
+1 point:  +1 age
+1 point:  +10 stamina
+3 points: +3 hit and dam
+1 point:  +1 str
+1 point:  +1 dex
+= 7 points 
+~
+
 
 #24253
 robe devotion~
@@ -1091,20 +1167,8 @@ cloth~
 armor ABS AK
 12 12 12 11 0
 35 5 3400 P
-E
-robe devotion~
-A prized robe that was spun from the glory and riches of heaven.
-~
-E
-eqstat~
-stock:  5 points
-bought: 2 points
-
-2 points:  +20 hp
-2 points:  +20 mana
-3 points:  +3 hit and dam
-= 7 points
-~
+A
+4 1
 A
 12 20
 A
@@ -1113,6 +1177,22 @@ A
 18 3
 A
 19 3
+E
+robe devotion~
+A prized robe that was spun from the glory and riches of heaven.
+~
+E
+eqstat~
+stock:  5 points
+bought: 3 points
+
+2 points:  +20 hp
+2 points:  +20 mana
+3 points:  +3 hit and dam
+1 point:   +1 wis
+= 8 points
+~
+
 
 #24254
 sacred heart cross~
@@ -1122,6 +1202,14 @@ gold~
 armor ABY AC
 22 22 22 21 0
 65 5 6700 P
+A
+13 40
+A
+18 5
+A
+19 5
+A
+12 30
 E
 robe devotion~
 A cross from the heavens.
@@ -1129,18 +1217,14 @@ A cross from the heavens.
 E
 eqstat~
 stock:  8 points
-bought: 0 points
+bought: 4 points
 
 4 points:  +40 hp
-4 points:  +4 hit and dam
-= 8 points
+5 points:  +5 hit and dam
+3 points:  +30 mana
+= 12 points
 ~
-A
-13 40
-A
-18 4
-A
-19 4
+
 
 #24255
 glass frosted crystal~

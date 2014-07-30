@@ -1,7 +1,7 @@
 #PLAYER
 Name Darius~
 Id   1020121220
-LogO 1022650940
+LogO 1060825755
 Vers 14
 Mexp 1
 Pass 232323~
@@ -55,7 +55,7 @@ Deit Liriel~
 Lsit AC958E5D.ipt.aol.com~
 Ltim Wed May 01 21:30:08 2002
 ~
-LSav Wed May 29 00:42:20 2002
+LSav Wed Aug 13 21:49:15 2003
 ~
 HMSP 117 138 169
 THMS 0 0 0
@@ -94,8 +94,8 @@ Gr 'paladin basics'
 Gr 'benedictions'
 Gr 'curative'
 Gr 'healing'
-Affc 'bless'   0  56  47   7  18          0 1
 Affc 'bless'   0  56  47  -7  24          0 1
+Affc 'bless'   0  56  47   7  18          0 1
 End
 
 #O

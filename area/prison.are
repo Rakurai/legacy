@@ -7,7 +7,7 @@ prison~
 #MOBILES
 #5401 
 junior guard~
-a {HJunior{x guard~
+a Junior guard~
 The young, junior guard is here, attempting to look undaunted. 
 ~
 The life in the prison is a trying one where a mistake can be fatal. Therefore,
@@ -25,11 +25,11 @@ stand stand male 10
 
 #5402
 guard senior~
-a {GSenior{x guard~
+a Senior guard~
 A seasoned guard takes little notice of you.
 ~
-This guard is sufficiently jaded so as to be able to do his job well. He does 
-not like any trouble in the cell block and can be quite a trouble himself. 
+This guard is sufficiently jaded to do his job well. He does not like any
+trouble in the cell block and can be trouble himself. 
 ~
 troll~
 ACGT Z -1000 S
@@ -41,9 +41,9 @@ stand stand male 10
 
 
 #5404
-dauber prison administrator~
-Dauber~
-This administrator can be as menacing as the guards.
+prison administrator~
+A prison administrator~
+This administrator can be as menacing as the guards it seems.
 ~
 This administrator was a guard for a long time and now leaves the office every
 so often to harrass the prisoners for old times sake.
@@ -59,11 +59,10 @@ stand stand male 1000
 
 #5405
 professional thief~
-Lightfingers~
-A master thief. 
+A professional thief~
+A master in the class of thieves. 
 ~
-The cunning knave looks bruttish and ready to fight. He has many scars from
-previous srabbles. He has a tatto that reads, if it is not nailed down take it.
+The cunning knave looks bruttish and ready to fight.
 ~
 giant~
 ABCFT HVZc -1000 S
@@ -76,8 +75,8 @@ stand stand male 0
 
 
 #5407
-murderer rasputin murdering bandit~
-Rasputin the Murdering Bandit~
+murderer murdering bandit~
+The Murdering Bandit~
 A giant, vicious, murdering, vile, bandit.
 ~
 The bandit is large, has a huge mouth, lotsa teeth, green eyes,
@@ -86,7 +85,7 @@ from the Ruins of Thalos, but it is a lot meaner, as you are about to
 find out.
 ~
 giant~
-ABCFW HZT -1000 S
+ABCFW HZDT -1000 S
 70 +1 1d1+6999 1d1+200 7d6+20 beating
 -25 -25 -25 -15
 CEFQK ABE N 0
@@ -96,13 +95,11 @@ stand stand none 1000
 
 #5408
 anarchist~
-The {Pa{Wn{Va{Gr{Cc{Rh{bi{Ws{Vt{x~
-An anarchist growls menacingly.
+The anarchist~
+An anarchist devoted to overthrowing the city growls menacingly.
 ~
-This dragon, formerly known as Wince, is dedicated to the overthrow of the 
-government and so has earned the hospitality of the city of Midgaard. He gives 
-to all even the ones he is in the process of killing, the virtues of his 
-political philosophy which will bring about the end of the beginning. 
+This dragon is dedicated to the overthrow of the government and so has 
+earned the hospitality of Midgaard here. 
 ~
 dragon~
 ABCFW HZDT -1000 S
@@ -114,8 +111,8 @@ stand stand none 1000
 
 
 #5409
-jingle tax evader~
-Jingle he {f{Wtax{x evader~
+tax evader~
+The tax evader~
 A very tall member of an organized crime organization is here for tax evasion.
 ~
 The even the mightiest are brought down when they avoid giving unto Ceaser.
@@ -130,9 +127,10 @@ stand stand none 0
 
 
 #5410
-arsonist spark~
-Spark the {Pa{Yr{Ps{Ro{Pn{Ri{Ys{Rt{x~
-A strange-looking arsonist. This is an obviously troubled soul.
+arsonist~
+The arsonist~
+A strange-looking arsonist. 
+This is an obviously troubled soul.
 ~
 The arsonist is lanky, almost undernourished. The eyes are full of rage 
 and pain. The soul burns with desire to destroy.
@@ -151,9 +149,8 @@ rapist~
 The mad rapist~
 A sexual predator of Midgaard. 
 ~
-The predator is strong physically, but weak in the spirit. Needing to show his 
-power by unspeakable acts towards those he can easily overpower. He is reviled 
-even in prison.
+The predator is strong physically, but weak in the spirit. Needing to 
+show his power by unspeakable acts towards those he can easily overpower.
 ~
 giant~
 ABFT ZHc -1000 S
@@ -167,8 +164,8 @@ stand stand none 0
 
 #5413
 atheist~
-{VBalthezar the inveterate atheist{x~
-Balthezar adamantly refuses to belive in the power and glory of the Gods.
+inveterate atheist~
+A citizen who adamantly refuses to belive in the power and glory of the Gods.
 ~
 This citizen has been imprisoned to protect the city from the wrath of the Gods
 becuase he will not worship the immortals. He has been here for a very long time 
@@ -186,7 +183,7 @@ stand stand none 0
 #5414
 wretch~
 The wandering wretch~
-This wretch was imprisoned for, nobody knows what.
+This wretch was imprisioned for, nobody knows what.
 ~
 A great wretch stands here. It is monstrous and mean. Everyone forgot what he
 was thrown in the prison for but nobody seems willing to unleash him.
@@ -201,11 +198,11 @@ stand stand none 10000
 
 
 #5415
-minnesota assassin~
-{CMinnesota{x the assassin~
-The abominable assassin Minnesota towers over you!
+minnesota assasin~
+Minnesota the assasin~
+The abominable assasin Minnesota towers over you!
 ~
-The assassin stands before you and its awesome bulk would make a tyrannosaur 
+The assasin stands before you and its awesome bulk would make a tyrannosaur 
 look like a puny lizard in comparison.
 ~
 giant~
@@ -218,15 +215,14 @@ stand stand none 10000
 
 
 #5417
-shingle cook~
-{YShingle the {Ycook{x~
+cook~
+The prison cook~
 A moderately skilled producer of edible mush for the prisoners.
 ~
 The cook, if you can call him that, is a guard that was taken away from guard
 duty for mistreating the prisoners. He only kills a small fraction of the 
 prisoners now as cook compared to his rate of dispatching prisoners as a guard.
-He is renowned for his 'something on a shingle' which is served very often, in
-fact it is second only to the basic meal of mush.
+
 ~
 human~
 ABCTS HZ 200 S
@@ -238,13 +234,12 @@ stand stand male 2000
 
 
 #5418
-rattles doctor~
-{WRattles{x the prison doctor~
+doctor~
+The prison doctor~
 The prison doctor is here.
 ~
 The doctor has seen almost every injury that could be done unto a living body
-in this prison and even fixed one or two of them. He is called rattles because
-he often deals with skin and bones corpses.
+in this prison and even fixed one or two of them.
 ~
 human~
 ABT TVHZ 0 S
@@ -257,14 +252,12 @@ stand stand male 10000
 
 #5419
 warden~
-{YOur Warden{x~
-Our Warden stands here looking through some papers he has.
+Our Warden~
+Our Warden stands here.
 ~
 You see before you the waden of the Midgaard prison. The presence of this one
 man keeps crime levels at an all time low. Throughout the whole of creation his
-program of 'therapy' is known. Nobody knows his name. He has always said, "he 
-would tell you, but then he would have to kill you." Every so often he must tell
-someone.
+program of 'therapy' is known.
 ~
 human~
 ABT CDEFGHJTZ  1000 S
@@ -278,14 +271,14 @@ stand stand male 20000
 
 #5421
 blacksmith~
-Quigly the prison blacksmith~
+The prison blacksmith~
 The prison blacksmith is usually tending to the locks or making small tools.
 ~
 Like alomst everyone else in the prison, the blacksmith is a guard that has 
 been pressed into service doing something else he seemed moderately skilled at.
 ~
 giant~
-ABCT HDQUZ -1000 S
+ABCT HBDPQUZ -1000 S
 75 2 1d1+6999 1d1+300 8d8+15 crush
 -25 -25 -25 -10
 CDEFKQ A G N
@@ -319,7 +312,7 @@ This is standard prisoner control equipment.
 
 #5402
 green armor~
-{GGreen body armor{x~
+Green body armor~
 This armor protects those who have many enemies.~
 adamantite~
 armor A AD
@@ -335,16 +328,11 @@ A
 18 2
 A
 19 2
-E
-armor~
-This armor protects those who have many enemies. Also highlights those lucky few
-with deep green eyes.
-~
 
 
 #5403
 wand medkit~
-{PMed{Wkit{x~
+Medkit~
 A large white box with a red cross on it is here.~
 cardboard~
 wand GS AO
@@ -355,7 +343,6 @@ wand medkit~
 If you could figure out how to use this medkit,
 you could probably heal yourself.
 ~
-
 
 #5405
 shank~
@@ -385,7 +372,7 @@ A
 #5406
 reflex hammer~
 a reflex hammer~
-A {Creflex{x hammer suitable for a giant giant is used for diagnosis and maybe 
+A reflex hammer suitable for a giant giant is used for diagnosis and maybe 
 even for protection.~
 steel~
 weapon BM AN
@@ -409,7 +396,7 @@ also be able to tap lightly on the remains of a body it had helped to unhinge.
 #5407
 polearm submission~
 A large polearm of submission~
-A large polearm is propped the wall.~
+A large oolearm is propped the wall.~
 steel~
 weapon B AN
 polearm 8 4 blast A
@@ -445,9 +432,9 @@ braining someone with.
 
 
 #5409
-keys~
-The {Ywarden's{x keys~
-The biggest key ring you've ever seen is here on the ground!~
+weapon BFG9000~
+The BFG9000~
+The biggest weapon you've ever seen is here on the ground!~
 steel~
 weapon ABGM AN
 exotic 10 10 divine AG
@@ -459,16 +446,20 @@ A
 A
 19 6
 E
-key ring~
-The key ring must weigh at least 25 kilos and the bar that the keys hang from is
-fashioned into something resembling a barbell causing it to be a wonderful thing 
-to use to bash a door down with, or anything else less strong than steel.
+weapon BFG9000 gun~
+This is the single most powerful hand held weapon 
+developed for use of the space marines.  There is 
+a small logo on the weapon, which reads "Phobos 
+High Energy Plasma Research Laboratories". You 
+wonder, what the hell could this mean? To wield BFG9000 
+you have to attach it to your belt, after which it magnetically 
+seals itself to your armor plate.
 ~
 
 
 #5410
 blue body armor~
-{BBlue body armor{x~
+Blue body armor~
 A blue body armor with a medical symbol on it.~
 adamantite~
 armor AGHM AD
@@ -500,7 +491,7 @@ plate you can read:  "Property of Midgaard prison"
 
 #5411
 eye~
-{YE{Gy{Ye{x of the Beholder~
+Eye of the Beholder~
 A huge green eye is here, floating in the air.~
 silver~
 light AEGHMQ A
@@ -547,15 +538,15 @@ A
 19 5
 E
 boots~
-The prisoners are shod with the best in low quality clothing for despicable
+The prisoners are supplied with the best in low quality clothing for despicable
 individuals who break the just laws of the land.
 ~
 
 
 #5413
 midgaard signet ring~
-Midgaard {Ysignet{x ring~
-A beautiful, rare signet designed for the warden is glistening in the shadows.~
+Midgaard signet ring~
+A rare and beautiful signet designed for the warden is glistening in the shadows.~
 gold~
 armor AGK AB
 25 25 25 24 0
@@ -585,7 +576,7 @@ of Midgaard for his long record of having no escapes from the prison.
 
 #5414
 bar stardust~
-a bar of {Wstardust{x~
+a bar of stardust~
 A bar of stardust has been left here.~
 stardust~
 material AJKS AO
@@ -621,7 +612,6 @@ magic forcefield~
 It is designed by the most prestigious mages to only allow passage of those 
 who are not inamtes of this fine institution.
 ~ 
-
 
 #5417 
 north~ 
@@ -808,7 +798,7 @@ the magic forcefield~
 ~ 
 magic~ 
 portal 0 0
-0 0 A 5403 0
+0 0 A 5404 0
 1 0 1 P
 E 
 magic forcefield~ 
@@ -823,7 +813,7 @@ the magic forcefield~
 ~ 
 magic~ 
 portal 0 0
-0 0 A 5404 0
+0 0 A 5405 0
 1 0 1 P
 E 
 magic forcefield~ 
@@ -838,7 +828,7 @@ the magic forcefield~
 ~ 
 magic~ 
 portal 0 0
-0 0 A 5404 0
+0 0 A 5405 0
 1 0 1 P
 E 
 magic forcefield~ 
@@ -853,7 +843,7 @@ the magic forcefield~
 ~ 
 magic~ 
 portal 0 0
-0 0 A 5405 0
+0 0 A 5406 0
 1 0 1 P
 E 
 magic forcefield~ 
@@ -868,21 +858,6 @@ the magic forcefield~
 ~ 
 magic~ 
 portal 0 0
-0 0 A 5405 0
-1 0 1 P
-E 
-magic forcefield~ 
-It is designed by the most prestigious mages to only allow passage of those 
-who are not inamtes of this fine institution.
-~ 
-
-
-#5434 
-south~ 
-the magic forcefield~ 
-~ 
-magic~ 
-portal 0 0
 0 0 A 5406 0
 1 0 1 P
 E 
@@ -892,7 +867,7 @@ who are not inamtes of this fine institution.
 ~ 
 
 
-#5435 
+#5436 
 west~ 
 the magic forcefield~ 
 ~ 
@@ -907,6 +882,7 @@ who are not inamtes of this fine institution.
 ~ 
 
 
+
 #0
 
 
@@ -915,7 +891,7 @@ who are not inamtes of this fine institution.
 
 #5401
 Entryway~
-Like most the buildings in the city, this one is of seemingly monolithic stone 
+Like most the buildings in the city, this one is of seemingly monolitic stone 
 construction. Even though it is a prison, and therfore severely spartan, it is 
 well kept. The hard stone floors are dutifully polished daily. The one window in
 this foyer is tiny and high up on the wall. There is a sign on the wall.
@@ -1057,11 +1033,6 @@ corroded or otherwise breeched in the way steel bars can be.
 There is a cell to the east, north and south.
 ~
 0 A 0
-D2
-You see more of the same polished stone hallway.
-~
-~
-0 -1 5418
 D3
 You see more of the same polished stone hallway.
 ~
@@ -1076,11 +1047,24 @@ The cell has a plank to sleep on, a bucket to relieve oneself into, and room
 enough to stand up and turn around and not much else. 
 ~
 0 N 10
-D4
+D1
 Your only escape!
 ~
 ~
-0 -1 5430 
+0 -1 5408 
+S
+
+#5408
+The Escape~
+You can safely recover here, and gather your strength for the battle. 
+Or you can recall, which would be a wiser choice of action.
+~
+0 CK 2
+D3
+The room of Futility.
+~
+~
+0 -1 5407 
 S
 
 
@@ -1258,7 +1242,7 @@ S
 #5418
 The passage to the exercise yard~
 This passage connects to the place where the prisoners are allowed to see more 
-of the world than their tiny cell, but not much more. Adhering to the philosophy 
+of the world than their tiny cell, but not much more. following the philosophy 
 that calm madmen are preferable to crazed madmen, the prisoners are given the 
 chance to stretch a bit here, under heavy supervision of course.
 ~
@@ -1277,10 +1261,10 @@ S
 
 
 #5419
-Passage to the exercise yard~
-This is the distal end of the passage. A prison administrator stands here making 
-sure everyone who passes has privileges to be in the yard and making sure that 
-people who have used their time get back to their cell promptly.
+The passage to the exercise yard~
+This is the distal end of the passage. The warden stands here making sure
+everyone who passes has privliges to be in the yard and making sure that people
+who have used their time get on back to their cell.
 ~
 0 A 5
 D0
@@ -1298,9 +1282,9 @@ S
 
 
 #5420
-The Northern center of the exercise yard~
+The exercise yard~
 This is a place where the prisoners are allowed to see more of the world than
-their tiny cell, but not much more. Using the philosophy that crazed madmen are
+their tiny cell, but not much more. In the philosophy that crazed madmen are not
 preferable to calm madmen, the prisoners are given the chance to stretch a bit 
 in this area, under heavy supervision.
 ~
@@ -1314,7 +1298,7 @@ D1
 The exercise yard
 ~
 ~
-0 -1 5423
+0 -1 5424 
 D2
 The exercise yard
 ~
@@ -1324,15 +1308,16 @@ D3
 The exercise yard
 ~
 ~
-0 -1 5426
+0 -1 5421 
 S
 
 
 #5421
-The center of the prison yard~
-The exact center of the yard. Not many prisoners ever tend to wander in the 
-center when they are in here. Most prefer to stay near the perimeter with their
-backs to the wall so they are less vulnerable to sudden attack.
+The exercise yard~
+This is a place where the prisoners are allowed to see more of the world than
+their tiny cell, but not much more. In the philosophy that crazed madmen are not
+preferable to calm madmen, the prisoners are given the chance to stretch a bit 
+in this area, under heavy supervision.
 ~
 0 A 5
 D0
@@ -1361,13 +1346,13 @@ S
 #5422
 The exercise yard~
 This is a place where the prisoners are allowed to see more of the world than
-their tiny cell, but not much more. Using the philosophy that crazed madmen are
+their tiny cell, but not much more. In the philosophy that crazed madmen are not
 preferable to calm madmen, the prisoners are given the chance to stretch a bit 
 in this area, under heavy supervision.
 ~
 0 A 5
 D0
-The center of the yard
+The passage 
 ~
 ~
 0 -1 5421 
@@ -1387,7 +1372,7 @@ S
 #5423
 The northeast corner of the exercise yard~
 This is a place where the prisoners are allowed to see more of the world than
-their tiny cell, but not much more. Using the philosophy that crazed madmen are
+their tiny cell, but not much more. In the philosophy that crazed madmen are not
 preferable to calm madmen, the prisoners are given the chance to stretch a bit 
 in this area, under heavy supervision.
 ~
@@ -1406,9 +1391,9 @@ S
 
 
 #5424
-The exercise yard by the passage to the administration hall~
+The exercise yard~
 This is a place where the prisoners are allowed to see more of the world than
-their tiny cell, but not much more. Using the philosophy that crazed madmen are
+their tiny cell, but not much more. In the philosophy that crazed madmen are not
 preferable to calm madmen, the prisoners are given the chance to stretch a bit 
 in this area, under heavy supervision.
 
@@ -1441,13 +1426,13 @@ S
 #5425
 The southeast corner of the exercise yard~
 This is a place where the prisoners are allowed to see more of the world than
-their tiny cell, but not much more. Using the philosophy that crazed madmen are
+their tiny cell, but not much more. In the philosophy that crazed madmen are not
 preferable to calm madmen, the prisoners are given the chance to stretch a bit 
 in this area, under heavy supervision.
 ~
 0 A 5
 D0
-The exercise yard by the passage to administration 
+The passage 
 ~
 ~
 0 -1 5424 
@@ -1462,7 +1447,7 @@ S
 #5426
 The northwest corner of the exercise yard~
 This is a place where the prisoners are allowed to see more of the world than
-their tiny cell, but not much more. Using the philosophy that crazed madmen are
+their tiny cell, but not much more. In the philosophy that crazed madmen are not
 preferable to calm madmen, the prisoners are given the chance to stretch a bit 
 in this area, under heavy supervision.
 ~
@@ -1481,9 +1466,9 @@ S
 
 
 #5427
-The exercise yard by the passage to the mess hall~
+The exercise yard~
 This is a place where the prisoners are allowed to see more of the world than
-their tiny cell, but not much more. Using the philosophy that crazed madmen are
+their tiny cell, but not much more. In the philosophy that crazed madmen are not
 preferable to calm madmen, the prisoners are given the chance to stretch a bit 
 in this area, under heavy supervision.
 
@@ -1506,7 +1491,7 @@ The exercise yard
 ~
 0 -1 5428
 D3
-The passage to the mess hall
+The exercise yard
 ~
 ~
 1 -1 5429
@@ -1516,13 +1501,13 @@ S
 #5428
 The southwest corner of the exercise yard~
 This is a place where the prisoners are allowed to see more of the world than
-their tiny cell, but not much more. Using the philosophy that crazed madmen are
+their tiny cell, but not much more. In the philosophy that crazed madmen are not
 preferable to calm madmen, the prisoners are given the chance to stretch a bit 
 in this area, under heavy supervision.
 ~
 0 A 5
 D0
-The exercise yard by the passage to the mess hall
+The passage 
 ~
 ~
 0 -1 5427 
@@ -1535,10 +1520,11 @@ S
 
 
 #5429
-The passage to the mess hall~
-This passage on the west end of the yard leads to the mess area. The passage is
-narrow, almost to the point of allowing travel in only one direction at a time.
-In the prison though, people get used to close contact with others.
+The exercise yard~
+This is a place where the prisoners are allowed to see more of the world than
+their tiny cell, but not much more. In the philosophy that crazed madmen are not
+preferable to calm madmen, the prisoners are given the chance to stretch a bit 
+in this area, under heavy supervision.
 ~
 0 D 0
 D1
@@ -1556,17 +1542,16 @@ S
 
 #5430
 The ceiling~
-There is no where to flee to so you find yourself on the ceiling with your nails
-dug into the stone for traction, to keep you from plummeting to further harm. 
-Hanging precariously just out of reach of the inmate, with limbs which are 
-starting to  give out... do something!
+There is no where to flee to so you find yourself on the celing with your nails
+dug into the stone. You are hanging precariously just out of reach of the
+inmate below, your limbs are starting to give out... do something!
 ~
 0 D 0
 S 
 
 
 #5431
-The passage to the administration hall~
+The passage to the administration~
 The passage connects to a hall which leads to the administration office as well
 as to the prison doctor's office, the exam room, and the prison infirmary. This
 hall's floor is gleaming even more than the rest of the prison's.
@@ -1586,10 +1571,10 @@ S
 
 
 #5432
-The north end of the bare hall~
-In this section of the featureless hall there is a door to the north with the 
-word 'Administration' stenciled onto it while to the east there is a similar one
-with the word 'Doctor' on it.
+The bare hall~
+This hall is featureless. There is a door to the north with the word 
+'Administration' stenciled onto it while there is another door to the 
+east with the word 'Doctor' stenciled there.
 ~
 0 A 5
 D0
@@ -1612,8 +1597,7 @@ S
 
 #5433
 The bare hall~
-This hall is absolutely featureless except for the grain of the stone used to 
-construct it. There are stone floors, stone walls, bare ceilings and no windows. 
+This hall is featureless, stone floors, stone walls, bare ceilings, no windows. 
 There is a door to the east with the word 'Exam' stenciled onto it.
 ~
 0 A 5
@@ -1636,15 +1620,15 @@ D3
 The passage to the exercise yard
 ~
 ~
-0 -1 5431
+1 -1 5431
 S
 
 
 #5434
-The south end of the bare hall~
-In this area of the featureless hall there is a door to the east with the word 
-'Infirmary' stenciled onto it. The echos in this part of the prison are worse 
-than in the rest, by far.
+The bare hall~
+This hall is featureless. There is a door to the east with the word 'Infirmary'
+stenciled onto it. The echos in this part of the prison are worse than the rest
+and that is no small feat.
 ~
 0 A 5
 D0
@@ -1704,12 +1688,12 @@ D3
 The hall
 ~
 ~
-1 -1 5434
+1 -1 5429
 S
 
 
 #5438
-The Maintenance Office~
+The maintaince office~
 It is not clear if this room should be called an office or a closet. It has
 attributes of both an office, well it has a desk at least. While, it also has
 elements of a closet, namely being crammed with junk and tools. It is the kind
@@ -1726,7 +1710,7 @@ S
 
 
 #5439
-The Cooks Office~
+The Cooks office~
 The office is very clean. It is not comfortable, it is not spacious, it is not
 warm, but it is very clean. There are a few papers on the desk with a pen and
 inkwell placed carefully near at the right end of the desk. There is also a 
@@ -1785,7 +1769,7 @@ D1
 passage to the yard
 ~
 ~
-0 -1 5429
+0 -1 5421 
 D2
 The mess hall
 ~
@@ -1871,24 +1855,25 @@ E 0 5401 9 16
 M 0 5401 1 5403 1 *junior guard in hall
 E 0 5401 9 16
 
+
 M 0 5402 2 5404 2 *senior guard in hall
 E 0 5407 9 16
 
-M 0 5402 1 5424 1 *senior guard in hall
+M 0 5402 5 5424 5 *senior guard in hall
 E 0 5407 9 16
 
-M 0 5402 1 5426 1 *senior guard in hall
-E 0 5407 9 16
-
-M 0 5404 1 5419 1 *administrator in yard
+M 0 5404 3 5420 3 *administrator in yard
 E 0 5408 6 16
 
-M 0 5405 1 5409 1 *inmate
+
+M 0 5405 2 5409 2 *inmate
+M 0 5405 2 5409 2
+
 
 M 0 5407 1 5411 1 *inmate
 G 0 5411 4 
 
-M 0 5408 1 5412 1 *inmate
+M 0 5408 2 5412 2 *inmate
 M 0 5409 1 5413 1 *inmate
 M 0 5410 1 5414 1 *inmate
 M 0 5411 1 5415 1 *inmate
@@ -1959,8 +1944,7 @@ O 0 5430 1 5414 *cell portal
 O 0 5431 1 5413 *cell portal
 O 0 5432 1 5416 *cell portal
 O 0 5433 1 5415 *cell portal
-O 0 5434 1 5417 *cell portal
-O 0 5435 1 5407 *cell portal
+
 
 
 S

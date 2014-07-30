@@ -1,7 +1,7 @@
 #PLAYER
 Name Bouncer~
 Id   1025725762
-LogO 1025728027
+LogO 1065984359
 Vers 14
 Mexp 2
 Pass accolade~
@@ -10,12 +10,12 @@ Race seraph~
 Cla  5
 Levl 4
 Tru  0
-Plyd 1741
+Plyd 1782
 Back 1373
 Note 1025726292 0 0 0 0 0 0
 Scro 22
 Room 3054
-HMS  11 9 92
+HMS  71 120 132
 Gold 2
 Silv 114
 Exp  4409
@@ -49,14 +49,14 @@ Aura ~
 TSex 1
 LLev 0
 Deit Xenith~
-Lsit 207.173.147.36~
-Ltim Wed Jul 03 14:58:05 2002
+Lsit 66.90.176.95~
+Ltim Sun Oct 12 14:45:17 2003
 ~
-LSav Wed Jul 03 15:27:07 2002
+LSav Sun Oct 12 14:45:59 2003
 ~
 HMSP 67 120 132
 THMS 0 0 0
-Cnd  0 0 10 10
+Cnd  0 0 9 9
 Sk 75 1 'bless'
 Sk 1 1 'calm'
 Sk 1 1 'cure blindness'
@@ -90,8 +90,8 @@ Gr 'paladin basics'
 Gr 'benedictions'
 Gr 'curative'
 Gr 'healing'
-Affc 'bless'   0  59  60  -7  24          0 1
-Affc 'bless'   0  58  60   7  18          0 1
+Affc 'bless'   0  57  59   7  18          0 1
+Affc 'bless'   0  59  59  -7  24          0 1
 End
 
 #O
@@ -99,7 +99,7 @@ Vnum 3716
 Nest 0
 Wear 0
 Cost 0
-Val  0 0 162 0 0
+Val  0 0 161 0 0
 End
 
 #O

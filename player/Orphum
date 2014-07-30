@@ -1,46 +1,50 @@
 #PLAYER
 Name Orphum~
 Id   1017240927
-LogO 1018071515
-Vers 13
+LogO 1071784375
+Vers 14
+Mexp 2
+Pass thief~
 Prom %CH%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin %jsmin.  ~
 Race elf~
-Sex  1
 Cla  2
 Levl 10
-Plyd 17448
+Tru  0
+Plyd 18116
 Back 0
-Note 1017817283 1017727393 1017727393 1017935970 1017727393 1017727393 1017821887
+Note 1062641169 1062641169 1062641169 1062641169 1062641169 1062641169 1062641169
 Scro 22
 Room 3365
-HMS  124 124 157 157 175 175
+HMS  124 157 175
 Gold 35
 Silv 54
-Exp  10689
-PCkills 0
-PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
-Act  CDEFGHJLQSc
+Exp  10563
+PCkills  0
+PCkilled 1
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 2
+FImm 0
 FRes B
 FVul Z
+Plr  O
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
 Comm NO
 Revk 0
 Cgrp A
-Cnsr AB
-Pos  8
-Alig  2
-Hit   2
-Dam   1
-ACs 83 81 81 93
+Cnsr ABC
+Prac 0
+Trai 0
+Wimp 0
 Atrib 14 16 15 21 15 14
-AtMod 1 3 2 1 4 2
-SkillPnts 13
-QuestPnts 17
-QuestNext 6
-SQuestNext 14
-Pass thief~
+SkillPnts  13
+QuestPnts  17
+QuestNext  7
+SQuestNext 3
 Afk {B[{CWed Mar 27 23:12:45 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  ({VNewbie Aura{x)~
@@ -51,18 +55,14 @@ Aura ~
 TSex 1
 LLev 4
 Deit Alisa~
-Lsit dialup1-25.cass.net~
-Ltim Fri Apr 05 23:25:03 2002
+Lsit cable2-146.cass.net~
+Ltim Thu Dec 18 16:50:30 2003
 ~
-LSav Fri Apr 05 23:38:35 2002
+LSav Thu Dec 18 16:52:55 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  O
 HMSP 120 150 175
 THMS 0 0 0
-Cnd  0 0 4 33
+Cnd  0 0 0 19
 Alias k backstab~
 Sk 1 1 'dazzling light'
 Sk 1 1 'enchant armor'

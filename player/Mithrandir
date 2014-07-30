@@ -1,13 +1,12 @@
 #PLAYER
 Name Mithrandir~
 Id   1013756523
-LogO 1026717639
+LogO 1057793871
 Vers 14
 Mexp 2
 Pass alc01~
 Prom {g<{G%h{g/{G%H{Hhp {T%m{g/{T%M{Cm {B%v{Ns{g - %X{Rtnl{c>%e{x ~
 Race human~
-Clan kindred~
 Cla  0
 Levl 91
 Tru  0
@@ -15,7 +14,7 @@ Plyd 235291
 Back 232673
 Note 1022790410 1021426004 1020818598 1020828983 1025150199 1026706896 1020702416
 Scro 35
-Room 25003
+Room 3001
 HMS  1776 2465 636
 Gold 2918
 Silv 88
@@ -31,7 +30,7 @@ Alig 1000
 FImm L
 FRes 0
 FVul N
-Plr  K
+Plr  HK
 Video 0
 Act  DEFGHJLQSc
 AfBy CDEFGPUVY
@@ -46,8 +45,6 @@ Atrib 16 21 18 18 18 15
 SkillPnts  69
 RolePnts   1
 QuestPnts  64
-QpDonated  10
-GlDonated  945
 Afk {B[{CWed Apr 10 18:22:10 2002{B] {CDungeon Siege. Buy. Now. Happy. Thank you and have a nice day.
 ~
 Titl  Inactivity Incarnate~
@@ -61,7 +58,7 @@ Deit Liriel~
 Lsit 208.dallas-22rh16rt-tx.dial-access.att.net~
 Ltim Mon Jul 15 02:20:37 2002
 ~
-LSav Mon Jul 15 02:20:39 2002
+LSav Wed Jul 09 19:37:51 2003
 ~
 HMSP 1181 1260 606
 THMS 0 0 0
@@ -456,9 +453,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -472,9 +469,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -486,13 +483,13 @@ ExtF 262211
 Wear -1
 Lev  66
 Cost 3000
-Affc 'reserved'   1  65  -1  -3  24          0 1
-Affc 'enchant weapon'   1  91  -1   3  19          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'reserved'   1  65  -1  10  13          0 1
-Affc 'reserved'   1  65  -1  30  12          0 1
-Affc 'reserved'   1  65  -1   2  26          0 1
 Affc 'reserved'   1  65  -1   1   1          0 1
+Affc 'reserved'   1  65  -1   2  26          0 1
+Affc 'reserved'   1  65  -1  30  12          0 1
+Affc 'reserved'   1  65  -1  10  13          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'reserved'   1  65  -1  -3  24          0 1
 End
 
 #O
@@ -532,8 +529,8 @@ Wear -1
 Lev  70
 Cost 16
 Val  2 7 14 11 0
-Affc 'enchant weapon'   0  66  -1   5  18          0 1
 Affc 'enchant weapon'   1  66  -1   5  19          0 1
+Affc 'enchant weapon'   0  66  -1   5  18          0 1
 ExDe dagger a jagged iron dagger~ It is a marvellous dagger, crafted from the finest tin around.
 It was created in the Month of Continuity by an experienced paladin
 named Sharra.  Legend holds that this human was a great weaponsmith.
@@ -550,9 +547,9 @@ Cond 96
 Wear -1
 Lev  50
 Cost 47500
-Affc 'reserved'   4  45  -1   0   0         32 1
-Affc 'reserved'   3  45  -1   0   0        512 1
 Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   3  45  -1   0   0        512 1
+Affc 'reserved'   4  45  -1   0   0         32 1
 End
 
 #O
@@ -625,11 +622,11 @@ ExtF 17040705
 Wear -1
 Lev  61
 Cost 999
-Affc 'reserved'   1  59  -1 100  12          0 1
-Affc 'reserved'   1  59  -1  -3  24          0 1
-Affc 'reserved'   1  59  -1   3  26          0 1
-Affc 'reserved'   1  59  -1 -30   9          0 1
 Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1  59  -1 -30   9          0 1
+Affc 'reserved'   1  59  -1   3  26          0 1
+Affc 'reserved'   1  59  -1  -3  24          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
 End
 
 #O
@@ -840,11 +837,11 @@ ExtF 321
 Wear 4
 Lev  88
 Cost 10000
-Affc 'enchant armor'   1  91  -1  -1  17          0 1
-Affc 'reserved'   1  87  -1   5   3          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
-Affc 'reserved'   1  87  -1   7  18          0 1
 Affc 'reserved'   1  87  -1   7  19          0 1
+Affc 'reserved'   1  87  -1   7  18          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'reserved'   1  87  -1   5   3          0 1
+Affc 'enchant armor'   1  91  -1  -1  17          0 1
 End
 
 #O
@@ -933,11 +930,11 @@ Nest 0
 ExtF 1835075
 Wear 9
 Cost 3500
-Affc 'reserved'   1  91  -1   3   1          0 1
-Affc 'reserved'   1  91  -1  18  18          0 1
-Affc 'reserved'   1  91  -1  18  19          0 1
-Affc 'reserved'   0  91  -1   0   0        124 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   0  91  -1   0   0        124 1
+Affc 'reserved'   1  91  -1  18  19          0 1
+Affc 'reserved'   1  91  -1  18  18          0 1
+Affc 'reserved'   1  91  -1   3   1          0 1
 End
 
 #O
@@ -975,15 +972,15 @@ Nest 0
 Wt   0
 Wear 5
 Cost 75150
-Affc 'enchant weapon'   0  91  -1   2  18          0 1
-Affc 'enchant weapon'   1  91  -1   2  19          0 1
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'reserved'   1  91  -1   1   2          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1  20  13          0 1
 Affc 'reserved'   1  91  -1 100  12          0 1
+Affc 'reserved'   1  91  -1  20  13          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'enchant weapon'   0  91  -1   2  18          0 1
 End
 
 #O
@@ -1002,11 +999,11 @@ Nest 0
 ExtF 67
 Wear 11
 Cost 1000
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-Affc 'reserved'   1  91  -1  -5  20          0 1
-Affc 'reserved'   1  91  -1  40  13          0 1
 Affc 'reserved'   1  91  -1  40  12          0 1
+Affc 'reserved'   1  91  -1  40  13          0 1
+Affc 'reserved'   1  91  -1  -5  20          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'enchant weapon'   1  91  -1   6  18          0 1
 End
 
 #O

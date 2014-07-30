@@ -1,50 +1,49 @@
 #PLAYER
 Name StormDemona~
 Id   1004174376
-LogO 1015412476
-Vers 12
+LogO 1062203716
+Vers 14
+Mexp 2
+Pass tartty~
 Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%q%Cc/%CG%j%CCmin.> ~
 Race wolf~
-Sex  2
 Cla  7
-Levl 30
-Plyd 88407
-Age  0
-Back 88380
-Note 1012202453 1012202453 1012202453 1012202453 1012202453 1012202453
+Levl 31
+Tru  0
+Plyd 94173
+Back 93470
+Note 1038226359 1038226359 1038226359 1038226359 1038226359 1038226359 1038226359
 Scro 22
 Room 8543
-HMS  696 696 269 269 450 451
-Gold 1645
-Silv 31
-Exp  38506
-PCkills 0
+HMS  717 278 464
+Gold 1736
+Silv 976
+Exp  39364
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -1000
 Spou ~
-Act  CDEFGHJLQSTc
-AfBy DFZ
+FImm 0
 FRes I
 FVul H
+Plr  AF
+Video 0
+Act  CDEFGHJLQSTc
+AfBy DF
 Comm MNO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
-Prac 6
-Trai 4
-Save  -27
-Alig  -1000
-Hit   32
-Dam   21
-ACs -48 -54 -46 -9
+Prac 10
+Trai 5
+Wimp 0
 Atrib 20 18 18 20 23 18
-AtMod 3 4 5 4 3 4
-QuestPnts 8
-Pass tartty~
-Afk {B[{CSun Jan 13 16:47:10 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+QuestPnts  8
+Afk {B[{CThu Aug 15 04:17:52 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {BP{Vr{Bi{Vn{Bc{Ve{Bs{Vs {BO{Vf {BE{Vt{Be{Vr{Bn{Va{Bl {VD{Bba{Vr{Bk{Vn{Be{Vs{Bs{x~
 Immn ~
@@ -52,20 +51,16 @@ Pnts 43
 Rank ~
 Aura ~
 TSex 2
-LLev 22
+LLev 25
 Deit Lotus~
-Lsit 24.247.28.98.bay.mi.chartermi.net~
-Ltim Wed Mar 06 05:00:26 2002
+Lsit dialup-67.25.210.186.Dial1.Detroit1.Level3.net~
+Ltim Mon Nov 25 06:12:34 2002
 ~
-LSav Wed Mar 06 05:01:16 2002
+LSav Fri Aug 29 20:35:16 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  AF
-HMSP 621 214 451
+HMSP 642 223 464
 THMS 0 0 0
-Cnd  0 0 32 17
+Cnd  0 13 47 2
 Sk 1 1 'channel'
 Sk 1 1 'divine regeneration'
 Sk 75 1 'giant strength'
@@ -76,15 +71,15 @@ Sk 1 1 'regeneration'
 Sk 1 1 'talon'
 Sk 90 1 'axe'
 Sk 1 1 'flail'
-Sk 93 1 'sword'
+Sk 95 1 'sword'
 Sk 76 1 'bash'
-Sk 83 1 'dodge'
-Sk 91 1 'enhanced damage'
+Sk 84 1 'dodge'
+Sk 95 1 'enhanced damage'
 Sk 75 1 'hand to hand'
-Sk 79 1 'kick'
+Sk 81 1 'kick'
 Sk 83 1 'second attack'
-Sk 76 1 'third attack'
-Sk 82 1 'dual wield'
+Sk 77 1 'third attack'
+Sk 88 1 'dual wield'
 Sk 61 1 'hunt'
 Sk 100 1 'scan'
 Sk 75 1 'scrolls'
@@ -94,11 +89,7 @@ Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'ranger basics'
 Gr 'enhancement'
-Affc 'blood moon'   0  86   9   5  18          0 1
-Affc 'blood moon'   0  84   9   8  19          0 1
-Affc 'bless'   0  80  15 -12  24          0 1
-Affc 'bless'   0  76  15  12  18          0 1
-Affc 'divine regeneration'   0  85   9   0   0   33554432 1
+Affc 'giant strength'   0  20  20   2   1          0 1
 End
 
 #O
@@ -267,7 +258,7 @@ End
 #O
 Vnum 4574
 Nest 0
-Cond 95
+Cond 90
 Wear 18
 Cost 2200
 End
@@ -278,13 +269,6 @@ Nest 0
 ExtF 1
 Wear -1
 Cost 100
-End
-
-#O
-Vnum 16057
-Nest 0
-Wear -1
-Cost 50
 End
 
 #O
@@ -373,6 +357,7 @@ End
 Vnum 504
 Nest 0
 ExtF 19
+Cond 82
 Wear 14
 Cost 312
 End
@@ -409,9 +394,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Disman.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Disman.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -452,14 +437,6 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
 Vnum 29900
 Nest 0
 Wear -1
@@ -474,22 +451,6 @@ Cost 2500
 End
 
 #O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
 Vnum 6
 Nest 0
 ShD  The {BP{Nr{Co{Nm{Bi{Cs{Ne{x of a {RP{Yr{Pi{Rn{Yc{Pe{x~
@@ -497,6 +458,119 @@ Desc The {BP{Nr{Co{Nm{Bi{Cs{Ne{x of a {RP{Yr{Pi{Rn{Yc{Pe{x~
 ExtF 1048577
 Wear 20
 Cost 1
+End
+
+#O
+Vnum 9513
+Nest 0
+Wear -1
+Cost 490
+End
+
+#O
+Vnum 9519
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 9521
+Nest 0
+Wear -1
+Cost 710
+End
+
+#O
+Vnum 9519
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 9521
+Nest 0
+Wear -1
+Cost 710
+End
+
+#O
+Vnum 9513
+Nest 0
+Wear -1
+Cost 490
+End
+
+#O
+Vnum 9519
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 9521
+Nest 0
+Wear -1
+Cost 710
+End
+
+#O
+Vnum 9519
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 9521
+Nest 0
+Wear -1
+Cost 710
+End
+
+#O
+Vnum 9519
+Nest 0
+Wear -1
+Cost 1280
+End
+
+#O
+Vnum 9521
+Nest 0
+Wear -1
+Cost 710
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 29905
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
 End
 
 #END

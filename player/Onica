@@ -1,7 +1,7 @@
 #PLAYER
 Name Onica~
 Id   991099791
-LogO 1026663151
+LogO 1060017300
 Vers 14
 Mexp 2
 Pass nefertina~
@@ -9,16 +9,15 @@ Desc {CAs she walk's throw the {Wdimly {Ylit {Ggarden {Cyou see the {gmoon {Cdan
 ~
 Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
 Race elf~
-Clan divinity~
 Cla  0
 Levl 52
 Tru  0
-Plyd 236153
+Plyd 236190
 Back 236100
 Note 1007708774 1006529081 1006529081 1006529081 1006529081 1025960765 0
 Scro 22
-Room 24241
-HMS  960 713 410
+Room 3001
+HMS  970 723 410
 Gold 118
 Silv 35
 Gold_in_bank 1000
@@ -33,10 +32,10 @@ Alig -1000
 FImm 0
 FRes B
 FVul Z
-Plr  AF
+Plr  AFH
 Video 0
 Act  CDEFGHJLSTc
-AfBy TZ
+AfBy 0
 Comm NOQ
 Revk 0
 Cgrp A
@@ -58,14 +57,14 @@ TSex 2
 LLev 63
 Email kira_norise@hotmail.com~
 Deit Sivat~
-Lsit hlfx33-226.ns.sympatico.ca~
-Ltim Sun Jul 14 11:11:50 2002
+Lsit 142.177.103.114~
+Ltim Wed Mar 19 21:20:20 2003
 ~
-LSav Sun Jul 14 11:12:31 2002
+LSav Mon Aug 04 13:15:00 2003
 ~
 HMSP 540 633 410
 THMS 2 6 0
-Cnd  0 0 31 27
+Cnd  0 0 0 0
 Sk 91 1 'acid blast'
 Sk 75 1 'acid breath'
 Sk 76 1 'animate skeleton'
@@ -157,11 +156,6 @@ Gr 'healing'
 Gr 'necromancy'
 Gr 'bladecraft'
 Gr 'protective'
-Affc 'divine regeneration'   0  83   2   0   0   33554432 4
-Affc 'bless'   0  84   8 -12  24          0 1
-Affc 'bless'   0  85   8  12  18          0 1
-Affc 'fly'   0  84   5   0   0     524288 1
-Affc 'giant strength'   0  82   2   6   1          0 1
 End
 
 #O
@@ -1000,7 +994,7 @@ End
 #PET
 Vnum 24203
 Name Mesa Pegasus~
-LogO 1026663151
+LogO 1060017300
 Desc Before a woman marries in the village of Sursi, she must visit the land 
 of the {WMesa Pegasus{x. Legend has it that if the woman is pure of heart 
 and her love is true, a {WMesa Pegasus{x will appear, blessing her family with 

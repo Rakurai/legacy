@@ -1,0 +1,98 @@
+#PLAYER
+Name Pip~
+Id   1108258689
+LogO 1108260684
+Vers 14
+Mexp 2
+Pass bread~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Cla  2
+Levl 1
+Plyd 384
+Back 0
+Note 1108177139 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  20 100 100
+Gold 0
+Silv 18
+Exp  1211
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig -750
+FImm 0
+FRes B
+FVul Z
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm MNO
+Revk 0
+Cgrp 0
+Cnsr AB
+Block_Remote 0
+Prac 0
+Trai 0
+Wimp 0
+Familiar 0
+Atrib 16 17 14 15 13 15
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kenneth~
+Lsit localhost.localdomain~
+Ltim Sat Feb 12 19:41:26 2005
+~
+LSav Sat Feb 12 20:11:24 2005
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 0 8
+Sk 1 1 'channel'
+Sk 1 1 'dazzling light'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 1 1 'talon'
+Sk 75 1 'dagger'
+Sk 22 1 'backstab'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'enchantment'
+Gr 'enhancement'
+Affc 'blood moon'   0  55  29   3  18          0 1
+Affc 'blood moon'   0  57  29   5  19          0 1
+End
+
+#END

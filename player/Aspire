@@ -1,0 +1,664 @@
+#PLAYER
+Name Aspire~
+Id   1044303386
+LogO 1059113771
+Vers 14
+Mexp 1
+Pass fireass~
+Prom %CG<%CV%Q%CG>%c%CV- %CG%qmins%CB.%CV -%c(%Cc%r%CV) %c%CG%h%CB/%CG%Hhp %CG%m%CB/%CG%Mm%CB<%Cc%X%CB> ~
+Race human~
+Cla  3
+Levl 50
+Tru  0
+Plyd 129595
+Back 127707
+Note 1058177461 1045783251 1045012765 1057101539 1058943708 1056419797 0
+Scro 22
+Room 3054
+HMS  887 507 685
+Gold 349
+Silv 447
+Exp  50026
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  A
+Video D
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NOY
+Revk 0
+Cgrp A
+Cnsr 0
+Prac 19
+Trai 2
+Wimp 100
+Atrib 19 16 18 16 16 13
+QuestPnts  8
+Afk {B[{CSat Jul 19 20:02:15 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {cT{gh{Ye {cL{go{Hn{Ge {cW{ga{Pr{Rr{Pi{go{cr~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 35
+Email michael_8249@yahoo.com~
+Deit Teotwawki~
+Lsit dialup1-219.cass.net~
+Ltim Fri Jul 25 02:14:15 2003
+~
+LSav Fri Jul 25 02:16:11 2003
+~
+HMSP 752 307 685
+THMS 1 0 0
+Cnd  0 0 11 0
+Alias q qwest~
+Sk 77 1 'acid blast'
+Sk 78 1 'armor'
+Sk 1 1 'burning hands'
+Sk 75 1 'cancellation'
+Sk 1 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 1 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 76 1 'giant strength'
+Sk 75 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'magic missile'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 75 1 'refresh'
+Sk 77 1 'regeneration'
+Sk 75 1 'sanctuary'
+Sk 76 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 75 1 'stone skin'
+Sk 1 1 'talon'
+Sk 1 1 'undo spell'
+Sk 1 1 'wrath'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 100 1 'sword'
+Sk 1 1 'whip'
+Sk 76 1 'shield block'
+Sk 94 1 'bash'
+Sk 1 1 'disarm'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'parry'
+Sk 1 1 'rescue'
+Sk 93 1 'second attack'
+Sk 81 1 'third attack'
+Sk 99 1 'dual wield'
+Sk 75 1 'repair'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'warrior default'
+Gr 'weaponsmaster'
+Gr 'combat'
+Gr 'enhancement'
+Gr 'protective'
+Affc 'stone skin'   0  39  10 -40  17          0 1
+Affc 'shield'   0  37  18 -20  17          0 1
+Affc 'giant strength'   0  12   4   2   1          0 1
+End
+
+#O
+Vnum 16084
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 9924
+Nest 0
+Wear 0
+Cost 440
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 9909
+Nest 0
+Cond 91
+Wear 4
+Cost 2000
+End
+
+#O
+Vnum 9909
+Nest 0
+Cond 89
+Wear -1
+Cost 1620
+End
+
+#O
+Vnum 16041
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 10213
+Nest 0
+Cond 94
+Wear 15
+Cost 0
+End
+
+#O
+Vnum 10213
+Nest 0
+Cond 93
+Wear 14
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 1201
+Nest 1
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1215
+Nest 1
+Name teotwawki wild token~
+ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1212
+Nest 1
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name teotwawki wild token~
+ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 14085
+Nest 1
+Name blanket kismet lap~
+ShD  {GK{Hi{cs{Hm{Ge{Ht{c'{Hs {GL{Ha{cp{x~
+Desc {WA cute little stuffed {GK{Hi{cs{Hm{Ge{Ht {Wlies here, looking very cuddly.{x~
+Mat memories~
+ExtF 16793601
+WeaF 32769
+Wt   0
+Wear -1
+Lev  0
+Cost 0
+ExDe blanket~ {CThe memories of the Dizzyknights weave a beautiful blanket. It's so soft and inviting.{x
+~
+ExDe memories~ {CThe memories of the Dizzyknights weave a beautiful blanket. It's so soft and inviting.{x
+~
+ExDe owned by~ Laurana
+~
+End
+
+#O
+Vnum 3167
+Nest 1
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 3164
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3163
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 98
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Wear 19
+Cost 10000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear 12
+Cost 8000
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10157
+Nest 0
+Wear -1
+Cost 25
+End
+
+#O
+Vnum 10156
+Nest 0
+Wear -1
+Cost 25
+Val  50 48 35 0 0
+End
+
+#O
+Vnum 17316
+Nest 0
+ExtF 0
+Cond 95
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 80
+Wear 16
+Cost 10000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10129
+Nest 0
+Wear 18
+Cost 122
+End
+
+#O
+Vnum 17315
+Nest 0
+Cond 97
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 3014
+Nest 0
+Wear -1
+Cost 5
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 92
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 16006
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 16066
+Nest 0
+Wear 9
+Cost 3500
+End
+
+#O
+Vnum 16001
+Nest 0
+Wear 5
+Cost 5000
+End
+
+#O
+Vnum 16028
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 16032
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 16030
+Nest 0
+Wear 13
+Cost 1000
+End
+
+#O
+Vnum 11671
+Nest 0
+Wear 2
+Cost 0
+End
+
+#O
+Vnum 11671
+Nest 0
+Wear 1
+Cost 0
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 92
+Wear 3
+Cost 0
+Val  15 15 15 12 0
+End
+
+#END

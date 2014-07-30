@@ -1,0 +1,879 @@
+#PLAYER
+Name Talman~
+Id   1055855323
+LogO 1071027078
+Vers 14
+Mexp 1
+Pass edwards~
+Prom {C%h/%HHps {R%m/%MMana {M%v/%VMv {G%Xex {x ~
+Race dwarf~
+Cla  3
+Levl 48
+Tru  0
+Plyd 197323
+Back 195855
+Note 1069956766 0 0 1069890540 1064715418 1056419797 0
+Scro 22
+Room 3054
+HMS  1049 408 727
+Gold 25
+Silv 672
+Gold_in_bank 2934
+Exp  58874
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes LQ
+FVul R
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy JR
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 19
+Trai 4
+Wimp 200
+Atrib 23 16 20 15 21 16
+SkillPnts  148
+QuestPnts  45
+Afk {B[{CMon Jul 14 11:00:23 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {cT{gh{ce T{gr{ca{gv{ce{gl{ce{gr{x~
+Immn ~
+Pnts 43
+Rank ~
+Aura ~
+TSex 1
+LLev 52
+Email fizzlex@yahoo.com~
+Deit Whisper~
+Lsit client-64-198-56-123.consolidated.net~
+Ltim Tue Dec 09 22:29:33 2003
+~
+LSav Tue Dec 09 22:31:18 2003
+~
+HMSP 886 318 692
+THMS 0 0 0
+Cnd  0 0 32 32
+Sk 77 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'channel'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'fireproof'
+Sk 73 1 'fly'
+Sk 76 1 'gate'
+Sk 76 1 'giant strength'
+Sk 76 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'nexus'
+Sk 75 1 'pass door'
+Sk 1 1 'portal'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 80 1 'regeneration'
+Sk 77 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 75 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 1 1 'word of recall'
+Sk 96 1 'dagger'
+Sk 100 1 'sword'
+Sk 74 1 'berserk'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'parry'
+Sk 95 1 'second attack'
+Sk 88 1 'third attack'
+Sk 100 1 'dual wield'
+Sk 91 1 'fast healing'
+Sk 75 1 'forge'
+Sk 84 1 'meditation'
+Sk 100 1 'scan'
+Sk 79 1 'scrolls'
+Sk 21 1 'staves'
+Sk 6 1 'wands'
+Sk 51 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'enhancement'
+Gr 'protective'
+Gr 'transportation'
+End
+
+#O
+Vnum 10206
+Nest 0
+Cond 95
+Wear 4
+Cost 10000
+End
+
+#O
+Vnum 10207
+Nest 0
+Wear 13
+Cost 10000
+End
+
+#O
+Vnum 10209
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 10212
+Nest 0
+ExtF 0
+Cond 91
+Wear 1
+Cost 1000
+End
+
+#O
+Vnum 16080
+Nest 0
+Cond 97
+Wear 15
+Cost 2500
+End
+
+#O
+Vnum 16080
+Nest 0
+Wear 14
+Cost 2500
+End
+
+#O
+Vnum 10212
+Nest 0
+ExtF 0
+Wear 2
+Cost 1000
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 97
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 10171
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear 10
+Cost 133
+End
+
+#O
+Vnum 17105
+Nest 0
+Wear 8
+Cost 145
+End
+
+#O
+Vnum 17320
+Nest 0
+ExtF 262146
+Wear -1
+Cost 2500
+Val  250 1 17321 40 30
+End
+
+#O
+Vnum 8271
+Nest 0
+Wear 9
+Cost 7000
+End
+
+#O
+Vnum 8272
+Nest 0
+Cond 94
+Wear 5
+Cost 5000
+End
+
+#O
+Vnum 10427
+Nest 0
+Cond 94
+Wear 19
+Cost 11800
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear 12
+Cost 8000
+End
+
+#O
+Vnum 10211
+Nest 0
+Cond 96
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 17104
+Nest 0
+Cond 37
+Wear 16
+Cost 170
+End
+
+#O
+Vnum 16095
+Nest 0
+Wear 18
+Cost 7500
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 48 0 0 0
+End
+
+#O
+Vnum 16007
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3163
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 3201
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 16075
+Nest 0
+Cond 87
+Wear -1
+Cost 1600
+Val  6 7 7 3 0
+End
+
+#O
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4592
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9207
+Nest 0
+Cond 94
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 17304
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9924
+Nest 0
+Wear -1
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1004
+Nest 0
+Name sword Slayer~
+ShD  Slayer{x~
+Desc A sword is here, forged by Talman's craftsmanship.~
+Mat steel~
+Wt   31
+Wear -1
+Lev  39
+Cost 3
+Val  1 5 6 3 0
+ExDe sword Slayer~ It is a marvellous sword, crafted from the finest steel around.
+It was created in the Month of Harmony by a young warrior
+named Talman.  Legend holds that this dwarf was a great weaponsmith.
+~
+End
+
+#O
+Vnum 3203
+Nest 0
+Cond 95
+Wear -1
+Cost 40
+End
+
+#O
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10204
+Nest 0
+Cond 94
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3428
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1004
+Nest 0
+Name sword Toothpick~
+ShD  {yToothpick{x{x~
+Desc A sword is here, forged by Talman's craftsmanship.~
+Mat copper~
+Wt   40
+Wear -1
+Lev  45
+Cost 5
+Val  1 5 11 3 0
+ExDe sword Toothpick~ It is a marvellous sword, crafted from the finest copper around.
+It was created in the Month of Long Shadows by a young warrior
+named Talman.  Legend holds that this dwarf was a great weaponsmith.
+~
+End
+
+#O
+Vnum 14094
+Nest 0
+Wear -1
+Cost 500
+Spell 3 'haste'
+End
+
+#O
+Vnum 1213
+Nest 0
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9915
+Nest 0
+ExtF 67
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 64 10 0 0
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 95
+Wear 6
+Cost 159
+Val  14 18 18 15 0
+End
+
+#O
+Vnum 16010
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 3088
+Nest 0
+Wear -1
+Time 463
+Cost 720
+Spell 1 'bless'
+Spell 2 'protection evil'
+Spell 3 'remove curse'
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 10423
+Nest 0
+Wear -1
+Cost 3400
+End
+
+#O
+Vnum 1215
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear -1
+Cost 133
+End
+
+#O
+Vnum 17104
+Nest 0
+Wear -1
+Cost 170
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear -1
+Cost 133
+End
+
+#O
+Vnum 17103
+Nest 0
+Wear -1
+Cost 230
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear -1
+Cost 133
+End
+
+#O
+Vnum 17107
+Nest 0
+Wear -1
+Cost 150
+End
+
+#O
+Vnum 17106
+Nest 0
+Wear -1
+Cost 133
+End
+
+#O
+Vnum 9513
+Nest 0
+Wear -1
+Cost 490
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 16069
+Nest 0
+Wear -1
+Cost 5300
+End
+
+#O
+Vnum 16069
+Nest 0
+Wear 3
+Cost 5300
+End
+
+#O
+Vnum 16007
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 10432
+Nest 0
+Wear -1
+Cost 11800
+End
+
+#O
+Vnum 3040
+Nest 0
+Wear -1
+Cost 890
+Spell 1 'identify'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'fly'
+End
+
+#END

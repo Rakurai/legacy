@@ -1,0 +1,234 @@
+#PLAYER
+Name Hokori~
+Id   1094928975
+LogO 1094931148
+Vers 14
+Mexp 1
+Pass archangel~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race human~
+Cla  5
+Levl 2
+Tru  0
+Plyd 699
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3719
+HMS  18 105 110
+Gold 0
+Silv 19
+Exp  2026
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Block_Remote 0
+Prac 1
+Trai 1
+Wimp 0
+Lay 1
+Lay_Next 10
+Familiar 0
+Atrib 15 10 13 15 15 16
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Jubei~
+Lsit 68.60.9.234~
+Ltim Sat Sep 11 15:20:48 2004
+~
+LSav Sat Sep 11 15:32:28 2004
+~
+HMSP 33 105 110
+THMS 0 0 0
+Cnd  0 3 33 33
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 1 1 'cure serious'
+Sk 1 1 'divine healing'
+Sk 1 1 'frenzy'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'mass healing'
+Sk 1 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 76 1 'sword'
+Sk 1 1 'shield block'
+Sk 1 1 'dodge'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'fast healing'
+Sk 1 1 'languages'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 1 1 'lay'
+Sk 1 1 'familiar'
+Sk 1 1 'die hard'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'curative'
+Gr 'healing'
+Affc 'bless'   0  29  31  -3  24          0 1
+Affc 'bless'   0  28  31   3  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 185 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#END

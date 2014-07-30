@@ -644,7 +644,7 @@ a {Hs{Th{Ho{Tr{Ht{x bow~
 {xA {Hs{Th{Ho{Tr{Ht{x bow has been carelessly left here.{x~
 oldstyle~
 weapon 0 AN
-exotic 2 4 pierce 0
+bow 2 4 pierce 0
 5 50 730 P
 E
 short bow~
@@ -657,7 +657,7 @@ a {Gl{Co{Gn{Cg{x bow~
 {xA {Gl{Co{Gn{Cg{x bow has been foolishly abandoned here.{x~
 oldstyle~
 weapon AG AN
-staff 2 6 pound 0
+bow 2 6 pound 0
 12 70 220 P
 A
 13 5

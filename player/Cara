@@ -1,103 +1,105 @@
 #PLAYER
 Name Cara~
 Id   1014547859
-LogO 1027212354
+LogO 1057794840
 Vers 14
 Mexp 2
 Pass aqua24~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race human~
-Clan kindred~
 Cla  0
-Levl 45
+Levl 50
 Tru  0
-Plyd 77783
+Plyd 103981
 Back 0
-Note 1026100269 1026097882 1026097875 1026100171 1026097891 1027094615 1026097898
+Note 1027289676 1026097882 1026097875 1033741871 1028906868 1041746976 1026097898
 Scro 22
-Room 8543
-HMS  976 201 235
-Gold 2629
-Silv 298
+Room 3001
+HMS  1009 931 534
+Gold 2809
+Silv 2671
 Silver_in_bank 1911
 Gold_in_bank 1000
-Exp  63240
+Exp  62614
 PCkills  1
 PCkilled 1
 Akills   0
-Akilled  0
+Akilled  1
 PKRank   0
 Pos  8
-Alig 868
-Spou Matilda~
+Alig -1000
 FImm 0
 FRes 0
 FVul 0
-Plr  AT
+Plr  AHTU
 Video 0
 Act  CDEFGHJLQSc
-AfBy NOTUV
-Comm NOQ
+AfBy 0
+Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Prac 56
-Trai 6
+Prac 20
+Trai 2
 Wimp 24
 Atrib 18 21 18 18 18 18
-SkillPnts  86
+SkillPnts  106
 RolePnts   2
-QuestPnts  33
-SQuestNext 6
-Afk {B[{CSun Jul  7 22:36:57 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+QuestPnts  47
+Afk {B[{CFri Oct  4 18:45:21 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  a mage of the {Hearth~
 Immn ~
-Pnts 48
+Pnts 45
 Rank {MM{gI{cR~
 Aura ~
 TSex 2
-LLev 21
+LLev 28
 Deit Liriel~
-Lsit crlspr-12.164.33.214.myacc.net~
-Ltim Sat Jul 20 19:03:55 2002
+Lsit crlspr-24.233.162.130.myacc.net~
+Ltim Fri Jan 10 05:02:14 2003
 ~
-LSav Sat Jul 20 19:45:54 2002
+LSav Wed Jul 09 19:54:00 2003
 ~
-HMSP 666 550 482
+HMSP 729 616 514
 THMS 0 0 0
-Cnd  0 0 22 34
+Cnd  0 0 18 22
+Colr 0 33 1
 Colr 13 36 1
 Sk 75 1 'acid blast'
 Sk 1 1 'acid rain'
 Sk 1 1 'age'
 Sk 81 1 'armor'
-Sk 76 1 'blindness'
+Sk 79 1 'blindness'
 Sk 1 1 'blizzard'
-Sk 75 1 'blood blade'
-Sk 75 1 'burning hands'
+Sk 76 1 'blood blade'
+Sk 76 1 'burning hands'
 Sk 75 1 'call lightning'
 Sk 75 1 'calm'
 Sk 76 1 'cancellation'
-Sk 75 1 'chain lightning'
+Sk 76 1 'chain lightning'
 Sk 1 1 'channel'
 Sk 75 1 'charm person'
 Sk 75 1 'chill touch'
 Sk 76 1 'colour spray'
 Sk 75 1 'control weather'
-Sk 75 1 'cure critical'
+Sk 76 1 'cure critical'
 Sk 78 1 'cure light'
 Sk 75 1 'cure serious'
 Sk 77 1 'curse'
+Sk 75 1 'demonfire'
 Sk 75 1 'detect evil'
 Sk 75 1 'detect good'
 Sk 77 1 'detect hidden'
-Sk 76 1 'detect invis'
+Sk 77 1 'detect invis'
 Sk 75 1 'detect magic'
 Sk 75 1 'detect poison'
+Sk 75 1 'dispel evil'
+Sk 75 1 'dispel good'
 Sk 75 1 'dispel magic'
 Sk 1 1 'divine healing'
 Sk 1 1 'divine regeneration'
+Sk 83 1 'earthquake'
 Sk 75 1 'energy drain'
 Sk 87 1 'faerie fire'
 Sk 75 1 'faerie fog'
@@ -106,12 +108,14 @@ Sk 75 1 'fireproof'
 Sk 1 1 'firestorm'
 Sk 75 1 'flame blade'
 Sk 1 1 'flameshield'
+Sk 75 1 'flamestrike'
 Sk 78 1 'fly'
 Sk 75 1 'frost blade'
 Sk 78 1 'gate'
 Sk 77 1 'giant strength'
-Sk 75 1 'haste'
+Sk 79 1 'haste'
 Sk 75 1 'heal'
+Sk 75 1 'heat metal'
 Sk 75 1 'identify'
 Sk 75 1 'infravision'
 Sk 75 1 'know alignment'
@@ -119,49 +123,51 @@ Sk 75 1 'light of truth'
 Sk 75 1 'lightning bolt'
 Sk 75 1 'locate life'
 Sk 76 1 'locate object'
-Sk 79 1 'magic missile'
+Sk 82 1 'magic missile'
 Sk 75 1 'mass healing'
 Sk 75 1 'nexus'
-Sk 81 1 'pass door'
+Sk 83 1 'pass door'
 Sk 76 1 'plague'
 Sk 75 1 'poison'
 Sk 1 1 'power word'
 Sk 75 1 'portal'
 Sk 79 1 'protection evil'
-Sk 80 1 'protection good'
-Sk 79 1 'refresh'
+Sk 81 1 'protection good'
+Sk 75 1 'ray of truth'
+Sk 80 1 'refresh'
 Sk 76 1 'regeneration'
-Sk 80 1 'sanctuary'
+Sk 81 1 'sanctuary'
 Sk 78 1 'shield'
 Sk 75 1 'shock blade'
 Sk 83 1 'shocking grasp'
 Sk 75 1 'sleep'
-Sk 82 1 'slow'
+Sk 88 1 'slow'
 Sk 75 1 'steel mist'
 Sk 75 1 'stone skin'
 Sk 75 1 'summon'
 Sk 1 1 'summon object'
+Sk 1 1 'sunray'
 Sk 1 1 'talon'
 Sk 75 1 'teleport'
 Sk 1 1 'teleport object'
-Sk 75 1 'undo spell'
+Sk 76 1 'undo spell'
 Sk 76 1 'vision'
 Sk 77 1 'weaken'
 Sk 75 1 'word of recall'
 Sk 1 1 'wrath'
 Sk 75 1 'dagger'
-Sk 98 1 'sword'
+Sk 100 1 'sword'
 Sk 100 1 'shield block'
 Sk 75 1 'brew'
 Sk 76 1 'scribe'
 Sk 1 1 'bash'
 Sk 1 1 'dirt kicking'
 Sk 100 1 'dodge'
-Sk 2 1 'enhanced damage'
-Sk 1 1 'kick'
+Sk 80 1 'enhanced damage'
+Sk 75 1 'kick'
 Sk 100 1 'parry'
 Sk 1 1 'rescue'
-Sk 80 1 'second attack'
+Sk 87 1 'second attack'
 Sk 1 1 'third attack'
 Sk 1 1 'dual wield'
 Sk 75 1 'lore'
@@ -169,9 +175,10 @@ Sk 100 1 'scan'
 Sk 75 1 'scrolls'
 Sk 75 1 'staves'
 Sk 75 1 'wands'
-Sk 50 1 'recall'
+Sk 75 1 'recall'
 Gr 'rom basics'
 Gr 'paladin basics'
+Gr 'attack'
 Gr 'beguiling'
 Gr 'combat'
 Gr 'detection'
@@ -182,13 +189,6 @@ Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'haste'   0  14   2   2   2    2097152 1
-Affc 'pass door'   0  43   4   0   0    1048576 1
-Affc 'protection evil'   0  40   5  -1  24       8192 1
-Affc 'protection good'   0  41   5  -1  24      16384 1
-Affc 'fly'   0  36  16   0   0     524288 1
-Affc 'stone skin'   0  36   1 -40  17          0 1
-Affc 'shield'   0  38   9 -20  17          0 1
 End
 
 #O
@@ -196,14 +196,7 @@ Vnum 79
 Nest 0
 Wear -1
 Cost 200
-Val  150 6 0 0 0
-End
-
-#O
-Vnum 4610
-Nest 0
-Wear -1
-Cost 700
+Val  150 150 0 0 0
 End
 
 #O
@@ -225,13 +218,15 @@ End
 #O
 Vnum 1612
 Nest 0
-Wear 11
+Cond 85
+Wear -1
 Cost 1530
 End
 
 #O
 Vnum 16001
 Nest 0
+Cond 98
 Wear 5
 Cost 5000
 End
@@ -251,15 +246,9 @@ Cost 22
 End
 
 #O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
-End
-
-#O
 Vnum 4595
 Nest 0
+Cond 98
 Wear 13
 Cost 8000
 End
@@ -267,14 +256,8 @@ End
 #O
 Vnum 25054
 Nest 0
+Cond 88
 Wear 18
-Cost 3000
-End
-
-#O
-Vnum 25053
-Nest 0
-Wear 10
 Cost 3000
 End
 
@@ -302,24 +285,52 @@ Cost 3000
 End
 
 #O
-Vnum 25060
-Nest 0
-Wear 0
-Cost 4000
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
 End
 
 #O
-Vnum 25057
-Nest 0
-Cond 88
-Wear 15
-Cost 4000
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name alara hidden token unending speck luminescence everlasting fires~
+ShD  {W*{RH{Pi{gdd{Pe{Rn{W* {gE{Wv{ge{Wrl{ga{Wst{gi{Wng {cM{gi{cdn{gi{cght {RF{Pi{Yr{Pe{Rs{x~
+Desc {W*{RH{Pi{gdd{Pe{Rn{W* {gA{Wn {gU{Wn{ge{Wnd{gi{Wng {gSp{Ye{gck {go{Wf {WL{Yu{Wm{Yi{Wn{Ye{Wsc{Ye{Wnc{Ye{x is here.~
+Mat {Yst{Wa{Yrl{Wi{Yght{x~
+Wear -1
+Cost 0
+ExDe fires~ An {ge{Wt{ge{Wrn{ga{Wl {gsp{Ye{gck {go{Wf {Yst{Wa{Yrl{Wi{Yght{x has been {gg{Wa{gth{we{gr{We{gd here.
+~
 End
 
 #O
 Vnum 25056
 Nest 0
-Cond 93
+Cond 80
 Wear 4
 Cost 4000
 End
@@ -367,6 +378,7 @@ End
 Vnum 16098
 Nest 0
 ExtF 1
+Cond 97
 Wear 12
 Cost 0
 End
@@ -392,29 +404,6 @@ Cost 9800
 End
 
 #O
-Vnum 16085
-Nest 0
-ExtF 3
-Wear 14
-Cost 1900
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 16016
-Nest 0
-Wear 9
-Cost 4650
-End
-
-#O
 Vnum 8652
 Nest 0
 Wear -1
@@ -447,68 +436,11 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 25015
+Vnum 8652
 Nest 0
 Wear -1
-Cost 0
-Spell 3 'pass door'
-End
-
-#O
-Vnum 25015
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'pass door'
-End
-
-#O
-Vnum 25004
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25004
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25004
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25004
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25004
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25004
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25004
-Nest 0
-Wear -1
-Cost 100
+Cost 10
+Spell 3 'fly'
 End
 
 #O
@@ -521,17 +453,9 @@ End
 #O
 Vnum 3202
 Nest 0
-Cond 92
+Cond 91
 Wear 7
 Cost 30
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
 End
 
 #O
@@ -559,29 +483,6 @@ Spell 3 'protection evil'
 End
 
 #O
-Vnum 17100
-Enchanted
-Nest 0
-Cond 27
-Wear 6
-Cost 0
-Affc 'acid breath'   0  88  -1  10  17          0 1
-Affc 'reserved'   1  45  -1   2   2          0 1
-Affc 'reserved'   1  45  -1   2  18          0 1
-Affc 'reserved'   1  45  -1   2  19          0 1
-Affc 'reserved'   1  45  -1  35  12          0 1
-Affc 'reserved'   1  45  -1  20  13          0 1
-Affc 'reserved'   1  45  -1  -1  20          0 1
-End
-
-#O
-Vnum 501
-Nest 0
-Wear -1
-Cost 1500
-End
-
-#O
 Vnum 11694
 Nest 0
 Wear -1
@@ -589,37 +490,6 @@ Cost 2000
 End
 
 #O
-Vnum 17100
-Nest 0
-Wear -1
-Cost 159
-End
-
-#O
-Vnum 17103
-Nest 0
-Wear -1
-Cost 230
-End
-
-#O
-Vnum 17106
-Nest 0
-Wear -1
-Cost 133
-End
-
-#O
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
 Vnum 8652
 Nest 0
 Wear -1
@@ -644,28 +514,11 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#O
 Vnum 8652
 Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
-End
-
-#O
-Vnum 17100
-Nest 0
-Wear -1
-Cost 159
 End
 
 #O
@@ -676,16 +529,10 @@ Cost 170
 End
 
 #O
-Vnum 17106
-Nest 0
-Wear -1
-Cost 133
-End
-
-#O
 Vnum 17316
 Nest 0
 ExtF 4096
+Cond 99
 Wear 2
 Cost 5000
 End
@@ -694,16 +541,10 @@ End
 Vnum 17317
 Nest 0
 ExtF 262339
+Cond 99
 Wear 17
 Cost 8000
 Spell 3 'colour spray'
-End
-
-#O
-Vnum 28001
-Nest 0
-Wear -1
-Cost 5000
 End
 
 #O
@@ -714,109 +555,11 @@ Cost 100
 End
 
 #O
-Vnum 28003
-Nest 0
-Wear -1
-Cost 45
-End
-
-#O
-Vnum 1215
-Nest 0
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 0
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 0
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#O
 Vnum 8652
 Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 17103
-Nest 0
-Wear -1
-Cost 230
-End
-
-#O
-Vnum 17106
-Nest 0
-Wear -1
-Cost 133
-End
-
-#O
-Vnum 10215
-Nest 0
-ExtF 64
-Cond 87
-Wear 16
-Cost 10000
-End
-
-#O
-Vnum 17107
-Nest 0
-Cond 98
-Wear -1
-Cost 150
-End
-
-#O
-Vnum 17106
-Nest 0
-Wear -1
-Cost 133
-End
-
-#O
-Vnum 10423
-Nest 0
-Wear -1
-Cost 3400
 End
 
 #O
@@ -838,13 +581,6 @@ Spell 3 'dispel evil'
 End
 
 #O
-Vnum 28001
-Nest 0
-Wear -1
-Cost 5000
-End
-
-#O
 Vnum 28002
 Nest 0
 Wear -1
@@ -852,18 +588,242 @@ Cost 100
 End
 
 #O
-Vnum 28003
+Vnum 16085
 Nest 0
-Wear -1
-Cost 45
+ExtF 3
+Cond 96
+Wear 14
+Cost 1900
 End
 
 #O
-Vnum 8652
+Vnum 16016
+Nest 0
+Cond 98
+Wear 9
+Cost 4650
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 84
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 58
+Wear 16
+Cost 10000
+End
+
+#O
+Vnum 25058
+Nest 0
+Wear 10
+Cost 5000
+End
+
+#O
+Vnum 25086
 Nest 0
 Wear -1
-Cost 10
+Cost 0
 Spell 3 'fly'
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25016
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'protection evil'
+End
+
+#O
+Vnum 25084
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'detect good'
+End
+
+#O
+Vnum 1214
+Nest 0
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Sucess{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 25054
+Nest 0
+Cond 98
+Wear 15
+Cost 3000
+End
+
+#O
+Vnum 7614
+Nest 0
+Cond 95
+Wear 11
+Cost 1000
+End
+
+#O
+Vnum 7613
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 501
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 25015
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25015
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25015
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'pass door'
+End
+
+#O
+Vnum 25086
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'fly'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 25086
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'fly'
+End
+
+#O
+Vnum 25093
+Nest 0
+Wear -1
+Cost 15
+Spell 3 'cure serious'
+End
+
+#O
+Vnum 25086
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'fly'
+End
+
+#O
+Vnum 25084
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'detect good'
 End
 
 #L

@@ -1,0 +1,812 @@
+#PLAYER
+Name Darien~
+Id   1060825757
+LogO 1069183800
+Vers 14
+Mexp 2
+Pass letmein~
+Prom H:%h/%H M:%m/%M V:%v/%V xp:%X ali:%a <%q> [%j] (%z) ~
+Race dragon~
+Cla  6
+Levl 55
+Tru  0
+Plyd 222968
+Back 142299
+Note 1069183621 1069183621 1069183621 1069183621 1069183621 1069183621 1069183621
+Scro 22
+Room 3014
+HMS  1077 824 503
+Gold 2565
+Silv 136
+Gold_in_bank 10000
+Exp  95117
+PCkills  0
+PCkilled 1
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 640
+FImm 0
+FRes EG
+FVul F
+Plr  OU
+Video 0
+Act  CDGHJLQSc
+AfBy HOTV
+Comm NOPY
+Revk 0
+Cgrp 0
+Cnsr B
+Prac 14
+Trai 1
+Wimp 0
+Atrib 17 19 20 13 20 18
+SkillPnts  225
+QuestPnts  325
+Afk {B[{CMon Sep 29 13:18:42 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {k~
+Immn ~
+Pnts 43
+Rank ~
+Aura ~
+TSex 1
+LLev 60
+Deit Vegita~
+Lsit d182-30-tercero-j-1.ucdavis.edu~
+Ltim Tue Nov 18 14:26:56 2003
+~
+LSav Tue Nov 18 14:30:00 2003
+~
+HMSP 909 522 666
+THMS 0 0 0
+Cnd  0 28 43 38
+Alias qc quest complete~
+Alias qr quest request~
+Alias qt quest time~
+Alias proe c 'protection evil'~
+Alias dm c 'dispel magic'~
+Alias prog c 'protection good'~
+Alias undo cast 'undo spell'~
+Sk 1 1 'acid breath'
+Sk 78 1 'armor'
+Sk 79 1 'cancellation'
+Sk 1 1 'channel'
+Sk 77 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'fire breath'
+Sk 1 1 'fireproof'
+Sk 1 1 'fly'
+Sk 1 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 76 1 'gate'
+Sk 3 1 'giant strength'
+Sk 78 1 'haste'
+Sk 2 1 'infravision'
+Sk 1 1 'lightning breath'
+Sk 1 1 'nexus'
+Sk 76 1 'pass door'
+Sk 2 1 'portal'
+Sk 83 1 'protection evil'
+Sk 77 1 'protection good'
+Sk 83 1 'refresh'
+Sk 78 1 'regeneration'
+Sk 78 1 'sanctuary'
+Sk 77 1 'shield'
+Sk 82 1 'stone skin'
+Sk 75 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 75 1 'undo spell'
+Sk 76 1 'word of recall'
+Sk 85 1 'axe'
+Sk 84 1 'dagger'
+Sk 1 1 'flail'
+Sk 100 1 'sword'
+Sk 1 1 'bash'
+Sk 90 1 'circle'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'parry'
+Sk 98 1 'second attack'
+Sk 87 1 'third attack'
+Sk 100 2 'dual wield'
+Sk 100 1 'scan'
+Sk 1 1 'sing'
+Sk 1 1 'scrolls'
+Sk 2 1 'staves'
+Sk 3 1 'wands'
+Sk 51 1 'recall'
+Gr 'rom basics'
+Gr 'bard basics'
+Gr 'draconian'
+Gr 'enhancement'
+Gr 'protective'
+Gr 'transportation'
+Affc 'stone skin'   0  55  52 -40  17          0 1
+Affc 'protection good'   0  55  21  -1  24      16384 1
+Affc 'armor'   0  54  20 -20  17          0 1
+Affc 'shield'   0  54  59 -20  17          0 1
+Affc 'haste'   0  54  23   4   2    2097152 1
+Affc 'sanctuary'   0  54   5   0   0        128 1
+End
+
+#O
+Vnum 17100
+Nest 0
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 11643
+Nest 0
+Wear 13
+Cost 20
+End
+
+#O
+Vnum 10171
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 3205
+Nest 0
+Wear 5
+Cost 60
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 17108
+Nest 0
+Wear 14
+Cost 350
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear 12
+Cost 8000
+End
+
+#O
+Vnum 17108
+Nest 0
+Wear 15
+Cost 350
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 3
+Cost 3800
+End
+
+#O
+Vnum 17320
+Nest 0
+Wear -1
+Cost 2500
+Val  250 1 17321 40 30
+End
+
+#O
+Vnum 9922
+Nest 1
+Cond 92
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 504
+Nest 1
+ExtF 19
+Cond 92
+Wear -1
+Cost 312
+End
+
+#O
+Vnum 504
+Nest 1
+ExtF 19
+Cond 100
+Wear -1
+Cost 312
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4595
+Nest 1
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 1215
+Nest 1
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 20028
+Nest 1
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 1202
+Nest 1
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 2407
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 2407
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+Val  150 138 15 0 0
+End
+
+#O
+Vnum 76
+Nest 1
+Cond 96
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 73
+Nest 1
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Enchanted
+Nest 1
+Wear -1
+Lev  13
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10215
+Nest 1
+ExtF 64
+Cond 93
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 14040
+Nest 1
+Cond 96
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 11915
+Nest 1
+Cond 94
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 16075
+Nest 1
+Cond 90
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9205
+Nest 1
+Cond 95
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4594
+Nest 1
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 4594
+Nest 1
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 9909
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 17105
+Nest 0
+Wear 8
+Cost 145
+End
+
+#O
+Vnum 10169
+Nest 0
+Wear 18
+Cost 2200
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 4
+Cost 3800
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Wear 2
+Cost 2200
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Wear 1
+Cost 2200
+End
+
+#O
+Vnum 9911
+Nest 0
+Wear 10
+Cost 8500
+End
+
+#O
+Vnum 8241
+Nest 0
+Wear 19
+Cost 10000
+End
+
+#O
+Vnum 16016
+Nest 0
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 3092
+Nest 0
+Wear -1
+Cost 290
+Spell 1 'detect invis'
+Spell 2 'detect magic'
+Spell 3 'detect hidden'
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 8241
+Nest 0
+Wear 16
+Cost 10000
+End
+
+#O
+Vnum 14030
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Ebony's wild token Deadly Kiss~
+ShD  {c({YW{bil{Yd{c) A {TD{Re{Ba{Td{Rl{By {RK{Pi{Rs{Ps{x~
+Desc a kiss lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#END

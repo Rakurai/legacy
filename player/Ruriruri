@@ -1,0 +1,792 @@
+#PLAYER
+Name RuriRuri~
+Id   1051991649
+LogO 1055686313
+Vers 14
+Mexp 1
+Pass celdian~
+Desc has already been:
+>>> ANNIHILATED <<
+<<< ERADICATED >>>
+and
+=== OBLITERATED ===
+and still stands to tell the tale of the evil basilisks that stole
+her Jet Mox Diamond that landed in their lair...
+~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race seraph~
+Cla  5
+Levl 13
+Tru  0
+Plyd 38993
+Back 0
+Note 1055287073 1046507965 1051589887 1053644628 1051242807 0 0
+Scro 30
+Room 4576
+HMS  233 221 210
+Gold 75
+Silv 316
+Exp  15183
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes NS
+FVul M
+Plr  HU
+Video 0
+Act  CDEFGHJLSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 16 18 19 13 18 23
+SkillPnts  1
+QuestPnts  22
+Afk {B[{CWed Jun  4 05:37:58 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {bT{Bh{Ge {VB{Pa{Vk{Pa {WQ{Pu{ge{be{Yn{w~
+Immn ~
+Pnts 41
+Rank ~
+Aura ~
+TSex 2
+LLev 10
+Deit Viro~
+Lsit 194.18.224.194~
+Ltim Sun Jun 15 09:42:02 2003
+~
+LSav Sun Jun 15 10:11:53 2003
+~
+HMSP 205 190 210
+THMS 0 0 0
+Cnd  0 0 0 0
+Alias cure 'cast cure'~
+Alias h c 'cure serious'~
+Alias ref c 'refresh'~
+Alias j c 'cure critical'~
+Sk 75 1 'armor'
+Sk 75 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 69 1 'continual light'
+Sk 78 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
+Sk 75 1 'cure blindness'
+Sk 75 1 'cure critical'
+Sk 1 1 'cure disease'
+Sk 78 1 'cure light'
+Sk 1 1 'cure poison'
+Sk 80 1 'cure serious'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 1 1 'detect hidden'
+Sk 1 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'encampment'
+Sk 1 1 'fireproof'
+Sk 1 1 'floating disc'
+Sk 1 1 'frenzy'
+Sk 1 1 'heal'
+Sk 1 1 'holy word'
+Sk 1 1 'identify'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'locate life'
+Sk 1 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 75 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 76 1 'refresh'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 1 1 'vision'
+Sk 75 1 'mace'
+Sk 79 1 'sword'
+Sk 76 1 'shield block'
+Sk 31 1 'rescue'
+Sk 1 1 'swimming'
+Sk 61 1 'languages'
+Sk 100 1 'scan'
+Sk 68 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'benedictions'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'healing'
+Gr 'protective'
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 80
+Nest 1
+Cond 92
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 9221
+Nest 1
+Wear -1
+Cost 2800
+Spell 3 'harm'
+End
+
+#O
+Vnum 4582
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1100
+Nest 1
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 1104
+Nest 1
+Wear -1
+Cost 1320
+End
+
+#O
+Vnum 2401
+Nest 1
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 4573
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 16045
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 14057
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1215
+Nest 1
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 2410
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 1621
+Nest 1
+Wear -1
+Time 367
+Cost 320
+Spell 1 'cure blindness'
+Spell 2 'cure critical'
+End
+
+#O
+Vnum 1621
+Nest 1
+Wear -1
+Time 534
+Cost 320
+Spell 1 'cure blindness'
+Spell 2 'cure critical'
+End
+
+#O
+Vnum 9223
+Nest 1
+Wear -1
+Time 845
+Cost 860
+Spell 1 'cure critical'
+Spell 2 'refresh'
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3709
+Nest 0
+Cond 94
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Cond 98
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 12700
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 94
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 100
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 32114
+Nest 0
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 4589
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 5222
+Nest 0
+Wear 12
+Cost 410
+End
+
+#O
+Vnum 16046
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 10133
+Nest 0
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 10134
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 32131
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 12702
+Enchanted
+Nest 0
+ExtF 67
+Wear 16
+Lev  13
+Cost 0
+Affc 'enchant weapon'   1 100  -1   6  19          0 1
+Affc 'enchant weapon'   1 100  -1   7  18          0 1
+End
+
+#O
+Vnum 4574
+Enchanted
+Nest 0
+Wear 18
+Cost 0
+Affc 'reserved'   1  16  -1   1  19          0 1
+Affc 'reserved'   1  16  -1   1   3          0 1
+Affc 'reserved'   1  16  -1   1   4          0 1
+Affc 'reserved'   1  16  -1   1   5          0 1
+End
+
+#O
+Vnum 4580
+Nest 0
+Cond 94
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a delicious cheesestick~
+ShD  a delicious {Ycheesestick{x~
+Desc A delicious {Ycheesestick{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a delicious cheesestick~
+ShD  a delicious {Ycheesestick{x~
+Desc A delicious {Ycheesestick{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a delicious cheesestick~
+ShD  a delicious {Ycheesestick{x~
+Desc A delicious {Ycheesestick{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Slice of Pizza~
+ShD  a Slice of Pizza~
+Desc A Slice of Pizza{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Slice of Pizza~
+ShD  a Slice of Pizza~
+Desc A Slice of Pizza{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Slice of Pizza~
+ShD  a Slice of Pizza~
+Desc A Slice of Pizza{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Slice of Pizza~
+ShD  a Slice of Pizza~
+Desc A Slice of Pizza{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a Slice of Pizza~
+ShD  a Slice of Pizza~
+Desc A Slice of Pizza{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  6 12 0 0 0
+ExDe chef~ This food was created by RuriRuri.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4609
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 4581
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 4572
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4580
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 4570
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 4610
+Nest 0
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 4608
+Nest 0
+Wear -1
+Cost 15
+End
+
+#END

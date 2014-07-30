@@ -1,0 +1,1 @@
+indent -kr $1

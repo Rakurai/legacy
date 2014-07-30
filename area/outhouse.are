@@ -1,0 +1,261 @@
+#AREA
+outhouse.are~
+Outsider's House~
+{H{{70 80} {MOutsider {TOutsiderHouse~
+26000 26099
+
+#MOBILES
+#26001
+elf woman~
+An elf woman~
+A beautiful elven woman moves about the room.
+~
+A beautiful elven woman moves about the room, cleaning and
+cooking. Every now and then she stops to smile at you,
+obviously unafraid.
+~
+elf~
+BCGZ DFH 800 S
+80 8 1d1+3999 1d1+399 8d6+1 slap
+-61 -59 -58 -62
+EF AB A I
+stand stand female 500
+0 0 medium 0
+
+#26003
+imp creature~
+A small imp~
+A small, ugly imp with black wings and pointed tail.
+~
+This small, ugly imp is scaley and twisted. He makes
+hissing sounds and curses in a harsh tonuge to himself.
+~
+unique~
+M DFJX -800 S
+75 7 1d1+7499 1d1+749 5d8+1 scratch
+-45 -44 -40 -44
+ABIQ 0 0 I
+stand stand male 100
+0 0 small 0
+
+#0
+
+#OBJECTS
+#26001
+key brass~
+a small brass key~
+A small, brass key with odd ruins upon it.~
+brass~
+key B AOP
+1 0 0 0 0
+50 5 5 W
+E
+ruins key~
+The ruins dance and shift under your gaze. You
+cannot read them properly.
+~
+#26003
+carrot~
+a tasty carrot~
+A long, orange, yummy carrot.~
+food~
+food AS AQ
+10 10 0 0 0
+1 10 1 P
+
+#26004
+bed~
+a big, soft bed~
+A large, comfortable bed fills half this room.~
+silk~
+furniture OSY P
+3 0 EHK 125 125
+1 1000 100 P
+
+#26005
+bed~
+a big, round bed~
+A large, round bed with red satin sheets fills one corner of the room.~
+satin~
+furniture ABGHOSY P
+3 0 EHK 150 150
+1 1000 100 P
+
+#26006
+fruit grapes~
+a bowl of green grapes~
+A bowl of of little green grapes.~
+food~
+food IR AP
+10 20 0 0 0
+1 1 10 P
+
+#26007
+wedding gold ring~
+a gold wedding ring~
+A beautiful, gold wedding ring with a single, fine diamond. On the
+inside of the band there is an engraving: `From Outsider to Teotwawki,
+with love.'~
+gold~
+weddingring AIOR ABOP
+0 0 0 0 0
+92 1 10000 I
+E
+ring~
+The ring shines and sparkles with the power of love.
+~
+
+#0
+
+#ROOMS
+#26000
+Outsider's Porch~
+You are standing in front of a small, white house.
+Flowers grow beside the brick path up to the door.
+To the east is the house. To the west is the open plain.
+~
+0 0 2
+D1
+To the east is a door.
+~
+house door~
+1 -1 26001
+D3
+To the west is the open plain.
+~
+open plain~
+0 -1 402
+E
+path~
+The brick path looks new and well kept.
+Bright, colourful flowers grow on either side of the bricks.
+~
+S
+
+#26001
+Outsider's Kitchen~
+You are standing in a very clean kitchen. The floors and
+walls are wood. A large table sits in the centre of the room
+and a warm fireplace lights the area.
+Exits are to the north and west.
+~
+0 0 0
+D0
+To the north is bedroom door.
+~
+bedroom door~
+1 -1 26002
+D3
+To the west is the exit.
+~
+exit door~
+1 -1 26000
+E
+table~
+The table is large, square and bare.
+~
+E
+fire~
+The fire is warm and inviting. Yet, there is
+no wood in the fireplace....odd.
+~
+S
+
+#26002
+Outsider's Bedroom~
+You are standing in a small bedroom. There is
+a bed here and little else. There is also a
+trap door under your feet.
+This room is completely quiet. You feel relaxed.
+~
+0 0 0
+H 125 M 125
+D2
+To the south is the kitchen.
+~
+kitchen door~
+1 -1 26001
+D5
+There is a trap door under your feet.
+~
+trap door~
+1 26001 26003
+D4
+There is an exit above your head.
+~
+ceiling door~
+1 -1 26004
+E
+bed~
+The bed is unusually wide and covered in a white sheet.
+~
+E
+trap door~
+The trap door is big enough for you to fit through. It
+is covered with some sort of writing, but you can't
+read it. A warning of some kind?
+~
+S
+
+#26003
+celler~
+You are standing in what looks like a root celler. It is
+dark and damp and you can feel the dirt shift under your feet.
+There is the smell of vegatables and something foul here.
+~
+0 ADNY 0
+D4
+Above you is the exit.
+~
+trap door~
+1 26001 26002
+E
+dirt~
+The dirt is soft, but stable.
+~
+S
+
+#26004
+Wedding Suite~
+You are standing in a large, softly lit room. The walls
+give off a faint light. Soft music seems to flow from the far
+corner. This is a peaceful, yet slightly erotic place.
+~
+0 DKJP 0
+D5
+Below you is the exit.
+~
+down~
+1 -1 26002
+E
+walls~
+The walls glow with a soft, red light.
+~
+S
+
+#0
+
+#RESETS
+M 0 26001 1 26001 1 * Elven woman in kitchen
+G 0 26001 10 * brass key held by elven woman
+
+M 0 26003 5 26003 1 * imp in celler
+
+O 0 26003 25 26003 * carrot in celler
+O 0 26004 1 26002 * bed in bedroom
+O 0 26005 1 26004 * bed in wedding suite
+O 0 26006 1 26004 * grapes next to bed
+D 0 26000 1 1 * outsider front door closed
+D 0 26002 5 2 * celler door locked
+D 0 26002 4 1 * ceiling exit closed
+D 0 26003 4 2 * celler door locked from below too
+D 0 26004 5 1 * wedding suite door closed
+S
+
+#SPECIALS
+M 26001 spec_sage * elven woman will ID items
+S
+
+#$
+
+

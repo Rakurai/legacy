@@ -1,50 +1,49 @@
 #PLAYER
 Name Melph~
 Id   1015145673
-LogO 1019265582
-Vers 13
+LogO 1060018182
+Vers 14
 Mexp 2
+Pass 1qaz2wsx~
 Prom [%h/%Hhp %m/%Mm %v/%Vmv][%e][%X] ~
 Race elf~
-Clan blackclaw~
-Sex  1
 Cla  0
 Levl 38
+Tru  0
 Plyd 110041
 Back 0
 Note 1016497183 1016497183 1016497183 1016497183 1016497183 1016497183 1016497183
 Scro 22
-Room 24814
-HMS  476 476 854 854 266 266
+Room 3001
+HMS  476 854 266
 Gold 11
 Silv 244
 Silver_in_bank 9381
 Gold_in_bank 1234
 Exp  44412
-PCkills 0
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
-Act  CDEFGHJQ
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 1000
+FImm 0
 FRes B
 FVul Z
+Plr  BHO
+Video 0
+Act  CDEFGHJQ
+AfBy 0
 Comm DNOZ
 Revk 0
 Cgrp A
 Cnsr 0
-Pos  4
 Prac 1
 Trai 4
-Save  -6
-Alig  1000
-Hit   17
-Dam   28
-ACs -92 -92 -90 -76
+Wimp 0
 Atrib 15 23 18 21 16 13
-AtMod 3 6 4 4 8 7
-QuestPnts 2
-Pass 1qaz2wsx~
+QuestPnts  2
 Afk {B[{CFri Apr 19 19:37:41 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  the Crappy Coder~
@@ -58,12 +57,8 @@ Deit Xenith~
 Lsit 168-138.idacpe.cableone.net~
 Ltim Fri Apr 19 19:31:33 2002
 ~
-LSav Fri Apr 19 20:19:42 2002
+LSav Mon Aug 04 13:29:42 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  BHO
 HMSP 351 584 246
 THMS 0 0 0
 Cnd  0 0 0 0
@@ -422,9 +417,9 @@ Enchanted
 Nest 0
 Wear 5
 Cost 0
-Affc 'reserved'   1  40  -1  30  13          0 1
-Affc 'reserved'   1  40  -1  30  12          0 1
 Affc 'reserved'   1  40  -1   1   2          0 1
+Affc 'reserved'   1  40  -1  30  12          0 1
+Affc 'reserved'   1  40  -1  30  13          0 1
 End
 
 #O

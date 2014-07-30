@@ -1,0 +1,1147 @@
+#PLAYER
+Name Puissance~
+Id   1103138249
+LogO 1106288122
+Vers 14
+Mexp 2
+Pass 1911a1~
+Prom <{C%h/%Hhp {G%m/%Mma {B%v/%V {W%Xtnl {w%e>{x ~
+Race irda~
+Cla  0
+Levl 59
+Plyd 140016
+Back 140004
+Note 1105156933 1105162385 1102756446 1103585981 1103448906 1103214246 0
+Scro 22
+Room 10158
+HMS  594 382 309
+Gold 6111
+Silv 4349
+Silver_in_bank 100
+Gold_in_bank 12660
+Exp  62594
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
+FRes 0
+FVul 0
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy V
+Comm NO
+Revk 0
+Cgrp AI
+Cnsr 0
+Block_Remote 0
+Prac 3
+Trai 3
+Wimp 0
+Familiar 0
+Atrib 18 23 21 18 18 15
+SkillPnts  59
+QuestPnts  22
+Bin  e~
+Afk {B[{CThu Jan 20 23:56:25 2005{B] {CUnknown Departure.{x
+~
+Titl  ({GMostly Harmless{x)~
+Immn ~
+Pnts 40
+Rank ~
+Aura ~
+TSex 1
+LLev 38
+Email gildedtiger@yahoo.ca~
+Deit Outsider~
+Lsit rddrpx27-port-13.dial.telus.net~
+Ltim Thu Jan 20 23:55:30 2005
+~
+LSav Fri Jan 21 00:15:22 2005
+~
+HMSP 683 853 367
+THMS 7 7 0
+Cnd  4 0 12 17
+Alias 1 cas magic~
+Alias 2 cas colour~
+Alias 5 cas 'cure crit'~
+Alias 0 cas shield~
+Alias 6 cas heal~
+Alias 7 cas blood~
+Alias 3 cas acid~
+Alias loca cas "locate life"~
+Alias 4 cas fireball~
+Alias 9 cas sanc~
+Alias 8 cas arm~
+Alias - cas stone~
+Alias en cas energy~
+Alias app eat app~
+Alias ap eat apple~
+Alias ak ord all kill~
+Alias skel cas 'animate skel'~
+Alias zom cas 'animate zom'~
+Alias ch cas charm~
+Sk 99 1 'acid blast'
+Sk 1 1 'age'
+Sk 75 1 'animate skeleton'
+Sk 75 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 75 1 'animate zombie'
+Sk 77 1 'armor'
+Sk 75 1 'blindness'
+Sk 75 1 'blood moon'
+Sk 75 1 'burning hands'
+Sk 1 1 'calm'
+Sk 75 1 'cancellation'
+Sk 76 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 75 1 'charm person'
+Sk 83 1 'chill touch'
+Sk 91 1 'colour spray'
+Sk 75 1 'cure blindness'
+Sk 93 1 'cure critical'
+Sk 75 1 'cure disease'
+Sk 78 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 78 1 'cure serious'
+Sk 75 1 'curse'
+Sk 1 1 'dazzling light'
+Sk 61 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 76 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 75 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 75 1 'energy drain'
+Sk 1 1 'fear'
+Sk 89 1 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 76 1 'fly'
+Sk 91 1 'gate'
+Sk 76 1 'giant strength'
+Sk 76 1 'haste'
+Sk 93 1 'heal'
+Sk 75 1 'identify'
+Sk 1 1 'infravision'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 83 1 'lightning bolt'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
+Sk 91 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 75 1 'nexus'
+Sk 76 1 'pass door'
+Sk 75 1 'plague'
+Sk 75 1 'poison'
+Sk 1 1 'power word'
+Sk 75 1 'portal'
+Sk 1 1 'protect container'
+Sk 75 1 'protection evil'
+Sk 75 1 'protection good'
+Sk 1 1 'recharge'
+Sk 77 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 75 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 78 1 'sanctuary'
+Sk 75 1 'scry'
+Sk 76 1 'shield'
+Sk 75 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 1 1 'sleep'
+Sk 77 1 'slow'
+Sk 1 1 'starve'
+Sk 75 1 'stone skin'
+Sk 82 1 'summon'
+Sk 1 1 'summon object'
+Sk 75 1 'talon'
+Sk 75 1 'teleport'
+Sk 75 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 75 1 'vision'
+Sk 75 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 100 1 'dagger'
+Sk 75 1 'brew'
+Sk 78 1 'lore'
+Sk 82 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Sk 75 1 'familiar'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'beguiling'
+Gr 'combat'
+Gr 'curative'
+Gr 'detection'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'transportation'
+Affc 'shield'   0  56  57 -20  17          0 1
+Affc 'stone skin'   0  57  49 -40  17          0 1
+Affc 'blood moon'   0  58  48   2  18          0 1
+Affc 'blood moon'   0  58  48   4  19          0 1
+Affc 'haste'   0  58  18   4   2    2097152 1
+Affc 'armor'   0  57  14 -20  17          0 1
+End
+
+#O
+Vnum 10169
+Nest 0
+Wear 18
+Cost 2200
+End
+
+#O
+Vnum 3020
+Enchanted
+Nest 0
+Cond 64
+Wear 16
+Lev  15
+Cost 157
+Val  2 100 100 2 223
+Affc 'enchant weapon'   1 100  -1  40  19          0 1
+Affc 'enchant weapon'   0 100  -1  40  18          0 1
+End
+
+#O
+Vnum 2211
+Nest 0
+Cond 97
+Wear 15
+Cost 1450
+End
+
+#O
+Vnum 2204
+Nest 0
+Cond 84
+Wear 13
+Cost 3900
+End
+
+#O
+Vnum 2276
+Nest 0
+Cond 82
+Wear 12
+Cost 1910
+End
+
+#O
+Vnum 4594
+Nest 0
+Cond 71
+Wear 2
+Cost 8000
+End
+
+#O
+Vnum 4594
+Nest 0
+Cond 56
+Wear 1
+Cost 8000
+End
+
+#O
+Vnum 9546
+Enchanted
+Nest 0
+ExtF 65
+Cond 66
+Wear 14
+Lev  15
+Cost 8
+Affc 'enchant armor'   1 100  -1 -23  17          0 1
+End
+
+#O
+Vnum 3075
+Enchanted
+Nest 0
+ExtF 65
+Cond 65
+Wear 8
+Lev  15
+Cost 420
+Affc 'enchant armor'   1 100  -1 -26  17          0 1
+End
+
+#O
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10411
+Nest 0
+Cond 92
+Wear 10
+Cost 3300
+End
+
+#O
+Vnum 10442
+Nest 0
+Cond 94
+Wear 5
+Cost 13700
+End
+
+#O
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3163
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 3167
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 3377
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 9206
+Nest 0
+Wear 6
+Cost 3800
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 9602
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 3373
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 3376
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 10449
+Nest 0
+Cond 94
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 8205
+Nest 0
+Cond 97
+Wear 4
+Cost 3233
+End
+
+#O
+Vnum 8205
+Nest 0
+Cond 89
+Wear 3
+Cost 3233
+End
+
+#O
+Vnum 10449
+Nest 0
+Wear 17
+Cost 5000
+End
+
+#O
+Vnum 8204
+Nest 0
+Wear 9
+Cost 3800
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 10155
+Nest 0
+Cond 93
+Wear 11
+Cost 1100
+End
+
+#O
+Vnum 10171
+Nest 0
+Wear -1
+Cost 3300
+End
+
+#O
+Vnum 10169
+Nest 0
+Wear -1
+Cost 2200
+End
+
+#O
+Vnum 10171
+Nest 0
+Wear 0
+Cost 3300
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10155
+Nest 0
+Wear -1
+Cost 1100
+End
+
+#O
+Vnum 10160
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 10154
+Nest 0
+Wear -1
+Cost 3300
+End
+
+#L
+Vnum 1111
+Nest 0
+Name christmas present~
+ShD  {PC{Hh{Pr{Hi{Ps{Ht{Pm{Ha{Ps {HP{Pr{He{Ps{He{Pn{Ht{x~
+Desc {PC{Hh{Pr{Hi{Ps{Ht{Pm{Ha{Ps {HP{Pr{He{Ps{He{Pn{Ht{x~
+Wear -1
+Cost 11
+End
+
+#L
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1206
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1207
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1208
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name zedraikis trading card hidden token Montrey~
+ShD  {Wa h{Con{Wed shorts{Cw{Word {g'{WZe{Cd{Wraiki{Cs{g'{W tr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+ExtF 17563987
+Wear -1
+Cost 0
+ExDe zedraikis trading card hidden token Montrey~ {x                  A whisper of mithril
+{x                    Cleaving all in its path
+{x                  With the fury of fire
+{x                    And Zedraikis' wrath!
+{x
+The legendary Zedraikis...  foes fall like blades of grass before this
+mighty blade of mithril.  It oft symbolizes the power a mortal can
+attain in the realm, and a weapon has yet to be crafted that rivals
+it's sheer devastating power.
+~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jagged long sword trading card hidden token Montrey~
+ShD  {Wa {cj{Wa{cg{Wg{ged {gl{co{Wn{cg {gsw{Wo{gr{cd {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+ExtF 17563987
+Wear -1
+Cost 0
+ExDe jagged long sword trading card~ This weapon's jagged edge rips through flesh with ease, making it
+a prime choice for adventurers.  The warrior Thespan favors this
+blade above all others.
+~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name token outsider hidden ballon~
+ShD  a small pink ballon~
+Desc A small, shiny, pink ballon lies here!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1202
+Nest 0
+Wear -1
+Cost 6
+End
+
+#L
+Vnum 1202
+Nest 0
+Wear -1
+Cost 6
+End
+
+#L
+Vnum 1202
+Nest 0
+Wear -1
+Cost 6
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 0
+Name token outsider pizza~
+ShD  a yummy, vegatarian pizza~
+Desc Outsider's vegatarian pizza with green peppers, mushrooms and pineapple~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name sheandra stone bracelet trading card Montrey~
+ShD  {Wa {MSheandra {cS{gt{co{gn{ce {gBracelet {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe sheandra stone bracelet trading card~ {x   Stone from the mountain
+{x     carved and worn,
+{x   Around the wrist of 
+{x     the lost and sworn.
+{x   Warriors strong 
+{x     and great were they,
+{x   Zorah's curse
+{x     took it all away.
+{x
+These enchanted bracelets, worn by the Sheandra Stone Warriors, are
+sought after pieces due to their ability to increase the wearer's
+spell abilities.  It is said that in times past they granted the
+powers of enhanced eyesight to its owner, but the mysteries of such
+sorcery are lost in this day and age.
+~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name gauntlets eye trading card Montrey~
+ShD  {Wa {Yga{bunt{Yl{bet{Ys {bof the {We{Py{We tr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe gauntlets eye trading card~ These magical gauntlets are said to strengthen the constitution
+of their wearer, making them highly sought after armor for the
+experienced traveller.  The engraving of an eye harkens to the
+enforcer eyes who posess them.
+~
+End
+
+#L
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 10449
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#END

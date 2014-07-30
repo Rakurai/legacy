@@ -1,7 +1,7 @@
 #PLAYER
 Name Kassandra~
 Id   1021164462
-LogO 1027006761
+LogO 1102445980
 Vers 14
 Mexp 2
 Pass aceventura~
@@ -9,20 +9,20 @@ Prom {Y%h/%Hhp {V%m/%Mmana {G%v/%Vstm {Y%g{W/%s (%r) {P%aAlign {C%XTnl {W%q{C/{G
 Race human~
 Clan order~
 Cla  7
-Levl 51
+Levl 63
 Tru  91
-Plyd 180002
-Back 177982
-Note 1026595133 1026595133 1026918579 1026595133 1026595133 1026877382 1026595133
+Plyd 192613
+Back 190234
+Note 1102445674 1029070644 1029070644 1029070644 1094660021 1036523666 1029070644
 Scro 22
 Room 24456
-HMS  1525 691 632
-Gold 2068
-Silv 13
-Gold_in_bank 2000
-Exp  51718
+HMS  1835 996 837
+Gold 904
+Silv 559
+Gold_in_bank 30000
+Exp  63141
 PCkills  1
-PCkilled 1
+PCkilled 3
 Akills   1
 Akilled  0
 PKRank   1
@@ -32,22 +32,23 @@ Mark 3001
 FImm 0
 FRes 0
 FVul 0
-Plr  AOQU
+Plr  AOQ
 Video D
 Act  CDEFGHJLQSc
-AfBy c
+AfBy bcd
 Comm MNO
 Revk 0
-Cgrp A
+Cgrp AG
 Cnsr B
-Prac 22
-Trai 2
+Block_Remote 0
+Prac 35
+Trai 7
 Wimp 0
+Familiar 0
 Atrib 18 18 18 18 21 11
-SkillPnts  156
 RolePnts   1
-QuestPnts  27
-Afk {B[{CWed Jul 17 00:33:09 2002{B] {CUnknown Departure.{x
+QuestPnts  70
+Afk {B[{CMon Aug 12 19:27:48 2002{B] {CUnknown Departure.{x
 ~
 Titl  {PTe{Rm{Yptr{Re{Pss{x of {YLi{Wg{Yht{x and {WD{ga{gr{Wk{x~
 Immn ~
@@ -55,20 +56,20 @@ Pnts 40
 Rank {NP{CF{NC~
 Aura ~
 TSex 2
-LLev 48
+LLev 53
 Deit Kazander~
 Stus The {WT{Ce{Va{Ys{Te{x~
 RmCt 1
 ExSk 0
 Raff 106
-Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
-Ltim Thu Jul 18 10:32:34 2002
+Lsit cpe-066-056-234-018.ec.rr.com~
+Ltim Tue Dec 07 13:59:24 2004
 ~
-LSav Thu Jul 18 10:39:21 2002
+LSav Tue Dec 07 13:59:40 2004
 ~
-HMSP 1115 449 662
+HMSP 1385 551 767
 THMS 0 0 0
-Cnd  3 0 7 10
+Cnd  0 0 0 0
 Colr 3 33 1
 Colr 11 33 1
 Colr 13 33 1
@@ -90,7 +91,8 @@ Alias fire c 'faerie fire'~
 Alias we get looney|wield looney~
 Alias cc c 'cure critical'~
 Alias so c 'summon object'~
-Sk 1 1 'acid blast'
+Alias g get kat|wield kat~
+Sk 75 1 'acid blast'
 Sk 75 1 'acid rain'
 Sk 76 1 'age'
 Sk 78 1 'armor'
@@ -112,13 +114,13 @@ Sk 80 1 'dispel magic'
 Sk 83 1 'divine healing'
 Sk 1 1 'divine regeneration'
 Sk 76 1 'energy drain'
-Sk 80 1 'faerie fire'
+Sk 82 1 'faerie fire'
 Sk 1 1 'faerie fog'
-Sk 87 1 'fireball'
+Sk 88 1 'fireball'
 Sk 1 1 'fireproof'
 Sk 75 1 'firestorm'
 Sk 76 1 'flameshield'
-Sk 81 1 'fly'
+Sk 82 1 'fly'
 Sk 85 1 'gate'
 Sk 76 1 'giant strength'
 Sk 80 1 'haste'
@@ -128,7 +130,7 @@ Sk 1 1 'lightning bolt'
 Sk 1 1 'magic missile'
 Sk 1 1 'mass healing'
 Sk 1 1 'nexus'
-Sk 82 1 'pass door'
+Sk 83 1 'pass door'
 Sk 76 1 'plague'
 Sk 76 1 'poison'
 Sk 1 1 'portal'
@@ -137,9 +139,10 @@ Sk 80 1 'protection good'
 Sk 76 1 'refresh'
 Sk 78 1 'regeneration'
 Sk 87 1 'sanctuary'
-Sk 76 1 'shield'
+Sk 77 1 'shield'
 Sk 1 1 'shocking grasp'
-Sk 91 1 'slow'
+Sk 92 1 'slow'
+Sk 1 1 'starve'
 Sk 75 1 'steel mist'
 Sk 76 1 'stone skin'
 Sk 75 1 'summon'
@@ -148,12 +151,13 @@ Sk 75 1 'talon'
 Sk 1 1 'teleport'
 Sk 75 1 'teleport object'
 Sk 80 1 'undo spell'
-Sk 86 1 'weaken'
+Sk 87 1 'weaken'
 Sk 77 1 'word of recall'
 Sk 1 1 'wrath'
 Sk 100 1 'axe'
 Sk 1 1 'flail'
 Sk 100 1 'sword'
+Sk 1 1 'bow'
 Sk 100 1 'bash'
 Sk 87 1 'circle'
 Sk 75 1 'disarm'
@@ -164,7 +168,7 @@ Sk 100 1 'parry'
 Sk 75 1 'rescue'
 Sk 100 1 'second attack'
 Sk 91 1 'third attack'
-Sk 100 1 'dual wield'
+Sk 86 2 'dual wield'
 Sk 75 1 'hunt'
 Sk 75 1 'forge'
 Sk 81 1 'repair'
@@ -185,7 +189,9 @@ Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'regeneration'   0  44   1   0   0  268435456 1
+Affc 'slow'   0  63  25  -7   2  536870912 1
+Affc 'flameshield'   0  61  22 -20  17  134217728 1
+Affc 'stone skin'   0  57  54 -40  17          0 1
 End
 
 #O
@@ -202,34 +208,6 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
-End
-
-#O
-Vnum 24402
-Nest 0
-Wear 0
-Cost 3000
-End
-
-#O
-Vnum 24403
-Nest 0
-Wear 18
-Cost 3000
-End
-
-#O
-Vnum 24410
-Nest 0
-Wear 6
-Cost 3000
-End
-
-#O
-Vnum 24404
-Nest 0
-Wear 9
-Cost 3000
 End
 
 #O
@@ -300,57 +278,6 @@ Affc 'reserved'   1  15  -1  -1  12          0 1
 End
 
 #O
-Vnum 10215
-Nest 0
-ExtF 64
-Wear -1
-Cost 10000
-Val  1 8 5 21 25
-End
-
-#O
-Vnum 24405
-Nest 0
-Wear 4
-Cost 4000
-End
-
-#O
-Vnum 24406
-Nest 0
-Wear 15
-Cost 4000
-End
-
-#O
-Vnum 24406
-Nest 0
-Wear 14
-Cost 4000
-End
-
-#O
-Vnum 4594
-Nest 0
-Wear 2
-Cost 8000
-End
-
-#O
-Vnum 3203
-Nest 0
-Wear 12
-Cost 40
-End
-
-#O
-Vnum 24407
-Nest 0
-Wear 8
-Cost 5000
-End
-
-#O
 Vnum 8652
 Nest 0
 Wear -1
@@ -369,7 +296,7 @@ End
 #O
 Vnum 10166
 Nest 0
-Wear 19
+Wear -1
 Cost 20
 Val  0 6 10 2 9
 End
@@ -387,80 +314,6 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Enchanted
-Nest 0
-Cond 62
-Wear -1
-Cost 0
-Spell 3 'giant strength'
 End
 
 #O
@@ -529,166 +382,6 @@ Cost 0
 End
 
 #O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24467
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'giant strength'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
-Vnum 24468
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'armor'
-End
-
-#O
 Vnum 10414
 Nest 0
 Wear -1
@@ -697,56 +390,10 @@ Spell 3 'sleep'
 End
 
 #O
-Vnum 10167
-Nest 0
-Wear 3
-Cost 0
-End
-
-#O
 Vnum 10170
 Nest 0
 Wear 7
 Cost 2000
-End
-
-#O
-Vnum 9911
-Nest 0
-Wear 10
-Cost 8500
-End
-
-#O
-Vnum 10215
-Nest 0
-ExtF 64
-Cond 95
-Wear -1
-Cost 10000
-Val  1 8 5 21 28
-End
-
-#O
-Vnum 10167
-Nest 0
-Wear -1
-Cost 3800
-End
-
-#O
-Vnum 10170
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
 End
 
 #O
@@ -781,14 +428,6 @@ Cost 60
 End
 
 #O
-Vnum 10168
-Nest 0
-ExtF 16777219
-Wear 1
-Cost 2200
-End
-
-#O
 Vnum 7502
 Nest 0
 Wear -1
@@ -811,6 +450,22 @@ Cost 0
 End
 
 #O
+Vnum 4594
+Nest 1
+Cond 99
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 10168
+Nest 1
+ExtF 16777219
+Wear -1
+Cost 2200
+End
+
+#O
 Vnum 8201
 Nest 0
 Wear 13
@@ -818,68 +473,239 @@ Cost 0
 End
 
 #O
-Vnum 10157
+Vnum 3080
 Nest 0
 Wear -1
-Cost 25
-Val  50 38 3 0 0
+Time 386
+Cost 800
+Spell 1 'heal'
 End
 
 #O
-Vnum 8800
+Vnum 3080
 Nest 0
 Wear -1
-Cost 20
+Time 521
+Cost 800
+Spell 1 'heal'
 End
 
 #O
-Vnum 8800
+Vnum 3080
 Nest 0
 Wear -1
-Cost 20
+Time 742
+Cost 800
+Spell 1 'heal'
 End
 
 #O
-Vnum 8801
+Vnum 3080
 Nest 0
 Wear -1
-Cost 100
+Time 660
+Cost 800
+Spell 1 'heal'
 End
 
 #O
-Vnum 8802
+Vnum 3080
 Nest 0
 Wear -1
-Cost 200
+Time 423
+Cost 800
+Spell 1 'heal'
 End
 
 #O
-Vnum 8803
+Vnum 3080
 Nest 0
 Wear -1
-Cost 150
+Time 512
+Cost 800
+Spell 1 'heal'
 End
 
 #O
-Vnum 8800
+Vnum 3080
 Nest 0
 Wear -1
-Cost 20
+Time 619
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 499
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 594
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 619
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 471
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 360
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 751
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 428
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 587
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 400
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 329
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 309
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Time 545
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 5607
+Nest 0
+Wear 14
+Cost 0
 End
 
 #O
 Vnum 10166
 Nest 0
-Wear 16
+Wear -1
 Cost 20
 Val  0 6 10 2 12
 End
 
 #O
-Vnum 8800
+Vnum 20021
+Enchanted
 Nest 0
+ExtF 526659
 Wear -1
-Cost 20
+Lev  23
+Cost 300
+Affc 'reserved'   1  19  -1   2   5          0 1
+Affc 'reserved'   1  19  -1 -30  24          0 1
+Affc 'enchant weapon'   1  70  -1   5  19          0 1
+Affc 'enchant weapon'   0  70  -1   5  18          0 1
+End
+
+#O
+Vnum 10205
+Nest 0
+ExtF 64
+Wear 8
+Cost 0
+End
+
+#O
+Vnum 24403
+Nest 0
+Wear 18
+Cost 3000
+End
+
+#O
+Vnum 24410
+Nest 0
+Wear 6
+Cost 3000
+End
+
+#O
+Vnum 24405
+Nest 0
+Wear 4
+Cost 4000
+End
+
+#O
+Vnum 24406
+Nest 0
+Wear 15
+Cost 4000
 End
 
 #O
@@ -899,155 +725,330 @@ Spell 3 'giant strength'
 End
 
 #O
-Vnum 3080
+Vnum 24467
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 0
+Spell 3 'giant strength'
 End
 
 #O
-Vnum 3080
+Vnum 24467
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 0
+Spell 3 'giant strength'
 End
 
 #O
-Vnum 3080
+Vnum 24467
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 0
+Spell 3 'giant strength'
 End
 
 #O
-Vnum 3080
+Vnum 24467
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 0
+Spell 3 'giant strength'
 End
 
 #O
-Vnum 3080
+Vnum 17013
 Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
+Wear 1
+Cost 0
 End
 
 #O
-Vnum 3080
+Vnum 24468
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 0
+Spell 3 'armor'
 End
 
 #O
-Vnum 3080
+Vnum 24467
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 0
+Spell 3 'giant strength'
 End
 
 #O
-Vnum 3080
+Vnum 24483
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 1
+Spell 3 'armor'
 End
 
 #O
-Vnum 3080
+Vnum 24468
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 0
+Spell 3 'armor'
 End
 
 #O
-Vnum 3080
+Vnum 24467
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 0
+Spell 3 'giant strength'
 End
 
 #O
-Vnum 3080
+Vnum 24483
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 1
+Spell 3 'armor'
 End
 
 #O
-Vnum 3080
+Vnum 14030
 Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
+Wear 19
+Cost 0
 End
 
 #O
-Vnum 3080
+Vnum 3206
 Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
+Wear 10
+Cost 70
 End
 
 #O
-Vnum 3080
+Vnum 24483
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 1
+Spell 3 'armor'
 End
 
 #O
-Vnum 3080
+Vnum 10171
 Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
+Wear 0
+Cost 0
 End
 
 #O
-Vnum 3080
+Vnum 8204
 Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
+Wear 9
+Cost 3800
 End
 
 #O
-Vnum 3080
+Vnum 20004
 Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
+ExtF 65
+Wear 3
+Cost 1000
 End
 
 #O
-Vnum 3080
+Vnum 3808
 Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
+Wear 12
+Cost 30000
 End
 
 #O
-Vnum 3080
+Vnum 24409
+Nest 0
+Wear 2
+Cost 6000
+End
+
+#O
+Vnum 14030
+Nest 0
+Wear 16
+Cost 0
+End
+
+#B
+Vnum 20026
 Nest 0
 Wear -1
-Cost 800
-Spell 1 'heal'
+Cost 90000
+End
+
+#B
+Vnum 11910
+Nest 0
+ExtF 17302289
+Wear -1
+Cost 8000
+End
+
+#B
+Vnum 11709
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 1345
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 10131
+Nest 1
+Wear -1
+Cost 110
+End
+
+#B
+Vnum 16064
+Nest 1
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 16041
+Nest 1
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 16041
+Nest 1
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 4593
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 4593
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 3203
+Nest 0
+Wear -1
+Cost 40
+End
+
+#B
+Vnum 825
+Nest 0
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 14030
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 2916
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 2913
+Nest 1
+ExtF 16777283
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 20006
+Nest 1
+ExtF 17039680
+Wear -1
+Cost 999
+End
+
+#B
+Vnum 5607
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 5608
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 2917
+Nest 1
+ExtF 16777283
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 2914
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 20008
+Nest 1
+ExtF 16777536
+Wear -1
+Cost 50
+End
+
+#B
+Vnum 14030
+Nest 1
+Cond 93
+Wear -1
+Cost 6000
+End
+
+#B
+Vnum 10167
+Nest 1
+Wear -1
+Cost 3800
+End
+
+#B
+Vnum 2912
+Nest 1
+ExtF 16777283
+Wear -1
+Cost 0
 End
 
 #B
@@ -1184,20 +1185,6 @@ Cost 0
 End
 
 #B
-Vnum 24409
-Nest 1
-Wear -1
-Cost 6000
-End
-
-#B
-Vnum 20026
-Nest 0
-Wear -1
-Cost 90000
-End
-
-#B
 Vnum 16512
 Nest 0
 ExtF 786769
@@ -1206,184 +1193,34 @@ Cost 0
 End
 
 #B
-Vnum 11910
+Vnum 17108
 Nest 0
-ExtF 17302289
 Wear -1
-Cost 8000
+Cost 0
 End
 
 #B
-Vnum 11709
+Vnum 10215
 Nest 0
+ExtF 64
+Cond 95
 Wear -1
 Cost 10000
+Val  1 8 5 21 28
 End
 
 #B
-Vnum 825
+Vnum 10215
 Nest 0
+ExtF 64
 Wear -1
-Cost 200
+Cost 10000
+Val  1 8 5 21 25
 End
 
 #B
-Vnum 14030
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 3808
-Nest 1
-Wear -1
-Cost 30000
-End
-
-#B
-Vnum 2916
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 2913
-Nest 1
-ExtF 16777283
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 2912
-Nest 1
-ExtF 16777283
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 10171
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 20006
-Nest 1
-ExtF 17039680
-Wear -1
-Cost 999
-End
-
-#B
-Vnum 5607
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 5608
-Nest 1
-Wear -1
-Cost 2000
-End
-
-#B
-Vnum 2917
-Nest 1
-ExtF 16777283
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 2914
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 20008
-Nest 1
-ExtF 16777536
-Wear -1
-Cost 50
-End
-
-#B
-Vnum 8204
-Nest 1
-Wear -1
-Cost 3800
-End
-
-#B
-Vnum 20004
-Nest 1
-ExtF 65
-Wear -1
-Cost 1000
-End
-
-#B
-Vnum 14030
-Nest 1
-Cond 93
-Wear -1
-Cost 6000
-End
-
-#B
-Vnum 1345
+Vnum 8241
 Nest 0
-Wear -1
-Cost 1000
-End
-
-#B
-Vnum 10131
-Nest 1
-Wear -1
-Cost 110
-End
-
-#B
-Vnum 16064
-Nest 1
-Wear -1
-Cost 4500
-End
-
-#B
-Vnum 16041
-Nest 1
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 16041
-Nest 1
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 4593
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 4593
-Nest 1
 Wear -1
 Cost 0
 End

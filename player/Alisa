@@ -1,7 +1,7 @@
 #PLAYER
 Name Alisa~
 Id   989564978
-LogO 1406529767
+LogO 1406687202
 Vers 15
 Mexp 2
 Pass lemondrop~
@@ -20,8 +20,8 @@ Plyd 5986897
 Back 5986876
 Note 1406389926 1009206322 1009033568 1008841535 1406400423 1009156701 0
 Scro 40
-Room 1201
-HMS  699 1097 100
+Room 1290
+HMS  735 1165 100
 Gold 707088
 Silv 415
 Silver_in_bank 1000000
@@ -38,7 +38,7 @@ Mark 2317
 FImm 0
 FRes 0
 FVul JLR
-Plr  AEFGIKMOQ
+Plr  AEFGHIKMOQ
 Video 0
 Act  CDEGJLOQSTc
 AfBy DFJRV
@@ -78,7 +78,7 @@ Raff 907
 Lsit 98.192.176.211~
 Ltim Sun Jul 27 23:42:30 2014
 ~
-LSav Sun Jul 27 23:42:47 2014
+LSav Tue Jul 29 19:26:42 2014
 ~
 Finf ...it was good to have all the world's 
 words at the mind's disposal, so the 
@@ -395,14 +395,14 @@ ExtF 323
 Wear 15
 Lev  91
 Cost 55000
-Affc 'enchant armor'   1  98  -1 -12  17          0 1
-Affc 'reserved'   1  95  -1   4   1          0 1
-Affc 'reserved'   1  95  -1   4   2          0 1
-Affc 'reserved'   1  95  -1 300  12          0 1
-Affc 'reserved'   1  95  -1 300  13          0 1
-Affc 'enchant weapon'   1  98  -1  48  18          0 1
-Affc 'enchant weapon'   1  98  -1  52  19          0 1
 Affc 'reserved'   0  95  -1   0   0    2097152 1
+Affc 'enchant weapon'   1  98  -1  52  19          0 1
+Affc 'enchant weapon'   1  98  -1  48  18          0 1
+Affc 'reserved'   1  95  -1 300  13          0 1
+Affc 'reserved'   1  95  -1 300  12          0 1
+Affc 'reserved'   1  95  -1   4   2          0 1
+Affc 'reserved'   1  95  -1   4   1          0 1
+Affc 'enchant armor'   1  98  -1 -12  17          0 1
 ExDe owned by~ Alisa
 ~
 End
@@ -417,14 +417,14 @@ ExtF 323
 Wear 14
 Lev  91
 Cost 55000
-Affc 'enchant armor'   1  98  -1 -150  17          0 1
-Affc 'reserved'   1  95  -1   4   1          0 1
-Affc 'reserved'   1  95  -1   4   2          0 1
-Affc 'reserved'   1  95  -1 300  12          0 1
-Affc 'reserved'   1  95  -1 300  13          0 1
-Affc 'enchant weapon'   1  98  -1  28  18          0 1
-Affc 'enchant weapon'   1  98  -1  32  19          0 1
 Affc 'reserved'   0  95  -1   0   0    2097152 1
+Affc 'enchant weapon'   1  98  -1  32  19          0 1
+Affc 'enchant weapon'   1  98  -1  28  18          0 1
+Affc 'reserved'   1  95  -1 300  13          0 1
+Affc 'reserved'   1  95  -1 300  12          0 1
+Affc 'reserved'   1  95  -1   4   2          0 1
+Affc 'reserved'   1  95  -1   4   1          0 1
+Affc 'enchant armor'   1  98  -1 -150  17          0 1
 ExDe owned by~ Alisa
 ~
 End
@@ -451,13 +451,13 @@ ShD  {Pa {Yf{Pl{Ra{Pm{Ri{Pn{Yg {Wb{ga{Wll {go{cf {Hc{Ga{Ht{Gn{Hi{Gp{x~
 ExtF 323
 Wear 0
 Cost 7055
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'reserved'   1  91  -1   2   2          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   1   4          0 1
-Affc 'reserved'   1  91  -1 150  12          0 1
-Affc 'enchant weapon'   1 100  -1  22  18          0 1
 Affc 'enchant weapon'   1 100  -1  22  19          0 1
+Affc 'enchant weapon'   1 100  -1  22  18          0 1
+Affc 'reserved'   1  91  -1 150  12          0 1
+Affc 'reserved'   1  91  -1   1   4          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   2   2          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
 End
 
 #O
@@ -484,9 +484,9 @@ Wt   5
 Wear 5
 Lev  0
 Cost 0
-ExDe owned by~ Alisa
-~
 ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
+~
+ExDe owned by~ Alisa
 ~
 End
 
@@ -513,14 +513,14 @@ ExtF 67
 Wear 17
 Lev  50
 Cost 9000
-Affc 'enchant weapon'   1 100  -1   6  19          0 1
-Affc 'enchant weapon'   1 100  -1   6  18          0 1
-Affc 'reserved'   1 100  -1   2   4          0 1
-Affc 'reserved'   1 100  -1 -16  17          0 1
-Affc 'reserved'   1  66  -1 110  12          0 1
-Affc 'reserved'   1  66  -1   3   3          0 1
-Affc 'reserved'   1  66  -1 -40   9          0 1
 Affc 'reserved'   1  66  -1 -10  24          0 1
+Affc 'reserved'   1  66  -1 -40   9          0 1
+Affc 'reserved'   1  66  -1   3   3          0 1
+Affc 'reserved'   1  66  -1 110  12          0 1
+Affc 'reserved'   1 100  -1 -16  17          0 1
+Affc 'reserved'   1 100  -1   2   4          0 1
+Affc 'enchant weapon'   1 100  -1   6  18          0 1
+Affc 'enchant weapon'   1 100  -1   6  19          0 1
 End
 
 #O
@@ -537,8 +537,8 @@ Wear 16
 Lev  82
 Cost 7
 Val  4 10 12 7 0
-Affc 'enchant weapon'   0  76  -1   8  18          0 1
 Affc 'enchant weapon'   1  76  -1   8  19          0 1
+Affc 'enchant weapon'   0  76  -1   8  18          0 1
 ExDe mace a foam bat, Spouse Beater~ It is a marvellous mace, crafted from the finest platinum around.
 It was created in the Month of Futility by a master thief
 named Alisa.  Legend holds that this feral was a great weaponsmith.
@@ -554,13 +554,13 @@ ShD  {Wa {gt{Wil{gt{We{gd {Yh{ba{Ylo{x~
 ExtF 16777283
 Wear 18
 Cost 1
-Affc 'enchant armor'   1  98  -1 -210  17          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1  50  12          0 1
-Affc 'reserved'   1  91  -1  50  13          0 1
-Affc 'enchant weapon'   1  98  -1  11  19          0 1
-Affc 'enchant weapon'   1  98  -1  12  18          0 1
 Affc 'reserved'   0  91  -1   0   0         40 1
+Affc 'enchant weapon'   1  98  -1  12  18          0 1
+Affc 'enchant weapon'   1  98  -1  11  19          0 1
+Affc 'reserved'   1  91  -1  50  13          0 1
+Affc 'reserved'   1  91  -1  50  12          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'enchant armor'   1  98  -1 -210  17          0 1
 End
 
 #O
@@ -576,18 +576,10 @@ Wt   5
 Wear -1
 Lev  0
 Cost 0
-ExDe owned by~ Alisa
-~
 ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
 ~
-End
-
-#O
-Vnum 1277
-Nest 1
-ShD  a {cdark{x hole~
-Wear -1
-Cost 10000
+ExDe owned by~ Alisa
+~
 End
 
 #O
@@ -728,17 +720,17 @@ Cond 93
 Wear -1
 Lev  91
 Cost 55000
-ExDe owned by~ Alisa
+ExDe katana~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
+{ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
+{gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
+{gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
 ~
 ExDe chirijiraden~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
 {ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
 {gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
 {gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
 ~
-ExDe katana~ {gIt's bl{Wa{gd{We {gcovered with softly {Yg{glo{Ww{gin{Yg {grunes, the le{Wg{gen{Wd{ga{Wr{gy k{Ca{Wt{ga{Wna, {gC{Wh{Ci{Wri{gj{Cir{ga{Wde{gn{x
-{ggives off a wicked gl{We{Ca{gm when it catches the {Yl{gi{Wg{Yh{gt.  Forged by the g{Wod{gs in ancient{x
-{gdays by hammering together {Cb{glu{Ce{g-white {Cm{Wi{gt{Wh{gri{Cl {gand {Yg{gold{We{Yn st{ga{Wrd{gu{Ws{Yt{g, it's marvellous{x
-{gcu{Ct{Wti{gn{Wg {Ce{gff{Wi{gc{Wie{Cn{gcy is only surpassed by it's {Ys{gtu{Wn{gn{Yi{gng {Wb{gea{Yu{Wt{gy.{x
+ExDe owned by~ Alisa
 ~
 End
 
@@ -785,11 +777,11 @@ ShD  a big, giant, kitty hug~
 Desc {xA {Y5{bqp{g token{x lies here.~
 Wear -1
 Cost 3500
-ExDe token hug~ {gA {Y5{bqp{g token.{x
+ExDe token~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
 ~
 ExDe qp~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
 ~
-ExDe token~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
+ExDe token hug~ {gA {Y5{bqp{g token.{x
 ~
 End
 
@@ -801,11 +793,11 @@ ShD  a big, giant, kitty hug~
 Desc {xA {Y5{bqp{g token{x lies here.~
 Wear -1
 Cost 3500
-ExDe token hug~ {gA {Y5{bqp{g token.{x
+ExDe token~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
 ~
 ExDe qp~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
 ~
-ExDe token~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
+ExDe token hug~ {gA {Y5{bqp{g token.{x
 ~
 End
 
@@ -817,11 +809,11 @@ ShD  a big, giant, kitty hug~
 Desc {xA {Y5{bqp{g token{x lies here.~
 Wear -1
 Cost 3500
-ExDe token hug~ {gA {Y5{bqp{g token.{x
+ExDe token~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
 ~
 ExDe qp~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
 ~
-ExDe token~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
+ExDe token hug~ {gA {Y5{bqp{g token.{x
 ~
 End
 
@@ -833,9 +825,9 @@ ShD  {ga {Y10{bqp {Wt{go{Tk{ge{Wn{x~
 Desc {xA {Y10{bqp {Wt{go{Tk{ge{Wn{x lies here.~
 Wear -1
 Cost 3500
-ExDe qp~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
-~
 ExDe token~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
+~
+ExDe qp~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
 ~
 End
 
@@ -848,10 +840,10 @@ Desc WoW! What a treasure!~
 Mat {cnothing{x~
 Wear -1
 Cost 3500
-ExDe token treasure nothing~ WoW! What a treasure!
-~
 ExDe token nothing treasure~ WoW! What a treasure!
 Alisa must like you!
+~
+ExDe token treasure nothing~ WoW! What a treasure!
 ~
 End
 
@@ -888,11 +880,11 @@ Desc {xA {bchocolaty {WM&M {xis lying here. Quick! Pick it up!~
 Mat {bchocolate{x~
 Wear -1
 Cost 15
-ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Ggreen {WM&M{xs. It's no secret she likes these best!
+ExDe green~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Ggreen {WM&M{xs. It's no secret she likes these best!
 ~
 ExDe candy~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Ggreen {WM&M{xs. It's no secret she likes these best!
 ~
-ExDe green~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Ggreen {WM&M{xs. It's no secret she likes these best!
+ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Ggreen {WM&M{xs. It's no secret she likes these best!
 ~
 End
 
@@ -914,11 +906,11 @@ Desc {Wa {Wt{go{Tk{ge{Wn {Nw{To{Cr{Tt{Nh {Ma{Vn {Ra{Pb{Vsu{Pr{Rd {ba{Hm{Gou{Hn{b
 Mat token~
 Wear -1
 Cost 3500
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -931,11 +923,11 @@ Desc {WA {Wt{go{Tk{ge{Wn {Wf{go{Tr {No{Bn{Ce {Rk{Pi{Vs{Ps {Cf{Br{No{Tm {Ha{bn{Yy
 Mat {Mk{Vis{Ms{Ve{Ms{x~
 Wear -1
 Cost 3500
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -948,11 +940,11 @@ Desc {gOO{WO{To{Co {PYESS!{x {GPIck {Vt{Ph{Ri{Pi{Vs {YU{Hp{W!{k!{x~
 Mat {Yanchovies{x~
 Wear -1
 Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -965,11 +957,11 @@ Desc {Wa {Wt{go{Tk{ge{Wn {Nw{To{Cr{Tt{Nh {Ma{Vn {Ra{Pb{Vsu{Pr{Rd {ba{Hm{Gou{Hn{b
 Mat {bmud{x~
 Wear -1
 Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -981,9 +973,9 @@ ShD  {Wa {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{x~
 Desc {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha {Wlies here.{x~
 Wear -1
 Cost 0
-ExDe restring~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
-~
 ExDe token~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
+~
+ExDe restring~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
 ~
 End
 
@@ -996,11 +988,11 @@ Desc {gOO{WO{To{Co {PYESS!{x {GPIck {Vt{Ph{Ri{Pi{Vs {YU{Hp{W!{k!{x~
 Mat {Yanchovies{x~
 Wear -1
 Cost 3500
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -1013,11 +1005,11 @@ Desc {WA {Wt{go{Tk{ge{Wn {Wf{go{Tr {No{Bn{Ce {Rk{Pi{Vs{Ps {Cf{Br{No{Tm {Ha{bn{Yy
 Mat {Mk{Vis{Ms{Ve{Ms{x~
 Wear -1
 Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -1030,11 +1022,11 @@ Desc {Wa {Wt{go{Tk{ge{Wn {Nw{To{Cr{Tt{Nh {Ma{Vn {Ra{Pb{Vsu{Pr{Rd {ba{Hm{Gou{Hn{b
 Mat token~
 Wear -1
 Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -1067,11 +1059,11 @@ ShD  a big, giant, kitty hug~
 Desc {xA {Y5{bqp{g token{x lies here.~
 Wear -1
 Cost 3500
-ExDe token~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
+ExDe token hug~ {gA {Y5{bqp{g token.{x
 ~
 ExDe qp~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
 ~
-ExDe token hug~ {gA {Y5{bqp{g token.{x
+ExDe token~ {gA {Y10{bqp {Wt{go{Tk{ge{Wn{x.
 ~
 End
 
@@ -1117,13 +1109,13 @@ Desc {xA {Wla{gr{gg{We s{gac{Wk{x, filled with {Cca{Tk{Ce{Ts{x, is lying on the 
 ExtF 16777281
 Wear -1
 Cost 2400
-ExDe cakes~ {gA {Wla{gr{gg{We s{gac{Wk {go{Wf {Cca{Tk{Ce{Ts{W, {gbelonging to {HA{Gl{Wi{Gs{Ha{x.
-~
-ExDe cakebag~ {gA {Wla{gr{gg{We s{gac{Wk {go{Wf {Cca{Tk{Ce{Ts{W, {gbelonging to {HA{Gl{Wi{Gs{Ha{x.
+ExDe bag~ {gA {Wla{gr{gg{We s{gac{Wk {go{Wf {Cca{Tk{Ce{Ts{W, {gbelonging to {HA{Gl{Wi{Gs{Ha{x.
 ~
 ExDe sack~ {gA {Wla{gr{gg{We s{gac{Wk {go{Wf {Cca{Tk{Ce{Ts{W, {gbelonging to {HA{Gl{Wi{Gs{Ha{x.
 ~
-ExDe bag~ {gA {Wla{gr{gg{We s{gac{Wk {go{Wf {Cca{Tk{Ce{Ts{W, {gbelonging to {HA{Gl{Wi{Gs{Ha{x.
+ExDe cakebag~ {gA {Wla{gr{gg{We s{gac{Wk {go{Wf {Cca{Tk{Ce{Ts{W, {gbelonging to {HA{Gl{Wi{Gs{Ha{x.
+~
+ExDe cakes~ {gA {Wla{gr{gg{We s{gac{Wk {go{Wf {Cca{Tk{Ce{Ts{W, {gbelonging to {HA{Gl{Wi{Gs{Ha{x.
 ~
 End
 
@@ -1190,9 +1182,9 @@ ShD  {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C th
 Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
 Wear -1
 Cost 0
-ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
-~
 ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 End
 
@@ -1203,11 +1195,11 @@ ShD  {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the
 Desc {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
 Wear -1
 Cost 0
-ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 ExDe wedding~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
-ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 End
 
@@ -1478,9 +1470,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Napalm.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -1662,9 +1654,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Napalm.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -1846,9 +1838,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Jestera.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2030,9 +2022,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2215,9 +2207,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2399,9 +2391,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2583,9 +2575,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Napalm.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2767,9 +2759,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2951,9 +2943,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3135,9 +3127,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3319,9 +3311,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3503,9 +3495,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3687,9 +3679,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3872,9 +3864,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Peliar.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4056,9 +4048,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4240,9 +4232,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4424,9 +4416,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Chilalin.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4608,9 +4600,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Chilalin.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4792,9 +4784,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Zintros.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4976,9 +4968,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Chilalin.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5160,9 +5152,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5344,9 +5336,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5528,9 +5520,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5712,9 +5704,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5896,9 +5888,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6080,9 +6072,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Peliar.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6264,9 +6256,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Peliar.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6448,9 +6440,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6632,9 +6624,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Sturm.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6816,9 +6808,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7000,9 +6992,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Napalm.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7184,9 +7176,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7368,9 +7360,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7552,9 +7544,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7736,9 +7728,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7920,9 +7912,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8104,9 +8096,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Banon.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8288,9 +8280,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8473,9 +8465,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Nightowl.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8657,9 +8649,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Peliar.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8841,9 +8833,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Endo.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9025,9 +9017,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9209,9 +9201,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9393,9 +9385,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9577,9 +9569,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9761,9 +9753,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Endo.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9945,9 +9937,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Endo.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10129,9 +10121,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Chilalin.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10313,9 +10305,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Cyanos.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10497,9 +10489,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10681,9 +10673,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10865,9 +10857,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11049,9 +11041,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11233,9 +11225,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11417,9 +11409,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11601,9 +11593,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11789,9 +11781,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12002,9 +11994,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12186,9 +12178,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12370,9 +12362,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12554,9 +12546,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12738,9 +12730,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12922,9 +12914,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -13106,9 +13098,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Peliar.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -13206,9 +13198,9 @@ Mat paper~
 ExtF 16793601
 Wear -1
 Cost 1000
-ExDe m&m~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
-~
 ExDe bag~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
+~
+ExDe m&m~ {gA {Pd{Ye{Gl{Be{bct{Ba{Gb{Yl{Pe {gbag {gof {WM&M{g's! {Pred{g, {Yyellow{g, {Ggreen{g, {Bblue{g, {bbrown{g...{x
 ~
 End
 
@@ -13221,11 +13213,11 @@ Desc {xA {bchocolaty {WM&M {xis lying here. Quick! Pick it up!~
 Mat {bchocolate{x~
 Wear -1
 Cost 3
-ExDe brown~ One of {HA{Gl{Wi{Gs{Ha{W's{x {bbrown {WM&M{xs.
+ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {bbrown {WM&M{xs.
 ~
 ExDe candy~ One of {HA{Gl{Wi{Gs{Ha{W's{x {bbrown {WM&M{xs.
 ~
-ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {bbrown {WM&M{xs.
+ExDe brown~ One of {HA{Gl{Wi{Gs{Ha{W's{x {bbrown {WM&M{xs.
 ~
 End
 
@@ -13238,11 +13230,11 @@ Desc {xA {bchocolaty {WM&M {xis lying here. Quick! Pick it up!~
 Mat {bchocolate{x~
 Wear -1
 Cost 12
-ExDe blue~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Bblue {WM&M{xs.
+ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Bblue {WM&M{xs.
 ~
 ExDe candy~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Bblue {WM&M{xs.
 ~
-ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Bblue {WM&M{xs.
+ExDe blue~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Bblue {WM&M{xs.
 ~
 End
 
@@ -13255,11 +13247,11 @@ Desc {xA {bchocolaty {WM&M {xis lying here. Quick! Pick it up!~
 Mat {bchocolate{x~
 Wear -1
 Cost 9
-ExDe red~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Pred {WM&M{xs.
+ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Pred {WM&M{xs.
 ~
 ExDe candy~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Pred {WM&M{xs.
 ~
-ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Pred {WM&M{xs.
+ExDe red~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Pred {WM&M{xs.
 ~
 End
 
@@ -13272,11 +13264,11 @@ Desc {xA {bchocolaty {WM&M {xis lying here. Quick! Pick it up!~
 Mat {bchocolate{x~
 Wear -1
 Cost 6
-ExDe yellow~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Yyellow {WM&M{xs.
+ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Yyellow {WM&M{xs.
 ~
 ExDe candy~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Yyellow {WM&M{xs.
 ~
-ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Yyellow {WM&M{xs.
+ExDe yellow~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Yyellow {WM&M{xs.
 ~
 End
 
@@ -13289,11 +13281,11 @@ Desc {xA {bchocolaty {WM&M {xis lying here. Quick! Pick it up!~
 Mat {bchocolate{x~
 Wear -1
 Cost 15
-ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Ggreen {WM&M{xs. It's no secret she likes these best!
+ExDe green~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Ggreen {WM&M{xs. It's no secret she likes these best!
 ~
 ExDe candy~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Ggreen {WM&M{xs. It's no secret she likes these best!
 ~
-ExDe green~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Ggreen {WM&M{xs. It's no secret she likes these best!
+ExDe m&m~ One of {HA{Gl{Wi{Gs{Ha{W's{x {Ggreen {WM&M{xs. It's no secret she likes these best!
 ~
 End
 
@@ -13306,13 +13298,13 @@ ShD  {ca {Yt{Wangled {Yb{Wall {cof {Yy{be{Yll{bo{Yw {Yy{bar{Yn{x~
 ExtF 67
 Wear -1
 Cost 10000
-Affc 'enchant weapon'   0  98  -1  18  18          0 1
-Affc 'enchant weapon'   1  98  -1  18  19          0 1
-Affc 'reserved'   1  91  -1   1   2          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1   1   4          0 1
-Affc 'reserved'   1  91  -1 100  12          0 1
 Affc 'reserved'   1  91  -1 -10  17          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
+Affc 'reserved'   1  91  -1   1   4          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'enchant weapon'   1  98  -1  18  19          0 1
+Affc 'enchant weapon'   0  98  -1  18  18          0 1
 End
 
 #O
@@ -13510,10 +13502,10 @@ Wt   0
 Wear -1
 Lev  1
 Cost 1000
+ExDe gift~ ~
+ExDe sea~ ~
 ExDe orgasm~ A portable orgasm!  (batteries not included)
 ~
-ExDe sea~ ~
-ExDe gift~ ~
 End
 
 #O
@@ -13524,10 +13516,10 @@ ShD  {Wsome Super Long-life AA {Cbatteries{x~
 Desc Alisa left the batteries to her portable orgasm laying here!  Whatever will she do?~
 Wear -1
 Cost 3500
-ExDe moonstone~ ~
-ExDe big~ ~
 ExDe batteries~ for Alisa's portable orgasm.  They're almost dead.
 ~
+ExDe big~ ~
+ExDe moonstone~ ~
 End
 
 #O
@@ -13590,11 +13582,11 @@ Desc {xA bouquet of long {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {xand delicate {gi{W
 Mat {gr{Wos{ge{Ws {gand {Hi{Gv{Hy{x~
 Wear -1
 Cost 390
-ExDe bouquet~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
+ExDe ivy~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
 ~
 ExDe roses~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
 ~
-ExDe ivy~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
+ExDe bouquet~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
 ~
 End
 
@@ -13607,9 +13599,9 @@ Desc {xA fine {gi{Wv{gor{Wy {xband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {xca
 Mat {gi{Wv{gor{Wy{x~
 Wear -1
 Cost 2600
-ExDe band~ {WA fine {gi{Wv{gor{Wy {Wband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {Wcarved into it.{x
-~
 ExDe ivory~ {WA fine {gi{Wv{gor{Wy {Wband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {Wcarved into it.{x
+~
+ExDe band~ {WA fine {gi{Wv{gor{Wy {Wband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {Wcarved into it.{x
 ~
 End
 
@@ -13645,9 +13637,9 @@ Desc {xA {Ws{go{Wft{gl{Wy{g-{Wdra{gp{Wed, c{gr{Wu{gs{Whe{gd {Wvel{gv{Wet s{gk{Wi
 Mat {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet{x~
 Wear -1
 Cost 390
-ExDe gown~ {WA soft {gi{Wv{gor{Wy {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet gown, laced up the back.{x
-~
 ExDe velvet~ {WA soft {gi{Wv{gor{Wy {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet gown, laced up the back.{x
+~
+ExDe gown~ {WA soft {gi{Wv{gor{Wy {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet gown, laced up the back.{x
 ~
 End
 
@@ -13660,9 +13652,9 @@ Desc {cA {bt{Yoken {co{gf {Ra{Pffec{Rti{Pon {cg{giv{ce{gn {cb{gy {HA{Gl{Wi{Gs{Ha
 ExtF 0
 Wear -1
 Cost 1
-ExDe weddingring ring~ {MA {bt{Yoken {Mo{Vf {Ra{Pffec{Rti{Pon {Mg{Viv{Me{Vn {Mt{Vo {My{Vou {Mb{Vy {HA{Gl{Wi{Gs{Ha {Mo{Vn {YNovember 30{bth, {Y2000{M.
-~
 ExDe devotion~ {MA {bt{Yoken {Mo{Vf {Ra{Pffec{Rti{Pon {Mg{Viven {Mt{Vo {My{Vou {Mb{Vy {HA{Gl{Wi{Gs{Ha {Mo{Vn {YNovember 30{bth, {Y2000{M.{x
+~
+ExDe weddingring ring~ {MA {bt{Yoken {Mo{Vf {Ra{Pffec{Rti{Pon {Mg{Viv{Me{Vn {Mt{Vo {My{Vou {Mb{Vy {HA{Gl{Wi{Gs{Ha {Mo{Vn {YNovember 30{bth, {Y2000{M.
 ~
 End
 
@@ -13686,13 +13678,13 @@ Desc A pile of {gsoft {cbl{ga{cck l{gea{cth{ge{cr {xlies crumpled on the floor.~
 Mat {cl{gea{cth{ge{cr{x~
 Wear -1
 Cost 390
-ExDe alisa~ {xThis sleek skirt, {cbl{ga{cck l{gea{cth{ge{cr{x belongs to {HA{Gl{Wi{Gs{Ha{x.
-~
-ExDe skirt~ {xThis sleek skirt is made of soft {cbl{ga{cck l{gea{cth{ge{cr{x, with an A-line split to the thigh.
+ExDe wedding~ {xThis sleek skirt is made of soft {cbl{ga{cck l{gea{cth{ge{cr{x, with an A-line split to the thigh.
 ~
 ExDe official~ {xThis sleek skirt is made of soft {cbl{ga{cck l{gea{cth{ge{cr{x, with an A-line split to the thigh.
 ~
-ExDe wedding~ {xThis sleek skirt is made of soft {cbl{ga{cck l{gea{cth{ge{cr{x, with an A-line split to the thigh.
+ExDe skirt~ {xThis sleek skirt is made of soft {cbl{ga{cck l{gea{cth{ge{cr{x, with an A-line split to the thigh.
+~
+ExDe alisa~ {xThis sleek skirt, {cbl{ga{cck l{gea{cth{ge{cr{x belongs to {HA{Gl{Wi{Gs{Ha{x.
 ~
 End
 
@@ -13706,8 +13698,6 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
@@ -13878,6 +13868,8 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
 End
 
 #L
@@ -13888,15 +13880,15 @@ ShD  {gThe {bL{Ye{Wga{Yc{by{x {gBook of {WRites{x~
 Desc {xA copy of the {bL{Ye{Wga{Yc{by{x {gBook of {WRites{x lies here.~
 Wear -1
 Cost 390
-ExDe alisa~ This ancient book of sacred rites belongs to {HA{Gl{Wi{Gs{Ha{x.
-~
-ExDe official~ Brittle and withered pages fill this ancient book of sacred rites.
-~
-ExDe rites~ Brittle and withered pages fill this ancient book of sacred rites.
+ExDe book~ Brittle and withered pages fill this ancient book of sacred rites.
 ~
 ExDe wedding~ Brittle and withered pages fill this ancient book of sacred rites.
 ~
-ExDe book~ Brittle and withered pages fill this ancient book of sacred rites.
+ExDe rites~ Brittle and withered pages fill this ancient book of sacred rites.
+~
+ExDe official~ Brittle and withered pages fill this ancient book of sacred rites.
+~
+ExDe alisa~ This ancient book of sacred rites belongs to {HA{Gl{Wi{Gs{Ha{x.
 ~
 End
 
@@ -13975,11 +13967,11 @@ Desc Some careless feline has tracked mud across here, leaving a small paw print
 Mat {bmud{x~
 Wear -1
 Cost 3500
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -14002,9 +13994,9 @@ Mat metal~
 Wear -1
 Cost 10
 Spell 3 'fly'
-ExDe clown~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
-~
 ExDe car~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
+~
+ExDe clown~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
 ~
 End
 
@@ -14049,9 +14041,9 @@ ShD  a {Ygiant {Bbag {Hof {Yanchovies{x~
 Desc A {Ygiant {Bbag {Hof {Yanchovies{x is on the floor.~
 Wear -1
 Cost 11
-ExDe bag~ {YAnchovies{x are poking out the top of this very full bag.
-~
 ExDe anchovies~ {YAnchovies{x are poking out the top of this very full bag.
+~
+ExDe bag~ {YAnchovies{x are poking out the top of this very full bag.
 ~
 End
 
@@ -14339,11 +14331,11 @@ Desc Some careless feline has tracked mud across here, leaving a small paw print
 Mat {bmud{x~
 Wear -1
 Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -14403,9 +14395,9 @@ Desc A large statue of a man and a lamia rests here... Good lord! What's he doin
 Mat Peliar doo~
 Wear -1
 Cost 3500
-ExDe peliar~ A large statue made of doo. Peliar and his lamia... poor lamia...
-~
 ExDe statue~ A large statue made of doo. Peliar and his lamia... poor lamia...
+~
+ExDe peliar~ A large statue made of doo. Peliar and his lamia... poor lamia...
 ~
 End
 
@@ -14418,11 +14410,11 @@ Desc Some careless feline has tracked mud across here, leaving a small paw print
 Mat {bmud{x~
 Wear -1
 Cost 3500
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -14465,16 +14457,16 @@ ShD  {gl{Wa{cyer{Ws {cof {Ybr{big{cht {Yye{bll{cow {Ysa{bra{cn {Yw{bra{cp{x~
 ExtF 262211
 Wear -1
 Cost 4500
-Affc 'reserved'   1  90  -1  -2   9          0 1
-Affc 'reserved'   1  90  -1  30  14          0 1
-Affc 'reserved'   1  90  -1   1   2          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1  -2  20          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'enchant weapon'   1  98  -1  18  19          0 1
 Affc 'enchant weapon'   1  98  -1  18  18          0 1
+Affc 'enchant weapon'   1  98  -1  18  19          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  -2  20          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   1   2          0 1
+Affc 'reserved'   1  90  -1  30  14          0 1
+Affc 'reserved'   1  90  -1  -2   9          0 1
 End
 
 #B
@@ -14486,14 +14478,14 @@ ShD  {Wa {Rs{Wexy {Rl{Wace {Rt{Weddy{x~
 Wt   0
 Wear -1
 Cost 90000
-Affc 'reserved'   1  91  -1 100  12          0 1
-Affc 'reserved'   1  91  -1  20  13          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   1   2          0 1
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'enchant weapon'   1 100  -1   6  19          0 1
 Affc 'enchant weapon'   0 100  -1   6  18          0 1
+Affc 'enchant weapon'   1 100  -1   6  19          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1  20  13          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
 End
 
 #B
@@ -14505,12 +14497,12 @@ ExtF 16777539
 Wear -1
 Lev  75
 Cost 50
-Affc 'enchant weapon'   0 100  -1  32  18          0 1
-Affc 'enchant weapon'   1 100  -1  32  19          0 1
-Affc 'reserved'   1  59  -1   2   5          0 1
-Affc 'reserved'   1  59  -1 100  12          0 1
-Affc 'reserved'   1  59  -1  50  13          0 1
 Affc 'reserved'   1  59  -1  -8  24          0 1
+Affc 'reserved'   1  59  -1  50  13          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
+Affc 'reserved'   1  59  -1   2   5          0 1
+Affc 'enchant weapon'   1 100  -1  32  19          0 1
+Affc 'enchant weapon'   0 100  -1  32  18          0 1
 End
 
 #B
@@ -14532,13 +14524,13 @@ Desc A {Mp{cu{Vr{cp{Vl{Me {gl{ce{ga{ct{gh{ce{gr {criding crop{x lies forgotten..
 ExtF 786499
 Wear -1
 Cost 10000
-Affc 'reserved'   4  90  -1   0   0      65536 1
-Affc 'reserved'   0  90  -1   0   0  268435712 1
-Affc 'enchant weapon'   1  98  -1  22  19          0 1
-Affc 'enchant weapon'   1  98  -1  22  18          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'reserved'   1  90  -1   1   2          0 1
 Affc 'reserved'   1  90  -1   2   1          0 1
+Affc 'reserved'   1  90  -1   1   2          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'enchant weapon'   1  98  -1  22  18          0 1
+Affc 'enchant weapon'   1  98  -1  22  19          0 1
+Affc 'reserved'   0  90  -1   0   0  268435712 1
+Affc 'reserved'   4  90  -1   0   0      65536 1
 ExDe leather riding crop~ A long, flexible riding crop, beautifully bound 
 in deep purple leather. Carried with authority, 
 marking one a Mistress to be reckoned with. As 
@@ -14580,11 +14572,11 @@ Mat metal and battery stuff~
 ExtF 0
 Wear -1
 Cost 3500
-ExDe batteries~ For Sundancer's portable orgasm.  They're almost dead.
+ExDe moonstone~ For Sundancer's portable orgasm.  They're almost dead.
 ~
 ExDe big~ For Sundancer's portable orgasm.  They're almost dead.
 ~
-ExDe moonstone~ For Sundancer's portable orgasm.  They're almost dead.
+ExDe batteries~ For Sundancer's portable orgasm.  They're almost dead.
 ~
 End
 
@@ -14597,12 +14589,12 @@ Desc A huge vibrator is propped against the wall here.~
 Mat plastic~
 Wear -1
 Cost 5000
-ExDe vibrator~ Holy shit!!  This thing is HUGE!
-~
+ExDe shotgun~ ~
+ExDe gun~ ~
 ExDe kidneybuster~ Holy shit!!  This thing is HUGE!
 ~
-ExDe gun~ ~
-ExDe shotgun~ ~
+ExDe vibrator~ Holy shit!!  This thing is HUGE!
+~
 End
 
 #B
@@ -14613,10 +14605,10 @@ ShD  {Wsome Super Long-life AA {Cbatteries{x~
 Desc Alisa left the batteries to her portable orgasm laying here!  Whatever will she do?~
 Wear -1
 Cost 3500
-ExDe moonstone~ ~
-ExDe big~ ~
 ExDe batteries~ for Alisa's portable orgasm.  They're almost dead.
 ~
+ExDe big~ ~
+ExDe moonstone~ ~
 End
 
 #B
@@ -14633,8 +14625,8 @@ Wear -1
 Lev  82
 Cost 7
 Val  4 10 12 7 0
-Affc 'enchant weapon'   1  76  -1   8  19          0 1
 Affc 'enchant weapon'   0  76  -1   8  18          0 1
+Affc 'enchant weapon'   1  76  -1   8  19          0 1
 ExDe mace a foam bat, Spouse Beater~ It is a marvellous mace, crafted from the finest platinum around.
 It was created in the Month of Futility by a master thief
 named Alisa.  Legend holds that this feral was a great weaponsmith.
@@ -14651,13 +14643,13 @@ Desc A {Mp{cu{Vr{cp{Vl{Me {gl{ce{ga{ct{gh{ce{gr {criding crop{x lies forgotten..
 ExtF 786499
 Wear -1
 Cost 10000
-Affc 'reserved'   1  90  -1   2   1          0 1
-Affc 'reserved'   1  90  -1   1   2          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'enchant weapon'   1  98  -1  22  18          0 1
-Affc 'enchant weapon'   1  98  -1  22  19          0 1
-Affc 'reserved'   0  90  -1   0   0  268435712 1
 Affc 'reserved'   4  90  -1   0   0      65536 1
+Affc 'reserved'   0  90  -1   0   0  268435712 1
+Affc 'enchant weapon'   1  98  -1  22  19          0 1
+Affc 'enchant weapon'   1  98  -1  22  18          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'reserved'   1  90  -1   1   2          0 1
+Affc 'reserved'   1  90  -1   2   1          0 1
 ExDe leather riding crop~ A long, flexible riding crop, beautifully bound 
 in deep purple leather. Carried with authority, 
 marking one a Mistress to be reckoned with. As 
@@ -14678,10 +14670,10 @@ Wt   0
 Wear -1
 Lev  1
 Cost 1000
-ExDe gift~ ~
-ExDe sea~ ~
 ExDe orgasm~ A portable orgasm!  (batteries not included)
 ~
+ExDe sea~ ~
+ExDe gift~ ~
 End
 
 #B
@@ -14702,9 +14694,9 @@ Desc {xA {Ws{go{Wft{gl{Wy{g-{Wdra{gp{Wed, c{gr{Wu{gs{Whe{gd {Wvel{gv{Wet s{gk{Wi
 Mat {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet{x~
 Wear -1
 Cost 390
-ExDe velvet~ {WA soft {gi{Wv{gor{Wy {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet gown, laced up the back.{x
-~
 ExDe gown~ {WA soft {gi{Wv{gor{Wy {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet gown, laced up the back.{x
+~
+ExDe velvet~ {WA soft {gi{Wv{gor{Wy {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet gown, laced up the back.{x
 ~
 End
 
@@ -14740,9 +14732,9 @@ Desc {xA fine {gi{Wv{gor{Wy {xband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {xca
 Mat {gi{Wv{gor{Wy{x~
 Wear -1
 Cost 2600
-ExDe ivory~ {WA fine {gi{Wv{gor{Wy {Wband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {Wcarved into it.{x
-~
 ExDe band~ {WA fine {gi{Wv{gor{Wy {Wband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {Wcarved into it.{x
+~
+ExDe ivory~ {WA fine {gi{Wv{gor{Wy {Wband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {Wcarved into it.{x
 ~
 End
 
@@ -14755,11 +14747,11 @@ Desc {xA bouquet of long {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {xand delicate {gi{W
 Mat {gr{Wos{ge{Ws {gand {Hi{Gv{Hy{x~
 Wear -1
 Cost 390
-ExDe ivy~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
+ExDe bouquet~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
 ~
 ExDe roses~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
 ~
-ExDe bouquet~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
+ExDe ivy~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
 ~
 End
 
@@ -14822,10 +14814,10 @@ ShD  {Wsome Super Long-life AA {Cbatteries{x~
 Desc Alisa left the batteries to her portable orgasm laying here!  Whatever will she do?~
 Wear -1
 Cost 3500
+ExDe moonstone~ ~
+ExDe big~ ~
 ExDe batteries~ for Alisa's portable orgasm.  They're almost dead.
 ~
-ExDe big~ ~
-ExDe moonstone~ ~
 End
 
 #B
@@ -14839,10 +14831,10 @@ Wt   0
 Wear -1
 Lev  1
 Cost 1000
-ExDe gift~ ~
-ExDe sea~ ~
 ExDe orgasm~ A portable orgasm!  (batteries not included)
 ~
+ExDe sea~ ~
+ExDe gift~ ~
 End
 
 #B
@@ -14854,9 +14846,9 @@ Desc {xA {Ws{go{Wft{gl{Wy{g-{Wdra{gp{Wed, c{gr{Wu{gs{Whe{gd {Wvel{gv{Wet s{gk{Wi
 Mat {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet{x~
 Wear -1
 Cost 390
-ExDe velvet~ {WA soft {gi{Wv{gor{Wy {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet gown, laced up the back.{x
-~
 ExDe gown~ {WA soft {gi{Wv{gor{Wy {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet gown, laced up the back.{x
+~
+ExDe velvet~ {WA soft {gi{Wv{gor{Wy {Wc{gr{Wus{gh{Wed {gv{Wel{gv{Wet gown, laced up the back.{x
 ~
 End
 
@@ -14892,9 +14884,9 @@ Desc {xA fine {gi{Wv{gor{Wy {xband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {xca
 Mat {gi{Wv{gor{Wy{x~
 Wear -1
 Cost 2600
-ExDe ivory~ {WA fine {gi{Wv{gor{Wy {Wband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {Wcarved into it.{x
-~
 ExDe band~ {WA fine {gi{Wv{gor{Wy {Wband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {Wcarved into it.{x
+~
+ExDe ivory~ {WA fine {gi{Wv{gor{Wy {Wband, with {gd{We{gli{Wca{gt{We {gr{Wos{ge{Ws {Wcarved into it.{x
 ~
 End
 
@@ -14907,11 +14899,11 @@ Desc {xA bouquet of long {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {xand delicate {gi{W
 Mat {gr{Wos{ge{Ws {gand {Hi{Gv{Hy{x~
 Wear -1
 Cost 390
-ExDe ivy~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
+ExDe bouquet~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
 ~
 ExDe roses~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
 ~
-ExDe bouquet~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
+ExDe ivy~ {WLong {Gs{Htr{Gan{Hd{Gs {Ho{Gf {Hi{Gv{Hy {Wnestled among delicate {gi{Wv{gor{Wy {gr{Wos{ge{Ws.{x
 ~
 End
 

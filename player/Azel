@@ -1,0 +1,905 @@
+#PLAYER
+Name Azel~
+Id   1061920291
+LogO 1065480652
+Vers 14
+Mexp 2
+Pass ayanamirei~
+Prom H:%h/%H M:%m/%M V:%v/%V xp:%X (%z) [%q] (%j) ~
+Race human~
+Cla  4
+Levl 65
+Tru  0
+Plyd 166064
+Back 159770
+Note 1064768804 1064768804 1064768804 1064768804 1064768804 1064768804 1064768804
+Scro 22
+Room 3014
+HMS  1041 1799 473
+Gold 3323
+Silv 372
+Gold_in_bank 5000
+Exp  65099
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  6
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  B
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NOYa
+Revk 0
+Cgrp 0
+Cnsr 0
+Prac 73
+Trai 12
+Wimp 0
+Atrib 18 21 18 18 18 18
+SkillPnts  27
+QuestPnts  399
+SQuestNext 1
+Afk {B[{CThu Oct  2 14:25:49 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {c ~
+Immn ~
+Pnts 39
+Rank ~
+Aura ~
+TSex 2
+LLev 45
+Deit Kenneth~
+Lsit 128.120.182.15~
+Ltim Mon Oct 06 18:50:48 2003
+~
+LSav Mon Oct 06 18:50:52 2003
+~
+HMSP 746 894 473
+THMS 0 0 0
+Cnd  0 0 0 0
+Alias proe c 'protection evil'~
+Alias prog c 'protection good'~
+Alias fb c 'fireball'~
+Alias dm c 'dispel magic'~
+Alias oarm order all rescue azel~
+Alias oall order all~
+Alias bliz c 'blizzard'~
+Alias crit c 'cure crit'~
+Alias ar c 'acid rain'~
+Alias undo c 'undo spell'~
+Alias oar order all rescue azel~
+Sk 81 1 'acid blast'
+Sk 75 1 'acid rain'
+Sk 76 1 'age'
+Sk 75 1 'animate skeleton'
+Sk 83 1 'animate wraith'
+Sk 75 1 'animate gargoyle'
+Sk 76 1 'animate zombie'
+Sk 75 1 'armor'
+Sk 1 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 76 1 'blood moon'
+Sk 2 1 'burning hands'
+Sk 1 1 'call lightning'
+Sk 75 1 'cancellation'
+Sk 92 1 'chain lightning'
+Sk 1 1 'channel'
+Sk 3 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'control weather'
+Sk 76 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 77 1 'curse'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 77 1 'detect hidden'
+Sk 76 1 'detect invis'
+Sk 2 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 86 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'divine regeneration'
+Sk 2 1 'energy drain'
+Sk 78 1 'faerie fire'
+Sk 2 1 'faerie fog'
+Sk 1 1 'fear'
+Sk 86 2 'fireball'
+Sk 1 1 'fireproof'
+Sk 1 1 'firestorm'
+Sk 75 1 'flameshield'
+Sk 79 1 'fly'
+Sk 91 1 'gate'
+Sk 75 1 'giant strength'
+Sk 80 1 'haste'
+Sk 76 1 'heal'
+Sk 75 1 'identify'
+Sk 1 1 'infravision'
+Sk 1 1 'know alignment'
+Sk 76 1 'light of truth'
+Sk 90 1 'lightning bolt'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
+Sk 2 1 'magic missile'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 77 1 'pass door'
+Sk 2 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'portal'
+Sk 78 1 'protection evil'
+Sk 76 1 'protection good'
+Sk 80 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 75 1 'regeneration'
+Sk 87 1 'sanctuary'
+Sk 75 1 'shield'
+Sk 1 1 'shocking grasp'
+Sk 93 1 'slow'
+Sk 76 1 'steel mist'
+Sk 76 1 'stone skin'
+Sk 77 1 'summon'
+Sk 1 1 'summon object'
+Sk 82 1 'talon'
+Sk 1 1 'teleport'
+Sk 75 1 'teleport object'
+Sk 81 1 'undo spell'
+Sk 76 1 'vision'
+Sk 1 1 'weaken'
+Sk 100 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 97 1 'dagger'
+Sk 1 1 'polearm'
+Sk 100 1 'sword'
+Sk 100 1 'shield block'
+Sk 1 1 'scribe'
+Sk 100 1 'dodge'
+Sk 100 1 'parry'
+Sk 91 1 'second attack'
+Sk 1 1 'swimming'
+Sk 93 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 2 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'combat'
+Gr 'detection'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'shield'   0  58  28 -20  17          0 1
+Affc 'stone skin'   0  50  21 -40  17          0 1
+End
+
+#O
+Vnum 10169
+Nest 0
+Cond 91
+Wear 18
+Cost 2200
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 17100
+Nest 0
+Cond 70
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 10205
+Nest 0
+ExtF 64
+Cond 68
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 10170
+Nest 0
+Cond 87
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 17102
+Nest 0
+Cond 91
+Wear 0
+Cost 250
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 73
+Wear 4
+Cost 3800
+End
+
+#O
+Vnum 10167
+Nest 0
+Cond 89
+Wear 3
+Cost 3800
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Cond 85
+Wear 2
+Cost 2200
+End
+
+#O
+Vnum 10168
+Nest 0
+ExtF 16777219
+Cond 86
+Wear 1
+Cost 2200
+End
+
+#O
+Vnum 17320
+Nest 0
+ExtF 262146
+Wear -1
+Cost 2500
+Val  250 1 17321 40 30
+End
+
+#O
+Vnum 504
+Nest 1
+ExtF 19
+Cond 75
+Wear -1
+Cost 312
+End
+
+#O
+Vnum 504
+Nest 1
+ExtF 19
+Cond 77
+Wear -1
+Cost 312
+End
+
+#O
+Vnum 3205
+Nest 1
+Wear -1
+Cost 60
+End
+
+#O
+Vnum 3203
+Nest 1
+Cond 88
+Wear -1
+Cost 40
+End
+
+#O
+Vnum 8241
+Nest 1
+Cond 81
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10155
+Nest 1
+Wear -1
+Cost 1100
+End
+
+#O
+Vnum 1201
+Nest 1
+Name lid spam can~
+ShD  a lid of a Spam Can~
+Desc The lid of a can of spam lies here on the ground.~
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 1201
+Nest 1
+Name chunk raw spam~
+ShD  a chunk of raw Spam~
+Desc A chunk of raw spam lies here, devoid of it's can.~
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 1201
+Nest 1
+Name spam can~
+ShD  a Spam Can~
+Desc An empty can of spam lies here.~
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1201
+Nest 1
+Name lid spam can~
+ShD  a lid of a Spam Can~
+Desc The lid of a can of spam lies here on the ground.~
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 1201
+Nest 1
+Name chunk raw spam~
+ShD  a chunk of raw Spam~
+Desc A chunk of raw spam lies here, devoid of it's can.~
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 20006
+Nest 0
+ExtF 17039680
+Cond 84
+Wear 5
+Cost 999
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 88
+Wear 15
+Cost 2000
+End
+
+#O
+Vnum 5607
+Nest 0
+Cond 97
+Wear 14
+Cost 2000
+End
+
+#O
+Vnum 20008
+Nest 0
+ExtF 16777536
+Cond 61
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3808
+Nest 0
+Cond 96
+Wear 12
+Cost 30000
+End
+
+#O
+Vnum 5605
+Nest 0
+ExtF 17301507
+Cond 65
+Wear 11
+Cost 1000
+End
+
+#O
+Vnum 10164
+Nest 0
+Cond 95
+Wear 17
+Cost 1350
+End
+
+#O
+Vnum 17106
+Nest 0
+Cond 76
+Wear 10
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 14039
+Nest 0
+Cond 79
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 16501
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 8204
+Nest 0
+Cond 89
+Wear 9
+Cost 3800
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 92
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8807
+Nest 0
+Cond 89
+Wear 8
+Cost 2000
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 59
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 10166
+Nest 0
+Cond 95
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 6
+Nest 0
+ShD  Sturm~
+Wear -1
+Cost 1
+End
+
+#O
+Vnum 16501
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#END

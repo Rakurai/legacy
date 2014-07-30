@@ -1,0 +1,119 @@
+#PLAYER
+Name Marsman~
+Id   1053043881
+LogO 1053045028
+Vers 14
+Mexp 0
+Pass milkyway~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dwarf~
+Cla  7
+Levl 1
+Tru  0
+Plyd 936
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 4237
+HMS  20 100 100
+Gold 0
+Silv 0
+Exp  1200
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 750
+FImm 0
+FRes LQ
+FVul R
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy JR
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 5
+Trai 3
+Wimp 0
+Atrib 15 12 14 10 20 11
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 5
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Xenith~
+Lsit c-24-98-101-122.atl.client2.attbi.com~
+Ltim Thu May 15 20:14:50 2003
+~
+LSav Thu May 15 20:30:28 2003
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 27 27
+Sk 40 1 'axe'
+Sk 1 1 'flail'
+Sk 1 1 'berserk'
+Sk 1 1 'dual wield'
+Sk 1 1 'forge'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Affc 'bless'   0  59  60  -7  24          0 1
+Affc 'bless'   0  60  60   7  18          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 179 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3719
+Nest 0
+Wear 16
+Cost 350
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

@@ -1,95 +1,108 @@
 #PLAYER
 Name Doomsmerf~
 Id   990317609
-LogO 1027055105
-Vers 14
+LogO 1406688292
+Vers 15
 Mexp 2
-Pass trustno1~
-Desc {g.      .                                                      .
-.        .n                   .                 .                  n.
-.  .   .dP                  dP                   9b                 9b.    .
-. 4    qXb         .       dX                     Xb       .        dXp     t
-.dX.    9Xb      .dXb    __                         __    dXb.     dXP     .Xb
-.9XXb._       _.dXXXXb dXXXXbo.                 .odXXXXb dXXXXb._       _.dXXP
-. 9XXXXXXXXXXXXXXXXXXXVXXXXXXXXOo.           .oOXXXXXXXXVXXXXXXXXXXXXXXXXXXXP
-.  `9XXXXXXXXXXXXXXXXXXXXX'-   -`OOO8b   d8OOO'-   -`XXXXXXXXXXXXXXXXXXXXXP'
-.    `9XXXXXXXXXXXP' `9XX'  {R DIE    {g`98v8P' {R HUMAN {g  `XXP' `9XXXXXXXXXXXP'
-.        -------       9X.          .db!db.          .XP       -------
-.                        )b.  .dbo.dP'`v'`9b.odb.  .dX(
-.                      ,dXXXXXXXXXXXb     dXXXXXXXXXXXb.
-.                     dXXXXXXXXXXXP'   .   `9XXXXXXXXXXXb
-.                    dXXXXXXXXXXXXb   d!b   dXXXXXXXXXXXXb
-.                    9XXb'   `XXXXXb.dX!Xb.dXXXXX'   `dXXP
-.                     `'      9XXXXXX(   )XXXXXXP      `'
-.                              XXXX X.`v'.X XXXX
-.                              XP^X'`b   d'`X^XX
-.                              X. 9  `   '  P )X
-.                              `b  `       '  d'
-.                               `             '
+Pass hello~
+Desc {x{YMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM  MM''MMMMM
+{x{YMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM  M'  MMMMM
+{x{YMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM!" ''' "!MMMMMMMMMMMMMMMMMMMMM  M  MM"'MM
+{x{YMMMMM'"M' MMMMMMMMMMMMMMMV'                '"MMMMMMMMMM.  'MM  M  M' .MM
+{x{YMMM'M :M ;MV MMMMMMMMMM'                      "MMMMMMMMMM.  ": M .! .MMM
+{x{YMM; M  M :M' AMMMMMMV'                          "MMMMMMMMM.  .'''. AMMMM
+{x{YMMM ;  ; M:  MMMMMM'                              'MMMMMMM'        MMMMM
+{x{YMMM. ; . M  AMMMMV      @@                 @@      'MMMM"" ' '.   .MMMMM
+{x{YMMMM  .    MMMMMV      @''@               @''@       '. ..    ;  .MMMMMM
+{x{YMMM  '"@"  MMMMV        @@                 @@         MMMMMM.'   MMMMMMM
+{x{YMMM.  ;        '                                      'MMMMMM.   MMMMMMM
+{x{YMMMM..'.   .MM'                                        MMMMMMM    VMMMMM
+{x{YMMMMM  AMMMMMV                                         'MMMMMM.    MMMMM
+{x{YMMMM'  MMMMMM:                                     ..   MMMMMMM     MMMM
+{x{YMMMM   MMMMMM: @@.                              .'  @@  : 'MMMM.     MMM
+{x{YMMM'   MMM''': :@: '.                         .' ..@@@  :            .MM
+{x{YMMV   ''     : '@@@@: '.                    .'  .@@@@@  ........./MMMMMM
+{x{YMM           :  @@@@@. .' .              .' A. .@@@@@'  MMMMMMMMMMMMMMMM
+{x{YMM:..........:  '@@@@@@@.  ! '. - - - . '.  .@@@@@@@@   MMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMM   '@@@@@@@@@@@@.    !    .@@@@@@@@@@@@'  MMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMM   '@@@@@@@@@@@@@...@@'..@@@@@@@@@@@@'  AMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMA   '@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@   .MMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMA    @@@@@@@@@@@@"'O'OOOO'@@@@@@@'   .MMMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMMA    '@@@@@@@VOOOOOOO.OOO @@@V     AMMMMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMMMMA     '@@@@OOOOOOOOO.OOO@'     .MMMMMMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMMMMMMA        '.@@.OOOOO.OO     .AMMMMMMMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMMMMMMMMA.          OOOOO OOOO .MMMMMMMMMMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMMMMMMMMMMMA..      OOOOOOOOOOOMMMMMMMMMMMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMOOOOOOOOOO.MMMMMMMMMMMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM OOOOOOO.MMMMMMMMMMMMMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM---MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+{x{YMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM{x
 ~
 Prom <%hhp %mm %vmv> <%X> <%z> <%q %Q> <%j %J> ~
 Race giant~
 Clan blackclaw~
 Cla  3
-Levl 64
-Tru  91
-Plyd 4775725
-Back 4708991
-Note 1027021105 1022813787 1026918579 1027003362 1026409721 1026885156 1026831915
+Levl 83
+Plyd 5110090
+Back 5095174
+Note 1066773085 1052633361 1052633361 1066774484 1064715418 1057172907 1052633361
 Scro 30
-Room 24801
-HMS  1617 829 983
-Gold 623
-Silv 41
-Exp  67239
-PCkills  17
-PCkilled 24
+Room 3001
+HMS  2736 2070 1191
+Gold 1278
+Silv 58
+Exp  87149
+PCkills  18
+PCkilled 27
 Akills   50
 Akilled  65
 PKRank   0
 Pos  8
-Alig -975
+Alig 1000
 FImm 0
-FRes HIQ
-FVul BFP
+FRes FHINR
+FVul BP
 Plr  AFGHOQ
 Video 0
-Act  CDEGHIJLOSTce
-AfBy 0
+Act  CDEGHIJLOQSTc
+AfBy HVc
 Comm NOb
 Revk 0
-Cgrp A
+Cgrp AIKLMO
 Cnsr AB
-Prac 1917
-Trai 186
+Block_Remote 0
+Prac 96
+Trai 860
 Wimp 0
+Familiar 0
 Atrib 25 14 17 16 22 18
-SkillPnts  354
+SkillPnts  394
 RolePnts   27
-QuestPnts  42
+QuestPnts  18
 QpDonated  484
-GlDonated  84869
+GlDonated  86869
 GameIn  {GT{gh{We {Ge{ga{Wr{gt{Gh {Gop{ge{Wn{Gs {Gu{Wp {Ga{gn{Wd {GDo{go{Wm{gi{Ge {gm{Wa{gte{Wr{gi{Wa{gli{Wz{ges {Gi{gn {Ga {Wm{gi{Ws{gt!{x~
 GameOut {Go{gp{We{gn{Gs {Gt{gh{Ge {Gmo{gu{Wn{gta{Gi{gns {Ga{gn{Gd {gd{Wi{gs{Wa{gp{Wp{ge{Wa{grs {Gl{ge{Wa{gv{Gi{gn{Wg a {gf{Wo{gg{Wgy {Gw{ga{Wk{Ge!{x~
-Afk {B[{CThu Jul 18 21:48:47 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CThu Oct 16 21:39:58 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  {CF{Tl{Ci{Tp{Cp{Ti{Cn{T' {MN{Vi{Mn{Vj{Ma{x~
+Titl  {CG{Tr{Ca{Tn{Cd {MS{Ve{Mn{Vs{Me{Vi{x~
 Immn ~
 Pnts 40
-Rank {W7up~
-Aura {WL{Ci{Br{Cr{Wy's {WP{Ve{Wt~
+Rank {CG{Tr{CM~
+Aura {gM{Wo{gn{Ct{gr{We{gy{Ws {WW{ga{Cr{Wr{gi{Wor{x~
 TSex 1
-LLev 1322
+LLev 1416
 Email doomsmerf@hotmail.com~
-Deit {TD{Co{To{Cm{Ts{Cm{Te{Cr{Tf{x~
-Stus {GI{Ws {Gda{Wt {Gm{gy {Gf{go{Wo{Gt{g!!{x~
-RmCt 37
-ExSk 1500 1201
-Raff 5 9 958 901
-Lsit hlfx34-126.ns.sympatico.ca~
-Ltim Thu Jul 18 21:34:24 2002
+Deit montrey~
+Stus {WMo{gn{Ct{gy {Ww{Ca{Wrr{gio{Wr{x~
+RmCt 41
+ExSk 0 0 0
+Raff 7 3 960 951 963
+Lsit 156.34.56.127~
+Ltim Sat Oct 25 22:36:19 2003
 ~
-LSav Fri Jul 19 00:05:05 2002
+LSav Tue Jul 29 19:44:52 2014
 ~
 Finf {x  {R________________________[]{g__________________________________________________
 {x {R[&&&&&&&&&&&&&&&&&&&&&&&&[]{g__________________________________________________\
@@ -105,18 +118,17 @@ Finf {x  {R________________________[]{g_________________________________________
 {x{g \_____________________________________________________{P[{R_{P#{R_{P#{R_{P#{R_{P#{R_{P#{R_{P#{R_{P#{R_{P#{R_#_|
 {x                                                       {P[
 ~
-HMSP 1342 329 924
-THMS 8 0 0
-Cnd  0 0 17 48
+HMSP 1626 440 1161
+THMS 0 0 0
+Cnd  0 0 0 0
 Ignore brian~
 Ignore ami~
 Ignore nephlite~
 Ignore navarre~
-Query teotwawki~
 Sk 77 1 'acid blast'
 Sk 76 1 'acid breath'
 Sk 75 1 'acid rain'
-Sk 78 1 'age'
+Sk 81 1 'age'
 Sk 79 1 'animate skeleton'
 Sk 78 1 'animate wraith'
 Sk 75 1 'animate gargoyle'
@@ -138,11 +150,11 @@ Sk 75 1 'chain lightning'
 Sk 81 1 'change sex'
 Sk 77 1 'channel'
 Sk 76 1 'charm person'
-Sk 76 1 'chill touch'
+Sk 77 1 'chill touch'
 Sk 75 1 'colour spray'
 Sk 89 1 'continual light'
 Sk 78 1 'control weather'
-Sk 98 1 'create food'
+Sk 99 1 'create food'
 Sk 75 1 'create parchment'
 Sk 86 1 'create rose'
 Sk 75 1 'create sign'
@@ -154,7 +166,7 @@ Sk 100 1 'cure critical'
 Sk 79 1 'cure disease'
 Sk 84 1 'cure light'
 Sk 80 1 'cure poison'
-Sk 83 1 'cure serious'
+Sk 84 1 'cure serious'
 Sk 78 1 'curse'
 Sk 77 1 'darkness'
 Sk 86 1 'dazzling light'
@@ -162,7 +174,7 @@ Sk 61 1 'demonfire'
 Sk 76 1 'detect evil'
 Sk 78 1 'detect good'
 Sk 96 1 'detect hidden'
-Sk 94 1 'detect invis'
+Sk 95 1 'detect invis'
 Sk 77 1 'detect magic'
 Sk 75 1 'detect poison'
 Sk 75 1 'dispel evil'
@@ -187,7 +199,7 @@ Sk 89 1 'flameshield'
 Sk 81 1 'flamestrike'
 Sk 100 1 'fly'
 Sk 75 1 'floating disc'
-Sk 95 1 'frenzy'
+Sk 96 1 'frenzy'
 Sk 76 1 'frost blade'
 Sk 80 1 'frost breath'
 Sk 81 1 'gas breath'
@@ -202,10 +214,10 @@ Sk 75 1 'identify'
 Sk 77 1 'infravision'
 Sk 76 1 'invisibility'
 Sk 76 1 'know alignment'
-Sk 79 1 'light of truth'
+Sk 80 1 'light of truth'
 Sk 75 1 'lightning bolt'
 Sk 75 1 'lightning breath'
-Sk 88 1 'locate life'
+Sk 89 1 'locate life'
 Sk 91 1 'locate object'
 Sk 75 1 'magic missile'
 Sk 78 1 'mass healing'
@@ -218,8 +230,8 @@ Sk 75 1 'power word'
 Sk 83 1 'polymorph'
 Sk 77 1 'portal'
 Sk 75 1 'protect container'
-Sk 98 1 'protection evil'
-Sk 99 1 'protection good'
+Sk 99 1 'protection evil'
+Sk 100 1 'protection good'
 Sk 76 1 'ray of truth'
 Sk 75 1 'recharge'
 Sk 100 1 'refresh'
@@ -229,6 +241,7 @@ Sk 83 1 'remove alignment'
 Sk 75 1 'remove invisibility'
 Sk 86 1 'remove curse'
 Sk 100 1 'sanctuary'
+Sk 1 1 'scry'
 Sk 97 1 'shield'
 Sk 75 1 'shock blade'
 Sk 75 1 'shocking grasp'
@@ -236,8 +249,9 @@ Sk 77 1 'shrink'
 Sk 76 1 'sleep'
 Sk 100 1 'slow'
 Sk 79 1 'smokescreen'
+Sk 1 1 'starve'
 Sk 99 1 'steel mist'
-Sk 92 1 'stone skin'
+Sk 94 1 'stone skin'
 Sk 92 1 'summon'
 Sk 100 1 'summon object'
 Sk 75 1 'sunray'
@@ -245,7 +259,7 @@ Sk 100 1 'talon'
 Sk 76 1 'teleport'
 Sk 84 1 'teleport object'
 Sk 100 1 'undo spell'
-Sk 78 1 'ventriloquate'
+Sk 79 1 'ventriloquate'
 Sk 81 1 'vision'
 Sk 80 1 'weaken'
 Sk 75 1 'word of recall'
@@ -253,20 +267,21 @@ Sk 76 1 'wrath'
 Sk 100 1 'axe'
 Sk 100 1 'dagger'
 Sk 75 1 'flail'
-Sk 92 1 'mace'
+Sk 94 1 'mace'
 Sk 100 1 'polearm'
-Sk 76 1 'spear'
+Sk 81 1 'spear'
 Sk 100 1 'sword'
 Sk 86 1 'whip'
+Sk 1 1 'bow'
 Sk 100 1 'shield block'
 Sk 100 1 'brew'
 Sk 100 1 'scribe'
 Sk 100 1 'backstab'
 Sk 100 1 'bash'
-Sk 84 1 'berserk'
+Sk 88 1 'berserk'
 Sk 100 1 'circle'
 Sk 78 1 'dirt kicking'
-Sk 76 1 'disarm'
+Sk 79 1 'disarm'
 Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
 Sk 82 1 'envenom'
@@ -299,7 +314,7 @@ Sk 76 1 'sing'
 Sk 76 1 'scrolls'
 Sk 78 1 'staves'
 Sk 75 1 'wands'
-Sk 80 1 'recall'
+Sk 86 1 'recall'
 Sk 78 1 'sheen'
 Sk 51 1 'focus'
 Sk 57 1 'barrier'
@@ -310,7 +325,7 @@ Sk 100 1 'fourth attack'
 Sk 100 1 'rage'
 Sk 56 1 'sap'
 Sk 10 1 'hex'
-Sk 76 1 'hammerstrike'
+Sk 77 1 'hammerstrike'
 Sk 1 1 'force shield'
 Sk 79 1 'align'
 Sk 63 1 'blur'
@@ -340,1209 +355,397 @@ Gr 'alteration'
 End
 
 #O
-Vnum 32116
-Nest 0
-Name sivat dark prince crown~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws {WD{ga{Wr{gk {RP{Pr{Ri{Pn{Rc{Pe {RC{Pr{Ro{Pw{Rn{x~
-Desc {WS{gi{Wv{ga{Wt{g'{Ws {WD{ga{Wr{gk {RP{Pr{Ri{Pn{Rc{Pe {RC{Pr{Ro{Pw{Rn{x~
-ExtF 257
-Wear 6
-Cost 1100
-End
-
-#O
-Vnum 24829
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'blood moon'
-End
-
-#O
-Vnum 20006
+Vnum 20026
 Enchanted
 Nest 0
-ExtF 17039681
-Cond 97
+Name montreys knightly breastplate~
+ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WKn{gi{Cg{Wh{gt{Wly {WBr{ge{Was{gt{Cp{Wla{gt{We{x~
+Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WKn{gi{Cg{Wh{gt{Wly {WBr{ge{Was{gt{Cp{Wla{gt{We{x~
+Cond 89
 Wear 5
-Lev  60
-Cost 999
-Affc 'reserved'   1  59  -1 100  12          0 1
-Affc 'reserved'   1  59  -1  -3  24          0 1
-Affc 'reserved'   1  59  -1   3  26          0 1
-Affc 'reserved'   1  59  -1 -30   9          0 1
-Affc 'enchant weapon'   1  90  -1   2  19          0 1
-Affc 'enchant weapon'   0  90  -1   2  18          0 1
+Cost 90000
+Affc 'reserved'   1  91  -1 100  12          0 1
+Affc 'reserved'   1  91  -1  20  13          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
+Affc 'enchant weapon'   0 100  -1  14  18          0 1
 End
 
 #O
-Vnum 17105
+Vnum 11776
 Nest 0
-ExtF 16777217
+Name montreys ring of protection~
+ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WRi{gn{Wg {Wo{gf {WPr{go{Wt{ge{Wcti{go{Wn{x~
+Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WRi{gn{Wg {Wo{gf {WPr{go{Wt{ge{Wcti{go{Wn!~
 Cond 97
-Wear 8
-Cost 0
+Wear 1
+Lev  91
+Cost 10000
+ExDe owned by~ Doomsmerf
+~
 End
 
 #O
-Vnum 5608
+Vnum 11791
 Nest 0
+Name montreys bracer kings~
+ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WBr{ga{Wc{ge{Wr {Wo{gf {WK{gi{Wng{gs{x~
+Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WBr{ga{Wc{ge{Wr {Wo{gf {WK{gi{Wng{gs{x!~
+ExtF 259
+Cond 97
 Wear 15
-Cost 2000
+Lev  91
+Cost 55000
+ExDe owned by~ Doomsmerf
+~
 End
 
 #O
-Vnum 5608
+Vnum 11791
 Nest 0
+Name montreys bracer kings~
+ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WBr{ga{Wc{ge{Wr {Wo{gf {WK{gi{Wng{gs{x~
+Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WBr{ga{Wc{ge{Wr {Wo{gf {WK{gi{Wng{gs{x!~
+ExtF 259
 Cond 95
 Wear 14
-Cost 2000
+Lev  91
+Cost 55000
+ExDe owned by~ Doomsmerf
+~
 End
 
 #O
-Vnum 10168
+Vnum 8227
+Enchanted
 Nest 0
-ExtF 16777219
-Wear 2
-Cost 2200
-End
-
-#O
-Vnum 10168
-Nest 0
-ExtF 16777219
-Wear 1
-Cost 2200
-End
-
-#O
-Vnum 9911
-Nest 0
-Cond 99
-Wear 10
-Cost 6503
-End
-
-#O
-Vnum 20008
-Nest 0
-ExtF 16777537
-Cond 99
-Wear 13
-Cost 50
-End
-
-#O
-Vnum 20004
-Nest 0
-ExtF 65
-Cond 95
-Wear 4
-Cost 1000
-End
-
-#O
-Vnum 20004
-Nest 0
-ExtF 65
-Wear 3
-Cost 1000
-End
-
-#O
-Vnum 10171
-Nest 0
-Cond 90
+Name montreys divine presence light~
+ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WD{giv{Wi{gn{We {WP{gr{We{gs{We{gn{Wc{ge{x~
+Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WD{giv{Wi{gn{We {WP{gr{We{gs{We{gn{Wc{ge{x!~
+ExtF 323
 Wear 0
-Cost 3300
+Cost 7055
+Affc 'enchant weapon'   1 100  -1  16  19          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'reserved'   1  91  -1 150  12          0 1
+Affc 'reserved'   1  91  -1   1   4          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   2   2          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
 End
 
 #O
-Vnum 14030
+Vnum 13011
 Nest 0
-Cond 96
-Wear 19
-Cost 6000
-End
-
-#O
-Vnum 24808
-Nest 0
-Cond 92
-Wear 7
-Cost 6000
-End
-
-#O
-Vnum 24805
-Nest 0
-Wear -1
-Cost 4000
-End
-
-#O
-Vnum 8204
-Nest 0
+Name montreys arm buckler~
+ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WA{gr{Wm {WBu{gck{Wl{ge{Wr{x~
+Desc {gMo{Wn{gt{Cr{We{gy{Ws {WA{gr{Wm {WBu{gck{Wl{ge{Wr{x!~
+ExtF 3
 Cond 98
-Wear 9
-Cost 3800
+Wear 10
+Lev  91
+Cost 1200
+ExDe owned by~ Doomsmerf
+~
 End
 
 #O
-Vnum 7300
+Vnum 11709
+Enchanted
 Nest 0
-Name montreys pants~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WP{ga{Wn{gt{Ws{x~
-ExtF 1
-Wear -1
-Cost 100
-Val  60 1 0 6 100
+Name montreys neck plate~
+ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WN{ge{Wc{gk {WP{gl{Wa{gt{We{x~
+Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WN{ge{Wc{gk {WP{gl{Wa{gt{We{x!~
+ExtF 323
+Cond 98
+Wear 4
+Lev  90
+Cost 10000
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'reserved'   1  87  -1   5   3          0 1
 End
 
 #O
-Vnum 119
-Nest 1
-Name food pure aura enchanted~
-ShD  pure aura enchanted~
-Desc Pure aura enchanted{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  32 64 0 0 0
-ExDe food~ It looks delicious.
-~
-ExDe chef~ This food was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food golden armor~
-ShD  golden armor~
-Desc Golden armor{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  32 64 0 0 0
-ExDe food~ It looks delicious.
-~
-ExDe chef~ This food was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food torques~
-ShD  torques~
-Desc Torques{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  32 64 0 0 0
-ExDe food~ It looks delicious.
-~
-ExDe chef~ This food was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food natures light fully enchanted~
-ShD  natures light fully enchanted~
-Desc Natures light fully enchanted{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  32 64 0 0 0
-ExDe food~ It looks delicious.
-~
-ExDe chef~ This food was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food amethyst earring~
-ShD  amethyst earring~
-Desc Amethyst earring{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  32 64 0 0 0
-ExDe food~ It looks delicious.
-~
-ExDe chef~ This food was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food sneak suit stuff~
-ShD  sneak suit stuff~
-Desc Sneak suit stuff{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  32 64 0 0 0
-ExDe food~ It looks delicious.
-~
-ExDe chef~ This food was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 7300
+Vnum 11709
+Enchanted
 Nest 0
-ExtF 1
-Wear -1
-Cost 100
-Val  60 1 0 6 100
+Name montreys neck plate~
+ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WN{ge{Wc{gk {WP{gl{Wa{gt{We{x~
+Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WN{ge{Wc{gk {WP{gl{Wa{gt{We{x!~
+ExtF 323
+Wear 3
+Lev  90
+Cost 10000
+Affc 'reserved'   1  87  -1   5   3          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
 End
 
 #O
-Vnum 108
+Vnum 13004
+Enchanted
 Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gNi{Wn{Cj{ga {gVa{Wm{Cb{Wra{gc{We{gs{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gNi{Wn{Cj{ga {gVa{Wm{Cb{Wra{gc{We{gs{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gSh{Wa{Cd{Wow {gLa{Wn{Cc{ge{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gSh{Wa{Cd{Wow {gLa{Wn{Cc{ge{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gMy{Ws{Ct{Wic{gal {gBr{Wa{Cc{ge{Wr{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gMy{Ws{Ct{Wic{gal {gBr{Wa{Cc{ge{Wr{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gB{Wl{Ca{Wc{gk {gb{We{Cl{gt{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gB{Wl{Ca{Wc{gk {gb{We{Cl{gt{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {WW{gh{Wi{Cs{Wpe{gri{Wng {WB{gr{Wa{Cc{We{gr{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {WW{gh{Wi{Cs{Wpe{gri{Wng {WB{gr{Wa{Cc{We{gr{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gR{Wo{Cb{We{gs {go{Wf {WIm{gm{Wo{gr{Wt{ga{Wl{gi{Wt{gy{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gR{Wo{Cb{We{gs {go{Wf {WIm{gm{Wo{gr{Wt{ga{Wl{gi{Wt{gy{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {WNe{gk{Co{Wd{ge {WCl{gi{Cm{Wbi{gn{Wg {Wc{gl{Wa{gw{Ws{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {WNe{gk{Co{Wd{ge {WCl{gi{Cm{Wbi{gn{Wg {Wc{gl{Wa{gw{Ws{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gN{Wi{Cn{Wja {gB{Wo{go{Wt{gs{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gN{Wi{Cn{Wja {gB{Wo{go{Wt{gs{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gSu{Wn{Ce{g-{Wa{gt{We {go{Wf {WP{gr{Wo{gt{We{gc{Wt{gi{Wo{gn{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gSu{Wn{Ce{g-{Wa{gt{We {go{Wf {WP{gr{Wo{gt{We{gc{Wt{gi{Wo{gn{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gN{Wi{Cn{gj{Wa {gSh{Wa{Cd{go{Ww {gA{Wr{Cm{go{Wr{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gN{Wi{Cn{gj{Wa {gSh{Wa{Cd{go{Ww {gA{Wr{Cm{go{Wr{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gY{Wi{Cn{W-Y{Ca{Wng {WN{ge{Wc{gk{Wc{gh{Wa{gi{Wn{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gY{Wi{Cn{W-Y{Ca{Wng {WN{ge{Wc{gk{Wc{gh{Wa{gi{Wn{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 108
-Nest 0
-Name rose~
-ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {WD{gr{Wa{Cg{go{Wn {WTe{Ce{gt{Wh {WNe{gc{Ck{gc{Wha{gi{Wn{x{x rose~
-Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {WD{gr{Wa{Cg{go{Wn {WTe{Ce{gt{Wh {WNe{gc{Ck{gc{Wha{gi{Wn{x{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 14030
-Nest 0
-Cond 89
-Wear 16
-Cost 0
-End
-
-#O
-Vnum 119
-Nest 0
-Name food you took the words right out of my mouth~
-ShD  you took the words right out of my mouth~
-Desc You took the words right out of my mouth{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  32 64 0 0 0
-ExDe chef~ This food was created by Doomsmerf.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 0
-Name food you took the words right out of my mouth~
-ShD  you took the words right out of my mouth~
-Desc You took the words right out of my mouth{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  32 64 0 0 0
-ExDe chef~ This food was created by Doomsmerf.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 0
-Name food you took the words right out of my mouth~
-ShD  you took the words right out of my mouth~
-Desc You took the words right out of my mouth{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  32 64 0 0 0
-ExDe chef~ This food was created by Doomsmerf.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 0
-Name food you took the words right out of my mouth~
-ShD  you took the words right out of my mouth~
-Desc You took the words right out of my mouth{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  32 64 0 0 0
-ExDe chef~ This food was created by Doomsmerf.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 4574
-Nest 0
-Wear -1
-Cost 2200
-End
-
-#O
-Vnum 4574
-Nest 0
-Wear -1
-Cost 2200
-End
-
-#O
-Vnum 4574
-Nest 0
-Wear -1
-Cost 2200
-End
-
-#O
-Vnum 4574
-Nest 0
-Wear -1
-Cost 2200
-End
-
-#O
-Vnum 7300
-Nest 0
-ExtF 1
-Wear -1
-Cost 100
-Val  60 1 0 6 100
-End
-
-#O
-Vnum 34
-Nest 1
-Wear -1
-Cost 390
-End
-
-#O
-Vnum 35
-Nest 1
-Wear -1
-Cost 390
-End
-
-#O
-Vnum 36
-Nest 1
-Wear -1
-Cost 390
-End
-
-#O
-Vnum 37
-Nest 1
-Wear -1
-Cost 390
-End
-
-#O
-Vnum 38
-Nest 1
-Wear -1
-Cost 390
-End
-
-#O
-Vnum 39
-Nest 1
-Wear -1
-Cost 390
-End
-
-#O
-Vnum 41
-Nest 1
-Wear -1
-Cost 390
-End
-
-#O
-Vnum 60
-Nest 1
-Wear -1
-Cost 390
-End
-
-#O
-Vnum 61
-Nest 1
-Wear -1
-Cost 390
-End
-
-#O
-Vnum 63
-Nest 1
-Wear -1
-Cost 390
-End
-
-#O
-Vnum 56
-Nest 1
-ShD  {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
-Desc {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 4471
-Nest 1
-Name bikini polka dot~
-ShD  {RI{Yt{Rs{Yy {Rb{Yi{Rt{Ys{Ry {Yt{Re{Ye{Rn{Yy {Rw{Ye{Re{Yn{Ry {Yy{Re{Yl{Rl{Yo{Rw {Yp{Ro{Yl{Rk{Ya {Rd{Yo{Rt {Yb{Ri{Yk{Ri{Yn{Ri{x~
-Desc what can i say ... the name says it all~
-Mat cloth~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1270
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 108
-Nest 1
-Name rose~
-ShD  a you owe maplearn 4 lirrys{x rose~
-Desc A you owe maplearn 4 lirrys{x rose is lying on the ground.~
-Mat silk~
-Wear -1
-Cost 0
-Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
-ExDe florist~ This rose was created by Doomsmerf.
-~
-End
-
-#O
-Vnum 7502
-Nest 0
-Name doomies bag o porn~
-ShD  {BD{Co{Mo{Gm{Bi{Re{Bs {GB{Ca{Tg {Go {PP{Bo{Gr{Cn{x~
-Desc Its dooms bag o' smut~
-ExtF 16777217
-Wear 12
-Cost 5000
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe January 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of Ta{Cyl{gor{T!!{x~
-Desc It's Taylor!  Naked!!  Don't get the pages all sticky ;)~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe July 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {HA{Gl{Wi{Gs{Ha{T!!~
-Desc *melt* *swoon* ...  the pages are kinda sticky.~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe December 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {WL{Ci{Br{Ci{Te{Wl{T!!{x~
-Desc Whoa, those are some nice...  where'd the next page go??~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe August 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {gL{We{gi{Wg{gh{T!!{x~
-Desc Wow, who would have guessed she had such a nice pair of... wings :)~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe February 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {MS{Vo{Wrs{Vh{Ma{T!!{x~
-Desc Whoa, she can do some amazing things with that halo...~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe {YP{BL{PA{GY{CB{VO{YY {VSpecial{T, {bLa{Ymi{bas {Tand {WL{gac{We{T!!{x~
-Desc Only available with subscription!~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe {YP{BL{PA{GY{CB{VO{YY {VSpecial{T, {bLa{Ymi{bas {Tand {WL{gac{We{T!!{x~
-Desc Only available with subscription!~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe {YP{BL{PA{GY{CB{VO{YY {VSpecial{T, {bLa{Ymi{bas {Tand {WL{gac{We{T!!{x~
-Desc Only available with subscription!~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playgirl~
-ShD  {Tthe May 768 {YP{BL{PA{GY{VG{MI{CR{YL{T, featuring a centerfold of {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr!!{x~
-Desc That is one big... Halo :)~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe March 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {NS{Be{Cr{Ha{Gp{Wh{Ni{Bm{T!!{x~
-Desc *melt* *swoon* ...  the pages are kinda sticky.~
-Mat paper~
-Wear -1
-Cost 3500
-ExDe playboy march seraphim~ You know, if she catches you swooning over her picture like that,
-not to mention what else you may be doing, you might be in for an
-unpleasant surprise.
-~
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe August 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {gL{We{gi{Wg{gh{T!!{x~
-Desc Wow, who would have guessed she had such a nice pair of... wings :)~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe {YP{BL{PA{GY{CB{VO{YY {VSpecial{T, {bLa{Ymi{bas {Tand {WL{gac{We{T!!{x~
-Desc Only available with subscription!~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe February 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {MS{Vo{Wrs{Vh{Ma{T!!{x~
-Desc Whoa, she can do some amazing things with that halo...~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playgirl~
-ShD  {Tthe May 768 {YP{BL{PA{GY{VG{MI{CR{YL{T, featuring a centerfold of {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr!!{x~
-Desc That is one big... Halo :)~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playgirl~
-ShD  {Tthe January 768 {VP{WL{VA{WY{VG{WI{VR{WL{T, featuring a centerfold of {WJ{gu{Wb{ge{Wi{g!{W!{x~
-Desc Goodness that is one large katana he has{x~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe January 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of Ta{Cyl{gor{T!!{x~
-Desc It's Taylor!  Naked!!  Don't get the pages all sticky ;)~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name playboy~
-ShD  {Tthe July 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {HA{Gl{Wi{Gs{Ha{T!!{x~
-Desc *melt* *swoon* ...  the pages are kinda sticky.~
-Mat paper~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1214
-Nest 1
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 4471
-Nest 1
-Name liriel plushy~
-ShD  {WL{Ci{Br{Ci{Te{Wl {CP{Wl{Wu{Ws{Wh{Cy{x~
-Desc {WA{Cw{Bw{Cw {Wh{To{Ww {Cc{Bu{Tt{Be{W! {CA {Bl{Ti{Wt{Ct{Tl{We {Bs{Ct{Tu{Cf{Wf{Be{Td {WL{Ci{Br{Ci{Te{Wl {Ti{Ws {Ch{Te{Wr{Ce{B, {Tb{We{Cg{Bg{Ci{Wn{Tg {Wt{Bo {Cb{Te {Wc{Bu{Wd{Bd{Tl{We{Cd{x~
-Mat Cotton~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name montrey plushy~
-ShD  {gM{Go{Wn{gt{Gr{We{gy {gP{Gl{Wu{gs{Gh{Wy{x~
-Desc {WI{gt{Gs {ga {Gl{Wi{gt{Wt{gl{We {Gs{gt{Wu{Wf{gf{We{Gd {gM{Go{Wn{gt{Gr{We{Gy {gP{Gl{Wu{gs{Gh{Wy{x~
-Mat Cotton~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name plushy jubei~
-ShD  {WJ{gu{Wb{ge{Wi {gP{Wl{gu{Ws{gh{Wy{x~
-Desc {WI{gt{Ws {ga {Wl{gi{Wt{gt{Wl{ge {Ws{gt{Wu{gf{Wf{ge{Wd {gJ{Wu{gb{We{gi {WP{gl{Wu{gs{Wh{gy{x~
-Mat Cotton~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name plushy jubei~
-ShD  {WJ{gu{Wb{ge{Wi {gP{Wl{gu{Ws{gh{Wy{x~
-Desc {WI{gt{Ws {ga {Wl{gi{Wt{gt{Wl{ge {Ws{gt{Wu{gf{Wf{ge{Wd {gJ{Wu{gb{We{gi {WP{gl{Wu{gs{Wh{gy{x~
-Mat Cotton~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name plushy taylor~
-ShD  {PT{Wa{Py{Wl{Po{Wr {PP{Wl{Pu{Ws{Ph{Wy{x~
-Desc {PI{Wt{Ps {Wa {Pl{Wi{Pt{Wt{Pl{We {Ps{Wt{Pu{Wf{Pf{We{Pd {WT{Pa{Wy{Pl{Wo{Pr {WP{Pl{Wu{Ps{Wh{Py{x~
-Mat Cotton~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 4471
-Nest 1
-Name leigh plushy~
-ShD  {WL{Ce{Wi{Cg{Wh {CP{Wl{C{Wu{Cs{Wh{Cy{x~
-Desc {WI{Ct{Ws {Ca {Wl{Ci{Wt{Ct{Wl{Ce {Ws{Ct{Wu{Cf{Wf{Ce{Wd {CL{We{Ci{Wg{Ch {WP{Cl{Wu{Cs{Wh{Cy{x~
-Mat Cotton~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 1258
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 55
-Nest 1
-Name amsterdoodlew urzaw wine tear stars~
-ShD  {WT{Gh{Ve {Wb{We{Gs{Vt {Wt{Wa{Gs{Vt{Wi{Wn{Gg {Vw{Wi{Wn{Ge {VE{WV{WE{GR{V!{x~
-Desc {WT{Gh{Ve {Wb{We{Gs{Vt {Wt{Wa{Gs{Vt{Wi{Wn{Gg {Vw{Wi{Wn{Ge {VE{WV{WE{GR{V!{x~
-ExtF 1
-Wear -1
-Cost 0
-Val  64 49 2 0 0
-End
-
-#O
-Vnum 1204
-Nest 1
-ShD  {YToken for a free restore by Sorsha{x~
-Desc {YToken for a free restore by Sorsha{x~
-Wear -1
-Cost 12
-End
-
-#O
-Vnum 1204
-Nest 1
-ShD  {YToken for a free restore by Sorsha{x~
-Desc {YToken for a free restore by Sorsha{x~
-Wear -1
-Cost 12
-End
-
-#O
-Vnum 1211
-Nest 1
-Name wooden nickel token~
-ShD  a wooden nickel~
-Desc a completely worthless wooden nickel token~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1211
-Nest 1
-Name wooden nickel token~
-ShD  a wooden nickel~
-Desc a completely worthless wooden nickel token~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1211
-Nest 1
-Name wooden nickel token~
-ShD  a wooden nickel~
-Desc a completely worthless wooden nickel token~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1211
-Nest 1
-Name wooden nickel token~
-ShD  a wooden nickel~
-Desc a completely worthless wooden nickel token~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1201
-Nest 1
-ShD  {COne free restore by {WSorsha{x~
-Desc {COne free restore by {WSorsha{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token ball power vegita~
-ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
-Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1211
-Nest 1
-Name songquest token Kids Run Through The City Corner~
-ShD  Kids Run Through The City Corner~
-Desc A single song whistles through the air~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 4471
-Nest 1
-Name azrael action figure~
-ShD  {RA{Pz{Rr{Pa{Re{Pl {RA{Pc{Rt{Pi{Ro{Pn {RF{Pi{Rg{Pu{Rr{Pe{x~
-Desc {RA huge {PDemonic {RDragon {WNecromancer {Rwith animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x~
-Mat Plastic~
-ExtF 524289
-Wt   0
-Cond -1
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 1212
-Nest 1
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1212
-Nest 1
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 14016
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 14016
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 8826
-Nest 0
-ExtF 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 11654
-Nest 0
-Cond 97
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 10157
-Nest 0
-Wear -1
-Cost 0
-Val  50 14 3 0 0
-End
-
-#O
-Vnum 24800
-Nest 0
+Name montreys life force~
+ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WLi{gf{We {WFo{gr{Wce{x~
+Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WLi{gf{We {WFo{gr{Wce{x!~
+Cond 95
 Wear 18
-Cost 2000
+Cost 3700
+Affc 'reserved'   1  90  -1   2   1          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  50  12          0 1
+Affc 'reserved'   1 100  -1   8  19          0 1
+Affc 'reserved'   1 100  -1   8  18          0 1
 End
 
 #O
-Vnum 20013
+Vnum 13008
+Enchanted
 Nest 0
-Wear -1
-Cost 600
-Spell 3 'divine regeneration'
+Name montreys brass knuckles~
+ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WB{gra{Wss{x {WK{gn{Wu{gc{Wkl{ge{Ws{x~
+Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WB{gra{Wss{x {WK{gn{Wu{gc{Wkl{ge{Ws{x!~
+ExtF 67
+Cond 89
+Wear 9
+Cost 550
+Affc 'reserved'   1  90  -1   5   1          0 1
+Affc 'reserved'   1  90  -1  30  13          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  18  18          0 1
 End
 
 #O
-Vnum 20010
+Vnum 14110
+Enchanted
+Nest 0
+Name montreys silvery war helmet~
+ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WSi{gl{Wver{gy {WW{ga{Wr {WHe{gl{Wme{gt{x~
+Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WSi{gl{Wver{gy {WW{ga{Wr {WHe{gl{Wme{gt{x!~
+Cond 91
+Wear 6
+Cost 100000
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  15  18          0 1
+Affc 'reserved'   1  91  -1 120  13          0 1
+Affc 'reserved'   1  91  -1 120  12          0 1
+Affc 'reserved'   1  91  -1   3  26          0 1
+Affc 'reserved'   1  91  -1   3   5          0 1
+End
+
+#O
+Vnum 3209
+Enchanted
+Nest 0
+Name montreys belt of heros~
+ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WBe{gl{Wt {Wo{gf {WH{ge{Wro{gs{x~
+Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WBe{gl{Wt {Wo{gf {WH{ge{Wro{gs{x!~
+ExtF 67633219
+Cond 88
+Wear 13
+Cost 100
+Affc 'reserved'   1  90  -1  -8  24          0 1
+Affc 'reserved'   1  90  -1  30  13          0 1
+Affc 'reserved'   1  90  -1  80  12          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2   1          0 1
+End
+
+#O
+Vnum 10121
+Nest 0
+Name montrey emerald lightsabre~
+ShD  {gMo{Wn{gt{Gr{We{gy{Ws {gEm{We{Gr{Wal{gd {GLi{gg{Wht{gs{Wa{gb{Gr{ge{x~
+Desc {gA {Gli{gg{Wht{gs{Wa{gb{Gr{ge lies here, gl{We{ga{Wm{gin{Wg {gin the s{Yun{gl{Yi{ggh{Yt{g.{x~
+ExtF 16777283
+Cond 83
+Wear 16
+Lev  91
+Cost 21
+ExDe owned by~ Doomsmerf
+~
+End
+
+#O
+Vnum 13005
+Enchanted
+Nest 0
+Name montreys robe immortality~
+ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WR{go{Wb{ge {Wo{gf {WIm{gmo{Wr{gt{Wal{gl{Wi{gt{Wy{x~
+Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WR{go{Wb{ge {Wo{gf {WIm{gmo{Wr{gt{Wal{gl{Wi{gt{Wy{x!~
+ExtF 262211
+Cond 89
+Wear 12
+Cost 4500
+Affc 'reserved'   1  90  -1  -2   9          0 1
+Affc 'reserved'   1  90  -1  30  14          0 1
+Affc 'reserved'   1  90  -1   1   2          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1  -2  20          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  18  18          0 1
+End
+
+#O
+Vnum 11792
+Nest 0
+Name montrey shadow katana~
+ShD  {gMo{Wn{gt{Cr{We{gy{Ws {gSh{Wa{Cd{Wow {gK{Cat{ga{Wna{x~
+Desc {gA k{Ca{Wt{ga{Wna {glies here, gl{We{ga{Wm{gin{Wg {gin the s{Yun{gl{Yi{ggh{Yt{g.{x~
+ExtF 67
+Cond 94
+Wear 19
+Lev  91
+Cost 55000
+ExDe owned by~ Doomsmerf
+~
+End
+
+#O
+Vnum 17013
+Enchanted
+Nest 0
+Name ring bunnyhealer~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {Wr{gin{Wg{x~
+Desc It's a {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {Wr{gin{Wg{x!~
+ExtF 16777283
+Wear 2
+Lev  72
+Cost 50
+Affc 'reserved'   0  65  -1   0   0  268435456 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'reserved'   1  65  -1  60  13          0 1
+End
+
+#O
+Vnum 6507
 Nest 0
 Wear -1
-Cost 33
+Cost 0
+End
+
+#O
+Vnum 2003
+Nest 0
+Wear -1
+Cost 800
+End
+
+#O
+Vnum 2002
+Nest 0
+Wear -1
+Cost 3600
+End
+
+#O
+Vnum 2015
+Nest 0
+Wear -1
+Time 621
+Cost 920
+Spell 1 'pass door'
+Spell 2 'faerie fire'
+End
+
+#O
+Vnum 2015
+Nest 0
+Wear -1
+Time 546
+Cost 920
+Spell 1 'pass door'
+Spell 2 'faerie fire'
+End
+
+#O
+Vnum 2015
+Nest 0
+Wear -1
+Time 467
+Cost 920
+Spell 1 'pass door'
+Spell 2 'faerie fire'
+End
+
+#O
+Vnum 2015
+Nest 0
+Wear -1
+Time 348
+Cost 920
+Spell 1 'pass door'
+Spell 2 'faerie fire'
+End
+
+#O
+Vnum 2015
+Enchanted
+Nest 0
+Wear -1
+Time 509
+Cost 1261
+Spell 1 'pass door'
+Spell 2 'faerie fire'
+End
+
+#O
+Vnum 2012
+Nest 0
+Wear -1
+Cost 3500
+End
+
+#O
+Vnum 2013
+Nest 0
+Wear -1
+Cost 2200
+Spell 3 'colour spray'
+End
+
+#O
+Vnum 11901
+Nest 0
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 11902
+Nest 0
+Wear -1
+Cost 800
+End
+
+#O
+Vnum 11900
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 11900
+Nest 0
+Wear -1
+Cost 200
 End
 
 #L
@@ -1554,286 +757,6 @@ Desc {RKa{Pz{R's {MX{VX{MX {RPa{Pn{Rts{x~
 ExtF 16777281
 Wear -1
 Cost 1000
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 3032
-Nest 1
-Name Bag Kazander First Word Association Quest~
-ShD  {cKaz{gan{cder's {BF{Nirst {VW{Mord {CA{Tssociation {YQ{buest {GB{Hag{x~
-Desc A quest bag lies here~
-Wear -1
-Cost 9
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Brightly Colored Easter Egg Kazander~
-ShD  {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x~
-Desc {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x lies here.  Pick it up!~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Brightly Colored Easter Egg Kazander~
-ShD  {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x~
-Desc {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x lies here.  Pick it up!~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Brightly Colored Easter Egg Kazander~
-ShD  {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x~
-Desc {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x lies here.  Pick it up!~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Brightly Colored Easter Egg Kazander~
-ShD  {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x~
-Desc {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x lies here.  Pick it up!~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 14085
-Nest 0
-Name blanket liriel lap~
-ShD  {WL{Ci{Br{Ci{Te{Wl{x's lap~
-Desc A cute little stuffed {WL{Ci{Br{Ci{Te{Wl {xlies here, looking very cuddly.~
-Mat memories~
-ExtF 1
-Wt   0
-Wear -1
-Lev  0
-Cost 0
-ExDe memories~ {CThe memories of the Dizzyknights weave a beautiful blanket. It's so soft and inviting.{x
-~
-ExDe blanket~ {CThe memories of the Dizzyknights weave a beautiful blanket. It's so soft and inviting.{x
-~
-ExDe owned by~ Doomsmerf
-~
 End
 
 #L
@@ -1950,305 +873,6 @@ ExDe This is a hidden token from Teotwawki.~ ~
 End
 
 #L
-Vnum 10258
-Nest 0
-Name sivat's bottle snapple ice tea~
-ShD  {YS{bi{Yv{ba{Yt{b'{Ys {WS{gn{Ba{Np{Bp{gl{We {YI{bc{Ye {bT{Ye{ba {YB{bo{Yt{bt{Yl{be{x~
-Desc {YS{bi{Yv{ba{Yt{b'{Ys {WS{gn{Ba{Np{Bp{gl{We {YI{bc{Ye {bT{Ye{ba {YB{bo{Yt{bt{Yl{be{x~
-Wear -1
-Cost 0
-Val  60 24 11 0 0
-End
-
-#L
-Vnum 1244
-Nest 0
-Name present~
-ShD  {WA {RChris{Gtmas {RP{Gr{Be{Ys{We{Pn{Ct{x~
-Desc {CA Christmas present from the Immortals{x~
-ExtF 1
-Wear -1
-Cost 1000
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden qaz~
-ShD  The hidden Qaz token.~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden qaz~
-ShD  The hidden Qaz token.~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden qaz~
-ShD  The hidden Qaz token.~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden qaz~
-ShD  The hidden Qaz token.~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Qaz quest~
-ShD  Qaz quest mudpie~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden qaz~
-ShD  The hidden {PQ{Ra{Pz{x token, made of equal parts ether and gossamer wing~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden qaz~
-ShD  The hidden Qaz token.~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden qaz~
-ShD  The hidden Qaz token.~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden qaz~
-ShD  The hidden Qaz token.~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden qaz~
-ShD  The hidden {PQ{Ra{Pz{x token, made of equal parts ether and gossamer wing~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-ShD  The hidden {PQ{Ra{Pz{x token, made of equal parts ether and gossamer wing~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Qaz quest~
-ShD  Qaz quest mudpie~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  {PQ{Ra{Pz{x {Ytrivia{x token ~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden qaz~
-ShD  The hidden Qaz token.~
-Desc The hidden {PQ{Ra{Pz{x token, made of eaual parts gossamer wing and ether.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name qaz wild token~
-ShD  The wild Qaz token~
-Desc The wild and wonderful Qazorkins token of untamed feral ferocity~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name qaz wild token~
-ShD  {CThe {V*{Cild {PQ{Ra{Pz{x {Ctoken{x~
-Desc The wild and wonderful Qazorkins token of untamed feral ferocity~
-Wear -1
-Cost 0
-End
-
-#L
 Vnum 7300
 Nest 0
 Name liriel pants~
@@ -2260,12 +884,641 @@ Val  60 1 0 6 100
 End
 
 #L
-Vnum 1213
+Vnum 7502
 Nest 0
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
+Name urza pants~
+ShD  {RU{Tr{Rz{Ta{R's{x {CP{Ta{Cn{Tt{Cs{x~
+Desc {RU{Tr{Rz{Ta{R's{x {CP{Ta{Cn{Tt{Cs{x~
+ExtF 16777217
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 7502
+Nest 0
+Name doomies bag o porn~
+ShD  {BD{Co{Mo{Gm{Bi{Re{Bs {GB{Ca{Tg {Go {PP{Bo{Gr{Cn{x~
+Desc Its dooms bag o' smut~
+ExtF 16777217
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe January 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of Ta{Cyl{gor{T!!{x~
+Desc It's Taylor!  Naked!!  Don't get the pages all sticky ;)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe July 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {HA{Gl{Wi{Gs{Ha{T!!~
+Desc *melt* *swoon* ...  the pages are kinda sticky.~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe December 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {WL{Ci{Br{Ci{Te{Wl{T!!{x~
+Desc Whoa, those are some nice...  where'd the next page go??~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe August 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {gL{We{gi{Wg{gh{T!!{x~
+Desc Wow, who would have guessed she had such a nice pair of... wings :)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe February 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {MS{Vo{Wrs{Vh{Ma{T!!{x~
+Desc Whoa, she can do some amazing things with that halo...~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe {YP{BL{PA{GY{CB{VO{YY {VSpecial{T, {bLa{Ymi{bas {Tand {WL{gac{We{T!!{x~
+Desc Only available with subscription!~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe {YP{BL{PA{GY{CB{VO{YY {VSpecial{T, {bLa{Ymi{bas {Tand {WL{gac{We{T!!{x~
+Desc Only available with subscription!~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe {YP{BL{PA{GY{CB{VO{YY {VSpecial{T, {bLa{Ymi{bas {Tand {WL{gac{We{T!!{x~
+Desc Only available with subscription!~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe March 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {NS{Be{Cr{Ha{Gp{Wh{Ni{Bm{T!!{x~
+Desc *melt* *swoon* ...  the pages are kinda sticky.~
+Mat paper~
+Wear -1
+Cost 3500
+ExDe playboy march seraphim~ You know, if she catches you swooning over her picture like that,
+not to mention what else you may be doing, you might be in for an
+unpleasant surprise.
+~
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe August 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {gL{We{gi{Wg{gh{T!!{x~
+Desc Wow, who would have guessed she had such a nice pair of... wings :)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe {YP{BL{PA{GY{CB{VO{YY {VSpecial{T, {bLa{Ymi{bas {Tand {WL{gac{We{T!!{x~
+Desc Only available with subscription!~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe February 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {MS{Vo{Wrs{Vh{Ma{T!!{x~
+Desc Whoa, she can do some amazing things with that halo...~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe January 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of Ta{Cyl{gor{T!!{x~
+Desc It's Taylor!  Naked!!  Don't get the pages all sticky ;)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playboy~
+ShD  {Tthe July 768 {YP{BL{PA{GY{CB{VO{YY{T, featuring a centerfold of {HA{Gl{Wi{Gs{Ha{T!!{x~
+Desc *melt* *swoon* ...  the pages are kinda sticky.~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name liriel plushy~
+ShD  {WL{Ci{Br{Ci{Te{Wl {CP{Wl{Wu{Ws{Wh{Cy{x~
+Desc {WA{Cw{Bw{Cw {Wh{To{Ww {Cc{Bu{Tt{Be{W! {CA {Bl{Ti{Wt{Ct{Tl{We {Bs{Ct{Tu{Cf{Wf{Be{Td {WL{Ci{Br{Ci{Te{Wl {Ti{Ws {Ch{Te{Wr{Ce{B, {Tb{We{Cg{Bg{Ci{Wn{Tg {Wt{Bo {Cb{Te {Wc{Bu{Wd{Bd{Tl{We{Cd{x~
+Mat Cotton~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name montrey plushy~
+ShD  {gM{Go{Wn{gt{Gr{We{gy {gP{Gl{Wu{gs{Gh{Wy{x~
+Desc {WI{gt{Gs {ga {Gl{Wi{gt{Wt{gl{We {Gs{gt{Wu{Wf{gf{We{Gd {gM{Go{Wn{gt{Gr{We{Gy {gP{Gl{Wu{gs{Gh{Wy{x~
+Mat Cotton~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name plushy jubei~
+ShD  {WJ{gu{Wb{ge{Wi {gP{Wl{gu{Ws{gh{Wy{x~
+Desc {WI{gt{Ws {ga {Wl{gi{Wt{gt{Wl{ge {Ws{gt{Wu{gf{Wf{ge{Wd {gJ{Wu{gb{We{gi {WP{gl{Wu{gs{Wh{gy{x~
+Mat Cotton~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name plushy jubei~
+ShD  {WJ{gu{Wb{ge{Wi {gP{Wl{gu{Ws{gh{Wy{x~
+Desc {WI{gt{Ws {ga {Wl{gi{Wt{gt{Wl{ge {Ws{gt{Wu{gf{Wf{ge{Wd {gJ{Wu{gb{We{gi {WP{gl{Wu{gs{Wh{gy{x~
+Mat Cotton~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name plushy taylor~
+ShD  {PT{Wa{Py{Wl{Po{Wr {PP{Wl{Pu{Ws{Ph{Wy{x~
+Desc {PI{Wt{Ps {Wa {Pl{Wi{Pt{Wt{Pl{We {Ps{Wt{Pu{Wf{Pf{We{Pd {WT{Pa{Wy{Pl{Wo{Pr {WP{Pl{Wu{Ps{Wh{Py{x~
+Mat Cotton~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name leigh plushy~
+ShD  {WL{Ce{Wi{Cg{Wh {CP{Wl{C{Wu{Cs{Wh{Cy{x~
+Desc {WI{Ct{Ws {Ca {Wl{Ci{Wt{Ct{Wl{Ce {Ws{Ct{Wu{Cf{Wf{Ce{Wd {CL{We{Ci{Wg{Ch {WP{Cl{Wu{Cs{Wh{Cy{x~
+Mat Cotton~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playgirl~
+ShD  {Tthe May 768 {YP{BL{PA{GY{VG{MI{CR{YL{T, featuring a centerfold of {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr!!{x~
+Desc That is one big... Halo :)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playgirl~
+ShD  {Tthe May 768 {YP{BL{PA{GY{VG{MI{CR{YL{T, featuring a centerfold of {BD{Ta{Br{Tk{BA{Tv{Ba{Tt{Ba{Tr!!{x~
+Desc That is one big... Halo :)~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 4471
+Nest 1
+Name playgirl~
+ShD  {Tthe January 768 {VP{WL{VA{WY{VG{WI{VR{WL{T, featuring a centerfold of {WJ{gu{Wb{ge{Wi{g!{W!{x~
+Desc Goodness that is one large katana he has{x~
+Mat paper~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 1258
+Nest 1
 Wear -1
 Cost 0
+End
+
+#L
+Vnum 14085
+Nest 0
+Name blanket liriel lap~
+ShD  {WL{Ci{Br{Ci{Te{Wl{x's lap~
+Desc A cute little stuffed {WL{Ci{Br{Ci{Te{Wl {xlies here, looking very cuddly.~
+Mat memories~
+ExtF 1
+Wt   0
+Wear -1
+Lev  0
+Cost 0
+ExDe memories~ {CThe memories of the Dizzyknights weave a beautiful blanket. It's so soft and inviting.{x
+~
+ExDe blanket~ {CThe memories of the Dizzyknights weave a beautiful blanket. It's so soft and inviting.{x
+~
+ExDe owned by~ Doomsmerf
+~
+End
+
+#L
+Vnum 7300
+Nest 0
+ExtF 1
+Wear -1
+Cost 100
+Val  60 1 0 6 100
+End
+
+#L
+Vnum 34
+Nest 1
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 35
+Nest 1
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 36
+Nest 1
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 37
+Nest 1
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 38
+Nest 1
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 39
+Nest 1
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 41
+Nest 1
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 60
+Nest 1
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 61
+Nest 1
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 63
+Nest 1
+Wear -1
+Cost 390
+End
+
+#L
+Vnum 56
+Nest 1
+ShD  {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Desc {Wa slice of {Wc{ga{Wk{ge {Wfrom the {gw{Wed{gd{Wi{gn{Wg of {TK{Bu{Tn{Bg{Tf{Bu{TS{Bm{Tu{Br{Tf {Wand {RK{Ye{Gs{Bi{Vr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a you owe maplearn 4 lirrys{x rose~
+Desc A you owe maplearn 4 lirrys{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {WD{gr{Wa{Cg{go{Wn {WTe{Ce{gt{Wh {WNe{gc{Ck{gc{Wha{gi{Wn{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {WD{gr{Wa{Cg{go{Wn {WTe{Ce{gt{Wh {WNe{gc{Ck{gc{Wha{gi{Wn{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gY{Wi{Cn{W-Y{Ca{Wng {WN{ge{Wc{gk{Wc{gh{Wa{gi{Wn{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gY{Wi{Cn{W-Y{Ca{Wng {WN{ge{Wc{gk{Wc{gh{Wa{gi{Wn{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gN{Wi{Cn{gj{Wa {gSh{Wa{Cd{go{Ww {gA{Wr{Cm{go{Wr{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gN{Wi{Cn{gj{Wa {gSh{Wa{Cd{go{Ww {gA{Wr{Cm{go{Wr{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gSu{Wn{Ce{g-{Wa{gt{We {go{Wf {WP{gr{Wo{gt{We{gc{Wt{gi{Wo{gn{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gSu{Wn{Ce{g-{Wa{gt{We {go{Wf {WP{gr{Wo{gt{We{gc{Wt{gi{Wo{gn{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gN{Wi{Cn{Wja {gB{Wo{go{Wt{gs{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gN{Wi{Cn{Wja {gB{Wo{go{Wt{gs{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {WNe{gk{Co{Wd{ge {WCl{gi{Cm{Wbi{gn{Wg {Wc{gl{Wa{gw{Ws{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {WNe{gk{Co{Wd{ge {WCl{gi{Cm{Wbi{gn{Wg {Wc{gl{Wa{gw{Ws{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gR{Wo{Cb{We{gs {go{Wf {WIm{gm{Wo{gr{Wt{ga{Wl{gi{Wt{gy{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gR{Wo{Cb{We{gs {go{Wf {WIm{gm{Wo{gr{Wt{ga{Wl{gi{Wt{gy{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {WW{gh{Wi{Cs{Wpe{gri{Wng {WB{gr{Wa{Cc{We{gr{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {WW{gh{Wi{Cs{Wpe{gri{Wng {WB{gr{Wa{Cc{We{gr{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gB{Wl{Ca{Wc{gk {gb{We{Cl{gt{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gB{Wl{Ca{Wc{gk {gb{We{Cl{gt{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gMy{Ws{Ct{Wic{gal {gBr{Wa{Cc{ge{Wr{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gMy{Ws{Ct{Wic{gal {gBr{Wa{Cc{ge{Wr{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gSh{Wa{Cd{Wow {gLa{Wn{Cc{ge{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gSh{Wa{Cd{Wow {gLa{Wn{Cc{ge{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 108
+Nest 1
+Name rose~
+ShD  a {x{gMo{Wn{gt{Cr{We{gy{Ws {gNi{Wn{Cj{ga {gVa{Wm{Cb{Wra{gc{We{gs{x{x rose~
+Desc A {x{gMo{Wn{gt{Cr{We{gy{Ws {gNi{Wn{Cj{ga {gVa{Wm{Cb{Wra{gc{We{gs{x{x rose is lying on the ground.~
+Mat silk~
+Wear -1
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 4574
+Nest 1
+Wear -1
+Cost 2200
+End
+
+#L
+Vnum 4574
+Nest 1
+Wear -1
+Cost 2200
+End
+
+#L
+Vnum 4574
+Nest 1
+Wear -1
+Cost 2200
+End
+
+#L
+Vnum 4574
+Nest 1
+Wear -1
+Cost 2200
+End
+
+#L
+Vnum 24829
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'blood moon'
 End
 
 #L
@@ -2274,387 +1527,35 @@ Nest 0
 Name toka bag~
 ShD  {GT{Hh{Ge {HT{Go{Hk{Ga {Ho{Gf {WL{gif{We{x~
 Desc {GT{Hh{Ge {HT{Go{Hk{Ga {Ho{Gf {WL{gif{We{x~
-ExtF 1
+ExtF 16777217
 Wear -1
 Cost 11
 End
 
 #L
-Vnum 1212
+Vnum 1213
 Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1212
+Vnum 1213
 Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1212
+Vnum 1213
 Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name sivat trivia token ~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {WS{gc{Gr{Ho{gl{Wl {Go{Hf {YT{br{Yi{bv{Yi{ba{Yl {WK{gn{Go{Hw{Gl{He{Gd{gg{We{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
 Wear -1
 Cost 0
 End
@@ -2662,9 +1563,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
 Wear -1
 Cost 0
 End
@@ -2672,9 +1573,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
 Wear -1
 Cost 0
 End
@@ -2682,9 +1583,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
 Wear -1
 Cost 0
 End
@@ -2692,9 +1593,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
 Wear -1
 Cost 0
 End
@@ -2702,9 +1603,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2712,9 +1613,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2722,9 +1623,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2732,9 +1633,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2742,9 +1643,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2752,9 +1653,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2762,9 +1663,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2772,9 +1673,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2782,9 +1683,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2792,9 +1693,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2802,9 +1703,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -2812,1279 +1713,9 @@ End
 #L
 Vnum 1214
 Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivats double hidden token~
-ShD  {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivats double hidden token~
-ShD  {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
+Name Token Esteem Quest Kazander~
+ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
+Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
 Wear -1
 Cost 0
 End
@@ -4105,41 +1736,11 @@ ExDe big~ {GS{Hi{Gv{Ha{Gt{H'{Gs {CR{TE{CA{TL{CL{TY {GB{HI{GG {WE{gm{Ge{Hr{Ga{gl{
 End
 
 #L
-Vnum 1215
+Vnum 1213
 Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Name jubei chi earth token hidden~
+ShD  {WE{ga{Wr{gt{Wh {gC{Wh{gi {W*{YHidden{W*{x~
+Desc {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
 Wear -1
 Cost 0
 End
@@ -4147,351 +1748,9 @@ End
 #L
 Vnum 1213
 Nest 1
-Name sivats double hidden token~
-ShD  {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivats double hidden token~
-ShD  {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivats double hidden token~
-ShD  {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat wild token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {YW{Ri{bl{Pd {GT{Ho{Gk{He{Gn {Ho{Gf {WC{go{Hn{Gc{He{Gp{Ht{Gi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name sivat quest token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {TQ{Cu{Te{Cs{Tt{Ce{Td {GT{Ho{Gk{He{Gn {Ho{Gf {WE{gt{Ge{Hr{Gn{Hi{gt{Wy{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1205
-Nest 1
-Name sivat token~
-ShD  {VT{Mh{Ne {BI{Mm {Vl{No{Bv{Mi{Vn{N' {Bm{My {Vs{Nc{Bu{Mz{Vz{Ni{Bn {Mt{Vo{Bk{Ne{Mn{x~
-Desc A small un-worthy token sits here.~
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1111
-Nest 1
-Name toka bag~
-ShD  {GT{Hh{Ge {HT{Go{Hk{Ga {Ho{Gf {WL{gif{We{x~
-Desc {GT{Hh{Ge {HT{Go{Hk{Ga {Ho{Gf {WL{gif{We{x~
-ExtF 1
-Wear -1
-Cost 11
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivats double hidden token~
-ShD  {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivat hidden token~
-ShD  {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn {Ho{Gf {WC{gr{Ge{Ha{Gt{Hi{go{Wn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 7502
-Nest 0
-Name urza pants~
-ShD  {RU{Tr{Rz{Ta{R's{x {CP{Ta{Cn{Tt{Cs{x~
-Desc {RU{Tr{Rz{Ta{R's{x {CP{Ta{Cn{Tt{Cs{x~
-ExtF 16777217
-Wear -1
-Cost 5000
-End
-
-#L
-Vnum 1212
-Nest 1
-Name trivia red leatherbound spellbook token urza legacy set~
-ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
-Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name trivia red leatherbound spellbook token urza legacy set~
-ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
-Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name trivia red leatherbound spellbook token urza legacy set~
-ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
-Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Name kismet hidden token note emerald~
+ShD  {HKismet's {G"Hidden Musical Emerald"{x~
+Desc {WAn {HEmerald {Wmusical note lies here{x~
 Wear -1
 Cost 0
 End
@@ -4507,77 +1766,392 @@ Cost 0
 End
 
 #L
-Vnum 10215
-Nest 0
-ExtF 64
-Cond 96
-Wear -1
-Cost 10000
-End
-
-#L
-Vnum 10215
-Nest 0
-ExtF 65
-Cond 98
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 16530
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#B
-Vnum 10112
-Nest 0
-Cond 96
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
 Wear -1
 Cost 0
 End
 
-#B
-Vnum 13004
-Nest 0
-Cond 95
+#L
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
 Wear -1
-Cost 3700
+Cost 0
 End
 
-#B
-Vnum 11792
-Nest 0
-Name montrey shadow katana~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {gSh{Wa{Cd{Wow {gK{Cat{ga{Wna{x~
-Desc {gA k{Ca{Wt{ga{Wna {glies here, gl{We{ga{Wm{gin{Wg {gin the s{Yun{gl{Yi{ggh{Yt{g.{x~
-ExtF 67
-Cond 97
+#L
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
 Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Doomsmerf
-~
+Cost 0
 End
 
-#B
-Vnum 10121
-Nest 0
-Name montrey emerald lightsabre~
-ShD  {gMo{Wn{gt{Gr{We{gy{Ws {gEm{We{Gr{Wal{gd {GLi{gg{Wht{gs{Wa{gb{Gr{ge{x~
-Desc {gA {Gli{gg{Wht{gs{Wa{gb{Gr{ge lies here, gl{We{ga{Wm{gin{Wg {gin the s{Yun{gl{Yi{ggh{Yt{g.{x~
-ExtF 16777283
-Cond 95
+#L
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
 Wear -1
-Lev  91
-Cost 21
-ExDe owned by~ Doomsmerf
-~
+Cost 0
 End
 
-#B
+#L
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Token Brightly Colored Easter Egg Kazander~
+ShD  {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x~
+Desc {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x lies here.  Pick it up!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Token Brightly Colored Easter Egg Kazander~
+ShD  {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x~
+Desc {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x lies here.  Pick it up!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Token Brightly Colored Easter Egg Kazander~
+ShD  {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x~
+Desc {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x lies here.  Pick it up!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Token Brightly Colored Easter Egg Kazander~
+ShD  {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x~
+Desc {MA {RBr{Tig{Nht{Hly {Mco{glo{Rred {TEa{Nst{ber {HEg{Mg!{x lies here.  Pick it up!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name teotwawki wild token~
+ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1244
+Nest 0
+Name present~
+ShD  {WA {RChris{Gtmas {RP{Gr{Be{Ys{We{Pn{Ct{x~
+Desc {CA Christmas present from the Immortals{x~
+ExtF 1
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3032
+Nest 0
+Name Bag Kazander First Word Association Quest~
+ShD  {cKaz{gan{cder's {BF{Nirst {VW{Mord {CA{Tssociation {YQ{buest {GB{Hag{x~
+Desc A quest bag lies here~
+ExtF 262145
+Wear -1
+Cost 9
+End
+
+#L
+Vnum 10258
+Nest 1
+Name sivat's bottle snapple ice tea~
+ShD  {YS{bi{Yv{ba{Yt{b'{Ys {WS{gn{Ba{Np{Bp{gl{We {YI{bc{Ye {bT{Ye{ba {YB{bo{Yt{bt{Yl{be{x~
+Desc {YS{bi{Yv{ba{Yt{b'{Ys {WS{gn{Ba{Np{Bp{gl{We {YI{bc{Ye {bT{Ye{ba {YB{bo{Yt{bt{Yl{be{x~
+Wear -1
+Cost 0
+Val  60 24 11 0 0
+End
+
+#L
+Vnum 4471
+Nest 1
+Name azrael action figure~
+ShD  {RA{Pz{Rr{Pa{Re{Pl {RA{Pc{Rt{Pi{Ro{Pn {RF{Pi{Rg{Pu{Rr{Pe{x~
+Desc {RA huge {PDemonic {RDragon {WNecromancer {Rwith animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x~
+Mat Plastic~
+ExtF 524289
+Wt   0
+Cond -1
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 55
+Nest 1
+Name amsterdoodlew urzaw wine tear stars~
+ShD  {WT{Gh{Ve {Wb{We{Gs{Vt {Wt{Wa{Gs{Vt{Wi{Wn{Gg {Vw{Wi{Wn{Ge {VE{WV{WE{GR{V!{x~
+Desc {WT{Gh{Ve {Wb{We{Gs{Vt {Wt{Wa{Gs{Vt{Wi{Wn{Gg {Vw{Wi{Wn{Ge {VE{WV{WE{GR{V!{x~
+ExtF 1
+Wear -1
+Cost 0
+Val  64 49 2 0 0
+End
+
+#L
+Vnum 1204
+Nest 1
+ShD  {YToken for a free restore by Sorsha{x~
+Desc {YToken for a free restore by Sorsha{x~
+Wear -1
+Cost 12
+End
+
+#L
+Vnum 1204
+Nest 1
+ShD  {YToken for a free restore by Sorsha{x~
+Desc {YToken for a free restore by Sorsha{x~
+Wear -1
+Cost 12
+End
+
+#L
+Vnum 1211
+Nest 1
+Name wooden nickel token~
+ShD  a wooden nickel~
+Desc a completely worthless wooden nickel token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 1
+Name wooden nickel token~
+ShD  a wooden nickel~
+Desc a completely worthless wooden nickel token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 1
+Name wooden nickel token~
+ShD  a wooden nickel~
+Desc a completely worthless wooden nickel token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 1
+Name wooden nickel token~
+ShD  a wooden nickel~
+Desc a completely worthless wooden nickel token~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1201
+Nest 1
+ShD  {COne free restore by {WSorsha{x~
+Desc {COne free restore by {WSorsha{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 1
+Name songquest token Kids Run Through The City Corner~
+ShD  Kids Run Through The City Corner~
+Desc A single song whistles through the air~
+Wear -1
+Cost 0
+End
+
+#L
 Vnum 7502
 Nest 0
 Name sivat armory~
@@ -4588,81 +2162,49 @@ Wear -1
 Cost 5000
 End
 
-#B
-Vnum 6512
-Enchanted
+#L
+Vnum 24829
 Nest 1
-Name Sivat's Greedy Gloves~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gG{Wr{ge{We{gd{Wy {RG{Pl{Ro{Pv{Re{Ps{x~
-Desc {WS{gi{Wv{ga{Wt{g'{Ws {gG{Wr{ge{We{gd{Wy {RG{Pl{Ro{Pv{Re{Ps{x~
-ExtF 65
 Wear -1
-Lev  15
-Cost 2000
-Affc 'enchant armor'   1 100  -1  -4  17          0 1
-Affc 'reserved'   1  13  -1   1   2          0 1
-Affc 'reserved'   1  13  -1   1   1          0 1
+Cost 10
+Spell 3 'blood moon'
 End
 
-#B
-Vnum 10128
+#L
+Vnum 1205
 Nest 1
-ExtF 17039361
+Name Chirijiraden token 5~
+ShD  {WC{gh{Wi{gr{Wi{gj{Wi{gr{Wa{gd{We{gn{x~
+Desc {YA mysterious katana blade is here radiating energy{x~
 Wear -1
-Cost 98
+Cost 15
 End
 
-#B
-Vnum 10218
+#L
+Vnum 24835
 Nest 1
-Name Sivat's Thexy Leggings~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gT{Wh{ge{Wx{gy {RL{Pe{Rg{Pg{Ri{Pn{Rg{Ps{x~
-Desc {WS{gi{Wv{ga{Wt{g'{Ws {gT{Wh{ge{Wx{gy {RL{Pe{Rg{Pg{Ri{Pn{Rg{Ps{x~
-ExtF 1089
 Wear -1
-Cost 10000
+Cost 100
+Spell 3 'protection good'
 End
 
-#B
-Vnum 1804
-Enchanted
+#L
+Vnum 24835
 Nest 1
-Name sivat sharp claws~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wh{ga{Wr{gp{We{gn{We{gd {RC{Pl{Ra{Pw{Rs{x~
-Desc {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wh{ga{Wr{gp{We{gn{We{gd {RC{Pl{Ra{Pw{Rs{x~
-ExtF 262211
-Cond 36
 Wear -1
-Lev  14
-Cost 0
-Affc 'reserved'   1  10  -1   1   3          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
-Affc 'enchant weapon'   1 100  -1  13  18          0 1
-Affc 'enchant weapon'   1 100  -1  13  19          0 1
-ExDe a~ piece of doomies eq lies here
-~
+Cost 100
+Spell 3 'protection good'
 End
 
-#B
-Vnum 1804
-Enchanted
+#L
+Vnum 24835
 Nest 1
-Name sivat sharp claws~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wh{ga{Wr{gp{We{gn{We{gd {RC{Pl{Ra{Pw{Rs{x~
-Desc {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wh{ga{Wr{gp{We{gn{We{gd {RC{Pl{Ra{Pw{Rs{x~
-ExtF 262211
 Wear -1
-Lev  14
-Cost 0
-Affc 'reserved'   1  10  -1   1   3          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
-Affc 'enchant weapon'   1 100  -1  13  18          0 1
-Affc 'enchant weapon'   1 100  -1  13  19          0 1
-ExDe a~ piece of doomies eq lies here
-~
+Cost 100
+Spell 3 'protection good'
 End
 
-#B
+#L
 Vnum 16075
 Nest 1
 Name sivat plated sleeves~
@@ -4673,7 +2215,157 @@ Wear -1
 Cost 0
 End
 
-#B
+#L
+Vnum 3043
+Enchanted
+Nest 1
+Name sivat one ring~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gO{Wn{ge {RR{Pi{Rn{Pg{x~
+Desc {WS{gi{Wv{ga{Wt{g'{Ws {gO{Wn{ge {RR{Pi{Rn{Pg{x~
+ExtF 65
+Wear -1
+Lev  11
+Cost 640
+Affc 'enchant armor'   1  91  -1  -7  17          0 1
+Affc 'reserved'   1   8  -1  -1  20          0 1
+End
+
+#L
+Vnum 6512
+Enchanted
+Nest 1
+Name Sivat's Greedy Gloves~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gG{Wr{ge{We{gd{Wy {RG{Pl{Ro{Pv{Re{Ps{x~
+Desc {WS{gi{Wv{ga{Wt{g'{Ws {gG{Wr{ge{We{gd{Wy {RG{Pl{Ro{Pv{Re{Ps{x~
+ExtF 65
+Cond 97
+Wear -1
+Lev  15
+Cost 2000
+Affc 'reserved'   1  13  -1   1   1          0 1
+Affc 'reserved'   1  13  -1   1   2          0 1
+Affc 'enchant armor'   1 100  -1  -4  17          0 1
+End
+
+#L
+Vnum 16030
+Enchanted
+Nest 1
+Name Sivat Immortalizing Wind~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gI{Wm{gm{Wo{gr{Wt{ga{Wl{gi{Wz{gi{Wn{gg {RW{Pi{Rn{Pd{x~
+Desc {WS{gi{Wv{ga{Wt{g'{Ws {gI{Wm{gm{Wo{gr{Wt{ga{Wl{gi{Wz{gi{Wn{gg {RW{Pi{Rn{Pd{x~
+ExtF 321
+Cond 79
+Wear -1
+Lev  15
+Cost 1000
+Affc 'enchant armor'   1 100  -1  -8  17          0 1
+Affc 'reserved'   1  11  -1   1   2          0 1
+End
+
+#L
+Vnum 1612
+Nest 1
+Name Sivat Titan Shield~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gT{Wi{gt{Wa{gn {RS{Ph{Ri{Pe{Rl{Pd{x~
+Desc {WS{gi{Wv{ga{Wt{g'{Ws {gT{Wi{gt{Wa{gn {RS{Ph{Ri{Pe{Rl{Pd{x~
+Wear -1
+Cost 1530
+End
+
+#L
+Vnum 10013
+Enchanted
+Nest 1
+Name sivat wings~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws D{ge{Wm{go{Wn {PW{Ri{Pn{Rg{Ps{x~
+Desc Some fluttering wings float about.~
+Mat {Wf{ge{Wa{gt{Wh{ge{Wr{gs{x~
+ExtF 262209
+Cond 80
+Wear -1
+Lev  9
+Cost 20
+Affc 'enchant armor'   1  91  -1  -5  17          0 1
+ExDe wings~ Sivats {WOMG it's HUGE{x wings of torment and repulsion ;)
+~
+End
+
+#L
+Vnum 1111
+Nest 0
+Name toka bag~
+ShD  {GT{Hh{Ge {HT{Go{Hk{Ga {Ho{Gf {WL{gif{We{x~
+Desc {GT{Hh{Ge {HT{Go{Hk{Ga {Ho{Gf {WL{gif{We{x~
+ExtF 1
+Wear -1
+Cost 11
+End
+
+#L
+Vnum 21
+Nest 1
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 24824
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 1804
+Enchanted
+Nest 1
+Name sivat sharp claws~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wh{ga{Wr{gp{We{gn{We{gd {RC{Pl{Ra{Pw{Rs{x~
+Desc {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wh{ga{Wr{gp{We{gn{We{gd {RC{Pl{Ra{Pw{Rs{x~
+ExtF 262211
+Cond 50
+Wear -1
+Lev  14
+Cost 0
+Affc 'enchant weapon'   1 100  -1  13  19          0 1
+Affc 'enchant weapon'   1 100  -1  13  18          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'reserved'   1  10  -1   1   3          0 1
+ExDe a~ piece of doomies eq lies here
+~
+End
+
+#L
+Vnum 24824
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 1804
+Enchanted
+Nest 1
+Name sivat sharp claws~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wh{ga{Wr{gp{We{gn{We{gd {RC{Pl{Ra{Pw{Rs{x~
+Desc {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wh{ga{Wr{gp{We{gn{We{gd {RC{Pl{Ra{Pw{Rs{x~
+ExtF 262211
+Cond 97
+Wear -1
+Lev  14
+Cost 0
+Affc 'enchant weapon'   1 100  -1  13  19          0 1
+Affc 'enchant weapon'   1 100  -1  13  18          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'reserved'   1  10  -1   1   3          0 1
+ExDe a~ piece of doomies eq lies here
+~
+End
+
+#L
 Vnum 3182
 Enchanted
 Nest 1
@@ -4685,142 +2377,50 @@ ExtF 65
 Wear -1
 Lev  15
 Cost 696
-Affc 'reserved'   1  12  -1   2  18          0 1
-Affc 'reserved'   1  12  -1  12  13          0 1
 Affc 'enchant armor'   1  91  -1  -4  17          0 1
-ExDe owned by~ Doomsmerf~
+Affc 'reserved'   1  12  -1  12  13          0 1
+Affc 'reserved'   1  12  -1   2  18          0 1
 ExDe gauntlets~ {WS{gi{Wv{ga{Wt{g'{Ws {xBIG hulkin {RGa{Pu{Rn{Pt{Rl{Pe{Rt{Ps{x
 ~
+ExDe owned by~ Doomsmerf~
 End
 
-#B
-Vnum 16030
-Enchanted
-Nest 1
-Name Sivat Immortalizing Wind~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gI{Wm{gm{Wo{gr{Wt{ga{Wl{gi{Wz{gi{Wn{gg {RW{Pi{Rn{Pd{x~
-Desc {WS{gi{Wv{ga{Wt{g'{Ws {gI{Wm{gm{Wo{gr{Wt{ga{Wl{gi{Wz{gi{Wn{gg {RW{Pi{Rn{Pd{x~
-ExtF 321
-Wear -1
-Lev  15
-Cost 1000
-Affc 'enchant armor'   1 100  -1  -8  17          0 1
-Affc 'reserved'   1  11  -1   1   2          0 1
-End
-
-#B
-Vnum 3043
-Enchanted
-Nest 1
-Name sivat one ring~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gO{Wn{ge {RR{Pi{Rn{Pg{x~
-Desc {WS{gi{Wv{ga{Wt{g'{Ws {gO{Wn{ge {RR{Pi{Rn{Pg{x~
-ExtF 65
-Wear -1
-Lev  11
-Cost 640
-Affc 'reserved'   1   8  -1  -1  20          0 1
-Affc 'enchant armor'   1  91  -1  -7  17          0 1
-End
-
-#B
-Vnum 10013
-Enchanted
-Nest 1
-Name sivat wings~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws D{ge{Wm{go{Wn {PW{Ri{Pn{Rg{Ps{x~
-Desc Some fluttering wings float about.~
-Mat {Wf{ge{Wa{gt{Wh{ge{Wr{gs{x~
-ExtF 262209
-Wear -1
-Lev  9
-Cost 20
-Affc 'enchant armor'   1  91  -1  -5  17          0 1
-ExDe wings~ Sivats {WOMG it's HUGE{x wings of torment and repulsion ;)
-~
-End
-
-#B
-Vnum 10224
-Enchanted
-Nest 1
-Name sivat godly bracer~
-ShD  {gS{Wi{gv{Wa{gt{W'{gs {WG{go{Wd{gl{Wy {RB{Pr{Ra{Pc{Re{Pr{x~
-Desc {gS{Wi{gv{Wa{gt{W'{gs {WG{go{Wd{gl{Wy {RB{Pr{Ra{Pc{Re{Pr{x~
-ExtF 65
-Wear -1
-Lev  12
-Cost 500
-Affc 'reserved'   1  10  -1  15  12          0 1
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-End
-
-#B
-Vnum 10224
-Enchanted
-Nest 1
-Name sivat godly bracer~
-ShD  {gS{Wi{gv{Wa{gt{W'{gs {WG{go{Wd{gl{Wy {RB{Pr{Ra{Pc{Re{Pr{x~
-Desc {gS{Wi{gv{Wa{gt{W'{gs {WG{go{Wd{gl{Wy {RB{Pr{Ra{Pc{Re{Pr{x~
-ExtF 65
-Wear -1
-Lev  12
-Cost 500
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1  10  -1  15  12          0 1
-End
-
-#B
-Vnum 1612
-Nest 1
-Name Sivat Titan Shield~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gT{Wi{gt{Wa{gn {RS{Ph{Ri{Pe{Rl{Pd{x~
-Desc {WS{gi{Wv{ga{Wt{g'{Ws {gT{Wi{gt{Wa{gn {RS{Ph{Ri{Pe{Rl{Pd{x~
-Wear -1
-Cost 1530
-End
-
-#B
-Vnum 1616
-Enchanted
-Nest 1
-Name Sivats Silvery Pentagram~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wi{gl{Wv{ge{Wr{gy {RP{Pe{Rn{Pt{Ra{Pg{Rr{Pa{Rm{x~
-Desc {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wi{gl{Wv{ge{Wr{gy {RP{Pe{Rn{Pt{Ra{Pg{Rr{Pa{Rm{x~
-Wear -1
-Lev  10
-Cost 100
-Affc 'reserved'   1   4  -1   1  26          0 1
-Affc 'reserved'   1   4  -1   1  18          0 1
-Affc 'enchant armor'   1 100  -1 -14  17          0 1
-End
-
-#B
-Vnum 32122
-Nest 1
-Name Sivat's Demonic Boots~
-ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gD{We{gm{Wo{gn{Wi{gc {RB{Po{Ro{Pt{Rs{x~
-Desc {WS{gi{Wv{ga{Wt{g'{Ws {gD{We{gm{Wo{gn{Wi{gc {RB{Po{Ro{Pt{Rs{x~
-Wear -1
-Cost 1340
-End
-
-#B
+#L
 Vnum 1616
 Enchanted
 Nest 1
 Name sivat evil-ah-ness~
 ShD  {WS{gi{Wv{ga{Wt{g'{Ws {PE{Rvi{Pl{R-{Pa{Rh{P-{Rn{Pe{Rs{Ps{x~
 Desc {WS{gi{Wv{ga{Wt{g'{Ws {PE{Rvi{Pl{R-{Pa{Rh{P-{Rn{Pe{Rs{Ps{x~
+Cond 90
 Wear -1
 Lev  7
 Cost 100
-Affc 'reserved'   1   4  -1   1  26          0 1
-Affc 'reserved'   1   4  -1   1  18          0 1
 Affc 'enchant armor'   1  91  -1  -7  17          0 1
+Affc 'reserved'   1   4  -1   1  18          0 1
+Affc 'reserved'   1   4  -1   1  26          0 1
 End
 
-#B
+#L
+Vnum 32122
+Nest 1
+Name Sivat's Demonic Boots~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gD{We{gm{Wo{gn{Wi{gc {RB{Po{Ro{Pt{Rs{x~
+Desc {WS{gi{Wv{ga{Wt{g'{Ws {gD{We{gm{Wo{gn{Wi{gc {RB{Po{Ro{Pt{Rs{x~
+Cond 97
+Wear -1
+Cost 1340
+End
+
+#L
+Vnum 21
+Nest 1
+Cond 97
+Wear -1
+Cost 0
+End
+
+#L
 Vnum 3043
 Enchanted
 Nest 1
@@ -4828,14 +2428,90 @@ Name sivat demonkind seal~
 ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gD{We{gm{Wo{gn{Wk{gi{Wn{gd {RS{Pe{Ra{Pl{x~
 Desc {WS{gi{Wv{ga{Wt{g'{Ws {gD{We{gm{Wo{gn{Wk{gi{Wn{gd {RS{Pe{Ra{Pl{x~
 ExtF 65
+Cond 94
 Wear -1
 Lev  11
 Cost 621
-Affc 'reserved'   1   8  -1  -1  20          0 1
 Affc 'enchant armor'   1  91  -1  -6  17          0 1
+Affc 'reserved'   1   8  -1  -1  20          0 1
 End
 
-#B
+#L
+Vnum 1616
+Enchanted
+Nest 1
+Name Sivats Silvery Pentagram~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wi{gl{Wv{ge{Wr{gy {RP{Pe{Rn{Pt{Ra{Pg{Rr{Pa{Rm{x~
+Desc {WS{gi{Wv{ga{Wt{g'{Ws {gS{Wi{gl{Wv{ge{Wr{gy {RP{Pe{Rn{Pt{Ra{Pg{Rr{Pa{Rm{x~
+Cond 91
+Wear -1
+Lev  10
+Cost 100
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+Affc 'reserved'   1   4  -1   1  18          0 1
+Affc 'reserved'   1   4  -1   1  26          0 1
+End
+
+#L
+Vnum 10224
+Enchanted
+Nest 1
+Name sivat godly bracer~
+ShD  {gS{Wi{gv{Wa{gt{W'{gs {WG{go{Wd{gl{Wy {RB{Pr{Ra{Pc{Re{Pr{x~
+Desc {gS{Wi{gv{Wa{gt{W'{gs {WG{go{Wd{gl{Wy {RB{Pr{Ra{Pc{Re{Pr{x~
+ExtF 65
+Cond 92
+Wear -1
+Lev  12
+Cost 500
+Affc 'reserved'   1  10  -1  15  12          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#L
+Vnum 10224
+Enchanted
+Nest 1
+Name sivat godly bracer~
+ShD  {gS{Wi{gv{Wa{gt{W'{gs {WG{go{Wd{gl{Wy {RB{Pr{Ra{Pc{Re{Pr{x~
+Desc {gS{Wi{gv{Wa{gt{W'{gs {WG{go{Wd{gl{Wy {RB{Pr{Ra{Pc{Re{Pr{x~
+ExtF 65
+Cond 85
+Wear -1
+Lev  12
+Cost 500
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  10  -1  15  12          0 1
+End
+
+#L
+Vnum 32116
+Nest 1
+Name sivat dark prince crown~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws {WD{ga{Wr{gk {RP{Pr{Ri{Pn{Rc{Pe {RC{Pr{Ro{Pw{Rn{x~
+Desc {WS{gi{Wv{ga{Wt{g'{Ws {WD{ga{Wr{gk {RP{Pr{Ri{Pn{Rc{Pe {RC{Pr{Ro{Pw{Rn{x~
+ExtF 257
+Wear -1
+Cost 1100
+End
+
+#L
+Vnum 16030
+Enchanted
+Nest 1
+Name Sivat Immortalizing Wind~
+ShD  {WS{gi{Wv{ga{Wt{g'{Ws {gI{Wm{gm{Wo{gr{Wt{ga{Wl{gi{Wz{gi{Wn{gg {RW{Pi{Rn{Pd{x~
+Desc {WS{gi{Wv{ga{Wt{g'{Ws {gI{Wm{gm{Wo{gr{Wt{ga{Wl{gi{Wz{gi{Wn{gg {RW{Pi{Rn{Pd{x~
+ExtF 321
+Cond 87
+Wear -1
+Lev  15
+Cost 1000
+Affc 'reserved'   1  11  -1   1   2          0 1
+Affc 'enchant armor'   1 100  -1  -8  17          0 1
+End
+
+#L
 Vnum 7502
 Nest 0
 Name sivats survival pack~
@@ -4846,7 +2522,7 @@ Wear -1
 Cost 0
 End
 
-#B
+#L
 Vnum 7500
 Nest 1
 Cond 95
@@ -4854,7 +2530,7 @@ Wear -1
 Cost 0
 End
 
-#B
+#L
 Vnum 10105
 Nest 1
 Wear -1
@@ -4864,7 +2540,7 @@ ExDe owned by~ Doomsmerf
 ~
 End
 
-#B
+#L
 Vnum 5311
 Nest 1
 Wear -1
@@ -4872,23 +2548,7 @@ Cost 3900
 Spell 3 'charm person'
 End
 
-#B
-Vnum 20004
-Nest 1
-ExtF 65
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 20004
-Nest 1
-ExtF 65
-Wear -1
-Cost 0
-End
-
-#B
+#L
 Vnum 9923
 Nest 1
 Cond 97
@@ -4896,7 +2556,7 @@ Wear -1
 Cost 0
 End
 
-#B
+#L
 Vnum 17010
 Nest 1
 Cond 93
@@ -4904,7 +2564,7 @@ Wear -1
 Cost 200
 End
 
-#B
+#L
 Vnum 14041
 Nest 1
 ExtF 1310721
@@ -4913,14 +2573,7 @@ Wear -1
 Cost 750
 End
 
-#B
-Vnum 200
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
+#L
 Vnum 17013
 Nest 1
 Cond 95
@@ -4928,7 +2581,7 @@ Wear -1
 Cost 50
 End
 
-#B
+#L
 Vnum 17003
 Nest 1
 ExtF 17039361
@@ -4937,7 +2590,7 @@ Wear -1
 Cost 200
 End
 
-#B
+#L
 Vnum 17001
 Nest 1
 Cond 92
@@ -4945,14 +2598,14 @@ Wear -1
 Cost 2000
 End
 
-#B
+#L
 Vnum 5615
 Nest 1
 Wear -1
 Cost 0
 End
 
-#B
+#L
 Vnum 504
 Nest 1
 ExtF 19
@@ -4960,7 +2613,7 @@ Wear -1
 Cost 312
 End
 
-#B
+#L
 Vnum 9922
 Nest 1
 Cond 82
@@ -4968,22 +2621,23 @@ Wear -1
 Cost 0
 End
 
-#B
-Vnum 17106
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
+#L
 Vnum 28008
 Nest 1
-ExtF 17301568
+ExtF 17301569
 Wear -1
 Cost 47500
 End
 
-#B
+#L
+Vnum 20004
+Nest 1
+ExtF 65
+Wear -1
+Cost 0
+End
+
+#L
 Vnum 10167
 Nest 1
 Cond 65
@@ -4991,7 +2645,7 @@ Wear -1
 Cost 3800
 End
 
-#B
+#L
 Vnum 10167
 Nest 1
 Cond 95
@@ -4999,323 +2653,357 @@ Wear -1
 Cost 3800
 End
 
-#B
-Vnum 11657
-Nest 0
-Name alara temp baggie doomsmerf~
-ShD  Alara's Temp Baggie -- DO NOT KEEP!~
-Desc It's a baggie.  That's it.  Really :P~
-Wear -1
-Lev  1
-Cost 9540
-Val  1000 0 0 200 20
-End
-
-#B
-Vnum 17013
-Enchanted
+#L
+Vnum 17106
 Nest 1
-Name ring bunnyhealer~
-ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {Wr{gin{Wg{x~
-Desc It's a {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {Wr{gin{Wg{x!~
-ExtF 16777283
 Wear -1
-Lev  72
-Cost 50
-Affc 'reserved'   1  65  -1  60  13          0 1
-Affc 'enchant weapon'   1 100  -1  16  18          0 1
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
-Affc 'reserved'   0  65  -1   0   0  268435456 1
+Cost 0
 End
 
-#B
-Vnum 17013
-Enchanted
-Nest 1
-Name ring bunnyhealer~
-ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {Wr{gin{Wg{x~
-Desc It's a {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {Wr{gin{Wg{x!~
-ExtF 16777283
-Wear -1
-Lev  72
-Cost 50
-Affc 'reserved'   0  65  -1   0   0  268435456 1
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
-Affc 'enchant weapon'   1 100  -1  16  18          0 1
-Affc 'reserved'   1  65  -1  60  13          0 1
-End
-
-#B
-Vnum 8227
-Enchanted
-Nest 1
-Name montreys divine presence light~
-ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WD{giv{Wi{gn{We {WP{gr{We{gs{We{gn{Wc{ge{x~
-Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WD{giv{Wi{gn{We {WP{gr{We{gs{We{gn{Wc{ge{x!~
-ExtF 323
-Wear -1
-Cost 7055
-Affc 'enchant weapon'   1 100  -1  16  19          0 1
-Affc 'enchant weapon'   1 100  -1  16  18          0 1
-Affc 'reserved'   1  91  -1 150  12          0 1
-Affc 'reserved'   1  91  -1   1   4          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   2   2          0 1
-Affc 'reserved'   1  91  -1   2   1          0 1
-End
-
-#B
-Vnum 11709
-Enchanted
-Nest 1
-Name montreys neck plate~
-ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WN{ge{Wc{gk {WP{gl{Wa{gt{We{x~
-Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WN{ge{Wc{gk {WP{gl{Wa{gt{We{x!~
-ExtF 323
-Wear -1
-Lev  90
-Cost 10000
-Affc 'reserved'   1  87  -1   5   3          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
-Affc 'enchant weapon'   1 100  -1  17  18          0 1
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
-End
-
-#B
-Vnum 11709
-Enchanted
-Nest 1
-Name montreys neck plate~
-ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WN{ge{Wc{gk {WP{gl{Wa{gt{We{x~
-Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WN{ge{Wc{gk {WP{gl{Wa{gt{We{x!~
-ExtF 323
-Wear -1
-Lev  90
-Cost 10000
-Affc 'enchant weapon'   1 100  -1  15  19          0 1
-Affc 'enchant weapon'   1 100  -1  15  18          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
-Affc 'reserved'   1  87  -1   5   3          0 1
-End
-
-#B
-Vnum 20026
-Enchanted
-Nest 1
-Name montreys knightly breastplate~
-ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WKn{gi{Cg{Wh{gt{Wly {WBr{ge{Was{gt{Cp{Wla{gt{We{x~
-Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WKn{gi{Cg{Wh{gt{Wly {WBr{ge{Was{gt{Cp{Wla{gt{We{x~
-Wear -1
-Cost 90000
-Affc 'reserved'   1  91  -1 100  12          0 1
-Affc 'reserved'   1  91  -1  20  13          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   1   2          0 1
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'enchant weapon'   1 100  -1  14  19          0 1
-Affc 'enchant weapon'   0 100  -1  14  18          0 1
-End
-
-#B
-Vnum 14110
-Enchanted
-Nest 1
-Name montreys silvery war helmet~
-ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WSi{gl{Wver{gy {WW{ga{Wr {WHe{gl{Wme{gt{x~
-Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WSi{gl{Wver{gy {WW{ga{Wr {WHe{gl{Wme{gt{x!~
-Wear -1
-Cost 100000
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
-Affc 'enchant weapon'   1 100  -1  15  18          0 1
-Affc 'reserved'   1  91  -1 120  13          0 1
-Affc 'reserved'   1  91  -1 120  12          0 1
-Affc 'reserved'   1  91  -1   3  26          0 1
-Affc 'reserved'   1  91  -1   3   5          0 1
-End
-
-#B
-Vnum 14010
-Enchanted
-Nest 1
-Name montreys legplates~
-ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WLe{gg{WPl{gat{Wes{x~
-Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WLe{gg{WPl{gat{Wes{x!~
-ExtF 1835107
-Wear -1
-Cost 7500
-Affc 'reserved'   1  91  -1   4   4          0 1
-Affc 'reserved'   1  91  -1  90  14          0 1
-Affc 'reserved'   0  91  -1   0   0      32768 1
-Affc 'enchant weapon'   1 100  -1   9  19          0 1
-Affc 'enchant weapon'   0 100  -1   9  18          0 1
-End
-
-#B
-Vnum 14008
-Enchanted
-Nest 1
-Name montreys silvery boots~
-ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WSi{gl{Wve{gr{Wy {WB{go{Wots{x~
-Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WSi{gl{Wve{gr{Wy {WB{go{Wots{x!~
-ExtF 1835107
-Wear -1
-Cost 9000
-Affc 'reserved'   1  90  -1   3   2          0 1
-Affc 'reserved'   1  90  -1  90  14          0 1
-Affc 'reserved'   0  90  -1   0   0    2097152 1
-Affc 'enchant weapon'   1 100  -1  14  19          0 1
-Affc 'enchant weapon'   0 100  -1  14  18          0 1
-End
-
-#B
-Vnum 11776
-Nest 1
-Name montreys ring of protection~
-ShD  {x{gMo{Wn{gt{Cr{We{gy{Ws {WRi{gn{Wg {Wo{gf {WPr{go{Wt{ge{Wcti{go{Wn{x~
-Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WRi{gn{Wg {Wo{gf {WPr{go{Wt{ge{Wcti{go{Wn!~
-Wear -1
-Lev  91
-Cost 10000
-ExDe owned by~ Doomsmerf
-~
-End
-
-#B
-Vnum 14013
-Nest 1
-Name montreys heroic fist~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WHe{gr{Wo{gi{Wc {WF{gi{Wst{x~
-Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WHe{gr{Wo{gi{Wc {WF{gi{Wst{x!~
-Wear -1
-Cost 3500
-End
-
-#B
-Vnum 13011
-Nest 1
-Name montreys arm buckler~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WA{gr{Wm {WBu{gck{Wl{ge{Wr{x~
-Desc {gMo{Wn{gt{Cr{We{gy{Ws {WA{gr{Wm {WBu{gck{Wl{ge{Wr{x!~
-Wear -1
-Cost 1200
-ExDe owned by~ Doomsmerf
-~
-End
-
-#B
-Vnum 13008
-Enchanted
-Nest 1
-Name montreys brass knuckles~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WB{gra{Wss{x {WK{gn{Wu{gc{Wkl{ge{Ws{x~
-Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WB{gra{Wss{x {WK{gn{Wu{gc{Wkl{ge{Ws{x!~
-ExtF 67
-Wear -1
-Cost 550
-Affc 'reserved'   1  90  -1   5   1          0 1
-Affc 'reserved'   1  90  -1  30  13          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
-Affc 'enchant weapon'   1 100  -1  18  18          0 1
-End
-
-#B
-Vnum 24221
-Nest 1
-Name montreys song of heros~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WS{go{Wn{gg {Wo{gf {WHe{gr{Wo{gs{x~
-Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WS{go{Wn{gg {Wo{gf {WHe{gr{Wo{gs{x!~
-WeaF 32771
-Wear -1
-Cost 10
-Val  -1 -1 -1 -1 -1
-End
-
-#B
-Vnum 13005
-Enchanted
-Nest 1
-Name montreys robe immortality~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WR{go{Wb{ge {Wo{gf {WIm{gmo{Wr{gt{Wal{gl{Wi{gt{Wy{x~
-Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WR{go{Wb{ge {Wo{gf {WIm{gmo{Wr{gt{Wal{gl{Wi{gt{Wy{x!~
-ExtF 262211
-Wear -1
-Cost 4500
-Affc 'reserved'   1  90  -1  -2   9          0 1
-Affc 'reserved'   1  90  -1  30  14          0 1
-Affc 'reserved'   1  90  -1   1   2          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1  -2  20          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
-Affc 'enchant weapon'   1 100  -1  18  18          0 1
-End
-
-#B
-Vnum 3209
-Enchanted
-Nest 1
-Name montreys belt of heros~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WBe{gl{Wt {Wo{gf {WH{ge{Wro{gs{x~
-Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WBe{gl{Wt {Wo{gf {WH{ge{Wro{gs{x!~
-ExtF 67633219
-Wear -1
-Cost 100
-Affc 'reserved'   1  90  -1  -8  24          0 1
-Affc 'reserved'   1  90  -1  30  13          0 1
-Affc 'reserved'   1  90  -1  80  12          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
-Affc 'enchant weapon'   1 100  -1  17  18          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   2   1          0 1
-End
-
-#B
-Vnum 11791
-Nest 1
-Name montreys bracer kings~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WBr{ga{Wc{ge{Wr {Wo{gf {WK{gi{Wng{gs{x~
-Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WBr{ga{Wc{ge{Wr {Wo{gf {WK{gi{Wng{gs{x!~
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Doomsmerf
-~
-End
-
-#B
-Vnum 11791
-Nest 1
-Name montreys bracer kings~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WBr{ga{Wc{ge{Wr {Wo{gf {WK{gi{Wng{gs{x~
-Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WBr{ga{Wc{ge{Wr {Wo{gf {WK{gi{Wng{gs{x!~
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Doomsmerf
-~
-End
-
-#B
+#L
 Vnum 13004
-Enchanted
 Nest 1
-Name montreys life force~
-ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WLi{gf{We {WFo{gr{Wce{x~
-Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WLi{gf{We {WFo{gr{Wce{x!~
+Cond 95
 Wear -1
 Cost 3700
-Affc 'reserved'   1  90  -1   2   1          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  50  12          0 1
-Affc 'reserved'   1 100  -1   8  19          0 1
-Affc 'reserved'   1 100  -1   8  18          0 1
+End
+
+#L
+Vnum 16530
+Nest 1
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 17105
+Nest 1
+ExtF 16777217
+Cond 82
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 119
+Nest 1
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  43 86 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Doomsmerf.
+~
+End
+
+#L
+Vnum 73
+Nest 1
+Wear -1
+Cost 270
+End
+
+#L
+Vnum 10215
+Enchanted
+Nest 1
+ExtF 64
+Cond 83
+Wear -1
+Cost 10000
+Val  1 8 5 21 152
+Affc 'reserved'   1  40  -1  -5  23          0 1
+Affc 'reserved'   1  40  -1   6  19          0 1
+Affc 'reserved'   1  40  -1   2  18          0 1
+End
+
+#L
+Vnum 10128
+Nest 1
+ExtF 17039361
+Wear -1
+Cost 98
+End
+
+#L
+Vnum 20006
+Enchanted
+Nest 1
+ExtF 17039681
+Cond 97
+Wear -1
+Lev  60
+Cost 999
+Affc 'reserved'   1  59  -1 100  12          0 1
+Affc 'reserved'   1  59  -1  -3  24          0 1
+Affc 'reserved'   1  59  -1   3  26          0 1
+Affc 'reserved'   1  59  -1 -30   9          0 1
+Affc 'enchant weapon'   1  90  -1   2  19          0 1
+Affc 'enchant weapon'   0  90  -1   2  18          0 1
+End
+
+#B
+Vnum 10112
+Nest 0
+Cond 96
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 200
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14030
+Nest 0
+Name bunnyhealer katana~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WMa{gs{Wt{ge{Wr {WK{ga{Wta{gn{Wa{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WMa{gs{Wt{ge{Wr {WK{ga{Wta{gn{Wa{x~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14030
+Nest 0
+Name bunnyhealer katana~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WMa{gs{Wt{ge{Wr {WK{ga{Wta{gn{Wa{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WMa{gs{Wt{ge{Wr {WK{ga{Wta{gn{Wa{x~
+Cond 93
+Wear -1
+Cost 6000
+End
+
+#B
+Vnum 7300
+Nest 0
+Name montreys pants~
+ShD  {gMo{Wn{gt{Cr{We{gy{Ws {WP{ga{Wn{gt{Ws{x~
+ExtF 1
+Wear -1
+Cost 100
+Val  60 1 0 6 100
+End
+
+#B
+Vnum 17013
+Enchanted
+Nest 1
+Name ring bunnyhealer~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {Wr{gin{Wg{x~
+Desc It's a {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {Wr{gin{Wg{x!~
+ExtF 16777283
+Wear -1
+Lev  72
+Cost 50
+Affc 'reserved'   1  65  -1  60  13          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'reserved'   0  65  -1   0   0  268435456 1
+End
+
+#B
+Vnum 24800
+Nest 1
+Cond 99
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 17105
+Nest 1
+ExtF 16777217
+Cond 94
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 20004
+Nest 1
+Name Bunnyhealer Whispering Cloak~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WWh{gi{Wsp{ge{Wri{gn{Wg {WCl{go{Wa{gk{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WWh{gi{Wsp{ge{Wri{gn{Wg {WCl{go{Wa{gk{x~
+ExtF 65
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 3205
+Enchanted
+Nest 1
+Name bunnyhealer armor~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WAr{gm{Wor{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WAr{gm{Wor{x~
+ExtF 67633219
+Cond 97
+Wear -1
+Lev  57
+Cost 60
+Affc 'reserved'   1  50  -1  30  13          0 1
+Affc 'reserved'   1  50  -1  40  12          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'reserved'   1  50  -1   2  26          0 1
+Affc 'reserved'   1  50  -1   2   5          0 1
+Affc 'reserved'   1  50  -1   1   2          0 1
+End
+
+#B
+Vnum 17100
+Enchanted
+Nest 1
+Name bunnyhealer hood tao~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WHo{go{Wd {Wo{gf {WT{ga{Wo{x~
+Desc No way!  It's a {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WHo{go{Wd {Wo{gf {WT{ga{Wo{x!~
+Cond 50
+Wear -1
+Cost 0
+Affc 'reserved'   1  45  -1  -1  20          0 1
+Affc 'reserved'   1  45  -1  20  13          0 1
+Affc 'reserved'   1  45  -1  35  12          0 1
+Affc 'reserved'   1  45  -1   2  19          0 1
+Affc 'reserved'   1  45  -1   2  18          0 1
+Affc 'reserved'   1  45  -1   2   2          0 1
+Affc 'acid breath'   0  88  -1  10  17          0 1
+End
+
+#B
+Vnum 24807
+Nest 1
+Cond 96
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 24807
+Nest 1
+Cond 99
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 24808
+Nest 1
+Cond 97
+Wear -1
+Cost 6000
+End
+
+#B
+Vnum 20004
+Nest 1
+Name BunnyHealer Tao Cloth~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WT{ga{Wo {WCl{go{Wt{gh{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WT{ga{Wo {WCl{go{Wt{gh{x~
+ExtF 65
+Cond 98
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 5608
+Nest 1
+Name bunnyhealer mythical bracer~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WM{gy{Wth{gi{Wc{ga{Wl {WBr{ga{Wce{gr{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WM{gy{Wth{gi{Wc{ga{Wl {WBr{ga{Wce{gr{x~
+Cond 95
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 5608
+Nest 1
+Name bunnyhealer mythical bracer~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WM{gy{Wth{gi{Wc{ga{Wl {WBr{ga{Wce{gr{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WM{gy{Wth{gi{Wc{ga{Wl {WBr{ga{Wce{gr{x~
+Cond 94
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 10171
+Nest 1
+Name bunnyhealer divine presence light~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr's {WDi{gv{Win{ge {WPr{ge{Wse{gn{Wce{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr's {WDi{gv{Win{ge {WPr{ge{Wse{gn{Wce{x~
+Cond 97
+Wear -1
+Cost 3300
+End
+
+#B
+Vnum 9911
+Nest 1
+Name sleeves studded diamond bunnyhealer~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WDi{ga{Wmo{gn{Wd {WSt{gu{Wdd{ge{Wd {WSl{ge{Wev{ge{Ws{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WDi{ga{Wmo{gn{Wd {WSt{gu{Wdd{ge{Wd {WSl{ge{Wev{ge{Ws{x~
+Cond 93
+Wear -1
+Cost 6503
+End
+
+#B
+Vnum 20008
+Nest 1
+Name bunnyhealer healing pouch~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WHe{ga{Wl{gi{Wn{gg {Wp{go{Wuc{gh{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WHe{ga{Wl{gi{Wn{gg {Wp{go{Wuc{gh{x~
+ExtF 16777537
+Cond 89
+Wear -1
+Cost 50
+End
+
+#B
+Vnum 8204
+Nest 1
+Name bunnyhealer gauntlets~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WGa{gu{Wn{gtl{We{gt{Ws{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WGa{gu{Wn{gtl{We{gt{Ws{x~
+Cond 96
+Wear -1
+Cost 3800
+End
+
+#B
+Vnum 3203
+Nest 1
+Name bunnyhealer robe healing~
+ShD  {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WR{go{Wb{ge {Wo{gf {WH{ge{Wal{gi{Wn{gg{x~
+Desc {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WR{go{Wb{ge {Wo{gf {WH{ge{Wal{gi{Wn{gg{x~
+Cond 98
+Wear -1
+Cost 40
+End
+
+#B
+Vnum 11696
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 2014
+Nest 0
+Wear -1
+Cost 210
 End
 
 #END

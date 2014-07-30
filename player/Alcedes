@@ -1,46 +1,46 @@
 #PLAYER
 Name Alcedes~
 Id   993667855
-LogO 1016431294
-Vers 13
+LogO 1057794922
+Vers 14
+Mexp 2
+Pass alcey~
 Prom %Cc<%CG%h%Cc/%CG%H%Cchp %CM%m%Cc/%CM%M%Ccm %CP%v%CRmv%Cc - %Cg%X%Cctnl>%Cx ~
 Race feral~
-Clan kindred~
-Sex  1
 Cla  6
 Levl 15
+Tru  0
 Plyd 20980
-Age  0
 Back 9985
 Note 1009586647 0 993862338 930633430 993589968 0 0
 Scro 22
-Room 25000
-HMS  272 272 155 155 227 227
+Room 3001
+HMS  282 155 237
 Gold 6
 Silv 5450
 Exp  18792
-PCkills 0
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes 0
+FVul JR
+Plr  FH
+Video 0
 Act  DEFGHJLQSTc
 AfBy R
-FVul JR
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
-Save  -14
-Alig  1000
-Hit   17
-Dam   5
-ACs 45 32 40 68
+Prac 0
+Trai 0
+Wimp 0
 Atrib 18 15 15 23 18 17
-AtMod 4 3 5 2 2 3
-QpDonated 10
-Pass alcey~
 Afk {B[{CFri Jun 29 15:35:53 2001{B] {C{CA{Tuto-{CA{Tfk by {GL{Be{Nga{Bc{Gy{x
 ~
 Titl  the Guru of KirbyDance~
@@ -52,17 +52,13 @@ TSex 1
 LLev 4
 Deit Liriel~
 Lsit 67.dallas-22rh16rt-tx.dial-access.att.net~
-Ltim Sun Mar 17 23:58:49 2002
+Ltim Sun Mar 17 22:58:49 2002
 ~
-LSav Mon Mar 18 00:01:34 2002
+LSav Wed Jul 09 19:55:22 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  F
 HMSP 244 150 237
 THMS 3 0 0
-Cnd  0 18 45 45
+Cnd  0 15 44 44
 Sk 1 1 'axe'
 Sk 1 1 'flail'
 Sk 81 1 'sword'
@@ -81,8 +77,8 @@ Sk 1 1 'wands'
 Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'bard basics'
-Affc 'bless'   0  87  77  11  18          0 1
-Affc 'bless'   0  88  77 -11  24          0 1
+Affc 'bless'   0  88  76 -11  24          0 1
+Affc 'bless'   0  87  76  11  18          0 1
 End
 
 #O
@@ -143,6 +139,7 @@ Vnum 25086
 Nest 1
 Wear -1
 Cost 0
+Val  15 119 102 115 132
 Spell 3 'regeneration'
 End
 
@@ -151,6 +148,7 @@ Vnum 25084
 Nest 1
 Wear -1
 Cost 0
+Val  15 50 49 120 47
 Spell 3 'shield'
 End
 
@@ -159,6 +157,7 @@ Vnum 25086
 Nest 1
 Wear -1
 Cost 0
+Val  15 119 102 115 132
 Spell 3 'regeneration'
 End
 
@@ -175,6 +174,7 @@ Vnum 25084
 Nest 1
 Wear -1
 Cost 0
+Val  15 50 49 120 47
 Spell 3 'shield'
 End
 
@@ -183,6 +183,7 @@ Vnum 25093
 Nest 1
 Wear -1
 Cost 15
+Val  15 38 38 119 42
 Spell 3 'sanctuary'
 End
 
@@ -338,13 +339,6 @@ Cost 0
 End
 
 #O
-Vnum 2114
-Nest 0
-Wear 5
-Cost 1470
-End
-
-#O
 Vnum 6621
 Nest 0
 Cond 100
@@ -373,9 +367,9 @@ Wear 16
 Lev  19
 Cost 1
 Val  1 5 4 3 0
-Affc 'bless'   1  72   8  -1  20        256 1
-Affc 'enchant weapon'   1  91  -1   2  19          0 1
 Affc 'enchant weapon'   0  91  -1   2  18          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'bless'   1  72   7  -1  20        256 1
 ExDe sword Alcedes' Big Sword~ It is a marvellous sword, crafted from the finest steel around.
 It was created in the Month of Long Shadows by a newbie ranger
 named Grosh.  Legend holds that this giant was a great weaponsmith.
@@ -425,13 +419,6 @@ Cost 270
 End
 
 #O
-Vnum 25050
-Nest 0
-Wear 8
-Cost 2000
-End
-
-#O
 Vnum 119
 Nest 0
 Name food piiiiiiiizza~
@@ -441,9 +428,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  45 91 0 0 0
-ExDe chef~ This food was created by Syveril.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Syveril.
 ~
 End
 

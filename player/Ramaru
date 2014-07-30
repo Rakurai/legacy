@@ -1,9 +1,10 @@
 #PLAYER
 Name Ramaru~
 Id   990930539
-LogO 1020012210
-Vers 13
+LogO 1057793512
+Vers 14
 Mexp 2
+Pass qT1pl~
 Desc You see a tall {gpale{x man. The oder of {Ndeath{x surrounds him even though he looks quite {Wclean{x. He daydreams here, {Ndeathly{x still, like he's waiting for something from the {Cheavens{x. He moves again, returned from his thoughts. 
 
 His smile sends {Bchills{x down your spine and you wonder what he's really thinking. He looks at you as if to determine your {Pworth{x and goes on about his business.
@@ -11,8 +12,6 @@ Desc You see a tall {gpale{x man. The oder of {Ndeath{x surrounds him even thoug
 ~
 Prom %CW<%CC%h%CW/%CC%H%CWhp %CG%m%CW/%CG%M%CWma %CB%v%CWmv [%Cg%e%CW] %CR%X%CW [%Y%z%W]> ~
 Race vampire~
-Clan kindred~
-Sex  1
 Cla  4
 Levl 91
 Tru  91
@@ -20,43 +19,38 @@ Plyd 6289489
 Back 6264773
 Note 1019882583 1019448587 1019757037 1019923703 1019529513 1019399264 1019982389
 Scro 22
-Room 25052
-HMS  2055 2055 2696 2696 663 663
+Room 3001
+HMS  2055 2696 663
 Gold 9094
 Silv 8
 Silver_in_bank 885000
 Gold_in_bank 12000
 Exp  100100
-PCkills 0
+PCkills  0
 PCkilled 0
-Akills 1
-Akilled 1
-PKRank 0
-Act  DEGHJLOQSTc
-AfBy BCDEFGHTUV
+Akills   1
+Akilled  1
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
 FRes BKM
 FVul NS
+Plr  ACFHOQ
+Video 0
+Act  DEGHJLOQSTc
+AfBy BCDEFGHTUV
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
 Prac 177
 Trai 45
-Save  -32
-Alig  1000
-Hit   250
-Dam   262
-ACs -648 -638 -634 -620
-Wimp  411
+Wimp 411
 Atrib 19 22 22 20 17 19
-AtMod 16 19 17 13 11 11
-SkillPnts 2293
-RolePnts 8
-QuestPnts 3393
-QpDonated 2400
-GlDonated 359300
-Pass qT1pl~
+SkillPnts  2293
+RolePnts   8
+QuestPnts  3393
 Afk {B[{CThu Jan  3 15:33:57 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl , {RN{cecromance{Rr{x of {WL{Ci{Br{Ci{Te{Wl~
@@ -74,7 +68,7 @@ Raff 956
 Lsit adsl-63-206-141-70.dsl.lsan03.pacbell.net~
 Ltim Sun Apr 28 11:40:32 2002
 ~
-LSav Sun Apr 28 11:43:30 2002
+LSav Wed Jul 09 19:31:52 2003
 ~
 Finf Everything is {ggray{x. A plain and simple life. {PNormalcy{x? Who would wish for such a thing? Where is the {Gexcitement{x? I wanted {Gexcitement{x. This was the beginning of the end....or the beginning of a new beginning.
 
@@ -99,10 +93,6 @@ Finf Everything is {ggray{x. A plain and simple life. {PNormalcy{x? Who would wi
 If they are worthy, I will protect them with all of my skill, all of my {Ndark{x {Rpower{x. I shall be waiting, hoping that just for a moment I might feel the {Cgoddess{x' love again...find {Cpeace{x again.
 
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  ACFOQ
 HMSP 985 986 633
 THMS 0 0 0
 Cnd  0 0 20 20
@@ -343,13 +333,13 @@ Nest 0
 ExtF 67
 Wear 7
 Cost 660
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1  90  -1   3   4          0 1
-Affc 'reserved'   1  90  -1   1   1          0 1
-Affc 'enchant weapon'   1  91  -1   7  18          0 1
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
-Affc 'reserved'   1  90  -1  40  12          0 1
 Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  40  12          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'reserved'   1  90  -1   1   1          0 1
+Affc 'reserved'   1  90  -1   3   4          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
 End
 
 #O
@@ -359,14 +349,14 @@ Nest 0
 ExtF 67633219
 Wear 13
 Cost 100
-Affc 'reserved'   1  90  -1  -8  24          0 1
-Affc 'reserved'   1  90  -1  30  13          0 1
-Affc 'reserved'   1  90  -1  80  12          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
-Affc 'enchant weapon'   1 100  -1  17  18          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
 Affc 'reserved'   1  90  -1   2   1          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'reserved'   1  90  -1  80  12          0 1
+Affc 'reserved'   1  90  -1  30  13          0 1
+Affc 'reserved'   1  90  -1  -8  24          0 1
 End
 
 #O
@@ -377,10 +367,10 @@ ExtF 67
 Wear 4
 Lev  90
 Cost 10000
-Affc 'reserved'   1  87  -1   5   3          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
-Affc 'enchant weapon'   1 100  -1  17  18          0 1
 Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'reserved'   1  87  -1   5   3          0 1
 End
 
 #O
@@ -406,13 +396,13 @@ ExtF 67
 Wear 10
 Lev  91
 Cost 1200
-Affc 'reserved'   1  95  -1  -1  20          0 1
-Affc 'reserved'   1  95  -1  30  13          0 1
-Affc 'reserved'   1  95  -1  30  12          0 1
-Affc 'reserved'   1  95  -1   2   4          0 1
-Affc 'reserved'   1  95  -1   2   3          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
 Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1  30  12          0 1
+Affc 'reserved'   1  95  -1  30  13          0 1
+Affc 'reserved'   1  95  -1  -1  20          0 1
 ExDe owned by~ Ramaru
 ~
 End
@@ -424,13 +414,13 @@ Nest 0
 ExtF 262211
 Wear 8
 Cost 30000
-Affc 'reserved'   1  91  -1  -4  22          0 1
-Affc 'reserved'   1  91  -1   2   5          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1  90  12          0 1
-Affc 'enchant weapon'   1  91  -1   9  19          0 1
 Affc 'enchant weapon'   1  91  -1  10  18          0 1
+Affc 'enchant weapon'   1  91  -1   9  19          0 1
+Affc 'reserved'   1  91  -1  90  12          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   2   5          0 1
+Affc 'reserved'   1  91  -1  -4  22          0 1
 End
 
 #O
@@ -440,14 +430,14 @@ Nest 0
 ExtF 1048641
 Wear 2
 Cost 15000
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1  75  12          0 1
-Affc 'reserved'   1  91  -1  11  18          0 1
-Affc 'reserved'   1  91  -1  17  19          0 1
-Affc 'reserved'   0  91  -1   0   0    1048576 1
-Affc 'reserved'   4  91  -1   0   0       8192 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   4  91  -1   0   0       8192 1
+Affc 'reserved'   0  91  -1   0   0    1048576 1
+Affc 'reserved'   1  91  -1  17  19          0 1
+Affc 'reserved'   1  91  -1  11  18          0 1
+Affc 'reserved'   1  91  -1  75  12          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
 End
 
 #O
@@ -458,14 +448,14 @@ ExtF 67
 Wear 1
 Lev  91
 Cost 10000
-Affc 'enchant armor'   1 100  -1 -14  17          0 1
-Affc 'reserved'   0  92  -1   0   0        128 1
-Affc 'reserved'   1  92  -1  70  13          0 1
-Affc 'reserved'   1  92  -1  80  12          0 1
-Affc 'reserved'   1  92  -1   3   4          0 1
-Affc 'reserved'   1  92  -1   3   3          0 1
-Affc 'enchant weapon'   1 100  -1  14  19          0 1
 Affc 'enchant weapon'   0 100  -1  14  18          0 1
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
+Affc 'reserved'   1  92  -1   3   3          0 1
+Affc 'reserved'   1  92  -1   3   4          0 1
+Affc 'reserved'   1  92  -1  80  12          0 1
+Affc 'reserved'   1  92  -1  70  13          0 1
+Affc 'reserved'   0  92  -1   0   0        128 1
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
 ExDe owned by~ Ramaru
 ~
 End
@@ -478,15 +468,15 @@ ExtF 67
 Wear 0
 Lev  91
 Cost 55000
-Affc 'reserved'   1  95  -1   2   1          0 1
-Affc 'reserved'   1  95  -1   2   2          0 1
-Affc 'reserved'   1  95  -1   2   3          0 1
-Affc 'reserved'   1  95  -1   2   4          0 1
-Affc 'reserved'   1  95  -1   2   5          0 1
-Affc 'reserved'   1  95  -1 175  12          0 1
-Affc 'reserved'   1  95  -1 175  13          0 1
-Affc 'enchant weapon'   1 100  -1  18  18          0 1
 Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'reserved'   1  95  -1 175  13          0 1
+Affc 'reserved'   1  95  -1 175  12          0 1
+Affc 'reserved'   1  95  -1   2   5          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1   2   2          0 1
+Affc 'reserved'   1  95  -1   2   1          0 1
 ExDe owned by~ Ramaru
 ~
 End
@@ -499,13 +489,13 @@ ExtF 67
 Wear 14
 Lev  91
 Cost 55000
-Affc 'reserved'   1  95  -1   4   1          0 1
-Affc 'reserved'   1  95  -1   4   2          0 1
-Affc 'reserved'   1  95  -1 300  12          0 1
-Affc 'reserved'   1  95  -1 300  13          0 1
-Affc 'enchant weapon'   1 100  -1  14  18          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
 Affc 'reserved'   0  95  -1   0   0    2097152 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'reserved'   1  95  -1 300  13          0 1
+Affc 'reserved'   1  95  -1 300  12          0 1
+Affc 'reserved'   1  95  -1   4   2          0 1
+Affc 'reserved'   1  95  -1   4   1          0 1
 ExDe owned by~ Ramaru
 ~
 End
@@ -525,13 +515,13 @@ Nest 0
 ExtF 65
 Wear 17
 Cost 10000
-Affc 'reserved'   1  91  -1 -10  17          0 1
-Affc 'reserved'   1  91  -1 100  12          0 1
-Affc 'reserved'   1  91  -1   1   4          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1   1   2          0 1
-Affc 'enchant weapon'   1  91  -1   3  19          0 1
 Affc 'enchant weapon'   0  91  -1   3  18          0 1
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   1   4          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
+Affc 'reserved'   1  91  -1 -10  17          0 1
 End
 
 #O
@@ -700,11 +690,11 @@ Desc Some careless feline has tracked mud across here, leaving a small paw print
 Mat {bmud{x~
 Wear -1
 Cost 3500
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -717,28 +707,11 @@ Desc Some careless feline has tracked mud across here, leaving a small paw print
 Mat {bmud{x~
 Wear -1
 Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe print~ A very small, and unmistakeably feline, paw print.
-~
-End
-
-#O
-Vnum 4471
-Nest 1
-Name muddy paw print~
-ShD  a {bmuddy{x {Wp{ga{Ww {Wp{gr{Wi{gn{Wt{x~
-Desc Some careless feline has tracked mud across here, leaving a small paw print.~
-Mat {bmud{x~
-Wear -1
-Cost 0
 ExDe muddy~ A very small, and unmistakeably feline, paw print.
-~
-ExDe paw~ A very small, and unmistakeably feline, paw print.
-~
-ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -756,6 +729,23 @@ ExDe print~ A very small, and unmistakeably feline, paw print.
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe muddy~ A very small, and unmistakeably feline, paw print.
+~
+End
+
+#O
+Vnum 4471
+Nest 1
+Name muddy paw print~
+ShD  a {bmuddy{x {Wp{ga{Ww {Wp{gr{Wi{gn{Wt{x~
+Desc Some careless feline has tracked mud across here, leaving a small paw print.~
+Mat {bmud{x~
+Wear -1
+Cost 0
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
+~
+ExDe paw~ A very small, and unmistakeably feline, paw print.
+~
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -1077,13 +1067,13 @@ Nest 1
 ExtF 16777281
 Wear -1
 Cost 1
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1  50  12          0 1
-Affc 'reserved'   1  91  -1  50  13          0 1
-Affc 'reserved'   1  91  -1   3  19          0 1
-Affc 'reserved'   1  91  -1   4  18          0 1
 Affc 'reserved'   0  91  -1   0   0         40 1
+Affc 'reserved'   1  91  -1   4  18          0 1
+Affc 'reserved'   1  91  -1   3  19          0 1
+Affc 'reserved'   1  91  -1  50  13          0 1
+Affc 'reserved'   1  91  -1  50  12          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
 End
 
 #O
@@ -1336,12 +1326,12 @@ Nest 1
 ExtF 67
 Wear -1
 Cost 450
-Affc 'reserved'   0  90  -1   0   0      32768 1
-Affc 'reserved'   1  90  -1  40  13          0 1
-Affc 'reserved'   1  90  -1  45  12          0 1
-Affc 'enchant weapon'   1  91  -1  10  19          0 1
-Affc 'enchant weapon'   1  91  -1  10  18          0 1
 Affc 'enchant armor'   1  91  -1  -1  17          0 1
+Affc 'enchant weapon'   1  91  -1  10  18          0 1
+Affc 'enchant weapon'   1  91  -1  10  19          0 1
+Affc 'reserved'   1  90  -1  45  12          0 1
+Affc 'reserved'   1  90  -1  40  13          0 1
+Affc 'reserved'   0  90  -1   0   0      32768 1
 End
 
 #O
@@ -1374,8 +1364,8 @@ Wear -1
 Lev  91
 Cost 22
 Val  8 10 15 13 0
-Affc 'enchant weapon'   0  91  -1   8  18          0 1
 Affc 'enchant weapon'   1  91  -1   8  19          0 1
+Affc 'enchant weapon'   0  91  -1   8  18          0 1
 ExDe polearm Throbbing Staff of Power~ It is a marvellous polearm, crafted from the finest platinum around.
 It was created in the Month of Endings by a master necromancer
 named Ramaru.  Legend holds that this vampire was a great weaponsmith.
@@ -1446,14 +1436,14 @@ Nest 1
 ExtF 262211
 Wear -1
 Cost 3700
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1  90  -1   7  18          0 1
-Affc 'reserved'   1  90  -1   7  19          0 1
-Affc 'reserved'   1  90  -1  50  12          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
 Affc 'reserved'   1  90  -1   2   1          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  50  12          0 1
+Affc 'reserved'   1  90  -1   7  19          0 1
+Affc 'reserved'   1  90  -1   7  18          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
 End
 
 #O
@@ -1470,8 +1460,8 @@ Wear -1
 Lev  91
 Cost 18
 Val  1 10 15 3 130
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
 Affc 'enchant weapon'   0  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
 ExDe sword Liriel's Icy Glare~ It is a marvellous sword, crafted from the finest platinum around.
 It was created in the Month of Reverence by a master necromancer
 named Ramaru.  Legend holds that this vampire was a great weaponsmith.
@@ -1486,13 +1476,13 @@ ExtF 67
 Wear 3
 Lev  91
 Cost 9500
-Affc 'reserved'   1  92  -1   2   2          0 1
-Affc 'reserved'   1  92  -1  -1  20          0 1
-Affc 'reserved'   1  92  -1   2  26          0 1
-Affc 'reserved'   1  92  -1  65  12          0 1
-Affc 'reserved'   1  92  -1  65  13          0 1
-Affc 'enchant weapon'   1 100  -1  15  19          0 1
 Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'enchant weapon'   1 100  -1  15  19          0 1
+Affc 'reserved'   1  92  -1  65  13          0 1
+Affc 'reserved'   1  92  -1  65  12          0 1
+Affc 'reserved'   1  92  -1   2  26          0 1
+Affc 'reserved'   1  92  -1  -1  20          0 1
+Affc 'reserved'   1  92  -1   2   2          0 1
 ExDe owned by~ Ramaru
 ~
 End
@@ -1512,17 +1502,17 @@ Nest 0
 ExtF 262211
 Wear 12
 Cost 4500
-Affc 'reserved'   1  90  -1  -2   9          0 1
-Affc 'reserved'   1  90  -1  30  14          0 1
-Affc 'reserved'   1  90  -1   1   2          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1  -2  20          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'enchant weapon'   1  91  -1  10  19          0 1
-Affc 'enchant weapon'   1  91  -1  10  18          0 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'enchant weapon'   1  91  -1  10  18          0 1
+Affc 'enchant weapon'   1  91  -1  10  19          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  -2  20          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   1   2          0 1
+Affc 'reserved'   1  90  -1  30  14          0 1
+Affc 'reserved'   1  90  -1  -2   9          0 1
 End
 
 #O
@@ -1533,8 +1523,8 @@ ExtF 68
 Wt   150
 Wear 16
 Cost 15000
-Affc 'reserved'   1  91  -1  20  18          0 1
 Affc 'reserved'   1  91  -1  25  19          0 1
+Affc 'reserved'   1  91  -1  20  18          0 1
 End
 
 #L
@@ -1544,13 +1534,13 @@ ShD  {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the
 Desc {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
 Wear -1
 Cost 0
-ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 
 ~
 ExDe wedding~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 
 ~
-ExDe cake~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe slice~ {CA {Ms{Vl{Wi{Mc{Ve{C of {Wca{Ck{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 
 ~
 End
@@ -1571,10 +1561,10 @@ ShD  {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C th
 Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x lies here.~
 Wear -1
 Cost 0
-ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 
 ~
-ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 
 ~
 End
@@ -1596,14 +1586,6 @@ ShD  a {Yhuge {Bpile {Hof {Yanchovies{x~
 Desc a {bh{Yu{bg{Ye {Mpile{x of {Ya{Hn{Gc{Yh{Ho{Gv{Yi{He{Gs{x~
 Wear -1
 Cost 10
-End
-
-#L
-Vnum 1248
-Nest 0
-Cond 100
-Wear -1
-Cost 0
 End
 
 #L
@@ -1699,13 +1681,13 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+ExDe florist~ This rose was created by Napalm.
+
 ~
 ExDe owned by~ Temperant
 
 ~
-ExDe florist~ This rose was created by Napalm.
-
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -1778,13 +1760,13 @@ Desc Some careless feline has tracked mud across here, leaving a small paw print
 Mat {bmud{x~
 Wear -1
 Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 
 ~
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 
 ~
 End
@@ -1899,10 +1881,10 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
 
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2000,10 +1982,10 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
 
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2101,10 +2083,10 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
 
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2202,10 +2184,10 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Alisa.
 
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2303,10 +2285,10 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Ramaru.
 
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -2406,14 +2388,6 @@ Cost 5000
 End
 
 #L
-Vnum 3005
-Nest 0
-Cond 90
-Wear -1
-Cost 5600
-End
-
-#L
 Vnum 17046
 Nest 0
 Wear -1
@@ -2458,9 +2432,9 @@ ExtF 67
 Wear -1
 Lev  28
 Cost 312
-Affc 'reserved'   1  25  -1   5  19          0 1
-Affc 'reserved'   1  25  -1   5  18          0 1
 Affc 'enchant armor'   1  91  -1  -6  17          0 1
+Affc 'reserved'   1  25  -1   5  18          0 1
+Affc 'reserved'   1  25  -1   5  19          0 1
 End
 
 #L
@@ -2584,8 +2558,8 @@ Wear -1
 Lev  60
 Cost 18
 Val  2 6 14 11 4
-Affc 'enchant weapon'   0  90  -1   6  18          0 1
 Affc 'enchant weapon'   1  90  -1   6  19          0 1
+Affc 'enchant weapon'   0  90  -1   6  18          0 1
 ExDe dagger A Bluish Dagger~ It is a marvellous dagger, crafted from the finest steel around.
 
 It was created in the Month of Sacrifice by an experienced ranger
@@ -2605,10 +2579,10 @@ Mat metal~
 Wear -1
 Cost 10
 Spell 3 'fly'
-ExDe car~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
+ExDe clown~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
 
 ~
-ExDe clown~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
+ExDe car~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
 
 ~
 End
@@ -2627,13 +2601,13 @@ Nest 0
 ExtF 67
 Wear -1
 Cost 9500
-Affc 'reserved'   1  92  -1   2   2          0 1
-Affc 'reserved'   1  92  -1  -1  20          0 1
-Affc 'reserved'   1  92  -1   2  26          0 1
-Affc 'reserved'   1  92  -1  65  12          0 1
-Affc 'reserved'   1  92  -1  65  13          0 1
-Affc 'enchant weapon'   1  92  -1   7  19          0 1
 Affc 'enchant weapon'   1  92  -1  10  18          0 1
+Affc 'enchant weapon'   1  92  -1   7  19          0 1
+Affc 'reserved'   1  92  -1  65  13          0 1
+Affc 'reserved'   1  92  -1  65  12          0 1
+Affc 'reserved'   1  92  -1   2  26          0 1
+Affc 'reserved'   1  92  -1  -1  20          0 1
+Affc 'reserved'   1  92  -1   2   2          0 1
 End
 
 #L
@@ -2643,13 +2617,13 @@ Nest 0
 ExtF 16777281
 Wear -1
 Cost 1
-Affc 'reserved'   0  91  -1   0   0         40 1
-Affc 'reserved'   1  91  -1   4  18          0 1
-Affc 'reserved'   1  91  -1   3  19          0 1
-Affc 'reserved'   1  91  -1  50  13          0 1
-Affc 'reserved'   1  91  -1  50  12          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1  50  12          0 1
+Affc 'reserved'   1  91  -1  50  13          0 1
+Affc 'reserved'   1  91  -1   3  19          0 1
+Affc 'reserved'   1  91  -1   4  18          0 1
+Affc 'reserved'   0  91  -1   0   0         40 1
 End
 
 #L
@@ -2728,14 +2702,14 @@ ExtF 67
 Wear -1
 Lev  50
 Cost 9000
-Affc 'reserved'   1  66  -1 -10  24          0 1
-Affc 'reserved'   1  66  -1 -40   9          0 1
-Affc 'reserved'   1  66  -1   3   3          0 1
-Affc 'reserved'   1  66  -1 110  12          0 1
-Affc 'reserved'   1 100  -1 -16  17          0 1
-Affc 'reserved'   1 100  -1   2   4          0 1
-Affc 'enchant weapon'   1 100  -1   6  18          0 1
 Affc 'enchant weapon'   1 100  -1   6  19          0 1
+Affc 'enchant weapon'   1 100  -1   6  18          0 1
+Affc 'reserved'   1 100  -1   2   4          0 1
+Affc 'reserved'   1 100  -1 -16  17          0 1
+Affc 'reserved'   1  66  -1 110  12          0 1
+Affc 'reserved'   1  66  -1   3   3          0 1
+Affc 'reserved'   1  66  -1 -40   9          0 1
+Affc 'reserved'   1  66  -1 -10  24          0 1
 End
 
 #L
@@ -2803,10 +2777,10 @@ ShD  {gA {Gtoken{g of {Cap{Tp{Cre{Tc{Cia{Tt{Cio{Tn{g from {WL{Ci{Br{Ci{Te{Wl{x~
 Desc {gA {Gtoken{g of {Cap{Tp{Cre{Tc{Cia{Tt{Cio{Tn{g from {WL{Ci{Br{Ci{Te{Wl{V lies {ghere{x.~
 Wear -1
 Cost 3500
-ExDe token~ {PW{Vo{BW{W! {gThis {Gtoken{g allows you to ask for either an {Be{Cn{Bc{Ch{Ba{Cn{Bt{g, {Vr{Me{Vs{Mt{Vr{Mi{Vn{Mg{g, or {Ylower{x!
+ExDe {pw{vo{bw{w!~ {gThis {Gtoken{g allows you to ask for either an {Be{Cn{Bc{Ch{Ba{Cn{Bt{g, {Vr{Me{Vs{Mt{Vr{Mi{Vn{Mg{g, or {Ylower{x!
 
 ~
-ExDe {pw{vo{bw{w!~ {gThis {Gtoken{g allows you to ask for either an {Be{Cn{Bc{Ch{Ba{Cn{Bt{g, {Vr{Me{Vs{Mt{Vr{Mi{Vn{Mg{g, or {Ylower{x!
+ExDe token~ {PW{Vo{BW{W! {gThis {Gtoken{g allows you to ask for either an {Be{Cn{Bc{Ch{Ba{Cn{Bt{g, {Vr{Me{Vs{Mt{Vr{Mi{Vn{Mg{g, or {Ylower{x!
 
 ~
 End
@@ -2820,13 +2794,13 @@ Desc {Wa {Wt{go{Tk{ge{Wn {Nw{To{Cr{Tt{Nh {Ma{Vn {Ra{Pb{Vsu{Pr{Rd {ba{Hm{Gou{Hn{b
 Mat {bmud{x~
 Wear -1
 Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 
 ~
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 
 ~
 End
@@ -2882,10 +2856,10 @@ ShD  {gA {Gtoken{g of {Cap{Tp{Cre{Tc{Cia{Tt{Cio{Tn{g from {WL{Ci{Br{Ci{Te{Wl{x~
 Desc {gA {Gtoken{g of {Cap{Tp{Cre{Tc{Cia{Tt{Cio{Tn{g from {WL{Ci{Br{Ci{Te{Wl{V lies {ghere{x.~
 Wear -1
 Cost 3500
-ExDe {pw{vo{bw{w!~ {gThis {Gtoken{g allows you to ask for either an {Be{Cn{Bc{Ch{Ba{Cn{Bt{g, {Vr{Me{Vs{Mt{Vr{Mi{Vn{Mg{g, or {Ylower{x!
+ExDe token~ {PW{Vo{BW{W! {gThis {Gtoken{g allows you to ask for either an {Be{Cn{Bc{Ch{Ba{Cn{Bt{g, {Vr{Me{Vs{Mt{Vr{Mi{Vn{Mg{g, or {Ylower{x!
 
 ~
-ExDe token~ {PW{Vo{BW{W! {gThis {Gtoken{g allows you to ask for either an {Be{Cn{Bc{Ch{Ba{Cn{Bt{g, {Vr{Me{Vs{Mt{Vr{Mi{Vn{Mg{g, or {Ylower{x!
+ExDe {pw{vo{bw{w!~ {gThis {Gtoken{g allows you to ask for either an {Be{Cn{Bc{Ch{Ba{Cn{Bt{g, {Vr{Me{Vs{Mt{Vr{Mi{Vn{Mg{g, or {Ylower{x!
 
 ~
 End
@@ -2899,13 +2873,13 @@ Desc {CA {Vt{Mo{Wk{Ve{Mn {Wfor {Pa {YT{WR{YA{WI{YN {Bfrom {WL{Ci{Br{Ci{Te{Wl{W l
 Mat {bmud{x~
 Wear -1
 Cost 3500
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 
 ~
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 
 ~
 End
@@ -2918,10 +2892,10 @@ ShD  {Wa {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{x~
 Desc {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha {Wlies here.{x~
 Wear -1
 Cost 0
-ExDe restring~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
+ExDe token~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
 
 ~
-ExDe token~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
+ExDe restring~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
 
 ~
 End
@@ -2934,10 +2908,10 @@ ShD  {Wa {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{x~
 Desc {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha {Wlies here.{x~
 Wear -1
 Cost 0
-ExDe restring~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
+ExDe token~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
 
 ~
-ExDe token~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
+ExDe restring~ {WA {Ytoken {Wfor one free {Tr{Ces{Ttr{Ci{Tn{Cg {Wfrom {HA{Gl{Wi{Gs{Ha{W.
 
 ~
 End
@@ -3063,10 +3037,10 @@ Desc A tiny {Pc{Yl{Go{Bw{Vn {Pcar{x is rolling around at your feet.~
 Wear -1
 Cost 10
 Spell 3 'fly'
-ExDe car~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
+ExDe clown~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
 
 ~
-ExDe clown~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
+ExDe car~ I wonder how many {Pc{Yl{Go{Bw{Vn{Ps{x that can hold...
 
 ~
 End
@@ -3176,8 +3150,8 @@ Wear -1
 Lev  63
 Cost 14
 Val  8 7 12 13 0
-Affc 'enchant weapon'   0  66  -1   5  18          0 1
 Affc 'enchant weapon'   1  66  -1   5  19          0 1
+Affc 'enchant weapon'   0  66  -1   5  18          0 1
 ExDe polearm a Garden Rake~ It is a marvellous polearm, crafted from the finest tin around.
 
 It was created in the Month of Rapture by an experienced warrior
@@ -3202,8 +3176,8 @@ ExtF 327
 Cond 91
 Wear -1
 Cost 55000
-Affc 'enchant weapon'   1  95  -1  52  19          0 1
 Affc 'enchant weapon'   1  95  -1  42  18          0 1
+Affc 'enchant weapon'   1  95  -1  52  19          0 1
 End
 
 #B
@@ -3294,6 +3268,11 @@ Wear -1
 Lev  43
 Cost 4
 Val  1 5 9 3 4
+ExDe engravings~ [010616] {YRamaru{x the {TP{Ca{Tt{Ch{Te{Ct{Ti{Cc{x engraved {Ythis{x:
+
+ "This is proof of my {TP{Ca{Tt{Ch{Te{Ct{Ti{Cc{Tn{Ce{Ts{Cs".
+
+~
 ExDe sword I am a Pathetic Loser's blade~ It is a marvellous sword, crafted from the finest steel around.
 
 It was created in the Month of Long Shadows by a young thief
@@ -3301,11 +3280,6 @@ ExDe sword I am a Pathetic Loser's blade~ It is a marvellous sword, crafted from
 named Cyanos.  Legend holds that this human was a great weaponsmith.
 
 There are some personal {Cengravings{x on this weapon.
-
-~
-ExDe engravings~ [010616] {YRamaru{x the {TP{Ca{Tt{Ch{Te{Ct{Ti{Cc{x engraved {Ythis{x:
-
- "This is proof of my {TP{Ca{Tt{Ch{Te{Ct{Ti{Cc{Tn{Ce{Ts{Cs".
 
 ~
 End
@@ -3326,8 +3300,8 @@ Cond 85
 Wear -1
 Lev  5
 Cost 250
-Affc 'enchant weapon'   0  91  -1   6  18          0 1
 Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'enchant weapon'   0  91  -1   6  18          0 1
 End
 
 #B
@@ -3446,8 +3420,8 @@ Wear -1
 Lev  60
 Cost 18
 Val  2 6 14 11 4
-Affc 'enchant weapon'   1  90  -1   6  19          0 1
 Affc 'enchant weapon'   0  90  -1   6  18          0 1
+Affc 'enchant weapon'   1  90  -1   6  19          0 1
 ExDe dagger A Bluish Dagger~ It is a marvellous dagger, crafted from the finest steel around.
 It was created in the Month of Sacrifice by an experienced ranger
 named Ayelri.  Legend holds that this wolf was a great weaponsmith.

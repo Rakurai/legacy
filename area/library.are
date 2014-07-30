@@ -1,6 +1,6 @@
 #AREA
 library.are~
-Thera Library~
+The Thera Library~
 {H{{ALL} {MMerlock {TLibrary~
 351 399
 
@@ -105,7 +105,7 @@ leaped and shimmers as the candles flickered from within.
 
 #ROOMS
 #351
-Drama~
+The Drama Section~
 There is a {Psculpture{x hanging on the wall. There is a platform in the 
 center of the room, where people can perform their own plays or from the 
 books. There are diverse books of dramas shelved throughout the room. Check 
@@ -114,12 +114,12 @@ out the {Blist{x of books here.
 0 DHKS 1
 H 200 M 200
 D1
-It goes east to Horror Room.
+It goes east to the Horror Room.
 ~
 ~
 0 -1 352
 D2
-It goes south to Comedy room.
+It goes south to the Comedy room.
 ~
 ~
 0 -1 354
@@ -143,7 +143,7 @@ There are no stories currently available.
 S
 
 #352
-Horror~
+The Horror Section~
 It is dark, gloomy. You can barely see around with the dim candles on each 
 tables. You think you can see a twitching {gshadow{x on the wall. There are 
 empty chairs at several tables and books stacked either on the tables or on 
@@ -155,17 +155,17 @@ you should read it? Check out the {Blist{x of books here.
 0 DHKS 1
 H 200 M 200
 D1
-It goes east to Fantasy room.
+It goes east to the Fantasy room.
 ~
 ~
 0 -1 353
 D2
-It goes south to Mystery room.
+It goes south to the Mystery room.
 ~
 ~
 0 -1 355
 D3
-It goes west to Drama room.
+It goes west to the Drama room.
 ~
 ~
 0 -1 351
@@ -187,7 +187,7 @@ There are no stories currently available.
 S
 
 #353
-Fantasy~
+The Fantasy Section~
 There is a picture on the wall. You can see decorations upon the bookshelves 
 throughout this room. On one bookshelf, you can see various models of races 
 of every kind: gnomes, vampires, hill and mountain dwarves, kenders, etc.  
@@ -558,7 +558,7 @@ from anywhere to bother to try a walk. Besides the weather that had caused
 S
 
 #354
-Comedy~
+The Comedy Section~
 There is an interesting model on the wall. Perhaps you can take a closer
 look at it. You hear all kinds of laughter everywhere. Hey, do you hear
 that famed laughter: 'heheheh *snort* *snort* hehehe...' ? Check out the
@@ -567,17 +567,17 @@ that famed laughter: 'heheheh *snort* *snort* hehehe...' ? Check out the
 0 DHKS 1
 H 200 M 200
 D0
-It goes north to Drama room.
+It goes north to the Drama room.
 ~
 ~
 0 -1 351
 D1
-It goes east to Mystery room.
+It goes east to the Mystery room.
 ~
 ~
 0 -1 355
 D2
-It goes south to Miscellanous room.
+It goes south to the Miscellanous room.
 ~
 ~
 0 -1 357
@@ -689,7 +689,7 @@ disorder if you don’t stay in the ward.'
 S
 
 #355
-Mystery~
+The Mystery Section~
 There is a costume on a mannequin next to the bookshelf. See if you know what 
 it is. There are people proclaiming that the butler or maid or even the dog 
 did it. Do you know who did it? Check out the {Blist{x of books here.
@@ -697,7 +697,7 @@ did it. Do you know who did it? Check out the {Blist{x of books here.
 0 DHKS 1
 H 200 M 200
 D0
-It goes north to Horror room.
+It goes north to the Horror room.
 ~
 ~
 0 -1 352
@@ -707,12 +707,12 @@ It goes east to the Library Entrance.
 ~
 0 -1 356
 D2
-It goes south to Poetry room.
+It goes south to the Poetry room.
 ~
 ~
 0 -1 358
 D3
-It goes west to Comedy room.
+It goes west to the Comedy room.
 ~
 ~
 0 -1 354
@@ -731,7 +731,7 @@ There are no stories currently available.
 S
 
 #356
-Library Entrance~
+The Library Entrance~
 You stand in front of Thera's libary.. It is colossal.. High stone walls reach
 up to the sky. Niches hold statues of the Immortals that rule Thera. As you
 look upwards, you see stone gargoyles sitting on corners of the roof, ready to
@@ -743,7 +743,7 @@ at you as you quietly make your entrance in the library..
 0 DHKS 1
 H 200 M 200
 D0
-It goes north to Fantasy room.
+It goes north to the Fantasy room.
 ~
 ~
 0 -1 353
@@ -753,19 +753,19 @@ It goes east to the Temple of Mota.
 ~
 0 -1 3001
 D2
-It goes south to Science Fiction room.
+It goes south to the Science Fiction room.
 ~
 ~
 0 -1 359
 D3
-It goes west to Mystery room.
+It goes west to the Mystery room.
 ~
 ~
 0 -1 355
 S
 
 #357
-Miscellaneous~
+The Miscellaneous Section~
 This is a bare room. It seems to be empty as this room was set aside
 in case there's a reading material that can't be categorized. Wait
 a minute isn't there something in the corner? Check out the {Blist{x of
@@ -774,12 +774,12 @@ books here.
 0 DHKS 1
 H 200 M 200
 D0
-It goes north to Comedy room.
+It goes north to the Comedy room.
 ~
 ~
 0 -1 354
 D1
-It goes east to Poetry room.
+It goes east to the Poetry room.
 ~
 ~
 0 -1 358
@@ -790,7 +790,7 @@ There are no stories currently available.
 S
 
 #358
-Poetry~
+The Poetry Section~
 There are many boards surrounding the rooms. Each one is full of short poems, 
 some several lines long, others only one or two lines. Almost all are 
 unreadable except for that one board which is almost devoid for some reason. 
@@ -799,17 +799,17 @@ What does it say? Check out the {Blist{x of books here.
 0 DHKS 1
 H 200 M 200
 D0
-It goes north to Mystery room.
+It goes north to the Mystery room.
 ~
 ~
 0 -1 355
 D1
-It goes east to Science Fiction room.
+It goes east to the Science Fiction room.
 ~
 ~
 0 -1 359
 D3
-It goes west to Miscellanous room.
+It goes west to the Miscellanous room.
 ~
 ~
 0 -1 357
@@ -843,7 +843,7 @@ But I was punished for dirtying my gown.
 S
 
 #359
-Science Fiction~
+The Science Fiction Section~
 Rockets, Robots, Technology, OH MY!!! You can see the twinkling
 stars and models of ships, stations, and planets hanging from the
 ceiling. Take a closer look, maybe you can recognize one. Check out
@@ -852,12 +852,12 @@ the {Blist{x of books here.
 0 DHKS 1
 H 200 M 200
 D0
-It goes north to Library Entrance.
+It goes north to the Library Entrance.
 ~
 ~
 0 -1 356
 D3
-It goes west to Poetry room.
+It goes west to the Poetry room.
 ~
 ~
 0 -1 358

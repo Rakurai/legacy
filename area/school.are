@@ -667,6 +667,23 @@ fountain O P
 0 0 water 0 0
 1 100 10 P
 
+#3727
+bow sub merc~
+a sub issue bow~
+You see a sub issue bow here.~
+wood~
+weapon U AN
+bow 1 6 pierce 0
+1 10 360 P
+A
+18 1
+E
+bow~
+You see a bow of great but cheap craftsmanship.  Imprinted on the side is:
+Merc Industries
+~
+
+
 #0
 
 #ROOMS
@@ -2096,7 +2113,8 @@ in the Guild Room to the east.  You can continue through mud school by
 going north.
 
 If you are a new character, you should go 'WEST' from here, train your
-abilities, and then come back here and go 'NORTH'.
+abilities, and then come back here go 'EAST' and practice your skills or 
+spells, come back here and go 'NORTH'.
 ~
 S
 #3758

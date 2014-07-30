@@ -1,7 +1,7 @@
 #PLAYER
 Name KungfuSmurf~
 Id   990654576
-LogO 1026875634
+LogO 1060018462
 Vers 14
 Mexp 2
 Pass kungfurox~
@@ -16,21 +16,20 @@ Desc {BK{Tu{Bn{Tg{Bf{Tu{Bs{Tm{Bu{Tr{Bf{x
 ~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race dwarf~
-Clan blackclaw~
 Cla  5
 Levl 51
 Tru  91
-Plyd 359468
-Back 296185
-Note 1026789814 1018952318 1026339553 1026792163 1026409721 1026258348 1026831915
+Plyd 365939
+Back 361706
+Note 1037142156 1035749795 1036974085 1037115416 1036438083 1036523666 1030723157
 Scro 22
-Room 24803
+Room 3001
 HMS  1119 982 675
 Gold 3713
 Silv 45
-Exp  56562
+Exp  56262
 PCkills  0
-PCkilled 2
+PCkilled 3
 Akills   0
 Akilled  4
 PKRank   0
@@ -39,10 +38,10 @@ Alig 1000
 FImm 0
 FRes LQ
 FVul R
-Plr  ABCFQT
+Plr  ABCFHQTU
 Video 0
 Act  CDEFGHJLSTc
-AfBy HJRZ
+AfBy JR
 Comm NOQ
 Revk 0
 Cgrp A
@@ -56,12 +55,12 @@ RolePnts   34
 QuestPnts  37
 GameIn  {T"{WE{Tv{We{Tr{Wy{Tb{Wo{Td{Wy {GW{Ha{Gs {PK{Ru{Pn{Rg{PF{Ru {PF{Ri{Pg{Rh{Pt{Ri{Pn{Rg{P!{R"{x~
 GameOut {T"{WE{Tv{We{Tr{Wy{Tb{Wo{Td{Wy {YS{Wt{Yo{Wp{Ys {PK{Ru{Pn{Rg{PF{Ru {PF{Ri{Pg{Rh{Pt{Ri{Pn{Rg{P!{R"{x~
-Afk {B[{CThu Feb 21 21:43:44 2002{B] {CUnknown Departure.{x
+Afk {B[{CTue Jul 30 00:31:44 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {TK{Cu{Tn{Cg{TF{Cu {VN{Mi{Vn{Mj{Va{x~
 Immn ~
 Pnts 40
-Rank {PB{Rl{Wt~
+Rank {W7up~
 Aura {RK{Pu{Yn{Wg{YF{Pu {RM{Pa{Ys{Wt{Ye{Pr{x~
 TSex 1
 LLev 98
@@ -71,10 +70,10 @@ Stus Advocate~
 RmCt 1
 ExSk 0
 Raff 107
-Lsit hlfx64-1-72.ns.sympatico.ca~
-Ltim Tue Jul 16 22:09:36 2002
+Lsit hlfx55-2a-242.ns.sympatico.ca~
+Ltim Thu Nov 21 20:16:40 2002
 ~
-LSav Tue Jul 16 22:13:54 2002
+LSav Mon Aug 04 13:34:22 2003
 ~
 HMSP 954 539 675
 THMS 4 0 0
@@ -82,7 +81,7 @@ Cnd  0 0 0 0
 Query endo~
 Sk 1 1 'acid rain'
 Sk 1 1 'age'
-Sk 75 1 'armor'
+Sk 76 1 'armor'
 Sk 75 1 'bless'
 Sk 75 1 'blindness'
 Sk 1 1 'blizzard'
@@ -134,7 +133,7 @@ Sk 76 1 'holy word'
 Sk 75 1 'lightning bolt'
 Sk 75 1 'mass healing'
 Sk 75 1 'nexus'
-Sk 75 1 'pass door'
+Sk 76 1 'pass door'
 Sk 75 1 'plague'
 Sk 75 1 'poison'
 Sk 1 1 'power word'
@@ -173,7 +172,7 @@ Sk 75 1 'scribe'
 Sk 1 1 'berserk'
 Sk 1 1 'circle'
 Sk 100 1 'dodge'
-Sk 84 1 'hand to hand'
+Sk 86 1 'hand to hand'
 Sk 100 1 'parry'
 Sk 49 1 'rescue'
 Sk 93 1 'second attack'
@@ -201,11 +200,6 @@ Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'sanctuary'   0  99  13   0   0        128 4
-Affc 'frenzy'   0  99  16  16  18          0 1
-Affc 'frenzy'   0  96  16  16  19          0 1
-Affc 'frenzy'   0  96  16  80  17          0 1
-Affc 'divine regeneration'   0 100  86   0   0   33554432 3
 End
 
 #O
@@ -241,9 +235,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  23 46 0 0 0
-ExDe chef~ This food was created by KungfuSmurf.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by KungfuSmurf.
 ~
 End
 
@@ -257,9 +251,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  23 46 0 0 0
-ExDe chef~ This food was created by KungfuSmurf.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by KungfuSmurf.
 ~
 End
 
@@ -273,9 +267,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  23 46 0 0 0
-ExDe chef~ This food was created by KungfuSmurf.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by KungfuSmurf.
 ~
 End
 
@@ -289,9 +283,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  23 46 0 0 0
-ExDe chef~ This food was created by KungfuSmurf.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by KungfuSmurf.
 ~
 End
 
@@ -407,39 +401,6 @@ Nest 0
 Cond 97
 Wear 0
 Cost 3300
-End
-
-#O
-Vnum 10215
-Enchanted
-Nest 0
-Name sivat sharp claws~
-ShD  {RS{Pi{Rv{Pa{Rt{Ps {YS{bh{Ya{br{Yp {WC{gl{Wa{gw{Ws{x~
-Desc {RS{Pi{Rv{Pa{Rt{Ps {YS{bh{Ya{br{Yp {WC{gl{Wa{gw{Ws{x~
-ExtF 67
-Wear 19
-Lev  42
-Cost 10000
-Affc 'reserved'   1  40  -1  -5  23          0 1
-Affc 'enchant weapon'   1  91  -1   9  19          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-End
-
-#O
-Vnum 10215
-Enchanted
-Nest 0
-Name sivat sharp claws~
-ShD  {RS{Pi{Rv{Pa{Rt{Ps {YS{bh{Ya{br{Yp {WC{gl{Wa{gw{Ws{x~
-Desc {RS{Pi{Rv{Pa{Rt{Ps {YS{bh{Ya{br{Yp {WC{gl{Wa{gw{Ws{x~
-ExtF 67
-Cond 97
-Wear 16
-Lev  41
-Cost 0
-Affc 'reserved'   1  40  -1  -5  23          0 1
-Affc 'enchant weapon'   1  91  -1   8  19          0 1
-Affc 'enchant weapon'   1  91  -1   4  18          0 1
 End
 
 #O

@@ -1,0 +1,315 @@
+#PLAYER
+Name Rebs~
+Id   1106343953
+LogO 1106441610
+Vers 14
+Mexp 2
+Pass gameover~
+Prom {Y%h/%Hhp {C%m/%Mma {W%vst {c {V%g{W/{C%s {W%X  ~
+Race elf~
+Cla  0
+Levl 7
+Plyd 15778
+Back 6607
+Note 1106352807 1106344211 1106344211 1106353991 1106344211 1106344211 1106344211
+Scro 22
+Room 8543
+HMS  67 176 121
+Gold 32
+Silv 2026
+Exp  7410
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -1000
+FImm 0
+FRes B
+FVul Z
+Plr  AHU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp AIKLM
+Cnsr A
+Block_Remote 0
+Prac 5
+Trai 0
+Wimp 0
+Familiar 0
+Atrib 11 19 18 15 15 14
+Afk {B[{CFri Jan 21 17:02:23 2005{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {x~
+Immn ~
+Pnts 37
+Rank ~
+Aura ~
+TSex 2
+LLev 4
+Email rebbyrebs@gmail.com~
+Deit Kismet~
+Lsit adsl-66-141-210-231.dsl.tulsok.swbell.net~
+Ltim Fri Jan 21 23:00:56 2005
+~
+LSav Sat Jan 22 18:53:30 2005
+~
+HMSP 63 169 121
+THMS 0 0 0
+Cnd  0 39 45 15
+Sk 1 1 'acid blast'
+Sk 1 1 'acid breath'
+Sk 1 1 'age'
+Sk 1 1 'blindness'
+Sk 75 1 'burning hands'
+Sk 1 1 'chain lightning'
+Sk 89 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'curse'
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'energy drain'
+Sk 1 1 'fire breath'
+Sk 1 1 'fireball'
+Sk 1 1 'firestorm'
+Sk 1 1 'fly'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'gate'
+Sk 1 1 'lightning bolt'
+Sk 1 1 'lightning breath'
+Sk 81 1 'magic missile'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'portal'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'shrink'
+Sk 1 1 'slow'
+Sk 1 1 'starve'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'weaken'
+Sk 1 1 'word of recall'
+Sk 1 1 'wrath'
+Sk 75 1 'dagger'
+Sk 1 1 'brew'
+Sk 1 1 'fast healing'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'combat'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'maladictions'
+Gr 'transportation'
+Affc 'blood moon'   0  56  34   5  19          0 1
+Affc 'blood moon'   0  49  34   3  18          0 1
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Cond 99
+Wear -1
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 83
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 73
+Nest 0
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Cond 91
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Cond 95
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 2402
+Nest 0
+Cond 97
+Wear 6
+Cost 310
+End
+
+#O
+Vnum 2403
+Nest 0
+Wear -1
+Cost 370
+End
+
+#O
+Vnum 2404
+Nest 0
+Cond 89
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 2407
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10135
+Enchanted
+Nest 0
+Wear -1
+Cost 23
+Affc 'reserved'   1   2  -1   1  24          0 1
+Affc 'reserved'   1   2  -1   1   3          0 1
+Affc 'reserved'   1   2  -1   2  12          0 1
+End
+
+#O
+Vnum 10135
+Nest 0
+Cond 94
+Wear 9
+Cost 23
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 10126
+Nest 0
+Cond 94
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 3020
+Nest 0
+Cond 83
+Wear 16
+Cost 157
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#O
+Vnum 1205
+Nest 0
+Wear -1
+Cost 15
+End
+
+#END

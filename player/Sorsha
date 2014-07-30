@@ -1,70 +1,69 @@
 #PLAYER
 Name Sorsha~
-Id   1024689758
-LogO 1406523121
-Vers 15
+Id   1109729081
+LogO 1112583251
+Vers 14
 Mexp 2
 Pass blue11~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race seraph~
 Cla  0
-Levl 1
-Plyd 67667
-Back 55185
-Note 1027107921 1026340951 1027144008 1027087211 1027146472 1026340951 1026340951
+Levl 5
+Plyd 76927
+Back 58289
+Note 1111863479 0 0 1112002672 1111163025 1110265663 0
 Scro 22
-Room 1200
-HMS  20 100 100
-Gold 0
-Silv 0
-Exp  3000
+Room 1288
+HMS  82 160 125
+Gold 41
+Silv 2049
+Exp  15372
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  5
-Alig 0
-Spou ~
+Pos  8
+Alig -1000
 FImm 0
 FRes NS
 FVul M
-Plr  HU
+Plr  AHU
 Video 0
-Act  CDEFGHJLQSc
+Act  CDEFGHJLQS
 AfBy T
-Comm NO
+Comm DNOZ
 Revk 0
-Cgrp AI
+Cgrp I
 Cnsr AB
 Block_Remote 0
-Prac 5
-Trai 3
+Prac 0
+Trai 0
 Wimp 0
 Familiar 0
-Atrib 16 17 14 13 15 16
-Afk {B[{CSat Jul 20 01:43:40 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Atrib 18 17 14 13 15 16
+Afk {B[{CSun Apr  3 21:28:40 2005{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  {cA {WC{ch{Wo{ca{Wo{ct{Wi{cc {WExperiance{x~
+Titl ...~
 Immn ~
 Pnts 60
 Rank ~
 Aura ~
 TSex 2
-LLev 4
-Deit Sorsha~
-Lsit ACAA088A.ipt.aol.com~
-Ltim Sat Jul 20 21:17:51 2002
+LLev 6
+Deit Kismet~
+Lsit stormlakeDHCP-42.216-16-92.iw.net~
+Ltim Sun Apr 03 21:23:51 2005
 ~
-LSav Sun Jul 27 21:52:01 2014
+LSav Sun Apr 03 21:54:11 2005
 ~
-HMSP 20 100 100
-THMS 0 0 0
+HMSP 82 160 125
+THMS 3 2 0
 Cnd  0 0 0 0
 Sk 1 1 'acid blast'
 Sk 1 1 'acid rain'
 Sk 1 1 'age'
-Sk 1 1 'armor'
+Sk 75 1 'armor'
 Sk 1 1 'bless'
 Sk 1 1 'blindness'
 Sk 1 1 'blizzard'
@@ -75,7 +74,7 @@ Sk 1 1 'cancellation'
 Sk 1 1 'chain lightning'
 Sk 1 1 'channel'
 Sk 1 1 'charm person'
-Sk 1 1 'chill touch'
+Sk 38 1 'chill touch'
 Sk 1 1 'colour spray'
 Sk 1 1 'control weather'
 Sk 1 1 'cure blindness'
@@ -111,7 +110,7 @@ Sk 1 1 'light of truth'
 Sk 1 1 'lightning bolt'
 Sk 1 1 'locate life'
 Sk 1 1 'locate object'
-Sk 1 1 'magic missile'
+Sk 75 1 'magic missile'
 Sk 1 1 'mass invis'
 Sk 1 1 'nexus'
 Sk 1 1 'pass door'
@@ -147,12 +146,12 @@ Sk 1 1 'vision'
 Sk 1 1 'weaken'
 Sk 1 1 'word of recall'
 Sk 1 1 'wrath'
-Sk 40 1 'dagger'
+Sk 75 1 'dagger'
 Sk 1 1 'brew'
 Sk 1 1 'lore'
 Sk 100 1 'scan'
 Sk 1 1 'scrolls'
-Sk 1 1 'staves'
+Sk 37 1 'staves'
 Sk 1 1 'wands'
 Sk 50 1 'recall'
 Sk 1 1 'familiar'
@@ -173,10 +172,65 @@ Gr 'weather'
 End
 
 #O
-Vnum 1205
+Vnum 10135
 Nest 0
 Wear -1
-Cost 15
+Cost 23
+End
+
+#O
+Vnum 21
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3020
+Enchanted
+Nest 0
+ExtF 67
+Cond 85
+Wear 16
+Lev  5
+Cost 157
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1229
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 506
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 10129
+Nest 0
+Wear -1
+Cost 122
 End
 
 #END

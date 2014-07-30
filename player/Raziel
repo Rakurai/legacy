@@ -1,44 +1,46 @@
 #PLAYER
 Name Raziel~
 Id   1015855853
-LogO 1018736248
-Vers 13
+LogO 1060017797
+Vers 14
+Mexp 2
+Pass history~
 Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race vampire~
-Clan blackclaw~
-Sex  1
 Cla  7
 Levl 17
-Plyd 26162
+Tru  0
+Plyd 26431
 Back 13869
-Note 1017719776 1017719776 1017719776 1017719776 1017719776 1017758662 1017719776
+Note 1028910470 1028910470 1028910470 1028910470 1028910470 1028910470 1028910470
 Scro 22
-Room 4597
-HMS  293 293 218 218 271 271
+Room 3001
+HMS  293 218 271
 Gold 11
 Silv 3856
 Exp  29966
-PCkills 0
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
-Act  CDEFGHJLQS
-AfBy T
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
 FRes BM
 FVul NS
-Comm DEHNOX
+Plr  AHO
+Video 0
+Act  CDEFGHJLQS
+AfBy T
+Comm DENOX
 Revk 0
 Cgrp A
 Cnsr 0
-Pos  8
-Alig  -1000
-Hit   2
-Dam   1
-ACs 86 77 77 99
+Prac 0
+Trai 0
+Wimp 0
 Atrib 19 20 22 20 17 16
-AtMod 1 1 1 4 0 2
-Pass history~
 Afk {B[{CSat Apr 13 16:30:52 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl , Mystery of the One~
@@ -49,15 +51,11 @@ Aura ~
 TSex 1
 LLev 5
 Deit Azrael~
-Lsit CPE013399902481.cpe.net.cable.rogers.com~
-Ltim Sat Apr 13 14:59:49 2002
+Lsit ip68-0-216-52.ri.ri.cox.net~
+Ltim Fri Aug 09 11:27:34 2002
 ~
-LSav Sat Apr 13 17:17:28 2002
+LSav Mon Aug 04 13:23:17 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  AHO
 HMSP 289 218 271
 THMS 0 0 0
 Cnd  0 0 0 0

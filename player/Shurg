@@ -1,1504 +1,240 @@
 #PLAYER
 Name Shurg~
-Id   1000765838
-LogO 1027179576
+Id   1102276411
+LogO 1102276966
 Vers 14
 Mexp 2
 Pass aceventura~
-Desc A strange figure stands before you. His body looks frail
-and twiggish. His long greenish hair goes the length of
-of his back. His ears look as if they have been shaved
-down a little from their original growth. 
-
-He is dressed in a type of garb which you have never
-seen before in your lifetime. The black sleeves travel
-the length of his long arms. A bluish colored hood
-covers his head, only his glowing eyes showing.
-
-You look into his deep emerald green eyes and are
-transfixed by them. As you gaze deeper, your mind
-is flooded by images of death and destruction.
-
-His lips part slowly, "What you have seen will be 
-your future if you do not quit staring at me."
-~
-Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%q%Cc/%CG%j%CCmin.> ~
+Prom {W<{Y%h/%HH {G%m/%MM {P%v/%VV {Y%g {W%s {C%XTNL {V%aAlign{W>{x ~
 Race human~
-Clan kindred~
 Cla  6
-Levl 64
-Tru  91
-Plyd 647065
-Back 647041
-Note 1027107921 1026852497 1027144008 1027087211 1027146472 1027094615 1026852497
+Levl 2
+Tru  0
+Plyd 466
+Back 0
+Note 0 0 0 0 0 0 0
 Scro 22
-Room 25052
-HMS  1140 362 275
-Gold 1584
-Silv 1462
-Silver_in_bank 15408
-Gold_in_bank 5500
-Exp  64210
-PCkills  10
-PCkilled 6
-Akills   6
-Akilled  5
-PKRank   1
+Room 8543
+HMS  38 114 95
+Gold 6
+Silv 907
+Exp  3188
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
 Pos  4
-Alig 1000
-Spou Selesti~
+Alig -1000
 FImm 0
 FRes 0
-FVul O
-Plr  AFQT
-Video D
-Act  DEFGHJLQSTc
-AfBy Qcd
+FVul 0
+Plr  0
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
 Comm MNO
 Revk 0
 Cgrp A
-Cnsr B
-Prac 380
-Trai 16
+Cnsr AB
+Block_Remote 0
+Prac 3
+Trai 1
 Wimp 0
-Atrib 18 18 18 21 18 16
-SkillPnts  256
-QuestPnts  104
-Afk {B[{CFri Jul 19 09:58:35 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
-~
-Titl  Kalthalis, Bard of the {gDa{Wrkne{gss{x~
+Familiar 0
+Atrib 14 15 15 17 15 14
+Titl  Kalthalis, Initiate Bard{x~
 Immn ~
-Pnts 40
-Rank {RB{gL{cD~
+Pnts 47
+Rank ~
 Aura ~
 TSex 1
-LLev 179
-Deit {RV{Pe{Yg{Yi{Pt{Ra{x{x~
-Stus .~
-RmCt 6
-ExSk 1200
-Raff 911
-Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
-Ltim Sat Jul 20 09:57:45 2002
+LLev 0
+Deit Vegita~
+Lsit cpe-066-056-234-018.ec.rr.com~
+Ltim Sun Dec 05 14:55:00 2004
 ~
-LSav Sat Jul 20 10:39:36 2002
+LSav Sun Dec 05 15:02:46 2004
 ~
-HMSP 1111 704 719
-THMS 19 10 0
-Cnd  0 6 46 2
-Colr 3 33 1
-Colr 13 33 1
-Ignore shrug~
-Alias dispel c 'dispel magic'~
-Alias undo c 'undo spell'~
-Alias slow c slow~
-Alias curse c curse~
-Alias clna clan~
-Alias fire c 'faerie fire'~
-Alias cc c 'cure critical'~
-Alias st steal plat wan~
-Alias for forge sword The shortsword, {WS{Wh{ga{Wd{go{Ww{gb{Wl{ga{Wd{We{x~
-Alias hu hunt~
-Alias lore c identify~
-Alias hm c 'heat metal'~
-Alias fog c 'faerie fog'~
-Alias heat c 'heat metal'~
-Alias gas c 'gas breath'~
-Alias ki back~
-Alias dh c 'detect hidden'~
-Alias di c 'detect invis'~
-Query aadien~
-Sk 1 1 'acid breath'
-Sk 75 1 'acid rain'
-Sk 75 1 'age'
-Sk 85 1 'armor'
-Sk 87 1 'bless'
-Sk 80 1 'blindness'
-Sk 100 1 'blizzard'
-Sk 2 1 'call lightning'
-Sk 76 1 'calm'
-Sk 93 1 'cancellation'
-Sk 77 1 'change sex'
-Sk 1 1 'channel'
-Sk 75 1 'continual light'
-Sk 1 1 'control weather'
-Sk 77 1 'create food'
-Sk 1 1 'create parchment'
-Sk 1 1 'create rose'
-Sk 1 1 'create sign'
-Sk 76 1 'create spring'
-Sk 75 1 'create vial'
-Sk 1 1 'create water'
-Sk 100 1 'cure critical'
-Sk 1 1 'cure light'
-Sk 1 1 'cure serious'
-Sk 77 1 'curse'
-Sk 85 1 'dazzling light'
-Sk 75 1 'demonfire'
-Sk 1 1 'detect evil'
-Sk 2 1 'detect good'
-Sk 79 1 'detect hidden'
-Sk 81 1 'detect invis'
-Sk 1 1 'detect magic'
-Sk 2 1 'detect poison'
-Sk 1 1 'dispel evil'
-Sk 1 1 'dispel good'
-Sk 97 1 'dispel magic'
-Sk 97 1 'divine healing'
-Sk 77 1 'divine regeneration'
-Sk 78 1 'earthquake'
-Sk 75 1 'encampment'
-Sk 83 1 'enchant armor'
-Sk 85 1 'enchant weapon'
-Sk 75 1 'energy drain'
-Sk 94 1 'faerie fire'
-Sk 76 1 'faerie fog'
-Sk 1 1 'fire breath'
-Sk 1 1 'fireproof'
-Sk 82 1 'flameshield'
-Sk 75 1 'flamestrike'
-Sk 82 1 'fly'
-Sk 1 1 'floating disc'
-Sk 77 1 'frenzy'
-Sk 1 1 'frost breath'
-Sk 75 1 'gas breath'
-Sk 94 1 'gate'
-Sk 82 1 'giant strength'
-Sk 88 1 'haste'
-Sk 75 1 'heal'
-Sk 76 1 'heat metal'
-Sk 1 1 'holy word'
-Sk 89 1 'identify'
-Sk 75 1 'infravision'
-Sk 1 1 'know alignment'
-Sk 75 1 'light of truth'
-Sk 1 1 'lightning bolt'
-Sk 75 1 'lightning breath'
-Sk 83 1 'locate life'
-Sk 78 1 'locate object'
-Sk 1 1 'mass healing'
-Sk 2 1 'nexus'
-Sk 85 1 'pass door'
-Sk 78 1 'plague'
-Sk 77 1 'poison'
-Sk 2 1 'portal'
-Sk 1 1 'protect container'
-Sk 87 1 'protection evil'
-Sk 88 1 'protection good'
-Sk 1 1 'ray of truth'
-Sk 1 1 'recharge'
-Sk 97 1 'refresh'
-Sk 88 1 'regeneration'
-Sk 78 1 'remove alignment'
-Sk 75 1 'remove invisibility'
-Sk 75 1 'remove curse'
-Sk 95 1 'sanctuary'
-Sk 87 1 'shield'
-Sk 76 1 'shrink'
-Sk 95 1 'slow'
-Sk 75 1 'steel mist'
-Sk 86 1 'stone skin'
-Sk 78 1 'summon'
-Sk 84 1 'summon object'
-Sk 75 1 'sunray'
-Sk 79 1 'talon'
-Sk 1 1 'teleport'
-Sk 75 1 'teleport object'
-Sk 91 1 'undo spell'
-Sk 78 1 'vision'
-Sk 85 1 'weaken'
-Sk 81 1 'word of recall'
-Sk 100 1 'axe'
-Sk 100 1 'dagger'
+HMSP 30 109 109
+THMS 0 0 0
+Cnd  0 27 14 42
+Sk 75 1 'axe'
 Sk 1 1 'flail'
-Sk 76 1 'mace'
-Sk 89 1 'polearm'
-Sk 100 1 'sword'
-Sk 75 1 'brew'
-Sk 97 1 'backstab'
-Sk 93 1 'bash'
-Sk 100 1 'circle'
-Sk 100 1 'dodge'
-Sk 100 1 'enhanced damage'
-Sk 75 1 'envenom'
-Sk 100 1 'hand to hand'
-Sk 100 1 'parry'
-Sk 76 1 'trip'
-Sk 100 1 'second attack'
-Sk 100 1 'third attack'
-Sk 100 2 'dual wield'
-Sk 81 1 'hunt'
-Sk 100 1 'fast healing'
-Sk 80 1 'forge'
-Sk 80 1 'repair'
-Sk 75 1 'rotate'
-Sk 82 1 'haggle'
-Sk 78 1 'hide'
-Sk 79 1 'lore'
-Sk 95 1 'meditation'
-Sk 78 1 'peek'
-Sk 76 1 'pick lock'
+Sk 1 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'repair'
 Sk 100 1 'scan'
-Sk 79 1 'sneak'
-Sk 83 1 'steal'
-Sk 88 1 'sing'
-Sk 75 1 'scrolls'
-Sk 75 1 'staves'
+Sk 1 1 'sing'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
 Sk 1 1 'wands'
-Sk 75 1 'recall'
-Sk 57 1 'midnight'
-Sk 53 1 'shadow form'
-Sk 71 1 'align'
-Sk 100 1 'blur'
-Sk 100 1 'dual second'
+Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'bard basics'
-Gr 'attack'
-Gr 'benedictions'
-Gr 'creation'
-Gr 'detection'
-Gr 'draconian'
-Gr 'enchantment'
-Gr 'enhancement'
-Gr 'healing'
-Gr 'maladictions'
-Gr 'protective'
-Gr 'transportation'
-Gr 'weather'
-Affc 'regeneration'   0  64  29   0   0  268435456 1
-Affc 'slow'   0  64  28  -7   2  536870912 1
-Affc 'hide'   0  61  52   0   0      65536 1
+Affc 'blood moon'   0  60  52   3  18          0 1
+Affc 'blood moon'   0  58  52   5  19          0 1
 End
 
 #O
-Vnum 6
-Nest 0
-ExtF 1048577
-Wear 20
-Cost 1
-End
-
-#O
-Vnum 10170
-Nest 0
-Wear 7
-Cost 2000
-End
-
-#O
-Vnum 10167
-Nest 0
-Wear 4
-Cost 0
-Val  15 14 15 13 0
-End
-
-#O
-Vnum 25058
-Nest 0
-Wear 10
-Cost 4575
-End
-
-#O
-Vnum 25057
-Nest 0
-Wear 15
-Cost 3660
-End
-
-#O
-Vnum 25056
-Nest 0
-Wear 3
-Cost 3980
-End
-
-#O
-Vnum 25060
+Vnum 3716
 Nest 0
 Wear 0
-Cost 3980
-Affc 'dazzling light'   0  33  16   3  18          0 1
-Affc 'dazzling light'   0  38  16   3  19          0 1
+Cost 0
+Val  0 0 189 0 0
 End
 
 #O
-Vnum 25055
-Enchanted
+Vnum 3703
 Nest 0
-ExtF 262211
-Wear 2
-Lev  51
-Cost 4000
-Affc 'reserved'   1  40  -1  -2   9          0 1
-Affc 'reserved'   1  40  -1   1  26          0 1
-Affc 'reserved'   1  40  -1   1   2          0 1
-Affc 'reserved'   1  40  -1  -2  20          0 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
-Affc 'reserved'   1  40  -1  40  13          0 1
-End
-
-#O
-Vnum 25055
-Enchanted
-Nest 0
-ExtF 262211
-Wear 1
-Lev  51
-Cost 4000
-Affc 'reserved'   1  40  -1  40  13          0 1
-Affc 'enchant weapon'   1  91  -1   6  18          0 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-Affc 'reserved'   1  40  -1  -2  20          0 1
-Affc 'reserved'   1  40  -1   1   2          0 1
-Affc 'reserved'   1  40  -1   1  26          0 1
-Affc 'reserved'   1  40  -1  -2   9          0 1
-End
-
-#O
-Vnum 25059
-Nest 0
-Wear 8
-Cost 6000
-End
-
-#O
-Vnum 5608
-Nest 0
-Wear 14
-Cost 2000
-End
-
-#O
-Vnum 11913
-Nest 0
-ExtF 323
 Wear 5
 Cost 0
 End
 
 #O
-Vnum 3808
+Vnum 3719
 Nest 0
-Wear 12
+Wear 16
+Cost 350
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
 Cost 0
 End
 
 #O
-Vnum 7330
+Vnum 72
 Nest 0
-ExtF 262209
-Wear 13
-Cost 3000
+Wear -1
+Cost 30
 End
 
 #O
-Vnum 5610
+Vnum 73
 Nest 0
-ExtF 17301507
 Wear 6
-Cost 2000
+Cost 270
 End
 
 #O
-Vnum 10152
+Vnum 74
 Nest 0
-Wear 19
-Cost 5500
+Wear 3
+Cost 550
 End
 
 #O
-Vnum 11655
+Vnum 75
 Nest 0
-ExtF 262147
-Wear 9
-Cost 5400
+Wear 1
+Cost 620
 End
 
 #O
-Vnum 10152
+Vnum 76
 Nest 0
-Wear 16
-Cost 5500
+Wear 17
+Cost 550
 End
 
 #O
-Vnum 17005
+Vnum 77
 Nest 0
-Cond 98
-Wear 18
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
 Cost 200
 End
 
 #O
-Vnum 10166
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3716
 Nest 0
 Wear -1
-Cost 20
+Cost 0
+Val  0 0 194 0 0
 End
 
 #O
-Vnum 1345
+Vnum 73
 Nest 0
 Wear -1
-Cost 1000
+Cost 270
 End
 
 #O
-Vnum 4203
-Nest 1
-Wear -1
-Cost 1000
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
 End
 
 #O
-Vnum 16064
-Nest 1
-Wear -1
-Cost 0
+Vnum 75
+Nest 0
+Wear 2
+Cost 620
 End
 
 #O
-Vnum 16064
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 504
-Nest 1
-ExtF 3
-Cond 95
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 9909
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 9909
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 4590
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 4593
-Nest 1
-Wear -1
-Cost 2400
-End
-
-#O
-Vnum 10168
-Nest 1
-Name ring perseverance~
-ShD  {WR{gin{Wg of {GP{Her{cs{He{Gve{cr{Ha{Gn{cce{x~
-Desc A {Hj{Ga{Hde {xring lies here, humming softly.~
-Mat {Hj{Ga{Hde{x~
-ExtF 16777283
-Cond -1
-Wear -1
-Lev  25
-Cost 2200
-ExDe ring perseverance~ Awarded to the legendary wizard {CMageman{x on the Day of Endeavor,
-29th of the Month of Challenge, this ring is a symbol of the
-hardships faced by those willing to explore, learn, and grow
-in power whilst faced with impossible odds.
-~
-End
-
-#O
-Vnum 504
-Nest 1
-ExtF 3
-Cond 100
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 11670
-Nest 1
-ExtF 262146
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 3203
-Nest 1
-Wear -1
-Cost 40
-End
-
-#O
-Vnum 8201
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 17100
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 3138
+Vnum 76
 Nest 0
 Wear -1
-Cost 24
-Val  64 0 0 0 0
+Cost 550
 End
 
 #O
-Vnum 10445
+Vnum 77
 Nest 0
 Wear -1
 Cost 0
 End
 
 #O
-Vnum 5408
+Vnum 79
 Nest 0
 Wear -1
-Cost 0
+Cost 200
+Val  150 126 15 0 0
 End
 
 #O
-Vnum 5408
+Vnum 10126
 Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 3080
-Nest 0
-Wear -1
-Cost 800
-Spell 1 'heal'
-End
-
-#O
-Vnum 25016
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'protection evil'
-End
-
-#O
-Vnum 25015
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'pass door'
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'fly'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Val  15 119 102 115 132
-Spell 3 'regeneration'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Val  15 119 102 115 132
-Spell 3 'regeneration'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Val  15 119 102 115 132
-Spell 3 'regeneration'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Val  15 119 102 115 132
-Spell 3 'regeneration'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Val  15 119 102 115 132
-Spell 3 'regeneration'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Val  15 119 102 115 132
-Spell 3 'regeneration'
-End
-
-#O
-Vnum 25016
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'protection evil'
-End
-
-#O
-Vnum 25016
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'protection evil'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'fly'
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
-End
-
-#O
-Vnum 25081
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'steel mist'
-End
-
-#O
-Vnum 25081
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'steel mist'
-End
-
-#O
-Vnum 25084
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'detect good'
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'fly'
-End
-
-#O
-Vnum 25081
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'steel mist'
-End
-
-#O
-Vnum 25084
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'detect good'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'fly'
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 10166
-Nest 0
-Wear -1
-Cost 20
-Val  0 6 10 2 12
-End
-
-#O
-Vnum 4440
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
-End
-
-#O
-Vnum 25090
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 4471
-Nest 0
-Name token train liriel~
-ShD  {CA {Vt{Mo{Wk{Ve{Mn {Wfor {Pa {YT{WR{YA{WI{YN {Bfrom {WL{Ci{Br{Ci{Te{Wl{x~
-Desc {CA {Vt{Mo{Wk{Ve{Mn {Wfor {Pa {YT{WR{YA{WI{YN {Bfrom {WL{Ci{Br{Ci{Te{Wl{W lies here ...{G GRAB IT!{x~
-Mat {bmud{x~
-Wear -1
-Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
-~
-ExDe paw~ A very small, and unmistakeably feline, paw print.
-~
-ExDe print~ A very small, and unmistakeably feline, paw print.
-~
-End
-
-#L
-Vnum 1206
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name piggie cookie trivia liriel~
-ShD  {W({Ptrivia{W){g a {Ccute {Vpiggie {bcookie {gwith {Yp{beanut {Yb{butter {Ym{bud{x~
-Desc {W({Ptrivia{W){g A {Ccute {Vpiggie {bcookie {gwith {Yp{beanut {Yb{butter {Ym{bud{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1213
-Nest 0
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 0
-Name wild semi solid substance token urza legacy set~
-ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
-Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 0
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1215
-Nest 0
-Name cow cookie wild liriel~
-ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
-Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 20026
-Nest 0
-Wt   0
-Wear -1
-Cost 90000
-End
-
-#B
-Vnum 11792
-Nest 0
-ExtF 323
-Wt   150
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Shurg
-~
-End
-
-#B
-Vnum 11792
-Nest 0
-ExtF 259
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Shurg
-~
-End
-
-#B
-Vnum 10166
-Nest 0
-Wear -1
-Cost 20
-Val  0 6 10 2 9
-End
-
-#B
-Vnum 3201
-Nest 0
-Wear -1
-Cost 20
-End
-
-#B
-Vnum 10166
-Nest 0
-Wear -1
-Cost 20
-Val  0 6 10 2 12
-End
-
-#B
-Vnum 16041
-Nest 0
-Cond 96
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 16041
-Nest 0
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 14040
-Nest 0
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 10215
-Nest 0
-ExtF 64
-Wear -1
-Cost 10000
-Val  1 8 5 21 25
-End
-
-#B
-Vnum 10215
-Nest 0
-ExtF 64
-Wear -1
-Cost 10000
-Val  1 8 5 21 25
-End
-
-#B
-Vnum 14030
-Nest 0
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 14030
-Nest 0
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 7502
-Nest 0
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 3805
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 16001
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 17013
-Nest 1
-Wear -1
-Cost 50
-End
-
-#B
-Vnum 3805
-Nest 1
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 820
-Nest 0
-Wear -1
-Cost 2500
-End
-
-#B
-Vnum 7502
-Nest 0
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 4405
-Nest 1
-ExtF 64
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 10121
-Nest 1
-ExtF 16778307
-Wear -1
-Lev  91
-Cost 21
-ExDe owned by~ Shurg
-~
-End
-
-#B
-Vnum 1004
-Enchanted
-Nest 1
-Name sword The shortsword, Gladius~
-ShD  The shortsword, {BG{Bl{Ta{gd{Ti{Bu{Bs{x{x~
-Desc A sword is here, forged by Shurg's craftsmanship.~
-Mat platinum~
-ExtF 322
-Wt   91
-Wear -1
-Lev  90
-Cost 22
-Val  1 10 14 3 0
-Affc 'enchant weapon'   0  91  -1   6  18          0 1
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
-ExDe sword The shortsword, Gladius~ It is a marvellous sword, crafted from the finest platinum around.
-It was created in the Month of Endings by a master bard
-named Shurg.  Legend holds that this giant was a great weaponsmith.
-~
-End
-
-#B
-Vnum 1004
-Enchanted
-Nest 1
-Name sword The shortsword, Soulcutter~
-ShD  The shortsword, {PS{Po{Ru{Pl{Rc{Pu{Rt{Pt{Re{Rr{x{x~
-Desc A sword is here, forged by Shurg's craftsmanship.~
-Mat platinum~
-ExtF 67
-Wt   90
-Wear -1
-Lev  91
-Cost 22
-Val  1 10 15 3 4
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
-Affc 'enchant weapon'   0  91  -1   7  18          0 1
-ExDe sword The shortsword, Soulcutter~ It is a marvellous sword, crafted from the finest platinum around.
-It was created in the Month of Silence by a master bard
-named Shurg.  Legend holds that this elf was a great weaponsmith.
-~
-End
-
-#B
-Vnum 1004
-Enchanted
-Nest 1
-Name sword The shortsword, Stormbringer~
-ShD  The shortsword, {HS{Ht{To{Hr{Tm{Hb{Tr{Hi{Tn{Hg{Te{Tr{x{x~
-Desc A sword is here, forged by Shurg's craftsmanship.~
-Mat platinum~
-ExtF 67
-Wt   90
-Wear -1
-Lev  91
-Cost 15
-Val  1 10 15 3 2
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
-Affc 'enchant weapon'   0  91  -1   7  18          0 1
-ExDe sword The shortsword, Stormbringer~ It is a marvellous sword, crafted from the finest platinum around.
-It was created in the Month of Silence by a master bard
-named Shurg.  Legend holds that this elf was a great weaponsmith.
-~
-End
-
-#B
-Vnum 11722
-Nest 1
-Wear -1
-Cost 10100
-Val  105 11 4 119 0
-Spell 3 'sanctuary'
-End
-
-#B
-Vnum 14014
-Nest 1
-ExtF 17825857
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 14015
-Nest 1
-ExtF 1048641
-Wear -1
-Cost 15000
-End
-
-#B
-Vnum 14013
-Nest 1
-ExtF 1835010
-Wear -1
-Cost 3500
-End
-
-#B
-Vnum 13004
-Nest 1
-Wear -1
-Cost 3700
-End
-
-#B
-Vnum 11791
-Nest 1
-ExtF 259
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Shurg
-~
-End
-
-#B
-Vnum 14043
-Nest 1
-Wear -1
-Cost 12000
-End
-
-#B
-Vnum 10107
-Nest 1
-Wear -1
-Cost 28000
-End
-
-#B
-Vnum 13005
-Nest 1
-Wear -1
-Cost 4500
-End
-
-#B
-Vnum 13011
-Nest 1
-ExtF 3
-Wear -1
-Lev  91
-Cost 0
-ExDe owned by~ Shurg
-~
-End
-
-#B
-Vnum 17038
-Nest 1
-ExtF 1
-Wear -1
-Cost 250
-End
-
-#B
-Vnum 8227
-Enchanted
-Nest 1
-Wear -1
-Cost 0
-Affc 'reserved'   1  91  -1   8  19          0 1
-Affc 'reserved'   1  91  -1   8  18          0 1
-Affc 'reserved'   1  91  -1 150  12          0 1
-Affc 'reserved'   1  91  -1   1   4          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   2   2          0 1
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-End
-
-#B
-Vnum 11712
-Nest 1
-ExtF 3
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 11712
-Nest 1
-ExtF 3
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 4426
-Nest 1
-ExtF 64
-Wear -1
-Cost 6800
-End
-
-#B
-Vnum 4426
-Nest 1
-ExtF 64
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 17041
-Nest 1
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 10100
-Nest 1
-Wear -1
-Cost 32000
-End
-
-#B
-Vnum 1231
-Nest 1
-ExtF 262209
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 3204
-Nest 0
-Wear -1
-Cost 50
+Wear 7
+Cost 57
 End
 
 #END

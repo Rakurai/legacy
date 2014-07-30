@@ -1832,7 +1832,7 @@ enchanted bow~
 A bow with runes etched in it is on the floor.~
 mithril~
 weapon G AN
-polearm 5 4 pierce 0
+bow 5 4 pierce 0
 15 100 1000 P
 A
 18 2

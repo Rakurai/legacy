@@ -1,78 +1,77 @@
 #PLAYER
 Name Eminem~
 Id   989838892
-LogO 1019452873
-Vers 13
+LogO 1088202094
+Vers 14
 Mexp 2
+Pass bluerose~
 Prom %CH<%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin.> ~
 Race wolf~
 Clan order~
-Sex  1
 Cla  3
 Levl 57
-Plyd 134991
+Tru  0
+Plyd 136298
 Back 124801
-Note 1006933325 1004858601 1005475183 1019452300 1010027820 1019339809 0
+Note 1006933325 1004858601 1033946923 1019452300 1010027820 1034559854 0
 Scro 22
-Room 24455
-HMS  1841 1841 829 829 784 784
-Gold 21
-Silv 67
-Exp  89100
-PCkills 4
+Room 24458
+HMS  1841 929 784
+Gold 102
+Silv 17
+Exp  89039
+PCkills  5
 PCkilled 1
-Akills 5
-Akilled 1
-PKRank 2
-Spou Kasumi~
-Act  CDEFGHJLQSTc
-AfBy V
+Akills   5
+Akilled  1
+PKRank   2
+Pos  8
+Alig 167
+FImm 0
 FRes I
 FVul H
+Plr  AFOU
+Video 0
+Act  CDEFGHJLQSTc
+AfBy HNOTUVc
 Comm NOQ
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
 Prac 5
 Trai 2
-Save  -21
-Alig  375
-Hit   60
-Dam   61
-ACs -203 -199 -193 -175
-Wimp  368
+Wimp 368
+Familiar 0
 Atrib 20 18 18 20 21 18
-AtMod 2 6 8 4 15 1
-QuestPnts 27
-Pass bluerose~
+SkillPnts  6
+QuestPnts  32
+SQuestNext 8
 Afk {B[{CSun Jan  6 23:48:48 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {NHi! My n{Bam{Ne is....~
 Immn ~
 Pnts 45
-Rank {NG{Cu{Na~
+Rank {cC{gp{ct~
 Aura ~
 TSex 1
 LLev 34
 Deit {WL{Ci{Br{Ci{Te{Wl{x~
-Lsit naio55.interpac.net~
-Ltim Sun Apr 21 23:46:34 2002
+Lsit cpe-69-75-44-193.hawaii.rr.com~
+Ltim Fri Jun 25 18:19:44 2004
 ~
-LSav Mon Apr 22 00:21:13 2002
+LSav Fri Jun 25 18:21:34 2004
 ~
-MC 44
-Col 0 0 0 0 33 0 0 0 0 0 0 0 0 0 0 0 36 0 36 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  AFO
 HMSP 1191 339 784
 THMS 0 0 0
-Cnd  0 0 34 22
+Cnd  0 0 5 0
+Colr 0 32 1
+Colr 8 32 1
 Ignore nightowl~
 Ignore orlandu~
 Alias san c 'undo spell' sanc~
 Alias m c 'lightning breath'~
 Alias z c 'fire breath'~
+Alias wipe c 'dispel magic'~
 Query sundancer~
 Query kasumi~
 Query malenna~
@@ -86,7 +85,7 @@ Sk 75 1 'cancellation'
 Sk 1 1 'change sex'
 Sk 1 1 'channel'
 Sk 75 1 'curse'
-Sk 75 1 'dispel magic'
+Sk 76 1 'dispel magic'
 Sk 1 1 'divine regeneration'
 Sk 76 1 'energy drain'
 Sk 75 1 'fire breath'
@@ -145,8 +144,16 @@ Gr 'enhancement'
 Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
-Affc 'shield'   0  50  34 -20  17          0 1
-Affc 'haste'   0  58   1   4   2    2097152 1
+Affc 'giant strength'   0  98  88   6   1          0 1
+Affc 'armor'   0  10   0 -20  17          0 1
+Affc 'protection good'   0  53   0  -1  24      16384 1
+Affc 'protection evil'   0  52   0  -1  24       8192 1
+Affc 'haste'   0  57   8   4   2    2097152 1
+Affc 'regeneration'   0  55  18   0   0  268435456 1
+Affc 'fly'   0  54  50   0   0     524288 1
+Affc 'pass door'   0  56   3   0   0    1048576 1
+Affc 'sanctuary'   0  56   0   0   0        128 1
+Affc 'stone skin'   0  55  49 -40  17          0 1
 End
 
 #O
@@ -232,7 +239,7 @@ End
 #O
 Vnum 505
 Nest 0
-Cond 53
+Cond 47
 Wear 6
 Cost 0
 End
@@ -265,6 +272,7 @@ End
 Vnum 5604
 Nest 0
 ExtF 17301507
+Cond 96
 Wear 3
 Cost 1000
 End
@@ -337,7 +345,7 @@ Vnum 20006
 Nest 0
 ExtF 17039680
 Cond 95
-Wear -1
+Wear 5
 Cost 999
 End
 
@@ -400,14 +408,14 @@ End
 Vnum 5608
 Nest 0
 Cond 96
-Wear 14
+Wear -1
 Cost 2000
 End
 
 #O
 Vnum 5608
 Nest 0
-Wear 15
+Wear -1
 Cost 2000
 End
 
@@ -536,13 +544,6 @@ Cost 500
 End
 
 #O
-Vnum 11798
-Nest 0
-Wear -1
-Cost 500
-End
-
-#O
 Vnum 1212
 Nest 0
 Name Token Page Torn Book Knowledge Trivia Kazander~
@@ -611,6 +612,44 @@ Nest 0
 ExtF 17302019
 Wear -1
 Cost 1000
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24483
+Nest 0
+Wear -1
+Cost 1
+Spell 3 'armor'
+End
+
+#O
+Vnum 24495
+Nest 0
+Wear 15
+Cost 6000
+End
+
+#O
+Vnum 24495
+Nest 0
+Wear 14
+Cost 6000
 End
 
 #L

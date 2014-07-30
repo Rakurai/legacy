@@ -1,13 +1,12 @@
 #PLAYER
 Name Zela~
 Id   990933359
-LogO 1024382445
+LogO 1057794494
 Vers 14
 Mexp 2
 Pass ICH7Omaf~
 Prom %CW<%CC%h%CW/%CC%H%CWhp %CG%m%CW/%CG%M%CWma %CB%v%CWmv [%Cg%e%CW] %CR%X%CW [%Y%z%W]> ~
 Race human~
-Clan kindred~
 Cla  3
 Levl 55
 Tru  0
@@ -15,8 +14,8 @@ Plyd 79589
 Back 0
 Note 1016418144 1016418144 1016418144 1016418144 1016418144 1016418144 1016418144
 Scro 22
-Room 1223
-HMS  1609 570 753
+Room 3001
+HMS  1474 650 753
 Gold 821
 Silv 46
 Silver_in_bank 37000
@@ -32,7 +31,7 @@ Alig -1000
 FImm 0
 FRes 0
 FVul 0
-Plr  CEFO
+Plr  CEFHO
 Video 0
 Act  CDEFGHJLSTc
 AfBy DFHUYZ
@@ -45,7 +44,6 @@ Trai 8
 Wimp 50
 Atrib 18 18 18 17 18 10
 QuestPnts  23
-QpDonated  5
 Afk {B[{CFri Jul 27 19:32:58 2001{B] {C{CA{Tuto-{CA{Tfk by {GL{Be{Nga{Bc{Gy{x
 ~
 Titl  draws {Rblood{x across her {cb{gl{ca{gd{ce{W.  Deal.{x~
@@ -60,7 +58,7 @@ Deit {gKaz{can{gder{g the {GGreatest {BI{Cm{Bm{g of {VAll {WT{Yi{Wm{Ye{x~
 Lsit 12.80.27.119~
 Ltim Tue Jun 18 01:37:32 2002
 ~
-LSav Tue Jun 18 01:40:45 2002
+LSav Wed Jul 09 19:48:14 2003
 ~
 HMSP 979 330 753
 THMS 0 0 0
@@ -138,16 +136,16 @@ Gr 'enhancement'
 Gr 'maladictions'
 Gr 'protective'
 Gr 'weather'
-Affc 'blood moon'   0  98  94   5  18          0 1
-Affc 'blood moon'   0  99  94   8  19          0 1
-Affc 'pass door'   0  97  19   0   0    1048576 1
-Affc 'sanctuary'   0  98  10   0   0        128 4
-Affc 'divine regeneration'   0 100  94   0   0   33554432 4
-Affc 'steel mist'   0  97  30 -10  17   16777216 1
-Affc 'shield'   0  99 102 -20  17          0 1
-Affc 'armor'   0 100  18 -20  17          0 1
-Affc 'bless'   0  96 100 -12  24          0 1
 Affc 'bless'   0  99 100  12  18          0 1
+Affc 'bless'   0  96 100 -12  24          0 1
+Affc 'armor'   0 100  18 -20  17          0 1
+Affc 'shield'   0  99 102 -20  17          0 1
+Affc 'steel mist'   0  97  30 -10  17   16777216 1
+Affc 'divine regeneration'   0 100  94   0   0   33554432 4
+Affc 'sanctuary'   0  98  10   0   0        128 4
+Affc 'pass door'   0  97  19   0   0    1048576 1
+Affc 'blood moon'   0  99  94   8  19          0 1
+Affc 'blood moon'   0  98  94   5  18          0 1
 End
 
 #O
@@ -251,9 +249,9 @@ Cond 91
 Wear -1
 Lev  28
 Cost 5000
-Affc 'reserved'   1  26  -1 -10  17          0 1
-Affc 'enchant weapon'   1  55  -1   5  18          0 1
 Affc 'enchant weapon'   1  55  -1   5  19          0 1
+Affc 'enchant weapon'   1  55  -1   5  18          0 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
 End
 
 #O
@@ -265,9 +263,9 @@ Cond 88
 Wear -1
 Lev  29
 Cost 5000
-Affc 'reserved'   1  26  -1 -10  17          0 1
-Affc 'enchant weapon'   1  55  -1   5  18          0 1
 Affc 'enchant weapon'   1  55  -1   5  19          0 1
+Affc 'enchant weapon'   1  55  -1   5  18          0 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
 End
 
 #O
@@ -504,11 +502,11 @@ Cond 99
 Wear -1
 Lev  52
 Cost 47500
-Affc 'reserved'   4  45  -1   0   0         32 1
-Affc 'reserved'   3  45  -1   0   0        512 1
-Affc 'enchant weapon'   1  73  -1   2  19          0 1
-Affc 'enchant weapon'   0  73  -1   2  18          0 1
 Affc 'enchant armor'   1  73  -1  -1  17          0 1
+Affc 'enchant weapon'   0  73  -1   2  18          0 1
+Affc 'enchant weapon'   1  73  -1   2  19          0 1
+Affc 'reserved'   3  45  -1   0   0        512 1
+Affc 'reserved'   4  45  -1   0   0         32 1
 End
 
 #O
@@ -764,14 +762,6 @@ Vnum 25055
 Nest 0
 Cond 93
 Wear 1
-Cost 4000
-End
-
-#O
-Vnum 25060
-Nest 0
-Cond 95
-Wear 0
 Cost 4000
 End
 

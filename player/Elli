@@ -1,138 +1,164 @@
 #PLAYER
 Name Elli~
 Id   1026812481
-LogO 1027150491
+LogO 1105578749
 Vers 14
 Mexp 2
 Pass nobel~
+Desc i like my NEON BLUE HAIR
+~
 Prom {Y%h/%Hhp {G%m/%Mmana {P%v/%Vstm {Y%g{W/%s (%r) {P%Xtnl {Y%aAlign {G%q{W/%j{x ~
 Race human~
 Cla  1
-Levl 13
-Tru  0
-Plyd 76444
-Back 39746
-Note 1025818974 0 0 0 0 0 1026831915
+Levl 51
+Plyd 588349
+Back 576450
+Note 1104809664 1103018587 1102756446 1103022907 1103064043 0 1026831915
 Scro 22
-Room 3054
-HMS  174 250 170
-Gold 0
-Silv 126
-Silver_in_bank 4262
-Gold_in_bank 503
-Exp  13791
+Room 8543
+HMS  716 817 415
+Gold 2703
+Silv 2251
+Silver_in_bank 489
+Gold_in_bank 8103
+Exp  51010
 PCkills  0
-PCkilled 0
+PCkilled 1
 Akills   0
 Akilled  0
 PKRank   0
 Pos  4
-Alig -1000
+Alig 494
+Ptnr Nephlite~
 FImm 0
 FRes 0
 FVul 0
-Plr  AU
+Plr  AH
 Video D
-Act  CDEFGHJLQSc
+Act  CDEFGHJLSc
 AfBy 0
-Comm NO
+Comm NOa
 Revk 0
-Cgrp A
-Cnsr AB
-Prac 2
-Trai 1
+Cgrp AI
+Cnsr A
+Block_Remote 0
+Prac 92
+Trai 3
 Wimp 0
-Atrib 18 15 21 15 18 14
-Afk {B[{CSat Jul 20 02:24:55 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Familiar 0
+Atrib 18 18 21 18 18 18
+RolePnts   1
+QuestPnts  4
+Afk {B[{CTue Jan  4 00:10:18 2005{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  ({VNewbie Aura{x)~
+Titl  Night Guardian Of The Sahra Angels~
 Immn ~
 Pnts 40
-Rank ~
+Rank {NA{CS{Nt~
 Aura ~
 TSex 2
-LLev 19
+LLev 163
 Deit Kenneth~
-Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
-Ltim Fri Jul 19 23:37:32 2002
+Lsit cpe-066-056-239-218.ec.rr.com~
+Ltim Tue Jan 04 01:13:19 2005
 ~
-LSav Sat Jul 20 02:34:51 2002
+LSav Wed Jan 12 20:12:29 2005
 ~
-HMSP 155 203 170
+HMSP 646 627 415
 THMS 0 0 0
-Cnd  0 0 20 17
+Cnd  0 0 1 1
+Alias cc c 'cure critical'~
+Alias ff c 'faerie fire'~
+Alias slow c slow~
 Sk 1 1 'acid rain'
 Sk 1 1 'age'
-Sk 75 1 'armor'
-Sk 75 1 'bless'
-Sk 75 1 'blindness'
+Sk 90 1 'armor'
+Sk 85 1 'bless'
+Sk 88 1 'blindness'
 Sk 1 1 'blizzard'
-Sk 1 1 'call lightning'
-Sk 1 1 'calm'
-Sk 1 1 'cancellation'
+Sk 80 1 'call lightning'
+Sk 75 1 'calm'
+Sk 71 1 'cancellation'
 Sk 1 1 'channel'
-Sk 1 1 'control weather'
-Sk 75 1 'cure blindness'
-Sk 77 1 'cure critical'
-Sk 75 1 'cure disease'
-Sk 78 1 'cure light'
-Sk 1 1 'cure poison'
-Sk 77 1 'cure serious'
-Sk 1 1 'curse'
-Sk 1 1 'dispel magic'
+Sk 71 1 'continual light'
+Sk 75 1 'control weather'
+Sk 92 1 'create food'
+Sk 71 1 'create parchment'
+Sk 74 1 'create rose'
+Sk 71 1 'create sign'
+Sk 71 1 'create spring'
+Sk 71 1 'create vial'
+Sk 71 1 'create water'
+Sk 78 1 'cure blindness'
+Sk 100 1 'cure critical'
+Sk 76 1 'cure disease'
+Sk 82 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 81 1 'cure serious'
+Sk 89 1 'curse'
+Sk 75 1 'dispel magic'
 Sk 1 1 'divine healing'
 Sk 1 1 'divine regeneration'
-Sk 1 1 'energy drain'
-Sk 75 1 'faerie fire'
-Sk 1 1 'faerie fog'
+Sk 72 1 'encampment'
+Sk 79 1 'energy drain'
+Sk 89 1 'faerie fire'
+Sk 71 1 'faerie fog'
 Sk 75 1 'fireproof'
 Sk 1 1 'flameshield'
-Sk 1 1 'fly'
-Sk 1 1 'frenzy'
-Sk 1 1 'gate'
-Sk 1 1 'giant strength'
-Sk 1 1 'haste'
-Sk 1 1 'heal'
-Sk 1 1 'holy word'
-Sk 75 1 'infravision'
-Sk 1 1 'lightning bolt'
-Sk 1 1 'mass healing'
-Sk 1 1 'nexus'
-Sk 1 1 'pass door'
-Sk 1 1 'plague'
-Sk 75 1 'poison'
-Sk 1 1 'portal'
-Sk 75 1 'protection evil'
-Sk 75 1 'protection good'
-Sk 75 1 'refresh'
-Sk 1 1 'regeneration'
-Sk 1 1 'remove alignment'
-Sk 1 1 'remove invisibility'
-Sk 1 1 'remove curse'
-Sk 1 1 'sanctuary'
-Sk 1 1 'shield'
-Sk 1 1 'slow'
-Sk 75 1 'steel mist'
-Sk 1 1 'stone skin'
-Sk 1 1 'summon'
+Sk 82 1 'fly'
+Sk 71 1 'floating disc'
+Sk 75 1 'frenzy'
+Sk 75 1 'gate'
+Sk 87 1 'giant strength'
+Sk 88 1 'haste'
+Sk 75 1 'heal'
+Sk 71 1 'holy word'
+Sk 77 1 'infravision'
+Sk 100 1 'lightning bolt'
+Sk 75 1 'mass healing'
+Sk 71 1 'nexus'
+Sk 71 1 'pass door'
+Sk 81 1 'plague'
+Sk 82 1 'poison'
+Sk 71 1 'portal'
+Sk 83 1 'protection evil'
+Sk 77 1 'protection good'
+Sk 87 1 'refresh'
+Sk 83 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 77 1 'remove curse'
+Sk 86 1 'sanctuary'
+Sk 81 1 'shield'
+Sk 97 1 'slow'
+Sk 71 1 'starve'
+Sk 76 1 'steel mist'
+Sk 77 1 'stone skin'
+Sk 75 1 'summon'
 Sk 1 1 'summon object'
 Sk 1 1 'talon'
-Sk 1 1 'teleport'
+Sk 76 1 'teleport'
 Sk 1 1 'teleport object'
-Sk 1 1 'undo spell'
-Sk 1 1 'weaken'
-Sk 1 1 'word of recall'
-Sk 81 1 'dagger'
-Sk 1 1 'mace'
+Sk 71 1 'undo spell'
+Sk 79 1 'weaken'
+Sk 71 1 'word of recall'
+Sk 100 1 'dagger'
+Sk 75 1 'mace'
+Sk 8 1 'shield block'
 Sk 75 1 'scribe'
+Sk 96 1 'second attack'
+Sk 1 1 'third attack'
+Sk 2 1 'languages'
 Sk 100 1 'scan'
 Sk 73 1 'scrolls'
-Sk 1 1 'staves'
-Sk 1 1 'wands'
-Sk 50 1 'recall'
+Sk 75 1 'staves'
+Sk 75 1 'wands'
+Sk 75 1 'recall'
+Sk 72 1 'familiar'
 Gr 'rom basics'
 Gr 'cleric basics'
 Gr 'benedictions'
+Gr 'creation'
 Gr 'curative'
 Gr 'enhancement'
 Gr 'healing'
@@ -143,357 +169,365 @@ Gr 'weather'
 End
 
 #O
-Vnum 3704
-Nest 0
-Cond 84
-Wear 11
-Cost 0
-End
-
-#O
-Vnum 3162
-Nest 0
-Wear -1
-Cost 500
-End
-
-#O
-Vnum 72
-Nest 0
-Wear -1
-Cost 30
-End
-
-#O
-Vnum 79
-Nest 0
-Wear -1
-Cost 200
-Val  150 150 10 0 0
-End
-
-#O
-Vnum 77
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 75
-Nest 0
-Cond 75
-Wear -1
-Cost 620
-End
-
-#O
-Vnum 74
-Nest 0
-Wear 4
-Cost 550
-End
-
-#O
-Vnum 3705
+Vnum 6511
 Nest 0
 Cond 93
-Wear 3
-Cost 72
+Wear 2
+Cost 460
 End
 
 #O
-Vnum 3706
+Vnum 16085
 Nest 0
-Cond 99
-Wear 6
-Cost 72
+Cond 88
+Wear 15
+Cost 1900
 End
 
 #O
-Vnum 3708
+Vnum 16085
 Nest 0
-Cond 92
-Wear -1
-Cost 72
-End
-
-#O
-Vnum 3724
-Nest 0
-Cond 96
-Wear 12
-Cost 100
-End
-
-#O
-Vnum 3712
-Nest 0
-Wear -1
-Cost 72
+Cond 75
+Wear 14
+Cost 1900
 End
 
 #O
 Vnum 10133
 Nest 0
+Cond 79
 Wear 8
 Cost 120
 End
 
 #O
-Vnum 10135
+Vnum 4581
 Nest 0
-Cond 96
-Wear 9
-Cost 23
-End
-
-#O
-Vnum 16084
-Nest 0
-Cond 82
-Wear 2
-Cost 0
-End
-
-#O
-Vnum 10128
-Nest 0
-Cond 79
+Cond 69
 Wear 17
-Cost 0
+Cost 1000
 End
 
 #O
-Vnum 3032
+Vnum 6505
 Nest 0
-Wear -1
-Cost 9
+Cond 80
+Wear 5
+Cost 2900
 End
 
 #O
-Vnum 10126
+Vnum 6512
+Nest 0
+Cond 76
+Wear 9
+Cost 2000
+End
+
+#O
+Vnum 1612
+Nest 0
+Cond 81
+Wear 11
+Cost 1530
+End
+
+#O
+Vnum 3112
 Nest 0
 Wear 7
-Cost 57
+Cost 660
 End
 
 #O
-Vnum 119
+Vnum 3115
 Nest 0
-Name food a slice of burnt toast~
-ShD  a slice of burnt toast~
-Desc A slice of burnt toast{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  26 52 0 0 0
-ExDe chef~ This food was created by Disman.
-~
-ExDe food~ It looks delicious.
-~
+Cond 74
+Wear 10
+Cost 660
 End
 
 #O
-Vnum 119
-Nest 0
-Name food a can of SPAM!!!~
-ShD  a can of SPAM!!!~
-Desc A can of SPAM!!!{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  26 52 0 0 0
-ExDe chef~ This food was created by Disman.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 0
-Name food a delicious cheesestick~
-ShD  a delicious {Ycheesestick{x~
-Desc A delicious {Ycheesestick{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  26 52 0 0 0
-ExDe chef~ This food was created by Disman.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 0
-Name food a slice of burnt toast~
-ShD  a slice of burnt toast~
-Desc A slice of burnt toast{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  26 52 0 0 0
-ExDe chef~ This food was created by Disman.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 0
-Name food a delicious cheesestick~
-ShD  a delicious {Ycheesestick{x~
-Desc A delicious {Ycheesestick{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  26 52 0 0 0
-ExDe chef~ This food was created by Disman.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 0
-Name food a can of SPAM!!!~
-ShD  a can of SPAM!!!~
-Desc A can of SPAM!!!{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  26 52 0 0 0
-ExDe chef~ This food was created by Disman.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 0
-Name food a Magic Mushroom~
-ShD  a Magic Mushroom~
-Desc A Magic Mushroom{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  26 52 0 0 0
-ExDe chef~ This food was created by Disman.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 10212
-Nest 0
-ExtF 0
-Cond 98
-Wear 1
-Cost 0
-End
-
-#O
-Vnum 3021
-Nest 0
-Wear -1
-Cost 250
-End
-
-#O
-Vnum 3066
-Nest 0
-Wear -1
-Cost 430
-End
-
-#O
-Vnum 3052
-Nest 0
-Wear -1
-Cost 112
-End
-
-#O
-Vnum 3021
-Nest 0
-Wear -1
-Cost 250
-End
-
-#O
-Vnum 3066
-Nest 0
-Wear -1
-Cost 430
-End
-
-#O
-Vnum 3052
-Nest 0
-Wear -1
-Cost 112
-End
-
-#O
-Vnum 3066
-Nest 0
-Cond 86
-Wear 5
-Cost 430
-End
-
-#O
-Vnum 3052
-Nest 0
-Cond 84
-Wear 15
-Cost 112
-End
-
-#O
-Vnum 9061
-Nest 0
-Cond 84
-Wear 14
-Cost 310
-End
-
-#O
-Vnum 9062
-Nest 0
-Cond 90
-Wear 13
-Cost 310
-End
-
-#O
-Vnum 3021
+Vnum 9924
 Nest 0
 Cond 88
-Wear -1
-Cost 250
-End
-
-#O
-Vnum 3020
-Nest 0
-Cond 86
-Wear -1
-Cost 157
-End
-
-#O
-Vnum 4588
-Nest 0
 Wear 0
-Cost 400
+Cost 500
+Val  0 0 -1 0 0
+End
+
+#O
+Vnum 29905
+Nest 0
+Cond 72
+Wear 6
+Cost 10000
+End
+
+#O
+Vnum 4594
+Nest 0
+Cond 76
+Wear 1
+Cost 8000
+End
+
+#O
+Vnum 4595
+Nest 0
+Cond 85
+Wear 13
+Cost 8000
+End
+
+#O
+Vnum 29903
+Nest 0
+Cond 70
+Wear 4
+Cost 3000
+End
+
+#O
+Vnum 29903
+Nest 0
+Cond 78
+Wear 3
+Cost 3000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 64 10 0 0
+End
+
+#O
+Vnum 9590
+Enchanted
+Nest 0
+Wear -1
+Cost 380
+Affc 'reserved'   1   0  -1  -1   4          0 1
+End
+
+#O
+Vnum 29904
+Nest 0
+Cond 93
+Wear 12
+Cost 8000
+End
+
+#O
+Vnum 4579
+Nest 0
+Cond 74
+Wear 18
+Cost 2800
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 7613
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 7614
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#O
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#O
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#O
+Vnum 29901
+Nest 0
+Cond 83
+Wear 16
+Cost 0
 End
 
 #O
@@ -505,96 +539,2129 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 4572
-Nest 0
-Cond 99
-Wear 18
-Cost 1200
-End
-
-#O
-Vnum 4583
+Vnum 8652
 Nest 0
 Wear -1
-Cost 1200
+Cost 10
+Spell 3 'fly'
 End
 
 #O
-Vnum 4574
+Vnum 29904
 Nest 0
 Wear -1
-Cost 2200
+Cost 8000
 End
 
 #O
-Vnum 1603
-Nest 0
-Cond 94
-Wear 16
-Cost 700
-End
-
-#O
-Vnum 4583
+Vnum 8652
 Nest 0
 Wear -1
-Cost 1200
+Cost 10
+Spell 3 'fly'
 End
 
 #O
-Vnum 4583
+Vnum 10170
 Nest 0
 Wear -1
-Cost 1200
+Cost 2000
 End
 
 #O
-Vnum 4610
+Vnum 8652
 Nest 0
 Wear -1
-Cost 700
+Cost 10
+Spell 3 'fly'
 End
 
-#O
-Vnum 4610
+#L
+Vnum 404
 Nest 0
 Wear -1
-Cost 700
+Cost 0
 End
 
-#O
-Vnum 4583
+#L
+Vnum 4588
+Nest 0
+Cond 92
+Wear -1
+Cost 400
+End
+
+#L
+Vnum 16074
+Enchanted
+Nest 0
+Wt   75
+Cond 66
+Wear -1
+Cost 2000
+Affc 'reserved'   1  20  -1   1  18          0 1
+Affc 'reserved'   1  20  -1   3  19          0 1
+End
+
+#L
+Vnum 8652
 Nest 0
 Wear -1
-Cost 1200
+Cost 10
+Spell 3 'fly'
 End
 
-#O
-Vnum 4583
+#L
+Vnum 8652
 Nest 0
 Wear -1
-Cost 1200
+Cost 10
+Spell 3 'fly'
 End
 
-#O
-Vnum 4589
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Enchanted
+Nest 0
+Wear -1
+Cost 10
+Val  14 82 84 74 119
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 66 15 0 0
+End
+
+#L
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 150 10 0 0
+End
+
+#L
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#L
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 150 10 0 0
+End
+
+#L
+Vnum 2410
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#L
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+Val  64 64 10 0 0
+End
+
+#L
+Vnum 4588
+Nest 0
+Cond 93
+Wear -1
+Cost 400
+End
+
+#L
+Vnum 29905
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#L
+Vnum 29905
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 9590
+Nest 0
+Wear -1
+Cost 380
+End
+
+#L
+Vnum 3033
+Nest 0
+Wear -1
+Cost 30
+End
+
+#L
+Vnum 3365
+Nest 1
+Wear -1
+Cost 640
+End
+
+#L
+Vnum 3364
+Nest 1
+Wear -1
+Cost 1280
+End
+
+#L
+Vnum 4576
+Enchanted
+Nest 1
+Wt   1
+Wear -1
+Cost 2000
+Affc 'reserved'   1  20  -1   1  19          0 1
+Affc 'reserved'   1  20  -1   1  18          0 1
+Affc 'reserved'   1  20  -1   2   5          0 1
+Affc 'reserved'   1  20  -1   2   3          0 1
+End
+
+#L
+Vnum 2404
+Nest 1
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 3008
+Nest 1
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3033
+Nest 0
+Wear -1
+Cost 30
+End
+
+#L
+Vnum 17326
+Nest 1
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3044
+Nest 1
+Cond 87
+Wear -1
+Cost 320
+Spell 3 'magic missile'
+End
+
+#L
+Vnum 10134
+Nest 1
+Cond 97
+Wear -1
+Cost 120
+End
+
+#L
+Vnum 2406
+Nest 1
+Wear -1
+Cost 540
+Spell 3 'burning hands'
+End
+
+#L
+Vnum 8918
+Nest 1
+Wear -1
+Cost 150
+Spell 3 'cure light'
+End
+
+#L
+Vnum 8919
+Nest 1
+Wear -1
+Cost 430
+Spell 3 'poison'
+End
+
+#L
+Vnum 8917
+Nest 1
+Wear -1
+Cost 250
+Spell 3 'detect magic'
+End
+
+#L
+Vnum 8919
+Nest 1
+Wear -1
+Cost 430
+Spell 3 'poison'
+End
+
+#L
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#L
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#L
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 80
+Nest 1
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 73
+Nest 1
+Wear -1
+Cost 270
+End
+
+#L
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 75
+Nest 1
+Wear -1
+Cost 620
+End
+
+#L
+Vnum 29905
+Nest 0
+Wear -1
+Cost 10000
+End
+
+#L
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29901
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#L
+Vnum 29900
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 4573
+Nest 0
+Wear -1
+Cost 1800
+End
+
+#L
+Vnum 4590
+Nest 0
+Wear -1
+Cost 600
+End
+
+#L
+Vnum 3168
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 3167
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#L
+Vnum 3166
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 3165
+Nest 0
+Wear -1
+Cost 750
+End
+
+#L
+Vnum 3164
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 3163
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 3162
 Nest 0
 Wear -1
 Cost 500
 End
 
-#O
-Vnum 4582
+#L
+Vnum 8652
 Nest 0
 Wear -1
-Cost 1200
+Cost 10
+Spell 3 'fly'
 End
 
-#O
-Vnum 4589
+#L
+Vnum 8652
 Nest 0
 Wear -1
-Cost 500
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 3085
+Nest 0
+Wear -1
+Cost 390
+Spell 1 'cure critical'
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a can of SPAM!!!~
+ShD  a can of SPAM!!!~
+Desc A can of SPAM!!!{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  13 26 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Disman.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  13 26 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Disman.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 119
+Nest 0
+Name food a Magic Mushroom~
+ShD  a Magic Mushroom~
+Desc A Magic Mushroom{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  15 30 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Elli.
+~
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Enchanted
+Nest 0
+Wear -1
+Cost 10
+Val  12 82 84 74 119
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 10157
+Nest 0
+Wear -1
+Cost 25
+End
+
+#L
+Vnum 17104
+Nest 0
+Wear -1
+Cost 170
+End
+
+#L
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#L
+Vnum 10170
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 17106
+Nest 0
+Wear -1
+Cost 133
+End
+
+#L
+Vnum 10170
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#L
+Vnum 7603
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29902
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 9513
+Nest 0
+Wear -1
+Cost 490
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 29903
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 29904
+Nest 0
+Wear -1
+Cost 8000
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 29902
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 29902
+Nest 0
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 9922
+Nest 0
+Cond 95
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name teotwawki wild token~
+ShD  {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Desc {PT{Ye{Po{Y'{Ps {C***Sparkling***{B W{Yi{Wl{Cd {BT{Co{Bk{Ce{Bn{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 24410
+Nest 1
+Wear -1
+Cost 3000
+End
+
+#L
+Vnum 1213
+Nest 1
+Name black hilted sword doomgiver trading card hidden token Montrey~
+ShD  {Wa {cblack hilted {gs{Wwo{gr{Wd called {g"{TD{co{Tom{cg{Ti{cve{Tr{g" {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+ExtF 17563987
+Wear -1
+Cost 0
+ExDe black hilted sword doomgiver trading card~ Aptly named, Doomgiver has the power to call fate upon your enemy,
+mortal and immortal alike.  Magical powers aside, though, its fine
+mottled steel lays waste to opponents in combat.
+~
+End
+
+#L
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name hidden token ball power vegita~
+ShD  A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Desc A {VH{gi{WD{gd{WE{Vn{W ball of {PV{Pe{Yg{Yi{Pt{Pa{W's {BS{Na{Bi{Ny{Ba{Nn {YP{Po{Pw{Ye{Pr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
 End
 
 #END

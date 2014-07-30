@@ -1,0 +1,78 @@
+#PLAYER
+Name Mrkohdee~
+Id   1065199928
+LogO 1065284753
+Vers 14
+Mexp 0
+Pass kohdee~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Cla  2
+Levl 1
+Tru  0
+Plyd 2509
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  20 100 100
+Gold 0
+Silv 0
+Exp  1753
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig 0
+FImm 0
+FRes BM
+FVul NS
+Plr  HLU
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 5
+Trai 3
+Wimp 0
+Atrib 16 16 16 18 12 14
+Afk {B[{CFri Oct  3 13:21:16 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 20
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Urza~
+Lsit 172.161.240.214~
+Ltim Sat Oct 04 11:50:17 2003
+~
+LSav Sat Oct 04 12:25:53 2003
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 42 1 'dagger'
+Sk 100 1 'scan'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'illusion'
+End
+
+#END

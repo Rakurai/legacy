@@ -574,15 +574,17 @@ skirt crystal~
 {MCrystal Skirt{x~
 A nice leather skirt with crystal plates on it reflects the sunlight.~
 crystal~
-armor AGY AF
+armor AGSY AF
 25 24 23 20 0
 93 20 8300 P
 A
-12 95 
+12 100 
 A
-18 6 
+13 50
 A
-19 6 
+18 6
+A
+19 6
 A
 24 -5 
 

@@ -1,0 +1,226 @@
+#PLAYER
+Name Ilthond~
+Id   1067278970
+LogO 1067283177
+Vers 14
+Mexp 1
+Pass edmund36~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Cla  2
+Levl 2
+Tru  0
+Plyd 3765
+Back 0
+Note 0 0 0 0 1057767906 0 0
+Scro 22
+Room 3001
+HMS  23 105 10
+Gold 0
+Silv 18
+Exp  4507
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -940
+FImm 0
+FRes B
+FVul Z
+Plr  MU
+Video 0
+Act  CDFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 7
+Trai 0
+Wimp 5
+Atrib 13 17 16 20 12 12
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 61
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Email yewkuan@singnet.com.sg~
+Deit Kenneth~
+Lsit 202.156.131.152~
+Ltim Mon Oct 27 14:32:18 2003
+~
+LSav Mon Oct 27 14:32:57 2003
+~
+HMSP 33 107 106
+THMS 0 0 0
+Cnd  0 0 30 0
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 43 1 'dagger'
+Sk 1 1 'mace'
+Sk 1 1 'sword'
+Sk 1 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'fast healing'
+Sk 1 1 'hide'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+Gr 'enchantment'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 148 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Cond 92
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Cond 99
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3723
+Nest 0
+Wear -1
+Cost 4
+Val  0 0 18 0 0
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#END

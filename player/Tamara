@@ -1,78 +1,93 @@
 #PLAYER
 Name Tamara~
 Id   1018502525
-LogO 1026633659
+LogO 1114212264
 Vers 14
 Mexp 2
 Pass wishes~
 Desc A beautiful angel stands before you... with a dagger in one hand and a fireball in the other.  Play nice.
 ~
-Prom %CV%q%CW/%CM%Q %CP%j%CW/%CR%J%c%CC%h%CW/%CT%H %CG%m%CW/%CH%M %CB%v%CW/%CN%V %Cg[%e] %CR%X%CW> ~
+Prom {Y%q %Q {G%j %J%c{P%h{W/{R%H {C%m{W/{B%M {V%v{W/{M%V {G%X {W%e> ~
 Race seraph~
-Clan blackclaw~
+Clan order~
 Cla  0
-Levl 52
-Tru  0
-Plyd 426039
-Back 426000
-Note 1026547040 1022813787 1026339553 1026585183 1026409721 1026599566 1025590922
-Scro 22
-Room 24817
-HMS  912 1067 334
-Gold 458
-Silv 430
-Gold_in_bank 5552
-Exp  78315
+Levl 61
+Plyd 759452
+Back 756340
+Note 1113260642 1105507527 1105507527 1112736317 1111163025 1112661925 1105507527
+Scro 28
+Room 11916
+HMS  1300 36 215
+Gold 7781
+Silv 543
+Silver_in_bank 18500
+Gold_in_bank 10552
+Exp  91631
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  4
-Alig -1000
-Spou Bovinity~
+Pos  8
+Alig 970
 Ptnr Bovinity~
 FImm 0
 FRes NS
 FVul M
-Plr  ATU
+Plr  AOTU
 Video 0
-Act  CDEFGHJLPSc
-AfBy CDEFGNOTYbc
+Act  CDEFGHJKLSc
+AfBy BNOTY
 Comm DMNOPQ
 Revk 0
-Cgrp A
+Cgrp AIK
 Cnsr AC
-Prac 0
-Trai 0
+Block_Remote 0
+Prac 7
+Trai 1
 Wimp 50
+Familiar 0
 Atrib 21 20 20 17 20 21
-SkillPnts  11
-QuestPnts  50
-Afk {B[{CSun Jun 16 19:27:10 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+SkillPnts  53
+QuestPnts  157
+QuestNext  12
+Afk {B[{CFri Apr 15 18:17:57 2005{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl , {NH{Ma{Tr{Re{Nm{Me{Ts{Rs {xof Bovinity, lord of {YMoo{x!~
+Titl , Angelic Guardian~
 Immn ~
 Pnts 40
-Rank {cNIN~
+Rank {TR{Cc{Tt~
 Aura ~
 TSex 2
-LLev 107
+LLev 202
 Email Jane_Doe@anywhereusa.com~
 Deit Liriel~
-Lsit adsl-64-166-166-188.dsl.snlo01.pacbell.net~
-Ltim Sun Jul 14 03:00:31 2002
+Lsit 69.111.177.221~
+Ltim Fri Apr 22 17:38:09 2005
 ~
-LSav Sun Jul 14 03:00:59 2002
+LSav Fri Apr 22 18:24:24 2005
 ~
-Finf Life's a game.  Some people are just better players.
-"I never run away...I strategically maneuver!" -Rygel XVI
-Of course I want to be something when I grow up, I just don't want to grow up!
-Of course I don't look busy.  I did it right the first time.
+Finf "I never run away...I strategically maneuver!" - Rygel XVI
+
+"What was he doing this time?"
+"Trying to fly, last time I saw him." Silk smirked.
+The old man looked puzzled.
+"He wasn't doing it very well," Silk added.
+Belgarath shrugged. "Maybe it'll come to him in time."
+"He doesn't really have all that much time." Silk glanced out over the edge.
+From far below - terribly far below - there came a faint, muffled crash; then, after several seconds, another. "Does bouncing count?" Silk asked.
+Belgarath made a wry face. "Not really."
+"Then I'd say he didn't learn in time," Silk said blithely.
+- Magician's Gambit, By David Eddings
 ~
-HMSP 622 682 414
+HMSP 745 794 475
 THMS 3 1 0
-Cnd  0 0 35 17
+Cnd  0 3 10 30
+Colr 0 32 1
+Colr 3 31 1
+Colr 8 32 1
+Colr 11 34 1
+Colr 13 33 1
 Colr 50 37 1
 Colr 51 34 1
 Colr 52 30 1
@@ -88,7 +103,6 @@ Colr 68 34 0
 Colr 69 30 1
 Colr 70 37 1
 Colr 73 31 0
-Alias gc get all corpse~
 Alias pg c 'protection good'~
 Alias pe c 'protection evil'~
 Alias di c 'detect invis'~
@@ -101,15 +115,28 @@ Alias dh c 'detect hidden'~
 Alias lo c 'locate object'~
 Alias fs c 'flameshield'~
 Alias ll c 'locate life'~
-Alias as c 'acid rain'~
 Alias to c 'teleport object'~
-Alias Solace c gate Croben~
+Alias ar cast 'acid rain'~
+Alias bz cast 'blizzard'~
+Alias mm cast 'magic missile'~
+Alias gc get all corpse~
+Alias cb c 'cure blindness'~
+Alias fb c 'fireball'~
+Alias sb c 'shock blade'~
+Alias rb c 'frost blade'~
+Alias bb c 'blood blade'~
+Alias ra c 'remove alignment'~
+Alias ab c 'acid blast'~
+Alias cl c 'call lightning'~
+Alias cd c 'cure disease'~
+Alias rc c 'remove curse'~
+Alias slo c slow Tamara~
 Sk 100 1 'acid blast'
-Sk 75 1 'acid rain'
-Sk 1 1 'age'
-Sk 91 1 'armor'
+Sk 79 1 'acid rain'
+Sk 76 1 'age'
+Sk 99 1 'armor'
 Sk 88 1 'bless'
-Sk 95 1 'blindness'
+Sk 100 1 'blindness'
 Sk 75 1 'blizzard'
 Sk 75 1 'blood blade'
 Sk 76 1 'burning hands'
@@ -121,86 +148,93 @@ Sk 1 1 'channel'
 Sk 75 1 'charm person'
 Sk 78 1 'chill touch'
 Sk 100 1 'colour spray'
-Sk 75 1 'control weather'
+Sk 79 1 'control weather'
 Sk 75 1 'cure blindness'
-Sk 75 1 'cure disease'
-Sk 75 1 'cure poison'
-Sk 86 1 'curse'
-Sk 80 1 'detect evil'
-Sk 81 1 'detect good'
-Sk 76 1 'detect hidden'
-Sk 87 1 'detect invis'
-Sk 76 1 'detect magic'
-Sk 1 1 'detect poison'
-Sk 1 1 'dispel magic'
+Sk 77 1 'cure disease'
+Sk 76 1 'cure poison'
+Sk 93 1 'curse'
+Sk 92 1 'detect evil'
+Sk 94 1 'detect good'
+Sk 85 1 'detect hidden'
+Sk 91 1 'detect invis'
+Sk 88 1 'detect magic'
+Sk 76 1 'detect poison'
+Sk 75 1 'dispel magic'
 Sk 1 1 'divine regeneration'
 Sk 84 1 'energy drain'
 Sk 75 1 'faerie fire'
-Sk 1 1 'faerie fog'
+Sk 75 1 'faerie fog'
 Sk 100 1 'fireball'
 Sk 75 1 'fireproof'
 Sk 1 1 'firestorm'
 Sk 75 1 'flame blade'
-Sk 80 1 'flameshield'
-Sk 1 1 'fly'
-Sk 1 1 'frenzy'
+Sk 91 1 'flameshield'
+Sk 75 1 'fly'
+Sk 75 1 'frenzy'
 Sk 75 1 'frost blade'
-Sk 82 1 'gate'
-Sk 85 1 'giant strength'
-Sk 76 1 'haste'
-Sk 1 1 'holy word'
-Sk 86 1 'identify'
+Sk 94 1 'gate'
+Sk 88 1 'giant strength'
+Sk 84 1 'haste'
+Sk 75 1 'holy word'
+Sk 95 1 'identify'
 Sk 75 1 'infravision'
-Sk 80 1 'invisibility'
+Sk 82 1 'invisibility'
 Sk 79 1 'know alignment'
-Sk 1 1 'light of truth'
+Sk 75 1 'light of truth'
 Sk 83 1 'lightning bolt'
-Sk 75 1 'locate life'
-Sk 78 1 'locate object'
-Sk 78 1 'magic missile'
-Sk 1 1 'mass invis'
-Sk 1 1 'nexus'
+Sk 90 1 'locate life'
+Sk 81 1 'locate object'
+Sk 90 1 'magic missile'
+Sk 75 1 'mass invis'
+Sk 75 1 'nexus'
 Sk 75 1 'pass door'
-Sk 1 1 'plague'
-Sk 1 1 'poison'
+Sk 76 1 'plague'
+Sk 76 1 'poison'
 Sk 1 1 'power word'
-Sk 1 1 'portal'
-Sk 84 1 'protection evil'
-Sk 88 1 'protection good'
-Sk 76 1 'refresh'
-Sk 86 1 'regeneration'
-Sk 75 1 'remove alignment'
-Sk 1 1 'remove invisibility'
-Sk 75 1 'remove curse'
-Sk 75 1 'sanctuary'
-Sk 88 1 'shield'
+Sk 76 1 'portal'
+Sk 96 1 'protection evil'
+Sk 91 1 'protection good'
+Sk 77 1 'refresh'
+Sk 91 1 'regeneration'
+Sk 76 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 78 1 'remove curse'
+Sk 91 1 'sanctuary'
+Sk 75 1 'scry'
+Sk 91 1 'shield'
 Sk 75 1 'shock blade'
 Sk 86 1 'shocking grasp'
 Sk 75 1 'sleep'
-Sk 75 1 'slow'
+Sk 78 1 'slow'
 Sk 75 1 'smokescreen'
-Sk 86 1 'steel mist'
-Sk 81 1 'stone skin'
-Sk 79 1 'summon'
+Sk 1 1 'starve'
+Sk 87 1 'steel mist'
+Sk 86 1 'stone skin'
+Sk 80 1 'summon'
 Sk 1 1 'summon object'
-Sk 1 1 'talon'
+Sk 100 1 'talon'
 Sk 75 1 'teleport'
 Sk 75 1 'teleport object'
-Sk 1 1 'undo spell'
+Sk 75 1 'undo spell'
 Sk 75 1 'ventriloquate'
-Sk 1 1 'vision'
-Sk 97 1 'weaken'
-Sk 1 1 'word of recall'
+Sk 75 1 'vision'
+Sk 100 1 'weaken'
+Sk 75 1 'word of recall'
 Sk 1 1 'wrath'
 Sk 100 1 'dagger'
 Sk 75 1 'brew'
-Sk 1 1 'swimming'
-Sk 1 1 'lore'
+Sk 75 1 'swimming'
+Sk 75 1 'firebuilding'
+Sk 76 1 'repair'
+Sk 82 1 'languages'
+Sk 76 1 'lore'
 Sk 100 1 'scan'
 Sk 75 1 'scrolls'
 Sk 75 1 'staves'
 Sk 75 1 'wands'
 Sk 75 1 'recall'
+Sk 75 1 'familiar'
+Sk 75 1 'die hard'
 Gr 'rom basics'
 Gr 'mage basics'
 Gr 'mage default'
@@ -216,92 +250,14 @@ Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'steel mist'   0  49  30  -5  17   16777216 1
-Affc 'protection evil'   0  50  17  -1  24       8192 1
-Affc 'protection good'   0  51  17  -1  24      16384 1
-Affc 'regeneration'   0  50   7   0   0  268435456 1
-Affc 'flameshield'   0  48   7 -20  17  134217728 1
-Affc 'shield'   0  50  36 -20  17          0 1
-Affc 'detect magic'   0  47   4   0   0         16 1
-Affc 'detect invis'   0  41   4   0   0          8 1
-Affc 'detect hidden'   0  43   4   0   0         32 1
-Affc 'detect good'   0  41   5   0   0         64 1
-Affc 'detect evil'   0  47   5   0   0          4 1
-Affc 'giant strength'   0  38   5   4   1          0 1
-Affc 'stone skin'   0  43   5 -40  17          0 1
-End
-
-#O
-Vnum 10166
-Nest 0
-Wear 16
-Cost 0
-Val  0 6 10 2 12
-Affc 'blood blade'   5  46  36   0   0          4 1
-End
-
-#O
-Vnum 24820
-Nest 0
-Wear -1
-Cost 17
-End
-
-#O
-Vnum 24820
-Nest 0
-Wear -1
-Cost 17
-End
-
-#O
-Vnum 24820
-Nest 0
-Wear -1
-Cost 17
-End
-
-#O
-Vnum 24820
-Nest 0
-Wear -1
-Cost 17
-End
-
-#O
-Vnum 24820
-Nest 0
-Wear -1
-Cost 17
-End
-
-#O
-Vnum 24820
-Nest 0
-Wear -1
-Cost 17
-End
-
-#O
-Vnum 24820
-Nest 0
-Wear -1
-Cost 17
-End
-
-#O
-Vnum 24820
-Nest 0
-Wear -1
-Cost 17
-End
-
-#O
-Vnum 10292
-Nest 0
-Wear 17
-Cost 500
-Spell 3 'acid breath'
+Affc 'invisibility'   0  61  68   0   0          2 1
+Affc 'protection evil'   0  57  10  -1  24       8192 1
+Affc 'protection good'   0  58  10  -1  24      16384 1
+Affc 'armor'   0  57  10 -20  17          0 1
+Affc 'steel mist'   0  55  16  -6  17   16777216 1
+Affc 'shield'   0  48   5 -20  17          0 1
+Affc 'bless'   0  46   4   7  18          0 1
+Affc 'bless'   0  46   4  -7  24          0 1
 End
 
 #O
@@ -309,49 +265,6 @@ Vnum 10281
 Nest 0
 Wear -1
 Cost 800
-Val  300 5 0 20 60
-End
-
-#O
-Vnum 3168
-Nest 1
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3166
-Nest 1
-Wear -1
-Cost 1500
-End
-
-#O
-Vnum 3165
-Nest 1
-Wear -1
-Cost 750
-End
-
-#O
-Vnum 3163
-Nest 1
-Wear -1
-Cost 1500
-End
-
-#O
-Vnum 3164
-Nest 1
-Wear -1
-Cost 1000
-End
-
-#O
-Vnum 3167
-Nest 1
-Wear -1
-Cost 2500
 End
 
 #O
@@ -362,85 +275,376 @@ Cost 500
 End
 
 #O
-Vnum 11640
-Nest 0
-Wear 12
-Cost 200
+Vnum 3164
+Nest 1
+Wear -1
+Cost 1000
 End
 
 #O
-Vnum 11643
-Enchanted
-Nest 0
-Wt   47
-Wear 13
-Cost 20
-Affc 'reserved'   1  45  -1   3  19          0 1
-Affc 'reserved'   1  45  -1  30  13          0 1
-Affc 'reserved'   1  45  -1  10   9          0 1
+Vnum 3168
+Nest 1
+Wear -1
+Cost 2000
 End
 
 #O
-Vnum 24820
+Vnum 3167
+Nest 1
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 3165
+Nest 1
+Wear -1
+Cost 750
+End
+
+#O
+Vnum 3166
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 3394
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 8237
 Nest 0
 Wear -1
-Cost 17
+Cost 55
 End
 
 #O
-Vnum 24821
+Vnum 8237
 Nest 0
 Wear -1
-Cost 27
+Cost 55
 End
 
 #O
-Vnum 24821
+Vnum 8237
 Nest 0
 Wear -1
-Cost 27
+Cost 55
 End
 
 #O
-Vnum 24821
+Vnum 8237
 Nest 0
 Wear -1
-Cost 27
+Cost 55
 End
 
 #O
-Vnum 24821
+Vnum 8237
 Nest 0
 Wear -1
-Cost 27
+Cost 55
 End
 
 #O
-Vnum 24821
+Vnum 8237
 Nest 0
 Wear -1
-Cost 27
+Cost 55
 End
 
 #O
-Vnum 24821
+Vnum 8237
 Nest 0
 Wear -1
-Cost 27
+Cost 55
 End
 
 #O
-Vnum 24821
+Vnum 8237
 Nest 0
 Wear -1
-Cost 27
+Cost 55
 End
 
 #O
-Vnum 24821
+Vnum 8237
 Nest 0
 Wear -1
-Cost 27
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 8204
+Nest 0
+Wear 9
+Cost 3800
+End
+
+#O
+Vnum 3206
+Nest 0
+Wear 10
+Cost 70
+End
+
+#O
+Vnum 24409
+Nest 0
+Wear 2
+Cost 6000
+End
+
+#O
+Vnum 20016
+Nest 0
+Wear 17
+Cost 9000
+End
+
+#O
+Vnum 20011
+Nest 0
+Wear 4
+Cost 0
+End
+
+#O
+Vnum 5610
+Nest 0
+ExtF 17301507
+Wear 6
+Cost 2000
+End
+
+#O
+Vnum 8237
+Nest 0
+Wear -1
+Cost 55
+End
+
+#O
+Vnum 20011
+Nest 0
+Wear 3
+Cost 0
+End
+
+#O
+Vnum 20006
+Nest 0
+ExtF 17039680
+Wear 5
+Cost 999
+End
+
+#O
+Vnum 24407
+Nest 0
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 24408
+Nest 0
+Wear 7
+Cost 6000
+End
+
+#O
+Vnum 24409
+Nest 0
+Wear 1
+Cost 6000
+End
+
+#O
+Vnum 24495
+Nest 0
+Wear 15
+Cost 6000
+End
+
+#O
+Vnum 24495
+Nest 0
+Wear 14
+Cost 6000
 End
 
 #O
@@ -448,119 +652,13 @@ Vnum 8234
 Nest 0
 Wear -1
 Cost 4900
-Val  200 168 0 0 0
-End
-
-#O
-Vnum 8271
-Nest 0
-Cond 94
-Wear 9
-Cost 7000
-End
-
-#O
-Vnum 17105
-Nest 0
-Wear 8
-Cost 145
-End
-
-#O
-Vnum 10167
-Nest 0
-Wear 4
-Cost 3800
-End
-
-#O
-Vnum 10170
-Nest 0
-Cond 96
-Wear 7
-Cost 2000
-End
-
-#O
-Vnum 14019
-Nest 0
-Wear 5
-Cost 300
-End
-
-#O
-Vnum 9911
-Nest 0
-Cond 97
-Wear 10
-Cost 8500
-End
-
-#O
-Vnum 5604
-Nest 0
-ExtF 17301507
-Wear 3
-Cost 0
-End
-
-#O
-Vnum 505
-Nest 0
-Wear 6
-Cost 0
-End
-
-#O
-Vnum 10168
-Nest 0
-ExtF 16777219
-Wear 2
-Cost 0
-End
-
-#O
-Vnum 10168
-Nest 0
-ExtF 16777219
-Wear 1
-Cost 0
-End
-
-#O
-Vnum 17101
-Nest 0
-Wear 11
-Cost 0
+Val  200 176 24 0 0
 End
 
 #O
 Vnum 17102
 Nest 0
 Wear 0
-Cost 0
-End
-
-#O
-Vnum 17108
-Nest 0
-Wear 15
-Cost 0
-End
-
-#O
-Vnum 17108
-Nest 0
-Cond 97
-Wear 14
-Cost 0
-End
-
-#O
-Vnum 10169
-Nest 0
-Cond 97
-Wear 18
 Cost 0
 End
 
@@ -572,96 +670,311 @@ Cost 1
 End
 
 #O
-Vnum 24821
+Vnum 17101
 Nest 0
-Wear -1
-Cost 27
+ExtF 1
+Wear 11
+Cost 160
 End
 
 #O
-Vnum 24821
+Vnum 3808
 Nest 0
-Wear -1
-Cost 27
+Wear 12
+Cost 30000
 End
 
-#L
-Vnum 1105
+#O
+Vnum 20008
 Nest 0
-Wear -1
-Cost 1660
+ExtF 16777536
+Wear 13
+Cost 50
 End
 
-#L
-Vnum 108
+#O
+Vnum 8814
 Nest 0
-Name rose~
-ShD  a gold{x rose~
-Desc A gold{x rose is lying on the ground.~
-Mat silk~
+Wear 16
+Cost 0
+Val  2 6 11 1 4
+Affc 'blood blade'   5  48   6   0   0          4 1
+End
+
+#O
+Vnum 3810
+Nest 0
+Wear 18
+Cost 30000
+End
+
+#O
+Vnum 401
+Nest 0
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 409
+Nest 0
 Wear -1
 Cost 0
-Val  0 1 0 0 0
-ExDe florist~ This rose was created by DeathStrike.
-~
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 End
 
-#L
-Vnum 4460
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#L
-Vnum 4477
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 4471
-Nest 1
-Wear -1
-Cost 3500
-End
-
-#L
-Vnum 7505
-Nest 0
-Wear -1
-Cost 10000
-End
-
-#L
+#O
 Vnum 404
 Nest 0
 Wear -1
 Cost 0
 End
 
-#L
-Vnum 11642
+#O
+Vnum 404
 Nest 0
 Wear -1
-Cost 7500
+Cost 0
 End
 
-#L
-Vnum 11644
+#O
+Vnum 1213
 Nest 0
+Name hidden token light outsider~
+ShD  a dazzling bright {Ylight{x~
+Desc A small, glowing ball of {Ylight{x sits here~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 28004
+Nest 0
+Wear -1
+Cost 1000
+Spell 3 'dispel evil'
+End
+
+#O
+Vnum 28001
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#O
+Vnum 28002
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 28003
+Nest 0
+Wear -1
+Cost 45
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1211
+Nest 0
+Name token outsider pizza~
+ShD  a yummy, vegatarian pizza~
+Desc Outsider's vegatarian pizza with green peppers, mushrooms and pineapple~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 29119
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 29128
+Nest 1
 Wear -1
 Cost 10
 End
 
-#L
-Vnum 29904
+#O
+Vnum 29178
 Nest 0
 Wear -1
-Cost 8000
+Cost 12
+End
+
+#O
+Vnum 29180
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 29180
+Nest 1
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 29168
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 29175
+Nest 1
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 29167
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 29174
+Nest 1
+Wear -1
+Cost 2
+End
+
+#O
+Vnum 29166
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 29171
+Nest 1
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 29177
+Nest 0
+Wear -1
+Cost 12
+End
+
+#O
+Vnum 29181
+Nest 1
+Wear -1
+Cost 90
+End
+
+#O
+Vnum 29176
+Nest 0
+Wear -1
+Cost 12
+End
+
+#O
+Vnum 29179
+Nest 1
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 29170
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 29173
+Nest 1
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 29169
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 29172
+Nest 1
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 3163
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 8814
+Nest 0
+ExtF 1
+Wear -1
+Cost 3600
+End
+
+#L
+Vnum 17013
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 5607
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 5607
+Nest 0
+Cond 99
+Wear -1
+Cost 2000
 End
 
 #L
@@ -669,26 +982,6 @@ Vnum 10280
 Nest 0
 Wear -1
 Cost 500
-Val  125 5 0 12 75
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name viro glimmer hope bushido wild token~
-ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
-Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
-Wear -1
-Cost 0
 End
 
 #L
@@ -738,47 +1031,6 @@ Name alara token trivia whisper wind woodwind reeds~
 ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
 Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
 Mat {Mm{Tu{Ms{Ti{Mc{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name alara token trivia whisper wind woodwind reeds~
-ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
-Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
-Mat {Mm{Tu{Ms{Ti{Mc{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name trivia red leatherbound spellbook token urza legacy set~
-ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
-Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
 Wear -1
 Cost 0
 End
@@ -824,6 +1076,237 @@ Cost 0
 End
 
 #L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name bunny cookie hidden liriel~
+ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
+Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name bunny cookie hidden liriel~
+ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
+Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name kismet quest token ruby coin~
+ShD  {bKismet's {R"Ruby Questing Coin" {bof Success{x~
+Desc {bA {RRuby {bcoin lays here shining...{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 1
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name alara token trivia whisper wind woodwind reeds~
+ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
+Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
+Mat {Mm{Tu{Ms{Ti{Mc{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 1
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
 Vnum 1213
 Nest 1
 Name hidden spark planeswalker token urza legacy set~
@@ -836,129 +1319,292 @@ End
 #L
 Vnum 1215
 Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
 Name liriel rainbow dazzling wild~
 ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
 Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 1
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name token outsider hidden ballon~
+ShD  a small pink ballon~
+Desc A small, shiny, pink ballon lies here!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name token outsider hidden ballon~
+ShD  a small pink ballon~
+Desc A small, shiny, pink ballon lies here!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name token hidden byte outsider~
+ShD  a byte~
+Desc This byte is made up of 1's and 0's.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 1
+Name token outsider pizza~
+ShD  a yummy, vegatarian pizza~
+Desc Outsider's vegatarian pizza with green peppers, mushrooms and pineapple~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1213
+Nest 1
+Name zedraikis trading card hidden token Montrey~
+ShD  {Wa h{Con{Wed shorts{Cw{Word {g'{WZe{Cd{Wraiki{Cs{g'{W tr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+ExtF 17563987
+Wear -1
+Cost 0
+ExDe zedraikis trading card hidden token Montrey~ {x                  A whisper of mithril
+{x                    Cleaving all in its path
+{x                  With the fury of fire
+{x                    And Zedraikis' wrath!
+{x
+The legendary Zedraikis...  foes fall like blades of grass before this
+mighty blade of mithril.  It oft symbolizes the power a mortal can
+attain in the realm, and a weapon has yet to be crafted that rivals
+it's sheer devastating power.
+~
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1213
+Nest 1
+Name hidden token light outsider~
+ShD  a dazzling bright {Ylight{x~
+Desc A small, glowing ball of {Ylight{x sits here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name cold steel broadsword trading card hidden token Montrey~
+ShD  {Wa {Bco{Nl{Bd s{Nte{Bel {Wbro{gadsw{Word tr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+ExtF 17563987
+Wear -1
+Cost 0
+ExDe cold steel broadsword trading card~ The frosty touch of this blade has shattered many an adventurers
+potions as they fought to procure it.  Some say it is the most
+powerful weapon of its kind, if one knows where to find it.
+~
+End
+
+#L
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 1
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 1213
+Nest 1
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 14030
+Nest 0
+Cond 92
 Wear -1
 Cost 0
 End

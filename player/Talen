@@ -1,0 +1,275 @@
+#PLAYER
+Name Talen~
+Id   1096725966
+LogO 1096728959
+Vers 14
+Mexp 1
+Pass buento~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Cla  2
+Levl 1
+Tru  0
+Plyd 2108
+Back 0
+Note 1096727080 1096727080 1096727080 1096727080 1096727080 1096727080 1096727080
+Scro 22
+Room 3001
+HMS  34 100 100
+Gold 3
+Silv 427
+Exp  2367
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes BM
+FVul NS
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Block_Remote 0
+Prac 0
+Trai 0
+Wimp 0
+Familiar 0
+Atrib 17 16 16 19 12 14
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 20
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Kismet~
+Lsit 209.248.6.66~
+Ltim Sat Oct 02 10:20:50 2004
+~
+LSav Sat Oct 02 10:55:59 2004
+~
+HMSP 30 100 100
+THMS 1 0 0
+Cnd  0 0 1 1
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 75 1 'dagger'
+Sk 100 1 'scan'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'illusion'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 153 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3701
+Nest 0
+Wear 16
+Cost 210
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3709
+Nest 0
+Wear 9
+Cost 72
+End
+
+#O
+Vnum 3710
+Nest 0
+Wear 10
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3715
+Nest 0
+Wear -1
+Cost 1140
+End
+
+#END

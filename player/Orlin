@@ -1,47 +1,49 @@
 #PLAYER
 Name Orlin~
 Id   1015036323
-LogO 1016203520
-Vers 12
+LogO 1060019620
+Vers 14
+Mexp 2
+Pass snarffa~
 Prom [%h/%Hhp]{G[%m/%Mm]{B[%v/%Vmv]{V[%e]{x[%X tnl] ~
 Race human~
-Clan blackclaw~
-Sex  2
 Cla  3
 Levl 41
+Tru  0
 Plyd 152173
-Age  0
 Back 0
-Note 0 0 0 0 0 0
+Note 0 0 0 0 0 0 0
 Scro 22
-Room 8543
-HMS  769 769 398 398 588 588
+Room 3001
+HMS  769 398 588
 Gold 44
 Silv 4738
 Silver_in_bank 5712
 Gold_in_bank 862
 Exp  41230
-PCkills 0
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  HU
+Video 0
 Act  CDEFGHJLSc
+AfBy 0
 Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  8
-Save  -12
-Alig  1000
-Hit   20
-Dam   12
-ACs -56 -51 -58 -21
-Wimp  100
+Prac 0
+Trai 0
+Wimp 100
 Atrib 21 18 18 18 18 14
-AtMod 5 3 6 1 2 0
-QuestPnts 6
-Pass snarffa~
+QuestPnts  6
 Afk {B[{CTue Mar 12 21:38:20 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  Gump~
@@ -53,13 +55,10 @@ TSex 1
 LLev 33
 Deit Urza~
 Lsit 168-138.idacpe.cableone.net~
-Ltim Fri Mar 15 01:37:09 2002
+Ltim Fri Mar 15 00:37:09 2002
 ~
-LSav Fri Mar 15 08:45:20 2002
+LSav Mon Aug 04 13:53:40 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
 HMSP 654 278 588
 THMS 0 0 0
 Cnd  0 0 0 0
@@ -192,9 +191,9 @@ Cond 99
 Wear -1
 Lev  29
 Cost 0
-Affc 'enchant weapon'   1  85  -1   6  19          0 1
-Affc 'enchant weapon'   1  85  -1   6  18          0 1
 Affc 'reserved'   1  26  -1 -10  17          0 1
+Affc 'enchant weapon'   1  85  -1   6  18          0 1
+Affc 'enchant weapon'   1  85  -1   6  19          0 1
 End
 
 #O
@@ -338,7 +337,7 @@ End
 Vnum 3087
 Nest 0
 Wear -1
-Time 39
+Time 8
 Cost 230
 Spell 1 'cure blindness'
 End

@@ -1,52 +1,55 @@
 #PLAYER
 Name Gorion~
 Id   1023149878
-LogO 1027212538
+LogO 1112730722
 Vers 14
 Mexp 2
 Pass letmein~
 Prom H:%h/%H M:%m/%M  V:%v/%V xp:%X (%z) <%q> [%j] ~
-Race dragon~
+Race human~
 Clan blackclaw~
 Cla  0
-Levl 57
-Tru  91
-Plyd 870219
-Back 841682
-Note 1027189445 1023150024 1027084263 1027209569 1027146472 1027094615 1026831915
+Levl 35
+Plyd 1529620
+Back 1438780
+Note 1111863479 1105162385 1107312677 1112002672 1111163025 1107648137 1088837398
 Scro 22
-Room 3370
-HMS  946 1522 488
-Gold 422
-Silv 89
-Gold_in_bank 24100
-Exp  71413
-PCkills  1
-PCkilled 0
+Room 8543
+HMS  546 656 295
+Gold 3472
+Silv 35
+Gold_in_bank 27600
+Exp  35397
+PCkills  11
+PCkilled 4
 Akills   0
 Akilled  0
-PKRank   1
+PKRank   2
 Pos  8
-Alig 714
+Alig 1000
+Mark 3001
 FImm 0
-FRes EG
-FVul F
-Plr  AGMOQU
+FRes 0
+FVul R
+Plr  GMOQU
 Video AD
-Act  CDGHJLSWc
-AfBy T
-Comm NOZ
+Act  CDEGHLRSc
+AfBy 0
+Comm NO
 Revk 0
-Cgrp A
+Cgrp AIKLM
 Cnsr 0
-Prac 198
-Trai 19
+Block_Remote 0
+Prac 1250
+Trai 317
 Wimp 0
-Atrib 20 21 20 16 20 18
-SkillPnts  282
-QuestPnts  19
-QpDonated  100
-Afk {B[{CSat Jul 20 14:01:42 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Familiar 0
+Atrib 18 21 18 16 18 18
+SkillPnts  220
+QuestPnts  45
+QpDonated  414
+GlDonated  26500
+Afk {B[{CSat Dec 25 15:23:20 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl ...~
 Immn ~
@@ -54,19 +57,19 @@ Pnts 40
 Rank {PB{Rl{Wt{x~
 Aura ~
 TSex 1
-LLev 231
+LLev 420
 Email anji_the_myooh@yahoo.com~
-Deit Vegita~
+Deit outsider~
 Stus ...~
-RmCt 2
+RmCt 6
 ExSk 0
-Raff 3
-Lsit 12-234-113-114.client.attbi.com~
-Ltim Sat Jul 20 19:48:37 2002
+Raff 913
+Lsit c-24-7-158-136.client.comcast.net~
+Ltim Tue Apr 05 14:51:32 2005
 ~
-LSav Sat Jul 20 19:48:58 2002
+LSav Tue Apr 05 14:52:02 2005
 ~
-HMSP 771 812 468
+HMSP 436 566 275
 THMS 0 0 0
 Cnd  0 0 0 0
 Colr 13 37 1
@@ -77,165 +80,195 @@ Alias divh c 'divine healing'~
 Alias bliz c 'blizzard'~
 Alias lb c 'lightning breath'~
 Alias oarm o all resc gor~
-Alias wrat c 'wrath'~
 Alias ff c 'faerie fire'~
-Alias sun c 'sunray'~
 Alias fs c 'firestorm'~
-Alias mm c 'magic missile'~
-Alias bh c 'burning hands'~
-Alias sg c 'shocking grasp'~
-Alias cs c 'colour spray'~
 Alias dm c 'dispel magic'~
 Alias chain c 'chain lightning'~
-Sk 78 1 'acid blast'
+Alias gate c 'gate'~
+Alias undo c 'undo spell'~
+Alias ffog c 'faerie fog'~
+Alias crpc c 'create parchment'~
+Alias crvi c 'create vial'~
+Alias brdh brew 'divine heal'~
+Alias fbr c 'fire breath'~
+Alias proe c 'protection evil'~
+Alias prog c 'protection good'~
+Alias ed c 'energy drain'~
+Alias bless c bless~
+Alias ar cast 'acid rain'~
+Alias sclb scribe 'lightning breath'~
+Alias scfb scribe 'fire breath'~
+Alias ecw c 'enchant weapon'~
+Alias eca c 'enchant armor'~
+Alias oall order all~
+Alias cl c 'chain lightning'~
+Alias bh c 'burning hand'~
+Sk 87 1 'acid blast'
 Sk 80 1 'acid breath'
-Sk 1 1 'acid rain'
-Sk 82 1 'age'
-Sk 78 1 'animate skeleton'
+Sk 77 1 'acid rain'
+Sk 86 1 'age'
+Sk 80 1 'animate skeleton'
 Sk 94 1 'animate wraith'
 Sk 91 1 'animate gargoyle'
 Sk 85 1 'animate zombie'
-Sk 86 1 'armor'
-Sk 75 1 'blindness'
+Sk 93 1 'armor'
+Sk 81 1 'bless'
+Sk 97 1 'blindness'
 Sk 100 1 'blizzard'
 Sk 78 1 'blood blade'
-Sk 75 1 'blood moon'
-Sk 87 1 'burning hands'
+Sk 77 1 'blood moon'
+Sk 92 1 'burning hands'
 Sk 1 1 'call lightning'
-Sk 75 1 'cancellation'
-Sk 1 1 'cause light'
+Sk 75 1 'calm'
+Sk 76 1 'cancellation'
+Sk 2 1 'cause light'
 Sk 1 1 'cause serious'
 Sk 78 1 'cause critical'
-Sk 97 1 'chain lightning'
-Sk 1 1 'change sex'
+Sk 100 1 'chain lightning'
+Sk 2 1 'change sex'
 Sk 76 1 'channel'
-Sk 77 1 'chill touch'
-Sk 97 1 'colour spray'
-Sk 1 1 'continual light'
-Sk 2 1 'control weather'
-Sk 75 1 'create food'
-Sk 90 1 'create parchment'
-Sk 75 1 'create rose'
+Sk 75 1 'charm person'
+Sk 78 1 'chill touch'
+Sk 100 1 'colour spray'
+Sk 78 1 'continual light'
+Sk 3 1 'control weather'
+Sk 77 1 'create food'
+Sk 100 1 'create parchment'
+Sk 76 1 'create rose'
 Sk 1 1 'create sign'
-Sk 1 1 'create spring'
-Sk 84 1 'create vial'
+Sk 2 1 'create spring'
+Sk 94 1 'create vial'
 Sk 1 1 'create water'
-Sk 87 1 'cure critical'
-Sk 82 1 'cure light'
-Sk 75 1 'cure serious'
-Sk 1 1 'curse'
+Sk 94 1 'cure critical'
+Sk 86 1 'cure light'
+Sk 78 1 'cure serious'
+Sk 95 1 'curse'
 Sk 75 1 'darkness'
-Sk 75 1 'dazzling light'
-Sk 1 1 'demonfire'
+Sk 77 1 'dazzling light'
+Sk 75 1 'demonfire'
 Sk 2 1 'detect evil'
-Sk 1 1 'detect good'
-Sk 78 1 'detect hidden'
-Sk 81 1 'detect invis'
-Sk 1 1 'detect magic'
+Sk 2 1 'detect good'
+Sk 82 1 'detect hidden'
+Sk 83 1 'detect invis'
+Sk 2 1 'detect magic'
 Sk 2 1 'detect poison'
 Sk 1 1 'dispel evil'
 Sk 1 1 'dispel good'
-Sk 76 1 'dispel magic'
-Sk 96 1 'divine healing'
-Sk 80 1 'divine regeneration'
+Sk 94 1 'dispel magic'
+Sk 100 1 'divine healing'
+Sk 78 2 'divine regeneration'
 Sk 2 1 'earthquake'
-Sk 1 1 'encampment'
-Sk 75 1 'enchant armor'
-Sk 85 1 'enchant weapon'
-Sk 78 1 'energy drain'
-Sk 2 1 'faerie fire'
+Sk 75 1 'encampment'
+Sk 81 1 'enchant armor'
+Sk 91 1 'enchant weapon'
+Sk 98 1 'energy drain'
+Sk 80 1 'faerie fire'
 Sk 75 1 'faerie fog'
 Sk 1 1 'fear'
-Sk 84 1 'fire breath'
+Sk 85 1 'fire breath'
 Sk 100 3 'fireball'
 Sk 1 1 'fireproof'
-Sk 95 1 'firestorm'
-Sk 75 1 'flame blade'
-Sk 82 1 'flameshield'
+Sk 100 1 'firestorm'
+Sk 76 1 'flame blade'
+Sk 87 1 'flameshield'
 Sk 1 1 'flamestrike'
-Sk 99 1 'fly'
+Sk 100 1 'fly'
 Sk 1 1 'floating disc'
-Sk 1 1 'frost blade'
-Sk 80 1 'frost breath'
+Sk 75 1 'frenzy'
+Sk 2 1 'frost blade'
+Sk 83 1 'frost breath'
 Sk 76 1 'gas breath'
 Sk 100 1 'gate'
 Sk 77 1 'giant strength'
 Sk 76 1 'harm'
 Sk 98 1 'haste'
 Sk 77 1 'heal'
-Sk 75 1 'heat metal'
+Sk 89 1 'heat metal'
+Sk 75 1 'holy word'
 Sk 100 1 'identify'
-Sk 1 1 'infravision'
+Sk 75 1 'infravision'
 Sk 1 1 'know alignment'
 Sk 1 1 'light of truth'
-Sk 91 1 'lightning bolt'
+Sk 93 1 'lightning bolt'
 Sk 100 1 'lightning breath'
-Sk 82 1 'locate life'
-Sk 82 1 'locate object'
-Sk 79 1 'magic missile'
+Sk 84 1 'locate life'
+Sk 84 1 'locate object'
+Sk 87 1 'magic missile'
 Sk 2 1 'mass healing'
-Sk 1 1 'nexus'
+Sk 2 1 'nexus'
 Sk 89 1 'pass door'
-Sk 76 1 'plague'
-Sk 1 1 'poison'
-Sk 78 1 'polymorph'
+Sk 88 1 'plague'
+Sk 82 1 'poison'
+Sk 1 1 'power word'
+Sk 81 1 'polymorph'
 Sk 1 1 'portal'
 Sk 75 1 'protect container'
-Sk 83 1 'protection evil'
-Sk 75 1 'protection good'
-Sk 1 1 'ray of truth'
+Sk 90 1 'protection evil'
+Sk 80 1 'protection good'
+Sk 76 1 'ray of truth'
 Sk 1 1 'recharge'
-Sk 83 1 'refresh'
+Sk 85 1 'refresh'
 Sk 1 1 'resurrect'
-Sk 79 1 'regeneration'
-Sk 78 1 'remove alignment'
+Sk 87 1 'regeneration'
+Sk 80 1 'remove alignment'
 Sk 75 1 'remove invisibility'
-Sk 91 2 'sanctuary'
-Sk 85 1 'shield'
+Sk 76 1 'remove curse'
+Sk 98 2 'sanctuary'
+Sk 1 1 'scry'
+Sk 93 1 'shield'
 Sk 1 1 'shock blade'
-Sk 84 1 'shocking grasp'
-Sk 75 1 'shrink'
-Sk 95 1 'slow'
-Sk 78 1 'steel mist'
-Sk 84 1 'stone skin'
-Sk 91 1 'summon'
-Sk 78 1 'summon object'
+Sk 92 1 'shocking grasp'
+Sk 79 1 'shrink'
+Sk 76 1 'sleep'
+Sk 100 1 'slow'
+Sk 1 1 'starve'
+Sk 80 1 'steel mist'
+Sk 85 1 'stone skin'
+Sk 96 1 'summon'
+Sk 80 1 'summon object'
 Sk 93 1 'sunray'
-Sk 77 1 'talon'
-Sk 75 1 'teleport'
-Sk 77 1 'teleport object'
-Sk 93 1 'undo spell'
-Sk 75 1 'vision'
-Sk 1 1 'weaken'
+Sk 81 2 'talon'
+Sk 77 1 'teleport'
+Sk 78 1 'teleport object'
+Sk 99 1 'undo spell'
+Sk 76 1 'vision'
+Sk 91 1 'weaken'
 Sk 100 1 'word of recall'
-Sk 99 1 'wrath'
+Sk 100 1 'wrath'
 Sk 100 1 'dagger'
 Sk 100 1 'sword'
-Sk 78 1 'whip'
+Sk 85 1 'whip'
 Sk 100 1 'shield block'
-Sk 84 1 'brew'
-Sk 83 1 'scribe'
-Sk 1 1 'bash'
+Sk 100 1 'brew'
+Sk 89 1 'scribe'
+Sk 75 1 'bash'
+Sk 75 1 'dirt kicking'
 Sk 100 1 'dodge'
+Sk 93 1 'hand to hand'
 Sk 100 1 'parry'
 Sk 100 1 'second attack'
-Sk 78 1 'fast healing'
-Sk 75 1 'haggle'
+Sk 86 1 'third attack'
+Sk 100 1 'fast healing'
+Sk 76 1 'haggle'
 Sk 81 1 'hide'
-Sk 75 1 'lore'
+Sk 77 1 'lore'
 Sk 100 2 'meditation'
-Sk 82 1 'peek'
-Sk 76 1 'pick lock'
+Sk 88 1 'peek'
+Sk 77 1 'pick lock'
 Sk 100 1 'scan'
-Sk 75 1 'scrolls'
+Sk 80 1 'scrolls'
 Sk 75 1 'staves'
-Sk 76 1 'wands'
-Sk 75 1 'recall'
-Sk 72 1 'focus'
-Sk 70 1 'paralyze'
+Sk 77 1 'wands'
+Sk 79 1 'recall'
+Sk 75 1 'familiar'
+Sk 65 1 'sheen'
+Sk 78 1 'focus'
+Sk 73 1 'paralyze'
 Gr 'rom basics'
 Gr 'mage basics'
 Gr 'attack'
+Gr 'beguiling'
+Gr 'benedictions'
 Gr 'combat'
 Gr 'creation'
 Gr 'detection'
@@ -254,1080 +287,475 @@ Gr 'alteration'
 End
 
 #O
-Vnum 3202
+Vnum 8726
 Nest 0
-Cond 97
-Wear 7
-Cost 30
+Wear -1
+Cost 550
 End
 
 #O
 Vnum 24803
 Nest 0
-Cond 93
+Cond 73
 Wear 8
 Cost 2000
 End
 
 #O
-Vnum 4595
+Vnum 6601
+Enchanted
 Nest 0
+ExtF 65
 Cond 94
+Wear -1
+Lev  5
+Cost 620
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   3  -1   4  13          0 1
+Affc 'reserved'   1   3  -1   1   1          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#O
+Vnum 6601
+Enchanted
+Nest 0
+ExtF 65
+Cond 97
+Wear -1
+Lev  5
+Cost 620
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   3  -1   4  13          0 1
+Affc 'reserved'   1   3  -1   1   1          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#O
+Vnum 3097
+Enchanted
+Nest 0
+ExtF 64
+Cond 91
+Wear 11
+Lev  7
+Cost 623
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 2401
+Enchanted
+Nest 0
+ExtF 65
+Wt   0
+Cond 96
+Wear -1
+Lev  6
+Cost 270
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   3  -1   1   4          0 1
+Affc 'reserved'   1   3  -1   1   2          0 1
+End
+
+#O
+Vnum 1100
+Enchanted
+Nest 0
+ExtF 65
+Wt   30
+Cond 93
+Wear -1
+Lev  8
+Cost 550
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   5  -1   1   4          0 1
+End
+
+#O
+Vnum 3072
+Enchanted
+Nest 0
+ExtF 65
+Cond 92
+Wear 5
+Lev  7
+Cost 838
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+End
+
+#O
+Vnum 21
+Nest 0
 Wear -1
 Cost 0
 End
 
 #O
-Vnum 24805
+Vnum 3021
+Enchanted
 Nest 0
-Wear 12
-Cost 4000
+ExtF 67
+Cond 68
+Wear -1
+Lev  5
+Cost 250
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
 End
 
 #O
-Vnum 24804
+Vnum 10126
 Nest 0
-Cond 85
-Wear 4
-Cost 4000
+Cond 86
+Wear -1
+Cost 57
 End
 
 #O
-Vnum 24804
+Vnum 10135
 Nest 0
 Cond 87
-Wear 3
-Cost 4000
+Wear -1
+Cost 23
 End
 
 #O
-Vnum 16015
+Vnum 2404
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 3201
+Nest 0
+Cond 94
+Wear 6
+Cost 20
+End
+
+#O
+Vnum 10134
+Nest 0
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 6621
+Nest 0
+Wear -1
+Cost 780
+End
+
+#O
+Vnum 4582
+Nest 0
+Wear -1
+Cost 1200
+End
+
+#O
+Vnum 16047
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 2404
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 10133
+Nest 0
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 4583
+Nest 0
+Cond 88
+Wear 17
+Cost 1200
+End
+
+#O
+Vnum 24802
 Nest 0
 Cond 95
-Wear 11
-Cost 6500
+Wear 9
+Cost 2000
 End
 
 #O
-Vnum 3205
+Vnum 9922
 Nest 0
-Cond 97
-Wear 5
-Cost 60
+Cond 95
+Wear 12
+Cost 1500
 End
 
 #O
-Vnum 10171
+Vnum 9923
 Nest 0
-Cond 97
+Cond 99
+Wear 13
+Cost 2400
+End
+
+#O
+Vnum 9924
+Nest 0
 Wear 0
-Cost 3300
+Cost 500
+Val  0 0 -1 0 0
 End
 
 #O
-Vnum 24807
-Nest 0
-Cond 91
-Wear 2
-Cost 4625
-End
-
-#O
-Vnum 24807
+Vnum 16084
 Nest 0
 Cond 95
 Wear 1
-Cost 5000
+Cost 1500
 End
 
 #O
-Vnum 24806
+Vnum 3202
+Nest 0
+Cond 90
+Wear 7
+Cost 30
+End
+
+#O
+Vnum 24800
+Nest 0
+Wear 18
+Cost 2000
+End
+
+#O
+Vnum 16064
 Nest 0
 Cond 98
-Wear 9
-Cost 4800
-End
-
-#O
-Vnum 17100
-Nest 0
-Cond 91
-Wear 6
-Cost 159
-End
-
-#O
-Vnum 17317
-Nest 0
-ExtF 262211
 Wear -1
-Cost 8000
-Spell 3 'colour spray'
+Cost 4500
 End
 
 #O
-Vnum 7502
+Vnum 5231
 Nest 0
+Cond 94
 Wear -1
-Cost 5000
+Cost 550
 End
 
 #O
-Vnum 1105
-Nest 1
+Vnum 16084
+Nest 0
+Wear 2
+Cost 1500
+End
+
+#O
+Vnum 16085
+Nest 0
+Wear 14
+Cost 1900
+End
+
+#O
+Vnum 1201
+Nest 0
+Name spam can~
+ShD  a Spam Can~
+Desc An empty can of spam lies here.~
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 16047
+Nest 0
 Cond 92
 Wear -1
-Cost 1660
+Cost 500
 End
 
 #O
-Vnum 2350
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 17316
-Nest 1
-ExtF 4096
+Vnum 16041
+Nest 0
 Wear -1
 Cost 5000
+End
+
+#O
+Vnum 7607
+Nest 0
+Cond 93
+Wear 16
+Cost 20
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 1213
+Nest 0
+Name sheandra stone bracelet trading card Montrey~
+ShD  {Wa {MSheandra {cS{gt{co{gn{ce {gBracelet {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe sheandra stone bracelet trading card~ {x   Stone from the mountain
+{x     carved and worn,
+{x   Around the wrist of 
+{x     the lost and sworn.
+{x   Warriors strong 
+{x     and great were they,
+{x   Zorah's curse
+{x     took it all away.
+{x
+These enchanted bracelets, worn by the Sheandra Stone Warriors, are
+sought after pieces due to their ability to increase the wearer's
+spell abilities.  It is said that in times past they granted the
+powers of enhanced eyesight to its owner, but the mysteries of such
+sorcery are lost in this day and age.
+~
+End
+
+#O
+Vnum 1201
+Nest 0
+Name lid spam can~
+ShD  a lid of a Spam Can~
+Desc The lid of a can of spam lies here on the ground.~
+Wear -1
+Cost 3
 End
 
 #O
 Vnum 504
-Nest 1
+Nest 0
 ExtF 19
-Cond 100
-Wear -1
+Wear 15
 Cost 312
 End
 
 #O
-Vnum 17320
+Vnum 1213
 Nest 0
-ExtF 262146
-Wear -1
-Cost 2500
-Val  250 1 17321 40 30
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll lightning breath lightning breath~
-ShD  a scroll of lightning breath, lightning breath~
-Desc A scroll of lightning breath, lightning breath lies here.
-~
-Wear -1
-Lev  53
-Cost 2000
-Val  53 95 95 -1 -1
-Spell 1 'lightning breath'
-Spell 2 'lightning breath'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll lightning breath lightning breath~
-ShD  a scroll of lightning breath, lightning breath~
-Desc A scroll of lightning breath, lightning breath lies here.
-~
-Wear -1
-Lev  53
-Cost 2000
-Val  53 95 95 -1 -1
-Spell 1 'lightning breath'
-Spell 2 'lightning breath'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll lightning breath lightning breath~
-ShD  a scroll of lightning breath, lightning breath~
-Desc A scroll of lightning breath, lightning breath lies here.
-~
-Wear -1
-Lev  53
-Cost 2000
-Val  53 95 95 -1 -1
-Spell 1 'lightning breath'
-Spell 2 'lightning breath'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll lightning breath lightning breath~
-ShD  a scroll of lightning breath, lightning breath~
-Desc A scroll of lightning breath, lightning breath lies here.
-~
-Wear -1
-Lev  53
-Cost 2000
-Val  53 95 95 -1 -1
-Spell 1 'lightning breath'
-Spell 2 'lightning breath'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll lightning breath lightning breath~
-ShD  a scroll of lightning breath, lightning breath~
-Desc A scroll of lightning breath, lightning breath lies here.
-~
-Wear -1
-Lev  53
-Cost 2000
-Val  53 95 95 -1 -1
-Spell 1 'lightning breath'
-Spell 2 'lightning breath'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll lightning breath lightning breath~
-ShD  a scroll of lightning breath, lightning breath~
-Desc A scroll of lightning breath, lightning breath lies here.
-~
-Wear -1
-Lev  53
-Cost 2000
-Val  53 95 95 -1 -1
-Spell 1 'lightning breath'
-Spell 2 'lightning breath'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll lightning breath lightning breath~
-ShD  a scroll of lightning breath, lightning breath~
-Desc A scroll of lightning breath, lightning breath lies here.
-~
-Wear -1
-Lev  53
-Cost 2000
-Val  53 95 95 -1 -1
-Spell 1 'lightning breath'
-Spell 2 'lightning breath'
-End
-
-#O
-Vnum 4471
-Nest 1
-Name liriel plushy~
-ShD  {WL{Ci{Br{Ci{Te{Wl {CP{Wl{Wu{Ws{Wh{Cy{x~
-Desc {WI{Ct{Bs {Ca {Tl{Wi{Bt{Ct{Tl{We {Cs{Bt{Cu{Tf{Wf{Be{Cd {WL{Ci{Br{Ci{Te{Wl {CP{Bl{Cu{Ts{Wh{Cy{x~
-Mat Cotton~
-Wear -1
-Cost 3500
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion haste~
-ShD  a potion of haste~
-Desc A potion of haste lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 84 -1 -1 -1
-Spell 1 'haste'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion stone skin~
-ShD  a potion of stone skin~
-Desc A potion of stone skin lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 128 -1 -1 -1
-Spell 1 'stone skin'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion shield~
-ShD  a potion of shield~
-Desc A potion of shield lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 120 -1 -1 -1
-Spell 1 'shield'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion flameshield~
-ShD  a potion of flameshield~
-Desc A potion of flameshield lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 72 -1 -1 -1
-Spell 1 'flameshield'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 3381
-Nest 1
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
-#O
-Vnum 17108
-Nest 0
-Cond 96
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
 Wear -1
 Cost 0
 End
 
 #O
-Vnum 17108
+Vnum 16075
 Nest 0
-Cond 87
-Wear -1
-Cost 350
-End
-
-#O
-Vnum 10164
-Nest 0
-Cond 97
-Wear -1
-Cost 1350
-End
-
-#O
-Vnum 10215
-Nest 0
-Cond 85
-Wear 16
-Cost 10000
-End
-
-#O
-Vnum 20008
-Nest 0
-ExtF 16777536
-Wear 13
-Cost 50
-End
-
-#O
-Vnum 5607
-Nest 0
-Wear 15
-Cost 0
-End
-
-#O
-Vnum 5607
-Nest 0
-Cond 93
-Wear 14
-Cost 0
-End
-
-#O
-Vnum 9911
-Nest 0
-Cond 95
 Wear 10
+Cost 1600
+End
+
+#O
+Vnum 1213
+Nest 0
+Name black hilted sword shieldbreaker trading card hidden token Montrey~
+ShD  {Wa {cblack hilted {gs{Wwo{gr{Wd called {g"{YS{ch{Yie{cl{Yd{cbr{Ye{ca{Yke{cr{g" {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+ExtF 17563987
+Wear -1
+Cost 0
+ExDe black hilted sword shieldbreaker trading card~ This reknowned sword is said to have the power to stop attacks
+before they reach the wielder.  Its sharp edge is excellent for
+slashing through hordes of enemies.
+~
+End
+
+#O
+Vnum 16001
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 1211
+Nest 0
+Name liriati tile letter Z~
+ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {V[{WZ{V]{x~
+Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
+Wear -1
 Cost 0
 End
 
-#O
-Vnum 8652
+#L
+Vnum 108
 Nest 0
+Name rose~
+ShD  a since you gave him ur whole pack 80 of liriels{x rose~
+Desc A since you gave him ur whole pack 80 of liriels{x rose is lying on the ground.~
+Mat silk~
 Wear -1
-Cost 10
-Spell 3 'fly'
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Gorion.
+~
 End
 
-#O
-Vnum 8652
+#L
+Vnum 108
 Nest 0
+Name rose~
+ShD  a beg barron often for viro token{x rose~
+Desc A beg barron often for viro token{x rose is lying on the ground.~
+Mat silk~
 Wear -1
-Cost 10
-Spell 3 'fly'
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Gorion.
+~
 End
 
-#O
-Vnum 8652
+#L
+Vnum 108
 Nest 0
+Name rose~
+ShD  a keep begging barron for viro tokens{x rose~
+Desc A keep begging barron for viro tokens{x rose is lying on the ground.~
+Mat silk~
 Wear -1
-Cost 10
-Spell 3 'fly'
+Cost 0
+Val  0 1 0 0 0
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Gorion.
+~
 End
 
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 3381
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3381
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3381
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3381
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3381
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3381
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3381
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
+#L
 Vnum 108
 Nest 0
 Name rose~
@@ -1343,114 +771,122 @@ ExDe florist~ This rose was created by Gorion.
 ~
 End
 
-#O
-Vnum 10169
-Nest 0
-Wear 18
-Cost 2200
-End
-
-#O
-Vnum 11626
-Nest 0
-ExtF 262402
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3381
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3381
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 3381
-Nest 0
-Name potion divine healing~
-ShD  a potion of divine healing~
-Desc A potion of divine healing lies here.
-~
-Wear -1
-Lev  57
-Cost 2000
-Val  57 56 -1 -1 -1
-Spell 1 'divine healing'
-End
-
 #L
-Vnum 1211
+Vnum 1212
 Nest 0
-Name Green Lightsaber token~
-ShD  {GLightsaber{x~
-Desc A lightsaber lies here~
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1211
+Vnum 1213
 Nest 0
-Name Red Lightsaber token~
-ShD  {RLightsaber{x~
-Desc A lightsaber lies here~
+Name Token Hidden Pile Unpaid Bills Kazander~
+ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
+Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Token Page Torn Book Knowledge Trivia Kazander~
+ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
+Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
 Wear -1
 Cost 0
 End
@@ -1476,596 +912,11 @@ Cost 0
 End
 
 #L
-Vnum 1205
-Nest 0
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 1205
-Nest 0
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 1205
-Nest 0
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 0
-Name liriati tile letter Z~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {V[{WZ{V]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 13006
-Nest 0
-Wear -1
-Cost 120
-End
-
-#L
-Vnum 1212
-Nest 0
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name alara token trivia whisper wind woodwind reeds~
-ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
-Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
-Mat {Mm{Tu{Ms{Ti{Mc{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name alara token trivia whisper wind woodwind reeds~
-ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
-Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
-Mat {Mm{Tu{Ms{Ti{Mc{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name alara token trivia whisper wind woodwind reeds~
-ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
-Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
-Mat {Mm{Tu{Ms{Ti{Mc{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name alara token trivia whisper wind woodwind reeds~
-ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
-Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
-Mat {Mm{Tu{Ms{Ti{Mc{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name alara token trivia whisper wind woodwind reeds~
-ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
-Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
-Mat {Mm{Tu{Ms{Ti{Mc{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name alara token trivia whisper wind woodwind reeds~
-ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
-Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
-Mat {Mm{Tu{Ms{Ti{Mc{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 0
-Name viro desire quest token~
-ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
-Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
-Wear -1
-Cost 0
-End
-
-#L
 Vnum 1213
 Nest 0
 Name Token Hidden Pile Unpaid Bills Kazander~
 ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
 Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 0
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name alara token trivia whisper wind woodwind reeds~
-ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
-Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
-Mat {Mm{Tu{Ms{Ti{Mc{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name viro knowledge trivia token~
-ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
-Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
 Wear -1
 Cost 0
 End
@@ -2111,1129 +962,2600 @@ Cost 0
 End
 
 #L
-Vnum 17320
+Vnum 1212
 Nest 0
-ExtF 17039362
-Cond 92
-Wear -1
-Cost 0
-Val  250 1 17321 40 30
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
+Name jubei token award trivia~
+ShD  {WJ{gu{Wb{ge{Wi{g'{Ws {gY{Wo{gu{Wr {gn{Wo{gt {Wa {gm{Wo{gr{Wo{gn {WA{gw{Wa{gr{Wd {W*{YTrivia{W*{x~
+Desc {WI{gt{Ws {ga{Wn {gA{Ww{ga{Wr{gd {Ws{gh{Wo{gw{Wi{gn{Wg {gy{Wo{gu {Wh{ga{Wv{ge {Ws{go{Wm{ge {Wc{go{Wm{gm{Wo{gn {Ws{ge{Wn{gs{We{g, {Wt{gh{Wa{gt{Ws {gr{Wa{gr{We {gt{Wh{ge{Ws{ge {Wd{ga{Wy{gs {Wy{ga {Wk{gn{Wo{gw{W?{x~
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
+Vnum 1211
+Nest 0
+Name Green Lightsaber token~
+ShD  {GLightsaber{x~
+Desc A lightsaber lies here~
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
+Vnum 1211
+Nest 0
+Name Red Lightsaber token~
+ShD  {RLightsaber{x~
+Desc A lightsaber lies here~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1215
-Nest 1
-Name liriel rainbow dazzling wild~
-ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
-Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
+Vnum 1214
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1215
-Nest 1
-Name half wild eeyore stuffed liriel~
-ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
-Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
+Nest 0
+Name wild semi solid substance token urza legacy set~
+ShD  {cA {bs{ce{bm{ci{b-{cs{bo{cl{bi{cd {csubstance {C*{WWiLd{C*{x~
+Desc {cA {bm{co{bl{cd{ba{cb{bl{ce {bs{cu{bb{cs{bt{ca{bn{cc{be {cc{br{ce{ba{ct{be{cd {bb{cy {WUrza{x {C*{WWiLd{C*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1215
-Nest 1
-Name half wild eeyore stuffed liriel~
-ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
-Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
+Nest 0
+Name viro glimmer hope bushido wild~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1215
-Nest 1
-Name half wild eeyore stuffed liriel~
-ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
-Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
+Nest 0
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1215
-Nest 1
-Name half wild eeyore stuffed liriel~
-ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
-Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
+Nest 0
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1215
-Nest 1
-Name half wild eeyore stuffed liriel~
-ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
-Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
+Nest 0
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1215
-Nest 1
-Name half wild eeyore stuffed liriel~
-ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
-Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
+Nest 0
+Name viro glimmer hope bushido wild token~
+ShD  {BLong {Tforgotten {WB{gu{Ws{gh{Wi{gd{Wo {H*{GWild{H*{x~
+Desc A {Cg{Tl{Ci{Tm{Cm{Te{Cr {xof {WHope{x, manifested into {WB{gu{Ws{gh{Wi{gd{Wo{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1212
-Nest 1
-Name liriel trivia women intuition special edition~
-ShD  {ga {WS{Cp{We{Cc{Wi{Ca{Wl {BEdition {WL{Ci{Br{Ci{Te{Wl {PT{Wr{Vi{Wv{Pi{Wa{V: {GWomen's Intuition{x~
-Desc {gA {WS{Cp{We{Cc{Wi{Ca{Wl {BEdition {WL{Ci{Br{Ci{Te{Wl {PT{Wr{Vi{Wv{Pi{Wa{V: {GWomen's Intuition{x!~
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1215
-Nest 1
-Name cow cookie wild liriel~
-ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
-Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name viro knowledge trivia token~
+ShD  {H*{GTrivial{H* {CKnowledge {xof the {TOracles{x~
+Desc Some {Cknowledge{x, seemingly {cirrelevant{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name piggie cookie trivia liriel~
-ShD  {W({Ptrivia{W){g a {Ccute {Vpiggie {bcookie {gwith {Yp{beanut {Yb{butter {Ym{bud{x~
-Desc {W({Ptrivia{W){g A {Ccute {Vpiggie {bcookie {gwith {Yp{beanut {Yb{butter {Ym{bud{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name hug wild token choice montrey liriel~
-ShD  {Wa {Gbig {Bold {CH{WU{CG {G*{VW{Pi{YL{Cd{B* {W<{Vgood{g for a {CC{Th{CO{Ti{CC{Te{C {gof {gM{Wo{gn{Ct{gr{We{gy{P OR {WL{Ci{Br{Ci{Te{Wl{Y!!!{W>{x~
-Desc {WOh my god you can't believe what you see{Y!!!  {WGET IT{Y!!!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name Marx trivia neutrality token drop~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
-Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name Marx trivia neutrality token drop~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
-Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
+Nest 0
+Name quest mini ornithopter token urza legacy set~
+ShD  {WA {HM{bi{Hn{bi {HO{br{Hn{bi{Ht{bh{Ho{bp{Ht{be{Hr {Y*QuEsT*{x~
+Desc {WA {HM{bi{Hn{bi {WUrza {Hs{bt{Ha{bn{Hd{bi{Hn{bg {Hi{bn {Ha {bM{Hi{bn{Hi {bO{Hr{bn{Hi{bt{Hh{bo{Hp{bt{He{br {Y*QuEsT*{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1212
-Nest 1
-Name Marx trivia neutrality token drop~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
-Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1212
-Nest 1
-Name Marx trivia neutrality token drop~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
-Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
 Wear -1
 Cost 0
 End
 
 #L
 Vnum 1212
-Nest 1
-Name Marx trivia neutrality token drop~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
-Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
+Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1212
-Nest 1
-Name Marx trivia neutrality token drop~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
-Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name Marx trivia neutrality token drop~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
-Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name Marx trivia neutrality token drop~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
-Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name qaz trivia~
-ShD  Qaz's trivia token~
-Desc Qaz's too hard trivia token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name cow cookie wild liriel~
-ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
-Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name qaz wild token~
-ShD  {CThe {V*{Cild {PQ{Ra{Pz{x {Ctoken{x~
-Desc The wild and wonderful Qazorkins token of untamed feral ferocity~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name cow cookie wild liriel~
-ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
-Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name cow cookie wild liriel~
-ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
-Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 11776
+Vnum 3022
 Nest 0
 Wear -1
-Cost 0
+Cost 610
 End
 
-#B
-Vnum 5609
+#L
+Vnum 4471
 Nest 0
+Name liriel plushy~
+ShD  {WL{Ci{Br{Ci{Te{Wl {CP{Wl{Wu{Ws{Wh{Cy{x~
+Desc {WI{Ct{Bs {Ca {Tl{Wi{Bt{Ct{Tl{We {Cs{Bt{Cu{Tf{Wf{Be{Cd {WL{Ci{Br{Ci{Te{Wl {CP{Bl{Cu{Ts{Wh{Cy{x~
+Mat Cotton~
+Wear -1
+Cost 3500
+End
+
+#L
+Vnum 1211
+Nest 0
+Name greater equipment protection token~
+ShD  a {PG{br{Ye{Wa{Yt{be{Pr {GEq{Tui{Cp{Tme{Gnt {WP{Yr{got{cec{gti{Yo{Wn{x token{x~
+Desc It's a {Rp{Po{Ww{ger{Wf{Pu{Rl {Wp{Yr{got{cec{gti{Yv{We{x aura, spinning like a top!~
+Wear -1
+Cost 0
+ExDe greater~ Makes an item invulnerable!
+~
+ExDe equipment~ Makes an item invulnerable!
+~
+ExDe protection~ Makes an item invulnerable!
+~
+ExDe token~ Makes an item invulnerable!
+~
+End
+
+#L
+Vnum 1211
+Nest 0
+Name Thank You! token~
+ShD  Thank You!~
+Desc Thanks for your activity contribution to Age of Legacy.  {HViro{x~
 Wear -1
 Cost 0
 End
 
-#B
-Vnum 5609
+#L
+Vnum 1212
 Nest 0
+Name trivia red leatherbound spellbook token urza legacy set~
+ShD  {cA {RRed {PL{Re{Pa{Rt{Ph{Re{Pr{Rb{Po{Ru{Pn{Rd {TS{Rp{Te{Rl{Tl{Rb{To{Ro{Tk {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
+Desc {cA {cb{Re{ca{Rt {cu{Rp {Ps{Rp{Pe{Rl{Pl{Rb{Po{Ro{Pk {Rw{ci{Rt{ch {WUrza's {Rm{ca{Rr{ck {Ro{cn {Ri{ct {B*{Tt{BR{Ti{BV{Ti{BA{T*{x~
 Wear -1
 Cost 0
 End
 
-#B
-Vnum 5610
+#L
+Vnum 1215
 Nest 0
-ExtF 17301507
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
 Wear -1
 Cost 0
 End
 
-#B
-Vnum 17004
+#L
+Vnum 1214
 Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
 Wear -1
-Cost 200
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jubei chi earth token hidden~
+ShD  {WE{ga{Wr{gt{Wh {gC{Wh{gi {W*{YHidden{W*{x~
+Desc {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck W{col{cf~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Navarre hidden token huge black wolf~
+ShD  {H({GHi{Wdd{Gen{H) {cH{gug{ce B{gl{Wa{gc{ck Wolf{x~
+Desc A huge black wolf stands here, watching you silently.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3032
+Nest 0
+ExtF 17039360
+Wear -1
+Cost 9
+End
+
+#L
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 16057
+Nest 1
+Wear -1
+Cost 50
+End
+
+#L
+Vnum 16058
+Nest 1
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#L
+Vnum 16058
+Nest 1
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#L
+Vnum 16058
+Nest 1
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#L
+Vnum 16058
+Nest 1
+Wear -1
+Cost 50
+Spell 3 'protection evil'
+End
+
+#L
+Vnum 4570
+Nest 1
+Wear -1
+Cost 1200
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 1205
+Nest 1
+Wear -1
+Cost 15
+End
+
+#L
+Vnum 8652
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#L
+Vnum 8726
+Enchanted
+Nest 1
+Wt   0
+Cond 98
+Wear -1
+Lev  8
+Cost 550
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1   5  -1   2   4          0 1
+End
+
+#L
+Vnum 6621
+Enchanted
+Nest 1
+Wt   0
+Cond 100
+Wear -1
+Lev  8
+Cost 780
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   4  -1   5  12          0 1
+Affc 'reserved'   1   4  -1   1   4          0 1
+End
+
+#L
+Vnum 3021
+Enchanted
+Nest 1
+ExtF 67
+Cond 97
+Wear -1
+Lev  6
+Cost 250
+Affc 'enchant weapon'   0  91  -1   8  18          0 1
+Affc 'enchant weapon'   1  91  -1   8  19          0 1
+End
+
+#L
+Vnum 2404
+Enchanted
+Nest 1
+ExtF 65
+Wear -1
+Lev  6
+Cost 550
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#L
+Vnum 2404
+Enchanted
+Nest 1
+ExtF 65
+Wear -1
+Lev  6
+Cost 550
+Affc 'enchant armor'   1  91  -1  -5  17          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'reserved'   1   3  -1   1  26          0 1
+End
+
+#L
+Vnum 3712
+Enchanted
+Nest 1
+ExtF 1048641
+Wear -1
+Lev  4
+Cost 0
+Affc 'enchant armor'   1  91  -1  -7  17          0 1
+End
+
+#L
+Vnum 10135
+Enchanted
+Nest 1
+ExtF 17039425
+Wear -1
+Lev  6
+Cost 23
+Affc 'enchant armor'   1  91  -1  -5  17          0 1
+Affc 'reserved'   1   2  -1   1   3          0 1
+Affc 'reserved'   1   2  -1   2  12          0 1
+End
+
+#L
+Vnum 7209
+Nest 1
+Wt   0
+Wear -1
+Lev  9
+Cost 900
+End
+
+#L
+Vnum 3077
+Enchanted
+Nest 1
+ExtF 65
+Wt   10
+Wear -1
+Lev  8
+Cost 336
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+End
+
+#L
+Vnum 10126
+Enchanted
+Nest 1
+ExtF 17039680
+Wear -1
+Lev  7
+Cost 57
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1   5  -1   1   4          0 1
+Affc 'reserved'   1   5  -1   5  12          0 1
+End
+
+#L
+Vnum 1111
+Nest 0
+Name nafai bag holding silver black limited~
+ShD  {WN{ga{cf{ga{Wi{x's {cBag of Holding {g*LIMITED EDITION*{x~
+Desc A glorious {Ws{gi{Wl{gv{We{gr {xand {cb{gl{ca{gc{ck {xbag lies on the ground in front of you.~
+ExtF 524288
+Wear -1
+Cost 11
+End
+
+#L
+Vnum 1202
+Nest 0
+Name Koutetsu token 2~
+ShD  {WK{go{Wu{gt{We{gt{Ws{gu{x~
+Desc {YA mysterious katana blade is here radiating energy{x~
+Wear -1
+Cost 6
 End
 
 #B
@@ -3253,190 +3575,76 @@ Cost 0
 End
 
 #B
-Vnum 11657
-Nest 0
-ExtF 17039360
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 11793
-Nest 1
-ExtF 257
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Gorion
-~
-End
-
-#B
-Vnum 14015
-Nest 1
-ExtF 1048656
-Wear -1
-Cost 15000
-End
-
-#B
-Vnum 14015
-Nest 1
-ExtF 1048656
-Wear -1
-Cost 15000
-End
-
-#B
-Vnum 14000
-Nest 1
-ExtF 17563728
-Wear -1
-Cost 20000
-End
-
-#B
-Vnum 10112
-Nest 1
-ExtF 16777283
-Cond 98
-Wear -1
-Lev  91
-Cost 500
-ExDe owned by~ Gorion
-~
-End
-
-#B
 Vnum 11792
-Nest 1
+Nest 0
 Wear -1
 Cost 55000
-End
-
-#B
-Vnum 11713
-Nest 1
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 10106
-Nest 1
-Wear -1
-Lev  91
-Cost 33000
-ExDe owned by~ Gorion
-~
-End
-
-#B
-Vnum 11748
-Nest 1
-ExtF 80
-Wt   150
-Cond 97
-Wear -1
-Cost 15000
-End
-
-#B
-Vnum 10115
-Nest 1
-Cond 99
-Wear -1
-Cost 50
-End
-
-#B
-Vnum 17041
-Nest 1
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 14013
-Nest 1
-ExtF 1835010
-Cond 94
-Wear -1
-Cost 3500
-End
-
-#B
-Vnum 14012
-Nest 1
-ExtF 1835010
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 11709
-Nest 1
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 11709
-Nest 1
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 10101
-Nest 1
-Wear -1
-Cost 0
 End
 
 #B
 Vnum 14042
-Nest 1
+Nest 0
 Wear -1
 Cost 10000
 End
 
 #B
-Vnum 14043
-Nest 1
+Vnum 14015
+Nest 0
+ExtF 1048656
 Wear -1
-Cost 12000
+Cost 15000
 End
 
 #B
-Vnum 3209
-Nest 1
+Vnum 5409
+Nest 0
+ExtF 67
 Wear -1
-Cost 100
+Cost 100000
 End
 
 #B
-Vnum 14060
-Nest 1
-Cond 94
+Vnum 2224
+Nest 0
+ShD  Outsider's Heavenly Ring~
+Desc A sparkling diamond ring.~
 Wear -1
-Cost 9000
+Cost 6800
 End
 
 #B
-Vnum 20026
-Nest 1
+Vnum 2326
+Enchanted
+Nest 0
+ExtF 65
 Wt   0
 Wear -1
-Cost 90000
+Lev  8
+Cost 550
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
 End
 
 #B
-Vnum 10121
+Vnum 2326
+Enchanted
 Nest 0
-Cond 91
+ExtF 65
+Wt   30
 Wear -1
-Cost 21
+Lev  8
+Cost 550
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+Affc 'reserved'   1   5  -1   1   5          0 1
+End
+
+#B
+Vnum 17316
+Nest 0
+ExtF 0
+Wear -1
+Cost 5000
 End
 
 #B
@@ -3448,91 +3656,355 @@ Cost 500
 End
 
 #B
-Vnum 504
+Vnum 3205
 Nest 0
-ExtF 19
-Cond 100
 Wear -1
-Cost 312
+Cost 60
 End
 
 #B
-Vnum 17316
+Vnum 10215
 Nest 0
-ExtF 0
+ExtF 64
+Cond 75
 Wear -1
-Cost 5000
+Cost 10000
 End
 
 #B
-Vnum 17316
+Vnum 10171
 Nest 0
-ExtF 0
+Cond 93
 Wear -1
-Cost 5000
+Cost 3300
 End
 
 #B
-Vnum 16017
+Vnum 10121
 Nest 0
+Cond 91
 Wear -1
-Cost 5600
+Cost 21
 End
 
 #B
-Vnum 16016
+Vnum 11791
 Nest 0
 Wear -1
-Cost 4650
+Cost 0
+End
+
+#B
+Vnum 17320
+Nest 0
+ExtF 262146
+Wear -1
+Cost 2500
+Val  250 1 17321 40 30
+End
+
+#B
+Vnum 11713
+Nest 1
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 14000
+Nest 1
+ExtF 17563728
+Wear -1
+Cost 20000
+End
+
+#B
+Vnum 17100
+Nest 1
+Wear -1
+Cost 159
+End
+
+#B
+Vnum 17010
+Nest 1
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 9101
+Nest 1
+Cond 96
+Wear -1
+Cost 2800
+End
+
+#B
+Vnum 17004
+Nest 1
+Cond 95
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 14030
+Enchanted
+Nest 1
+Cond 94
+Wear -1
+Cost 0
+Val  1 7 9 21 148
+Affc 'reserved'   1  60  -1  45  12          0 1
+Affc 'reserved'   1  60  -1   6  18          0 1
+Affc 'reserved'   1  60  -1   6  19          0 1
+End
+
+#B
+Vnum 17001
+Nest 1
+Cond 97
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 5610
+Nest 1
+ExtF 17301507
+Cond 79
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 8204
+Nest 1
+Cond 96
+Wear -1
+Cost 3800
+End
+
+#B
+Vnum 5607
+Nest 1
+Cond 95
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 5607
+Nest 1
+Cond 89
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 3206
+Nest 1
+Cond 97
+Wear -1
+Cost 70
+End
+
+#B
+Vnum 20006
+Nest 1
+ExtF 17039680
+Wear -1
+Cost 999
+End
+
+#B
+Vnum 13005
+Nest 1
+Wear -1
+Cost 4500
 End
 
 #B
 Vnum 20013
-Nest 0
+Nest 1
+Cond 89
 Wear -1
 Cost 600
-Val  30 13 12 57 0
+Val  30 13 1 57 0
 Spell 3 'divine regeneration'
 End
 
 #B
-Vnum 1211
-Nest 0
-Name greater equipment protection token~
-ShD  a {PG{br{Ye{Wa{Yt{be{Pr {GEq{Tui{Cp{Tme{Gnt {WP{Yr{got{cec{gti{Yo{Wn{x token{x~
-Desc It's a {Rp{Po{Ww{ger{Wf{Pu{Rl {Wp{Yr{got{cec{gti{Yv{We{x aura, spinning like a top!~
+Vnum 11776
+Enchanted
+Nest 1
+ExtF 321
 Wear -1
+Lev  91
 Cost 0
-ExDe greater~ Makes an item invulnerable!
-~
-ExDe equipment~ Makes an item invulnerable!
-~
-ExDe protection~ Makes an item invulnerable!
-~
-ExDe token~ Makes an item invulnerable!
+Affc 'enchant weapon'   0  91  -1   1  18          0 1
+Affc 'enchant weapon'   1  91  -1   1  19          0 1
+Affc 'reserved'   1  92  -1   3   3          0 1
+Affc 'reserved'   1  92  -1   3   4          0 1
+Affc 'reserved'   1  92  -1  80  12          0 1
+Affc 'reserved'   1  92  -1  70  13          0 1
+Affc 'reserved'   0  92  -1   0   0        128 1
+ExDe owned by~ Gorion
 ~
 End
 
 #B
 Vnum 11791
-Nest 0
+Nest 1
+Cond 77
+Wear -1
+Lev  91
+Cost 0
+ExDe owned by~ Gorion
+~
+End
+
+#B
+Vnum 14043
+Nest 1
+Cond 66
+Wear -1
+Cost 12000
+End
+
+#B
+Vnum 10106
+Nest 1
+Cond 92
+Wear -1
+Lev  91
+Cost 33000
+ExDe owned by~ Gorion
+~
+End
+
+#B
+Vnum 14015
+Nest 1
+ExtF 1048656
+Cond 92
+Wear -1
+Cost 15000
+End
+
+#B
+Vnum 14013
+Nest 1
+ExtF 1835010
+Cond 96
+Wear -1
+Cost 3500
+End
+
+#B
+Vnum 10115
+Nest 1
+Cond 94
+Wear -1
+Cost 50
+End
+
+#B
+Vnum 11793
+Nest 1
+ExtF 257
+Cond 87
+Wear -1
+Lev  91
+Cost 0
+ExDe owned by~ Gorion
+~
+End
+
+#B
+Vnum 20026
+Nest 1
+Wt   0
+Cond 98
+Wear -1
+Cost 61200
+End
+
+#B
+Vnum 11709
+Nest 1
+Cond 94
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11709
+Nest 1
+Cond 97
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 13004
+Nest 1
+Cond 95
+Wear -1
+Cost 3700
+End
+
+#B
+Vnum 10112
+Nest 1
+ExtF 16777283
+Cond 89
+Wear -1
+Lev  91
+Cost 500
+ExDe owned by~ Gorion
+~
+End
+
+#B
+Vnum 11751
+Nest 1
+Cond 98
 Wear -1
 Cost 0
 End
 
 #B
-Vnum 11791
-Nest 0
+Vnum 10101
+Nest 1
+Cond 85
 Wear -1
 Cost 0
 End
 
 #B
-Vnum 3810
-Nest 0
-Cond 80
+Vnum 3209
+Nest 1
+Cond 91
 Wear -1
-Cost 0
+Cost 100
+End
+
+#B
+Vnum 3808
+Nest 1
+Cond 91
+Wear -1
+Cost 30000
+End
+
+#B
+Vnum 10100
+Nest 1
+Cond 84
+Wear -1
+Cost 32000
 End
 
 #END

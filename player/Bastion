@@ -1,26 +1,25 @@
 #PLAYER
 Name Bastion~
-Id   1021964665
-LogO 1027018283
+Id   1039289814
+LogO 1109719412
 Vers 14
 Mexp 2
 Pass arthur~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race human~
 Cla  0
-Levl 43
-Tru  0
-Plyd 212126
-Back 211261
-Note 1027010887 1026227831 1026918579 1027003362 1026409721 1026227831 1026227831
-Scro 44
-Room 3054
-HMS  680 684 315
-Gold 630
-Silv 217
-Exp  43057
+Levl 44
+Plyd 112767
+Back 99278
+Note 1101447933 1056610153 1056610153 1068069606 1101255132 1056610153 1056610153
+Scro 40
+Room 3001
+HMS  931 691 296
+Gold 1730
+Silv 47
+Exp  44429
 PCkills  0
-PCkilled 0
+PCkilled 1
 Akills   0
 Akilled  0
 PKRank   0
@@ -29,137 +28,123 @@ Alig 1000
 FImm 0
 FRes 0
 FVul 0
-Plr  0
+Plr  AH
 Video 0
-Act  DGJLQRSc
+Act  CDGHJLQRSc
 AfBy 0
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AI
 Cnsr AB
-Prac 7
-Trai 0
-Wimp 20
-Atrib 15 21 18 12 18 11
-Afk {B[{CTue Jul  9 11:07:28 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Block_Remote 0
+Prac 6
+Trai 1
+Wimp 100
+Familiar 0
+Atrib 18 21 18 18 18 13
+QuestPnts  19
+Afk {B[{CFri Nov 26 15:20:03 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  {P, {WA{Pm{Yb{Ga{Cs{Bs{Va{cd{H{fo{Mr {co{gf {WW{Bi{Yl{Vl~
+Titl  Im thinking~
 Immn ~
 Pnts 40
-Rank ~
+Rank {RY{Pm{RR~
 Aura ~
 TSex 1
-LLev 58
-Deit Liriel~
-Lsit 66-42-120-112.lsan.dial.netzero.com~
-Ltim Thu Jul 18 13:46:51 2002
+LLev 29
+Email clan~
+Deit Viro~
+Lsit ACA8C34B.ipt.aol.com~
+Ltim Tue Mar 01 00:30:39 2005
 ~
-LSav Thu Jul 18 13:51:23 2002
+LSav Tue Mar 01 17:23:32 2005
 ~
-HMSP 470 624 315
+HMSP 526 656 326
 THMS 0 0 0
-Cnd  4 0 39 39
-Sk 87 1 'acid blast'
-Sk 1 1 'acid breath'
-Sk 1 1 'acid rain'
+Cnd  0 0 48 48
+Sk 75 1 'acid blast'
 Sk 1 1 'age'
-Sk 91 1 'armor'
-Sk 78 1 'bless'
-Sk 78 1 'blindness'
-Sk 1 1 'blizzard'
-Sk 80 1 'burning hands'
-Sk 1 1 'call lightning'
+Sk 75 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 75 1 'armor'
+Sk 77 1 'bless'
+Sk 99 1 'blindness'
+Sk 75 1 'blood moon'
+Sk 85 1 'burning hands'
 Sk 75 1 'calm'
 Sk 1 1 'cancellation'
-Sk 75 1 'cause light'
-Sk 76 1 'cause serious'
-Sk 1 1 'cause critical'
-Sk 77 1 'chain lightning'
+Sk 1 1 'chain lightning'
 Sk 1 1 'channel'
 Sk 76 1 'charm person'
-Sk 79 1 'chill touch'
-Sk 100 1 'colour spray'
+Sk 95 1 'chill touch'
+Sk 83 1 'colour spray'
 Sk 1 1 'continual light'
-Sk 1 1 'control weather'
-Sk 78 1 'create food'
-Sk 85 1 'create parchment'
-Sk 75 1 'create rose'
-Sk 75 1 'create sign'
-Sk 76 1 'create spring'
-Sk 81 1 'create vial'
-Sk 75 1 'create water'
-Sk 87 1 'curse'
-Sk 1 1 'dazzling light'
-Sk 1 1 'demonfire'
-Sk 1 1 'dispel evil'
-Sk 1 1 'dispel good'
+Sk 80 1 'create food'
+Sk 75 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 76 1 'create vial'
+Sk 77 1 'create water'
+Sk 79 1 'cure blindness'
+Sk 75 1 'cure disease'
+Sk 75 1 'cure poison'
+Sk 75 1 'curse'
 Sk 1 1 'dispel magic'
 Sk 1 1 'divine regeneration'
-Sk 1 1 'earthquake'
-Sk 87 1 'encampment'
-Sk 78 1 'enchant armor'
-Sk 78 1 'enchant weapon'
+Sk 75 1 'encampment'
 Sk 1 1 'energy drain'
-Sk 1 1 'faerie fire'
-Sk 1 1 'faerie fog'
-Sk 1 1 'fire breath'
-Sk 100 1 'fireball'
+Sk 75 1 'fear'
+Sk 99 1 'fireball'
 Sk 1 1 'fireproof'
 Sk 1 1 'firestorm'
-Sk 1 1 'flameshield'
-Sk 76 1 'flamestrike'
-Sk 75 1 'fly'
+Sk 1 1 'fly'
 Sk 1 1 'floating disc'
-Sk 88 1 'frenzy'
-Sk 1 1 'frost breath'
-Sk 1 1 'gas breath'
-Sk 79 1 'gate'
-Sk 82 1 'giant strength'
-Sk 1 1 'harm'
-Sk 95 1 'haste'
-Sk 1 1 'heat metal'
+Sk 75 1 'frenzy'
+Sk 78 1 'gate'
+Sk 78 1 'giant strength'
+Sk 85 1 'haste'
 Sk 1 1 'holy word'
-Sk 75 1 'infravision'
-Sk 85 1 'lightning bolt'
-Sk 1 1 'lightning breath'
-Sk 75 1 'magic missile'
+Sk 1 1 'infravision'
+Sk 90 1 'lightning bolt'
+Sk 82 1 'magic missile'
 Sk 1 1 'nexus'
-Sk 75 1 'pass door'
-Sk 86 1 'plague'
-Sk 87 1 'poison'
+Sk 76 1 'pass door'
+Sk 75 1 'plague'
+Sk 89 1 'poison'
 Sk 1 1 'power word'
 Sk 1 1 'portal'
-Sk 1 1 'protect container'
-Sk 75 1 'protection evil'
+Sk 1 1 'protection evil'
 Sk 1 1 'protection good'
-Sk 75 1 'ray of truth'
-Sk 1 1 'recharge'
-Sk 76 1 'refresh'
-Sk 77 1 'regeneration'
+Sk 77 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 75 1 'regeneration'
 Sk 1 1 'remove alignment'
 Sk 1 1 'remove invisibility'
 Sk 75 1 'remove curse'
-Sk 81 1 'sanctuary'
-Sk 83 1 'shield'
-Sk 86 1 'shocking grasp'
-Sk 1 1 'shrink'
-Sk 1 1 'sleep'
-Sk 94 1 'slow'
-Sk 77 1 'steel mist'
-Sk 76 1 'stone skin'
-Sk 75 1 'summon'
+Sk 75 1 'sanctuary'
+Sk 77 1 'shield'
+Sk 91 1 'shocking grasp'
+Sk 75 1 'sleep'
+Sk 87 1 'slow'
+Sk 1 1 'starve'
+Sk 75 1 'stone skin'
+Sk 78 1 'summon'
 Sk 1 1 'summon object'
-Sk 1 1 'sunray'
 Sk 1 1 'talon'
 Sk 1 1 'teleport'
 Sk 1 1 'teleport object'
-Sk 75 1 'undo spell'
-Sk 84 1 'weaken'
+Sk 1 1 'undo spell'
+Sk 75 1 'weaken'
 Sk 1 1 'word of recall'
 Sk 1 1 'wrath'
-Sk 91 1 'dagger'
-Sk 75 1 'brew'
-Sk 80 1 'scribe'
+Sk 1 1 'dagger'
+Sk 100 1 'sword'
+Sk 76 1 'brew'
+Sk 100 1 'dodge'
+Sk 76 1 'second attack'
 Sk 75 1 'repair'
 Sk 100 1 'scan'
 Sk 75 1 'scrolls'
@@ -168,26 +153,16 @@ Sk 1 1 'wands'
 Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'mage basics'
-Gr 'attack'
 Gr 'beguiling'
 Gr 'benedictions'
 Gr 'combat'
 Gr 'creation'
-Gr 'draconian'
-Gr 'enchantment'
+Gr 'curative'
 Gr 'enhancement'
-Gr 'harmful'
 Gr 'maladictions'
+Gr 'necromancy'
 Gr 'protective'
 Gr 'transportation'
-Gr 'weather'
-End
-
-#O
-Vnum 3163
-Nest 0
-Wear -1
-Cost 1500
 End
 
 #O
@@ -198,27 +173,34 @@ Cost 500
 End
 
 #O
-Vnum 76
+Vnum 3138
 Nest 0
 Wear -1
-Cost 550
+Cost 24
+Val  64 16 0 0 0
 End
 
 #O
-Vnum 9922
+Vnum 4581
 Nest 0
-Wear 12
+Wear -1
 Cost 0
 End
 
 #O
-Vnum 1213
+Vnum 4610
 Nest 0
-Name viro mist honour hidden token~
-ShD  {H*{GHidden{H* {WHonour{x~
-Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 700
+End
+
+#O
+Vnum 12717
+Nest 0
+Cond 92
 Wear -1
 Cost 0
+Val  4 6 7 5 0
 End
 
 #O
@@ -229,65 +211,387 @@ Cost 0
 End
 
 #O
-Vnum 3002
+Vnum 1214
 Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
 Wear -1
-Cost 6
-ExDe owned by~ Bastion~
+Cost 0
 End
 
 #O
-Vnum 3002
+Vnum 1211
+Nest 0
+Name Thank You! token~
+ShD  Thank You!~
+Desc Thanks for your activity contribution to Age of Legacy.  {HViro{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3163
 Nest 0
 Wear -1
-Cost 6
-Val  16 0 3 1 0
-ExDe owned by~ Bastion~
+Cost 1500
+End
+
+#O
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24400
+Nest 0
+Wear 8
+Cost 2000
 End
 
 #O
 Vnum 9909
 Nest 0
-Wear 4
-Cost 0
+Wear -1
+Cost 2000
 End
 
 #O
-Vnum 2390
+Vnum 9922
 Nest 0
-Wear 9
-Cost 0
+Cond 97
+Wear 12
+Cost 1500
 End
 
 #O
-Vnum 3138
+Vnum 24474
 Nest 0
 Wear -1
-Cost 24
+Cost 10
+Spell 1 'cancellation'
+Spell 2 'slow'
+Spell 3 'regeneration'
+Spell 4 'cure critical'
 End
 
 #O
-Vnum 4592
+Vnum 24474
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cancellation'
+Spell 2 'slow'
+Spell 3 'regeneration'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24474
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cancellation'
+Spell 2 'slow'
+Spell 3 'regeneration'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24474
+Nest 0
+Wear -1
+Cost 10
+Spell 1 'cancellation'
+Spell 2 'slow'
+Spell 3 'regeneration'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 24411
+Nest 0
+Wear 7
+Cost 3000
+End
+
+#O
+Vnum 24403
+Nest 0
+Wear 18
+Cost 3000
+End
+
+#O
+Vnum 24402
 Nest 0
 Wear 0
+Cost 3000
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
 Cost 0
 End
 
 #O
-Vnum 1215
+Vnum 24474
 Nest 0
-Name sivat split wild token~
-ShD  {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Yo{P_{YO{H){G+{x {G({Y1{b/{Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CS{Tp{Cl{Ti{Ct {RW{bi{Rl{bd {GT{Ho{Gk{He{Gn{x~
+Wear -1
+Cost 10
+Spell 1 'cancellation'
+Spell 2 'slow'
+Spell 3 'regeneration'
+Spell 4 'cure critical'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 24406
+Nest 0
+Cond 94
+Wear 14
+Cost 4000
+End
+
+#O
+Vnum 24406
+Nest 0
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 24405
+Nest 0
+Wear 4
+Cost 4000
+End
+
+#O
+Vnum 24405
+Nest 0
+Wear 3
+Cost 4000
+End
+
+#O
+Vnum 24412
+Nest 0
+Cond 90
+Wear 1
+Cost 3000
+End
+
+#O
+Vnum 24412
+Nest 0
+Wear 2
+Cost 3000
+End
+
+#O
+Vnum 9910
+Nest 0
+Wear 5
+Cost 5000
+End
+
+#O
+Vnum 17100
+Nest 0
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 12714
+Nest 0
 Wear -1
 Cost 0
 End
 
 #O
-Vnum 5024
+Vnum 16007
+Nest 0
+Cond 92
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24468
 Nest 0
 Wear -1
 Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Cond 96
+Wear 16
+Cost 10000
 End
 
 #O
@@ -301,174 +605,135 @@ Cost 0
 End
 
 #O
-Vnum 3167
+Vnum 24468
 Nest 0
 Wear -1
-Cost 2500
+Cost 0
+Spell 3 'armor'
 End
 
 #O
-Vnum 9536
+Vnum 24467
 Nest 0
 Wear -1
-Cost 50
+Cost 0
+Spell 3 'giant strength'
 End
 
 #O
-Vnum 4587
+Vnum 119
 Nest 0
+Name food a slice of burnt toast~
+ShD  a slice of burnt toast~
+Desc A slice of burnt toast{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  22 44 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Bastion.
+~
+End
+
+#O
+Vnum 24468
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'armor'
+End
+
+#O
+Vnum 24467
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'giant strength'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 9231
+Nest 0
+Wear -1
+Cost 250
+Spell 1 'invisibility'
+End
+
+#O
+Vnum 3381
+Nest 0
+Name potion armor~
+ShD  a potion of armor~
+Desc A potion of armor lies here.
+~
 Wear 17
-Cost 0
+Lev  44
+Cost 2000
+Val  44 9 -1 -1 -1
+Spell 1 'armor'
 End
 
 #O
-Vnum 10410
-Enchanted
+Vnum 10204
 Nest 0
-ExtF 66
-Wear 16
-Lev  38
-Cost 0
-Affc 'enchant weapon'   1  38  -1   2  19          0 1
-Affc 'enchant weapon'   1  38  -1   7  18          0 1
-End
-
-#O
-Vnum 4594
-Nest 0
-Wear 2
+Wear 9
 Cost 0
 End
 
 #O
-Vnum 4579
-Nest 0
-Wear 18
-Cost 0
-End
-
-#O
-Vnum 16080
-Enchanted
-Nest 0
-ExtF 65
-Wear 14
-Lev  32
-Cost 0
-Affc 'reserved'   1  31  -1   2  19          0 1
-Affc 'reserved'   1  31  -1  25  13          0 1
-Affc 'reserved'   1  31  -1   2   2          0 1
-Affc 'enchant armor'   1  38  -1  -2  17          0 1
-End
-
-#O
-Vnum 9909
-Nest 0
-Wear 3
-Cost 0
-End
-
-#O
-Vnum 8200
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 11643
-Nest 0
-Wear 13
-Cost 0
-End
-
-#O
-Vnum 11644
-Nest 0
-Wear 7
-Cost 0
-End
-
-#O
-Vnum 8272
-Nest 0
-Wear 5
-Cost 0
-End
-
-#O
-Vnum 16080
-Enchanted
-Nest 0
-ExtF 65
-Wear 15
-Lev  34
-Cost 0
-Affc 'reserved'   1  31  -1   2  19          0 1
-Affc 'reserved'   1  31  -1  25  13          0 1
-Affc 'reserved'   1  31  -1   2   2          0 1
-Affc 'enchant armor'   1  39  -1  -4  17          0 1
-End
-
-#O
-Vnum 17316
-Nest 0
-ExtF 4096
-Wear 1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 0
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 10205
-Enchanted
-Nest 0
-ExtF 65
-Wear 8
-Lev  41
-Cost 0
-Affc 'enchant armor'   1  72  -1  -1  17          0 1
-Affc 'reserved'   1  40  -1  50  13          0 1
-Affc 'reserved'   1  40  -1  -2  23          0 1
-End
-
-#O
-Vnum 16081
+Vnum 10202
 Nest 0
 Wear 10
 Cost 0
-End
-
-#O
-Vnum 10157
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 10157
-Nest 0
-Wear -1
-Cost 0
-Val  50 26 3 0 0
-End
-
-#O
-Vnum 3000
-Nest 0
-Wear -1
-Cost 75
-Val  300 288 1 0 0
 End
 
 #END

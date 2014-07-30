@@ -1,22 +1,21 @@
 #PLAYER
 Name Nicole~
 Id   991174348
-LogO 1026971424
+LogO 1067140012
 Vers 14
 Mexp 2
 Pass nicole~
 Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
 Race human~
-Clan order~
 Cla  3
 Levl 57
 Tru  0
-Plyd 196292
-Back 192174
-Note 1013909817 1013844556 1013888614 1013661978 1013850735 1026877382 0
+Plyd 203152
+Back 202723
+Note 1034283603 1034283603 1034283603 1034283603 1034764544 1048573801 1034283603
 Scro 22
-Room 8543
-HMS  1414 678 563
+Room 3001
+HMS  1414 678 864
 Gold 761
 Silv 9
 Exp  57000
@@ -33,7 +32,7 @@ FVul 0
 Plr  CF
 Video 0
 Act  CDEFGHJLSTc
-AfBy DF
+AfBy DFZ
 Comm NO
 Revk 0
 Cgrp A
@@ -43,7 +42,7 @@ Trai 29
 Wimp 22
 Atrib 21 13 13 13 13 18
 QuestPnts  114
-Afk {B[{CThu Jul 18 00:45:35 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CThu Oct 31 22:48:48 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  brown eyed girl~
 Immn ~
@@ -54,10 +53,10 @@ TSex 2
 LLev 3
 Email slick_04@hotmail.com~
 Deit Jaffiss~
-Lsit 208.1.107.83~
-Ltim Thu Jul 18 00:01:31 2002
+Lsit 216.12.83.126~
+Ltim Tue Aug 12 11:48:02 2003
 ~
-LSav Thu Jul 18 00:50:24 2002
+LSav Sat Oct 25 23:46:52 2003
 ~
 Finf {GHEY... stop fingering me!!! 
 Michigan *FlAmEs* 'hey nicole'
@@ -95,6 +94,7 @@ Gr 'rom basics'
 Gr 'warrior basics'
 Gr 'warrior default'
 Gr 'weaponsmaster'
+Affc 'divine regeneration'   0  95  64   0   0   33554432 4
 End
 
 #O
@@ -225,9 +225,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Doomsmerf.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Doomsmerf.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -330,8 +330,8 @@ Wear -1
 Lev  55
 Cost 12
 Val  1 6 14 3 33
-Affc 'enchant weapon'   1  91  -1   8  19          0 1
 Affc 'enchant weapon'   0  91  -1   8  18          0 1
+Affc 'enchant weapon'   1  91  -1   8  19          0 1
 ExDe sword Broadsword of Chaos~ It is a marvellous sword, crafted from the finest mithril around.
 It was created in the Month of Long Shadows by a young thief
 named Seth.  Legend holds that this feral was a great weaponsmith.
@@ -516,11 +516,11 @@ Desc {CA {Vt{Mo{Wk{Ve{Mn {Wfor {Pa {YT{WR{YA{WI{YN {Bfrom {WL{Ci{Br{Ci{Te{Wl{W l
 Mat {bmud{x~
 Wear 17
 Cost 3500
-ExDe muddy~ A very small, and unmistakeably feline, paw print.
+ExDe print~ A very small, and unmistakeably feline, paw print.
 ~
 ExDe paw~ A very small, and unmistakeably feline, paw print.
 ~
-ExDe print~ A very small, and unmistakeably feline, paw print.
+ExDe muddy~ A very small, and unmistakeably feline, paw print.
 ~
 End
 
@@ -554,6 +554,43 @@ Nest 0
 ExtF 16777219
 Wear 1
 Cost 2200
+End
+
+#O
+Vnum 1203
+Nest 0
+Name trick or treat token~
+ShD  {RT{Yi{Rc{Yk {Ro{Yr {RT{Yr{Re{Ya{Rt {YT{Ro{Yk{Re{Yn{x~
+Desc its a halloween token!~
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 1208
+Nest 0
+Name mystic plushy lower token~
+ShD  {CM{Ry{Cs{Rt{Ci{Rc {CP{Gl{Pu{Ys{Bh{Wy{x~
+Desc {YA magic Plushy with the ability to bind weapons to the mortal plain{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 6507
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1203
+Nest 0
+Name trick or treat token~
+ShD  {RT{Yi{Rc{Yk {Ro{Yr {RT{Yr{Re{Ya{Rt {YT{Ro{Yk{Re{Yn{x~
+Desc its a halloween token!~
+Wear -1
+Cost 9
 End
 
 #END

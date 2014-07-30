@@ -1,0 +1,171 @@
+#PLAYER
+Name Xakari~
+Id   1095904028
+LogO 1095904269
+Vers 14
+Mexp 2
+Pass Darkk~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Cla  3
+Levl 1
+Tru  0
+Plyd 114
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3716
+HMS  19 100 100
+Gold 0
+Silv 9
+Exp  2409
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes BM
+FVul NS
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Block_Remote 0
+Prac 0
+Trai 0
+Wimp 0
+Familiar 0
+Atrib 18 14 18 13 9 12
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 48
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kismet~
+Lsit cpe-24-31-95-225.hawaii.rr.com~
+Ltim Wed Sep 22 21:49:15 2004
+~
+LSav Wed Sep 22 21:51:09 2004
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 39 45 45
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'dagger'
+Sk 75 1 'sword'
+Sk 19 1 'enhanced damage'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 1 1 'rotate'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 1 1 'die hard'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'illusion'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 197 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#END

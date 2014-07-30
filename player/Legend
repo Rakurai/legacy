@@ -1,0 +1,524 @@
+#PLAYER
+Name Legend~
+Id   1067949018
+LogO 1068295143
+Vers 14
+Mexp 0
+Pass sparty~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race giant~
+Cla  3
+Levl 5
+Tru  0
+Plyd 6497
+Back 0
+Note 1068282429 1068282429 1068282429 1068282429 1068282429 1068282429 1068282429
+Scro 22
+Room 3023
+HMS  76 112 111
+Gold 35
+Silv 855
+Silver_in_bank 1338
+Gold_in_bank 170
+Exp  14787
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes HI
+FVul BP
+Plr  U
+Video 0
+Act  CDEFGHJLQS
+AfBy 0
+Comm NOQ
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 24 10 15 13 19 11
+Afk {B[{CTue Nov  4 08:42:17 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 68
+Rank ~
+Aura ~
+TSex 1
+LLev 1
+Deit Montrey~
+Lsit 67.73.154.94~
+Ltim Sat Nov 08 07:28:22 2003
+~
+LSav Sat Nov 08 07:39:03 2003
+~
+HMSP 85 112 153
+THMS 0 0 0
+Cnd  0 0 15 24
+Sk 1 1 'armor'
+Sk 1 1 'cancellation'
+Sk 1 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine healing'
+Sk 1 1 'fireproof'
+Sk 1 1 'heal'
+Sk 1 1 'mass healing'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'stone skin'
+Sk 1 1 'undo spell'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 76 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'bash'
+Sk 1 1 'berserk'
+Sk 37 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 5 1 'parry'
+Sk 19 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'weaponsmaster'
+Gr 'healing'
+Gr 'protective'
+Affc 'bless'   0  58  32  -7  24          0 1
+Affc 'bless'   0  54  32   7  18          0 1
+Affc 'armor'   0  12   5 -20  17          0 1
+End
+
+#O
+Vnum 3716
+Nest 0
+Cond 94
+Wear 0
+Cost 0
+Val  0 0 60 0 0
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 93
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 98
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 4100
+Nest 0
+Cond 96
+Wear -1
+Cost 940
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear 16
+Cost 610
+End
+
+#O
+Vnum 3077
+Nest 0
+Wear 10
+Cost 420
+End
+
+#O
+Vnum 3076
+Nest 0
+Wear 9
+Cost 420
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 3031
+Nest 1
+Wear -1
+Cost 75
+End
+
+#O
+Vnum 3031
+Nest 1
+Wear -1
+Cost 75
+End
+
+#O
+Vnum 3033
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 3162
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 3074
+Nest 0
+Wear 7
+Cost 420
+End
+
+#O
+Vnum 3503
+Nest 0
+Wear 3
+Cost 310
+End
+
+#O
+Vnum 3504
+Nest 0
+Wear 15
+Cost 690
+End
+
+#O
+Vnum 3072
+Nest 0
+Wear 5
+Cost 850
+End
+
+#O
+Vnum 3043
+Nest 0
+Wear 1
+Cost 640
+End
+
+#O
+Vnum 3117
+Nest 0
+Wear -1
+Cost 510
+End
+
+#O
+Vnum 4003
+Nest 0
+Wear -1
+Cost 165
+End
+
+#O
+Vnum 4105
+Nest 0
+Wear -1
+Cost 630
+End
+
+#O
+Vnum 3117
+Nest 0
+Wear -1
+Cost 510
+End
+
+#O
+Vnum 3117
+Nest 0
+Wear 11
+Cost 510
+End
+
+#O
+Vnum 4057
+Nest 0
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 4057
+Nest 0
+Wear -1
+Cost 390
+End
+
+#O
+Vnum 3500
+Nest 0
+Wear -1
+Cost 460
+End
+
+#O
+Vnum 3074
+Nest 0
+Wear -1
+Cost 420
+End
+
+#O
+Vnum 3500
+Nest 0
+Wear -1
+Cost 460
+End
+
+#O
+Vnum 3500
+Nest 0
+Wear -1
+Cost 460
+End
+
+#O
+Vnum 3075
+Nest 0
+Wear -1
+Cost 420
+End
+
+#O
+Vnum 3500
+Nest 0
+Wear -1
+Cost 460
+End
+
+#O
+Vnum 3502
+Nest 0
+Wear -1
+Cost 490
+End
+
+#O
+Vnum 3075
+Nest 0
+Wear -1
+Cost 420
+End
+
+#O
+Vnum 3503
+Nest 0
+Wear -1
+Cost 310
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear -1
+Cost 610
+End
+
+#O
+Vnum 3504
+Nest 0
+Wear 14
+Cost 690
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear -1
+Cost 610
+End
+
+#O
+Vnum 3503
+Nest 0
+Wear -1
+Cost 310
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear -1
+Cost 610
+End
+
+#O
+Vnum 3503
+Nest 0
+Wear -1
+Cost 310
+End
+
+#O
+Vnum 3022
+Nest 0
+Wear -1
+Cost 610
+End
+
+#O
+Vnum 3503
+Nest 0
+Wear -1
+Cost 310
+End
+
+#O
+Vnum 3500
+Nest 0
+Wear -1
+Cost 460
+End
+
+#O
+Vnum 3500
+Nest 0
+Wear -1
+Cost 460
+End
+
+#END

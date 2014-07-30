@@ -1,7 +1,7 @@
 #PLAYER
 Name Vishnu~
 Id   1017727166
-LogO 1027203343
+LogO 1078870994
 Vers 14
 Mexp 2
 Pass joker~
@@ -9,43 +9,43 @@ Prom %CW<%CC%h%CW/%CC%H%CWhp %CG%m%CW/%CG%M%CWma %CB%v%CWmv [%Cg%e%CW] %CR%X%CW 
 Race human~
 Clan kindred~
 Cla  4
-Levl 11
+Levl 40
 Tru  91
-Plyd 645296
-Back 612890
-Note 1027194689 1027194689 1027194689 1027194689 1027194689 1027194689 1027194689
+Plyd 746113
+Back 650167
+Note 1078668627 1022813787 1022729390 1076087190 1078854320 1023118197 1022729895
 Scro 22
-Room 25003
-HMS  74 231 33
-Gold 970
-Silv 1954
-Gold_in_bank 37000
-Exp  11038
+Room 1269
+HMS  504 592 309
+Gold 78
+Silv 31
+Gold_in_bank 40000
+Exp  40104
 PCkills  0
 PCkilled 1
 Akills   0
 Akilled  1
 PKRank   0
 Pos  8
-Alig -1000
+Alig -30
 FImm 0
-FRes 0
+FRes Q
 FVul 0
 Plr  ABIJQU
 Video 0
-Act  DGHJLQS
+Act  DGHJLQSc
 AfBy 0
 Comm GNOb
 Revk 0
 Cgrp A
 Cnsr B
-Prac 76
-Trai 18
-Wimp 20
+Prac 172
+Trai 49
+Wimp 143
 Atrib 18 21 18 18 18 18
-SkillPnts  144
-QuestPnts  6
-Afk {B[{CSat Jul 20 16:49:43 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+SkillPnts  132
+QuestPnts  861
+Afk {B[{CThu Mar  4 18:52:01 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {cDe{ga{cth{x and {cDest{gruc{ction {P*{RWILL{P*{x Prevail!~
 Immn ~
@@ -53,20 +53,20 @@ Pnts 40
 Rank {HL{gE{cF{x~
 Aura {CC{Wu{Gt{Wi{Ce{x~
 TSex 1
-LLev 179
+LLev 199
 Deit {RV{Pe{Yg{Yi{Pt{Ra{x~
 Stus Death and Destruction {P*{RWILL{P*{x Prevail!{x~
 RmCt 3
 ExSk 0
-Raff 107
-Lsit ip-118-69.brawleyonline.com~
-Ltim Sat Jul 20 14:51:17 2002
+Raff 958
+Lsit dpc691916001.direcpc.com~
+Ltim Tue Mar 09 17:22:58 2004
 ~
-LSav Sat Jul 20 17:15:43 2002
+LSav Tue Mar 09 17:23:14 2004
 ~
-HMSP 123 224 153
+HMSP 496 594 306
 THMS 0 0 0
-Cnd  0 4 31 46
+Cnd  0 0 0 0
 Sk 86 1 'acid blast'
 Sk 1 1 'acid breath'
 Sk 100 1 'acid rain'
@@ -76,11 +76,11 @@ Sk 75 1 'animate wraith'
 Sk 76 1 'animate gargoyle'
 Sk 75 1 'animate zombie'
 Sk 95 1 'armor'
-Sk 89 1 'bless'
+Sk 88 1 'bless'
 Sk 1 1 'blindness'
 Sk 100 1 'blizzard'
 Sk 78 1 'blood blade'
-Sk 77 1 'blood moon'
+Sk 80 1 'blood moon'
 Sk 100 1 'burning hands'
 Sk 1 1 'call lightning'
 Sk 1 1 'calm'
@@ -89,12 +89,12 @@ Sk 100 1 'chain lightning'
 Sk 2 1 'channel'
 Sk 77 1 'charm person'
 Sk 1 1 'chill touch'
-Sk 78 1 'colour spray'
+Sk 79 1 'colour spray'
 Sk 1 1 'control weather'
-Sk 83 1 'cure blindness'
+Sk 82 1 'cure blindness'
 Sk 100 1 'cure critical'
 Sk 76 1 'cure disease'
-Sk 77 1 'cure light'
+Sk 75 1 'cure light'
 Sk 2 1 'cure poison'
 Sk 77 1 'cure serious'
 Sk 82 1 'curse'
@@ -111,10 +111,10 @@ Sk 77 1 'dispel good'
 Sk 100 1 'dispel magic'
 Sk 1 1 'divine healing'
 Sk 80 1 'divine regeneration'
-Sk 1 1 'earthquake'
+Sk 75 1 'earthquake'
 Sk 87 1 'enchant armor'
 Sk 76 1 'enchant weapon'
-Sk 85 1 'energy drain'
+Sk 84 1 'energy drain'
 Sk 80 1 'faerie fire'
 Sk 1 1 'faerie fog'
 Sk 1 1 'fear'
@@ -131,7 +131,7 @@ Sk 75 1 'frost blade'
 Sk 1 1 'frost breath'
 Sk 1 1 'gas breath'
 Sk 100 1 'gate'
-Sk 80 1 'giant strength'
+Sk 81 1 'giant strength'
 Sk 91 1 'haste'
 Sk 1 1 'heal'
 Sk 1 1 'heat metal'
@@ -144,8 +144,8 @@ Sk 76 1 'light of truth'
 Sk 2 1 'lightning bolt'
 Sk 1 1 'lightning breath'
 Sk 2 1 'locate life'
-Sk 85 1 'locate object'
-Sk 94 1 'magic missile'
+Sk 81 1 'locate object'
+Sk 100 1 'magic missile'
 Sk 1 1 'mass healing'
 Sk 1 1 'mass invis'
 Sk 1 1 'nexus'
@@ -159,27 +159,27 @@ Sk 88 1 'protection evil'
 Sk 90 1 'protection good'
 Sk 1 1 'ray of truth'
 Sk 2 1 'recharge'
-Sk 90 1 'refresh'
+Sk 91 1 'refresh'
 Sk 1 1 'resurrect'
-Sk 82 1 'regeneration'
+Sk 83 1 'regeneration'
 Sk 76 1 'remove alignment'
 Sk 1 1 'remove invisibility'
-Sk 79 1 'remove curse'
-Sk 93 1 'sanctuary'
-Sk 89 1 'shield'
+Sk 78 1 'remove curse'
+Sk 92 1 'sanctuary'
+Sk 88 1 'shield'
 Sk 1 1 'shock blade'
 Sk 82 1 'shocking grasp'
 Sk 1 1 'shrink'
 Sk 75 1 'sleep'
 Sk 90 1 'slow'
 Sk 1 1 'smokescreen'
-Sk 91 1 'steel mist'
+Sk 90 1 'steel mist'
 Sk 84 1 'stone skin'
 Sk 90 1 'summon'
-Sk 82 1 'summon object'
+Sk 80 1 'summon object'
 Sk 84 1 'sunray'
-Sk 93 1 'talon'
-Sk 82 1 'teleport'
+Sk 91 1 'talon'
+Sk 85 1 'teleport'
 Sk 75 1 'teleport object'
 Sk 88 1 'undo spell'
 Sk 1 1 'ventriloquate'
@@ -191,24 +191,24 @@ Sk 100 1 'dagger'
 Sk 1 1 'polearm'
 Sk 100 1 'sword'
 Sk 100 1 'shield block'
-Sk 2 1 'scribe'
+Sk 75 1 'scribe'
 Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
-Sk 96 1 'hand to hand'
+Sk 94 1 'hand to hand'
 Sk 100 1 'parry'
 Sk 100 1 'second attack'
-Sk 98 1 'third attack'
+Sk 95 1 'third attack'
 Sk 87 1 'hunt'
 Sk 100 1 'fast healing'
 Sk 1 1 'repair'
-Sk 98 2 'meditation'
+Sk 99 2 'meditation'
 Sk 100 1 'scan'
 Sk 1 1 'scrolls'
 Sk 1 1 'staves'
 Sk 1 1 'wands'
-Sk 54 1 'recall'
+Sk 53 1 'recall'
 Sk 76 1 'sap'
-Sk 74 1 'pain'
+Sk 72 1 'pain'
 Sk 67 1 'hex'
 Gr 'rom basics'
 Gr 'necromancer basics'
@@ -229,37 +229,46 @@ Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'armor'   0   3   1 -20  17          0 1
 End
 
 #O
-Vnum 2404
+Vnum 1345
 Nest 0
-Wear 4
-Cost 550
+Wear 12
+Cost 1000
 End
 
 #O
-Vnum 2404
+Vnum 3202
 Nest 0
-Cond 88
-Wear 3
-Cost 550
+Wear 7
+Cost 30
 End
 
 #O
-Vnum 9201
+Vnum 3201
 Nest 0
-Cond 93
-Wear 2
-Cost 1140
+Wear 6
+Cost 20
 End
 
 #O
-Vnum 9201
+Vnum 1204
 Nest 0
-Wear 1
-Cost 1140
+Name Token 4 qp Special Easter Egg Brightly Colored Kazander~
+ShD  {VA {P*{Nsp{Bec{Mi{Val{P* {PBr{Cig{Bht{Gly {Vco{glo{Pred {CEa{Bst{Yer {GEg{Vg!{x~
+Desc {VA {P*{Nsp{Bec{Mi{Val{P* {PBr{Cig{Bht{Gly {Vco{glo{Pred {CEa{Bst{Yer {GEg{Vg!{x lies here~
+Wear -1
+Cost 12
+End
+
+#O
+Vnum 28008
+Nest 0
+ExtF 17301568
+Cond 95
+Wear -1
+Cost 47500
 End
 
 #O
@@ -267,148 +276,11 @@ Vnum 2326
 Enchanted
 Nest 0
 ExtF 65
-Wear 15
+Wear 14
 Lev  8
 Cost 550
-Affc 'reserved'   1   5  -1   1   5          0 1
 Affc 'enchant armor'   1  75  -1  -4  17          0 1
-End
-
-#O
-Vnum 2326
-Nest 0
-Wear 14
-Cost 550
-End
-
-#O
-Vnum 1804
-Nest 0
-Wear 16
-Cost 100
-End
-
-#O
-Vnum 78
-Nest 0
-Wear 8
-Cost 900
-End
-
-#O
-Vnum 76
-Nest 0
-Wear -1
-Cost 550
-End
-
-#O
-Vnum 73
-Nest 0
-Wear 6
-Cost 270
-End
-
-#O
-Vnum 10126
-Nest 0
-Wear 7
-Cost 57
-End
-
-#O
-Vnum 10135
-Nest 0
-Wear 9
-Cost 23
-End
-
-#O
-Vnum 3031
-Nest 0
-Wear 0
-Cost 75
-Val  0 0 153 0 0
-End
-
-#O
-Vnum 4580
-Nest 0
-Wear 17
-Cost 1000
-End
-
-#O
-Vnum 79
-Nest 0
-Wear -1
-Cost 200
-Val  150 114 15 0 0
-End
-
-#O
-Vnum 25016
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'protection evil'
-End
-
-#O
-Vnum 25003
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25003
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25003
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25003
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25003
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25003
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25003
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
+Affc 'reserved'   1   5  -1   1   5          0 1
 End
 
 #L
@@ -519,9 +391,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -532,9 +404,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -562,19 +434,6 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 0
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
@@ -588,9 +447,22 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+End
+
+#L
+Vnum 1214
+Nest 0
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
 End
 
 #L
@@ -1069,9 +941,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1082,9 +954,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1096,472 +968,6 @@ Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{P
 Wear -1
 Cost 0
 ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#B
-Vnum 1345
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#B
-Vnum 17042
-Enchanted
-Nest 1
-ExtF 65
-Wear -1
-Cost 1000
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
-Affc 'reserved'   1  91  -1   4  18          0 1
-Affc 'reserved'   1  91  -1   4  19          0 1
-Affc 'reserved'   1  91  -1  -5  20          0 1
-Affc 'reserved'   1  91  -1  40  13          0 1
-Affc 'reserved'   1  91  -1  40  12          0 1
-End
-
-#B
-Vnum 14012
-Nest 1
-ExtF 1835010
-Cond 99
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 8227
-Nest 1
-Cond 99
-Wear -1
-Cost 7055
-End
-
-#B
-Vnum 14110
-Nest 1
-Cond 94
-Wear -1
-Cost 100000
-End
-
-#B
-Vnum 14042
-Nest 1
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 14014
-Nest 1
-ExtF 17825856
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 14015
-Nest 1
-ExtF 1048656
-Wear -1
-Cost 15000
-End
-
-#B
-Vnum 14043
-Nest 1
-Wear -1
-Cost 12000
-End
-
-#B
-Vnum 11713
-Nest 1
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 11709
-Nest 1
-Cond 94
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 3209
-Nest 1
-Cond 91
-Wear -1
-Cost 100
-End
-
-#B
-Vnum 9101
-Nest 1
-Cond 82
-Wear -1
-Cost 2800
-End
-
-#B
-Vnum 14013
-Nest 1
-ExtF 1835010
-Wear -1
-Cost 3500
-End
-
-#B
-Vnum 11709
-Enchanted
-Nest 1
-ExtF 323
-Wear -1
-Lev  89
-Cost 10000
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1  87  -1   5   3          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
-Affc 'enchant weapon'   1  91  -1   9  18          0 1
-Affc 'enchant weapon'   1  91  -1   9  19          0 1
-End
-
-#B
-Vnum 4422
-Nest 1
-ExtF 64
-Cond 84
-Wear -1
-Cost 3400
-End
-
-#B
-Vnum 10103
-Enchanted
-Nest 1
-ExtF 262211
-Cond 96
-Wear -1
-Lev  84
-Cost 22000
-Affc 'enchant armor'   1  91  -1  -5  17          0 1
-Affc 'reserved'   1  81  -1   5  18          0 1
-Affc 'reserved'   1  81  -1   7  19          0 1
-Affc 'reserved'   1  81  -1  60  12          0 1
-Affc 'reserved'   1  81  -1  -3  21          0 1
-Affc 'reserved'   1  81  -1   3   2          0 1
-End
-
-#B
-Vnum 14042
-Enchanted
-Nest 1
-Cond 95
-Wear -1
-Cost 10000
-Affc 'reserved'   1  91  -1   9  18          0 1
-Affc 'reserved'   1  91  -1   9  19          0 1
-Affc 'reserved'   1  91  -1  75  12          0 1
-Affc 'reserved'   1  91  -1 100  13          0 1
-Affc 'reserved'   2  91  -1   0   0      65536 1
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-End
-
-#B
-Vnum 17013
-Enchanted
-Nest 1
-ExtF 16777283
-Cond 65
-Wear -1
-Lev  66
-Cost 0
-Affc 'reserved'   0  65  -1   0   0  268435456 1
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-Affc 'enchant weapon'   1  91  -1   4  18          0 1
-Affc 'reserved'   1  65  -1  60  13          0 1
-End
-
-#B
-Vnum 10170
-Nest 1
-Wear -1
-Cost 2000
-End
-
-#B
-Vnum 28008
-Nest 1
-ExtF 17301568
-Cond 95
-Wear -1
-Cost 47500
-End
-
-#B
-Vnum 10168
-Nest 1
-ExtF 16777219
-Cond 75
-Wear -1
-Cost 2200
-End
-
-#B
-Vnum 14030
-Nest 1
-Cond 72
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 10171
-Nest 1
-Cond 92
-Wear -1
-Cost 3300
-End
-
-#B
-Vnum 17105
-Nest 1
-Wear -1
-Cost 145
-End
-
-#B
-Vnum 17005
-Nest 1
-Wear -1
-Cost 200
-End
-
-#B
-Vnum 17001
-Nest 1
-Cond 95
-Wear -1
-Cost 2000
-End
-
-#B
-Vnum 10164
-Nest 1
-Cond 98
-Wear -1
-Cost 1350
-End
-
-#B
-Vnum 8204
-Nest 1
-Cond 90
-Wear -1
-Cost 3800
-End
-
-#B
-Vnum 16071
-Nest 1
-Cond 83
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 17100
-Enchanted
-Nest 1
-ExtF 65
-Cond 97
-Wear -1
-Lev  51
-Cost 159
-Affc 'reserved'   1  45  -1  -1  20          0 1
-Affc 'reserved'   1  45  -1  20  13          0 1
-Affc 'reserved'   1  45  -1  35  12          0 1
-Affc 'enchant weapon'   1  91  -1   4  19          0 1
-Affc 'enchant weapon'   1  91  -1   4  18          0 1
-Affc 'reserved'   1  45  -1   2   2          0 1
-End
-
-#B
-Vnum 17004
-Enchanted
-Nest 1
-ExtF 16777281
-Cond 97
-Wear -1
-Lev  71
-Cost 0
-Affc 'reserved'   1  70  -1   4   3          0 1
-Affc 'reserved'   1  70  -1   3   4          0 1
-Affc 'enchant weapon'   1  91  -1   4  18          0 1
-Affc 'enchant weapon'   1  91  -1   4  19          0 1
-Affc 'reserved'   1  70  -1  60  12          0 1
-End
-
-#B
-Vnum 3808
-Nest 1
-Cond 88
-Wear -1
-Cost 30000
-End
-
-#B
-Vnum 10168
-Nest 1
-ExtF 16777219
-Cond 79
-Wear -1
-Cost 2200
-End
-
-#B
-Vnum 10167
-Nest 1
-Cond 82
-Wear -1
-Cost 3800
-End
-
-#B
-Vnum 10167
-Nest 1
-Cond 82
-Wear -1
-Cost 3800
-End
-
-#B
-Vnum 2916
-Nest 1
-Cond 85
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 3208
-Nest 1
-Cond 88
-Wear -1
-Cost 90
-End
-
-#B
-Vnum 4426
-Nest 1
-ExtF 64
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 3207
-Nest 1
-Cond 92
-Wear -1
-Cost 80
-End
-
-#B
-Vnum 20006
-Nest 1
-Cond 97
-Wear -1
-Cost 999
-End
-
-#B
-Vnum 10155
-Nest 1
-Cond 83
-Wear -1
-Cost 1100
-End
-
-#B
-Vnum 3809
-Nest 1
-Cond 86
-Wear -1
-Cost 15000
-End
-
-#B
-Vnum 13010
-Nest 1
-Cond 96
-Wear -1
-Cost 450
-End
-
-#B
-Vnum 10215
-Nest 1
-ExtF 64
-Cond 97
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 13009
-Enchanted
-Nest 1
-ExtF 67
-Wear -1
-Cost 660
-Affc 'enchant armor'   1  91  -1  -1  17          0 1
-Affc 'reserved'   1  90  -1   3   4          0 1
-Affc 'reserved'   1  90  -1   1   1          0 1
-Affc 'reserved'   1  90  -1   5  18          0 1
-Affc 'reserved'   1  90  -1   5  19          0 1
-Affc 'reserved'   1  90  -1  40  12          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-End
-
-#B
-Vnum 13005
-Enchanted
-Nest 1
-Wear -1
-Cost 4500
-Val  26 30 26 24 0
-Affc 'reserved'   1  90  -1  -2   9          0 1
-Affc 'reserved'   1  90  -1  30  14          0 1
-Affc 'reserved'   1  90  -1   1   2          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1  -2  20          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'reserved'   1  90  -1   8  19          0 1
-Affc 'reserved'   1  90  -1   8  18          0 1
-End
-
-#B
-Vnum 20026
-Nest 1
-Wt   0
-Cond 96
-Wear -1
-Cost 55800
-End
-
-#B
-Vnum 20008
-Nest 1
-ExtF 16777536
-Cond 84
-Wear -1
-Cost 50
 End
 
 #END

@@ -1,65 +1,71 @@
 #PLAYER
 Name Seeker~
 Id   990004949
-LogO 1026029272
+LogO 1113975739
 Vers 14
 Mexp 2
 Pass tikcus~
-Prom <%CV%h%CMhp %CG%m%CHm %CP%v%CRmv%CT> ~
+Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race elf~
+Clan divinity~
 Cla  2
 Levl 79
-Tru  0
-Plyd 64424
+Plyd 118299
 Back 33288
-Note 1006666821 1006611707 1006061076 1006061076 1006061076 1014226865 0
+Note 1106440191 1105162385 1103760323 1106530571 1103760323 1103760323 1103760323
 Scro 22
-Room 3054
-HMS  1748 745 922
-Gold 3683
-Silv 343
-Exp  83476
+Room 11718
+HMS  1643 775 922
+Gold 3100
+Silv 83
+Exp  83240
 PCkills  0
-PCkilled 0
+PCkilled 1
 Akills   0
 Akilled  1
 PKRank   0
 Pos  8
-Alig -4
+Alig 12
+Spou Syntra~
+Ptnr Syntra~
 FImm 0
 FRes B
 FVul Z
-Plr  ABF
+Plr  ABFR
 Video 0
 Act  CDEFGHJLSTc
-AfBy DFc
+AfBy 0
 Comm NO
 Revk 0
-Cgrp A
-Cnsr A
-Prac 35
-Trai 5
+Cgrp AIKL
+Cnsr 0
+Block_Remote 0
+Prac 0
+Trai 0
 Wimp 0
+Familiar 0
 Atrib 16 21 18 22 16 18
 QuestPnts  6
-Afk {B[{CTue Feb  5 17:36:39 2002{B] {CUnknown Departure.{x
+Afk {B[{CWed Apr 20 00:07:43 2005{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  {x~
+Titl .~
 Immn ~
 Pnts 40
-Rank {RB{gL{cD{x~
+Rank {CM{TE{WW~
 Aura ~
 TSex 1
 LLev 16
 Deit Aerylene~
-Lsit 63.portland-02rh16rt.or.dial-access.att.net~
-Ltim Sun Jul 07 03:02:39 2002
+Lsit pool-71-112-226-195.sttlwa.dsl-w.verizon.net~
+Ltim Tue Apr 19 21:44:26 2005
 ~
-LSav Sun Jul 07 03:07:52 2002
+LSav Wed Apr 20 00:42:19 2005
 ~
 HMSP 1413 460 922
 THMS 0 0 0
 Cnd  0 0 0 0
+Alias spousetalk talk~
+Alias talk spousetalk~
 Query montrey~
 Sk 1 1 'acid rain'
 Sk 1 1 'age'
@@ -70,11 +76,20 @@ Sk 1 1 'call lightning'
 Sk 75 1 'cancellation'
 Sk 1 1 'change sex'
 Sk 1 1 'channel'
-Sk 1 1 'control weather'
+Sk 71 1 'continual light'
+Sk 75 1 'control weather'
+Sk 1 1 'create food'
+Sk 1 1 'create parchment'
+Sk 1 1 'create rose'
+Sk 1 1 'create sign'
+Sk 1 1 'create spring'
+Sk 1 1 'create vial'
+Sk 1 1 'create water'
 Sk 75 1 'curse'
 Sk 75 1 'dazzling light'
 Sk 76 1 'dispel magic'
 Sk 1 1 'divine regeneration'
+Sk 1 1 'encampment'
 Sk 1 1 'enchant armor'
 Sk 1 1 'enchant weapon'
 Sk 75 1 'energy drain'
@@ -82,6 +97,7 @@ Sk 78 1 'faerie fire'
 Sk 1 1 'faerie fog'
 Sk 1 1 'fireproof'
 Sk 75 1 'flameshield'
+Sk 1 1 'floating disc'
 Sk 75 1 'giant strength'
 Sk 75 1 'haste'
 Sk 1 1 'infravision'
@@ -96,10 +112,11 @@ Sk 75 1 'refresh'
 Sk 75 1 'regeneration'
 Sk 1 1 'remove alignment'
 Sk 1 1 'remove invisibility'
-Sk 79 1 'sanctuary'
-Sk 76 1 'shield'
+Sk 83 1 'sanctuary'
+Sk 77 1 'shield'
 Sk 1 1 'shrink'
 Sk 77 1 'slow'
+Sk 1 1 'starve'
 Sk 75 1 'steel mist'
 Sk 75 1 'stone skin'
 Sk 75 1 'talon'
@@ -113,7 +130,7 @@ Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
 Sk 100 1 'parry'
 Sk 75 1 'trip'
-Sk 95 1 'second attack'
+Sk 96 1 'second attack'
 Sk 84 1 'third attack'
 Sk 100 1 'dual wield'
 Sk 75 1 'forge'
@@ -130,14 +147,12 @@ Sk 1 1 'wands'
 Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'thief basics'
+Gr 'creation'
 Gr 'enchantment'
 Gr 'enhancement'
 Gr 'maladictions'
 Gr 'protective'
 Gr 'weather'
-Affc 'shield'   0  71  39 -20  17          0 1
-Affc 'giant strength'   0  69   4   4   1          0 1
-Affc 'stone skin'   0  63   4 -40  17          0 1
 End
 
 #O
@@ -145,13 +160,6 @@ Vnum 21
 Nest 0
 Cond 95
 Wear 0
-Cost 0
-End
-
-#O
-Vnum 3704
-Nest 0
-Wear -1
 Cost 0
 End
 
@@ -191,18 +199,10 @@ Cost 0
 End
 
 #O
-Vnum 14016
-Nest 0
-Cond 91
-Wear -1
-Cost 0
-End
-
-#O
 Vnum 14030
 Nest 0
 Cond 55
-Wear 19
+Wear -1
 Cost 0
 End
 
@@ -219,7 +219,7 @@ End
 Vnum 5607
 Nest 0
 Cond 82
-Wear 15
+Wear -1
 Cost 2000
 End
 
@@ -229,29 +229,6 @@ Nest 0
 Cond 92
 Wear 14
 Cost 2000
-End
-
-#O
-Vnum 1004
-Enchanted
-Nest 0
-Name sword a tainted moonblade~
-ShD  {Wa {ct{ga{cin{gt{ced {Wmo{Co{Wnb{Cl{Wad{Ce{x{x~
-Desc A sword is here, forged by Ayelri's craftsmanship.~
-Mat iron~
-ExtF 67
-Wt   51
-Cond 97
-Wear -1
-Lev  60
-Cost 6
-Val  1 6 13 3 4
-Affc 'enchant weapon'   1  90  -1   6  19          0 1
-Affc 'enchant weapon'   0  90  -1   6  18          0 1
-ExDe sword a tainted moonblade~ It is a marvellous sword, crafted from the finest iron around.
-It was created in the Month of Perseverance by an experienced ranger
-named Ayelri.  Legend holds that this wolf was a great weaponsmith.
-~
 End
 
 #O
@@ -274,14 +251,14 @@ End
 Vnum 17011
 Nest 0
 Cond 77
-Wear 5
+Wear -1
 Cost 500
 End
 
 #O
 Vnum 17013
 Nest 0
-Wear 2
+Wear -1
 Cost 50
 End
 
@@ -302,14 +279,6 @@ Cost 0
 End
 
 #O
-Vnum 4424
-Nest 0
-Cond 88
-Wear 7
-Cost 0
-End
-
-#O
 Vnum 14023
 Nest 0
 ExtF 16777217
@@ -321,7 +290,7 @@ End
 #O
 Vnum 11661
 Nest 0
-Wear 4
+Wear -1
 Cost 0
 End
 
@@ -329,7 +298,7 @@ End
 Vnum 11661
 Nest 0
 Cond 95
-Wear 3
+Wear -1
 Cost 0
 End
 
@@ -361,38 +330,6 @@ Affc 'reserved'   0  65  -1   0   0  268435456 1
 End
 
 #O
-Vnum 17012
-Nest 0
-Wear -1
-Time 344
-Cost 25
-Spell 1 'giant strength'
-Spell 2 'frenzy'
-End
-
-#O
-Vnum 1004
-Enchanted
-Nest 0
-Name sword a tainted moonblade~
-ShD  {Wa {ct{ga{cin{gt{ced {Wmo{Co{Wnb{Cl{Wad{Ce{x{x~
-Desc A sword is here, forged by Ayelri's craftsmanship.~
-Mat steel~
-ExtF 66
-Wt   49
-Wear -1
-Lev  60
-Cost 13
-Val  1 6 13 3 0
-Affc 'enchant weapon'   1  90  -1   5  19          0 1
-Affc 'enchant weapon'   0  90  -1   5  18          0 1
-ExDe sword a tainted moonblade~ It is a marvellous sword, crafted from the finest steel around.
-It was created in the Month of Perseverance by an experienced ranger
-named Ayelri.  Legend holds that this wolf was a great weaponsmith.
-~
-End
-
-#O
 Vnum 12
 Nest 0
 ShD  the head of Doomsmerf~
@@ -413,7 +350,7 @@ End
 Vnum 3805
 Nest 0
 Cond 97
-Wear 1
+Wear -1
 Cost 5000
 End
 
@@ -421,36 +358,156 @@ End
 Vnum 14030
 Nest 0
 Cond 85
-Wear 16
+Wear -1
 Cost 0
 End
 
 #O
-Vnum 3009
+Vnum 119
 Nest 0
+Name food Red Pill~
+ShD  {RRed Pill{x~
+Desc {RRed Pill{x{x is lying on the ground.~
+Mat food~
 Wear -1
-Cost 22
+Cost 0
+Val  50 100 0 0 0
+ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Urza.
+~
 End
 
 #O
-Vnum 3009
+Vnum 1004
+Enchanted
 Nest 0
-Wear -1
-Cost 22
+Name sword a tainted moonblade~
+ShD  {Wa {ct{ga{cin{gt{ced {Wmo{Co{Wnb{Cl{Wad{Ce{x{x~
+Desc A sword is here, forged by Ayelri's craftsmanship.~
+Mat steel~
+ExtF 67
+Wt   49
+Wear 19
+Lev  60
+Cost 13
+Val  1 6 13 3 0
+Affc 'enchant weapon'   1  90  -1   5  19          0 1
+Affc 'enchant weapon'   0  90  -1   5  18          0 1
+ExDe sword a tainted moonblade~ It is a marvellous sword, crafted from the finest steel around.
+It was created in the Month of Perseverance by an experienced ranger
+named Ayelri.  Legend holds that this wolf was a great weaponsmith.
+~
 End
 
 #O
-Vnum 3009
+Vnum 4424
 Nest 0
-Wear -1
-Cost 22
+Cond 85
+Wear 7
+Cost 0
 End
 
 #O
-Vnum 3009
+Vnum 3704
 Nest 0
 Wear -1
-Cost 22
+Cost 0
+End
+
+#O
+Vnum 14016
+Nest 0
+Cond 91
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 24209
+Nest 0
+Wear 1
+Cost 6666
+End
+
+#O
+Vnum 24209
+Nest 0
+Wear 2
+Cost 6666
+End
+
+#O
+Vnum 24208
+Nest 0
+Wear -1
+Cost 6666
+End
+
+#O
+Vnum 24208
+Nest 0
+Wear 15
+Cost 6666
+End
+
+#O
+Vnum 24207
+Nest 0
+Wear 5
+Cost 6666
+End
+
+#O
+Vnum 24206
+Nest 0
+Wear 8
+Cost 6000
+End
+
+#O
+Vnum 24254
+Nest 0
+Wear 4
+Cost 6700
+End
+
+#O
+Vnum 24254
+Nest 0
+Cond 97
+Wear 3
+Cost 6700
+End
+
+#O
+Vnum 1004
+Enchanted
+Nest 0
+Name sword a tainted moonblade~
+ShD  {Wa {ct{ga{cin{gt{ced {Wmo{Co{Wnb{Cl{Wad{Ce{x{x~
+Desc A sword is here, forged by Ayelri's craftsmanship.~
+Mat iron~
+ExtF 67
+Wt   51
+Cond 95
+Wear 16
+Lev  60
+Cost 6
+Val  1 6 13 3 4
+Affc 'enchant weapon'   1  90  -1   6  19          0 1
+Affc 'enchant weapon'   0  90  -1   6  18          0 1
+ExDe sword a tainted moonblade~ It is a marvellous sword, crafted from the finest iron around.
+It was created in the Month of Perseverance by an experienced ranger
+named Ayelri.  Legend holds that this wolf was a great weaponsmith.
+~
+End
+
+#O
+Vnum 3163
+Nest 0
+Wear -1
+Cost 1500
 End
 
 #END

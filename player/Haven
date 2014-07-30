@@ -1,0 +1,346 @@
+#PLAYER
+Name Haven~
+Id   1045343553
+LogO 1045605851
+Vers 14
+Mexp 1
+Pass Haven~
+Prom <%h/%Hhp %m/%Mm %v/%V> [%Xlvl] ~
+Race feral~
+Cla  3
+Levl 10
+Tru  0
+Plyd 37059
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3001
+HMS  120 149 105
+Gold 163
+Silv 450
+Exp  15748
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes 0
+FVul JR
+Plr  U
+Video 0
+Act  CDEFGHJLSc
+AfBy R
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 20 18 17 22 14 10
+QuestPnts  1
+Afk {B[{CTue Feb 18 13:08:17 2003{B] {CUnknown Departure.{x
+~
+Titl  the strange one~
+Immn ~
+Pnts 44
+Rank ~
+Aura ~
+TSex 1
+LLev 9
+Deit Jubei~
+Lsit 216-41-138-44.semo.net~
+Ltim Tue Feb 18 17:03:55 2003
+~
+LSav Tue Feb 18 17:04:11 2003
+~
+HMSP 155 144 200
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 81 1 'sword'
+Sk 1 1 'dodge'
+Sk 76 1 'enhanced damage'
+Sk 84 1 'parry'
+Sk 78 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 1 1 'forge'
+Sk 75 1 'repair'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 25 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 2 0 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 79
+Nest 1
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 78
+Nest 1
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 77
+Nest 1
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 82
+Nest 1
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 4
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 100
+Wear 2
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear -1
+Cost 550
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3715
+Nest 0
+Cond 92
+Wear 17
+Cost 1140
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 15
+Cost 112
+End
+
+#O
+Vnum 3052
+Nest 0
+Cond 100
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 2404
+Nest 0
+Cond 79
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 2407
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 6644
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 6621
+Nest 0
+Cond 100
+Wear 12
+Cost 780
+End
+
+#O
+Vnum 10264
+Nest 0
+Wear 1
+Cost 100
+End
+
+#O
+Vnum 3022
+Nest 0
+Cond 98
+Wear 16
+Cost 610
+End
+
+#O
+Vnum 3111
+Nest 0
+Wear 6
+Cost 660
+End
+
+#O
+Vnum 3112
+Nest 0
+Wear 7
+Cost 660
+End
+
+#O
+Vnum 3114
+Nest 0
+Wear 9
+Cost 660
+End
+
+#O
+Vnum 3115
+Nest 0
+Wear 10
+Cost 660
+End
+
+#O
+Vnum 3110
+Nest 0
+Wear 5
+Cost 1320
+End
+
+#O
+Vnum 3113
+Nest 0
+Wear 8
+Cost 660
+End
+
+#O
+Vnum 3116
+Nest 0
+Wear 11
+Cost 1190
+End
+
+#O
+Vnum 4572
+Enchanted
+Nest 0
+Wear -1
+Cost 1200
+Affc 'reserved'   1  10  -1  -1  23          0 1
+Affc 'reserved'   1  10  -1   2   4          0 1
+End
+
+#O
+Vnum 4570
+Nest 0
+Wear 18
+Cost 1200
+End
+
+#O
+Vnum 10012
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10012
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10012
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10012
+Nest 0
+Wear -1
+Cost 20
+End
+
+#O
+Vnum 10014
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 10013
+Nest 0
+Wear -1
+Cost 20
+End
+
+#END

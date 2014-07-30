@@ -1,0 +1,207 @@
+#PLAYER
+Name Jestera~
+Id   1111034680
+LogO 1113964737
+Vers 14
+Mexp 2
+Pass Orangedude~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Cla  2
+Levl 1
+Plyd 1209
+Back 0
+Note 1113260642 0 0 1112736317 1111163025 0 0
+Scro 22
+Room 3054
+HMS  24 100 100
+Gold 3
+Silv 400
+Exp  1312
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 0
+FImm 0
+FRes B
+FVul Z
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp I
+Cnsr AB
+Block_Remote 0
+Prac 5
+Trai 3
+Wimp 0
+Familiar 0
+Atrib 11 15 13 18 11 14
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 45
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Urza~
+Lsit 63-229-202-135.mpls.qwest.net~
+Ltim Tue Apr 19 21:38:07 2005
+~
+LSav Tue Apr 19 21:38:57 2005
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 21 21
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 1 1 'dagger'
+Sk 1 1 'mace'
+Sk 40 1 'sword'
+Sk 1 1 'backstab'
+Sk 1 1 'circle'
+Sk 1 1 'disarm'
+Sk 1 1 'dodge'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'hide'
+Sk 1 1 'peek'
+Sk 1 1 'pick lock'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'steal'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'thief basics'
+Gr 'thief default'
+Gr 'enchantment'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 173 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3702
+Nest 0
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear -1
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

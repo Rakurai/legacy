@@ -22,6 +22,12 @@ Here's the syntax for writing helpfiles:
 ALSO if your helpfile is naturally related to another one.  For additional
 formatting, see the {Wfireball{x and {Wpeek{x helpfiles.
 
+Above, before the keyword '{WHELPFILE{x', is the name of the file that
+this help belongs in.  You do not need to write this in, it is generated
+by the help command to let you know where to look for a specific file.
+It is used with the loadhelps and printhelps commands.  No, this paragraph
+does not follow the coloring guidelines.  Hush, I'm in a hurry.
+
 GROUP:  {RSpellgroup{x {RSpellgroup{x
 {YSEE ALSO:{x otherhelpfile, otherhelpfile
 ~
@@ -115,16 +121,16 @@ The purpose of this helpfile is to aid in policy decisions.
 
 {PSpell/Skill{x    Mag   Cle   Thi   War   Nec   Pld   Bar   Ran
 --------------------------------------------------------------
-{PDivine Reg{x      2     3     1     1     2     2     ?     1
+{PDivine Reg{x      2     3     1     1     1     2     1     1
 {PFireball{x        3     1     1     1     2     1     1     1
-{PRegen{x           2     3     ?     2     2     2     ?     3
-{PSanctuary{x       2     3     1     1     ?     2     ?     1
-{PTalon{x           3     2     ?     ?     2     1     ?     1
-{PDisarm{x          1     1     ?     3     1     2     ?     2
+{PRegen{x           2     3     2     2     2     2     2     3
+{PSanctuary{x       2     3     1     1     1     2     1     1
+{PTalon{x           3     2     1     1     2     1     1     1
+{PDisarm{x          1     1     2     3     1     2     1     2
 {PDual Wield{x      1     1     2     2     1     2     3     3
-{PFast Healing{x    1     1     ?     ?     1     2     ?     2
-{PMeditation{x      2     3     1     1     2     2     ?     1
-{PPeek{x            1     1     ?     ?     1     1     ?     1
+{PFast Healing{x    1     1     2     3     1     2     2     2
+{PMeditation{x      2     3     1     1     2     2     1     1
+{PPeek{x            1     1     3     1     1     1     2     1
 --------------------------------------------------------------
 ~
 
@@ -168,15 +174,9 @@ The new Imm Legacy system is for you to be as creative as possible in
 
 0 LIRIEL~
 Liriel was one of the original three founders of the realm of Legacy, and
-serves as head of all Administration.  As one of the two co-implementors,
-she is very busy with the seemingly infinite projects that seem to need 
-attention at one time.  Some of her continuous activities include helping
-all other imms, updating helpfiles, brainstorming and reviewing ideas for
-implementation, and mortal relations.  However, with her roots as a Qwest-
-Mistress, she often enjoys interacting with mortals in a magical quest.
-
-Liriel's current projects include:
-  Everything Montrey is working on + 1!  :P
+served as head of all Administration.  Unfortunately, due to her many
+pursuits, she is no longer with Legacy full time.  Nowadays, she sometimes
+ghosts along to check up on her newly appointed implementors.
 ~
 
 0 LIRIATI~
@@ -221,54 +221,27 @@ If you have ever played Scrabble and Literati (the online Yahoo! version
 ~
 
 0 MONTREY~
-Montrey, a renowned Paladin, was also one of the three founders of Legacy.
-As a co-implementor, along with Liriel, he manages a lot of the coding
-and building projects that are constantly being spawned.  As head of both
-departments, he finds himself very busy, but always has time to chat or
-laugh with a mortal.  Montrey especially enjoys taking creative and 
-imaginative ideas from mortals, and making them into a reality.
+Montrey has come out of retirement!  PH34R!!  That silly coder that loves
+to make everyone's lives more difficult has, at long last, come back to
+stay at Legacy.  He is one of the three original founders, and knows
+absolutely everything.  Or at least he tries to sound like he does.  But
+that's not the point.  This is temporary, as he becomes more involved in
+things outside of fixing critical bugs, he will update this file to be
+more descriptive.
 
-Montrey's current projects include:
-  Everything under the sun and more :)
+Trading Cards:
+Collect them all!  They're part of my {BI{Cmp {BL{Cegacy{x.
 
-{C*** {WTR{gA{WD{gIN{WG C{gAR{WDS {C***{x
+Current Projects:
+Oh, good god, what broke this time?!?
+Keeping Vegita from unleashing his full coding fury on the source.
 
-  I've taken some of the most well known items in the realm and placed
-their likeness on a {Wtr{ga{Wd{gin{Wg c{gar{Wd{x!  These fun and collectable cards
-can sometimes be found lying around, or can be acquired by trading
-or buying from other players.  There are currently {P18{x different ones
-out there, not including rare cards, with more sure to come.
-
-  Collecting cards can be profitable!  Normal cards are the same as a
-hidden token from me, and can be put toward redemption of my {BL{Cegacy{x
-{BS{Cet{x.  But, if you bring me 12 different cards at once, here's what
-I'll do for you:
-
-  I will take your cards and {cautograph{x them, ensuring that the same
-cards are not cashed in more than once.  I return them to you to
-do as you please with, although they are still counted as tokens
-toward my {BL{Cegacy {BS{Cet{x.  Then, I'll give you a nice {Wbi{gn{Wd{ger{x to keep
-your cards in, an {Ce{Bn{Vc{Ph{Ga{Yn{Ct {Btoken{x from me, AND a randomly chosen
-{Pr{Ya{Br{Ge{x card from my own personal collection.
-
-  {PR{Ya{Br{Ge{x cards are not found lying around in the realm, and are worth
-{P3{x hidden tokens toward my {BL{Cegacy {BS{Cet{x.  When you cash in a {Pr{Ya{Br{Ge{x
-card, I'll {cautograph{x it and return it to you, but after that, it
-is no longer valuable except as a keepsake.  Normal cards are not
-returned when cashing them in for my {BL{Cegacy {BS{Cet{x.
-
-  I may at times offer special deals, to bring in a certain group
-of cards, and I will award a prize that may differ from those
-listed above.  {YThat said, happy hunting!{x
+{YSEE ALSO:{x TRADING CARDS
 ~
 
 0 XENITH~
-Xenith is an insane coder who is obsessed with meteors.  Beware.
-
-Xenith's current projects include:
-  War Code
-  Moons of Creation
-  Worldgem Citadel
+Xenith doesn't work here anymore.  But we owe a lot of our code to her
+incredible genius, so we still love her. :)
 ~
 
 0 KENNETH~
@@ -282,81 +255,144 @@ Kenneth is just some loser who, one day, as a small boy, knocked over a
 becoming an Imm. Ever since, Kenneth has been scratching his itch to 
 build things and amusing people with his wacky antics.  
 
-Kenneth is the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He just 
-finished his new area, Twilight.  His current projects include the 
-battle arenas, mapping Thera, continuity, guilds, the building 
-guide, and maybe a new zone.
+Kenneth was the main builder for Legacy, mainly working with clans to
+create, maintain, or update their clanhalls or equipment.  He is now
+part of our Admin team, having left the responsibilities of building to
+our new head builder, Teotwawki. Kenneth's main responsibility is balancing
+out Teotwawki.
+
+Current Projects:
+Listening to Teo and giving her a swift kick when needed
+Helping to maintain a pleasant atmosphere for the mortals
+Admin stuff
+
 ~
 
 0 NEFFERTINI~
-Neffertini is Legacy's resident pure evil builder.
+Neffertini was Legacy's resident pure evil builder.  He is now an Elder
+that comes in occassionally.
 
-Neffertini's current projects include:
+Neffertini's projects included:
   Crystal Temple
 ~
 
-0 SIVAT~
-Sivat, known as the maintainer, preserver or simply immortal of life, is
-one of the immortals that cherish life, creation and love. As one 
-appreciating creation and love, Sivat prides himself on performing 
-marriages and maintaining good relations between all mortals. Along
-with sustaining relationships, Sivat enjoys challenging his mortal 
-friends to quick games of intellect and adventure.
+0 ALARA~
+Now departed...
+~
 
-Sivat's current projects include:
-Overseeing Marriages
-Promoting a Role-playing Environment with Vegita
-Web Page
-{bM{Yu{bd{GL{He{Gm{x's
+0 KAZANDER~
+A huge dragon with a love of yellow polka dot bikinis, Kazander is a qwest
+immortal.  Rumor has it his tongue is half his body length!
+~
+
+0 KISMET~
+{HK{ci{Hs{cm{He{ct{x was an energetic bard who traveled among the lands of {BL{Ce{gg{Wa{Cc{By{x
+doing his best to entertain all those around him.  After a time he was 
+promoted to Quest Imm to use those skills to promote competition and
+fun throughout the land.  BE WARNED, THOUGH!!! Trivia can happen at any
+time... ;)
+
+--- Some of {HK{ci{Hs{cm{He{ct{x'{Hs{x Duties ---
+
+Running quests and designing new ideas for quests and areas
+Small Admin jobs and enforcement
+Washing and caring for Teo's and Alara's pets. :(
+~
+
+0 TEOTWAWKI~
+{PT{Ye{Po{x is the Building Implementor (watch your heads) and helps with Admin. 
+ She is currently the only builder immortal for Legacy so she is usually way 
+ over her head in stuff to do.  She loves helping mortals with every aspect 
+ of the mud that she can.  She runs trivia if and when she has spare time, 
+ and is generally a nice person as long as she is not being attacked. *egrin*
+
+{PT{Ye{Po'{Ys{x current projects:
+     Any and all Admin work
+     Maintaining all clanhalls
+     Any and all building upgrades
+     Finishing touches on prison.are and thedead.are
+     Verifying any and all building projects that come in from others
+     Revamping areas and doing minor tweaks
+     Evaluating current areas, eq, pills, and armor
+
+{PT{Ye{Po'{Ys{x future projects:
+     Help any and all mortals interested in building learn
+     Run more quests
+     Remodel the realm
+~
+
+0 URZA~
+See Urza.
+See Urza run.
+Run, Urza, run!
 ~
 
 0 VEGITA~
-The all powerful Saiyan Prince.  Came to the land of Legacy after
-the evil tyrants of another land didn't appease him.  The ever
-vigilant overseer of Roleplay in the land.  He sits in the clouds
-over Thera and watches the happenings.  Liriel's puppet *just
-kidding*, he is at her whims and beckonings.
+After a long rest, the great {RV{Pe{Ygi{Pt{Ra{x has returned.
+The enforcement hand of the great Teotwawki and Asmadi, there is 
+just about nothing he can't do. One of the original players of this land,
+he has been here since practically the beginning. 
 
-Vegita's current projects include:
-  Overwatching all the imms *besides those my level or higher *Scuffs*
-  Working on helfiles
-  Mists of Time
-  Promoting a Roleplaying Environment
-  Anything Liriel and Montrey pimp him out to do
+{RV{Pe{Yg{Yi{Pt{Ra{x's current projects
+
+{VNecromancy Group Evolution
+  {WWill encompass animate skeleton, animate wraith, animate gargoyle,
+  animate zombie.
+
+{VHealing Group Evolution
+  {WWill encompass cure light, cure serious, cure critical, and heal.{x
+
+{VRacial Modifiers
+  {WRaces will affect different things, like elfs will be better at
+    magic then humans, a superhuman will hit harder, seraphs will be
+    better at all things paladin and so on and so forth.{x
+
+
 ~
 
-0 SORSHA~
-Sorsha is a beautiful Seraph that came down from the heavens. As a 
-mortal she wandered the realm with a curious mind, and search for 
-adventure. Her sense for adventure, and gift of working with people, 
-is what made her stand out. After a short while, Sorsha was honored
-by the Immortals of the realm, and ascended into the heavens where 
-she lives today. Her castle is built upon the clouds with move freely 
-around the realm. Sorsha is good at heart, but she is an Seraph with 
-a temper. She is one to let the realm know about her wrath. It is 
-wise to let her be, and not push your luck with her. She loves to 
-venture out into the realm, and the flapping of her wings can clearly
-be heard. But watch out for her razor sharp Halo, which has been 
-known to fly aimless around the realm.
+0 VIRO~
+Viro's our coder and Admin.  He's the God of Honour and Fate, and he's got 
+some sort of yin and yang thing going.  He has yet to write a helpfile for
+me to post for him, so for now, this is all that he gets. ;)
 
-Sorsha's current projects include:
-  City of Pintula
-  Roads
-  Oceans
+Current projects:
+     Any and all coding
+     Any and all Admin
 ~
 
-0 ALARA~
-An immortal ranger pulled from the study of nature, Alara is primarily
-interested in the way things interact.  Currently an understudy of
-{WL{Ci{Br{Ci{Te{Wl{x, Alara will always be working on mud policy and balance, as
-well as the creation and maintenance of helpfiles.  She loves to field
-questions and evaluate ideas, so feel free to send them her way. :)
+92 WIZGROUP~
+Syxtax: wizgroup <{Yadd{x/{Yremove{x> <{Yplayer{x> <{Ygroup{x>
 
-Alara's current projects include:
-     Helping Vegita clean up those ugly, ugly helpfiles.
-     Helping Vegita write helpfiles.
-     Keeping Montrey from doing stupid things while Liriel is away.
+This command adds or removes a player from the administrator groups.
+The potential groups are:
+general, quest, build, code, security,
+player, clan, avatar, hero and leader.
+
+You may (though it is not recommended) use "all" in place of the
+group name.
+~
+
+1 TRADING CARDS~
+Trading cards are back!  You can now find these bits of {WM{go{Wn{Ct{Wr{ge{Wy{x's {BL{Cegacy {BS{Cet{x
+scattered around the realm.  Trading cards show some of the coolest stuff in
+Thera, the weapons and armor that are so good they've become legendary.  Plus,
+for those of you who want to know more about the object on the card, just look
+at the card to hear about the coolness that made it a legend.  Each one counts
+as a single hidden token, except for the ultra-cool {PRARE{x cards that count
+as {Y3{x!  Don't forget that this is an {BI{Cmp {BL{Cegacy{x, the rewards are {Pc{Yr{Ga{Bz{Vy{x!
+
+But, that's not all!  If you bring to me {Y10{x different cards at once, you get
+a special bonus.  I'll autograph them for you and put them in a special
+protective binder, and you'll get a free restring token!  Sounds great, right?
+Of course it is.  The autographed cards can still be used as part of my set,
+of course, so there's no reason not to do it.  But wait!  Could there STILL
+be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
+card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
+or {Y1{x {Vgreater enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
 ~
 
 -2

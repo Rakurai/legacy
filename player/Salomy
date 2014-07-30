@@ -1,0 +1,93 @@
+#PLAYER
+Name Salomy~
+Id   1053644269
+LogO 1053645395
+Vers 14
+Mexp 1
+Pass Hello~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Cla  4
+Levl 1
+Tru  0
+Plyd 616
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  5 100 73
+Gold 0
+Silv 0
+Exp  2035
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes BM
+FVul NS
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 16 19 16 15 14 15
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 57
+Rank ~
+Aura ~
+TSex 2
+LLev 0
+Deit Kismet~
+Lsit mudconnector.com~
+Ltim Thu May 22 19:06:17 2003
+~
+LSav Thu May 22 19:16:35 2003
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 6 34 34
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 1 1 'blood moon'
+Sk 1 1 'energy drain'
+Sk 1 1 'fear'
+Sk 1 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'resurrect'
+Sk 1 1 'smokescreen'
+Sk 45 1 'ventriloquate'
+Sk 40 1 'dagger'
+Sk 1 1 'polearm'
+Sk 1 1 'scribe'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'swimming'
+Sk 23 1 'firebuilding'
+Sk 1 1 'rotate'
+Sk 45 1 'languages'
+Sk 1 1 'meditation'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 23 1 'staves'
+Sk 1 1 'wands'
+Sk 72 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'illusion'
+Gr 'necromancy'
+End
+
+#END

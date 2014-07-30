@@ -636,11 +636,12 @@ int main(int argc, char **argv)
 	   If we can't connect, we won't worry about it (no exit).
 	   -- Outsider  
 	   */
-	   chit_info = Chit_Connect(NULL, CHIT_DEFAULT_PORT);
-	   if (!chit_info)
-	     log_string("Could not connect to Chat server.\n\r");
-	   else
-	     log_string("Connected to Chat server.\n\r");
+		chit_info = NULL;
+//	   chit_info = Chit_Connect(NULL, CHIT_DEFAULT_PORT);
+//	   if (!chit_info)
+//	     log_string("Could not connect to Chat server.\n\r");
+//	   else
+//	     log_string("Connected to Chat server.\n\r");
 	}
 
    game_loop_unix(control);
@@ -650,8 +651,8 @@ int main(int argc, char **argv)
 	db_close();
 
    /* Close connection to Chat server -- Outsider*/
-	if (chit_info)
-	   Chit_Clean_Up(chit_info);
+//	if (chit_info)
+//	   Chit_Clean_Up(chit_info);
 
 #endif
 

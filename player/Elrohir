@@ -1,0 +1,178 @@
+#PLAYER
+Name Elrohir~
+Id   1112878881
+LogO 1112881120
+Vers 14
+Mexp 2
+Pass nitom~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Cla  5
+Levl 1
+Plyd 1951
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3007
+HMS  13 100 97
+Gold 0
+Silv 9
+Exp  1417
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 1000
+FImm 0
+FRes B
+FVul Z
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NOZ
+Revk 0
+Cgrp 0
+Cnsr AB
+Block_Remote 0
+Prac 5
+Trai 3
+Wimp 4
+Lay 1
+Lay_Next 6
+Familiar 0
+Atrib 13 16 10 14 8 15
+Afk {B[{CThu Apr  7 08:19:18 2005{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 5
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Navarre~
+Lsit 84.4.76.221~
+Ltim Thu Apr 07 08:06:09 2005
+~
+LSav Thu Apr 07 08:38:40 2005
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 12 48 5
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shrink'
+Sk 40 1 'sword'
+Sk 1 1 'shield block'
+Sk 1 1 'rescue'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'paladin basics'
+Gr 'enchantment'
+Affc 'bless'   0  60  64  -7  24          0 1
+Affc 'bless'   0  60  64   7  18          0 1
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 92
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear 6
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear 8
+Cost 72
+End
+
+#O
+Vnum 3702
+Nest 0
+Cond 92
+Wear 16
+Cost 360
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 159 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 3
+Cost 72
+End
+
+#O
+Vnum 3713
+Enchanted
+Nest 0
+Wear 14
+Cost 48
+End
+
+#END

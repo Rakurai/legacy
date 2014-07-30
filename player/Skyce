@@ -1,0 +1,133 @@
+#PLAYER
+Name Skyce~
+Id   1045466473
+LogO 1045468168
+Vers 14
+Mexp 1
+Pass mythic~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race seraph~
+Cla  6
+Levl 1
+Tru  0
+Plyd 65
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3757
+HMS  20 100 100
+Gold 0
+Silv 0
+Exp  2625
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes NS
+FVul M
+Plr  HU
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 5
+Trai 3
+Wimp 0
+Atrib 16 14 14 16 15 16
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 50
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Urza~
+Lsit cust-93.murph.dnet.net~
+Ltim Mon Feb 17 02:24:47 2003
+~
+LSav Mon Feb 17 02:49:28 2003
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 15 15
+Sk 1 1 'bless'
+Sk 1 1 'calm'
+Sk 1 1 'cure blindness'
+Sk 1 1 'cure disease'
+Sk 1 1 'cure poison'
+Sk 1 1 'frenzy'
+Sk 1 1 'holy word'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'axe'
+Sk 1 1 'flail'
+Sk 40 1 'mace'
+Sk 1 1 'sword'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'sing'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'bard basics'
+Gr 'benedictions'
+Gr 'curative'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+Val  0 0 167 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3700
+Nest 0
+Wear 16
+Cost 250
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

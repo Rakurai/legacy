@@ -1,7 +1,7 @@
 #PLAYER
 Name Kyra~
 Id   998241178
-LogO 1023505977
+LogO 1060017461
 Vers 14
 Mexp 2
 Pass aqua24~
@@ -20,18 +20,17 @@ Desc as you walk along you see a cloaked figure on the path.
 ~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race human~
-Clan divinity~
 Cla  7
 Levl 46
 Tru  0
-Plyd 81477
+Plyd 90309
 Back 0
-Note 1014233745 0 1014071992 930633430 0 1022523093 0
+Note 1014233745 0 1014071992 930633430 1036438083 1043950137 0
 Scro 22
-Room 19906
-HMS  1181 542 622
-Gold 1141
-Silv 24
+Room 3001
+HMS  1231 572 632
+Gold 1078
+Silv 74
 Silver_in_bank 4900
 Gold_in_bank 1150
 Exp  46078
@@ -40,12 +39,12 @@ PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  5
+Pos  8
 Alig 1000
 FImm 0
 FRes 0
 FVul 0
-Plr  AF
+Plr  ABFH
 Video 0
 Act  CDEFGHJLQSTc
 AfBy DF
@@ -58,9 +57,7 @@ Trai 3
 Wimp 0
 Atrib 18 18 18 18 21 18
 QuestPnts  8
-QpDonated  8
-GlDonated  1100
-Afk {B[{CMon Jun  3 22:22:32 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CWed Jul 31 00:13:51 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  Tracker of {HF{Gi{Wan{Gn{Ha~
 Immn ~
@@ -71,14 +68,15 @@ TSex 2
 LLev 19
 Email anigurl_34@hotmail.com~
 Deit Liriel~
-Lsit 12.164.33.214~
-Ltim Fri Jun 07 21:46:34 2002
+Lsit crlspr-24.233.162.130.myacc.net~
+Ltim Fri Jan 31 15:26:12 2003
 ~
-LSav Fri Jun 07 22:12:57 2002
+LSav Mon Aug 04 13:17:41 2003
 ~
 HMSP 966 377 612
 THMS 0 0 0
-Cnd  0 0 0 0
+Cnd  5 0 10 10
+Colr 13 36 1
 Sk 1 1 'age'
 Sk 75 1 'armor'
 Sk 75 1 'blindness'
@@ -121,6 +119,8 @@ Gr 'rom basics'
 Gr 'ranger basics'
 Gr 'maladictions'
 Gr 'protective'
+Affc 'bless'   0  77   3 -12  24          0 1
+Affc 'bless'   0  86   3  12  18          0 1
 End
 
 #O
@@ -149,9 +149,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -220,7 +220,7 @@ End
 Vnum 4595
 Nest 0
 Cond 97
-Wear 13
+Wear -1
 Cost 8000
 End
 
@@ -769,6 +769,37 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'shield'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24250
+Nest 0
+Wear 13
+Cost 5000
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3003
+Nest 0
+Wear -1
+Cost 25
+Val  12 6 7 0 0
 End
 
 #END

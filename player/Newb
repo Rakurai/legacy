@@ -1,0 +1,233 @@
+#PLAYER
+Name Newb~
+Id   1062342494
+LogO 1062351340
+Vers 14
+Mexp 0
+Pass sparty~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race elf~
+Cla  6
+Levl 2
+Tru  0
+Plyd 6795
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 1251
+HMS  29 109 105
+Gold 0
+Silv 681
+Exp  4142
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes B
+FVul Z
+Plr  HU
+Video 0
+Act  CDEFGHJLQS
+AfBy 0
+Comm NOZ
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 0
+Trai 0
+Wimp 0
+Atrib 14 19 16 18 13 14
+Afk {B[{CSun Aug 31 12:57:10 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 57
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kismet~
+Lsit dialup-67.73.172.27.Dial1.Chicago1.Level3.net~
+Ltim Sun Aug 31 11:18:03 2003
+~
+LSav Sun Aug 31 13:35:40 2003
+~
+HMSP 29 109 105
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'blood blade'
+Sk 1 1 'dazzling light'
+Sk 1 1 'enchant armor'
+Sk 1 1 'enchant weapon'
+Sk 1 1 'flame blade'
+Sk 1 1 'frost blade'
+Sk 1 1 'protect container'
+Sk 1 1 'recharge'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'shock blade'
+Sk 1 1 'shrink'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 64 1 'whip'
+Sk 1 1 'kick'
+Sk 1 1 'second attack'
+Sk 17 1 'dual wield'
+Sk 1 1 'fast healing'
+Sk 1 1 'languages'
+Sk 1 1 'hide'
+Sk 100 1 'scan'
+Sk 1 1 'sneak'
+Sk 1 1 'sing'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'bard basics'
+Gr 'weaponsmaster'
+Gr 'enchantment'
+Gr 'bladecraft'
+End
+
+#O
+Vnum 1201
+Nest 0
+Name chunk raw spam~
+ShD  a chunk of raw Spam~
+Desc A chunk of raw spam lies here, devoid of it's can.~
+Wear -1
+Cost 3
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear -1
+Cost 0
+Val  0 0 83 0 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3721
+Nest 0
+Wear -1
+Cost 330
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3705
+Nest 0
+Cond 92
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear -1
+Cost 48
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 92
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3706
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3138
+Nest 0
+Wear -1
+Cost 24
+End
+
+#O
+Vnum 404
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 400
+Nest 0
+Wear -1
+Cost 10
+End
+
+#O
+Vnum 2402
+Nest 0
+Wear -1
+Cost 310
+End
+
+#END

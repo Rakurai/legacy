@@ -1,0 +1,283 @@
+#PLAYER
+Name Mortarius~
+Id   1060582274
+LogO 1060669868
+Vers 14
+Mexp 0
+Pass thedoors~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Cla  4
+Levl 6
+Tru  0
+Plyd 15843
+Back 15831
+Note 1060639141 1060639141 1060639141 1060639141 1060639141 1060639141 1060639141
+Scro 22
+Room 3011
+HMS  36 61 101
+Gold 3
+Silv 1211
+Exp  8558
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -124
+Ptnr Teotwawki~
+FImm 0
+FRes BM
+FVul NS
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr 0
+Prac 11
+Trai 2
+Wimp 15
+Atrib 17 22 16 17 17 16
+Afk {B[{CTue Aug 12 02:07:29 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  Bloodblade the damned~
+Immn ~
+Pnts 43
+Rank ~
+Aura {YTeo's Master{x~
+TSex 1
+LLev 3
+Deit Teotwawki~
+Lsit 65.235.252.34~
+Ltim Tue Aug 12 01:15:54 2003
+~
+LSav Tue Aug 12 02:31:08 2003
+~
+HMSP 55 157 127
+THMS 0 0 0
+Cnd  0 0 0 21
+Sk 1 1 'acid blast'
+Sk 1 1 'age'
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 1 1 'blindness'
+Sk 1 1 'blood moon'
+Sk 1 1 'burning hands'
+Sk 1 1 'chain lightning'
+Sk 82 1 'chill touch'
+Sk 1 1 'colour spray'
+Sk 1 1 'curse'
+Sk 1 1 'energy drain'
+Sk 1 1 'fear'
+Sk 1 1 'fireball'
+Sk 1 1 'firestorm'
+Sk 75 1 'invisibility'
+Sk 1 1 'lightning bolt'
+Sk 82 1 'magic missile'
+Sk 1 1 'mass invis'
+Sk 1 1 'plague'
+Sk 1 1 'poison'
+Sk 1 1 'resurrect'
+Sk 1 1 'shocking grasp'
+Sk 1 1 'slow'
+Sk 1 1 'smokescreen'
+Sk 1 1 'ventriloquate'
+Sk 1 1 'weaken'
+Sk 1 1 'wrath'
+Sk 1 1 'dagger'
+Sk 1 1 'polearm'
+Sk 76 1 'sword'
+Sk 1 1 'scribe'
+Sk 1 1 'lore'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'combat'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3704
+Nest 0
+Cond 95
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3711
+Nest 0
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3707
+Nest 0
+Wear 7
+Cost 72
+End
+
+#O
+Vnum 3712
+Nest 0
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 3705
+Nest 0
+Wear 4
+Cost 72
+End
+
+#O
+Vnum 3708
+Nest 0
+Wear -1
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Wear 14
+Cost 48
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 75
+Nest 0
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Cond 94
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 90 15 0 0
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3007
+Nest 0
+Cond 69
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 2401
+Nest 0
+Wear 6
+Cost 270
+End
+
+#O
+Vnum 2404
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 2407
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 2407
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 9225
+Nest 0
+Wear -1
+Cost 300
+End
+
+#END

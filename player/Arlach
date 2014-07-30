@@ -1,0 +1,331 @@
+#PLAYER
+Name Arlach~
+Id   1079312673
+LogO 1079423692
+Vers 14
+Mexp 2
+Pass pointer~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race vampire~
+Cla  4
+Levl 7
+Tru  0
+Plyd 25833
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  90 176 130
+Gold 0
+Silv 165
+Exp  12855
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig -1000
+FImm 0
+FRes BM
+FVul NS
+Plr  AU
+Video 0
+Act  CDFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp A
+Cnsr AB
+Prac 4
+Trai 0
+Wimp 10
+Atrib 17 22 13 17 17 14
+Afk {B[{CTue Mar 16 00:31:30 2004{B] {CUnknown Departure.{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 53
+Rank ~
+Aura ~
+TSex 1
+LLev 3
+Deit Vegita~
+Lsit cdm-208-180-175-64.ftsm.cox-internet.com~
+Ltim Tue Mar 16 02:54:48 2004
+~
+LSav Tue Mar 16 02:54:52 2004
+~
+HMSP 76 171 130
+THMS 0 0 0
+Cnd  0 0 0 0
+Alias f flee~
+Sk 1 1 'animate skeleton'
+Sk 1 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 1 1 'animate zombie'
+Sk 75 1 'armor'
+Sk 1 1 'bless'
+Sk 1 1 'blood moon'
+Sk 1 1 'calm'
+Sk 1 1 'cancellation'
+Sk 1 1 'channel'
+Sk 1 1 'dispel magic'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'energy drain'
+Sk 1 1 'fear'
+Sk 1 1 'fireproof'
+Sk 1 1 'fly'
+Sk 1 1 'frenzy'
+Sk 1 1 'gate'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'holy word'
+Sk 1 1 'infravision'
+Sk 75 1 'invisibility'
+Sk 1 1 'mass invis'
+Sk 1 1 'nexus'
+Sk 1 1 'pass door'
+Sk 1 1 'portal'
+Sk 1 1 'protection evil'
+Sk 1 1 'protection good'
+Sk 1 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 1 1 'regeneration'
+Sk 1 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
+Sk 1 1 'sanctuary'
+Sk 1 1 'shield'
+Sk 1 1 'smokescreen'
+Sk 1 1 'stone skin'
+Sk 1 1 'summon'
+Sk 1 1 'summon object'
+Sk 1 1 'talon'
+Sk 1 1 'teleport'
+Sk 1 1 'teleport object'
+Sk 1 1 'undo spell'
+Sk 75 1 'ventriloquate'
+Sk 1 1 'word of recall'
+Sk 80 1 'dagger'
+Sk 1 1 'polearm'
+Sk 1 1 'scribe'
+Sk 1 1 'second attack'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 75 1 'recall'
+Gr 'rom basics'
+Gr 'necromancer basics'
+Gr 'benedictions'
+Gr 'enhancement'
+Gr 'illusion'
+Gr 'necromancy'
+Gr 'protective'
+Gr 'transportation'
+Affc 'blood moon'   0  55  46   5  19          0 1
+Affc 'blood moon'   0  60  46   3  18          0 1
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3711
+Nest 0
+Cond 98
+Wear 12
+Cost 72
+End
+
+#O
+Vnum 3713
+Nest 0
+Cond 97
+Wear 15
+Cost 48
+End
+
+#O
+Vnum 3712
+Nest 0
+Cond 92
+Wear 13
+Cost 72
+End
+
+#O
+Vnum 10126
+Nest 0
+Cond 98
+Wear 7
+Cost 0
+End
+
+#O
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#O
+Vnum 73
+Nest 0
+Wear -1
+Cost 270
+End
+
+#O
+Vnum 74
+Nest 0
+Wear 3
+Cost 550
+End
+
+#O
+Vnum 75
+Nest 0
+Cond 83
+Wear 1
+Cost 620
+End
+
+#O
+Vnum 76
+Nest 0
+Wear 17
+Cost 550
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 78
+Nest 0
+Wear 8
+Cost 900
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+End
+
+#O
+Vnum 82
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 83
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 3021
+Nest 0
+Wear -1
+Cost 250
+End
+
+#O
+Vnum 3066
+Nest 0
+Wear 5
+Cost 430
+End
+
+#O
+Vnum 3052
+Nest 0
+Wear 14
+Cost 112
+End
+
+#O
+Vnum 3201
+Nest 0
+Cond 61
+Wear 6
+Cost 0
+End
+
+#O
+Vnum 1601
+Nest 0
+Cond 89
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 3076
+Nest 0
+Cond 44
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 3097
+Nest 0
+Cond 62
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 80
+Nest 0
+Wear 18
+Cost 550
+End
+
+#O
+Vnum 3503
+Nest 0
+Wear 4
+Cost 0
+End
+
+#PET
+Vnum 3092
+Name beagle dog pet~
+LogO 1079423692
+Desc The beagle looks like a fierce fighter.
+A collar around its neck says 'I belong to Arlach'.
+~
+Sex  1
+HMS  69 69 100 100 125 125
+Act  ABIU
+AfBy FS
+Comm W
+Pos  8
+Atrib 8 8 8 10 8 8
+AtMod 0 0 0 0 0 0
+End
+#END

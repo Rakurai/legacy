@@ -1,0 +1,1187 @@
+#PLAYER
+Name Freiza~
+Id   1028674936
+LogO 1111595164
+Vers 14
+Mexp 2
+Pass aceventura~
+Prom {Y%h/%Hhp {G%m/%Mmana {P%v/%Vstm {Y%g{W/%s (%r) {P%X {G%a %q{W/%j{x ~
+Race human~
+Clan rebel~
+Cla  3
+Levl 54
+Plyd 177143
+Back 172527
+Note 1103261180 1103261180 1103261180 1103261180 1103261180 1111594578 1103261180
+Scro 22
+Room 3054
+HMS  1526 902 922
+Gold 2054
+Silv 4
+Exp  54894
+PCkills  4
+PCkilled 1
+Akills   1
+Akilled  2
+PKRank   1
+Pos  8
+Alig -1000
+FImm 0
+FRes H
+FVul 0
+Plr  AEOQT
+Video D
+Act  CDEFGHJLQSc
+AfBy T
+Comm MNO
+Revk 0
+Cgrp AIKLM
+Cnsr B
+Block_Remote 0
+Prac 650
+Trai 11
+Wimp 0
+Familiar 0
+Atrib 21 18 18 18 18 18
+SkillPnts  94
+QuestPnts  354
+GlDonated  14407
+Afk {B[{CTue Jan 28 00:05:35 2003{B] {CUnknown Departure.{x
+~
+Titl  *smirks at all you*~
+Immn ~
+Pnts 40
+Rank {GK{HN{cI~
+Aura {WL{Co{cr{Wd{x~
+TSex 1
+LLev 48
+Deit Lotus~
+Stus Slowly regaining power~
+RmCt 3
+ExSk 0
+Raff 953
+Lsit sdn-ap-022scfairP0288.dialsprint.net~
+Ltim Wed Mar 23 10:14:02 2005
+~
+LSav Wed Mar 23 10:26:04 2005
+~
+HMSP 1196 472 912
+THMS 20 5 12
+Cnd  0 -1 4 8
+Colr 3 33 1
+Colr 13 33 1
+Ignore tebriel~
+Alias goss soc emote {W*{YRP{W* {W*{RGr{YUmBl{REs{W*{x~
+Alias cc c 'cure critical'~
+Alias dispel c 'dispel magic'~
+Alias slow c slow~
+Alias weak c weaken~
+Alias undo c 'undo spell'~
+Alias g get axe|wield axe~
+Alias fire c 'faerie fire'~
+Alias so c 'summon object'~
+Alias ed c 'energy drain'~
+Alias gg get jav|wield jav~
+Alias ar c 'acid rain'~
+Alias di c 'detect hidden'~
+Alias j get jew|wield jew~
+Alias lb c 'lightning breath'~
+Alias a eat kid|eat kid|eat kid|eat kid|eat kid~
+Alias lore c 'identify'~
+Alias ll c 'locate life' ~
+Alias pe c 'protection evil'~
+Alias pg c 'protection good'~
+Alias dm c 'dispel magic'~
+Query zarbon~
+Sk 75 1 'acid breath'
+Sk 99 1 'acid rain'
+Sk 78 1 'age'
+Sk 85 1 'armor'
+Sk 75 1 'bless'
+Sk 85 1 'blindness'
+Sk 97 1 'blizzard'
+Sk 1 1 'call lightning'
+Sk 75 1 'calm'
+Sk 83 1 'cancellation'
+Sk 75 1 'channel'
+Sk 1 1 'control weather'
+Sk 90 1 'cure critical'
+Sk 1 1 'cure light'
+Sk 1 1 'cure serious'
+Sk 84 1 'curse'
+Sk 75 1 'demonfire'
+Sk 1 1 'detect evil'
+Sk 1 1 'detect good'
+Sk 75 1 'detect hidden'
+Sk 75 1 'detect invis'
+Sk 1 1 'detect magic'
+Sk 1 1 'detect poison'
+Sk 1 1 'dispel evil'
+Sk 1 1 'dispel good'
+Sk 79 1 'dispel magic'
+Sk 89 1 'divine healing'
+Sk 75 1 'divine regeneration'
+Sk 75 1 'earthquake'
+Sk 83 1 'energy drain'
+Sk 82 1 'faerie fire'
+Sk 1 1 'faerie fog'
+Sk 75 1 'fire breath'
+Sk 2 1 'fireproof'
+Sk 76 1 'flameshield'
+Sk 75 1 'flamestrike'
+Sk 85 1 'fly'
+Sk 75 1 'frenzy'
+Sk 75 1 'frost breath'
+Sk 75 1 'gas breath'
+Sk 86 1 'gate'
+Sk 85 1 'giant strength'
+Sk 87 1 'haste'
+Sk 1 1 'heal'
+Sk 75 1 'heat metal'
+Sk 1 1 'holy word'
+Sk 75 1 'identify'
+Sk 1 1 'infravision'
+Sk 1 1 'know alignment'
+Sk 1 1 'light of truth'
+Sk 1 1 'lightning bolt'
+Sk 75 1 'lightning breath'
+Sk 75 1 'locate life'
+Sk 75 1 'locate object'
+Sk 1 1 'mass healing'
+Sk 1 1 'nexus'
+Sk 77 1 'pass door'
+Sk 82 1 'plague'
+Sk 75 1 'poison'
+Sk 1 1 'portal'
+Sk 76 1 'protection evil'
+Sk 79 1 'protection good'
+Sk 75 1 'ray of truth'
+Sk 75 1 'refresh'
+Sk 76 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 75 1 'remove invisibility'
+Sk 75 1 'remove curse'
+Sk 86 1 'sanctuary'
+Sk 1 1 'scry'
+Sk 78 1 'shield'
+Sk 97 1 'slow'
+Sk 1 1 'starve'
+Sk 75 1 'steel mist'
+Sk 76 1 'stone skin'
+Sk 76 1 'summon'
+Sk 77 1 'summon object'
+Sk 75 1 'sunray'
+Sk 84 1 'talon'
+Sk 1 1 'teleport'
+Sk 75 1 'teleport object'
+Sk 78 1 'undo spell'
+Sk 1 1 'vision'
+Sk 95 1 'weaken'
+Sk 76 1 'word of recall'
+Sk 94 1 'axe'
+Sk 100 1 'dagger'
+Sk 77 1 'mace'
+Sk 75 1 'polearm'
+Sk 100 1 'sword'
+Sk 1 1 'bow'
+Sk 93 1 'bash'
+Sk 78 1 'berserk'
+Sk 87 1 'circle'
+Sk 83 3 'disarm'
+Sk 100 1 'enhanced damage'
+Sk 93 1 'hand to hand'
+Sk 85 1 'kick'
+Sk 100 1 'parry'
+Sk 100 1 'second attack'
+Sk 99 1 'third attack'
+Sk 100 2 'dual wield'
+Sk 76 1 'hunt'
+Sk 79 2 'fast healing'
+Sk 75 1 'forge'
+Sk 92 1 'repair'
+Sk 75 1 'rotate'
+Sk 75 1 'hide'
+Sk 75 1 'lore'
+Sk 82 1 'meditation'
+Sk 100 1 'scan'
+Sk 75 1 'sneak'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 76 1 'wands'
+Sk 75 1 'recall'
+Sk 100 1 'riposte'
+Sk 85 1 'fourth attack'
+Sk 77 1 'rage'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'maladictions'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Affc 'fly'   0  46  24   0   0     524288 1
+Affc 'stone skin'   0  44  21 -40  17          0 1
+Affc 'shield'   0  45  28 -20  17          0 1
+End
+
+#O
+Vnum 3204
+Nest 0
+Wear 18
+Cost 50
+End
+
+#O
+Vnum 3203
+Nest 0
+Wear 12
+Cost 40
+End
+
+#O
+Vnum 3205
+Nest 0
+Wear 5
+Cost 60
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 4
+Cost 3800
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 1229
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 25081
+Nest 0
+Wear -1
+Cost 0
+Spell 3 'steel mist'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 10215
+Nest 0
+ExtF 64
+Wear -1
+Cost 10000
+End
+
+#O
+Vnum 24618
+Nest 0
+Wear 9
+Cost 5500
+End
+
+#O
+Vnum 24616
+Nest 0
+ExtF 17563651
+Wear 2
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+ExtF 17563651
+Wear 1
+Cost 4500
+End
+
+#O
+Vnum 24614
+Nest 0
+Wear 15
+Cost 4000
+End
+
+#O
+Vnum 24614
+Nest 0
+Wear 14
+Cost 4000
+End
+
+#O
+Vnum 24617
+Nest 0
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 9911
+Nest 0
+Wear 10
+Cost 8500
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 3080
+Nest 0
+Wear -1
+Cost 800
+Spell 1 'heal'
+End
+
+#O
+Vnum 10171
+Nest 0
+Wear 0
+Cost 3300
+End
+
+#O
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10445
+Nest 0
+Cond 99
+Wear -1
+Cost 6400
+End
+
+#O
+Vnum 4595
+Nest 0
+Wear 13
+Cost 0
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 3
+Cost 3800
+End
+
+#O
+Vnum 14030
+Nest 0
+Wear 16
+Cost 0
+End
+
+#O
+Vnum 24619
+Nest 0
+Wear 6
+Cost 6000
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+Val  0 6 10 2 9
+End
+
+#O
+Vnum 14030
+Nest 0
+Wear 19
+Cost 0
+End
+
+#O
+Vnum 10166
+Nest 0
+Wear -1
+Cost 20
+Val  0 6 10 2 12
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 16057
+Nest 0
+Wear -1
+Cost 50
+End
+
+#O
+Vnum 7352
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 7352
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 1214
+Nest 0
+Name viro desire quest token~
+ShD  A {Rd{Pe{Rs{Pi{Rr{Pe{x for {H*{GQuesting{H*{x~
+Desc An {Mendless {Rd{Pe{Rs{Pi{Rr{Pe {xto {Gquest {xfor {WGreatness{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 3201
+Nest 0
+Wear -1
+Cost 20
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 3
+Cond 100
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 504
+Nest 0
+ExtF 3
+Cond 100
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 32133
+Nest 0
+Wear -1
+Cost 1400
+End
+
+#L
+Vnum 32133
+Nest 0
+Wear -1
+Cost 1400
+End
+
+#L
+Vnum 10133
+Nest 0
+Wear -1
+Cost 120
+End
+
+#L
+Vnum 1806
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 12708
+Enchanted
+Nest 0
+ExtF 64
+Wear -1
+Lev  11
+Cost 0
+Affc 'reserved'   1  10  -1   1   1          0 1
+Affc 'enchant armor'   1  91  -1  -1  17          0 1
+End
+
+#L
+Vnum 16075
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16041
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 500
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 10129
+Nest 0
+Wear -1
+Cost 122
+End
+
+#L
+Vnum 16084
+Nest 0
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 16084
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 3202
+Nest 0
+Wear -1
+Cost 30
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name Navarre trivia token beautiful hunting hawk~
+ShD  {R({PT{Yr{Wiv{Yi{Pa{R) {NB{Be{Ca{Wuti{Cf{Bu{Nl {HH{Gu{Wnti{Gn{Hg {bH{Yaw{bk~
+Desc A beautiful falcon makes ready to take flight after her quarry.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1212
+Nest 0
+Name jubei token award trivia~
+ShD  {WJ{gu{Wb{ge{Wi{g'{Ws {gY{Wo{gu{Wr {gn{Wo{gt {Wa {gm{Wo{gr{Wo{gn {WA{gw{Wa{gr{Wd {W*{YTrivia{W*{x~
+Desc {WI{gt{Ws {ga{Wn {gA{Ww{ga{Wr{gd {Ws{gh{Wo{gw{Wi{gn{Wg {gy{Wo{gu {Wh{ga{Wv{ge {Ws{go{Wm{ge {Wc{go{Wm{gm{Wo{gn {Ws{ge{Wn{gs{We{g, {Wt{gh{Wa{gt{Ws {gr{Wa{gr{We {gt{Wh{ge{Ws{ge {Wd{ga{Wy{gs {Wy{ga {Wk{gn{Wo{gw{W?{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1202
+Nest 0
+Name Koutetsu token 2~
+ShD  {WK{go{Wu{gt{We{gt{Ws{gu{x~
+Desc {YA mysterious katana blade is here radiating energy{x~
+Wear -1
+Cost 6
+End
+
+#B
+Vnum 5409
+Nest 0
+ExtF 67
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10152
+Nest 0
+Wear -1
+Cost 5500
+End
+
+#B
+Vnum 20026
+Nest 0
+Wear -1
+Cost 90000
+End
+
+#B
+Vnum 16064
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14040
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 16071
+Nest 0
+Wear -1
+Cost 0
+Val  2 9 6 11 1
+End
+
+#B
+Vnum 10152
+Nest 0
+Wear -1
+Cost 5500
+End
+
+#B
+Vnum 3208
+Nest 0
+Wear -1
+Cost 90
+End
+
+#B
+Vnum 7502
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 11748
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11748
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 8832
+Nest 1
+ExtF 65
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 4500
+Nest 1
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 4411
+Nest 1
+ExtF 64
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11791
+Nest 1
+Wear -1
+Lev  91
+Cost 55000
+ExDe owned by~ Freiza
+~
+End
+
+#B
+Vnum 8227
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 3209
+Nest 1
+Wear -1
+Cost 100
+End
+
+#B
+Vnum 11776
+Nest 1
+Wear -1
+Lev  91
+Cost 0
+ExDe owned by~ Freiza
+~
+End
+
+#B
+Vnum 17040
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11709
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11709
+Enchanted
+Nest 1
+Wear -1
+Cost 0
+Affc 'reserved'   1  87  -1   1   1          0 1
+Affc 'reserved'   1  87  -1   5   3          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'reserved'   1  87  -1   7  18          0 1
+Affc 'reserved'   1  87  -1   7  19          0 1
+End
+
+#B
+Vnum 10103
+Nest 1
+Cond 67
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11712
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14013
+Nest 1
+ExtF 1835010
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14012
+Nest 1
+ExtF 1835010
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10100
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 17041
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14043
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 7502
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 8231
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10105
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10121
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10106
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 13010
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11712
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 20014
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#B
+Vnum 1004
+Nest 0
+Name sword Energy Ball~
+ShD  {WEn{Yer{Wgy {GB{Hal{Gl{x{x~
+Desc A sword is here, forged by Freiza's craftsmanship.~
+Mat tin~
+Wt   40
+Wear -1
+Lev  45
+Cost 7
+Val  1 7 8 3 0
+ExDe sword Energy Ball~ It is a marvellous sword, crafted from the finest tin around.
+It was created in the Month of Rapture by a young warrior
+named Freiza.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#END

@@ -1,26 +1,25 @@
 #PLAYER
 Name Maplearn~
 Id   990271550
-LogO 1027213939
+LogO 1075001597
 Vers 14
 Mexp 2
 Pass spencer~
 Prom %e %r %z%c%CH%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %CV%XXnl %CCquest %q min %Q skill quest %j min %J ~
-Race human~
-Clan rebel~
+Race superhuman~
 Cla  3
 Levl 91
 Tru  91
-Plyd 2567212
-Back 2567071
-Note 1027189445 1026283820 1027144008 1027209569 1027146472 1027158380 1026831915
+Plyd 3004227
+Back 3004155
+Note 1074751751 1044168858 1044133306 1053644628 1051242807 1054005890 1033621943
 Scro 22
-Room 3365
-HMS  3759 4849 917
-Gold 2421
-Silv 75
-Gold_in_bank 2000
-Exp  91999
+Room 3001
+HMS  2497 1726 1455
+Gold 950
+Silv 30
+Gold_in_bank 6000
+Exp  182138
 PCkills  12
 PCkilled 27
 Akills   6
@@ -30,27 +29,24 @@ Pos  8
 Alig 1000
 Mark 3365
 FImm LQ
-FRes FJST
+FRes O
 FVul 0
 Plr  AFMQU
 Video 0
-Act  CDFGHJLQSTce
-AfBy CDEFGHNOPQTUVYZb
-Comm KNOY
+Act  CDFGHJLQSTc
+AfBy HPUV
+Comm NO
 Revk 0
 Cgrp A
 Cnsr AB
-Prac 151
-Trai 72
+Prac 132
+Trai 115
 Wimp 0
-Atrib 21 18 18 18 18 18
-SkillPnts  3825
-QuestPnts  332
-QpDonated  1300
-GlDonated  207994
-QuestNext  6
-SQuestNext 14
-Afk {B[{CFri Jul 19 20:47:41 2002{B] {CUnknown Departure.{x
+Atrib 22 20 20 20 20 20
+SkillPnts  4325
+QuestPnts  51
+QuestNext  7
+Afk {B[{CThu Oct 17 02:51:54 2002{B] {CUnknown Departure.{x
 ~
 Titl .~
 Immn ~
@@ -58,21 +54,21 @@ Pnts 40
 Rank {GM{HS{cT{x~
 Aura ~
 TSex 1
-LLev 96
+LLev 824
 Email maplearn@hotmail.com~
 Deit Montrey~
-Stus Master~
-RmCt 10
-ExSk 1500
-Raff 964 965
-Lsit AC8A1157.ipt.aol.com~
-Ltim Sat Jul 20 20:11:00 2002
+Stus Meijin~
+RmCt 11
+ExSk 1501
+Raff 102 961
+Lsit CTS219103103035.cts.ne.jp~
+Ltim Sat Jan 24 22:32:19 2004
 ~
-LSav Sat Jul 20 20:12:19 2002
+LSav Sat Jan 24 22:33:17 2004
 ~
-HMSP 2984 3569 1184
-THMS 1 0 1
-Cnd  0 3 33 33
+HMSP 1762 696 1285
+THMS 0 0 0
+Cnd  0 36 44 44
 Colr 3 33 1
 Colr 13 33 1
 Query michigan~
@@ -90,23 +86,23 @@ Sk 100 1 'armor'
 Sk 100 1 'bless'
 Sk 100 1 'blindness'
 Sk 100 1 'blizzard'
-Sk 96 1 'blood blade'
+Sk 97 1 'blood blade'
 Sk 96 1 'blood moon'
 Sk 98 1 'burning hands'
-Sk 96 1 'call lightning'
+Sk 97 1 'call lightning'
 Sk 96 1 'calm'
 Sk 97 1 'cancellation'
 Sk 97 1 'cause light'
-Sk 96 1 'cause serious'
+Sk 97 1 'cause serious'
 Sk 96 1 'cause critical'
 Sk 100 1 'chain lightning'
-Sk 97 1 'change sex'
-Sk 95 1 'channel'
+Sk 98 1 'change sex'
+Sk 96 1 'channel'
 Sk 97 1 'charm person'
-Sk 96 1 'chill touch'
+Sk 98 1 'chill touch'
 Sk 97 1 'colour spray'
 Sk 97 1 'continual light'
-Sk 96 1 'control weather'
+Sk 97 1 'control weather'
 Sk 100 1 'create food'
 Sk 99 1 'create parchment'
 Sk 96 1 'create rose'
@@ -115,23 +111,23 @@ Sk 100 1 'create spring'
 Sk 95 1 'create vial'
 Sk 97 1 'create water'
 Sk 96 1 'cure blindness'
-Sk 98 1 'cure critical'
+Sk 99 1 'cure critical'
 Sk 96 1 'cure disease'
-Sk 95 1 'cure light'
-Sk 96 1 'cure poison'
-Sk 97 1 'cure serious'
+Sk 96 1 'cure light'
+Sk 97 1 'cure poison'
+Sk 98 1 'cure serious'
 Sk 98 1 'curse'
-Sk 77 1 'darkness'
+Sk 78 1 'darkness'
 Sk 100 1 'dazzling light'
 Sk 96 1 'demonfire'
-Sk 96 1 'detect evil'
+Sk 97 1 'detect evil'
 Sk 96 1 'detect good'
 Sk 100 1 'detect hidden'
 Sk 100 1 'detect invis'
 Sk 96 1 'detect magic'
 Sk 96 1 'detect poison'
 Sk 99 1 'dispel evil'
-Sk 95 1 'dispel good'
+Sk 96 1 'dispel good'
 Sk 95 1 'dispel magic'
 Sk 100 1 'divine healing'
 Sk 98 1 'divine regeneration'
@@ -141,14 +137,14 @@ Sk 100 1 'enchant armor'
 Sk 100 1 'enchant weapon'
 Sk 96 1 'energy drain'
 Sk 100 1 'faerie fire'
-Sk 95 1 'faerie fog'
+Sk 96 1 'faerie fog'
 Sk 99 1 'farsight'
 Sk 95 1 'fear'
 Sk 97 1 'fire breath'
 Sk 98 1 'fireball'
 Sk 96 1 'fireproof'
-Sk 97 1 'firestorm'
-Sk 95 1 'flame blade'
+Sk 98 1 'firestorm'
+Sk 96 1 'flame blade'
 Sk 98 1 'flameshield'
 Sk 97 1 'flamestrike'
 Sk 100 1 'fly'
@@ -163,25 +159,25 @@ Sk 100 1 'giant strength'
 Sk 98 1 'harm'
 Sk 100 1 'haste'
 Sk 98 1 'heal'
-Sk 98 1 'heat metal'
+Sk 99 1 'heat metal'
 Sk 96 1 'high explosive'
-Sk 98 1 'holy word'
+Sk 99 1 'holy word'
 Sk 95 1 'identify'
 Sk 97 1 'infravision'
 Sk 100 1 'invisibility'
 Sk 98 1 'know alignment'
 Sk 97 1 'light of truth'
 Sk 96 1 'lightning bolt'
-Sk 98 1 'lightning breath'
+Sk 99 1 'lightning breath'
 Sk 100 1 'locate life'
-Sk 98 1 'locate object'
+Sk 99 1 'locate object'
 Sk 96 1 'magic missile'
 Sk 98 1 'mass healing'
 Sk 98 1 'mass invis'
 Sk 95 1 'nexus'
 Sk 100 1 'pass door'
-Sk 96 1 'plague'
-Sk 96 1 'poison'
+Sk 97 1 'plague'
+Sk 97 1 'poison'
 Sk 95 1 'power word'
 Sk 96 1 'polymorph'
 Sk 95 1 'portal'
@@ -192,7 +188,7 @@ Sk 95 1 'ray of truth'
 Sk 97 1 'recharge'
 Sk 100 1 'refresh'
 Sk 96 1 'resurrect'
-Sk 90 2 'regeneration'
+Sk 94 2 'regeneration'
 Sk 100 1 'remove alignment'
 Sk 96 1 'remove invisibility'
 Sk 98 1 'remove curse'
@@ -205,25 +201,25 @@ Sk 96 1 'sleep'
 Sk 100 1 'slow'
 Sk 97 1 'smokescreen'
 Sk 100 1 'steel mist'
-Sk 98 1 'stone skin'
+Sk 100 1 'stone skin'
 Sk 100 1 'summon'
 Sk 97 1 'summon object'
 Sk 82 1 'sunray'
 Sk 100 1 'talon'
 Sk 98 1 'teleport'
-Sk 97 1 'teleport object'
+Sk 98 1 'teleport object'
 Sk 100 1 'undo spell'
 Sk 95 1 'ventriloquate'
 Sk 99 1 'vision'
-Sk 97 1 'weaken'
+Sk 98 1 'weaken'
 Sk 100 1 'word of recall'
 Sk 97 1 'wrath'
-Sk 96 1 'axe'
+Sk 100 1 'axe'
 Sk 100 1 'dagger'
 Sk 98 1 'flail'
-Sk 97 1 'mace'
+Sk 99 1 'mace'
 Sk 100 1 'polearm'
-Sk 99 1 'spear'
+Sk 100 1 'spear'
 Sk 100 1 'sword'
 Sk 96 1 'whip'
 Sk 100 1 'shield block'
@@ -266,9 +262,9 @@ Sk 97 1 'sneak'
 Sk 100 1 'steal'
 Sk 100 1 'sing'
 Sk 95 1 'scrolls'
-Sk 96 1 'staves'
+Sk 98 1 'staves'
 Sk 96 1 'wands'
-Sk 95 1 'recall'
+Sk 96 1 'recall'
 Sk 98 1 'sheen'
 Sk 96 1 'focus'
 Sk 100 1 'paralyze'
@@ -310,49 +306,14 @@ Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
 Gr 'alteration'
-Affc 'hammerstrike'   0  90   4  69  19          0 1
-Affc 'hammerstrike'   0  90   4  68  18          0 1
-Affc 'fly'   0  81  14   0   0     524288 1
-Affc 'shield'   0  75  19 -20  17          0 1
-Affc 'giant strength'   0  67  11   5   1          0 1
-Affc 'detect invis'   0  73  12   0   0          8 1
-Affc 'detect hidden'   0  76  12   0   0         32 1
-Affc 'stone skin'   0  70  12 -40  17          0 1
-Affc 'bless'   0  67  18  11  18          0 1
-Affc 'bless'   0  71  18 -11  24          0 1
-Affc 'divine regeneration'   0  71  28   0   0   33554432 1
-Affc 'detect hidden'   0  85  64   0   0         32 1
-Affc 'detect invis'   0  82  64   0   0          8 1
-Affc 'flameshield'   0  90  32 -20  17  134217728 1
-Affc 'haste'   0  88  33   5   2    2097152 1
-Affc 'armor'   0  86  12 -20  17          0 1
-Affc 'pass door'   0  90  10   0   0    1048576 1
-Affc 'sneak'   0  90  79   0   0      32768 1
-Affc 'hide'   0  87  79   0   0      65536 1
-Affc 'protection good'   0  90  13  -1  24      16384 1
-Affc 'protection evil'   0  90  13  -1  24       8192 1
-Affc 'sanctuary'   0  87   5   0   0        128 1
-Affc 'steel mist'   0  91  31  -9  17   16777216 1
+Affc 'pass door'   0  89  19   0   0    1048576 1
 End
 
 #O
-Vnum 13003
-Enchanted
+Vnum 21
 Nest 0
-ExtF 323
-Wear 4
-Lev  91
-Cost 9500
-Affc 'reserved'   1  92  -1   2   2          0 1
-Affc 'reserved'   1  92  -1  -1  20          0 1
-Affc 'reserved'   1  92  -1   2  26          0 1
-Affc 'reserved'   1  92  -1  65  12          0 1
-Affc 'reserved'   1  92  -1  65  13          0 1
-Affc 'enchant weapon'   1 100  -1  15  19          0 1
-Affc 'enchant weapon'   1 100  -1  18  18          0 1
-Affc 'bless'   1  89  56  -1  20        256 1
-ExDe owned by~ Maplearn
-~
+Wear -1
+Cost 0
 End
 
 #O
@@ -360,6 +321,7 @@ Vnum 5617
 Enchanted
 Nest 0
 ExtF 16777539
+Cond 87
 Wear 2
 Lev  91
 Cost 0
@@ -376,51 +338,11 @@ ExDe owned by~ Maplearn
 End
 
 #O
-Vnum 20026
-Enchanted
-Nest 0
-ExtF 323
-Wear 5
-Cost 61650
-Affc 'enchant weapon'   0 100  -1  18  18          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'reserved'   1  91  -1   1   2          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1  20  13          0 1
-Affc 'reserved'   1  91  -1 100  12          0 1
-Affc 'enchant armor'   0 100  -1 -12  17          0 1
-Affc 'bless'   1  81  57  -1  20        256 1
-End
-
-#O
-Vnum 13011
-Enchanted
-Nest 0
-ExtF 323
-Wear 10
-Lev  91
-Cost 1200
-Affc 'enchant armor'   0 100  -1 -14  17          0 1
-Affc 'enchant weapon'   1  98  -1  18  18          0 1
-Affc 'enchant weapon'   1  98  -1  18  19          0 1
-Affc 'reserved'   1  95  -1   2   3          0 1
-Affc 'reserved'   1  95  -1   2   4          0 1
-Affc 'reserved'   1  95  -1  30  12          0 1
-Affc 'reserved'   1  95  -1  30  13          0 1
-Affc 'reserved'   1  95  -1  -1  20          0 1
-Affc 'bless'   1  82  56  -1  20        256 1
-ExDe owned by~ Maplearn
-~
-End
-
-#O
 Vnum 13005
 Enchanted
 Nest 0
-ExtF 262467
-Cond 95
+ExtF 262211
+Cond 92
 Wear 12
 Cost 4500
 Affc 'enchant weapon'   1 100  -1  18  18          0 1
@@ -434,17 +356,6 @@ Affc 'reserved'   1  90  -1   1   2          0 1
 Affc 'reserved'   1  90  -1  30  14          0 1
 Affc 'reserved'   1  90  -1  -2   9          0 1
 Affc 'enchant armor'   0 100  -1 -13  17          0 1
-Affc 'bless'   1  83  57  -1  20        256 1
-End
-
-#O
-Vnum 14010
-Nest 0
-ExtF 1835267
-Wear 7
-Cost 7500
-Val  35 35 35 31 0
-Affc 'bless'   1  85  56  -1  20        256 1
 End
 
 #O
@@ -452,6 +363,7 @@ Vnum 11776
 Enchanted
 Nest 0
 ExtF 323
+Cond 91
 Wear 1
 Lev  91
 Cost 0
@@ -468,52 +380,11 @@ ExDe owned by~ Maplearn
 End
 
 #O
-Vnum 4436
-Enchanted
-Nest 0
-ExtF 321
-Cond 93
-Wear 18
-Cost 0
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
-Affc 'reserved'   1  91  -1   2   2          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1  60  12          0 1
-Affc 'reserved'   1  91  -1  40  13          0 1
-Affc 'reserved'   1  91  -1   5  18          0 1
-Affc 'reserved'   1  91  -1   5  19          0 1
-Affc 'reserved'   1  91  -1  -4  24          0 1
-Affc 'reserved'   1  91  -1   2  26          0 1
-Affc 'bless'   1  86  56  -1  20        256 1
-End
-
-#O
 Vnum 1231
 Nest 0
-ExtF 262464
+Cond 97
 Wear 9
 Cost 0
-Affc 'bless'   1  86  57  -1  20        256 1
-End
-
-#O
-Vnum 14043
-Nest 0
-ExtF 18088257
-Cond 71
-Wear 15
-Cost 12000
-Affc 'bless'   1  83  57  -1  20        256 1
-End
-
-#O
-Vnum 14042
-Nest 0
-ExtF 18088257
-Cond 91
-Wear 14
-Cost 10000
-Affc 'bless'   1  87  57  -1  20        256 1
 End
 
 #O
@@ -521,6 +392,7 @@ Vnum 11793
 Enchanted
 Nest 0
 ExtF 323
+Cond 99
 Wear 0
 Lev  91
 Cost 55000
@@ -534,1013 +406,10 @@ Affc 'reserved'   1  95  -1   2   3          0 1
 Affc 'reserved'   1  95  -1   2   2          0 1
 Affc 'reserved'   1  95  -1   2   1          0 1
 Affc 'enchant armor'   1 100  -1 -14  17          0 1
-Affc 'dazzling light'   0  71  32   5  18          0 1
-Affc 'dazzling light'   0  73  32   5  19          0 1
-Affc 'light of truth'   0  71  12   0   0          4 1
-Affc 'light of truth'   0  74  12   0   0         64 1
-Affc 'light of truth'   0  75  12   0   0          8 1
-Affc 'light of truth'   0  75  12   0   0         32 1
-Affc 'light of truth'   0  74  12   0   0         16 1
+Affc 'dazzling light'   0  67   2   5  18          0 1
+Affc 'dazzling light'   0  68   2   5  19          0 1
 ExDe owned by~ Maplearn
 
-~
-End
-
-#O
-Vnum 11785
-Nest 0
-ExtF 16777217
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 13000
-Nest 1
-Wear -1
-Cost 3700
-End
-
-#O
-Vnum 13000
-Nest 1
-Wear -1
-Cost 3700
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll refresh~
-ShD  a scroll of refresh~
-Desc A scroll of refresh lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 113 -1 -1 -1
-Spell 1 'refresh'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll refresh~
-ShD  a scroll of refresh~
-Desc A scroll of refresh lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 113 -1 -1 -1
-Spell 1 'refresh'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll refresh~
-ShD  a scroll of refresh~
-Desc A scroll of refresh lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 113 -1 -1 -1
-Spell 1 'refresh'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll talon~
-ShD  a scroll of talon~
-Desc A scroll of talon lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 132 -1 -1 -1
-Spell 1 'talon'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll talon~
-ShD  a scroll of talon~
-Desc A scroll of talon lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 132 -1 -1 -1
-Spell 1 'talon'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll talon~
-ShD  a scroll of talon~
-Desc A scroll of talon lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 132 -1 -1 -1
-Spell 1 'talon'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll talon~
-ShD  a scroll of talon~
-Desc A scroll of talon lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 132 -1 -1 -1
-Spell 1 'talon'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll talon~
-ShD  a scroll of talon~
-Desc A scroll of talon lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 132 -1 -1 -1
-Spell 1 'talon'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll refresh~
-ShD  a scroll of refresh~
-Desc A scroll of refresh lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 113 -1 -1 -1
-Spell 1 'refresh'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll refresh~
-ShD  a scroll of refresh~
-Desc A scroll of refresh lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 113 -1 -1 -1
-Spell 1 'refresh'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll refresh~
-ShD  a scroll of refresh~
-Desc A scroll of refresh lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 113 -1 -1 -1
-Spell 1 'refresh'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll refresh~
-ShD  a scroll of refresh~
-Desc A scroll of refresh lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 113 -1 -1 -1
-Spell 1 'refresh'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll refresh~
-ShD  a scroll of refresh~
-Desc A scroll of refresh lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 113 -1 -1 -1
-Spell 1 'refresh'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll refresh~
-ShD  a scroll of refresh~
-Desc A scroll of refresh lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 113 -1 -1 -1
-Spell 1 'refresh'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll refresh~
-ShD  a scroll of refresh~
-Desc A scroll of refresh lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 113 -1 -1 -1
-Spell 1 'refresh'
-End
-
-#O
-Vnum 11699
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 11699
-Nest 1
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1215
-Nest 1
-Name wild token strange herb vegita~
-ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 11699
-Nest 1
-Wear -1
-Cost 0
-Val  10 0 20 12223 0
-End
-
-#O
-Vnum 1211
-Nest 1
-Name songquest token The Day After~
-ShD  The Day After~
-Desc A single song whistles through the air~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 1807
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 9940
-Nest 1
-Wear -1
-Cost 2600
-End
-
-#O
-Vnum 5409
-Nest 1
-ExtF 323
-Wt   0
-Cond 91
-Wear -1
-Cost 100000
-Affc 'bless'   1  82  57  -1  20        256 1
-End
-
-#O
-Vnum 5409
-Nest 1
-ExtF 323
-Wt   250
-Cond 91
-Wear -1
-Cost 100000
-Affc 'bless'   1  80  57  -1  20        256 1
-End
-
-#O
-Vnum 2915
-Enchanted
-Nest 1
-Wear -1
-Lev  83
-Cost 5000
-Affc 'reserved'   1  80  -1  -9  20          0 1
-Affc 'reserved'   1  80  -1   3  19          0 1
-Affc 'reserved'   1  80  -1   3  18          0 1
-Affc 'reserved'   1  80  -1  20  13          0 1
-Affc 'reserved'   1  80  -1  50  12          0 1
-Affc 'reserved'   1  80  -1   2  26          0 1
-Affc 'enchant armor'   1  91  -1  -6  17          0 1
-End
-
-#O
-Vnum 10115
-Enchanted
-Nest 1
-ExtF 16777283
-Wear -1
-Cost 50
-Affc 'reserved'   1  91  -1   7  19          0 1
-Affc 'reserved'   1  91  -1  -2  24          0 1
-Affc 'enchant armor'   1  91  -1 -11  17          0 1
-Affc 'reserved'   1  91  -1  70  13          0 1
-Affc 'reserved'   1  91  -1  80  12          0 1
-Affc 'reserved'   1  91  -1   3   4          0 1
-End
-
-#O
-Vnum 11792
-Nest 1
-ExtF 259
-Cond 63
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Maplearn
-
-~
-End
-
-#O
-Vnum 11792
-Nest 1
-Cond 94
-Wear -1
-Lev  91
-Cost 55000
-ExDe owned by~ Maplearn
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food a delicious cheesestick~
-ShD  a delicious {Ycheesestick{x~
-Desc A delicious {Ycheesestick{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  45 91 0 0 0
-ExDe chef~ This food was created by Maplearn.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food a can of SPAM!!!~
-ShD  a can of SPAM!!!~
-Desc A can of SPAM!!!{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  45 91 0 0 0
-ExDe chef~ This food was created by Maplearn.
-~
-ExDe food~ It looks delicious.
-~
-End
-
-#O
-Vnum 119
-Nest 1
-Name food a slice of burnt toast~
-ShD  a slice of burnt toast~
-Desc A slice of burnt toast{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  45 91 0 0 0
-ExDe chef~ This food was created by Maplearn.
-~
-ExDe food~ It looks delicious.
 ~
 End
 
@@ -1548,23 +417,74 @@ End
 Vnum 1233
 Enchanted
 Nest 0
-ExtF 17039683
+Cond 94
 Wear 3
 Lev  91
 Cost 0
 Affc 'enchant armor'   1 100  -1 -14  17          0 1
 Affc 'reserved'   1  95  -1 -30  24          0 1
-Affc 'bless'   1  85  56  -1  20        256 1
 ExDe owned by~ Maplearn
 ~
+End
+
+#O
+Vnum 14043
+Enchanted
+Nest 0
+Cond 91
+Wear 15
+Cost 12000
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+Affc 'reserved'   2  91  -1   0   0       2048 1
+Affc 'reserved'   0  91  -1   0   0    2097152 1
+Affc 'reserved'   1  91  -1  17  19          0 1
+Affc 'reserved'   1  91  -1  14  18          0 1
+Affc 'reserved'   1  91  -1 120  13          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
+End
+
+#O
+Vnum 10101
+Enchanted
+Nest 0
+ExtF 262211
+Cond 85
+Wear 8
+Cost 30000
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'reserved'   1  91  -1  90  12          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   2   5          0 1
+Affc 'reserved'   1  91  -1  -4  22          0 1
+End
+
+#O
+Vnum 20026
+Enchanted
+Nest 0
+Cond 92
+Wear 5
+Cost 90000
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+Affc 'enchant weapon'   0 100  -1  14  18          0 1
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1  20  13          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
 End
 
 #O
 Vnum 3209
 Enchanted
 Nest 0
-ExtF 67633475
-Cond 96
+ExtF 67633219
+Cond 93
 Wear 13
 Cost 100
 Affc 'reserved'   1  90  -1  -8  24          0 1
@@ -1576,60 +496,42 @@ Affc 'reserved'   1  90  -1   2  26          0 1
 Affc 'reserved'   1  90  -1   2   5          0 1
 Affc 'reserved'   1  90  -1   2   1          0 1
 Affc 'enchant armor'   1  99  -1 -14  17          0 1
-Affc 'bless'   1  85  57  -1  20        256 1
 End
 
 #O
-Vnum 10101
+Vnum 13003
 Enchanted
 Nest 0
-ExtF 262467
-Wear 8
-Cost 30000
-Affc 'reserved'   1  91  -1  -4  22          0 1
-Affc 'reserved'   1  91  -1   2   5          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1  90  12          0 1
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
+ExtF 67
+Cond 95
+Wear 4
+Lev  91
+Cost 9500
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+Affc 'reserved'   1  92  -1   2   2          0 1
+Affc 'reserved'   1  92  -1  -1  20          0 1
+Affc 'reserved'   1  92  -1   2  26          0 1
+Affc 'reserved'   1  92  -1  65  12          0 1
+Affc 'reserved'   1  92  -1  65  13          0 1
+Affc 'enchant weapon'   1 100  -1  15  19          0 1
 Affc 'enchant weapon'   1 100  -1  18  18          0 1
-Affc 'bless'   1  80  57  -1  20        256 1
-End
-
-#O
-Vnum 10112
-Nest 0
-ExtF 16777539
-Wear 11
-Lev  91
-Cost 500
-Affc 'bless'   1  75  57  -1  20        256 1
 ExDe owned by~ Maplearn
 ~
 End
 
 #O
-Vnum 10121
+Vnum 14042
+Enchanted
 Nest 0
-ExtF 16778563
-Wear 16
-Lev  91
-Cost 21
-Affc 'bless'   1  81  57  -1  20        256 1
-ExDe owned by~ Maplearn
-~
-End
-
-#O
-Vnum 10104
-Nest 0
-ExtF 262403
-Wear 17
-Lev  91
-Cost 33000
-Affc 'bless'   1  82  57  -1  20        256 1
-ExDe owned by~ Maplearn
-~
+Cond 90
+Wear 14
+Cost 10000
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+Affc 'reserved'   2  91  -1   0   0      65536 1
+Affc 'reserved'   1  91  -1 100  13          0 1
+Affc 'reserved'   1  91  -1  75  12          0 1
+Affc 'reserved'   1  91  -1   9  19          0 1
+Affc 'reserved'   1  91  -1   9  18          0 1
 End
 
 #O
@@ -1637,922 +539,1022 @@ Vnum 4483
 Enchanted
 Nest 0
 ExtF 65
+Cond 98
 Wear 6
-Lev  90
+Lev  89
 Cost 5000
-Affc 'enchant armor'   1  91  -1 -11  17          0 1
+Affc 'reserved'   1  80  -1   1   5          0 1
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'enchant weapon'   0  91  -1   3  18          0 1
+Affc 'enchant armor'   1  91  -1 -12  17          0 1
 End
 
-#L
-Vnum 3031
+#O
+Vnum 11785
 Nest 0
-Wear -1
-Cost 75
-Val  0 0 242 0 0
+ExtF 16777217
+Wear 18
+Cost 0
 End
 
-#L
-Vnum 13012
-Nest 0
-Wear -1
-Cost 10
-End
-
-#L
-Vnum 24620
-Nest 0
-Wear -1
-Cost 7000
-End
-
-#L
-Vnum 1004
-Nest 0
-Name sword Terminator~
-ShD  Terminator{x~
-Desc A sword is here, forged by Maplearn's craftsmanship.~
-Mat platinum~
-ExtF 257
-Wt   91
-Cond 96
-Wear -1
-Lev  91
-Cost 22
-Val  1 10 14 3 4
-ExDe sword Terminator~ It is a marvellous sword, crafted from the finest platinum around.
-It was created in the Month of Peace by a master warrior
-named Maplearn.  Legend holds that this human was a great weaponsmith.
-~
-End
-
-#L
-Vnum 1804
-Enchanted
-Nest 0
-ExtF 262211
-Wear -1
-Lev  17
-Cost 100
-Affc 'reserved'   1  10  -1   1   3          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
-Affc 'enchant weapon'   1 100  -1  15  18          0 1
-Affc 'enchant weapon'   1 100  -1  15  19          0 1
-End
-
-#L
-Vnum 4471
-Nest 0
-Name azrael action figure~
-ShD  {RA{Pz{Rr{Pa{Re{Pl {RA{Pc{Rt{Pi{Ro{Pn {RF{Pi{Rg{Pu{Rr{Pe{x~
-Desc {RA huge {PDemonic {RDragon {WNecromancer {Rwith animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x~
-Mat Plastic~
+#O
+Vnum 5409
+Nest 1
+ExtF 67
 Wt   0
-Cond -1
+Cond 91
 Wear -1
-Cost 3500
+Cost 100000
 End
 
-#L
-Vnum 4471
-Nest 0
-Name azrael action figure~
-ShD  {RA{Pz{Rr{Pa{Re{Pl {RA{Pc{Rt{Pi{Ro{Pn {RF{Pi{Rg{Pu{Rr{Pe{x~
-Desc {RA huge {PDemonic {RDragon {WNecromancer {Rwith animated features, spits fire out of it's eyes and cause the forces of evil to gather at your doorstep....{x~
-Mat Plastic~
-Wt   0
-Cond -1
-Wear -1
-Cost 3500
-End
-
-#L
-Vnum 1345
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1206
+#O
+Vnum 5409
 Nest 1
+ExtF 67
+Wt   250
+Cond 91
 Wear -1
-Cost 0
+Cost 100000
 End
 
-#L
-Vnum 1214
+#O
+Vnum 13000
 Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1234
-Nest 1
-Wear -1
-Lev  1
-Cost 0
-Spell 1 'bless'
-Spell 2 'frenzy'
-Spell 3 'armor'
-Spell 4 'shield'
-End
-
-#L
-Vnum 1215
-Nest 1
-Name liriel rainbow dazzling wild~
-ShD  {ga {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw {W*{VWILD{W*{x~
-Desc {gA {Wd{Ya{Wz{Cz{Wl{Yi{Wn{Cg {Wr{Ya{Pi{Vn{Bb{Co{Gw{g fills this entire room. {W*{VWILD{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name Token Page Torn Book Knowledge Trivia Kazander~
-ShD  {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x~
-Desc {H[Trivia] {NA {CP{Tage {CT{gorn {GF{Hrom {VT{Mhe {WB{gook {Yo{bf {BK{Nnowledge{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4608
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 8652
-Nest 1
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#L
-Vnum 3022
-Nest 1
-Cond 100
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 10133
-Nest 1
-Wear -1
-Cost 120
-End
-
-#L
-Vnum 8652
-Nest 1
-Wear -1
-Cost 0
-Spell 3 'fly'
-End
-
-#L
-Vnum 16057
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 3364
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 4608
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4608
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4588
-Nest 1
-Wear -1
-Cost 400
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4608
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 4609
-Nest 1
-Wear -1
-Cost 15
-End
-
-#L
-Vnum 1604
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 3503
-Nest 1
-Cond 100
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 3052
-Nest 1
-Cond 100
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 3201
-Nest 1
-Wear -1
-Cost 20
-End
-
-#L
-Vnum 10275
-Nest 1
-Wear -1
-Cost 300
-End
-
-#L
-Vnum 10278
-Nest 1
-Wear -1
-Cost 150
-End
-
-#L
-Vnum 3115
-Nest 1
-Wear -1
-Cost 660
-End
-
-#L
-Vnum 3114
-Nest 1
-Wear -1
-Cost 660
-End
-
-#L
-Vnum 3112
-Nest 1
-Wear -1
-Cost 660
-End
-
-#L
-Vnum 3110
-Nest 1
-Wear -1
-Cost 1320
-End
-
-#L
-Vnum 3162
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 3713
-Nest 1
-Wear -1
-Cost 48
-End
-
-#L
-Vnum 75
-Nest 1
-Cond 100
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 74
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 79
-Nest 1
-Wear -1
-Cost 200
-Val  150 66 15 0 0
-End
-
-#L
-Vnum 1804
-Enchanted
-Nest 0
-ExtF 262211
-Wear -1
-Lev  13
-Cost 100
-Affc 'reserved'   1  10  -1   1   3          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-End
-
-#L
-Vnum 13012
-Nest 0
-Wear -1
-Cost 10
-End
-
-#L
-Vnum 14008
-Nest 0
-Wear -1
-Cost 9000
-End
-
-#L
-Vnum 14011
-Nest 0
-Wear -1
-Cost 8000
-End
-
-#L
-Vnum 10105
-Nest 0
-Wear -1
-Cost 33000
-End
-
-#L
-Vnum 506
-Enchanted
-Nest 0
-Wear -1
-Lev  15
-Cost 1000
-Affc 'enchant armor'   1  91  -1  -6  17          0 1
-Affc 'reserved'   1  12  -1   1  19          0 1
-Affc 'reserved'   1  12  -1   3  18          0 1
-Affc 'reserved'   1  12  -1  10  13          0 1
-End
-
-#L
-Vnum 17038
-Nest 0
-Wear -1
-Cost 250
-End
-
-#L
-Vnum 14060
-Enchanted
-Nest 0
-Cond 80
-Wear -1
-Cost 9000
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'reserved'   1  90  -1  40  13          0 1
-Affc 'reserved'   1  90  -1   9  18          0 1
-Affc 'reserved'   1  90  -1   7  19          0 1
-Affc 'acid breath'   0  95  -1   3  17          0 1
-End
-
-#L
-Vnum 14009
-Nest 0
-Wear -1
-Cost 3000
-End
-
-#L
-Vnum 13012
-Nest 0
-Wear -1
-Cost 10
-End
-
-#L
-Vnum 1004
-Nest 0
-Name sword SWORD~
-ShD  SWORD{x~
-Desc A sword is here, forged by Maplearn's craftsmanship.~
-Mat platinum~
-ExtF 257
-Wt   91
-Wear -1
-Lev  91
-Cost 9
-Val  1 10 15 3 4
-ExDe sword SWORD~ It is a marvellous sword, crafted from the finest platinum around.
-It was created in the Month of Strife by a master warrior
-named Maplearn.  Legend holds that this human was a great weaponsmith.
-~
-End
-
-#L
-Vnum 5616
-Nest 0
-Wear -1
-Cost 3000
-Spell 3 'chain lightning'
-End
-
-#L
-Vnum 119
-Nest 0
-Name food Red Pill~
-ShD  {RRed Pill{x~
-Desc {RRed Pill{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  50 100 0 0 0
-ExDe food~ It looks delicious.
-~
-ExDe chef~ This food was created by Urza.
-~
-End
-
-#L
-Vnum 119
-Nest 0
-Name food Blue Pill~
-ShD  {BBlue Pill{x~
-Desc {BBlue Pill{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  50 100 0 0 0
-ExDe food~ It looks delicious.
-~
-ExDe chef~ This food was created by Urza.
-~
-End
-
-#L
-Vnum 2915
-Nest 0
-Wear -1
-Cost 4475
-End
-
-#L
-Vnum 2915
-Nest 0
-Wear -1
-Cost 3000
-End
-
-#L
-Vnum 2915
-Nest 0
-Wear -1
-Cost 4250
-End
-
-#L
-Vnum 2915
-Nest 0
-Wear -1
-Cost 3225
-End
-
-#L
-Vnum 2915
-Nest 0
-Wear -1
-Cost 3100
-End
-
-#L
-Vnum 2915
-Nest 0
-Wear -1
-Cost 4975
-End
-
-#L
-Vnum 14030
-Enchanted
-Nest 0
-ExtF 16777283
-Wear -1
-Lev  61
-Cost 0
-Affc 'enchant weapon'   1  91  -1   8  19          0 1
-Affc 'enchant weapon'   1  91  -1   8  18          0 1
-Affc 'reserved'   1  60  -1  45  12          0 1
-End
-
-#L
-Vnum 1215
-Nest 0
-Name azrael wild token~
-ShD  {PA{Rz{Pr{Ra{Pe{Rl{P's{x {PR{YA{GN{CD{VO{MM {C*{BW {RI{TL{ND{C* {YToKeN{x~
-Desc {PA{Rz{Pr{Ra{Pe{Rl{P's{x {PR{YA{GN{CD{VO{MM {C*{BW {RI{TL{ND{C* {YToKeN{x for {GF{Hi{Gg{Hh{Gt{Hi{Gn{Hg{x in {fthe{x {WA{cr{We{cn{Wa{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name azrael token trivia~
-ShD  A bit of {PA{Rz{Pr{Ra{Pe{Rl{P's{x {BL{Ni{Bm{Ni{Bt{Ne{Bd{x {WK{cn{Wo{cw{cl{We{cd{Wg{ce{x~
-Desc A bit of {PA{Rz{Pr{Ra{Pe{Rl{P's{x {BL{Ni{Bm{Ni{Bt{Ne{Bd{x {WK{cn{Wo{cw{cl{We{cd{Wg{ce{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 0
-Name wild jubei chi soul token~
-ShD  {W*{gW{Wi{gl{Wd{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gS{Wo{gu{Wl{x~
-Desc {W*{gW{Wi{gl{Wd{g* {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gS{Wo{gu{Wl{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 0
-Name wooden nickel token~
-ShD  a wooden nickel~
-Desc a completely worthless wooden nickel token~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 0
-Name alara token trivia whisper wind woodwind reeds~
-ShD  {W*{BTr{giv{Bia{W* {TW{gin{Td {BBl{gow{cin{Bg {gO{Wve{gr {bR{Yee{bds{x~
-Desc {W*{BTr{giv{Bia{W*{x You hear the {BWh{gis{cpe{Br {go{Wf {bW{Yoo{bd{Tw{gin{Tds{x in this place.~
-Mat {Mm{Tu{Ms{Ti{Mc{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 13004
-Nest 0
 Wear -1
 Cost 3700
 End
 
-#L
-Vnum 1111
-Enchanted
-Nest 0
-Name toka bag~
-ShD  {GT{Hh{Ge {HT{Go{Hk{Ga {Ho{Gf {WL{gif{We{x~
-Desc {GT{Hh{Ge {HT{Go{Hk{Ga {Ho{Gf {WL{gif{We{x~
-ExtF 67
-Wear -1
-Lev  53
-Cost 11
-Affc 'enchant weapon'   1  99  -1   8  19          0 1
-Affc 'enchant weapon'   0  99  -1   8  18          0 1
-End
-
-#L
-Vnum 3380
+#O
+Vnum 13000
 Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
 Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
+Cost 3700
 End
 
-#L
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#L
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#L
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#L
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#L
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#L
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#L
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#L
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#L
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#L
-Vnum 3380
-Nest 1
-Name scroll divine healing divine healing~
-ShD  a scroll of divine healing, divine healing~
-Desc A scroll of divine healing, divine healing lies here.
-~
-Wear -1
-Lev  91
-Cost 2000
-Val  91 56 56 -1 -1
-Spell 1 'divine healing'
-Spell 2 'divine healing'
-End
-
-#L
-Vnum 14014
-Nest 0
-ExtF 17825856
-Wear -1
-Cost 10000
-End
-
-#L
+#O
 Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 10112
+Enchanted
+Nest 1
+ExtF 16777283
+Wear -1
+Lev  91
+Cost 500
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+Affc 'reserved'   1  93  -1 110  12          0 1
+Affc 'reserved'   1  93  -1  25  18          0 1
+Affc 'reserved'   1  93  -1  20  19          0 1
+Affc 'reserved'   1  93  -1 -12  24          0 1
+Affc 'reserved'   3  93  -1   0   0         32 1
+ExDe owned by~ Maplearn
+~
+End
+
+#O
+Vnum 10121
+Nest 1
+ExtF 16778307
+Wear -1
+Lev  91
+Cost 21
+ExDe owned by~ Maplearn
+~
+End
+
+#O
+Vnum 10104
+Enchanted
+Nest 1
+ExtF 262211
+Wear -1
+Lev  91
+Cost 33000
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+Affc 'reserved'   1  93  -1  12  18          0 1
+Affc 'reserved'   1  93  -1  10  19          0 1
+Affc 'reserved'   1  93  -1  -6  20          0 1
+Affc 'reserved'   1  93  -1  80  12          0 1
+Affc 'reserved'   3  93  -1   0   0        512 1
+ExDe owned by~ Maplearn
+~
+End
+
+#O
+Vnum 24606
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 13009
+Nest 1
+Wear -1
+Cost 660
+End
+
+#O
+Vnum 24606
+Nest 1
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 3668
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4343
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4118
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 3870
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 24616
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  46
+Cost 4500
+Affc 'reserved'   1  45  -1   1  26          0 1
+Affc 'reserved'   1  45  -1  -2  20          0 1
+Affc 'reserved'   1  45  -1   4  19          0 1
+Affc 'reserved'   1  45  -1   4  18          0 1
+Affc 'reserved'   1  45  -1  40  13          0 1
+Affc 'reserved'   1  45  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#O
+Vnum 13011
 Enchanted
 Nest 0
 ExtF 67
 Cond 95
-Wear -1
-Cost 660
-Affc 'acid breath'   0  95  -1   1  17          0 1
-Affc 'reserved'   1  90  -1   3   4          0 1
-Affc 'reserved'   1  90  -1   1   1          0 1
-Affc 'enchant weapon'   1  99  -1  15  18          0 1
-Affc 'enchant weapon'   1  99  -1  15  19          0 1
-Affc 'reserved'   1  90  -1  40  12          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
+Wear 10
+Lev  91
+Cost 0
+Affc 'enchant armor'   0 100  -1 -14  17          0 1
+Affc 'enchant weapon'   1  98  -1  18  18          0 1
+Affc 'enchant weapon'   1  98  -1  18  19          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1  30  12          0 1
+Affc 'reserved'   1  95  -1  30  13          0 1
+Affc 'reserved'   1  95  -1  -1  20          0 1
+ExDe owned by~ Maplearn
+~
 End
 
-#L
-Vnum 10100
+#O
+Vnum 14010
 Enchanted
 Nest 0
-ExtF 262211
+ExtF 1835075
+Cond 99
+Wear 7
+Cost 7500
+Val  35 35 35 31 0
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+Affc 'reserved'   0  91  -1   0   0      32768 1
+Affc 'reserved'   1  91  -1  90  14          0 1
+Affc 'reserved'   1  91  -1   4   4          0 1
+End
+
+#O
+Vnum 11792
+Nest 0
+Cond 94
+Wear 19
+Lev  91
+Cost 55000
+ExDe owned by~ Maplearn
+~
+End
+
+#O
+Vnum 24616
+Nest 0
 Wear -1
-Cost 32000
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1  40  13          0 1
-Affc 'reserved'   1  91  -1  30  12          0 1
-Affc 'reserved'   1  91  -1  -2  23          0 1
-Affc 'reserved'   1  91  -1   8  19          0 1
-Affc 'reserved'   1  91  -1   6  18          0 1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4455
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 3960
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4140
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 3915
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4388
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4433
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4185
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 3848
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#O
+Vnum 11699
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 119
+Nest 0
+Name food head~
+ShD  head~
+Desc Head{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  50 100 0 0 0
+ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
+~
+End
+
+#O
+Vnum 24609
+Nest 0
+Wear -1
+Cost 1000
+End
+
+#O
+Vnum 1804
+Nest 0
+Wear -1
+Cost 100
+End
+
+#O
+Vnum 12700
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12701
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12700
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12701
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12702
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 16066
+Enchanted
+Nest 0
+Wear -1
+Lev  20
+Cost 3500
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  18  -1   2   2          0 1
+Affc 'reserved'   1  18  -1   2  18          0 1
+End
+
+#O
+Vnum 9909
+Nest 0
+Cond 94
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 16044
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear -1
+Cost 57
+End
+
+#O
+Vnum 10126
+Enchanted
+Nest 0
+Wear -1
+Lev  4
+Cost 57
+Affc 'reserved'   1   5  -1   1   4          0 1
+Affc 'reserved'   1   5  -1   5  12          0 1
+End
+
+#O
+Vnum 10126
+Enchanted
+Nest 0
+ExtF 17039680
+Wear -1
+Lev  7
+Cost 57
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1   5  -1   1   4          0 1
+Affc 'reserved'   1   5  -1   5  12          0 1
+End
+
+#O
+Vnum 10126
+Enchanted
+Nest 0
+ExtF 17039681
+Wear -1
+Lev  9
+Cost 57
+Affc 'reserved'   1   5  -1   5  12          0 1
+Affc 'reserved'   1   5  -1   1   4          0 1
+Affc 'enchant armor'   1  91  -1  -6  17          0 1
+End
+
+#O
+Vnum 1202
+Nest 0
+Wear -1
+Cost 6
+End
+
+#O
+Vnum 16044
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 12705
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12707
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 12707
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 10131
+Nest 0
+Cond 91
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#O
+Vnum 79
+Nest 0
+Wear -1
+Cost 200
+Val  150 30 15 0 0
+End
+
+#O
+Vnum 77
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 6647
+Nest 0
+Wear -1
+Cost 300
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 5328
+Nest 0
+Wear -1
+Cost 730
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear -1
+Cost 1328
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear -1
+Cost 1455
+End
+
+#O
+Vnum 9922
+Nest 0
+Wear -1
+Cost 1485
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear -1
+Cost 2038
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear -1
+Cost 2488
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#O
+Vnum 9909
+Nest 0
+Wear -1
+Cost 1620
+End
+
+#O
+Vnum 9909
+Enchanted
+Nest 0
+ExtF 67
+Wear -1
+Lev  22
+Cost 1940
+Affc 'reserved'   1  20  -1   2  19          0 1
+Affc 'reserved'   1  20  -1   2  18          0 1
+Affc 'reserved'   1  20  -1  20  13          0 1
+Affc 'reserved'   1  20  -1   2   4          0 1
 Affc 'enchant armor'   1  91  -1  -4  17          0 1
 End
 
-#L
+#O
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#O
+Vnum 9909
+Enchanted
+Nest 1
+ExtF 67
+Wear -1
+Lev  25
+Cost 1880
+Affc 'reserved'   1  20  -1   2  19          0 1
+Affc 'reserved'   1  20  -1   2  18          0 1
+Affc 'reserved'   1  20  -1  20  13          0 1
+Affc 'reserved'   1  20  -1   2   4          0 1
+Affc 'enchant armor'   1  91  -1  -9  17          0 1
+End
+
+#O
 Vnum 11791
 Enchanted
 Nest 0
@@ -2573,7 +1575,7 @@ ExDe owned by~ Maplearn
 ~
 End
 
-#L
+#O
 Vnum 11791
 Nest 0
 Wear -1
@@ -2584,1387 +1586,382 @@ ExDe owned by~ Maplearn
 ~
 End
 
-#L
-Vnum 1111
+#O
+Vnum 11792
 Nest 0
-Name bag tokens viro~
-ShD  Bag O' Tokens~
-Desc This bag has TOKENS!!!~
-Wear -1
-Cost 11
+ExtF 259
+Cond 85
+Wear 16
+Lev  91
+Cost 55000
+ExDe owned by~ Maplearn
+
+~
 End
 
-#L
-Vnum 1111
-Nest 1
-Name liriati tile holder~
-ShD  {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x~
-Desc {gA {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{g lies here on the ground, awaiting tiles.{x~
-Mat wood~
-ExtF 17301504
-Wear -1
-Cost 11
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter wild *~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {W[*]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter S~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {Y[{WS{Y]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter W~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {G[{WW{G]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter D~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {Y[{WD{Y]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati double letter tile~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {C[{Tdouble letter{C] {Btile{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter A~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {Y[{WA{Y]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter K~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {P[{WK{P]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter C~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {Y[{WC{Y]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter J~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {V[{WJ{V]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati double word tile~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {Y[{bdouble word{Y] {Btile{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
+#O
 Vnum 1213
-Nest 1
-Name hidden evil marx token shard~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1212
-Nest 1
-Name Marx trivia neutrality token drop~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
-Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Marx quest goodness token wisp~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {C({TQuest{C) {TWisp of {WG{go{Wo{gd{Wn{ge{Ws{gs{x~
-Desc {TA wisp of {WG{go{Wo{gd{Wn{ge{Ws{gs {Tfloats here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name Marx trivia neutrality token drop~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {G({HTrivia{G) {HDrop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty{x~
-Desc {HA drop of {CN{Te{Cu{Tt{Cr{Ta{Cl{Ti{Ct{Ty {His here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden evil marx token sliver~
-ShD  {TM{Ca{Tr{Nx{T'{Ns {g({cHidden{g) {cSliver of {PE{Rv{Pi{Rl{x~
-Desc {cA sliver of {RE{Pv{Ri{Pl {cis hidden here.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name hug wild token choice montrey liriel~
-ShD  {Wa {Gbig {Bold {CH{WU{CG {G*{VW{Pi{YL{Cd{B* {W<{Vgood{g for a {CC{Th{CO{Ti{CC{Te{C {gof {gM{Wo{gn{Ct{gr{We{gy{P OR {WL{Ci{Br{Ci{Te{Wl{Y!!!{W>{x~
-Desc {WOh my god you can't believe what you see{Y!!!  {WGET IT{Y!!!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name montrey liriel wild token choice~
-ShD  {Wa {Gbig {Bold {CH{WU{CG {G*{VW{Pi{YL{Cd{B* {W<{Vgood{g for a {CC{Th{CO{Ti{CC{Te{C {gof {gM{Wo{gn{Ct{gr{We{gy{P OR {WL{Ci{Br{Ci{Te{Wl{Y!!!{W>{x~
-Desc {WOh my god you can't believe what you see{Y!!!  {WGET IT{Y!!!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name hug wild token choice montrey liriel~
-ShD  {Wa {Gbig {Bold {CH{WU{CG {G*{VW{Pi{YL{Cd{B* {W<{Vgood{g for a {CC{Th{CO{Ti{CC{Te{C {gof {gM{Wo{gn{Ct{gr{We{gy{P OR {WL{Ci{Br{Ci{Te{Wl{Y!!!{W>{x~
-Desc {WOh my god you can't believe what you see{Y!!!  {WGET IT{Y!!!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name hug wild token choice montrey liriel~
-ShD  {Wa {Gbig {Bold {CH{WU{CG {G*{VW{Pi{YL{Cd{B* {W<{Vgood{g for a {CC{Th{CO{Ti{CC{Te{C {gof {gM{Wo{gn{Ct{gr{We{gy{P OR {WL{Ci{Br{Ci{Te{Wl{Y!!!{W>{x~
-Desc {WOh my god you can't believe what you see{Y!!!  {WGET IT{Y!!!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name hug wild token choice montrey liriel~
-ShD  {Wa {Gbig {Bold {CH{WU{CG {G*{VW{Pi{YL{Cd{B* {W<{Vgood{g for a {CC{Th{CO{Ti{CC{Te{C {gof {gM{Wo{gn{Ct{gr{We{gy{P OR {WL{Ci{Br{Ci{Te{Wl{Y!!!{W>{x~
-Desc {WOh my god you can't believe what you see{Y!!!  {WGET IT{Y!!!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name half trivia owl stuffed liriel~
-ShD  {W(1/2 {Vtrivia{W) {ga {Clittle{g stuffed {Yo{bwl{x~
-Desc {W(1/2 {Vtrivia{W) {gA {Clittle{g stuffed {Yo{bwl{g lies here, stretching his feathers.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name half wild eeyore stuffed liriel~
-ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
-Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name half wild eeyore stuffed liriel~
-ShD  {W(1/2 {PWILD{W){g a {Clittle{g stuffed {ce{geyore{x~
-Desc {W(1/2 {PWILD{W){g A {Clittle{g stuffed {ce{geyore looks at you sadly, trying to find his tail.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name half quest pooh stuffed liriel~
-ShD  {W(1/2 {Gquest{W) {ga {Clittle {gstuffed {bp{Yooh{x~
-Desc {W(1/2 {Gquest{W) {gA {Clittle {gstuffed {bp{Yooh{g sits here, eating his hunny.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name half quest pooh stuffed liriel~
-ShD  {W(1/2 {Gquest{W) {ga {Clittle {gstuffed {bp{Yooh{x~
-Desc {W(1/2 {Gquest{W) {gA {Clittle {gstuffed {bp{Yooh{g sits here, eating his hunny.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name half quest pooh stuffed liriel~
-ShD  {W(1/2 {Gquest{W) {ga {Clittle {gstuffed {bp{Yooh{x~
-Desc {W(1/2 {Gquest{W) {gA {Clittle {gstuffed {bp{Yooh{g sits here, eating his hunny.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name half quest pooh stuffed liriel~
-ShD  {W(1/2 {Gquest{W) {ga {Clittle {gstuffed {bp{Yooh{x~
-Desc {W(1/2 {Gquest{W) {gA {Clittle {gstuffed {bp{Yooh{g sits here, eating his hunny.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name half quest pooh stuffed liriel~
-ShD  {W(1/2 {Gquest{W) {ga {Clittle {gstuffed {bp{Yooh{x~
-Desc {W(1/2 {Gquest{W) {gA {Clittle {gstuffed {bp{Yooh{g sits here, eating his hunny.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name half quest pooh stuffed liriel~
-ShD  {W(1/2 {Gquest{W) {ga {Clittle {gstuffed {bp{Yooh{x~
-Desc {W(1/2 {Gquest{W) {gA {Clittle {gstuffed {bp{Yooh{g sits here, eating his hunny.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name cow cookie wild liriel~
-ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
-Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name cow cookie wild liriel~
-ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
-Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name half quest pooh stuffed liriel~
-ShD  {W(1/2 {Gquest{W) {ga {Clittle {gstuffed {bp{Yooh{x~
-Desc {W(1/2 {Gquest{W) {gA {Clittle {gstuffed {bp{Yooh{g sits here, eating his hunny.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name plate yummy cookies wild liriel five spot~
-ShD  {ga {Wplate{g of {Cy{Bummy {bcookies {W({VF{MI{VV{ME{g-{VS{MP{VO{MT {WW{YI{GL{CD{B!{V!{P!{W){x~
-Desc You see {ga {Wplate{g of {Cy{Bummy {bcookies {g... {YOH MY GOD{W!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name plate yummy cookies wild liriel five spot~
-ShD  {ga {Wplate{g of {Cy{Bummy {bcookies {W({VF{MI{VV{ME{g-{VS{MP{VO{MT {WW{YI{GL{CD{B!{V!{P!{W){x~
-Desc You see {ga {Wplate{g of {Cy{Bummy {bcookies {g... {YOH MY GOD{W!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name plate yummy cookies wild liriel five spot~
-ShD  {ga {Wplate{g of {Cy{Bummy {bcookies {W({VF{MI{VV{ME{g-{VS{MP{VO{MT {WW{YI{GL{CD{B!{V!{P!{W){x~
-Desc You see {ga {Wplate{g of {Cy{Bummy {bcookies {g... {YOH MY GOD{W!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name plate yummy cookies wild liriel five spot~
-ShD  {ga {Wplate{g of {Cy{Bummy {bcookies {W({VF{MI{VV{ME{g-{VS{MP{VO{MT {WW{YI{GL{CD{B!{V!{P!{W){x~
-Desc You see {ga {Wplate{g of {Cy{Bummy {bcookies {g... {YOH MY GOD{W!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name cow cookie wild liriel~
-ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
-Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name cow cookie wild liriel~
-ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
-Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name plate yummy cookies wild liriel five spot~
-ShD  {ga {Wplate{g of {Cy{Bummy {bcookies {W({VF{MI{VV{ME{g-{VS{MP{VO{MT {WW{YI{GL{CD{B!{V!{P!{W){x~
-Desc You see {ga {Wplate{g of {Cy{Bummy {bcookies {g... {YOH MY GOD{W!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name plate yummy cookies wild liriel five spot~
-ShD  {ga {Wplate{g of {Cy{Bummy {bcookies {W({VF{MI{VV{ME{g-{VS{MP{VO{MT {WW{YI{GL{CD{B!{V!{P!{W){x~
-Desc You see {ga {Wplate{g of {Cy{Bummy {bcookies {g... {YOH MY GOD{W!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name plate yummy cookies wild liriel five spot~
-ShD  {ga {Wplate{g of {Cy{Bummy {bcookies {W({VF{MI{VV{ME{g-{VS{MP{VO{MT {WW{YI{GL{CD{B!{V!{P!{W){x~
-Desc You see {ga {Wplate{g of {Cy{Bummy {bcookies {g... {YOH MY GOD{W!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name plate yummy cookies wild liriel five spot~
-ShD  {ga {Wplate{g of {Cy{Bummy {bcookies {W({VF{MI{VV{ME{g-{VS{MP{VO{MT {WW{YI{GL{CD{B!{V!{P!{W){x~
-Desc You see {ga {Wplate{g of {Cy{Bummy {bcookies {g... {YOH MY GOD{W!{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name liriel orb gleaming quest~
-ShD  {ga {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg{x {Borb {W*{YqUeSt{W*{x~
-Desc {gA {Wg{Cl{We{Ga{Wm{Ci{Wn{Gg {Borb{g draws your {Cattention{g to it.  {W*{YqUeSt{W*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name doggie cookie quest liriel~
-ShD  {W({Bquest{W) {ga {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{x~
-Desc {W({Bquest{W) {gA {Ccute {bd{go{Wgg{bi{ge {bcookie {gwith {Wwhite chocolate frosting{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name half quest pooh stuffed liriel~
-ShD  {W(1/2 {Gquest{W) {ga {Clittle {gstuffed {bp{Yooh{x~
-Desc {W(1/2 {Gquest{W) {gA {Clittle {gstuffed {bp{Yooh{g sits here, eating his hunny.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1215
-Nest 1
-Name cow cookie wild liriel~
-ShD  {W({Vw{Ci{Bl{Gd{W){g a {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{x~
-Desc {W({Vw{Ci{Bl{Gd{W){g A {Ccute {cc{go{cw {bcookie{g with {Pm{W&{Gm {Bs{bp{Yo{Pt{Gs{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name half trivia owl stuffed liriel~
-ShD  {W(1/2 {Vtrivia{W) {ga {Clittle{g stuffed {Yo{bwl{x~
-Desc {W(1/2 {Vtrivia{W) {gA {Clittle{g stuffed {Yo{bwl{g lies here, stretching his feathers.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1111
-Nest 1
-Name liriati tile holder~
-ShD  {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x~
-Desc {gA {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{g lies here on the ground, awaiting tiles.{x~
-Mat wood~
-ExtF 17301504
-Wear -1
-Cost 11
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter H~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {C[{WH{C]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter E~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {Y[{WE{Y]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1211
-Nest 2
-Name liriati tile letter X~
-ShD  {ga {WL{Yi{Cr{Bi{Ca{Yt{Wi {BLetter {V[{WX{V]{x~
-Desc {VHey look!  {gIt looks like a {WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile{g!  Might want to {Gpick{g it up ... {x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name liriel sparkling hidden teardrop~
-ShD  {ga {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp {N*{BHiDdEn{N*{x~
-Desc {gA {Cs{Tp{Wa{Cr{Tk{Wl{Ci{Tn{Wg {Ct{Te{Wa{Cr{Td{Wr{Co{Tp{g lays *{BHiDdEn{N*{g in a corner of the room.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name bunny cookie hidden liriel~
-ShD  {W({Ghidden{W) {ga {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{x~
-Desc {W({Ghidden{W) {gA {Ccute {Wb{Vunn{Wy {bcookie {gwith {Wp{Vink {Ws{Vprinkles{g lies here for your taking.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name half hidden piglet stuffed liriel~
-ShD  {W(1/2 {Bhidden{W) {ga {Clittle{g stuffed {Mp{Viglet{x~
-Desc {W(1/2 {Bhidden{W) {gA {Clittle{g stuffed {Mp{Viglet{g dances around, squealing happily.{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 8227
+Vnum 3202
 Nest 0
 Wear -1
-Cost 7055
+Cost 30
 End
 
-#B
-Vnum 5413
+#L
+Vnum 24618
+Nest 0
+Cond 80
+Wear -1
+Cost 5500
+End
+
+#L
+Vnum 3204
 Nest 0
 Wear -1
-Cost 100000
+Cost 50
 End
 
-#B
-Vnum 11644
+#L
+Vnum 20013
+Nest 0
+Wear -1
+Cost 600
+Val  30 13 8 57 0
+Spell 3 'divine regeneration'
+End
+
+#L
+Vnum 8652
 Nest 0
 Wear -1
 Cost 10
+Spell 3 'fly'
 End
 
-#B
-Vnum 5406
+#L
+Vnum 8652
 Nest 0
 Wear -1
-Cost 50000
+Cost 10
+Spell 3 'fly'
 End
 
-#B
-Vnum 11748
+#L
+Vnum 2915
 Nest 0
 Wear -1
-Cost 15000
+Cost 5000
 End
 
-#B
-Vnum 17037
+#L
+Vnum 2916
 Nest 0
 Wear -1
-Cost 500
+Cost 5000
 End
 
-#B
-Vnum 4471
+#L
+Vnum 4413
 Nest 0
-Name token levels ten kick butt liriel~
-ShD  {gA {Pkick{g in the {Vbutt{g from {WL{Ci{Br{Ci{Te{Wl {B({G10 {Ylevels token{V!{B){x~
-Desc Turn this {Gtoken{x in {Vanytime{x to {WL{Ci{Br{Ci{Te{Wl{x for a {CTEN FREAKING AWESOME LEVELS BOOST{x.~
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 4413
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 2915
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 2916
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 4416
+Nest 0
+Cond 92
+Wear -1
+Cost 5800
+End
+
+#L
+Vnum 4427
+Nest 0
+Wear -1
+Cost 5800
+End
+
+#L
+Vnum 4416
+Enchanted
+Nest 0
+Wear -1
+Cost 5800
+Val  20 19 20 21 0
+Affc 'reserved'   1  85  -1   1  26          0 1
+Affc 'reserved'   1  85  -1   3  19          0 1
+Affc 'reserved'   1  85  -1   3  18          0 1
+Affc 'reserved'   1  85  -1  30  13          0 1
+Affc 'reserved'   1  85  -1  30  12          0 1
+Affc 'reserved'   1  85  -1   2   3          0 1
+Affc 'reserved'   1  85  -1   2   1          0 1
+End
+
+#L
+Vnum 4427
+Nest 0
+Cond 97
+Wear -1
+Cost 5800
+End
+
+#L
+Vnum 2916
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 2916
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 2914
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#L
+Vnum 2914
+Enchanted
+Nest 0
+Cond 97
+Wear -1
+Lev  81
+Cost 5000
+Affc 'enchant weapon'   1  80  -1   5  18          0 1
+Affc 'enchant weapon'   1  80  -1   5  19          0 1
+End
+
+#L
+Vnum 11906
+Nest 0
+ExtF 323
+Wear -1
+Cost 1000
+End
+
+#L
+Vnum 11907
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 8204
+Nest 0
+Wear -1
+Cost 3800
+End
+
+#L
+Vnum 10170
+Nest 0
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 24614
+Nest 0
+Cond 92
+Wear -1
+Cost 4000
+End
+
+#L
+Vnum 24619
+Nest 0
+Wear -1
+Cost 6000
+End
+
+#L
+Vnum 24615
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#L
+Vnum 24617
+Nest 0
+Wear -1
+Cost 4375
+End
+
+#L
+Vnum 24616
+Nest 0
+Cond 96
+Wear -1
+Cost 4500
+End
+
+#L
+Vnum 24616
+Nest 0
+Wear -1
+Cost 4500
+End
+
+#L
+Vnum 24615
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#L
+Vnum 24614
+Nest 0
+Wear -1
+Cost 4000
+End
+
+#L
+Vnum 24612
+Nest 0
+Wear -1
+Cost 3343
+End
+
+#L
+Vnum 24613
+Nest 0
 Wear -1
 Cost 3500
 End
 
-#B
-Vnum 17038
+#L
+Vnum 24611
 Nest 0
 Wear -1
-Cost 250
+Cost 3000
+End
+
+#L
+Vnum 9923
+Nest 0
+Wear -1
+Cost 2500
+End
+
+#L
+Vnum 9922
+Nest 0
+Wear -1
+Cost 1500
+End
+
+#L
+Vnum 10115
+Enchanted
+Nest 0
+ExtF 16777283
+Wear -1
+Cost 50
+Affc 'reserved'   1  91  -1   7  19          0 1
+Affc 'reserved'   1  91  -1  -2  24          0 1
+Affc 'enchant armor'   1  91  -1 -11  17          0 1
+Affc 'reserved'   1  91  -1  70  13          0 1
+Affc 'reserved'   1  91  -1  80  12          0 1
+Affc 'reserved'   1  91  -1   3   4          0 1
+End
+
+#L
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#L
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 2915
+Enchanted
+Nest 0
+Wear -1
+Lev  83
+Cost 5000
+Affc 'reserved'   1  80  -1  -9  20          0 1
+Affc 'reserved'   1  80  -1   3  19          0 1
+Affc 'reserved'   1  80  -1   3  18          0 1
+Affc 'reserved'   1  80  -1  20  13          0 1
+Affc 'reserved'   1  80  -1  50  12          0 1
+Affc 'reserved'   1  80  -1   2  26          0 1
+Affc 'enchant armor'   1  91  -1  -6  17          0 1
+End
+
+#L
+Vnum 10152
+Nest 0
+Wear -1
+Cost 5500
+End
+
+#L
+Vnum 14030
+Nest 0
+Cond 78
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11759
+Nest 0
+Wear -1
+Cost 8000
 End
 
 #B
@@ -3982,80 +1979,10 @@ Cost 33000
 End
 
 #B
-Vnum 11713
-Nest 0
-Wear -1
-Cost 10000
-End
-
-#B
-Vnum 17042
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#B
-Vnum 13010
-Enchanted
-Nest 0
-ExtF 66
-Wear -1
-Cost 450
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1  90  -1   8  18          0 1
-Affc 'reserved'   1  90  -1   8  19          0 1
-Affc 'reserved'   1  90  -1  45  12          0 1
-Affc 'reserved'   1  90  -1  40  13          0 1
-Affc 'reserved'   0  90  -1   0   0      32768 1
-End
-
-#B
-Vnum 9101
-Enchanted
-Nest 0
-ExtF 262211
-Wear -1
-Lev  73
-Cost 2800
-Affc 'reserved'   0  72  -1   0   0     524288 1
-Affc 'reserved'   1  72  -1   2   2          0 1
-Affc 'reserved'   1  72  -1  -2  20          0 1
-Affc 'reserved'   1  72  -1   2  19          0 1
-Affc 'reserved'   1  72  -1   3  18          0 1
-Affc 'reserved'   1  72  -1  75  14          0 1
-Affc 'reserved'   1  72  -1  20  13          0 1
-Affc 'reserved'   1  72  -1  50  12          0 1
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-End
-
-#B
 Vnum 9103
 Nest 0
 Wear -1
 Cost 4140
-End
-
-#B
-Vnum 4500
-Nest 0
-Wear -1
-Cost 6000
-End
-
-#B
-Vnum 5409
-Nest 0
-Wt   250
-Wear -1
-Cost 100000
-End
-
-#B
-Vnum 11759
-Nest 0
-Wear -1
-Cost 8000
 End
 
 #B
@@ -4064,25 +1991,6 @@ Nest 0
 ExtF 16777283
 Wear -1
 Cost 21
-End
-
-#B
-Vnum 1211
-Nest 0
-Name token train liriel~
-ShD  {CA {Vt{Mo{Wk{Ve{Mn {Wfor {Pa {YT{WR{YA{WI{YN {Bfrom {WL{Ci{Br{Ci{Te{Wl{x~
-Desc {CA {Vt{Mo{Wk{Ve{Mn {Wfor {Pa {YT{WR{YA{WI{YN {Bfrom {WL{Ci{Br{Ci{Te{Wl{g ... {GGRAB IT{W!!!{x~
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 4471
-Nest 0
-Name enchant token liriel~
-ShD  {gA {Vlevel {Y100 {Be{Cn{Bc{Ch{Ba{Cn{Bt {gfrom {WL{Ci{Br{Ci{Te{Wl{x~
-Wear -1
-Cost 3500
 End
 
 #B
@@ -4164,20 +2072,6 @@ Affc 'enchant armor'   1  91  -1  -4  17          0 1
 End
 
 #B
-Vnum 1232
-Nest 0
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 16530
-Nest 0
-Wear -1
-Cost 1000
-End
-
-#B
 Vnum 2925
 Enchanted
 Nest 0
@@ -4198,6 +2092,77 @@ Vnum 13007
 Nest 0
 Wear -1
 Cost 770
+End
+
+#B
+Vnum 3032
+Nest 0
+Wear -1
+Cost 9
+End
+
+#B
+Vnum 24611
+Enchanted
+Nest 1
+ExtF 17563971
+Wear -1
+Lev  34
+Cost 3000
+Affc 'reserved'   1  30  -1   2  19          0 1
+Affc 'reserved'   1  30  -1   2  18          0 1
+Affc 'reserved'   1  30  -1  20  13          0 1
+Affc 'reserved'   1  30  -1   1   1          0 1
+Affc 'enchant armor'   1  91  -1  -8  17          0 1
+End
+
+#B
+Vnum 10131
+Nest 0
+Wear -1
+Cost 110
+End
+
+#B
+Vnum 1804
+Enchanted
+Nest 0
+ExtF 262211
+Cond 86
+Wear -1
+Lev  17
+Cost 100
+Affc 'reserved'   1  10  -1   1   3          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'enchant weapon'   1 100  -1  15  18          0 1
+Affc 'enchant weapon'   1 100  -1  15  19          0 1
+End
+
+#B
+Vnum 16041
+Enchanted
+Nest 0
+ExtF 67
+Wear -1
+Lev  33
+Cost 5000
+Affc 'enchant weapon'   1 100  -1  16  19          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
+End
+
+#B
+Vnum 16041
+Enchanted
+Nest 0
+ExtF 67
+Cond 94
+Wear -1
+Lev  33
+Cost 5000
+Affc 'reserved'   1  26  -1 -10  17          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'enchant weapon'   1 100  -1  16  19          0 1
 End
 
 #END

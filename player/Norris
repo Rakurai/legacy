@@ -1,47 +1,46 @@
 #PLAYER
 Name Norris~
 Id   990484940
-LogO 1020360431
-Vers 13
+LogO 1060018115
+Vers 14
 Mexp 2
+Pass Asif1~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race human~
-Clan blackclaw~
-Sex  1
 Cla  3
 Levl 35
+Tru  0
 Plyd 21991
 Back 16822
 Note 1020352924 1020352924 1020352924 1020352924 1020352924 1020352924 1020352924
 Scro 22
-Room 24802
-HMS  419 778 50 275 580 580
+Room 3001
+HMS  778 275 580
 Gold 401
 Silv 790
 Exp  35079
-PCkills 0
+PCkills  0
 PCkilled 0
-Akills 0
-Akilled 0
-PKRank 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig 1000
+FImm 0
+FRes 0
+FVul 0
+Plr  AFH
+Video 0
 Act  CDEFGHJLQSTc
+AfBy 0
 Comm NOQ
 Revk 0
 Cgrp A
 Cnsr AB
-Pos  4
 Prac 6
 Trai 2
-Save  -16
-Alig  1000
-Hit   9
-Dam   11
-ACs -150 -144 -138 -137
-Wimp  100
+Wimp 100
 Atrib 21 18 18 18 16 16
-AtMod 4 2 0 4 2 6
-QpDonated 10
-Pass Asif1~
 GameIn  {TT{Wh{Te {TL{Wa{Ts{Wt {To{Wf {Tt{Wh{Te {PA{Rr{Pc{Ra{Pn{Ra {PD{Rr{Pa{Rg{Po{Ro{Pn{Rs{x~
 GameOut {TT{Wh{Te {TL{Wa{Ts{Wt {To{Wf {Tt{Wh{Te {PA{Rr{Pc{Ra{Pn{Ra {PD{Rr{Pa{Rg{Po{Ro{Pn{Rs{x~
 Afk {B[{CThu May  2 11:53:38 2002{B] {CUnknown Departure.{x
@@ -57,12 +56,8 @@ Deit Montrey~
 Lsit hlfx54-2b-147.ns.sympatico.ca~
 Ltim Thu May 02 10:21:59 2002
 ~
-LSav Thu May 02 12:27:11 2002
+LSav Mon Aug 04 13:28:35 2003
 ~
-MC 44
-Col 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Bol 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
-Plr  AF
 HMSP 660 245 520
 THMS 1 0 0
 Cnd  0 0 18 21
@@ -122,8 +117,8 @@ Gr 'combat'
 Gr 'healing'
 Gr 'protective'
 Gr 'transportation'
-Affc 'stone skin'   0  13   5 -40  17          0 1
 Affc 'giant strength'   0  13   4   2   1          0 1
+Affc 'stone skin'   0  13   5 -40  17          0 1
 End
 
 #O
@@ -369,11 +364,11 @@ Nest 1
 Cond 92
 Wear -1
 Cost 0
-Affc 'reserved'   1  20  -1   2  19          0 1
-Affc 'reserved'   1  20  -1   2  18          0 1
-Affc 'reserved'   1  20  -1  20  13          0 1
-Affc 'reserved'   1  20  -1   2   4          0 1
 Affc 'acid breath'   0  25  -1   1  17          0 1
+Affc 'reserved'   1  20  -1   2   4          0 1
+Affc 'reserved'   1  20  -1  20  13          0 1
+Affc 'reserved'   1  20  -1   2  18          0 1
+Affc 'reserved'   1  20  -1   2  19          0 1
 End
 
 #O
@@ -383,11 +378,11 @@ Nest 1
 Cond 80
 Wear -1
 Cost 0
-Affc 'reserved'   1  20  -1   2  19          0 1
-Affc 'reserved'   1  20  -1   2  18          0 1
-Affc 'reserved'   1  20  -1  20  13          0 1
-Affc 'reserved'   1  20  -1   2   4          0 1
 Affc 'acid breath'   0  25  -1   1  17          0 1
+Affc 'reserved'   1  20  -1   2   4          0 1
+Affc 'reserved'   1  20  -1  20  13          0 1
+Affc 'reserved'   1  20  -1   2  18          0 1
+Affc 'reserved'   1  20  -1   2  19          0 1
 End
 
 #O
@@ -533,10 +528,10 @@ ExtF 65
 Wear 2
 Lev  12
 Cost 1000
-Affc 'enchant armor'   1  76  -1  -3  17          0 1
-Affc 'reserved'   1  10  -1  -1  24          0 1
-Affc 'reserved'   1  10  -1   4  13          0 1
 Affc 'reserved'   1  10  -1   2  26          0 1
+Affc 'reserved'   1  10  -1   4  13          0 1
+Affc 'reserved'   1  10  -1  -1  24          0 1
+Affc 'enchant armor'   1  76  -1  -3  17          0 1
 End
 
 #O
@@ -547,10 +542,10 @@ ExtF 65
 Wear 1
 Lev  12
 Cost 1000
-Affc 'enchant armor'   1  76  -1  -3  17          0 1
-Affc 'reserved'   1  10  -1  -1  24          0 1
-Affc 'reserved'   1  10  -1   4  13          0 1
 Affc 'reserved'   1  10  -1   2  26          0 1
+Affc 'reserved'   1  10  -1   4  13          0 1
+Affc 'reserved'   1  10  -1  -1  24          0 1
+Affc 'enchant armor'   1  76  -1  -3  17          0 1
 End
 
 #O

@@ -1,0 +1,102 @@
+#PLAYER
+Name Cathryne~
+Id   1048123118
+LogO 1054179559
+Vers 14
+Mexp 1
+Pass csando~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race wolf~
+Cla  7
+Levl 6
+Tru  0
+Plyd 6729
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  121 126 150
+Gold 46
+Silv 302
+Exp  13293
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  4
+Alig -1000
+FImm 0
+FRes I
+FVul H
+Plr  AHU
+Video 0
+Act  CDEFGHJLQSc
+AfBy 0
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 3
+Trai 1
+Wimp 10
+Atrib 15 13 17 16 23 14
+Afk {B[{CWed Apr 23 00:23:15 2003{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 60
+Rank ~
+Aura ~
+TSex 2
+LLev 1
+Deit Vegita~
+Lsit syr-24-92-243-25.twcny.rr.com~
+Ltim Wed May 28 23:11:02 2003
+~
+LSav Wed May 28 23:39:19 2003
+~
+HMSP 121 126 150
+THMS 0 0 0
+Cnd  0 0 0 14
+Sk 1 1 'channel'
+Sk 1 1 'divine regeneration'
+Sk 1 1 'giant strength'
+Sk 1 1 'haste'
+Sk 1 1 'infravision'
+Sk 1 1 'refresh'
+Sk 1 1 'regeneration'
+Sk 1 1 'talon'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 78 1 'polearm'
+Sk 1 1 'spear'
+Sk 1 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'disarm'
+Sk 76 1 'enhanced damage'
+Sk 1 1 'hand to hand'
+Sk 1 1 'kick'
+Sk 9 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 17 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'enhancement'
+Affc 'blood moon'   0  57  28   3  18          0 1
+Affc 'blood moon'   0  55  28   5  19          0 1
+End
+
+#END

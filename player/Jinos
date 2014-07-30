@@ -1,0 +1,135 @@
+#PLAYER
+Name Jinos~
+Id   1075074517
+LogO 1075074606
+Vers 14
+Mexp 1
+Pass jinos~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dragon~
+Cla  3
+Levl 1
+Tru  0
+Plyd 14
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3759
+HMS  20 100 99
+Gold 0
+Silv 0
+Exp  2187
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  8
+Alig 0
+FImm 0
+FRes EG
+FVul F
+Plr  U
+Video 0
+Act  CDEFGHJLQSc
+AfBy T
+Comm NO
+Revk 0
+Cgrp 0
+Cnsr AB
+Prac 5
+Trai 3
+Wimp 0
+Atrib 18 15 15 12 15 13
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 55
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Urza~
+Lsit 12-215-120-227.client.mchsi.com~
+Ltim Sun Jan 25 18:49:52 2004
+~
+LSav Sun Jan 25 18:50:06 2004
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 48 48 48
+Sk 1 1 'acid breath'
+Sk 1 1 'fire breath'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'lightning breath'
+Sk 40 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 1 1 'polearm'
+Sk 1 1 'spear'
+Sk 1 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'bash'
+Sk 1 1 'disarm'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'parry'
+Sk 1 1 'rescue'
+Sk 1 1 'second attack'
+Sk 1 1 'third attack'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Gr 'rom basics'
+Gr 'warrior basics'
+Gr 'warrior default'
+Gr 'weaponsmaster'
+Gr 'draconian'
+End
+
+#O
+Vnum 3716
+Nest 0
+Wear 0
+Cost 0
+End
+
+#O
+Vnum 3703
+Nest 0
+Wear 5
+Cost 0
+End
+
+#O
+Vnum 3719
+Nest 0
+Wear 16
+Cost 350
+End
+
+#O
+Vnum 3704
+Nest 0
+Wear 11
+Cost 0
+End
+
+#O
+Vnum 3162
+Nest 0
+Wear -1
+Cost 500
+End
+
+#O
+Vnum 3379
+Nest 0
+Wear -1
+Cost 0
+End
+
+#END

@@ -1,0 +1,100 @@
+#PLAYER
+Name Dynion~
+Id   1091220756
+LogO 1091241618
+Vers 14
+Mexp 2
+Pass jerben~
+Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
+Race dragon~
+Cla  7
+Levl 1
+Tru  0
+Plyd 2073
+Back 0
+Note 0 0 0 0 0 0 0
+Scro 22
+Room 3054
+HMS  20 100 100
+Gold 0
+Silv 18
+Exp  2831
+PCkills  0
+PCkilled 0
+Akills   0
+Akilled  0
+PKRank   0
+Pos  5
+Alig 0
+FImm 0
+FRes EG
+FVul F
+Plr  HU
+Video 0
+Act  CDEFGHJQc
+AfBy T
+Comm NOZ
+Revk 0
+Cgrp AG
+Cnsr AB
+Block_Remote 0
+Prac 0
+Trai 0
+Wimp 0
+Familiar 0
+Atrib 15 16 14 13 20 15
+Afk {B[{CFri Jul 30 22:12:30 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  ({VNewbie Aura{x)~
+Immn ~
+Pnts 55
+Rank ~
+Aura ~
+TSex 1
+LLev 0
+Deit Kismet~
+Lsit mta.prod1.dngr.net~
+Ltim Fri Jul 30 22:03:02 2004
+~
+LSav Fri Jul 30 22:40:18 2004
+~
+HMSP 20 100 100
+THMS 0 0 0
+Cnd  0 0 0 0
+Sk 1 1 'acid breath'
+Sk 1 1 'fire breath'
+Sk 1 1 'frost breath'
+Sk 1 1 'gas breath'
+Sk 1 1 'lightning breath'
+Sk 1 1 'axe'
+Sk 1 1 'dagger'
+Sk 1 1 'flail'
+Sk 1 1 'mace'
+Sk 75 1 'polearm'
+Sk 1 1 'spear'
+Sk 1 1 'sword'
+Sk 1 1 'whip'
+Sk 1 1 'shield block'
+Sk 1 1 'bash'
+Sk 1 1 'disarm'
+Sk 1 1 'enhanced damage'
+Sk 1 1 'kick'
+Sk 1 1 'parry'
+Sk 1 1 'trip'
+Sk 1 1 'second attack'
+Sk 1 1 'dual wield'
+Sk 1 1 'hunt'
+Sk 100 1 'scan'
+Sk 1 1 'scrolls'
+Sk 1 1 'staves'
+Sk 1 1 'wands'
+Sk 50 1 'recall'
+Sk 1 1 'familiar'
+Gr 'rom basics'
+Gr 'ranger basics'
+Gr 'ranger default'
+Gr 'weaponsmaster'
+Gr 'draconian'
+End
+
+#END

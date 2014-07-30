@@ -1,7 +1,7 @@
 #PLAYER
 Name Selgarin~
 Id   1015555893
-LogO 1024890275
+LogO 1057793337
 Vers 14
 Mexp 2
 Pass surge~
@@ -9,18 +9,17 @@ Desc A quiet man, only when excited does he show his true effusive and gregariou
 ~
 Prom {x<{C%h{x/{B%Hhp {G%m{x/{G%Mm {R%v{x/{R%Vst {W%Xxp tnl {Y%z{x> ~
 Race human~
-Clan kindred~
 Cla  0
 Levl 91
 Tru  91
-Plyd 874134
+Plyd 874555
 Back 867388
-Note 1022715337 1022538568 1020907845 1022459857 1022291946 1022157489 1021614554
+Note 1046558479 1022538568 1047001690 1022459857 1044048286 1046506347 1021614554
 Scro 22
-Room 25007
+Room 3001
 HMS  2170 2690 662
-Gold 7651
-Silv 5
+Gold 7623
+Silv 25
 Silver_in_bank 1323
 Gold_in_bank 56000
 Exp  91163
@@ -29,7 +28,7 @@ PCkilled 0
 Akills   4
 Akilled  0
 PKRank   2
-Pos  4
+Pos  8
 Alig 1000
 Ptnr Bascha~
 FImm LQ
@@ -38,7 +37,7 @@ FVul N
 Plr  AHOQ
 Video 0
 Act  DEFGHJLQSc
-AfBy BDFHNOTUVYbd
+AfBy BDFHTUVb
 Comm NOR
 Revk 0
 Cgrp A
@@ -49,9 +48,7 @@ Wimp 394
 Atrib 18 21 18 18 18 18
 SkillPnts  43
 QuestPnts  211
-GlDonated  50000
-QuestNext  2
-SQuestNext 10
+SQuestNext 3
 Afk {B[{CThu May 30 04:32:19 2002{B] {CUnknown Departure.{x
 ~
 Titl  likes {RS{cc{xa{cr{Ry{x colors...~
@@ -66,10 +63,10 @@ Stus {GJolly {RRancher{x~
 RmCt 6
 ExSk 0
 Raff 104
-Lsit ACC1E35E.ipt.aol.com~
-Ltim Thu May 30 03:54:51 2002
+Lsit h-66-166-238-71.SNVACAID.covad.net~
+Ltim Fri Mar 07 05:04:14 2003
 ~
-LSav Sun Jun 23 22:44:35 2002
+LSav Wed Jul 09 19:28:57 2003
 ~
 Finf {WYou discover {YS{Cm{Yu{Cr{Yf{Ce{Yt{Ct{Ye{W's hands in your wallet!
 
@@ -78,7 +75,7 @@ Finf {WYou discover {YS{Cm{Yu{Cr{Yf{Ce{Yt{Ct{Ye{W's hands in your wallet!
 ~
 HMSP 1185 1250 632
 THMS 0 0 0
-Cnd  0 0 8 24
+Cnd  0 4 45 45
 Alias lb c 'lightning breath'~
 Alias di c 'detect invis'~
 Alias dh c 'detect hidden'~
@@ -313,24 +310,17 @@ Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
 Gr 'alteration'
-Affc 'bless'   0  78  39 -11  24          0 1
-Affc 'bless'   0  80  39  11  18          0 1
-Affc 'sheen'   0  78  19   0  27          0 1
-Affc 'fly'   0  77   7   0   0     524288 1
-Affc 'shield'   0  74  10 -20  17          0 1
-Affc 'slow'   0  79   4 -10   2  536870912 1
-Affc 'giant strength'   0  81  54   5   1          0 1
-Affc 'steel mist'   0  83   2  -9  17   16777216 1
-Affc 'detect hidden'   0  85  65   0   0         32 1
-Affc 'detect invis'   0  85  65   0   0          8 1
-Affc 'protection good'   0  87   0  -1  24      16384 1
-Affc 'protection evil'   0  85   0  -1  24       8192 1
-Affc 'armor'   0  88   0 -20  17          0 1
-Affc 'flameshield'   0  84  21 -20  17  134217728 1
-Affc 'stone skin'   0  86  68 -40  17          0 1
-Affc 'invisibility'   0  89  84   0   0          2 1
-Affc 'sanctuary'   0  85   3   0   0        128 2
-Affc 'focus'   0  90  21   0  29          0 1
+Affc 'fly'   0  90  91   0   0     524288 1
+Affc 'bless'   0  78  28 -11  24          0 1
+Affc 'bless'   0  79  28  11  18          0 1
+Affc 'sheen'   0  76   8   0  27          0 1
+Affc 'giant strength'   0  78  43   5   1          0 1
+Affc 'detect hidden'   0  83  54   0   0         32 1
+Affc 'detect invis'   0  84  54   0   0          8 1
+Affc 'flameshield'   0  83  10 -20  17  134217728 1
+Affc 'stone skin'   0  84  57 -40  17          0 1
+Affc 'invisibility'   0  89  73   0   0          2 1
+Affc 'focus'   0  88  10   0  29          0 1
 End
 
 #O
@@ -491,8 +481,8 @@ ExtF 257
 Wear 0
 Lev  91
 Cost 55000
-Affc 'dazzling light'   0  86  40   4  18          0 1
-Affc 'dazzling light'   0  85  40   4  19          0 1
+Affc 'dazzling light'   0  86  29   4  18          0 1
+Affc 'dazzling light'   0  84  29   4  19          0 1
 ExDe owned by~ Selgarin
 ~
 End
@@ -1432,7 +1422,7 @@ Wt   0
 Wear -1
 Lev  26
 Cost 5000
-Val  500 468 0 0 0
+Val  500 452 0 0 0
 End
 
 #O
@@ -1737,6 +1727,16 @@ Vnum 9103
 Nest 1
 Wear -1
 Cost 4140
+End
+
+#O
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
 End
 
 #L

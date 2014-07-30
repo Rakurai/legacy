@@ -1,111 +1,79 @@
 #PLAYER
 Name Disman~
 Id   1003178212
-LogO 1027220078
+LogO 1111594417
 Vers 14
 Mexp 2
 Pass aceventura~
 Prom {g<{Y%h{g/{Y%Hhp {G%m{g/{G%Mman {H%vmv {Y%g{g/{c%ssil {W%r {G%a {W%q{g/{G%j {W%X {g> ~
 Race human~
-Clan kindred~
+Clan rebel~
 Cla  0
-Levl 52
-Tru  91
-Plyd 1488053
-Back 1488029
-Note 1027189445 1026519043 1027084263 1027087211 1027146472 1027094615 1026831915
-Scro 22
-Room 3365
-HMS  2527 2539 348
-Gold 2902
-Silv 36
+Levl 45
+Plyd 1720624
+Back 1719992
+Note 1107484496 1107484496 1107484496 1107484496 1107484496 1111255532 1107484496
+Scro 24
+Room 3101
+HMS  1223 845 213
+Gold 1066
+Silv 79
 Silver_in_bank 13890
-Gold_in_bank 3555
-Exp  51674
-PCkills  27
-PCkilled 6
-Akills   16
+Exp  45729
+PCkills  42
+PCkilled 5
+Akills   19
 Akilled  9
-PKRank   2
+PKRank   3
 Pos  8
 Alig -1000
 Spou ~
 FImm 0
-FRes EK
-FVul 0
-Plr  AEFOQU
+FRes Q
+FVul F
+Plr  AEFKOQd
 Video D
-Act  CDEFGHJLNOQSTc
-AfBy DFHNOTVb
+Act  CDEFGHJLOQSTc
+AfBy DFVc
 Comm MNO
-Revk V
-Cgrp A
+Revk 0
+Cgrp AIKLM
 Cnsr B
-Prac 8
-Trai 0
+Block_Remote 0
+Prac 177
+Trai 1
 Wimp 0
+Familiar 0
 Atrib 18 21 18 18 18 18
-SkillPnts  42
-RolePnts   2
-QuestPnts  13
-QuestNext  5
-SQuestNext 3
+SkillPnts  436
+QuestPnts  332
 GameIn  From the {Wd{ca{Wr{ck{Wn{ce{Ws{cs{x a {Pfi{Rr{Yeb{Ra{Pll{x {Cf{Wl{Ci{We{Cs{x at you as Disman smiles{x~
 GameOut walks off into the {Wd{ca{Wr{ck{Wn{ce{Ws{cs{x, you feel safe once again.{x~
-Afk {B[{CSat Jul 20 00:31:11 2002{B] {CUnknown Departure.{x
+Afk {B[{CSat Dec 11 19:52:42 2004{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
-Titl  {WD{ga{Wr{gk{Wn{ge{Ws{gs{x Hath {RC{Po{Rn{Ps{Ru{Pm{Re{Pd{x Me{x~
+Titl  The {PS{Yo{Pu{Yl{x of {WA{Hl{Ga{Hr{Wa Will {GN{Ye{Gv{Ye{Gr{x {RD{Yi{Pe!{x~
 Immn ~
 Pnts 40
-Rank {RB{gL{cD~
-Aura {CE{Cl{Vi{Ct{Ce {BM{Ta{Tg{Be {W2{x~
+Rank {GM{HS{cT~
+Aura {WS{Yta{Wr{CM{Tag{Ce {W#1~
 TSex 1
-LLev 395
+LLev 477
 Email setheroth69@hotmail.com~
 Deit {gA{Hl{Ga{Hr{ga{x~
 Stus {BGra{Tnd{Wm{Tas{Bter {CBre{Ww{Ter{x/{PS{Rc{Yri{Rb{Pe{x of the {WK{gi{Wn{gd{Wr{ge{Wd{x{x{a{W~
-RmCt 10
-ExSk 1700
-Raff 956 952
-Lsit pcp01140140pcs.mtmors01.mi.comcast.net~
-Ltim Sat Jul 20 16:09:04 2002
+RmCt 11
+ExSk 0
+Raff 958 901
+Lsit sdn-ap-022scfairP0288.dialsprint.net~
+Ltim Wed Mar 23 10:06:00 2005
 ~
-LSav Sat Jul 20 21:54:38 2002
+LSav Wed Mar 23 10:13:37 2005
 ~
-Finf {HDarth gossips 'I will destroy the pesky Rebel Alliance...
-{VMichigan grats 'my piss could dissolve you peasant go away'
-{W[FYI] Disman has attained level 54!
-{W[FYI] Bascha has been slain by Disman.
-{W[FYI] Aadien has been slain by Disman.
-{P[{RDUEL{P]{W Disman has emerged victorious!  Better luck next time, Aadien.
-{W[FYI] Nephlite has been slain by Disman.
-{W[FYI] Nephlite has been slain by Disman.
-{W[FYI] Brian has been slain by Disman.
-{W[FYI] Brian has been slain by Disman.
-{W[FYI] Caley has been slain by Disman.
-{P[{RDUEL{P] {WDisman has emerged victorious!  Better luck next time, Caley.
-{W[FYI] Maplearn has been slain by Disman.
-{P[{RDUEL{P] {WKindred of the Darkness has won this victory, may Disman lead them to another.
-[FYI] Kismet has been slain by Disman.
-{P[{RDUEL{P]{W Disman has emerged victorious!  Better luck next time, Kismet.
-[FYI] Shaden has been slain by Disman.
-{P[{RDUEL{P]{W Disman has emerged victorious!  Better luck next time, Shaden.
-[FYI] Malenna has been slain by Disman.
-{P[{RDUEL{P] {WDisman has emerged victorious!  Better luck next time, Malenna.
-[FYI] Havoc has been slain by Disman.
-{P[{RDUEL{P] {WDisman has emerged victorious!  Better luck next time, Havoc.{x
-{W[FYI] Rukus has been slain by Disman.
-{P[{RDUEL{P]{W Disman has emerged victorious!  Better luck next time, Rukus.
-{W[FYI] Kakarot has been slain by Disman.
-{P[{RDUEL{P]{W Disman has emerged victorious!  Better luck next time, Kakarot.{x
-{W[FYI] Mithrank has been slain by Disman.
-{P[{RDUEL{P] {WDisman has emerged victorious!  Better luck next time, Mithrank.{x
-{W[FYI] Mithrank has been slain by Disman.{x
-{P[{RDUEL{P] {WDisman has emerged victorious!  Better luck next time, Mithrank.{x
+Finf -
 ~
-HMSP 1997 2211 392
-THMS 147 164 0
-Cnd  0 0 24 24
+HMSP 903 665 366
+THMS 40 0 0
+Cnd  0 24 40 40
 Colr 3 33 1
 Colr 13 33 1
 Colr 57 33 1
@@ -114,7 +82,6 @@ Colr 66 31 1
 Colr 67 33 1
 Colr 72 33 1
 Ignore umberto~
-Ignore greatninja~
 Alias bolt c 'lightning bolt'~
 Alias dispel c 'dispel magic'~
 Alias lore c ident~
@@ -144,37 +111,38 @@ Alias lb c 'lightning breath'~
 Alias so c 'summon object'~
 Alias ra c 'remove align'~
 Alias ew c 'enchant weapon'~
-Alias dem c demon~
+Alias fb c 'fire breath'~
 Query algroth~
+Query bigsexy~
 Sk 100 1 'acid blast'
 Sk 100 1 'acid breath'
 Sk 100 1 'acid rain'
-Sk 80 1 'age'
+Sk 83 1 'age'
 Sk 88 1 'animate skeleton'
 Sk 88 1 'animate wraith'
 Sk 93 1 'animate gargoyle'
 Sk 79 1 'animate zombie'
-Sk 93 1 'armor'
+Sk 96 1 'armor'
 Sk 100 1 'bless'
-Sk 91 1 'blindness'
+Sk 93 1 'blindness'
 Sk 100 1 'blizzard'
-Sk 91 1 'blood blade'
-Sk 93 1 'blood moon'
+Sk 93 1 'blood blade'
+Sk 94 1 'blood moon'
 Sk 96 1 'burning hands'
 Sk 77 1 'call lightning'
-Sk 76 1 'calm'
+Sk 77 1 'calm'
 Sk 96 1 'cancellation'
-Sk 86 1 'chain lightning'
+Sk 90 1 'chain lightning'
 Sk 86 1 'change sex'
 Sk 75 1 'channel'
-Sk 75 1 'charm person'
+Sk 81 1 'charm person'
 Sk 86 1 'chill touch'
-Sk 85 1 'colour spray'
-Sk 91 1 'continual light'
+Sk 88 1 'colour spray'
+Sk 92 1 'continual light'
 Sk 1 1 'control weather'
-Sk 93 1 'create food'
+Sk 94 1 'create food'
 Sk 100 1 'create parchment'
-Sk 77 1 'create rose'
+Sk 81 1 'create rose'
 Sk 76 1 'create sign'
 Sk 88 1 'create spring'
 Sk 100 1 'create vial'
@@ -182,49 +150,49 @@ Sk 76 1 'create water'
 Sk 84 1 'cure blindness'
 Sk 100 1 'cure critical'
 Sk 76 1 'cure disease'
-Sk 79 1 'cure light'
+Sk 82 1 'cure light'
 Sk 80 1 'cure poison'
-Sk 82 1 'cure serious'
-Sk 86 1 'curse'
-Sk 94 1 'dazzling light'
-Sk 90 1 'demonfire'
+Sk 86 1 'cure serious'
+Sk 87 1 'curse'
+Sk 99 1 'dazzling light'
+Sk 96 1 'demonfire'
 Sk 1 1 'detect evil'
 Sk 3 1 'detect good'
-Sk 88 1 'detect hidden'
-Sk 97 1 'detect invis'
+Sk 90 1 'detect hidden'
+Sk 98 1 'detect invis'
 Sk 75 1 'detect magic'
 Sk 1 1 'detect poison'
 Sk 75 1 'dispel evil'
-Sk 98 1 'dispel good'
-Sk 96 1 'dispel magic'
+Sk 99 1 'dispel good'
+Sk 97 1 'dispel magic'
 Sk 100 1 'divine healing'
 Sk 92 1 'divine regeneration'
 Sk 85 1 'earthquake'
 Sk 83 1 'encampment'
-Sk 97 1 'enchant armor'
-Sk 88 1 'enchant weapon'
-Sk 91 1 'energy drain'
+Sk 100 1 'enchant armor'
+Sk 100 1 'enchant weapon'
+Sk 95 1 'energy drain'
 Sk 100 1 'faerie fire'
-Sk 79 1 'faerie fog'
+Sk 80 1 'faerie fog'
 Sk 76 1 'fear'
 Sk 100 1 'fire breath'
-Sk 85 3 'fireball'
+Sk 100 3 'fireball'
 Sk 1 1 'fireproof'
-Sk 76 1 'firestorm'
+Sk 77 1 'firestorm'
 Sk 77 1 'flame blade'
-Sk 88 1 'flameshield'
+Sk 91 1 'flameshield'
 Sk 97 1 'flamestrike'
 Sk 100 1 'fly'
 Sk 1 1 'floating disc'
-Sk 85 1 'frenzy'
+Sk 88 1 'frenzy'
 Sk 75 1 'frost blade'
-Sk 88 1 'frost breath'
-Sk 87 1 'gas breath'
+Sk 90 1 'frost breath'
+Sk 88 1 'gas breath'
 Sk 100 1 'gate'
-Sk 94 1 'giant strength'
+Sk 97 1 'giant strength'
 Sk 100 1 'haste'
-Sk 95 1 'heal'
-Sk 83 1 'heat metal'
+Sk 96 1 'heal'
+Sk 100 1 'heat metal'
 Sk 75 1 'holy word'
 Sk 100 1 'identify'
 Sk 78 1 'infravision'
@@ -233,45 +201,47 @@ Sk 75 1 'know alignment'
 Sk 80 1 'light of truth'
 Sk 100 1 'lightning bolt'
 Sk 100 1 'lightning breath'
-Sk 96 1 'locate life'
-Sk 97 1 'locate object'
+Sk 97 1 'locate life'
+Sk 99 1 'locate object'
 Sk 100 1 'magic missile'
 Sk 75 1 'mass healing'
 Sk 79 1 'mass invis'
-Sk 76 1 'nexus'
-Sk 98 1 'pass door'
-Sk 80 1 'plague'
-Sk 76 1 'poison'
+Sk 77 1 'nexus'
+Sk 99 1 'pass door'
+Sk 81 1 'plague'
+Sk 80 1 'poison'
 Sk 75 1 'power word'
-Sk 75 1 'polymorph'
+Sk 76 1 'polymorph'
 Sk 75 1 'portal'
 Sk 76 1 'protect container'
-Sk 94 1 'protection evil'
+Sk 99 1 'protection evil'
 Sk 100 1 'protection good'
-Sk 89 1 'ray of truth'
+Sk 93 1 'ray of truth'
 Sk 75 1 'recharge'
 Sk 100 1 'refresh'
 Sk 75 1 'resurrect'
-Sk 98 1 'regeneration'
-Sk 90 1 'remove alignment'
-Sk 78 1 'remove invisibility'
+Sk 78 2 'regeneration'
+Sk 100 1 'remove alignment'
+Sk 100 1 'remove invisibility'
 Sk 80 1 'remove curse'
-Sk 99 2 'sanctuary'
-Sk 96 1 'shield'
-Sk 75 1 'shock blade'
+Sk 100 2 'sanctuary'
+Sk 1 1 'scry'
+Sk 97 1 'shield'
+Sk 76 1 'shock blade'
 Sk 75 1 'shocking grasp'
 Sk 78 1 'shrink'
-Sk 83 1 'sleep'
+Sk 90 1 'sleep'
 Sk 100 1 'slow'
 Sk 75 1 'smokescreen'
-Sk 81 1 'steel mist'
-Sk 97 1 'stone skin'
-Sk 87 1 'summon'
+Sk 1 1 'starve'
+Sk 82 1 'steel mist'
+Sk 100 1 'stone skin'
+Sk 91 1 'summon'
 Sk 98 1 'summon object'
 Sk 87 1 'sunray'
-Sk 96 1 'talon'
+Sk 83 3 'talon'
 Sk 1 1 'teleport'
-Sk 81 1 'teleport object'
+Sk 82 1 'teleport object'
 Sk 100 1 'undo spell'
 Sk 75 1 'ventriloquate'
 Sk 85 1 'vision'
@@ -282,38 +252,44 @@ Sk 100 1 'axe'
 Sk 100 1 'dagger'
 Sk 100 1 'mace'
 Sk 100 1 'sword'
-Sk 83 1 'whip'
-Sk 94 1 'brew'
+Sk 91 1 'whip'
+Sk 99 1 'brew'
 Sk 100 1 'scribe'
-Sk 76 1 'backstab'
-Sk 75 1 'bash'
-Sk 93 1 'circle'
+Sk 100 1 'backstab'
+Sk 99 1 'bash'
+Sk 100 1 'circle'
 Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
 Sk 75 1 'envenom'
-Sk 92 1 'hand to hand'
+Sk 97 1 'hand to hand'
 Sk 100 1 'parry'
 Sk 100 1 'second attack'
 Sk 100 1 'third attack'
 Sk 100 1 'dual wield'
 Sk 84 1 'hunt'
-Sk 77 1 'forge'
-Sk 80 1 'haggle'
+Sk 81 1 'fast healing'
+Sk 98 1 'forge'
+Sk 75 1 'repair'
+Sk 75 1 'rotate'
+Sk 100 1 'haggle'
 Sk 80 1 'hide'
 Sk 100 2 'meditation'
-Sk 76 1 'peek'
+Sk 78 1 'peek'
 Sk 76 1 'pick lock'
 Sk 100 1 'scan'
 Sk 75 1 'sneak'
-Sk 95 1 'scrolls'
+Sk 75 1 'steal'
+Sk 99 1 'scrolls'
 Sk 75 1 'staves'
 Sk 79 1 'wands'
 Sk 78 1 'recall'
-Sk 68 1 'sheen'
-Sk 80 1 'focus'
+Sk 75 1 'familiar'
+Sk 75 1 'die hard'
+Sk 79 1 'sheen'
+Sk 81 1 'focus'
 Sk 91 1 'paralyze'
 Sk 63 1 'hex'
-Sk 52 1 'standfast'
+Sk 74 1 'standfast'
 Gr 'rom basics'
 Gr 'mage basics'
 Gr 'attack'
@@ -334,234 +310,162 @@ Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'flameshield'   0  51  16 -20  17  134217728 1
-Affc 'detect hidden'   0  47  41   0   0         32 1
-Affc 'detect invis'   0  52  41   0   0          8 1
-Affc 'shield'   0  41   2 -20  17          0 1
-Affc 'blood moon'   0  42  14   4  19          0 1
-Affc 'blood moon'   0  43  14   2  18          0 1
-Affc 'haste'   0  48   4   4   2    2097152 1
-Affc 'protection good'   0  49   5  -1  24      16384 1
-Affc 'armor'   0  47   5 -20  17          0 1
-Affc 'protection evil'   0  47   6  -1  24       8192 1
-Affc 'frenzy'   0  50   3   8  18          0 1
-Affc 'frenzy'   0  51   3   8  19          0 1
-Affc 'frenzy'   0  48   3  40  17          0 1
-Affc 'sheen'   0  50  40   0  27          0 1
-Affc 'fly'   0  52  49   0   0     524288 1
-Affc 'sanctuary'   0  49   4   0   0        128 2
-Affc 'focus'   0  52  17   0  29          0 1
-End
-
-#O
-Vnum 3204
-Enchanted
-Nest 0
-ExtF 67633473
-Wear 18
-Cost 50
-Affc 'reserved'   1  40  -1  20  13          0 1
-Affc 'reserved'   1  40  -1  40  12          0 1
-Affc 'reserved'   1  40  -1   3  19          0 1
-Affc 'reserved'   1  40  -1   3  18          0 1
-Affc 'reserved'   1  40  -1   2   4          0 1
-Affc 'reserved'   1  40  -1   2   3          0 1
-Affc 'reserved'   1 100  -1 -10  17          0 1
-Affc 'bless'   1  52  57  -1  20        256 1
+Affc 'haste'   0  44  13   3   2    2097152 1
+Affc 'regeneration'   0  43   8   0   0  268435456 2
+Affc 'sheen'   0  40  24   0  27          0 1
+Affc 'detect invis'   0  35   0   0   0          8 1
+Affc 'detect hidden'   0  35   0   0   0         32 1
 End
 
 #O
 Vnum 6
 Nest 0
-ExtF 1048833
+ShD  Self-made love~
+Desc Self-made love~
+ExtF 1048579
 Wear 20
 Cost 1
-Affc 'bless'   1  51  57  -1  20        256 1
-End
-
-#O
-Vnum 25056
-Nest 0
-ExtF 262403
-Wear 4
-Cost 3800
-Affc 'bless'   1  50  56  -1  20        256 1
-End
-
-#O
-Vnum 17101
-Nest 0
-ExtF 257
-Wear 11
-Cost 160
-Affc 'bless'   1  51  56  -1  20        256 1
-End
-
-#O
-Vnum 8204
-Enchanted
-Nest 0
-ExtF 323
-Wear 9
-Lev  61
-Cost 3800
-Affc 'reserved'   1  60  -1   3   5          0 1
-Affc 'reserved'   1  60  -1  55  12          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-Affc 'bless'   1  50  56  -1  20        256 1
-End
-
-#O
-Vnum 5607
-Nest 0
-ExtF 17301763
-Wear 15
-Cost 2000
-Affc 'bless'   1  52  56  -1  20        256 1
-End
-
-#O
-Vnum 10170
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 20008
-Enchanted
-Nest 0
-ExtF 16777537
-Wear 13
-Lev  61
-Cost 50
-Affc 'reserved'   1  59  -1  -8  24          0 1
-Affc 'reserved'   1  59  -1  50  13          0 1
-Affc 'reserved'   1  59  -1 100  12          0 1
-Affc 'reserved'   1  59  -1   2   5          0 1
-Affc 'enchant weapon'   1  91  -1   2  19          0 1
-Affc 'enchant weapon'   0  91  -1   2  18          0 1
-End
-
-#O
-Vnum 25058
-Enchanted
-Nest 0
-ExtF 262467
-Wear 10
-Lev  51
-Cost 5000
-Affc 'reserved'   1  50  -1  -2   9          0 1
-Affc 'reserved'   1  50  -1  -2  20          0 1
-Affc 'enchant weapon'   1  50  -1   5  19          0 1
-Affc 'enchant weapon'   1  50  -1   5  18          0 1
-Affc 'reserved'   1  50  -1  40  13          0 1
-Affc 'bless'   1  51  56  -1  20        256 1
-End
-
-#O
-Vnum 25059
-Nest 0
-ExtF 262403
-Wear 8
-Cost 4380
-Affc 'bless'   1  51  56  -1  20        256 1
-End
-
-#O
-Vnum 25051
-Enchanted
-Nest 0
-ExtF 262467
-Wear 6
-Lev  51
-Cost 2160
-Affc 'reserved'   1  30  -1  -1   9          0 1
-Affc 'reserved'   1  30  -1   1   4          0 1
-Affc 'enchant weapon'   1  52  -1   5  19          0 1
-Affc 'enchant weapon'   1  52  -1   5  18          0 1
-Affc 'reserved'   1  30  -1  30  13          0 1
-Affc 'bless'   1  51  56  -1  20        256 1
-End
-
-#O
-Vnum 25056
-Nest 0
-ExtF 262403
-Wear 3
-Cost 2880
-Affc 'bless'   1  52  56  -1  20        256 1
-End
-
-#O
-Vnum 17304
-Enchanted
-Nest 0
-ExtF 321
-Wear 5
-Lev  31
-Cost 4000
-Affc 'enchant armor'   1  52  -1  -2  17          0 1
-Affc 'reserved'   1  30  -1  20  13          0 1
-Affc 'reserved'   1  30  -1   2   1          0 1
-Affc 'reserved'   1  30  -1  -5  24          0 1
-Affc 'bless'   1  52  56  -1  20        256 1
 End
 
 #O
 Vnum 1345
 Nest 0
-Name ripple magic~
-ShD  {CR{Ci{Wp{Wp{Cl{Ce {BO{Tf {PM{Ya{Gg{Ci{Vc{x~
-Desc {CR{Ci{Wp{Wp{Cl{Ce {BO{Tf {PM{Ya{Gg{Ci{Vc{x~
 ExtF 16777281
 Wear -1
 Cost 1000
 End
 
 #O
-Vnum 17016
+Vnum 3202
 Nest 1
-Name wine~
-ShD  {CD{Wr{Po{Yp{Ts{B o{Nf {ML{No{Bv{We {Cf{Pr{Go{Tm {YL{Pa{Nu{Mr{Wa{Rn{Ta {Ya{Pn{Gd {WR{Cu{Pk{Wu{Cs{x~
-Desc {CD{Wr{Po{Yp{Ts{B o{Nf {ML{No{Bv{We {Cf{Pr{Go{Tm {YL{Pa{Nu{Mr{Wa{Rn{Ta {Ya{Pn{Gd {WR{Cu{Pk{Wu{Cs{x~
 Wear -1
-Cost 55
+Cost 30
 End
 
 #O
-Vnum 24213
+Vnum 3380
 Nest 1
-ShD  {WJust some Wedding cake that Laurana shuved in Rukus' face{x~
-Desc {WJust some Wedding cake that Laurana shuved in Rukus' face{x~
-Wear -1
-Cost 16
-End
-
-#O
-Vnum 1004
-Nest 1
-Name sword A Blade's Fury~
-ShD  A {RB{glad{Re's {RF{Pur{Ry{x{x~
-Desc A sword is here, forged by Disman's craftsmanship.~
-Mat tin~
-Wt   50
-Wear -1
-Lev  52
-Cost 6
-Val  1 7 11 3 0
-ExDe sword A Blade's Fury~ It is a marvellous sword, crafted from the finest tin around.
-It was created in the Month of Rapture by an experienced mage
-named Disman.  Legend holds that this human was a great weaponsmith.
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
 ~
+Wear -1
+Lev  44
+Cost 1420
+Val  44 62 -1 -1 -1
+Spell 1 'energy drain'
 End
 
 #O
-Vnum 25057
+Vnum 3380
 Nest 1
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
 Wear -1
-Cost 2620
+Lev  44
+Cost 1420
+Val  44 62 -1 -1 -1
+Spell 1 'energy drain'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear -1
+Lev  44
+Cost 1420
+Val  44 62 -1 -1 -1
+Spell 1 'energy drain'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear -1
+Lev  44
+Cost 1420
+Val  44 62 -1 -1 -1
+Spell 1 'energy drain'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear -1
+Lev  44
+Cost 1420
+Val  44 62 -1 -1 -1
+Spell 1 'energy drain'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear -1
+Lev  44
+Cost 1420
+Val  44 62 -1 -1 -1
+Spell 1 'energy drain'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear -1
+Lev  44
+Cost 1420
+Val  44 62 -1 -1 -1
+Spell 1 'energy drain'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear -1
+Lev  44
+Cost 1420
+Val  44 62 -1 -1 -1
+Spell 1 'energy drain'
+End
+
+#O
+Vnum 3380
+Nest 1
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear -1
+Lev  44
+Cost 1420
+Val  44 62 -1 -1 -1
+Spell 1 'energy drain'
 End
 
 #O
@@ -572,123 +476,160 @@ Cost 100
 End
 
 #O
-Vnum 10166
+Vnum 1612
 Nest 0
-Wear -1
-Cost 20
+Wear 11
+Cost 1530
 End
 
 #O
-Vnum 10166
-Nest 0
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 25057
-Nest 0
-ExtF 262403
-Wear 14
-Cost 3660
-Affc 'bless'   1  52  57  -1  20        256 1
-End
-
-#O
-Vnum 7502
-Nest 0
-Wear -1
-Cost 5000
-End
-
-#O
-Vnum 3033
-Nest 0
-Wear -1
-Cost 30
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 10164
+Vnum 16085
 Enchanted
 Nest 0
-Name fallen star~
-ShD  A {Wo{gn{Wce {Pf{Ra{Yll{Re{Pn {gs{Yta{gr{x~
-Desc A {Wo{gn{Wce {Pf{Ra{Yll{Re{Pn {gs{Yta{gr{x~
-Mat star~
-ExtF 17039683
-Wear 17
-Lev  57
-Cost 1350
-Affc 'reserved'   1  55  -1   5   9          0 1
-Affc 'reserved'   1  55  -1  20  13          0 1
-Affc 'reserved'   1  55  -1  30  12          0 1
-Affc 'enchant weapon'   1  99  -1   9  18          0 1
-Affc 'enchant weapon'   1  99  -1   6  19          0 1
-Affc 'reserved'   1  55  -1   2   4          0 1
-Affc 'reserved'   1  55  -1   2   3          0 1
-Affc 'bless'   1  52  57  -1  20        256 1
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 25055
-Enchanted
-Nest 0
-Name red yellow ring~
-ShD  {PR{Re{Pd{x and {YYe{bll{Yow{x {YLi{Wg{Yht {RE{Yn{bt{Pw{Yi{bn{Re{Pd{x~
-Desc {PR{Re{Pd{x and {YYe{bll{Yow{x {YLi{Wg{Yht {RE{Yn{bt{Pw{Yi{bn{Re{Pd{x~
-Mat {YLi{Wg{Yht{x~
-ExtF 262467
-Wear 2
-Lev  51
+ExtF 3
+Wear 15
 Cost 0
-Affc 'reserved'   1  40  -1  40  13          0 1
-Affc 'enchant weapon'   1  54  -1   6  18          0 1
-Affc 'enchant weapon'   1  54  -1   6  19          0 1
-Affc 'reserved'   1  40  -1  -2  20          0 1
-Affc 'reserved'   1  40  -1   1   2          0 1
-Affc 'reserved'   1  40  -1   1  26          0 1
-Affc 'reserved'   1  40  -1  -2   9          0 1
-Affc 'bless'   1  51  56  -1  20        256 1
+Affc 'reserved'   1  21  -1   2  19          0 1
+Affc 'reserved'   1  21  -1  30  12          0 1
+Affc 'reserved'   1  21  -1   1   3          0 1
+Affc 'reserved'   1  21  -1 -10  14          0 1
 End
 
 #O
-Vnum 10171
-Enchanted
+Vnum 16066
 Nest 0
-Name ethereal light ~
-ShD  An {CEt{Th{Wer{Te{Cal {YLi{bg{Yht{x~
-Desc An {CEt{Th{Wer{Te{Cal {YLi{bg{Yht{x~
-Mat {Cet{Th{Wer{Te{Cal {Cm{Wis{Ct{x~
-ExtF 262467
+Wear 9
+Cost 0
+End
+
+#O
+Vnum 10133
+Nest 0
+Wear -1
+Cost 120
+End
+
+#O
+Vnum 29905
+Nest 0
+Wear 6
+Cost 10000
+End
+
+#O
+Vnum 9573
+Nest 0
+Wear -1
+Time 13
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 9573
+Nest 0
+Wear -1
+Time 98
+Cost 820
+Spell 1 'haste'
+End
+
+#O
+Vnum 24611
+Nest 0
 Wear 0
-Lev  56
+Cost 3000
+Affc 'dazzling light'   0  32  35   4  19          0 1
+Affc 'dazzling light'   0  36  35   4  18          0 1
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 9923
+Nest 0
+Wear 13
 Cost 0
-Affc 'reserved'   1  50  -1 -13  17          0 1
-Affc 'enchant weapon'   1 100  -1  14  18          0 1
-Affc 'enchant weapon'   1 100  -1  14  19          0 1
-Affc 'reserved'   1  50  -1  30  12          0 1
-Affc 'reserved'   1  50  -1  10  13          0 1
-Affc 'reserved'   1  50  -1  -2  21          0 1
-Affc 'dazzling light'   0  41  54   3  18          0 1
-Affc 'dazzling light'   0  44  54   3  19          0 1
-Affc 'bless'   1  51  56  -1  20        256 1
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24612
+Nest 0
+Wear 5
+Cost 3255
+End
+
+#O
+Vnum 24613
+Nest 0
+Wear 10
+Cost 3500
+End
+
+#O
+Vnum 24614
+Nest 0
+Wear 14
+Cost 3400
+End
+
+#O
+Vnum 24615
+Nest 0
+Wear 3
+Cost 3160
+End
+
+#O
+Vnum 10128
+Nest 0
+Wear 17
+Cost 98
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 16040
+Nest 0
+Wear 4
+Cost 9800
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
 End
 
 #O
@@ -708,79 +649,122 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 8652
+Vnum 24606
 Nest 0
 Wear -1
 Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 25055
-Nest 0
-Name blue silver ring~
-ShD  {BB{Nlu{Be{x and {WSi{glv{Wer{x {YLi{Wg{Yht {BE{Yn{Wt{gw{Yi{Wn{ge{Bd{x~
-Desc {BB{Nlu{Be{x and {WSi{glv{Wer{x {YLi{Wg{Yht {BE{Yn{Wt{gw{Yi{Wn{ge{Bd{x~
-Mat {YLi{Wg{Yht{x~
-ExtF 262403
-Wear 1
-Cost 2580
-Affc 'bless'   1  51  56  -1  20        256 1
+Spell 3 'talon'
 End
 
 #O
 Vnum 10170
 Nest 0
-ExtF 262401
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear 1
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear 2
+Cost 4500
+End
+
+#O
+Vnum 10426
+Enchanted
+Nest 0
+ExtF 1
+Wear 12
+Cost 18300
+Affc 'reserved'   1  47  -1  75  12          0 1
+Affc 'reserved'   1 100  -1 -10  17          0 1
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3204
+Nest 0
+Wear 18
+Cost 50
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 10170
+Nest 0
 Wear 7
 Cost 2000
-Affc 'bless'   1  52  56  -1  20        256 1
 End
 
 #O
-Vnum 10166
+Vnum 10215
+Enchanted
 Nest 0
-Wear -1
-Cost 20
-End
-
-#O
-Vnum 14030
-Nest 0
-ExtF 16777537
+Name tempered blade~
+ShD  {WB{gl{Wa{gd{We{x of The {RT{Re{Pm{Yp{Ye{Pr{Re{Rd{x~
+Desc {WB{gl{Wa{gd{We{x of The {RT{Re{Pm{Yp{Ye{Pr{Re{Rd{x~
+Mat neat stuff~
+ExtF 65
 Wear 16
 Cost 0
-Affc 'bless'   1  52  57  -1  20        256 1
+Affc 'reserved'   1 100  -1 -10  17          0 1
+Affc 'reserved'   1  40  -1  -5  23          0 1
+Affc 'reserved'   1 100  -1   2  18          0 1
+Affc 'reserved'   1 100  -1   6  19          0 1
 End
 
 #O
-Vnum 1004
-Enchanted
+Vnum 24606
 Nest 0
-Name sword Blade of The Distraught~
-ShD  {WB{gl{Wa{gd{We{x of The {YD{Yi{bs{bt{Hr{Ha{bu{bg{Yh{Yt{x{x~
-Desc A sword is here, forged by Disman's craftsmanship.~
-Mat tin~
-ExtF 321
-Wt   49
 Wear -1
-Lev  58
-Cost 13
-Val  1 7 11 3 4
-Affc 'enchant weapon'   0  54  -1   4  18          0 1
-Affc 'enchant weapon'   1  54  -1   4  19          0 1
-Affc 'bless'   1  44  22  -1  20        256 1
-ExDe sword Blade of The Distraught~ It is a marvellous sword, crafted from the finest tin around.
-It was created in the Month of Silence by an experienced mage
-named Disman.  Legend holds that this human was a great weaponsmith.
-~
+Cost 10
+Spell 3 'talon'
 End
 
 #O
-Vnum 10166
+Vnum 24606
 Nest 0
 Wear -1
-Cost 20
+Cost 10
+Spell 3 'talon'
 End
 
 #O
@@ -792,32 +776,25 @@ Spell 3 'fly'
 End
 
 #O
-Vnum 8652
+Vnum 24617
 Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
+Wear 8
+Cost 5000
 End
 
 #O
-Vnum 3808
-Enchanted
+Vnum 10167
 Nest 0
-Name silver pelt~
-ShD  A {WSi{glv{Wer {WP{gel{Wt{x~
-Desc A {WSi{glv{Wer {WP{gel{Wt{x~
-Mat {Wst{ga{Yrd{gu{Wst{x~
-ExtF 17563971
-Wear 12
-Lev  61
-Cost 30000
-Affc 'reserved'   1  60  -1  -3  24          0 1
-Affc 'enchant weapon'   1 100  -1   5  19          0 1
-Affc 'enchant weapon'   1 100  -1   5  18          0 1
-Affc 'reserved'   1  60  -1  50  13          0 1
-Affc 'reserved'   1  60  -1  75  12          0 1
-Affc 'reserved'   1  60  -1   2   5          0 1
-Affc 'bless'   1  52  56  -1  20        256 1
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
 End
 
 #O
@@ -826,6 +803,324 @@ Nest 0
 Wear -1
 Cost 10
 Spell 3 'fly'
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 8652
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'fly'
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1460
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1460
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1460
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1460
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1460
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1460
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1460
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1460
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1460
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1460
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1490
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1490
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1490
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1490
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1490
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1490
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1490
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1490
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1490
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1490
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1240
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1700
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1700
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1700
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1700
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1700
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1700
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1700
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1700
+End
+
+#O
+Vnum 3380
+Nest 0
+Wear -1
+Cost 1700
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 24606
+Nest 0
+Wear -1
+Cost 10
+Spell 3 'talon'
 End
 
 #L
@@ -848,13 +1143,6 @@ Cost 3500
 End
 
 #L
-Vnum 1207
-Nest 0
-Wear -1
-Cost 0
-End
-
-#L
 Vnum 1211
 Nest 0
 Name token train liriel~
@@ -862,278 +1150,6 @@ ShD  {CA {Vt{Mo{Wk{Ve{Mn {Wfor {Pa {YT{WR{YA{WI{YN {Bfrom {WL{Ci{Br{Ci{Te{Wl{x~
 Desc {CA {Vt{Mo{Wk{Ve{Mn {Wfor {Pa {YT{WR{YA{WI{YN {Bfrom {WL{Ci{Br{Ci{Te{Wl{g ... {GGRAB IT{W!!!{x~
 Wear -1
 Cost 0
-End
-
-#L
-Vnum 72
-Nest 0
-Wear -1
-Cost 30
-End
-
-#L
-Vnum 1804
-Nest 1
-Wear -1
-Cost 100
-End
-
-#L
-Vnum 10131
-Nest 1
-Wear -1
-Cost 110
-End
-
-#L
-Vnum 10129
-Nest 1
-Wear -1
-Cost 122
-End
-
-#L
-Vnum 10126
-Nest 1
-Wear -1
-Cost 57
-End
-
-#L
-Vnum 10135
-Nest 1
-Wear -1
-Cost 23
-End
-
-#L
-Vnum 9201
-Nest 1
-Cond 99
-Wear -1
-Cost 1140
-End
-
-#L
-Vnum 10133
-Nest 1
-Wear -1
-Cost 120
-End
-
-#L
-Vnum 2326
-Nest 1
-Wear -1
-Cost 550
-End
-
-#L
-Vnum 4588
-Nest 1
-Wear -1
-Cost 400
-End
-
-#L
-Vnum 74
-Nest 1
-Cond 97
-Wear -1
-Cost 550
-End
-
-#L
-Vnum 16064
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 4590
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 16047
-Nest 1
-Wear -1
-Cost 500
-End
-
-#L
-Vnum 2326
-Nest 1
-Wt   30
-Wear -1
-Lev  6
-Cost 550
-End
-
-#L
-Vnum 1603
-Enchanted
-Nest 1
-ExtF 67
-Cond 82
-Wear -1
-Lev  11
-Cost 0
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'enchant weapon'   1  91  -1   4  19          0 1
-Affc 'reserved'   1   8  -1  10  12          0 1
-End
-
-#L
-Vnum 16041
-Nest 1
-Wear -1
-Cost 5000
-End
-
-#L
-Vnum 74
-Nest 1
-Wear -1
-Cost 550
-End
-
-#L
-Vnum 9201
-Nest 1
-Wear -1
-Cost 1140
-End
-
-#L
-Vnum 16066
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 11915
-Nest 1
-Wear -1
-Cost 300
-End
-
-#L
-Vnum 16075
-Nest 1
-Wear -1
-Cost 1600
-End
-
-#L
-Vnum 16044
-Nest 1
-Wear -1
-Cost 2000
-End
-
-#L
-Vnum 4593
-Nest 1
-Wear -1
-Cost 2400
-End
-
-#L
-Vnum 7607
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 504
-Nest 1
-ExtF 19
-Cond 100
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 4591
-Nest 1
-Wear -1
-Cost 700
-End
-
-#L
-Vnum 4594
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 4594
-Nest 1
-Wear -1
-Cost 8000
-End
-
-#L
-Vnum 16040
-Nest 1
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1612
-Nest 1
-Wear -1
-Cost 1530
-End
-
-#L
-Vnum 4203
-Nest 1
-Wear -1
-Cost 1000
-End
-
-#L
-Vnum 16085
-Enchanted
-Nest 1
-ExtF 3
-Wear -1
-Cost 0
-Affc 'reserved'   1  21  -1 -10  14          0 1
-Affc 'reserved'   1  21  -1   1   3          0 1
-Affc 'reserved'   1  21  -1  30  12          0 1
-Affc 'reserved'   1  21  -1   2  19          0 1
-End
-
-#L
-Vnum 4595
-Nest 1
-Wear -1
-Cost 8000
-End
-
-#L
-Vnum 20028
-Nest 1
-ExtF 16777473
-Wear -1
-Cost 700
-End
-
-#L
-Vnum 4597
-Nest 1
-Wear -1
-Cost 4400
 End
 
 #L
@@ -1157,743 +1173,10 @@ Cost 0
 End
 
 #L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
 Vnum 1213
-Nest 1
-Name hidden token kenneth ultrarare~
-ShD  An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
-Desc An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x waits to be discovered.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden token kenneth ultrarare~
-ShD  An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
-Desc An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x waits to be discovered.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden token kenneth ultrarare~
-ShD  An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
-Desc An {Bu{Clt{Wr{Ca{Wr{Car{Be {Bh{Ci{Wd{Cd{We{Bn {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x waits to be discovered.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name 'dust teotwawki hidden token'~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name teotwawki dust hidden~
-ShD  {ca spec of dust{x~
-Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe This is a hidden token from Teotwawki.~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token kenneth~
-ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
-Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token kenneth~
-ShD  An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x~
-Desc An {Bu{Clt{Wr{Ca{Wc{Coo{Bl {Bq{Cu{We{Cst{Wo{Br {BK{Ce{Wn{Cn{We{Ct{Bh {Bt{Co{Wk{Ce{Bn{x is here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name Token Esteem Quest Kazander~
-ShD  {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x~
-Desc {N//{B\\//{N\\ {cA {P*{VQ{Muest{P* {GT{Hoken {co{gf {BM{Ny {YE{bsteem {N//{B\\//{N\\{x lies here~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name trivia teotwawki~
-ShD  {YTeo's {BUltimate {CTrivia {PToken{x~
-Desc {YTeo's {BUltimate{R Collectable {CTrivia {PToken{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name Token Hidden Pile Unpaid Bills Kazander~
-ShD  [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x~
-Desc [Hidden] {NA {BP{Nile {Bo{Nf {BU{Nnpaid {BB{Nills{x lies here.~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1212
-Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name sivats double hidden token~
-ShD  {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Desc {G+{H({Y^{P-{Y^{H){G+{x {G({Y2{G) {GS{Hi{Gv{Ha{Gt{H'{Gs {CD{To{Cu{Tb{Cl{Te {BH{Ni{Bd{Nd{Be{Nn {GT{Ho{Gk{He{Gn{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
-Name hidden spark planeswalker token urza legacy set~
-ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
-Wear -1
-Cost 0
-End
-
-#L
-Vnum 1213
-Nest 1
+Nest 0
 Name tahoe thunderstriker trading card Montrey RARE~
-ShD  {Wa {gTaHoe's {WT{PH{YU{GN{CD{BE{VR{WS{PT{GR{CI{BK{VE{YR {Wtr{ga{Wd{gin{Wg c{gar{Wd {P({Rrare{P){x~
+ShD  {Wa {gTaHoe's {WT{PH{YU{GN{CD{BE{VR{WS{PT{GR{CI{BK{VE{YR {Wtr{ga{Wd{gin{Wg c{gar{Wd {P({Rrare{P){x {c(autographed){x~
 Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
 Mat paper~
 Wear -1
@@ -1910,268 +1193,436 @@ ExDe tahoe thunderstrike trading card~ Thunderstriker... only the most learned o
 End
 
 #L
-Vnum 1213
+Vnum 72
+Nest 0
+Wear -1
+Cost 30
+End
+
+#L
+Vnum 16047
 Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 500
+End
+
+#L
+Vnum 1804
+Nest 1
+Wear -1
+Cost 100
+End
+
+#L
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 1100
+Nest 1
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 10135
+Nest 1
+Wear -1
+Cost 23
+End
+
+#L
+Vnum 4588
+Nest 1
+Wear -1
+Cost 400
+End
+
+#L
+Vnum 2326
+Nest 1
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 10129
+Nest 1
+Wear -1
+Cost 122
+End
+
+#L
+Vnum 10236
+Nest 1
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1213
+Vnum 16044
 Nest 1
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 2000
+End
+
+#L
+Vnum 3201
+Nest 1
+Wear -1
+Cost 20
+End
+
+#L
+Vnum 74
+Nest 1
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 20028
+Nest 1
+ExtF 16777473
+Wear -1
+Cost 700
+End
+
+#L
+Vnum 16085
+Nest 1
+Wear -1
+Cost 1900
+End
+
+#L
+Vnum 16064
+Nest 1
+Cond 95
 Wear -1
 Cost 0
 End
 
 #L
-Vnum 1212
+Vnum 10014
 Nest 1
-Name liriel crystal shimmering trivia~
-ShD  {ga {Ws{Vh{Wi{Vm{Wm{Ve{Wr{Vi{Wn{Vg {Cc{Wrystal {H*{GtRiViA{H*{x~
-Desc {gA {Ws{Vhi{Wm{Vme{Wr{Vin{Wg {Cc{Wr{Cy{Ws{Ct{Wa{Cl{g floats in mid-air here.  {H*{GtRiViA{H*{x~
+Wear -1
+Cost 100
+End
+
+#L
+Vnum 32133
+Nest 1
+Wear -1
+Cost 1400
+End
+
+#L
+Vnum 76
+Nest 1
+Wear -1
+Cost 550
+End
+
+#L
+Vnum 4593
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#L
+Vnum 1213
+Nest 0
+Name shield martin trading card Montrey~
+ShD  {Wa Shield {bof {gMartin {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
 Wear -1
 Cost 0
+ExDe shield martin trading card~ The magical brilliance of the {WShield {bof {gMartin {xhas oft lit the way
+for daring adventurers, illuminating even the deepest dungeon.
+Easily recognized by the large 'M' stamped on its face, this round
+steel shield can block even the strongest hit, and is particularly
+suited to deflecting the strike of a charging lancer.
+~
+End
+
+#L
+Vnum 1201
+Nest 0
+Wear -1
+Cost 3
+End
+
+#B
+Vnum 504
+Nest 0
+ExtF 19
+Cond 100
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 4595
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 7607
+Nest 0
+Wear -1
+Cost 20
 End
 
 #B
 Vnum 7502
 Nest 0
 Wear -1
-Cost 5000
-End
-
-#B
-Vnum 13003
-Nest 1
-Name black materia~
-ShD  {cBlack{x {WM{Wa{Ct{ge{Cr{Wi{Wa{x~
-Desc {cBlack{x {WM{Wa{Ct{ge{Cr{Wi{Wa{x~
-ExtF 67
-Wear -1
-Lev  91
-Cost 9500
-ExDe owned by~ Disman
-~
-End
-
-#B
-Vnum 13003
-Nest 1
-Name white materia~
-ShD  {WWhite {WM{Wa{Ct{ge{Cr{Wi{Wa{x~
-Desc {WWhite {WM{Wa{Ct{ge{Cr{Wi{Wa{x~
-ExtF 67
-Wear -1
-Lev  91
-Cost 9500
-ExDe owned by~ Disman
-~
-End
-
-#B
-Vnum 11748
-Nest 1
-ExtF 80
-Wt   0
-Wear -1
-Cost 15000
-End
-
-#B
-Vnum 20026
-Nest 1
-Wt   0
-Wear -1
-Cost 84600
-End
-
-#B
-Vnum 13005
-Nest 1
-Wear -1
-Cost 4500
-End
-
-#B
-Vnum 10121
-Nest 1
-ExtF 16778307
-Wear -1
-Lev  91
-Cost 21
-ExDe owned by~ Disman
-~
+Cost 0
 End
 
 #B
 Vnum 11910
+Enchanted
 Nest 1
 Name mail crystal~
 ShD  {CC{Cr{Wy{gs{Wt{Ca{Cl{x {BMail{x~
 Desc {CC{Cr{Wy{gs{Wt{Ca{Cl{x {BMail{x~
-ExtF 17301571
+ExtF 17301507
 Wear -1
 Lev  91
 Cost 8000
+Affc 'reserved'   3  92  -1   0   0        256 1
+Affc 'reserved'   1  92  -1  -3  24          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'reserved'   1  92  -1  -5  17          0 1
+Affc 'reserved'   1  92  -1 -150  14          0 1
+Affc 'reserved'   1  92  -1  20   9          0 1
+Affc 'reserved'   1  92  -1  -2   2          0 1
+Affc 'reserved'   1  92  -1   2   1          0 1
+Affc 'reserved'   1  92  -1  70  13          0 1
 ExDe owned by~ Disman
 ~
+End
+
+#B
+Vnum 10105
+Nest 1
+Wear -1
+Lev  91
+Cost 33000
+ExDe owned by~ Disman
+~
+End
+
+#B
+Vnum 14043
+Nest 1
+ExtF 18087939
+Wear -1
+Cost 12000
 End
 
 #B
 Vnum 4426
 Enchanted
 Nest 1
-ExtF 65
+ExtF 3
 Wear -1
-Lev  81
+Lev  90
 Cost 0
-Affc 'enchant armor'   1  89  -1  -2  17          0 1
-Affc 'reserved'   1  80  -1   2   1          0 1
-Affc 'reserved'   1  80  -1   2   2          0 1
-Affc 'reserved'   1  80  -1  30  12          0 1
-Affc 'reserved'   1  80  -1  30  13          0 1
-Affc 'reserved'   1  80  -1   5  18          0 1
-Affc 'reserved'   1  80  -1   5  19          0 1
 Affc 'reserved'   1  80  -1  -4  24          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'reserved'   1  80  -1  30  13          0 1
+Affc 'reserved'   1  80  -1  30  12          0 1
+Affc 'reserved'   1  80  -1   2   2          0 1
+Affc 'reserved'   1  80  -1   2   1          0 1
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+End
+
+#B
+Vnum 4426
+Enchanted
+Nest 1
+ExtF 3
+Wear -1
+Lev  90
+Cost 6800
+Affc 'reserved'   1  80  -1  -4  24          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'reserved'   1  80  -1  30  13          0 1
+Affc 'reserved'   1  80  -1  30  12          0 1
+Affc 'reserved'   1  80  -1   2   2          0 1
+Affc 'reserved'   1  80  -1   2   1          0 1
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
 End
 
 #B
 Vnum 10103
 Enchanted
 Nest 1
-ExtF 262211
 Wear -1
-Lev  85
+Lev  90
 Cost 22000
-Affc 'reserved'   1  81  -1   3   2          0 1
-Affc 'reserved'   1  81  -1  -3  21          0 1
-Affc 'reserved'   1  81  -1  60  12          0 1
-Affc 'reserved'   1  81  -1   7  19          0 1
-Affc 'reserved'   1  81  -1   5  18          0 1
 Affc 'enchant armor'   1  89  -1  -6  17          0 1
-End
-
-#B
-Vnum 4426
-Enchanted
-Nest 1
-ExtF 65
-Wear -1
-Lev  81
-Cost 6800
-Affc 'enchant armor'   1  89  -1  -2  17          0 1
-Affc 'reserved'   1  80  -1   2   1          0 1
-Affc 'reserved'   1  80  -1   2   2          0 1
-Affc 'reserved'   1  80  -1  30  12          0 1
-Affc 'reserved'   1  80  -1  30  13          0 1
-Affc 'reserved'   1  80  -1   5  18          0 1
-Affc 'reserved'   1  80  -1   5  19          0 1
-Affc 'reserved'   1  80  -1  -4  24          0 1
-End
-
-#B
-Vnum 10100
-Nest 1
-Wear -1
-Cost 32000
-End
-
-#B
-Vnum 14043
-Nest 1
-Wear -1
-Cost 12000
-End
-
-#B
-Vnum 2918
-Nest 1
-Wear -1
-Cost 0
+Affc 'enchant weapon'   1 100  -1  15  18          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'reserved'   1  81  -1  60  12          0 1
+Affc 'reserved'   1  81  -1  -3  21          0 1
+Affc 'reserved'   1  81  -1   3   2          0 1
 End
 
 #B
 Vnum 14042
 Nest 1
+ExtF 18087939
 Wear -1
 Cost 10000
+End
+
+#B
+Vnum 13005
+Enchanted
+Nest 1
+ExtF 262147
+Wear -1
+Cost 4500
+Affc 'reserved'   1  90  -1  -2   9          0 1
+Affc 'reserved'   1  90  -1  30  14          0 1
+Affc 'reserved'   1  90  -1   1   2          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1  -2  20          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+End
+
+#B
+Vnum 10112
+Enchanted
+Nest 1
+Name magi shield~
+ShD  {CM{Va{Tg{Mi {YS{bh{Hi{He{bl{Yd{x~
+Desc {CM{Va{Tg{Mi {YS{bh{Hi{He{bl{Yd{x~
+ExtF 16778243
+Wear -1
+Lev  91
+Cost 500
+Affc 'reserved'   3  93  -1   0   0         32 1
+Affc 'reserved'   1  93  -1 -12  24          0 1
+Affc 'reserved'   1  93  -1  20  19          0 1
+Affc 'reserved'   1  93  -1  25  18          0 1
+Affc 'reserved'   1  93  -1 110  12          0 1
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+ExDe owned by~ Disman
+~
 End
 
 #B
 Vnum 14012
 Enchanted
 Nest 1
-ExtF 1835075
+ExtF 1835011
 Wear -1
 Cost 5000
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
-Affc 'reserved'   1  91  -1  14  19          0 1
-Affc 'reserved'   1  91  -1  14  18          0 1
 Affc 'reserved'   1  91  -1   3   4          0 1
+Affc 'reserved'   1  91  -1  14  18          0 1
+Affc 'reserved'   1  91  -1  14  19          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
 End
 
 #B
-Vnum 10112
+Vnum 14013
+Enchanted
 Nest 1
-Name magi shield~
-ShD  {CM{Va{Tg{Mi {YS{bh{Hi{He{bl{Yd{x~
-Desc {CM{Va{Tg{Mi {YS{bh{Hi{He{bl{Yd{x~
+ExtF 1835011
 Wear -1
-Lev  91
-Cost 500
-ExDe owned by~ Disman
-~
-End
-
-#B
-Vnum 17041
-Nest 1
-Wear -1
-Cost 5000
+Cost 3500
+Affc 'reserved'   1  91  -1   3   1          0 1
+Affc 'reserved'   1  91  -1  18  18          0 1
+Affc 'reserved'   1  91  -1  18  19          0 1
+Affc 'reserved'   0  91  -1   0   0        124 1
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
 End
 
 #B
 Vnum 13010
 Enchanted
 Nest 1
-ExtF 67
+ExtF 3
 Wear -1
 Cost 450
-Affc 'reserved'   0  90  -1   0   0      32768 1
-Affc 'reserved'   1  90  -1  40  13          0 1
+Affc 'enchant armor'   1 100  -1 -13  17          0 1
+Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
 Affc 'reserved'   1  90  -1  45  12          0 1
-Affc 'reserved'   1  90  -1   8  19          0 1
-Affc 'reserved'   1  90  -1   8  18          0 1
-Affc 'enchant armor'   1  91  -1  -5  17          0 1
+Affc 'reserved'   1  90  -1  40  13          0 1
+Affc 'reserved'   0  90  -1   0   0      32768 1
 End
 
 #B
-Vnum 14013
+Vnum 10100
+Enchanted
 Nest 1
-ExtF 1835011
 Wear -1
-Cost 3500
+Cost 32000
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1  40  13          0 1
+Affc 'reserved'   1  91  -1  30  12          0 1
+Affc 'reserved'   1  91  -1  -2  23          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
+End
+
+#B
+Vnum 20026
+Enchanted
+Nest 1
+ExtF 3
+Wt   0
+Wear -1
+Cost 84600
+Affc 'reserved'   1  91  -1 100  12          0 1
+Affc 'reserved'   1  91  -1  20  13          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
+Affc 'enchant weapon'   0 100  -1  14  18          0 1
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
 End
 
 #B
 Vnum 11776
 Enchanted
 Nest 1
-ExtF 321
+ExtF 3
 Wear -1
 Lev  91
 Cost 10000
-Affc 'enchant weapon'   0  91  -1   3  18          0 1
-Affc 'enchant weapon'   1  91  -1   3  19          0 1
-Affc 'reserved'   1  92  -1   3   3          0 1
-Affc 'reserved'   1  92  -1   3   4          0 1
-Affc 'reserved'   1  92  -1  80  12          0 1
-Affc 'reserved'   1  92  -1  70  13          0 1
 Affc 'reserved'   0  92  -1   0   0        128 1
+Affc 'reserved'   1  92  -1  70  13          0 1
+Affc 'reserved'   1  92  -1  80  12          0 1
+Affc 'reserved'   1  92  -1   3   4          0 1
+Affc 'reserved'   1  92  -1   3   3          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   0 100  -1  17  18          0 1
 ExDe owned by~ Disman
 ~
 End
@@ -2180,53 +1631,67 @@ End
 Vnum 11712
 Enchanted
 Nest 1
-ExtF 67
+ExtF 3
 Wear -1
 Cost 10000
-Affc 'reserved'   1  91  -1  10  18          0 1
-Affc 'reserved'   1  91  -1  50  13          0 1
-Affc 'reserved'   1  91  -1 110  12          0 1
+Affc 'enchant armor'   1 100  -1 -13  17          0 1
 Affc 'reserved'   1  91  -1   3   1          0 1
-Affc 'enchant armor'   1  91  -1  -5  17          0 1
+Affc 'reserved'   1  91  -1 110  12          0 1
+Affc 'reserved'   1  91  -1  50  13          0 1
+Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'enchant weapon'   1 100  -1   8  19          0 1
 End
 
 #B
 Vnum 8227
+Enchanted
 Nest 1
+ExtF 3
 Wear -1
 Cost 7055
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'reserved'   1  91  -1 150  12          0 1
+Affc 'reserved'   1  91  -1   1   4          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   2   2          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
 End
 
 #B
 Vnum 3209
+Enchanted
 Nest 1
+ExtF 67895299
 Wear -1
 Cost 100
+Affc 'reserved'   1  90  -1  -8  24          0 1
+Affc 'reserved'   1  90  -1  30  13          0 1
+Affc 'reserved'   1  90  -1  80  12          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2   1          0 1
 End
 
 #B
-Vnum 5409
-Nest 0
-ExtF 67
-Wear -1
-Cost 100000
-End
-
-#B
-Vnum 10215
-Enchanted
-Nest 0
-Name tempered blade~
-ShD  {WB{gl{Wa{gd{We{x of The {RT{Re{Pm{Yp{Ye{Pr{Re{Rd{x~
-Desc {WB{gl{Wa{gd{We{x of The {RT{Re{Pm{Yp{Ye{Pr{Re{Rd{x~
-Mat neat stuff~
-ExtF 65
+Vnum 14110
+Nest 1
 Wear -1
 Cost 0
-Affc 'reserved'   1 100  -1   6  19          0 1
-Affc 'reserved'   1 100  -1   2  18          0 1
-Affc 'reserved'   1  40  -1  -5  23          0 1
-Affc 'reserved'   1 100  -1 -10  17          0 1
+End
+
+#B
+Vnum 10121
+Nest 1
+ExtF 16777219
+Wear -1
+Lev  91
+Cost 21
+ExDe owned by~ Disman
+~
 End
 
 #B
@@ -2237,13 +1702,6 @@ Cost 200
 End
 
 #B
-Vnum 5607
-Nest 1
-Wear -1
-Cost 2000
-End
-
-#B
 Vnum 28008
 Enchanted
 Nest 1
@@ -2251,95 +1709,381 @@ ExtF 17301569
 Wear -1
 Cost 47500
 Val  14 15 15 4 1
-Affc 'reserved'   4  45  -1   0   0         32 1
 Affc 'reserved'   3  45  -1   0   0        512 1
+Affc 'reserved'   4  45  -1   0   0         32 1
 End
 
 #B
-Vnum 10155
+Vnum 5607
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 1345
+Nest 0
+Name ripple magic~
+ShD  {CR{Ci{Wp{Wp{Cl{Ce {BO{Tf {PM{Ya{Gg{Ci{Vc{x~
+Desc {CR{Ci{Wp{Wp{Cl{Ce {BO{Tf {PM{Ya{Gg{Ci{Vc{x~
+ExtF 16777281
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10171
+Nest 1
+Wear -1
+Cost 3300
+End
+
+#B
+Vnum 14111
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14111
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14111
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14111
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14111
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14111
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 25056
 Enchanted
 Nest 1
+Name pendant picture~
+ShD  A {Ws{Yta{Wr {Cpe{Tnda{Cnt{x with a picture of {WA{Hl{Ga{Hr{Wa{x~
+Desc A {Ws{Yta{Wr {Cpe{Tnda{Cnt{x with a picture of {WA{Hl{Ga{Hr{Wa{x~
+ExtF 262211
+Wear -1
+Lev  35
+Cost 0
+Affc 'reserved'   1  30  -1   3  19          0 1
+Affc 'reserved'   1  30  -1   3  18          0 1
+Affc 'reserved'   1  30  -1   2   4          0 1
+Affc 'reserved'   1  30  -1   1   3          0 1
+Affc 'reserved'   1  30  -1  30  12          0 1
+Affc 'enchant armor'   1 100  -1 -10  17          0 1
+End
+
+#B
+Vnum 10164
+Enchanted
+Nest 1
+Name fallen star~
+ShD  A {Wo{gn{Wce {Pf{Ra{Yll{Re{Pn {gs{Yta{gr{x~
+Desc A {Wo{gn{Wce {Pf{Ra{Yll{Re{Pn {gs{Yta{gr{x~
+Mat star~
+ExtF 17039427
+Wear -1
+Lev  57
+Cost 0
+Affc 'reserved'   1  55  -1   2   3          0 1
+Affc 'reserved'   1  55  -1   2   4          0 1
+Affc 'enchant weapon'   1  99  -1   6  19          0 1
+Affc 'enchant weapon'   1  99  -1   9  18          0 1
+Affc 'reserved'   1  55  -1  30  12          0 1
+Affc 'reserved'   1  55  -1  20  13          0 1
+Affc 'reserved'   1  55  -1   5   9          0 1
+End
+
+#B
+Vnum 25057
+Enchanted
+Nest 1
+Name bracelet~
+ShD  {WA {WSi{clv{Wer {WBra{ccel{Wet{x~
+Desc {WA {WSi{clv{Wer {WBra{ccel{Wet{x~
+Mat {WSi{clv{Wer~
+ExtF 262211
+Wear -1
+Lev  61
+Cost 0
+Affc 'reserved'   1  60  -1   1   5          0 1
+Affc 'reserved'   1  60  -1   1   2          0 1
+Affc 'reserved'   1  60  -1   1   1          0 1
+Affc 'reserved'   1  60  -1  -3  20          0 1
+Affc 'enchant weapon'   1  60  -1   8  19          0 1
+Affc 'enchant weapon'   1  60  -1   8  18          0 1
+End
+
+#B
+Vnum 25057
+Enchanted
+Nest 1
+Name bracelet~
+ShD  {WA {WSi{clv{Wer {WBra{ccel{Wet{x~
+Desc {WA {WSi{clv{Wer {WBra{ccel{Wet{x~
+Mat {WSi{clv{Wer~
+ExtF 262211
+Wear -1
+Lev  61
+Cost 0
+Affc 'reserved'   1  60  -1   1   5          0 1
+Affc 'reserved'   1  60  -1   1   2          0 1
+Affc 'reserved'   1  60  -1   1   1          0 1
+Affc 'reserved'   1  60  -1  -3  20          0 1
+Affc 'enchant weapon'   1  60  -1   8  19          0 1
+Affc 'enchant weapon'   1  60  -1   8  18          0 1
+End
+
+#B
+Vnum 17101
+Nest 1
+Name shadow~
+ShD  {YM{go{Wo{gn {WS{gh{Wa{gd{Wo{gw{Ys{x~
+Desc {YM{go{Wo{gn {WS{gh{Wa{gd{Wo{gw{Ys{x~
+Mat {YS{ch{Wa{cd{Wo{Yw{x~
+ExtF 3
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 3808
+Enchanted
+Nest 1
+Name silver pelt~
+ShD  A {WSi{glv{Wer {WP{gel{Wt{x~
+Desc A {WSi{glv{Wer {WP{gel{Wt{x~
+Mat {Wst{ga{Yrd{gu{Wst{x~
+Wear -1
+Lev  61
+Cost 0
+Affc 'reserved'   1  60  -1   2   5          0 1
+Affc 'reserved'   1  60  -1  75  12          0 1
+Affc 'reserved'   1  60  -1  50  13          0 1
+Affc 'enchant weapon'   1 100  -1   5  18          0 1
+Affc 'enchant weapon'   1 100  -1   5  19          0 1
+Affc 'reserved'   1  60  -1  -3  24          0 1
+End
+
+#B
+Vnum 10171
+Enchanted
+Nest 1
+Name ethereal light ~
+ShD  An {CEt{Th{Wer{Te{Cal {YLi{bg{Yht{x~
+Desc An {CEt{Th{Wer{Te{Cal {YLi{bg{Yht{x~
+Mat {Cet{Th{Wer{Te{Cal {Cm{Wis{Ct{x~
 ExtF 262211
 Wear -1
 Lev  56
 Cost 0
-Affc 'reserved'   1  55  -1   5   9          0 1
-Affc 'reserved'   1  55  -1  -9  17          0 1
-Affc 'reserved'   1  55  -1  -3  23          0 1
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'reserved'   1  55  -1  30  12          0 1
+Affc 'reserved'   1  50  -1  -2  21          0 1
+Affc 'reserved'   1  50  -1  10  13          0 1
+Affc 'reserved'   1  50  -1  30  12          0 1
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'reserved'   1  50  -1 -13  17          0 1
 End
 
 #B
-Vnum 5610
+Vnum 3204
+Enchanted
 Nest 1
-ExtF 17301507
+Name mist sky floater~
+ShD  {WC{Co{Wo{Cl {WM{Cis{Wt{x of a {gSt{Ya{grl{Yi{gght {CS{Tk{Cy{x~
+Desc {WC{Co{Wo{Cl {WM{Cis{Wt{x of a {gSt{Ya{grl{Yi{gght {CS{Tk{Cy{x~
+Mat {WM{Cis{Wt{x~
+ExtF 67633219
 Wear -1
-Cost 2000
+Cost 0
+Affc 'reserved'   1 100  -1 -10  17          0 1
+Affc 'reserved'   1  40  -1   2   3          0 1
+Affc 'reserved'   1  40  -1   2   4          0 1
+Affc 'reserved'   1  40  -1   3  18          0 1
+Affc 'reserved'   1  40  -1   3  19          0 1
+Affc 'reserved'   1  40  -1  40  12          0 1
+Affc 'reserved'   1  40  -1  20  13          0 1
+End
+
+#B
+Vnum 20008
+Enchanted
+Nest 1
+Name song~
+ShD  {WS{Go{Hn{Wg{x of {WA{Hl{Ga{Hr{Wa{x~
+Desc {WS{Go{Hn{Wg{x of {WA{Hl{Ga{Hr{Wa{x~
+Mat {WS{Go{Hn{Wg{x~
+ExtF 16777539
+Wear -1
+Lev  61
+Cost 0
+Affc 'enchant weapon'   0  91  -1   2  18          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'reserved'   1  59  -1   2   5          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
+Affc 'reserved'   1  59  -1  50  13          0 1
+Affc 'reserved'   1  59  -1  -8  24          0 1
+End
+
+#B
+Vnum 10170
+Enchanted
+Nest 1
+Name leggings~
+ShD  {WL{Heg{Ggi{Hng{Ws{x of {WM{Cis{Wt{x~
+Desc {WL{Heg{Ggi{Hng{Ws{x of {WM{Cis{Wt{x~
+Mat {WM{Ci{Ws{Ct{x~
+ExtF 262211
+Wear -1
+Lev  52
+Cost 0
+Affc 'reserved'   1  50  -1  -2  20          0 1
+Affc 'enchant weapon'   1  52  -1   4  19          0 1
+Affc 'enchant weapon'   1  52  -1   5  18          0 1
+Affc 'reserved'   1  50  -1  15  13          0 1
+Affc 'reserved'   1  50  -1  25  12          0 1
+Affc 'reserved'   1  50  -1   2   4          0 1
+Affc 'enchant armor'   1  85  -1  -2  17          0 1
+End
+
+#B
+Vnum 14030
+Enchanted
+Nest 1
+ExtF 16777283
+Wear -1
+Lev  62
+Cost 0
+Affc 'reserved'   1  60  -1  45  12          0 1
+Affc 'enchant weapon'   1 100  -1  10  18          0 1
+Affc 'enchant weapon'   1 100  -1  10  19          0 1
+End
+
+#B
+Vnum 8204
+Enchanted
+Nest 1
+Name gloves~
+ShD  {YSt{War{gd{Wu{Yst {WG{Gl{Hov{Ge{Ws{x~
+Desc {YSt{War{gd{Wu{Yst {WG{Gl{Hov{Ge{Ws{x~
+Mat {YSt{War{gd{Wu{Yst~
+ExtF 67
+Wear -1
+Lev  61
+Cost 0
+Affc 'reserved'   1  60  -1   3   5          0 1
+Affc 'reserved'   1  60  -1  55  12          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
+End
+
+#B
+Vnum 20021
+Nest 1
+Name focused stake~
+ShD  {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
+Desc {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
+Mat {YM{Wo{co{Yn {CM{Wi{Cs{Wt{x~
+Wear -1
+Cost 231
+End
+
+#B
+Vnum 1004
+Enchanted
+Nest 1
+Name sword Blade of The Distraught~
+ShD  {WB{gl{Wa{gd{We{x of The {YD{Yi{bs{bt{Hr{Ha{bu{bg{Yh{Yt{x{x~
+Desc A sword is here, forged by Disman's craftsmanship.~
+Mat tin~
+ExtF 65
+Wt   49
+Wear -1
+Lev  58
+Cost 13
+Val  1 7 11 3 4
+Affc 'enchant weapon'   0  54  -1   4  18          0 1
+Affc 'enchant weapon'   1  54  -1   4  19          0 1
+ExDe sword Blade of The Distraught~ It is a marvellous sword, crafted from the finest tin around.
+It was created in the Month of Silence by an experienced mage
+named Disman.  Legend holds that this human was a great weaponsmith.
+~
+End
+
+#B
+Vnum 20004
+Enchanted
+Nest 1
+Name thousands woven stars~
+ShD  {RTh{Pou{Ys{Pan{Rds {xof {WS{Yta{Wrs {RW{Po{Yv{Ce{Wn T{Yo{Cg{We{Pt{Rh{Ye{Wr{x~
+Desc {RTh{Pou{Ys{Pan{Rds {xof {WS{Yta{Wrs {RW{Po{Yv{Ce{Wn T{Yo{Cg{We{Pt{Rh{Ye{Wr{x~
+ExtF 67
+Wear -1
+Lev  62
+Cost 0
+Affc 'enchant weapon'   0 100  -1   6  18          0 1
+Affc 'enchant weapon'   1 100  -1   6  19          0 1
+Affc 'reserved'   1  59  -1   3   2          0 1
+Affc 'reserved'   1  59  -1 100  14          0 1
+Affc 'reserved'   1  59  -1  -1  26          0 1
+End
+
+#B
+Vnum 14030
+Nest 1
+Name focused starlight sword~
+ShD  {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
+Desc {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
+ExtF 16777283
+Wear -1
+Cost 0
 End
 
 #B
 Vnum 20006
 Enchanted
 Nest 1
-ExtF 17039681
+Name starlight armor~
+ShD  {gSt{Ya{grl{Yi{gght{x {CA{Tr{gmo{Cr{x~
+Desc {gSt{Ya{grl{Yi{gght{x {CA{Tr{gmo{Cr{x~
+ExtF 17039683
 Wear -1
 Lev  62
-Cost 999
+Cost 0
 Val  30 30 32 47 0
-Affc 'enchant weapon'   0  91  -1   2  18          0 1
-Affc 'enchant weapon'   1  91  -1   2  19          0 1
-Affc 'reserved'   1  59  -1 -30   9          0 1
-Affc 'reserved'   1  59  -1   3  26          0 1
-Affc 'reserved'   1  59  -1  -3  24          0 1
-Affc 'reserved'   1  59  -1 100  12          0 1
 Affc 'enchant armor'   1  91  -1  -3  17          0 1
-End
-
-#B
-Vnum 1345
-Nest 0
-ExtF 16777281
-Wear -1
-Cost 1000
-End
-
-#B
-Vnum 16041
-Nest 1
-ExtF 3
-Wear -1
-Cost 5000
-End
-
-#B
-Vnum 16099
-Enchanted
-Nest 1
-Name tiny marshmellow mini skirt~
-ShD  {ga tiny {Wmarshmellow {Wm{gi{Wn{gi{W-{gs{Wk{gi{Wr{gt{x~
-Desc {gA tiny {Wmarshmellow {Wm{gi{Wn{gi{W-{gs{Wk{gi{Wr{gt{g lies here, woo that looks fun to eat off somebody!{x~
-Wear -1
-Cost 1500
-Affc 'reserved'   1  22  -1  40  13          0 1
-Affc 'reserved'   1  22  -1   1   5          0 1
-Affc 'reserved'   1  22  -1   1   1          0 1
-Affc 'reserved'   1 100  -1   5  18          0 1
-Affc 'reserved'   1 100  -1   5  19          0 1
-Affc 'reserved'   1 100  -1  -2  20          0 1
-Affc 'reserved'   1 100  -1   3  26          0 1
-End
-
-#B
-Vnum 10426
-Enchanted
-Nest 1
-ExtF 1
-Wear -1
-Cost 18300
-Affc 'reserved'   1 100  -1 -10  17          0 1
-Affc 'reserved'   1  47  -1  75  12          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
+Affc 'reserved'   1  59  -1  -3  24          0 1
+Affc 'reserved'   1  59  -1   3  26          0 1
+Affc 'reserved'   1  59  -1 -30   9          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'enchant weapon'   0  91  -1   2  18          0 1
 End
 
 #END

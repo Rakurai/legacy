@@ -1,0 +1,1203 @@
+#PLAYER
+Name Chimaira~
+Id   1028194802
+LogO 1114211351
+Vers 14
+Mexp 2
+Pass qwerty~
+Prom %CH%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin %CY%jmin.  ~
+Race irda~
+Clan rebel~
+Cla  0
+Levl 64
+Plyd 561625
+Back 482031
+Note 1113260642 1111135017 1111135017 1112736317 1111163025 1111255532 1111135017
+Scro 33
+Room 3365
+HMS  1070 560 172
+Gold 5219
+Silv 5894
+Silver_in_bank 20880
+Gold_in_bank 5000
+Exp  67449
+PCkills  9
+PCkilled 2
+Akills   1
+Akilled  0
+PKRank   2
+Pos  8
+Alig 861
+Ptnr Calesta~
+FImm 0
+FRes 0
+FVul 0
+Plr  MOQ
+Video 0
+Act  CDEFGHJLSc
+AfBy HNOU
+Comm NO
+Revk 0
+Cgrp AIKLM
+Cnsr C
+Block_Remote 0
+Prac 65
+Trai 5
+Wimp 0
+Familiar 0
+Atrib 18 23 21 18 18 15
+SkillPnts  375
+QuestPnts  1717
+QpDonated  150
+GlDonated  59000
+QuestNext  10
+SQuestNext 18
+Afk {B[{CSun Apr 17 22:40:15 2005{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
+Titl  {WPasse{gs {Wo{gut o{cf {gE{cxis{kt{ce{knce{x~
+Immn ~
+Pnts 40
+Rank {GK{HN{cI{x~
+Aura ~
+TSex 1
+LLev 153
+Deit Vegita~
+Stus {GP{HD{cW{x{x of The Rebel Alliance{x~
+RmCt 2
+ExSk 0
+Raff 4
+Lsit 67.54.0.74~
+Ltim Fri Apr 22 18:01:03 2005
+~
+LSav Fri Apr 22 18:09:11 2005
+~
+HMSP 735 929 469
+THMS 0 0 0
+Cnd  0 0 0 15
+Colr 13 32 1
+Alias z get all~
+Alias x wear all~
+Alias cr clanrecall~
+Alias 6 c 'lightning breath'~
+Alias 7 c 'dispel magic'~
+Alias food c 'create food'~
+Sk 100 1 'acid blast'
+Sk 90 1 'acid breath'
+Sk 75 1 'acid rain'
+Sk 88 1 'age'
+Sk 75 1 'animate skeleton'
+Sk 75 1 'animate wraith'
+Sk 1 1 'animate gargoyle'
+Sk 76 1 'animate zombie'
+Sk 95 1 'armor'
+Sk 79 1 'bless'
+Sk 100 1 'blindness'
+Sk 100 1 'blizzard'
+Sk 78 1 'blood blade'
+Sk 83 1 'blood moon'
+Sk 100 1 'burning hands'
+Sk 76 1 'call lightning'
+Sk 75 1 'calm'
+Sk 75 1 'cancellation'
+Sk 98 1 'chain lightning'
+Sk 75 1 'change sex'
+Sk 75 1 'channel'
+Sk 100 1 'chill touch'
+Sk 100 1 'colour spray'
+Sk 76 1 'continual light'
+Sk 75 1 'control weather'
+Sk 96 1 'create food'
+Sk 98 1 'create parchment'
+Sk 76 1 'create rose'
+Sk 76 1 'create sign'
+Sk 90 1 'create spring'
+Sk 82 1 'create vial'
+Sk 76 1 'create water'
+Sk 83 1 'cure blindness'
+Sk 87 1 'cure critical'
+Sk 79 1 'cure disease'
+Sk 100 1 'cure light'
+Sk 75 1 'cure poison'
+Sk 81 1 'cure serious'
+Sk 87 1 'curse'
+Sk 75 1 'darkness'
+Sk 77 1 'dazzling light'
+Sk 86 1 'demonfire'
+Sk 76 1 'detect evil'
+Sk 75 1 'detect good'
+Sk 86 1 'detect hidden'
+Sk 89 1 'detect invis'
+Sk 90 1 'detect magic'
+Sk 75 1 'detect poison'
+Sk 75 1 'dispel evil'
+Sk 77 1 'dispel good'
+Sk 100 1 'dispel magic'
+Sk 95 1 'divine healing'
+Sk 79 1 'divine regeneration'
+Sk 80 1 'earthquake'
+Sk 84 1 'encampment'
+Sk 85 1 'enchant armor'
+Sk 85 1 'enchant weapon'
+Sk 87 1 'energy drain'
+Sk 88 1 'faerie fire'
+Sk 75 1 'faerie fog'
+Sk 75 1 'fear'
+Sk 84 1 'fire breath'
+Sk 94 3 'fireball'
+Sk 81 1 'fireproof'
+Sk 85 1 'firestorm'
+Sk 75 1 'flame blade'
+Sk 84 1 'flameshield'
+Sk 100 1 'flamestrike'
+Sk 95 1 'fly'
+Sk 76 1 'floating disc'
+Sk 86 1 'frenzy'
+Sk 75 1 'frost blade'
+Sk 79 1 'frost breath'
+Sk 82 1 'gas breath'
+Sk 100 1 'gate'
+Sk 82 1 'giant strength'
+Sk 99 1 'haste'
+Sk 82 1 'heal'
+Sk 75 1 'heat metal'
+Sk 75 1 'holy word'
+Sk 91 1 'identify'
+Sk 76 1 'infravision'
+Sk 94 1 'invisibility'
+Sk 75 1 'know alignment'
+Sk 75 1 'light of truth'
+Sk 100 1 'lightning bolt'
+Sk 100 1 'lightning breath'
+Sk 83 1 'locate life'
+Sk 78 1 'locate object'
+Sk 100 1 'magic missile'
+Sk 75 1 'mass healing'
+Sk 75 1 'mass invis'
+Sk 76 1 'nexus'
+Sk 94 1 'pass door'
+Sk 80 1 'plague'
+Sk 89 1 'poison'
+Sk 1 1 'polymorph'
+Sk 77 1 'portal'
+Sk 75 1 'protect container'
+Sk 93 1 'protection evil'
+Sk 94 1 'protection good'
+Sk 78 1 'ray of truth'
+Sk 75 1 'recharge'
+Sk 91 1 'refresh'
+Sk 1 1 'resurrect'
+Sk 89 1 'regeneration'
+Sk 79 1 'remove alignment'
+Sk 76 1 'remove invisibility'
+Sk 80 1 'remove curse'
+Sk 100 1 'sanctuary'
+Sk 78 1 'scry'
+Sk 82 1 'shield'
+Sk 75 1 'shock blade'
+Sk 100 1 'shocking grasp'
+Sk 77 1 'shrink'
+Sk 100 1 'slow'
+Sk 75 1 'smokescreen'
+Sk 76 1 'starve'
+Sk 82 1 'steel mist'
+Sk 84 1 'stone skin'
+Sk 76 1 'summon'
+Sk 75 1 'summon object'
+Sk 1 1 'sunray'
+Sk 91 2 'talon'
+Sk 77 1 'teleport'
+Sk 79 1 'teleport object'
+Sk 88 1 'undo spell'
+Sk 100 1 'ventriloquate'
+Sk 75 1 'vision'
+Sk 96 1 'weaken'
+Sk 92 1 'word of recall'
+Sk 75 1 'wrath'
+Sk 95 1 'dagger'
+Sk 100 1 'sword'
+Sk 100 1 'shield block'
+Sk 76 1 'brew'
+Sk 92 1 'scribe'
+Sk 75 1 'backstab'
+Sk 100 1 'dodge'
+Sk 100 1 'enhanced damage'
+Sk 100 1 'parry'
+Sk 100 1 'second attack'
+Sk 84 1 'third attack'
+Sk 79 1 'hunt'
+Sk 75 1 'swimming'
+Sk 96 1 'fast healing'
+Sk 78 1 'repair'
+Sk 93 1 'languages'
+Sk 79 1 'lore'
+Sk 100 2 'meditation'
+Sk 77 1 'peek'
+Sk 100 1 'scan'
+Sk 76 1 'scrolls'
+Sk 76 1 'staves'
+Sk 76 1 'wands'
+Sk 76 1 'recall'
+Sk 75 1 'familiar'
+Sk 77 1 'focus'
+Sk 74 1 'paralyze'
+Gr 'rom basics'
+Gr 'mage basics'
+Gr 'attack'
+Gr 'benedictions'
+Gr 'combat'
+Gr 'creation'
+Gr 'curative'
+Gr 'detection'
+Gr 'draconian'
+Gr 'enchantment'
+Gr 'enhancement'
+Gr 'healing'
+Gr 'illusion'
+Gr 'maladictions'
+Gr 'necromancy'
+Gr 'bladecraft'
+Gr 'protective'
+Gr 'transportation'
+Gr 'weather'
+Gr 'alteration'
+Affc 'protection evil'   0  63  23  -1  24       8192 1
+Affc 'protection good'   0  63  23  -1  24      16384 1
+Affc 'pass door'   0  60   9   0   0    1048576 1
+Affc 'sanctuary'   0  64   3   0   0        128 1
+Affc 'frenzy'   0  64  11  50  17          0 1
+Affc 'frenzy'   0  62  11  10  19          0 1
+Affc 'frenzy'   0  61  11  10  18          0 1
+Affc 'focus'   0  63  11   0  29          0 1
+Affc 'bless'   0  57  31   8  18          0 1
+Affc 'bless'   0  56  31  -8  24          0 1
+Affc 'shield'   0  58  38 -20  17          0 1
+Affc 'giant strength'   0  62  53   4   1          0 1
+Affc 'stone skin'   0  58  53 -40  17          0 1
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear 2
+Cost 4500
+End
+
+#O
+Vnum 24616
+Nest 0
+Wear 1
+Cost 4500
+End
+
+#O
+Vnum 17100
+Nest 0
+Wear 6
+Cost 159
+End
+
+#O
+Vnum 24617
+Nest 0
+Wear 8
+Cost 5000
+End
+
+#O
+Vnum 10170
+Enchanted
+Nest 0
+ExtF 262209
+Wear 7
+Lev  51
+Cost 2000
+Affc 'enchant armor'   1  59  -1  -2  17          0 1
+Affc 'reserved'   1  50  -1   2   4          0 1
+Affc 'reserved'   1  50  -1  25  12          0 1
+Affc 'reserved'   1  50  -1  15  13          0 1
+Affc 'reserved'   1  50  -1   3  18          0 1
+Affc 'reserved'   1  50  -1   2  19          0 1
+Affc 'reserved'   1  50  -1  -2  20          0 1
+End
+
+#O
+Vnum 10164
+Enchanted
+Nest 0
+Wear 17
+Cost 1350
+Affc 'reserved'   1  55  -1   5   9          0 1
+Affc 'reserved'   1  55  -1  20  13          0 1
+Affc 'reserved'   1  55  -1  30  12          0 1
+Affc 'reserved'   1  55  -1   5  18          0 1
+Affc 'reserved'   1  55  -1   2  19          0 1
+Affc 'reserved'   1  55  -1   2   4          0 1
+Affc 'reserved'   1  55  -1   2   3          0 1
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 4
+Cost 3800
+End
+
+#O
+Vnum 20006
+Nest 0
+ExtF 17039424
+Wear 5
+Cost 999
+End
+
+#O
+Vnum 3808
+Nest 0
+Wear 12
+Cost 30000
+End
+
+#O
+Vnum 24613
+Nest 0
+Wear 10
+Cost 3500
+End
+
+#O
+Vnum 10155
+Nest 0
+Cond 79
+Wear 11
+Cost 1100
+End
+
+#O
+Vnum 20008
+Nest 0
+ExtF 16777281
+Wear 13
+Cost 50
+End
+
+#O
+Vnum 10171
+Enchanted
+Nest 0
+ExtF 262211
+Wear 0
+Lev  51
+Cost 3300
+Affc 'reserved'   1  50  -1  -2  21          0 1
+Affc 'reserved'   1  50  -1  10  13          0 1
+Affc 'reserved'   1  50  -1  30  12          0 1
+Affc 'enchant weapon'   1  61  -1   4  19          0 1
+Affc 'enchant weapon'   1  61  -1   4  18          0 1
+Affc 'reserved'   1  50  -1 -13  17          0 1
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear 3
+Cost 3800
+End
+
+#O
+Vnum 5607
+Enchanted
+Nest 0
+ExtF 17301571
+Wear 15
+Lev  62
+Cost 2000
+Affc 'reserved'   1  60  -1   3  19          0 1
+Affc 'reserved'   1  60  -1   3  18          0 1
+Affc 'reserved'   1  60  -1  60  12          0 1
+Affc 'enchant armor'   1  61  -1  -3  17          0 1
+End
+
+#O
+Vnum 8204
+Enchanted
+Nest 0
+Cond 93
+Wear 9
+Lev  61
+Cost 3800
+Affc 'reserved'   1  60  -1   3  19          0 1
+Affc 'reserved'   1  60  -1   3  18          0 1
+Affc 'reserved'   1  60  -1  55  12          0 1
+Affc 'reserved'   1  60  -1   3   5          0 1
+Affc 'enchant armor'   1  61  -1  -1  17          0 1
+End
+
+#O
+Vnum 11657
+Nest 0
+ExtF 17039360
+Wear -1
+Cost 9540
+End
+
+#O
+Vnum 907
+Nest 1
+ExtF 64
+Wear -1
+Cost 10300
+End
+
+#O
+Vnum 16501
+Enchanted
+Nest 1
+ExtF 524611
+Wear -1
+Lev  62
+Cost 500
+Affc 'enchant weapon'   1  61  -1   8  19          0 1
+Affc 'enchant weapon'   1  61  -1   7  18          0 1
+End
+
+#O
+Vnum 14030
+Nest 0
+Cond 92
+Wear -1
+Cost 6000
+End
+
+#O
+Vnum 1213
+Nest 0
+Name 'dust teotwawki hidden token'~
+ShD  {ca spec of dust{x~
+Desc {PT{Yh{Pe {PH{Yi{Pd{Yd{Pe{Yn {PS{Ye{Pc{Yr{Pe{Yt {Po{Yf {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe This is a hidden token from Teotwawki.~ ~
+End
+
+#O
+Vnum 3810
+Nest 0
+Wear 18
+Cost 30000
+End
+
+#O
+Vnum 10166
+Nest 0
+Cond 94
+Wear 16
+Cost 20
+Val  0 6 10 2 12
+Affc 'blood blade'   5  63  62   0   0          4 1
+End
+
+#O
+Vnum 8813
+Nest 0
+Wear -1
+Time 825
+Cost 2000
+Spell 1 'cure blindness'
+Spell 2 'cure disease'
+Spell 3 'cure poison'
+End
+
+#O
+Vnum 17108
+Enchanted
+Nest 0
+ExtF 16777539
+Wear 14
+Lev  57
+Cost 350
+Affc 'reserved'   1  53  -1  -1  20          0 1
+Affc 'reserved'   1  53  -1  30  12          0 1
+Affc 'reserved'   1  53  -1   2   3          0 1
+Affc 'reserved'   1  53  -1   4  19          0 1
+Affc 'reserved'   1  53  -1   3  18          0 1
+Affc 'enchant armor'   1  64  -1  -7  17          0 1
+End
+
+#O
+Vnum 1213
+Nest 0
+Name death bracer trading card Montrey~
+ShD  {Wa {PD{ce{Ra{Pt{ch B{Pra{Rc{cer {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe death bracer trading card~ The blackened steel of the Death Bracer is remembered well by
+the seasoned adventurer, and longed after by the younger ones.
+Its magical enchantments strengthen the arms of its owner,
+forcing them to swing a weapon harder as a result.
+~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jubei chi earth token hidden~
+ShD  {WE{ga{Wr{gt{Wh {gC{Wh{gi {W*{YHidden{W*{x~
+Desc {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name wild token strange herb vegita~
+ShD  A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Desc A {PS{Bt{Cr{Ta{Hn{Wg{Ge {PW{YI{GL{CD {GH{He{Hr{Gb{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Ebony's wild token Deadly Kiss~
+ShD  {c({YW{bil{Yd{c) A {TD{Re{Ba{Td{Rl{By {RK{Pi{Rs{Ps{x~
+Desc a kiss lies here~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jubei chi earth token hidden~
+ShD  {WE{ga{Wr{gt{Wh {gC{Wh{gi {W*{YHidden{W*{x~
+Desc {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name jubei chi earth token hidden~
+ShD  {WE{ga{Wr{gt{Wh {gC{Wh{gi {W*{YHidden{W*{x~
+Desc {WJ{gu{Wb{ge{Wi{g'{Ws {gC{Wh{gi {Wo{gf {Wt{gh{We {gE{Wa{gr{Wt{gh{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name hidden spark planeswalker token urza legacy set~
+ShD  {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Desc {W*{RH{Wi{Rd{WD{Re{WN{R* {GSpark {Bof {Wthe {RP{Tl{Ra{Tn{Re{Ts{Rw{Ta{Rl{Tk{Re{Tr{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name Ebony's hidden token Blood Drop~
+ShD  {H({gh{ci{Wdd{ce{gn{H) {ga d{Rro{gp of {Tc{Bry{Cst{ca{Cli{Bze{Td {gb{Rl{Po{Ro{gd{x~
+Desc a drop of crystalized blood~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 0
+Name token outsider pizza~
+ShD  a yummy, vegatarian pizza~
+Desc Outsider's vegatarian pizza with green peppers, mushrooms and pineapple~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha{x~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1211
+Nest 0
+Name token outsider ball~
+ShD  a red, glowing ball~
+Desc A red, Outsider bug token.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name token hidden outsider~
+ShD  a bottle of fireflies~
+Desc Outsider's bottle of magical fireflies~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name token outsider hidden ballon~
+ShD  a small pink ballon~
+Desc A small, shiny, pink ballon lies here!~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name viro mist honour hidden token~
+ShD  {H*{GHidden{H* {WHonour{x~
+Desc A {Cs{Ww{Ti{Cr{Wl{Ti{Cn{Wg {Cmist{x, filling you with {Whonour{x~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name token hidden byte outsider~
+ShD  a byte~
+Desc This byte is made up of 1's and 0's.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1213
+Nest 0
+Name tahoe thunderstriker trading card Montrey RARE~
+ShD  {Wa {gTaHoe's {WT{PH{YU{GN{CD{BE{VR{WS{PT{GR{CI{BK{VE{YR {Wtr{ga{Wd{gin{Wg c{gar{Wd {P({Rrare{P){x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe tahoe thunderstrike trading card~ Thunderstriker... only the most learned of adventurers even know of
+this sword.  An ancient god from another realm forged this blade
+in ages long past, legendary weapons know not the boundaries of
+time or worlds.  Travellers from far away speak of it with reverence,
+even though tales of armies conquered by its might are only told
+as fireside stories to amuse wide-eyed youngsters.  The weapon no
+longer exists, it was shattered long ago by the gods as a symbol
+of the realm's break with its past.
+~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name her fathers katana trading card hidden token Montrey~
+ShD  {Wa {HHer Father's Katana {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+ExtF 17563987
+Wear -1
+Cost 0
+ExDe her fathers katana trading card~ Left to Filfaere by her father, this blade's destiny is to some day
+cut down the evil Elvanshalee and do honor to their family.  The
+day when Filfaere and Elvanshalee lock blades may yet be far off,
+though, as Filfaere seems to prefer standing in the marketplace
+over trying to enter the palace.
+~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name elvanshalees longsword trading card hidden token Montrey~
+ShD  {Wa {bElvanshalee's Longsword {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+ExtF 17563987
+Wear -1
+Cost 0
+ExDe elvanshalees longsword trading card~ The devastating blade of the drow demoness Elvanshalee, it drinks
+blood in the name of Lloth and slays all who defy her.  Quite
+possibly the most difficult sword in the realm to procure, it is
+also one of the strongest.
+~
+End
+
+#L
+Vnum 1213
+Nest 0
+Name shield martin trading card Montrey~
+ShD  {Wa Shield {bof {gMartin {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe shield martin trading card~ The magical brilliance of the {WShield {bof {gMartin {xhas oft lit the way
+for daring adventurers, illuminating even the deepest dungeon.
+Easily recognized by the large 'M' stamped on its face, this round
+steel shield can block even the strongest hit, and is particularly
+suited to deflecting the strike of a charging lancer.
+~
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha{x~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha{x~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1215
+Nest 0
+Name Navarre wild token sword aquila~
+ShD  {c({gW{Wil{gd{c) {MS{Vw{Wo{Vr{Md of {HA{Gq{Wui{Gl{Ha{x~
+Desc Gems from five generations decorate this beautifully forged long-sword.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#L
+Vnum 1214
+Nest 0
+Name Navarre quest token colossal percheron~
+ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
+Desc A huge black war-horse nickers at you softly.~
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 10102
+Enchanted
+Nest 0
+Wear -1
+Cost 33333
+Affc 'reserved'   1  95  -1   5   9          0 1
+Affc 'reserved'   1  95  -1  12  19          0 1
+Affc 'reserved'   1  95  -1  10  18          0 1
+Affc 'reserved'   1  95  -1  -5  22          0 1
+Affc 'reserved'   1  95  -1   5   4          0 1
+Affc 'reserved'   1  95  -1  -2  23          0 1
+End
+
+#B
+Vnum 11910
+Nest 0
+ExtF 17301777
+Wear -1
+Cost 8000
+End
+
+#B
+Vnum 16041
+Nest 0
+Cond 97
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 11791
+Nest 0
+Wear -1
+Cost 55000
+End
+
+#B
+Vnum 11792
+Nest 0
+Wear -1
+Cost 55000
+End
+
+#B
+Vnum 10215
+Nest 0
+ExtF 65
+Cond 99
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 17320
+Nest 0
+ExtF 17039362
+Wear -1
+Cost 2500
+Val  250 1 17321 40 30
+End
+
+#B
+Vnum 10103
+Nest 1
+Wear -1
+Cost 22000
+End
+
+#B
+Vnum 2914
+Nest 1
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 20026
+Enchanted
+Nest 1
+Wt   0
+Wear -1
+Cost 90000
+Affc 'enchant weapon'   0  91  -1   1  18          0 1
+Affc 'enchant weapon'   1  91  -1   1  19          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1  20  13          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
+End
+
+#B
+Vnum 10115
+Nest 1
+Cond 94
+Wear -1
+Cost 50
+End
+
+#B
+Vnum 11712
+Nest 1
+Cond 94
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11712
+Nest 1
+Cond 94
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11709
+Nest 1
+Cond 98
+Wear -1
+Cost 10000
+End
+
+#B
+Vnum 11709
+Enchanted
+Nest 1
+ExtF 321
+Cond 99
+Wear -1
+Lev  90
+Cost 10000
+Affc 'enchant armor'   1  91  -1  -7  17          0 1
+Affc 'reserved'   1  87  -1   5   3          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'reserved'   1  87  -1   7  18          0 1
+Affc 'reserved'   1  87  -1   7  19          0 1
+End
+
+#B
+Vnum 13009
+Nest 1
+Cond 97
+Wear -1
+Cost 660
+End
+
+#B
+Vnum 5613
+Nest 1
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 8227
+Nest 1
+Wear -1
+Cost 7055
+End
+
+#B
+Vnum 7502
+Nest 0
+Wear -1
+Cost 5000
+End
+
+#B
+Vnum 5606
+Nest 1
+ExtF 17301571
+Cond 95
+Wear -1
+Cost 3000
+End
+
+#B
+Vnum 5609
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 4596
+Nest 1
+Wear -1
+Cost 2400
+End
+
+#B
+Vnum 16064
+Nest 1
+Cond 77
+Wear -1
+Cost 4500
+End
+
+#B
+Vnum 16084
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#B
+Vnum 16084
+Nest 1
+Wear -1
+Cost 1500
+End
+
+#B
+Vnum 504
+Nest 1
+ExtF 19
+Wear -1
+Cost 312
+End
+
+#B
+Vnum 10298
+Nest 1
+ExtF 64
+Wear -1
+Cost 495
+End
+
+#B
+Vnum 9922
+Nest 1
+Cond 97
+Wear -1
+Cost 1500
+End
+
+#B
+Vnum 10135
+Enchanted
+Nest 1
+ExtF 17039424
+Wear -1
+Lev  4
+Cost 23
+Affc 'enchant armor'   1  54  -1  -2  17          0 1
+Affc 'reserved'   1   2  -1   1   3          0 1
+Affc 'reserved'   1   2  -1   2  12          0 1
+End
+
+#B
+Vnum 11643
+Nest 1
+Cond 96
+Wear -1
+Cost 20
+End
+
+#B
+Vnum 17001
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#B
+Vnum 5609
+Nest 1
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 11776
+Enchanted
+Nest 0
+ExtF 321
+Wear -1
+Cost 10000
+Affc 'reserved'   0  92  -1   0   0        128 1
+Affc 'reserved'   1  92  -1  70  13          0 1
+Affc 'reserved'   1  92  -1  80  12          0 1
+Affc 'reserved'   1  92  -1   3   4          0 1
+Affc 'reserved'   1  92  -1   3   3          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+End
+
+#END

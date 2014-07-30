@@ -1,7 +1,7 @@
 #PLAYER
 Name Strife~
 Id   994645660
-LogO 1026958502
+LogO 1060018044
 Vers 14
 Mexp 2
 Pass chaoszero~
@@ -13,16 +13,15 @@ Desc {cBefore you stands the {Bs{cp{Be{cc{Bt{cr{Ba{cl warrior, {BStrife{c.  He t
 ~
 Prom %Cg<%CB%h/%H%Cchp %CV%m/%M%Ccmp %CG%v/%V%Ccmv %CP%X%Ccxp %CC%a%Ccalign - %CR%q min/%Q%Cg> ~
 Race wolf~
-Clan blackclaw~
 Cla  3
 Levl 32
 Tru  0
-Plyd 80583
+Plyd 81744
 Back 63596
 Note 1016573861 1003595038 1001449809 1000363878 1009643038 1026258348 0
 Scro 22
-Room 24800
-HMS  740 327 362
+Room 3001
+HMS  740 327 483
 Gold 1552
 Silv 2102
 Gold_in_bank 2100
@@ -37,11 +36,11 @@ Alig 1000
 FImm 0
 FRes I
 FVul H
-Plr  F
+Plr  FH
 Video 0
 Act  CDEFGHJLSTc
-AfBy DFT
-Comm NO
+AfBy DF
+Comm NOZ
 Revk 0
 Cgrp A
 Cnsr AB
@@ -50,8 +49,7 @@ Trai 0
 Wimp 60
 Atrib 22 18 18 20 20 18
 QuestPnts  60
-QuestNext  7
-Afk {B[{CSun May 19 12:53:40 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CTue Nov  5 19:29:49 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {x~
 Immn ~
@@ -61,14 +59,14 @@ Aura ~
 TSex 1
 LLev 16
 Deit Meagan~
-Lsit pcp01445238pcs.lebnon01.pa.comcast.net~
-Ltim Wed Jul 17 21:14:13 2002
+Lsit pcp02115519pcs.lebnon01.pa.comcast.net~
+Ltim Thu Nov 07 17:52:02 2002
 ~
-LSav Wed Jul 17 21:15:02 2002
+LSav Mon Aug 04 13:27:24 2003
 ~
 HMSP 590 237 483
 THMS 0 0 0
-Cnd  0 0 5 13
+Cnd  0 0 0 4
 Sk 76 1 'armor'
 Sk 1 1 'cancellation'
 Sk 1 1 'channel'
@@ -115,7 +113,6 @@ Gr 'warrior basics'
 Gr 'enhancement'
 Gr 'protective'
 Gr 'transportation'
-Affc 'fly'   0  30  26   0   0     524288 1
 End
 
 #O
@@ -138,7 +135,7 @@ Vnum 9224
 Nest 0
 Wear -1
 Cost 200
-Val  150 114 10 0 0
+Val  150 102 10 0 0
 End
 
 #O
