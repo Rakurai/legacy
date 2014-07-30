@@ -1532,71 +1532,73 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
         ch = d->character;
 
         /* battle prompt */
-        if ((victim = ch->fighting) != NULL && can_see(ch,victim))
-        {
-            int percent;
+        if ((victim = ch->fighting) != NULL) {
+        	char atb[100];
             char wound[100];
 
-            if (victim->max_hit > 0)
-                percent = victim->hit * 100 / victim->max_hit;
-            else
-                percent = -1;
+            if (can_see(ch,victim)) {
+	            int percent;
 
-            if (percent >= 100)
-                sprintf(wound,"is in excellent condition.");
-            else if (percent >= 90)
-                sprintf(wound,"has a few scratches.");
-            else if (percent >= 75)
-                sprintf(wound,"has some small wounds and bruises.");
-            else if (percent >= 50)
-                sprintf(wound,"has quite a few wounds.");
-            else if (percent >= 30)
-                sprintf(wound,"has some big nasty wounds and scratches.");
-            else if (percent >= 15)
-                sprintf(wound,"looks pretty hurt.");
-            else if (percent >= 1)
-                sprintf(wound,"is in awful condition.");
-            else if (percent >= 0)
-                sprintf(wound,"will soon be toast!!!");
-            else
-                sprintf(wound,"is in need of ***SERIOUS*** medical attention!");
+	            if (victim->max_hit > 0)
+	                percent = victim->hit * 100 / victim->max_hit;
+	            else
+	                percent = -1;
 
-/*	if (!IS_NPC(ch) && IS_SET(ch->pcdata->plr, PLR_ATBPROMPT))
-	{
-		if (ch->wait > 40)	sprintf(atb, "{B[{C*{T*********{B]{x ");
-		else if (ch->wait > 36)	sprintf(atb, "{B[{Y*{C*{T********{B]{x ");
-		else if (ch->wait > 32)	sprintf(atb, "{B[{C*{Y*{C*{T*******{B]{x ");
-		else if (ch->wait > 28)	sprintf(atb, "{B[{T*{C*{Y*{C*{T******{B]{x ");
-		else if (ch->wait > 24)	sprintf(atb, "{B[{T**{C*{Y*{C*{T*****{B]{x ");
-		else if (ch->wait > 20)	sprintf(atb, "{B[{T***{C*{Y*{C*{T****{B]{x ");
-		else if (ch->wait > 16)	sprintf(atb, "{B[{T****{C*{Y*{C*{T***{B]{x ");
-		else if (ch->wait > 12)	sprintf(atb, "{B[{T*****{C*{Y*{C*{T**{B]{x ");
-		else if (ch->wait > 8)	sprintf(atb, "{B[{T******{C*{Y*{C*{T*{B]{x ");
-		else if (ch->wait > 4)	sprintf(atb, "{B[{T*******{C*{Y*{C*{B]{x ");
-		else if (ch->wait > 0)	sprintf(atb, "{B[{T********{C*{Y*{B]{x ");
-		else			sprintf(atb, "{B[{C**{YREADY!{C**{B]{x ");
+	            if (percent >= 100)
+	                sprintf(wound,"is in excellent condition.");
+	            else if (percent >= 90)
+	                sprintf(wound,"has a few scratches.");
+	            else if (percent >= 75)
+	                sprintf(wound,"has some small wounds and bruises.");
+	            else if (percent >= 50)
+	                sprintf(wound,"has quite a few wounds.");
+	            else if (percent >= 30)
+	                sprintf(wound,"has some big nasty wounds and scratches.");
+	            else if (percent >= 15)
+	                sprintf(wound,"looks pretty hurt.");
+	            else if (percent >= 1)
+	                sprintf(wound,"is in awful condition.");
+	            else if (percent >= 0)
+	                sprintf(wound,"will soon be toast!!!");
+	            else
+	                sprintf(wound,"is in need of ***SERIOUS*** medical attention!");
+	        }
 
-		if (ch->wait > 40)	sprintf(atb, "{P[{P*{R*********{P]{x ");
-		else if (ch->wait > 36)	sprintf(atb, "{P[{Y*{P*{R********{P]{x ");
-		else if (ch->wait > 32)	sprintf(atb, "{P[{P*{Y*{P*{R*******{P]{x ");
-		else if (ch->wait > 28)	sprintf(atb, "{P[{R*{P*{Y*{P*{R******{P]{x ");
-		else if (ch->wait > 24)	sprintf(atb, "{P[{R**{P*{Y*{P*{R*****{P]{x ");
-		else if (ch->wait > 20)	sprintf(atb, "{P[{R***{P*{Y*{P*{R****{P]{x ");
-		else if (ch->wait > 16)	sprintf(atb, "{P[{R****{P*{Y*{P*{R***{P]{x ");
-		else if (ch->wait > 12)	sprintf(atb, "{P[{R*****{P*{Y*{P*{R**{P]{x ");
-		else if (ch->wait > 8)	sprintf(atb, "{P[{R******{P*{Y*{P*{R*{P]{x ");
-		else if (ch->wait > 4)	sprintf(atb, "{P[{R*******{P*{Y*{P*{P]{x ");
-		else if (ch->wait > 0)	sprintf(atb, "{P[{R********{P*{Y*{P]{x ");
-		else			sprintf(atb, "{P[{R**{YREADY!{R**{P]{x ");
+			if (IS_SET(ch->comm, COMM_ATBPROMPT))
+			{
+				if (ch->wait > 40)	    sprintf(atb, "{B[{C*{T*********{B]{x ");
+				else if (ch->wait > 36)	sprintf(atb, "{B[{Y*{C*{T********{B]{x ");
+				else if (ch->wait > 32)	sprintf(atb, "{B[{C*{Y*{C*{T*******{B]{x ");
+				else if (ch->wait > 28)	sprintf(atb, "{B[{T*{C*{Y*{C*{T******{B]{x ");
+				else if (ch->wait > 24)	sprintf(atb, "{B[{T**{C*{Y*{C*{T*****{B]{x ");
+				else if (ch->wait > 20)	sprintf(atb, "{B[{T***{C*{Y*{C*{T****{B]{x ");
+				else if (ch->wait > 16)	sprintf(atb, "{B[{T****{C*{Y*{C*{T***{B]{x ");
+				else if (ch->wait > 12)	sprintf(atb, "{B[{T*****{C*{Y*{C*{T**{B]{x ");
+				else if (ch->wait > 8)	sprintf(atb, "{B[{T******{C*{Y*{C*{T*{B]{x ");
+				else if (ch->wait > 4)	sprintf(atb, "{B[{T*******{C*{Y*{C*{B]{x ");
+				else if (ch->wait > 0)	sprintf(atb, "{B[{T********{C*{Y*{B]{x ");
+				else			sprintf(atb, "{B[{C**{YREADY!{C**{B]{x ");
+			}/*
+				if (ch->wait > 40)	sprintf(atb, "{P[{P*{R*********{P]{x ");
+				else if (ch->wait > 36)	sprintf(atb, "{P[{Y*{P*{R********{P]{x ");
+				else if (ch->wait > 32)	sprintf(atb, "{P[{P*{Y*{P*{R*******{P]{x ");
+				else if (ch->wait > 28)	sprintf(atb, "{P[{R*{P*{Y*{P*{R******{P]{x ");
+				else if (ch->wait > 24)	sprintf(atb, "{P[{R**{P*{Y*{P*{R*****{P]{x ");
+				else if (ch->wait > 20)	sprintf(atb, "{P[{R***{P*{Y*{P*{R****{P]{x ");
+				else if (ch->wait > 16)	sprintf(atb, "{P[{R****{P*{Y*{P*{R***{P]{x ");
+				else if (ch->wait > 12)	sprintf(atb, "{P[{R*****{P*{Y*{P*{R**{P]{x ");
+				else if (ch->wait > 8)	sprintf(atb, "{P[{R******{P*{Y*{P*{R*{P]{x ");
+				else if (ch->wait > 4)	sprintf(atb, "{P[{R*******{P*{Y*{P*{P]{x ");
+				else if (ch->wait > 0)	sprintf(atb, "{P[{R********{P*{Y*{P]{x ");
+				else			sprintf(atb, "{P[{R**{YREADY!{R**{P]{x ");
 
-		sprintf(buf, "({G%d{x) ", ch->fightpulse);
-		strcat(atb, buf);
-	}
-	else
-		sprintf(atb, "{x");
-        */
+				sprintf(buf, "({G%d{x) ", ch->fightpulse);
+				strcat(atb, buf);
+			} */
+			else
+				sprintf(atb, "{x");
 
-            ptc(ch, "%s %s\n\r", IS_NPC(victim) ? victim->short_descr : victim->name, wound);
+            ptc(ch, "%s%s %s\n\r", atb, IS_NPC(victim) ? victim->short_descr : victim->name, wound);
         }
 
 
