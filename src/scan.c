@@ -58,7 +58,7 @@ void do_scan2(CHAR_DATA *ch, char *argument) {
 	{
 		act("$n scans all around.", ch, NULL, NULL, TO_NOTVIEW);
 		stc("{PLooking around you see:{x\n\r", ch);
-		scan_room(ch->in_room, ch, 1, -1, NULL);
+		scan_room(ch->in_room, ch, 0, -1, NULL);
 //		scan_list(ch->in_room, ch, 0, -1);
 
 		for (door = 0; door < 6; door++)
