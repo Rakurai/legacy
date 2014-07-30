@@ -194,7 +194,7 @@ void scan_room(ROOM_INDEX_DATA *room, CHAR_DATA *ch, int depth, int door, struct
 		door == -1 ? "here" : dir_name[door]
 	);
 
-	if (IS_SET(pexit->exit_info, EX_CLOSED))
+	if (pexit && IS_SET(pexit->exit_info, EX_CLOSED))
 		stc("{Y(closed){x\n", ch);
 	else
 		ptc(ch, "%s {B(%s){x\n",
