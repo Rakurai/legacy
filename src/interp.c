@@ -447,6 +447,7 @@ const   struct  cmd_type        cmd_table       [] =
 	{ "save",			do_save,		POS_DEAD,		LOG_NORMAL,	8,	0			},
 	{ "score",			do_score,		POS_DEAD,		LOG_NORMAL,	3,	0			},
 	{ "scan",			do_scan,		POS_RESTING,	LOG_NORMAL,	3,	0			},
+	{ "scan2",			do_scan2,		POS_RESTING,	LOG_NORMAL,	3,	0			},
 	{ "scatter",		do_scatter,		POS_DEAD,		LOG_NORMAL,	5,	GWG			},
 	{ "scon",			do_scon,		POS_RESTING,	LOG_NORMAL,	3,	GAV			},
 	{ "scribe",			do_scribe,		POS_STANDING,	LOG_NORMAL,	7,	0			},
