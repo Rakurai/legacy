@@ -2206,17 +2206,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     =
     { 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
    },
    
-/*wchange necromancy evolve holder*/
-	{
-    "necromancy",                 { 0, 0, 0, 0, 0, 0, 0,  0 },
-                 {  0,  0,  0,  0,  0,  0,  0,  0 },
-    spell_null,             TAR_CHAR_OFFENSIVE,     POS_FIGHTING,
-    &gsn_necromancy,         SLOT( 0),       15,     12,
-    "necromancy",                 "!Necromancy!",               "",     0,
-    { 600, 0, 0, 0, 500, 0, 0, 0 },     { 0, 0, 0, 0, 600, 0, 0, 0 }
-   },
-	
-        
 	{
 		"parry",		{ 22, 20, 13,  1, 22, 10, 13,  1 },
 					{  8,  8,  6,  4,  8,  5,  6,  4 },
