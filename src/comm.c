@@ -160,14 +160,6 @@ void    bzero           args( ( char *b, int length ) );
 #endif
 */
 
-#if defined(IPV6)
-  #define ADDR_FAMILY AF_INET6
-  #define SOCKADDR_IN sockaddr_in6
-#else
-  #define ADDR_FAMILY AF_INET
-  #define SOCKADDR_IN sockaddr_in
-#endif
-
 #if     defined(__hpux)
 int     accept          args( ( int s, void *addr, int *addrlen ) );
 int     bind            args( ( int s, const void *addr, int addrlen ) );
@@ -678,10 +670,17 @@ int init_socket( int port )
     int x = 1;
     int fd;
 
-    static struct SOCKADDR_IN sa_zero;
-    struct SOCKADDR_IN sa;
+#ifdef IPV6
+    static struct sockaddr_in6 sa_zero;
+    struct sockaddr_in6 sa;
 
-    if ( ( fd = socket( ADDR_FAMILY, SOCK_STREAM, 0 ) ) < 0 )
+    if ( ( fd = socket( AF_INET6, SOCK_STREAM, 0 ) ) < 0 )
+#else
+    static struct sockaddr_in sa_zero;
+    struct sockaddr_in sa;
+
+    if ( ( fd = socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
+#endif
     {
         perror( "Init_socket: socket" );
         EXIT_REASON(527, "Init_socket() problem");
@@ -725,8 +724,14 @@ int init_socket( int port )
 #endif
 
     sa              = sa_zero;
-    sa.sin_family   = ADDR_FAMILY;
+
+#ifdef IPV6
+    sa.sin6_family   = AF_INET6;
+    sa.sin6_port     = htons( port );
+#else
+    sa.sin_family   = AF_INET;
     sa.sin_port     = htons( port );
+#endif
 
     if ( bind( fd, (struct sockaddr *) &sa, sizeof(sa) ) < 0 )
     {
@@ -1090,7 +1095,12 @@ void init_descriptor( int control )
 {
     DESCRIPTOR_DATA *dnew;
 
-    struct SOCKADDR_IN sock;
+#ifdef IPV6
+    struct sockaddr_in6 sock;
+#else
+    struct sockaddr_in sock;
+#endif
+
     struct hostent *from;
     int desc;
     unsigned int size; /* Added unsigned Lotus359 */
@@ -1142,9 +1152,9 @@ void init_descriptor( int control )
          * which ain't very compatible between gcc and system libraries.
          */
 
-#if defined(IPV6)
+#ifdef IPV6
          char buf[INET6_ADDRSTRLEN];
-         inet_ntop(ADDR_FAMILY, &sock.sin6_addr, buf, sizeof(buf));
+         inet_ntop(AF_INET6, &sock.sin6_addr, buf, sizeof(buf));
 #else
          char buf[INET_ADDRSTRLEN];
         int addr = ntohl( sock.sin_addr.s_addr );
@@ -1154,7 +1164,7 @@ void init_descriptor( int control )
         );
 #endif
 
-        if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
+//        if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
         {
             sprintf( log_buf, "init_descriptor: sock.sinaddr  = %s", buf );
             log_string( log_buf );
@@ -1175,7 +1185,7 @@ void init_descriptor( int control )
             else
             {
                 dnew->host = str_dup( tmp_name );
-                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
+//                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
                 {
 		    if( strcmp( "kyndig.com", dnew->host ) )
 		    {
@@ -1186,8 +1196,12 @@ void init_descriptor( int control )
                 }
             }
         #else
-            from = gethostbyaddr( (char *) &sock.sin_addr,
-                sizeof(sock.sin_addr), ADDR_FAMILY);
+#ifdef IPV6
+            from = gethostbyaddr( (char *) &sock.sin6_addr, sizeof(sock.sin6_addr), AF_INET6);
+#else
+            from = gethostbyaddr( (char *) &sock.sin_addr, sizeof(sock.sin_addr), AF_INET);
+#endif
+
             if ( from == NULL || from->h_name == NULL )
             {
                 sprintf( log_buf, "name not available" );
@@ -1197,7 +1211,7 @@ void init_descriptor( int control )
             else
             {
                 dnew->host = str_dup( from->h_name );
-                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
+//                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
                 {
 		    if( strcmp( "kyndig.com", dnew->host ) )
 		    {
