@@ -2356,6 +2356,11 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	if (get_affect(victim->affected,gsn_paralyze))
 		chance /= 2;
 
+#ifdef DEBUG_CHANCE
+	ptc(ch, "(c%d)", chance);
+	ptc(victim, "(v%d)", chance);
+#endif
+
 	/*Moderate the result*/
 	chance = URANGE(5, chance, 95);
 
@@ -3502,13 +3507,10 @@ void do_bash( CHAR_DATA *ch, char *argument )
 	if (ch->size > victim->size)
 		chance -= (ch->size - victim->size) * 15;
 
-	/* level */
-	chance += (ch->level - victim->level);
-	
 	/* this is intentional!  AC_BASH is armor class vs blunt weapons, gained through
 	   thick armors and stuff.  the penalty for it is not a typo, it is supposed to
 	   count against you -- Montrey */
-	chance -= get_armor_ac(victim, AC_BASH) / 20;
+	chance -= get_armor_ac(victim, AC_BASH) / 30; // get_armor_ac is negative for better armor
 
 	/* Hitroll matters, maybe in the future */
 	/*if (GET_HITROLL(ch) <120)
@@ -3544,6 +3546,11 @@ void do_bash( CHAR_DATA *ch, char *argument )
 		chance = chance * ( 100 - get_skill( victim, gsn_standfast ) );
 		chance /= 100;
 	}
+
+#ifdef DEBUG_CHANCE
+	ptc(ch, "(c%d)", chance);
+	ptc(victim, "(v%d)", chance);
+#endif
 
 	/*Moderate the result*/
 	chance = URANGE(5, chance, 95);
