@@ -3311,9 +3311,7 @@ void do_berserk( CHAR_DATA *ch, char *argument)
 {
 	int chance, hp_percent;
 
-	if ((chance = get_skill(ch,gsn_berserk)) == 0
-	 || (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_BERSERK))
-	 || (!IS_NPC(ch) && ch->level < skill_table[gsn_berserk].skill_level[ch->class]))
+	if ((chance = get_skill(ch,gsn_berserk)) == 0)
 	{
 		stc("You turn red in the face, but nothing happens.\n\r",ch);
 		return;
@@ -3396,9 +3394,7 @@ void do_bash( CHAR_DATA *ch, char *argument )
 
 	one_argument(argument,arg);
 
-	if (get_skill(ch,gsn_bash) == 0
-	 || (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_BASH))
-	 || (!IS_NPC(ch) && ch->level < skill_table[gsn_bash].skill_level[ch->class]))
+	if (get_skill(ch,gsn_bash) == 0)
 	{
 		stc("Bashing? What's that?\n\r",ch);
 		return;
@@ -3591,9 +3587,7 @@ void do_dirt( CHAR_DATA *ch, char *argument )
 
 	one_argument(argument,arg);
 
-	if ((chance = get_skill(ch,gsn_dirt_kicking)) == 0
-	 || (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_KICK_DIRT))
-	 || (!IS_NPC(ch) && ch->level < skill_table[gsn_dirt_kicking].skill_level[ch->class]))
+	if ((chance = get_skill(ch,gsn_dirt_kicking)) == 0)
 	{
 		stc("You get your feet dirty.\n\r",ch);
 		return;
@@ -3733,81 +3727,9 @@ void do_dirt( CHAR_DATA *ch, char *argument )
 	}
 } /* end do_dirt */
 
-
-void do_trip( CHAR_DATA *ch, char *argument )
-{
-	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
-	int chance;
-
-	one_argument(argument,arg);
-
-	if ((chance = get_skill(ch,gsn_trip)) == 0
-	 || (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_TRIP))
-	 || (!IS_NPC(ch) && ch->level < skill_table[gsn_trip].skill_level[ch->class]))
-	{
-		stc("Tripping?  What's that?\n\r",ch);
-		return;
-	}
-
-	if (arg[0] == '\0')
-	{
-		victim = ch->fighting;
-
-		if (victim == NULL)
-		{
-			stc("But you aren't fighting anyone!\n\r",ch);
-			return;
-		}
-	}
-	else if ((victim = get_char_here(ch,arg, VIS_CHAR)) == NULL)
-	{
-		stc("They aren't here.\n\r",ch);
-		return;
-	}
-
-	if (is_safe( ch, victim, TRUE ) )
-		return;
-
-	if (IS_NPC(victim)
-	 && victim->fighting != NULL
-	 && !is_same_group(ch,victim->fighting))
-	{
-		stc("Kill stealing is not permitted.\n\r",ch);
-		return;
-	}
-
-	if (IS_AFFECTED(victim,AFF_FLYING))
-	{
-		act("$S feet aren't on the ground.",ch,NULL,victim,TO_CHAR);
-		return;
-	}
-
-	if (get_position(victim) < POS_FIGHTING)
-	{
-		act("$N is already down.",ch,NULL,victim,TO_CHAR);
-		return;
-	}
-
-	if (victim == ch)
-	{
-		stc("You fall flat on your face!\n\r",ch);
-		WAIT_STATE(ch,2 * skill_table[gsn_trip].beats);
-		act("$n trips over $s own feet!",ch,NULL,NULL,TO_ROOM);
-		return;
-	}
-
-	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim)
-	{
-		act("$N is your beloved master.",ch,NULL,victim,TO_CHAR);
-		return;
-	}
-
-	if (!deduct_stamina(ch, gsn_trip))
-		return;
-
+// pulled out to use for evolved kick as well as do_trip
+bool trip(CHAR_DATA *ch, CHAR_DATA *victim, int chance, int dam_type) {
 	/* modifiers */
-
 	/* size */
 	if (ch->size < victim->size)
 		chance += (ch->size - victim->size) * 10;  /* bigger = harder to trip */
@@ -3837,28 +3759,108 @@ void do_trip( CHAR_DATA *ch, char *argument )
 
 	if (number_percent() < chance)
 	{
+		DAZE_STATE(victim,2 * PULSE_VIOLENCE);
+		WAIT_STATE(victim,2 * PULSE_VIOLENCE);
+		victim->position = POS_RESTING;
+		damage(ch,victim,number_range(2, 2 +  2 * victim->size),dam_type,DAM_BASH,TRUE,FALSE);
+		if (CAN_USE_RSKILL(victim,gsn_standfast))
+			check_improve( victim, gsn_standfast, FALSE, 1 );
+		return TRUE;
+	}
+	else
+	{
+		damage(ch,victim,0,dam_type,DAM_BASH,TRUE,FALSE);
+		if (CAN_USE_RSKILL(victim,gsn_standfast))
+			check_improve( victim, gsn_standfast, TRUE, 1 );
+		return FALSE;
+	}
+}
+
+void do_trip( CHAR_DATA *ch, char *argument )
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	int chance;
+
+	one_argument(argument,arg);
+
+	if ((chance = get_skill(ch,gsn_trip)) == 0)
+	{
+		stc("Tripping?  What's that?\n\r",ch);
+		return;
+	}
+
+	if (arg[0] == '\0')
+	{
+		victim = ch->fighting;
+
+		if (victim == NULL)
+		{
+			stc("But you aren't fighting anyone!\n\r",ch);
+			return;
+		}
+	}
+	else {
+		victim = get_char_here(ch,arg, VIS_CHAR);
+
+		if (victim == NULL) {
+			stc("They aren't here.\n\r",ch);
+			return;
+		}
+	}
+
+	if (is_safe( ch, victim, TRUE ) )
+		return;
+
+	if (IS_NPC(victim)
+	 && victim->fighting != NULL
+	 && !is_same_group(ch,victim->fighting))
+	{
+		stc("Kill stealing is not permitted.\n\r",ch);
+		return;
+	}
+
+	if (IS_AFFECTED(victim,AFF_FLYING))
+	{
+		act("$S feet aren't on the ground.",ch,NULL,victim,TO_CHAR);
+		return;
+	}
+
+	if (get_position(victim) < POS_FIGHTING)
+	{
+		act("$N is already down.",ch,NULL,victim,TO_CHAR);
+		return;
+	}
+
+	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim)
+	{
+		act("$N is your beloved master.",ch,NULL,victim,TO_CHAR);
+		return;
+	}
+
+	if (victim == ch)
+	{
+		stc("You fall flat on your face!\n\r",ch);
+		WAIT_STATE(ch,2 * skill_table[gsn_trip].beats);
+		act("$n trips over $s own feet!",ch,NULL,NULL,TO_ROOM);
+		return;
+	}
+
+	if (!deduct_stamina(ch, gsn_trip))
+		return;
+
+	if (trip(ch, victim, chance, gsn_trip)) {
 		act("$n trips you and you go down!",ch,NULL,victim,TO_VICT);
 		act("You trip $N and $E goes down!",ch,NULL,victim,TO_CHAR);
 		act("$n trips $N, sending $M to the ground.",ch,NULL,victim,TO_NOTVICT);
 		check_improve(ch,gsn_trip,TRUE,1);
-		DAZE_STATE(victim,2 * PULSE_VIOLENCE);
-		WAIT_STATE(victim,2 * PULSE_VIOLENCE);
 		WAIT_STATE(ch,skill_table[gsn_trip].beats);
-		victim->position = POS_RESTING;
-		damage(ch,victim,number_range(2, 2 +  2 * victim->size),gsn_trip,DAM_BASH,TRUE,FALSE);
-		if (CAN_USE_RSKILL(victim,gsn_standfast))
-			check_improve( victim, gsn_standfast, FALSE, 1 );
 	}
-	else
-	{
-		damage(ch,victim,0,gsn_trip,DAM_BASH,TRUE,FALSE);
-		WAIT_STATE(ch,skill_table[gsn_trip].beats*2/3);
+	else {
 		check_improve(ch,gsn_trip,FALSE,1);
-		if (CAN_USE_RSKILL(victim,gsn_standfast))
-			check_improve( victim, gsn_standfast, TRUE, 1 );
+		WAIT_STATE(ch,skill_table[gsn_trip].beats*2/3);
 	}
 } /* end do_trip */
-
 
 void do_kill( CHAR_DATA *ch, char *argument )
 {
@@ -4459,8 +4461,7 @@ void do_circle( CHAR_DATA *ch, char *argument )
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 
-	if (!get_skill(ch,gsn_circle)
-	 || (!IS_NPC(ch) && ch->level < skill_table[gsn_circle].skill_level[ch->class]))
+	if (!get_skill(ch,gsn_circle))
 	{
 		stc("You twirl around is a circle! wheeee!!!!\n\r",ch);
 		return;
@@ -4755,23 +4756,12 @@ void do_rescue( CHAR_DATA *ch, char *argument )
 void do_kick( CHAR_DATA *ch, char *argument )
 {
 	CHAR_DATA *victim;
-	int amount, evo, standfastmod, atkmod, defmod;
-    
-/* mods for evo 3's trip chance */
-	atkmod       = 0;
-	defmod       = 0;
-	standfastmod = 0;
+	int skill, amount;
 
-	evo = get_evolution(ch, gsn_kick);
-
-	if (!IS_NPC(ch) && ch->level < skill_table[gsn_kick].skill_level[ch->class])
-	{
-		stc("You better leave the martial arts to fighters.\n\r", ch );
+	if ((skill = get_skill(ch, gsn_kick)) == 0) {
+		stc("You'd better leave the martial arts to fighters.\n\r", ch );
 		return;
 	}
-
-	if (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_KICK))
-		return;
 
 	if ( ( victim = ch->fighting ) == NULL )
 	{
@@ -4783,8 +4773,9 @@ void do_kick( CHAR_DATA *ch, char *argument )
 		return;
 
 	WAIT_STATE( ch, skill_table[gsn_kick].beats );
+    check_killer(ch,victim);
 
-	if ( get_skill(ch,gsn_kick) > number_percent())
+	if (skill >= number_percent())
 	{
 		amount = number_range( (ch->level / 3), ch->level );
 		amount += GET_DAMROLL(ch);
@@ -4793,75 +4784,43 @@ void do_kick( CHAR_DATA *ch, char *argument )
 			amount = amount * 5 / 4;
 
 		damage(ch,victim,amount, gsn_kick,DAM_BASH,TRUE,FALSE);
-			check_improve(ch,gsn_kick,TRUE,1);
-		
-		if (evo > 1)
-		{
-			switch (evo)
+		check_improve(ch,gsn_kick,TRUE,1);
+
+		int evo = get_evolution(ch, gsn_kick);
+
+		if (evo >= 2) {
+			if (get_position(victim) == POS_FIGHTING
+			 && chance((evo-1)*20+10)) // evo 2: 30, evo 3, 50
 			{
-				case 2:
-					if (chance(30))
-					{
-						stc( "You bring your foot around for a second hit.\n\r", ch);
-						damage(ch,victim,amount,gsn_roundhouse,DAM_BASH,TRUE,FALSE);
-						check_improve(ch,gsn_kick,TRUE,1);
-					}
-					break;
-
-				case 3:
-					if (chance(50))
-					{
-						stc( "You bring your foot around for a second hit.\n\r", ch);
-						damage(ch, victim, amount, gsn_roundhouse, DAM_BASH, TRUE, FALSE);
-						check_improve(ch, gsn_kick, TRUE, 1);
-					}
-					if (!IS_AFFECTED(victim, AFF_FLYING))
-					{
-						if (chance(30))
-						{
-							if (get_curr_stat(victim,STAT_DEX) > get_curr_stat(ch, STAT_DEX))
-								defmod += 1;
-							if (get_curr_stat(ch, STAT_DEX) > get_curr_stat(victim, STAT_DEX))
-								atkmod += 1;
-							if (victim->size > ch->size)
-								defmod += 1;
-							if (ch->size > victim->size)
-								atkmod += 1;
-							if (CAN_USE_RSKILL(victim,gsn_standfast)) /*standfast mod*/
-								standfastmod = get_skill( victim, gsn_standfast ); /*reads raw numbers*/
-							if (standfastmod > 50)
-								defmod += 2;
-
-							if (atkmod > defmod)
-							{
-								act("$n sweeps your feet out from under you!",ch,NULL,victim,TO_VICT);
-								act("You sweep $N's feet and $E goes down!",ch,NULL,victim,TO_CHAR);
-								act("$n trips $N, sending $M to the ground.",ch,NULL,victim,TO_NOTVICT);
-								DAZE_STATE(victim,2 * PULSE_VIOLENCE);
-								WAIT_STATE(victim,2 * PULSE_VIOLENCE);
-								victim->position = POS_RESTING;
-								damage(ch,victim,number_range(2, 2 +  2 * victim->size),gsn_footsweep,DAM_BASH,TRUE,FALSE);
-								
-								if (CAN_USE_RSKILL(victim,gsn_standfast))
-									check_improve( victim, gsn_standfast, FALSE, 1 );
-							}
-
-							if (defmod > atkmod)
-								damage(ch,victim,0,gsn_footsweep,DAM_BASH,TRUE,FALSE);
-
-					    }
-					}
-					break;
+				stc( "You bring your foot around for a second hit.\n\r", ch);
+				damage(ch,victim,amount,gsn_roundhouse,DAM_BASH,TRUE,FALSE);
+				check_improve(ch,gsn_kick,TRUE,1);
 			}
+		}
+
+		if (evo >= 3) {
+			if (get_position(victim) == POS_FIGHTING
+			 && !IS_AFFECTED(victim, AFF_FLYING)
+			 && chance(30)) {
+				if (trip(ch, victim, skill, gsn_footsweep)) {
+					act("$n sweeps your feet out from under you!",ch,NULL,victim,TO_VICT);
+					act("You sweep $N's feet and $E goes down!",ch,NULL,victim,TO_CHAR);
+					act("$n trips $N, sending $M to the ground.",ch,NULL,victim,TO_NOTVICT);
+					// for now, no extra wait state
+				}
+				else {
+					// for now, no extra wait state
+				}
 			}
+		}
 	}
 	else
 	{
+		// miss for 0
 		damage( ch, victim, 0, gsn_kick,DAM_BASH,TRUE,FALSE);
 		check_improve(ch,gsn_kick,FALSE,1);
 	}
 
-        check_killer(ch,victim);
 } /* end do_kick */
 
 
@@ -4869,14 +4828,11 @@ void do_crush( CHAR_DATA *ch, char *argument )
 {
 	CHAR_DATA *victim;
 
-	if (!IS_NPC(ch) && ch->level < skill_table[gsn_crush].skill_level[ch->class] )
+	if (!get_skill(ch, gsn_crush))
 	{
 		stc("You are not skilled at grappling.\n\r", ch );
 		return;
 	}
-
-	if (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_CRUSH))
-		return;
 
 	if ( ( victim = ch->fighting ) == NULL )
 	{
