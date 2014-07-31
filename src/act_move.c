@@ -3426,12 +3426,13 @@ are cancelled upon landing.
 void do_fly( CHAR_DATA *ch, char *argument )
 {
   /* no takeoffs in combat */
-  if (ch->fighting)
+	// why not? -- Montrey (2014)
+/*  if (ch->fighting)
   {
      stc("You have other things to worry about now!\n\r", ch);
      return;
   }
-
+*/
   /* we must be standing to fly */
   /*
   This is covered in interperet() 
@@ -3450,7 +3451,7 @@ void do_fly( CHAR_DATA *ch, char *argument )
      act("$n takes to the air.", ch, NULL, NULL, TO_ROOM );
   }
   else
-    stc("You don't know how to fly.\n\r", ch);
+    stc("You attempt to grow some wings, but fail.\n\r", ch);
   
   return;
 }
