@@ -159,6 +159,15 @@ int     socket          args( ( int domain, int type, int protocol ) );
 void    bzero           args( ( char *b, int length ) );
 #endif
 */
+
+#if defined(IPV6)
+  #define ADDR_FAMILY AF_INET6
+  #define SOCKADDR_IN sockaddr_in6
+#else
+  #define ADDR_FAMILY AF_INET
+  #define SOCKADDR_IN sockaddr_in
+#endif
+
 #if     defined(__hpux)
 int     accept          args( ( int s, void *addr, int *addrlen ) );
 int     bind            args( ( int s, const void *addr, int addrlen ) );
@@ -666,12 +675,13 @@ int main(int argc, char **argv)
 #if defined(unix)
 int init_socket( int port )
 {
-    static struct sockaddr_in sa_zero;
-    struct sockaddr_in sa;
     int x = 1;
     int fd;
 
-    if ( ( fd = socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
+    static struct SOCKADDR_IN sa_zero;
+    struct SOCKADDR_IN sa;
+
+    if ( ( fd = socket( ADDR_FAMILY, SOCK_STREAM, 0 ) ) < 0 )
     {
         perror( "Init_socket: socket" );
         EXIT_REASON(527, "Init_socket() problem");
@@ -715,7 +725,7 @@ int init_socket( int port )
 #endif
 
     sa              = sa_zero;
-    sa.sin_family   = AF_INET;
+    sa.sin_family   = ADDR_FAMILY;
     sa.sin_port     = htons( port );
 
     if ( bind( fd, (struct sockaddr *) &sa, sizeof(sa) ) < 0 )
@@ -1078,9 +1088,9 @@ void game_loop_unix( int control )
 #if defined(unix)
 void init_descriptor( int control )
 {
-    char buf[MAX_STRING_LENGTH];
     DESCRIPTOR_DATA *dnew;
-    struct sockaddr_in sock;
+
+    struct SOCKADDR_IN sock;
     struct hostent *from;
     int desc;
     unsigned int size; /* Added unsigned Lotus359 */
@@ -1131,13 +1141,19 @@ void init_descriptor( int control )
          * Would be nice to use inet_ntoa here but it takes a struct arg,
          * which ain't very compatible between gcc and system libraries.
          */
-        int addr;
 
-        addr = ntohl( sock.sin_addr.s_addr );
+#if defined(IPV6)
+         char buf[INET6_ADDRSTRLEN];
+         inet_ntop(ADDR_FAMILY, &sock.sin6_addr, buf, sizeof(buf));
+#else
+         char buf[INET_ADDRSTRLEN];
+        int addr = ntohl( sock.sin_addr.s_addr );
         sprintf( buf, "%d.%d.%d.%d",
             ( addr >> 24 ) & 0xFF, ( addr >> 16 ) & 0xFF,
             ( addr >>  8 ) & 0xFF, ( addr       ) & 0xFF
-            );
+        );
+#endif
+
         if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
         {
             sprintf( log_buf, "init_descriptor: sock.sinaddr  = %s", buf );
@@ -1171,7 +1187,7 @@ void init_descriptor( int control )
             }
         #else
             from = gethostbyaddr( (char *) &sock.sin_addr,
-                sizeof(sock.sin_addr), AF_INET );
+                sizeof(sock.sin_addr), ADDR_FAMILY);
             if ( from == NULL || from->h_name == NULL )
             {
                 sprintf( log_buf, "name not available" );
@@ -2751,7 +2767,7 @@ void show_string(struct descriptor_data *d, char *input)
                 stc (buffer, d-> character);
             else
             write_to_buffer(d,buffer,strlen(buffer));
-            for (chk = d->showstr_point; isspace(*chk); chk++);
+            for (chk = d->showstr_point; isspace(*chk); chk++)
             {
                 if (!*chk)
                 {
