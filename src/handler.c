@@ -386,7 +386,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 	{
 		if ((sn == gsn_dodge && IS_SET(ch->off_flags,OFF_DODGE))
 		||  (sn == gsn_parry && IS_SET(ch->off_flags,OFF_PARRY))
-		||  (sn == gsn_kick))
+		||  (sn == gsn_kick && IS_SET(ch->off_flags, OFF_KICK)))
 			skill = 10 + ch->level;
 
 		else if (sn == gsn_shield_block)

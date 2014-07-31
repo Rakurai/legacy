@@ -1495,10 +1495,6 @@ void do_evolve( CHAR_DATA *ch, char *argument )
 		return;
 	}
 	
-	/* wchange small patch to allow both necromancy and healing evolution stuff */
-	
-	if (!strcmp(arg,"necromancy") || !strcmp(arg,"healing")) special += 1;
-	
 	if ((sn = skill_lookup(arg)) == -1)
 	{
 		stc("No skill or spell by that name exists.\n\r", ch);
