@@ -1,13 +1,13 @@
 CC      = gcc
 WARNING = -Wall -Winline
 DEBUG   = -ggdb
-DEFINE  = -Dlinux -Dunix -DSQL -DDEBUG
+DEFINE  = -Dlinux -Dunix -DSQL -DDEBUG -DIPV6
 #INCLUDE = -I/usr/include -I/usr/include/mysql
 INCLUDE = -I/usr/include $(shell mysql_config --cflags)
 C_FLAGS = -O ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}
 #L_FLAGS = -lmysqlclient -lcrypt
 #L_FLAGS = -L/usr/lib/mysql -lmysqlclient -lcrypt
-L_FLAGS = $(shell mysql_config --libs) -lcrypt
+L_FLAGS = $(shell mysql_config --libs)
 
 DATE=`date +%Y-%m-%d`
 BINDIR=../bin

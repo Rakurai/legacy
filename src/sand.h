@@ -20,7 +20,7 @@ extern void sand_close(void);
 extern void sand_init(int clientport, int serverport);
 extern char *sand_query(t_iadr addr);
 
-#define SAND
+//#define SAND
 #define SAND_H
 
 /* end of sand.h */
