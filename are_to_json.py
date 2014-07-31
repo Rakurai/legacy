@@ -2,27 +2,81 @@ import json
 import shlex
 
 text = ''
+last_str = ''
+
+def read_char():
+	global text
+	global last_str
+	text = text.lstrip()
+	c = text[0]
+	text = text[1:]
+	last_str = c
+	return c
 
 def read_word():
 	global text
+	global last_str
 	text = text.lstrip()
+
 	if text[0] == "'":
-		word, text = text[1:].split("'", 1)
-		return "'" + word + "'"
+		last_str, text = text[1:].split("'", 1)
+		return "'" + last_str + "'"
 	if text[0] == '"':
-		word, text = text[1:].split('"', 1)
-		return "'" + word + "'"
-	word, text = text.split(None, 1)
-#	print word
-	return word.lstrip()
+		last_str, text = text[1:].split('"', 1)
+		return "'" + last_str + "'"
+
+	buf = ''
+	c = text[0]
+	while c != ' ' and c != '\t' and c != '\n':
+		buf += c
+		text = text[1:]
+		c = text[0]
+	last_str = buf
+	return buf
+#	last_str, text = text.split(None, 1)
+#	print last_str
+#	return last_str.lstrip()
 
 def read_string():
 	global text
-	string, text = text.split('~', 1)
-	return string
+	global last_str
+	last_str, text = text.split('~', 1)
+	return last_str
 
 def read_int():
-	return int(read_word())
+	global text
+	global last_str
+	buf = ''
+	text = text.lstrip()
+	if text[0] == '-' or text[0] == '+':
+		buf = text[0]
+		text = text[1:].lstrip()
+
+	while text[0].isdigit():
+		buf += text[0]
+		text = text[1:]
+	last_str = buf
+	return int(buf)
+
+def read_dice():
+	global last_str
+	buf = ''
+	buf += '%d'%read_int()
+	buf += read_char()
+	buf += '%d'%read_int()
+	buf += read_char()
+	buf += '%d'%read_int()
+	last_str = buf
+	return buf
+
+def read_eol():
+	global text
+
+	c = text[0]
+	while c != '\n':
+		text = text[1:]
+		c = text[0]
+#	text = text.split('\n', 1)[-1]
 
 def read_area():
 	area = {}
@@ -59,9 +113,9 @@ def read_mobile():
 	mobile['group'] = read_word()
 	mobile['level'] = read_int()
 	mobile['hitroll'] = read_int()
-	mobile['hp_dice'] = read_word()
-	mobile['mana_dice'] = read_word()
-	mobile['damage_dice'] = read_word()
+	mobile['hp_dice'] = read_dice()
+	mobile['mana_dice'] = read_dice()
+	mobile['damage_dice'] = read_dice()
 	mobile['damage_type'] = read_word()
 	mobile['ac_pierce'] = read_int()
 	mobile['ac_bash'] = read_int()
@@ -175,6 +229,7 @@ def read_object():
 			if 'added_flags' not in obj:
 				obj['added_flags'] = []
 			add = {}
+			text = text.lstrip()
 			add['type'] = text[0]
 			text = text[1:]
 			add['location'] = read_int()
@@ -222,29 +277,22 @@ def read_room():
 	room['sector_type'] = read_int()
 
 	while True:
-		text = text.lstrip()
-		if text[0] == 'E':
-			text = text[1:]
+		c = read_char()
+		if c == 'E':
 			if 'extra_descr' not in room:
 				room['extra_descr'] = {}
 			room['extra_descr'][read_string()] = read_string()
-		elif text[0] == 'H':
-			text = text[1:]
+		elif c == 'H':
 			room['heal_rate'] = read_int()
-		elif text[0] == 'M':
-			text = text[1:]
+		elif c == 'M':
 			room['mana_rate'] = read_int()
-		elif text[0] == 'C':
-			text = text[1:]
+		elif c == 'C':
 			room['clan'] = read_word()
-		elif text[0] == 'G':
-			text = text[1:]
+		elif c == 'G':
 			room['guild'] = read_word()
-		elif text[0] == 'O':
-			text = text[1:]
+		elif c == 'O':
 			room['owner'] = read_string()
-		elif text[0] == 'D':
-			text = text[1:]
+		elif c == 'D':
 			if 'exits' not in room:
 				room['exits'] = {}
 			exit = {}
@@ -255,8 +303,7 @@ def read_room():
 			exit['key'] = read_int()
 			exit['vnum'] = read_int()
 			room['exits'][direction] = exit
-		elif text[0] == 'S':
-			text = text[1:]
+		elif c == 'S':
 			break
 		else:
 			print 'weird room', vnum
@@ -279,12 +326,11 @@ def read_resets():
 	resets = []
 
 	while True:
-		text = text.lstrip()
-		letter = text[0]
-		text = text[1:]
+		letter = read_char()
 
 		if letter == '*':
-			text = text.split('\n', 1)[-1] # read to eol
+			read_eol()
+			continue
 		elif letter == 'S':
 			break
 
@@ -302,7 +348,7 @@ def read_resets():
 		else:
 			reset['arg4'] = 0
 
-		text = text.split('\n', 1)[-1] # read to eol
+		read_eol()
 		resets.append(reset)
 
 	return resets
@@ -325,7 +371,7 @@ def read_shops():
 		shop['open_hour'] = read_int()
 		shop['close_hour'] = read_int()
 
-		text = text.split('\n', 1)[-1] # read to eol
+		read_eol()
 		shops.append(shop)
 
 	return shops
@@ -335,12 +381,11 @@ def read_specials():
 	specials = []
 
 	while True:
-		text = text.lstrip()
-		letter = text[0]
-		text = text[1:]
+		letter = read_char()
 
 		if letter == '*':
-			text = text.split('\n', 1)[-1] # read to eol
+			read_eol()
+			continue
 		elif letter == 'S':
 			break
 
@@ -349,9 +394,11 @@ def read_specials():
 		special['vnum'] = read_int()
 		special['spec'] = read_word()
 
-		text = text.split('\n', 1)[-1] # read to eol
+		read_eol()
+#		print 'read special, remaining is', text
 		specials.append(special)
 
+#	print 'finished specials, remaining is', text
 	return specials
 
 def read_tourstarts():
@@ -369,46 +416,72 @@ def to_json(f):
 	for line in f:
 		text += line
 
-	while True:
-		text = text.lstrip()
-		if (len(text) == 0):
-			break;
+	text.replace(r'\r','')
 
-		parts = text.split(None, 1)
-		if len(parts) == 1:
-			print parts[0]
-			break
-		word = parts[0]
-		text = parts[1]
+	try:
+		while True:
+			text = text.lstrip()
+			if (len(text) == 0):
+				break;
 
-		if word == '#AREA':
-			sections['AREA'] = read_area()
-		elif word == '#MOBILES':
-			sections['MOBILES'] = read_mobiles()
-		elif word == '#OBJECTS':
-			sections['OBJECTS'] = read_objects()
-		elif word == '#RESETS':
-			sections['RESETS'] = read_resets()
-		elif word == '#ROOMS':
-			sections['ROOMS'] = read_rooms()
-		elif word == '#SHOPS':
-			sections['SHOPS'] = read_shops()
-		elif word == '#SPECIALS':
-			sections['SPECIALS'] = read_specials()
-#		elif word == '#TOURSTARTS':
-#			sections['TOURSTARTS'] = read_tourstarts()
-#		elif word == '#TOURROUTES':
-#			sections['TOURROUTES'] = read_tourroutes()
-		elif word.startswith('#$'):
-			break
-		else:
-			pass
-#			print "weird line " + word
+			parts = text.split(None, 1)
+			if len(parts) == 1:
+#				print parts[0]
+				break
+			word = parts[0]
+			text = parts[1]
+	#		print word
+
+			if word == '#AREA':
+				sections['AREA'] = read_area()
+			elif word == '#MOBILES':
+				sections['MOBILES'] = read_mobiles()
+			elif word == '#OBJECTS':
+				sections['OBJECTS'] = read_objects()
+			elif word == '#RESETS':
+				sections['RESETS'] = read_resets()
+			elif word == '#ROOMS':
+				sections['ROOMS'] = read_rooms()
+			elif word == '#SHOPS':
+				sections['SHOPS'] = read_shops()
+			elif word == '#SPECIALS':
+				sections['SPECIALS'] = read_specials()
+	#		elif word == '#TOURSTARTS':
+	#			sections['TOURSTARTS'] = read_tourstarts()
+	#		elif word == '#TOURROUTES':
+	#			sections['TOURROUTES'] = read_tourroutes()
+			elif word.startswith('#$'):
+				break
+			else:
+				pass
+	except:
+		print 'Last string:', last_str
+		print 'Remaining:', text
+		raise
+
+#	return sections
 	return json.dumps(sections, indent=4)
 
 if __name__ == "__main__":
+	import codecs
 	import sys
-	area = open(sys.argv[1])
-	print to_json(area)
-	area.close()
+#	area = open(sys.argv[1])
+	area = codecs.open(sys.argv[1], 'r', 'utf-8', 'ignore')
+
+	try:
+		j = to_json(area)
+	except:
+		print sys.argv[1]
+		raise
+	finally:
+		area.close()
+
+	fname = sys.argv[1].rsplit('.', 1)[0]
+	f = open(fname + '.json', 'w')
+	f.write(j)
+	f.close()
+#	import pprint
+#	pp = pprint.PrettyPrinter(depth=4)
+#	pp.pprint(j)
+#	print j
 

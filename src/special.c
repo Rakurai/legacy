@@ -1349,9 +1349,6 @@ bool IS_SPECIAL(CHAR_DATA *ch)
 
 	if (!str_cmp(ch->name, "Montrey")
 	 || !str_cmp(ch->name, "Xenith"))
-//	 || !str_cmp(ch->name, "Asmadi")
-//	 || !str_cmp(ch->name, "Outsider")
-//	 || !str_cmp(ch->name, "Vegita"))
 		return TRUE;
 
 	return FALSE;

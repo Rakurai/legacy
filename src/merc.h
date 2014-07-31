@@ -1753,7 +1753,7 @@ struct  kill_data
 #define COMM_SHOW_AFFECTS       (Q)
 #define COMM_NOGRATS            (R)
 #define COMM_NOEMOTE            (T)
-#define COMM_NOCHANNELS         (W) /* Defunct - replaced by REVOKE_NOCHANNELS */
+#define COMM_NOCHANNELS          (W) // this isn't even for players, is it needed? Montrey
 #define COMM_NOSOCIAL           (X)
 #define COMM_NOQUERY            (Y)
 #define COMM_AFK                (Z)
@@ -1761,6 +1761,7 @@ struct  kill_data
 #define COMM_NOPAGE             (bb)
 #define COMM_NOPRAY             (cc)
 #define COMM_RPRAY		(dd) /* Defunct - replaced by REVOKE_PRAY */
+#define COMM_ATBPROMPT          (ee)
 
 /* NOchannel flags */
 #define REVOKE_NOCHANNELS	(A)

@@ -159,6 +159,7 @@ int     socket          args( ( int domain, int type, int protocol ) );
 void    bzero           args( ( char *b, int length ) );
 #endif
 */
+
 #if     defined(__hpux)
 int     accept          args( ( int s, void *addr, int *addrlen ) );
 int     bind            args( ( int s, const void *addr, int addrlen ) );
@@ -666,12 +667,20 @@ int main(int argc, char **argv)
 #if defined(unix)
 int init_socket( int port )
 {
-    static struct sockaddr_in sa_zero;
-    struct sockaddr_in sa;
     int x = 1;
     int fd;
 
+#ifdef IPV6
+    static struct sockaddr_in6 sa_zero;
+    struct sockaddr_in6 sa;
+
+    if ( ( fd = socket( AF_INET6, SOCK_STREAM, 0 ) ) < 0 )
+#else
+    static struct sockaddr_in sa_zero;
+    struct sockaddr_in sa;
+
     if ( ( fd = socket( AF_INET, SOCK_STREAM, 0 ) ) < 0 )
+#endif
     {
         perror( "Init_socket: socket" );
         EXIT_REASON(527, "Init_socket() problem");
@@ -715,8 +724,14 @@ int init_socket( int port )
 #endif
 
     sa              = sa_zero;
+
+#ifdef IPV6
+    sa.sin6_family   = AF_INET6;
+    sa.sin6_port     = htons( port );
+#else
     sa.sin_family   = AF_INET;
     sa.sin_port     = htons( port );
+#endif
 
     if ( bind( fd, (struct sockaddr *) &sa, sizeof(sa) ) < 0 )
     {
@@ -1078,9 +1093,14 @@ void game_loop_unix( int control )
 #if defined(unix)
 void init_descriptor( int control )
 {
-    char buf[MAX_STRING_LENGTH];
     DESCRIPTOR_DATA *dnew;
+
+#ifdef IPV6
+    struct sockaddr_in6 sock;
+#else
     struct sockaddr_in sock;
+#endif
+
     struct hostent *from;
     int desc;
     unsigned int size; /* Added unsigned Lotus359 */
@@ -1131,14 +1151,20 @@ void init_descriptor( int control )
          * Would be nice to use inet_ntoa here but it takes a struct arg,
          * which ain't very compatible between gcc and system libraries.
          */
-        int addr;
 
-        addr = ntohl( sock.sin_addr.s_addr );
+#ifdef IPV6
+         char buf[INET6_ADDRSTRLEN];
+         inet_ntop(AF_INET6, &sock.sin6_addr, buf, sizeof(buf));
+#else
+         char buf[INET_ADDRSTRLEN];
+        int addr = ntohl( sock.sin_addr.s_addr );
         sprintf( buf, "%d.%d.%d.%d",
             ( addr >> 24 ) & 0xFF, ( addr >> 16 ) & 0xFF,
             ( addr >>  8 ) & 0xFF, ( addr       ) & 0xFF
-            );
-        if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
+        );
+#endif
+
+//        if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
         {
             sprintf( log_buf, "init_descriptor: sock.sinaddr  = %s", buf );
             log_string( log_buf );
@@ -1159,7 +1185,7 @@ void init_descriptor( int control )
             else
             {
                 dnew->host = str_dup( tmp_name );
-                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
+//                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
                 {
 		    if( strcmp( "kyndig.com", dnew->host ) )
 		    {
@@ -1170,8 +1196,12 @@ void init_descriptor( int control )
                 }
             }
         #else
-            from = gethostbyaddr( (char *) &sock.sin_addr,
-                sizeof(sock.sin_addr), AF_INET );
+#ifdef IPV6
+            from = gethostbyaddr( (char *) &sock.sin6_addr, sizeof(sock.sin6_addr), AF_INET6);
+#else
+            from = gethostbyaddr( (char *) &sock.sin_addr, sizeof(sock.sin_addr), AF_INET);
+#endif
+
             if ( from == NULL || from->h_name == NULL )
             {
                 sprintf( log_buf, "name not available" );
@@ -1181,7 +1211,7 @@ void init_descriptor( int control )
             else
             {
                 dnew->host = str_dup( from->h_name );
-                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
+//                if ( addr != 0x7F000001L ) /* don't log localhost -- Elrac */
                 {
 		    if( strcmp( "kyndig.com", dnew->host ) )
 		    {
@@ -1532,71 +1562,73 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
         ch = d->character;
 
         /* battle prompt */
-        if ((victim = ch->fighting) != NULL && can_see(ch,victim))
-        {
-            int percent;
+        if ((victim = ch->fighting) != NULL) {
+        	char atb[100];
             char wound[100];
 
-            if (victim->max_hit > 0)
-                percent = victim->hit * 100 / victim->max_hit;
-            else
-                percent = -1;
+            if (can_see(ch,victim)) {
+	            int percent;
 
-            if (percent >= 100)
-                sprintf(wound,"is in excellent condition.");
-            else if (percent >= 90)
-                sprintf(wound,"has a few scratches.");
-            else if (percent >= 75)
-                sprintf(wound,"has some small wounds and bruises.");
-            else if (percent >= 50)
-                sprintf(wound,"has quite a few wounds.");
-            else if (percent >= 30)
-                sprintf(wound,"has some big nasty wounds and scratches.");
-            else if (percent >= 15)
-                sprintf(wound,"looks pretty hurt.");
-            else if (percent >= 1)
-                sprintf(wound,"is in awful condition.");
-            else if (percent >= 0)
-                sprintf(wound,"will soon be toast!!!");
-            else
-                sprintf(wound,"is in need of ***SERIOUS*** medical attention!");
+	            if (victim->max_hit > 0)
+	                percent = victim->hit * 100 / victim->max_hit;
+	            else
+	                percent = -1;
 
-/*	if (!IS_NPC(ch) && IS_SET(ch->pcdata->plr, PLR_ATBPROMPT))
-	{
-		if (ch->wait > 40)	sprintf(atb, "{B[{C*{T*********{B]{x ");
-		else if (ch->wait > 36)	sprintf(atb, "{B[{Y*{C*{T********{B]{x ");
-		else if (ch->wait > 32)	sprintf(atb, "{B[{C*{Y*{C*{T*******{B]{x ");
-		else if (ch->wait > 28)	sprintf(atb, "{B[{T*{C*{Y*{C*{T******{B]{x ");
-		else if (ch->wait > 24)	sprintf(atb, "{B[{T**{C*{Y*{C*{T*****{B]{x ");
-		else if (ch->wait > 20)	sprintf(atb, "{B[{T***{C*{Y*{C*{T****{B]{x ");
-		else if (ch->wait > 16)	sprintf(atb, "{B[{T****{C*{Y*{C*{T***{B]{x ");
-		else if (ch->wait > 12)	sprintf(atb, "{B[{T*****{C*{Y*{C*{T**{B]{x ");
-		else if (ch->wait > 8)	sprintf(atb, "{B[{T******{C*{Y*{C*{T*{B]{x ");
-		else if (ch->wait > 4)	sprintf(atb, "{B[{T*******{C*{Y*{C*{B]{x ");
-		else if (ch->wait > 0)	sprintf(atb, "{B[{T********{C*{Y*{B]{x ");
-		else			sprintf(atb, "{B[{C**{YREADY!{C**{B]{x ");
+	            if (percent >= 100)
+	                sprintf(wound,"is in excellent condition.");
+	            else if (percent >= 90)
+	                sprintf(wound,"has a few scratches.");
+	            else if (percent >= 75)
+	                sprintf(wound,"has some small wounds and bruises.");
+	            else if (percent >= 50)
+	                sprintf(wound,"has quite a few wounds.");
+	            else if (percent >= 30)
+	                sprintf(wound,"has some big nasty wounds and scratches.");
+	            else if (percent >= 15)
+	                sprintf(wound,"looks pretty hurt.");
+	            else if (percent >= 1)
+	                sprintf(wound,"is in awful condition.");
+	            else if (percent >= 0)
+	                sprintf(wound,"will soon be toast!!!");
+	            else
+	                sprintf(wound,"is in need of ***SERIOUS*** medical attention!");
+	        }
 
-		if (ch->wait > 40)	sprintf(atb, "{P[{P*{R*********{P]{x ");
-		else if (ch->wait > 36)	sprintf(atb, "{P[{Y*{P*{R********{P]{x ");
-		else if (ch->wait > 32)	sprintf(atb, "{P[{P*{Y*{P*{R*******{P]{x ");
-		else if (ch->wait > 28)	sprintf(atb, "{P[{R*{P*{Y*{P*{R******{P]{x ");
-		else if (ch->wait > 24)	sprintf(atb, "{P[{R**{P*{Y*{P*{R*****{P]{x ");
-		else if (ch->wait > 20)	sprintf(atb, "{P[{R***{P*{Y*{P*{R****{P]{x ");
-		else if (ch->wait > 16)	sprintf(atb, "{P[{R****{P*{Y*{P*{R***{P]{x ");
-		else if (ch->wait > 12)	sprintf(atb, "{P[{R*****{P*{Y*{P*{R**{P]{x ");
-		else if (ch->wait > 8)	sprintf(atb, "{P[{R******{P*{Y*{P*{R*{P]{x ");
-		else if (ch->wait > 4)	sprintf(atb, "{P[{R*******{P*{Y*{P*{P]{x ");
-		else if (ch->wait > 0)	sprintf(atb, "{P[{R********{P*{Y*{P]{x ");
-		else			sprintf(atb, "{P[{R**{YREADY!{R**{P]{x ");
+			if (IS_SET(ch->comm, COMM_ATBPROMPT))
+			{
+				if (ch->wait > 40)	    sprintf(atb, "{B[{C*{T*********{B]{x ");
+				else if (ch->wait > 36)	sprintf(atb, "{B[{Y*{C*{T********{B]{x ");
+				else if (ch->wait > 32)	sprintf(atb, "{B[{C*{Y*{C*{T*******{B]{x ");
+				else if (ch->wait > 28)	sprintf(atb, "{B[{T*{C*{Y*{C*{T******{B]{x ");
+				else if (ch->wait > 24)	sprintf(atb, "{B[{T**{C*{Y*{C*{T*****{B]{x ");
+				else if (ch->wait > 20)	sprintf(atb, "{B[{T***{C*{Y*{C*{T****{B]{x ");
+				else if (ch->wait > 16)	sprintf(atb, "{B[{T****{C*{Y*{C*{T***{B]{x ");
+				else if (ch->wait > 12)	sprintf(atb, "{B[{T*****{C*{Y*{C*{T**{B]{x ");
+				else if (ch->wait > 8)	sprintf(atb, "{B[{T******{C*{Y*{C*{T*{B]{x ");
+				else if (ch->wait > 4)	sprintf(atb, "{B[{T*******{C*{Y*{C*{B]{x ");
+				else if (ch->wait > 0)	sprintf(atb, "{B[{T********{C*{Y*{B]{x ");
+				else			sprintf(atb, "{B[{C**{YREADY!{C**{B]{x ");
+			}/*
+				if (ch->wait > 40)	sprintf(atb, "{P[{P*{R*********{P]{x ");
+				else if (ch->wait > 36)	sprintf(atb, "{P[{Y*{P*{R********{P]{x ");
+				else if (ch->wait > 32)	sprintf(atb, "{P[{P*{Y*{P*{R*******{P]{x ");
+				else if (ch->wait > 28)	sprintf(atb, "{P[{R*{P*{Y*{P*{R******{P]{x ");
+				else if (ch->wait > 24)	sprintf(atb, "{P[{R**{P*{Y*{P*{R*****{P]{x ");
+				else if (ch->wait > 20)	sprintf(atb, "{P[{R***{P*{Y*{P*{R****{P]{x ");
+				else if (ch->wait > 16)	sprintf(atb, "{P[{R****{P*{Y*{P*{R***{P]{x ");
+				else if (ch->wait > 12)	sprintf(atb, "{P[{R*****{P*{Y*{P*{R**{P]{x ");
+				else if (ch->wait > 8)	sprintf(atb, "{P[{R******{P*{Y*{P*{R*{P]{x ");
+				else if (ch->wait > 4)	sprintf(atb, "{P[{R*******{P*{Y*{P*{P]{x ");
+				else if (ch->wait > 0)	sprintf(atb, "{P[{R********{P*{Y*{P]{x ");
+				else			sprintf(atb, "{P[{R**{YREADY!{R**{P]{x ");
 
-		sprintf(buf, "({G%d{x) ", ch->fightpulse);
-		strcat(atb, buf);
-	}
-	else
-		sprintf(atb, "{x");
-        */
+				sprintf(buf, "({G%d{x) ", ch->fightpulse);
+				strcat(atb, buf);
+			} */
+			else
+				sprintf(atb, "{x");
 
-            ptc(ch, "%s %s\n\r", IS_NPC(victim) ? victim->short_descr : victim->name, wound);
+            ptc(ch, "%s%s %s\n\r", atb, IS_NPC(victim) ? victim->short_descr : victim->name, wound);
         }
 
 
@@ -2749,7 +2781,7 @@ void show_string(struct descriptor_data *d, char *input)
                 stc (buffer, d-> character);
             else
             write_to_buffer(d,buffer,strlen(buffer));
-            for (chk = d->showstr_point; isspace(*chk); chk++);
+            for (chk = d->showstr_point; isspace(*chk); chk++)
             {
                 if (!*chk)
                 {
