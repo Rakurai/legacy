@@ -12,3 +12,4 @@ sand_server
 *.log
 *.pid
 copyover.item
+copyover.data

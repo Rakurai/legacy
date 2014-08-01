@@ -31,3 +31,4 @@ Bug File, clear when fixed.
 {Y[{x07/29/14{Y]{x {C[{x 1200{C]{x Montrey: divorce doesn't remove the engagement flag, can't seem to unengage
 {Y[{x07/29/14{Y]{x {C[{x17317{C]{x Celes: i think the exits (up and down) in this room are messed up, should be north/south?
 {Y[{x07/29/14{Y]{x {C[{x25000{C]{x Celes: necromancy in evo list?
+{Y[{x07/30/14{Y]{x {C[{x 7636{C]{x Celes: maybe bashing but bouncing off should stun the victim, even if not knocking them down
