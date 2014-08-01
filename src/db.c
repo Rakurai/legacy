@@ -479,10 +479,14 @@ void boot_db()
 
 			if (strArea[0] == '-')
 				fpArea = stdin;
-			else if ((fpArea = fopen(strArea, "r")) == NULL)
-			{
-				perror(strArea);
-				exit(1);
+			else {
+				char abuf[MSL];
+				sprintf(abuf, "%s%s", AREA_DIR, strArea);
+				if ((fpArea = fopen(abuf, "r")) == NULL)
+				{
+					perror(strArea);
+					exit(1);
+				}
 			}
 
 			printf("Now loading area: %s\n", strArea);

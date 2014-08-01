@@ -3197,51 +3197,58 @@ char *  crypt           args( ( const char *key, const char *salt ) );
  *   so players can go ahead and telnet to all the other descriptors.
  * Then we close it whenever we need to open a file (e.g. a save file).
  */
-#if defined(unix)
 #define PLAYER_DIR      "../player/"            /* Player files */
-#define BACKUP_DIR      "../player/backup/"     /* Player files */
-#define STORAGE_DIR	"../player/storage/"	/* Player files in storage */
-#define OLDCHAR_DIR	"../player/oldchar/"	/* Player files wiped out by autocleanup */
-#define MISC_DIR        "../misc/"              /* Miscellaneous Stuff */
-#define HELP_DIR	"help"			/* Help file temporary storage */
-#define MOB_DIR         "MOBProgs/"     /* MOBProg files                */
-#define TEMP_FILE       "../player/romtmp"
-#define NULL_FILE       "../misc/NULL_FILE"             /* To reserve one stream */
-#define EXE_FILE        "../bin/legacy"
-#define PID_FILE        "../misc/legacy.pid"    /* pid file for the autoreboot script */
-#define COPYOVER_FILE   "../misc/copyover.data"
-#define COPYOVER_LOG	"../misc/copyover.log"  /* This is to tell who does copyovers */
-#define COPYOVER_ITEMS	"../misc/copyover.item"	/* saves items through copyovers */
-#endif
+#define TEMP_FILE       PLAYER_DIR "romtmp"
+#define BACKUP_DIR      PLAYER_DIR "backup/"     /* Player files */
+#define STORAGE_DIR	PLAYER_DIR "storage/"	/* Player files in storage */
+#define STORAGE_FILE	STORAGE_DIR "player_list.txt" /* list of names of stored players */
+#define OLDCHAR_DIR	PLAYER_DIR "oldchar/"	/* Player files wiped out by autocleanup */
 
+#define HELP_DIR	"../help/"			/* Help file temporary storage */
+
+#define AREA_DIR        "../area/"
 #define AREA_LIST       "area.lst"  /* List of areas*/
-#define CHVNUM_FILE     "chvnum.txt"	/* list of changed object vnums -- Montrey (in progress) */
-#define BUG_FILE        "../misc/bugs.txt"  /* For 'bug' and bug()*/
-#define PUNISHMENT_FILE "../misc/punishment.txt" /* For punishments*/
-#define STORAGE_FILE	"../player/storage/player_list.txt" /* list of names of stored players */
-#define TYPO_FILE       "../misc/typos.txt" /* For 'typo'*/
-#define RIDEA_FILE       "../misc/ridea.txt" /* random ideas, perm storage */
-#define WBI_FILE        "../misc/wbi.txt"   /* For 'will be imped' */
-#define HBI_FILE        "../misc/hbi.txt"   /* For 'has been imped' */
-#define WBB_FILE        "../misc/wbb.txt"   /* For 'will be built' */
-#define HBB_FILE        "../misc/hbb.txt"   /* For 'has been built' */
-#define WORK_FILE	"../misc/work.txt"  /* For future projects */
-#define IMMAPP_FILE	"../misc/immapp.txt"  /* For players to be considered for immhood */
-#define DEPARTED_FILE	"../misc/departed.txt"	/* departed imms files */
-#define NOTE_FILE       "../notes/notes.not" /* For 'notes'*/
-#define IDEA_FILE       "../notes/ideas.not"
-#define ROLEPLAY_FILE   "../notes/roleplay.not"
-#define IMMQUEST_FILE   "../notes/immquest.not"
-#define CHANGES_FILE    "../notes/change.not"
-#define PERSONAL_FILE   "../notes/personal.not"
-#define TRADE_FILE	"../notes/trade.not"
-#define SHUTDOWN_FILE   "../misc/shutdown.txt"/* For 'shutdown'*/
-#define BAN_FILE        "../misc/ban.txt"
-#define MUSIC_FILE      "../misc/music.txt"
-#define EMAIL_FILE      "../misc/email.txt"
-#define SLOG_FILE       "../log/slog.txt" /* Secure Logs */
-#define DISABLED_FILE   "disabled.txt"  /* disabled commands */
-#define BOOT_FILE       "bootfile"      /* flags incomplete boot */
+#define CHVNUM_FILE     AREA_DIR "chvnum.txt"	/* list of changed object vnums -- Montrey (in progress) */
+#define MOB_DIR         AREA_DIR "MOBProgs/"     /* MOBProg files                */
+
+#define BIN_DIR         "../bin/"
+#define EXE_FILE        BIN_DIR "legacy"
+
+#define MISC_DIR        "../misc/"              /* Miscellaneous Stuff */
+#define NULL_FILE       MISC_DIR "NULL_FILE"             /* To reserve one stream */
+#define PID_FILE        MISC_DIR "legacy.pid"    /* pid file for the autoreboot script */
+#define COPYOVER_FILE   MISC_DIR "copyover.data"
+#define COPYOVER_LOG	MISC_DIR "copyover.log"  /* This is to tell who does copyovers */
+#define COPYOVER_ITEMS	MISC_DIR "copyover.item"	/* saves items through copyovers */
+#define BUG_FILE        MISC_DIR "bugs.txt"  /* For 'bug' and bug()*/
+#define PUNISHMENT_FILE MISC_DIR "punishment.txt" /* For punishments*/
+#define TYPO_FILE       MISC_DIR "typos.txt" /* For 'typo'*/
+#define RIDEA_FILE      MISC_DIR "ridea.txt" /* random ideas, perm storage */
+#define WBI_FILE        MISC_DIR "wbi.txt"   /* For 'will be imped' */
+#define HBI_FILE        MISC_DIR "hbi.txt"   /* For 'has been imped' */
+#define WBB_FILE        MISC_DIR "wbb.txt"   /* For 'will be built' */
+#define HBB_FILE        MISC_DIR "hbb.txt"   /* For 'has been built' */
+#define WORK_FILE	MISC_DIR "work.txt"  /* For future projects */
+#define IMMAPP_FILE	MISC_DIR "immapp.txt"  /* For players to be considered for immhood */
+#define DEPARTED_FILE	MISC_DIR "departed.txt"	/* departed imms files */
+#define SHUTDOWN_FILE   MISC_DIR "shutdown.txt"/* For 'shutdown'*/
+#define BAN_FILE        MISC_DIR "ban.txt"
+#define MUSIC_FILE      MISC_DIR "music.txt"
+#define EMAIL_FILE      MISC_DIR "email.txt"
+#define DISABLED_FILE   MISC_DIR "disabled.txt"  /* disabled commands */
+#define BOOT_FILE       MISC_DIR "bootfile"      /* flags incomplete boot */
+
+#define NOTE_DIR        "../notes/"
+#define NOTE_FILE       NOTE_DIR "notes.not" /* For 'notes'*/
+#define IDEA_FILE       NOTE_DIR "ideas.not"
+#define ROLEPLAY_FILE   NOTE_DIR "roleplay.not"
+#define IMMQUEST_FILE   NOTE_DIR "immquest.not"
+#define CHANGES_FILE    NOTE_DIR "change.not"
+#define PERSONAL_FILE   NOTE_DIR "personal.not"
+#define TRADE_FILE	NOTE_DIR "trade.not"
+
+#define LOG_DIR         "../log/"
+#define SLOG_FILE       LOG_DIR "slog.txt" /* Secure Logs */
 
 /*
  * Holiday specials
