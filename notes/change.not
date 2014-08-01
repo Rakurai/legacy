@@ -2903,3 +2903,15 @@ Some notable changes:
 
 Montrey
 ~
+Sender  Montrey~
+Date    Wed Jul 30 22:40:16 2014~
+Stamp   1406785216
+To      all~
+Subject IPv6~
+Text
+Legacy can now accept connections from IPv6 addresses, which is a hell of a
+lot more common now than it was 10 years ago.  If you haven't been able to
+connect to the mud until now, that might be why.  
+
+Montrey
+~

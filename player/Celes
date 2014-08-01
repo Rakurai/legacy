@@ -1,7 +1,7 @@
 #PLAYER
 Name Celes~
 Id   990587341
-LogO 1406693742
+LogO 1406781565
 Vers 15
 Mexp 2
 Pass tierney~
@@ -9,17 +9,17 @@ Prom {W<{C%h{W/{C%H{Thp {G%m{W/{G%M{Hma {B%v{Nmv {Y%g{W/{g%s {P%X{Rxp {W({C%q{W/
 Race vampire~
 Clan kindred~
 Cla  4
-Levl 40
-Plyd 846735
+Levl 41
+Plyd 858384
 Back 830494
-Note 1025153820 1025153820 1025153820 1025153820 1025153820 1025153820 1025153820
+Note 1406559493 1025153820 1025153820 1025153820 1025153820 1025153820 1025153820
 Scro 100
-Room 16093
-HMS  649 611 151
-Gold 1435
-Silv 44
+Room 3365
+HMS  738 896 359
+Gold 1540
+Silv 42
 Gold_in_bank 9000
-Exp  44115
+Exp  45341
 PCkills  16
 PCkilled 6
 Akills   9
@@ -30,28 +30,26 @@ Alig 1000
 FImm 0
 FRes BM
 FVul NS
-Plr  ACFIMO
+Plr  ACFHIMOU
 Video D
-Act  CDEFGHIJKLQSTc
-AfBy NOT
-Comm MNO
+Act  CDEFGHIJLQSTc
+AfBy HTVZ
+Comm NOZ
 Revk 0
 Cgrp AIKLMN
 Cnsr 0
 Block_Remote 0
-Prac 193
-Trai 104
+Prac 198
+Trai 105
 Wimp 0
 Familiar 0
 Atrib 19 22 22 20 17 19
-SkillPnts  32
+SkillPnts  50
 RolePnts   1
-QuestPnts  61
+QuestPnts  66
 QpDonated  174
 GlDonated  15020
-QuestNext  12
-SQuestNext 9
-Afk {B[{CMon Jul 28 20:43:23 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CWed Jul 30 20:57:17 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl , {GB{Ha{ct{Wt{gle{Wm{ca{Hg{Ge {Wof the {cD{Wa{grkne{Ws{cs{x~
 Immn ~
@@ -59,16 +57,16 @@ Pnts 40
 Rank {RB{gL{cD~
 Aura ~
 TSex 2
-LLev 234
+LLev 237
 Deit {WL{Ci{Br{Ci{Te{Wl{x~
 Stus {GB{Ha{ct{Wt{gle{Wm{ca{Hg{Ge {Wof the {cD{Wa{grkne{Ws{cs{x~
 RmCt 6
 ExSk 0
 Raff 3
 Lsit static-host-24-31-12-106.nctv.com~
-Ltim Tue Jul 29 20:27:35 2014
+Ltim Wed Jul 30 20:05:28 2014
 ~
-LSav Tue Jul 29 21:15:42 2014
+LSav Wed Jul 30 21:39:25 2014
 ~
 Finf {x
 {HYour blast of lightning {Tbrings a touch of {RD{cE{RA{cT{RH {Tto {HThor! [213]{x
@@ -76,9 +74,9 @@ Finf {x
 {W<{C4{W/{C1012{Thp {G421{W/{G1482{Hma {B308{Nmv {Y5814{W/{g91 {P343{Rxp {W({C0{W/{G0{W)>{x
 {HYour sap {Tbrings a touch of {RD{cE{RA{cT{RH {Tto {Hthe ghostly air elemental! [1875]{x
 ~
-HMSP 429 581 332
+HMSP 438 596 339
 THMS 0 0 0
-Cnd  0 0 14 0
+Cnd  0 0 0 0
 Alias uu open up~
 Alias dd open down~
 Alias nn open north~
@@ -227,7 +225,7 @@ Sk 76 1 'resurrect'
 Sk 75 2 'regeneration'
 Sk 82 1 'remove alignment'
 Sk 86 1 'remove invisibility'
-Sk 79 1 'remove curse'
+Sk 80 1 'remove curse'
 Sk 100 1 'sanctuary'
 Sk 1 1 'scry'
 Sk 92 1 'shield'
@@ -327,9 +325,10 @@ Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
 Gr 'alteration'
-Affc 'weaken'   0  40   4  -8   1          0 1
-Affc 'protection evil'   0  33   5  -1  24       8192 1
-Affc 'protection good'   0  36   5  -1  24      16384 1
+Affc 'sanctuary'   0 100  11   0   0        128 4
+Affc 'haste'   0  97  12   6   2    2097152 1
+Affc 'giant strength'   0  89  62   6   1          0 1
+Affc 'divine regeneration'   0  92  61   0   0   33554432 4
 End
 
 #O
@@ -474,7 +473,7 @@ End
 #O
 Vnum 4592
 Nest 0
-Wear -1
+Wear 0
 Cost 700
 End
 
@@ -569,7 +568,7 @@ Vnum 16041
 Enchanted
 Nest 0
 ExtF 67
-Cond 68
+Cond 60
 Wear 16
 Lev  32
 Cost 5000
@@ -800,25 +799,32 @@ Cost 93
 End
 
 #O
-Vnum 25006
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
-Vnum 25006
-Nest 0
-Wear -1
-Cost 100
-End
-
-#O
 Vnum 25008
 Nest 0
 Wear -1
 Cost 97
-Val  500 500 0 0 0
+Val  500 452 0 0 0
+End
+
+#O
+Vnum 16023
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 25054
+Nest 0
+Wear 14
+Cost 1920
+End
+
+#O
+Vnum 25054
+Nest 0
+Wear 15
+Cost 1800
 End
 
 #L

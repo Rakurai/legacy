@@ -4070,3 +4070,54 @@ Subject bash~
 Text
 fixed, should be much better now.  i had some things backwards
 ~
+Sender  Montrey~
+Date    Tue Jul 29 06:04:35 2014~
+Stamp   1406639075
+To      lidda~
+Subject sector type and regen~
+Text
+First step to making it work would be to let players know what sector type
+they're in.  I was thinking that the 'scan' command would work well for it,
+because most people use it all the time anyway.  It also kinda overlaps with
+the 'exits' command.  What if we just combined the two, and had it show
+something meaningful?  Like this: 
+
+{PLooking around you see:
+{G(HERE) {x Entrance to Mud School {B(City){x
+{G(North){x A Room in Mud School {B(City){x
+{G(East) {x The Questmaster's Quarters {B(City){x
+{G   Annabus the Questmaster, nearby to the east.{x
+{G(South){x {Y(CLOSED){x
+{G(Down) {x The Temple of Mota (City)
+{G   Super Helga, nearby to the down.{x
+
+we would of course color it nicely so that the important info is highlighted.  for oldbies,
+keeping the 'nearby to the east' at the end would help, and indenting the list of mobs
+would be a lot more clear than scan right now.  having all the sector types at the end of lines
+would make it fast to read.
+we could also align the flags (sector type, closed, etc) on the right to make it faster to read.
+~
+Sender  Sturm~
+Date    Wed Jul 30 17:39:22 2014~
+Stamp   1406767162
+To      montrey ~
+Subject terrains~
+Text
+how about bonuses for races in certain terrains
+or also have hindurances so it's balanced
+
+
+Sturm
+~
+Sender  Montrey~
+Date    Thu Jul 31 10:29:17 2014~
+Stamp   1406827757
+To      sturm~
+Subject terrains~
+Text
+That would be cool.  Right now faeries kidn of suck at regen because of perm
+haste.  I put in a hack so they regen like normal (for now), although they
+can't slow themselves for double regen.  We were thinking about doing
+something so that faeries can regen quickly in nature areas, maybe something
+like vampire hp regen or mage mana regen, but outside of combat 
+~

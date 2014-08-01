@@ -1,8 +1,8 @@
 #PLAYER
 Name Gorion~
 Id   1023149878
-LogO 1112730722
-Vers 14
+LogO 1406743374
+Vers 15
 Mexp 2
 Pass letmein~
 Prom H:%h/%H M:%m/%M  V:%v/%V xp:%X (%z) <%q> [%j] ~
@@ -14,7 +14,7 @@ Plyd 1529620
 Back 1438780
 Note 1111863479 1105162385 1107312677 1112002672 1111163025 1107648137 1088837398
 Scro 22
-Room 8543
+Room 3001
 HMS  546 656 295
 Gold 3472
 Silv 35
@@ -31,7 +31,7 @@ Mark 3001
 FImm 0
 FRes 0
 FVul R
-Plr  GMOQU
+Plr  GHMOQU
 Video AD
 Act  CDEGHLRSc
 AfBy 0
@@ -59,7 +59,7 @@ Aura ~
 TSex 1
 LLev 420
 Email anji_the_myooh@yahoo.com~
-Deit outsider~
+Deit Outsider~
 Stus ...~
 RmCt 6
 ExSk 0
@@ -67,7 +67,7 @@ Raff 913
 Lsit c-24-7-158-136.client.comcast.net~
 Ltim Tue Apr 05 14:51:32 2005
 ~
-LSav Tue Apr 05 14:52:02 2005
+LSav Wed Jul 30 11:02:54 2014
 ~
 HMSP 436 566 275
 THMS 0 0 0
@@ -310,10 +310,10 @@ Cond 94
 Wear -1
 Lev  5
 Cost 620
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   3  -1   4  13          0 1
-Affc 'reserved'   1   3  -1   1   1          0 1
 Affc 'reserved'   1   3  -1   1  26          0 1
+Affc 'reserved'   1   3  -1   1   1          0 1
+Affc 'reserved'   1   3  -1   4  13          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
 End
 
 #O
@@ -325,10 +325,10 @@ Cond 97
 Wear -1
 Lev  5
 Cost 620
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   3  -1   4  13          0 1
-Affc 'reserved'   1   3  -1   1   1          0 1
 Affc 'reserved'   1   3  -1   1  26          0 1
+Affc 'reserved'   1   3  -1   1   1          0 1
+Affc 'reserved'   1   3  -1   4  13          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
 End
 
 #O
@@ -353,9 +353,9 @@ Cond 96
 Wear -1
 Lev  6
 Cost 270
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   3  -1   1   4          0 1
 Affc 'reserved'   1   3  -1   1   2          0 1
+Affc 'reserved'   1   3  -1   1   4          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
 End
 
 #O
@@ -368,8 +368,8 @@ Cond 93
 Wear -1
 Lev  8
 Cost 550
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
 Affc 'reserved'   1   5  -1   1   4          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
 End
 
 #O
@@ -400,8 +400,8 @@ Cond 68
 Wear -1
 Lev  5
 Cost 250
-Affc 'enchant weapon'   0  91  -1   7  18          0 1
 Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   0  91  -1   7  18          0 1
 End
 
 #O
@@ -717,9 +717,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Gorion.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -733,9 +733,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Gorion.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -749,9 +749,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Gorion.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -765,9 +765,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Gorion.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1927,13 +1927,13 @@ ShD  a {PG{br{Ye{Wa{Yt{be{Pr {GEq{Tui{Cp{Tme{Gnt {WP{Yr{got{cec{gti{Yo{Wn{x toke
 Desc It's a {Rp{Po{Ww{ger{Wf{Pu{Rl {Wp{Yr{got{cec{gti{Yv{We{x aura, spinning like a top!~
 Wear -1
 Cost 0
-ExDe greater~ Makes an item invulnerable!
-~
-ExDe equipment~ Makes an item invulnerable!
+ExDe token~ Makes an item invulnerable!
 ~
 ExDe protection~ Makes an item invulnerable!
 ~
-ExDe token~ Makes an item invulnerable!
+ExDe equipment~ Makes an item invulnerable!
+~
+ExDe greater~ Makes an item invulnerable!
 ~
 End
 
@@ -3422,8 +3422,8 @@ Cond 98
 Wear -1
 Lev  8
 Cost 550
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
 Affc 'reserved'   1   5  -1   2   4          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
 End
 
 #L
@@ -3435,9 +3435,9 @@ Cond 100
 Wear -1
 Lev  8
 Cost 780
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   4  -1   5  12          0 1
 Affc 'reserved'   1   4  -1   1   4          0 1
+Affc 'reserved'   1   4  -1   5  12          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
 End
 
 #L
@@ -3449,8 +3449,8 @@ Cond 97
 Wear -1
 Lev  6
 Cost 250
-Affc 'enchant weapon'   0  91  -1   8  18          0 1
 Affc 'enchant weapon'   1  91  -1   8  19          0 1
+Affc 'enchant weapon'   0  91  -1   8  18          0 1
 End
 
 #L
@@ -3461,9 +3461,9 @@ ExtF 65
 Wear -1
 Lev  6
 Cost 550
+Affc 'reserved'   1   3  -1   1  26          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
 Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   3  -1   1   3          0 1
-Affc 'reserved'   1   3  -1   1  26          0 1
 End
 
 #L
@@ -3474,9 +3474,9 @@ ExtF 65
 Wear -1
 Lev  6
 Cost 550
-Affc 'enchant armor'   1  91  -1  -5  17          0 1
-Affc 'reserved'   1   3  -1   1   3          0 1
 Affc 'reserved'   1   3  -1   1  26          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -5  17          0 1
 End
 
 #L
@@ -3498,9 +3498,9 @@ ExtF 17039425
 Wear -1
 Lev  6
 Cost 23
-Affc 'enchant armor'   1  91  -1  -5  17          0 1
-Affc 'reserved'   1   2  -1   1   3          0 1
 Affc 'reserved'   1   2  -1   2  12          0 1
+Affc 'reserved'   1   2  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -5  17          0 1
 End
 
 #L
@@ -3532,9 +3532,9 @@ ExtF 17039680
 Wear -1
 Lev  7
 Cost 57
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1   5  -1   1   4          0 1
 Affc 'reserved'   1   5  -1   5  12          0 1
+Affc 'reserved'   1   5  -1   1   4          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
 End
 
 #L
@@ -3622,8 +3622,8 @@ Wt   0
 Wear -1
 Lev  8
 Cost 550
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
 Affc 'reserved'   1   5  -1   1   5          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
 End
 
 #B
@@ -3635,8 +3635,8 @@ Wt   30
 Wear -1
 Lev  8
 Cost 550
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
 Affc 'reserved'   1   5  -1   1   5          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
 End
 
 #B
@@ -3756,9 +3756,9 @@ Cond 94
 Wear -1
 Cost 0
 Val  1 7 9 21 148
-Affc 'reserved'   1  60  -1  45  12          0 1
-Affc 'reserved'   1  60  -1   6  18          0 1
 Affc 'reserved'   1  60  -1   6  19          0 1
+Affc 'reserved'   1  60  -1   6  18          0 1
+Affc 'reserved'   1  60  -1  45  12          0 1
 End
 
 #B
@@ -3843,13 +3843,13 @@ ExtF 321
 Wear -1
 Lev  91
 Cost 0
-Affc 'enchant weapon'   0  91  -1   1  18          0 1
-Affc 'enchant weapon'   1  91  -1   1  19          0 1
-Affc 'reserved'   1  92  -1   3   3          0 1
-Affc 'reserved'   1  92  -1   3   4          0 1
-Affc 'reserved'   1  92  -1  80  12          0 1
-Affc 'reserved'   1  92  -1  70  13          0 1
 Affc 'reserved'   0  92  -1   0   0        128 1
+Affc 'reserved'   1  92  -1  70  13          0 1
+Affc 'reserved'   1  92  -1  80  12          0 1
+Affc 'reserved'   1  92  -1   3   4          0 1
+Affc 'reserved'   1  92  -1   3   3          0 1
+Affc 'enchant weapon'   1  91  -1   1  19          0 1
+Affc 'enchant weapon'   0  91  -1   1  18          0 1
 ExDe owned by~ Gorion
 ~
 End
