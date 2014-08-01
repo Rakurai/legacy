@@ -1,15 +1,14 @@
 #PLAYER
 Name Acolyte~
 Id   1021858743
-LogO 1060019174
-Vers 14
+LogO 1406743397
+Vers 15
 Mexp 2
 Pass franklin~
 Prom %e %r %z%c%CH%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %CV%XXnl %CCquest %q min %Q skill quest %j min %J  ~
 Race human~
 Cla  7
 Levl 89
-Tru  91
 Plyd 910652
 Back 902779
 Note 1033942744 1029708017 1033946923 1033941183 1032145499 1034694662 1033621943
@@ -36,11 +35,13 @@ Act  CDEFGHJLSc
 AfBy CDEFGUb
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AILM
 Cnsr AB
+Block_Remote 0
 Prac 35
 Trai 5
 Wimp 100
+Familiar 0
 Atrib 15 15 11 10 18 18
 SkillPnts  284
 QuestPnts  63
@@ -53,15 +54,15 @@ Rank {GK{HN{cI~
 Aura ~
 TSex 1
 LLev 246
-Deit liriel~
+Deit Liriel~
 Stus ({VNewbie Aura{x)~
 RmCt 1
 ExSk 0
 Raff 953
 Lsit HSE-Toronto-ppp301569.sympatico.ca~
-Ltim Wed Dec 18 00:46:20 2002
+Ltim Tue Dec 17 23:46:20 2002
 ~
-LSav Mon Aug 04 13:46:14 2003
+LSav Wed Jul 30 11:03:17 2014
 ~
 HMSP 1904 728 1059
 THMS 0 0 0
@@ -133,9 +134,11 @@ Sk 86 1 'protection good'
 Sk 96 1 'refresh'
 Sk 82 1 'regeneration'
 Sk 94 1 'sanctuary'
+Sk 1 1 'scry'
 Sk 87 1 'shield'
 Sk 92 1 'slow'
 Sk 1 1 'smokescreen'
+Sk 1 1 'starve'
 Sk 83 1 'steel mist'
 Sk 84 1 'stone skin'
 Sk 92 1 'summon'
@@ -151,6 +154,7 @@ Sk 98 1 'word of recall'
 Sk 75 1 'axe'
 Sk 2 1 'flail'
 Sk 100 1 'sword'
+Sk 1 1 'bow'
 Sk 100 1 'enhanced damage'
 Sk 100 1 'second attack'
 Sk 100 1 'third attack'
@@ -267,11 +271,11 @@ ExtF 1835011
 Cond 90
 Wear 9
 Cost 0
-Affc 'reserved'   1  91  -1   3   1          0 1
-Affc 'reserved'   1  91  -1  18  18          0 1
-Affc 'reserved'   1  91  -1  18  19          0 1
-Affc 'reserved'   0  91  -1   0   0        124 1
 Affc 'acid breath'   0  47  -1   2  17          0 1
+Affc 'reserved'   0  91  -1   0   0        124 1
+Affc 'reserved'   1  91  -1  18  19          0 1
+Affc 'reserved'   1  91  -1  18  18          0 1
+Affc 'reserved'   1  91  -1   3   1          0 1
 End
 
 #O
@@ -282,14 +286,14 @@ ExtF 1048640
 Cond 72
 Wear 1
 Cost 0
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1  75  12          0 1
-Affc 'reserved'   1  91  -1  11  18          0 1
-Affc 'reserved'   1  91  -1  17  19          0 1
-Affc 'reserved'   0  91  -1   0   0    1048576 1
-Affc 'reserved'   4  91  -1   0   0       8192 1
 Affc 'acid breath'   0  95  -1   4  17          0 1
+Affc 'reserved'   4  91  -1   0   0       8192 1
+Affc 'reserved'   0  91  -1   0   0    1048576 1
+Affc 'reserved'   1  91  -1  17  19          0 1
+Affc 'reserved'   1  91  -1  11  18          0 1
+Affc 'reserved'   1  91  -1  75  12          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
 End
 
 #O
@@ -330,14 +334,14 @@ Nest 0
 ExtF 262211
 Wear 7
 Cost 32000
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
-Affc 'reserved'   1  91  -1   6  18          0 1
-Affc 'reserved'   1  91  -1   8  19          0 1
-Affc 'reserved'   1  91  -1  -2  23          0 1
-Affc 'reserved'   1  91  -1  30  12          0 1
-Affc 'reserved'   1  91  -1  40  13          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
 Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1  40  13          0 1
+Affc 'reserved'   1  91  -1  30  12          0 1
+Affc 'reserved'   1  91  -1  -2  23          0 1
+Affc 'reserved'   1  91  -1   8  19          0 1
+Affc 'reserved'   1  91  -1   6  18          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
 End
 
 #O
@@ -358,10 +362,10 @@ ExtF 262211
 Wear -1
 Lev  13
 Cost 100
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
 Affc 'reserved'   1  10  -1   1   3          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
 End
 
 #O
@@ -372,9 +376,9 @@ ExtF 67
 Wear -1
 Lev  20
 Cost 2000
-Affc 'enchant armor'   1  91  -1  -9  17          0 1
-Affc 'reserved'   1  15  -1   1   2          0 1
 Affc 'reserved'   1  15  -1  20  12          0 1
+Affc 'reserved'   1  15  -1   1   2          0 1
+Affc 'enchant armor'   1  91  -1  -9  17          0 1
 End
 
 #O
@@ -580,9 +584,9 @@ ShD  an {Ce{Bn{Vc{Ph{Ga{Yn{Ct {Ntoken {Mimprinted {Hwith {bthe {glikeness {cof {
 Desc an {Ce{Bn{Vc{Ph{Ga{Yn{Ct {Ntoken {Mimprinted {Hwith {bthe {glikeness {cof {RKaz{Pan{Rder{x lies here~
 Wear -1
 Cost 0
-ExDe kazander~ This token is to be redeemed only by {RKaz{Pan{Rder{x
-~
 ExDe enchant~ This token is to be redeemed only by {RKaz{Pan{Rder{x
+~
+ExDe kazander~ This token is to be redeemed only by {RKaz{Pan{Rder{x
 ~
 End
 
@@ -1019,42 +1023,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  41 82 0 0 0
-ExDe chef~ This food was created by Acolyte.
-~
 ExDe food~ It looks delicious.
 ~
-End
-
-#L
-Vnum 24606
-Nest 2
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#L
-Vnum 119
-Nest 2
-Name food a delicious cheesestick~
-ShD  a delicious {Ycheesestick{x~
-Desc A delicious {Ycheesestick{x{x is lying on the ground.~
-Mat food~
-Wear -1
-Cost 0
-Val  41 82 0 0 0
 ExDe chef~ This food was created by Acolyte.
 ~
-ExDe food~ It looks delicious.
-~
-End
-
-#L
-Vnum 24606
-Nest 2
-Wear -1
-Cost 10
-Spell 3 'talon'
 End
 
 #L
@@ -1082,6 +1054,22 @@ ExDe chef~ This food was created by Acolyte.
 End
 
 #L
+Vnum 24606
+Nest 2
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
+Vnum 24606
+Nest 2
+Wear -1
+Cost 10
+Spell 3 'talon'
+End
+
+#L
 Vnum 119
 Nest 2
 Name food a delicious cheesestick~
@@ -1091,9 +1079,25 @@ Mat food~
 Wear -1
 Cost 0
 Val  41 82 0 0 0
+ExDe chef~ This food was created by Acolyte.
+~
 ExDe food~ It looks delicious.
 ~
+End
+
+#L
+Vnum 119
+Nest 2
+Name food a delicious cheesestick~
+ShD  a delicious {Ycheesestick{x~
+Desc A delicious {Ycheesestick{x{x is lying on the ground.~
+Mat food~
+Wear -1
+Cost 0
+Val  41 82 0 0 0
 ExDe chef~ This food was created by Acolyte.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1107,9 +1111,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  41 82 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Acolyte.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1119,7 +1123,7 @@ Enchanted
 Nest 2
 Wear -1
 Cost 10
-Val  13 115 76 132 82
+Val  13 115 76 134 82
 Spell 3 'talon'
 End
 
@@ -1576,7 +1580,7 @@ Desc A scroll of talon lies here.
 Wear -1
 Lev  91
 Cost 2000
-Val  91 132 -1 -1 -1
+Val  91 134 -1 -1 -1
 Spell 1 'talon'
 End
 
@@ -1590,7 +1594,7 @@ Desc A scroll of talon lies here.
 Wear -1
 Lev  91
 Cost 2000
-Val  91 132 -1 -1 -1
+Val  91 134 -1 -1 -1
 Spell 1 'talon'
 End
 
@@ -1604,7 +1608,7 @@ Desc A scroll of talon lies here.
 Wear -1
 Lev  91
 Cost 2000
-Val  91 132 -1 -1 -1
+Val  91 134 -1 -1 -1
 Spell 1 'talon'
 End
 
@@ -1618,7 +1622,7 @@ Desc A scroll of talon lies here.
 Wear -1
 Lev  91
 Cost 2000
-Val  91 132 -1 -1 -1
+Val  91 134 -1 -1 -1
 Spell 1 'talon'
 End
 
@@ -1632,7 +1636,7 @@ Desc A scroll of talon lies here.
 Wear -1
 Lev  91
 Cost 2000
-Val  91 132 -1 -1 -1
+Val  91 134 -1 -1 -1
 Spell 1 'talon'
 End
 
@@ -1811,11 +1815,11 @@ Nest 0
 Cond 80
 Wear -1
 Cost 9000
-Affc 'acid breath'   0  95  -1   3  17          0 1
-Affc 'reserved'   1  90  -1   7  19          0 1
-Affc 'reserved'   1  90  -1   9  18          0 1
-Affc 'reserved'   1  90  -1  40  13          0 1
 Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'reserved'   1  90  -1  40  13          0 1
+Affc 'reserved'   1  90  -1   9  18          0 1
+Affc 'reserved'   1  90  -1   7  19          0 1
+Affc 'acid breath'   0  95  -1   3  17          0 1
 End
 
 #L
@@ -1862,9 +1866,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe chef~ This food was created by Urza.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Urza.
 ~
 End
 
@@ -1878,9 +1882,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe chef~ This food was created by Urza.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Urza.
 ~
 End
 
@@ -2117,9 +2121,9 @@ ExtF 16777283
 Wear -1
 Lev  61
 Cost 0
-Affc 'reserved'   1  60  -1  45  12          0 1
-Affc 'enchant weapon'   1  91  -1   8  18          0 1
 Affc 'enchant weapon'   1  91  -1   8  19          0 1
+Affc 'enchant weapon'   1  91  -1   8  18          0 1
+Affc 'reserved'   1  60  -1  45  12          0 1
 End
 
 #L
@@ -2181,8 +2185,8 @@ ExtF 67
 Wear -1
 Lev  53
 Cost 11
-Affc 'enchant weapon'   0  99  -1   8  18          0 1
 Affc 'enchant weapon'   1  99  -1   8  19          0 1
+Affc 'enchant weapon'   0  99  -1   8  18          0 1
 End
 
 #L
@@ -2775,9 +2779,9 @@ Cond 61
 Wear -1
 Lev  33
 Cost 5000
-Affc 'reserved'   1  26  -1 -10  17          0 1
-Affc 'enchant weapon'   1 100  -1  16  18          0 1
 Affc 'enchant weapon'   1 100  -1  16  19          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'reserved'   1  26  -1 -10  17          0 1
 End
 
 #B
@@ -2788,9 +2792,9 @@ ExtF 67
 Wear -1
 Lev  33
 Cost 5000
-Affc 'enchant weapon'   1 100  -1  16  19          0 1
-Affc 'enchant weapon'   1 100  -1  16  18          0 1
 Affc 'reserved'   1  26  -1 -10  17          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'enchant weapon'   1 100  -1  16  19          0 1
 End
 
 #B
@@ -2836,9 +2840,9 @@ Cond 94
 Wear -1
 Lev  46
 Cost 10000
-Affc 'enchant weapon'   1 100  -1  14  18          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
 Affc 'reserved'   1  40  -1  -5  23          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
 End
 
 #B
@@ -2850,9 +2854,9 @@ Cond 91
 Wear -1
 Lev  46
 Cost 10000
-Affc 'reserved'   1  40  -1  -5  23          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
 Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'reserved'   1  40  -1  -5  23          0 1
 End
 
 #B
@@ -2910,10 +2914,10 @@ Cond 98
 Wear -1
 Cost 100
 Val  1 1 8 3 0
-Affc 'reserved'   1  10  -1   1  19          0 1
-Affc 'reserved'   1  10  -1   1  18          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
 Affc 'reserved'   1  10  -1   1   3          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'reserved'   1  10  -1   1  18          0 1
+Affc 'reserved'   1  10  -1   1  19          0 1
 End
 
 #B
@@ -2967,13 +2971,13 @@ Nest 1
 ExtF 16777280
 Wear -1
 Cost 1
-Affc 'reserved'   0  91  -1   0   0         40 1
-Affc 'reserved'   1  91  -1   4  18          0 1
-Affc 'reserved'   1  91  -1   3  19          0 1
-Affc 'reserved'   1  91  -1  50  13          0 1
-Affc 'reserved'   1  91  -1  50  12          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
 Affc 'enchant armor'   1  91  -1  -1  17          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1  50  12          0 1
+Affc 'reserved'   1  91  -1  50  13          0 1
+Affc 'reserved'   1  91  -1   3  19          0 1
+Affc 'reserved'   1  91  -1   4  18          0 1
+Affc 'reserved'   0  91  -1   0   0         40 1
 End
 
 #B

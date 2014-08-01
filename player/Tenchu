@@ -1,20 +1,20 @@
 #PLAYER
 Name Tenchu~
 Id   1002865728
-LogO 1060019242
-Vers 14
+LogO 1406813288
+Vers 15
 Mexp 2
-Pass Sivatrulez~
+Pass amdk62~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
 Race superhuman~
+Clan rebel~
 Cla  2
 Levl 18
-Tru  91
-Plyd 92214
+Plyd 92366
 Back 83010
-Note 1020584160 1020656252 1020531368 1020688170 1020651164 1020687081 1020531368
+Note 1406559493 1020656252 1020531368 1020688170 1406785216 1020687081 1020531368
 Scro 60
-Room 3001
+Room 8543
 HMS  476 282 294
 Gold 328
 Silv 60
@@ -34,13 +34,15 @@ Plr  ACFHMOQR
 Video D
 Act  CDFGHJLOQSTc
 AfBy 0
-Comm NOQZ
+Comm NOQ
 Revk 0
-Cgrp A
+Cgrp AIKLM
 Cnsr 0
+Block_Remote 0
 Prac 64
 Trai 529
 Wimp 0
+Familiar 0
 Atrib 20 20 20 22 20 20
 SkillPnts  26
 Afk {B[{CMon May  6 07:49:18 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
@@ -58,10 +60,10 @@ Stus {bG{Yo{bd {Yo{bf {YB{be{Ye{br{x~
 RmCt 10
 ExSk 1300
 Raff 10 7
-Lsit hlfx62-1-21.ns.sympatico.ca~
-Ltim Mon May 06 07:40:54 2002
+Lsit ::~
+Ltim Thu Jul 31 06:01:36 2014
 ~
-LSav Mon Aug 04 13:47:22 2003
+LSav Thu Jul 31 06:28:08 2014
 ~
 HMSP 361 211 294
 THMS 9 0 0
@@ -182,6 +184,7 @@ Sk 75 1 'remove alignment'
 Sk 75 1 'remove invisibility'
 Sk 75 1 'remove curse'
 Sk 76 1 'sanctuary'
+Sk 1 1 'scry'
 Sk 75 1 'shield'
 Sk 75 1 'shock blade'
 Sk 75 1 'shocking grasp'
@@ -189,6 +192,7 @@ Sk 75 1 'shrink'
 Sk 75 1 'sleep'
 Sk 75 1 'slow'
 Sk 75 1 'smokescreen'
+Sk 1 1 'starve'
 Sk 75 1 'steel mist'
 Sk 75 1 'stone skin'
 Sk 75 1 'summon'
@@ -431,9 +435,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -447,9 +451,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -463,9 +467,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -479,9 +483,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -495,9 +499,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -511,9 +515,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -527,9 +531,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -543,9 +547,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -559,9 +563,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -575,9 +579,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -591,9 +595,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -607,9 +611,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -623,9 +627,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -639,9 +643,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -655,9 +659,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -671,9 +675,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -687,9 +691,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -703,9 +707,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -719,9 +723,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  8 17 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Tenchu.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -808,15 +812,15 @@ Nest 1
 Cond 92
 Wear -1
 Cost 770
-Affc 'reserved'   1  93  -1  -2  21          0 1
-Affc 'reserved'   1  93  -1   2   4          0 1
-Affc 'reserved'   1  93  -1   2   3          0 1
-Affc 'reserved'   1  93  -1   2   1          0 1
-Affc 'reserved'   1  93  -1  60  13          0 1
-Affc 'reserved'   1  93  -1  60  12          0 1
-Affc 'reserved'   1  93  -1   7  19          0 1
-Affc 'reserved'   1  93  -1   7  18          0 1
 Affc 'acid breath'   0  45  -1   1  17          0 1
+Affc 'reserved'   1  93  -1   7  18          0 1
+Affc 'reserved'   1  93  -1   7  19          0 1
+Affc 'reserved'   1  93  -1  60  12          0 1
+Affc 'reserved'   1  93  -1  60  13          0 1
+Affc 'reserved'   1  93  -1   2   1          0 1
+Affc 'reserved'   1  93  -1   2   3          0 1
+Affc 'reserved'   1  93  -1   2   4          0 1
+Affc 'reserved'   1  93  -1  -2  21          0 1
 End
 
 #B

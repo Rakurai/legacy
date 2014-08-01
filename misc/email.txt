@@ -417,4 +417,6 @@ Emails
 "Lidda" <show>
 "Lidda" <show>
 "Lidda" <hide>
+"Vegita" <wayne.griffin.home@gmail.com>
+"Lidda" <jennflavored@gmail.com>
 

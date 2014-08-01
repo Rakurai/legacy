@@ -1,7 +1,7 @@
 #PLAYER
 Name Doomsmerf~
 Id   990317609
-LogO 1406688292
+LogO 1406743079
 Vers 15
 Mexp 2
 Pass hello~
@@ -94,7 +94,7 @@ Aura {gM{Wo{gn{Ct{gr{We{gy{Ws {WW{ga{Cr{Wr{gi{Wor{x~
 TSex 1
 LLev 1416
 Email doomsmerf@hotmail.com~
-Deit montrey~
+Deit Montrey~
 Stus {WMo{gn{Ct{gy {Ww{Ca{Wrr{gio{Wr{x~
 RmCt 41
 ExSk 0 0 0
@@ -102,7 +102,7 @@ Raff 7 3 960 951 963
 Lsit 156.34.56.127~
 Ltim Sat Oct 25 22:36:19 2003
 ~
-LSav Tue Jul 29 19:44:52 2014
+LSav Wed Jul 30 10:57:59 2014
 ~
 Finf {x  {R________________________[]{g__________________________________________________
 {x {R[&&&&&&&&&&&&&&&&&&&&&&&&[]{g__________________________________________________\
@@ -364,14 +364,14 @@ Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WKn{gi{Cg{Wh{gt{Wly {WBr{ge{Was{gt{Cp{Wla{gt
 Cond 89
 Wear 5
 Cost 90000
-Affc 'reserved'   1  91  -1 100  12          0 1
-Affc 'reserved'   1  91  -1  20  13          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   1   2          0 1
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'enchant weapon'   1 100  -1  14  19          0 1
 Affc 'enchant weapon'   0 100  -1  14  18          0 1
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1  20  13          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
 End
 
 #O
@@ -428,13 +428,13 @@ Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WD{giv{Wi{gn{We {WP{gr{We{gs{We{gn{Wc{ge{x!~
 ExtF 323
 Wear 0
 Cost 7055
-Affc 'enchant weapon'   1 100  -1  16  19          0 1
-Affc 'enchant weapon'   1 100  -1  16  18          0 1
-Affc 'reserved'   1  91  -1 150  12          0 1
-Affc 'reserved'   1  91  -1   1   4          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   2   2          0 1
 Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'reserved'   1  91  -1   2   2          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   1   4          0 1
+Affc 'reserved'   1  91  -1 150  12          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'enchant weapon'   1 100  -1  16  19          0 1
 End
 
 #O
@@ -464,10 +464,10 @@ Cond 98
 Wear 4
 Lev  90
 Cost 10000
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
-Affc 'enchant weapon'   1 100  -1  17  18          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
 Affc 'reserved'   1  87  -1   5   3          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
 End
 
 #O
@@ -481,10 +481,10 @@ ExtF 323
 Wear 3
 Lev  90
 Cost 10000
-Affc 'reserved'   1  87  -1   5   3          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
-Affc 'enchant weapon'   1 100  -1  17  18          0 1
 Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'reserved'   1  87  -1   5   3          0 1
 End
 
 #O
@@ -497,13 +497,13 @@ Desc It's {gMo{Wn{gt{Cr{We{gy{Ws {WLi{gf{We {WFo{gr{Wce{x!~
 Cond 95
 Wear 18
 Cost 3700
-Affc 'reserved'   1  90  -1   2   1          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  50  12          0 1
-Affc 'reserved'   1 100  -1   8  19          0 1
 Affc 'reserved'   1 100  -1   8  18          0 1
+Affc 'reserved'   1 100  -1   8  19          0 1
+Affc 'reserved'   1  90  -1  50  12          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   1          0 1
 End
 
 #O
@@ -517,11 +517,11 @@ ExtF 67
 Cond 89
 Wear 9
 Cost 550
-Affc 'reserved'   1  90  -1   5   1          0 1
-Affc 'reserved'   1  90  -1  30  13          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
 Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'reserved'   1  90  -1  30  13          0 1
+Affc 'reserved'   1  90  -1   5   1          0 1
 End
 
 #O
@@ -534,12 +534,12 @@ Desc It's {x{gMo{Wn{gt{Cr{We{gy{Ws {WSi{gl{Wver{gy {WW{ga{Wr {WHe{gl{Wme{gt{x!~
 Cond 91
 Wear 6
 Cost 100000
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
-Affc 'enchant weapon'   1 100  -1  15  18          0 1
-Affc 'reserved'   1  91  -1 120  13          0 1
-Affc 'reserved'   1  91  -1 120  12          0 1
-Affc 'reserved'   1  91  -1   3  26          0 1
 Affc 'reserved'   1  91  -1   3   5          0 1
+Affc 'reserved'   1  91  -1   3  26          0 1
+Affc 'reserved'   1  91  -1 120  12          0 1
+Affc 'reserved'   1  91  -1 120  13          0 1
+Affc 'enchant weapon'   1 100  -1  15  18          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
 End
 
 #O
@@ -553,14 +553,14 @@ ExtF 67633219
 Cond 88
 Wear 13
 Cost 100
-Affc 'reserved'   1  90  -1  -8  24          0 1
-Affc 'reserved'   1  90  -1  30  13          0 1
-Affc 'reserved'   1  90  -1  80  12          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
-Affc 'enchant weapon'   1 100  -1  17  18          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
 Affc 'reserved'   1  90  -1   2   1          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'reserved'   1  90  -1  80  12          0 1
+Affc 'reserved'   1  90  -1  30  13          0 1
+Affc 'reserved'   1  90  -1  -8  24          0 1
 End
 
 #O
@@ -589,16 +589,16 @@ ExtF 262211
 Cond 89
 Wear 12
 Cost 4500
-Affc 'reserved'   1  90  -1  -2   9          0 1
-Affc 'reserved'   1  90  -1  30  14          0 1
-Affc 'reserved'   1  90  -1   1   2          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1  -2  20          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
 Affc 'enchant weapon'   1 100  -1  18  18          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  -2  20          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   1   2          0 1
+Affc 'reserved'   1  90  -1  30  14          0 1
+Affc 'reserved'   1  90  -1  -2   9          0 1
 End
 
 #O
@@ -627,10 +627,10 @@ ExtF 16777283
 Wear 2
 Lev  72
 Cost 50
-Affc 'reserved'   0  65  -1   0   0  268435456 1
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
-Affc 'enchant weapon'   1 100  -1  16  18          0 1
 Affc 'reserved'   1  65  -1  60  13          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'reserved'   0  65  -1   0   0  268435456 1
 End
 
 #O
@@ -658,7 +658,7 @@ End
 Vnum 2015
 Nest 0
 Wear -1
-Time 621
+Time 620
 Cost 920
 Spell 1 'pass door'
 Spell 2 'faerie fire'
@@ -668,7 +668,7 @@ End
 Vnum 2015
 Nest 0
 Wear -1
-Time 546
+Time 545
 Cost 920
 Spell 1 'pass door'
 Spell 2 'faerie fire'
@@ -678,7 +678,7 @@ End
 Vnum 2015
 Nest 0
 Wear -1
-Time 467
+Time 466
 Cost 920
 Spell 1 'pass door'
 Spell 2 'faerie fire'
@@ -688,7 +688,7 @@ End
 Vnum 2015
 Nest 0
 Wear -1
-Time 348
+Time 347
 Cost 920
 Spell 1 'pass door'
 Spell 2 'faerie fire'
@@ -699,7 +699,7 @@ Vnum 2015
 Enchanted
 Nest 0
 Wear -1
-Time 509
+Time 508
 Cost 1261
 Spell 1 'pass door'
 Spell 2 'faerie fire'
@@ -779,9 +779,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -1181,11 +1181,11 @@ Wt   0
 Wear -1
 Lev  0
 Cost 0
-ExDe memories~ {CThe memories of the Dizzyknights weave a beautiful blanket. It's so soft and inviting.{x
+ExDe owned by~ Doomsmerf
 ~
 ExDe blanket~ {CThe memories of the Dizzyknights weave a beautiful blanket. It's so soft and inviting.{x
 ~
-ExDe owned by~ Doomsmerf
+ExDe memories~ {CThe memories of the Dizzyknights weave a beautiful blanket. It's so soft and inviting.{x
 ~
 End
 
@@ -1287,9 +1287,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1303,9 +1303,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1319,9 +1319,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1335,9 +1335,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1351,9 +1351,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1367,9 +1367,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1383,9 +1383,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1399,9 +1399,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1415,9 +1415,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1431,9 +1431,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1447,9 +1447,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1463,9 +1463,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1479,9 +1479,9 @@ Mat silk~
 Wear -1
 Cost 0
 Val  0 1 0 0 0
-ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
-~
 ExDe florist~ This rose was created by Doomsmerf.
+~
+ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 End
 
@@ -1729,9 +1729,9 @@ Desc {GS{Hi{Gv{Ha{Gt{H'{Gs {CR{TE{CA{TL{CL{TY {GB{HI{GG {WE{gm{Ge{Hr{Ga{gl{Wd{x~
 ExtF 1
 Wear -1
 Cost 3000
-ExDe emerald~ {GS{Hi{Gv{Ha{Gt{H'{Gs {CR{TE{CA{TL{CL{TY {GB{HI{GG {WE{gm{Ge{Hr{Ga{gl{Wd{x
-~
 ExDe big~ {GS{Hi{Gv{Ha{Gt{H'{Gs {CR{TE{CA{TL{CL{TY {GB{HI{GG {WE{gm{Ge{Hr{Ga{gl{Wd{x
+~
+ExDe emerald~ {GS{Hi{Gv{Ha{Gt{H'{Gs {CR{TE{CA{TL{CL{TY {GB{HI{GG {WE{gm{Ge{Hr{Ga{gl{Wd{x
 ~
 End
 
@@ -2226,8 +2226,8 @@ ExtF 65
 Wear -1
 Lev  11
 Cost 640
-Affc 'enchant armor'   1  91  -1  -7  17          0 1
 Affc 'reserved'   1   8  -1  -1  20          0 1
+Affc 'enchant armor'   1  91  -1  -7  17          0 1
 End
 
 #L
@@ -2242,9 +2242,9 @@ Cond 97
 Wear -1
 Lev  15
 Cost 2000
-Affc 'reserved'   1  13  -1   1   1          0 1
-Affc 'reserved'   1  13  -1   1   2          0 1
 Affc 'enchant armor'   1 100  -1  -4  17          0 1
+Affc 'reserved'   1  13  -1   1   2          0 1
+Affc 'reserved'   1  13  -1   1   1          0 1
 End
 
 #L
@@ -2259,8 +2259,8 @@ Cond 79
 Wear -1
 Lev  15
 Cost 1000
-Affc 'enchant armor'   1 100  -1  -8  17          0 1
 Affc 'reserved'   1  11  -1   1   2          0 1
+Affc 'enchant armor'   1 100  -1  -8  17          0 1
 End
 
 #L
@@ -2329,10 +2329,10 @@ Cond 50
 Wear -1
 Lev  14
 Cost 0
-Affc 'enchant weapon'   1 100  -1  13  19          0 1
-Affc 'enchant weapon'   1 100  -1  13  18          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
 Affc 'reserved'   1  10  -1   1   3          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'enchant weapon'   1 100  -1  13  18          0 1
+Affc 'enchant weapon'   1 100  -1  13  19          0 1
 ExDe a~ piece of doomies eq lies here
 ~
 End
@@ -2357,10 +2357,10 @@ Cond 97
 Wear -1
 Lev  14
 Cost 0
-Affc 'enchant weapon'   1 100  -1  13  19          0 1
-Affc 'enchant weapon'   1 100  -1  13  18          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
 Affc 'reserved'   1  10  -1   1   3          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'enchant weapon'   1 100  -1  13  18          0 1
+Affc 'enchant weapon'   1 100  -1  13  19          0 1
 ExDe a~ piece of doomies eq lies here
 ~
 End
@@ -2377,12 +2377,12 @@ ExtF 65
 Wear -1
 Lev  15
 Cost 696
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
-Affc 'reserved'   1  12  -1  12  13          0 1
 Affc 'reserved'   1  12  -1   2  18          0 1
+Affc 'reserved'   1  12  -1  12  13          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
+ExDe owned by~ Doomsmerf~
 ExDe gauntlets~ {WS{gi{Wv{ga{Wt{g'{Ws {xBIG hulkin {RGa{Pu{Rn{Pt{Rl{Pe{Rt{Ps{x
 ~
-ExDe owned by~ Doomsmerf~
 End
 
 #L
@@ -2396,9 +2396,9 @@ Cond 90
 Wear -1
 Lev  7
 Cost 100
-Affc 'enchant armor'   1  91  -1  -7  17          0 1
-Affc 'reserved'   1   4  -1   1  18          0 1
 Affc 'reserved'   1   4  -1   1  26          0 1
+Affc 'reserved'   1   4  -1   1  18          0 1
+Affc 'enchant armor'   1  91  -1  -7  17          0 1
 End
 
 #L
@@ -2432,8 +2432,8 @@ Cond 94
 Wear -1
 Lev  11
 Cost 621
-Affc 'enchant armor'   1  91  -1  -6  17          0 1
 Affc 'reserved'   1   8  -1  -1  20          0 1
+Affc 'enchant armor'   1  91  -1  -6  17          0 1
 End
 
 #L
@@ -2447,9 +2447,9 @@ Cond 91
 Wear -1
 Lev  10
 Cost 100
-Affc 'enchant armor'   1 100  -1 -14  17          0 1
-Affc 'reserved'   1   4  -1   1  18          0 1
 Affc 'reserved'   1   4  -1   1  26          0 1
+Affc 'reserved'   1   4  -1   1  18          0 1
+Affc 'enchant armor'   1 100  -1 -14  17          0 1
 End
 
 #L
@@ -2464,8 +2464,8 @@ Cond 92
 Wear -1
 Lev  12
 Cost 500
-Affc 'reserved'   1  10  -1  15  12          0 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  10  -1  15  12          0 1
 End
 
 #L
@@ -2480,8 +2480,8 @@ Cond 85
 Wear -1
 Lev  12
 Cost 500
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
 Affc 'reserved'   1  10  -1  15  12          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
 End
 
 #L
@@ -2507,8 +2507,8 @@ Cond 87
 Wear -1
 Lev  15
 Cost 1000
-Affc 'reserved'   1  11  -1   1   2          0 1
 Affc 'enchant armor'   1 100  -1  -8  17          0 1
+Affc 'reserved'   1  11  -1   1   2          0 1
 End
 
 #L
@@ -2694,9 +2694,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  43 86 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Doomsmerf.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -2716,9 +2716,9 @@ Cond 83
 Wear -1
 Cost 10000
 Val  1 8 5 21 152
-Affc 'reserved'   1  40  -1  -5  23          0 1
-Affc 'reserved'   1  40  -1   6  19          0 1
 Affc 'reserved'   1  40  -1   2  18          0 1
+Affc 'reserved'   1  40  -1   6  19          0 1
+Affc 'reserved'   1  40  -1  -5  23          0 1
 End
 
 #L
@@ -2738,12 +2738,12 @@ Cond 97
 Wear -1
 Lev  60
 Cost 999
-Affc 'reserved'   1  59  -1 100  12          0 1
-Affc 'reserved'   1  59  -1  -3  24          0 1
-Affc 'reserved'   1  59  -1   3  26          0 1
-Affc 'reserved'   1  59  -1 -30   9          0 1
-Affc 'enchant weapon'   1  90  -1   2  19          0 1
 Affc 'enchant weapon'   0  90  -1   2  18          0 1
+Affc 'enchant weapon'   1  90  -1   2  19          0 1
+Affc 'reserved'   1  59  -1 -30   9          0 1
+Affc 'reserved'   1  59  -1   3  26          0 1
+Affc 'reserved'   1  59  -1  -3  24          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
 End
 
 #B
@@ -2804,10 +2804,10 @@ ExtF 16777283
 Wear -1
 Lev  72
 Cost 50
-Affc 'reserved'   1  65  -1  60  13          0 1
-Affc 'enchant weapon'   1 100  -1  16  18          0 1
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
 Affc 'reserved'   0  65  -1   0   0  268435456 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'enchant weapon'   1 100  -1  16  18          0 1
+Affc 'reserved'   1  65  -1  60  13          0 1
 End
 
 #B
@@ -2850,13 +2850,13 @@ Cond 97
 Wear -1
 Lev  57
 Cost 60
-Affc 'reserved'   1  50  -1  30  13          0 1
-Affc 'reserved'   1  50  -1  40  12          0 1
-Affc 'enchant weapon'   1 100  -1  17  19          0 1
-Affc 'enchant weapon'   1 100  -1  17  18          0 1
-Affc 'reserved'   1  50  -1   2  26          0 1
-Affc 'reserved'   1  50  -1   2   5          0 1
 Affc 'reserved'   1  50  -1   1   2          0 1
+Affc 'reserved'   1  50  -1   2   5          0 1
+Affc 'reserved'   1  50  -1   2  26          0 1
+Affc 'enchant weapon'   1 100  -1  17  18          0 1
+Affc 'enchant weapon'   1 100  -1  17  19          0 1
+Affc 'reserved'   1  50  -1  40  12          0 1
+Affc 'reserved'   1  50  -1  30  13          0 1
 End
 
 #B
@@ -2869,13 +2869,13 @@ Desc No way!  It's a {WBu{gn{Wn{Cy{WH{ge{Wal{ge{Wr {WHo{go{Wd {Wo{gf {WT{ga{Wo{x
 Cond 50
 Wear -1
 Cost 0
-Affc 'reserved'   1  45  -1  -1  20          0 1
-Affc 'reserved'   1  45  -1  20  13          0 1
-Affc 'reserved'   1  45  -1  35  12          0 1
-Affc 'reserved'   1  45  -1   2  19          0 1
-Affc 'reserved'   1  45  -1   2  18          0 1
-Affc 'reserved'   1  45  -1   2   2          0 1
 Affc 'acid breath'   0  88  -1  10  17          0 1
+Affc 'reserved'   1  45  -1   2   2          0 1
+Affc 'reserved'   1  45  -1   2  18          0 1
+Affc 'reserved'   1  45  -1   2  19          0 1
+Affc 'reserved'   1  45  -1  35  12          0 1
+Affc 'reserved'   1  45  -1  20  13          0 1
+Affc 'reserved'   1  45  -1  -1  20          0 1
 End
 
 #B

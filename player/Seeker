@@ -1,8 +1,8 @@
 #PLAYER
 Name Seeker~
 Id   990004949
-LogO 1113975739
-Vers 14
+LogO 1406776359
+Vers 15
 Mexp 2
 Pass tikcus~
 Prom {W<{C%h{g/{C%H{Thp {G%m{g/{G%M{Hma {B%v{Nst {W[{c%e{W] {Y%g{C/{g%s {W( {g%z {W) {R%X{W>{x ~
@@ -10,12 +10,12 @@ Race elf~
 Clan divinity~
 Cla  2
 Levl 79
-Plyd 118299
-Back 33288
-Note 1106440191 1105162385 1103760323 1106530571 1103760323 1103760323 1103760323
+Plyd 119556
+Back 118307
+Note 1406559493 1105162385 1103760323 1106530571 1406555570 1103760323 1103760323
 Scro 22
-Room 11718
-HMS  1643 775 922
+Room 24205
+HMS  1643 775 779
 Gold 3100
 Silv 83
 Exp  83240
@@ -46,7 +46,7 @@ Wimp 0
 Familiar 0
 Atrib 16 21 18 22 16 18
 QuestPnts  6
-Afk {B[{CWed Apr 20 00:07:43 2005{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CWed Jul 30 17:51:19 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl .~
 Immn ~
@@ -56,10 +56,10 @@ Aura ~
 TSex 1
 LLev 16
 Deit Aerylene~
-Lsit pool-71-112-226-195.sttlwa.dsl-w.verizon.net~
-Ltim Tue Apr 19 21:44:26 2005
+Lsit 66-87-64-99.pools.spcsdns.net~
+Ltim Wed Jul 30 20:07:58 2014
 ~
-LSav Wed Apr 20 00:42:19 2005
+LSav Wed Jul 30 20:12:39 2014
 ~
 HMSP 1413 460 922
 THMS 0 0 0

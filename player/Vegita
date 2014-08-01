@@ -1,7 +1,7 @@
 #PLAYER
 Name Vegita~
 Id   1009419890
-LogO 1406687328
+LogO 1406866392
 Vers 15
 Mexp 2
 Pass aceventura~
@@ -10,14 +10,14 @@ Race human~
 Clan balance~
 Cla  3
 Levl 100
-Plyd 5678530
-Back 5677318
-Note 1113260642 1105162385 1107312677 1112736317 1111163025 1113428998 1104726666
+Plyd 5694731
+Back 5694730
+Note 1406559493 1105162385 1107312677 1112736317 1406785216 1113428998 1104726666
 Scro 22
-Room 1290
+Room 13012
 HMS  31286 31446 29930
-Gold 471167
-Silv 1
+Gold 471173
+Silv 86
 Silver_in_bank 16569
 Gold_in_bank 6000
 Exp  105000
@@ -33,10 +33,10 @@ Mark 1288
 FImm 0
 FRes L
 FVul 0
-Plr  AEHIJKNOQ
+Plr  AEIJKNOQ
 Video D
 Act  CDEFGHJLOSc
-AfBy CDEFGHV
+AfBy CDEFGHTVZ
 Comm MNO
 Revk 0
 Cgrp ABCEIKLM
@@ -48,7 +48,7 @@ Wimp 0
 Familiar 0
 Wizn ACEIJRSTUVab
 Invi 0
-Lurk 92
+Lurk 0
 Secu 2
 Atrib 25 25 25 25 25 25
 SkillPnts  200
@@ -58,7 +58,7 @@ Bin  A huge {Pf{Ri{Pr{Re{Pb{Ra{Pl{Rl {Yexplodes {gright {Gin fr{Ho{Gnt{g of your
 Bout A look of {Vconcentration{g passes Vegita's face ... a {Cm{Ta{Cgic{Ta{Cl fi{Te{Cld {gglows around him and he {Ct{Beleport{Cs{g out.{x~
 GameIn  Images of {PD{Re{Ya{Rt{Ph{x and {CD{Wi{Vs{Mm{Ne{Pm{Yb{Te{Gr{Hm{Ce{Wn{Bt{x {Bfl{Co{Bod{x your mind.~
 GameOut {WY{Co{Pu{Yr {Bm{Vi{Nn{Md {Gi{Hs {ba{Rt {Ye{Ca{Ws{Pe{W.{B.{N.{M.{x {Gfor now{x.{x~
-Afk {B[{CWed Mar 23 08:47:18 2005{B] {CUnknown Departure.{x
+Afk {B[{CThu Jul 31 21:06:58 2014{B] {CUnknown Departure.{x
 ~
 Titl  {x~
 Immn {W[{x<<*Evolver*>> {W]{x~
@@ -67,16 +67,16 @@ Rank {CE{TV{HO{x~
 Aura {VR{Mo{Vl{Me{VP{Ml{Va{My {WW{Ca{Wt{Cc{Wh{Ce{Wr{x~
 TSex 1
 LLev 1428
-Email Setheroth69@yahoo.com AOL: Setheroth82~
+Email wayne.griffin.home@gmail.com~
 Deit Noone!~
 Stus The {RS{Pa{Yiy{Pa{Rn {CPr{gin{Cce{x~
 RmCt 99
 ExSk 0 0 0 0 0
 Raff 957 0 0 0 0 0 0 0 0 0
-Lsit ilm25-53-168.ec.rr.com~
-Ltim Sat Apr 23 11:45:31 2005
+Lsit c-98-222-123-172.hsd1.in.comcast.net~
+Ltim Thu Jul 31 16:41:40 2014
 ~
-LSav Tue Jul 29 19:28:48 2014
+LSav Thu Jul 31 21:13:12 2014
 ~
 Finf -
 well I had 3 years of fingerinfo but my noob self
@@ -118,8 +118,9 @@ Alias title1 title Crafting your world to be a better place.~
 Alias coding title **Coding on something, may not respond***~
 Alias rebel iclan rebel~
 Alias kindred iclan kindred~
-Alias hu hunt dylan~
+Alias hu hunt acmepath~
 Alias chat goss~
+Alias recall goto 3001~
 Sk 100 1 'reserved'
 Sk 100 1 'acid blast'
 Sk 100 1 'acid breath'
@@ -354,6 +355,8 @@ Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
+Affc 'divine regeneration'   0  87  38   0   0   33554432 4
+Affc 'fly'   0  79  23   0   0     524288 1
 End
 
 #O
@@ -366,12 +369,12 @@ Desc A {CC{Wa{Cp{Ws{Cu{Wl{Ce {RC{Po{Rr{Pp{x. {WC{go{Bn{Bt{Ga{Bi{Bn{ge{Wr{x~
 ExtF 16777283
 Wear 18
 Cost 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1  50  12          0 1
-Affc 'reserved'   1  91  -1  50  13          0 1
-Affc 'enchant weapon'   1  99  -1   9  19          0 1
-Affc 'enchant weapon'   1  99  -1  10  18          0 1
 Affc 'reserved'   0  91  -1   0   0         40 1
+Affc 'enchant weapon'   1  99  -1  10  18          0 1
+Affc 'enchant weapon'   1  99  -1   9  19          0 1
+Affc 'reserved'   1  91  -1  50  13          0 1
+Affc 'reserved'   1  91  -1  50  12          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
 End
 
 #O
@@ -471,9 +474,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -487,9 +490,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -524,9 +527,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -540,10 +543,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -556,9 +559,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -572,9 +575,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -588,10 +591,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -604,9 +607,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -620,9 +623,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -636,9 +639,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -652,10 +655,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -668,9 +671,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -684,9 +687,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -700,10 +703,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -716,10 +719,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -732,9 +735,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -748,9 +751,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -764,10 +767,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -780,9 +783,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -796,9 +799,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -812,9 +815,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -828,10 +831,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -844,9 +847,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -860,9 +863,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -876,10 +879,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -892,9 +895,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -908,9 +911,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -924,9 +927,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -940,10 +943,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -956,9 +959,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -972,9 +975,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -988,10 +991,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -1004,9 +1007,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1020,9 +1023,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1036,9 +1039,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1052,10 +1055,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -1068,9 +1071,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1084,9 +1087,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1100,10 +1103,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -1116,10 +1119,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -1132,9 +1135,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1148,9 +1151,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1164,10 +1167,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -1180,9 +1183,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1196,9 +1199,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1212,9 +1215,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1228,10 +1231,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -1244,9 +1247,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1260,9 +1263,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1276,10 +1279,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
 ~
+ExDe food~ It looks delicious.
+~
 End
 
 #O
@@ -1292,9 +1295,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1308,9 +1311,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1324,9 +1327,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Vegita.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -1340,10 +1343,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1356,9 +1359,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1372,9 +1375,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1388,10 +1391,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1404,9 +1407,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1420,9 +1423,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1436,9 +1439,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1452,10 +1455,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1468,9 +1471,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1484,9 +1487,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1500,10 +1503,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1516,10 +1519,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1532,9 +1535,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1548,9 +1551,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1564,10 +1567,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1580,9 +1583,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1596,9 +1599,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1612,9 +1615,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1628,10 +1631,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1644,9 +1647,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1660,9 +1663,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1676,10 +1679,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1692,9 +1695,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1708,9 +1711,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1724,9 +1727,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1740,10 +1743,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1756,9 +1759,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1772,9 +1775,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1788,10 +1791,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1804,9 +1807,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1820,9 +1823,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1836,9 +1839,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1852,10 +1855,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1868,9 +1871,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1884,9 +1887,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1900,10 +1903,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1916,10 +1919,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1932,9 +1935,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1948,9 +1951,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1964,10 +1967,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -1980,9 +1983,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -1996,9 +1999,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -2012,9 +2015,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -2028,10 +2031,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -2044,9 +2047,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -2060,9 +2063,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -2076,10 +2079,10 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
 ~
+ExDe chef~ This food was created by Vegita.
+~
 End
 
 #O
@@ -2092,9 +2095,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -2108,9 +2111,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  49 99 0 0 0
-ExDe chef~ This food was created by Vegita.
-~
 ExDe food~ It looks delicious.
+~
+ExDe chef~ This food was created by Vegita.
 ~
 End
 
@@ -2160,14 +2163,14 @@ ExtF 67
 Wear 15
 Lev  91
 Cost 55000
-Affc 'enchant armor'   1  99  -1  -1  17          0 1
-Affc 'reserved'   1  95  -1   4   1          0 1
-Affc 'reserved'   1  95  -1   4   2          0 1
-Affc 'reserved'   1  95  -1 300  12          0 1
-Affc 'reserved'   1  95  -1 300  13          0 1
-Affc 'reserved'   1  95  -1  12  18          0 1
-Affc 'reserved'   1  95  -1  16  19          0 1
 Affc 'reserved'   0  95  -1   0   0    2097152 1
+Affc 'reserved'   1  95  -1  16  19          0 1
+Affc 'reserved'   1  95  -1  12  18          0 1
+Affc 'reserved'   1  95  -1 300  13          0 1
+Affc 'reserved'   1  95  -1 300  12          0 1
+Affc 'reserved'   1  95  -1   4   2          0 1
+Affc 'reserved'   1  95  -1   4   1          0 1
+Affc 'enchant armor'   1  99  -1  -1  17          0 1
 End
 
 #O
@@ -2180,14 +2183,14 @@ ExtF 67
 Wear 14
 Lev  91
 Cost 55000
-Affc 'enchant armor'   1  99  -1  -2  17          0 1
-Affc 'reserved'   1  95  -1   4   1          0 1
-Affc 'reserved'   1  95  -1   4   2          0 1
-Affc 'reserved'   1  95  -1 300  12          0 1
-Affc 'reserved'   1  95  -1 300  13          0 1
-Affc 'reserved'   1  95  -1  12  18          0 1
-Affc 'reserved'   1  95  -1  16  19          0 1
 Affc 'reserved'   0  95  -1   0   0    2097152 1
+Affc 'reserved'   1  95  -1  16  19          0 1
+Affc 'reserved'   1  95  -1  12  18          0 1
+Affc 'reserved'   1  95  -1 300  13          0 1
+Affc 'reserved'   1  95  -1 300  12          0 1
+Affc 'reserved'   1  95  -1   4   2          0 1
+Affc 'reserved'   1  95  -1   4   1          0 1
+Affc 'enchant armor'   1  99  -1  -2  17          0 1
 ExDe owned by~ Vegita
 ~
 End
@@ -2202,11 +2205,11 @@ Desc {WH{ge{Wa{gv{Wy {WWhite Gloves{x~
 ExtF 1835075
 Wear 9
 Cost 3500
-Affc 'enchant armor'   1  99  -1  -2  17          0 1
-Affc 'reserved'   0  91  -1   0   0        124 1
-Affc 'reserved'   1  91  -1  18  19          0 1
-Affc 'reserved'   1  91  -1  18  18          0 1
 Affc 'reserved'   1  91  -1   3   1          0 1
+Affc 'reserved'   1  91  -1  18  18          0 1
+Affc 'reserved'   1  91  -1  18  19          0 1
+Affc 'reserved'   0  91  -1   0   0        124 1
+Affc 'enchant armor'   1  99  -1  -2  17          0 1
 End
 
 #O
@@ -2221,14 +2224,14 @@ ExtF 67
 Wear 10
 Lev  91
 Cost 1200
-Affc 'enchant armor'   1  99  -1  -2  17          0 1
-Affc 'reserved'   1  95  -1  12  18          0 1
-Affc 'reserved'   1  95  -1  12  19          0 1
-Affc 'reserved'   1  95  -1   2   3          0 1
-Affc 'reserved'   1  95  -1   2   4          0 1
-Affc 'reserved'   1  95  -1  30  12          0 1
-Affc 'reserved'   1  95  -1  30  13          0 1
 Affc 'reserved'   1  95  -1  -1  20          0 1
+Affc 'reserved'   1  95  -1  30  13          0 1
+Affc 'reserved'   1  95  -1  30  12          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1  12  19          0 1
+Affc 'reserved'   1  95  -1  12  18          0 1
+Affc 'enchant armor'   1  99  -1  -2  17          0 1
 ExDe owned by~ Vegita
 ~
 End
@@ -2243,13 +2246,13 @@ Desc {RN{Re{Yc{Wk{Wl{Ya{Rc{Re{x of the {RS{Pa{Yi{Yy{Pa{Rn {CP{Cr{Wi{Wn{Cc{Ce{x~
 ExtF 67
 Wear 4
 Cost 9500
-Affc 'enchant weapon'   1  99  -1  10  18          0 1
-Affc 'enchant weapon'   1  99  -1   7  19          0 1
-Affc 'reserved'   1  92  -1  65  13          0 1
-Affc 'reserved'   1  92  -1  65  12          0 1
-Affc 'reserved'   1  92  -1   2  26          0 1
-Affc 'reserved'   1  92  -1  -1  20          0 1
 Affc 'reserved'   1  92  -1   2   2          0 1
+Affc 'reserved'   1  92  -1  -1  20          0 1
+Affc 'reserved'   1  92  -1   2  26          0 1
+Affc 'reserved'   1  92  -1  65  12          0 1
+Affc 'reserved'   1  92  -1  65  13          0 1
+Affc 'enchant weapon'   1  99  -1   7  19          0 1
+Affc 'enchant weapon'   1  99  -1  10  18          0 1
 End
 
 #O
@@ -2262,13 +2265,13 @@ Desc {RN{Re{Yc{Wk{Wl{Ya{Rc{Re{x of the {RS{Pa{Yi{Yy{Pa{Rn {CP{Cr{Wi{Wn{Cc{Ce{x~
 ExtF 67
 Wear 3
 Cost 9500
-Affc 'enchant weapon'   1  99  -1  12  18          0 1
-Affc 'enchant weapon'   1  99  -1   9  19          0 1
-Affc 'reserved'   1  92  -1  65  13          0 1
-Affc 'reserved'   1  92  -1  65  12          0 1
-Affc 'reserved'   1  92  -1   2  26          0 1
-Affc 'reserved'   1  92  -1  -1  20          0 1
 Affc 'reserved'   1  92  -1   2   2          0 1
+Affc 'reserved'   1  92  -1  -1  20          0 1
+Affc 'reserved'   1  92  -1   2  26          0 1
+Affc 'reserved'   1  92  -1  65  12          0 1
+Affc 'reserved'   1  92  -1  65  13          0 1
+Affc 'enchant weapon'   1  99  -1   9  19          0 1
+Affc 'enchant weapon'   1  99  -1  12  18          0 1
 End
 
 #O
@@ -2282,13 +2285,13 @@ ExtF 67
 Wear 2
 Lev  91
 Cost 10000
-Affc 'reserved'   0  92  -1   0   0        128 1
-Affc 'reserved'   1  92  -1  70  13          0 1
-Affc 'reserved'   1  92  -1  80  12          0 1
-Affc 'reserved'   1  92  -1   3   4          0 1
-Affc 'reserved'   1  92  -1   3   3          0 1
-Affc 'enchant weapon'   1  99  -1   9  19          0 1
 Affc 'enchant weapon'   0  99  -1   9  18          0 1
+Affc 'enchant weapon'   1  99  -1   9  19          0 1
+Affc 'reserved'   1  92  -1   3   3          0 1
+Affc 'reserved'   1  92  -1   3   4          0 1
+Affc 'reserved'   1  92  -1  80  12          0 1
+Affc 'reserved'   1  92  -1  70  13          0 1
+Affc 'reserved'   0  92  -1   0   0        128 1
 ExDe owned by~ Vegita
 ~
 End
@@ -2303,13 +2306,13 @@ Desc {WS{gp{Ci{gk{We{Wy {YYellow {bH{Ya{bi{Yr{x~
 ExtF 16777283
 Wear 6
 Cost 50
-Affc 'enchant weapon'   0  99  -1   2  18          0 1
-Affc 'reserved'   1  91  -1   3   4          0 1
-Affc 'reserved'   1  91  -1  80  12          0 1
-Affc 'reserved'   1  91  -1  70  13          0 1
-Affc 'reserved'   1  91  -1  -9  17          0 1
-Affc 'reserved'   1  91  -1  -2  24          0 1
 Affc 'enchant weapon'   1  99  -1   9  19          0 1
+Affc 'reserved'   1  91  -1  -2  24          0 1
+Affc 'reserved'   1  91  -1  -9  17          0 1
+Affc 'reserved'   1  91  -1  70  13          0 1
+Affc 'reserved'   1  91  -1  80  12          0 1
+Affc 'reserved'   1  91  -1   3   4          0 1
+Affc 'enchant weapon'   0  99  -1   2  18          0 1
 End
 
 #O
@@ -2322,12 +2325,12 @@ Desc {WWhite{x Boots With {YGold{x Colored Toes{x~
 ExtF 67
 Wear 8
 Cost 450
-Affc 'enchant armor'   1  99  -1  -2  17          0 1
-Affc 'reserved'   1  90  -1   8  18          0 1
-Affc 'reserved'   1  90  -1   8  19          0 1
-Affc 'reserved'   1  90  -1  45  12          0 1
-Affc 'reserved'   1  90  -1  40  13          0 1
 Affc 'reserved'   0  90  -1   0   0      32768 1
+Affc 'reserved'   1  90  -1  40  13          0 1
+Affc 'reserved'   1  90  -1  45  12          0 1
+Affc 'reserved'   1  90  -1   8  19          0 1
+Affc 'reserved'   1  90  -1   8  18          0 1
+Affc 'enchant armor'   1  99  -1  -2  17          0 1
 End
 
 #O
@@ -2340,16 +2343,16 @@ Desc {HS{Gu{Hp{Ge{Hr {RS{Pa{Yi{Yy{Pa{Rn {YG{bl{Yo{bw{x~
 ExtF 262211
 Wear 12
 Cost 4500
-Affc 'enchant weapon'   1  99  -1  12  18          0 1
-Affc 'enchant weapon'   1  99  -1  12  19          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  -2  20          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   1   2          0 1
-Affc 'reserved'   1  90  -1  30  14          0 1
 Affc 'reserved'   1  90  -1  -2   9          0 1
+Affc 'reserved'   1  90  -1  30  14          0 1
+Affc 'reserved'   1  90  -1   1   2          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1  -2  20          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'enchant weapon'   1  99  -1  12  19          0 1
+Affc 'enchant weapon'   1  99  -1  12  18          0 1
 End
 
 #O
@@ -2362,12 +2365,12 @@ Desc {RS{Pa{Yi{Yy{Pa{Rn {BP{Bo{Cw{Be{Br {YB{be{bl{Yt{x~
 ExtF 262211
 Wear 13
 Cost 28000
-Affc 'enchant armor'   1  99  -1  -1  17          0 1
-Affc 'reserved'   1  91  -1 100  13          0 1
-Affc 'reserved'   1  91  -1   5   5          0 1
-Affc 'reserved'   1  91  -1   8  18          0 1
-Affc 'reserved'   1  91  -1   9  19          0 1
 Affc 'reserved'   1  91  -1  -5  23          0 1
+Affc 'reserved'   1  91  -1   9  19          0 1
+Affc 'reserved'   1  91  -1   8  18          0 1
+Affc 'reserved'   1  91  -1   5   5          0 1
+Affc 'reserved'   1  91  -1 100  13          0 1
+Affc 'enchant armor'   1  99  -1  -1  17          0 1
 End
 
 #O
@@ -2402,13 +2405,13 @@ ExtF 67
 Wear 1
 Lev  91
 Cost 10000
-Affc 'enchant weapon'   0  99  -1   9  18          0 1
-Affc 'enchant weapon'   1  99  -1   9  19          0 1
-Affc 'reserved'   1  92  -1   3   3          0 1
-Affc 'reserved'   1  92  -1   3   4          0 1
-Affc 'reserved'   1  92  -1  80  12          0 1
-Affc 'reserved'   1  92  -1  70  13          0 1
 Affc 'reserved'   0  92  -1   0   0        128 1
+Affc 'reserved'   1  92  -1  70  13          0 1
+Affc 'reserved'   1  92  -1  80  12          0 1
+Affc 'reserved'   1  92  -1   3   4          0 1
+Affc 'reserved'   1  92  -1   3   3          0 1
+Affc 'enchant weapon'   1  99  -1   9  19          0 1
+Affc 'enchant weapon'   0  99  -1   9  18          0 1
 ExDe owned by~ Vegita
 ~
 End
@@ -2427,7 +2430,7 @@ Name Left Foot~
 ShD  Left Foot{x~
 Desc Left Foot{x~
 ExtF 17580099
-Wear 19
+Wear 16
 Cost 0
 End
 
@@ -2452,14 +2455,14 @@ Desc {NDeep Blue {BL{Be{Ng{Ng{Ni{Nn{Bg{Bs{x~
 ExtF 262211
 Wear 7
 Cost 32000
-Affc 'enchant armor'   1  99  -1  -2  17          0 1
-Affc 'reserved'   1  91  -1   6  18          0 1
-Affc 'reserved'   1  91  -1   8  19          0 1
-Affc 'reserved'   1  91  -1  -2  23          0 1
-Affc 'reserved'   1  91  -1  30  12          0 1
-Affc 'reserved'   1  91  -1  40  13          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
 Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1  40  13          0 1
+Affc 'reserved'   1  91  -1  30  12          0 1
+Affc 'reserved'   1  91  -1  -2  23          0 1
+Affc 'reserved'   1  91  -1   8  19          0 1
+Affc 'reserved'   1  91  -1   6  18          0 1
+Affc 'enchant armor'   1  99  -1  -2  17          0 1
 End
 
 #O
@@ -2491,18 +2494,18 @@ Wear -1
 Lev  95
 Cost 10
 Val  5 10 16 25 0
-Affc 'reserved'   1 100  -1 -20  17          0 1
-Affc 'reserved'   1 100  -1 100  12          0 1
-Affc 'reserved'   1 100  -1 100  13          0 1
-Affc 'reserved'   1 100  -1  50  14          0 1
-Affc 'reserved'   1 100  -1  15  19          0 1
-Affc 'reserved'   1 100  -1  15  18          0 1
 Affc 'reserved'   1 100  -1  -6  20          0 1
+Affc 'reserved'   1 100  -1  15  18          0 1
+Affc 'reserved'   1 100  -1  15  19          0 1
+Affc 'reserved'   1 100  -1  50  14          0 1
+Affc 'reserved'   1 100  -1 100  13          0 1
+Affc 'reserved'   1 100  -1 100  12          0 1
+Affc 'reserved'   1 100  -1 -20  17          0 1
+ExDe owned by~ Vegita
+~
 ExDe axe Axe of Banishment~ It is a marvellous axe, crafted from the finest platinum around.
 It was created in the Month of Courtship by an immortal warrior
 named Vegita.  Legend holds that this human was a great weaponsmith.
-~
-ExDe owned by~ Vegita
 ~
 End
 
@@ -2847,9 +2850,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3131,9 +3134,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3415,9 +3418,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3699,9 +3702,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -3983,9 +3986,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4267,9 +4270,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4551,9 +4554,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -4835,9 +4838,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5119,9 +5122,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5403,9 +5406,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5687,9 +5690,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -5971,9 +5974,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6255,9 +6258,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6539,9 +6542,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -6823,9 +6826,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7107,9 +7110,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7391,9 +7394,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7675,9 +7678,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -7959,9 +7962,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8243,9 +8246,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8527,9 +8530,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -8811,9 +8814,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9095,9 +9098,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9379,9 +9382,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9663,9 +9666,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -9947,9 +9950,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10231,9 +10234,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10515,9 +10518,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -10799,9 +10802,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11083,9 +11086,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11367,9 +11370,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11651,9 +11654,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -11935,9 +11938,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12219,9 +12222,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12503,9 +12506,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -12787,9 +12790,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -13071,9 +13074,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -13355,9 +13358,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -13639,9 +13642,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -13923,9 +13926,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -14207,9 +14210,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -14491,9 +14494,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -14775,9 +14778,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -15059,9 +15062,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -15343,9 +15346,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -15627,9 +15630,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -15911,9 +15914,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -16195,9 +16198,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -16479,9 +16482,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -16763,9 +16766,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -17047,9 +17050,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -17331,9 +17334,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -17615,9 +17618,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -17899,9 +17902,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -18183,9 +18186,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -18467,9 +18470,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -18751,9 +18754,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -19035,9 +19038,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -19319,9 +19322,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -19603,9 +19606,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -19887,9 +19890,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -20171,9 +20174,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -20455,9 +20458,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -20739,9 +20742,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -21023,9 +21026,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -21307,9 +21310,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -21591,9 +21594,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -21875,9 +21878,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -22159,9 +22162,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -22443,9 +22446,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -22727,9 +22730,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -23011,9 +23014,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -23295,9 +23298,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -23579,9 +23582,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -23863,9 +23866,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -24147,9 +24150,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -24431,9 +24434,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -24715,9 +24718,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -24999,9 +25002,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -25283,9 +25286,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -25567,9 +25570,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -25851,9 +25854,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -26135,9 +26138,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -26419,9 +26422,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -26703,9 +26706,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -26987,9 +26990,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -27271,9 +27274,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -27555,9 +27558,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -27839,9 +27842,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -28123,9 +28126,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -28407,9 +28410,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -28691,9 +28694,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -28975,9 +28978,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -29259,9 +29262,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -29543,9 +29546,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -29827,9 +29830,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -30111,9 +30114,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -30395,9 +30398,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -30679,9 +30682,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -30963,9 +30966,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -31247,9 +31250,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -31531,9 +31534,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -31815,9 +31818,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -32099,9 +32102,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -32383,9 +32386,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -32667,9 +32670,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -32951,9 +32954,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -33235,9 +33238,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -33519,9 +33522,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -33803,9 +33806,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -34087,9 +34090,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -34371,9 +34374,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -34655,9 +34658,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -34939,9 +34942,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -35223,9 +35226,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -35507,9 +35510,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -35791,9 +35794,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -36075,9 +36078,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -36359,9 +36362,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -36643,9 +36646,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -36927,9 +36930,9 @@ ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
-ExDe florist~ This rose was created by Alisa.
-~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
+~
+ExDe florist~ This rose was created by Alisa.
 ~
 ExDe rose~ It's a beautiful rose, with a soft and romantic fragrance.
 ~
@@ -37100,14 +37103,14 @@ Cond -1
 Wear -1
 Cost 312
 Val  11 10 10 12 0
-Affc 'reserved'   1  25  -1   5  19          0 1
-Affc 'reserved'   1  25  -1   5  18          0 1
-Affc 'reserved'   1 100  -1  -2  20          0 1
-Affc 'reserved'   1 100  -1   1   1          0 1
-Affc 'reserved'   1 100  -1  10  14          0 1
-Affc 'reserved'   1 100  -1  20  13          0 1
-Affc 'reserved'   1 100  -1 -40  12          0 1
 Affc 'reserved'   1 100  -1  -2   4          0 1
+Affc 'reserved'   1 100  -1 -40  12          0 1
+Affc 'reserved'   1 100  -1  20  13          0 1
+Affc 'reserved'   1 100  -1  10  14          0 1
+Affc 'reserved'   1 100  -1   1   1          0 1
+Affc 'reserved'   1 100  -1  -2  20          0 1
+Affc 'reserved'   1  25  -1   5  18          0 1
+Affc 'reserved'   1  25  -1   5  19          0 1
 End
 
 #O
@@ -37335,7 +37338,7 @@ Nest 0
 Name pinesol~
 ShD  some Pinesol~
 Desc some good smelling pinesol~
-Wear 16
+Wear -1
 Cost 670
 Val  1 3 3 3 19
 End
@@ -37489,9 +37492,9 @@ ExtF 16777283
 Wear -1
 Lev  62
 Cost 6000
-Affc 'enchant weapon'   1  94  -1  10  19          0 1
-Affc 'enchant weapon'   1  94  -1  10  18          0 1
 Affc 'reserved'   1  60  -1  45  12          0 1
+Affc 'enchant weapon'   1  94  -1  10  18          0 1
+Affc 'enchant weapon'   1  94  -1  10  19          0 1
 End
 
 #B
@@ -37533,9 +37536,9 @@ ExtF 16777283
 Wear -1
 Lev  62
 Cost 6000
-Affc 'enchant weapon'   1  94  -1  10  19          0 1
-Affc 'enchant weapon'   1  94  -1  10  18          0 1
 Affc 'reserved'   1  60  -1  45  12          0 1
+Affc 'enchant weapon'   1  94  -1  10  18          0 1
+Affc 'enchant weapon'   1  94  -1  10  19          0 1
 End
 
 #END

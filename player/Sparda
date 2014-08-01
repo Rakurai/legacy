@@ -1,21 +1,20 @@
 #PLAYER
 Name Sparda~
 Id   1006468863
-LogO 1085393830
-Vers 14
+LogO 1406743077
+Vers 15
 Mexp 2
 Pass letmein~
 Prom H:%h/%H M:%m/%M V:%v/%V xp:%X (%z) <%q> [%j] ~
 Race human~
 Cla  3
 Levl 83
-Tru  91
 Plyd 532547
 Back 467998
 Note 1085393544 1085393544 1085393544 1085393544 1085393544 1085393544 1085393544
 Scro 22
 Room 3001
-HMS  1106 646 701
+HMS  1866 940 1167
 Gold 5947
 Silv 39
 Silver_in_bank 18000
@@ -31,14 +30,15 @@ Alig 1000
 FImm 0
 FRes 0
 FVul 0
-Plr  FQT
+Plr  FHQT
 Video D
 Act  CDGHJLSTc
 AfBy HNOQUVbce
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AILM
 Cnsr 0
+Block_Remote 0
 Prac 28
 Trai 5
 Wimp 0
@@ -58,7 +58,7 @@ Aura ~
 TSex 1
 LLev 144
 Email aznxkwan@hotmail.com~
-Deit montrey~
+Deit Montrey~
 Stus (insert title here)~
 RmCt 2
 ExSk 0
@@ -66,7 +66,7 @@ Raff 104
 Lsit 128.120.182.2~
 Ltim Mon May 24 06:12:21 2004
 ~
-LSav Mon May 24 06:17:10 2004
+LSav Wed Jul 30 10:57:57 2014
 ~
 HMSP 1516 435 1107
 THMS 0 0 0
@@ -147,6 +147,7 @@ Sk 98 1 'sanctuary'
 Sk 1 1 'scry'
 Sk 82 1 'shield'
 Sk 98 1 'slow'
+Sk 1 1 'starve'
 Sk 1 1 'steel mist'
 Sk 86 1 'stone skin'
 Sk 79 1 'summon'
@@ -161,6 +162,7 @@ Sk 76 1 'word of recall'
 Sk 82 1 'axe'
 Sk 90 1 'polearm'
 Sk 100 1 'sword'
+Sk 1 1 'bow'
 Sk 85 1 'backstab'
 Sk 76 1 'bash'
 Sk 100 1 'circle'
@@ -195,14 +197,14 @@ Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'flameshield'   0  82  38 -20  17  134217728 1
-Affc 'armor'   0  83  20 -20  17          0 1
-Affc 'protection good'   0  81  20  -1  24      16384 1
-Affc 'protection evil'   0  82  20  -1  24       8192 1
-Affc 'sanctuary'   0  83   9   0   0        128 1
-Affc 'talon'   0  83   6   0   0 1073741824 1
-Affc 'hide'   0  82  78   0   0      65536 1
 Affc 'pass door'   0  81  15   0   0    1048576 1
+Affc 'hide'   0  82  78   0   0      65536 1
+Affc 'talon'   0  83   6   0   0 1073741824 1
+Affc 'sanctuary'   0  83   9   0   0        128 1
+Affc 'protection evil'   0  82  20  -1  24       8192 1
+Affc 'protection good'   0  81  20  -1  24      16384 1
+Affc 'armor'   0  83  20 -20  17          0 1
+Affc 'flameshield'   0  82  38 -20  17  134217728 1
 End
 
 #O
@@ -354,13 +356,13 @@ Nest 1
 Cond 87
 Wear -1
 Cost 6000
-ExDe sword katana~ A beautiful looking blade glows here.
-There are some personal {Cengravings{x on this weapon.
-~
 ExDe engravings~ [12/10/01] {YSuPerDaN{W {YDa {PAzN {CSuPaHeRo{x engraved {Ythis{x:
  "Presented to SuPerDaN 12.9.01".
 [12/10/01] {YSuPerDaN{W {YDa {PAzN {CSuPaHeRo{x engraved {Ythis{x:
  "Level 58".
+~
+ExDe sword katana~ A beautiful looking blade glows here.
+There are some personal {Cengravings{x on this weapon.
 ~
 End
 
@@ -389,13 +391,13 @@ Cond 94
 Wear 10
 Lev  86
 Cost 0
-Affc 'reserved'   1  85  -1   2   2          0 1
-Affc 'reserved'   1  85  -1   2   5          0 1
-Affc 'reserved'   1  85  -1  50  12          0 1
-Affc 'reserved'   1  85  -1  20  13          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
 Affc 'reserved'   1  85  -1  -3  24          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'reserved'   1  85  -1  20  13          0 1
+Affc 'reserved'   1  85  -1  50  12          0 1
+Affc 'reserved'   1  85  -1   2   5          0 1
+Affc 'reserved'   1  85  -1   2   2          0 1
 End
 
 #O

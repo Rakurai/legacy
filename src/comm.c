@@ -1562,41 +1562,12 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
         ch = d->character;
 
         /* battle prompt */
-        if ((victim = ch->fighting) != NULL) {
-        	char atb[100];
-            char wound[100];
-
-            if (can_see(ch,victim)) {
-	            int percent;
-
-	            if (victim->max_hit > 0)
-	                percent = victim->hit * 100 / victim->max_hit;
-	            else
-	                percent = -1;
-
-	            if (percent >= 100)
-	                sprintf(wound,"is in excellent condition.");
-	            else if (percent >= 90)
-	                sprintf(wound,"has a few scratches.");
-	            else if (percent >= 75)
-	                sprintf(wound,"has some small wounds and bruises.");
-	            else if (percent >= 50)
-	                sprintf(wound,"has quite a few wounds.");
-	            else if (percent >= 30)
-	                sprintf(wound,"has some big nasty wounds and scratches.");
-	            else if (percent >= 15)
-	                sprintf(wound,"looks pretty hurt.");
-	            else if (percent >= 1)
-	                sprintf(wound,"is in awful condition.");
-	            else if (percent >= 0)
-	                sprintf(wound,"will soon be toast!!!");
-	            else
-	                sprintf(wound,"is in need of ***SERIOUS*** medical attention!");
-	        }
+		if ((victim = ch->fighting) != NULL) {
+			char atb[MSL];
 
 			if (IS_SET(ch->comm, COMM_ATBPROMPT))
 			{
-				if (ch->wait > 40)	    sprintf(atb, "{B[{C*{T*********{B]{x ");
+				if (ch->wait > 40)      sprintf(atb, "{B[{C*{T*********{B]{x ");
 				else if (ch->wait > 36)	sprintf(atb, "{B[{Y*{C*{T********{B]{x ");
 				else if (ch->wait > 32)	sprintf(atb, "{B[{C*{Y*{C*{T*******{B]{x ");
 				else if (ch->wait > 28)	sprintf(atb, "{B[{T*{C*{Y*{C*{T******{B]{x ");
@@ -1628,8 +1599,32 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
 			else
 				sprintf(atb, "{x");
 
-            ptc(ch, "%s%s %s\n\r", atb, IS_NPC(victim) ? victim->short_descr : victim->name, wound);
-        }
+			if (can_see(ch,victim)) {
+				int percent;
+
+				if (IS_NPC(victim))
+					strcat(atb, victim->short_descr);
+				else
+					strcat(atb, victim->name);
+
+				if (victim->max_hit > 0)
+					percent = victim->hit * 100 / victim->max_hit;
+				else
+					percent = -1;
+
+				if (percent >= 100)     strcat(atb, " is in excellent condition.");
+				else if (percent >= 90)	strcat(atb, " has a few scratches.");
+				else if (percent >= 75) strcat(atb, " has some small wounds and bruises.");
+				else if (percent >= 50) strcat(atb, " has quite a few wounds.");
+				else if (percent >= 30) strcat(atb, " has some big nasty wounds and scratches.");
+				else if (percent >= 15) strcat(atb, " looks pretty hurt.");
+				else if (percent >= 1)  strcat(atb, " is in awful condition.");
+				else if (percent >= 0)  strcat(atb, " will soon be toast!!!");
+				else                    strcat(atb, " is in need of ***SERIOUS*** medical attention!");
+		        }
+
+			ptc(ch, "%s\n\r", atb);
+		}
 
 
         ch = d->original ? d->original : d->character;

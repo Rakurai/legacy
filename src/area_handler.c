@@ -996,7 +996,7 @@ CHAR_DATA *create_mobile( MOB_INDEX_DATA *pMobIndex )
         /* computed on the spot */
 
 	for (i = 0; i < MAX_STATS; i ++)
-		mob->perm_stat[i] = UMIN(25, number_fuzzy(8 + mob->level/6));
+		mob->perm_stat[i] = UMIN(25, number_fuzzy(8 + mob->level/12));
 
 
 	if (IS_SET(mob->act,ACT_WARRIOR))
@@ -1072,7 +1072,8 @@ const struct maff maff_table[] =
 	{	gsn_charm_person,	APPLY_NONE,	0,		AFF_CHARM	},
 	{	gsn_fly,		APPLY_NONE,	0,		AFF_FLYING	},
 	{	gsn_pass_door,		APPLY_NONE,	0,		AFF_PASS_DOOR	},
-	{	gsn_haste,		APPLY_DEX,	mob->level/25+2,AFF_HASTE	},
+//	{	gsn_haste,		APPLY_DEX,	mob->level/25+2,AFF_HASTE	},
+	{	gsn_haste,		APPLY_DEX,	0,		AFF_HASTE	},
 	{	gsn_calm,		APPLY_HITROLL,	-2,		AFF_CALM	},
 	{	gsn_calm,		APPLY_DAMROLL,	-2,		AFF_CALM	},
 	{	gsn_plague,		APPLY_STR,	-mob->level/20-1,AFF_PLAGUE	},
@@ -1083,7 +1084,8 @@ const struct maff maff_table[] =
 	{	gsn_berserk,		APPLY_AC,	mob->level*2,	AFF_BERSERK	},
 	{	gsn_flameshield,	APPLY_AC,	-20,		AFF_FLAMESHIELD	},
 	{	gsn_regeneration,	APPLY_NONE,	0,		AFF_REGENERATION},
-	{	gsn_slow,		APPLY_DEX,	-mob->level/25-2,AFF_SLOW	},
+//	{	gsn_slow,		APPLY_DEX,	-mob->level/25-2,AFF_SLOW	},
+	{	gsn_slow,		APPLY_DEX,	0,		AFF_SLOW	},
 	{	gsn_talon,		APPLY_NONE,	0,		AFF_TALON	},
 	{	-1,			0,		0,		0		}
 };
