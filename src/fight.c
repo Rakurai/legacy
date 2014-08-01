@@ -2111,7 +2111,14 @@ bool check_parry( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	if (get_affect(victim->affected,gsn_paralyze))
 		chance /= 2;
 
-	if (number_percent() >= chance + victim->level - ch->level )
+	chance += victim->level - ch->level;
+
+#ifdef DEBUG_CHANCE
+	ptc(ch, "(parry %d%%)", chance);
+	ptc(victim, "(parry %d%%)", chance);
+#endif
+
+	if (number_percent() >= chance)
 	{
 		check_improve(victim, gsn_parry, FALSE, 10);
 		return FALSE;
@@ -2199,7 +2206,14 @@ bool check_dual_parry( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	if (get_affect(victim->affected, gsn_paralyze))
 		chance /= 2;
 
-	if (!chance(chance + victim->level - ch->level))
+	chance += victim->level - ch->level;
+
+#ifdef DEBUG_CHANCE
+	ptc(ch, "(dlparry %d%%)", chance);
+	ptc(victim, "(dlparry %d%%)", chance);
+#endif
+
+	if (!chance(chance))
 	{
 		check_improve(victim, gsn_dual_wield, FALSE, 10);
 		return FALSE;
@@ -2274,12 +2288,19 @@ bool check_shblock ( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	if (get_eq_char(victim, WEAR_SHIELD) == NULL)
 		return FALSE;
 
-	chance = get_skill(victim,gsn_shield_block) / 5 + 3;
+	chance = get_skill(victim,gsn_shield_block) * 2/5;
 
 	if (get_affect(victim->affected,gsn_paralyze))
 		chance /= 2;
 
-	if (number_percent() >= chance + victim->level - ch->level )
+	chance += (victim->level - ch->level);
+
+#ifdef DEBUG_CHANCE
+	ptc(ch, "(shblock %d%%)", chance);
+	ptc(victim, "(shblock %d%%)", chance);
+#endif
+
+	if (number_percent() >= chance)
 	{
 		check_improve(victim, gsn_shield_block, FALSE, 10);
 		return FALSE;
@@ -2322,7 +2343,7 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 	int chance;
 	const char *attack;
 
-	if (get_skill(victim,gsn_dodge) < 1)
+	if (!get_skill(victim,gsn_dodge))
 		return FALSE;
 
 	chance = get_skill(victim,gsn_dodge) / 2;
@@ -2332,7 +2353,7 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 
 	// evasion checks moved to general dodge/blur - Montrey (2014)
 	// stats
-	chance += 5 * ( (get_curr_stat(victim,STAT_DEX)) - (get_curr_stat(ch,STAT_DEX)) );
+	chance += 3 * ( (get_curr_stat(victim,STAT_DEX)) - (get_curr_stat(ch,STAT_DEX)) );
 
 	// speed and spells
 	if (IS_SET(victim->off_flags,OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
@@ -2351,7 +2372,7 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 //	if (!can_see(victim,ch))
 //		chance /= 2;
 
-	chance += victim->level - ch->level;
+	chance += (victim->level - ch->level) * 2;
 
 	if (get_affect(victim->affected,gsn_paralyze))
 		chance /= 2;
@@ -2363,6 +2384,8 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 
 	/*Moderate the result*/
 	chance = URANGE(5, chance, 95);
+
+//for testing	chance = 0;
 
 	if (number_percent() >= chance)
 	{
@@ -2414,12 +2437,12 @@ bool check_blur( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 
 	chance = get_skill(victim,gsn_blur) / 3;
 
-	// size affects blur rate - Montrey (2014)
-	chance -= (victim->size - SIZE_MEDIUM) * 3;  // bonus 6% for tiny, -9% for giant
+	// size affects dodge rate - Montrey (2014)
+	chance -= (victim->size - SIZE_MEDIUM) * 5;  // bonus 10% for tiny, -15% for giant
 
 	// evasion checks moved to general dodge/blur - Montrey (2014)
 	// stats
-	chance += 5 * ( (get_curr_stat(victim,STAT_DEX)) - (get_curr_stat(ch,STAT_DEX)) );
+	chance += 3 * ( (get_curr_stat(victim,STAT_DEX)) - (get_curr_stat(ch,STAT_DEX)) );
 
 	// speed and spells
 	if (IS_SET(victim->off_flags,OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
@@ -2438,10 +2461,15 @@ bool check_blur( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 //	if (!can_see(victim,ch))
 //		chance /= 2;
 
-	chance += victim->level - ch->level;
+	chance += (victim->level - ch->level) * 2;
 
 	if (get_affect(victim->affected,gsn_paralyze))
 		chance /= 2;
+
+#ifdef DEBUG_CHANCE
+	ptc(ch, "(blur %d%%)", chance);
+	ptc(victim, "(blur %d%%)", chance);
+#endif
 
 	/*Moderate the result*/
 	chance = URANGE(5, chance, 95);
@@ -3501,16 +3529,16 @@ void do_bash( CHAR_DATA *ch, char *argument )
 	}
 
 	// connect, check to see if knocked down
-	chance = get_skill(ch,gsn_bash);
+	chance = get_skill(ch,gsn_bash) /2;
 
     // size is a factor twice - here for knockdown, and in dodge/blur for evasion
-	if (ch->size > victim->size)
-		chance -= (ch->size - victim->size) * 15;
+//	if (ch->size > victim->size)
+		chance += (ch->size - victim->size) * 10;
 
 	/* this is intentional!  AC_BASH is armor class vs blunt weapons, gained through
 	   thick armors and stuff.  the penalty for it is not a typo, it is supposed to
 	   count against you -- Montrey */
-	chance -= get_armor_ac(victim, AC_BASH) / 30; // get_armor_ac is negative for better armor
+	chance -= get_armor_ac(victim, AC_BASH) / 50; // get_armor_ac is negative for better armor
 
 	/* Hitroll matters, maybe in the future */
 	/*if (GET_HITROLL(ch) <120)
@@ -3526,11 +3554,14 @@ void do_bash( CHAR_DATA *ch, char *argument )
 //		chance -= chance / 3;
 
 	/*Change in chance based on STR and score and stamina*/
-	chance += 5 * (get_curr_stat(ch, STAT_STR) - get_curr_stat(victim, STAT_STR));
-	chance -= ((victim->stam * 35) / victim->max_stam);
+	chance += 3 * (get_curr_stat(ch, STAT_STR) - get_curr_stat(victim, STAT_STR));
+
+	// stamina mod, scale by their remaining stamina
+	chance = chance * victim->max_stam / UMAX(victim->stam, 1);
 
 	/*Change in chance based on carried weight of both involved*/
-	chance += (get_carry_weight(ch) - get_carry_weight(victim)) / 300;
+	// hard to balance this for mobs -- Montrey (2014)
+//	chance += (get_carry_weight(ch) - get_carry_weight(victim)) / 300;
 
 	/*Level modifiers*/
 	chance += (ch->level - victim->level);
