@@ -943,6 +943,7 @@ const struct flag_type comm_flags[] =
     {   "nopage",               COMM_NOPAGE,            TRUE    },
     {   "nochannels",           COMM_NOCHANNELS,        TRUE    },
     {   "afk",                  COMM_AFK,               TRUE    },
+    {   "atbprompt",            COMM_ATBPROMPT,         TRUE    },
     {   NULL,                   0,                      0       }
 };
 

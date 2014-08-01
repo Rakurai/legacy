@@ -2357,8 +2357,8 @@ bool check_dodge( CHAR_DATA *ch, CHAR_DATA *victim, int dt )
 		chance /= 2;
 
 #ifdef DEBUG_CHANCE
-	ptc(ch, "(c%d)", chance);
-	ptc(victim, "(v%d)", chance);
+	ptc(ch, "(dodge %d%%)", chance);
+	ptc(victim, "(dodge %d%%)", chance);
 #endif
 
 	/*Moderate the result*/
@@ -3548,8 +3548,8 @@ void do_bash( CHAR_DATA *ch, char *argument )
 	}
 
 #ifdef DEBUG_CHANCE
-	ptc(ch, "(c%d)", chance);
-	ptc(victim, "(v%d)", chance);
+	ptc(ch, "(bash %d%%)", chance);
+	ptc(victim, "(bash %d%%)", chance);
 #endif
 
 	/*Moderate the result*/
