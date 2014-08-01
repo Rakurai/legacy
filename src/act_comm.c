@@ -1024,7 +1024,7 @@ void update_text_file (CHAR_DATA *ch, char *file, char *str)
 	{
 		gettimeofday(&now_time, NULL);
 		current_time = (time_t) now_time.tv_sec;
-		strftime(buf, 7, "%m/%d", localtime(&current_time));
+		strftime(buf, 7, "%m/%d/%y", localtime(&current_time));
 		fprintf(fp, "{Y[{x%5s{Y]{x {C[{x%5d{C]{x %s: %s\n",
 			buf, ch->in_room ? ch->in_room->vnum : 0, ch->name, str);
 		fclose(fp);

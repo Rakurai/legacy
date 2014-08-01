@@ -1,22 +1,21 @@
 #PLAYER
 Name Orphum~
 Id   1017240927
-LogO 1071784375
-Vers 14
+LogO 1406863716
+Vers 15
 Mexp 2
 Pass thief~
 Prom %CH%h/%Hhp %CT%m/%Mm %Cb%v/%Vmv %CY%gg %Cc%ss %CV%XXnl %CHalign%a %CC%qmin %jsmin.  ~
 Race elf~
 Cla  2
 Levl 10
-Tru  0
-Plyd 18116
+Plyd 18420
 Back 0
 Note 1062641169 1062641169 1062641169 1062641169 1062641169 1062641169 1062641169
 Scro 22
-Room 3365
-HMS  124 157 175
-Gold 35
+Room 3370
+HMS  124 157 82
+Gold 44
 Silv 54
 Exp  10563
 PCkills  0
@@ -32,19 +31,21 @@ FVul Z
 Plr  O
 Video 0
 Act  CDEFGHJLQSc
-AfBy 0
+AfBy HZ
 Comm NO
 Revk 0
-Cgrp A
+Cgrp AI
 Cnsr ABC
+Block_Remote 0
 Prac 0
 Trai 0
 Wimp 0
+Familiar 0
 Atrib 14 16 15 21 15 14
-SkillPnts  13
+SkillPnts  23
 QuestPnts  17
-QuestNext  7
-SQuestNext 3
+QuestNext  2
+SQuestNext 19
 Afk {B[{CWed Mar 27 23:12:45 2002{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  ({VNewbie Aura{x)~
@@ -55,14 +56,14 @@ Aura ~
 TSex 1
 LLev 4
 Deit Alisa~
-Lsit cable2-146.cass.net~
-Ltim Thu Dec 18 16:50:30 2003
+Lsit 116-89-107-97.dynamic.cm-pool.d-pcomm.com~
+Ltim Thu Jul 31 20:23:31 2014
 ~
-LSav Thu Dec 18 16:52:55 2003
+LSav Thu Jul 31 20:28:36 2014
 ~
 HMSP 120 150 175
 THMS 0 0 0
-Cnd  0 0 0 19
+Cnd  0 0 0 12
 Alias k backstab~
 Sk 1 1 'dazzling light'
 Sk 1 1 'enchant armor'
@@ -91,6 +92,8 @@ Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'thief basics'
 Gr 'enchantment'
+Affc 'divine regeneration'   0  99  97   0   0   33554432 4
+Affc 'sanctuary'   0  98  11   0   0        128 4
 End
 
 #O

@@ -1,7 +1,7 @@
 #PLAYER
 Name Xenith~
 Id   997915456
-LogO 1406693652
+LogO 1406866389
 Vers 15
 Mexp 2
 Pass 955321~
@@ -13,13 +13,13 @@ Race human~
 Clan balance~
 Cla  2
 Levl 100
-Plyd 15027096
-Back 14144807
-Note 1406559493 1105162385 1107312677 1112736317 1406555570 1113489214 1102829824
+Plyd 15099983
+Back 15038176
+Note 1406559493 1105162385 1107312677 1112736317 1406785216 1113489214 1102829824
 Scro 44
 Room 1202
-HMS  20495 26086 13140
-Gold 489
+HMS  30030 30100 30000
+Gold 289
 Silv 1008560
 Exp  91000
 PCkills  5
@@ -28,7 +28,7 @@ Akills   1
 Akilled  0
 PKRank   10
 Pos  8
-Alig 998
+Alig 1000
 Ptnr Alisa~
 Mark 1202
 FImm 0
@@ -38,7 +38,7 @@ Plr  ABFIJKNOUd
 Video 0
 Act  DEFGLQST
 AfBy 0
-Comm DGMNOQYa
+Comm DGMNOQa
 Revk 0
 Cgrp BCEFGIKLMO
 Cnsr C
@@ -68,12 +68,12 @@ TSex 2
 LLev 2739
 Email xenith@ageoflegacy.com~
 Deit Xenith~
-Lsit 74-93-181-149-Sacramento.hfc.comcastbusiness.net~
-Ltim Tue Jul 29 20:06:39 2014
+Lsit 2001:470:1f05:bf7:2cff:bb39:24ce:8f2f~
+Ltim Thu Jul 31 19:49:25 2014
 ~
-LSav Tue Jul 29 21:14:12 2014
+LSav Thu Jul 31 21:13:09 2014
 ~
-HMSP 20465 25986 23960
+HMSP 30000 30000 30000
 THMS 3 1 1
 Cnd  0 0 100 100
 Colr 0 32 1
@@ -734,25 +734,6 @@ ExDe owned by~ Xenith
 End
 
 #O
-Vnum 3379
-Nest 0
-Name gold token~
-ShD  {ga {Y5000{bgp {Wt{go{Tk{ge{Wn{x~
-Desc {ga {Y5000{bgp {Wt{go{Tk{ge{Wn{x~
-Wear -1
-Cost 0
-End
-
-#O
-Vnum 1213
-Nest 0
-Name hidden token xenith~
-ShD  Look! An impossible to find Xenith token!~
-Wear -1
-Cost 0
-End
-
-#O
 Vnum 7502
 Nest 0
 Wear -1
@@ -1127,6 +1108,25 @@ Nest 1
 ExtF 1
 Wear -1
 Cost 3600
+End
+
+#O
+Vnum 3379
+Nest 0
+Name gold token~
+ShD  {ga {Y5000{bgp {Wt{go{Tk{ge{Wn{x~
+Desc {ga {Y5000{bgp {Wt{go{Tk{ge{Wn{x~
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 1213
+Nest 0
+Name hidden token xenith~
+ShD  Look! An impossible to find Xenith token!~
+Wear -1
+Cost 0
 End
 
 #L

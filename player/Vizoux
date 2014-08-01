@@ -1,30 +1,29 @@
 #PLAYER
 Name Vizoux~
 Id   1044338154
-LogO 1061172899
-Vers 14
+LogO 1406860032
+Vers 15
 Mexp 1
 Pass amethyst83~
 Prom %CC<%CP%h/%CR%Hhp %CC%m/%CT%Mm %CG%v/%CH%Vmv %CW%gg %CR%ss %CV%Xtnl %CB%a %CW%q%CC>% %Cx ~
 Race human~
 Cla  3
-Levl 8
-Tru  0
-Plyd 3300
+Levl 9
+Plyd 13758
 Back 0
 Note 0 0 0 0 0 0 0
 Scro 22
-Room 3054
-HMS  120 140 175
-Gold 28
-Silv 74
-Exp  8838
+Room 3001
+HMS  136 144 191
+Gold 4
+Silv 127
+Exp  9437
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
-Pos  8
+Pos  5
 Alig -1000
 FImm 0
 FRes 0
@@ -35,30 +34,35 @@ Act  CDEFGHIJLQSc
 AfBy 0
 Comm NOQ
 Revk 0
-Cgrp A
+Cgrp AI
 Cnsr AB
-Prac 21
-Trai 7
+Block_Remote 0
+Prac 24
+Trai 8
 Wimp 5
+Familiar 0
 Atrib 18 15 15 13 14 14
+Afk {B[{CThu Jul 31 19:25:55 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+~
 Titl  {NT{Mh{Te{x {NS{Mh{ka{Td{Ho{bw{x {NW{Ma{kl{Tk{He{br{x{\~
 Immn ~
 Pnts 40
 Rank ~
 Aura ~
 TSex 1
-LLev 0
+LLev 1
 Deit Vegita~
-Lsit cdm-66-149-162-bcst.cox-internet.com~
-Ltim Sun Aug 17 22:10:12 2003
+Lsit r74-192-16-141.bcstcmta01.clsttx.tl.dh.suddenlink.net~
+Ltim Thu Jul 31 16:31:17 2014
 ~
-LSav Sun Aug 17 22:14:59 2003
+LSav Thu Jul 31 19:27:12 2014
 ~
-HMSP 116 133 178
+HMSP 127 137 191
 THMS 0 0 0
-Cnd  0 9 47 18
+Cnd  0 0 40 20
 Sk 1 1 'dagger'
 Sk 78 1 'sword'
+Sk 1 1 'bow'
 Sk 75 1 'bash'
 Sk 1 1 'dodge'
 Sk 76 1 'enhanced damage'
@@ -75,16 +79,6 @@ Sk 1 1 'wands'
 Sk 75 1 'recall'
 Gr 'rom basics'
 Gr 'warrior basics'
-Affc 'blood moon'   0  59  55   3  18          0 1
-Affc 'blood moon'   0  59  55   5  19          0 1
-End
-
-#O
-Vnum 3716
-Nest 0
-Wear 0
-Cost 0
-Val  0 0 127 0 0
 End
 
 #O
@@ -99,13 +93,6 @@ Vnum 3704
 Nest 0
 Wear 11
 Cost 0
-End
-
-#O
-Vnum 3162
-Nest 0
-Wear -1
-Cost 500
 End
 
 #O
@@ -164,13 +151,6 @@ Cost 550
 End
 
 #O
-Vnum 77
-Nest 0
-Wear -1
-Cost 0
-End
-
-#O
 Vnum 78
 Nest 0
 Wear 8
@@ -182,13 +162,13 @@ Vnum 79
 Nest 0
 Wear -1
 Cost 200
-Val  150 90 15 0 0
+Val  150 150 0 0 0
 End
 
 #O
 Vnum 80
 Nest 0
-Wear 18
+Wear -1
 Cost 550
 End
 
@@ -200,16 +180,9 @@ Cost 120
 End
 
 #O
-Vnum 10126
-Nest 0
-Wear 7
-Cost 57
-End
-
-#O
 Vnum 10129
 Nest 0
-Wear -1
+Wear 18
 Cost 122
 End
 
@@ -233,6 +206,34 @@ Nest 0
 Cond 80
 Wear -1
 Cost 1510
+End
+
+#O
+Vnum 10126
+Nest 0
+Wear 7
+Cost 57
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 3009
+Nest 0
+Wear -1
+Cost 22
+End
+
+#O
+Vnum 4583
+Nest 0
+Wear -1
+Cost 1200
 End
 
 #END

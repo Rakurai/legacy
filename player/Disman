@@ -1,25 +1,25 @@
 #PLAYER
 Name Disman~
 Id   1003178212
-LogO 1111594417
-Vers 14
+LogO 1406866058
+Vers 15
 Mexp 2
 Pass aceventura~
 Prom {g<{Y%h{g/{Y%Hhp {G%m{g/{G%Mman {H%vmv {Y%g{g/{c%ssil {W%r {G%a {W%q{g/{G%j {W%X {g> ~
 Race human~
 Clan rebel~
 Cla  0
-Levl 45
-Plyd 1720624
+Levl 46
+Plyd 1723279
 Back 1719992
-Note 1107484496 1107484496 1107484496 1107484496 1107484496 1111255532 1107484496
+Note 1406389926 1107484496 1107484496 1107484496 1107484496 1111255532 1107484496
 Scro 24
-Room 3101
-HMS  1223 845 213
-Gold 1066
-Silv 79
+Room 3054
+HMS  1000 286 101
+Gold 996
+Silv 1514
 Silver_in_bank 13890
-Exp  45729
+Exp  46374
 PCkills  42
 PCkilled 5
 Akills   19
@@ -31,17 +31,17 @@ Spou ~
 FImm 0
 FRes Q
 FVul F
-Plr  AEFKOQd
+Plr  EFKOQd
 Video D
 Act  CDEFGHJLOQSTc
-AfBy DFVc
+AfBy FHNOTV
 Comm MNO
 Revk 0
 Cgrp AIKLM
 Cnsr B
 Block_Remote 0
-Prac 177
-Trai 1
+Prac 181
+Trai 2
 Wimp 0
 Familiar 0
 Atrib 18 21 18 18 18 18
@@ -57,23 +57,23 @@ Pnts 40
 Rank {GM{HS{cT~
 Aura {WS{Yta{Wr{CM{Tag{Ce {W#1~
 TSex 1
-LLev 477
+LLev 478
 Email setheroth69@hotmail.com~
 Deit {gA{Hl{Ga{Hr{ga{x~
 Stus {BGra{Tnd{Wm{Tas{Bter {CBre{Ww{Ter{x/{PS{Rc{Yri{Rb{Pe{x of the {WK{gi{Wn{gd{Wr{ge{Wd{x{x{a{W~
 RmCt 11
 ExSk 0
 Raff 958 901
-Lsit sdn-ap-022scfairP0288.dialsprint.net~
-Ltim Wed Mar 23 10:06:00 2005
+Lsit c-98-222-123-172.hsd1.in.comcast.net~
+Ltim Thu Jul 31 20:39:23 2014
 ~
-LSav Wed Mar 23 10:13:37 2005
+LSav Thu Jul 31 21:07:38 2014
 ~
 Finf -
 ~
-HMSP 903 665 366
+HMSP 914 680 372
 THMS 40 0 0
-Cnd  0 24 40 40
+Cnd  0 0 19 19
 Colr 3 33 1
 Colr 13 33 1
 Colr 57 33 1
@@ -310,11 +310,20 @@ Gr 'bladecraft'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'haste'   0  44  13   3   2    2097152 1
-Affc 'regeneration'   0  43   8   0   0  268435456 2
-Affc 'sheen'   0  40  24   0  27          0 1
-Affc 'detect invis'   0  35   0   0   0          8 1
-Affc 'detect hidden'   0  35   0   0   0         32 1
+Affc 'sanctuary'   0  45   2   0   0        128 2
+Affc 'protection evil'   0  43  17  -1  24       8192 1
+Affc 'protection good'   0  44  17  -1  24      16384 1
+Affc 'armor'   0  43  16 -20  17          0 1
+Affc 'detect hidden'   0  45  34   0   0         32 1
+Affc 'focus'   0  43   2   0  29          0 1
+Affc 'haste'   0  42   1   3   2    2097152 1
+Affc 'blood moon'   0  42  15   2  18          0 1
+Affc 'blood moon'   0  36  15   3  19          0 1
+Affc 'fly'   0  40  16   0   0     524288 1
+Affc 'giant strength'   0  36  12   3   1          0 1
+Affc 'stone skin'   0  34  12 -40  17          0 1
+Affc 'shield'   0  36  20 -20  17          0 1
+Affc 'sheen'   0  39  11   0  27          0 1
 End
 
 #O
@@ -336,6 +345,13 @@ Cost 1000
 End
 
 #O
+Vnum 3204
+Nest 1
+Wear -1
+Cost 50
+End
+
+#O
 Vnum 3202
 Nest 1
 Wear -1
@@ -343,143 +359,100 @@ Cost 30
 End
 
 #O
-Vnum 3380
+Vnum 10170
 Nest 1
-Name scroll energy drain~
-ShD  a scroll of energy drain~
-Desc A scroll of energy drain lies here.
-~
 Wear -1
-Lev  44
-Cost 1420
-Val  44 62 -1 -1 -1
-Spell 1 'energy drain'
+Cost 2000
 End
 
 #O
-Vnum 3380
+Vnum 10133
 Nest 1
-Name scroll energy drain~
-ShD  a scroll of energy drain~
-Desc A scroll of energy drain lies here.
-~
 Wear -1
-Lev  44
-Cost 1420
-Val  44 62 -1 -1 -1
-Spell 1 'energy drain'
+Cost 120
 End
 
 #O
-Vnum 3380
+Vnum 10128
 Nest 1
-Name scroll energy drain~
-ShD  a scroll of energy drain~
-Desc A scroll of energy drain lies here.
-~
 Wear -1
-Lev  44
-Cost 1420
-Val  44 62 -1 -1 -1
-Spell 1 'energy drain'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll energy drain~
-ShD  a scroll of energy drain~
-Desc A scroll of energy drain lies here.
-~
-Wear -1
-Lev  44
-Cost 1420
-Val  44 62 -1 -1 -1
-Spell 1 'energy drain'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll energy drain~
-ShD  a scroll of energy drain~
-Desc A scroll of energy drain lies here.
-~
-Wear -1
-Lev  44
-Cost 1420
-Val  44 62 -1 -1 -1
-Spell 1 'energy drain'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll energy drain~
-ShD  a scroll of energy drain~
-Desc A scroll of energy drain lies here.
-~
-Wear -1
-Lev  44
-Cost 1420
-Val  44 62 -1 -1 -1
-Spell 1 'energy drain'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll energy drain~
-ShD  a scroll of energy drain~
-Desc A scroll of energy drain lies here.
-~
-Wear -1
-Lev  44
-Cost 1420
-Val  44 62 -1 -1 -1
-Spell 1 'energy drain'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll energy drain~
-ShD  a scroll of energy drain~
-Desc A scroll of energy drain lies here.
-~
-Wear -1
-Lev  44
-Cost 1420
-Val  44 62 -1 -1 -1
-Spell 1 'energy drain'
-End
-
-#O
-Vnum 3380
-Nest 1
-Name scroll energy drain~
-ShD  a scroll of energy drain~
-Desc A scroll of energy drain lies here.
-~
-Wear -1
-Lev  44
-Cost 1420
-Val  44 62 -1 -1 -1
-Spell 1 'energy drain'
-End
-
-#O
-Vnum 1229
-Nest 0
-Wear -1
-Cost 100
+Cost 98
 End
 
 #O
 Vnum 1612
-Nest 0
-Wear 11
+Nest 1
+Wear -1
 Cost 1530
+End
+
+#O
+Vnum 24615
+Nest 1
+Wear -1
+Cost 3160
+End
+
+#O
+Vnum 10170
+Nest 1
+Wear -1
+Cost 2000
+End
+
+#O
+Vnum 16040
+Nest 1
+Wear -1
+Cost 9800
+End
+
+#O
+Vnum 10170
+Enchanted
+Nest 0
+Name leggings~
+ShD  {WL{Heg{Ggi{Hng{Ws{x of {WM{Cis{Wt{x~
+Desc {WL{Heg{Ggi{Hng{Ws{x of {WM{Cis{Wt{x~
+Mat {WM{Ci{Ws{Ct{x~
+ExtF 262211
+Wear 7
+Lev  52
+Cost 0
+Affc 'reserved'   1  50  -1  -2  20          0 1
+Affc 'enchant weapon'   1  52  -1   4  19          0 1
+Affc 'enchant weapon'   1  52  -1   5  18          0 1
+Affc 'reserved'   1  50  -1  15  13          0 1
+Affc 'reserved'   1  50  -1  25  12          0 1
+Affc 'reserved'   1  50  -1   2   4          0 1
+Affc 'enchant armor'   1  85  -1  -2  17          0 1
+End
+
+#O
+Vnum 3204
+Enchanted
+Nest 0
+Name mist sky floater~
+ShD  {WC{Co{Wo{Cl {WM{Cis{Wt{x of a {gSt{Ya{grl{Yi{gght {CS{Tk{Cy{x~
+Desc {WC{Co{Wo{Cl {WM{Cis{Wt{x of a {gSt{Ya{grl{Yi{gght {CS{Tk{Cy{x~
+Mat {WM{Cis{Wt{x~
+ExtF 67633219
+Wear 18
+Cost 0
+Affc 'reserved'   1 100  -1 -10  17          0 1
+Affc 'reserved'   1  40  -1   2   3          0 1
+Affc 'reserved'   1  40  -1   2   4          0 1
+Affc 'reserved'   1  40  -1   3  18          0 1
+Affc 'reserved'   1  40  -1   3  19          0 1
+Affc 'reserved'   1  40  -1  40  12          0 1
+Affc 'reserved'   1  40  -1  20  13          0 1
+End
+
+#O
+Vnum 10171
+Nest 0
+Wear 0
+Cost 3300
 End
 
 #O
@@ -503,13 +476,6 @@ Cost 0
 End
 
 #O
-Vnum 10133
-Nest 0
-Wear -1
-Cost 120
-End
-
-#O
 Vnum 29905
 Nest 0
 Wear 6
@@ -517,53 +483,10 @@ Cost 10000
 End
 
 #O
-Vnum 9573
-Nest 0
-Wear -1
-Time 13
-Cost 820
-Spell 1 'haste'
-End
-
-#O
-Vnum 9573
-Nest 0
-Wear -1
-Time 98
-Cost 820
-Spell 1 'haste'
-End
-
-#O
-Vnum 24611
-Nest 0
-Wear 0
-Cost 3000
-Affc 'dazzling light'   0  32  35   4  19          0 1
-Affc 'dazzling light'   0  36  35   4  18          0 1
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
 Vnum 9923
 Nest 0
 Wear 13
 Cost 0
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
 End
 
 #O
@@ -588,100 +511,16 @@ Cost 3400
 End
 
 #O
-Vnum 24615
-Nest 0
-Wear 3
-Cost 3160
-End
-
-#O
-Vnum 10128
-Nest 0
-Wear 17
-Cost 98
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
-Vnum 16040
-Nest 0
-Wear 4
-Cost 9800
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
-Vnum 10170
-Nest 0
-Wear -1
-Cost 2000
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
 Vnum 24616
 Nest 0
-Wear 1
+Wear 2
 Cost 4500
 End
 
 #O
 Vnum 24616
 Nest 0
-Wear 2
+Wear 1
 Cost 4500
 End
 
@@ -694,44 +533,6 @@ Wear 12
 Cost 18300
 Affc 'reserved'   1  47  -1  75  12          0 1
 Affc 'reserved'   1 100  -1 -10  17          0 1
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 3204
-Nest 0
-Wear 18
-Cost 50
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
-Vnum 10170
-Nest 0
-Wear 7
-Cost 2000
 End
 
 #O
@@ -752,30 +553,6 @@ Affc 'reserved'   1 100  -1   6  19          0 1
 End
 
 #O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
-End
-
-#O
 Vnum 24617
 Nest 0
 Wear 8
@@ -783,344 +560,50 @@ Cost 5000
 End
 
 #O
-Vnum 10167
+Vnum 1229
 Nest 0
 Wear -1
-Cost 3800
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
-End
-
-#O
-Vnum 8652
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
+Cost 100
 End
 
 #O
 Vnum 10167
 Nest 0
-Wear -1
+Wear 4
 Cost 3800
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
 End
 
 #O
 Vnum 10167
 Nest 0
-Wear -1
+Wear 3
 Cost 3800
 End
 
 #O
-Vnum 8652
+Vnum 17101
 Nest 0
-Wear -1
-Cost 10
-Spell 3 'fly'
+Name shadow~
+ShD  {YM{go{Wo{gn {WS{gh{Wa{gd{Wo{gw{Ys{x~
+Desc {YM{go{Wo{gn {WS{gh{Wa{gd{Wo{gw{Ys{x~
+Mat {YS{ch{Wa{cd{Wo{Yw{x~
+ExtF 3
+Wear 11
+Cost 0
 End
 
 #O
 Vnum 3380
 Nest 0
-Wear -1
-Cost 1460
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1460
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1460
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1460
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1460
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1460
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1460
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1460
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1460
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1460
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1490
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1490
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1490
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1490
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1490
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1490
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1490
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1490
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1490
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1490
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1240
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1240
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1240
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1240
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1240
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1240
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1240
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1240
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1240
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1240
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1700
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1700
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1700
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1700
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1700
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1700
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1700
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1700
-End
-
-#O
-Vnum 3380
-Nest 0
-Wear -1
-Cost 1700
-End
-
-#O
-Vnum 10167
-Nest 0
-Wear -1
-Cost 3800
-End
-
-#O
-Vnum 24606
-Nest 0
-Wear -1
-Cost 10
-Spell 3 'talon'
+Name scroll energy drain~
+ShD  a scroll of energy drain~
+Desc A scroll of energy drain lies here.
+~
+Wear 17
+Lev  44
+Cost 1420
+Val  44 62 -1 -1 -1
+Spell 1 'energy drain'
 End
 
 #L
@@ -1190,6 +673,37 @@ ExDe tahoe thunderstrike trading card~ Thunderstriker... only the most learned o
 longer exists, it was shattered long ago by the gods as a symbol
 of the realm's break with its past.
 ~
+End
+
+#L
+Vnum 4593
+Nest 0
+Wear -1
+Cost 2400
+End
+
+#L
+Vnum 1213
+Nest 0
+Name shield martin trading card Montrey~
+ShD  {Wa Shield {bof {gMartin {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
+Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
+Mat paper~
+Wear -1
+Cost 0
+ExDe shield martin trading card~ The magical brilliance of the {WShield {bof {gMartin {xhas oft lit the way
+for daring adventurers, illuminating even the deepest dungeon.
+Easily recognized by the large 'M' stamped on its face, this round
+steel shield can block even the strongest hit, and is particularly
+suited to deflecting the strike of a charging lancer.
+~
+End
+
+#L
+Vnum 1201
+Nest 0
+Wear -1
+Cost 3
 End
 
 #L
@@ -1327,37 +841,6 @@ Wear -1
 Cost 550
 End
 
-#L
-Vnum 4593
-Nest 0
-Wear -1
-Cost 2400
-End
-
-#L
-Vnum 1213
-Nest 0
-Name shield martin trading card Montrey~
-ShD  {Wa Shield {bof {gMartin {Wtr{ga{Wd{gin{Wg c{gar{Wd{x~
-Desc {WA t{gra{Wd{gi{Wng c{gar{Wd lies here on the ground.  Quick, grab it!{x~
-Mat paper~
-Wear -1
-Cost 0
-ExDe shield martin trading card~ The magical brilliance of the {WShield {bof {gMartin {xhas oft lit the way
-for daring adventurers, illuminating even the deepest dungeon.
-Easily recognized by the large 'M' stamped on its face, this round
-steel shield can block even the strongest hit, and is particularly
-suited to deflecting the strike of a charging lancer.
-~
-End
-
-#L
-Vnum 1201
-Nest 0
-Wear -1
-Cost 3
-End
-
 #B
 Vnum 504
 Nest 0
@@ -1379,6 +862,32 @@ Vnum 7607
 Nest 0
 Wear -1
 Cost 20
+End
+
+#B
+Vnum 825
+Nest 0
+Wear -1
+Cost 200
+End
+
+#B
+Vnum 28008
+Enchanted
+Nest 1
+ExtF 17301569
+Wear -1
+Cost 47500
+Val  14 15 15 4 1
+Affc 'reserved'   3  45  -1   0   0        512 1
+Affc 'reserved'   4  45  -1   0   0         32 1
+End
+
+#B
+Vnum 5607
+Nest 1
+Wear -1
+Cost 2000
 End
 
 #B
@@ -1695,29 +1204,56 @@ ExDe owned by~ Disman
 End
 
 #B
-Vnum 825
+Vnum 14111
 Nest 0
 Wear -1
-Cost 200
+Cost 0
 End
 
 #B
-Vnum 28008
-Enchanted
-Nest 1
-ExtF 17301569
+Vnum 14111
+Nest 0
 Wear -1
-Cost 47500
-Val  14 15 15 4 1
-Affc 'reserved'   3  45  -1   0   0        512 1
-Affc 'reserved'   4  45  -1   0   0         32 1
+Cost 0
 End
 
 #B
-Vnum 5607
-Nest 1
+Vnum 14111
+Nest 0
 Wear -1
-Cost 2000
+Cost 0
+End
+
+#B
+Vnum 14111
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14111
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 14111
+Nest 0
+Wear -1
+Cost 0
+End
+
+#B
+Vnum 20021
+Nest 0
+Name focused stake~
+ShD  {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
+Desc {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
+Mat {YM{Wo{co{Yn {CM{Wi{Cs{Wt{x~
+Wear -1
+Cost 231
 End
 
 #B
@@ -1732,144 +1268,21 @@ Cost 0
 End
 
 #B
-Vnum 10171
-Nest 1
-Wear -1
-Cost 3300
-End
-
-#B
-Vnum 14111
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 14111
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 14111
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 14111
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 14111
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 14111
-Nest 1
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 25056
+Vnum 8204
 Enchanted
 Nest 1
-Name pendant picture~
-ShD  A {Ws{Yta{Wr {Cpe{Tnda{Cnt{x with a picture of {WA{Hl{Ga{Hr{Wa{x~
-Desc A {Ws{Yta{Wr {Cpe{Tnda{Cnt{x with a picture of {WA{Hl{Ga{Hr{Wa{x~
-ExtF 262211
-Wear -1
-Lev  35
-Cost 0
-Affc 'reserved'   1  30  -1   3  19          0 1
-Affc 'reserved'   1  30  -1   3  18          0 1
-Affc 'reserved'   1  30  -1   2   4          0 1
-Affc 'reserved'   1  30  -1   1   3          0 1
-Affc 'reserved'   1  30  -1  30  12          0 1
-Affc 'enchant armor'   1 100  -1 -10  17          0 1
-End
-
-#B
-Vnum 10164
-Enchanted
-Nest 1
-Name fallen star~
-ShD  A {Wo{gn{Wce {Pf{Ra{Yll{Re{Pn {gs{Yta{gr{x~
-Desc A {Wo{gn{Wce {Pf{Ra{Yll{Re{Pn {gs{Yta{gr{x~
-Mat star~
-ExtF 17039427
-Wear -1
-Lev  57
-Cost 0
-Affc 'reserved'   1  55  -1   2   3          0 1
-Affc 'reserved'   1  55  -1   2   4          0 1
-Affc 'enchant weapon'   1  99  -1   6  19          0 1
-Affc 'enchant weapon'   1  99  -1   9  18          0 1
-Affc 'reserved'   1  55  -1  30  12          0 1
-Affc 'reserved'   1  55  -1  20  13          0 1
-Affc 'reserved'   1  55  -1   5   9          0 1
-End
-
-#B
-Vnum 25057
-Enchanted
-Nest 1
-Name bracelet~
-ShD  {WA {WSi{clv{Wer {WBra{ccel{Wet{x~
-Desc {WA {WSi{clv{Wer {WBra{ccel{Wet{x~
-Mat {WSi{clv{Wer~
-ExtF 262211
+Name gloves~
+ShD  {YSt{War{gd{Wu{Yst {WG{Gl{Hov{Ge{Ws{x~
+Desc {YSt{War{gd{Wu{Yst {WG{Gl{Hov{Ge{Ws{x~
+Mat {YSt{War{gd{Wu{Yst~
+ExtF 67
 Wear -1
 Lev  61
 Cost 0
-Affc 'reserved'   1  60  -1   1   5          0 1
-Affc 'reserved'   1  60  -1   1   2          0 1
-Affc 'reserved'   1  60  -1   1   1          0 1
-Affc 'reserved'   1  60  -1  -3  20          0 1
-Affc 'enchant weapon'   1  60  -1   8  19          0 1
-Affc 'enchant weapon'   1  60  -1   8  18          0 1
-End
-
-#B
-Vnum 25057
-Enchanted
-Nest 1
-Name bracelet~
-ShD  {WA {WSi{clv{Wer {WBra{ccel{Wet{x~
-Desc {WA {WSi{clv{Wer {WBra{ccel{Wet{x~
-Mat {WSi{clv{Wer~
-ExtF 262211
-Wear -1
-Lev  61
-Cost 0
-Affc 'reserved'   1  60  -1   1   5          0 1
-Affc 'reserved'   1  60  -1   1   2          0 1
-Affc 'reserved'   1  60  -1   1   1          0 1
-Affc 'reserved'   1  60  -1  -3  20          0 1
-Affc 'enchant weapon'   1  60  -1   8  19          0 1
-Affc 'enchant weapon'   1  60  -1   8  18          0 1
-End
-
-#B
-Vnum 17101
-Nest 1
-Name shadow~
-ShD  {YM{go{Wo{gn {WS{gh{Wa{gd{Wo{gw{Ys{x~
-Desc {YM{go{Wo{gn {WS{gh{Wa{gd{Wo{gw{Ys{x~
-Mat {YS{ch{Wa{cd{Wo{Yw{x~
-ExtF 3
-Wear -1
-Cost 0
+Affc 'reserved'   1  60  -1   3   5          0 1
+Affc 'reserved'   1  60  -1  55  12          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
 End
 
 #B
@@ -1892,43 +1305,24 @@ Affc 'reserved'   1  60  -1  -3  24          0 1
 End
 
 #B
-Vnum 10171
+Vnum 20006
 Enchanted
 Nest 1
-Name ethereal light ~
-ShD  An {CEt{Th{Wer{Te{Cal {YLi{bg{Yht{x~
-Desc An {CEt{Th{Wer{Te{Cal {YLi{bg{Yht{x~
-Mat {Cet{Th{Wer{Te{Cal {Cm{Wis{Ct{x~
-ExtF 262211
+Name starlight armor~
+ShD  {gSt{Ya{grl{Yi{gght{x {CA{Tr{gmo{Cr{x~
+Desc {gSt{Ya{grl{Yi{gght{x {CA{Tr{gmo{Cr{x~
+ExtF 17039683
 Wear -1
-Lev  56
+Lev  62
 Cost 0
-Affc 'reserved'   1  50  -1  -2  21          0 1
-Affc 'reserved'   1  50  -1  10  13          0 1
-Affc 'reserved'   1  50  -1  30  12          0 1
-Affc 'enchant weapon'   1 100  -1  14  19          0 1
-Affc 'enchant weapon'   1 100  -1  14  18          0 1
-Affc 'reserved'   1  50  -1 -13  17          0 1
-End
-
-#B
-Vnum 3204
-Enchanted
-Nest 1
-Name mist sky floater~
-ShD  {WC{Co{Wo{Cl {WM{Cis{Wt{x of a {gSt{Ya{grl{Yi{gght {CS{Tk{Cy{x~
-Desc {WC{Co{Wo{Cl {WM{Cis{Wt{x of a {gSt{Ya{grl{Yi{gght {CS{Tk{Cy{x~
-Mat {WM{Cis{Wt{x~
-ExtF 67633219
-Wear -1
-Cost 0
-Affc 'reserved'   1 100  -1 -10  17          0 1
-Affc 'reserved'   1  40  -1   2   3          0 1
-Affc 'reserved'   1  40  -1   2   4          0 1
-Affc 'reserved'   1  40  -1   3  18          0 1
-Affc 'reserved'   1  40  -1   3  19          0 1
-Affc 'reserved'   1  40  -1  40  12          0 1
-Affc 'reserved'   1  40  -1  20  13          0 1
+Val  30 30 32 47 0
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
+Affc 'reserved'   1  59  -1  -3  24          0 1
+Affc 'reserved'   1  59  -1   3  26          0 1
+Affc 'reserved'   1  59  -1 -30   9          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'enchant weapon'   0  91  -1   2  18          0 1
 End
 
 #B
@@ -1952,66 +1346,24 @@ Affc 'reserved'   1  59  -1  -8  24          0 1
 End
 
 #B
-Vnum 10170
+Vnum 10164
 Enchanted
 Nest 1
-Name leggings~
-ShD  {WL{Heg{Ggi{Hng{Ws{x of {WM{Cis{Wt{x~
-Desc {WL{Heg{Ggi{Hng{Ws{x of {WM{Cis{Wt{x~
-Mat {WM{Ci{Ws{Ct{x~
-ExtF 262211
+Name fallen star~
+ShD  A {Wo{gn{Wce {Pf{Ra{Yll{Re{Pn {gs{Yta{gr{x~
+Desc A {Wo{gn{Wce {Pf{Ra{Yll{Re{Pn {gs{Yta{gr{x~
+Mat star~
+ExtF 17039427
 Wear -1
-Lev  52
+Lev  57
 Cost 0
-Affc 'reserved'   1  50  -1  -2  20          0 1
-Affc 'enchant weapon'   1  52  -1   4  19          0 1
-Affc 'enchant weapon'   1  52  -1   5  18          0 1
-Affc 'reserved'   1  50  -1  15  13          0 1
-Affc 'reserved'   1  50  -1  25  12          0 1
-Affc 'reserved'   1  50  -1   2   4          0 1
-Affc 'enchant armor'   1  85  -1  -2  17          0 1
-End
-
-#B
-Vnum 14030
-Enchanted
-Nest 1
-ExtF 16777283
-Wear -1
-Lev  62
-Cost 0
-Affc 'reserved'   1  60  -1  45  12          0 1
-Affc 'enchant weapon'   1 100  -1  10  18          0 1
-Affc 'enchant weapon'   1 100  -1  10  19          0 1
-End
-
-#B
-Vnum 8204
-Enchanted
-Nest 1
-Name gloves~
-ShD  {YSt{War{gd{Wu{Yst {WG{Gl{Hov{Ge{Ws{x~
-Desc {YSt{War{gd{Wu{Yst {WG{Gl{Hov{Ge{Ws{x~
-Mat {YSt{War{gd{Wu{Yst~
-ExtF 67
-Wear -1
-Lev  61
-Cost 0
-Affc 'reserved'   1  60  -1   3   5          0 1
-Affc 'reserved'   1  60  -1  55  12          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
-End
-
-#B
-Vnum 20021
-Nest 1
-Name focused stake~
-ShD  {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
-Desc {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
-Mat {YM{Wo{co{Yn {CM{Wi{Cs{Wt{x~
-Wear -1
-Cost 231
+Affc 'reserved'   1  55  -1   2   3          0 1
+Affc 'reserved'   1  55  -1   2   4          0 1
+Affc 'enchant weapon'   1  99  -1   6  19          0 1
+Affc 'enchant weapon'   1  99  -1   9  18          0 1
+Affc 'reserved'   1  55  -1  30  12          0 1
+Affc 'reserved'   1  55  -1  20  13          0 1
+Affc 'reserved'   1  55  -1   5   9          0 1
 End
 
 #B
@@ -2037,6 +1389,50 @@ ExDe sword Blade of The Distraught~ It is a marvellous sword, crafted from the f
 End
 
 #B
+Vnum 10171
+Enchanted
+Nest 1
+Name ethereal light ~
+ShD  An {CEt{Th{Wer{Te{Cal {YLi{bg{Yht{x~
+Desc An {CEt{Th{Wer{Te{Cal {YLi{bg{Yht{x~
+Mat {Cet{Th{Wer{Te{Cal {Cm{Wis{Ct{x~
+ExtF 262211
+Wear -1
+Lev  56
+Cost 0
+Affc 'reserved'   1  50  -1  -2  21          0 1
+Affc 'reserved'   1  50  -1  10  13          0 1
+Affc 'reserved'   1  50  -1  30  12          0 1
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'reserved'   1  50  -1 -13  17          0 1
+End
+
+#B
+Vnum 14030
+Enchanted
+Nest 1
+ExtF 16777283
+Wear -1
+Lev  62
+Cost 0
+Affc 'reserved'   1  60  -1  45  12          0 1
+Affc 'enchant weapon'   1 100  -1  10  18          0 1
+Affc 'enchant weapon'   1 100  -1  10  19          0 1
+End
+
+#B
+Vnum 14030
+Nest 1
+Name focused starlight sword~
+ShD  {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
+Desc {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
+ExtF 16777283
+Wear -1
+Cost 0
+End
+
+#B
 Vnum 20004
 Enchanted
 Nest 1
@@ -2052,38 +1448,6 @@ Affc 'enchant weapon'   1 100  -1   6  19          0 1
 Affc 'reserved'   1  59  -1   3   2          0 1
 Affc 'reserved'   1  59  -1 100  14          0 1
 Affc 'reserved'   1  59  -1  -1  26          0 1
-End
-
-#B
-Vnum 14030
-Nest 1
-Name focused starlight sword~
-ShD  {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
-Desc {WFo{Gc{Hu{Gs{Wed {cSt{Ya{crl{Yi{cght{x~
-ExtF 16777283
-Wear -1
-Cost 0
-End
-
-#B
-Vnum 20006
-Enchanted
-Nest 1
-Name starlight armor~
-ShD  {gSt{Ya{grl{Yi{gght{x {CA{Tr{gmo{Cr{x~
-Desc {gSt{Ya{grl{Yi{gght{x {CA{Tr{gmo{Cr{x~
-ExtF 17039683
-Wear -1
-Lev  62
-Cost 0
-Val  30 30 32 47 0
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1  59  -1 100  12          0 1
-Affc 'reserved'   1  59  -1  -3  24          0 1
-Affc 'reserved'   1  59  -1   3  26          0 1
-Affc 'reserved'   1  59  -1 -30   9          0 1
-Affc 'enchant weapon'   1  91  -1   2  19          0 1
-Affc 'enchant weapon'   0  91  -1   2  18          0 1
 End
 
 #END

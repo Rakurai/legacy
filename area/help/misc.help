@@ -127,13 +127,10 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
    {b)X({x                                                           {b)X({x
   {b[{Y%%%{b]{x                                                         {b[{Y%%%{b]{x
    {b|#|{N-----------------------------------------------------------{b|#|{x
-   {b|#|                     {W Teotwawki    {YAdmin/Builder           {b|#|{x
-   {b|#|                     {W Asmadi       {YAdmin/Coder             {b|#|{x
+   {b|#|                                                           {b|#|{x
    {b|#|                     {W Montrey      {YAdmin/Coder             {b|#|{x
    {b|#|                     {W Xenith{x       {YServer Admin/Coder{x      {b|#|{x
-   {b|#|                     {W Navarre{x      {YQuestor                 {b|#|{x 
-   {b|#|                     {W Vegita       {YCoder                   {b|#|{x
-   {b|#|                     {W Outsider     {YCoder                   {b|#|{x
+   {b|#|                     {W Vegita       {YThat Guy                {b|#|{x
    {b|#|                     {W Lidda        {YBuilder/Web Site        {b|#|{x
    {b|#|                                                           {b|#|{x
    {b|#|                                                           {b|#|{x
@@ -148,6 +145,7 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
    {b|#|                      {WBlackmage  {Y  Questor{x                 {b|#|{x
    {b|#|                      {WKismet{Y       Roleplay{x                {b|#|{x
    {b|#|                      {WJubei{Y        Questor                 {b|#|{x
+   {b|#|                     {W Navarre{x      {YQuestor                 {b|#|{x 
    {b|#|                                                           {b|#|{x
    {b|#|{N-----------------------------------------------------------{b|#|{x
    {b|#|                                                           {b|#|{x
@@ -171,7 +169,7 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
 {G    |   `\   {W|                 {T\_        {Band {GE{Hdge  {T-\           {W|   {G/`   |
 {G     `\  `\  {W|    {G___           {T)                    )   {G___    {W|  {G/`  /`
 {G       `\  `\{W|  {G/' ..'>        {T/-   {CVisit us at    {T_/  {G<'..  '\ {W|{G/`  /`
-{G      __{W|{G`\  `\: ,' /'        {T/ {Clegacy.kyndig.com  {T/    {G'\ '  :/`  /`{W|{G___
+{G      __{W|{G`\  `\: ,' /'        {T/ {Clegacy.xenith.org  {T/    {G'\ '  :/`  /`{W|{G___
 {G    /' _ /''`\  '__'        {T_/____________________/       {G'__'  /`''\ _ '\
 {G   < .'./'   {W|  {G|        {T-=(_)____________________)=-        {G|  {W|   {G'\.'. >
 {G    `^' {W|    |  {G|                                            |  {W|    |{G '^`
@@ -191,7 +189,7 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
   there is NO excuse!
 {Y* {BYou can return to this message by typing {Ghelp motd{B at any time.
 {Y* {BIf you have any questions/comments/suggestions, please contact the
-  immortals via notes, or at {CLegacyImms@kyndig.com{B.
+  immortals via notes, or at {CLegacy@xenith.org{B.
 {Y* {BThere will be absolutly no revealing of a person's alt identity. To 
   do so will result in being 1212'd, then fried.
 
@@ -202,6 +200,7 @@ ROM started in early February 1993, using Merc 1.0 code. In July of 1993,
 make this happen.  All ideas, comments, and constructive criticism is 
 appreciated here, and remember, above all, ENJOY YOURSELF!  :){x
 
+NOTE: If you have copies of these, please send them to the immortals.
 {WNew {PL{Ye{Vg{Ga{Bc{Cy {RBuilding Guide: {Whttp://legacy.kyndig.com/building/index.html{x
 {WDownloadable version {R({Bupdated nightly{R): {Whttp://legacy.kyndig.com/building/build.zip{x
 ~
@@ -234,7 +233,7 @@ Welcome Immortal!
   there is NO excuse!
 {Y* {BYou can return to this message by typing {Ghelp motd{B at any time.
 {Y* {BIf you have any questions/comments/suggestions, please contact the
-  immortals via notes, or at {CLegacyImms@kyndig.com{B.
+  immortals via notes, or at {CLegacy@xenith.org{B.
 
 {WRemember ...
 {BRespect both immortals and mortals, for only by working together do we 

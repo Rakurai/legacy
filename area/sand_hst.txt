@@ -1,3 +1,1 @@
 24.31.12.106 static-host-24-31-12-106.nctv.com
-74.93.181.149 74-93-181-149-Sacramento.hfc.comcastbusiness.net
-66.87.67.197 66-87-67-197.pools.spcsdns.net

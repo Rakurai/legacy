@@ -1,7 +1,7 @@
 #PLAYER
 Name Montrey~
 Id   989562832
-LogO 1406693561
+LogO 1406866376
 Vers 15
 Mexp 2
 Pass psychomoop~
@@ -10,11 +10,11 @@ Race superhuman~
 Clan balance~
 Cla  5
 Levl 100
-Plyd 8820635
+Plyd 8951853
 Back 3286077
-Note 1109811786 1105162385 1107312677 1108167363 1111163025 1111862554 0
+Note 1109811786 1105162385 1107312677 1108167363 1111163025 1406767162 0
 Scro 100
-Room 1312
+Room 1298
 HMS  29862 30039 29922
 Gold 1026319
 Silv 17
@@ -24,16 +24,16 @@ PCkilled 0
 Akills   1
 Akilled  1
 PKRank   1
-Pos  8
+Pos  5
 Alig 750
 Spou Lidda~
 Wspr Liriel~
 Ptnr {x~
-Mark 3001
+Mark 1298
 FImm 0
 FRes 0
 FVul L
-Plr  CFNQRTUd
+Plr  CFINQRTUd
 Video D
 Act  CDGLQST
 AfBy c
@@ -46,7 +46,7 @@ Prac -851
 Trai -275
 Wimp 0
 Lay 10
-Lay_Next 2
+Lay_Next 11
 Familiar 0
 Wizn ABCDEFIJMNOPQRSUVZabc
 Invi 0
@@ -61,7 +61,7 @@ Bin  You feel a {Wd{giv{Wi{gn{We p{gr{We{gse{Wn{gc{We {gnearby.~
 Bout A sense of {closs{x overwhelms you.~
 GameIn  {gAn almost forgotten feeling of {Wdi{gv{Wi{gn{We p{gr{Wo{gt{We{gc{Wti{go{Wn {gfills your s{cou{gl.{x~
 GameOut {gThe {Who{gl{Wy p{gro{Wte{gc{Wt{gi{Won {gleaves you, and again the {cdarkness {ginvades.{x~
-Afk {B[{CTue Mar  1 08:12:25 2005{B] {CUnknown Departure.{x
+Afk {B[{CThu Jul 31 10:59:32 2014{B] {CUnknown Departure.{x
 ~
 Titl  "In Soviet Russia, Legacy plays YOU!"~
 Immn {W[{x   {gP{Wa{gl{Ca{gd{Wi{gn{x    {W]{x~
@@ -77,9 +77,9 @@ RmCt 1
 ExSk 0
 Raff 907
 Lsit static-host-24-31-12-106.nctv.com~
-Ltim Tue Jul 29 20:01:28 2014
+Ltim Thu Jul 31 13:34:15 2014
 ~
-LSav Tue Jul 29 21:12:41 2014
+LSav Thu Jul 31 21:12:56 2014
 ~
 Finf {PAlisa [92]: by god, I rule{x
 
@@ -139,6 +139,7 @@ Finf {PAlisa [92]: by god, I rule{x
 HMSP 29862 29939 29922
 THMS 0 0 0
 Cnd  0 33 100 100
+Colr 3 31 0
 Alias bitchslap at alisa smite alisa|at alisa get all~
 Alias a scan~
 Alias freetarrant for all force # grat {GF{BR{YE{PE{CD{VO{GM{B!{Y!{x~
@@ -321,7 +322,7 @@ Sk 100 1 'dodge'
 Sk 100 1 'enhanced damage'
 Sk 100 1 'envenom'
 Sk 100 1 'hand to hand'
-Sk 100 1 'kick'
+Sk 100 3 'kick'
 Sk 100 1 'parry'
 Sk 100 1 'rescue'
 Sk 100 1 'trip'
@@ -790,7 +791,7 @@ Vnum 7808
 Nest 1
 Wear -1
 Cost 200
-Val  10 221 -1 -1 -1
+Val  10 220 -1 -1 -1
 Spell 1 'force shield'
 End
 

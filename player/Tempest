@@ -1,7 +1,7 @@
 #PLAYER
 Name Tempest~
 Id   1406400519
-LogO 1406692264
+LogO 1406865363
 Vers 15
 Mexp 2
 Pass bluebutt~
@@ -9,44 +9,44 @@ Prom {W({c%z - %t{W)%c%CW%h%Cchp %CC%m%CTm %CB%v%CNmv {c({W%X{c){x ~
 Race faerie~
 Clan kindred~
 Cla  0
-Levl 45
-Plyd 53180
+Levl 48
+Plyd 59883
 Back 53167
 Note 1406559493 1406414941 1406414941 1406414941 1406555570 1406414941 1406414941
 Scro 22
 Room 25000
-HMS  651 926 244
-Gold 1570
-Silv 1286
+HMS  759 985 243
+Gold 1734
+Silv 41
 Silver_in_bank 1800
 Gold_in_bank 5000
-Exp  47969
+Exp  50793
 PCkills  0
 PCkilled 0
 Akills   0
 Akilled  0
 PKRank   0
 Pos  8
-Alig 57
+Alig -1000
 FImm 0
 FRes 0
 FVul 0
 Plr  U
 Video 0
 Act  CDEFGHJLQSc
-AfBy TVZ
+AfBy TV
 Comm NO
 Revk 0
 Cgrp IK
 Cnsr 0
 Block_Remote 0
-Prac 77
-Trai 10
+Prac 83
+Trai 7
 Wimp 2
 Familiar 0
 Atrib 11 22 18 20 14 15
 RolePnts   1
-Afk {B[{CTue Jul 29 10:46:44 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CWed Jul 30 22:42:29 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  {k~
 Immn ~
@@ -54,16 +54,16 @@ Pnts 14
 Rank ~
 Aura ~
 TSex 2
-LLev 13
+LLev 15
 Deit Whisper~
 Lsit static-host-24-31-12-106.nctv.com~
-Ltim Tue Jul 29 20:24:30 2014
+Ltim Thu Jul 31 20:49:11 2014
 ~
-LSav Tue Jul 29 20:51:04 2014
+LSav Thu Jul 31 20:56:03 2014
 ~
-HMSP 431 671 244
+HMSP 464 710 257
 THMS 2 0 0
-Cnd  0 22 -1 -1
+Cnd  0 0 -1 -1
 Alias crecall clanrecall~
 Alias crit cast 'cure critical'~
 Alias crecal clanrecall~
@@ -72,12 +72,14 @@ Sk 75 1 'acid breath'
 Sk 1 1 'acid rain'
 Sk 1 1 'age'
 Sk 82 1 'armor'
+Sk 75 1 'bless'
 Sk 1 1 'blindness'
 Sk 1 1 'blizzard'
 Sk 1 1 'burning hands'
 Sk 75 1 'call lightning'
+Sk 1 1 'calm'
 Sk 75 1 'cancellation'
-Sk 81 1 'chain lightning'
+Sk 86 1 'chain lightning'
 Sk 1 1 'channel'
 Sk 1 1 'chill touch'
 Sk 1 1 'colour spray'
@@ -92,21 +94,23 @@ Sk 1 1 'divine regeneration'
 Sk 1 1 'energy drain'
 Sk 76 1 'faerie fire'
 Sk 75 1 'faerie fog'
-Sk 79 1 'fire breath'
+Sk 83 1 'fire breath'
 Sk 93 1 'fireball'
 Sk 1 1 'fireproof'
 Sk 1 1 'firestorm'
 Sk 1 1 'flameshield'
 Sk 1 1 'fly'
+Sk 75 1 'frenzy'
 Sk 75 1 'frost breath'
 Sk 75 1 'gas breath'
 Sk 76 1 'gate'
 Sk 75 1 'giant strength'
 Sk 1 1 'haste'
 Sk 75 1 'heal'
+Sk 1 1 'holy word'
 Sk 1 1 'infravision'
-Sk 88 1 'lightning bolt'
-Sk 75 1 'lightning breath'
+Sk 89 1 'lightning bolt'
+Sk 77 1 'lightning breath'
 Sk 76 1 'magic missile'
 Sk 1 1 'mass healing'
 Sk 1 1 'nexus'
@@ -118,10 +122,13 @@ Sk 75 1 'protection evil'
 Sk 75 1 'protection good'
 Sk 4 1 'refresh'
 Sk 78 1 'regeneration'
+Sk 75 1 'remove alignment'
+Sk 1 1 'remove invisibility'
+Sk 1 1 'remove curse'
 Sk 79 1 'sanctuary'
 Sk 77 1 'shield'
 Sk 1 1 'shocking grasp'
-Sk 83 1 'slow'
+Sk 86 1 'slow'
 Sk 1 1 'starve'
 Sk 80 1 'steel mist'
 Sk 76 1 'stone skin'
@@ -136,7 +143,7 @@ Sk 1 1 'word of recall'
 Sk 1 1 'wrath'
 Sk 100 1 'dagger'
 Sk 75 1 'sword'
-Sk 85 1 'shield block'
+Sk 89 1 'shield block'
 Sk 1 1 'brew'
 Sk 100 1 'dodge'
 Sk 80 1 'second attack'
@@ -150,6 +157,7 @@ Sk 1 1 'wands'
 Sk 50 1 'recall'
 Gr 'rom basics'
 Gr 'mage basics'
+Gr 'benedictions'
 Gr 'combat'
 Gr 'draconian'
 Gr 'enhancement'
@@ -158,8 +166,7 @@ Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'giant strength'   0  44  41   3   1          0 1
-Affc 'divine regeneration'   0  91  51   0   0   33554432 4
+Affc 'giant strength'   0  91  56   6   1          0 1
 End
 
 #O
@@ -167,14 +174,6 @@ Vnum 3162
 Nest 0
 Wear -1
 Cost 500
-End
-
-#O
-Vnum 10126
-Nest 0
-Cond 88
-Wear 7
-Cost 57
 End
 
 #O
@@ -187,7 +186,7 @@ End
 #O
 Vnum 9923
 Nest 0
-Cond 93
+Cond 90
 Wear 13
 Cost 1813
 End
@@ -214,14 +213,6 @@ Nest 0
 Wear -1
 Cost 0
 Spell 3 'protection evil'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'fly'
 End
 
 #O
@@ -371,7 +362,7 @@ End
 #O
 Vnum 25051
 Nest 0
-Cond 98
+Cond 95
 Wear 6
 Cost 3000
 End
@@ -379,7 +370,7 @@ End
 #O
 Vnum 25052
 Nest 0
-Cond 88
+Cond 85
 Wear 9
 Cost 3000
 End
@@ -530,6 +521,7 @@ End
 #O
 Vnum 25056
 Nest 0
+Cond 98
 Wear 4
 Cost 4000
 End
@@ -559,13 +551,6 @@ Spell 3 'cure serious'
 End
 
 #O
-Vnum 20028
-Nest 0
-Wear 5
-Cost 588
-End
-
-#O
 Vnum 25016
 Nest 0
 Wear -1
@@ -587,29 +572,6 @@ Nest 0
 Wear -1
 Cost 15
 Spell 3 'cure serious'
-End
-
-#O
-Vnum 14085
-Nest 0
-Name moss bed wildflower wildflowers~
-ShD  {ga {cp{gl{cus{gh {Gb{He{Gd o{Hf {Gm{Hos{Gs {gand {Cw{Ti{Vl{Md{Gf{Tl{Co{Vw{Me{Cr{Ts{x~
-Desc {ga {cp{gl{cus{gh {Gb{He{Gd o{Hf {Gm{Hos{Gs {gand {Cw{Ti{Vl{Md{Gf{Tl{Co{Vw{Me{Cr{Ts{x~
-Mat {gs{Ti{Ws{gt{Te{Wr{gh{Too{gd{x~
-ExtF 17055811
-WeaF 32769
-Wt   5
-Wear -1
-Lev  0
-Cost 0
-Val  4 4000 2336 200 200
-ExDe bed~ {ga {cp{gl{cus{gh {Gb{He{Gd o{Hf {Gm{Hos{Gs {gand {Cw{Ti{Vl{Md{Gf{Tl{Co{Vw{Me{Cr{Ts{x
-~
-ExDe {x~ ~
-ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
-~
-ExDe mat~ {ga {cp{gl{cus{gh {Gm{Ha{Gt o{Hf {Gm{Hos{Gs {gand {Cw{Ti{Vl{Md{Gf{Tl{Co{Vw{Me{Cr{Ts{x
-~
 End
 
 #O
@@ -661,24 +623,9 @@ Spell 3 'detect good'
 End
 
 #O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'fly'
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
-End
-
-#O
 Vnum 25058
 Nest 0
+Cond 97
 Wear 10
 Cost 5000
 End
@@ -692,36 +639,11 @@ Spell 3 'protection evil'
 End
 
 #O
-Vnum 25015
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'pass door'
-End
-
-#O
 Vnum 25084
 Nest 0
 Wear -1
 Cost 0
 Spell 3 'detect good'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'fly'
-End
-
-#O
-Vnum 25093
-Enchanted
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
 End
 
 #O
@@ -733,43 +655,18 @@ Spell 3 'protection evil'
 End
 
 #O
-Vnum 25015
+Vnum 25016
 Nest 0
 Wear -1
 Cost 0
-Spell 3 'pass door'
+Spell 3 'protection evil'
 End
 
 #O
-Vnum 25081
+Vnum 25090
 Nest 0
 Wear -1
 Cost 0
-Spell 3 'steel mist'
-End
-
-#O
-Vnum 25084
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'detect good'
-End
-
-#O
-Vnum 25086
-Nest 0
-Wear -1
-Cost 0
-Spell 3 'fly'
-End
-
-#O
-Vnum 25093
-Nest 0
-Wear -1
-Cost 15
-Spell 3 'cure serious'
 End
 
 #O
@@ -778,15 +675,81 @@ Enchanted
 Nest 0
 ExtF 66
 Wt   0
+Cond 99
 Wear 16
 Lev  48
 Cost 0
-Val  2 8 6 11 4
-Affc 'blood blade'   5  34  29   0   0          4 1
-Affc 'reserved'   1  47  -1   2   2          0 1
-Affc 'reserved'   1  47  -1  -5  17          0 1
-Affc 'reserved'   1  47  -1   8  18          0 1
+Val  2 8 6 11 0
 Affc 'reserved'   1  47  -1   2  19          0 1
+Affc 'reserved'   1  47  -1   8  18          0 1
+Affc 'reserved'   1  47  -1  -5  17          0 1
+Affc 'reserved'   1  47  -1   2   2          0 1
+End
+
+#O
+Vnum 20028
+Nest 0
+ExtF 16777472
+Wear 5
+Cost 588
+End
+
+#O
+Vnum 10170
+Nest 0
+Wear 7
+Cost 2000
+End
+
+#O
+Vnum 25054
+Nest 0
+Wear 15
+Cost 3000
+End
+
+#O
+Vnum 25054
+Nest 0
+Wear 14
+Cost 3000
+End
+
+#O
+Vnum 25090
+Nest 0
+Wear -1
+Cost 0
+End
+
+#O
+Vnum 10167
+Nest 0
+Wear -1
+Cost 3800
+End
+
+#O
+Vnum 14085
+Nest 0
+Name moss bed wildflower wildflowers~
+ShD  {ga {cp{gl{cus{gh {Gb{He{Gd o{Hf {Gm{Hos{Gs {gand {Cw{Ti{Vl{Md{Gf{Tl{Co{Vw{Me{Cr{Ts{x~
+Desc {ga {cp{gl{cus{gh {Gb{He{Gd o{Hf {Gm{Hos{Gs {gand {Cw{Ti{Vl{Md{Gf{Tl{Co{Vw{Me{Cr{Ts{x~
+Mat {gs{Ti{Ws{gt{Te{Wr{gh{Too{gd{x~
+ExtF 17055811
+WeaF 32769
+Wt   5
+Wear -1
+Lev  0
+Cost 0
+Val  4 4000 2336 200 200
+ExDe mat~ {ga {cp{gl{cus{gh {Gm{Ha{Gt o{Hf {Gm{Hos{Gs {gand {Cw{Ti{Vl{Md{Gf{Tl{Co{Vw{Me{Cr{Ts{x
+~
+ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
+~
+ExDe {x~ ~
+ExDe bed~ {ga {cp{gl{cus{gh {Gb{He{Gd o{Hf {Gm{Hos{Gs {gand {Cw{Ti{Vl{Md{Gf{Tl{Co{Vw{Me{Cr{Ts{x
+~
 End
 
 #L

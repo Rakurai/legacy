@@ -1,20 +1,19 @@
 #PLAYER
 Name Kasumi~
 Id   1005701885
-LogO 1088437691
-Vers 14
+LogO 1406743338
+Vers 15
 Mexp 2
 Pass ayanamirei~
 Prom H:%h/%H M:%m/%M V:%v/%V xp:%X (%z) <%q> [%j]  ~
 Race seraph~
 Cla  5
 Levl 52
-Tru  91
 Plyd 422005
 Back 401986
 Note 1062603562 1062603562 1062603562 1062603562 1062603562 1062603562 1062603562
 Scro 22
-Room 8246
+Room 3001
 HMS  1189 696 687
 Gold 24
 Silv 3
@@ -29,20 +28,25 @@ Alig 1000
 FImm 0
 FRes NS
 FVul LM
-Plr  ABFQ
+Plr  ABFHQ
 Video D
 Act  CDEFGHJLSTc
 AfBy T
 Comm NO
 Revk 0
-Cgrp AG
+Cgrp AGILM
 Cnsr 0
+Block_Remote 0
 Prac 176
 Trai 18
 Wimp 0
 Lay 6
-Lay_Next 0
+Lay_Next 12
 Familiar 0
+Wizn 0
+Invi 0
+Lurk 0
+Secu 2
 Atrib 21 18 20 17 20 23
 SkillPnts  169
 QuestPnts  257
@@ -58,7 +62,7 @@ Aura ~
 TSex 2
 LLev 111
 Email aznxkwan@hotmail.com~
-Deit teotwawki~
+Deit Teotwawki~
 Stus Yahoo Pooler~
 RmCt 2
 ExSk 0
@@ -66,13 +70,13 @@ Raff 907
 Lsit c-24-6-183-63.client.comcast.net~
 Ltim Mon Jun 28 11:48:08 2004
 ~
-LSav Mon Jun 28 11:48:11 2004
+LSav Wed Jul 30 11:02:18 2014
 ~
 Finf There's something about yahoo pool...
 ~
 HMSP 919 531 687
 THMS 0 0 0
-Cnd  0 0 0 0
+Cnd  0 0 100 100
 Colr 13 37 1
 Alias bliz c 'blizzard'~
 Alias jp prompt H:%h/%H M:%m/%M V:%v/%V xp:%X (%z) <%q> [%j]~
@@ -166,6 +170,7 @@ Sk 1 1 'scry'
 Sk 81 1 'shield'
 Sk 1 1 'shocking grasp'
 Sk 86 1 'slow'
+Sk 1 1 'starve'
 Sk 77 1 'steel mist'
 Sk 76 1 'stone skin'
 Sk 82 1 'summon'
@@ -214,8 +219,6 @@ Gr 'necromancy'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'hammerstrike'   0  50   0  10  18          0 1
-Affc 'hammerstrike'   0  49   0  12  19          0 1
 End
 
 #O
@@ -534,7 +537,7 @@ End
 Vnum 3092
 Nest 1
 Wear -1
-Time 133
+Time 132
 Cost 290
 Spell 1 'detect invis'
 Spell 2 'detect magic'
@@ -713,7 +716,7 @@ ShD  {Wa Holy Avenger{x~
 ExtF 51428803
 Wear 16
 Lev  52
-Time 16
+Time 15
 Cost 50000
 Val  1 7 12 20 80
 End
@@ -926,12 +929,12 @@ Nest 0
 Cond 93
 Wear -1
 Cost 28000
-Affc 'reserved'   1  91  -1  -5  23          0 1
-Affc 'reserved'   1  91  -1   9  19          0 1
-Affc 'reserved'   1  91  -1   8  18          0 1
-Affc 'reserved'   1  91  -1   5   5          0 1
-Affc 'reserved'   1  91  -1 100  13          0 1
 Affc 'reserved'   1  91  -1   1  19          0 1
+Affc 'reserved'   1  91  -1 100  13          0 1
+Affc 'reserved'   1  91  -1   5   5          0 1
+Affc 'reserved'   1  91  -1   8  18          0 1
+Affc 'reserved'   1  91  -1   9  19          0 1
+Affc 'reserved'   1  91  -1  -5  23          0 1
 End
 
 #B
@@ -957,13 +960,13 @@ Nest 0
 Wt   4
 Wear -1
 Cost 0
-Affc 'reserved'   1  90  -1   7  18          0 1
-Affc 'reserved'   1  90  -1   7  19          0 1
-Affc 'reserved'   1  90  -1  50  12          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
 Affc 'reserved'   1  90  -1   2   1          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  50  12          0 1
+Affc 'reserved'   1  90  -1   7  19          0 1
+Affc 'reserved'   1  90  -1   7  18          0 1
 End
 
 #B
@@ -1050,12 +1053,12 @@ Nest 1
 Cond 89
 Wear -1
 Cost 0
-Affc 'reserved'   0  75  -1   0   0      65536 1
-Affc 'reserved'   1  75  -1  40  13          0 1
-Affc 'reserved'   1  75  -1  50  12          0 1
-Affc 'reserved'   1  75  -1   2  19          0 1
-Affc 'reserved'   1  75  -1   2  18          0 1
 Affc 'reserved'   1  75  -1   1   9          0 1
+Affc 'reserved'   1  75  -1   2  18          0 1
+Affc 'reserved'   1  75  -1   2  19          0 1
+Affc 'reserved'   1  75  -1  50  12          0 1
+Affc 'reserved'   1  75  -1  40  13          0 1
+Affc 'reserved'   0  75  -1   0   0      65536 1
 End
 
 #B
@@ -1075,58 +1078,6 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-End
-
-#B
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#B
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#B
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#B
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
@@ -1153,35 +1104,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-End
-
-#B
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#B
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
 End
 
 #B
@@ -1247,6 +1172,84 @@ Cost 0
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#B
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#B
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#B
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#B
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+End
+
+#B
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
+End
+
+#B
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
 End
 
 #B
@@ -1468,19 +1471,6 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
-ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
-~
-End
-
-#B
-Vnum 1214
-Nest 1
-Name quest token teotwawki~
-ShD  {CTeo's Quest Token{x~
-Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
-Wear -1
-Cost 0
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
@@ -1494,9 +1484,22 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+End
+
+#B
+Vnum 1214
+Nest 1
+Name quest token teotwawki~
+ShD  {CTeo's Quest Token{x~
+Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
+Wear -1
+Cost 0
 ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
+ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
+~
 End
 
 #B
