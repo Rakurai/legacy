@@ -430,6 +430,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 		int hgroup;
 		char keywords[256];
 		char text[32767];
+		int id;
 	};
 
 	struct help_struct temp_help[100];
@@ -455,7 +456,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 	}
 
 	/* poll the database for all helps containing the arguments */
-	sprintf(query, "SELECT hgroup, keywords, text FROM helps WHERE level <= %d AND ", ch->level);
+	sprintf(query, "SELECT hgroup, keywords, text, id FROM helps WHERE level <= %d AND ", ch->level);
 	p = argument;
 
 	while (*p != '\0')
@@ -508,6 +509,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 		if (temp_help[result_count].type != 2 || partial_count <= 1)
 			strcpy(temp_help[result_count].text, row[2]);
 
+		temp_help[result_count].id = atoi(row[3]);
 		result_count++;
 	}
 
@@ -529,11 +531,14 @@ void do_help(CHAR_DATA *ch, char *argument)
 			if (temp_help[result_num].type != 1)
 				continue;
 
-			ptb(output, "%s\n{W%s%s%s%s{x\n\n",
+			char immbuf[MSL] = "";
+
+			if IS_IMMORTAL(ch)
+				sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
+
+			ptb(output, "%s\n{W%s%s{x\n\n",
 				stupidassline,
-				IS_IMMORTAL(ch) ? "(" : "",
-				IS_IMMORTAL(ch) ? helpfile_table[temp_help[result_num].hgroup].name : "",
-				IS_IMMORTAL(ch) ? ") " : "",
+				immbuf,
 				temp_help[result_num].keywords);
 
 			/* Strip leading '.' to allow initial blanks. */
@@ -548,11 +553,14 @@ void do_help(CHAR_DATA *ch, char *argument)
 	else if (partial_count == 1)
 	{
 		/* no exact matches, if there's only one partial match, let's show it and be done */
-			ptb(output, "%s\n{W%s%s%s%s{x\n\n",
+			char immbuf[MSL] = "";
+
+			if IS_IMMORTAL(ch)
+				sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
+
+			ptb(output, "%s\n{W%s%s{x\n\n",
 				stupidassline,
-				IS_IMMORTAL(ch) ? "(" : "",
-				IS_IMMORTAL(ch) ? helpfile_table[temp_help[0].hgroup].name : "",
-				IS_IMMORTAL(ch) ? ") " : "",
+				immbuf,
 				temp_help[0].keywords);
 		add_buf(output, temp_help[0].text + (temp_help[0].text[0] == '.' ? 1 : 0));
 		ptb(output, "\n%s", stupidassline);
