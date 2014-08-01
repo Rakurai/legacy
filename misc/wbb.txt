@@ -20,4 +20,4 @@ WBB (Will Be Built) file, ask an Imp to clear when done.
 {Y[{x11/22{Y]{x {C[{x 1225{C]{x Teotwawki: I am reserving vnum 300 to 350 for Leighs area
 {Y[{x12/11{Y]{x {C[{x 1288{C]{x Vegita: 24350-24399 commandeered by me for misc mud stuff
 {Y[{x12/26{Y]{x {C[{x26004{C]{x Teotwawki: Necro project by Lidda coding part is Vegita GO TEAM
-{Y[{x07/28{Y]{x {C[{x 9556{C]{x Montrey: chessboard should be linked from here, not from 9555
+{Y[{x07/28/14{Y]{x {C[{x 9556{C]{x Montrey: chessboard should be linked from here, not from 9555

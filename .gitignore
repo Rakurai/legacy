@@ -10,3 +10,5 @@ legacy
 legacy.bak
 sand_server
 *.log
+*.pid
+copyover.item
