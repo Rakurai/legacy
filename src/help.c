@@ -164,6 +164,12 @@ void help(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
+	if (row[0] == NULL)
+	{
+		bugf("help():  help with keywords '%s' has null text", argument);
+		return;
+	}
+
 	output = new_buf();
 	add_buf(output, row[0] + (row[0][0] == '.' ? 1 : 0));
 	mysql_free_result(result);
@@ -509,6 +515,9 @@ void do_help(CHAR_DATA *ch, char *argument)
 
 	while ((row = mysql_fetch_row(result)))
 	{
+		if (row[1] == NULL || row[2] == NULL)
+			continue;
+
 		/* 0 if not keyword, 1 if exact match, 2 if semi-match */
 		if (is_exact_name(argument, row[1]))
 			temp_help[result_count].type = 1;
@@ -651,7 +660,7 @@ void do_hedit (CHAR_DATA *ch, char *argument)
 			return;
 		}
 
-		if (!db_commandf("do_hedit", "insert into " HTABLE " (" HCOL_KEYS ") values('%s')", db_esc(argument))) {
+		if (!db_commandf("do_hedit", "insert into " HTABLE " (" HCOL_KEYS "," HCOL_TEXT ") values('%s','')", db_esc(argument))) {
 			stc("Could not create a help with those keywords.\n\r", ch);
 			return;
 		}
