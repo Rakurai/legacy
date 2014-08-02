@@ -722,7 +722,7 @@ void do_hedit (CHAR_DATA *ch, char *argument)
 	}
 
 	if (!str_cmp(cmd, HCOL_KEYS) || !str_cmp(cmd, HCOL_TEXT)) {
-		db_commandf("do_hedit", "update " HTABLE " set %s='%d' where " HCOL_ID "=%s", cmd, db_esc(argument), arg);
+		db_commandf("do_hedit", "update " HTABLE " set %s='%s' where " HCOL_ID "=%s", cmd, db_esc(argument), arg);
 		stc("Done.\n\r", ch);
 		return;
 	}
