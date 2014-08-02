@@ -81,15 +81,12 @@ void help_char_search(CHAR_DATA *ch, char *arg)
 	BUFFER *output;
 	int i = 0;
 
-	sprintf(query, "SELECT %s FROM %s WHERE %s <= %d "
-		"AND %s LIKE '%% %s%%' "
-		"OR %s LIKE '%s%%' "
-		"OR %s LIKE '%%\\'%s%%' "
-		"ORDER BY %s",
-		HCOL_KEYS, HTABLE, HCOL_LEVEL, ch->level,
-		HCOL_KEYS, arg,
-		HCOL_KEYS, arg,
-		HCOL_KEYS, arg, HCOL_KEYS
+	sprintf(query, "SELECT " HCOL_KEYS " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d "
+		"AND " HCOL_KEYS " LIKE '%% %s%%' "
+		"OR " HCOL_KEYS " LIKE '%s%%' "
+		"OR " HCOL_KEYS " LIKE '%%\\'%s%%' "
+		"ORDER BY " HCOL_KEYS,
+		ch->level, arg, arg, arg
 	);
 
 	if ((result = db_query("help_char_search", query)) == NULL)
@@ -139,7 +136,7 @@ void help(CHAR_DATA *ch, char *argument)
 	char query[MSL], *p;
 	BUFFER *output;
 
-	sprintf(query, "SELECT %s FROM %s WHERE ", HCOL_TEXT, HTABLE);
+	sprintf(query, "SELECT " HCOL_TEXT " FROM " HTABLE " WHERE ");
 	p = argument;
 
 	while (*p != '\0')
@@ -148,8 +145,7 @@ void help(CHAR_DATA *ch, char *argument)
 
 		p = one_keyword(p, word);
 
-		strcat(query, HCOL_KEYS);
-		strcat(query, " LIKE '%");
+		strcat(query, HCOL_KEYS " LIKE '%");
 		strcat(query, db_esc(word));
 		strcat(query, "%'");
 
@@ -183,10 +179,8 @@ void add_help(int group, int order, int level, char *keywords, char *text) {
 		help_greeting = str_dup(text);
 	}
 
-	sprintf(query, "INSERT INTO %s (%s, %s, %s, %s, %s) "
-		"VALUES(%d,%d,%d,'",
-		HTABLE, HCOL_GROUP, HCOL_ORDER, HCOL_LEVEL, HCOL_KEYS, HCOL_TEXT,
-		group, order, level
+	sprintf(query, "INSERT INTO " HTABLE " ("HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT ") "
+		"VALUES(%d,%d,%d,'", group, order, level
 	);
 
 	strcat(query, db_esc(keywords));
@@ -304,7 +298,7 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	db_commandf("do_loadhelps", "DELETE FROM helps WHERE hgroup=%d", helpfile_table[tablenum].group);
+	db_commandf("do_loadhelps", "DELETE FROM " HTABLE " WHERE " HCOL_GROUP "=%d", helpfile_table[tablenum].group);
 
 	for (count = 0; temp_help[count].level >= -1; count++)
 	{
@@ -405,9 +399,8 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((result = db_queryf("do_printhelps",
-			"SELECT %s, %s, %s FROM %s WHERE %s=%d ORDER BY %s",
-			HCOL_LEVEL, HCOL_KEYS, HCOL_TEXT, HTABLE,
-			HCOL_GROUP, helpfile_table[tablenum].group, HCOL_ORDER)) == NULL)
+			"SELECT " HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT " FROM " HTABLE " WHERE " HCOL_GROUP "=%d ORDER BY " HCOL_ORDER,
+			helpfile_table[tablenum].group)) == NULL)
 		return;
 
 	if (!mysql_num_rows(result))
@@ -484,8 +477,10 @@ void do_help(CHAR_DATA *ch, char *argument)
 	}
 
 	/* poll the database for all helps containing the arguments */
-	sprintf(query, "SELECT %s, %s, %s, %s FROM %s WHERE %s <= %d AND ",
-		HCOL_GROUP, HCOL_KEYS, HCOL_TEXT, HCOL_ID, HTABLE, HCOL_LEVEL, ch->level);
+	sprintf(query, "SELECT " HCOL_GROUP "," HCOL_KEYS "," HCOL_TEXT "," HCOL_ID
+		" FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d AND ",
+		ch->level
+	);
 	p = argument;
 
 	while (*p != '\0')
@@ -494,8 +489,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 
 		p = one_keyword(p, word);
 
-		strcat(query, HCOL_KEYS);
-		strcat(query, " LIKE '%");
+		strcat(query, HCOL_KEYS " LIKE '%");
 		strcat(query, db_esc(word));
 		strcat(query, "%'");
 
@@ -504,8 +498,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 	}
 
 	/* display the normal helps, followed by immortal helps */
-	strcat(query, " ORDER BY ");
-	strcat(query, HCOL_ORDER);
+	strcat(query, " ORDER BY " HCOL_ORDER);
 
 	if ((result = db_query("do_help", query)) == NULL)
 	{
@@ -658,7 +651,7 @@ void do_hedit (CHAR_DATA *ch, char *argument)
 			return;
 		}
 
-		if (!db_commandf("do_hedit", "insert into helps (keywords) values(%s)", db_esc(argument))) {
+		if (!db_commandf("do_hedit", "insert into " HTABLE " (" HCOL_KEYS ") values('%s')", db_esc(argument))) {
 			stc("Could not create a help with those keywords.\n\r", ch);
 			return;
 		}
@@ -670,7 +663,7 @@ void do_hedit (CHAR_DATA *ch, char *argument)
 
 		row = mysql_fetch_row(result);
 
-		ptc(ch, "Success, the new help has an ID of %s.", row[0]);
+		ptc(ch, "Success, the new help has an ID of %s.\n\r", row[0]);
 		mysql_free_result(result);
 		return;
 	}
@@ -683,21 +676,21 @@ void do_hedit (CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (db_countf("do_hedit", "select count(*) from helps where id=%s", arg) < 1) {
+	if (db_countf("do_hedit", "select count(*) from " HTABLE " where " HCOL_ID "=%s", arg) < 1) {
 		stc("No help found with that ID.\n\r", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, "delete")) {
-		db_commandf("do_hedit", "delete from helps where id=%s", arg);
+		db_commandf("do_hedit", "delete from " HTABLE " where " HCOL_ID "=%s", arg);
 		stc ("That help is history now.\n\r", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, "show")) {
-		if ((result = db_queryf("do_help", "select %s, %s, %s, %s, %s from %s where %s=%s",
-			HCOL_GROUP, HCOL_ORDER, HCOL_LEVEL, HCOL_KEYS, HCOL_TEXT, HTABLE, HCOL_ID, arg)) == NULL) {
-
+		if ((result = db_queryf("do_help",
+			"select " HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT
+			" from " HTABLE " where " HCOL_ID "=%s", arg)) == NULL) {
 			stc("Couldn't retrieve a help with that ID.\n\r", ch);
 			return;
 		}
@@ -723,13 +716,13 @@ void do_hedit (CHAR_DATA *ch, char *argument)
 			return;
 		}
 
-		db_commandf("do_hedit", "update %s set %s=%d where %s=%s", HTABLE, cmd, atoi(argument), HCOL_ID, arg);
+		db_commandf("do_hedit", "update " HTABLE " set %s=%d where " HCOL_ID "=%s", cmd, atoi(argument), arg);
 		stc("Done.\n\r", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, HCOL_KEYS) || !str_cmp(cmd, HCOL_TEXT)) {
-		db_commandf("do_hedit", "update %s set %s=%d where %s=%s", HTABLE, cmd, db_esc(argument), HCOL_ID, arg);
+		db_commandf("do_hedit", "update " HTABLE " set %s=%d where " HCOL_ID "=%s", cmd, db_esc(argument), arg);
 		stc("Done.\n\r", ch);
 		return;
 	}
