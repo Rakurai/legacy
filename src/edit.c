@@ -537,16 +537,14 @@ static void edit_desc( CHAR_DATA *ch, char *argument )
         return;
     }
 
-    if ( ch->long_descr == NULL )
-    {
-        stc( "{PBut you don't have a long description yet!{x\n\r", ch );
-        return;
-    }
+    char *str = ch->long_descr;
+    if (!str)
+        str = "";
 
     ed = alloc_mem( sizeof(EDIT_DATA) );
     ch->edit = ed;
     ed->edit_type = EDIT_TYPE_DESC;
-    strcpy( ed->edit_string, ch->description );
+    strcpy( ed->edit_string, str);
     backup();
     ed->edit_nlines = count_lines();
     edit_goto1( ch, 1 );
@@ -587,11 +585,11 @@ static void edit_done( CHAR_DATA *ch, char *argument )
             break;
         case EDIT_TYPE_DESC:
             stc( "OK, I'm saving {Yyour description{x.\n\r", ch );
+
             if ( ch->long_descr != NULL )
-            {
                 free_string( ch->long_descr );
-                ch->description = str_dup( ed->edit_string );
-            }
+
+            ch->description = str_dup( ed->edit_string );
             break;
         case EDIT_TYPE_ROOM:
             if ( ch->in_room == NULL )
@@ -599,12 +597,13 @@ static void edit_done( CHAR_DATA *ch, char *argument )
                 stc( "{PI'm sorry, you don't seem to be in a room.{x\n\r", ch );
                 return;
             }
+
             stc( "OK, I'm saving your {Yroom description{x.\n\r", ch );
+
             if ( ch->in_room->description != NULL )
-            {
                 free_string( ch->in_room->description );
-                ch->in_room->description = str_dup( ed->edit_string );
-            }
+
+            ch->in_room->description = str_dup( ed->edit_string );
             break;
         case EDIT_TYPE_HELP:
             ptc(ch, "OK, I'm saving the {Yhelp text{x for ID %d.\n\r", ed->edit_id);
@@ -718,16 +717,15 @@ static void edit_room( CHAR_DATA *ch, char *argument )
         stc( "{PYou don't seem to be in a room at the moment.{x\n\r", ch );
         return;
     }
-    if ( ch->in_room->description == NULL )
-    {
-        stc( "{PThe room you are in has no description.{x\n\r", ch );
-        return;
-    }
+
+    char *str = ch->in_room->description;
+    if (!str)
+        str = "";
 
     ed = alloc_mem( sizeof(EDIT_DATA) );
     ch->edit = ed;
     ed->edit_type = EDIT_TYPE_ROOM;
-    strcpy( ed->edit_string, ch->in_room->description );
+    strcpy( ed->edit_string, str);
     backup();
     ed->edit_nlines = count_lines();
     edit_goto1( ch, 1 );
