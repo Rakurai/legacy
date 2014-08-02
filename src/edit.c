@@ -61,6 +61,7 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "recycle.h"
+#include "mysql.h"
 
 extern struct board_index_struct board_index[];
 
@@ -306,6 +307,9 @@ static void edit_status( CHAR_DATA *ch, char *argument )
         case EDIT_TYPE_ROOM:
             stc( "You are currently editing a {Yroom description{x.\n\r", ch );
             break;
+        case EDIT_TYPE_HELP:
+            ptc(ch, "You are currently editing the {Yhelp text{x for ID %d.\n\r", ed->edit_id );
+            break;
         default:
             stc( "Strange, I don't know {PWHAT{x you're editing!\n\r", ch );
             bug( "Unknown edit type", 0 );
@@ -544,7 +548,7 @@ static void edit_desc( CHAR_DATA *ch, char *argument )
     ed->edit_type = EDIT_TYPE_DESC;
     strcpy( ed->edit_string, ch->description );
     backup();
-    ed->edit_nlines = count_lines( ed->edit_string );
+    ed->edit_nlines = count_lines();
     edit_goto1( ch, 1 );
     edit_status( ch, "" );
 
@@ -601,6 +605,10 @@ static void edit_done( CHAR_DATA *ch, char *argument )
                 free_string( ch->in_room->description );
                 ch->in_room->description = str_dup( ed->edit_string );
             }
+            break;
+        case EDIT_TYPE_HELP:
+            ptc(ch, "OK, I'm saving the {Yhelp text{x for ID %d.\n\r", ed->edit_id);
+            db_commandf("edit_done", "update helps set text='%s' where id=%d", ed->edit_string, ed->edit_id);
             break;
     }
     free_mem( ed, sizeof(EDIT_DATA) );
@@ -689,7 +697,7 @@ static void edit_note( CHAR_DATA *ch, char *argument )
     ed->edit_type = EDIT_TYPE_NOTE;
     strcpy( ed->edit_string, ch->pnote->text );
     backup();
-    ed->edit_nlines = count_lines( ed->edit_string );
+    ed->edit_nlines = count_lines();
     edit_goto1( ch, 1 );
     edit_status( ch, "" );
 
@@ -721,10 +729,48 @@ static void edit_room( CHAR_DATA *ch, char *argument )
     ed->edit_type = EDIT_TYPE_ROOM;
     strcpy( ed->edit_string, ch->in_room->description );
     backup();
-    ed->edit_nlines = count_lines( ed->edit_string );
+    ed->edit_nlines = count_lines();
     edit_goto1( ch, 1 );
     edit_status( ch, "" );
 
+} /* end edit_room() */
+
+static void edit_help( CHAR_DATA *ch, char *argument )
+{
+    if ( ch->edit != NULL )
+    {
+        stc( "{PBut you are already editing something!{x\n\r", ch );
+        edit_status( ch, "" );
+        return;
+    }
+
+    if (!argument[0] || !is_number(argument)) {
+        stc("You must specify a help ID to edit it.", ch);
+        return;
+    }
+
+    int id = atoi(argument);
+    MYSQL_RES *result;
+    MYSQL_ROW row;
+
+    if ((result = db_queryf("edit_help", "select text from helps where id=%d", id)) == NULL) {
+        stc("Couldn't retrieve a help with that ID.\n\r", ch);
+        return;
+    }
+
+    row = mysql_fetch_row(result);
+
+    ed = alloc_mem( sizeof(EDIT_DATA) );
+    ch->edit = ed;
+    ed->edit_type = EDIT_TYPE_HELP;
+    strcpy( ed->edit_string, row[0]);
+    backup();
+    ed->edit_nlines = count_lines();
+    ed->edit_id = id;
+    edit_goto1( ch, 1 );
+    edit_status( ch, "" );
+
+    mysql_free_result(result);
 } /* end edit_room() */
 
 
@@ -991,6 +1037,12 @@ void do_edit( CHAR_DATA *ch, char *argument )
     if ( IS_IMMORTAL(ch) && !str_prefix1( arg, "room" ) )
     {
         edit_room( ch, argument );
+        return;
+    }
+
+    if ( IS_IMMORTAL(ch) && !str_prefix1( arg, "help" ) )
+    {
+        edit_help( ch, argument );
         return;
     }
 

@@ -722,6 +722,7 @@ struct board_index_struct
 #define EDIT_TYPE_NOTE   1
 #define EDIT_TYPE_DESC   2
 #define EDIT_TYPE_ROOM   3
+#define EDIT_TYPE_HELP   4
 
 struct edit_data
 {
@@ -731,6 +732,7 @@ struct edit_data
     bool edit_undo_ok;
     char edit_string[MAX_STRING_LENGTH];
     char edit_backup[MAX_STRING_LENGTH];
+    int edit_id;
 };
 
 
