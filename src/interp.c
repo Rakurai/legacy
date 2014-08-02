@@ -276,6 +276,7 @@ const   struct  cmd_type        cmd_table       [] =
 	{ "heal",			do_heal,		POS_RESTING,	LOG_NORMAL,	9,	0			},
 	{ "hammerstrike",	do_hammerstrike,POS_FIGHTING,	LOG_NORMAL,	2,	0			},
 	{ "heed",			do_heed,		POS_DEAD,		LOG_NORMAL,	5,	GWG			},
+	{ "hedit",			do_hedit,		POS_DEAD,		LOG_ALWAYS,	5,	GWB			},
 	{ "help",			do_help,		POS_DEAD,		LOG_NORMAL,	3,	0			},
 	{ "hide",			do_hide,		POS_RESTING,	LOG_NORMAL,	8,	0			},
 	{ "hit",			do_kill,		POS_FIGHTING,	LOG_NORMAL,	0,	0			},

@@ -30,6 +30,16 @@ char stupidassline[1000] = "{f{G*{x{H-=-=-{f{C*{x{H-=-=-{f{B*{x{H-=-=-{f{V*{x{H-
 char stupidassline[1000] = "{G*{T-=-=-{C*{T-=-=-{B*{T-=-=-{V*{T-=-=-{P*{T-=-=-{Y*{T-=-=-{W*{T-=-=-{Y*{T-=-=-{P*{T-=-=-{V*{T-=-=-{B*{T-=-=-{C*{T-=-=-{G*{x\n\r\0";
 #endif
 
+#define HTABLE "helps"
+#define HCOL_ID "id"
+#define HCOL_ORDER "onum"
+#define HCOL_LEVEL "level"
+#define HCOL_GROUP "hgroup"
+#define HCOL_KEYS "keywords"
+#define HCOL_TEXT "text"
+
+extern char *help_greeting;
+
 
 /*** UTILITY FUNCTIONS ***/
 
@@ -71,11 +81,16 @@ void help_char_search(CHAR_DATA *ch, char *arg)
 	BUFFER *output;
 	int i = 0;
 
-	sprintf(query, "SELECT keywords FROM helps WHERE level <= %d "
-		"AND keywords LIKE '%% %s%%' "
-		"OR keywords LIKE '%s%%' "
-		"OR keywords LIKE '%%\\'%s%%' "
-		"ORDER BY keywords", ch->level, arg, arg, arg);
+	sprintf(query, "SELECT %s FROM %s WHERE %s <= %d "
+		"AND %s LIKE '%% %s%%' "
+		"OR %s LIKE '%s%%' "
+		"OR %s LIKE '%%\\'%s%%' "
+		"ORDER BY %s",
+		HCOL_KEYS, HTABLE, HCOL_LEVEL, ch->level,
+		HCOL_KEYS, arg,
+		HCOL_KEYS, arg,
+		HCOL_KEYS, arg, HCOL_KEYS
+	);
 
 	if ((result = db_query("help_char_search", query)) == NULL)
 	{
@@ -124,7 +139,7 @@ void help(CHAR_DATA *ch, char *argument)
 	char query[MSL], *p;
 	BUFFER *output;
 
-	strcpy(query, "SELECT text FROM helps WHERE ");
+	sprintf(query, "SELECT %s FROM %s WHERE ", HCOL_TEXT, HTABLE);
 	p = argument;
 
 	while (*p != '\0')
@@ -133,7 +148,8 @@ void help(CHAR_DATA *ch, char *argument)
 
 		p = one_keyword(p, word);
 
-		strcat(query, "keywords LIKE '%");
+		strcat(query, HCOL_KEYS);
+		strcat(query, " LIKE '%");
 		strcat(query, db_esc(word));
 		strcat(query, "%'");
 
@@ -159,16 +175,37 @@ void help(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 }
 
+void add_help(int group, int order, int level, char *keywords, char *text) {
+	char query[MSL];
+
+	if (!str_cmp(keywords, "GREETING")) {
+		free_string(help_greeting);
+		help_greeting = str_dup(text);
+	}
+
+	sprintf(query, "INSERT INTO %s (%s, %s, %s, %s, %s) "
+		"VALUES(%d,%d,%d,'",
+		HTABLE, HCOL_GROUP, HCOL_ORDER, HCOL_LEVEL, HCOL_KEYS, HCOL_TEXT,
+		group, order, level
+	);
+
+	strcat(query, db_esc(keywords));
+	strcat(query, "','");
+
+	strcat(query, db_esc(text));
+	strcat(query, "')");
+
+	db_command("add_help", query);
+}
 
 /*** USER COMMANDS ***/
 
 /* load the specified help file into the database */
 void do_loadhelps(CHAR_DATA *ch, char *argument)
 {
-	char arg[MIL], query[MSL*3], buf[MSL], *q, *p;
+	char arg[MIL], buf[MSL], *q, *p;
 	FILE *fp;
 	int tablenum, count = 0;
-	extern char *help_greeting;
 
 	struct help_struct
 	{
@@ -194,7 +231,7 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 
 	if (port != DIZZYPORT)
 	{
-		stc("Please perform loading and printing commands on the port 3000 copy.\n\r", ch);
+		ptc(ch, "Please perform loading and printing commands on the port %d copy.\n\r", DIZZYPORT);
 		return;
 	}
 
@@ -273,9 +310,6 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 	{
 		bool foundspace = FALSE;
 
-		sprintf(query, "INSERT INTO helps VALUES(%d,%d,%d,'",
-			helpfile_table[tablenum].group, count+1, temp_help[count].level);
-
 		/* unfuck any weird spacing */
 		buf[0] = '\0';
 		q = buf;
@@ -304,24 +338,17 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		*q = '\0';
 		q = buf;
 
-		if (!str_cmp(q, "GREETING"))
-		{
-			free_string(help_greeting);
-			help_greeting = str_dup(temp_help[count].text);
-		}
-
-		strcat(query, db_esc(q));
-		strcat(query, "','");
-
-		strcat(query, db_esc(temp_help[count].text));
-		strcat(query, "')");
-
-		db_command("do_loadhelps", query);
+		add_help(
+			helpfile_table[tablenum].group,
+			count+1,
+			temp_help[count].level,
+			q,
+			temp_help[count].text
+		);
 	}
 
 	ptc(ch, "File /area/" HELP_DIR "/%s.help: %d helps loaded.\n\r", helpfile_table[tablenum].name, count);
 }
-
 
 /* print all helps matching a group to file */
 void do_printhelps(CHAR_DATA *ch, char *argument)
@@ -378,8 +405,9 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((result = db_queryf("do_printhelps",
-			"SELECT level, keywords, text FROM helps WHERE hgroup=%d ORDER BY onum",
-			helpfile_table[tablenum].group)) == NULL)
+			"SELECT %s, %s, %s FROM %s WHERE %s=%d ORDER BY %s",
+			HCOL_LEVEL, HCOL_KEYS, HCOL_TEXT, HTABLE,
+			HCOL_GROUP, helpfile_table[tablenum].group, HCOL_ORDER)) == NULL)
 		return;
 
 	if (!mysql_num_rows(result))
@@ -456,7 +484,8 @@ void do_help(CHAR_DATA *ch, char *argument)
 	}
 
 	/* poll the database for all helps containing the arguments */
-	sprintf(query, "SELECT hgroup, keywords, text, id FROM helps WHERE level <= %d AND ", ch->level);
+	sprintf(query, "SELECT %s, %s, %s, %s FROM %s WHERE %s <= %d AND ",
+		HCOL_GROUP, HCOL_KEYS, HCOL_TEXT, HCOL_ID, HTABLE, HCOL_LEVEL, ch->level);
 	p = argument;
 
 	while (*p != '\0')
@@ -465,7 +494,8 @@ void do_help(CHAR_DATA *ch, char *argument)
 
 		p = one_keyword(p, word);
 
-		strcat(query, "keywords LIKE '%");
+		strcat(query, HCOL_KEYS);
+		strcat(query, " LIKE '%");
 		strcat(query, db_esc(word));
 		strcat(query, "%'");
 
@@ -474,7 +504,8 @@ void do_help(CHAR_DATA *ch, char *argument)
 	}
 
 	/* display the normal helps, followed by immortal helps */
-	strcat(query, " ORDER BY onum");
+	strcat(query, " ORDER BY ");
+	strcat(query, HCOL_ORDER);
 
 	if ((result = db_query("do_help", query)) == NULL)
 	{
@@ -600,3 +631,108 @@ void do_help(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 }
 
+void do_hedit (CHAR_DATA *ch, char *argument)
+{
+	char cmd[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
+	MYSQL_RES *result;
+	MYSQL_ROW row;
+
+	smash_tilde (argument);
+	
+	argument = one_argument (argument,cmd);
+	
+	if (!cmd[0])
+	{
+		ptc(ch, "Syntax:  hedit new <keywords>\n\r"
+			"               delete <id>\n\r"
+			"               show <id>\n\r"
+			"               %s|%s|%s|%s|%s <id> <value>\n\r",
+			HCOL_GROUP, HCOL_ORDER, HCOL_LEVEL, HCOL_KEYS, HCOL_TEXT
+		);
+		return;
+	}
+
+	if (!str_cmp(cmd, "new")) {
+		if (!argument[0]) {
+			stc("You need to specify some keywords.\n\r", ch);
+			return;
+		}
+
+		if (!db_commandf("do_hedit", "insert into helps (keywords) values(%s)", db_esc(argument))) {
+			stc("Could not create a help with those keywords.\n\r", ch);
+			return;
+		}
+
+		if ((result = db_query("do_help", "select last_insert_id()")) == NULL) {
+			stc("Couldn't retrieve the ID of the new help.\n\r", ch);
+			return;
+		}
+
+		row = mysql_fetch_row(result);
+
+		ptc(ch, "Success, the new help has an ID of %s.", row[0]);
+		mysql_free_result(result);
+		return;
+	}
+
+	argument = one_argument (argument,arg);
+		
+	if (!arg[0])
+	{
+		stc("What help do you want to operate on?\n\r",ch);
+		return;
+	}
+
+	if (db_countf("do_hedit", "select count(*) from helps where id=%s", arg) < 1) {
+		stc("No help found with that ID.\n\r", ch);
+		return;
+	}
+
+	if (!str_cmp(cmd, "delete")) {
+		db_commandf("do_hedit", "delete from helps where id=%s", arg);
+		stc ("That help is history now.\n\r", ch);
+		return;
+	}
+
+	if (!str_cmp(cmd, "show")) {
+		if ((result = db_queryf("do_help", "select %s, %s, %s, %s, %s from %s where %s=%s",
+			HCOL_GROUP, HCOL_ORDER, HCOL_LEVEL, HCOL_KEYS, HCOL_TEXT, HTABLE, HCOL_ID, arg)) == NULL) {
+
+			stc("Couldn't retrieve a help with that ID.\n\r", ch);
+			return;
+		}
+
+		row = mysql_fetch_row(result);
+
+		ptc(ch, "ID: %4s  File: %s  Order: %s  Level: %s\n\rKeywords: %s\n\r%s\n\r",
+			arg, row[0], row[1], row[2], row[3], row[4]
+		);
+
+		mysql_free_result(result);
+		return;
+	}
+
+	if (!argument[0]) {
+		stc("What value do you want to set it to?\n\r", ch);
+		return;
+	}
+
+	if (!str_cmp(cmd, HCOL_GROUP) || !str_cmp(cmd, HCOL_ORDER) || !str_cmp(cmd, HCOL_LEVEL)) {
+		if (!is_number(argument)) {
+			stc("New value has to be a number.\n\r", ch);
+			return;
+		}
+
+		db_commandf("do_hedit", "update %s set %s=%d where %s=%s", HTABLE, cmd, atoi(argument), HCOL_ID, arg);
+		stc("Done.\n\r", ch);
+		return;
+	}
+
+	if (!str_cmp(cmd, HCOL_KEYS) || !str_cmp(cmd, HCOL_TEXT)) {
+		db_commandf("do_hedit", "update %s set %s=%d where %s=%s", HTABLE, cmd, db_esc(argument), HCOL_ID, arg);
+		stc("Done.\n\r", ch);
+		return;
+	}
+
+	ptc(ch, "Unknown command '%s'.\n\r", cmd);
+}

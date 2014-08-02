@@ -228,6 +228,7 @@ DECLARE_DO_FUN( do_hbb          );
 DECLARE_DO_FUN( do_hbi          );
 DECLARE_DO_FUN( do_heal         );
 DECLARE_DO_FUN( do_heed         );
+DECLARE_DO_FUN( do_hedit        );
 DECLARE_DO_FUN( do_help         );
 DECLARE_DO_FUN( do_hide         );
 DECLARE_DO_FUN( do_hone         );
