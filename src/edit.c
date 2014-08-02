@@ -606,8 +606,10 @@ static void edit_done( CHAR_DATA *ch, char *argument )
             ch->in_room->description = str_dup( ed->edit_string );
             break;
         case EDIT_TYPE_HELP:
-            ptc(ch, "OK, I'm saving the {Yhelp text{x for ID %d.\n\r", ed->edit_id);
-            db_commandf("edit_done", "update helps set text='%s' where id=%d", ed->edit_string, ed->edit_id);
+            if (db_commandf("edit_done", "update helps set text='%s' where id=%d", ed->edit_string, ed->edit_id))
+                ptc(ch, "OK, I'm saving the {Yhelp text{x for ID %d.\n\r", ed->edit_id);
+            else
+                stc("I wasn't able to save the text right now.\n\r", ch);
             break;
     }
     free_mem( ed, sizeof(EDIT_DATA) );
