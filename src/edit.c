@@ -759,11 +759,14 @@ static void edit_help( CHAR_DATA *ch, char *argument )
     }
 
     row = mysql_fetch_row(result);
+    char *str = row[0];
+    if (!str)
+        str = "";
 
     ed = alloc_mem( sizeof(EDIT_DATA) );
     ch->edit = ed;
     ed->edit_type = EDIT_TYPE_HELP;
-    strcpy( ed->edit_string, row[0]);
+    strcpy( ed->edit_string, str);
     backup();
     ed->edit_nlines = count_lines();
     ed->edit_id = id;
