@@ -1,7 +1,7 @@
 #PLAYER
 Name Sturm~
 Id   989815888
-LogO 1406851239
+LogO 1406998530
 Vers 15
 Mexp 2
 Pass tikcus~
@@ -10,14 +10,14 @@ Race faerie~
 Clan rebel~
 Cla  2
 Levl 65
-Plyd 2051070
+Plyd 2053776
 Back 2032653
-Note 1406559493 1105162385 1107312677 1112736317 1406785216 1406827757 1030723157
+Note 1406559493 1105162385 1107312677 1112736317 1406871707 1406827757 1030723157
 Scro 22
 Room 1288
 HMS  1223 1049 747
 Gold 2478
-Silv 507
+Silv 227
 Exp  65472
 PCkills  2
 PCkilled 15
@@ -50,7 +50,7 @@ QuestPnts  133
 GlDonated  5
 GameIn  {gsteps {Nout{x {Cof {RC{ch{RA{co{RS{x {band{x {Ginto {NT{Th{Ne{Tr{Na~
 GameOut {gleaves {NT{Th{Ne{Tr{Na{x {Bback{x {Cinto{x {RC{ch{RA{co{RS{x~
-Afk {B[{CThu Jul 31 16:41:22 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CThu Jul 31 21:40:27 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl  has come back.. home~
 Immn ~
@@ -65,10 +65,10 @@ Stus OutKast Kensai~
 RmCt 5
 ExSk 0
 Raff 109
-Lsit 99-64-87-66.pools.cgn.spcsdns.net~
-Ltim Thu Jul 31 16:30:37 2014
+Lsit 66-87-64-192.pools.spcsdns.net~
+Ltim Sat Aug 02 09:52:01 2014
 ~
-LSav Thu Jul 31 17:00:39 2014
+LSav Sat Aug 02 09:55:30 2014
 ~
 Finf Lidda gossips 'You don't have to chronicle every obscure thing I say :P'
 ~
@@ -1380,7 +1380,7 @@ Desc A scroll of blizzard lies here.
 ~
 Wear -1
 Lev  62
-Time 347
+Time 257
 Cost 2000
 Val  62 12 -1 -1 -1
 Spell 1 'blizzard'
@@ -1395,7 +1395,7 @@ Desc A scroll of blizzard lies here.
 ~
 Wear -1
 Lev  62
-Time 986
+Time 896
 Cost 2000
 Val  62 12 -1 -1 -1
 Spell 1 'blizzard'
@@ -1910,13 +1910,6 @@ ShD  {N({BQ{Cu{We{Cs{Bt{N) {MC{Vo{Wloss{Va{Ml {cPe{grc{Wh{ger{con{x~
 Desc A huge black war-horse nickers at you softly.~
 Wear -1
 Cost 0
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
 End
 
 #O

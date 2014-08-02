@@ -1,7 +1,7 @@
 #PLAYER
 Name Lidda~
 Id   1043098638
-LogO 1406866376
+LogO 1407000382
 Vers 15
 Mexp 2
 Pass bluebutt~
@@ -10,11 +10,11 @@ Race faerie~
 Clan balance~
 Cla  0
 Levl 100
-Plyd 1347024
+Plyd 1468141
 Back 445772
-Note 1406559493 1105162385 1107312677 1111031474 1406785216 1406639075 1089347335
+Note 1406559493 1105162385 1107312677 1111031474 1406953951 1406639075 1089347335
 Scro 22
-Room 1298
+Room 1290
 HMS  30000 30000 30000
 Gold 1331
 Silv 439
@@ -31,9 +31,9 @@ Ptnr Montrey~
 FImm 0
 FRes 0
 FVul 0
-Plr  ACMNOR
+Plr  CMNOR
 Video 0
-Act  CDEFGHIJLS
+Act  CDEFGHIJLOS
 AfBy TV
 Comm NOQ
 Revk 0
@@ -52,7 +52,7 @@ Atrib 25 25 25 25 25 25
 SkillPnts  187
 RolePnts   1
 QuestPnts  39
-Afk {B[{CThu Jul 31 15:53:21 2014{B] {CUnknown Departure.{x
+Afk {B[{CFri Aug  1 23:36:03 2014{B] {CUnknown Departure.{x
 ~
 Titl  {MG{Co{Td{Vd{Me{Vs{Ts {Wo{cf {VM{Ca{Tg{Mi{Vc{x~
 Immn {W[{x       {k       {W]{x~
@@ -64,9 +64,9 @@ LLev 44
 Email jennflavored@gmail.com~
 Deit {gM{Wo{gn{Ct{gr{We{gy{x~
 Lsit static-host-24-31-12-106.nctv.com~
-Ltim Thu Jul 31 13:59:33 2014
+Ltim Fri Aug 01 21:16:00 2014
 ~
-LSav Thu Jul 31 21:12:56 2014
+LSav Sat Aug 02 10:26:22 2014
 ~
 Finf -
 {WVegita [IMM]: thats it first chance I get you are getting a visit{x
@@ -382,20 +382,6 @@ Vnum 26001
 Nest 0
 Wear -1
 Cost 5
-End
-
-#O
-Vnum 26003
-Nest 0
-Wear -1
-Cost 1
-End
-
-#O
-Vnum 26006
-Nest 0
-Wear -1
-Cost 10
 End
 
 #L

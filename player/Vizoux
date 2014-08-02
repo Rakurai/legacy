@@ -1,7 +1,7 @@
 #PLAYER
 Name Vizoux~
 Id   1044338154
-LogO 1406860032
+LogO 1406991953
 Vers 15
 Mexp 1
 Pass amethyst83~
@@ -9,7 +9,7 @@ Prom %CC<%CP%h/%CR%Hhp %CC%m/%CT%Mm %CG%v/%CH%Vmv %CW%gg %CR%ss %CV%Xtnl %CB%a %
 Race human~
 Cla  3
 Levl 9
-Plyd 13758
+Plyd 13984
 Back 0
 Note 0 0 0 0 0 0 0
 Scro 22
@@ -28,7 +28,7 @@ Alig -1000
 FImm 0
 FRes 0
 FVul 0
-Plr  U
+Plr  HU
 Video 0
 Act  CDEFGHIJLQSc
 AfBy 0
@@ -53,13 +53,13 @@ TSex 1
 LLev 1
 Deit Vegita~
 Lsit r74-192-16-141.bcstcmta01.clsttx.tl.dh.suddenlink.net~
-Ltim Thu Jul 31 16:31:17 2014
+Ltim Sat Aug 02 07:41:28 2014
 ~
-LSav Thu Jul 31 19:27:12 2014
+LSav Sat Aug 02 08:05:53 2014
 ~
 HMSP 127 137 191
 THMS 0 0 0
-Cnd  0 0 40 20
+Cnd  0 0 0 0
 Sk 1 1 'dagger'
 Sk 78 1 'sword'
 Sk 1 1 'bow'

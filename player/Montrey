@@ -1,7 +1,7 @@
 #PLAYER
 Name Montrey~
 Id   989562832
-LogO 1406866376
+LogO 1406995465
 Vers 15
 Mexp 2
 Pass psychomoop~
@@ -10,12 +10,12 @@ Race superhuman~
 Clan balance~
 Cla  5
 Levl 100
-Plyd 8951853
+Plyd 9079563
 Back 3286077
-Note 1109811786 1105162385 1107312677 1108167363 1111163025 1406767162 0
+Note 1109811786 1105162385 1107312677 1108167363 1406871707 1406767162 0
 Scro 100
 Room 1298
-HMS  29862 30039 29922
+HMS  29862 30029 29922
 Gold 1026319
 Silv 17
 Exp  202000
@@ -24,7 +24,7 @@ PCkilled 0
 Akills   1
 Akilled  1
 PKRank   1
-Pos  5
+Pos  8
 Alig 750
 Spou Lidda~
 Wspr Liriel~
@@ -33,11 +33,11 @@ Mark 1298
 FImm 0
 FRes 0
 FVul L
-Plr  CFINQRTUd
+Plr  CEFINQRTUd
 Video D
-Act  CDGLQST
+Act  CDGLOQST
 AfBy c
-Comm NO
+Comm NOe
 Revk 0
 Cgrp BCEFGIKLMO
 Cnsr 0
@@ -46,7 +46,7 @@ Prac -851
 Trai -275
 Wimp 0
 Lay 10
-Lay_Next 11
+Lay_Next 9
 Familiar 0
 Wizn ABCDEFIJMNOPQRSUVZabc
 Invi 0
@@ -61,7 +61,7 @@ Bin  You feel a {Wd{giv{Wi{gn{We p{gr{We{gse{Wn{gc{We {gnearby.~
 Bout A sense of {closs{x overwhelms you.~
 GameIn  {gAn almost forgotten feeling of {Wdi{gv{Wi{gn{We p{gr{Wo{gt{We{gc{Wti{go{Wn {gfills your s{cou{gl.{x~
 GameOut {gThe {Who{gl{Wy p{gro{Wte{gc{Wt{gi{Won {gleaves you, and again the {cdarkness {ginvades.{x~
-Afk {B[{CThu Jul 31 10:59:32 2014{B] {CUnknown Departure.{x
+Afk {B[{CFri Aug  1 23:19:03 2014{B] {CUnknown Departure.{x
 ~
 Titl  "In Soviet Russia, Legacy plays YOU!"~
 Immn {W[{x   {gP{Wa{gl{Ca{gd{Wi{gn{x    {W]{x~
@@ -76,10 +76,10 @@ Stus ~
 RmCt 1
 ExSk 0
 Raff 907
-Lsit static-host-24-31-12-106.nctv.com~
-Ltim Thu Jul 31 13:34:15 2014
+Lsit cuvpnnat.clemson.edu~
+Ltim Fri Aug 01 21:16:11 2014
 ~
-LSav Thu Jul 31 21:12:56 2014
+LSav Sat Aug 02 09:04:25 2014
 ~
 Finf {PAlisa [92]: by god, I rule{x
 
@@ -76924,13 +76924,6 @@ Wt   0
 Cond -1
 Wear -1
 Cost 3500
-End
-
-#O
-Vnum 24352
-Nest 0
-Wear 16
-Cost 690
 End
 
 #O

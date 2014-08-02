@@ -1,7 +1,7 @@
 #PLAYER
 Name Celes~
 Id   990587341
-LogO 1406781565
+LogO 1406960330
 Vers 15
 Mexp 2
 Pass tierney~
@@ -10,14 +10,14 @@ Race vampire~
 Clan kindred~
 Cla  4
 Levl 41
-Plyd 858384
+Plyd 858607
 Back 830494
 Note 1406559493 1025153820 1025153820 1025153820 1025153820 1025153820 1025153820
 Scro 100
 Room 3365
 HMS  738 896 359
-Gold 1540
-Silv 42
+Gold 1539
+Silv 12
 Gold_in_bank 9000
 Exp  45341
 PCkills  16
@@ -30,7 +30,7 @@ Alig 1000
 FImm 0
 FRes BM
 FVul NS
-Plr  ACFHIMOU
+Plr  ACFIMOU
 Video D
 Act  CDEFGHIJLQSTc
 AfBy HTVZ
@@ -63,10 +63,10 @@ Stus {GB{Ha{ct{Wt{gle{Wm{ca{Hg{Ge {Wof the {cD{Wa{grkne{Ws{cs{x~
 RmCt 6
 ExSk 0
 Raff 3
-Lsit static-host-24-31-12-106.nctv.com~
-Ltim Wed Jul 30 20:05:28 2014
+Lsit cuvpnnat.clemson.edu~
+Ltim Fri Aug 01 23:15:07 2014
 ~
-LSav Wed Jul 30 21:39:25 2014
+LSav Fri Aug 01 23:18:50 2014
 ~
 Finf {x
 {HYour blast of lightning {Tbrings a touch of {RD{cE{RA{cT{RH {Tto {HThor! [213]{x
@@ -325,10 +325,10 @@ Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
 Gr 'alteration'
-Affc 'sanctuary'   0 100  11   0   0        128 4
-Affc 'haste'   0  97  12   6   2    2097152 1
-Affc 'giant strength'   0  89  62   6   1          0 1
-Affc 'divine regeneration'   0  92  61   0   0   33554432 4
+Affc 'divine regeneration'   0  92  56   0   0   33554432 4
+Affc 'giant strength'   0  85  57   6   1          0 1
+Affc 'haste'   0  96   7   6   2    2097152 1
+Affc 'sanctuary'   0  98   6   0   0        128 4
 End
 
 #O
@@ -347,8 +347,8 @@ Cond 99
 Wear -1
 Lev  2
 Cost 1000
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
 Affc 'reserved'   1   1  -1   2   5          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
 End
 
 #O
@@ -377,10 +377,10 @@ Cond 86
 Wear -1
 Lev  13
 Cost 100
-Affc 'reserved'   1  10  -1   1   3          0 1
-Affc 'reserved'   1  10  -1   1   4          0 1
-Affc 'enchant weapon'   1  91  -1   5  18          0 1
 Affc 'enchant weapon'   1  91  -1   5  19          0 1
+Affc 'enchant weapon'   1  91  -1   5  18          0 1
+Affc 'reserved'   1  10  -1   1   4          0 1
+Affc 'reserved'   1  10  -1   1   3          0 1
 End
 
 #O
@@ -400,8 +400,8 @@ Cond 89
 Wear -1
 Lev  6
 Cost 250
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
 Affc 'enchant weapon'   0  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
 End
 
 #O
@@ -411,14 +411,14 @@ Nest 0
 Cond 87
 Wear 7
 Cost 0
-Affc 'acid breath'   0  36  -1   1  17          0 1
-Affc 'reserved'   1  20  -1   1   1          0 1
-Affc 'reserved'   1  20  -1   1   2          0 1
-Affc 'reserved'   1  20  -1   1   5          0 1
-Affc 'reserved'   1  20  -1   1  18          0 1
-Affc 'reserved'   1  20  -1   2  19          0 1
-Affc 'reserved'   1  20  -1  20  12          0 1
 Affc 'reserved'   1  20  -1  20  14          0 1
+Affc 'reserved'   1  20  -1  20  12          0 1
+Affc 'reserved'   1  20  -1   2  19          0 1
+Affc 'reserved'   1  20  -1   1  18          0 1
+Affc 'reserved'   1  20  -1   1   5          0 1
+Affc 'reserved'   1  20  -1   1   2          0 1
+Affc 'reserved'   1  20  -1   1   1          0 1
+Affc 'acid breath'   0  36  -1   1  17          0 1
 End
 
 #O
@@ -573,9 +573,9 @@ Wear 16
 Lev  32
 Cost 5000
 Val  1 6 6 3 9
-Affc 'enchant weapon'   1 100  -1  14  19          0 1
-Affc 'enchant weapon'   1 100  -1  14  18          0 1
 Affc 'reserved'   1  26  -1 -10  17          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
 End
 
 #O
@@ -643,9 +643,9 @@ Wt   5
 Wear -1
 Lev  0
 Cost 0
-ExDe owned by~ Alisa
-~
 ExDe tag~ {gA {bfriend {gis like a {Yq{Gu{Ci{Gl{Ct{g, designed by {Rh{Pe{Ra{Pr{Rt{g, pieced in {Tt{gi{Tm{ge, sewn by {Wh{gan{Wd{g, and bound to keep you {Hcovered{g.{x
+~
+ExDe owned by~ Alisa
 ~
 End
 
@@ -835,9 +835,9 @@ Desc {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C th
 Wear -1
 Cost 0
 Val  64 48 0 0 0
-ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
-~
 ExDe wine~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
+~
+ExDe wedding~ {CA {Mb{Vo{Wtt{Ml{Ve{C of {Wwi{Cn{We{C that {Bs{By{Nm{Bbo{Nl{Biz{Ne{Bs{C the {Wl{Vo{Pv{We {Cof {VA{My{ge{Bl{Vr{Mi {Cand {BR{Na{Tk{gu{Tr{Na{Bi{x
 ~
 End
 
@@ -859,9 +859,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -902,9 +902,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -915,9 +915,9 @@ ShD  {CTeo's Quest Token{x~
 Desc {Ca sparkeling quest token from {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi{x~
 Wear -1
 Cost 0
-ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 ExDe {Cthis~ token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x
 ~
+ExDe {Cthis token says {PT{Ye{Po{Yt{Pw{Ya{Pw{Yk{Pi {Cmust think you did good{x~ ~
 End
 
 #L
@@ -981,34 +981,34 @@ Wt   0
 Wear -1
 Lev  9
 Cost 550
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
 Affc 'reserved'   1   5  -1   1   4          0 1
-End
-
-#L
-Vnum 2326
-Enchanted
-Nest 1
-ExtF 65
-Wt   0
-Wear -1
-Lev  9
-Cost 550
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1   5  -1   1   5          0 1
-End
-
-#L
-Vnum 2326
-Enchanted
-Nest 1
-ExtF 65
-Wt   0
-Wear -1
-Lev  9
-Cost 550
 Affc 'enchant armor'   1  91  -1  -3  17          0 1
+End
+
+#L
+Vnum 2326
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  9
+Cost 550
 Affc 'reserved'   1   5  -1   1   5          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
+End
+
+#L
+Vnum 2326
+Enchanted
+Nest 1
+ExtF 65
+Wt   0
+Wear -1
+Lev  9
+Cost 550
+Affc 'reserved'   1   5  -1   1   5          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
 End
 
 #L
@@ -1020,9 +1020,9 @@ Wt   0
 Wear -1
 Lev  6
 Cost 270
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   3  -1   1   4          0 1
 Affc 'reserved'   1   3  -1   1   2          0 1
+Affc 'reserved'   1   3  -1   1   4          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
 End
 
 #L
@@ -1035,9 +1035,9 @@ Cond 88
 Wear -1
 Lev  6
 Cost 550
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   3  -1   1   3          0 1
 Affc 'reserved'   1   3  -1   1  26          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
 End
 
 #L
@@ -1049,9 +1049,9 @@ Wt   0
 Wear -1
 Lev  6
 Cost 550
-Affc 'enchant armor'   1  91  -1  -4  17          0 1
-Affc 'reserved'   1   3  -1   1   3          0 1
 Affc 'reserved'   1   3  -1   1  26          0 1
+Affc 'reserved'   1   3  -1   1   3          0 1
+Affc 'enchant armor'   1  91  -1  -4  17          0 1
 End
 
 #L
@@ -1073,9 +1073,9 @@ Wt   0
 Wear -1
 Lev  8
 Cost 780
-Affc 'enchant armor'   1  91  -1  -3  17          0 1
-Affc 'reserved'   1   4  -1   5  12          0 1
 Affc 'reserved'   1   4  -1   1   4          0 1
+Affc 'reserved'   1   4  -1   5  12          0 1
+Affc 'enchant armor'   1  91  -1  -3  17          0 1
 End
 
 #L
@@ -1181,8 +1181,8 @@ Wear -1
 Lev  60
 Cost 18
 Val  2 7 12 11 4
-Affc 'enchant weapon'   0  91  -1   6  18          0 1
 Affc 'enchant weapon'   1  91  -1   6  19          0 1
+Affc 'enchant weapon'   0  91  -1   6  18          0 1
 ExDe dagger the dagger, 'Bloody Angel'~ It is a marvellous dagger, crafted from the finest tin around.
 It was created in the Month of Futility by an experienced necromancer
 named Celes.  Legend holds that this vampire was a great weaponsmith.
@@ -1198,8 +1198,8 @@ Cond 99
 Wear -1
 Lev  60
 Cost 3300
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
 Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
 End
 
 #B
@@ -1271,8 +1271,8 @@ Wear -1
 Lev  60
 Cost 6
 Val  2 6 14 11 1
-Affc 'enchant weapon'   1  91  -1   5  19          0 1
 Affc 'enchant weapon'   0  91  -1   5  18          0 1
+Affc 'enchant weapon'   1  91  -1   5  19          0 1
 ExDe dagger the dagger, 'Bloody Angel'~ It is a marvellous dagger, crafted from the finest steel around.
 It was created in the Month of Futility by an experienced necromancer
 named Celes.  Legend holds that this vampire was a great weaponsmith.
@@ -1294,13 +1294,13 @@ Nest 1
 ExtF 262211
 Wear -1
 Cost 33000
-Affc 'reserved'   3  93  -1   0   0        256 1
-Affc 'reserved'   1  93  -1  40  13          0 1
-Affc 'reserved'   1  93  -1  40  12          0 1
-Affc 'reserved'   1  93  -1   5   2          0 1
-Affc 'reserved'   1  93  -1   8  19          0 1
-Affc 'reserved'   1  93  -1  12  18          0 1
 Affc 'enchant armor'   1  91  -1  -3  17          0 1
+Affc 'reserved'   1  93  -1  12  18          0 1
+Affc 'reserved'   1  93  -1   8  19          0 1
+Affc 'reserved'   1  93  -1   5   2          0 1
+Affc 'reserved'   1  93  -1  40  12          0 1
+Affc 'reserved'   1  93  -1  40  13          0 1
+Affc 'reserved'   3  93  -1   0   0        256 1
 End
 
 #B
@@ -1310,14 +1310,14 @@ Nest 1
 ExtF 67
 Wear -1
 Cost 1200
-Affc 'reserved'   1  95  -1  -1  20          0 1
-Affc 'reserved'   1  95  -1  30  13          0 1
-Affc 'reserved'   1  95  -1  30  12          0 1
-Affc 'reserved'   1  95  -1   2   4          0 1
-Affc 'reserved'   1  95  -1   2   3          0 1
-Affc 'reserved'   1  95  -1  12  19          0 1
-Affc 'reserved'   1  95  -1  12  18          0 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  95  -1  12  18          0 1
+Affc 'reserved'   1  95  -1  12  19          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1  30  12          0 1
+Affc 'reserved'   1  95  -1  30  13          0 1
+Affc 'reserved'   1  95  -1  -1  20          0 1
 End
 
 #B
@@ -1328,13 +1328,13 @@ ExtF 65
 Cond 91
 Wear -1
 Cost 10000
-Affc 'enchant weapon'   0  91  -1   2  18          0 1
-Affc 'enchant weapon'   1  91  -1   2  19          0 1
-Affc 'reserved'   1  91  -1   1   2          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1   1   4          0 1
-Affc 'reserved'   1  91  -1 100  12          0 1
 Affc 'reserved'   1  91  -1 -10  17          0 1
+Affc 'reserved'   1  91  -1 100  12          0 1
+Affc 'reserved'   1  91  -1   1   4          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'enchant weapon'   0  91  -1   2  18          0 1
 End
 
 #B
@@ -1353,11 +1353,11 @@ Nest 1
 ExtF 1572931
 Wear -1
 Cost 3000
-Affc 'enchant weapon'   0  91  -1   4  18          0 1
-Affc 'enchant weapon'   1  91  -1   4  19          0 1
-Affc 'reserved'   0  91  -1   0   0  268435456 1
-Affc 'reserved'   1  91  -1  90  12          0 1
 Affc 'reserved'   1  91  -1   3   3          0 1
+Affc 'reserved'   1  91  -1  90  12          0 1
+Affc 'reserved'   0  91  -1   0   0  268435456 1
+Affc 'enchant weapon'   1  91  -1   4  19          0 1
+Affc 'enchant weapon'   0  91  -1   4  18          0 1
 End
 
 #B
@@ -1395,12 +1395,12 @@ Cond 99
 Wear -1
 Lev  61
 Cost 999
-Affc 'reserved'   1  59  -1 100  12          0 1
-Affc 'reserved'   1  59  -1  -3  24          0 1
-Affc 'reserved'   1  59  -1   3  26          0 1
-Affc 'reserved'   1  59  -1 -30   9          0 1
-Affc 'enchant weapon'   1  91  -1   2  19          0 1
 Affc 'enchant weapon'   0  91  -1   2  18          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'reserved'   1  59  -1 -30   9          0 1
+Affc 'reserved'   1  59  -1   3  26          0 1
+Affc 'reserved'   1  59  -1  -3  24          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
 End
 
 #B
@@ -1412,12 +1412,12 @@ Cond 90
 Wear -1
 Lev  61
 Cost 50
-Affc 'reserved'   1  59  -1  -8  24          0 1
-Affc 'reserved'   1  59  -1  50  13          0 1
-Affc 'reserved'   1  59  -1 100  12          0 1
-Affc 'reserved'   1  59  -1   2   5          0 1
-Affc 'enchant weapon'   1  91  -1   3  19          0 1
 Affc 'enchant weapon'   0  91  -1   3  18          0 1
+Affc 'enchant weapon'   1  91  -1   3  19          0 1
+Affc 'reserved'   1  59  -1   2   5          0 1
+Affc 'reserved'   1  59  -1 100  12          0 1
+Affc 'reserved'   1  59  -1  50  13          0 1
+Affc 'reserved'   1  59  -1  -8  24          0 1
 End
 
 #B
@@ -1464,12 +1464,12 @@ Nest 1
 ExtF 18088003
 Wear -1
 Cost 12000
-Affc 'reserved'   2  91  -1   0   0       2048 1
-Affc 'reserved'   0  91  -1   0   0    2097152 1
-Affc 'reserved'   1 100  -1  18  19          0 1
-Affc 'reserved'   1 100  -1  18  18          0 1
-Affc 'reserved'   1  91  -1 120  13          0 1
 Affc 'reserved'   1  91  -1 100  12          0 1
+Affc 'reserved'   1  91  -1 120  13          0 1
+Affc 'reserved'   1 100  -1  18  18          0 1
+Affc 'reserved'   1 100  -1  18  19          0 1
+Affc 'reserved'   0  91  -1   0   0    2097152 1
+Affc 'reserved'   2  91  -1   0   0       2048 1
 End
 
 #B
@@ -1481,13 +1481,13 @@ Cond 95
 Wear -1
 Lev  91
 Cost 55000
-Affc 'reserved'   0  95  -1   0   0    2097152 1
-Affc 'enchant weapon'   1 100  -1  18  19          0 1
-Affc 'enchant weapon'   1 100  -1  14  18          0 1
-Affc 'reserved'   1  95  -1 300  13          0 1
-Affc 'reserved'   1  95  -1 300  12          0 1
-Affc 'reserved'   1  95  -1   4   2          0 1
 Affc 'reserved'   1  95  -1   4   1          0 1
+Affc 'reserved'   1  95  -1   4   2          0 1
+Affc 'reserved'   1  95  -1 300  12          0 1
+Affc 'reserved'   1  95  -1 300  13          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'enchant weapon'   1 100  -1  18  19          0 1
+Affc 'reserved'   0  95  -1   0   0    2097152 1
 ExDe owned by~ Celes
 ~
 End
@@ -1510,14 +1510,14 @@ Nest 1
 ExtF 67
 Wear -1
 Cost 0
-Affc 'reserved'   1  91  -1   2   2          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1  60  12          0 1
-Affc 'reserved'   1  91  -1  40  13          0 1
-Affc 'enchant weapon'   1  99  -1   6  18          0 1
-Affc 'enchant weapon'   1  99  -1   6  19          0 1
-Affc 'reserved'   1  91  -1  -4  24          0 1
 Affc 'reserved'   1  91  -1   2  26          0 1
+Affc 'reserved'   1  91  -1  -4  24          0 1
+Affc 'enchant weapon'   1  99  -1   6  19          0 1
+Affc 'enchant weapon'   1  99  -1   6  18          0 1
+Affc 'reserved'   1  91  -1  40  13          0 1
+Affc 'reserved'   1  91  -1  60  12          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   2   2          0 1
 End
 
 #B
@@ -1527,14 +1527,14 @@ Nest 1
 Wt   0
 Wear -1
 Cost 62100
-Affc 'enchant weapon'   0  91  -1   2  18          0 1
-Affc 'enchant weapon'   1  91  -1   2  19          0 1
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'reserved'   1  91  -1   1   2          0 1
-Affc 'reserved'   1  91  -1   1   3          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1  20  13          0 1
 Affc 'reserved'   1  91  -1 100  12          0 1
+Affc 'reserved'   1  91  -1  20  13          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   1   3          0 1
+Affc 'reserved'   1  91  -1   1   2          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'enchant weapon'   1  91  -1   2  19          0 1
+Affc 'enchant weapon'   0  91  -1   2  18          0 1
 End
 
 #B
@@ -1545,12 +1545,12 @@ ExtF 262211
 Wear -1
 Lev  91
 Cost 33000
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1  93  -1  12  18          0 1
-Affc 'reserved'   1  93  -1  10  19          0 1
-Affc 'reserved'   1  93  -1  -6  20          0 1
-Affc 'reserved'   1  93  -1  80  12          0 1
 Affc 'reserved'   3  93  -1   0   0        512 1
+Affc 'reserved'   1  93  -1  80  12          0 1
+Affc 'reserved'   1  93  -1  -6  20          0 1
+Affc 'reserved'   1  93  -1  10  19          0 1
+Affc 'reserved'   1  93  -1  12  18          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
 ExDe owned by~ Celes
 ~
 End
@@ -1563,14 +1563,14 @@ ExtF 67633219
 Cond 93
 Wear -1
 Cost 100
-Affc 'reserved'   1  90  -1   2   1          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'enchant weapon'   1 100  -1  11  18          0 1
-Affc 'enchant weapon'   1 100  -1  11  19          0 1
-Affc 'reserved'   1  90  -1  80  12          0 1
-Affc 'reserved'   1  90  -1  30  13          0 1
 Affc 'reserved'   1  90  -1  -8  24          0 1
+Affc 'reserved'   1  90  -1  30  13          0 1
+Affc 'reserved'   1  90  -1  80  12          0 1
+Affc 'enchant weapon'   1 100  -1  11  19          0 1
+Affc 'enchant weapon'   1 100  -1  11  18          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2   1          0 1
 End
 
 #B
@@ -1582,14 +1582,14 @@ Cond 95
 Wear -1
 Lev  91
 Cost 10000
-Affc 'enchant armor'   1 100  -1  -2  17          0 1
-Affc 'enchant weapon'   0 100  -1   6  18          0 1
-Affc 'enchant weapon'   1 100  -1   6  19          0 1
-Affc 'reserved'   1  92  -1   3   3          0 1
-Affc 'reserved'   1  92  -1   3   4          0 1
-Affc 'reserved'   1 100  -1 122  12          0 1
-Affc 'reserved'   1  92  -1  70  13          0 1
 Affc 'reserved'   0  92  -1   0   0        128 1
+Affc 'reserved'   1  92  -1  70  13          0 1
+Affc 'reserved'   1 100  -1 122  12          0 1
+Affc 'reserved'   1  92  -1   3   4          0 1
+Affc 'reserved'   1  92  -1   3   3          0 1
+Affc 'enchant weapon'   1 100  -1   6  19          0 1
+Affc 'enchant weapon'   0 100  -1   6  18          0 1
+Affc 'enchant armor'   1 100  -1  -2  17          0 1
 ExDe owned by~ Celes
 ~
 End
@@ -1602,11 +1602,11 @@ ExtF 1835075
 Cond 91
 Wear -1
 Cost 3500
-Affc 'reserved'   1  91  -1   3   1          0 1
-Affc 'reserved'   1  91  -1  18  18          0 1
-Affc 'reserved'   1  91  -1  18  19          0 1
-Affc 'reserved'   0  91  -1   0   0        124 1
 Affc 'enchant armor'   1  91  -1  -5  17          0 1
+Affc 'reserved'   0  91  -1   0   0        124 1
+Affc 'reserved'   1  91  -1  18  19          0 1
+Affc 'reserved'   1  91  -1  18  18          0 1
+Affc 'reserved'   1  91  -1   3   1          0 1
 End
 
 #B
@@ -1617,15 +1617,15 @@ ExtF 67
 Cond 96
 Wear -1
 Cost 2000
-Affc 'enchant armor'   1  91  -1  -2  17          0 1
-Affc 'reserved'   1  91  -1   2   1          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
-Affc 'reserved'   1  91  -1   2   4          0 1
-Affc 'reserved'   1  91  -1  60  12          0 1
-Affc 'reserved'   1  91  -1  30  13          0 1
-Affc 'enchant weapon'   1 100  -1   8  18          0 1
-Affc 'enchant weapon'   1 100  -1   8  19          0 1
 Affc 'reserved'   1  91  -1  -5  24          0 1
+Affc 'enchant weapon'   1 100  -1   8  19          0 1
+Affc 'enchant weapon'   1 100  -1   8  18          0 1
+Affc 'reserved'   1  91  -1  30  13          0 1
+Affc 'reserved'   1  91  -1  60  12          0 1
+Affc 'reserved'   1  91  -1   2   4          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'enchant armor'   1  91  -1  -2  17          0 1
 End
 
 #B
@@ -1636,13 +1636,13 @@ ExtF 1048643
 Cond 99
 Wear -1
 Cost 15000
-Affc 'reserved'   4  91  -1   0   0       8192 1
-Affc 'reserved'   0  91  -1   0   0    1048576 1
-Affc 'enchant weapon'   1  99  -1  18  19          0 1
-Affc 'enchant weapon'   1  99  -1  12  18          0 1
-Affc 'reserved'   1  91  -1  75  12          0 1
-Affc 'reserved'   1  91  -1   2   3          0 1
 Affc 'reserved'   1  91  -1   2   1          0 1
+Affc 'reserved'   1  91  -1   2   3          0 1
+Affc 'reserved'   1  91  -1  75  12          0 1
+Affc 'enchant weapon'   1  99  -1  12  18          0 1
+Affc 'enchant weapon'   1  99  -1  18  19          0 1
+Affc 'reserved'   0  91  -1   0   0    1048576 1
+Affc 'reserved'   4  91  -1   0   0       8192 1
 End
 
 #B
@@ -1653,15 +1653,15 @@ ExtF 67
 Wear -1
 Lev  91
 Cost 55000
-Affc 'enchant weapon'   1 100  -1  14  19          0 1
-Affc 'enchant weapon'   1 100  -1  14  18          0 1
-Affc 'reserved'   1  95  -1 175  13          0 1
-Affc 'reserved'   1  95  -1 175  12          0 1
-Affc 'reserved'   1  95  -1   2   5          0 1
-Affc 'reserved'   1  95  -1   2   4          0 1
-Affc 'reserved'   1  95  -1   2   3          0 1
-Affc 'reserved'   1  95  -1   2   2          0 1
 Affc 'reserved'   1  95  -1   2   1          0 1
+Affc 'reserved'   1  95  -1   2   2          0 1
+Affc 'reserved'   1  95  -1   2   3          0 1
+Affc 'reserved'   1  95  -1   2   4          0 1
+Affc 'reserved'   1  95  -1   2   5          0 1
+Affc 'reserved'   1  95  -1 175  12          0 1
+Affc 'reserved'   1  95  -1 175  13          0 1
+Affc 'enchant weapon'   1 100  -1  14  18          0 1
+Affc 'enchant weapon'   1 100  -1  14  19          0 1
 ExDe owned by~ Celes
 ~
 End
@@ -1674,15 +1674,15 @@ ExtF 67
 Cond 95
 Wear -1
 Cost 15000
-Affc 'reserved'   1  91  -1   7  19          0 1
-Affc 'reserved'   1  91  -1   6  18          0 1
-Affc 'reserved'   1  91  -1  85  13          0 1
-Affc 'reserved'   1  91  -1  85  12          0 1
-Affc 'reserved'   1  91  -1  20   9          0 1
-Affc 'reserved'   1  91  -1   1   6          0 1
-Affc 'reserved'   1  91  -1   4   5          0 1
-Affc 'reserved'   1  91  -1   4   1          0 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  91  -1   4   1          0 1
+Affc 'reserved'   1  91  -1   4   5          0 1
+Affc 'reserved'   1  91  -1   1   6          0 1
+Affc 'reserved'   1  91  -1  20   9          0 1
+Affc 'reserved'   1  91  -1  85  12          0 1
+Affc 'reserved'   1  91  -1  85  13          0 1
+Affc 'reserved'   1  91  -1   6  18          0 1
+Affc 'reserved'   1  91  -1   7  19          0 1
 End
 
 #B
@@ -1711,13 +1711,13 @@ ExtF 67
 Cond 99
 Wear -1
 Cost 660
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  40  12          0 1
-Affc 'enchant weapon'   1  91  -1   7  19          0 1
-Affc 'enchant weapon'   1  91  -1   7  18          0 1
-Affc 'reserved'   1  90  -1   1   1          0 1
-Affc 'reserved'   1  90  -1   3   4          0 1
 Affc 'enchant armor'   1  91  -1  -2  17          0 1
+Affc 'reserved'   1  90  -1   3   4          0 1
+Affc 'reserved'   1  90  -1   1   1          0 1
+Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   7  19          0 1
+Affc 'reserved'   1  90  -1  40  12          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
 End
 
 #B
@@ -1728,30 +1728,16 @@ ExtF 262211
 Cond 99
 Wear -1
 Cost 4500
-Affc 'enchant weapon'   1  91  -1  10  18          0 1
-Affc 'enchant weapon'   1  91  -1  10  19          0 1
-Affc 'reserved'   1  90  -1  60  12          0 1
-Affc 'reserved'   1  90  -1  50  13          0 1
-Affc 'reserved'   1  90  -1  -2  20          0 1
-Affc 'reserved'   1  90  -1   2  26          0 1
-Affc 'reserved'   1  90  -1   2   5          0 1
-Affc 'reserved'   1  90  -1   1   2          0 1
-Affc 'reserved'   1  90  -1  30  14          0 1
 Affc 'reserved'   1  90  -1  -2   9          0 1
-End
-
-#B
-Vnum 11709
-Enchanted
-Nest 1
-ExtF 67
-Wear -1
-Lev  88
-Cost 10000
-Affc 'enchant weapon'   1  91  -1   9  19          0 1
-Affc 'enchant weapon'   1  91  -1   9  18          0 1
-Affc 'reserved'   1  87  -1 125  12          0 1
-Affc 'reserved'   1  87  -1   5   3          0 1
+Affc 'reserved'   1  90  -1  30  14          0 1
+Affc 'reserved'   1  90  -1   1   2          0 1
+Affc 'reserved'   1  90  -1   2   5          0 1
+Affc 'reserved'   1  90  -1   2  26          0 1
+Affc 'reserved'   1  90  -1  -2  20          0 1
+Affc 'reserved'   1  90  -1  50  13          0 1
+Affc 'reserved'   1  90  -1  60  12          0 1
+Affc 'enchant weapon'   1  91  -1  10  19          0 1
+Affc 'enchant weapon'   1  91  -1  10  18          0 1
 End
 
 #B
@@ -1766,6 +1752,20 @@ Affc 'reserved'   1  87  -1   5   3          0 1
 Affc 'reserved'   1  87  -1 125  12          0 1
 Affc 'enchant weapon'   1  91  -1   9  18          0 1
 Affc 'enchant weapon'   1  91  -1   9  19          0 1
+End
+
+#B
+Vnum 11709
+Enchanted
+Nest 1
+ExtF 67
+Wear -1
+Lev  88
+Cost 10000
+Affc 'enchant weapon'   1  91  -1   9  19          0 1
+Affc 'enchant weapon'   1  91  -1   9  18          0 1
+Affc 'reserved'   1  87  -1 125  12          0 1
+Affc 'reserved'   1  87  -1   5   3          0 1
 End
 
 #END

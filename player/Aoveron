@@ -1,7 +1,7 @@
 #PLAYER
 Name Aoveron~
 Id   1406398274
-LogO 1406866015
+LogO 1406931142
 Vers 15
 Mexp 1
 Pass 955321~
@@ -9,18 +9,18 @@ Prom %CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ~
 Race dragon~
 Clan blackclaw~
 Cla  0
-Levl 17
-Plyd 31244
+Levl 18
+Plyd 33612
 Back 23994
-Note 1406559493 0 0 0 1406785216 0 0
+Note 1406559493 0 0 0 1406871707 0 0
 Scro 22
 Room 3001
-HMS  232 340 179
+HMS  243 362 182
 Gold 41
-Silv 103
+Silv 1753
 Silver_in_bank 7000
 Gold_in_bank 215
-Exp  37348
+Exp  39913
 PCkills  0
 PCkilled 0
 Akills   0
@@ -34,20 +34,20 @@ FVul F
 Plr  U
 Video D
 Act  CDEFGHJLQSc
-AfBy Z
+AfBy HV
 Comm MNOQ
 Revk 0
 Cgrp IKO
 Cnsr B
 Block_Remote 0
-Prac 0
+Prac 1
 Trai 0
 Wimp 25
 Familiar 0
 Atrib 20 21 20 16 20 18
 SkillPnts  5
 QuestPnts  9
-Afk {B[{CThu Jul 31 21:06:33 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
+Afk {B[{CFri Aug  1 14:47:59 2014{B] {C{CA{Tuto-{CA{Tfk by {BL{Ce{gg{Wa{Cc{By{x
 ~
 Titl .~
 Immn ~
@@ -55,17 +55,17 @@ Pnts 55
 Rank ~
 Aura ~
 TSex 1
-LLev 8
+LLev 9
 Email xenith@xenith.org~
 Deit Xenith~
-Lsit 74-93-181-149-Sacramento.hfc.comcastbusiness.net~
-Ltim Thu Jul 31 19:54:31 2014
+Lsit sprint-204-212-183-131.smf.ragingwire.net~
+Ltim Fri Aug 01 14:32:49 2014
 ~
-LSav Thu Jul 31 21:06:55 2014
+LSav Fri Aug 01 15:12:22 2014
 ~
-HMSP 188 320 182
-THMS 0 2 0
-Cnd  0 44 48 40
+HMSP 199 342 190
+THMS 0 3 0
+Cnd  0 0 33 10
 Colr 0 32 1
 Sk 1 1 'acid blast'
 Sk 1 1 'acid breath'
@@ -77,14 +77,14 @@ Sk 1 1 'blizzard'
 Sk 90 1 'burning hands'
 Sk 1 1 'call lightning'
 Sk 1 1 'calm'
-Sk 1 1 'cancellation'
+Sk 75 1 'cancellation'
 Sk 1 1 'chain lightning'
 Sk 1 1 'channel'
 Sk 1 1 'charm person'
 Sk 79 1 'chill touch'
 Sk 76 1 'colour spray'
 Sk 75 1 'control weather'
-Sk 1 1 'curse'
+Sk 75 1 'curse'
 Sk 75 1 'detect evil'
 Sk 75 1 'detect good'
 Sk 75 1 'detect hidden'
@@ -112,7 +112,7 @@ Sk 75 1 'infravision'
 Sk 75 1 'invisibility'
 Sk 75 1 'know alignment'
 Sk 1 1 'light of truth'
-Sk 89 1 'lightning bolt'
+Sk 94 1 'lightning bolt'
 Sk 1 1 'lightning breath'
 Sk 75 1 'locate life'
 Sk 75 1 'locate object'
@@ -149,7 +149,7 @@ Sk 1 1 'vision'
 Sk 76 1 'weaken'
 Sk 1 1 'word of recall'
 Sk 1 1 'wrath'
-Sk 81 1 'dagger'
+Sk 83 1 'dagger'
 Sk 75 1 'brew'
 Sk 1 1 'bash'
 Sk 76 1 'lore'
@@ -157,7 +157,7 @@ Sk 100 1 'scan'
 Sk 75 1 'scrolls'
 Sk 75 1 'staves'
 Sk 75 1 'wands'
-Sk 74 1 'recall'
+Sk 75 1 'recall'
 Sk 1 1 'familiar'
 Gr 'rom basics'
 Gr 'mage basics'
@@ -172,7 +172,10 @@ Gr 'maladictions'
 Gr 'protective'
 Gr 'transportation'
 Gr 'weather'
-Affc 'divine regeneration'   0  91  46   0   0   33554432 4
+Affc 'giant strength'   0  89  48   6   1          0 1
+Affc 'haste'   0  96  10   0   2    2097152 1
+Affc 'armor'   0  14   9 -20  17          0 1
+Affc 'sanctuary'   0  96   2   0   0        128 4
 End
 
 #O
@@ -275,6 +278,7 @@ End
 #O
 Vnum 10127
 Nest 0
+Cond 92
 Wear 7
 Cost 128
 End
@@ -283,7 +287,7 @@ End
 Vnum 6646
 Nest 0
 Wear -1
-Time 389
+Time 336
 Cost 150
 Spell 1 'cure light'
 Spell 2 'armor'
@@ -306,6 +310,7 @@ End
 #O
 Vnum 9909
 Nest 0
+Cond 94
 Wear 4
 Cost 1930
 End
@@ -318,8 +323,8 @@ ExtF 66
 Wear 16
 Lev  15
 Cost 500
-Affc 'enchant weapon'   1  91  -1   6  19          0 1
 Affc 'enchant weapon'   1  91  -1   7  18          0 1
+Affc 'enchant weapon'   1  91  -1   6  19          0 1
 End
 
 #O
@@ -336,13 +341,6 @@ Nest 0
 Wear 18
 Cost 600
 ExDe owned by~ Aoveron~
-End
-
-#O
-Vnum 3009
-Nest 0
-Wear -1
-Cost 22
 End
 
 #O

@@ -1,7 +1,7 @@
 #PLAYER
 Name Seeker~
 Id   990004949
-LogO 1406776359
+LogO 1406998639
 Vers 15
 Mexp 2
 Pass tikcus~
@@ -10,12 +10,12 @@ Race elf~
 Clan divinity~
 Cla  2
 Levl 79
-Plyd 119556
+Plyd 119648
 Back 118307
-Note 1406559493 1105162385 1103760323 1106530571 1406555570 1103760323 1103760323
+Note 1406559493 1105162385 1103760323 1106530571 1406871707 1103760323 1103760323
 Scro 22
 Room 24205
-HMS  1643 775 779
+HMS  1643 775 922
 Gold 3100
 Silv 83
 Exp  83240
@@ -56,10 +56,10 @@ Aura ~
 TSex 1
 LLev 16
 Deit Aerylene~
-Lsit 66-87-64-99.pools.spcsdns.net~
-Ltim Wed Jul 30 20:07:58 2014
+Lsit 66-87-64-192.pools.spcsdns.net~
+Ltim Sat Aug 02 09:55:48 2014
 ~
-LSav Wed Jul 30 20:12:39 2014
+LSav Sat Aug 02 09:57:19 2014
 ~
 HMSP 1413 460 922
 THMS 0 0 0
@@ -323,10 +323,10 @@ Enchanted
 Nest 0
 Wear -1
 Cost 72
-Affc 'reserved'   1  65  -1  60  13          0 1
-Affc 'reserved'   1  65  -1   2  18          0 1
-Affc 'reserved'   1  65  -1   3  19          0 1
 Affc 'reserved'   0  65  -1   0   0  268435456 1
+Affc 'reserved'   1  65  -1   3  19          0 1
+Affc 'reserved'   1  65  -1   2  18          0 1
+Affc 'reserved'   1  65  -1  60  13          0 1
 End
 
 #O
@@ -372,9 +372,9 @@ Mat food~
 Wear -1
 Cost 0
 Val  50 100 0 0 0
-ExDe food~ It looks delicious.
-~
 ExDe chef~ This food was created by Urza.
+~
+ExDe food~ It looks delicious.
 ~
 End
 
@@ -392,8 +392,8 @@ Wear 19
 Lev  60
 Cost 13
 Val  1 6 13 3 0
-Affc 'enchant weapon'   1  90  -1   5  19          0 1
 Affc 'enchant weapon'   0  90  -1   5  18          0 1
+Affc 'enchant weapon'   1  90  -1   5  19          0 1
 ExDe sword a tainted moonblade~ It is a marvellous sword, crafted from the finest steel around.
 It was created in the Month of Perseverance by an experienced ranger
 named Ayelri.  Legend holds that this wolf was a great weaponsmith.
@@ -495,8 +495,8 @@ Wear 16
 Lev  60
 Cost 6
 Val  1 6 13 3 4
-Affc 'enchant weapon'   1  90  -1   6  19          0 1
 Affc 'enchant weapon'   0  90  -1   6  18          0 1
+Affc 'enchant weapon'   1  90  -1   6  19          0 1
 ExDe sword a tainted moonblade~ It is a marvellous sword, crafted from the finest iron around.
 It was created in the Month of Perseverance by an experienced ranger
 named Ayelri.  Legend holds that this wolf was a great weaponsmith.

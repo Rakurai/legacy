@@ -37,3 +37,6 @@
 {Y[{x07/29/14{Y]{x {C[{x 1290{C]{x Montrey: cedit without arguments should show a list of all clans, including independents
 {Y[{x07/31/14{Y]{x {C[{x 1298{C]{x Montrey: mob skills need to be looked at.  fight.c has decisions
 for whether mobs can do things like kick, parry, as does skills.c.  flags should be checked in one location
+{Y[{x08/01/a wedding ring{x
+{Y]{x {C[{x 3025{C]{x Vegita: fix ranged attacks to actually do damage if in another room (currently they do not apply damage)
+{Y[{x08/01/] (Midgaard) (1){Y]{x {C[{x 1298{C]{x Montrey: edit needs an 'append' and 'format'
