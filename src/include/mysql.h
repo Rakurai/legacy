@@ -5,23 +5,26 @@
  *
  */
 
+#ifndef __MYSQL_H
+#define __MYSQL_H
+
 #include <errmsg.h>
 #include <mysql.h>
 #include <stdio.h>
-#ifndef __MYSQL_H
-#define __MYSQL_H
 
 
 #define args(list) list
 
 /* MySQL defines */
-#define DB_HOST			"localhost"
 #define DB_PORT			0
 #define DB_SOCKET		NULL
 #define DB_CLIENT_FLAG	0
-#define DB_NAME			"legacy"
-#define DB_USER			"legacy"
-#define DB_PASS			NULL
+
+// filled by configuration loading
+extern char *DB_HOST;
+extern char *DB_NAME;
+extern char *DB_USER;
+extern char *DB_PASS;
 
 extern	MYSQL *mysql_db;
 

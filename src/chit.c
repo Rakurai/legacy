@@ -29,10 +29,9 @@ Client_Info *Chit_Connect(char *server_name, int port_number)
 
 	if (!client_info)
 		return NULL;
-
-	/* load defaults */
+/*
 	config_file = fopen(CONFIG_FILE, "r");
-
+*/
 	if (!config_file) {
 		free(client_info);
 		return NULL;

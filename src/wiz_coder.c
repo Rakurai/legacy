@@ -22,13 +22,12 @@
 #include <ctype.h>
 #include <signal.h>
 #include <time.h>
-#include <mysql.h>
 #include "merc.h"
 #include "lookup.h"
 #include "recycle.h"
 #include "ports.h"
 #include "memory.h"
-#include "mysql.h"
+#include "include/mysql.h"
 
 DECLARE_DO_FUN(do_echo);
 

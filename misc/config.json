@@ -1,0 +1,5 @@
+{
+	"db_host":	"localhost",
+	"db_name":	"legacy",
+	"db_user":	"legacy"
+}

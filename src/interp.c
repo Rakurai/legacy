@@ -32,7 +32,6 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
-#include <mysql.h>
 #include "merc.h"
 #include "interp.h"
 #include "tables.h"

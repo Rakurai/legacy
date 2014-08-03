@@ -21,7 +21,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <signal.h>
-#include <mysql.h>
 #include "merc.h"
 #include "recycle.h"
 #include "lookup.h"

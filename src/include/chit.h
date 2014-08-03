@@ -34,9 +34,6 @@ moduel.
 /* max size of username and password */
 #define CHIT_USERNAME_LENGTH 64
 
-/* file where username and password are stored */
-#define CONFIG_FILE "chit.txt"
-
 #ifndef TRUE
 #define TRUE 1
 #endif

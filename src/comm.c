@@ -53,7 +53,6 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdarg.h>
-#include <mysql.h>
 #include <sys/shm.h>
 
 #include "merc.h"

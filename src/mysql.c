@@ -10,13 +10,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
-//#include <mysql/errmsg.h>
-//#include <mysql/mysql.h>
 #include "merc.h"
 #include "db.h"
-#include "mysql.h"
+#include "include/mysql.h"
 
 MYSQL *mysql_db;
+char *DB_HOST = NULL;
+char *DB_NAME = NULL;
+char *DB_USER = NULL;
+char *DB_PASS = NULL;
 
 void db_open()
 {

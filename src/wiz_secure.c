@@ -20,11 +20,10 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <signal.h>
-#include <mysql.h>
 #include "merc.h"
 #include "tables.h"
 #include "recycle.h"
-#include "mysql.h"
+#include "include/mysql.h"
 
 
 DECLARE_DO_FUN(do_quit);                /* do_deny */

@@ -29,6 +29,9 @@
 #ifndef MERC_HEADER_FILE__
 #define MERC_HEADER_FILE__
 
+#include <time.h>
+#include <stdio.h>
+
 /*
  * Accommodate old non-Ansi compilers.
  */
@@ -3217,6 +3220,7 @@ char *  crypt           args( ( const char *key, const char *salt ) );
 #define EXE_FILE        BIN_DIR "legacy"
 
 #define MISC_DIR        "../misc/"              /* Miscellaneous Stuff */
+#define CONFIG_FILE     MISC_DIR "config.json"  // new config file
 #define NULL_FILE       MISC_DIR "NULL_FILE"             /* To reserve one stream */
 #define PID_FILE        MISC_DIR "legacy.pid"    /* pid file for the autoreboot script */
 #define COPYOVER_FILE   MISC_DIR "copyover.data"

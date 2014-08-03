@@ -30,7 +30,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <mysql.h>
 #include "merc.h"
 #include "mysql.h"
 
