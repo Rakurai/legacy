@@ -2915,3 +2915,58 @@ Legacy can now accept connections from IPv6 addresses, which is a hell of a
 
 Montrey
 ~
+Sender  Montrey~
+Date    Thu Jul 31 22:41:47 2014~
+Stamp   1406871707
+To      all~
+Subject Changes!~
+Text
+Mob stats are no longer crazy high.  It was originally designed as a 60 level
+mud, so any mob at level 50ish had maxed out stats.  This affects things like
+dodge, parry, bash, and many more.  Mobs stats are basically cut in half now,
+which will probably result some mobs being less effective at some skills.  
+
+Along the same lines, the dexterity modifier of haste and slow has been
+removed, for mobs and players.  It may seem sensible for it to affect dex,
+but it was actually double counting haste and slow.  Maybe something for
+evolved haste/slow later?  
+
+Dodge and blur chances have been modified a lot to account for mob stat
+changes, should be more realistic for haste/slow and size modifiers.  
+
+Shield block is much more effective now, and might get better later.  It was
+almost pointless to have, the default chance of actually blocking was so low
+that it only went off on a critical fail (5% chance).  
+
+
+Montrey 
+~
+Sender  Montrey~
+Date    Fri Aug  1 21:32:31 2014~
+Stamp   1406953951
+To      imm~
+Subject help file editing~
+Text
+If you have the building group, check out {Yhedit{x.  It lets you create new help
+files and set the values, and it will immediately appear in the game.  A few
+points to go over.  First, type help on something, and notice that for imms,
+you see t the help file's file and ID.  The ID is how you interact with that
+particular file for editing.  
+
+To create a new helpfile, you only need some keywords.  To create one for the
+new command, I would type {Yhedit new hedit{x.  This will tell you the new help's
+ID so you can keep working on it, in this case 623.  Next I would set the
+help's level to restrict it to imms: {Yhedit level 623 92{x.  I could also set
+the file (hgroup) and order number (onum).  Next, I want to edit the text,
+which you could do in one string with the hedit command.  
+
+An easier way to edit the text of the help is with the {Pedit{x command, which I
+modified so you can do something like {Pedit help 623{x.  This will start the
+editor working on the help text, you can make changes, and {Pedit done{x when
+you're finished.  
+
+Hopefully this will make it easier to update information about the mud. 
+Don't go all crazy changing things without some group discussion :) 
+
+Montrey
+~

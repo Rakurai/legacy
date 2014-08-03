@@ -5,7 +5,7 @@ bootfile
 *~
 core*
 player/backup/*
-player/oldchar
+player/*
 legacy
 legacy.bak
 sand_server

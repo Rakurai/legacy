@@ -29,3 +29,11 @@
 {Y[{x07/27/14{Y]{x {C[{x 1298{C]{x Montrey: imms can now 'mark' an imm only room :P
 {Y[{x07/28/14{Y]{x {C[{x 1200{C]{x Montrey: now possible to dodge/blur a bash, not just skill modifiers.
 {Y[{x07/28/14{Y]{x {C[{x 1200{C]{x Montrey: size, slow, haste, and dexterity now affect dodge/blur
+{Y[{x07/31/     30000/30000 hp 30000/30000 mana 22806/30000 st      0 tnl
+{Y]{x {C[{x 1298{C]{x Montrey: shield block updated, now actually worhtwhile
+{Y[{x07/31/     30000/30000 hp 30000/30000 mana 22806/30000 st      0 tnl
+{Y]{x {C[{x 1298{C]{x Montrey: can now dodge bash, dodge/blur/bash modified to balance out.  mainly to make it fair for faeries
+{Y[{x07/31/     30000/30000 hp 30000/30000 mana 22806/30000 st      0 tnl
+{Y]{x {C[{x 1298{C]{x Montrey: mob stats pretty much cut in half, they now base at 8+level/10 plus a few modifiers for class
+{Y[{x07/31/es!{x
+{Y]{x {C[{x 1298{C]{x Montrey: haste/slow dex modifiers set to 0
