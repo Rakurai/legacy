@@ -31,8 +31,7 @@ void db_open()
 
 void db_close()
 {
-	if (mysql_db)
-	{
+	if (mysql_db) {
 		mysql_close(mysql_db);
 		mysql_db = NULL;
 	}
@@ -42,11 +41,11 @@ void db_error(char *func)
 {
 	bugf("%s: %s", func, mysql_error(mysql_db));
 
-	if (fBootDb)
-	{
+	if (fBootDb) {
 		db_close();
 		exit(1);
 	}
+
 //		bombout();
 }
 
@@ -55,26 +54,21 @@ int db_send_query(char *func, char *query)
 {
 	int i;
 
-	if (mysql_db == NULL)
-	{
+	if (mysql_db == NULL) {
 		bugf("db_send_query(%s): mysql_db is NULL, reopening", func);
 		db_open();
 	}
 
-	for (i = 1; i < 4; i++)
-	{
+	for (i = 1; i < 4; i++) {
 		if (!mysql_real_query(mysql_db, query, strlen(query)))
 			break;
 
-		switch (mysql_errno(mysql_db))
-		{
-			case CR_SERVER_GONE_ERROR:
-			case CR_SERVER_LOST:
-			{
+		switch (mysql_errno(mysql_db)) {
+		case CR_SERVER_GONE_ERROR:
+		case CR_SERVER_LOST: {
 				db_error(func);
 
-				if (i == 3)
-				{
+				if (i == 3) {
 					bugf("db_send_query(%s): abandoning query after 3 failed attempts", func);
 					return 0;
 				}
@@ -83,8 +77,8 @@ int db_send_query(char *func, char *query)
 				continue;
 			}
 
-			default:
-				break;
+		default:
+			break;
 		}
 	}
 
@@ -99,8 +93,7 @@ MYSQL_RES *db_query(char *func, char *query)
 	if (!db_send_query(func, query))
 		return NULL;
 
-	if ((result = mysql_store_result(mysql_db)) == NULL)
-	{
+	if ((result = mysql_store_result(mysql_db)) == NULL) {
 		bugf("db_query(%s): failed to store mysql result set", func);
 		return NULL;
 	}
@@ -113,11 +106,9 @@ MYSQL_RES *db_queryf(char *func, char *query, ...)
 {
 	char buf[MSL * 3];
 	va_list args;
-
 	va_start(args, query);
 	vsnprintf(buf, MSL, query, args);
 	va_end(args);
-
 	return db_query(func, buf);
 }
 
@@ -133,11 +124,9 @@ int db_commandf(char *func, char *query, ...)
 {
 	char buf[MSL * 3];
 	va_list args;
-
 	va_start(args, query);
 	vsnprintf(buf, MSL, query, args);
 	va_end(args);
-
 	return db_command(func, buf);
 }
 
@@ -154,21 +143,18 @@ int db_count(char *func, char *query)
 	if ((result = db_query(func, query)) == NULL)
 		return -1;
 
-	if ((row = mysql_fetch_row(result)) == NULL)
-	{
+	if ((row = mysql_fetch_row(result)) == NULL) {
 		bugf("db_count(%s): fetched row is NULL on non-NULL result set", func);
 		return -1;
 	}
 
-	if (row[0] == NULL || row[0][0] == '\0')
-	{
+	if (row[0] == NULL || row[0][0] == '\0') {
 		bugf("db_count(%s): NULL or empty string in first column of result set", func);
 		return -1;
 	}
 
 	count = atoi(row[0]);
 	mysql_free_result(result);
-
 	return count;
 }
 
@@ -176,11 +162,9 @@ int db_countf(char *func, char *query, ...)
 {
 	char buf[MSL * 3];
 	va_list args;
-
 	va_start(args, query);
 	vsnprintf(buf, MSL, query, args);
 	va_end(args);
-
 	return db_count(func, buf);
 }
 
@@ -188,9 +172,7 @@ int db_countf(char *func, char *query, ...)
 char *db_esc(char *string)
 {
 	char buf[MSL];
-
 	mysql_real_escape_string(mysql_db, buf, string, strlen(string));
-
 	return str_dup_semiperm(buf);
 }
 

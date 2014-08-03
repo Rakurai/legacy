@@ -45,29 +45,25 @@ extern AREA_DATA *area_first;
 void do_debug(CHAR_DATA *ch, char *argument)
 {
 	char subfunc[MIL];
-
 	argument = one_argument(argument, subfunc);
 
-	if (subfunc[0] == '\0' )
-	{
-		stc(	"Currently defined DEBUG subfunctions are:\r\n"
-			"  lcheck   - shows a player's locker number and weight, and strongbox number\n\r"
-			"  rcheck   - check for rooms without exits and NO_RECALL\r\n"
-			"  rcheck2  - check for rooms flagged NOLIGHT\r\n"
-			"  qtz      - set next quest time to 0\r\n"
-			"  tick     - advances the mud by one tick, weather_update, char_update, descrip_update\r\n"
-			"  compart  - finds all objects inside objects that aren't containers\r\n"
-			"  newflag  - finds all objects flagged compartment (formerly dark) or lock (nonexistant)\r\n"
-			"  aversion - lists all areas and their versions\r\n"
-			"  define   - lists all defines that the preprocessor checks for\n\r"
-			"  objstate - save all objects lying on the ground\n\r", ch);
+	if (subfunc[0] == '\0') {
+		stc("Currently defined DEBUG subfunctions are:\r\n"
+		    "  lcheck   - shows a player's locker number and weight, and strongbox number\n\r"
+		    "  rcheck   - check for rooms without exits and NO_RECALL\r\n"
+		    "  rcheck2  - check for rooms flagged NOLIGHT\r\n"
+		    "  qtz      - set next quest time to 0\r\n"
+		    "  tick     - advances the mud by one tick, weather_update, char_update, descrip_update\r\n"
+		    "  compart  - finds all objects inside objects that aren't containers\r\n"
+		    "  newflag  - finds all objects flagged compartment (formerly dark) or lock (nonexistant)\r\n"
+		    "  aversion - lists all areas and their versions\r\n"
+		    "  define   - lists all defines that the preprocessor checks for\n\r"
+		    "  objstate - save all objects lying on the ground\n\r", ch);
 		return;
 	}
 
-	if (!strcmp(subfunc, "define"))
-	{
+	if (!strcmp(subfunc, "define")) {
 		stc("Defined:\n", ch);
-
 #if defined(sun)
 		stc("sun\n", ch);
 #endif
@@ -131,9 +127,7 @@ void do_debug(CHAR_DATA *ch, char *argument)
 #if defined(NOCRYPT)
 		stc("NOCRYPT\n", ch);
 #endif
-
 		stc("Not defined:\n", ch);
-
 #if !defined(sun)
 		stc("sun\n", ch);
 #endif
@@ -197,12 +191,10 @@ void do_debug(CHAR_DATA *ch, char *argument)
 #if !defined(NOCRYPT)
 		stc("NOCRYPT\n", ch);
 #endif
-
 		return;
 	}
 
-	if (!strcmp(subfunc, "fullupdate"))
-	{
+	if (!strcmp(subfunc, "fullupdate")) {
 		MYSQL_RES *result;
 		MYSQL_ROW row;
 		DESCRIPTOR_DATA *d;
@@ -214,21 +206,18 @@ void do_debug(CHAR_DATA *ch, char *argument)
 		if ((result = db_query("do_debug:fullupdate", "SELECT name FROM pc_index")) == NULL)
 			return;
 
-		while ((row = mysql_fetch_row(result)))
-		{
+		while ((row = mysql_fetch_row(result))) {
 			CHAR_DATA *victim;
 
 			if (get_player_world(ch, row[0], VIS_CHAR))
 				continue;
 
 			db_commandf("do_debug:fullupdate", "DELETE FROM pc_index WHERE name='%s'", db_esc(row[0]));
-
 			d = new_descriptor();
 			d->descriptor    = desc;
 			d->connected     = CON_PLAYING;
 
-			if (!load_char_obj(d, row[0]))
-			{
+			if (!load_char_obj(d, row[0])) {
 				free_char(d->character);
 				free_descriptor(d);
 				continue;
@@ -242,19 +231,17 @@ void do_debug(CHAR_DATA *ch, char *argument)
 			victim->desc = NULL;
 			free_descriptor(d);
 			char_to_room(victim, get_room_index(ROOM_VNUM_ALTAR));
-
 			db_commandf("do_debug:fullupdate",
-					"INSERT INTO pc_index VALUES('%s','%s','%s','%s',%ld,%d,%d,'%s','%s')",
-					db_esc(victim->name),
-					db_esc(victim->pcdata->title),
-					db_esc(victim->pcdata->deity),
-					db_esc(smash_bracket(victim->pcdata->deity)),
-					victim->pcdata->cgroup,
-					victim->level,
-					victim->pcdata->remort_count,
-					victim->clan ? victim->clan->name : "",
-					victim->clan && victim->pcdata->rank ? victim->pcdata->rank : "");
-
+			            "INSERT INTO pc_index VALUES('%s','%s','%s','%s',%ld,%d,%d,'%s','%s')",
+			            db_esc(victim->name),
+			            db_esc(victim->pcdata->title),
+			            db_esc(victim->pcdata->deity),
+			            db_esc(smash_bracket(victim->pcdata->deity)),
+			            victim->pcdata->cgroup,
+			            victim->level,
+			            victim->pcdata->remort_count,
+			            victim->clan ? victim->clan->name : "",
+			            victim->clan && victim->pcdata->rank ? victim->pcdata->rank : "");
 			extract_char(victim, TRUE);
 		}
 
@@ -263,8 +250,7 @@ void do_debug(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!strcmp(subfunc, "aversion"))
-	{
+	if (!strcmp(subfunc, "aversion")) {
 		AREA_DATA *area;
 
 		for (area = area_first; area != NULL; area = area->next)
@@ -273,39 +259,34 @@ void do_debug(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!strcmp(subfunc, "compart"))
-	{
+	if (!strcmp(subfunc, "compart")) {
 		OBJ_DATA *container, *obj;
 
-		for (obj = object_list; obj != NULL; obj = obj->next)
-		{
+		for (obj = object_list; obj != NULL; obj = obj->next) {
 			if ((container = obj->in_obj) == NULL)
 				continue;
 
-			if (obj == container)
-			{
+			if (obj == container) {
 				ptc(ch, "obj %d is in itself.\n\r", obj->pIndexData->vnum);
 				continue;
 			}
 
 			if (container->item_type != ITEM_CONTAINER)
 				ptc(ch, "%s (%d) is in non-container %s (%d).%s\n\r",
-					obj->short_descr, obj->pIndexData->vnum,
-					container->short_descr, container->pIndexData->vnum,
-					IS_OBJ_STAT(container, ITEM_COMPARTMENT) ? "  ({PCOMPARTMENT{x)" : "");
+				    obj->short_descr, obj->pIndexData->vnum,
+				    container->short_descr, container->pIndexData->vnum,
+				    IS_OBJ_STAT(container, ITEM_COMPARTMENT) ? "  ({PCOMPARTMENT{x)" : "");
 		}
 
 		return;
 	}
 
-	if (!strcmp(subfunc, "rcheck"))
-	{
+	if (!strcmp(subfunc, "rcheck")) {
 		ROOM_INDEX_DATA *room = NULL;
 		int x, vnum;
 		bool found;
 
-		for (vnum = 1; vnum < 32600; vnum++)
-		{
+		for (vnum = 1; vnum < 32600; vnum++) {
 			found = FALSE;
 
 			if ((room = get_room_index(vnum)) == NULL)
@@ -325,13 +306,11 @@ void do_debug(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!strcmp(subfunc, "rcheck2"))
-	{
+	if (!strcmp(subfunc, "rcheck2")) {
 		ROOM_INDEX_DATA *room = NULL;
 		int vnum;
 
-		for (vnum = 1; vnum < 32600; vnum++)
-		{
+		for (vnum = 1; vnum < 32600; vnum++) {
 			if ((room = get_room_index(vnum)) == NULL)
 				continue;
 
@@ -342,19 +321,15 @@ void do_debug(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!strcmp(subfunc, "qtz"))
-	{
+	if (!strcmp(subfunc, "qtz")) {
 		/* Quest Time Zero */
 		char arg[MIL];
 		CHAR_DATA *questor;
-
 		argument = one_argument(argument, arg);
 
-		if (!str_cmp(arg, "all"))
-		{
+		if (!str_cmp(arg, "all")) {
 			for (questor = char_list; questor; questor = questor->next)
-				if (!IS_NPC(questor) && !IS_IMMORTAL(questor))
-				{
+				if (!IS_NPC(questor) && !IS_IMMORTAL(questor)) {
 					questor->nextquest = 0;
 					questor->pcdata->nextsquest = 0;
 					stc("You may now quest again.\r\n", questor);
@@ -364,8 +339,7 @@ void do_debug(CHAR_DATA *ch, char *argument)
 			return;
 		}
 
-		if ((questor = get_player_world(ch, arg, VIS_PLR)) == NULL)
-		{
+		if ((questor = get_player_world(ch, arg, VIS_PLR)) == NULL) {
 			ptc(ch, "No player named '%s' found in game, sorry!\r\n", arg);
 			return;
 		}
@@ -376,19 +350,17 @@ void do_debug(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!strcmp(subfunc, "tick"))
-	{
+	if (!strcmp(subfunc, "tick")) {
 		int count, number = 1;
-		extern void	weather_update	args((void));
-		extern void	char_update	args((void));
-		extern void	obj_update	args((void));
-		extern void	room_update	args((void));
+		extern void     weather_update  args((void));
+		extern void     char_update     args((void));
+		extern void     obj_update      args((void));
+		extern void     room_update     args((void));
 
 		if (argument[0] != '\0' && is_number(argument))
 			number = URANGE(1, atoi(argument), 100);
 
-		for (count = 0; count < number; count++)
-		{
+		for (count = 0; count < number; count++) {
 			weather_update();
 			char_update();
 			obj_update();
@@ -399,6 +371,6 @@ void do_debug(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	stc( "Unknown DEBUG subfunction.\r\n", ch);
+	stc("Unknown DEBUG subfunction.\r\n", ch);
 } /* end do_debug() */
 

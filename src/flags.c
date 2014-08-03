@@ -34,7 +34,7 @@
 #include "tables.h"
 #include "recycle.h"
 
-int flag_lookup args( ( const char *name, const struct flag_type *flag_table) );
+int flag_lookup args((const char *name, const struct flag_type *flag_table));
 extern AREA_DATA *area_first;
 
 void do_flag(CHAR_DATA *ch, char *argument)
@@ -47,18 +47,15 @@ void do_flag(CHAR_DATA *ch, char *argument)
 	long *flag, old = 0, new = 0, marked = 0, pos, fieldptr, length;
 	char type;
 	const struct flag_type *flag_table;
-
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	argument = one_argument(argument, arg3);
-
 	type = argument[0];
 
 	if (type == '=' || type == '-' || type == '+')
 		argument = one_argument(argument, word);
 
-	if (arg1[0] == '\0')
-	{
+	if (arg1[0] == '\0') {
 		stc("Syntax:\n\r"
 		    "  flag char   <name> <field> {c(+,-,=){x <flags>\n\r"
 		    "  flag mob    <name> <field> {c(+,-,=){x <flags>\n\r"
@@ -71,18 +68,15 @@ void do_flag(CHAR_DATA *ch, char *argument)
 		    "\n\r"
 		    "  Use 'flaglist' to see possible fields and flags.\n\r"
 		    "  Use 'flagsearch' to find things with certain flags.\n\r", ch);
-
 		return;
 	}
 
-	if (arg2[0] == '\0')
-	{
+	if (arg2[0] == '\0') {
 		stc("What do you wish to set flags on?\n\r", ch);
 		return;
 	}
 
-	if (arg3[0] == '\0')
-	{
+	if (arg3[0] == '\0') {
 		stc("You need to specify a field to modify.\n\r", ch);
 		return;
 	}
@@ -91,24 +85,20 @@ void do_flag(CHAR_DATA *ch, char *argument)
 		if (!str_prefix1(arg3, flag_fields[fieldptr].name))
 			break;
 
-	if (flag_fields[fieldptr].name == NULL)
-	{
+	if (flag_fields[fieldptr].name == NULL) {
 		stc("That is not a valid flag field.\n\r", ch);
 		return;
 	}
 
-	if (argument[0] == '\0')
-	{
-		stc("Which flags do you wish to change?\n\r",ch);
+	if (argument[0] == '\0') {
+		stc("Which flags do you wish to change?\n\r", ch);
 		return;
 	}
 
-	if (!str_prefix1(arg1, "mobile") || !str_prefix1(arg1, "character") || !str_prefix1(arg1, "player"))
-	{
+	if (!str_prefix1(arg1, "mobile") || !str_prefix1(arg1, "character") || !str_prefix1(arg1, "player")) {
 		if (flag_fields[fieldptr].cand != CAND_CHAR
-		 && flag_fields[fieldptr].cand != CAND_MOB
-		 && flag_fields[fieldptr].cand != CAND_PLAYER)
-		{
+		    && flag_fields[fieldptr].cand != CAND_MOB
+		    && flag_fields[fieldptr].cand != CAND_PLAYER) {
 			stc("That is not a character field.\n\r", ch);
 			return;
 		}
@@ -120,157 +110,162 @@ void do_flag(CHAR_DATA *ch, char *argument)
 		else
 			victim = get_char_world(ch, arg2, VIS_CHAR);
 
-		if (victim == NULL)
-		{
+		if (victim == NULL) {
 			stc("You can't find them.\n\r", ch);
 			return;
 		}
 
-		if (IS_NPC(victim))
-		{
-			if (flag_fields[fieldptr].cand == CAND_PLAYER)
-			{
+		if (IS_NPC(victim)) {
+			if (flag_fields[fieldptr].cand == CAND_PLAYER) {
 				stc("That field may not be changed on mobiles.\n\r", ch);
 				return;
 			}
 
-			if (GET_RANK(ch) < flag_fields[fieldptr].mod_mob)
-			{
+			if (GET_RANK(ch) < flag_fields[fieldptr].mod_mob) {
 				stc("You are not high enough level to change that field on mobiles.\n\r", ch);
 				return;
 			}
 
-			switch (fieldptr)
-			{
-				case FIELD_ACT:		flag = &victim->act;		break;
-				case FIELD_OFF:		flag = &victim->off_flags;	break;
-				case FIELD_FORM:	flag = &victim->form;		break;
-				case FIELD_PART:	flag = &victim->parts;		break;
-				case FIELD_AFFECT:	flag = &victim->affected_by;	break;
-				case FIELD_DRAIN:	flag = &victim->drain_flags;	break;
-				case FIELD_IMMUNE:	flag = &victim->imm_flags;	break;
-				case FIELD_RESIST:	flag = &victim->res_flags;	break;
-				case FIELD_VULN:	flag = &victim->vuln_flags;	break;
-				case FIELD_COMM:	flag = &victim->comm;		break;
-				case FIELD_CENSOR:	flag = &victim->censor;		break;
-				case FIELD_REVOKE:	flag = &victim->revoke;		break;
-				default:
-					ptc(ch, "That is not an acceptable %s flag.\n\r", arg1);
-					return;
+			switch (fieldptr) {
+			case FIELD_ACT:         flag = &victim->act;            break;
+
+			case FIELD_OFF:         flag = &victim->off_flags;      break;
+
+			case FIELD_FORM:        flag = &victim->form;           break;
+
+			case FIELD_PART:        flag = &victim->parts;          break;
+
+			case FIELD_AFFECT:      flag = &victim->affected_by;    break;
+
+			case FIELD_DRAIN:       flag = &victim->drain_flags;    break;
+
+			case FIELD_IMMUNE:      flag = &victim->imm_flags;      break;
+
+			case FIELD_RESIST:      flag = &victim->res_flags;      break;
+
+			case FIELD_VULN:        flag = &victim->vuln_flags;     break;
+
+			case FIELD_COMM:        flag = &victim->comm;           break;
+
+			case FIELD_CENSOR:      flag = &victim->censor;         break;
+
+			case FIELD_REVOKE:      flag = &victim->revoke;         break;
+
+			default:
+				ptc(ch, "That is not an acceptable %s flag.\n\r", arg1);
+				return;
 			}
 		}
-		else
-		{
-			if (flag_fields[fieldptr].cand == CAND_MOB)
-			{
+		else {
+			if (flag_fields[fieldptr].cand == CAND_MOB) {
 				stc("That field may not be changed on players.\n\r", ch);
 				return;
 			}
 
-			if (GET_RANK(ch) < flag_fields[fieldptr].mod_plr)
-			{
+			if (GET_RANK(ch) < flag_fields[fieldptr].mod_plr) {
 				stc("You are not high enough level to change that field on players.\n\r", ch);
 				return;
 			}
 
-			switch (fieldptr)
-			{
-				case FIELD_PLAYER:	flag = &victim->act;		break;
-				case FIELD_PCDATA:	flag = &victim->pcdata->plr;	break;
-				case FIELD_WIZNET:	flag = &victim->wiznet;		break;
-				case FIELD_CGROUP:	flag = &victim->pcdata->cgroup;	break;
-				case FIELD_AFFECT:	flag = &victim->affected_by;	break;
-				case FIELD_DRAIN:	flag = &victim->drain_flags;	break;
-				case FIELD_IMMUNE:	flag = &victim->imm_flags;	break;
-				case FIELD_RESIST:	flag = &victim->res_flags;	break;
-				case FIELD_VULN:	flag = &victim->vuln_flags;	break;
-				case FIELD_COMM:	flag = &victim->comm;		break;
-				case FIELD_CENSOR:	flag = &victim->censor;		break;
-				case FIELD_REVOKE:	flag = &victim->revoke;		break;
-				default:
-					ptc(ch, "That is not an acceptable %s flag.\n\r", arg1);
-					return;
+			switch (fieldptr) {
+			case FIELD_PLAYER:      flag = &victim->act;            break;
+
+			case FIELD_PCDATA:      flag = &victim->pcdata->plr;    break;
+
+			case FIELD_WIZNET:      flag = &victim->wiznet;         break;
+
+			case FIELD_CGROUP:      flag = &victim->pcdata->cgroup; break;
+
+			case FIELD_AFFECT:      flag = &victim->affected_by;    break;
+
+			case FIELD_DRAIN:       flag = &victim->drain_flags;    break;
+
+			case FIELD_IMMUNE:      flag = &victim->imm_flags;      break;
+
+			case FIELD_RESIST:      flag = &victim->res_flags;      break;
+
+			case FIELD_VULN:        flag = &victim->vuln_flags;     break;
+
+			case FIELD_COMM:        flag = &victim->comm;           break;
+
+			case FIELD_CENSOR:      flag = &victim->censor;         break;
+
+			case FIELD_REVOKE:      flag = &victim->revoke;         break;
+
+			default:
+				ptc(ch, "That is not an acceptable %s flag.\n\r", arg1);
+				return;
 			}
 		}
 
 		sprintf(what, "%s", PERS(victim, ch, VIS_PLR));
 	}
-	else if (!str_prefix1(arg1, "obj"))
-	{
-		if (flag_fields[fieldptr].cand != CAND_OBJ)
-		{
+	else if (!str_prefix1(arg1, "obj")) {
+		if (flag_fields[fieldptr].cand != CAND_OBJ) {
 			stc("That is not an object field.\n\r", ch);
 			return;
 		}
 
-		if (GET_RANK(ch) < flag_fields[fieldptr].mod_mob)
-		{
+		if (GET_RANK(ch) < flag_fields[fieldptr].mod_mob) {
 			stc("You are not high enough level to change that field.\n\r", ch);
 			return;
 		}
 
-		if ((object = get_obj_world(ch, arg2)) == NULL)
-		{
+		if ((object = get_obj_world(ch, arg2)) == NULL) {
 			stc("You can't find it.\n\r", ch);
 			return;
 		}
 
 		sprintf(what, "%s", object->name);
 
-		switch (fieldptr)
-		{
-			case FIELD_EXTRA:	flag = &object->extra_flags;	break;
-			case FIELD_WEAR:	flag = &object->wear_flags;	break;
-			case FIELD_WEAPON:
-				if (object->item_type != ITEM_WEAPON)
-				{
-					stc("That is not a weapon.\n\r", ch);
-					return;
-				}
+		switch (fieldptr) {
+		case FIELD_EXTRA:       flag = &object->extra_flags;    break;
 
-				flag = (long *) &(object->value[4]);		break;
-			default:
-				stc("That's not an acceptable object flag.\n\r", ch);
+		case FIELD_WEAR:        flag = &object->wear_flags;     break;
+
+		case FIELD_WEAPON:
+			if (object->item_type != ITEM_WEAPON) {
+				stc("That is not a weapon.\n\r", ch);
 				return;
+			}
+
+			flag = (long *) & (object->value[4]);            break;
+
+		default:
+			stc("That's not an acceptable object flag.\n\r", ch);
+			return;
 		}
 	}
-	else if (!str_prefix1(arg1, "room"))
-	{
-		if (flag_fields[fieldptr].cand != CAND_ROOM)
-		{
+	else if (!str_prefix1(arg1, "room")) {
+		if (flag_fields[fieldptr].cand != CAND_ROOM) {
 			stc("That is not a room field.\n\r", ch);
 			return;
 		}
 
-		if (GET_RANK(ch) < flag_fields[fieldptr].mod_mob)
-		{
+		if (GET_RANK(ch) < flag_fields[fieldptr].mod_mob) {
 			stc("You are not high enough level to change that field.\n\r", ch);
 			return;
 		}
 
-		if (!is_number(arg2))
-		{
+		if (!is_number(arg2)) {
 			stc("Use the room's vnum.\n\r", ch);
 			return;
 		}
 
-		if ((room = get_room_index(atoi(arg2))) == NULL)
-		{
+		if ((room = get_room_index(atoi(arg2))) == NULL) {
 			ptc(ch, "Room %d does not exist.\n\r", atoi(arg1));
 			return;
 		}
 
 		sprintf(what, "%s", room->name);
 
-		if (fieldptr == FIELD_ROOM)	flag = &room->room_flags;
-		else
-		{
+		if (fieldptr == FIELD_ROOM)     flag = &room->room_flags;
+		else {
 			stc("That's not an acceptable room flag.\n\r", ch);
 			return;
 		}
 	}
-	else
-	{
+	else {
 		stc("Please specify : mob, char, player, obj or room.\n\r", ch);
 		return;
 	}
@@ -282,8 +277,7 @@ void do_flag(CHAR_DATA *ch, char *argument)
 		new = old;
 
 	/* mark the words */
-	for ( ; ; )
-	{
+	for (; ;) {
 		argument = one_argument(argument, word);
 
 		if (word[0] == '\0')
@@ -291,24 +285,20 @@ void do_flag(CHAR_DATA *ch, char *argument)
 
 		length = strlen(word);
 
-		if (length <= 2)		/* alpha flag? */
-		{
+		if (length <= 2) {              /* alpha flag? */
 			char letter;
 
-			if (length == 1)
-			{
+			if (length == 1) {
 				letter = UPPER(word[0]);
 				SET_BIT(marked, flag_convert(letter));
 				continue;
 			}
-			else
-			{
+			else {
 				letter = LOWER(word[0]);
 
 				if (letter == LOWER(word[1])
-				 && letter <= 'f'
-				 && letter >= 'a')
-				{
+				    && letter <= 'f'
+				    && letter >= 'a') {
 					SET_BIT(marked, flag_convert(letter));
 					continue;
 				}
@@ -317,8 +307,7 @@ void do_flag(CHAR_DATA *ch, char *argument)
 
 		pos = flag_lookup(word, flag_table);
 
-		if (pos == -1)
-		{
+		if (pos == -1) {
 			stc("That flag doesn't exist!\n\r", ch);
 			return;
 		}
@@ -326,46 +315,40 @@ void do_flag(CHAR_DATA *ch, char *argument)
 			SET_BIT(marked, flag_table[pos].bit);
 	}
 
-	for (pos = 0; flag_table[pos].name != NULL; pos++)
-	{
-		if (!flag_table[pos].settable && IS_SET(old, flag_table[pos].bit))
-		{
+	for (pos = 0; flag_table[pos].name != NULL; pos++) {
+		if (!flag_table[pos].settable && IS_SET(old, flag_table[pos].bit)) {
 			SET_BIT(new, flag_table[pos].bit);
 			continue;
 		}
 
-		if (IS_SET(marked, flag_table[pos].bit))
-		{
-			switch(type)
-			{
-				case '=':
-				case '+':
-					SET_BIT(new, flag_table[pos].bit);
-					ptc(ch, "%s %s bit set on %s.\n\r",
-						flag_table[pos].name, arg3, what);
-					break;
+		if (IS_SET(marked, flag_table[pos].bit)) {
+			switch (type) {
+			case '=':
+			case '+':
+				SET_BIT(new, flag_table[pos].bit);
+				ptc(ch, "%s %s bit set on %s.\n\r",
+				    flag_table[pos].name, arg3, what);
+				break;
 
-				case '-':
+			case '-':
+				REMOVE_BIT(new, flag_table[pos].bit);
+				ptc(ch, "%s %s bit removed from %s.\n\r",
+				    flag_table[pos].name, arg3, what);
+				break;
+
+			default:
+				if (IS_SET(new, flag_table[pos].bit)) {
 					REMOVE_BIT(new, flag_table[pos].bit);
 					ptc(ch, "%s %s bit removed from %s.\n\r",
-						flag_table[pos].name, arg3, what);
-					break;
+					    flag_table[pos].name, arg3, what);
+				}
+				else {
+					SET_BIT(new, flag_table[pos].bit);
+					ptc(ch, "%s %s bit set on %s.\n\r",
+					    flag_table[pos].name, arg3, what);
+				}
 
-				default:
-					if (IS_SET(new, flag_table[pos].bit))
-					{
-						REMOVE_BIT(new, flag_table[pos].bit);
-						ptc(ch, "%s %s bit removed from %s.\n\r",
-							flag_table[pos].name, arg3, what);
-					}
-					else
-					{
-						SET_BIT(new, flag_table[pos].bit);
-						ptc(ch, "%s %s bit set on %s.\n\r",
-							flag_table[pos].name, arg3, what);
-					}
-
-					break;
+				break;
 			}
 		}
 	}
@@ -378,21 +361,18 @@ void do_typelist(CHAR_DATA *ch, char *argument)
 {
 	int x;
 
-	if (argument[0] == '\0')
-	{
-		stc("Valid lists: liquid, attack\n\r",ch);
+	if (argument[0] == '\0') {
+		stc("Valid lists: liquid, attack\n\r", ch);
 		return;
 	}
 
-	if (!str_prefix1(argument, "liquid"))
-	{
+	if (!str_prefix1(argument, "liquid")) {
 		for (x = 0; liq_table[x].liq_name != NULL; x++)
-			ptc(ch, "[%2d][%20s][%20s]\n\r",x,liq_table[x].liq_name, liq_table[x].liq_color);
+			ptc(ch, "[%2d][%20s][%20s]\n\r", x, liq_table[x].liq_name, liq_table[x].liq_color);
 	}
-	else if (!str_prefix1(argument,"attack"))
-	{
+	else if (!str_prefix1(argument, "attack")) {
 		for (x = 0; attack_table[x].name != NULL; x++)
-			ptc(ch, "[%2d][%20s][%20s]\n\r",x,attack_table[x].name, attack_table[x].noun);
+			ptc(ch, "[%2d][%20s][%20s]\n\r", x, attack_table[x].name, attack_table[x].noun);
 	}
 	else
 		stc("Valid lists: liquid, attack\n\r", ch);
@@ -416,33 +396,30 @@ void do_flaglist(CHAR_DATA *ch, char *argument)
 	int x;
 	const struct flag_type *flag_table;
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		stc("Flag fields are:\n\r", ch);
 
 		for (x = 0; flag_fields[x].name != NULL; x++)
 			if (GET_RANK(ch) >= flag_fields[x].see_mob
-			 || GET_RANK(ch) >= flag_fields[x].see_plr)
+			    || GET_RANK(ch) >= flag_fields[x].see_plr)
 				ptc(ch, "%-30s%s\n\r", flag_fields[x].name,
-					field_cand[flag_fields[x].cand]);
+				    field_cand[flag_fields[x].cand]);
 
 		return;
 	}
 
 	for (x = 0; flag_fields[x].name != NULL; x++)
 		if (GET_RANK(ch) >= flag_fields[x].see_mob
-		 || GET_RANK(ch) >= flag_fields[x].see_plr)
+		    || GET_RANK(ch) >= flag_fields[x].see_plr)
 			if (!str_prefix1(argument, flag_fields[x].name))
 				break;
 
-	if (flag_fields[x].name == NULL)
-	{
+	if (flag_fields[x].name == NULL) {
 		stc("There is no such field.\n\r", ch);
 		return;
 	}
 
 	flag_table = flag_fields[x].flag_table;
-
 	ptc(ch, "Flags in the %s field:\n\r", flag_fields[x].name);
 
 	for (x = 0; flag_table[x].name != NULL; x++)
@@ -460,35 +437,44 @@ int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 	PC_DATA *vpc;
 	int count = 0;
 	long flag;
-
 	output = new_buf();
 	add_buf(output, "{VCount {YRoom{x\n\r");
 
-	for (vpc = pc_list; vpc != NULL; vpc = vpc->next)
-	{
+	for (vpc = pc_list; vpc != NULL; vpc = vpc->next) {
 		if ((victim = vpc->ch) == NULL
-		 || IS_NPC(victim)
-		 || victim->in_room == NULL
-		 || !can_see(ch, victim)
-		 || !can_see_room(ch, victim->in_room))
+		    || IS_NPC(victim)
+		    || victim->in_room == NULL
+		    || !can_see(ch, victim)
+		    || !can_see_room(ch, victim->in_room))
 			continue;
 
 		/* take care of flag comparison first */
-		switch (fieldptr)
-		{
-			case FIELD_PLAYER:	flag = victim->act;		break;
-			case FIELD_PCDATA:	flag = victim->pcdata->plr;	break;
-			case FIELD_WIZNET:	flag = victim->wiznet;		break;
-			case FIELD_CGROUP:	flag = victim->pcdata->cgroup;	break;
-			case FIELD_AFFECT:	flag = victim->affected_by;	break;
-			case FIELD_DRAIN:	flag = victim->drain_flags;	break;
-			case FIELD_IMMUNE:	flag = victim->imm_flags;	break;
-			case FIELD_RESIST:	flag = victim->res_flags;	break;
-			case FIELD_VULN:	flag = victim->vuln_flags;	break;
-			case FIELD_COMM:	flag = victim->comm;		break;
-			case FIELD_CENSOR:	flag = victim->censor;		break;
-			case FIELD_REVOKE:	flag = victim->revoke;		break;
-			default:						return 0;
+		switch (fieldptr) {
+		case FIELD_PLAYER:      flag = victim->act;             break;
+
+		case FIELD_PCDATA:      flag = victim->pcdata->plr;     break;
+
+		case FIELD_WIZNET:      flag = victim->wiznet;          break;
+
+		case FIELD_CGROUP:      flag = victim->pcdata->cgroup;  break;
+
+		case FIELD_AFFECT:      flag = victim->affected_by;     break;
+
+		case FIELD_DRAIN:       flag = victim->drain_flags;     break;
+
+		case FIELD_IMMUNE:      flag = victim->imm_flags;       break;
+
+		case FIELD_RESIST:      flag = victim->res_flags;       break;
+
+		case FIELD_VULN:        flag = victim->vuln_flags;      break;
+
+		case FIELD_COMM:        flag = victim->comm;            break;
+
+		case FIELD_CENSOR:      flag = victim->censor;          break;
+
+		case FIELD_REVOKE:      flag = victim->revoke;          break;
+
+		default:                                                return 0;
 		}
 
 		if ((marked & flag) != marked)
@@ -498,10 +484,9 @@ int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 			continue;
 
 		sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{x %s{x.\n\r",
-			count,
-			victim->in_room->vnum,
-			victim->short_descr);
-
+		        count,
+		        victim->in_room->vnum,
+		        victim->short_descr);
 		add_buf(output, buf);
 	}
 
@@ -520,34 +505,43 @@ int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 	CHAR_DATA *victim;
 	int count = 0;
 	long flag;
-
 	output = new_buf();
 	add_buf(output, "{VCount  {YRoom   {GMob{x\n\r");
 
-	for (victim = char_list; victim != NULL; victim = victim->next)
-	{
+	for (victim = char_list; victim != NULL; victim = victim->next) {
 		if (!IS_NPC(victim)
-		 || victim->in_room == NULL
-		 || !can_see(ch, victim)
-		 || !can_see_room(ch, victim->in_room))
+		    || victim->in_room == NULL
+		    || !can_see(ch, victim)
+		    || !can_see_room(ch, victim->in_room))
 			continue;
 
 		/* take care of flag comparison first */
-		switch (fieldptr)
-		{
-			case FIELD_ACT:		flag = victim->act;		break;
-			case FIELD_OFF:		flag = victim->off_flags;	break;
-			case FIELD_FORM:	flag = victim->form;		break;
-			case FIELD_PART:	flag = victim->parts;		break;
-			case FIELD_AFFECT:	flag = victim->affected_by;	break;
-			case FIELD_DRAIN:	flag = victim->drain_flags;	break;
-			case FIELD_IMMUNE:	flag = victim->imm_flags;	break;
-			case FIELD_RESIST:	flag = victim->res_flags;	break;
-			case FIELD_VULN:	flag = victim->vuln_flags;	break;
-			case FIELD_COMM:	flag = victim->comm;		break;
-			case FIELD_CENSOR:	flag = victim->censor;		break;
-			case FIELD_REVOKE:	flag = victim->revoke;		break;
-			default:						return 0;
+		switch (fieldptr) {
+		case FIELD_ACT:         flag = victim->act;             break;
+
+		case FIELD_OFF:         flag = victim->off_flags;       break;
+
+		case FIELD_FORM:        flag = victim->form;            break;
+
+		case FIELD_PART:        flag = victim->parts;           break;
+
+		case FIELD_AFFECT:      flag = victim->affected_by;     break;
+
+		case FIELD_DRAIN:       flag = victim->drain_flags;     break;
+
+		case FIELD_IMMUNE:      flag = victim->imm_flags;       break;
+
+		case FIELD_RESIST:      flag = victim->res_flags;       break;
+
+		case FIELD_VULN:        flag = victim->vuln_flags;      break;
+
+		case FIELD_COMM:        flag = victim->comm;            break;
+
+		case FIELD_CENSOR:      flag = victim->censor;          break;
+
+		case FIELD_REVOKE:      flag = victim->revoke;          break;
+
+		default:                                                return 0;
 		}
 
 		if ((marked & flag) != marked)
@@ -557,11 +551,10 @@ int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 			continue;
 
 		sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x.\n\r",
-			count,
-			victim->in_room->vnum,
-			victim->pIndexData->vnum,
-			victim->short_descr);
-
+		        count,
+		        victim->in_room->vnum,
+		        victim->pIndexData->vnum,
+		        victim->short_descr);
 		add_buf(output, buf);
 	}
 
@@ -579,33 +572,32 @@ void fsearch_char(CHAR_DATA *ch, int fieldptr, long marked, bool mobile, bool pl
 	BUFFER *output;
 	int mobilecount = 0, playercount = 0;
 
-	if (mobile)	mobilecount = fsearch_mobile(ch, fieldptr, marked);
-	if (player)	playercount = fsearch_player(ch, fieldptr, marked);
+	if (mobile)     mobilecount = fsearch_mobile(ch, fieldptr, marked);
+
+	if (player)     playercount = fsearch_player(ch, fieldptr, marked);
 
 	output = new_buf();
 
-	if (mobile)
-	{
+	if (mobile) {
 		if (mobilecount == 0)
 			sprintf(buf, "You found no mobiles matching your search criteria.\n\r");
 		else
 			sprintf(buf, "You found %d matching mobile%s%s.\n\r",
-				mobilecount,
-				mobilecount > 1 ? "s" : "",
-				mobilecount > 500 ? ", of which 500 are shown" : "");
+			        mobilecount,
+			        mobilecount > 1 ? "s" : "",
+			        mobilecount > 500 ? ", of which 500 are shown" : "");
 
 		add_buf(output, buf);
 	}
 
-	if (player)
-	{
+	if (player) {
 		if (playercount == 0)
 			sprintf(buf, "You found no players matching your search criteria.\n\r");
 		else
 			sprintf(buf, "You found %d matching player%s%s.\n\r",
-				playercount,
-				playercount > 1 ? "s" : "",
-				playercount > 500 ? ", of which 500 are shown" : "");
+			        playercount,
+			        playercount > 1 ? "s" : "",
+			        playercount > 500 ? ", of which 500 are shown" : "");
 
 		add_buf(output, buf);
 	}
@@ -623,47 +615,42 @@ void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
 	ROOM_INDEX_DATA *room;
 	int count = 0, vnum;
 	long flag;
-
 	output = new_buf();
 	add_buf(output, "{VCount {GVnum{x\n\r");
 
-	for (area = area_first; area; area = area->next)
-	{
-		for (vnum = area->min_vnum; vnum <= area->max_vnum; vnum++)
-		{
+	for (area = area_first; area; area = area->next) {
+		for (vnum = area->min_vnum; vnum <= area->max_vnum; vnum++) {
 			if ((room = get_room_index(vnum)) == NULL
-			 || !can_see_room(ch, room))
+			    || !can_see_room(ch, room))
 				continue;
 
-			switch (fieldptr)
-			{
-				case FIELD_ROOM:	flag = room->room_flags;	break;
-				default:						return;
+			switch (fieldptr) {
+			case FIELD_ROOM:        flag = room->room_flags;        break;
+
+			default:                                                return;
 			}
 
-		if ((marked & flag) != marked)
+			if ((marked & flag) != marked)
 				continue;
 
 			if (++count > 500)
 				continue;
 
 			sprintf(buf, "{M[{V%3d{M]{H[{G%5d{H]{x %s{x.\n\r",
-				count,
-				vnum,
-				room->name);
-
+			        count,
+			        vnum,
+			        room->name);
 			add_buf(output, buf);
 		}
 	}
 
 	if (count == 0)
 		stc("You found no rooms matching your search criteria.\n\r", ch);
-	else
-	{
+	else {
 		sprintf(buf, "You found %d matching room%s%s.\n\r",
-			count,
-			count > 1 ? "s" : "",
-			count > 500 ? ", of which 500 are shown" : "");
+		        count,
+		        count > 1 ? "s" : "",
+		        count > 500 ? ", of which 500 are shown" : "");
 		add_buf(output, buf);
 		page_to_char(buf_string(output), ch);
 	}
@@ -679,20 +666,20 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 	OBJ_DATA *obj, *in_obj;
 	int count = 1;
 	long flag;
-
 	output = new_buf();
 	add_buf(output, "{VCount {YRoom  {GObject{x\n\r");
 
 	/* cut off list at 400 objects, to prevent spamming out your link */
-	for (obj = object_list; obj != NULL; obj = obj->next)
-	{
+	for (obj = object_list; obj != NULL; obj = obj->next) {
 		/* take care of flag comparison first */
-		switch (fieldptr)
-		{
-			case FIELD_EXTRA:	flag = obj->extra_flags;	break;
-			case FIELD_WEAR:	flag = obj->wear_flags;		break;
-			case FIELD_WEAPON:	flag = obj->value[0];		break;
-			default:						return;
+		switch (fieldptr) {
+		case FIELD_EXTRA:       flag = obj->extra_flags;        break;
+
+		case FIELD_WEAR:        flag = obj->wear_flags;         break;
+
+		case FIELD_WEAPON:      flag = obj->value[0];           break;
+
+		default:                                                return;
 		}
 
 		if ((marked & flag) != marked)
@@ -701,77 +688,72 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 		for (in_obj = obj; in_obj->in_obj != NULL; in_obj = in_obj->in_obj)
 			;
 
-		if (in_obj->carried_by)
-		{
+		if (in_obj->carried_by) {
 			if (in_obj->carried_by->in_room == NULL
-			 || !can_see_room(ch, in_obj->carried_by->in_room)
-			 || !can_see(ch, in_obj->carried_by))
+			    || !can_see_room(ch, in_obj->carried_by->in_room)
+			    || !can_see(ch, in_obj->carried_by))
 				continue;
 
 			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is carried by %s.\n\r",
-				count,
-				in_obj->carried_by->in_room->vnum,
-				obj->pIndexData->vnum,
-				obj->short_descr,
-				PERS(in_obj->carried_by, ch, VIS_PLR));
+			        count,
+			        in_obj->carried_by->in_room->vnum,
+			        obj->pIndexData->vnum,
+			        obj->short_descr,
+			        PERS(in_obj->carried_by, ch, VIS_PLR));
 		}
-		else if (in_obj->in_locker)
-		{
+		else if (in_obj->in_locker) {
 			if (in_obj->in_locker->in_room == NULL
-			 || !can_see_room(ch, in_obj->in_locker->in_room)
-			 || !can_see(ch, in_obj->in_locker))
+			    || !can_see_room(ch, in_obj->in_locker->in_room)
+			    || !can_see(ch, in_obj->in_locker))
 				continue;
 
 			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's locker.\n\r",
-				count,
-				in_obj->in_locker->in_room->vnum,
-				obj->pIndexData->vnum,
-				obj->short_descr,
-				PERS(in_obj->in_locker, ch, VIS_PLR));
+			        count,
+			        in_obj->in_locker->in_room->vnum,
+			        obj->pIndexData->vnum,
+			        obj->short_descr,
+			        PERS(in_obj->in_locker, ch, VIS_PLR));
 		}
-		else if (in_obj->in_strongbox)
-		{
+		else if (in_obj->in_strongbox) {
 			if (in_obj->in_strongbox->in_room == NULL
-			 || !can_see_room(ch, in_obj->in_strongbox->in_room)
-			 || !can_see(ch, in_obj->in_strongbox))
+			    || !can_see_room(ch, in_obj->in_strongbox->in_room)
+			    || !can_see(ch, in_obj->in_strongbox))
 				continue;
 
 			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x is in %s's strongbox.\n\r",
-				count,
-				in_obj->in_strongbox->in_room->vnum,
-				obj->pIndexData->vnum,
-				obj->short_descr,
-				PERS(in_obj->in_strongbox, ch, VIS_PLR));
+			        count,
+			        in_obj->in_strongbox->in_room->vnum,
+			        obj->pIndexData->vnum,
+			        obj->short_descr,
+			        PERS(in_obj->in_strongbox, ch, VIS_PLR));
 		}
-		else if (in_obj->in_room)
-		{
+		else if (in_obj->in_room) {
 			if (!can_see_room(ch, in_obj->in_room))
 				continue;
 
 			sprintf(buf, "{M[{V%3d{M]{b[{Y%5d{b]{H[{G%5d{H]{x %s{x in %s.\n\r",
-				count,
-				in_obj->in_room->vnum,
-				obj->pIndexData->vnum,
-				obj->short_descr,
-				in_obj->in_room->name);
+			        count,
+			        in_obj->in_room->vnum,
+			        obj->pIndexData->vnum,
+			        obj->short_descr,
+			        in_obj->in_room->name);
 		}
-		else	/* what's left? */
+		else    /* what's left? */
 			continue;
 
-		if (++count <= 500)	/* count stays one ahead of actual number found */
+		if (++count <= 500)     /* count stays one ahead of actual number found */
 			add_buf(output, buf);
 	}
 
 	if (--count == 0)
 		stc("You found no items matching your search criteria.\n\r", ch);
-	else
-	{
+	else {
 		sprintf(buf, "You found %d matching item%s%s.\n\r",
-			count,
-			count > 1 ? "s" : "",
-			count > 500 ? ", of which 500 are shown" : "");
+		        count,
+		        count > 1 ? "s" : "",
+		        count > 500 ? ", of which 500 are shown" : "");
 		add_buf(output, buf);
-		page_to_char(buf_string(output),ch);
+		page_to_char(buf_string(output), ch);
 	}
 
 	free_buf(output);
@@ -785,12 +767,10 @@ void do_flagsearch(CHAR_DATA *ch, char *argument)
 	long marked = 0, pos;
 	const struct flag_type *flag_table;
 	bool player = TRUE, mobile = TRUE, toolowmobile = FALSE, toolowplayer = FALSE;
-
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0')
-	{
+	if (arg1[0] == '\0') {
 		stc("Syntax:\n\r"
 		    "  flagsearch char   <field> <flags>\n\r"
 		    "  flagsearch mob    <field> <flags>\n\r"
@@ -806,8 +786,7 @@ void do_flagsearch(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (arg2[0] == '\0')
-	{
+	if (arg2[0] == '\0') {
 		stc("You must specify a field of flags to search for.\n\r", ch);
 		return;
 	}
@@ -816,161 +795,139 @@ void do_flagsearch(CHAR_DATA *ch, char *argument)
 		if (!str_prefix1(arg2, flag_fields[fieldptr].name))
 			break;
 
-	if (flag_fields[fieldptr].name == NULL)
-	{
+	if (flag_fields[fieldptr].name == NULL) {
 		stc("That is not a valid flag field.\n\r", ch);
 		return;
 	}
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		stc("You must specify at least one flag to search for.\n\r", ch);
 		return;
 	}
 
 	if (!str_prefix1(arg1, "mobile")
-	 || !str_prefix1(arg1, "player")
-	 || !str_prefix1(arg1, "character"))
-	{
+	    || !str_prefix1(arg1, "player")
+	    || !str_prefix1(arg1, "character")) {
 		if (flag_fields[fieldptr].cand != CAND_CHAR
-		 && flag_fields[fieldptr].cand != CAND_MOB
-		 && flag_fields[fieldptr].cand != CAND_PLAYER)
-		{
+		    && flag_fields[fieldptr].cand != CAND_MOB
+		    && flag_fields[fieldptr].cand != CAND_PLAYER) {
 			stc("That is not a character field.\n\r", ch);
 			return;
 		}
 
-		if (!str_prefix1(arg1, "mobile"))			player = FALSE;
-		if (!str_prefix1(arg1, "player"))			mobile = FALSE;
-		if (GET_RANK(ch) < flag_fields[fieldptr].see_mob)	toolowmobile = TRUE;
-		if (GET_RANK(ch) < flag_fields[fieldptr].see_plr)	toolowplayer = TRUE;
+		if (!str_prefix1(arg1, "mobile"))                       player = FALSE;
 
-		if (toolowmobile && toolowplayer)
-		{
+		if (!str_prefix1(arg1, "player"))                       mobile = FALSE;
+
+		if (GET_RANK(ch) < flag_fields[fieldptr].see_mob)       toolowmobile = TRUE;
+
+		if (GET_RANK(ch) < flag_fields[fieldptr].see_plr)       toolowplayer = TRUE;
+
+		if (toolowmobile && toolowplayer) {
 			stc("You are not high enough level to search for that field.\n\r", ch);
 			return;
 		}
 
-		if (!player)		/* mob only */
-		{
-			if (flag_fields[fieldptr].cand == CAND_PLAYER)
-			{
+		if (!player) {          /* mob only */
+			if (flag_fields[fieldptr].cand == CAND_PLAYER) {
 				stc("Mobiles do not have that field.\n\r", ch);
 				return;
 			}
 
-			if (toolowmobile)
-			{
+			if (toolowmobile) {
 				stc("You are not high enough level to search for that field on mobiles.\n\r", ch);
 				return;
 			}
 		}
-		else if (!mobile)	/* player only */
-		{
-			if (flag_fields[fieldptr].cand == CAND_MOB)
-			{
+		else if (!mobile) {     /* player only */
+			if (flag_fields[fieldptr].cand == CAND_MOB) {
 				stc("Players do not have that field.\n\r", ch);
 				return;
 			}
 
-			if (toolowplayer)
-			{
+			if (toolowplayer) {
 				stc("You are not high enough level to search for that field on players.\n\r", ch);
 				return;
 			}
 		}
-		else			/* all chars */
-		{
+		else {                  /* all chars */
 			if ((flag_fields[fieldptr].cand == CAND_MOB    && toolowmobile)
-			 || (flag_fields[fieldptr].cand == CAND_PLAYER && toolowplayer))
-			{
+			    || (flag_fields[fieldptr].cand == CAND_PLAYER && toolowplayer)) {
 				stc("You are not high enough level to search for that field.\n\r", ch);
 				return;
 			}
 		}
 
-		switch (fieldptr)
-		{
-			case FIELD_PLAYER:
-			case FIELD_PCDATA:
-			case FIELD_CGROUP:
-			case FIELD_WIZNET:	mobile = FALSE;		break;
+		switch (fieldptr) {
+		case FIELD_PLAYER:
+		case FIELD_PCDATA:
+		case FIELD_CGROUP:
+		case FIELD_WIZNET:      mobile = FALSE;         break;
 
-			case FIELD_ACT:
-			case FIELD_OFF:
-			case FIELD_FORM:
-			case FIELD_PART:	player = FALSE;		break;
+		case FIELD_ACT:
+		case FIELD_OFF:
+		case FIELD_FORM:
+		case FIELD_PART:        player = FALSE;         break;
 
-			case FIELD_REVOKE:
-			case FIELD_CENSOR:
-			case FIELD_AFFECT:
-			case FIELD_DRAIN:
-			case FIELD_IMMUNE:
-			case FIELD_RESIST:
-			case FIELD_VULN:
-			case FIELD_COMM:				break;
+		case FIELD_REVOKE:
+		case FIELD_CENSOR:
+		case FIELD_AFFECT:
+		case FIELD_DRAIN:
+		case FIELD_IMMUNE:
+		case FIELD_RESIST:
+		case FIELD_VULN:
+		case FIELD_COMM:                                break;
 
-			default:	/* just in case */
-				stc("That is not a character field.\n\r", ch);
-				return;
+		default:        /* just in case */
+			stc("That is not a character field.\n\r", ch);
+			return;
 		}
 	}
-	else if (!str_prefix1(arg1, "obj"))
-	{
-		if (flag_fields[fieldptr].cand == CAND_OBJ)
-		{
-			if (GET_RANK(ch) < flag_fields[fieldptr].see_mob)
-			{
+	else if (!str_prefix1(arg1, "obj")) {
+		if (flag_fields[fieldptr].cand == CAND_OBJ) {
+			if (GET_RANK(ch) < flag_fields[fieldptr].see_mob) {
 				stc("You are not high enough level to search for that field.\n\r", ch);
 				return;
 			}
 		}
-		else
-		{
+		else {
 			stc("That is not an object field.\n\r", ch);
 			return;
 		}
 
-		switch (fieldptr)
-		{
-			case FIELD_EXTRA:
-			case FIELD_WEAR:
-			case FIELD_WEAPON:
-				break;
+		switch (fieldptr) {
+		case FIELD_EXTRA:
+		case FIELD_WEAR:
+		case FIELD_WEAPON:
+			break;
 
-			default:
-				stc("That's not an acceptable object flag.\n\r", ch);
-				return;
+		default:
+			stc("That's not an acceptable object flag.\n\r", ch);
+			return;
 		}
 	}
-	else if (!str_prefix1(arg1, "room"))
-	{
-		if (flag_fields[fieldptr].cand == CAND_ROOM)
-		{
-			if (GET_RANK(ch) < flag_fields[fieldptr].see_mob)
-			{
+	else if (!str_prefix1(arg1, "room")) {
+		if (flag_fields[fieldptr].cand == CAND_ROOM) {
+			if (GET_RANK(ch) < flag_fields[fieldptr].see_mob) {
 				stc("You are not high enough level to search for that field.\n\r", ch);
 				return;
 			}
 		}
-		else
-		{
+		else {
 			stc("That is not a room field.\n\r", ch);
 			return;
 		}
 
-		switch (fieldptr)
-		{
-			case FIELD_ROOM:
-				break;
+		switch (fieldptr) {
+		case FIELD_ROOM:
+			break;
 
-			default:
-				stc("That's not an acceptable room flag.\n\r", ch);
-				return;
+		default:
+			stc("That's not an acceptable room flag.\n\r", ch);
+			return;
 		}
 	}
-	else
-	{
+	else {
 		stc("Please specify : mob, char, player, obj or room.\n\r", ch);
 		return;
 	}
@@ -978,8 +935,7 @@ void do_flagsearch(CHAR_DATA *ch, char *argument)
 	flag_table = flag_fields[fieldptr].flag_table;
 
 	/* turn the argument into flags */
-	for ( ; ; )
-	{
+	for (; ;) {
 		argument = one_argument(argument, word);
 
 		if (word[0] == '\0')
@@ -987,24 +943,20 @@ void do_flagsearch(CHAR_DATA *ch, char *argument)
 
 		length = strlen(word);
 
-		if (length <= 2)		/* alpha flag? */
-		{
+		if (length <= 2) {              /* alpha flag? */
 			char letter;
 
-			if (length == 1)
-			{
+			if (length == 1) {
 				letter = UPPER(word[0]);
 				SET_BIT(marked, flag_convert(letter));
 				continue;
 			}
-			else
-			{
+			else {
 				letter = LOWER(word[0]);
 
 				if (letter == LOWER(word[1])
-				 && letter <= 'f'
-				 && letter >= 'a')
-				{
+				    && letter <= 'f'
+				    && letter >= 'a') {
 					SET_BIT(marked, flag_convert(letter));
 					continue;
 				}
@@ -1013,8 +965,7 @@ void do_flagsearch(CHAR_DATA *ch, char *argument)
 
 		pos = flag_lookup(word, flag_table);
 
-		if (pos == -1)
-		{
+		if (pos == -1) {
 			ptc(ch, "That is not an acceptable %s flag.\n\r", flag_fields[fieldptr].name);
 			return;
 		}
@@ -1023,14 +974,16 @@ void do_flagsearch(CHAR_DATA *ch, char *argument)
 	}
 
 	/* search the mud */
-	switch (flag_fields[fieldptr].cand)
-	{
-		case CAND_CHAR:
-		case CAND_MOB:
-		case CAND_PLAYER:	fsearch_char(ch, fieldptr, marked, mobile, player);	break;
-		case CAND_OBJ:		fsearch_obj(ch, fieldptr, marked);			break;
-		case CAND_ROOM:		fsearch_room(ch, fieldptr, marked);			break;
-		default:									break;
+	switch (flag_fields[fieldptr].cand) {
+	case CAND_CHAR:
+	case CAND_MOB:
+	case CAND_PLAYER:       fsearch_char(ch, fieldptr, marked, mobile, player);     break;
+
+	case CAND_OBJ:          fsearch_obj(ch, fieldptr, marked);                      break;
+
+	case CAND_ROOM:         fsearch_room(ch, fieldptr, marked);                     break;
+
+	default:                                                                        break;
 	}
 }
 

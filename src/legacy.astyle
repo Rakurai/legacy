@@ -1,0 +1,74 @@
+# basic style for brackets
+style=kr
+
+
+# *** indenting ***
+
+# use tabs for indents
+indent=tab=8       # conditional indent with spaces
+#indent=force-tab  # conditional indent with tabs
+
+# indent case tags within switches
+#indent-switches
+
+# indent case blocks within case tags
+indent-cases
+
+# indent labels, only a few spots affected (goto)
+indent-labels
+
+# indent multiline definitions (test, might be buggy with complex ones)
+indent-preproc-define
+
+# align split conditionals on the opening parentheses
+min-conditional-indent=0
+
+
+# *** padding ***
+
+# put blank lines around conditional blocks
+break-blocks
+
+# remove extra spaces in parentheses like if ( isFroo( a+2 ) ) becomes if(isFroo(a+2))
+unpad-paren
+# after this, customize with following options:
+
+# put spaces around operators, as in (b-c)*a becomes (b - c) * a
+pad-oper
+
+# put space after if, for, while, etc
+pad-header
+
+# get rid of extra lines (except those added by break-blocks)
+delete-empty-lines
+
+# put the * of a pointer declaration on the right
+align-pointer=name
+align-reference=name
+
+
+# *** formatting ***
+
+# don't cuddle elses
+break-closing-brackets
+
+# get rid of brackets for one liners
+remove-brackets
+
+# if someone put a one line block, leave it
+keep-one-line-blocks
+
+# same with one line conditionals
+keep-one-line-statements
+
+# convert non-leading (as in tables) tabs to spaces, using 8 (set above)
+convert-tabs
+
+# break long lines
+max-code-length=120
+
+# put logical on tail of long conditional
+break-after-logical
+
+
+

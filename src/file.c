@@ -24,8 +24,7 @@ char fread_letter(FILE *fp)
 {
 	char c;
 
-	do
-	{
+	do {
 		c = getc(fp);
 	}
 	while (isspace(c));
@@ -35,35 +34,31 @@ char fread_letter(FILE *fp)
 
 
 /* Read a number from a file. */
-int fread_number( FILE *fp )
+int fread_number(FILE *fp)
 {
 	int number = 0;
 	bool sign = FALSE;
 	char c;
 
-	do
-	{
+	do {
 		c = getc(fp);
 	}
 	while (isspace(c));
 
 	if (c == '+')
 		c = getc(fp);
-	else if (c == '-')
-	{
+	else if (c == '-') {
 		sign = TRUE;
 		c = getc(fp);
 	}
 
-	if (!isdigit(c))
-	{
+	if (!isdigit(c)) {
 		bug("Fread_number: bad format.", 0);
 		number = 0;
 		return number;
 	}
 
-	while (isdigit(c))
-	{
+	while (isdigit(c)) {
 		number = number * 10 + c - '0';
 		c = getc(fp);
 	}
@@ -86,31 +81,26 @@ long fread_flag(FILE *fp)
 	char c;
 	bool sign = FALSE;
 
-	do
-	{
+	do {
 		c = getc(fp);
 	}
 	while (isspace(c));
 
-	if (c == '-')
-	{
+	if (c == '-') {
 		sign = TRUE;
 		c = getc(fp);
 	}
 
 	number = 0;
 
-	if (!isdigit(c))
-	{
-		while (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'))
-		{
+	if (!isdigit(c)) {
+		while (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z')) {
 			number += flag_convert(c);
 			c = getc(fp);
 		}
 	}
 
-	while (isdigit(c))
-	{
+	while (isdigit(c)) {
 		number = number * 10 + c - '0';
 		c = getc(fp);
 	}
@@ -138,18 +128,15 @@ long fread_flag(FILE *fp)
 char *fread_string(FILE *fp)
 {
 	char *plast, c;
-
 	plast = top_string + sizeof(char *);
 
-	if (plast > &string_space[MAX_STRING - MAX_STRING_LENGTH])
-	{
+	if (plast > &string_space[MAX_STRING - MAX_STRING_LENGTH]) {
 		bug("Fread_string: MAX_STRING %d exceeded.", MAX_STRING);
 		exit(1);
 	}
 
 	/* Skip blanks. Read first char. */
-	do
-	{
+	do {
 		c = getc(fp);
 	}
 	while (isspace(c));
@@ -157,194 +144,176 @@ char *fread_string(FILE *fp)
 	if ((*plast++ = c) == '~')
 		return &str_empty[0];
 
-	for ( ; ; )
-	{
-		switch (*plast = getc(fp))
-		{
-			default:
-				plast++;
-				break;
+	for (; ;) {
+		switch (*plast = getc(fp)) {
+		default:
+			plast++;
+			break;
 
-			case EOF:
-				/* temp fix */
-				bug("Fread_string: EOF", 0);
-				return NULL;
-				/* exit( 1 ); */
+		case EOF:
+			/* temp fix */
+			bug("Fread_string: EOF", 0);
+			return NULL;
 
-			case '\n':
-				plast++;
-				*plast++ = '\r';
-				break;
+		/* exit( 1 ); */
 
-			case '\r':
-				break;
+		case '\n':
+			plast++;
+			*plast++ = '\r';
+			break;
 
-			case '~':
-				plast++;
+		case '\r':
+			break;
 
-				{
-					union
-					{
-						char * pc;
-						char rgc[sizeof(char *)];
-					} u1;
+		case '~':
+			plast++;
+			{
+				union {
+					char *pc;
+					char rgc[sizeof(char *)];
+				} u1;
+				int ic, iHash;
+				char *pHash, *pHashPrev, *pString;
+				plast[-1] = '\0';
+				iHash = UMIN(MAX_KEY_HASH - 1, plast - 1 - top_string);
 
-					int ic, iHash;
-					char *pHash, *pHashPrev, *pString;
+				for (pHash = string_hash[iHash]; pHash; pHash = pHashPrev) {
+					for (ic = 0; ic < sizeof(char *); ic++)
+						u1.rgc[ic] = pHash[ic];
 
-					plast[-1] = '\0';
-					iHash = UMIN(MAX_KEY_HASH - 1, plast - 1 - top_string);
+					pHashPrev = u1.pc;
+					pHash += sizeof(char *);
 
-					for (pHash = string_hash[iHash]; pHash; pHash = pHashPrev)
-					{
-						for (ic = 0; ic < sizeof(char *); ic++)
-							u1.rgc[ic] = pHash[ic];
-
-						pHashPrev = u1.pc;
-						pHash += sizeof(char *);
-
-						if (top_string[sizeof(char *)] == pHash[0]
-						 && !strcmp(top_string+sizeof(char *)+1, pHash+1))
-							return pHash;
-					}
-
-					if (fBootDb)
-					{
-						pString		= top_string;
-						top_string	= plast;
-						u1.pc		= string_hash[iHash];
-
-						for (ic = 0; ic < sizeof(char *); ic++)
-							pString[ic] = u1.rgc[ic];
-
-						string_hash[iHash] = pString;
-						nAllocString++;
-						sAllocString += top_string - pString;
-						/* Has crashed on above line before - Lotus */
-
-						return pString + sizeof(char *);
-					}
-					else
-						return str_dup(top_string + sizeof(char *));
+					if (top_string[sizeof(char *)] == pHash[0]
+					    && !strcmp(top_string + sizeof(char *) + 1, pHash + 1))
+						return pHash;
 				}
+
+				if (fBootDb) {
+					pString         = top_string;
+					top_string      = plast;
+					u1.pc           = string_hash[iHash];
+
+					for (ic = 0; ic < sizeof(char *); ic++)
+						pString[ic] = u1.rgc[ic];
+
+					string_hash[iHash] = pString;
+					nAllocString++;
+					sAllocString += top_string - pString;
+					/* Has crashed on above line before - Lotus */
+					return pString + sizeof(char *);
+				}
+				else
+					return str_dup(top_string + sizeof(char *));
+			}
 		}
 	}
 }
 
 
-char *fread_string_eol( FILE *fp )
+char *fread_string_eol(FILE *fp)
 {
-    static bool char_special[256-EOF];
-    char *plast;
-    char c;
+	static bool char_special[256 - EOF];
+	char *plast;
+	char c;
 
-    if ( char_special[EOF-EOF] != TRUE )
-    {
-        char_special[EOF -  EOF] = TRUE;
-        char_special['\n' - EOF] = TRUE;
-        char_special['\r' - EOF] = TRUE;
-    }
+	if (char_special[EOF - EOF] != TRUE) {
+		char_special[EOF -  EOF] = TRUE;
+		char_special['\n' - EOF] = TRUE;
+		char_special['\r' - EOF] = TRUE;
+	}
 
-    plast = top_string + sizeof(char *);
-    if ( plast > &string_space[MAX_STRING - MAX_STRING_LENGTH] )
-    {
-        bug( "Fread_string: MAX_STRING %d exceeded.", MAX_STRING );
-        exit( 1 );
-    }
+	plast = top_string + sizeof(char *);
 
-    /*
-     * Skip blanks.
-     * Read first char.
-     */
-    do
-    {
-        c = getc( fp );
-    }
-    while ( isspace(c) );
+	if (plast > &string_space[MAX_STRING - MAX_STRING_LENGTH]) {
+		bug("Fread_string: MAX_STRING %d exceeded.", MAX_STRING);
+		exit(1);
+	}
 
-    if ( ( *plast++ = c ) == '\n')
-        return &str_empty[0];
+	/*
+	 * Skip blanks.
+	 * Read first char.
+	 */
+	do {
+		c = getc(fp);
+	}
+	while (isspace(c));
 
-    for ( ;; )
-    {
-        if ( !char_special[ ( *plast++ = getc( fp ) ) - EOF ] )
-            continue;
+	if ((*plast++ = c) == '\n')
+		return &str_empty[0];
 
-        switch ( plast[-1] )
-        {
-        default:
-            break;
+	for (;;) {
+		if (!char_special[(*plast++ = getc(fp)) - EOF ])
+			continue;
 
-        case EOF:
-            bug( "Fread_string_eol  EOF", 0 );
-            exit( 1 );
-            break;
+		switch (plast[-1]) {
+		default:
+			break;
 
-        case '\n':  case '\r':
-            {
-                union
-                {
-                    char *      pc;
-                    char        rgc[sizeof(char *)];
-                } u1;
-                int ic;
-                int iHash;
-                char *pHash;
-                char *pHashPrev;
-                char *pString;
+		case EOF:
+			bug("Fread_string_eol  EOF", 0);
+			exit(1);
+			break;
 
-                plast[-1] = '\0';
-                iHash     = UMIN( MAX_KEY_HASH - 1, plast - 1 - top_string );
-                for ( pHash = string_hash[iHash]; pHash; pHash = pHashPrev )
-                {
-                    for ( ic = 0; ic < sizeof(char *); ic++ )
-                        u1.rgc[ic] = pHash[ic];
-                    pHashPrev = u1.pc;
-                    pHash    += sizeof(char *);
+		case '\n':  case '\r': {
+				union {
+					char       *pc;
+					char        rgc[sizeof(char *)];
+				} u1;
+				int ic;
+				int iHash;
+				char *pHash;
+				char *pHashPrev;
+				char *pString;
+				plast[-1] = '\0';
+				iHash     = UMIN(MAX_KEY_HASH - 1, plast - 1 - top_string);
 
-                    if ( top_string[sizeof(char *)] == pHash[0]
-                    &&   !strcmp( top_string+sizeof(char *)+1, pHash+1 ) )
-                        return pHash;
-                }
+				for (pHash = string_hash[iHash]; pHash; pHash = pHashPrev) {
+					for (ic = 0; ic < sizeof(char *); ic++)
+						u1.rgc[ic] = pHash[ic];
 
-                if ( fBootDb )
-                {
-                    pString             = top_string;
-                    top_string          = plast;
-                    u1.pc               = string_hash[iHash];
-                    for ( ic = 0; ic < sizeof(char *); ic++ )
-                        pString[ic] = u1.rgc[ic];
-                    string_hash[iHash]  = pString;
+					pHashPrev = u1.pc;
+					pHash    += sizeof(char *);
 
-                    nAllocString += 1;
-                    sAllocString += top_string - pString;
-                    return pString + sizeof(char *);
-                }
-                else
-                {
-                    return str_dup( top_string + sizeof(char *) );
-                }
-            }
-        }
-    }
+					if (top_string[sizeof(char *)] == pHash[0]
+					    &&   !strcmp(top_string + sizeof(char *) + 1, pHash + 1))
+						return pHash;
+				}
+
+				if (fBootDb) {
+					pString             = top_string;
+					top_string          = plast;
+					u1.pc               = string_hash[iHash];
+
+					for (ic = 0; ic < sizeof(char *); ic++)
+						pString[ic] = u1.rgc[ic];
+
+					string_hash[iHash]  = pString;
+					nAllocString += 1;
+					sAllocString += top_string - pString;
+					return pString + sizeof(char *);
+				}
+				else
+					return str_dup(top_string + sizeof(char *));
+			}
+		}
+	}
 }
 
 
 /*
  * Read to end of line (for comments).
  */
-void fread_to_eol( FILE *fp )
+void fread_to_eol(FILE *fp)
 {
 	char c;
 
-	do
-	{
+	do {
 		c = getc(fp);
 	}
 	while (c != '\n' && c != '\r');
 
-	do
-	{
+	do {
 		c = getc(fp);
 	}
 	while (c == '\n' || c == '\r');
@@ -362,29 +331,23 @@ char *fread_word(FILE *fp)
 	char *pword;
 	char cEnd;
 
-	do
-	{
+	do {
 		cEnd = getc(fp);
 	}
 	while (isspace(cEnd));
 
 	if (cEnd == '\'' || cEnd == '"')
-	{
 		pword = word;
-	}
-	else
-	{
-		word[0]	= cEnd;
-		pword	= word+1;
-		cEnd	= ' ';
+	else {
+		word[0] = cEnd;
+		pword   = word + 1;
+		cEnd    = ' ';
 	}
 
-	for ( ; pword < word + MIL; pword++)
-	{
+	for (; pword < word + MIL; pword++) {
 		*pword = getc(fp);
 
-		if (cEnd == ' ' ? isspace(*pword) : *pword == cEnd)
-		{
+		if (cEnd == ' ' ? isspace(*pword) : *pword == cEnd) {
 			if (cEnd == ' ')
 				ungetc(*pword, fp);
 
@@ -400,19 +363,17 @@ char *fread_word(FILE *fp)
 
 
 /* Append a string to a file */
-void fappend (char *file, char *str)
+void fappend(char *file, char *str)
 {
 	FILE *fp;
 
 	if (str[0] == '\0')
 		return;
 
-	if ((fp = fopen(file, "a")) != NULL)
-	{
+	if ((fp = fopen(file, "a")) != NULL) {
 		fprintf(fp, str);
 		fclose(fp);
 	}
 	else
 		bugf("fappend(): could not open %s", file);
-
 }

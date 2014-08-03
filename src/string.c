@@ -20,7 +20,6 @@ extern char *top_string;
 char *str_dup_semiperm(char *string)
 {
 	SEMIPERM *semiperm = new_semiperm();
-
 	semiperm->string = str_dup(string);
 	semiperm->next = semiperm_list;
 	semiperm_list = semiperm;
@@ -31,12 +30,11 @@ char *str_dup_semiperm(char *string)
  * Duplicate a string into dynamic memory.
  * Fread_strings are read-only and shared.
  */
-char *str_dup( const char *str )
+char *str_dup(const char *str)
 {
 	char *str_new;
 
-	if (str == NULL)
-	{
+	if (str == NULL) {
 		bug("str_dup: NULL string", 0);
 		return &str_empty[0];
 	}
@@ -47,8 +45,8 @@ char *str_dup( const char *str )
 	if (str >= string_space && str < top_string)
 		return (char *) str;
 
-	str_new = alloc_mem( strlen(str) + 1 );
-	strcpy( str_new, str );
+	str_new = alloc_mem(strlen(str) + 1);
+	strcpy(str_new, str);
 	return str_new;
 }
 
@@ -58,15 +56,15 @@ char *str_dup( const char *str )
  * Null is legal here to simplify callers.
  * Read-only shared strings are not touched.
  */
-void free_string( char *pstr )
+void free_string(char *pstr)
 {
-    if ( pstr == NULL
-    ||   pstr == &str_empty[0]
-    || ( pstr >= string_space && pstr < top_string ) )
-        return;
+	if (pstr == NULL
+	    ||   pstr == &str_empty[0]
+	    || (pstr >= string_space && pstr < top_string))
+		return;
 
-    free_mem( pstr, strlen(pstr) + 1 );
-    return;
+	free_mem(pstr, strlen(pstr) + 1);
+	return;
 }
 
 
@@ -74,7 +72,7 @@ void free_string( char *pstr )
    Used for player-entered strings that go into disk files. */
 void smash_tilde(char *str)
 {
-	for ( ; *str != '\0'; str++)
+	for (; *str != '\0'; str++)
 		if (*str == '~')
 			*str = '-';
 }
@@ -96,10 +94,8 @@ char *smash_bracket(const char *str)
 	p = str;
 	q = retstr;
 
-	while (*p)
-	{
-		if (*p == '{')
-		{
+	while (*p) {
+		if (*p == '{') {
 			if (p[1] == '\0')
 				break;
 			else if (p[1] == '{')
@@ -122,10 +118,8 @@ char *ignore_apostrophe(char *str)
 	static char string[MSL];
 	char *p = string;
 
-	while (*str != '\0')
-	{
-		if (*str != 39 && *str != 92) 	/* an apostrophe or backslash */
-		{
+	while (*str != '\0') {
+		if (*str != 39 && *str != 92) { /* an apostrophe or backslash */
 			*p = *str;
 			p++;
 		}
@@ -143,15 +137,14 @@ char *ignore_apostrophe(char *str)
  * Return TRUE if different
  *   (compatibility with historical functions).
  */
-bool str_cmp( const char *astr, const char *bstr )
+bool str_cmp(const char *astr, const char *bstr)
 {
-	if (!astr || !bstr)
-	{
+	if (!astr || !bstr) {
 		bugf("str_cmp: null %sstr", astr ? "b" : "a");
 		return TRUE;
 	}
 
-	for ( ; *astr || *bstr; astr++, bstr++)
+	for (; *astr || *bstr; astr++, bstr++)
 		if (LOWER(*astr) != LOWER(*bstr))
 			return TRUE;
 
@@ -164,15 +157,14 @@ bool str_cmp( const char *astr, const char *bstr )
  * Return TRUE if astr not a prefix of bstr
  *   (compatibility with historical functions).
  */
-bool str_prefix( const char *astr, const char *bstr )
+bool str_prefix(const char *astr, const char *bstr)
 {
-	if (!astr || !bstr)
-	{
+	if (!astr || !bstr) {
 		bugf("str_prefix: null %sstr", astr ? "b" : "a");
 		return TRUE;
 	}
 
-	for ( ; *astr; astr++, bstr++)
+	for (; *astr; astr++, bstr++)
 		if (LOWER(*astr) != LOWER(*bstr))
 			return TRUE;
 
@@ -187,28 +179,27 @@ bool str_prefix( const char *astr, const char *bstr )
  *   (compatibility with historical functions).
  * like str_prefix, but insists on at least 1 matching char.
  */
-bool str_prefix1( const char *astr, const char *bstr )
+bool str_prefix1(const char *astr, const char *bstr)
 {
-        /* I feel stupid even doing this...We have a bug
-           somewhere that calls with function with an
-           invalid "astr" value. (astr == 1)
-           I'm hoping this check will help us out until
-           I can track it down.
-           -- Outsider
-        */
-        if (astr == (char *) 1) return TRUE;
+	/* I feel stupid even doing this...We have a bug
+	   somewhere that calls with function with an
+	   invalid "astr" value. (astr == 1)
+	   I'm hoping this check will help us out until
+	   I can track it down.
+	   -- Outsider
+	*/
+	if (astr == (char *) 1) return TRUE;
 
-	if (!astr || !bstr)
-	{
+	if (!astr || !bstr) {
 		bugf("str_prefix1: null %sstr", astr ? "b" : "a");
 		return TRUE;
 	}
 
-        /* I think this should be "*bstr" not "bstr". -- Outsider */
+	/* I think this should be "*bstr" not "bstr". -- Outsider */
 	if (*astr == '\0' || *bstr == '\0')
 		return TRUE;
 
-	for ( ; *astr; astr++, bstr++)
+	for (; *astr; astr++, bstr++)
 		if (LOWER(*astr) != LOWER(*bstr))
 			return TRUE;
 
@@ -221,7 +212,7 @@ bool str_prefix1( const char *astr, const char *bstr )
  * Returns TRUE if astr not part of bstr.
  *   (compatibility with historical functions).
  */
-bool str_infix( const char *astr, const char *bstr )
+bool str_infix(const char *astr, const char *bstr)
 {
 	int sstr1, sstr2, ichar;
 	char c0;
@@ -245,10 +236,9 @@ bool str_infix( const char *astr, const char *bstr )
  * Return TRUE if astr not a suffix of bstr
  *   (compatibility with historical functions).
  */
-bool str_suffix( const char *astr, const char *bstr )
+bool str_suffix(const char *astr, const char *bstr)
 {
 	int sstr1, sstr2;
-
 	sstr1 = strlen(astr);
 	sstr2 = strlen(bstr);
 
@@ -262,7 +252,7 @@ bool str_suffix( const char *astr, const char *bstr )
 /*
  * Returns an initial-capped string.
  */
-char *capitalize( const char *str )
+char *capitalize(const char *str)
 {
 	static char strcap[MSL];
 	int i;
@@ -289,22 +279,21 @@ char *strcenter(char *string, int space)
 	int length;
 
 	/* if string is longer than the space, just cut it off and return it */
-	if ((length = color_strlen(string)) > space)
-	{
+	if ((length = color_strlen(string)) > space) {
 		sprintf(output, "%s", string);
 		output[space] = '\0';
 	}
-	else
-	{
+	else {
 		int extraspace = space - length, lspace, rspace;
-
-		lspace = extraspace/2;
+		lspace = extraspace / 2;
 		rspace = extraspace - lspace;
-
 		sprintf(output, " ");
-		while (--lspace > 0)	strcat(output, " ");
+
+		while (--lspace > 0)    strcat(output, " ");
+
 		strcat(output, string);
-		while (rspace-- > 0)	strcat(output, " ");
+
+		while (rspace-- > 0)    strcat(output, " ");
 	}
 
 	return output;
@@ -314,23 +303,21 @@ char *strcenter(char *string, int space)
 char *strrpc(char *replace, char *with, char *in)
 {
 	int replacelen = strlen(replace), i;
-	static char out[MSL*2];
+	static char out[MSL * 2];
 	char *replaceptr, *withptr = with, *inptr = in, *outptr = out;
 
 	if (replacelen <= 0
-	 || strlen(in) < replacelen
-	 || (replaceptr = strstr(in, replace)) == NULL)
+	    || strlen(in) < replacelen
+	    || (replaceptr = strstr(in, replace)) == NULL)
 		return in;
 
-	while (inptr != replaceptr)
-	{
+	while (inptr != replaceptr) {
 		*outptr = *inptr;
 		outptr++;
 		inptr++;
 	}
 
-	while (*withptr)
-	{
+	while (*withptr) {
 		*outptr = *withptr;
 		outptr++;
 		withptr++;
@@ -339,8 +326,7 @@ char *strrpc(char *replace, char *with, char *in)
 	for (i = 0; i < replacelen; i++)
 		inptr++;
 
-	while (*inptr)
-	{
+	while (*inptr) {
 		*outptr = *inptr;
 		outptr++;
 		inptr++;
@@ -358,20 +344,19 @@ of a word and makes the rest lowercase.
 */
 void Proper_Case(char *line)
 {
-   int index = 1;
+	int index = 1;
 
-   /* check for empty string */
-   if ( ! line[0] )
-     return;
+	/* check for empty string */
+	if (! line[0])
+		return;
 
-   /* make sure all letters are lower case */
-   while ( line[index] != '\0' )
-   {
-      line[index] = tolower( line[index] );
-      index++;
-   }
+	/* make sure all letters are lower case */
+	while (line[index] != '\0') {
+		line[index] = tolower(line[index]);
+		index++;
+	}
 
-   /* make first letter upper case */
-   line[0] = toupper( line[0] );
+	/* make first letter upper case */
+	line[0] = toupper(line[0]);
 }
 

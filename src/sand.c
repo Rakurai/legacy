@@ -28,16 +28,14 @@ static int server_len = SA_SIZE;
 */
 void sand_close(void)
 {
-    int stat;
+	int stat;
+	printf("Closing SAND socket %d\n", sockfd);
+	stat = close(sockfd);
 
-    printf( "Closing SAND socket %d\n", sockfd );
-    stat = close( sockfd );
-    if ( stat != 0 )
-    {
-        perror( "sand_close:" );
-    }
-    sockfd = 0;
+	if (stat != 0)
+		perror("sand_close:");
 
+	sockfd = 0;
 } /* end sand_close() */
 
 
@@ -47,33 +45,30 @@ void sand_close(void)
 */
 void sand_init(int clientport, int serverport)
 {
-    int stat;
+	int stat;
+	printf("sand client/server ports %d / %d.\n", clientport, serverport);
+	/* open socket */
+	sockfd = socket(AF_INET, SOCKTYPE, PROTOCOL);
 
-    printf("sand client/server ports %d / %d.\n", clientport, serverport);
+	if (sockfd < 0) {
+		fprintf(stderr, "sand_init: socket() error %d\n", errno);
+		return;
+	}
 
-    /* open socket */
-    sockfd = socket(AF_INET, SOCKTYPE, PROTOCOL);
-    if (sockfd < 0)
-    {
-        fprintf(stderr, "sand_init: socket() error %d\n", errno);
-        return;
-    }
+	/* bind socket to our port */
+	memset(&sai_client, 0, SA_SIZE);
+	sai_client.sin_family = AF_INET;
+	sai_client.sin_port = htons(clientport);
+	sai_client.sin_addr.s_addr = htonl(localhost);
+	stat = bind(sockfd, sa_client, SA_SIZE);
 
-    /* bind socket to our port */
-    memset(&sai_client, 0, SA_SIZE);
-    sai_client.sin_family = AF_INET;
-    sai_client.sin_port = htons(clientport);
-    sai_client.sin_addr.s_addr = htonl(localhost);
-    stat = bind(sockfd, sa_client, SA_SIZE);
-    if (stat < 0)
-    {
-        fprintf(stderr, "sand_init: bind() error %d\n", errno);
-        return;
-    }
+	if (stat < 0) {
+		fprintf(stderr, "sand_init: bind() error %d\n", errno);
+		return;
+	}
 
-    /* remember server port */
-    server_port = serverport;
-
+	/* remember server port */
+	server_port = serverport;
 } /* end sand_init() */
 
 
@@ -83,43 +78,42 @@ void sand_init(int clientport, int serverport)
 */
 char *sand_query(t_iadr addr)
 {
+	int stat;
+	struct timeval tv;
+	fd_set rfds;
+	static struct anp anp;
+	/* set up server socket address */
+	memset(&sai_server, 0, SA_SIZE);
+	sai_server.sin_family = AF_INET;
+	sai_server.sin_port = htons(server_port);
+	sai_server.sin_addr.s_addr = htonl(localhost);
+	/* query for the name */
+	stat = sendto(sockfd, &addr, IADR_SIZE, 0, sa_server, SA_SIZE);
 
-    int stat;
-    struct timeval tv;
-    fd_set rfds;
-    static struct anp anp;
+	if (stat < 0) return NULL;
 
-    /* set up server socket address */
-    memset(&sai_server, 0, SA_SIZE);
-    sai_server.sin_family = AF_INET;
-    sai_server.sin_port = htons(server_port);
-    sai_server.sin_addr.s_addr = htonl(localhost);
+	/* wait for result of query -- up to 0.25 seconds */
+	tv.tv_sec = 0;
+	tv.tv_usec = 250000;
 
-    /* query for the name */
-    stat = sendto(sockfd, &addr, IADR_SIZE, 0, sa_server, SA_SIZE);
-    if (stat < 0) return NULL;
+	while (1) { /* retry until we get answer for correct address */
+		FD_ZERO(&rfds);
+		FD_SET(sockfd, &rfds);
+		stat = select(sockfd + 1, &rfds, NULL, NULL, &tv);
 
-    /* wait for result of query -- up to 0.25 seconds */
-    tv.tv_sec = 0;
-    tv.tv_usec = 250000;
+		if (stat <= 0) return NULL;
 
-    while (1) /* retry until we get answer for correct address */
-    {
-        FD_ZERO(&rfds);
-        FD_SET(sockfd, &rfds);
-        stat = select(sockfd+1, &rfds, NULL, NULL, &tv);
-        if (stat <= 0) return NULL;
+		/* data available -- read and return it */
+		stat = recvfrom(sockfd, &anp, sizeof(anp), 0, sa_server, &server_len);
 
-        /* data available -- read and return it */
-        stat = recvfrom(sockfd, &anp, sizeof(anp), 0, sa_server, &server_len);
-        if (stat == sizeof(anp) && anp.addr == addr)
-            return anp.name;
+		if (stat == sizeof(anp) && anp.addr == addr)
+			return anp.name;
 
-        /* incorrect data -- see if there is more in the queue, but quick */
-        tv.tv_usec = 100000;
-    }
-    return NULL;
+		/* incorrect data -- see if there is more in the queue, but quick */
+		tv.tv_usec = 100000;
+	}
 
+	return NULL;
 } /* end sand_query() */
 
 

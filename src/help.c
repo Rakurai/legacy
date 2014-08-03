@@ -22,12 +22,14 @@
 #include "recycle.h"
 #include "ports.h"
 
-DECLARE_DO_FUN( do_departed	);
+DECLARE_DO_FUN(do_departed);
 
 #ifdef SEASON_CHRISTMAS
-char stupidassline[1000] = "{f{G*{x{H-=-=-{f{C*{x{H-=-=-{f{B*{x{H-=-=-{f{V*{x{H-=-=-{f{P*{x{H-=-=-{f{Y*{x{H-=-=-{f{W*{x{H-=-=-{f{Y*{x{H-=-=-{f{P*{x{H-=-=-{f{V*{x{H-=-=-{f{B*{x{H-=-=-{f{C*{x{H-=-=-{f{G*{x\n\r\0";
+char stupidassline[1000] =
+        "{f{G*{x{H-=-=-{f{C*{x{H-=-=-{f{B*{x{H-=-=-{f{V*{x{H-=-=-{f{P*{x{H-=-=-{f{Y*{x{H-=-=-{f{W*{x{H-=-=-{f{Y*{x{H-=-=-{f{P*{x{H-=-=-{f{V*{x{H-=-=-{f{B*{x{H-=-=-{f{C*{x{H-=-=-{f{G*{x\n\r\0";
 #else
-char stupidassline[1000] = "{G*{T-=-=-{C*{T-=-=-{B*{T-=-=-{V*{T-=-=-{P*{T-=-=-{Y*{T-=-=-{W*{T-=-=-{Y*{T-=-=-{P*{T-=-=-{V*{T-=-=-{B*{T-=-=-{C*{T-=-=-{G*{x\n\r\0";
+char stupidassline[1000] =
+        "{G*{T-=-=-{C*{T-=-=-{B*{T-=-=-{V*{T-=-=-{P*{T-=-=-{Y*{T-=-=-{W*{T-=-=-{Y*{T-=-=-{P*{T-=-=-{V*{T-=-=-{B*{T-=-=-{C*{T-=-=-{G*{x\n\r\0";
 #endif
 
 #define HTABLE "helps"
@@ -48,10 +50,8 @@ char *one_keyword(char *keywords, char *word)
 	while (isspace(*keywords))
 		keywords++;
 
-	while (*keywords != '\0')
-	{
-		if (*keywords == '\'' || *keywords == '"')
-		{
+	while (*keywords != '\0') {
+		if (*keywords == '\'' || *keywords == '"') {
 			keywords++;
 			continue;
 		}
@@ -80,31 +80,27 @@ void help_char_search(CHAR_DATA *ch, char *arg)
 	MYSQL_ROW row;
 	BUFFER *output;
 	int i = 0;
-
 	sprintf(query, "SELECT " HCOL_KEYS " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d "
-		"AND " HCOL_KEYS " LIKE '%% %s%%' "
-		"OR " HCOL_KEYS " LIKE '%s%%' "
-		"OR " HCOL_KEYS " LIKE '%%\\'%s%%' "
-		"ORDER BY " HCOL_KEYS,
-		ch->level, arg, arg, arg
-	);
+	        "AND " HCOL_KEYS " LIKE '%% %s%%' "
+	        "OR " HCOL_KEYS " LIKE '%s%%' "
+	        "OR " HCOL_KEYS " LIKE '%%\\'%s%%' "
+	        "ORDER BY " HCOL_KEYS,
+	        ch->level, arg, arg, arg
+	       );
 
-	if ((result = db_query("help_char_search", query)) == NULL)
-	{
+	if ((result = db_query("help_char_search", query)) == NULL) {
 		stc("There was a problem with your help query, please notify the imms\n"
 		    "using the 'bug' command.  Make sure to say what you typed.\n", ch);
 		return;
 	}
 
-	if (!mysql_num_rows(result))
-	{
+	if (!mysql_num_rows(result)) {
 		stc("No helps were found with keywords beginning with that character.\n", ch);
 		mysql_free_result(result);
 		return;
 	}
 
-	while ((row = mysql_fetch_row(result)))
-	{
+	while ((row = mysql_fetch_row(result))) {
 		if (!is_name(arg, row[0]))
 			continue;
 
@@ -114,7 +110,6 @@ void help_char_search(CHAR_DATA *ch, char *arg)
 
 	mysql_free_result(result);
 	output = new_buf();
-
 	add_buf(output, stupidassline);
 	ptb(output, "\n{WHelps beginning with the letter '{c%s{W':{x\n\n", arg);
 	text = str_dup(buf);
@@ -123,7 +118,6 @@ void help_char_search(CHAR_DATA *ch, char *arg)
 	free_string(text);
 	ptb(output, "\n{W[%d] total help entries.{x\n\n", i);
 	add_buf(output, stupidassline);
-
 	page_to_char(buf_string(output), ch);
 	free_buf(output);
 }
@@ -135,16 +129,12 @@ void help(CHAR_DATA *ch, char *argument)
 	MYSQL_ROW row;
 	char query[MSL], *p;
 	BUFFER *output;
-
 	sprintf(query, "SELECT " HCOL_TEXT " FROM " HTABLE " WHERE ");
 	p = argument;
 
-	while (*p != '\0')
-	{
+	while (*p != '\0') {
 		char word[MIL];
-
 		p = one_keyword(p, word);
-
 		strcat(query, HCOL_KEYS " LIKE '%");
 		strcat(query, db_esc(word));
 		strcat(query, "%'");
@@ -158,14 +148,12 @@ void help(CHAR_DATA *ch, char *argument)
 	if ((result = db_query("help", query)) == NULL)
 		return;
 
-	if ((row = mysql_fetch_row(result)) == NULL)
-	{
+	if ((row = mysql_fetch_row(result)) == NULL) {
 		bugf("help():  no helps with keywords '%s'", argument);
 		return;
 	}
 
-	if (row[0] == NULL)
-	{
+	if (row[0] == NULL) {
 		bugf("help():  help with keywords '%s' has null text", argument);
 		return;
 	}
@@ -177,7 +165,8 @@ void help(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 }
 
-void add_help(int group, int order, int level, char *keywords, char *text) {
+void add_help(int group, int order, int level, char *keywords, char *text)
+{
 	char query[MSL];
 
 	if (!str_cmp(keywords, "GREETING")) {
@@ -186,15 +175,12 @@ void add_help(int group, int order, int level, char *keywords, char *text) {
 	}
 
 	sprintf(query, "INSERT INTO " HTABLE " ("HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT ") "
-		"VALUES(%d,%d,%d,'", group, order, level
-	);
-
+	        "VALUES(%d,%d,%d,'", group, order, level
+	       );
 	strcat(query, db_esc(keywords));
 	strcat(query, "','");
-
 	strcat(query, db_esc(text));
 	strcat(query, "')");
-
 	db_command("add_help", query);
 }
 
@@ -206,18 +192,14 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 	char arg[MIL], buf[MSL], *q, *p;
 	FILE *fp;
 	int tablenum, count = 0;
-
-	struct help_struct
-	{
+	struct help_struct {
 		int level;
 		char *keywords;
 		char *text;
 	};
-
 	struct help_struct temp_help[500];
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		stc("Syntax:\n\r"
 		    "  loadhelps <filename>\n\r"
 		    "  loadhelps all\n\r\n\r"
@@ -229,16 +211,14 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (port != DIZZYPORT)
-	{
+	if (port != DIZZYPORT) {
 		ptc(ch, "Please perform loading and printing commands on the port %d copy.\n\r", DIZZYPORT);
 		return;
 	}
 
 	one_argument(argument, arg);
 
-	if (!str_cmp(arg, "all"))
-	{
+	if (!str_cmp(arg, "all")) {
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
 			do_loadhelps(ch, helpfile_table[tablenum].name);
 
@@ -251,8 +231,7 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		if (!str_prefix1(helpfile_table[tablenum].name, arg))
 			break;
 
-	if (helpfile_table[tablenum].name == NULL)
-	{
+	if (helpfile_table[tablenum].name == NULL) {
 		stc("That is not a valid help file name.  Help file names are:\n\r\n\r", ch);
 
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
@@ -263,40 +242,37 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 
 	sprintf(buf, HELP_DIR "/%s.help", helpfile_table[tablenum].name);
 
-	if ((fp = fopen(buf, "r")) == NULL)
-	{
+	if ((fp = fopen(buf, "r")) == NULL) {
 		stc("File not found - make sure it is uploaded into the /area/help/ directory.\n\r", ch);
 		return;
 	}
 
-	while (1)
-	{
+	while (1) {
 		if ((temp_help[count].level = fread_number(fp)) < -1)
 			break;
 
 		temp_help[count].keywords = fread_string(fp);
 		temp_help[count].text = fread_string(fp);
 
-		if (temp_help[count].keywords	== NULL
-		 || temp_help[count].text	== NULL
-		 || temp_help[count].keywords[0]== '\0'
-		 || temp_help[count].text[0]	== '\0')
+		if (temp_help[count].keywords   == NULL
+		    || temp_help[count].text       == NULL
+		    || temp_help[count].keywords[0] == '\0'
+		    || temp_help[count].text[0]    == '\0')
 			stc("Error:  missing text.\n\r", ch);
 		else if (strlen(temp_help[count].keywords) > 100)
 			stc("Error:  keywords longer than 100 characters.\n\r", ch);
 		else if (strlen(temp_help[count].text) > 8000)
 			stc("Error:  text longer than 8000 characters.\n\r", ch);
-		else
-		{
+		else {
 			count++;
 			continue;
 		}
 
 		ptc(ch, "There was an error loading the help file '%s.help',",
-			helpfile_table[tablenum].name);
+		    helpfile_table[tablenum].name);
 
 		if (count > 0)
-			ptc(ch, " after\n\rthe help '%s'.\n\r", temp_help[count-1].keywords);
+			ptc(ch, " after\n\rthe help '%s'.\n\r", temp_help[count - 1].keywords);
 		else
 			stc(" on the first help.\n\r", ch);
 
@@ -306,21 +282,16 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 
 	db_commandf("do_loadhelps", "DELETE FROM " HTABLE " WHERE " HCOL_GROUP "=%d", helpfile_table[tablenum].group);
 
-	for (count = 0; temp_help[count].level >= -1; count++)
-	{
+	for (count = 0; temp_help[count].level >= -1; count++) {
 		bool foundspace = FALSE;
-
 		/* unfuck any weird spacing */
 		buf[0] = '\0';
 		q = buf;
 		p = temp_help[count].keywords;
 
-		while (*p != '\0')
-		{
-			if (*p == ' ')
-			{
-				if (foundspace)
-				{
+		while (*p != '\0') {
+			if (*p == ' ') {
+				if (foundspace) {
 					p++;
 					continue;
 				}
@@ -337,13 +308,12 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 
 		*q = '\0';
 		q = buf;
-
 		add_help(
-			helpfile_table[tablenum].group,
-			count+1,
-			temp_help[count].level,
-			q,
-			temp_help[count].text
+		        helpfile_table[tablenum].group,
+		        count + 1,
+		        temp_help[count].level,
+		        q,
+		        temp_help[count].text
 		);
 	}
 
@@ -353,15 +323,13 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 /* print all helps matching a group to file */
 void do_printhelps(CHAR_DATA *ch, char *argument)
 {
-	char arg[MIL], buf[MSL*3];
-
+	char arg[MIL], buf[MSL * 3];
 	MYSQL_RES *result;
 	MYSQL_ROW row;
 	FILE *fp;
 	int tablenum, count = 0;
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		stc("Syntax:\n\r"
 		    "  printhelps <filename>\n\r"
 		    "  printhelps all\n\r\n\r"
@@ -373,16 +341,14 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (port != DIZZYPORT)
-	{
+	if (port != DIZZYPORT) {
 		stc("Please perform loading and printing commands on the port 3000 copy.\n\r", ch);
 		return;
 	}
 
 	one_argument(argument, arg);
 
-	if (!str_cmp(arg, "all"))
-	{
+	if (!str_cmp(arg, "all")) {
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
 			do_printhelps(ch, helpfile_table[tablenum].name);
 
@@ -394,8 +360,7 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 		if (!str_prefix1(helpfile_table[tablenum].name, arg))
 			break;
 
-	if (helpfile_table[tablenum].name == NULL)
-	{
+	if (helpfile_table[tablenum].name == NULL) {
 		stc("That is not a valid help file name.  Help file names are:\n\r\n\r", ch);
 
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
@@ -405,26 +370,23 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((result = db_queryf("do_printhelps",
-			"SELECT " HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT " FROM " HTABLE " WHERE " HCOL_GROUP "=%d ORDER BY " HCOL_ORDER,
-			helpfile_table[tablenum].group)) == NULL)
+	                        "SELECT " HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT " FROM " HTABLE " WHERE " HCOL_GROUP "=%d ORDER BY " HCOL_ORDER,
+	                        helpfile_table[tablenum].group)) == NULL)
 		return;
 
-	if (!mysql_num_rows(result))
-	{
+	if (!mysql_num_rows(result)) {
 		ptc(ch, "No help files fall into the '%s' group.\n\r", helpfile_table[tablenum].name);
 		mysql_free_result(result);
 		return;
 	}
 
-	if ((fp = fopen(TEMP_FILE, "w")) == NULL)
-	{
+	if ((fp = fopen(TEMP_FILE, "w")) == NULL) {
 		bug("do_printhelps: unable to open temp file", 0);
 		mysql_free_result(result);
 		return;
 	}
 
-	while ((row = mysql_fetch_row(result)))
-	{
+	while ((row = mysql_fetch_row(result))) {
 		strcpy(buf, row[0]);
 		strcat(buf, " ");
 		strcat(buf, row[1]);
@@ -450,33 +412,27 @@ void do_help(CHAR_DATA *ch, char *argument)
 	MYSQL_ROW row;
 	BUFFER *output;
 	int result_count = 0, partial_count = 0, result_num = 0, i;
-
-	struct help_struct
-	{
+	struct help_struct {
 		int type;
 		int hgroup;
 		char keywords[256];
 		char text[32767];
 		int id;
 	};
-
 	struct help_struct temp_help[100];
-
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0')
 		strcpy(argument, "SUMMARY");
-	else if (!str_cmp(arg, "departed"))
-	{
+	else if (!str_cmp(arg, "departed")) {
 		do_departed(ch, "");
 		return;
 	}
 
 	/* on a one char search, we print a list of all helps starting with that char */
 	if ((argument[1] == '\0' || argument[1] == ' ')
-	 && ((argument[0] >= 'a' && argument[0] <= 'z')
-	  || (argument[0] >= 'A' && argument[0] <= 'Z')))
-	{
+	    && ((argument[0] >= 'a' && argument[0] <= 'z')
+	        || (argument[0] >= 'A' && argument[0] <= 'Z'))) {
 		one_argument(argument, arg);
 		help_char_search(ch, arg);
 		return;
@@ -484,17 +440,14 @@ void do_help(CHAR_DATA *ch, char *argument)
 
 	/* poll the database for all helps containing the arguments */
 	sprintf(query, "SELECT " HCOL_GROUP "," HCOL_KEYS "," HCOL_TEXT "," HCOL_ID
-		" FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d AND ",
-		ch->level
-	);
+	        " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d AND ",
+	        ch->level
+	       );
 	p = argument;
 
-	while (*p != '\0')
-	{
+	while (*p != '\0') {
 		char word[MIL];
-
 		p = one_keyword(p, word);
-
 		strcat(query, HCOL_KEYS " LIKE '%");
 		strcat(query, db_esc(word));
 		strcat(query, "%'");
@@ -506,23 +459,20 @@ void do_help(CHAR_DATA *ch, char *argument)
 	/* display the normal helps, followed by immortal helps */
 	strcat(query, " ORDER BY " HCOL_ORDER);
 
-	if ((result = db_query("do_help", query)) == NULL)
-	{
+	if ((result = db_query("do_help", query)) == NULL) {
 		stc("There was a problem with your help query, please notify the imms\n"
 		    "using the 'bug' command.  Make sure to say what you typed.\n", ch);
 		return;
 	}
 
-	while ((row = mysql_fetch_row(result)))
-	{
+	while ((row = mysql_fetch_row(result))) {
 		if (row[1] == NULL || row[2] == NULL)
 			continue;
 
 		/* 0 if not keyword, 1 if exact match, 2 if semi-match */
 		if (is_exact_name(argument, row[1]))
 			temp_help[result_count].type = 1;
-		else if (is_name(argument, row[1]))
-		{
+		else if (is_name(argument, row[1])) {
 			temp_help[result_count].type = 2;
 			partial_count++;
 		}
@@ -530,8 +480,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 			continue;
 
 		for (i = 0; helpfile_table[i].name != NULL; i++)
-			if (helpfile_table[i].group == atoi(row[0]))
-			{
+			if (helpfile_table[i].group == atoi(row[0])) {
 				temp_help[result_count].hgroup = i;
 				break;
 			}
@@ -548,8 +497,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 
 	mysql_free_result(result);
 
-	if (result_count == 0)
-	{
+	if (result_count == 0) {
 		stc("No helps were found with those keywords.\n", ch);
 		return;
 	}
@@ -557,10 +505,8 @@ void do_help(CHAR_DATA *ch, char *argument)
 	output = new_buf();
 
 	/* if we have an exact result, display them, then a list of partial match keywords */
-	if (result_count > partial_count)	/* exact results? */
-	{
-		for (result_num = 0; result_num < result_count; result_num++)
-		{
+	if (result_count > partial_count) {     /* exact results? */
+		for (result_num = 0; result_num < result_count; result_num++) {
 			if (temp_help[result_num].type != 1)
 				continue;
 
@@ -570,51 +516,45 @@ void do_help(CHAR_DATA *ch, char *argument)
 				sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
 
 			ptb(output, "%s\n{W%s%s{x\n\n",
-				stupidassline,
-				immbuf,
-				temp_help[result_num].keywords);
-
+			    stupidassline,
+			    immbuf,
+			    temp_help[result_num].keywords);
 			/* Strip leading '.' to allow initial blanks. */
 			add_buf(output, temp_help[result_num].text + (temp_help[result_num].text[0] == '.' ? 1 : 0));
-
 			ptb(output, "\n%s", stupidassline);
 		}
 
 		if (partial_count)
 			add_buf(output, "\nYou could also try the following partial matches:\n\n");
 	}
-	else if (partial_count == 1)
-	{
+	else if (partial_count == 1) {
 		/* no exact matches, if there's only one partial match, let's show it and be done */
-			char immbuf[MSL] = "";
+		char immbuf[MSL] = "";
 
-			if IS_IMMORTAL(ch)
-				sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
+		if IS_IMMORTAL(ch)
+			sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
 
-			ptb(output, "%s\n{W%s%s{x\n\n",
-				stupidassline,
-				immbuf,
-				temp_help[0].keywords);
+		ptb(output, "%s\n{W%s%s{x\n\n",
+		    stupidassline,
+		    immbuf,
+		    temp_help[0].keywords);
 		add_buf(output, temp_help[0].text + (temp_help[0].text[0] == '.' ? 1 : 0));
 		ptb(output, "\n%s", stupidassline);
 		/* done, we'll drop through the next if statement to the printing */
 	}
 	else
 		add_buf(output, "No helps were found matching all of your keywords, but the\n"
-			"following partial matches may direct you to the proper help:\n\n");
+		        "following partial matches may direct you to the proper help:\n\n");
 
-	if (partial_count && (result_count > partial_count || partial_count > 1))
-	{
+	if (partial_count && (result_count > partial_count || partial_count > 1)) {
 		int newres;
 
-		for (result_num = 0; result_num < result_count; result_num++)
-		{
+		for (result_num = 0; result_num < result_count; result_num++) {
 			if (temp_help[result_num].type != 2)
 				continue;
 
 			/* no duplicates! */
-			for (newres = 0; newres < result_num; newres++)
-			{
+			for (newres = 0; newres < result_num; newres++) {
 				if (temp_help[newres].type != 2)
 					continue;
 
@@ -633,24 +573,21 @@ void do_help(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 }
 
-void do_hedit (CHAR_DATA *ch, char *argument)
+void do_hedit(CHAR_DATA *ch, char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
 	MYSQL_RES *result;
 	MYSQL_ROW row;
+	smash_tilde(argument);
+	argument = one_argument(argument, cmd);
 
-	smash_tilde (argument);
-	
-	argument = one_argument (argument,cmd);
-	
-	if (!cmd[0])
-	{
+	if (!cmd[0]) {
 		ptc(ch, "Syntax:  hedit new <keywords>\n\r"
-			"               delete <id>\n\r"
-			"               show <id>\n\r"
-			"               %s|%s|%s|%s|%s <id> <value>\n\r",
-			HCOL_GROUP, HCOL_ORDER, HCOL_LEVEL, HCOL_KEYS, HCOL_TEXT
-		);
+		    "               delete <id>\n\r"
+		    "               show <id>\n\r"
+		    "               %s|%s|%s|%s|%s <id> <value>\n\r",
+		    HCOL_GROUP, HCOL_ORDER, HCOL_LEVEL, HCOL_KEYS, HCOL_TEXT
+		   );
 		return;
 	}
 
@@ -660,7 +597,8 @@ void do_hedit (CHAR_DATA *ch, char *argument)
 			return;
 		}
 
-		if (!db_commandf("do_hedit", "insert into " HTABLE " (" HCOL_KEYS "," HCOL_TEXT ") values('%s','')", db_esc(argument))) {
+		if (!db_commandf("do_hedit", "insert into " HTABLE " (" HCOL_KEYS "," HCOL_TEXT ") values('%s','')",
+		                 db_esc(argument))) {
 			stc("Could not create a help with those keywords.\n\r", ch);
 			return;
 		}
@@ -671,17 +609,15 @@ void do_hedit (CHAR_DATA *ch, char *argument)
 		}
 
 		row = mysql_fetch_row(result);
-
 		ptc(ch, "Success, the new help has an ID of %s.\n\r", row[0]);
 		mysql_free_result(result);
 		return;
 	}
 
-	argument = one_argument (argument,arg);
-		
-	if (!arg[0])
-	{
-		stc("What help do you want to operate on?\n\r",ch);
+	argument = one_argument(argument, arg);
+
+	if (!arg[0]) {
+		stc("What help do you want to operate on?\n\r", ch);
 		return;
 	}
 
@@ -692,24 +628,22 @@ void do_hedit (CHAR_DATA *ch, char *argument)
 
 	if (!str_cmp(cmd, "delete")) {
 		db_commandf("do_hedit", "delete from " HTABLE " where " HCOL_ID "=%s", arg);
-		stc ("That help is history now.\n\r", ch);
+		stc("That help is history now.\n\r", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, "show")) {
 		if ((result = db_queryf("do_help",
-			"select " HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT
-			" from " HTABLE " where " HCOL_ID "=%s", arg)) == NULL) {
+		                        "select " HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT
+		                        " from " HTABLE " where " HCOL_ID "=%s", arg)) == NULL) {
 			stc("Couldn't retrieve a help with that ID.\n\r", ch);
 			return;
 		}
 
 		row = mysql_fetch_row(result);
-
 		ptc(ch, "ID: %4s  File: %s  Order: %s  Level: %s\n\rKeywords: %s\n\r%s\n\r",
-			arg, row[0], row[1], row[2], row[3], row[4]
-		);
-
+		    arg, row[0], row[1], row[2], row[3], row[4]
+		   );
 		mysql_free_result(result);
 		return;
 	}

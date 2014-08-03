@@ -30,10 +30,10 @@
 #include "memory.h"
 #include "mysql.h"
 
-DECLARE_DO_FUN(do_echo		);
+DECLARE_DO_FUN(do_echo);
 
-extern	time_t	reboot_time;
-extern	int	top_exit;
+extern  time_t  reboot_time;
+extern  int     top_exit;
 
 /* externals for counting purposes */
 extern  OBJ_DATA        *obj_free;
@@ -49,8 +49,7 @@ void do_autoboot(CHAR_DATA *ch, char *argument)
 	int reboottime, hours = 0, minutes = 0;
 	struct tm *tm;
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		if (reboot_time != 0)
 			ptc(ch, "Legacy is scheduled to reboot at %s\n\r", (char *) ctime(&reboot_time));
 		else
@@ -61,16 +60,14 @@ void do_autoboot(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!is_number(argument))
-	{
+	if (!is_number(argument)) {
 		stc("Time must be numeric, i.e. 1330 is 1:30 pm.\n\r", ch);
 		return;
 	}
 
 	reboottime = atoi(argument);
 
-	if (reboottime < 0 || reboottime > 2359)
-	{
+	if (reboottime < 0 || reboottime > 2359) {
 		stc("Time is out of range.\n\r", ch);
 		return;
 	}
@@ -78,16 +75,14 @@ void do_autoboot(CHAR_DATA *ch, char *argument)
 	for (minutes = reboottime; minutes >= 59; minutes -= 100, hours += 1)
 		;
 
-	if (minutes < 0)
-	{
+	if (minutes < 0) {
 		stc("The minutes must be under 60.\n\r", ch);
 		return;
 	}
 
 	tm = localtime(&current_time);
 
-	if ((hours < tm->tm_hour) || (hours == tm->tm_hour && minutes < tm->tm_min))
-	{
+	if ((hours < tm->tm_hour) || (hours == tm->tm_hour && minutes < tm->tm_min)) {
 		stc("That time has already passed.\n\r"
 		    "The mud will assume you want the reboot tomorrow.\n\r", ch);
 		hours = hours + 24;
@@ -106,16 +101,15 @@ char *fgetf(char *s, int n, register FILE *iop)
 {
 	register int c;
 	register char *cs;
-
 	c = '\0';
 	cs = s;
 
-	while(--n > 0 && (c = getc(iop)) != EOF)
+	while (--n > 0 && (c = getc(iop)) != EOF)
 		if ((*cs++ = c) == '\0')
 			break;
 
 	*cs = '\0';
-	return((c == EOF && cs == s) ? NULL : s);
+	return ((c == EOF && cs == s) ? NULL : s);
 }
 
 
@@ -124,7 +118,6 @@ void do_pipe(CHAR_DATA *ch, char *argument)
 {
 	char buf[5000];
 	FILE *fp;
-
 	fp = popen(argument, "r");
 	fgetf(buf, 5000, fp);
 	page_to_char(buf, ch);
@@ -146,14 +139,12 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 	for (i = 0; i < 100; i++)
 		lengths[i] = 0;
 
-	if (mysql_db == NULL)
-	{
+	if (mysql_db == NULL) {
 		bugf("do_mypipe:  mysql_db is NULL, reopening");
 		db_open();
 	}
 
-	if (mysql_real_query(mysql_db, argument, strlen(argument)))
-	{
+	if (mysql_real_query(mysql_db, argument, strlen(argument))) {
 		ptc(ch, "Error: %s\n\r", mysql_error(mysql_db));
 		return;
 	}
@@ -161,15 +152,13 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 	result = mysql_store_result(mysql_db);
 	numfields = mysql_field_count(mysql_db);
 
-	if (!numfields)
-	{
+	if (!numfields) {
 		ptc(ch, "%ld rows affected.\n\r", (long) mysql_affected_rows(mysql_db));
 		mysql_free_result(result);
 		return;
 	}
 
-	while ((row[numrows++] = mysql_fetch_row(result)))
-	{
+	while ((row[numrows++] = mysql_fetch_row(result))) {
 		unsigned long *reslengths = mysql_fetch_lengths(result);
 
 		for (i = 0; i < numfields; i++)
@@ -180,11 +169,10 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 	fields = mysql_fetch_fields(result);
 	strcpy(divline, "{n ");
 
-	for (i = 0; i < numfields; i++)
-	{
+	for (i = 0; i < numfields; i++) {
 		lengths[i] = UMAX(lengths[i], strlen(fields[i].name));
 
-		for (x = 0; x <= lengths[i]+2; x++)
+		for (x = 0; x <= lengths[i] + 2; x++)
 			strcat(divline, " ");
 	}
 
@@ -192,10 +180,8 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 	add_buf(output, divline);
 	strcpy(line, "{n {x");
 
-	for (i = 0; i < numfields; i++)
-	{
+	for (i = 0; i < numfields; i++) {
 		int wlen = lengths[i] - strlen(fields[i].name);
-
 		strcat(line, " ");
 		strcat(line, fields[i].name);
 
@@ -209,14 +195,11 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 	add_buf(output, line);
 	add_buf(output, divline);
 
-	for (x = 0; x < numrows; x++)
-	{
+	for (x = 0; x < numrows; x++) {
 		strcpy(line, "{n {x");
 
-		for (i = 0; i < numfields; i++)
-		{
+		for (i = 0; i < numfields; i++) {
 			int wlen = lengths[i] - color_strlen(row[x][i]);
-
 			strcat(line, " ");
 
 			if (row[x][i])
@@ -252,22 +235,20 @@ void do_reboot(CHAR_DATA *ch, char *argument)
 	extern bool merc_down;
 	DESCRIPTOR_DATA *d, *d_next;
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		stc("You must provide a reason for a reboot.\n\r", ch);
 		return;
 	}
 
 	set_color(ch, YELLOW, BOLD);
-	sprintf(buf, "%s has called for a REBOOT.  Back in 60 seconds or less!\n\r", ch->name );
+	sprintf(buf, "%s has called for a REBOOT.  Back in 60 seconds or less!\n\r", ch->name);
 	do_echo(ch, buf);
 	set_color(ch, WHITE, NOBOLD);
 	do_allsave(ch, "");
 	do_save(ch, "");
 	merc_down = TRUE;
 
-	for (d = descriptor_list; d != NULL; d = d_next)
-	{
+	for (d = descriptor_list; d != NULL; d = d_next) {
 		d_next = d->next;
 		close_socket(d);
 	}
@@ -287,14 +268,12 @@ void do_shutdown(CHAR_DATA *ch, char *argument)
 	extern bool merc_down;
 	DESCRIPTOR_DATA *d, *d_next;
 
-	if (port == DIZZYPORT && !IS_IMP(ch))
-	{
+	if (port == DIZZYPORT && !IS_IMP(ch)) {
 		stc("You must be an implementor to shutdown Legacy.\n\r", ch);
 		return;
 	}
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		stc("You must provide a reason for a shutdown.\n\r", ch);
 		return;
 	}
@@ -302,10 +281,9 @@ void do_shutdown(CHAR_DATA *ch, char *argument)
 	sprintf(buf, "%s has SHUTDOWN the system.  Back after these messages!\n\r", ch->name);
 	do_echo(ch, buf);
 
-	if (port == DIZZYPORT)
-	{
+	if (port == DIZZYPORT) {
 		strtime                    = ctime(&current_time);
-		strtime[strlen(strtime)-1] = '\0';
+		strtime[strlen(strtime) - 1] = '\0';
 		sprintf(buf2, "%s :SHUTDOWN", strtime);
 		fappend(SHUTDOWN_FILE, buf2);
 		fappend(SHUTDOWN_FILE, argument);
@@ -315,8 +293,7 @@ void do_shutdown(CHAR_DATA *ch, char *argument)
 	do_save(ch, "");
 	merc_down = TRUE;
 
-	for (d = descriptor_list; d != NULL; d = d_next)
-	{
+	for (d = descriptor_list; d != NULL; d = d_next) {
 		d_next = d->next;
 		close_socket(d);
 	}
@@ -328,8 +305,7 @@ void do_slookup(CHAR_DATA *ch, char *argument)
 	char arg[MIL];
 	int sn;
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		stc("Syntax:\n\r"
 		    "slookup all\n\r"
 		    "slookup <skill or spell name>\n\r", ch);
@@ -338,27 +314,25 @@ void do_slookup(CHAR_DATA *ch, char *argument)
 
 	one_argument(argument, arg);
 
-	if (!str_cmp(arg, "all"))
-	{
+	if (!str_cmp(arg, "all")) {
 		for (sn = 0; skill_table[sn].name != NULL; sn++)
 			ptc(ch, "Sn: %3d  Slot: %4d  Skill/spell: '%s'\n\r",
-				sn,
-				skill_table[sn].slot,
-				skill_table[sn].name);
+			    sn,
+			    skill_table[sn].slot,
+			    skill_table[sn].name);
 
 		return;
 	}
 
-	if ((sn = skill_lookup(arg)) < 0)
-	{
+	if ((sn = skill_lookup(arg)) < 0) {
 		stc("No such skill or spell.\n\r", ch);
 		return;
 	}
 
 	ptc(ch, "Sn: %3d  Slot: %4d  Skill/spell: '%s'\n\r",
-		sn,
-		skill_table[sn].slot,
-		skill_table[sn].name);
+	    sn,
+	    skill_table[sn].slot,
+	    skill_table[sn].name);
 }
 
 
@@ -367,59 +341,49 @@ void do_advance(CHAR_DATA *ch, char *argument)
 	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
 	int level, iLevel, max = 99;
-
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2))
-	{
+	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2)) {
 		stc("Syntax:\n\r"
 		    "  advance <player> <level>\n\r", ch);
 		return;
 	}
 
-	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL)
-	{
+	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
 		stc("They are not playing.\n\r", ch);
 		return;
 	}
 
 	max = IS_IMP(ch) ? 100 : 99;
 
-	if ((level = atoi(arg2)) < 1 || level > max)
-	{
+	if ((level = atoi(arg2)) < 1 || level > max) {
 		ptc(ch, "Level must be 1 to %d.\n\r", max);
 		return;
 	}
 
-	if (level == victim->level)
-	{
+	if (level == victim->level) {
 		stc("It would accomplish nothing!\n\r", ch);
 		return;
 	}
 
-	if (victim != ch)
-	{
-		if (victim->level >= max && max < 100)
-		{
+	if (victim != ch) {
+		if (victim->level >= max && max < 100) {
 			stc("You must be an implementor to do that to a fellow immortal.\n\r", ch);
 			return;
 		}
 	}
 
-	if (level < victim->level)
-	{
+	if (level < victim->level) {
 		stc("You revoke the levels of the player.\n\r", ch);
 		stc("**** D'OH! D'OH! D'OH! ****\n\r", victim);
 
-		for (iLevel = victim->level; iLevel > level; iLevel--)
-		{
+		for (iLevel = victim->level; iLevel > level; iLevel--) {
 			stc("==>  ", victim);
 			victim->level--;
 			demote_level(victim);
 
-			if (!IS_IMMORTAL(victim) && !IS_REMORT(victim))
-			{
+			if (!IS_IMMORTAL(victim) && !IS_REMORT(victim)) {
 				if (victim->level == (LEVEL_AVATAR - 1))
 					REM_CGROUP(victim, GROUP_AVATAR);
 
@@ -428,13 +392,11 @@ void do_advance(CHAR_DATA *ch, char *argument)
 			}
 		}
 	}
-	else
-	{
+	else {
 		stc("You bestow your Level power upon the character.\n\r", ch);
 		stc("**** WoOhOo! WoOhOo! WoOhOo! ****\n\r", victim);
 
-		for (iLevel = victim->level; iLevel < level; iLevel++)
-		{
+		for (iLevel = victim->level; iLevel < level; iLevel++) {
 			stc("==>  ", victim);
 			victim->level += 1;
 			advance_level(victim);
@@ -447,49 +409,44 @@ void do_advance(CHAR_DATA *ch, char *argument)
 		}
 	}
 
-	victim->exp = exp_per_level(victim,victim->pcdata->points) * UMAX(1, victim->level);
+	victim->exp = exp_per_level(victim, victim->pcdata->points) * UMAX(1, victim->level);
 	save_char_obj(victim);
 }
 
 
-void do_wizlock( CHAR_DATA *ch, char *argument )
+void do_wizlock(CHAR_DATA *ch, char *argument)
 {
 	extern bool wizlock;
-
 	wizlock = !wizlock;
 
-	if (wizlock)
-	{
+	if (wizlock) {
 		wiznet("$N has wizlocked the game.", ch, NULL, 0, 0, 0);
 		stc("Game wizlocked.\n\r", ch);
 	}
-	else
-	{
+	else {
 		wiznet("$N removes the current wizlock.", ch, NULL, 0, 0, 0);
 		stc("Game un-wizlocked.\n\r", ch);
 	}
 }
 
 
-void do_relevel(CHAR_DATA *ch,char *argument)
+void do_relevel(CHAR_DATA *ch, char *argument)
 {
-	if (IS_NPC(ch) || !IS_SPECIAL(ch))
-	{
+	if (IS_NPC(ch) || !IS_SPECIAL(ch)) {
 		do_huh(ch);
 		return;
- 	}
+	}
 
-	ch->pcdata->cgroup = GROUP_CLAN|GROUP_AVATAR|GROUP_HERO
-						|GROUP_GEN|GROUP_QUEST|GROUP_BUILD|GROUP_CODE|GROUP_SECURE;
-
-	ch->level	= MAX_LEVEL;
-	ch->hit		= 30000;
-	ch->max_hit	= 30000;
-	ch->mana	= 30000;
-	ch->max_mana	= 30000;
-	ch->stam	= 30000;
-	ch->max_stam	= 30000;
-	stc( "Done.\n", ch);
+	ch->pcdata->cgroup = GROUP_CLAN | GROUP_AVATAR | GROUP_HERO
+	                     | GROUP_GEN | GROUP_QUEST | GROUP_BUILD | GROUP_CODE | GROUP_SECURE;
+	ch->level       = MAX_LEVEL;
+	ch->hit         = 30000;
+	ch->max_hit     = 30000;
+	ch->mana        = 30000;
+	ch->max_mana    = 30000;
+	ch->stam        = 30000;
+	ch->max_stam    = 30000;
+	stc("Done.\n", ch);
 }
 
 
@@ -505,46 +462,42 @@ void do_addexit(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg1);
 	one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg1))
-	{
+	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg1)) {
 		stc("Syntax:\n\r"
 		    "  addexit <to room vnum> <direction>\n\r", ch);
 		return;
 	}
 
-	if (get_room_index(atoi(arg1)) == NULL)
-	{
+	if (get_room_index(atoi(arg1)) == NULL) {
 		stc("No such room with that vnum exists.\n\r", ch);
 		return;
 	}
 
-	     if (!str_prefix1(arg2, "north"))	dir = 0;
-	else if (!str_prefix1(arg2, "east"))	dir = 1;
-	else if (!str_prefix1(arg2, "south"))	dir = 2;
-	else if (!str_prefix1(arg2, "west"))	dir = 3;
-	else if (!str_prefix1(arg2, "up"))	dir = 4;
-	else if (!str_prefix1(arg2, "down"))	dir = 5;
-	else
-	{
+	if (!str_prefix1(arg2, "north"))   dir = 0;
+	else if (!str_prefix1(arg2, "east"))    dir = 1;
+	else if (!str_prefix1(arg2, "south"))   dir = 2;
+	else if (!str_prefix1(arg2, "west"))    dir = 3;
+	else if (!str_prefix1(arg2, "up"))      dir = 4;
+	else if (!str_prefix1(arg2, "down"))    dir = 5;
+	else {
 		stc("No such direction.\n\r", ch);
 		return;
 	}
 
-	if (ch->in_room->exit[dir] != NULL)
-	{
+	if (ch->in_room->exit[dir] != NULL) {
 		stc("There is already an exit in that direction.\n\r", ch);
 		return;
 	}
 
-	exit				= alloc_perm(sizeof(*exit));
-	exit->description		= str_dup("");
-	exit->keyword			= str_dup("");
-	exit->exit_info			= 0;
-	exit->key			= -1;
-	exit->u1.vnum			= atoi(arg1);
-	exit->u1.to_room		= get_room_index(exit->u1.vnum);
-	ch->in_room->exit[dir]		= exit;
-	ch->in_room->old_exit[dir]	= exit;
+	exit                            = alloc_perm(sizeof(*exit));
+	exit->description               = str_dup("");
+	exit->keyword                   = str_dup("");
+	exit->exit_info                 = 0;
+	exit->key                       = -1;
+	exit->u1.vnum                   = atoi(arg1);
+	exit->u1.to_room                = get_room_index(exit->u1.vnum);
+	ch->in_room->exit[dir]          = exit;
+	ch->in_room->old_exit[dir]      = exit;
 	top_exit++;
 	stc("Exit added.\n\r", ch);
 }
@@ -560,27 +513,24 @@ void do_remexit(CHAR_DATA *ch, char *argument)
 
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0')
-	{
+	if (arg[0] == '\0') {
 		stc("Syntax:\n\r"
 		    "  remexit <direction>\n\r", ch);
 		return;
 	}
 
-	     if (!str_prefix1(arg, "north"))	dir = 0;
-	else if (!str_prefix1(arg, "east"))	dir = 1;
-	else if (!str_prefix1(arg, "south"))	dir = 2;
-	else if (!str_prefix1(arg, "west"))	dir = 3;
-	else if (!str_prefix1(arg, "up"))	dir = 4;
-	else if (!str_prefix1(arg, "down"))	dir = 5;
-	else
-	{
+	if (!str_prefix1(arg, "north"))    dir = 0;
+	else if (!str_prefix1(arg, "east"))     dir = 1;
+	else if (!str_prefix1(arg, "south"))    dir = 2;
+	else if (!str_prefix1(arg, "west"))     dir = 3;
+	else if (!str_prefix1(arg, "up"))       dir = 4;
+	else if (!str_prefix1(arg, "down"))     dir = 5;
+	else {
 		stc("No such direction.\n\r", ch);
 		return;
 	}
 
-	if (ch->in_room->exit[dir] == NULL)
-	{
+	if (ch->in_room->exit[dir] == NULL) {
 		stc("There is no exit in that direction.\n\r", ch);
 		return;
 	}
@@ -602,11 +552,10 @@ void do_sectchange(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (argument[0] == '\0'
-	 || !is_number(argument)
-	 || (sect = atoi(argument)) < 0
-	 || (sect > 10 && sect < 20)
-	 || sect > 21)
-	{
+	    || !is_number(argument)
+	    || (sect = atoi(argument)) < 0
+	    || (sect > 10 && sect < 20)
+	    || sect > 21) {
 		stc("Syntax:\n\r"
 		    "  sectchange <sector type number>\n\r\n\r"
 		    "Current sector types are:\n\r"
@@ -631,188 +580,177 @@ void do_sectchange(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_memory( CHAR_DATA *ch, char *argument )
+void do_memory(CHAR_DATA *ch, char *argument)
 {
-    char buf[MAX_STRING_LENGTH];
-
-    sprintf( buf, "Affects %5d\n\r", top_affect    );
-    stc( buf, ch );
-    sprintf( buf, "Areas   %5d\n\r", top_area      );
-    stc( buf, ch );
-    sprintf( buf, "ExDes   %5d\n\r", top_ed        );
-    stc( buf, ch );
-    sprintf( buf, "Exits   %5d\n\r", top_exit      );
-    stc( buf, ch );
-    sprintf( buf, "Socials %5d\n\r", count_socials());
-    stc( buf, ch );
-    sprintf( buf, "XSocs   %5d\n\r", count_xsocials());
-    stc( buf, ch);
-    sprintf( buf, "Mobs    %5d\n\r", top_mob_index);
-    stc( buf, ch );
-    sprintf( buf, "(in use)%5d\n\r", mobile_count  );
-    stc( buf, ch );
-    sprintf( buf, "Objs    %5d\n\r", top_obj_index);
-    stc( buf, ch );
-    sprintf( buf, "Resets  %5d\n\r", top_reset     );
-    stc( buf, ch );
-    sprintf( buf, "Rooms   %5d\n\r", top_room      );
-    stc( buf, ch );
-    sprintf( buf, "Shops   %5d\n\r", top_shop      );
-    stc( buf, ch );
-    sprintf( buf, "Clans   %5d\n\r", count_clans() );
-    stc( buf, ch );
-    sprintf( buf, "Characters in storage  %5d\n\r", count_stored_characters() );
-    stc( buf, ch );
-
-    sprintf( buf, "Strings %5d strings of %7d bytes (max %d).\n\r",
-        nAllocString, sAllocString, MAX_STRING );
-    stc( buf, ch );
-
-    sprintf( buf, "Perms   %5d blocks  of %7d bytes.\n\r",
-        nAllocPerm, sAllocPerm );
-    stc( buf, ch );
-
-    return;
+	char buf[MAX_STRING_LENGTH];
+	sprintf(buf, "Affects %5d\n\r", top_affect);
+	stc(buf, ch);
+	sprintf(buf, "Areas   %5d\n\r", top_area);
+	stc(buf, ch);
+	sprintf(buf, "ExDes   %5d\n\r", top_ed);
+	stc(buf, ch);
+	sprintf(buf, "Exits   %5d\n\r", top_exit);
+	stc(buf, ch);
+	sprintf(buf, "Socials %5d\n\r", count_socials());
+	stc(buf, ch);
+	sprintf(buf, "XSocs   %5d\n\r", count_xsocials());
+	stc(buf, ch);
+	sprintf(buf, "Mobs    %5d\n\r", top_mob_index);
+	stc(buf, ch);
+	sprintf(buf, "(in use)%5d\n\r", mobile_count);
+	stc(buf, ch);
+	sprintf(buf, "Objs    %5d\n\r", top_obj_index);
+	stc(buf, ch);
+	sprintf(buf, "Resets  %5d\n\r", top_reset);
+	stc(buf, ch);
+	sprintf(buf, "Rooms   %5d\n\r", top_room);
+	stc(buf, ch);
+	sprintf(buf, "Shops   %5d\n\r", top_shop);
+	stc(buf, ch);
+	sprintf(buf, "Clans   %5d\n\r", count_clans());
+	stc(buf, ch);
+	sprintf(buf, "Characters in storage  %5d\n\r", count_stored_characters());
+	stc(buf, ch);
+	sprintf(buf, "Strings %5d strings of %7d bytes (max %d).\n\r",
+	        nAllocString, sAllocString, MAX_STRING);
+	stc(buf, ch);
+	sprintf(buf, "Perms   %5d blocks  of %7d bytes.\n\r",
+	        nAllocPerm, sAllocPerm);
+	stc(buf, ch);
+	return;
 }
 
 
-void do_dump( CHAR_DATA *ch, char *argument )
+void do_dump(CHAR_DATA *ch, char *argument)
 {
-    int count,count2,num_pcs,aff_count;
-    CHAR_DATA *fch;
-    MOB_INDEX_DATA *pMobIndex;
-    PC_DATA *pc;
-    OBJ_DATA *obj;
-    OBJ_INDEX_DATA *pObjIndex;
-    ROOM_INDEX_DATA *room;
-    EXIT_DATA *exit;
-    DESCRIPTOR_DATA *d;
-    AFFECT_DATA *af;
-    FILE *fp;
-    int vnum,nMatch = 0;
+	int count, count2, num_pcs, aff_count;
+	CHAR_DATA *fch;
+	MOB_INDEX_DATA *pMobIndex;
+	PC_DATA *pc;
+	OBJ_DATA *obj;
+	OBJ_INDEX_DATA *pObjIndex;
+	ROOM_INDEX_DATA *room;
+	EXIT_DATA *exit;
+	DESCRIPTOR_DATA *d;
+	AFFECT_DATA *af;
+	FILE *fp;
+	int vnum, nMatch = 0;
+	/* open file */
+	fp = fopen("mem.dmp", "w");
+	/* report use of data structures */
+	num_pcs = 0;
+	aff_count = 0;
+	/* mobile prototypes */
+	fprintf(fp, "MobProt %4d (%8d bytes)\n",
+	        top_mob_index, top_mob_index * (sizeof(*pMobIndex)));
+	/* mobs */
+	count = 0;  count2 = 0;
 
-    /* open file */
-    fp = fopen("mem.dmp","w");
+	for (fch = char_list; fch != NULL; fch = fch->next) {
+		count++;
 
-    /* report use of data structures */
+		if (fch->pcdata != NULL)
+			num_pcs++;
 
-    num_pcs = 0;
-    aff_count = 0;
+		for (af = fch->affected; af != NULL; af = af->next)
+			aff_count++;
+	}
 
-    /* mobile prototypes */
-    fprintf(fp,"MobProt %4d (%8d bytes)\n",
-        top_mob_index, top_mob_index * (sizeof(*pMobIndex)));
+	for (fch = char_free; fch != NULL; fch = fch->next)
+		count2++;
 
-    /* mobs */
-    count = 0;  count2 = 0;
-    for (fch = char_list; fch != NULL; fch = fch->next)
-    {
-        count++;
-        if (fch->pcdata != NULL)
-            num_pcs++;
-        for (af = fch->affected; af != NULL; af = af->next)
-            aff_count++;
-    }
-    for (fch = char_free; fch != NULL; fch = fch->next)
-        count2++;
+	fprintf(fp, "Mobs    %4d (%8d bytes), %2d free (%d bytes)\n",
+	        count, count * (sizeof(*fch)), count2, count2 * (sizeof(*fch)));
+	/* pcdata */
+	count = 0;
 
-    fprintf(fp,"Mobs    %4d (%8d bytes), %2d free (%d bytes)\n",
-        count, count * (sizeof(*fch)), count2, count2 * (sizeof(*fch)));
+	for (pc = pcdata_free; pc != NULL; pc = pc->next)
+		count++;
 
-    /* pcdata */
-    count = 0;
-    for (pc = pcdata_free; pc != NULL; pc = pc->next)
-        count++;
+	fprintf(fp, "Pcdata  %4d (%8d bytes), %2d free (%d bytes)\n",
+	        num_pcs, num_pcs * (sizeof(*pc)), count, count * (sizeof(*pc)));
+	/* descriptors */
+	count = 0; count2 = 0;
 
-    fprintf(fp,"Pcdata  %4d (%8d bytes), %2d free (%d bytes)\n",
-        num_pcs, num_pcs * (sizeof(*pc)), count, count * (sizeof(*pc)));
+	for (d = descriptor_list; d != NULL; d = d->next)
+		count++;
 
-    /* descriptors */
-    count = 0; count2 = 0;
-    for (d = descriptor_list; d != NULL; d = d->next)
-        count++;
-    for (d= descriptor_free; d != NULL; d = d->next)
-        count2++;
+	for (d = descriptor_free; d != NULL; d = d->next)
+		count2++;
 
-    fprintf(fp, "Descs  %4d (%8d bytes), %2d free (%d bytes)\n",
-        count, count * (sizeof(*d)), count2, count2 * (sizeof(*d)));
+	fprintf(fp, "Descs  %4d (%8d bytes), %2d free (%d bytes)\n",
+	        count, count * (sizeof(*d)), count2, count2 * (sizeof(*d)));
 
-    /* object prototypes */
-    for ( vnum = 0; nMatch < top_obj_index; vnum++ )
-        if ( ( pObjIndex = get_obj_index( vnum ) ) != NULL )
-        {
-            for (af = pObjIndex->affected; af != NULL; af = af->next)
-                aff_count++;
-            nMatch++;
-        }
+	/* object prototypes */
+	for (vnum = 0; nMatch < top_obj_index; vnum++)
+		if ((pObjIndex = get_obj_index(vnum)) != NULL) {
+			for (af = pObjIndex->affected; af != NULL; af = af->next)
+				aff_count++;
 
-    fprintf(fp,"ObjProt %4d (%8d bytes)\n",
-        top_obj_index, top_obj_index * (sizeof(*pObjIndex)));
+			nMatch++;
+		}
 
+	fprintf(fp, "ObjProt %4d (%8d bytes)\n",
+	        top_obj_index, top_obj_index * (sizeof(*pObjIndex)));
+	/* objects */
+	count = 0;  count2 = 0;
 
-    /* objects */
-    count = 0;  count2 = 0;
-    for (obj = object_list; obj != NULL; obj = obj->next)
-    {
-        count++;
-        for (af = obj->affected; af != NULL; af = af->next)
-            aff_count++;
-    }
-    for (obj = obj_free; obj != NULL; obj = obj->next)
-        count2++;
+	for (obj = object_list; obj != NULL; obj = obj->next) {
+		count++;
 
-    fprintf(fp,"Objs    %4d (%8d bytes), %2d free (%d bytes)\n",
-        count, count * (sizeof(*obj)), count2, count2 * (sizeof(*obj)));
+		for (af = obj->affected; af != NULL; af = af->next)
+			aff_count++;
+	}
 
-    /* affects */
-    count = 0;
-    for (af = affect_free; af != NULL; af = af->next)
-        count++;
+	for (obj = obj_free; obj != NULL; obj = obj->next)
+		count2++;
 
-    fprintf(fp,"Affects %4d (%8d bytes), %2d free (%d bytes)\n",
-        aff_count, aff_count * (sizeof(*af)), count, count * (sizeof(*af)));
+	fprintf(fp, "Objs    %4d (%8d bytes), %2d free (%d bytes)\n",
+	        count, count * (sizeof(*obj)), count2, count2 * (sizeof(*obj)));
+	/* affects */
+	count = 0;
 
-    /* rooms */
-    fprintf(fp,"Rooms   %4d (%8d bytes)\n",
-        top_room, top_room * (sizeof(*room)));
+	for (af = affect_free; af != NULL; af = af->next)
+		count++;
 
-     /* exits */
-    fprintf(fp,"Exits   %4d (%8d bytes)\n",
-        top_exit, top_exit * (sizeof(*exit)));
+	fprintf(fp, "Affects %4d (%8d bytes), %2d free (%d bytes)\n",
+	        aff_count, aff_count * (sizeof(*af)), count, count * (sizeof(*af)));
+	/* rooms */
+	fprintf(fp, "Rooms   %4d (%8d bytes)\n",
+	        top_room, top_room * (sizeof(*room)));
+	/* exits */
+	fprintf(fp, "Exits   %4d (%8d bytes)\n",
+	        top_exit, top_exit * (sizeof(*exit)));
+	fclose(fp);
+	/* start printing out mobile data */
+	fp = fopen("mob.dmp", "w");
+	fprintf(fp, "\nMobile Analysis\n");
+	fprintf(fp,  "---------------\n");
+	nMatch = 0;
 
-    fclose(fp);
+	for (vnum = 0; nMatch < top_mob_index; vnum++)
+		if ((pMobIndex = get_mob_index(vnum)) != NULL) {
+			nMatch++;
+			fprintf(fp, "#%-4d %3d active %3d killed     %s\n",
+			        pMobIndex->vnum, pMobIndex->count,
+			        pMobIndex->killed, pMobIndex->short_descr);
+		}
 
-    /* start printing out mobile data */
-    fp = fopen("mob.dmp","w");
+	fclose(fp);
+	/* start printing out object data */
+	fp = fopen("obj.dmp", "w");
+	fprintf(fp, "\nObject Analysis\n");
+	fprintf(fp,  "---------------\n");
+	nMatch = 0;
 
-    fprintf(fp,"\nMobile Analysis\n");
-    fprintf(fp,  "---------------\n");
-    nMatch = 0;
-    for (vnum = 0; nMatch < top_mob_index; vnum++)
-        if ((pMobIndex = get_mob_index(vnum)) != NULL)
-        {
-            nMatch++;
-            fprintf(fp,"#%-4d %3d active %3d killed     %s\n",
-                pMobIndex->vnum,pMobIndex->count,
-                pMobIndex->killed,pMobIndex->short_descr);
-        }
-    fclose(fp);
+	for (vnum = 0; nMatch < top_obj_index; vnum++)
+		if ((pObjIndex = get_obj_index(vnum)) != NULL) {
+			nMatch++;
+			fprintf(fp, "#%-4d %3d active %3d reset      %s\n",
+			        pObjIndex->vnum, pObjIndex->count,
+			        pObjIndex->reset_num, pObjIndex->short_descr);
+		}
 
-    /* start printing out object data */
-    fp = fopen("obj.dmp","w");
-
-    fprintf(fp,"\nObject Analysis\n");
-    fprintf(fp,  "---------------\n");
-    nMatch = 0;
-    for (vnum = 0; nMatch < top_obj_index; vnum++)
-        if ((pObjIndex = get_obj_index(vnum)) != NULL)
-        {
-            nMatch++;
-            fprintf(fp,"#%-4d %3d active %3d reset      %s\n",
-                pObjIndex->vnum,pObjIndex->count,
-                pObjIndex->reset_num,pObjIndex->short_descr);
-        }
-
-    /* close file */
-    fclose(fp);
+	/* close file */
+	fclose(fp);
 }
