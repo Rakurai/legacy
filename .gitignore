@@ -6,6 +6,7 @@ bootfile
 core*
 player/backup/*
 player/*
+src/obj/*
 legacy
 legacy.bak
 sand_server
