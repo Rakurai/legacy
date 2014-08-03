@@ -14,14 +14,13 @@ Licensesd under the GNU Genral Public License.
 
 void Strip_Newline(char *line)
 {
-   int index;
-   int max_length;
+	int index;
+	int max_length;
+	max_length = strlen(line);
 
-   max_length = strlen(line);
-   for (index = 0; index < max_length; index++)
-   {
-     if ( (line[index] == '\r') || (line[index] == '\n') )
-        line[index] = '\0';
-   }
+	for (index = 0; index < max_length; index++) {
+		if ((line[index] == '\r') || (line[index] == '\n'))
+			line[index] = '\0';
+	}
 }
 

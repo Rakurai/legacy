@@ -16,17 +16,17 @@
 
 /* character finding functions */
 
-/* get_mob_here		(CHAR_DATA *ch, char *argument, int vis)
-   get_mob_area		(CHAR_DATA *ch, char *argument, int vis)
-   get_mob_world	(CHAR_DATA *ch, char *argument, int vis)
+/* get_mob_here         (CHAR_DATA *ch, char *argument, int vis)
+   get_mob_area         (CHAR_DATA *ch, char *argument, int vis)
+   get_mob_world        (CHAR_DATA *ch, char *argument, int vis)
 
-   get_player_here	(CHAR_DATA *ch, char *argument, int vis)
-   get_player_area	(CHAR_DATA *ch, char *argument, int vis)
-   get_player_world	(CHAR_DATA *ch, char *argument, int vis)
+   get_player_here      (CHAR_DATA *ch, char *argument, int vis)
+   get_player_area      (CHAR_DATA *ch, char *argument, int vis)
+   get_player_world     (CHAR_DATA *ch, char *argument, int vis)
 
-   get_char_here	(CHAR_DATA *ch, char *argument, int vis)
-   get_char_area	(CHAR_DATA *ch, char *argument, int vis)
-   get_char_world	(CHAR_DATA *ch, char *argument, int vis)
+   get_char_here        (CHAR_DATA *ch, char *argument, int vis)
+   get_char_area        (CHAR_DATA *ch, char *argument, int vis)
+   get_char_world       (CHAR_DATA *ch, char *argument, int vis)
 */
 
 
@@ -36,7 +36,6 @@ CHAR_DATA *get_mob_here(CHAR_DATA *ch, char *argument, int vis)
 	char arg[MIL];
 	CHAR_DATA *rch;
 	int number, count = 0, etype, vnum = 0;
-
 	etype = entity_argument(argument, arg);
 	number = number_argument(arg, arg);
 
@@ -46,21 +45,18 @@ CHAR_DATA *get_mob_here(CHAR_DATA *ch, char *argument, int vis)
 	if (!str_cmp(arg, "self"))
 		return ch;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-	{
+	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
 		if (rch->in_room == NULL)
 			continue;
 
 		if (!IS_NPC(rch))
 			continue;
 
-		if (etype == ENTITY_VM)
-		{
+		if (etype == ENTITY_VM) {
 			if (!IS_NPC(rch) || !rch->pIndexData || rch->pIndexData->vnum != vnum)
 				continue;
 		}
-		else
-		{
+		else {
 			if (etype != 0 && !CHARTYPE_MATCH(rch, etype))
 				continue;
 
@@ -68,11 +64,12 @@ CHAR_DATA *get_mob_here(CHAR_DATA *ch, char *argument, int vis)
 				continue;
 		}
 
-		switch (vis)
-		{
-			case VIS_PLR:	if (!can_see_who(ch, rch))	continue;	break;
-			case VIS_CHAR:	if (!can_see    (ch, rch))	continue;	break;
-			default:							break;
+		switch (vis) {
+		case VIS_PLR:   if (!can_see_who(ch, rch))      continue;       break;
+
+		case VIS_CHAR:  if (!can_see(ch, rch))      continue;       break;
+
+		default:                                                        break;
 		}
 
 		if (++count == number)
@@ -97,8 +94,7 @@ CHAR_DATA *get_mob_area(CHAR_DATA *ch, char *argument, int vis)
 	etype = entity_argument(argument, arg);
 	number = number_argument(arg, arg);
 
-	for (ach = char_list; ach != NULL; ach = ach->next)
-	{
+	for (ach = char_list; ach != NULL; ach = ach->next) {
 		if (!IS_NPC(ach))
 			continue;
 
@@ -109,14 +105,15 @@ CHAR_DATA *get_mob_area(CHAR_DATA *ch, char *argument, int vis)
 			continue;
 
 		if (ach->in_room->area != ch->in_room->area
-		 || !is_name(arg, ach->name))
+		    || !is_name(arg, ach->name))
 			continue;
 
-		switch (vis)
-		{
-			case VIS_PLR:	if (!can_see_who(ch, ach))	continue;	break;
-			case VIS_CHAR:	if (!can_see    (ch, ach))	continue;	break;
-			default:							break;
+		switch (vis) {
+		case VIS_PLR:   if (!can_see_who(ch, ach))      continue;       break;
+
+		case VIS_CHAR:  if (!can_see(ch, ach))      continue;       break;
+
+		default:                                                        break;
 		}
 
 		if (++count == number)
@@ -144,33 +141,31 @@ CHAR_DATA *get_mob_world(CHAR_DATA *ch, char *argument, int vis)
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	for (wch = char_list; wch != NULL ; wch = wch->next)
-	{
+	for (wch = char_list; wch != NULL ; wch = wch->next) {
 		if (!IS_NPC(wch))
 			continue;
 
 		if (wch->in_room == NULL)
 			continue;
 
-		if (etype == ENTITY_VM)
-		{
+		if (etype == ENTITY_VM) {
 			if (!IS_NPC(wch) || !wch->pIndexData || wch->pIndexData->vnum != vnum)
 				continue;
 		}
-		else
-		{
-			if (etype != 0 && !CHARTYPE_MATCH(wch,etype))
+		else {
+			if (etype != 0 && !CHARTYPE_MATCH(wch, etype))
 				continue;
 
 			if (!is_name(arg, wch->name))
 				continue;
 		}
 
-		switch (vis)
-		{
-			case VIS_PLR:	if (!can_see_who(ch, wch))	continue;	break;
-			case VIS_CHAR:	if (!can_see    (ch, wch))	continue;	break;
-			default:							break;
+		switch (vis) {
+		case VIS_PLR:   if (!can_see_who(ch, wch))      continue;       break;
+
+		case VIS_CHAR:  if (!can_see(ch, wch))      continue;       break;
+
+		default:                                                        break;
 		}
 
 		if (++count == number)
@@ -188,7 +183,6 @@ CHAR_DATA *get_char_here(CHAR_DATA *ch, char *argument, int vis)
 	char arg[MIL];
 	CHAR_DATA *rch;
 	int number, count = 0, etype, vnum = 0;
-
 	etype = entity_argument(argument, arg);
 	number = number_argument(arg, arg);
 
@@ -198,18 +192,15 @@ CHAR_DATA *get_char_here(CHAR_DATA *ch, char *argument, int vis)
 	if (!str_cmp(arg, "self"))
 		return ch;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-	{
+	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
 		if (rch->in_room == NULL)
 			continue;
 
-		if (etype == ENTITY_VM)
-		{
+		if (etype == ENTITY_VM) {
 			if (!IS_NPC(rch) || !rch->pIndexData || rch->pIndexData->vnum != vnum)
 				continue;
 		}
-		else
-		{
+		else {
 			if (etype != 0 && !CHARTYPE_MATCH(rch, etype))
 				continue;
 
@@ -217,11 +208,12 @@ CHAR_DATA *get_char_here(CHAR_DATA *ch, char *argument, int vis)
 				continue;
 		}
 
-		switch (vis)
-		{
-			case VIS_PLR:	if (!can_see_who(ch, rch))	continue;	break;
-			case VIS_CHAR:	if (!can_see    (ch, rch))	continue;	break;
-			default:							break;
+		switch (vis) {
+		case VIS_PLR:   if (!can_see_who(ch, rch))      continue;       break;
+
+		case VIS_CHAR:  if (!can_see(ch, rch))      continue;       break;
+
+		default:                                                        break;
 		}
 
 		if (++count == number)
@@ -240,51 +232,47 @@ player is in.
 */
 CHAR_DATA *get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, char *argument, int vis)
 {
-        char arg[MIL];
-        CHAR_DATA *rch;
-        int number, count = 0, etype, vnum = 0;
+	char arg[MIL];
+	CHAR_DATA *rch;
+	int number, count = 0, etype, vnum = 0;
+	etype = entity_argument(argument, arg);
+	number = number_argument(arg, arg);
 
-        etype = entity_argument(argument, arg);
-        number = number_argument(arg, arg);
+	if (etype == ENTITY_VM)
+		vnum = atoi(arg);
 
-        if (etype == ENTITY_VM)
-                vnum = atoi(arg);
+	if (!str_cmp(arg, "self"))
+		return ch;
 
-        if (!str_cmp(arg, "self"))
-                return ch;
+	for (rch = room->people; rch != NULL; rch = rch->next_in_room) {
+		if (rch->in_room == NULL)
+			continue;
 
-        for (rch = room->people; rch != NULL; rch = rch->next_in_room)
-        {
-                if (rch->in_room == NULL)
-                        continue;
+		if (etype == ENTITY_VM) {
+			if (!IS_NPC(rch) || !rch->pIndexData || rch->pIndexData->vnum != vnum)
+				continue;
+		}
+		else {
+			if (etype != 0 && !CHARTYPE_MATCH(rch, etype))
+				continue;
 
-                if (etype == ENTITY_VM)
-                {
-                        if (!IS_NPC(rch) || !rch->pIndexData || rch->pIndexData->vnum != vnum)
-                                continue;
-                }
-                else
-                {
-                        if (etype != 0 && !CHARTYPE_MATCH(rch, etype))
-                                continue;
+			if (!is_name(arg, rch->name))
+				continue;
+		}
 
-                        if (!is_name(arg, rch->name))
-                                continue;
-                }
+		switch (vis) {
+		case VIS_PLR:   if (!can_see_who(ch, rch))      continue;       break;
 
-                switch (vis)
-                {
-                        case VIS_PLR:   if (!can_see_who(ch, rch))      continue;       break;
-                        case VIS_CHAR:  if (!can_see    (ch, rch))      continue;       break;
-                        default:                                                        break;
-                }
+		case VIS_CHAR:  if (!can_see(ch, rch))      continue;       break;
 
-                if (++count == number)
-                        return rch;
-        }
+		default:                                                        break;
+		}
 
-        return NULL;
+		if (++count == number)
+			return rch;
+	}
 
+	return NULL;
 }
 
 
@@ -305,8 +293,7 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, char *argument, int vis)
 	etype = entity_argument(argument, arg);
 	number = number_argument(arg, arg);
 
-	for (ach = char_list; ach != NULL; ach = ach->next)
-	{
+	for (ach = char_list; ach != NULL; ach = ach->next) {
 		if (ach->in_room == NULL)
 			continue;
 
@@ -314,14 +301,15 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, char *argument, int vis)
 			continue;
 
 		if (ach->in_room->area != ch->in_room->area
-		 || !is_name(arg, ach->name))
+		    || !is_name(arg, ach->name))
 			continue;
 
-		switch (vis)
-		{
-			case VIS_PLR:	if (!can_see_who(ch, ach))	continue;	break;
-			case VIS_CHAR:	if (!can_see    (ch, ach))	continue;	break;
-			default:							break;
+		switch (vis) {
+		case VIS_PLR:   if (!can_see_who(ch, ach))      continue;       break;
+
+		case VIS_CHAR:  if (!can_see(ch, ach))      continue;       break;
+
+		default:                                                        break;
 		}
 
 		if (++count == number)
@@ -349,30 +337,28 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, char *argument, int vis)
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
 
-	for (wch = char_list; wch != NULL ; wch = wch->next)
-	{
+	for (wch = char_list; wch != NULL ; wch = wch->next) {
 		if (wch->in_room == NULL)
 			continue;
 
-		if (etype == ENTITY_VM)
-		{
+		if (etype == ENTITY_VM) {
 			if (!IS_NPC(wch) || !wch->pIndexData || wch->pIndexData->vnum != vnum)
 				continue;
 		}
-		else
-		{
-			if (etype != 0 && !CHARTYPE_MATCH(wch,etype))
+		else {
+			if (etype != 0 && !CHARTYPE_MATCH(wch, etype))
 				continue;
 
 			if (!is_name(arg, wch->name))
 				continue;
 		}
 
-		switch (vis)
-		{
-			case VIS_PLR:	if (!can_see_who(ch, wch))	continue;	break;
-			case VIS_CHAR:	if (!can_see    (ch, wch))	continue;	break;
-			default:							break;
+		switch (vis) {
+		case VIS_PLR:   if (!can_see_who(ch, wch))      continue;       break;
+
+		case VIS_CHAR:  if (!can_see(ch, wch))      continue;       break;
+
+		default:                                                        break;
 		}
 
 		if (++count == number)
@@ -395,17 +381,17 @@ CHAR_DATA *get_player_here(CHAR_DATA *ch, char *argument, int vis)
 	if (ch->in_room == NULL)
 		return NULL;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-	{
-		switch (vis)
-		{
-			case VIS_PLR:	if (!can_see_who(ch, rch))	continue;	break;
-			case VIS_CHAR:	if (!can_see    (ch, rch))	continue;	break;
-			default:							break;
+	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
+		switch (vis) {
+		case VIS_PLR:   if (!can_see_who(ch, rch))      continue;       break;
+
+		case VIS_CHAR:  if (!can_see(ch, rch))      continue;       break;
+
+		default:                                                        break;
 		}
 
 		if (!IS_NPC(rch)
-		 && is_name(argument, rch->name))
+		    && is_name(argument, rch->name))
 			return rch;
 	}
 
@@ -427,30 +413,28 @@ CHAR_DATA *get_player_area(CHAR_DATA *ch, char *argument, int vis)
 		return NULL;
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (apc = pc_list; apc != NULL; apc = apc->next)
-	{
-		if ((ach = apc->ch) == NULL)
-		{
+	for (apc = pc_list; apc != NULL; apc = apc->next) {
+		if ((ach = apc->ch) == NULL) {
 			bug("get_player_area: pc_data without char_data", 0);
 			continue;
 		}
 
-		if (IS_NPC(ach))
-		{
+		if (IS_NPC(ach)) {
 			bug("get_player_area: pc_data with mobile char_data", 0);
 			continue;
 		}
 
-		switch (vis)
-		{
-			case VIS_PLR:	if (!can_see_who(ch, ach))	continue;	break;
-			case VIS_CHAR:	if (!can_see    (ch, ach))	continue;	break;
-			default:							break;
+		switch (vis) {
+		case VIS_PLR:   if (!can_see_who(ch, ach))      continue;       break;
+
+		case VIS_CHAR:  if (!can_see(ch, ach))      continue;       break;
+
+		default:                                                        break;
 		}
 
 		if (ach->in_room != NULL
-		 && ach->in_room->area == ch->in_room->area
-		 && is_name(argument, ach->name))
+		    && ach->in_room->area == ch->in_room->area
+		    && is_name(argument, ach->name))
 			return ach;
 	}
 
@@ -469,32 +453,30 @@ CHAR_DATA *get_player_world(CHAR_DATA *ch, char *argument, int vis)
 		return ch;
 
 	if (argument[0] == '\0')
-		return NULL;		/* sloppy, prevents Alara from accidentally frying players -- Montrey */
+		return NULL;            /* sloppy, prevents Alara from accidentally frying players -- Montrey */
 
 	/* use the pc_data list instead of searching through thousands of mobs -- Montrey */
-	for (wpc = pc_list; wpc != NULL; wpc = wpc->next)
-	{
-		if ((wch = wpc->ch) == NULL)
-		{
+	for (wpc = pc_list; wpc != NULL; wpc = wpc->next) {
+		if ((wch = wpc->ch) == NULL) {
 			bug("get_player_world: pc_data without char_data", 0);
 			continue;
 		}
 
-		if (IS_NPC(wch))
-		{
+		if (IS_NPC(wch)) {
 			bug("get_player_world: pc_data with mobile char_data", 0);
 			continue;
 		}
 
-		switch (vis)
-		{
-			case VIS_PLR:	if (!can_see_who(ch, wch))	continue;	break;
-			case VIS_CHAR:	if (!can_see    (ch, wch))	continue;	break;
-			default:							break;
+		switch (vis) {
+		case VIS_PLR:   if (!can_see_who(ch, wch))      continue;       break;
+
+		case VIS_CHAR:  if (!can_see(ch, wch))      continue;       break;
+
+		default:                                                        break;
 		}
 
 		if (wch->in_room != NULL
-		 && is_name(argument, wch->name))
+		    && is_name(argument, wch->name))
 			return wch;
 	}
 
@@ -503,12 +485,11 @@ CHAR_DATA *get_player_world(CHAR_DATA *ch, char *argument, int vis)
 
 
 /* Find an obj in a list. */
-OBJ_DATA *get_obj_list( CHAR_DATA *ch, char *argument, OBJ_DATA *list )
+OBJ_DATA *get_obj_list(CHAR_DATA *ch, char *argument, OBJ_DATA *list)
 {
 	char arg[MSL];
 	OBJ_DATA *obj;
 	int number, count = 0;
-
 	number = number_argument(argument, arg);
 
 	for (obj = list; obj != NULL; obj = obj->next_content)
@@ -526,13 +507,12 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, char *argument)
 	char arg[MSL];
 	OBJ_DATA *obj;
 	int number, count = 0;
-
 	number = number_argument(argument, arg);
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
 		if (obj->wear_loc != WEAR_NONE
-		 && can_see_obj(ch, obj)
-		 && is_name(arg, obj->name))
+		    && can_see_obj(ch, obj)
+		    && is_name(arg, obj->name))
 			if (++count == number)
 				break;
 
@@ -541,18 +521,17 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, char *argument)
 
 
 /* Find an obj in player's inventory. */
-OBJ_DATA *get_obj_carry( CHAR_DATA *ch, char *argument )
+OBJ_DATA *get_obj_carry(CHAR_DATA *ch, char *argument)
 {
 	char arg[MSL];
 	OBJ_DATA *obj;
 	int number, count = 0;
-
 	number = number_argument(argument, arg);
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
 		if (obj->wear_loc == WEAR_NONE
-		 && can_see_obj(ch, obj)
-		 && is_name(arg, obj->name))
+		    && can_see_obj(ch, obj)
+		    && is_name(arg, obj->name))
 			if (++count == number)
 				break;
 
@@ -561,7 +540,7 @@ OBJ_DATA *get_obj_carry( CHAR_DATA *ch, char *argument )
 
 
 /* Find an obj in the room or in inventory. */
-OBJ_DATA *get_obj_here( CHAR_DATA *ch, char *argument )
+OBJ_DATA *get_obj_here(CHAR_DATA *ch, char *argument)
 {
 	OBJ_DATA *obj;
 
@@ -576,7 +555,7 @@ OBJ_DATA *get_obj_here( CHAR_DATA *ch, char *argument )
 
 
 /* Find an obj in the world. */
-OBJ_DATA *get_obj_world( CHAR_DATA *ch, char *argument )
+OBJ_DATA *get_obj_world(CHAR_DATA *ch, char *argument)
 {
 	char arg[MSL];
 	OBJ_DATA *obj;
@@ -589,7 +568,7 @@ OBJ_DATA *get_obj_world( CHAR_DATA *ch, char *argument )
 
 	for (obj = object_list; obj; obj = obj->next)
 		if (can_see_obj(ch, obj)
-		 && is_name(arg, obj->name))
+		    && is_name(arg, obj->name))
 			if (++count == number)
 				break;
 

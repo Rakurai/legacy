@@ -19,21 +19,21 @@
 
 
 #if !defined(OLD_RAND)
-	void srandom(unsigned int);
-	int getpid();
-	time_t time(time_t *tloc);
+void srandom(unsigned int);
+int getpid();
+time_t time(time_t *tloc);
 #endif
 
 
 /* Roll some dice. */
-int dice (int number, int size)
+int dice(int number, int size)
 {
 	int idice, sum;
 
-	switch (size)
-	{
-		case 0:	return 0;
-		case 1:	return number;
+	switch (size) {
+	case 0: return 0;
+
+	case 1: return number;
 	}
 
 	for (idice = 0, sum = 0; idice < number; idice++)
@@ -46,10 +46,10 @@ int dice (int number, int size)
 /* Stick a little fuzz on a number. */
 int number_fuzzy(int number)
 {
-	switch (number_bits(2))
-	{
-		case 0:	number -= 1;	break;
-		case 3:	number += 1;	break;
+	switch (number_bits(2)) {
+	case 0: number -= 1;    break;
+
+	case 3: number += 1;    break;
 	}
 
 	return UMAX(1, number);
@@ -68,7 +68,8 @@ int number_range(int from, int to)
 		return from;
 
 	for (power = 2; power < to; power <<= 1);
-	while ((number = number_mm() & (power -1)) >= to);
+
+	while ((number = number_mm() & (power - 1)) >= to);
 
 	return from + number;
 }
@@ -79,7 +80,8 @@ int number_percent(void)
 {
 	int percent;
 
-	while ((percent = number_mm() & (128-1)) > 99);
+	while ((percent = number_mm() & (128 - 1)) > 99);
+
 	return 1 + percent;
 }
 
@@ -89,7 +91,8 @@ int number_door(void)
 {
 	int door;
 
-	while ((door = number_mm() & (8-1)) > 5);
+	while ((door = number_mm() & (8 - 1)) > 5);
+
 	return door;
 }
 
@@ -113,56 +116,56 @@ int number_bits(int width)
    define OLD_RAND to use the old system -- Alander */
 
 #if defined (OLD_RAND)
-static  int     rgiState[2+55];
+static  int     rgiState[2 + 55];
 #endif
 
 void init_mm()
 {
 #if defined (OLD_RAND)
-    int *piState;
-    int iState;
+	int *piState;
+	int iState;
+	piState     = &rgiState[2];
+	piState[-2] = 55 - 55;
+	piState[-1] = 55 - 24;
+	piState[0]  = ((int) current_time) & ((1 << 30) - 1);
+	piState[1]  = 1;
 
-    piState     = &rgiState[2];
+	for (iState = 2; iState < 55; iState++) {
+		piState[iState] = (piState[iState - 1] + piState[iState - 2])
+		                  & ((1 << 30) - 1);
+	}
 
-    piState[-2] = 55 - 55;
-    piState[-1] = 55 - 24;
-
-    piState[0]  = ((int) current_time) & ((1 << 30) - 1);
-    piState[1]  = 1;
-    for ( iState = 2; iState < 55; iState++ )
-    {
-        piState[iState] = (piState[iState-1] + piState[iState-2])
-                        & ((1 << 30) - 1);
-    }
 #else
-    srandom(time(NULL)^getpid());
+	srandom(time(NULL)^getpid());
 #endif
-    return;
+	return;
 }
 
 
-long number_mm( void )
+long number_mm(void)
 {
 #if defined (OLD_RAND)
-    int *piState;
-    int iState1;
-    int iState2;
-    int iRand;
+	int *piState;
+	int iState1;
+	int iState2;
+	int iRand;
+	piState             = &rgiState[2];
+	iState1             = piState[-2];
+	iState2             = piState[-1];
+	iRand               = (piState[iState1] + piState[iState2])
+	                      & ((1 << 30) - 1);
+	piState[iState1]    = iRand;
 
-    piState             = &rgiState[2];
-    iState1             = piState[-2];
-    iState2             = piState[-1];
-    iRand               = (piState[iState1] + piState[iState2])
-                        & ((1 << 30) - 1);
-    piState[iState1]    = iRand;
-    if ( ++iState1 == 55 )
-        iState1 = 0;
-    if ( ++iState2 == 55 )
-        iState2 = 0;
-    piState[-2]         = iState1;
-    piState[-1]         = iState2;
-    return iRand >> 6;
+	if (++iState1 == 55)
+		iState1 = 0;
+
+	if (++iState2 == 55)
+		iState2 = 0;
+
+	piState[-2]         = iState1;
+	piState[-1]         = iState2;
+	return iRand >> 6;
 #else
-    return random() >> 6;
+	return random() >> 6;
 #endif
 }
