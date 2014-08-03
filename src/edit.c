@@ -753,12 +753,12 @@ static void edit_help( CHAR_DATA *ch, char *argument )
     MYSQL_RES *result;
     MYSQL_ROW row;
 
-    if ((result = db_queryf("edit_help", "select text from helps where id=%d", id)) == NULL) {
+    if ((result = db_queryf("edit_help", "select text from helps where id=%d", id)) == NULL
+     || (row = mysql_fetch_row(result)) == NULL) {
         stc("Couldn't retrieve a help with that ID.\n\r", ch);
         return;
     }
 
-    row = mysql_fetch_row(result);
     char *str = row[0];
     if (!str)
         str = "";
