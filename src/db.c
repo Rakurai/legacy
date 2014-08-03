@@ -392,12 +392,6 @@ void boot_db()
 		init_mm();
 	}
 
-	// load our configuration
-	if (load_config(CONFIG_FILE) != 0) {
-		bug("Failed to load configuration from %s.", CONFIG_FILE);
-		exit(1);
-	}
-
 	/* Load the clan info, needs to be done before the areas due to clanrooms */
 	{
 		load_clan_table();

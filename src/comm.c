@@ -574,6 +574,12 @@ int main(int argc, char **argv)
 	/* simple asynchronous name daemon support -- Elrac */
 	sand_init(SANDCLIENTPORT, SANDSERVERPORT);
 #endif
+        // load our configuration
+        if (load_config(CONFIG_FILE) != 0) {
+                bug("Failed to load configuration from %s.", CONFIG_FILE);
+                exit(1);
+        }
+
 	/* constant connection to mysql db */
 	/* this must come before boot_db() */
 	db_open();

@@ -8,8 +8,9 @@ int load_config(char *filename) {
 	long fsize;
 	char *str;
 	cJSON *json, *obj;
+	int items = 0;
 
-	if ((cf = fopen(filename, "rt")) == NULL) {
+	if ((cf = fopen(filename, "rb")) == NULL) {
 		bug("Could not open config file for reading.", 0);
 		return -1;
 	}
@@ -31,7 +32,7 @@ int load_config(char *filename) {
 	}
 
 	// read the file
-	if (fread(str, fsize, 1, cf) != fsize) {
+	if (fread(str, 1, fsize, cf) != fsize) {
 		bug("Error in reading config file.", 0);
 		fclose(cf);
 		return -1;
@@ -52,18 +53,23 @@ int load_config(char *filename) {
 	// got a valid json object, pull values from it
 	if ((obj = cJSON_GetObjectItem(json, "db_host")) != NULL) {
 		DB_HOST = str_dup(obj->valuestring);
+		items++;
 	}
 	if ((obj = cJSON_GetObjectItem(json, "db_name")) != NULL) {
 		DB_NAME = str_dup(obj->valuestring);
+		items++;
 	}
 	if ((obj = cJSON_GetObjectItem(json, "db_user")) != NULL) {
 		DB_USER = str_dup(obj->valuestring);
+		items++;
 	}
 	if ((obj = cJSON_GetObjectItem(json, "db_pass")) != NULL) {
 		DB_PASS = str_dup(obj->valuestring);
+		items++;
 	}
 
 	// free the structure
 	cJSON_Delete(json);
+	printf("loaded %d items from config file\n", items);
 	return 0;
 }
