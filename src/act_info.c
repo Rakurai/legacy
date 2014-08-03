@@ -3414,6 +3414,12 @@ void do_title(CHAR_DATA *ch, char *argument)
 	if (color_strlen(argument) > 45)
 		argument[45] = '\0';
 
+	if (!str_cmp(argument, "none")) {
+		set_title(ch, "");
+		stc("Title Changed.\n\r", ch);
+		return;
+	}
+
 	smash_tilde(argument);
 	set_title(ch, argument);
 	stc("Title Changed.\n\r", ch);
