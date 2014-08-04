@@ -44,14 +44,14 @@
  */
 
 #include <sys/types.h>
-#include <time.h>
+//#include<time.h>
 #include <unistd.h>
 #include <ctype.h>
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <time.h>
+//#include<time.h>
 #include <stdarg.h>
 #include <sys/shm.h>
 

@@ -28,7 +28,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
+//#include<time.h>
 #include "merc.h"
 #include "music.h"
 #include "lookup.h"

@@ -40,7 +40,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
+//#include<time.h>
 #include "merc.h"
 
 void do_marry(CHAR_DATA *ch, char *argument)

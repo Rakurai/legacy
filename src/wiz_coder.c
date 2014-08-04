@@ -21,7 +21,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <signal.h>
-#include <time.h>
+//#include<time.h>
 #include "merc.h"
 #include "lookup.h"
 #include "recycle.h"

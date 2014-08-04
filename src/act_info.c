@@ -31,7 +31,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <time.h>
+//#include<time.h>
 #include <sys/stat.h>
 #include "merc.h"
 #include "magic.h"

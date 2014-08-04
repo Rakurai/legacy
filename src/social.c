@@ -38,7 +38,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
+//#include<time.h>
 #include "merc.h"
 #include "db.h"
 #include "interp.h"

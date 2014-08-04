@@ -16,7 +16,7 @@
 
 #if defined(macintosh)
 #include <types.h>
-#include <time.h>
+//#include<time.h>
 #else
 #include <sys/types.h>
 #include <sys/time.h>

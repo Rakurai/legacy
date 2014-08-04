@@ -13,7 +13,7 @@
    -- Outsider
 */
 #include <stdlib.h>
-#include <time.h>
+//#include<time.h>
 #include "merc.h"
 
 /* Passengers */
