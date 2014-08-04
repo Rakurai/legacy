@@ -714,10 +714,10 @@ Syntax:
 
 These spells are for the use of dragons; however, high level mages may
 also learn and cast these spells. Acid Breath and Lightning Breath
-effect either the given {Yvictim{x or everyone who is currently fighting
-the caster. Fire, Frost and Gas Breath effect all non-friendly targets
-in the room.
-{CFire{x and {Cfrost{x can break objects, and {Cacid{x can damage armor.
+effect either the given {Yvictim{x or everyone who is currently fighting
+the caster. Fire, Frost and Gas Breath effect all non-friendly targets
+in the room.
+{CFire{x and {Cfrost{x can break objects, and {Cacid{x can damage armor.
 
 GROUP: {RDraconian{x
 ~

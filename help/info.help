@@ -495,8 +495,9 @@ Syntax: {Cpassword{x <{Yold-password{x> <{Ynew-password{x>
 
 0 TITLE~
 Syntax: {Ctitle{x <{Ystring{x>
+        {Ctitle {xnone
 
-Sets your {Ctitle{x to a given string.
+Sets your {Ctitle {xto a given string. Using 'none' sets your title to an empty string.
 ~
 
 0 SCROLL~
@@ -645,27 +646,26 @@ Outsider (that's me) has been coding for Legacy since the fall of 2003.
 0 MAP~
 {YSyntax:{x {Pmap{x
 
-This command displays a small map of the local area. At
-the centre of the map is the {Y*{x symbol. That's you!
-Around the {Y*{x you will find a few symbols relating
-the surrounding environment.
+This command displays a small map of the local area. At
+the centre of the map is the {Y*{x symbol. That's you!
+Around the {Y*{x you will find a few symbols relating
+the surrounding environment.
 
-The numbers represent the number of people (mobs and players) in a given room.
-The {YD{x symbols represent doors.
-The {Y.{x symbols represent ... well, they're the background.
-The lines are open door ways to other rooms.
+The numbers represent the number of people (mobs and players) in a given room.
+The {YD{x symbols represent doors.
+The {Y.{x symbols represent ... well, they're the background.
+The lines are open door ways to other rooms.
 
-Below is an example map showing just one room. The
-room has three people in it, has exits to the North
-and Up. Closed doors are to the West and Down.
-There are no exits to the East or South.
+Below is an example map showing just one room. The
+room has three people in it, has exits to the North
+and Up. Closed doors are to the West and Down.
+There are no exits to the East or South.
 
-   \|
-   D3
-     D
+   \|
+   D3
+     D
 
-~
-
+~
 
 0 EDIT~
 The {REDIT{x command provides you with a small but powerful editor for notes
@@ -685,6 +685,7 @@ The {REDIT{x command provides you with a small but powerful editor for notes
 
 {RED{xIT {RNOTE{x        - starts editing a note, idea, roleplay, etc.
 {RED{xIT {RDESC{xRIPTION - starts editing your description.
+{PED{xIT {YHELP{x <ID>     - start editing a help file (IMM only)
 
 {RED{xIT {RDO{xNE        - finishes editing and saves the changes to your text.
 {RED{xIT {RCANCEL{x      - stops editing and discards any changes edited.

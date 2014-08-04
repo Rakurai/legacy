@@ -221,7 +221,7 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
 			do_loadhelps(ch, helpfile_table[tablenum].name);
 
-		stc("All help files in the /area/" HELP_DIR "/ directory loaded.\n\r", ch);
+		stc("All help files in the " HELP_DIR " directory loaded.\n\r", ch);
 		stc("Please remember to clean up, remove the help files with rm *.help!\n\r", ch);
 		return;
 	}
@@ -239,7 +239,7 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	sprintf(buf, HELP_DIR "/%s.help", helpfile_table[tablenum].name);
+	sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
 
 	if ((fp = fopen(buf, "r")) == NULL) {
 		stc("File not found - make sure it is uploaded into the /area/help/ directory.\n\r", ch);
@@ -316,7 +316,7 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		);
 	}
 
-	ptc(ch, "File /area/" HELP_DIR "/%s.help: %d helps loaded.\n\r", helpfile_table[tablenum].name, count);
+	ptc(ch, "File " HELP_DIR "%s.help: %d helps loaded.\n\r", helpfile_table[tablenum].name, count);
 }
 
 /* print all helps matching a group to file */
@@ -351,7 +351,7 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
 			do_printhelps(ch, helpfile_table[tablenum].name);
 
-		stc("All helps have been printed to file in the /area/" HELP_DIR "/ directory.\n\r", ch);
+		stc("All helps have been printed to file in the " HELP_DIR " directory.\n\r", ch);
 		return;
 	}
 
@@ -398,9 +398,9 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 
 	fprintf(fp, "-2\n");
 	fclose(fp);
-	sprintf(buf, HELP_DIR "/%s.help", helpfile_table[tablenum].name);
+	sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
 	rename(TEMP_FILE, buf);
-	ptc(ch, "File /area/" HELP_DIR "/%s.help: %d helps printed.\n\r", helpfile_table[tablenum].name, count);
+	ptc(ch, "File " HELP_DIR "%s.help: %d helps printed.\n\r", helpfile_table[tablenum].name, count);
 	mysql_free_result(result);
 }
 

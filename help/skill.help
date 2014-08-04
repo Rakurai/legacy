@@ -493,11 +493,10 @@ Syntax: {Cconvert{x <{Yskill_points{x>
 0 PRESERVE~
 Syntax: {Cpreserve{x <{Yitem{x>
 
-Sometimes, to save food, or sometimes to make sure that arm or heart
-of your foe stays good for a long time, you need to {Ypreserve{x it.
-The preserve skill allows you to keep items (such as corpse pieces)
-from rotting away.
-~
-
+Sometimes, to save food, or sometimes to make sure that arm or heart
+of your foe stays good for a long time, you need to {Ypreserve{x it.
+The preserve skill allows you to keep items (such as corpse pieces)
+from rotting away.
+~
 
 -2
