@@ -1,4 +1,4 @@
-#include <stdlib.h>
+//#include <stdlib.h>
 #include "merc.h"
 #include "sql.h"
 #include "deps/cJSON/cJSON.h"

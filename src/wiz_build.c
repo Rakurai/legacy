@@ -14,13 +14,13 @@
 * group.                                         *
 *************************************************/
 
-#include <sys/types.h>
-#include <sys/time.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <signal.h>
+//#include <sys/types.h>
+//#include <sys/time.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <stdlib.h>
+//#include <ctype.h>
+//#include <signal.h>
 #include "merc.h"
 #include "recycle.h"
 

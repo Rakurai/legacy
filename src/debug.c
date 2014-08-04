@@ -25,14 +25,14 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include <sys/types.h>
-#include <sys/time.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <signal.h>
+//#include <sys/types.h>
+//#include <sys/time.h>
+//#include <unistd.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <stdlib.h>
+//#include <ctype.h>
+//#include <signal.h>
 #include "merc.h"
 #include "lookup.h"
 #include "recycle.h"

@@ -6,8 +6,9 @@ file and its terms of use.
 
 */
 
-#include <stdio.h>
-#include <sys/select.h>
+//#include <stdio.h>
+//#include <sys/select.h>
+#include "merc.h"
 #include "chit.h"
 #include "phone.h"
 

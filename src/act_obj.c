@@ -25,16 +25,16 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include <sys/types.h>
+//#include <sys/types.h>
 //#include<time.h>
 /* Added sys/time to avoid error from
    gettimeofday() function call.
    -- Outsider
 */
-#include <sys/time.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+//#include <sys/time.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <stdlib.h>
 #include "merc.h"
 #include "bet.h"
 #include "recycle.h"

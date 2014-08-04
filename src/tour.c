@@ -6,13 +6,13 @@
 
 */
 
-#include <sys/types.h>
-#include <stdio.h>
-#include <string.h>
+//#include <sys/types.h>
+//#include <stdio.h>
+//#include <string.h>
 /* added stdlib to avoid errors from exit() function call
    -- Outsider
 */
-#include <stdlib.h>
+//#include <stdlib.h>
 //#include<time.h>
 #include "merc.h"
 

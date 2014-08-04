@@ -43,20 +43,8 @@ struct  cmd_type
     int			group;
 };
 
-/*
-  Structure for remote commands.
-*/
-struct remote_command
-{
-   char * const    name;
-   DO_REMOTE *        do_fun;
-};
-
-   
 /* the command table itself */
 extern  const   struct  cmd_type        cmd_table       [];
-
-extern  const   struct  remote_command  remote_cmd      [];
 
 /*
  * Command functions.
@@ -140,7 +128,6 @@ DECLARE_DO_FUN( do_compact      );
 DECLARE_DO_FUN( do_compare      );
 DECLARE_DO_FUN( do_consider     );
 DECLARE_DO_FUN( do_config	);
-DECLARE_DO_FUN( do_connect );
 DECLARE_DO_FUN( do_consent      );
 DECLARE_DO_FUN( do_convert      );
 DECLARE_DO_FUN( do_count        );
@@ -379,10 +366,8 @@ DECLARE_DO_FUN( do_reject	);
 DECLARE_DO_FUN( do_reload       );
 DECLARE_DO_FUN( do_relevel      );
 DECLARE_DO_FUN( do_remort       );
-DECLARE_DO_FUN( do_remote       );
 DECLARE_DO_FUN( do_remexit	);
 DECLARE_DO_FUN( do_eremort	);
-DECLARE_DO_FUN( do_remote       );
 DECLARE_DO_FUN( do_remove       );
 DECLARE_DO_FUN( do_rename       );
 DECLARE_DO_FUN( do_repair       );
@@ -514,17 +499,4 @@ DECLARE_DO_FUN( do_yell         );
 DECLARE_DO_FUN( do_zap          );
 DECLARE_DO_FUN( do_zecho        );
 
-
-/* Remote commands from Chat server. */
-DECLARE_DO_REMOTE( do_remote_finger );   /* finger a player and return result */
-DECLARE_DO_REMOTE( do_remote_gossip );
-DECLARE_DO_REMOTE( do_remote_immtalk);  /* send messages to other imms */
-DECLARE_DO_REMOTE( do_remote_message);
-DECLARE_DO_REMOTE( do_remote_print  );
-DECLARE_DO_REMOTE( do_remote_who    );
-DECLARE_DO_REMOTE( do_remote_tell   );
-DECLARE_DO_REMOTE( do_remote_phonecall ); /* respond to an attempt to connect */
-DECLARE_DO_REMOTE( do_remote_phoneaccept );  /* got permission to connect */
-DECLARE_DO_REMOTE( do_remote_ping   );       /* return a ping request */
-DECLARE_DO_REMOTE( do_remote_social );   /* print socials from other game */
 

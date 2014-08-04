@@ -25,14 +25,14 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include <sys/types.h>
-#include <sys/time.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
+//#include <sys/types.h>
+//#include <sys/time.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <stdlib.h>
+//#include <ctype.h>
 //#include<time.h>
-#include <sys/stat.h>
+//#include <sys/stat.h>
 #include "merc.h"
 #include "magic.h"
 #include "recycle.h"
@@ -41,8 +41,6 @@
 #include "vt100.h"
 #include "sql.h"
 #include "interp.h"
-
-#include "chit.h"  /* for MUD to MUD communication */
 
 extern AREA_DATA *area_first;
 
@@ -2831,12 +2829,6 @@ void do_who(CHAR_DATA *ch, char *argument)
 	set_color(ch, WHITE, NOBOLD);
 	free_buf(output);
 
-	/* Send message to Chat server to retrieve other on-line players. */
-	if (chit_info) {
-		char buffer[BUFFER_SIZE];
-		sprintf(buffer, "%s who", ch->name);
-		Write_To_Server(chit_info, "ALL", buffer);
-	}
 } /* do_who() */
 
 
@@ -6144,116 +6136,3 @@ void spell_scry(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 }   /* spell_scry end */
 
 
-
-/*
-This function is called when the MUD gets a request for a list of
-users (via the "who" command).
-This function gets a list of visable players and sends it
-back to the requesting MUD, one user at a time.
-The username is returned as "user@host".
-*/
-void do_remote_who(char *from_mud, char *from_player, char *args)
-{
-	char buffer[BUFFER_SIZE];
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *character;
-	int num_users = 0;   /* size of list we send */
-
-	/* first make sure we have a connection */
-	if (!chit_info)
-		return;
-
-	/* make sure all params are valid */
-	if ((!from_mud) || (!from_player))
-		return;
-
-	/* clear buffer */
-	memset(buffer, '\0', BUFFER_SIZE);
-	/* set up buffer with print command */
-	sprintf(buffer, "SYSTEM print %s {CWho:{x\n\r", from_player);
-
-	/* check each user */
-	for (d = descriptor_list; d != NULL; d = d->next) {
-		if (!IS_PLAYING(d))
-			continue;
-
-		character = (d->original ? d->original : d->character);
-
-		/* make sure character name will fit in buffer */
-		if ((strlen(from_player) + strlen(character->name) + strlen(chit_info->username)) >= (BUFFER_SIZE - 16))
-			continue;
-
-		/* Check to see if the character is invisable or lurking. */
-		if ((character->invis_level) || (character->lurk_level))
-			continue;
-
-		/* append each username@host */
-		strcat(buffer, "{C");
-		strcat(buffer, character->name);
-		strcat(buffer, "{Y@{G");
-		strcat(buffer, chit_info->username);
-		strcat(buffer, "{x\n\r");
-
-		/* make sure the buffer doesn't get too big */
-		if (strlen(buffer) >= (BUFFER_SIZE - 16)) {
-			buffer[BUFFER_SIZE - 1] = '\0';
-			break;
-		}
-
-		num_users++;   /* add one to number of users in list */
-	}
-
-	/* send giant buffer of users */
-	if (num_users > 0)          /* only send non-zero list */
-		Write_To_Server(chit_info, from_mud, buffer);
-
-	return;
-}
-
-
-/*
-This function sends a message to all of the other MUDs
-connected to the Chat Server. The hope is that any
-connected MUDs will return "ping" a message.
-Please see do_remote_ping() for more information.
--- Outsider
-*/
-void do_ping(CHAR_DATA *ch, char *argument)
-{
-	char my_ping[BUFFER_SIZE];
-
-	if (IS_NPC(ch))
-		return;
-
-	if (! chit_info) {
-		stc("You are not connected to a server.\n\r", ch);
-		return;
-	}
-
-	sprintf(my_ping, "%s ping", ch->name);
-	Write_To_Server(chit_info, "ALL", my_ping);
-	stc("Ping...\n\r", ch);
-	return;
-}
-
-
-/*
-This function returns a message back to
-the MUD that sent a "ping" message.
-This message is just sent to the user that
-sent the ping. Thus we shall use the
-"print" cross-mud command.
--- Outsider
-*/
-void do_remote_ping(char *from_mud, char *from_player, char *args)
-{
-	char return_message[BUFFER_SIZE];
-
-	if (! chit_info)
-		return;
-
-	sprintf(return_message, "SYSTEM print %s Pong! from %s.",
-	        from_player, chit_info->username);
-	Write_To_Server(chit_info, from_mud, return_message);
-	return;
-}

@@ -1,12 +1,12 @@
 /* sand.c -- Simple Asynchronous Name Daemon client routines */
 
-#include <errno.h>
-#include <netinet/in.h>
-#include <stdio.h>
-#include <string.h>
-#include <sys/socket.h>
-#include <sys/time.h>
-#include <unistd.h>
+//#include <errno.h>
+//#include <netinet/in.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <sys/socket.h>
+//#include <sys/time.h>
+//#include <unistd.h>
 #include "sand.h"
 
 

@@ -43,16 +43,9 @@
  * -- Furey  26 Jan 1993
  */
 
-#include <sys/types.h>
-//#include<time.h>
 #include <unistd.h>
-#include <ctype.h>
-#include <errno.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-//#include<time.h>
-#include <stdarg.h>
+//#include <ctype.h>
+//#include <errno.h>
 #include <sys/shm.h>
 
 #include "merc.h"
@@ -62,7 +55,6 @@
 #include "lookup.h"
 #include "sql.h"
 #include "memory.h"
-#include "chit.h"    /* connect to Chat server */
 
 
 /* command procedures needed */
@@ -119,7 +111,9 @@ extern  int     malloc_verify   args((void));
 #include <netinet/in.h>
 #include <sys/socket.h>
 #include "telnet.h"
+#if defined(SAND)
 #include "sand.h"
+#endif
 #if !defined( STDOUT_FILENO )
 #define STDOUT_FILENO 1
 #endif
@@ -611,26 +605,12 @@ int main(int argc, char **argv)
 		fprintf(pidfile, "%d", pid);
 		fflush(pidfile);
 		fclose(pidfile);
-		/* Try to connect to Chat server.
-		We will use the address given in the config file.
-		If we can't connect, we won't worry about it (no exit).
-		-- Outsider
-		*/
-		chit_info = NULL;
-//	   chit_info = Chit_Connect(NULL, CHIT_DEFAULT_PORT);
-//	   if (!chit_info)
-//	     log_string("Could not connect to Chat server.\n\r");
-//	   else
-//	     log_string("Connected to Chat server.\n\r");
 	}
 
 	game_loop_unix(control);
 	close(control);
 	/* close our database */
 	db_close();
-	/* Close connection to Chat server -- Outsider*/
-//	if (chit_info)
-//	   Chit_Clean_Up(chit_info);
 #endif
 	/* That's all, folks. */
 	log_string("Normal termination of game.");
@@ -888,58 +868,6 @@ void game_loop_unix(int control)
 			}    /* end of have input */
 		} /* end of input loop */
 
-		/* check for input from other MUD -- Outsider */
-		for (d = descriptor_list; d != NULL; d = d_next) {
-			CHAR_DATA *ch = d->original ? d->original : d->character;
-			fd_set in_phone;
-			char buffer[BUFFER_SIZE];
-
-			if (! IS_PLAYING(d)) continue;
-
-			if (! ch->pcdata) continue;
-
-			if (ch->pcdata->phone_socket) {
-				FD_ZERO(&in_phone);
-				FD_SET(ch->pcdata->phone_socket, &in_phone);
-				null_time.tv_sec = 0;
-				null_time.tv_usec = 0;
-				select(ch->pcdata->phone_socket + 1, &in_phone, NULL, NULL, &null_time);
-
-				/* check for data to read */
-				if (FD_ISSET(ch->pcdata->phone_socket, &in_phone)) {
-					int read_status;
-					read_status = read(ch->pcdata->phone_socket, buffer, BUFFER_SIZE);
-
-					/* check for closed socket */
-					if (! read_status) {
-						close(ch->pcdata->phone_socket);
-						ch->pcdata->phone_socket = 0;
-						ch->pcdata->block_remote = FALSE;
-						stc("You have been sent back to your own world.\n\r", ch);
-						write_to_buffer(d, echo_on_comm, 0);
-					}
-
-					write(ch->desc->descriptor, buffer, strlen(buffer));
-				}   /* end of reading in data */
-			}   /* end of connected to another MUD */
-		}   /* end of check for input from other MUD */
-
-		/* Check for input from the Chat server. -- Outsider */
-		if (chit_info) {
-			char buffer[MAX_INPUT_LENGTH];
-			int status;
-			status = Read_From_Server(chit_info, buffer);
-
-			if (status < 0) { /* error occured */
-				Chit_Clean_Up(chit_info);
-				log_string("Error reading from Chat server.\n\r");
-				chit_info = NULL;
-			}
-			else if (status > 0)   /* got input */
-				Remote_Interpret(buffer);
-		}
-
-		/* Autonomous game motion. */
 		dv_where = "before update_handler()";
 		update_handler();
 		dv_where = "after  update_handler()";
@@ -1580,12 +1508,6 @@ void bust_a_prompt(CHAR_DATA *ch)
 	int door, color, bold;
 	point = buf;
 	str = ch->prompt;
-
-	/* If the player is connected to another MUD, skip local prompt. -- Outsider */
-	if (! IS_NPC(ch)) {
-		if (ch->pcdata->phone_socket)
-			return;
-	}   /* end of is player */
 
 	if (str == NULL || str[0] == '\0') {
 		ptc(ch, "{W<{C%d{Thp {G%d{Hma {B%d{Nst{W>{x %s", ch->hit, ch->mana, ch->stam, ch->prefix);
@@ -3251,14 +3173,6 @@ void do_copyover(CHAR_DATA *ch, char *argument)
 #endif
 	/* close the database */
 	db_close();
-
-	/* If we have a connection to the Chat server, shut that down...
-	   _cleanly_. -- Outsider
-	*/
-	if (chit_info) {
-		Chit_Clean_Up(chit_info);
-		chit_info = NULL;
-	}
 
 	/* exec - descriptors are inherited */
 	sprintf(buf,  "%d", port);

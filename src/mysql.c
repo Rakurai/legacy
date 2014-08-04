@@ -5,11 +5,11 @@
  *
  */
 
-#include <stdio.h>
-#include <sys/types.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdarg.h>
+//#include <stdio.h>
+//#include <sys/types.h>
+//#include <stdlib.h>
+//#include <string.h>
+//#include <stdarg.h>
 #include "merc.h"
 #include "db.h"
 #include "sql.h"

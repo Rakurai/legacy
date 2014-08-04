@@ -19,20 +19,20 @@ H_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_H_DEPS))
 _O_DEPS = cJSON/cJSON.o
 O_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_O_DEPS))
 
-_H_FILES = ansi_compat.h bet.h chit.h db.h departed.h interp.h lookup.h  \
-        magic.h malloc.h memory.h merc.h music.h sql.h newline.h phone.h ports.h  \
-        recycle.h sand.h tables.h telnet.h vt100.h
+_H_FILES = ansi_compat.h bet.h db.h departed.h interp.h lookup.h  \
+        magic.h malloc.h memory.h merc.h music.h sql.h ports.h  \
+        recycle.h tables.h telnet.h vt100.h
 H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 
 _O_FILES = act_comm.o act_info.o act_move.o act_obj.o help.o memory.o    \
-        phone.o chit.o wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o	\
+         wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o	\
 		alias.o comm.o const.o db.o edit.o effects.o fight.o flags.o handler.o		\
 		mobiles.o interp.o note.o lookup.o magic.o rmagic.o music.o recycle.o		\
 		save.o scan.o skills.o special.o ignore.o social.o tables.o update.o		\
-		bank.o hunt.o string.o mob_commands.o mob_prog.o quest.o marry.o sand.o		\
+		bank.o hunt.o string.o mob_commands.o mob_prog.o quest.o marry.o 		\
 		tour.o clan-edit.o storage.o departed.o remort.o set-stat.o config.o war.o	\
 		duel.o channels.o debug.o find.o objstate.o nanny.o mysql.o random.o		\
-		area_handler.o newline.o xsocial.o load_config.o file.o
+		area_handler.o xsocial.o load_config.o file.o
 O_FILES = $(patsubst %,$(OBJDIR)/%,$(_O_FILES))
 
 $(OBJDIR)/%.o: %.c $(H_DEPS) $(H_FILES)

@@ -25,23 +25,21 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include <sys/types.h>
-#include <ctype.h>
-#include <stdio.h>
-#include <string.h>
+//#include <sys/types.h>
+//#include <ctype.h>
+//#include <stdio.h>
+//#include <string.h>
 //#include<time.h>
-#include <stdlib.h>
+//#include <stdlib.h>
 
-#include "malloc.h"
 
 #include "merc.h"
+#include "malloc.h"
 #include "recycle.h"
 #include "lookup.h"
 #include "tables.h"
 #include "vt100.h"
 #include "sql.h"
-
-#include "chit.h"
 
 #include <sys/stat.h>
 
@@ -298,7 +296,6 @@ void fwrite_char(CHAR_DATA *ch, FILE *fp)
 	fprintf(fp, "Revk %s\n", print_flags(ch->revoke));              /* Xenith */
 	fprintf(fp, "Cgrp %s\n", print_flags(ch->pcdata->cgroup));      /* Xenith */
 	fprintf(fp, "Cnsr %s\n", print_flags(ch->censor));              /* Montrey */
-	fprintf(fp, "Block_Remote %d\n", ch->pcdata->block_remote);
 	fprintf(fp, "Prac %d\n", ch->practice);
 	fprintf(fp, "Trai %d\n", ch->train);
 	fprintf(fp, "Wimp %d\n", ch->wimpy);
@@ -1106,7 +1103,6 @@ void fread_char(CHAR_DATA *ch, FILE *fp)
 			KEY("Back",        ch->pcdata->backup,     fread_number(fp));
 			FKY("Bin",         ch->pcdata->bamfin);
 			KEY("Bin",         ch->pcdata->bamfin,     fread_string(fp));
-			KEY("Block_Remote", ch->pcdata->block_remote, fread_number(fp));
 			FKY("Bout",        ch->pcdata->bamfout);
 			KEY("Bout",        ch->pcdata->bamfout,    fread_string(fp));
 			break;
@@ -2195,40 +2191,6 @@ void do_finger(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	/* Check if the name to finger is on another MUD. -- Outsider */
-	if (strchr(arg, '@')) {
-		char player_name[64], mud_name[64];
-		char temp_buffer[BUFFER_SIZE];
-		int index;
-
-		if (! chit_info) {
-			stc("We are not currently connected to that MUD.\n\r", ch);
-			return;
-		}
-
-		if (strlen(arg) > 100) {
-			stc("Target player name too long.\n\r", ch);
-			return;
-		}
-
-		/* get the player name */
-		index = 0;
-
-		while (arg[index] != '@') {
-			player_name[index] = arg[index];
-			index++;
-		}
-
-		player_name[index] = '\0';
-		index++; /* get past the '@' */
-		strcpy(mud_name, & (arg[index]));    /* get mud name */
-		/* from user, finger, target user */
-		sprintf(temp_buffer, "%s finger %s", ch->name, player_name);
-		Write_To_Server(chit_info, mud_name, temp_buffer);
-		stc("Finger request sent.\n\r", ch);
-		return;
-	}    /* end of remote user */
-
 	/* initialize variables */
 	email = fingerinfo = last_lsite = name = title = spouse = race = deity = str_empty;
 	class = pks = pkd = pkr = aks = akd = level = rmct = 0;
@@ -2461,98 +2423,4 @@ int find_changed_vnum(int oldvnum)
 	return newvnum;
 }
 
-
-
-/*
-This function loads some basic finger data from a player's
-file and sends it back to the requesting MUD.
-Fields currently read and returned:
-Name, Level, Race, Class
--- Outsider
-*/
-void do_remote_finger(char *from_mud, char *from_player, char *message)
-{
-	char pfile_name[128];
-	FILE *pfile;
-	int level;
-	char race[32];
-	int class_number;
-	char return_string[BUFFER_SIZE];
-	bool done = FALSE;         /* done reading pfile */
-	int found = 0;             /* fields found */
-	/* Make sure the player name is upper cased */
-	Proper_Case(message);
-	/* first try to find the file */
-	sprintf(pfile_name, "%s%s", PLAYER_DIR, message);
-	pfile = fopen(pfile_name, "r");
-
-	if (! pfile) {
-		sprintf(return_string, "SYSTEM print %s Finger: That user does not exist.\n\r", from_player);
-		Write_To_Server(chit_info, from_mud, return_string);
-		return;
-	}
-
-	/* read in lines of file, looking for key lines */
-	while ((! done) && (found < 3)) {
-		pfile_name[0] = '\0';
-		fgets(pfile_name, 128, pfile);    /* re-using pfile_name */
-
-		if (feof(pfile))               /* check for end of file */
-			done = TRUE;
-		else if (! strncmp(pfile_name, "End", 3))    /* check for end of player data */
-			done = TRUE;
-		else if (! strncmp(pfile_name, "Levl ", 5)) {  /* check for level */
-			sscanf(pfile_name, "Levl %d", &level);
-			found++;
-		}
-		else if (! strncmp(pfile_name, "Cla ", 4)) { /* check for class */
-			sscanf(pfile_name, "Cla %d", &class_number);
-			found++;
-		}
-		else if (! strncmp(pfile_name, "Race ", 5)) {  /* check for race */
-			sscanf(pfile_name, "Race %s~", race);
-			/* remove trailing "~" */
-			race[ strlen(race) - 1] = '\0';
-			found++;
-		}
-
-		/* check for key words */
-	}
-
-	fclose(pfile);
-
-	/* Could not find all the data fields. */
-	if (found < 3) {
-		sprintf(return_string, "SYSTEM print %s Finger: Error reading player data.\n\r", from_player);
-		Write_To_Server(chit_info, from_mud, return_string);
-		return;
-	}
-
-	/* send back message */
-	sprintf(return_string, "SYSTEM print %s Finger: "
-	        "%s is a level %d %s ",
-	        from_player, message, level, capitalize(race));
-
-	/* figure out what class the character is */
-	switch (class_number) {
-	case MAGE_CLASS: strcat(return_string, "Mage"); break;
-
-	case CLERIC_CLASS: strcat(return_string, "Cleric"); break;
-
-	case WARRIOR_CLASS: strcat(return_string, "Warrior"); break;
-
-	case PALADIN_CLASS: strcat(return_string, "Paladin"); break;
-
-	case NECROMANCER_CLASS: strcat(return_string, "Necromancer"); break;
-
-	case RANGER_CLASS: strcat(return_string, "Ranger"); break;
-
-	case BARD_CLASS: strcat(return_string, "Bard"); break;
-
-	case THIEF_CLASS: strcat(return_string, "Thief"); break;
-	}
-
-	strcat(return_string, ".\n\r");
-	Write_To_Server(chit_info, from_mud, return_string);
-}
 

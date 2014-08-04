@@ -31,9 +31,9 @@
     initialize the entire room list.
 */
 
-#include <stdio.h>
-#include <sys/types.h>
-#include <stdlib.h>
+//#include <stdio.h>
+//#include <sys/types.h>
+//#include <stdlib.h>
 //#include<time.h>
 
 #include "merc.h"

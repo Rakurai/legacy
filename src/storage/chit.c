@@ -7,9 +7,9 @@ See chit.h and chit.txt
 
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/select.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <sys/select.h>
 
 #include "chit.h"
 #include "newline.h"

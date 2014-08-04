@@ -15,17 +15,17 @@
 *************************************************/
 
 #if defined(macintosh)
-#include <types.h>
+//#include <types.h>
 //#include<time.h>
 #else
-#include <sys/types.h>
-#include <sys/time.h>
+//#include <sys/types.h>
+//#include <sys/time.h>
 #endif
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <signal.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <stdlib.h>
+//#include <ctype.h>
+//#include <signal.h>
 #include "merc.h"
 #include "recycle.h"
 

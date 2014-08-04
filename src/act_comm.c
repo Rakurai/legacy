@@ -24,20 +24,18 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include <sys/types.h>
-#include <sys/time.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+//#include <sys/types.h>
+//#include <sys/time.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <stdlib.h>
 ////#include<time.h>
-#include <ctype.h>
+//#include <ctype.h>
 #include "merc.h"
 #include "vt100.h"
 #include "recycle.h"
 #include "tables.h"
 #include "lookup.h"
-
-#include "chit.h"   /* remote connection stuff */
 
 
 char   *smash_bracket           args((const char *str));
@@ -1614,7 +1612,7 @@ Okay, so I just need something to do...
 */
 void do_pet(CHAR_DATA *ch, char *argument)
 {
-	char buffer[BUFFER_SIZE];
+	char buffer[MIL];
 	int index;
 	char letter;
 
@@ -1623,13 +1621,13 @@ void do_pet(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (strlen(argument) > (BUFFER_SIZE - 16)) {
+	if (strlen(argument) > (MIL - 16)) {
 		stc("Please use smaller words.\n\r", ch);
 		return;
 	}
 
 	/* Copy first part of pet's name into buffer. */
-	memset(buffer, '\0', BUFFER_SIZE);
+	memset(buffer, '\0', MIL);
 	index = 0;
 	letter = ch->pet->name[index];
 
@@ -2017,33 +2015,3 @@ void do_newscore(CHAR_DATA *ch, char *argument)
 
 
 
-/* This function allows an IMM to connect to a Chat
-server on the fly. Any previous connection is shut
-down. If the command works, then the IMM is notified
-and a connect to the Chat server is established. "chit_info"
-is set to non-NULL.
--- Outsider
-*/
-void do_connect(CHAR_DATA *ch, char *argument)
-{
-	/* check to see if there is already a connection in place */
-	if (chit_info) {
-		stc("Shutting down connection to old Chat server.\n\r", ch);
-		Chit_Clean_Up(chit_info);
-	}
-
-	/* establish new connection */
-
-	/* if we have an arugment, use that address */
-	if ((argument[0] > '0') && (argument[0] <= 'z'))
-		chit_info = Chit_Connect(argument, CHIT_DEFAULT_PORT);
-	else    /* if no argument was passed, use default */
-		chit_info = Chit_Connect(NULL, CHIT_DEFAULT_PORT);
-
-	if (chit_info)
-		stc("Connection to Chat server established.\n\r", ch);
-	else
-		stc("Could not connect to Chat server.\n\r", ch);
-
-	return;
-}

@@ -25,19 +25,17 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include <sys/types.h>
+//#include <sys/types.h>
 //#include<time.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <signal.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <stdlib.h>
+//#include <ctype.h>
+//#include <signal.h>
 #include "merc.h"
 #include "tables.h"
 #include "lookup.h"
 #include "recycle.h"
-
-#include "chit.h"
 
 
 extern void     channel_who     args((CHAR_DATA *ch, char *channelname, int
@@ -162,13 +160,6 @@ void do_channels(CHAR_DATA *ch, char *argument)
 
 	if (!IS_SET(ch->comm, COMM_DEAF)) stc("ON\n\r", ch);
 	else stc("OFF\n\r", ch);
-
-	/* Check if we receive remote channels. -- Outsider */
-	set_color(ch, WHITE, NOBOLD);
-	stc("remote         ", ch);
-
-	if (ch->pcdata->block_remote) stc("OFF\n\r", ch);
-	else stc("ON\n\r", ch);
 
 	set_color(ch, WHITE, NOBOLD);
 	new_color(ch, CSLOT_CHAN_QTELL);
@@ -494,13 +485,6 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, char *command,
 		act_new(iterator->char_found,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
 
-	if (chit_info) {
-		char buf[MAX_INPUT_LENGTH];
-		sprintf(buf, "%s social %d %s %d %s",
-		        ch->name, ch->sex, command, victim ? victim->sex : 0, victim ? victim->name : argument);
-		Write_To_Server(chit_info, "ALL", buf);
-	}
-
 	set_color(ch, WHITE, NOBOLD);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
@@ -732,12 +716,6 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 		victim = d->original ? d->original : d->character;
 
 		if (IS_PLAYING(d) && d->character != ch) {
-			/* If the target player is in another MUD, we do not want
-			   them receiving messages. -- Outsider
-			*/
-			if (!IS_NPC(victim) && (victim->pcdata->phone_socket))
-				continue;
-
 			if (channel == CHAN_IMMTALK) { /* we can skip a lot of the below junk */
 				if (!IS_IMMORTAL(victim)
 				    || GET_RANK(victim) < ch->secure_level
@@ -797,38 +775,6 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 		}
 	}
 
-	/* If we are connected to a Chat server, send channel info. -- Outsider */
-	if (chit_info) {
-		char buffer[BUFFER_SIZE];
-
-		if ((strlen(ch->name) + strlen(argument)) < BUFFER_SIZE) {
-			/* for now, just send gossip */
-			if (channel == CHAN_GOSSIP) {
-				sprintf(buffer, "%s gossip %s", ch->name, argument);
-				Write_To_Server(chit_info, "ALL", buffer);
-			}
-			else if (channel == CHAN_GRATS) {
-				sprintf(buffer, "%s message %s@%s grats %s\n\r",
-				        ch->name, ch->name, chit_info->username, argument);
-				Write_To_Server(chit_info, "ALL", buffer);
-			}
-			else if (channel == CHAN_FLAME) {
-				sprintf(buffer, "%s message %s@%s flames %s\n\r",
-				        ch->name, ch->name, chit_info->username, argument);
-				Write_To_Server(chit_info, "ALL", buffer);
-			}
-			else if (channel == CHAN_MUSIC) {
-				sprintf(buffer, "%s message %s@%s musics %s\n\r",
-				        ch->name, ch->name, chit_info->username, argument);
-				Write_To_Server(chit_info, "ALL", buffer);
-			}
-			else if (channel == CHAN_IMMTALK) {
-				sprintf(buffer, "%s immortal %d %s\n\r",
-				        ch->name, ch->secure_level, argument);
-				Write_To_Server(chit_info, "ALL", buffer);
-			}
-		}   /* end of size ok */
-	}     /* end of sending data to Chat server */
 }
 
 void do_gossip(CHAR_DATA *ch, char *argument)
@@ -916,41 +862,6 @@ void talk_auction(CHAR_DATA *ch, char *argument)
 }
 
 
-/*
-This function turns the remote messages on and off.
-Without arguments, it displays the current status
-of the remote channels. The remote channel may been turned
-"on" or "off".
--- Outsider
-*/
-void do_remote(CHAR_DATA *ch, char *argument)
-{
-	if (IS_NPC(ch))
-		return;
-
-	if (! argument[0]) {   /* display status */
-		stc("Remote channels are now ", ch);
-
-		if (ch->pcdata->block_remote) stc("OFF.\n\r", ch);
-		else stc("ON.\n\r", ch);
-
-		return;
-	}
-
-	if (! strcasecmp(argument, "on")) {   /* turn channel on */
-		ch->pcdata->block_remote = FALSE;
-		stc("Remote channels are now ON.\n\r", ch);
-		return;
-	}
-
-	if (! strcasecmp(argument, "off")) {   /* turn channel off */
-		ch->pcdata->block_remote = TRUE;
-		stc("Remote channels are now OFF.\n\r", ch);
-		return;
-	}
-}
-
-
 void do_announce(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->comm, COMM_NOANNOUNCE)) {
@@ -971,7 +882,7 @@ void do_send_announce(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *d;
-	char send_buffer[BUFFER_SIZE];
+	char send_buffer[MSL];
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		victim = d->original ? d->original : d->character;
@@ -986,12 +897,6 @@ void do_send_announce(CHAR_DATA *ch, char *argument)
 		}
 	}
 
-	/* Try to send announce to other MUDs. -- Outsider */
-	if ((chit_info) && (strlen(argument) < (BUFFER_SIZE - 32))) {
-		sprintf(send_buffer, "%s message {W[FYI{Y@{W%s] %s{x\n\r", ch->name,
-		        chit_info->username, argument);
-		Write_To_Server(chit_info, "ALL", send_buffer);
-	}
 }
 
 
@@ -999,7 +904,7 @@ void do_send_announce(CHAR_DATA *ch, char *argument)
 void do_fyi(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
-	char send_buffer[BUFFER_SIZE];
+	char send_buffer[MSL];
 	new_color(ch, CSLOT_CHAN_ANNOUNCE);
 	ptc(ch, "You FYI '%s{x'\n\r", argument);
 	set_color(ch, WHITE, NOBOLD);
@@ -1032,12 +937,6 @@ void do_fyi(CHAR_DATA *ch, char *argument)
 		}
 	}
 
-	/* Try to send FYIs to other MUDs. -- Outsider */
-	if ((chit_info) && (strlen(argument) < (BUFFER_SIZE - 32))) {
-		sprintf(send_buffer, "%s message {W[FYI{Y@{W%s] %s{x",
-		        ch->name, chit_info->username, argument);
-		Write_To_Server(chit_info, "ALL", send_buffer);
-	}
 }
 
 void do_replay(CHAR_DATA *ch, char *argument)
@@ -1172,17 +1071,6 @@ void do_globalsocial(CHAR_DATA *ch, char *argument)
 		}
 	}   /* end of for loop -- to each player */
 
-	/* Send the social to other MUDs. -- Outsider */
-	if (chit_info) {
-		if ((! str_prefix1(arg, "emote")) && (arg2[0] != '\0'))
-			sprintf(buf, "%s message [E] %s@%s %s\n\r",
-			        ch->name, ch->name, chit_info->username, arg2);
-		else
-			sprintf(buf, "%s social %d %s",
-			        ch->name, ch->sex, argument);
-
-		Write_To_Server(chit_info, "ALL", buf);
-	}
 }
 
 void do_iclantalk(CHAR_DATA *ch, char *argument)
@@ -1311,42 +1199,6 @@ void do_tell(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	/* Check to see if the receiver is on a different MUD. -- Outsider */
-	if (strchr(arg, '@')) {
-		char target_mud[BUFFER_SIZE], target_player[BUFFER_SIZE];
-		char buffer_to_send[BUFFER_SIZE];
-		int index = 0;
-
-		if (! chit_info) {
-			new_color(ch, CSLOT_CHAN_TELL);
-			stc("You are not connected to other MUDs.\r\n", ch);
-			set_color(ch, WHITE, NOBOLD);
-			return;
-		}
-
-		/* seperate player name from target mud name */
-		while (arg[index] != '@') {
-			target_player[index] = arg[index];
-			index++;
-		}
-
-		target_player[index] = '\0';    /* put NULL at end of string */
-		index++;   /* go to first char after the @ */
-		strcpy(target_mud, & (arg[index]));    /* copy remainder of target into MUD name */
-
-		/* make sure text will fit in buffer */
-		if ((strlen(ch->name) + strlen(target_player) + strlen(argument) + 16) >= BUFFER_SIZE)
-			return;
-
-		/* create command to send to the Chat server */
-		sprintf(buffer_to_send, "%s tell %s %s", ch->name, target_player, argument);
-		Write_To_Server(chit_info, target_mud, buffer_to_send);
-		new_color(ch, CSLOT_CHAN_TELL);
-		stc("Message sent.\n\r", ch);
-		set_color(ch, WHITE, NOBOLD);
-		return;
-	}    /* end of sending tell to other MUD */
-
 	/* Can tell to PC's anywhere, but NPC's only in same room. */
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL)
 		if ((victim = get_mob_here(ch, arg, VIS_CHAR)) == NULL) {
@@ -1405,15 +1257,6 @@ void do_tell(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	/* If the target is on another MUD, they should not hear tells. -- Outsider */
-	if ((! IS_NPC(victim)) && (victim->pcdata->phone_socket)) {
-		new_color(ch, CSLOT_CHAN_TELL);
-		act_new("$E is off in another world and cannot hear you.",
-		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
-		set_color(ch, WHITE, NOBOLD);
-		return;
-	}
-
 	new_color(ch, CSLOT_CHAN_TELL);
 	act_new("You tell $N '$t{x'", ch, argument, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	set_color(ch, WHITE, NOBOLD);
@@ -1451,37 +1294,6 @@ void do_reply(CHAR_DATA *ch, char *argument)
 		stc("But no one has sent you a tell yet!\n\r", ch);
 		set_color(ch, WHITE, NOBOLD);
 		ch->replylock = FALSE;
-		return;
-	}
-
-	/* Check to see if we should send the reply to another MUD. -- Outsider */
-	if (strchr(ch->reply, '@')) {
-		new_color(ch, CSLOT_CHAN_TELL);
-
-		/* If we have a connection, send the reply to another MUD. */
-		if (chit_info) {
-			char my_buffer[BUFFER_SIZE];
-			char player_name[BUFFER_SIZE], mud_name[BUFFER_SIZE];
-			int index;
-			/* copy the player name (up to the @) into player_name */
-			index = 0;
-
-			while (ch->reply[index] != '@') {
-				player_name[index] = ch->reply[index];
-				index++;
-			}
-
-			player_name[index] = '\0';    /* put terminating NULL on player_name */
-			index++;           /* goto begining of mud name */
-			strcpy(mud_name, & (ch->reply[index]));
-			sprintf(my_buffer, "%s tell %s %s", ch->name, player_name, argument);
-			Write_To_Server(chit_info, mud_name, my_buffer);
-			stc("Message sent.\n\r", ch);
-		}
-		else
-			stc("Message could not be sent to other MUD.\n\r", ch);
-
-		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
@@ -2239,394 +2051,3 @@ void do_query(CHAR_DATA *ch, char *argument)
 			stc("That name was not found in the query list.\n\r", ch);
 	}
 }
-
-
-
-/*
-This function gets called when a user on another MUD sends a gossip.
-A gossip message in the format of "user@host gossips 'message'".
-*/
-void do_remote_gossip(char *from_mud, char *from_player, char *message_text)
-{
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *victim;
-	char my_message[BUFFER_SIZE];
-
-	if (strlen(from_mud) + strlen(from_player) + strlen(message_text) + 32 >= BUFFER_SIZE)
-		return;
-
-	sprintf(my_message, "{H%s{Y@{H%s gossips '%s{H'{x\n\r", from_player, from_mud, message_text);
-
-	for (d = descriptor_list; d != NULL; d = d->next) {
-		victim = d->original ? d->original : d->character;
-
-		if (IS_PLAYING(d)) {
-			/* make sure we can send to this person */
-			if (IS_SET(victim->comm, chan_table[CHAN_GOSSIP].bit) ||
-			    IS_SET(victim->comm, COMM_QUIET))
-				continue;
-
-			if (victim->pcdata->block_remote)
-				continue;
-
-			stc(my_message, victim);
-		}   /* end of is playing */
-	}
-}
-
-
-
-/*
-This function prints a message to one user's screen. The format
-of "data" should be as follows:
-<to_username> <message>
-If we do not have a valid username, then the function should
-simply return.
--- Outsider
-*/
-
-void do_remote_print(char *from_mud, char *from_player, char *data)
-{
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *victim;
-	char target_name[BUFFER_SIZE];
-	/* get the target user */
-	data = one_argument(data, target_name);
-
-	/* go through all users, looking for a matching name */
-	for (d = descriptor_list; d != NULL; d = d->next) {
-		victim = d->original ? d->original : d->character;
-
-		if ((IS_PLAYING(d)) && (!strcasecmp(target_name, victim->name))) {
-			/* check for message blocking */
-			if (victim->pcdata->block_remote)
-				return;
-
-			/* got match, print message */
-			stc(data, victim);
-		}
-	}     /* end of for loop */
-}
-
-/*
-This function sends a message to all active players.
-The message to be displayed is passed in via "data".
--- Outsider
-*/
-void do_remote_message(char *from_mud, char *from_player, char *data)
-{
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *victim;
-
-	/* go through all players, looking for active ones */
-	for (d = descriptor_list; d != NULL; d = d->next) {
-		victim = d->original ? d->original : d->character;
-
-		if ((IS_PLAYING(d)) &&
-		    (!IS_SET(victim->comm, COMM_NOANNOUNCE)) &&
-		    (!IS_SET(victim->comm, COMM_QUIET))) {
-			if (victim->pcdata->block_remote)
-				continue;
-
-			stc(data, victim);
-		}
-	}   /* end of for loop */
-}
-
-
-
-/*
-This function handles "tell" commands sent in from the
-Chat server. It searches for a user on this MUD with
-a matching username. Then, if a user is found, it sends
-that user a tell message.
-"data" contains the target player and the text for
-them to receive.
--- Outsider
-*/
-void do_remote_tell(char *from_mud, char *from_player, char *data)
-{
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *victim = NULL;    /* make compiler happy */
-	char target_name[BUFFER_SIZE];
-	bool found = FALSE;
-	char big_long_output[BUFFER_SIZE];
-	/* get the target username */
-	data = one_argument(data, target_name);
-	/* search for users with a matching name */
-	d = descriptor_list;
-
-	while ((!found) && (d != NULL)) {
-		victim = d->original ? d->original : d->character;
-
-		if ((IS_PLAYING(d)) && (! strcasecmp(target_name, victim->name)))
-			found = TRUE;
-		else
-			d = d->next;
-	}
-
-	if (found) { /* if we have a match try to send them the tell */
-		if (IS_SET(victim->comm, COMM_QUIET | COMM_DEAF | COMM_NOCHANNELS | COMM_AFK))
-			return;
-
-		if (victim->pcdata->block_remote)
-			return;
-
-		sprintf(big_long_output, "{B%s{Y@{x{B%s tells you '%s'{x\n\r", from_player, from_mud, data);
-		stc(big_long_output, victim);
-
-		/* Save the reply address. -- Outsider */
-		if ((IS_NPC(victim)) || (!victim->replylock))
-			sprintf(victim->reply, "%s@%s", from_player, from_mud);
-	}
-
-	return;
-}
-
-
-/*
-This function accepts imm talk from another MUD and
-sends the text to any immortal players who happen to
-be on.
-Data is passed in as
-<security level> <message>
-
-If an imm has a lower security level than the message
-they don't get to see it.
-
--- Outsider (now engaged to Teotwawki)
-*/
-void do_remote_immtalk(char *from_mud, char *from_player, char *data)
-{
-	DESCRIPTOR_DATA *d;
-	CHAR_DATA *victim;
-	int security_level = 0;
-	char secure_level[BUFFER_SIZE];
-	data = one_argument(data, secure_level);
-	sscanf(secure_level, "%d", &security_level);
-	/* re-use secure_level to display the output */
-	sprintf(secure_level, "{P%s{Y@{P%s [IMM]: %s{x",
-	        from_player, from_mud, data);
-
-	/* go through all players, looking for active ones */
-	for (d = descriptor_list; d != NULL; d = d->next) {
-		victim = d->original ? d->original : d->character;
-
-		if ((IS_PLAYING(d)) &&
-		    (!IS_SET(victim->comm, COMM_NOANNOUNCE)) &&
-		    (!IS_SET(victim->comm, COMM_QUIET))) {
-			if (victim->pcdata->block_remote) continue;
-
-			if (! IS_IMMORTAL(victim)) continue;
-
-			if (victim->level < security_level) continue;
-
-			stc(secure_level, victim);
-		}
-	}   /* end of for loop */
-}
-
-
-void do_remote_social(char *from_mud, char *from_player, char *data)
-{
-	char command[MIL];
-	char arg[MIL];
-	char victim[MIL];
-	char buf[MSL];
-	DESCRIPTOR_DATA *d;
-	struct social_type *iterator;
-	bool found = FALSE;
-	int ch_sex, vic_sex;
-	char gender[MSL], vic_gender[MSL];
-	data = one_argument(data, gender);
-	ch_sex = atoi(gender);
-	sprintf(buf, "{G%s{Y@{G%s socializes '%s'{x\n\r", from_player, from_mud, data);
-	data = one_argument(data, command);
-
-	for (iterator = social_table_head->next; iterator != social_table_tail; iterator = iterator->next) {
-		if ((command[0] == iterator->name[0]) &&
-		    (!str_prefix(command, iterator->name))) {
-			found = TRUE;
-			break;
-		}
-	}
-
-	if (!found) {
-		do_remote_message(from_mud, from_player, buf);
-		return;
-	}
-
-	data = one_argument(data, arg);
-	data = one_argument(data, victim);
-	data = one_argument(data, vic_gender);
-	vic_sex = atoi(vic_gender);
-
-	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *vic;
-		vic = d->original ? d->original : d->character;
-
-		if (d->connected == CON_PLAYING &&
-		    !IS_SET(vic->comm, COMM_NOSOCIAL) &&
-		    !IS_SET(vic->comm, COMM_QUIET)) {
-			/* avoid prefix on social messages when remote channel is blocked -- Outsider */
-			if (IS_NPC(vic)) return;
-
-			if (vic->pcdata->block_remote) return;
-
-			if (victim[0] == '\0' || arg[0] == '\0') {
-				if (iterator->others_no_arg != NULL) {
-					sprintf(buf, "{G[%s{Y@{G%s] ", from_player, from_mud);
-					stc(buf, vic);
-				}
-
-				remote_act_format(iterator->others_no_arg, from_player, victim, NULL, ch_sex,
-				                  vic_sex, vic);
-			}
-			else if (is_name(victim, from_player)) {
-				if (iterator->others_auto != NULL) {
-					sprintf(buf, "{G[%s{Y@{G%s] ", from_player, from_mud);
-					stc(buf, vic);
-				}
-
-				remote_act_format(iterator->others_auto, from_player, victim, NULL, ch_sex,
-				                  vic_sex, vic);
-			}
-			else if (is_name(victim, vic->name)) {
-				if (iterator->vict_found != NULL) {
-					sprintf(buf, "{G[%s{Y@{G%s] ", from_player, from_mud);
-					stc(buf, vic);
-				}
-
-				remote_act_format(iterator->vict_found, from_player, victim, NULL, ch_sex, vic_sex, vic);
-			}
-			else {
-				if (iterator->others_found != NULL) {
-					sprintf(buf, "{G[%s{Y@{G%s] ", from_player, from_mud);
-					stc(buf, vic);
-				}
-
-				remote_act_format(iterator->others_found, from_player, victim, NULL, ch_sex, vic_sex, vic);
-			}
-
-			set_color(vic, WHITE, NOBOLD);
-		}
-	}
-
-	return;
-}
-
-// Rehash of act_format and act_new to allow for remote socials
-void remote_act_format(const char *format, char *ch, char *vch, const void *arg1, int ch_sex, int vic_sex,
-                       CHAR_DATA *to)
-{
-	static char *const he_she  [] = { "it",  "he", "she" };
-	static char *const him_her [] = { "it",  "him", "her" };
-	static char *const his_her [] = { "its", "his", "her" };
-	char buf[MAX_STRING_LENGTH * 100];
-	const char *str;
-	const char *i;
-	char *point;
-	char dollarmsg[3];
-	point   = buf;
-	str     = format;
-
-	while (*str != '\0') {
-		if (*str != '$') {
-			*point++ = *str++;
-			continue;
-		}
-
-		/* '$' sign after this point */
-		++str;
-		sprintf(dollarmsg, "$%c", *str);
-		i = dollarmsg;
-
-		switch (*str) {
-		default:
-			break;
-
-		/* The following codes need 'ch', which should always be OK */
-
-		case 'c': i = capitalize(ch); break;
-
-		case 'n': i = ch; break;
-
-		case 'e': i = he_she  [URANGE(0, ch_sex, 2)]; break;
-
-		case 'm': i = him_her [URANGE(0, ch_sex, 2)]; break;
-
-		case 's': i = his_her [URANGE(0, ch_sex, 2)]; break;
-
-		/* The following codes need 'vch' */
-
-		case 'N':
-			if (vch[0] == '\0') {
-				bug("Missing vch for '$$N'", 0);
-				// bug( format, 0);  // This will cause an endless loop
-				return;
-			}
-			else
-				i = vch;
-
-			break;
-
-		case 'E':
-			if (vch[0] == '\0') {
-				bug("Missing vch for '$$E'", 0);
-				return;
-			}
-			else
-				i = he_she[ URANGE(0, vic_sex, 2) ];
-
-			break;
-
-		case 'M':
-			if (vch[0] == '\0') {
-				bug("Missing vch for '$$M'", 0);
-				return;
-			}
-			else
-				i = him_her[URANGE(0, vic_sex, 2)];
-
-			break;
-
-		case 'S':
-			if (vch[0] == '\0') {
-				bug("Missing vch for '$$S'", 0);
-				return;
-			}
-			else
-				i = his_her[URANGE(0, vic_sex, 2)];
-
-			break;
-
-		/* The following codes need no checking */
-
-		case 'G': i = "\007";
-			break;
-
-		case '$': i = "$";
-			break;
-		}
-
-		++str;
-
-		while ((*point = *i) != '\0')
-			++point, ++i;
-	}
-
-	*point++ = '\n';
-	*point++ = '\r';
-	*point   = 0;
-	buf[0]   = UPPER(buf[0]);
-
-	/* make sure the receiver isn't blocking remote messages */
-	if (to && to->desc) {
-		if (IS_NPC(to)) return;
-
-		if (to->pcdata->block_remote) return;
-
-		stc(buf, to);
-	}
-} /* end remote_act_format() */
-

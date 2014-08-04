@@ -29,8 +29,18 @@
 #ifndef MERC_HEADER_FILE__
 #define MERC_HEADER_FILE__
 
+// all system includes here, not in .c files
+// include local headers as needed in .c files only, starting with this header
+#include <sys/types.h>
+#include <sys/time.h>
+//#include <sys/select.h>
+#include <ctype.h>
 #include <time.h>
+#include <errno.h>
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdarg.h>
 
 /*
  * Accommodate old non-Ansi compilers.
@@ -41,13 +51,11 @@
 #define DECLARE_DO_FUN( fun )           void fun( )
 #define DECLARE_SPEC_FUN( fun )         bool fun( )
 #define DECLARE_SPELL_FUN( fun )        void fun( )
-#define DECLARE_DO_REMOTE( remote )     void remote( )
 #else
 #define args( list )                    list
 #define DECLARE_DO_FUN( fun )           DO_FUN    fun
 #define DECLARE_SPEC_FUN( fun )         SPEC_FUN  fun
 #define DECLARE_SPELL_FUN( fun )        SPELL_FUN fun
-#define DECLARE_DO_REMOTE( remote )     DO_REMOTE remote 
 #endif
 
 /* system calls */
@@ -80,6 +88,7 @@ typedef short   int                     sh_int;
 typedef unsigned char                   bool;
 #endif
 
+#define DIZZYPORT 3000
 
 /* global access to our port number, set in comm.c */
 extern int port;
@@ -145,7 +154,6 @@ typedef void DO_FUN     args( ( CHAR_DATA *ch, char *argument ) );
 typedef bool SPEC_FUN   args( ( CHAR_DATA *ch ) );
 typedef void SPELL_FUN  args( ( int sn, int level, CHAR_DATA *ch, void *vo,
                                 int target, int evolution) );
-typedef void DO_REMOTE  args( ( char *client, char *user, char *argument ) );
 
 
 void	bugf	(char * fmt, ...)			__attribute__	((format(printf, 1, 2)));
@@ -2185,8 +2193,6 @@ struct  pc_data
    sh_int      lays;     /* times we can lay on hands */
    sh_int      next_lay_countdown;   /* time before we get power back */
    sh_int      familiar;          /* PCs can have a familiar -- Outsider */
-   int         phone_socket;      /* sockets which points to another MUD (see phone.c) */
-   bool        block_remote;      /* flag to allow or block remote messages */
    char        granted_commands[MAX_GRANT][32];    /* granted commands */
 };
 
@@ -3707,7 +3713,6 @@ void hunt_victim        args( ( CHAR_DATA *ch) );
 
 /* interp.c */
 void    interpret       args( ( CHAR_DATA *ch, char *argument ) );
-void    Remote_Interpret  args( (char *data) );
 bool    is_number       args( ( char *arg ) );
 int     number_argument args( ( char *argument, char *arg ) );
 int     entity_argument args( ( char *argument, char *arg ) );
@@ -3793,7 +3798,6 @@ bool    CAN_USE_RSKILL  args( ( CHAR_DATA *ch, int sn ) );
 void    list_extraskill args( ( CHAR_DATA *ch ) );
 
 /* channels.c */
-void remote_act_format  args( ( const char *format, char *ch, char *vch,const void *arg1, int ch_sex, int vic_sex, CHAR_DATA *to ) );
 
 
 #define MSL MAX_STRING_LENGTH

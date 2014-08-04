@@ -25,20 +25,18 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-#include <sys/types.h>
-#include <ctype.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+//#include <sys/types.h>
+//#include <ctype.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
 //#include<time.h>
-#include <unistd.h>
+//#include <unistd.h>
 #include "merc.h"
 #include "interp.h"
 #include "tables.h"
 #include "vt100.h" /* VT100 Stuff */
 #include "sql.h"
-#include "chit.h"     /* handle remote commands */
-#include "phone.h"    /* handle connecting to other MUDs */
 
 
 extern void     goto_line    args((CHAR_DATA *ch, int row, int column));
@@ -187,7 +185,6 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "copyover",           do_copyover,    POS_DEAD,               LOG_ALWAYS,     5,      GL | GWC        },
 	{ "consider",           do_consider,    POS_RESTING,    LOG_NORMAL,     3,      0                       },
 	{ "config",                     do_config,              POS_SLEEPING,   LOG_NORMAL,     6,      0                       },
-	{ "connect",            do_connect,             POS_DEAD,               LOG_ALWAYS,     5,      GWG                     },
 	{ "consent",            do_consent,             POS_RESTING,    LOG_NORMAL,     1,      0                       },
 	{ "convert",            do_convert,             POS_SLEEPING,   LOG_NORMAL,     8,      0                       },
 	{ "count",                      do_count,               POS_SLEEPING,   LOG_NORMAL,     3,      0                       },
@@ -371,9 +368,7 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "personal",           do_personal,    POS_DEAD,               LOG_NORMAL,     3,      0                       },
 	{ "permit",                     do_permit,              POS_DEAD,               LOG_ALWAYS,     5,      GWS                     },
 	{ "pet",                        do_pet,                 POS_RESTING,    LOG_NORMAL,     8,      0                       },
-	{ "phone",                      do_phone,               POS_SLEEPING,   LOG_NORMAL,     3,      0                       },
 	{ "pick",                       do_pick,                POS_RESTING,    LOG_NORMAL,     4,      0                       },
-	{ "ping",                       do_ping,                POS_DEAD,               LOG_NORMAL,     3,      0                       },
 	{ "pit",                        do_pit,                 POS_RESTING,    LOG_NORMAL,     3,      0                       },
 	//{ "pipe",                     do_pipe,                POS_DEAD,               LOG_ALWAYS,     5,      GD | GWC        },
 	{ "pk",                         do_pk,                  POS_SLEEPING,   LOG_NORMAL,     6,      0                       },
@@ -421,7 +416,6 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "relocate",           do_relocate,    POS_FIGHTING,   LOG_NORMAL,     8,      0                       },
 	{ "relevel",            do_relevel,             POS_DEAD,               LOG_ALWAYS,     1,      0                       },
 	{ "remove",                     do_remove,              POS_RESTING,    LOG_NORMAL,     4,      0                       },
-	{ "remote",                     do_remote,              POS_DEAD,               LOG_NORMAL,     1,      0                       },
 	{ "remort",                     do_remort,              POS_DEAD,               LOG_ALWAYS,     5,      GH                      },
 	{ "remexit",            do_remexit,             POS_DEAD,               LOG_ALWAYS,     5,      GWC                     },
 	{ "rename",                     do_rename,              POS_RESTING,    LOG_NORMAL,     8,      0                       },
@@ -558,24 +552,6 @@ const   struct  cmd_type        cmd_table       [] = {
 };
 
 
-const   struct  remote_command        remote_cmd       [] = {
-	{ "finger",       do_remote_finger },      /* finger player, return info */
-	{ "gossip",       do_remote_gossip },
-	{ "immortal",     do_remote_immtalk },    /* send immortals message */
-//  { "level",        do_remote_level   },    /* process request to level up local player */
-	{ "message",      do_remote_message },
-	{ "phonecall",    do_remote_phonecall },   /* receive attempt to connect */
-	{ "phoneaccept",  do_remote_phoneaccept }, /* get acceptance to connect */
-	{ "ping",         do_remote_ping },        /* return ping requsts */
-	{ "print",        do_remote_print },
-	{ "social",       do_remote_social },     /* process incoming social messages */
-	{ "tell",         do_remote_tell },
-//  { "update",       do_remote_update },     /* update a local char based on remote data */
-	{ "who",          do_remote_who },
-	{ " ",            NULL}
-};
-
-
 /*
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
@@ -591,29 +567,6 @@ void interpret(CHAR_DATA *ch, char *argument)
 	char cmd_copy[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	/* End Stuff for Malloc */
-
-	/* If the character is on another MUD, send all input there directly. -- Outsider */
-	/* First make sure the character is a player, not NPC. */
-	if (! IS_NPC(ch)) {
-		if (ch->pcdata->phone_socket) {
-			/* do not forget that newlines are stripped before this -- Outsider */
-			strcat(argument, "\n");
-			write(ch->pcdata->phone_socket, argument, strlen(argument));
-
-			/* if we are quitting, then close the connection */
-			if (! strncasecmp(argument, "quit", 4)) {
-				close(ch->pcdata->phone_socket);
-				ch->pcdata->phone_socket = 0;
-				ch->pcdata->block_remote = FALSE;
-				stc("You slowly return to your own world.\n\r", ch);
-			}
-
-			/* Since we dealt with the message, we shall now drop
-			   out of this function. -- Outsider
-			*/
-			return;
-		}   /* end of character on another MUD */
-	}   /* end of not NPC */
 
 	/*
 	 * Strip leading spaces.
@@ -814,51 +767,6 @@ void interpret(CHAR_DATA *ch, char *argument)
 	tail_chain();
 	return;
 }
-
-
-/* This function handles incoming commands from the Chat server.
-It accepts a string containing the client which sent the command, the
-user who sent the command and the command itself.
-<from_client> <from_user> <command> [<args>]
-For example:
-"Legacy Bobby gossip Hello World."
-
-This function figures out that the command is and what (if anything)
-to do with it.
--- Outsider
-*/
-void Remote_Interpret(char *data)
-{
-	char client_mud[BUFFER_SIZE];
-	char user[BUFFER_SIZE], command[BUFFER_SIZE];
-	bool found;
-	int command_count;
-	/* get the client MUD's name */
-	data = one_argument(data, client_mud);
-	/* get the username */
-	data = one_argument(data, user);
-	/* get the command sent */
-	data = one_argument(data, command);
-	/* everything left in "data" are command arguments */
-	/* look up remote command in table */
-	found = FALSE;
-	command_count = 0;
-
-	while ((! found) && (remote_cmd[command_count].name[0] != ' ')) {
-		if (! strcmp(remote_cmd[command_count].name, command))
-			found = TRUE;
-		else
-			command_count++;
-	}
-
-	/* if we got a valid command, call the function */
-	if (found)
-		(*remote_cmd[command_count].do_fun)(client_mud, user, data);
-
-	return;
-}     /* end of Remote_Interpret */
-
-
 
 
 bool check_social(CHAR_DATA *ch, char *command, char *argument)

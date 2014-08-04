@@ -26,11 +26,11 @@
  *  such installation can be found in INSTALL.  Enjoy...         N'Atas-Ha *
  ***************************************************************************/
 
-#include <sys/types.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <ctype.h>
+//#include <sys/types.h>
+//#include <stdio.h>
+//#include <string.h>
+//#include <stdlib.h>
+//#include <ctype.h>
 #include "merc.h"
 
 /*
