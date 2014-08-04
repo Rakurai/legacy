@@ -39,7 +39,7 @@
 #include "lookup.h"
 #include "tables.h"
 #include "vt100.h"
-#include "mysql.h"
+#include "sql.h"
 
 #include "chit.h"
 

@@ -5,8 +5,8 @@
  *
  */
 
-#ifndef __MYSQL_H
-#define __MYSQL_H
+#ifndef __SQL_H
+#define __SQL_H
 
 #include <errmsg.h>
 #include <mysql.h>
@@ -41,4 +41,4 @@ int			db_countf			(char *func, char *query, ...);
 char		*db_esc				(char *string);
 void		db_update			(void);
 
-#endif /* __MYSQL_H */
+#endif /* __SQL_H */

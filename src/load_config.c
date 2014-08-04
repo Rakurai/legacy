@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include "merc.h"
-#include "include/mysql.h"
+#include "sql.h"
 #include "deps/cJSON/cJSON.h"
 
 int load_config(char *filename) {

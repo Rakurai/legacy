@@ -16,7 +16,7 @@
 #include <ctype.h>
 #include <signal.h>
 #include "merc.h"
-#include "mysql.h"
+#include "sql.h"
 #include "tables.h"
 #include "recycle.h"
 #include "ports.h"

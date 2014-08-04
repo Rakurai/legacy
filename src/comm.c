@@ -60,7 +60,7 @@
 #include "vt100.h" /* VT100 Stuff */
 #include "ports.h"
 #include "lookup.h"
-#include "mysql.h"
+#include "sql.h"
 #include "memory.h"
 #include "chit.h"    /* connect to Chat server */
 

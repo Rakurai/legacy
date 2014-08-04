@@ -8,7 +8,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "vt100.h"
-#include "mysql.h"
+#include "sql.h"
 //For the hack fix
 #include "tables.h"
 

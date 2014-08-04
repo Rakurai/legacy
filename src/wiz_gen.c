@@ -25,7 +25,7 @@
 #include "recycle.h"
 #include "lookup.h"
 #include "tables.h"
-#include "mysql.h"
+#include "sql.h"
 
 DECLARE_DO_FUN(do_slookup);
 

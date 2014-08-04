@@ -27,7 +27,7 @@
 #include "recycle.h"
 #include "ports.h"
 #include "memory.h"
-#include "include/mysql.h"
+#include "sql.h"
 
 DECLARE_DO_FUN(do_echo);
 

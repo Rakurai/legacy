@@ -39,7 +39,7 @@
 #include "tables.h"
 #include "lookup.h"
 #include "vt100.h"
-#include "mysql.h"
+#include "sql.h"
 #include "interp.h"
 
 #include "chit.h"  /* for MUD to MUD communication */

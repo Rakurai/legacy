@@ -31,7 +31,7 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "mysql.h"
+#include "sql.h"
 
 void ignore_offline(CHAR_DATA *, char *);
 

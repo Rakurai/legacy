@@ -12,7 +12,7 @@
 #include <stdarg.h>
 #include "merc.h"
 #include "db.h"
-#include "include/mysql.h"
+#include "sql.h"
 
 MYSQL *mysql_db;
 char *DB_HOST = NULL;

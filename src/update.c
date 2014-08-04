@@ -33,7 +33,7 @@
 #include "music.h"
 #include "lookup.h"
 #include "ports.h"
-#include "mysql.h"
+#include "sql.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit);

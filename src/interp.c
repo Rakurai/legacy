@@ -36,7 +36,7 @@
 #include "interp.h"
 #include "tables.h"
 #include "vt100.h" /* VT100 Stuff */
-#include "mysql.h"
+#include "sql.h"
 #include "chit.h"     /* handle remote commands */
 #include "phone.h"    /* handle connecting to other MUDs */
 
