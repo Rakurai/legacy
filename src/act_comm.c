@@ -29,7 +29,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <time.h>
+////#include<time.h>
 #include <ctype.h>
 #include "merc.h"
 #include "vt100.h"
@@ -967,8 +967,8 @@ void update_text_file(CHAR_DATA *ch, char *file, char *str)
 	if ((fp = fopen(file, "a")) != NULL) {
 		gettimeofday(&now_time, NULL);
 		current_time = (time_t) now_time.tv_sec;
-		strftime(buf, 7, "%m/%d/%y", localtime(&current_time));
-		fprintf(fp, "{Y[{x%5s{Y]{x {C[{x%5d{C]{x %s: %s\n",
+		strftime(buf, 9, "%m/%d/%y", localtime(&current_time));
+		fprintf(fp, "{Y[{x%8s{Y]{x {C[{x%5d{C]{x %s: %s\n",
 		        buf, ch->in_room ? ch->in_room->vnum : 0, ch->name, str);
 		fclose(fp);
 	}
