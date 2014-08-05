@@ -207,7 +207,6 @@ void load_tourroutes(FILE *fp)
 	}
 } /* end load_tourroutes() */
 
-
 /*
  * Load list of tour starting points
  *
@@ -268,7 +267,6 @@ void load_tourstarts(FILE *fp)
 	}
 } /* end load_tourstarts() */
 
-
 /* find the tour for a given coach. Reverse lookup. */
 TOURROUTE_DATA *tour_for_coach(OBJ_DATA *coach)
 {
@@ -283,7 +281,6 @@ TOURROUTE_DATA *tour_for_coach(OBJ_DATA *coach)
 	bug("No tour found for coach %d", coach->pIndexData->vnum);
 	return NULL;
 } /* end tour_for_coach() */
-
 
 /* find a printable direction to the next room,
    a funky lie if no connection, or "" if buggy */
@@ -320,7 +317,6 @@ char *dir_to_next(ROOM_INDEX_DATA *here, ROOM_INDEX_DATA *there)
 	return "through uncharted reaches of space and time";
 } /* end dir_to_next() */
 
-
 void step_messages(TOURROUTE_DATA *pTour, TOURSTEP_DATA *where)
 {
 	if (IS_SET(where->msg_flags, TOUR_MSG_COACH))
@@ -332,7 +328,6 @@ void step_messages(TOURROUTE_DATA *pTour, TOURSTEP_DATA *where)
 	if (IS_SET(where->msg_flags, TOUR_MSG_DRIVER))
 		act(where->msg_driver, pTour->driver, pTour->driver, pTour->driver, TO_ROOM);
 } /* end step_messages() */
-
 
 char *calculate_price(TOURROUTE_DATA *pTour, int *gold, int *silver)
 {
@@ -369,7 +364,6 @@ char *calculate_price(TOURROUTE_DATA *pTour, int *gold, int *silver)
 
 	return longprice;
 } /* end calculate_price() */
-
 
 /*
  * Tour update. Every minute or so, start coaches in all
@@ -547,7 +541,6 @@ void tour_update(void)
 	}
 } /* end tour_update() */
 
-
 void do_board(CHAR_DATA *ch, char *argument)
 {
 	OBJ_DATA *coach;
@@ -651,7 +644,6 @@ void do_board(CHAR_DATA *ch, char *argument)
 	if (ch->invis_level < LEVEL_IMMORTAL)
 		act("$n boards the coach and sits down in it.", ch, NULL, NULL, TO_ROOM);
 } /* end do_board() */
-
 
 void do_alight(CHAR_DATA *ch, char *argument)
 {

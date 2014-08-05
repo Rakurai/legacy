@@ -1,9 +1,7 @@
 #include "merc.h"
 
-
 void read_line(FILE *, STORAGE_DATA *);
 void save_line(FILE *, STORAGE_DATA *);
-
 
 /**********************************************************************/
 
@@ -78,7 +76,6 @@ void save_storage_list()
 
 	fclose(fp);
 }
-
 
 void insert_storagedata(STORAGE_DATA *newdata)
 {

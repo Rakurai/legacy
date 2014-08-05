@@ -31,7 +31,6 @@
 #include "vt100.h" /* VT100 Stuff */
 #include "sql.h"
 
-
 extern void     goto_line    args((CHAR_DATA *ch, int row, int column));
 extern void     set_window   args((CHAR_DATA *ch, int top, int bottom));
 extern void     slog_file    args((CHAR_DATA *ch, char *file, char *str));
@@ -48,11 +47,9 @@ bool    check_disabled(const struct cmd_type *command);
 DISABLED_DATA *disabled_first;
 #define END_MARKER      "END" /* for load_disabled() and save_disabled() */
 
-
 /* Malloc Stuff */
 extern int nAllocString;
 extern int nAllocPerm;
-
 
 /*
  * Command logging types.
@@ -61,14 +58,10 @@ extern int nAllocPerm;
 #define LOG_ALWAYS      1
 #define LOG_NEVER       2
 
-
-
 /*
  * Log-all switch.
  */
 bool                            fLogAll         = FALSE;
-
-
 
 /*
  * Command table.
@@ -110,7 +103,7 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "afk",                        do_afk,                 POS_SLEEPING,   LOG_NORMAL,     1,      0                       },
 	{ "alia",                       do_alia,                POS_DEAD,               LOG_NORMAL,     0,      0                       },
 	{ "alias",                      do_alias,               POS_DEAD,               LOG_NORMAL,     6,      0                       },
-	{ "alight",                     do_alight,              POS_SLEEPING,   LOG_NORMAL,     8,      0                       },
+//	{ "alight",                     do_alight,              POS_SLEEPING,   LOG_NORMAL,     8,      0                       },
 	{ "align",                      do_align,               POS_SLEEPING,   LOG_NORMAL,     8,      0                       },
 	{ "allow",                      do_allow,               POS_DEAD,               LOG_ALWAYS,     5,      GWS                     },
 	{ "allsave",            do_allsave,             POS_DEAD,               LOG_ALWAYS,     5,      GWG                     },
@@ -145,7 +138,7 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "brandish",           do_brandish,    POS_RESTING,    LOG_NORMAL,     7,      0                       },
 	{ "breakup",            do_breakup,             POS_STANDING,   LOG_NORMAL,     8,      0                       },
 	{ "brew",                       do_brew,                POS_STANDING,   LOG_NORMAL,     7,      0                       },
-	{ "board",                      do_board,               POS_STANDING,   LOG_NORMAL,     8,      0                       },
+//	{ "board",                      do_board,               POS_STANDING,   LOG_NORMAL,     8,      0                       },
 	{ "ranged",                     do_bow,                 POS_STANDING,   LOG_NORMAL,     2,      0                       },
 	{ "brief",                      do_brief,               POS_DEAD,               LOG_NORMAL,     3,      0                       },
 	{ "bug",                        do_bug,                 POS_DEAD,               LOG_NORMAL,     3,      0                       },
@@ -544,7 +537,6 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "",                           0,                              POS_DEAD,               LOG_NORMAL,     0,      0                       }
 };
 
-
 /*
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
@@ -761,7 +753,6 @@ void interpret(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 bool check_social(CHAR_DATA *ch, char *command, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -912,7 +903,6 @@ int number_argument(char *argument, char *arg)
 	return 1;
 }
 
-
 /*
  * scan a 'p.' or 'm.' or 'o.' or 'r.' out of an argument
  * before or after a <number>'.' .
@@ -980,7 +970,6 @@ int entity_argument(char *argument, char *arg)
 	return etype;
 }
 
-
 /*
  * Given a string like 14*foo, return 14 and 'foo'
 */
@@ -1002,7 +991,6 @@ int mult_argument(char *argument, char *arg)
 	strcpy(arg, pstar + 1);
 	return number;
 }
-
 
 /*
  * Pick off one argument from a string and return the rest.
@@ -1220,7 +1208,6 @@ void slog_file(CHAR_DATA *ch, char *file, char *str)
 	return;
 }
 
-
 /* Check if that command is disabled
    Note that we check for equivalence of the do_fun pointers; this means
    that disabling 'chat' will also disable the '.' command
@@ -1235,7 +1222,6 @@ bool check_disabled(const struct cmd_type *command)
 
 	return FALSE;
 }
-
 
 void load_disabled()
 {
@@ -1268,7 +1254,6 @@ void load_disabled()
 
 	mysql_free_result(result);
 }
-
 
 void do_disable(CHAR_DATA *ch, char *argument)
 {
@@ -1356,8 +1341,6 @@ void do_disable(CHAR_DATA *ch, char *argument)
 	            db_esc(p->command->name), db_esc(p->disabled_by), db_esc(p->reason));
 	stc("Command disabled.\n", ch);
 }
-
-
 
 /*
 This function checks to see if a given commands

@@ -33,7 +33,6 @@
 /* command procedures needed */
 DECLARE_DO_FUN(do_return);
 
-
 /*
  * Local functions.
  */
@@ -79,7 +78,6 @@ bool note_is_name(char *str, char *namelist)
 		}
 	}
 }
-
 
 /* friend stuff -- for NPC's mostly */
 bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -191,7 +189,6 @@ int weapon_type(const char *name)
 
 	return WEAPON_EXOTIC;
 }
-
 
 int item_lookup(const char *name)
 {
@@ -451,7 +448,6 @@ int deity_lookup(const char *name)
 	return -1;
 }
 
-
 /* for returning weapon information */
 int get_weapon_sn(CHAR_DATA *ch, bool secondary)
 {
@@ -488,7 +484,6 @@ int get_weapon_sn(CHAR_DATA *ch, bool secondary)
 	return sn;
 } /* end get_weapon_sn() */
 
-
 int get_weapon_skill(CHAR_DATA *ch, int sn)
 {
 	int skill;
@@ -511,7 +506,6 @@ int get_weapon_skill(CHAR_DATA *ch, int sn)
 
 	return URANGE(0, skill, 100);
 }
-
 
 /* perform a full reset on a character, can be called any time, but is always
    used in load_char_obj */
@@ -721,7 +715,6 @@ void reset_char(CHAR_DATA *ch)
 	REMOVE_BIT(ch->imm_flags, IMM_SHADOW);
 }
 
-
 /* command for retrieving stats */
 int get_curr_stat(CHAR_DATA *ch, int stat)
 {
@@ -741,7 +734,6 @@ int get_curr_stat(CHAR_DATA *ch, int stat)
 
 	return URANGE(3, ch->perm_stat[stat] + ch->mod_stat[stat], UMIN(max, 25));
 }
-
 
 /* command for returning max training score */
 int get_max_train(CHAR_DATA *ch, int stat)
@@ -763,7 +755,6 @@ int get_max_train(CHAR_DATA *ch, int stat)
 	return UMIN(max, 25);
 }
 
-
 /*
  * Retrieve a character's carry capacity.
  */
@@ -778,8 +769,6 @@ int can_carry_n(CHAR_DATA *ch)
 	return MAX_WEAR +  2 * get_curr_stat(ch, STAT_DEX) + ch->level;
 }
 
-
-
 /*
  * Retrieve a character's carry capacity.
  */
@@ -793,7 +782,6 @@ int can_carry_w(CHAR_DATA *ch)
 
 	return str_app[get_curr_stat(ch, STAT_STR)].carry * 10 + ch->level * 25;
 }
-
 
 /* Is Exact Name by Lotus */
 bool is_exact_name(char *str, char *namelist)
@@ -826,7 +814,6 @@ bool is_exact_name(char *str, char *namelist)
 		}
 	}
 }
-
 
 /*
  * See if a string is one of the names of an object.
@@ -862,7 +849,6 @@ bool is_name(char *str, char *namelist)
 	}
 }
 
-
 bool is_exact_name_color(char *str, char *namelist)
 {
 	char name[MIL], part[MIL];
@@ -896,67 +882,6 @@ bool is_exact_name_color(char *str, char *namelist)
 		}
 	}
 }
-
-
-bool is_name_color(char *str, char *namelist)
-{
-	char name[MIL], part[MIL];
-	char *list, *string;
-	/* strip the color codes */
-	str = smash_bracket(str);
-	namelist = smash_bracket(namelist);
-	string = str;
-
-	/* we need ALL parts of string to match part of namelist */
-	for (; ;) {  /* start parsing string */
-		str = one_argument(str, part);
-
-		if (part[0] == '\0')
-			return TRUE;
-
-		/* check to see if this is part of namelist */
-		list = namelist;
-
-		for (; ;) {  /* start parsing namelist */
-			list = one_argument(list, name);
-
-			if (name[0] == '\0')  /* this name was not found */
-				return FALSE;
-
-			if (!str_prefix1(string, name))
-				return TRUE; /* full pattern match */
-
-			if (!str_prefix1(part, name))
-				break;
-		}
-	}
-}
-
-
-/* enchanted stuff for eq */
-void affect_enchant(OBJ_DATA *obj)
-{
-	/* okay, move all the old flags into new vectors if we have to */
-	if (!obj->enchanted) {
-		AFFECT_DATA *paf, *af_new;
-		obj->enchanted = TRUE;
-
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-			af_new = new_affect();
-			af_new->next = obj->affected;
-			obj->affected = af_new;
-			af_new->where       = paf->where;
-			af_new->type        = UMAX(0, paf->type);
-			af_new->level       = paf->level;
-			af_new->duration    = paf->duration;
-			af_new->location    = paf->location;
-			af_new->modifier    = paf->modifier;
-			af_new->bitvector   = paf->bitvector;
-			af_new->evolution   = paf->evolution;
-		}
-	}
-}
-
 
 /*
  * Apply or remove an affect to a character.
@@ -1124,7 +1049,6 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		}
 	}
 } /* end affect_modify() */
-
 
 /*
  * Give an affect to a char.
@@ -1332,7 +1256,6 @@ void affect_strip(CHAR_DATA *ch, int sn)
 	return;
 }
 
-
 /*
  * Combine two similar affects by Lotus
  */
@@ -1375,8 +1298,6 @@ void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
 	affect_to_char(ch, paf);
 	return;
 }
-
-
 
 /*
  * Move a char out of a room.
@@ -1425,8 +1346,6 @@ void char_from_room(CHAR_DATA *ch)
 	ch->on           = NULL;  /* sanity check! */
 	return;
 }
-
-
 
 /*
  * Move a char into a room.
@@ -1511,7 +1430,6 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	return;
 }
 
-
 /* Locker Code */
 void obj_from_locker(OBJ_DATA *obj)
 {
@@ -1545,7 +1463,6 @@ void obj_from_locker(OBJ_DATA *obj)
 	obj->next_content    = NULL;
 	obj->in_locker       = NULL;
 }
-
 
 void obj_from_strongbox(OBJ_DATA *obj)
 {
@@ -1581,7 +1498,6 @@ void obj_from_strongbox(OBJ_DATA *obj)
 	return;
 } /* end obj_from_strongbox() */
 
-
 void obj_to_locker(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	if (IS_NPC(ch)) {
@@ -1596,7 +1512,6 @@ void obj_to_locker(OBJ_DATA *obj, CHAR_DATA *ch)
 	obj->in_room            = NULL;
 	obj->in_obj             = NULL;
 }
-
 
 void obj_to_strongbox(OBJ_DATA *obj, CHAR_DATA *ch)
 {
@@ -1613,7 +1528,6 @@ void obj_to_strongbox(OBJ_DATA *obj, CHAR_DATA *ch)
 	obj->in_obj             = NULL;
 } /* end obj_to_strongbox() */
 
-
 /*
  * Give an obj to a char.
  */
@@ -1628,8 +1542,6 @@ void obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 	obj->in_obj          = NULL;
 	obj->clean_timer = 0;
 }
-
-
 
 /*
  * Take an obj from its character.
@@ -1665,8 +1577,6 @@ void obj_from_char(OBJ_DATA *obj)
 	obj->carried_by      = NULL;
 	obj->next_content    = NULL;
 }
-
-
 
 /*
  * Find the ac value of an obj, including position effect.
@@ -1717,7 +1627,6 @@ int apply_ac(OBJ_DATA *obj, int iWear, int type)
 	return 0;
 }
 
-
 /*
  * Find a piece of eq on a character.
  */
@@ -1735,8 +1644,6 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
 
 	return NULL;
 }
-
-
 
 /*
  * Equip a char with an obj.
@@ -1788,7 +1695,6 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 			/* evolution currently at 1 for worn eq */
 			(*skill_table[obj->spell[i2]].spell_fun)(obj->spell[i2], obj->spell_lev[i2], ch, vo, TARGET_CHAR, 1);
 }
-
 
 /*
  * Unequip a char with an obj.
@@ -1861,8 +1767,6 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	return;
 }
 
-
-
 /*
  * Count occurrences of an obj in a list.
  */
@@ -1879,8 +1783,6 @@ int count_obj_list(OBJ_INDEX_DATA *pObjIndex, OBJ_DATA *list)
 
 	return nMatch;
 }
-
-
 
 /*
  * Move an obj out of a room.
@@ -1922,8 +1824,6 @@ void obj_from_room(OBJ_DATA *obj)
 	obj->next_content = NULL;
 	return;
 }
-
-
 
 /*
  * Move an obj into a room.
@@ -1967,8 +1867,6 @@ void obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
 	return;
 }
 
-
-
 /*
  * Move an object into an object.
  */
@@ -1983,8 +1881,6 @@ void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 	if (obj_to == donation_pit)
 		obj->cost = 0;
 }
-
-
 
 /*
  * Move an object out of an object.
@@ -2019,8 +1915,6 @@ void obj_from_obj(OBJ_DATA *obj)
 	obj->next_content = NULL;
 	obj->in_obj       = NULL;
 }
-
-
 
 /*
  * Extract an obj from the world.
@@ -2063,8 +1957,6 @@ void extract_obj(OBJ_DATA *obj)
 	free_obj(obj);
 	return;
 }
-
-
 
 /*
  * Extract a char from the world.
@@ -2174,7 +2066,6 @@ void extract_char(CHAR_DATA *ch, bool fPull)
 	free_char(ch);
 }
 
-
 /*
  * Find out if a mob with a given name exists anywhere -- Elrac
  * This is for the mob name creation check in comm.c
@@ -2198,9 +2089,6 @@ bool mob_exists(char *name)
 	return FALSE;
 }
 
-
-
-
 /*
  * Find some object with a given index data.
  * Used by area-reset 'P' command.
@@ -2216,7 +2104,6 @@ OBJ_DATA *get_obj_type(OBJ_INDEX_DATA *pObjIndex)
 
 	return NULL;
 }
-
 
 /* deduct cost from a character */
 bool deduct_cost(CHAR_DATA *ch, long cost)
@@ -2246,7 +2133,6 @@ bool deduct_cost(CHAR_DATA *ch, long cost)
 	ch->silver -= silver;
 	return TRUE;
 }
-
 
 /*
  * Create a 'money' obj.
@@ -2577,7 +2463,6 @@ bool can_see_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	return TRUE;
 }
 
-
 /*
  * True if char can see victim.
  */
@@ -2642,7 +2527,6 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	return TRUE;
 } /* end can_see() */
 
-
 /*
  * True if char can see victim in WHO -- Elrac
  * This makes almost all characters visible in who, except hiding imms
@@ -2664,7 +2548,6 @@ bool can_see_who(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* Otherwise, I guess WHO should see them. */
 	return TRUE;
 }
-
 
 /*
  * True if char can see obj.
@@ -2711,8 +2594,6 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	return TRUE;
 }
 
-
-
 /*
  * True if char can drop obj.
  */
@@ -2726,8 +2607,6 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	return FALSE;
 }
-
-
 
 /*
  * Return ascii name of an item type.
@@ -2797,7 +2676,7 @@ char *item_type_name(OBJ_DATA *obj)
 
 	case ITEM_ANVIL:            return "anvil";
 
-	case ITEM_COACH:            return "coach";
+//	case ITEM_COACH:            return "coach";
 
 	case ITEM_WEDDINGRING:      return "weddingring";
 
@@ -2807,8 +2686,6 @@ char *item_type_name(OBJ_DATA *obj)
 	bug("Item_type_name: unknown type %d.", obj->item_type);
 	return "(unknown)";
 }
-
-
 
 /*
  * Return ascii name of an affect location.
@@ -2876,8 +2753,6 @@ char *affect_loc_name(int location)
 	bug("Affect_location_name: unknown location %d.", location);
 	return "(unknown)";
 }
-
-
 
 /*
  * Return ascii name of an affect bit vector.
@@ -2952,8 +2827,6 @@ char *affect_bit_name(int vector)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-
-
 /*
  * Return ascii name of extra flags vector.
  */
@@ -3014,7 +2887,6 @@ char *extra_bit_name(int extra_flags)
 
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
-
 
 /* return ascii name of an act vector */
 char *act_bit_name(int act_flags)
@@ -3590,7 +3462,6 @@ char *cont_bit_name(int cont_flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-
 char *off_bit_name(int off_flags)
 {
 	static char buf[512];
@@ -3739,17 +3610,6 @@ int ptb(BUFFER *buffer, char *fmt, ...)
 	return res;
 }
 
-/* used to print a color string to a descriptor, replaces */
-void cptb(DESCRIPTOR_DATA *d, char *fmt, ...)
-{
-	char buf[MSL];
-	va_list args;
-	va_start(args, fmt);
-	vsnprintf(buf, MSL, fmt, args);
-	va_end(args);
-	cwtb(d, buf);
-}
-
 void bugf(char *fmt, ...)
 {
 	char buf [MAX_STRING_LENGTH];
@@ -3778,7 +3638,6 @@ bool has_slash(char *str)
 	return (strchr(str, '/') != NULL);
 } /* end has_slash() */
 
-
 /* Validate a character by searching for it in the character list.
    This is CPU intensive but the only way I can think of to protect
    ACT from bad sequences -- Elrac */
@@ -3792,7 +3651,6 @@ bool valid_character(CHAR_DATA *cd)
 
 	return FALSE;
 } /* end valid_character() */
-
 
 /* Validate an object by searching for it in the object list. */
 bool valid_object(OBJ_DATA *od)
@@ -3893,7 +3751,6 @@ char *strins(char *string, char *ins, int place)
 	return str_dup(output);
 }
 
-
 /* get_owner
  *
  * returns the name of the owner of the object.
@@ -3992,7 +3849,6 @@ int get_true_damroll(CHAR_DATA *ch)
 	return damroll;
 }
 
-
 /* return ac value of a the character's armor only, no dex, no spells */
 int get_armor_ac(CHAR_DATA *ch, int type)
 {
@@ -4005,7 +3861,6 @@ int get_armor_ac(CHAR_DATA *ch, int type)
 
 	return ac;
 }
-
 
 /* Return what position a character is in.  This replaces all direct
    accessing of position, because POS_FIGHTING is now not an actual
@@ -4023,7 +3878,6 @@ int get_position(CHAR_DATA *ch)
 	return ch->position;
 }
 
-
 /* Character playtime and age functions.  Age used to be a variable in
    CHAR_DATA, moved it to a computed figure to simplify things.  -- Montrey */
 
@@ -4033,13 +3887,11 @@ int get_play_hours(CHAR_DATA *ch)
 	return (IS_NPC(ch) ? 0 : ch->pcdata->played / 3600);
 }
 
-
 /* retrieve a character's playing time in seconds */
 int get_play_seconds(CHAR_DATA *ch)
 {
 	return (IS_NPC(ch) ? 0 : ch->pcdata->played);
 }
-
 
 /* Retrieve a character's age in mud years.
    (178.5 hours = 1 year) */
@@ -4054,7 +3906,6 @@ int get_age(CHAR_DATA *ch)
 	age += get_age_mod(ch);
 	return age;
 }
-
 
 /* calculate modifier to age, based on eq and spell effects -- Montrey */
 int get_age_mod(CHAR_DATA *ch)
@@ -4086,7 +3937,6 @@ int get_age_mod(CHAR_DATA *ch)
 	return age;
 }
 
-
 /* find an affect in a linked list of affect */
 AFFECT_DATA *get_affect(AFFECT_DATA *af, int sn)
 {
@@ -4098,7 +3948,6 @@ AFFECT_DATA *get_affect(AFFECT_DATA *af, int sn)
 
 	return NULL;
 }
-
 
 /* used with IS_AFFECTED, checks to see if the affect has an evolution rating, returns 1 if not */
 int get_affect_evolution(CHAR_DATA *ch, int sn)
@@ -4113,7 +3962,6 @@ int get_affect_evolution(CHAR_DATA *ch, int sn)
 	return URANGE(1, evo, 3);
 }
 
-
 char *get_color_name(int color, int bold)
 {
 	int i;
@@ -4126,7 +3974,6 @@ char *get_color_name(int color, int bold)
 	return NULL;
 }
 
-
 char *get_color_code(int color, int bold)
 {
 	int i;
@@ -4138,7 +3985,6 @@ char *get_color_code(int color, int bold)
 
 	return NULL;
 }
-
 
 char *get_custom_color_name(CHAR_DATA *ch, int slot)
 {
@@ -4156,7 +4002,6 @@ char *get_custom_color_name(CHAR_DATA *ch, int slot)
 	return get_color_name(color, bold);
 }
 
-
 char *get_custom_color_code(CHAR_DATA *ch, int slot)
 {
 	int color, bold;
@@ -4172,7 +4017,6 @@ char *get_custom_color_code(CHAR_DATA *ch, int slot)
 
 	return get_color_code(color, bold);
 }
-
 
 long flag_convert(char letter)
 {
@@ -4195,13 +4039,11 @@ long flag_convert(char letter)
 	return bitsum;
 }
 
-
 /* Simple linear interpolation. */
 int interpolate(int level, int value_00, int value_32)
 {
 	return value_00 + level * (value_32 - value_00) / 32;
 }
-
 
 /* Get an extra description from a list. */
 char *get_extra_descr(const char *name, EXTRA_DESCR_DATA *ed)

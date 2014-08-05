@@ -94,13 +94,11 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
 	interpret(d->character, buf);
 } /* end substitute_alias() */
 
-
 void do_alia(CHAR_DATA *ch, char *argument)
 {
 	stc("I'm sorry, alias must be entered in full.\n", ch);
 	return;
 }
-
 
 void do_alias(CHAR_DATA *ch, char *argument)
 {
@@ -203,7 +201,6 @@ void do_alias(CHAR_DATA *ch, char *argument)
 	stc(buf, ch);
 }
 
-
 void do_unalias(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *rch;
@@ -251,18 +248,4 @@ void do_unalias(CHAR_DATA *ch, char *argument)
 	if (!found)
 		stc("No alias of that name to remove.\n", ch);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

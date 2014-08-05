@@ -22,7 +22,6 @@
    get_char_world       (CHAR_DATA *ch, char *argument, int vis)
 */
 
-
 /* Find a mobile in the same room as ch */
 CHAR_DATA *get_mob_here(CHAR_DATA *ch, char *argument, int vis)
 {
@@ -72,7 +71,6 @@ CHAR_DATA *get_mob_here(CHAR_DATA *ch, char *argument, int vis)
 	return NULL;
 }
 
-
 /* Find a character in the same area as ch.  Use mobonly to only find
    only mobiles, use get_player_area to only find players. */
 CHAR_DATA *get_mob_area(CHAR_DATA *ch, char *argument, int vis)
@@ -115,7 +113,6 @@ CHAR_DATA *get_mob_area(CHAR_DATA *ch, char *argument, int vis)
 
 	return NULL;
 }
-
 
 /* Find a character in the world.  Use mobonly to only find
    only mobiles, use get_player_world to only find players. */
@@ -168,7 +165,6 @@ CHAR_DATA *get_mob_world(CHAR_DATA *ch, char *argument, int vis)
 	return NULL;
 }
 
-
 /* Find a character in the same room as ch.  Use mobonly to find
    only mobiles, use get_player_here to only find players. */
 CHAR_DATA *get_char_here(CHAR_DATA *ch, char *argument, int vis)
@@ -215,7 +211,6 @@ CHAR_DATA *get_char_here(CHAR_DATA *ch, char *argument, int vis)
 
 	return NULL;
 }
-
 
 /*
 This function does the same as get_char_here but
@@ -268,10 +263,6 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, char *argument, i
 	return NULL;
 }
 
-
-
-
-
 /* Find a character in the same area as ch.  Use mobonly to only find
    only mobiles, use get_player_area to only find players. */
 CHAR_DATA *get_char_area(CHAR_DATA *ch, char *argument, int vis)
@@ -311,7 +302,6 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, char *argument, int vis)
 
 	return NULL;
 }
-
 
 /* Find a character in the world.  Use mobonly to only find
    only mobiles, use get_player_world to only find players. */
@@ -361,7 +351,6 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, char *argument, int vis)
 	return NULL;
 }
 
-
 /* Find a player in the room. -- Elrac
    This does *not* find '2.Elrac'. Numbering is silly with players. */
 CHAR_DATA *get_player_here(CHAR_DATA *ch, char *argument, int vis)
@@ -390,7 +379,6 @@ CHAR_DATA *get_player_here(CHAR_DATA *ch, char *argument, int vis)
 
 	return NULL;
 }
-
 
 /* Find a *player* char in the same area as ch.
  * This does not find '2.Montrey'. Numbering is silly for players. */
@@ -434,7 +422,6 @@ CHAR_DATA *get_player_area(CHAR_DATA *ch, char *argument, int vis)
 	return NULL;
 }
 
-
 /* Find a *player* char in the world. -- Elrac
  * This does not find '2.Elrac'. Numbering is silly for players. */
 CHAR_DATA *get_player_world(CHAR_DATA *ch, char *argument, int vis)
@@ -476,7 +463,6 @@ CHAR_DATA *get_player_world(CHAR_DATA *ch, char *argument, int vis)
 	return NULL;
 }
 
-
 /* Find an obj in a list. */
 OBJ_DATA *get_obj_list(CHAR_DATA *ch, char *argument, OBJ_DATA *list)
 {
@@ -492,7 +478,6 @@ OBJ_DATA *get_obj_list(CHAR_DATA *ch, char *argument, OBJ_DATA *list)
 
 	return obj;
 }
-
 
 /* Find an obj in player's equipment. */
 OBJ_DATA *get_obj_wear(CHAR_DATA *ch, char *argument)
@@ -512,7 +497,6 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, char *argument)
 	return obj;
 }
 
-
 /* Find an obj in player's inventory. */
 OBJ_DATA *get_obj_carry(CHAR_DATA *ch, char *argument)
 {
@@ -531,7 +515,6 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, char *argument)
 	return obj;
 }
 
-
 /* Find an obj in the room or in inventory. */
 OBJ_DATA *get_obj_here(CHAR_DATA *ch, char *argument)
 {
@@ -545,7 +528,6 @@ OBJ_DATA *get_obj_here(CHAR_DATA *ch, char *argument)
 
 	return get_obj_list(ch, argument, ch->in_room->contents);
 }
-
 
 /* Find an obj in the world. */
 OBJ_DATA *get_obj_world(CHAR_DATA *ch, char *argument)

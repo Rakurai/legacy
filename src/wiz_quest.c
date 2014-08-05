@@ -16,9 +16,7 @@
 #include "merc.h"
 #include "recycle.h"
 
-
 DECLARE_DO_FUN(do_switch);
-
 
 void do_addapply(CHAR_DATA *ch, char *argument)
 {
@@ -184,7 +182,6 @@ void do_addspell(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 /* Morph Command by Lotus */
 void do_morph(CHAR_DATA *ch, char *argument)
 {
@@ -244,7 +241,6 @@ void do_morph(CHAR_DATA *ch, char *argument)
 	char_to_room(victim, get_room_index(ROOM_VNUM_LIMBO));
 	stc("Successful Morph!\n", ch);
 }
-
 
 void do_rppaward(CHAR_DATA *ch, char *argument)
 {
@@ -333,7 +329,6 @@ void do_rppaward(CHAR_DATA *ch, char *argument)
 	stc("Use 'deduct' or 'award'.\n", ch);
 }
 
-
 ROOM_INDEX_DATA *get_scatter_room(CHAR_DATA *ch)
 {
 	ROOM_INDEX_DATA *room;
@@ -370,7 +365,6 @@ ROOM_INDEX_DATA *get_scatter_room(CHAR_DATA *ch)
 	return NULL;
 }
 
-
 /* scatter all items in a room -- Montrey */
 void do_scatter(CHAR_DATA *ch, char *argument)
 {
@@ -398,7 +392,6 @@ void do_scatter(CHAR_DATA *ch, char *argument)
 	else
 		stc("Done.\n", ch);
 }
-
 
 void do_string(CHAR_DATA *ch, char *argument)
 {
@@ -706,7 +699,6 @@ void do_string(CHAR_DATA *ch, char *argument)
 	do_string(ch, "");
 } /* end do_string() */
 
-
 void do_switch(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
@@ -771,8 +763,6 @@ void do_switch(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
-
 void do_return(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -821,7 +811,6 @@ void do_return(CHAR_DATA *ch, char *argument)
 
 	return;
 }
-
 
 /* for future use */
 bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, char *argument)
@@ -894,7 +883,7 @@ bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, char *argument)
 	case ITEM_POTION:
 	case ITEM_PILL:
 	case ITEM_MONEY:
-	case ITEM_COACH:
+//	case ITEM_COACH:
 	case ITEM_ANVIL:
 	case ITEM_FURNITURE:
 	case ITEM_TRASH:
@@ -924,7 +913,6 @@ bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, char *argument)
 
 	return TRUE;
 }
-
 
 void do_create(CHAR_DATA *ch, char *argument)
 {
@@ -958,8 +946,8 @@ void do_create(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!str_cmp(arg2, "npc_corpse")
-		    || !str_cmp(arg2, "pc_corpse")
-		    || !str_cmp(arg2, "coach")) {
+		    || !str_cmp(arg2, "pc_corpse")) {
+//		    || !str_cmp(arg2, "coach")
 			stc("You cannot create one of those.\n", ch);
 			return;
 		}
@@ -1000,8 +988,6 @@ void do_create(CHAR_DATA *ch, char *argument)
 	do_create(ch, "");
 	return;
 }
-
-
 
 /* This function lets an IMM award or deduct skill points from a player.
 The syntax for the command is:

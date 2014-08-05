@@ -18,13 +18,11 @@
 #include "recycle.h"
 #include "sql.h"
 
-
 DECLARE_DO_FUN(do_quit);                /* do_deny */
 DECLARE_DO_FUN(do_echo);
 DECLARE_DO_FUN(do_fuckoff);
 
 void    show_list_to_char       args((OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing, bool insidecont));
-
 
 void do_fod(CHAR_DATA *ch, char *argument)
 {
@@ -86,7 +84,6 @@ void do_fod(CHAR_DATA *ch, char *argument)
 		ch->on = on;
 	}
 }
-
 
 void do_force(CHAR_DATA *ch, char *argument)
 {
@@ -203,7 +200,6 @@ void do_force(CHAR_DATA *ch, char *argument)
 	stc("You succeed.\n", ch);
 }
 
-
 void do_freeze(CHAR_DATA *ch, char *argument)
 {
 	char buf[MSL];
@@ -248,7 +244,6 @@ void do_freeze(CHAR_DATA *ch, char *argument)
 	save_char_obj(victim);
 }
 
-
 void do_fry(CHAR_DATA *ch, char *argument)
 {
 	char strsave[MIL], arg[MIL];
@@ -282,7 +277,6 @@ void do_fry(CHAR_DATA *ch, char *argument)
 	do_fuckoff(victim, "");
 	unlink(strsave);
 }
-
 
 void do_locker(CHAR_DATA *ch, char *argument)
 {
@@ -344,7 +338,6 @@ void do_locker(CHAR_DATA *ch, char *argument)
 	stc("Syntax:\n"
 	    "  locker <player> <get|put> <object>\n", ch);
 }
-
 
 void do_strongbox(CHAR_DATA *ch, char *argument)
 {
@@ -412,7 +405,6 @@ void do_strongbox(CHAR_DATA *ch, char *argument)
 	    "  strongbox <player> <get|put> <object>\n", ch);
 }
 
-
 void do_log(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL];
@@ -446,7 +438,6 @@ void do_log(CHAR_DATA *ch, char *argument)
 	ptc(ch, "LOG %s.\n", IS_SET(victim->act, PLR_LOG) ? "set" : "removed");
 }
 
-
 void do_newlock(CHAR_DATA *ch, char *argument)
 {
 	extern bool newlock;
@@ -461,7 +452,6 @@ void do_newlock(CHAR_DATA *ch, char *argument)
 		stc("Newlock removed.\n", ch);
 	}
 }
-
 
 void do_newpasswd(CHAR_DATA *ch, char *argument)
 {
@@ -510,7 +500,6 @@ void do_newpasswd(CHAR_DATA *ch, char *argument)
 	wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, 0);
 }
 
-
 void do_pardon(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MIL], arg2[MIL];
@@ -558,7 +547,6 @@ void do_pardon(CHAR_DATA *ch, char *argument)
 		    "  pardon <player> <killer|thief>\n", ch);
 }
 
-
 void do_protect(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
@@ -583,7 +571,6 @@ void do_protect(CHAR_DATA *ch, char *argument)
 		SET_BIT(victim->pcdata->plr, PLR_SNOOP_PROOF);
 	}
 }
-
 
 void do_revoke(CHAR_DATA *ch, char *argument)
 {
@@ -644,7 +631,6 @@ void do_revoke(CHAR_DATA *ch, char *argument)
 
 	stc("Revoke WHAT?\n", ch);
 }
-
 
 /* like snoop, but better -- Elrac */
 int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
@@ -722,7 +708,6 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 	return 0;
 }
 
-
 void do_tail(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL], buf[MSL];
@@ -781,7 +766,6 @@ void do_tail(CHAR_DATA *ch, char *argument)
 	else
 		do_tail(ch, "");
 }
-
 
 void do_snoop(CHAR_DATA *ch, char *argument)
 {
@@ -857,7 +841,6 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 	wiznet(buf, ch, NULL, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
 	stc("You now view the world through the players eyes.\n", ch);
 }
-
 
 void do_ban(CHAR_DATA *ch, char *argument)
 {
@@ -964,7 +947,6 @@ void do_ban(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_allow(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL], site[MIL];
@@ -1006,7 +988,6 @@ void do_allow(CHAR_DATA *ch, char *argument)
 	else
 		stc("That site is not banned.\n", ch);
 }
-
 
 void do_permit(CHAR_DATA *ch, char *argument)
 {
@@ -1099,7 +1080,6 @@ void do_permit(CHAR_DATA *ch, char *argument)
 	mysql_free_result(result);
 }
 
-
 void do_deny(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
@@ -1173,7 +1153,6 @@ void do_deny(CHAR_DATA *ch, char *argument)
 		do_quit(victim, "now");
 	}
 }
-
 
 void do_undeny(CHAR_DATA *ch, char *argument)
 {

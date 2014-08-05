@@ -35,7 +35,6 @@ int count_clans();
 struct clan_type *clan_table_head;
 struct clan_type *clan_table_tail;
 
-
 int count_clan_members(CLAN_DATA *clan, int bit)
 {
 	char query[MSL];
@@ -57,7 +56,6 @@ int count_clan_members(CLAN_DATA *clan, int bit)
 
 	return count;
 }
-
 
 void load_clan_table()
 {
@@ -123,7 +121,6 @@ void load_clan_table()
 	printf("Total of %d clans loaded.\n", count);
 }
 
-
 void save_clan_table()
 {
 	CLAN_DATA *clan;
@@ -172,7 +169,6 @@ void save_clan_table()
 		            clan->name);
 	}
 }
-
 
 /* Append clan_info to the end of the list */
 void append_clan(CLAN_DATA *c)

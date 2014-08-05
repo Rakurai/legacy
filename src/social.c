@@ -22,7 +22,6 @@
 
 /* This version contains minor modifications to support ROM 2.4b4. */
 
-
 /* Changes:
  * Socials are now a double linked list. Every social knows the next social
  * and the previous in the list.

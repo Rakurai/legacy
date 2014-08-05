@@ -60,7 +60,6 @@ bool is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim)
 	return FALSE;
 }
 
-
 /* Stripped from do_query basically - Lotus */
 void do_ignore(CHAR_DATA *ch, char *argument)
 {
@@ -149,7 +148,6 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 	ptc(ch, "You now ignore %s.\n", victim->name);
 	ptc(victim, "%s ignores you.\n", ch->name);
 }
-
 
 void ignore_offline(CHAR_DATA *ch, char *arg)
 {

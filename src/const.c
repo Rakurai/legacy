@@ -28,7 +28,6 @@
 #include "merc.h"
 #include "magic.h"
 
-
 /* item type list */
 const struct item_type item_table[] = {
 	{       ITEM_LIGHT,     "light"         },
@@ -63,12 +62,11 @@ const struct item_type item_table[] = {
 	{       ITEM_PBGUN,     "paint_gun"     },
 	{       ITEM_MATERIAL,  "material"      },
 	{       ITEM_ANVIL,     "anvil"         },
-	{       ITEM_COACH,     "coach"         },
+//	{       ITEM_COACH,     "coach"         },
 	{       ITEM_WEDDINGRING, "weddingring"  },
 	{       ITEM_TOKEN,     "token"         },
 	{       0,              NULL            }
 };
-
 
 /* weapon selection table */
 
@@ -85,7 +83,6 @@ const struct weapon_type weapon_table[] = {
 	{       "bow",          OBJ_VNUM_SCHOOL_BOW,    WEAPON_BOW,     &gsn_bow        },
 	{       NULL,           0,                      0,              NULL            }
 };
-
 
 /* attack table  -- not very organized :( */
 const struct attack_type attack_table[] = {
@@ -132,7 +129,6 @@ const struct attack_type attack_table[] = {
 	{   "hstrike",      "hilt strike",  DAM_BASH        },  /* 40 */ /* no skill for hilt strike */
 	{   NULL,           NULL,           0               }   /* 41 */
 };
-
 
 /* all races, make sure pc races are in the same order as the pc race table, below */
 const struct race_type race_table[] = {
@@ -379,7 +375,6 @@ const struct race_type race_table[] = {
 	{       NULL, 0, 0, 0, 0, 0, 0 }
 };
 
-
 const struct pc_race_type pc_race_table [MAX_PC_RACE] = {
 	/*
 	        {
@@ -462,7 +457,6 @@ const struct pc_race_type pc_race_table [MAX_PC_RACE] = {
 	}
 };
 
-
 /*
  * Deity Table
  */
@@ -480,7 +474,6 @@ const struct deity_type deity_table [] = {
 	{       "Whisper",      "[ Lawful Neutral	] ",  0       },
 	{       NULL,           NULL,                   0       }
 };
-
 
 /*
  * Class table.
@@ -535,7 +528,6 @@ const struct class_type class_table[MAX_CLASS] = {
 	}
 };
 
-
 /*
  * Attribute bonus tables.
  */
@@ -570,7 +562,6 @@ const struct str_app_type str_app[26] = {
 	{ 6,     9,     500,    60,     4}  /* 25   */
 };
 
-
 const struct int_app_type int_app[26] = {
 	/*      learn   */
 	{  3,   -4 },     /*  0 */
@@ -600,7 +591,6 @@ const struct int_app_type int_app[26] = {
 	{ 80,   4 },
 	{ 85,   4 }      /* 25 */
 };
-
 
 const struct wis_app_type wis_app[26] = {
 	/*      practice        */
@@ -632,7 +622,6 @@ const struct wis_app_type wis_app[26] = {
 	{ 5 }       /* 25 */
 };
 
-
 const struct dex_app_type dex_app[26] = {
 	/*      defensive       */
 	{   60 },   /* 0 */
@@ -662,7 +651,6 @@ const struct dex_app_type dex_app[26] = {
 	{ -105 },
 	{ -120 }    /* 25 */
 };
-
 
 const struct con_app_type con_app [26] = {
 	/*      hitp,   shock   */
@@ -694,7 +682,6 @@ const struct con_app_type con_app [26] = {
 	{  8,   99 }    /* 25 */
 };
 
-
 const struct chr_app_type chr_app[26] = {
 	/*      chance  */
 	{ 0 },      /*  0 */
@@ -724,7 +711,6 @@ const struct chr_app_type chr_app[26] = {
 	{ 10},
 	{ 15}       /* 25 */
 };
-
 
 /*
  * Liquid properties.
@@ -773,7 +759,6 @@ const struct liq_type liq_table[] = {
 	{ "protein shake",          "white",        {   0, 2,  9, 3, 12 }   },
 	{ NULL,                     NULL,           {   0, 0,  0, 0,  0 }   }
 };
-
 
 /*
  * The skill and spell table.
@@ -1972,9 +1957,7 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 
-
 	/* combat and weapons skills */
-
 
 	{
 		"axe",                  {  1,  1,  1,  1,  1,  1,  1,  1 },
@@ -2252,7 +2235,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		{ 0, 0, 0, 0, 0, 0, 0, 0},   { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 
-
 	/* non-combat skills */
 
 	{
@@ -2456,7 +2438,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		{0, 0, 0, 0, 0, 0, 0, 0}, { 0, 0, 0, 0, 0, 0, 0, 0}
 	},
 
-
 	/* Remort spells and skills, originally by Elrac */
 	/* Subdivided by Class */
 	/* Everything has slot numbers here, it's more as an ID for saving than for area files */
@@ -2496,7 +2477,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 	        "", 1, { 0, 0, 0 }
 	    }, */
 
-
 	/* Clerics */
 
 	{
@@ -2524,7 +2504,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 
-
 	/* Thieves */
 
 	{
@@ -2551,7 +2530,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		"",                     "!Hone!",               "",     3,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
-
 
 	/* Warriors */
 
@@ -2588,8 +2566,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },   { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 
-
-
 	/* Necromancers */
 
 	{
@@ -2625,7 +2601,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 
-
 	/* Paladins */
 
 	{
@@ -2652,7 +2627,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		"",                     "!Holy Sword!",         "",     6,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
-
 
 	/* Bards */
 
@@ -2689,7 +2663,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 
-
 	/* Rangers */
 
 	{
@@ -2716,7 +2689,6 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		"critical blow",        "!Critical Blow!",      "",     8,
 		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
-
 
 	/* End Remort Skills/Spells */
 

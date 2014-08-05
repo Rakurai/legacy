@@ -28,7 +28,6 @@
 #include "merc.h"
 #include "tables.h"
 
-
 /* TEMPLATE
 void config_wiznet(CHAR_DATA *ch, char *argument)
 {
@@ -61,7 +60,6 @@ void config_wiznet(CHAR_DATA *ch, char *argument)
 
         stc("That is not a valid censor option.\n", ch);
 }*/
-
 
 void config_color_func(CHAR_DATA *ch, char *argument, int type)
 {
@@ -157,7 +155,6 @@ void config_color_func(CHAR_DATA *ch, char *argument, int type)
 	stc("Color set to your specification! =)\n", ch);
 	set_color(ch, WHITE, NOBOLD);
 }
-
 
 void config_color(CHAR_DATA *ch, char *argument)
 {
@@ -270,7 +267,6 @@ void config_color(CHAR_DATA *ch, char *argument)
 
 	stc("That is not a valid color option.\n", ch);
 }
-
 
 void config_video(CHAR_DATA *ch, char *argument)
 {
@@ -410,7 +406,6 @@ void config_video(CHAR_DATA *ch, char *argument)
 	stc("That is not a valid video option.\n", ch);
 }
 
-
 void config_censor(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MIL];
@@ -539,7 +534,6 @@ void config_censor(CHAR_DATA *ch, char *argument)
 	stc("That is not a valid censor option.\n", ch);
 }
 
-
 void config_wiznet(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MIL];
@@ -642,7 +636,6 @@ void config_wiznet(CHAR_DATA *ch, char *argument)
 		stc("Valid options are {Phelp{x and no argument (toggle).\n", ch);
 }
 
-
 void do_config(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MIL];
@@ -693,7 +686,6 @@ void do_config(CHAR_DATA *ch, char *argument)
 	stc("That is not a valid configuration option.\n", ch);
 }
 
-
 /*****
  Replaced configuration commands, left for oldbies
  *****/
@@ -715,7 +707,6 @@ void do_color(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_video(CHAR_DATA *ch, char *argument)
 {
 	char buf[MIL];
@@ -729,14 +720,12 @@ void do_video(CHAR_DATA *ch, char *argument)
 	do_config(ch, buf);
 }
 
-
 void do_censor(CHAR_DATA *ch, char *argument)
 {
 	char buf[MIL];
 	sprintf(buf, "censor %s", argument);
 	do_config(ch, buf);
 }
-
 
 void do_wiznet(CHAR_DATA *ch, char *argument)
 {

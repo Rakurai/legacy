@@ -109,7 +109,6 @@ void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	stc("Your skin takes on the consistency of iron.\n", victim);
 }
 
-
 /*** CLERIC ***/
 
 void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
@@ -249,7 +248,6 @@ void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	stc("Your wounds vanish completely.\n", victim);
 }
 
-
 /*** THIEF ***/
 
 void spell_midnight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
@@ -274,7 +272,6 @@ void spell_midnight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	af.evolution = evolution;
 	affect_to_char(victim, &af);
 }
-
 
 /*** NECRO ***/
 
@@ -465,7 +462,6 @@ void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	ch->mana = 0;
 	return;
 }
-
 
 /*** BARD ***/
 

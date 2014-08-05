@@ -68,7 +68,6 @@ char   *const   where_name      [] = {
 	"<wedding ring>      ",
 };
 
-
 char   *const   day_name        [] = {
 	"Regeneration",
 	"Endeavor",
@@ -88,7 +87,6 @@ char   *const   month_name      [] = {
 	"Endings", "Rapture"
 };
 
-
 /*
  * Local functions.
  */
@@ -99,7 +97,6 @@ void    show_char_to_char_0     args((CHAR_DATA *victim, CHAR_DATA *ch));
 void    show_char_to_char_1     args((CHAR_DATA *victim, CHAR_DATA *ch));
 void    show_char_to_char       args((CHAR_DATA *list, CHAR_DATA *ch));
 bool    check_blind             args((CHAR_DATA *ch));
-
 
 char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
@@ -195,8 +192,6 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	return buf;
 }
-
-
 
 /*
  * Show a list to a character.
@@ -311,7 +306,6 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNot
 			}
 } /* end show_list_to_char() */
 
-
 void do_peek(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
@@ -394,7 +388,6 @@ void do_peek(CHAR_DATA *ch, char *argument)
 	show_list_to_char(victim->carrying, ch, TRUE, TRUE, all);
 	check_improve(ch, gsn_peek, TRUE, 4);
 }
-
 
 void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
@@ -619,7 +612,6 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	return;
 }
 
-
 void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -754,8 +746,6 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	return;
 }
 
-
-
 void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 {
 	CHAR_DATA *rch;
@@ -773,8 +763,6 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 	}
 }
 
-
-
 bool check_blind(CHAR_DATA *ch)
 {
 	if (IS_IMMORTAL(ch))
@@ -787,7 +775,6 @@ bool check_blind(CHAR_DATA *ch)
 
 	return TRUE;
 }
-
 
 /*
  * the first number bold = 0,1 gives you dim or BRIGHT colors
@@ -812,7 +799,6 @@ void set_color(CHAR_DATA *ch, int color, int bold)
 	}
 }
 
-
 void new_color(CHAR_DATA *ch, int slot)
 {
 	if (!IS_NPC(ch) && ch->pcdata->color[slot] != 0)
@@ -821,7 +807,6 @@ void new_color(CHAR_DATA *ch, int slot)
 		set_color(ch, csetting_table[slot].color, csetting_table[slot].bold);
 }
 
-
 void goto_line(CHAR_DATA *ch, int row, int column)
 {
 	char buf[MAX_INPUT_LENGTH];
@@ -829,14 +814,12 @@ void goto_line(CHAR_DATA *ch, int row, int column)
 	stc(buf, ch);
 }
 
-
 void set_window(CHAR_DATA *ch, int top, int bottom)
 {
 	char buf[MAX_INPUT_LENGTH];
 	sprintf(buf, "\033[%d;%dr", top, bottom);
 	stc(buf, ch);
 }
-
 
 /* changes your scroll */
 void do_scroll(CHAR_DATA *ch, char *argument)
@@ -947,18 +930,15 @@ void do_imotd(CHAR_DATA *ch, char *argument)
 	help(ch, "imotd");
 }
 
-
 void do_rules(CHAR_DATA *ch, char *argument)
 {
 	help(ch, "rules");
 }
 
-
 void do_story(CHAR_DATA *ch, char *argument)
 {
 	help(ch, "story");
 }
-
 
 void do_departed(CHAR_DATA *ch, char *argument)
 {
@@ -991,7 +971,6 @@ void do_departed(CHAR_DATA *ch, char *argument)
 	if (i != 0)
 		stc("\n", ch);
 }
-
 
 void do_wizlist(CHAR_DATA *ch, char *argument)
 {
@@ -1164,7 +1143,6 @@ void do_clanlist(CHAR_DATA *ch, char *argument)
 	free_buf(buffer);
 } /* end do_clanlist() */
 
-
 /* RT this following section holds all the auto commands from ROM, as well as
    replacements for config */
 
@@ -1322,7 +1300,6 @@ void do_autolist(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 /* Color testing by Lotus */
 void do_ctest(CHAR_DATA *ch, char *argument)
 {
@@ -1346,7 +1323,6 @@ void do_ctest(CHAR_DATA *ch, char *argument)
 		stc("You must turn color on to see this.\n", ch);
 }
 
-
 void do_autoassist(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch))
@@ -1361,7 +1337,6 @@ void do_autoassist(CHAR_DATA *ch, char *argument)
 		SET_BIT(ch->act, PLR_AUTOASSIST);
 	}
 }
-
 
 void do_defensive(CHAR_DATA *ch, char *argument)
 {
@@ -1378,7 +1353,6 @@ void do_defensive(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_autoexit(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch))
@@ -1393,7 +1367,6 @@ void do_autoexit(CHAR_DATA *ch, char *argument)
 		SET_BIT(ch->act, PLR_AUTOEXIT);
 	}
 }
-
 
 void do_autogold(CHAR_DATA *ch, char *argument)
 {
@@ -1410,7 +1383,6 @@ void do_autogold(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_autoloot(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch))
@@ -1425,7 +1397,6 @@ void do_autoloot(CHAR_DATA *ch, char *argument)
 		SET_BIT(ch->act, PLR_AUTOLOOT);
 	}
 }
-
 
 void do_autosac(CHAR_DATA *ch, char *argument)
 {
@@ -1442,7 +1413,6 @@ void do_autosac(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_autosplit(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch))
@@ -1458,7 +1428,6 @@ void do_autosplit(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_brief(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->comm, COMM_BRIEF)) {
@@ -1471,7 +1440,6 @@ void do_brief(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_compact(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->comm, COMM_COMPACT)) {
@@ -1483,7 +1451,6 @@ void do_compact(CHAR_DATA *ch, char *argument)
 		SET_BIT(ch->comm, COMM_COMPACT);
 	}
 }
-
 
 void do_showflags(CHAR_DATA *ch, char *argument)
 {
@@ -1530,7 +1497,6 @@ void do_showflags(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_show(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->comm, COMM_SHOW_AFFECTS)) {
@@ -1542,7 +1508,6 @@ void do_show(CHAR_DATA *ch, char *argument)
 		SET_BIT(ch->comm, COMM_SHOW_AFFECTS);
 	}
 }
-
 
 void do_prompt(CHAR_DATA *ch, char *argument)
 {
@@ -1592,7 +1557,6 @@ void do_prompt(CHAR_DATA *ch, char *argument)
 	stc(buf, ch);
 }
 
-
 void do_combine(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->comm, COMM_COMBINE)) {
@@ -1620,7 +1584,6 @@ void do_showlost(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_noloot(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch))
@@ -1635,7 +1598,6 @@ void do_noloot(CHAR_DATA *ch, char *argument)
 		SET_BIT(ch->act, PLR_CANLOOT);
 	}
 }
-
 
 void do_nofollow(CHAR_DATA *ch, char *argument)
 {
@@ -1652,7 +1614,6 @@ void do_nofollow(CHAR_DATA *ch, char *argument)
 		die_follower(ch);
 	}
 }
-
 
 void do_nosummon(CHAR_DATA *ch, char *argument)
 {
@@ -1677,7 +1638,6 @@ void do_nosummon(CHAR_DATA *ch, char *argument)
 		}
 	}
 }
-
 
 void do_look(CHAR_DATA *ch, char *argument)
 {
@@ -2075,7 +2035,6 @@ void do_look(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_examine(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -2144,7 +2103,6 @@ void do_examine(CHAR_DATA *ch, char *argument)
 		}
 	}
 }
-
 
 /*
 ** Show the rooms && portals which have exits leading INTO the current room
@@ -2224,7 +2182,6 @@ void exits_in(CHAR_DATA *ch)
 	free_buf(output);
 } /* End do_exits_in */
 
-
 /*
  * Thanks to Zrin for auto-exit part.
  */
@@ -2296,7 +2253,6 @@ void do_exits(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_worth(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch)) {
@@ -2317,7 +2273,6 @@ void do_worth(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 char *day_number_suffix(int day)
 {
 	if (day > 4 && day < 20) return "th";
@@ -2330,7 +2285,6 @@ char *day_number_suffix(int day)
 
 	return "th";
 } /* end day_number_suffix() */
-
 
 void new_day(void)
 {
@@ -2349,7 +2303,6 @@ void new_day(void)
 			    day_name[day % 7], day, suf, month_name[time_info.month]);
 	}
 } /* end new_day() */
-
 
 void do_time(CHAR_DATA *ch, char *argument)
 {
@@ -2404,7 +2357,6 @@ void do_time(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_weather(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -2438,7 +2390,6 @@ void do_weather(CHAR_DATA *ch, char *argument)
 	stc(buf, ch);
 	return;
 }
-
 
 /* new whois by Montrey */
 void do_whois(CHAR_DATA *ch, char *argument)
@@ -2528,7 +2479,6 @@ void do_whois(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 }
 
-
 char *count_players(CHAR_DATA *ch)
 {
 	static char buf[100];
@@ -2548,7 +2498,6 @@ char *count_players(CHAR_DATA *ch)
 	return buf;
 }
 
-
 void do_count(CHAR_DATA *ch, char *argument)
 {
 	set_color(ch, WHITE, BOLD);
@@ -2556,7 +2505,6 @@ void do_count(CHAR_DATA *ch, char *argument)
 	ptc(ch, "The most players ever on at once is %d.\n", record_players);
 	set_color(ch, WHITE, NOBOLD);
 }
-
 
 void do_who(CHAR_DATA *ch, char *argument)
 {
@@ -2821,9 +2769,6 @@ void do_who(CHAR_DATA *ch, char *argument)
 
 } /* do_who() */
 
-
-
-
 /* Short Who by Lotus */
 void do_swho(CHAR_DATA *ch, char *argument)
 {
@@ -2861,8 +2806,8 @@ void do_swho(CHAR_DATA *ch, char *argument)
 		case POS_RESTING:  position = "{bRest ";              break;
 
 		case POS_SITTING:  position =
-			        (wch->on && wch->on->pIndexData->item_type == ITEM_COACH) ?
-			        "{YRide " : "Sit  ";    break;
+//			        (wch->on && wch->on->pIndexData->item_type == ITEM_COACH) ? "{YRide " : 
+				"Sit  ";    break;
 
 		case POS_FIGHTING: position = "{WFight";              break;
 
@@ -2920,7 +2865,6 @@ void do_swho(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 } /* end do_swho() */
 
-
 /* New container capable inventory - Lotus */
 void do_inventory(CHAR_DATA *ch, char *argument)
 {
@@ -2967,7 +2911,6 @@ void do_inventory(CHAR_DATA *ch, char *argument)
 	show_list_to_char(victim->carrying, ch, TRUE, TRUE, FALSE);
 	set_color(ch, WHITE, NOBOLD);
 }
-
 
 void do_equipment(CHAR_DATA *ch, char *argument)
 {
@@ -3023,7 +2966,6 @@ void do_equipment(CHAR_DATA *ch, char *argument)
 
 	set_color(ch, WHITE, NOBOLD);
 }
-
 
 void do_compare(CHAR_DATA *ch, char *argument)
 {
@@ -3101,8 +3043,6 @@ void do_compare(CHAR_DATA *ch, char *argument)
 	act(msg, ch, obj1, obj2, TO_CHAR);
 	return;
 }
-
-
 
 void do_credits(CHAR_DATA *ch, char *argument)
 {
@@ -3233,7 +3173,6 @@ void do_scon(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_consider(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
@@ -3357,7 +3296,6 @@ void do_consider(CHAR_DATA *ch, char *argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-
 void set_title(CHAR_DATA *ch, char *title)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -3378,7 +3316,6 @@ void set_title(CHAR_DATA *ch, char *title)
 	ch->pcdata->title = str_dup(buf);
 	return;
 }
-
 
 void do_title(CHAR_DATA *ch, char *argument)
 {
@@ -3435,7 +3372,6 @@ char *set_colorname(char *string, int length)
 	return str_dup(buf);
 }
 
-
 /*
  * Immname attempt by Demonfire
  */
@@ -3477,7 +3413,6 @@ void do_immname(CHAR_DATA *ch, char *argument)
 	stc(test, ch);
 	return;
 }
-
 
 void do_description(CHAR_DATA *ch, char *argument)
 {
@@ -3554,7 +3489,6 @@ void do_description(CHAR_DATA *ch, char *argument)
 	set_color(ch, WHITE, NOBOLD);
 	return;
 }
-
 
 /* Duplicate of Description for Finger Info */
 void do_fingerinfo(CHAR_DATA *ch, char *argument)
@@ -3653,7 +3587,6 @@ void do_fingerinfo(CHAR_DATA *ch, char *argument)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-
 void do_report(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
@@ -3702,7 +3635,6 @@ void do_report(CHAR_DATA *ch, char *argument)
 
 	return;
 }
-
 
 /* PRACTICE list of skills and spells, sorted by group -- Elrac */
 void prac_by_group(CHAR_DATA *ch, char *argument)
@@ -3785,7 +3717,6 @@ void prac_by_group(CHAR_DATA *ch, char *argument)
 	page_to_char(buf_string(output), ch);
 	free_buf(output);
 } /* end prac_by_group() */
-
 
 /* PRACTICE list of skills and spells, sorted by percentage and/or name -- Elrac */
 void prac_by_key(CHAR_DATA *ch, char *key, char *argument)
@@ -3878,7 +3809,6 @@ void prac_by_key(CHAR_DATA *ch, char *key, char *argument)
 	page_to_char(buf_string(output), ch);
 	free_buf(output);
 } /* end prac_by_key() */
-
 
 void do_practice(CHAR_DATA *ch, char *argument)
 {
@@ -3988,7 +3918,6 @@ void do_practice(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_practice() */
 
-
 #if 0
 void do_old_practice(CHAR_DATA *ch, char *argument)
 {
@@ -4089,7 +4018,6 @@ void do_old_practice(CHAR_DATA *ch, char *argument)
 }
 #endif
 
-
 /*
  * 'Wimpy' originally by Dionysos.
  */
@@ -4120,8 +4048,6 @@ void do_wimpy(CHAR_DATA *ch, char *argument)
 	stc(buf, ch);
 	return;
 }
-
-
 
 void do_password(CHAR_DATA *ch, char *argument)
 {
@@ -4550,7 +4476,6 @@ void vape_ceq(CHAR_DATA *ch)
 	}
 }
 
-
 void do_unjoin(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL];
@@ -4625,7 +4550,6 @@ void do_unjoin(CHAR_DATA *ch, char *argument)
 	save_char_obj(victim);
 }
 
-
 /* Clan Status by Lotus */
 /* Begin modification by Lotus and Slipstream */
 void do_rank(CHAR_DATA *ch, char *argument)
@@ -4690,14 +4614,12 @@ void do_rank(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 /* prefix command: it will put the string typed on each line typed */
 void do_prefi(CHAR_DATA *ch, char *argument)
 {
 	stc("You cannot abbreviate the prefix command.\n", ch);
 	return;
 }
-
 
 void do_prefix(CHAR_DATA *ch, char *argument)
 {
@@ -4725,7 +4647,6 @@ void do_prefix(CHAR_DATA *ch, char *argument)
 	ch->prefix = str_dup(argument);
 } /* end do_prefix() */
 
-
 void email_file(CHAR_DATA *ch, char *file, char *str)
 {
 	FILE *fp;
@@ -4744,7 +4665,6 @@ void email_file(CHAR_DATA *ch, char *file, char *str)
 
 	return;
 }
-
 
 void do_email(CHAR_DATA *ch, char *argument)
 {
@@ -4833,7 +4753,6 @@ void gameinout(CHAR_DATA *ch, char *mortal, char *entryexit, char inout)
 	}
 } /* end gameinout() */
 
-
 void do_gamein(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -4845,8 +4764,6 @@ void do_gamein(CHAR_DATA *ch, char *argument)
 		gameinout(ch, arg, "entry", 'I');
 } /* end do_gamein() */
 
-
-
 void do_gameout(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -4857,7 +4774,6 @@ void do_gameout(CHAR_DATA *ch, char *argument)
 	else
 		gameinout(ch, arg, "exit", 'O');
 } /* end do_gameout() */
-
 
 /* Show contents of the pit, selected by level -- Elrac */
 void do_pit(CHAR_DATA *ch, char *argument)
@@ -5001,7 +4917,6 @@ void do_pit(CHAR_DATA *ch, char *argument)
 		obj_to_obj(obj, pit);
 	}
 } /* end do_pit() */
-
 
 /* Show information of a clan to a member */
 void do_claninfo(CHAR_DATA *ch, char *argument)
@@ -5222,7 +5137,6 @@ void do_clanpower(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 }
 
-
 void print_old_affects(CHAR_DATA *ch)
 {
 	AFFECT_DATA *paf, *paf_last = NULL;
@@ -5433,7 +5347,6 @@ void print_old_affects(CHAR_DATA *ch)
 
 	free_buf(buffer);
 }
-
 
 void print_new_affects(CHAR_DATA *ch)
 {
@@ -5681,7 +5594,6 @@ void print_new_affects(CHAR_DATA *ch)
 	free_buf(buffer);
 }
 
-
 void score_old(CHAR_DATA *ch)
 {
 	new_color(ch, CSLOT_OLDSCORE_NAME);
@@ -5843,7 +5755,6 @@ void score_old(CHAR_DATA *ch)
 	if (!IS_NPC(ch) && ch->pcdata->pktimer)
 		ptc(ch, "{PYour PK timer is at %d seconds and counting!{x\n\n", ch->pcdata->pktimer * 3);
 }
-
 
 void score_new(CHAR_DATA *ch)
 {
@@ -6047,7 +5958,6 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, "%s[[|]]                                                              [[|]]{x\n", torch);
 }
 
-
 void do_affects(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch) || !IS_SET(ch->pcdata->plr, PLR_NEWSCORE)) {
@@ -6081,7 +5991,6 @@ void do_affects(CHAR_DATA *ch, char *argument)
 	    "[[|]]                                                              [[|]]\n", ch);
 	set_color(ch, WHITE, NOBOLD);
 }
-
 
 void do_score(CHAR_DATA *ch, char *argument)
 {
@@ -6124,5 +6033,4 @@ void spell_scry(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 
 	return;
 }   /* spell_scry end */
-
 

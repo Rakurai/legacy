@@ -10,13 +10,11 @@
 
 #include "merc.h"
 
-
 #if !defined(OLD_RAND)
 void srandom(unsigned int);
 int getpid();
 time_t time(time_t *tloc);
 #endif
-
 
 /* Roll some dice. */
 int dice(int number, int size)
@@ -35,7 +33,6 @@ int dice(int number, int size)
 	return sum;
 }
 
-
 /* Stick a little fuzz on a number. */
 int number_fuzzy(int number)
 {
@@ -47,7 +44,6 @@ int number_fuzzy(int number)
 
 	return UMAX(1, number);
 }
-
 
 /* Generate a random number. */
 int number_range(int from, int to)
@@ -67,7 +63,6 @@ int number_range(int from, int to)
 	return from + number;
 }
 
-
 /* Generate a percentile roll. */
 int number_percent(void)
 {
@@ -77,7 +72,6 @@ int number_percent(void)
 
 	return 1 + percent;
 }
-
 
 /* Generate a random door. */
 int number_door(void)
@@ -89,13 +83,10 @@ int number_door(void)
 	return door;
 }
 
-
 int number_bits(int width)
 {
 	return number_mm() & ((1 << width) - 1);
 }
-
-
 
 /*
  * I've gotten too many bad reports on OS-supplied random number generators.
@@ -133,7 +124,6 @@ void init_mm()
 #endif
 	return;
 }
-
 
 long number_mm(void)
 {

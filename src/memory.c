@@ -50,7 +50,6 @@ const   int     rgSizeList[MAX_MEM_LIST] = {
 	131072 - 64
 };
 
-
 /* Allocate some ordinary memory, with the expectation of freeing it someday. */
 void *alloc_mem(long sMem)
 {
@@ -80,7 +79,6 @@ void *alloc_mem(long sMem)
 	pMem += sizeof(*magic);
 	return pMem;
 }
-
 
 /*
  * Free some memory.
@@ -116,7 +114,6 @@ void free_mem(void *pMemV, long sMem)
 	rgFreeList[iList]  = pMem;
 }
 
-
 /*
  * Allocate some permanent memory.
  * Permanent memory is never freed,
@@ -151,7 +148,6 @@ void *alloc_perm(long sMem)
 	sAllocPerm += sMem;
 	return pMem;
 }
-
 
 /* an alloc_perm() with a message to malloc */
 void *alloc_perm2(long sMem, char *message)

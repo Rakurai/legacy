@@ -78,7 +78,6 @@ char *mprog_type_to_name(int type)
 	}
 }
 
-
 /* A trivial rehack of do_mstat.  This doesnt show all the data, but just
  * enough to identify the mob and give its basic condition.  It does however,
  * show the MOBprograms which are set.
@@ -143,7 +142,6 @@ void do_mpstat(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 /* prints the argument to all the rooms aroud the mobile */
 
 void do_mpasound(CHAR_DATA *ch, char *argument)
@@ -183,7 +181,6 @@ void do_mpasound(CHAR_DATA *ch, char *argument)
 }
 
 /* lets the mobile kill any player or mobile without murder*/
-
 
 void do_mpkill(CHAR_DATA *ch, char *argument)
 {
@@ -230,7 +227,6 @@ void do_mpkill(CHAR_DATA *ch, char *argument)
 	multi_hit(ch, victim, TYPE_UNDEFINED);
 	return;
 }
-
 
 /* lets the mobile destroy an object in its inventory
    it can also destroy a worn object and it can destroy
@@ -281,7 +277,6 @@ void do_mpjunk(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 /* prints the message to everyone in the room other than the mob and victim */
 
 void do_mpechoaround(CHAR_DATA *ch, char *argument)
@@ -310,7 +305,6 @@ void do_mpechoaround(CHAR_DATA *ch, char *argument)
 	act(argument, ch, NULL, victim, TO_NOTVICT);
 	return;
 }
-
 
 /* prints the message to only the victim */
 
@@ -342,7 +336,6 @@ void do_mpechoat(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 /* prints the message to the room at large */
 
 void do_mpecho(CHAR_DATA *ch, char *argument)
@@ -361,7 +354,6 @@ void do_mpecho(CHAR_DATA *ch, char *argument)
 	act(argument, ch, NULL, NULL, TO_ROOM);
 	return;
 }
-
 
 void do_mpclearmoney(CHAR_DATA *ch, char *argument)
 {
@@ -506,7 +498,6 @@ void do_mppurge(CHAR_DATA *ch, char *argument)
 	else
 		bug("Mppurge - Bad argument: vnum %d.", ch->pIndexData->vnum);
 } /* end do_mppurge() */
-
 
 /* lets the mobile goto any location it wishes that is not private */
 

@@ -188,7 +188,6 @@ void roll_raffects(CHAR_DATA *ch, CHAR_DATA *victim)
 		roll_one_raff(ch, victim, c);
 }
 
-
 /*****
  Extraclass Stuff
  *****/
@@ -235,7 +234,6 @@ bool CAN_USE_RSKILL(CHAR_DATA *ch, int sn)
 	return TRUE;
 }
 
-
 void list_extraskill(CHAR_DATA *ch)
 {
 	BUFFER *output;
@@ -278,7 +276,6 @@ void list_extraskill(CHAR_DATA *ch)
 	page_to_char(buf_string(output), ch);
 	free_buf(output);
 }
-
 
 void do_eremort(CHAR_DATA *ch, char *argument)
 {
@@ -386,7 +383,6 @@ void do_eremort(CHAR_DATA *ch, char *argument)
 	/* can't find an empty spot, must have the max number of extraclass skills */
 	stc("You have enough extraclass remort skills!  Don't be greedy!\n", ch);
 }
-
 
 /* Remort Code by Lotus */
 /* Redone by Endo and Montrey */

@@ -25,7 +25,6 @@ char fread_letter(FILE *fp)
 	return c;
 }
 
-
 /* Read a number from a file. */
 int fread_number(FILE *fp)
 {
@@ -67,7 +66,6 @@ int fread_number(FILE *fp)
 	return number;
 }
 
-
 long fread_flag(FILE *fp)
 {
 	int number;
@@ -108,7 +106,6 @@ long fread_flag(FILE *fp)
 
 	return number;
 }
-
 
 /*
  * Read and allocate space for a string from a file.
@@ -203,7 +200,6 @@ char *fread_string(FILE *fp)
 	}
 }
 
-
 char *fread_string_eol(FILE *fp)
 {
 	static bool char_special[256 - EOF];
@@ -293,7 +289,6 @@ char *fread_string_eol(FILE *fp)
 	}
 }
 
-
 /*
  * Read to end of line (for comments).
  */
@@ -313,7 +308,6 @@ void fread_to_eol(FILE *fp)
 
 	ungetc(c, fp);
 }
-
 
 /*
  * Read one word (into static buffer).
@@ -353,7 +347,6 @@ char *fread_word(FILE *fp)
 //	exit(1);
 	return NULL;
 }
-
 
 /* Append a string to a file */
 void fappend(char *file, char *str)

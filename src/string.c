@@ -42,7 +42,6 @@ char *str_dup(const char *str)
 	return str_new;
 }
 
-
 /*
  * Free a string.
  * Null is legal here to simplify callers.
@@ -59,7 +58,6 @@ void free_string(char *pstr)
 	return;
 }
 
-
 /* Removes the tildes from a string.
    Used for player-entered strings that go into disk files. */
 void smash_tilde(char *str)
@@ -68,7 +66,6 @@ void smash_tilde(char *str)
 		if (*str == '~')
 			*str = '-';
 }
-
 
 /* Removes the brackets from a string.  Used to convert a color coded
    string to normal. */
@@ -103,27 +100,6 @@ char *smash_bracket(const char *str)
 	return retstr;
 }
 
-
-/* Remove apostrophes from a string. */
-char *ignore_apostrophe(char *str)
-{
-	static char string[MSL];
-	char *p = string;
-
-	while (*str != '\0') {
-		if (*str != 39 && *str != 92) { /* an apostrophe or backslash */
-			*p = *str;
-			p++;
-		}
-
-		str++;
-	}
-
-	*p = '\0';
-	return string;
-}
-
-
 /*
  * Compare strings, case insensitive.
  * Return TRUE if different
@@ -143,7 +119,6 @@ bool str_cmp(const char *astr, const char *bstr)
 	return FALSE;
 }
 
-
 /*
  * Compare strings, case insensitive, for prefix matching.
  * Return TRUE if astr not a prefix of bstr
@@ -162,8 +137,6 @@ bool str_prefix(const char *astr, const char *bstr)
 
 	return FALSE;
 }
-
-
 
 /*
  * Compare strings, case insensitive, for prefix matching.
@@ -198,7 +171,6 @@ bool str_prefix1(const char *astr, const char *bstr)
 	return FALSE;
 }
 
-
 /*
  * Compare strings, case insensitive, for match anywhere.
  * Returns TRUE if astr not part of bstr.
@@ -222,7 +194,6 @@ bool str_infix(const char *astr, const char *bstr)
 	return TRUE;
 }
 
-
 /*
  * Compare strings, case insensitive, for suffix matching.
  * Return TRUE if astr not a suffix of bstr
@@ -240,7 +211,6 @@ bool str_suffix(const char *astr, const char *bstr)
 	return TRUE;
 }
 
-
 /*
  * Returns an initial-capped string.
  */
@@ -257,13 +227,11 @@ char *capitalize(const char *str)
 	return strcap;
 }
 
-
 void strcut(char *str, int length)
 {
 	if (strlen(str) > length)
 		str[length] = '\0';
 }
-
 
 char *strcenter(char *string, int space)
 {
@@ -290,7 +258,6 @@ char *strcenter(char *string, int space)
 
 	return output;
 }
-
 
 char *strrpc(char *replace, char *with, char *in)
 {
@@ -326,29 +293,5 @@ char *strrpc(char *replace, char *with, char *in)
 
 	*outptr = '\0';
 	return out;
-}
-
-
-/*
-This function capitolizes the first letter
-of a word and makes the rest lowercase.
--- Outsider
-*/
-void Proper_Case(char *line)
-{
-	int index = 1;
-
-	/* check for empty string */
-	if (! line[0])
-		return;
-
-	/* make sure all letters are lower case */
-	while (line[index] != '\0') {
-		line[index] = tolower(line[index]);
-		index++;
-	}
-
-	/* make first letter upper case */
-	line[0] = toupper(line[0]);
 }
 

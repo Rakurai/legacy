@@ -45,16 +45,12 @@ const   sh_int  stamina_loss   [SECT_MAX]      = {
 	1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6
 };
 
-
-
 /*
  * Local functions.
  */
 int     find_door       args((CHAR_DATA *ch, char *arg));
 bool    has_key         args((CHAR_DATA *ch, int key));
 int     find_exit       args((CHAR_DATA *ch, char *arg));
-
-
 
 void move_char(CHAR_DATA *ch, int door, bool follow)
 {
@@ -244,14 +240,11 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	mprog_greet_trigger(ch);
 }
 
-
 void do_north(CHAR_DATA *ch, char *argument)
 {
 	move_char(ch, DIR_NORTH, FALSE);
 	return;
 }
-
-
 
 void do_east(CHAR_DATA *ch, char *argument)
 {
@@ -259,15 +252,11 @@ void do_east(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
-
 void do_south(CHAR_DATA *ch, char *argument)
 {
 	move_char(ch, DIR_SOUTH, FALSE);
 	return;
 }
-
-
 
 void do_west(CHAR_DATA *ch, char *argument)
 {
@@ -275,23 +264,17 @@ void do_west(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
-
 void do_up(CHAR_DATA *ch, char *argument)
 {
 	move_char(ch, DIR_UP, FALSE);
 	return;
 }
 
-
-
 void do_down(CHAR_DATA *ch, char *argument)
 {
 	move_char(ch, DIR_DOWN, FALSE);
 	return;
 }
-
-
 
 int find_door(CHAR_DATA *ch, char *arg)
 {
@@ -362,7 +345,6 @@ int find_exit(CHAR_DATA *ch, char *arg)
 
 	return door;
 }
-
 
 void do_open(CHAR_DATA *ch, char *argument)
 {
@@ -471,8 +453,6 @@ void do_open(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
-
 void do_close(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -568,8 +548,6 @@ void do_close(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
-
 bool has_key(CHAR_DATA *ch, int key)
 {
 	OBJ_DATA *obj;
@@ -581,7 +559,6 @@ bool has_key(CHAR_DATA *ch, int key)
 
 	return FALSE;
 }
-
 
 void do_lock(CHAR_DATA *ch, char *argument)
 {
@@ -713,7 +690,6 @@ void do_lock(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_unlock(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -842,7 +818,6 @@ void do_unlock(CHAR_DATA *ch, char *argument)
 			REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
 	}
 }
-
 
 void do_pick(CHAR_DATA *ch, char *argument)
 {
@@ -977,19 +952,15 @@ void do_pick(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
-
-
 void do_stand(CHAR_DATA *ch, char *argument)
 {
 	OBJ_DATA *obj = NULL;
 
-	if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH) {
-		stc("There is no room to stand up inside the coach.\n"
-		    "If you want to leave the coach, type 'alight'.\n",
-		    ch);
-		return;
-	}
+//	if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH) {
+//		stc("There is no room to stand up inside the coach.\n"
+//		    "If you want to leave the coach, type 'alight'.\n", ch);
+//		return;
+//	}
 
 	if (argument[0] != '\0') {
 		if (get_position(ch) == POS_FIGHTING) {
@@ -1084,8 +1055,6 @@ void do_stand(CHAR_DATA *ch, char *argument)
 
 	return;
 }
-
-
 
 void do_rest(CHAR_DATA *ch, char *argument)
 {
@@ -1212,7 +1181,6 @@ void do_rest(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_sit(CHAR_DATA *ch, char *argument)
 {
 	OBJ_DATA *obj = NULL;
@@ -1329,7 +1297,6 @@ void do_sit(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_sleep(CHAR_DATA *ch, char *argument)
 {
 	OBJ_DATA *obj = NULL;
@@ -1367,9 +1334,8 @@ void do_sleep(CHAR_DATA *ch, char *argument)
 				return;
 			}
 
-			if ((obj->item_type != ITEM_FURNITURE
-			     && obj->item_type != ITEM_COACH)
-			    || (!IS_SET(obj->value[2], SLEEP_ON)
+			if (obj->item_type != ITEM_FURNITURE || // && obj->item_type != ITEM_COACH) ||
+			   (!IS_SET(obj->value[2], SLEEP_ON)
 			        &&   !IS_SET(obj->value[2], SLEEP_IN)
 			        &&   !IS_SET(obj->value[2], SLEEP_AT))) {
 				stc("You can't sleep on that!\n", ch);
@@ -1414,8 +1380,6 @@ void do_sleep(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
-
 void do_wake(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -1423,9 +1387,9 @@ void do_wake(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH)
-			do_sit(ch, "");
-		else
+//		if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH)
+//			do_sit(ch, "");
+//		else
 			do_stand(ch, "");
 
 		return;
@@ -1448,8 +1412,6 @@ void do_wake(CHAR_DATA *ch, char *argument)
 	do_stand(victim, "");
 	return;
 }
-
-
 
 void do_sneak(CHAR_DATA *ch, char *argument)
 {
@@ -1491,8 +1453,6 @@ void do_sneak(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
-
 void do_hide(CHAR_DATA *ch, char *argument)
 {
 	AFFECT_DATA af;
@@ -1530,8 +1490,6 @@ void do_hide(CHAR_DATA *ch, char *argument)
 		check_improve(ch, gsn_hide, FALSE, 3);
 	}
 }
-
-
 
 /*
  * Contributed by Alander.
@@ -1945,7 +1903,6 @@ void do_train(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 /* function for checking legality of push/drag */
 bool is_safe_drag(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -1990,7 +1947,6 @@ bool is_safe_drag(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	return is_safe_char(ch, victim, TRUE);
 }
-
 
 void do_push(CHAR_DATA *ch, char *argument)
 {
@@ -2206,7 +2162,6 @@ void do_push(CHAR_DATA *ch, char *argument)
 	mprog_entry_trigger(victim);
 	mprog_greet_trigger(victim);
 }
-
 
 void do_drag(CHAR_DATA *ch, char *argument)
 {
@@ -2545,7 +2500,6 @@ void do_drag(CHAR_DATA *ch, char *argument)
 	mprog_greet_trigger(victim);
 }
 
-
 /* Paintball code by Lotus */
 void do_reload(CHAR_DATA *ch)
 {
@@ -2586,7 +2540,6 @@ void do_reload(CHAR_DATA *ch)
 	stc(buf, ch);
 } /* end do_reload() */
 
-
 void do_paintball(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch)) {
@@ -2605,7 +2558,6 @@ void do_paintball(CHAR_DATA *ch, char *argument)
 		wiznet("$N is now in *PB* mode.", ch, NULL, WIZ_MISC, 0, 0);
 	}
 } /* end do_paintball() */
-
 
 void do_shoot(CHAR_DATA *ch, char *argument)
 {
@@ -2719,7 +2671,6 @@ void do_shoot(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 /* MARK: remember the current location for RELOCATE - Elrac */
 void do_mark(CHAR_DATA *ch, char *argument)
 {
@@ -2752,7 +2703,6 @@ void do_mark(CHAR_DATA *ch, char *argument)
 	ch->pcdata->mark_room = ch->in_room->vnum;
 	stc("You mark this location. RELOCATE will get you back here.\n", ch);
 } /* end do_mark() */
-
 
 /* RELOCATE: return to previously MARKed location - Elrac */
 void do_relocate(CHAR_DATA *ch, char *argument)
@@ -2834,7 +2784,6 @@ void do_relocate(CHAR_DATA *ch, char *argument)
 	WAIT_STATE(ch, skill_table[gsn_mark].beats);
 } /* end do_relocate() */
 
-
 /* random room generation procedure */
 ROOM_INDEX_DATA *get_random_room(CHAR_DATA *ch)
 {
@@ -2866,7 +2815,6 @@ ROOM_INDEX_DATA *get_random_room(CHAR_DATA *ch)
 		return room;
 	}
 }
-
 
 void do_enter(CHAR_DATA *ch, char *argument)
 {
@@ -3076,8 +3024,6 @@ void do_enter(CHAR_DATA *ch, char *argument)
 	stc("Nope, can't do it.\n", ch);
 }
 
-
-
 /* This function allows a flying character to land.
 This is useful for both roleplaying (sleeping/sitting characters
 shouldn't fly) and for dirt kicking.
@@ -3101,7 +3047,6 @@ void do_land(CHAR_DATA *ch, char *argument)
 	act("$n settles to the ground.", ch, NULL, NULL, TO_ROOM);
 	return;
 }
-
 
 /* This function causes a character to try to fly. A PC may
 fly if they are standing (and not fighting)
@@ -3140,7 +3085,6 @@ void do_fly(CHAR_DATA *ch, char *argument)
 
 	return;
 }
-
 
 /*
 This function attempts to transport a player from

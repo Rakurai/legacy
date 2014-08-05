@@ -27,10 +27,8 @@
 #include "merc.h"
 #include "vt100.h"
 
-
 char   *smash_bracket           args((const char *str));
 extern void     do_file(CHAR_DATA *, char *);
-
 
 /*
  * All the posing stuff.
@@ -508,7 +506,6 @@ void do_testpose(CHAR_DATA *ch, char *argument)
 	act(new_pose_table[class].poses[pose].room_msg, ch, NULL, NULL, TO_CHAR);
 } /* end do_testpose() */
 
-
 /* RT code to delete yourself */
 void do_delet(CHAR_DATA *ch, char *argument)
 {
@@ -619,13 +616,11 @@ void do_delete(CHAR_DATA *ch, char *argument)
 	} /* end switch */
 } /* end do_delete() */
 
-
 /* Lotus - Clear Screen Quickie */
 void do_clear(CHAR_DATA *ch, char *argument)
 {
 	stc("\033[2J", ch);
 }
-
 
 /* Newbie Bags by Lotus */
 void do_newbiekit(CHAR_DATA *ch, char *argument)
@@ -664,7 +659,6 @@ void do_newbiekit(CHAR_DATA *ch, char *argument)
 	act("You have created $p!! WooWoo!!!", ch, kit, NULL, TO_CHAR);
 }
 
-
 /* OOC by Lotus */
 void do_ooc(CHAR_DATA *ch, char *argument)
 {
@@ -684,7 +678,6 @@ void do_ooc(CHAR_DATA *ch, char *argument)
 		wiznet("$N is now in *RP* mode.", ch, NULL, WIZ_MISC, 0, 0);
 	}
 }
-
 
 void do_pk(CHAR_DATA *ch, char *argument)
 {
@@ -722,7 +715,6 @@ void do_pk(CHAR_DATA *ch, char *argument)
 		    "If you are sure you want this, type PK ON .\n", ch);
 	}
 } /* end do_pk() */
-
 
 /* Chatmode by Lotus */
 void do_chatmode(CHAR_DATA *ch, char *argument)
@@ -777,7 +769,6 @@ void do_showlast(CHAR_DATA *ch, char *argument)
 
 	do_save(ch, "");
 } /* end do_showlast() */
-
 
 /* Autorecall by Lotus */
 void do_autorecall(CHAR_DATA *ch, char *argument)
@@ -843,7 +834,6 @@ void do_showraff(CHAR_DATA *ch, char *argument)
 		SET_BIT(ch->pcdata->plr, PLR_SHOWRAFF);
 	}
 }
-
 
 /* RT deaf blocks out all shouts */
 void do_deaf(CHAR_DATA *ch, char *argument)
@@ -1294,7 +1284,6 @@ void do_backup(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_save(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch))
@@ -1353,7 +1342,6 @@ void do_follow(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 {
 	if (ch->master != NULL) {
@@ -1370,8 +1358,6 @@ void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 	act("You now follow $N.",  ch, NULL, master, TO_CHAR);
 	return;
 }
-
-
 
 void stop_follower(CHAR_DATA *ch)
 {
@@ -1416,8 +1402,6 @@ void nuke_pets(CHAR_DATA *ch)
 	return;
 }
 
-
-
 void die_follower(CHAR_DATA *ch)
 {
 	CHAR_DATA *fch;
@@ -1455,8 +1439,6 @@ void die_follower(CHAR_DATA *ch)
 
 	return;
 }
-
-
 
 void do_order(CHAR_DATA *ch, char *argument)
 {
@@ -1588,7 +1570,6 @@ void do_order(CHAR_DATA *ch, char *argument)
 		stc("You have no followers here.\n", ch);
 }
 
-
 /*
 This function basically acts as an alias to do_order(),
 but is used just for pets. If you have a pet, you can
@@ -1633,7 +1614,6 @@ void do_pet(CHAR_DATA *ch, char *argument)
 	do_order(ch, buffer);
 	return;
 }
-
 
 void do_group(CHAR_DATA *ch, char *argument)
 {
@@ -1720,8 +1700,6 @@ void do_group(CHAR_DATA *ch, char *argument)
 	act("$N joins your group.", ch, NULL, victim, TO_CHAR);
 	return;
 }
-
-
 
 /*
  * 'Split' originally by Gnort, God of Chaos.
@@ -1823,11 +1801,6 @@ void do_split(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
-
-
-
-
 /*
  * It is very important that this be an equivalence relation:
  * (1) A ~ A
@@ -1845,10 +1818,6 @@ bool is_same_group(CHAR_DATA *ach, CHAR_DATA *bch)
 
 	return ach == bch;
 }
-
-
-
-
 
 void align(CHAR_DATA *ch, int new_align, char *align_str)
 {
@@ -1870,7 +1839,6 @@ void align(CHAR_DATA *ch, int new_align, char *align_str)
 
 	WAIT_STATE(ch, 4 * PULSE_PER_SECOND);
 } /* end align() */
-
 
 void do_align(CHAR_DATA *ch, char *argument)
 {
@@ -1985,7 +1953,6 @@ void do_outfit(CHAR_DATA *ch, char *argument)
 	    ch->pcdata->deity == NULL ? "Alisa" : str_dup(ch->pcdata->deity));
 }
 
-
 void do_newscore(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch)) {
@@ -2002,6 +1969,4 @@ void do_newscore(CHAR_DATA *ch, char *argument)
 		SET_BIT(ch->pcdata->plr, PLR_NEWSCORE);
 	}
 }
-
-
 

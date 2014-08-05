@@ -11,7 +11,6 @@
 #include "merc.h"
 #include "tables.h"
 
-
 const struct helpfile_table_type helpfile_table[] = {
 	{       "wizhelp",      HELP_WIZHELP    },
 	{       "wizquest",     HELP_WIZQUEST   },
@@ -33,7 +32,6 @@ const struct helpfile_table_type helpfile_table[] = {
 	{       "misc",         HELP_MISC       },
 	{       NULL,           0               }
 };
-
 
 /* random name generation tables, male and female syllable sets 1, 2, 3 */
 const char *Msyl1[] = {
@@ -93,7 +91,6 @@ const char *Fsyl3[] = {
 	"thien", "thiel", "viel", "via",  "ven",  "veth", "wen",  "wen",  "wen",  "wen",
 	"wia",  "weth", "wien", "wiel"
 };
-
 
 /* random mob title generation, based on basic class */
 const struct MagT_type MagT_table[] = {
@@ -195,7 +192,6 @@ const struct WarT_type WarT_table[] = {
 	{       NULL,                   NULL                    }
 };
 
-
 const struct chan_type chan_table[] = {
 	{
 		"gossip",       "You gossip",   "$n{x gossips '$t{x'",
@@ -243,7 +239,6 @@ const struct chan_type chan_table[] = {
 	}
 };
 
-
 const struct revoke_type revoke_table[] = {
 	/* name, bit, message */
 	{ "flameonly",  REVOKE_FLAMEONLY,       "ability to use channels other than FLAME"      },
@@ -270,7 +265,6 @@ const struct revoke_type revoke_table[] = {
 	{ NULL,         0,                      NULL                                            }
 };
 
-
 const struct flag_type cgroup_flags[] = {
 	{       "General",      GROUP_GEN,              TRUE    },
 	{       "Quest",        GROUP_QUEST,    TRUE    },
@@ -286,7 +280,6 @@ const struct flag_type cgroup_flags[] = {
 	{       "Leader",       GROUP_LEADER,   TRUE    },
 	{       NULL,           0,                              0               }
 };
-
 
 /* wiznet table and prototype for future flag setting */
 /* must be added in order of level for config to work */
@@ -320,7 +313,6 @@ const struct wiznet_type wiznet_table[] = {
 	{    "secure",       WIZ_SECURE,     IMP, "The catch all of generic Imm commands." },
 	{    NULL,           0,              0,  NULL }
 };
-
 
 const struct raffects raffects[MAX_RAFFECTS] = {
 	/* id - raffect id #
@@ -386,7 +378,6 @@ const struct raffects raffects[MAX_RAFFECTS] = {
 	        "sixthsense",   0,      24,     70,     0               },
 	    {   "Farsight",             Can see two rooms in all directions on scanning
 	        "farsight",     0,      25,     70,     0               }, */
-
 
 	/* "Bad" Remort Affects (100-199) */
 
@@ -572,7 +563,6 @@ const struct raffects raffects[MAX_RAFFECTS] = {
 	}
 };
 
-
 /* for position */      /* shared with AEDIT */
 const struct position_type position_table[] = {
 	{       "dead",                 "dead"  },
@@ -587,19 +577,16 @@ const struct position_type position_table[] = {
 	{       NULL,                   NULL    }
 };
 
-
 /* for sex */           /* shared with AEDIT */
 const struct sex_type sex_table[] = {
 	{"none" },      {"male" },      {"female"},     {"either"},     {NULL}
 };
-
 
 /* for sizes */         /* shared with AEDIT */
 const struct size_type size_table[] = {
 	{"tiny"},       {"small"},      {"medium"},     {"large"},
 	{"huge"},       {"giant"},      {NULL}
 };
-
 
 /* Below is stuff that is mostly used for the flag related commands */
 
@@ -638,7 +625,6 @@ const struct field_type flag_fields[] = {
 	{ "room",               room_flags,     CAND_ROOM,      IMM,    999,    IMM,    999     },
 	{ NULL,                 NULL,           0,              999,    999,    999,    999     }
 };
-
 
 const struct ftoa_type ftoa_table[] = {
 	{ "A", A },     { "B", B },     { "C", C },     { "D", D },     { "E", E },
@@ -1075,7 +1061,6 @@ const struct flag_type weapon_flags[] = {
 	{   NULL,                   0,      0       }
 };
 
-
 const struct color_type color_table[] = {
 	{       "black",        "{k",   GREY,   NOBOLD  },
 	{       "charcoal",     "{c",   GREY,   BOLD    },
@@ -1095,7 +1080,6 @@ const struct color_type color_table[] = {
 	{       "white",        "{W",   WHITE,  BOLD    },
 	{       NULL,           NULL,   0,      0       }
 };
-
 
 /* default color settings table -- Montrey */
 /* sections must be separated by a NULL line, entries must match the

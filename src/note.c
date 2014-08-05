@@ -33,7 +33,6 @@ extern  int     _filbuf         args((FILE *));
 extern FILE                   *fpArea;
 extern char                    strArea[MAX_INPUT_LENGTH];
 
-
 /* local procedures */
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time);
 void parse_note(CHAR_DATA *ch, char *argument, int type);
@@ -60,7 +59,6 @@ struct board_index_struct board_index [] = {
 	{ "",    NULL,          "",                     "",                     ""                      }
 };
 
-
 /* count the number of messages, visible to 'ch', in a given message list */
 int count_spool(CHAR_DATA *ch, NOTE_DATA *spool)
 {
@@ -73,7 +71,6 @@ int count_spool(CHAR_DATA *ch, NOTE_DATA *spool)
 
 	return count;
 }
-
 
 /* display the numbers of unread messages of each type, visible to 'ch' */
 void do_unread(CHAR_DATA *ch)
@@ -144,7 +141,6 @@ void do_unread(CHAR_DATA *ch)
 		stc("Type: {Y<note wipe>{x to empty all message boards.\n", ch);
 	}
 }
-
 
 void do_note(CHAR_DATA *ch, char *argument)
 {
@@ -244,7 +240,6 @@ void save_notes(int type)
 	}
 }
 
-
 void load_notes(void)
 {
 	load_thread(NOTE_FILE, &note_list, NOTE_NOTE, 10 * 24 * 60 * 60);
@@ -255,7 +250,6 @@ void load_notes(void)
 	load_thread(PERSONAL_FILE, &personal_list, NOTE_PERSONAL, 10 * 24 * 60 * 60);
 	load_thread(TRADE_FILE, &trade_list, NOTE_TRADE, 10 * 24 * 60 * 60);
 }
-
 
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 {
@@ -340,7 +334,6 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 	return;
 }
 
-
 void append_note(NOTE_DATA *pnote)
 {
 	FILE *fp;
@@ -410,7 +403,6 @@ void append_note(NOTE_DATA *pnote)
 	}
 }
 
-
 bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 {
 	char buf[MSL];
@@ -475,8 +467,6 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 	return FALSE;
 }
 
-
-
 void note_attach(CHAR_DATA *ch, int type)
 {
 	NOTE_DATA *pnote;
@@ -495,8 +485,6 @@ void note_attach(CHAR_DATA *ch, int type)
 	ch->pnote           = pnote;
 	return;
 }
-
-
 
 void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
 {
@@ -587,7 +575,6 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
 	return;
 }
 
-
 bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote)
 {
 	time_t last_read;
@@ -641,7 +628,6 @@ bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote)
 	return FALSE;
 }
 
-
 void update_read(CHAR_DATA *ch, NOTE_DATA *pnote)
 {
 	time_t stamp;
@@ -685,7 +671,6 @@ void update_read(CHAR_DATA *ch, NOTE_DATA *pnote)
 	}
 }
 
-
 void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
 {
 	CHAR_DATA *ch;
@@ -720,7 +705,6 @@ void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
 		}
 	}
 }
-
 
 void parse_note(CHAR_DATA *ch, char *argument, int type)
 {
@@ -1403,7 +1387,6 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	return;
 }
 
-
 void do_old_next(CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -1602,7 +1585,6 @@ void do_old_next(CHAR_DATA *ch)
 	return;
 }
 
-
 /* Chronological NEXT -- Elrac */
 void do_next(CHAR_DATA *ch, char *argument)
 {
@@ -1666,7 +1648,6 @@ void do_next(CHAR_DATA *ch, char *argument)
 	page_to_char(onote->text, ch);
 	update_read(ch, onote);
 } /* end do_next */
-
 
 /*
  * Thanks to Kalgen for the new procedure (no more bug!)
@@ -1878,7 +1859,6 @@ char *format_string(char *oldstring)
 	return (str_dup(xbuf));
 }
 
-
 char *string_replace(char *orig, char *old, char *new)
 {
 	char xbuf[MAX_STRING_LENGTH];
@@ -1896,22 +1876,4 @@ char *string_replace(char *orig, char *old, char *new)
 
 	return str_dup(xbuf);
 }
-
-
-/* in support of war coding -- Elrac */
-NOTE_DATA *get_declaration(CHAR_DATA *ch, int number)
-{
-	NOTE_DATA **list;
-	NOTE_DATA *pnote;
-	int cur_num;
-	list = &roleplay_list;
-	cur_num = 0;
-
-	for (pnote = *list; pnote != NULL; pnote = pnote->next) {
-		if (is_note_to(ch, pnote) && (cur_num++ == number))
-			return pnote;
-	}
-
-	return NULL;
-} /* end get_declaration() */
 

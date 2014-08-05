@@ -1275,7 +1275,6 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 	}
 }
 
-
 /* This routine handles the variables for command expansion.
  * If you want to add any go right ahead, it should be fairly
  * clear how it is done and they are quite easy to do, so you
@@ -1619,7 +1618,6 @@ void mprog_driver(char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
 		command_list = mprog_next_command(command_list);
 	}
 } /* end mprog_driver() */
-
 
 /***************************************************************************
  * Global function code and brief comments.

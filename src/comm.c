@@ -60,10 +60,8 @@ DECLARE_DO_FUN(do_skills);
 DECLARE_DO_FUN(do_outfit);
 DECLARE_DO_FUN(do_unread);
 
-
 /* EPKA structure */
 struct ka_struct *ka;
-
 
 extern void     goto_line    args((CHAR_DATA *ch, int row, int column));
 extern void     set_window   args((CHAR_DATA *ch, int top, int bottom));
@@ -98,8 +96,6 @@ extern  int     malloc_verify   args((void));
 #undef __attribute
 #endif
 
-
-
 #if     defined(unix)
 #include <fcntl.h>
 #include <netdb.h>
@@ -119,8 +115,6 @@ as unsigned causes errors in write_to_buff.  Therefore, ignore the warning - Lot
 */
 
 #endif
-
-
 
 /*
  * OS-dependent declarations.
@@ -279,8 +273,6 @@ int     socket          args((int domain, int type, int protocol));
 int     write           args((int fd, char *buf, int nbyte));
 #endif
 
-
-
 /*
  * Global variables.
  */
@@ -317,8 +309,6 @@ bool    read_from_descriptor    args((DESCRIPTOR_DATA *d));
 bool    write_to_descriptor     args((int desc, char *txt, int length));
 #endif
 
-
-
 /*
  * Other local functions (OS-independent).
  */
@@ -344,7 +334,6 @@ void exit_reason(const char *module, int line, const char *reason)
 }
 
 #define EXIT_REASON(l,r) exit_reason("comm.c", l, r)
-
 
 void copyover_recover()
 {
@@ -688,7 +677,6 @@ int init_socket(int port)
 }
 #endif
 
-
 #if defined(unix)
 void game_loop_unix(int control)
 {
@@ -925,8 +913,6 @@ void game_loop_unix(int control)
 }
 #endif
 
-
-
 #if defined(unix)
 void init_descriptor(int control)
 {
@@ -1062,7 +1048,6 @@ void init_descriptor(int control)
 }
 #endif
 
-
 void close_socket(DESCRIPTOR_DATA *dclose)
 {
 	CHAR_DATA *ch;
@@ -1155,8 +1140,6 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 	return;
 }
 
-
-
 bool read_from_descriptor(DESCRIPTOR_DATA *d)
 {
 	int iStart;
@@ -1213,8 +1196,6 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	d->inbuf[iStart] = '\0';
 	return TRUE;
 }
-
-
 
 /*
  * Transfer one line from input buffer to input line.
@@ -1331,8 +1312,6 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 
 	return;
 }
-
-
 
 /*
  * Low level output function.
@@ -1475,9 +1454,6 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 		return TRUE;
 	}
 }
-
-
-
 
 /*
  * Bust a prompt (player settable prompt)
@@ -1909,7 +1885,6 @@ void bust_a_prompt(CHAR_DATA *ch)
 		write_to_buffer(ch->desc, ch->prefix, 0);
 } /* end bust_a_prompt() */
 
-
 /* write_to_buffer with color codes -- Montrey */
 void cwtb(DESCRIPTOR_DATA *d, char *txt)
 {
@@ -2063,8 +2038,6 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 	return;
 }
 
-
-
 /*
  * Lowest level output function.
  * Write a block of text to the file descriptor.
@@ -2098,8 +2071,6 @@ bool write_to_descriptor(int desc, char *txt, int length)
 
 	return TRUE;
 }
-
-
 
 /*
  * Parse a name for acceptability.
@@ -2189,8 +2160,6 @@ bool check_parse_name(char *name)
 	return TRUE;
 }
 
-
-
 /*
  * Look for link-dead player to reconnect.
  */
@@ -2244,8 +2213,6 @@ bool check_reconnect(DESCRIPTOR_DATA *d, char *name, bool fConn)
 
 	return FALSE;
 }
-
-
 
 /*
  * Check if already playing.
@@ -2319,7 +2286,6 @@ bool check_player_exist(DESCRIPTOR_DATA *d, char *name)
 	return FALSE;
 }
 
-
 void stop_idling(CHAR_DATA *ch)
 {
 	if (ch == NULL
@@ -2335,7 +2301,6 @@ void stop_idling(CHAR_DATA *ch)
 	act("$n has returned from the void.", ch, NULL, NULL, TO_ROOM);
 	return;
 }
-
 
 void process_color(CHAR_DATA *ch, char a)
 {
@@ -2530,7 +2495,6 @@ void stc(char *txt, CHAR_DATA *ch)
 	}
 } /* end stc() */
 
-
 /*
  * Send a page to one char.
  */
@@ -2566,7 +2530,6 @@ void page_to_char(char *txt, CHAR_DATA *ch)
 	}
 }
 
-
 /* string pager */
 void show_string(struct descriptor_data *d, char *input)
 {
@@ -2595,7 +2558,6 @@ void show_string(struct descriptor_data *d, char *input)
 		show_lines = d->character->lines;
 	else
 		show_lines = 0;
-
 
 	for (scan = buffer; ; scan++, d->showstr_point++) {
 		// copy each line to the buffer
@@ -2630,8 +2592,6 @@ void show_string(struct descriptor_data *d, char *input)
 		}
 	}
 } /* end show_string() */
-
-
 
 void act(const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2,
          int type)
@@ -2815,7 +2775,6 @@ void act_format(const char *format, CHAR_DATA *ch,
 		mprog_act_trigger(buf, to, ch, obj1, vch);
 } /* end act_format() */
 
-
 void act_new(const char *format, CHAR_DATA *ch, const void *arg1,
              const void *arg2, int type, int min_pos, bool censor)
 {
@@ -2998,7 +2957,6 @@ void act_new(const char *format, CHAR_DATA *ch, const void *arg1,
 	return;
 }
 
-
 char *get_multi_command(DESCRIPTOR_DATA *d, char *argument)
 {
 	char *pcom;
@@ -3021,7 +2979,6 @@ char *get_multi_command(DESCRIPTOR_DATA *d, char *argument)
 	return command;
 } /* end get_multi_command() */
 
-
 int roll_stat(CHAR_DATA *ch, int stat)
 {
 	int percent, bonus, temp, low, high;
@@ -3041,8 +2998,6 @@ int roll_stat(CHAR_DATA *ch, int stat)
 	temp = (number_range(low, high));
 	return temp;
 }
-
-
 
 /* COPYOVER stuff is so very system dependent I decided
    to move it here from act_wiz.c, which is very full anyway.

@@ -33,7 +33,6 @@
 DECLARE_DO_FUN(do_groups);
 DECLARE_DO_FUN(do_say);
 
-
 /* return TRUE if a player either has the group or has all skills in it */
 bool completed_group(CHAR_DATA *ch, int gn)
 {
@@ -60,20 +59,17 @@ bool completed_group(CHAR_DATA *ch, int gn)
 	return TRUE;
 }
 
-
 /* function for qsort of group numbers by group name */
 int comp_groupnames(const void *gn1, const void *gn2)
 {
 	return strcmp(group_table[*((int *) gn1)].name, group_table[*((int *) gn2)].name);
 }
 
-
 /* structure of sortable spell info */
 struct s_spell_info {
 	int sn;
 	int level; /* level for the current ch */
 };
-
 
 /* function for qsort of spells by level and name */
 int comp_spells(const void *sn1, const void *sn2)
@@ -87,7 +83,6 @@ int comp_spells(const void *sn1, const void *sn2)
 
 	return strcmp(skill_table[si1->sn].name, skill_table[si2->sn].name);
 }
-
 
 /* SPELLS, extended to list spells by levels, group and percentage -- Elrac */
 /* Possible arguments:
@@ -359,7 +354,6 @@ void do_spells(CHAR_DATA *ch, char *argument)
 	free_buf(buffer);
 } /* end do_spells() */
 
-
 /* The guts of 'spells', used here for skill listing - Montrey */
 /* Possible arguments:
      SKILLS         -> all spells available to player
@@ -539,7 +533,6 @@ void do_skills(CHAR_DATA *ch, char *argument)
 	page_to_char(buf_string(buffer), ch);
 	free_buf(buffer);
 }
-
 
 /* Levelist by Lotus */
 void do_levels(CHAR_DATA *ch, char *argument)
@@ -725,7 +718,6 @@ void do_levels(CHAR_DATA *ch, char *argument)
 	free_buf(buffer);
 } /* end do_levels() */
 
-
 /* shows skills, groups and costs (only if not bought) */
 void list_group_costs(CHAR_DATA *ch)
 {
@@ -780,7 +772,6 @@ void list_group_costs(CHAR_DATA *ch)
 	    ch->pcdata->points,
 	    exp_per_level(ch, ch->gen_data->points_chosen));
 }
-
 
 void list_group_chosen(CHAR_DATA *ch)
 {
@@ -843,7 +834,6 @@ void list_group_chosen(CHAR_DATA *ch)
 	stc(buf, ch);
 	return;
 }
-
 
 long exp_per_level(CHAR_DATA *ch, int points)
 {
@@ -1036,11 +1026,6 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 	return FALSE;
 }
 
-
-
-
-
-
 /* shows all groups, or the sub-members of a group */
 void do_groups(CHAR_DATA *ch, char *argument)
 {
@@ -1118,7 +1103,6 @@ void do_groups(CHAR_DATA *ch, char *argument)
 		stc("\n", ch);
 }
 
-
 /* checks for skill improvement */
 void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 {
@@ -1184,7 +1168,6 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 	}
 } /* end check_improve() */
 
-
 /* returns a group index number given the name */
 int group_lookup(const char *name)
 {
@@ -1196,7 +1179,6 @@ int group_lookup(const char *name)
 
 	return -1;
 }
-
 
 /* recursively adds a group given its number -- uses group_add */
 void gn_add(CHAR_DATA *ch, int gn)
@@ -1297,7 +1279,6 @@ int get_evolution(CHAR_DATA *ch, int sn)
 	return evolution;
 } /* end get_evolution */
 
-
 int can_evolve(CHAR_DATA *ch, int sn)
 {
 	/* returns 1 if evolvable, 0 if already at max, -1 if not evolvable */
@@ -1340,7 +1321,6 @@ int can_evolve(CHAR_DATA *ch, int sn)
 	return -1;      /* just in case */
 }
 
-
 void evolve_list(CHAR_DATA *ch)
 {
 	BUFFER *buffer;
@@ -1382,7 +1362,6 @@ void evolve_list(CHAR_DATA *ch)
 	page_to_char(buf_string(buffer), ch);
 	free_buf(buffer);
 }
-
 
 void do_evolve(CHAR_DATA *ch, char *argument)
 {
@@ -1524,7 +1503,6 @@ bool deduct_stamina(CHAR_DATA *ch, int sn)
 	ch->stam -= get_skill_cost(ch, sn);
 	return TRUE;
 }
-
 
 /* used to get new skills */
 void do_gain(CHAR_DATA *ch, char *argument)
@@ -1802,7 +1780,6 @@ void do_gain(CHAR_DATA *ch, char *argument)
 
 	act("$N tells you 'I have no knowledge of that skill or spell group.'", ch, NULL, trainer, TO_CHAR);
 }
-
 
 /* This function converts skill points into practice sessions.
 10 skill points is required to make one practice session.

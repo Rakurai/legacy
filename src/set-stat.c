@@ -38,7 +38,6 @@ DECLARE_DO_FUN(do_evoset);
 DECLARE_DO_FUN(do_raffset);
 DECLARE_DO_FUN(do_extraset);
 
-
 /* RT set replaces sset, mset, oset, rset and cset */
 
 void do_set(CHAR_DATA *ch, char *argument)
@@ -111,7 +110,6 @@ void do_set(CHAR_DATA *ch, char *argument)
 
 	do_set(ch, "");
 }
-
 
 void do_sset(CHAR_DATA *ch, char *argument)
 {
@@ -192,7 +190,6 @@ void do_sset(CHAR_DATA *ch, char *argument)
 
 	stc(buf, ch);
 } /* end do_sset() */
-
 
 void do_evoset(CHAR_DATA *ch, char *argument)
 {
@@ -293,7 +290,6 @@ void do_evoset(CHAR_DATA *ch, char *argument)
 	ptc(ch, "%s's %s %s has been set to evolution %d.\n", victim->name, skill_table[sn].name,
 	    skill_table[sn].spell_fun != spell_null ? "spell" : "skill", value);
 } /* end do_evoset() */
-
 
 void do_raffset(CHAR_DATA *ch, char *argument)
 {
@@ -1411,7 +1407,6 @@ void do_oset(CHAR_DATA *ch, char *argument)
 	do_oset(ch, "");
 } /* end do_oset() */
 
-
 void do_rset(CHAR_DATA *ch, char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
@@ -1473,8 +1468,6 @@ void do_rset(CHAR_DATA *ch, char *argument)
 	 */
 	do_rset(ch, "");
 } /* end do_rset() */
-
-
 
 /***** STAT COMMANDS *****/
 void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -1646,7 +1639,6 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		    paf->level,
 		    paf->evolution);
 }
-
 
 void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 {
@@ -1890,7 +1882,6 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 			    skill_table[obj->spell[i]].name, obj->spell_lev[i]);
 }
 
-
 void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 {
 	char buf[MSL];
@@ -1963,7 +1954,6 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 		    paf->level,
 		    paf->evolution);
 }
-
 
 /* main stat function */
 void do_stat(CHAR_DATA *ch, char *argument)
@@ -2068,7 +2058,6 @@ void do_stat(CHAR_DATA *ch, char *argument)
 			stc("It does not exist.\n", ch);
 	}
 }
-
 
 /* new player stat -- Elrac */
 void do_pstat(CHAR_DATA *ch, char *argument)

@@ -25,7 +25,6 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-
 #include "merc.h"
 #include "memory.h"
 #include "sql.h"
@@ -33,7 +32,6 @@
 #include "music.h"
 
 extern  int     _filbuf         args((FILE *));
-
 
 /*
  * Globals.
@@ -296,7 +294,6 @@ sh_int  gsn_standfast;
 sh_int  gsn_mark;
 sh_int  gsn_critical_blow;
 
-
 /*
  * Locals.
  */
@@ -306,7 +303,6 @@ ROOM_INDEX_DATA        *room_index_hash         [MAX_KEY_HASH];
 
 AREA_DATA              *area_first;
 AREA_DATA              *area_last;
-
 
 /* quest_open, if true, says that the quest area is open.
    quest_min, quest_max are defined only if quest_open is true. */
@@ -344,8 +340,6 @@ MPROG_DATA     *mprog_file_read         args((char *f, MPROG_DATA *mprg,
                 MOB_INDEX_DATA *pMobIndex));
 void            mprog_read_programs     args((FILE *fp,
                 MOB_INDEX_DATA *pMobIndex));
-
-
 
 /*
  * Local booting procedures.
@@ -485,8 +479,8 @@ void boot_db()
 				else if (!str_cmp(word, "ROOMS"))  load_rooms(fpArea);
 				else if (!str_cmp(word, "SHOPS"))  load_shops(fpArea);
 				else if (!str_cmp(word, "SPECIALS"))  load_specials(fpArea);
-				else if (!str_cmp(word, "TOURSTARTS"))  load_tourstarts(fpArea);
-				else if (!str_cmp(word, "TOURROUTES"))  load_tourroutes(fpArea);
+//				else if (!str_cmp(word, "TOURSTARTS"))  load_tourstarts(fpArea);
+//				else if (!str_cmp(word, "TOURROUTES"))  load_tourroutes(fpArea);
 				else {
 					bug("Boot_db: bad section name.", 0);
 					exit(1);
@@ -560,7 +554,6 @@ void boot_db()
 	if (help_greeting == NULL)
 		help_greeting = str_dup("need a greeting! enter your name: ");
 } /* end boot_db() */
-
 
 /*
  * Pull the level ranges from the area credits field -- Elrac
@@ -727,7 +720,6 @@ int  scan_credits(AREA_DATA *pArea)
 	return pArea->area_type;
 } /* end scan_credits() */
 
-
 /*
  * Load an AREA section (only a header, really)
  */
@@ -768,7 +760,6 @@ void load_area(FILE *fp)
 	pArea->next = NULL;
 	top_area++;
 }
-
 
 /*
  * Snarf a reset section.
@@ -892,7 +883,6 @@ void load_resets(FILE *fp)
 		top_reset++;
 	}
 }
-
 
 /*
  * Snarf a mob section.  new style
@@ -1289,7 +1279,6 @@ void load_objects(FILE *fp)
 	return;
 }
 
-
 /*
  * Snarf a room section.
  */
@@ -1465,7 +1454,6 @@ void load_rooms(FILE *fp)
 	return;
 }
 
-
 /*
  * Snarf a shop section.
  */
@@ -1510,7 +1498,6 @@ void load_shops(FILE *fp)
 	return;
 }
 
-
 /*
  * Snarf spec proc declarations.
  */
@@ -1546,7 +1533,6 @@ void load_specials(FILE *fp)
 		fread_to_eol(fp);
 	}
 }
-
 
 /*
  * Translate all room exits from virtual to real.
@@ -1617,9 +1603,6 @@ void fix_exits(void)
 	return;
 }
 
-
-
-
 /*
  * Reports a bug.
  */
@@ -1669,8 +1652,6 @@ void bug(const char *str, int param)
 	wiznet(buf, NULL, NULL, WIZ_BUGS, 0, 0);
 	return;
 }
-
-
 
 /*
  * Writes a string to the log.
@@ -1885,7 +1866,6 @@ void mprog_read_programs(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 
 	return;
 }
-
 
 /*
  * This function is here to aid in debugging.

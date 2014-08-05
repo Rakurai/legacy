@@ -430,4 +430,3 @@ void load_objects(FILE *fp)
 	return;
 }
 
-

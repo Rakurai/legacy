@@ -32,7 +32,6 @@
 int channel_songs[MAX_GLOBAL + 1];
 struct song_data song_table[MAX_SONGS];
 
-
 void song_update(void)
 {
 	OBJ_DATA *obj;
@@ -135,8 +134,6 @@ void song_update(void)
 			act(buf, room->people, obj, NULL, TO_ALL);
 	}
 }
-
-
 
 void load_songs(void)
 {

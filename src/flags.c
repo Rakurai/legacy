@@ -351,7 +351,6 @@ void do_flag(CHAR_DATA *ch, char *argument)
 	*flag = new;
 }
 
-
 void do_typelist(CHAR_DATA *ch, char *argument)
 {
 	int x;
@@ -373,7 +372,6 @@ void do_typelist(CHAR_DATA *ch, char *argument)
 		stc("Valid lists: liquid, attack\n", ch);
 }
 
-
 char *flag_to_alpha(long flag)
 {
 	int i;
@@ -384,7 +382,6 @@ char *flag_to_alpha(long flag)
 
 	return NULL;
 }
-
 
 void do_flaglist(CHAR_DATA *ch, char *argument)
 {
@@ -420,7 +417,6 @@ void do_flaglist(CHAR_DATA *ch, char *argument)
 	for (x = 0; flag_table[x].name != NULL; x++)
 		ptc(ch, "[%2s] %s\n", flag_to_alpha(flag_table[x].bit), flag_table[x].name);
 }
-
 
 /*** FLAG SEARCHING ***/
 
@@ -492,7 +488,6 @@ int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 	return count;
 }
 
-
 int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 {
 	char buf[MSL];
@@ -560,7 +555,6 @@ int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 	return count;
 }
 
-
 void fsearch_char(CHAR_DATA *ch, int fieldptr, long marked, bool mobile, bool player)
 {
 	char buf[MSL];
@@ -600,7 +594,6 @@ void fsearch_char(CHAR_DATA *ch, int fieldptr, long marked, bool mobile, bool pl
 	page_to_char(buf_string(output), ch);
 	free_buf(output);
 }
-
 
 void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
 {
@@ -652,7 +645,6 @@ void fsearch_room(CHAR_DATA *ch, int fieldptr, long marked)
 
 	free_buf(output);
 }
-
 
 void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 {
@@ -753,7 +745,6 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 
 	free_buf(output);
 }
-
 
 void do_flagsearch(CHAR_DATA *ch, char *argument)
 {

@@ -110,7 +110,6 @@ const   struct  spec_type    spec_table[] = {
 	{   NULL,                           NULL                    }
 };
 
-
 /* Given a name, return the appropriate spec fun. */
 SPEC_FUN *spec_lookup(const char *name)
 {
@@ -124,7 +123,6 @@ SPEC_FUN *spec_lookup(const char *name)
 	return 0;
 }
 
-
 char *spec_name(SPEC_FUN *function)
 {
 	int i;
@@ -136,7 +134,6 @@ char *spec_name(SPEC_FUN *function)
 
 	return NULL;
 }
-
 
 bool spec_troll_member(CHAR_DATA *ch)
 {
@@ -196,7 +193,6 @@ bool spec_troll_member(CHAR_DATA *ch)
 	return TRUE;
 }
 
-
 bool spec_ogre_member(CHAR_DATA *ch)
 {
 	CHAR_DATA *vch, *victim = NULL;
@@ -254,7 +250,6 @@ bool spec_ogre_member(CHAR_DATA *ch)
 	multi_hit(ch, victim, TYPE_UNDEFINED);
 	return TRUE;
 }
-
 
 bool spec_patrolman(CHAR_DATA *ch)
 {
@@ -440,7 +435,6 @@ bool dragon(CHAR_DATA *ch, int sn)
 	return TRUE;
 }
 
-
 /* Special procedures for mobiles. */
 bool spec_breath_any(CHAR_DATA *ch)
 {
@@ -462,36 +456,30 @@ bool spec_breath_any(CHAR_DATA *ch)
 	return FALSE;
 }
 
-
 bool spec_breath_acid(CHAR_DATA *ch)
 {
 	return dragon(ch, gsn_acid_breath);
 }
-
 
 bool spec_breath_fire(CHAR_DATA *ch)
 {
 	return dragon(ch, gsn_fire_breath);
 }
 
-
 bool spec_breath_frost(CHAR_DATA *ch)
 {
 	return dragon(ch, gsn_frost_breath);
 }
-
 
 bool spec_breath_gas(CHAR_DATA *ch)
 {
 	return dragon(ch, gsn_gas_breath);
 }
 
-
 bool spec_breath_lightning(CHAR_DATA *ch)
 {
 	return dragon(ch, gsn_lightning_breath);
 }
-
 
 bool spec_cast_adept(CHAR_DATA *ch)
 {
@@ -564,7 +552,6 @@ bool spec_cast_adept(CHAR_DATA *ch)
 	return FALSE;
 }
 
-
 bool spec_cast_judge(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
@@ -593,7 +580,6 @@ bool spec_cast_judge(CHAR_DATA *ch)
 	(*skill_table[sn].spell_fun)(sn, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, sn));
 	return TRUE;
 }
-
 
 bool spec_cast_cleric(CHAR_DATA *ch)
 {
@@ -651,7 +637,6 @@ bool spec_cast_cleric(CHAR_DATA *ch)
 	return TRUE;
 }
 
-
 bool spec_cast_mage(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
@@ -706,7 +691,6 @@ bool spec_cast_mage(CHAR_DATA *ch)
 	(*skill_table[sn].spell_fun)(sn, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, sn));
 	return TRUE;
 }
-
 
 bool spec_cast_undead(CHAR_DATA *ch)
 {
@@ -763,7 +747,6 @@ bool spec_cast_undead(CHAR_DATA *ch)
 	return TRUE;
 }
 
-
 bool spec_executioner(CHAR_DATA *ch)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -799,9 +782,6 @@ bool spec_executioner(CHAR_DATA *ch)
 	return TRUE;
 }
 
-
-
-
 bool spec_fido(CHAR_DATA *ch)
 {
 	OBJ_DATA *corpse;
@@ -832,8 +812,6 @@ bool spec_fido(CHAR_DATA *ch)
 
 	return FALSE;
 }
-
-
 
 bool spec_guard(CHAR_DATA *ch)
 {
@@ -891,8 +869,6 @@ bool spec_guard(CHAR_DATA *ch)
 	return FALSE;
 }
 
-
-
 bool spec_janitor(CHAR_DATA *ch)
 {
 	OBJ_DATA *trash;
@@ -922,8 +898,6 @@ bool spec_janitor(CHAR_DATA *ch)
 
 	return FALSE;
 }
-
-
 
 bool spec_mayor(CHAR_DATA *ch)
 {
@@ -1020,8 +994,6 @@ bool spec_mayor(CHAR_DATA *ch)
 	return FALSE;
 }
 
-
-
 bool spec_poison(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim;
@@ -1037,8 +1009,6 @@ bool spec_poison(CHAR_DATA *ch)
 	spell_poison(gsn_poison, ch->level, ch, victim, TARGET_CHAR, get_evolution(ch, gsn_poison));
 	return TRUE;
 }
-
-
 
 bool spec_thief(CHAR_DATA *ch)
 {
@@ -1339,7 +1309,6 @@ bool spec_clanguard(CHAR_DATA *ch)
 
 	return found;
 }
-
 
 /**
  * This function determines whether or not a character

@@ -25,7 +25,6 @@ DECLARE_DO_FUN(do_slookup);
 extern  ROOM_INDEX_DATA *room_index_hash[MAX_KEY_HASH];
 extern  AREA_DATA       *area_first;
 
-
 void do_adjust(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
@@ -80,7 +79,6 @@ void do_adjust(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 /* save all players, without lag -- Elrac */
 void do_allsave(CHAR_DATA *ch, char *argument)
 {
@@ -95,7 +93,6 @@ void do_allsave(CHAR_DATA *ch, char *argument)
 
 	stc("done.\n", ch);
 } /* end allsave */
-
 
 char *site_to_ssite(char *site)
 {
@@ -157,7 +154,6 @@ char *site_to_ssite(char *site)
 
 	return p;
 }
-
 
 void do_alternate(CHAR_DATA *ch, char *argument)
 {
@@ -385,7 +381,6 @@ void do_alternate(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 }
 
-
 void do_at(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -432,7 +427,6 @@ void do_at(CHAR_DATA *ch, char *argument)
 
 	return;
 }
-
 
 /* Check Command borrowed from a web site */
 void do_check(CHAR_DATA *ch, char *argument)
@@ -655,7 +649,6 @@ void do_check(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_chown(CHAR_DATA *ch, char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
@@ -693,7 +686,6 @@ void do_chown(CHAR_DATA *ch, char *argument)
 	act("$p flies from $N to you.", ch, obj, victim, TO_CHAR);
 } /* end do_chown() */
 
-
 /* for clone, to insure that cloning goes many levels deep */
 void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 {
@@ -712,7 +704,6 @@ void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 		recursive_clone(ch, c_obj, t_obj);
 	}
 }
-
 
 /* command that is similar to load */
 void do_clone(CHAR_DATA *ch, char *argument)
@@ -859,7 +850,6 @@ void do_clone(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_clone() */
 
-
 /* Funky style clone command */
 void do_oclone(CHAR_DATA *ch, char *argument)
 {
@@ -913,7 +903,6 @@ void do_oclone(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_departedlist(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -950,7 +939,6 @@ void do_departedlist(CHAR_DATA *ch, char *argument)
 		return;
 	}
 }
-
 
 void do_leader(CHAR_DATA *ch, char *argument)
 {
@@ -1121,7 +1109,6 @@ void do_deputize(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_despell(CHAR_DATA *ch, char *argument)
 {
 	OBJ_DATA *obj;
@@ -1148,7 +1135,6 @@ void do_despell(CHAR_DATA *ch, char *argument)
 	stc("Item cleared of all spells.\n", ch);
 	return;
 }
-
 
 void do_disconnect(CHAR_DATA *ch, char *argument)
 {
@@ -1199,7 +1185,6 @@ void do_disconnect(CHAR_DATA *ch, char *argument)
 	stc(buf, ch);
 }
 
-
 /* idea by Erwin Andreasen */
 /* Switch into another (perhaps live player) and execute a command, then switch back */
 void do_doas(CHAR_DATA *ch, char *argument)
@@ -1236,7 +1221,6 @@ void do_doas(CHAR_DATA *ch, char *argument)
 	victim->desc    = orig;
 }
 
-
 void do_echo(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
@@ -1263,7 +1247,6 @@ void do_echo(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_recho(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
@@ -1287,7 +1270,6 @@ void do_recho(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_zecho(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
@@ -1309,7 +1291,6 @@ void do_zecho(CHAR_DATA *ch, char *argument)
 		}
 	}
 }
-
 
 void do_pecho(CHAR_DATA *ch, char *argument)
 {
@@ -1336,7 +1317,6 @@ void do_pecho(CHAR_DATA *ch, char *argument)
 	stc(argument, ch);
 	stc("\n", ch);
 }
-
 
 /* File command by Lotus */
 void do_file(CHAR_DATA *ch, char *argument)
@@ -1433,7 +1413,6 @@ void do_file(CHAR_DATA *ch, char *argument)
 	free_buf(buffer);
 }
 
-
 void do_followerlist(CHAR_DATA *ch, char *argument)
 {
 	char query[MSL], deity[MSL];
@@ -1482,7 +1461,6 @@ void do_followerlist(CHAR_DATA *ch, char *argument)
 	mysql_free_result(result);
 }
 
-
 /* Expand the name of a character into a string that identifies THAT
    character within a room. E.g. the second 'guard' -> 2. guard Right
    now its pretty much useless, but it might be useful in the future
@@ -1511,7 +1489,6 @@ const char *name_expand(CHAR_DATA *ch)
 	sprintf(outbuf, "%d.%s", count, name);
 	return outbuf;
 }
-
 
 void do_for(CHAR_DATA *ch, char *argument)
 {
@@ -1654,7 +1631,6 @@ void do_for(CHAR_DATA *ch, char *argument)
 	} /* if strchr */
 } /* do_for */
 
-
 void do_goto(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL];
@@ -1738,7 +1714,6 @@ void do_goto(CHAR_DATA *ch, char *argument)
 		do_look(ch->pet, "auto");
 	}
 }
-
 
 /*
 ** Grouplist command by Demonfire on 02-25-1998
@@ -1824,7 +1799,6 @@ void do_grouplist(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_grouplist() */
 
-
 void do_guild(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MIL], arg2[MIL];
@@ -1891,7 +1865,6 @@ void do_guild(CHAR_DATA *ch, char *argument)
 	victim->gold_donated = 0;
 	save_char_obj(victim);
 }
-
 
 /* answer to PRAY. Goes to one mortal like TELL does but does not reveal the
    imm who is sending the message. Also broadcasts to all other imms in game. */
@@ -1991,7 +1964,6 @@ void do_heed(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_heed() */
 
-
 void do_linkload(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
@@ -2064,7 +2036,6 @@ void do_linkload(CHAR_DATA *ch, char *argument)
 	free_descriptor(dnew);
 } /* end do_linkload() */
 
-
 void do_mload(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -2098,7 +2069,6 @@ void do_mload(CHAR_DATA *ch, char *argument)
 	stc("Success.\n", ch);
 	return;
 }
-
 
 void do_oload(CHAR_DATA *ch, char *argument)
 {
@@ -2136,7 +2106,6 @@ void do_oload(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_load(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -2162,7 +2131,6 @@ void do_load(CHAR_DATA *ch, char *argument)
 	/* echo syntax */
 	do_load(ch, "");
 }
-
 
 void do_lower(CHAR_DATA *ch, char *argument)
 {
@@ -2262,7 +2230,6 @@ void do_lower(CHAR_DATA *ch, char *argument)
 	        obj->short_descr, NULL, TO_CHAR, POS_DEAD, FALSE);
 }
 
-
 void do_lurk(CHAR_DATA *ch, char *argument)
 {
 	if (ch->lurk_level) {
@@ -2276,7 +2243,6 @@ void do_lurk(CHAR_DATA *ch, char *argument)
 		stc("You cloak your presence to those outside the room.\n", ch);
 	}
 }
-
 
 /* Master command by Lotus */
 void do_master(CHAR_DATA *ch, char *argument)
@@ -2332,7 +2298,6 @@ void do_master(CHAR_DATA *ch, char *argument)
 	stc("You have been set with a new pet.\n", victim);
 	stc("You have been turned into a pet!\n", pet);
 }
-
 
 /* Olevel and Mlevel from ROM Newsgroup */
 void do_olevel(CHAR_DATA *ch, char *argument)
@@ -2549,7 +2514,6 @@ void do_mlevel(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_motd(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -2631,7 +2595,6 @@ void do_motd(CHAR_DATA *ch, char *argument)
 	set_color(ch, WHITE, NOBOLD);
 	return;
 }
-
 
 void do_owhere(CHAR_DATA *ch, char *argument)
 {
@@ -2795,7 +2758,6 @@ void do_owhere(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 }
 
-
 void do_mwhere(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -2906,7 +2868,6 @@ void do_rwhere(CHAR_DATA *ch, char *argument)
 	free_buf(dbuf);
 } /* end do_rwhere() */
 
-
 void do_mfind(CHAR_DATA *ch, char *argument)
 {
 	extern int top_mob_index;
@@ -2957,7 +2918,6 @@ void do_mfind(CHAR_DATA *ch, char *argument)
 
 	return;
 }
-
 
 void do_ofind(CHAR_DATA *ch, char *argument)
 {
@@ -3010,7 +2970,6 @@ void do_ofind(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 /* ofind and mfind replaced with vnum, vnum skill also added */
 void do_vnum(CHAR_DATA *ch, char *argument)
 {
@@ -3046,7 +3005,6 @@ void do_vnum(CHAR_DATA *ch, char *argument)
 	do_ofind(ch, argument);
 }
 
-
 void do_canmakebag(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -3077,7 +3035,6 @@ void do_canmakebag(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 /* Noreply by Lotus */
 void do_noreply(CHAR_DATA *ch, char *argument)
 {
@@ -3094,7 +3051,6 @@ void do_noreply(CHAR_DATA *ch, char *argument)
 	stc("Nobody can reply to you now.\n", ch);
 	return;
 }
-
 
 /*
  * OWNER <item> <name(s)> -- Elrac
@@ -3188,7 +3144,6 @@ void do_owner(CHAR_DATA *ch, char *argument)
 	item->extra_descr       = ed;
 }
 
-
 void do_peace(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *rch;
@@ -3204,7 +3159,6 @@ void do_peace(CHAR_DATA *ch, char *argument)
 	stc("The room is suddenly tranquil.\n", ch);
 	return;
 }
-
 
 void do_purge(CHAR_DATA *ch, char *argument)
 {
@@ -3289,7 +3243,6 @@ void do_purge(CHAR_DATA *ch, char *argument)
 	act("You disintegrate $N.", ch, NULL, victim, TO_CHAR);
 	extract_char(victim, TRUE);
 }
-
 
 int has_enough_qps(CHAR_DATA *ch, int number_of)
 {
@@ -3381,7 +3334,6 @@ void do_qpconv(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	affect_strip(victim, gsn_plague);
@@ -3437,7 +3389,6 @@ void do_restore(CHAR_DATA *ch, char *argument)
 	stc("The player has been restored.\n", ch);
 }
 
-
 /* Secure levels by Lotus */
 void do_secure(CHAR_DATA *ch, char *argument)
 {
@@ -3465,7 +3416,6 @@ void do_secure(CHAR_DATA *ch, char *argument)
 			stc("  secure imp\n", ch);
 	}
 }
-
 
 /* The workhorse coding of do_setgamein() and do_setgameout() */
 void setgameinout(CHAR_DATA *ch, char *argument, char *entryexit, char flag)
@@ -3513,20 +3463,17 @@ void setgameinout(CHAR_DATA *ch, char *argument, char *entryexit, char flag)
 	}
 } /* end setgameinout() */
 
-
 /* Set the game entry message for a player -- Elrac */
 void do_setgamein(CHAR_DATA *ch, char *argument)
 {
 	setgameinout(ch, argument, "entry", 'I');
 }
 
-
 /* Set the game exit message for a player -- Elrac */
 void do_setgameout(CHAR_DATA *ch, char *argument)
 {
 	setgameinout(ch, argument, "exit", 'O');
 }
-
 
 void do_sockets(CHAR_DATA *ch, char *argument)
 {
@@ -3679,7 +3626,6 @@ void do_sockets(CHAR_DATA *ch, char *argument)
 	free_buf(buffer);
 }
 
-
 void do_storage(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
@@ -3792,7 +3738,6 @@ void do_storage(CHAR_DATA *ch, char *argument)
 	do_storage(ch, "");
 }
 
-
 void do_invis(CHAR_DATA *ch, char *argument)
 {
 	/* take the default path */
@@ -3808,7 +3753,6 @@ void do_invis(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_superwiz(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->act, PLR_SUPERWIZ)) {
@@ -3820,7 +3764,6 @@ void do_superwiz(CHAR_DATA *ch, char *argument)
 		SET_BIT(ch->act, PLR_SUPERWIZ);
 	}
 }
-
 
 ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, char *arg)
 {
@@ -3838,7 +3781,6 @@ ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, char *arg)
 
 	return NULL;
 }
-
 
 void do_transfer(CHAR_DATA *ch, char *argument)
 {
@@ -3918,7 +3860,6 @@ void do_transfer(CHAR_DATA *ch, char *argument)
 	stc("Transfer Successful.\n", ch);
 }
 
-
 void do_violate(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL];
@@ -3986,7 +3927,6 @@ void do_violate(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 /* Command groups - Command to give/take */
 void do_wizgroup(CHAR_DATA *ch, char *argument)
 {
@@ -4048,7 +3988,6 @@ void do_wizgroup(CHAR_DATA *ch, char *argument)
 	if (!found)
 		do_wizgroup(ch, "");
 }
-
 
 /* Wizify by Pwrdemon */
 void do_wizify(CHAR_DATA *ch, char *argument)
@@ -4120,7 +4059,6 @@ void do_wizify(CHAR_DATA *ch, char *argument)
 	save_char_obj(victim);
 }
 
-
 /* Aura command stolen from rank - Lotus */
 void do_aura(CHAR_DATA *ch, char *argument)
 {
@@ -4182,7 +4120,6 @@ void do_aura(CHAR_DATA *ch, char *argument)
 	ptc(ch, "Their aura is now {W(%s{W){x.\n", victim->pcdata->aura);
 }
 
-
 void do_bamfin(CHAR_DATA *ch, char *argument)
 {
 	smash_tilde(argument);
@@ -4212,7 +4149,6 @@ void do_bamfin(CHAR_DATA *ch, char *argument)
 	ptc(ch, "Your poofin is now: %s\n", ch->pcdata->bamfin);
 }
 
-
 void do_bamfout(CHAR_DATA *ch, char *argument)
 {
 	smash_tilde(argument);
@@ -4241,7 +4177,6 @@ void do_bamfout(CHAR_DATA *ch, char *argument)
 	ch->pcdata->bamfout = str_dup(argument);
 	ptc(ch, "Your poofout is now: %s\n", ch->pcdata->bamfout);
 }
-
 
 void do_clanqp(CHAR_DATA *ch, char *argument)
 {
@@ -4358,7 +4293,6 @@ void do_clanqp(CHAR_DATA *ch, char *argument)
 	stc("See 'help clanqp' on how this command works!\n", ch);
 }
 
-
 /*
 This command is used by IMMs to grant or revoke a single
 command. The command is added or removed from the granted_commands
@@ -4432,8 +4366,6 @@ void do_grant(CHAR_DATA *ch, char *argument)
 		stc("usage: grant <player> <add/remove> <command>\n", ch);
 }
 
-
-
 /*
 This function displays the specially granted commands issued
 to the player. If used by an IMM, the function can also
@@ -4501,5 +4433,4 @@ void do_grantlist(CHAR_DATA *ch, char *argument)
 		}
 	}   /* end of for loop */
 }             /* end of do_grantlist function */
-
 

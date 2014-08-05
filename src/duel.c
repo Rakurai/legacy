@@ -154,24 +154,6 @@ void duel_announce(char *buf, DUEL_DATA *duel)
 			stc(buffer, d->character);
 }
 
-bool char_in_dprep_room(CHAR_DATA *ch)
-{
-	ARENA_DATA *arena = arena_table_head->next;
-
-	if (ch->in_room == NULL)
-		return FALSE;
-
-	while (arena != arena_table_tail) {
-		if (ch->in_room == arena->chalprep
-		    || ch->in_room == arena->defprep)
-			return TRUE;
-
-		arena = arena->next;
-	}
-
-	return FALSE;
-}
-
 bool char_in_darena_room(CHAR_DATA *ch)
 {
 	ARENA_DATA *arena = arena_table_head->next;
@@ -206,19 +188,6 @@ bool char_in_duel_room(CHAR_DATA *ch)
 
 		arena = arena->next;
 	}
-
-	return FALSE;
-}
-
-bool char_in_dprep(CHAR_DATA *ch)
-{
-	DUEL_DATA *duel;
-
-	if ((duel = get_duel(ch)) == NULL)
-		return FALSE;
-
-	if (duel->prep_timer != 0)
-		return TRUE;
 
 	return FALSE;
 }

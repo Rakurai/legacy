@@ -207,7 +207,6 @@ void violence_update(void)
 	}
 } /* end violence_update */
 
-
 void combat_regen(CHAR_DATA *ch)
 {
 	int hitgain = 0, managain = 0, stamgain = 0;
@@ -319,7 +318,6 @@ void combat_regen(CHAR_DATA *ch)
 	if (ch->stam < ch->max_stam)    ch->stam = UMIN(ch->max_stam, ch->stam + stamgain);
 }
 
-
 void check_all_cond(CHAR_DATA *ch)
 {
 	int iWear;
@@ -338,7 +336,6 @@ void check_all_cond(CHAR_DATA *ch)
 		check_cond(ch, obj);
 	}
 } /* end check_all_cond */
-
 
 void check_cond(CHAR_DATA *ch, OBJ_DATA *obj)
 {
@@ -392,7 +389,6 @@ void check_cond(CHAR_DATA *ch, OBJ_DATA *obj)
 	else
 		act("{W$p{x has been {Wdamaged{x in combat!", ch, obj, NULL, TO_CHAR);
 } /* end check_cond */
-
 
 /* for auto assisting */
 void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -464,7 +460,6 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 	}
 } /* end check_assist */
-
 
 void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 {
@@ -610,7 +605,6 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	}
 } /* end multi_hit */
 
-
 /* procedure for all mobile attacks */
 void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 {
@@ -744,7 +738,6 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		break;
 	}
 } /* end mob_hit */
-
 
 /* Hit one guy once */
 void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
@@ -1101,7 +1094,6 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 	tail_chain();
 } /* end one_hit */
 
-
 /* Inflict damage from a hit.
    damage and damage consolidated, bool added to determine whether it's a magic spell or not -- Montrey */
 bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, bool show, bool spell)
@@ -1410,7 +1402,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	return TRUE;
 } /* end damage() */
 
-
 bool check_pulse(CHAR_DATA *victim)
 {
 	sh_int die_hard_skill;
@@ -1471,7 +1462,6 @@ bool check_pulse(CHAR_DATA *victim)
 		return TRUE;
 	}
 } /* end check_pulse */
-
 
 void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -1608,7 +1598,6 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 	        } */
 } /* end kill_off */
 
-
 /* character only safety, rooms are not accounted for */
 bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 {
@@ -1716,14 +1705,13 @@ bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 	return FALSE;
 }
 
-
 bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 {
 	if (victim->in_room == NULL || ch->in_room == NULL)
 		return TRUE;
 
-	if (ch->on != NULL && ch->on->pIndexData->item_type == ITEM_COACH)
-		return TRUE;
+//	if (ch->on != NULL && ch->on->pIndexData->item_type == ITEM_COACH)
+//		return TRUE;
 
 	/* safe room? */
 	if (IS_SET(victim->in_room->room_flags, ROOM_SAFE)) {
@@ -1747,14 +1735,13 @@ bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 	return is_safe_char(ch, victim, showmsg);
 }
 
-
 bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 {
 	if (victim->in_room == NULL || ch->in_room == NULL)
 		return TRUE;
 
-	if (ch->on != NULL && ch->on->pIndexData->item_type == ITEM_COACH)
-		return TRUE;
+//	if (ch->on != NULL && ch->on->pIndexData->item_type == ITEM_COACH)
+//		return TRUE;
 
 	if (IS_IMMORTAL(ch) && ch->level >= LEVEL_IMMORTAL && !area)
 		return FALSE;
@@ -1870,7 +1857,6 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	return FALSE;
 } /* end is_safe_spell */
 
-
 /* See if an attack justifies a KILLER flag. */
 void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -1940,7 +1926,6 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 	ch->pcdata->flag_killer = MAX_KILLER;
 	save_char_obj(ch);
 } /* end check_killer */
-
 
 /* Check for parry. */
 bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
@@ -2040,7 +2025,6 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	return TRUE;
 } /* end check_parry */
-
 
 /* Check for parry from the off hand. */
 bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
@@ -2158,7 +2142,6 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	return TRUE;
 } /* end check_dual_parry */
 
-
 /* Check for shield block. */
 bool check_shblock(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 {
@@ -2213,7 +2196,6 @@ bool check_shblock(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	check_improve(victim, gsn_shield_block, TRUE, 6);
 	return TRUE;
 } /* end check_shblock */
-
 
 /* Check for dodge. */
 bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
@@ -2300,7 +2282,6 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	return TRUE;
 } /* end check_dodge */
 
-
 /* Check for Blur - Montrey */
 bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 {
@@ -2383,7 +2364,6 @@ bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	return TRUE;
 }  /* end check_blur */
 
-
 /* Set position of a victim. */
 void update_pos(CHAR_DATA *victim)
 {
@@ -2402,7 +2382,6 @@ void update_pos(CHAR_DATA *victim)
 		victim->position = POS_STUNNED;
 } /* end update_pos */
 
-
 /* Start fights. */
 void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -2420,7 +2399,6 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 		ch->position = POS_STANDING;
 } /* end set_fighting */
 
-
 /* Stop fights. */
 void stop_fighting(CHAR_DATA *ch, bool fBoth)
 {
@@ -2434,7 +2412,6 @@ void stop_fighting(CHAR_DATA *ch, bool fBoth)
 		}
 	}
 } /* end stop_fighting */
-
 
 /* Make a corpse out of a character. */
 void make_corpse(CHAR_DATA *ch)
@@ -2565,7 +2542,6 @@ void make_corpse(CHAR_DATA *ch)
 		obj_to_room(corpse, get_room_index(ROOM_VNUM_MORGUE));
 } /* end make_corpse */
 
-
 /* Improved Death_cry contributed by Diavolo. */
 void death_cry(CHAR_DATA *ch)
 {
@@ -2686,7 +2662,6 @@ void death_cry(CHAR_DATA *ch)
 	ch->in_room = was_in_room;
 } /* end death_cry */
 
-
 void raw_kill(CHAR_DATA *victim)
 {
 	bool realdeath = TRUE;
@@ -2744,7 +2719,6 @@ void raw_kill(CHAR_DATA *victim)
 
 	save_char_obj(victim);
 } /* end raw_kill */
-
 
 void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -2852,8 +2826,6 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 	}
 } /* end group_gain */
-
-
 
 /* Compute xp for a kill, adjust alignment of killer.  Edit this function to change xp computations. */
 int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int diff_classes)
@@ -3037,7 +3009,6 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int diff_cla
 	return xp;
 } /* end xp_compute */
 
-
 void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune, bool sanc_immune)
 {
 	char buf1[MAX_INPUT_LENGTH], buf2[MAX_INPUT_LENGTH], buf3[MAX_INPUT_LENGTH];
@@ -3153,7 +3124,6 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune,
 	}
 } /* end dam_message */
 
-
 void do_berserk(CHAR_DATA *ch, char *argument)
 {
 	int chance, hp_percent;
@@ -3217,7 +3187,6 @@ void do_berserk(CHAR_DATA *ch, char *argument)
 		check_improve(ch, gsn_berserk, FALSE, 2);
 	}
 } /* end do_berserk */
-
 
 void do_bash(CHAR_DATA *ch, char *argument)
 {
@@ -3390,7 +3359,6 @@ void do_bash(CHAR_DATA *ch, char *argument)
 			check_improve(victim, gsn_standfast, TRUE, 1);
 	}
 } /* end do_bash */
-
 
 void do_dirt(CHAR_DATA *ch, char *argument)
 {
@@ -3739,7 +3707,6 @@ void do_kill(CHAR_DATA *ch, char *argument)
 	multi_hit(ch, victim, TYPE_UNDEFINED);
 } /* end do_kill */
 
-
 /* Battle/Arena by Lotus */
 void do_battle(CHAR_DATA *ch, char *argument)
 {
@@ -3924,7 +3891,6 @@ void do_battle(CHAR_DATA *ch, char *argument)
 	}
 } /* end battle */
 
-
 /* Singing Skill by Lotus */
 void do_sing(CHAR_DATA *ch, char *argument)
 {
@@ -4036,7 +4002,6 @@ void do_sing(CHAR_DATA *ch, char *argument)
 	return;
 } /* end do_sing */
 
-
 void do_backstab(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -4122,7 +4087,6 @@ void do_backstab(CHAR_DATA *ch, char *argument)
 		damage(ch, victim, 0, gsn_backstab, DAM_NONE, TRUE, FALSE);
 	}
 } /* end do_backstab */
-
 
 /* Shadow Form for remorts - Lotus */
 void do_shadow(CHAR_DATA *ch, char *argument)
@@ -4241,7 +4205,6 @@ void do_circle(CHAR_DATA *ch, char *argument)
 		damage(ch, victim, 0, gsn_circle, DAM_NONE, TRUE, FALSE);
 	}
 } /* end do_circle */
-
 
 void do_flee(CHAR_DATA *ch, char *argument)
 {
@@ -4380,7 +4343,6 @@ void do_flee(CHAR_DATA *ch, char *argument)
 	stc("PANIC! You couldn't escape!\n", ch);
 } /* end do_flee */
 
-
 void do_rescue(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -4451,7 +4413,6 @@ void do_rescue(CHAR_DATA *ch, char *argument)
 	set_fighting(fch, ch);
 } /* end do_rescue */
 
-
 void do_kick(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
@@ -4516,7 +4477,6 @@ void do_kick(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_kick */
 
-
 void do_crush(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
@@ -4544,7 +4504,6 @@ void do_crush(CHAR_DATA *ch, char *argument)
 
 	check_killer(ch, victim);
 } /* end do_crush */
-
 
 void do_disarm(CHAR_DATA *ch, char *argument)
 {
@@ -4819,12 +4778,10 @@ void do_disarm(CHAR_DATA *ch, char *argument)
 		check_improve(ch, gsn_blind_fight, FALSE, 1);
 }
 
-
 void do_sla(CHAR_DATA *ch, char *argument)
 {
 	stc("If you want to SLAY, spell it out.\n", ch);
 } /* end do_sla */
-
 
 void do_slay(CHAR_DATA *ch, char *argument)
 {
@@ -4867,7 +4824,6 @@ void do_slay(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_slay */
 
-
 /* Mud sometimes incorrectly removes eq spells.  Aka, after death in arena. */
 void eqcheck(CHAR_DATA *ch)
 {
@@ -4902,7 +4858,6 @@ void eqcheck(CHAR_DATA *ch)
 		}
 	}
 } /* end eqcheck */
-
 
 void do_rotate(CHAR_DATA *ch, char *argument)
 {
@@ -4955,7 +4910,6 @@ void do_rotate(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_rotate */
 
-
 void do_hammerstrike(CHAR_DATA *ch, char *argument)
 {
 	int chance;
@@ -4999,7 +4953,6 @@ void do_hammerstrike(CHAR_DATA *ch, char *argument)
 		check_improve(ch, gsn_hammerstrike, FALSE, 2);
 	}
 } /* end do_hammerstrike */
-
 
 void do_critical_blow(CHAR_DATA *ch, char *argument)
 {
@@ -5072,7 +5025,6 @@ void do_critical_blow(CHAR_DATA *ch, char *argument)
 	one_hit(ch, ch->fighting, gsn_critical_blow, FALSE);
 } /* end do_critical_blow */
 
-
 /* Riposte, originally by Elrac */
 void do_riposte(CHAR_DATA *victim, CHAR_DATA *ch)
 {
@@ -5106,7 +5058,6 @@ void do_riposte(CHAR_DATA *victim, CHAR_DATA *ch)
 	one_hit(victim, ch, gsn_riposte, FALSE);
 	check_improve(victim, gsn_riposte, TRUE, 6);
 } /* end do_riposte */
-
 
 /* RAGE by Montrey */
 void do_rage(CHAR_DATA *ch, char *argument)
@@ -5237,8 +5188,6 @@ void do_lay_on_hands(CHAR_DATA *ch, char *argument)
 	check_improve(ch, gsn_lay_on_hands, TRUE, 1);
 	return;
 }
-
-
 
 /*
 This function tries to shoot a bow/arrow at a target
@@ -5408,5 +5357,4 @@ void do_bow(CHAR_DATA *ch, char *argument)
 		hunt_victim(victim);
 	}
 }   /* end of do bow */
-
 

@@ -22,7 +22,6 @@ bool has_modified_contents(OBJ_DATA *obj)
 	return FALSE;
 }
 
-
 /* determine if it's worth writing this object to the list.  only things that
    are in rooms, no stuff with timers, no potions/scrolls/pills/staves/wands/
    npc corpses.  check if it resets on the ground, if it does, only save it
@@ -58,7 +57,6 @@ bool is_worth_saving(OBJ_DATA *obj)
 
 	return TRUE;
 }
-
 
 /* write one object recursively.  this is the guts of fwrite_obj, simplified a bit. */
 void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
@@ -143,7 +141,6 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
 		fwrite_objstate(cobj, fp);
 }
 
-
 /* loop through the object list, save all items that are lying on the ground
    to disk.  This is called occasionally from update_handler, and selectively
    from some parts of get_obj and drop_obj */
@@ -164,7 +161,6 @@ void save_items()
 	fprintf(fp, "END\n");
 	fclose(fp);
 }
-
 
 OBJ_DATA *fload_objstate(FILE *fp)
 {
@@ -338,7 +334,6 @@ OBJ_DATA *fload_objstate(FILE *fp)
 	return obj;
 }
 
-
 void load_items()
 {
 	FILE *fp;
@@ -354,6 +349,4 @@ void load_items()
 
 	fclose(fp);
 }
-
-
 

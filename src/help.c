@@ -33,7 +33,6 @@ char stupidassline[1000] =
 
 extern char *help_greeting;
 
-
 /*** UTILITY FUNCTIONS ***/
 
 char *one_keyword(char *keywords, char *word)
@@ -62,7 +61,6 @@ char *one_keyword(char *keywords, char *word)
 
 	return keywords;
 }
-
 
 void help_char_search(CHAR_DATA *ch, char *arg)
 {

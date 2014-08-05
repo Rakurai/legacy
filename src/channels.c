@@ -40,7 +40,6 @@ bool    swearcheck              args((char *argument));
 extern bool     is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim);
 char   *makedrunk               args((CHAR_DATA *ch, char *string));
 
-
 /* RT code to display channel status */
 void do_channels(CHAR_DATA *ch, char *argument)
 {
@@ -853,7 +852,6 @@ void talk_auction(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_announce(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->comm, COMM_NOANNOUNCE)) {
@@ -889,7 +887,6 @@ void do_send_announce(CHAR_DATA *ch, char *argument)
 	}
 
 }
-
 
 /* Lotus - Let us Imms use the FYI Channel for jokes */
 void do_fyi(CHAR_DATA *ch, char *argument)
@@ -1003,7 +1000,6 @@ void do_globalsocial(CHAR_DATA *ch, char *argument)
 	/* This checks for predefined socials. -- Outsider */
 	if (check_channel_social(ch, COMM_NOSOCIAL, CSLOT_CHAN_SOCIAL, arg, arg2))
 		return;
-
 
 	/***** social pose removed -- Elrac
 	if (!str_prefix1( arg, "pose" ))
@@ -1149,7 +1145,6 @@ void do_say(CHAR_DATA *ch, char *argument)
 	set_color(ch, WHITE, NOBOLD);
 	mprog_speech_trigger(argument, ch);
 }
-
 
 void do_tell(CHAR_DATA *ch, char *argument)
 {
@@ -1430,7 +1425,6 @@ void do_emote(CHAR_DATA *ch, char *argument)
 	mprog_speech_trigger(argument, ch);
 	return;
 }
-
 
 void do_pmote(CHAR_DATA *ch, char *argument)
 {

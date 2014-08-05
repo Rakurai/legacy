@@ -192,7 +192,6 @@ void acid_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 }
 
-
 void cold_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) { /* nail objects on the floor */
@@ -333,8 +332,6 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 		extract_obj(obj);
 	}
 }
-
-
 
 void fire_effect(void *vo, int level, int dam, int target, int evolution)
 {
@@ -500,7 +497,6 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 	}
 }
 
-
 void poison_effect(void *vo, int level, int dam, int target, int evolution)
 {
 	if (target == TARGET_ROOM) { /* nail objects on the floor */
@@ -589,7 +585,6 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 		return;
 	}
 }
-
 
 void shock_effect(void *vo, int level, int dam, int target, int evolution)
 {

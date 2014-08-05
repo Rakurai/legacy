@@ -94,7 +94,6 @@ void free_note(NOTE_DATA *note)
 	note_free   = note;
 }
 
-
 /* stuff for recycling descriptors */
 DESCRIPTOR_DATA *descriptor_free;
 
@@ -195,7 +194,6 @@ void free_extra_descr(EXTRA_DESCR_DATA *ed)
 	extra_descr_free = ed;
 }
 
-
 /* stuff for recycling affects */
 AFFECT_DATA *affect_free;
 
@@ -277,7 +275,6 @@ void free_obj(OBJ_DATA *obj)
 	obj_free    = obj;
 }
 
-
 /* stuff for recyling characters */
 CHAR_DATA *char_free;
 
@@ -323,7 +320,6 @@ CHAR_DATA *new_char(void)
 
 	return ch;
 }
-
 
 void free_char(CHAR_DATA *ch)
 {
@@ -429,7 +425,6 @@ PC_DATA *new_pcdata(void)
 	return pcdata;
 } /* end new_pcdata() */
 
-
 void free_pcdata(PC_DATA *pcdata)
 {
 	int alias;
@@ -471,9 +466,6 @@ void free_pcdata(PC_DATA *pcdata)
 	pcdata_free = pcdata;
 	return;
 }
-
-
-
 
 /* stuff for setting ids */
 long    last_pc_id;
@@ -847,7 +839,6 @@ BUFFER *new_buf_size(long size)
 	return buffer;
 }
 
-
 void free_buf(BUFFER *buffer)
 {
 	if (!IS_VALID(buffer))
@@ -861,7 +852,6 @@ void free_buf(BUFFER *buffer)
 	buffer->next  = buf_free;
 	buf_free      = buffer;
 }
-
 
 bool add_buf(BUFFER *buffer, char *string)
 {
@@ -910,14 +900,12 @@ bool add_buf(BUFFER *buffer, char *string)
 	return TRUE;
 }
 
-
 void clear_buf(BUFFER *buffer)
 {
 	buffer->string[0] = '\0';
 	buffer->state     = BUFFER_SAFE;
 	return;
 }
-
 
 char *buf_string(BUFFER *buffer)
 {

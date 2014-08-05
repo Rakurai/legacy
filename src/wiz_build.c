@@ -56,7 +56,6 @@ void room_pair(ROOM_INDEX_DATA *left, ROOM_INDEX_DATA *right, exit_status ex, ch
 	        right->area->name);
 }
 
-
 /* for every exit in 'room' which leads to or from pArea but NOT both,
    print it */
 void checkexits(ROOM_INDEX_DATA *room, AREA_DATA *pArea, char *buffer)
@@ -180,7 +179,6 @@ void do_roomexits(CHAR_DATA *ch, char *argument)
 		}
 }
 
-
 /* find pockets of unused vnums equal to or greater than the argument */
 void do_pocket(CHAR_DATA *ch, char *argument)
 {
@@ -212,7 +210,6 @@ void do_pocket(CHAR_DATA *ch, char *argument)
 		count++;
 	}
 }
-
 
 /* Room List by Lotus */
 void do_roomlist(CHAR_DATA *ch, char *argument)
@@ -266,7 +263,6 @@ void do_roomlist(CHAR_DATA *ch, char *argument)
 	free_buf(buffer);
 	return;
 }
-
 
 void do_vlist(CHAR_DATA *ch, char *argument)
 {
@@ -369,5 +365,4 @@ void do_vlist(CHAR_DATA *ch, char *argument)
 
 	free_buf(buffer);
 }
-
 

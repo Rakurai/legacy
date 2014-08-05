@@ -39,7 +39,6 @@ const   char    go_ahead_str    [] = { IAC, GA, '\0' };
 as unsigned causes errors in write_to_buf.  Therefore, ignore the warning - Lotus */
 #endif
 
-
 /**
  * check_ban
  * Run from nanny() to check if a site is banned.
@@ -69,7 +68,6 @@ bool check_ban(char *site, int type)
 	return ban;
 }
 
-
 bool check_deny(char *name)
 {
 	if (db_countf("check_deny", "SELECT COUNT(*) FROM denies WHERE name='%s'", name) <= 0)
@@ -77,7 +75,6 @@ bool check_deny(char *name)
 
 	return TRUE;
 }
-
 
 void update_site(CHAR_DATA *ch)
 {
@@ -93,7 +90,6 @@ void update_site(CHAR_DATA *ch)
 		db_commandf("update_site", "INSERT INTO sites VALUES('%s','%s','%s',CURDATE())",
 		            db_esc(ch->name), db_esc(ch->desc->host), db_esc(shortsite));
 }
-
 
 unsigned long update_records()
 {
@@ -119,7 +115,6 @@ unsigned long update_records()
 	return ++record_logins;
 }
 
-
 void update_pc_index(CHAR_DATA *ch, bool remove)
 {
 	db_commandf("update_pc_index", "DELETE FROM pc_index WHERE name='%s'", db_esc(ch->name));
@@ -137,7 +132,6 @@ void update_pc_index(CHAR_DATA *ch, bool remove)
 		            ch->clan ? db_esc(ch->clan->name) : "",
 		            ch->clan && ch->pcdata->rank ? db_esc(ch->pcdata->rank) : "");
 }
-
 
 /*
  * Deal with sockets that haven't logged in yet.

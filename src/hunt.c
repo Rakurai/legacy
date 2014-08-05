@@ -31,9 +31,7 @@
     initialize the entire room list.
 */
 
-
 #include "merc.h"
-
 
 /* *** GLOBAL VARIABLES *** */
 
@@ -41,7 +39,6 @@ DECLARE_DO_FUN(do_open);
 DECLARE_DO_FUN(do_say);
 
 extern const char *dir_name[];
-
 
 /* *** LOCAL VARIABLES *** */
 
@@ -62,7 +59,6 @@ struct hunt_conditions {
 };
 typedef struct hunt_conditions HUNT_CONDITIONS;
 
-
 /* Returns the room accessible via exit 'ex' or NULL. */
 static ROOM_INDEX_DATA *access_room(HUNT_CONDITIONS *cond, EXIT_DATA *ex)
 {
@@ -77,7 +73,6 @@ static ROOM_INDEX_DATA *access_room(HUNT_CONDITIONS *cond, EXIT_DATA *ex)
 
 	return new_room;
 } /* end access_room() */
-
 
 /* find the shortest path from cond->from_room to ->to_room
    and return the direction of the first step or -1. */
@@ -169,7 +164,6 @@ foundit:
 
 	return -6;  /* starting room does not lead to second room! */
 } /* end find_path() */
-
 
 /* hunt command implementation for players.
    aggressing mobs use hunt_victim() instead. */
@@ -278,7 +272,6 @@ void do_hunt(CHAR_DATA *ch, char *argument)
 	    dir_name[direction], victim, TO_CHAR);
 	return;
 } /* end do_hunt() */
-
 
 /* hunting function for aggressing mobs. */
 void hunt_victim(CHAR_DATA *ch)

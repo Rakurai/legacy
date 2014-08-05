@@ -58,7 +58,6 @@ void    quest_update    args((void));
 void    underwater_update    args((void));
 void    janitor_update  args((void));
 
-
 /* used for saving */
 
 int     save_number = 0;
@@ -142,8 +141,6 @@ void advance_level(CHAR_DATA *ch)
 	    add_train,      ch->train);
 }
 
-
-
 /*
 This function advances a NPC. This is to advance a pet's
 level. This function is likely to be called directly after advance_level().
@@ -163,7 +160,6 @@ void npc_advance_level(CHAR_DATA *ch)
 	ch->max_mana += add_mana;
 	ch->max_stam += add_stam;
 }
-
 
 void gain_exp(CHAR_DATA *ch, int gain)
 {
@@ -233,7 +229,6 @@ void gain_exp(CHAR_DATA *ch, int gain)
 
 	tail_chain();
 }
-
 
 /*
  * Regeneration stuff.
@@ -317,7 +312,6 @@ int hit_gain(CHAR_DATA *ch)
 	return UMIN(gain, ch->max_hit - ch->hit);
 }
 
-
 int mana_gain(CHAR_DATA *ch)
 {
 	int gain, number;
@@ -393,7 +387,6 @@ int mana_gain(CHAR_DATA *ch)
 	return UMIN(gain, ch->max_mana - ch->mana);
 }
 
-
 int stam_gain(CHAR_DATA *ch)
 {
 	int gain;
@@ -463,7 +456,6 @@ int stam_gain(CHAR_DATA *ch)
 	return UMIN(gain, ch->max_stam - ch->stam);
 }
 
-
 void gain_condition(CHAR_DATA *ch, int iCond, int value)
 {
 	int condition;
@@ -506,8 +498,6 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 		}         /* end of condition == 0 */
 	}   /* end of player in chat mode */
 }
-
-
 
 /*
  * Mob autonomous action.
@@ -754,7 +744,6 @@ void weather_update(void)
 				stc(buf, ch);
 	}
 }
-
 
 /* Update all descriptors, handles login timer */
 void descrip_update(void)
@@ -1126,7 +1115,6 @@ void char_update(void)
 	return;
 }
 
-
 /*
  * Update all objs.
  * This function is performance sensitive.
@@ -1344,8 +1332,8 @@ bool eligible_victim(CHAR_DATA *ch)
 	if (ch->level >= LEVEL_IMMORTAL)
 		return FALSE;
 
-	if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH)
-		return FALSE;
+//	if (ch->on && ch->on->pIndexData->item_type == ITEM_COACH)
+//		return FALSE;
 
 	return TRUE;
 }
@@ -1520,120 +1508,6 @@ void aggr_update(void)
 	free_mem(room_list, player_count * sizeof(ROOM_INDEX_DATA *));
 } /* end aggr_update() */
 
-
-/*
- * Aggress.
- *
- * for each mortal PC
- *     for each mob in room
- *         aggress on some random PC
- *
- * This function takes 25% to 35% of ALL Merc cpu time.
- * Unfortunately, checking on each PC move is too tricky,
- *   because we don't the mob to just attack the first PC
- *   who leads the party into the room.
- *
- * -- Furey
- */
-void old_aggr_update(void)
-{
-	CHAR_DATA *wch;
-	CHAR_DATA *wch_next;
-	CHAR_DATA *ch;
-	CHAR_DATA *ch_next;
-	CHAR_DATA *vch;
-	CHAR_DATA *vch_next;
-	CHAR_DATA *victim;
-
-	for (wch = char_list; wch != NULL; wch = wch_next) {
-		wch_next = wch->next;
-
-		/* Something to do with acts. Can't figure out what */
-		if (IS_NPC(wch) && wch->mpactnum > 0
-		    && wch->in_room->area->nplayer > 0) {
-			MPROG_ACT_LIST *tmp_act, *tmp2_act;
-
-			for (tmp_act = wch->mpact; tmp_act != NULL;
-			     tmp_act = tmp_act->next) {
-				mprog_wordlist_check(tmp_act->buf, wch, tmp_act->ch,
-				                     tmp_act->obj, tmp_act->vo, ACT_PROG);
-				free_string(tmp_act->buf);
-			}
-
-			for (tmp_act = wch->mpact; tmp_act != NULL; tmp_act = tmp2_act) {
-				tmp2_act = tmp_act->next;
-				free_mem(tmp_act, sizeof(MPROG_ACT_LIST));
-			}
-
-			wch->mpactnum = 0;
-			wch->mpact    = NULL;
-		}
-
-		/* make sure wch is eligible to be an aggressor */
-		if (IS_NPC(wch)
-		    ||   wch->level >= LEVEL_IMMORTAL
-		    ||   wch->in_room == NULL
-		    ||   wch->in_room->area->empty)
-			continue;
-
-		for (ch = wch->in_room->people; ch != NULL; ch = ch_next) {
-			int count;
-
-			if (ch->in_room == NULL)
-				return;
-
-			ch_next     = ch->next_in_room;
-
-			if (!IS_NPC(ch)
-			    ||   !IS_SET(ch->act, ACT_AGGRESSIVE)
-			    ||   IS_SET(ch->in_room->room_flags, ROOM_SAFE)
-			    ||   IS_AFFECTED(ch, AFF_CALM)
-			    ||   ch->fighting != NULL
-			    ||   IS_AFFECTED(ch, AFF_CHARM)
-			    ||   !IS_AWAKE(ch)
-			    || (IS_SET(ch->act, ACT_WIMPY) && IS_AWAKE(wch))
-			    ||   !can_see(ch, wch)
-			    ||   number_bits(1) == 0)
-				continue;
-
-			/*
-			 * Ok we have a 'wch' player character and a 'ch' npc aggressor.
-			 * Now make the aggressor fight a RANDOM pc victim in the room,
-			 *   giving each 'vch' an equal chance of selection.
-			 */
-			count       = 0;
-			victim      = NULL;
-
-			for (vch = wch->in_room->people; vch != NULL; vch = vch_next) {
-				vch_next = vch->next_in_room;
-
-				if (!IS_NPC(vch)
-				    &&   vch->level < LEVEL_IMMORTAL
-				    &&   ch->level >= vch->level - 5
-				    && (!IS_SET(ch->act, ACT_WIMPY) || !IS_AWAKE(vch))
-				    &&   can_see(ch, vch)) {
-					if (number_range(0, count) == 0)
-						victim = vch;
-
-					count++;
-				}
-			}
-
-			if (victim == NULL)
-				continue;
-
-			if ((get_curr_stat(victim, STAT_CHR) + number_range(0, 1))
-			    > (get_curr_stat(ch, STAT_CHR) + number_range(0, 3)))
-				continue;
-
-			multi_hit(ch, victim, TYPE_UNDEFINED);
-		}
-	}
-
-	return;
-}
-
-
 void tele_update(void)
 {
 	CHAR_DATA *ch, *ch_next;
@@ -1660,7 +1534,6 @@ void tele_update(void)
 		}
 	}
 }
-
 
 void auction_update(void)
 {
@@ -1724,7 +1597,6 @@ void auction_update(void)
 	} /* if */
 } /* auction_update() */
 
-
 /*
  * All players age by 1 second here. -- Elrac
  * I trust this will be less error-prone than the previous method,
@@ -1755,7 +1627,6 @@ void age_update(void)
 	}
 }
 
-
 /* Okay, this is odd.  I don't know why, but all of a sudden mobiles stopped
    updating their wait timers.  I looked all over, and found where it's
    decremented, in game_loop_unix inside the descriptor loop.  Now, mobiles
@@ -1781,7 +1652,6 @@ void wait_update(void)
 	}
 }
 
-
 /*
  * Handle all kinds of updates.
  * Called once per pulse from game loop.
@@ -1798,7 +1668,7 @@ void update_handler(void)
 	       pulse_tele,
 	       pulse_underwater,
 	       pulse_age,
-	       pulse_tour,
+//	       pulse_tour,
 	       pulse_duel,
 	       pulse_janitor,
 	       pulse_mysql_upd;
@@ -1809,7 +1679,7 @@ void update_handler(void)
 
 	if (--pulse_music       <= 0)   { pulse_music   = PULSE_MUSIC;          song_update();  }
 
-	if (--pulse_tour        <= 0)   { pulse_tour    = PULSE_TOURHALFSTEP;   tour_update();  }
+//	if (--pulse_tour        <= 0)   { pulse_tour    = PULSE_TOURHALFSTEP;   tour_update();  }
 
 	if (--pulse_mobile      <= 0)   { pulse_mobile  = PULSE_MOBILE;         mobile_update();}
 
@@ -1869,7 +1739,6 @@ void update_handler(void)
 	tail_chain();
 } /* end update_handler() */
 
-
 /* worldwide cleanup of objects */
 void janitor_update()
 {
@@ -1905,7 +1774,7 @@ void janitor_update()
 		case ITEM_PORTAL:
 		case ITEM_JUKEBOX:
 		case ITEM_ANVIL:
-		case ITEM_COACH:
+//		case ITEM_COACH:
 		case ITEM_WEDDINGRING:
 		case ITEM_TOKEN:
 			continue;
@@ -1918,7 +1787,6 @@ void janitor_update()
 //	bugf("janitor_update: %d items marked for cleanup", count);
 	save_items();
 }
-
 
 void underwater_update(void)
 {

@@ -13,7 +13,6 @@
 #include "memory.h"
 #include "db.h"
 
-
 void unique_item(OBJ_DATA *item)
 {
 	AFFECT_DATA *paf, *af_new;
@@ -23,8 +22,8 @@ void unique_item(OBJ_DATA *item)
 		return;
 
 	/* types we won't even mess with, eliminate them now */
-	if (item->item_type == ITEM_COACH
-	    || item->item_type == ITEM_ANVIL
+	if (item->item_type == ITEM_ANVIL
+//	    || item->item_type == ITEM_COACH
 	    || item->item_type == ITEM_FOOD
 	    || item->item_type == ITEM_BOAT
 	    || item->item_type == ITEM_CORPSE_NPC
@@ -459,7 +458,6 @@ void unique_item(OBJ_DATA *item)
 	}
 }
 
-
 /* pick a random room to reset into -- Montrey */
 ROOM_INDEX_DATA *get_random_reset_room(AREA_DATA *area)
 {
@@ -499,7 +497,6 @@ ROOM_INDEX_DATA *get_random_reset_room(AREA_DATA *area)
 
 	return NULL;
 }
-
 
 /*
  * Reset one area.
@@ -803,7 +800,6 @@ void reset_area(AREA_DATA *pArea)
 	return;
 }
 
-
 /*
  * Repopulate areas periodically.
  */
@@ -838,7 +834,6 @@ void area_update(void)
 
 	return;
 }
-
 
 /*
  * Create an instance of a mobile.
@@ -1060,7 +1055,6 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	return mob;
 }
 
-
 /* duplicate a mobile exactly -- except inventory */
 void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 {
@@ -1142,7 +1136,6 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 		affect_to_char(clone, paf);
 }
 
-
 /*
  * Create an instance of an object.
  */
@@ -1218,7 +1211,7 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 	case ITEM_POTION:
 	case ITEM_PILL:
 	case ITEM_MONEY:
-	case ITEM_COACH:
+//	case ITEM_COACH:
 	case ITEM_ANVIL:
 	case ITEM_FURNITURE:
 	case ITEM_TRASH:
@@ -1299,7 +1292,6 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 	}
 }
 
-
 /*
  * Translates mob virtual number to its mob index struct.
  * Hash table lookup.
@@ -1324,7 +1316,6 @@ MOB_INDEX_DATA *get_mob_index(int vnum)
 
 	return NULL;
 }
-
 
 /*
  * Translates mob virtual number to its obj index struct.
@@ -1351,7 +1342,6 @@ OBJ_INDEX_DATA *get_obj_index(int vnum)
 	return NULL;
 }
 
-
 /*
  * Translates mob virtual number to its room index struct.
  * Hash table lookup.
@@ -1376,7 +1366,6 @@ ROOM_INDEX_DATA *get_room_index(int vnum)
 
 	return NULL;
 }
-
 
 /* this command is here just to share some local variables, and to prevent crowding act_info.c */
 /* new, improved AREAS command -- Elrac */

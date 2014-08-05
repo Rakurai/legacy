@@ -159,7 +159,6 @@ void	bugf	(char * fmt, ...)			__attribute__	((format(printf, 1, 2)));
 //void	logf	(char * fmt, ...)			__attribute__	((format(printf, 1, 2)));
 void	ptc	args((CHAR_DATA *ch, char *fmt, ...))	__attribute__	((format(printf, 2, 3)));
 int	ptb	args((BUFFER *buffer, char *fmt, ...))	__attribute__	((format(printf, 2, 3)));
-void	cptb	args((DESCRIPTOR_DATA *d, char *fmt, ...))	__attribute__	((format(printf, 2, 3)));
 
 
 /*
@@ -286,9 +285,9 @@ void	cptb	args((DESCRIPTOR_DATA *d, char *fmt, ...))	__attribute__	((format(prin
 #define PULSE_MYSQL_UPD			(10 * PULSE_PER_SECOND)
 
 /* Timers for the tour coaches. */
-#define PULSE_TOURHALFSTEP		(6 * PULSE_PER_SECOND)
-#define PULSE_TOURSTART			(120 * PULSE_PER_SECOND)
-#define PULSE_TOURBOARD			(30 * PULSE_PER_SECOND)
+//#define PULSE_TOURHALFSTEP		(6 * PULSE_PER_SECOND)
+//#define PULSE_TOURSTART			(120 * PULSE_PER_SECOND)
+//#define PULSE_TOURBOARD			(30 * PULSE_PER_SECOND)
 
 /* BAN flags */
 #define BAN_SUFFIX              A
@@ -1336,7 +1335,7 @@ struct  kill_data
 #define ITEM_PBGUN                   36
 #define ITEM_MATERIAL                37
 #define ITEM_ANVIL                   38
-#define ITEM_COACH                   39
+//#define ITEM_COACH                   39
 #define ITEM_WEDDINGRING	     40
 #define ITEM_TOKEN                   41
 #define ITEM_QUESTSHOP              999 /* pseudo item type for quest shop -- Elrac */
@@ -3338,10 +3337,8 @@ void	duel_update();
 void	load_arena_table();
 void	view_room_hpbar();
 void	duel_kill		args((CHAR_DATA *victim));
-bool	char_in_dprep_room	args((CHAR_DATA *ch));
 bool	char_in_darena_room	args((CHAR_DATA *ch));
 bool	char_in_duel_room	args((CHAR_DATA *ch));
-bool	char_in_dprep		args((CHAR_DATA *ch));
 bool	char_in_darena		args((CHAR_DATA *ch));
 bool	char_in_duel		args((CHAR_DATA *ch));
 DUEL_DATA *get_duel		args((CHAR_DATA *ch));
@@ -3504,7 +3501,6 @@ char *	ignore_apostrophe args((char *str));
 void	strcut		args((char *str, int length));
 char *	strcenter	args((char *string, int space));
 char *	strrpc		args((char *replace, char *with, char *in));
-void    Proper_Case     args( (char *line) );
 
 
 
@@ -3563,7 +3559,6 @@ void    mprog_speech_trigger    args ( ( char* txt, CHAR_DATA* mob ) );
 /* handler.c */
 int     count_users     args( (OBJ_DATA *obj) );
 bool    deduct_cost     args( (CHAR_DATA *ch, long cost) );
-void    affect_enchant  args( (OBJ_DATA *obj) );
 int     check_immune    args( (CHAR_DATA *ch, int dam_type) );
 int     liq_lookup      args( ( const char *name) );
 int     weapon_lookup   args( ( const char *name) );
@@ -3587,7 +3582,6 @@ int     can_carry_n     args(( CHAR_DATA *ch ) );
 int     can_carry_w     args(( CHAR_DATA *ch ) );
 bool    is_name         args(( char *str, char *namelist ) );
 bool    is_exact_name   args(( char *str, char *namelist ) );
-bool    is_name_color         args(( char *str, char *namelist ) );
 bool    is_exact_name_color   args(( char *str, char *namelist ) );
 void    affect_to_char  args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void    affect_to_obj   args(( OBJ_DATA *obj, AFFECT_DATA *paf ) );
@@ -3776,11 +3770,11 @@ bool    IS_SPECIAL      args( ( CHAR_DATA *ch) );
 RID *   room_by_name    args( ( char *target, int level, bool error) );
 
 /* tour.c */
-void    do_alight       args( ( CHAR_DATA *ch, char *argument ) );
-void    do_board        args( ( CHAR_DATA *ch, char *argument ) );
-void    load_tourstarts args( ( FILE *fp ) );
-void    load_tourroutes args( ( FILE *fp ) );
-void    tour_update     args( ( void ) );
+//void    do_alight       args( ( CHAR_DATA *ch, char *argument ) );
+//void    do_board        args( ( CHAR_DATA *ch, char *argument ) );
+//void    load_tourstarts args( ( FILE *fp ) );
+//void    load_tourroutes args( ( FILE *fp ) );
+//void    tour_update     args( ( void ) );
 
 /* update.c */
 void    advance_level   args( ( CHAR_DATA *ch ) );

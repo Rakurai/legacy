@@ -31,7 +31,6 @@ extern  DESCRIPTOR_DATA *descriptor_free;
 extern  PC_DATA         *pcdata_free;
 extern  AFFECT_DATA     *affect_free;
 
-
 void do_autoboot(CHAR_DATA *ch, char *argument)
 {
 	char buf[MSL];
@@ -85,7 +84,6 @@ void do_autoboot(CHAR_DATA *ch, char *argument)
 	fappend(SHUTDOWN_FILE, buf);
 }
 
-
 char *fgetf(char *s, int n, register FILE *iop)
 {
 	register int c;
@@ -101,7 +99,6 @@ char *fgetf(char *s, int n, register FILE *iop)
 	return ((c == EOF && cs == s) ? NULL : s);
 }
 
-
 /* integrated shell */
 void do_pipe(CHAR_DATA *ch, char *argument)
 {
@@ -113,7 +110,6 @@ void do_pipe(CHAR_DATA *ch, char *argument)
 	pclose(fp);
 	return;
 }
-
 
 void do_mypipe(CHAR_DATA *ch, char *argument)
 {
@@ -211,12 +207,10 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 	mysql_free_result(result);
 }
 
-
 void do_reboo(CHAR_DATA *ch, char *argument)
 {
 	stc("{NTo REBOOT, you must spell the entire word.{x\n", ch);
 }
-
 
 void do_reboot(CHAR_DATA *ch, char *argument)
 {
@@ -243,12 +237,10 @@ void do_reboot(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_shutdow(CHAR_DATA *ch, char *argument)
 {
 	stc("{NTo SHUTDOWN, you must spell the entire word.{x\n", ch);
 }
-
 
 void do_shutdown(CHAR_DATA *ch, char *argument)
 {
@@ -288,7 +280,6 @@ void do_shutdown(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_slookup(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL];
@@ -323,7 +314,6 @@ void do_slookup(CHAR_DATA *ch, char *argument)
 	    skill_table[sn].slot,
 	    skill_table[sn].name);
 }
-
 
 void do_advance(CHAR_DATA *ch, char *argument)
 {
@@ -402,7 +392,6 @@ void do_advance(CHAR_DATA *ch, char *argument)
 	save_char_obj(victim);
 }
 
-
 void do_wizlock(CHAR_DATA *ch, char *argument)
 {
 	extern bool wizlock;
@@ -417,7 +406,6 @@ void do_wizlock(CHAR_DATA *ch, char *argument)
 		stc("Game un-wizlocked.\n", ch);
 	}
 }
-
 
 void do_relevel(CHAR_DATA *ch, char *argument)
 {
@@ -437,7 +425,6 @@ void do_relevel(CHAR_DATA *ch, char *argument)
 	ch->max_stam    = 30000;
 	stc("Done.\n", ch);
 }
-
 
 void do_addexit(CHAR_DATA *ch, char *argument)
 {
@@ -491,7 +478,6 @@ void do_addexit(CHAR_DATA *ch, char *argument)
 	stc("Exit added.\n", ch);
 }
 
-
 void do_remexit(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL];
@@ -532,7 +518,6 @@ void do_remexit(CHAR_DATA *ch, char *argument)
 	stc("Exit removed.\n", ch);
 }
 
-
 void do_sectchange(CHAR_DATA *ch, char *argument)
 {
 	int sect;
@@ -567,7 +552,6 @@ void do_sectchange(CHAR_DATA *ch, char *argument)
 	ch->in_room->sector_type = sect;
 	stc("Sector type changed.\n", ch);
 }
-
 
 void do_memory(CHAR_DATA *ch, char *argument)
 {
@@ -608,7 +592,6 @@ void do_memory(CHAR_DATA *ch, char *argument)
 	stc(buf, ch);
 	return;
 }
-
 
 void do_dump(CHAR_DATA *ch, char *argument)
 {

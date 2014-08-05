@@ -60,16 +60,13 @@
 
 extern struct board_index_struct board_index[];
 
-
 #define MAX_EDIT_LENGTH 4000
 #define WRAP_WIDTH      70
-
 
 /* Module global variables */
 
 static int num1, num2, argmask;
 static EDIT_DATA *ed;
-
 
 /*
  * Pick off one argument from a string and return the rest.
@@ -107,7 +104,6 @@ static char *one_arg(char *argument, char *arg_first)
 	return argument;
 } /* end one_arg() */
 
-
 static char *next_line(char *current_line)
 {
 	char *limit = &ed->edit_string[MAX_STRING_LENGTH - 1];
@@ -124,7 +120,6 @@ static char *next_line(char *current_line)
 	return current_line;
 } /* end next_line() */
 
-
 int count_lines()
 {
 	int nlines = 0;
@@ -140,7 +135,6 @@ int count_lines()
 
 	return nlines;
 } /* end count_lines() */
-
 
 static char *find_line(int lineno)
 {
@@ -162,7 +156,6 @@ static char *find_line(int lineno)
 
 	return pl;
 } /* end find_line() */
-
 
 static void listline(BUFFER *dbuf, int lineno, char *line)
 {
@@ -196,7 +189,6 @@ static void listline(BUFFER *dbuf, int lineno, char *line)
 	add_buf(dbuf, buf);
 } /* end listline() */
 
-
 static void edit_list1(CHAR_DATA *ch, int fromline, int toline)
 {
 	int jline;
@@ -224,7 +216,6 @@ static void edit_list1(CHAR_DATA *ch, int fromline, int toline)
 	free_buf(dbuf);
 } /* end edit_list1() */
 
-
 static void list_window(CHAR_DATA *ch)
 {
 	int fromline, toline;
@@ -243,7 +234,6 @@ static void list_window(CHAR_DATA *ch)
 	toline   = UMIN(ed->edit_line + 2, ed->edit_nlines + 1);
 	edit_list1(ch, fromline, toline);
 } /* end list_window() */
-
 
 static void edit_status(CHAR_DATA *ch, char *argument)
 {
@@ -322,7 +312,6 @@ static void edit_status(CHAR_DATA *ch, char *argument)
 	list_window(ch);
 } /* end edit_status() */
 
-
 static bool check_line(CHAR_DATA *ch, int line)
 {
 	char buf[MAX_INPUT_LENGTH];
@@ -335,7 +324,6 @@ static bool check_line(CHAR_DATA *ch, int line)
 
 	return TRUE;
 } /* end check_line() */
-
 
 static bool check_range(CHAR_DATA *ch, int *fromline, int *toline)
 {
@@ -373,7 +361,6 @@ static bool check_range(CHAR_DATA *ch, int *fromline, int *toline)
 	return TRUE;
 } /* end check_range() */
 
-
 static void edit_goto1(CHAR_DATA *ch, int lineno)
 {
 	if (lineno < 0 || lineno > ed->edit_nlines) {
@@ -384,7 +371,6 @@ static void edit_goto1(CHAR_DATA *ch, int lineno)
 
 	ed->edit_line = lineno;
 } /* end edit_goto1() */
-
 
 static bool is_blank_line(char *line)
 {
@@ -398,16 +384,13 @@ static bool is_blank_line(char *line)
 	return TRUE;
 } /* end is_blank_line() */
 
-
 static void backup(void)
 {
 	strcpy(ed->edit_backup, ed->edit_string);
 	ed->edit_undo_ok = TRUE;
 } /* end backup() */
 
-
 /********** Main functions **********/
-
 
 static void edit_cancel(CHAR_DATA *ch, char *argument)
 {
@@ -415,7 +398,6 @@ static void edit_cancel(CHAR_DATA *ch, char *argument)
 	ch->edit = NULL;
 	stc("OK, editing session aborted, {Ynothing changed{x.\n", ch);
 } /* end edit_cancel() */
-
 
 static void edit_change(CHAR_DATA *ch, char *argument)
 {
@@ -477,7 +459,6 @@ static void edit_change(CHAR_DATA *ch, char *argument)
 	free_buf(dbuf);
 } /* end edit_change() */
 
-
 static void edit_delete(CHAR_DATA *ch, char *argument)
 {
 	int linefrom = ed->edit_line;
@@ -506,7 +487,6 @@ static void edit_delete(CHAR_DATA *ch, char *argument)
 	ed->edit_line = UMAX(0, linefrom - 1);
 } /* end edit_delete() */
 
-
 static void edit_desc(CHAR_DATA *ch, char *argument)
 {
 	if (ch->edit != NULL) {
@@ -529,7 +509,6 @@ static void edit_desc(CHAR_DATA *ch, char *argument)
 	edit_goto1(ch, 1);
 	edit_status(ch, "");
 } /* end edit_note() */
-
 
 static void edit_done(CHAR_DATA *ch, char *argument)
 {
@@ -599,13 +578,11 @@ static void edit_done(CHAR_DATA *ch, char *argument)
 	ed = NULL;
 } /* end edit_done() */
 
-
 static void edit_goto(CHAR_DATA *ch, char *argument)
 {
 	if (check_line(ch, num1))
 		edit_goto1(ch, num1);
 } /* end edit_goto() */
-
 
 static void edit_insert(CHAR_DATA *ch, char *argument)
 {
@@ -639,7 +616,6 @@ static void edit_insert(CHAR_DATA *ch, char *argument)
 	edit_goto1(ch, after_line);
 } /* end edit_insert() */
 
-
 static void edit_list(CHAR_DATA *ch, char *argument)
 {
 	int fromline, toline;
@@ -655,7 +631,6 @@ static void edit_list(CHAR_DATA *ch, char *argument)
 
 	edit_list1(ch, fromline, toline);
 } /* end edit_list() */
-
 
 static void edit_note(CHAR_DATA *ch, char *argument)
 {
@@ -679,7 +654,6 @@ static void edit_note(CHAR_DATA *ch, char *argument)
 	edit_goto1(ch, 1);
 	edit_status(ch, "");
 } /* end edit_note() */
-
 
 static void edit_room(CHAR_DATA *ch, char *argument)
 {
@@ -754,7 +728,6 @@ static void edit_help(CHAR_DATA *ch, char *argument)
 	mysql_free_result(result);
 } /* end edit_room() */
 
-
 static void edit_split(CHAR_DATA *ch, char *argument)
 {
 	char token[MAX_INPUT_LENGTH];
@@ -805,7 +778,6 @@ static void edit_split(CHAR_DATA *ch, char *argument)
 	ed->edit_nlines = count_lines();
 } /* end edit_split() */
 
-
 static void edit_undo(CHAR_DATA *ch, char *junk)
 {
 	if (!ed->edit_undo_ok) {
@@ -824,7 +796,6 @@ static void edit_undo(CHAR_DATA *ch, char *junk)
 	    ch);
 	ed->edit_undo_ok = FALSE;
 } /* end edit_undo() */
-
 
 static void edit_wrap(CHAR_DATA *ch, char *argument)
 {
@@ -954,7 +925,6 @@ static void edit_wrap(CHAR_DATA *ch, char *argument)
 	ed->edit_nlines = count_lines();
 	edit_goto1(ch, prev_blank_line + 1);
 } /* end edit_wrap() */
-
 
 /* Main edit function. Some pre-scanning, then branch to appropriate subfunction. */
 void do_edit(CHAR_DATA *ch, char *argument)
@@ -1101,5 +1071,4 @@ void do_edit(CHAR_DATA *ch, char *argument)
 	stc(buf, ch);
 	edit_status(ch, "");
 } /* end do_edit() */
-
 

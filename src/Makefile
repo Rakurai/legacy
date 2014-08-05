@@ -19,20 +19,17 @@ H_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_H_DEPS))
 _O_DEPS = cJSON/cJSON.o
 O_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_O_DEPS))
 
-_H_FILES = db.h interp.h lookup.h  \
-        magic.h memory.h merc.h music.h sql.h  \
-        recycle.h tables.h telnet.h vt100.h
+_H_FILES = db.h interp.h lookup.h magic.h memory.h merc.h music.h sql.h recycle.h tables.h	\
+	telnet.h vt100.h
 H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 
-_O_FILES = act_comm.o act_info.o act_move.o act_obj.o help.o memory.o    \
-         wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o	\
-		alias.o comm.o const.o db.o edit.o effects.o fight.o flags.o handler.o		\
-		mobiles.o interp.o note.o lookup.o magic.o rmagic.o music.o recycle.o		\
-		save.o scan.o skills.o special.o ignore.o social.o tables.o update.o		\
-		bank.o hunt.o string.o mob_commands.o mob_prog.o quest.o marry.o 		\
-		tour.o clan-edit.o storage.o departed.o remort.o set-stat.o config.o war.o	\
-		duel.o channels.o debug.o find.o objstate.o nanny.o mysql.o random.o		\
-		area_handler.o xsocial.o load_config.o file.o
+_O_FILES = act_comm.o act_info.o act_move.o act_obj.o alias.o area_handler.o bank.o channels.o	\
+	clan-edit.o comm.o config.o const.o db.o debug.o departed.o duel.o edit.o effects.o	\
+	fight.o file.o find.o flags.o handler.o help.o hunt.o ignore.o interp.o load_config.o	\
+	lookup.o magic.o marry.o memory.o mob_commands.o mob_prog.o mobiles.o music.o mysql.o	\
+	nanny.o note.o objstate.o quest.o random.o recycle.o remort.o rmagic.o save.o scan.o	\
+	set-stat.o skills.o social.o special.o storage.o string.o tables.o update.o war.o	\
+	wiz_admin.o wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o xsocial.o
 O_FILES = $(patsubst %,$(OBJDIR)/%,$(_O_FILES))
 
 $(OBJDIR)/%.o: %.c $(H_DEPS) $(H_FILES)

@@ -59,7 +59,6 @@ OD     *get_obj_keeper  args((CHAR_DATA *ch, CHAR_DATA *keeper, char *argument))
 #undef OD
 #undef  CD
 
-
 /* Convert a number to an ordinal string -- Elrac
    The string may come from a static buffer, so it should be copied
    before someone else gets a chance to call this function.
@@ -85,7 +84,6 @@ char *ordinal_string(int n)
 
 	return buf;
 }
-
 
 /* Check to see if an object is non-holder clan equipment -- Elrac
    This code depends on the clan equipment being coded into the clan areas
@@ -182,7 +180,6 @@ bool clan_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 	return TRUE;
 }
 
-
 /* Check for illegitimate use of personal equipment -- Elrac
    This code checks to make sure the given object is not personalized
    to someone else. If all is OK, return TRUE, otherwise the player
@@ -239,7 +236,6 @@ bool pers_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 	return FALSE;
 } /* end pers_eq_ok() */
 
-
 /* RT part of the corpse looting code */
 
 bool can_loot(CHAR_DATA *ch, OBJ_DATA *obj)
@@ -270,7 +266,6 @@ bool can_loot(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	return FALSE;
 }
-
 
 void do_second(CHAR_DATA *ch, char *argument)
 {
@@ -348,7 +343,6 @@ void do_second(CHAR_DATA *ch, char *argument)
 	act("You wield $p{x in your off-hand.", ch, obj, NULL, TO_CHAR);
 	equip_char(ch, obj, WEAR_SECONDARY);
 } /* end do_second() */
-
 
 void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 {
@@ -472,7 +466,6 @@ void get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container)
 	return;
 }
 
-
 bool from_box_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *box_type)
 {
 	if (obj == NULL) {
@@ -498,7 +491,6 @@ bool from_box_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *box_type)
 
 	return TRUE;
 }
-
 
 void do_get(CHAR_DATA *ch, char *argument)
 {
@@ -747,7 +739,6 @@ void do_get(CHAR_DATA *ch, char *argument)
 		}
 	}
 }
-
 
 /* I really hate this, come up with something better someday.  Since compartment items
    don't have max weights, we're basing it off of level, unless the item isn't takeable,
@@ -1026,7 +1017,6 @@ void do_put(CHAR_DATA *ch, char *argument)
 		stc("They won't fit.\n", ch);
 }
 
-
 void do_drop(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -1245,7 +1235,6 @@ void do_drop(CHAR_DATA *ch, char *argument)
 		}
 	}
 } /* end do_drop() */
-
 
 void do_give(CHAR_DATA *ch, char *argument)
 {
@@ -1551,7 +1540,6 @@ void do_give(CHAR_DATA *ch, char *argument)
 	mprog_give_trigger(victim, ch, obj);
 }
 
-
 /* for poisoning weapons and food/drink */
 void do_envenom(CHAR_DATA *ch, char *argument)
 {
@@ -1719,7 +1707,6 @@ void do_firebuilding(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 void do_fill(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -1797,7 +1784,6 @@ void do_fill(CHAR_DATA *ch, char *argument)
 	obj->value[1] = obj->value[0];
 	obj->value[3] = wanted_fountain->value[3];      /* poison the drink */
 } /* end do_fill() */
-
 
 void do_pour(CHAR_DATA *ch, char *argument)
 {
@@ -1906,7 +1892,6 @@ void do_pour(CHAR_DATA *ch, char *argument)
 		act(buf, ch, NULL, vch, TO_NOTVICT);
 	}
 }
-
 
 void do_drink(CHAR_DATA *ch, char *argument)
 {
@@ -2027,7 +2012,6 @@ void do_drink(CHAR_DATA *ch, char *argument)
 			obj->value[3] = 0;
 	}
 }
-
 
 void do_eat(CHAR_DATA *ch, char *argument)
 {
@@ -2198,7 +2182,6 @@ void do_eat(CHAR_DATA *ch, char *argument)
 		extract_obj(to_extract);
 } /* end do_eat() */
 
-
 /*
  * Remove an object.
  */
@@ -2222,8 +2205,6 @@ bool remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
 	act("You stop using $p.", ch, obj, NULL, TO_CHAR);
 	return TRUE;
 }
-
-
 
 /*
  * Wear one object.
@@ -2547,7 +2528,6 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		stc("You can't wear, wield, or hold that.\n", ch);
 } /* end wear_obj() */
 
-
 void do_wear(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -2583,8 +2563,6 @@ void do_wear(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
-
 void do_remove(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -2614,7 +2592,6 @@ void do_remove(CHAR_DATA *ch, char *argument)
 	remove_obj(ch, obj->wear_loc, TRUE);
 	return;
 }
-
 
 /* Donate by Lotus */
 void do_donate(CHAR_DATA *ch, char *argument)
@@ -2668,7 +2645,6 @@ void do_donate(CHAR_DATA *ch, char *argument)
 	obj_to_obj(item, donation_pit);
 }
 
-
 /* Junk by Lotus */
 void do_junk(CHAR_DATA *ch, char *argument)
 {
@@ -2697,7 +2673,6 @@ void do_junk(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-
 bool acceptable_sac(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	if (!can_see_obj(ch, obj))
@@ -2722,7 +2697,6 @@ bool acceptable_sac(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	return TRUE;
 }
-
 
 /* sacrifice all by Montrey */
 void do_sacrifice(CHAR_DATA *ch, char *argument)
@@ -2854,7 +2828,6 @@ void do_sacrifice(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 void do_quaff(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -2900,7 +2873,6 @@ void do_quaff(CHAR_DATA *ch, char *argument)
 	obj_cast_spell(obj->value[4], obj->value[0], ch, ch, NULL);
 	extract_obj(obj);
 }
-
 
 /* Global for scrolls that want that extra oomph */
 extern char *target_name;
@@ -2983,7 +2955,6 @@ void do_recite(CHAR_DATA *ch, char *argument)
 	           : skill_table[gsn_scrolls].beats);
 	extract_obj(scroll);
 }
-
 
 void do_brandish(CHAR_DATA *ch, char *argument)
 {
@@ -3070,8 +3041,6 @@ void do_brandish(CHAR_DATA *ch, char *argument)
 
 	return;
 }
-
-
 
 void do_zap(CHAR_DATA *ch, char *argument)
 {
@@ -3168,7 +3137,6 @@ void do_zap(CHAR_DATA *ch, char *argument)
 
 	return;
 }
-
 
 void do_brew(CHAR_DATA *ch, char *argument)
 {
@@ -3411,7 +3379,6 @@ void do_scribe(CHAR_DATA *ch, char *argument)
 	spell_imprint(sn, ch->level, ch, obj);
 }
 
-
 void do_steal(CHAR_DATA *ch, char *argument)
 {
 	char buf  [MAX_STRING_LENGTH];
@@ -3652,8 +3619,6 @@ void do_steal(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
-
 /*
  * Shopping commands.
  */
@@ -3756,7 +3721,6 @@ void obj_to_keeper(OBJ_DATA *obj, CHAR_DATA *ch)
 	obj->in_obj          = NULL;
 }
 
-
 /* get an object from a shopkeeper's list */
 OBJ_DATA *get_obj_keeper(CHAR_DATA *ch, CHAR_DATA *keeper, char *argument)
 {
@@ -3785,7 +3749,6 @@ OBJ_DATA *get_obj_keeper(CHAR_DATA *ch, CHAR_DATA *keeper, char *argument)
 
 	return NULL;
 }
-
 
 int get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 {
@@ -3838,8 +3801,6 @@ int get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 
 	return cost;
 } /* end get_cost() */
-
-
 
 void do_buy(CHAR_DATA *ch, char *argument)
 {
@@ -4247,7 +4208,6 @@ void do_buy(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_buy() */
 
-
 void do_list(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -4355,7 +4315,6 @@ void do_list(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_list() */
 
-
 void do_sell(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -4454,8 +4413,6 @@ void do_sell(CHAR_DATA *ch, char *argument)
 
 	return;
 } /* end do_sell() */
-
-
 
 void do_value(CHAR_DATA *ch, char *argument)
 {
@@ -4798,7 +4755,6 @@ void do_auction(CHAR_DATA *ch, char *argument)
 	}
 }
 
-
 /* get the name of the anvil's owner */
 char *anvil_owner_name(OBJ_DATA *anvil)
 {
@@ -4814,7 +4770,6 @@ char *anvil_owner_name(OBJ_DATA *anvil)
 
 	return anvil->name + strlen("anvil private ");
 }
-
 
 /* is named player the anvil's owner? -- Elrac */
 int is_anvil_owner(char *name, OBJ_DATA *anvil)
@@ -5281,7 +5236,6 @@ void do_forge(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_forge() */
 
-
 /* Engrave a message of historical significance on a weapon -- Elrac */
 void do_engrave(CHAR_DATA *ch, char *argument)
 {
@@ -5608,7 +5562,6 @@ void do_autograph(CHAR_DATA *ch, char *argument)
 	obj->short_descr = str_dup(buf);
 	stc("You sign the card.\n", ch);
 }
-
 
 /*
 This function allows a character to rename their pet.

@@ -49,7 +49,6 @@ void quest_init(void)
 		quest_area = quest_startroom->area;
 } /* end quest_init */
 
-
 /* Usage info on the QUEST commands -- Elrac */
 /* Keep this in line with the do_quest function's keywords */
 void quest_usage(CHAR_DATA *ch)
@@ -63,7 +62,6 @@ void quest_usage(CHAR_DATA *ch)
 	stc("For more information, type 'HELP QUEST'.\n", ch);
 	set_color(ch, WHITE, NOBOLD);
 } /* end quest_usage */
-
 
 void sq_cleanup(CHAR_DATA *ch)
 {
@@ -87,7 +85,6 @@ void sq_cleanup(CHAR_DATA *ch)
 	ch->pcdata->squestmobf = FALSE;
 }
 
-
 bool quest_level_diff(int clevel, int mlevel)
 {
 	if (clevel <= 5 && mlevel <= 5)                                    return TRUE;
@@ -104,7 +101,6 @@ bool quest_level_diff(int clevel, int mlevel)
 	else if (clevel > 85 && mlevel >  85)                                   return TRUE;
 	else                                                                    return FALSE;
 }
-
 
 /* Checks for a character in the room with spec_questmaster set. This special
    procedure must be defined in special.c. You could instead use an
@@ -199,7 +195,6 @@ void quest_where(CHAR_DATA *ch, char *what)
 
 	ptc(ch, "near %s.\n", room->name);
 } /* end quest_where */
-
 
 void squest_info(CHAR_DATA *ch)
 {
@@ -349,7 +344,6 @@ void squest_info(CHAR_DATA *ch)
 	}
 }
 
-
 void quest_info(CHAR_DATA *ch)
 {
 	MOB_INDEX_DATA *questman, *questinfo;
@@ -420,7 +414,6 @@ void quest_info(CHAR_DATA *ch)
 	return;
 }
 
-
 int get_random_skill(CHAR_DATA *ch)
 {
 	int count;
@@ -467,7 +460,6 @@ int get_random_skill(CHAR_DATA *ch)
 	return sn;
 }
 
-
 void squestobj_to_squestmob(CHAR_DATA *ch, OBJ_DATA *obj, CHAR_DATA *mob)
 {
 	char buf[MAX_STRING_LENGTH];
@@ -484,7 +476,6 @@ void squestobj_to_squestmob(CHAR_DATA *ch, OBJ_DATA *obj, CHAR_DATA *mob)
 	extract_char(mob, TRUE);
 	ch->pcdata->squestmobf = TRUE;
 }
-
 
 void squestmob_found(CHAR_DATA *ch, CHAR_DATA *mob)
 {
@@ -585,7 +576,6 @@ void squestmob_found(CHAR_DATA *ch, CHAR_DATA *mob)
 	ch->pcdata->squestmobf = TRUE;
 }
 
-
 OBJ_DATA *generate_skillquest_obj(CHAR_DATA *ch, int level)
 {
 	EXTRA_DESCR_DATA *ed;
@@ -655,7 +645,6 @@ OBJ_DATA *generate_skillquest_obj(CHAR_DATA *ch, int level)
 	return questobj;
 }
 
-
 ROOM_INDEX_DATA *generate_skillquest_room(CHAR_DATA *ch, int level)
 {
 	ROOM_INDEX_DATA *room, *prev;
@@ -696,7 +685,6 @@ ROOM_INDEX_DATA *generate_skillquest_room(CHAR_DATA *ch, int level)
 		return room;
 	}
 }
-
 
 void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int type)
 {
@@ -831,7 +819,6 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 	}
 }
 
-
 void generate_skillquest(CHAR_DATA *ch, CHAR_DATA *questman)
 {
 	OBJ_DATA *questobj;
@@ -884,7 +871,6 @@ void generate_skillquest(CHAR_DATA *ch, CHAR_DATA *questman)
 		ch->pcdata->squestloc2 = ch->pcdata->squestmob->in_room->vnum;
 	}
 }
-
 
 void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 {
@@ -1070,7 +1056,6 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 		ch->questmob = victim->pIndexData->vnum;
 	}
 } /* end generate_quest() */
-
 
 /* The main quest function */
 void do_quest(CHAR_DATA *ch, char *argument)

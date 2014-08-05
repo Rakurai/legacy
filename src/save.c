@@ -25,8 +25,6 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-
-
 #include "merc.h"
 #include "recycle.h"
 #include "tables.h"
@@ -41,7 +39,6 @@ extern void     set_window      args((CHAR_DATA *ch, int top, int bottom));
 /* Locals */
 
 int rename(const char *oldfname, const char *newfname);
-
 
 char *print_flags(int flag)
 {
@@ -68,15 +65,12 @@ char *print_flags(int flag)
 	return buf;
 }
 
-
 /*
  * Array of containers read for proper re-nesting of objects.
  */
 #define MAX_NEST        100
 static  OBJ_DATA       *rgObjNest       [MAX_NEST];
 static  int             NestDepth;
-
-
 
 /*
  * Local functions.
@@ -88,7 +82,6 @@ void    fwrite_pet      args((CHAR_DATA *pet, FILE *fp));
 void    fread_char      args((CHAR_DATA *ch,  FILE *fp));
 void    fread_pet       args((CHAR_DATA *ch,  FILE *fp));
 void    fread_obj       args((CHAR_DATA *ch,  FILE *fp, bool locker, bool strongbox));
-
 
 /*
  * Save a character and inventory.
@@ -143,7 +136,6 @@ void save_char_obj(CHAR_DATA *ch)
 	update_pc_index(ch, FALSE);
 }
 
-
 void backup_char_obj(CHAR_DATA *ch)
 {
 	char strsave[MAX_INPUT_LENGTH];
@@ -189,7 +181,6 @@ void backup_char_obj(CHAR_DATA *ch)
 	sprintf(buf, "gzip -fq %s", strsave);
 	system(buf);
 } /* end backup_char_obj() */
-
 
 /*
  * Write the char.
@@ -737,7 +728,6 @@ void fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest,
 		fwrite_obj(ch, obj->contains, fp, iNest + 1, locker, strongbox);
 } /* end fwrite_obj() */
 
-
 /*
  * Load a char and inventory into a new ch structure.
  */
@@ -931,8 +921,6 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	return found;
 }
 
-
-
 /*
  * Read in a char.
  */
@@ -958,7 +946,6 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
       if (!str_cmp( word, literal ))
           free_string( field );
 */
-
 
 void fread_char(CHAR_DATA *ch, FILE *fp)
 {
@@ -1543,7 +1530,6 @@ void fread_char(CHAR_DATA *ch, FILE *fp)
 	}
 }
 
-
 /* load a pet from the forgotten reaches */
 void fread_pet(CHAR_DATA *ch, FILE *fp)
 {
@@ -1761,7 +1747,6 @@ void fread_pet(CHAR_DATA *ch, FILE *fp)
 
 	reset_char(pet);
 }
-
 
 void fread_obj(CHAR_DATA *ch, FILE *fp, bool locker, bool strongbox)
 {
@@ -2089,7 +2074,6 @@ char *dizzy_ctime(time_t *timep)
 	return ctime_buf;
 } /* end dizzy_ctime() */
 
-
 /*
  * decode a time string as produced by dizzy_ctime()
  * Day of week is scanned in spite of not being needed so that the
@@ -2131,7 +2115,6 @@ time_t dizzy_scantime(char *ctime)
 endoftime:
 	return mktime(&loc_tm);
 } /* end dizzy_scantime() */
-
 
 void do_finger(CHAR_DATA *ch, char *argument)
 {
@@ -2380,34 +2363,4 @@ void do_finger(CHAR_DATA *ch, char *argument)
 
 	return;
 } /* end do_finger() */
-
-
-/* smart object loading, in progress -- Montrey */
-int find_changed_vnum(int oldvnum)
-{
-	FILE *fp;
-	int newvnum = -1;
-
-	if ((fp = fopen(CHVNUM_FILE, "r")) == NULL) {
-		bug("chvnum.txt fopen (r)", 0);
-		perror(CHVNUM_FILE);
-		return -1;
-	}
-
-	for (; ;) {
-		if (!str_cmp(fread_word(fp), "END"))
-			break;
-
-		if (oldvnum == fread_number(fp)) {
-			newvnum = fread_number(fp);
-			break;
-		}
-
-		fread_number(fp);
-	}
-
-	fclose(fp);
-	return newvnum;
-}
-
 
