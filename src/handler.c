@@ -3128,8 +3128,6 @@ char *censor_bit_name(int censor_flags)
 
 	if (censor_flags & CENSOR_CHAN)         strcat(buf, " censor_channels");
 
-	if (censor_flags & CENSOR_XSOC)         strcat(buf, " censor_xsocials");
-
 	if (censor_flags & CENSOR_SPAM)         strcat(buf, " censor_spam");
 
 	return (buf[0] != '\0') ? buf + 1 : "none";

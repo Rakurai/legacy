@@ -566,8 +566,6 @@ void do_memory(CHAR_DATA *ch, char *argument)
 	stc(buf, ch);
 	sprintf(buf, "Socials %5d\n", count_socials());
 	stc(buf, ch);
-	sprintf(buf, "XSocs   %5d\n", count_xsocials());
-	stc(buf, ch);
 	sprintf(buf, "Mobs    %5d\n", top_mob_index);
 	stc(buf, ch);
 	sprintf(buf, "(in use)%5d\n", mobile_count);

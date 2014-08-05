@@ -1025,7 +1025,6 @@ const struct flag_type comm_flags[] = {
 
 const struct flag_type censor_flags[] = {
 	{       "channels",             CENSOR_CHAN,            TRUE    },
-	{       "xsocials",             CENSOR_XSOC,            TRUE    },
 	{       "spam",                 CENSOR_SPAM,            TRUE    },
 	{       NULL,                   0,                      0,      }
 };

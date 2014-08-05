@@ -259,9 +259,6 @@ void fwrite_char(CHAR_DATA *ch, FILE *fp)
 	if (ch->pcdata->whisper != NULL)
 		fprintf(fp, "Wspr %s~\n", ch->pcdata->whisper);
 
-	if (ch->pcdata->partner != NULL)
-		fprintf(fp, "Ptnr %s~\n", ch->pcdata->partner);
-
 	if (ch->pcdata->mark_room)
 		fprintf(fp, "Mark %d\n", ch->pcdata->mark_room);
 
@@ -752,7 +749,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	ch->revoke                          = 0; /* Xenith */
 	ch->secure_level                    = RANK_IMM;
 	ch->pcdata->cgroup                  = 0; /* Command groups - Xenith */
-	ch->censor                          = CENSOR_CHAN | CENSOR_XSOC;    /* default rating is PG */
+	ch->censor                          = CENSOR_CHAN;    /* default rating is PG */
 	ch->prompt                          = str_dup("%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ");
 	ch->version                         = 0;    /* Montrey */
 	ch->pcdata->ch                      = ch;
@@ -1368,7 +1365,6 @@ void fread_char(CHAR_DATA *ch, FILE *fp)
 			KEY("Prac",        ch->practice,           fread_number(fp));
 			FKY("Prom",        ch->prompt);
 			KEY("Prom",        ch->prompt,             fread_string(fp));
-			KEY("Ptnr",        ch->pcdata->partner,    fread_string(fp));
 			break;
 
 		case 'Q':

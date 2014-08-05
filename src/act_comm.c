@@ -1459,14 +1459,6 @@ void do_order(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "consent")) {
-		stc("That will NOT be done.\n", ch);
-		sprintf(buf, "%s attempts to order someone to consent to sex.", ch->name);
-		wiznet(buf, NULL, NULL, WIZ_CHEAT, 0, 0);
-		log_string(buf);
-		return;
-	}
-
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		stc("Order whom to do what?\n", ch);
 		return;

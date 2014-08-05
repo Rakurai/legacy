@@ -970,9 +970,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		do_unread(ch, "");
 		stc("\n", ch);
 
-		if (!IS_SET(ch->censor, CENSOR_XSOC))
-			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {PX{x.\n", ch);
-		else if (!IS_SET(ch->censor, CENSOR_CHAN))
+		if (!IS_SET(ch->censor, CENSOR_CHAN))
 			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {PR{x.\n", ch);
 		else
 			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {GPG{x.\n", ch);

@@ -1847,7 +1847,6 @@ struct  kill_data
 
 /* New censor flags to replace COMM_SWEARON -- Montrey */
 #define CENSOR_CHAN		(A)
-#define CENSOR_XSOC		(B)
 #define CENSOR_SPAM		(C)
 
 
@@ -2180,7 +2179,6 @@ struct  pc_data
    char *              query[MAX_QUERY];
    char *              spouse;
    char *		propose;
-   char *		partner;			/* Montrey */
    char *              whisper;			/* Montrey */
    sh_int              video;				/* Elrac */
    sh_int              tailing;			/* Elrac */
@@ -2865,26 +2863,6 @@ struct  social_type
 };
 
 /*
- * Structure for an X-social in the socials table.
- */
-struct xsocial_type
-{
-	char		name[20];
-	int		csex;
-	int		vsex;
-	char *		char_no_arg;
-	char *		others_no_arg;
-	char *		char_found;
-	char *		others_found;
-	char *		vict_found;
-	char *		char_auto;
-	char *		others_auto;
-	struct xsocial_type * previous;
-	struct xsocial_type * next;
-};
-
-
-/*
  * Structure for a clan in the clan table.
  */
 
@@ -3054,10 +3032,6 @@ extern  const   struct  group_type      group_table     [MAX_GROUP];
 /* new social system by Clerve */
 extern          struct social_type      *social_table_head;
 extern          struct social_type      *social_table_tail;
-
-/* x-socials, put in by Montrey */
-extern          struct xsocial_type     *xsocial_table_head;
-extern          struct xsocial_type     *xsocial_table_tail;
 
 /* new clan system by Clerve */
 extern 		struct clan_type	*clan_table_head;
@@ -3308,11 +3282,8 @@ void    do_fyi          args( ( CHAR_DATA *ch, char *argument ) );
 
 /* social-edit.c */
 void load_social_table();
-void load_xsocial_table();
 void save_social_table();
-void save_xsocial_table();
 int count_socials();
-int count_xsocials();
 
 /* clan-edit.c */
 int	count_clan_members	args((CLAN_DATA *clan, int bit));

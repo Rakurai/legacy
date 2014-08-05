@@ -877,53 +877,6 @@ void do_socials(CHAR_DATA *ch, char *argument)
 	free_buf(dbuf);
 } /* end do_socials() */
 
-void do_xsocials(CHAR_DATA *ch, char *argument)
-{
-	BUFFER *dbuf;
-	char buf[MAX_STRING_LENGTH];
-	struct xsocial_type *iterator;
-	int col, x;
-
-	if (IS_SET(ch->censor, CENSOR_XSOC)) {
-		stc("You must turn off censor xsocials first.\n", ch);
-		return;
-	}
-
-	if (GET_SEX(ch) == SEX_NEUTRAL) {
-		stc("Only men and women can xsocial.\n", ch);
-		return;
-	}
-
-	dbuf = new_buf();
-
-	for (x = 0; x < 3; x++) {
-		col = 0;
-		sprintf(buf, "%s:{x\n",
-		        x == 0 ? "{YEither sex" : x == 1 ? "{CMale only" : "{VFemale only");
-		add_buf(dbuf, buf);
-
-		for (iterator = xsocial_table_head->next; iterator != xsocial_table_tail; iterator = iterator->next) {
-			if (iterator->csex != x || !iterator->name)
-				continue;
-
-			if (col % 5 == 0)
-				add_buf(dbuf, "            ");
-
-			sprintf(buf, "%-12s", iterator->name);
-			add_buf(dbuf, buf);
-
-			if (++col % 5 == 0)
-				add_buf(dbuf, "\n");
-		}
-
-		if (col % 5 != 0)
-			add_buf(dbuf, "\n\n");
-	}
-
-	page_to_char(buf_string(dbuf), ch);
-	free_buf(dbuf);
-} /* end do_xsocials() */
-
 /* RT Commands to replace news, motd, imotd, etc from ROM */
 void do_imotd(CHAR_DATA *ch, char *argument)
 {
@@ -4964,68 +4917,6 @@ void do_claninfo(CHAR_DATA *ch, char *argument)
 	}
 
 	return;
-}
-
-void do_consent(CHAR_DATA *ch, char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
-	argument = one_argument(argument, arg);
-
-	if (IS_NPC(ch)) {
-		stc("Mobiles lack the stamina to xsocial.\n", ch);
-		return;
-	}
-
-	if (arg[0] == '\0') {
-		stc("Consent to whom?\n", ch);
-		return;
-	}
-
-	if (!str_cmp(arg, "none")) {
-		stc("No one may xsocial to you now.\n", ch);
-		return;
-	}
-
-	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
-		stc("They are not here.\n", ch);
-		return;
-	}
-
-	if (IS_NPC(victim)) {
-		stc("Not on NPC's.\n", ch);
-		return;
-	}
-
-	if (ch == victim) {
-		stc("You give yourself permission to have your way with you.\n", ch);
-		return;
-	}
-
-	if (ch->pcdata->partner != NULL && !str_cmp(ch->pcdata->partner, victim->name)) {
-		act("You explain to $N that you're not in the mood anymore.", ch, NULL, victim, TO_CHAR);
-		act("$n tells you that $e is not in the mood anymore.", ch, NULL, victim, TO_VICT);
-		ch->pcdata->partner = NULL;
-
-		if (victim->pcdata->partner != NULL && !str_cmp(victim->pcdata->partner, ch->name))
-			victim->pcdata->partner = NULL;
-
-		return;
-	}
-
-	if (IS_SET(ch->censor, CENSOR_XSOC)) {
-		stc("You must turn off censor xsocials first.\n", ch);
-		return;
-	}
-
-	if (IS_SET(victim->censor, CENSOR_XSOC)) {
-		stc("Legacy is not set to {PX{x for them.\n", ch);
-		return;
-	}
-
-	ch->pcdata->partner = victim->name;
-	act("You whisper your desires in $N's ear.", ch, NULL, victim, TO_CHAR);
-	act("$n whispers $s desires in your ear.", ch, NULL, victim, TO_VICT);
 }
 
 char *make_bar(char *bgcolor, char *fgcolor, long info, int numbg, bool imm)

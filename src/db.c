@@ -518,8 +518,6 @@ void boot_db()
 	printf("survived load_songs\n");
 	load_social_table();
 	printf("survived load_social_table\n");
-	load_xsocial_table();
-	printf("survived load_xsocial_table\n");
 	load_storage_list();
 	printf("survived load_storage_list\n");
 	load_departed_list();

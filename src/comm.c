@@ -2600,12 +2600,6 @@ void act(const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2,
 	act_new(format, ch, arg1, arg2, type, POS_RESTING, FALSE);
 }
 
-/* special act for xsocials, to work with censor */
-void xact(const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2, int type)
-{
-	act_new(format, ch, arg1, arg2, type, POS_RESTING, TRUE);
-}
-
 /* the guts of act_new, taken out to reduce complexity. */
 void act_format(const char *format, CHAR_DATA *ch,
                 CHAR_DATA *vch, CHAR_DATA *vch2,
@@ -2839,7 +2833,7 @@ void act_new(const char *format, CHAR_DATA *ch, const void *arg1,
 
 	/*** first loop, for normal recipients of ACT */
 	for (; to != NULL; to = to->next_in_room) {
-		if (censor && (IS_NPC(to) || IS_SET(to->censor, CENSOR_XSOC)))
+		if (censor && IS_NPC(to))
 			continue;
 
 		if (get_position(to) < min_pos)

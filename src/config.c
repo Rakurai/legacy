@@ -47,7 +47,6 @@ void config_wiznet(CHAR_DATA *ch, char *argument)
 
              if (is_number(arg1))                       argnum = atoi(arg1);
         else if (!str_prefix1(arg1, "channels"))        argnum = 1;
-        else if (!str_prefix1(arg1, "xsocials"))        argnum = 2;
         else if (!str_prefix1(arg1, "spam"))            argnum = 3;
 
         switch(argnum)
@@ -417,8 +416,6 @@ void config_censor(CHAR_DATA *ch, char *argument)
 		stc("Censor options:\n\n", ch);
 		ptc(ch, "  1.  Channels                                   %s\n",
 		    IS_SET(ch->censor, CENSOR_CHAN) ?  "{CON{x" : "{POFF{x");
-		ptc(ch, "  2.  Xsocials                                   %s\n",
-		    IS_SET(ch->censor, CENSOR_XSOC) ?  "{CON{x" : "{POFF{x");
 		ptc(ch, "  3.  Spam                                       %s\n",
 		    IS_SET(ch->censor, CENSOR_SPAM) ?  "{CON{x" : "{POFF{x");
 		return;
@@ -433,8 +430,7 @@ void config_censor(CHAR_DATA *ch, char *argument)
 
 	if (is_number(arg1))                       argnum = atoi(arg1);
 	else if (!str_prefix1(arg1, "channels"))        argnum = 1;
-	else if (!str_prefix1(arg1, "xsocials"))        argnum = 2;
-	else if (!str_prefix1(arg1, "spam"))            argnum = 3;
+	else if (!str_prefix1(arg1, "spam"))            argnum = 2;
 
 	switch (argnum) {
 	default:        break;
@@ -483,33 +479,7 @@ void config_censor(CHAR_DATA *ch, char *argument)
 
 		return;
 
-	case 2: /* XSOCIALS */
-		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
-			stc("Xsocials are X-rated socials that are only seen by those in the\n"
-			    "same room as the actor.  Turning off this censor allows you to\n"
-			    "see xsocials in the room you are in, and also allows you to\n"
-			    "'consent' (give permission to perform xsocials on you) and to\n"
-			    "allow others to 'consent' to you.\n", ch);
-		else if (argument[0] == '\0') {
-			if (IS_SET(ch->censor, CENSOR_XSOC)) {
-				REMOVE_BIT(ch->censor, CENSOR_XSOC);
-				stc("{BL{Ce{gg{Wa{Cc{By{x is now rated {PX{x.\n", ch);
-			}
-			else {
-				SET_BIT(ch->censor, CENSOR_XSOC);
-
-				if (IS_SET(ch->censor, CENSOR_CHAN))
-					stc("{BL{Ce{gg{Wa{Cc{By{x is now rated {GPG{x.\n", ch);
-				else
-					stc("{BL{Ce{gg{Wa{Cc{By{x is now rated {PR{x.\n", ch);
-			}
-		}
-		else
-			stc("Valid options are {Phelp{x and no argument (toggle).\n", ch);
-
-		return;
-
-	case 3: /* SPAM */
+	case 2: /* SPAM */
 		if (!str_prefix1(argument, "help") || !str_cmp(argument, "?"))
 			stc("The spam censor toggles whether or not you will see notes\n"
 			    "addressed to 'spam'.  Swearing censors still apply to spam\n"

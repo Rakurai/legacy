@@ -40,8 +40,6 @@ char dv_command[MAX_INPUT_LENGTH];
 char logline[MAX_STRING_LENGTH] = " "; /* extern for debug */
 char dv_guard[] = "55555";             /* check this to see if logline overwritten */
 
-bool  check_xsocial     args((CHAR_DATA *ch, char *command, char *argument));
-
 /* Disabled Commands Stuff */
 bool    check_disabled(const struct cmd_type *command);
 DISABLED_DATA *disabled_first;
@@ -171,7 +169,6 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "copyover",           do_copyover,    POS_DEAD,               LOG_ALWAYS,     5,      GL | GWC        },
 	{ "consider",           do_consider,    POS_RESTING,    LOG_NORMAL,     3,      0                       },
 	{ "config",                     do_config,              POS_SLEEPING,   LOG_NORMAL,     6,      0                       },
-	{ "consent",            do_consent,             POS_RESTING,    LOG_NORMAL,     1,      0                       },
 	{ "convert",            do_convert,             POS_SLEEPING,   LOG_NORMAL,     8,      0                       },
 	{ "count",                      do_count,               POS_SLEEPING,   LOG_NORMAL,     3,      0                       },
 	{ "credits",            do_credits,             POS_DEAD,               LOG_NORMAL,     3,      0                       },
@@ -525,9 +522,6 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "wiznet",                     do_wiznet,              POS_DEAD,               LOG_NORMAL,     5,      GWG                     },
 	{ "worth",                      do_worth,               POS_SLEEPING,   LOG_NORMAL,     3,      0                       },
 	{ "work",                       do_work,                POS_DEAD,               LOG_NORMAL,     5,      GWC                     },
-	{ "xsocial",            do_xsocial,             POS_RESTING,    LOG_NORMAL,     1,      0                       },
-	{ "xsocials",           do_xsocials,    POS_SLEEPING,   LOG_NORMAL,     1,      0                       },
-	{ "xedit",                      do_xedit,               POS_DEAD,               LOG_ALWAYS,     5,      GWB                     },
 	{ "yell",                       do_yell,                POS_RESTING,    LOG_NORMAL,     1,      0                       },
 	{ "zap",                        do_zap,                 POS_RESTING,    LOG_NORMAL,     7,      0                       },
 	{ "zecho",                      do_zecho,               POS_DEAD,               LOG_NORMAL,     5,      GWQ                     },
