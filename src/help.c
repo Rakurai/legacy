@@ -504,7 +504,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 
 			char immbuf[MSL] = "";
 
-			if IS_IMMORTAL(ch)
+			if (IS_IMMORTAL(ch))
 				sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
 
 			ptb(output, "%s\n{W%s%s{x\n\n",
@@ -523,7 +523,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 		/* no exact matches, if there's only one partial match, let's show it and be done */
 		char immbuf[MSL] = "";
 
-		if IS_IMMORTAL(ch)
+		if (IS_IMMORTAL(ch))
 			sprintf(immbuf, "(id %d, file %s) ", temp_help[result_num].id, helpfile_table[temp_help[result_num].hgroup].name);
 
 		ptb(output, "%s\n{W%s%s{x\n\n",

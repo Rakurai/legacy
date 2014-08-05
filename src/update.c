@@ -195,7 +195,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 			        "{CGG GGG  RRRRRR   AAAAAA    TTT     ZZZ  \n\r"
 			        "{BGG  GG  RR  RRR  AA  AA    TTT    ZZZZZZ\n\r"
 			        "{VGGGGGG  RR   RR  AA  AA    TTT    ZZZZZZ{x\n\r";
-			extern void restore_char(CHAR_DATA * ch, CHAR_DATA * victim);
+			extern void restore_char(CHAR_DATA *, CHAR_DATA *);
 			stc("{MGratz from all the Immortals of Legacy!{x\n\r\n\r", ch);
 
 			for (d = descriptor_list; d; d = d->next)

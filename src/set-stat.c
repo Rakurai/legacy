@@ -1622,9 +1622,11 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 			id = (raff_lookup(victim->pcdata->raffect[raff]));
 
 			if (id == -1)
-				sprintf(buf, "%s, Unknown", buf);
-			else
-				sprintf(buf, "%s, %s", buf, raffects[id].shortname);
+				strcat(buf, ", Unknown");
+			else {
+				strcat(buf, ", ");
+				strcat(buf, raffects[id].shortname);
+			}
 		}
 
 		sprintf(buf, "%s\n\r", buf);

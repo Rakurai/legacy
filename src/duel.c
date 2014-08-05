@@ -549,7 +549,7 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 	AFFECT_DATA *paf;
 	OBJ_DATA *obj;
 	int loc;
-	extern void affect_modify args((CHAR_DATA * ch, AFFECT_DATA * paf, bool fAdd));
+	extern void affect_modify args((CHAR_DATA *, AFFECT_DATA *, bool));
 	char_from_room(ch);
 
 	if (duel->challenger == ch)

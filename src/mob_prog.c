@@ -982,7 +982,7 @@ bool mprog_do_ifchck(char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 			return mprog_veval(lhsvl, opr, rhsvl);
 
 		case 'n': if (actor) {
-				if IS_NPC(actor) {
+				if (IS_NPC(actor)) {
 					lhsvl = actor->pIndexData->vnum;
 					rhsvl = atoi(val);
 					return mprog_veval(lhsvl, opr, rhsvl);
@@ -992,7 +992,7 @@ bool mprog_do_ifchck(char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 't': if (vict) {
-				if IS_NPC(actor) {
+				if (IS_NPC(actor)) {
 					lhsvl = vict->pIndexData->vnum;
 					rhsvl = atoi(val);
 					return mprog_veval(lhsvl, opr, rhsvl);
@@ -1002,7 +1002,7 @@ bool mprog_do_ifchck(char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 				return -1;
 
 		case 'r': if (rndm) {
-				if IS_NPC(actor) {
+				if (IS_NPC(actor)) {
 					lhsvl = rndm->pIndexData->vnum;
 					rhsvl = atoi(val);
 					return mprog_veval(lhsvl, opr, rhsvl);

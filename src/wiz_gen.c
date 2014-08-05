@@ -370,12 +370,14 @@ void do_alternate(CHAR_DATA *ch, char *argument)
 	add_buf(output, "{GMatching characters/sites:{x\n\r");
 	add_buf(output, "{G=================================================================={x\n\r");
 
-	for (i = 0; i < sorted_count; i++)
-		ptb(output, "{G[{W%12s%2s%54s{G]{x\n\r",
-		    (i == 0 || str_cmp(results_sorted[i].name, results_sorted[i - 1].name))
-		    ? results_sorted[i].name : "",
-		    (i == 0 || str_cmp(results_sorted[i].name, results_sorted[i - 1].name))
-		    ? " {G-{W" : "",
+	char fstr[25];
+	strcpy(fstr, "{G[{W%12s%s%54s{G]{x\n\r");
+	ptb(output, fstr, results_sorted[0].name, " {G-{W", results_sorted[0].site);
+
+	for (i = 1; i < sorted_count; i++)
+		ptb(output, fstr,
+		    str_cmp(results_sorted[i].name, results_sorted[i - 1].name) ? results_sorted[i].name : "",
+		    str_cmp(results_sorted[i].name, results_sorted[i - 1].name) ? " {G-{W" : "  ",
 		    results_sorted[i].site);
 
 	add_buf(output, "{G=================================================================={x\n\r");

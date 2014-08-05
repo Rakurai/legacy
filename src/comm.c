@@ -3070,14 +3070,14 @@ void do_copyover(CHAR_DATA *ch, char *argument)
 {
 	FILE *fp;
 	DESCRIPTOR_DATA *d, *d_next;
-	char buf [100], buf3[100];
+	char buf[MSL];
 	do_allsave(ch, "");
 	save_clan_table();
 
 	if ((fp = fopen(COPYOVER_FILE, "w")) == NULL) {
 		stc("Copyover file not writeable, aborted.\n\r", ch);
-		sprintf(buf3, "Could not write to copyover file: %s", COPYOVER_FILE);
-		log_string(buf3);
+		sprintf(buf, "Could not write to copyover file: %s", COPYOVER_FILE);
+		log_string(buf);
 		perror("do_copyover:fopen");
 		return;
 	}
@@ -3098,8 +3098,8 @@ void do_copyover(CHAR_DATA *ch, char *argument)
 
 	if ((fp = fopen(COPYOVER_LOG, "w")) == NULL) {
 		stc("Copyover file not writeable, aborted.\n\r", ch);
-		sprintf(buf3, "Could not write to copyover file: %s", COPYOVER_LOG);
-		log_string(buf3);
+		sprintf(buf, "Could not write to copyover file: %s", COPYOVER_LOG);
+		log_string(buf);
 		perror("do_copyover:fopen");
 		return;
 	}
@@ -3182,9 +3182,10 @@ void do_copyover(CHAR_DATA *ch, char *argument)
 	db_close();
 
 	/* exec - descriptors are inherited */
-	sprintf(buf,  "%d", port);
-	sprintf(buf3, "%d", control);
-	execl(EXE_FILE, "legacy", buf, "null", "copyover", buf3, "null", (char*)0);
+	char portbuf[MSL], controlbuf[MSL];
+	sprintf(portbuf,  "%d", port);
+	sprintf(controlbuf, "%d", control);
+	execl(EXE_FILE, "legacy", portbuf, "null", "copyover", controlbuf, "null", (char*)0);
 	/* Failed - sucessful exec will not return */
 	perror("do_copyover: execl");
 	stc("Copyover FAILED!\n\r", ch);
