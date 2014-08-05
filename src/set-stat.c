@@ -1629,7 +1629,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 			}
 		}
 
-		sprintf(buf, "%s\n", buf);
+		strcat(buf, "\n");
 		stc(buf, ch);
 	}
 

@@ -34,6 +34,7 @@ int load_config(char *filename) {
 	if (fread(str, 1, fsize, cf) != fsize) {
 		bug("Error in reading config file.", 0);
 		fclose(cf);
+		free(str);
 		return -1;
 	}
 
