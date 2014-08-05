@@ -27,7 +27,6 @@
 
 #include "merc.h"
 #include "magic.h"
-#include "interp.h"
 
 
 /* item type list */

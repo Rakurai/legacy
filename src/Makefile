@@ -19,8 +19,8 @@ H_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_H_DEPS))
 _O_DEPS = cJSON/cJSON.o
 O_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_O_DEPS))
 
-_H_FILES = ansi_compat.h bet.h db.h departed.h interp.h lookup.h  \
-        magic.h malloc.h memory.h merc.h music.h sql.h ports.h  \
+_H_FILES = db.h interp.h lookup.h  \
+        magic.h memory.h merc.h music.h sql.h  \
         recycle.h tables.h telnet.h vt100.h
 H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 

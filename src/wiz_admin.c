@@ -14,9 +14,5 @@
 * command group.                                 *
 *************************************************/
 
-#if defined(macintosh)
-#else
-#endif
 #include "merc.h"
-#include "recycle.h"
 

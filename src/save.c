@@ -28,14 +28,9 @@
 
 
 #include "merc.h"
-#include "malloc.h"
 #include "recycle.h"
-#include "lookup.h"
 #include "tables.h"
-#include "vt100.h"
-#include "sql.h"
-
-#include <sys/stat.h>
+#include "lookup.h"
 
 extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((CHAR_DATA *ch, int row, int column));

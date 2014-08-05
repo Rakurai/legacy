@@ -44,17 +44,14 @@
  */
 
 #include <unistd.h>
-#include <sys/shm.h>
 #include <arpa/inet.h>
 
 #include "merc.h"
-#include "recycle.h"
 #include "vt100.h" /* VT100 Stuff */
-#include "ports.h"
-#include "lookup.h"
-#include "sql.h"
 #include "memory.h"
-
+#include "lookup.h"
+#include "recycle.h"
+#include "sql.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_color);
@@ -80,7 +77,6 @@ extern void     roll_raffects   args((CHAR_DATA *ch, CHAR_DATA *victim));
 #endif
 
 #if defined(MALLOC_DEBUG)
-#include <malloc.h>
 extern  int     malloc_debug    args((int));
 extern  int     malloc_verify   args((void));
 #endif
@@ -107,11 +103,8 @@ extern  int     malloc_verify   args((void));
 #if     defined(unix)
 #include <fcntl.h>
 #include <netdb.h>
-#include <netinet/in.h>
-#include <sys/socket.h>
 #include "telnet.h"
 #if defined(SAND)
-#include "sand.h"
 #endif
 #if !defined( STDOUT_FILENO )
 #define STDOUT_FILENO 1
@@ -133,7 +126,6 @@ as unsigned causes errors in write_to_buff.  Therefore, ignore the warning - Lot
  * OS-dependent declarations.
  */
 #if     defined(_AIX)
-#include <sys/select.h>
 int     accept          args((int s, struct sockaddr *addr, int *addrlen));
 int     bind            args((int s, struct sockaddr *name, int namelen));
 void    bzero           args((char *b, int length));
@@ -147,7 +139,6 @@ int     socket          args((int domain, int type, int protocol));
 #endif
 
 /*#if     defined(apollo)
-#include <unistd.h>
 void    bzero           args( ( char *b, int length ) );
 #endif
 */
@@ -166,8 +157,6 @@ int     socket          args((int domain, int type, int protocol));
 #endif
 
 #if     defined(interactive)
-#include <net/errno.h>
-#include <sys/fnctl.h>
 #endif
 
 #if     defined(linux)

@@ -27,7 +27,6 @@
 
 #include "merc.h"
 #include "recycle.h"
-#include "tables.h"
 
 /* globals from db.c for load_notes */
 extern  int     _filbuf         args((FILE *));

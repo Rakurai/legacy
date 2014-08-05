@@ -1,9 +1,9 @@
 #include "merc.h"
-#include "recycle.h"
 #include "vt100.h"
 #include "sql.h"
+#include "recycle.h"
+
 //For the hack fix
-#include "tables.h"
 
 DECLARE_DO_FUN(do_skills);
 DECLARE_DO_FUN(do_outfit);
@@ -28,7 +28,6 @@ bool                newlock;            /* Game is newlocked            */
 #if     defined(unix)
 #include "telnet.h"
 #if defined (SAND)
-#include "sand.h"
 #endif
 #if !defined( STDOUT_FILENO )
 #define STDOUT_FILENO 1

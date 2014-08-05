@@ -30,7 +30,6 @@
    -- Outsider
 */
 #include "merc.h"
-#include "bet.h"
 #include "recycle.h"
 #include "tables.h"
 #include "magic.h"

@@ -26,9 +26,8 @@
 ***************************************************************************/
 
 #include "merc.h"
-#include "lookup.h"
-#include "recycle.h"
 #include "sql.h"
+#include "recycle.h"
 
 extern AREA_DATA *area_first;
 

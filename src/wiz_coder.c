@@ -15,9 +15,7 @@
 *************************************************/
 
 #include "merc.h"
-#include "lookup.h"
 #include "recycle.h"
-#include "ports.h"
 #include "memory.h"
 #include "sql.h"
 

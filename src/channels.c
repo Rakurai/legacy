@@ -30,7 +30,6 @@
 #include "lookup.h"
 #include "recycle.h"
 
-
 extern void     channel_who     args((CHAR_DATA *ch, char *channelname, int
                                       channel, int custom));
 bool    check_channel_social    args((CHAR_DATA *ch, int channel,
