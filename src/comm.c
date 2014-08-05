@@ -2583,11 +2583,14 @@ void show_string(struct descriptor_data *d, char *input)
 {
 	char buffer[4 * MAX_STRING_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
-	register char *scan, *chk;
+	register char *scan;
 	int lines = 0, toggle = 1;
 	int show_lines;
+
+	// get the first word from the input
 	one_argument(input, buf);
 
+	// if nothing, done paging output, clear the remainders
 	if (buf[0] != '\0') {
 		if (d->showstr_head) {
 			free_string(d->showstr_head);
@@ -2598,16 +2601,21 @@ void show_string(struct descriptor_data *d, char *input)
 		return;
 	}
 
+	// how many lines per page?
 	if (d->character)
 		show_lines = d->character->lines;
 	else
 		show_lines = 0;
 
+
 	for (scan = buffer; ; scan++, d->showstr_point++) {
+		// copy each line to the buffer
+		// toggle apparantly expecting all lines to end with \n and \r?
 		if (((*scan = *d->showstr_point) == '\n' || *scan == '\r')
 		    && (toggle = -toggle) < 0)
 			lines++;
 		else if (!*scan || (show_lines > 0 && lines >= show_lines)) {
+			// cut off and send the output part
 			*scan = '\0';
 
 			if (d-> character)
@@ -2615,6 +2623,13 @@ void show_string(struct descriptor_data *d, char *input)
 			else
 				write_to_buffer(d, buffer, strlen(buffer));
 
+			// remove leading spaces from remainder
+			// why strip spaces? - Montrey
+/*
+			// and the semicolon following this looks like a bug,
+			// but it broke when i 'fixed' it - Montrey
+			char *chk;
+	
 			for (chk = d->showstr_point; isspace(*chk); chk++);
 
 			{
@@ -2627,6 +2642,7 @@ void show_string(struct descriptor_data *d, char *input)
 					d->showstr_point  = 0;
 				}
 			}
+*/
 			return;
 		}
 	}
