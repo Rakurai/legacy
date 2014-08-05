@@ -2583,7 +2583,7 @@ void show_string(struct descriptor_data *d, char *input)
 {
 	char buffer[4 * MAX_STRING_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
-	register char *scan;
+	register char *scan, *chk;
 	int lines = 0, toggle = 1;
 	int show_lines;
 
@@ -2623,26 +2623,20 @@ void show_string(struct descriptor_data *d, char *input)
 			else
 				write_to_buffer(d, buffer, strlen(buffer));
 
-			// remove leading spaces from remainder
-			// why strip spaces? - Montrey
-/*
-			// and the semicolon following this looks like a bug,
-			// but it broke when i 'fixed' it - Montrey
-			char *chk;
-	
-			for (chk = d->showstr_point; isspace(*chk); chk++);
+			// check to see if all we have left is whitespace or nothing.
+			// if so, cut off, reset our pointer
+			for (chk = d->showstr_point; isspace(*chk); chk++)
+				;
 
-			{
-				if (!*chk) {
-					if (d->showstr_head) {
-						free_string(d->showstr_head);
-						d->showstr_head = 0;
-					}
-
-					d->showstr_point  = 0;
+			if (!*chk) {
+				if (d->showstr_head) {
+					free_string(d->showstr_head);
+					d->showstr_head = 0;
 				}
+
+				d->showstr_point  = 0;
 			}
-*/
+
 			return;
 		}
 	}
