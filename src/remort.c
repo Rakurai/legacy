@@ -173,9 +173,9 @@ void roll_one_raff(CHAR_DATA *ch, CHAR_DATA *victim, int place)
 	}
 
 	if (ch != victim)
-		ptc(ch, "({C%3d{x) {W%s{x added.\n\r", raffects[test].id, str_dup(raffects[test].description));
+		ptc(ch, "({C%3d{x) {W%s{x added.\n", raffects[test].id, str_dup(raffects[test].description));
 
-	ptc(victim, "{C--- {W%s.{x\n\r", str_dup(raffects[test].description));
+	ptc(victim, "{C--- {W%s.{x\n", str_dup(raffects[test].description));
 }
 
 void roll_raffects(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -241,14 +241,14 @@ void list_extraskill(CHAR_DATA *ch)
 	BUFFER *output;
 	int sn, cn, col;
 	output = new_buf();
-	add_buf(output, "\n\r                      {BExtraclass Remort Skills{x\n\r");
+	add_buf(output, "\n                      {BExtraclass Remort Skills{x\n");
 
 	for (cn = 0; cn < MAX_CLASS; cn++) {
 		if (!IS_IMMORTAL(ch))
 			if (cn == ch->class)
 				continue;
 
-		ptb(output, "\n\r{W%s Skills{x\n\r    ", capitalize(class_table[cn].name));
+		ptb(output, "\n{W%s Skills{x\n    ", capitalize(class_table[cn].name));
 
 		for (sn = 0, col = 0; skill_table[sn].name != NULL; sn++) {
 			if (skill_table[sn].remort_class != cn + 1)
@@ -266,13 +266,13 @@ void list_extraskill(CHAR_DATA *ch)
 			    skill_table[sn].rating[ch->class]);
 
 			if (++col % 3 == 0)
-				add_buf(output, "\n\r");
+				add_buf(output, "\n");
 		}
 
-		add_buf(output, "\n\r");
+		add_buf(output, "\n");
 
 		if (col % 3 != 0)
-			add_buf(output, "\n\r");
+			add_buf(output, "\n");
 	}
 
 	page_to_char(buf_string(output), ch);
@@ -312,7 +312,7 @@ void do_eremort(CHAR_DATA *ch, char *argument)
 		    ch->pcdata->extraclass[2] +
 		    ch->pcdata->extraclass[3] +
 		    ch->pcdata->extraclass[4] > 0) {
-			ptb(output, "\n\rYour current extraclass skill%s",
+			ptb(output, "\nYour current extraclass skill%s",
 			    ch->pcdata->extraclass[1] ? "s are" : " is");
 
 			if (ch->pcdata->extraclass[0])
@@ -324,7 +324,7 @@ void do_eremort(CHAR_DATA *ch, char *argument)
 					ptb(output, ", %s",
 					    skill_table[ch->pcdata->extraclass[x]].name);
 
-			add_buf(output, ".\n\r");
+			add_buf(output, ".\n");
 			page_to_char(buf_string(output), ch);
 			free_buf(output);
 		}
@@ -334,37 +334,37 @@ void do_eremort(CHAR_DATA *ch, char *argument)
 
 	/* Ok, now we check to see if the skill is a remort skill */
 	if ((sn = skill_lookup(arg1)) < 0) {
-		stc("That is not even a valid skill, much less a remort skill.\n\r", ch);
+		stc("That is not even a valid skill, much less a remort skill.\n", ch);
 		return;
 	}
 
 	/* Is it a remort skill? */
 	if (skill_table[sn].remort_class == 0) {
-		stc("That is not a remort skill.\n\r", ch);
+		stc("That is not a remort skill.\n", ch);
 		return;
 	}
 
 	/* Is it outside of the player's class? */
 	if (skill_table[sn].remort_class == ch->class + 1) {
-		stc("You have knowledge of this skill already, pick one outside your class.\n\r", ch);
+		stc("You have knowledge of this skill already, pick one outside your class.\n", ch);
 		return;
 	}
 
 	/* is it barred from that class? */
 	if (skill_table[sn].skill_level[ch->class] <= 0
 	    || skill_table[sn].skill_level[ch->class] > 91) {
-		stc("Your class cannot gain that skill.\n\r", ch);
+		stc("Your class cannot gain that skill.\n", ch);
 		return;
 	}
 
 	/* do they have it already? */
 	if (HAS_EXTRACLASS(ch, sn)) {
-		stc("You already know that skill.\n\r", ch);
+		stc("You already know that skill.\n", ch);
 		return;
 	}
 
 	if (ch->train < skill_table[sn].rating[ch->class]) {
-		stc("You do not have enough training to master this skill.\n\r", ch);
+		stc("You do not have enough training to master this skill.\n", ch);
 		return;
 	}
 
@@ -377,14 +377,14 @@ void do_eremort(CHAR_DATA *ch, char *argument)
 				ch->pcdata->learned[sn] = 1;
 
 			ch->train -= skill_table[sn].rating[ch->class];
-			ptc(ch, "You have gained %s as an extraclass remort skill.\n\r",
+			ptc(ch, "You have gained %s as an extraclass remort skill.\n",
 			    skill_table[sn].name);
 			return;
 		}
 	}
 
 	/* can't find an empty spot, must have the max number of extraclass skills */
-	stc("You have enough extraclass remort skills!  Don't be greedy!\n\r", ch);
+	stc("You have enough extraclass remort skills!  Don't be greedy!\n", ch);
 }
 
 
@@ -404,43 +404,43 @@ void do_remort(CHAR_DATA *ch, char *argument)
 	    || (arg2[0] != '\0'
 	        && (arg3[0] == '\0'
 	            || argument[0] == '\0'))) {
-		stc("Syntax:\n\r"
-		    "  remort <victim>   (must be remort 1 or higher)\n\r"
-		    "  remort <victim> <race> <deity> <title>\n\r", ch);
+		stc("Syntax:\n"
+		    "  remort <victim>   (must be remort 1 or higher)\n"
+		    "  remort <victim> <race> <deity> <title>\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
-		stc("Hmmm...they must have ran off in fear >=).\n\r", ch);
+		stc("Hmmm...they must have ran off in fear >=).\n", ch);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim)) {
-		stc("This can only be used on mortals.\n\r", ch);
+		stc("This can only be used on mortals.\n", ch);
 		return;
 	}
 
 	if (victim->level != LEVEL_HERO) {
-		stc("Only heroes can remort.\n\r", ch);
+		stc("Only heroes can remort.\n", ch);
 		return;
 	}
 
 	if (victim->pcdata->remort_count >= 99) { /* To keep who in line -Endo */
-		stc("That player can no longer remort.  If you've hit this limit you need\n\r"
-		    "to talk the coders into changing the who list.  Aren't you special?\n\r", ch);
+		stc("That player can no longer remort.  If you've hit this limit you need\n"
+		    "to talk the coders into changing the who list.  Aren't you special?\n", ch);
 		return;
 	}
 
 	if (arg2[0] == '\0' && victim->pcdata->remort_count < 1) {
-		stc("Syntax:\n\r"
-		    "  remort <victim> <race> <deity> <title>\n\r", ch);
+		stc("Syntax:\n"
+		    "  remort <victim> <race> <deity> <title>\n", ch);
 		return;
 	}
 
 	/* they gotta be naked */
 	for (x = 0; x < MAX_WEAR; x++) {
 		if (get_eq_char(victim, x) != NULL) {
-			stc("Tell them to remove all of their eq first.\n\r", ch);
+			stc("Tell them to remove all of their eq first.\n", ch);
 			return;
 		}
 	}
@@ -452,19 +452,19 @@ void do_remort(CHAR_DATA *ch, char *argument)
 
 		if ((race = race_lookup(arg2)) == 0
 		    || !race_table[race].pc_race) {
-			stc("That is not a valid race.  Please choose from:\n\r", ch);
+			stc("That is not a valid race.  Please choose from:\n", ch);
 
 			for (race = 1; race_table[race].name != NULL && race_table[race].pc_race; race++) {
 				stc(race_table[race].name, ch);
 				stc(" ", ch);
 			}
 
-			stc("\n\r", ch);
+			stc("\n", ch);
 			return;
 		}
 
 		if ((victim->pcdata->remort_count + 1) < pc_race_table[race].remort_level) {
-			stc("They are not experienced enough for that race.\n\r", ch);
+			stc("They are not experienced enough for that race.\n", ch);
 			return;
 		}
 	}
@@ -544,7 +544,7 @@ void do_remort(CHAR_DATA *ch, char *argument)
 	for (c = 0; c < 5; c++)
 		victim->pcdata->extraclass[c] = 0;
 
-	stc("Your deity bestows upon you...\n\r", victim);
+	stc("Your deity bestows upon you...\n", victim);
 	roll_raffects(ch, victim);
 
 	if (victim->pcdata->remort_count == 1)
@@ -552,7 +552,7 @@ void do_remort(CHAR_DATA *ch, char *argument)
 
 	sprintf(buf, "%s has been reborn!", victim->name);
 	do_send_announce(victim, buf);
-	stc("You suddenly feel like a newbie!! Do'h!!!\n\r", victim);
-	stc("Successful Remort.\n\r", ch);
+	stc("You suddenly feel like a newbie!! Do'h!!!\n", victim);
+	stc("Successful Remort.\n", ch);
 }
 

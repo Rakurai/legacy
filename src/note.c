@@ -83,13 +83,13 @@ void do_unread(CHAR_DATA *ch)
 	bool found = FALSE;
 
 	if (IS_NPC(ch)) {
-		stc("Sorry, only players can read notes!\n\r", ch);
+		stc("Sorry, only players can read notes!\n", ch);
 		return;
 	}
 
 	if ((count = count_spool(ch, immquest_list)) > 0) {
 		found = TRUE;
-		ptc(ch, "There %s %d new {Bimmquest{x note%s waiting.\n\r",
+		ptc(ch, "There %s %d new {Bimmquest{x note%s waiting.\n",
 		    count > 1 ? "are" : "is",
 		    count,
 		    count > 1 ? "s" : "");
@@ -97,7 +97,7 @@ void do_unread(CHAR_DATA *ch)
 
 	if ((count = count_spool(ch, changes_list)) > 0) {
 		found = TRUE;
-		ptc(ch, "There %s %d {Gchange%s{x waiting to be read.\n\r",
+		ptc(ch, "There %s %d {Gchange%s{x waiting to be read.\n",
 		    count > 1 ? "are" : "is",
 		    count,
 		    count > 1 ? "s" : "");
@@ -105,44 +105,44 @@ void do_unread(CHAR_DATA *ch)
 
 	if ((count = count_spool(ch, note_list)) > 0) {
 		found = TRUE;
-		ptc(ch, "You have %d new {Pnote%s{x waiting.\n\r",
+		ptc(ch, "You have %d new {Pnote%s{x waiting.\n",
 		    count,
 		    count > 1 ? "s" : "");
 	}
 
 	if ((count = count_spool(ch, idea_list)) > 0) {
 		found = TRUE;
-		ptc(ch, "You have %d unread {Yidea%s{x to pursue.\n\r",
+		ptc(ch, "You have %d unread {Yidea%s{x to pursue.\n",
 		    count,
 		    count > 1 ? "s" : "");
 	}
 
 	if ((count = count_spool(ch, roleplay_list)) > 0) {
 		found = TRUE;
-		ptc(ch, "%d {Vroleplay%s been added.\n\r",
+		ptc(ch, "%d {Vroleplay%s been added.\n",
 		    count,
 		    count > 1 ? "ing{x notes have" : "{x note has");
 	}
 
 	if ((count = count_spool(ch, personal_list)) > 0) {
 		found = TRUE;
-		ptc(ch, "You have %d {Cpersonal{x message%s to read.\n\r",
+		ptc(ch, "You have %d {Cpersonal{x message%s to read.\n",
 		    count,
 		    count > 1 ? "s" : "");
 	}
 
 	if ((count = count_spool(ch, trade_list)) > 0) {
 		found = TRUE;
-		ptc(ch, "You have %d {btrade{x note%s to read.\n\r",
+		ptc(ch, "You have %d {btrade{x note%s to read.\n",
 		    count,
 		    count > 1 ? "s" : "");
 	}
 
 	if (!found)
-		stc("You have no unread notes.\n\r", ch);
+		stc("You have no unread notes.\n", ch);
 	else {
-		stc("Type: {Y<next>{x to scroll through your messages.\n\r", ch);
-		stc("Type: {Y<note wipe>{x to empty all message boards.\n\r", ch);
+		stc("Type: {Y<next>{x to scroll through your messages.\n", ch);
+		stc("Type: {Y<note wipe>{x to empty all message boards.\n", ch);
 	}
 }
 
@@ -703,15 +703,15 @@ void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
 			        list_name, pnote->sender, pnote->subject);
 
 			if (ch->clan && is_name(ch->clan->name, pnote->to_list))
-				strcat(buf, "Guild note.{x\n\r");
+				strcat(buf, "Guild note.{x\n");
 			else if (note_is_name(ch->name, pnote->to_list))
-				strcat(buf, "Personal note.{x\n\r");
+				strcat(buf, "Personal note.{x\n");
 			else if (is_name("all", pnote->to_list))
-				strcat(buf, "Global note.{x\n\r");
+				strcat(buf, "Global note.{x\n");
 			else if (IS_IMMORTAL(ch) && is_name("immortal", pnote->to_list))
-				strcat(buf, "Immortal note.{x\n\r");
+				strcat(buf, "Immortal note.{x\n");
 			else
-				strcat(buf, "{x\n\r");
+				strcat(buf, "{x\n");
 
 			if (ch != vch
 			    /* don't info author of forward -- Elrac */
@@ -741,7 +741,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		bool fAll = FALSE;
 
 		if (IS_NPC(ch)) {
-			stc("Sorry, mobiles can't read notes.\n\r", ch);
+			stc("Sorry, mobiles can't read notes.\n", ch);
 			return;
 		}
 
@@ -749,11 +749,11 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		if (argument[0] == '\0' || !str_prefix1(argument, "next")) {
 			for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 				if (!hide_note(ch, pnote)) {
-					ptc(ch, "{W[%3d] From: {x%s\n\r"
-					    "        {WTo: {x%s\n\r"
-					    "      {WDate: {x%s\n\r"
-					    "   {WSubject: {x%s\n\r"
-					    "{W================================================================================{x\n\r",
+					ptc(ch, "{W[%3d] From: {x%s\n"
+					    "        {WTo: {x%s\n"
+					    "      {WDate: {x%s\n"
+					    "   {WSubject: {x%s\n"
+					    "{W================================================================================{x\n",
 					    vnum,
 					    pnote->sender,
 					    pnote->to_list,
@@ -767,7 +767,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 					vnum++;
 			}
 
-			ptc(ch, "You have no unread %s.\n\r", list_name);
+			ptc(ch, "You have no unread %s.\n", list_name);
 			return;
 		}
 		else if (is_number(argument))
@@ -775,17 +775,17 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		else if (!str_cmp(argument, "all"))
 			fAll = TRUE;
 		else {
-			stc("Read which number?\n\r", ch);
+			stc("Read which number?\n", ch);
 			return;
 		}
 
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && (vnum++ == anum || fAll)) {
-				ptc(ch, "{W[%3d] From: {x%s\n\r"
-				    "        {WTo: {x%s\n\r"
-				    "      {WDate: {x%s\n\r"
-				    "   {WSubject: {x%s\n\r"
-				    "{W================================================================================{x\n\r",
+				ptc(ch, "{W[%3d] From: {x%s\n"
+				    "        {WTo: {x%s\n"
+				    "      {WDate: {x%s\n"
+				    "   {WSubject: {x%s\n"
+				    "{W================================================================================{x\n",
 				    vnum - 1,
 				    pnote->sender,
 				    pnote->to_list,
@@ -797,7 +797,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 			}
 		}
 
-		ptc(ch, "There aren't that many %s.\n\r", list_name);
+		ptc(ch, "There aren't that many %s.\n", list_name);
 		return;
 	}
 
@@ -805,7 +805,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		bool search = FALSE, new = FALSE, found = FALSE, all = FALSE;
 
 		if (IS_NPC(ch)) {
-			stc("Sorry, mobiles can't read notes.\n\r", ch);
+			stc("Sorry, mobiles can't read notes.\n", ch);
 			return;
 		}
 
@@ -828,7 +828,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 				if ((new) && hide_note(ch, pnote))
 					continue;
 
-				sprintf(buf, "{W[{x%3d%s{W][{x%12s{W]{x %s{x\n\r",
+				sprintf(buf, "{W[{x%3d%s{W][{x%12s{W]{x %s{x\n",
 				        vnum,
 				        hide_note(ch, pnote) ? " " : "N",
 				        pnote->sender,
@@ -844,7 +844,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		}
 
 		if (!found)
-			stc("There are no messages that match that criteria.\n\r", ch);
+			stc("There are no messages that match that criteria.\n", ch);
 
 		if (!all)
 			page_to_char(buf_string(buffer), ch);
@@ -855,7 +855,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
 	if (!str_prefix1(arg, "remove")) {
 		if (!is_number(argument)) {
-			stc("Note remove which number?\n\r", ch);
+			stc("Note remove which number?\n", ch);
 			return;
 		}
 
@@ -865,7 +865,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				note_remove(ch, pnote, FALSE);
-				stc("Message removed.\n\r", ch);
+				stc("Message removed.\n", ch);
 				return;
 			}
 		}
@@ -877,7 +877,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
 	if (!str_prefix1(arg, "delete") && IS_IMP(ch)) {
 		if (!is_number(argument)) {
-			stc("Message delete which number?\n\r", ch);
+			stc("Message delete which number?\n", ch);
 			return;
 		}
 
@@ -887,12 +887,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				note_remove(ch, pnote, TRUE);
-				stc("Message deleted.\n\r", ch);
+				stc("Message deleted.\n", ch);
 				return;
 			}
 		}
 
-		sprintf(buf, "There aren't that many %s.\n\r", list_name);
+		sprintf(buf, "There aren't that many %s.\n", list_name);
 		stc(buf, ch);
 		return;
 	}
@@ -902,19 +902,19 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		char forward[MAX_STRING_LENGTH];
 
 		if (IS_NPC(ch)) {
-			stc("Mobs can't forward notes.\n\r", ch);
+			stc("Mobs can't forward notes.\n", ch);
 			return;
 		}
 
 		argument = one_argument(argument, forward);
 
 		if (forward[0] == '\0') {
-			stc("Foward note to who?\n\r", ch);
+			stc("Foward note to who?\n", ch);
 			return;
 		}
 
 		if (!is_number(argument)) {
-			stc("Note forward which number?\n\r", ch);
+			stc("Note forward which number?\n", ch);
 			return;
 		}
 
@@ -938,7 +938,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 				newnote->text     = str_dup(pnote->text);
 				newnote->type     = pnote->type;
 				append_note(newnote);
-				stc("Note Forwarded.\n\r", ch);
+				stc("Note Forwarded.\n", ch);
 				notify_note_post(newnote, ch, type);
 				return;
 			}
@@ -953,7 +953,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		NOTE_DATA *newnote;
 
 		if (!is_number(argument)) {
-			stc("Note repost which number?\n\r", ch);
+			stc("Note repost which number?\n", ch);
 			return;
 		}
 
@@ -975,7 +975,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 				newnote->type     = pnote->type;
 				append_note(newnote);
 				note_remove(ch, pnote, TRUE);
-				stc("Note Reposted.\n\r", ch);
+				stc("Note Reposted.\n", ch);
 				notify_note_post(newnote, ch, type);
 				return;
 			}
@@ -994,7 +994,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		ch->pcdata->last_immquest = current_time;
 		ch->pcdata->last_personal = current_time;
 		ch->pcdata->last_trade = current_time;
-		stc("You are now caught up on all messages.\n\r", ch);
+		stc("You are now caught up on all messages.\n", ch);
 		return;
 	}
 
@@ -1002,37 +1002,37 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		switch (type) {
 		case NOTE_NOTE:
 			ch->pcdata->last_note = current_time;
-			stc("You are now caught up on notes.\n\r", ch);
+			stc("You are now caught up on notes.\n", ch);
 			break;
 
 		case NOTE_IDEA:
 			ch->pcdata->last_idea = current_time;
-			stc("You are now caught up on ideas.\n\r", ch);
+			stc("You are now caught up on ideas.\n", ch);
 			break;
 
 		case NOTE_ROLEPLAY:
 			ch->pcdata->last_roleplay = current_time;
-			stc("You are now caught up on roleplay notes.\n\r", ch);
+			stc("You are now caught up on roleplay notes.\n", ch);
 			break;
 
 		case NOTE_IMMQUEST:
 			ch->pcdata->last_immquest = current_time;
-			stc("You are now caught up on quest notes.\n\r", ch);
+			stc("You are now caught up on quest notes.\n", ch);
 			break;
 
 		case NOTE_CHANGES:
 			ch->pcdata->last_changes = current_time;
-			stc("You are now caught up on changes.\n\r", ch);
+			stc("You are now caught up on changes.\n", ch);
 			break;
 
 		case NOTE_PERSONAL:
 			ch->pcdata->last_personal = current_time;
-			stc("You are now caught up on personal messages.\n\r", ch);
+			stc("You are now caught up on personal messages.\n", ch);
 			break;
 
 		case NOTE_TRADE:
 			ch->pcdata->last_trade = current_time;
-			stc("You are now caught up on trade notes.\n\r", ch);
+			stc("You are now caught up on trade notes.\n", ch);
 			break;
 		}
 
@@ -1047,7 +1047,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		argument = one_argument(argument, arg);
 
 		if (arg[0] == '\0' || !is_number(arg)) {
-			ptc(ch, "Move which %s number?\n\r", board_index[type].board_short);
+			ptc(ch, "Move which %s number?\n", board_index[type].board_short);
 			return;
 		}
 
@@ -1069,7 +1069,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		}
 
 		if (strcmp(thenote->sender, ch->name) && !IS_IMMORTAL(ch)) {
-			ptc(ch, "You are not the author of this %s, so you can't move it!\n\r",
+			ptc(ch, "You are not the author of this %s, so you can't move it!\n",
 			    board_index[type].board_short);
 			return;
 		}
@@ -1087,17 +1087,17 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		}
 
 		if (newlist == NULL) {
-			ptc(ch, "There's no such board name as '%s'\n\r", arg);
+			ptc(ch, "There's no such board name as '%s'\n", arg);
 			return;
 		}
 
 		if (newtype == NOTE_IMMQUEST && !IS_IMMORTAL(ch)) {
-			stc("You aren't allowed to move a message to IMMQUEST, sorry!\n\r", ch);
+			stc("You aren't allowed to move a message to IMMQUEST, sorry!\n", ch);
 			return;
 		}
 
 		if (newtype == NOTE_CHANGES && !IS_IMMORTAL(ch)) {
-			stc("You aren't allowed to move a message to CHANGES, sorry!\n\r", ch);
+			stc("You aren't allowed to move a message to CHANGES, sorry!\n", ch);
 			return;
 		}
 
@@ -1113,7 +1113,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		newnote->type           = newtype;
 		append_note(newnote);
 		note_remove(ch, pnote, TRUE);
-		ptc(ch, "OK, %s %d moved to %s.\n\r",
+		ptc(ch, "OK, %s %d moved to %s.\n",
 		    board_index[type].board_short,
 		    anum,
 		    board_index[newtype].board_plural);
@@ -1122,14 +1122,14 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	}
 
 	if (IS_SET(ch->revoke, REVOKE_NOTE)) {
-		stc("Your note writing priviledges have been revoked.\n\r", ch);
+		stc("Your note writing priviledges have been revoked.\n", ch);
 		return;
 	}
 
 	/* below this point only certain people can edit notes */
 	if ((type == NOTE_IMMQUEST || type == NOTE_CHANGES)
 	    && !IS_IMMORTAL(ch)) {
-		ptc(ch, "You aren't high enough level to write %s.\n\r", list_name);
+		ptc(ch, "You aren't high enough level to write %s.\n", list_name);
 		return;
 	}
 
@@ -1138,14 +1138,14 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
 		if (ch->pnote->type != type) {
 			stc(
-			        "You already have a different note in progress.\n\r", ch);
+			        "You already have a different note in progress.\n", ch);
 			return;
 		}
 
 		buffer = new_buf();
 
 		if (strlen(ch->pnote->text) + strlen(argument) >= 4096) {
-			stc("Note too long.\n\r", ch);
+			stc("Note too long.\n", ch);
 
 			if (!IS_NPC(ch)) SET_BIT(ch->pcdata->plr, PLR_STOPCRASH);
 
@@ -1154,11 +1154,11 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
 		add_buf(buffer, ch->pnote->text);
 		add_buf(buffer, argument);
-		add_buf(buffer, "\n\r");
+		add_buf(buffer, "\n");
 		free_string(ch->pnote->text);
 		ch->pnote->text = str_dup(buf_string(buffer));
 		free_buf(buffer);
-		stc("Line added.\n\r", ch);
+		stc("Line added.\n", ch);
 		return;
 	}
 
@@ -1169,30 +1169,30 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		argument = first_arg(argument, new, FALSE);
 
 		if ((old[0] == '\0') || (new[0] == '\0')) {
-			stc("Usage: note replace 'old string' 'new string'\n\r",
+			stc("Usage: note replace 'old string' 'new string'\n",
 			    ch);
 			return;
 		}
 
 		if (ch->pnote == NULL || ch->pnote->text == NULL) {
-			stc("You have no note in progress.\n\r", ch);
+			stc("You have no note in progress.\n", ch);
 			return;
 		}
 
 		ch->pnote->text = string_replace(ch->pnote->text, old, new);
-		sprintf(buf, "'%s' replaced with '%s'.\n\r", old, new);
+		sprintf(buf, "'%s' replaced with '%s'.\n", old, new);
 		stc(buf, ch);
 		return;
 	}
 
 	if (!str_cmp(arg, "format")) {
 		if (ch->pnote == NULL || ch->pnote->text == NULL) {
-			stc("You have no note in progress.\n\r", ch);
+			stc("You have no note in progress.\n", ch);
 			return;
 		}
 
 		ch->pnote->text = format_string(ch->pnote->text);
-		stc("Note formatted.\n\r", ch);
+		stc("Note formatted.\n", ch);
 		return;
 	}
 
@@ -1203,18 +1203,18 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
 		if (ch->pnote->type != type) {
 			stc(
-			        "You already have a different note in progress.\n\r", ch);
+			        "You already have a different note in progress.\n", ch);
 			return;
 		}
 
 		if (ch->pnote->text == NULL || ch->pnote->text[0] == '\0') {
-			stc("No lines left to remove.\n\r", ch);
+			stc("No lines left to remove.\n", ch);
 			return;
 		}
 
 		if (!IS_NPC(ch) && IS_SET(ch->pcdata->plr, PLR_STOPCRASH)) {
-			stc("You cannot edit this note any further.\n\r", ch);
-			stc("Please either post or clear this note.\n\r", ch);
+			stc("You cannot edit this note any further.\n", ch);
+			stc("Please either post or clear this note.\n", ch);
 			return;
 		}
 
@@ -1240,7 +1240,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		buf[0] = '\0';
 		free_string(ch->pnote->text);
 		ch->pnote->text = str_dup(buf);
-		stc("Line removed.\n\r", ch);
+		stc("Line removed.\n", ch);
 		return;
 	}
 
@@ -1249,20 +1249,20 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
 		if (ch->pnote->type != type) {
 			stc(
-			        "You already have a different note in progress.\n\r", ch);
+			        "You already have a different note in progress.\n", ch);
 			return;
 		}
 
 		free_string(ch->pnote->subject);
 		ch->pnote->subject = str_dup(argument);
-		stc("Subject set.\n\r", ch);
+		stc("Subject set.\n", ch);
 		return;
 	}
 
 	if (!str_prefix1(arg, "to")) {
 		if (IS_SET(ch->comm, COMM_NOCHANNELS) &&
 		    strcmp(argument, "immortal")) {
-			stc("You can currently send notes only to immortal.\n\r", ch);
+			stc("You can currently send notes only to immortal.\n", ch);
 			return;
 		}
 
@@ -1270,12 +1270,12 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
 		if (ch->pnote->type != type) {
 			stc(
-			        "You already have a different note in progress.\n\r", ch);
+			        "You already have a different note in progress.\n", ch);
 			return;
 		}
 
 		if (argument[0] == '\0') {
-			stc("Whom do you wish to address it to?\n\r", ch);
+			stc("Whom do you wish to address it to?\n", ch);
 			return;
 		}
 
@@ -1300,7 +1300,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		else
 			ch->pnote->to_list = str_dup(argument);
 
-		stc("Recipient list set.\n\r", ch);
+		stc("Recipient list set.\n", ch);
 		return;
 	}
 
@@ -1310,7 +1310,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 			ch->pnote = NULL;
 		}
 
-		stc("Note cleared.\n\r", ch);
+		stc("Note cleared.\n", ch);
 
 		if (!IS_NPC(ch)) REMOVE_BIT(ch->pcdata->plr, PLR_STOPCRASH);
 
@@ -1319,22 +1319,22 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 
 	if (!str_prefix1(arg, "show")) {
 		if (ch->pnote == NULL) {
-			stc("You have no note in progress.\n\r", ch);
+			stc("You have no note in progress.\n", ch);
 			return;
 		}
 
 		if (ch->pnote->type != type) {
-			stc("You aren't working on that kind of note.\n\r", ch);
+			stc("You aren't working on that kind of note.\n", ch);
 			return;
 		}
 
-		sprintf(buf, "   {WFrom: {x%s\n\r     {WTo: {x%s\n\r{WSubject: {x%s\n\r",
+		sprintf(buf, "   {WFrom: {x%s\n     {WTo: {x%s\n{WSubject: {x%s\n",
 		        ch->pnote->sender,
 		        ch->pnote->to_list,
 		        ch->pnote->subject
 		       );
 		stc(buf, ch);
-		stc("{W================================================================================{x\n\r", ch);
+		stc("{W================================================================================{x\n", ch);
 		stc(ch->pnote->text, ch);
 		return;
 	}
@@ -1344,24 +1344,24 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		char buf2[MAX_STRING_LENGTH];
 
 		if (ch->pnote == NULL) {
-			stc("You have no note in progress.\n\r", ch);
+			stc("You have no note in progress.\n", ch);
 			return;
 		}
 
 		if (ch->pnote->type != type) {
-			stc("You aren't working on that kind of note.\n\r", ch);
+			stc("You aren't working on that kind of note.\n", ch);
 			return;
 		}
 
 		if (!str_cmp(ch->pnote->to_list, "")) {
 			stc(
-			        "You need to provide a recipient (name, all, or immortal).\n\r",
+			        "You need to provide a recipient (name, all, or immortal).\n",
 			        ch);
 			return;
 		}
 
 		if (!str_cmp(ch->pnote->subject, "")) {
-			stc("You need to provide a subject.\n\r", ch);
+			stc("You need to provide a subject.\n", ch);
 			return;
 		}
 
@@ -1392,7 +1392,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		append_note(ch->pnote);
 		notify_note_post(ch->pnote, ch, type);
 		ch->pnote = NULL;
-		sprintf(buf2, "Your %s has been posted.\n\r", board_index[type].board_long);
+		sprintf(buf2, "Your %s has been posted.\n", board_index[type].board_long);
 		stc(buf2, ch);
 
 		if (!IS_NPC(ch)) REMOVE_BIT(ch->pcdata->plr, PLR_STOPCRASH);
@@ -1400,7 +1400,7 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 		return;
 	}
 
-	stc("You can't do that.\n\r", ch);
+	stc("You can't do that.\n", ch);
 	return;
 }
 
@@ -1413,7 +1413,7 @@ void do_old_next(CHAR_DATA *ch)
 	int vnum;
 
 	if (IS_NPC(ch)) {
-		stc("Sorry, mobiles can't read notes.\n\r" , ch);
+		stc("Sorry, mobiles can't read notes.\n" , ch);
 		return;
 	}
 
@@ -1426,14 +1426,14 @@ void do_old_next(CHAR_DATA *ch)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				sprintf(buf,
-				        "{W[{PN{W: {x%3d{W] From:{x %s\n\r           {WTo: {x%s\n\r         {WDate: {x%s\n\r      {WSubject: {x%s\n\r",
+				        "{W[{PN{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
 				        pnote->to_list,
 				        pnote->date,
 				        pnote->subject);
 				stc(buf, ch);
-				stc("{W================================================================================{x\n\r", ch);
+				stc("{W================================================================================{x\n", ch);
 				page_to_char(pnote->text, ch);
 				update_read(ch, pnote);
 				return;
@@ -1452,14 +1452,14 @@ void do_old_next(CHAR_DATA *ch)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				sprintf(buf,
-				        "{W[{YI{W: {x%3d{W] From:{x %s\n\r           {WTo: {x%s\n\r         {WDate: {x%s\n\r      {WSubject: {x%s\n\r",
+				        "{W[{YI{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
 				        pnote->to_list,
 				        pnote->date,
 				        pnote->subject);
 				stc(buf, ch);
-				stc("{W================================================================================{x\n\r", ch);
+				stc("{W================================================================================{x\n", ch);
 				page_to_char(pnote->text, ch);
 				update_read(ch, pnote);
 				return;
@@ -1478,14 +1478,14 @@ void do_old_next(CHAR_DATA *ch)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				sprintf(buf,
-				        "{W[{GC{W: {x%3d{W] From:{x %s\n\r           {WTo: {x%s\n\r         {WDate: {x%s\n\r      {WSubject: {x%s\n\r",
+				        "{W[{GC{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
 				        pnote->to_list,
 				        pnote->date,
 				        pnote->subject);
 				stc(buf, ch);
-				stc("{W================================================================================{x\n\r", ch);
+				stc("{W================================================================================{x\n", ch);
 				page_to_char(pnote->text, ch);
 				update_read(ch, pnote);
 				return;
@@ -1504,14 +1504,14 @@ void do_old_next(CHAR_DATA *ch)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				sprintf(buf,
-				        "{W[{BQ{W: {x%3d{W] From:{x %s\n\r           {WTo: {x%s\n\r         {WDate: {x%s\n\r      {WSubject: {x%s\n\r",
+				        "{W[{BQ{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
 				        pnote->to_list,
 				        pnote->date,
 				        pnote->subject);
 				stc(buf, ch);
-				stc("{W================================================================================{x\n\r", ch);
+				stc("{W================================================================================{x\n", ch);
 				page_to_char(pnote->text, ch);
 				update_read(ch, pnote);
 				return;
@@ -1530,14 +1530,14 @@ void do_old_next(CHAR_DATA *ch)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				sprintf(buf,
-				        "{W[{VR{W: {x%3d{W] From:{x %s\n\r           {WTo: {x%s\n\r         {WDate: {x%s\n\r      {WSubject: {x%s\n\r",
+				        "{W[{VR{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
 				        pnote->to_list,
 				        pnote->date,
 				        pnote->subject);
 				stc(buf, ch);
-				stc("{W================================================================================{x\n\r", ch);
+				stc("{W================================================================================{x\n", ch);
 				page_to_char(pnote->text, ch);
 				update_read(ch, pnote);
 				return;
@@ -1556,14 +1556,14 @@ void do_old_next(CHAR_DATA *ch)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				sprintf(buf,
-				        "{W[{CP{W: {x%3d{W] From:{x %s\n\r           {WTo: {x%s\n\r         {WDate: {x%s\n\r      {WSubject: {x%s\n\r",
+				        "{W[{CP{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
 				        pnote->to_list,
 				        pnote->date,
 				        pnote->subject);
 				stc(buf, ch);
-				stc("{W================================================================================{x\n\r", ch);
+				stc("{W================================================================================{x\n", ch);
 				page_to_char(pnote->text, ch);
 				update_read(ch, pnote);
 				return;
@@ -1582,14 +1582,14 @@ void do_old_next(CHAR_DATA *ch)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (!hide_note(ch, pnote)) {
 				sprintf(buf,
-				        "{W[{bT{W: {x%3d{W] From:{x %s\n\r           {WTo: {x%s\n\r         {WDate: {x%s\n\r      {WSubject: {x%s\n\r",
+				        "{W[{bT{W: {x%3d{W] From:{x %s\n           {WTo: {x%s\n         {WDate: {x%s\n      {WSubject: {x%s\n",
 				        vnum,
 				        pnote->sender,
 				        pnote->to_list,
 				        pnote->date,
 				        pnote->subject);
 				stc(buf, ch);
-				stc("{W================================================================================{x\n\r", ch);
+				stc("{W================================================================================{x\n", ch);
 				page_to_char(pnote->text, ch);
 				update_read(ch, pnote);
 				return;
@@ -1599,7 +1599,7 @@ void do_old_next(CHAR_DATA *ch)
 		}
 	}
 
-	stc("That's all folks!\n\r", ch);
+	stc("That's all folks!\n", ch);
 	return;
 }
 
@@ -1614,7 +1614,7 @@ void do_next(CHAR_DATA *ch, char *argument)
 	int nnum, onum = 0;
 
 	if (IS_NPC(ch)) {
-		stc("Sorry, mobiles can't read notes.\n\r", ch);
+		stc("Sorry, mobiles can't read notes.\n", ch);
 		return;
 	}
 
@@ -1648,22 +1648,22 @@ void do_next(CHAR_DATA *ch, char *argument)
 
 	/* was there an unread note? */
 	if (onote == NULL) {
-		stc("That's all folks!\n\r", ch);
+		stc("That's all folks!\n", ch);
 		return;
 	}
 
 	/* there was a note -- show it to player */
-	ptc(ch, "{W[%s{W: {x%3d{W] From:{x %s\n\r"
-	    "           {WTo: {x%s\n\r"
-	    "         {WDate: {x%s\n\r"
-	    "      {WSubject: {x%s\n\r",
+	ptc(ch, "{W[%s{W: {x%3d{W] From:{x %s\n"
+	    "           {WTo: {x%s\n"
+	    "         {WDate: {x%s\n"
+	    "      {WSubject: {x%s\n",
 	    obis->board_hdr,
 	    onum,
 	    onote->sender,
 	    onote->to_list,
 	    onote->date,
 	    onote->subject);
-	stc("{W================================================================================{x\n\r", ch);
+	stc("{W================================================================================{x\n", ch);
 	page_to_char(onote->text, ch);
 	update_read(ch, onote);
 } /* end do_next */
@@ -1823,9 +1823,9 @@ char *format_string(char *oldstring)
 			strcat(xbuf, rdesc);
 
 			if (!blankline)
-				strcat(xbuf, "\n\r");
+				strcat(xbuf, "\n");
 
-			strcat(xbuf, "\n\r");
+			strcat(xbuf, "\n");
 			blankline = TRUE;
 			rdesc += i + 1;
 
@@ -1848,7 +1848,7 @@ char *format_string(char *oldstring)
 		if (i) {
 			*(rdesc + i) = 0;
 			strcat(xbuf, rdesc);
-			strcat(xbuf, "\n\r");
+			strcat(xbuf, "\n");
 			rdesc += i + 1;
 
 			while (*rdesc == ' ')
@@ -1858,7 +1858,7 @@ char *format_string(char *oldstring)
 			/* means that they have a single word longer than 77 characters, cut it off */
 			*(rdesc + 75) = 0;
 			strcat(xbuf, rdesc);
-			strcat(xbuf, "-\n\r");
+			strcat(xbuf, "-\n");
 			rdesc += 76;
 		}
 	}
@@ -1873,7 +1873,7 @@ char *format_string(char *oldstring)
 	strcat(xbuf, rdesc);
 
 	if (xbuf[strlen(xbuf) - 2] != '\n')
-		strcat(xbuf, "\n\r");
+		strcat(xbuf, "\n");
 
 	free_string(oldstring);
 	return (str_dup(xbuf));

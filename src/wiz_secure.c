@@ -36,22 +36,22 @@ void do_fod(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] == '\0') {
 		global_act(ch, msg, TRUE, YELLOW, COMM_QUIET | COMM_NOSOCIAL);
-		stc("Your FOD reverberates through the world as a warning to all.\n\r", ch);
+		stc("Your FOD reverberates through the world as a warning to all.\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL) {
-		stc("They are not playing.\n\r", ch);
+		stc("They are not playing.\n", ch);
 		return;
 	}
 
 	if (!OUTRANKS(ch, victim)) {
-		stc("They wouldn't like that.\n\r", ch);
+		stc("They wouldn't like that.\n", ch);
 		return;
 	}
 
 	if (victim->desc != NULL && victim->desc->original != NULL) {
-		stc("Your victim is morphed or switched - no can do!\n\r", ch);
+		stc("Your victim is morphed or switched - no can do!\n", ch);
 		return;
 	}
 
@@ -96,13 +96,13 @@ void do_force(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  force <player> <command>\n\r", ch);
+		stc("Syntax:\n"
+		    "  force <player> <command>\n", ch);
 
 		if (IS_IMP(ch))
-			stc("  force all      <command>\n\r"
-			    "  force mortals  <command>\n\r"
-			    "  force gods     <command>\n\r", ch);
+			stc("  force all      <command>\n"
+			    "  force mortals  <command>\n"
+			    "  force gods     <command>\n", ch);
 
 		return;
 	}
@@ -110,7 +110,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg2);
 
 	if (!str_cmp(arg2, "delete")) {
-		stc("Do NOT do that.\n\r", ch);
+		stc("Do NOT do that.\n", ch);
 		return;
 	}
 
@@ -133,7 +133,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 			}
 
 			if (!found)
-				stc("You found no one to force.\n\r", ch);
+				stc("You found no one to force.\n", ch);
 
 			return;
 		}
@@ -149,7 +149,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 			}
 
 			if (!found)
-				stc("You found no one to force.\n\r", ch);
+				stc("You found no one to force.\n", ch);
 
 			return;
 		}
@@ -166,19 +166,19 @@ void do_force(CHAR_DATA *ch, char *argument)
 			}
 
 			if (!found)
-				stc("You found no one to force.\n\r", ch);
+				stc("You found no one to force.\n", ch);
 
 			return;
 		}
 	}
 
 	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == NULL) {
-		stc("They are not playing.\n\r", ch);
+		stc("They are not playing.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		stc("Try forcing yourself to do your homework buddy!\n\r", ch);
+		stc("Try forcing yourself to do your homework buddy!\n", ch);
 		return;
 	}
 
@@ -186,7 +186,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 	    && ch->in_room != victim->in_room
 	    && room_is_private(victim->in_room)
 	    && !IS_IMP(ch)) {
-		stc("That character is in a private room.\n\r", ch);
+		stc("That character is in a private room.\n", ch);
 		return;
 	}
 
@@ -194,13 +194,13 @@ void do_force(CHAR_DATA *ch, char *argument)
 	    && !IS_IMP(ch)
 	    && !IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)
 	    && !IS_SET(victim->pcdata->plr, PLR_SNOOP_PROOF)) {
-		stc("Not at your level!\n\r", ch);
+		stc("Not at your level!\n", ch);
 		return;
 	}
 
 	act(buf, ch, NULL, victim, TO_VICT);
 	interpret(victim, argument);
-	stc("You succeed.\n\r", ch);
+	stc("You succeed.\n", ch);
 }
 
 
@@ -210,37 +210,37 @@ void do_freeze(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  freeze <player>\n\r", ch);
+		stc("Syntax:\n"
+		    "  freeze <player>\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL) {
-		stc("They are not playing.\n\r", ch);
+		stc("They are not playing.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		stc("Now that's just silly.\n\r", ch);
+		stc("Now that's just silly.\n", ch);
 		return;
 	}
 
 	if ((IS_IMMORTAL(victim) && !IS_IMP(ch)) || IS_IMP(victim)) {
-		stc("You shrink in comparison to the power of your victim.\n\r", ch);
+		stc("You shrink in comparison to the power of your victim.\n", ch);
 		return;
 	}
 
 	if (IS_SET(victim->act, PLR_FREEZE)) {
 		REMOVE_BIT(victim->act, PLR_FREEZE);
-		stc("Heat envelops your blood.\n\r", victim);
-		stc("FREEZE removed.\n\r", ch);
+		stc("Heat envelops your blood.\n", victim);
+		stc("FREEZE removed.\n", ch);
 		sprintf(buf, "$N has unfrozen: %s.", victim->name);
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	else {
 		SET_BIT(victim->act, PLR_FREEZE);
-		stc("A crystal blue sheet of ice immobilizes your body!\n\r", victim);
-		stc("FREEZE set.\n\r", ch);
+		stc("A crystal blue sheet of ice immobilizes your body!\n", victim);
+		stc("FREEZE set.\n", ch);
 		sprintf(buf, "$N puts %s in the deep freeze.", victim->name);
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
@@ -257,18 +257,18 @@ void do_fry(CHAR_DATA *ch, char *argument)
 
 	/* prevent Alara from accidentally frying people :) -- Montrey */
 	if (arg[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  fry <player>\n\r", ch);
+		stc("Syntax:\n"
+		    "  fry <player>\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
-		stc("They are not playing.\n\r", ch);
+		stc("They are not playing.\n", ch);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim)) {
-		stc("That's not a good idea.\n\r", ch);
+		stc("That's not a good idea.\n", ch);
 		return;
 	}
 
@@ -291,20 +291,20 @@ void do_locker(CHAR_DATA *ch, char *argument)
 	OBJ_DATA *obj;
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  locker <victim> <get|put> <object>\n\r", ch);
+		stc("Syntax:\n"
+		    "  locker <victim> <get|put> <object>\n", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg1);
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
-		stc("They must be online to examine their locker.\n\r", ch);
+		stc("They must be online to examine their locker.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		ptc(ch, "%s's locker contains:\n\r", victim->name);
+		ptc(ch, "%s's locker contains:\n", victim->name);
 		show_list_to_char(victim->pcdata->locker, ch, TRUE, TRUE, TRUE);
 		return;
 	}
@@ -312,37 +312,37 @@ void do_locker(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg2[0] == '\0' || argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  locker <player> <get|put> <object>\n\r", ch);
+		stc("Syntax:\n"
+		    "  locker <player> <get|put> <object>\n", ch);
 		return;
 	}
 
 	if (!str_prefix1(arg2, "get")) {
 		if ((obj = get_obj_list(ch, argument, victim->pcdata->locker)) == NULL) {
-			stc("You do not see that in their locker.\n\r", ch);
+			stc("You do not see that in their locker.\n", ch);
 			return;
 		}
 
 		obj_from_locker(obj);
 		obj_to_char(obj, ch);
-		ptc(ch, "You get %s from %s's locker.\n\r", obj->short_descr, victim->name);
+		ptc(ch, "You get %s from %s's locker.\n", obj->short_descr, victim->name);
 		return;
 	}
 
 	if (!str_prefix1(arg2, "put")) {
 		if ((obj = get_obj_carry(ch, argument)) == NULL) {
-			stc("You do not have that item.\n\r", ch);
+			stc("You do not have that item.\n", ch);
 			return;
 		}
 
 		obj_from_char(obj);
 		obj_to_locker(obj, victim);
-		ptc(ch, "You put %s in %s's locker.\n\r", obj->short_descr, victim->name);
+		ptc(ch, "You put %s in %s's locker.\n", obj->short_descr, victim->name);
 		return;
 	}
 
-	stc("Syntax:\n\r"
-	    "  locker <player> <get|put> <object>\n\r", ch);
+	stc("Syntax:\n"
+	    "  locker <player> <get|put> <object>\n", ch);
 }
 
 
@@ -353,25 +353,25 @@ void do_strongbox(CHAR_DATA *ch, char *argument)
 	OBJ_DATA *obj;
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  strongbox <victim> <get|put> <object>\n\r", ch);
+		stc("Syntax:\n"
+		    "  strongbox <victim> <get|put> <object>\n", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg1);
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
-		stc("They must be online to examine their strongbox.\n\r", ch);
+		stc("They must be online to examine their strongbox.\n", ch);
 		return;
 	}
 
 	if (!IS_HEROIC(victim)) {
-		stc("Only heroes and remorts have strongboxes.\n\r", ch);
+		stc("Only heroes and remorts have strongboxes.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		ptc(ch, "%s's strongbox contains:\n\r", victim->name);
+		ptc(ch, "%s's strongbox contains:\n", victim->name);
 		show_list_to_char(victim->pcdata->strongbox, ch, TRUE, TRUE, TRUE);
 		return;
 	}
@@ -379,37 +379,37 @@ void do_strongbox(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg2[0] == '\0' || argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  strongbox <player> <get|put> <object>\n\r", ch);
+		stc("Syntax:\n"
+		    "  strongbox <player> <get|put> <object>\n", ch);
 		return;
 	}
 
 	if (!str_prefix1(arg2, "get")) {
 		if ((obj = get_obj_list(ch, argument, victim->pcdata->strongbox)) == NULL) {
-			stc("You do not see that in their strongbox.\n\r", ch);
+			stc("You do not see that in their strongbox.\n", ch);
 			return;
 		}
 
 		obj_from_strongbox(obj);
 		obj_to_char(obj, ch);
-		ptc(ch, "You get %s from %s's strongbox.\n\r", obj->short_descr, victim->name);
+		ptc(ch, "You get %s from %s's strongbox.\n", obj->short_descr, victim->name);
 		return;
 	}
 
 	if (!str_prefix1(arg2, "put")) {
 		if ((obj = get_obj_carry(ch, argument)) == NULL) {
-			stc("You do not have that item.\n\r", ch);
+			stc("You do not have that item.\n", ch);
 			return;
 		}
 
 		obj_from_char(obj);
 		obj_to_strongbox(obj, victim);
-		ptc(ch, "You put %s in %s's strongbox.\n\r", obj->short_descr, victim->name);
+		ptc(ch, "You put %s in %s's strongbox.\n", obj->short_descr, victim->name);
 		return;
 	}
 
-	stc("Syntax:\n\r"
-	    "  strongbox <player> <get|put> <object>\n\r", ch);
+	stc("Syntax:\n"
+	    "  strongbox <player> <get|put> <object>\n", ch);
 }
 
 
@@ -419,9 +419,9 @@ void do_log(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  log <player>\n\r"
-		    "  log all\n\r", ch);
+		stc("Syntax:\n"
+		    "  log <player>\n"
+		    "  log all\n", ch);
 		return;
 	}
 
@@ -429,12 +429,12 @@ void do_log(CHAR_DATA *ch, char *argument)
 
 	if (!str_cmp(arg, "all")) {
 		fLogAll = !fLogAll;
-		ptc(ch, "Log ALL %s.\n\r", fLogAll ? "on" : "off");
+		ptc(ch, "Log ALL %s.\n", fLogAll ? "on" : "off");
 		return;
 	}
 
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
-		stc("They are not playing.\n\r", ch);
+		stc("They are not playing.\n", ch);
 		return;
 	}
 
@@ -443,7 +443,7 @@ void do_log(CHAR_DATA *ch, char *argument)
 	else
 		SET_BIT(victim->act, PLR_LOG);
 
-	ptc(ch, "LOG %s.\n\r", IS_SET(victim->act, PLR_LOG) ? "set" : "removed");
+	ptc(ch, "LOG %s.\n", IS_SET(victim->act, PLR_LOG) ? "set" : "removed");
 }
 
 
@@ -454,11 +454,11 @@ void do_newlock(CHAR_DATA *ch, char *argument)
 
 	if (newlock) {
 		wiznet("$N locks out new characters.", ch, NULL, 0, 0, 0);
-		stc("New characters have been locked out.\n\r", ch);
+		stc("New characters have been locked out.\n", ch);
 	}
 	else {
 		wiznet("$N allows new characters back in.", ch, NULL, 0, 0, 0);
-		stc("Newlock removed.\n\r", ch);
+		stc("Newlock removed.\n", ch);
 	}
 }
 
@@ -470,25 +470,25 @@ void do_newpasswd(CHAR_DATA *ch, char *argument)
 	char *pwdnew, *p;
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  newpasswd <player> <passwd>\n\r", ch);
+		stc("Syntax:\n"
+		    "  newpasswd <player> <passwd>\n", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg);
 
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
-		stc("They are not playing.\n\r", ch);
+		stc("They are not playing.\n", ch);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim) && !IS_IMP(ch)) {
-		stc("You are not high enough level to change their password.\n\r", ch);
+		stc("You are not high enough level to change their password.\n", ch);
 		return;
 	}
 
 	if (strlen(argument) < 5) {
-		stc("Password must be at least five characters long.\n\r", ch);
+		stc("Password must be at least five characters long.\n", ch);
 		return;
 	}
 
@@ -496,7 +496,7 @@ void do_newpasswd(CHAR_DATA *ch, char *argument)
 
 	for (p = pwdnew; *p != '\0'; p++) {
 		if (*p == '~') {
-			stc("New password not acceptable, try again.\n\r", ch);
+			stc("New password not acceptable, try again.\n", ch);
 			return;
 		}
 	}
@@ -504,7 +504,7 @@ void do_newpasswd(CHAR_DATA *ch, char *argument)
 	free_string(victim->pcdata->pwd);
 	victim->pcdata->pwd = str_dup(pwdnew);
 	free_string(pwdnew);
-	ptc(ch, "%s's new password is: %s\n\r", victim->name, argument);
+	ptc(ch, "%s's new password is: %s\n", victim->name, argument);
 	save_char_obj(victim);
 	sprintf(buf, "$N has changed %s's password.", victim->name);
 	wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, 0);
@@ -519,43 +519,43 @@ void do_pardon(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  pardon <player> <killer|thief>\n\r", ch);
+		stc("Syntax:\n"
+		    "  pardon <player> <killer|thief>\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
-		stc("They are not playing.\n\r", ch);
+		stc("They are not playing.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(arg2, "killer")) {
 		if (IS_SET(victim->act, PLR_KILLER)) {
 			REMOVE_BIT(victim->act, PLR_KILLER);
-			stc("Their killer flag has been removed.\n\r", ch);
-			stc("You are no longer a KILLER.\n\r", victim);
+			stc("Their killer flag has been removed.\n", ch);
+			stc("You are no longer a KILLER.\n", victim);
 			REMOVE_BIT(victim->act, PLR_NOPK);
 		}
 		else
-			stc("They do not have a killer flag set.\n\r", ch);
+			stc("They do not have a killer flag set.\n", ch);
 
 		ch->pcdata->flag_killer = 0;
 	}
 	else if (!str_cmp(arg2, "thief")) {
 		if (IS_SET(victim->act, PLR_THIEF)) {
 			REMOVE_BIT(victim->act, PLR_THIEF);
-			stc("Their thief flag has been removed.\n\r", ch);
-			stc("You are no longer a THIEF.\n\r", victim);
+			stc("Their thief flag has been removed.\n", ch);
+			stc("You are no longer a THIEF.\n", victim);
 			REMOVE_BIT(victim->act, PLR_NOPK);
 		}
 		else
-			stc("They do not have a thief flag set.\n\r", ch);
+			stc("They do not have a thief flag set.\n", ch);
 
 		ch->pcdata->flag_thief = 0;
 	}
 	else
-		stc("Syntax:\n\r"
-		    "  pardon <player> <killer|thief>\n\r", ch);
+		stc("Syntax:\n"
+		    "  pardon <player> <killer|thief>\n", ch);
 }
 
 
@@ -564,22 +564,22 @@ void do_protect(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  protect <player>\n\r", ch);
+		stc("Syntax:\n"
+		    "  protect <player>\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, argument, VIS_PLR)) == NULL) {
-		stc("You can't find them.\n\r", ch);
+		stc("You can't find them.\n", ch);
 		return;
 	}
 
 	if (IS_SET(victim->pcdata->plr, PLR_SNOOP_PROOF)) {
-		ptc(ch, "%s is no longer protected from snooping.\n\r", victim->name);
+		ptc(ch, "%s is no longer protected from snooping.\n", victim->name);
 		REMOVE_BIT(victim->pcdata->plr, PLR_SNOOP_PROOF);
 	}
 	else {
-		ptc(ch, "You protect %s from snooping.\n\r", victim->name);
+		ptc(ch, "You protect %s from snooping.\n", victim->name);
 		SET_BIT(victim->pcdata->plr, PLR_SNOOP_PROOF);
 	}
 }
@@ -596,29 +596,29 @@ void do_revoke(CHAR_DATA *ch, char *argument)
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		long printed = 0;
 		/* print a list of revokable stuff */
-		stc("Current REVOKE options:\n\r\n\r", ch);
+		stc("Current REVOKE options:\n\n", ch);
 
 		for (i = 0; revoke_table[i].name != NULL; i++) {
 			/* don't print the same one twice :) */
 			if (IS_SET(printed, revoke_table[i].bit))
 				continue;
 
-			ptc(ch, "  %s\n\r", revoke_table[i].name);
+			ptc(ch, "  %s\n", revoke_table[i].name);
 			SET_BIT(printed, revoke_table[i].bit);
 		}
 
-		stc("\n\rSyntax:\n\r"
-		    "  revoke <character> <option>\n\r", ch);
+		stc("\nSyntax:\n"
+		    "  revoke <character> <option>\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim) && !IS_IMP(ch)) {
-		stc("You have failed.\n\r", ch);
+		stc("You have failed.\n", ch);
 		return;
 	}
 
@@ -635,14 +635,14 @@ void do_revoke(CHAR_DATA *ch, char *argument)
 			sprintf(buf1, "revoke");
 		}
 
-		ptc(victim, "The Gods have %sd your %s.\n\r", buf1, revoke_table[i].message);
-		ptc(ch, "You %s their %s.\n\r", buf1, revoke_table[i].message);
+		ptc(victim, "The Gods have %sd your %s.\n", buf1, revoke_table[i].message);
+		ptc(ch, "You %s their %s.\n", buf1, revoke_table[i].message);
 		sprintf(buf2, "$N has %sd %s's %s", buf1, victim->name, revoke_table[i].message);
 		wiznet(buf2, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 		return;
 	}
 
-	stc("Revoke WHAT?\n\r", ch);
+	stc("Revoke WHAT?\n", ch);
 }
 
 
@@ -681,7 +681,7 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 		}
 
 		td->flags |= tail_flag;
-		ptc(ch, "You are now tailing %s:%s\n\r",
+		ptc(ch, "You are now tailing %s:%s\n",
 		    PERS(victim, ch, VIS_PLR),
 		    (td->flags & TAIL_ACT) ? " ACT" : "");
 		return 1;
@@ -714,7 +714,7 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 		free_mem(td, sizeof(struct tail_data));
 
 		if (IS_VALID(ch))
-			ptc(ch, "You have stopped tailing %s.\n\r", PERS(victim, ch, VIS_PLR));
+			ptc(ch, "You have stopped tailing %s.\n", PERS(victim, ch, VIS_PLR));
 
 		return 1;
 	}
@@ -729,15 +729,15 @@ void do_tail(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim = NULL;
 
 	if (IS_NPC(ch)) {
-		stc("Please return to your body before tailing.\n\r", ch);
+		stc("Please return to your body before tailing.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  tail <victim> act\n\r"
-		    "  tail <victim> stop\n\r"
-		    "  tail stop\n\r", ch);
+		stc("Syntax:\n"
+		    "  tail <victim> act\n"
+		    "  tail <victim> stop\n"
+		    "  tail stop\n", ch);
 		return;
 	}
 
@@ -745,19 +745,19 @@ void do_tail(CHAR_DATA *ch, char *argument)
 
 	if (!str_cmp(arg, "stop")) {
 		if (!set_tail(ch, NULL, TAIL_NONE))
-			stc("You weren't tailing anyone.\n\r", ch);
+			stc("You weren't tailing anyone.\n", ch);
 
 		ch->pcdata->tailing = FALSE;
 		return;
 	}
 
 	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		stc("Please don't try to tail yourself -- you'll get dizzy!\n\r", ch);
+		stc("Please don't try to tail yourself -- you'll get dizzy!\n", ch);
 		return;
 	}
 
@@ -770,7 +770,7 @@ void do_tail(CHAR_DATA *ch, char *argument)
 
 	if (!str_prefix1(arg, "stop")) {
 		if (!set_tail(ch, victim, TAIL_NONE))
-			stc("You were not tailing them.\n\r", ch);
+			stc("You were not tailing them.\n", ch);
 	}
 	else if (!str_prefix1(arg, "actions")) {
 		set_tail(ch, victim, TAIL_ACT);
@@ -791,25 +791,25 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  snoop <player>\n\r", ch);
+		stc("Syntax:\n"
+		    "  snoop <player>\n", ch);
 		return;
 	}
 
 	one_argument(argument, arg);
 
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim->desc == NULL) {
-		stc("No descriptor to snoop.\n\r", ch);
+		stc("No descriptor to snoop.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		stc("All snoops in progress have been cancelled.\n\r", ch);
+		stc("All snoops in progress have been cancelled.\n", ch);
 		wiznet("$N has cancelled all snoops.", ch, NULL, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
 
 		for (d = descriptor_list; d != NULL; d = d->next)
@@ -820,7 +820,7 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 	}
 
 	if (victim->desc->snoop_by != NULL) {
-		stc("That character is already being snooped.\n\r", ch);
+		stc("That character is already being snooped.\n", ch);
 		return;
 	}
 
@@ -828,25 +828,25 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 	    && ch->in_room != victim->in_room
 	    && room_is_private(victim->in_room)
 	    && !IS_IMP(ch)) {
-		stc("That character is in a private room.\n\r", ch);
+		stc("That character is in a private room.\n", ch);
 		return;
 	}
 
 	if ((IS_IMMORTAL(victim) || IS_SET(victim->pcdata->plr, PLR_SNOOP_PROOF)) && !IS_IMP(ch)) {
-		stc("They wouldn't like that!\n\r", ch);
+		stc("They wouldn't like that!\n", ch);
 		return;
 	}
 
 	if ((! strcasecmp(victim->name, "teotwawki")) ||
 	    (! strcasecmp(victim->name, "outsider"))) {
-		stc("They would not like that.\n\r", ch);
+		stc("They would not like that.\n", ch);
 		return;
 	}
 
 	if (ch->desc != NULL) {
 		for (d = ch->desc->snoop_by; d != NULL; d = d->snoop_by) {
 			if (d->character == victim || d->original == victim) {
-				stc("Sorry, we don't allow snoop loops.\n\r", ch);
+				stc("Sorry, we don't allow snoop loops.\n", ch);
 				return;
 			}
 		}
@@ -855,7 +855,7 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 	victim->desc->snoop_by = ch->desc;
 	sprintf(buf, "$N has begun a snoop on %s.", victim->name);
 	wiznet(buf, ch, NULL, WIZ_SNOOPS, WIZ_SECURE, GET_RANK(ch));
-	stc("You now view the world through the players eyes.\n\r", ch);
+	stc("You now view the world through the players eyes.\n", ch);
 }
 
 
@@ -875,8 +875,8 @@ void do_ban(CHAR_DATA *ch, char *argument)
 			return;
 
 		output = new_buf();
-		add_buf(output, "Banned Sites                  {T|{xBanned by      {T|{xType   {T|{xReason\n\r");
-		add_buf(output, "{T------------------------------+---------------+-------+-----------------------------{x\n\r");
+		add_buf(output, "Banned Sites                  {T|{xBanned by      {T|{xType   {T|{xReason\n");
+		add_buf(output, "{T------------------------------+---------------+-------+-----------------------------{x\n");
 
 		while ((row = mysql_fetch_row(result))) {
 			found = TRUE;
@@ -885,7 +885,7 @@ void do_ban(CHAR_DATA *ch, char *argument)
 			        IS_SET(flags, BAN_PREFIX) ? "*" : "",
 			        row[0],
 			        IS_SET(flags, BAN_SUFFIX) ? "*" : "");
-			ptb(output, "%-30s{T|{x%-15s{T|{x%s{T|{x%s\n\r",
+			ptb(output, "%-30s{T|{x%-15s{T|{x%s{T|{x%s\n",
 			    site,
 			    row[1],
 			    IS_SET(flags, BAN_PERMIT)  ? "PERMIT " :
@@ -897,7 +897,7 @@ void do_ban(CHAR_DATA *ch, char *argument)
 		if (found)
 			page_to_char(buf_string(output), ch);
 		else
-			stc("There are no banned hosts.\n\r", ch);
+			stc("There are no banned hosts.\n", ch);
 
 		free_buf(output);
 		mysql_free_result(result);
@@ -912,29 +912,29 @@ void do_ban(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (strlen(arg1) < 5 || strlen(arg1) > 30) {
-		stc("The site must be between 5 and 30 characters long.\n\r", ch);
+		stc("The site must be between 5 and 30 characters long.\n", ch);
 		return;
 	}
 
 	if (arg2[0] == '\0') {
-		stc("You must specify a ban type.\n\r", ch);
+		stc("You must specify a ban type.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		stc("You must provide a reason.\n\r", ch);
+		stc("You must provide a reason.\n", ch);
 		return;
 	}
 
 	if (strlen(argument) > 45) {
-		stc("Please limit the reason to 45 characters or less.\n\r", ch);
+		stc("Please limit the reason to 45 characters or less.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(arg2, "all"))         SET_BIT(flags, BAN_ALL);
 	else if (!str_cmp(arg2, "newbies"))     SET_BIT(flags, BAN_NEWBIES);
 	else {
-		stc("Type must be ALL or NEWBIES.\n\r", ch);
+		stc("Type must be ALL or NEWBIES.\n", ch);
 		return;
 	}
 
@@ -956,11 +956,11 @@ void do_ban(CHAR_DATA *ch, char *argument)
 
 	if (db_countf("do_ban", "SELECT COUNT(*) FROM bans WHERE site='%s' AND (flags-((flags>>4)<<4))=%d",
 	              site, flags) > 0)
-		ptc(ch, "%s is already banned.\n\r", arg1);
+		ptc(ch, "%s is already banned.\n", arg1);
 	else {
 		db_commandf("do_ban", "INSERT INTO bans VALUES('%s','%s',%d,'%s')",
 		            db_esc(site), db_esc(ch->name), flags, db_esc(argument));
-		ptc(ch, "%s has been banned.\n\r", arg1);
+		ptc(ch, "%s has been banned.\n", arg1);
 	}
 }
 
@@ -973,12 +973,12 @@ void do_allow(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		stc("Remove which site from the ban list?\n\r", ch);
+		stc("Remove which site from the ban list?\n", ch);
 		return;
 	}
 
 	if (strlen(arg) < 5) {
-		stc("Banned sites are no shorter than five characters.\n\r", ch);
+		stc("Banned sites are no shorter than five characters.\n", ch);
 		return;
 	}
 
@@ -1002,9 +1002,9 @@ void do_allow(CHAR_DATA *ch, char *argument)
 	            db_esc(site), wildflags);
 
 	if (mysql_affected_rows(mysql_db))
-		ptc(ch, "Ban on %s lifted.\n\r", arg);
+		ptc(ch, "Ban on %s lifted.\n", arg);
 	else
-		stc("That site is not banned.\n\r", ch);
+		stc("That site is not banned.\n", ch);
 }
 
 
@@ -1019,9 +1019,9 @@ void do_permit(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  permit <site>\n\r"
-		    "  permit player <name>\n\r", ch);
+		stc("Syntax:\n"
+		    "  permit <site>\n"
+		    "  permit player <name>\n", ch);
 		return;
 	}
 
@@ -1029,21 +1029,21 @@ void do_permit(CHAR_DATA *ch, char *argument)
 		CHAR_DATA *plr;
 
 		if ((plr = get_player_world(ch, arg, VIS_PLR)) == NULL) {
-			stc("They are not playing or loaded.\n\r", ch);
+			stc("They are not playing or loaded.\n", ch);
 			return;
 		}
 
 		if (GET_RANK(ch) < GET_RANK(plr)) {
-			stc("They are beyond your powers.\n\r", ch);
+			stc("They are beyond your powers.\n", ch);
 			return;
 		}
 
 		if (IS_SET(plr->act, PLR_PERMIT)) {
-			stc("They are no longer permitted to bypass banned sites.\n\r", ch);
+			stc("They are no longer permitted to bypass banned sites.\n", ch);
 			REMOVE_BIT(plr->act, PLR_PERMIT);
 		}
 		else {
-			stc("They are now permitted to bypass banned sites.\n\r", ch);
+			stc("They are now permitted to bypass banned sites.\n", ch);
 			SET_BIT(plr->act, PLR_PERMIT);
 		}
 
@@ -1051,7 +1051,7 @@ void do_permit(CHAR_DATA *ch, char *argument)
 	}
 
 	if (strlen(arg) < 5) {
-		stc("Banned sites are no shorter than five characters.\n\r", ch);
+		stc("Banned sites are no shorter than five characters.\n", ch);
 		return;
 	}
 
@@ -1080,11 +1080,11 @@ void do_permit(CHAR_DATA *ch, char *argument)
 		int rowflags = atoi(row[0]);
 
 		if (IS_SET(rowflags, BAN_PERMIT)) {
-			ptc(ch, "Permit flag removed on %s.\n\r", arg);
+			ptc(ch, "Permit flag removed on %s.\n", arg);
 			REMOVE_BIT(rowflags, BAN_PERMIT);
 		}
 		else {
-			ptc(ch, "Permit flag set on %s.\n\r", arg);
+			ptc(ch, "Permit flag set on %s.\n", arg);
 			SET_BIT(rowflags, BAN_PERMIT);
 		}
 
@@ -1094,7 +1094,7 @@ void do_permit(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!found)
-		stc("That site is not banned.\n\r", ch);
+		stc("That site is not banned.\n", ch);
 
 	mysql_free_result(result);
 }
@@ -1115,12 +1115,12 @@ void do_deny(CHAR_DATA *ch, char *argument)
 			return;
 
 		output = new_buf();
-		add_buf(output, "Denied Players {T|{xDenied by      {T|{xReason\n\r");
-		add_buf(output, "{T---------------+---------------+-------------------------------------------{x\n\r");
+		add_buf(output, "Denied Players {T|{xDenied by      {T|{xReason\n");
+		add_buf(output, "{T---------------+---------------+-------------------------------------------{x\n");
 
 		while ((row = mysql_fetch_row(result))) {
 			found = TRUE;
-			ptb(output, "%-15s{T|{x%-15s{T|{x%s\n\r",
+			ptb(output, "%-15s{T|{x%-15s{T|{x%s\n",
 			    row[0],
 			    row[1],
 			    row[2]);
@@ -1129,7 +1129,7 @@ void do_deny(CHAR_DATA *ch, char *argument)
 		if (found)
 			page_to_char(buf_string(output), ch);
 		else
-			stc("There are no denied players.\n\r", ch);
+			stc("There are no denied players.\n", ch);
 
 		free_buf(output);
 		mysql_free_result(result);
@@ -1139,35 +1139,35 @@ void do_deny(CHAR_DATA *ch, char *argument)
 	argument = one_argument(db_esc(argument), arg1);
 
 	if (argument[0] == '\0') {
-		stc("You must provide a reason.\n\r", ch);
+		stc("You must provide a reason.\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
-		stc("They are not playing.\n\r", ch);
+		stc("They are not playing.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		stc("But, but, we need you!!\n\r", ch);
+		stc("But, but, we need you!!\n", ch);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim) && !IS_IMP(ch)) {
-		stc("You have failed.\n\r", ch);
+		stc("You have failed.\n", ch);
 		return;
 	}
 
 	if (db_countf("do_deny", "SELECT COUNT(*) FROM denies WHERE name='%s'", victim->name) > 0)
-		ptc(ch, "%s is already denied.\n\r", victim->name);
+		ptc(ch, "%s is already denied.\n", victim->name);
 	else {
 		char buf[MSL];
 		db_commandf("do_deny", "INSERT INTO denies VALUES('%s','%s','%s')",
 		            db_esc(victim->name), db_esc(ch->name), db_esc(argument));
-		stc("You have been denied access!\n\r", victim);
+		stc("You have been denied access!\n", victim);
 		sprintf(buf, "$N has denied access to %s", victim->name);
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
-		ptc(ch, "%s has been denied access.\n\r", arg1);
+		ptc(ch, "%s has been denied access.\n", arg1);
 		save_char_obj(victim);
 		stop_fighting(victim, TRUE);
 		do_quit(victim, "now");
@@ -1181,7 +1181,7 @@ void do_undeny(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		stc("Undeny which player?\n\r", ch);
+		stc("Undeny which player?\n", ch);
 		return;
 	}
 
@@ -1189,10 +1189,10 @@ void do_undeny(CHAR_DATA *ch, char *argument)
 
 	if (mysql_affected_rows(mysql_db)) {
 		char buf[MSL];
-		ptc(ch, "%s has been granted access to Legacy.\n\r", arg);
+		ptc(ch, "%s has been granted access to Legacy.\n", arg);
 		sprintf(buf, "$N has undenied %s", arg);
 		wiznet(buf, ch, NULL, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 	else
-		stc("That player is not denied.\n\r", ch);
+		stc("That player is not denied.\n", ch);
 }

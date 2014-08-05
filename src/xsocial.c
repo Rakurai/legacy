@@ -226,15 +226,15 @@ void do_xedit(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, xsocial);
 
 	if (!cmd[0]) {
-		stc("Huh? Type HELP XEDIT to see syntax.\n\r", ch);
+		stc("Huh? Type HELP XEDIT to see syntax.\n", ch);
 		return;
 	}
 
 	if (!xsocial[0]) {
 		if (!str_cmp(cmd, "find"))
-			stc("What do you wish to find?\n\r", ch);
+			stc("What do you wish to find?\n", ch);
 		else
-			stc("What xsocial do you want to operate on?\n\r", ch);
+			stc("What xsocial do you want to operate on?\n", ch);
 
 		return;
 	}
@@ -242,20 +242,20 @@ void do_xedit(CHAR_DATA *ch, char *argument)
 	iXSocial = xsocial_lookup(xsocial);
 
 	if (str_cmp(cmd, "new") && str_cmp(cmd, "find") && (iXSocial == NULL)) {
-		stc("No such xsocial exists.\n\r", ch);
+		stc("No such xsocial exists.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, "delete")) { /* Remove a social */
 		remove_xsocial(iXSocial->name);
-		stc("That xsocial is history now.\n\r", ch);
+		stc("That xsocial is history now.\n", ch);
 	}
 	else if (!str_cmp(cmd, "new")) { /* Create a new social */
 		struct xsocial_type *new_xsocial = alloc_mem(sizeof(struct xsocial_type));
 		int x;
 
 		if (iXSocial != NULL) {
-			stc("An xsocial with that name already exists.\n\r", ch);
+			stc("An xsocial with that name already exists.\n", ch);
 			return;
 		}
 
@@ -277,19 +277,19 @@ void do_xedit(CHAR_DATA *ch, char *argument)
 		new_xsocial->char_auto = str_dup("");
 		new_xsocial->others_auto = str_dup("");
 		insert_xsocial(new_xsocial);
-		stc("New xsocial added.\n\r", ch);
+		stc("New xsocial added.\n", ch);
 	}
 	else if (!str_cmp(cmd, "rename")) { /* Rename an xsocial */
 		struct xsocial_type *new_xsocial = alloc_mem(sizeof(struct xsocial_type));
 		int x;
 
 		if (argument[0] == '\0') {
-			stc("Rename it to what?\n\r", ch);
+			stc("Rename it to what?\n", ch);
 			return;
 		}
 
 		if (xsocial_lookup(argument) != NULL) {
-			stc("An xsocial with that name already exists.\n\r", ch);
+			stc("An xsocial with that name already exists.\n", ch);
 			return;
 		}
 
@@ -312,28 +312,28 @@ void do_xedit(CHAR_DATA *ch, char *argument)
 		new_xsocial->others_auto        = iXSocial->others_auto;
 		insert_xsocial(new_xsocial);
 		remove_xsocial(iXSocial->name);
-		stc("Xsocial renamed.\n\r", ch);
+		stc("Xsocial renamed.\n", ch);
 	}
 	else if (!str_cmp(cmd, "show")) { /* Show a certain social */
-		sprintf(buf,   "{HXSocial: %s{x\n\r"
-		        "{G[csex]{c   Required character sex (0=either,1=male,2=female):\n\r"
-		        "{Y         %d\n\r"
-		        "{G[vsex]{c   Required victim sex (0=either,1=male,2=female):\n\r"
-		        "{Y         %d\n\r"
-		        "{G[cnoarg]{c No argument given, character sees:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[onoarg]{c No argument given, others see:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[cfound]{c Target found, character sees:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[ofound]{c Target found, others see:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[vfound]{c Target found, victim sees:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[cself]{c  Target is self:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[oself]{c  Target is self, others see:\n\r"
-		        "{Y         %s{x\n\r",
+		sprintf(buf,   "{HXSocial: %s{x\n"
+		        "{G[csex]{c   Required character sex (0=either,1=male,2=female):\n"
+		        "{Y         %d\n"
+		        "{G[vsex]{c   Required victim sex (0=either,1=male,2=female):\n"
+		        "{Y         %d\n"
+		        "{G[cnoarg]{c No argument given, character sees:\n"
+		        "{Y         %s\n"
+		        "{G[onoarg]{c No argument given, others see:\n"
+		        "{Y         %s\n"
+		        "{G[cfound]{c Target found, character sees:\n"
+		        "{Y         %s\n"
+		        "{G[ofound]{c Target found, others see:\n"
+		        "{Y         %s\n"
+		        "{G[vfound]{c Target found, victim sees:\n"
+		        "{Y         %s\n"
+		        "{G[cself]{c  Target is self:\n"
+		        "{Y         %s\n"
+		        "{G[oself]{c  Target is self, others see:\n"
+		        "{Y         %s{x\n",
 		        iXSocial->name,
 		        iXSocial->csex,
 		        iXSocial->vsex,
@@ -383,47 +383,47 @@ void do_xedit(CHAR_DATA *ch, char *argument)
 					unfin = TRUE;
 
 				if (unfin) {
-					ptc(ch, "%s\n\r", i->name);
+					ptc(ch, "%s\n", i->name);
 					count++;
 				}
 			}
 
-			ptc(ch, "%sYou found %d xsocials matching your criteria.\n\r",
-			    count > 0 ? "\n\r" : "", count);
+			ptc(ch, "%sYou found %d xsocials matching your criteria.\n",
+			    count > 0 ? "\n" : "", count);
 			return;
 		}
 
-		stc("Find what?\n\r", ch);
+		stc("Find what?\n", ch);
 		return;
 	}
 	else if (!str_cmp(cmd, "csex")) { /* Set that argument */
 		if (!is_number(argument)) {
-			stc("The value must be numeric, 0=either,1=male,2=female.\n\r", ch);
+			stc("The value must be numeric, 0=either,1=male,2=female.\n", ch);
 			return;
 		}
 
 		if (atoi(argument) < 0 || atoi(argument) > 2) {
-			stc("Valid sexes are: 0=either,1=male,2=female.\n\r", ch);
+			stc("Valid sexes are: 0=either,1=male,2=female.\n", ch);
 			return;
 		}
 
 		iXSocial->csex = atoi(argument);
-		ptc(ch, "The required character sex is now %s.\n\r",
+		ptc(ch, "The required character sex is now %s.\n",
 		    iXSocial->csex == 0 ? "irrelevant" : iXSocial->csex == 1 ? "male" : "female");
 	}
 	else if (!str_cmp(cmd, "vsex")) { /* Set that argument */
 		if (!is_number(argument)) {
-			stc("The value must be numeric, 0=either,1=male,2=female.\n\r", ch);
+			stc("The value must be numeric, 0=either,1=male,2=female.\n", ch);
 			return;
 		}
 
 		if (atoi(argument) < 0 || atoi(argument) > 2) {
-			stc("Valid sexes are: 0=either,1=male,2=female.\n\r", ch);
+			stc("Valid sexes are: 0=either,1=male,2=female.\n", ch);
 			return;
 		}
 
 		iXSocial->vsex = atoi(argument);
-		ptc(ch, "The required victim sex is now %s.\n\r",
+		ptc(ch, "The required victim sex is now %s.\n",
 		    iXSocial->vsex == 0 ? "irrelevant" : iXSocial->vsex == 1 ? "male" : "female");
 	}
 	else if (!str_cmp(cmd, "cnoarg")) { /* Set that argument */
@@ -431,66 +431,66 @@ void do_xedit(CHAR_DATA *ch, char *argument)
 		iXSocial->char_no_arg = str_dup(argument);
 
 		if (!argument[0])
-			stc("Character will now see nothing when this social is used without arguments.\n\r", ch);
+			stc("Character will now see nothing when this social is used without arguments.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "onoarg")) {
 		free_string(iXSocial->others_no_arg);
 		iXSocial->others_no_arg = str_dup(argument);
 
 		if (!argument[0])
-			stc("Others will now see nothing when this social is used without arguments.\n\r", ch);
+			stc("Others will now see nothing when this social is used without arguments.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "cfound")) {
 		free_string(iXSocial->char_found);
 		iXSocial->char_found = str_dup(argument);
 
 		if (!argument[0])
-			stc("The character will now see nothing when a target is found.\n\r", ch);
+			stc("The character will now see nothing when a target is found.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "ofound")) {
 		free_string(iXSocial->others_found);
 		iXSocial->others_found = str_dup(argument);
 
 		if (!argument[0])
-			stc("Others will now see nothing when a target is found.\n\r", ch);
+			stc("Others will now see nothing when a target is found.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "vfound")) {
 		free_string(iXSocial->vict_found);
 		iXSocial->vict_found = str_dup(argument);
 
 		if (!argument[0])
-			stc("Victim will now see nothing when a target is found.\n\r", ch);
+			stc("Victim will now see nothing when a target is found.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "cself")) {
 		free_string(iXSocial->char_auto);
 		iXSocial->char_auto = str_dup(argument);
 
 		if (!argument[0])
-			stc("Character will now see nothing when targetting self.\n\r", ch);
+			stc("Character will now see nothing when targetting self.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "oself")) {
 		free_string(iXSocial->others_auto);
 		iXSocial->others_auto = str_dup(argument);
 
 		if (!argument[0])
-			stc("Others will now see nothing when character targets self.\n\r", ch);
+			stc("Others will now see nothing when character targets self.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else {
-		stc("Huh? Try HELP XEDIT.\n\r", ch);
+		stc("Huh? Try HELP XEDIT.\n", ch);
 		return;
 	}
 

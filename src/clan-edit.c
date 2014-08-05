@@ -253,28 +253,28 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, clanname);
 
 	if (!cmd[0]) {
-		stc("Huh? type HELP CEDIT to see syntax.\n\r", ch);
+		stc("Huh? type HELP CEDIT to see syntax.\n", ch);
 		return;
 	}
 
 	if (!clanname[0]) {
-		stc("What clan do you want to operate on?\n\r", ch);
+		stc("What clan do you want to operate on?\n", ch);
 		return;
 	}
 
 	cdata = clan_lookup(clanname);
 
 	if (str_cmp(cmd, "new") && (cdata == NULL)) {
-		stc("No such clan exists.\n\r", ch);
+		stc("No such clan exists.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, "delete")) {
 		if (cdata == NULL)
-			stc("You need to specify a clanname.\n\r", ch);
+			stc("You need to specify a clanname.\n", ch);
 		else {
 			remove_clan(cdata->name);
-			stc("Clan deleted.\n\r", ch);
+			stc("Clan deleted.\n", ch);
 			save_clan_table();
 		}
 
@@ -286,12 +286,12 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 
 		if (new_clan == NULL) {
 			bug("Unable to allocate memory for new clan!", 0);
-			stc("Allocation of memory for the new clan failed!\n\r", ch);
+			stc("Allocation of memory for the new clan failed!\n", ch);
 			return;
 		}
 
 		if (cdata != NULL) {
-			stc("A clan with that name already exists.\n\r", ch);
+			stc("A clan with that name already exists.\n", ch);
 			return;
 		}
 
@@ -309,34 +309,34 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		new_clan->warcpmod = 0;
 		append_clan(new_clan);
 		save_clan_table();
-		stc("New clan added.\n\r", ch);
+		stc("New clan added.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, "show")) {
-		ptc(ch,     "{HClan: %s\n\r"
-		    "{G[whoname]{c    The name that shows in the who-list:\n\r"
-		    "{Y             %s\n\r"
-		    "{G[hall]{c       The vnum of clanrecall:\n\r"
-		    "{Y             %d\n\r"
-		    "{G[areamin]{c    The lower vnum of the clanhall:\n\r"
-		    "{Y             %d\n\r"
-		    "{G[areamax]{c    The upper vnum of the clanhall:\n\r"
-		    "{Y             %d\n\r"
-		    "{G[indepedent]{c Loner or IMM clan:\n\r"
-		    "{Y             %s\n\r"
-		    "{G[clanqp]{c     Number of questpoints the clan has:\n\r"
-		    "{Y             %ld\n\r"
-		    "{G[clangold]{c   Number of gold coins the clan has:\n\r"
-		    "{Y             %ld\n\r"
-		    "{G[clanname]{c   Full name of the clan:\n\r"
-		    "{Y             %s\n\r"
-		    "{G[creator]{c    Name of the creator(s) of the clan:\n\r"
-		    "{Y             %s\n\r"
-		    "{G[score]{c      Points remaining until defeat in current war:\n\r"
-		    "{Y             %d\n\r"
-		    "{G[warcpmod]{c   Modification to power based on wars:\n\r"
-		    "{Y             %d\n\r",
+		ptc(ch,     "{HClan: %s\n"
+		    "{G[whoname]{c    The name that shows in the who-list:\n"
+		    "{Y             %s\n"
+		    "{G[hall]{c       The vnum of clanrecall:\n"
+		    "{Y             %d\n"
+		    "{G[areamin]{c    The lower vnum of the clanhall:\n"
+		    "{Y             %d\n"
+		    "{G[areamax]{c    The upper vnum of the clanhall:\n"
+		    "{Y             %d\n"
+		    "{G[indepedent]{c Loner or IMM clan:\n"
+		    "{Y             %s\n"
+		    "{G[clanqp]{c     Number of questpoints the clan has:\n"
+		    "{Y             %ld\n"
+		    "{G[clangold]{c   Number of gold coins the clan has:\n"
+		    "{Y             %ld\n"
+		    "{G[clanname]{c   Full name of the clan:\n"
+		    "{Y             %s\n"
+		    "{G[creator]{c    Name of the creator(s) of the clan:\n"
+		    "{Y             %s\n"
+		    "{G[score]{c      Points remaining until defeat in current war:\n"
+		    "{Y             %d\n"
+		    "{G[warcpmod]{c   Modification to power based on wars:\n"
+		    "{Y             %d\n",
 		    cdata->name,
 		    cdata->who_name,
 		    cdata->hall,
@@ -357,9 +357,9 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		cdata->who_name = str_dup(argument);
 
 		if (!argument[0])
-			stc("The who-name is set to none.\n\r", ch);
+			stc("The who-name is set to none.\n", ch);
 		else
-			ptc(ch, "New whoname: '%s{x'.\n\r", cdata->who_name);
+			ptc(ch, "New whoname: '%s{x'.\n", cdata->who_name);
 
 		save_clan_table();
 		return;
@@ -367,15 +367,15 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 
 	if (!str_cmp(cmd, "hall")) {
 		if (!argument[0] || !is_number(argument)) {
-			stc("Clanrecall set to normal recall.\n\r", ch);
+			stc("Clanrecall set to normal recall.\n", ch);
 			cdata->hall = 3001;
 		}
 		else {
 			if (!find_location(ch, argument))
-				stc("No such location.\n\r", ch);
+				stc("No such location.\n", ch);
 			else {
 				cdata->hall = atoi(argument);
-				ptc(ch, "Clanrecall set to %d.\n\r", cdata->hall);
+				ptc(ch, "Clanrecall set to %d.\n", cdata->hall);
 			}
 		}
 
@@ -387,19 +387,19 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		int vnum = -1;
 
 		if (!argument[0] || !is_number(argument)) {
-			stc("Areamin set to 0.\n\r", ch);
+			stc("Areamin set to 0.\n", ch);
 			cdata->area_minvnum = 0;
 		}
 		else {
 			vnum = atoi(argument);
 
 			if (vnum < 0) {
-				stc("Areamin must be greater or equal to 0.\n\r", ch);
+				stc("Areamin must be greater or equal to 0.\n", ch);
 				return;
 			}
 
 			cdata->area_minvnum = vnum;
-			ptc(ch, "Areamin set to %d.\n\r", cdata->area_minvnum);
+			ptc(ch, "Areamin set to %d.\n", cdata->area_minvnum);
 		}
 
 		save_clan_table();
@@ -410,19 +410,19 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		int vnum = -1;
 
 		if (!argument[0] || !is_number(argument)) {
-			stc("Areamax set to 0.\n\r", ch);
+			stc("Areamax set to 0.\n", ch);
 			cdata->area_maxvnum = 0;
 		}
 		else {
 			vnum = atoi(argument);
 
 			if (vnum < 0) {
-				stc("Areamax must be greater or equal to 0.\n\r", ch);
+				stc("Areamax must be greater or equal to 0.\n", ch);
 				return;
 			}
 
 			cdata->area_maxvnum = vnum;
-			ptc(ch, "Areamax set to %d.\n\r", cdata->area_maxvnum);
+			ptc(ch, "Areamax set to %d.\n", cdata->area_maxvnum);
 		}
 
 		save_clan_table();
@@ -433,28 +433,28 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		int independent = 0;
 
 		if (!IS_IMP(ch)) {
-			stc("You cannot make this an immortal clan.\n\r", ch);
+			stc("You cannot make this an immortal clan.\n", ch);
 			return;
 		}
 
 		if (!argument[0] || !is_number(argument)) {
-			stc("Dependent set to 0 (not dependent)\n\r", ch);
+			stc("Dependent set to 0 (not dependent)\n", ch);
 			cdata->independent = 0;
 		}
 		else {
 			independent = atoi(argument);
 
 			if (independent < 0 || independent > 1) {
-				stc("Use the values: 0=NO, 1=YES\n\r", ch);
+				stc("Use the values: 0=NO, 1=YES\n", ch);
 				return;
 			}
 
 			cdata->independent = independent;
 
 			if (independent)
-				stc("The clan is now independent.\n\r", ch);
+				stc("The clan is now independent.\n", ch);
 			else
-				stc("The clan is now dependent.\n\r", ch);
+				stc("The clan is now dependent.\n", ch);
 		}
 
 		save_clan_table();
@@ -465,19 +465,19 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		int clanqp = -1;
 
 		if (!argument[0] || !is_number(argument)) {
-			stc("You need to provide a numerical argument.\n\r", ch);
+			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}
 
 		clanqp = atoi(argument);
 
 		if (clanqp < 0) {
-			stc("You need to provide a positive numerical argument.\n\r", ch);
+			stc("You need to provide a positive numerical argument.\n", ch);
 			return;
 		}
 
 		cdata->clanqp = clanqp;
-		ptc(ch, "Clanqp set to %ld.\n\r", cdata->clanqp);
+		ptc(ch, "Clanqp set to %ld.\n", cdata->clanqp);
 		save_clan_table();
 		return;
 	}
@@ -486,19 +486,19 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		int gold_balance = -1;
 
 		if (!argument[0] || !is_number(argument)) {
-			stc("You need to provide a numerical argument.\n\r", ch);
+			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}
 
 		gold_balance = atoi(argument);
 
 		if (gold_balance < 0) {
-			stc("You need to provide a positive numerical argument.\n\r", ch);
+			stc("You need to provide a positive numerical argument.\n", ch);
 			return;
 		}
 
 		cdata->gold_balance = gold_balance;
-		ptc(ch, "Clangold set to %ld.\n\r", cdata->gold_balance);
+		ptc(ch, "Clangold set to %ld.\n", cdata->gold_balance);
 		save_clan_table();
 		return;
 	}
@@ -508,9 +508,9 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		cdata->clanname = str_dup(argument);
 
 		if (!argument[0])
-			stc("Clanname set to none.\n\r", ch);
+			stc("Clanname set to none.\n", ch);
 		else
-			ptc(ch, "Clanname set to '%s{x'.\n\r", cdata->clanname);
+			ptc(ch, "Clanname set to '%s{x'.\n", cdata->clanname);
 
 		save_clan_table();
 		return;
@@ -521,9 +521,9 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		cdata->creator = str_dup(argument);
 
 		if (!argument[0])
-			stc("Creator set to none.\n\r", ch);
+			stc("Creator set to none.\n", ch);
 		else
-			ptc(ch, "Creator set to '%s{x'.\n\r", cdata->creator);
+			ptc(ch, "Creator set to '%s{x'.\n", cdata->creator);
 
 		save_clan_table();
 		return;
@@ -533,19 +533,19 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		int score = 0;
 
 		if (!argument[0] || !is_number(argument)) {
-			stc("You need to provide a numerical argument.\n\r", ch);
+			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}
 
 		score = atoi(argument);
 
 		if (score < 0) {
-			stc("You need to provide a positive numerical argument.\n\r", ch);
+			stc("You need to provide a positive numerical argument.\n", ch);
 			return;
 		}
 
 		cdata->score = score;
-		ptc(ch, "Score set to %d.\n\r", cdata->score);
+		ptc(ch, "Score set to %d.\n", cdata->score);
 		save_clan_table();
 		return;
 	}
@@ -554,16 +554,16 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 		int mod = 0;
 
 		if (!argument[0] || !is_number(argument)) {
-			stc("You need to provide a numerical argument.\n\r", ch);
+			stc("You need to provide a numerical argument.\n", ch);
 			return;
 		}
 
 		mod = atoi(argument);
 		cdata->warcpmod = mod;
-		ptc(ch, "The clan now has their power modified by %d.\n\r", cdata->warcpmod);
+		ptc(ch, "The clan now has their power modified by %d.\n", cdata->warcpmod);
 		save_clan_table();
 		return;
 	}
 
-	stc("Huh? type HELP CEDIT to see syntax.\n\r", ch);
+	stc("Huh? type HELP CEDIT to see syntax.\n", ch);
 }

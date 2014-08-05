@@ -635,7 +635,7 @@ void war_score_adjust(WAR_DATA *war, CHAR_DATA *ch, CHAR_DATA *victim, int amoun
 		sprintf(buf, "%s has defeated %s!",
 		        ch->clan->clanname, victim->clan->clanname);
 		do_send_announce(ch, buf);
-		ptc(ch, "You have defeated %s!\n\r", victim->clan->clanname);
+		ptc(ch, "You have defeated %s!\n", victim->clan->clanname);
 		war_power_adjust(victim->clan, FALSE);
 
 		for (iter = war_table_head->next; iter != war_table_tail; iter = iter->next)
@@ -645,7 +645,7 @@ void war_score_adjust(WAR_DATA *war, CHAR_DATA *ch, CHAR_DATA *victim, int amoun
 		victim->clan->score = 0;
 
 		if (!war->ongoing)
-			stc("You have won the war!!\n\r", ch);
+			stc("You have won the war!!\n", ch);
 	}
 
 	save_clan_table();
@@ -893,7 +893,7 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 	chlead = (chcount - defcount);
 	deflead = (defcount - chcount);
 	lines = (chcount > defcount ? chcount : defcount);
-	add_buf(output, "\n\r");
+	add_buf(output, "\n");
 
 	for (x = 1; x < (lines + 1); x++) {
 		if ((deflead > 1 && x == 1) || c >= chcount)
@@ -939,11 +939,11 @@ void format_war_list(CHAR_DATA *ch, WAR_DATA *war, bool current)
 			d++;
 		}
 
-		sprintf(buf, "%s{x    %s{x    %s{x\n\r", chblock, vsblock, defblock);
+		sprintf(buf, "%s{x    %s{x    %s{x\n", chblock, vsblock, defblock);
 		add_buf(output, buf);
 	}
 
-	add_buf(output, "\n\r");
+	add_buf(output, "\n");
 	page_to_char(buf_string(output), ch);
 	free_buf(output);
 }
@@ -976,46 +976,46 @@ void format_war_events(CHAR_DATA *ch, WAR_DATA *war)
 			break;
 
 		case EVENT_WAR_DECLARE:
-			sprintf(buf, "%s has declared war on %s!\n\r",
+			sprintf(buf, "%s has declared war on %s!\n",
 			        event->astr, event->bstr);
 			break;
 
 		case EVENT_WAR_JOIN:
-			sprintf(buf, "%s has joined the war on the %s side!\n\r",
+			sprintf(buf, "%s has joined the war on the %s side!\n",
 			        event->astr, event->number ? "challenging" : "defending");
 			break;
 
 		case EVENT_KILL:
-			sprintf(buf, "%s has been killed by %s!\n\r", event->bstr, event->astr);
+			sprintf(buf, "%s has been killed by %s!\n", event->bstr, event->astr);
 			break;
 
 		case EVENT_CLAN_DEFEAT:
-			sprintf(buf, "%s has been defeated by %s!\n\r", event->astr, event->bstr);
+			sprintf(buf, "%s has been defeated by %s!\n", event->astr, event->bstr);
 			break;
 
 		case EVENT_CLAN_WIPEOUT:
-			sprintf(buf, "%s has been wiped out in war!\n\r", event->astr);
+			sprintf(buf, "%s has been wiped out in war!\n", event->astr);
 			break;
 
 		case EVENT_CLAN_SURRENDER:
-			sprintf(buf, "%s has surrendered.\n\r", event->astr);
+			sprintf(buf, "%s has surrendered.\n", event->astr);
 			break;
 
 		case EVENT_CLAN_INVADE:
 			break;
 
 		case EVENT_ADJUST_SCORE:
-			sprintf(buf, "%s has lost %d points at the hands of %s!\n\r",
+			sprintf(buf, "%s has lost %d points at the hands of %s!\n",
 			        event->bstr, event->number, event->astr);
 			break;
 
 		case EVENT_ADJUST_POWER:
-			sprintf(buf, "%s lost %d clanpower to %s.\n\r",
+			sprintf(buf, "%s lost %d clanpower to %s.\n",
 			        event->astr, event->number, event->bstr);
 			break;
 
 		case EVENT_ADJUST_CLANQP:
-			sprintf(buf, "%s turned over %d questpoints to %s.\n\r",
+			sprintf(buf, "%s turned over %d questpoints to %s.\n",
 			        event->astr, event->number, event->bstr);
 			break;
 
@@ -1061,7 +1061,7 @@ void do_war(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!found)
-			stc("No wars have ended yet.\n\r", ch);
+			stc("No wars have ended yet.\n", ch);
 
 		return;
 	}
@@ -1084,7 +1084,7 @@ void do_war(CHAR_DATA *ch, char *argument)
 		}
 
 		if (peace)
-			stc("Legacy is currently at peace.\n\r", ch);
+			stc("Legacy is currently at peace.\n", ch);
 
 		return;
 	}
@@ -1092,19 +1092,19 @@ void do_war(CHAR_DATA *ch, char *argument)
 	/*** EVENTS ***/
 	if (!str_prefix1(arg1, "events")) {
 		if (arg2[0] == '\0') {
-			stc("Syntax: war events <war number>\n\r", ch);
+			stc("Syntax: war events <war number>\n", ch);
 			return;
 		}
 
 		if (!is_number(arg2)) {
-			stc("Use the number of the war.\n\r", ch);
+			stc("Use the number of the war.\n", ch);
 			return;
 		}
 
 		number = atoi(arg2);
 
 		if ((war = war_lookup(number)) == NULL) {
-			stc("That is not a valid war.\n\r", ch);
+			stc("That is not a valid war.\n", ch);
 			return;
 		}
 
@@ -1115,42 +1115,42 @@ void do_war(CHAR_DATA *ch, char *argument)
 	/*** DECLARE ***/
 	if (!str_cmp(arg1, "declare") && IS_IMMORTAL(ch)) {
 		if (arg2[0] == '\0' || arg3[0] == '\0') {
-			stc("Syntax: war declare <challenger> <defender>\n\r", ch);
+			stc("Syntax: war declare <challenger> <defender>\n", ch);
 			return;
 		}
 
 		if ((clanA = clan_lookup(arg2)) == NULL) {
-			ptc(ch, "'%s' is not a clan.\n\r", arg2);
+			ptc(ch, "'%s' is not a clan.\n", arg2);
 			return;
 		}
 
 		if ((clanB = clan_lookup(arg3)) == NULL) {
-			ptc(ch, "'%s' is not a clan.\n\r", arg3);
+			ptc(ch, "'%s' is not a clan.\n", arg3);
 			return;
 		}
 
 		if (clanA == clanB) {
-			stc("They cannot declare war on themselves.\n\r", ch);
+			stc("They cannot declare war on themselves.\n", ch);
 			return;
 		}
 
 		if (clanA->independent || clanB->independent) {
-			stc("Independent clans cannot war.\n\r", ch);
+			stc("Independent clans cannot war.\n", ch);
 			return;
 		}
 
 		if (calc_cp(clanA, FALSE) < 1) {
-			stc("The challenger is not strong enough to wage war.\n\r", ch);
+			stc("The challenger is not strong enough to wage war.\n", ch);
 			return;
 		}
 
 		if (calc_cp(clanB, FALSE) < 1) {
-			stc("The defender is already defeated.\n\r", ch);
+			stc("The defender is already defeated.\n", ch);
 			return;
 		}
 
 		if (clan_opponents(clanA, clanB)) {
-			stc("They are already at war with eachother.\n\r", ch);
+			stc("They are already at war with eachother.\n", ch);
 			return;
 		}
 
@@ -1200,7 +1200,7 @@ void do_war(CHAR_DATA *ch, char *argument)
 		rec_event(war, EVENT_WAR_DECLARE, clanA->clanname, clanB->clanname, 0);
 		save_clan_table();
 		save_war_table();
-		ptc(ch, "%s is now at war with %s.\n\r",
+		ptc(ch, "%s is now at war with %s.\n",
 		    clanA->clanname, clanB->clanname);
 		sprintf(buf, "%s has declared war on %s!",
 		        clanA->clanname, clanB->clanname);
@@ -1211,24 +1211,24 @@ void do_war(CHAR_DATA *ch, char *argument)
 	/*** JOIN ***/
 	if (!str_cmp(arg1, "join") && IS_IMMORTAL(ch)) {
 		if (arg2[0] == '\0' || arg3[0] == '\0' || argument[0] == '\0') {
-			stc("Syntax: war join <clan> <war number> <challenger|defender>\n\r", ch);
+			stc("Syntax: war join <clan> <war number> <challenger|defender>\n", ch);
 			return;
 		}
 
 		if ((clanA = clan_lookup(arg2)) == NULL) {
-			ptc(ch, "'%s' is not a clan.\n\r", arg2);
+			ptc(ch, "'%s' is not a clan.\n", arg2);
 			return;
 		}
 
 		if (!is_number(arg3)) {
-			stc("Use a number for the war.\n\r", ch);
+			stc("Use a number for the war.\n", ch);
 			return;
 		}
 
 		number = atoi(arg3);
 
 		if ((war = war_lookup(number)) == NULL) {
-			stc("That is not a valid war.\n\r", ch);
+			stc("That is not a valid war.\n", ch);
 			return;
 		}
 
@@ -1237,27 +1237,27 @@ void do_war(CHAR_DATA *ch, char *argument)
 		else if (!str_prefix1(argument, "defender"))
 			challenger = FALSE;
 		else {
-			stc("Use 'challenger' or 'defender' after the war number.\n\r", ch);
+			stc("Use 'challenger' or 'defender' after the war number.\n", ch);
 			return;
 		}
 
 		if (clanA->independent) {
-			stc("Independent clans cannot war.\n\r", ch);
+			stc("Independent clans cannot war.\n", ch);
 			return;
 		}
 
 		if (calc_cp(clanA, FALSE) < 1) {
-			stc("The clan is not strong enough to wage war.\n\r", ch);
+			stc("The clan is not strong enough to wage war.\n", ch);
 			return;
 		}
 
 		if (clan_in_war(clanA, war, FALSE)) {
-			stc("They are already part of that war.\n\r", ch);
+			stc("They are already part of that war.\n", ch);
 			return;
 		}
 
 		if (war_is_full(war, challenger)) {
-			stc("That war is full.\n\r", ch);
+			stc("That war is full.\n", ch);
 			return;
 		}
 
@@ -1265,7 +1265,7 @@ void do_war(CHAR_DATA *ch, char *argument)
 		rec_event(war, EVENT_WAR_JOIN, clanA->clanname, NULL, challenger);
 		save_clan_table();
 		save_war_table();
-		ptc(ch, "%s is now a %s in War %d.\n\r",
+		ptc(ch, "%s is now a %s in War %d.\n",
 		    clanA->clanname, challenger ? "challenger" : "defender", number);
 		sprintf(buf, "%s has joined war %d!",
 		        clanA->clanname, number);
@@ -1278,24 +1278,24 @@ void do_war(CHAR_DATA *ch, char *argument)
 		bool remove = FALSE;
 
 		if (arg2[0] == '\0' || arg3[0] == '\0' || argument[0] == '\0') {
-			stc("Syntax: war unjoin <clan> <war number> <remove|stop>\n\r", ch);
+			stc("Syntax: war unjoin <clan> <war number> <remove|stop>\n", ch);
 			return;
 		}
 
 		if ((clanA = clan_lookup(arg2)) == NULL) {
-			ptc(ch, "'%s' is not a clan.\n\r", arg2);
+			ptc(ch, "'%s' is not a clan.\n", arg2);
 			return;
 		}
 
 		if (!is_number(arg3)) {
-			stc("Use the number of the war.\n\r", ch);
+			stc("Use the number of the war.\n", ch);
 			return;
 		}
 
 		number = atoi(arg3);
 
 		if ((war = war_lookup(number)) == NULL) {
-			stc("That is not a valid war.\n\r", ch);
+			stc("That is not a valid war.\n", ch);
 			return;
 		}
 
@@ -1304,12 +1304,12 @@ void do_war(CHAR_DATA *ch, char *argument)
 		else if (!str_prefix1(argument, "stop"))
 			remove = FALSE;
 		else {
-			stc("Use 'remove' or 'stop' after the war number.\n\r", ch);
+			stc("Use 'remove' or 'stop' after the war number.\n", ch);
 			return;
 		}
 
 		if (!war->ongoing) {
-			stc("That war has stopped.\n\r", ch);
+			stc("That war has stopped.\n", ch);
 			return;
 		}
 
@@ -1318,9 +1318,9 @@ void do_war(CHAR_DATA *ch, char *argument)
 		save_war_table();
 
 		if (remove)
-			stc("You remove them from the war.\n\r", ch);
+			stc("You remove them from the war.\n", ch);
 		else
-			stc("You stop their activity in the war.\n\r", ch);
+			stc("You stop their activity in the war.\n", ch);
 
 		return;
 	}
@@ -1330,19 +1330,19 @@ void do_war(CHAR_DATA *ch, char *argument)
 	        {
 	                if (arg2[0] == '\0')
 	                {
-	                        stc("Syntax: war surrender <clan>\n\r", ch);
+	                        stc("Syntax: war surrender <clan>\n", ch);
 	                        return;
 	                }
 
 	                if ((clanA = clan_lookup(arg2)) == NULL)
 	                {
-	                        ptc(ch, "'%s' is not a clan.\n\r", arg2);
+	                        ptc(ch, "'%s' is not a clan.\n", arg2);
 	                        return;
 	                }
 
 	                if (!clan_at_war(clanA))
 	                {
-	                        stc("They are not at war.\n\r", ch);
+	                        stc("They are not at war.\n", ch);
 	                        return;
 	                }
 
@@ -1351,7 +1351,7 @@ void do_war(CHAR_DATA *ch, char *argument)
 	                save_clan_table();
 	                save_war_table();
 
-	                stc("They pull out the white flag.\n\r", ch);
+	                stc("They pull out the white flag.\n", ch);
 	                sprintf(buf, "%s has surrendered!", clanA->clanname);
 	                do_send_announce(ch, buf);
 	                return;
@@ -1360,27 +1360,27 @@ void do_war(CHAR_DATA *ch, char *argument)
 	/*** STOP ***/
 	if (!str_cmp(arg1, "stop") && IS_IMMORTAL(ch)) {
 		if (arg2[0] == '\0') {
-			stc("Syntax: war stop <war number>\n\r", ch);
+			stc("Syntax: war stop <war number>\n", ch);
 			return;
 		}
 
 		if (!is_number(arg2)) {
-			stc("Use the number of the war.\n\r", ch);
+			stc("Use the number of the war.\n", ch);
 			return;
 		}
 
 		if ((number = atoi(arg2)) < 1) {
-			stc("Number must be greater than 0.\n\r", ch);
+			stc("Number must be greater than 0.\n", ch);
 			return;
 		}
 
 		if ((war = war_lookup(number)) == NULL) {
-			stc("That is not a valid war.\n\r", ch);
+			stc("That is not a valid war.\n", ch);
 			return;
 		}
 
 		if (!war->ongoing) {
-			stc("The war has already stopped.\n\r", ch);
+			stc("The war has already stopped.\n", ch);
 			return;
 		}
 
@@ -1388,7 +1388,7 @@ void do_war(CHAR_DATA *ch, char *argument)
 		war_stop(war);
 		save_clan_table();
 		save_war_table();
-		stc("You stop the war.\n\r", ch);
+		stc("You stop the war.\n", ch);
 		return;
 	}
 
@@ -1405,7 +1405,7 @@ void do_war(CHAR_DATA *ch, char *argument)
 
 		load_war_table();
 		load_war_events();
-		stc("War table reloaded.\n\r", ch);
+		stc("War table reloaded.\n", ch);
 		return;
 	}
 
@@ -1415,25 +1415,25 @@ void do_war(CHAR_DATA *ch, char *argument)
 
 	                if (arg2[0] == '\0' || arg3[0] == '\0')
 	                {
-	                        stc("Syntax: war kill <char> <victim>\n\r", ch);
+	                        stc("Syntax: war kill <char> <victim>\n", ch);
 	                        return;
 	                }
 
 	                if ((winner = get_player_world(ch, arg2, VIS_PLR)) == NULL)
 	                {
-	                        stc("Winner not found.\n\r", ch);
+	                        stc("Winner not found.\n", ch);
 	                        return;
 	                }
 
 	                if ((loser = get_player_world(ch, arg3, VIS_PLR)) == NULL)
 	                {
-	                        stc("Loser not found.\n\r", ch);
+	                        stc("Loser not found.\n", ch);
 	                        return;
 	                }
 
 	                if (!char_opponents(winner, loser))
 	                {
-	                        stc("They are not at war.\n\r", ch);
+	                        stc("They are not at war.\n", ch);
 	                        return;
 	                }
 
@@ -1441,20 +1441,20 @@ void do_war(CHAR_DATA *ch, char *argument)
 	                return;
 	        } */
 	/* echo syntax */
-	stc("Syntax:\n\r", ch);
-	stc("  war list\n\r", ch);
-	stc("  war history\n\r", ch);
-	stc("  war events  <war number>\n\r", ch);
+	stc("Syntax:\n", ch);
+	stc("  war list\n", ch);
+	stc("  war history\n", ch);
+	stc("  war events  <war number>\n", ch);
 
 	if (IS_IMMORTAL(ch)) {
-		stc("  war declare   <challenger> <defender>\n\r", ch);
-		stc("  war join      <clan> <war number> <challenger|defender>\n\r", ch);
-		stc("  war unjoin    <clan> <war number> <remove|stop>\n\r", ch);
-//		stc("  war surrender <clan>\n\r", ch);
-		stc("  war stop      <war number>\n\r", ch);
+		stc("  war declare   <challenger> <defender>\n", ch);
+		stc("  war join      <clan> <war number> <challenger|defender>\n", ch);
+		stc("  war unjoin    <clan> <war number> <remove|stop>\n", ch);
+//		stc("  war surrender <clan>\n", ch);
+		stc("  war stop      <war number>\n", ch);
 // Debugging
-		/*              stc("  war kill    <char> <victim>\n\r", ch);
-		                stc("  war reload            (reload the table from disk)\n\r", ch); */
+		/*              stc("  war kill    <char> <victim>\n", ch);
+		                stc("  war reload            (reload the table from disk)\n", ch); */
 	}
 }
 

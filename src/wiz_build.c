@@ -49,7 +49,7 @@ void room_pair(ROOM_INDEX_DATA *left, ROOM_INDEX_DATA *right, exit_status ex, ch
 
 	sprintf(leftname, "%s", smash_bracket(left->name));
 	sprintf(rightname, "%s", smash_bracket(right->name));
-	sprintf(buffer, "%5d %-26.26s %s%5d %-26.26s(%-8.8s)\n\r",
+	sprintf(buffer, "%5d %-26.26s %s%5d %-26.26s(%-8.8s)\n",
 	        left->vnum, leftname,
 	        sExit,
 	        right->vnum, rightname,
@@ -193,7 +193,7 @@ void do_pocket(CHAR_DATA *ch, char *argument)
 		size = atoi(arg1);
 
 	if (size < 20) {
-		stc("Minimum size to search for is 20.\n\r", ch);
+		stc("Minimum size to search for is 20.\n", ch);
 		return;
 	}
 
@@ -202,7 +202,7 @@ void do_pocket(CHAR_DATA *ch, char *argument)
 		for (area = area_first; area; area = area->next) {
 			if (area->min_vnum <= vnum && area->max_vnum >= vnum) { /* it is */
 				if (count >= size)
-					ptc(ch, "%5d to %5d, size %d\n\r", vnum - (count - 1), vnum - 1, count - 1);
+					ptc(ch, "%5d to %5d, size %d\n", vnum - (count - 1), vnum - 1, count - 1);
 
 				count = 0;
 				continue;
@@ -225,12 +225,12 @@ void do_roomlist(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
-		stc("Syntax: roomlist <starting vnum> <ending vnum>\n\r", ch);
+		stc("Syntax: roomlist <starting vnum> <ending vnum>\n", ch);
 		return;
 	}
 
 	if (!is_number(arg) || !is_number(argument)) {
-		stc("Values must be numeric\n\r", ch);
+		stc("Values must be numeric\n", ch);
 		return;
 	}
 
@@ -239,18 +239,18 @@ void do_roomlist(CHAR_DATA *ch, char *argument)
 	buffer = new_buf();
 
 	if ((first < 0) || (first > 99999) || (last < 0) || (last > 99999)) {
-		stc("Values must be between 0 and 99999.\n\r", ch);
+		stc("Values must be between 0 and 99999.\n", ch);
 		return;
 	}
 
 	if (first >= last) {
-		stc("Second value must be greater than first.\n\r", ch);
+		stc("Second value must be greater than first.\n", ch);
 		return;
 	}
 
 	for (counter = first; counter <= last; counter++) {
 		if ((room = get_room_index(counter)) != NULL) {
-			sprintf(arg, "[%5d] (%s{x) %s{X\n\r",
+			sprintf(arg, "[%5d] (%s{x) %s{X\n",
 			        room->vnum, room->area->name,
 			        room->name);
 			add_buf(buffer, arg);
@@ -259,7 +259,7 @@ void do_roomlist(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!found)
-		stc("No rooms were found within the range given.\n\r", ch);
+		stc("No rooms were found within the range given.\n", ch);
 	else
 		page_to_char(buf_string(buffer), ch);
 
@@ -284,7 +284,7 @@ void do_vlist(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg);
 
 	if (!is_number(arg)) {
-		stc("Syntax: vlist [beg vnum] [end vnum]\n\r", ch);
+		stc("Syntax: vlist [beg vnum] [end vnum]\n", ch);
 		return;
 	}
 
@@ -292,7 +292,7 @@ void do_vlist(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] != '\0') {
 		if (!is_number(argument)) {
-			stc("Syntax: vlist [beg vnum] [end vnum]\n\r", ch);
+			stc("Syntax: vlist [beg vnum] [end vnum]\n", ch);
 			return;
 		}
 
@@ -303,12 +303,12 @@ void do_vlist(CHAR_DATA *ch, char *argument)
 
 	if ((begvnum < 0) || (begvnum > 99999)
 	    || (endvnum < 0) || (endvnum > 99999)) {
-		stc("Values must be between 0 and 99999.\n\r", ch);
+		stc("Values must be between 0 and 99999.\n", ch);
 		return;
 	}
 
 	if (begvnum > endvnum) {
-		stc("Second value must be greater than first.\n\r", ch);
+		stc("Second value must be greater than first.\n", ch);
 		return;
 	}
 
@@ -322,7 +322,7 @@ void do_vlist(CHAR_DATA *ch, char *argument)
 
 		if ((mobile = get_mob_index(vnum)) != NULL) {
 			if (!printed)
-				stc("[ Vnum] Mobile                         Object\n\r", ch);
+				stc("[ Vnum] Mobile                         Object\n", ch);
 
 			sprintf(buf, "%s%*s", mobile->short_descr,
 			        30 - color_strlen(mobile->short_descr), " ");
@@ -336,7 +336,7 @@ void do_vlist(CHAR_DATA *ch, char *argument)
 
 		if ((object = get_obj_index(vnum)) != NULL) {
 			if (!printed)
-				stc(" [Vnum] Mobile                         Object\n\r", ch);
+				stc(" [Vnum] Mobile                         Object\n", ch);
 
 			if (foundmobile)
 				sprintf(buf, "%-30s ", object->short_descr);
@@ -357,13 +357,13 @@ void do_vlist(CHAR_DATA *ch, char *argument)
 			bug("Error in getting object index in do_vlist().", 0);
 
 		if (found) {
-			strcat(totalbuf, "\n\r");
+			strcat(totalbuf, "\n");
 			add_buf(buffer, totalbuf);
 		}
 	}
 
 	if (!founddata)
-		stc("Nothing was found in that vnum range.\n\r", ch);
+		stc("Nothing was found in that vnum range.\n", ch);
 	else
 		page_to_char(buf_string(buffer), ch);
 

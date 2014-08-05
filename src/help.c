@@ -18,10 +18,10 @@ DECLARE_DO_FUN(do_departed);
 
 #ifdef SEASON_CHRISTMAS
 char stupidassline[1000] =
-        "{f{G*{x{H-=-=-{f{C*{x{H-=-=-{f{B*{x{H-=-=-{f{V*{x{H-=-=-{f{P*{x{H-=-=-{f{Y*{x{H-=-=-{f{W*{x{H-=-=-{f{Y*{x{H-=-=-{f{P*{x{H-=-=-{f{V*{x{H-=-=-{f{B*{x{H-=-=-{f{C*{x{H-=-=-{f{G*{x\n\r\0";
+        "{f{G*{x{H-=-=-{f{C*{x{H-=-=-{f{B*{x{H-=-=-{f{V*{x{H-=-=-{f{P*{x{H-=-=-{f{Y*{x{H-=-=-{f{W*{x{H-=-=-{f{Y*{x{H-=-=-{f{P*{x{H-=-=-{f{V*{x{H-=-=-{f{B*{x{H-=-=-{f{C*{x{H-=-=-{f{G*{x\n\0";
 #else
 char stupidassline[1000] =
-        "{G*{T-=-=-{C*{T-=-=-{B*{T-=-=-{V*{T-=-=-{P*{T-=-=-{Y*{T-=-=-{W*{T-=-=-{Y*{T-=-=-{P*{T-=-=-{V*{T-=-=-{B*{T-=-=-{C*{T-=-=-{G*{x\n\r\0";
+        "{G*{T-=-=-{C*{T-=-=-{B*{T-=-=-{V*{T-=-=-{P*{T-=-=-{Y*{T-=-=-{W*{T-=-=-{Y*{T-=-=-{P*{T-=-=-{V*{T-=-=-{B*{T-=-=-{C*{T-=-=-{G*{x\n\0";
 #endif
 
 #define HTABLE "helps"
@@ -192,19 +192,19 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 	struct help_struct temp_help[500];
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  loadhelps <filename>\n\r"
-		    "  loadhelps all\n\r\n\r"
-		    "File names are:\n\r", ch);
+		stc("Syntax:\n"
+		    "  loadhelps <filename>\n"
+		    "  loadhelps all\n\n"
+		    "File names are:\n", ch);
 
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
-			ptc(ch, "%s\n\r", helpfile_table[tablenum].name);
+			ptc(ch, "%s\n", helpfile_table[tablenum].name);
 
 		return;
 	}
 
 	if (port != DIZZYPORT) {
-		ptc(ch, "Please perform loading and printing commands on the port %d copy.\n\r", DIZZYPORT);
+		ptc(ch, "Please perform loading and printing commands on the port %d copy.\n", DIZZYPORT);
 		return;
 	}
 
@@ -214,8 +214,8 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
 			do_loadhelps(ch, helpfile_table[tablenum].name);
 
-		stc("All help files in the " HELP_DIR " directory loaded.\n\r", ch);
-		stc("Please remember to clean up, remove the help files with rm *.help!\n\r", ch);
+		stc("All help files in the " HELP_DIR " directory loaded.\n", ch);
+		stc("Please remember to clean up, remove the help files with rm *.help!\n", ch);
 		return;
 	}
 
@@ -224,10 +224,10 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 			break;
 
 	if (helpfile_table[tablenum].name == NULL) {
-		stc("That is not a valid help file name.  Help file names are:\n\r\n\r", ch);
+		stc("That is not a valid help file name.  Help file names are:\n\n", ch);
 
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
-			ptc(ch, "%s\n\r", helpfile_table[tablenum].name);
+			ptc(ch, "%s\n", helpfile_table[tablenum].name);
 
 		return;
 	}
@@ -235,7 +235,7 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 	sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
 
 	if ((fp = fopen(buf, "r")) == NULL) {
-		stc("File not found - make sure it is uploaded into the /area/help/ directory.\n\r", ch);
+		stc("File not found - make sure it is uploaded into the /area/help/ directory.\n", ch);
 		return;
 	}
 
@@ -250,11 +250,11 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		    || temp_help[count].text       == NULL
 		    || temp_help[count].keywords[0] == '\0'
 		    || temp_help[count].text[0]    == '\0')
-			stc("Error:  missing text.\n\r", ch);
+			stc("Error:  missing text.\n", ch);
 		else if (strlen(temp_help[count].keywords) > 100)
-			stc("Error:  keywords longer than 100 characters.\n\r", ch);
+			stc("Error:  keywords longer than 100 characters.\n", ch);
 		else if (strlen(temp_help[count].text) > 8000)
-			stc("Error:  text longer than 8000 characters.\n\r", ch);
+			stc("Error:  text longer than 8000 characters.\n", ch);
 		else {
 			count++;
 			continue;
@@ -264,9 +264,9 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		    helpfile_table[tablenum].name);
 
 		if (count > 0)
-			ptc(ch, " after\n\rthe help '%s'.\n\r", temp_help[count - 1].keywords);
+			ptc(ch, " after\nthe help '%s'.\n", temp_help[count - 1].keywords);
 		else
-			stc(" on the first help.\n\r", ch);
+			stc(" on the first help.\n", ch);
 
 		fclose(fp);
 		return;
@@ -309,7 +309,7 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 		);
 	}
 
-	ptc(ch, "File " HELP_DIR "%s.help: %d helps loaded.\n\r", helpfile_table[tablenum].name, count);
+	ptc(ch, "File " HELP_DIR "%s.help: %d helps loaded.\n", helpfile_table[tablenum].name, count);
 }
 
 /* print all helps matching a group to file */
@@ -322,19 +322,19 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 	int tablenum, count = 0;
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  printhelps <filename>\n\r"
-		    "  printhelps all\n\r\n\r"
-		    "Filenames are:\n\r", ch);
+		stc("Syntax:\n"
+		    "  printhelps <filename>\n"
+		    "  printhelps all\n\n"
+		    "Filenames are:\n", ch);
 
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
-			ptc(ch, "%s\n\r", helpfile_table[tablenum].name);
+			ptc(ch, "%s\n", helpfile_table[tablenum].name);
 
 		return;
 	}
 
 	if (port != DIZZYPORT) {
-		stc("Please perform loading and printing commands on the port 3000 copy.\n\r", ch);
+		stc("Please perform loading and printing commands on the port 3000 copy.\n", ch);
 		return;
 	}
 
@@ -344,7 +344,7 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
 			do_printhelps(ch, helpfile_table[tablenum].name);
 
-		stc("All helps have been printed to file in the " HELP_DIR " directory.\n\r", ch);
+		stc("All helps have been printed to file in the " HELP_DIR " directory.\n", ch);
 		return;
 	}
 
@@ -353,10 +353,10 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 			break;
 
 	if (helpfile_table[tablenum].name == NULL) {
-		stc("That is not a valid help file name.  Help file names are:\n\r\n\r", ch);
+		stc("That is not a valid help file name.  Help file names are:\n\n", ch);
 
 		for (tablenum = 0; helpfile_table[tablenum].name != NULL; tablenum++)
-			ptc(ch, "%s\n\r", helpfile_table[tablenum].name);
+			ptc(ch, "%s\n", helpfile_table[tablenum].name);
 
 		return;
 	}
@@ -367,7 +367,7 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (!mysql_num_rows(result)) {
-		ptc(ch, "No help files fall into the '%s' group.\n\r", helpfile_table[tablenum].name);
+		ptc(ch, "No help files fall into the '%s' group.\n", helpfile_table[tablenum].name);
 		mysql_free_result(result);
 		return;
 	}
@@ -393,7 +393,7 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 	fclose(fp);
 	sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
 	rename(TEMP_FILE, buf);
-	ptc(ch, "File " HELP_DIR "%s.help: %d helps printed.\n\r", helpfile_table[tablenum].name, count);
+	ptc(ch, "File " HELP_DIR "%s.help: %d helps printed.\n", helpfile_table[tablenum].name, count);
 	mysql_free_result(result);
 }
 
@@ -574,10 +574,10 @@ void do_hedit(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, cmd);
 
 	if (!cmd[0]) {
-		ptc(ch, "Syntax:  hedit new <keywords>\n\r"
-		    "               delete <id>\n\r"
-		    "               show <id>\n\r"
-		    "               %s|%s|%s|%s|%s <id> <value>\n\r",
+		ptc(ch, "Syntax:  hedit new <keywords>\n"
+		    "               delete <id>\n"
+		    "               show <id>\n"
+		    "               %s|%s|%s|%s|%s <id> <value>\n",
 		    HCOL_GROUP, HCOL_ORDER, HCOL_LEVEL, HCOL_KEYS, HCOL_TEXT
 		   );
 		return;
@@ -585,23 +585,23 @@ void do_hedit(CHAR_DATA *ch, char *argument)
 
 	if (!str_cmp(cmd, "new")) {
 		if (!argument[0]) {
-			stc("You need to specify some keywords.\n\r", ch);
+			stc("You need to specify some keywords.\n", ch);
 			return;
 		}
 
 		if (!db_commandf("do_hedit", "insert into " HTABLE " (" HCOL_KEYS "," HCOL_TEXT ") values('%s','')",
 		                 db_esc(argument))) {
-			stc("Could not create a help with those keywords.\n\r", ch);
+			stc("Could not create a help with those keywords.\n", ch);
 			return;
 		}
 
 		if ((result = db_query("do_help", "select last_insert_id()")) == NULL) {
-			stc("Couldn't retrieve the ID of the new help.\n\r", ch);
+			stc("Couldn't retrieve the ID of the new help.\n", ch);
 			return;
 		}
 
 		row = mysql_fetch_row(result);
-		ptc(ch, "Success, the new help has an ID of %s.\n\r", row[0]);
+		ptc(ch, "Success, the new help has an ID of %s.\n", row[0]);
 		mysql_free_result(result);
 		return;
 	}
@@ -609,18 +609,18 @@ void do_hedit(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg);
 
 	if (!arg[0]) {
-		stc("What help do you want to operate on?\n\r", ch);
+		stc("What help do you want to operate on?\n", ch);
 		return;
 	}
 
 	if (db_countf("do_hedit", "select count(*) from " HTABLE " where " HCOL_ID "=%s", arg) < 1) {
-		stc("No help found with that ID.\n\r", ch);
+		stc("No help found with that ID.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, "delete")) {
 		db_commandf("do_hedit", "delete from " HTABLE " where " HCOL_ID "=%s", arg);
-		stc("That help is history now.\n\r", ch);
+		stc("That help is history now.\n", ch);
 		return;
 	}
 
@@ -628,12 +628,12 @@ void do_hedit(CHAR_DATA *ch, char *argument)
 		if ((result = db_queryf("do_help",
 		                        "select " HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT
 		                        " from " HTABLE " where " HCOL_ID "=%s", arg)) == NULL) {
-			stc("Couldn't retrieve a help with that ID.\n\r", ch);
+			stc("Couldn't retrieve a help with that ID.\n", ch);
 			return;
 		}
 
 		row = mysql_fetch_row(result);
-		ptc(ch, "ID: %4s  File: %s  Order: %s  Level: %s\n\rKeywords: %s\n\r%s\n\r",
+		ptc(ch, "ID: %4s  File: %s  Order: %s  Level: %s\nKeywords: %s\n%s\n",
 		    arg, row[0], row[1], row[2], row[3], row[4]
 		   );
 		mysql_free_result(result);
@@ -641,26 +641,26 @@ void do_hedit(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!argument[0]) {
-		stc("What value do you want to set it to?\n\r", ch);
+		stc("What value do you want to set it to?\n", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, HCOL_GROUP) || !str_cmp(cmd, HCOL_ORDER) || !str_cmp(cmd, HCOL_LEVEL)) {
 		if (!is_number(argument)) {
-			stc("New value has to be a number.\n\r", ch);
+			stc("New value has to be a number.\n", ch);
 			return;
 		}
 
 		db_commandf("do_hedit", "update " HTABLE " set %s=%d where " HCOL_ID "=%s", cmd, atoi(argument), arg);
-		stc("Done.\n\r", ch);
+		stc("Done.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, HCOL_KEYS) || !str_cmp(cmd, HCOL_TEXT)) {
 		db_commandf("do_hedit", "update " HTABLE " set %s='%s' where " HCOL_ID "=%s", cmd, db_esc(argument), arg);
-		stc("Done.\n\r", ch);
+		stc("Done.\n", ch);
 		return;
 	}
 
-	ptc(ch, "Unknown command '%s'.\n\r", cmd);
+	ptc(ch, "Unknown command '%s'.\n", cmd);
 }

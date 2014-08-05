@@ -541,7 +541,7 @@ void tour_update(void)
 		act(buf, driver, NULL, NULL, TO_ROOM);
 		step_messages(pTour, pTour->where);
 		strcpy(longprice, calculate_price(pTour, &gold_price, NULL));
-		sprintf(buf, "$n cheerfully announces:\r\n   'To %s, %s%s!'",
+		sprintf(buf, "$n cheerfully announces:\n   'To %s, %s%s!'",
 		        pTour->destination, ((gold_price < 10) ? "only " : ""), longprice);
 		act(buf, driver, NULL, NULL, TO_ROOM);
 	}
@@ -563,12 +563,12 @@ void do_board(CHAR_DATA *ch, char *argument)
 			break;
 
 	if (coach == NULL) {
-		stc("There is no coach here for you to board.\n\r", ch);
+		stc("There is no coach here for you to board.\n", ch);
 		return;
 	}
 
 	if (ch->on == coach) {
-		stc("You are already on the coach.\n\r", ch);
+		stc("You are already on the coach.\n", ch);
 		return;
 	}
 
@@ -576,12 +576,12 @@ void do_board(CHAR_DATA *ch, char *argument)
 	pTour = tour_for_coach(coach);
 
 	if (pTour == NULL) {
-		stc("This coach seems to have broken down.\n\r", ch);
+		stc("This coach seems to have broken down.\n", ch);
 		return;
 	}
 
 	if (pTour->npax >= TOUR_MAX_PAX) {
-		stc("The coach is already full, sorry!\n\r", ch);
+		stc("The coach is already full, sorry!\n", ch);
 		return;
 	}
 
@@ -590,9 +590,9 @@ void do_board(CHAR_DATA *ch, char *argument)
 	price = 100 * goldprice + silverprice;
 
 	if (ch->silver + 100 * ch->gold < price) {
-		sprintf(buf, "The price for the ride is %s.\n\r", longprice);
+		sprintf(buf, "The price for the ride is %s.\n", longprice);
 		stc(buf, ch);
-		stc("You don't have that much, sorry!\n\r", ch);
+		stc("You don't have that much, sorry!\n", ch);
 		return;
 	}
 
@@ -604,7 +604,7 @@ void do_board(CHAR_DATA *ch, char *argument)
 
 	ch->silver -= silverprice;
 	ch->gold -= goldprice;
-	sprintf(buf, "You pay the driver %s for your ride to %s.\n\r",
+	sprintf(buf, "You pay the driver %s for your ride to %s.\n",
 	        longprice, pTour->destination);
 	stc(buf, ch);
 
@@ -616,7 +616,7 @@ void do_board(CHAR_DATA *ch, char *argument)
 	pTour->pax[pTour->npax++] = ch;
 	ch->position = POS_SITTING;
 	ch->on = coach;
-	stc("You board the coach and have a seat.\n\r", ch);
+	stc("You board the coach and have a seat.\n", ch);
 	/* look for his pet and followers. */
 	pets = 0;
 	pet = NULL;
@@ -664,7 +664,7 @@ void do_alight(CHAR_DATA *ch, char *argument)
 
 	if (!ch->on || ch->on->item_type != ITEM_COACH) {
 		stc(
-		        "You are not on a coach, so you cannot alight from one.\n\r",
+		        "You are not on a coach, so you cannot alight from one.\n",
 		        ch);
 		return;
 	}
@@ -696,7 +696,7 @@ void do_alight(CHAR_DATA *ch, char *argument)
 	}
 
 	stc(
-	        "You alight from the coach and stand back to avoid being hurt.\n\r",
+	        "You alight from the coach and stand back to avoid being hurt.\n",
 	        ch);
 
 	if (ch->invis_level < LEVEL_IMMORTAL)

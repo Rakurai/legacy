@@ -523,7 +523,7 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 		/* chance of poisoning */
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_POISON)) {
 			AFFECT_DATA af;
-			stc("You feel poison coursing through your veins.\n\r",
+			stc("You feel poison coursing through your veins.\n",
 			    victim);
 			act("$n looks very ill.", victim, NULL, NULL, TO_ROOM);
 			af.where     = TO_AFFECTS;
@@ -612,7 +612,7 @@ void shock_effect(void *vo, int level, int dam, int target, int evolution)
 
 		/* daze and confused? */
 		if (!saves_spell(level / 4 + dam / 20, victim, DAM_ELECTRICITY)) {
-			stc("Your muscles stop responding.\n\r", victim);
+			stc("Your muscles stop responding.\n", victim);
 			DAZE_STATE(victim, UMAX(12, level / 4 + dam / 20));
 		}
 

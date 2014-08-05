@@ -21,9 +21,9 @@ void read_line(FILE *fp, STORAGE_DATA *sd)
 
 void save_line(FILE *fp, STORAGE_DATA *sd)
 {
-	fprintf(fp, "%s~\n\r", sd->name);
-	fprintf(fp, "%s~\n\r", sd->by_who);
-	fprintf(fp, "%s~\n\r\n\r", sd->date);
+	fprintf(fp, "%s~\n", sd->name);
+	fprintf(fp, "%s~\n", sd->by_who);
+	fprintf(fp, "%s~\n\n", sd->date);
 }
 
 void load_storage_list()
@@ -55,7 +55,7 @@ void load_storage_list()
 	}
 
 	fclose(fp);
-	printf("%d characters in storage found.\n\r", count);
+	printf("%d characters in storage found.\n", count);
 }
 
 void save_storage_list()

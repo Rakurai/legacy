@@ -181,9 +181,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 
 		/* Check valid name - Lotus */
 		if (!check_parse_name(argument)) {
-			write_to_buffer(d, "Sorry, that name cannot be used.\n\r"
-			                "Please choose another name!\n\r"
-			                "\n\r"
+			write_to_buffer(d, "Sorry, that name cannot be used.\n"
+			                "Please choose another name!\n"
+			                "\n"
 			                "Name: ", 0);
 			free_char(d->character);
 			d->character = NULL;
@@ -202,9 +202,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 
 		/* check for attempt to newly create with a mob name -- Elrac */
 		if (!fOld && mob_exists(argument)) {
-			write_to_buffer(d, "Sorry, we already have a mobile by that name.\n\r"
-			                "Please choose another name!\n\r"
-			                "\n\r"
+			write_to_buffer(d, "Sorry, we already have a mobile by that name.\n"
+			                "Please choose another name!\n"
+			                "\n"
 			                "Name: ", 0);
 			free_char(ch);
 			d->character = NULL;
@@ -214,7 +214,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		if (check_deny(ch->name)) {
 			sprintf(log_buf, "Denying access to %s@%s.", ch->name, d->host);
 			log_string(log_buf);
-			write_to_buffer(d, "You are denied access to Legacy.\n\r", 0);
+			write_to_buffer(d, "You are denied access to Legacy.\n", 0);
 			close_socket(d);
 			return;
 		}
@@ -223,10 +223,10 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			sprintf(log_buf, "Disconnecting because BANned: %s", d->host);
 			log_string(log_buf);
 			wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
-			write_to_buffer(d, "Your site has been banned from this mud.\n\r"
-			                "If you feel that your site has been banned in error, or would\n\r"
-			                "like to request special permission to play, please contact us at:\n\r"
-			                "   legacy@kyndig.com\n\r", 0);
+			write_to_buffer(d, "Your site has been banned from this mud.\n"
+			                "If you feel that your site has been banned in error, or would\n"
+			                "like to request special permission to play, please contact us at:\n"
+			                "   legacy@kyndig.com\n", 0);
 			close_socket(d);
 			return;
 		}
@@ -234,7 +234,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		if (check_reconnect(d, argument, FALSE))
 			fOld = TRUE;
 		else if (wizlock && !IS_IMMORTAL(ch)) {
-			write_to_buffer(d, "Access has been limited to imms only at this time.\n\r", 0);
+			write_to_buffer(d, "Access has been limited to imms only at this time.\n", 0);
 			close_socket(d);
 			return;
 		}
@@ -250,8 +250,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		}
 
 		if (newlock) {
-			write_to_buffer(d, "Due to technical difficulties, we are not accepting new players\n\r"
-			                "at this time.  Please try again in a few hours.\n\r", 0);
+			write_to_buffer(d, "Due to technical difficulties, we are not accepting new players\n"
+			                "at this time.  Please try again in a few hours.\n", 0);
 			close_socket(d);
 			return;
 		}
@@ -260,10 +260,10 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			sprintf(log_buf, "Disconnecting because NewbieBANned: %s", d->host);
 			log_string(log_buf);
 			wiznet(log_buf, NULL, NULL, WIZ_LOGINS, 0, 0);
-			write_to_buffer(d, "New players are not allowed from your site.\n\r"
-			                "If you feel that your site has been banned in error, or would\n\r"
-			                "like to request special permission to play, please contact us at:\n\r"
-			                "   legacyimms@kyndig.com\n\r", 0);
+			write_to_buffer(d, "New players are not allowed from your site.\n"
+			                "If you feel that your site has been banned in error, or would\n"
+			                "like to request special permission to play, please contact us at:\n"
+			                "   legacyimms@kyndig.com\n", 0);
 			close_socket(d);
 			return;
 		}
@@ -275,11 +275,11 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 
 	case CON_GET_OLD_PASSWORD:
 #if defined(unix)
-		write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n", 2);
 #endif
 
 		if (strcmp(argument, ch->pcdata->pwd)) {
-			stc("{bIncorrect password!{x\n\r", ch);
+			stc("{bIncorrect password!{x\n", ch);
 			close_socket(d);
 			return;
 		}
@@ -339,7 +339,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			if (check_reconnect(d, ch->name, TRUE))
 				return;
 
-			write_to_buffer(d, "Reconnect attempt failed.\n\rName: ", 0);
+			write_to_buffer(d, "Reconnect attempt failed.\nName: ", 0);
 
 			if (d->character != NULL) {
 				free_char(d->character);
@@ -375,15 +375,15 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		switch (*argument) {
 		case 'y':
 		case 'Y':
-			stc("\n\rYou find yourself standing in the market square of Midgaard, surrounded by\n\r"
-			    "the exotic scents and bright colors of the open bazaar.  A tiny pixie flits\n\r"
-			    "through the air and hovers in front of you, looking you over approvingly.\n\r\n\r", ch);
-			ptc(ch, "{Y'{WWelcome to Legacy, %s!{Y'{x she says, smiling happily.  {Y'{WI hope you have\n\r"
-			    " some free time, the world is a big place and there is so much to do!{Y'{x\n\r\n\r", ch->name);
-			stc("{Y'{WFirst things first, though!  Tell me, how familiar are you with Legacy?{Y'{x\n\r\n\r", ch);
-			stc("{Y1){x ... what is this place?                  ({YNew to MUDs{x)\n\r"
-			    "{Y2){x I've never been to this realm.           ({YNew to Legacy{x)\n\r"
-			    "{Y3){x Let's go, I know everything!             ({YExperienced player{x)\n\r\n\r"
+			stc("\nYou find yourself standing in the market square of Midgaard, surrounded by\n"
+			    "the exotic scents and bright colors of the open bazaar.  A tiny pixie flits\n"
+			    "through the air and hovers in front of you, looking you over approvingly.\n\n", ch);
+			ptc(ch, "{Y'{WWelcome to Legacy, %s!{Y'{x she says, smiling happily.  {Y'{WI hope you have\n"
+			    " some free time, the world is a big place and there is so much to do!{Y'{x\n\n", ch->name);
+			stc("{Y'{WFirst things first, though!  Tell me, how familiar are you with Legacy?{Y'{x\n\n", ch);
+			stc("{Y1){x ... what is this place?                  ({YNew to MUDs{x)\n"
+			    "{Y2){x I've never been to this realm.           ({YNew to Legacy{x)\n"
+			    "{Y3){x Let's go, I know everything!             ({YExperienced player{x)\n\n"
 			    "{CPlease answer {Y1{C, {Y2{C, or {Y3{C.{x ", ch);
 			d->connected = CON_GET_MUD_EXP;
 			break;
@@ -406,36 +406,36 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 	case CON_GET_MUD_EXP:
 		switch (*argument) {
 		case '1':
-			stc("\n\rThe pixie beams a smile at you, and you shuffle your feet nervously.\n\r\n\r"
-			    "{Y'{WWell then,{Y'{x she says, {Y'{Wyou've been missing out!  Legacy is a MUD, a place\n\r"
-			    " where you can walk, talk, and interact with people all over the world in a\n\r"
-			    " fantasy setting.  You've taken the first step, as we all did.  I will warn\n\r"
-			    " you, though, this place is addicting, you may not want to leave.{Y'{x  She winks\n\r"
-			    " at you, and you find yourself following her toward a massive white marble\n\r"
-			    " temple just north of the marketplace.\n\r\n\r", ch);
-			stc("{Y'{WBefore we continue, we need to tell your password to the city guards.\n\r"
-			    " Every time you come back to visit us, you will have to speak your password\n\r"
-			    " before they will let you in.  Think of a good one, so nobody can pretend\n\r"
-			    " to be you!  Just whisper it in my ear, and we'll make sure they record it.{Y'{x\n\r\n\r", ch);
+			stc("\nThe pixie beams a smile at you, and you shuffle your feet nervously.\n\n"
+			    "{Y'{WWell then,{Y'{x she says, {Y'{Wyou've been missing out!  Legacy is a MUD, a place\n"
+			    " where you can walk, talk, and interact with people all over the world in a\n"
+			    " fantasy setting.  You've taken the first step, as we all did.  I will warn\n"
+			    " you, though, this place is addicting, you may not want to leave.{Y'{x  She winks\n"
+			    " at you, and you find yourself following her toward a massive white marble\n"
+			    " temple just north of the marketplace.\n\n", ch);
+			stc("{Y'{WBefore we continue, we need to tell your password to the city guards.\n"
+			    " Every time you come back to visit us, you will have to speak your password\n"
+			    " before they will let you in.  Think of a good one, so nobody can pretend\n"
+			    " to be you!  Just whisper it in my ear, and we'll make sure they record it.{Y'{x\n\n", ch);
 			ch->pcdata->mud_exp = MEXP_TOTAL_NEWBIE;
 			break;
 
 		case '2':
-			stc("\n\rThe pixie beams a smile at you.\n\r\n\r"
-			    "{Y'{WAllow me, then, to show you around!  We'll get you acquainted in no time.{Y'{x\n\r\n\r"
-			    "You start to follow her toward a massive white marble temple just north of\n\r"
-			    "the marketplace.\n\r\n\r"
-			    "{Y'{WBefore we continue, we need to tell your password to the city guards, so\n\r"
-			    " they will let you in when you come back to visit us.  Just whisper it in my\n\r"
-			    " ear, and we'll make sure they record it.{Y'{x\n\r\n\r", ch);
+			stc("\nThe pixie beams a smile at you.\n\n"
+			    "{Y'{WAllow me, then, to show you around!  We'll get you acquainted in no time.{Y'{x\n\n"
+			    "You start to follow her toward a massive white marble temple just north of\n"
+			    "the marketplace.\n\n"
+			    "{Y'{WBefore we continue, we need to tell your password to the city guards, so\n"
+			    " they will let you in when you come back to visit us.  Just whisper it in my\n"
+			    " ear, and we'll make sure they record it.{Y'{x\n\n", ch);
 			ch->pcdata->mud_exp = MEXP_LEGACY_NEWBIE;
 			break;
 
 		case '3':
-			stc("\n\rThe pixie grins at you.\n\r\n\r"
-			    "{Y'{WWell, then, there is no time to lose!  I'm sure you know how strict the\n\r"
-			    " city guards can be, let's give them your password.  Whisper it in my ear,\n\r"
-			    " we'll make sure they record it.{Y'{x\n\r\n\r", ch);
+			stc("\nThe pixie grins at you.\n\n"
+			    "{Y'{WWell, then, there is no time to lose!  I'm sure you know how strict the\n"
+			    " city guards can be, let's give them your password.  Whisper it in my ear,\n"
+			    " we'll make sure they record it.{Y'{x\n\n", ch);
 			ch->pcdata->mud_exp = MEXP_LEGACY_OLDBIE;
 			break;
 
@@ -450,13 +450,13 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 
 	case CON_GET_NEW_PASSWORD:
 #if defined(unix)
-		write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n", 2);
 #endif
 
 		if (strlen(argument) < 5) {
-			stc("You whisper in her ear, and she giggles.\n\r\n\r"
+			stc("You whisper in her ear, and she giggles.\n\n"
 			    "{Y'{WThat's too short, somebody could guess it easily.  Make up one that's at"
-			    " least five letters long!{Y'{x she says, and flies up close to hear you whisper.\n\r\n\r", ch);
+			    " least five letters long!{Y'{x she says, and flies up close to hear you whisper.\n\n", ch);
 			stc("{CWhat password do you tell her?{x ", ch);
 			return;
 		}
@@ -465,56 +465,56 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 
 		for (p = pwdnew; *p != '\0'; p++)
 			if (*p == '~') {
-				stc("She frowns as you whisper in her ear.\n\r\n\r"
-				    "{Y'{WI'm not sure how you managed to pronounce that, but I'm sure the guards\n\r"
-				    " would not recognize it.  Try something with only letters and numbers, maybe?{Y'{x\n\r"
-				    "She leans close for you to whisper another password.\n\r\n\r", ch);
+				stc("She frowns as you whisper in her ear.\n\n"
+				    "{Y'{WI'm not sure how you managed to pronounce that, but I'm sure the guards\n"
+				    " would not recognize it.  Try something with only letters and numbers, maybe?{Y'{x\n"
+				    "She leans close for you to whisper another password.\n\n", ch);
 				stc("{CWhat password do you tell her?{x ", ch);
 				return;
 			}
 
 		free_string(ch->pcdata->pwd);
 		ch->pcdata->pwd = str_dup(pwdnew);
-		stc("The pixie smiles as you whisper in her ear.\n\r\n\r"
-		    "{Y'{WGood, that will do nicely.  Just to make sure I have it, say it one more time.{Y'{x\n\r\n\r", ch);
+		stc("The pixie smiles as you whisper in her ear.\n\n"
+		    "{Y'{WGood, that will do nicely.  Just to make sure I have it, say it one more time.{Y'{x\n\n", ch);
 		stc("{CPlease repeat the password.{x ", ch);
 		d->connected = CON_CONFIRM_NEW_PASSWORD;
 		break;
 
 	case CON_CONFIRM_NEW_PASSWORD:
 #if defined(unix)
-		write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n", 2);
 #endif
 
 		if (strcmp(argument, ch->pcdata->pwd)) {
-			stc("The pixie frowns as you whisper again.\n\r\n\r"
-			    "{Y'{WThat does not sound like the first password you told me... let's try again.\n\r"
-			    " What password do you want to use?{Y'{x she says as she flies closer to hear.\n\r\n\r", ch);
+			stc("The pixie frowns as you whisper again.\n\n"
+			    "{Y'{WThat does not sound like the first password you told me... let's try again.\n"
+			    " What password do you want to use?{Y'{x she says as she flies closer to hear.\n\n", ch);
 			stc("{CWhat password do you tell her?{x ", ch);
 			d->connected = CON_GET_NEW_PASSWORD;
 			return;
 		}
 
-		ptc(ch, "%sShe nods her approval.\n\r\n\r", echo_on_str);
-		ptc(ch, "{Y'{WYes, that's what I thought you said.{Y'{x  As your walk draws close to the grand\n\r"
-		    " marble steps leading to the temple, she flies over to a nearby cityguard and\n\r"
-		    " taps him on the ear.  {Y'{WGood morning!{Y'{x she says.  {Y'{W%s here is a friend of\n\r"
-		    " mine, and needs to be added to the list of citizens.  The password is...{Y'{x She\n\r"
-		    " flies close to the cityguard's ear and whispers, then flits back to your side.\n\r\n\r", ch->name);
-		stc("She leads you to the first of the temple steps, and lands gracefully on the\n\r"
-		    "carved handrail.  She gestures for you to take a seat.\n\r\n\r"
-		    "{Y'{WThe temple ahead is a place of worship, and also a place of learning.\n\r"
-		    " Before we go there, though, tell me about yourself.{Y'{x  She smiles.  {Y'{WI can\n\r"
-		    "see that you are a...{Y'{x\n\r\n\r", ch);
-		stc("Here you may choose your race.  If you are unsure of what you would like\n\r"
-		    "to be, just type {Yhelp{x for information on the races.\n\r\n\r", ch);
-		stc("The following races are available:\n\r", ch);
+		ptc(ch, "%sShe nods her approval.\n\n", echo_on_str);
+		ptc(ch, "{Y'{WYes, that's what I thought you said.{Y'{x  As your walk draws close to the grand\n"
+		    " marble steps leading to the temple, she flies over to a nearby cityguard and\n"
+		    " taps him on the ear.  {Y'{WGood morning!{Y'{x she says.  {Y'{W%s here is a friend of\n"
+		    " mine, and needs to be added to the list of citizens.  The password is...{Y'{x She\n"
+		    " flies close to the cityguard's ear and whispers, then flits back to your side.\n\n", ch->name);
+		stc("She leads you to the first of the temple steps, and lands gracefully on the\n"
+		    "carved handrail.  She gestures for you to take a seat.\n\n"
+		    "{Y'{WThe temple ahead is a place of worship, and also a place of learning.\n"
+		    " Before we go there, though, tell me about yourself.{Y'{x  She smiles.  {Y'{WI can\n"
+		    "see that you are a...{Y'{x\n\n", ch);
+		stc("Here you may choose your race.  If you are unsure of what you would like\n"
+		    "to be, just type {Yhelp{x for information on the races.\n\n", ch);
+		stc("The following races are available:\n", ch);
 
 		for (race = 1; race_table[race].name != NULL && race_table[race].pc_race; race++)
 			if (!pc_race_table[race].remort_level)
-				ptc(ch, "%s\n\r", race_table[race].name);
+				ptc(ch, "%s\n", race_table[race].name);
 
-		stc("\n\r{CWhat is your race?{x ", ch);
+		stc("\n{CWhat is your race?{x ", ch);
 		d->connected = CON_GET_NEW_RACE;
 		break;
 
@@ -536,7 +536,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		if (!(race = race_lookup(argument))
 		    || !race_table[race].pc_race
 		    || pc_race_table[race].remort_level) {
-			write_to_buffer(d, "That is not a valid race.\n\rWhat is your race? ", 0);
+			write_to_buffer(d, "That is not a valid race.\nWhat is your race? ", 0);
 			break;
 		}
 
@@ -560,9 +560,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		for (i = 0; i < 5 && pc_race_table[race].skills[i]; i++)
 			group_add(ch, pc_race_table[race].skills[i], FALSE);
 
-		write_to_buffer(d, "\n\r", 2);
-		write_to_buffer(d, "Here are your default stats:\n\r", 0);
-		sprintf(buf, "Str: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n\r",
+		write_to_buffer(d, "\n", 2);
+		write_to_buffer(d, "Here are your default stats:\n", 0);
+		sprintf(buf, "Str: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
 		        ch->perm_stat[STAT_STR], ch->perm_stat[STAT_INT],
 		        ch->perm_stat[STAT_WIS], ch->perm_stat[STAT_DEX],
 		        ch->perm_stat[STAT_CON], ch->perm_stat[STAT_CHR]);
@@ -575,7 +575,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		switch (argument[0]) {
 		case 'n':
 		case 'N':
-			write_to_buffer(d, "\n\r", 2);
+			write_to_buffer(d, "\n", 2);
 			write_to_buffer(d, "What is your sex (M/F)? ", 0);
 			d->connected = CON_GET_NEW_SEX;
 			break;
@@ -585,7 +585,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			for (i = 0; i < 6; i++)
 				ch->perm_stat[i] = roll_stat(ch, i);
 
-			sprintf(buf, "\n\rStr: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n\r",
+			sprintf(buf, "\nStr: %d  Int: %d  Wis: %d  Dex: %d  Con: %d  Chr: %d\n",
 			        ch->perm_stat[STAT_STR], ch->perm_stat[STAT_INT],
 			        ch->perm_stat[STAT_WIS], ch->perm_stat[STAT_DEX],
 			        ch->perm_stat[STAT_CON], ch->perm_stat[STAT_CHR]);
@@ -614,11 +614,11 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			break;
 
 		default:
-			write_to_buffer(d, "That's not a sex.\n\r(M/F)? ", 0);
+			write_to_buffer(d, "That's not a sex.\n(M/F)? ", 0);
 			return;
 		}
 
-		write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n", 2);
 		strcpy(buf, "Select a class [");
 
 		for (iClass = 0; iClass < MAX_CLASS; iClass++) {
@@ -628,7 +628,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			strcat(buf, class_table[iClass].name);
 		}
 
-		strcat(buf, "]\n\rHelp file: class\n\rWhat is your class? ");
+		strcat(buf, "]\nHelp file: class\nWhat is your class? ");
 		write_to_buffer(d, buf, 0);
 		d->connected = CON_GET_NEW_CLASS;
 		break;
@@ -649,7 +649,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		}
 
 		if ((iClass = class_lookup(argument)) == -1) {
-			write_to_buffer(d, "That is not a class.\n\rWhat is your class? ", 0);
+			write_to_buffer(d, "That is not a class.\nWhat is your class? ", 0);
 			return;
 		}
 
@@ -659,9 +659,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		log_string(log_buf);
 		sprintf(log_buf, "Newbie alert!  %s sighted.", ch->name);
 		wiznet(log_buf, ch, NULL, WIZ_NEWBIE, 0, 0);
-		write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n", 2);
 		/* paladins can't be neutral */
-		sprintf(buf, "You may be good%s or evil.\n\rWhich alignment (G%s/E)? ",
+		sprintf(buf, "You may be good%s or evil.\nWhich alignment (G%s/E)? ",
 		        ch->class == PALADIN_CLASS ? "" : ", neutral,",
 		        ch->class == PALADIN_CLASS ? "" : "/N");
 		write_to_buffer(d, buf, 0);
@@ -698,42 +698,42 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			}
 
 		default:
-			sprintf(buf, "That's not a valid alignment.\n\rWhich alignment (G%s/E)? ",
+			sprintf(buf, "That's not a valid alignment.\nWhich alignment (G%s/E)? ",
 			        ch->class == PALADIN_CLASS ? "" : "/N");
 			write_to_buffer(d, buf, 0);
 			return;
 		}
 
-		write_to_buffer(d, "\n\r", 0);
+		write_to_buffer(d, "\n", 0);
 		group_add(ch, "rom basics", FALSE);
 		group_add(ch, class_table[ch->class].base_group, FALSE);
 		ch->pcdata->learned[gsn_recall] = 50;
 		ch->pcdata->learned[gsn_scan]   = 100;
-		strcpy(buf, "Select a deity:\n\r");
+		strcpy(buf, "Select a deity:\n");
 
 		for (deity = 0; deity_table[deity].name != NULL; deity++) {
 			if (ch->class == PALADIN_CLASS) { /* Paladins */
 				if (deity_table[deity].value > 0 && ch->alignment > 0) {
 					strcat(buf, deity_table[deity].align);
 					strcat(buf, deity_table[deity].name);
-					strcat(buf, "\n\r");
+					strcat(buf, "\n");
 				}
 				else if (deity_table[deity].value < 0 && ch->alignment < 0) {
 					strcat(buf, deity_table[deity].align);
 					strcat(buf, deity_table[deity].name);
-					strcat(buf, "\n\r");
+					strcat(buf, "\n");
 				}
 			}
 			else if (deity_table[deity].value == ch->alignment
 			         ||       deity_table[deity].value == -1) {
 				strcat(buf, deity_table[deity].align);
 				strcat(buf, deity_table[deity].name);
-				strcat(buf, "\n\r");
+				strcat(buf, "\n");
 			}
 		}
 
 		write_to_buffer(d, buf, 0);
-		write_to_buffer(d, "\n\rHelp file: deity\n\rWho is your deity? ", 0);
+		write_to_buffer(d, "\nHelp file: deity\nWho is your deity? ", 0);
 		d->connected = CON_DEITY;
 		break;
 
@@ -753,15 +753,15 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		}
 
 		if ((deity = deity_lookup(argument)) == -1) {
-			write_to_buffer(d, "That's not a valid deity.\n\rWho is your deity? ", 0);
+			write_to_buffer(d, "That's not a valid deity.\nWho is your deity? ", 0);
 			return;
 		}
 
 		free_string(ch->pcdata->deity);
 		ch->pcdata->deity = str_dup(deity_table[deity].name);
-		write_to_buffer(d, "\n\rDo you wish to customize this character?\n\r", 0);
+		write_to_buffer(d, "\nDo you wish to customize this character?\n", 0);
 		write_to_buffer(d, "Customization takes time, but allows a wider range of skills"
-		                " and abilities.\n\rCustomize (Y/N)? ", 0);
+		                " and abilities.\nCustomize (Y/N)? ", 0);
 		d->connected = CON_DEFAULT_CHOICE;
 		break;
 
@@ -773,7 +773,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			ch->gen_data->points_chosen = ch->pcdata->points;
 			help(ch, "group header");
 			list_group_costs(ch);
-			write_to_buffer(d, "You already have the following skills:\n\r", 0);
+			write_to_buffer(d, "You already have the following skills:\n", 0);
 			do_skills(ch, "");
 			help(ch, "menu choice");
 			d->connected = CON_GEN_GROUPS;
@@ -782,8 +782,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		case 'n':
 		case 'N':
 			group_add(ch, class_table[ch->class].default_group, TRUE);
-			write_to_buffer(d, "\n\r", 2);
-			write_to_buffer(d, "Please pick a weapon from the following choices:\n\r", 0);
+			write_to_buffer(d, "\n", 2);
+			write_to_buffer(d, "Please pick a weapon from the following choices:\n", 0);
 			buf[0] = '\0';
 
 			for (i = 0; weapon_table[i].name != NULL; i++)
@@ -792,7 +792,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 					strcat(buf, " ");
 				}
 
-			strcat(buf, "\n\rYour choice? ");
+			strcat(buf, "\nYour choice? ");
 			write_to_buffer(d, buf, 0);
 			d->connected = CON_PICK_WEAPON;
 			break;
@@ -805,16 +805,16 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		break;
 
 	case CON_PICK_WEAPON:
-		write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n", 2);
 		weapon = weapon_lookup(argument);
 
 		if (weapon == -1 || ch->pcdata->learned[*weapon_table[weapon].gsn] <= 0) {
-			write_to_buffer(d, "That is not a valid selection.  You choice? \n\r", 0);
+			write_to_buffer(d, "That is not a valid selection.  You choice? \n", 0);
 			return;
 		}
 
 		ch->pcdata->learned[*weapon_table[weapon].gsn] = 40;
-		write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n", 2);
 		set_color(ch, CYAN, BOLD);
 		help(ch, "automotd");
 		d->connected = CON_READ_MOTD;
@@ -822,22 +822,22 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		break;
 
 	case CON_GEN_GROUPS:
-		stc("\n\r", ch);
+		stc("\n", ch);
 
 		if (!str_cmp(argument, "done")) {
 			if (ch->pcdata->points > 300)
 				ch->pcdata->points = 300;
 
-			ptc(ch, "Creation points: %d\n\r", ch->pcdata->points);
-			ptc(ch, "Experience per level: %ld\n\r", exp_per_level(ch, ch->gen_data->points_chosen));
+			ptc(ch, "Creation points: %d\n", ch->pcdata->points);
+			ptc(ch, "Experience per level: %ld\n", exp_per_level(ch, ch->gen_data->points_chosen));
 
 			if (ch->pcdata->points < 40)
 				ch->train = (40 - ch->pcdata->points + 1) / 2;
 
 			free_gen_data(ch->gen_data);
 			ch->gen_data = NULL;
-			write_to_buffer(d, "\n\r", 2);
-			write_to_buffer(d, "Please pick a weapon from the following choices:\n\r", 0);
+			write_to_buffer(d, "\n", 2);
+			write_to_buffer(d, "Please pick a weapon from the following choices:\n", 0);
 			buf[0] = '\0';
 
 			for (i = 0; weapon_table[i].name != NULL; i++)
@@ -846,20 +846,20 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 					strcat(buf, " ");
 				}
 
-			strcat(buf, "\n\rYour choice? ");
+			strcat(buf, "\nYour choice? ");
 			write_to_buffer(d, buf, 0);
 			d->connected = CON_PICK_WEAPON;
 			break;
 		}
 
 		if (!parse_gen_groups(ch, argument))
-			stc("Choices are: list, learned, premise, add, drop, info, help, and done.\n\r", ch);
+			stc("Choices are: list, learned, premise, add, drop, info, help, and done.\n", ch);
 
 		help(ch, "menu choice");
 		break;
 
 	case CON_READ_IMOTD:
-		write_to_buffer(d, "\n\r", 2);
+		write_to_buffer(d, "\n", 2);
 		set_color(ch, CYAN, NOBOLD);
 		help(ch, "automotd");
 		d->connected = CON_READ_MOTD;
@@ -872,7 +872,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		if (time_info.motd != NULL)
 			stc(time_info.motd, ch);
 
-		stc("\n\r{x[Hit Enter to continue]", ch);
+		stc("\n{x[Hit Enter to continue]", ch);
 		d->connected = CON_READ_NEWMOTD;
 		set_color(ch, WHITE, NOBOLD);
 		break;
@@ -881,9 +881,9 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		set_color(ch, WHITE, NOBOLD);
 
 		if (ch->pcdata == NULL || ch->pcdata->pwd[0] == '\0') {
-			write_to_buffer(d, "Warning! Null password!\n\r", 0);
-			write_to_buffer(d, "Please report old password with 'bug'.\n\r", 0);
-			write_to_buffer(d, "Type 'password null <new password>' to fix.\n\r", 0);
+			write_to_buffer(d, "Warning! Null password!\n", 0);
+			write_to_buffer(d, "Please report old password with 'bug'.\n", 0);
+			write_to_buffer(d, "Type 'password null <new password>' to fix.\n", 0);
 		}
 
 		ch->next                = char_list;
@@ -925,11 +925,11 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 				obj_to_char(obj, ch);
 
 			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
-			stc("\n\r", ch);
+			stc("\n", ch);
 			set_color(ch, PURPLE, BOLD);
 			help(ch, "NEWBIE INFO");
 			set_color(ch, WHITE, NOBOLD);
-			stc("\n\r", ch);
+			stc("\n", ch);
 		}
 		else if (ch->in_room != NULL)
 			char_to_room(ch, ch->in_room);
@@ -940,8 +940,8 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 
 		if (ch->pcdata->email != NULL && ch->pcdata->email[0] == '\0') {
 			set_color(ch, RED, BOLD);
-			stc("Your e-mail has not been set, please update your email address\n\r", ch);
-			stc("with the email command!\n\r\n\r", ch);
+			stc("Your e-mail has not been set, please update your email address\n", ch);
+			stc("with the email command!\n\n", ch);
 			set_color(ch, WHITE, NOBOLD);
 		}
 
@@ -955,11 +955,11 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			    && !IS_SET(victim->comm, COMM_QUIET)) {
 				if (ch->pcdata && ch->pcdata->gamein && ch->pcdata->gamein[0]) {
 					set_color(victim, GREEN, BOLD);
-					ptc(victim, "[%s] %s\n\r", ch->name, ch->pcdata->gamein);
+					ptc(victim, "[%s] %s\n", ch->name, ch->pcdata->gamein);
 				}
 				else {
 					new_color(victim, CSLOT_CHAN_ANNOUNCE);
-					ptc(victim, "[FYI] %s has entered the game.\n\r", ch->name);
+					ptc(victim, "[FYI] %s has entered the game.\n", ch->name);
 				}
 
 				set_color(victim, WHITE, NOBOLD);
@@ -975,22 +975,22 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 		}
 
 		do_unread(ch, "");
-		stc("\n\r", ch);
+		stc("\n", ch);
 
 		if (!IS_SET(ch->censor, CENSOR_XSOC))
-			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {PX{x.\n\r", ch);
+			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {PX{x.\n", ch);
 		else if (!IS_SET(ch->censor, CENSOR_CHAN))
-			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {PR{x.\n\r", ch);
+			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {PR{x.\n", ch);
 		else
-			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {GPG{x.\n\r", ch);
+			stc("{BL{Ce{gg{Wa{Cc{By{x is currently rated {GPG{x.\n", ch);
 
 		if (get_play_seconds(ch) - ch->pcdata->backup >= 3600) {
 			int last = (get_play_seconds(ch) - ch->pcdata->backup) / 3600;
 
 			if (ch->pcdata->backup == 0)
-				stc("{W{fThere is currently no backup for your character.{x\n\r", ch);
+				stc("{W{fThere is currently no backup for your character.{x\n", ch);
 			else
-				ptc(ch, "%sYou have not backed up for %s%d%s hour%s of gameplay.{x\n\r",
+				ptc(ch, "%sYou have not backed up for %s%d%s hour%s of gameplay.{x\n",
 				    last > 24 ? "{P" : "{W",
 				    last > 24 ? "{V" : "{G",
 				    last,
@@ -998,12 +998,12 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 				    last > 1  ? "s"  : "");
 		}
 
-		ptc(ch, "\n\rYour last login was from [{W%s{x] %s",
+		ptc(ch, "\nYour last login was from [{W%s{x] %s",
 		    ch->pcdata->last_lsite[0] != '\0' ? ch->pcdata->last_lsite : "Not Available",
 		    ch->pcdata->last_ltime != (time_t) 0 ? dizzy_ctime(&ch->pcdata->last_ltime) : "00:00:00");
 		ch->pcdata->last_ltime = current_time;
 		ch->pcdata->last_lsite = str_dup(d->host);
-		ptc(ch, "\n\r{VYou are traveler [%lu] of Legacy!!!{x\n\r", update_records());
+		ptc(ch, "\n{VYou are traveler [%lu] of Legacy!!!{x\n", update_records());
 		update_pc_index(ch, FALSE);
 
 		/* VT100 Stuff */

@@ -183,12 +183,12 @@ void do_hunt(CHAR_DATA *ch, char *argument)
 	int steps;
 
 	if (!IS_NPC(ch) && !get_skill(ch, gsn_hunt)) {
-		stc("You are not able to hunt.\n\r", ch);
+		stc("You are not able to hunt.\n", ch);
 		return;
 	}
 
 	if (*argument == '\0') {
-		stc("Whom or what are you trying to hunt?\n\r", ch);
+		stc("Whom or what are you trying to hunt?\n", ch);
 		return;
 	}
 
@@ -208,7 +208,7 @@ void do_hunt(CHAR_DATA *ch, char *argument)
 		victim = get_char_world(ch, argument, VIS_CHAR);
 
 	if (victim == NULL) {
-		stc("No-one around by that name.\n\r", ch);
+		stc("No-one around by that name.\n", ch);
 		return;
 	}
 
@@ -245,8 +245,8 @@ void do_hunt(CHAR_DATA *ch, char *argument)
 	}
 
 	if (direction < 0 || direction > 5) {
-		stc("Hmm... Something seems to be wrong.\n\r", ch);
-		sprintf(buffer, "Please report error code %d from HUNT.\n\r",
+		stc("Hmm... Something seems to be wrong.\n", ch);
+		sprintf(buffer, "Please report error code %d from HUNT.\n",
 		        -direction);
 		stc(buffer, ch);
 		return;

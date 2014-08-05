@@ -53,7 +53,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
 	/* check for prefix */
 	if (ch->prefix[0] != '\0' && str_prefix1("prefix", argument)) {
 		if (strlen(ch->prefix) + 1 + strlen(argument) + 1 > MAX_INPUT_LENGTH)
-			stc("{PLine too long, truncated!{x\n\r", ch);
+			stc("{PLine too long, truncated!{x\n", ch);
 
 		sprintf(prefix, "%s %s", ch->prefix, argument);
 		prefix[MAX_INPUT_LENGTH - 1] = '\0';
@@ -85,7 +85,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
 			}
 
 			if (strlen(buf) > MAX_INPUT_LENGTH) {
-				stc("Alias substitution too long. Truncated.\r\n", ch);
+				stc("Alias substitution too long. Truncated.\n", ch);
 				buf[MAX_INPUT_LENGTH - 1] = '\0';
 			}
 		}
@@ -97,7 +97,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
 
 void do_alia(CHAR_DATA *ch, char *argument)
 {
-	stc("I'm sorry, alias must be entered in full.\n\r", ch);
+	stc("I'm sorry, alias must be entered in full.\n", ch);
 	return;
 }
 
@@ -131,18 +131,18 @@ void do_alias(CHAR_DATA *ch, char *argument)
 
 	if (arg[0] == '\0') {
 		if (rch->pcdata->alias[0] == NULL) {
-			stc("You have no aliases defined.\n\r", ch);
+			stc("You have no aliases defined.\n", ch);
 			return;
 		}
 
-		stc("Your current aliases are:\n\r", ch);
+		stc("Your current aliases are:\n", ch);
 
 		for (pos = 0; pos < MAX_ALIAS; pos++) {
 			if (rch->pcdata->alias[pos] == NULL
 			    ||  rch->pcdata->alias_sub[pos] == NULL)
 				break;
 
-			sprintf(buf, "    %s:  %s\n\r", rch->pcdata->alias[pos],
+			sprintf(buf, "    %s:  %s\n", rch->pcdata->alias[pos],
 			        rch->pcdata->alias_sub[pos]);
 			stc(buf, ch);
 		}
@@ -151,7 +151,7 @@ void do_alias(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!str_prefix1("una", arg) || !str_cmp("alias", arg)) {
-		stc("Sorry, that word is reserved.\n\r", ch);
+		stc("Sorry, that word is reserved.\n", ch);
 		return;
 	}
 
@@ -162,19 +162,19 @@ void do_alias(CHAR_DATA *ch, char *argument)
 				break;
 
 			if (!str_cmp(arg, rch->pcdata->alias[pos])) {
-				sprintf(buf, "%s aliases to '%s'.\n\r", rch->pcdata->alias[pos],
+				sprintf(buf, "%s aliases to '%s'.\n", rch->pcdata->alias[pos],
 				        rch->pcdata->alias_sub[pos]);
 				stc(buf, ch);
 				return;
 			}
 		}
 
-		stc("That alias is not defined.\n\r", ch);
+		stc("That alias is not defined.\n", ch);
 		return;
 	}
 
 	if (!str_prefix1(argument, "delete") || !str_prefix1(argument, "prefix")) {
-		stc("That shall not be done!\n\r", ch);
+		stc("That shall not be done!\n", ch);
 		return;
 	}
 
@@ -185,21 +185,21 @@ void do_alias(CHAR_DATA *ch, char *argument)
 		if (!str_cmp(arg, rch->pcdata->alias[pos])) { /* redefine an alias */
 			free_string(rch->pcdata->alias_sub[pos]);
 			rch->pcdata->alias_sub[pos] = str_dup(argument);
-			sprintf(buf, "%s is now realiased to '%s'.\n\r", arg, argument);
+			sprintf(buf, "%s is now realiased to '%s'.\n", arg, argument);
 			stc(buf, ch);
 			return;
 		}
 	}
 
 	if (pos >= MAX_ALIAS) {
-		stc("Sorry, you have reached the alias limit.\n\r", ch);
+		stc("Sorry, you have reached the alias limit.\n", ch);
 		return;
 	}
 
 	/* make a new alias */
 	rch->pcdata->alias[pos]            = str_dup(arg);
 	rch->pcdata->alias_sub[pos]        = str_dup(argument);
-	sprintf(buf, "%s is now aliased to '%s'.\n\r", arg, argument);
+	sprintf(buf, "%s is now aliased to '%s'.\n", arg, argument);
 	stc(buf, ch);
 }
 
@@ -222,7 +222,7 @@ void do_unalias(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg);
 
 	if (arg == '\0') {
-		stc("Unalias what?\n\r", ch);
+		stc("Unalias what?\n", ch);
 		return;
 	}
 
@@ -239,7 +239,7 @@ void do_unalias(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!strcmp(arg, rch->pcdata->alias[pos])) {
-			stc("Alias removed.\n\r", ch);
+			stc("Alias removed.\n", ch);
 			free_string(rch->pcdata->alias[pos]);
 			free_string(rch->pcdata->alias_sub[pos]);
 			rch->pcdata->alias[pos] = NULL;
@@ -249,7 +249,7 @@ void do_unalias(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!found)
-		stc("No alias of that name to remove.\n\r", ch);
+		stc("No alias of that name to remove.\n", ch);
 }
 
 

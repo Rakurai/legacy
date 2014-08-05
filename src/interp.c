@@ -589,9 +589,9 @@ void interpret(CHAR_DATA *ch, char *argument)
 	 * Implement freeze command.
 	 */
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE)) {
-		sprintf(command, "You try to {G%-100.100s{x\n\r", argument);
+		sprintf(command, "You try to {G%-100.100s{x\n", argument);
 		stc(command, ch);
-		stc("A powerful force slams you up against the nearest object. YOU'RE FROZEN!\n\r", ch);
+		stc("A powerful force slams you up against the nearest object. YOU'RE FROZEN!\n", ch);
 		return;
 	}
 
@@ -680,7 +680,7 @@ void interpret(CHAR_DATA *ch, char *argument)
 	if (ch->desc != NULL && ch->desc->snoop_by != NULL) {
 		write_to_buffer(ch->desc->snoop_by, "% ",    2);
 		write_to_buffer(ch->desc->snoop_by, logline, 0);
-		write_to_buffer(ch->desc->snoop_by, "\n\r",  2);
+		write_to_buffer(ch->desc->snoop_by, "\n",  2);
 	}
 
 	if (!found) {
@@ -694,7 +694,7 @@ void interpret(CHAR_DATA *ch, char *argument)
 	}
 	else /* a normal valid command.. check if it is disabled */
 		if (check_disabled(&cmd_table[cmd])) {
-			stc("This command has been temporarily disabled.\n\r", ch);
+			stc("This command has been temporarily disabled.\n", ch);
 			return;
 		}
 
@@ -702,32 +702,32 @@ void interpret(CHAR_DATA *ch, char *argument)
 	if (!IS_IMMORTAL(ch) && get_position(ch) < cmd_table[cmd].position) {
 		switch (get_position(ch)) {
 		case POS_DEAD:
-			stc("This is NOT the night of the living DEAD!\n\r", ch);
+			stc("This is NOT the night of the living DEAD!\n", ch);
 			break;
 
 		case POS_MORTAL:
 		case POS_INCAP:
-			stc("You are hurt far too bad for that.\n\r", ch);
+			stc("You are hurt far too bad for that.\n", ch);
 			break;
 
 		case POS_STUNNED:
-			stc("You are too stunned to do that.\n\r", ch);
+			stc("You are too stunned to do that.\n", ch);
 			break;
 
 		case POS_SLEEPING:
-			stc("In your dreams, or what?\n\r", ch);
+			stc("In your dreams, or what?\n", ch);
 			break;
 
 		case POS_RESTING:
-			stc("Nah... You feel too relaxed...\n\r", ch);
+			stc("Nah... You feel too relaxed...\n", ch);
 			break;
 
 		case POS_SITTING:
-			stc("Better stand up first.\n\r", ch);
+			stc("Better stand up first.\n", ch);
 			break;
 
 		case POS_FIGHTING:
-			stc("No way!  You are still fighting!\n\r", ch);
+			stc("No way!  You are still fighting!\n", ch);
 			break;
 		}
 
@@ -781,22 +781,22 @@ bool check_social(CHAR_DATA *ch, char *command, char *argument)
 		return FALSE;
 
 	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
-		stc("You are anti-social!\n\r", ch);
+		stc("You are anti-social!\n", ch);
 		return TRUE;
 	}
 
 	switch (get_position(ch)) {
 	case POS_DEAD:
-		stc("This is NOT the night of the living DEAD.\n\r", ch);
+		stc("This is NOT the night of the living DEAD.\n", ch);
 		return TRUE;
 
 	case POS_INCAP:
 	case POS_MORTAL:
-		stc("You are hurt far too bad for that.\n\r", ch);
+		stc("You are hurt far too bad for that.\n", ch);
 		return TRUE;
 
 	case POS_STUNNED:
-		stc("You are too stunned to do that.\n\r", ch);
+		stc("You are too stunned to do that.\n", ch);
 		return TRUE;
 
 	case POS_SLEEPING:
@@ -806,7 +806,7 @@ bool check_social(CHAR_DATA *ch, char *command, char *argument)
 		if (!str_cmp(iterator->name, "snore"))
 			break;
 
-		stc("Stop fidgeting and get some sleep!\n\r", ch);
+		stc("Stop fidgeting and get some sleep!\n", ch);
 		return TRUE;
 	}
 
@@ -818,7 +818,7 @@ bool check_social(CHAR_DATA *ch, char *command, char *argument)
 		act(iterator->char_no_arg,   ch, NULL, victim, TO_CHAR);
 	}
 	else if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL)
-		stc("They are not here.\n\r", ch);
+		stc("They are not here.\n", ch);
 	else if (victim == ch) {
 		act(iterator->others_auto,   ch, NULL, victim, TO_ROOM);
 		act(iterator->char_auto,     ch, NULL, victim, TO_CHAR);
@@ -1139,18 +1139,18 @@ void do_commands(CHAR_DATA *ch, char *argument)
 void do_huh(CHAR_DATA *ch)
 {
 	char   *const   message        [] = {
-		"Huh?\n\r",
-		"Pardon?\n\r",
-		"Excuse me?\n\r",
-		"What?\n\r",
-		"Say again.\n\r",
-		"Eh?\n\r",
-		"Can you repeat that?\n\r",
-		"You want what?\n\r",
-		"Ummm...\n\r",
-		"Syntax Error\n\r",
-		"Come again?\n\r",
-		"Bad command or file name\n\r"
+		"Huh?\n",
+		"Pardon?\n",
+		"Excuse me?\n",
+		"What?\n",
+		"Say again.\n",
+		"Eh?\n",
+		"Can you repeat that?\n",
+		"You want what?\n",
+		"Ummm...\n",
+		"Syntax Error\n",
+		"Come again?\n",
+		"Bad command or file name\n"
 	};
 	stc(message[number_range(0, 11)], ch);
 	return;
@@ -1210,10 +1210,10 @@ void slog_file(CHAR_DATA *ch, char *file, char *str)
 
 	if ((fp = fopen(file, "a")) == NULL) {
 		perror(file);
-		stc("Could not open the file!\n\r", ch);
+		stc("Could not open the file!\n", ch);
 	}
 	else {
-		fprintf(fp, "%s\n\r", str);
+		fprintf(fp, "%s\n", str);
 		fclose(fp);
 	}
 
@@ -1279,15 +1279,15 @@ void do_disable(CHAR_DATA *ch, char *argument)
 
 	if (cmd[0] == '\0') {
 		if (!disabled_first) { /* Any disabled at all ? */
-			stc("There are no commands disabled.\n\r", ch);
+			stc("There are no commands disabled.\n", ch);
 			return;
 		}
 
-		stc("Command             {T|{xDisabled by    {T|{xReason\n\r"
-		    "{T--------------------|---------------|-----------------------------------------------{x\n\r", ch);
+		stc("Command             {T|{xDisabled by    {T|{xReason\n"
+		    "{T--------------------|---------------|-----------------------------------------------{x\n", ch);
 
 		for (p = disabled_first; p; p = p->next)
-			ptc(ch, "%-20s{T|{x%-15s{T|{x%s\n\r", p->command->name, p->disabled_by, p->reason);
+			ptc(ch, "%-20s{T|{x%-15s{T|{x%s\n", p->command->name, p->disabled_by, p->reason);
 
 		return;
 	}
@@ -1313,23 +1313,23 @@ void do_disable(CHAR_DATA *ch, char *argument)
 		free_string(p->disabled_by);
 		free_string(p->reason);
 		free_mem(p, sizeof(DISABLED_DATA));
-		stc("Command enabled.\n\r", ch);
+		stc("Command enabled.\n", ch);
 		return;
 	}
 
 	/* IQ test */
 	if (!str_cmp(cmd, "disable")) {
-		stc("You cannot disable the disable command.\n\r", ch);
+		stc("You cannot disable the disable command.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		stc("You must provide a reason.\n\r", ch);
+		stc("You must provide a reason.\n", ch);
 		return;
 	}
 
 	if (strlen(argument) > 45) {
-		stc("Please limit the reason to 45 characters or less.\n\r", ch);
+		stc("Please limit the reason to 45 characters or less.\n", ch);
 		return;
 	}
 
@@ -1338,7 +1338,7 @@ void do_disable(CHAR_DATA *ch, char *argument)
 			break;
 
 	if (cmd_table[i].name[0] == '\0') {
-		stc("No such command.\n\r", ch);
+		stc("No such command.\n", ch);
 		return;
 	}
 
@@ -1354,7 +1354,7 @@ void do_disable(CHAR_DATA *ch, char *argument)
 	/* add it to the database */
 	db_commandf("do_disable", "INSERT INTO disabled VALUES('%s','%s','%s')",
 	            db_esc(p->command->name), db_esc(p->disabled_by), db_esc(p->reason));
-	stc("Command disabled.\n\r", ch);
+	stc("Command disabled.\n", ch);
 }
 
 

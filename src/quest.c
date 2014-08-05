@@ -55,12 +55,12 @@ void quest_init(void)
 void quest_usage(CHAR_DATA *ch)
 {
 	set_color(ch, YELLOW, BOLD);
-	stc("QUEST commands: REQUEST INFO TIME COMPLETE FORFEIT POINTS JOIN.\n\r", ch);
+	stc("QUEST commands: REQUEST INFO TIME COMPLETE FORFEIT POINTS JOIN.\n", ch);
 
 	if (IS_IMMORTAL(ch))
-		stc("Imm QUEST commands: OPEN CLOSE LIST DOUBLE DEDUCT PK.\n\r", ch);
+		stc("Imm QUEST commands: OPEN CLOSE LIST DOUBLE DEDUCT PK.\n", ch);
 
-	stc("For more information, type 'HELP QUEST'.\n\r", ch);
+	stc("For more information, type 'HELP QUEST'.\n", ch);
 	set_color(ch, WHITE, NOBOLD);
 } /* end quest_usage */
 
@@ -130,7 +130,7 @@ CHAR_DATA *find_questmaster(CHAR_DATA *ch)
 	}
 
 	if (questman->fighting != NULL) {
-		stc("Wait until the fighting stops.\n\r", ch);
+		stc("Wait until the fighting stops.\n", ch);
 		questman = NULL;
 	}
 
@@ -158,7 +158,7 @@ CHAR_DATA *find_squestmaster(CHAR_DATA *ch)
 	}
 
 	if (questman->fighting != NULL) {
-		stc("Wait until the fighting stops.\n\r", ch);
+		stc("Wait until the fighting stops.\n", ch);
 		questman = NULL;
 	}
 
@@ -190,14 +190,14 @@ void quest_where(CHAR_DATA *ch, char *what)
 		return;
 	}
 
-	ptc(ch, "Rumor has it this %s was last seen in the area known as %s,\n\r", what, room->area->name);
+	ptc(ch, "Rumor has it this %s was last seen in the area known as %s,\n", what, room->area->name);
 
 	if (room->name == NULL) {
 		bug("QUEST INFO: room(%d)->name == NULL", ch->questloc);
 		return;
 	}
 
-	ptc(ch, "near %s.\n\r", room->name);
+	ptc(ch, "near %s.\n", room->name);
 } /* end quest_where */
 
 
@@ -207,13 +207,13 @@ void squest_info(CHAR_DATA *ch)
 	ROOM_INDEX_DATA *questroom_obj, *questroom_mob;
 
 	if (!IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
-		stc("You aren't currently on a skill quest.\n\r", ch);
+		stc("You aren't currently on a skill quest.\n", ch);
 		return;
 	}
 
 	if (ch->pcdata->squest_giver < 1) {
 		bug("QUEST INFO: quest giver = %d", ch->pcdata->squest_giver);
-		stc("It seems the questmistress died of old age waiting for you.\n\r", ch);
+		stc("It seems the questmistress died of old age waiting for you.\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_SQUESTOR);
 		return;
 	}
@@ -222,130 +222,130 @@ void squest_info(CHAR_DATA *ch)
 
 	if (questman == NULL) {
 		bug("QUEST INFO: skill quest giver %d has no MOB_INDEX_DATA!", ch->quest_giver);
-		stc("The questmistress has fallen very ill. Please contact an imm!\n\r", ch);
+		stc("The questmistress has fallen very ill. Please contact an imm!\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_SQUESTOR);
 		return;
 	}
 
 	if (ch->pcdata->squestobj == NULL && ch->pcdata->squestmob == NULL) { /* no quest */
-		stc("You've forgotten what your skill quest was.\n\r", ch);
+		stc("You've forgotten what your skill quest was.\n", ch);
 		bug("QUEST INFO: skill quest with no obj or mob", 0);
 		sq_cleanup(ch);
 		return;
 	}
 
-	ptc(ch, "You recall the skill quest which %s gave you.\n\r", questman->short_descr);
+	ptc(ch, "You recall the skill quest which %s gave you.\n", questman->short_descr);
 
 	if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob == NULL) { /* obj, no mob */
 		if (ch->pcdata->squestobjf) {
-			stc("Your skill quest is ALMOST complete!\n\r", ch);
-			ptc(ch, "Get back to %s before your time runs out!\n\r",
+			stc("Your skill quest is ALMOST complete!\n", ch);
+			ptc(ch, "Get back to %s before your time runs out!\n",
 			    (questman->short_descr == NULL ? "your quest master" : questman->short_descr));
 			return;
 		}
 
 		if ((questroom_obj = get_room_index(ch->pcdata->squestloc1)) == NULL) {
 			bug("QUEST INFO: sqobj quest with no location", 0);
-			stc("You've forgotten where your quest object is.\n\r", ch);
+			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if (questroom_obj->area == NULL) {
 			bug("QUEST INFO: sqobj location with no area", 0);
-			stc("You've forgotten where your quest object is.\n\r", ch);
+			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
-		ptc(ch, "You are on a quest to recover the legendary %s!\n\r",
+		ptc(ch, "You are on a quest to recover the legendary %s!\n",
 		    ch->pcdata->squestobj->short_descr);
-		ptc(ch, "The artifact was last known to be in %s{x,\n\r", questroom_obj->name);
-		ptc(ch, "in the area known as %s{x.\n\r", questroom_obj->area->name);
+		ptc(ch, "The artifact was last known to be in %s{x,\n", questroom_obj->name);
+		ptc(ch, "in the area known as %s{x.\n", questroom_obj->area->name);
 		return;
 	}
 
 	if (ch->pcdata->squestobj == NULL && ch->pcdata->squestmob != NULL) { /* mob, no obj */
 		if (ch->pcdata->squestmobf) {
-			stc("Your skill quest is ALMOST complete!\n\r", ch);
-			ptc(ch, "Get back to %s before your time runs out!\n\r",
+			stc("Your skill quest is ALMOST complete!\n", ch);
+			ptc(ch, "Get back to %s before your time runs out!\n",
 			    (questman->short_descr == NULL ? "the questmistress" : questman->short_descr));
 			return;
 		}
 
 		if ((questroom_mob = get_room_index(ch->pcdata->squestloc2)) == NULL) {
 			bug("QUEST INFO: sqmob quest with no location", 0);
-			stc("You've forgotten where your quest mob is.\n\r", ch);
+			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if (questroom_mob->area == NULL) {
 			bug("QUEST INFO: sqmob location with no area", 0);
-			stc("You've forgotten where your quest mob is.\n\r", ch);
+			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
-		ptc(ch, "You are on a quest to learn from the legendary %s!\n\r",
+		ptc(ch, "You are on a quest to learn from the legendary %s!\n",
 		    ch->pcdata->squestmob->short_descr);
-		ptc(ch, "%s can usually be found in %s{x,\n\r",
+		ptc(ch, "%s can usually be found in %s{x,\n",
 		    ch->pcdata->squestmob->sex == 1 ? "He" : "She", questroom_mob->name);
-		ptc(ch, "in the area known as %s{x.\n\r", questroom_mob->area->name);
+		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
 		return;
 	}
 
 	if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob != NULL) { /* mob and obj */
 		if ((questroom_obj = get_room_index(ch->pcdata->squestloc1)) == NULL) {
 			bug("QUEST INFO: sqobj/mob quest with no obj location", 0);
-			stc("You've forgotten where your quest object is.\n\r", ch);
+			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if (questroom_obj->area == NULL) {
 			bug("QUEST INFO: sqobj location with no area", 0);
-			stc("You've forgotten where your quest object is.\n\r", ch);
+			stc("You've forgotten where your quest object is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if ((questroom_mob = get_room_index(ch->pcdata->squestloc2)) == NULL) {
 			bug("QUEST INFO: sqobj/mob quest with no mob location", 0);
-			stc("You've forgotten where your quest mob is.\n\r", ch);
+			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if (questroom_mob->area == NULL) {
 			bug("QUEST INFO: sqmob location with no area", 0);
-			stc("You've forgotten where your quest mob is.\n\r", ch);
+			stc("You've forgotten where your quest mob is.\n", ch);
 			sq_cleanup(ch);
 			return;
 		}
 
 		if (ch->pcdata->squestobjf && ch->pcdata->squestmobf) {
-			stc("Your skill quest is ALMOST complete!\n\r", ch);
-			ptc(ch, "Get back to %s before your time runs out!\n\r",
+			stc("Your skill quest is ALMOST complete!\n", ch);
+			ptc(ch, "Get back to %s before your time runs out!\n",
 			    (questman->short_descr == NULL ? "the questmistress" : questman->short_descr));
 			return;
 		}
 
 		if (!ch->pcdata->squestmobf && ch->pcdata->squestobjf) {
-			ptc(ch, "You must return the %s to %s.\n\r",
+			ptc(ch, "You must return the %s to %s.\n",
 			    ch->pcdata->squestobj->short_descr, ch->pcdata->squestmob->short_descr);
-			ptc(ch, "%s can usually be found in %s{x,\n\r",
+			ptc(ch, "%s can usually be found in %s{x,\n",
 			    ch->pcdata->squestmob->sex == 1 ? "He" : "She", questroom_mob->name);
-			ptc(ch, "in the area known as %s{x.\n\r", questroom_mob->area->name);
+			ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
 			return;
 		}
 
-		ptc(ch, "You are on a quest to recover the legendary %s,\n\r", ch->pcdata->squestobj->short_descr);
-		ptc(ch, "from %s{x, in the area known as %s{x,\n\r", questroom_obj->name, questroom_obj->area->name);
-		ptc(ch, "and return it to it's rightful owner, %s.\n\r", ch->pcdata->squestmob->short_descr);
-		ptc(ch, "%s can usually be found in %s{x,\n\r",
+		ptc(ch, "You are on a quest to recover the legendary %s,\n", ch->pcdata->squestobj->short_descr);
+		ptc(ch, "from %s{x, in the area known as %s{x,\n", questroom_obj->name, questroom_obj->area->name);
+		ptc(ch, "and return it to it's rightful owner, %s.\n", ch->pcdata->squestmob->short_descr);
+		ptc(ch, "%s can usually be found in %s{x,\n",
 		    ch->pcdata->squestmob->sex == 1 ? "He" : "She", questroom_mob->name);
-		ptc(ch, "in the area known as %s{x.\n\r", questroom_mob->area->name);
+		ptc(ch, "in the area known as %s{x.\n", questroom_mob->area->name);
 	}
 }
 
@@ -356,13 +356,13 @@ void quest_info(CHAR_DATA *ch)
 	OBJ_INDEX_DATA *questinfoobj;
 
 	if (!IS_SET(ch->act, PLR_QUESTOR)) {
-		stc("You aren't currently on a quest.\n\r", ch);
+		stc("You aren't currently on a quest.\n", ch);
 		return;
 	}
 
 	if (ch->quest_giver < 1) {
 		bug("QUEST INFO: quest giver = %d", ch->quest_giver);
-		stc("It seems the questmaster died of old age waiting for you.\n\r", ch);
+		stc("It seems the questmaster died of old age waiting for you.\n", ch);
 		REMOVE_BIT(ch->act, PLR_QUESTOR);
 		return;
 	}
@@ -371,14 +371,14 @@ void quest_info(CHAR_DATA *ch)
 
 	if (questman == NULL) {
 		bug("QUEST INFO: quest giver %d has no MOB_INDEX_DATA!", ch->quest_giver);
-		stc("The questmaster has fallen very ill. Please contact an imm!\n\r", ch);
+		stc("The questmaster has fallen very ill. Please contact an imm!\n", ch);
 		REMOVE_BIT(ch->act, PLR_QUESTOR);
 		return;
 	}
 
 	if (ch->questmob == -1) { /* killed target mob */
-		stc("Your quest is ALMOST complete!\n\r", ch);
-		ptc(ch, "Get back to %s before your time runs out!\n\r",
+		stc("Your quest is ALMOST complete!\n", ch);
+		ptc(ch, "Get back to %s before your time runs out!\n",
 		    (questman->short_descr == NULL ? "your quest master" : questman->short_descr));
 		return;
 	}
@@ -386,8 +386,8 @@ void quest_info(CHAR_DATA *ch)
 		questinfoobj = get_obj_index(ch->questobj);
 
 		if (questinfoobj != NULL) {
-			stc("You recall the quest which the questmaster gave you.\n\r", ch);
-			ptc(ch, "You are on a quest to recover the fabled %s!\n\r", questinfoobj->name);
+			stc("You recall the quest which the questmaster gave you.\n", ch);
+			ptc(ch, "You are on a quest to recover the fabled %s!\n", questinfoobj->name);
 			quest_where(ch, "treasure");
 			return;
 		}
@@ -403,7 +403,7 @@ void quest_info(CHAR_DATA *ch)
 		questinfo = get_mob_index(ch->questmob);
 
 		if (questinfo != NULL) {
-			ptc(ch, "You are on a quest to slay the dreaded %s!\n\r", questinfo->short_descr);
+			ptc(ch, "You are on a quest to slay the dreaded %s!\n", questinfo->short_descr);
 			quest_where(ch, "fiend");
 			return;
 		}
@@ -477,8 +477,8 @@ void squestobj_to_squestmob(CHAR_DATA *ch, OBJ_DATA *obj, CHAR_DATA *mob)
 	extract_obj(obj);
 	do_say(mob, "I left the gold reward with the Questmistress.  Farewell, and thank you!");
 	act("$n turns and walks away.", mob, NULL, NULL, TO_ROOM);
-	stc("{YYou have almost completed your {VSKILL QUEST!{x\n\r", ch);
-	stc("{YReturn to the questmaster before your time runs out!{x\n\r", ch);
+	stc("{YYou have almost completed your {VSKILL QUEST!{x\n", ch);
+	stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
 	sprintf(buf, "{Y:SKILL QUEST: {x$N has returned %s to %s", obj->short_descr, mob->short_descr);
 	wiznet(buf, ch, NULL, WIZ_QUEST, 0, 0);
 	extract_char(mob, TRUE);
@@ -538,7 +538,7 @@ void squestmob_found(CHAR_DATA *ch, CHAR_DATA *mob)
 	else if (IS_SET(mob->act, ACT_THIEF)) {
 		switch (number_range(1, 1)) {
 		case 1:
-			ptc(ch, "You feel a tap on your shoulder, and turn to see %s.\n\r", mob->short_descr);
+			ptc(ch, "You feel a tap on your shoulder, and turn to see %s.\n", mob->short_descr);
 			do_say(mob, "Many people express distaste at the life of a lowly pickpocket.");
 			do_say(mob, "But, few occupations require such skill, dexterity, and daring.");
 			act("$n starts into a long monologue detailing the ethics of theft for a living.", mob, NULL, NULL, TO_ROOM);
@@ -577,8 +577,8 @@ void squestmob_found(CHAR_DATA *ch, CHAR_DATA *mob)
 	}
 
 	act("$n turns and walks away.", mob, NULL, NULL, TO_ROOM);
-	stc("{YYou have almost completed your {VSKILL QUEST!{x\n\r", ch);
-	stc("{YReturn to the questmaster before your time runs out!{x\n\r", ch);
+	stc("{YYou have almost completed your {VSKILL QUEST!{x\n", ch);
+	stc("{YReturn to the questmaster before your time runs out!{x\n", ch);
 	sprintf(buf, "{Y:SKILL QUEST: {x$N has spoken with %s", mob->short_descr);
 	wiznet(buf, ch, NULL, WIZ_QUEST, 0, 0);
 	extract_char(mob, TRUE);
@@ -602,25 +602,25 @@ OBJ_DATA *generate_skillquest_obj(CHAR_DATA *ch, int level)
 		{
 			"quest spellbook lotus",       "Spellbook of Lotus",
 			"The Spellbook of Lotus is lying here, waiting for a lucky finder.",
-			"A large, heavy book, worn with use. A tiny scrap of paper marks where the last reader's attention was.\n\r"
+			"A large, heavy book, worn with use. A tiny scrap of paper marks where the last reader's attention was.\n"
 		},
 
 		{
 			"quest sword furey",           "Sword of Furey",
 			"The Sword of Furey is lying here, waiting for a lucky finder.",
-			"This large blade's edges, even as stained as they are, seem to glisten with an inner strength.\n\r"
+			"This large blade's edges, even as stained as they are, seem to glisten with an inner strength.\n"
 		},
 
 		{
 			"quest lockpicks kahn",        "Lockpicks of Kahn",
 			"The Lockpicks of Kahn are lying here, waiting for a lucky finder.",
-			"A small grey pouch of supple leather holds the lockpicks of the legendary thief.\n\r"
+			"A small grey pouch of supple leather holds the lockpicks of the legendary thief.\n"
 		},
 
 		{
 			"quest robe alander",          "Robe of Alander",
 			"The Robe of Alander is lying here, waiting for a lucky finder.",
-			"Though quite dusty, this soft robe looks well used and gives of a warm, comforting glow.\n\r"
+			"Though quite dusty, this soft robe looks well used and gives of a warm, comforting glow.\n"
 		},
 
 		{NULL, NULL, NULL, NULL}
@@ -776,7 +776,7 @@ void generate_skillquest_mob(CHAR_DATA *ch, CHAR_DATA *questman, int level, int 
 		break;
 	}
 
-	sprintf(longdesc, "The %s, %s, stands here.\n\r", title, questmob->short_descr);
+	sprintf(longdesc, "The %s, %s, stands here.\n", title, questmob->short_descr);
 	questmob->long_descr = str_dup(longdesc);
 
 	if ((questroom = generate_skillquest_room(ch, level)) == NULL) {
@@ -1105,14 +1105,14 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		argument = one_argument(argument, player);
 
 		if (player[0] == '\0') {
-			stc("Quest award to whom?\n\r", ch);
+			stc("Quest award to whom?\n", ch);
 			return;
 		}
 
 		wch = get_player_world(ch, player, VIS_PLR);
 
 		if (wch == NULL && str_prefix1("allchars", player)) {
-			ptc(ch, "You find no player named '%s' in the game!\n\r", player);
+			ptc(ch, "You find no player named '%s' in the game!\n", player);
 			return;
 		}
 
@@ -1120,7 +1120,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			number = atoi(argument);
 
 		if (number < 0 || number > 10) {
-			ptc(ch, "Award %s how many quest points (0..10) ?\n\r", wch->name);
+			ptc(ch, "Award %s how many quest points (0..10) ?\n", wch->name);
 			return;
 		}
 
@@ -1128,8 +1128,8 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			for (d = descriptor_list; d; d = d->next) {
 				if (IS_PLAYING(d) && !IS_IMMORTAL(d->character)) {
 					d->character->questpoints += number;
-					ptc(ch, "You award %s %d questpoints.\n\r", d->character->name, number);
-					ptc(d->character, "%s has awarded you %d questpoints.\n\r", ch->name, number);
+					ptc(ch, "You award %s %d questpoints.\n", d->character->name, number);
+					ptc(d->character, "%s has awarded you %d questpoints.\n", ch->name, number);
 				}
 			}
 
@@ -1140,8 +1140,8 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		}
 
 		wch->questpoints += number;
-		ptc(ch, "You award %d quest points to %s.\n\r", number, wch->name);
-		ptc(wch, "%s awards %d quest points to you.\n\r", ch->name, number);
+		ptc(ch, "You award %d quest points to %s.\n", number, wch->name);
+		ptc(wch, "%s awards %d quest points to you.\n", ch->name, number);
 		sprintf(buf, "Log %s: QUEST AWARD %d to %s", ch->name, number, player);
 		wiznet(buf, ch, NULL, WIZ_SECURE, 0, GET_RANK(ch));
 		log_string(buf);
@@ -1157,7 +1157,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		int sn = 0;
 
 		if (get_position(ch) < POS_RESTING) {
-			stc("You are too busy sleeping.\n\r", ch);
+			stc("You are too busy sleeping.\n", ch);
 			return;
 		}
 
@@ -1263,7 +1263,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			if (chance(20) && sn != -1) {
 				sprintf(buf, "I will also teach you some of the finer points of %s.", skill_table[sn].name);
 				do_say(questman, buf);
-				ptc(ch, "%s helps you practice %s.\n\r", questman->short_descr, skill_table[sn].name);
+				ptc(ch, "%s helps you practice %s.\n", questman->short_descr, skill_table[sn].name);
 				check_improve(ch, sn, TRUE, -1); /* always improve */
 			}
 
@@ -1364,7 +1364,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			do_say(questman, buf);
 
 			if (pracreward > 0)
-				ptc(ch, "{YYou also gain %d practice%s!{x\n\r", pracreward, (pracreward == 1 ? "" : "s"));
+				ptc(ch, "{YYou also gain %d practice%s!{x\n", pracreward, (pracreward == 1 ? "" : "s"));
 
 			REMOVE_BIT(ch->act, PLR_QUESTOR);
 			ch->quest_giver = 0;
@@ -1386,7 +1386,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			return;
 		}
 		else
-			stc("You can't do that here.\n\r", ch);
+			stc("You can't do that here.\n", ch);
 
 		return;
 	}
@@ -1400,7 +1400,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		ROOM_INDEX_DATA *temple;
 
 		if (!quest_open) {
-			stc("The quest area is not currently open.\n\r", ch);
+			stc("The quest area is not currently open.\n", ch);
 			return;
 		}
 
@@ -1413,8 +1413,8 @@ void do_quest(CHAR_DATA *ch, char *argument)
 
 		if (num_in_area > 0) {
 			if (num_to_oust < num_in_area - 1 || num_to_oust > num_in_area + 1) {
-				ptc(ch, "There are still %d players in the quest area.\n\r", num_in_area);
-				stc("Close the quest on how many players?\n\r", ch);
+				ptc(ch, "There are still %d players in the quest area.\n", num_in_area);
+				stc("Close the quest on how many players?\n", ch);
 				return;
 			}
 
@@ -1427,7 +1427,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 					if (!IS_NPC(victim) && victim->in_room != NULL
 					    && victim->in_room->area == quest_area) {
 						act("You expel $N from the quest area.", ch, NULL, victim, TO_CHAR);
-						stc("You are expelled from the quest area.\n\r", victim);
+						stc("You are expelled from the quest area.\n", victim);
 						char_from_room(victim);
 						char_to_room(victim, temple);
 						act("$n arrives from a mushroom cloud.", victim, NULL, NULL, TO_ROOM);
@@ -1437,8 +1437,8 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			}
 		}
 
-		stc("*** You have closed the quest area ***\n\r", ch);
-		sprintf(buf, "%s has closed the quest area.\n\r", ch->name);
+		stc("*** You have closed the quest area ***\n", ch);
+		sprintf(buf, "%s has closed the quest area.\n", ch->name);
 		do_send_announce(ch, buf);
 		quest_open = FALSE;
 		return;
@@ -1452,29 +1452,29 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		argument = one_argument(argument, arg);
 
 		if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
-			stc("Player not found.\n\r", ch);
+			stc("Player not found.\n", ch);
 			return;
 		}
 
 		if (!is_number(argument)) {
-			stc("Value must be numeric.\n\r", ch);
+			stc("Value must be numeric.\n", ch);
 			return;
 		}
 
 		qpoint = atoi(argument);
 
 		if (qpoint < 0) {
-			stc("Value must be positive.\n\r", ch);
+			stc("Value must be positive.\n", ch);
 			return;
 		}
 
 		if (qpoint > victim->questpoints) {
-			stc("They do not have enough quest points for that.\n\r", ch);
+			stc("They do not have enough quest points for that.\n", ch);
 			return;
 		}
 
 		victim->questpoints -= qpoint;
-		sprintf(buf, "%d questpoints have been deducted, %d remaining.\n\r", qpoint, victim->questpoints);
+		sprintf(buf, "%d questpoints have been deducted, %d remaining.\n", qpoint, victim->questpoints);
 		stc(buf, ch);
 		stc(buf, victim);
 		sprintf(buf, "%s deducted %d qp from %s [%d remaining].", ch->name, qpoint, victim->name, victim->questpoints);
@@ -1485,13 +1485,13 @@ void do_quest(CHAR_DATA *ch, char *argument)
 	/*** DOUBLE ***/
 	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "double")) {
 		if (!quest_double) {
-			stc("You declare double QP for all!\n\r", ch);
+			stc("You declare double QP for all!\n", ch);
 			wiznet("{Y:QUEST:{x $N has declared double QP", ch, NULL, WIZ_QUEST, 0, 0);
 			do_send_announce(ch, "The Gods have declared Double QP for all!  Happy Questing!");
 			quest_double = 1;
 		}
 		else {
-			stc("You declare normal QP for all.\n\r", ch);
+			stc("You declare normal QP for all.\n", ch);
 			wiznet("{Y:QUEST:{x $N has declared normal QP", ch, NULL, WIZ_QUEST, 0, 0);
 			do_send_announce(ch, "The Gods have declared normal questing.");
 			quest_double = 0;
@@ -1503,7 +1503,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 	/*** FORFEIT ***/
 	if (!str_prefix1(arg1, "forfeit")) {
 		if (!IS_SET(ch->act, PLR_QUESTOR) && !IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
-			stc("You aren't currently on a quest.\n\r", ch);
+			stc("You aren't currently on a quest.\n", ch);
 			return;
 		}
 
@@ -1511,7 +1511,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			sq_cleanup(ch);
 			ch->pcdata->nextsquest = 20;
 			wiznet("{Y:SKILL QUEST:{x $N has forfeited $S skill quest", ch, NULL, WIZ_QUEST, 0, 0);
-			stc("You have forfeited your skill quest.\n\r", ch);
+			stc("You have forfeited your skill quest.\n", ch);
 			return;
 		}
 
@@ -1525,23 +1525,23 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			ch->questloc = 0;
 			ch->nextquest = 12;
 			wiznet("{Y:QUEST:{x $N has forfeited $S quest", ch, NULL, WIZ_QUEST, 0, 0);
-			stc("You have forfeited your quest.\n\r", ch);
+			stc("You have forfeited your quest.\n", ch);
 			return;
 		}
 
-		stc("You can't do that here.\n\r", ch);
+		stc("You can't do that here.\n", ch);
 		return;
 	}
 
 	/*** INFO ***/
 	if (!str_prefix1(arg1, "info")) {
 		if (ch->in_room == NULL || ch->in_room->area == NULL) {
-			stc("You cannot recall your quest from this location.\n\r", ch);
+			stc("You cannot recall your quest from this location.\n", ch);
 			return;
 		}
 
 		squest_info(ch);
-		stc("\n\r", ch);
+		stc("\n", ch);
 		quest_info(ch);
 		return;
 	}
@@ -1549,37 +1549,37 @@ void do_quest(CHAR_DATA *ch, char *argument)
 	/*** JOIN ***/
 	if (!str_prefix1(arg1, "join")) {
 		if (get_position(ch) < POS_RESTING) {
-			stc("You are too busy sleeping.\n\r", ch);
+			stc("You are too busy sleeping.\n", ch);
 			return;
 		}
 
 		if (ch->in_room == NULL) {
-			stc("Something prevents you from joining the quest.\n\r", ch);
+			stc("Something prevents you from joining the quest.\n", ch);
 			return;
 		}
 
 		if (!quest_open) {
-			stc("Sorry, but the quest area has not been opened!\n\r", ch);
+			stc("Sorry, but the quest area has not been opened!\n", ch);
 			return;
 		}
 
 		if (ch->level < quest_min || ch->level > quest_max) {
-			stc("Sorry, but the quest area is not open to your level!\n\r", ch);
+			stc("Sorry, but the quest area is not open to your level!\n", ch);
 			return;
 		}
 
 		if (IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)) {
-			stc("You cannot join the quest from this location.\n\r", ch);
+			stc("You cannot join the quest from this location.\n", ch);
 			return;
 		}
 
 		if (IS_AFFECTED(ch, AFF_CURSE)) {
-			stc("You cannot join the quest in your current contition.\n\r", ch);
+			stc("You cannot join the quest in your current contition.\n", ch);
 			return;
 		}
 
 		if (ch->fighting != NULL) {
-			stc("You will need to stop fighting before you can join the quest.\n\r", ch);
+			stc("You will need to stop fighting before you can join the quest.\n", ch);
 			return;
 		}
 
@@ -1587,7 +1587,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		char_from_room(ch);
 		char_to_room(ch, quest_startroom);
 		act("$n appears in the room.", ch, NULL, NULL, TO_ROOM);
-		stc("You join the Quest!\n\r", ch);
+		stc("You join the Quest!\n", ch);
 		do_look(ch, "auto");
 		return;
 	}
@@ -1599,9 +1599,9 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		BUFFER *output;
 		DESCRIPTOR_DATA *d;
 		output = new_buf();
-		stc("                            {YQuest                         {GSkill Quest{x\n\r", ch);
-		stc("Name           Mobile Object Loctn   Time  QP   --- MobLoc ObjLoc  Time  SP\n\r", ch);
-		stc("-----------------------------------------------------------------------------\n\r", ch);
+		stc("                            {YQuest                         {GSkill Quest{x\n", ch);
+		stc("Name           Mobile Object Loctn   Time  QP   --- MobLoc ObjLoc  Time  SP\n", ch);
+		stc("-----------------------------------------------------------------------------\n", ch);
 
 		for (d = descriptor_list; d != NULL; d = d->next) {
 			CHAR_DATA *wch;
@@ -1690,7 +1690,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				sprintf(sqblock, "<%5d><%5d> [%2d][%4d]",
 				        0, 0, wch->pcdata->nextsquest, wch->pcdata->skillpoints);
 
-			sprintf(buf, "%-14s %s     %s{x\n\r", wch->name, qblock, sqblock);
+			sprintf(buf, "%-14s %s     %s{x\n", wch->name, qblock, sqblock);
 			add_buf(output, buf);
 		}
 
@@ -1704,14 +1704,14 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		char num_arg[MAX_INPUT_LENGTH];
 
 		if ((quest_startroom = get_room_index(QUEST_STARTROOM)) == NULL) {
-			stc("The quest area is not available in this reboot.\n\r", ch);
+			stc("The quest area is not available in this reboot.\n", ch);
 			return;
 		}
 
 		quest_area = quest_startroom->area;
 
 		if (quest_open) {
-			ptc(ch, "The quest area is already open, to levels %d to %d\n\r", quest_min, quest_max);
+			ptc(ch, "The quest area is already open, to levels %d to %d\n", quest_min, quest_max);
 			return;
 		}
 
@@ -1721,7 +1721,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			quest_min = atoi(num_arg);
 
 		if (quest_min < 1 || quest_min > 100) {
-			stc("Open the quest to which minimum level (1..100) ?\n\r", ch);
+			stc("Open the quest to which minimum level (1..100) ?\n", ch);
 			return;
 		}
 
@@ -1731,14 +1731,14 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			quest_max = atoi(num_arg);
 
 		if (quest_max < quest_min || quest_max > 100) {
-			ptc(ch, "Open the quest for levels %d to which maximum level (%d..100) ?\n\r",
+			ptc(ch, "Open the quest for levels %d to which maximum level (%d..100) ?\n",
 			    quest_min, quest_min);
 			return;
 		}
 
-		sprintf(buf, "%s has opened the quest area to levels %d through %d!\n\r", ch->name, quest_min, quest_max);
+		sprintf(buf, "%s has opened the quest area to levels %d through %d!\n", ch->name, quest_min, quest_max);
 		do_send_announce(ch, buf);
-		ptc(ch, "You open the quest area to levels %d through %d.\n\r", quest_min, quest_max);
+		ptc(ch, "You open the quest area to levels %d through %d.\n", quest_min, quest_max);
 		quest_open = TRUE;
 		return;
 	}
@@ -1756,7 +1756,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 		quest_upk = !quest_upk;
 
 		if (quest_upk) {
-			stc("UNLIMITED (Questlands = Open Arena)\n\r", ch);
+			stc("UNLIMITED (Questlands = Open Arena)\n", ch);
 			wiznet("{Y:QUEST:{x $N has opened Questlands for Open Arena", ch, NULL, WIZ_QUEST, 0, 0);
 
 			if (salesgnome != NULL) {
@@ -1772,7 +1772,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			}
 		}
 		else {
-			stc("LIMITED (like everywhere else)\n\r", ch);
+			stc("LIMITED (like everywhere else)\n", ch);
 			wiznet("{Y:QUEST:{x $N has restricted PK in Questlands", ch, NULL, WIZ_QUEST, 0, 0);
 
 			if (salesgnome != NULL) {
@@ -1793,7 +1793,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 
 	/*** POINTS ***/
 	if (!str_prefix1(arg1, "points")) {
-		ptc(ch, "You have %d quest points and %d skill points.\n\r",
+		ptc(ch, "You have %d quest points and %d skill points.\n",
 		    ch->questpoints, ch->pcdata->skillpoints);
 		return;
 	}
@@ -1801,7 +1801,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 	/*** REQUEST ***/
 	if (!str_prefix1(arg1, "request")) {
 		if (get_position(ch) < POS_RESTING) {
-			stc("You are too busy sleeping.\n\r", ch);
+			stc("You are too busy sleeping.\n", ch);
 			return;
 		}
 
@@ -1896,7 +1896,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			return;
 		}
 		else
-			stc("You can't do that here.\n\r", ch);
+			stc("You can't do that here.\n", ch);
 
 		return;
 	}
@@ -1904,14 +1904,14 @@ void do_quest(CHAR_DATA *ch, char *argument)
 	/*** STATUS ***/
 	if (IS_IMMORTAL(ch) && !str_prefix1(arg1, "status")) {
 		if (quest_open)
-			stc("The Quest Area is currently open for a {Rquest{x.\n\r", ch);
+			stc("The Quest Area is currently open for a {Rquest{x.\n", ch);
 		else
-			stc("There is currently {Gno quest{x going on.\n\r", ch);
+			stc("There is currently {Gno quest{x going on.\n", ch);
 
 		if (quest_upk)
-			stc("There is {Gunrestricted carnage{x in the Quest Area.\n\r", ch);
+			stc("There is {Gunrestricted carnage{x in the Quest Area.\n", ch);
 		else
-			stc("The Quest Area is currently PK {Rrestricted{x.\n\r", ch);
+			stc("The Quest Area is currently PK {Rrestricted{x.\n", ch);
 
 		return;
 	}
@@ -1919,28 +1919,28 @@ void do_quest(CHAR_DATA *ch, char *argument)
 	/*** TIME ***/
 	if (!str_prefix1(arg1, "time")) {
 		if (!IS_SET(ch->act, PLR_QUESTOR)) {
-			stc("You aren't currently on a quest.\n\r", ch);
+			stc("You aren't currently on a quest.\n", ch);
 
 			if (ch->nextquest > 1)
-				ptc(ch, "There are %d minutes remaining until you can quest again.\n\r",
+				ptc(ch, "There are %d minutes remaining until you can quest again.\n",
 				    ch->nextquest);
 			else if (ch->nextquest == 1)
-				stc("There is less than a minute remaining until you can quest again.\n\r", ch);
+				stc("There is less than a minute remaining until you can quest again.\n", ch);
 		}
 		else if (ch->countdown > 0)
-			ptc(ch, "You have %d minutes left to complete your current quest.\n\r", ch->countdown);
+			ptc(ch, "You have %d minutes left to complete your current quest.\n", ch->countdown);
 
 		if (!IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
-			stc("You aren't currently on a skill quest.\n\r", ch);
+			stc("You aren't currently on a skill quest.\n", ch);
 
 			if (ch->pcdata->nextsquest > 1)
-				ptc(ch, "There are %d minutes remaining until you can go on another skill quest.\n\r",
+				ptc(ch, "There are %d minutes remaining until you can go on another skill quest.\n",
 				    ch->pcdata->nextsquest);
 			else if (ch->pcdata->nextsquest == 1)
-				stc("There is less than a minute remaining until you can go on another skill quest.\n\r", ch);
+				stc("There is less than a minute remaining until you can go on another skill quest.\n", ch);
 		}
 		else if (ch->pcdata->sqcountdown > 0)
-			ptc(ch, "You have %d minutes left to complete your current skill quest.\n\r",
+			ptc(ch, "You have %d minutes left to complete your current skill quest.\n",
 			    ch->pcdata->sqcountdown);
 
 		return;

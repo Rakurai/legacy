@@ -215,12 +215,12 @@ void do_play(CHAR_DATA *ch, char *argument)
 	}
 
 	if (juke == NULL) {
-		stc("You see nothing to play.\n\r", ch);
+		stc("You see nothing to play.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		stc("Play what?\n\r", ch);
+		stc("Play what?\n", ch);
 		return;
 	}
 
@@ -239,7 +239,7 @@ void do_play(CHAR_DATA *ch, char *argument)
 		if (argument[0] != '\0')
 			match = TRUE;
 
-		sprintf(buf, "%s has the following songs available:\n\r", juke->short_descr);
+		sprintf(buf, "%s has the following songs available:\n", juke->short_descr);
 		add_buf(buffer, capitalize(buf));
 
 		for (i = 0; i < MAX_SONGS; i++) {
@@ -248,7 +248,7 @@ void do_play(CHAR_DATA *ch, char *argument)
 
 			if (artist && (!match
 			               ||             !str_prefix1(argument, song_table[i].group)))
-				sprintf(buf, "%-39s %-39s\n\r",
+				sprintf(buf, "%-39s %-39s\n",
 				        song_table[i].group, song_table[i].name);
 			else if (!artist && (!match
 			                     ||                   !str_prefix1(argument, song_table[i].name)))
@@ -259,11 +259,11 @@ void do_play(CHAR_DATA *ch, char *argument)
 			add_buf(buffer, buf);
 
 			if (!artist && ++col % 2 == 0)
-				add_buf(buffer, "\n\r");
+				add_buf(buffer, "\n");
 		}
 
 		if (!artist && col % 2 != 0)
-			add_buf(buffer, "\n\r");
+			add_buf(buffer, "\n");
 
 		page_to_char(buf_string(buffer), ch);
 		free_buf(buffer);
@@ -279,12 +279,12 @@ void do_play(CHAR_DATA *ch, char *argument)
 		if (juke) { /* stop the jukebox in their inventory first */
 			if (!juke->carried_by) {
 				if (!IS_IMMORTAL(ch)) {
-					stc("You can only stop a jukebox in your inventory.\n\r", ch);
+					stc("You can only stop a jukebox in your inventory.\n", ch);
 					return;
 				}
 			}
 
-			ptc(ch, "You stop %s.\n\r", juke->short_descr);
+			ptc(ch, "You stop %s.\n", juke->short_descr);
 
 			for (i = 0; i < 5; i++)
 				juke->value[i] = -1;
@@ -293,7 +293,7 @@ void do_play(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!IS_IMMORTAL(ch)) {
-			stc("You don't see a jukebox around.\n\r", ch);
+			stc("You don't see a jukebox around.\n", ch);
 			return;
 		}
 
@@ -304,19 +304,19 @@ void do_play(CHAR_DATA *ch, char *argument)
 	}
 
 	if (argument[0] == '\0') {
-		stc("Play what?\n\r", ch);
+		stc("Play what?\n", ch);
 		return;
 	}
 
 	if ((global && channel_songs[MAX_GLOBAL] > -1)
 	    || (!global && juke->value[4] > -1)) {
-		stc("The jukebox is full up right now.\n\r", ch);
+		stc("The jukebox is full up right now.\n", ch);
 		return;
 	}
 
 	for (song = 0; song < MAX_SONGS; song++) {
 		if (song_table[song].name == NULL) {
-			stc("That song isn't available.\n\r", ch);
+			stc("That song isn't available.\n", ch);
 			return;
 		}
 
@@ -325,11 +325,11 @@ void do_play(CHAR_DATA *ch, char *argument)
 	}
 
 	if (song >= MAX_SONGS) {
-		stc("That song isn't available.\n\r", ch);
+		stc("That song isn't available.\n", ch);
 		return;
 	}
 
-	stc("Coming right up.\n\r", ch);
+	stc("Coming right up.\n", ch);
 
 	if (global) {
 		for (i = 1; i <= MAX_GLOBAL; i++)

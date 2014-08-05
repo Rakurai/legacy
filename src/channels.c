@@ -46,164 +46,164 @@ char   *makedrunk               args((CHAR_DATA *ch, char *string));
 void do_channels(CHAR_DATA *ch, char *argument)
 {
 	/* lists all channels and their status */
-	stc("   channel     status\n\r", ch);
-	stc("----------------------\n\r", ch);
+	stc("   channel     status\n", ch);
+	stc("----------------------\n", ch);
 	new_color(ch, CSLOT_CHAN_GOSSIP);
 	stc("gossip         ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_GOSSIP)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOGOSSIP)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_GOSSIP)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOGOSSIP)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_FLAME);
 	stc("flame          ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_FLAME)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOFLAME)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_FLAME)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOFLAME)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_QWEST);
 	stc("qwest          ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_QWEST)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOQWEST)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_QWEST)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOQWEST)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_PRAY);
 	stc("pray           ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_PRAY)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOPRAY)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_PRAY)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOPRAY)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_AUCTION);
 	stc("auction        ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_AUCTION)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOAUCTION)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_AUCTION)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOAUCTION)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	if (is_clan(ch) && (!ch->clan->independent || IS_IMMORTAL(ch))) {
 		new_color(ch, CSLOT_CHAN_CLAN);
 		stc("Clantalk       ", ch);
 
-		if (IS_SET(ch->revoke, REVOKE_CLAN)) stc("REVOKED\n\r", ch);
-		else if (!IS_SET(ch->comm, COMM_NOCLAN)) stc("ON\n\r", ch);
-		else stc("OFF\n\r", ch);
+		if (IS_SET(ch->revoke, REVOKE_CLAN)) stc("REVOKED\n", ch);
+		else if (!IS_SET(ch->comm, COMM_NOCLAN)) stc("ON\n", ch);
+		else stc("OFF\n", ch);
 	}
 
 	new_color(ch, CSLOT_CHAN_ANNOUNCE);
 	stc("announce       ", ch);
 
-	if (!IS_SET(ch->comm, COMM_NOANNOUNCE)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (!IS_SET(ch->comm, COMM_NOANNOUNCE)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_MUSIC);
 	stc("music          ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_MUSIC)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOMUSIC)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_MUSIC)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOMUSIC)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_QA);
 	stc("Q/A            ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_QA)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOQUESTION)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_QA)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOQUESTION)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_SOCIAL);
 	stc("Social         ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_SOCIAL)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOSOCIAL)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_SOCIAL)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOSOCIAL)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_IC);
 	stc("IC             ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_IC)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOIC)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_IC)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOIC)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_GRATS);
 	stc("grats          ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_GRATS)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOGRATS)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_GRATS)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOGRATS)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	if (IS_IMMORTAL(ch)) {
 		new_color(ch, CSLOT_CHAN_IMM);
 		stc("Imm Chat       ", ch);
 
-		if (!IS_SET(ch->comm, COMM_NOWIZ)) stc("ON\n\r", ch);
-		else stc("OFF\n\r", ch);
+		if (!IS_SET(ch->comm, COMM_NOWIZ)) stc("ON\n", ch);
+		else stc("OFF\n", ch);
 	}
 
 	new_color(ch, CSLOT_CHAN_PAGE);
 	stc("page           ", ch);
 
-	if (IS_SET(ch->revoke, REVOKE_PAGE)) stc("REVOKED\n\r", ch);
-	else if (!IS_SET(ch->comm, COMM_NOPAGE)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->revoke, REVOKE_PAGE)) stc("REVOKED\n", ch);
+	else if (!IS_SET(ch->comm, COMM_NOPAGE)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	new_color(ch, CSLOT_CHAN_TELL);
 	stc("tell           ", ch);
 
-	if (!IS_SET(ch->comm, COMM_DEAF)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (!IS_SET(ch->comm, COMM_DEAF)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	set_color(ch, WHITE, NOBOLD);
 	new_color(ch, CSLOT_CHAN_QTELL);
 	stc("qtell          ", ch);
 
 	if (IS_SET(ch->revoke, REVOKE_QTELL)) stc("REVOKED\n\n", ch);
-	else if (!IS_SET(ch->comm, COMM_NOQUERY)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	else if (!IS_SET(ch->comm, COMM_NOQUERY)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	set_color(ch, WHITE, NOBOLD);
 	stc("quiet mode     ", ch);
 
-	if (IS_SET(ch->comm, COMM_QUIET)) stc("ON\n\r", ch);
-	else stc("OFF\n\r", ch);
+	if (IS_SET(ch->comm, COMM_QUIET)) stc("ON\n", ch);
+	else stc("OFF\n", ch);
 
 	/*
 	 * Stop the mud from crashing when morphed players use channels
 	*/
 	if (!IS_NPC(ch)) {
-		if (IS_SET(ch->pcdata->plr, PLR_NONOTIFY)) stc("You will not be notified of new notes.\n\r", ch);
-		else stc("You {Wwill{x be notified of new notes.\n\r", ch);
+		if (IS_SET(ch->pcdata->plr, PLR_NONOTIFY)) stc("You will not be notified of new notes.\n", ch);
+		else stc("You {Wwill{x be notified of new notes.\n", ch);
 
 		if (ch->pcdata->aura && ch->pcdata->aura[0] != '\0')
-			ptc(ch, "{VAura: (%s{V){x\n\r", ch->pcdata->aura);
+			ptc(ch, "{VAura: (%s{V){x\n", ch->pcdata->aura);
 	}
 
-	if (IS_SET(ch->comm, COMM_AFK)) stc("You are AFK.\n\r", ch);
+	if (IS_SET(ch->comm, COMM_AFK)) stc("You are AFK.\n", ch);
 
-	if (!IS_NPC(ch)) if (IS_SET(ch->pcdata->plr, PLR_SNOOP_PROOF)) stc("You are immune to Nosy people.\n\r", ch);
+	if (!IS_NPC(ch)) if (IS_SET(ch->pcdata->plr, PLR_SNOOP_PROOF)) stc("You are immune to Nosy people.\n", ch);
 
 	if (ch->lines != PAGELEN) {
 		if (ch->lines)
-			ptc(ch, "You display %d lines of scroll.\n\r", ch->lines);
+			ptc(ch, "You display %d lines of scroll.\n", ch->lines);
 		else
-			stc("Scroll buffering is off.\n\r", ch);
+			stc("Scroll buffering is off.\n", ch);
 	}
 
 	if (ch->prompt != NULL)
-		ptc(ch, "Your current prompt is: %s\n\r", ch->prompt);
+		ptc(ch, "Your current prompt is: %s\n", ch->prompt);
 
 	if (IS_SET(ch->revoke, REVOKE_TELL))
-		stc("No one wants to listen to you.\n\r", ch);
+		stc("No one wants to listen to you.\n", ch);
 
 	if (IS_SET(ch->revoke, REVOKE_EMOTE))
-		stc("You're not feeling very emotional right now.\n\r", ch);
+		stc("You're not feeling very emotional right now.\n", ch);
 
 	if (IS_SET(ch->revoke, REVOKE_NOCHANNELS))
-		stc("Your mouth seems to be stuck shut.\n\r", ch);
+		stc("Your mouth seems to be stuck shut.\n", ch);
 
 	if (IS_SET(ch->revoke, REVOKE_FLAMEONLY))
-		stc("You only feel like flaming.\n\r", ch);
+		stc("You only feel like flaming.\n", ch);
 }
 
 char *makedrunk(CHAR_DATA *ch, char *string)
@@ -447,7 +447,7 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, char *command,
 		return FALSE;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOCHANNELS)) {
-		stc("You are anti-social!\n\r", ch);
+		stc("You are anti-social!\n", ch);
 		return TRUE;
 	}
 
@@ -462,7 +462,7 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, char *command,
 		act_new(iterator->char_no_arg,  ch, NULL, victim, TO_CHAR, POS_SLEEPING, FALSE);
 	}
 	else if (victim == NULL) {
-		stc("[S] They are not here.\n\r", ch);
+		stc("[S] They are not here.\n", ch);
 		return TRUE;
 	}
 	else if (victim == ch) {
@@ -532,7 +532,7 @@ void channel_who(CHAR_DATA *ch, char *channelname, int channel, int custom)
 		return;
 
 	new_color(ch, custom);
-	ptc(ch, "Players with %s ON\n\r", channelname);
+	ptc(ch, "Players with %s ON\n", channelname);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *victim;
@@ -550,7 +550,7 @@ void channel_who(CHAR_DATA *ch, char *channelname, int channel, int custom)
 			if (channel == COMM_NOFLAME && IS_SET(victim->censor, CENSOR_CHAN))
 				continue;
 
-			ptc(ch, "%s\n\r", victim->name);
+			ptc(ch, "%s\n", victim->name);
 		}
 	}
 
@@ -590,12 +590,12 @@ void send_to_clan(CHAR_DATA *ch, CLAN_DATA *target, char *text)
 	DESCRIPTOR_DATA *d;
 
 	if (target == NULL) {
-		stc("No such clan!\n\r", ch);
+		stc("No such clan!\n", ch);
 		return;
 	}
 
 	if (text[0] == '\0') {
-		stc("Tell them what ?\n\r", ch);
+		stc("Tell them what ?\n", ch);
 		return;
 	}
 
@@ -634,7 +634,7 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 
 	if (channel == CHAN_CLAN) {
 		if (!is_clan(ch) || (ch->clan->independent && !IS_IMMORTAL(ch))) {
-			stc("You aren't in a clan.\n\r", ch);
+			stc("You aren't in a clan.\n", ch);
 			return;
 		}
 	}
@@ -643,11 +643,11 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 		new_color(ch, cslot);
 
 		if (IS_SET(ch->comm, chan_table[channel].bit)) {
-			ptc(ch, "The %s channel is now ON.\n\r", chan_table[channel].name);
+			ptc(ch, "The %s channel is now ON.\n", chan_table[channel].name);
 			REMOVE_BIT(ch->comm, chan_table[channel].bit);
 		}
 		else {
-			ptc(ch, "The %s channel is now OFF.\n\r", chan_table[channel].name);
+			ptc(ch, "The %s channel is now OFF.\n", chan_table[channel].name);
 			SET_BIT(ch->comm, chan_table[channel].bit);
 		}
 
@@ -657,28 +657,28 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 
 	if (IS_SET(ch->comm, COMM_QUIET) && channel != CHAN_IMMTALK) {
 		new_color(ch, cslot);
-		stc("You must turn off QUIET mode first.\n\r", ch);
+		stc("You must turn off QUIET mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if (IS_SET(ch->revoke, REVOKE_NOCHANNELS)) {
-		stc("The gods have revoked your channel priviliges.\n\r", ch);
+		stc("The gods have revoked your channel priviliges.\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->revoke, REVOKE_FLAMEONLY) && channel != CHAN_FLAME) {
-		stc("The gods have restricted you to the flame channel.\n\r", ch);
+		stc("The gods have restricted you to the flame channel.\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->revoke, chan_table[channel].revoke_bit)) {
-		ptc(ch, "The gods have revoked your ability to use %s.\n\r", chan_table[channel].name);
+		ptc(ch, "The gods have revoked your ability to use %s.\n", chan_table[channel].name);
 		return;
 	}
 
 	if (get_position(ch) < POS_SLEEPING) {
-		stc("You are hurt too bad for that.\n\r", ch);
+		stc("You are hurt too bad for that.\n", ch);
 		return;
 	}
 
@@ -693,14 +693,14 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 	new_color(ch, cslot);
 
 	if (channel == CHAN_IMMTALK) /* lil different for immtalk */
-		ptc(ch, "%s{x%s: %s{x\n\r",
+		ptc(ch, "%s{x%s: %s{x\n",
 		    ch->name,
 		    ch->secure_level == RANK_IMP ? " [{YIMP{x]" :
 		    ch->secure_level == RANK_HEAD ? " [{BHEAD{x]" :
 		    " [IMM]",
 		    argument);
 	else
-		ptc(ch, "%s {x'%s{x'\n\r", chan_table[channel].prefix_self, argument);
+		ptc(ch, "%s {x'%s{x'\n", chan_table[channel].prefix_self, argument);
 
 	set_color(ch, WHITE, NOBOLD);
 
@@ -716,7 +716,7 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 					continue;
 
 				new_color(victim, cslot);
-				ptc(victim, "%s{x%s: %s{x\n\r",
+				ptc(victim, "%s{x%s: %s{x\n",
 				    PERS(ch, victim, VIS_PLR),
 				    ch->secure_level == RANK_IMP ? " [{YIMP{x]" :
 				    ch->secure_level == RANK_HEAD ? " [{BHEAD{x]" :
@@ -758,7 +758,7 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 
 			/* special for pray, reveal their original character */
 			if (channel == CHAN_PRAY && ch->desc && ch->desc->original)
-				ptc(victim, "%s (%s) implores the gods: \"%s{x\"\n\r",
+				ptc(victim, "%s (%s) implores the gods: \"%s{x\"\n",
 				    ch->desc->original->name, ch->name, argument);
 			else
 				/* -----> */                    act_new(chan_table[channel].other_str,
@@ -803,12 +803,12 @@ void do_music(CHAR_DATA *ch, char *argument)
 void do_ic(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch)) {
-		stc("Just be yourself, no need to pretend :)\n\r", ch);
+		stc("Just be yourself, no need to pretend :)\n", ch);
 		return;
 	}
 
 	if (!IS_SET(ch->pcdata->plr, PLR_OOC)) {
-		stc("You are not in character (help ooc).\n\r", ch);
+		stc("You are not in character (help ooc).\n", ch);
 		return;
 	}
 
@@ -859,13 +859,13 @@ void do_announce(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->comm, COMM_NOANNOUNCE)) {
 		new_color(ch, CSLOT_CHAN_ANNOUNCE);
-		stc("Announcements will now be shown.\n\r", ch);
+		stc("Announcements will now be shown.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		REMOVE_BIT(ch->comm, COMM_NOANNOUNCE);
 	}
 	else {
 		new_color(ch, CSLOT_CHAN_ANNOUNCE);
-		stc("Announce channel is now OFF.\n\r", ch);
+		stc("Announce channel is now OFF.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		SET_BIT(ch->comm, COMM_NOANNOUNCE);
 	}
@@ -884,7 +884,7 @@ void do_send_announce(CHAR_DATA *ch, char *argument)
 		    && !IS_SET(victim->comm, COMM_NOANNOUNCE)
 		    && !IS_SET(victim->comm, COMM_QUIET)) {
 			new_color(victim, CSLOT_CHAN_ANNOUNCE);
-			ptc(victim, "[FYI] %s{x\n\r", argument);
+			ptc(victim, "[FYI] %s{x\n", argument);
 			set_color(victim, WHITE, NOBOLD);
 		}
 	}
@@ -897,7 +897,7 @@ void do_fyi(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	new_color(ch, CSLOT_CHAN_ANNOUNCE);
-	ptc(ch, "You FYI '%s{x'\n\r", argument);
+	ptc(ch, "You FYI '%s{x'\n", argument);
 	set_color(ch, WHITE, NOBOLD);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
@@ -933,7 +933,7 @@ void do_fyi(CHAR_DATA *ch, char *argument)
 void do_replay(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch)) {
-		stc("{YMobiles can't work answering machines.{x\n\r", ch);
+		stc("{YMobiles can't work answering machines.{x\n", ch);
 		return;
 	}
 
@@ -954,13 +954,13 @@ void do_globalsocial(CHAR_DATA *ch, char *argument)
 	if (argument[0] == '\0') {
 		if (IS_SET(ch->comm, COMM_NOSOCIAL)) {
 			new_color(ch, CSLOT_CHAN_SOCIAL);
-			stc("Social channel is now ON.\n\r", ch);
+			stc("Social channel is now ON.\n", ch);
 			REMOVE_BIT(ch->comm, COMM_NOSOCIAL);
 			set_color(ch, WHITE, NOBOLD);
 		}
 		else {
 			new_color(ch, CSLOT_CHAN_SOCIAL);
-			stc("Social channel is now OFF.\n\r", ch);
+			stc("Social channel is now OFF.\n", ch);
 			SET_BIT(ch->comm, COMM_NOSOCIAL);
 			set_color(ch, WHITE, NOBOLD);
 		}
@@ -971,23 +971,23 @@ void do_globalsocial(CHAR_DATA *ch, char *argument)
 	/* social sent, turn Social on if it isn't already */
 	if (IS_SET(ch->comm, COMM_QUIET)) {
 		new_color(ch, CSLOT_CHAN_SOCIAL);
-		stc("You must turn off quiet mode first.\n\r", ch);
+		stc("You must turn off quiet mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if (IS_SET(ch->revoke, REVOKE_NOCHANNELS)) {
-		stc("The gods have revoked your channel priviliges.\n\r", ch);
+		stc("The gods have revoked your channel priviliges.\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->revoke, REVOKE_FLAMEONLY)) {
-		stc("The gods have restricted you to the flame channel.\n\r", ch);
+		stc("The gods have restricted you to the flame channel.\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->revoke, REVOKE_SOCIAL)) {
-		stc("The gods have revoked your ability to use this channel.\n\r", ch);
+		stc("The gods have revoked your ability to use this channel.\n", ch);
 		return;
 	}
 
@@ -1011,15 +1011,15 @@ void do_globalsocial(CHAR_DATA *ch, char *argument)
 	{
 	    pose = select_pose( ch );
 	    if ( pose < 0 ) return;
-	    sprintf( buf, "[P] %s\n\r",
+	    sprintf( buf, "[P] %s\n",
 	        new_pose_table[ch->class].poses[pose].self_msg );
 	}
 	else
 	*****/
 	if (!str_prefix1(arg, "emote") && (arg2[0] != '\0'))
-		sprintf(buf, "[E] %s %s\n\r", ch->name, arg2);
+		sprintf(buf, "[E] %s %s\n", ch->name, arg2);
 	else
-		sprintf(buf, "You socialize '%s{x'\n\r", argument);
+		sprintf(buf, "You socialize '%s{x'\n", argument);
 
 	/* send social to player himself */
 	new_color(ch, CSLOT_CHAN_SOCIAL);
@@ -1029,7 +1029,7 @@ void do_globalsocial(CHAR_DATA *ch, char *argument)
 
 	/* no channel poses */
 	/*    if ( pose != -1 )
-	        sprintf( buf, "[P] %s\n\r",
+	        sprintf( buf, "[P] %s\n",
 	            new_pose_table[ch->class].poses[pose].room_msg );
 	*/
 
@@ -1070,13 +1070,13 @@ void do_iclantalk(CHAR_DATA *ch, char *argument)
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		new_color(ch, CSLOT_CHAN_CLAN);
-		stc("Syntax: iclan <clan name> <message>\n\r", ch);
+		stc("Syntax: iclan <clan name> <message>\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if ((clan = clan_lookup(arg)) == NULL) {
-		stc("No such clan exists, type clanlist for a list of valid clans.\n\r", ch);
+		stc("No such clan exists, type clanlist for a list of valid clans.\n", ch);
 		return;
 	}
 
@@ -1096,17 +1096,17 @@ void do_say(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (argument[0] == '\0') {
-		stc("Say what?\n\r", ch);
+		stc("Say what?\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->revoke, REVOKE_SAY)) {
-		stc("You are unable to talk!\n\r", ch);
+		stc("You are unable to talk!\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)) {
-		stc("A heavy mist dampens all sound in the room.\n\r", ch);
+		stc("A heavy mist dampens all sound in the room.\n", ch);
 		return;
 	}
 
@@ -1118,11 +1118,11 @@ void do_say(CHAR_DATA *ch, char *argument)
 
 			/* make say command handle yelling and questions */
 			if (argument[ strlen(argument) - 1] == '?')
-				ptc(vch, "%s asks '%s'\n\r", PERS(ch, vch, VIS_CHAR), argument);
+				ptc(vch, "%s asks '%s'\n", PERS(ch, vch, VIS_CHAR), argument);
 			else if (argument[ strlen(argument) - 1] == '!')
-				ptc(vch, "%s exclaims '%s'\n\r", PERS(ch, vch, VIS_CHAR), argument);
+				ptc(vch, "%s exclaims '%s'\n", PERS(ch, vch, VIS_CHAR), argument);
 			else
-				ptc(vch, "%s says '%s'\n\r", PERS(ch, vch, VIS_CHAR), argument);
+				ptc(vch, "%s says '%s'\n", PERS(ch, vch, VIS_CHAR), argument);
 
 			set_color(vch, WHITE, NOBOLD);
 		}
@@ -1131,21 +1131,21 @@ void do_say(CHAR_DATA *ch, char *argument)
 	/* viewing room stuff */
 	/* make say command handle yelling and questions */
 	if (argument[ strlen(argument) - 1] == '?')
-		act("$n asks '$T'\n\r", ch, NULL, argument, TO_VIEW);
+		act("$n asks '$T'\n", ch, NULL, argument, TO_VIEW);
 	else if (argument[ strlen(argument) - 1] == '!')
-		act("$n exclaims '$T'\n\r", ch, NULL, argument, TO_VIEW);
+		act("$n exclaims '$T'\n", ch, NULL, argument, TO_VIEW);
 	else
-		act("$n says '$T'\n\r", ch, NULL, argument, TO_VIEW);
+		act("$n says '$T'\n", ch, NULL, argument, TO_VIEW);
 
 	new_color(ch, CSLOT_CHAN_SAY);
 
 	/* one more time...make say command handle questions and yelling */
 	if (argument[ strlen(argument) - 1] == '?')
-		ptc(ch, "You ask '%s'\n\r", argument);
+		ptc(ch, "You ask '%s'\n", argument);
 	else if (argument[ strlen(argument) - 1] == '!')
-		ptc(ch, "You exclaim '%s'\n\r", argument);
+		ptc(ch, "You exclaim '%s'\n", argument);
 	else
-		ptc(ch, "You say '%s'\n\r", argument);
+		ptc(ch, "You say '%s'\n", argument);
 
 	set_color(ch, WHITE, NOBOLD);
 	mprog_speech_trigger(argument, ch);
@@ -1160,21 +1160,21 @@ void do_tell(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(ch->revoke, REVOKE_TELL)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		stc("The Imms have rescinded your ability to TELL.\n\r", ch);
+		stc("The Imms have rescinded your ability to TELL.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if (IS_SET(ch->comm, COMM_QUIET)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		stc("You must turn off quiet mode first.\n\r", ch);
+		stc("You must turn off quiet mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if (IS_SET(ch->comm, COMM_DEAF)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		stc("You must turn off deaf mode first.\n\r", ch);
+		stc("You must turn off deaf mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1183,7 +1183,7 @@ void do_tell(CHAR_DATA *ch, char *argument)
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		new_color(ch, CSLOT_CHAN_TELL);
-		stc("Tell whom what?\n\r", ch);
+		stc("Tell whom what?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1192,7 +1192,7 @@ void do_tell(CHAR_DATA *ch, char *argument)
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL)
 		if ((victim = get_mob_here(ch, arg, VIS_CHAR)) == NULL) {
 			new_color(ch, CSLOT_CHAN_TELL);
-			stc("They aren't here.\n\r", ch);
+			stc("They aren't here.\n", ch);
 			set_color(ch, WHITE, NOBOLD);
 			return;
 		}
@@ -1206,7 +1206,7 @@ void do_tell(CHAR_DATA *ch, char *argument)
 
 	if (is_ignoring(victim, ch)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		ptc(ch, "%s is ignoring you.\n\r", victim->name);
+		ptc(ch, "%s is ignoring you.\n", victim->name);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1218,7 +1218,7 @@ void do_tell(CHAR_DATA *ch, char *argument)
 		act_new("$E has lost $S link, but your message will go through when $E returns.",
 		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		set_color(ch, WHITE, NOBOLD);
-		sprintf(buf, "[%s] %s tells you '%s{x'\n\r", strtime, PERS(ch, victim, VIS_PLR), argument);
+		sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 		add_buf(victim->pcdata->buffer, buf);
 		return;
@@ -1240,7 +1240,7 @@ void do_tell(CHAR_DATA *ch, char *argument)
 		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		stc(victim->pcdata->afk, ch);
 		set_color(ch, WHITE, NOBOLD);
-		sprintf(buf, "[%s] %s tells you '%s{x'\n\r", strtime, PERS(ch, victim, VIS_PLR), argument);
+		sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 		add_buf(victim->pcdata->buffer, buf);
 		return;
@@ -1266,21 +1266,21 @@ void do_reply(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] == '\0') {
 		new_color(ch, CSLOT_CHAN_TELL);
-		stc("Reply with what?\n\r", ch);
+		stc("Reply with what?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if (IS_SET(ch->revoke, REVOKE_TELL)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		stc("Your message didn't get through.\n\r", ch);
+		stc("Your message didn't get through.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if (ch->reply[0] == '\0') {
 		new_color(ch, CSLOT_CHAN_TELL);
-		stc("But no one has sent you a tell yet!\n\r", ch);
+		stc("But no one has sent you a tell yet!\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		ch->replylock = FALSE;
 		return;
@@ -1294,7 +1294,7 @@ void do_reply(CHAR_DATA *ch, char *argument)
 
 	if (!found) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		ch->replylock = FALSE;
 		return;
@@ -1305,9 +1305,9 @@ void do_reply(CHAR_DATA *ch, char *argument)
 		ch->replylock = !ch->replylock;
 
 		if (!ch->replylock)
-			ptc(ch, "You unlock your replies from %s.\n\r", PERS(victim, ch, VIS_PLR));
+			ptc(ch, "You unlock your replies from %s.\n", PERS(victim, ch, VIS_PLR));
 		else
-			ptc(ch, "You lock your replies to %s.\n\r", PERS(victim, ch, VIS_PLR));
+			ptc(ch, "You lock your replies to %s.\n", PERS(victim, ch, VIS_PLR));
 
 		return;
 	}
@@ -1324,7 +1324,7 @@ void do_reply(CHAR_DATA *ch, char *argument)
 
 	if (is_ignoring(victim, ch)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		ptc(ch, "%s is ignoring you.\n\r", victim->name);
+		ptc(ch, "%s is ignoring you.\n", victim->name);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1335,7 +1335,7 @@ void do_reply(CHAR_DATA *ch, char *argument)
 		new_color(ch, CSLOT_CHAN_TELL);
 		act("$N seems to have misplaced $S link...try again later.", ch, NULL, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
-		sprintf(buf, "[%s] %s tells you '%s{x'\n\r", strtime, PERS(ch, victim, VIS_PLR), argument);
+		sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 		add_buf(victim->pcdata->buffer, buf);
 		return;
@@ -1357,7 +1357,7 @@ void do_reply(CHAR_DATA *ch, char *argument)
 		        ch, NULL, victim, TO_CHAR, POS_DEAD, FALSE);
 		act(victim->pcdata->afk, ch, NULL, NULL, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
-		sprintf(buf, "[%s] %s tells you '%s{x'\n\r", strtime, PERS(ch, victim, VIS_PLR), argument);
+		sprintf(buf, "[%s] %s tells you '%s{x'\n", strtime, PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 		add_buf(victim->pcdata->buffer, buf);
 		return;
@@ -1381,12 +1381,12 @@ void do_yell(CHAR_DATA *ch, char *argument)
 	DESCRIPTOR_DATA *d;
 
 	if (argument[0] == '\0') {
-		stc("You yell your head off but no one hears.\n\r", ch);
+		stc("You yell your head off but no one hears.\n", ch);
 		return;
 	}
 
 	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_NOCHANNELS)) {
-		stc("The gods have revoked your channel priviliges.\n\r", ch);
+		stc("The gods have revoked your channel priviliges.\n", ch);
 		return;
 	}
 
@@ -1417,12 +1417,12 @@ void do_yell(CHAR_DATA *ch, char *argument)
 void do_emote(CHAR_DATA *ch, char *argument)
 {
 	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
-		stc("You're not feeling very emotional right now.\n\r", ch);
+		stc("You're not feeling very emotional right now.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		stc("Emote what?\n\r", ch);
+		stc("Emote what?\n", ch);
 		return;
 	}
 
@@ -1441,12 +1441,12 @@ void do_pmote(CHAR_DATA *ch, char *argument)
 	int matches = 0;
 
 	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
-		stc("You're not feeling very emotional right now.\n\r", ch);
+		stc("You're not feeling very emotional right now.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		stc("Emote what?\n\r", ch);
+		stc("Emote what?\n", ch);
 		return;
 	}
 
@@ -1516,22 +1516,22 @@ void do_smote(CHAR_DATA *ch, char *argument)
 	int matches = 0;
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOCHANNELS)) {
-		stc("You cannot show your emotions.\n\r", ch);
+		stc("You cannot show your emotions.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		stc("S-Emote what?\n\r", ch);
+		stc("S-Emote what?\n", ch);
 		return;
 	}
 
 	if (strstr(argument, ch->name) == NULL) {
-		stc("You must include your name in an s-emote.\n\r", ch);
+		stc("You must include your name in an s-emote.\n", ch);
 		return;
 	}
 
 	stc(argument, ch);
-	stc("\n\r", ch);
+	stc("\n", ch);
 
 	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (vch->desc == NULL || vch == ch)
@@ -1539,7 +1539,7 @@ void do_smote(CHAR_DATA *ch, char *argument)
 
 		if ((letter = strstr(argument, vch->name)) == NULL) {
 			stc(argument, vch);
-			stc("\n\r", vch);
+			stc("\n", vch);
 			continue;
 		}
 
@@ -1585,7 +1585,7 @@ void do_smote(CHAR_DATA *ch, char *argument)
 		}
 
 		stc(temp, vch);
-		stc("\n\r", vch);
+		stc("\n", vch);
 	}
 
 	return;
@@ -1599,21 +1599,21 @@ void do_page(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(ch->revoke, REVOKE_PAGE)) {
 		new_color(ch, CSLOT_CHAN_PAGE);
-		stc("The Imms have rescinded your ability to PAGE.\n\r", ch);
+		stc("The Imms have rescinded your ability to PAGE.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if (IS_SET(ch->comm, COMM_QUIET)) {
 		new_color(ch, CSLOT_CHAN_PAGE);
-		stc("You must turn off quiet mode first.\n\r", ch);
+		stc("You must turn off quiet mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if (IS_SET(ch->comm, COMM_DEAF)) {
 		new_color(ch, CSLOT_CHAN_PAGE);
-		stc("You must turn off deaf mode first.\n\r", ch);
+		stc("You must turn off deaf mode first.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1624,11 +1624,11 @@ void do_page(CHAR_DATA *ch, char *argument)
 		new_color(ch, CSLOT_CHAN_PAGE);
 
 		if (IS_SET(ch->comm, COMM_NOPAGE)) {
-			stc("You turn on your pager.\n\r", ch);
+			stc("You turn on your pager.\n", ch);
 			REMOVE_BIT(ch->comm, COMM_NOPAGE);
 		}
 		else {
-			stc("You turn off your pager.\n\r", ch);
+			stc("You turn off your pager.\n", ch);
 			SET_BIT(ch->comm, COMM_NOPAGE);
 		}
 
@@ -1638,7 +1638,7 @@ void do_page(CHAR_DATA *ch, char *argument)
 
 	if ((victim = get_player_world(ch, arg, VIS_PLR)) == NULL) {
 		new_color(ch, CSLOT_CHAN_PAGE);
-		ptc(ch, "You failed to locate [%s] in these realms.\n\r", arg);
+		ptc(ch, "You failed to locate [%s] in these realms.\n", arg);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1653,7 +1653,7 @@ void do_page(CHAR_DATA *ch, char *argument)
 
 	if (is_ignoring(victim, ch)) {
 		new_color(ch, CSLOT_CHAN_PAGE);
-		ptc(ch, "%s is ignoring you.\n\r", victim->name);
+		ptc(ch, "%s is ignoring you.\n", victim->name);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1665,7 +1665,7 @@ void do_page(CHAR_DATA *ch, char *argument)
 		act("$N seems to have misplaced $S link...try again later.",
 		    ch, NULL, victim, TO_CHAR);
 		set_color(ch, WHITE, NOBOLD);
-		sprintf(buf, "{R[%s] %s PAGES '%s{x'{x\a\n\r",
+		sprintf(buf, "{R[%s] %s PAGES '%s{x'{x\a\n",
 		        strtime , PERS(ch, victim, VIS_PLR), argument);
 		buf[0] = UPPER(buf[0]);
 
@@ -1676,7 +1676,7 @@ void do_page(CHAR_DATA *ch, char *argument)
 
 	new_color(ch, CSLOT_CHAN_PAGE);
 	act_new("You PAGE $N '$t{x'", ch, argument, victim, TO_CHAR, POS_SLEEPING, FALSE);
-	stc("Thank you for using Comcast Telecommunications, Inc.\n\r", ch);
+	stc("Thank you for using Comcast Telecommunications, Inc.\n", ch);
 	set_color(ch, WHITE, NOBOLD);
 	new_color(victim, CSLOT_CHAN_PAGE);
 	act_new("$n PAGES '$t{x'\a", ch, argument, victim, TO_VICT, POS_SLEEPING, FALSE);
@@ -1690,7 +1690,7 @@ void do_whisper(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 
 	if (IS_NPC(ch)) {
-		stc("You lack the refined delicacy of voice to whisper.\n\r", ch);
+		stc("You lack the refined delicacy of voice to whisper.\n", ch);
 		return;
 	}
 
@@ -1700,18 +1700,18 @@ void do_whisper(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((victim = get_player_world(ch, ch->pcdata->whisper, VIS_PLR)) == NULL) {
-		ptc(ch, "{G%s isn't here. :({x\n\r", ch->pcdata->whisper);
+		ptc(ch, "{G%s isn't here. :({x\n", ch->pcdata->whisper);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		ptc(victim, "{G%s whispers sweet nothings into your ear.{x\n\r", ch->name);
-		ptc(ch, "{GYou whisper sweet nothings into %s's ear.{x\n\r", victim->name);
+		ptc(victim, "{G%s whispers sweet nothings into your ear.{x\n", ch->name);
+		ptc(ch, "{GYou whisper sweet nothings into %s's ear.{x\n", victim->name);
 		return;
 	}
 
-	ptc(victim, "{G%s whispers in your ear, '%s{G'{x\n\r", ch->name, argument);
-	ptc(ch, "{GYou whisper in %s's ear, '%s{G'{x\n\r", victim->name, argument);
+	ptc(victim, "{G%s whispers in your ear, '%s{G'{x\n", ch->name, argument);
+	ptc(ch, "{GYou whisper in %s's ear, '%s{G'{x\n", victim->name, argument);
 }
 
 void do_qtell(CHAR_DATA *ch, char *argument)
@@ -1719,21 +1719,21 @@ void do_qtell(CHAR_DATA *ch, char *argument)
 	char buf[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch)) {
-		stc("You do not have a query list.\n\r", ch);
+		stc("You do not have a query list.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
 		if (IS_SET(ch->comm, COMM_NOQUERY)) {
 			new_color(ch, CSLOT_CHAN_QTELL);
-			stc("Query channel is now on.\n\r", ch);
+			stc("Query channel is now on.\n", ch);
 			REMOVE_BIT(ch->comm, COMM_NOQUERY);
 			set_color(ch, WHITE, NOBOLD);
 			return;
 		}
 		else {
 			new_color(ch, CSLOT_CHAN_QTELL);
-			stc("Query channel is now off.\n\r", ch);
+			stc("Query channel is now off.\n", ch);
 			SET_BIT(ch->comm, COMM_NOQUERY);
 			set_color(ch, WHITE, NOBOLD);
 			return;
@@ -1741,26 +1741,26 @@ void do_qtell(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!ch->pcdata->query) {
-		stc("You have no one on your query list.\n\r", ch);
+		stc("You have no one on your query list.\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->revoke, REVOKE_QTELL)) {
-		stc("Your message didn't get through!\n\r", ch);
+		stc("Your message didn't get through!\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->comm, COMM_NOQUERY)) {
 		new_color(ch, CSLOT_CHAN_QTELL);
-		stc("Query channel is now on.\n\r", ch);
+		stc("Query channel is now on.\n", ch);
 		REMOVE_BIT(ch->comm, COMM_NOQUERY);
 		set_color(ch, WHITE, NOBOLD);
 	}
 
 	new_color(ch, CSLOT_CHAN_QTELL);
-	ptc(ch, "You tell the query '%s{x'\n\r", argument);
+	ptc(ch, "You tell the query '%s{x'\n", argument);
 	set_color(ch, WHITE, NOBOLD);
-	sprintf(buf, "%s tells the query '%s{x'\n\r", ch->name, argument);
+	sprintf(buf, "%s tells the query '%s{x'\n", ch->name, argument);
 	send_to_query(ch, buf);
 	return;
 }
@@ -1772,7 +1772,7 @@ void do_gtell(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] == '\0') {
 		new_color(ch, CSLOT_CHAN_GTELL);
-		stc("Tell your group what?\n\r", ch);
+		stc("Tell your group what?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -1780,7 +1780,7 @@ void do_gtell(CHAR_DATA *ch, char *argument)
 	/*
 	 * Note use of stc, so gtell works on sleepers.
 	 */
-	sprintf(buf, "%s tells the group '%s{x'\n\r", ch->name, argument);
+	sprintf(buf, "%s tells the group '%s{x'\n", ch->name, argument);
 
 	/* would be more efficient to find leader and step thru all his group members
 	-- Elrac */
@@ -1807,22 +1807,22 @@ void do_xsocial(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (IS_NPC(ch)) {
-		stc("Mobiles lack the stamina to xsocial.\n\r", ch);
+		stc("Mobiles lack the stamina to xsocial.\n", ch);
 		return;
 	}
 
 	if (GET_SEX(ch) == SEX_NEUTRAL) {
-		stc("Only men and women can xsocial.\n\r", ch);
+		stc("Only men and women can xsocial.\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->censor, CENSOR_XSOC)) {
-		stc("You must turn off censor xsocials first.\n\r", ch);
+		stc("You must turn off censor xsocials first.\n", ch);
 		return;
 	}
 
 	if (arg1[0] == '\0') {
-		stc("Xsocial what?\n\r", ch);
+		stc("Xsocial what?\n", ch);
 		return;
 	}
 
@@ -1841,32 +1841,32 @@ void do_xsocial(CHAR_DATA *ch, char *argument)
 	if (!found) {
 		if (foundwrong) {
 			if (GET_SEX(ch) == SEX_MALE)
-				stc("Only women can perform that xsocial.\n\r", ch);
+				stc("Only women can perform that xsocial.\n", ch);
 			else
-				stc("Only men can perform that xsocial.\n\r", ch);
+				stc("Only men can perform that xsocial.\n", ch);
 		}
 		else
-			stc("That is not a valid xsocial.\n\r", ch);
+			stc("That is not a valid xsocial.\n", ch);
 
 		return;
 	}
 
 	switch (get_position(ch)) {
 	case POS_DEAD:
-		stc("This is NOT the night of the living DEAD.\n\r", ch);
+		stc("This is NOT the night of the living DEAD.\n", ch);
 		return;
 
 	case POS_INCAP:
 	case POS_MORTAL:
-		stc("You are hurt far too bad for that.\n\r", ch);
+		stc("You are hurt far too bad for that.\n", ch);
 		return;
 
 	case POS_STUNNED:
-		stc("You are too stunned to do that.\n\r", ch);
+		stc("You are too stunned to do that.\n", ch);
 		return;
 
 	case POS_SLEEPING:
-		stc("Stop fidgeting and get some sleep!\n\r", ch);
+		stc("Stop fidgeting and get some sleep!\n", ch);
 		return;
 	}
 
@@ -1878,22 +1878,22 @@ void do_xsocial(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((victim = get_char_here(ch, arg2, FALSE)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
 	if (IS_NPC(victim)) {
-		stc("Mobiles lack the stamina to xsocial.\n\r", ch);
+		stc("Mobiles lack the stamina to xsocial.\n", ch);
 		return;
 	}
 
 	if (GET_SEX(victim) == SEX_NEUTRAL) {
-		stc("Only men and women can xsocial.\n\r", ch);
+		stc("Only men and women can xsocial.\n", ch);
 		return;
 	}
 
 	if (iterator->vsex != 0 && iterator->vsex != GET_SEX(victim)) {
-		ptc(ch, "This xsocial can only be performed on a %s.\n\r",
+		ptc(ch, "This xsocial can only be performed on a %s.\n",
 		    iterator->vsex == SEX_FEMALE ? "woman" : "man");
 		return;
 	}
@@ -1907,12 +1907,12 @@ void do_xsocial(CHAR_DATA *ch, char *argument)
 
 	/* victim found, ofound, cfound, vfound */
 	if (victim->pcdata->partner == NULL || str_cmp(victim->pcdata->partner, ch->name)) {
-		stc("They have not given you permission.\n\r", ch);
+		stc("They have not given you permission.\n", ch);
 		return;
 	}
 
 	if (IS_SET(victim->censor, CENSOR_XSOC)) {
-		stc("Legacy is not set to {PX{x for them.\n\r", ch);
+		stc("Legacy is not set to {PX{x for them.\n", ch);
 		return;
 	}
 
@@ -1944,29 +1944,29 @@ void do_query(CHAR_DATA *ch, char *argument)
 
 	if (str_cmp(arg, "+") && str_cmp(arg, "-")
 	    && str_prefix1(arg, "list") && str_prefix1(arg, "clear")) {
-		stc("Syntax:\n\r", ch);
-		stc("{RQuery list{x       : Lists names in your query.\n\r", ch);
-		stc("{RQuery +{x <{YName{x>   : Adds a name to your query.\n\r", ch);
-		stc("{RQuery -{x <{YName{x>   : Removes a name from query.\n\r", ch);
-		stc("{RQuery clear{x      : Clears your query (removes all names).\n\r", ch);
+		stc("Syntax:\n", ch);
+		stc("{RQuery list{x       : Lists names in your query.\n", ch);
+		stc("{RQuery +{x <{YName{x>   : Adds a name to your query.\n", ch);
+		stc("{RQuery -{x <{YName{x>   : Removes a name from query.\n", ch);
+		stc("{RQuery clear{x      : Clears your query (removes all names).\n", ch);
 		stc(" ", ch);
-		stc("{RQtell{x            : Turns your query channel on or off.\n\r", ch);
+		stc("{RQtell{x            : Turns your query channel on or off.\n", ch);
 		return;
 	}
 
 	if (!str_prefix1(arg, "list")) {
 		if (rch->pcdata->query[0] == NULL) {
-			stc("You have no one in your query.\n\r", ch);
+			stc("You have no one in your query.\n", ch);
 			return;
 		}
 
-		stc("People in your query:\n\r", ch);
+		stc("People in your query:\n", ch);
 
 		for (pos = 0; pos < MAX_QUERY; pos++) {
 			if (rch->pcdata->query[pos] == NULL)
 				break;
 
-			ptc(ch, "[%d] %s\n\r", pos, rch->pcdata->query[pos]);
+			ptc(ch, "[%d] %s\n", pos, rch->pcdata->query[pos]);
 		}
 
 		return;
@@ -1980,13 +1980,13 @@ void do_query(CHAR_DATA *ch, char *argument)
 			rch->pcdata->query[pos] = NULL;
 		}
 
-		stc("Query cleared.\n\r", ch);
+		stc("Query cleared.\n", ch);
 		return;
 	}
 
 	if (!str_prefix1(arg, "+")) {
 		if (arg2[0] == '\0') {
-			stc("Add who to the query list?\n\r", ch);
+			stc("Add who to the query list?\n", ch);
 			return;
 		}
 
@@ -1995,26 +1995,26 @@ void do_query(CHAR_DATA *ch, char *argument)
 				break;
 
 			if (!str_prefix1(arg2, rch->pcdata->query[pos])) {
-				stc("That name is already in the query.\n\r", ch);
+				stc("That name is already in the query.\n", ch);
 				return;
 			}
 		}
 
 		if (pos >= MAX_QUERY) {
-			stc("Too many users in query, remove a name.\n\r", ch);
+			stc("Too many users in query, remove a name.\n", ch);
 			return;
 		}
 
 		free_string(rch->pcdata->query[pos]);
 		rch->pcdata->query[pos]            = str_dup(arg2);
-		ptc(ch, "%s has been added to the query list.\n\r",
+		ptc(ch, "%s has been added to the query list.\n",
 		    rch->pcdata->query[pos]);
 		return;
 	}
 
 	if (!str_prefix1(arg, "-")) {
 		if (arg2 == '\0') {
-			stc("Remove who from the query list?\n\r", ch);
+			stc("Remove who from the query list?\n", ch);
 			return;
 		}
 
@@ -2029,7 +2029,7 @@ void do_query(CHAR_DATA *ch, char *argument)
 			}
 
 			if (!strcmp(arg2, rch->pcdata->query[pos])) {
-				stc("Name removed from the query.\n\r", ch);
+				stc("Name removed from the query.\n", ch);
 				free_string(rch->pcdata->query[pos]);
 				rch->pcdata->query[pos] = NULL;
 				found = TRUE;
@@ -2037,6 +2037,6 @@ void do_query(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!found)
-			stc("That name was not found in the query list.\n\r", ch);
+			stc("That name was not found in the query list.\n", ch);
 	}
 }

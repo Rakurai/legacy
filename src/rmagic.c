@@ -16,7 +16,7 @@ void spell_sheen(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	AFFECT_DATA af;
 
 	if (get_affect(victim->affected, sn)) {
-		stc("Your armor is already coated with magical steel.\n\r", ch);
+		stc("Your armor is already coated with magical steel.\n", ch);
 		return;
 	}
 
@@ -29,7 +29,7 @@ void spell_sheen(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.location  = APPLY_SHEEN;
 	af.evolution = evolution;
 	affect_to_char(victim, &af);
-	stc("A protective sheen covers your armor.\n\r", victim);
+	stc("A protective sheen covers your armor.\n", victim);
 }
 
 void spell_focus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
@@ -38,7 +38,7 @@ void spell_focus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	AFFECT_DATA af;
 
 	if (get_affect(victim->affected, sn)) {
-		stc("Your spells are already focused.\n\r", ch);
+		stc("Your spells are already focused.\n", ch);
 		return;
 	}
 
@@ -51,7 +51,7 @@ void spell_focus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.bitvector = 0;
 	af.evolution = evolution;
 	affect_to_char(victim, &af);
-	stc("You focus on your magic -- you feel more deadly!\n\r", victim);
+	stc("You focus on your magic -- you feel more deadly!\n", victim);
 }
 
 void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
@@ -60,7 +60,7 @@ void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	AFFECT_DATA af;
 
 	if (ch == victim) {
-		stc("That wouldn't be very smart now, would it?\n\r", ch);
+		stc("That wouldn't be very smart now, would it?\n", ch);
 		return;
 	}
 
@@ -83,7 +83,7 @@ void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	af.bitvector = 0;
 	af.evolution = evolution;
 	affect_to_char(victim, &af);
-	stc("You can't move anymore!\n\r", victim);
+	stc("You can't move anymore!\n", victim);
 	act("$n seems paralyzed!", victim, NULL, NULL, TO_ROOM);
 }
 
@@ -93,7 +93,7 @@ void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	AFFECT_DATA af;
 
 	if (get_affect(victim->affected, sn)) {
-		stc("Your skin is already hard as iron.\n\r", ch);
+		stc("Your skin is already hard as iron.\n", ch);
 		return;
 	}
 
@@ -106,7 +106,7 @@ void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	af.bitvector = 0;
 	af.evolution = evolution;
 	affect_to_char(victim, &af);
-	stc("Your skin takes on the consistency of iron.\n\r", victim);
+	stc("Your skin takes on the consistency of iron.\n", victim);
 }
 
 
@@ -118,7 +118,7 @@ void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int e
 	AFFECT_DATA af;
 
 	if (get_affect(victim->affected, sn)) {
-		stc("You are already surrounded by a barrier.\n\r", ch);
+		stc("You are already surrounded by a barrier.\n", ch);
 		return;
 	}
 
@@ -131,7 +131,7 @@ void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int e
 	af.bitvector = 0;
 	af.evolution = evolution;
 	affect_to_char(victim, &af);
-	stc("You are surrounded by a protective barrier.\n\r", victim);
+	stc("You are surrounded by a protective barrier.\n", victim);
 }
 
 /* Dazzle by Montrey */
@@ -145,12 +145,12 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 		victim = ch->fighting;
 
 	if (IS_AFFECTED(victim, AFF_BLIND)) {
-		stc("They can't see, what good would it do?\n\r", ch);
+		stc("They can't see, what good would it do?\n", ch);
 		return;
 	}
 
 	if (ch == victim) {
-		stc("And just who are you trying to dazzle?\n\r", ch);
+		stc("And just who are you trying to dazzle?\n", ch);
 		return;
 	}
 
@@ -223,14 +223,14 @@ void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 		mana_cost -= mana_cost / 5;
 
 	if (ch->mana < mana_cost) {
-		stc("You don't have enough mana.\n\r", ch);
+		stc("You don't have enough mana.\n", ch);
 		ch->mana += mana;
 		return;
 	}
 
 	if (victim->fighting) {
 		if (victim == ch)
-			stc("The fury of battle prevents a full healing.\n\r", ch);
+			stc("The fury of battle prevents a full healing.\n", ch);
 		else
 			act("$N cannot be fully healed while in combat.", ch, NULL, victim, TO_CHAR);
 
@@ -239,14 +239,14 @@ void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 
 	if (!IS_NPC(ch))
 		if (ch->pcdata->pktimer > 0) {
-			stc("You can't cast this so soon after combat.\n\r", ch);
+			stc("You can't cast this so soon after combat.\n", ch);
 			return;
 		}
 
 	victim->hit = victim->max_hit;
 	ch->mana -= mana_cost;
 	act("$n looks revived as $s wounds vanish completely.", victim, NULL, NULL, TO_ROOM);
-	stc("Your wounds vanish completely.\n\r", victim);
+	stc("Your wounds vanish completely.\n", victim);
 }
 
 
@@ -258,11 +258,11 @@ void spell_midnight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	AFFECT_DATA af;
 
 	if (get_affect(victim->affected, sn) && (victim == ch)) {
-		stc("You fail to invade the shadows further.\n\r", ch);
+		stc("You fail to invade the shadows further.\n", ch);
 		return;
 	}
 
-	stc("You blend into the night.\n\r", victim);
+	stc("You blend into the night.\n", victim);
 	act("$n vanishes into the shadows.", victim, NULL, NULL, TO_ROOM);
 	af.where     = TO_AFFECTS;
 	af.type      = sn;
@@ -290,8 +290,8 @@ void spell_sap(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 		ch->hit += (dam / 10);
 
 	if (dam != 0) {
-		stc("You feel frail and weak.\n\r", victim);
-		stc("You are instantly revitalized!\n\r", ch);
+		stc("You feel frail and weak.\n", victim);
+		stc("You are instantly revitalized!\n", ch);
 	}
 
 	damage(ch, victim, dam, sn, DAM_NEGATIVE, TRUE, TRUE);
@@ -304,7 +304,7 @@ void spell_pain(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 	int dam;
 
 	if (ch == victim) {
-		stc("Despite your masochistic tendencies, you can't do that.\n\r", ch);
+		stc("Despite your masochistic tendencies, you can't do that.\n", ch);
 		return;
 	}
 
@@ -330,7 +330,7 @@ void spell_hex(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 	AFFECT_DATA af;
 
 	if (ch == victim) {
-		stc("Mortal fear of the dark gods prevents you from hexing yourself.\n\r", ch);
+		stc("Mortal fear of the dark gods prevents you from hexing yourself.\n", ch);
 		return;
 	}
 
@@ -366,7 +366,7 @@ void spell_bone_wall(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	af.bitvector    = 0;
 	af.evolution    = evolution;
 	affect_to_char(ch, &af);
-	stc("Bones lift from the ground and begin to swirl around you.\n\r", ch);
+	stc("Bones lift from the ground and begin to swirl around you.\n", ch);
 	act("Bones lift from the ground and begin to swirl around $n.", ch, NULL, NULL, TO_ROOM);
 }
 
@@ -378,12 +378,12 @@ void spell_force(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	AFFECT_DATA af;
 
 	if (get_affect(victim->affected, sn)) {
-		stc("You are already protected by the force.\n\r", ch);
+		stc("You are already protected by the force.\n", ch);
 		return;
 	}
 
 	act("$n is surrounded by a mystical aura.", victim, NULL, NULL, TO_ROOM);
-	stc("You are surrounded by a mystical aura.\n\r", victim);
+	stc("You are surrounded by a mystical aura.\n", victim);
 	af.where     = TO_AFFECTS;
 	af.type      = sn;
 	af.level     = level;
@@ -403,7 +403,7 @@ void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 
 	if (!IS_IMMORTAL(ch)) {
 		if (ch->alignment < 1000 && ch->alignment > -1000) {
-			stc("Impurity in your heart prevents summoning a godly blade.\n\r", ch);
+			stc("Impurity in your heart prevents summoning a godly blade.\n", ch);
 			return;
 		}
 	}
@@ -420,7 +420,7 @@ void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 
 	if (! sword) {
 		bug("Memory error while creating holy sword.", 0);
-		stc("Unable to create a holy sword.\n\r", ch);
+		stc("Unable to create a holy sword.\n", ch);
 		return;
 	}
 
@@ -459,7 +459,7 @@ void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	}
 
 	act("$n prays for a moment, and a holy sword materializes in $s hand.", ch, NULL, NULL, TO_ROOM);
-	stc("You summon a godly blade for your divine justice.\n\r", ch);
+	stc("You summon a godly blade for your divine justice.\n", ch);
 	obj_to_char(sword, ch);
 	wear_obj(ch, sword, TRUE);
 	ch->mana = 0;
@@ -474,7 +474,7 @@ void spell_quick(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 {
 	/* how simple could it be? */
 	act("$n blazes into a wild flurry of attacks!", ch, NULL, NULL, TO_ROOM);
-	stc("You blaze into a wild flurry of attacks!\n\r", ch);
+	stc("You blaze into a wild flurry of attacks!\n", ch);
 	global_quick = TRUE;
 	multi_hit(ch, ch->fighting, TYPE_UNDEFINED);
 	global_quick = FALSE;

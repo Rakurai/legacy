@@ -1416,7 +1416,7 @@ void do_areas(CHAR_DATA *ch, char *argument)
 				level = 0;
 			}
 			else if (level < 0 || level > 100) {
-				stc("Level must be between 1 and 100!\n\r", ch);
+				stc("Level must be between 1 and 100!\n", ch);
 				return;
 			}
 
@@ -1560,7 +1560,7 @@ void do_areas(CHAR_DATA *ch, char *argument)
 		}
 
 		sprintf(buf + strlen(buf),
-		        "<%s> %-s{a{x%*s%-s{a{x\n\r", range,
+		        "<%s> %-s{a{x%*s%-s{a{x\n", range,
 		        ap->title, 25 - color_strlen(ap->title), " ",
 		        ap->author);
 		add_buf(dbuf, buf);
@@ -1568,12 +1568,12 @@ void do_areas(CHAR_DATA *ch, char *argument)
 
 	if (showall) {
 		sprintf(buf,
-		        "%d areas listed. Type {Rhelp areas{x to see selection options.\n\r",
+		        "%d areas listed. Type {Rhelp areas{x to see selection options.\n",
 		        count);
 		add_buf(dbuf, buf);
 	}
 	else if (count <= 0) {
-		sprintf(buf, "No areas found matching your search criteria.\n\r");
+		sprintf(buf, "No areas found matching your search criteria.\n");
 		add_buf(dbuf, buf);
 	}
 

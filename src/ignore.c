@@ -78,23 +78,23 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (IS_IMMORTAL(rch)) {
-		stc("You have to listen to the players, goes with the job ;)\n\r", ch);
+		stc("You have to listen to the players, goes with the job ;)\n", ch);
 		return;
 	}
 
 	if (arg[0] == '\0') {
 		if (rch->pcdata->ignore[0] == NULL) {
-			stc("You are ignoring nobody.\n\r", ch);
+			stc("You are ignoring nobody.\n", ch);
 			return;
 		}
 
-		stc("People you are ignoring:\n\r", ch);
+		stc("People you are ignoring:\n", ch);
 
 		for (pos = 0; pos < MAX_IGNORE; pos++) {
 			if (rch->pcdata->ignore[pos] == NULL)
 				break;
 
-			ptc(ch, "[%d] %s\n\r", pos, rch->pcdata->ignore[pos]);
+			ptc(ch, "[%d] %s\n", pos, rch->pcdata->ignore[pos]);
 		}
 
 		return;
@@ -108,22 +108,22 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 	}
 
 	if (IS_NPC(victim)) {
-		stc("Ignore a mob?  I don't think so.\n\r", ch);
+		stc("Ignore a mob?  I don't think so.\n", ch);
 		return;
 	}
 
 	if (ch == victim) {
-		stc("I don't think you really want to ignore yourself.\n\r", ch);
+		stc("I don't think you really want to ignore yourself.\n", ch);
 		return;
 	}
 
 	if (!is_exact_name(victim->name, argument)) {
-		stc("You must spell out their entire name.\n\r", ch);
+		stc("You must spell out their entire name.\n", ch);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim)) {
-		stc("You're not going to ignore us that easily!\n\r", ch);
+		stc("You're not going to ignore us that easily!\n", ch);
 		return;
 	}
 
@@ -134,20 +134,20 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 		if (!str_cmp(arg, rch->pcdata->ignore[pos])) {
 			free_string(rch->pcdata->ignore[pos]);
 			rch->pcdata->ignore[pos] = NULL;
-			ptc(ch, "You stop ignoring %s.\n\r", victim->name);
-			ptc(victim, "%s stops ignoring you.\n\r", ch->name);
+			ptc(ch, "You stop ignoring %s.\n", victim->name);
+			ptc(victim, "%s stops ignoring you.\n", ch->name);
 			return;
 		}
 	}
 
 	if (pos >= MAX_IGNORE) {
-		stc("You can't ignore any more people.\n\r", ch);
+		stc("You can't ignore any more people.\n", ch);
 		return;
 	}
 
 	rch->pcdata->ignore[pos] = str_dup(arg);
-	ptc(ch, "You now ignore %s.\n\r", victim->name);
-	ptc(victim, "%s ignores you.\n\r", ch->name);
+	ptc(ch, "You now ignore %s.\n", victim->name);
+	ptc(victim, "%s ignores you.\n", ch->name);
 }
 
 
@@ -161,21 +161,21 @@ void ignore_offline(CHAR_DATA *ch, char *arg)
 	if ((result = db_queryf("ignore_offline", "SELECT name, cgroup FROM pc_index WHERE name='%s'", db_esc(arg))) != NULL) {
 		if ((row = mysql_fetch_row(result))) {
 			if (IS_SET(atol(row[1]), GROUP_GEN)) {
-				stc("You're not going to ignore us that easily!\n\r", ch);
+				stc("You're not going to ignore us that easily!\n", ch);
 				return;
 			}
 
 			strcpy(name, row[0]);
 		}
 		else {
-			stc("There is no one by that name to ignore.\n\r", ch);
+			stc("There is no one by that name to ignore.\n", ch);
 			return;
 		}
 
 		mysql_free_result(result);
 	}
 	else {
-		stc("Sorry, we couldn't retrieve that player's data.\nPlease report this with the 'bug' command.\n\r", ch);
+		stc("Sorry, we couldn't retrieve that player's data.\nPlease report this with the 'bug' command.\n", ch);
 		return;
 	}
 
@@ -186,17 +186,17 @@ void ignore_offline(CHAR_DATA *ch, char *arg)
 		if (!str_cmp(arg, ch->pcdata->ignore[pos])) {
 			free_string(ch->pcdata->ignore[pos]);
 			ch->pcdata->ignore[pos] = NULL;
-			ptc(ch, "You stop ignoring %s.\n\r", name);
+			ptc(ch, "You stop ignoring %s.\n", name);
 			return;
 		}
 	}
 
 	if (pos >= MAX_IGNORE) {
-		stc("You can't ignore any more people.\n\r", ch);
+		stc("You can't ignore any more people.\n", ch);
 		return;
 	}
 
 	ch->pcdata->ignore[pos] = str_dup(name);
-	ptc(ch, "You now ignore %s.\n\r", name);
+	ptc(ch, "You now ignore %s.\n", name);
 }
 

@@ -73,7 +73,7 @@ char *strstr(s1, s2) const char *s1; const char *s2;
 }
 #endif
 
-/* Used to get sequential lines of a multi line string (separated by "\n\r")
+/* Used to get sequential lines of a multi line string (separated by "\n")
  * Thus its like one_argument(), but a trifle different. It is destructive
  * to the multi line string argument, and thus clist must not be shared.
  */
@@ -114,7 +114,7 @@ bool mprog_seval(char *lhs, char *opr, char *rhs)
 	if (!str_cmp(opr, "!/"))
 		return (bool)(str_infix(rhs, lhs));
 
-	bug("Improper MOBprog operator\n\r", 0);
+	bug("Improper MOBprog operator\n", 0);
 	return 0;
 }
 
@@ -144,7 +144,7 @@ bool mprog_veval(int lhs, char *opr, int rhs)
 	if (!str_cmp(opr, "|"))
 		return (lhs | rhs);
 
-	bug("Improper MOBprog operator\n\r", 0);
+	bug("Improper MOBprog operator\n", 0);
 	return 0;
 }
 

@@ -192,7 +192,7 @@ static void listline(BUFFER *dbuf, int lineno, char *line)
 		}
 	}
 
-	strcpy(bp, "{x\r\n");
+	strcpy(bp, "{x\n");
 	add_buf(dbuf, buf);
 } /* end listline() */
 
@@ -230,12 +230,12 @@ static void list_window(CHAR_DATA *ch)
 	int fromline, toline;
 
 	if (ed == NULL) {
-		stc("{P~~~ You are not editing anything at the moment. ~~~{x\n\r", ch);
+		stc("{P~~~ You are not editing anything at the moment. ~~~{x\n", ch);
 		return;
 	}
 
 	if (ed->edit_nlines <= 0) {
-		stc("{P~~~ Edit buffer is empty ~~~{x\n\r", ch);
+		stc("{P~~~ Edit buffer is empty ~~~{x\n", ch);
 		return;
 	}
 
@@ -250,21 +250,21 @@ static void edit_status(CHAR_DATA *ch, char *argument)
 	char buf[MAX_STRING_LENGTH];
 
 	if (ch->edit == NULL) {
-		stc("{PYou aren't editing anything yet.{x\n\r", ch);
+		stc("{PYou aren't editing anything yet.{x\n", ch);
 
 		if (ch->pnote == NULL) {
 			stc(
-			        "You could use {RNOTE{x, {RIDEA{x or {RROLEPLAY{x to start writing a note\n\r"
-			        "and then type {REDIT NOTE{x to edit it.\n\r", ch);
+			        "You could use {RNOTE{x, {RIDEA{x or {RROLEPLAY{x to start writing a note\n"
+			        "and then type {REDIT NOTE{x to edit it.\n", ch);
 		}
 		else {
-			sprintf(buf, "You have started writing a(n) {Y%s{x.\n\r",
+			sprintf(buf, "You have started writing a(n) {Y%s{x.\n",
 			        board_index[ch->pnote->type].board_long);
 			stc(buf, ch);
-			stc("You could use {REDIT NOTE{x to edit it.\n\r", ch);
+			stc("You could use {REDIT NOTE{x to edit it.\n", ch);
 		}
 
-		stc("Or you could use {REDIT DESC{x to edit {Yyour description{x.\n\r", ch);
+		stc("Or you could use {REDIT DESC{x to edit {Yyour description{x.\n", ch);
 		return;
 	}
 
@@ -272,53 +272,53 @@ static void edit_status(CHAR_DATA *ch, char *argument)
 
 	switch (ed->edit_type) {
 	case EDIT_TYPE_NONE:
-		stc("{PStrange, you are editing NOTHING!{x\n\r", ch);
+		stc("{PStrange, you are editing NOTHING!{x\n", ch);
 		bug("editing nothing!", 0);
 		return;
 
 	case EDIT_TYPE_NOTE:
 		if (ch->pnote == NULL) {
 			stc(
-			        "{P You *were* editing a note of some sort.{x\n\r", ch);
+			        "{P You *were* editing a note of some sort.{x\n", ch);
 			stc(
-			        "{P Now your text is homeless. Please do {REDIT CANCEL{P.{x\n\r",
+			        "{P Now your text is homeless. Please do {REDIT CANCEL{P.{x\n",
 			        ch);
 			ed->edit_type = EDIT_TYPE_NONE;
 			return;
 		}
 
-		sprintf(buf, "You are currently editing a(n) {Y%s{x.\n\r",
+		sprintf(buf, "You are currently editing a(n) {Y%s{x.\n",
 		        board_index[ch->pnote->type].board_long);
 		stc(buf, ch);
 		break;
 
 	case EDIT_TYPE_DESC:
-		stc("You are currently editing {Yyour description{x.\n\r", ch);
+		stc("You are currently editing {Yyour description{x.\n", ch);
 		break;
 
 	case EDIT_TYPE_ROOM:
-		stc("You are currently editing a {Yroom description{x.\n\r", ch);
+		stc("You are currently editing a {Yroom description{x.\n", ch);
 		break;
 
 	case EDIT_TYPE_HELP:
-		ptc(ch, "You are currently editing the {Yhelp text{x for ID %d.\n\r", ed->edit_id);
+		ptc(ch, "You are currently editing the {Yhelp text{x for ID %d.\n", ed->edit_id);
 		break;
 
 	default:
-		stc("Strange, I don't know {PWHAT{x you're editing!\n\r", ch);
+		stc("Strange, I don't know {PWHAT{x you're editing!\n", ch);
 		bug("Unknown edit type", 0);
 		return;
 	}
 
-	sprintf(buf, "You are on line {C%d{x of {C%d{x.\n\r",
+	sprintf(buf, "You are on line {C%d{x of {C%d{x.\n",
 	        ed->edit_line, ed->edit_nlines);
 	stc(buf, ch);
 	stc(
 	        "{PCommands:{x {RED{xIT {RL{xIST / {RI{xNSERT / {RD{xELETE / "
-	        "{RC{xHANGE / {RW{xRAP / {RS{xPLIT\n\r"
-	        "{x         {x {RED{xIT {RDO{xNE / {RCANCEL{x / {RUNDO{x\n\r", ch);
+	        "{RC{xHANGE / {RW{xRAP / {RS{xPLIT\n"
+	        "{x         {x {RED{xIT {RDO{xNE / {RCANCEL{x / {RUNDO{x\n", ch);
 	stc(
-	        "See {RHELP EDIT{x for details.\n\r", ch);
+	        "See {RHELP EDIT{x for details.\n", ch);
 	list_window(ch);
 } /* end edit_status() */
 
@@ -328,7 +328,7 @@ static bool check_line(CHAR_DATA *ch, int line)
 	char buf[MAX_INPUT_LENGTH];
 
 	if (line < 0 || line > ed->edit_nlines) {
-		sprintf(buf, "{PThere is no line number %d{x.\n\r", line);
+		sprintf(buf, "{PThere is no line number %d{x.\n", line);
 		stc(buf, ch);
 		return FALSE;
 	}
@@ -347,11 +347,11 @@ static bool check_range(CHAR_DATA *ch, int *fromline, int *toline)
 
 		if (num2 > ed->edit_nlines) {
 			num2 = ed->edit_nlines;
-			sprintf(buf, "{PLast line adjusted to {Y%d{x.\n\r", num2);
+			sprintf(buf, "{PLast line adjusted to {Y%d{x.\n", num2);
 			stc(buf, ch);
 		}
 		else if (num2 < num1) {
-			stc("{PLine numbers out of sequence.{x\n\r", ch);
+			stc("{PLine numbers out of sequence.{x\n", ch);
 			return FALSE;
 		}
 
@@ -413,7 +413,7 @@ static void edit_cancel(CHAR_DATA *ch, char *argument)
 {
 	free_mem(ed, sizeof(EDIT_DATA));
 	ch->edit = NULL;
-	stc("OK, editing session aborted, {Ynothing changed{x.\n\r", ch);
+	stc("OK, editing session aborted, {Ynothing changed{x.\n", ch);
 } /* end edit_cancel() */
 
 
@@ -440,7 +440,7 @@ static void edit_change(CHAR_DATA *ch, char *argument)
 	smash_tilde(arg1);
 
 	if (arg1[0] == '\0') {
-		stc("{PYou must specify a string to change.{x\n\r", ch);
+		stc("{PYou must specify a string to change.{x\n", ch);
 		return;
 	}
 
@@ -449,7 +449,7 @@ static void edit_change(CHAR_DATA *ch, char *argument)
 
 	if (strlen(arg2) > strlen(arg1)
 	    && strlen(ed->edit_string) + strlen(arg2) - strlen(arg1) > MAX_EDIT_LENGTH) {
-		stc("{PEdit limit exceeded - you cannot add any more text.{x\n\r", ch);
+		stc("{PEdit limit exceeded - you cannot add any more text.{x\n", ch);
 		return;
 	}
 
@@ -464,7 +464,7 @@ static void edit_change(CHAR_DATA *ch, char *argument)
 	*end_pos = end_char;
 
 	if (where == NULL) {
-		sprintf(arg2, "{PSearch string '%s{P' not found in current line.{x\n\r", arg1);
+		sprintf(arg2, "{PSearch string '%s{P' not found in current line.{x\n", arg1);
 		stc(arg2, ch);
 		return;
 	}
@@ -488,7 +488,7 @@ static void edit_delete(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (linefrom == 0) {
-		stc("{PCannot delete line 0{x.\n\r", ch);
+		stc("{PCannot delete line 0{x.\n", ch);
 		return;
 	}
 
@@ -510,7 +510,7 @@ static void edit_delete(CHAR_DATA *ch, char *argument)
 static void edit_desc(CHAR_DATA *ch, char *argument)
 {
 	if (ch->edit != NULL) {
-		stc("{PBut you are already editing something!{x\n\r", ch);
+		stc("{PBut you are already editing something!{x\n", ch);
 		edit_status(ch, "");
 		return;
 	}
@@ -537,25 +537,25 @@ static void edit_done(CHAR_DATA *ch, char *argument)
 
 	switch (ed->edit_type) {
 	default:
-		stc("{POops, I lost track of myself.{x\n\r", ch);
+		stc("{POops, I lost track of myself.{x\n", ch);
 		bug("edit_done(): unknown edit type", 0);
 		break;
 
 	case EDIT_TYPE_NONE:
-		stc("{PHmm, looks like you weren't editing anything.{x\n\r", ch);
+		stc("{PHmm, looks like you weren't editing anything.{x\n", ch);
 		bug("edit_done(): edit type NONE", 0);
 		break;
 
 	case EDIT_TYPE_NOTE:
 		if (ch->pnote == NULL) {
-			stc("{PI'm afraid your note is not there any more.{x\n\r"
-			    "{PYour edited text is going down the drain now.{x\n\r", ch);
+			stc("{PI'm afraid your note is not there any more.{x\n"
+			    "{PYour edited text is going down the drain now.{x\n", ch);
 		}
 		else {
-			sprintf(buf, "OK, I'm saving your {Y%s{x.\n\r",
+			sprintf(buf, "OK, I'm saving your {Y%s{x.\n",
 			        board_index[ch->pnote->type].board_long);
 			stc(buf, ch);
-			stc("Don't forget to {RPOST{x it!\n\r", ch);
+			stc("Don't forget to {RPOST{x it!\n", ch);
 			free_string(ch->pnote->text);
 			ch->pnote->text = str_dup(ed->edit_string);
 		}
@@ -563,7 +563,7 @@ static void edit_done(CHAR_DATA *ch, char *argument)
 		break;
 
 	case EDIT_TYPE_DESC:
-		stc("OK, I'm saving {Yyour description{x.\n\r", ch);
+		stc("OK, I'm saving {Yyour description{x.\n", ch);
 
 		if (ch->long_descr != NULL)
 			free_string(ch->long_descr);
@@ -573,11 +573,11 @@ static void edit_done(CHAR_DATA *ch, char *argument)
 
 	case EDIT_TYPE_ROOM:
 		if (ch->in_room == NULL) {
-			stc("{PI'm sorry, you don't seem to be in a room.{x\n\r", ch);
+			stc("{PI'm sorry, you don't seem to be in a room.{x\n", ch);
 			return;
 		}
 
-		stc("OK, I'm saving your {Yroom description{x.\n\r", ch);
+		stc("OK, I'm saving your {Yroom description{x.\n", ch);
 
 		if (ch->in_room->description != NULL)
 			free_string(ch->in_room->description);
@@ -587,9 +587,9 @@ static void edit_done(CHAR_DATA *ch, char *argument)
 
 	case EDIT_TYPE_HELP:
 		if (db_commandf("edit_done", "update helps set text='%s' where id=%d", db_esc(ed->edit_string), ed->edit_id))
-			ptc(ch, "OK, I'm saving the {Yhelp text{x for ID %d.\n\r", ed->edit_id);
+			ptc(ch, "OK, I'm saving the {Yhelp text{x for ID %d.\n", ed->edit_id);
 		else
-			stc("I wasn't able to save the text right now.\n\r", ch);
+			stc("I wasn't able to save the text right now.\n", ch);
 
 		break;
 	}
@@ -623,14 +623,14 @@ static void edit_insert(CHAR_DATA *ch, char *argument)
 	smash_tilde(argument);
 
 	if (strlen(argument) + strlen(ed->edit_string) + 1 > MAX_EDIT_LENGTH) {
-		stc("{PEdit limit exceeded - you cannot add any more text.{x\n\r", ch);
+		stc("{PEdit limit exceeded - you cannot add any more text.{x\n", ch);
 		return;
 	}
 
 	backup();
 	dbuf = new_buf();
 	add_buf(dbuf, argument);
-	add_buf(dbuf, "\n\r");
+	add_buf(dbuf, "\n");
 	lp = find_line(after_line);
 	add_buf(dbuf, lp);
 	strcpy(lp, buf_string(dbuf));
@@ -660,13 +660,13 @@ static void edit_list(CHAR_DATA *ch, char *argument)
 static void edit_note(CHAR_DATA *ch, char *argument)
 {
 	if (ch->edit != NULL) {
-		stc("{PBut you are already editing something!{x\n\r", ch);
+		stc("{PBut you are already editing something!{x\n", ch);
 		edit_status(ch, "");
 		return;
 	}
 
 	if (ch->pnote == NULL) {
-		stc("{PBut you haven't started writing any note yet!{x\n\r", ch);
+		stc("{PBut you haven't started writing any note yet!{x\n", ch);
 		return;
 	}
 
@@ -684,13 +684,13 @@ static void edit_note(CHAR_DATA *ch, char *argument)
 static void edit_room(CHAR_DATA *ch, char *argument)
 {
 	if (ch->edit != NULL) {
-		stc("{PBut you are already editing something!{x\n\r", ch);
+		stc("{PBut you are already editing something!{x\n", ch);
 		edit_status(ch, "");
 		return;
 	}
 
 	if (ch->in_room == NULL) {
-		stc("{PYou don't seem to be in a room at the moment.{x\n\r", ch);
+		stc("{PYou don't seem to be in a room at the moment.{x\n", ch);
 		return;
 	}
 
@@ -712,7 +712,7 @@ static void edit_room(CHAR_DATA *ch, char *argument)
 static void edit_help(CHAR_DATA *ch, char *argument)
 {
 	if (ch->edit != NULL) {
-		stc("{PBut you are already editing something!{x\n\r", ch);
+		stc("{PBut you are already editing something!{x\n", ch);
 		edit_status(ch, "");
 		return;
 	}
@@ -727,7 +727,7 @@ static void edit_help(CHAR_DATA *ch, char *argument)
 	MYSQL_ROW row;
 
 	if ((result = db_queryf("edit_help", "select text from helps where id=%d", id)) == NULL) {
-		stc("Query error, couldn't access helps.\n\r", ch);
+		stc("Query error, couldn't access helps.\n", ch);
 		return;
 	}
 
@@ -748,7 +748,7 @@ static void edit_help(CHAR_DATA *ch, char *argument)
 		edit_status(ch, "");
 	}
 	else {
-		stc("Couldn't retrieve a help with that ID.\n\r", ch);
+		stc("Couldn't retrieve a help with that ID.\n", ch);
 	}
 
 	mysql_free_result(result);
@@ -777,7 +777,7 @@ static void edit_split(CHAR_DATA *ch, char *argument)
 	argument = one_arg(argument, token);
 
 	if (token[0] == '\0') {
-		stc("{PYou must specify a string to split before.{x\n\r", ch);
+		stc("{PYou must specify a string to split before.{x\n", ch);
 		return;
 	}
 
@@ -791,7 +791,7 @@ static void edit_split(CHAR_DATA *ch, char *argument)
 	*end_pos = end_char;
 
 	if (where == NULL) {
-		sprintf(buf, "{PCharacters '%s{P' not found in current line.{x\n\r", token);
+		sprintf(buf, "{PCharacters '%s{P' not found in current line.{x\n", token);
 		stc(buf, ch);
 		return;
 	}
@@ -799,7 +799,7 @@ static void edit_split(CHAR_DATA *ch, char *argument)
 	backup();
 	dbuf = new_buf();
 	add_buf(dbuf, where);
-	strcpy(where, "\n\r");
+	strcpy(where, "\n");
 	strcat(where, buf_string(dbuf));
 	free_buf(dbuf);
 	ed->edit_nlines = count_lines();
@@ -809,7 +809,7 @@ static void edit_split(CHAR_DATA *ch, char *argument)
 static void edit_undo(CHAR_DATA *ch, char *junk)
 {
 	if (!ed->edit_undo_ok) {
-		stc("{PSorry, you have already undone your most recent change!{x\n\r",
+		stc("{PSorry, you have already undone your most recent change!{x\n",
 		    ch);
 		return;
 	}
@@ -820,7 +820,7 @@ static void edit_undo(CHAR_DATA *ch, char *junk)
 	if (ed->edit_line > ed->edit_nlines)
 		edit_goto1(ch, ed->edit_line);
 
-	stc("{POK{x, your most recent change (if any) has been {Pundone{x.\n\r",
+	stc("{POK{x, your most recent change (if any) has been {Pundone{x.\n",
 	    ch);
 	ed->edit_undo_ok = FALSE;
 } /* end edit_undo() */
@@ -918,7 +918,7 @@ static void edit_wrap(CHAR_DATA *ch, char *argument)
 						lp--;
 					}
 
-					strcpy(lp, "\n\r");
+					strcpy(lp, "\n");
 					add_buf(dbuf, line);
 					lp = line;
 					linelen = 0;
@@ -942,7 +942,7 @@ static void edit_wrap(CHAR_DATA *ch, char *argument)
 
 	/* finish current line, if started */
 	if (lp > line) {
-		strcpy(lp, "\n\r");
+		strcpy(lp, "\n");
 		add_buf(dbuf, line);
 	}
 
@@ -1057,7 +1057,7 @@ void do_edit(CHAR_DATA *ch, char *argument)
 
 	if (!str_prefix1(arg, "cance")) {
 		stc(
-		        "{PIf you want to CANCEL your editing, write {RCANCEL{P out in full!{x\n\r",
+		        "{PIf you want to CANCEL your editing, write {RCANCEL{P out in full!{x\n",
 		        ch);
 		return;
 	}
@@ -1086,7 +1086,7 @@ void do_edit(CHAR_DATA *ch, char *argument)
 
 	if (!str_prefix1(arg, "und")) {
 		stc(
-		        "{PIf you want to UNDO your last change, write {RUNDO{P out in full!\n\r",
+		        "{PIf you want to UNDO your last change, write {RUNDO{P out in full!\n",
 		        ch);
 		return;
 	}
@@ -1097,7 +1097,7 @@ void do_edit(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	sprintf(buf, "{PUnknown {CEDIT{x function '{R%s{P'.{x\n\r", arg);
+	sprintf(buf, "{PUnknown {CEDIT{x function '{R%s{P'.{x\n", arg);
 	stc(buf, ch);
 	edit_status(ch, "");
 } /* end do_edit() */

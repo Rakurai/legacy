@@ -2156,21 +2156,21 @@ void do_finger(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (!arg[0]) {
-		stc("Syntax:\n\r"
-		    "  {Yfinger{x {Gplayer-name{x : displays info about {Gplayer-name{x\n\r"
-		    "  {Yfinger{X {Gplayer-name{x@{Gmud{x : displays info about player on other muds.\n\r"
-		    "  {YFinger private{x     : hides your e-mail address from FINGER\n\r\n\r"
-		    "  {YShowlast{x           : hides your last login/save times\n\r", ch);
+		stc("Syntax:\n"
+		    "  {Yfinger{x {Gplayer-name{x : displays info about {Gplayer-name{x\n"
+		    "  {Yfinger{X {Gplayer-name{x@{Gmud{x : displays info about player on other muds.\n"
+		    "  {YFinger private{x     : hides your e-mail address from FINGER\n\n"
+		    "  {YShowlast{x           : hides your last login/save times\n", ch);
 		return;
 	}
 
 	if (!str_cmp(arg, "private")) {
 		if (IS_SET(ch->pcdata->plr, PLR_SHOWEMAIL)) {
-			stc("Your email will no longer display in your finger info.\n\r", ch);
+			stc("Your email will no longer display in your finger info.\n", ch);
 			REMOVE_BIT(ch->pcdata->plr, PLR_SHOWEMAIL);
 		}
 		else {
-			stc("Your email will now display in your finger info.\n\r", ch);
+			stc("Your email will now display in your finger info.\n", ch);
 			SET_BIT(ch->pcdata->plr, PLR_SHOWEMAIL);
 		}
 
@@ -2179,7 +2179,7 @@ void do_finger(CHAR_DATA *ch, char *argument)
 	}
 
 	if (has_slash(arg)) {
-		stc("That is not a valid player name.\n\r", ch);
+		stc("That is not a valid player name.\n", ch);
 		return;
 	}
 
@@ -2190,7 +2190,7 @@ void do_finger(CHAR_DATA *ch, char *argument)
 	pfile = fopen(filename, "r");
 
 	if (! pfile) {
-		stc("That player does not exist.\n\r", ch);
+		stc("That player does not exist.\n", ch);
 		return;
 	}
 
@@ -2275,9 +2275,9 @@ void do_finger(CHAR_DATA *ch, char *argument)
 
 	if (!in_player) {
 		/* hit EOF without finding #PLAYER */
-		sprintf(buf, "do_finger(): bad pfile '%s'\n\r", arg);
+		sprintf(buf, "do_finger(): bad pfile '%s'\n", arg);
 		bug(buf, 0);
-		ptc(ch, "No information available about '%s'\n\r", arg);
+		ptc(ch, "No information available about '%s'\n", arg);
 
 		// goto bombout;
 		if (pfile) fclose(pfile);
@@ -2295,11 +2295,11 @@ void do_finger(CHAR_DATA *ch, char *argument)
 	dbuf = new_buf();
 
 	if (level >= LEVEL_IMMORTAL)
-		sprintf(buf, "{W[{CIMM{W] %s%s{x\n\r", name, title);
+		sprintf(buf, "{W[{CIMM{W] %s%s{x\n", name, title);
 	else if (rmct == 0)
-		sprintf(buf, "{W[{B%2d{W] %s%s{x\n\r", level, name, title);
+		sprintf(buf, "{W[{B%2d{W] %s%s{x\n", level, name, title);
 	else
-		sprintf(buf, "{W[{GR%d{T/{B%2d{W] %s%s{x\n\r", rmct, level, name, title);
+		sprintf(buf, "{W[{GR%d{T/{B%2d{W] %s%s{x\n", rmct, level, name, title);
 
 	add_buf(dbuf, buf);
 
@@ -2312,35 +2312,35 @@ void do_finger(CHAR_DATA *ch, char *argument)
 			sprintf(buf, "{BMember of ");
 
 		add_buf(dbuf, buf);
-		sprintf(buf, "%s{x\n\r", clan->clanname);
+		sprintf(buf, "%s{x\n", clan->clanname);
 		add_buf(dbuf, buf);
 	}
 
 	sprintf(buf, "{C%s ", capitalize(race));
 	add_buf(dbuf, buf);
-	sprintf(buf, "{C%s, follower of %s{x\n\r", capitalize(class_table[class].name), deity);
+	sprintf(buf, "{C%s, follower of %s{x\n", capitalize(class_table[class].name), deity);
 	add_buf(dbuf, buf);
-	sprintf(buf, "{GArena Record:    %d wins,  %d losses{x\n\r", aks, akd);
+	sprintf(buf, "{GArena Record:    %d wins,  %d losses{x\n", aks, akd);
 	add_buf(dbuf, buf);
-	sprintf(buf, "{PBlood Trail (%d): %d kills, %d deaths{x\n\r\n\r", pkr, pks, pkd);
+	sprintf(buf, "{PBlood Trail (%d): %d kills, %d deaths{x\n\n", pkr, pks, pkd);
 	add_buf(dbuf, buf);
 
 	if (fingerinfo[0]) {
-		sprintf(buf, "{CAdditional Info:{x\n\r%s{x\n\r", fingerinfo);
+		sprintf(buf, "{CAdditional Info:{x\n%s{x\n", fingerinfo);
 		add_buf(dbuf, buf);
 	}
 
 	if (spouse[0]) {
 		if (!IS_SET(plr, PLR_MARRIED))
-			sprintf(buf, "{Y%s is engaged to %s.{x\n\r", name, spouse);
+			sprintf(buf, "{Y%s is engaged to %s.{x\n", name, spouse);
 		else
-			sprintf(buf, "{Y%s is happily married to %s.{x\n\r", name, spouse);
+			sprintf(buf, "{Y%s is happily married to %s.{x\n", name, spouse);
 
 		add_buf(dbuf, buf);
 	}
 
 	if (email[0] && (IS_IMMORTAL(ch) || IS_SET(plr, PLR_SHOWEMAIL))) {
-		sprintf(buf, "{GEmail: %s{x\n\r", email);
+		sprintf(buf, "{GEmail: %s{x\n", email);
 		add_buf(dbuf, buf);
 	}
 
@@ -2357,11 +2357,11 @@ void do_finger(CHAR_DATA *ch, char *argument)
 	}
 
 	if (IS_IMP(ch)) {
-		sprintf(buf, "{HLast Site  : %s{x\n\r", last_lsite);
+		sprintf(buf, "{HLast Site  : %s{x\n", last_lsite);
 		add_buf(dbuf, buf);
 	}
 
-	add_buf(dbuf, "\n\r");
+	add_buf(dbuf, "\n");
 	page_to_char(buf_string(dbuf), ch);
 	free_buf(dbuf);
 	/* clean up dup'd strings */

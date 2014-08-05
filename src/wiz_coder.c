@@ -42,24 +42,24 @@ void do_autoboot(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] == '\0') {
 		if (reboot_time != 0)
-			ptc(ch, "Legacy is scheduled to reboot at %s\n\r", (char *) ctime(&reboot_time));
+			ptc(ch, "Legacy is scheduled to reboot at %s\n", (char *) ctime(&reboot_time));
 		else
-			stc("Legacy is not scheduled to be rebooted.\n\r", ch);
+			stc("Legacy is not scheduled to be rebooted.\n", ch);
 
-		stc("Syntax:\n\r"
-		    "  autoreboot <numeric time>\n\r", ch);
+		stc("Syntax:\n"
+		    "  autoreboot <numeric time>\n", ch);
 		return;
 	}
 
 	if (!is_number(argument)) {
-		stc("Time must be numeric, i.e. 1330 is 1:30 pm.\n\r", ch);
+		stc("Time must be numeric, i.e. 1330 is 1:30 pm.\n", ch);
 		return;
 	}
 
 	reboottime = atoi(argument);
 
 	if (reboottime < 0 || reboottime > 2359) {
-		stc("Time is out of range.\n\r", ch);
+		stc("Time is out of range.\n", ch);
 		return;
 	}
 
@@ -67,23 +67,23 @@ void do_autoboot(CHAR_DATA *ch, char *argument)
 		;
 
 	if (minutes < 0) {
-		stc("The minutes must be under 60.\n\r", ch);
+		stc("The minutes must be under 60.\n", ch);
 		return;
 	}
 
 	tm = localtime(&current_time);
 
 	if ((hours < tm->tm_hour) || (hours == tm->tm_hour && minutes < tm->tm_min)) {
-		stc("That time has already passed.\n\r"
-		    "The mud will assume you want the reboot tomorrow.\n\r", ch);
+		stc("That time has already passed.\n"
+		    "The mud will assume you want the reboot tomorrow.\n", ch);
 		hours = hours + 24;
 	}
 
 	reboot_time = current_time;
 	reboot_time = reboot_time + ((hours - tm->tm_hour) * 3600);
 	reboot_time = reboot_time + ((minutes - tm->tm_min) * 60);
-	ptc(ch, "Legacy is now scheduled to reboot at %s\n\r", (char *)ctime(&reboot_time));
-	sprintf(buf, "%s called for auto-reboot at %s\n\r", ch->name, (char *)ctime(&reboot_time));
+	ptc(ch, "Legacy is now scheduled to reboot at %s\n", (char *)ctime(&reboot_time));
+	sprintf(buf, "%s called for auto-reboot at %s\n", ch->name, (char *)ctime(&reboot_time));
 	fappend(SHUTDOWN_FILE, buf);
 }
 
@@ -136,7 +136,7 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 	}
 
 	if (mysql_real_query(mysql_db, argument, strlen(argument))) {
-		ptc(ch, "Error: %s\n\r", mysql_error(mysql_db));
+		ptc(ch, "Error: %s\n", mysql_error(mysql_db));
 		return;
 	}
 
@@ -144,7 +144,7 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 	numfields = mysql_field_count(mysql_db);
 
 	if (!numfields) {
-		ptc(ch, "%ld rows affected.\n\r", (long) mysql_affected_rows(mysql_db));
+		ptc(ch, "%ld rows affected.\n", (long) mysql_affected_rows(mysql_db));
 		mysql_free_result(result);
 		return;
 	}
@@ -167,7 +167,7 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 			strcat(divline, " ");
 	}
 
-	strcat(divline, "{x\n\r");
+	strcat(divline, "{x\n");
 	add_buf(output, divline);
 	strcpy(line, "{n {x");
 
@@ -182,7 +182,7 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 		strcat(line, "{n {x");
 	}
 
-	strcat(line, "\n\r");
+	strcat(line, "\n");
 	add_buf(output, line);
 	add_buf(output, divline);
 
@@ -202,12 +202,12 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 			strcat(line, "{n {x");
 		}
 
-		strcat(line, "\n\r");
+		strcat(line, "\n");
 		add_buf(output, line);
 	}
 
 	add_buf(output, divline);
-	ptb(output, "  %ld rows in set.\n\r", (long) mysql_num_rows(result));
+	ptb(output, "  %ld rows in set.\n", (long) mysql_num_rows(result));
 	page_to_char(buf_string(output), ch);
 	free_buf(output);
 	mysql_free_result(result);
@@ -216,7 +216,7 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 
 void do_reboo(CHAR_DATA *ch, char *argument)
 {
-	stc("{NTo REBOOT, you must spell the entire word.{x\n\r", ch);
+	stc("{NTo REBOOT, you must spell the entire word.{x\n", ch);
 }
 
 
@@ -227,12 +227,12 @@ void do_reboot(CHAR_DATA *ch, char *argument)
 	DESCRIPTOR_DATA *d, *d_next;
 
 	if (argument[0] == '\0') {
-		stc("You must provide a reason for a reboot.\n\r", ch);
+		stc("You must provide a reason for a reboot.\n", ch);
 		return;
 	}
 
 	set_color(ch, YELLOW, BOLD);
-	sprintf(buf, "%s has called for a REBOOT.  Back in 60 seconds or less!\n\r", ch->name);
+	sprintf(buf, "%s has called for a REBOOT.  Back in 60 seconds or less!\n", ch->name);
 	do_echo(ch, buf);
 	set_color(ch, WHITE, NOBOLD);
 	do_allsave(ch, "");
@@ -248,7 +248,7 @@ void do_reboot(CHAR_DATA *ch, char *argument)
 
 void do_shutdow(CHAR_DATA *ch, char *argument)
 {
-	stc("{NTo SHUTDOWN, you must spell the entire word.{x\n\r", ch);
+	stc("{NTo SHUTDOWN, you must spell the entire word.{x\n", ch);
 }
 
 
@@ -260,16 +260,16 @@ void do_shutdown(CHAR_DATA *ch, char *argument)
 	DESCRIPTOR_DATA *d, *d_next;
 
 	if (port == DIZZYPORT && !IS_IMP(ch)) {
-		stc("You must be an implementor to shutdown Legacy.\n\r", ch);
+		stc("You must be an implementor to shutdown Legacy.\n", ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		stc("You must provide a reason for a shutdown.\n\r", ch);
+		stc("You must provide a reason for a shutdown.\n", ch);
 		return;
 	}
 
-	sprintf(buf, "%s has SHUTDOWN the system.  Back after these messages!\n\r", ch->name);
+	sprintf(buf, "%s has SHUTDOWN the system.  Back after these messages!\n", ch->name);
 	do_echo(ch, buf);
 
 	if (port == DIZZYPORT) {
@@ -297,9 +297,9 @@ void do_slookup(CHAR_DATA *ch, char *argument)
 	int sn;
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "slookup all\n\r"
-		    "slookup <skill or spell name>\n\r", ch);
+		stc("Syntax:\n"
+		    "slookup all\n"
+		    "slookup <skill or spell name>\n", ch);
 		return;
 	}
 
@@ -307,7 +307,7 @@ void do_slookup(CHAR_DATA *ch, char *argument)
 
 	if (!str_cmp(arg, "all")) {
 		for (sn = 0; skill_table[sn].name != NULL; sn++)
-			ptc(ch, "Sn: %3d  Slot: %4d  Skill/spell: '%s'\n\r",
+			ptc(ch, "Sn: %3d  Slot: %4d  Skill/spell: '%s'\n",
 			    sn,
 			    skill_table[sn].slot,
 			    skill_table[sn].name);
@@ -316,11 +316,11 @@ void do_slookup(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((sn = skill_lookup(arg)) < 0) {
-		stc("No such skill or spell.\n\r", ch);
+		stc("No such skill or spell.\n", ch);
 		return;
 	}
 
-	ptc(ch, "Sn: %3d  Slot: %4d  Skill/spell: '%s'\n\r",
+	ptc(ch, "Sn: %3d  Slot: %4d  Skill/spell: '%s'\n",
 	    sn,
 	    skill_table[sn].slot,
 	    skill_table[sn].name);
@@ -336,38 +336,38 @@ void do_advance(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg2)) {
-		stc("Syntax:\n\r"
-		    "  advance <player> <level>\n\r", ch);
+		stc("Syntax:\n"
+		    "  advance <player> <level>\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
-		stc("They are not playing.\n\r", ch);
+		stc("They are not playing.\n", ch);
 		return;
 	}
 
 	max = IS_IMP(ch) ? 100 : 99;
 
 	if ((level = atoi(arg2)) < 1 || level > max) {
-		ptc(ch, "Level must be 1 to %d.\n\r", max);
+		ptc(ch, "Level must be 1 to %d.\n", max);
 		return;
 	}
 
 	if (level == victim->level) {
-		stc("It would accomplish nothing!\n\r", ch);
+		stc("It would accomplish nothing!\n", ch);
 		return;
 	}
 
 	if (victim != ch) {
 		if (victim->level >= max && max < 100) {
-			stc("You must be an implementor to do that to a fellow immortal.\n\r", ch);
+			stc("You must be an implementor to do that to a fellow immortal.\n", ch);
 			return;
 		}
 	}
 
 	if (level < victim->level) {
-		stc("You revoke the levels of the player.\n\r", ch);
-		stc("**** D'OH! D'OH! D'OH! ****\n\r", victim);
+		stc("You revoke the levels of the player.\n", ch);
+		stc("**** D'OH! D'OH! D'OH! ****\n", victim);
 
 		for (iLevel = victim->level; iLevel > level; iLevel--) {
 			stc("==>  ", victim);
@@ -384,8 +384,8 @@ void do_advance(CHAR_DATA *ch, char *argument)
 		}
 	}
 	else {
-		stc("You bestow your Level power upon the character.\n\r", ch);
-		stc("**** WoOhOo! WoOhOo! WoOhOo! ****\n\r", victim);
+		stc("You bestow your Level power upon the character.\n", ch);
+		stc("**** WoOhOo! WoOhOo! WoOhOo! ****\n", victim);
 
 		for (iLevel = victim->level; iLevel < level; iLevel++) {
 			stc("==>  ", victim);
@@ -412,11 +412,11 @@ void do_wizlock(CHAR_DATA *ch, char *argument)
 
 	if (wizlock) {
 		wiznet("$N has wizlocked the game.", ch, NULL, 0, 0, 0);
-		stc("Game wizlocked.\n\r", ch);
+		stc("Game wizlocked.\n", ch);
 	}
 	else {
 		wiznet("$N removes the current wizlock.", ch, NULL, 0, 0, 0);
-		stc("Game un-wizlocked.\n\r", ch);
+		stc("Game un-wizlocked.\n", ch);
 	}
 }
 
@@ -454,13 +454,13 @@ void do_addexit(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || !is_number(arg1)) {
-		stc("Syntax:\n\r"
-		    "  addexit <to room vnum> <direction>\n\r", ch);
+		stc("Syntax:\n"
+		    "  addexit <to room vnum> <direction>\n", ch);
 		return;
 	}
 
 	if (get_room_index(atoi(arg1)) == NULL) {
-		stc("No such room with that vnum exists.\n\r", ch);
+		stc("No such room with that vnum exists.\n", ch);
 		return;
 	}
 
@@ -471,12 +471,12 @@ void do_addexit(CHAR_DATA *ch, char *argument)
 	else if (!str_prefix1(arg2, "up"))      dir = 4;
 	else if (!str_prefix1(arg2, "down"))    dir = 5;
 	else {
-		stc("No such direction.\n\r", ch);
+		stc("No such direction.\n", ch);
 		return;
 	}
 
 	if (ch->in_room->exit[dir] != NULL) {
-		stc("There is already an exit in that direction.\n\r", ch);
+		stc("There is already an exit in that direction.\n", ch);
 		return;
 	}
 
@@ -490,7 +490,7 @@ void do_addexit(CHAR_DATA *ch, char *argument)
 	ch->in_room->exit[dir]          = exit;
 	ch->in_room->old_exit[dir]      = exit;
 	top_exit++;
-	stc("Exit added.\n\r", ch);
+	stc("Exit added.\n", ch);
 }
 
 
@@ -505,8 +505,8 @@ void do_remexit(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		stc("Syntax:\n\r"
-		    "  remexit <direction>\n\r", ch);
+		stc("Syntax:\n"
+		    "  remexit <direction>\n", ch);
 		return;
 	}
 
@@ -517,12 +517,12 @@ void do_remexit(CHAR_DATA *ch, char *argument)
 	else if (!str_prefix1(arg, "up"))       dir = 4;
 	else if (!str_prefix1(arg, "down"))     dir = 5;
 	else {
-		stc("No such direction.\n\r", ch);
+		stc("No such direction.\n", ch);
 		return;
 	}
 
 	if (ch->in_room->exit[dir] == NULL) {
-		stc("There is no exit in that direction.\n\r", ch);
+		stc("There is no exit in that direction.\n", ch);
 		return;
 	}
 
@@ -531,7 +531,7 @@ void do_remexit(CHAR_DATA *ch, char *argument)
 	ch->in_room->exit[dir] = NULL;
 	ch->in_room->old_exit[dir] = NULL;
 	top_exit--;
-	stc("Exit removed.\n\r", ch);
+	stc("Exit removed.\n", ch);
 }
 
 
@@ -547,65 +547,65 @@ void do_sectchange(CHAR_DATA *ch, char *argument)
 	    || (sect = atoi(argument)) < 0
 	    || (sect > 10 && sect < 20)
 	    || sect > 21) {
-		stc("Syntax:\n\r"
-		    "  sectchange <sector type number>\n\r\n\r"
-		    "Current sector types are:\n\r"
-		    "  0  inside\n\r"
-		    "  1  city\n\r"
-		    "  2  field\n\r"
-		    "  3  forest\n\r"
-		    "  4  hills\n\r"
-		    "  5  mountain\n\r"
-		    "  6  water_swim\n\r"
-		    "  7  water_noswim\n\r"
-		    "  8  (unused, don't pick)\n\r"
-		    "  9  air\n\r"
-		    " 10  desert\n\r"
-		    " 20  arena\n\r"
-		    " 21  clanarena\n\r", ch);
+		stc("Syntax:\n"
+		    "  sectchange <sector type number>\n\n"
+		    "Current sector types are:\n"
+		    "  0  inside\n"
+		    "  1  city\n"
+		    "  2  field\n"
+		    "  3  forest\n"
+		    "  4  hills\n"
+		    "  5  mountain\n"
+		    "  6  water_swim\n"
+		    "  7  water_noswim\n"
+		    "  8  (unused, don't pick)\n"
+		    "  9  air\n"
+		    " 10  desert\n"
+		    " 20  arena\n"
+		    " 21  clanarena\n", ch);
 		return;
 	}
 
 	ch->in_room->sector_type = sect;
-	stc("Sector type changed.\n\r", ch);
+	stc("Sector type changed.\n", ch);
 }
 
 
 void do_memory(CHAR_DATA *ch, char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
-	sprintf(buf, "Affects %5d\n\r", top_affect);
+	sprintf(buf, "Affects %5d\n", top_affect);
 	stc(buf, ch);
-	sprintf(buf, "Areas   %5d\n\r", top_area);
+	sprintf(buf, "Areas   %5d\n", top_area);
 	stc(buf, ch);
-	sprintf(buf, "ExDes   %5d\n\r", top_ed);
+	sprintf(buf, "ExDes   %5d\n", top_ed);
 	stc(buf, ch);
-	sprintf(buf, "Exits   %5d\n\r", top_exit);
+	sprintf(buf, "Exits   %5d\n", top_exit);
 	stc(buf, ch);
-	sprintf(buf, "Socials %5d\n\r", count_socials());
+	sprintf(buf, "Socials %5d\n", count_socials());
 	stc(buf, ch);
-	sprintf(buf, "XSocs   %5d\n\r", count_xsocials());
+	sprintf(buf, "XSocs   %5d\n", count_xsocials());
 	stc(buf, ch);
-	sprintf(buf, "Mobs    %5d\n\r", top_mob_index);
+	sprintf(buf, "Mobs    %5d\n", top_mob_index);
 	stc(buf, ch);
-	sprintf(buf, "(in use)%5d\n\r", mobile_count);
+	sprintf(buf, "(in use)%5d\n", mobile_count);
 	stc(buf, ch);
-	sprintf(buf, "Objs    %5d\n\r", top_obj_index);
+	sprintf(buf, "Objs    %5d\n", top_obj_index);
 	stc(buf, ch);
-	sprintf(buf, "Resets  %5d\n\r", top_reset);
+	sprintf(buf, "Resets  %5d\n", top_reset);
 	stc(buf, ch);
-	sprintf(buf, "Rooms   %5d\n\r", top_room);
+	sprintf(buf, "Rooms   %5d\n", top_room);
 	stc(buf, ch);
-	sprintf(buf, "Shops   %5d\n\r", top_shop);
+	sprintf(buf, "Shops   %5d\n", top_shop);
 	stc(buf, ch);
-	sprintf(buf, "Clans   %5d\n\r", count_clans());
+	sprintf(buf, "Clans   %5d\n", count_clans());
 	stc(buf, ch);
-	sprintf(buf, "Characters in storage  %5d\n\r", count_stored_characters());
+	sprintf(buf, "Characters in storage  %5d\n", count_stored_characters());
 	stc(buf, ch);
-	sprintf(buf, "Strings %5d strings of %7d bytes (max %d).\n\r",
+	sprintf(buf, "Strings %5d strings of %7d bytes (max %d).\n",
 	        nAllocString, sAllocString, MAX_STRING);
 	stc(buf, ch);
-	sprintf(buf, "Perms   %5d blocks  of %7d bytes.\n\r",
+	sprintf(buf, "Perms   %5d blocks  of %7d bytes.\n",
 	        nAllocPerm, sAllocPerm);
 	stc(buf, ch);
 	return;

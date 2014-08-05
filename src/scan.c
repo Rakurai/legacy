@@ -50,7 +50,7 @@ void do_scan2(CHAR_DATA *ch, char *argument)
 
 	if (arg1[0] == '\0') {
 		act("$n scans all around.", ch, NULL, NULL, TO_NOTVIEW);
-		stc("{PLooking around you see:{x\n\r", ch);
+		stc("{PLooking around you see:{x\n", ch);
 		scan_room(ch->in_room, ch, 0, -1, NULL);
 //		scan_list(ch->in_room, ch, 0, -1);
 
@@ -65,7 +65,7 @@ void do_scan2(CHAR_DATA *ch, char *argument)
 			                        if (IS_SET(pExit->exit_info, EX_CLOSED))
 			                        {
 			                                stc(ch, "{G(South) {Y(closed){x");
-			                                ptc(ch, "{YThere is a closed exit to the %s.{x\n\r",dir_name[door]);
+			                                ptc(ch, "{YThere is a closed exit to the %s.{x\n",dir_name[door]);
 			                                continue;
 			                        }
 
@@ -83,13 +83,13 @@ void do_scan2(CHAR_DATA *ch, char *argument)
 	else if (!str_prefix1(arg1, "up"))      door = 4;
 	else if (!str_prefix1(arg1, "down"))    door = 5;
 	else {
-		stc("Which way do you want to scan?\n\r", ch);
+		stc("Which way do you want to scan?\n", ch);
 		return;
 	}
 
 	act("{PYou peer intently $T.{x", ch, NULL, dir_name[door], TO_CHAR);
 	act("$n peers intently $T.", ch, NULL, dir_name[door], TO_NOTVIEW);
-	sprintf(buf, "{GLooking %s you see:{x\n\r", dir_name[door]);
+	sprintf(buf, "{GLooking %s you see:{x\n", dir_name[door]);
 	room = ch->in_room;
 
 	for (depth = 1; depth < 4; depth++) {
@@ -99,7 +99,7 @@ void do_scan2(CHAR_DATA *ch, char *argument)
 			continue;
 
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
-			ptc(ch, "{YThere is a closed exit to the %s.{x\n\r", dir_name[door]);
+			ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);
 			break;
 		}
 
@@ -119,7 +119,7 @@ void do_scan(CHAR_DATA *ch, char *argument)
 
 	if (arg1[0] == '\0') {
 		act("$n scans all around.", ch, NULL, NULL, TO_NOTVIEW);
-		stc("{PLooking around you see:{x\n\r", ch);
+		stc("{PLooking around you see:{x\n", ch);
 		scan_list(ch->in_room, ch, 0, -1);
 
 		for (door = 0; door < 6; door++) {
@@ -129,7 +129,7 @@ void do_scan(CHAR_DATA *ch, char *argument)
 				continue;
 
 			if (IS_SET(pExit->exit_info, EX_CLOSED)) {
-				ptc(ch, "{YThere is a closed exit to the %s.{x\n\r", dir_name[door]);
+				ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);
 				continue;
 			}
 
@@ -145,13 +145,13 @@ void do_scan(CHAR_DATA *ch, char *argument)
 	else if (!str_prefix1(arg1, "up"))      door = 4;
 	else if (!str_prefix1(arg1, "down"))    door = 5;
 	else {
-		stc("Which way do you want to scan?\n\r", ch);
+		stc("Which way do you want to scan?\n", ch);
 		return;
 	}
 
 	act("{PYou peer intently $T.{x", ch, NULL, dir_name[door], TO_CHAR);
 	act("$n peers intently $T.", ch, NULL, dir_name[door], TO_NOTVIEW);
-	sprintf(buf, "{GLooking %s you see:{x\n\r", dir_name[door]);
+	sprintf(buf, "{GLooking %s you see:{x\n", dir_name[door]);
 	scan_room = ch->in_room;
 
 	for (depth = 1; depth < 4; depth++) {
@@ -161,7 +161,7 @@ void do_scan(CHAR_DATA *ch, char *argument)
 			continue;
 
 		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
-			ptc(ch, "{YThere is a closed exit to the %s.{x\n\r", dir_name[door]);
+			ptc(ch, "{YThere is a closed exit to the %s.{x\n", dir_name[door]);
 			break;
 		}
 
@@ -215,13 +215,13 @@ void scan_char(CHAR_DATA *victim, CHAR_DATA *ch, sh_int depth, sh_int door)
 {
 	extern char *const dir_name[];
 	extern char *const distance[];
-	ptc(ch, "  {C%s, %s%s.\n\r{x", PERS(victim, ch, VIS_CHAR), distance[depth], depth ? dir_name[door] : "");
+	ptc(ch, "  {C%s, %s%s.\n{x", PERS(victim, ch, VIS_CHAR), distance[depth], depth ? dir_name[door] : "");
 	/*      buf[0] = '\0';
 	        strcat(buf, PERS(victim, ch));
 	        strcat(buf, ", ");
 	        sprintf(buf2, distance[depth], dir_name[door]);
 	        strcat(buf, buf2);
-	        strcat(buf, "\n\r");
+	        strcat(buf, "\n");
 	        stc(buf, ch); */
 	set_color(ch, WHITE, NOBOLD);
 }

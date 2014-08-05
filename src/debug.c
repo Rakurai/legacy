@@ -39,17 +39,17 @@ void do_debug(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, subfunc);
 
 	if (subfunc[0] == '\0') {
-		stc("Currently defined DEBUG subfunctions are:\r\n"
-		    "  lcheck   - shows a player's locker number and weight, and strongbox number\n\r"
-		    "  rcheck   - check for rooms without exits and NO_RECALL\r\n"
-		    "  rcheck2  - check for rooms flagged NOLIGHT\r\n"
-		    "  qtz      - set next quest time to 0\r\n"
-		    "  tick     - advances the mud by one tick, weather_update, char_update, descrip_update\r\n"
-		    "  compart  - finds all objects inside objects that aren't containers\r\n"
-		    "  newflag  - finds all objects flagged compartment (formerly dark) or lock (nonexistant)\r\n"
-		    "  aversion - lists all areas and their versions\r\n"
-		    "  define   - lists all defines that the preprocessor checks for\n\r"
-		    "  objstate - save all objects lying on the ground\n\r", ch);
+		stc("Currently defined DEBUG subfunctions are:\n"
+		    "  lcheck   - shows a player's locker number and weight, and strongbox number\n"
+		    "  rcheck   - check for rooms without exits and NO_RECALL\n"
+		    "  rcheck2  - check for rooms flagged NOLIGHT\n"
+		    "  qtz      - set next quest time to 0\n"
+		    "  tick     - advances the mud by one tick, weather_update, char_update, descrip_update\n"
+		    "  compart  - finds all objects inside objects that aren't containers\n"
+		    "  newflag  - finds all objects flagged compartment (formerly dark) or lock (nonexistant)\n"
+		    "  aversion - lists all areas and their versions\n"
+		    "  define   - lists all defines that the preprocessor checks for\n"
+		    "  objstate - save all objects lying on the ground\n", ch);
 		return;
 	}
 
@@ -236,7 +236,7 @@ void do_debug(CHAR_DATA *ch, char *argument)
 			extract_char(victim, TRUE);
 		}
 
-		stc("Done.\n\r", ch);
+		stc("Done.\n", ch);
 		mysql_free_result(result);
 		return;
 	}
@@ -245,7 +245,7 @@ void do_debug(CHAR_DATA *ch, char *argument)
 		AREA_DATA *area;
 
 		for (area = area_first; area != NULL; area = area->next)
-			ptc(ch, "%-20s%d\n\r", area->file_name, area->version);
+			ptc(ch, "%-20s%d\n", area->file_name, area->version);
 
 		return;
 	}
@@ -258,12 +258,12 @@ void do_debug(CHAR_DATA *ch, char *argument)
 				continue;
 
 			if (obj == container) {
-				ptc(ch, "obj %d is in itself.\n\r", obj->pIndexData->vnum);
+				ptc(ch, "obj %d is in itself.\n", obj->pIndexData->vnum);
 				continue;
 			}
 
 			if (container->item_type != ITEM_CONTAINER)
-				ptc(ch, "%s (%d) is in non-container %s (%d).%s\n\r",
+				ptc(ch, "%s (%d) is in non-container %s (%d).%s\n",
 				    obj->short_descr, obj->pIndexData->vnum,
 				    container->short_descr, container->pIndexData->vnum,
 				    IS_OBJ_STAT(container, ITEM_COMPARTMENT) ? "  ({PCOMPARTMENT{x)" : "");
@@ -291,7 +291,7 @@ void do_debug(CHAR_DATA *ch, char *argument)
 					found = TRUE;
 
 			if (!found)
-				ptc(ch, "{W[{P%5d{W]{x %s\n\r", vnum, room->name);
+				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name);
 		}
 
 		return;
@@ -306,7 +306,7 @@ void do_debug(CHAR_DATA *ch, char *argument)
 				continue;
 
 			if (IS_SET(room->room_flags, ROOM_NOLIGHT))
-				ptc(ch, "{W[{P%5d{W]{x %s\n\r", vnum, room->name);
+				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name);
 		}
 
 		return;
@@ -323,21 +323,21 @@ void do_debug(CHAR_DATA *ch, char *argument)
 				if (!IS_NPC(questor) && !IS_IMMORTAL(questor)) {
 					questor->nextquest = 0;
 					questor->pcdata->nextsquest = 0;
-					stc("You may now quest again.\r\n", questor);
+					stc("You may now quest again.\n", questor);
 				}
 
-			stc("OK, everyone may quest again immediately.\r\n", ch);
+			stc("OK, everyone may quest again immediately.\n", ch);
 			return;
 		}
 
 		if ((questor = get_player_world(ch, arg, VIS_PLR)) == NULL) {
-			ptc(ch, "No player named '%s' found in game, sorry!\r\n", arg);
+			ptc(ch, "No player named '%s' found in game, sorry!\n", arg);
 			return;
 		}
 
 		questor->nextquest = 0;
 		questor->pcdata->nextsquest = 0;
-		ptc(ch, "OK, %s may quest again immediately.\r\n", questor->name);
+		ptc(ch, "OK, %s may quest again immediately.\n", questor->name);
 		return;
 	}
 
@@ -362,6 +362,6 @@ void do_debug(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	stc("Unknown DEBUG subfunction.\r\n", ch);
+	stc("Unknown DEBUG subfunction.\n", ch);
 } /* end do_debug() */
 

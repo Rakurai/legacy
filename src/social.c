@@ -256,15 +256,15 @@ void do_sedit(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, social);
 
 	if (!cmd[0]) {
-		stc("Huh? Type HELP SEDIT to see syntax.\n\r", ch);
+		stc("Huh? Type HELP SEDIT to see syntax.\n", ch);
 		return;
 	}
 
 	if (!social[0]) {
 		if (!str_cmp(cmd, "find"))
-			stc("What do you wish to find?\n\r", ch);
+			stc("What do you wish to find?\n", ch);
 		else
-			stc("What social do you want to operate on?\n\r", ch);
+			stc("What social do you want to operate on?\n", ch);
 
 		return;
 	}
@@ -272,20 +272,20 @@ void do_sedit(CHAR_DATA *ch, char *argument)
 	iSocial = social_lookup(social);
 
 	if (str_cmp(cmd, "new") && str_cmp(cmd, "find") && (iSocial == NULL)) {
-		stc("No such social exists.\n\r", ch);
+		stc("No such social exists.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(cmd, "delete")) { /* Remove a social */
 		remove_social(iSocial->name);
-		stc("That social is history now.\n\r", ch);
+		stc("That social is history now.\n", ch);
 	}
 	else if (!str_cmp(cmd, "new")) { /* Create a new social */
 		struct social_type *new_social = alloc_mem(sizeof(struct social_type));
 		int x;
 
 		if (iSocial != NULL) {
-			stc("A social with that name already exists.\n\r", ch);
+			stc("A social with that name already exists.\n", ch);
 			return;
 		}
 
@@ -305,19 +305,19 @@ void do_sedit(CHAR_DATA *ch, char *argument)
 		new_social->char_auto = str_dup("");
 		new_social->others_auto = str_dup("");
 		insert_social(new_social);
-		stc("New social added.\n\r", ch);
+		stc("New social added.\n", ch);
 	}
 	else if (!str_cmp(cmd, "rename")) { /* Rename a social */
 		struct social_type *new_social = alloc_mem(sizeof(struct social_type));
 		int x;
 
 		if (argument[0] == '\0') {
-			stc("Rename it to what?\n\r", ch);
+			stc("Rename it to what?\n", ch);
 			return;
 		}
 
 		if (social_lookup(argument) != NULL) {
-			stc("A social with that name already exists.\n\r", ch);
+			stc("A social with that name already exists.\n", ch);
 			return;
 		}
 
@@ -338,24 +338,24 @@ void do_sedit(CHAR_DATA *ch, char *argument)
 		new_social->others_auto         = iSocial->others_auto;
 		insert_social(new_social);
 		remove_social(iSocial->name);
-		stc("Social renamed.\n\r", ch);
+		stc("Social renamed.\n", ch);
 	}
 	else if (!str_cmp(cmd, "show")) { /* Show a certain social */
-		sprintf(buf, "{HSocial: %s{x\n\r"
-		        "{G[cnoarg]{c No argument given, character sees:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[onoarg]{c No argument given, others see:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[cfound]{c Target found, character sees:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[ofound]{c Target found, others see:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[vfound]{c Target found, victim sees:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[cself]{c  Target is self:\n\r"
-		        "{Y         %s\n\r"
-		        "{G[oself]{c  Target is self, others see:\n\r"
-		        "{Y         %s{x\n\r",
+		sprintf(buf, "{HSocial: %s{x\n"
+		        "{G[cnoarg]{c No argument given, character sees:\n"
+		        "{Y         %s\n"
+		        "{G[onoarg]{c No argument given, others see:\n"
+		        "{Y         %s\n"
+		        "{G[cfound]{c Target found, character sees:\n"
+		        "{Y         %s\n"
+		        "{G[ofound]{c Target found, others see:\n"
+		        "{Y         %s\n"
+		        "{G[vfound]{c Target found, victim sees:\n"
+		        "{Y         %s\n"
+		        "{G[cself]{c  Target is self:\n"
+		        "{Y         %s\n"
+		        "{G[oself]{c  Target is self, others see:\n"
+		        "{Y         %s{x\n",
 		        iSocial->name,
 		        iSocial->char_no_arg,
 		        iSocial->others_no_arg,
@@ -403,17 +403,17 @@ void do_sedit(CHAR_DATA *ch, char *argument)
 					unfin = TRUE;
 
 				if (unfin) {
-					ptc(ch, "%s\n\r", i->name);
+					ptc(ch, "%s\n", i->name);
 					count++;
 				}
 			}
 
-			ptc(ch, "%sYou found %d socials matching your criteria.\n\r",
-			    count > 0 ? "\n\r" : "", count);
+			ptc(ch, "%sYou found %d socials matching your criteria.\n",
+			    count > 0 ? "\n" : "", count);
 			return;
 		}
 
-		stc("Find what?\n\r", ch);
+		stc("Find what?\n", ch);
 		return;
 	}
 	else if (!str_cmp(cmd, "cnoarg")) { /* Set that argument */
@@ -421,66 +421,66 @@ void do_sedit(CHAR_DATA *ch, char *argument)
 		iSocial->char_no_arg = str_dup(argument);
 
 		if (!argument[0])
-			stc("Character will now see nothing when this social is used without arguments.\n\r", ch);
+			stc("Character will now see nothing when this social is used without arguments.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "onoarg")) {
 		free_string(iSocial->others_no_arg);
 		iSocial->others_no_arg = str_dup(argument);
 
 		if (!argument[0])
-			stc("Others will now see nothing when this social is used without arguments.\n\r", ch);
+			stc("Others will now see nothing when this social is used without arguments.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "cfound")) {
 		free_string(iSocial->char_found);
 		iSocial->char_found = str_dup(argument);
 
 		if (!argument[0])
-			stc("The character will now see nothing when a target is found.\n\r", ch);
+			stc("The character will now see nothing when a target is found.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "ofound")) {
 		free_string(iSocial->others_found);
 		iSocial->others_found = str_dup(argument);
 
 		if (!argument[0])
-			stc("Others will now see nothing when a target is found.\n\r", ch);
+			stc("Others will now see nothing when a target is found.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "vfound")) {
 		free_string(iSocial->vict_found);
 		iSocial->vict_found = str_dup(argument);
 
 		if (!argument[0])
-			stc("Victim will now see nothing when a target is found.\n\r", ch);
+			stc("Victim will now see nothing when a target is found.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "cself")) {
 		free_string(iSocial->char_auto);
 		iSocial->char_auto = str_dup(argument);
 
 		if (!argument[0])
-			stc("Character will now see nothing when targetting self.\n\r", ch);
+			stc("Character will now see nothing when targetting self.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else if (!str_cmp(cmd, "oself")) {
 		free_string(iSocial->others_auto);
 		iSocial->others_auto = str_dup(argument);
 
 		if (!argument[0])
-			stc("Others will now see nothing when character targets self.\n\r", ch);
+			stc("Others will now see nothing when character targets self.\n", ch);
 		else
-			ptc(ch, "New message is now:\n\r%s\n\r", argument);
+			ptc(ch, "New message is now:\n%s\n", argument);
 	}
 	else {
-		stc("Huh? Try HELP SEDIT.\n\r", ch);
+		stc("Huh? Try HELP SEDIT.\n", ch);
 		return;
 	}
 

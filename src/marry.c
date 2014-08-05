@@ -49,17 +49,17 @@ void do_marry(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		stc("Syntax: marry <char1> <char2>\n\r", ch);
+		stc("Syntax: marry <char1> <char2>\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
-		stc("The first person mentioned isn't playing.\n\r", ch);
+		stc("The first person mentioned isn't playing.\n", ch);
 		return;
 	}
 
 	if ((victim2 = get_player_world(ch, arg2, VIS_PLR)) == NULL) {
-		stc("The second person mentioned isn't playing.\n\r", ch);
+		stc("The second person mentioned isn't playing.\n", ch);
 		return;
 	}
 
@@ -69,21 +69,21 @@ void do_marry(CHAR_DATA *ch, char *argument)
 	    || victim2->pcdata->spouse[0] == '\0'
 	    || str_cmp(victim->pcdata->spouse, victim2->name)
 	    || str_cmp(victim2->pcdata->spouse, victim->name)) {
-		stc("They are not engaged.\n\r", ch);
+		stc("They are not engaged.\n", ch);
 		return;
 	}
 
 	if (IS_SET(victim->pcdata->plr, PLR_MARRIED) || IS_SET(victim2->pcdata->plr, PLR_MARRIED)) {
-		stc("They are already married.\n\r", ch);
+		stc("They are already married.\n", ch);
 		return;
 	}
 
-	stc("You pronounce them husband and wife!\n\r", ch);
-	ptc(ch, "You marry %s and %s.\n\r", victim->name, victim2->name);
-	stc("You say the big 'I do!'\n\r", victim);
-	ptc(victim, "You are now married to %s.\n\r", victim2->name);
-	stc("You say the big 'I do!'\n\r", victim2);
-	ptc(victim2, "You are now married to %s.\n\r", victim->name);
+	stc("You pronounce them husband and wife!\n", ch);
+	ptc(ch, "You marry %s and %s.\n", victim->name, victim2->name);
+	stc("You say the big 'I do!'\n", victim);
+	ptc(victim, "You are now married to %s.\n", victim2->name);
+	stc("You say the big 'I do!'\n", victim2);
+	ptc(victim2, "You are now married to %s.\n", victim->name);
 	SET_BIT(victim->pcdata->plr, PLR_MARRIED);
 	SET_BIT(victim2->pcdata->plr, PLR_MARRIED);
 	save_char_obj(victim);
@@ -101,36 +101,36 @@ void do_divorce(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		stc("Syntax: divorce <char1> <char2>\n\r", ch);
+		stc("Syntax: divorce <char1> <char2>\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
-		stc("The first person mentioned isn't playing.\n\r", ch);
+		stc("The first person mentioned isn't playing.\n", ch);
 		return;
 	}
 
 	if ((victim2 = get_player_world(ch, arg2, VIS_PLR)) == NULL) {
-		stc("The second person mentioned isn't playing.\n\r", ch);
+		stc("The second person mentioned isn't playing.\n", ch);
 		return;
 	}
 
 	if (!IS_SET(victim->pcdata->plr, PLR_MARRIED) || !IS_SET(victim2->pcdata->plr, PLR_MARRIED)) {
-		stc("They aren't even married.\n\r", ch);
+		stc("They aren't even married.\n", ch);
 		return;
 	}
 
 	if (str_cmp(victim->pcdata->spouse, victim2->name)) {
-		stc("They aren't even married to each other.\n\r", ch);
+		stc("They aren't even married to each other.\n", ch);
 		return;
 	}
 
-	stc("You hand them their papers.\n\r", ch);
-	ptc(ch, "You divorce %s and %s.\n\r", victim->name, victim2->name);
-	stc("Your divorce is final.\n\r", victim);
-	ptc(victim, "You are now divorced from %s.\n\r", victim2->name);
-	stc("Your divorce is final.\n\r", victim2);
-	ptc(victim2, "You are now divorced from %s.\n\r", victim->name);
+	stc("You hand them their papers.\n", ch);
+	ptc(ch, "You divorce %s and %s.\n", victim->name, victim2->name);
+	stc("Your divorce is final.\n", victim);
+	ptc(victim, "You are now divorced from %s.\n", victim2->name);
+	stc("Your divorce is final.\n", victim2);
+	ptc(victim2, "You are now divorced from %s.\n", victim->name);
 	free_string(victim->pcdata->spouse);
 	free_string(victim2->pcdata->spouse);
 	victim->pcdata->spouse = str_dup("");
@@ -153,21 +153,21 @@ void do_spousetalk(CHAR_DATA *ch, char *argument)
 
 	if (!IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
 		new_color(ch, CSLOT_CHAN_SPOUSE);
-		stc("But you aren't married.\n\r", ch);
+		stc("But you aren't married.\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if (ch->pcdata->spouse == NULL || ch->pcdata->spouse == '\0') {
 		new_color(ch, CSLOT_CHAN_SPOUSE);
-		stc("You aren't even engaged. How do you expect to talk to your other half?\n\r", ch);
+		stc("You aren't even engaged. How do you expect to talk to your other half?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
 
 	if (argument[0] == '\0') {
 		new_color(ch, CSLOT_CHAN_SPOUSE);
-		stc("What do you wish to tell your other half?\n\r", ch);
+		stc("What do you wish to tell your other half?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
 		return;
 	}
@@ -186,16 +186,16 @@ void do_spousetalk(CHAR_DATA *ch, char *argument)
 		if (victim != NULL) {
 			new_color(ch, CSLOT_CHAN_SPOUSE);
 			new_color(victim, CSLOT_CHAN_SPOUSE);
-			sprintf(buf, "%s says to you, '%s'\n\r" , ch->name, argument);
+			sprintf(buf, "%s says to you, '%s'\n" , ch->name, argument);
 			stc(buf, victim);
-			sprintf(buf, "You say to %s, '%s'\n\r", ch->pcdata->spouse, argument);
+			sprintf(buf, "You say to %s, '%s'\n", ch->pcdata->spouse, argument);
 			stc(buf, ch);
 			set_color(ch, WHITE, NOBOLD);
 			set_color(victim, WHITE, NOBOLD);
 		}
 		else {
 			new_color(ch, CSLOT_CHAN_SPOUSE);
-			stc("Your spouse is not here.\n\r", ch);
+			stc("Your spouse is not here.\n", ch);
 			set_color(ch, WHITE, NOBOLD);
 		}
 
@@ -213,42 +213,42 @@ void do_propose(CHAR_DATA *ch, char *argument)
 	}
 
 	if (argument[0] == '\0') {
-		stc("Propose to who?\n\r", ch);
+		stc("Propose to who?\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
-		stc("You are already married.\n\r", ch);
+		stc("You are already married.\n", ch);
 		return;
 	}
 
 	if (ch->pcdata->spouse != NULL && ch->pcdata->spouse != '\0') {
-		stc("You are already engaged.\n\r", ch);
+		stc("You are already engaged.\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == NULL) {
-		stc("They aren't in the room.\n\r", ch);
+		stc("They aren't in the room.\n", ch);
 		return;
 	}
 
 	if (IS_NPC(victim)) {
-		stc("That's just silly.\n\r", ch);
+		stc("That's just silly.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		stc("You utterly reject yourself.\n\r", ch);
+		stc("You utterly reject yourself.\n", ch);
 		return;
 	}
 
 	if (IS_SET(victim->pcdata->plr, PLR_MARRIED)) {
-		stc("They are already married.\n\r", ch);
+		stc("They are already married.\n", ch);
 		return;
 	}
 
 	if (victim->pcdata->spouse != NULL && victim->pcdata->spouse != '\0') {
-		stc("They are already engaged.\n\r", ch);
+		stc("They are already engaged.\n", ch);
 		return;
 	}
 
@@ -271,37 +271,37 @@ void do_accept(CHAR_DATA *ch, char *argument)
 	}
 
 	if (argument[0] == '\0') {
-		stc("Accept who's proposal?\n\r", ch);
+		stc("Accept who's proposal?\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
-		stc("You are already married.\n\r", ch);
+		stc("You are already married.\n", ch);
 		return;
 	}
 
 	if (ch->pcdata->spouse != NULL && ch->pcdata->spouse != '\0') {
-		stc("You are already engaged.\n\r", ch);
+		stc("You are already engaged.\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
 	if (IS_NPC(victim)) {
-		stc("Now why would they propose to you?\n\r", ch);
+		stc("Now why would they propose to you?\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		stc("Not a good idea there.\n\r", ch);
+		stc("Not a good idea there.\n", ch);
 		return;
 	}
 
 	if (victim->pcdata->propose == NULL || str_cmp(victim->pcdata->propose, ch->name)) {
-		stc("They haven't proposed to you.\n\r", ch);
+		stc("They haven't proposed to you.\n", ch);
 		return;
 	}
 
@@ -318,7 +318,7 @@ void do_accept(CHAR_DATA *ch, char *argument)
 	act("You accept $S offer of marriage.  Woohoo!", ch, NULL, victim, TO_CHAR);
 	act("$n accepts $N's offer of marriage.  Woohoo!", ch, NULL, victim, TO_NOTVICT);
 	act("$n accepts your offer of marriage.  Woohoo!", ch, NULL, victim, TO_VICT);
-	sprintf(buf, "{W[FYI] %s and %s are now engaged!  Congratulations!{x\n\r", ch->name, victim->name);
+	sprintf(buf, "{W[FYI] %s and %s are now engaged!  Congratulations!{x\n", ch->name, victim->name);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *msgvict;
@@ -345,37 +345,37 @@ void do_reject(CHAR_DATA *ch, char *argument)
 	}
 
 	if (argument[0] == '\0') {
-		stc("Reject who's proposal?\n\r", ch);
+		stc("Reject who's proposal?\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
-		stc("You are already married.\n\r", ch);
+		stc("You are already married.\n", ch);
 		return;
 	}
 
 	if (ch->pcdata->spouse != NULL && ch->pcdata->spouse != '\0') {
-		stc("You are already engaged.\n\r", ch);
+		stc("You are already engaged.\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
 	if (IS_NPC(victim)) {
-		stc("Now why would they propose to you?\n\r", ch);
+		stc("Now why would they propose to you?\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		stc("Not a good idea there.\n\r", ch);
+		stc("Not a good idea there.\n", ch);
 		return;
 	}
 
 	if (victim->pcdata->propose == NULL || str_cmp(victim->pcdata->propose, ch->name)) {
-		stc("They haven't proposed to you.\n\r", ch);
+		stc("They haven't proposed to you.\n", ch);
 		return;
 	}
 
@@ -405,32 +405,32 @@ void do_breakup(CHAR_DATA *ch, char *argument)
 	}
 
 	if (argument[0] == '\0') {
-		stc("Breakup with who?\n\r", ch);
+		stc("Breakup with who?\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->pcdata->plr, PLR_MARRIED)) {
-		stc("You are married, you have to get a divorce.\n\r", ch);
+		stc("You are married, you have to get a divorce.\n", ch);
 		return;
 	}
 
 	if (ch->pcdata->spouse == NULL || ch->pcdata->spouse == '\0') {
-		stc("You aren't engaged.\n\r", ch);
+		stc("You aren't engaged.\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_here(ch, argument, VIS_CHAR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim == ch) {
-		stc("Not with yourself.\n\r", ch);
+		stc("Not with yourself.\n", ch);
 		return;
 	}
 
 	if (IS_NPC(victim)) {
-		stc("Bad idea.\n\r", ch);
+		stc("Bad idea.\n", ch);
 		return;
 	}
 
@@ -451,7 +451,7 @@ void do_breakup(CHAR_DATA *ch, char *argument)
 	act("You break off your engagement with $M.", ch, NULL, victim, TO_CHAR);
 	act("$n breaks off $s engagement with $N.", ch, NULL, victim, TO_NOTVICT);
 	act("$n breaks off $s engagement with you.", ch, NULL, victim, TO_VICT);
-	sprintf(buf, "{W[FYI] %s and %s have broken off their engagement.{x\n\r", ch->name, victim->name);
+	sprintf(buf, "{W[FYI] %s and %s have broken off their engagement.{x\n", ch->name, victim->name);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *msgvict;

@@ -33,9 +33,9 @@ void duel_update()
 				sprintf(buf, "%s seems to have fallen asleep, %s had better find somebody awake to duel!",
 				        c->defender->name, c->challenger->name);
 				duel_announce(buf, c);
-				ptc(c->defender, "{P[{RDUEL{P] {WYou didn't respond to %s's challenge, it has been withdrawn.{x\n\r",
+				ptc(c->defender, "{P[{RDUEL{P] {WYou didn't respond to %s's challenge, it has been withdrawn.{x\n",
 				    c->challenger->name);
-				ptc(c->challenger, "{P[{RDUEL{P] {W%s didn't respond to your challenge, it has been withdrawn.{x\n\r",
+				ptc(c->challenger, "{P[{RDUEL{P] {W%s didn't respond to your challenge, it has been withdrawn.{x\n",
 				    c->defender->name);
 				c_next = c->next;
 				remove_duel(c);
@@ -49,7 +49,7 @@ void duel_update()
 				CHAR_DATA *wch;
 
 				for (wch = c->arena->viewroom->people; wch != NULL; wch = wch->next_in_room)
-					stc("{P[{RDUEL{P] {WThe duel has begun!{x\n\r", wch);
+					stc("{P[{RDUEL{P] {WThe duel has begun!{x\n", wch);
 
 				room = get_random_arena_room(c->arena, 0);
 				char_from_room(c->challenger);
@@ -59,8 +59,8 @@ void duel_update()
 				char_from_room(c->defender);
 				char_to_room(c->defender, room);
 				do_look(c->defender, "auto");
-				stc("\n\r{P[{RDUEL{P] {WThe duel has begun.  Luck be with ye!{x\n\r", c->challenger);
-				stc("\n\r{P[{RDUEL{P] {WThe duel has begun.  Luck be with ye!{x\n\r", c->defender);
+				stc("\n{P[{RDUEL{P] {WThe duel has begun.  Luck be with ye!{x\n", c->challenger);
+				stc("\n{P[{RDUEL{P] {WThe duel has begun.  Luck be with ye!{x\n", c->defender);
 			}
 		}
 
@@ -143,7 +143,7 @@ void duel_announce(char *buf, DUEL_DATA *duel)
 {
 	char buffer[MSL];
 	DESCRIPTOR_DATA *d;
-	sprintf(buffer, "{P[{RDUEL{P] {W%s{x\n\r", buf);
+	sprintf(buffer, "{P[{RDUEL{P] {W%s{x\n", buf);
 
 	for (d = descriptor_list; d != NULL; d = d->next)
 		if (IS_PLAYING(d)
@@ -452,7 +452,7 @@ void view_room_hpbar(CHAR_DATA *ch)
 
 	strcat(defblock, "{C] ");
 	strcat(defblock, def->name);
-	sprintf(line, "%30s %-30s{x\n\r", chalblock, defblock);
+	sprintf(line, "%30s %-30s{x\n", chalblock, defblock);
 
 	for (vch = duel->arena->viewroom->people; vch != NULL; vch = vch->next_in_room)
 		stc(line, vch);
@@ -500,20 +500,20 @@ void duel_kill(CHAR_DATA *victim)
 
 	if (ch->clan) {
 		char_to_room(ch, get_room_index(ch->clan->hall));
-		stc("You find yourself back in your clanhall.\n\r", ch);
+		stc("You find yourself back in your clanhall.\n", ch);
 	}
 	else {
 		char_to_room(ch, get_room_index(ROOM_VNUM_ALTAR));
-		stc("You find yourself at the altar of Mota.\n\r", ch);
+		stc("You find yourself at the altar of Mota.\n", ch);
 	}
 
 	if (victim->clan) {
 		char_to_room(victim, get_room_index(victim->clan->hall));
-		stc("You find yourself back in your clanhall.\n\r", victim);
+		stc("You find yourself back in your clanhall.\n", victim);
 	}
 	else {
 		char_to_room(victim, get_room_index(ROOM_VNUM_ALTAR));
-		stc("You find yourself at the altar of Mota.\n\r", victim);
+		stc("You find yourself at the altar of Mota.\n", victim);
 	}
 
 	/* go get their pets */
@@ -590,7 +590,7 @@ void do_duel(CHAR_DATA *ch, char *argument)
 	ARENA_DATA *arena;
 
 	if (IS_NPC(ch)) {
-		stc("You have no need to challenge players.\n\r", ch);
+		stc("You have no need to challenge players.\n", ch);
 		return;
 	}
 
@@ -600,12 +600,12 @@ void do_duel(CHAR_DATA *ch, char *argument)
 
 	if (!str_prefix1(arg1, "arena")) {
 		if (arg2[0] == '\0') {
-			stc("Keyword:        Name:\n\r", ch);
+			stc("Keyword:        Name:\n", ch);
 
 			for (arena = arena_table_head->next; arena != arena_table_tail; arena = arena->next)
-				ptc(ch, "%-16s%s\n\r", arena->keyword, arena->name);
+				ptc(ch, "%-16s%s\n", arena->keyword, arena->name);
 
-			stc("\n\rType 'duel arena <keyword>' for more information.\n\r", ch);
+			stc("\nType 'duel arena <keyword>' for more information.\n", ch);
 			return;
 		}
 
@@ -614,22 +614,22 @@ void do_duel(CHAR_DATA *ch, char *argument)
 				break;
 
 		if (arena == arena_table_tail) {
-			stc("Arena not found.  Type 'duel arena' to see the choices.\n\r", ch);
+			stc("Arena not found.  Type 'duel arena' to see the choices.\n", ch);
 			return;
 		}
 
-		ptc(ch, "%s\n\r\n\r%s\n\r", arena->name, arena->desc);
+		ptc(ch, "%s\n\n%s\n", arena->name, arena->desc);
 		return;
 	}
 
 	if (!str_prefix1(arg1, "decline")) {
 		if ((duel = get_duel(ch)) == NULL || duel->defender != ch) {
-			stc("No duel has been issued to you.\n\r", ch);
+			stc("No duel has been issued to you.\n", ch);
 			return;
 		}
 
 		if (duel->accept_timer == 0) {
-			stc("Too late, get ready to fight!\n\r", ch);
+			stc("Too late, get ready to fight!\n", ch);
 			return;
 		}
 
@@ -641,107 +641,107 @@ void do_duel(CHAR_DATA *ch, char *argument)
 			        ch->name, duel->challenger->name);
 
 		duel_announce(buf, duel);
-		ptc(ch, "{P[{RDUEL{P] {WYou decline %s{W's challenge.{x\n\r", duel->challenger->name);
-		ptc(duel->challenger, "{P[{RDUEL{P] {W%s {Wdeclines your challenge.{x\n\r", ch->name);
+		ptc(ch, "{P[{RDUEL{P] {WYou decline %s{W's challenge.{x\n", duel->challenger->name);
+		ptc(duel->challenger, "{P[{RDUEL{P] {W%s {Wdeclines your challenge.{x\n", ch->name);
 		remove_duel(duel);
 		return;
 	}
 
 	if (!str_prefix1(arg1, "ignore")) {
 		if (IS_IMMORTAL(ch)) {
-			stc("Immortals cannot duel.\n\r", ch);
+			stc("Immortals cannot duel.\n", ch);
 			return;
 		}
 
 		if (get_duel(ch)) {
-			stc("You have a duel in progress, deal with it first.\n\r", ch);
+			stc("You have a duel in progress, deal with it first.\n", ch);
 			return;
 		}
 
 		if (IS_SET(ch->pcdata->plr, PLR_DUEL_IGNORE)) {
 			REMOVE_BIT(ch->pcdata->plr, PLR_DUEL_IGNORE);
-			stc("Others can challenge you now.\n\r", ch);
+			stc("Others can challenge you now.\n", ch);
 		}
 		else {
 			SET_BIT(ch->pcdata->plr, PLR_DUEL_IGNORE);
-			stc("You no longer fight in duels.\n\r", ch);
+			stc("You no longer fight in duels.\n", ch);
 		}
 
 		return;
 	}
 
 	if (arg1[0] != '\0' && ch->in_room != NULL && ch->in_room->vnum == 1212) {
-		stc("Put your nose back in the corner, you don't need to duel.\n\r", ch);
+		stc("Put your nose back in the corner, you don't need to duel.\n", ch);
 		return;
 	}
 
 	if (!str_prefix1(arg1, "issue")) {
 		if (ch->level < 10 && !IS_REMORT(ch)) {
-			stc("You cannot duel until you are level 10.\n\r", ch);
+			stc("You cannot duel until you are level 10.\n", ch);
 			return;
 		}
 
 		if (arg2[0] == '\0') {
-			stc("Syntax: duel issue <victim> <arena name (optional)>\n\r", ch);
+			stc("Syntax: duel issue <victim> <arena name (optional)>\n", ch);
 			return;
 		}
 
 		if (IS_IMMORTAL(ch)) {
-			stc("Immortals cannot duel.\n\r", ch);
+			stc("Immortals cannot duel.\n", ch);
 			return;
 		}
 
 		if (get_duel(ch)) {
-			stc("You are already involved in a duel, deal with it first.\n\r", ch);
+			stc("You are already involved in a duel, deal with it first.\n", ch);
 			return;
 		}
 
 		if ((victim = get_player_world(ch, arg2, VIS_PLR)) == NULL) {
-			stc("You see no one by that name around.\n\r", ch);
+			stc("You see no one by that name around.\n", ch);
 			return;
 		}
 
 		if (ch == victim) {
-			stc("You slap yourself around a bit.\n\r", ch);
+			stc("You slap yourself around a bit.\n", ch);
 			return;
 		}
 
 		if (IS_IMMORTAL(victim)) {
-			stc("Immortals cannot duel.\n\r", ch);
+			stc("Immortals cannot duel.\n", ch);
 			return;
 		}
 
 		if (victim->level < 10 && !IS_REMORT(victim)) {
-			stc("You cannot duel with newbies.\n\r", ch);
+			stc("You cannot duel with newbies.\n", ch);
 			return;
 		}
 
 		if (IS_SET(victim->pcdata->plr, PLR_LINK_DEAD)
 		    || IS_SET(victim->comm, COMM_AFK)) {
-			stc("They are not with us at present, wait until they return.\n\r", ch);
+			stc("They are not with us at present, wait until they return.\n", ch);
 			return;
 		}
 
 		if (IS_SET(victim->pcdata->plr, PLR_DUEL_IGNORE)) {
-			stc("They are not accepting duels.\n\r", ch);
+			stc("They are not accepting duels.\n", ch);
 			return;
 		}
 
 		if (char_opponents(ch, victim)
 		    && ((ch->level - victim->level) > 10
 		        || (victim->level - ch->level) > 10)) {
-			stc("You must be within ten levels of your opponent to duel in war.\n\r", ch);
+			stc("You must be within ten levels of your opponent to duel in war.\n", ch);
 			return;
 		}
 
 		if (get_duel(victim)) {
-			stc("They are already involved in a duel.\n\r", ch);
+			stc("They are already involved in a duel.\n", ch);
 			return;
 		}
 
 		if (arg3[0] == '\0') {
 			if ((arena = get_random_arena()) == NULL) {
-				stc("Sorry, there are no arenas right now.\n\r", ch);
+				stc("Sorry, there are no arenas right now.\n", ch);
 				return;
 			}
 		}
@@ -751,7 +751,7 @@ void do_duel(CHAR_DATA *ch, char *argument)
 					break;
 
 			if (arena == arena_table_tail) {
-				stc("That is not an arena.\n\r", ch);
+				stc("That is not an arena.\n", ch);
 				return;
 			}
 		}
@@ -763,14 +763,14 @@ void do_duel(CHAR_DATA *ch, char *argument)
 		duel->accept_timer = 600;
 		duel->prep_timer = 0;
 		append_duel(duel);
-		ptc(ch, "{P[{RDUEL{P] {WYou challenge %s {Wto a duel!{x\n\r", victim->name);
-		ptc(victim, "{P[{RDUEL{P] {W%s {Whas challenged you to a duel!{x\n\r", ch->name);
+		ptc(ch, "{P[{RDUEL{P] {WYou challenge %s {Wto a duel!{x\n", victim->name);
+		ptc(victim, "{P[{RDUEL{P] {W%s {Whas challenged you to a duel!{x\n", ch->name);
 
 		if (char_opponents(ch, victim))
 			sprintf(buf, "%s {Whas challenged %s {Wto a duel for the honor of %s!",
 			        ch->name, victim->name, victim->clan->clanname);
 		else
-			sprintf(buf, "%s {Whas challenged %s {Wto a duel!\n\r",
+			sprintf(buf, "%s {Whas challenged %s {Wto a duel!\n",
 			        ch->name, victim->name);
 
 		duel_announce(buf, duel);
@@ -779,7 +779,7 @@ void do_duel(CHAR_DATA *ch, char *argument)
 
 	if (!str_prefix1(arg1, "accept")) {
 		if (IS_IMMORTAL(ch)) {
-			stc("Immortals cannot duel.\n\r", ch);
+			stc("Immortals cannot duel.\n", ch);
 			return;
 		}
 
@@ -788,9 +788,9 @@ void do_duel(CHAR_DATA *ch, char *argument)
 		while (duel != duel_table_tail) {
 			if (duel->accept_timer == 0) {
 				if (ch->pcdata->duel == duel)
-					stc("You have already accepted.\n\r", ch);
+					stc("You have already accepted.\n", ch);
 				else
-					stc("A duel is already in progress.\n\r", ch);
+					stc("A duel is already in progress.\n", ch);
 
 				return;
 			}
@@ -799,7 +799,7 @@ void do_duel(CHAR_DATA *ch, char *argument)
 		}
 
 		if ((duel = get_duel(ch)) == NULL || duel->defender != ch) {
-			stc("You have not been challenged to a duel.\n\r", ch);
+			stc("You have not been challenged to a duel.\n", ch);
 			return;
 		}
 
@@ -809,8 +809,8 @@ void do_duel(CHAR_DATA *ch, char *argument)
 		prepare_char(victim, duel);
 		duel->accept_timer = 0;
 		duel->prep_timer = 60;
-		stc("{P[{RDUEL{P] {WYou accept the challenge, prepare for combat!{x\n\r", ch);
-		ptc(victim, "{P[{RDUEL{P] {W%s {Waccepts your challenge, prepare for combat!{x\n\r", ch->name);
+		stc("{P[{RDUEL{P] {WYou accept the challenge, prepare for combat!{x\n", ch);
+		ptc(victim, "{P[{RDUEL{P] {W%s {Waccepts your challenge, prepare for combat!{x\n", ch->name);
 		sprintf(buf, "%s {Whas accepted %s{W's challenge, the duel is going to start!",
 		        ch->name, victim->name);
 		duel_announce(buf, duel);
@@ -828,22 +828,22 @@ void do_duel(CHAR_DATA *ch, char *argument)
 		}
 
 		if (duel == duel_table_tail) {
-			stc("No duels have commenced.\n\r", ch);
+			stc("No duels have commenced.\n", ch);
 			return;
 		}
 
 		if (ch->pcdata->duel == duel) {
-			stc("You can't view your own duel!\n\r", ch);
+			stc("You can't view your own duel!\n", ch);
 			return;
 		}
 
 		if (ch->fighting) {
-			stc("Deal with this fight first!\n\r", ch);
+			stc("Deal with this fight first!\n", ch);
 			return;
 		}
 
 		if (ch->in_room == NULL || ch->in_room == duel->arena->viewroom) {
-			stc("You're already there!\n\r", ch);
+			stc("You're already there!\n", ch);
 			return;
 		}
 
@@ -855,12 +855,12 @@ void do_duel(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	stc("Syntax:\n\r", ch);
-	stc("  duel issue <opponent> <arena (optional)>\n\r", ch);
-	stc("  duel accept\n\r", ch);
-	stc("  duel decline\n\r", ch);
-	stc("  duel view\n\r", ch);
-	stc("  duel ignore\n\r", ch);
-	stc("  duel arena\n\r", ch);
-	stc("  duel arena <arena name>\n\r", ch);
+	stc("Syntax:\n", ch);
+	stc("  duel issue <opponent> <arena (optional)>\n", ch);
+	stc("  duel accept\n", ch);
+	stc("  duel decline\n", ch);
+	stc("  duel view\n", ch);
+	stc("  duel ignore\n", ch);
+	stc("  duel arena\n", ch);
+	stc("  duel arena <arena name>\n", ch);
 }

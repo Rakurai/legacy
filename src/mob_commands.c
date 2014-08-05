@@ -93,47 +93,47 @@ void do_mpstat(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		stc("MobProg stat whom?\n\r", ch);
+		stc("MobProg stat whom?\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
 	if (!IS_NPC(victim)) {
-		stc("Only Mobiles can have Programs!\n\r", ch);
+		stc("Only Mobiles can have Programs!\n", ch);
 		return;
 	}
 
 	if (!(victim->pIndexData->progtypes)) {
-		stc("That Mobile has no Programs set.\n\r", ch);
+		stc("That Mobile has no Programs set.\n", ch);
 		return;
 	}
 
-	sprintf(buf, "Name: %s.  Vnum: %d.\n\r",
+	sprintf(buf, "Name: %s.  Vnum: %d.\n",
 	        victim->name, victim->pIndexData->vnum);
 	stc(buf, ch);
-	sprintf(buf, "Short description: %s.\n\rLong  description: %s",
+	sprintf(buf, "Short description: %s.\nLong  description: %s",
 	        victim->short_descr,
 	        victim->long_descr[0] != '\0' ?
-	        victim->long_descr : "(none).\n\r");
+	        victim->long_descr : "(none).\n");
 	stc(buf, ch);
-	sprintf(buf, "Hp: %d/%d.  Mana: %d/%d.  Stamina: %d/%d. \n\r",
+	sprintf(buf, "Hp: %d/%d.  Mana: %d/%d.  Stamina: %d/%d. \n",
 	        victim->hit,         victim->max_hit,
 	        victim->mana,        victim->max_mana,
 	        victim->stam,        victim->max_stam);
 	stc(buf, ch);
 	sprintf(buf,
-	        "Lv: %d.  Class: %d.  Align: %d.  AC: %d.  Gold: %ld.  Exp: %d.\n\r",
+	        "Lv: %d.  Class: %d.  Align: %d.  AC: %d.  Gold: %ld.  Exp: %d.\n",
 	        victim->level,       victim->class,        victim->alignment,
 	        GET_AC(victim, AC_PIERCE),    victim->gold,         victim->exp);
 	stc(buf, ch);
 
 	for (mprg = victim->pIndexData->mobprogs; mprg != NULL;
 	     mprg = mprg->next) {
-		sprintf(buf, ">%s %s\n\r%s\n\r",
+		sprintf(buf, ">%s %s\n%s\n",
 		        mprog_type_to_name(mprg->type),
 		        mprg->arglist,
 		        mprg->comlist);
@@ -153,7 +153,7 @@ void do_mpasound(CHAR_DATA *ch, char *argument)
 	bool save_mobtrigger;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
@@ -191,7 +191,7 @@ void do_mpkill(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
@@ -243,7 +243,7 @@ void do_mpjunk(CHAR_DATA *ch, char *argument)
 	OBJ_DATA *obj_next;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
@@ -290,7 +290,7 @@ void do_mpechoaround(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
@@ -320,7 +320,7 @@ void do_mpechoat(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
@@ -348,7 +348,7 @@ void do_mpechoat(CHAR_DATA *ch, char *argument)
 void do_mpecho(CHAR_DATA *ch, char *argument)
 {
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
@@ -366,7 +366,7 @@ void do_mpecho(CHAR_DATA *ch, char *argument)
 void do_mpclearmoney(CHAR_DATA *ch, char *argument)
 {
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
@@ -386,7 +386,7 @@ void do_mpmload(CHAR_DATA *ch, char *argument)
 	CHAR_DATA      *victim;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
@@ -466,7 +466,7 @@ void do_mppurge(CHAR_DATA *ch, char *argument)
 	OBJ_DATA  *obj;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
@@ -516,7 +516,7 @@ void do_mpgoto(CHAR_DATA *ch, char *argument)
 	ROOM_INDEX_DATA *location;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
@@ -550,7 +550,7 @@ void do_mpat(CHAR_DATA *ch, char *argument)
 	CHAR_DATA       *wch;
 
 	if (!IS_NPC(ch) || IS_SET(ch->act, ACT_MORPH)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 

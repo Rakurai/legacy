@@ -45,7 +45,7 @@ void do_heal(CHAR_DATA *ch, char *argument)
 	}
 
 	if (mob == NULL) {
-		stc("You can't do that here.\n\r", ch);
+		stc("You can't do that here.\n", ch);
 		return;
 	}
 
@@ -54,17 +54,17 @@ void do_heal(CHAR_DATA *ch, char *argument)
 	if (arg[0] == '\0') {
 		/* display price list */
 		act("$N says 'I offer the following spells:'", ch, NULL, mob, TO_CHAR);
-		stc("  light: cure light wounds       5 gold\n\r", ch);
-		stc("  serious: cure serious wounds  10 gold\n\r", ch);
-		stc("  critic: cure critical wounds  20 gold\n\r", ch);
-		stc("  heal: healing spell           30 gold\n\r", ch);
-		stc("  blind: cure blindness          1 gold\n\r", ch);
-		stc("  disease: cure disease          1 gold\n\r", ch);
-		stc("  poison:  cure poison           1 gold\n\r", ch);
-		stc("  uncurse: remove curse          1 gold\n\r", ch);
-		stc("  refresh: restore stamina      15 gold\n\r", ch);
-		stc("  mana:  restore mana           35 gold\n\r", ch);
-		stc("  Type heal <type> to be healed.\n\r", ch);
+		stc("  light: cure light wounds       5 gold\n", ch);
+		stc("  serious: cure serious wounds  10 gold\n", ch);
+		stc("  critic: cure critical wounds  20 gold\n", ch);
+		stc("  heal: healing spell           30 gold\n", ch);
+		stc("  blind: cure blindness          1 gold\n", ch);
+		stc("  disease: cure disease          1 gold\n", ch);
+		stc("  poison:  cure poison           1 gold\n", ch);
+		stc("  uncurse: remove curse          1 gold\n", ch);
+		stc("  refresh: restore stamina      15 gold\n", ch);
+		stc("  mana:  restore mana           35 gold\n", ch);
+		stc("  Type heal <type> to be healed.\n", ch);
 		return;
 	}
 
@@ -160,7 +160,7 @@ void do_heal(CHAR_DATA *ch, char *argument)
 	if (spell == NULL) { /* restore mana trap...kinda hackish */
 		ch->mana += dice(9, 10) + mob->level / 2;
 		ch->mana = UMIN(ch->mana, ch->max_mana);
-		stc("A warm glow passes through you.\n\r", ch);
+		stc("A warm glow passes through you.\n", ch);
 		return;
 	}
 

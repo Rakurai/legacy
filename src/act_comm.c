@@ -428,7 +428,7 @@ int select_pose(CHAR_DATA *ch)
 	int pose;
 
 	if (IS_NPC(ch)) {
-		stc("Sorry, mobiles can't pose!\n\r", ch);
+		stc("Sorry, mobiles can't pose!\n", ch);
 		return -1;
 	}
 
@@ -440,7 +440,7 @@ int select_pose(CHAR_DATA *ch)
 	maxpose = new_pose_table[ch->class].posecount;
 
 	if (maxpose <= 0) {
-		stc("No poses implemented for your class, sorry!\n\r", ch);
+		stc("No poses implemented for your class, sorry!\n", ch);
 		return -1;
 	}
 
@@ -471,7 +471,7 @@ void do_testpose(CHAR_DATA *ch, char *argument)
 	int pose;
 
 	if (!argument[0]) {
-		stc("Syntax: testpose [class [number]]\n\r", ch);
+		stc("Syntax: testpose [class [number]]\n", ch);
 		return;
 	}
 
@@ -479,12 +479,12 @@ void do_testpose(CHAR_DATA *ch, char *argument)
 	class = class_lookup(arg);
 
 	if (class == -1) {
-		stc("That's not a valid class\n\r", ch);
+		stc("That's not a valid class\n", ch);
 		return;
 	}
 
 	if (!argument[0]) {
-		sprintf(arg, "%d poses defined for class '%s'\n\r",
+		sprintf(arg, "%d poses defined for class '%s'\n",
 		        new_pose_table[class].posecount, class_table[class].name);
 		stc(arg, ch);
 		return;
@@ -493,21 +493,21 @@ void do_testpose(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg);
 
 	if (!is_number(arg)) {
-		stc("Pose number must be numeric!\n\r", ch);
+		stc("Pose number must be numeric!\n", ch);
 		return;
 	}
 
 	pose = atoi(arg);
 
 	if (pose < 1 || pose > new_pose_table[class].posecount) {
-		stc("Pose number out of range!\n\r", ch);
+		stc("Pose number out of range!\n", ch);
 		return;
 	}
 
 	pose--;
-	stc("{Yto {Cyourself{x:\n\r", ch);
+	stc("{Yto {Cyourself{x:\n", ch);
 	act(new_pose_table[class].poses[pose].self_msg, ch, NULL, NULL, TO_CHAR);
-	stc("{Yto {Cothers{x:\n\r", ch);
+	stc("{Yto {Cothers{x:\n", ch);
 	act(new_pose_table[class].poses[pose].room_msg, ch, NULL, NULL, TO_CHAR);
 } /* end do_testpose() */
 
@@ -515,7 +515,7 @@ void do_testpose(CHAR_DATA *ch, char *argument)
 /* RT code to delete yourself */
 void do_delet(CHAR_DATA *ch, char *argument)
 {
-	stc("You must type the full command to delete yourself.\n\r", ch);
+	stc("You must type the full command to delete yourself.\n", ch);
 }
 
 void do_delete(CHAR_DATA *ch, char *argument)
@@ -526,59 +526,59 @@ void do_delete(CHAR_DATA *ch, char *argument)
 	bool important = TRUE;
 
 	if (IS_NPC(ch)) {
-		stc("You're not getting out of here that easily!\n\r", ch);
+		stc("You're not getting out of here that easily!\n", ch);
 		return;
 	}
 
 	if (get_duel(ch)) {
-		stc("You are involved in a duel, deal with it first.\n\r", ch);
+		stc("You are involved in a duel, deal with it first.\n", ch);
 		return;
 	}
 
 	switch (ch->pcdata->confirm_delete) {
 	case 0:     /* first DELETE */
 		if (argument[0] != '\0') {
-			stc("Just type DELETE. No argument.\n\r", ch);
+			stc("Just type DELETE. No argument.\n", ch);
 			return;
 		}
 
 		wiznet("$N is contemplating deletion.", ch, NULL, 0, 0, GET_RANK(ch));
-		ptc(ch, "{RType {PDELETE{R again if you really want to delete '%s{R';\n\r{x", ch->name);
-		stc("{Rtype {PDELETE NO{R to cancel this command.{x\n\r", ch);
+		ptc(ch, "{RType {PDELETE{R again if you really want to delete '%s{R';\n{x", ch->name);
+		stc("{Rtype {PDELETE NO{R to cancel this command.{x\n", ch);
 		ch->pcdata->confirm_delete = 1;
 		break;
 
 	case 1:     /* second DELETE */
 		if (argument[0] != '\0') {
-			stc("Delete status removed.\n\r", ch);
+			stc("Delete status removed.\n", ch);
 			ch->pcdata->confirm_delete = 0;
 			return;
 		}
 
 		if (ch->pcdata->remort_count > 0)
-			ptc(ch, "This is a %dx remort character.\n\r", ch->pcdata->remort_count);
+			ptc(ch, "This is a %dx remort character.\n", ch->pcdata->remort_count);
 		else if (get_play_hours(ch) >= 100)
-			ptc(ch, "You have played this character for approximately %d hours.\n\r",
+			ptc(ch, "You have played this character for approximately %d hours.\n",
 			    get_play_hours(ch));
 		else if (ch->level >= 30)
-			ptc(ch, "This is a level %d character.\n\r", ch->level);
+			ptc(ch, "This is a level %d character.\n", ch->level);
 		else
 			important = FALSE;
 
 		if (important) {
-			stc("You could still delay your decision, {RQUIT{x and think it over.\n\r", ch);
-			stc("Be aware that this decision is {RFINAL{x;\n\rWe will {RNOT{x resurrect you.\n\r", ch);
+			stc("You could still delay your decision, {RQUIT{x and think it over.\n", ch);
+			stc("Be aware that this decision is {RFINAL{x;\nWe will {RNOT{x resurrect you.\n", ch);
 		}
 
 		ptc(ch, "{RType {PDELETE{R one last time if you really, really want to delete '%s{R';{x",
 		    ch->name);
-		stc("{Rtype {PDELETE NO{R to cancel this command.{x\n\r", ch);
+		stc("{Rtype {PDELETE NO{R to cancel this command.{x\n", ch);
 		ch->pcdata->confirm_delete = 2;
 		break;
 
 	case 2:     /* third DELETE */
 		if (argument[0] != '\0') {
-			stc("Delete status removed.\n\r", ch);
+			stc("Delete status removed.\n", ch);
 			ch->pcdata->confirm_delete = 0;
 			return;
 		}
@@ -615,8 +615,8 @@ void do_delete(CHAR_DATA *ch, char *argument)
 		break;
 
 	default:
-		stc("For technical reasons, you cannot delete yourself just now.\n\r"
-		    "Please tell an Imm about this.\n\r", ch);
+		stc("For technical reasons, you cannot delete yourself just now.\n"
+		    "Please tell an Imm about this.\n", ch);
 		bug("do_delete: bad confirm_delete: %d ", ch->pcdata->confirm_delete);
 		break;
 	} /* end switch */
@@ -646,7 +646,7 @@ void do_newbiekit(CHAR_DATA *ch, char *argument)
 
 	if (! kit) {
 		bug("Error creating kit in do_newbiekit.", 0);
-		stc("You were unable to create a newbiekit.\n\r", 0);
+		stc("You were unable to create a newbiekit.\n", 0);
 		return;
 	}
 
@@ -672,17 +672,17 @@ void do_newbiekit(CHAR_DATA *ch, char *argument)
 void do_ooc(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch)) {
-		stc("Mobiles don't care about RP =).\n\r", ch);
+		stc("Mobiles don't care about RP =).\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->pcdata->plr, PLR_OOC)) {
-		stc("You are no longer role playing.\n\r", ch);
+		stc("You are no longer role playing.\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_OOC);
 		wiznet("$N is now in *OOC* mode.", ch, NULL, WIZ_MISC, 0, 0);
 	}
 	else {
-		stc("You slip into character.\n\r", ch);
+		stc("You slip into character.\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_OOC);
 		wiznet("$N is now in *RP* mode.", ch, NULL, WIZ_MISC, 0, 0);
 	}
@@ -694,26 +694,26 @@ void do_pk(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *wch;
 
 	if (IS_NPC(ch)) {
-		stc("Mobiles don't care about PK =).\n\r", ch);
+		stc("Mobiles don't care about PK =).\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->act, PLR_NOPK)) {
-		stc("You are stuck in PK mode!  I hope no one is trying to kill you.\n\r", ch);
+		stc("You are stuck in PK mode!  I hope no one is trying to kill you.\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->pcdata->plr, PLR_PK) && (argument[0] == '\0' || !IS_IMP(ch)))
-		stc("Your PK flag is already up!\n\r", ch);
+		stc("Your PK flag is already up!\n", ch);
 	else if (!str_cmp(argument, "on")) {
-		stc("Everyone is going to be keeping an eye on you now =).\n\r", ch);
+		stc("Everyone is going to be keeping an eye on you now =).\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_PK);
 		wiznet("$N is now in *PK* mode.", ch, NULL, WIZ_MISC, 0, 0);
 	}
 	else if (argument[0] != '\0' && IS_IMP(ch)
 	         && (wch = get_player_world(ch, argument, VIS_PLR)) != NULL) {
 		if (!IS_SET(wch->pcdata->plr, PLR_PK)) {
-			stc("That player's PK flag is already down.\n\r", ch);
+			stc("That player's PK flag is already down.\n", ch);
 			return;
 		}
 
@@ -721,8 +721,8 @@ void do_pk(CHAR_DATA *ch, char *argument)
 		wiznet("$N's PK flag has been lowered.", wch, NULL, WIZ_MISC, 0, 0);
 	}
 	else {
-		stc("Once you raise your PK flag it stays up until someone kills you!\n\r"
-		    "If you are sure you want this, type PK ON .\n\r", ch);
+		stc("Once you raise your PK flag it stays up until someone kills you!\n"
+		    "If you are sure you want this, type PK ON .\n", ch);
 	}
 } /* end do_pk() */
 
@@ -734,11 +734,11 @@ void do_chatmode(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (IS_SET(ch->pcdata->plr, PLR_CHATMODE)) {
-		stc("You have exited chatmode.\n\r", ch);
+		stc("You have exited chatmode.\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_CHATMODE);
 	}
 	else {
-		stc("You will no longer see hunger/thirst messages.\n\r", ch);
+		stc("You will no longer see hunger/thirst messages.\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_CHATMODE);
 	}
 }
@@ -747,16 +747,16 @@ void do_chatmode(CHAR_DATA *ch, char *argument)
 void do_private(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch)) {
-		stc("Mobiles don't care about privacy =).\n\r", ch);
+		stc("Mobiles don't care about privacy =).\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->pcdata->plr, PLR_PRIVATE)) {
-		stc("Your room will now display in shortwho.\n\r", ch);
+		stc("Your room will now display in shortwho.\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_PRIVATE);
 	}
 	else {
-		stc("Your room will no longer display in shortwho.\n\r", ch);
+		stc("Your room will no longer display in shortwho.\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_PRIVATE);
 	}
 }
@@ -765,17 +765,17 @@ void do_private(CHAR_DATA *ch, char *argument)
 void do_showlast(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch)) {
-		stc("Mobiles don't care about their showlast =).\n\r", ch);
+		stc("Mobiles don't care about their showlast =).\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->pcdata->plr, PLR_NOSHOWLAST)) {
 		REMOVE_BIT(ch->pcdata->plr, PLR_NOSHOWLAST);
-		stc("Your last time on will now display in finger.\n\r", ch);
+		stc("Your last time on will now display in finger.\n", ch);
 	}
 	else {
 		SET_BIT(ch->pcdata->plr, PLR_NOSHOWLAST);
-		stc("Your last time on will no longer display in finger.\n\r", ch);
+		stc("Your last time on will no longer display in finger.\n", ch);
 	}
 
 	do_save(ch, "");
@@ -786,11 +786,11 @@ void do_showlast(CHAR_DATA *ch, char *argument)
 void do_autorecall(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->act, PLR_WIMPY)) {
-		stc("You will no longer recall in link-dead combat.\n\r", ch);
+		stc("You will no longer recall in link-dead combat.\n", ch);
 		REMOVE_BIT(ch->act, PLR_WIMPY);
 	}
 	else {
-		stc("You will now recall in link-dead combat.\n\r", ch);
+		stc("You will now recall in link-dead combat.\n", ch);
 		SET_BIT(ch->act, PLR_WIMPY);
 	}
 }
@@ -798,11 +798,11 @@ void do_autorecall(CHAR_DATA *ch, char *argument)
 void do_autotick(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->act, PLR_TICKS)) {
-		stc("You will no longer see ticks.\n\r", ch);
+		stc("You will no longer see ticks.\n", ch);
 		REMOVE_BIT(ch->act, PLR_TICKS);
 	}
 	else {
-		stc("You will now see ticks.\n\r", ch);
+		stc("You will now see ticks.\n", ch);
 		SET_BIT(ch->act, PLR_TICKS);
 	}
 }
@@ -815,11 +815,11 @@ void do_autopeek(CHAR_DATA *ch, char *argument)
 	if (!get_skill(ch, gsn_peek)) return;
 
 	if (IS_SET(ch->pcdata->plr, PLR_AUTOPEEK)) {
-		stc("You will no longer PEEK automatically.\n\r", ch);
+		stc("You will no longer PEEK automatically.\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_AUTOPEEK);
 	}
 	else {
-		stc("You will now PEEK automatically when you LOOK.\n\r", ch);
+		stc("You will now PEEK automatically when you LOOK.\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_AUTOPEEK);
 	}
 }
@@ -828,21 +828,21 @@ void do_autopeek(CHAR_DATA *ch, char *argument)
 void do_showraff(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
 	if (ch->pcdata->remort_count < 1) {
-		stc("You have not been reborn yet.\n\r", ch);
+		stc("You have not been reborn yet.\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->pcdata->plr, PLR_SHOWRAFF)) {
-		stc("Your remort affects will no longer show in 'affects'.\n\r", ch);
+		stc("Your remort affects will no longer show in 'affects'.\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_SHOWRAFF);
 	}
 	else {
-		stc("Your remort affects will now show in 'affects'.\n\r", ch);
+		stc("Your remort affects will now show in 'affects'.\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_SHOWRAFF);
 	}
 }
@@ -853,13 +853,13 @@ void do_deaf(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->comm, COMM_DEAF)) {
 		new_color(ch, CSLOT_CHAN_TELL);
-		stc("You can now hear tells again.\n\r", ch);
+		stc("You can now hear tells again.\n", ch);
 		REMOVE_BIT(ch->comm, COMM_DEAF);
 		set_color(ch, WHITE, NOBOLD);
 	}
 	else {
 		new_color(ch, CSLOT_CHAN_TELL);
-		stc("From now on, you won't hear tells.\n\r", ch);
+		stc("From now on, you won't hear tells.\n", ch);
 		SET_BIT(ch->comm, COMM_DEAF);
 		set_color(ch, WHITE, NOBOLD);
 	}
@@ -870,11 +870,11 @@ void do_deaf(CHAR_DATA *ch, char *argument)
 void do_quiet(CHAR_DATA *ch, char *argument)
 {
 	if (IS_SET(ch->comm, COMM_QUIET)) {
-		stc("Quiet mode removed.\n\r", ch);
+		stc("Quiet mode removed.\n", ch);
 		REMOVE_BIT(ch->comm, COMM_QUIET);
 	}
 	else {
-		stc("From now on, you will only hear says and emotes.\n\r", ch);
+		stc("From now on, you will only hear says and emotes.\n", ch);
 		SET_BIT(ch->comm, COMM_QUIET);
 	}
 }
@@ -887,11 +887,11 @@ void do_afk(CHAR_DATA *ch, char *argument)
 
 	if (IS_SET(ch->comm, COMM_AFK)) {
 		set_color(ch, YELLOW, NOBOLD);
-		stc("AFK mode removed.\n\r", ch);
+		stc("AFK mode removed.\n", ch);
 
 		if (!IS_NPC(ch))
 			if (ch->pcdata->buffer->string[0] != '\0')
-				stc("You have messages: Type 'replay'\n\r", ch);
+				stc("You have messages: Type 'replay'\n", ch);
 
 		REMOVE_BIT(ch->comm, COMM_AFK);
 		set_color(ch, WHITE, NOBOLD);
@@ -904,7 +904,7 @@ void do_afk(CHAR_DATA *ch, char *argument)
 		strtime                         = ctime(&current_time);
 		strtime[strlen(strtime) - 1]      = '\0';
 		set_color(ch, YELLOW, NOBOLD);
-		stc("You are now in AFK mode.\n\r", ch);
+		stc("You are now in AFK mode.\n", ch);
 		SET_BIT(ch->comm, COMM_AFK);
 		set_color(ch, WHITE, NOBOLD);
 		wiznet("$N has gone AFK.", ch, NULL, WIZ_MISC, 0, 0);
@@ -916,10 +916,10 @@ void do_afk(CHAR_DATA *ch, char *argument)
 			char buf[MAX_STRING_LENGTH];
 
 			if (argument[0] != '\0')
-				sprintf(buf, "{B[{C%s{B] {C%s\n\r", strtime,
+				sprintf(buf, "{B[{C%s{B] {C%s\n", strtime,
 				        argument);
 			else
-				sprintf(buf, "{B[{C%s{B] {CUnknown Departure.{x\n\r",
+				sprintf(buf, "{B[{C%s{B] {CUnknown Departure.{x\n",
 				        strtime);
 
 			free_string(ch->pcdata->afk);
@@ -935,11 +935,11 @@ void do_notify(CHAR_DATA *ch, char *argument)
 	if (IS_NPC(ch)) return;
 
 	if (IS_SET(ch->pcdata->plr, PLR_NONOTIFY)) {
-		stc("From now on, you will be notified of new notes.\n\r", ch);
+		stc("From now on, you will be notified of new notes.\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_NONOTIFY);
 	}
 	else {
-		stc("Note notify mode removed.\n\r", ch);
+		stc("Note notify mode removed.\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_NONOTIFY);
 	}
 }
@@ -975,7 +975,7 @@ void do_wbi(CHAR_DATA *ch, char *argument)
 	}
 
 	update_text_file(ch, WBI_FILE, argument);
-	stc("And may it be imped soon! :)\n\r", ch);
+	stc("And may it be imped soon! :)\n", ch);
 }
 
 void do_hbi(CHAR_DATA *ch, char *argument)
@@ -986,7 +986,7 @@ void do_hbi(CHAR_DATA *ch, char *argument)
 	}
 
 	update_text_file(ch, HBI_FILE, argument);
-	stc("It will be posted in a change note soon! :)\n\r", ch);
+	stc("It will be posted in a change note soon! :)\n", ch);
 }
 
 void do_wbb(CHAR_DATA *ch, char *argument)
@@ -997,7 +997,7 @@ void do_wbb(CHAR_DATA *ch, char *argument)
 	}
 
 	update_text_file(ch, WBB_FILE, argument);
-	stc("And may it be built soon! :)\n\r", ch);
+	stc("And may it be built soon! :)\n", ch);
 }
 
 void do_hbb(CHAR_DATA *ch, char *argument)
@@ -1008,7 +1008,7 @@ void do_hbb(CHAR_DATA *ch, char *argument)
 	}
 
 	update_text_file(ch, HBB_FILE, argument);
-	stc("It will be posted in a change note soon! :)\n\r", ch);
+	stc("It will be posted in a change note soon! :)\n", ch);
 }
 
 void do_work(CHAR_DATA *ch, char *argument)
@@ -1019,7 +1019,7 @@ void do_work(CHAR_DATA *ch, char *argument)
 	}
 
 	update_text_file(ch, WORK_FILE, argument);
-	stc("May your ideas be developed soon! :)\n\r", ch);
+	stc("May your ideas be developed soon! :)\n", ch);
 }
 
 void do_immapp(CHAR_DATA *ch, char *argument)
@@ -1030,7 +1030,7 @@ void do_immapp(CHAR_DATA *ch, char *argument)
 	}
 
 	update_text_file(ch, IMMAPP_FILE, argument);
-	stc("May they be considered soon! :)\n\r", ch);
+	stc("May they be considered soon! :)\n", ch);
 }
 
 void do_ridea(CHAR_DATA *ch, char *argument)
@@ -1041,7 +1041,7 @@ void do_ridea(CHAR_DATA *ch, char *argument)
 	}
 
 	update_text_file(ch, RIDEA_FILE, argument);
-	stc("And may it be debated soon! :)\n\r", ch);
+	stc("And may it be debated soon! :)\n", ch);
 }
 
 void do_punish(CHAR_DATA *ch, char *argument)
@@ -1052,7 +1052,7 @@ void do_punish(CHAR_DATA *ch, char *argument)
 	}
 
 	update_text_file(ch, PUNISHMENT_FILE, argument);
-	stc("Punishment logged.\n\r", ch);
+	stc("Punishment logged.\n", ch);
 }
 
 void do_bug(CHAR_DATA *ch, char *argument)
@@ -1061,13 +1061,13 @@ void do_bug(CHAR_DATA *ch, char *argument)
 		if (IS_IMMORTAL(ch))
 			do_file(ch, "bugs 150");
 
-		stc("Which bug would you like to report?\n\r"
-		    "Syntax: {Rbug{x your description of the bug\n\r", ch);
+		stc("Which bug would you like to report?\n"
+		    "Syntax: {Rbug{x your description of the bug\n", ch);
 		return;
 	}
 
 	update_text_file(ch, BUG_FILE, argument);
-	stc("Bug logged.\n\r", ch);
+	stc("Bug logged.\n", ch);
 }
 
 void do_typo(CHAR_DATA *ch, char *argument)
@@ -1076,18 +1076,18 @@ void do_typo(CHAR_DATA *ch, char *argument)
 		if (IS_IMMORTAL(ch))
 			do_file(ch, "typos 150");
 
-		stc("Which typo would you like to report?\n\r"
-		    "Syntax: {Rtypo{x your description of the typo\n\r", ch);
+		stc("Which typo would you like to report?\n"
+		    "Syntax: {Rtypo{x your description of the typo\n", ch);
 		return;
 	}
 
 	update_text_file(ch, TYPO_FILE, argument);
-	stc("Typo logged.\n\r", ch);
+	stc("Typo logged.\n", ch);
 }
 
 void do_qui(CHAR_DATA *ch, char *argument)
 {
-	stc("If you want to QUIT, you have to spell it out.\n\r", ch);
+	stc("If you want to QUIT, you have to spell it out.\n", ch);
 	return;
 }
 
@@ -1099,11 +1099,11 @@ bool showlost(CHAR_DATA *ch, OBJ_DATA *obj, bool found, bool locker)
 		    || (obj->item_type == ITEM_KEY && (obj->value[0] == 0))
 		    || (obj->item_type == ITEM_MAP && !obj->value[0])) {
 			if (!found)
-				ptc(ch, "{CThe following items in your %s will be lost if you quit:{x\n\r",
+				ptc(ch, "{CThe following items in your %s will be lost if you quit:{x\n",
 				    locker ? "locker" : "inventory");
 
 			found = TRUE;
-			ptc(ch, "%s\n\r", obj->short_descr);
+			ptc(ch, "%s\n", obj->short_descr);
 		}
 
 		if (obj->contains)
@@ -1119,55 +1119,55 @@ void do_quit(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 	int id, lnum;
 	char *const message [] = {
-		"Your world shatters into a billion numbers circling around you.\n\r  They all flash, '{G0{x', and fade into blackness.\n\r",
-		"Stop, come back, you haven't broken Ramaru's time online record yet!\n\r",
-		"This concludes our broadcast of the emergency mudding system.\n\r",
-		"Thank you, please drive through.\n\r",
-		"What???? You're not addicted yet?????\n\r",
-		"{PYou have been KILLED!!!{x\n\r",
-		"Today, Tomorrow, Yesterday...on the mud, they are all the same.\n\r",
-		"Whoops, Alexia accidentally hits your power switch with her big toe!\n\r",
-		"It's not a bug, it's a feature!!!\n\r",
-		"Kefta boots you in the head on your way out.  OuCH!!!\n\r"
+		"Your world shatters into a billion numbers circling around you.\n  They all flash, '{G0{x', and fade into blackness.\n",
+		"Stop, come back, you haven't broken Ramaru's time online record yet!\n",
+		"This concludes our broadcast of the emergency mudding system.\n",
+		"Thank you, please drive through.\n",
+		"What???? You're not addicted yet?????\n",
+		"{PYou have been KILLED!!!{x\n",
+		"Today, Tomorrow, Yesterday...on the mud, they are all the same.\n",
+		"Whoops, Alexia accidentally hits your power switch with her big toe!\n",
+		"It's not a bug, it's a feature!!!\n",
+		"Kefta boots you in the head on your way out.  OuCH!!!\n"
 	};
 
 	if (IS_NPC(ch)) {
-		stc("Ha!  You are forever doomed to stay on Legacy, deal with it.\n\r", ch);
+		stc("Ha!  You are forever doomed to stay on Legacy, deal with it.\n", ch);
 		return;
 	}
 
 	if (ch->pnote) {
-		stc("You still have a note in progress, finish it first please.\n\r", ch);
+		stc("You still have a note in progress, finish it first please.\n", ch);
 		return;
 	}
 
 	if (ch->fighting) {
-		stc("No way! You are fighting.\n\r", ch);
+		stc("No way! You are fighting.\n", ch);
 		return;
 	}
 
 	if (ch->in_room->sector_type == SECT_ARENA) {
-		stc("You're not getting out of this that easy.\n\r", ch);
+		stc("You're not getting out of this that easy.\n", ch);
 		return;
 	}
 
 	if (ch->pcdata->pktimer > 0) {
-		stc("Your blood is racing too fast to leave now!!\n\r", ch);
+		stc("Your blood is racing too fast to leave now!!\n", ch);
 		return;
 	}
 
 	if (get_duel(ch)) {
-		stc("You are involved in a duel, deal with it first.\n\r", ch);
+		stc("You are involved in a duel, deal with it first.\n", ch);
 		return;
 	}
 
 	if (get_position(ch) <= POS_STUNNED) {
-		stc("You're not DEAD yet.\n\r", ch);
+		stc("You're not DEAD yet.\n", ch);
 		return;
 	}
 
 	if (auction->item != NULL && ((ch == auction->buyer) || (ch == auction->seller))) {
-		stc("Wait till you have sold/bought the item on auction.\n\r", ch);
+		stc("Wait till you have sold/bought the item on auction.\n", ch);
 		return;
 	}
 
@@ -1184,13 +1184,13 @@ void do_quit(CHAR_DATA *ch, char *argument)
 
 	if (lnum > 0 && !IS_IMMORTAL(ch)) {
 		if (deduct_cost(ch, lnum * 10)) {
-			ptc(ch, "%d silver has been deducted for your locker.\n\r",
+			ptc(ch, "%d silver has been deducted for your locker.\n",
 			    lnum * 10);
 			REMOVE_BIT(ch->act, PLR_CLOSED);
 		}
 		else {
-			stc("You cannot afford to pay your locker fee.\n\r", ch);
-			stc("Your locker has been closed.\n\r", ch);
+			stc("You cannot afford to pay your locker fee.\n", ch);
+			stc("Your locker has been closed.\n", ch);
 			SET_BIT(ch->act, PLR_CLOSED);
 		}
 	}
@@ -1207,11 +1207,11 @@ void do_quit(CHAR_DATA *ch, char *argument)
 		    && !IS_SET(victim->comm, COMM_QUIET)) {
 			if (ch->pcdata && ch->pcdata->gameout && ch->pcdata->gameout[0] != '\0') {
 				set_color(victim, GREEN, BOLD);
-				ptc(victim, "[%s] %s\n\r", ch->name, ch->pcdata->gameout);
+				ptc(victim, "[%s] %s\n", ch->name, ch->pcdata->gameout);
 			}
 			else {
 				new_color(victim, CSLOT_CHAN_ANNOUNCE);
-				ptc(victim, "[FYI] %s has quit.\n\r", ch->name);
+				ptc(victim, "[FYI] %s has quit.\n", ch->name);
 			}
 
 			set_color(victim, WHITE, NOBOLD);
@@ -1289,10 +1289,10 @@ void do_backup(CHAR_DATA *ch, char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	stc("Backing up pfile.\n\r", ch);
+	stc("Backing up pfile.\n", ch);
 	backup_char_obj(ch);
 	WAIT_STATE(ch, 4 * PULSE_VIOLENCE);
-	stc("Done.\n\r", ch);
+	stc("Done.\n", ch);
 	ch->pcdata->backup = get_play_seconds(ch);
 	return;
 }
@@ -1304,7 +1304,7 @@ void do_save(CHAR_DATA *ch, char *argument)
 		return;
 
 	save_char_obj(ch);
-	stc("Saving. Remember, Legacy has automatic saving.\n\r", ch);
+	stc("Saving. Remember, Legacy has automatic saving.\n", ch);
 	WAIT_STATE(ch, 4 * PULSE_VIOLENCE);
 	return;
 }
@@ -1317,12 +1317,12 @@ void do_follow(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		stc("Follow whom?\n\r", ch);
+		stc("Follow whom?\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
@@ -1333,7 +1333,7 @@ void do_follow(CHAR_DATA *ch, char *argument)
 
 	if (victim == ch) {
 		if (ch->master == NULL) {
-			stc("You now stare at your own butt.\n\r", ch);
+			stc("You now stare at your own butt.\n", ch);
 			return;
 		}
 
@@ -1342,7 +1342,7 @@ void do_follow(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_NOFOLLOW) && !IS_IMMORTAL(ch)) {
-		act("$N doesn't seem to want any followers.\n\r",
+		act("$N doesn't seem to want any followers.\n",
 		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -1476,12 +1476,12 @@ void do_order(CHAR_DATA *ch, char *argument)
 
 	if (!str_cmp(arg2, "delete")
 	    || !str_prefix("mp", arg2)) {
-		stc("That will NOT be done.\n\r", ch);
+		stc("That will NOT be done.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(arg2, "consent")) {
-		stc("That will NOT be done.\n\r", ch);
+		stc("That will NOT be done.\n", ch);
 		sprintf(buf, "%s attempts to order someone to consent to sex.", ch->name);
 		wiznet(buf, NULL, NULL, WIZ_CHEAT, 0, 0);
 		log_string(buf);
@@ -1489,12 +1489,12 @@ void do_order(CHAR_DATA *ch, char *argument)
 	}
 
 	if (arg[0] == '\0' || argument[0] == '\0') {
-		stc("Order whom to do what?\n\r", ch);
+		stc("Order whom to do what?\n", ch);
 		return;
 	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM)) {
-		stc("You feel like taking, not giving, orders.\n\r", ch);
+		stc("You feel like taking, not giving, orders.\n", ch);
 		return;
 	}
 
@@ -1514,47 +1514,47 @@ void do_order(CHAR_DATA *ch, char *argument)
 
 			/* the victim must be your pet and your familiar */
 			if ((!victim) || (victim != ch->pet) || (!ch->pcdata->familiar)) {
-				stc("They aren't here.\n\r", ch);
+				stc("They aren't here.\n", ch);
 				return;
 			}
 			else {
-				stc("You remotely order your familiar...\n\r", ch);
+				stc("You remotely order your familiar...\n", ch);
 				remote_familiar = TRUE;
 			}
 		}
 
 		/* Stay/Follow code by Lotus */
 		if (!str_cmp(arg2, "stay") && IS_NPC(victim)) {
-			stc("You order your pet to stay.\n\r", ch);
+			stc("You order your pet to stay.\n", ch);
 			SET_BIT(victim->act, ACT_STAY);
 			return;
 		}
 
 		if (!str_cmp(arg2, "follow") && IS_NPC(victim)) {
-			stc("You order your pet to follow you.\n\r", ch);
+			stc("You order your pet to follow you.\n", ch);
 			REMOVE_BIT(victim->act, ACT_STAY);
 			return;
 		}
 
 		if (!str_cmp(arg2, "wimpy") && IS_NPC(victim)) {
-			stc("You order your pet to flee if injured.\n\r", ch);
+			stc("You order your pet to flee if injured.\n", ch);
 			SET_BIT(victim->act, ACT_WIMPY);
 			return;
 		}
 
 		if (!str_cmp(arg2, "courage") && IS_NPC(victim)) {
-			stc("You order your pet fight to the finish.\n\r", ch);
+			stc("You order your pet fight to the finish.\n", ch);
 			REMOVE_BIT(victim->act, ACT_WIMPY);
 			return;
 		}
 
 		if (victim == ch) {
-			stc("Aye aye, right away!\n\r", ch);
+			stc("Aye aye, right away!\n", ch);
 			return;
 		}
 
 		if (!IS_AFFECTED(victim, AFF_CHARM) || victim->master != ch ||  IS_IMMORTAL(victim)) {
-			stc("Do it yourself!\n\r", ch);
+			stc("Do it yourself!\n", ch);
 			return;
 		}
 	}
@@ -1568,7 +1568,7 @@ void do_order(CHAR_DATA *ch, char *argument)
 		    och->master == ch &&
 		    (fAll || och == victim)) {
 			if (! found) {
-				stc("You give the order.\n\r", ch);
+				stc("You give the order.\n", ch);
 				found = TRUE;
 			}
 
@@ -1588,7 +1588,7 @@ void do_order(CHAR_DATA *ch, char *argument)
 	if (found)
 		WAIT_STATE(ch, PULSE_VIOLENCE);
 	else
-		stc("You have no followers here.\n\r", ch);
+		stc("You have no followers here.\n", ch);
 }
 
 
@@ -1610,12 +1610,12 @@ void do_pet(CHAR_DATA *ch, char *argument)
 	char letter;
 
 	if (! ch->pet) {
-		stc("But you do not have a pet.\n\r", ch);
+		stc("But you do not have a pet.\n", ch);
 		return;
 	}
 
 	if (strlen(argument) > (MIL - 16)) {
-		stc("Please use smaller words.\n\r", ch);
+		stc("Please use smaller words.\n", ch);
 		return;
 	}
 
@@ -1649,7 +1649,7 @@ void do_group(CHAR_DATA *ch, char *argument)
 		CHAR_DATA *gch;
 		CHAR_DATA *leader;
 		leader = (ch->leader != NULL) ? ch->leader : ch;
-		sprintf(buf, "%s's group:\n\r", PERS(leader, ch, VIS_PLR));
+		sprintf(buf, "%s's group:\n", PERS(leader, ch, VIS_PLR));
 		set_color(ch, PURPLE, BOLD);
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -1657,7 +1657,7 @@ void do_group(CHAR_DATA *ch, char *argument)
 		for (gch = char_list; gch != NULL; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
 				sprintf(buf,
-				        "[%2d %s] %-16s %4d/%4d hp %4d/%4d mana %4d/%4d st %6ld tnl\n\r",
+				        "[%2d %s] %-16s %4d/%4d hp %4d/%4d mana %4d/%4d st %6ld tnl\n",
 				        gch->level,
 				        IS_NPC(gch) ? "Mob" : class_table[gch->class].who_name,
 				        PERS(gch, ch, VIS_PLR),
@@ -1676,7 +1676,7 @@ void do_group(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((victim = get_char_here(ch, arg, VIS_CHAR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
@@ -1686,7 +1686,7 @@ void do_group(CHAR_DATA *ch, char *argument)
 	}
 
 	if (ch->master != NULL || (ch->leader != NULL && ch->leader != ch)) {
-		stc("But you are following someone else!\n\r", ch);
+		stc("But you are following someone else!\n", ch);
 		return;
 	}
 
@@ -1696,7 +1696,7 @@ void do_group(CHAR_DATA *ch, char *argument)
 	}
 
 	if (IS_AFFECTED(victim, AFF_CHARM)) {
-		stc("You can't remove charmed mobs from your group.\n\r", ch);
+		stc("You can't remove charmed mobs from your group.\n", ch);
 		return;
 	}
 
@@ -1742,7 +1742,7 @@ void do_split(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg2);
 
 	if (arg1[0] == '\0') {
-		stc("Split how much?\n\r", ch);
+		stc("Split how much?\n", ch);
 		return;
 	}
 
@@ -1752,17 +1752,17 @@ void do_split(CHAR_DATA *ch, char *argument)
 		amount_gold = atoi(arg2);
 
 	if (amount_gold < 0 || amount_silver < 0) {
-		stc("Your group wouldn't like that.\n\r", ch);
+		stc("Your group wouldn't like that.\n", ch);
 		return;
 	}
 
 	if (amount_gold == 0 && amount_silver == 0) {
-		stc("You hand out zero coins, but no one notices.\n\r", ch);
+		stc("You hand out zero coins, but no one notices.\n", ch);
 		return;
 	}
 
 	if (ch->gold <  amount_gold || ch->silver < amount_silver) {
-		stc("You don't have that much to split.\n\r", ch);
+		stc("You don't have that much to split.\n", ch);
 		return;
 	}
 
@@ -1774,7 +1774,7 @@ void do_split(CHAR_DATA *ch, char *argument)
 	}
 
 	if (members < 2) {
-		stc("Just keep it all.\n\r", ch);
+		stc("Just keep it all.\n", ch);
 		return;
 	}
 
@@ -1784,7 +1784,7 @@ void do_split(CHAR_DATA *ch, char *argument)
 	extra_gold   = amount_gold % members;
 
 	if (share_gold == 0 && share_silver == 0) {
-		stc("Don't even bother, cheapskate.\n\r", ch);
+		stc("Don't even bother, cheapskate.\n", ch);
 		return;
 	}
 
@@ -1794,11 +1794,11 @@ void do_split(CHAR_DATA *ch, char *argument)
 	ch->gold    += share_gold + extra_gold;
 
 	if (share_silver > 0)
-		ptc(ch, "You split %d silver coin%s. Your share is %d silver.\n\r",
+		ptc(ch, "You split %d silver coin%s. Your share is %d silver.\n",
 		    amount_silver, amount_silver > 1 ? "s" : "", share_silver + extra_silver);
 
 	if (share_gold > 0)
-		ptc(ch, "You split %d gold coin%s. Your share is %d gold.\n\r",
+		ptc(ch, "You split %d gold coin%s. Your share is %d gold.\n",
 		    amount_gold, amount_gold > 1 ? "s" : "", share_gold + extra_gold);
 
 	if (share_gold == 0) {
@@ -1811,7 +1811,7 @@ void do_split(CHAR_DATA *ch, char *argument)
 	}
 	else {
 		sprintf(buf,
-		        "$n splits %d silver and %d gold coin%s, giving you %d silver and %d gold.\n\r",
+		        "$n splits %d silver and %d gold coin%s, giving you %d silver and %d gold.\n",
 		        amount_silver, amount_gold, amount_gold > 1 ? "s" : "", share_silver, share_gold);
 	}
 
@@ -1861,12 +1861,12 @@ void align(CHAR_DATA *ch, int new_align, char *align_str)
 		return;
 
 	if (get_skill(ch, gsn_align) < number_percent()) {
-		stc("You fail to change your alignment.\n\r", ch);
+		stc("You fail to change your alignment.\n", ch);
 		check_improve(ch, gsn_align, FALSE, 20);
 	}
 	else {
 		ch->alignment = new_align;
-		sprintf(buf, "You are now %s.\n\r", align_str);
+		sprintf(buf, "You are now %s.\n", align_str);
 		stc(buf, ch);
 		check_improve(ch, gsn_align, TRUE, 20);
 	}
@@ -1880,21 +1880,21 @@ void do_align(CHAR_DATA *ch, char *argument)
 	char buf[MAX_INPUT_LENGTH];
 
 	if (IS_NPC(ch)) {
-		stc("Silly, mobiles can't change their alignment!\n\r", ch);
+		stc("Silly, mobiles can't change their alignment!\n", ch);
 		return;
 	}
 
 	if (!CAN_USE_RSKILL(ch, gsn_align)) {
-		stc("Huh?\n\r", ch);
+		stc("Huh?\n", ch);
 		return;
 	}
 
 	one_argument(argument, buf);
 
 	if (buf[0] == '\0') {
-		stc("Syntax: {RALIGN GOOD{x\n\r"
-		    "or      {RALIGN NEUTRAL{x\n\r"
-		    "or      {RALIGN EVIL{x\n\r", ch);
+		stc("Syntax: {RALIGN GOOD{x\n"
+		    "or      {RALIGN NEUTRAL{x\n"
+		    "or      {RALIGN EVIL{x\n", ch);
 		return;
 	}
 
@@ -1915,7 +1915,7 @@ void do_outfit(CHAR_DATA *ch, char *argument)
 	int i, sn, vnum;
 
 	if (ch->level > 5 || IS_NPC(ch)) {
-		stc("Find it yourself.\n\r", ch);
+		stc("Find it yourself.\n", ch);
 		return;
 	}
 
@@ -1984,7 +1984,7 @@ void do_outfit(CHAR_DATA *ch, char *argument)
 		equip_char(ch, obj, WEAR_SHIELD);
 	}
 
-	ptc(ch, "You have been equipped by %s.\n\r",
+	ptc(ch, "You have been equipped by %s.\n",
 	    ch->pcdata->deity == NULL ? "Alisa" : str_dup(ch->pcdata->deity));
 }
 
@@ -1992,16 +1992,16 @@ void do_outfit(CHAR_DATA *ch, char *argument)
 void do_newscore(CHAR_DATA *ch, char *argument)
 {
 	if (IS_NPC(ch)) {
-		stc("Sorry, you're stuck with the old version of score.\n\r", ch);
+		stc("Sorry, you're stuck with the old version of score.\n", ch);
 		return;
 	}
 
 	if (IS_SET(ch->pcdata->plr, PLR_NEWSCORE)) {
-		stc("You change to the old version of score.\n\r", ch);
+		stc("You change to the old version of score.\n", ch);
 		REMOVE_BIT(ch->pcdata->plr, PLR_NEWSCORE);
 	}
 	else {
-		stc("You change to the new version of score.\n\r", ch);
+		stc("You change to the new version of score.\n", ch);
 		SET_BIT(ch->pcdata->plr, PLR_NEWSCORE);
 	}
 }

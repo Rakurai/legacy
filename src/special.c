@@ -297,7 +297,7 @@ bool spec_patrolman(CHAR_DATA *ch)
 
 			if (vch->in_room != ch->in_room
 			    &&  vch->in_room->area == ch->in_room->area)
-				stc("You hear a shrill whistling sound.\n\r", vch);
+				stc("You hear a shrill whistling sound.\n", vch);
 		}
 	}
 
@@ -1087,7 +1087,7 @@ void do_identify(CHAR_DATA *ch, char *argument)
 	char buf[MAX_STRING_LENGTH];
 
 	if ((obj = get_obj_carry(ch, argument)) == NULL) {
-		stc("You are not carrying that.\n\r", ch);
+		stc("You are not carrying that.\n", ch);
 		return;
 	}
 
@@ -1096,7 +1096,7 @@ void do_identify(CHAR_DATA *ch, char *argument)
 			break;
 
 	if (!rch) {
-		stc("No one here has any clue what that is.\n\r", ch);
+		stc("No one here has any clue what that is.\n", ch);
 		return;
 	}
 	else if ((ch->silver + 100 * ch->gold) < obj->level * 10 + 50) {
@@ -1106,7 +1106,7 @@ void do_identify(CHAR_DATA *ch, char *argument)
 	}
 	else {
 		deduct_cost(ch, obj->level * 10 + 50);
-		sprintf(buf, "The identify on %s has cost you %d silver.\n\r",
+		sprintf(buf, "The identify on %s has cost you %d silver.\n",
 		        obj->short_descr, obj->level * 10 + 50);
 		stc(buf, ch);
 	}
@@ -1170,7 +1170,7 @@ void do_repair(CHAR_DATA *ch, char *argument)
 	if (argument[0] == '\0') {
 		bool etched = FALSE;
 		AFFECT_DATA *paf;
-		stc("{WItems you are wearing:\n\r", ch);
+		stc("{WItems you are wearing:\n", ch);
 
 		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
 			if ((obj = get_eq_char(ch, iWear)) == NULL)
@@ -1180,7 +1180,7 @@ void do_repair(CHAR_DATA *ch, char *argument)
 				if (paf->type == gsn_acid_breath)
 					etched = TRUE;
 
-			sprintf(buf, "{M[{V%14s{M] {x%s %s\n\r"
+			sprintf(buf, "{M[{V%14s{M] {x%s %s\n"
 			        , condition_lookup(obj->condition),
 			        obj->short_descr, (etched) ? "{G({HEtched{G){x" : "");
 			stc(buf, ch);
@@ -1202,7 +1202,7 @@ void do_repair(CHAR_DATA *ch, char *argument)
 	}
 
 	if ((obj = get_obj_carry(ch, argument)) == NULL) {
-		stc("You are not carrying that.\n\r", ch);
+		stc("You are not carrying that.\n", ch);
 		return;
 	}
 
@@ -1221,7 +1221,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 			break;
 
 	if (obj->condition == -1) {
-		stc("That object is indestructable!\n\r", ch);
+		stc("That object is indestructable!\n", ch);
 		return;
 	}
 
@@ -1230,7 +1230,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 			max = 100 - (5 * paf->modifier);
 
 	if (obj->condition >= max) {
-		stc("That object cannot be repaired further.\n\r", ch);
+		stc("That object cannot be repaired further.\n", ch);
 		return;
 	}
 
@@ -1242,7 +1242,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 			WAIT_STATE(ch, skill_table[gsn_repair].beats);
 
 			if (number_percent() > get_skill(ch, gsn_repair)) {
-				stc("You accidentally damage it more!\n\r", ch);
+				stc("You accidentally damage it more!\n", ch);
 				check_improve(ch, gsn_repair, FALSE, 8);
 				obj->condition -= number_range(10, 15);
 
@@ -1268,7 +1268,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 			return;
 		}
 
-		stc("No one here can repair that item.\n\r", ch);
+		stc("No one here can repair that item.\n", ch);
 		return;
 	}
 
@@ -1279,7 +1279,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 	else {
 		deduct_cost(ch, (max - obj->condition) * 100);
-		sprintf(buf, "The repairs on %s has cost you %d gold.\n\r",
+		sprintf(buf, "The repairs on %s has cost you %d gold.\n",
 		        obj->short_descr, (max - obj->condition));
 		stc(buf, ch);
 	}
@@ -1385,19 +1385,19 @@ void do_familiar(CHAR_DATA *ch, char *argument)
 
 	/* make sure we have the skill */
 	if (get_skill(ch, gsn_familiar) < 1) {
-		stc("You don't know how to create a familiar.\n\r", ch);
+		stc("You don't know how to create a familiar.\n", ch);
 		return;
 	}
 
 	/* make sure we don't already have a familiar */
 	if (ch->pcdata->familiar) {
-		stc("You already have a familiar.\n\r", ch);
+		stc("You already have a familiar.\n", ch);
 		return;
 	}
 
 	/* we need a pet */
 	if (! ch->pet) {
-		stc("You need a pet first.\n\r", ch);
+		stc("You need a pet first.\n", ch);
 		return;
 	}
 
@@ -1424,7 +1424,7 @@ void do_familiar(CHAR_DATA *ch, char *argument)
 
 	/* keep track of which stat we received + 1 */
 	ch->pcdata->familiar = max_position + 1;
-	stc("You feel at one with your pet.\n\r", ch);
+	stc("You feel at one with your pet.\n", ch);
 	check_improve(ch, gsn_familiar, TRUE, 1);
 	return;
 }

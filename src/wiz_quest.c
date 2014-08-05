@@ -35,17 +35,17 @@ void do_addapply(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg4);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		stc("Syntax: addapply <object> <apply> <value> {c<duration>{x\n\r", ch);
-		stc("  Applies can be of:\n\r", ch);
-		stc("    hp mana stamina str dex int wis con chr\n\r", ch);
-		stc("    age ac hitroll damroll saves\n\r", ch);
+		stc("Syntax: addapply <object> <apply> <value> {c<duration>{x\n", ch);
+		stc("  Applies can be of:\n", ch);
+		stc("    hp mana stamina str dex int wis con chr\n", ch);
+		stc("    age ac hitroll damroll saves\n", ch);
 		return;
 	}
 
 	obj = get_obj_world(ch, arg1);
 
 	if (obj == NULL) {
-		stc("No such object exists!\n\r", ch);
+		stc("No such object exists!\n", ch);
 		return;
 	}
 
@@ -65,17 +65,17 @@ void do_addapply(CHAR_DATA *ch, char *argument)
 	else if (!str_cmp(arg2, "damroll"))     enchant_type = APPLY_DAMROLL;
 	else if (!str_cmp(arg2, "saves"))       enchant_type = APPLY_SAVES;
 	else {
-		stc("That apply is not possible!\n\r", ch);
+		stc("That apply is not possible!\n", ch);
 		return;
 	}
 
 	if (!is_number(arg3)) {
-		stc("Applies require a value.\n\r", ch);
+		stc("Applies require a value.\n", ch);
 		return;
 	}
 
 	if (atoi(arg3) < -30000 || atoi(arg3) > 30000) {
-		stc("Value must be between -30000 and 30000.\n\r", ch);
+		stc("Value must be between -30000 and 30000.\n", ch);
 		return;
 	}
 
@@ -108,7 +108,7 @@ void do_addapply(CHAR_DATA *ch, char *argument)
 		}
 	}
 
-	stc("Ok.\n\r", ch);
+	stc("Ok.\n", ch);
 
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		if (paf->location == enchant_type) {
@@ -146,13 +146,13 @@ void do_addspell(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg3);
 
 	if (arg[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		stc("Syntax:\n\r", ch);
-		stc("addspell <object> <spell name> <level>\n\r", ch);
+		stc("Syntax:\n", ch);
+		stc("addspell <object> <spell name> <level>\n", ch);
 		return;
 	}
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		stc("No such item.\n\r", ch);
+		stc("No such item.\n", ch);
 		return;
 	}
 
@@ -166,18 +166,18 @@ void do_addspell(CHAR_DATA *ch, char *argument)
 	}
 
 	if (atoi(arg3) > ch->level) {
-		stc("You can only addspell an object with your level or below.\n\r", ch);
+		stc("You can only addspell an object with your level or below.\n", ch);
 		return;
 	}
 
 	if ((skill_lookup(arg2)) == -1) {
-		stc("No such spell!\n\r", ch);
+		stc("No such spell!\n", ch);
 		return;
 	}
 
 	obj->spell[free] = skill_lookup(arg2);
 	obj->spell_lev[free] = atoi(arg3);
-	sprintf(buf, "Item spelled at level %d, %s.\n\r",
+	sprintf(buf, "Item spelled at level %d, %s.\n",
 	        obj->spell_lev[free],
 	        arg2);
 	stc(buf, ch);
@@ -196,34 +196,34 @@ void do_morph(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg1);
 
 	if (arg1[0] == '\0') {
-		stc("Morph Whom?\n\r", ch);
+		stc("Morph Whom?\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, arg1, VIS_PLR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
 	if (victim->desc == NULL) {
-		stc("You can only morph connected players.\n\r", ch);
+		stc("You can only morph connected players.\n", ch);
 		return;
 	}
 
 	if (victim->desc->original != NULL) {
-		stc("They are currently morphed already.\n\r", ch);
+		stc("They are currently morphed already.\n", ch);
 		return;
 	}
 
 	argument = one_argument(argument, arg2);
 
 	if (arg2[0] == '\0') {
-		stc("Morph them into what?\n\r", ch);
+		stc("Morph them into what?\n", ch);
 		return;
 	}
 
 	if ((morph = get_mob_world(ch, arg2, VIS_CHAR)) == NULL) {
-		stc("That mobile does not exist.\n\r", ch);
+		stc("That mobile does not exist.\n", ch);
 		return;
 	}
 
@@ -231,7 +231,7 @@ void do_morph(CHAR_DATA *ch, char *argument)
 
 	if (!mobile) {  /* Make sure it works. -- Outsider */
 		bug("Memory error creating mob in do_morph().", 0);
-		stc("Could not morph.\n\r", ch);
+		stc("Could not morph.\n", ch);
 		return;
 	}
 
@@ -242,7 +242,7 @@ void do_morph(CHAR_DATA *ch, char *argument)
 	do_switch(victim, mobile->name);
 	char_from_room(victim);
 	char_to_room(victim, get_room_index(ROOM_VNUM_LIMBO));
-	stc("Successful Morph!\n\r", ch);
+	stc("Successful Morph!\n", ch);
 }
 
 
@@ -257,8 +257,8 @@ void do_rppaward(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] == '\0') {
 		output = new_buf();
-		stc("Name            RPPs\n\r", ch);
-		stc("--------------------\n\r", ch);
+		stc("Name            RPPs\n", ch);
+		stc("--------------------\n", ch);
 
 		for (d = descriptor_list; d != NULL; d = d->next) {
 			if (!IS_PLAYING(d) || !can_see(ch, d->character))
@@ -269,7 +269,7 @@ void do_rppaward(CHAR_DATA *ch, char *argument)
 			if (!can_see(ch, victim))
 				continue;
 
-			sprintf(buf, "%-14s {V%5d{x\n\r", victim->name, victim->pcdata->rolepoints);
+			sprintf(buf, "%-14s {V%5d{x\n", victim->name, victim->pcdata->rolepoints);
 			add_buf(output, buf);
 		}
 
@@ -282,32 +282,32 @@ void do_rppaward(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || argument[0] == '\0') {
-		stc("Syntax:\n\r", ch);
-		stc("  rpp <award|deduct> <victim> <amount>\n\r", ch);
+		stc("Syntax:\n", ch);
+		stc("  rpp <award|deduct> <victim> <amount>\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, arg2, VIS_PLR)) == NULL) {
-		stc("Player not found.\n\r", ch);
+		stc("Player not found.\n", ch);
 		return;
 	}
 
 	if (!is_number(argument)) {
-		stc("Value must be numeric.\n\r", ch);
+		stc("Value must be numeric.\n", ch);
 		return;
 	}
 
 	rppoint = atoi(argument);
 
 	if (rppoint < 0 || rppoint > 50) {
-		stc("Value must be between 0 and 50.\n\r", ch);
+		stc("Value must be between 0 and 50.\n", ch);
 		return;
 	}
 
 	if (!str_cmp(arg1, "award")) {
 		victim->pcdata->rolepoints += rppoint;
-		ptc(ch, "You have awarded them %d role playing points.\n\r", rppoint);
-		ptc(victim, "You have been awarded %d role playing points.\n\r", rppoint);
+		ptc(ch, "You have awarded them %d role playing points.\n", rppoint);
+		ptc(victim, "You have been awarded %d role playing points.\n", rppoint);
 		sprintf(buf, "%s awarded %d rpp to %s.", ch->name, rppoint, victim->name);
 		wiznet(buf, ch, NULL, 0, 0, 0);
 		return;
@@ -315,12 +315,12 @@ void do_rppaward(CHAR_DATA *ch, char *argument)
 
 	if (!str_cmp(arg1, "deduct")) {
 		if (rppoint > victim->pcdata->rolepoints) {
-			stc("They do not have enough role playing points for that.\n\r", ch);
+			stc("They do not have enough role playing points for that.\n", ch);
 			return;
 		}
 
 		victim->pcdata->rolepoints -= rppoint;
-		sprintf(buf, "%d role playing points have been deducted, %d remaining.\n\r",
+		sprintf(buf, "%d role playing points have been deducted, %d remaining.\n",
 		        rppoint, victim->pcdata->rolepoints);
 		stc(buf, ch);
 		stc(buf, victim);
@@ -330,7 +330,7 @@ void do_rppaward(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	stc("Use 'deduct' or 'award'.\n\r", ch);
+	stc("Use 'deduct' or 'award'.\n", ch);
 }
 
 
@@ -394,9 +394,9 @@ void do_scatter(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!scattered)
-		stc("You see nothing to scatter.\n\r", ch);
+		stc("You see nothing to scatter.\n", ch);
 	else
-		stc("Done.\n\r", ch);
+		stc("Done.\n", ch);
 }
 
 
@@ -417,24 +417,24 @@ void do_string(CHAR_DATA *ch, char *argument)
 	strcpy(arg3, argument);
 
 	if (type[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		stc("Syntax:\n\r", ch);
-		stc("  string char <name> <field> <string>\n\r", ch);
-		stc("    fields: name short long desc title spec deity status spouse\n\r", ch);
-		stc("  string obj  <name> <field> <string>\n\r", ch);
-		stc("    fields: name short long material extended more\n\r", ch);
-		stc("  string room <number> <field> <string>\n\r", ch);
-		stc("    fields: name\n\r", ch);
+		stc("Syntax:\n", ch);
+		stc("  string char <name> <field> <string>\n", ch);
+		stc("    fields: name short long desc title spec deity status spouse\n", ch);
+		stc("  string obj  <name> <field> <string>\n", ch);
+		stc("    fields: name short long material extended more\n", ch);
+		stc("  string room <number> <field> <string>\n", ch);
+		stc("    fields: name\n", ch);
 		return;
 	}
 
 	if (!str_prefix1(type, "character") || !str_prefix1(type, "mobile")) {
 		if ((victim = get_char_world(ch, arg1, VIS_CHAR)) == NULL) {
-			stc("They aren't here.\n\r", ch);
+			stc("They aren't here.\n", ch);
 			return;
 		}
 
 		if (IS_IMP(victim) && !IS_IMP(ch)) {
-			stc("They wouln't like that.\n\r", ch);
+			stc("They wouln't like that.\n", ch);
 			return;
 		}
 
@@ -442,7 +442,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 
 		if (!str_prefix1(arg2, "spouse")) {
 			if (IS_NPC(victim)) {
-				stc("Not a good idea.\n\r", ch);
+				stc("Not a good idea.\n", ch);
 				return;
 			}
 
@@ -455,18 +455,18 @@ void do_string(CHAR_DATA *ch, char *argument)
 				victim->pcdata->spouse = str_dup(arg3);
 			}
 
-			sprintf(buf, "%s's spouse has been changed to %s.\n\r", victim->name, arg3);
+			sprintf(buf, "%s's spouse has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "name")) {
 			if (!IS_NPC(victim)) {
-				stc("You can't change a player's name!\n\r", ch);
+				stc("You can't change a player's name!\n", ch);
 				return;
 			}
 
-			sprintf(buf, "%s's name has been changed to %s.\n\r", victim->name, arg3);
+			sprintf(buf, "%s's name has been changed to %s.\n", victim->name, arg3);
 			free_string(victim->name);
 			victim->name = str_dup(arg3);
 			stc(buf, ch);
@@ -476,7 +476,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 		if (!str_prefix1(arg2, "description")) {
 			free_string(victim->description);
 			victim->description = str_dup(arg3);
-			sprintf(buf, "%s's description has been changed to %s.\n\r", victim->name, arg3);
+			sprintf(buf, "%s's description has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
@@ -484,14 +484,14 @@ void do_string(CHAR_DATA *ch, char *argument)
 		if (!str_prefix1(arg2, "short")) {
 			free_string(victim->short_descr);
 			victim->short_descr = str_dup(arg3);
-			sprintf(buf, "%s's short description has been changed to %s.\n\r", victim->name, arg3);
+			sprintf(buf, "%s's short description has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "long")) {
 			free_string(victim->long_descr);
-			strcat(arg3, "\n\r");
+			strcat(arg3, "\n");
 			victim->long_descr = str_dup(arg3);
 			sprintf(buf, "%s's long description has been changed to %s", victim->name, arg3);
 			stc(buf, ch);
@@ -500,55 +500,55 @@ void do_string(CHAR_DATA *ch, char *argument)
 
 		if (!str_prefix1(arg2, "title")) {
 			if (IS_NPC(victim)) {
-				stc("Mobiles don't have a title, silly!\n\r", ch);
+				stc("Mobiles don't have a title, silly!\n", ch);
 				return;
 			}
 
 			set_title(victim, arg3);
-			sprintf(buf, "%s's title has been changed to %s.\n\r", victim->name, arg3);
+			sprintf(buf, "%s's title has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "spec")) {
 			if (!IS_NPC(victim)) {
-				stc("Players don't have specfuns, silly!\n\r", ch);
+				stc("Players don't have specfuns, silly!\n", ch);
 				return;
 			}
 
 			if ((victim->spec_fun = spec_lookup(arg3)) == 0) {
-				sprintf(buf, "%s is not a valid spec fun.\n\r", arg3);
+				sprintf(buf, "%s is not a valid spec fun.\n", arg3);
 				stc(buf, ch);
 				return;
 			}
 
-			sprintf(buf, "%s's spec fun value set to %s.\n\r", victim->name, arg3);
+			sprintf(buf, "%s's spec fun value set to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "deity")) {
 			if (IS_NPC(victim)) {
-				stc("Mobiles are all atheists!\n\r", ch);
+				stc("Mobiles are all atheists!\n", ch);
 				return;
 			}
 
 			free_string(victim->pcdata->deity);
 			victim->pcdata->deity = str_dup(arg3);
-			sprintf(buf, "%s's deity string has been changed to %s.\n\r", victim->name, arg3);
+			sprintf(buf, "%s's deity string has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "status")) {
 			if (IS_NPC(victim)) {
-				stc("A mobile has no status to change!\n\r", ch);
+				stc("A mobile has no status to change!\n", ch);
 				return;
 			}
 
 			free_string(victim->pcdata->status);
 			victim->pcdata->status = str_dup(arg3);
-			sprintf(buf, "%s's status string has been changed to %s.\n\r", victim->name, arg3);
+			sprintf(buf, "%s's status string has been changed to %s.\n", victim->name, arg3);
 			stc(buf, ch);
 			return;
 		}
@@ -559,13 +559,13 @@ void do_string(CHAR_DATA *ch, char *argument)
 		if ((obj = get_obj_carry(ch, arg1)) == NULL
 		    && (obj = get_obj_wear(ch, arg1)) == NULL
 		    && (obj = get_obj_list(ch, arg1, ch->in_room->contents)) == NULL) {
-			sprintf(buf, "After searching the whole mud, you could not find %s.\n\r", arg1);
+			sprintf(buf, "After searching the whole mud, you could not find %s.\n", arg1);
 			stc(buf, ch);
 			return;
 		}
 
 		if (!str_prefix1(arg2, "name")) {
-			sprintf(buf, "%s is now known as %s.\n\r", obj->name, arg3);
+			sprintf(buf, "%s is now known as %s.\n", obj->name, arg3);
 			free_string(obj->name);
 			obj->name = str_dup(arg3);
 			stc(buf, ch);
@@ -573,7 +573,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!str_prefix1(arg2, "short")) {
-			sprintf(buf, "%s's short description has been changed to %s.\n\r", obj->short_descr, arg3);
+			sprintf(buf, "%s's short description has been changed to %s.\n", obj->short_descr, arg3);
 			free_string(obj->short_descr);
 			obj->short_descr = str_dup(arg3);
 			stc(buf, ch);
@@ -581,7 +581,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!str_prefix1(arg2, "long")) {
-			sprintf(buf, "%s's long description has been changed to %s.\n\r", obj->short_descr, arg3);
+			sprintf(buf, "%s's long description has been changed to %s.\n", obj->short_descr, arg3);
 			free_string(obj->description);
 			obj->description = str_dup(arg3);
 			stc(buf, ch);
@@ -589,7 +589,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 		}
 
 		if (!str_prefix1(arg2, "material")) {
-			sprintf(buf, "%s suddenly warps into %s as %s glows brightly.\n\r",
+			sprintf(buf, "%s suddenly warps into %s as %s glows brightly.\n",
 			        obj->material, arg3, obj->short_descr);
 			free_string(obj->material);
 			obj->material = str_dup(arg3);
@@ -602,7 +602,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 			argument = one_argument(argument, arg3);
 
 			if (argument == NULL) {
-				stc("Syntax: set obj <object> ed <keyword> <string>\n\r", ch);
+				stc("Syntax: set obj <object> ed <keyword> <string>\n", ch);
 				return;
 			}
 
@@ -629,13 +629,13 @@ void do_string(CHAR_DATA *ch, char *argument)
 			if (!str_cmp(argument, "none"))
 				return;
 
-			strcat(argument, "\n\r");
+			strcat(argument, "\n");
 			ed = new_extra_descr();
 			ed->keyword         = str_dup(arg3);
 			ed->description     = str_dup(argument);
 			ed->next            = obj->extra_descr;
 			obj->extra_descr    = ed;
-			ptc(ch, "Extended description set to:\n\r%s\n\r", arg3);
+			ptc(ch, "Extended description set to:\n%s\n", arg3);
 			return;
 		}
 
@@ -646,7 +646,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 			argument = one_argument(argument, arg3);
 
 			if (argument == NULL) {
-				stc("Syntax: string obj <obj> more <keyword> <string>\n\r", ch);
+				stc("Syntax: string obj <obj> more <keyword> <string>\n", ch);
 				return;
 			}
 
@@ -672,14 +672,14 @@ void do_string(CHAR_DATA *ch, char *argument)
 				}
 			}
 
-			strcat(argument, "\n\r");
+			strcat(argument, "\n");
 			strcat(buf, argument);
 			ed = new_extra_descr();
 			ed->keyword         = str_dup(arg3);
 			ed->description     = str_dup(buf);
 			ed->next            = obj->extra_descr;
 			obj->extra_descr    = ed;
-			ptc(ch, "Added to extended description:\n\r%s\n\r", arg3);
+			ptc(ch, "Added to extended description:\n%s\n", arg3);
 			return;
 		}
 	}
@@ -687,7 +687,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 	/* Room Strings by Lotus */
 	if (!str_prefix1(type, "room")) {
 		if ((room = get_room_index(atoi(arg1))) == NULL) {
-			sprintf(buf, "Room %d does not exist.\n\r", atoi(arg1));
+			sprintf(buf, "Room %d does not exist.\n", atoi(arg1));
 			stc(buf, ch);
 			return;
 		}
@@ -695,7 +695,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 		if (!str_prefix1(arg2, "name")) {
 			free_string(room->name);
 			room->name = str_dup(arg3);
-			sprintf(buf, "Room %d's name has been changed to %s.\n\r",
+			sprintf(buf, "Room %d's name has been changed to %s.\n",
 			        atoi(arg1), arg3);
 			stc(buf, ch);
 			return;
@@ -713,40 +713,40 @@ void do_switch(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 
 	if (IS_NPC(ch) || ch->desc == NULL) {
-		stc("You're not a real live player, you cannot switch.\n\r", ch);
+		stc("You're not a real live player, you cannot switch.\n", ch);
 		return;
 	}
 
 	if (ch->desc->original != NULL) {
-		stc("You are currently switched already.\n\r", ch);
+		stc("You are currently switched already.\n", ch);
 		return;
 	}
 
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		stc("Switch into whom?\n\r", ch);
+		stc("Switch into whom?\n", ch);
 		return;
 	}
 
 	if ((victim = get_char_world(ch, arg, VIS_CHAR)) == NULL) {
-		stc("They aren't here.\n\r", ch);
+		stc("They aren't here.\n", ch);
 		return;
 	}
 
 	if (!IS_NPC(victim)) {
-		stc("You can only switch into mobiles.\n\r", ch);
+		stc("You can only switch into mobiles.\n", ch);
 		return;
 	}
 
 	if (!is_room_owner(ch, victim->in_room) && ch->in_room != victim->in_room
 	    &&  room_is_private(victim->in_room) && !IS_IMP(ch)) {
-		stc("That character is in a private room.\n\r", ch);
+		stc("That character is in a private room.\n", ch);
 		return;
 	}
 
 	if (victim->desc != NULL) {
-		stc("Sorry, Character in use.\n\r", ch);
+		stc("Sorry, Character in use.\n", ch);
 		return;
 	}
 
@@ -767,7 +767,7 @@ void do_switch(CHAR_DATA *ch, char *argument)
 	victim->comm = ch->comm;
 	victim->censor = ch->censor;        /* Montrey */
 	victim->lines = ch->lines;
-	stc("You have been morphed.\n\r", victim);
+	stc("You have been morphed.\n", victim);
 	return;
 }
 
@@ -782,11 +782,11 @@ void do_return(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (ch->desc->original == NULL) {
-		stc("You are not currently morphed.\n\r", ch);
+		stc("You are not currently morphed.\n", ch);
 		return;
 	}
 
-	stc("You return to your original body.\n\r", ch);
+	stc("You return to your original body.\n", ch);
 
 	if (ch->prompt != NULL) {
 		free_string(ch->prompt);
@@ -812,7 +812,7 @@ void do_return(CHAR_DATA *ch, char *argument)
 
 	if (!IS_NPC(ch->desc->character))
 		if (ch->desc->character->pcdata->buffer->string[0] != '\0')
-			stc("You have messages: Type 'replay'\n\r", ch);
+			stc("You have messages: Type 'replay'\n", ch);
 
 	ch->desc                  = NULL;
 
@@ -872,8 +872,8 @@ bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, char *argument)
 	                        else if (!str_prefix1(arg1, "quest"))   type = TOKEN_QUEST;
 	                        else
 	                        {
-	                                stc("Valid token types are quest, hidden, trivia, and wild,\n\r"
-	                                    "or use without an argument for a generic token.\n\r", ch);
+	                                stc("Valid token types are quest, hidden, trivia, and wild,\n"
+	                                    "or use without an argument for a generic token.\n", ch);
 	                                return FALSE;
 	                        }
 
@@ -939,8 +939,8 @@ void do_create(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (argument[0] == '\0') {
-		stc("Syntax:\n\r", ch);
-		stc("  create obj <type>\n\r", ch);
+		stc("Syntax:\n", ch);
+		stc("  create obj <type>\n", ch);
 		return;
 	}
 
@@ -949,10 +949,10 @@ void do_create(CHAR_DATA *ch, char *argument)
 
 	if (!str_cmp(arg1, "object")) {
 		if (arg2[0] == '\0') {
-			stc("Valid item types are:\n\r", ch);
+			stc("Valid item types are:\n", ch);
 
 			for (x = 0; item_table[x].name != NULL; x++)
-				ptc(ch, "%s\n\r", item_table[x].name);
+				ptc(ch, "%s\n", item_table[x].name);
 
 			return;
 		}
@@ -960,16 +960,16 @@ void do_create(CHAR_DATA *ch, char *argument)
 		if (!str_cmp(arg2, "npc_corpse")
 		    || !str_cmp(arg2, "pc_corpse")
 		    || !str_cmp(arg2, "coach")) {
-			stc("You cannot create one of those.\n\r", ch);
+			stc("You cannot create one of those.\n", ch);
 			return;
 		}
 
 		for (x = 0; item_table[x].name != NULL; x++) {
 			if (!str_cmp(arg2, item_table[x].name)) {
 				if ((pObjIndex = get_obj_index(item_table[x].type + 100)) == NULL) {
-					sprintf(buf, "[create] Cannot find item vnum %d.\n\r", item_table[x].type + 100);
+					sprintf(buf, "[create] Cannot find item vnum %d.\n", item_table[x].type + 100);
 					bug(buf, 0);
-					stc("That item seems to be missing.\n\r", ch);
+					stc("That item seems to be missing.\n", ch);
 					return;
 				}
 
@@ -987,7 +987,7 @@ void do_create(CHAR_DATA *ch, char *argument)
 
 				obj_to_char(obj, ch);
 				act("$n has created $p!", ch, obj, NULL, TO_ROOM);
-				stc("Success.\n\r", ch);
+				stc("Success.\n", ch);
 				return;
 			}
 		}
@@ -1020,22 +1020,22 @@ void do_skillpoint(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, char_name);
 
 	if ((give_or_take[0] == '\0') || (char_name[0] == '\0') || (argument[0] == '\0')) {
-		stc("Syntax: skillpoint <award|deduct> <player> <amount>\n\r", ch);
+		stc("Syntax: skillpoint <award|deduct> <player> <amount>\n", ch);
 		return;
 	}
 
 	if ((victim = get_player_world(ch, char_name, VIS_PLR)) == NULL) {
-		stc("Player not found.\n\r", ch);
+		stc("Player not found.\n", ch);
 		return;
 	}
 
 	if (IS_IMMORTAL(victim)) {
-		stc("Immortals can handle their own skill points.\n\r", ch);
+		stc("Immortals can handle their own skill points.\n", ch);
 		return;
 	}
 
 	if (!is_number(argument)) {
-		stc("Value must be numeric.\n\r", ch);
+		stc("Value must be numeric.\n", ch);
 		return;
 	}
 
@@ -1043,14 +1043,14 @@ void do_skillpoint(CHAR_DATA *ch, char *argument)
 
 	/* Make sure we have a reasonable amount. */
 	if ((new_points < 1) || (new_points > 50)) {
-		stc("Please give a value from 1 to 50.\n\r", ch);
+		stc("Please give a value from 1 to 50.\n", ch);
 		return;
 	}
 
 	/* First check for adding skill points. */
 	if (!strcmp(give_or_take, "award")) {
 		victim->pcdata->skillpoints += new_points;
-		sprintf(buffer, "%d skill points awarded to %s. Total: %d.\n\r",
+		sprintf(buffer, "%d skill points awarded to %s. Total: %d.\n",
 		        new_points, victim->name, victim->pcdata->skillpoints);
 		stc(buffer, ch);
 		stc(buffer, victim);
@@ -1058,12 +1058,12 @@ void do_skillpoint(CHAR_DATA *ch, char *argument)
 	/* Remove skill points from player. */
 	else if (!strcmp(give_or_take, "deduct")) {
 		if (victim->pcdata->skillpoints < new_points) {
-			stc("That player does not have that many skill points.\n\r", ch);
+			stc("That player does not have that many skill points.\n", ch);
 			return;
 		}
 		else {
 			victim->pcdata->skillpoints -= new_points;
-			sprintf(buffer, "%d skill points deducted from %s. %d remaining.\n\r",
+			sprintf(buffer, "%d skill points deducted from %s. %d remaining.\n",
 			        new_points, victim->name, victim->pcdata->skillpoints);
 			stc(buffer, ch);
 			stc(buffer, victim);
@@ -1071,6 +1071,6 @@ void do_skillpoint(CHAR_DATA *ch, char *argument)
 	}
 	/* Must have mis-typed command. */
 	else
-		stc("Syntax: skillpoint <award|deduct> <player> <amount>\n\r", ch);
+		stc("Syntax: skillpoint <award|deduct> <player> <amount>\n", ch);
 }
 

@@ -235,7 +235,7 @@ int parsebet (const int currentbet, const char *argument)
       }
       else
         {
-        /* printf ("considering: * x \n\r"); */
+        /* printf ("considering: * x \n"); */
         if ((*stringptr == '*') || (*stringptr == 'x')) /* multiply */
         {
           if (strlen (stringptr) == 1) /* only x specified, assume default */

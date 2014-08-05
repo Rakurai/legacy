@@ -368,7 +368,7 @@ void copyover_recover()
 
 	if ((fp = fopen(COPYOVER_LOG, "r")) == NULL) {
 		perror("copyover_recover:fopen");
-		log_string("Copyover log not found. Exitting.\n\r");
+		log_string("Copyover log not found. Exitting.\n");
 		exit(1);
 	}
 
@@ -380,7 +380,7 @@ void copyover_recover()
 
 	if ((fp = fopen(COPYOVER_FILE, "r")) == NULL) {
 		perror("copyover_recover:fopen");
-		log_string("Copyover file not found. Exitting.\n\r");
+		log_string("Copyover file not found. Exitting.\n");
 		exit(1);
 	}
 
@@ -390,36 +390,36 @@ void copyover_recover()
 
 	/* starting recovery message, do NOT use standard color codes here, it's a wtd */
 	if (!str_cmp(logname, "Liriel"))
-		sprintf(msg1, "\n\rYou blink, and all of a sudden, you are back where you were before,\n\r"
-		        "the world refreshed and born anew.\n\r");
+		sprintf(msg1, "\nYou blink, and all of a sudden, you are back where you were before,\n"
+		        "the world refreshed and born anew.\n");
 	else if (!str_cmp(logname, "Outsider"))
-		sprintf(msg1, "\n\rDispite all of the confusion, you feel no danger in the soft hug.\n\r");
+		sprintf(msg1, "\nDispite all of the confusion, you feel no danger in the soft hug.\n");
 	else if (!str_cmp(logname, "Kenneth"))
-		sprintf(msg1, "\n\rThe hand is cold, but seems to exert no pressure at all on your face.\n\r");
+		sprintf(msg1, "\nThe hand is cold, but seems to exert no pressure at all on your face.\n");
 	else if (!str_cmp(logname, "Montrey"))
 		sprintf(msg1, "\nThe world begins to take shape before your eyes.\n");
 	else if (!str_cmp(logname, "Xenith"))
 		sprintf(msg1, "\nYour vision returns, as your body forms again.\n");
 	else
-		sprintf(msg1, "\n\rRestoring from copyover...\n\r");
+		sprintf(msg1, "\nRestoring from copyover...\n");
 
 	/* finished recovery message, it's a stc so colors are ok */
 	if (!str_cmp(logname, "Xenith"))
 		sprintf(msg2, "\nThe world begins anew, better from the destruction.\n");
 	else if (!str_cmp(logname, "Outsider"))
-		sprintf(msg2, "\n\rThe angel steps back from you, revealing a cleaner, newer world. You\n\r"
-		        "rub your eyes and when you open them again, the angel is gone.\n\r");
+		sprintf(msg2, "\nThe angel steps back from you, revealing a cleaner, newer world. You\n"
+		        "rub your eyes and when you open them again, the angel is gone.\n");
 	else if (!str_cmp(logname, "Montrey"))
 		sprintf(msg2, "\nYou blink, and see the world complete once again.\n"
 		        "Yet, something seems somehow... different.\n");
 	else if (!str_cmp(logname, "Liriel"))
-		sprintf(msg2, "\n\rThe only trace of the faerie is a little blue glimmer that quickly winks\n\r"
-		        "and vanishes.\n\r");
+		sprintf(msg2, "\nThe only trace of the faerie is a little blue glimmer that quickly winks\n"
+		        "and vanishes.\n");
 	else if (!str_cmp(logname, "Kenneth"))
-		sprintf(msg2, "\n\rHalf a second later your sight is returned, the man is gone, and the\n\r"
-		        "world is changed.\n\r");
+		sprintf(msg2, "\nHalf a second later your sight is returned, the man is gone, and the\n"
+		        "world is changed.\n");
 	else
-		sprintf(msg2, "\n\rCopyover recovery complete.\n\r");
+		sprintf(msg2, "\nCopyover recovery complete.\n");
 
 	for (; ;) {
 		fscanf(fp, "%d %s %s\n", &desc, name, host);
@@ -442,7 +442,7 @@ void copyover_recover()
 
 		/* Now, find the pfile */
 		if (!load_char_obj(d, name)) {  /* Player file not found?! */
-			write_to_descriptor(desc, "\n\rSomehow, your character was lost in the copyover. Sorry.\n\r", 0);
+			write_to_descriptor(desc, "\nSomehow, your character was lost in the copyover. Sorry.\n", 0);
 			close_socket(d);
 			continue;
 		}
@@ -597,7 +597,7 @@ int main(int argc, char **argv)
 
 		if ((pidfile = fopen(PID_FILE, "w")) == NULL) {
 			perror("getpid:fopen");
-			log_string("pid file not found. Exitting.\n\r");
+			log_string("pid file not found. Exitting.\n");
 			exit(1);
 		}
 
@@ -1083,7 +1083,7 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 		process_output(dclose, FALSE);
 
 	if (dclose->snoop_by != NULL)
-		write_to_buffer(dclose->snoop_by, "Your victim has left the game.\n\r", 0);
+		write_to_buffer(dclose->snoop_by, "Your victim has left the game.\n", 0);
 
 	for (d = descriptor_list; d != NULL; d = d->next)
 		if (d->snoop_by == dclose)
@@ -1102,7 +1102,7 @@ void close_socket(DESCRIPTOR_DATA *dclose)
 
 			for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
 				if (!IS_IMMORTAL(ch) || can_see(rch, ch))
-					ptc(rch, "%s has lost %s link.\n\r",
+					ptc(rch, "%s has lost %s link.\n",
 					    PERS(ch, rch, VIS_CHAR),
 					    GET_SEX(ch) == SEX_FEMALE ? "her" :
 					    GET_SEX(ch) == SEX_MALE   ? "his" : "its");
@@ -1183,7 +1183,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 		sprintf(log_buf, "%s input overflow!", d->host);
 		log_string(log_buf);
 		write_to_descriptor(d->descriptor,
-		                    "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
+		                    "\n*** PUT A LID ON IT!!! ***\n", 0);
 		return FALSE;
 	}
 
@@ -1253,7 +1253,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	 */
 	for (i = 0, k = 0; d->inbuf[i] != '\n' && d->inbuf[i] != '\r'; i++) {
 		if (k >= MAX_INPUT_LENGTH - 2) {
-			write_to_descriptor(d->descriptor, "Line too long.\n\r", 0);
+			write_to_descriptor(d->descriptor, "Line too long.\n", 0);
 
 			/* skip the rest of the line */
 			for (; d->inbuf[i] != '\0'; i++) {
@@ -1304,7 +1304,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 				d->repeat = 0;
 				/*
 				                write_to_descriptor( d->descriptor,
-				                    "\n\r*** PUT A LID ON IT!!! ***\n\r", 0 );
+				                    "\n*** PUT A LID ON IT!!! ***\n", 0 );
 				                strcpy( d->incomm, "quit" );
 				*/
 			}
@@ -1364,7 +1364,7 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	 * Bust a prompt.
 	 */
 	if (!merc_down && d->showstr_point)
-		write_to_buffer(d, "[Hit Enter to continue]\n\r", 0);
+		write_to_buffer(d, "[Hit Enter to continue]\n", 0);
 	else if (fPrompt && !merc_down && IS_PLAYING(d)) {
 		CHAR_DATA *ch;
 		CHAR_DATA *victim;
@@ -1432,13 +1432,13 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 				else                    strcat(atb, " is in need of ***SERIOUS*** medical attention!");
 			}
 
-			ptc(ch, "%s\n\r", atb);
+			ptc(ch, "%s\n", atb);
 		}
 
 		ch = d->original ? d->original : d->character;
 
 		if (!IS_SET(ch->comm, COMM_COMPACT))
-			write_to_buffer(d, "\n\r", 2);
+			write_to_buffer(d, "\n", 2);
 
 		if (IS_SET(ch->comm, COMM_PROMPT)) {
 			set_color(ch, CYAN, NOBOLD);
@@ -1622,7 +1622,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'c':
-			sprintf(buf2, "%s", "\n\r");
+			sprintf(buf2, "%s", "\n");
 			i = buf2;
 			break;
 
@@ -2033,7 +2033,7 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 		length = strlen(txt);
 
 	/*
-	 * Initial \n\r if needed.
+	 * Initial \n if needed.
 	 */
 	if (d->outtop == 0 && !d->fcommand) {
 		d->outbuf[0]    = '\n';
@@ -2051,7 +2051,7 @@ void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 			char *culprit;
 			char buf[MAX_INPUT_LENGTH];
 			culprit = d->original ? d->original->name : d->character->name;
-			sprintf(buf, "Buffer overflow. Closing connection to %s.\n\r",
+			sprintf(buf, "Buffer overflow. Closing connection to %s.\n",
 			        culprit ? culprit : "culprit");
 			close_socket(d);
 			bug(buf, 0);
@@ -2225,15 +2225,15 @@ bool check_reconnect(DESCRIPTOR_DATA *d, char *name, bool fConn)
 				d->character = ch;
 				ch->desc         = d;
 				ch->desc->timer  = 0;
-				stc("Reconnecting...\n\r", ch);
+				stc("Reconnecting...\n", ch);
 
 				if (!IS_NPC(ch))
 					if (ch->pcdata->buffer->string[0] != '\0')
-						stc("You have messages: Type 'replay'\n\r", ch);
+						stc("You have messages: Type 'replay'\n", ch);
 
 				for (rch = ch->in_room->people; rch; rch = rch->next_in_room)
 					if (ch != rch && can_see(rch, ch))
-						ptc(rch, "%s has reconnected.\n\r", PERS(ch, rch, VIS_CHAR));
+						ptc(rch, "%s has reconnected.\n", PERS(ch, rch, VIS_CHAR));
 
 				sprintf(log_buf, "%s@%s reconnected.", ch->name, d->host);
 				log_string(log_buf);
@@ -2272,7 +2272,7 @@ bool check_playing(DESCRIPTOR_DATA *d, char *name)
 		    &&   dold->connected != CON_GET_OLD_PASSWORD
 		    &&   !str_cmp(name, dold->original
 		                  ? dold->original->name : dold->character->name)) {
-			write_to_buffer(d, "That character is already playing.\n\r", 0);
+			write_to_buffer(d, "That character is already playing.\n", 0);
 			write_to_buffer(d, "Do you wish to connect anyway (Y/N)?", 0);
 			d->connected = CON_BREAK_CONNECT;
 			return TRUE;
@@ -2294,11 +2294,11 @@ bool check_player_exist(DESCRIPTOR_DATA *d, char *name)
 		    &&   !str_cmp(name, dold->original
 		                  ? dold->original->name : dold->character->name)) {
 			write_to_buffer(d,
-			                "A character by that name is currently being created.\n\r"
-			                "You cannot access that character.\n\r"
-			                "Please create a character with a different name, and\n\r"
-			                "ask an Immortal for help if you need it.\n\r"
-			                "\n\r"
+			                "A character by that name is currently being created.\n"
+			                "You cannot access that character.\n"
+			                "Please create a character with a different name, and\n"
+			                "ask an Immortal for help if you need it.\n"
+			                "\n"
 			                "Name: ", 0);
 			d->connected = CON_GET_NAME;
 			return TRUE;
@@ -2317,11 +2317,11 @@ bool check_player_exist(DESCRIPTOR_DATA *d, char *name)
 
 	if (exist) {
 		write_to_buffer(d,
-		                "A character by that name is currently in storage.\n\r"
-		                "You cannot create a character by this name.\n\r"
-		                "Please create a character with a different name, and\n\r"
-		                "ask an Immortal for help if you need it.\n\r"
-		                "\n\r"
+		                "A character by that name is currently in storage.\n"
+		                "You cannot create a character by this name.\n"
+		                "Please create a character with a different name, and\n"
+		                "ask an Immortal for help if you need it.\n"
+		                "\n"
 		                "Name: ", 0);
 		d->connected = CON_GET_NAME;
 		return TRUE;
@@ -3075,7 +3075,7 @@ void do_copyover(CHAR_DATA *ch, char *argument)
 	save_clan_table();
 
 	if ((fp = fopen(COPYOVER_FILE, "w")) == NULL) {
-		stc("Copyover file not writeable, aborted.\n\r", ch);
+		stc("Copyover file not writeable, aborted.\n", ch);
 		sprintf(buf, "Could not write to copyover file: %s", COPYOVER_FILE);
 		log_string(buf);
 		perror("do_copyover:fopen");
@@ -3097,7 +3097,7 @@ void do_copyover(CHAR_DATA *ch, char *argument)
 	fclose(fp);
 
 	if ((fp = fopen(COPYOVER_LOG, "w")) == NULL) {
-		stc("Copyover file not writeable, aborted.\n\r", ch);
+		stc("Copyover file not writeable, aborted.\n", ch);
 		sprintf(buf, "Could not write to copyover file: %s", COPYOVER_LOG);
 		log_string(buf);
 		perror("do_copyover:fopen");
@@ -3115,33 +3115,33 @@ void do_copyover(CHAR_DATA *ch, char *argument)
 
 	/* yes, this is ugly, but i don't think it warrants a place in pcdata */
 	if (!str_cmp(ch->name, "Montrey")) {
-		sprintf(buf, "\n\rA beam of pure white light arcs down from the heavens, striking\n\r"
-		        "the earth just beyond the horizon.  The ground starts to shake,\n\r"
-		        "and a curtain of fiery destruction sweeps over the land, clearing\n\r"
-		        "away the old in preparation for the new.\n\r");
+		sprintf(buf, "\nA beam of pure white light arcs down from the heavens, striking\n"
+		        "the earth just beyond the horizon.  The ground starts to shake,\n"
+		        "and a curtain of fiery destruction sweeps over the land, clearing\n"
+		        "away the old in preparation for the new.\n");
 	}
 	else if (!str_cmp(ch->name, "Outsider")) {
-		sprintf(buf, "\n\rAn angel, clothed in white light, lands before you. He stands\n\r"
-		        "before you, blocking your view of the rest of the world. His wings\n\r"
-		        "wrap about you in a soft, feathery embrace. All around you hear screams\n\r"
-		        "and loud cracking sounds, as if the world is turning inside out.\n\r");
+		sprintf(buf, "\nAn angel, clothed in white light, lands before you. He stands\n"
+		        "before you, blocking your view of the rest of the world. His wings\n"
+		        "wrap about you in a soft, feathery embrace. All around you hear screams\n"
+		        "and loud cracking sounds, as if the world is turning inside out.\n");
 	}
 	else if (!str_cmp(ch->name, "Xenith")) {
-		sprintf(buf, "\n\rThe winds suddenly spring up, as the storm destroys the world.\n"
+		sprintf(buf, "\nThe winds suddenly spring up, as the storm destroys the world.\n"
 		        "Your body becomes dust before the maelstrom.\n"
 		        "Your vision dissapates as the universe vanishes in a flash.\n");
 	}
 	else if (!str_cmp(ch->name, "Liriel")) {
-		sprintf(buf, "\n\rA tiny faerie shimmers into existence in front of you, it's magics quickly\n\r"
-		        "wrapping around you to form a protective barrier ... You watch in awe as the\n\r"
-		        "world around you blurs and distorts, reality as you know it washing away.\n\r");
+		sprintf(buf, "\nA tiny faerie shimmers into existence in front of you, it's magics quickly\n"
+		        "wrapping around you to form a protective barrier ... You watch in awe as the\n"
+		        "world around you blurs and distorts, reality as you know it washing away.\n");
 	}
 	else if (!str_cmp(ch->name, "Kenneth")) {
-		sprintf(buf, "\n\rA casual tap on the shoulder causes you to spin around.  Directly in front\n\r"
-		        "of you is a plain, unassuming man who gently covers your eyes.\n\r");
+		sprintf(buf, "\nA casual tap on the shoulder causes you to spin around.  Directly in front\n"
+		        "of you is a plain, unassuming man who gently covers your eyes.\n");
 	}
 	else
-		sprintf(buf, "\n\r*** COPYOVER by %s - please remain seated!\n\r", ch->name);
+		sprintf(buf, "\n*** COPYOVER by %s - please remain seated!\n", ch->name);
 
 	/* For each playing descriptor, save its state */
 	for (d = descriptor_list; d ; d = d_next) {
@@ -3159,7 +3159,7 @@ void do_copyover(CHAR_DATA *ch, char *argument)
 			printf("closing socket %d from host %s\n",
 			       d->descriptor, d->host);
 			write_to_descriptor(d->descriptor,
-			                    "\n\rSorry, we are rebooting. Come back in a minute.\n\r",
+			                    "\nSorry, we are rebooting. Come back in a minute.\n",
 			                    0);
 			close_socket(d);  /* throw'em out */
 		}
@@ -3188,5 +3188,5 @@ void do_copyover(CHAR_DATA *ch, char *argument)
 	execl(EXE_FILE, "legacy", portbuf, "null", "copyover", controlbuf, "null", (char*)0);
 	/* Failed - sucessful exec will not return */
 	perror("do_copyover: execl");
-	stc("Copyover FAILED!\n\r", ch);
+	stc("Copyover FAILED!\n", ch);
 }

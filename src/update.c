@@ -88,7 +88,7 @@ void demote_level(CHAR_DATA *ch)
 	ch->pcdata->perm_hit    -= sub_hp;
 	ch->pcdata->perm_mana   -= sub_mana;
 	ch->pcdata->perm_stam   -= sub_stam;
-	ptc(ch, "{RYour loss is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.{x\n\r",
+	ptc(ch, "{RYour loss is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.{x\n",
 	    sub_hp,         ch->max_hit,
 	    sub_mana,       ch->max_mana,
 	    sub_stam,       ch->max_stam,
@@ -136,7 +136,7 @@ void advance_level(CHAR_DATA *ch)
 	ch->pcdata->perm_hit    += add_hp;
 	ch->pcdata->perm_mana   += add_mana;
 	ch->pcdata->perm_stam   += add_stam;
-	ptc(ch, "Your gain is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.\n\r",
+	ptc(ch, "Your gain is: %d/%d hp, %d/%d ma, %d/%d stm, %d/%d prac, %d/%d train.\n",
 	    add_hp,         ch->max_hit,
 	    add_mana,       ch->max_mana,
 	    add_stam,       ch->max_stam,
@@ -181,7 +181,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 
 	while ((ch->exp >= exp_per_level(ch, ch->pcdata->points) * (ch->level + 1))
 	       && (ch->level < LEVEL_HERO)) {
-		stc("{PG{RR{YA{bT{GZ{H!  {BWay {Nto {Vlevel{M!!{x\n\r", ch);
+		stc("{PG{RR{YA{bT{GZ{H!  {BWay {Nto {Vlevel{M!!{x\n", ch);
 		/* up the player's level. If hero, add fireworks. */
 		ch->level++;
 
@@ -189,14 +189,14 @@ void gain_exp(CHAR_DATA *ch, int gain)
 			DESCRIPTOR_DATA *d;
 			CHAR_DATA *victim;
 			static char *msg =
-			        "{PGGGGGG  RRRRRR    AAAA   TTTTTTT  ZZZZZZ\n\r"
-			        "{YGG  GG  RR  RRR  AAAAAA  TTTTTTT  ZZZZZZ\n\r"
-			        "{GGG      RR  RRR  AA  AA    TTT      ZZZ \n\r"
-			        "{CGG GGG  RRRRRR   AAAAAA    TTT     ZZZ  \n\r"
-			        "{BGG  GG  RR  RRR  AA  AA    TTT    ZZZZZZ\n\r"
-			        "{VGGGGGG  RR   RR  AA  AA    TTT    ZZZZZZ{x\n\r";
+			        "{PGGGGGG  RRRRRR    AAAA   TTTTTTT  ZZZZZZ\n"
+			        "{YGG  GG  RR  RRR  AAAAAA  TTTTTTT  ZZZZZZ\n"
+			        "{GGG      RR  RRR  AA  AA    TTT      ZZZ \n"
+			        "{CGG GGG  RRRRRR   AAAAAA    TTT     ZZZ  \n"
+			        "{BGG  GG  RR  RRR  AA  AA    TTT    ZZZZZZ\n"
+			        "{VGGGGGG  RR   RR  AA  AA    TTT    ZZZZZZ{x\n";
 			extern void restore_char(CHAR_DATA *, CHAR_DATA *);
-			stc("{MGratz from all the Immortals of Legacy!{x\n\r\n\r", ch);
+			stc("{MGratz from all the Immortals of Legacy!{x\n\n", ch);
 
 			for (d = descriptor_list; d; d = d->next)
 				if (IS_PLAYING(d)) {
@@ -226,7 +226,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 			if ((ch->level > ch->pet->level) && (ch->level % 2)) {
 				ch->pet->level++;
 				npc_advance_level(ch->pet);
-				stc("Your pet gains a level!\n\r", ch);
+				stc("Your pet gains a level!\n", ch);
 			}
 		}    /* end of we have a pet */
 
@@ -492,16 +492,16 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 		if (ch->pcdata->condition[iCond] == 0) {
 			switch (iCond) {
 			case COND_HUNGER:
-				stc("You are hungry.\n\r", ch);
+				stc("You are hungry.\n", ch);
 				break;
 
 			case COND_THIRST:
-				stc("You are thirsty.\n\r", ch);
+				stc("You are thirsty.\n", ch);
 				break;
 
 			case COND_DRUNK:
 				if (condition != 0)
-					stc("You are sober.\n\r", ch);
+					stc("You are sober.\n", ch);
 
 				break;
 			}
@@ -638,30 +638,30 @@ void weather_update(void)
 	case  5:
 		new_day();
 		weather_info.sunlight = SUN_LIGHT;
-		strcat(buf, "The Clocktower Bell rings as another day begins.\n\r");
+		strcat(buf, "The Clocktower Bell rings as another day begins.\n");
 		break;
 
 	case  6:
 		weather_info.sunlight = SUN_RISE;
-		strcat(buf, "The sun rises in the east.\n\r");
+		strcat(buf, "The sun rises in the east.\n");
 		break;
 
 	case 12:
-		strcat(buf, "The Clocktower Bell signals the midday.\n\r");
+		strcat(buf, "The Clocktower Bell signals the midday.\n");
 		break;
 
 	case 19:
 		weather_info.sunlight = SUN_SET;
-		strcat(buf, "The sun slowly disappears in the west.\n\r");
+		strcat(buf, "The sun slowly disappears in the west.\n");
 		break;
 
 	case 20:
 		weather_info.sunlight = SUN_DARK;
-		strcat(buf, "The night has begun.\n\r");
+		strcat(buf, "The night has begun.\n");
 		break;
 
 	case 24:
-		strcat(buf, "The Clocktower Bell tolls, declaring midnight.\n\r");
+		strcat(buf, "The Clocktower Bell tolls, declaring midnight.\n");
 		time_info.hour = 0;
 		time_info.day++;
 		break;
@@ -698,7 +698,7 @@ void weather_update(void)
 
 	case SKY_CLOUDLESS:
 		if (weather_info.mmhg < 990 || (weather_info.mmhg < 1010 && number_bits(2) == 0)) {
-			strcat(buf, "The sky grows dark with rolling grey clouds.\n\r");
+			strcat(buf, "The sky grows dark with rolling grey clouds.\n");
 			weather_info.sky = SKY_CLOUDY;
 		}
 
@@ -715,7 +715,7 @@ void weather_update(void)
 		}
 
 		if (weather_info.mmhg > 1030 && number_bits(2) == 0) {
-			strcat(buf, "Shafts of light cut through the dense clouds above.\n\r");
+			strcat(buf, "Shafts of light cut through the dense clouds above.\n");
 			weather_info.sky = SKY_CLOUDLESS;
 		}
 
@@ -723,7 +723,7 @@ void weather_update(void)
 
 	case SKY_RAINING:
 		if (weather_info.mmhg < 970 && number_bits(2) == 0) {
-			strcat(buf, "Lightning flashes in the sky.\n\r");
+			strcat(buf, "Lightning flashes in the sky.\n");
 			weather_info.sky = SKY_LIGHTNING;
 		}
 
@@ -740,7 +740,7 @@ void weather_update(void)
 
 	case SKY_LIGHTNING:
 		if (weather_info.mmhg > 1010 || (weather_info.mmhg >  990 && number_bits(2) == 0)) {
-			strcat(buf, "The lightning has stopped.\n\r");
+			strcat(buf, "The lightning has stopped.\n");
 			weather_info.sky = SKY_RAINING;
 			break;
 		}
@@ -786,7 +786,7 @@ void descrip_update(void)
 						stop_fighting(ch, TRUE);
 
 					act("$n disappears into the void...", ch, NULL, NULL, TO_ROOM);
-					stc("You disappear into the void.\n\r", ch);
+					stc("You disappear into the void.\n", ch);
 
 					if (ch->level > 1)
 						save_char_obj(ch);
@@ -842,7 +842,7 @@ void char_update(void)
 
 		/* Autotick stuff - Lotus */
 		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_TICKS))
-			stc("{Btick...{x\n\r", ch);
+			stc("{Btick...{x\n", ch);
 
 		if (get_position(ch) >= POS_STUNNED) {
 			/* Nectimer for Necromancy spells */
@@ -950,7 +950,7 @@ void char_update(void)
 						stop_fighting(ch, TRUE);
 
 					act("$n disappears into the void...", ch, NULL, NULL, TO_ROOM);
-					stc("You disappear into the void.\n\r", ch);
+					stc("You disappear into the void.\n", ch);
 
 					if (ch->level > 1)
 						save_char_obj(ch);
@@ -982,8 +982,8 @@ void char_update(void)
 			if (ch->pcdata->flag_killer == 0 && IS_SET(ch->act, PLR_KILLER)) {
 				REMOVE_BIT(ch->act, PLR_KILLER);
 				REMOVE_BIT(ch->act, PLR_NOPK);
-				stc("The urge to kill dimishes.\n\r", ch);
-				stc("You are no longer a KILLER.\n\r", ch);
+				stc("The urge to kill dimishes.\n", ch);
+				stc("You are no longer a KILLER.\n", ch);
 				save_char_obj(ch);
 			}
 			else if (ch->pcdata->flag_killer > 0 && IS_SET(ch->act, PLR_KILLER))
@@ -993,8 +993,8 @@ void char_update(void)
 			if (ch->pcdata->flag_thief == 0 && IS_SET(ch->act, PLR_THIEF)) {
 				REMOVE_BIT(ch->act, PLR_THIEF);
 				REMOVE_BIT(ch->act, PLR_NOPK);
-				stc("The urge to steal dimishes.\n\r", ch);
-				stc("You are no longer a THIEF.\n\r", ch);
+				stc("The urge to steal dimishes.\n", ch);
+				stc("You are no longer a THIEF.\n", ch);
 				save_char_obj(ch);
 			}
 			else if (ch->pcdata->flag_thief > 0 && IS_SET(ch->act, PLR_THIEF))
@@ -1017,7 +1017,7 @@ void char_update(void)
 				    || paf_next->type != paf->type
 				    || paf_next->duration > 0) {
 					if (paf->type > 0 && skill_table[paf->type].msg_off)
-						ptc(ch, "%s\n\r", skill_table[paf->type].msg_off);
+						ptc(ch, "%s\n", skill_table[paf->type].msg_off);
 				}
 
 				affect_remove(ch, paf);
@@ -1050,7 +1050,7 @@ void char_update(void)
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",
 			    ch, NULL, NULL, TO_ROOM);
-			stc("You writhe in agony from the plague.\n\r", ch);
+			stc("You writhe in agony from the plague.\n", ch);
 
 			for (af = ch->affected; af != NULL; af = af->next) {
 				if (af->type == gsn_plague)
@@ -1082,7 +1082,7 @@ void char_update(void)
 				if (!saves_spell(plague.level - 2, vch, DAM_DISEASE)
 				    &&  !IS_IMMORTAL(vch)
 				    &&  !IS_AFFECTED(vch, AFF_PLAGUE) && number_bits(4) == 0) {
-					stc("You feel hot and feverish.\n\r", vch);
+					stc("You feel hot and feverish.\n", vch);
 					act("$n shivers and looks very ill.", vch, NULL, NULL, TO_ROOM);
 					affect_join(vch, &plague);
 				}
@@ -1100,7 +1100,7 @@ void char_update(void)
 
 			if (poison != NULL) {
 				act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);
-				stc("You shiver and suffer.\n\r", ch);
+				stc("You shiver and suffer.\n", ch);
 				damage(ch, ch, poison->level / 10 + 1, gsn_poison,
 				       DAM_POISON, FALSE, TRUE);
 			}
@@ -1657,7 +1657,7 @@ void tele_update(void)
 
 			char_from_room(ch);
 			char_to_room(ch, pRoomIndex);
-			act("$n slowly fades into existence.\n\r", ch, NULL, NULL, TO_ROOM);
+			act("$n slowly fades into existence.\n", ch, NULL, NULL, TO_ROOM);
 			do_look(ch, "auto");
 		}
 	}
@@ -1680,11 +1680,11 @@ void auction_update(void)
 		case 1 : /* going once */
 		case 2 : /* going twice */
 			if (auction->bet > 0)
-				sprintf(buf, "%s: going %s for %d gold.\n\r",
+				sprintf(buf, "%s: going %s for %d gold.\n",
 				        auction->item->short_descr,
 				        ((auction->going == 1) ? "once" : "twice"), auction->bet);
 			else
-				sprintf(buf, "%s: going %s (no bet received yet).\n\r",
+				sprintf(buf, "%s: going %s (no bet received yet).\n",
 				        auction->item->short_descr,
 				        ((auction->going == 1) ? "once" : "twice"));
 
@@ -1693,11 +1693,11 @@ void auction_update(void)
 
 		case 3 : /* SOLD! */
 			if (auction->bet > 0) {
-				sprintf(buf, "AUCTION: %s sold to $n for %d gold.\n\r",
+				sprintf(buf, "AUCTION: %s sold to $n for %d gold.\n",
 				        auction->item->short_descr, auction->bet);
 				global_act(auction->buyer, buf, TRUE,
 				           YELLOW, COMM_NOAUCTION | COMM_QUIET);
-				sprintf(buf, "AUCTION: %s sold to $N for %d gold.\n\r",
+				sprintf(buf, "AUCTION: %s sold to $N for %d gold.\n",
 				        auction->item->short_descr, auction->bet);
 				wiznet(buf, auction->buyer, NULL, WIZ_AUCTION, 0,
 				       GET_RANK(auction->buyer));
@@ -1712,7 +1712,7 @@ void auction_update(void)
 			}
 			else { /* not sold */
 				sprintf(buf,
-				        "No bets received for %s - object has been removed.\n\r",
+				        "No bets received for %s - object has been removed.\n",
 				        auction->item->short_descr);
 				talk_auction(NULL, buf);
 				act("The auctioneer appears before you to return $p to you.",
@@ -1934,7 +1934,7 @@ void underwater_update(void)
 			skill = get_skill(ch, gsn_swimming);
 
 			if (skill == 100)
-				stc("You would be {Cdrowning{x if not for your underwater breathing skill.\n\r", ch);
+				stc("You would be {Cdrowning{x if not for your underwater breathing skill.\n", ch);
 			else {
 				/* a drink of water */
 				gain_condition(ch, COND_THIRST,
@@ -1944,18 +1944,18 @@ void underwater_update(void)
 				dam = (ch->hit * (100 - skill)) / 400;
 
 				if (ch->hit > 100) {
-					stc("{CYou are drowning!!!{x\n\r", ch);
+					stc("{CYou are drowning!!!{x\n", ch);
 
 					if (skill > 0) {
-						stc("{HYour skill helps slow your drowning.{x\n\r", ch);
+						stc("{HYour skill helps slow your drowning.{x\n", ch);
 						check_improve(ch, gsn_swimming, TRUE, 1);
 					}
 
 					damage(ch->fighting ? ch->fighting : ch, ch, dam, gsn_swimming, DAM_WATER, FALSE, TRUE);
 				}
 				else {
-					stc("{PYou cannot hold your breath any more!{x\n\r", ch);
-					stc("{CYour lungs fill with water and you lose consciousness...{x\n\r", ch);
+					stc("{PYou cannot hold your breath any more!{x\n", ch);
+					stc("{CYour lungs fill with water and you lose consciousness...{x\n", ch);
 					damage(ch->fighting ? ch->fighting : ch, ch, ch->hit + 15, gsn_swimming, DAM_WATER, FALSE, TRUE);
 				}
 			}
@@ -1979,12 +1979,12 @@ void quest_update(void)
 				ch->nextquest--;
 
 				if (ch->nextquest == 0)
-					stc("You may now quest again.\n\r", ch);
+					stc("You may now quest again.\n", ch);
 			}
 			else if (IS_SET(ch->act, PLR_QUESTOR)) {
 				if (--ch->countdown <= 0) {
 					ch->nextquest = 0;
-					stc("You have run out of time for your quest!\n\rYou may now quest again.\n\r", ch);
+					stc("You have run out of time for your quest!\nYou may now quest again.\n", ch);
 					REMOVE_BIT(ch->act, PLR_QUESTOR);
 					ch->quest_giver = 0;
 					ch->countdown = 0;
@@ -1993,7 +1993,7 @@ void quest_update(void)
 				}
 
 				if (ch->countdown > 0 && ch->countdown < 6)
-					stc("Better hurry, you're almost out of time for your quest!\n\r", ch);
+					stc("Better hurry, you're almost out of time for your quest!\n", ch);
 			}
 
 			/* parasite skill quest timer off of quest_update */
@@ -2001,18 +2001,18 @@ void quest_update(void)
 				ch->pcdata->nextsquest--;
 
 				if (ch->pcdata->nextsquest == 0)
-					stc("You may now skill quest again.\n\r", ch);
+					stc("You may now skill quest again.\n", ch);
 			}
 			else if (IS_SET(ch->pcdata->plr, PLR_SQUESTOR)) {
 				if (--ch->pcdata->sqcountdown <= 0) {
 					ch->pcdata->nextsquest = 0;
-					stc("You have run out of time for your skill quest!\n\r"
-					    "You may now skill quest again.\n\r", ch);
+					stc("You have run out of time for your skill quest!\n"
+					    "You may now skill quest again.\n", ch);
 					sq_cleanup(ch);
 				}
 
 				if (ch->pcdata->sqcountdown > 0 && ch->pcdata->sqcountdown < 6)
-					stc("Better hurry, you're almost out of time for your skill quest!\n\r", ch);
+					stc("Better hurry, you're almost out of time for your skill quest!\n", ch);
 			}
 		}
 	}
