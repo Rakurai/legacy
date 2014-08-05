@@ -15,8 +15,6 @@
 *************************************************/
 
 #include "merc.h"
-#include "recycle.h"
-#include "lookup.h"
 #include "tables.h"
 #include "sql.h"
 

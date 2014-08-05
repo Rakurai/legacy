@@ -1,9 +1,7 @@
 #include "merc.h"
-#include "recycle.h"
 #include "vt100.h"
 #include "sql.h"
 //For the hack fix
-#include "tables.h"
 
 DECLARE_DO_FUN(do_skills);
 DECLARE_DO_FUN(do_outfit);

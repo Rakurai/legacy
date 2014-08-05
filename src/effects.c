@@ -26,7 +26,6 @@
 ***************************************************************************/
 
 #include "merc.h"
-#include "recycle.h"
 
 void acid_effect(void *vo, int level, int dam, int target, int evolution)
 {

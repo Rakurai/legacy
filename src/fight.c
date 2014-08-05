@@ -26,7 +26,6 @@
 ***************************************************************************/
 
 #include "merc.h"
-#include "recycle.h"
 
 #define MAX_DAMAGE_MESSAGE 40
 #define PKTIME 10       /* that's x3 seconds, 30 currently */

@@ -4,7 +4,6 @@
 ***************************************************************************/
 
 #include "merc.h"
-#include "lookup.h"
 #include "recycle.h"
 
 #define WAR_DIR         "../war/"

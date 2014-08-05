@@ -11,8 +11,6 @@
 #include "merc.h"
 #include "sql.h"
 #include "tables.h"
-#include "recycle.h"
-#include "ports.h"
 
 DECLARE_DO_FUN(do_departed);
 

@@ -8,8 +8,8 @@
 #ifndef __SQL_H
 #define __SQL_H
 
-#include <mysql/errmsg.h>
-#include <mysql/mysql.h>
+#include <errmsg.h>
+#include <mysql.h>
 
 
 #define args(list) list
