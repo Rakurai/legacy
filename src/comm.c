@@ -47,6 +47,8 @@
 //#include <ctype.h>
 //#include <errno.h>
 #include <sys/shm.h>
+//#include <select.h>
+#include <arpa/inet.h>
 
 #include "merc.h"
 #include "recycle.h"
@@ -570,7 +572,7 @@ int main(int argc, char **argv)
 #endif
         // load our configuration
         if (load_config(CONFIG_FILE) != 0) {
-                bug("Failed to load configuration from %s.", CONFIG_FILE);
+                bugf("Failed to load configuration from %s.", CONFIG_FILE);
                 exit(1);
         }
 
@@ -2088,7 +2090,6 @@ bool write_to_descriptor(int desc, char *txt, int length)
 	int iStart;
 	int nWrite;
 	int nBlock;
-	int myError;
 
 	if (length <= 0)
 		length = strlen(txt);
@@ -2097,7 +2098,6 @@ bool write_to_descriptor(int desc, char *txt, int length)
 		nBlock = UMIN(length - iStart, 4096);
 
 		if ((nWrite = write(desc, txt + iStart, nBlock)) < 0) {
-			myError = errno;
 			perror("Write_to_descriptor");
 
 			if (errno == EBADF) {
@@ -3177,7 +3177,7 @@ void do_copyover(CHAR_DATA *ch, char *argument)
 	/* exec - descriptors are inherited */
 	sprintf(buf,  "%d", port);
 	sprintf(buf3, "%d", control);
-	execl(EXE_FILE, "legacy", buf, "null", "copyover", buf3, "null", 0);
+	execl(EXE_FILE, "legacy", buf, "null", "copyover", buf3, "null", (char*)0);
 	/* Failed - sucessful exec will not return */
 	perror("do_copyover: execl");
 	stc("Copyover FAILED!\n\r", ch);

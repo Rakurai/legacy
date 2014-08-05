@@ -321,7 +321,7 @@ void do_spells(CHAR_DATA *ch, char *argument)
 			sprintf(buf, "Level %3d: ", level);
 
 			if (!new_level)
-				sprintf(buf, "%*s", strlen(buf), " ");
+				sprintf(buf, "%*s", (int)strlen(buf), " ");
 
 			new_level = FALSE;
 			add_buf(buffer, buf);
@@ -502,7 +502,7 @@ void do_skills(CHAR_DATA *ch, char *argument)
 			sprintf(buf, "Level %3d: ", level);
 
 			if (!new_level)
-				sprintf(buf, "%*s", strlen(buf), " ");
+				sprintf(buf, "%*s", (int)strlen(buf), " ");
 
 			new_level = FALSE;
 			add_buf(buffer, buf);

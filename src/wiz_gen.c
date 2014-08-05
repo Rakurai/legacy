@@ -2459,7 +2459,7 @@ void do_olevel(CHAR_DATA *ch, char *argument)
 		}
 
 		if (found) {
-			sprintf(tmpbuf, "[%%4d][%%5d] %%-%ds{x [%%s]\n\r",
+			sprintf(tmpbuf, "[%%4d][%%5d] %%-%zus{x [%%s]\n\r",
 			        45 + (strlen(pObjIndex->short_descr) - color_strlen(pObjIndex->short_descr)));
 			sprintf(buf, tmpbuf, pObjIndex->level, pObjIndex->vnum,
 			        pObjIndex->short_descr, wear_bit_name(pObjIndex->wear_flags));
@@ -2535,7 +2535,7 @@ void do_mlevel(CHAR_DATA *ch, char *argument)
 
 			if ((blevel <= pMobIndex->level) && (elevel >= pMobIndex->level)) {
 				found = TRUE;
-				sprintf(tmpbuf, "[%%3d][%%5d] %%-%ds (Align: %%d)\n\r",
+				sprintf(tmpbuf, "[%%3d][%%5d] %%-%zus (Align: %%d)\n\r",
 				        40 + (strlen(pMobIndex->short_descr) - color_strlen(pMobIndex->short_descr)));
 				sprintf(buf, tmpbuf,
 				        pMobIndex->level, pMobIndex->vnum,

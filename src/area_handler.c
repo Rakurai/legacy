@@ -1452,22 +1452,17 @@ void do_areas(CHAR_DATA *ch, char *argument)
 
 	/* Gather pointers to all areas of interest */
 	for (ap = area_first; ap; ap = ap->next) {
-		bool accept = FALSE;
 
 		if (!IS_IMMORTAL(ch) && ap->area_type == AREA_TYPE_XXX)
 			continue;
 
 		if (star) {
-			if (ap->nplayer > 0)
-				accept = TRUE;
-			else
+			if (ap->nplayer <= 0)
 				continue;
 		}
 
 		if (vnum) {
-			if (ap->min_vnum <= vnum && vnum <= ap->max_vnum)
-				accept = TRUE;
-			else
+			if (ap->min_vnum > vnum || vnum > ap->max_vnum)
 				continue;
 		}
 
@@ -1476,9 +1471,7 @@ void do_areas(CHAR_DATA *ch, char *argument)
 				continue;
 
 		if (keywords[0]) {
-			if (is_name(keywords, ap->keywords))
-				accept = TRUE;
-			else
+			if (!is_name(keywords, ap->keywords))
 				continue;
 		}
 

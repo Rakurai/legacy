@@ -1417,7 +1417,6 @@ void do_old_next(CHAR_DATA *ch)
 	char buf[MAX_STRING_LENGTH];
 	NOTE_DATA *pnote;
 	NOTE_DATA **list;
-	char *list_name;
 	int vnum;
 
 	if (IS_NPC(ch)) {
@@ -1426,7 +1425,6 @@ void do_old_next(CHAR_DATA *ch)
 	}
 
 	list = &note_list;
-	list_name = "notes";
 	pnote = *list;
 
 	if (pnote != NULL) {
@@ -1453,7 +1451,6 @@ void do_old_next(CHAR_DATA *ch)
 	}
 
 	list = &idea_list;
-	list_name = "ideas";
 	pnote = *list;
 
 	if (pnote != NULL) {
@@ -1480,7 +1477,6 @@ void do_old_next(CHAR_DATA *ch)
 	}
 
 	list = &changes_list;
-	list_name = "changes";
 	pnote = *list;
 
 	if (pnote != NULL) {
@@ -1507,7 +1503,6 @@ void do_old_next(CHAR_DATA *ch)
 	}
 
 	list = &immquest_list;
-	list_name = "immquest";
 	pnote = *list;
 
 	if (pnote != NULL) {
@@ -1534,7 +1529,6 @@ void do_old_next(CHAR_DATA *ch)
 	}
 
 	list = &roleplay_list;
-	list_name = "roleplays";
 	pnote = *list;
 
 	if (pnote != NULL) {
@@ -1561,7 +1555,6 @@ void do_old_next(CHAR_DATA *ch)
 	}
 
 	list = &personal_list;
-	list_name = "personal messages";
 	pnote = *list;
 
 	if (pnote != NULL) {
@@ -1588,7 +1581,6 @@ void do_old_next(CHAR_DATA *ch)
 	}
 
 	list = &trade_list;
-	list_name = "trade notes";
 	pnote = *list;
 
 	if (pnote != NULL) {

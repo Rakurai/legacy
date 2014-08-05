@@ -4522,7 +4522,7 @@ void do_auction(CHAR_DATA *ch, char *argument)
 	OBJ_DATA *obj;
 	char buf[MSL], arg1[MIL], arg2[MIL];
 	CLAN_DATA *clan;
-	int min = 0, diff;
+	int min = 0;
 
 	/* NPC can be extracted at any time and thus can't auction! */
 	if (IS_NPC(ch)) {
@@ -4658,7 +4658,6 @@ void do_auction(CHAR_DATA *ch, char *argument)
 			}
 
 			newbet = atoi(argument);
-			diff = newbet - auction->bet;
 
 			if ((newbet - auction->bet) < UMAX(auction->bet / 10, 1)) {
 				stc("You must bid at least 10% over the current bid.\n\r", ch);
@@ -4998,10 +4997,8 @@ void do_hone(CHAR_DATA *ch)
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *weapon;
 	OBJ_DATA *whetstone;
-	int worth;
 	whetstone = get_eq_char(ch, WEAR_HOLD);
 	weapon = get_eq_char(ch, WEAR_WIELD);
-	worth = weapon->cost;
 
 	if (IS_NPC(ch) || (get_skill(ch, gsn_hone) < 1)) {
 		stc("You lack the skill to hone weapons.\n\r", ch);

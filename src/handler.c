@@ -1204,17 +1204,12 @@ void affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
  */
 void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
-	int where;
-	int vector;
-
 	if (ch->affected == NULL) {
 		bug("Affect_remove: no affect.", 0);
 		return;
 	}
 
 	affect_modify(ch, paf, FALSE);
-	where = paf->where;
-	vector = paf->bitvector;
 
 	if (paf == ch->affected)
 		ch->affected = paf->next;
@@ -1238,8 +1233,6 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 
 void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
-	int where, vector;
-
 	if (obj->affected == NULL) {
 		bug("Affect_remove_object: no affect.", 0);
 		return;
@@ -1247,9 +1240,6 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 
 	if (obj->carried_by != NULL && obj->wear_loc != -1)
 		affect_modify(obj->carried_by, paf, FALSE);
-
-	where = paf->where;
-	vector = paf->bitvector;
 
 	/* remove flags from the object if needed */
 	if (paf->bitvector)
@@ -1288,15 +1278,10 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 
 void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 {
-	int where, vector;
-
 	if (room->affected == NULL) {
 		bug("Affect_remove_room: no affect.", 0);
 		return;
 	}
-
-	where = paf->where;
-	vector = paf->bitvector;
 
 	/* remove flags from the room if needed */
 	if (paf->bitvector)
@@ -1362,13 +1347,11 @@ void affect_strip(CHAR_DATA *ch, int sn)
 void affect_combine(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_old;
-	bool found;
-	found = FALSE;
 
 	for (paf_old = ch->affected; paf_old != NULL; paf_old = paf_old->next) {
 		if ((paf_old->type == paf->type)
 		    && (paf_old->location == paf->location)) {
-			paf->level = (paf->level += paf_old->level) / 2;
+			paf->level = (paf->level + paf_old->level) / 2;
 			paf->duration = (paf_old->duration + paf->duration) / 2;
 			paf->modifier += paf_old->modifier;
 			affect_remove(ch, paf_old);
@@ -1386,12 +1369,10 @@ void affect_combine(CHAR_DATA *ch, AFFECT_DATA *paf)
 void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_old;
-	bool found;
-	found = FALSE;
 
 	for (paf_old = ch->affected; paf_old != NULL; paf_old = paf_old->next) {
 		if (paf_old->type == paf->type) {
-			paf->level = (paf->level += paf_old->level) / 2;
+			paf->level = (paf->level + paf_old->level) / 2;
 			paf->duration += paf_old->duration;
 			paf->modifier += paf_old->modifier;
 			affect_remove(ch, paf_old);
@@ -1826,7 +1807,6 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	AFFECT_DATA *lpaf = NULL;
 	AFFECT_DATA *lpaf_next = NULL;
 	int i, i2;
-	void *vo;
 
 	if (obj->wear_loc == WEAR_NONE) {
 		bug("Unequip_char: already unequipped.", 0);
@@ -1881,8 +1861,6 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	    &&   ch->in_room != NULL
 	    &&   ch->in_room->light > 0)
 		--ch->in_room->light;
-
-	vo = (void *)ch;
 
 	for (i2 = 1; i2 < MAX_SPELL; i2++)
 		if (obj->spell[i2] != 0)
@@ -3789,7 +3767,7 @@ void bugf(char *fmt, ...)
 	va_end(args);
 	bug(buf, 0);
 }
-
+/*
 void logf(char *fmt, ...)
 {
 	char buf [2 * MSL];
@@ -3800,7 +3778,7 @@ void logf(char *fmt, ...)
 	log_string(buf);
 }
 
-
+*/
 /* Tell if a given string has a slash in it.
    This is useful for making sure a given name is not a directory name. */
 bool has_slash(char *str)
@@ -3837,10 +3815,9 @@ bool valid_object(OBJ_DATA *od)
 } /* end valid_object() */
 
 /* round to the nearest whole number, in increments */
-int round(float fNum, int iInc)
+/*int round(float fNum, int iInc)
 {
 	int iNum;
-	/* cut off the decimals */
 	iNum = fNum;
 
 	if ((fNum - iNum) >= (1 / 2))
@@ -3855,7 +3832,7 @@ int round(float fNum, int iInc)
 
 	return iNum;
 }
-
+*/
 /* take a deity string, pull out a valid deity -- Montrey */
 int parse_deity(char *dstring)
 {

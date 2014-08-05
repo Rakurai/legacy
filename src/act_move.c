@@ -2138,7 +2138,7 @@ void do_push(CHAR_DATA *ch, char *argument)
 		if (!IS_AFFECTED(victim, AFF_FLYING)
 		    && victim->in_room->exit[DIR_DOWN]) {
 			int count = 0;  /* just to prevent an infinite loop */
-			bool brief = IS_SET(victim->comm, COMM_BRIEF);
+			long brief = IS_SET(victim->comm, COMM_BRIEF);
 			sprintf(buf, "$n stumbles into the emptiness from %s.", dir_buf);
 			act(buf, victim, NULL, NULL, TO_ROOM);
 			SET_BIT(victim->comm, COMM_BRIEF);
@@ -2450,7 +2450,7 @@ void do_drag(CHAR_DATA *ch, char *argument)
 		if (!IS_AFFECTED(victim, AFF_FLYING)
 		    && victim->in_room->exit[DIR_DOWN]) {
 			int count = 0;  /* just to prevent an infinite loop */
-			bool brief = IS_SET(victim->comm, COMM_BRIEF);
+			long brief = IS_SET(victim->comm, COMM_BRIEF);
 			sprintf(buf, "$n drags $N into the emptiness from %s.", dir_buf);
 			act(buf, ch, NULL, victim, TO_NOTVICT);
 			SET_BIT(victim->comm, COMM_BRIEF);

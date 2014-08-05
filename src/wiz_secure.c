@@ -90,7 +90,7 @@ void do_fod(CHAR_DATA *ch, char *argument)
 	if (ch_room && victim_room && ch_room != victim_room) {
 		char_from_room(ch);
 		char_to_room(ch, ch_room);
-		on = ch->on;
+		ch->on = on;
 	}
 }
 

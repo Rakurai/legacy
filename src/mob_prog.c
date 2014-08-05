@@ -1101,14 +1101,12 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
                        CHAR_DATA *actor, OBJ_DATA *obj, void *vo,
                        CHAR_DATA *rndm)
 {
-	char null[ 1 ];
 	char buf[ MAX_INPUT_LENGTH ];
 	char *morebuf = '\0';
 	char    *cmnd = '\0';
 	bool loopdone = FALSE;
 	bool     flag = FALSE;
 	int  legal;
-	null[0] = '\0';
 
 	/* check for trueness of the ifcheck */
 	if ((legal = mprog_do_ifchck(ifchck, mob, actor, obj, vo, rndm))) {

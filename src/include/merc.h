@@ -3483,6 +3483,8 @@ int	number_bits		args((int width));
 long	number_mm		args((void));
 int	dice			args((int number, int size));
 
+/* load_config.c */
+int     load_config     args((char *filename));
 
 /* help.c */
 void	help		args((CHAR_DATA *ch, char *argument));

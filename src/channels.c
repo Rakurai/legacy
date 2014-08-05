@@ -882,7 +882,6 @@ void do_send_announce(CHAR_DATA *ch, char *argument)
 {
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *d;
-	char send_buffer[MSL];
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		victim = d->original ? d->original : d->character;
@@ -904,7 +903,6 @@ void do_send_announce(CHAR_DATA *ch, char *argument)
 void do_fyi(CHAR_DATA *ch, char *argument)
 {
 	DESCRIPTOR_DATA *d;
-	char send_buffer[MSL];
 	new_color(ch, CSLOT_CHAN_ANNOUNCE);
 	ptc(ch, "You FYI '%s{x'\n\r", argument);
 	set_color(ch, WHITE, NOBOLD);
@@ -959,7 +957,6 @@ void do_globalsocial(CHAR_DATA *ch, char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	char *arg2;
 	DESCRIPTOR_DATA *d;
-	int pose = -1;
 
 	if (argument[0] == '\0') {
 		if (IS_SET(ch->comm, COMM_NOSOCIAL)) {
@@ -1015,7 +1012,6 @@ void do_globalsocial(CHAR_DATA *ch, char *argument)
 	if (check_channel_social(ch, COMM_NOSOCIAL, CSLOT_CHAN_SOCIAL, arg, arg2))
 		return;
 
-	pose = -1;
 
 	/***** social pose removed -- Elrac
 	if (!str_prefix1( arg, "pose" ))

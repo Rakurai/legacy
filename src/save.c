@@ -1780,7 +1780,6 @@ void fread_obj(CHAR_DATA *ch, FILE *fp, bool locker, bool strongbox)
 	char *word;
 	int iNest, x, y, z, vnum;
 	bool fMatch;
-	bool fNest;
 	bool fVnum;
 	bool first;
 	fVnum = FALSE;
@@ -1807,7 +1806,6 @@ void fread_obj(CHAR_DATA *ch, FILE *fp, bool locker, bool strongbox)
 		obj->description        = str_dup("");
 	}
 
-	fNest               = FALSE;
 	iNest               = 0;
 
 	for (; ;) { /* loop over all lines of obj desc */
