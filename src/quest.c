@@ -10,11 +10,6 @@
 *  ress. Quest Code v2.03. Please do not remove this notice from this file. *
 ****************************************************************************/
 
-//#include <sys/types.h>
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
-//#include<time.h>
 #include "merc.h"
 #include "tables.h"
 #include "recycle.h"

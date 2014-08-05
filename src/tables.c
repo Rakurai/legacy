@@ -8,9 +8,6 @@
 * code, at least tell us and boost our egos ;)   *
 *************************************************/
 
-//#include <sys/types.h>
-//#include <stdio.h>
-//#include<time.h>
 #include "merc.h"
 #include "tables.h"
 #include "interp.h"

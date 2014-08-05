@@ -3,10 +3,6 @@
 * 2002 Jason Anderson, proprietary for Legacy.                             *
 ***************************************************************************/
 
-//#include <sys/types.h>
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
 #include "merc.h"
 #include "recycle.h"
 

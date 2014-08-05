@@ -1,4 +1,3 @@
-//#include <ctype.h>
 /*
 ========================================================================
 This snippet was written by Erwin S. Andreasen, 4u2@aabc.dk. You may use

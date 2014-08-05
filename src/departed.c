@@ -5,10 +5,6 @@
  *
  */
 
-//#include <sys/types.h>
-//#include <stdio.h>
-//#include <string.h>
-//#include <unistd.h>
 #include "merc.h"
 
 DEPARTED_DATA *departed_list_head;

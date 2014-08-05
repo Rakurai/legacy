@@ -1,10 +1,3 @@
-//#include <sys/types.h>
-//#include <sys/time.h>
-//#include <stdio.h>
-//#include <string.h>
-//#include <stdlib.h>
-//#include <ctype.h>
-//#include <signal.h>
 #include "merc.h"
 #include "recycle.h"
 #include "vt100.h"
@@ -33,10 +26,6 @@ bool                newlock;            /* Game is newlocked            */
  * Socket and TCP/IP stuff.
  */
 #if     defined(unix)
-//#include <fcntl.h>
-//#include <netdb.h>
-//#include <netinet/in.h>
-//#include <sys/socket.h>
 #include "telnet.h"
 #if defined (SAND)
 #include "sand.h"

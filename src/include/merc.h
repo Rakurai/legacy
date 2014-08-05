@@ -33,7 +33,6 @@
 // include local headers as needed in .c files only, starting with this header
 #include <sys/types.h>
 #include <sys/time.h>
-//#include <sys/select.h>
 #include <ctype.h>
 #include <time.h>
 #include <errno.h>

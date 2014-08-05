@@ -44,10 +44,7 @@
  */
 
 #include <unistd.h>
-//#include <ctype.h>
-//#include <errno.h>
 #include <sys/shm.h>
-//#include <select.h>
 #include <arpa/inet.h>
 
 #include "merc.h"

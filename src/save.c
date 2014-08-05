@@ -25,12 +25,6 @@
 *       ROM license, in the file Rom24/doc/rom.license                     *
 ***************************************************************************/
 
-//#include <sys/types.h>
-//#include <ctype.h>
-//#include <stdio.h>
-//#include <string.h>
-//#include<time.h>
-//#include <stdlib.h>
 
 
 #include "merc.h"

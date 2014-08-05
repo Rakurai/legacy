@@ -19,10 +19,6 @@
  * (c) 1999, Johan Jonkers(aka Clerve) (scoobers@hotmail.com)
  */
 
-//#include <sys/types.h>
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
 #include "merc.h"
 #include "lookup.h"
 #include "sql.h"
