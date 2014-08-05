@@ -10,6 +10,7 @@
 
 #include "merc.h"
 #include "tables.h"
+#include "interp.h"
 
 
 const struct helpfile_table_type helpfile_table[] = {

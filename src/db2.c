@@ -26,6 +26,9 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "memory.h"
+#include "db.h"
+#include "lookup.h"
 
 extern AREA_DATA *area_last;
 

@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "recycle.h"
 #include "magic.h"
 
 /* command procedures needed */

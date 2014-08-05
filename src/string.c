@@ -1,4 +1,5 @@
 #include "merc.h"
+#include "recycle.h"
 #include "memory.h"
 
 extern char *string_space;

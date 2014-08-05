@@ -27,6 +27,8 @@
 
 #include "merc.h"
 #include "tables.h"
+#include "lookup.h"
+#include "recycle.h"
 
 
 extern void     channel_who     args((CHAR_DATA *ch, char *channelname, int

@@ -18,4 +18,5 @@
 #else
 #endif
 #include "merc.h"
+#include "recycle.h"
 

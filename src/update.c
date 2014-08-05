@@ -26,6 +26,10 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "music.h"
+#include "lookup.h"
+#include "ports.h"
+#include "sql.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit);

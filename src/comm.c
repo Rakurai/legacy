@@ -48,7 +48,11 @@
 #include <arpa/inet.h>
 
 #include "merc.h"
+#include "recycle.h"
 #include "vt100.h" /* VT100 Stuff */
+#include "ports.h"
+#include "lookup.h"
+#include "sql.h"
 #include "memory.h"
 
 

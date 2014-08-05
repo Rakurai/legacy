@@ -5,6 +5,7 @@
    we have more confidence in our database, I'll do it there.  -- Montrey */
 
 #include "merc.h"
+#include "recycle.h"
 
 /* see if an object has contents that don't appear in it's 'put' resets, return
    TRUE if so.  we don't save normal objects that lie around */

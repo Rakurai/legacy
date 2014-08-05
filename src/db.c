@@ -28,6 +28,10 @@
 
 #include "merc.h"
 #include "memory.h"
+#include "db.h"
+#include "recycle.h"
+#include "music.h"
+#include "lookup.h"
 #include "sql.h"
 
 

@@ -26,6 +26,9 @@
 
 #include "merc.h"
 #include "vt100.h"
+#include "recycle.h"
+#include "tables.h"
+#include "lookup.h"
 
 
 char   *smash_bracket           args((const char *str));

@@ -4,6 +4,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "recycle.h"
 
 #define ARENA_DIR       "../misc/"
 #define ARENA_FILE      "arena.txt"

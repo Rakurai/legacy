@@ -12,6 +12,7 @@
 
 #include "merc.h"
 #include "tables.h"
+#include "recycle.h"
 
 /* Object vnums for object quest 'tokens' */
 #define QUEST_OBJQUEST1 1283

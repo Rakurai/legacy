@@ -9,6 +9,7 @@
 *************************************************/
 
 #include "merc.h"
+#include "recycle.h"
 #include "memory.h"
 #include "db.h"
 

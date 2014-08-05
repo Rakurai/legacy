@@ -27,6 +27,7 @@
 
 #include "merc.h"
 #include "tables.h"
+#include "recycle.h"
 
 int flag_lookup args((const char *name, const struct flag_type *flag_table));
 extern AREA_DATA *area_first;

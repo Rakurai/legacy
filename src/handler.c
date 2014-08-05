@@ -27,6 +27,7 @@
 
 #include "merc.h"
 #include "magic.h"
+#include "recycle.h"
 #include "tables.h"
 
 /* command procedures needed */

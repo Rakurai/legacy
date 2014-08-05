@@ -6,6 +6,8 @@
  */
 
 #include "merc.h"
+#include "magic.h"
+#include "lookup.h"
 
 void do_deposit(CHAR_DATA *ch, char *argument)
 {
