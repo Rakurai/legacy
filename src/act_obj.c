@@ -4222,14 +4222,14 @@ void do_buy(CHAR_DATA *ch, char *argument)
 					for (ed = t_obj->extra_descr; ed != NULL; ed = ed->next)
 						if (!str_cmp(ed->keyword, KEYWD_OWNER)) {
 							free_string(ed->description);
-							sprintf(owner, ch->name);
+							strcpy(owner, ch->name);
 							ed->description = str_dup(owner);
 							foundold = TRUE;
 						}
 				}
 
 				if (!foundold) {
-					sprintf(owner, ch->name);
+					strcpy(owner, ch->name);
 					ed                      = new_extra_descr();
 					ed->keyword             = str_dup(KEYWD_OWNER);
 					ed->description         = str_dup(owner);

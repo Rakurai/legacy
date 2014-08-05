@@ -3887,7 +3887,7 @@ char *strins(char *string, char *ins, int place)
 	while (place-- > 0)
 		p++;
 
-	sprintf(secondhalf, p);
+	strcpy(secondhalf, p);
 	*p = '\0';
 	sprintf(output, "%s%s%s", str, ins, secondhalf);
 	return str_dup(output);

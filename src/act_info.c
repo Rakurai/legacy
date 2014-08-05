@@ -5449,7 +5449,7 @@ void print_new_affects(CHAR_DATA *ch)
 	bool un_sorted;
 	AFFECT_DATA temp_paf;
 	AFFECT_DATA *first_pointer, *second_pointer;
-	sprintf(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
+	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
 	sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
 	sprintf(breakline, " %s%s----------------------------------------------------------------%s\n\r", torch, border, torch);
 	buffer = new_buf();
@@ -5850,9 +5850,9 @@ void score_old(CHAR_DATA *ch)
 void score_new(CHAR_DATA *ch)
 {
 	char buf[MSL], border[4], torch[4], flame[4];
-	sprintf(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
-	sprintf(torch, get_custom_color_code(ch, CSLOT_SCORE_TORCH));
-	sprintf(flame, get_custom_color_code(ch, CSLOT_SCORE_FLAME));
+	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
+	strcpy(torch, get_custom_color_code(ch, CSLOT_SCORE_TORCH));
+	strcpy(flame, get_custom_color_code(ch, CSLOT_SCORE_FLAME));
 //	line  1:   ,                                                                  ,
 	ptc(ch, "  %s,                                                                  ,{x\n\r", flame);
 //	line  2:  '`,                Kazander, Lover of Freyja's Soul                '`,

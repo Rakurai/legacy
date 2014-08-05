@@ -947,9 +947,7 @@ void do_create(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (!str_cmp(arg1, "object"));
-
-	{
+	if (!str_cmp(arg1, "object")) {
 		if (arg2[0] == '\0') {
 			stc("Valid item types are:\n\r", ch);
 

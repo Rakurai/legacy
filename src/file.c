@@ -364,7 +364,7 @@ void fappend(char *file, char *str)
 		return;
 
 	if ((fp = fopen(file, "a")) != NULL) {
-		fprintf(fp, str);
+		fputs(str, fp);
 		fclose(fp);
 	}
 	else

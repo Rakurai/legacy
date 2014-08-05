@@ -941,11 +941,11 @@ void do_ban(CHAR_DATA *ch, char *argument)
 	p = arg1;
 
 	if (*p == '*') {
-		sprintf(site, p + 1);
+		strcpy(site, p + 1);
 		SET_BIT(flags, BAN_PREFIX);
 	}
 	else
-		sprintf(site, p);
+		strcpy(site, p);
 
 	for (p = site; * (p + 1) != '\0'; p++);
 
@@ -985,11 +985,11 @@ void do_allow(CHAR_DATA *ch, char *argument)
 	p = arg;
 
 	if (*p == '*') {
-		sprintf(site, p + 1);
+		strcpy(site, p + 1);
 		SET_BIT(wildflags, BAN_PREFIX);
 	}
 	else
-		sprintf(site, p);
+		strcpy(site, p);
 
 	for (p = site; * (p + 1) != '\0'; p++);
 
@@ -1058,11 +1058,11 @@ void do_permit(CHAR_DATA *ch, char *argument)
 	p = arg;
 
 	if (*p == '*') {
-		sprintf(site, p + 1);
+		strcpy(site, p + 1);
 		SET_BIT(wildflags, BAN_PREFIX);
 	}
 	else
-		sprintf(site, p);
+		strcpy(site, p);
 
 	for (p = site; * (p + 1) != '\0'; p++);
 

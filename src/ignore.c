@@ -165,7 +165,7 @@ void ignore_offline(CHAR_DATA *ch, char *arg)
 				return;
 			}
 
-			sprintf(name, row[0]);
+			strcpy(name, row[0]);
 		}
 		else {
 			stc("There is no one by that name to ignore.\n\r", ch);
