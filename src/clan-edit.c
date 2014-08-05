@@ -20,7 +20,6 @@
  */
 
 #include "merc.h"
-#include "lookup.h"
 #include "sql.h"
 
 #define CLAN_DIR        "../misc/"

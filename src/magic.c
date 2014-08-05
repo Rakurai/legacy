@@ -27,9 +27,6 @@
 
 #include "merc.h"
 #include "magic.h"
-#include "recycle.h"
-#include "tables.h"
-#include "lookup.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look);

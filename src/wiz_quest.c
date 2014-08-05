@@ -14,7 +14,6 @@
 *************************************************/
 
 #include "merc.h"
-#include "recycle.h"
 
 
 DECLARE_DO_FUN(do_switch);

@@ -26,13 +26,8 @@
 ***************************************************************************/
 
 #include "merc.h"
-#include "magic.h"
-#include "recycle.h"
 #include "tables.h"
-#include "lookup.h"
-#include "vt100.h"
 #include "sql.h"
-#include "interp.h"
 
 extern AREA_DATA *area_first;
 

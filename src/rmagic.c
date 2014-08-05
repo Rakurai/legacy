@@ -1,7 +1,6 @@
 /* remort magic */
 
 #include "merc.h"
-#include "magic.h"
 
 /* needed functions */
 void    wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));

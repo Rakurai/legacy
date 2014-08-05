@@ -55,7 +55,6 @@
 /********************************************************************/
 
 #include "merc.h"
-#include "recycle.h"
 #include "sql.h"
 
 extern struct board_index_struct board_index[];

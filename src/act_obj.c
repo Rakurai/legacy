@@ -31,10 +31,7 @@
 */
 #include "merc.h"
 #include "bet.h"
-#include "recycle.h"
 #include "tables.h"
-#include "magic.h"
-#include "lookup.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split);

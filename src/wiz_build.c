@@ -15,7 +15,6 @@
 *************************************************/
 
 #include "merc.h"
-#include "recycle.h"
 
 extern  ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];
 extern  AREA_DATA       *area_first;
