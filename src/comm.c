@@ -2559,38 +2559,34 @@ void show_string(struct descriptor_data *d, char *input)
 	else
 		show_lines = 0;
 
-	for (scan = buffer; ; scan++, d->showstr_point++) {
-		// copy each line to the buffer
-		// toggle apparantly expecting all lines to end with \n and \r?
-		if (((*scan = *d->showstr_point) == '\n' || *scan == '\r')
-		    && (toggle = -toggle) < 0)
-			lines++;
-		else if (!*scan || (show_lines > 0 && lines >= show_lines)) {
-			// cut off and send the output part
-			*scan = '\0';
+    for (scan = buffer; ; scan++, d->showstr_point++)
+    {
+        if (((*scan = *d->showstr_point) == '\n' || *scan == '\r')
+            && (toggle = -toggle) < 0)
+            lines++;
 
-			if (d-> character)
-				stc(buffer, d-> character);
-			else
-				write_to_buffer(d, buffer, strlen(buffer));
-
-			// check to see if all we have left is whitespace or nothing.
-			// if so, cut off, reset our pointer
-			for (chk = d->showstr_point; isspace(*chk); chk++)
-				;
-
-			if (!*chk) {
-				if (d->showstr_head) {
-					free_string(d->showstr_head);
-					d->showstr_head = 0;
-				}
-
-				d->showstr_point  = 0;
-			}
-
-			return;
-		}
-	}
+        else if (!*scan || (show_lines > 0 && lines >= show_lines))
+        {
+            *scan = '\0';
+            if (d-> character)
+                stc (buffer, d-> character);
+            else
+            write_to_buffer(d,buffer,strlen(buffer));
+            for (chk = d->showstr_point; isspace(*chk); chk++);
+            {
+                if (!*chk)
+                {
+                    if (d->showstr_head)
+                    {
+                        free_string(d->showstr_head);
+                        d->showstr_head = 0;
+                    }
+                    d->showstr_point  = 0;
+                }
+            }
+            return;
+        }
+    }
 } /* end show_string() */
 
 void act(const char *format, CHAR_DATA *ch, const void *arg1, const void *arg2,
