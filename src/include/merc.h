@@ -1452,8 +1452,19 @@ struct  kill_data
 #define PUT_IN                  (O)
 #define PUT_INSIDE              (P)
 
+// gem types
+#define GEM_NONE                    0
+#define GEM_RUBY                    1
+#define GEM_EMERALD                 2
+#define GEM_SAPPHIRE                3
+#define GEM_TOPAZ                   4
 
-
+// gem qualities
+#define GEM_CHIPPED                 1
+#define GEM_FLAWED                  2
+#define GEM_ROUND                   3
+#define GEM_FLAWLESS                4
+#define GEM_PERFECT                 5
 
 /*
  * Apply types (for affects).
@@ -2231,6 +2242,11 @@ struct  extra_descr_data
 };
 
 
+#define MAX_EQSOCKETS 6
+typedef struct eqsocket_data {
+    char quality;
+    char type;
+} EQSOCKET_DATA;
 
 /*
  * Prototype for an object.
@@ -2299,6 +2315,9 @@ struct obj_data
 	sh_int			spell[MAX_SPELL];
 	sh_int			spell_lev[MAX_SPELL];
 	bool			valid;
+
+    char            num_sockets;
+    EQSOCKET_DATA     socket[MAX_EQSOCKETS];
 };
 
 

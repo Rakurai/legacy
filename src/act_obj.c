@@ -1017,6 +1017,61 @@ void do_put(CHAR_DATA *ch, char *argument)
 		stc("They won't fit.\n", ch);
 }
 
+void do_eqsocket(CHAR_DATA *ch, char *argument)
+{
+	char arg1[MIL], arg2[MIL];
+	OBJ_DATA *eq, *gem, *obj_next;
+	int weight;
+	bool found = FALSE, tooheavy = TRUE;
+	argument = one_argument(argument, arg1);
+	argument = one_argument(argument, arg2);
+
+	if (!str_cmp(arg2, "in"))
+		argument = one_argument(argument, arg2);
+
+	if (arg1[0] == '\0' || arg2[0] == '\0') {
+		stc("Socket what gem to what equipment?\n", ch);
+		return;
+	}
+
+	if ((gem = get_obj_carry(ch, arg1)) == NULL) {
+		act("You don't have a $T.", ch, NULL, arg1, TO_CHAR);
+		return;
+	}
+
+	if (gem->pIndexData->item_type != ITEM_GEM) {
+		act("That's not a gem you can socket.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if ((eq = get_obj_list(ch, arg2, ch->carrying)) == NULL) {
+		act("You don't have a $T.", ch, NULL, arg2, TO_CHAR);
+		return;
+	}
+
+	if (eq->wear_loc != WEAR_NONE) {
+		act("You need to remove it first.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	int loc = -1;
+	while (++loc < eq->num_sockets)
+		if (eq->socket[loc].type == GEM_NONE)
+			break;
+
+	if (loc == eq->num_sockets) {
+		act("That item doesn't have an empty socket.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	act("$n places $p in an empty socket in $P.", ch, gem, eq, TO_ROOM);
+	act("You place $p in an empty socket in $P.", ch, gem, eq, TO_CHAR);
+
+	eq->socket[loc].type = gem->value[0];
+	eq->socket[loc].quality = gem->value[1];
+	extract_obj(gem);
+}
+
 void do_drop(CHAR_DATA *ch, char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];

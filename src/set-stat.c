@@ -1880,6 +1880,12 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 		if (obj->spell[i] != 0)
 			ptc(ch, "Spelled with '%s' at level %d.\n",
 			    skill_table[obj->spell[i]].name, obj->spell_lev[i]);
+
+	for (int i = 0; i < obj->num_sockets; i++)
+		if (obj->socket[i].type != GEM_NONE)
+			ptc(ch, "Has a gem %d with quality %d in socket %d.\n",
+				obj->socket[i].type, obj->socket[i].quality, i);
+
 }
 
 void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
