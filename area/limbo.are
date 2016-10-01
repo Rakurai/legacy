@@ -1281,6 +1281,24 @@ money 0 A
 0 0 0 0 0
 0 0 0 P
 
+#121
+gem ruby~
+a ruby~
+A ruby lies here.~
+~
+gem 0 A
+1 0 0 0 0
+1 0 0 P
+
+#122
+gem emerald~
+a emerald~
+An emerald lies here.~
+~
+gem 0 A
+1 0 0 0 0
+1 0 0 P
+
 #0
 
 #ROOMS

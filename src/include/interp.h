@@ -228,6 +228,7 @@ DECLARE_DO_FUN( do_immname      );
 DECLARE_DO_FUN( do_immtalk      );
 DECLARE_DO_FUN( do_immapp	);
 DECLARE_DO_FUN( do_imotd        );
+DECLARE_DO_FUN( do_inset	);
 DECLARE_DO_FUN( do_inventory    );
 DECLARE_DO_FUN( do_invis        );
 DECLARE_DO_FUN( do_invite       );

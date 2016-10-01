@@ -1180,6 +1180,7 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 	obj->value[2]       = pObjIndex->value[2];
 	obj->value[3]       = pObjIndex->value[3];
 	obj->value[4]       = pObjIndex->value[4];
+	obj->num_settings	= pObjIndex->num_settings;
 	obj->weight         = pObjIndex->weight;
 	obj->cost           = pObjIndex->cost;
 

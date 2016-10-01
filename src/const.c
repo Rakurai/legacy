@@ -457,6 +457,7 @@ const struct pc_race_type pc_race_table [MAX_PC_RACE] = {
 	}
 };
 
+
 /*
  * Deity Table
  */
@@ -563,7 +564,7 @@ const struct str_app_type str_app[26] = {
 };
 
 const struct int_app_type int_app[26] = {
-	/*      learn   */
+	/*      learn, bonus mana   */
 	{  3,   -4 },     /*  0 */
 	{  5,   -3 },     /*  1 */
 	{  7,   -2 },

@@ -275,6 +275,7 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "immapp",                     do_immapp,              POS_DEAD,               LOG_NORMAL,     5,      GD | GWG        },
 	{ "imotd",                      do_imotd,               POS_DEAD,               LOG_NORMAL,     5,      GWG                     },
 	{ "info",                       do_groups,              POS_SLEEPING,   LOG_NORMAL,     3,      0                       },
+	{ "inset",                       do_inset,                POS_RESTING,    LOG_NORMAL,     4,      0                       },
 	{ "invite",                     do_invite,              POS_DEAD,               LOG_ALWAYS,     8,      0                       },
 	{ "join",                       do_join,                POS_RESTING,    LOG_ALWAYS,     8,      GC                      },
 	{ "junk",                       do_junk,                POS_RESTING,    LOG_NORMAL,     4,      0                       },

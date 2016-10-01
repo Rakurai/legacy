@@ -1881,10 +1881,13 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 			ptc(ch, "Spelled with '%s' at level %d.\n",
 			    skill_table[obj->spell[i]].name, obj->spell_lev[i]);
 
-	for (int i = 0; i < obj->num_sockets; i++)
-		if (obj->socket[i].type != GEM_NONE)
-			ptc(ch, "Has a gem %d with quality %d in socket %d.\n",
-				obj->socket[i].type, obj->socket[i].quality, i);
+	if (obj->num_settings > 0) {
+		ptc(ch, "Has %d settings.\n", obj->num_settings);
+	}
+
+	for (OBJ_DATA *gem = obj->gems; gem; gem = gem->next_content)
+		ptc(ch, "Has a gem %s of type %d with quality %d.\n",
+				gem->short_descr, gem->value[0], gem->value[1]);
 
 }
 

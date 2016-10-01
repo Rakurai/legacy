@@ -109,6 +109,8 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	    || (obj->description == NULL || obj->description[0] == '\0'))
 		return buf;
 
+	strcat(buf, get_gem_short_string(obj));
+
 	/* Color additions by Lotus */
 	if (!IS_NPC(ch)
 	    && ((ch->questobj > 0 && obj->pIndexData->vnum == ch->questobj)

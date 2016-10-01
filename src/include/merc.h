@@ -1452,20 +1452,6 @@ struct  kill_data
 #define PUT_IN                  (O)
 #define PUT_INSIDE              (P)
 
-// gem types
-#define GEM_NONE                    0
-#define GEM_RUBY                    1
-#define GEM_EMERALD                 2
-#define GEM_SAPPHIRE                3
-#define GEM_TOPAZ                   4
-
-// gem qualities
-#define GEM_CHIPPED                 1
-#define GEM_FLAWED                  2
-#define GEM_ROUND                   3
-#define GEM_FLAWLESS                4
-#define GEM_PERFECT                 5
-
 /*
  * Apply types (for affects).
  * Used in #OBJECTS.
@@ -2272,6 +2258,8 @@ struct  obj_index_data
     sh_int              weight;
     int                 cost;
     int                 value[5];
+
+    int                 num_settings; // for socketed gems
 };
 
 
@@ -2316,8 +2304,9 @@ struct obj_data
 	sh_int			spell_lev[MAX_SPELL];
 	bool			valid;
 
-    char            num_sockets;
-    EQSOCKET_DATA     socket[MAX_EQSOCKETS];
+    char            num_settings;
+    OBJ_DATA *      gems; // gems in settings
+    AFFECT_DATA *   gem_affected;
 };
 
 

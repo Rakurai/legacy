@@ -1097,6 +1097,7 @@ void load_objects(FILE *fp)
 		pObjIndex->item_type            = item_lookup(fread_word(fp));
 		pObjIndex->extra_flags          = fread_flag(fp);
 		pObjIndex->wear_flags           = fread_flag(fp);
+		pObjIndex->num_settings			= 0;
 
 		switch (pObjIndex->item_type) {
 		case ITEM_WEAPON:
@@ -1261,6 +1262,9 @@ void load_objects(FILE *fp)
 				ed->next                = pObjIndex->extra_descr;
 				pObjIndex->extra_descr  = ed;
 				top_ed++;
+			}
+			else if (letter == 'S') {
+				pObjIndex->num_settings = fread_number(fp);
 			}
 			else {
 				ungetc(letter, fp);
