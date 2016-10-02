@@ -195,6 +195,55 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	return buf;
 }
 
+void show_affect_to_char(AFFECT_DATA *aff, CHAR_DATA *ch)
+{
+	if (IS_IMMORTAL(ch))
+		ptc(ch, "Affects %s by %d, level %d", affect_loc_name(paf->location), paf->modifier, paf->level);
+	else
+		ptc(ch, "Affects %s by %d\n", affect_loc_name(paf->location), paf->modifier);
+
+	if (paf->duration > -1)
+		ptc(ch, ", %d hours.\n", paf->duration);
+	else
+		ptc(ch, ".\n");
+
+	if (paf->bitvector) {
+		switch (paf->where) {
+		case TO_AFFECTS:
+			ptc(ch, "Adds %s affect.\n", affect_bit_name(paf->bitvector));
+			break;
+
+		case TO_OBJECT:
+			ptc(ch, "Adds %s object flag.\n", extra_bit_name(paf->bitvector));
+			break;
+
+		case TO_WEAPON:
+			ptc(ch, "Adds %s weapon flags.\n", weapon_bit_name(paf->bitvector));
+			break;
+
+		case TO_DRAIN:
+			ptc(ch, "Drains %s.\n", imm_bit_name(paf->bitvector));
+			break;
+
+		case TO_IMMUNE:
+			ptc(ch, "Adds immunity to %s.\n", imm_bit_name(paf->bitvector));
+			break;
+
+		case TO_RESIST:
+			ptc(ch, "Adds resistance to %s.\n", imm_bit_name(paf->bitvector));
+			break;
+
+		case TO_VULN:
+			ptc(ch, "Adds vulnerability to %s.\n", imm_bit_name(paf->bitvector));
+			break;
+
+		default:
+			ptc(ch, "Unknown bit %d: %d\n", paf->where, paf->bitvector);
+			break;
+		}
+	}
+}
+
 /*
  * Show a list to a character.
  * Can coalesce duplicated items.
