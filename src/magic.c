@@ -4557,92 +4557,21 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	}
 
 	if (!obj->enchanted)
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-			ptc(ch, "Affects %s by %d.\n", affect_loc_name(paf->location), paf->modifier);
+		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
+			show_affect_to_char(paf, ch);
 
-			if (paf->bitvector) {
-				switch (paf->where) {
-				case TO_AFFECTS:
-					sprintf(buf, "Adds %s affect.\n", affect_bit_name(paf->bitvector));
-					break;
+	for (paf = obj->affected; paf != NULL; paf = paf->next)
+		show_affect_to_char(paf, ch);
 
-				case TO_OBJECT:
-					sprintf(buf, "Adds %s object flag.\n", extra_bit_name(paf->bitvector));
-					break;
+        for (OBJ_DATA *gem = obj->gems; gem; gem = gem->next_content)
+                ptc(ch, "Has a gem %s of type %d with quality %d.\n",
+                                gem->short_descr, gem->value[0], gem->value[1]);
+        if (obj->gems) {
+                ptc(ch, "Gems are adding:");
 
-				case TO_DRAIN:
-					sprintf(buf, "Drains %s.\n", imm_bit_name(paf->bitvector));
-					break;
-
-				case TO_IMMUNE:
-					sprintf(buf, "Adds immunity to %s.\n", imm_bit_name(paf->bitvector));
-					break;
-
-				case TO_RESIST:
-					sprintf(buf, "Adds resistance to %s.\n", imm_bit_name(paf->bitvector));
-					break;
-
-				case TO_VULN:
-					sprintf(buf, "Adds vulnerability to %s.\n", imm_bit_name(paf->bitvector));
-					break;
-
-				default:
-					sprintf(buf, "Unknown bit %d: %d\n", paf->where, paf->bitvector);
-					break;
-				}
-
-				stc(buf, ch);
-			}
-		}
-
-	for (paf = obj->affected; paf != NULL; paf = paf->next) {
-		ptc(ch, "Affects %s by %d", affect_loc_name(paf->location), paf->modifier);
-
-		if (paf->duration > -1)
-			sprintf(buf, ", %d hours.\n", paf->duration);
-		else
-			sprintf(buf, ".\n");
-
-		stc(buf, ch);
-
-		if (paf->bitvector) {
-			switch (paf->where) {
-			case TO_AFFECTS:
-				sprintf(buf, "Adds %s affect.\n", affect_bit_name(paf->bitvector));
-				break;
-
-			case TO_OBJECT:
-				sprintf(buf, "Adds %s object flag.\n", extra_bit_name(paf->bitvector));
-				break;
-
-			case TO_WEAPON:
-				sprintf(buf, "Adds %s weapon flags.\n", weapon_bit_name(paf->bitvector));
-				break;
-
-			case TO_DRAIN:
-				sprintf(buf, "Drains %s.\n", imm_bit_name(paf->bitvector));
-				break;
-
-			case TO_IMMUNE:
-				sprintf(buf, "Adds immunity to %s.\n", imm_bit_name(paf->bitvector));
-				break;
-
-			case TO_RESIST:
-				sprintf(buf, "Adds resistance to %s.\n", imm_bit_name(paf->bitvector));
-				break;
-
-			case TO_VULN:
-				sprintf(buf, "Adds vulnerability to %s.\n", imm_bit_name(paf->bitvector));
-				break;
-
-			default:
-				sprintf(buf, "Unknown bit %d: %d\n", paf->where, paf->bitvector);
-				break;
-			}
-
-			stc(buf, ch);
-		}
-	}
+                for (paf = obj->gem_affected; paf != NULL; paf = paf->next)
+                        show_affect_to_char(paf, ch);
+        }
 
 	for (i = 1; i < MAX_SPELL; i++)
 		if (obj->spell[i] != 0)
