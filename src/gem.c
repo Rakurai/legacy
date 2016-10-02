@@ -27,6 +27,11 @@ const struct gem_quality_table_t gem_quality_table [MAX_GEM_QUALITIES] = {
 char *get_gem_short_string(OBJ_DATA *eq) {
 	static char buf[MAX_GEM_SETTINGS * 3 + 9];
 
+	if (eq->num_settings == 0) {
+		buf[0] = '\0';
+		return buf;
+	}
+
 	char bracket_symbol_open = '[';
 	char bracket_symbol_close = ']';
 	char bracket_color = 'g';
@@ -35,12 +40,11 @@ char *get_gem_short_string(OBJ_DATA *eq) {
 	char empty_symbol = '.';
 
 	int pos = 0;
+	int count = 0;
 
 	buf[pos++] = '{';
 	buf[pos++] = bracket_color;
 	buf[pos++] = bracket_symbol_open;
-
-	int count = 0;
 
 	// gems in the eq
 	for (OBJ_DATA *gem = eq->gems; gem; gem = gem->next_content) {
@@ -63,12 +67,12 @@ char *get_gem_short_string(OBJ_DATA *eq) {
 	buf[pos++] = bracket_symbol_close;
 
 	// trailing blank spaces
-	while (count < MAX_GEM_SETTINGS) {
-		count++;
+//	while (count < MAX_GEM_SETTINGS) {
+//		count++;
 //		buf[pos++] = '{';
 //		buf[pos++] = 'x';
-		buf[pos++] = ' ';
-	}
+//		buf[pos++] = ' ';
+//	}
 
 	buf[pos++] = '{';
 	buf[pos++] = 'x';
@@ -175,4 +179,6 @@ void do_inset(CHAR_DATA *ch, char *argument)
 	gem->in_obj = eq;
 	gem->in_room = NULL;
 	gem->carried_by = NULL;
+
+	compile_gem_effects(eq);
 }

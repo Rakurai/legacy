@@ -31,6 +31,7 @@
 #include "magic.h"
 #include "sql.h"
 #include "lookup.h"
+#include "gem.h"
 
 extern AREA_DATA *area_first;
 
@@ -109,7 +110,10 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	    || (obj->description == NULL || obj->description[0] == '\0'))
 		return buf;
 
-	strcat(buf, get_gem_short_string(obj));
+	if (obj->num_settings > 0) {
+		strcat(buf, get_gem_short_string(obj));
+		strcat(buf, " ");
+	}
 
 	/* Color additions by Lotus */
 	if (!IS_NPC(ch)
@@ -195,7 +199,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	return buf;
 }
 
-void show_affect_to_char(AFFECT_DATA *aff, CHAR_DATA *ch)
+void show_affect_to_char(AFFECT_DATA *paf, CHAR_DATA *ch)
 {
 	if (IS_IMMORTAL(ch))
 		ptc(ch, "Affects %s by %d, level %d", affect_loc_name(paf->location), paf->modifier, paf->level);
@@ -2957,12 +2961,23 @@ void do_equipment(CHAR_DATA *ch, char *argument)
 					continue;
 			}
 
-			strcat(buf, "({W- - -{x)");
+			strcat(buf, "       ({W- - -{x)");
 		}
-		else if (can_see_obj(ch, obj))
+		else if (can_see_obj(ch, obj)) {
+			int spaces;
+
+			if (obj->num_settings == 0)
+				spaces = MAX_GEM_SETTINGS + 3;
+			else
+				spaces = (MAX_GEM_SETTINGS - obj->num_settings);
+
+			while (spaces-- > 0)
+				strcat(buf, " ");
+
 			strcat(buf, format_obj_to_char(obj, ch, TRUE));
+		}
 		else
-			strcat(buf, "(something)");
+			strcat(buf, "       (something)");
 
 		strcat(buf, "\n");
 		stc(buf, ch);

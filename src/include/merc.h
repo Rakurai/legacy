@@ -3352,6 +3352,7 @@ void    do_gameout      args( ( CHAR_DATA *ch, char *argument ) );
 void    do_pit          args( ( CHAR_DATA *ch, char *argument ) );
 void	set_color	args((CHAR_DATA *ch, int color, int bold));
 void	new_color	args((CHAR_DATA *ch, int custom));
+void    show_affect_to_char  args((AFFECT_DATA *paf, CHAR_DATA *ch));
 
 /* act_move.c */
 void    move_char       args( ( CHAR_DATA *ch, int door, bool follow ) );
