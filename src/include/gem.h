@@ -1,15 +1,14 @@
 #ifndef GEM_H
 #define GEM_H
 
+// constants
 #define MAX_GEM_TYPES               2
-#define MAX_GEM_QUALITIES			7
+#define MAX_GEM_QUALITIES           7
+#define MAX_GEM_SETTINGS            4
 
 // obj value fields
 #define GEM_VALUE_TYPE              0
 #define GEM_VALUE_QUALITY           1
-
-// other gem consts
-#define GEM_MAX_SETTINGS			4
 
 // gem qualities
 #define GEM_QUALITY_A               0

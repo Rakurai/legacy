@@ -25,7 +25,7 @@ const struct gem_quality_table_t gem_quality_table [MAX_GEM_QUALITIES] = {
 
 // populate a short string for display, takes a buffer of size GEM_SHORT_STRING_LEN
 char *get_gem_short_string(OBJ_DATA *eq) {
-	static char buf[GEM_MAX_SETTINGS * 3 + 9];
+	static char buf[MAX_GEM_SETTINGS * 3 + 9];
 
 	char bracket_symbol_open = '[';
 	char bracket_symbol_close = ']';
@@ -63,7 +63,7 @@ char *get_gem_short_string(OBJ_DATA *eq) {
 	buf[pos++] = bracket_symbol_close;
 
 	// trailing blank spaces
-	while (count < GEM_MAX_SETTINGS) {
+	while (count < MAX_GEM_SETTINGS) {
 		count++;
 //		buf[pos++] = '{';
 //		buf[pos++] = 'x';
@@ -159,7 +159,7 @@ void do_inset(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (gem->level < eq->level) {
+	if (gem->level > eq->level) {
 		act("That item is not powerful enough to hold $p.", ch, gem, NULL, TO_CHAR);
 		return;
 	}
