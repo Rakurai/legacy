@@ -29,6 +29,7 @@
 #include "recycle.h"
 #include "tables.h"
 #include "magic.h"
+#include "gem.h"
 
 DECLARE_DO_FUN(do_rset);
 DECLARE_DO_FUN(do_mset);
@@ -1401,6 +1402,18 @@ void do_oset(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
+	if (!str_prefix1(arg2, "settings")) {
+		if (value < 0 || value > MAX_GEM_SETTINGS) {
+			ptc(ch, "A valid settings vaue is between 0 and %d.\n", MAX_GEM_SETTINGS);
+			return;
+		}
+
+		obj->num_settings = value;
+		sprintf(buf, "%s's number of settings has been changed to %d.\n", obj->short_descr, value);
+		stc(buf, ch);
+		return;
+	}
+
 	/*
 	 * Generate usage message.
 	 */
@@ -1793,88 +1806,11 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 
 	if (!obj->enchanted)
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-			ptc(ch, "Affects %s by %d, level %d.\n",
-			    affect_loc_name(paf->location), paf->modifier, paf->level);
+		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
+			show_affect_to_char(paf, ch);
 
-			if (paf->bitvector) {
-				switch (paf->where) {
-				case TO_AFFECTS:
-					ptc(ch, "Adds %s affect.\n", affect_bit_name(paf->bitvector));
-					break;
-
-				case TO_OBJECT:
-					ptc(ch, "Adds %s object flag.\n", extra_bit_name(paf->bitvector));
-					break;
-
-				case TO_DRAIN:
-					ptc(ch, "Drains %s.\n", imm_bit_name(paf->bitvector));
-					break;
-
-				case TO_IMMUNE:
-					ptc(ch, "Adds immunity to %s.\n", imm_bit_name(paf->bitvector));
-					break;
-
-				case TO_RESIST:
-					ptc(ch, "Adds resistance to %s.\n", imm_bit_name(paf->bitvector));
-					break;
-
-				case TO_VULN:
-					ptc(ch, "Adds vulnerability to %s.\n", imm_bit_name(paf->bitvector));
-					break;
-
-				default:
-					ptc(ch, "Unknown bit %d: %d\n", paf->where, paf->bitvector);
-					break;
-				}
-			}
-		}
-
-	for (paf = obj->affected; paf != NULL; paf = paf->next) {
-		ptc(ch, "Affects %s by %d, level %d.",
-		    affect_loc_name(paf->location), paf->modifier, paf->level);
-
-		if (paf->duration > -1)
-			ptc(ch, ", %d hours.\n", paf->duration);
-		else
-			ptc(ch, ".\n");
-
-		if (paf->bitvector) {
-			switch (paf->where) {
-			case TO_AFFECTS:
-				ptc(ch, "Adds %s affect.\n", affect_bit_name(paf->bitvector));
-				break;
-
-			case TO_OBJECT:
-				ptc(ch, "Adds %s object flag.\n", extra_bit_name(paf->bitvector));
-				break;
-
-			case TO_WEAPON:
-				ptc(ch, "Adds %s weapon flags.\n", weapon_bit_name(paf->bitvector));
-				break;
-
-			case TO_DRAIN:
-				ptc(ch, "Drains %s.\n", imm_bit_name(paf->bitvector));
-				break;
-
-			case TO_IMMUNE:
-				ptc(ch, "Adds immunity to %s.\n", imm_bit_name(paf->bitvector));
-				break;
-
-			case TO_RESIST:
-				ptc(ch, "Adds resistance to %s.\n", imm_bit_name(paf->bitvector));
-				break;
-
-			case TO_VULN:
-				ptc(ch, "Adds vulnerability to %s.\n", imm_bit_name(paf->bitvector));
-				break;
-
-			default:
-				ptc(ch, "Unknown bit %d: %d\n", paf->where, paf->bitvector);
-				break;
-			}
-		}
-	}
+	for (paf = obj->affected; paf != NULL; paf = paf->next)
+		show_affect_to_char(paf, ch);
 
 	for (i = 1; i < MAX_SPELL; i++)
 		if (obj->spell[i] != 0)
@@ -1888,6 +1824,12 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 	for (OBJ_DATA *gem = obj->gems; gem; gem = gem->next_content)
 		ptc(ch, "Has a gem %s of type %d with quality %d.\n",
 				gem->short_descr, gem->value[0], gem->value[1]);
+	if (obj->gems) {
+		ptc(ch, "Gems are adding:");
+
+		for (paf = obj->gem_affected; paf != NULL; paf = paf->next)
+			show_affect_to_char(paf, ch);
+	}
 
 }
 

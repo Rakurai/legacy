@@ -5,7 +5,7 @@ DEPDIR  = deps
 EXEFILE = legacy
 
 CC      = gcc
-STD     = -std=c99
+STD     = -std=gnu99
 WARNING = -Wall -Winline
 DEBUG   = -ggdb
 DEFINE  = -Dlinux -Dunix -DSQL -DDEBUG -DIPV6
