@@ -1448,11 +1448,20 @@ OBJ_DATA * fread_obj(cJSON *json) {
 
 		if (index == NULL)
 			bug("Fread_obj: bad vnum %d in fread_obj().", o->valueint);
-		else
+		else {
 			obj = create_object(index, -1);
+
+			if (obj == NULL)
+				bug("fread_obj: create_object returned NULL", 0);
+		}
 	}
+	else
+		bug("fread_obj: no vnum field in JSON object", 0);
+
+//	bug("reading an object", 0);
 
 	if (obj == NULL) { /* either not found or old style */
+		bug("obj is null!", 0);
 		obj = new_obj();
 		obj->name               = str_dup("");
 		obj->short_descr        = str_dup("");
@@ -1547,9 +1556,12 @@ OBJ_DATA * fread_obj(cJSON *json) {
 }
 
 // read a list of objects and return the head
-OBJ_DATA * fread_obj_list(cJSON *list_head) {
+OBJ_DATA * fread_obj_list(cJSON *contains) {
+	if (contains == NULL)
+		return NULL;
+
 	OBJ_DATA *obj_last = NULL;
-	cJSON *item = list_head;
+	cJSON *item = contains->child;
 
 	while (item != NULL) {
 		OBJ_DATA *obj = fread_obj(item);

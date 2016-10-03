@@ -1157,8 +1157,10 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 	obj = new_obj();
 
 	/* Check for memory error. -- Outsider */
-	if (! obj)
+	if (! obj) {
+		bug("create_object: unable to allocate memory", 0);
 		return NULL;
+	}
 
 	obj->pIndexData     = pObjIndex;
 	obj->in_room        = NULL;
