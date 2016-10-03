@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 
 import sys
+import mmap
 
 filename = sys.argv[1]
 
 #global
 data = None
+dataptr = 0
 pfile_version = 0
 
 def bug(s):
@@ -14,22 +16,28 @@ def bug(s):
 	print data[:50]
 	exit()
 
-def datasplit(sep=None, maxsplit=1):
-	global data
-	parts = data.split(sep, maxsplit)
+def advance_whitespace():
+	global data, dataptr
+	while data[dataptr] == ' ' or data[dataptr] == '\n':
+		dataptr += 1
 
-	if len(parts) == 2:
-		data = parts[1]
-	else:
-		data = ''
+def datasplit(sep=' \n'):
+	global data, dataptr
+	advance_whitespace()
 
-	return parts[0].strip()
+	p = dataptr
+	while data[p] not in sep:
+		p += 1
+
+	chunk = data[dataptr:p]
+	dataptr = p+1
+	return chunk
 
 def read_letter():
-	global data
-	data = data.lstrip()
+	global data, dataptr
+	advance_whitespace()
 	letter = data[0]
-	data = data[1:]
+	dataptr += 1
 	return letter
 
 def read_word():
@@ -49,9 +57,6 @@ def read_number():
 
 def read_flags():
 	return read_word() # don't parse to int, hard to read
-
-def read_to_eol():
-	datasplit('\n')
 
 def read_string():
 	return datasplit('~')
@@ -77,7 +82,7 @@ def read_char_section():
 		word = read_word()
 #		print 'parsing word', word
 		if word[0] == '*':
-			read_to_eol()
+			read_string_eol()
 
 		elif word[0] == 'A':
 			if is_key(word, 'AfBy', read_flags, s) \
@@ -381,7 +386,7 @@ def read_obj():
 		word = read_word()
 #		print 'parsing word', word
 		if word[0] == '*':
-			read_to_eol()
+			read_string_eol()
 
 		elif word[0] == 'A':
 			if word == 'AffD':
@@ -514,13 +519,14 @@ def read_obj():
 	return s, s['Nest']
 	
 
-with open(filename) as f:
+with open(filename, "r+b") as f:
 	character = {}
 	inventory = []
 	locker = []
 	strongbox = []
 	pet = {}
-	data = f.read();
+#	data = f.read();
+	data = mmap.mmap(f.fileno(), 0)
 	nest = []
 	last_obj = None
 	last_nest_level = 0
