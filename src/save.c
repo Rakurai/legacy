@@ -110,11 +110,7 @@ void    fread_char      args((CHAR_DATA *ch,  cJSON *json));
 void    fread_player      args((CHAR_DATA *ch,  cJSON *json));
 void    fread_pet       args((CHAR_DATA *ch,  FILE *fp));
 void	fread_objects	args((CHAR_DATA *ch, cJSON *json, void (*obj_to)(OBJ_DATA *, CHAR_DATA *)));
-/*
-void	fread_inventory       args((CHAR_DATA *ch, cJSON *json));
-void	fread_locker       args((CHAR_DATA *ch, cJSON *json));
-void	fread_strongbox       args((CHAR_DATA *ch, cJSON *json));
-*/
+
 /*
  * Save a character and inventory.
  * Would be cool to save NPC's too for quest purposes,
@@ -876,13 +872,9 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	fread_player(ch, root);
 
 	fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_char);
-	fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_locker);
-	fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_strongbox);
-/*
-	fread_inventory(ch, cJSON_GetObjectItem(root, "inventory"));
-	fread_locker(ch, cJSON_GetObjectItem(root, "locker"));
-	fread_strongbox(ch, cJSON_GetObjectItem(root, "strongbox"));
-*/
+	fread_objects(ch, cJSON_GetObjectItem(root, "locker"), &obj_to_locker);
+	fread_objects(ch, cJSON_GetObjectItem(root, "strongbox"), &obj_to_strongbox);
+
 	/* Setting a counter should obviate all this NULLing -- Elrac
 	    int iNest;
 
