@@ -167,6 +167,8 @@ int	ptb	args((BUFFER *buffer, char *fmt, ...))	__attribute__	((format(printf, 2,
  * Adjust the pulse numbers to suit yourself.
  */
 #define MAX_RAFFECTS	           54
+#define MAX_RAFFECT_SLOTS          10
+#define MAX_EXTRACLASS_SLOTS        5
 #define MAX_THIEF		  250
 #define MAX_KILLER		  250
 #define MAX_SKILL                 233   /* added critical blow */
@@ -2162,8 +2164,8 @@ struct  pc_data
    char *              status;
    char *              deity;
    sh_int              remort_count;
-   int			extraclass[5];			/* Endo */
-   int			raffect[10];			/* Endo */
+   int			extraclass[MAX_EXTRACLASS_SLOTS];			/* Endo */
+   int			raffect[MAX_RAFFECT_SLOTS];			/* Endo */
     OBJ_DATA *          locker;
    OBJ_DATA *          strongbox;			/* Elrac */
    char *              email;

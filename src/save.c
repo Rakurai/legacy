@@ -847,7 +847,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	        system(buf);
 	    }
 	    #endif */
-	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(name));
+	sprintf(strsave, "%s%s.json", PLAYER_DIR, capitalize(name));
 
 	cJSON *root = NULL;
 
@@ -1030,8 +1030,10 @@ void get_JSON_string(cJSON *obj, char **target, char *key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key);
 
 	if (val != NULL) {
-		if (*target != NULL)
+		if (*target != NULL) {
 			free_string(*target);
+			bugf("freeing string in get_JSON_string", 0);
+		}
 		*target = str_dup(val->valuestring);
 	}
 }
@@ -1079,8 +1081,8 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 		int count = 0;
 		// each alias is a 2-tuple (a list)
 		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			ch->pcdata->alias[count] = str_dup(item->child->string);
-			ch->pcdata->alias_sub[count] = str_dup(item->child->next->string);
+			ch->pcdata->alias[count] = str_dup(item->child->valuestring);
+			ch->pcdata->alias_sub[count] = str_dup(item->child->next->valuestring);
 		}
 	}
 
@@ -1110,7 +1112,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	}
 
 	if ((o = cJSON_GetObjectItem(json, "Atrib")) != NULL) {
-		get_JSON_short(o, &ch->perm_stat[STAT_STR], "str");
+		get_JSON_short(o, &(ch->perm_stat[STAT_STR]), "str");
 		get_JSON_short(o, &ch->perm_stat[STAT_INT], "int");
 		get_JSON_short(o, &ch->perm_stat[STAT_WIS], "wis");
 		get_JSON_short(o, &ch->perm_stat[STAT_DEX], "dex");
@@ -1184,14 +1186,15 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 
 	if ((o = cJSON_GetObjectItem(json, "ExSk")) != NULL) {
 		int count = 0;
-		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			int exsk = atoi(item->string);
+		for (cJSON *item = o->child; item != NULL && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
+			int exsk = item->valueint;
 			bool found = FALSE;
 
 			for (i = 1; i < MAX_SKILL; i++) {
 				if (skill_table[i].slot == exsk) {
 					ch->pcdata->extraclass[count++] = i;
 					found = TRUE;
+					break;
 				}
 			}
 
@@ -1199,13 +1202,10 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 				bug("Unknown extraclass skill.", 0);
 			}
 		}
-
-		while (count < ch->pcdata->remort_count / 20 + 1)
-			ch->pcdata->extraclass[count++] = 0;
 	}
 
 	get_JSON_short(json,	&ch->pcdata->familiar,		"Familiar"		);
-	get_JSON_string(json,	&ch->pcdata->fingerinfo,	"Finf"			);
+//	get_JSON_string(json,	&(ch->pcdata->fingerinfo),	"Finf"			);
 	get_JSON_flags(json,	&ch->imm_flags,				"FImm"			);
 	get_JSON_flags(json,	&ch->res_flags,				"FRes"			);
 	get_JSON_flags(json,	&ch->vuln_flags,			"FVul"			);
@@ -1220,11 +1220,12 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 
 	if ((o = cJSON_GetObjectItem(json, "Gr")) != NULL) {
 		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			int gn = group_lookup(item->string);
+			int gn = group_lookup(item->valuestring);
 
 			if (gn < 0) {
-				fprintf(stderr, "%s", item->string);
+				fprintf(stderr, "%s", item->valuestring);
 				bug("Unknown group. ", 0);
+				continue;
 			}
 
 			gn_add(ch, gn);
@@ -1234,7 +1235,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	if ((o = cJSON_GetObjectItem(json, "Grant")) != NULL) {
 		int count = 0;
 		for (cJSON *item = o->child; item != NULL && count < MAX_GRANT; item = item->next)
-			strcpy(ch->pcdata->granted_commands[count++], item->string);
+			strcpy(ch->pcdata->granted_commands[count++], item->valuestring);
 	}
 
 	if ((o = cJSON_GetObjectItem(json, "HMS")) != NULL) {
@@ -1256,7 +1257,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	if ((o = cJSON_GetObjectItem(json, "Ignore")) != NULL) {
 		int count = 0;
 		for (cJSON *item = o->child; item != NULL && count < MAX_IGNORE; item = item->next)
-			ch->pcdata->ignore[count++] = str_dup(item->string);
+			ch->pcdata->ignore[count++] = str_dup(item->valuestring);
 	}
 
 	get_JSON_short(json,	&ch->pcdata->lays,			"Lay"			);
@@ -1310,7 +1311,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	if ((o = cJSON_GetObjectItem(json, "Query")) != NULL) {
 		int count = 0;
 		for (cJSON *item = o->child; item != NULL && count < MAX_IGNORE; item = item->next)
-			ch->pcdata->query[count++] = str_dup(item->string);
+			ch->pcdata->query[count++] = str_dup(item->valuestring);
 	}
 
 	get_JSON_int(json,		&ch->questpoints,			"QuestPnts"		);
@@ -1332,11 +1333,8 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 
 	if ((o = cJSON_GetObjectItem(json, "Raff")) != NULL) {
 		int count = 0;
-		for (cJSON *item = o->child; item != NULL; item = item->next)
-			ch->pcdata->raffect[count++] = atoi(item->string);
-
-		while (count < ch->pcdata->remort_count / 10 + 1)
-			ch->pcdata->raffect[count++] = 0;
+		for (cJSON *item = o->child; item != NULL && count < MAX_RAFFECT_SLOTS; item = item->next)
+			ch->pcdata->raffect[count++] = item->valueint;
 	}
 
 	if ((o = cJSON_GetObjectItem(json, "Room")) != NULL) {
@@ -1350,7 +1348,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	get_JSON_string(json,	&ch->short_descr,			"ShD"			);
 	get_JSON_long(json,		&ch->silver_in_bank,		"Silver_in_bank");
 	get_JSON_long(json,		&ch->silver,				"Silv"			);
-	get_JSON_long(json,		&ch->pcdata->skillpoints,	"SkillPnts"		);
+	get_JSON_int(json,		&ch->pcdata->skillpoints,	"SkillPnts"		);
 	get_JSON_string(json,	&ch->pcdata->status,		"Stus"			);
 	get_JSON_string(json,	&ch->pcdata->spouse,		"Spou"			);
 	get_JSON_short(json,	&ch->pcdata->nextsquest,	"SQuestNext"	);
