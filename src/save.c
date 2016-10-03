@@ -112,6 +112,7 @@ void    fwrite_obj      args((CHAR_DATA *ch,  OBJ_DATA  *obj,
                               FILE *fp, int iNest, bool locker, bool strongbox));
 void    fwrite_pet      args((CHAR_DATA *pet, FILE *fp));
 void    fread_char      args((CHAR_DATA *ch,  cJSON *json));
+void    fread_player      args((CHAR_DATA *ch,  cJSON *json));
 void    fread_pet       args((CHAR_DATA *ch,  FILE *fp));
 void    fread_obj       args((CHAR_DATA *ch,  FILE *fp, bool locker, bool strongbox));
 
@@ -873,6 +874,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	}
 
 	fread_char(ch, root);
+	fread_player(ch, root);
 
 	/* Setting a counter should obviate all this NULLing -- Elrac
 	    int iNest;
@@ -882,6 +884,44 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	*/
 //	NestDepth = -1;  /* means there is no object to nest into yet */
 	found = TRUE;
+
+	// fix things up
+	if (ch->pcdata->remort_count > 0) {
+		SET_CGROUP(ch, GROUP_AVATAR);
+		SET_CGROUP(ch, GROUP_HERO);
+	}
+
+	if (ch->level >= LEVEL_AVATAR)
+		SET_CGROUP(ch, GROUP_AVATAR);
+
+	if (ch->level >= LEVEL_HERO)
+		SET_CGROUP(ch, GROUP_HERO);
+
+	if (ch->clan == NULL && !IS_IMMORTAL(ch)) {
+		REM_CGROUP(ch, GROUP_LEADER);
+		REM_CGROUP(ch, GROUP_DEPUTY);
+	}
+
+	if (ch->clan != NULL)
+		SET_CGROUP(ch, GROUP_CLAN);
+
+	if (!IS_IMMORTAL(ch)) {
+		for (int stat = 0; stat < (MAX_STATS); stat++) {
+			/* make sure stats aren't above race max, for possible changes to race maximums */
+			if (stat == class_table[ch->class].attr_prime) {
+				if (ch->race == 1) { /* humans */
+					if (ch->perm_stat[stat] > (pc_race_table[ch->race].max_stats[stat] + 3))
+						ch->perm_stat[stat] = (pc_race_table[ch->race].max_stats[stat] + 3);
+				}
+				else {
+					if (ch->perm_stat[stat] > (pc_race_table[ch->race].max_stats[stat] + 2))
+						ch->perm_stat[stat] = (pc_race_table[ch->race].max_stats[stat] + 2);
+				}
+			}
+			else if (ch->perm_stat[stat] > pc_race_table[ch->race].max_stats[stat])
+				ch->perm_stat[stat] = pc_race_table[ch->race].max_stats[stat];
+		}
+	}
 
 /*
 	for (; ;) {
@@ -1003,6 +1043,8 @@ void get_JSON_short(cJSON *obj, sh_int *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
+	else
+		bugf("JSON field %s not found", key);
 }
 
 void get_JSON_int(cJSON *obj, int *target, char *key) {
@@ -1010,6 +1052,8 @@ void get_JSON_int(cJSON *obj, int *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
+	else
+		bugf("JSON field %s not found", key);
 }
 
 void get_JSON_long(cJSON *obj, long *target, char *key) {
@@ -1017,6 +1061,8 @@ void get_JSON_long(cJSON *obj, long *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
+	else
+		bugf("JSON field %s not found", key);
 }
 
 void get_JSON_flags(cJSON *obj, long *target, char *key) {
@@ -1024,6 +1070,8 @@ void get_JSON_flags(cJSON *obj, long *target, char *key) {
 
 	if (val != NULL)
 		*target = read_flags(val->valuestring);
+	else
+		bugf("JSON field %s not found", key);
 }
 
 void get_JSON_string(cJSON *obj, char **target, char *key) {
@@ -1032,26 +1080,205 @@ void get_JSON_string(cJSON *obj, char **target, char *key) {
 	if (val != NULL) {
 		if (*target != NULL) {
 			free_string(*target);
-			bugf("freeing string in get_JSON_string", 0);
 		}
 		*target = str_dup(val->valuestring);
 	}
+	else
+		bugf("JSON field %s not found", key);
+}
+
+void fread_player(CHAR_DATA *ch, cJSON *json) {
+	cJSON *o;
+
+	// things with no dependencies (other than the character section)
+
+	get_JSON_string(json,	&ch->pcdata->afk,			"Afk"			);
+	get_JSON_short(json,	&ch->pcdata->arenakills,	"Akills"		);
+	get_JSON_short(json,	&ch->pcdata->arenakilled,	"Akilled"		);
+	get_JSON_string(json,	&ch->pcdata->aura,			"Aura"			);
+
+	if ((o = cJSON_GetObjectItem(json, "Alias")) != NULL) {
+		int count = 0;
+		// each alias is a 2-tuple (a list)
+		for (cJSON *item = o->child; item != NULL; item = item->next) {
+			ch->pcdata->alias[count] = str_dup(item->child->valuestring);
+			ch->pcdata->alias_sub[count] = str_dup(item->child->next->valuestring);
+		}
+	}
+
+	get_JSON_int(json,		&ch->pcdata->backup,		"Back"			);
+	get_JSON_string(json,	&ch->pcdata->bamfin,		"Bin"			);
+	get_JSON_string(json,	&ch->pcdata->bamfout,		"Bout"			);
+
+	if ((o = cJSON_GetObjectItem(json, "Cgrp")) != NULL) {
+		// fields could have been set before this, clan comes first in old ordering -- Montrey (2014)
+		ch->pcdata->cgroup |= read_flags(o->valuestring);
+	}
+
+	if ((o = cJSON_GetObjectItem(json, "Colr")) != NULL) {
+		for (cJSON *item = o->child; item != NULL; item = item->next) {
+			int slot = cJSON_GetObjectItem(item, "slot")->valueint;
+			get_JSON_short(item, &ch->pcdata->color[slot], "color");
+			get_JSON_short(item, &ch->pcdata->bold[slot], "bold");
+		}
+	}
+
+	get_JSON_string(json,	&ch->pcdata->deity,			"Deit"			);
+	get_JSON_string(json,	&ch->pcdata->email,			"Email"			);
+
+	if ((o = cJSON_GetObjectItem(json, "ExSk")) != NULL) {
+		int count = 0;
+		for (cJSON *item = o->child; item != NULL && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
+			int exsk = item->valueint;
+			bool found = FALSE;
+
+			for (int i = 1; i < MAX_SKILL; i++) {
+				if (skill_table[i].slot == exsk) {
+					ch->pcdata->extraclass[count++] = i;
+					found = TRUE;
+					break;
+				}
+			}
+
+			if (!found) {
+				bug("Unknown extraclass skill.", 0);
+			}
+		}
+	}
+
+	get_JSON_short(json,	&ch->pcdata->familiar,		"Familiar"		);
+	get_JSON_string(json,	&ch->pcdata->fingerinfo,	"Finf"			);
+	get_JSON_short(json,	&ch->pcdata->flag_thief,	"FlagThief"		);
+	get_JSON_short(json,	&ch->pcdata->flag_killer,	"FlagKiller"	);
+	get_JSON_string(json,	&ch->pcdata->gamein,		"GameIn"		);
+	get_JSON_string(json,	&ch->pcdata->gameout,		"GameOut"		);
+
+	if ((o = cJSON_GetObjectItem(json, "Grant")) != NULL) {
+		int count = 0;
+		for (cJSON *item = o->child; item != NULL && count < MAX_GRANT; item = item->next)
+			strcpy(ch->pcdata->granted_commands[count++], item->valuestring);
+	}
+
+	if ((o = cJSON_GetObjectItem(json, "HMSP")) != NULL) {
+		get_JSON_short(o, &ch->pcdata->perm_hit, "hit");
+		get_JSON_short(o, &ch->pcdata->perm_mana, "mana");
+		get_JSON_short(o, &ch->pcdata->perm_stam, "stam");
+	}
+
+	get_JSON_string(json,	&ch->pcdata->immname,		"Immn"			);
+
+	if ((o = cJSON_GetObjectItem(json, "Ignore")) != NULL) {
+		int count = 0;
+		for (cJSON *item = o->child; item != NULL && count < MAX_IGNORE; item = item->next)
+			ch->pcdata->ignore[count++] = str_dup(item->valuestring);
+	}
+
+	get_JSON_short(json,	&ch->pcdata->lays,			"Lay"			);
+	get_JSON_short(json,	&ch->pcdata->next_lay_countdown, "Lay_Next"	);
+	get_JSON_int(json,		&ch->pcdata->last_level,	"LLev"			);
+	get_JSON_int(json,		&ch->pcdata->last_logoff,	"LogO"			);
+	get_JSON_string(json,	&ch->pcdata->last_lsite,	"Lsit"			);
+
+	if ((o = cJSON_GetObjectItem(json, "Ltim")) != NULL)
+		ch->pcdata->last_ltime = dizzy_scantime(o->valuestring);
+
+	if ((o = cJSON_GetObjectItem(json, "Lsav")) != NULL)
+		ch->pcdata->last_saved = dizzy_scantime(o->valuestring);
+
+	get_JSON_int(json,		&ch->pcdata->mark_room,		"Mark"			);
+	get_JSON_short(json,	&ch->pcdata->mud_exp,		"Mexp"			);
+
+	if ((o = cJSON_GetObjectItem(json, "Note")) != NULL) {
+		get_JSON_long(o, &ch->pcdata->last_note, "note");
+		get_JSON_long(o, &ch->pcdata->last_idea, "idea");
+		get_JSON_long(o, &ch->pcdata->last_roleplay, "role");
+		get_JSON_long(o, &ch->pcdata->last_immquest, "quest");
+		get_JSON_long(o, &ch->pcdata->last_changes, "change");
+		get_JSON_long(o, &ch->pcdata->last_personal, "pers");
+		get_JSON_long(o, &ch->pcdata->last_trade, "trade");
+	}
+
+	get_JSON_string(json,	&ch->pcdata->pwd,			"Pass"			);
+	get_JSON_int(json,		&ch->pcdata->pckills,		"PCkills"		);
+	get_JSON_int(json,		&ch->pcdata->pckilled,		"PCkilled"		);
+	get_JSON_int(json,		&ch->pcdata->pkrank,		"PKRank"		);
+	get_JSON_int(json,		&ch->pcdata->played,		"Plyd"			);
+	get_JSON_flags(json,	&ch->pcdata->plr,			"Plr"			);
+	get_JSON_short(json,	&ch->pcdata->points,		"Pnts"			);
+
+	if ((o = cJSON_GetObjectItem(json, "Query")) != NULL) {
+		int count = 0;
+		for (cJSON *item = o->child; item != NULL && count < MAX_IGNORE; item = item->next)
+			ch->pcdata->query[count++] = str_dup(item->valuestring);
+	}
+
+	get_JSON_string(json,	&ch->pcdata->rank,			"Rank"			);
+	get_JSON_int(json,		&ch->pcdata->rolepoints,	"RolePnts"		);
+
+	if ((o = cJSON_GetObjectItem(json, "Sk")) != NULL) {
+		for (cJSON *item = o->child; item != NULL; item = item->next) {
+			char *temp = cJSON_GetObjectItem(item, "name")->valuestring;
+			int sn = skill_lookup(temp);
+
+			if (sn < 0) {
+				fprintf(stderr, "%s", temp);
+				bug("Fread_char: unknown skill. ", 0);
+				continue;
+			}
+
+			ch->pcdata->learned[sn] = cJSON_GetObjectItem(item, "prac")->valueint;
+			ch->pcdata->evolution[sn] = cJSON_GetObjectItem(item, "evol")->valueint;
+		}
+	}
+
+	if ((o = cJSON_GetObjectItem(json, "THMS")) != NULL) {
+		get_JSON_short(o, &ch->pcdata->trains_to_hit, "hit");
+		get_JSON_short(o, &ch->pcdata->trains_to_hit, "mana");
+		get_JSON_short(o, &ch->pcdata->trains_to_hit, "stam");
+	}
+
+	get_JSON_short(json,	&ch->pcdata->true_sex,		"TSex"			);
+
+	if ((o = cJSON_GetObjectItem(json, "Raff")) != NULL) {
+		int count = 0;
+		for (cJSON *item = o->child; item != NULL && count < MAX_RAFFECT_SLOTS; item = item->next)
+			ch->pcdata->raffect[count++] = item->valueint;
+	}
+
+	get_JSON_int(json,		&ch->pcdata->skillpoints,	"SkillPnts"		);
+	get_JSON_string(json,	&ch->pcdata->status,		"Stus"			);
+	get_JSON_string(json,	&ch->pcdata->spouse,		"Spou"			);
+	get_JSON_short(json,	&ch->pcdata->nextsquest,	"SQuestNext"	);
+
+	if ((o = cJSON_GetObjectItem(json, "Titl")) != NULL) {
+		free_string(ch->pcdata->title);
+		char c = o->valuestring[0];
+		char buf[MSL];
+
+		sprintf(buf, "%s%s",
+			c == '.' || c == ',' || c == '!' || c == '?' ? "" : " ", // add a space if no punctuation
+			o->valuestring);
+		ch->pcdata->title = str_dup(buf);
+	}
+
+	get_JSON_flags(json,	&ch->pcdata->video,			"Video"			);
+	get_JSON_string(json,	&ch->pcdata->whisper,		"Wspr"			);
+	get_JSON_short(json,	&ch->pcdata->remort_count,	"RmCt"			);
+
+	// put things with dependencies below this line
+
 }
 
 void fread_char(CHAR_DATA *ch, cJSON *json)
 {
-	char buf[MAX_STRING_LENGTH];
-	char *word;
-	bool fMatch;
-	int count = 0;
-	int count2 = 0;
-	int count3 = 0;
-	int i, c;
-	int grant_count = 0;
+	char buf[MSL];
 	sprintf(buf, "Loading %s.", ch->name);
 	log_string(buf);
 
 	cJSON *o;
+
+	// unlike old pfiles, the order of calls is important here, because we can't
+	// guarantee order within the files.  no more alphabetical, this is about dependencies
 
 	get_JSON_flags(json,	&ch->act,					"Act"			);
 
@@ -1072,19 +1299,6 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 
 	get_JSON_flags(json,	&ch->affected_by,			"AfBy"			);
 	get_JSON_short(json,	&ch->alignment,				"Alig"			);
-	get_JSON_string(json,	&ch->pcdata->afk,			"Afk"			);
-	get_JSON_short(json,	&ch->pcdata->arenakills,	"Akills"		);
-	get_JSON_short(json,	&ch->pcdata->arenakilled,	"Akilled"		);
-	get_JSON_string(json,	&ch->pcdata->aura,			"Aura"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Alias")) != NULL) {
-		int count = 0;
-		// each alias is a 2-tuple (a list)
-		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			ch->pcdata->alias[count] = str_dup(item->child->valuestring);
-			ch->pcdata->alias_sub[count] = str_dup(item->child->next->valuestring);
-		}
-	}
 
 	if ((o = cJSON_GetObjectItem(json, "Affc")) != NULL) {
 		for (cJSON *item = o->child; item != NULL; item = item->next) {
@@ -1112,56 +1326,21 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	}
 
 	if ((o = cJSON_GetObjectItem(json, "Atrib")) != NULL) {
-		get_JSON_short(o, &(ch->perm_stat[STAT_STR]), "str");
+		get_JSON_short(o, &ch->perm_stat[STAT_STR], "str");
 		get_JSON_short(o, &ch->perm_stat[STAT_INT], "int");
 		get_JSON_short(o, &ch->perm_stat[STAT_WIS], "wis");
 		get_JSON_short(o, &ch->perm_stat[STAT_DEX], "dex");
 		get_JSON_short(o, &ch->perm_stat[STAT_CON], "con");
 		get_JSON_short(o, &ch->perm_stat[STAT_CHR], "chr");
-
-		if (!IS_IMMORTAL(ch)) {
-			for (int stat = 0; stat < (MAX_STATS); stat++) {
-				/* make sure stats aren't above race max, for possible changes to race maximums */
-				if (stat == class_table[ch->class].attr_prime) {
-					if (ch->race == 1) { /* humans */
-						if (ch->perm_stat[stat] > (pc_race_table[ch->race].max_stats[stat] + 3))
-							ch->perm_stat[stat] = (pc_race_table[ch->race].max_stats[stat] + 3);
-					}
-					else {
-						if (ch->perm_stat[stat] > (pc_race_table[ch->race].max_stats[stat] + 2))
-							ch->perm_stat[stat] = (pc_race_table[ch->race].max_stats[stat] + 2);
-					}
-				}
-				else if (ch->perm_stat[stat] > pc_race_table[ch->race].max_stats[stat])
-					ch->perm_stat[stat] = pc_race_table[ch->race].max_stats[stat];
-			}
-		}
 	}
 
-	get_JSON_int(json,		&ch->pcdata->backup,		"Back"			);
-	get_JSON_string(json,	&ch->pcdata->bamfin,		"Bin"			);
-	get_JSON_string(json,	&ch->pcdata->bamfout,		"Bout"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Cgrp")) != NULL) {
-		// fields could have been set before this, clan comes first in old ordering -- Montrey (2014)
-		ch->pcdata->cgroup |= read_flags(o->valuestring);
+	if ((o = cJSON_GetObjectItem(json, "Clan")) != NULL) {
+		ch->clan = clan_lookup(o->valuestring);
 	}
 
 	get_JSON_short(json,	&ch->class,					"Cla"			);
 	get_JSON_flags(json,	&ch->comm,					"Comm"			);
 	get_JSON_flags(json,	&ch->censor,				"Cnsr"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Clan")) != NULL) {
-		ch->clan = clan_lookup(o->valuestring);
-
-		if (ch->clan == NULL && !IS_IMMORTAL(ch)) {
-			REM_CGROUP(ch, GROUP_LEADER);
-			REM_CGROUP(ch, GROUP_DEPUTY);
-		}
-
-		if (ch->clan != NULL)
-			SET_CGROUP(ch, GROUP_CLAN);
-	}
 
 	if ((o = cJSON_GetObjectItem(json, "Cnd")) != NULL) {
 		get_JSON_short(o, &ch->perm_stat[COND_DRUNK], "drunk");
@@ -1170,50 +1349,11 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 		get_JSON_short(o, &ch->perm_stat[COND_HUNGER], "hunger");
 	}
 
-	if ((o = cJSON_GetObjectItem(json, "Colr")) != NULL) {
-		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			int slot = cJSON_GetObjectItem(item, "slot")->valueint;
-			get_JSON_short(item, &ch->pcdata->color[slot], "color");
-			get_JSON_short(item, &ch->pcdata->bold[slot], "bold");
-		}
-	}
-
 	get_JSON_string(json,	&ch->description,			"Desc"			);
-	get_JSON_string(json,	&ch->pcdata->deity,			"Deit"			);
-
-	get_JSON_string(json,	&ch->pcdata->email,			"Email"			);
 	get_JSON_int(json,		&ch->exp,					"Exp"			);
-
-	if ((o = cJSON_GetObjectItem(json, "ExSk")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
-			int exsk = item->valueint;
-			bool found = FALSE;
-
-			for (i = 1; i < MAX_SKILL; i++) {
-				if (skill_table[i].slot == exsk) {
-					ch->pcdata->extraclass[count++] = i;
-					found = TRUE;
-					break;
-				}
-			}
-
-			if (!found) {
-				bug("Unknown extraclass skill.", 0);
-			}
-		}
-	}
-
-	get_JSON_short(json,	&ch->pcdata->familiar,		"Familiar"		);
-//	get_JSON_string(json,	&(ch->pcdata->fingerinfo),	"Finf"			);
 	get_JSON_flags(json,	&ch->imm_flags,				"FImm"			);
 	get_JSON_flags(json,	&ch->res_flags,				"FRes"			);
 	get_JSON_flags(json,	&ch->vuln_flags,			"FVul"			);
-	get_JSON_short(json,	&ch->pcdata->flag_thief,	"FlagThief"		);
-	get_JSON_short(json,	&ch->pcdata->flag_killer,	"FlagKiller"	);
-
-	get_JSON_string(json,	&ch->pcdata->gamein,		"GameIn"		);
-	get_JSON_string(json,	&ch->pcdata->gameout,		"GameOut"		);
 	get_JSON_long(json,		&ch->gold_in_bank,			"Gold_in_bank"	);
 	get_JSON_long(json,		&ch->gold,					"Gold"			);
 	get_JSON_long(json,		&ch->gold_donated,			"GlDonated"		);
@@ -1232,110 +1372,28 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 		}
 	}
 
-	if ((o = cJSON_GetObjectItem(json, "Grant")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_GRANT; item = item->next)
-			strcpy(ch->pcdata->granted_commands[count++], item->valuestring);
-	}
-
 	if ((o = cJSON_GetObjectItem(json, "HMS")) != NULL) {
 		get_JSON_short(o, &ch->hit, "hit");
 		get_JSON_short(o, &ch->mana, "mana");
 		get_JSON_short(o, &ch->stam, "stam");
 	}
 
-	if ((o = cJSON_GetObjectItem(json, "HMSP")) != NULL) {
-		get_JSON_short(o, &ch->pcdata->perm_hit, "hit");
-		get_JSON_short(o, &ch->pcdata->perm_mana, "mana");
-		get_JSON_short(o, &ch->pcdata->perm_stam, "stam");
-	}
-
 	get_JSON_long(json,		&ch->id,					"Id"			);
 	get_JSON_short(json,	&ch->invis_level,			"Invi"			);
-	get_JSON_string(json,	&ch->pcdata->immname,		"Immn"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Ignore")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_IGNORE; item = item->next)
-			ch->pcdata->ignore[count++] = str_dup(item->valuestring);
-	}
-
-	get_JSON_short(json,	&ch->pcdata->lays,			"Lay"			);
-	get_JSON_short(json,	&ch->pcdata->next_lay_countdown, "Lay_Next"	);
-	get_JSON_int(json,		&ch->pcdata->last_level,	"LLev"			);
 	get_JSON_short(json,	&ch->level,					"Levl"			);
-
-	if (ch->level >= LEVEL_AVATAR)
-		SET_CGROUP(ch, GROUP_AVATAR);
-
-	if (ch->level >= LEVEL_HERO)
-		SET_CGROUP(ch, GROUP_HERO);
-
-	get_JSON_int(json,		&ch->pcdata->last_logoff,	"LogO"			);
 	get_JSON_string(json,	&ch->long_descr,			"LnD"			);
-	get_JSON_string(json,	&ch->pcdata->last_lsite,	"Lsit"			);
 	get_JSON_short(json,	&ch->lurk_level,			"Lurk"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Ltim")) != NULL)
-		ch->pcdata->last_ltime = dizzy_scantime(o->valuestring);
-
-	if ((o = cJSON_GetObjectItem(json, "Lsav")) != NULL)
-		ch->pcdata->last_saved = dizzy_scantime(o->valuestring);
-
-	get_JSON_int(json,		&ch->pcdata->mark_room,		"Mark"			);
-	get_JSON_short(json,	&ch->pcdata->mud_exp,		"Mexp"			);
-
 	get_JSON_string(json,	&ch->name,					"Name"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Note")) != NULL) {
-		get_JSON_long(o, &ch->pcdata->last_note, "note");
-		get_JSON_long(o, &ch->pcdata->last_idea, "idea");
-		get_JSON_long(o, &ch->pcdata->last_roleplay, "role");
-		get_JSON_long(o, &ch->pcdata->last_immquest, "quest");
-		get_JSON_long(o, &ch->pcdata->last_changes, "change");
-		get_JSON_long(o, &ch->pcdata->last_personal, "pers");
-		get_JSON_long(o, &ch->pcdata->last_trade, "trade");
-	}
-
-	get_JSON_string(json,	&ch->pcdata->pwd,			"Pass"			);
-	get_JSON_int(json,		&ch->pcdata->pckills,		"PCkills"		);
-	get_JSON_int(json,		&ch->pcdata->pckilled,		"PCkilled"		);
-	get_JSON_int(json,		&ch->pcdata->pkrank,		"PKRank"		);
-	get_JSON_int(json,		&ch->pcdata->played,		"Plyd"			);
-	get_JSON_flags(json,	&ch->pcdata->plr,			"Plr"			);
-	get_JSON_short(json,	&ch->pcdata->points,		"Pnts"			);
 	get_JSON_short(json,	&ch->position,				"Pos"			);
 	get_JSON_short(json,	&ch->practice,				"Prac"			);
 	get_JSON_string(json,	&ch->prompt,				"Prom"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Query")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_IGNORE; item = item->next)
-			ch->pcdata->query[count++] = str_dup(item->valuestring);
-	}
-
 	get_JSON_int(json,		&ch->questpoints,			"QuestPnts"		);
 	get_JSON_int(json,		&ch->questpoints_donated,	"QpDonated"		);
 	get_JSON_short(json,	&ch->nextquest,				"QuestNext"		);
+	get_JSON_flags(json,	&ch->revoke,				"Revk"			);
 
 	if ((o = cJSON_GetObjectItem(json, "Race")) != NULL)
 		ch->race = race_lookup(o->valuestring);
-
-	get_JSON_string(json,	&ch->pcdata->rank,			"Rank"			);
-	get_JSON_flags(json,	&ch->revoke,				"Revk"			);
-	get_JSON_int(json,		&ch->pcdata->rolepoints,	"RolePnts"		);
-	get_JSON_short(json,	&ch->pcdata->remort_count,	"RmCt"			);
-
-	if (ch->pcdata->remort_count > 0) {
-		SET_CGROUP(ch, GROUP_AVATAR);
-		SET_CGROUP(ch, GROUP_HERO);
-	}
-
-	if ((o = cJSON_GetObjectItem(json, "Raff")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_RAFFECT_SLOTS; item = item->next)
-			ch->pcdata->raffect[count++] = item->valueint;
-	}
 
 	if ((o = cJSON_GetObjectItem(json, "Room")) != NULL) {
 		ch->in_room = get_room_index(o->valueint);
@@ -1348,10 +1406,15 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	get_JSON_string(json,	&ch->short_descr,			"ShD"			);
 	get_JSON_long(json,		&ch->silver_in_bank,		"Silver_in_bank");
 	get_JSON_long(json,		&ch->silver,				"Silv"			);
-	get_JSON_int(json,		&ch->pcdata->skillpoints,	"SkillPnts"		);
-	get_JSON_string(json,	&ch->pcdata->status,		"Stus"			);
-	get_JSON_string(json,	&ch->pcdata->spouse,		"Spou"			);
-	get_JSON_short(json,	&ch->pcdata->nextsquest,	"SQuestNext"	);
+	get_JSON_short(json,	&ch->train,					"Trai"			);
+	get_JSON_short(json,	&ch->version,				"Vers"			);
+	get_JSON_short(json,	&ch->wimpy,					"Wimp"			);
+	get_JSON_flags(json,	&ch->wiznet,				"Wizn"			);
+
+
+
+
+	// stuff with dependencies
 
 	if ((o = cJSON_GetObjectItem(json, "Secu")) != NULL) {
 		switch (o->valueint) {     /* ch default is RANK_IMMORTAL */
@@ -1366,48 +1429,6 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 			break;
 		}
 	}
-
-	if ((o = cJSON_GetObjectItem(json, "Sk")) != NULL) {
-		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			char *temp = cJSON_GetObjectItem(item, "name")->valuestring;
-			int sn = skill_lookup(temp);
-
-			if (sn < 0) {
-				fprintf(stderr, "%s", temp);
-				bug("Fread_char: unknown skill. ", 0);
-				continue;
-			}
-
-			ch->pcdata->learned[sn] = cJSON_GetObjectItem(item, "prac")->valueint;
-			ch->pcdata->evolution[sn] = cJSON_GetObjectItem(item, "evol")->valueint;
-		}
-	}
-
-	if ((o = cJSON_GetObjectItem(json, "THMS")) != NULL) {
-		get_JSON_short(o, &ch->pcdata->trains_to_hit, "hit");
-		get_JSON_short(o, &ch->pcdata->trains_to_hit, "mana");
-		get_JSON_short(o, &ch->pcdata->trains_to_hit, "stam");
-	}
-
-	get_JSON_short(json,	&ch->pcdata->true_sex,		"TSex"			);
-	get_JSON_short(json,	&ch->train,					"Trai"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Titl")) != NULL) {
-		free_string(ch->pcdata->title);
-		char c = o->valuestring[0];
-
-		sprintf(buf, "%s%s",
-			c == '.' || c == ',' || c == '!' || c == '?' ? "" : " ", // add a space if no punctuation
-			o->valuestring);
-		ch->pcdata->title = str_dup(buf);
-	}
-
-	get_JSON_short(json,	&ch->version,				"Vers"			);
-	get_JSON_flags(json,	&ch->pcdata->video,			"Video"			);
-
-	get_JSON_short(json,	&ch->wimpy,					"Wimp"			);
-	get_JSON_flags(json,	&ch->wiznet,				"Wizn"			);
-	get_JSON_string(json,	&ch->pcdata->whisper,		"Wspr"			);
 }
 
 /* load a pet from the forgotten reaches */
