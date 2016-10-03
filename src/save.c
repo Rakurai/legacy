@@ -109,8 +109,12 @@ void    fwrite_pet      args((CHAR_DATA *pet, FILE *fp));
 void    fread_char      args((CHAR_DATA *ch,  cJSON *json));
 void    fread_player      args((CHAR_DATA *ch,  cJSON *json));
 void    fread_pet       args((CHAR_DATA *ch,  FILE *fp));
-OBJ_DATA * fread_obj_list       args((cJSON *json));
-
+void	fread_objects	args((CHAR_DATA *ch, cJSON *json, void (*obj_to)(OBJ_DATA *, CHAR_DATA *)));
+/*
+void	fread_inventory       args((CHAR_DATA *ch, cJSON *json));
+void	fread_locker       args((CHAR_DATA *ch, cJSON *json));
+void	fread_strongbox       args((CHAR_DATA *ch, cJSON *json));
+*/
 /*
  * Save a character and inventory.
  * Would be cool to save NPC's too for quest purposes,
@@ -871,10 +875,14 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	fread_char(ch, root);
 	fread_player(ch, root);
 
-	ch->carrying = fread_obj_list(cJSON_GetObjectItem(root, "inventory"));
-	ch->pcdata->locker = fread_obj_list(cJSON_GetObjectItem(root, "locker"));
-	ch->pcdata->strongbox = fread_obj_list(cJSON_GetObjectItem(root, "strongbox"));
-
+	fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_char);
+	fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_locker);
+	fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_strongbox);
+/*
+	fread_inventory(ch, cJSON_GetObjectItem(root, "inventory"));
+	fread_locker(ch, cJSON_GetObjectItem(root, "locker"));
+	fread_strongbox(ch, cJSON_GetObjectItem(root, "strongbox"));
+*/
 	/* Setting a counter should obviate all this NULLing -- Elrac
 	    int iNest;
 
@@ -1549,33 +1557,67 @@ OBJ_DATA * fread_obj(cJSON *json) {
 	get_JSON_short(json,	&obj->wear_loc,				"Wear"			);
 	get_JSON_short(json,	&obj->weight,				"Wt"			);
 
-	if ((o = cJSON_GetObjectItem(json, "contains")) != NULL)
-		obj->contains = fread_obj_list(o);
+	if ((o = cJSON_GetObjectItem(json, "contains")) != NULL) {
+		for (cJSON *item = o->child; item; item = item->next) {
+			OBJ_DATA *content = fread_obj(item);
+
+			if (content->pIndexData)
+				obj_to_obj(content, obj);
+			else {
+				// deal with contents and extract
+			}
+		}
+	}
 
 	return obj;
 }
 
 // read a list of objects and return the head
-OBJ_DATA * fread_obj_list(cJSON *contains) {
+void fread_objects(CHAR_DATA *ch, cJSON *contains, void (*obj_to)(OBJ_DATA *, CHAR_DATA *)) {
 	if (contains == NULL)
-		return NULL;
+		return;
 
-	OBJ_DATA *obj_last = NULL;
-	cJSON *item = contains->child;
+	for (cJSON *item = contains->child; item; item = item->next) {
+		OBJ_DATA *content = fread_obj(item);
 
-	while (item != NULL) {
-		OBJ_DATA *obj = fread_obj(item);
-
-		// handle objects with bad vnums, append the contents to this list and remove it
-
-		obj->next_content = obj_last;
-		obj_last = obj;
-		item = item->next;
+		if (content->pIndexData)
+			(*obj_to)(content, ch);
+		else {
+			// deal with contents and extract
+		}
 	}
+}
+/*
+void fread_locker(CHAR_DATA *ch, cJSON *contains) {
+	if (contains == NULL)
+		return;
 
-	return obj_last;
+	for (cJSON *item = contains->child; item; item = item->next) {
+		OBJ_DATA *content = fread_obj(item);
+
+		if (content->pIndexData)
+			obj_to_locker(content, ch);
+		else {
+			// deal with contents and extract
+		}
+	}
 }
 
+void fread_strongbox(CHAR_DATA *ch, cJSON *contains) {
+	if (contains == NULL)
+		return;
+
+	for (cJSON *item = contains->child; item; item = item->next) {
+		OBJ_DATA *content = fread_obj(item);
+
+		if (content->pIndexData)
+			obj_to_strongbox(content, ch);
+		else {
+			// deal with contents and extract
+		}
+	}
+}
+*/
 /* load a pet from the forgotten reaches */
 void fread_pet(CHAR_DATA *ch, FILE *fp)
 {
