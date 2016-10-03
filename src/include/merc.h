@@ -2122,8 +2122,8 @@ struct  pc_data
 	sh_int              true_sex;
 	int                 pckills;
 	int                 pckilled;
-	int                 arenakills;			/* Tarrant */
-	int                 arenakilled;			/* Tarrant */
+	sh_int                 arenakills;			/* Tarrant */
+	sh_int                 arenakilled;			/* Tarrant */
 	int			pkrank;				/* Montrey */
 	int                 last_level;
 	int			last_logoff;			/* Montrey */
@@ -2169,15 +2169,15 @@ struct  pc_data
    char *              email;
    time_t              last_ltime;
    time_t              last_saved;
-   int			flag_thief;
-   int			flag_killer;
+   sh_int			flag_thief;
+   sh_int			flag_killer;
    char *              last_lsite;
    char *              fingerinfo;
    char *              query[MAX_QUERY];
    char *              spouse;
    char *		propose;
    char *              whisper;			/* Montrey */
-   sh_int              video;				/* Elrac */
+   long              video;				/* Elrac */
    sh_int              tailing;			/* Elrac */
    int                 mark_room;			/* Elrac */
    char *	        ignore[MAX_IGNORE];
