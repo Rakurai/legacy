@@ -1100,7 +1100,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json) {
 	if ((o = cJSON_GetObjectItem(json, "Alias")) != NULL) {
 		int count = 0;
 		// each alias is a 2-tuple (a list)
-		for (cJSON *item = o->child; item != NULL; item = item->next) {
+		for (cJSON *item = o->child; item != NULL; item = item->next, count++) {
 			ch->pcdata->alias[count] = str_dup(item->child->valuestring);
 			ch->pcdata->alias_sub[count] = str_dup(item->child->next->valuestring);
 		}
@@ -1113,6 +1113,13 @@ void fread_player(CHAR_DATA *ch, cJSON *json) {
 	if ((o = cJSON_GetObjectItem(json, "Cgrp")) != NULL) {
 		// fields could have been set before this, clan comes first in old ordering -- Montrey (2014)
 		ch->pcdata->cgroup |= read_flags(o->valuestring);
+	}
+
+	if ((o = cJSON_GetObjectItem(json, "Cnd")) != NULL) {
+		get_JSON_short(o, &ch->pcdata->condition[COND_DRUNK], "drunk");
+		get_JSON_short(o, &ch->pcdata->condition[COND_FULL], "full");
+		get_JSON_short(o, &ch->pcdata->condition[COND_THIRST], "thirst");
+		get_JSON_short(o, &ch->pcdata->condition[COND_HUNGER], "hunger");
 	}
 
 	if ((o = cJSON_GetObjectItem(json, "Colr")) != NULL) {
@@ -1208,7 +1215,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json) {
 
 	if ((o = cJSON_GetObjectItem(json, "Query")) != NULL) {
 		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_IGNORE; item = item->next)
+		for (cJSON *item = o->child; item != NULL && count < MAX_QUERY; item = item->next)
 			ch->pcdata->query[count++] = str_dup(item->valuestring);
 	}
 
@@ -1341,14 +1348,6 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	get_JSON_short(json,	&ch->class,					"Cla"			);
 	get_JSON_flags(json,	&ch->comm,					"Comm"			);
 	get_JSON_flags(json,	&ch->censor,				"Cnsr"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Cnd")) != NULL) {
-		get_JSON_short(o, &ch->perm_stat[COND_DRUNK], "drunk");
-		get_JSON_short(o, &ch->perm_stat[COND_FULL], "full");
-		get_JSON_short(o, &ch->perm_stat[COND_THIRST], "thirst");
-		get_JSON_short(o, &ch->perm_stat[COND_HUNGER], "hunger");
-	}
-
 	get_JSON_string(json,	&ch->description,			"Desc"			);
 	get_JSON_int(json,		&ch->exp,					"Exp"			);
 	get_JSON_flags(json,	&ch->imm_flags,				"FImm"			);
