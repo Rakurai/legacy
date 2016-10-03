@@ -108,7 +108,7 @@ void    fwrite_obj      args((CHAR_DATA *ch,  OBJ_DATA  *obj,
 void    fwrite_pet      args((CHAR_DATA *pet, FILE *fp));
 void    fread_char      args((CHAR_DATA *ch,  cJSON *json));
 void    fread_player      args((CHAR_DATA *ch,  cJSON *json));
-void    fread_pet       args((CHAR_DATA *ch,  FILE *fp));
+void    fread_pet       args((CHAR_DATA *ch,  cJSON *json));
 void	fread_objects	args((CHAR_DATA *ch, cJSON *json, void (*obj_to)(OBJ_DATA *, CHAR_DATA *)));
 
 /*
@@ -525,6 +525,7 @@ void fwrite_pet(CHAR_DATA *pet, FILE *fp)
 	if (pet->level != pet->pIndexData->level)
 		fprintf(fp, "Levl %d\n", pet->level);
 
+	// change this to new 3 style
 	fprintf(fp, "HMS  %d %d %d %d %d %d\n",
 	        pet->hit, pet->max_hit, pet->mana, pet->max_mana, pet->stam, pet->max_stam);
 
@@ -1284,6 +1285,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json) {
 
 }
 
+// this could be PC or NPC!  get act flags first
 void fread_char(CHAR_DATA *ch, cJSON *json)
 {
 	char buf[MSL];
@@ -1312,6 +1314,8 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 		SET_CGROUP(ch, GROUP_LEADER);
 	}
 
+	// now safe to check IS_NPC
+
 	get_JSON_flags(json,	&ch->affected_by,			"AfBy"			);
 	get_JSON_short(json,	&ch->alignment,				"Alig"			);
 
@@ -1326,7 +1330,6 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 
 			AFFECT_DATA *paf = new_affect();
 			paf->type = sn;
-
 			get_JSON_short(item, &paf->where, "where");
 			get_JSON_short(item, &paf->level, "level");
 			get_JSON_short(item, &paf->duration, "dur");
@@ -1334,6 +1337,22 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 			get_JSON_short(item, &paf->location, "loc");
 			get_JSON_int(item, &paf->bitvector, "bitv");
 			get_JSON_short(item, &paf->evolution, "evo");
+
+			if (IS_NPC(ch)) {
+				bool found = FALSE;
+
+				/* loop through the pet's spells, only add if they don't have it */
+				for (AFFECT_DATA *old_af = ch->affected; old_af; old_af = old_af->next)
+					if (old_af->type == paf->type && old_af->location == paf->location) {
+						found = TRUE;
+						break;
+					}
+
+				if (found) {
+					free_affect(paf);
+					continue;
+				}
+			}
 
 			paf->next       = ch->affected;
 			ch->affected    = paf;
@@ -1349,6 +1368,16 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 		get_JSON_short(o, &ch->perm_stat[STAT_CHR], "chr");
 	}
 
+	// npc only
+	if (IS_NPC(ch) && (o = cJSON_GetObjectItem(json, "AtMod")) != NULL) {
+		get_JSON_short(o, &ch->mod_stat[STAT_STR], "str");
+		get_JSON_short(o, &ch->mod_stat[STAT_INT], "int");
+		get_JSON_short(o, &ch->mod_stat[STAT_WIS], "wis");
+		get_JSON_short(o, &ch->mod_stat[STAT_DEX], "dex");
+		get_JSON_short(o, &ch->mod_stat[STAT_CON], "con");
+		get_JSON_short(o, &ch->mod_stat[STAT_CHR], "chr");
+	}
+
 	if ((o = cJSON_GetObjectItem(json, "Clan")) != NULL) {
 		ch->clan = clan_lookup(o->valuestring);
 	}
@@ -1356,6 +1385,9 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	get_JSON_short(json,	&ch->class,					"Cla"			);
 	get_JSON_flags(json,	&ch->comm,					"Comm"			);
 	get_JSON_flags(json,	&ch->censor,				"Cnsr"			);
+	get_JSON_short(json,	&ch->hitroll,				"Hit"			); // NPC
+	get_JSON_short(json,	&ch->damroll,				"Dam"			); // NPC
+	get_JSON_short(json,	&ch->saving_throw,			"Save"			); // NPC
 	get_JSON_string(json,	&ch->description,			"Desc"			);
 	get_JSON_int(json,		&ch->exp,					"Exp"			);
 	get_JSON_flags(json,	&ch->imm_flags,				"FImm"			);
@@ -1417,8 +1449,6 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	get_JSON_short(json,	&ch->version,				"Vers"			);
 	get_JSON_short(json,	&ch->wimpy,					"Wimp"			);
 	get_JSON_flags(json,	&ch->wiznet,				"Wizn"			);
-
-
 
 
 	// stuff with dependencies
@@ -1549,17 +1579,31 @@ OBJ_DATA * fread_obj(cJSON *json) {
 	get_JSON_short(json,	&obj->wear_loc,				"Wear"			);
 	get_JSON_short(json,	&obj->weight,				"Wt"			);
 
+	// this mirrors code for fread_objects, but uses obj_to_obj instead of obj_to_char/locker/strongbox,
+	// so the function pointer doesn't work.  maybe find a way to fix and condense?
 	if ((o = cJSON_GetObjectItem(json, "contains")) != NULL) {
 		for (cJSON *item = o->child; item; item = item->next) {
 			OBJ_DATA *content = fread_obj(item);
 
-			if (content->pIndexData)
+			if (content->pIndexData) {
+				if (content->condition == 0)
+					content->condition = content->pIndexData->condition;
+
 				obj_to_obj(content, obj);
+			}
 			else {
 				// deal with contents and extract
+				while (content->contains) {
+					OBJ_DATA *c = content->contains;
+					content->contains = c->next_content;
+					obj_to_obj(c, obj);
+				}
+
+				free_obj(content);
 			}
 		}
 	}
+
 
 	return obj;
 }
@@ -1572,257 +1616,75 @@ void fread_objects(CHAR_DATA *ch, cJSON *contains, void (*obj_to)(OBJ_DATA *, CH
 	for (cJSON *item = contains->child; item; item = item->next) {
 		OBJ_DATA *content = fread_obj(item);
 
-		if (content->pIndexData)
+		if (content->pIndexData) {
+			if (content->condition == 0)
+				content->condition = content->pIndexData->condition;
+
 			(*obj_to)(content, ch);
-		else {
-			// deal with contents and extract
 		}
-	}
-}
-/*
-void fread_locker(CHAR_DATA *ch, cJSON *contains) {
-	if (contains == NULL)
-		return;
-
-	for (cJSON *item = contains->child; item; item = item->next) {
-		OBJ_DATA *content = fread_obj(item);
-
-		if (content->pIndexData)
-			obj_to_locker(content, ch);
 		else {
 			// deal with contents and extract
+			while (content->contains) {
+				OBJ_DATA *c = content->contains;
+				content->contains = c->next_content;
+				(*obj_to)(c, ch);
+			}
+
+			free_obj(content);
 		}
 	}
 }
 
-void fread_strongbox(CHAR_DATA *ch, cJSON *contains) {
-	if (contains == NULL)
-		return;
-
-	for (cJSON *item = contains->child; item; item = item->next) {
-		OBJ_DATA *content = fread_obj(item);
-
-		if (content->pIndexData)
-			obj_to_strongbox(content, ch);
-		else {
-			// deal with contents and extract
-		}
-	}
-}
-*/
 /* load a pet from the forgotten reaches */
-void fread_pet(CHAR_DATA *ch, FILE *fp)
+void fread_pet(CHAR_DATA *ch, cJSON *json)
 {
-	char *word;
-	CHAR_DATA *pet;
-	bool fMatch;
-	int lastlogoff = current_time;
-	int percent;
-	/* first entry had BETTER be the vnum or we barf */
-	word = feof(fp) ? "END" : fread_word(fp);
+	cJSON *o;
 
-	if (!str_cmp(word, "Vnum")) {
-		int vnum;
-		vnum = fread_number(fp);
+	if (json == NULL)
+		return;
 
-		if (get_mob_index(vnum) == NULL) {
-			bug("Fread_pet: bad vnum %d.", vnum);
-			pet = create_mobile(get_mob_index(MOB_VNUM_FIDO));
-		}
-		else
-			pet = create_mobile(get_mob_index(vnum));
+	int vnum;
+
+	// error compensation in case their mob goes away, don't poof inventory
+	if ((o = cJSON_GetObjectItem(json, "Vnum")) != NULL) {
+		vnum = o->valueint;
 	}
 	else {
-		bug("Fread_pet: no vnum in file.", 0);
-		pet = create_mobile(get_mob_index(MOB_VNUM_FIDO));
+		bug("fread_pet: no vnum field in JSON object", 0);
+		vnum = MOB_VNUM_FIDO;
 	}
 
+	MOB_INDEX_DATA *index = get_mob_index(vnum);
+
+	if (index == NULL) {
+		bug("Fread_pet: bad vnum %d in fread_pet().", vnum);
+		index = get_mob_index(MOB_VNUM_FIDO);
+	}
+
+	CHAR_DATA *pet = create_mobile(index);
+
 	/* Check for memory error. -- Outsider */
-	if (! pet) {
+	if (!pet) {
 		bug("Memory error creating mob in fread_pet().", 0);
 		return;
 	}
 
-	for (; ;) {
-		word    = feof(fp) ? "END" : fread_word(fp);
-		fMatch = FALSE;
+	fread_char(pet, json);
 
-		switch (UPPER(word[0])) {
-		case '*':
-			fMatch = TRUE;
-			fread_to_eol(fp);
-			break;
+	pet->leader = ch;
+	pet->master = ch;
+	ch->pet = pet;
 
-		case 'A':
-			KEY("Act",         pet->act,               fread_flag(fp));
-			KEY("AfBy",        pet->affected_by,       fread_flag(fp));
-			KEY("Alig",        pet->alignment,         fread_number(fp));
+	/* adjust hp mana stamina up  -- here for speed's sake */
+	int percent;
+	percent = (current_time - ch->pcdata->last_logoff) * 25 / (2 * 60 * 60);
+	percent = UMIN(percent, 100);
 
-			if (!str_cmp(word, "AffD") || !str_cmp(word, "Affc")) {
-				AFFECT_DATA *paf;
-				paf = new_affect();
-				paf->type       = skill_lookup(fread_word(fp));
-				paf->level      = fread_number(fp);
-				paf->duration   = fread_number(fp);
-				paf->modifier   = fread_number(fp);
-				paf->location   = fread_number(fp);
-				paf->bitvector  = fread_number(fp);
-
-				if (ch->version > 7)
-					paf->evolution  = fread_number(fp);
-				else
-					paf->evolution  = 1;
-
-				if (paf->type >= 0) {
-					AFFECT_DATA *old_af;
-					bool found = FALSE;
-
-					/* loop through the pet's spells, only add if they don't have it */
-					for (old_af = ch->affected; old_af; old_af = old_af->next)
-						if (old_af->type == paf->type
-						    && old_af->location == paf->location)
-							found = TRUE;
-
-					if (!found) {
-						paf->next       = pet->affected;
-						pet->affected   = paf;
-					}
-				}
-				else
-					bug("fread_pet: unknown skill.", 0);
-
-				fMatch          = TRUE;
-				break;
-			}
-
-			if (!str_cmp(word, "AtMod")) {
-				int stat;
-
-				for (stat = 0; stat < MAX_STATS; stat ++)
-					pet->mod_stat[stat] = fread_number(fp);
-
-				fMatch = TRUE;
-				break;
-			}
-
-			if (!str_cmp(word, "Atrib")) {
-				int stat;
-
-				for (stat = 0; stat < MAX_STATS; stat++)
-					pet->perm_stat[stat] = fread_number(fp);
-
-				fMatch = TRUE;
-				break;
-			}
-
-			break;
-
-		case 'C':
-			KEY("Clan",       pet->clan,       clan_lookup(fread_string(fp)));
-			KEY("Cnsr",       pet->censor,             fread_flag(fp));
-
-			if (!str_cmp(word, "Comm")) {
-				pet->comm = fread_flag(fp);
-
-				if (pet->version < 9) {         /* new censor flags added at 9 -- Montrey */
-					if (IS_SET(pet->comm, U)) { /* old COMM_NOSPAM, now CENSOR_SPAM */
-						REMOVE_BIT(pet->comm, U);
-						SET_BIT(pet->censor, CENSOR_SPAM);
-					}
-
-					if (IS_SET(pet->comm, V)) { /* old COMM_SWEARON, now CENSOR_CHAN */
-						REMOVE_BIT(pet->comm, V);
-						SET_BIT(pet->censor, CENSOR_CHAN);
-					}
-				}
-
-				fMatch = TRUE;
-				break;
-			}
-
-			break;
-
-		case 'D':
-			KEY("Dam",        pet->damroll,           fread_number(fp));
-			FKY("Desc",       pet->description);
-			KEY("Desc",       pet->description,       fread_string(fp));
-			break;
-
-		case 'E':
-			if (!str_cmp(word, "End")) {
-				pet->leader = ch;
-				pet->master = ch;
-				ch->pet = pet;
-				/* adjust hp mana stamina up  -- here for speed's sake */
-				percent = (current_time - lastlogoff) * 25 / (2 * 60 * 60);
-				percent = UMIN(percent, 100);
-
-				if (percent > 0 && !IS_AFFECTED(ch, AFF_POISON)
-				    &&  !IS_AFFECTED(ch, AFF_PLAGUE)) {
-					pet->hit    += (pet->max_hit - pet->hit) * percent / 100;
-					pet->mana   += (pet->max_mana - pet->mana) * percent / 100;
-					pet->stam   += (pet->max_stam - pet->stam) * percent / 100;
-				}
-
-				return;
-			}
-
-			KEY("Exp",        pet->exp,               fread_number(fp));
-			break;
-
-		case 'G':
-			KEY("Gold",       pet->gold,              fread_number(fp));
-			break;
-
-		case 'H':
-			KEY("Hit",        pet->hitroll,           fread_number(fp));
-
-			if (!str_cmp(word, "HMS")) {
-				pet->hit        = fread_number(fp);
-				pet->max_hit    = fread_number(fp);
-				pet->mana       = fread_number(fp);
-				pet->max_mana   = fread_number(fp);
-				pet->stam       = fread_number(fp);
-				pet->max_stam   = fread_number(fp);
-				fMatch = TRUE;
-				break;
-			}
-
-			break;
-
-		case 'L':
-			KEY("Levl",       pet->level,             fread_number(fp));
-			FKY("LnD",        pet->long_descr);
-			KEY("LnD",        pet->long_descr,        fread_string(fp));
-			KEY("LogO",       lastlogoff,             fread_number(fp));
-			break;
-
-		case 'N':
-			FKY("Name",       pet->name);
-			KEY("Name",       pet->name,              fread_string(fp));
-			break;
-
-		case 'P':
-			KEY("Pos",        pet->position,          fread_number(fp));
-			break;
-
-		case 'R':
-			KEY("Race",        pet->race, race_lookup(fread_string(fp)));
-			break;
-
-		case 'S' :
-			KEY("Save",        pet->saving_throw,      fread_number(fp));
-			KEY("Sex",         pet->sex,               fread_number(fp));
-			FKY("ShD",         pet->short_descr);
-			KEY("ShD",         pet->short_descr,       fread_string(fp));
-			KEY("Silv",        pet->silver,            fread_number(fp));
-			break;
-
-			if (!fMatch) {
-				bug("Fread_pet: no match.", 0);
-				fread_to_eol(fp);
-			}
-		}
+	if (percent > 0 && !IS_AFFECTED(ch, AFF_POISON)
+	    &&  !IS_AFFECTED(ch, AFF_PLAGUE)) {
+		pet->hit    += (pet->max_hit - pet->hit) * percent / 100;
+		pet->mana   += (pet->max_mana - pet->mana) * percent / 100;
+		pet->stam   += (pet->max_stam - pet->stam) * percent / 100;
 	}
 
 	reset_char(pet);
