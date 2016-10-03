@@ -34,11 +34,13 @@ def read_letter():
 
 def read_word():
 # overly complicated to be quote aware, and preserve leading space on the rest of the data
-	word = datasplit().lstrip()
+	word = datasplit()
 
 	if word[0] == "'" or word[0] == '"':
 		if word[-1] != word[0]:
 			word = ' '.join([word[1:], datasplit(word[0])])
+		else:
+			word = word[1:-1]
 
 	return word
 
@@ -165,7 +167,7 @@ def read_char_section():
 				pass
 			elif word == 'ExSk':
 				s[word] = []
-				for i in range(0, s['ExSk']/20+1):
+				for i in range(0, s['RmCt']/20+1):
 					s[word].append(read_number())
 			elif word == 'End':
 				break
