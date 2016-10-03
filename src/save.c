@@ -37,6 +37,8 @@ extern void     set_window      args((CHAR_DATA *ch, int top, int bottom));
 
 #define CURRENT_VERSION         15   /* version number for pfiles */
 
+bool debug_json = FALSE;
+
 /* Locals */
 
 int rename(const char *oldfname, const char *newfname);
@@ -98,13 +100,6 @@ long read_flags(char *str) {
 }
 
 /*
- * Array of containers read for proper re-nesting of objects.
- */
-#define MAX_NEST        100
-static  OBJ_DATA       *rgObjNest       [MAX_NEST];
-static  int             NestDepth;
-
-/*
  * Local functions.
  */
 void    fwrite_char     args((CHAR_DATA *ch,  FILE *fp));
@@ -114,7 +109,7 @@ void    fwrite_pet      args((CHAR_DATA *pet, FILE *fp));
 void    fread_char      args((CHAR_DATA *ch,  cJSON *json));
 void    fread_player      args((CHAR_DATA *ch,  cJSON *json));
 void    fread_pet       args((CHAR_DATA *ch,  FILE *fp));
-void    fread_obj       args((CHAR_DATA *ch,  FILE *fp, bool locker, bool strongbox));
+OBJ_DATA * fread_obj_list       args((cJSON *json));
 
 /*
  * Save a character and inventory.
@@ -876,6 +871,10 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	fread_char(ch, root);
 	fread_player(ch, root);
 
+	ch->carrying = fread_obj_list(cJSON_GetObjectItem(root, "inventory"));
+	ch->pcdata->locker = fread_obj_list(cJSON_GetObjectItem(root, "locker"));
+	ch->pcdata->strongbox = fread_obj_list(cJSON_GetObjectItem(root, "strongbox"));
+
 	/* Setting a counter should obviate all this NULLing -- Elrac
 	    int iNest;
 
@@ -1038,12 +1037,21 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
           free_string( field );
 */
 
+void get_JSON_boolean(cJSON *obj, bool *target, char *key) {
+	cJSON *val = cJSON_GetObjectItem(obj, key);
+
+	if (val != NULL)
+		*target = (val->valueint != 0);
+	else if (debug_json)
+		bugf("JSON field %s not found", key);
+}
+
 void get_JSON_short(cJSON *obj, sh_int *target, char *key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key);
 
 	if (val != NULL)
 		*target = val->valueint;
-	else
+	else if (debug_json)
 		bugf("JSON field %s not found", key);
 }
 
@@ -1052,7 +1060,7 @@ void get_JSON_int(cJSON *obj, int *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
-	else
+	else if (debug_json)
 		bugf("JSON field %s not found", key);
 }
 
@@ -1061,7 +1069,7 @@ void get_JSON_long(cJSON *obj, long *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
-	else
+	else if (debug_json)
 		bugf("JSON field %s not found", key);
 }
 
@@ -1070,7 +1078,7 @@ void get_JSON_flags(cJSON *obj, long *target, char *key) {
 
 	if (val != NULL)
 		*target = read_flags(val->valuestring);
-	else
+	else if (debug_json)
 		bugf("JSON field %s not found", key);
 }
 
@@ -1083,7 +1091,7 @@ void get_JSON_string(cJSON *obj, char **target, char *key) {
 		}
 		*target = str_dup(val->valuestring);
 	}
-	else
+	else if (debug_json)
 		bugf("JSON field %s not found", key);
 }
 
@@ -1430,6 +1438,132 @@ void fread_char(CHAR_DATA *ch, cJSON *json)
 	}
 }
 
+// read a single item including its contents
+OBJ_DATA * fread_obj(cJSON *json) {
+	OBJ_DATA *obj = NULL;
+	cJSON *o;
+
+	if ((o = cJSON_GetObjectItem(json, "Vnum")) != NULL) {
+		OBJ_INDEX_DATA *index = get_obj_index(o->valueint);
+
+		if (index == NULL)
+			bug("Fread_obj: bad vnum %d in fread_obj().", o->valueint);
+		else
+			obj = create_object(index, -1);
+	}
+
+	if (obj == NULL) { /* either not found or old style */
+		obj = new_obj();
+		obj->name               = str_dup("");
+		obj->short_descr        = str_dup("");
+		obj->description        = str_dup("");
+	}
+
+	if ((o = cJSON_GetObjectItem(json, "Affc")) != NULL) {
+		for (cJSON *item = o->child; item != NULL; item = item->next) {
+			int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
+
+			if (sn < 0) {
+				bug("Fread_char: unknown skill.", 0);
+				continue;
+			}
+
+			AFFECT_DATA *paf = new_affect();
+			paf->type = sn;
+
+			get_JSON_short(item, &paf->where, "where");
+			get_JSON_short(item, &paf->level, "level");
+			get_JSON_short(item, &paf->duration, "dur");
+			get_JSON_short(item, &paf->modifier, "mod");
+			get_JSON_short(item, &paf->location, "loc");
+			get_JSON_int(item, &paf->bitvector, "bitv");
+			get_JSON_short(item, &paf->evolution, "evo");
+
+			paf->next       = obj->affected;
+			obj->affected    = paf;
+		}
+	}
+
+	get_JSON_short(json,	&obj->condition,			"Cond"			);
+	get_JSON_int(json,		&obj->cost,					"Cost"			);
+	get_JSON_string(json,	&obj->description,			"Desc"			);
+	get_JSON_boolean(json,	&obj->enchanted,			"Enchanted"		);
+	get_JSON_long(json,		&obj->extra_flags,			"ExtF"			);
+
+	if ((o = cJSON_GetObjectItem(json, "ExDe")) != NULL) {
+		for (cJSON *item = o->child; item; item = item->next) {
+			EXTRA_DESCR_DATA *ed = new_extra_descr();
+			ed->keyword             = str_dup(item->string);
+			ed->description         = str_dup(item->valuestring);
+			ed->next                = obj->extra_descr;
+			obj->extra_descr        = ed;
+		}
+	}
+
+	get_JSON_short(json,	&obj->item_type,			"Ityp"			);
+	get_JSON_short(json,	&obj->level,				"Lev"			);
+	get_JSON_string(json,	&obj->material,				"Mat"			);
+	get_JSON_string(json,	&obj->name,					"Name"			);
+	get_JSON_string(json,	&obj->short_descr,			"ShD"			);
+
+	if ((o = cJSON_GetObjectItem(json, "Splxtra")) != NULL) {
+		int count = 0;
+		for (cJSON *item = o->child; item; item = item->next, count++) {
+			obj->spell[count] = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
+			obj->spell_lev[count] = cJSON_GetObjectItem(item, "level")->valueint;
+		}
+	}
+
+	if ((o = cJSON_GetObjectItem(json, "Val")) != NULL) {
+		int slot = 0;
+		for (cJSON *item = o->child; item; item = item->next, slot++)
+			obj->value[slot] = item->valueint;
+	}
+
+	// could override 'Val'
+	if ((o = cJSON_GetObjectItem(json, "Spell")) != NULL) {
+		for (cJSON *item = o->child; item; item = item->next) {
+			int slot = atoi(item->string);
+			int sn = skill_lookup(item->valuestring);
+
+			if (slot < 0 || slot > 4)
+				bug("Fread_obj: bad iValue %d.", slot);
+			else if (sn < 0)
+				bug("Fread_obj: unknown skill.", 0);
+			else
+				obj->value[slot] = sn;
+		}
+	}
+
+	get_JSON_short(json,	&obj->timer,				"Time"			);
+	get_JSON_long(json,		&obj->wear_flags,			"WeaF"			);
+	get_JSON_short(json,	&obj->wear_loc,				"Wear"			);
+	get_JSON_short(json,	&obj->weight,				"Wt"			);
+
+	if ((o = cJSON_GetObjectItem(json, "contains")) != NULL)
+		obj->contains = fread_obj_list(o);
+
+	return obj;
+}
+
+// read a list of objects and return the head
+OBJ_DATA * fread_obj_list(cJSON *list_head) {
+	OBJ_DATA *obj_last = NULL;
+	cJSON *item = list_head;
+
+	while (item != NULL) {
+		OBJ_DATA *obj = fread_obj(item);
+
+		// handle objects with bad vnums, append the contents to this list and remove it
+
+		obj->next_content = obj_last;
+		obj_last = obj;
+		item = item->next;
+	}
+
+	return obj_last;
+}
+
 /* load a pet from the forgotten reaches */
 void fread_pet(CHAR_DATA *ch, FILE *fp)
 {
@@ -1648,296 +1782,7 @@ void fread_pet(CHAR_DATA *ch, FILE *fp)
 	reset_char(pet);
 }
 
-void fread_obj(CHAR_DATA *ch, FILE *fp, bool locker, bool strongbox)
-{
-	OBJ_DATA *obj;
-	char *word;
-	int iNest, x, y, z, vnum;
-	bool fMatch;
-	bool fVnum;
-	bool first;
-	fVnum = FALSE;
-	obj = NULL;
-	first = TRUE;  /* used to counter fp offset */
-	word   = feof(fp) ? "End" : fread_word(fp);
 
-	if (!str_cmp(word, "Vnum")) {
-		first = FALSE;  /* fp will be in right place */
-		vnum = fread_number(fp);
-
-		if (get_obj_index(vnum) == NULL)
-			bug("Fread_obj: bad vnum %d in fread_obj().", vnum);
-		else {
-			obj = create_object(get_obj_index(vnum), -1);
-			fVnum = TRUE;
-		}
-	}
-
-	if (obj == NULL) { /* either not found or old style */
-		obj = new_obj();
-		obj->name               = str_dup("");
-		obj->short_descr        = str_dup("");
-		obj->description        = str_dup("");
-	}
-
-	iNest               = 0;
-
-	for (; ;) { /* loop over all lines of obj desc */
-		if (first)
-			first = FALSE;
-		else
-			word   = feof(fp) ? "End" : fread_word(fp);
-
-		fMatch = FALSE;
-
-		switch (UPPER(word[0])) {
-		case '*':
-			fMatch = TRUE;
-			fread_to_eol(fp);
-			break;
-
-		case 'A':
-			if (!str_cmp(word, "AffD")) {
-				AFFECT_DATA *paf;
-				int sn;
-				paf = new_affect();
-				sn = skill_lookup(fread_word(fp));
-
-				if (sn < 0)
-					bug("Fread_obj: unknown skill.", 0);
-				else
-					paf->type = sn;
-
-				paf->level      = fread_number(fp);
-				paf->duration   = fread_number(fp);
-				paf->modifier   = fread_number(fp);
-				paf->location   = fread_number(fp);
-				paf->bitvector  = fread_number(fp);
-
-				if (ch->version > 7)
-					paf->evolution  = fread_number(fp);
-				else
-					paf->evolution  = 1;
-
-				paf->next       = obj->affected;
-				obj->affected   = paf;
-				fMatch          = TRUE;
-				break;
-			}
-
-			if (!str_cmp(word, "Affc")) {
-				AFFECT_DATA *paf;
-				int sn;
-				paf = new_affect();
-				sn = skill_lookup(fread_word(fp));
-
-				if (sn < 0)
-					bug("Fread_obj: unknown skill.", 0);
-				else
-					paf->type = sn;
-
-				paf->where      = fread_number(fp);
-				paf->level      = fread_number(fp);
-				paf->duration   = fread_number(fp);
-				paf->modifier   = fread_number(fp);
-				paf->location   = fread_number(fp);
-				paf->bitvector  = fread_number(fp);
-
-				if (ch->version > 7)
-					paf->evolution  = fread_number(fp);
-				else
-					paf->evolution  = 1;
-
-				paf->next       = obj->affected;
-				obj->affected   = paf;
-				fMatch          = TRUE;
-				break;
-			}
-
-			break;
-
-		case 'C':
-			KEY("Cond",        obj->condition,         fread_number(fp));
-			KEY("Cost",        obj->cost,              fread_number(fp));
-			break;
-
-		case 'D':
-			FKY("Desc",        obj->description);
-			KEY("Desc",        obj->description,       fread_string(fp));
-			break;
-
-		case 'E':
-			if (!str_cmp(word, "Enchanted")) {
-				obj->enchanted = TRUE;
-				fMatch  = TRUE;
-				break;
-			}
-
-			KEY("ExtF",        obj->extra_flags,       fread_number(fp));
-
-			if (!str_cmp(word, "ExDe")) {
-				EXTRA_DESCR_DATA *ed;
-				ed = new_extra_descr();
-				ed->keyword             = fread_string(fp);
-				ed->description         = fread_string(fp);
-				ed->next                = obj->extra_descr;
-				obj->extra_descr        = ed;
-				fMatch = TRUE;
-			}
-
-			/****************************************************************/
-			if (!str_cmp(word, "End")) {
-				if (!fVnum || obj->pIndexData == NULL) {
-					bug("Fread_obj: incomplete object.", 0);
-					free_obj(obj);
-					return;
-				}
-
-				if (obj->condition == 0)
-					obj->condition = obj->pIndexData->condition;
-
-				/* Very bad things happen when a player is loaded with a
-				   non-empty container and that container's vnum is not
-				   known to the game. This requires better nesting handling
-				   as follows -- Elrac */
-
-				/* A lower-nest object should reduce nesting level */
-				if (iNest < NestDepth)
-					NestDepth = iNest;
-
-				/* prevent skipping nesting levels */
-				if (iNest > NestDepth + 1)
-					iNest = NestDepth + 1;
-
-				if (iNest > 0)
-					obj_to_obj(obj, rgObjNest[iNest - 1]);
-				else {
-					if (locker)
-						obj_to_locker(obj, ch);
-					else if (strongbox)
-						obj_to_strongbox(obj, ch);
-					else
-						obj_to_char(obj, ch);
-				}
-
-				rgObjNest[iNest] = obj;
-				NestDepth = iNest;
-				return;
-			}
-
-		/****************************************************************/
-
-		case 'I':
-			KEY("Ityp",        obj->item_type,         fread_number(fp));
-			break;
-
-		case 'L':
-			KEY("Lev",         obj->level,             fread_number(fp));
-			break;
-
-		case 'M':
-			FKY("Mat",         obj->material);
-			KEY("Mat",         obj->material,          fread_string(fp));
-
-		case 'N':
-			FKY("Name",        obj->name);
-			KEY("Name",        obj->name,              fread_string(fp));
-
-			if (!str_cmp(word, "Nest")) {
-				iNest = fread_number(fp);
-
-				if (iNest < 0 || iNest >= MAX_NEST)
-					bug("Fread_obj: bad nest %d.", iNest);
-
-				fMatch = TRUE;
-			}
-
-			break;
-
-		case 'S':
-			FKY("ShD",         obj->short_descr);
-			KEY("ShD",         obj->short_descr,       fread_string(fp));
-
-			if (!str_cmp(word, "Splx")) {     /* Spelled eq */
-				x = fread_number(fp);
-				y = fread_number(fp);
-				z = fread_number(fp);
-				obj->spell[x] = y;
-				obj->spell_lev[x] = z;
-				fMatch = TRUE;
-			}
-
-			if (!str_cmp(word, "Splxtra")) { /* New way to save */
-				x = fread_number(fp);
-				y = skill_lookup(fread_word(fp));
-				z = fread_number(fp);
-				obj->spell[x] = y;
-				obj->spell_lev[x] = z;
-				fMatch = TRUE;
-			}
-
-			if (!str_cmp(word, "Spell")) {
-				int iValue;
-				int sn;
-				iValue = fread_number(fp);
-				sn     = skill_lookup(fread_word(fp));
-
-				if (iValue < 0 || iValue > 4)
-					bug("Fread_obj: bad iValue %d.", iValue);
-				else if (sn < 0)
-					bug("Fread_obj: unknown skill.", 0);
-				else
-					obj->value[iValue] = sn;
-
-				fMatch = TRUE;
-				break;
-			}
-
-			break;
-
-		case 'T':
-			KEY("Time",        obj->timer,             fread_number(fp));
-			break;
-
-		case 'V':
-			if (!str_cmp(word, "Val")) {
-				obj->value[0]   = fread_number(fp);
-				obj->value[1]   = fread_number(fp);
-				obj->value[2]   = fread_number(fp);
-				obj->value[3]   = fread_number(fp);
-				obj->value[4]   = fread_number(fp);
-				fMatch = TRUE;
-				break;
-			}
-
-			if (!str_cmp(word, "Vnum")) {
-				/*                int vnum; */
-				vnum = fread_number(fp);
-
-				if ((obj->pIndexData = get_obj_index(vnum)) == NULL)
-					bug("Fread_obj: bad vnum %d.", vnum);
-				else
-					fVnum = TRUE;
-
-				fMatch = TRUE;
-				break;
-			}
-
-			break;
-
-		case 'W':
-			KEY("WeaF",        obj->wear_flags,        fread_number(fp));
-			KEY("Wear",        obj->wear_loc,          fread_number(fp));
-			KEY("Wt",          obj->weight,            fread_number(fp));
-			break;
-		}
-
-		if (!fMatch) {
-			bug("Fread_obj: no match.", 0);
-			fread_to_eol(fp);
-		}
-	} /* end for(;;) over all lines of obj desc */
-} /* end fread_obj() */
 
 /*
  * This function works just like ctime() does on current Linux systems.

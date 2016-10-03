@@ -389,33 +389,20 @@ def read_obj():
 			read_string_eol()
 
 		elif word[0] == 'A':
-			if word == 'AffD':
+			if word == 'Affc':
 				if word not in s.keys():
 					s[word] = []
 
-				s[word].append((
-					read_word(), 
-					read_number(),
-					read_number(),
-					read_number(),
-					read_number(),
-					read_number(),
-					read_number() if pfile_version > 7 else 1
-				))
-			elif word == 'Affc':
-				if word not in s.keys():
-					s[word] = []
-
-				s[word].append((
-					read_word(), 
-					read_number(),
-					read_number(),
-					read_number(),
-					read_number(),
-					read_number(),
-					read_number(),
-					read_number() if pfile_version > 7 else 1
-				))
+				s[word].append({
+					'name':read_word(), 
+					'where':read_number(),
+					'level':read_number(),
+					'dur':read_number(),
+					'mod':read_number(),
+					'loc':read_number(),
+					'bitv':read_number(),
+					'evo':read_number() if pfile_version > 7 else 1
+				})
 			else:
 				bug('weird word %s' % (word))
 		elif word[0] == 'C':
@@ -469,23 +456,19 @@ def read_obj():
 		elif word[0] == 'S':
 			if is_key(word, 'ShD', read_string, s):
 				pass
-			elif word == 'Splx':
-				s[word] = (
-					read_number(),
-					read_number(),
-					read_number()
-				)
 			elif word == 'Splxtra':
-				s[word] = (
-					read_number(),
-					read_word(),
-					read_number()
-				)
+				if word not in s.keys():
+					s[word] = []
+				slot = read_number() # ignore
+				s[word].append({
+					'name':read_word(),
+					'level':read_number()
+				})
 			elif word == 'Spell':
-				s[word] = (
-					read_number(),
-					read_word()
-				)
+				if word not in s.keys():
+					s[word] = {}
+				slot = read_number()
+				s[word][slot] = read_word()
 			else:
 				bug('weird word %s' % (word))
 		elif word[0] == 'T':
