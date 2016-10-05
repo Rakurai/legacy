@@ -106,10 +106,17 @@ void    fwrite_char     args((CHAR_DATA *ch,  FILE *fp));
 void    fwrite_obj      args((CHAR_DATA *ch,  OBJ_DATA  *obj,
                               FILE *fp, int iNest, bool locker, bool strongbox));
 void    fwrite_pet      args((CHAR_DATA *pet, FILE *fp));
-void    fread_char      args((CHAR_DATA *ch,  cJSON *json));
-void    fread_player      args((CHAR_DATA *ch,  cJSON *json));
-void    fread_pet       args((CHAR_DATA *ch,  cJSON *json));
-void	fread_objects	args((CHAR_DATA *ch, cJSON *json, void (*obj_to)(OBJ_DATA *, CHAR_DATA *)));
+void    fread_char      args((CHAR_DATA *ch,  cJSON *json, int version));
+void    fread_player      args((CHAR_DATA *ch,  cJSON *json, int version));
+void    fread_pet       args((CHAR_DATA *ch,  cJSON *json, int version));
+void	fread_objects	args((CHAR_DATA *ch, cJSON *json, void (*obj_to)(OBJ_DATA *, CHAR_DATA *), int version));
+
+void get_JSON_boolean(cJSON *obj, bool *target, char *key);
+void get_JSON_short(cJSON *obj, sh_int *target, char *key);
+void get_JSON_int(cJSON *obj, int *target, char *key);
+void get_JSON_long(cJSON *obj, long *target, char *key);
+void get_JSON_flags(cJSON *obj, long *target, char *key);
+void get_JSON_string(cJSON *obj, char **target, char *key);
 
 /*
  * Save a character and inventory.
@@ -780,7 +787,6 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	ch->pcdata->cgroup                  = 0; /* Command groups - Xenith */
 	ch->censor                          = CENSOR_CHAN;    /* default rating is PG */
 	ch->prompt                          = str_dup("%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ");
-	ch->version                         = 0;    /* Montrey */
 	ch->pcdata->ch                      = ch;
 	ch->pcdata->confirm_delete          = 0;
 	ch->pcdata->pwd                     = str_dup("");
@@ -864,96 +870,81 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 		free(buffer);
 	}
 
-	if (root == NULL) {
-		bug("unable to read JSON file", 0);
-		return FALSE;
-	}
+	if (root != NULL) {
 
-	fread_char(ch, root);
-	fread_player(ch, root);
+		int version = CURRENT_VERSION;
+		get_JSON_int(root, &version, "Vers");
 
-	fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_char);
-	fread_objects(ch, cJSON_GetObjectItem(root, "locker"), &obj_to_locker);
-	fread_objects(ch, cJSON_GetObjectItem(root, "strongbox"), &obj_to_strongbox);
+		fread_char(ch, cJSON_GetObjectItem(root, "character"), version);
+		fread_player(ch, cJSON_GetObjectItem(root, "player"), version);
 
-	/* Setting a counter should obviate all this NULLing -- Elrac
-	    int iNest;
+		fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_char, version);
+		fread_objects(ch, cJSON_GetObjectItem(root, "locker"), &obj_to_locker, version);
+		fread_objects(ch, cJSON_GetObjectItem(root, "strongbox"), &obj_to_strongbox, version);
+		found = TRUE;
 
-	    for ( iNest = 0; iNest < MAX_NEST; iNest++ )
-	        rgObjNest[iNest] = NULL;
-	*/
-//	NestDepth = -1;  /* means there is no object to nest into yet */
-	found = TRUE;
+		// fix things up
 
-	// fix things up
-	if (ch->pcdata->remort_count > 0) {
-		SET_CGROUP(ch, GROUP_AVATAR);
-		SET_CGROUP(ch, GROUP_HERO);
-	}
+		// fix up character stuff here
+		if (ch->in_room == NULL)
+			ch->in_room = get_room_index(ROOM_VNUM_LIMBO);
 
-	if (ch->level >= LEVEL_AVATAR)
-		SET_CGROUP(ch, GROUP_AVATAR);
+		if (ch->secure_level > GET_RANK(ch))
+			ch->secure_level = GET_RANK(ch);
 
-	if (ch->level >= LEVEL_HERO)
-		SET_CGROUP(ch, GROUP_HERO);
+		/* removed holylight at 12 -- Montrey */
+		if (version < 12 && IS_SET(ch->act, N))
+			REMOVE_BIT(ch->act, N);
 
-	if (ch->clan == NULL && !IS_IMMORTAL(ch)) {
-		REM_CGROUP(ch, GROUP_LEADER);
-		REM_CGROUP(ch, GROUP_DEPUTY);
-	}
+		// switching to cgroups with old pfiles -- Montrey (2014)
+		if (version < 15 && IS_SET(ch->act, N)) { // deputy
+			REMOVE_BIT(ch->act, N);
+			SET_CGROUP(ch, GROUP_DEPUTY);
+		}
 
-	if (ch->clan != NULL)
-		SET_CGROUP(ch, GROUP_CLAN);
+		if (version < 15 && IS_SET(ch->act, ee)) { // leader
+			REMOVE_BIT(ch->act, ee);
+			SET_CGROUP(ch, GROUP_LEADER);
+		}
 
-	if (!IS_IMMORTAL(ch)) {
-		for (int stat = 0; stat < (MAX_STATS); stat++) {
-			/* make sure stats aren't above race max, for possible changes to race maximums */
-			if (stat == class_table[ch->class].attr_prime) {
-				if (ch->race == 1) { /* humans */
-					if (ch->perm_stat[stat] > (pc_race_table[ch->race].max_stats[stat] + 3))
-						ch->perm_stat[stat] = (pc_race_table[ch->race].max_stats[stat] + 3);
+		if (ch->pcdata->remort_count > 0) {
+			SET_CGROUP(ch, GROUP_AVATAR);
+			SET_CGROUP(ch, GROUP_HERO);
+		}
+
+		if (ch->level >= LEVEL_AVATAR)
+			SET_CGROUP(ch, GROUP_AVATAR);
+
+		if (ch->level >= LEVEL_HERO)
+			SET_CGROUP(ch, GROUP_HERO);
+
+		if (ch->clan == NULL && !IS_IMMORTAL(ch)) {
+			REM_CGROUP(ch, GROUP_LEADER);
+			REM_CGROUP(ch, GROUP_DEPUTY);
+		}
+
+		if (ch->clan != NULL)
+			SET_CGROUP(ch, GROUP_CLAN);
+
+		if (!IS_IMMORTAL(ch)) {
+			for (int stat = 0; stat < (MAX_STATS); stat++) {
+				/* make sure stats aren't above race max, for possible changes to race maximums */
+				if (stat == class_table[ch->class].attr_prime) {
+					if (ch->race == 1) { /* humans */
+						if (ch->perm_stat[stat] > (pc_race_table[ch->race].max_stats[stat] + 3))
+							ch->perm_stat[stat] = (pc_race_table[ch->race].max_stats[stat] + 3);
+					}
+					else {
+						if (ch->perm_stat[stat] > (pc_race_table[ch->race].max_stats[stat] + 2))
+							ch->perm_stat[stat] = (pc_race_table[ch->race].max_stats[stat] + 2);
+					}
 				}
-				else {
-					if (ch->perm_stat[stat] > (pc_race_table[ch->race].max_stats[stat] + 2))
-						ch->perm_stat[stat] = (pc_race_table[ch->race].max_stats[stat] + 2);
-				}
+				else if (ch->perm_stat[stat] > pc_race_table[ch->race].max_stats[stat])
+					ch->perm_stat[stat] = pc_race_table[ch->race].max_stats[stat];
 			}
-			else if (ch->perm_stat[stat] > pc_race_table[ch->race].max_stats[stat])
-				ch->perm_stat[stat] = pc_race_table[ch->race].max_stats[stat];
 		}
 	}
 
-/*
-	for (; ;) {
-		char letter;
-		char *word;
-		letter = fread_letter(fp);
-
-		if (letter == '*') {
-			fread_to_eol(fp);
-			continue;
-		}
-
-		if (letter != '#') {
-			bug("Load_char_obj: # not found.", 0);
-			break;
-		}
-
-		word = fread_word(fp);
-
-		if (!str_cmp(word, "PLAYER")) fread_char(ch, fp);
-		else if (!str_cmp(word, "OBJECT")) fread_obj(ch, fp, FALSE, FALSE);
-		else if (!str_cmp(word, "O")) fread_obj(ch, fp, FALSE, FALSE);
-		else if (!str_cmp(word, "L")) fread_obj(ch, fp, TRUE, FALSE);
-		else if (!str_cmp(word, "B")) fread_obj(ch, fp, FALSE, TRUE);
-		else if (!str_cmp(word, "PET")) fread_pet(ch, fp);
-		else if (!str_cmp(word, "END")) break;
-		else {
-			bug("Load_char_obj: bad section.", 0);
-			break;
-		}
-	}
-*/
 	/* initialize race */
 	if (found) {
 		int i, percent;
@@ -1016,35 +1007,51 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
  * Read in a char.
  */
 
-#if defined(KEY)
-#undef KEY
+#if defined(STRKEY)
+#undef STRKEY
 #endif
 
-#define KEY( literal, field, value )                                    \
-	if ( !str_cmp( word, literal ) )        \
+#define STRKEY( literal, field, value )                                    \
+	if ( !str_cmp( key, literal ) )        \
 	{                                       \
-		field  = value;                     \
+		free_string(field);					\
+		field = str_dup(value);	\
+		fMatch = TRUE;						\
+		break;                              \
+	}
+
+
+#if defined(INTKEY)
+#undef INTKEY
+#endif
+
+#define INTKEY( literal, field, value )                                    \
+	if ( !str_cmp( key, literal ) )        \
+	{                                       \
+		field  = value;               \
 		fMatch = TRUE;                      \
 		break;                              \
 	}
 
-#if defined(FKY)
-#undef FKY
+#if defined(SKIPKEY)
+#undef SKIPKEY
 #endif
 
-#define FKY( literal, field )
-/*
-      if (!str_cmp( word, literal ))
-          free_string( field );
-*/
+#define SKIPKEY( literal )                  \
+	if ( !str_cmp( key, literal ) )			\
+	{                                       \
+		fMatch = TRUE;                      \
+		break;                              \
+	}	
+
 
 void get_JSON_boolean(cJSON *obj, bool *target, char *key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key);
 
 	if (val != NULL)
 		*target = (val->valueint != 0);
-	else if (debug_json)
-		bugf("JSON field %s not found", key);
+	else
+		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void get_JSON_short(cJSON *obj, sh_int *target, char *key) {
@@ -1052,8 +1059,8 @@ void get_JSON_short(cJSON *obj, sh_int *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
-	else if (debug_json)
-		bugf("JSON field %s not found", key);
+	else
+		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void get_JSON_int(cJSON *obj, int *target, char *key) {
@@ -1061,8 +1068,8 @@ void get_JSON_int(cJSON *obj, int *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
-	else if (debug_json)
-		bugf("JSON field %s not found", key);
+	else
+		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void get_JSON_long(cJSON *obj, long *target, char *key) {
@@ -1070,8 +1077,8 @@ void get_JSON_long(cJSON *obj, long *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
-	else if (debug_json)
-		bugf("JSON field %s not found", key);
+	else
+		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void get_JSON_flags(cJSON *obj, long *target, char *key) {
@@ -1079,8 +1086,8 @@ void get_JSON_flags(cJSON *obj, long *target, char *key) {
 
 	if (val != NULL)
 		*target = read_flags(val->valuestring);
-	else if (debug_json)
-		bugf("JSON field %s not found", key);
+	else
+		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void get_JSON_string(cJSON *obj, char **target, char *key) {
@@ -1092,384 +1099,429 @@ void get_JSON_string(cJSON *obj, char **target, char *key) {
 		}
 		*target = str_dup(val->valuestring);
 	}
-	else if (debug_json)
-		bugf("JSON field %s not found", key);
+	else
+		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
-void fread_player(CHAR_DATA *ch, cJSON *json) {
-	cJSON *o;
+void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
+	// if there are any player-specific fields that are depended on by others in the list,
+	// load them right here, and make sure to use SKIPKEY(key) in the switch
 
-	// things with no dependencies (other than the character section)
+	// none
 
-	get_JSON_string(json,	&ch->pcdata->afk,			"Afk"			);
-	get_JSON_short(json,	&ch->pcdata->arenakills,	"Akills"		);
-	get_JSON_short(json,	&ch->pcdata->arenakilled,	"Akilled"		);
-	get_JSON_string(json,	&ch->pcdata->aura,			"Aura"			);
 
-	if ((o = cJSON_GetObjectItem(json, "Alias")) != NULL) {
-		int count = 0;
-		// each alias is a 2-tuple (a list)
-		for (cJSON *item = o->child; item != NULL; item = item->next, count++) {
-			ch->pcdata->alias[count] = str_dup(item->child->valuestring);
-			ch->pcdata->alias_sub[count] = str_dup(item->child->next->valuestring);
-		}
-	}
+	for (cJSON *o = json->child; o; o = o->next) {
+		char *key = o->string;
+		bool fMatch = FALSE;
+		int count = 0; // convenience variable to compact this list, resets with every item
 
-	get_JSON_int(json,		&ch->pcdata->backup,		"Back"			);
-	get_JSON_string(json,	&ch->pcdata->bamfin,		"Bin"			);
-	get_JSON_string(json,	&ch->pcdata->bamfout,		"Bout"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Cgrp")) != NULL) {
-		// fields could have been set before this, clan comes first in old ordering -- Montrey (2014)
-		ch->pcdata->cgroup |= read_flags(o->valuestring);
-	}
-
-	if ((o = cJSON_GetObjectItem(json, "Cnd")) != NULL) {
-		get_JSON_short(o, &ch->pcdata->condition[COND_DRUNK], "drunk");
-		get_JSON_short(o, &ch->pcdata->condition[COND_FULL], "full");
-		get_JSON_short(o, &ch->pcdata->condition[COND_THIRST], "thirst");
-		get_JSON_short(o, &ch->pcdata->condition[COND_HUNGER], "hunger");
-	}
-
-	if ((o = cJSON_GetObjectItem(json, "Colr")) != NULL) {
-		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			int slot = cJSON_GetObjectItem(item, "slot")->valueint;
-			get_JSON_short(item, &ch->pcdata->color[slot], "color");
-			get_JSON_short(item, &ch->pcdata->bold[slot], "bold");
-		}
-	}
-
-	get_JSON_string(json,	&ch->pcdata->deity,			"Deit"			);
-	get_JSON_string(json,	&ch->pcdata->email,			"Email"			);
-
-	if ((o = cJSON_GetObjectItem(json, "ExSk")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
-			int exsk = item->valueint;
-			bool found = FALSE;
-
-			for (int i = 1; i < MAX_SKILL; i++) {
-				if (skill_table[i].slot == exsk) {
-					ch->pcdata->extraclass[count++] = i;
-					found = TRUE;
-					break;
+		switch (key[0]) {
+			case 'A':
+				if (!str_cmp(key, "Alias")) { // array of 2-tuples
+					// each alias is a 2-tuple (a list)
+					for (cJSON *item = o->child; item != NULL; item = item->next, count++) {
+						ch->pcdata->alias[count] = str_dup(item->child->valuestring);
+						ch->pcdata->alias_sub[count] = str_dup(item->child->next->valuestring);
+					}
+					fMatch = TRUE; break;
 				}
-			}
 
-			if (!found) {
-				bug("Unknown extraclass skill.", 0);
-			}
+				STRKEY("Afk",			ch->pcdata->afk,			o->valuestring);
+				INTKEY("Akills",		ch->pcdata->arenakills,		o->valueint);
+				INTKEY("Akilled",		ch->pcdata->arenakilled, 	o->valueint);
+				STRKEY("Aura",			ch->pcdata->aura,			o->valuestring);
+				break;
+			case 'B':
+				INTKEY("Back",			ch->pcdata->backup,			o->valueint);
+				STRKEY("Bin",			ch->pcdata->bamfin,			o->valuestring);
+				STRKEY("Bout",			ch->pcdata->bamfout,		o->valuestring);
+				break;
+			case 'C':
+				if (!str_cmp(key, "Cnd")) { // 4-tuple
+					get_JSON_short(o, &ch->pcdata->condition[COND_DRUNK], "drunk");
+					get_JSON_short(o, &ch->pcdata->condition[COND_FULL], "full");
+					get_JSON_short(o, &ch->pcdata->condition[COND_THIRST], "thirst");
+					get_JSON_short(o, &ch->pcdata->condition[COND_HUNGER], "hunger");
+					fMatch = TRUE; break;
+				}
+
+				if (!str_cmp(key, "Colr")) { // array of dicts
+					for (cJSON *item = o->child; item != NULL; item = item->next) {
+						int slot = cJSON_GetObjectItem(item, "slot")->valueint;
+						get_JSON_short(item, &ch->pcdata->color[slot], "color");
+						get_JSON_short(item, &ch->pcdata->bold[slot], "bold");
+					}
+					fMatch = TRUE; break;
+				}
+
+				INTKEY("Cgrp",			ch->pcdata->cgroup,			read_flags(o->valuestring));
+				break;
+			case 'D':
+				STRKEY("Deit",			ch->pcdata->deity,			o->valuestring);
+				break;
+			case 'E':
+				if (!str_cmp(key, "ExSk")) {
+					for (cJSON *item = o->child; item != NULL && count < MAX_EXTRACLASS_SLOTS; item = item->next) {
+						bool found = FALSE;
+
+						for (int i = 1; i < MAX_SKILL; i++) {
+							if (skill_table[i].slot == item->valueint) {
+								ch->pcdata->extraclass[count++] = i;
+								found = TRUE;
+								break;
+							}
+						}
+
+						if (!found) {
+							bug("Unknown extraclass skill.", 0);
+						}
+					}
+					fMatch = TRUE; break;
+				}
+
+				STRKEY("Email",			ch->pcdata->email,			o->valuestring);
+				break;
+			case 'F':
+				INTKEY("Familiar",		ch->pcdata->familiar,		o->valueint);
+				STRKEY("Finf",			ch->pcdata->fingerinfo,		o->valuestring);
+				INTKEY("FlagThief",		ch->pcdata->flag_thief,		o->valueint);
+				INTKEY("FlagKiller",	ch->pcdata->flag_killer,	o->valueint);
+				break;
+			case 'G':
+				if (!str_cmp(key, "Grant")) {
+					for (cJSON *item = o->child; item != NULL && count < MAX_GRANT; item = item->next)
+						strcpy(ch->pcdata->granted_commands[count++], item->valuestring);
+					fMatch = TRUE; break;
+				}
+
+				STRKEY("GameIn",		ch->pcdata->gamein,			o->valuestring);
+				STRKEY("GameOut",		ch->pcdata->gameout,		o->valuestring);
+				break;
+			case 'H':
+				if (!str_cmp(key, "HMSP")) {
+					get_JSON_short(o, &ch->pcdata->perm_hit, "hit");
+					get_JSON_short(o, &ch->pcdata->perm_mana, "mana");
+					get_JSON_short(o, &ch->pcdata->perm_stam, "stam");
+					fMatch = TRUE; break;
+				}
+
+				break;
+			case 'I':
+				if (!str_cmp(key, "Ignore")) {
+					for (cJSON *item = o->child; item != NULL && count < MAX_IGNORE; item = item->next)
+						ch->pcdata->ignore[count++] = str_dup(item->valuestring);
+					fMatch = TRUE; break;
+				}
+
+				STRKEY("Immn",			ch->pcdata->immname,		o->valuestring);
+				break;
+			case 'L':
+				INTKEY("Lay",			ch->pcdata->lays,			o->valueint);
+				INTKEY("Lay_Next",		ch->pcdata->next_lay_countdown,	o->valueint);
+				INTKEY("LLev",			ch->pcdata->last_level,		o->valueint);
+				INTKEY("LogO",			ch->pcdata->last_logoff,	o->valueint);
+				STRKEY("Lsit",			ch->pcdata->last_lsite,		o->valuestring);
+				INTKEY("Ltim",			ch->pcdata->last_ltime,		dizzy_scantime(o->valuestring));
+				INTKEY("Lsav",			ch->pcdata->last_saved,		dizzy_scantime(o->valuestring));
+				break;
+			case 'M':
+				INTKEY("Mark",			ch->pcdata->mark_room,		o->valueint);
+				INTKEY("Mexp",			ch->pcdata->mud_exp,		o->valueint);
+				break;
+			case 'N':
+				if (!str_cmp(key, "Note")) {
+					get_JSON_long(o, &ch->pcdata->last_note, "note");
+					get_JSON_long(o, &ch->pcdata->last_idea, "idea");
+					get_JSON_long(o, &ch->pcdata->last_roleplay, "role");
+					get_JSON_long(o, &ch->pcdata->last_immquest, "quest");
+					get_JSON_long(o, &ch->pcdata->last_changes, "change");
+					get_JSON_long(o, &ch->pcdata->last_personal, "pers");
+					get_JSON_long(o, &ch->pcdata->last_trade, "trade");
+					fMatch = TRUE; break;
+				}
+
+				break;
+			case 'P':
+				STRKEY("Pass",			ch->pcdata->pwd,		o->valuestring);
+				INTKEY("PCkills",		ch->pcdata->pckills,	o->valueint);
+				INTKEY("PCkilled",		ch->pcdata->pckilled,	o->valueint);
+				INTKEY("PKRank",		ch->pcdata->pkrank,		o->valueint);
+				INTKEY("Plyd",			ch->pcdata->played,		o->valueint);
+				INTKEY("Plr",			ch->pcdata->plr,		read_flags(o->valuestring));
+				INTKEY("Pnts",			ch->pcdata->points,		o->valueint);
+				break;
+			case 'Q':
+				if (!str_cmp(key, "Query")) {
+					for (cJSON *item = o->child; item != NULL && count < MAX_QUERY; item = item->next)
+						ch->pcdata->query[count++] = str_dup(item->valuestring);
+					fMatch = TRUE; break;
+				}
+
+				break;
+			case 'R':
+				if (!str_cmp(key, "Raff")) {
+					for (cJSON *item = o->child; item != NULL && count < MAX_RAFFECT_SLOTS; item = item->next)
+						ch->pcdata->raffect[count++] = item->valueint;
+					fMatch = TRUE; break;
+				}
+
+				STRKEY("Rank",			ch->pcdata->rank,			o->valuestring);
+				INTKEY("RmCt",			ch->pcdata->remort_count,	o->valueint);
+				INTKEY("RolePnts",		ch->pcdata->rolepoints,		o->valueint);
+				break;
+			case 'S':
+				if (!str_cmp(key, "Sk")) {
+					for (cJSON *item = o->child; item != NULL; item = item->next) {
+						char *temp = cJSON_GetObjectItem(item, "name")->valuestring;
+						int sn = skill_lookup(temp);
+
+						if (sn < 0) {
+							fprintf(stderr, "%s", temp);
+							bug("Fread_char: unknown skill. ", 0);
+							continue;
+						}
+
+						ch->pcdata->learned[sn] = cJSON_GetObjectItem(item, "prac")->valueint;
+						ch->pcdata->evolution[sn] = cJSON_GetObjectItem(item, "evol")->valueint;
+					}
+					fMatch = TRUE; break;
+				}
+
+				INTKEY("SkillPnts",		ch->pcdata->skillpoints,	o->valueint);
+				STRKEY("Stus",			ch->pcdata->status,			o->valuestring);
+				STRKEY("Spou",			ch->pcdata->spouse,			o->valuestring);
+				INTKEY("SQuestNext",	ch->pcdata->nextsquest,		o->valueint);
+				break;
+			case 'T':
+				if (!str_cmp(key, "THMS")) {
+					get_JSON_short(o, &ch->pcdata->trains_to_hit, "hit");
+					get_JSON_short(o, &ch->pcdata->trains_to_hit, "mana");
+					get_JSON_short(o, &ch->pcdata->trains_to_hit, "stam");
+					fMatch = TRUE; break;
+				}
+
+				if (!str_cmp(key, "Titl")) {
+					free_string(ch->pcdata->title);
+					char c = o->valuestring[0];
+					char buf[MSL];
+
+					sprintf(buf, "%s%s",
+						c == '.' || c == ',' || c == '!' || c == '?' ? "" : " ", // add a space if no punctuation
+						o->valuestring);
+					ch->pcdata->title = str_dup(buf);
+					fMatch = TRUE; break;
+				}
+
+				INTKEY("TSex",			ch->pcdata->true_sex,		o->valueint);
+				break;
+			case 'V':
+				INTKEY("Video",			ch->pcdata->video,			read_flags(o->valuestring));
+				break;
+			case 'W':
+				STRKEY("Wspr",			ch->pcdata->whisper,		o->valuestring);
+				break;
+			default:
+				// drop down
+				break;
 		}
+
+		if (!fMatch)
+			bugf("fread_player: unknown key %s", key);
 	}
 
-	get_JSON_short(json,	&ch->pcdata->familiar,		"Familiar"		);
-	get_JSON_string(json,	&ch->pcdata->fingerinfo,	"Finf"			);
-	get_JSON_short(json,	&ch->pcdata->flag_thief,	"FlagThief"		);
-	get_JSON_short(json,	&ch->pcdata->flag_killer,	"FlagKiller"	);
-	get_JSON_string(json,	&ch->pcdata->gamein,		"GameIn"		);
-	get_JSON_string(json,	&ch->pcdata->gameout,		"GameOut"		);
-
-	if ((o = cJSON_GetObjectItem(json, "Grant")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_GRANT; item = item->next)
-			strcpy(ch->pcdata->granted_commands[count++], item->valuestring);
-	}
-
-	if ((o = cJSON_GetObjectItem(json, "HMSP")) != NULL) {
-		get_JSON_short(o, &ch->pcdata->perm_hit, "hit");
-		get_JSON_short(o, &ch->pcdata->perm_mana, "mana");
-		get_JSON_short(o, &ch->pcdata->perm_stam, "stam");
-	}
-
-	get_JSON_string(json,	&ch->pcdata->immname,		"Immn"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Ignore")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_IGNORE; item = item->next)
-			ch->pcdata->ignore[count++] = str_dup(item->valuestring);
-	}
-
-	get_JSON_short(json,	&ch->pcdata->lays,			"Lay"			);
-	get_JSON_short(json,	&ch->pcdata->next_lay_countdown, "Lay_Next"	);
-	get_JSON_int(json,		&ch->pcdata->last_level,	"LLev"			);
-	get_JSON_int(json,		&ch->pcdata->last_logoff,	"LogO"			);
-	get_JSON_string(json,	&ch->pcdata->last_lsite,	"Lsit"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Ltim")) != NULL)
-		ch->pcdata->last_ltime = dizzy_scantime(o->valuestring);
-
-	if ((o = cJSON_GetObjectItem(json, "Lsav")) != NULL)
-		ch->pcdata->last_saved = dizzy_scantime(o->valuestring);
-
-	get_JSON_int(json,		&ch->pcdata->mark_room,		"Mark"			);
-	get_JSON_short(json,	&ch->pcdata->mud_exp,		"Mexp"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Note")) != NULL) {
-		get_JSON_long(o, &ch->pcdata->last_note, "note");
-		get_JSON_long(o, &ch->pcdata->last_idea, "idea");
-		get_JSON_long(o, &ch->pcdata->last_roleplay, "role");
-		get_JSON_long(o, &ch->pcdata->last_immquest, "quest");
-		get_JSON_long(o, &ch->pcdata->last_changes, "change");
-		get_JSON_long(o, &ch->pcdata->last_personal, "pers");
-		get_JSON_long(o, &ch->pcdata->last_trade, "trade");
-	}
-
-	get_JSON_string(json,	&ch->pcdata->pwd,			"Pass"			);
-	get_JSON_int(json,		&ch->pcdata->pckills,		"PCkills"		);
-	get_JSON_int(json,		&ch->pcdata->pckilled,		"PCkilled"		);
-	get_JSON_int(json,		&ch->pcdata->pkrank,		"PKRank"		);
-	get_JSON_int(json,		&ch->pcdata->played,		"Plyd"			);
-	get_JSON_flags(json,	&ch->pcdata->plr,			"Plr"			);
-	get_JSON_short(json,	&ch->pcdata->points,		"Pnts"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Query")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_QUERY; item = item->next)
-			ch->pcdata->query[count++] = str_dup(item->valuestring);
-	}
-
-	get_JSON_string(json,	&ch->pcdata->rank,			"Rank"			);
-	get_JSON_int(json,		&ch->pcdata->rolepoints,	"RolePnts"		);
-
-	if ((o = cJSON_GetObjectItem(json, "Sk")) != NULL) {
-		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			char *temp = cJSON_GetObjectItem(item, "name")->valuestring;
-			int sn = skill_lookup(temp);
-
-			if (sn < 0) {
-				fprintf(stderr, "%s", temp);
-				bug("Fread_char: unknown skill. ", 0);
-				continue;
-			}
-
-			ch->pcdata->learned[sn] = cJSON_GetObjectItem(item, "prac")->valueint;
-			ch->pcdata->evolution[sn] = cJSON_GetObjectItem(item, "evol")->valueint;
-		}
-	}
-
-	if ((o = cJSON_GetObjectItem(json, "THMS")) != NULL) {
-		get_JSON_short(o, &ch->pcdata->trains_to_hit, "hit");
-		get_JSON_short(o, &ch->pcdata->trains_to_hit, "mana");
-		get_JSON_short(o, &ch->pcdata->trains_to_hit, "stam");
-	}
-
-	get_JSON_short(json,	&ch->pcdata->true_sex,		"TSex"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Raff")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item != NULL && count < MAX_RAFFECT_SLOTS; item = item->next)
-			ch->pcdata->raffect[count++] = item->valueint;
-	}
-
-	get_JSON_int(json,		&ch->pcdata->skillpoints,	"SkillPnts"		);
-	get_JSON_string(json,	&ch->pcdata->status,		"Stus"			);
-	get_JSON_string(json,	&ch->pcdata->spouse,		"Spou"			);
-	get_JSON_short(json,	&ch->pcdata->nextsquest,	"SQuestNext"	);
-
-	if ((o = cJSON_GetObjectItem(json, "Titl")) != NULL) {
-		free_string(ch->pcdata->title);
-		char c = o->valuestring[0];
-		char buf[MSL];
-
-		sprintf(buf, "%s%s",
-			c == '.' || c == ',' || c == '!' || c == '?' ? "" : " ", // add a space if no punctuation
-			o->valuestring);
-		ch->pcdata->title = str_dup(buf);
-	}
-
-	get_JSON_flags(json,	&ch->pcdata->video,			"Video"			);
-	get_JSON_string(json,	&ch->pcdata->whisper,		"Wspr"			);
-	get_JSON_short(json,	&ch->pcdata->remort_count,	"RmCt"			);
-
-	// put things with dependencies below this line
-
+	// fix up pc-only stuff here
 }
 
 // this could be PC or NPC!  get act flags first
-void fread_char(CHAR_DATA *ch, cJSON *json)
+void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 {
 	char buf[MSL];
 	sprintf(buf, "Loading %s.", ch->name);
 	log_string(buf);
 
-	cJSON *o;
-
 	// unlike old pfiles, the order of calls is important here, because we can't
-	// guarantee order within the files.  no more alphabetical, this is about dependencies
+	// guarantee order within the files. If there are any fields that are depended
+	// on by others in the list, load them right here, and use SKIPKEY(key) in the list
 
-	get_JSON_flags(json,	&ch->act,					"Act"			);
-
-	/* removed holylight at 12 -- Montrey */
-	if (ch->version < 12 && IS_SET(ch->act, N))
-		REMOVE_BIT(ch->act, N);
-
-	// switching to cgroups with old pfiles -- Montrey (2014)
-	if (ch->version < 15 && IS_SET(ch->act, N)) { // deputy
-		REMOVE_BIT(ch->act, N);
-		SET_CGROUP(ch, GROUP_DEPUTY);
-	}
-
-	if (ch->version < 15 && IS_SET(ch->act, ee)) { // leader
-		REMOVE_BIT(ch->act, ee);
-		SET_CGROUP(ch, GROUP_LEADER);
-	}
+	get_JSON_flags(json, &ch->act, "Act");
 
 	// now safe to check IS_NPC
 
-	get_JSON_flags(json,	&ch->affected_by,			"AfBy"			);
-	get_JSON_short(json,	&ch->alignment,				"Alig"			);
+	for (cJSON *o = json->child; o; o = o->next) {
+		char *key = o->string;
+		bool fMatch = FALSE;
+//		int count = 0; // convenience variable to compact this list, resets with every item
 
-	if ((o = cJSON_GetObjectItem(json, "Affc")) != NULL) {
-		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
+		switch (key[0]) {
+			case 'A':
+				if (!str_cmp(key, "Affc")) {
+					for (cJSON *item = o->child; item != NULL; item = item->next) {
+						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
-			if (sn < 0) {
-				bug("Fread_char: unknown skill.", 0);
-				continue;
-			}
+						if (sn < 0) {
+							bug("Fread_char: unknown skill.", 0);
+							continue;
+						}
 
-			AFFECT_DATA *paf = new_affect();
-			paf->type = sn;
-			get_JSON_short(item, &paf->where, "where");
-			get_JSON_short(item, &paf->level, "level");
-			get_JSON_short(item, &paf->duration, "dur");
-			get_JSON_short(item, &paf->modifier, "mod");
-			get_JSON_short(item, &paf->location, "loc");
-			get_JSON_int(item, &paf->bitvector, "bitv");
-			get_JSON_short(item, &paf->evolution, "evo");
+						AFFECT_DATA *paf = new_affect();
+						paf->type = sn;
+						get_JSON_short(item, &paf->where, "where");
+						get_JSON_short(item, &paf->level, "level");
+						get_JSON_short(item, &paf->duration, "dur");
+						get_JSON_short(item, &paf->modifier, "mod");
+						get_JSON_short(item, &paf->location, "loc");
+						get_JSON_int(item, &paf->bitvector, "bitv");
+						get_JSON_short(item, &paf->evolution, "evo");
 
-			if (IS_NPC(ch)) {
-				bool found = FALSE;
+						if (IS_NPC(ch)) {
+							bool found = FALSE;
 
-				/* loop through the pet's spells, only add if they don't have it */
-				for (AFFECT_DATA *old_af = ch->affected; old_af; old_af = old_af->next)
-					if (old_af->type == paf->type && old_af->location == paf->location) {
-						found = TRUE;
-						break;
+							/* loop through the pet's spells, only add if they don't have it */
+							for (AFFECT_DATA *old_af = ch->affected; old_af; old_af = old_af->next)
+								if (old_af->type == paf->type && old_af->location == paf->location) {
+									found = TRUE;
+									break;
+								}
+
+							if (found) {
+								free_affect(paf);
+								continue;
+							}
+						}
+
+						paf->next       = ch->affected;
+						ch->affected    = paf;
 					}
-
-				if (found) {
-					free_affect(paf);
-					continue;
+					fMatch = TRUE; break;
 				}
-			}
 
-			paf->next       = ch->affected;
-			ch->affected    = paf;
+				if (!str_cmp(key, "Atrib")) {
+					get_JSON_short(o, &ch->perm_stat[STAT_STR], "str");
+					get_JSON_short(o, &ch->perm_stat[STAT_INT], "int");
+					get_JSON_short(o, &ch->perm_stat[STAT_WIS], "wis");
+					get_JSON_short(o, &ch->perm_stat[STAT_DEX], "dex");
+					get_JSON_short(o, &ch->perm_stat[STAT_CON], "con");
+					get_JSON_short(o, &ch->perm_stat[STAT_CHR], "chr");
+					fMatch = TRUE; break;
+				}
+
+				// npc only
+				if (IS_NPC(ch) && !str_cmp(key, "AtMod")) {
+					get_JSON_short(o, &ch->mod_stat[STAT_STR], "str");
+					get_JSON_short(o, &ch->mod_stat[STAT_INT], "int");
+					get_JSON_short(o, &ch->mod_stat[STAT_WIS], "wis");
+					get_JSON_short(o, &ch->mod_stat[STAT_DEX], "dex");
+					get_JSON_short(o, &ch->mod_stat[STAT_CON], "con");
+					get_JSON_short(o, &ch->mod_stat[STAT_CHR], "chr");
+					fMatch = TRUE; break;
+				}
+
+				SKIPKEY("Act");
+				INTKEY("AfBy",			ch->affected_by,			read_flags(o->valuestring));
+				INTKEY("Alig",			ch->alignment,				o->valueint);
+				break;
+			case 'C':
+				INTKEY("Clan",			ch->clan,					clan_lookup(o->valuestring));
+				INTKEY("Cla",			ch->class,					o->valueint);
+				INTKEY("Comm",			ch->comm,					read_flags(o->valuestring));
+				INTKEY("Cnsr",			ch->censor,					read_flags(o->valuestring));
+				break;
+			case 'D':
+				INTKEY("Dam",			ch->damroll,				o->valueint);		// NPC
+				STRKEY("Desc",			ch->description,			o->valuestring);
+				break;
+			case 'E':
+				INTKEY("Exp",			ch->exp,					o->valueint);
+				break;
+			case 'F':
+				INTKEY("Fimm",			ch->imm_flags,				read_flags(o->valuestring));
+				INTKEY("FRes",			ch->res_flags,				read_flags(o->valuestring));
+				INTKEY("FVul",			ch->vuln_flags,				read_flags(o->valuestring));
+				break;
+			case 'G':
+				if (!str_cmp(key, "Gr")) {
+					for (cJSON *item = o->child; item != NULL; item = item->next) {
+						int gn = group_lookup(item->valuestring);
+
+						if (gn < 0) {
+							fprintf(stderr, "%s", item->valuestring);
+							bug("Unknown group. ", 0);
+							continue;
+						}
+
+						gn_add(ch, gn);
+					}
+					fMatch = TRUE; break;
+				}
+
+				INTKEY("Gold_in_bank",	ch->gold_in_bank,			o->valueint);
+				INTKEY("Gold",			ch->gold,					o->valueint);
+				INTKEY("GlDonated",		ch->gold_donated,			o->valueint);
+				break;
+			case 'H':
+				if (!str_cmp(key, "HMS")) {
+					get_JSON_short(o, &ch->hit, "hit");
+					get_JSON_short(o, &ch->mana, "mana");
+					get_JSON_short(o, &ch->stam, "stam");
+					fMatch = TRUE; break;
+				}
+
+				INTKEY("Hit",			ch->hitroll,				o->valueint); // NPC
+				break;
+			case 'I':
+				INTKEY("Id",			ch->id,						o->valueint);
+				INTKEY("Invi",			ch->invis_level,			o->valueint);
+				break;
+			case 'L':
+				INTKEY("Levl",			ch->level,					o->valueint);
+				STRKEY("LnD",			ch->long_descr,				o->valuestring);
+				INTKEY("Lurk",			ch->lurk_level,				o->valueint);
+				break;
+			case 'N':
+				STRKEY("Name",			ch->name,					o->valuestring);
+				break;
+			case 'P':
+				INTKEY("Pos",			ch->position,				o->valueint);
+				INTKEY("Prac",			ch->practice,				o->valueint);
+				STRKEY("Prom",			ch->prompt,					o->valuestring);
+				break;
+			case 'Q':
+				INTKEY("QuestPnts",		ch->questpoints,			o->valueint);
+				INTKEY("QpDonated",		ch->questpoints_donated,	o->valueint);
+				INTKEY("QuestNext",		ch->nextquest,				o->valueint);
+				break;
+			case 'R':
+				INTKEY("Race",			ch->race,					race_lookup(o->valuestring));
+				INTKEY("Room",			ch->in_room,				get_room_index(o->valueint));
+				INTKEY("Revk",			ch->revoke,					read_flags(o->valuestring));
+				break;
+			case 'S':
+				INTKEY("Save",			ch->saving_throw,			o->valueint); // NPC
+				INTKEY("Scro",			ch->lines,					o->valueint);
+				INTKEY("Secu",			ch->secure_level,			o->valueint);
+				STRKEY("ShD",			ch->short_descr,			o->valuestring);
+				INTKEY("Silver_in_bank",ch->silver_in_bank,			o->valueint);
+				INTKEY("Silv",			ch->silver,					o->valueint);
+				break;
+			case 'T':
+				INTKEY("Trai",			ch->train,					o->valueint);
+				break;
+			case 'W':
+				INTKEY("Wimp",			ch->wimpy,					o->valueint);
+				INTKEY("Wizn",			ch->wiznet,					read_flags(o->valuestring));
+				break;
+			default:
+				// drop down
+				break;
 		}
-	}
 
-	if ((o = cJSON_GetObjectItem(json, "Atrib")) != NULL) {
-		get_JSON_short(o, &ch->perm_stat[STAT_STR], "str");
-		get_JSON_short(o, &ch->perm_stat[STAT_INT], "int");
-		get_JSON_short(o, &ch->perm_stat[STAT_WIS], "wis");
-		get_JSON_short(o, &ch->perm_stat[STAT_DEX], "dex");
-		get_JSON_short(o, &ch->perm_stat[STAT_CON], "con");
-		get_JSON_short(o, &ch->perm_stat[STAT_CHR], "chr");
-	}
-
-	// npc only
-	if (IS_NPC(ch) && (o = cJSON_GetObjectItem(json, "AtMod")) != NULL) {
-		get_JSON_short(o, &ch->mod_stat[STAT_STR], "str");
-		get_JSON_short(o, &ch->mod_stat[STAT_INT], "int");
-		get_JSON_short(o, &ch->mod_stat[STAT_WIS], "wis");
-		get_JSON_short(o, &ch->mod_stat[STAT_DEX], "dex");
-		get_JSON_short(o, &ch->mod_stat[STAT_CON], "con");
-		get_JSON_short(o, &ch->mod_stat[STAT_CHR], "chr");
-	}
-
-	if ((o = cJSON_GetObjectItem(json, "Clan")) != NULL) {
-		ch->clan = clan_lookup(o->valuestring);
-	}
-
-	get_JSON_short(json,	&ch->class,					"Cla"			);
-	get_JSON_flags(json,	&ch->comm,					"Comm"			);
-	get_JSON_flags(json,	&ch->censor,				"Cnsr"			);
-	get_JSON_short(json,	&ch->hitroll,				"Hit"			); // NPC
-	get_JSON_short(json,	&ch->damroll,				"Dam"			); // NPC
-	get_JSON_short(json,	&ch->saving_throw,			"Save"			); // NPC
-	get_JSON_string(json,	&ch->description,			"Desc"			);
-	get_JSON_int(json,		&ch->exp,					"Exp"			);
-	get_JSON_flags(json,	&ch->imm_flags,				"FImm"			);
-	get_JSON_flags(json,	&ch->res_flags,				"FRes"			);
-	get_JSON_flags(json,	&ch->vuln_flags,			"FVul"			);
-	get_JSON_long(json,		&ch->gold_in_bank,			"Gold_in_bank"	);
-	get_JSON_long(json,		&ch->gold,					"Gold"			);
-	get_JSON_long(json,		&ch->gold_donated,			"GlDonated"		);
-
-	if ((o = cJSON_GetObjectItem(json, "Gr")) != NULL) {
-		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			int gn = group_lookup(item->valuestring);
-
-			if (gn < 0) {
-				fprintf(stderr, "%s", item->valuestring);
-				bug("Unknown group. ", 0);
-				continue;
-			}
-
-			gn_add(ch, gn);
-		}
-	}
-
-	if ((o = cJSON_GetObjectItem(json, "HMS")) != NULL) {
-		get_JSON_short(o, &ch->hit, "hit");
-		get_JSON_short(o, &ch->mana, "mana");
-		get_JSON_short(o, &ch->stam, "stam");
-	}
-
-	get_JSON_long(json,		&ch->id,					"Id"			);
-	get_JSON_short(json,	&ch->invis_level,			"Invi"			);
-	get_JSON_short(json,	&ch->level,					"Levl"			);
-	get_JSON_string(json,	&ch->long_descr,			"LnD"			);
-	get_JSON_short(json,	&ch->lurk_level,			"Lurk"			);
-	get_JSON_string(json,	&ch->name,					"Name"			);
-	get_JSON_short(json,	&ch->position,				"Pos"			);
-	get_JSON_short(json,	&ch->practice,				"Prac"			);
-	get_JSON_string(json,	&ch->prompt,				"Prom"			);
-	get_JSON_int(json,		&ch->questpoints,			"QuestPnts"		);
-	get_JSON_int(json,		&ch->questpoints_donated,	"QpDonated"		);
-	get_JSON_short(json,	&ch->nextquest,				"QuestNext"		);
-	get_JSON_flags(json,	&ch->revoke,				"Revk"			);
-
-	if ((o = cJSON_GetObjectItem(json, "Race")) != NULL)
-		ch->race = race_lookup(o->valuestring);
-
-	if ((o = cJSON_GetObjectItem(json, "Room")) != NULL) {
-		ch->in_room = get_room_index(o->valueint);
-
-		if (ch->in_room == NULL)
-			ch->in_room = get_room_index(ROOM_VNUM_LIMBO);
-	}
-
-	get_JSON_int(json,		&ch->lines,					"Scro"			);
-	get_JSON_string(json,	&ch->short_descr,			"ShD"			);
-	get_JSON_long(json,		&ch->silver_in_bank,		"Silver_in_bank");
-	get_JSON_long(json,		&ch->silver,				"Silv"			);
-	get_JSON_short(json,	&ch->train,					"Trai"			);
-	get_JSON_short(json,	&ch->version,				"Vers"			);
-	get_JSON_short(json,	&ch->wimpy,					"Wimp"			);
-	get_JSON_flags(json,	&ch->wiznet,				"Wizn"			);
-
-
-	// stuff with dependencies
-
-	if ((o = cJSON_GetObjectItem(json, "Secu")) != NULL) {
-		switch (o->valueint) {     /* ch default is RANK_IMMORTAL */
-		case RANK_HEAD:
-			if (IS_HEAD(ch))
-				ch->secure_level = RANK_HEAD;
-			break;
-
-		case RANK_IMP:
-			if (IS_IMP(ch))
-				ch->secure_level = RANK_IMP;
-			break;
-		}
+		if (!fMatch)
+			bugf("fread_player: unknown key %s", key);
 	}
 }
 
 // read a single item including its contents
-OBJ_DATA * fread_obj(cJSON *json) {
+OBJ_DATA * fread_obj(cJSON *json, int version) {
 	OBJ_DATA *obj = NULL;
 	cJSON *o;
 
@@ -1583,7 +1635,7 @@ OBJ_DATA * fread_obj(cJSON *json) {
 	// so the function pointer doesn't work.  maybe find a way to fix and condense?
 	if ((o = cJSON_GetObjectItem(json, "contains")) != NULL) {
 		for (cJSON *item = o->child; item; item = item->next) {
-			OBJ_DATA *content = fread_obj(item);
+			OBJ_DATA *content = fread_obj(item, version);
 
 			if (content->pIndexData) {
 				if (content->condition == 0)
@@ -1609,12 +1661,12 @@ OBJ_DATA * fread_obj(cJSON *json) {
 }
 
 // read a list of objects and return the head
-void fread_objects(CHAR_DATA *ch, cJSON *contains, void (*obj_to)(OBJ_DATA *, CHAR_DATA *)) {
+void fread_objects(CHAR_DATA *ch, cJSON *contains, void (*obj_to)(OBJ_DATA *, CHAR_DATA *), int version) {
 	if (contains == NULL)
 		return;
 
 	for (cJSON *item = contains->child; item; item = item->next) {
-		OBJ_DATA *content = fread_obj(item);
+		OBJ_DATA *content = fread_obj(item, version);
 
 		if (content->pIndexData) {
 			if (content->condition == 0)
@@ -1636,7 +1688,7 @@ void fread_objects(CHAR_DATA *ch, cJSON *contains, void (*obj_to)(OBJ_DATA *, CH
 }
 
 /* load a pet from the forgotten reaches */
-void fread_pet(CHAR_DATA *ch, cJSON *json)
+void fread_pet(CHAR_DATA *ch, cJSON *json, int version)
 {
 	cJSON *o;
 
@@ -1669,7 +1721,7 @@ void fread_pet(CHAR_DATA *ch, cJSON *json)
 		return;
 	}
 
-	fread_char(pet, json);
+	fread_char(pet, json, version);
 
 	pet->leader = ch;
 	pet->master = ch;

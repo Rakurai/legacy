@@ -1981,7 +1981,6 @@ struct  char_data
     bool                valid;
     char *              name;
     long                id;
-    sh_int              version;	/* note: this is not mob versioning, it's pfile versions */
     char *              short_descr;
     char *              long_descr;
     char *              description;
