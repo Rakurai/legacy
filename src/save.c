@@ -1516,7 +1516,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 		}
 
 		if (!fMatch)
-			bugf("fread_player: unknown key %s", key);
+			bugf("fread_char: unknown key %s", key);
 	}
 }
 
@@ -1550,112 +1550,151 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 		obj->description        = str_dup("");
 	}
 
-	if ((o = cJSON_GetObjectItem(json, "Affc")) != NULL) {
-		for (cJSON *item = o->child; item != NULL; item = item->next) {
-			int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
+	for (cJSON *o = json->child; o; o = o->next) {
+		char *key = o->string;
+		bool fMatch = FALSE;
+//		int count = 0; // convenience variable to compact this list, resets with every item
 
-			if (sn < 0) {
-				bug("Fread_char: unknown skill.", 0);
-				continue;
-			}
+		switch (key[0]) {
+			case 'A':
+				if (!str_cmp(key, "Affc")) {
+					for (cJSON *item = o->child; item != NULL; item = item->next) {
+						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
-			AFFECT_DATA *paf = new_affect();
-			paf->type = sn;
+						if (sn < 0) {
+							bug("Fread_char: unknown skill.", 0);
+							continue;
+						}
 
-			get_JSON_short(item, &paf->where, "where");
-			get_JSON_short(item, &paf->level, "level");
-			get_JSON_short(item, &paf->duration, "dur");
-			get_JSON_short(item, &paf->modifier, "mod");
-			get_JSON_short(item, &paf->location, "loc");
-			get_JSON_int(item, &paf->bitvector, "bitv");
-			get_JSON_short(item, &paf->evolution, "evo");
+						AFFECT_DATA *paf = new_affect();
+						paf->type = sn;
 
-			paf->next       = obj->affected;
-			obj->affected    = paf;
-		}
-	}
+						get_JSON_short(item, &paf->where, "where");
+						get_JSON_short(item, &paf->level, "level");
+						get_JSON_short(item, &paf->duration, "dur");
+						get_JSON_short(item, &paf->modifier, "mod");
+						get_JSON_short(item, &paf->location, "loc");
+						get_JSON_int(item, &paf->bitvector, "bitv");
+						get_JSON_short(item, &paf->evolution, "evo");
 
-	get_JSON_short(json,	&obj->condition,			"Cond"			);
-	get_JSON_int(json,		&obj->cost,					"Cost"			);
-	get_JSON_string(json,	&obj->description,			"Desc"			);
-	get_JSON_boolean(json,	&obj->enchanted,			"Enchanted"		);
-	get_JSON_long(json,		&obj->extra_flags,			"ExtF"			);
+						paf->next       = obj->affected;
+						obj->affected    = paf;
+					}
+					fMatch = TRUE; break;
+				}
+				break;
+			case 'C':
+				if (!str_cmp(key, "Contains")) {
+					// this mirrors code for fread_objects, but uses obj_to_obj instead of obj_to_char/locker/strongbox,
+					// so the function pointer doesn't work.  maybe find a way to fix and condense?
+					for (cJSON *item = o->child; item; item = item->next) {
+						OBJ_DATA *content = fread_obj(item, version);
 
-	if ((o = cJSON_GetObjectItem(json, "ExDe")) != NULL) {
-		for (cJSON *item = o->child; item; item = item->next) {
-			EXTRA_DESCR_DATA *ed = new_extra_descr();
-			ed->keyword             = str_dup(item->string);
-			ed->description         = str_dup(item->valuestring);
-			ed->next                = obj->extra_descr;
-			obj->extra_descr        = ed;
-		}
-	}
+						if (content->pIndexData) {
+							if (content->condition == 0)
+								content->condition = content->pIndexData->condition;
 
-	get_JSON_short(json,	&obj->item_type,			"Ityp"			);
-	get_JSON_short(json,	&obj->level,				"Lev"			);
-	get_JSON_string(json,	&obj->material,				"Mat"			);
-	get_JSON_string(json,	&obj->name,					"Name"			);
-	get_JSON_string(json,	&obj->short_descr,			"ShD"			);
+							obj_to_obj(content, obj);
+						}
+						else {
+							// deal with contents and extract
+							while (content->contains) {
+								OBJ_DATA *c = content->contains;
+								content->contains = c->next_content;
+								obj_to_obj(c, obj);
+							}
 
-	if ((o = cJSON_GetObjectItem(json, "Splxtra")) != NULL) {
-		int count = 0;
-		for (cJSON *item = o->child; item; item = item->next, count++) {
-			obj->spell[count] = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
-			obj->spell_lev[count] = cJSON_GetObjectItem(item, "level")->valueint;
-		}
-	}
-
-	if ((o = cJSON_GetObjectItem(json, "Val")) != NULL) {
-		int slot = 0;
-		for (cJSON *item = o->child; item; item = item->next, slot++)
-			obj->value[slot] = item->valueint;
-	}
-
-	// could override 'Val'
-	if ((o = cJSON_GetObjectItem(json, "Spell")) != NULL) {
-		for (cJSON *item = o->child; item; item = item->next) {
-			int slot = atoi(item->string);
-			int sn = skill_lookup(item->valuestring);
-
-			if (slot < 0 || slot > 4)
-				bug("Fread_obj: bad iValue %d.", slot);
-			else if (sn < 0)
-				bug("Fread_obj: unknown skill.", 0);
-			else
-				obj->value[slot] = sn;
-		}
-	}
-
-	get_JSON_short(json,	&obj->timer,				"Time"			);
-	get_JSON_long(json,		&obj->wear_flags,			"WeaF"			);
-	get_JSON_short(json,	&obj->wear_loc,				"Wear"			);
-	get_JSON_short(json,	&obj->weight,				"Wt"			);
-
-	// this mirrors code for fread_objects, but uses obj_to_obj instead of obj_to_char/locker/strongbox,
-	// so the function pointer doesn't work.  maybe find a way to fix and condense?
-	if ((o = cJSON_GetObjectItem(json, "contains")) != NULL) {
-		for (cJSON *item = o->child; item; item = item->next) {
-			OBJ_DATA *content = fread_obj(item, version);
-
-			if (content->pIndexData) {
-				if (content->condition == 0)
-					content->condition = content->pIndexData->condition;
-
-				obj_to_obj(content, obj);
-			}
-			else {
-				// deal with contents and extract
-				while (content->contains) {
-					OBJ_DATA *c = content->contains;
-					content->contains = c->next_content;
-					obj_to_obj(c, obj);
+							free_obj(content);
+						}
+					}
+					fMatch = TRUE; break;
 				}
 
-				free_obj(content);
-			}
-		}
-	}
+				INTKEY("Cond",			obj->condition,				o->valueint);
+				INTKEY("Cost",			obj->cost,					o->valueint);
+				break;
+			case 'D':
+				STRKEY("Desc",			obj->description,			o->valuestring);
+				break;
+			case 'E':
+				if (!str_cmp(key, "ExDe")) {
+					for (cJSON *item = o->child; item; item = item->next) {
+						EXTRA_DESCR_DATA *ed = new_extra_descr();
+						ed->keyword             = str_dup(item->string);
+						ed->description         = str_dup(item->valuestring);
+						ed->next                = obj->extra_descr;
+						obj->extra_descr        = ed;
+					}
+					fMatch = TRUE; break;
+				}
 
+				INTKEY("Enchanted",		obj->enchanted,				o->valueint);
+				INTKEY("ExtF",			obj->extra_flags,			o->valueint);
+				break;
+			case 'I':
+				INTKEY("Ityp",			obj->item_type,				o->valueint);
+				break;
+			case 'L':
+				INTKEY("Lev",			obj->level,					o->valueint);
+				break;
+			case 'M':
+				STRKEY("Mat",			obj->material,				o->valuestring);
+				break;
+			case 'N':
+				STRKEY("Name",			obj->name,					o->valuestring);
+				break;
+			case 'S':
+				if (!str_cmp(key, "Spell")) {
+					for (cJSON *item = o->child; item; item = item->next) {
+						int slot = atoi(item->string);
+						int sn = skill_lookup(item->valuestring);
+
+						if (slot < 0 || slot > 4)
+							bug("Fread_obj: bad iValue %d.", slot);
+						else if (sn < 0)
+							bug("Fread_obj: unknown skill.", 0);
+						else
+							obj->value[slot] = sn;
+					}
+					fMatch = TRUE; break;
+				}
+
+				if (!str_cmp(key, "Splxtra")) {
+					int count = 0;
+					for (cJSON *item = o->child; item; item = item->next, count++) {
+						obj->spell[count] = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
+						obj->spell_lev[count] = cJSON_GetObjectItem(item, "level")->valueint;
+					}
+					fMatch = TRUE; break;
+				}
+
+				STRKEY("ShD",			obj->short_descr,			o->valuestring);
+				break;
+			case 'T':
+				INTKEY("Time",			obj->timer,					o->valueint);
+				break;
+			case 'V':
+				if (!str_cmp(key, "Val")) {
+					int slot = 0;
+					for (cJSON *item = o->child; item; item = item->next, slot++)
+						obj->value[slot] = item->valueint;
+					fMatch = TRUE; break;
+				}
+
+				SKIPKEY("Vnum");
+				break;
+			case 'W':
+				INTKEY("WeaF",			obj->wear_flags,			o->valueint); // no, not read_flags
+				INTKEY("Wear",			obj->wear_loc,				o->valueint);
+				INTKEY("Wt",			obj->weight,				o->valueint);
+				break;
+			default:
+				break;
+		}
+
+		if (!fMatch)
+			bugf("fread_obj: unknown key %s", key);
+	}
 
 	return obj;
 }
