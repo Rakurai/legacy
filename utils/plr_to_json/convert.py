@@ -391,6 +391,7 @@ def read_pet_section():
 
 def read_obj():
 	global pfile_version
+	nest_level = 0
 	s = {}
 
 	while True:
@@ -459,9 +460,10 @@ def read_obj():
 			else:
 				bug('weird word %s' % (word))
 		elif word[0] == 'N':
-			if is_key(word, 'Name', read_string, s) \
-			or is_key(word, 'Nest', read_number, s):
+			if is_key(word, 'Name', read_string, s):
 				pass
+			elif word == 'Nest':
+				nest_level = read_number()
 			else:
 				bug('weird word %s' % (word))
 		elif word[0] == 'S':
@@ -510,7 +512,7 @@ def read_obj():
 		else:
 			bug('weird letter %s' % (word))
 
-	return s, s['Nest']
+	return s, nest_level
 	
 
 with open(filename, "r+b") as f:

@@ -1115,7 +1115,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 		bool fMatch = FALSE;
 		int count = 0; // convenience variable to compact this list, resets with every item
 
-		switch (key[0]) {
+		switch (toupper(key[0])) {
 			case 'A':
 				if (!str_cmp(key, "Alias")) { // array of 2-tuples
 					// each alias is a 2-tuple (a list)
@@ -1352,7 +1352,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 		bool fMatch = FALSE;
 //		int count = 0; // convenience variable to compact this list, resets with every item
 
-		switch (key[0]) {
+		switch (toupper(key[0])) {
 			case 'A':
 				if (!str_cmp(key, "Affc")) {
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
@@ -1555,7 +1555,7 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 		bool fMatch = FALSE;
 //		int count = 0; // convenience variable to compact this list, resets with every item
 
-		switch (key[0]) {
+		switch (toupper(key[0])) {
 			case 'A':
 				if (!str_cmp(key, "Affc")) {
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
