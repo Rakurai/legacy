@@ -545,6 +545,7 @@ with open(filename, "r+b") as f:
 			ch, plr = read_char_section()
 			root['character'] = ch
 			root['player'] = plr
+			root['version'] = pfile_version
 		elif word == 'OBJECT' or word == 'O' or word == 'L' or word == 'B':
 			obj, nest_level = read_obj()
 

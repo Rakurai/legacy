@@ -873,7 +873,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	if (root != NULL) {
 
 		int version = CURRENT_VERSION;
-		get_JSON_int(root, &version, "Vers");
+		get_JSON_int(root, &version, "version");
 
 		fread_char(ch, cJSON_GetObjectItem(root, "character"), version);
 		fread_player(ch, cJSON_GetObjectItem(root, "player"), version);
@@ -1584,7 +1584,7 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 				}
 				break;
 			case 'C':
-				if (!str_cmp(key, "Contains")) {
+				if (!str_cmp(key, "contains")) {
 					// this mirrors code for fread_objects, but uses obj_to_obj instead of obj_to_char/locker/strongbox,
 					// so the function pointer doesn't work.  maybe find a way to fix and condense?
 					for (cJSON *item = o->child; item; item = item->next) {
