@@ -697,24 +697,17 @@ static void edit_help(CHAR_DATA *ch, char *argument)
 	}
 
 	int id = atoi(argument);
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 
-	if ((result = db_queryf("edit_help", "select text from helps where id=%d", id)) == NULL) {
+	if (db_queryf("edit_help", "select text from helps where id=%d", id) == SQL_ERROR) {
 		stc("Query error, couldn't access helps.\n", ch);
 		return;
 	}
 
-	if ((row = mysql_fetch_row(result)) != NULL) {
-		char *str = row[0];
-
-		if (!str)
-			str = "";
-
+	if (db_next_row() == SQL_OK) {
 		ed = alloc_mem(sizeof(EDIT_DATA));
 		ch->edit = ed;
 		ed->edit_type = EDIT_TYPE_HELP;
-		strcpy(ed->edit_string, str);
+		strcpy(ed->edit_string, db_get_column_str(0));
 		backup();
 		ed->edit_nlines = count_lines();
 		ed->edit_id = id;
@@ -725,7 +718,6 @@ static void edit_help(CHAR_DATA *ch, char *argument)
 		stc("Couldn't retrieve a help with that ID.\n", ch);
 	}
 
-	mysql_free_result(result);
 } /* end edit_room() */
 
 static void edit_split(CHAR_DATA *ch, char *argument)

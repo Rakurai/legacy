@@ -151,26 +151,22 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 
 void ignore_offline(CHAR_DATA *ch, char *arg)
 {
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	char *name = NULL;
 	int pos;
 
-	if ((result = db_queryf("ignore_offline", "SELECT name, cgroup FROM pc_index WHERE name='%s'", db_esc(arg))) != NULL) {
-		if ((row = mysql_fetch_row(result))) {
-			if (IS_SET(atol(row[1]), GROUP_GEN)) {
+	if (db_queryf("ignore_offline", "SELECT name, cgroup FROM pc_index WHERE name LIKE '%s'", db_esc(arg)) != SQL_OK) {
+		if (db_next_row() != SQL_OK) {
+			if (IS_SET(db_get_column_int(1), GROUP_GEN)) {
 				stc("You're not going to ignore us that easily!\n", ch);
 				return;
 			}
 
-			strcpy(name, row[0]);
+			strcpy(name, db_get_column_str(0));
 		}
 		else {
 			stc("There is no one by that name to ignore.\n", ch);
 			return;
 		}
-
-		mysql_free_result(result);
 	}
 	else {
 		stc("Sorry, we couldn't retrieve that player's data.\nPlease report this with the 'bug' command.\n", ch);

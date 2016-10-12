@@ -49,7 +49,7 @@ int load_config(char *filename) {
 		bugf("Config file error before: [%s]", cJSON_GetErrorPtr());
 		return -1;
 	}
-
+/*
 	// got a valid json object, pull values from it
 	if ((obj = cJSON_GetObjectItem(json, "db_host")) != NULL) {
 		DB_HOST = str_dup(obj->valuestring);
@@ -67,7 +67,7 @@ int load_config(char *filename) {
 		DB_PASS = str_dup(obj->valuestring);
 		items++;
 	}
-
+*/
 	// free the structure
 	cJSON_Delete(json);
 	printf("loaded %d items from config file\n", items);

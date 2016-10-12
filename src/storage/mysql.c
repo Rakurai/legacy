@@ -9,6 +9,24 @@
 #include "db.h"
 #include "sql.h"
 
+#include <errmsg.h>
+#include <mysql.h>
+
+
+/* pasted here from old sql.h
+#define args(list) list
+
+#define DB_PORT			0
+#define DB_SOCKET		NULL
+#define DB_CLIENT_FLAG	0
+
+extern char *DB_HOST;
+extern char *DB_NAME;
+extern char *DB_USER;
+extern char *DB_PASS;
+
+extern	MYSQL *mysql_db;
+*/
 MYSQL *mysql_db;
 char *DB_HOST = NULL;
 char *DB_NAME = NULL;

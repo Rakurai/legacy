@@ -1670,8 +1670,8 @@ void update_handler(void)
 	       pulse_age,
 //	       pulse_tour,
 	       pulse_duel,
-	       pulse_janitor,
-	       pulse_mysql_upd;
+	       pulse_janitor;
+//	       pulse_mysql_upd;
 
 	if (--pulse_area        <= 0)   { pulse_area    = PULSE_AREA;           area_update();  }
 
@@ -1695,7 +1695,7 @@ void update_handler(void)
 
 	if (--pulse_janitor     <= 0)   { pulse_janitor = PULSE_JANITOR;        janitor_update();}
 
-	if (--pulse_mysql_upd <= 0) { pulse_mysql_upd = PULSE_MYSQL_UPD; db_update();}
+//	if (--pulse_mysql_upd <= 0) { pulse_mysql_upd = PULSE_MYSQL_UPD; db_update();}
 
 	if (--pulse_point       <= 0) {
 		pulse_point = PULSE_TICK;

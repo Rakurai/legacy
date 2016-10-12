@@ -847,34 +847,32 @@ void do_ban(CHAR_DATA *ch, char *argument)
 	char arg1[MIL], arg2[MIL], site[MIL];
 	char *p;
 	int flags = 0;
-	MYSQL_RES *result;
 
 	if (argument[0] == '\0') {
-		MYSQL_ROW row;
 		BUFFER *output;
 		bool found = FALSE;
 
-		if ((result = db_query("do_ban", "SELECT site, name, flags, reason FROM bans")) == NULL)
+		if (db_query("do_ban", "SELECT site, name, flags, reason FROM bans") != SQL_OK)
 			return;
 
 		output = new_buf();
 		add_buf(output, "Banned Sites                  {T|{xBanned by      {T|{xType   {T|{xReason\n");
 		add_buf(output, "{T------------------------------+---------------+-------+-----------------------------{x\n");
 
-		while ((row = mysql_fetch_row(result))) {
+		while (db_next_row() == SQL_OK) {
 			found = TRUE;
-			flags = atoi(row[2]);
+			flags = db_get_column_int(2);
 			sprintf(site, "%s%s%s",
 			        IS_SET(flags, BAN_PREFIX) ? "*" : "",
-			        row[0],
+			        db_get_column_str(0),
 			        IS_SET(flags, BAN_SUFFIX) ? "*" : "");
 			ptb(output, "%-30s{T|{x%-15s{T|{x%s{T|{x%s\n",
 			    site,
-			    row[1],
+			    db_get_column_str(1),
 			    IS_SET(flags, BAN_PERMIT)  ? "PERMIT " :
 			    IS_SET(flags, BAN_ALL)     ? "  ALL  " :
 			    IS_SET(flags, BAN_NEWBIES) ? "NEWBIES" : "       ",
-			    row[3]);
+			    db_get_column_str(3));
 		}
 
 		if (found)
@@ -883,7 +881,6 @@ void do_ban(CHAR_DATA *ch, char *argument)
 			stc("There are no banned hosts.\n", ch);
 
 		free_buf(output);
-		mysql_free_result(result);
 		return;
 	}
 
@@ -937,7 +934,7 @@ void do_ban(CHAR_DATA *ch, char *argument)
 		SET_BIT(flags, BAN_SUFFIX);
 	}
 
-	if (db_countf("do_ban", "SELECT COUNT(*) FROM bans WHERE site='%s' AND (flags-((flags>>4)<<4))=%d",
+	if (db_countf("do_ban", "SELECT COUNT(*) FROM bans WHERE site LIKE '%s' AND (flags-((flags>>4)<<4))=%d",
 	              site, flags) > 0)
 		ptc(ch, "%s is already banned.\n", arg1);
 	else {
@@ -980,10 +977,10 @@ void do_allow(CHAR_DATA *ch, char *argument)
 		SET_BIT(wildflags, BAN_SUFFIX);
 	}
 
-	db_commandf("do_allow", "DELETE FROM bans WHERE site='%s' AND (flags-((flags>>2)<<2))=%d",
+	db_commandf("do_allow", "DELETE FROM bans WHERE site LIKE '%s' AND (flags-((flags>>2)<<2))=%d",
 	            db_esc(site), wildflags);
 
-	if (mysql_affected_rows(mysql_db))
+	if (db_rows_affected() > 0)
 		ptc(ch, "Ban on %s lifted.\n", arg);
 	else
 		stc("That site is not banned.\n", ch);
@@ -993,8 +990,6 @@ void do_permit(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL], site[MIL];
 	char *p;
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	int wildflags = 0;
 	bool found = FALSE;
 	one_argument(argument, arg);
@@ -1052,13 +1047,13 @@ void do_permit(CHAR_DATA *ch, char *argument)
 		SET_BIT(wildflags, BAN_SUFFIX);
 	}
 
-	if ((result = db_queryf("do_permit",
-	                        "SELECT flags, site FROM bans WHERE site='%s' AND (flags-((flags>>2)<<2))=%d",
-	                        db_esc(site), wildflags)) == NULL)
+	if (db_queryf("do_permit",
+	                        "SELECT flags, site FROM bans WHERE site LIKE '%s' AND (flags-((flags>>2)<<2))=%d",
+	                        db_esc(site), wildflags) != SQL_OK)
 		return;
 
-	while (!found && (row = mysql_fetch_row(result))) {
-		int rowflags = atoi(row[0]);
+	while (!found && db_next_row() == SQL_OK) {
+		int rowflags = db_get_column_int(0);
 
 		if (IS_SET(rowflags, BAN_PERMIT)) {
 			ptc(ch, "Permit flag removed on %s.\n", arg);
@@ -1069,15 +1064,13 @@ void do_permit(CHAR_DATA *ch, char *argument)
 			SET_BIT(rowflags, BAN_PERMIT);
 		}
 
-		db_commandf("do_permit", "UPDATE bans SET flags=%d WHERE site='%s' AND flags=%d",
-		            rowflags, db_esc(row[1]), atoi(row[0]));
+		db_commandf("do_permit", "UPDATE bans SET flags=%d WHERE site LIKE '%s' AND flags=%d",
+		            rowflags, db_esc(db_get_column_str(1)), db_get_column_int(0));
 		found = TRUE;
 	}
 
 	if (!found)
 		stc("That site is not banned.\n", ch);
-
-	mysql_free_result(result);
 }
 
 void do_deny(CHAR_DATA *ch, char *argument)
@@ -1086,24 +1079,23 @@ void do_deny(CHAR_DATA *ch, char *argument)
 	char arg1[MIL];
 
 	if (argument[0] == '\0') {
-		MYSQL_RES *result;
-		MYSQL_ROW row;
 		BUFFER *output;
 		bool found = FALSE;
 
-		if ((result = db_query("do_deny", "SELECT name, denier, reason FROM denies")) == NULL)
+		if (db_query("do_deny", "SELECT name, denier, reason FROM denies") != SQL_OK)
 			return;
 
 		output = new_buf();
 		add_buf(output, "Denied Players {T|{xDenied by      {T|{xReason\n");
 		add_buf(output, "{T---------------+---------------+-------------------------------------------{x\n");
 
-		while ((row = mysql_fetch_row(result))) {
+		while (db_next_row() == SQL_OK) {
 			found = TRUE;
 			ptb(output, "%-15s{T|{x%-15s{T|{x%s\n",
-			    row[0],
-			    row[1],
-			    row[2]);
+			    db_get_column_str(0),
+			    db_get_column_str(1),
+			    db_get_column_str(2)
+			);
 		}
 
 		if (found)
@@ -1112,7 +1104,6 @@ void do_deny(CHAR_DATA *ch, char *argument)
 			stc("There are no denied players.\n", ch);
 
 		free_buf(output);
-		mysql_free_result(result);
 		return;
 	}
 
@@ -1138,7 +1129,7 @@ void do_deny(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if (db_countf("do_deny", "SELECT COUNT(*) FROM denies WHERE name='%s'", victim->name) > 0)
+	if (db_countf("do_deny", "SELECT COUNT(*) FROM denies WHERE name LIKE '%s'", victim->name) > 0)
 		ptc(ch, "%s is already denied.\n", victim->name);
 	else {
 		char buf[MSL];
@@ -1164,9 +1155,9 @@ void do_undeny(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	db_commandf("do_undeny", "DELETE FROM denies WHERE name='%s'", db_esc(arg));
+	db_commandf("do_undeny", "DELETE FROM denies WHERE name LIKE '%s'", db_esc(arg));
 
-	if (mysql_affected_rows(mysql_db)) {
+	if (db_rows_affected() > 0) {
 		char buf[MSL];
 		ptc(ch, "%s has been granted access to Legacy.\n", arg);
 		sprintf(buf, "$N has undenied %s", arg);

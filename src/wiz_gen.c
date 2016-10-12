@@ -158,8 +158,6 @@ char *site_to_ssite(char *site)
 void do_alternate(CHAR_DATA *ch, char *argument)
 {
 	char arg1[MIL], arg2[MIL], query[MSL], colorsite[MSL], *p, *q;
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	BUFFER *output;
 	int sorted_count = 0, i;
 	struct alts {
@@ -185,13 +183,13 @@ void do_alternate(CHAR_DATA *ch, char *argument)
 		strcpy(site, arg2);
 		p = site;
 		/* only get sites in the last year.  we don't delete them,
-		   saving for some unforseen circumstance :)  curdate()
+		   saving for some unforseen circumstance :)  date()
 		   minus lastlog is 10000 for the same day one year ago,
 		   so we'll get that and just cut off the excess.  we do
 		   this instead of simply selecting only log entries up to
 		   a year old so that if the person has not logged on in the
 		   last year, we still get a result.  -- Montrey */
-		strcpy(query, "SELECT name, site, (CURDATE() - lastlog) FROM sites "
+		strcpy(query, "SELECT name, site, (DATE() - lastlog) FROM sites "
 		       "WHERE site LIKE '");
 
 		if (*p == '*') {
@@ -216,19 +214,13 @@ void do_alternate(CHAR_DATA *ch, char *argument)
 		if (suffix)
 			strcat(query, "\%");
 
-		strcat(query, "' ORDER BY name, (CURDATE() - lastlog)");
+		strcat(query, "' ORDER BY name, (DATE() - lastlog)");
 		bug(query, 0);
 
-		if ((result = db_query("do_alternate", query)) == NULL)
+		if (db_query("do_alternate", query) != SQL_OK)
 			return;
 
-		if (mysql_num_rows(result)) {
-			stc("Site not found - make sure your specified site is not too limiting.\n", ch);
-			mysql_free_result(result);
-			return;
-		}
-
-		while ((row = mysql_fetch_row(result))) {
+		while (db_next_row() == SQL_OK) {
 			if (sorted_count >= 500) {
 				bug("do_alternate: WARNING: maximum sorted structure size reached", 0);
 				break;
@@ -236,16 +228,19 @@ void do_alternate(CHAR_DATA *ch, char *argument)
 
 			/* if we're getting results over a year old, break it off, unless
 			   we don't have a single result yet */
-			if (sorted_count && atoi(row[2]) >= 10000)
+			if (sorted_count && db_get_column_int(2) >= 10000)
 				break;
 
-			strcpy(results_sorted[sorted_count].name, row[0]);
+			strcpy(results_sorted[sorted_count].name, db_get_column_str(0));
 			strcpy(results_sorted[sorted_count].site,
-			       strrpc(p, colorsite, row[1]));
+			       strrpc(p, colorsite, db_get_column_str(1)));
 			sorted_count++;
 		}
 
-		mysql_free_result(result);
+		if (sorted_count == 0) {
+			stc("Site not found - make sure your specified site is not too limiting.\n", ch);
+			return;
+		}
 	}
 	else {
 		bool old_char = FALSE;
@@ -257,37 +252,34 @@ void do_alternate(CHAR_DATA *ch, char *argument)
 		struct alts results_to_sort[500];
 		int x, to_sort_count = 0, sitecount = 0;
 
-		if ((result = db_queryf("do_alternate",
-		                        "SELECT site, ssite, (CURDATE() - lastlog) FROM sites "
-		                        "WHERE name='%s' ORDER BY (CURDATE() - lastlog)", arg1)) == NULL)
+		if (db_queryf("do_alternate",
+		                        "SELECT site, ssite, (DATE() - lastlog) FROM sites "
+		                        "WHERE name LIKE '%s' ORDER BY (DATE() - lastlog)", arg1) != SQL_OK)
 			return;
 
-		if (!mysql_num_rows(result)) {
-			stc("Player not found - make sure to search by exact name.\n", ch);
-			mysql_free_result(result);
-			return;
-		}
-
-		while ((row = mysql_fetch_row(result))) {
+		while (db_next_row() == SQL_OK) {
 			if (sitecount >= 50) {
 				bug("do_alternate: WARNING: maximum site structure size reached", 0);
 				break;
 			}
 
 			/* old char? */
-			if (atoi(row[2]) >= 10000) {
+			if (db_get_column_int(2) >= 10000) {
 				if (!old_char && sitecount)
 					break;
 				else
 					old_char = TRUE;
 			}
 
-			strcpy(sitelist[sitecount].site, row[0]);
-			strcpy(sitelist[sitecount].ssite, row[1]);
+			strcpy(sitelist[sitecount].site, db_get_column_str(0));
+			strcpy(sitelist[sitecount].ssite, db_get_column_str(1));
 			sitecount++;
 		}
 
-		mysql_free_result(result);
+		if (sitecount == 0) {
+			stc("Player not found - make sure to search by exact name.\n", ch);
+			return;
+		}
 
 		for (i = 0; i < sitecount; i++) {
 			/* don't get *any* results more than a year old, unless all
@@ -295,25 +287,27 @@ void do_alternate(CHAR_DATA *ch, char *argument)
 			sprintf(query, "SELECT name, site FROM sites WHERE ");
 
 			if (!old_char)
-				strcat(query, "SUBDATE(CURDATE(), INTERVAL 1 YEAR) <= lastlog AND ");
+				strcat(query, "lastlog >= DATE('now', '-1 year') AND ");
 
 			strcat(query, "ssite='%s'");
 
-			if ((result = db_queryf("do_alternate", query, db_esc(sitelist[i].ssite))) == NULL)
+			if (db_queryf("do_alternate", query, db_esc(sitelist[i].ssite)) != SQL_OK)
 				return;
 
 			sprintf(colorsite, "{Y%s{W", sitelist[i].ssite);
 
-			while ((row = mysql_fetch_row(result))) {
-				if (!str_cmp(row[0], arg1)) {
+			while (db_next_row() == SQL_OK) {
+				char *name = db_get_column_str(0);
+
+				if (!str_cmp(name, arg1)) {
 					if (sorted_count >= 500) {
 						bug("do_alternate: WARNING: maximum sorted structure size reached", 0);
 						break;
 					}
 
-					strcpy(results_sorted[sorted_count].name, row[0]);
+					strcpy(results_sorted[sorted_count].name, name);
 					strcpy(results_sorted[sorted_count].site,
-					       strrpc(sitelist[i].ssite, colorsite, row[1]));
+					       strrpc(sitelist[i].ssite, colorsite, db_get_column_str(1)));
 					results_sorted[sorted_count].printed = FALSE;
 					sorted_count++;
 				}
@@ -323,15 +317,13 @@ void do_alternate(CHAR_DATA *ch, char *argument)
 						break;
 					}
 
-					strcpy(results_to_sort[to_sort_count].name, row[0]);
+					strcpy(results_to_sort[to_sort_count].name, name);
 					strcpy(results_to_sort[to_sort_count].site,
-					       strrpc(sitelist[i].ssite, colorsite, row[1]));
+					       strrpc(sitelist[i].ssite, colorsite, db_get_column_str(1)));
 					results_to_sort[to_sort_count].printed = FALSE;
 					to_sort_count++;
 				}
 			}
-
-			mysql_free_result(result);
 		}
 
 		for (x = 'A'; x <= 'Z'; x++) {
@@ -1416,7 +1408,6 @@ void do_file(CHAR_DATA *ch, char *argument)
 void do_followerlist(CHAR_DATA *ch, char *argument)
 {
 	char query[MSL], deity[MSL];
-	MYSQL_RES *result;
 	int count;
 
 	if (argument[0] == '\0')
@@ -1429,36 +1420,36 @@ void do_followerlist(CHAR_DATA *ch, char *argument)
 	strcat(query, deity);
 	strcat(query, "%'");
 
-	if ((result = db_query("do_followerlist", query)) == NULL)
+	if (db_query("do_followerlist", query) != SQL_OK)
 		return;
 
-	if ((count = mysql_num_rows(result)) <= 0)
+	BUFFER *buffer = new_buf();
+	ptb(buffer, "{GFollowers of %s{G:{x\n", deity);
+	add_buf(buffer, "{G=================================================================={x\n");
+
+	while (db_next_row() == SQL_OK) {
+		count++;
+		char deityblock[MSL];
+		int space = 50 - color_strlen(db_get_column_str(1));
+		strcpy(deityblock, "{W");
+
+		while (space-- >= 0)
+			strcat(deityblock, " ");
+
+		strcat(deityblock, db_get_column_str(1));
+		ptb(buffer, "{G[{W%12s{G][%s{G]{x\n", db_get_column_str(0), deityblock);
+	}
+
+	if (count == 0)
 		ptc(ch, "No one follows %s.\n", deity);
 	else {
-		MYSQL_ROW row;
-		BUFFER *buffer = new_buf();
-		ptb(buffer, "{GFollowers of %s{G:{x\n", deity);
-		add_buf(buffer, "{G=================================================================={x\n");
-
-		while ((row = mysql_fetch_row(result))) {
-			char deityblock[MSL];
-			int space = 50 - color_strlen(row[1]);
-			strcpy(deityblock, "{W");
-
-			while (space-- >= 0) strcat(deityblock, " ");
-
-			strcat(deityblock, row[1]);
-			ptb(buffer, "{G[{W%12s{G][%s{G]{x\n", row[0], deityblock);
-		}
-
 		add_buf(buffer, "{G=================================================================={x\n");
 		ptb(buffer, "{WThere %s %d follower%s of %s{x.\n",
 		    count == 1 ? "is" : "are", count, count == 1 ? "" : "s", deity);
 		page_to_char(buf_string(buffer), ch);
-		free_buf(buffer);
 	}
 
-	mysql_free_result(result);
+	free_buf(buffer);
 }
 
 /* Expand the name of a character into a string that identifies THAT

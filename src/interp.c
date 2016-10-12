@@ -321,7 +321,7 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "mptransfer",         do_mptransfer,  POS_DEAD,               LOG_NORMAL,     0,      GM                      },
 	{ "music",                      do_music,               POS_SLEEPING,   LOG_NORMAL,     1,      0                       },
 	{ "mwhere",                     do_mwhere,              POS_DEAD,               LOG_NORMAL,     5,      GWG                     },
-	{ "mypipe",                     do_mypipe,              POS_DEAD,               LOG_ALWAYS,     5,      GD | GWC        },
+//	{ "mypipe",                     do_mypipe,              POS_DEAD,               LOG_ALWAYS,     5,      GD | GWC        },
 	{ "newscore",           do_newscore,    POS_SLEEPING,   LOG_NORMAL,     6,      0                       },
 	{ "newpassword",        do_newpasswd,   POS_DEAD,               LOG_ALWAYS,     5,      GWS                     },
 	{ "newbiekit",          do_newbiekit,   POS_RESTING,    LOG_ALWAYS,     5,      0                       },
@@ -991,7 +991,7 @@ int mult_argument(char *argument, char *arg)
  * Pick off one argument from a string and return the rest.
  * Understands quotes.
  */
-char *one_argument(char *argument, char *arg_first)
+const char *one_argument(const char *argument, char *arg_first)
 {
 	char cEnd;
 
@@ -1220,18 +1220,16 @@ bool check_disabled(const struct cmd_type *command)
 
 void load_disabled()
 {
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	DISABLED_DATA *p;
 	int i;
 	disabled_first = NULL;
 
-	if ((result = db_query("load_disabled", "SELECT command, immortal, reason FROM disabled")) == NULL)
+	if (db_query("load_disabled", "SELECT command, immortal, reason FROM disabled") != SQL_OK)
 		return;
 
-	while ((row = mysql_fetch_row(result))) {
+	while (db_next_row() == SQL_OK) {
 		for (i = 0; cmd_table[i].name[0]; i++)
-			if (!str_cmp(cmd_table[i].name, row[0]))
+			if (!str_cmp(cmd_table[i].name, db_get_column_str(0)))
 				break;
 
 		if (!cmd_table[i].name[0]) {
@@ -1241,13 +1239,11 @@ void load_disabled()
 
 		p = alloc_mem(sizeof(DISABLED_DATA));
 		p->command = &cmd_table[i];
-		p->disabled_by = str_dup(row[1]);
-		p->reason = str_dup(row[2]);
+		p->disabled_by = str_dup(db_get_column_str(1));
+		p->reason = str_dup(db_get_column_str(2));
 		p->next = disabled_first;
 		disabled_first = p;
 	}
-
-	mysql_free_result(result);
 }
 
 void do_disable(CHAR_DATA *ch, char *argument)
@@ -1289,7 +1285,7 @@ void do_disable(CHAR_DATA *ch, char *argument)
 		}
 
 		/* remove it from the database */
-		db_commandf("do_disable", "DELETE FROM disabled WHERE command ='%s'", db_esc(p->command->name));
+		db_commandf("do_disable", "DELETE FROM disabled WHERE command LIKE '%s'", db_esc(p->command->name));
 		free_string(p->disabled_by);
 		free_string(p->reason);
 		free_mem(p, sizeof(DISABLED_DATA));

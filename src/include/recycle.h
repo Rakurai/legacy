@@ -131,6 +131,6 @@ void		free_coord args((WM_COORD_DATA *coord));
 BUFFER	*new_buf args( (void) );
 BUFFER  *new_buf_size args( (long size) );
 void	free_buf args( (BUFFER *buffer) );
-bool	add_buf args( (BUFFER *buffer, char *string) );
+bool	add_buf args( (BUFFER *buffer, const char *string) );
 void	clear_buf args( (BUFFER *buffer) );
 char	*buf_string args( (BUFFER *buffer) );

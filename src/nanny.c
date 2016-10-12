@@ -45,26 +45,24 @@ as unsigned causes errors in write_to_buf.  Therefore, ignore the warning - Lotu
  */
 bool check_ban(char *site, int type)
 {
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	bool ban = FALSE;
 
-	if ((result = db_queryf("check_ban", "SELECT flags, site FROM bans WHERE ((flags>>2)<<2)=%d", type)) == NULL)
+	if (db_queryf("check_ban", "SELECT flags, site FROM bans WHERE ((flags>>2)<<2)=%d", type) != SQL_OK)
 		return FALSE;
 
-	while (!ban && (row = mysql_fetch_row(result))) {
-		int flags = atoi(row[0]);
+	while (!ban && db_next_row() == SQL_OK) {
+		int flags = db_get_column_int(0);
+		char *str = db_get_column_str(1);
 		bool prefix = IS_SET(flags, BAN_PREFIX);
 		bool suffix = IS_SET(flags, BAN_SUFFIX);
 
-		if ((prefix  &&  suffix && !str_infix(row[1], site))
-		    || (prefix  && !suffix && !str_suffix(row[1], site))
-		    || (!prefix &&  suffix && !str_prefix(row[1], site))
-		    || (!prefix && !suffix && !str_cmp(row[1], site)))
+		if ((prefix  &&  suffix && !str_infix(str, site))
+		    || (prefix  && !suffix && !str_suffix(str, site))
+		    || (!prefix &&  suffix && !str_prefix(str, site))
+		    || (!prefix && !suffix && !str_cmp(str, site)))
 			ban = TRUE;
 	}
 
-	mysql_free_result(result);
 	return ban;
 }
 
@@ -84,10 +82,10 @@ void update_site(CHAR_DATA *ch)
 
 	if (db_countf("update_site",
 	              "SELECT COUNT(*) FROM sites WHERE name='%s' AND ssite='%s'", ch->name, shortsite) > 0)
-		db_commandf("update_site", "UPDATE sites SET lastlog=CURDATE(), site='%s' WHERE name='%s' AND ssite='%s'",
+		db_commandf("update_site", "UPDATE sites SET lastlog=DATE(), site='%s' WHERE name='%s' AND ssite='%s'",
 		            db_esc(ch->desc->host), db_esc(ch->name), db_esc(shortsite));
 	else
-		db_commandf("update_site", "INSERT INTO sites VALUES('%s','%s','%s',CURDATE())",
+		db_commandf("update_site", "INSERT INTO sites VALUES('%s','%s','%s',DATE())",
 		            db_esc(ch->name), db_esc(ch->desc->host), db_esc(shortsite));
 }
 
