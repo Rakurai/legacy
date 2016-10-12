@@ -938,8 +938,6 @@ int compare_clans(const void *p1, const void *p2)
 
 void do_clanlist(CHAR_DATA *ch, char *argument)
 {
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	char lblock[MIL], rblock[MIL];
 	CLAN_DATA *clan;
 	BUFFER *buffer;
@@ -1007,17 +1005,17 @@ void do_clanlist(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if ((result = db_queryf("do_clanlist",
-	                        "SELECT name, title, rank, level, remort, cgroup FROM pc_index WHERE clan='%s'", clan->name)) == NULL)
+	if (db_queryf("do_clanlist",
+	    "SELECT name, title, rank, level, remort, cgroup FROM pc_index WHERE clan LIKE '%s'", db_esc(clan->name)) != SQL_OK)
 		return;
 
-	while ((row = mysql_fetch_row(result))) {
-		int cgroup = atol(row[5]);
-		strcpy(clan_list[count].name,  row[0]);
-		strcpy(clan_list[count].title, row[1]);
-		strcpy(clan_list[count].rank,  row[2]);
-		clan_list[count].level  = atoi(row[3]);
-		clan_list[count].remort = atoi(row[4]);
+	while (db_next_row() == SQL_OK) {
+		int cgroup = db_get_column_int(5);
+		strcpy(clan_list[count].name, db_get_column_str(0));
+		strcpy(clan_list[count].title, db_get_column_str(1));
+		strcpy(clan_list[count].rank, db_get_column_str(2));
+		clan_list[count].level  = db_get_column_int(3);
+		clan_list[count].remort = db_get_column_int(4);
 		clan_list[count].status = IS_SET(cgroup, GROUP_LEADER) ? 2 : IS_SET(cgroup, GROUP_DEPUTY) ? 1 : 0;
 		clan_list[count].printed       = FALSE;
 
@@ -1030,7 +1028,6 @@ void do_clanlist(CHAR_DATA *ch, char *argument)
 		count++;
 	}
 
-	mysql_free_result(result);
 	buffer = new_buf();
 	ptb(buffer, "{VMembers of %s:\n\n", clan->clanname);
 	sprintf(rblock, "{x");
@@ -5094,9 +5091,9 @@ void print_old_affects(CHAR_DATA *ch)
 	    IS_AFFECTED(ch, race_table[ch->race].aff)) {
 		add_buf(buffer, "{bYou are affected by the following racial abilities:{x\n");
 
-		if (IS_SET(cheat, race_table[ch->race].aff));
+		if (IS_SET(cheat, race_table[ch->race].aff))
+			cheat -= race_table[ch->race].aff;
 
-		cheat -= race_table[ch->race].aff;
 		strcpy(buf3, affect_bit_name(race_table[ch->race].aff));
 		buf4 = buf3;
 		buf4 = one_argument(buf4, buf2);

@@ -784,10 +784,11 @@ int can_carry_w(CHAR_DATA *ch)
 }
 
 /* Is Exact Name by Lotus */
-bool is_exact_name(char *str, char *namelist)
+bool is_exact_name(char *str, const char *namelist)
 {
 	char name[MIL], part[MIL];
-	char *list, *string;
+	const char *list;
+	char *string;
 	string = str;
 
 	/* we need ALL parts of string to match part of namelist */
@@ -818,7 +819,7 @@ bool is_exact_name(char *str, char *namelist)
 /*
  * See if a string is one of the names of an object.
  */
-bool is_name(char *str, char *namelist)
+bool is_name(char *str, const char *namelist)
 {
 	char name[MIL], part[MIL];
 	char *list, *string;
@@ -849,7 +850,7 @@ bool is_name(char *str, char *namelist)
 	}
 }
 
-bool is_exact_name_color(char *str, char *namelist)
+bool is_exact_name_color(char *str, const char *namelist)
 {
 	char name[MIL], part[MIL];
 	char *list, *string;

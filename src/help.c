@@ -65,39 +65,38 @@ char *one_keyword(char *keywords, char *word)
 void help_char_search(CHAR_DATA *ch, char *arg)
 {
 	char buf[MSL] = "\0", query[MSL], *text;
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	BUFFER *output;
-	int i = 0;
+	int i = 0, count = 0;
 	sprintf(query, "SELECT " HCOL_KEYS " FROM " HTABLE " WHERE " HCOL_LEVEL " <= %d "
 	        "AND " HCOL_KEYS " LIKE '%% %s%%' "
 	        "OR " HCOL_KEYS " LIKE '%s%%' "
 	        "OR " HCOL_KEYS " LIKE '%%\\'%s%%' "
 	        "ORDER BY " HCOL_KEYS,
-	        ch->level, arg, arg, arg
+	        ch->level, db_esc(arg), db_esc(arg), db_esc(arg)
 	       );
 
-	if ((result = db_query("help_char_search", query)) == NULL) {
+	if (db_query("help_char_search", query) != SQL_OK) {
 		stc("There was a problem with your help query, please notify the imms\n"
 		    "using the 'bug' command.  Make sure to say what you typed.\n", ch);
 		return;
 	}
 
-	if (!mysql_num_rows(result)) {
-		stc("No helps were found with keywords beginning with that character.\n", ch);
-		mysql_free_result(result);
-		return;
-	}
+	while (db_next_row() == SQL_OK) {
+		count++;
+		const char *keywords = db_get_column_str(0);
 
-	while ((row = mysql_fetch_row(result))) {
-		if (!is_name(arg, row[0]))
+		if (!is_name(arg, keywords))
 			continue;
 
 		strcat(buf, ++i % 2 ? " {W" : " {c");
-		strcat(buf, row[0]);
+		strcat(buf, keywords);
 	}
 
-	mysql_free_result(result);
+	if (count == 0) {
+		stc("No helps were found with keywords beginning with that character.\n", ch);
+		return;
+	}
+
 	output = new_buf();
 	add_buf(output, stupidassline);
 	ptb(output, "\n{WHelps beginning with the letter '{c%s{W':{x\n\n", arg);
@@ -114,8 +113,6 @@ void help_char_search(CHAR_DATA *ch, char *arg)
 /* the mud's internal help command, no multiple results, no suggestions.  command groups are not checked */
 void help(CHAR_DATA *ch, char *argument)
 {
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	char query[MSL], *p;
 	BUFFER *output;
 	sprintf(query, "SELECT " HCOL_TEXT " FROM " HTABLE " WHERE ");
@@ -134,22 +131,23 @@ void help(CHAR_DATA *ch, char *argument)
 
 	strcat(query, " LIMIT 1");
 
-	if ((result = db_query("help", query)) == NULL)
+	if (db_query("help", query) != SQL_OK)
 		return;
 
-	if ((row = mysql_fetch_row(result)) == NULL) {
+	if (db_next_row() != SQL_OK) {
 		bugf("help():  no helps with keywords '%s'", argument);
 		return;
 	}
 
-	if (row[0] == NULL) {
+	const char *text = db_get_column_str(0);
+
+	if (text == NULL) {
 		bugf("help():  help with keywords '%s' has null text", argument);
 		return;
 	}
 
 	output = new_buf();
-	add_buf(output, row[0] + (row[0][0] == '.' ? 1 : 0));
-	mysql_free_result(result);
+	add_buf(output, text + (text[0] == '.' ? 1 : 0));
 	page_to_char(buf_string(output), ch);
 	free_buf(output);
 }
@@ -313,8 +311,6 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 void do_printhelps(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL], buf[MSL * 3];
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	FILE *fp;
 	int tablenum, count = 0;
 
@@ -358,32 +354,31 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	if ((result = db_queryf("do_printhelps",
+	if (db_queryf("do_printhelps",
 	                        "SELECT " HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT " FROM " HTABLE " WHERE " HCOL_GROUP "=%d ORDER BY " HCOL_ORDER,
-	                        helpfile_table[tablenum].group)) == NULL)
+	                        helpfile_table[tablenum].group) != SQL_OK)
 		return;
-
-	if (!mysql_num_rows(result)) {
-		ptc(ch, "No help files fall into the '%s' group.\n", helpfile_table[tablenum].name);
-		mysql_free_result(result);
-		return;
-	}
 
 	if ((fp = fopen(TEMP_FILE, "w")) == NULL) {
 		bug("do_printhelps: unable to open temp file", 0);
-		mysql_free_result(result);
 		return;
 	}
 
-	while ((row = mysql_fetch_row(result))) {
-		strcpy(buf, row[0]);
+	while (db_next_row() == SQL_OK) {
+		strcpy(buf, db_get_column_str(0));
 		strcat(buf, " ");
-		strcat(buf, row[1]);
+		strcat(buf, db_get_column_str(1));
 		strcat(buf, "~\n");
-		strcat(buf, row[2]);
+		strcat(buf, db_get_column_str(2));
 		strcat(buf, "~\n\n");
 		fputs(buf, fp);
 		count++;
+	}
+
+	if (count == 0) {
+		ptc(ch, "No help files fall into the '%s' group.\n", helpfile_table[tablenum].name);
+		fclose(fp);
+		return;
 	}
 
 	fprintf(fp, "-2\n");
@@ -391,14 +386,11 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 	sprintf(buf, HELP_DIR "%s.help", helpfile_table[tablenum].name);
 	rename(TEMP_FILE, buf);
 	ptc(ch, "File " HELP_DIR "%s.help: %d helps printed.\n", helpfile_table[tablenum].name, count);
-	mysql_free_result(result);
 }
 
 void do_help(CHAR_DATA *ch, char *argument)
 {
 	char arg[MIL], query[MSL], *p;
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	BUFFER *output;
 	int result_count = 0, partial_count = 0, result_num = 0, i;
 	struct help_struct {
@@ -448,20 +440,25 @@ void do_help(CHAR_DATA *ch, char *argument)
 	/* display the normal helps, followed by immortal helps */
 	strcat(query, " ORDER BY " HCOL_ORDER);
 
-	if ((result = db_query("do_help", query)) == NULL) {
+	if (db_query("do_help", query) != SQL_OK) {
 		stc("There was a problem with your help query, please notify the imms\n"
 		    "using the 'bug' command.  Make sure to say what you typed.\n", ch);
 		return;
 	}
 
-	while ((row = mysql_fetch_row(result))) {
-		if (row[1] == NULL || row[2] == NULL)
+	while (db_next_row() == SQL_OK) {
+		int group = db_get_column_int(0);
+		char *keywords = db_get_column_str(1);
+		char *text = db_get_column_str(2);
+		int id = db_get_column_int(3);
+
+		if (keywords == NULL || text == NULL)
 			continue;
 
 		/* 0 if not keyword, 1 if exact match, 2 if semi-match */
-		if (is_exact_name(argument, row[1]))
+		if (is_exact_name(argument, keywords))
 			temp_help[result_count].type = 1;
-		else if (is_name(argument, row[1])) {
+		else if (is_name(argument, keywords)) {
 			temp_help[result_count].type = 2;
 			partial_count++;
 		}
@@ -469,22 +466,20 @@ void do_help(CHAR_DATA *ch, char *argument)
 			continue;
 
 		for (i = 0; helpfile_table[i].name != NULL; i++)
-			if (helpfile_table[i].group == atoi(row[0])) {
+			if (helpfile_table[i].group == group) {
 				temp_help[result_count].hgroup = i;
 				break;
 			}
 
-		strcpy(temp_help[result_count].keywords, row[1]);
+		strcpy(temp_help[result_count].keywords, keywords);
 
 		/* don't bother if we won't display it */
 		if (temp_help[result_count].type != 2 || partial_count <= 1)
-			strcpy(temp_help[result_count].text, row[2]);
+			strcpy(temp_help[result_count].text, text);
 
-		temp_help[result_count].id = atoi(row[3]);
+		temp_help[result_count].id = id;
 		result_count++;
 	}
-
-	mysql_free_result(result);
 
 	if (result_count == 0) {
 		stc("No helps were found with those keywords.\n", ch);
@@ -565,8 +560,6 @@ void do_help(CHAR_DATA *ch, char *argument)
 void do_hedit(CHAR_DATA *ch, char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	smash_tilde(argument);
 	argument = one_argument(argument, cmd);
 
@@ -592,14 +585,13 @@ void do_hedit(CHAR_DATA *ch, char *argument)
 			return;
 		}
 
-		if ((result = db_query("do_help", "select last_insert_id()")) == NULL) {
+		if (db_query("do_help", "select last_insert_rowid()") != SQL_OK
+		 || db_next_row() != SQL_OK) {
 			stc("Couldn't retrieve the ID of the new help.\n", ch);
 			return;
 		}
 
-		row = mysql_fetch_row(result);
-		ptc(ch, "Success, the new help has an ID of %s.\n", row[0]);
-		mysql_free_result(result);
+		ptc(ch, "Success, the new help has an ID of %s.\n", db_get_column_int(0));
 		return;
 	}
 
@@ -622,18 +614,22 @@ void do_hedit(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!str_cmp(cmd, "show")) {
-		if ((result = db_queryf("do_help",
+		if (db_queryf("do_help",
 		                        "select " HCOL_GROUP "," HCOL_ORDER "," HCOL_LEVEL "," HCOL_KEYS "," HCOL_TEXT
-		                        " from " HTABLE " where " HCOL_ID "=%s", arg)) == NULL) {
+		                        " from " HTABLE " where " HCOL_ID "=%s", arg) != SQL_OK
+		 || db_next_row() != SQL_OK) {
 			stc("Couldn't retrieve a help with that ID.\n", ch);
 			return;
 		}
 
-		row = mysql_fetch_row(result);
 		ptc(ch, "ID: %4s  File: %s  Order: %s  Level: %s\nKeywords: %s\n%s\n",
-		    arg, row[0], row[1], row[2], row[3], row[4]
-		   );
-		mysql_free_result(result);
+		    arg,
+		    db_get_column_str(0),
+		    db_get_column_str(1),
+		    db_get_column_str(2),
+		    db_get_column_str(3),
+		    db_get_column_str(4)
+		);
 		return;
 	}
 

@@ -3198,6 +3198,7 @@ char *  crypt           args( ( const char *key, const char *salt ) );
 #define EXE_FILE        BIN_DIR "legacy"
 
 #define MISC_DIR        "../misc/"              /* Miscellaneous Stuff */
+#define DB_FILE         MISC_DIR "database.sl3"
 #define CONFIG_FILE     MISC_DIR "config.json"  // new config file
 #define NULL_FILE       MISC_DIR "NULL_FILE"             /* To reserve one stream */
 #define PID_FILE        MISC_DIR "legacy.pid"    /* pid file for the autoreboot script */
@@ -3551,9 +3552,9 @@ int     get_curr_stat   args(( CHAR_DATA *ch, int stat ) );
 int     get_max_train   args(( CHAR_DATA *ch, int stat ) );
 int     can_carry_n     args(( CHAR_DATA *ch ) );
 int     can_carry_w     args(( CHAR_DATA *ch ) );
-bool    is_name         args(( char *str, char *namelist ) );
-bool    is_exact_name   args(( char *str, char *namelist ) );
-bool    is_exact_name_color   args(( char *str, char *namelist ) );
+bool    is_name         args(( char *str, const char *namelist ) );
+bool    is_exact_name   args(( char *str, const char *namelist ) );
+bool    is_exact_name_color   args(( char *str, const char *namelist ) );
 void    affect_to_char  args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void    affect_to_obj   args(( OBJ_DATA *obj, AFFECT_DATA *paf ) );
 void    affect_to_room  args(( ROOM_INDEX_DATA *room, AFFECT_DATA *paf ) );
@@ -3683,7 +3684,7 @@ bool    is_number       args( ( char *arg ) );
 int     number_argument args( ( char *argument, char *arg ) );
 int     entity_argument args( ( char *argument, char *arg ) );
 int     mult_argument   args( ( char *argument, char *arg) );
-char *  one_argument    args( ( char *argument, char *arg_first ) );
+const char *  one_argument    args( ( const char *argument, char *arg_first ) );
 bool    check_social    args( ( CHAR_DATA *ch, char *command,
                             char *argument ) );
 void	do_huh		args( ( CHAR_DATA *ch ) );	/* Xenith */

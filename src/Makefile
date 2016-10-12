@@ -8,9 +8,11 @@ CC      = gcc
 WARNING = -Wall -Winline
 DEBUG   = -ggdb
 DEFINE  = -Dlinux -Dunix -DSQL -DDEBUG -DIPV6
-INCLUDE = -I$(INCDIR) $(shell mysql_config --cflags) -I/usr/include
+#INCLUDE = -I$(INCDIR) $(shell mysql_config --cflags) -I/usr/include
+INCLUDE = -I$(INCDIR) -I/usr/include 
 C_FLAGS = -O ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}
-L_FLAGS = $(shell mysql_config --libs)
+#L_FLAGS = $(shell mysql_config --libs)
+L_FLAGS = -lsqlite3
 
 DATE=`date +%Y-%m-%d`
 
@@ -26,7 +28,7 @@ H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 _O_FILES = act_comm.o act_info.o act_move.o act_obj.o alias.o area_handler.o bank.o channels.o	\
 	clan-edit.o comm.o config.o const.o db.o debug.o departed.o duel.o edit.o effects.o	\
 	fight.o file.o find.o flags.o handler.o help.o hunt.o ignore.o interp.o load_config.o	\
-	lookup.o magic.o marry.o memory.o mob_commands.o mob_prog.o mobiles.o music.o mysql.o	\
+	lookup.o magic.o marry.o memory.o mob_commands.o mob_prog.o mobiles.o music.o sqlite.o	\
 	nanny.o note.o objstate.o quest.o random.o recycle.o remort.o rmagic.o save.o scan.o	\
 	set-stat.o skills.o social.o special.o storage.o string.o tables.o update.o war.o	\
 	wiz_admin.o wiz_build.o wiz_coder.o wiz_gen.o wiz_quest.o wiz_secure.o

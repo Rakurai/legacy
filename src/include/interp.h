@@ -281,7 +281,7 @@ DECLARE_DO_FUN( do_mset         );
 DECLARE_DO_FUN( do_mstat        );
 DECLARE_DO_FUN( do_music        );
 DECLARE_DO_FUN( do_mwhere       );
-DECLARE_DO_FUN( do_mypipe	);
+//DECLARE_DO_FUN( do_mypipe	);
 DECLARE_DO_FUN( do_newbiekit    );
 DECLARE_DO_FUN( do_newlock      );
 DECLARE_DO_FUN( do_newpasswd    );

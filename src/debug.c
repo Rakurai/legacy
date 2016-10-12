@@ -183,7 +183,7 @@ void do_debug(CHAR_DATA *ch, char *argument)
 #endif
 		return;
 	}
-
+/*
 	if (!strcmp(subfunc, "fullupdate")) {
 		MYSQL_RES *result;
 		MYSQL_ROW row;
@@ -239,7 +239,7 @@ void do_debug(CHAR_DATA *ch, char *argument)
 		mysql_free_result(result);
 		return;
 	}
-
+*/
 	if (!strcmp(subfunc, "aversion")) {
 		AREA_DATA *area;
 
