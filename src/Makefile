@@ -12,7 +12,7 @@ DEFINE  = -Dlinux -Dunix -DSQL -DDEBUG -DIPV6
 INCLUDE = -I$(INCDIR) -I/usr/include 
 C_FLAGS = -O ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}
 #L_FLAGS = $(shell mysql_config --libs)
-L_FLAGS = -lsqlite3
+L_FLAGS = -lsqlite3 -lm
 
 DATE=`date +%Y-%m-%d`
 
