@@ -358,8 +358,6 @@ void    fix_exits       args((void));
 /* Big mama top level function */
 void boot_db()
 {
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	/* Init some data space stuff */
 	{
 		if ((string_space = calloc(1, MAX_STRING)) == NULL) {
@@ -526,27 +524,23 @@ void boot_db()
 	printf("survived load_items\n");
 
 	/* read in our record players and record logins */
-	if ((result = db_query("boot_db", "SELECT logins, players FROM records")) != NULL) {
-		if ((row = mysql_fetch_row(result))) {
-			record_logins = atoi(row[0]);
-			record_players = atoi(row[1]);
+	if (db_query("boot_db", "SELECT logins, players FROM records") == SQL_OK) {
+		if (db_next_row() == SQL_OK) {
+			record_logins = db_get_column_int(0);
+			record_players = db_get_column_int(1);
 		}
 		else
 			bug("boot_db: failed to fetch record logins and players", 0);
-
-		mysql_free_result(result);
 	}
 
 	/* load our greeting */
-	if ((result = db_query("boot_db", "SELECT text FROM helps WHERE keywords='GREETING'")) != NULL) {
-		if ((row = mysql_fetch_row(result)))
-			help_greeting = str_dup(row[0]);
+	if (db_query("boot_db", "SELECT text FROM helps WHERE keywords='GREETING'") == SQL_OK) {
+		if (db_next_row() == SQL_OK)
+			help_greeting = str_dup(db_get_column_str(0));
 		else {
 			bug("boot_db: failed to fetch greeting", 0);
 			exit(1);
 		}
-
-		mysql_free_result(result);
 	}
 
 	if (help_greeting == NULL)

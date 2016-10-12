@@ -551,7 +551,7 @@ int main(int argc, char **argv)
                 exit(1);
         }
 
-	/* constant connection to mysql db */
+	/* constant connection to sql db */
 	/* this must come before boot_db() */
 	db_open();
 	boot_db();

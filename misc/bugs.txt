@@ -32,6 +32,14 @@ Bug File, clear when fixed.
 {Y[{x07/29/14{Y]{x {C[{x17317{C]{x Celes: i think the exits (up and down) in this room are messed up, should be north/south?
 {Y[{x07/29/14{Y]{x {C[{x25000{C]{x Celes: necromancy in evo list?
 {Y[{x07/30/14{Y]{x {C[{x 7636{C]{x Celes: maybe bashing but bouncing off should stun the victim, even if not knocking them down
-{Y[{x08/01/ver and 2 gold pieces.{Y]{x {C[{x 1298{C]{x Montrey: need to fix rage, it doesn't properly work with unarmed
-{Y[{x08/01/{Y]{x {C[{x 1298{C]{x Montrey: copyover only seems to care about the bin directory, it should relaunch from whatever directory it started in
-{Y[{x08/01/{Y]{x {C[{x 1298{C]{x Montrey: make it so notes in progress save through copyover/crash, jeez
+{Y[{x08/01/14{Y]{x {C[{x 1298{C]{x Montrey: need to fix rage, it doesn't properly work with unarmed
+{Y[{x08/01/14{Y]{x {C[{x 1298{C]{x Montrey: copyover only seems to care about the bin directory, it should relaunch from whatever directory it started in
+{Y[{x08/01/14{Y]{x {C[{x 1298{C]{x Montrey: make it so notes in progress save through copyover/crash, jeez
+{Y[{x08/05/14{Y]{x {C[{x 1290{C]{x Montrey: edit isn't showing multiple blank lines correctly
+{Y[{x09/28/16{Y]{x {C[{x 3001{C]{x Montrey: why can't i slay helga?
+{Y[{x09/28/16{Y]{x {C[{x 1290{C]{x Montrey: that 'really nasty axe' line in wbi, where is it getting year?
+{Y[{x09/29/16{Y]{x {C[{x 3370{C]{x Celes: using phudbase web client, there's a difference between the dark black background and a lighter (dark grey) background, i see it in sscore
+{Y[{x09/29/16{Y]{x {C[{x 3370{C]{x Celes: and in who, it seems to be repeatable, and might have to do with the way color codes are used
+{Y[{x09/29/16{Y]{x {C[{x 3370{C]{x Celes: same thing happens in ctest, the white/grey/grey line is dark black bg, the ones under it are dark grey (except red), and charcoal is just weird (dark blue background)
+{Y[{x10/10/16{Y]{x {C[{x 1290{C]{x Montrey: in character creation, 'help lay' brings up the help for slay, but not repeatable in game
+{Y[{x10/10/16{Y]{x {C[{x 3014{C]{x Celes: auto afk is too auto

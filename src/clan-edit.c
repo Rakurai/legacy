@@ -43,7 +43,7 @@ int count_clan_members(CLAN_DATA *clan, int bit)
 	if (bit != 0 && bit != GROUP_LEADER && bit != GROUP_DEPUTY)
 		return 0;
 
-	sprintf(query, "SELECT COUNT(*) FROM pc_index WHERE clan='%s'", db_esc(clan->name));
+	sprintf(query, "SELECT COUNT(*) FROM pc_index WHERE clan LIKE '%s'", db_esc(clan->name));
 
 	if (bit != 0) {
 		char buf[MSL];
@@ -59,8 +59,6 @@ int count_clan_members(CLAN_DATA *clan, int bit)
 
 void load_clan_table()
 {
-	MYSQL_RES *result;
-	MYSQL_ROW row;
 	CLAN_DATA *clan;
 	int count = 0;
 	clan_table_head                 = alloc_mem(sizeof(CLAN_DATA));
@@ -75,18 +73,12 @@ void load_clan_table()
 	clan_table_head->next           = clan_table_tail;
 	clan_table_tail->previous       = clan_table_head;
 
-	if ((result = db_query("load_clan_table",
+	if (db_query("load_clan_table",
 	                       "SELECT current, name, who_name, clanname, creator, hall, minvnum, maxvnum, "
-	                       "independent, clanqp, gold, score, warcpmod FROM clans")) == NULL)
+	                       "independent, clanqp, gold, score, warcpmod FROM clans") != SQL_OK)
 		return;
 
-	if (mysql_num_rows(result) == 0) {
-		bug("load_clan_table: no clans found", 0);
-		mysql_free_result(result);
-		return;
-	}
-
-	while ((row = mysql_fetch_row(result))) {
+	while (db_next_row() == SQL_OK) {
 		/* the first field is 'current', old clans aren't wiped out */
 		/*
 		I don't care if they are current. the database is always corrupted.
@@ -96,28 +88,26 @@ void load_clan_table()
 		*/
 		if ((clan = alloc_mem(sizeof(CLAN_DATA))) == NULL) {
 			bug("load_clan_table: unable to allocate memory for new clan", 0);
-			mysql_free_result(result);
 			return;
 		}
 
-		clan->name              = str_dup(row[1]);
-		clan->who_name          = str_dup(row[2]);
-		clan->clanname          = str_dup(row[3]);
-		clan->creator           = str_dup(row[4]);
-		clan->hall              = atoi(row[5]);
-		clan->area_minvnum      = atoi(row[6]);
-		clan->area_maxvnum      = atoi(row[7]);
-		clan->independent       = atoi(row[8]);
-		clan->clanqp            = atol(row[9]);
-		clan->gold_balance      = atol(row[10]);
-		clan->score             = atoi(row[11]);
-		clan->warcpmod          = atoi(row[12]);
+		clan->name              = str_dup(db_get_column_str(1));
+		clan->who_name          = str_dup(db_get_column_str(2));
+		clan->clanname          = str_dup(db_get_column_str(3));
+		clan->creator           = str_dup(db_get_column_str(4));
+		clan->hall              = db_get_column_int(5);
+		clan->area_minvnum      = db_get_column_int(6);
+		clan->area_maxvnum      = db_get_column_int(7);
+		clan->independent       = db_get_column_int(8);
+		clan->clanqp            = db_get_column_int(9);
+		clan->gold_balance      = db_get_column_int(10);
+		clan->score             = db_get_column_int(11);
+		clan->warcpmod          = db_get_column_int(12);
 		append_clan(clan);
 		printf("Loaded clan '%s'\n", clan->name);
 		count++;
 	}
 
-	mysql_free_result(result);
 	printf("Total of %d clans loaded.\n", count);
 }
 

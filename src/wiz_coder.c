@@ -110,7 +110,7 @@ void do_pipe(CHAR_DATA *ch, char *argument)
 	pclose(fp);
 	return;
 }
-
+/*
 void do_mypipe(CHAR_DATA *ch, char *argument)
 {
 	char divline[MSL], line[MSL];
@@ -206,7 +206,7 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 	mysql_free_result(result);
 }
-
+*/
 void do_reboo(CHAR_DATA *ch, char *argument)
 {
 	stc("{NTo REBOOT, you must spell the entire word.{x\n", ch);
