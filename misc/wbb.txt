@@ -23,3 +23,4 @@ WBB (Will Be Built) file, ask an Imp to clear when done.
 {Y[{x07/28/14{Y]{x {C[{x 9556{C]{x Montrey: chessboard should be linked from here, not from 9555
 {Y[{x07/30/14{Y]{x {C[{x 3001{C]{x Montrey: help swho isn't very helpful
 {Y[{x07/31/14{Y]{x {C[{x 7643{C]{x Montrey: update maps of thera and midgaard
+{Y[{x08/11/14{Y]{x {C[{x14122{C]{x BlackMage: 9556

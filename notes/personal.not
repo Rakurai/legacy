@@ -4121,3 +4121,200 @@ That would be cool.  Right now faeries kidn of suck at regen because of perm
 something so that faeries can regen quickly in nature areas, maybe something
 like vampire hp regen or mage mana regen, but outside of combat 
 ~
+Sender  Error~
+Date    Sat Aug  2 15:27:19 2014~
+Stamp   1407018439
+To      montrey~
+Subject faeries~
+Text
+just some observations
+wondering how at levle 8 my hit/dam is only 3/10 with my str being 15(19) and dex 24(25)
+the hit roll is hella low considering my dex is damn near max....
+just honestly doesn't make since that a faerie with almost max dex can't hit damn near anything
+~
+Sender  Montrey~
+Date    Tue Aug  5 05:31:55 2014~
+Stamp   1407241915
+To      xenith vegita~
+Subject code~
+Text
+please 'git pull' when you can, it should be the last of sweeping changes across all code.
+all warnings should be fixed now, let me know if your compiler shows you any.
+~
+Sender  Vegita~
+Date    Wed Aug  6 14:32:03 2014~
+Stamp   1407360723
+To      imm~
+Subject will be gone for a little~
+Text
+going to hospital tonight, wife is being induced. due to blood pressure problems
+the ob said no matter what he will be born tomorrow
+wish us luck!
+
+~
+Sender  Havoc~
+Date    Mon Aug 11 15:54:36 2014~
+Stamp   1407797676
+To      Montrey~
+Subject Urza~
+Text
+Hey brother, for whatever reason I can't log into Urza using the only pws I know he could have. the email that I used to have no longer exists...
+
+{WUrza{x
+~
+Sender  Urza~
+Date    Mon Aug 11 16:44:36 2014~
+Stamp   1407800676
+To      Montrey~
+Subject Me~
+Text
+Well Xenith helped me with my pword...
+But my pfile is... a clusterfuck...
+
+{WUrza{x
+~
+Sender  BlackMage~
+Date    Mon Aug 11 16:54:03 2014~
+Stamp   1407801243
+To      Montrey~
+Subject Havoc/Urza/Me...~
+Text
+Well it seems Urza is redundant... and should probably be nuked, I'd delete him myself but because he's a mortal with immtalk and such and I don't know what else it may screw stuff up...
+This also explains why none of my passwords would work with Urza.. maybe.. i don't know but he can go.
+
+BlackMage.
+~
+Sender  Montrey~
+Date    Tue Aug 12 06:27:25 2014~
+Stamp   1407850045
+To      bigsexy~
+Subject prompt~
+Text
+you said your prompt is missing?  have you tried typing 'prompt'?
+~
+Sender  Vegita~
+Date    Fri Aug 15 21:58:00 2014~
+Stamp   1408165080
+To      imm~
+Subject un used areas~
+Text
+I proposed this awhile back before legacy went down
+basically all the excess areas get removed
+there are only a handful of areas that are even used
+obviously the levelling areas and the areas that equipment is being used from would stay
+but some of the other areas would go away
+it would help with new players when we get them 
+it would make a more welcoming environment where they wouldn't have to root 
+around in areas
+it would also help to make it more compact for the time being
+
+~
+Sender  Xenith~
+Date    Fri Aug 15 22:14:08 2014~
+Stamp   1408166048
+To      imm~
+Subject Area cleanup~
+Text
+Really, I think all the areas need to be rewritten. Make a theme and then build
+all your areas around it to create a seamless world.
+All the merc/rom/godwars/etc areas are just built up of random ideas from random
+builders over time. There's no cohesion to it.
+
+But then again, I'm not a builder, and I suck at building areas.
+And I'm lazy. :)
+~
+Sender  Vegita~
+Date    Fri Aug 15 23:32:42 2014~
+Stamp   1408170762
+To      imm~
+Subject xen's note~
+Text
+I agree with you
+building towns isn't that bad and can be done rather fast
+the thing we gotta decide is are we continueing with the current code or what?
+cause honestly any changes will be useless if we jump
+to another code
+
+and honestly I'm almost past the point of caring if we
+end up having to pwipe only cause only a couple oldbies
+that I know of have shown back up.
+and a rip and rebuild will strip them of all their gear
+
+part of the reason I havn't really advertised Legacy.
+don't wanna get people to play to only alienate their work and time
+with changes
+
+now if we stay with this code I'm honestly down to 
+hire builders to help with the reconstruction
+you'd only really need a couple towns, and an area or two for each level range
+so at most 2 areas per range being around 18 areas needing to be built for actual levelling
+and thats just to restore it back to functioning
+~
+Sender  Vegita~
+Date    Sat Aug 16 10:01:50 2014~
+Stamp   1408208510
+To      montrey~
+Subject my stuff~
+Text
+can I get access back to all commands plox?
+thanks
+~
+Sender  Havoc~
+Date    Wed Aug 20 20:07:38 2014~
+Stamp   1408590458
+To      imm~
+Subject prompt length~
+Text
+If I could get someone to extend the maximum number of characters used in a
+prompt, that'd be great.  I've reached the limit and have half of my color
+imbedded into my prompt By my estimation I need approx 80 more characters to
+color the rest of my prompt.  
+
+
+{WMe{x.
+~
+Sender  Montrey~
+Date    Tue Sep  2 12:15:17 2014~
+Stamp   1409685317
+To      imm~
+Subject areas and such~
+Text
+I'm fine with removing some areas, but to be honest, we've been talking about
+creating something new for a while now.  Xenith and I have been working on a
+new pretty awesome codebase that will make creating new mud code as simple as
+mobprog scripting.  It's nowhere near ready, but I think that if we're going
+to put any kind of real effort in, it should be there.  
+
+However, I've been occupied with this real life thing lately, with family,
+work, school, and moving taking up most of my waking hours.  It will probably
+be that way for the next couple of weeks until things settle down a bit, and
+I can put a little time into hobbies.  If there's something someone wants to
+do to *this* mud, I'll probably be fine with it.  
+~
+Sender  Vegita~
+Date    Tue Sep  2 19:34:11 2014~
+Stamp   1409711651
+To      imm~
+Subject monty's note~
+Text
+yeah I've been out of comission with Will
+I've been looking over the code you guys are working on
+and once I get more time to study I'll probably help
+out where I can.
+~
+Sender  Montrey~
+Date    Wed Oct  5 19:06:13 2016~
+Stamp   1475719573
+To      xenith~
+Subject mudlet 3~
+Text
+use the version i linked you to, it fixes the problem of resizing the window every time your input line gets longer than the text box on the bottom.
+~
+Sender  Montrey~
+Date    Thu Oct  6 05:51:01 2016~
+Stamp   1475758261
+To      xenith~
+Subject mudlet link~
+Text
+https://github.com/Nyyrazzilyss/NyyLIB/blob/master/Mudlet.app.zip
+~

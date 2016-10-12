@@ -1,0 +1,160 @@
+-- MySQL dump 10.13  Distrib 5.5.50, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: legacy
+-- ------------------------------------------------------
+-- Server version	5.5.50-0+deb8u1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `bans`
+--
+
+DROP TABLE IF EXISTS `bans`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bans` (
+  `site` varchar(30) DEFAULT NULL,
+  `name` varchar(20) DEFAULT NULL,
+  `flags` int(10) unsigned NOT NULL DEFAULT '0',
+  `reason` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `clans`
+--
+
+DROP TABLE IF EXISTS `clans`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clans` (
+  `current` tinyint(4) NOT NULL DEFAULT '0',
+  `name` varchar(30) DEFAULT NULL,
+  `who_name` varchar(30) DEFAULT NULL,
+  `clanname` varchar(150) DEFAULT NULL,
+  `creator` varchar(100) DEFAULT NULL,
+  `hall` int(11) NOT NULL DEFAULT '0',
+  `minvnum` int(11) NOT NULL DEFAULT '0',
+  `maxvnum` int(11) NOT NULL DEFAULT '0',
+  `independent` tinyint(4) NOT NULL DEFAULT '0',
+  `clanqp` int(11) NOT NULL DEFAULT '0',
+  `gold` int(11) NOT NULL DEFAULT '0',
+  `score` tinyint(4) DEFAULT NULL,
+  `warcpmod` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `denies`
+--
+
+DROP TABLE IF EXISTS `denies`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `denies` (
+  `name` varchar(15) DEFAULT NULL,
+  `denier` varchar(15) DEFAULT NULL,
+  `reason` varchar(45) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `disabled`
+--
+
+DROP TABLE IF EXISTS `disabled`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `disabled` (
+  `command` char(25) DEFAULT NULL,
+  `immortal` varchar(25) DEFAULT NULL,
+  `reason` char(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `helps`
+--
+
+DROP TABLE IF EXISTS `helps`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `helps` (
+  `hgroup` int(11) NOT NULL DEFAULT '0',
+  `onum` int(11) NOT NULL DEFAULT '0',
+  `level` tinyint(4) NOT NULL DEFAULT '0',
+  `keywords` varchar(100) DEFAULT NULL,
+  `text` blob,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=627 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `pc_index`
+--
+
+DROP TABLE IF EXISTS `pc_index`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pc_index` (
+  `name` varchar(15) DEFAULT NULL,
+  `title` tinyblob,
+  `deity` tinyblob,
+  `deity_nocol` tinyblob,
+  `cgroup` int(11) NOT NULL DEFAULT '0',
+  `level` int(11) NOT NULL DEFAULT '0',
+  `remort` int(11) NOT NULL DEFAULT '0',
+  `clan` varchar(20) DEFAULT NULL,
+  `rank` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `records`
+--
+
+DROP TABLE IF EXISTS `records`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `records` (
+  `logins` mediumint(8) unsigned NOT NULL DEFAULT '0',
+  `players` tinyint(3) unsigned NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `sites`
+--
+
+DROP TABLE IF EXISTS `sites`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sites` (
+  `name` varchar(20) DEFAULT NULL,
+  `site` varchar(50) DEFAULT NULL,
+  `ssite` varchar(50) DEFAULT NULL,
+  `lastlog` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2016-10-11 13:18:05
