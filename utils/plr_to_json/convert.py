@@ -12,8 +12,8 @@ pfile_version = 0
 
 def bug(s):
 	global data
-	print s
-	print data[:50]
+	print >> sys.stderr, s
+	print >> sys.stderr, data[dataptr-50:dataptr+50]
 	exit()
 
 def advance_whitespace():
@@ -142,6 +142,8 @@ def read_char_section():
 			or is_key(word, 'Bin', read_string, plr) \
 			or is_key(word, 'Bout', read_string, plr):
 				pass
+			elif word == 'Block_Remote':
+				read_number() #ignore
 			else:
 				bug('weird word %s' % (word))
 
@@ -303,6 +305,8 @@ def read_char_section():
 			or is_key(word, 'Prac', read_number, ch) \
 			or is_key(word, 'Prom', read_string, ch):
 				pass
+			elif word == 'Ptnr':
+				read_string() # ignore
 			else:
 				bug('weird word %s' % (word))
 		elif word[0] == 'Q':
@@ -343,6 +347,8 @@ def read_char_section():
 			or is_key(word, 'Spou', read_string, plr) \
 			or is_key(word, 'SQuestNext', read_number, plr):
 				pass
+			elif word == 'Sex':
+				plr['TSex'] = read_number()
 			elif word == 'Sk':
 				if word not in plr.keys():
 					plr[word] = []
@@ -358,6 +364,8 @@ def read_char_section():
 			or is_key(word, 'Trai', read_number, ch) \
 			or is_key(word, 'Titl', read_string, plr):
 				pass
+			elif word == 'Tru':
+				read_number() # ignore
 			elif word == 'THMS' or word == 'THVP':
 				plr['THMS'] = {
 					'hit':read_number(),
@@ -403,20 +411,22 @@ def read_obj():
 
 		elif word[0] == 'A':
 			if word == 'Affc':
+				aff = {
+					'name':read_word(), 
+					'where':read_number(),
+					'level':read_number(),
+					'dur':read_number(),
+					'mod':read_number(),
+					'loc':read_number(),
+					'bitv':read_number(),
+					'evo':read_number() if pfile_version > 7 else 1
+				}
+
 				if enchanted_obj == True:
 					if word not in s.keys():
 						s[word] = []
 
-					s[word].append({
-						'name':read_word(), 
-						'where':read_number(),
-						'level':read_number(),
-						'dur':read_number(),
-						'mod':read_number(),
-						'loc':read_number(),
-						'bitv':read_number(),
-						'evo':read_number() if pfile_version > 7 else 1
-					})
+					s[word].append(aff)
 			else:
 				bug('weird word %s' % (word))
 		elif word[0] == 'C':
@@ -577,7 +587,8 @@ with open(filename, "r+b") as f:
 			last_nest_level = nest_level
 
 		elif word == 'PET':
-			read_pet_section()
+			break
+#			read_pet_section()
 		elif word == 'END':
 			break
 		else:
