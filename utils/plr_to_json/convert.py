@@ -208,10 +208,10 @@ def read_char_section():
 			or is_key(word, 'GlDonated', read_number, ch):
 				pass
 			elif word == 'Gr':
-				if word not in ch.keys():
-					ch[word] = []
+				if word not in plr.keys():
+					plr[word] = []
 
-				ch[word].append(read_word())
+				plr[word].append(read_word())
 			elif word == 'Grant':
 				if word not in plr.keys():
 					plr[word] = []
@@ -393,6 +393,7 @@ def read_obj():
 	global pfile_version
 	nest_level = 0
 	s = {}
+	enchanted_obj = False
 
 	while True:
 		word = read_word()
@@ -402,19 +403,20 @@ def read_obj():
 
 		elif word[0] == 'A':
 			if word == 'Affc':
-				if word not in s.keys():
-					s[word] = []
+				if enchanted_obj == True:
+					if word not in s.keys():
+						s[word] = []
 
-				s[word].append({
-					'name':read_word(), 
-					'where':read_number(),
-					'level':read_number(),
-					'dur':read_number(),
-					'mod':read_number(),
-					'loc':read_number(),
-					'bitv':read_number(),
-					'evo':read_number() if pfile_version > 7 else 1
-				})
+					s[word].append({
+						'name':read_word(), 
+						'where':read_number(),
+						'level':read_number(),
+						'dur':read_number(),
+						'mod':read_number(),
+						'loc':read_number(),
+						'bitv':read_number(),
+						'evo':read_number() if pfile_version > 7 else 1
+					})
 			else:
 				bug('weird word %s' % (word))
 		elif word[0] == 'C':
@@ -429,9 +431,10 @@ def read_obj():
 			else:
 				bug('weird word %s' % (word))
 		elif word[0] == 'E':
-			if is_key(word, 'Enchanted', True, s) \
-			or is_key(word, 'ExtF', read_number, s):
+			if is_key(word, 'ExtF', read_number, s):
 				pass
+			elif word == 'Enchanted':
+				enchanted_obj = True
 			elif word == 'ExDe':
 				if word not in s.keys():
 					s[word] = {}
@@ -472,16 +475,14 @@ def read_obj():
 			elif word == 'Splxtra':
 				if word not in s.keys():
 					s[word] = []
-				slot = read_number() # ignore
+				read_number() # ignore
 				s[word].append({
 					'name':read_word(),
 					'level':read_number()
 				})
 			elif word == 'Spell':
-				if word not in s.keys():
-					s[word] = {}
-				slot = read_number()
-				s[word][slot] = read_word()
+				read_number()
+				read_word()
 			else:
 				bug('weird word %s' % (word))
 		elif word[0] == 'T':
@@ -504,9 +505,12 @@ def read_obj():
 				bug('weird word %s' % (word))
 		elif word[0] == 'W':
 			if is_key(word, 'WeaF', read_number, s) \
-			or is_key(word, 'Wear', read_number, s) \
 			or is_key(word, 'Wt', read_number, s):
 				pass
+			elif word == 'Wear':
+				loc = read_number()
+				if loc != -1: # old style, no entry can mean -1
+					s[word] = loc
 			else:
 				bug('weird word %s' % (word))
 		else:

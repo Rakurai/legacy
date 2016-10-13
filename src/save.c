@@ -102,10 +102,10 @@ long read_flags(char *str) {
 /*
  * Local functions.
  */
-void    fwrite_char     args((CHAR_DATA *ch,  FILE *fp));
-void    fwrite_obj      args((CHAR_DATA *ch,  OBJ_DATA  *obj,
-                              FILE *fp, int iNest, bool locker, bool strongbox));
-void    fwrite_pet      args((CHAR_DATA *pet, FILE *fp));
+cJSON * fwrite_player     args((CHAR_DATA *ch));
+cJSON * fwrite_char     args((CHAR_DATA *ch));
+cJSON * fwrite_objects  args((CHAR_DATA *ch,  OBJ_DATA *head, bool strongbox));
+cJSON * fwrite_pet      args((CHAR_DATA *pet));
 void    fread_char      args((CHAR_DATA *ch,  cJSON *json, int version));
 void    fread_player      args((CHAR_DATA *ch,  cJSON *json, int version));
 void    fread_pet       args((CHAR_DATA *ch,  cJSON *json, int version));
@@ -134,483 +134,472 @@ void save_char_obj(CHAR_DATA *ch)
 	if (ch->desc != NULL && ch->desc->original != NULL)
 		ch = ch->desc->original;
 
+	ch->pcdata->last_saved = current_time;
+
+	cJSON *root = cJSON_CreateObject();
+
+	cJSON_AddNumberToObject(root, "version", CURRENT_VERSION);
+	cJSON_AddItemToObject(root, "player", fwrite_player(ch));
+	cJSON_AddItemToObject(root, "character", fwrite_char(ch));
+
+	cJSON_AddItemToObject(root, "inventory", fwrite_objects(ch, ch->carrying, FALSE));
+	cJSON_AddItemToObject(root, "locker", fwrite_objects(ch, ch->pcdata->locker, FALSE));
+	cJSON_AddItemToObject(root, "strongbox", fwrite_objects(ch, ch->pcdata->strongbox, TRUE));
+
+	if (ch->pet) {
+		cJSON_AddItemToObject(root, "pet", fwrite_pet(ch->pet));
+		cJSON_AddItemToObject(root, "pet_inventory", fwrite_objects(ch, ch->pet->carrying, FALSE));
+	}
+
+	char *JSONstring = cJSON_Print(root);
+	cJSON_Delete(root);
+
 	// added if to avoid closing invalid file
 	one_argument(ch->name, buf);
 	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(buf));
 
-	if ((fp = fopen(TEMP_FILE, "w")) == NULL) {
+	if ((fp = fopen(TEMP_FILE, "w")) != NULL) {
+		fputs(JSONstring, fp);
+		fclose(fp);
+		rename(TEMP_FILE, strsave);
+	}
+	else {
 		bug("Save_char_obj: fopen", 0);
 		perror(strsave);
 	}
-	else {
-		if (ch->pcdata)
-			ch->pcdata->last_saved = current_time;
 
-		fwrite_char(ch, fp);
-
-		if (ch->carrying)
-			fwrite_obj(ch, ch->carrying, fp, 0, FALSE, FALSE);
-
-		if (ch->pcdata) {
-			if (ch->pcdata->locker)
-				fwrite_obj(ch, ch->pcdata->locker, fp, 0, TRUE, FALSE);
-
-			if (ch->pcdata->strongbox)
-				fwrite_obj(ch, ch->pcdata->strongbox, fp, 0, FALSE, TRUE);
-		}
-
-		/* save the pets */
-		if (ch->pet)
-			fwrite_pet(ch->pet, fp);
-
-		fprintf(fp, "#END\n");
-		fclose(fp);
-	}
-
-	rename(TEMP_FILE, strsave);
 	update_pc_index(ch, FALSE);
 }
 
 void backup_char_obj(CHAR_DATA *ch)
 {
-	char strsave[MAX_INPUT_LENGTH];
-	char buf[MAX_STRING_LENGTH];
-	FILE *fp;
+	save_char_obj(ch);
 
-	if (IS_NPC(ch))
-		return;
-
-	if (ch->desc != NULL && ch->desc->original != NULL)
-		ch = ch->desc->original;
-
+	char strsave[MIL], strback[MIL], buf[MIL];
 	one_argument(ch->name, buf);
-	sprintf(strsave, "%s%s", BACKUP_DIR, capitalize(buf));
 
-	if ((fp = fopen(TEMP_FILE, "w")) == NULL) {
-		bug("Save_char_obj: fopen", 0);
-		perror(strsave);
-	}
-	else {
-		fwrite_char(ch, fp);
+	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(buf));
+	sprintf(strback, "%s%s", BACKUP_DIR, capitalize(buf));
 
-		if (ch->carrying != NULL)
-			fwrite_obj(ch, ch->carrying, fp, 0, FALSE, FALSE);
-
-		if (ch->pcdata) {
-			if (ch->pcdata->locker)
-				fwrite_obj(ch, ch->pcdata->locker, fp, 0, TRUE, FALSE);
-
-			if (ch->pcdata->strongbox)
-				fwrite_obj(ch, ch->pcdata->strongbox, fp, 0, FALSE, TRUE);
-		}
-
-		/* save the pets */
-		if (ch->pet != NULL /* && ch->pet->in_room == ch->in_room */)
-			fwrite_pet(ch->pet, fp);
-
-		fprintf(fp, "#END\n");
-	}
-
-	fclose(fp);
-	rename(TEMP_FILE, strsave);
-	sprintf(buf, "gzip -fq %s", strsave);
+	sprintf(buf, "cp %s %s", strsave, strback);
+	system(buf);
+	sprintf(buf, "gzip -fq %s", strback);
 	system(buf);
 } /* end backup_char_obj() */
 
-/*
- * Write the char.
- */
-void fwrite_char(CHAR_DATA *ch, FILE *fp)
+cJSON *fwrite_player(CHAR_DATA *ch)
 {
-	AFFECT_DATA *paf;
-	int sn, gn, pos, i, c;
-	int count;   /* count granted commands */
-	fprintf(fp, "#PLAYER\n");
-	fprintf(fp, "Name %s~\n",  ch->name);
-	fprintf(fp, "Id   %ld\n",  ch->id);
-	fprintf(fp, "LogO %ld\n",  current_time);
-	fprintf(fp, "Vers %d\n",   CURRENT_VERSION);
-	fprintf(fp, "Mexp %d\n",   ch->pcdata->mud_exp);
-	fprintf(fp, "Pass %s~\n", ch->pcdata->pwd);
+	cJSON *item;
+	cJSON *o = cJSON_CreateObject(); // object to return
 
-	if (ch->short_descr[0] != '\0')
-		fprintf(fp, "ShD  %s~\n", ch->short_descr);
-
-	if (ch->long_descr[0] != '\0')
-		fprintf(fp, "LnD  %s~\n", ch->long_descr);
-
-	if (ch->description[0] != '\0')
-		fprintf(fp, "Desc %s~\n", ch->description);
-
-	if (ch->prompt != NULL)
-		fprintf(fp, "Prom %s~\n", ch->prompt);
-
-	fprintf(fp, "Race %s~\n", pc_race_table[ch->race].name);
-
-	if (ch->clan)
-		fprintf(fp, "Clan %s~\n", ch->clan->name);
-
-	fprintf(fp, "Cla  %d\n", ch->class);
-	fprintf(fp, "Levl %d\n", ch->level);
-	fprintf(fp, "Plyd %d\n", ch->pcdata->played); /*w1*/
-	fprintf(fp, "Back %d\n", ch->pcdata->backup);
-	fprintf(fp, "Note %ld %ld %ld %ld %ld %ld %ld\n",
-	        ch->pcdata->last_note,
-	        ch->pcdata->last_idea,
-	        ch->pcdata->last_roleplay,
-	        ch->pcdata->last_immquest,
-	        ch->pcdata->last_changes,
-	        ch->pcdata->last_personal,
-	        ch->pcdata->last_trade);
-	fprintf(fp, "Scro %d\n", ch->lines);
-	fprintf(fp, "Room %d\n",
-	        (ch->in_room == get_room_index(ROOM_VNUM_LIMBO) && ch->was_in_room != NULL)
-	        ? ch->was_in_room->vnum
-	        : ch->in_room == NULL
-	        ? 3001
-	        : ch->in_room->vnum);
-	fprintf(fp, "HMS  %d %d %d\n", ch->hit, ch->mana, ch->stam);
-	fprintf(fp, "Gold %ld\n", UMAX(0, ch->gold));
-	fprintf(fp, "Silv %ld\n", UMAX(0, ch->silver));
-
-	if (ch->silver_in_bank > 0)
-		fprintf(fp, "Silver_in_bank %ld\n", ch->silver_in_bank);
-
-	if (ch->gold_in_bank > 0)
-		fprintf(fp, "Gold_in_bank %ld\n", ch->gold_in_bank);
-
-	fprintf(fp, "Exp  %d\n", ch->exp);
-	fprintf(fp, "PCkills  %d\n", ch->pcdata->pckills);
-	fprintf(fp, "PCkilled %d\n", ch->pcdata->pckilled);
-	fprintf(fp, "Akills   %d\n", ch->pcdata->arenakills);
-	fprintf(fp, "Akilled  %d\n", ch->pcdata->arenakilled);
-	fprintf(fp, "PKRank   %d\n", ch->pcdata->pkrank);
-	fprintf(fp, "Pos  %d\n", ch->position);
-	fprintf(fp, "Alig %d\n", ch->alignment);
-
-	if (ch->pcdata->spouse != NULL)
-		fprintf(fp, "Spou %s~\n", ch->pcdata->spouse);
-
-	if (ch->pcdata->whisper != NULL)
-		fprintf(fp, "Wspr %s~\n", ch->pcdata->whisper);
-
-	if (ch->pcdata->mark_room)
-		fprintf(fp, "Mark %d\n", ch->pcdata->mark_room);
-
-	fprintf(fp, "FImm %s\n", print_flags(ch->imm_flags));
-	fprintf(fp, "FRes %s\n", print_flags(ch->res_flags));
-	fprintf(fp, "FVul %s\n", print_flags(ch->vuln_flags));
-	fprintf(fp, "Plr  %s\n", print_flags(ch->pcdata->plr));
-	fprintf(fp, "Video %s\n", print_flags(ch->pcdata->video));
-	fprintf(fp, "Act  %s\n", print_flags(ch->act));
-	fprintf(fp, "AfBy %s\n", print_flags(ch->affected_by));
-	fprintf(fp, "Comm %s\n", print_flags(ch->comm));
-	fprintf(fp, "Revk %s\n", print_flags(ch->revoke));              /* Xenith */
-	fprintf(fp, "Cgrp %s\n", print_flags(ch->pcdata->cgroup));      /* Xenith */
-	fprintf(fp, "Cnsr %s\n", print_flags(ch->censor));              /* Montrey */
-	fprintf(fp, "Prac %d\n", ch->practice);
-	fprintf(fp, "Trai %d\n", ch->train);
-	fprintf(fp, "Wimp %d\n", ch->wimpy);
-
-	/* write lay on hands data */
-	if (ch->class == PALADIN_CLASS) {
-		fprintf(fp, "Lay %d\n", ch->pcdata->lays);
-		fprintf(fp, "Lay_Next %d\n", ch->pcdata->next_lay_countdown);
-	}
-
-	/* write familiar data */
-	fprintf(fp, "Familiar %d\n", ch->pcdata->familiar);
-
-	if (IS_IMMORTAL(ch)) {
-		fprintf(fp, "Wizn %s\n", print_flags(ch->wiznet));
-		fprintf(fp, "Invi %d\n", ch->invis_level);
-		fprintf(fp, "Lurk %d\n", ch->lurk_level);
-		fprintf(fp, "Secu %d\n", ch->secure_level);
-	}
-
-	fprintf(fp, "Atrib %d %d %d %d %d %d\n",
-	        ch->perm_stat[STAT_STR], ch->perm_stat[STAT_INT], ch->perm_stat[STAT_WIS],
-	        ch->perm_stat[STAT_DEX], ch->perm_stat[STAT_CON], ch->perm_stat[STAT_CHR]);
-
-	if (ch->pcdata->flag_killer)
-		fprintf(fp, "FlagKiller %d\n", ch->pcdata->flag_killer);
-
-	if (ch->pcdata->flag_thief)
-		fprintf(fp, "FlagThief  %d\n", ch->pcdata->flag_thief);
-
-	if (ch->pcdata->skillpoints)
-		fprintf(fp, "SkillPnts  %d\n", ch->pcdata->skillpoints);
-
-	if (ch->pcdata->rolepoints)
-		fprintf(fp, "RolePnts   %d\n", ch->pcdata->rolepoints);
-
-	if (ch->questpoints)
-		fprintf(fp, "QuestPnts  %d\n", ch->questpoints);
-
-	if (ch->questpoints_donated)
-		fprintf(fp, "QpDonated  %d\n", ch->questpoints_donated);
-
-	if (ch->gold_donated)
-		fprintf(fp, "GlDonated  %ld\n", ch->gold_donated);
-
-	if (ch->nextquest)
-		fprintf(fp, "QuestNext  %d\n", ch->nextquest);
-	else if (ch->countdown)
-		fprintf(fp, "QuestNext  %d\n", 12);
-
-	if (ch->pcdata->nextsquest)
-		fprintf(fp, "SQuestNext %d\n", ch->pcdata->nextsquest);
-	else if (ch->pcdata->sqcountdown)
-		fprintf(fp, "SQuestNext %d\n", 20);
-
-	if (ch->pcdata->bamfin[0] != '\0')
-		fprintf(fp, "Bin  %s~\n",  ch->pcdata->bamfin);
-
-	if (ch->pcdata->bamfout[0] != '\0')
-		fprintf(fp, "Bout %s~\n",      ch->pcdata->bamfout);
-
-	if (ch->pcdata->gamein && ch->pcdata->gamein[0] != '\0')
-		fprintf(fp, "GameIn  %s~\n",       ch->pcdata->gamein);
-
-	if (ch->pcdata->gameout && ch->pcdata->gameout[0] != '\0')
-		fprintf(fp, "GameOut %s~\n",   ch->pcdata->gameout);
-
-	if (ch->pcdata->afk[0] != '\0')
-		fprintf(fp, "Afk %s~\n",    ch->pcdata->afk);
-
-	fprintf(fp, "Titl %s~\n",      ch->pcdata->title);
-	fprintf(fp, "Immn %s~\n",      ch->pcdata->immname);
-	fprintf(fp, "Pnts %d\n",       ch->pcdata->points);
-	fprintf(fp, "Rank %s~\n",      ch->pcdata->rank);
-	fprintf(fp, "Aura %s~\n",      ch->pcdata->aura);
-	fprintf(fp, "TSex %d\n",       ch->pcdata->true_sex);
-	fprintf(fp, "LLev %d\n",       ch->pcdata->last_level);
-
-	if (ch->pcdata->email[0] != '\0')
-		fprintf(fp, "Email %s~\n",      ch->pcdata->email);
-
-	fprintf(fp, "Deit %s~\n",      ch->pcdata->deity);
-
-	if (ch->pcdata->remort_count > 0) {
-		fprintf(fp, "Stus %s~\n",      ch->pcdata->status);
-		fprintf(fp, "RmCt %d\n",       ch->pcdata->remort_count);
-		fprintf(fp, "ExSk ");
-
-		for (c = 0; c < (ch->pcdata->remort_count / 20); c++)
-			fprintf(fp, "%d ",       skill_table[ch->pcdata->extraclass[c]].slot);
-
-		fprintf(fp, "%d\n", skill_table[ch->pcdata->extraclass[ch->pcdata->remort_count / 20]].slot);
-		fprintf(fp, "Raff ");
-
-		for (c = 0; c < (ch->pcdata->remort_count / 10); c++)
-			fprintf(fp, "%d ",       ch->pcdata->raffect[c]);
-
-		fprintf(fp, "%d\n", ch->pcdata->raffect[ch->pcdata->remort_count / 10]);
-	}
-
-	fprintf(fp, "Lsit %s~\n",      ch->pcdata->last_lsite);
-	fprintf(fp, "Ltim %s~\n",      dizzy_ctime(&ch->pcdata->last_ltime));
-	fprintf(fp, "LSav %s~\n",      dizzy_ctime(&ch->pcdata->last_saved));
-
-	if (ch->pcdata->fingerinfo[0] != '\0')
-		fprintf(fp, "Finf %s~\n",      ch->pcdata->fingerinfo);
-
-	fprintf(fp, "HMSP %d %d %d\n", ch->pcdata->perm_hit,
-	        ch->pcdata->perm_mana,
-	        ch->pcdata->perm_stam);
-	fprintf(fp, "THMS %d %d %d\n", ch->pcdata->trains_to_hit,
-	        ch->pcdata->trains_to_mana,
-	        ch->pcdata->trains_to_stam);
-	fprintf(fp, "Cnd  %d %d %d %d\n",
-	        ch->pcdata->condition[0],
-	        ch->pcdata->condition[1],
-	        ch->pcdata->condition[2],
-	        ch->pcdata->condition[3]);
-
-	/* new writing color settings to file -- Montrey */
-	for (i = 0; i < MAX_COLORS; i++)
-		if (ch->pcdata->color[i] > 0)
-			fprintf(fp, "Colr %d %d %d\n", i, ch->pcdata->color[i], ch->pcdata->bold[i]);
-
-	for (pos = 0; pos < MAX_IGNORE; pos++) {
-		if (ch->pcdata->ignore[pos] == NULL)
-			break;
-
-		fprintf(fp, "Ignore %s~\n", ch->pcdata->ignore[pos]);
-	}
-
-	/* write alias */
-	for (pos = 0; pos < MAX_ALIAS; pos++) {
+	item = NULL;
+	for (int pos = 0; pos < MAX_ALIAS; pos++) {
 		if (ch->pcdata->alias[pos] == NULL
 		    ||  ch->pcdata->alias_sub[pos] == NULL)
 			break;
 
-		fprintf(fp, "Alias %s %s~\n", ch->pcdata->alias[pos],
-		        ch->pcdata->alias_sub[pos]);
+		if (item == NULL)
+			item = cJSON_CreateArray();
+
+		cJSON *alias = cJSON_CreateArray();
+		cJSON_AddItemToArray(alias, cJSON_CreateString(ch->pcdata->alias[pos]));
+		cJSON_AddItemToArray(alias, cJSON_CreateString(ch->pcdata->alias_sub[pos]));
+		cJSON_AddItemToArray(item, alias);
+	}
+	if (item != NULL)
+		cJSON_AddItemToObject(o,	"Alias",		item);
+
+	if (ch->pcdata->afk[0] != '\0')
+		cJSON_AddStringToObject(o,	"Afk",			ch->pcdata->afk);
+
+	cJSON_AddNumberToObject(o,		"Akills",		ch->pcdata->arenakills);
+	cJSON_AddNumberToObject(o,		"Akilled",		ch->pcdata->arenakilled);
+	cJSON_AddStringToObject(o,		"Aura",			ch->pcdata->aura);
+	cJSON_AddNumberToObject(o,		"Back",			ch->pcdata->backup);
+
+	if (ch->pcdata->bamfin[0] != '\0')
+		cJSON_AddStringToObject(o,	"Bin",			ch->pcdata->bamfin);
+
+	if (ch->pcdata->bamfout[0] != '\0')
+		cJSON_AddStringToObject(o,	"Bout",			ch->pcdata->bamfout);
+
+	cJSON_AddStringToObject(o,		"Cgrp",			print_flags(ch->pcdata->cgroup));
+
+	item = cJSON_CreateObject();
+	cJSON_AddNumberToObject(item,	"drunk",		ch->pcdata->condition[COND_DRUNK]);
+	cJSON_AddNumberToObject(item,	"full",			ch->pcdata->condition[COND_FULL]);
+	cJSON_AddNumberToObject(item,	"thirst",		ch->pcdata->condition[COND_THIRST]);
+	cJSON_AddNumberToObject(item,	"hunger",		ch->pcdata->condition[COND_HUNGER]);
+	cJSON_AddItemToObject(o, 		"Cnd",	 		item);
+
+	item = cJSON_CreateArray();
+	for (int pos = 0; pos < MAX_COLORS; pos++) {
+		if (ch->pcdata->color[pos] <= 0)
+			continue;
+
+		cJSON *p = cJSON_CreateObject();
+		cJSON_AddNumberToObject(p, "slot", pos);
+		cJSON_AddNumberToObject(p, "color", ch->pcdata->color[pos]);
+		cJSON_AddNumberToObject(p, "bold", ch->pcdata->bold[pos]);
+		cJSON_AddItemToArray(item, p);
+	}
+	cJSON_AddItemToObject(o,		"Colr",			item);
+
+	cJSON_AddStringToObject(o,		"Deit",			ch->pcdata->deity);
+
+	if (ch->pcdata->email[0] != '\0')
+		cJSON_AddStringToObject(o,	"Email",		ch->pcdata->email);
+
+	cJSON_AddNumberToObject(o,		"Familiar",		ch->pcdata->familiar);
+
+	if (ch->pcdata->fingerinfo[0] != '\0')
+		cJSON_AddStringToObject(o,	"Finf",			ch->pcdata->fingerinfo);
+
+	if (ch->pcdata->flag_killer)
+		cJSON_AddNumberToObject(o,	"FlagKiller",	ch->pcdata->flag_killer);
+
+	if (ch->pcdata->flag_thief)
+		cJSON_AddNumberToObject(o,	"FlagThief",	ch->pcdata->flag_thief);
+
+	if (ch->pcdata->gamein && ch->pcdata->gamein[0] != '\0')
+		cJSON_AddStringToObject(o,	"GameIn",		ch->pcdata->gamein);
+
+	if (ch->pcdata->gameout && ch->pcdata->gameout[0] != '\0')
+		cJSON_AddStringToObject(o,	"GameOut",		ch->pcdata->gameout);
+
+	item = NULL;
+	for (int gn = 0; gn < MAX_GROUP; gn++) {
+		if (group_table[gn].name == NULL || ch->pcdata->group_known[gn] == 0)
+			continue;
+
+		if (item == NULL)
+			item = cJSON_CreateArray();
+
+		cJSON_AddItemToArray(item, cJSON_CreateString(group_table[gn].name));
+	}
+	if (item != NULL)
+		cJSON_AddItemToObject(o,	"Gr",			item);
+
+	item = NULL;
+	for (int pos = 0; pos < MAX_GROUP; pos++) {
+		if (!ch->pcdata->granted_commands[pos][0])
+			continue;
+
+		if (item == NULL)
+			item = cJSON_CreateArray();
+
+		cJSON_AddItemToArray(item, cJSON_CreateString(ch->pcdata->granted_commands[pos]));
+	}
+	if (item != NULL)
+		cJSON_AddItemToObject(o,	"Grant",		item);
+
+	item = cJSON_CreateObject();
+	cJSON_AddNumberToObject(item,	"hit",			ch->pcdata->perm_hit);
+	cJSON_AddNumberToObject(item,	"mana",			ch->pcdata->perm_mana);
+	cJSON_AddNumberToObject(item,	"stam",			ch->pcdata->perm_stam);
+	cJSON_AddItemToObject(o, 		"HMSP",	 		item);
+
+	item = NULL;
+	for (int pos = 0; pos < MAX_IGNORE; pos++) {
+		if (ch->pcdata->ignore[pos] == NULL)
+			break;
+
+		if (item == NULL)
+			item = cJSON_CreateArray();
+
+		cJSON_AddItemToArray(item, cJSON_CreateString(ch->pcdata->ignore[pos]));
+	}
+	if (item != NULL)
+		cJSON_AddItemToObject(o,	"Ingore",		item);
+
+	cJSON_AddStringToObject(o,		"Immn",			ch->pcdata->immname);
+
+	if (ch->class == PALADIN_CLASS) {
+		cJSON_AddNumberToObject(o,	"Lay",			ch->pcdata->lays);
+		cJSON_AddNumberToObject(o,	"Lay_Next",		ch->pcdata->next_lay_countdown);
 	}
 
-	/* write query list */
-	for (pos = 0; pos < MAX_QUERY; pos++) {
+	cJSON_AddNumberToObject(o,		"LLev",			ch->pcdata->last_level);
+	cJSON_AddNumberToObject(o,		"LogO",			current_time);
+	cJSON_AddStringToObject(o,		"Lsit",			ch->pcdata->last_lsite);
+	cJSON_AddStringToObject(o,		"Ltim",			dizzy_ctime(&ch->pcdata->last_ltime));
+	cJSON_AddStringToObject(o,		"LSav",			dizzy_ctime(&ch->pcdata->last_saved));
+
+	if (ch->pcdata->mark_room)
+		cJSON_AddNumberToObject(o,	"Mark",			ch->pcdata->mark_room);
+
+	cJSON_AddNumberToObject(o,		"Mexp",			ch->pcdata->mud_exp);
+
+	item = cJSON_CreateObject();
+	cJSON_AddNumberToObject(item,	"note",			ch->pcdata->last_note);
+	cJSON_AddNumberToObject(item,	"idea",			ch->pcdata->last_idea);
+	cJSON_AddNumberToObject(item,	"role",			ch->pcdata->last_roleplay);
+	cJSON_AddNumberToObject(item,	"quest",		ch->pcdata->last_immquest);
+	cJSON_AddNumberToObject(item,	"change",		ch->pcdata->last_changes);
+	cJSON_AddNumberToObject(item,	"pers",			ch->pcdata->last_personal);
+	cJSON_AddNumberToObject(item,	"trade",		ch->pcdata->last_trade);
+	cJSON_AddItemToObject(o, 		"Note", 		item);
+
+	cJSON_AddStringToObject(o,		"Pass",			ch->pcdata->pwd);
+	cJSON_AddNumberToObject(o,		"PCkills",		ch->pcdata->pckills);
+	cJSON_AddNumberToObject(o,		"PCkilled",		ch->pcdata->pckilled);
+	cJSON_AddNumberToObject(o,		"PKRank",		ch->pcdata->pkrank);
+	cJSON_AddStringToObject(o,		"Plr",			print_flags(ch->pcdata->plr));
+	cJSON_AddNumberToObject(o,		"Plyd",			ch->pcdata->played);
+	cJSON_AddNumberToObject(o,		"Pnts",			ch->pcdata->points);
+
+	item = NULL;
+	for (int pos = 0; pos < MAX_QUERY; pos++) {
 		if (ch->pcdata->query[pos] == NULL)
 			break;
 
-		fprintf(fp, "Query %s~\n", ch->pcdata->query[pos]);
-	}
+		if (item == NULL)
+			item = cJSON_CreateArray();
 
-	for (sn = 0; sn < MAX_SKILL; sn++) {
+		cJSON_AddItemToArray(item, cJSON_CreateString(ch->pcdata->query[pos]));
+	}
+	if (item != NULL)
+		cJSON_AddItemToObject(o,	"Query",		item);
+
+	cJSON_AddStringToObject(o,		"Rank",			ch->pcdata->rank);
+
+	if (ch->pcdata->rolepoints)
+		cJSON_AddNumberToObject(o,	"RolePnts",		ch->pcdata->rolepoints);
+
+	item = NULL;
+	for (int sn = 0; sn < MAX_SKILL; sn++) {
 		if (skill_table[sn].name == NULL)
 			break;
 
-		if (ch->pcdata->learned[sn] > 0) {
-			if (ch->pcdata->evolution[sn] < 1)
-				ch->pcdata->evolution[sn] = 1;
-			else if (ch->pcdata->evolution[sn] > 4)
-				ch->pcdata->evolution[sn] = 4;
+		if (ch->pcdata->learned[sn] <= 0)
+			continue;
 
-			fprintf(fp, "Sk %d %d '%s'\n",
-			        ch->pcdata->learned[sn], ch->pcdata->evolution[sn], skill_table[sn].name);
+		if (item == NULL)
+			item = cJSON_CreateArray();
+
+		if (ch->pcdata->evolution[sn] < 1)
+			ch->pcdata->evolution[sn] = 1;
+		else if (ch->pcdata->evolution[sn] > 4)
+			ch->pcdata->evolution[sn] = 4;
+
+		cJSON *sk = cJSON_CreateObject();
+		cJSON_AddStringToObject(sk, "name", skill_table[sn].name);
+		cJSON_AddNumberToObject(sk, "prac", ch->pcdata->learned[sn]);
+		cJSON_AddNumberToObject(sk, "evol", ch->pcdata->evolution[sn]);
+		cJSON_AddItemToArray(item, sk);
+	}
+	if (item != NULL)
+		cJSON_AddItemToObject(o,	"Sk",			item);
+
+	if (ch->pcdata->skillpoints)
+		cJSON_AddNumberToObject(o,	"SkillPnts",	ch->pcdata->skillpoints);
+
+	if (ch->pcdata->spouse != NULL)
+		cJSON_AddStringToObject(o,	"Spou",			ch->pcdata->spouse);
+
+	if (ch->pcdata->nextsquest)
+		cJSON_AddNumberToObject(o,	"SQuestNext",	ch->pcdata->nextsquest);
+	else if (ch->pcdata->sqcountdown)
+		cJSON_AddNumberToObject(o,	"SQuestNext",	20);
+
+	if (ch->pcdata->remort_count > 0) {
+		cJSON_AddStringToObject(o,	"Stus",			ch->pcdata->status);
+		cJSON_AddNumberToObject(o,	"RmCt",			ch->pcdata->remort_count);
+
+		item = cJSON_CreateArray();
+
+		for (int i = 0; i < (ch->pcdata->remort_count / 20) + 1; i++) {
+			int slot = skill_table[ch->pcdata->extraclass[i]].slot;
+			cJSON_AddItemToArray(item, cJSON_CreateNumber(slot));
 		}
+
+		cJSON_AddItemToObject(o, "ExSk", item);
+
+		item = cJSON_CreateIntArray(ch->pcdata->raffect, ch->pcdata->remort_count / 10 + 1);
+		cJSON_AddItemToObject(o, "Raff", item);
 	}
 
-	for (gn = 0; gn < MAX_GROUP; gn++) {
-		if (group_table[gn].name != NULL && ch->pcdata->group_known[gn])
-			fprintf(fp, "Gr '%s'\n", group_table[gn].name);
-	}
+	item = cJSON_CreateObject();
+	cJSON_AddNumberToObject(item,	"hit",			ch->pcdata->trains_to_hit);
+	cJSON_AddNumberToObject(item,	"mana",			ch->pcdata->trains_to_mana);
+	cJSON_AddNumberToObject(item,	"stam",			ch->pcdata->trains_to_stam);
+	cJSON_AddItemToObject(o, 		"THMS",	 		item);
 
-	/* write granted commands */
-	for (count = 0; count < MAX_GRANT; count++) {
-		if (ch->pcdata->granted_commands[count][0])
-			fprintf(fp, "Grant %s\n", ch->pcdata->granted_commands[count]);
-	}
+	cJSON_AddStringToObject(o,		"Titl",			ch->pcdata->title);
+	cJSON_AddNumberToObject(o,		"TSex",			ch->pcdata->true_sex);
+	cJSON_AddStringToObject(o,		"Video",		print_flags(ch->pcdata->video));
 
-	for (paf = ch->affected; paf != NULL; paf = paf->next) {
+	if (ch->pcdata->whisper != NULL)
+		cJSON_AddStringToObject(o,	"Wspr",			ch->pcdata->whisper);
+
+	return o;
+}
+
+/*
+ * Write the char.
+ */
+cJSON *fwrite_char(CHAR_DATA *ch)
+{
+	cJSON *item;
+	cJSON *o = cJSON_CreateObject(); // object to return
+
+	cJSON_AddStringToObject(o,		"Act",			print_flags(ch->act));
+	cJSON_AddStringToObject(o,		"AfBy",			print_flags(ch->affected_by));
+
+	item = NULL;
+	for (AFFECT_DATA *paf = ch->affected; paf != NULL; paf = paf->next) {
 		if (paf->type < 0 || paf->type >= MAX_SKILL)
 			continue;
 
-		fprintf(fp, "Affc '%s' %3d %3d %3d %3d %3d %10d %d\n",
-		        skill_table[paf->type].name,
-		        paf->where,
-		        paf->level,
-		        paf->duration,
-		        paf->modifier,
-		        paf->location,
-		        paf->bitvector,
-		        paf->evolution ? paf->evolution : 1
-		       );
+		if (item == NULL)
+			item = cJSON_CreateArray();
+
+		cJSON *aff = cJSON_CreateObject();
+		cJSON_AddStringToObject(aff, "name", skill_table[paf->type].name);
+		cJSON_AddNumberToObject(aff, "where", paf->where);
+		cJSON_AddNumberToObject(aff, "level", paf->level);
+		cJSON_AddNumberToObject(aff, "dur", paf->duration);
+		cJSON_AddNumberToObject(aff, "mod", paf->modifier);
+		cJSON_AddNumberToObject(aff, "loc", paf->location);
+		cJSON_AddNumberToObject(aff, "bitv", paf->bitvector);
+		cJSON_AddNumberToObject(aff, "evo", paf->evolution);
+		cJSON_AddItemToArray(item, aff);
+	}
+	if (item != NULL)
+		cJSON_AddItemToObject(o,	"Affc",			item);
+
+	cJSON_AddNumberToObject(o,		"Alig",			ch->alignment);
+
+	item = cJSON_CreateObject();
+	cJSON_AddNumberToObject(item,	"str",			ch->perm_stat[STAT_STR]);
+	cJSON_AddNumberToObject(item,	"int",			ch->perm_stat[STAT_INT]);
+	cJSON_AddNumberToObject(item,	"wis",			ch->perm_stat[STAT_WIS]);
+	cJSON_AddNumberToObject(item,	"dex",			ch->perm_stat[STAT_DEX]);
+	cJSON_AddNumberToObject(item,	"con",			ch->perm_stat[STAT_CON]);
+	cJSON_AddNumberToObject(item,	"chr",			ch->perm_stat[STAT_CHR]);
+	cJSON_AddItemToObject(o, 		"Atrib", 		item);
+
+
+	if (ch->clan)
+		cJSON_AddStringToObject(o,	"Clan",			ch->clan->name);
+
+	cJSON_AddNumberToObject(o,		"Cla",			ch->class);
+	cJSON_AddStringToObject(o,		"Cnsr",			print_flags(ch->censor));
+	cJSON_AddStringToObject(o,		"Comm",			print_flags(ch->comm));
+
+	if (ch->description[0] != '\0')
+		cJSON_AddStringToObject(o,	"Desc",			ch->description);
+
+	cJSON_AddNumberToObject(o,		"Exp",			ch->exp);
+	cJSON_AddStringToObject(o,		"FImm",			print_flags(ch->imm_flags));
+	cJSON_AddStringToObject(o,		"FRes",			print_flags(ch->res_flags));
+	cJSON_AddStringToObject(o,		"FVul",			print_flags(ch->vuln_flags));
+
+	if (ch->gold_donated)
+		cJSON_AddNumberToObject(o,	"GlDonated",	ch->gold_donated);
+
+	cJSON_AddNumberToObject(o,		"Gold",			ch->gold);
+
+	if (ch->gold_in_bank > 0)
+		cJSON_AddNumberToObject(o,	"Gold_in_bank",	ch->gold_in_bank);
+
+	item = cJSON_CreateObject();
+	cJSON_AddNumberToObject(item,	"hit",			ch->hit);
+	cJSON_AddNumberToObject(item,	"mana",			ch->mana);
+	cJSON_AddNumberToObject(item,	"stam",			ch->stam);
+	cJSON_AddItemToObject(o, 		"HMS",	 		item);
+
+	cJSON_AddNumberToObject(o,		"Id",			ch->id);
+	cJSON_AddNumberToObject(o,		"Levl",			ch->level);
+
+	if (ch->long_descr[0] != '\0')
+		cJSON_AddStringToObject(o,	"LnD",			ch->long_descr);
+
+	cJSON_AddStringToObject(o,		"Name",			ch->name);
+	cJSON_AddNumberToObject(o,		"Pos",			ch->position);
+	cJSON_AddNumberToObject(o,		"Prac",			ch->practice);
+
+	if (ch->prompt && ch->prompt[0] != '\0')
+		cJSON_AddStringToObject(o,	"Prom",			ch->prompt);
+
+	if (ch->questpoints_donated)
+		cJSON_AddNumberToObject(o,	"QpDonated",	ch->questpoints_donated);
+
+	if (ch->questpoints)
+		cJSON_AddNumberToObject(o,	"QuestPnts",	ch->questpoints);
+
+	if (ch->nextquest)
+		cJSON_AddNumberToObject(o,	"QuestNext",	ch->nextquest);
+	else if (ch->countdown)
+		cJSON_AddNumberToObject(o,	"QuestNext",	12);
+
+	cJSON_AddStringToObject(o,		"Race",			pc_race_table[ch->race].name);
+	cJSON_AddStringToObject(o,		"Revk",			print_flags(ch->revoke));
+	cJSON_AddNumberToObject(o,		"Room",			
+		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) && ch->was_in_room != NULL)
+	        ? ch->was_in_room->vnum
+	        : ch->in_room == NULL
+	        ? 3001
+	        : ch->in_room->vnum);
+	cJSON_AddNumberToObject(o,		"Scro",			ch->level);
+	cJSON_AddNumberToObject(o,		"Silv",			ch->silver);
+
+	if (ch->silver_in_bank > 0)
+		cJSON_AddNumberToObject(o,	"Silver_in_bank", ch->silver_in_bank);
+
+	if (ch->short_descr[0] != '\0')
+		cJSON_AddStringToObject(o,	"ShD",			ch->short_descr);
+
+	cJSON_AddNumberToObject(o,		"Trai",			ch->train);
+	cJSON_AddNumberToObject(o,		"Wimp",			ch->wimpy);
+
+	if (IS_IMMORTAL(ch)) { // why aren't these pcdata?
+		cJSON_AddStringToObject(o,	"Wizn",			print_flags(ch->wiznet));
+		cJSON_AddNumberToObject(o,	"Invi",			ch->invis_level);
+		cJSON_AddNumberToObject(o,	"Lurk",			ch->lurk_level);
+		cJSON_AddNumberToObject(o,	"Secu",			ch->secure_level);
 	}
 
-	fprintf(fp, "End\n\n");
-	return;
+	return o;
 }
 
 /* write a pet */
-void fwrite_pet(CHAR_DATA *pet, FILE *fp)
+cJSON *fwrite_pet(CHAR_DATA *pet)
 {
-	AFFECT_DATA *paf;
-	fprintf(fp, "#PET\n");
-	fprintf(fp, "Vnum %d\n", pet->pIndexData->vnum);
-	fprintf(fp, "Name %s~\n", pet->name);
-	fprintf(fp, "LogO %ld\n", current_time);
+	cJSON *item;
+	cJSON *o = fwrite_char(pet);
 
-	if (pet->short_descr != pet->pIndexData->short_descr)
-		fprintf(fp, "ShD  %s~\n", pet->short_descr);
+	cJSON_AddNumberToObject(o, "Vnum", pet->pIndexData->vnum);
 
-	if (pet->long_descr != pet->pIndexData->long_descr)
-		fprintf(fp, "LnD  %s~\n", pet->long_descr);
-
-	if (pet->description != pet->pIndexData->description)
-		fprintf(fp, "Desc %s~\n", pet->description);
-
-	if (pet->race != pet->pIndexData->race)
-		fprintf(fp, "Race %s~\n", race_table[pet->race].name);
-
-	if (pet->clan)
-		fprintf(fp, "Clan %s~\n", pet->clan->name);
-
-	fprintf(fp, "Sex  %d\n", pet->sex);
-
-	if (pet->level != pet->pIndexData->level)
-		fprintf(fp, "Levl %d\n", pet->level);
-
-	// change this to new 3 style
-	fprintf(fp, "HMS  %d %d %d %d %d %d\n",
-	        pet->hit, pet->max_hit, pet->mana, pet->max_mana, pet->stam, pet->max_stam);
-
-	if (pet->gold > 0)
-		fprintf(fp, "Gold %ld\n", pet->gold);
-
-	if (pet->silver > 0)
-		fprintf(fp, "Silv %ld\n", pet->silver);
-
-	if (pet->exp > 0)
-		fprintf(fp, "Exp  %d\n", pet->exp);
-
-	if (pet->act != pet->pIndexData->act)
-		fprintf(fp, "Act  %s\n", print_flags(pet->act));
-
-	if (pet->affected_by != pet->pIndexData->affected_by)
-		fprintf(fp, "AfBy %s\n", print_flags(pet->affected_by));
-
-	if (pet->comm != 0)
-		fprintf(fp, "Comm %s\n", print_flags(pet->comm));
-
-	if (pet->censor != 0)
-		fprintf(fp, "Cnsr %s\n", print_flags(pet->censor)); /* Montrey */
-
-	fprintf(fp, "Pos  %d\n", pet->position);
+	// reset_char sets this back to pIndexData on load, but whatever
+	cJSON_AddNumberToObject(o, "Sex", pet->sex);
 
 	if (pet->saving_throw != 0)
-		fprintf(fp, "Save %d\n", pet->saving_throw);
-
-	if (pet->alignment != pet->pIndexData->alignment)
-		fprintf(fp, "Alig %d\n", pet->alignment);
+		cJSON_AddNumberToObject(o, "Save", pet->saving_throw);
 
 	if (pet->hitroll != pet->pIndexData->hitroll)
-		fprintf(fp, "Hit  %d\n", pet->hitroll);
+		cJSON_AddNumberToObject(o, "Hit", pet->hitroll);
 
 	if (pet->damroll != pet->pIndexData->damage[DICE_BONUS])
-		fprintf(fp, "Dam  %d\n", pet->damroll);
+		cJSON_AddNumberToObject(o, "Dam", pet->damroll);
 
-	fprintf(fp, "Atrib %d %d %d %d %d %d\n",
-	        pet->perm_stat[STAT_STR], pet->perm_stat[STAT_INT],
-	        pet->perm_stat[STAT_WIS], pet->perm_stat[STAT_DEX],
-	        pet->perm_stat[STAT_CON], pet->perm_stat[STAT_CHR]);
-	fprintf(fp, "AtMod %d %d %d %d %d %d\n",
-	        pet->mod_stat[STAT_STR], pet->mod_stat[STAT_INT],
-	        pet->mod_stat[STAT_WIS], pet->mod_stat[STAT_DEX],
-	        pet->mod_stat[STAT_CON], pet->mod_stat[STAT_CHR]);
+	item = cJSON_CreateObject();
+	cJSON_AddNumberToObject(item, "str", pet->mod_stat[STAT_STR]);
+	cJSON_AddNumberToObject(item, "int", pet->mod_stat[STAT_INT]);
+	cJSON_AddNumberToObject(item, "wis", pet->mod_stat[STAT_WIS]);
+	cJSON_AddNumberToObject(item, "dex", pet->mod_stat[STAT_DEX]);
+	cJSON_AddNumberToObject(item, "con", pet->mod_stat[STAT_CON]);
+	cJSON_AddNumberToObject(item, "chr", pet->mod_stat[STAT_CHR]);
+	cJSON_AddItemToObject(o, "AtMod", item);
 
-	for (paf = pet->affected; paf != NULL; paf = paf->next) {
-		if (paf->type < 0 || paf->type >= MAX_SKILL)
-			continue;
-
-		fprintf(fp, "Affc '%s' %3d %3d %3d %3d %3d %10d %d\n",
-		        skill_table[paf->type].name,
-		        paf->where, paf->level, paf->duration, paf->modifier, paf->location,
-		        paf->bitvector, paf->evolution ? paf->evolution : 1);
-	}
-
-	fprintf(fp, "End\n");
-	return;
+	return o;
 }
 
 /*
  * Write an object and its contents.
  */
-void fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest,
-                bool locker, bool strongbox)
+cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 {
-	EXTRA_DESCR_DATA *ed;
-	AFFECT_DATA *paf;
-	int i2;
-
-	/*
-	 * Slick recursion to write lists backwards,
-	 *   so loading them will load in forwards order.
-	 */
-	if (obj->next_content != NULL)
-		fwrite_obj(ch, obj->next_content, fp, iNest, locker, strongbox);
-
 	/*
 	 * Castrate storage characters.
 	 */
@@ -618,148 +607,129 @@ void fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest,
 		if ((!strongbox && (obj->level > get_holdable_level(ch)))
 		    || (obj->item_type == ITEM_KEY && (obj->value[0] == 0))
 		    || (obj->item_type == ITEM_MAP && !obj->value[0]))
-			return;
+			return NULL;
 
-	if (locker)
-		fprintf(fp, "#L\n");
-	else if (strongbox)
-		fprintf(fp, "#B\n");
-	else
-		fprintf(fp, "#O\n");
-
-	fprintf(fp, "Vnum %d\n",   obj->pIndexData->vnum);
-
-	if (obj->enchanted)
-		fprintf(fp, "Enchanted\n");
-
-	fprintf(fp, "Nest %d\n",   iNest);
-
-	/* these data are only used if they do not match the defaults */
-
-	if (obj->name != obj->pIndexData->name)
-		fprintf(fp, "Name %s~\n",      obj->name);
-
-	if (obj->short_descr != obj->pIndexData->short_descr)
-		fprintf(fp, "ShD  %s~\n",      obj->short_descr);
-
-	if (obj->description != obj->pIndexData->description)
-		fprintf(fp, "Desc %s~\n",      obj->description);
-
-	if (obj->material != obj->pIndexData->material)
-		fprintf(fp, "Mat %s~\n",       obj->material);
-
-	if (obj->extra_flags != obj->pIndexData->extra_flags)
-		fprintf(fp, "ExtF %ld\n",      obj->extra_flags);
-
-	if (obj->wear_flags != obj->pIndexData->wear_flags)
-		fprintf(fp, "WeaF %ld\n",      obj->wear_flags);
-
-	if (obj->item_type != obj->pIndexData->item_type)
-		fprintf(fp, "Ityp %d\n",       obj->item_type);
-
-	if (obj->weight != obj->pIndexData->weight)
-		fprintf(fp, "Wt   %d\n",       obj->weight);
+	cJSON *item;
+	cJSON *o = cJSON_CreateObject();
 
 	if (obj->condition != obj->pIndexData->condition)
-		fprintf(fp, "Cond %d\n",       obj->condition);
+		cJSON_AddNumberToObject(o,	"Cond",			obj->condition);
+	if (obj->cost != obj->pIndexData->cost)
+		cJSON_AddNumberToObject(o,	"Cost",			obj->cost);
+	if (obj->description != obj->pIndexData->description)
+		cJSON_AddStringToObject(o,	"Desc",			obj->description);
+	if (obj->enchanted) {
+//		cJSON_AddNumberToObject(o,	"Enchanted",	obj->enchanted);
+		item = NULL;
+		for (AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
+			if (paf->type < 0 || paf->type >= MAX_SKILL)
+				continue;
 
-	/* variable data */
-	fprintf(fp, "Wear %d\n",   obj->wear_loc);
+			if (item == NULL)
+				item = cJSON_CreateArray();
 
+			cJSON *aff = cJSON_CreateObject();
+			cJSON_AddStringToObject(aff, "name", skill_table[paf->type].name);
+			cJSON_AddNumberToObject(aff, "where", paf->where);
+			cJSON_AddNumberToObject(aff, "level", paf->level);
+			cJSON_AddNumberToObject(aff, "dur", paf->duration);
+			cJSON_AddNumberToObject(aff, "mod", paf->modifier);
+			cJSON_AddNumberToObject(aff, "loc", paf->location);
+			cJSON_AddNumberToObject(aff, "bitv", paf->bitvector);
+			cJSON_AddNumberToObject(aff, "evo", paf->evolution);
+			cJSON_AddItemToArray(item, aff);
+		}
+		if (item != NULL)
+			cJSON_AddItemToObject(o,	"Affc",			item);
+	}
+
+	item = NULL;
+	for (EXTRA_DESCR_DATA *ed = obj->extra_descr; ed != NULL; ed = ed->next) {
+		if (item == NULL)
+			item = cJSON_CreateObject();
+
+		cJSON_AddStringToObject(item, ed->keyword, ed->description);
+	}
+	if (item != NULL)
+		cJSON_AddItemToObject(o,	"ExDe",			item);
+
+	if (obj->extra_flags != obj->pIndexData->extra_flags)
+		cJSON_AddNumberToObject(o,	"ExtF",			obj->extra_flags);
+	if (obj->item_type != obj->pIndexData->item_type)
+		cJSON_AddNumberToObject(o,	"Ityp",			obj->item_type);
 	if (obj->level != obj->pIndexData->level)
-		fprintf(fp, "Lev  %d\n",       obj->level);
+		cJSON_AddNumberToObject(o,	"Lev",			obj->level);
+	if (obj->material != obj->pIndexData->material)
+		cJSON_AddStringToObject(o,	"Mat",			obj->material);
+	if (obj->name != obj->pIndexData->name)
+		cJSON_AddStringToObject(o,	"Name",			obj->name);
+	if (obj->short_descr != obj->pIndexData->short_descr)
+		cJSON_AddStringToObject(o,	"ShD",			obj->short_descr);
+
+	/*
+	 * Spelled eq by Demonfire
+	 * Added on 11.23.1996
+	 */
+	item = NULL;
+	for (int pos = 0; pos < MAX_SPELL; pos++) {
+		if (obj->spell[pos] == 0)
+			continue;
+
+		if (item == NULL)
+			item = cJSON_CreateArray();
+
+		cJSON *sp = cJSON_CreateObject();
+		cJSON_AddStringToObject(sp, "name", skill_table[obj->spell[pos]].name);
+		cJSON_AddNumberToObject(sp, "level", obj->spell_lev[pos]);
+		cJSON_AddItemToArray(item, sp);
+	}
+	if (item != NULL)
+		cJSON_AddItemToObject(o,	"Splxtra",		item);
 
 	if (obj->timer != 0)
-		fprintf(fp, "Time %d\n",       obj->timer);
-
-	fprintf(fp, "Cost %d\n",   obj->cost);
+		cJSON_AddNumberToObject(o,	"Time",			obj->timer);
 
 	if (obj->value[0] != obj->pIndexData->value[0]
 	    ||  obj->value[1] != obj->pIndexData->value[1]
 	    ||  obj->value[2] != obj->pIndexData->value[2]
 	    ||  obj->value[3] != obj->pIndexData->value[3]
 	    ||  obj->value[4] != obj->pIndexData->value[4])
-		fprintf(fp, "Val  %d %d %d %d %d\n",
-		        obj->value[0], obj->value[1], obj->value[2], obj->value[3],
-		        obj->value[4]);
+	    cJSON_AddItemToObject(o,	"Val",			cJSON_CreateIntArray(obj->value, 5));
 
-	/*
-	 * Spelled eq by Demonfire
-	 * Added on 11.23.1996
-	 */
-	/* Old crappy way to do this...
-	    for (i2 = 1 ; i2 < MAX_SPELL ; i2++)
-	        if (obj->spell[i2])
-	            fprintf(fp, "Splx %d %d  %d \n",i2,obj->spell[i2],obj->spell_lev[i2]);
-	*/
-	for (i2 = 1 ; i2 < MAX_SPELL ; i2++)
-		if (obj->spell[i2])
-			fprintf(fp, "Splxtra %d '%s' %d\n", i2,
-			        skill_table[obj->spell[i2]].name,
-			        obj->spell_lev[i2]);
+	cJSON_AddNumberToObject(o,		"Vnum",			obj->pIndexData->vnum);
 
-	switch (obj->item_type) {
-	case ITEM_POTION:
-	case ITEM_SCROLL:
-		if (obj->value[1] > 0) {
-			fprintf(fp, "Spell 1 '%s'\n",
-			        skill_table[obj->value[1]].name);
-		}
+	if (obj->wear_loc != WEAR_NONE)
+		cJSON_AddNumberToObject(o,	"Wear",			obj->wear_loc);
 
-		if (obj->value[2] > 0) {
-			fprintf(fp, "Spell 2 '%s'\n",
-			        skill_table[obj->value[2]].name);
-		}
+	if (obj->wear_flags != obj->pIndexData->wear_flags)
+		cJSON_AddNumberToObject(o,	"WeaF",			obj->wear_flags);
+	if (obj->weight != obj->pIndexData->weight)
+		cJSON_AddNumberToObject(o,	"Wt",			obj->weight);
 
-		if (obj->value[3] > 0) {
-			fprintf(fp, "Spell 3 '%s'\n",
-			        skill_table[obj->value[3]].name);
-		}
+	// does nothing if the contains is NULL
+	cJSON_AddItemToObject(o, "contains", fwrite_objects(ch, obj->contains, strongbox));
 
-		if (obj->value[4] > 0) {
-			fprintf(fp, "Spell 4 '%s'\n",
-			        skill_table[obj->value[4]].name);
-		}
-
-		break;
-
-	case ITEM_PILL:
-	case ITEM_STAFF:
-	case ITEM_WAND:
-		if (obj->value[3] > 0) {
-			fprintf(fp, "Spell 3 '%s'\n",
-			        skill_table[obj->value[3]].name);
-		}
-
-		break;
-	}
-
-	for (paf = obj->affected; paf != NULL; paf = paf->next) {
-		if (paf->type < 0 || paf->type >= MAX_SKILL)
-			continue;
-
-		fprintf(fp, "Affc '%s' %3d %3d %3d %3d %3d %10d %d\n",
-		        skill_table[paf->type].name,
-		        paf->where,
-		        paf->level,
-		        paf->duration,
-		        paf->modifier,
-		        paf->location,
-		        paf->bitvector,
-		        paf->evolution ? paf->evolution : 1
-		       );
-	}
-
-	for (ed = obj->extra_descr; ed != NULL; ed = ed->next) {
-		fprintf(fp, "ExDe %s~ %s~\n",
-		        ed->keyword, ed->description);
-	}
-
-	fprintf(fp, "End\n\n");
-
-	if (obj->contains != NULL)
-		fwrite_obj(ch, obj->contains, fp, iNest + 1, locker, strongbox);
+	return o;
 } /* end fwrite_obj() */
+
+cJSON *fwrite_objects(CHAR_DATA *ch, OBJ_DATA *head, bool strongbox) {
+	cJSON *array = cJSON_CreateArray();
+
+	// old way was to use recursion to write items in reverse order, so loading would
+	// be in the original order.  same concept here, except no recursion; we just
+	// take advantage of the linked list underlying the cJSON array and insert at
+	// index 0, so the array is written backwards.
+	for (OBJ_DATA *obj = head; obj; obj = obj->next_content)
+		cJSON_InsertItemInArray(array, 0, fwrite_obj(ch, obj, strongbox));
+
+	// because objects could be nerfed on saving, this could still be empty
+	if (cJSON_GetArraySize(array) == 0) {
+		cJSON_Delete(array);
+		array = NULL;
+	}
+
+	return array;
+}
 
 /*
  * Load a char and inventory into a new ch structure.
@@ -850,7 +820,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	        system(buf);
 	    }
 	    #endif */
-	sprintf(strsave, "%s%s.json", PLAYER_DIR, capitalize(name));
+	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(name));
 
 	cJSON *root = NULL;
 
@@ -881,6 +851,13 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 		fread_objects(ch, cJSON_GetObjectItem(root, "inventory"), &obj_to_char, version);
 		fread_objects(ch, cJSON_GetObjectItem(root, "locker"), &obj_to_locker, version);
 		fread_objects(ch, cJSON_GetObjectItem(root, "strongbox"), &obj_to_strongbox, version);
+
+		fread_pet(ch, cJSON_GetObjectItem(root, "pet"), version);
+
+		if (ch->pet)
+			fread_objects(ch->pet, cJSON_GetObjectItem(root, "pet_inventory"), &obj_to_char, version);
+
+		cJSON_Delete(root); // finished with it
 		found = TRUE;
 
 		// fix things up
@@ -1104,6 +1081,9 @@ void get_JSON_string(cJSON *obj, char **target, char *key) {
 }
 
 void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
+	if (json == NULL)
+		return;
+
 	// if there are any player-specific fields that are depended on by others in the list,
 	// load them right here, and make sure to use SKIPKEY(key) in the switch
 
@@ -1191,6 +1171,21 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				if (!str_cmp(key, "Grant")) {
 					for (cJSON *item = o->child; item != NULL && count < MAX_GRANT; item = item->next)
 						strcpy(ch->pcdata->granted_commands[count++], item->valuestring);
+					fMatch = TRUE; break;
+				}
+
+				if (!str_cmp(key, "Gr")) {
+					for (cJSON *item = o->child; item != NULL; item = item->next) {
+						int gn = group_lookup(item->valuestring);
+
+						if (gn < 0) {
+							fprintf(stderr, "%s", item->valuestring);
+							bug("Unknown group. ", 0);
+							continue;
+						}
+
+						gn_add(ch, gn);
+					}
 					fMatch = TRUE; break;
 				}
 
@@ -1335,6 +1330,9 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 // this could be PC or NPC!  get act flags first
 void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 {
+	if (json == NULL)
+		return;
+
 	char buf[MSL];
 	sprintf(buf, "Loading %s.", ch->name);
 	log_string(buf);
@@ -1439,21 +1437,6 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				INTKEY("FVul",			ch->vuln_flags,				read_flags(o->valuestring));
 				break;
 			case 'G':
-				if (!str_cmp(key, "Gr")) {
-					for (cJSON *item = o->child; item != NULL; item = item->next) {
-						int gn = group_lookup(item->valuestring);
-
-						if (gn < 0) {
-							fprintf(stderr, "%s", item->valuestring);
-							bug("Unknown group. ", 0);
-							continue;
-						}
-
-						gn_add(ch, gn);
-					}
-					fMatch = TRUE; break;
-				}
-
 				INTKEY("Gold_in_bank",	ch->gold_in_bank,			o->valueint);
 				INTKEY("Gold",			ch->gold,					o->valueint);
 				INTKEY("GlDonated",		ch->gold_donated,			o->valueint);
@@ -1499,12 +1482,16 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				INTKEY("Save",			ch->saving_throw,			o->valueint); // NPC
 				INTKEY("Scro",			ch->lines,					o->valueint);
 				INTKEY("Secu",			ch->secure_level,			o->valueint);
+				INTKEY("Sex",			ch->sex,					o->valueint); // NPC, reset_char fixes this anyway
 				STRKEY("ShD",			ch->short_descr,			o->valuestring);
 				INTKEY("Silver_in_bank",ch->silver_in_bank,			o->valueint);
 				INTKEY("Silv",			ch->silver,					o->valueint);
 				break;
 			case 'T':
 				INTKEY("Trai",			ch->train,					o->valueint);
+				break;
+			case 'V':
+				SKIPKEY("Vnum"); // for NPCs
 				break;
 			case 'W':
 				INTKEY("Wimp",			ch->wimpy,					o->valueint);
@@ -1558,6 +1545,8 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 		switch (toupper(key[0])) {
 			case 'A':
 				if (!str_cmp(key, "Affc")) {
+					obj->enchanted = TRUE;
+
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
@@ -1628,8 +1617,8 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 					fMatch = TRUE; break;
 				}
 
-				INTKEY("Enchanted",		obj->enchanted,				o->valueint);
-				INTKEY("ExtF",			obj->extra_flags,			o->valueint);
+//				INTKEY("Enchanted",		obj->enchanted,				o->valueint);
+				INTKEY("ExtF",			obj->extra_flags,			o->valueint); // no, not fread_flags
 				break;
 			case 'I':
 				INTKEY("Ityp",			obj->item_type,				o->valueint);
@@ -1644,21 +1633,6 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 				STRKEY("Name",			obj->name,					o->valuestring);
 				break;
 			case 'S':
-				if (!str_cmp(key, "Spell")) {
-					for (cJSON *item = o->child; item; item = item->next) {
-						int slot = atoi(item->string);
-						int sn = skill_lookup(item->valuestring);
-
-						if (slot < 0 || slot > 4)
-							bug("Fread_obj: bad iValue %d.", slot);
-						else if (sn < 0)
-							bug("Fread_obj: unknown skill.", 0);
-						else
-							obj->value[slot] = sn;
-					}
-					fMatch = TRUE; break;
-				}
-
 				if (!str_cmp(key, "Splxtra")) {
 					int count = 0;
 					for (cJSON *item = o->child; item; item = item->next, count++) {
