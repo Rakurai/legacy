@@ -425,7 +425,8 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	cJSON_AddNumberToObject(item,	"stam",			ch->pcdata->trains_to_stam);
 	cJSON_AddItemToObject(o, 		"THMS",	 		item);
 
-	cJSON_AddStringToObject(o,		"Titl",			ch->pcdata->title);
+	cJSON_AddStringToObject(o,		"Titl",			ch->pcdata->title[0] == ' ' ?
+		ch->pcdata->title+1 : ch->pcdata->title);
 	cJSON_AddNumberToObject(o,		"TSex",			ch->pcdata->true_sex);
 	cJSON_AddStringToObject(o,		"Video",		print_flags(ch->pcdata->video));
 
@@ -1296,14 +1297,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				}
 
 				if (!str_cmp(key, "Titl")) {
-					free_string(ch->pcdata->title);
-					char c = o->valuestring[0];
-					char buf[MSL];
-
-					sprintf(buf, "%s%s",
-						c == '.' || c == ',' || c == '!' || c == '?' ? "" : " ", // add a space if no punctuation
-						o->valuestring);
-					ch->pcdata->title = str_dup(buf);
+					set_title(ch, o->valuestring);
 					fMatch = TRUE; break;
 				}
 
@@ -1838,11 +1832,9 @@ void do_finger(CHAR_DATA *ch, char *argument)
 {
 	char filename[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
-	char key[MAX_STRING_LENGTH];
-	FILE *pfile = NULL;
-	bool in_player = FALSE;
-	long pos;
+	FILE *fp;
 	BUFFER *dbuf = NULL;
+
 	/* the following vars are read from the player file */
 	char *email, *fingerinfo, *last_lsite, *name, *title, *spouse, *race, *deity;
 	int class, pks, pkd, pkr, aks, akd, level, rmct;
@@ -1879,116 +1871,74 @@ void do_finger(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	/* initialize variables */
-	email = fingerinfo = last_lsite = name = title = spouse = race = deity = str_empty;
-	class = pks = pkd = pkr = aks = akd = level = rmct = 0;
+	cJSON *root = NULL;
 	sprintf(filename, "%s%s", PLAYER_DIR, capitalize(arg));
-	pfile = fopen(filename, "r");
 
-	if (! pfile) {
+	if ((fp = fopen(filename, "rb")) != NULL) {
+		int length;
+		char *buffer;
+
+		fseek (fp, 0, SEEK_END);
+		length = ftell (fp);
+		fseek (fp, 0, SEEK_SET);
+		buffer = malloc (length);
+
+		fread (buffer, 1, length, fp);
+		fclose (fp);
+
+		root = cJSON_Parse(buffer);
+		free(buffer);
+	}
+
+	if (root == NULL) {
 		stc("That player does not exist.\n", ch);
 		return;
 	}
 
-#if defined(KEY)
-#undef KEY
-#endif
-#if defined(STRKEY)
-#undef STRKEY
-#endif
-#if defined(GOBACK)
-#undef GOBACK
-#endif
-#define GOBACK do { fseek(pfile, pos, SEEK_SET); (void) fread_word(pfile); } while (FALSE)
-#define KEY(keywd, var, func) if (!str_cmp(key, keywd)) { GOBACK; var = func; }
-#define STRKEY(keywd, var, func)                        \
-	if (!str_cmp(key, keywd))                       \
-	{                                               \
-		char *tmp;                              \
-		GOBACK;                                 \
-		var = func(tmp = fread_string(pfile));  \
-		free_string(tmp);                       \
-	}
+	/* initialize variables */
+	email = fingerinfo = last_lsite = name = title = spouse = race = deity = str_empty;
+	class = pks = pkd = pkr = aks = akd = level = rmct = 0;
 
-	/* scan player file for '#PLAYER' */
-	for (; ;) {
-		if (feof(pfile))
-			break;
+	cJSON *section, *item;
+	section = cJSON_GetObjectItem(root, "character");
+	get_JSON_string(section, &name, "Name");
+	get_JSON_string(section, &race, "Race");
+	get_JSON_int(section, &level, "Levl");
+	get_JSON_int(section, &class, "Cla");
 
-		pos = ftell(pfile);
+	section = cJSON_GetObjectItem(root, "player");
+	get_JSON_string(section, &email, "Email");
+	get_JSON_string(section, &fingerinfo, "Finf");
+	get_JSON_string(section, &title, "Titl");
+	get_JSON_string(section, &spouse, "Spou");
+	get_JSON_string(section, &deity, "Deit");
+	get_JSON_string(section, &last_lsite, "Lsit");
+	get_JSON_int(section, &pks, "PCkills");
+	get_JSON_int(section, &pkd, "PCkilled");
+	get_JSON_int(section, &pkr, "PKRank");
+	get_JSON_int(section, &aks, "Akills");
+	get_JSON_int(section, &akd, "Akilled");
+	get_JSON_int(section, &rmct, "RmCt");
+	get_JSON_flags(section, &cgroup, "Cgrp");
+	get_JSON_flags(section, &plr, "Plr");
 
-		if (fgets(buf, sizeof(buf), pfile) == NULL)
-			break;
+	if ((item = cJSON_GetObjectItem(section, "Ltim")) != NULL)
+		last_ltime = dizzy_scantime(item->valuestring);
+	if ((item = cJSON_GetObjectItem(section, "LSav")) != NULL)
+		last_saved = dizzy_scantime(item->valuestring);
+	if ((item = cJSON_GetObjectItem(section, "Clan")) != NULL)
+		clan = clan_lookup(item->valuestring);
 
-		/* skip continued strings */
-		if (buf[0] == '\0' || buf[0] == '\r')
-			continue;
+	cJSON_Delete(root); // finished with it
 
-		/* stoopid fgets() leaves trailing newline in buffer */
-		if (buf[strlen(buf) - 1] == '\n')
-			buf[strlen(buf) - 1] = '\0';
-
-		if (!str_cmp(buf, "#PLAYER")) {
-			in_player = TRUE;
-			continue;
-		}
-
-		if (!in_player)
-			continue;
-
-		/* Now in #PLAYER section. Process only keywords of interest. */
-		one_argument(buf, key);
-
-		if (!str_cmp(key, "End"))
-			break;
-		else    KEY("Cgrp",     cgroup,         fread_flag(pfile))
-			else STRKEY("Clan",     clan,           clan_lookup)
-				else    KEY("Email",    email,          fread_string(pfile))
-					else    KEY("Finf",     fingerinfo,     fread_string(pfile))
-						else STRKEY("LSav",     last_saved,     dizzy_scantime)
-							else    KEY("Levl",     level,          fread_number(pfile))
-								else    KEY("Lsit",     last_lsite,     fread_string(pfile))
-									else STRKEY("Ltim",     last_ltime,     dizzy_scantime)
-										else    KEY("Name",     name,           fread_string(pfile))
-											else    KEY("Plr",      plr,            fread_flag(pfile))
-												else    KEY("RmCt",     rmct,           fread_number(pfile))
-													else    KEY("Spou",     spouse,         fread_string(pfile))
-														else    KEY("Titl",     title,          fread_string(pfile))
-															else    KEY("Deit",     deity,          fread_string(pfile))
-																else    KEY("Cla",      class,          fread_number(pfile))
-																	else    KEY("Race",     race,           fread_string(pfile))
-																		else    KEY("PCkills",  pks,            fread_number(pfile))
-																			else    KEY("PCkilled", pkd,            fread_number(pfile))
-																				else    KEY("Akills",   aks,            fread_number(pfile))
-																					else    KEY("Akilled",  akd,            fread_number(pfile))
-																						else    KEY("PKRank",   pkr,            fread_number(pfile));
-	}
-
-	/* ok to leave pfile open, will be closed below */
-#undef KEY
-#undef STRKEY
-#undef GOBACK
-
-	if (!in_player) {
-		/* hit EOF without finding #PLAYER */
-		sprintf(buf, "do_finger(): bad pfile '%s'\n", arg);
-		bug(buf, 0);
-		ptc(ch, "No information available about '%s'\n", arg);
-
-		// goto bombout;
-		if (pfile) fclose(pfile);
-
-		return;
-	}
+	/* display information */
+	dbuf = new_buf();
 
 	if (title[0] != '.' && title[0] != ',' &&  title[0] != '!' && title[0] != '?') {
 		sprintf(buf, " %s{x", title);
 		free_string(title);
 		title = str_dup(buf);
 	}
-
-	/* display information */
-	dbuf = new_buf();
 
 	if (level >= LEVEL_IMMORTAL)
 		sprintf(buf, "{W[{CIMM{W] %s%s{x\n", name, title);
@@ -2060,25 +2010,15 @@ void do_finger(CHAR_DATA *ch, char *argument)
 	add_buf(dbuf, "\n");
 	page_to_char(buf_string(dbuf), ch);
 	free_buf(dbuf);
+
 	/* clean up dup'd strings */
 	free_string(email);
 	free_string(fingerinfo);
 	free_string(last_lsite);
 	free_string(name);
 	free_string(title);
-	/* I think these should also be cleaned. -- Outsider */
 	free_string(spouse);
 	free_string(race);
 	free_string(deity);
-
-	/*
-	I really don't like goto commands. -- Outsider
-
-	bombout:
-	*/
-	if (pfile != NULL)
-		fclose(pfile);
-
-	return;
-} /* end do_finger() */
+}
 
