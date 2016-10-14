@@ -154,7 +154,7 @@ int db_rows_affected() {
 /* escapes a string for a mysql query, using the semiperm string list */
 char *db_esc(char *string)
 {
-	static char buf[3*MSL];
+	char buf[3*MSL];
 	int i = 0, j = 0;
 
 	while (string[i] != '\0') {
@@ -167,5 +167,5 @@ char *db_esc(char *string)
 	}
 
 	buf[j] = '\0';
-	return buf;
+	return str_dup_semiperm(buf);
 }
