@@ -739,9 +739,9 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 				    ch->secure_level == RANK_HEAD ? "{BHEAD" :
 				    "IMM");
 				new_color(victim, cslot);
-				ptc(ch, "] %s", prefix);
+				ptc(victim, "] %s", prefix);
 				new_color(victim, cslot);
-				ptc(ch, " %s{x\n", argument);
+				ptc(victim, " %s{x\n", argument);
 				set_color(victim, WHITE, NOBOLD);
 				continue;
 			}
