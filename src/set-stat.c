@@ -653,7 +653,6 @@ void do_mset(CHAR_DATA *ch, char *argument)
 	char arg1[MIL], arg2[MIL], arg3[MIL], buf[1024];
 	CHAR_DATA *victim;
 	int value;
-	smash_tilde(argument);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	strcpy(arg3, argument);
@@ -1290,7 +1289,6 @@ void do_oset(CHAR_DATA *ch, char *argument)
 	char buf[1024];
 	OBJ_DATA *obj;
 	int value;
-	smash_tilde(argument);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	strcpy(arg3, argument);
@@ -1313,6 +1311,9 @@ void do_oset(CHAR_DATA *ch, char *argument)
 	/*
 	 * Snarf the value (which need not be numeric).
 	 */
+	/* actually, this does need to be numeric?  atoi just returns 0 for non-numeric strings.
+	   it would be interesting if set was smart enough to interpret strings like loading
+	   from area files, but maybe someday. -- Montrey */
 	value = atoi(arg3);
 
 	/*
@@ -1428,10 +1429,11 @@ void do_rset(CHAR_DATA *ch, char *argument)
 	char buf [MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA *location;
 	int value;
-	smash_tilde(argument);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	strcpy(arg3, argument);
+
+	// this doesn't actually change files, so no need to smash_tilde here. -- Montrey
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		stc("Syntax:\n", ch);

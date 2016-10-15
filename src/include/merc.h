@@ -3479,7 +3479,7 @@ bool    str_infix       args( ( const char *astr, const char *bstr ) );
 bool    str_suffix      args( ( const char *astr, const char *bstr ) );
 char *  capitalize      args( ( const char *str ) );
 char *  smash_bracket   args( ( const char *str ) );
-void    smash_tilde     args( ( char *str ) );
+char *  smash_tilde     args( ( const char *str ) );
 char *	ignore_apostrophe args((char *str));
 void	strcut		args((char *str, int length));
 char *	strcenter	args((char *string, int space));

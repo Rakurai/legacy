@@ -392,12 +392,12 @@ void append_note(NOTE_DATA *pnote)
 	if ((fp = fopen(name, "a")) == NULL)
 		perror(name);
 	else {
-		fprintf(fp, "Sender  %s~\n", pnote->sender);
+		fprintf(fp, "Sender  %s~\n", smash_tilde(pnote->sender));
 		fprintf(fp, "Date    %s~\n", pnote->date);
 		fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
-		fprintf(fp, "To      %s~\n", pnote->to_list);
-		fprintf(fp, "Subject %s~\n", pnote->subject);
-		fprintf(fp, "Text\n%s~\n", pnote->text);
+		fprintf(fp, "To      %s~\n", smash_tilde(pnote->to_list));
+		fprintf(fp, "Subject %s~\n", smash_tilde(pnote->subject));
+		fprintf(fp, "Text\n%s~\n", smash_tilde(pnote->text));
 		fclose(fp);
 		/* Mud has crashed on above line before */
 	}
@@ -718,7 +718,6 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	list = board_index[type].board_list;
 	list_name = board_index[type].board_plural;
 	argument = one_argument(argument, arg);
-	smash_tilde(argument);
 
 	if (arg[0] == '\0' || !str_prefix1(arg, "read")) {
 		bool fAll = FALSE;

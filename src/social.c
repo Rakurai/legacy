@@ -182,16 +182,14 @@ int count_socials()
 void save_social(const struct social_type *s, FILE *fp)
 {
 	/* get rid of (null) */
-	fprintf(fp, "%s~\n%s~\n%s~\n%s~\n%s~\n%s~\n%s~\n%s~\n\n",
-	        s->name                   ? s->name          : "" ,
-	        s->char_no_arg    ? s->char_no_arg   : "" ,
-	        s->others_no_arg  ? s->others_no_arg : "" ,
-	        s->char_found     ? s->char_found    : "" ,
-	        s->others_found   ? s->others_found  : "" ,
-	        s->vict_found     ? s->vict_found    : "" ,
-	        s->char_auto      ? s->char_auto     : "" ,
-	        s->others_auto    ? s->others_auto   : ""
-	       );
+	fprintf(fp, "%s~\n", s->name           ? smash_tilde(s->name)          : "");
+	fprintf(fp, "%s~\n", s->char_no_arg    ? smash_tilde(s->char_no_arg)   : "");
+	fprintf(fp, "%s~\n", s->others_no_arg  ? smash_tilde(s->others_no_arg) : "");
+	fprintf(fp, "%s~\n", s->char_found     ? smash_tilde(s->char_found)    : "");
+	fprintf(fp, "%s~\n", s->others_found   ? smash_tilde(s->others_found)  : "");
+	fprintf(fp, "%s~\n", s->vict_found     ? smash_tilde(s->vict_found)    : "");
+	fprintf(fp, "%s~\n", s->char_auto      ? smash_tilde(s->char_auto)     : "");
+	fprintf(fp, "%s~\n\n", s->others_auto  ? smash_tilde(s->others_auto)   : "");
 }
 
 void save_social_table()
@@ -250,7 +248,6 @@ void do_sedit(CHAR_DATA *ch, char *argument)
 	char cmd[MAX_INPUT_LENGTH], social[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 	struct social_type *iSocial;
-	smash_tilde(argument);
 	argument = one_argument(argument, cmd);
 	argument = one_argument(argument, social);
 

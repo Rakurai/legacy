@@ -2033,7 +2033,6 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 		}
 	}
 
-	smash_tilde(type);
 	food = create_object(get_obj_index(GEN_OBJ_FOOD), 0);
 
 	if (! food) {
@@ -2074,7 +2073,7 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	OBJ_DATA *rose;
-	char *color;
+	char color[MIL];
 	char buf[MAX_STRING_LENGTH];
 	EXTRA_DESCR_DATA *ed;
 
@@ -2089,9 +2088,9 @@ void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	}
 
 	if (target_name[0] == '\0')
-		color = str_dup("red");   /* Red is the default */
+		sprintf(color, "red");   /* Red is the default */
 	else
-		color = str_dup(target_name);
+		sprintf(color, smash_tilde(target_name));
 
 	rose = create_object(get_obj_index(GEN_OBJ_TREASURE), 0);
 
@@ -2104,7 +2103,6 @@ void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	ptc(ch, "You have created a beautiful %s{x rose.\n", color);
 	sprintf(buf, "%s has created a beautiful %s{x rose.", ch->name, color);
 	act(buf, ch, rose, NULL, TO_ROOM);
-	smash_tilde(color);
 	sprintf(buf, "a %s{x rose", color);
 	free_string(rose->short_descr);
 	rose->short_descr = str_dup(buf);

@@ -1828,7 +1828,6 @@ void do_query(CHAR_DATA *ch, char *argument)
 
 	argument = one_argument(argument, arg);
 	argument = one_argument(argument, arg2);
-	smash_tilde(arg2);
 
 	if (str_cmp(arg, "+") && str_cmp(arg, "-")
 	    && str_prefix1(arg, "list") && str_prefix1(arg, "clear")) {

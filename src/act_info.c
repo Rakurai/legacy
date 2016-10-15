@@ -1550,7 +1550,6 @@ void do_prompt(CHAR_DATA *ch, char *argument)
 			argument[100] = '\0';
 
 		strcpy(buf, argument);
-		smash_tilde(buf);
 
 		if (str_suffix("%c", buf))
 			strcat(buf, " ");
@@ -3355,7 +3354,6 @@ void do_title(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	smash_tilde(argument);
 	set_title(ch, argument);
 	stc("Title Changed.\n", ch);
 }
@@ -3421,7 +3419,6 @@ void do_immname(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	smash_tilde(argument);
 	free_string(ch->pcdata->immname);
 	block[0]  = '\0';
 	strcat(block, "{W[{x");
@@ -3441,7 +3438,6 @@ void do_description(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] != '\0') {
 		buf[0] = '\0';
-		smash_tilde(argument);
 
 		if (argument[0] == '-') {
 			int len;
@@ -3521,7 +3517,6 @@ void do_fingerinfo(CHAR_DATA *ch, char *argument)
 
 	if (argument[0] != '\0') {
 		buf[0] = '\0';
-		smash_tilde(argument);
 
 		if (!str_cmp(argument, "clear")) {
 			free_string(ch->pcdata->fingerinfo);
@@ -4625,7 +4620,6 @@ void do_rank(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	smash_tilde(argument);
 	free_string(victim->pcdata->rank);
 	victim->pcdata->rank = set_colorname(argument, 3);
 	sprintf(test, "Your new rank is {W[%s{W]{x.\n",
@@ -4703,7 +4697,6 @@ void do_email(CHAR_DATA *ch, char *argument)
 
 	free_string(ch->pcdata->email);
 	strcpy(buf, argument);
-	smash_tilde(buf);               /* added this to prevent fucking up the mud -- Montrey */
 	ch->pcdata->email = str_dup(buf);
 	ptc(ch, "Your email has been changed to: %s\n", buf);
 	sprintf(buf, "\"%s\" <%s>\n", ch->name, ch->pcdata->email);

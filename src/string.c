@@ -60,11 +60,17 @@ void free_string(char *pstr)
 
 /* Removes the tildes from a string.
    Used for player-entered strings that go into disk files. */
-void smash_tilde(char *str)
+char *smash_tilde(const char *str)
 {
-	for (; *str != '\0'; str++)
+	static char buf[MSL];
+
+	for (char *pbuf = buf; *str != '\0'; str++, pbuf++)
 		if (*str == '~')
-			*str = '-';
+			*pbuf = '-';
+		else
+			*pbuf = *str;
+
+	return buf;
 }
 
 /* Removes the brackets from a string.  Used to convert a color coded
