@@ -3394,11 +3394,15 @@ char *set_colorname(char *string, int length)
 
 void do_immname(CHAR_DATA *ch, char *argument)
 {
-	char block[MAX_STRING_LENGTH];
-	char test[MAX_STRING_LENGTH];
-
 	if (IS_NPC(ch))
 		return;
+
+	char buf[MIL];
+	sprintf(buf, "immortal immname %s", argument);
+	do_config(ch, buf);
+/*
+	char block[MAX_STRING_LENGTH];
+	char test[MAX_STRING_LENGTH];
 
 	if (argument[0] == '\0') {
 		stc("Change your immname to what?\n", ch);
@@ -3428,6 +3432,7 @@ void do_immname(CHAR_DATA *ch, char *argument)
 	        ch->pcdata->immname);
 	stc(test, ch);
 	return;
+*/
 }
 
 void do_description(CHAR_DATA *ch, char *argument)

@@ -690,13 +690,23 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 	REMOVE_BIT(ch->comm, chan_table[channel].bit);
 	new_color(ch, cslot);
 
-	if (channel == CHAN_IMMTALK) /* lil different for immtalk */
-		ptc(ch, "%s{x%s: %s{x\n",
-		    ch->name,
-		    ch->secure_level == RANK_IMP ? " [{YIMP{x]" :
-		    ch->secure_level == RANK_HEAD ? " [{BHEAD{x]" :
-		    " [IMM]",
-		    argument);
+	if (channel == CHAN_IMMTALK) { /* lil different for immtalk */
+		char prefix[MSL];
+
+		if (ch->pcdata && ch->pcdata->immprefix[0] != '\0')
+			sprintf(prefix, "%s", ch->pcdata->immprefix);
+		else
+			sprintf(prefix, "%s:", IS_NPC(ch) ? ch->short_descr : ch->name);
+
+		ptc(ch, "[%s",
+		    ch->secure_level == RANK_IMP ? "{YIMP" :
+		    ch->secure_level == RANK_HEAD ? "{BHEAD" :
+		    "IMM");
+		new_color(ch, cslot);
+		ptc(ch, "] %s", prefix);
+		new_color(ch, cslot);
+		ptc(ch, " %s{x\n", argument);
+	}
 	else
 		ptc(ch, "%s {x'%s{x'\n", chan_table[channel].prefix_self, argument);
 
@@ -713,13 +723,25 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 				    || IS_SET(victim->comm, chan_table[channel].bit))
 					continue;
 
+				char prefix[MSL];
+				if (can_see_who(victim, ch)) {
+					if (ch->pcdata && ch->pcdata->immprefix[0] != '\0')
+						sprintf(prefix, "%s", ch->pcdata->immprefix);
+					else
+						sprintf(prefix, "%s:", IS_NPC(ch) ? ch->short_descr : ch->name);
+				}
+				else
+					sprintf(prefix, "Someone:");
+
 				new_color(victim, cslot);
-				ptc(victim, "%s{x%s: %s{x\n",
-				    PERS(ch, victim, VIS_PLR),
-				    ch->secure_level == RANK_IMP ? " [{YIMP{x]" :
-				    ch->secure_level == RANK_HEAD ? " [{BHEAD{x]" :
-				    " [IMM]",
-				    argument);
+				ptc(victim, "[%s",
+				    ch->secure_level == RANK_IMP ? "{YIMP" :
+				    ch->secure_level == RANK_HEAD ? "{BHEAD" :
+				    "IMM");
+				new_color(victim, cslot);
+				ptc(ch, "] %s", prefix);
+				new_color(victim, cslot);
+				ptc(ch, " %s{x\n", argument);
 				set_color(victim, WHITE, NOBOLD);
 				continue;
 			}

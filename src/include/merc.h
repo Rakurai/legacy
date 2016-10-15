@@ -2106,6 +2106,7 @@ struct  pc_data
 	char *              afk;
 	char *              title;
 	char *              immname;   /* Immortal Name */
+    char *              immprefix; // immtalk prefix
 	time_t			last_note;
 	time_t			last_idea;
 	time_t			last_roleplay;

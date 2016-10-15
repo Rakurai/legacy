@@ -313,6 +313,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 		cJSON_AddItemToObject(o,	"Ingore",		item);
 
 	cJSON_AddStringToObject(o,		"Immn",			ch->pcdata->immname);
+	cJSON_AddStringToObject(o,		"Immp",			ch->pcdata->immprefix);
 
 	if (ch->class == PALADIN_CLASS) {
 		cJSON_AddNumberToObject(o,	"Lay",			ch->pcdata->lays);
@@ -768,6 +769,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	ch->pcdata->afk                     = str_dup("");
 	ch->pcdata->title                   = str_dup("");
 	ch->pcdata->immname                 = str_dup("");
+	ch->pcdata->immprefix               = str_dup("");
 	ch->pcdata->email                   = str_dup("");
 	ch->pcdata->fingerinfo              = str_dup("");
 	ch->pcdata->last_lsite              = str_dup("");
@@ -1210,6 +1212,7 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				}
 
 				STRKEY("Immn",			ch->pcdata->immname,		o->valuestring);
+				STRKEY("Immp",			ch->pcdata->immprefix,		o->valuestring);
 				break;
 			case 'L':
 				INTKEY("Lay",			ch->pcdata->lays,			o->valueint);

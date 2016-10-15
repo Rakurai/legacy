@@ -60,6 +60,8 @@ void config_wiznet(CHAR_DATA *ch, char *argument)
         stc("That is not a valid censor option.\n", ch);
 }*/
 
+extern char *set_colorname(char *string, int length);
+
 void config_color_func(CHAR_DATA *ch, char *argument, int type)
 {
 	char arg1[MIL], arg2[MIL], typestr[20];
@@ -416,7 +418,7 @@ void config_censor(CHAR_DATA *ch, char *argument)
 		stc("Censor options:\n\n", ch);
 		ptc(ch, "  1.  Channels                                   %s\n",
 		    IS_SET(ch->censor, CENSOR_CHAN) ?  "{CON{x" : "{POFF{x");
-		ptc(ch, "  3.  Spam                                       %s\n",
+		ptc(ch, "  2.  Spam                                       %s\n",
 		    IS_SET(ch->censor, CENSOR_SPAM) ?  "{CON{x" : "{POFF{x");
 		return;
 	}
@@ -502,6 +504,103 @@ void config_censor(CHAR_DATA *ch, char *argument)
 	}
 
 	stc("That is not a valid censor option.\n", ch);
+}
+
+void config_immortal(CHAR_DATA *ch, char *argument)
+{
+	char arg1[MIL];
+	int argnum = 0;
+	argument = one_argument(argument, arg1);
+
+	if (arg1[0] == '\0') {
+		stc("Use 'help' or '?' as an argument after any option for details.\n", ch);
+		stc("Immortal options:\n\n", ch);
+		ptc(ch, "  1.  Immprefix                                  %s\n",
+		    ch->pcdata->immprefix[0] != '\0' ? ch->pcdata->immprefix : "(none)");
+		ptc(ch, "  2.  Immname                                    %s\n",
+		    ch->pcdata->immname[0] != '\0' ? ch->pcdata->immname : "(none)");
+		return;
+	}
+
+	if (!str_prefix1(arg1, "help") || !str_cmp(arg1, "?")) {
+		stc("Various configuration options are available only to the Legacy\n"
+		    "staff.  Use without an argument to see a lit of options.\n", ch);
+		return;
+	}
+
+	if (is_number(arg1))                       argnum = atoi(arg1);
+	else if (!str_prefix1(arg1, "immprefix"))        argnum = 1;
+	else if (!str_prefix1(arg1, "immname"))            argnum = 2;
+
+	switch (argnum) {
+	default:        break;
+
+	case 1: /* Immprefix */
+		if (!str_cmp(argument, "help") || !str_cmp(argument, "?"))
+			stc("Your immprefix is what appears at the beginning of each immtalk\n"
+				"line.  It must include your name.  Use 'none' for the default.\n", ch);
+		else if (argument[0] == '\0')
+			ptc(ch, "Your immtalk prefix is currently: %s{x\n",
+				ch->pcdata->immprefix[0] != '\0' ? ch->pcdata->immprefix : "(none)");
+		else if (!str_cmp(argument, "none")) {
+			free_string(ch->pcdata->immprefix);
+			ch->pcdata->immprefix = str_dup("");
+			stc("Your immtalk prefix has been removed.\n", ch);
+		}
+		else {
+			char buf[MIL];
+
+			smash_tilde(argument);
+			sprintf(buf, smash_bracket(argument));
+
+			if (strlen(buf) > 30)
+				stc("Your immtalk prefix can be no longer than 30 printed characters.\n", ch);
+			else if (!strstr(buf, ch->name))
+				stc("Your immtalk prefix must include your name.\n", ch);
+			else {
+				free_string(ch->pcdata->immprefix);
+				ch->pcdata->immprefix = str_dup(argument);
+				ptc(ch, "Your immtalk prefix is now: %s{x\n", ch->pcdata->immprefix);
+			}
+		}
+
+		return;
+
+	case 2: /* Immname */
+		if (!str_cmp(argument, "help") || !str_cmp(argument, "?"))
+			stc("Your immname is what appears in the WHO list in place of a player's\n"
+				"race, class, and level.  Use 'none' for the default.\n", ch);
+		else if (argument[0] == '\0')
+			ptc(ch, "Your immname is currently: %s{x\n",
+				ch->pcdata->immname[0] != '\0' ? ch->pcdata->immname : "(none)");
+		else if (!str_cmp(argument, "none")) {
+			free_string(ch->pcdata->immprefix);
+			ch->pcdata->immname = str_dup("");
+			stc("Your immname has been removed.\n", ch);
+		}
+		else {
+			char buf[MIL];
+
+			smash_tilde(argument);
+			sprintf(buf, smash_bracket(argument));
+
+			if (strlen(buf) > TITLEBLOCK)
+				stc("Your immname can be no longer than 13 printed characters.\n", ch);
+			else {
+				free_string(ch->pcdata->immname);
+				buf[0]  = '\0';
+				strcat(buf, "{W[{x");
+				strcat(buf, set_colorname(argument, TITLEBLOCK));
+				strcat(buf, "{W]{x");
+				ch->pcdata->immname = str_dup(buf);
+				ptc(ch, "Your immname is now: %s{x\n", ch->pcdata->immname);
+			}
+		}
+
+		return;
+	}
+
+	stc("That is not a valid immortal configuration option.\n", ch);
 }
 
 void config_wiznet(CHAR_DATA *ch, char *argument)
@@ -624,7 +723,7 @@ void do_config(CHAR_DATA *ch, char *argument)
 		stc("  7.  Censor\n", ch);
 
 		if (IS_IMMORTAL(ch)) {
-//			stc("  8.  Immortal\n", ch);
+			stc("  8.  Immortal\n", ch);
 			stc("  9.  Wiznet\n", ch);
 		}
 
@@ -649,7 +748,7 @@ void do_config(CHAR_DATA *ch, char *argument)
 
 	case 7: config_censor(ch, argument);  return;
 
-//		case 8:     config_immortal(ch, argument);  return;
+	case 8: config_immortal(ch, argument);  return;
 	case 9: config_wiznet(ch, argument);  return;
 	}
 
