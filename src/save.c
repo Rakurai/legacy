@@ -1030,8 +1030,6 @@ void get_JSON_boolean(cJSON *obj, bool *target, char *key) {
 
 	if (val != NULL)
 		*target = (val->valueint != 0);
-	else
-		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void get_JSON_short(cJSON *obj, sh_int *target, char *key) {
@@ -1039,8 +1037,6 @@ void get_JSON_short(cJSON *obj, sh_int *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
-	else
-		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void get_JSON_int(cJSON *obj, int *target, char *key) {
@@ -1048,8 +1044,6 @@ void get_JSON_int(cJSON *obj, int *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
-	else
-		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void get_JSON_long(cJSON *obj, long *target, char *key) {
@@ -1057,8 +1051,6 @@ void get_JSON_long(cJSON *obj, long *target, char *key) {
 
 	if (val != NULL)
 		*target = val->valueint;
-	else
-		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void get_JSON_flags(cJSON *obj, long *target, char *key) {
@@ -1066,8 +1058,6 @@ void get_JSON_flags(cJSON *obj, long *target, char *key) {
 
 	if (val != NULL)
 		*target = read_flags(val->valuestring);
-	else
-		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void get_JSON_string(cJSON *obj, char **target, char *key) {
@@ -1079,8 +1069,6 @@ void get_JSON_string(cJSON *obj, char **target, char *key) {
 		}
 		*target = str_dup(val->valuestring);
 	}
-	else
-		bugf("JSON field %s not found in object %s", key, obj->string);
 }
 
 void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
