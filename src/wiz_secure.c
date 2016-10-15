@@ -24,7 +24,7 @@ DECLARE_DO_FUN(do_fuckoff);
 
 void    show_list_to_char       args((OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing, bool insidecont));
 
-void do_fod(CHAR_DATA *ch, char *argument)
+void do_fod(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MSL];
 	CHAR_DATA *victim = NULL;
@@ -85,7 +85,7 @@ void do_fod(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_force(CHAR_DATA *ch, char *argument)
+void do_force(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MSL], arg[MIL], arg2[MIL], arg3[MIL];
 	PC_DATA *vpc, *vpc_next;
@@ -200,7 +200,7 @@ void do_force(CHAR_DATA *ch, char *argument)
 	stc("You succeed.\n", ch);
 }
 
-void do_freeze(CHAR_DATA *ch, char *argument)
+void do_freeze(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MSL];
 	CHAR_DATA *victim;
@@ -244,7 +244,7 @@ void do_freeze(CHAR_DATA *ch, char *argument)
 	save_char_obj(victim);
 }
 
-void do_fry(CHAR_DATA *ch, char *argument)
+void do_fry(CHAR_DATA *ch, const char *argument)
 {
 	char strsave[MIL], arg[MIL];
 	CHAR_DATA *victim;
@@ -278,7 +278,7 @@ void do_fry(CHAR_DATA *ch, char *argument)
 	unlink(strsave);
 }
 
-void do_locker(CHAR_DATA *ch, char *argument)
+void do_locker(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
@@ -339,7 +339,7 @@ void do_locker(CHAR_DATA *ch, char *argument)
 	    "  locker <player> <get|put> <object>\n", ch);
 }
 
-void do_strongbox(CHAR_DATA *ch, char *argument)
+void do_strongbox(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
@@ -405,7 +405,7 @@ void do_strongbox(CHAR_DATA *ch, char *argument)
 	    "  strongbox <player> <get|put> <object>\n", ch);
 }
 
-void do_log(CHAR_DATA *ch, char *argument)
+void do_log(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL];
 	CHAR_DATA *victim;
@@ -438,7 +438,7 @@ void do_log(CHAR_DATA *ch, char *argument)
 	ptc(ch, "LOG %s.\n", IS_SET(victim->act, PLR_LOG) ? "set" : "removed");
 }
 
-void do_newlock(CHAR_DATA *ch, char *argument)
+void do_newlock(CHAR_DATA *ch, const char *argument)
 {
 	extern bool newlock;
 	newlock = !newlock;
@@ -453,7 +453,7 @@ void do_newlock(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_newpasswd(CHAR_DATA *ch, char *argument)
+void do_newpasswd(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL], buf[MSL];
 	CHAR_DATA *victim;
@@ -500,7 +500,7 @@ void do_newpasswd(CHAR_DATA *ch, char *argument)
 	wiznet(buf, ch, NULL, WIZ_LOAD, WIZ_SECURE, 0);
 }
 
-void do_pardon(CHAR_DATA *ch, char *argument)
+void do_pardon(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
@@ -547,7 +547,7 @@ void do_pardon(CHAR_DATA *ch, char *argument)
 		    "  pardon <player> <killer|thief>\n", ch);
 }
 
-void do_protect(CHAR_DATA *ch, char *argument)
+void do_protect(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 
@@ -572,7 +572,7 @@ void do_protect(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_revoke(CHAR_DATA *ch, char *argument)
+void do_revoke(CHAR_DATA *ch, const char *argument)
 {
 	char buf1[MSL], buf2[MSL], arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
@@ -708,7 +708,7 @@ int set_tail(CHAR_DATA *ch, CHAR_DATA *victim, int tail_flag)
 	return 0;
 }
 
-void do_tail(CHAR_DATA *ch, char *argument)
+void do_tail(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL], buf[MSL];
 	CHAR_DATA *victim = NULL;
@@ -767,7 +767,7 @@ void do_tail(CHAR_DATA *ch, char *argument)
 		do_tail(ch, "");
 }
 
-void do_snoop(CHAR_DATA *ch, char *argument)
+void do_snoop(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL], buf[MSL];
 	DESCRIPTOR_DATA *d;
@@ -842,7 +842,7 @@ void do_snoop(CHAR_DATA *ch, char *argument)
 	stc("You now view the world through the players eyes.\n", ch);
 }
 
-void do_ban(CHAR_DATA *ch, char *argument)
+void do_ban(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL], site[MIL];
 	char *p;
@@ -944,7 +944,7 @@ void do_ban(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_allow(CHAR_DATA *ch, char *argument)
+void do_allow(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL], site[MIL];
 	char *p;
@@ -986,7 +986,7 @@ void do_allow(CHAR_DATA *ch, char *argument)
 		stc("That site is not banned.\n", ch);
 }
 
-void do_permit(CHAR_DATA *ch, char *argument)
+void do_permit(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL], site[MIL];
 	char *p;
@@ -1073,7 +1073,7 @@ void do_permit(CHAR_DATA *ch, char *argument)
 		stc("That site is not banned.\n", ch);
 }
 
-void do_deny(CHAR_DATA *ch, char *argument)
+void do_deny(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char arg1[MIL];
@@ -1145,7 +1145,7 @@ void do_deny(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_undeny(CHAR_DATA *ch, char *argument)
+void do_undeny(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL];
 	one_argument(argument, arg);

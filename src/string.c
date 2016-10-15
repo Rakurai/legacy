@@ -9,7 +9,7 @@ extern char *top_string;
    the next one.  at the end of each game_loop, we free the entire list.  these are used
    more as a shortcut than anything, so we can have multiple string function calls that
    would normally return static chars in the same sprintf type call. -- Montrey */
-char *str_dup_semiperm(char *string)
+char *str_dup_semiperm(const char *string)
 {
 	SEMIPERM *semiperm = new_semiperm();
 	semiperm->string = str_dup(string);
@@ -239,7 +239,7 @@ void strcut(char *str, int length)
 		str[length] = '\0';
 }
 
-char *strcenter(char *string, int space)
+char *strcenter(const char *string, int space)
 {
 	static char output[MSL];
 	int length;
@@ -265,7 +265,9 @@ char *strcenter(char *string, int space)
 	return output;
 }
 
-char *strrpc(char *replace, char *with, char *in)
+// i can think of at least 2 ways in which this could cause
+// serious problems, rewrite this crap -- Montrey
+char *strrpc(const char *replace, const char *with, char *in)
 {
 	int replacelen = strlen(replace), i;
 	static char out[MSL * 2];

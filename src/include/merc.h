@@ -149,7 +149,7 @@ typedef struct	duel_data		DUEL_DATA;
 /*
  * Function types.
  */
-typedef void DO_FUN     args( ( CHAR_DATA *ch, char *argument ) );
+typedef void DO_FUN     args( ( CHAR_DATA *ch, const char *argument ) );
 typedef bool SPEC_FUN   args( ( CHAR_DATA *ch ) );
 typedef void SPELL_FUN  args( ( int sn, int level, CHAR_DATA *ch, void *vo,
                                 int target, int evolution) );
@@ -3275,21 +3275,21 @@ void    stop_follower   args( ( CHAR_DATA *ch ) );
 void    nuke_pets       args( ( CHAR_DATA *ch ) );
 void    die_follower    args( ( CHAR_DATA *ch ) );
 bool    is_same_group   args( ( CHAR_DATA *ach, CHAR_DATA *bch ) );
-void    do_say          args( ( CHAR_DATA *ch, char *argument ) );
-void    do_autopeek     args( ( CHAR_DATA *ch, char *argument ) );
-void    do_save         args( ( CHAR_DATA *ch, char *argument ) );
-void    do_testpose     args( ( CHAR_DATA *ch, char *argument ) );
-void    do_video        args( ( CHAR_DATA *ch, char *argument ) );
-void    do_align        args( ( CHAR_DATA *ch, char *argument ) );
-void    send_to_clan    args( ( CHAR_DATA *ch, CLAN_DATA *target,char *text ) );
+void    do_say          args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_autopeek     args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_save         args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_testpose     args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_video        args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_align        args( ( CHAR_DATA *ch, const char *argument ) );
+void    send_to_clan    args( ( CHAR_DATA *ch, CLAN_DATA *target, const char *text ) );
 void wiznet             args( (char *string, CHAR_DATA *ch, OBJ_DATA *obj,
                                long flag, long flag_skip, int min_rank ) );
 
 /* channel.c */
-void    global_act      args( ( CHAR_DATA *ch, char *message, \
+void    global_act      args( ( CHAR_DATA *ch, const char *message, \
                                 int despite_invis, int color, \
                                 long nocomm_bits ) );
-void    do_fyi          args( ( CHAR_DATA *ch, char *argument ) );
+void    do_fyi          args( ( CHAR_DATA *ch, const char *argument ) );
 
 /* social-edit.c */
 void load_social_table();
@@ -3344,61 +3344,61 @@ bool has_departed(char *);
 
 
 /* act_info.c */
-void    set_title       args( ( CHAR_DATA *ch, char *title ) );
-void    do_at           args( ( CHAR_DATA *ch, char *argument ) );
-int     color_strlen    args( ( char *argument ) );
-void    do_look         args( ( CHAR_DATA *ch, char *argument ) );
-void   do_send_announce args( ( CHAR_DATA *ch, char *argument ) );
-void    do_peek         args( ( CHAR_DATA *ch, char *argument ) );
-void    do_gamein       args( ( CHAR_DATA *ch, char *argument ) );
-void    do_gameout      args( ( CHAR_DATA *ch, char *argument ) );
-void    do_pit          args( ( CHAR_DATA *ch, char *argument ) );
+void    set_title       args( ( CHAR_DATA *ch, const char *title ) );
+void    do_at           args( ( CHAR_DATA *ch, const char *argument ) );
+int     color_strlen    args( ( const char *argument ) );
+void    do_look         args( ( CHAR_DATA *ch, const char *argument ) );
+void   do_send_announce args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_peek         args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_gamein       args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_gameout      args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_pit          args( ( CHAR_DATA *ch, const char *argument ) );
 void	set_color	args((CHAR_DATA *ch, int color, int bold));
 void	new_color	args((CHAR_DATA *ch, int custom));
 void    show_affect_to_char  args((AFFECT_DATA *paf, CHAR_DATA *ch));
 
 /* act_move.c */
 void    move_char       args( ( CHAR_DATA *ch, int door, bool follow ) );
-void    do_mark         args( ( CHAR_DATA *ch, char *argument ) );
-void    do_relocate     args( ( CHAR_DATA *ch, char *argument ) );
+void    do_mark         args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_relocate     args( ( CHAR_DATA *ch, const char *argument ) );
 void    recall		args( ( CHAR_DATA *ch, bool clan ) );
 RID  *get_random_room   args( ( CHAR_DATA *ch ) );
-void    do_land         args( ( CHAR_DATA *ch, char *argument ) );
-void    do_fly          args( ( CHAR_DATA *ch, char *argument ) );
+void    do_land         args( ( CHAR_DATA *ch, const char *argument ) );
+void    do_fly          args( ( CHAR_DATA *ch, const char *argument ) );
 
 /* act_obj.c */
 bool can_loot           args( (CHAR_DATA *ch, OBJ_DATA *obj) );
 void    get_obj         args( ( CHAR_DATA *ch, OBJ_DATA *obj,
                             OBJ_DATA *container ) );
-void    do_second       args( (CHAR_DATA *ch, char *argument) );
-void    do_engrave      args( (CHAR_DATA *ch, char *argument) );
+void    do_second       args( (CHAR_DATA *ch, const char *argument) );
+void    do_engrave      args( (CHAR_DATA *ch, const char *argument) );
 
 /* act_wiz.c */
-void do_allsave         args( (CHAR_DATA *ch, char *argument) );
-RID *find_location      args( (CHAR_DATA *ch, char *argument) );
-void do_fod             args( (CHAR_DATA *ch, char *argument) );
-void do_grouplist       args( (CHAR_DATA *ch, char *argument) );
-void do_restore         args( (CHAR_DATA *ch, char *argument) );
-void do_rwhere          args( (CHAR_DATA *ch, char *argument) );
-void do_setgamein       args( (CHAR_DATA *ch, char *argument) );
-void do_setgameout      args( (CHAR_DATA *ch, char *argument) );
-void do_tail            args( (CHAR_DATA *ch, char *argument) );
+void do_allsave         args( (CHAR_DATA *ch, const char *argument) );
+RID *find_location      args( (CHAR_DATA *ch, const char *argument) );
+void do_fod             args( (CHAR_DATA *ch, const char *argument) );
+void do_grouplist       args( (CHAR_DATA *ch, const char *argument) );
+void do_restore         args( (CHAR_DATA *ch, const char *argument) );
+void do_rwhere          args( (CHAR_DATA *ch, const char *argument) );
+void do_setgamein       args( (CHAR_DATA *ch, const char *argument) );
+void do_setgameout      args( (CHAR_DATA *ch, const char *argument) );
+void do_tail            args( (CHAR_DATA *ch, const char *argument) );
 int  set_tail           args( (CHAR_DATA *ch, CHAR_DATA *victim, int tail_flags) );
-void do_owner           args( (CHAR_DATA *ch, char *argument) );
+void do_owner           args( (CHAR_DATA *ch, const char *argument) );
 
 /* alias.c */
-void    substitute_alias args( (DESCRIPTOR_DATA *d, char *input) );
+void    substitute_alias args( (DESCRIPTOR_DATA *d, const char *input) );
 
 /* bank.c */
 void    find_money      args( ( CHAR_DATA *ch ) );
 
 /* comm.c */
-void    show_string     args( ( struct descriptor_data *d, char *input) );
+void    show_string     args( ( struct descriptor_data *d, const char *input) );
 void    close_socket    args( ( DESCRIPTOR_DATA *dclose ) );
-void	cwtb		args((DESCRIPTOR_DATA *d, char *txt));
+void	cwtb		args((DESCRIPTOR_DATA *d, const char *txt));
 void    write_to_buffer args( ( DESCRIPTOR_DATA *d, const char *txt,
                             int length ) );
-void    stc    args( ( char *txt, CHAR_DATA *ch ) );
+void    stc    args( ( const char *txt, CHAR_DATA *ch ) );
 void    page_to_char    args( ( char *txt, CHAR_DATA *ch ) );
 void    xact             args( ( const char *format, CHAR_DATA *ch,
                                 const void *arg1, const void *arg2, int type ) );
@@ -3420,7 +3420,7 @@ void    log_string      args( ( const char *str ) );
 void    tail_chain      args( ( void ) );
 void    load_disabled   args( ( void ) );
 void    save_disabled   args( ( void ) );
-void    do_oldareas     args( ( CHAR_DATA *ch, char *argument ) );
+void    do_oldareas     args( ( CHAR_DATA *ch, const char *argument ) );
 
 
 /* area_handler.c */
@@ -3443,13 +3443,13 @@ char *	fread_string		args((FILE *fp));
 char *	fread_string_eol	args((FILE *fp));
 void	fread_to_eol		args((FILE *fp));
 char *	fread_word		args((FILE *fp));
-void	fappend			args((char *file, char *str));
+void	fappend			args((const char *file, const char *str));
 
 
 /* memory.c */
 void *	alloc_mem		args((long sMem));
 void *	alloc_perm		args((long sMem));
-void *	alloc_perm2		args((long sMem, char *message));
+void *	alloc_perm2		args((long sMem, const char *message));
 void	free_mem        	args((void *pMem, long sMem));
 
 
@@ -3514,13 +3514,13 @@ void    violence_update args( ( void ) );
 char *  strstr                  args ( (const char *s1, const char *s2 ) );
 #endif
 
-void    mprog_wordlist_check    args ( ( char * arg, CHAR_DATA *mob,
+void    mprog_wordlist_check    args ( ( const char * arg, CHAR_DATA *mob,
                                         CHAR_DATA* actor, OBJ_DATA* object,
                                         void* vo, int type ) );
 void    mprog_percent_check     args ( ( CHAR_DATA *mob, CHAR_DATA* actor,
                                         OBJ_DATA* object, void* vo,
                                         int type ) );
-void    mprog_act_trigger       args ( ( char* buf, CHAR_DATA* mob,
+void    mprog_act_trigger       args ( ( const char* buf, CHAR_DATA* mob,
                                         CHAR_DATA* ch, OBJ_DATA* obj,
                                         void* vo ) );
 void    mprog_bribe_trigger     args ( ( CHAR_DATA* mob, CHAR_DATA* ch,
@@ -3536,7 +3536,7 @@ void    mprog_death_trigger     args ( ( CHAR_DATA* mob ) );
 void    mprog_random_trigger    args ( ( CHAR_DATA* mob ) );
 void    mprog_tick_trigger      args ( ( CHAR_DATA* mob ) );
 void 	mprog_boot_trigger	args ( ( CHAR_DATA* mob	) );
-void    mprog_speech_trigger    args ( ( char* txt, CHAR_DATA* mob ) );
+void    mprog_speech_trigger    args ( ( const char* txt, CHAR_DATA* mob ) );
 
 
 /* handler.c */
@@ -3666,21 +3666,21 @@ int	interpolate		args((int level, int value_00, int value_32));
 char *	get_extra_descr		args((const char *name, EXTRA_DESCR_DATA *ed));
 
 /* find.c */
-CD *	get_mob_here		args((CHAR_DATA *ch, char *argument, int vis));
-CD *	get_mob_area		args((CHAR_DATA *ch, char *argument, int vis));
-CD *	get_mob_world		args((CHAR_DATA *ch, char *argument, int vis));
-CD *	get_char_here		args((CHAR_DATA *ch, char *argument, int vis));
-CD *    get_char_room           args((CHAR_DATA *ch, ROOM_INDEX_DATA *room, char *argument, int vis));
-CD *	get_char_area		args((CHAR_DATA *ch, char *argument, int vis));
-CD *	get_char_world		args((CHAR_DATA *ch, char *argument, int vis));
-CD *	get_player_here		args((CHAR_DATA *ch, char *argument, int vis));
-CD *	get_player_area		args((CHAR_DATA *ch, char *argument, int vis));
-CD *	get_player_world	args((CHAR_DATA *ch, char *argument, int vis));
-OD *	get_obj_list		args((CHAR_DATA *ch, char *argument, OBJ_DATA *list));
-OD *	get_obj_carry		args((CHAR_DATA *ch, char *argument));
-OD *	get_obj_wear		args((CHAR_DATA *ch, char *argument));
-OD *	get_obj_here		args((CHAR_DATA *ch, char *argument));
-OD *	get_obj_world		args((CHAR_DATA *ch, char *argument));
+CD *	get_mob_here		args((CHAR_DATA *ch, const char *argument, int vis));
+CD *	get_mob_area		args((CHAR_DATA *ch, const char *argument, int vis));
+CD *	get_mob_world		args((CHAR_DATA *ch, const char *argument, int vis));
+CD *	get_char_here		args((CHAR_DATA *ch, const char *argument, int vis));
+CD *    get_char_room           args((CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argument, int vis));
+CD *	get_char_area		args((CHAR_DATA *ch, const char *argument, int vis));
+CD *	get_char_world		args((CHAR_DATA *ch, const char *argument, int vis));
+CD *	get_player_here		args((CHAR_DATA *ch, const char *argument, int vis));
+CD *	get_player_area		args((CHAR_DATA *ch, const char *argument, int vis));
+CD *	get_player_world	args((CHAR_DATA *ch, const char *argument, int vis));
+OD *	get_obj_list		args((CHAR_DATA *ch, const char *argument, OBJ_DATA *list));
+OD *	get_obj_carry		args((CHAR_DATA *ch, const char *argument));
+OD *	get_obj_wear		args((CHAR_DATA *ch, const char *argument));
+OD *	get_obj_here		args((CHAR_DATA *ch, const char *argument));
+OD *	get_obj_world		args((CHAR_DATA *ch, const char *argument));
 
 /* objstate.c */
 void	load_items		args((void));
@@ -3690,7 +3690,7 @@ void	save_items		args((void));
 void hunt_victim        args( ( CHAR_DATA *ch) );
 
 /* interp.c */
-void    interpret       args( ( CHAR_DATA *ch, char *argument ) );
+void    interpret       args( ( CHAR_DATA *ch, const char *argument ) );
 bool    is_number       args( ( char *arg ) );
 int     number_argument args( ( char *argument, char *arg ) );
 int     entity_argument args( ( char *argument, char *arg ) );
@@ -3723,8 +3723,8 @@ void    sq_cleanup	 args( ( CHAR_DATA *ch ) );
 void    save_char_obj    args( ( CHAR_DATA *ch ) );
 void    backup_char_obj  args( ( CHAR_DATA *ch ) );
 bool    load_char_obj    args( ( DESCRIPTOR_DATA *d, char *name ) );
-void    do_delete_finger args( ( CHAR_DATA *ch) );
-void    do_save_finger   args( ( CHAR_DATA *ch) );
+//void    do_delete_finger args( ( CHAR_DATA *ch) );
+//void    do_save_finger   args( ( CHAR_DATA *ch) );
 char    *dizzy_ctime     args( ( time_t *timep ) );
 time_t  dizzy_scantime   args( ( char *ctime ) );
 

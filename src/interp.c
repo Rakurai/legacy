@@ -536,7 +536,7 @@ const   struct  cmd_type        cmd_table       [] = {
  * The main entry point for executing commands.
  * Can be recursively called from 'at', 'order', 'force'.
  */
-void interpret(CHAR_DATA *ch, char *argument)
+void interpret(CHAR_DATA *ch, const char *argument)
 {
 	char command[MAX_STRING_LENGTH];
 	int cmd;

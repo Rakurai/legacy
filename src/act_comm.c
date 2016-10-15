@@ -445,7 +445,7 @@ int select_pose(CHAR_DATA *ch)
 	return pose;
 }
 
-void do_pose(CHAR_DATA *ch, char *argument)
+void do_pose(CHAR_DATA *ch, const char *argument)
 {
 	int pose;
 	pose = select_pose(ch);
@@ -459,7 +459,7 @@ void do_pose(CHAR_DATA *ch, char *argument)
 }
 
 /* code to test poses -- Elrac */
-void do_testpose(CHAR_DATA *ch, char *argument)
+void do_testpose(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int class;
@@ -507,12 +507,12 @@ void do_testpose(CHAR_DATA *ch, char *argument)
 } /* end do_testpose() */
 
 /* RT code to delete yourself */
-void do_delet(CHAR_DATA *ch, char *argument)
+void do_delet(CHAR_DATA *ch, const char *argument)
 {
 	stc("You must type the full command to delete yourself.\n", ch);
 }
 
-void do_delete(CHAR_DATA *ch, char *argument)
+void do_delete(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d, *d_next;
 	int id;
@@ -617,13 +617,13 @@ void do_delete(CHAR_DATA *ch, char *argument)
 } /* end do_delete() */
 
 /* Lotus - Clear Screen Quickie */
-void do_clear(CHAR_DATA *ch, char *argument)
+void do_clear(CHAR_DATA *ch, const char *argument)
 {
 	stc("\033[2J", ch);
 }
 
 /* Newbie Bags by Lotus */
-void do_newbiekit(CHAR_DATA *ch, char *argument)
+void do_newbiekit(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	OBJ_DATA *kit;
@@ -660,7 +660,7 @@ void do_newbiekit(CHAR_DATA *ch, char *argument)
 }
 
 /* OOC by Lotus */
-void do_ooc(CHAR_DATA *ch, char *argument)
+void do_ooc(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't care about RP =).\n", ch);
@@ -679,7 +679,7 @@ void do_ooc(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_pk(CHAR_DATA *ch, char *argument)
+void do_pk(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *wch;
 
@@ -717,7 +717,7 @@ void do_pk(CHAR_DATA *ch, char *argument)
 } /* end do_pk() */
 
 /* Chatmode by Lotus */
-void do_chatmode(CHAR_DATA *ch, char *argument)
+void do_chatmode(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -733,7 +733,7 @@ void do_chatmode(CHAR_DATA *ch, char *argument)
 }
 
 /* Private for swho by Lotus */
-void do_private(CHAR_DATA *ch, char *argument)
+void do_private(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't care about privacy =).\n", ch);
@@ -751,7 +751,7 @@ void do_private(CHAR_DATA *ch, char *argument)
 }
 
 /* showlast for finger by Lotus */
-void do_showlast(CHAR_DATA *ch, char *argument)
+void do_showlast(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't care about their showlast =).\n", ch);
@@ -771,7 +771,7 @@ void do_showlast(CHAR_DATA *ch, char *argument)
 } /* end do_showlast() */
 
 /* Autorecall by Lotus */
-void do_autorecall(CHAR_DATA *ch, char *argument)
+void do_autorecall(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->act, PLR_WIMPY)) {
 		stc("You will no longer recall in link-dead combat.\n", ch);
@@ -783,7 +783,7 @@ void do_autorecall(CHAR_DATA *ch, char *argument)
 	}
 }
 /* PlayerTicks by Lotus */
-void do_autotick(CHAR_DATA *ch, char *argument)
+void do_autotick(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->act, PLR_TICKS)) {
 		stc("You will no longer see ticks.\n", ch);
@@ -796,7 +796,7 @@ void do_autotick(CHAR_DATA *ch, char *argument)
 }
 
 /* AutoPeek -- Elrac */
-void do_autopeek(CHAR_DATA *ch, char *argument)
+void do_autopeek(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) return;
 
@@ -813,7 +813,7 @@ void do_autopeek(CHAR_DATA *ch, char *argument)
 }
 
 /* ShowRaff - shows raffects in 'aff' */
-void do_showraff(CHAR_DATA *ch, char *argument)
+void do_showraff(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Huh?\n", ch);
@@ -836,7 +836,7 @@ void do_showraff(CHAR_DATA *ch, char *argument)
 }
 
 /* RT deaf blocks out all shouts */
-void do_deaf(CHAR_DATA *ch, char *argument)
+void do_deaf(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm, COMM_DEAF)) {
 		new_color(ch, CSLOT_CHAN_TELL);
@@ -854,7 +854,7 @@ void do_deaf(CHAR_DATA *ch, char *argument)
 
 /* RT quiet blocks out all communication */
 
-void do_quiet(CHAR_DATA *ch, char *argument)
+void do_quiet(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm, COMM_QUIET)) {
 		stc("Quiet mode removed.\n", ch);
@@ -868,7 +868,7 @@ void do_quiet(CHAR_DATA *ch, char *argument)
 
 /* afk command */
 
-void do_afk(CHAR_DATA *ch, char *argument)
+void do_afk(CHAR_DATA *ch, const char *argument)
 {
 	char *strtime;
 
@@ -917,7 +917,7 @@ void do_afk(CHAR_DATA *ch, char *argument)
 }
 
 /* Note notify by PwrDemon */
-void do_notify(CHAR_DATA *ch, char *argument)
+void do_notify(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) return;
 
@@ -954,7 +954,7 @@ void update_text_file(CHAR_DATA *ch, char *file, char *str)
 		bug("update_text_file(): could not open the file", 0);
 }
 
-void do_wbi(CHAR_DATA *ch, char *argument)
+void do_wbi(CHAR_DATA *ch, const char *argument)
 {
 	if (*argument == '\0') {
 		do_file(ch, "wbi 150");
@@ -965,7 +965,7 @@ void do_wbi(CHAR_DATA *ch, char *argument)
 	stc("And may it be imped soon! :)\n", ch);
 }
 
-void do_hbi(CHAR_DATA *ch, char *argument)
+void do_hbi(CHAR_DATA *ch, const char *argument)
 {
 	if (*argument == '\0') {
 		do_file(ch, "hbi 150");
@@ -976,7 +976,7 @@ void do_hbi(CHAR_DATA *ch, char *argument)
 	stc("It will be posted in a change note soon! :)\n", ch);
 }
 
-void do_wbb(CHAR_DATA *ch, char *argument)
+void do_wbb(CHAR_DATA *ch, const char *argument)
 {
 	if (*argument == '\0') {
 		do_file(ch, "wbb 150");
@@ -987,7 +987,7 @@ void do_wbb(CHAR_DATA *ch, char *argument)
 	stc("And may it be built soon! :)\n", ch);
 }
 
-void do_hbb(CHAR_DATA *ch, char *argument)
+void do_hbb(CHAR_DATA *ch, const char *argument)
 {
 	if (*argument == '\0') {
 		do_file(ch, "hbb 150");
@@ -998,7 +998,7 @@ void do_hbb(CHAR_DATA *ch, char *argument)
 	stc("It will be posted in a change note soon! :)\n", ch);
 }
 
-void do_work(CHAR_DATA *ch, char *argument)
+void do_work(CHAR_DATA *ch, const char *argument)
 {
 	if (*argument == '\0') {
 		do_file(ch, "work 150");
@@ -1009,7 +1009,7 @@ void do_work(CHAR_DATA *ch, char *argument)
 	stc("May your ideas be developed soon! :)\n", ch);
 }
 
-void do_immapp(CHAR_DATA *ch, char *argument)
+void do_immapp(CHAR_DATA *ch, const char *argument)
 {
 	if (*argument == '\0') {
 		do_file(ch, "immapp 150");
@@ -1020,7 +1020,7 @@ void do_immapp(CHAR_DATA *ch, char *argument)
 	stc("May they be considered soon! :)\n", ch);
 }
 
-void do_ridea(CHAR_DATA *ch, char *argument)
+void do_ridea(CHAR_DATA *ch, const char *argument)
 {
 	if (*argument == '\0') {
 		do_file(ch, "ridea 150");
@@ -1031,7 +1031,7 @@ void do_ridea(CHAR_DATA *ch, char *argument)
 	stc("And may it be debated soon! :)\n", ch);
 }
 
-void do_punish(CHAR_DATA *ch, char *argument)
+void do_punish(CHAR_DATA *ch, const char *argument)
 {
 	if (*argument == '\0') {
 		do_file(ch, "punishment 150");
@@ -1042,7 +1042,7 @@ void do_punish(CHAR_DATA *ch, char *argument)
 	stc("Punishment logged.\n", ch);
 }
 
-void do_bug(CHAR_DATA *ch, char *argument)
+void do_bug(CHAR_DATA *ch, const char *argument)
 {
 	if (*argument == '\0') {
 		if (IS_IMMORTAL(ch))
@@ -1057,7 +1057,7 @@ void do_bug(CHAR_DATA *ch, char *argument)
 	stc("Bug logged.\n", ch);
 }
 
-void do_typo(CHAR_DATA *ch, char *argument)
+void do_typo(CHAR_DATA *ch, const char *argument)
 {
 	if (*argument == '\0') {
 		if (IS_IMMORTAL(ch))
@@ -1072,7 +1072,7 @@ void do_typo(CHAR_DATA *ch, char *argument)
 	stc("Typo logged.\n", ch);
 }
 
-void do_qui(CHAR_DATA *ch, char *argument)
+void do_qui(CHAR_DATA *ch, const char *argument)
 {
 	stc("If you want to QUIT, you have to spell it out.\n", ch);
 	return;
@@ -1100,7 +1100,7 @@ bool showlost(CHAR_DATA *ch, OBJ_DATA *obj, bool found, bool locker)
 	return found;
 }
 
-void do_quit(CHAR_DATA *ch, char *argument)
+void do_quit(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d, *d_next, *sd;
 	CHAR_DATA *victim;
@@ -1235,7 +1235,7 @@ void do_quit(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_fuckoff(CHAR_DATA *ch, char *argument)
+void do_fuckoff(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d, *d_next;
 	int id;
@@ -1271,7 +1271,7 @@ void do_fuckoff(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_backup(CHAR_DATA *ch, char *argument)
+void do_backup(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1284,7 +1284,7 @@ void do_backup(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_save(CHAR_DATA *ch, char *argument)
+void do_save(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
 		return;
@@ -1295,7 +1295,7 @@ void do_save(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_follow(CHAR_DATA *ch, char *argument)
+void do_follow(CHAR_DATA *ch, const char *argument)
 {
 	/* RT changed to allow unlimited following and follow the NOFOLLOW rules */
 	char arg[MAX_INPUT_LENGTH];
@@ -1440,7 +1440,7 @@ void die_follower(CHAR_DATA *ch)
 	return;
 }
 
-void do_order(CHAR_DATA *ch, char *argument)
+void do_order(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
@@ -1573,7 +1573,7 @@ order pet <your order here>
 Okay, so I just need something to do...
 -- Outsider
 */
-void do_pet(CHAR_DATA *ch, char *argument)
+void do_pet(CHAR_DATA *ch, const char *argument)
 {
 	char buffer[MIL];
 	int index;
@@ -1607,7 +1607,7 @@ void do_pet(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_group(CHAR_DATA *ch, char *argument)
+void do_group(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -1696,7 +1696,7 @@ void do_group(CHAR_DATA *ch, char *argument)
 /*
  * 'Split' originally by Gnort, God of Chaos.
  */
-void do_split(CHAR_DATA *ch, char *argument)
+void do_split(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
@@ -1832,7 +1832,7 @@ void align(CHAR_DATA *ch, int new_align, char *align_str)
 	WAIT_STATE(ch, 4 * PULSE_PER_SECOND);
 } /* end align() */
 
-void do_align(CHAR_DATA *ch, char *argument)
+void do_align(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 
@@ -1866,7 +1866,7 @@ void do_align(CHAR_DATA *ch, char *argument)
 } /* end do_align() */
 
 /* equips a character */
-void do_outfit(CHAR_DATA *ch, char *argument)
+void do_outfit(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	int i, sn, vnum;
@@ -1945,7 +1945,7 @@ void do_outfit(CHAR_DATA *ch, char *argument)
 	    ch->pcdata->deity == NULL ? "Alisa" : str_dup(ch->pcdata->deity));
 }
 
-void do_newscore(CHAR_DATA *ch, char *argument)
+void do_newscore(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Sorry, you're stuck with the old version of score.\n", ch);
