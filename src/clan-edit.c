@@ -234,7 +234,6 @@ void do_cedit(CHAR_DATA *ch, char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH], clanname[MAX_INPUT_LENGTH];
 	CLAN_DATA *cdata;
-	smash_tilde(argument);
 	argument = one_argument(argument, cmd);
 	argument = one_argument(argument, clanname);
 

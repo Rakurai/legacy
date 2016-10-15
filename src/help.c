@@ -367,9 +367,9 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 	while (db_next_row() == SQL_OK) {
 		strcpy(buf, db_get_column_str(0));
 		strcat(buf, " ");
-		strcat(buf, db_get_column_str(1));
+		strcat(buf, smash_tilde(db_get_column_str(1)));
 		strcat(buf, "~\n");
-		strcat(buf, db_get_column_str(2));
+		strcat(buf, smash_tilde(db_get_column_str(2)));
 		strcat(buf, "~\n\n");
 		fputs(buf, fp);
 		count++;
@@ -560,7 +560,6 @@ void do_help(CHAR_DATA *ch, char *argument)
 void do_hedit(CHAR_DATA *ch, char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
-	smash_tilde(argument);
 	argument = one_argument(argument, cmd);
 
 	if (!cmd[0]) {

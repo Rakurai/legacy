@@ -3966,7 +3966,6 @@ void do_buy(CHAR_DATA *ch, char *argument)
 				       ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 
 			free_string(pet->name);
-			smash_tilde(buf);
 			pet->name = str_dup(buf);
 		}
 
@@ -5108,17 +5107,18 @@ void do_forge(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	smash_tilde(argument);
+	char *name = smash_tilde(argument); // volatile, good until smash_tilde called again
+
 	obj->level = ch->level;
 	free_string(obj->material);
-	obj->material = material->material;
+	obj->material = str_dup(material->material);
 	obj->condition = material->condition;
 	obj->extra_flags = material->extra_flags;
 	obj->value[0] = weapon_type(type);
 	free_string(obj->name);
-	sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, smash_bracket(argument));
+	sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, smash_bracket(name));
 	obj->name = str_dup(buf);
-	sprintf(sdesc, "%s{x", argument);
+	sprintf(sdesc, "%s{x", name);
 	free_string(obj->short_descr);
 	obj->short_descr = str_dup(sdesc);
 	sprintf(buf, "A %s is here, forged by %s's craftsmanship.", weapon_table[weapon_lookup(type)].name, ch->name);
@@ -5273,8 +5273,6 @@ void do_engrave(CHAR_DATA *ch, char *argument)
 		stc("What do you want to engrave on your weapon?\n", ch);
 		return;
 	}
-
-	smash_tilde(argument);
 
 	/* Imms have no length limit. Please don't overdo it! */
 	/* If you change this, remember that the jeweler can == NULL for imms! */
@@ -5432,7 +5430,7 @@ void do_engrave(CHAR_DATA *ch, char *argument)
 	}
 
 	add_buf(dbuf, buf);
-	sprintf(buf, "engraved {Ythis{x:\n \"%s\".\n", argument);
+	sprintf(buf, "engraved {Ythis{x:\n \"%s\".\n", smash_tilde(argument));
 	add_buf(dbuf, buf);
 	eng_desc->description = str_dup(buf_string(dbuf));
 	free_buf(dbuf);
@@ -5472,8 +5470,6 @@ void do_weddingring(CHAR_DATA *ch, char *argument)
 	if (arg1[0] == '\0' || argument[0] == '\0')
 		goto help;
 
-	smash_tilde(argument);
-
 	if (!IS_IMMORTAL(ch))
 		price = 2 * color_strlen(argument);
 
@@ -5488,16 +5484,14 @@ void do_weddingring(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!str_prefix1(arg1, "long")) {
-		sprintf(buf, "The long description of your weddingring is now:\n{x'%s{x'.\n", argument);
+		ptc(ch, "The long description of your weddingring is now:\n{x'%s{x'.\n", argument);
 		free_string(ring->description);
-		ring->description = str_dup(argument);
-		stc(buf, ch);
+		ring->description = str_dup(smash_tilde(argument));
 	}
 	else if (!str_prefix1(arg1, "short")) {
-		sprintf(buf, "The short description of your weddingring is now:\n{x'%s{x'.\n", argument);
+		ptc(ch, "The short description of your weddingring is now:\n{x'%s{x'.\n", argument);
 		free_string(ring->short_descr);
-		ring->short_descr = str_dup(argument);
-		stc(buf, ch);
+		ring->short_descr = str_dup(smash_tilde(argument));
 	}
 	else
 		goto help;

@@ -419,7 +419,6 @@ static void edit_change(CHAR_DATA *ch, char *argument)
 
 	edit_goto1(ch, this_line);
 	argument = one_arg(argument, arg1);
-	smash_tilde(arg1);
 
 	if (arg1[0] == '\0') {
 		stc("{PYou must specify a string to change.{x\n", ch);
@@ -427,7 +426,6 @@ static void edit_change(CHAR_DATA *ch, char *argument)
 	}
 
 	argument = one_arg(argument, arg2);
-	smash_tilde(arg2);
 
 	if (strlen(arg2) > strlen(arg1)
 	    && strlen(ed->edit_string) + strlen(arg2) - strlen(arg1) > MAX_EDIT_LENGTH) {
@@ -596,8 +594,6 @@ static void edit_insert(CHAR_DATA *ch, char *argument)
 
 		after_line = num1 + 1;
 	}
-
-	smash_tilde(argument);
 
 	if (strlen(argument) + strlen(ed->edit_string) + 1 > MAX_EDIT_LENGTH) {
 		stc("{PEdit limit exceeded - you cannot add any more text.{x\n", ch);

@@ -549,8 +549,6 @@ void config_immortal(CHAR_DATA *ch, char *argument)
 		}
 		else {
 			char buf[MIL];
-
-			smash_tilde(argument);
 			sprintf(buf, smash_bracket(argument));
 
 			if (strlen(buf) > 30)
@@ -580,8 +578,6 @@ void config_immortal(CHAR_DATA *ch, char *argument)
 		}
 		else {
 			char buf[MIL];
-
-			smash_tilde(argument);
 			sprintf(buf, smash_bracket(argument));
 
 			if (strlen(buf) > TITLEBLOCK)

@@ -403,11 +403,10 @@ void do_string(CHAR_DATA *ch, char *argument)
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 	ROOM_INDEX_DATA *room;
-	smash_tilde(argument);
 	argument = one_argument(argument, type);
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
-	strcpy(arg3, argument);
+	strcpy(arg3, smash_tilde(argument));
 
 	if (type[0] == '\0' || arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		stc("Syntax:\n", ch);

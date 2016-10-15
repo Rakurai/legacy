@@ -124,7 +124,6 @@ void do_alias(CHAR_DATA *ch, char *argument)
 		}
 	}
 
-	smash_tilde(argument);
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {

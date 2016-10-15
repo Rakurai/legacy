@@ -3448,7 +3448,6 @@ void setgameinout(CHAR_DATA *ch, char *argument, char *entryexit, char flag)
 		return;
 	}
 	else {
-		smash_tilde(argument);
 		*msgptr = str_dup(argument);
 		act("OK, game $t message set", ch, entryexit, NULL, TO_CHAR);
 	}
@@ -4104,7 +4103,6 @@ void do_aura(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	smash_tilde(argument);
 	free_string(victim->pcdata->aura);
 	victim->pcdata->aura = str_dup(argument);
 	ptc(victim, "Your aura is now {W(%s{W){x.\n", victim->pcdata->aura);
@@ -4113,8 +4111,6 @@ void do_aura(CHAR_DATA *ch, char *argument)
 
 void do_bamfin(CHAR_DATA *ch, char *argument)
 {
-	smash_tilde(argument);
-
 	if (argument[0] == '\0') {
 		ptc(ch, "Your poofin is currently: %s\n", ch->pcdata->bamfin);
 		return;
@@ -4142,8 +4138,6 @@ void do_bamfin(CHAR_DATA *ch, char *argument)
 
 void do_bamfout(CHAR_DATA *ch, char *argument)
 {
-	smash_tilde(argument);
-
 	if (argument[0] == '\0') {
 		ptc(ch, "Your poofout is currently: %s\n", ch->pcdata->bamfout);
 		return;
