@@ -128,7 +128,7 @@ void update_pc_index(CHAR_DATA *ch, bool remove)
 		            ch->level,
 		            ch->pcdata->remort_count,
 		            ch->clan ? db_esc(ch->clan->name) : "",
-		            ch->clan && ch->pcdata->rank ? db_esc(ch->pcdata->rank) : "");
+		            ch->clan && ch->pcdata->rank[0] ? db_esc(ch->pcdata->rank) : "");
 }
 
 /*
@@ -292,8 +292,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		log_string(log_buf);
 		wiznet(log_buf, NULL, NULL, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
 		sprintf(log_buf, "Last Site: %s",
-		        (ch->pcdata->last_lsite != NULL &&
-		         ch->pcdata->last_lsite[0] != '\0') ? ch->pcdata->last_lsite : "Not Available");
+		        ch->pcdata->last_lsite[0] ? ch->pcdata->last_lsite : "Not Available");
 		wiznet(log_buf, NULL, NULL, WIZ_SITES, WIZ_LOGINS, GET_RANK(ch));
 		update_site(ch);
 
@@ -931,7 +930,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		else
 			char_to_room(ch, get_room_index(ROOM_VNUM_TEMPLE));
 
-		if (ch->pcdata->email != NULL && ch->pcdata->email[0] == '\0') {
+		if (ch->pcdata->email[0] == '\0') {
 			set_color(ch, RED, BOLD);
 			stc("Your e-mail has not been set, please update your email address\n", ch);
 			stc("with the email command!\n\n", ch);
@@ -990,7 +989,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		ptc(ch, "\nYour last login was from [{W%s{x] %s",
-		    ch->pcdata->last_lsite[0] != '\0' ? ch->pcdata->last_lsite : "Not Available",
+		    ch->pcdata->last_lsite[0] ? ch->pcdata->last_lsite : "Not Available",
 		    ch->pcdata->last_ltime != (time_t) 0 ? dizzy_ctime(&ch->pcdata->last_ltime) : "00:00:00");
 		ch->pcdata->last_ltime = current_time;
 		ch->pcdata->last_lsite = str_dup(d->host);

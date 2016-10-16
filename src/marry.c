@@ -63,9 +63,7 @@ void do_marry(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (victim->pcdata->spouse == NULL
-	    || victim->pcdata->spouse[0] == '\0'
-	    || victim2->pcdata->spouse == NULL
+	if (victim->pcdata->spouse[0] == '\0'
 	    || victim2->pcdata->spouse[0] == '\0'
 	    || str_cmp(victim->pcdata->spouse, victim2->name)
 	    || str_cmp(victim2->pcdata->spouse, victim->name)) {
@@ -132,8 +130,8 @@ void do_divorce(CHAR_DATA *ch, const char *argument)
 	stc("Your divorce is final.\n", victim2);
 	ptc(victim2, "You are now divorced from %s.\n", victim->name);
 	free_string(victim->pcdata->spouse);
-	free_string(victim2->pcdata->spouse);
 	victim->pcdata->spouse = str_dup("");
+	free_string(victim2->pcdata->spouse);
 	victim2->pcdata->spouse = str_dup("");
 	REMOVE_BIT(victim->pcdata->plr, PLR_MARRIED);
 	REMOVE_BIT(victim2->pcdata->plr, PLR_MARRIED);
@@ -158,7 +156,7 @@ void do_spousetalk(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->pcdata->spouse == NULL || ch->pcdata->spouse == '\0') {
+	if (ch->pcdata->spouse[0] == '\0') {
 		new_color(ch, CSLOT_CHAN_SPOUSE);
 		stc("You aren't even engaged. How do you expect to talk to your other half?\n", ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -222,7 +220,7 @@ void do_propose(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->pcdata->spouse != NULL && ch->pcdata->spouse != '\0') {
+	if (ch->pcdata->spouse[0] != '\0') {
 		stc("You are already engaged.\n", ch);
 		return;
 	}
@@ -247,11 +245,12 @@ void do_propose(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (victim->pcdata->spouse != NULL && victim->pcdata->spouse != '\0') {
+	if (victim->pcdata->spouse[0] != '\0') {
 		stc("They are already engaged.\n", ch);
 		return;
 	}
 
+	free_string(ch->pcdata->propose);
 	ch->pcdata->propose = str_dup(victim->name);
 	act("You propose marriage to $M.", ch, NULL, victim, TO_CHAR);
 	act("$n gets down on one knee and proposes to $N.", ch, NULL, victim, TO_NOTVICT);
@@ -280,7 +279,7 @@ void do_accept(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->pcdata->spouse != NULL && ch->pcdata->spouse != '\0') {
+	if (ch->pcdata->spouse[0] != '\0') {
 		stc("You are already engaged.\n", ch);
 		return;
 	}
@@ -300,17 +299,15 @@ void do_accept(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (victim->pcdata->propose == NULL || str_cmp(victim->pcdata->propose, ch->name)) {
+	if (!victim->pcdata->propose[0] || str_cmp(victim->pcdata->propose, ch->name)) {
 		stc("They haven't proposed to you.\n", ch);
 		return;
 	}
 
 	free_string(victim->pcdata->propose);
 	victim->pcdata->propose = str_dup("");
-	victim->pcdata->propose = NULL;
 	free_string(ch->pcdata->propose);
 	ch->pcdata->propose = str_dup("");
-	ch->pcdata->propose = NULL;
 	free_string(victim->pcdata->spouse);
 	victim->pcdata->spouse = str_dup(ch->name);
 	free_string(ch->pcdata->spouse);
@@ -354,7 +351,7 @@ void do_reject(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->pcdata->spouse != NULL && ch->pcdata->spouse != '\0') {
+	if (ch->pcdata->spouse[0] != '\0') {
 		stc("You are already engaged.\n", ch);
 		return;
 	}
@@ -381,10 +378,8 @@ void do_reject(CHAR_DATA *ch, const char *argument)
 
 	free_string(victim->pcdata->propose);
 	victim->pcdata->propose = str_dup("");
-	victim->pcdata->propose = NULL;
 	free_string(ch->pcdata->propose);
 	ch->pcdata->propose = str_dup("");
-	ch->pcdata->propose = NULL;
 	act("You reject $S offer of marriage.", ch, NULL, victim, TO_CHAR);
 	act("$n rejects $N's offer of marriage.", ch, NULL, victim, TO_NOTVICT);
 	act("$n rejects your offer of marriage.", ch, NULL, victim, TO_VICT);
@@ -414,7 +409,7 @@ void do_breakup(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->pcdata->spouse == NULL || ch->pcdata->spouse == '\0') {
+	if (ch->pcdata->spouse[0] == '\0') {
 		stc("You aren't engaged.\n", ch);
 		return;
 	}
@@ -435,8 +430,7 @@ void do_breakup(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (str_cmp(ch->pcdata->spouse, victim->name)
-	    || victim->pcdata->spouse == NULL
-	    || victim->pcdata->spouse == '\0'
+	    || victim->pcdata->spouse[0] == '\0'
 	    || str_cmp(victim->pcdata->spouse, ch->name)) {
 		stc("They aren't even engaged to you.\n\t", ch);
 		return;
@@ -444,10 +438,8 @@ void do_breakup(CHAR_DATA *ch, const char *argument)
 
 	free_string(victim->pcdata->spouse);
 	victim->pcdata->spouse = str_dup("");
-	victim->pcdata->spouse = NULL;
 	free_string(ch->pcdata->spouse);
 	ch->pcdata->spouse = str_dup("");
-	ch->pcdata->spouse = NULL;
 	act("You break off your engagement with $M.", ch, NULL, victim, TO_CHAR);
 	act("$n breaks off $s engagement with $N.", ch, NULL, victim, TO_NOTVICT);
 	act("$n breaks off $s engagement with you.", ch, NULL, victim, TO_VICT);

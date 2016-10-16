@@ -50,7 +50,7 @@ bool is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	for (pos = 0; pos < MAX_IGNORE; pos++) {
-		if (rch->pcdata->ignore[pos] == NULL)
+		if (rch->pcdata->ignore[pos][0] == '\0')
 			break;
 
 		if (!str_cmp(rch->pcdata->ignore[pos], victim->name))
@@ -82,7 +82,7 @@ void do_ignore(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (arg[0] == '\0') {
-		if (rch->pcdata->ignore[0] == NULL) {
+		if (rch->pcdata->ignore[0][0] == '\0') {
 			stc("You are ignoring nobody.\n", ch);
 			return;
 		}
@@ -90,7 +90,7 @@ void do_ignore(CHAR_DATA *ch, const char *argument)
 		stc("People you are ignoring:\n", ch);
 
 		for (pos = 0; pos < MAX_IGNORE; pos++) {
-			if (rch->pcdata->ignore[pos] == NULL)
+			if (rch->pcdata->ignore[pos][0] == '\0')
 				break;
 
 			ptc(ch, "[%d] %s\n", pos, rch->pcdata->ignore[pos]);
@@ -126,17 +126,29 @@ void do_ignore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	bool found = FALSE;
 	for (pos = 0; pos < MAX_IGNORE; pos++) {
-		if (rch->pcdata->ignore[pos] == NULL)
+		if (rch->pcdata->ignore[pos][0] == '\0')
 			break;
+
+		if (found) {
+			// swap the entries back
+			char *temp = rch->pcdata->ignore[pos - 1];
+			rch->pcdata->ignore[pos - 1] = rch->pcdata->ignore[pos];
+			rch->pcdata->ignore[pos] = temp;
+		}
 
 		if (!str_cmp(arg, rch->pcdata->ignore[pos])) {
 			free_string(rch->pcdata->ignore[pos]);
-			rch->pcdata->ignore[pos] = NULL;
-			ptc(ch, "You stop ignoring %s.\n", victim->name);
-			ptc(victim, "%s stops ignoring you.\n", ch->name);
-			return;
+			rch->pcdata->ignore[pos] = str_dup("");
+			found = TRUE;
 		}
+	}
+
+	if (found) {
+		ptc(ch, "You stop ignoring %s.\n", victim->name);
+		ptc(victim, "%s stops ignoring you.\n", ch->name);
+		return;
 	}
 
 	if (pos >= MAX_IGNORE) {
@@ -144,6 +156,7 @@ void do_ignore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	free_string(rch->pcdata->ignore[pos]);
 	rch->pcdata->ignore[pos] = str_dup(arg);
 	ptc(ch, "You now ignore %s.\n", victim->name);
 	ptc(victim, "%s ignores you.\n", ch->name);
@@ -173,16 +186,28 @@ void ignore_offline(CHAR_DATA *ch, const char *arg)
 		return;
 	}
 
+	bool found = FALSE;
 	for (pos = 0; pos < MAX_IGNORE; pos++) {
-		if (ch->pcdata->ignore[pos] == NULL)
+		if (ch->pcdata->ignore[pos][0] == '\0')
 			break;
+
+		if (found) {
+			// swap the entries back
+			char *temp = ch->pcdata->ignore[pos - 1];
+			ch->pcdata->ignore[pos - 1] = ch->pcdata->ignore[pos];
+			ch->pcdata->ignore[pos] = temp;
+		}
 
 		if (!str_cmp(arg, ch->pcdata->ignore[pos])) {
 			free_string(ch->pcdata->ignore[pos]);
-			ch->pcdata->ignore[pos] = NULL;
-			ptc(ch, "You stop ignoring %s.\n", name);
-			return;
+			ch->pcdata->ignore[pos] = str_dup("");
+			found = TRUE;
 		}
+	}
+
+	if (found) {
+		ptc(ch, "You stop ignoring %s.\n", name);
+		return;
 	}
 
 	if (pos >= MAX_IGNORE) {
@@ -190,6 +215,7 @@ void ignore_offline(CHAR_DATA *ch, const char *arg)
 		return;
 	}
 
+	free_string(ch->pcdata->ignore[pos]);
 	ch->pcdata->ignore[pos] = str_dup(name);
 	ptc(ch, "You now ignore %s.\n", name);
 }

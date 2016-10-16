@@ -2177,7 +2177,7 @@ struct  pc_data
    char *              fingerinfo;
    char *              query[MAX_QUERY];
    char *              spouse;
-   char *		propose;
+   char *              propose;
    char *              whisper;			/* Montrey */
    long              video;				/* Elrac */
    sh_int              tailing;			/* Elrac */

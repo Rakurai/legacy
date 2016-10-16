@@ -198,8 +198,8 @@ void fix_war(WAR_DATA *war)
 
 	for (i = 0; i < 4; i++) {
 		if (war->chal[i]->name[0] != '\0') {
-			fixed_war->chal[c]->name        = war->chal[i]->name;
-			fixed_war->chal[c]->clanname    = war->chal[i]->clanname;
+			fixed_war->chal[c]->name        = str_dup(war->chal[i]->name);
+			fixed_war->chal[c]->clanname    = str_dup(war->chal[i]->clanname);
 			fixed_war->chal[c]->inwar       = war->chal[i]->inwar;
 			fixed_war->chal[c]->start_score = war->chal[i]->start_score;
 			fixed_war->chal[c]->final_score = war->chal[i]->final_score;
@@ -207,8 +207,8 @@ void fix_war(WAR_DATA *war)
 		}
 
 		if (war->def[i]->name[0] != '\0') {
-			fixed_war->def[d]->name         = war->def[i]->name;
-			fixed_war->def[d]->clanname     = war->def[i]->clanname;
+			fixed_war->def[d]->name         = str_dup(war->def[i]->name);
+			fixed_war->def[d]->clanname     = str_dup(war->def[i]->clanname);
 			fixed_war->def[d]->inwar        = war->def[i]->inwar;
 			fixed_war->def[d]->start_score  = war->def[i]->start_score;
 			fixed_war->def[d]->final_score  = war->def[i]->final_score;
@@ -217,6 +217,7 @@ void fix_war(WAR_DATA *war)
 	}
 
 	fixed_war->events   = war->events;
+	war->events = NULL; // prevent freeing
 	fixed_war->ongoing  = war->ongoing;
 	fixed_war->previous = war->previous;
 	fixed_war->next     = war->next;

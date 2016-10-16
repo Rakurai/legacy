@@ -5424,7 +5424,7 @@ void do_engrave(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		sprintf(buf, "{Y%s{W%s{x ", ch->name,
-		        ch->pcdata && ch->pcdata->title ?
+		        ch->pcdata && ch->pcdata->title[0] ?
 		        ch->pcdata->title : "{M(adventurer of Thera){x");
 	}
 

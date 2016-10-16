@@ -60,7 +60,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 		argument = prefix;
 	}
 
-	if (IS_NPC(ch) || ch->pcdata->alias[0] == NULL || ch->pcdata->alias[0] == '\0'
+	if (IS_NPC(ch) || ch->pcdata->alias[0][0] == '\0'
 	    ||  !str_prefix1("alias", argument) || !str_prefix1("una", argument)
 	    ||  !str_prefix1("prefix", argument)) {
 		interpret(d->character, argument);
@@ -70,7 +70,7 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 	strcpy(buf, argument);
 
 	for (alias = 0; alias < MAX_ALIAS; alias++) { /* go through the aliases */
-		if (ch->pcdata->alias[alias] == NULL)
+		if (ch->pcdata->alias[alias][0] == '\0')
 			break;
 
 		if (!str_prefix1(ch->pcdata->alias[alias], argument)) {
@@ -126,7 +126,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		if (rch->pcdata->alias[0] == NULL) {
+		if (rch->pcdata->alias[0][0] == '\0') {
 			stc("You have no aliases defined.\n", ch);
 			return;
 		}
@@ -134,8 +134,8 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 		stc("Your current aliases are:\n", ch);
 
 		for (pos = 0; pos < MAX_ALIAS; pos++) {
-			if (rch->pcdata->alias[pos] == NULL
-			    ||  rch->pcdata->alias_sub[pos] == NULL)
+			if (!rch->pcdata->alias[pos][0]
+			 || !rch->pcdata->alias_sub[pos][0])
 				break;
 
 			sprintf(buf, "    %s:  %s\n", rch->pcdata->alias[pos],
@@ -153,8 +153,8 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 
 	if (argument[0] == '\0') {
 		for (pos = 0; pos < MAX_ALIAS; pos++) {
-			if (rch->pcdata->alias[pos] == NULL
-			    ||  rch->pcdata->alias_sub[pos] == NULL)
+			if (!rch->pcdata->alias[pos][0]
+			 || !rch->pcdata->alias_sub[pos][0])
 				break;
 
 			if (!str_cmp(arg, rch->pcdata->alias[pos])) {
@@ -175,7 +175,7 @@ void do_alias(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (pos = 0; pos < MAX_ALIAS; pos++) {
-		if (rch->pcdata->alias[pos] == NULL)
+		if (!rch->pcdata->alias[pos][0])
 			break;
 
 		if (!str_cmp(arg, rch->pcdata->alias[pos])) { /* redefine an alias */
@@ -222,14 +222,20 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (pos = 0; pos < MAX_ALIAS; pos++) {
-		if (rch->pcdata->alias[pos] == NULL)
+		if (!rch->pcdata->alias[pos][0])
 			break;
 
 		if (found) {
-			rch->pcdata->alias[pos - 1]           = rch->pcdata->alias[pos];
-			rch->pcdata->alias_sub[pos - 1]       = rch->pcdata->alias_sub[pos];
-			rch->pcdata->alias[pos]             = NULL;
-			rch->pcdata->alias_sub[pos]         = NULL;
+			// swap with the previous
+			char *temp;
+
+			temp = rch->pcdata->alias[pos - 1];
+			rch->pcdata->alias[pos - 1] = rch->pcdata->alias[pos];
+			rch->pcdata->alias[pos] = temp;
+
+			temp = rch->pcdata->alias_sub[pos - 1];
+			rch->pcdata->alias_sub[pos - 1] = rch->pcdata->alias_sub[pos];
+			rch->pcdata->alias_sub[pos] = temp;
 			continue;
 		}
 
@@ -237,8 +243,8 @@ void do_unalias(CHAR_DATA *ch, const char *argument)
 			stc("Alias removed.\n", ch);
 			free_string(rch->pcdata->alias[pos]);
 			free_string(rch->pcdata->alias_sub[pos]);
-			rch->pcdata->alias[pos] = NULL;
-			rch->pcdata->alias_sub[pos] = NULL;
+			rch->pcdata->alias[pos] = str_dup("");
+			rch->pcdata->alias_sub[pos] = str_dup("");
 			found = TRUE;
 		}
 	}

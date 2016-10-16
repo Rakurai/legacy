@@ -745,7 +745,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (!IS_NPC(victim) && !IS_IMMORTAL(victim)) {
 		sprintf(buf, "%s is a devout follower of %s.\n", victim->name,
-		        victim->pcdata->deity);
+		        victim->pcdata->deity[0] ? victim->pcdata->deity : "no one");
 		set_color(ch, CYAN, BOLD);
 		stc(buf, ch);
 		set_color(ch, WHITE, NOBOLD);
@@ -761,7 +761,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
-		if (!IS_NPC(victim) && victim->pcdata->spouse == NULL && iWear == WEAR_WEDDINGRING
+		if (!IS_NPC(victim) && victim->pcdata->spouse[0] && iWear == WEAR_WEDDINGRING
 		    && !IS_IMMORTAL(ch)) /* so imms can see weddingrings on unmarried ppl */
 			continue;
 
@@ -2454,7 +2454,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	sprintf(clan, "{x"); /* ugly, do something better someday */
 
 	if (victim->clan != NULL) {
-		if (victim->pcdata->rank != NULL)
+		if (victim->pcdata->rank[0] != '\0')
 			rank = victim->pcdata->rank;
 		else if (IS_SET(victim->pcdata->cgroup, GROUP_LEADER))
 			rank = "Leader";
@@ -2466,7 +2466,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 		sprintf(clan, "%s{x of %s{x, ", rank, victim->clan->clanname);
 	}
 
-	if (IS_REMORT(victim) && victim->pcdata->status != NULL && victim->pcdata->status[0] != '\0')
+	if (IS_REMORT(victim)&& victim->pcdata->status[0] != '\0')
 		sprintf(remort, "%s{x, ", victim->pcdata->status);
 	else
 		remort = "";
@@ -2939,7 +2939,7 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
 		if (ch->pcdata)
-			if (iWear == WEAR_WEDDINGRING && ch->pcdata->spouse == NULL && !IS_IMMORTAL(ch))
+			if (iWear == WEAR_WEDDINGRING && ch->pcdata->spouse[0] && !IS_IMMORTAL(ch))
 				continue;
 
 		strcpy(buf, where_name[iWear]);
@@ -3362,6 +3362,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
 /*
  * Immname by Demonfire - Modified by Lotus
  * Added 11.25.1996
+ * moved to config function -- Montrey
  */
 
 void do_immname(CHAR_DATA *ch, const char *argument)
@@ -3372,38 +3373,6 @@ void do_immname(CHAR_DATA *ch, const char *argument)
 	char buf[MIL];
 	sprintf(buf, "immortal immname %s", argument);
 	do_config(ch, buf);
-/*
-	char block[MAX_STRING_LENGTH];
-	char test[MAX_STRING_LENGTH];
-
-	if (argument[0] == '\0') {
-		stc("Change your immname to what?\n", ch);
-		return;
-	}
-
-	if (!str_prefix1(argument, "none")) {
-		stc("Your immname has been removed.\n", ch);
-		free_string(ch->pcdata->immname);
-		ch->pcdata->immname = str_dup("");
-		return;
-	}
-
-	if (color_strlen(argument) > TITLEBLOCK) {
-		stc("Too Long: Limited to 13 printed characters\n", ch);
-		return;
-	}
-
-	free_string(ch->pcdata->immname);
-	block[0]  = '\0';
-	strcat(block, "{W[{x");
-	strcat(block, set_colorname(argument, TITLEBLOCK));
-	strcat(block, "{W]{x");
-	ch->pcdata->immname = str_dup(block);
-	sprintf(test, "Your new immname is %s.\n",
-	        ch->pcdata->immname);
-	stc(test, ch);
-	return;
-*/
 }
 
 void do_description(CHAR_DATA *ch, const char *argument)
@@ -3502,8 +3471,7 @@ void do_fingerinfo(CHAR_DATA *ch, const char *argument)
 			int len;
 			bool found = FALSE;
 
-			if (ch->pcdata->fingerinfo == NULL
-			    || ch->pcdata->fingerinfo[0] == '\0') {
+			if (ch->pcdata->fingerinfo[0] == '\0') {
 				stc("No lines left to remove.\n", ch);
 				return;
 			}
@@ -3525,7 +3493,7 @@ void do_fingerinfo(CHAR_DATA *ch, const char *argument)
 						set_color(ch, CYAN, NOBOLD);
 						ptc(ch, "Your finger info is:\n"
 						    "%s",
-						    ch->pcdata->fingerinfo ?
+						    ch->pcdata->fingerinfo[0] ?
 						    ch->pcdata->fingerinfo :
 						    "(None).\n");
 						set_color(ch, WHITE, NOBOLD);
@@ -3536,11 +3504,11 @@ void do_fingerinfo(CHAR_DATA *ch, const char *argument)
 
 			buf[0] = '\0';
 			free_string(ch->pcdata->fingerinfo);
-			ch->pcdata->fingerinfo = str_dup(buf);
+			ch->pcdata->fingerinfo = str_dup("");
 			stc("Finger Info cleared.\n", ch);
 		}
 		else if (argument[0] == '+') {
-			if (ch->pcdata->fingerinfo != NULL)
+			if (ch->pcdata->fingerinfo[0])
 				strcat(buf, ch->pcdata->fingerinfo);
 
 			argument++;
@@ -3571,7 +3539,7 @@ void do_fingerinfo(CHAR_DATA *ch, const char *argument)
 	set_color(ch, CYAN, NOBOLD);
 	ptc(ch, "Your finger info is:\n"
 	    "%s",
-	    ch->pcdata->fingerinfo ?
+	    ch->pcdata->fingerinfo[0] ?
 	    ch->pcdata->fingerinfo :
 	    "(None).\n");
 	set_color(ch, WHITE, NOBOLD);
@@ -4123,7 +4091,7 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	for (p = pwdnew; *p != '\0'; p++) {
 		if (*p == '~') {
 			stc(
-			        "New password not acceptable, try again.\n", ch);
+			        "No tildes in passwords, try again.\n", ch);
 			return;
 		}
 	}
@@ -4669,9 +4637,10 @@ void do_email(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	free_string(ch->pcdata->email);
 	strcpy(buf, argument);
+	free_string(ch->pcdata->email);
 	ch->pcdata->email = str_dup(buf);
+
 	ptc(ch, "Your email has been changed to: %s\n", buf);
 	sprintf(buf, "\"%s\" <%s>\n", ch->name, ch->pcdata->email);
 	email_file(ch, EMAIL_FILE, buf);
@@ -4680,7 +4649,7 @@ void do_email(CHAR_DATA *ch, const char *argument)
 }
 
 /* gameinout: show game entry or exit message -- Elrac */
-void gameinout(CHAR_DATA *ch, char *mortal, char *entryexit, char inout)
+void gameinout(CHAR_DATA *ch, const char *mortal, const char *entryexit, char inout)
 {
 	CHAR_DATA *victim;
 	char *msgptr;

@@ -194,8 +194,8 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 
 	item = NULL;
 	for (int pos = 0; pos < MAX_ALIAS; pos++) {
-		if (ch->pcdata->alias[pos] == NULL
-		    ||  ch->pcdata->alias_sub[pos] == NULL)
+		if (!ch->pcdata->alias[pos][0]
+		 || !ch->pcdata->alias_sub[pos][0])
 			break;
 
 		if (item == NULL)
@@ -214,7 +214,10 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 
 	cJSON_AddNumberToObject(o,		"Akills",		ch->pcdata->arenakills);
 	cJSON_AddNumberToObject(o,		"Akilled",		ch->pcdata->arenakilled);
-	cJSON_AddStringToObject(o,		"Aura",			ch->pcdata->aura);
+
+	if (ch->pcdata->aura[0])
+		cJSON_AddStringToObject(o,	"Aura",			ch->pcdata->aura);
+
 	cJSON_AddNumberToObject(o,		"Back",			ch->pcdata->backup);
 
 	if (ch->pcdata->bamfin[0] != '\0')
@@ -245,7 +248,8 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	}
 	cJSON_AddItemToObject(o,		"Colr",			item);
 
-	cJSON_AddStringToObject(o,		"Deit",			ch->pcdata->deity);
+	if (ch->pcdata->deity[0])
+		cJSON_AddStringToObject(o,	"Deit",			ch->pcdata->deity);
 
 	if (ch->pcdata->email[0] != '\0')
 		cJSON_AddStringToObject(o,	"Email",		ch->pcdata->email);
@@ -261,10 +265,10 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	if (ch->pcdata->flag_thief)
 		cJSON_AddNumberToObject(o,	"FlagThief",	ch->pcdata->flag_thief);
 
-	if (ch->pcdata->gamein && ch->pcdata->gamein[0] != '\0')
+	if (ch->pcdata->gamein[0])
 		cJSON_AddStringToObject(o,	"GameIn",		ch->pcdata->gamein);
 
-	if (ch->pcdata->gameout && ch->pcdata->gameout[0] != '\0')
+	if (ch->pcdata->gameout[0])
 		cJSON_AddStringToObject(o,	"GameOut",		ch->pcdata->gameout);
 
 	item = NULL;
@@ -301,7 +305,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 
 	item = NULL;
 	for (int pos = 0; pos < MAX_IGNORE; pos++) {
-		if (ch->pcdata->ignore[pos] == NULL)
+		if (ch->pcdata->ignore[pos][0] == '\0')
 			break;
 
 		if (item == NULL)
@@ -312,8 +316,10 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	if (item != NULL)
 		cJSON_AddItemToObject(o,	"Ingore",		item);
 
-	cJSON_AddStringToObject(o,		"Immn",			ch->pcdata->immname);
-	cJSON_AddStringToObject(o,		"Immp",			ch->pcdata->immprefix);
+	if (ch->pcdata->immname[0])
+		cJSON_AddStringToObject(o,	"Immn",			ch->pcdata->immname);
+	if (ch->pcdata->immprefix[0])
+		cJSON_AddStringToObject(o,	"Immp",			ch->pcdata->immprefix);
 
 	if (ch->class == PALADIN_CLASS) {
 		cJSON_AddNumberToObject(o,	"Lay",			ch->pcdata->lays);
@@ -322,7 +328,10 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 
 	cJSON_AddNumberToObject(o,		"LLev",			ch->pcdata->last_level);
 	cJSON_AddNumberToObject(o,		"LogO",			current_time);
-	cJSON_AddStringToObject(o,		"Lsit",			ch->pcdata->last_lsite);
+
+	if (ch->pcdata->last_lsite[0])
+		cJSON_AddStringToObject(o,	"Lsit",			ch->pcdata->last_lsite);
+
 	cJSON_AddStringToObject(o,		"Ltim",			dizzy_ctime(&ch->pcdata->last_ltime));
 	cJSON_AddStringToObject(o,		"LSav",			dizzy_ctime(&ch->pcdata->last_saved));
 
@@ -351,7 +360,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 
 	item = NULL;
 	for (int pos = 0; pos < MAX_QUERY; pos++) {
-		if (ch->pcdata->query[pos] == NULL)
+		if (ch->pcdata->query[pos][0] == '\0')
 			break;
 
 		if (item == NULL)
@@ -362,7 +371,8 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	if (item != NULL)
 		cJSON_AddItemToObject(o,	"Query",		item);
 
-	cJSON_AddStringToObject(o,		"Rank",			ch->pcdata->rank);
+	if (ch->pcdata->rank[0])
+		cJSON_AddStringToObject(o,	"Rank",			ch->pcdata->rank);
 
 	if (ch->pcdata->rolepoints)
 		cJSON_AddNumberToObject(o,	"RolePnts",		ch->pcdata->rolepoints);
@@ -395,7 +405,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	if (ch->pcdata->skillpoints)
 		cJSON_AddNumberToObject(o,	"SkillPnts",	ch->pcdata->skillpoints);
 
-	if (ch->pcdata->spouse != NULL)
+	if (ch->pcdata->spouse[0])
 		cJSON_AddStringToObject(o,	"Spou",			ch->pcdata->spouse);
 
 	if (ch->pcdata->nextsquest)
@@ -404,7 +414,9 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 		cJSON_AddNumberToObject(o,	"SQuestNext",	20);
 
 	if (ch->pcdata->remort_count > 0) {
-		cJSON_AddStringToObject(o,	"Stus",			ch->pcdata->status);
+		if (ch->pcdata->status[0])
+			cJSON_AddStringToObject(o,	"Stus",		ch->pcdata->status);
+
 		cJSON_AddNumberToObject(o,	"RmCt",			ch->pcdata->remort_count);
 
 		item = cJSON_CreateArray();
@@ -426,12 +438,13 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 	cJSON_AddNumberToObject(item,	"stam",			ch->pcdata->trains_to_stam);
 	cJSON_AddItemToObject(o, 		"THMS",	 		item);
 
-	cJSON_AddStringToObject(o,		"Titl",			ch->pcdata->title[0] == ' ' ?
+	if (ch->pcdata->title[0])
+		cJSON_AddStringToObject(o,	"Titl",			ch->pcdata->title[0] == ' ' ?
 		ch->pcdata->title+1 : ch->pcdata->title);
 	cJSON_AddNumberToObject(o,		"TSex",			ch->pcdata->true_sex);
 	cJSON_AddStringToObject(o,		"Video",		print_flags(ch->pcdata->video));
 
-	if (ch->pcdata->whisper != NULL)
+	if (ch->pcdata->whisper[0])
 		cJSON_AddStringToObject(o,	"Wspr",			ch->pcdata->whisper);
 
 	return o;
@@ -489,7 +502,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	cJSON_AddStringToObject(o,		"Cnsr",			print_flags(ch->censor));
 	cJSON_AddStringToObject(o,		"Comm",			print_flags(ch->comm));
 
-	if (ch->description[0] != '\0')
+	if (ch->description[0])
 		cJSON_AddStringToObject(o,	"Desc",			ch->description);
 
 	cJSON_AddNumberToObject(o,		"Exp",			ch->exp);
@@ -514,14 +527,14 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	cJSON_AddNumberToObject(o,		"Id",			ch->id);
 	cJSON_AddNumberToObject(o,		"Levl",			ch->level);
 
-	if (ch->long_descr[0] != '\0')
+	if (ch->long_descr[0])
 		cJSON_AddStringToObject(o,	"LnD",			ch->long_descr);
 
 	cJSON_AddStringToObject(o,		"Name",			ch->name);
 	cJSON_AddNumberToObject(o,		"Pos",			ch->position);
 	cJSON_AddNumberToObject(o,		"Prac",			ch->practice);
 
-	if (ch->prompt && ch->prompt[0] != '\0')
+	if (ch->prompt[0])
 		cJSON_AddStringToObject(o,	"Prom",			ch->prompt);
 
 	if (ch->questpoints_donated)
@@ -549,7 +562,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	if (ch->silver_in_bank > 0)
 		cJSON_AddNumberToObject(o,	"Silver_in_bank", ch->silver_in_bank);
 
-	if (ch->short_descr[0] != '\0')
+	if (ch->short_descr[0])
 		cJSON_AddStringToObject(o,	"ShD",			ch->short_descr);
 
 	cJSON_AddNumberToObject(o,		"Trai",			ch->train);
@@ -754,35 +767,13 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	                                      PLR_AUTOSAC | PLR_AUTOSPLIT | PLR_AUTOGOLD | PLR_TICKS | PLR_WIMPY |
 	                                      PLR_COLOR | PLR_COLOR2;
 	ch->comm                            = COMM_COMBINE | COMM_PROMPT;
-	ch->revoke                          = 0; /* Xenith */
 	ch->secure_level                    = RANK_IMM;
-	ch->pcdata->cgroup                  = 0; /* Command groups - Xenith */
 	ch->censor                          = CENSOR_CHAN;    /* default rating is PG */
 	ch->prompt                          = str_dup("%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ");
 	ch->pcdata->ch                      = ch;
-	ch->pcdata->confirm_delete          = 0;
-	ch->pcdata->pwd                     = str_dup("");
-	ch->pcdata->bamfin                  = str_dup("");
-	ch->pcdata->bamfout                 = str_dup("");
-	ch->pcdata->gamein                  = str_dup("");
-	ch->pcdata->gameout                 = str_dup("");
-	ch->pcdata->afk                     = str_dup("");
-	ch->pcdata->title                   = str_dup("");
-	ch->pcdata->immname                 = str_dup("");
-	ch->pcdata->immprefix               = str_dup("");
-	ch->pcdata->email                   = str_dup("");
-	ch->pcdata->fingerinfo              = str_dup("");
-	ch->pcdata->last_lsite              = str_dup("");
-	ch->pcdata->status                  = str_dup("");
-	ch->pcdata->rank                    = str_dup("");
-	ch->pcdata->aura                    = str_dup("");
 	ch->pcdata->deity                   = str_dup("Nobody");
 	ch->pcdata->mud_exp                 = MEXP_LEGACY_OLDBIE;
-	ch->pcdata->remort_count            = 0;
-	ch->pcdata->backup                  = 0;
 	ch->pcdata->plr                     = PLR_NEWSCORE;
-	ch->pcdata->flag_thief              = 0;
-	ch->pcdata->flag_killer             = 0;
 
 	for (stat = 0; stat < MAX_STATS; stat++)
 		ch->perm_stat[stat]             = 3;
@@ -790,26 +781,9 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	ch->pcdata->condition[COND_THIRST]  = 48;
 	ch->pcdata->condition[COND_FULL]    = 48;
 	ch->pcdata->condition[COND_HUNGER]  = 48;
-	ch->silver_in_bank                  = 0;
-	ch->gold_in_bank                    = 0;
-	ch->last_bank                       = 0;
-	ch->pcdata->pckills                 = 0;
-	ch->pcdata->pckilled                = 0;
-	ch->pcdata->arenakills              = 0;
-	ch->pcdata->arenakilled             = 0;
-	ch->pcdata->pkrank                  = 0;
 	ch->pcdata->perm_hit            = 20;
 	ch->pcdata->perm_mana           = 100;
 	ch->pcdata->perm_stam           = 100;
-	ch->pcdata->trains_to_hit           = 0;
-	ch->pcdata->trains_to_mana          = 0;
-	ch->pcdata->trains_to_stam          = 0;
-	ch->pcdata->skillpoints             = 0;
-	ch->pcdata->rolepoints              = 0;
-	ch->inviters                        = NULL;
-	ch->invitation_accepted             = FALSE;
-	ch->clan                            = NULL;
-	ch->replylock                       = FALSE;
 	ch->pcdata->last_logoff         = current_time;
 	found = FALSE;
 	// added if here
@@ -1239,8 +1213,9 @@ void fread_player(CHAR_DATA *ch, cJSON *json, int version) {
 				break;
 			case 'Q':
 				if (!str_cmp(key, "Query")) {
-					for (cJSON *item = o->child; item != NULL && count < MAX_QUERY; item = item->next)
+					for (cJSON *item = o->child; item != NULL && count < MAX_QUERY; item = item->next) {
 						ch->pcdata->query[count++] = str_dup(item->valuestring);
+					}
 					fMatch = TRUE; break;
 				}
 

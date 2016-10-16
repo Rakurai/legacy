@@ -32,6 +32,17 @@ extern CHAR_DATA *dv_char;
 extern char dv_command[];
 extern char *dv_where;
 
+/* CHANGES
+   We keep having problems with assumptions about whether data needs to be zeroed or set
+   to some default value before it is used, resulting in a lot of crashes or accessing
+   garbage data.  To be clear: new_* is contractually obligated to return a piece of memory
+   that is ZEROED with the exception of default values, and all char* pointers will point to
+   str_empty.  free_* on the other hand, will free ALL char* pointers in the object (freeing
+   str_empty is fine).  Therefore, I have also gone through and removed a lot of useless
+   str_dup("") after calls to new_*, and hopefully this will fix a few bugs where someone
+   forgot to zero an array before using it.  -- Montrey 2016
+*/
+
 /* semiperm string recycling */
 SEMIPERM *semiperm_free;
 
@@ -46,6 +57,9 @@ SEMIPERM *new_semiperm()
 		semiperm_free = semiperm_free->next;
 	}
 
+	*semiperm = (SEMIPERM){0};
+	semiperm->string = str_empty;
+
 	VALIDATE(semiperm);
 	return semiperm;
 }
@@ -56,6 +70,7 @@ void free_semiperm(SEMIPERM *semiperm)
 		return;
 
 	free_string(semiperm->string);
+
 	INVALIDATE(semiperm);
 	semiperm->next = semiperm_free;
 	semiperm_free = semiperm;
@@ -75,6 +90,13 @@ NOTE_DATA *new_note()
 		note_free = note_free->next;
 	}
 
+	*note = (NOTE_DATA){0};
+	note->sender = str_empty;
+	note->to_list = str_empty;
+	note->subject = str_empty;
+	note->date = str_empty;
+	note->text = str_empty;
+
 	VALIDATE(note);
 	return note;
 }
@@ -84,11 +106,12 @@ void free_note(NOTE_DATA *note)
 	if (!IS_VALID(note))
 		return;
 
-	free_string(note->text);
-	free_string(note->subject);
-	free_string(note->to_list);
-	free_string(note->date);
 	free_string(note->sender);
+	free_string(note->to_list);
+	free_string(note->subject);
+	free_string(note->date);
+	free_string(note->text);
+
 	INVALIDATE(note);
 	note->next = note_free;
 	note_free   = note;
@@ -99,7 +122,6 @@ DESCRIPTOR_DATA *descriptor_free;
 
 DESCRIPTOR_DATA *new_descriptor(void)
 {
-	static DESCRIPTOR_DATA d_zero;
 	DESCRIPTOR_DATA *d;
 
 	if (descriptor_free == NULL)
@@ -109,14 +131,13 @@ DESCRIPTOR_DATA *new_descriptor(void)
 		descriptor_free = descriptor_free->next;
 	}
 
-	*d = d_zero;
-	VALIDATE(d);
-	d->hostaddr      = 0L;
+	*d = (DESCRIPTOR_DATA){0};
 	d->connected     = CON_GET_NAME;
-	d->showstr_head  = NULL;
-	d->showstr_point = NULL;
 	d->outsize       = 2000;
 	d->outbuf        = alloc_mem(d->outsize);
+	d->host = str_empty;
+
+	VALIDATE(d);
 	return d;
 }
 
@@ -127,6 +148,7 @@ void free_descriptor(DESCRIPTOR_DATA *d)
 
 	free_string(d->host);
 	free_mem(d->outbuf, d->outsize);
+
 	INVALIDATE(d);
 	d->next = descriptor_free;
 	descriptor_free = d;
@@ -137,7 +159,6 @@ GEN_DATA *gen_data_free;
 
 GEN_DATA *new_gen_data(void)
 {
-	static GEN_DATA gen_zero;
 	GEN_DATA *gen;
 
 	if (gen_data_free == NULL)
@@ -147,7 +168,8 @@ GEN_DATA *new_gen_data(void)
 		gen_data_free = gen_data_free->next;
 	}
 
-	*gen = gen_zero;
+	*gen = (GEN_DATA){0};
+
 	VALIDATE(gen);
 	return gen;
 }
@@ -176,8 +198,10 @@ EXTRA_DESCR_DATA *new_extra_descr(void)
 		extra_descr_free = extra_descr_free->next;
 	}
 
-	ed->keyword = &str_empty[0];
-	ed->description = &str_empty[0];
+	*ed = (EXTRA_DESCR_DATA){0};
+	ed->keyword = str_empty;
+	ed->description = str_empty;
+
 	VALIDATE(ed);
 	return ed;
 }
@@ -189,6 +213,7 @@ void free_extra_descr(EXTRA_DESCR_DATA *ed)
 
 	free_string(ed->keyword);
 	free_string(ed->description);
+
 	INVALIDATE(ed);
 	ed->next = extra_descr_free;
 	extra_descr_free = ed;
@@ -199,7 +224,6 @@ AFFECT_DATA *affect_free;
 
 AFFECT_DATA *new_affect(void)
 {
-	static AFFECT_DATA af_zero;
 	AFFECT_DATA *af;
 
 	if (affect_free == NULL)
@@ -209,7 +233,7 @@ AFFECT_DATA *new_affect(void)
 		affect_free = affect_free->next;
 	}
 
-	*af = af_zero;
+	*af = (AFFECT_DATA){0};
 	VALIDATE(af);
 	return af;
 }
@@ -229,7 +253,6 @@ OBJ_DATA *obj_free;
 
 OBJ_DATA *new_obj(void)
 {
-	static OBJ_DATA obj_zero;
 	OBJ_DATA *obj;
 
 	if (obj_free == NULL)
@@ -239,7 +262,13 @@ OBJ_DATA *new_obj(void)
 		obj_free = obj_free->next;
 	}
 
-	*obj = obj_zero;
+	*obj = (OBJ_DATA){0};
+	obj->name = str_empty;
+	obj->description = str_empty;
+	obj->short_descr = str_empty;
+	obj->owner = str_empty;
+	obj->material = str_empty;
+
 	VALIDATE(obj);
 	return obj;
 }
@@ -252,24 +281,28 @@ void free_obj(OBJ_DATA *obj)
 	if (!IS_VALID(obj))
 		return;
 
+	// data wholly owned by this obj
 	for (paf = obj->affected; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
 		free_affect(paf);
 	}
 
-	obj->affected = NULL;
+	for (paf = obj->gem_affected; paf != NULL; paf = paf_next) {
+		paf_next = paf->next;
+		free_affect(paf);
+	}
 
 	for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 		ed_next = ed->next;
 		free_extra_descr(ed);
 	}
 
-	obj->extra_descr = NULL;
 	free_string(obj->name);
 	free_string(obj->description);
 	free_string(obj->short_descr);
 	free_string(obj->owner);
 	free_string(obj->material);
+
 	INVALIDATE(obj);
 	obj->next   = obj_free;
 	obj_free    = obj;
@@ -280,9 +313,7 @@ CHAR_DATA *char_free;
 
 CHAR_DATA *new_char(void)
 {
-	static CHAR_DATA ch_zero;
 	CHAR_DATA *ch;
-	int i;
 
 	if (char_free == NULL)
 		ch = alloc_perm2(sizeof(*ch), "Character");
@@ -291,18 +322,18 @@ CHAR_DATA *new_char(void)
 		char_free = char_free->next;
 	}
 
-	*ch                         = ch_zero;
-	VALIDATE(ch);
-	ch->name                    = &str_empty[0];
-	ch->short_descr             = &str_empty[0];
-	ch->long_descr              = &str_empty[0];
-	ch->description             = &str_empty[0];
-	ch->prompt                  = &str_empty[0];
-	ch->prefix                  = &str_empty[0];
+	*ch                         = (CHAR_DATA){0};
+	ch->name =
+	ch->short_descr =
+	ch->long_descr =
+	ch->description =
+	ch->prompt =
+	ch->material =
+	ch->prefix                  = str_empty;
 	ch->logon                   = current_time;
 	ch->lines                   = PAGELEN;
 
-	for (i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 		ch->armor_a[i]            = 100;
 
 	ch->position                = POS_STANDING;
@@ -313,20 +344,18 @@ CHAR_DATA *new_char(void)
 	ch->stam                    = 100;
 	ch->max_stam                = 100;
 
-	for (i = 0; i < MAX_STATS; i ++) {
+	for (int i = 0; i < MAX_STATS; i ++) {
 		ch->perm_stat[i] = 13;
-		ch->mod_stat[i] = 0;
 	}
 
+	VALIDATE(ch);
 	return ch;
 }
 
 void free_char(CHAR_DATA *ch)
 {
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
+	OBJ_DATA *obj, *obj_next;
+	AFFECT_DATA *paf, *paf_next;
 	TAIL_DATA *td;
 
 	if (!IS_VALID(ch))
@@ -354,7 +383,7 @@ void free_char(CHAR_DATA *ch)
 
 	for (paf = ch->affected; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
-		affect_remove(ch, paf);
+		free_affect(paf);
 	}
 
 	/* stop active TAILs, if any -- Elrac */
@@ -375,6 +404,9 @@ void free_char(CHAR_DATA *ch)
 		ch->edit = NULL;
 	}
 
+	if (ch->pcdata != NULL)
+		free_pcdata(ch->pcdata);
+
 	free_string(ch->name);
 	free_string(ch->short_descr);
 	free_string(ch->long_descr);
@@ -382,13 +414,11 @@ void free_char(CHAR_DATA *ch)
 	free_string(ch->prompt);
 	free_string(ch->prefix);
 	free_string(ch->material);
+	// currently all 7 strings in char_data, make sure they're set to str_empty above
 
-	if (ch->pcdata != NULL)
-		free_pcdata(ch->pcdata);
-
+	INVALIDATE(ch);
 	ch->next = char_free;
 	char_free  = ch;
-	INVALIDATE(ch);
 	return;
 }
 
@@ -396,9 +426,6 @@ PC_DATA *pcdata_free;
 
 PC_DATA *new_pcdata(void)
 {
-	int alias;
-	int query;
-	static PC_DATA pcdata_zero;
 	PC_DATA *pcdata;
 
 	if (pcdata_free == NULL)
@@ -408,58 +435,81 @@ PC_DATA *new_pcdata(void)
 		pcdata_free = pcdata_free->next;
 	}
 
-	*pcdata = pcdata_zero;
+	*pcdata = (PC_DATA){0};
 
-	for (alias = 0; alias < MAX_ALIAS; alias++) {
-		pcdata->alias[alias] = NULL;
-		pcdata->alias_sub[alias] = NULL;
-	}
+	// NO NULL STRINGS ALLOWED!!! -- Montrey
+	pcdata->pwd =
+	pcdata->bamfin =
+	pcdata->bamfout =
+	pcdata->gamein =
+	pcdata->gameout =
+	pcdata->title =
+	pcdata->rank =
+	pcdata->deity =
+	pcdata->status =
+	pcdata->last_lsite =
+	pcdata->afk =
+	pcdata->immname =
+	pcdata->immprefix =
+	pcdata->aura =
+	pcdata->spouse =
+	pcdata->propose =
+	pcdata->whisper =
+	pcdata->fingerinfo =
+	pcdata->email = str_empty;
 
-	for (query = 0; query < MAX_QUERY; query++)
-		pcdata->query[query] = NULL;
+	for (int i = 0; i < MAX_ALIAS; i++)
+		pcdata->alias[i] = pcdata->alias_sub[i] = str_empty;
 
-	pcdata->last_ltime = (time_t) 0;
-	pcdata->last_saved = (time_t) 0;
+	for (int i = 0; i < MAX_QUERY; i++)
+		pcdata->query[i] = str_empty;
+
+	for (int i = 0; i < MAX_IGNORE; i++)
+		pcdata->ignore[i] = str_empty;
+
 	pcdata->buffer = new_buf();
+
 	VALIDATE(pcdata);
 	return pcdata;
 } /* end new_pcdata() */
 
 void free_pcdata(PC_DATA *pcdata)
 {
-	int alias;
-	int query;
-
 	if (!IS_VALID(pcdata))
 		return;
 
 	free_string(pcdata->pwd);
 	free_string(pcdata->bamfin);
 	free_string(pcdata->bamfout);
+	free_string(pcdata->gamein);
+	free_string(pcdata->gameout);
 	free_string(pcdata->title);
 	free_string(pcdata->rank);
 	free_string(pcdata->deity);
 	free_string(pcdata->status);
-
-	/* free_string(pcdata->last_ltime); */
-	/* free_string(pcdata->last_saved); */
-	if (pcdata->last_lsite != NULL) free_string(pcdata->last_lsite); /* having probs with sandserver down on spawn */
-
+	free_string(pcdata->last_lsite);
 	free_string(pcdata->afk);
 	free_string(pcdata->immname);
+	free_string(pcdata->immprefix);
+	free_string(pcdata->aura);
 	free_string(pcdata->spouse);
+	free_string(pcdata->propose);
 	free_string(pcdata->whisper);
 	free_string(pcdata->fingerinfo);
 	free_string(pcdata->email);
-	free_buf(pcdata->buffer);
 
-	for (alias = 0; alias < MAX_ALIAS; alias++) {
-		free_string(pcdata->alias[alias]);
-		free_string(pcdata->alias_sub[alias]);
+	for (int i = 0; i < MAX_ALIAS; i++) {
+		free_string(pcdata->alias[i]);
+		free_string(pcdata->alias_sub[i]);
 	}
 
-	for (query = 0; query < MAX_QUERY; query++)
-		free_string(pcdata->query[query]);
+	for (int i = 0; i < MAX_QUERY; i++)
+		free_string(pcdata->query[i]);
+
+	for (int i = 0; i < MAX_IGNORE; i++)
+		free_string(pcdata->ignore[i]);
+
+	free_buf(pcdata->buffer);
 
 	INVALIDATE(pcdata);
 	pcdata->next = pcdata_free;
@@ -502,10 +552,8 @@ MEM_DATA *new_mem_data(void)
 		mem_data_free = mem_data_free->next;
 	}
 
-	memory->next = NULL;
-	memory->id = 0;
-	memory->reaction = 0;
-	memory->when = 0;
+	*memory = (MEM_DATA){0};
+
 	VALIDATE(memory);
 	return memory;
 }
@@ -515,9 +563,9 @@ void free_mem_data(MEM_DATA *memory)
 	if (!IS_VALID(memory))
 		return;
 
+	INVALIDATE(memory);
 	memory->next = mem_data_free;
 	mem_data_free = memory;
-	INVALIDATE(memory);
 }
 
 /* recycle war structures */
@@ -525,9 +573,7 @@ WAR_DATA *war_free;
 
 WAR_DATA *new_war(void)
 {
-	static WAR_DATA war_zero;
 	WAR_DATA *war;
-	int i;
 
 	if (war_free == NULL)
 		war = alloc_perm2(sizeof(*war), "War");
@@ -536,9 +582,9 @@ WAR_DATA *new_war(void)
 		war_free = war_free->next;
 	}
 
-	*war = war_zero;
+	*war = (WAR_DATA){{0}}; // weird double braces needed because of bugged gcc warning
 
-	for (i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++) {
 		war->chal[i] = new_opp();
 		war->def[i] = new_opp();
 	}
@@ -550,12 +596,11 @@ WAR_DATA *new_war(void)
 void free_war(WAR_DATA *war)
 {
 	EVENT_DATA *event, *event_next;
-	int i;
 
 	if (!IS_VALID(war))
 		return;
 
-	for (i = 0; i < 4; i++) {
+	for (int i = 0; i < 4; i++) {
 		free_opp(war->chal[i]);
 		free_opp(war->def[i]);
 	}
@@ -577,7 +622,6 @@ OPP_DATA *opp_free;
 
 OPP_DATA *new_opp(void)
 {
-	static OPP_DATA opp_zero;
 	OPP_DATA *opp;
 
 	if (opp_free == NULL)
@@ -587,10 +631,11 @@ OPP_DATA *new_opp(void)
 		opp_free = opp_free->next;
 	}
 
-	*opp = opp_zero;
-	VALIDATE(opp);
+	*opp = (OPP_DATA){0};
 	opp->name = &str_empty[0];
 	opp->clanname = &str_empty[0];
+
+	VALIDATE(opp);
 	return opp;
 }
 
@@ -601,6 +646,7 @@ void free_opp(OPP_DATA *opp)
 
 	free_string(opp->name);
 	free_string(opp->clanname);
+
 	INVALIDATE(opp);
 	opp->next = opp_free;
 	opp_free = opp;
@@ -611,7 +657,6 @@ EVENT_DATA *event_free;
 
 EVENT_DATA *new_event(void)
 {
-	static EVENT_DATA event_zero;
 	EVENT_DATA *event;
 
 	if (event_free == NULL)
@@ -621,11 +666,11 @@ EVENT_DATA *new_event(void)
 		event_free = event_free->next;
 	}
 
-	*event = event_zero;
+	*event = (EVENT_DATA){0};
+	event->astr = str_empty;
+	event->bstr = str_empty;
+
 	VALIDATE(event);
-	event->astr = &str_empty[0];
-	event->bstr = &str_empty[0];
-	event->time = (time_t) 0;
 	return event;
 }
 
@@ -636,6 +681,7 @@ void free_event(EVENT_DATA *event)
 
 	free_string(event->astr);
 	free_string(event->bstr);
+
 	INVALIDATE(event);
 	event->next = event_free;
 	event_free = event;
@@ -646,7 +692,6 @@ MERC_DATA *merc_free;
 
 MERC_DATA *new_merc(void)
 {
-	static MERC_DATA merc_zero;
 	MERC_DATA *merc;
 
 	if (merc_free == NULL)
@@ -656,10 +701,11 @@ MERC_DATA *new_merc(void)
 		merc_free = merc_free->next;
 	}
 
-	*merc = merc_zero;
+	*merc = (MERC_DATA){0};
+	merc->name = str_empty;
+	merc->employer = str_empty;
+
 	VALIDATE(merc);
-	merc->name = &str_empty[0];
-	merc->employer = &str_empty[0];
 	return merc;
 }
 
@@ -689,7 +735,6 @@ OFFER_DATA *offer_free;
 
 OFFER_DATA *new_offer(void)
 {
-	static OFFER_DATA offer_zero;
 	OFFER_DATA *offer;
 
 	if (offer_free == NULL)
@@ -699,9 +744,10 @@ OFFER_DATA *new_offer(void)
 		offer_free = offer_free->next;
 	}
 
-	*offer = offer_zero;
+	*offer = (OFFER_DATA){0};
+	offer->name = str_empty;
+
 	VALIDATE(offer);
-	offer->name = &str_empty[0];
 	return offer;
 }
 
@@ -711,6 +757,7 @@ void free_offer(OFFER_DATA *offer)
 		return;
 
 	free_string(offer->name);
+
 	INVALIDATE(offer);
 	offer->next = offer_free;
 	offer_free = offer;
@@ -721,7 +768,6 @@ DUEL_DATA *duel_free;
 
 DUEL_DATA *new_duel(void)
 {
-	static DUEL_DATA duel_zero;
 	DUEL_DATA *duel;
 
 	if (duel_free == NULL)
@@ -731,7 +777,7 @@ DUEL_DATA *new_duel(void)
 		duel_free = duel_free->next;
 	}
 
-	*duel = duel_zero;
+	*duel = (DUEL_DATA){0};
 	VALIDATE(duel);
 	return duel;
 }
@@ -795,22 +841,7 @@ int get_size(long val)
 
 BUFFER *new_buf()
 {
-	BUFFER *buffer;
-
-	if (buf_free == NULL)
-		buffer = alloc_perm2(sizeof(*buffer), "Buffer");
-	else {
-		buffer = buf_free;
-		buf_free = buf_free->next;
-	}
-
-	buffer->next        = NULL;
-	buffer->state       = BUFFER_SAFE;
-	buffer->size        = get_size(BASE_BUF);
-	buffer->string      = alloc_mem(buffer->size);
-	buffer->string[0]   = '\0';
-	VALIDATE(buffer);
-	return buffer;
+	return new_buf_size(BASE_BUF);
 }
 
 BUFFER *new_buf_size(long size)

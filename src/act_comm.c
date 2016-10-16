@@ -1941,7 +1941,7 @@ void do_outfit(CHAR_DATA *ch, const char *argument)
 	}
 
 	ptc(ch, "You have been equipped by %s.\n",
-	    ch->pcdata->deity == NULL ? "Alisa" : str_dup(ch->pcdata->deity));
+	    ch->pcdata->deity[0] ? str_dup(ch->pcdata->deity) : "Alisa");
 }
 
 void do_newscore(CHAR_DATA *ch, const char *argument)

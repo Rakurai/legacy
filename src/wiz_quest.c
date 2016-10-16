@@ -440,7 +440,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 
 			if (!str_cmp(arg3, "none")) {
 				free_string(victim->pcdata->spouse);
-				victim->pcdata->spouse = NULL;
+				victim->pcdata->spouse = str_dup("");
 			}
 			else {
 				free_string(victim->pcdata->spouse);

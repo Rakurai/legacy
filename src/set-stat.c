@@ -1567,7 +1567,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		    IS_NPC(victim->hunting) ? "MOB" : "PLAYER");
 
 	if (!IS_NPC(victim))
-		if (victim->pcdata->email != '\0')
+		if (victim->pcdata->email[0] != '\0')
 			ptc(ch, "Email: %s\n", victim->pcdata->email);
 
 	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act));
@@ -2036,7 +2036,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	new_color(ch, CSLOT_OLDSCORE_NAME);
 	stc(victim->name, ch);
 
-	if (victim->pcdata->title && victim->pcdata->title[0]) {
+	if (victim->pcdata->title[0]) {
 		set_color(ch, WHITE, NOBOLD);
 		stc(" [", ch);
 		new_color(ch, CSLOT_OLDSCORE_NAME);
@@ -2071,7 +2071,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	stc("\n", ch);
 
 	/* email: carls@ipf.de */
-	if (victim->pcdata->email && victim->pcdata->email[0]) {
+	if (victim->pcdata->email[0]) {
 		set_color(ch, WHITE, NOBOLD);
 		ptc(ch, "Email: %s\n", victim->pcdata->email);
 	}
