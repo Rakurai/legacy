@@ -285,7 +285,7 @@ cJSON *fwrite_player(CHAR_DATA *ch)
 		cJSON_AddItemToObject(o,	"Gr",			item);
 
 	item = NULL;
-	for (int pos = 0; pos < MAX_GROUP; pos++) {
+	for (int pos = 0; pos < MAX_GRANT; pos++) {
 		if (!ch->pcdata->granted_commands[pos][0])
 			continue;
 
