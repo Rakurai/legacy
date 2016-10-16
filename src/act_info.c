@@ -40,12 +40,8 @@ DECLARE_DO_FUN(do_exits);
 DECLARE_DO_FUN(do_look);
 DECLARE_DO_FUN(do_play);
 
-extern void     email_file    args((CHAR_DATA *ch, char *file, char *str));
+extern void     email_file    args((CHAR_DATA *ch, const char *file, const char *str));
 extern void do_config args((CHAR_DATA *ch, const char *buf));
-
-char *smash_bracket    args((const char *str));
-char *set_colorname    args((char *string , int length));
-bool    swearcheck     args((char *argument));
 
 char   *const   where_name      [] = {
 	"<used as light>     ",
@@ -1654,7 +1650,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	EXIT_DATA *pexit;
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	char *pdesc;
+	const char *pdesc;
 	int door;
 	int number, count;
 
@@ -3368,33 +3364,6 @@ void do_title(CHAR_DATA *ch, const char *argument)
  * Added 11.25.1996
  */
 
-char *set_colorname(char *string, int length)
-{
-	char spacebuf[MAX_STRING_LENGTH];
-	char buf[MAX_STRING_LENGTH];
-	int x, spaces;
-	spaces = (((length - color_strlen(string)) / 2));
-	buf[0] = '\0';
-	spacebuf[0] = '\0';
-
-	for (x = 0; x < spaces; x++)
-		spacebuf[x] = ' ';
-
-	spacebuf[x] =  '\0';
-	strcat(buf, spacebuf);
-	strcat(buf, string);
-	strcat(buf, spacebuf);
-
-	if (color_strlen(buf) == (length - 1))
-		strcat(buf, " ");
-
-	return str_dup(buf);
-}
-
-/*
- * Immname attempt by Demonfire
- */
-
 void do_immname(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
@@ -3834,7 +3803,7 @@ void prac_by_key(CHAR_DATA *ch, char *key, const char *argument)
 void do_practice(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
-	char *argtail;
+	const char *argtail;
 	char buf[MAX_STRING_LENGTH];
 	int sn;
 	CHAR_DATA *mob;
@@ -4626,7 +4595,7 @@ void do_rank(CHAR_DATA *ch, const char *argument)
 	}
 
 	free_string(victim->pcdata->rank);
-	victim->pcdata->rank = set_colorname(argument, 3);
+	victim->pcdata->rank = str_dup(center_string_in_whitespace(argument, 3));
 	sprintf(test, "Your new rank is {W[%s{W]{x.\n",
 	        victim->pcdata->rank);
 	stc(test, victim);
@@ -4667,7 +4636,7 @@ void do_prefix(CHAR_DATA *ch, const char *argument)
 	ch->prefix = str_dup(argument);
 } /* end do_prefix() */
 
-void email_file(CHAR_DATA *ch, char *file, char *str)
+void email_file(CHAR_DATA *ch, const char *file, const char *str)
 {
 	FILE *fp;
 
@@ -4801,7 +4770,7 @@ void do_pit(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA sel_pit; /* a real live container-type object! */
 	OBJ_DATA *obj, *next_obj;
 	char arg[MAX_INPUT_LENGTH];
-	char *keywords;
+	const char *keywords;
 	int num1 = -1, num2 = -1;
 	int level1 = 0, level2 = 0;
 	bool flevel = FALSE, fexplevel = FALSE, fname = FALSE;
@@ -5098,7 +5067,7 @@ void print_old_affects(CHAR_DATA *ch)
 {
 	AFFECT_DATA *paf, *paf_last = NULL;
 	char buf[MAX_STRING_LENGTH];
-	char *buf4;
+	const char *buf4;
 	char buf3[MAX_STRING_LENGTH];
 	char buf2[MAX_STRING_LENGTH];
 	bool found = FALSE;
@@ -5280,7 +5249,7 @@ void print_old_affects(CHAR_DATA *ch)
 	}
 
 	if (!IS_NPC(ch)) {
-		if ((ch->pcdata->raffect != NULL) && (ch->pcdata->remort_count > 0) && IS_SET(ch->pcdata->plr, PLR_SHOWRAFF)) {
+		if ((ch->pcdata->raffect[0] != 0) && (ch->pcdata->remort_count > 0) && IS_SET(ch->pcdata->plr, PLR_SHOWRAFF)) {
 			add_buf(buffer, "{bYou are affected by the following remort affects:{x\n");
 
 			for (raff = 0; raff < ch->pcdata->remort_count / 10 + 1; raff++) {
@@ -5403,14 +5372,14 @@ void print_new_affects(CHAR_DATA *ch)
 		    torch, torch);
 		add_buf(buffer, breakline);
 
-		if (IS_SET(cheat, race_table[ch->race].aff));
+		if (IS_SET(cheat, race_table[ch->race].aff))
+			cheat -= race_table[ch->race].aff;
 
-		cheat -= race_table[ch->race].aff;
 		strcpy(buf, affect_bit_name(race_table[ch->race].aff));
-		p = buf;
+		const char *words = buf;
 
-		while (*p) {
-			p = one_argument(p, buf2);
+		while (*words) {
+			words = one_argument(words, buf2);
 			ptb(buffer, " %s {b%-19s                                            %s\n",
 			    torch, buf2, torch);
 		}
@@ -5456,10 +5425,10 @@ void print_new_affects(CHAR_DATA *ch)
 						}
 
 					strcpy(buf, affect_bit_name(printme));
-					p = buf;
+					const char *words = buf;
 
-					while (*p) {
-						p = one_argument(p, buf2);
+					while (*words) {
+						words = one_argument(words, buf2);
 						ptb(buffer, " %s {b%-19s %s|{x %-42s %s\n",
 						    torch, buf2, border, objbuf, torch);
 					}
@@ -5496,10 +5465,10 @@ void print_new_affects(CHAR_DATA *ch)
 							}
 
 						strcpy(buf, affect_bit_name(printme));
-						p = buf;
+						const char *words = buf;
 
-						while (*p) {
-							p = one_argument(p, buf2);
+						while (*words) {
+							words = one_argument(words, buf2);
 							ptb(buffer, " %s {b%-19s %s|{x %-40s %s\n",
 							    torch, buf2, border, objbuf, torch);
 						}
@@ -5522,7 +5491,7 @@ void print_new_affects(CHAR_DATA *ch)
 
 	if (!IS_NPC(ch)
 	    && ch->pcdata->remort_count
-	    && ch->pcdata->raffect
+	    && ch->pcdata->raffect[0]
 	    && IS_SET(ch->pcdata->plr, PLR_SHOWRAFF)) {
 		int raff, i;
 

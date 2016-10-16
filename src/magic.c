@@ -328,9 +328,9 @@ bool help_mob(CHAR_DATA *ch, CHAR_DATA *victim)
 } /* end help_mob */
 
 /* The kludgy global is for spells who want more stuff from command line. */
-char *target_name;
+const char *target_name;
 
-void do_cast(CHAR_DATA *ch, char *argument)
+void do_cast(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -610,7 +610,7 @@ void do_cast(CHAR_DATA *ch, char *argument)
    This is very similar to CAST but with many fewer restrictions and less
    bells & whistles. We assume the mobprogrammer knows what he's doing,
    the mob has the skill and PK restrictions are irrelevant. */
-void do_mpcast(CHAR_DATA *ch, char *argument)
+void do_mpcast(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2088,9 +2088,9 @@ void spell_create_rose(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	}
 
 	if (target_name[0] == '\0')
-		sprintf(color, "red");   /* Red is the default */
+		strcpy(color, "red");   /* Red is the default */
 	else
-		sprintf(color, smash_tilde(target_name));
+		strcpy(color, smash_tilde(target_name));
 
 	rose = create_object(get_obj_index(GEN_OBJ_TREASURE), 0);
 
@@ -2170,10 +2170,10 @@ void spell_create_sign(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 		return;
 	}
 
-	strcat(target_name, "\n");
+	sprintf(buf, "%s\n", target_name);
 	ed = new_extra_descr();
 	ed->keyword         = str_dup("sign");
-	ed->description     = str_dup(target_name);
+	ed->description     = str_dup(buf);
 	ed->next            = sign->extra_descr;
 	sign->extra_descr   = ed;
 	sprintf(buf, "This road sign was created by %s.\n", ch->name);

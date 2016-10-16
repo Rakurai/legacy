@@ -39,7 +39,7 @@
 
 #include "merc.h"
 
-void do_marry(CHAR_DATA *ch, char *argument)
+void do_marry(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -91,7 +91,7 @@ void do_marry(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_divorce(CHAR_DATA *ch, char *argument)
+void do_divorce(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -142,7 +142,7 @@ void do_divorce(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_spousetalk(CHAR_DATA *ch, char *argument)
+void do_spousetalk(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -203,7 +203,7 @@ void do_spousetalk(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_propose(CHAR_DATA *ch, char *argument)
+void do_propose(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 
@@ -259,7 +259,7 @@ void do_propose(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_accept(CHAR_DATA *ch, char *argument)
+void do_accept(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char buf[MSL];
@@ -335,7 +335,7 @@ void do_accept(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_reject(CHAR_DATA *ch, char *argument)
+void do_reject(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 
@@ -393,7 +393,7 @@ void do_reject(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_breakup(CHAR_DATA *ch, char *argument)
+void do_breakup(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char buf[MSL];

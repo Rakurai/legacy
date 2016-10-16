@@ -35,7 +35,7 @@ extern char *help_greeting;
 
 /*** UTILITY FUNCTIONS ***/
 
-char *one_keyword(char *keywords, char *word)
+const char *one_keyword(const char *keywords, char *word)
 {
 	while (isspace(*keywords))
 		keywords++;
@@ -100,8 +100,7 @@ void help_char_search(CHAR_DATA *ch, char *arg)
 	output = new_buf();
 	add_buf(output, stupidassline);
 	ptb(output, "\n{WHelps beginning with the letter '{c%s{W':{x\n\n", arg);
-	text = str_dup(buf);
-	format_string(text);
+	text = str_dup(format_string(buf));
 	add_buf(output, text);
 	free_string(text);
 	ptb(output, "\n{W[%d] total help entries.{x\n\n", i);
@@ -111,9 +110,10 @@ void help_char_search(CHAR_DATA *ch, char *arg)
 }
 
 /* the mud's internal help command, no multiple results, no suggestions.  command groups are not checked */
-void help(CHAR_DATA *ch, char *argument)
+void help(CHAR_DATA *ch, const char *argument)
 {
-	char query[MSL], *p;
+	char query[MSL];
+	const char *p;
 	BUFFER *output;
 	sprintf(query, "SELECT " HCOL_TEXT " FROM " HTABLE " WHERE ");
 	p = argument;
@@ -174,7 +174,7 @@ void add_help(int group, int order, int level, char *keywords, char *text)
 /*** USER COMMANDS ***/
 
 /* load the specified help file into the database */
-void do_loadhelps(CHAR_DATA *ch, char *argument)
+void do_loadhelps(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL], buf[MSL], *q, *p;
 	FILE *fp;
@@ -308,7 +308,7 @@ void do_loadhelps(CHAR_DATA *ch, char *argument)
 }
 
 /* print all helps matching a group to file */
-void do_printhelps(CHAR_DATA *ch, char *argument)
+void do_printhelps(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL], buf[MSL * 3];
 	FILE *fp;
@@ -388,9 +388,10 @@ void do_printhelps(CHAR_DATA *ch, char *argument)
 	ptc(ch, "File " HELP_DIR "%s.help: %d helps printed.\n", helpfile_table[tablenum].name, count);
 }
 
-void do_help(CHAR_DATA *ch, char *argument)
+void do_help(CHAR_DATA *ch, const char *argument)
 {
-	char arg[MIL], query[MSL], *p;
+	char arg[MIL], query[MSL];
+	const char *p;
 	BUFFER *output;
 	int result_count = 0, partial_count = 0, result_num = 0, i;
 	struct help_struct {
@@ -403,9 +404,12 @@ void do_help(CHAR_DATA *ch, char *argument)
 	struct help_struct temp_help[100];
 	one_argument(argument, arg);
 
-	if (arg[0] == '\0')
-		strcpy(argument, "SUMMARY");
-	else if (!str_cmp(arg, "departed")) {
+	if (arg[0] == '\0') {
+		do_help(ch, "SUMMARY");
+		return;
+	}
+
+	if (!str_cmp(arg, "departed")) {
 		do_departed(ch, "");
 		return;
 	}
@@ -448,8 +452,8 @@ void do_help(CHAR_DATA *ch, char *argument)
 
 	while (db_next_row() == SQL_OK) {
 		int group = db_get_column_int(0);
-		char *keywords = db_get_column_str(1);
-		char *text = db_get_column_str(2);
+		const char *keywords = db_get_column_str(1);
+		const char *text = db_get_column_str(2);
 		int id = db_get_column_int(3);
 
 		if (keywords == NULL || text == NULL)
@@ -557,7 +561,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 	free_buf(output);
 }
 
-void do_hedit(CHAR_DATA *ch, char *argument)
+void do_hedit(CHAR_DATA *ch, const char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
 	argument = one_argument(argument, cmd);
@@ -590,7 +594,7 @@ void do_hedit(CHAR_DATA *ch, char *argument)
 			return;
 		}
 
-		ptc(ch, "Success, the new help has an ID of %s.\n", db_get_column_int(0));
+		ptc(ch, "Success, the new help has an ID of %s.\n", db_get_column_str(0));
 		return;
 	}
 

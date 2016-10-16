@@ -1032,7 +1032,7 @@ void format_war_events(CHAR_DATA *ch, WAR_DATA *war)
 }
 
 /* all-encompassing war command */
-void do_war(CHAR_DATA *ch, char *argument)
+void do_war(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL], arg3[MIL], buf[MSL];
 	CLAN_DATA *clanA, *clanB;

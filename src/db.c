@@ -717,7 +717,8 @@ int  scan_credits(AREA_DATA *pArea)
  */
 void load_area(FILE *fp)
 {
-	char *line, num[50];
+	const char *line;
+	char num[50];
 	AREA_DATA *pArea = alloc_perm(sizeof(*pArea));
 	pArea->reset_first      = NULL;
 	pArea->reset_last       = NULL;
@@ -727,7 +728,9 @@ void load_area(FILE *fp)
 
 	if (is_number(num)) {
 		aVersion = atoi(num);
-		pArea->file_name = line;
+		char *temp = str_dup(line);
+		free_string(pArea->file_name);
+		pArea->file_name = temp;
 	}
 	else
 		aVersion = 1;

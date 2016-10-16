@@ -60,7 +60,7 @@ void free_string(char *pstr)
 
 /* Removes the tildes from a string.
    Used for player-entered strings that go into disk files. */
-char *smash_tilde(const char *str)
+const char *smash_tilde(const char *str)
 {
 	static char buf[MSL];
 
@@ -75,7 +75,7 @@ char *smash_tilde(const char *str)
 
 /* Removes the brackets from a string.  Used to convert a color coded
    string to normal. */
-char *smash_bracket(const char *str)
+const char *smash_bracket(const char *str)
 {
 	static char retstr[MSL];
 	const char *p;
@@ -220,7 +220,7 @@ bool str_suffix(const char *astr, const char *bstr)
 /*
  * Returns an initial-capped string.
  */
-char *capitalize(const char *str)
+const char *capitalize(const char *str)
 {
 	static char strcap[MSL];
 	int i;
@@ -239,7 +239,7 @@ void strcut(char *str, int length)
 		str[length] = '\0';
 }
 
-char *strcenter(const char *string, int space)
+const char *strcenter(const char *string, int space)
 {
 	static char output[MSL];
 	int length;
@@ -265,13 +265,12 @@ char *strcenter(const char *string, int space)
 	return output;
 }
 
-// i can think of at least 2 ways in which this could cause
-// serious problems, rewrite this crap -- Montrey
-char *strrpc(const char *replace, const char *with, char *in)
+const char *strrpc(const char *replace, const char *with, const char *in)
 {
 	int replacelen = strlen(replace), i;
 	static char out[MSL * 2];
-	char *replaceptr, *withptr = with, *inptr = in, *outptr = out;
+	const char *replaceptr, *withptr = with, *inptr = in;
+	char *outptr = out;
 
 	if (replacelen <= 0
 	    || strlen(in) < replacelen
@@ -303,3 +302,36 @@ char *strrpc(const char *replace, const char *with, char *in)
 	return out;
 }
 
+/* insert a string at a specified point in a string -- Montrey */
+const char *strins(const char *string, const char *ins, int place)
+{
+	static char output[MSL];
+	memset(output, 0, MSL);
+	strncat(output, string, place);
+	strcat(output, ins);
+	strcat(output, string + place);
+	return output;
+}
+
+const char *center_string_in_whitespace(const char *string, int length)
+{
+	char spacebuf[MAX_STRING_LENGTH];
+	static char buf[MAX_STRING_LENGTH];
+	int x, spaces;
+	spaces = (((length - color_strlen(string)) / 2));
+	buf[0] = '\0';
+	spacebuf[0] = '\0';
+
+	for (x = 0; x < spaces; x++)
+		spacebuf[x] = ' ';
+
+	spacebuf[x] =  '\0';
+	strcat(buf, spacebuf);
+	strcat(buf, string);
+	strcat(buf, spacebuf);
+
+	if (color_strlen(buf) == (length - 1))
+		strcat(buf, " ");
+
+	return buf;
+}

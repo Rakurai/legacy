@@ -541,7 +541,7 @@ void tour_update(void)
 	}
 } /* end tour_update() */
 
-void do_board(CHAR_DATA *ch, char *argument)
+void do_board(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *coach;
 	CHAR_DATA *rch, *pet, *follower;
@@ -645,7 +645,7 @@ void do_board(CHAR_DATA *ch, char *argument)
 		act("$n boards the coach and sits down in it.", ch, NULL, NULL, TO_ROOM);
 } /* end do_board() */
 
-void do_alight(CHAR_DATA *ch, char *argument)
+void do_alight(CHAR_DATA *ch, const char *argument)
 {
 	int jpax;
 	OBJ_DATA *coach;

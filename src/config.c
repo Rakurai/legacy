@@ -29,7 +29,7 @@
 #include "tables.h"
 
 /* TEMPLATE
-void config_wiznet(CHAR_DATA *ch, char *argument)
+void config_wiznet(CHAR_DATA *ch, const char *argument)
 {
         char arg1[MIL];
         int argnum = 0;
@@ -60,9 +60,7 @@ void config_wiznet(CHAR_DATA *ch, char *argument)
         stc("That is not a valid censor option.\n", ch);
 }*/
 
-extern char *set_colorname(char *string, int length);
-
-void config_color_func(CHAR_DATA *ch, char *argument, int type)
+void config_color_func(CHAR_DATA *ch, const char *argument, int type)
 {
 	char arg1[MIL], arg2[MIL], typestr[20];
 	int low, high, mod, slot, i;
@@ -157,7 +155,7 @@ void config_color_func(CHAR_DATA *ch, char *argument, int type)
 	set_color(ch, WHITE, NOBOLD);
 }
 
-void config_color(CHAR_DATA *ch, char *argument)
+void config_color(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL];
 	int argnum = 0;
@@ -269,7 +267,7 @@ void config_color(CHAR_DATA *ch, char *argument)
 	stc("That is not a valid color option.\n", ch);
 }
 
-void config_video(CHAR_DATA *ch, char *argument)
+void config_video(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL];
 	int argnum = 0;
@@ -407,7 +405,7 @@ void config_video(CHAR_DATA *ch, char *argument)
 	stc("That is not a valid video option.\n", ch);
 }
 
-void config_censor(CHAR_DATA *ch, char *argument)
+void config_censor(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL];
 	int argnum = 0;
@@ -506,7 +504,7 @@ void config_censor(CHAR_DATA *ch, char *argument)
 	stc("That is not a valid censor option.\n", ch);
 }
 
-void config_immortal(CHAR_DATA *ch, char *argument)
+void config_immortal(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL];
 	int argnum = 0;
@@ -549,7 +547,7 @@ void config_immortal(CHAR_DATA *ch, char *argument)
 		}
 		else {
 			char buf[MIL];
-			sprintf(buf, smash_bracket(argument));
+			strcpy(buf, smash_bracket(argument));
 
 			if (strlen(buf) > 30)
 				stc("Your immtalk prefix can be no longer than 30 printed characters.\n", ch);
@@ -578,7 +576,7 @@ void config_immortal(CHAR_DATA *ch, char *argument)
 		}
 		else {
 			char buf[MIL];
-			sprintf(buf, smash_bracket(argument));
+			strcpy(buf, smash_bracket(argument));
 
 			if (strlen(buf) > TITLEBLOCK)
 				stc("Your immname can be no longer than 13 printed characters.\n", ch);
@@ -586,7 +584,7 @@ void config_immortal(CHAR_DATA *ch, char *argument)
 				free_string(ch->pcdata->immname);
 				buf[0]  = '\0';
 				strcat(buf, "{W[{x");
-				strcat(buf, set_colorname(argument, TITLEBLOCK));
+				strcat(buf, center_string_in_whitespace(argument, TITLEBLOCK));
 				strcat(buf, "{W]{x");
 				ch->pcdata->immname = str_dup(buf);
 				ptc(ch, "Your immname is now: %s{x\n", ch->pcdata->immname);
@@ -599,7 +597,7 @@ void config_immortal(CHAR_DATA *ch, char *argument)
 	stc("That is not a valid immortal configuration option.\n", ch);
 }
 
-void config_wiznet(CHAR_DATA *ch, char *argument)
+void config_wiznet(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL];
 	int argnum = -1;
@@ -701,7 +699,7 @@ void config_wiznet(CHAR_DATA *ch, char *argument)
 		stc("Valid options are {Phelp{x and no argument (toggle).\n", ch);
 }
 
-void do_config(CHAR_DATA *ch, char *argument)
+void do_config(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL];
 	int argnum = 0;
@@ -755,7 +753,7 @@ void do_config(CHAR_DATA *ch, char *argument)
  Replaced configuration commands, left for oldbies
  *****/
 
-void do_color(CHAR_DATA *ch, char *argument)
+void do_color(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MIL];
 
@@ -772,7 +770,7 @@ void do_color(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_video(CHAR_DATA *ch, char *argument)
+void do_video(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MIL];
 
@@ -785,14 +783,14 @@ void do_video(CHAR_DATA *ch, char *argument)
 	do_config(ch, buf);
 }
 
-void do_censor(CHAR_DATA *ch, char *argument)
+void do_censor(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MIL];
 	sprintf(buf, "censor %s", argument);
 	do_config(ch, buf);
 }
 
-void do_wiznet(CHAR_DATA *ch, char *argument)
+void do_wiznet(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MIL];
 

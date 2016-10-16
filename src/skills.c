@@ -93,7 +93,7 @@ int comp_spells(const void *sn1, const void *sn2)
      SPELLS WEATHER -> list of spells in the WEATHER group
      SPELLS ACID    -> list of spells beginning with 'acid'
 */
-void do_spells(CHAR_DATA *ch, char *argument)
+void do_spells(CHAR_DATA *ch, const char *argument)
 {
 	int level;
 	int min_level = 1;
@@ -361,7 +361,7 @@ void do_spells(CHAR_DATA *ch, char *argument)
      SKILLS 50 60   -> spells from lv 50 - 60
      SKILLS DUAL    -> list of spells beginning with 'dual'
 */
-void do_skills(CHAR_DATA *ch, char *argument)
+void do_skills(CHAR_DATA *ch, const char *argument)
 {
 	int level;
 	int min_level = 1;
@@ -535,7 +535,7 @@ void do_skills(CHAR_DATA *ch, char *argument)
 }
 
 /* Levelist by Lotus */
-void do_levels(CHAR_DATA *ch, char *argument)
+void do_levels(CHAR_DATA *ch, const char *argument)
 {
 	char list[LEVEL_HERO][MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -877,7 +877,7 @@ long exp_per_level(CHAR_DATA *ch, int points)
 } /* end exp_per_level() */
 
 /* this procedure handles the input parsing for the skill generator */
-bool parse_gen_groups(CHAR_DATA *ch, char *argument)
+bool parse_gen_groups(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char buf[100];
@@ -1027,7 +1027,7 @@ bool parse_gen_groups(CHAR_DATA *ch, char *argument)
 }
 
 /* shows all groups, or the sub-members of a group */
-void do_groups(CHAR_DATA *ch, char *argument)
+void do_groups(CHAR_DATA *ch, const char *argument)
 {
 	char buf[100];
 	int gn, sn, col;
@@ -1363,7 +1363,7 @@ void evolve_list(CHAR_DATA *ch)
 	free_buf(buffer);
 }
 
-void do_evolve(CHAR_DATA *ch, char *argument)
+void do_evolve(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char *type;
@@ -1505,7 +1505,7 @@ bool deduct_stamina(CHAR_DATA *ch, int sn)
 }
 
 /* used to get new skills */
-void do_gain(CHAR_DATA *ch, char *argument)
+void do_gain(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL];
 	CHAR_DATA *trainer;
@@ -1790,7 +1790,7 @@ For example: "convert 20" will change 20 SP into 2 practices.
 
 -- Outsider
 */
-void do_convert(CHAR_DATA *ch, char *argument)
+void do_convert(CHAR_DATA *ch, const char *argument)
 {
 	sh_int use_points;
 	char buffer[MAX_INPUT_LENGTH];

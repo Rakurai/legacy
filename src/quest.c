@@ -32,9 +32,6 @@
 /* The Vnum of the quest start location -- hard coded! */
 #define QUEST_STARTROOM 12000
 
-/* Local functions */
-ROOM_INDEX_DATA         *find_location(CHAR_DATA *ch, char *arg);
-
 void quest_init(void)
 {
 	quest_open = FALSE;
@@ -1058,7 +1055,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 } /* end generate_quest() */
 
 /* The main quest function */
-void do_quest(CHAR_DATA *ch, char *argument)
+void do_quest(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *questman;
 	char buf [MAX_STRING_LENGTH];

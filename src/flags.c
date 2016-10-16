@@ -32,7 +32,7 @@
 int flag_lookup args((const char *name, const struct flag_type *flag_table));
 extern AREA_DATA *area_first;
 
-void do_flag(CHAR_DATA *ch, char *argument)
+void do_flag(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL], arg3[MIL];
 	char word[MIL], what[MIL];
@@ -351,7 +351,7 @@ void do_flag(CHAR_DATA *ch, char *argument)
 	*flag = new;
 }
 
-void do_typelist(CHAR_DATA *ch, char *argument)
+void do_typelist(CHAR_DATA *ch, const char *argument)
 {
 	int x;
 
@@ -383,7 +383,7 @@ char *flag_to_alpha(long flag)
 	return NULL;
 }
 
-void do_flaglist(CHAR_DATA *ch, char *argument)
+void do_flaglist(CHAR_DATA *ch, const char *argument)
 {
 	int x;
 	const struct flag_type *flag_table;
@@ -746,7 +746,7 @@ void fsearch_obj(CHAR_DATA *ch, int fieldptr, long marked)
 	free_buf(output);
 }
 
-void do_flagsearch(CHAR_DATA *ch, char *argument)
+void do_flagsearch(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL], word[MIL];
 	int fieldptr, length;

@@ -78,7 +78,7 @@ void    raw_kill        args((CHAR_DATA *victim));
 void    set_fighting    args((CHAR_DATA *ch, CHAR_DATA *victim));
 void    eqcheck         args((CHAR_DATA *ch));
 void    combat_regen    args((CHAR_DATA *ch));
-void    do_lay_on_hands       args((CHAR_DATA *ch, char *argument));
+void    do_lay_on_hands       args((CHAR_DATA *ch, const char *argument));
 
 /* Global XP */
 int gxp;
@@ -3124,7 +3124,7 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune,
 	}
 } /* end dam_message */
 
-void do_berserk(CHAR_DATA *ch, char *argument)
+void do_berserk(CHAR_DATA *ch, const char *argument)
 {
 	int chance, hp_percent;
 
@@ -3188,7 +3188,7 @@ void do_berserk(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_berserk */
 
-void do_bash(CHAR_DATA *ch, char *argument)
+void do_bash(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3360,7 +3360,7 @@ void do_bash(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_bash */
 
-void do_dirt(CHAR_DATA *ch, char *argument)
+void do_dirt(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3552,7 +3552,7 @@ bool trip(CHAR_DATA *ch, CHAR_DATA *victim, int chance, int dam_type)
 	}
 }
 
-void do_trip(CHAR_DATA *ch, char *argument)
+void do_trip(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3629,7 +3629,7 @@ void do_trip(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_trip */
 
-void do_kill(CHAR_DATA *ch, char *argument)
+void do_kill(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3708,7 +3708,7 @@ void do_kill(CHAR_DATA *ch, char *argument)
 } /* end do_kill */
 
 /* Battle/Arena by Lotus */
-void do_battle(CHAR_DATA *ch, char *argument)
+void do_battle(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH], arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH], arg3[MAX_INPUT_LENGTH];
 	int low, high, fee;
@@ -3892,7 +3892,7 @@ void do_battle(CHAR_DATA *ch, char *argument)
 } /* end battle */
 
 /* Singing Skill by Lotus */
-void do_sing(CHAR_DATA *ch, char *argument)
+void do_sing(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA af;
@@ -4002,7 +4002,7 @@ void do_sing(CHAR_DATA *ch, char *argument)
 	return;
 } /* end do_sing */
 
-void do_backstab(CHAR_DATA *ch, char *argument)
+void do_backstab(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -4089,7 +4089,7 @@ void do_backstab(CHAR_DATA *ch, char *argument)
 } /* end do_backstab */
 
 /* Shadow Form for remorts - Lotus */
-void do_shadow(CHAR_DATA *ch, char *argument)
+void do_shadow(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -4151,7 +4151,7 @@ void do_shadow(CHAR_DATA *ch, char *argument)
 	SET_BIT(victim->imm_flags, IMM_SHADOW);
 } /* end do_shadow */
 
-void do_circle(CHAR_DATA *ch, char *argument)
+void do_circle(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -4206,7 +4206,7 @@ void do_circle(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_circle */
 
-void do_flee(CHAR_DATA *ch, char *argument)
+void do_flee(CHAR_DATA *ch, const char *argument)
 {
 	EXIT_DATA *pexit;
 	ROOM_INDEX_DATA *was_in;
@@ -4343,7 +4343,7 @@ void do_flee(CHAR_DATA *ch, char *argument)
 	stc("PANIC! You couldn't escape!\n", ch);
 } /* end do_flee */
 
-void do_rescue(CHAR_DATA *ch, char *argument)
+void do_rescue(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -4413,7 +4413,7 @@ void do_rescue(CHAR_DATA *ch, char *argument)
 	set_fighting(fch, ch);
 } /* end do_rescue */
 
-void do_kick(CHAR_DATA *ch, char *argument)
+void do_kick(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	int skill, amount;
@@ -4477,7 +4477,7 @@ void do_kick(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_kick */
 
-void do_crush(CHAR_DATA *ch, char *argument)
+void do_crush(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 
@@ -4505,7 +4505,7 @@ void do_crush(CHAR_DATA *ch, char *argument)
 	check_killer(ch, victim);
 } /* end do_crush */
 
-void do_disarm(CHAR_DATA *ch, char *argument)
+void do_disarm(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *weapon;
@@ -4778,12 +4778,12 @@ void do_disarm(CHAR_DATA *ch, char *argument)
 		check_improve(ch, gsn_blind_fight, FALSE, 1);
 }
 
-void do_sla(CHAR_DATA *ch, char *argument)
+void do_sla(CHAR_DATA *ch, const char *argument)
 {
 	stc("If you want to SLAY, spell it out.\n", ch);
 } /* end do_sla */
 
-void do_slay(CHAR_DATA *ch, char *argument)
+void do_slay(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH]; /* For [FYI] */
@@ -4859,7 +4859,7 @@ void eqcheck(CHAR_DATA *ch)
 	}
 } /* end eqcheck */
 
-void do_rotate(CHAR_DATA *ch, char *argument)
+void do_rotate(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -4910,7 +4910,7 @@ void do_rotate(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_rotate */
 
-void do_hammerstrike(CHAR_DATA *ch, char *argument)
+void do_hammerstrike(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
 
@@ -4954,7 +4954,7 @@ void do_hammerstrike(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_hammerstrike */
 
-void do_critical_blow(CHAR_DATA *ch, char *argument)
+void do_critical_blow(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *weapon;
 	int chance;
@@ -5060,7 +5060,7 @@ void do_riposte(CHAR_DATA *victim, CHAR_DATA *ch)
 } /* end do_riposte */
 
 /* RAGE by Montrey */
-void do_rage(CHAR_DATA *ch, char *argument)
+void do_rage(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
@@ -5119,7 +5119,7 @@ void do_rage(CHAR_DATA *ch, char *argument)
 	check_improve(ch, gsn_rage, TRUE, 2);
 }
 
-void do_lay_on_hands(CHAR_DATA *ch, char *argument)
+void do_lay_on_hands(CHAR_DATA *ch, const char *argument)
 {
 	int heal, skill;
 	char arg[MIL];
@@ -5201,7 +5201,7 @@ the next room over.
 ( directions can be (n)orth, (s)outh, (e)ast, (w)est, (u)p or (d)own )
 -- Outsider
 */
-void do_bow(CHAR_DATA *ch, char *argument)
+void do_bow(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim = NULL;
 	sh_int direction_number;

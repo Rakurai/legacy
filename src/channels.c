@@ -30,18 +30,18 @@
 #include "lookup.h"
 #include "recycle.h"
 
-extern void     channel_who     args((CHAR_DATA *ch, char *channelname, int
+extern void     channel_who     args((CHAR_DATA *ch, const char *channelname, int
                                       channel, int custom));
 bool    check_channel_social    args((CHAR_DATA *ch, int channel,
-                                      int custom, char *command, char *argument));
+                                      int custom, const char *command, const char *argument));
 
-void    send_to_query           args((CHAR_DATA *ch, char *string));
-bool    swearcheck              args((char *argument));
+void    send_to_query           args((CHAR_DATA *ch, const char *string));
+bool    swearcheck              args((const char *argument));
 extern bool     is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim);
-char   *makedrunk               args((CHAR_DATA *ch, char *string));
+const char   *makedrunk               args((CHAR_DATA *ch, const char *string));
 
 /* RT code to display channel status */
-void do_channels(CHAR_DATA *ch, char *argument)
+void do_channels(CHAR_DATA *ch, const char *argument)
 {
 	/* lists all channels and their status */
 	stc("   channel     status\n", ch);
@@ -204,7 +204,7 @@ void do_channels(CHAR_DATA *ch, char *argument)
 		stc("You only feel like flaming.\n", ch);
 }
 
-char *makedrunk(CHAR_DATA *ch, char *string)
+const char *makedrunk(CHAR_DATA *ch, const char *string)
 {
 	/* This structure defines all changes for a character */
 	static struct struckdrunk drunk[] = {
@@ -357,7 +357,7 @@ char *makedrunk(CHAR_DATA *ch, char *string)
 } /* end makedrunk() */
 
 /* This sends an ACT-type message to everybody in the game. */
-void global_act(CHAR_DATA *ch, char *message,
+void global_act(CHAR_DATA *ch, const char *message,
                 int despite_invis, int color, long nocomm_bits)
 {
 	DESCRIPTOR_DATA *d;
@@ -377,7 +377,7 @@ void global_act(CHAR_DATA *ch, char *message,
 	}
 } /* end global_act() */
 
-bool swearcheck(char *argument)
+bool swearcheck(const char *argument)
 {
 	/* For partial matches, cause we do want to trigger dickhead */
 	char tobechecked[MSL];
@@ -424,7 +424,7 @@ bool swearcheck(char *argument)
 	return FALSE;
 } /* end swearcheck() */
 
-bool check_channel_social(CHAR_DATA *ch, int channel, int custom, char *command, char *argument)
+bool check_channel_social(CHAR_DATA *ch, int channel, int custom, const char *command, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -522,7 +522,7 @@ bool check_channel_social(CHAR_DATA *ch, int channel, int custom, char *command,
 }
 
 /* Channel who by Lotus */
-void channel_who(CHAR_DATA *ch, char *channelname, int channel, int custom)
+void channel_who(CHAR_DATA *ch, const char *channelname, int channel, int custom)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -557,7 +557,7 @@ void channel_who(CHAR_DATA *ch, char *channelname, int channel, int custom)
 
 /* This routine is for query call statements, checks to see which users in
 the query list are on, and then sends the mesg to them */
-void send_to_query(CHAR_DATA *ch, char *string)
+void send_to_query(CHAR_DATA *ch, const char *string)
 {
 	PC_DATA *pc;
 	int i;
@@ -583,7 +583,7 @@ void send_to_query(CHAR_DATA *ch, char *string)
 	}
 }
 
-void send_to_clan(CHAR_DATA *ch, CLAN_DATA *target, char *text)
+void send_to_clan(CHAR_DATA *ch, CLAN_DATA *target, const char *text)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -604,7 +604,7 @@ void send_to_clan(CHAR_DATA *ch, CLAN_DATA *target, char *text)
 	}
 }
 
-void wiznet(char *string, CHAR_DATA *ch, OBJ_DATA *obj, long flag, long flag_skip, int min_rank)
+void wiznet(const char *string, CHAR_DATA *ch, OBJ_DATA *obj, long flag, long flag_skip, int min_rank)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -624,7 +624,7 @@ void wiznet(char *string, CHAR_DATA *ch, OBJ_DATA *obj, long flag, long flag_ski
 	}
 }
 
-void channel(CHAR_DATA *ch, char *argument, int channel)
+void channel(CHAR_DATA *ch, const char *argument, int channel)
 {
 	char arg[MSL];
 	DESCRIPTOR_DATA *d;
@@ -790,37 +790,37 @@ void channel(CHAR_DATA *ch, char *argument, int channel)
 
 }
 
-void do_gossip(CHAR_DATA *ch, char *argument)
+void do_gossip(CHAR_DATA *ch, const char *argument)
 {
 	channel(ch, argument, CHAN_GOSSIP);
 }
 
-void do_flame(CHAR_DATA *ch, char *argument)
+void do_flame(CHAR_DATA *ch, const char *argument)
 {
 	channel(ch, argument, CHAN_FLAME);
 }
 
-void do_qwest(CHAR_DATA *ch, char *argument)
+void do_qwest(CHAR_DATA *ch, const char *argument)
 {
 	channel(ch, argument, CHAN_QWEST);
 }
 
-void do_pray(CHAR_DATA *ch, char *argument)
+void do_pray(CHAR_DATA *ch, const char *argument)
 {
 	channel(ch, argument, CHAN_PRAY);
 }
 
-void do_clantalk(CHAR_DATA *ch, char *argument)
+void do_clantalk(CHAR_DATA *ch, const char *argument)
 {
 	channel(ch, argument, CHAN_CLAN);
 }
 
-void do_music(CHAR_DATA *ch, char *argument)
+void do_music(CHAR_DATA *ch, const char *argument)
 {
 	channel(ch, argument, CHAN_MUSIC);
 }
 
-void do_ic(CHAR_DATA *ch, char *argument)
+void do_ic(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Just be yourself, no need to pretend :)\n", ch);
@@ -835,22 +835,22 @@ void do_ic(CHAR_DATA *ch, char *argument)
 	channel(ch, argument, CHAN_IC);
 }
 
-void do_grats(CHAR_DATA *ch, char *argument)
+void do_grats(CHAR_DATA *ch, const char *argument)
 {
 	channel(ch, argument, CHAN_GRATS);
 }
 
-void do_immtalk(CHAR_DATA *ch, char *argument)
+void do_immtalk(CHAR_DATA *ch, const char *argument)
 {
 	channel(ch, argument, CHAN_IMMTALK);
 }
 
-void do_question(CHAR_DATA *ch, char *argument)
+void do_question(CHAR_DATA *ch, const char *argument)
 {
 	channel(ch, argument, CHAN_QA);
 }
 
-void talk_auction(CHAR_DATA *ch, char *argument)
+void talk_auction(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *d;
@@ -874,7 +874,7 @@ void talk_auction(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_announce(CHAR_DATA *ch, char *argument)
+void do_announce(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm, COMM_NOANNOUNCE)) {
 		new_color(ch, CSLOT_CHAN_ANNOUNCE);
@@ -890,7 +890,7 @@ void do_announce(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_send_announce(CHAR_DATA *ch, char *argument)
+void do_send_announce(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	DESCRIPTOR_DATA *d;
@@ -911,7 +911,7 @@ void do_send_announce(CHAR_DATA *ch, char *argument)
 }
 
 /* Lotus - Let us Imms use the FYI Channel for jokes */
-void do_fyi(CHAR_DATA *ch, char *argument)
+void do_fyi(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 	new_color(ch, CSLOT_CHAN_ANNOUNCE);
@@ -948,7 +948,7 @@ void do_fyi(CHAR_DATA *ch, char *argument)
 
 }
 
-void do_replay(CHAR_DATA *ch, char *argument)
+void do_replay(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		stc("{YMobiles can't work answering machines.{x\n", ch);
@@ -962,11 +962,11 @@ void do_replay(CHAR_DATA *ch, char *argument)
 }
 
 /* Channel specifically for socials and emotes by Lotus */
-void do_globalsocial(CHAR_DATA *ch, char *argument)
+void do_globalsocial(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
-	char *arg2;
+	const char *arg2;
 	DESCRIPTOR_DATA *d;
 
 	if (argument[0] == '\0') {
@@ -1079,7 +1079,7 @@ void do_globalsocial(CHAR_DATA *ch, char *argument)
 
 }
 
-void do_iclantalk(CHAR_DATA *ch, char *argument)
+void do_iclantalk(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	CLAN_DATA *clan, *oclan;
@@ -1105,7 +1105,7 @@ void do_iclantalk(CHAR_DATA *ch, char *argument)
 }
 
 /* Improved do_say (With Colour!) - Xenith */
-void do_say(CHAR_DATA *ch, char *argument)
+void do_say(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
 
@@ -1168,7 +1168,7 @@ void do_say(CHAR_DATA *ch, char *argument)
 	mprog_speech_trigger(argument, ch);
 }
 
-void do_tell(CHAR_DATA *ch, char *argument)
+void do_tell(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL], buf[MSL];
 	CHAR_DATA *victim;
@@ -1273,7 +1273,7 @@ void do_tell(CHAR_DATA *ch, char *argument)
 		strcpy(victim->reply, ch->name);
 }
 
-void do_reply(CHAR_DATA *ch, char *argument)
+void do_reply(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char buf[MAX_STRING_LENGTH];
@@ -1392,7 +1392,7 @@ void do_reply(CHAR_DATA *ch, char *argument)
 		strcpy(victim->reply, ch->name);
 }
 
-void do_yell(CHAR_DATA *ch, char *argument)
+void do_yell(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 
@@ -1430,7 +1430,7 @@ void do_yell(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_emote(CHAR_DATA *ch, char *argument)
+void do_emote(CHAR_DATA *ch, const char *argument)
 {
 	if (!IS_NPC(ch) && IS_SET(ch->revoke, REVOKE_EMOTE)) {
 		stc("You're not feeling very emotional right now.\n", ch);
@@ -1448,7 +1448,7 @@ void do_emote(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_pmote(CHAR_DATA *ch, char *argument)
+void do_pmote(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
 	char *letter, *name;
@@ -1523,7 +1523,7 @@ void do_pmote(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_smote(CHAR_DATA *ch, char *argument)
+void do_smote(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
 	char *letter, *name;
@@ -1606,7 +1606,7 @@ void do_smote(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_page(CHAR_DATA *ch, char *argument)
+void do_page(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -1700,7 +1700,7 @@ void do_page(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_whisper(CHAR_DATA *ch, char *argument)
+void do_whisper(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 
@@ -1729,7 +1729,7 @@ void do_whisper(CHAR_DATA *ch, char *argument)
 	ptc(ch, "{GYou whisper in %s's ear, '%s{G'{x\n", victim->name, argument);
 }
 
-void do_qtell(CHAR_DATA *ch, char *argument)
+void do_qtell(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -1755,7 +1755,7 @@ void do_qtell(CHAR_DATA *ch, char *argument)
 		}
 	}
 
-	if (!ch->pcdata->query) {
+	if (!ch->pcdata->query[0]) {
 		stc("You have no one on your query list.\n", ch);
 		return;
 	}
@@ -1780,7 +1780,7 @@ void do_qtell(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_gtell(CHAR_DATA *ch, char *argument)
+void do_gtell(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *gch;
@@ -1810,7 +1810,7 @@ void do_gtell(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_query(CHAR_DATA *ch, char *argument)
+void do_query(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *rch;
 	char arg[MAX_INPUT_LENGTH];
@@ -1900,7 +1900,7 @@ void do_query(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!str_prefix1(arg, "-")) {
-		if (arg2 == '\0') {
+		if (arg2[0] == '\0') {
 			stc("Remove who from the query list?\n", ch);
 			return;
 		}

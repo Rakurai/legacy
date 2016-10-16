@@ -191,10 +191,11 @@ void load_songs(void)
 	fclose(fp); /* One more close than open -  Lotus */
 }
 
-void do_play(CHAR_DATA *ch, char *argument)
+void do_play(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *juke;
-	char *str, arg[MAX_INPUT_LENGTH];
+	const char *str;
+	char arg[MAX_INPUT_LENGTH];
 	int song, i;
 	bool global = FALSE;
 	str = one_argument(argument, arg);

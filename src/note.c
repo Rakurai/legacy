@@ -35,7 +35,7 @@ extern char                    strArea[MAX_INPUT_LENGTH];
 
 /* local procedures */
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time);
-void parse_note(CHAR_DATA *ch, char *argument, int type);
+void parse_note(CHAR_DATA *ch, const char *argument, int type);
 bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote);
 
 NOTE_DATA *note_list;
@@ -142,37 +142,37 @@ void do_unread(CHAR_DATA *ch)
 	}
 }
 
-void do_note(CHAR_DATA *ch, char *argument)
+void do_note(CHAR_DATA *ch, const char *argument)
 {
 	parse_note(ch, argument, NOTE_NOTE);
 }
 
-void do_idea(CHAR_DATA *ch, char *argument)
+void do_idea(CHAR_DATA *ch, const char *argument)
 {
 	parse_note(ch, argument, NOTE_IDEA);
 }
 
-void do_personal(CHAR_DATA *ch, char *argument)
+void do_personal(CHAR_DATA *ch, const char *argument)
 {
 	parse_note(ch, argument, NOTE_PERSONAL);
 }
 
-void do_roleplay(CHAR_DATA *ch, char *argument)
+void do_roleplay(CHAR_DATA *ch, const char *argument)
 {
 	parse_note(ch, argument, NOTE_ROLEPLAY);
 }
 
-void do_immquest(CHAR_DATA *ch, char *argument)
+void do_immquest(CHAR_DATA *ch, const char *argument)
 {
 	parse_note(ch, argument, NOTE_IMMQUEST);
 }
 
-void do_changes(CHAR_DATA *ch, char *argument)
+void do_changes(CHAR_DATA *ch, const char *argument)
 {
 	parse_note(ch, argument, NOTE_CHANGES);
 }
 
-void do_trade(CHAR_DATA *ch, char *argument)
+void do_trade(CHAR_DATA *ch, const char *argument)
 {
 	parse_note(ch, argument, NOTE_TRADE);
 }
@@ -492,7 +492,7 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
 	char to_one[MAX_INPUT_LENGTH];
 	NOTE_DATA *prev;
 	NOTE_DATA **list;
-	char *to_list;
+	const char *to_list;
 
 	if (!delete) {
 		/* make a new list */
@@ -706,7 +706,7 @@ void notify_note_post(NOTE_DATA *pnote, CHAR_DATA *vch, int type)
 	}
 }
 
-void parse_note(CHAR_DATA *ch, char *argument, int type)
+void parse_note(CHAR_DATA *ch, const char *argument, int type)
 {
 	BUFFER *buffer;
 	char buf[MSL], arg[MIL];
@@ -1147,8 +1147,8 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 	if (!str_cmp(arg, "replace")) {
 		char old[MAX_INPUT_LENGTH];
 		char new[MAX_INPUT_LENGTH];
-		argument = first_arg(argument, old, FALSE);
-		argument = first_arg(argument, new, FALSE);
+		argument = one_argument(argument, old);
+		argument = one_argument(argument, new);
 
 		if ((old[0] == '\0') || (new[0] == '\0')) {
 			stc("Usage: note replace 'old string' 'new string'\n",
@@ -1161,7 +1161,9 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 			return;
 		}
 
-		ch->pnote->text = string_replace(ch->pnote->text, old, new);
+		char *temp = ch->pnote->text;
+		ch->pnote->text = str_dup(string_replace(temp, old, new));
+		free_string(temp);
 		sprintf(buf, "'%s' replaced with '%s'.\n", old, new);
 		stc(buf, ch);
 		return;
@@ -1173,7 +1175,9 @@ void parse_note(CHAR_DATA *ch, char *argument, int type)
 			return;
 		}
 
-		ch->pnote->text = format_string(ch->pnote->text);
+		char *temp = ch->pnote->text;
+		ch->pnote->text = str_dup(format_string(temp));
+		free_string(temp);
 		stc("Note formatted.\n", ch);
 		return;
 	}
@@ -1585,7 +1589,7 @@ void do_old_next(CHAR_DATA *ch)
 }
 
 /* Chronological NEXT -- Elrac */
-void do_next(CHAR_DATA *ch, char *argument)
+void do_next(CHAR_DATA *ch, const char *argument)
 {
 	struct board_index_struct *pbis, *obis = NULL;
 	time_t ostamp = (time_t) 0;
@@ -1652,15 +1656,19 @@ void do_next(CHAR_DATA *ch, char *argument)
  * Thanks to Kalgen for the new procedure (no more bug!)
  * Original wordwrap() written by Surreality.
  */
-char *format_string(char *oldstring)
+const char *format_string(const char *oldstring)
 {
-	char xbuf[MAX_STRING_LENGTH], xbuf2[MAX_STRING_LENGTH];
+	static char xbuf[MAX_STRING_LENGTH];
+	char xbuf2[MAX_STRING_LENGTH];
 	char *rdesc;
 	int i = 0, j;
 	bool cap = TRUE, blankline = FALSE;
 	xbuf[0] = xbuf2[0] = 0;
 
-	for (rdesc = oldstring; *rdesc; rdesc++) {
+	char oldbuf[MSL];
+	strcpy(oldbuf, oldstring);
+
+	for (rdesc = oldbuf; *rdesc; rdesc++) {
 		/* change line breaks to spaces, so we can reformat the width.  keep track of
 		   the line breaks, 2 in a row means a blank line, we simply leave in a \n for
 		   that, it'll be formatted in the next loop -- Montrey */
@@ -1854,13 +1862,13 @@ char *format_string(char *oldstring)
 	if (xbuf[strlen(xbuf) - 2] != '\n')
 		strcat(xbuf, "\n");
 
-	free_string(oldstring);
-	return (str_dup(xbuf));
+//	free_string(oldstring);
+	return xbuf;
 }
 
-char *string_replace(char *orig, char *old, char *new)
+const char *string_replace(const char *orig, const char *old, const char *new)
 {
-	char xbuf[MAX_STRING_LENGTH];
+	static char xbuf[MAX_STRING_LENGTH];
 	int i;
 	xbuf[0] = '\0';
 	strcpy(xbuf, orig);
@@ -1870,9 +1878,9 @@ char *string_replace(char *orig, char *old, char *new)
 		xbuf[i] = '\0';
 		strcat(xbuf, new);
 		strcat(xbuf, &orig[i + strlen(old)]);
-		free_string(orig);
+//		free_string(orig);
 	}
 
-	return str_dup(xbuf);
+	return xbuf;
 }
 

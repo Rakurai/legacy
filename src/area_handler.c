@@ -1371,7 +1371,7 @@ ROOM_INDEX_DATA *get_room_index(int vnum)
 
 /* this command is here just to share some local variables, and to prevent crowding act_info.c */
 /* new, improved AREAS command -- Elrac */
-void do_areas(CHAR_DATA *ch, char *argument)
+void do_areas(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	/* user parameters */

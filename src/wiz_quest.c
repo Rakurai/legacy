@@ -18,7 +18,7 @@
 
 DECLARE_DO_FUN(do_switch);
 
-void do_addapply(CHAR_DATA *ch, char *argument)
+void do_addapply(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf, *af_new;
@@ -130,7 +130,7 @@ void do_addapply(CHAR_DATA *ch, char *argument)
 }
 
 /* Addspell command by Demonfire */
-void do_addspell(CHAR_DATA *ch, char *argument)
+void do_addspell(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	OBJ_DATA *obj;
@@ -183,7 +183,7 @@ void do_addspell(CHAR_DATA *ch, char *argument)
 }
 
 /* Morph Command by Lotus */
-void do_morph(CHAR_DATA *ch, char *argument)
+void do_morph(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -242,7 +242,7 @@ void do_morph(CHAR_DATA *ch, char *argument)
 	stc("Successful Morph!\n", ch);
 }
 
-void do_rppaward(CHAR_DATA *ch, char *argument)
+void do_rppaward(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
@@ -366,7 +366,7 @@ ROOM_INDEX_DATA *get_scatter_room(CHAR_DATA *ch)
 }
 
 /* scatter all items in a room -- Montrey */
-void do_scatter(CHAR_DATA *ch, char *argument)
+void do_scatter(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj, *obj_next;
 	ROOM_INDEX_DATA *room;
@@ -393,7 +393,7 @@ void do_scatter(CHAR_DATA *ch, char *argument)
 		stc("Done.\n", ch);
 }
 
-void do_string(CHAR_DATA *ch, char *argument)
+void do_string(CHAR_DATA *ch, const char *argument)
 {
 	char type [MAX_INPUT_LENGTH];
 	char arg1 [MAX_INPUT_LENGTH];
@@ -440,7 +440,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 
 			if (!str_cmp(arg3, "none")) {
 				free_string(victim->pcdata->spouse);
-				victim->pcdata->spouse = '\0';
+				victim->pcdata->spouse = NULL;
 			}
 			else {
 				free_string(victim->pcdata->spouse);
@@ -621,10 +621,12 @@ void do_string(CHAR_DATA *ch, char *argument)
 			if (!str_cmp(argument, "none"))
 				return;
 
-			strcat(argument, "\n");
+			char desc[MIL];
+			sprintf(desc, "%s\n", argument);
+
 			ed = new_extra_descr();
 			ed->keyword         = str_dup(arg3);
-			ed->description     = str_dup(argument);
+			ed->description     = str_dup(desc);
 			ed->next            = obj->extra_descr;
 			obj->extra_descr    = ed;
 			ptc(ch, "Extended description set to:\n%s\n", arg3);
@@ -664,8 +666,8 @@ void do_string(CHAR_DATA *ch, char *argument)
 				}
 			}
 
-			strcat(argument, "\n");
 			strcat(buf, argument);
+			strcat(buf, "\n");
 			ed = new_extra_descr();
 			ed->keyword         = str_dup(arg3);
 			ed->description     = str_dup(buf);
@@ -698,7 +700,7 @@ void do_string(CHAR_DATA *ch, char *argument)
 	do_string(ch, "");
 } /* end do_string() */
 
-void do_switch(CHAR_DATA *ch, char *argument)
+void do_switch(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
@@ -762,7 +764,7 @@ void do_switch(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_return(CHAR_DATA *ch, char *argument)
+void do_return(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA *location;
@@ -812,7 +814,7 @@ void do_return(CHAR_DATA *ch, char *argument)
 }
 
 /* for future use */
-bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, char *argument)
+bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, const char *argument)
 {
 	char arg1[MIL];
 	argument = one_argument(argument, arg1);
@@ -913,7 +915,7 @@ bool setup_obj(CHAR_DATA *ch, OBJ_DATA *obj, char *argument)
 	return TRUE;
 }
 
-void do_create(CHAR_DATA *ch, char *argument)
+void do_create(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_STRING_LENGTH];
 	char arg2[MAX_STRING_LENGTH];
@@ -994,7 +996,7 @@ skillpoint <award|deduct> <player> <amount>
 
 -- Outsider
 */
-void do_skillpoint(CHAR_DATA *ch, char *argument)
+void do_skillpoint(CHAR_DATA *ch, const char *argument)
 {
 	char char_name[MAX_INPUT_LENGTH];
 	char give_or_take[MAX_INPUT_LENGTH];

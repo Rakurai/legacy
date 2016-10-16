@@ -748,7 +748,7 @@ void interpret(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-bool check_social(CHAR_DATA *ch, char *command, char *argument)
+bool check_social(CHAR_DATA *ch, const char *command, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -852,7 +852,7 @@ bool check_social(CHAR_DATA *ch, char *command, char *argument)
 /*
  * Return true if an argument is completely numeric.
  */
-bool is_number(char *arg)
+bool is_number(const char *arg)
 {
 	if (*arg == '\0')
 		return FALSE;
@@ -871,7 +871,7 @@ bool is_number(char *arg)
 /*
  * Given a string like 14.foo, return 14 and 'foo'
  */
-int number_argument(char *argument, char *arg)
+int number_argument(const char *argument, char *arg)
 {
 	/* Check for leading digit. Saves time */
 	if (*argument >= '0' && *argument <= '9') {
@@ -911,7 +911,7 @@ int number_argument(char *argument, char *arg)
  * character array rather than a str_dup()'d buffer, as its length
  * may change!
  */
-int entity_argument(char *argument, char *arg)
+int entity_argument(const char *argument, char *arg)
 {
 	char tmp_buf[MAX_STRING_LENGTH];
 	char *ap;   /* pointer to argument */
@@ -968,7 +968,7 @@ int entity_argument(char *argument, char *arg)
 /*
  * Given a string like 14*foo, return 14 and 'foo'
 */
-int mult_argument(char *argument, char *arg)
+int mult_argument(const char *argument, char *arg)
 {
 	char *pstar;
 	int number;
@@ -1025,7 +1025,7 @@ const char *one_argument(const char *argument, char *arg_first)
 /*
  * Contributed by Alander, modified by Lotus
  */
-void do_commands(CHAR_DATA *ch, char *argument)
+void do_commands(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int cmd;
@@ -1139,7 +1139,7 @@ void do_huh(CHAR_DATA *ch)
 	return;
 }
 
-void do_wizhelp(CHAR_DATA *ch, char *argument)
+void do_wizhelp(CHAR_DATA *ch, const char *argument)
 {
 	int cmd, col, i;
 
@@ -1246,7 +1246,7 @@ void load_disabled()
 	}
 }
 
-void do_disable(CHAR_DATA *ch, char *argument)
+void do_disable(CHAR_DATA *ch, const char *argument)
 {
 	char cmd[MIL];
 	DISABLED_DATA *p;
@@ -1338,7 +1338,7 @@ This function checks to see if a given commands
 has been granted to the character.
 -- Outsider
 */
-bool Is_Granted(CHAR_DATA *ch, char *argument)
+bool Is_Granted(CHAR_DATA *ch, const char *argument)
 {
 	int index = 0;
 	bool found = FALSE;

@@ -161,8 +161,8 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 		chance -= victim->level / 4;
 
 	/* better chance if it's dark out */
-	if ((!ch->in_room->sector_type == SECT_INSIDE)
-	    && (!ch->in_room->sector_type == SECT_CITY)) {
+	if (ch->in_room->sector_type != SECT_INSIDE
+	    && ch->in_room->sector_type != SECT_CITY) {
 		if (IS_SET(ch->in_room->room_flags, ROOM_DARK))
 			chance += 25;
 		else if (weather_info.sunlight == SUN_DARK)

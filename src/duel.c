@@ -551,7 +551,7 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 	do_look(ch, "auto");
 }
 
-void do_duel(CHAR_DATA *ch, char *argument)
+void do_duel(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL], arg3[MIL], buf[MSL];
 	DUEL_DATA *duel;

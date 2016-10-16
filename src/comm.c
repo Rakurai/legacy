@@ -317,14 +317,14 @@ bool    check_reconnect         args((DESCRIPTOR_DATA *d, char *name,
                                       bool fConn));
 bool    check_playing           args((DESCRIPTOR_DATA *d, char *name));
 int     main                    args((int argc, char **argv));
-void    nanny                   args((DESCRIPTOR_DATA *d, char *argument));
+void    nanny                   args((DESCRIPTOR_DATA *d, const char *argument));
 bool    process_output          args((DESCRIPTOR_DATA *d, bool fPrompt));
 void    read_from_buffer        args((DESCRIPTOR_DATA *d));
 void    stop_idling             args((CHAR_DATA *ch));
 void    bust_a_prompt           args((CHAR_DATA *ch));
 bool    check_player_exist      args((DESCRIPTOR_DATA *d, char *name));
 int     roll_stat               args((CHAR_DATA *ch, int stat));
-char    *get_multi_command     args((DESCRIPTOR_DATA *d, char *argument));
+char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
 
 /* Desparate debugging measure: A function to print a reason for exiting. */
 void exit_reason(const char *module, int line, const char *reason)
@@ -1886,9 +1886,9 @@ void bust_a_prompt(CHAR_DATA *ch)
 } /* end bust_a_prompt() */
 
 /* write_to_buffer with color codes -- Montrey */
-void cwtb(DESCRIPTOR_DATA *d, char *txt)
+void cwtb(DESCRIPTOR_DATA *d, const char *txt)
 {
-	char *a, *b;
+	const char *a, *b;
 	int length, l, curlen = 0;
 	a = txt;
 	length = strlen(a);
@@ -2452,9 +2452,9 @@ void process_color(CHAR_DATA *ch, char a)
 /*
  * Write to one char.
  */
-void stc(char *txt, CHAR_DATA *ch)
+void stc(const char *txt, CHAR_DATA *ch)
 {
-	char *a, *b;
+	const char *a, *b;
 	int length, l, curlen = 0;
 	a = txt;
 	length = strlen(txt);
@@ -2531,7 +2531,7 @@ void page_to_char(char *txt, CHAR_DATA *ch)
 }
 
 /* string pager */
-void show_string(struct descriptor_data *d, char *input)
+void show_string(struct descriptor_data *d, const char *input)
 {
 	char buffer[4 * MAX_STRING_LENGTH];
 	char buf[MAX_INPUT_LENGTH];
@@ -2573,6 +2573,10 @@ void show_string(struct descriptor_data *d, char *input)
             else
             write_to_buffer(d,buffer,strlen(buffer));
             for (chk = d->showstr_point; isspace(*chk); chk++);
+/*
+ ... there is a semicolon at the end of this for loop, making it empty and giving a compile warning.
+ is it a bug?  masking a bug?  remove it later and find out -- Montrey
+*/
             {
                 if (!*chk)
                 {
@@ -2947,7 +2951,7 @@ void act_new(const char *format, CHAR_DATA *ch, const void *arg1,
 	return;
 }
 
-char *get_multi_command(DESCRIPTOR_DATA *d, char *argument)
+char *get_multi_command(DESCRIPTOR_DATA *d, const char *argument)
 {
 	char *pcom;
 	pcom = command;
@@ -3000,7 +3004,7 @@ void do_copyove(CHAR_DATA *ch)
 	return;
 }
 
-void do_copyover(CHAR_DATA *ch, char *argument)
+void do_copyover(CHAR_DATA *ch, const char *argument)
 {
 	FILE *fp;
 	DESCRIPTOR_DATA *d, *d_next;

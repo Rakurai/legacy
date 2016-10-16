@@ -17,7 +17,7 @@ file and its terms of use.
 list other MUDs (by name) or connect to another MUD.
 -- Outsider
 */
-void do_phone(CHAR_DATA *ch, char *argument)
+void do_phone(CHAR_DATA *ch, const char *argument)
 {
 	char first_arg[BUFFER_SIZE];
 	char output[BUFFER_SIZE];

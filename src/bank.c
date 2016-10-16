@@ -8,7 +8,7 @@
 #include "merc.h"
 #include "lookup.h"
 
-void do_deposit(CHAR_DATA *ch, char *argument)
+void do_deposit(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -80,7 +80,7 @@ void do_deposit(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_clandeposit(CHAR_DATA *ch, char *argument)
+void do_clandeposit(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -236,7 +236,7 @@ void do_balance(CHAR_DATA *ch, void *vo)
 	stc(buf, ch);
 }
 
-void do_withdraw(CHAR_DATA *ch, char *argument)
+void do_withdraw(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	char arg1[MAX_INPUT_LENGTH];
@@ -307,7 +307,7 @@ void do_withdraw(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_clanwithdraw(CHAR_DATA *ch, char *argument)
+void do_clanwithdraw(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
 	char arg1[MAX_INPUT_LENGTH];

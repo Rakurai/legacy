@@ -9,17 +9,17 @@
 
 /* character finding functions */
 
-/* get_mob_here         (CHAR_DATA *ch, char *argument, int vis)
-   get_mob_area         (CHAR_DATA *ch, char *argument, int vis)
-   get_mob_world        (CHAR_DATA *ch, char *argument, int vis)
+/* get_mob_here         (CHAR_DATA *ch, const char *argument, int vis)
+   get_mob_area         (CHAR_DATA *ch, const char *argument, int vis)
+   get_mob_world        (CHAR_DATA *ch, const char *argument, int vis)
 
-   get_player_here      (CHAR_DATA *ch, char *argument, int vis)
-   get_player_area      (CHAR_DATA *ch, char *argument, int vis)
-   get_player_world     (CHAR_DATA *ch, char *argument, int vis)
+   get_player_here      (CHAR_DATA *ch, const char *argument, int vis)
+   get_player_area      (CHAR_DATA *ch, const char *argument, int vis)
+   get_player_world     (CHAR_DATA *ch, const char *argument, int vis)
 
-   get_char_here        (CHAR_DATA *ch, char *argument, int vis)
-   get_char_area        (CHAR_DATA *ch, char *argument, int vis)
-   get_char_world       (CHAR_DATA *ch, char *argument, int vis)
+   get_char_here        (CHAR_DATA *ch, const char *argument, int vis)
+   get_char_area        (CHAR_DATA *ch, const char *argument, int vis)
+   get_char_world       (CHAR_DATA *ch, const char *argument, int vis)
 */
 
 /* Find a mobile in the same room as ch */

@@ -32,7 +32,7 @@
 extern AREA_DATA *area_first;
 
 /* DEBUG command, by Elrac. This can be modified for various subfunctions */
-void do_debug(CHAR_DATA *ch, char *argument)
+void do_debug(CHAR_DATA *ch, const char *argument)
 {
 	char subfunc[MIL];
 	argument = one_argument(argument, subfunc);

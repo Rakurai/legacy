@@ -167,7 +167,7 @@ foundit:
 
 /* hunt command implementation for players.
    aggressing mobs use hunt_victim() instead. */
-void do_hunt(CHAR_DATA *ch, char *argument)
+void do_hunt(CHAR_DATA *ch, const char *argument)
 {
 	char buffer[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;

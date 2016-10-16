@@ -42,8 +42,7 @@ DECLARE_DO_FUN(do_say);
 DECLARE_DO_FUN(talk_auction);
 
 int flag_lookup args((const char *name, const struct flag_type *flag_table));
-extern  void    channel_who     args((CHAR_DATA *ch, char *channelname, int channel, int custom));
-char *smash_bracket    args((const char *str));
+extern  void    channel_who     args((CHAR_DATA *ch, const char *channelname, int channel, int custom));
 
 /*
  * Local functions.
@@ -55,7 +54,7 @@ void    wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));
 CD     *find_keeper     args((CHAR_DATA *ch));
 int     get_cost        args((CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy));
 void    obj_to_keeper   args((OBJ_DATA *obj, CHAR_DATA *ch));
-OD     *get_obj_keeper  args((CHAR_DATA *ch, CHAR_DATA *keeper, char *argument));
+OD     *get_obj_keeper  args((CHAR_DATA *ch, CHAR_DATA *keeper, const char *argument));
 #undef OD
 #undef  CD
 
@@ -188,7 +187,7 @@ bool clan_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 */
 bool pers_eq_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *action)
 {
-	char *pdesc;
+	const char *pdesc;
 	char owner[MAX_STRING_LENGTH];
 	char buf[MAX_STRING_LENGTH];
 
@@ -267,7 +266,7 @@ bool can_loot(CHAR_DATA *ch, OBJ_DATA *obj)
 	return FALSE;
 }
 
-void do_second(CHAR_DATA *ch, char *argument)
+void do_second(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 
@@ -492,7 +491,7 @@ bool from_box_ok(CHAR_DATA *ch, OBJ_DATA *obj, char *box_type)
 	return TRUE;
 }
 
-void do_get(CHAR_DATA *ch, char *argument)
+void do_get(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -774,7 +773,7 @@ bool will_fit(OBJ_DATA *obj, OBJ_DATA *container)
 	return TRUE;
 }
 
-void do_put(CHAR_DATA *ch, char *argument)
+void do_put(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL];
 	OBJ_DATA *container, *obj, *obj_next;
@@ -1018,7 +1017,7 @@ void do_put(CHAR_DATA *ch, char *argument)
 }
 
 
-void do_drop(CHAR_DATA *ch, char *argument)
+void do_drop(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -1237,7 +1236,7 @@ void do_drop(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_drop() */
 
-void do_give(CHAR_DATA *ch, char *argument)
+void do_give(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL], buf[MSL];
 	CHAR_DATA *victim;
@@ -1542,7 +1541,7 @@ void do_give(CHAR_DATA *ch, char *argument)
 }
 
 /* for poisoning weapons and food/drink */
-void do_envenom(CHAR_DATA *ch, char *argument)
+void do_envenom(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	AFFECT_DATA af;
@@ -1652,7 +1651,7 @@ void do_envenom(CHAR_DATA *ch, char *argument)
 	return;
 }
 /* Firebuilding by Lotus */
-void do_firebuilding(CHAR_DATA *ch, char *argument)
+void do_firebuilding(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *torch;
 
@@ -1708,7 +1707,7 @@ void do_firebuilding(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_fill(CHAR_DATA *ch, char *argument)
+void do_fill(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
@@ -1786,7 +1785,7 @@ void do_fill(CHAR_DATA *ch, char *argument)
 	obj->value[3] = wanted_fountain->value[3];      /* poison the drink */
 } /* end do_fill() */
 
-void do_pour(CHAR_DATA *ch, char *argument)
+void do_pour(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH], buf[MAX_STRING_LENGTH];
 	OBJ_DATA *out, *in;
@@ -1894,7 +1893,7 @@ void do_pour(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_drink(CHAR_DATA *ch, char *argument)
+void do_drink(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL];
 	OBJ_DATA *obj;
@@ -2014,7 +2013,7 @@ void do_drink(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_eat(CHAR_DATA *ch, char *argument)
+void do_eat(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj, *op, *obj_next;
@@ -2529,7 +2528,7 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		stc("You can't wear, wield, or hold that.\n", ch);
 } /* end wear_obj() */
 
-void do_wear(CHAR_DATA *ch, char *argument)
+void do_wear(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -2564,7 +2563,7 @@ void do_wear(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_remove(CHAR_DATA *ch, char *argument)
+void do_remove(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -2595,7 +2594,7 @@ void do_remove(CHAR_DATA *ch, char *argument)
 }
 
 /* Donate by Lotus */
-void do_donate(CHAR_DATA *ch, char *argument)
+void do_donate(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL];
 	OBJ_DATA *item;
@@ -2647,7 +2646,7 @@ void do_donate(CHAR_DATA *ch, char *argument)
 }
 
 /* Junk by Lotus */
-void do_junk(CHAR_DATA *ch, char *argument)
+void do_junk(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -2700,7 +2699,7 @@ bool acceptable_sac(CHAR_DATA *ch, OBJ_DATA *obj)
 }
 
 /* sacrifice all by Montrey */
-void do_sacrifice(CHAR_DATA *ch, char *argument)
+void do_sacrifice(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
@@ -2829,7 +2828,7 @@ void do_sacrifice(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_quaff(CHAR_DATA *ch, char *argument)
+void do_quaff(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -2876,9 +2875,9 @@ void do_quaff(CHAR_DATA *ch, char *argument)
 }
 
 /* Global for scrolls that want that extra oomph */
-extern char *target_name;
+extern const char *target_name;
 
-void do_recite(CHAR_DATA *ch, char *argument)
+void do_recite(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -2957,7 +2956,7 @@ void do_recite(CHAR_DATA *ch, char *argument)
 	extract_obj(scroll);
 }
 
-void do_brandish(CHAR_DATA *ch, char *argument)
+void do_brandish(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
 	CHAR_DATA *vch_next;
@@ -3043,7 +3042,7 @@ void do_brandish(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_zap(CHAR_DATA *ch, char *argument)
+void do_zap(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3139,7 +3138,7 @@ void do_zap(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_brew(CHAR_DATA *ch, char *argument)
+void do_brew(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -3269,7 +3268,7 @@ void do_brew(CHAR_DATA *ch, char *argument)
 	spell_imprint(sn, ch->level, ch, obj);
 }
 
-void do_scribe(CHAR_DATA *ch, char *argument)
+void do_scribe(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -3380,7 +3379,7 @@ void do_scribe(CHAR_DATA *ch, char *argument)
 	spell_imprint(sn, ch->level, ch, obj);
 }
 
-void do_steal(CHAR_DATA *ch, char *argument)
+void do_steal(CHAR_DATA *ch, const char *argument)
 {
 	char buf  [MAX_STRING_LENGTH];
 	char arg1 [MAX_INPUT_LENGTH];
@@ -3723,7 +3722,7 @@ void obj_to_keeper(OBJ_DATA *obj, CHAR_DATA *ch)
 }
 
 /* get an object from a shopkeeper's list */
-OBJ_DATA *get_obj_keeper(CHAR_DATA *ch, CHAR_DATA *keeper, char *argument)
+OBJ_DATA *get_obj_keeper(CHAR_DATA *ch, CHAR_DATA *keeper, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -3803,7 +3802,7 @@ int get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 	return cost;
 } /* end get_cost() */
 
-void do_buy(CHAR_DATA *ch, char *argument)
+void do_buy(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int cost, roll;
@@ -4208,7 +4207,7 @@ void do_buy(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_buy() */
 
-void do_list(CHAR_DATA *ch, char *argument)
+void do_list(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 
@@ -4315,7 +4314,7 @@ void do_list(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_list() */
 
-void do_sell(CHAR_DATA *ch, char *argument)
+void do_sell(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -4414,7 +4413,7 @@ void do_sell(CHAR_DATA *ch, char *argument)
 	return;
 } /* end do_sell() */
 
-void do_value(CHAR_DATA *ch, char *argument)
+void do_value(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
@@ -4467,7 +4466,7 @@ void do_value(CHAR_DATA *ch, char *argument)
 }
 
 /* put an item on auction, or see the stats on the current item or bet */
-void do_auction(CHAR_DATA *ch, char *argument)
+void do_auction(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	char buf[MSL], arg1[MIL], arg2[MIL];
@@ -4795,7 +4794,7 @@ int is_anvil_owner(char *name, OBJ_DATA *anvil)
  * Age of Legacy's Evolution System.
  *
  */
-void forge_flag(CHAR_DATA *ch, char *argument, OBJ_DATA *anvil)
+void forge_flag(CHAR_DATA *ch, const char *argument, OBJ_DATA *anvil)
 {
 	char arg[MIL];
 	OBJ_DATA *weapon;
@@ -4995,7 +4994,7 @@ void do_hone(CHAR_DATA *ch)
 	return;
 }
 
-void do_forge(CHAR_DATA *ch, char *argument)
+void do_forge(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj, *anvil = NULL, *material;
 	CHAR_DATA *owner;
@@ -5107,7 +5106,7 @@ void do_forge(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	char *name = smash_tilde(argument); // volatile, good until smash_tilde called again
+	const char *name = smash_tilde(argument); // volatile, good until smash_tilde called again
 
 	obj->level = ch->level;
 	free_string(obj->material);
@@ -5238,7 +5237,7 @@ void do_forge(CHAR_DATA *ch, char *argument)
 } /* end do_forge() */
 
 /* Engrave a message of historical significance on a weapon -- Elrac */
-void do_engrave(CHAR_DATA *ch, char *argument)
+void do_engrave(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *jeweler = NULL;
 	OBJ_DATA *weapon;
@@ -5439,11 +5438,10 @@ void do_engrave(CHAR_DATA *ch, char *argument)
 } /* end do_engrave() */
 
 /* Change the looks on weddingrings */
-void do_weddingring(CHAR_DATA *ch, char *argument)
+void do_weddingring(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *jeweler = NULL;
 	OBJ_DATA *ring;
-	char buf[MAX_INPUT_LENGTH];
 	char arg1[MAX_INPUT_LENGTH];
 	int price = 0;
 
@@ -5507,7 +5505,7 @@ help:
 	return;
 }
 
-void do_lore(CHAR_DATA *ch, char *argument)
+void do_lore(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -5541,7 +5539,7 @@ void do_lore(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_autograph(CHAR_DATA *ch, char *argument)
+void do_autograph(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
 	char arg[MIL], buf[MSL];
@@ -5562,7 +5560,7 @@ void do_autograph(CHAR_DATA *ch, char *argument)
 This function allows a character to rename their pet.
 -- Outsider
 */
-void do_rename(CHAR_DATA *ch, char *argument)
+void do_rename(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *pet;
 	char new_name[64];

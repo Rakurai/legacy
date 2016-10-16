@@ -9,18 +9,18 @@
 /* db functions */
 void		db_open				(void);
 void		db_close			(void);
-void		db_error			(char *func);
+void		db_error			(const char *func);
 int			db_next_row			();
 int			db_get_column_int	(int index);
 const char * 
 			db_get_column_str	(int index);
-int			db_query			(char *func, char *query);
-int			db_queryf			(char *func, char *query, ...);
-int			db_command			(char *func, char *query);
-int			db_commandf			(char *func, char *query, ...);
-int			db_count			(char *func, char *query);
-int			db_countf			(char *func, char *query, ...);
+int			db_query			(const char *func, const char *query);
+int			db_queryf			(const char *func, const char *query, ...);
+int			db_command			(const char *func, const char *query);
+int			db_commandf			(const char *func, const char *query, ...);
+int			db_count			(const char *func, const char *query);
+int			db_countf			(const char *func, const char *query, ...);
 int			db_rows_affected	();
-char		*db_esc				(char *string);
+char		*db_esc				(const char *string);
 
 #endif /* __SQL_H */

@@ -32,23 +32,23 @@
  * Local function prototypes
  */
 
-char   *mprog_next_command      args((char *clist));
-bool    mprog_seval             args((char *lhs, char *opr, char *rhs));
-bool    mprog_veval             args((int lhs, char *opr, int rhs));
-bool    mprog_do_ifchck         args((char *ifchck, CHAR_DATA *mob,
+char *mprog_next_command  args((char *clist));
+bool    mprog_seval             args((const char *lhs, const char *opr, const char *rhs));
+bool    mprog_veval             args((int lhs, const char *opr, int rhs));
+bool    mprog_do_ifchck         args((const char *ifchck, CHAR_DATA *mob,
                                       CHAR_DATA *actor, OBJ_DATA *obj,
                                       void *vo, CHAR_DATA *rndm));
-char   *mprog_process_if        args((char *ifchck, char *com_list,
+char *mprog_process_if  args((const char *ifchck, char *com_list,
                                       CHAR_DATA *mob, CHAR_DATA *actor,
                                       OBJ_DATA *obj, void *vo,
                                       CHAR_DATA *rndm));
 void    mprog_translate         args((char ch, char *t, CHAR_DATA *mob,
                                       CHAR_DATA *actor, OBJ_DATA *obj,
                                       void *vo, CHAR_DATA *rndm));
-void    mprog_process_cmnd      args((char *cmnd, CHAR_DATA *mob,
+void    mprog_process_cmnd      args((const char *cmnd, CHAR_DATA *mob,
                                       CHAR_DATA *actor, OBJ_DATA *obj,
                                       void *vo, CHAR_DATA *rndm));
-void    mprog_driver            args((char *com_list, CHAR_DATA *mob,
+void    mprog_driver            args((const char *com_list, CHAR_DATA *mob,
                                       CHAR_DATA *actor, OBJ_DATA *obj,
                                       void *vo));
 
@@ -100,7 +100,7 @@ char *mprog_next_command(char *clist)
  *  still have trailing spaces so be careful when editing since:
  *  "guard" and "guard " are not equal.
  */
-bool mprog_seval(char *lhs, char *opr, char *rhs)
+bool mprog_seval(const char *lhs, const char *opr, const char *rhs)
 {
 	if (!str_cmp(opr, "=="))
 		return (bool)(!str_cmp(lhs, rhs));
@@ -118,7 +118,7 @@ bool mprog_seval(char *lhs, char *opr, char *rhs)
 	return 0;
 }
 
-bool mprog_veval(int lhs, char *opr, int rhs)
+bool mprog_veval(int lhs, const char *opr, int rhs)
 {
 	if (!str_cmp(opr, "=="))
 		return (lhs == rhs);
@@ -158,7 +158,7 @@ bool mprog_veval(int lhs, char *opr, int rhs)
  * to reduce the redundancy of the mammoth if statement list.
  * If there are errors, then return -1 otherwise return boolean 1,0
  */
-bool mprog_do_ifchck(char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
+bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
                      OBJ_DATA *obj, void *vo, CHAR_DATA *rndm)
 {
 	char buf[ MAX_INPUT_LENGTH ];
@@ -171,7 +171,7 @@ bool mprog_do_ifchck(char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 	char     *argpt = arg;
 	char     *oprpt = opr;
 	char     *valpt = val;
-	char     *point = ifchck;
+	const char     *point = ifchck;
 	int       lhsvl;
 	int       rhsvl;
 
@@ -1092,13 +1092,13 @@ bool mprog_do_ifchck(char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
  * Possibly all the return '\0's should be changed to return "".
  * -- Elrac
  */
-char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
+char *mprog_process_if(const char *ifchck, char *com_list, CHAR_DATA *mob,
                        CHAR_DATA *actor, OBJ_DATA *obj, void *vo,
                        CHAR_DATA *rndm)
 {
 	char buf[ MAX_INPUT_LENGTH ];
-	char *morebuf = '\0';
-	char    *cmnd = '\0';
+	const char *morebuf = NULL;
+	char    *cmnd = NULL;
 	bool loopdone = FALSE;
 	bool     flag = FALSE;
 	int  legal;
@@ -1108,7 +1108,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 		if (legal == 1)
 			flag = TRUE;
 		else
-			return '\0';
+			return NULL;
 	}
 
 	while (loopdone == FALSE) { /*scan over any existing or statements */
@@ -1120,7 +1120,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 
 		if (*cmnd == '\0') {
 			bug("Mob: %d no commands after IF/OR", mob->pIndexData->vnum);
-			return '\0';
+			return NULL;
 		}
 
 		morebuf = one_argument(cmnd, buf);
@@ -1130,7 +1130,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 				if (legal == 1)
 					flag = TRUE;
 				else
-					return '\0';
+					return NULL;
 			}
 		}
 		else
@@ -1146,7 +1146,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 					cmnd++;
 
 				if (com_list == NULL || *com_list == '\0')
-					return '\0';
+					return NULL;
 
 				cmnd     = com_list;
 				com_list = mprog_next_command(com_list);
@@ -1155,7 +1155,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 			}
 
 			if (!str_cmp(buf, "break"))
-				return '\0';
+				return NULL;
 
 			if (!str_cmp(buf, "endif"))
 				return com_list;
@@ -1171,7 +1171,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 					if (*cmnd == '\0') {
 						bug("Mob: %d missing endif after else",
 						    mob->pIndexData->vnum);
-						return '\0';
+						return NULL;
 					}
 
 					morebuf = one_argument(cmnd, buf);
@@ -1189,7 +1189,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 
 			if (*cmnd == '\0') {
 				bug("Mob: %d missing else or endif", mob->pIndexData->vnum);
-				return '\0';
+				return NULL;
 			}
 
 			morebuf = one_argument(cmnd, buf);
@@ -1205,7 +1205,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 			if (*cmnd == '\0') {
 				bug("Mob: %d missing an else or endif",
 				    mob->pIndexData->vnum);
-				return '\0';
+				return NULL;
 			}
 
 			morebuf = one_argument(cmnd, buf);
@@ -1223,7 +1223,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 
 		if (*cmnd == '\0') {
 			bug("Mob: %d missing endif", mob->pIndexData->vnum);
-			return '\0';
+			return NULL;
 		}
 
 		morebuf = one_argument(cmnd, buf);
@@ -1237,7 +1237,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 					cmnd++;
 
 				if (com_list == NULL || *com_list == '\0')
-					return '\0';
+					return NULL;
 
 				cmnd     = com_list;
 				com_list = mprog_next_command(com_list);
@@ -1248,11 +1248,11 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 			if (!str_cmp(buf, "else")) {
 				bug("Mob: %d found else in an else section",
 				    mob->pIndexData->vnum);
-				return '\0';
+				return NULL;
 			}
 
 			if (!str_cmp(buf, "break"))
-				return '\0';
+				return NULL;
 
 			if (!str_cmp(buf, "endif"))
 				return com_list;
@@ -1267,7 +1267,7 @@ char *mprog_process_if(char *ifchck, char *com_list, CHAR_DATA *mob,
 			if (*cmnd == '\0') {
 				bug("Mob:%d missing endif in else section",
 				    mob->pIndexData->vnum);
-				return '\0';
+				return NULL;
 			}
 
 			morebuf = one_argument(cmnd, buf);
@@ -1533,12 +1533,12 @@ void mprog_translate(char ch, char *t, CHAR_DATA *mob, CHAR_DATA *actor,
  * any variables by calling the translate procedure.  The observant
  * code scrutinizer will notice that this is taken from act()
  */
-void mprog_process_cmnd(char *cmnd, CHAR_DATA *mob, CHAR_DATA *actor,
+void mprog_process_cmnd(const char *cmnd, CHAR_DATA *mob, CHAR_DATA *actor,
                         OBJ_DATA *obj, void *vo, CHAR_DATA *rndm)
 {
 	char buf[ MAX_INPUT_LENGTH ];
 	char tmp[ MAX_INPUT_LENGTH ];
-	char *str;
+	const char *str;
 	char *i;
 	char *point;
 	point   = buf;
@@ -1569,12 +1569,12 @@ void mprog_process_cmnd(char *cmnd, CHAR_DATA *mob, CHAR_DATA *actor,
  *  the command list and figuring out what to do. However, like all
  *  complex procedures, everything is farmed out to the other guys.
  */
-void mprog_driver(char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
+void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
                   OBJ_DATA *obj, void *vo)
 {
 	char tmpcmndlst[ MAX_STRING_LENGTH ];
 	char buf       [ MAX_INPUT_LENGTH ];
-	char *morebuf;
+	const char *morebuf;
 	char *command_list;
 	char *cmnd;
 	CHAR_DATA *rndm  = NULL;
@@ -1627,14 +1627,14 @@ void mprog_driver(char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
  *  on a certain percent, or trigger on a keyword or word phrase.
  *  To see how this works, look at the various trigger routines..
  */
-void mprog_wordlist_check(char *arg, CHAR_DATA *mob, CHAR_DATA *actor,
+void mprog_wordlist_check(const char *arg, CHAR_DATA *mob, CHAR_DATA *actor,
                           OBJ_DATA *obj, void *vo, int type)
 {
 	char        temp1[ MAX_STRING_LENGTH ];
 	char        temp2[ MAX_INPUT_LENGTH ];
 	char        word[ MAX_INPUT_LENGTH ];
 	MPROG_DATA *mprg;
-	char       *list;
+	const char       *list;
 	char       *start;
 	char       *dupl;
 	char       *end;
@@ -1643,11 +1643,11 @@ void mprog_wordlist_check(char *arg, CHAR_DATA *mob, CHAR_DATA *actor,
 	for (mprg = mob->pIndexData->mobprogs; mprg != NULL; mprg = mprg->next)
 		if (mprg->type & type) {
 			strcpy(temp1, mprg->arglist);
+
+			for (i = 0; i < strlen(temp1); i++)
+				temp1[i] = LOWER(temp1[i]);
+
 			list = temp1;
-
-			for (i = 0; i < strlen(list); i++)
-				list[i] = LOWER(list[i]);
-
 			strcpy(temp2, arg);
 			dupl = temp2;
 
@@ -1715,7 +1715,7 @@ void mprog_percent_check(CHAR_DATA *mob, CHAR_DATA *actor, OBJ_DATA *obj,
  * make sure you remember to modify the variable names to the ones in the
  * trigger calls.
  */
-void mprog_act_trigger(char *buf, CHAR_DATA *mob, CHAR_DATA *ch,
+void mprog_act_trigger(const char *buf, CHAR_DATA *mob, CHAR_DATA *ch,
                        OBJ_DATA *obj, void *vo)
 {
 	MPROG_ACT_LIST *tmp_act;
@@ -1886,7 +1886,7 @@ void mprog_tick_trigger(CHAR_DATA *mob)    /* Montrey */
 	return;
 }
 
-void mprog_speech_trigger(char *txt, CHAR_DATA *mob)
+void mprog_speech_trigger(const char *txt, CHAR_DATA *mob)
 {
 	CHAR_DATA *vmob;
 

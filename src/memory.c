@@ -150,7 +150,7 @@ void *alloc_perm(long sMem)
 }
 
 /* an alloc_perm() with a message to malloc */
-void *alloc_perm2(long sMem, char *message)
+void *alloc_perm2(long sMem, const char *message)
 {
 	static char *pMemPerm;
 	static long iMemPerm;

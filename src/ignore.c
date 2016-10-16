@@ -28,7 +28,7 @@
 #include "merc.h"
 #include "sql.h"
 
-void ignore_offline(CHAR_DATA *, char *);
+void ignore_offline(CHAR_DATA *, const char *);
 
 bool is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim)
 {
@@ -61,7 +61,7 @@ bool is_ignoring(CHAR_DATA *ch, CHAR_DATA *victim)
 }
 
 /* Stripped from do_query basically - Lotus */
-void do_ignore(CHAR_DATA *ch, char *argument)
+void do_ignore(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim, *rch;
 	char arg[MIL];
@@ -149,7 +149,7 @@ void do_ignore(CHAR_DATA *ch, char *argument)
 	ptc(victim, "%s ignores you.\n", ch->name);
 }
 
-void ignore_offline(CHAR_DATA *ch, char *arg)
+void ignore_offline(CHAR_DATA *ch, const char *arg)
 {
 	char *name = NULL;
 	int pos;

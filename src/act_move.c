@@ -240,37 +240,37 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	mprog_greet_trigger(ch);
 }
 
-void do_north(CHAR_DATA *ch, char *argument)
+void do_north(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_NORTH, FALSE);
 	return;
 }
 
-void do_east(CHAR_DATA *ch, char *argument)
+void do_east(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_EAST, FALSE);
 	return;
 }
 
-void do_south(CHAR_DATA *ch, char *argument)
+void do_south(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_SOUTH, FALSE);
 	return;
 }
 
-void do_west(CHAR_DATA *ch, char *argument)
+void do_west(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_WEST, FALSE);
 	return;
 }
 
-void do_up(CHAR_DATA *ch, char *argument)
+void do_up(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_UP, FALSE);
 	return;
 }
 
-void do_down(CHAR_DATA *ch, char *argument)
+void do_down(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_DOWN, FALSE);
 	return;
@@ -346,7 +346,7 @@ int find_exit(CHAR_DATA *ch, char *arg)
 	return door;
 }
 
-void do_open(CHAR_DATA *ch, char *argument)
+void do_open(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -453,7 +453,7 @@ void do_open(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_close(CHAR_DATA *ch, char *argument)
+void do_close(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -560,7 +560,7 @@ bool has_key(CHAR_DATA *ch, int key)
 	return FALSE;
 }
 
-void do_lock(CHAR_DATA *ch, char *argument)
+void do_lock(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -690,7 +690,7 @@ void do_lock(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_unlock(CHAR_DATA *ch, char *argument)
+void do_unlock(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
@@ -819,7 +819,7 @@ void do_unlock(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_pick(CHAR_DATA *ch, char *argument)
+void do_pick(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *gch;
@@ -952,7 +952,7 @@ void do_pick(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_stand(CHAR_DATA *ch, char *argument)
+void do_stand(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1056,7 +1056,7 @@ void do_stand(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_rest(CHAR_DATA *ch, char *argument)
+void do_rest(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1181,7 +1181,7 @@ void do_rest(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_sit(CHAR_DATA *ch, char *argument)
+void do_sit(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1297,7 +1297,7 @@ void do_sit(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_sleep(CHAR_DATA *ch, char *argument)
+void do_sleep(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj = NULL;
 
@@ -1380,7 +1380,7 @@ void do_sleep(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_wake(CHAR_DATA *ch, char *argument)
+void do_wake(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1413,7 +1413,7 @@ void do_wake(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_sneak(CHAR_DATA *ch, char *argument)
+void do_sneak(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af;
 
@@ -1453,7 +1453,7 @@ void do_sneak(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_hide(CHAR_DATA *ch, char *argument)
+void do_hide(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af;
 
@@ -1494,7 +1494,7 @@ void do_hide(CHAR_DATA *ch, char *argument)
 /*
  * Contributed by Alander.
  */
-void do_visible(CHAR_DATA *ch, char *argument)
+void do_visible(CHAR_DATA *ch, const char *argument)
 {
 	affect_strip(ch, gsn_invis);
 	affect_strip(ch, gsn_mass_invis);
@@ -1511,12 +1511,12 @@ void do_visible(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_recall(CHAR_DATA *ch, char *argument)
+void do_recall(CHAR_DATA *ch, const char *argument)
 {
 	recall(ch, FALSE);
 }
 
-void do_clan_recall(CHAR_DATA *ch, char *argument)
+void do_clan_recall(CHAR_DATA *ch, const char *argument)
 {
 	/* This looks really ugly, so I'm re-writing it. -- Outsider
 	if ((!is_clan(ch) && !IS_SET(ch->act,ACT_PET)) || ch->clan == NULL)
@@ -1699,7 +1699,7 @@ void recall(CHAR_DATA *ch, bool clan)
 	}
 }
 
-void do_train(CHAR_DATA *ch, char *argument)
+void do_train(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	CHAR_DATA *mob;
@@ -1948,7 +1948,7 @@ bool is_safe_drag(CHAR_DATA *ch, CHAR_DATA *victim)
 	return is_safe_char(ch, victim, TRUE);
 }
 
-void do_push(CHAR_DATA *ch, char *argument)
+void do_push(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL], buf[MIL], dir_buf[MSL];
 	ROOM_INDEX_DATA *to_room;
@@ -2163,7 +2163,7 @@ void do_push(CHAR_DATA *ch, char *argument)
 	mprog_greet_trigger(victim);
 }
 
-void do_drag(CHAR_DATA *ch, char *argument)
+void do_drag(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL], buf[MIL], dir_buf[MSL];
 	ROOM_INDEX_DATA *to_room, *from_room;
@@ -2540,7 +2540,7 @@ void do_reload(CHAR_DATA *ch)
 	stc(buf, ch);
 } /* end do_reload() */
 
-void do_paintball(CHAR_DATA *ch, char *argument)
+void do_paintball(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		stc("Mobiles don't like to play paintball =).\n", ch);
@@ -2559,7 +2559,7 @@ void do_paintball(CHAR_DATA *ch, char *argument)
 	}
 } /* end do_paintball() */
 
-void do_shoot(CHAR_DATA *ch, char *argument)
+void do_shoot(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *gun;
 	ROOM_INDEX_DATA *location;
@@ -2672,7 +2672,7 @@ void do_shoot(CHAR_DATA *ch, char *argument)
 }
 
 /* MARK: remember the current location for RELOCATE - Elrac */
-void do_mark(CHAR_DATA *ch, char *argument)
+void do_mark(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
 		stc("You feel so at home here, there is no need to MARK.\n", ch);
@@ -2705,7 +2705,7 @@ void do_mark(CHAR_DATA *ch, char *argument)
 } /* end do_mark() */
 
 /* RELOCATE: return to previously MARKed location - Elrac */
-void do_relocate(CHAR_DATA *ch, char *argument)
+void do_relocate(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *target_room;
 
@@ -2816,7 +2816,7 @@ ROOM_INDEX_DATA *get_random_room(CHAR_DATA *ch)
 	}
 }
 
-void do_enter(CHAR_DATA *ch, char *argument)
+void do_enter(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
 
@@ -3032,7 +3032,7 @@ remove the spell "fly". Thus, a player that has landed should
 be able to takeoff again.
 -- Outsider
 */
-void do_land(CHAR_DATA *ch, char *argument)
+void do_land(CHAR_DATA *ch, const char *argument)
 {
 	/* first check to see if we are flying */
 	if (! IS_AFFECTED(ch, AFF_FLYING)) {
@@ -3054,7 +3054,7 @@ This only works if their race can fly naturally. Fly spells
 are cancelled upon landing.
 -- Outsider
 */
-void do_fly(CHAR_DATA *ch, char *argument)
+void do_fly(CHAR_DATA *ch, const char *argument)
 {
 	/* no takeoffs in combat */
 	// why not? -- Montrey (2014)
@@ -3094,7 +3094,7 @@ if they are not married, are effected by curse or not standing,
 or in a non-teleport/recall area.
 -- Outsider
 */
-void do_spousegate(CHAR_DATA *ch, char *argument)
+void do_spousegate(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;   /* the spouse in question */
 	bool gate_pet = FALSE;   /* take pet with you */

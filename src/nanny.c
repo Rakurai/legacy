@@ -52,7 +52,7 @@ bool check_ban(char *site, int type)
 
 	while (!ban && db_next_row() == SQL_OK) {
 		int flags = db_get_column_int(0);
-		char *str = db_get_column_str(1);
+		const char *str = db_get_column_str(1);
 		bool prefix = IS_SET(flags, BAN_PREFIX);
 		bool suffix = IS_SET(flags, BAN_SUFFIX);
 
@@ -134,13 +134,13 @@ void update_pc_index(CHAR_DATA *ch, bool remove)
 /*
  * Deal with sockets that haven't logged in yet.
  */
-void nanny(DESCRIPTOR_DATA *d, char *argument)
+void nanny(DESCRIPTOR_DATA *d, const char *argument)
 {
 	DESCRIPTOR_DATA *d_old, *d_next, *sd;
 	char buf[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch, *victim;
-	char *pwdnew, *p;
+	const char *pwdnew, *p;
 	int iClass, race, i, weapon, deity;
 	bool fOld, logon_lurk;
 
@@ -168,10 +168,12 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			argument++;
 		}
 
-		argument[0] = UPPER(argument[0]);
+		char name[MIL];
+		strcpy(name, argument);
+		name[0] = UPPER(name[0]);
 
 		/* Check valid name - Lotus */
-		if (!check_parse_name(argument)) {
+		if (!check_parse_name(name)) {
 			write_to_buffer(d, "Sorry, that name cannot be used.\n"
 			                "Please choose another name!\n"
 			                "\n"
@@ -181,18 +183,18 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			return;
 		}
 
-		if (check_player_exist(d, argument))
+		if (check_player_exist(d, name))
 			return;
 
 		/* Below this point we have a character, we can use stc */
 		/********************************************************/
-		fOld = load_char_obj(d, argument);
+		fOld = load_char_obj(d, name);
 		ch   = d->character;
 
 		/********************************************************/
 
 		/* check for attempt to newly create with a mob name -- Elrac */
-		if (!fOld && mob_exists(argument)) {
+		if (!fOld && mob_exists(name)) {
 			write_to_buffer(d, "Sorry, we already have a mobile by that name.\n"
 			                "Please choose another name!\n"
 			                "\n"
@@ -222,7 +224,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			return;
 		}
 
-		if (check_reconnect(d, argument, FALSE))
+		if (check_reconnect(d, name, FALSE))
 			fOld = TRUE;
 		else if (wizlock && !IS_IMMORTAL(ch)) {
 			write_to_buffer(d, "Access has been limited to imms only at this time.\n", 0);
@@ -259,7 +261,7 @@ void nanny(DESCRIPTOR_DATA *d, char *argument)
 			return;
 		}
 
-		sprintf(buf, "You wish for history to remember you as %s (Y/N)? ", argument);
+		sprintf(buf, "You wish for history to remember you as %s (Y/N)? ", name);
 		write_to_buffer(d, buf, 0);
 		d->connected = CON_CONFIRM_NEW_NAME;
 		return;

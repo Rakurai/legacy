@@ -101,7 +101,7 @@ void checkexits(ROOM_INDEX_DATA *room, AREA_DATA *pArea, char *buffer)
 }
 
 /* for now, no arguments, just list the current area */
-void do_exlist(CHAR_DATA *ch, char *argument)
+void do_exlist(CHAR_DATA *ch, const char *argument)
 {
 	AREA_DATA *pArea;
 	ROOM_INDEX_DATA *room;
@@ -162,7 +162,7 @@ void checkexitstoroom(ROOM_INDEX_DATA *room, ROOM_INDEX_DATA *dest, char *buffer
 }
 
 /* for now, no arguments, just list the current room */
-void do_roomexits(CHAR_DATA *ch, char *argument)
+void do_roomexits(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *dest;
 	ROOM_INDEX_DATA *room;
@@ -180,7 +180,7 @@ void do_roomexits(CHAR_DATA *ch, char *argument)
 }
 
 /* find pockets of unused vnums equal to or greater than the argument */
-void do_pocket(CHAR_DATA *ch, char *argument)
+void do_pocket(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	AREA_DATA *area;
@@ -212,7 +212,7 @@ void do_pocket(CHAR_DATA *ch, char *argument)
 }
 
 /* Room List by Lotus */
-void do_roomlist(CHAR_DATA *ch, char *argument)
+void do_roomlist(CHAR_DATA *ch, const char *argument)
 {
 	int first, last, counter;
 	bool found = FALSE;
@@ -264,7 +264,7 @@ void do_roomlist(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_vlist(CHAR_DATA *ch, char *argument)
+void do_vlist(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	char totalbuf[MAX_STRING_LENGTH];

@@ -27,16 +27,16 @@
 
 #include "merc.h"
 
-char    *get_multi_command     args((DESCRIPTOR_DATA *d, char *argument));
+char    *get_multi_command     args((DESCRIPTOR_DATA *d, const char *argument));
 
 /* does aliasing and other fun stuff */
-void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
+void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 {
 	CHAR_DATA *ch;
 	char buf[MAX_STRING_LENGTH];
 	char prefix[2 * MAX_INPUT_LENGTH];
 	char name[MAX_INPUT_LENGTH];
-	char *point;
+	const char *point;
 	int alias;
 	ch = d->original ? d->original : d->character;
 
@@ -94,17 +94,16 @@ void substitute_alias(DESCRIPTOR_DATA *d, char *argument)
 	interpret(d->character, buf);
 } /* end substitute_alias() */
 
-void do_alia(CHAR_DATA *ch, char *argument)
+void do_alia(CHAR_DATA *ch, const char *argument)
 {
 	stc("I'm sorry, alias must be entered in full.\n", ch);
 	return;
 }
 
-void do_alias(CHAR_DATA *ch, char *argument)
+void do_alias(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *rch;
 	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
-	char *x;
 	int pos;
 
 	if (ch->desc == NULL)
@@ -116,7 +115,7 @@ void do_alias(CHAR_DATA *ch, char *argument)
 		return;
 
 	/* Fix the alias bug and add wiznet for those cheaters - Lotus */
-	for (x = argument; *x != '\0'; x++) {
+	for (const char *x = argument; *x != '\0'; x++) {
 		if (*x == '~') {
 			wiznet("$N is attempting to use the tilde in alias cheat.", ch,
 			       NULL, WIZ_CHEAT, 0, GET_RANK(ch));
@@ -200,7 +199,7 @@ void do_alias(CHAR_DATA *ch, char *argument)
 	stc(buf, ch);
 }
 
-void do_unalias(CHAR_DATA *ch, char *argument)
+void do_unalias(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *rch;
 	char arg[MAX_INPUT_LENGTH];
@@ -217,7 +216,7 @@ void do_unalias(CHAR_DATA *ch, char *argument)
 
 	argument = one_argument(argument, arg);
 
-	if (arg == '\0') {
+	if (arg[0] == '\0') {
 		stc("Unalias what?\n", ch);
 		return;
 	}

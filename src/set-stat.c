@@ -41,7 +41,7 @@ DECLARE_DO_FUN(do_extraset);
 
 /* RT set replaces sset, mset, oset, rset and cset */
 
-void do_set(CHAR_DATA *ch, char *argument)
+void do_set(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	argument = one_argument(argument, arg);
@@ -112,7 +112,7 @@ void do_set(CHAR_DATA *ch, char *argument)
 	do_set(ch, "");
 }
 
-void do_sset(CHAR_DATA *ch, char *argument)
+void do_sset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -192,7 +192,7 @@ void do_sset(CHAR_DATA *ch, char *argument)
 	stc(buf, ch);
 } /* end do_sset() */
 
-void do_evoset(CHAR_DATA *ch, char *argument)
+void do_evoset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
@@ -292,7 +292,7 @@ void do_evoset(CHAR_DATA *ch, char *argument)
 	    skill_table[sn].spell_fun != spell_null ? "spell" : "skill", value);
 } /* end do_evoset() */
 
-void do_raffset(CHAR_DATA *ch, char *argument)
+void do_raffset(CHAR_DATA *ch, const char *argument)
 {
 	extern void fix_blank_raff(CHAR_DATA * ch, int start);
 	extern void roll_one_raff(CHAR_DATA * ch, CHAR_DATA * victim, int place);
@@ -350,7 +350,7 @@ void do_raffset(CHAR_DATA *ch, char *argument)
 	fix_blank_raff(victim, 0);
 
 	if (arg2[0] == '\0') {
-		if (victim->pcdata->raffect == NULL) {
+		if (victim->pcdata->raffect[0] == 0) {
 			stc("That player does not have any remort affects.\n", ch);
 			return;
 		}
@@ -473,7 +473,7 @@ void do_raffset(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_extraset(CHAR_DATA *ch, char *argument)
+void do_extraset(CHAR_DATA *ch, const char *argument)
 {
 	extern void fix_blank_extraclass(CHAR_DATA * ch, int index);
 	char arg1 [MAX_INPUT_LENGTH];
@@ -648,7 +648,7 @@ void do_extraset(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_mset(CHAR_DATA *ch, char *argument)
+void do_mset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL], arg3[MIL], buf[1024];
 	CHAR_DATA *victim;
@@ -1281,7 +1281,7 @@ void do_mset(CHAR_DATA *ch, char *argument)
 	do_mset(ch, "");
 }
 
-void do_oset(CHAR_DATA *ch, char *argument)
+void do_oset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -1421,7 +1421,7 @@ void do_oset(CHAR_DATA *ch, char *argument)
 	do_oset(ch, "");
 } /* end do_oset() */
 
-void do_rset(CHAR_DATA *ch, char *argument)
+void do_rset(CHAR_DATA *ch, const char *argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
@@ -1909,12 +1909,13 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 }
 
 /* main stat function */
-void do_stat(CHAR_DATA *ch, char *argument)
+void do_stat(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *room;
 	OBJ_DATA *obj;
 	CHAR_DATA *vch;
-	char arg1[MIL], *arg2;
+	char arg1[MIL];
+	const char *arg2;
 
 	if (argument[0] == '\0') {
 		stc("Syntax:\n"
@@ -2013,7 +2014,7 @@ void do_stat(CHAR_DATA *ch, char *argument)
 }
 
 /* new player stat -- Elrac */
-void do_pstat(CHAR_DATA *ch, char *argument)
+void do_pstat(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	int xpl, xnl; /* experience per/next level */

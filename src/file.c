@@ -349,7 +349,7 @@ char *fread_word(FILE *fp)
 }
 
 /* Append a string to a file */
-void fappend(char *file, char *str)
+void fappend(const char *file, const char *str)
 {
 	FILE *fp;
 

@@ -34,7 +34,7 @@ void db_close()
 	}
 }
 
-void db_error(char *func)
+void db_error(const char *func)
 {
 	bugf("%s: %s", func, sqlite3_errmsg(_db));
 
@@ -70,7 +70,7 @@ const char * db_get_column_str(int index) {
 }
 
 /* perform a query, store and return a result */
-int db_query(char *func, char *query)
+int db_query(const char *func, const char *query)
 {
 	int error;
 
@@ -91,7 +91,7 @@ int db_query(char *func, char *query)
 }
 
 /* format the args, send the query to db_query() */
-int db_queryf(char *func, char *query, ...)
+int db_queryf(const char *func, const char *query, ...)
 {
 	char buf[MSL * 3];
 	va_list args;
@@ -102,7 +102,7 @@ int db_queryf(char *func, char *query, ...)
 }
 
 /* perform a query, no result, return success or not */
-int db_command(char *func, char *query)
+int db_command(const char *func, const char *query)
 {
 	int error = db_query(func, query);
 
@@ -113,7 +113,7 @@ int db_command(char *func, char *query)
 }
 
 /* format the args, perform a query, no result, return success or not */
-int db_commandf(char *func, char *query, ...)
+int db_commandf(const char *func, const char *query, ...)
 {
 	char buf[MSL * 3];
 	va_list args;
@@ -127,7 +127,7 @@ int db_commandf(char *func, char *query, ...)
    the SELECT COUNT(*) or COUNT(expr).  The only difference is that it
    does not return a result, just an integer.  Returns are 0 on no rows
    matching, a positive number for rows found, or -1 on error. */
-int db_count(char *func, char *query)
+int db_count(const char *func, const char *query)
 {
 	int error = db_command(func, query);
 
@@ -137,7 +137,7 @@ int db_count(char *func, char *query)
 	return 0;
 }
 
-int db_countf(char *func, char *query, ...)
+int db_countf(const char *func, const char *query, ...)
 {
 	char buf[MSL * 3];
 	va_list args;
@@ -152,7 +152,7 @@ int db_rows_affected() {
 }
 
 /* escapes a string for a mysql query, using the semiperm string list */
-char *db_esc(char *string)
+char *db_esc(const char *string)
 {
 	char buf[3*MSL];
 	int i = 0, j = 0;

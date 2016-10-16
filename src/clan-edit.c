@@ -230,7 +230,7 @@ void remove_clan(char *name)
 	}
 }
 
-void do_cedit(CHAR_DATA *ch, char *argument)
+void do_cedit(CHAR_DATA *ch, const char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH], clanname[MAX_INPUT_LENGTH];
 	CLAN_DATA *cdata;

@@ -277,7 +277,7 @@ void list_extraskill(CHAR_DATA *ch)
 	free_buf(output);
 }
 
-void do_eremort(CHAR_DATA *ch, char *argument)
+void do_eremort(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL];
 	BUFFER *output;
@@ -386,7 +386,7 @@ void do_eremort(CHAR_DATA *ch, char *argument)
 
 /* Remort Code by Lotus */
 /* Redone by Endo and Montrey */
-void do_remort(CHAR_DATA *ch, char *argument)
+void do_remort(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA *af, *af_next;

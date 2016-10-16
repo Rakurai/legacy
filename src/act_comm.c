@@ -27,8 +27,7 @@
 #include "merc.h"
 #include "vt100.h"
 
-char   *smash_bracket           args((const char *str));
-extern void     do_file(CHAR_DATA *, char *);
+extern void     do_file(CHAR_DATA *, const char *);
 
 /*
  * All the posing stuff.
@@ -932,7 +931,7 @@ void do_notify(CHAR_DATA *ch, const char *argument)
 }
 
 /* Append a string to a file, used for our in game text files */
-void update_text_file(CHAR_DATA *ch, char *file, char *str)
+void update_text_file(CHAR_DATA *ch, const char *file, const char *str)
 {
 	char buf[MSL];
 	FILE *fp;

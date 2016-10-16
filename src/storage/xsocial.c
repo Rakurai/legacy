@@ -215,7 +215,7 @@ struct xsocial_type *xsocial_lookup(const char *name)
 	return NULL;
 }
 
-void do_xedit(CHAR_DATA *ch, char *argument)
+void do_xedit(CHAR_DATA *ch, const char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH], xsocial[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];

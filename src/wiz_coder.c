@@ -31,7 +31,7 @@ extern  DESCRIPTOR_DATA *descriptor_free;
 extern  PC_DATA         *pcdata_free;
 extern  AFFECT_DATA     *affect_free;
 
-void do_autoboot(CHAR_DATA *ch, char *argument)
+void do_autoboot(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MSL];
 	int reboottime, hours = 0, minutes = 0;
@@ -100,7 +100,7 @@ char *fgetf(char *s, int n, register FILE *iop)
 }
 
 /* integrated shell */
-void do_pipe(CHAR_DATA *ch, char *argument)
+void do_pipe(CHAR_DATA *ch, const char *argument)
 {
 	char buf[5000];
 	FILE *fp;
@@ -111,7 +111,7 @@ void do_pipe(CHAR_DATA *ch, char *argument)
 	return;
 }
 /*
-void do_mypipe(CHAR_DATA *ch, char *argument)
+void do_mypipe(CHAR_DATA *ch, const char *argument)
 {
 	char divline[MSL], line[MSL];
 	MYSQL_RES *result;
@@ -207,12 +207,12 @@ void do_mypipe(CHAR_DATA *ch, char *argument)
 	mysql_free_result(result);
 }
 */
-void do_reboo(CHAR_DATA *ch, char *argument)
+void do_reboo(CHAR_DATA *ch, const char *argument)
 {
 	stc("{NTo REBOOT, you must spell the entire word.{x\n", ch);
 }
 
-void do_reboot(CHAR_DATA *ch, char *argument)
+void do_reboot(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MSL];
 	extern bool merc_down;
@@ -237,12 +237,12 @@ void do_reboot(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_shutdow(CHAR_DATA *ch, char *argument)
+void do_shutdow(CHAR_DATA *ch, const char *argument)
 {
 	stc("{NTo SHUTDOWN, you must spell the entire word.{x\n", ch);
 }
 
-void do_shutdown(CHAR_DATA *ch, char *argument)
+void do_shutdown(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MSL], buf2[MSL];
 	char *strtime;
@@ -280,7 +280,7 @@ void do_shutdown(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_slookup(CHAR_DATA *ch, char *argument)
+void do_slookup(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL];
 	int sn;
@@ -315,7 +315,7 @@ void do_slookup(CHAR_DATA *ch, char *argument)
 	    skill_table[sn].name);
 }
 
-void do_advance(CHAR_DATA *ch, char *argument)
+void do_advance(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL];
 	CHAR_DATA *victim;
@@ -392,7 +392,7 @@ void do_advance(CHAR_DATA *ch, char *argument)
 	save_char_obj(victim);
 }
 
-void do_wizlock(CHAR_DATA *ch, char *argument)
+void do_wizlock(CHAR_DATA *ch, const char *argument)
 {
 	extern bool wizlock;
 	wizlock = !wizlock;
@@ -407,7 +407,7 @@ void do_wizlock(CHAR_DATA *ch, char *argument)
 	}
 }
 
-void do_relevel(CHAR_DATA *ch, char *argument)
+void do_relevel(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch) || !IS_SPECIAL(ch)) {
 		do_huh(ch);
@@ -426,7 +426,7 @@ void do_relevel(CHAR_DATA *ch, char *argument)
 	stc("Done.\n", ch);
 }
 
-void do_addexit(CHAR_DATA *ch, char *argument)
+void do_addexit(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MIL], arg2[MIL];
 	EXIT_DATA *exit;
@@ -478,7 +478,7 @@ void do_addexit(CHAR_DATA *ch, char *argument)
 	stc("Exit added.\n", ch);
 }
 
-void do_remexit(CHAR_DATA *ch, char *argument)
+void do_remexit(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MIL];
 	int dir;
@@ -518,7 +518,7 @@ void do_remexit(CHAR_DATA *ch, char *argument)
 	stc("Exit removed.\n", ch);
 }
 
-void do_sectchange(CHAR_DATA *ch, char *argument)
+void do_sectchange(CHAR_DATA *ch, const char *argument)
 {
 	int sect;
 
@@ -553,7 +553,7 @@ void do_sectchange(CHAR_DATA *ch, char *argument)
 	stc("Sector type changed.\n", ch);
 }
 
-void do_memory(CHAR_DATA *ch, char *argument)
+void do_memory(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	sprintf(buf, "Affects %5d\n", top_affect);
@@ -591,7 +591,7 @@ void do_memory(CHAR_DATA *ch, char *argument)
 	return;
 }
 
-void do_dump(CHAR_DATA *ch, char *argument)
+void do_dump(CHAR_DATA *ch, const char *argument)
 {
 	int count, count2, num_pcs, aff_count;
 	CHAR_DATA *fch;

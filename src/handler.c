@@ -39,10 +39,10 @@ DECLARE_DO_FUN(do_return);
 void    affect_modify   args((CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd));
 
 /* Note name match exact */
-bool note_is_name(char *str, char *namelist)
+bool note_is_name(const char *str, const char *namelist)
 {
 	char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
-	char *list, *string;
+	const char *list, *string;
 
 	/* fix crash on NULL namelist */
 	if (namelist == NULL || namelist[0] == '\0')
@@ -203,7 +203,7 @@ int item_lookup(const char *name)
 	return -1;
 }
 
-char *item_name(int item_type)
+const char *item_name(int item_type)
 {
 	int type;
 
@@ -214,7 +214,7 @@ char *item_name(int item_type)
 	return "none";
 }
 
-char *weapon_name(int weapon_type)
+const char *weapon_name(int weapon_type)
 {
 	int type;
 
@@ -784,11 +784,10 @@ int can_carry_w(CHAR_DATA *ch)
 }
 
 /* Is Exact Name by Lotus */
-bool is_exact_name(char *str, const char *namelist)
+bool is_exact_name(const char *str, const char *namelist)
 {
 	char name[MIL], part[MIL];
-	const char *list;
-	char *string;
+	const char *list, *string;
 	string = str;
 
 	/* we need ALL parts of string to match part of namelist */
@@ -819,10 +818,10 @@ bool is_exact_name(char *str, const char *namelist)
 /*
  * See if a string is one of the names of an object.
  */
-bool is_name(char *str, const char *namelist)
+bool is_name(const char *str, const char *namelist)
 {
 	char name[MIL], part[MIL];
-	char *list, *string;
+	const char *list, *string;
 	string = str;
 
 	/* we need ALL parts of string to match part of namelist */
@@ -850,10 +849,10 @@ bool is_name(char *str, const char *namelist)
 	}
 }
 
-bool is_exact_name_color(char *str, const char *namelist)
+bool is_exact_name_color(const char *str, const char *namelist)
 {
 	char name[MIL], part[MIL];
-	char *list, *string;
+	const char *list, *string;
 	/* strip the color codes */
 	str = smash_bracket(str);
 	namelist = smash_bracket(namelist);
@@ -2082,7 +2081,7 @@ void extract_char(CHAR_DATA *ch, bool fPull)
         that takes too long.  loop through the mob index and we can
         check all possible mobs, not just ones alive now -- Montrey
  */
-bool mob_exists(char *name)
+bool mob_exists(const char *name)
 {
 	MOB_INDEX_DATA *index;
 	int i;
@@ -2618,7 +2617,7 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 /*
  * Return ascii name of an item type.
  */
-char *item_type_name(OBJ_DATA *obj)
+const char *item_type_name(OBJ_DATA *obj)
 {
 	switch (obj->item_type) {
 	case ITEM_LIGHT:            return "light";
@@ -2697,7 +2696,7 @@ char *item_type_name(OBJ_DATA *obj)
 /*
  * Return ascii name of an affect location.
  */
-char *affect_loc_name(int location)
+const char *affect_loc_name(int location)
 {
 	switch (location) {
 	case APPLY_NONE:            return "none";
@@ -2764,7 +2763,7 @@ char *affect_loc_name(int location)
 /*
  * Return ascii name of an affect bit vector.
  */
-char *affect_bit_name(int vector)
+const char *affect_bit_name(int vector)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -2837,7 +2836,7 @@ char *affect_bit_name(int vector)
 /*
  * Return ascii name of extra flags vector.
  */
-char *extra_bit_name(int extra_flags)
+const char *extra_bit_name(int extra_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -2896,7 +2895,7 @@ char *extra_bit_name(int extra_flags)
 }
 
 /* return ascii name of an act vector */
-char *act_bit_name(int act_flags)
+const char *act_bit_name(int act_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3007,7 +3006,7 @@ char *act_bit_name(int act_flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *comm_bit_name(int comm_flags)
+const char *comm_bit_name(int comm_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3062,7 +3061,7 @@ char *comm_bit_name(int comm_flags)
 }
 
 /* nochannel flags - by Xenith */
-char *revoke_bit_name(int revoke_flags)
+const char *revoke_bit_name(int revoke_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3109,7 +3108,7 @@ char *revoke_bit_name(int revoke_flags)
 }
 
 /* Command groups - Xenith */
-char *cgroup_bit_name(int flags)
+const char *cgroup_bit_name(int flags)
 {
 	char buf2[MSL];
 	static char buf[512];
@@ -3128,7 +3127,7 @@ char *cgroup_bit_name(int flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *censor_bit_name(int censor_flags)
+const char *censor_bit_name(int censor_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3141,7 +3140,7 @@ char *censor_bit_name(int censor_flags)
 }
 
 /* return ascii name of a plr vector */
-char *plr_bit_name(int plr_flags)
+const char *plr_bit_name(int plr_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3182,7 +3181,7 @@ char *plr_bit_name(int plr_flags)
 }
 
 /* return ascii name of a room vector */
-char *room_bit_name(int room_flags)
+const char *room_bit_name(int room_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3246,7 +3245,7 @@ char *room_bit_name(int room_flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *imm_bit_name(int flags)
+const char *imm_bit_name(int flags)
 {
 	static char buf[512];
 	int i;
@@ -3261,7 +3260,7 @@ char *imm_bit_name(int flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *wear_bit_name(int wear_flags)
+const char *wear_bit_name(int wear_flags)
 {
 	static char buf[512];
 	buf [0] = '\0';
@@ -3303,7 +3302,7 @@ char *wear_bit_name(int wear_flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *form_bit_name(int form_flags)
+const char *form_bit_name(int form_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3362,7 +3361,7 @@ char *form_bit_name(int form_flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *part_bit_name(int part_flags)
+const char *part_bit_name(int part_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3411,7 +3410,7 @@ char *part_bit_name(int part_flags)
 
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
-char *wiz_bit_name(int wiz_flags)
+const char *wiz_bit_name(int wiz_flags)
 {
 	static char buf[512];
 	char buf2[MAX_INPUT_LENGTH];
@@ -3427,7 +3426,7 @@ char *wiz_bit_name(int wiz_flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *weapon_bit_name(int weapon_flags)
+const char *weapon_bit_name(int weapon_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3451,7 +3450,7 @@ char *weapon_bit_name(int weapon_flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *cont_bit_name(int cont_flags)
+const char *cont_bit_name(int cont_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3467,7 +3466,7 @@ char *cont_bit_name(int cont_flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-char *off_bit_name(int off_flags)
+const char *off_bit_name(int off_flags)
 {
 	static char buf[512];
 	buf[0] = '\0';
@@ -3513,54 +3512,11 @@ char *off_bit_name(int off_flags)
 	return (buf[0] != '\0') ? buf + 1 : "none";
 }
 
-/*
- * Pick off one argument from a string and return the rest.
- * Understands quotes, parenthesis (barring ) ('s) and percentages.
- */
-char *first_arg(char *argument, char *arg_first, bool fCase)
-{
-	char cEnd;
-
-	while (*argument == ' ')
-		argument++;
-
-	cEnd = ' ';
-
-	if (*argument == '\'' || *argument == '"'
-	    || *argument == '%'  || *argument == '(') {
-		if (*argument == '(') {
-			cEnd = ')';
-			argument++;
-		}
-		else cEnd = *argument++;
-	}
-
-	while (*argument != '\0') {
-		if (*argument == cEnd) {
-			argument++;
-			break;
-		}
-
-		if (fCase) *arg_first = LOWER(*argument);
-		else *arg_first = *argument;
-
-		arg_first++;
-		argument++;
-	}
-
-	*arg_first = '\0';
-
-	while (*argument == ' ')
-		argument++;
-
-	return argument;
-}
-
 /* Count characters in a string, ignoring color codes */
 /* color_strlen now counts {{s as a character, fixes a few bugs -- Montrey */
-int color_strlen(char *argument)
+int color_strlen(const char *argument)
 {
-	char *str;
+	const char *str;
 	int length;
 
 	if (argument == NULL || argument[0] == '\0')
@@ -3585,7 +3541,7 @@ int color_strlen(char *argument)
 	return length;
 }
 
-void ptc(CHAR_DATA *ch, char *fmt, ...)
+void ptc(CHAR_DATA *ch, const char *fmt, ...)
 {
 	char buf [MAX_STRING_LENGTH];
 	va_list args;
@@ -3596,7 +3552,7 @@ void ptc(CHAR_DATA *ch, char *fmt, ...)
 }
 
 /* print stuff, append to buffer. safe. */
-int ptb(BUFFER *buffer, char *fmt, ...)
+int ptb(BUFFER *buffer, const char *fmt, ...)
 {
 	char buf[MSL];
 	va_list args;
@@ -3615,7 +3571,7 @@ int ptb(BUFFER *buffer, char *fmt, ...)
 	return res;
 }
 
-void bugf(char *fmt, ...)
+void bugf(const char *fmt, ...)
 {
 	char buf [MAX_STRING_LENGTH];
 	va_list args;
@@ -3638,7 +3594,7 @@ void logf(char *fmt, ...)
 */
 /* Tell if a given string has a slash in it.
    This is useful for making sure a given name is not a directory name. */
-bool has_slash(char *str)
+bool has_slash(const char *str)
 {
 	return (strchr(str, '/') != NULL);
 } /* end has_slash() */
@@ -3689,7 +3645,7 @@ bool valid_object(OBJ_DATA *od)
 }
 */
 /* take a deity string, pull out a valid deity -- Montrey */
-int parse_deity(char *dstring)
+int parse_deity(const char *dstring)
 {
 	int i;
 
@@ -3739,23 +3695,6 @@ int get_holdable_level(CHAR_DATA *ch)
 	return level;
 }
 
-/* insert a string at a specified point in a string -- Montrey */
-char *strins(char *string, char *ins, int place)
-{
-	char str[MSL], output[MSL], secondhalf[MSL];
-	char *p;
-	strcpy(str, string);
-	p = &str[0];
-
-	while (place-- > 0)
-		p++;
-
-	strcpy(secondhalf, p);
-	*p = '\0';
-	sprintf(output, "%s%s%s", str, ins, secondhalf);
-	return str_dup(output);
-}
-
 /* get_owner
  *
  * returns the name of the owner of the object.
@@ -3764,7 +3703,7 @@ char *strins(char *string, char *ins, int place)
  * Clerve
  */
 
-char *get_owner(CHAR_DATA *ch, OBJ_DATA *obj)
+const char *get_owner(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	if (obj->extra_descr != NULL) {
 		EXTRA_DESCR_DATA *ed_next;
@@ -3967,7 +3906,7 @@ int get_affect_evolution(CHAR_DATA *ch, int sn)
 	return URANGE(1, evo, 3);
 }
 
-char *get_color_name(int color, int bold)
+const char *get_color_name(int color, int bold)
 {
 	int i;
 
@@ -3979,7 +3918,7 @@ char *get_color_name(int color, int bold)
 	return NULL;
 }
 
-char *get_color_code(int color, int bold)
+const char *get_color_code(int color, int bold)
 {
 	int i;
 
@@ -3991,7 +3930,7 @@ char *get_color_code(int color, int bold)
 	return NULL;
 }
 
-char *get_custom_color_name(CHAR_DATA *ch, int slot)
+const char *get_custom_color_name(CHAR_DATA *ch, int slot)
 {
 	int color, bold;
 
@@ -4007,7 +3946,7 @@ char *get_custom_color_name(CHAR_DATA *ch, int slot)
 	return get_color_name(color, bold);
 }
 
-char *get_custom_color_code(CHAR_DATA *ch, int slot)
+const char *get_custom_color_code(CHAR_DATA *ch, int slot)
 {
 	int color, bold;
 
@@ -4051,7 +3990,7 @@ int interpolate(int level, int value_00, int value_32)
 }
 
 /* Get an extra description from a list. */
-char *get_extra_descr(const char *name, EXTRA_DESCR_DATA *ed)
+const char *get_extra_descr(const char *name, EXTRA_DESCR_DATA *ed)
 {
 	for (; ed != NULL; ed = ed->next)
 		if (is_name((char *) name, ed->keyword))

@@ -2,11 +2,11 @@
 #include "sql.h"
 #include "deps/cJSON/cJSON.h"
 
-int load_config(char *filename) {
+int load_config(const char *filename) {
 	FILE *cf;
 	long fsize;
 	char *str;
-	cJSON *json, *obj;
+	cJSON *json;
 	int items = 0;
 
 	if ((cf = fopen(filename, "rb")) == NULL) {

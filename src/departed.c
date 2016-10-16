@@ -63,7 +63,7 @@ bailout:
 	return;
 }
 
-void insert_departed(char *name)
+void insert_departed(const char *name)
 {
 	DEPARTED_DATA *iterator, *newDeparted;
 	iterator = departed_list_head->next;
@@ -89,7 +89,7 @@ void insert_departed(char *name)
 	departed_list_tail->previous = newDeparted;
 }
 
-void remove_departed(char *name)
+void remove_departed(const char *name)
 {
 	DEPARTED_DATA *iterator;
 	iterator = departed_list_head->next;
@@ -108,7 +108,7 @@ void remove_departed(char *name)
 	}
 }
 
-bool has_departed(char *name)
+bool has_departed(const char *name)
 {
 	DEPARTED_DATA *iterator;
 	iterator = departed_list_head->next;

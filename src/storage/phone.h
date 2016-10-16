@@ -30,7 +30,7 @@ Legacy.
 
 
 /* The command "phone" calls this function. */
-void do_phone(CHAR_DATA *ch, char *argument);
+void do_phone(CHAR_DATA *ch, const char *argument);
 
 #endif
 

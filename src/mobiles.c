@@ -28,7 +28,7 @@
 #include "merc.h"
 #include "magic.h"
 
-void do_heal(CHAR_DATA *ch, char *argument)
+void do_heal(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];

@@ -43,7 +43,7 @@ bool debug_json = FALSE;
 
 int rename(const char *oldfname, const char *newfname);
 
-char *print_flags(int flag)
+const char *print_flags(int flag)
 {
 	int count, pos = 0;
 	static char buf[52];
@@ -68,8 +68,8 @@ char *print_flags(int flag)
 	return buf;
 }
 
-long read_flags(char *str) {
-	char *p = str;
+long read_flags(const char *str) {
+	const char *p = str;
 	long number = 0;
 	bool sign = FALSE;
 
@@ -111,12 +111,12 @@ void    fread_player      args((CHAR_DATA *ch,  cJSON *json, int version));
 void    fread_pet       args((CHAR_DATA *ch,  cJSON *json, int version));
 void	fread_objects	args((CHAR_DATA *ch, cJSON *json, void (*obj_to)(OBJ_DATA *, CHAR_DATA *), int version));
 
-void get_JSON_boolean(cJSON *obj, bool *target, char *key);
-void get_JSON_short(cJSON *obj, sh_int *target, char *key);
-void get_JSON_int(cJSON *obj, int *target, char *key);
-void get_JSON_long(cJSON *obj, long *target, char *key);
-void get_JSON_flags(cJSON *obj, long *target, char *key);
-void get_JSON_string(cJSON *obj, char **target, char *key);
+void get_JSON_boolean(cJSON *obj, bool *target, const char *key);
+void get_JSON_short(cJSON *obj, sh_int *target, const char *key);
+void get_JSON_int(cJSON *obj, int *target, const char *key);
+void get_JSON_long(cJSON *obj, long *target, const char *key);
+void get_JSON_flags(cJSON *obj, long *target, const char *key);
+void get_JSON_string(cJSON *obj, char **target, const char *key);
 
 /*
  * Save a character and inventory.
@@ -736,7 +736,7 @@ cJSON *fwrite_objects(CHAR_DATA *ch, OBJ_DATA *head, bool strongbox) {
 /*
  * Load a char and inventory into a new ch structure.
  */
-bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
+bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 {
 	char strsave[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
@@ -1025,42 +1025,42 @@ bool load_char_obj(DESCRIPTOR_DATA *d, char *name)
 	}	
 
 
-void get_JSON_boolean(cJSON *obj, bool *target, char *key) {
+void get_JSON_boolean(cJSON *obj, bool *target, const char *key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key);
 
 	if (val != NULL)
 		*target = (val->valueint != 0);
 }
 
-void get_JSON_short(cJSON *obj, sh_int *target, char *key) {
+void get_JSON_short(cJSON *obj, sh_int *target, const char *key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key);
 
 	if (val != NULL)
 		*target = val->valueint;
 }
 
-void get_JSON_int(cJSON *obj, int *target, char *key) {
+void get_JSON_int(cJSON *obj, int *target, const char *key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key);
 
 	if (val != NULL)
 		*target = val->valueint;
 }
 
-void get_JSON_long(cJSON *obj, long *target, char *key) {
+void get_JSON_long(cJSON *obj, long *target, const char *key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key);
 
 	if (val != NULL)
 		*target = val->valueint;
 }
 
-void get_JSON_flags(cJSON *obj, long *target, char *key) {
+void get_JSON_flags(cJSON *obj, long *target, const char *key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key);
 
 	if (val != NULL)
 		*target = read_flags(val->valuestring);
 }
 
-void get_JSON_string(cJSON *obj, char **target, char *key) {
+void get_JSON_string(cJSON *obj, char **target, const char *key) {
 	cJSON *val = cJSON_GetObjectItem(obj, key);
 
 	if (val != NULL) {
@@ -1763,7 +1763,7 @@ static const char *month_names[] = {
 	"Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
 };
 
-char *dizzy_ctime(time_t *timep)
+const char *dizzy_ctime(time_t *timep)
 {
 	static char ctime_buf[40];
 	struct tm loc_tm;
@@ -1782,7 +1782,7 @@ char *dizzy_ctime(time_t *timep)
  * Day of week is scanned in spite of not being needed so that the
  * return value from sprintf() will be significant.
  */
-time_t dizzy_scantime(char *ctime)
+time_t dizzy_scantime(const char *ctime)
 {
 	char cdow[4], cmon[4];
 	int year, month, day, hour, minute, second;
@@ -1819,7 +1819,7 @@ endoftime:
 	return mktime(&loc_tm);
 } /* end dizzy_scantime() */
 
-void do_finger(CHAR_DATA *ch, char *argument)
+void do_finger(CHAR_DATA *ch, const char *argument)
 {
 	char filename[MAX_INPUT_LENGTH], arg[MAX_INPUT_LENGTH];
 	char buf[MAX_STRING_LENGTH];
