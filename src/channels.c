@@ -173,7 +173,7 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 		if (IS_SET(ch->pcdata->plr, PLR_NONOTIFY)) stc("You will not be notified of new notes.\n", ch);
 		else stc("You {Wwill{x be notified of new notes.\n", ch);
 
-		if (ch->pcdata->aura && ch->pcdata->aura[0] != '\0')
+		if (ch->pcdata->aura[0])
 			ptc(ch, "{VAura: (%s{V){x\n", ch->pcdata->aura);
 	}
 
@@ -571,7 +571,7 @@ void send_to_query(CHAR_DATA *ch, const char *string)
 			continue;
 
 		for (i = 0; i < MAX_QUERY; i++) {
-			if (!ch->pcdata->query[i]
+			if (!ch->pcdata->query[i][0]
 			    || !is_name(ch->pcdata->query[i], pc->ch->name))
 				continue;
 
@@ -1709,7 +1709,7 @@ void do_whisper(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->pcdata->whisper == NULL) {
+	if (ch->pcdata->whisper[0]) {
 		do_huh(ch);
 		return;
 	}
@@ -1755,7 +1755,7 @@ void do_qtell(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	if (!ch->pcdata->query[0]) {
+	if (!ch->pcdata->query[0][0]) {
 		stc("You have no one on your query list.\n", ch);
 		return;
 	}
@@ -1842,7 +1842,7 @@ void do_query(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix1(arg, "list")) {
-		if (rch->pcdata->query[0] == NULL) {
+		if (!rch->pcdata->query[0][0]) {
 			stc("You have no one in your query.\n", ch);
 			return;
 		}
@@ -1850,7 +1850,7 @@ void do_query(CHAR_DATA *ch, const char *argument)
 		stc("People in your query:\n", ch);
 
 		for (pos = 0; pos < MAX_QUERY; pos++) {
-			if (rch->pcdata->query[pos] == NULL)
+			if (rch->pcdata->query[pos][0] == '\0')
 				break;
 
 			ptc(ch, "[%d] %s\n", pos, rch->pcdata->query[pos]);
@@ -1861,10 +1861,11 @@ void do_query(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix1(arg, "clear")) {
 		for (pos = 0; pos < MAX_QUERY; pos++) {
-			if (rch->pcdata->query[pos] == NULL)
+			if (rch->pcdata->query[pos][0] == '\0')
 				break;
 
-			rch->pcdata->query[pos] = NULL;
+			free_string(rch->pcdata->query[pos]);
+			rch->pcdata->query[pos] = str_dup("");
 		}
 
 		stc("Query cleared.\n", ch);
@@ -1910,15 +1911,16 @@ void do_query(CHAR_DATA *ch, const char *argument)
 				break;
 
 			if (found) {
-				rch->pcdata->query[pos - 1]           = rch->pcdata->query[pos];
-				rch->pcdata->query[pos]             = NULL;
+				char *temp = rch->pcdata->query[pos - 1];
+				rch->pcdata->query[pos - 1] = rch->pcdata->query[pos];
+				rch->pcdata->query[pos] = temp;
 				continue;
 			}
 
 			if (!strcmp(arg2, rch->pcdata->query[pos])) {
 				stc("Name removed from the query.\n", ch);
 				free_string(rch->pcdata->query[pos]);
-				rch->pcdata->query[pos] = NULL;
+				rch->pcdata->query[pos] = str_dup("");
 				found = TRUE;
 			}
 		}

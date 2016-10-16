@@ -254,7 +254,7 @@ void load_notes(void)
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 {
 	FILE *fp;
-	NOTE_DATA *pnotelast;
+	NOTE_DATA *pnote, *pnotelast;
 
 	if ((fp = fopen(name, "r")) == NULL)
 		return;
@@ -262,7 +262,6 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 	pnotelast = NULL;
 
 	for (; ;) {
-		NOTE_DATA *pnote;
 		char letter;
 
 		do {
@@ -276,7 +275,7 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 		while (isspace(letter));
 
 		ungetc(letter, fp);
-		pnote           = alloc_perm(sizeof(*pnote));
+		pnote           = new_note();
 
 		if (str_cmp(fread_word(fp), "sender"))
 			break;
@@ -323,6 +322,8 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 		pnotelast       = pnote;
 	}
 
+	// getting here means last note was unreadable
+	free_note(pnote);
 	strcpy(strArea, NOTE_FILE);
 	fpArea = fp;
 	bug("Load_notes: bad key word.", 0);
@@ -475,12 +476,7 @@ void note_attach(CHAR_DATA *ch, int type)
 		return;
 
 	pnote = new_note();
-	pnote->next         = NULL;
 	pnote->sender       = str_dup(IS_NPC(ch) ? ch->short_descr : ch->name);
-	pnote->date         = str_dup("");
-	pnote->to_list      = str_dup("");
-	pnote->subject      = str_dup("");
-	pnote->text         = str_dup("");
 	pnote->type         = type;
 	ch->pnote           = pnote;
 	return;
@@ -906,7 +902,6 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				newnote = new_note();
-				newnote->next     = NULL;
 				newnote->sender   = str_dup(pnote->sender);
 				newnote->date     = str_dup(pnote->date);
 				newnote->date_stamp           = current_time;
@@ -945,7 +940,6 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
 			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				newnote = new_note();
-				newnote->next     = NULL;
 				newnote->sender   = str_dup(pnote->sender);
 				newnote->date     = str_dup(pnote->date);
 				newnote->date_stamp           = current_time;
@@ -1085,7 +1079,6 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 
 		/* copy message to new list */
 		newnote                 = new_note();
-		newnote->next           = NULL;
 		newnote->sender         = str_dup(pnote->sender);
 		newnote->date           = str_dup(pnote->date);
 		newnote->date_stamp     = current_time;
