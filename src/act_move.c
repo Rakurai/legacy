@@ -1441,7 +1441,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		af.modifier  = 0;
 		af.bitvector = AFF_SNEAK;
 		af.evolution = get_evolution(ch, gsn_sneak);
-		affect_to_char(ch, &af);
+		copy_affect_to_char(ch, &af);
 		stc("You feel more stealthy.\n", ch);
 		check_improve(ch, gsn_sneak, TRUE, 3);
 	}
@@ -1481,7 +1481,7 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 		af.modifier  = 0;
 		af.bitvector = AFF_HIDE;
 		af.evolution = get_evolution(ch, gsn_hide);
-		affect_to_char(ch, &af);
+		copy_affect_to_char(ch, &af);
 		stc("You blend into the surroundings.\n", ch);
 		check_improve(ch, gsn_hide, TRUE, 3);
 	}

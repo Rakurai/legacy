@@ -2297,14 +2297,19 @@ struct obj_data
 	int			cost;
 	sh_int			level;
 	sh_int			condition;
-	bool			enchanted;
-	AFFECT_DATA *		affected;
 	sh_int			wear_loc;
 	sh_int			timer;
 	sh_int			clean_timer;		/* Montrey */
 	sh_int			spell[MAX_SPELL];
 	sh_int			spell_lev[MAX_SPELL];
 	bool			valid;
+
+    /* ugly way to do this: rather than everywhere cycling through the affects given by
+       the object's index data separately from the affects given by inset gems, we
+       compile a list of affects whenever one of those changes (rare event). -- Montrey */
+    bool            enchanted; // have the affects for this object been modified from the index?  only for saving to file
+    AFFECT_DATA *   perm_affected; // initially identical to the index, can be changed by enchants and addapply
+    AFFECT_DATA *   affected; // the compiled list, never shown in 'stat' or 'lore', so it can be deduped.
 
     char            num_settings;
     OBJ_DATA *      gems; // gems in settings
@@ -3567,9 +3572,9 @@ int     can_carry_w     args(( CHAR_DATA *ch ) );
 bool    is_name         args(( const char *str, const char *namelist ) );
 bool    is_exact_name   args(( const char *str, const char *namelist ) );
 bool    is_exact_name_color   args(( const char *str, const char *namelist ) );
-void    affect_to_char  args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
-void    affect_to_obj   args(( OBJ_DATA *obj, AFFECT_DATA *paf ) );
-void    affect_to_room  args(( ROOM_INDEX_DATA *room, AFFECT_DATA *paf ) );
+void    copy_affect_to_char  args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
+void    copy_affect_to_obj   args(( OBJ_DATA *obj, AFFECT_DATA *paf ) );
+void    copy_affect_to_room  args(( ROOM_INDEX_DATA *room, AFFECT_DATA *paf ) );
 void    affect_remove   args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void    affect_remove_obj args((OBJ_DATA *obj, AFFECT_DATA *paf ) );
 void    affect_remove_room args((ROOM_INDEX_DATA *obj, AFFECT_DATA *paf ) );

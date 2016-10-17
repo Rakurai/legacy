@@ -366,7 +366,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 			af.modifier     = -4;
 			af.bitvector    = AFF_BLIND;
 			af.evolution    = URANGE(1, evolution - 1, 4);
-			affect_to_char(victim, &af);
+			copy_affect_to_char(victim, &af);
 		}
 
 		/* getting thirsty */

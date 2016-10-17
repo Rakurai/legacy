@@ -1807,10 +1807,6 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 		break;
 	}
 
-	if (!obj->enchanted)
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-			show_affect_to_char(paf, ch);
-
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		show_affect_to_char(paf, ch);
 
