@@ -148,11 +148,11 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 			if (paf->duration)
 				bits |= paf->bitvector;
 
-		if (paf->bitvector & WEAPON_FLAMING)    strcat(buf, "{Y(Fl) ");
-		if (paf->bitvector & WEAPON_FROST)      strcat(buf, "{C(Fr) ");
-		if (paf->bitvector & WEAPON_VAMPIRIC)   strcat(buf, "{P(Bl) ");
-		if (paf->bitvector & WEAPON_SHOCKING)   strcat(buf, "{V(Sh) ");
-		if (paf->bitvector & WEAPON_POISON)     strcat(buf, "{G(Po) ");
+		if (bits & WEAPON_FLAMING)    strcat(buf, "{Y(Fl) ");
+		if (bits & WEAPON_FROST)      strcat(buf, "{C(Fr) ");
+		if (bits & WEAPON_VAMPIRIC)   strcat(buf, "{P(Bl) ");
+		if (bits & WEAPON_SHOCKING)   strcat(buf, "{V(Sh) ");
+		if (bits & WEAPON_POISON)     strcat(buf, "{G(Po) ");
 	}
 
 	/* flags for temp weapon affects and dazzling light -- Elrac */
