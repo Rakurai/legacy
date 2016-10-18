@@ -63,9 +63,9 @@ void free_string(char *pstr)
 const char *smash_tilde(const char *str)
 {
 	static char buf[MSL];
-	char *pbuf = buf;
+	char *pbuf;
 
-	for (char *pbuf = buf; *str != '\0'; str++, pbuf++)
+	for (pbuf = buf; *str != '\0'; str++, pbuf++)
 		if (*str == '~')
 			*pbuf = '-';
 		else
