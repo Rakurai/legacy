@@ -1,4 +1,49 @@
-0 REBIRTH REMORT REINCARNATION~
+0 REBIRTH REMORT REINCARNATIONell as a dangerous fighter, he combines good
+combat skills with a few extra abilities that give him many options and
+decisions during play.  He boasts the courage and strength of a warrior
+and the stealth and self-reliance of a thief.  He combines the druids
+affinity for the outdoors with  the devotion and magical aptitude of a
+priest.  He's a hunter, tracker, and survivalist.  By temperament and
+by choice, he's a loner, often prefering the company of animals to people.
+Without question, he's one with nature, sworn to protect the inhabitants of
+the wilderness.
+
+{RRangers{x begin with skills in {Gaxe{x, {Gflail{x, and gain {Gdual wield{x so they can
+use two weapons in combat.  Other weapon skills may be purchased cheaply,
+or gained in the {Cdefault skillpackage{x, which includes the following:
+
+skills:
+{Cweaponsmaster{x     this group provides knowledge of all weapon types
+{Cshield block{x      the art of parrying with a shield
+{Cenhanced damage{x   this skill multiplies your damage in battle
+{Cparry{x             the art of parrying with weapons
+{Cdisarm{x            used to deprive your opponent of his weapon
+{Csecond attack{x     with training, the skilled thief can hit twice as fast
+{Ctrip{x              a good way to introduce an opponent to the floor
+{Chunt{x              helps you to track down mobs and other characters
+{Ckick{x              it is just what it says an extra attack in combat
+Cparry{x          the art of parrying with weapons
+{Csing{x           the right song will make your listeners follow you
+r conjuring and mastering the elements
+ 16/21   14/18   14/20   13/17   15/20   16/21
+{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
+{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
+-------------------------------------------------------------
+Stats can be raised by {G5{x over the Max with magical items if you are human.
+They can only be raised by {G4{x if you are Demi-Human.
+No stat may exceed {G25{x.
+Base stats may be different due to rolling in character creation.
+Add {G+3{x to prime stat for any human class and {G+2{x for any
+Demi-Human class.
+-----------------------------------------------------------
+{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
+Int    Wis    Dex    Str    Int    Chr    Dex    Con
+-----------------------------------------------------------
+the action on is not there.
+
+
+{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
+~
 {VRemort{x is available to mortals once they reach level {Y91{x.  Upon a 
 {Vremort{x, the player will return to {Ylevel 1{x with {Y20/100/100{x 
 for {Yhp/mana/movement{x. {VRemorted{x players are asked to select a 
@@ -20,9 +65,78 @@
 also have the opportunity to gain {Vextraclass{x skills, i.e. skills from 
 other classes with the 'extraclass' command. 
 See {RHELP EXTRACLASS{x and {RHELP REMORTSPELLS{x / {RREMORTSKILLS{x for more details.
+ce an opponent to the floor
+{Chunt{x              helps you to track down mobs and other characters
+{Ckick{x              it is just what it says an extra attack in combat
+Cparry{x          the art of parrying with weapons
+{Csing{x           the right song will make your listeners follow you
+r conjuring and mastering the elements
+ 16/21   14/18   14/20   13/17   15/20   16/21
+{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
+{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
+-------------------------------------------------------------
+Stats can be raised by {G5{x over the Max with magical items if you are human.
+They can only be raised by {G4{x if you are Demi-Human.
+No stat may exceed {G25{x.
+Base stats may be different due to rolling in character creation.
+Add {G+3{x to prime stat for any human class and {G+2{x for any
+Demi-Human class.
+-----------------------------------------------------------
+{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
+Int    Wis    Dex    Str    Int    Chr    Dex    Con
+-----------------------------------------------------------
+the action on is not there.
+
+
+{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 REMORTSKILLS REMORTSPELLS~
+0 REMORTSKILLS REMORTSPELLSo mortals once they reach level {Y91{x.  Upon a 
+{Vremort{x, the player will return to {Ylevel 1{x with {Y20/100/100{x 
+for {Yhp/mana/movement{x. {VRemorted{x players are asked to select a 
+{Vrace{x, {Cdeity{x and {Mstatus/rank/second title{x.  The last two will 
+be displayed in the whois command with their {Vremort{x count. The 
+{Vremort{x count is equivalent to the number of remort ceremonies a
+player has been through.
+
+There is an automatic AC bonus which increases with level and remort count.
+Also, the usual level bonuses of 5 for buying, wearing and wielding 
+equipment as well as that of 7 above the player's level for storing equipment
+are increased by 1 on the first remort, again on the third, and once every
+3 remorts following that, though the restriction on equipment above level 
+91 remains.
+
+Starting with the first remort, players have access to special skills and 
+spells that generally far exceed normal skills and spells in power.  A number
+are available to each class, and may be gained like any other skill.  Remorts
+also have the opportunity to gain {Vextraclass{x skills, i.e. skills from 
+other classes with the 'extraclass' command. 
+See {RHELP EXTRACLASS{x and {RHELP REMORTSPELLS{x / {RREMORTSKILLS{x for more details.
+ce an opponent to the floor
+{Chunt{x              helps you to track down mobs and other characters
+{Ckick{x              it is just what it says an extra attack in combat
+Cparry{x          the art of parrying with weapons
+{Csing{x           the right song will make your listeners follow you
+r conjuring and mastering the elements
+ 16/21   14/18   14/20   13/17   15/20   16/21
+{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
+{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
+-------------------------------------------------------------
+Stats can be raised by {G5{x over the Max with magical items if you are human.
+They can only be raised by {G4{x if you are Demi-Human.
+No stat may exceed {G25{x.
+Base stats may be different due to rolling in character creation.
+Add {G+3{x to prime stat for any human class and {G+2{x for any
+Demi-Human class.
+-----------------------------------------------------------
+{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
+Int    Wis    Dex    Str    Int    Chr    Dex    Con
+-----------------------------------------------------------
+the action on is not there.
+
+
+{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
+~
 These abilities are not available before remorting. Like other spells
 and skills, they have certain class-based minimum levels. The spells are
 gained individually, not as part of a group. Costs for all of these are
@@ -58,7 +172,40 @@ These abilities are not available before remorting. Like other spells
 {c\=========================================================================/{x
 ~
 
-0 EXTRACLASS~
+0 EXTRACLASSities are not available before remorting. Like other spells
+and skills, they have certain class-based minimum levels. The spells are
+gained individually, not as part of a group. Costs for all of these are
+priced for well-statted remorts, and most of the abilities are well worth it
+for the additional power they bestow.
+
+ {BClass          {GSkill/Spell     {PDescription
+{c/=========================================================================\{x
+{c\ {BMage         {c|{GSheen          {c|{PProtects your armor and equipment         {c/{x  
+{c/              |{GFocus          {c|{PIncrease damage of your offensive spells  {c\{x
+{c\              |{GParalyze       {c|{PSlows your opponent's defense             {c/{x
+{c/ {BCleric       {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Cextraclass{x
         {Cextraclass {g<{Tskill or spell{g>{x  
 
@@ -73,9 +220,67 @@ These abilities are not available before remorting. Like other spells
 
 Extraclass by itself shows you the all the skills and spells you may
 gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 SHEEN~
+0 SHEENtax: {Cextraclass{x
+        {Cextraclass {g<{Tskill or spell{g>{x  
+
+As a remort, besides access to more powerful skills and spells of your
+class, you also have the opportunity to learn one other of another 
+class. This process is decidedly harder than learning your own, and 
+unlike your own, these skills do not stay with you permanently; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'sheen'{x
 
 Long ago, battlemages who sparred a lot with each other found themselves
@@ -84,9 +289,77 @@ These abilities are not available before remorting. Like other spells
 surrounds equipment and inventory.  No more wear and tear or etching!
 
 {GREMORT CLASS: {YMage{x
+y; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 FOCUS~
+0 FOCUStax: {Ccast 'sheen'{x
+
+Long ago, battlemages who sparred a lot with each other found themselves
+increasingly irritated by having to stop and repair their usually very 
+valuable magic equipment.  Thus, they developed a protective sheen that 
+surrounds equipment and inventory.  No more wear and tear or etching!
+
+{GREMORT CLASS: {YMage{x
+y; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'focus'{x
 
 This arcane spell is one of the most powerful tools in a mage's arsenal.
@@ -94,9 +367,82 @@ These abilities are not available before remorting. Like other spells
 huge increase in the damage of offensive spells.
 
 {GREMORT CLASS: {YMage{x
+rounds equipment and inventory.  No more wear and tear or etching!
+
+{GREMORT CLASS: {YMage{x
+y; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 PARALYZE~
+0 PARALYZE: {Ccast 'focus'{x
+
+This arcane spell is one of the most powerful tools in a mage's arsenal.
+It increases the caster's concentration supernaturally, resulting in a 
+huge increase in the damage of offensive spells.
+
+{GREMORT CLASS: {YMage{x
+rounds equipment and inventory.  No more wear and tear or etching!
+
+{GREMORT CLASS: {YMage{x
+y; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'paralyze' {g<{Tvictim{g>{x
 
 This spell sends a huge bolt of energy into victim, effectively shocking 
@@ -105,9 +451,83 @@ These abilities are not available before remorting. Like other spells
 cast in combat.
 
 {GREMORT CLASS: {YMage{x
+ing!
+
+{GREMORT CLASS: {YMage{x
+y; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 DAZZLE~
+0 DAZZLEax: {Ccast 'paralyze' {g<{Tvictim{g>{x
+
+This spell sends a huge bolt of energy into victim, effectively shocking 
+their muscles into grim submission.  With their muscles unresponsive, the
+victim's evasive abilities will drop immensely.  This spell can only be 
+cast in combat.
+
+{GREMORT CLASS: {YMage{x
+ing!
+
+{GREMORT CLASS: {YMage{x
+y; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'dazzle'{x
 
 Using his holy powers, a cleric can call forth a dazzling spray of light
@@ -115,18 +535,181 @@ These abilities are not available before remorting. Like other spells
 to continue battle.
 
 {GREMORT CLASS: {YCleric{x
+rop immensely.  This spell can only be 
+cast in combat.
+
+{GREMORT CLASS: {YMage{x
+ing!
+
+{GREMORT CLASS: {YMage{x
+y; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 BARRIER~
+0 BARRIERx: {Ccast 'dazzle'{x
+
+Using his holy powers, a cleric can call forth a dazzling spray of light
+from his fingertips.  A victim, dazzled, is temporarily blinded and unable
+to continue battle.
+
+{GREMORT CLASS: {YCleric{x
+rop immensely.  This spell can only be 
+cast in combat.
+
+{GREMORT CLASS: {YMage{x
+ing!
+
+{GREMORT CLASS: {YMage{x
+y; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'barrier'{x
 
 This spell reflects a cleric's incredible defensive prowess.  This magical 
 barrier will absorb part of each damaging strike aimed at you.
 
 {GREMORT CLASS: {YCleric{x
+{GREMORT CLASS: {YCleric{x
+rop immensely.  This spell can only be 
+cast in combat.
+
+{GREMORT CLASS: {YMage{x
+ing!
+
+{GREMORT CLASS: {YMage{x
+y; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 'FULL HEAL'~
+0 'FULL HEAL'Ccast 'barrier'{x
+
+This spell reflects a cleric's incredible defensive prowess.  This magical 
+barrier will absorb part of each damaging strike aimed at you.
+
+{GREMORT CLASS: {YCleric{x
+{GREMORT CLASS: {YCleric{x
+rop immensely.  This spell can only be 
+cast in combat.
+
+{GREMORT CLASS: {YMage{x
+ing!
+
+{GREMORT CLASS: {YMage{x
+y; you 
+lose them at the end of each lifetime.  However, many do decide to 
+gain an extraclass skill or spell for that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {gcast '{Yfull heal{g'{x
 
 Although clerical healing spells are common, this very uncommon spell can
@@ -137,9 +720,75 @@ These abilities are not available before remorting. Like other spells
 in battle situations.
 
 {GREMORT CLASS: {YCleric{x
+or that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 HONE~
+0 HONEntax: {gcast '{Yfull heal{g'{x
+
+Although clerical healing spells are common, this very uncommon spell can
+be used by only the true master cleric.  As the name would suggest, it
+completely restores the target's health level.  Naturally, this is a very 
+magically draining spell, but can often prove worth it.  The amount of 
+concentration needed for this spell is also extreme, and it cannot be used
+in battle situations.
+
+{GREMORT CLASS: {YCleric{x
+or that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {CSyntax: {Yhone{x
 
 This unique skill lets you sharpen the weapon you are wielding.  
@@ -148,9 +797,83 @@ These abilities are not available before remorting. Like other spells
 be broken in the process of sharpening.
 
 {GREMORT CLASS: {YThief{x
+ten prove worth it.  The amount of 
+concentration needed for this spell is also extreme, and it cannot be used
+in battle situations.
+
+{GREMORT CLASS: {YCleric{x
+or that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 SHADOWFORM~
+0 SHADOWFORM{Yhone{x
+
+This unique skill lets you sharpen the weapon you are wielding.  
+Difficult for even the best thieves, it requires the use of a high 
+quality whetstone, which not only is difficult to procure but could 
+be broken in the process of sharpening.
+
+{GREMORT CLASS: {YThief{x
+ten prove worth it.  The amount of 
+concentration needed for this spell is also extreme, and it cannot be used
+in battle situations.
+
+{GREMORT CLASS: {YCleric{x
+or that remort.  As you go through 
+more and more rebirths, your capacity for learning may increase and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Cshadowform{x
 
 Many thieves would agree that the backstab is one of their most powerful
@@ -162,9 +885,74 @@ These abilities are not available before remorting. Like other spells
 misses, you will not be able to assume a shadow form on the victim again.
 
 {GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 MIDNIGHT~
+0 MIDNIGHT: {Cshadowform{x
+
+Many thieves would agree that the backstab is one of their most powerful
+skills. Thus, an ancient guild of thieves developed a method of 
+backstabbing even while in combat with an opponent.  Because the skill 
+involved tricking the victim with shadows, the skill was dubbed 
+shadowform, and allows thieves the ability to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'midnight'{x
 
 Obviously one of a thief's many prowesses is the ability to sneak 
@@ -173,26 +961,249 @@ These abilities are not available before remorting. Like other spells
 cannot be maintained in battle.
 
 {GREMORT CLASS: {YThief{x
+dowform, and allows thieves the ability to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 'FOURTH ATTACK'~
+0 'FOURTH ATTACK't 'midnight'{x
+
+Obviously one of a thief's many prowesses is the ability to sneak 
+unnoticed.  The spell midnight renders you completely invisible to even
+the most wary for a short period of time.  However, the cloak of midnight
+cannot be maintained in battle.
+
+{GREMORT CLASS: {YThief{x
+dowform, and allows thieves the ability to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 Training in {Cfourth attack{x allows the character a chance at an additional strike
 in a combat, and increases the chance of a second and third attack as well.  Perfect
 {Cfourth attack{x does NOT assure four attacks per round.
 
 {GREMORT CLASS: {YWarrior{x{x
+tained in battle.
+
+{GREMORT CLASS: {YThief{x
+dowform, and allows thieves the ability to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 RIPOSTE~
+0 RIPOSTEg in {Cfourth attack{x allows the character a chance at an additional strike
+in a combat, and increases the chance of a second and third attack as well.  Perfect
+{Cfourth attack{x does NOT assure four attacks per round.
+
+{GREMORT CLASS: {YWarrior{x{x
+tained in battle.
+
+{GREMORT CLASS: {YThief{x
+dowform, and allows thieves the ability to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 The riposte skill was taken from masters of swordplay and passed down the
 generations through warrior guilds.  It is a powerful skill once learned, 
 gifting the user with the ability to strike back at an opponent after a
 successful parry.
 
 {GREMORT CLASS: {YWarrior{x
+attle.
+
+{GREMORT CLASS: {YThief{x
+dowform, and allows thieves the ability to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 RAGE~
+0 RAGEriposte skill was taken from masters of swordplay and passed down the
+generations through warrior guilds.  It is a powerful skill once learned, 
+gifting the user with the ability to strike back at an opponent after a
+successful parry.
+
+{GREMORT CLASS: {YWarrior{x
+attle.
+
+{GREMORT CLASS: {YThief{x
+dowform, and allows thieves the ability to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Crage{x
 
 This skill is very related to the warrior skill - berserk.  It involves
@@ -201,9 +1212,81 @@ The riposte skill was taken from masters of swordplay and passed down the
 you quickly.  Be careful not to take on more than you can handle!
 
 {GREMORT CLASS: {YWarrior{x
+ility to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 HEX~
+0 HEXyntax: {Crage{x
+
+This skill is very related to the warrior skill - berserk.  It involves
+summoning an intense burst of anger which fuels a quick flurry of attacks
+at everything close to you.  It is very physically intensive, and will tire
+you quickly.  Be careful not to take on more than you can handle!
+
+{GREMORT CLASS: {YWarrior{x
+ility to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'hex'{x
 
 This powerful curse surrounds the victim with an unholy aura, which
@@ -211,9 +1294,88 @@ The riposte skill was taken from masters of swordplay and passed down the
 against attacks.
 
 {GREMORT CLASS: {YNecromancer{x
+tensive, and will tire
+you quickly.  Be careful not to take on more than you can handle!
+
+{GREMORT CLASS: {YWarrior{x
+ility to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 PAIN~
+0 PAINntax: {Ccast 'hex'{x
+
+This powerful curse surrounds the victim with an unholy aura, which
+lowers their defense drastically.  The victim becomes a helpless target 
+against attacks.
+
+{GREMORT CLASS: {YNecromancer{x
+tensive, and will tire
+you quickly.  Be careful not to take on more than you can handle!
+
+{GREMORT CLASS: {YWarrior{x
+ility to perform one extra set of 
+backstabs during the middle of a fight.  Even if this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'pain'{x
 
 Maladictions are a necromancer's best friend, and a great necromancer of
@@ -223,9 +1385,80 @@ The riposte skill was taken from masters of swordplay and passed down the
 spell not only combines maladictions but packs a powerful punch as well.
 
 {GREMORT CLASS: {YNecromancer{x
+f this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 SAP~
+0 SAPyntax: {Ccast 'pain'{x
+
+Maladictions are a necromancer's best friend, and a great necromancer of
+old experimented greatly with them.  He succeeded in binding several 
+hideous spells together and jokingly nicknamed his masterpiece "pain."
+Well, the victims of this spell would willingly agree with him, for the
+spell not only combines maladictions but packs a powerful punch as well.
+
+{GREMORT CLASS: {YNecromancer{x
+f this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'sap'{x
 
 This spell reflects the twisted nature of many necromancers, and not only
@@ -233,9 +1466,88 @@ The riposte skill was taken from masters of swordplay and passed down the
 to the caster.
 
 {BREMORT CLASS: {YNecromancer{x
+rpiece "pain."
+Well, the victims of this spell would willingly agree with him, for the
+spell not only combines maladictions but packs a powerful punch as well.
+
+{GREMORT CLASS: {YNecromancer{x
+f this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 'FORCE SHIELD'~
+0 'FORCE SHIELD'st 'sap'{x
+
+This spell reflects the twisted nature of many necromancers, and not only
+drains the victim of their health, but transfers a great deal of that drain
+to the caster.
+
+{BREMORT CLASS: {YNecromancer{x
+rpiece "pain."
+Well, the victims of this spell would willingly agree with him, for the
+spell not only combines maladictions but packs a powerful punch as well.
+
+{GREMORT CLASS: {YNecromancer{x
+f this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'force shield'{x
 
 The force shield is a spell derived from the cleric's barrier, but in
@@ -244,9 +1556,87 @@ The riposte skill was taken from masters of swordplay and passed down the
 great defensive aid.
 
 {GREMORT CLASS: {YPaladin{x
+h him, for the
+spell not only combines maladictions but packs a powerful punch as well.
+
+{GREMORT CLASS: {YNecromancer{x
+f this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 HAMMERSTRIKE~
+0 HAMMERSTRIKEcast 'force shield'{x
+
+The force shield is a spell derived from the cleric's barrier, but in
+actuality, works in quite a different way.  The magical shield, rather
+than absorbing damage, blocks a certain percentage of hits.  It is a 
+great defensive aid.
+
+{GREMORT CLASS: {YPaladin{x
+h him, for the
+spell not only combines maladictions but packs a powerful punch as well.
+
+{GREMORT CLASS: {YNecromancer{x
+f this second backstab 
+misses, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Chammerstrike{x
 
 This powerful skill has been written about in many legends, and involves
@@ -257,9 +1647,79 @@ The riposte skill was taken from masters of swordplay and passed down the
 user's stamina immensely. 
 
 {GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 'HOLY SWORD'~
+0 'HOLY SWORD'hammerstrike{x
+
+This powerful skill has been written about in many legends, and involves
+a paladin using his fervor to call down the power of the gods.  The affect
+was likened to a "hammer's strike" for it enhances the paladin's combat
+abilities by a great deal.  The spell's immense power cannot be held for
+anything more than a short period in a mortal body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ccast 'holy sword'{x
 
 The paladin's close relationship with the heavens provides him of much of
@@ -269,17 +1729,177 @@ The riposte skill was taken from masters of swordplay and passed down the
 heavens.
 
 {GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 'DUAL SECOND'~
+0 'DUAL SECOND'ast 'holy sword'{x
+
+The paladin's close relationship with the heavens provides him of much of
+his powers, and this spell is just yet another example.  The gods granted
+paladins the ability to summon a godly blade unto their grip, but beware,
+for you cannot free yourself of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 The bard's natural proficiency with weapons, aided with ambidexterity, is
 utilized in this skill, which allows an extra chance to strike with the
 second weapon in combat.
  
 {GREMORT CLASS: {YBard{x
+y to summon a godly blade unto their grip, but beware,
+for you cannot free yourself of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 ALIGN~
+0 ALIGNard's natural proficiency with weapons, aided with ambidexterity, is
+utilized in this skill, which allows an extra chance to strike with the
+second weapon in combat.
+ 
+{GREMORT CLASS: {YBard{x
+y to summon a godly blade unto their grip, but beware,
+for you cannot free yourself of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Calign good{x
 	{Calign neutral{x
 	{Calign evil{x
@@ -289,17 +1909,189 @@ The bard's natural proficiency with weapons, aided with ambidexterity, is
 very useful in many situations.
 
 {GREMORT CLASS: {YBard{x
+t free yourself of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 BLUR~
+0 BLURntax: {Calign good{x
+	{Calign neutral{x
+	{Calign evil{x
+
+A bard's travels and great understanding of many races and populations 
+gives them the skill of choosing their own align at will.  This can prove
+very useful in many situations.
+
+{GREMORT CLASS: {YBard{x
+t free yourself of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 Blur is an extra evasive maneuver, quite similar to dodge.  It allows you
 to evade attacks with supernatural quickness, and when coupled with dodge
 and parry can make you quite difficult to hit.
 
 {GREMORT CLASS: {YBard{x
+n many situations.
+
+{GREMORT CLASS: {YBard{x
+t free yourself of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 MARK RELOCATE~
+0 MARK RELOCATEtra evasive maneuver, quite similar to dodge.  It allows you
+to evade attacks with supernatural quickness, and when coupled with dodge
+and parry can make you quite difficult to hit.
+
+{GREMORT CLASS: {YBard{x
+n many situations.
+
+{GREMORT CLASS: {YBard{x
+t free yourself of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax:{x {Cmark{x
 	{Crelocate{x
 
@@ -310,18 +2102,188 @@ Blur is an extra evasive maneuver, quite similar to dodge.  It allows you
 Use {Crelocate{x to return there, from wherever you are.
  
 {GREMORT CLASS: {YRanger{x
+ of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 STANDFAST~
+0 STANDFAST{x {Cmark{x
+	{Crelocate{x
+
+This skill leaves a distinguishing mark in a certain room, so you can 
+easily and quickly return to that room. 
+
+Use {Cmark{x to remember your current room.
+Use {Crelocate{x to return there, from wherever you are.
+ 
+{GREMORT CLASS: {YRanger{x
+ of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 For the ranger who finds himself trekking, living, and fighting in any
 terrain, staying on their feet comes naturally.  This skill manifests 
 that ability, and makes the user close impossible to bash, trip, or
 knock down in any way.  
 
 {GREMORT CLASS: {YRanger{x
+CLASS: {YRanger{x
+ of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
-0 'CRITICAL BLOW'~
+0 'CRITICAL BLOW'who finds himself trekking, living, and fighting in any
+terrain, staying on their feet comes naturally.  This skill manifests 
+that ability, and makes the user close impossible to bash, trip, or
+knock down in any way.  
+
+{GREMORT CLASS: {YRanger{x
+CLASS: {YRanger{x
+ of the blade until it vanishes back to the
+heavens.
+
+{GREMORT CLASS: {YPaladin{x
+body, and will drain the 
+user's stamina immensely. 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
+~
 {BSyntax: {Ycritical blow{x
 
 One of the ranger's many strengths is his perceptive eye in analyzing
@@ -332,6 +2294,39 @@ For the ranger who finds himself trekking, living, and fighting in any
 to critical blow them.
 
 {GREMORT CLASS: {YRanger{x
+ 
+
+{GREMORT CLASS: {YPaladin{x
+, you will not be able to assume a shadow form on the victim again.
+
+{GREMORT CLASS: {YThief{x
+ncrease and 
+you may be able to learn more extraclass skills.  
+
+Extraclass by itself shows you the all the skills and spells you may
+gain, what class they are from, and how many trains it will cost.
+  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
+{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
+{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
+{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
+{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
+{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
+{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
+{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
+{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
+{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
+{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
+{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
+{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
+{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
+{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
+{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
+{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
+{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
+{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
+{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
+{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
+{c\=========================================================================/{x
 ~
 
 -2

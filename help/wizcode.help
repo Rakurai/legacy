@@ -1,4 +1,56 @@
-92 MALLOC~
+92 MALLOC: {Cdeny{x   <{Yname{x>
+        {Cundeny{x <{Yname{x>
+
+{CDeny{x locks a character out of a game permanently, rendering their name
+unusable.  It may only be removed by linkloading the character and using
+{Cundeny{x.
+used by Creator and Implementor, and should be accompanied
+by mail to the Implementor.
+
+Certain commands (Password) are protected against log.	Conversely, certain
+commands (especially immortal commands) are always logged.
+
+{CLog all{x logs all character commands.  It is a server-wide toggle; it does
+not persist across reboots.  Please do not use this unless you tell the Imp.
+You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 The mud is constantly allocating memory as it needs it.  However, the mud
 rarely deallocates that memory.  Instead, it frees up the memory and holds
 it in storage for later use.  Then in the future, when the mud needs more
@@ -17,9 +69,79 @@ The mud is constantly allocating memory as it needs it.  However, the mud
 problem.  i.e. The mud just increased to an all time high of 30 players for
 that day, or a player is posting a new note (since notes normally don't
 disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 MEMORY~
+92 MEMORYd is constantly allocating memory as it needs it.  However, the mud
+rarely deallocates that memory.  Instead, it frees up the memory and holds
+it in storage for later use.  Then in the future, when the mud needs more
+memory, it grabs this reserved memory and uses it.
+
+Now, if there is no reserved memory of the type the mud needs, it will
+allocate more memory.  This is what causes the Wiznet {PMalloc{x message to
+appear.  Normally this is not a problem.  Especially when the mud has just
+started or is returning from a copyover.  You will notice that as the first
+characters log in, you get spammed by tons of messages.  The problem is when
+24 hours later you are still getting memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cmemory{x
 
 {CMemory{x reports the size of your mud.
@@ -32,9 +154,95 @@ Syntax: {Cmemory{x
 
 The 'Perms' line shows permanently allocated memory blocks.  There is no
 limit on the number and size of these blocks.
+ormally this is not a problem.  Especially when the mud has just
+started or is returning from a copyover.  You will notice that as the first
+characters log in, you get spammed by tons of messages.  The problem is when
+24 hours later you are still getting memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-100 SHUTDOWN~
+100 SHUTDOWN{Cmemory{x
+
+{CMemory{x reports the size of your mud.
+
+The 'Mobs' and 'Objs' lines report the number of types of mobiles and
+objects, not the number of instances currently in the game.
+
+The 'Strings' line shows memory used by area-file strings.  These strings
+have a maximum limit, which is also shown.
+
+The 'Perms' line shows permanently allocated memory blocks.  There is no
+limit on the number and size of these blocks.
+ormally this is not a problem.  Especially when the mud has just
+started or is returning from a copyover.  You will notice that as the first
+characters log in, you get spammed by tons of messages.  The problem is when
+24 hours later you are still getting memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax:  {Cshutdown{x <{Yreason{x>
 
 {CShutdown{x shuts down the server and prevents the normal 'startup' script
@@ -42,9 +250,100 @@ Syntax:  {Cshutdown{x <{Yreason{x>
 there is going to be a {Vshutdown{x.
 
 {YSEE ALSO:{x reboot, autoreboot
+strings
+have a maximum limit, which is also shown.
+
+The 'Perms' line shows permanently allocated memory blocks.  There is no
+limit on the number and size of these blocks.
+ormally this is not a problem.  Especially when the mud has just
+started or is returning from a copyover.  You will notice that as the first
+characters log in, you get spammed by tons of messages.  The problem is when
+24 hours later you are still getting memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 AUTOREBOOT~
+92 AUTOREBOOTCshutdown{x <{Yreason{x>
+
+{CShutdown{x shuts down the server and prevents the normal 'startup' script
+from restarting it.  The reason can be any brief message that explains why
+there is going to be a {Vshutdown{x.
+
+{YSEE ALSO:{x reboot, autoreboot
+strings
+have a maximum limit, which is also shown.
+
+The 'Perms' line shows permanently allocated memory blocks.  There is no
+limit on the number and size of these blocks.
+ormally this is not a problem.  Especially when the mud has just
+started or is returning from a copyover.  You will notice that as the first
+characters log in, you get spammed by tons of messages.  The problem is when
+24 hours later you are still getting memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cautoreboot{x <{Ytime{x>
 
 For an {Cautoreboot{x, select a time between 0000 and 2399.  If you select a
@@ -59,9 +358,91 @@ Syntax: {Cautoreboot{x <{Ytime{x>
 {Cautoreboot{x command.
 
 {YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 DISABLE~
+92 DISABLE {Cautoreboot{x <{Ytime{x>
+
+For an {Cautoreboot{x, select a time between 0000 and 2399.  If you select a
+time that is earlier than the current time, the mud will assume the next
+day for the date.  When the reboot time matches the current time, the
+mud will check to see if any players are logged in.  If there are no players,
+then the {Creboot{x will occur.  If there are players, the the mud will advance
+the reboot time ahead by 5 minutes and wait to check again.  {CAutoreboot{x
+without an argument will display the current autoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cdisable{x
         {Cdisable{x <{Ycommand{x> <{Yreason{x>
 
@@ -74,9 +455,101 @@ Syntax: {Cdisable{x
 disabling buggy commands or disabling certain commands for use with quests.
 
 To re-able a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-100 100 REBOOT~
+100 100 REBOOTdisable{x
+        {Cdisable{x <{Ycommand{x> <{Yreason{x>
+
+{CDisable{x without an argument will show a list of disabled commands.
+{CDisable{x with an argument will either disable or enable a command.  The
+command must be spelled out in its entirety, and you must provide a short
+explanation as to why you disabled the command.
+
+When a command is disabled, no players can use it. It is useful for
+disabling buggy commands or disabling certain commands for use with quests.
+
+To re-able a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Creboot{x <{Yreason{x>
 
 {CReboot{x shuts down the server.  When the normal 'startup' script is used
@@ -84,34 +557,433 @@ Syntax: {Creboot{x <{Yreason{x>
 old connections to die), followed by a {Creboot{x.
 
 {YSEE ALSO:{x shutdown, autoreboot
+ust provide a short
+explanation as to why you disabled the command.
+
+When a command is disabled, no players can use it. It is useful for
+disabling buggy commands or disabling certain commands for use with quests.
+
+To re-able a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-100 ADJUST~
+100 ADJUST: {Creboot{x <{Yreason{x>
+
+{CReboot{x shuts down the server.  When the normal 'startup' script is used
+to control the server, a delay of fifteen seconds will ensue (to allow
+old connections to die), followed by a {Creboot{x.
+
+{YSEE ALSO:{x shutdown, autoreboot
+ust provide a short
+explanation as to why you disabled the command.
+
+When a command is disabled, no players can use it. It is useful for
+disabling buggy commands or disabling certain commands for use with quests.
+
+To re-able a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cadjust{x <{Yvictim{x> <{Yexp points{x>
 
 This command will raise or lower a player's exp by a given amount.  This
 command is only used for testing purposes on test characters.  This
 command is {Pnever{x to be used on a mortal player.
+{x shutdown, autoreboot
+ust provide a short
+explanation as to why you disabled the command.
+
+When a command is disabled, no players can use it. It is useful for
+disabling buggy commands or disabling certain commands for use with quests.
+
+To re-able a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-100 ADVANCE~
+100 ADVANCE {Cadjust{x <{Yvictim{x> <{Yexp points{x>
+
+This command will raise or lower a player's exp by a given amount.  This
+command is only used for testing purposes on test characters.  This
+command is {Pnever{x to be used on a mortal player.
+{x shutdown, autoreboot
+ust provide a short
+explanation as to why you disabled the command.
+
+When a command is disabled, no players can use it. It is useful for
+disabling buggy commands or disabling certain commands for use with quests.
+
+To re-able a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cadvance{x <{Ycharacter{x> <{Ylevel{x>
 
 {CAdvance{x sets a character's level to the specified value.  It is the
 only way to create new immortal characters within the game.  {CAdvance{x
 may also be used to demote characters.
+ player.
+{x shutdown, autoreboot
+ust provide a short
+explanation as to why you disabled the command.
+
+When a command is disabled, no players can use it. It is useful for
+disabling buggy commands or disabling certain commands for use with quests.
+
+To re-able a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-100 DOAS~
+100 DOASax: {Cadvance{x <{Ycharacter{x> <{Ylevel{x>
+
+{CAdvance{x sets a character's level to the specified value.  It is the
+only way to create new immortal characters within the game.  {CAdvance{x
+may also be used to demote characters.
+ player.
+{x shutdown, autoreboot
+ust provide a short
+explanation as to why you disabled the command.
+
+When a command is disabled, no players can use it. It is useful for
+disabling buggy commands or disabling certain commands for use with quests.
+
+To re-able a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cdoas{x <{Ycharacter{x> <{Ycommands{x>
 
 {CDoas{x is an unobtrusive way for an immortal to check information available
 to a player.  It gives no message to the player, and can be used for such
 things as seeing their practice list, gain list, etc.  {CDoas{x is {PNOT{x a toy,
 and should never be used to force players to do things as a joke.
+and is disabled, no players can use it. It is useful for
+disabling buggy commands or disabling certain commands for use with quests.
+
+To re-able a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-100 TRUST~
+100 TRUSTx: {Cdoas{x <{Ycharacter{x> <{Ycommands{x>
+
+{CDoas{x is an unobtrusive way for an immortal to check information available
+to a player.  It gives no message to the player, and can be used for such
+things as seeing their practice list, gain list, etc.  {CDoas{x is {PNOT{x a toy,
+and should never be used to force players to do things as a joke.
+and is disabled, no players can use it. It is useful for
+disabling buggy commands or disabling certain commands for use with quests.
+
+To re-able a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Ctrust{x <{Ycharacter{x> <{Ylevel{x>
 
 {CTrust{x sets a character's trust to the specified level.  This is similar to
@@ -122,9 +994,101 @@ Syntax: {Ctrust{x <{Ycharacter{x> <{Ylevel{x>
 natural level.
 
 A trust of 0 means to use the character's natural level again.
+ a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 DEBUG~
+92 DEBUGx: {Ctrust{x <{Ycharacter{x> <{Ylevel{x>
+
+{CTrust{x sets a character's trust to the specified level.  This is similar to
+advancing the character for accessing immortal commands, but has no effect
+on combat strength, etc.  You can give more trust to mortal (or immortal)
+characters to give them access to more power without messing up the
+character.  You can also restrict a player's trust to less than their
+natural level.
+
+A trust of 0 means to use the character's natural level again.
+ a command, use "disable <{Ycommand{x>".
+utoreboot status.
+
+NOTE: Immortal characters are ignored when counting for players in the
+{Cautoreboot{x command.
+
+{YSEE ALSO:{x shutdown, reboot
+ing memory allocation messages.
+
+When this happens, it is an indication of a memory leak. If you see {PMalloc{x
+messages pop up after the mud has been running for several days, please
+note to Imms about it.  However, keep in mind, that it still may not be a
+problem.  i.e. The mud just increased to an all time high of 30 players for
+that day, or a player is posting a new note (since notes normally don't
+disappear, memory is almost always allocated for new notes).
+ure expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cdebug lcheck{x
         {Cdebug qtz{x
         {Cdebug actflag{x
@@ -147,15 +1111,182 @@ Syntax: {Cdebug lcheck{x
           flags for new properties. Yes, our forefathers have used some
           flags they forgot to document, and it took this command to
           find them.
+nsion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 DUMP~
+92 DUMPax: {Cdebug lcheck{x
+        {Cdebug qtz{x
+        {Cdebug actflag{x
+        ... etc.
+
+The {Cdebug{x command is used to connect to a handful of special temporary
+commands used mainly by the coders to find a certain bug in the game, or
+to fix one. Subcommands, like {Rlcheck{x, {Rqtz{x and {Ractflag{x may
+come and go as needed, may be very sparsely documented and may not do
+what you wanted. This command is intended for maintenance and debugging
+purposes only, not day-to-day game control.
+The current subfunctions do the following:
+lcheck - checks on the location of all objects in lockers, was once
+         instrumental in fixing the locker memory bug.
+qtz    - sets a player's time to next quest to 0. This was used to
+         test the new quest code. Any use of this subcommand outside of
+         a testing situation constitutes cheating.
+actflag - Given the NUMERIC value of an ACT flag, tells you how many
+          mobs in the game have that flag. Used to check for available
+          flags for new properties. Yes, our forefathers have used some
+          flags they forgot to document, and it took this command to
+          find them.
+nsion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cdump{x
 
 Creates a {Cdump{x file for mobiles, objects, and memory.
+      ... etc.
+
+The {Cdebug{x command is used to connect to a handful of special temporary
+commands used mainly by the coders to find a certain bug in the game, or
+to fix one. Subcommands, like {Rlcheck{x, {Rqtz{x and {Ractflag{x may
+come and go as needed, may be very sparsely documented and may not do
+what you wanted. This command is intended for maintenance and debugging
+purposes only, not day-to-day game control.
+The current subfunctions do the following:
+lcheck - checks on the location of all objects in lockers, was once
+         instrumental in fixing the locker memory bug.
+qtz    - sets a player's time to next quest to 0. This was used to
+         test the new quest code. Any use of this subcommand outside of
+         a testing situation constitutes cheating.
+actflag - Given the NUMERIC value of an ACT flag, tells you how many
+          mobs in the game have that flag. Used to check for available
+          flags for new properties. Yes, our forefathers have used some
+          flags they forgot to document, and it took this command to
+          find them.
+nsion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-99 PIPE~
+99 PIPEax: {Cdump{x
+
+Creates a {Cdump{x file for mobiles, objects, and memory.
+      ... etc.
+
+The {Cdebug{x command is used to connect to a handful of special temporary
+commands used mainly by the coders to find a certain bug in the game, or
+to fix one. Subcommands, like {Rlcheck{x, {Rqtz{x and {Ractflag{x may
+come and go as needed, may be very sparsely documented and may not do
+what you wanted. This command is intended for maintenance and debugging
+purposes only, not day-to-day game control.
+The current subfunctions do the following:
+lcheck - checks on the location of all objects in lockers, was once
+         instrumental in fixing the locker memory bug.
+qtz    - sets a player's time to next quest to 0. This was used to
+         test the new quest code. Any use of this subcommand outside of
+         a testing situation constitutes cheating.
+actflag - Given the NUMERIC value of an ACT flag, tells you how many
+          mobs in the game have that flag. Used to check for available
+          flags for new properties. Yes, our forefathers have used some
+          flags they forgot to document, and it took this command to
+          find them.
+nsion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cpipe{x <{Ycommand{x>
 
 {YThe {Cpipe{Y command is reserved for implementors.{x  It is a way to send a single
@@ -174,6 +1305,38 @@ Syntax: {Cpipe{x <{Ycommand{x>
 
 {PIf you do not know what you are doing, do NOT use {Cpipe{P for any more than the above
 reasons.{x
+utes cheating.
+actflag - Given the NUMERIC value of an ACT flag, tells you how many
+          mobs in the game have that flag. Used to check for available
+          flags for new properties. Yes, our forefathers have used some
+          flags they forgot to document, and it took this command to
+          find them.
+nsion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
 -2

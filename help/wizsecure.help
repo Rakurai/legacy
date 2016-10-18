@@ -1,4 +1,52 @@
-92 CHECK~
+92 CHECKx: {Cskillpoint{x <{Yaward|deduct{x> <{Yplayer{x> <{Yamount{x>
+
+Skill point allows you to grant or remove skill points from a player.
+This is good for side quests or punishment.
+dex, wis, int, con, chr, age,
+ac, hitroll, damroll, or saves.  Value can be any number, from -30000 to
+30000.  Duration can be a number from 0 to 998, and can be left off
+completely to be infinite.
+
+{YExample:          {Vaddapply {Ysword hp 20 50{x
+
+would set the sword to +20 hp for 50 hours.  Leaving out the 50 would
+make the bonus permanent.
+ll see a prompt in front of your message informing him or her that it
+is an {Cecho{x.
+
+The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
+and {Czecho{x at 96, and {Cgecho{x at 98.)
+
+protective binder, and you'll get a free restring token!  Sounds great, right?
+Of course it is.  The autographed cards can still be used as part of my set,
+of course, so there's no reason not to do it.  But wait!  Could there STILL
+be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
+card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
+or {Y1{x {Vgreater enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Ccheck{x
         {Ccheck stats{x
         {Ccheck eq{x
@@ -13,9 +61,95 @@ Syntax: {Ccheck{x
 general.  The snoop option can only be used by a Level 100 Immortal.  If
 you want immortals to appear in the list of results, you must specify {Cgods{x
 after the check option.
+nent.
+ll see a prompt in front of your message informing him or her that it
+is an {Cecho{x.
+
+The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
+and {Czecho{x at 96, and {Cgecho{x at 98.)
+
+protective binder, and you'll get a free restring token!  Sounds great, right?
+Of course it is.  The autographed cards can still be used as part of my set,
+of course, so there's no reason not to do it.  But wait!  Could there STILL
+be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
+card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
+or {Y1{x {Vgreater enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 PUNISH~
+92 PUNISH: {Ccheck{x
+        {Ccheck stats{x
+        {Ccheck eq{x
+        {Ccheck snoop{x
+        {Ccheck res{x
+        {Ccheck imm{x
+        {Ccheck vul{x
+        {Ccheck <{Yoption{x> {Cgods{x
+
+The {Ccheck{x command is usefuly for finding players that may be cheating.  It
+is also useful for finding interesting information about the players in
+general.  The snoop option can only be used by a Level 100 Immortal.  If
+you want immortals to appear in the list of results, you must specify {Cgods{x
+after the check option.
+nent.
+ll see a prompt in front of your message informing him or her that it
+is an {Cecho{x.
+
+The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
+and {Czecho{x at 96, and {Cgecho{x at 98.)
+
+protective binder, and you'll get a free restring token!  Sounds great, right?
+Of course it is.  The autographed cards can still be used as part of my set,
+of course, so there's no reason not to do it.  But wait!  Could there STILL
+be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
+card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
+or {Y1{x {Vgreater enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cpunish{x
         {Cpunish{x <{Ymessage>{x
         
@@ -24,9 +158,93 @@ Syntax: {Cpunish{x
 100 lines of the log.  This is used so imms can see if there have been
 previous incidents with a particular individual, or to know when to
 remove current punishments, etc etc ... it's a method of communication.
+want immortals to appear in the list of results, you must specify {Cgods{x
+after the check option.
+nent.
+ll see a prompt in front of your message informing him or her that it
+is an {Cecho{x.
+
+The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
+and {Czecho{x at 96, and {Cgecho{x at 98.)
+
+protective binder, and you'll get a free restring token!  Sounds great, right?
+Of course it is.  The autographed cards can still be used as part of my set,
+of course, so there's no reason not to do it.  But wait!  Could there STILL
+be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
+card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
+or {Y1{x {Vgreater enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 FOD~
+92 FODtax: {Cpunish{x
+        {Cpunish{x <{Ymessage>{x
+        
+Punish is a log of all punishments.  When you nochan, ban, fry, anybody,
+please log it with {Cpunish{x <{Ymessage{x>.  Punish by itself shows the last
+100 lines of the log.  This is used so imms can see if there have been
+previous incidents with a particular individual, or to know when to
+remove current punishments, etc etc ... it's a method of communication.
+want immortals to appear in the list of results, you must specify {Cgods{x
+after the check option.
+nent.
+ll see a prompt in front of your message informing him or her that it
+is an {Cecho{x.
+
+The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
+and {Czecho{x at 96, and {Cgecho{x at 98.)
+
+protective binder, and you'll get a free restring token!  Sounds great, right?
+Of course it is.  The autographed cards can still be used as part of my set,
+of course, so there's no reason not to do it.  But wait!  Could there STILL
+be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
+card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
+or {Y1{x {Vgreater enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cfod{x <{Yplayer{x>
 
 Used on players, this command is a mild punishment device. It knocks the
@@ -41,9 +259,85 @@ Syntax: {Cfod{x <{Yplayer{x>
 
 {cThis command is modelled after a command by the same name in British
 Legends MUD, where wizards use it as their main device of termination.{x
+Cgecho{x at 98.)
+
+protective binder, and you'll get a free restring token!  Sounds great, right?
+Of course it is.  The autographed cards can still be used as part of my set,
+of course, so there's no reason not to do it.  But wait!  Could there STILL
+be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
+card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
+or {Y1{x {Vgreater enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 TAIL~
+92 TAILax: {Cfod{x <{Yplayer{x>
+
+Used on players, this command is a mild punishment device. It knocks the
+player off their feet and paralyzes them for 10 seconds. This gives the
+Imm time to think of what to do next :) There are also fearsome messages
+to the player and to the game. But there is no permanent harm done.
+
+{CFOD{x no longer works on mobiles.  This command is NOT, I repeat NOT a
+toy.  Even though it does not permanently hurt a mortal, it's effectiveness
+as a punishment device is lost if it is flaunted. Excessive fodding without
+real reason is grounds for demotion.
+
+{cThis command is modelled after a command by the same name in British
+Legends MUD, where wizards use it as their main device of termination.{x
+Cgecho{x at 98.)
+
+protective binder, and you'll get a free restring token!  Sounds great, right?
+Of course it is.  The autographed cards can still be used as part of my set,
+of course, so there's no reason not to do it.  But wait!  Could there STILL
+be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
+card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
+or {Y1{x {Vgreater enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Ctail{x {Ycharacter{x {Cact{x
 	{Ctail{x {Ycharacter{x {Cstop{x
 	{Ctail stop{x
@@ -69,9 +363,82 @@ Syntax: {Ctail{x {Ycharacter{x {Cact{x
 socials many times instead of once. You may ask, 'why bother typing {Cact{x
 after the character's name?' This is to allow future expansion to other
 {Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 BAN~
+92 BANtax: {Ctail{x {Ycharacter{x {Cact{x
+	{Ctail{x {Ycharacter{x {Cstop{x
+	{Ctail stop{x
+
+This is a less invasive form of snooping a player. If you {Rtail{x a
+player, you see only his ACT messages to the room, i.e. what players
+in his room see him doing as well. Saves you the trouble of walking
+to him and/or following him, essentially. {CTail{x also suppresses
+the player's {Csay{xs. Note that you do not see the things happening
+to the player caused by someone else, i.e. you will see the player's
+hit messages on a mob he is fighting but not the hits of the mob on
+the player.
+
+{CTail{x works not only on players but also on mobiles. You can {Ctail{x
+any number of characters, and any number of immortals can {Ctail{x the
+same character(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax:  {Cban{x <{Ysite{x> <{Ynewbies|all|permit{x> <{Yreason{x>
 
 {CBan{x <{Ysite{x> prohibits players from that site from logging in.  {CBan{x with
@@ -82,9 +449,97 @@ Syntax:  {Cban{x <{Ysite{x> <{Ynewbies|all|permit{x> <{Yreason{x>
 site.  *s may be used to ban either by suffix (*.edu), prefix (labmac*),
 or content (*andrews*), but be careful not to accidently lock out too
 many sites with a wildcard.
+t messages on a mob he is fighting but not the hits of the mob on
+the player.
+
+{CTail{x works not only on players but also on mobiles. You can {Ctail{x
+any number of characters, and any number of immortals can {Ctail{x the
+same character(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 REVOKE~
+92 REVOKE:  {Cban{x <{Ysite{x> <{Ynewbies|all|permit{x> <{Yreason{x>
+
+{CBan{x <{Ysite{x> prohibits players from that site from logging in.  {CBan{x with
+no arguments lists the banned sites.
+
+A site may have all players, new players, or non-permitted players (set
+by editing the player file) banned, by changing the argument after the
+site.  *s may be used to ban either by suffix (*.edu), prefix (labmac*),
+or content (*andrews*), but be careful not to accidently lock out too
+many sites with a wildcard.
+t messages on a mob he is fighting but not the hits of the mob on
+the player.
+
+{CTail{x works not only on players but also on mobiles. You can {Ctail{x
+any number of characters, and any number of immortals can {Ctail{x the
+same character(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax:  {Crevoke{x <{Ycharacter{x> <{Bexp{x/{Bnochannel{x/{Bflameonly{x>
          {Crevoke{x <{Ycharacter{x> <{Gchannel{x>
 
@@ -99,43 +554,491 @@ Syntax:  {Crevoke{x <{Ycharacter{x> <{Bexp{x/{Bnochannel{x/{Bflameonly{x>
 can also specify certain {Gchannels{x to remove.
 
 The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 NEWLOCK~
+92 NEWLOCK  {Crevoke{x <{Ycharacter{x> <{Bexp{x/{Bnochannel{x/{Bflameonly{x>
+         {Crevoke{x <{Ycharacter{x> <{Gchannel{x>
+
+The {Crevoke{x command completely replaces the old nochannel command, and
+expands upon it greatly.
+
+The {Bnochannel{x option prevents the victim from using any of the channels
+(gossip, philo, Q/A, music) on the game, except for {Gpray{x, {Gpage{x, {Gtell{x,
+and {Gqtell{x. Basically all public channels.  A {Bnochannel{x usually results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cnewlock{x
 
 {CNewlock{x locks out new character generation, typically used for preventing a
 spammer from returning.  Newlocking should be accompanied by mail or a note to
 the Imps.
+d, and
+expands upon it greatly.
+
+The {Bnochannel{x option prevents the victim from using any of the channels
+(gossip, philo, Q/A, music) on the game, except for {Gpray{x, {Gpage{x, {Gtell{x,
+and {Gqtell{x. Basically all public channels.  A {Bnochannel{x usually results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 FREEZE~
+92 FREEZE: {Cnewlock{x
+
+{CNewlock{x locks out new character generation, typically used for preventing a
+spammer from returning.  Newlocking should be accompanied by mail or a note to
+the Imps.
+d, and
+expands upon it greatly.
+
+The {Bnochannel{x option prevents the victim from using any of the channels
+(gossip, philo, Q/A, music) on the game, except for {Gpray{x, {Gpage{x, {Gtell{x,
+and {Gqtell{x. Basically all public channels.  A {Bnochannel{x usually results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cfreeze{x <{Yname{x>
 
 {CFreeze{x <{Ycharacter{x> is a toggle which prevents a character from issuing
 any any commands. It can be removed from within the game, so freezing a
 {Ptroublemaker{x is usually a better option than the deny command.
+ prevents the victim from using any of the channels
+(gossip, philo, Q/A, music) on the game, except for {Gpray{x, {Gpage{x, {Gtell{x,
+and {Gqtell{x. Basically all public channels.  A {Bnochannel{x usually results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 SLAY~
+92 SLAYax: {Cfreeze{x <{Yname{x>
+
+{CFreeze{x <{Ycharacter{x> is a toggle which prevents a character from issuing
+any any commands. It can be removed from within the game, so freezing a
+{Ptroublemaker{x is usually a better option than the deny command.
+ prevents the victim from using any of the channels
+(gossip, philo, Q/A, music) on the game, except for {Gpray{x, {Gpage{x, {Gtell{x,
+and {Gqtell{x. Basically all public channels.  A {Bnochannel{x usually results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cslay{x <{Ycharacter{x>
 
 {CSlay{x kills a character in cold blood, no saving throw.  Best not to use
 this command on players unless you have good reason.
 
 This command no longer works on immortals.
+y a better option than the deny command.
+ prevents the victim from using any of the channels
+(gossip, philo, Q/A, music) on the game, except for {Gpray{x, {Gpage{x, {Gtell{x,
+and {Gqtell{x. Basically all public channels.  A {Bnochannel{x usually results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 PARDON~
+92 PARDON: {Cslay{x <{Ycharacter{x>
+
+{CSlay{x kills a character in cold blood, no saving throw.  Best not to use
+this command on players unless you have good reason.
+
+This command no longer works on immortals.
+y a better option than the deny command.
+ prevents the victim from using any of the channels
+(gossip, philo, Q/A, music) on the game, except for {Gpray{x, {Gpage{x, {Gtell{x,
+and {Gqtell{x. Basically all public channels.  A {Bnochannel{x usually results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cpardon{x <{Ycharacter{x> {Gkiller{x
         {Cpardon{x <{Ycharacter{x> {Gthief{x
 
 {CPardon{x pardons a player for their crimes.  Don't {Cpardon{x a player unless
 you are sure they deserve it.  Being killed by Helga acts as an automatic
 pardon.
+nts the victim from using any of the channels
+(gossip, philo, Q/A, music) on the game, except for {Gpray{x, {Gpage{x, {Gtell{x,
+and {Gqtell{x. Basically all public channels.  A {Bnochannel{x usually results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 LOCKER STRONGBOX~
+92 LOCKER STRONGBOX{x <{Ycharacter{x> {Gkiller{x
+        {Cpardon{x <{Ycharacter{x> {Gthief{x
+
+{CPardon{x pardons a player for their crimes.  Don't {Cpardon{x a player unless
+you are sure they deserve it.  Being killed by Helga acts as an automatic
+pardon.
+nts the victim from using any of the channels
+(gossip, philo, Q/A, music) on the game, except for {Gpray{x, {Gpage{x, {Gtell{x,
+and {Gqtell{x. Basically all public channels.  A {Bnochannel{x usually results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Clocker{x    <{Yvictim{x>
         {Clocker{x    <{Yvictim{x> <{Ycommand{x> <{Yobject{x>
         {Cstrongbox{x <{Yvictim{x>
@@ -145,26 +1048,302 @@ Syntax: {Clocker{x    <{Yvictim{x>
 a command (put : get) will either put an item in a player's locker or get an
 item from a player's locker.  The {Cstrongbox{x command does the same with a
 player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 WIZLOCK~
+92 WIZLOCK {Clocker{x    <{Yvictim{x>
+        {Clocker{x    <{Yvictim{x> <{Ycommand{x> <{Yobject{x>
+        {Cstrongbox{x <{Yvictim{x>
+        {Cstrongbox{x <{Yvictim{x> <{Ycommand{x> <{Yobject{x>
+
+{CLocker{x without a command will look in a player's locker.  {CLocker{x with
+a command (put : get) will either put an item in a player's locker or get an
+item from a player's locker.  The {Cstrongbox{x command does the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cwizlock{x
 
 {CWizlock{x locks out all non-gods (i.e. level less than 92), except for 
 linkdead players who are returning.  Wizlocking should be avoided except in
 extreme circumstances.
+{CLocker{x without a command will look in a player's locker.  {CLocker{x with
+a command (put : get) will either put an item in a player's locker or get an
+item from a player's locker.  The {Cstrongbox{x command does the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 ALLOW~
+92 ALLOWx: {Cwizlock{x
+
+{CWizlock{x locks out all non-gods (i.e. level less than 92), except for 
+linkdead players who are returning.  Wizlocking should be avoided except in
+extreme circumstances.
+{CLocker{x without a command will look in a player's locker.  {CLocker{x with
+a command (put : get) will either put an item in a player's locker or get an
+item from a player's locker.  The {Cstrongbox{x command does the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Callow{x <{Ysite{x>
 
 {CAllow{x <{Ysite{x> removes a site from the ban list, if the remover is of equal
 or higher level than the immortal who originally did the ban.
 
 {SEE ALSO:{x ban, update
+ker{x without a command will look in a player's locker.  {CLocker{x with
+a command (put : get) will either put an item in a player's locker or get an
+item from a player's locker.  The {Cstrongbox{x command does the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 SNOOP~
+92 SNOOPx: {Callow{x <{Ysite{x>
+
+{CAllow{x <{Ysite{x> removes a site from the ban list, if the remover is of equal
+or higher level than the immortal who originally did the ban.
+
+{SEE ALSO:{x ban, update
+ker{x without a command will look in a player's locker.  {CLocker{x with
+a command (put : get) will either put an item in a player's locker or get an
+item from a player's locker.  The {Cstrongbox{x command does the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Csnoop{x <{Ycharacter{x>
 
 {CSnoop{x shows you a copy of all the input and output going to a character.
@@ -174,24 +1353,320 @@ Syntax: {Csnoop{x <{Ycharacter{x>
 harrassed by another.
 
 {CSnoop{x <{Yyourself{x> to cancel all outstanding snoops.
+ the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 UNDENY~
+92 UNDENY: {Csnoop{x <{Ycharacter{x>
+
+{CSnoop{x shows you a copy of all the input and output going to a character.
+The character must have an open channel.  You may snoop more than one
+character at a time.  {PRespect privacy{x.  Use snoop only if you have
+reason to believe a character may be cheating, powerleveling, or is being
+harrassed by another.
+
+{CSnoop{x <{Yyourself{x> to cancel all outstanding snoops.
+ the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cundeny{x <{Yplayer{x>
 
 {CUndeny{x removes the deny flag from a playerfile.  This must be used in
 conjunction with the {Clinkload{x command.
+.  You may snoop more than one
+character at a time.  {PRespect privacy{x.  Use snoop only if you have
+reason to believe a character may be cheating, powerleveling, or is being
+harrassed by another.
+
+{CSnoop{x <{Yyourself{x> to cancel all outstanding snoops.
+ the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-100 FRY~
+100 FRYtax: {Cundeny{x <{Yplayer{x>
+
+{CUndeny{x removes the deny flag from a playerfile.  This must be used in
+conjunction with the {Clinkload{x command.
+.  You may snoop more than one
+character at a time.  {PRespect privacy{x.  Use snoop only if you have
+reason to believe a character may be cheating, powerleveling, or is being
+harrassed by another.
+
+{CSnoop{x <{Yyourself{x> to cancel all outstanding snoops.
+ the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cfry{x <{Yvictim{x>
 
 This command will remove a playerfile with the unix rm command.
 
 It will no longer work on immortals.
+kload{x command.
+.  You may snoop more than one
+character at a time.  {PRespect privacy{x.  Use snoop only if you have
+reason to believe a character may be cheating, powerleveling, or is being
+harrassed by another.
+
+{CSnoop{x <{Yyourself{x> to cancel all outstanding snoops.
+ the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 PROTECT~
+92 PROTECT {Cfry{x <{Yvictim{x>
+
+This command will remove a playerfile with the unix rm command.
+
+It will no longer work on immortals.
+kload{x command.
+.  You may snoop more than one
+character at a time.  {PRespect privacy{x.  Use snoop only if you have
+reason to believe a character may be cheating, powerleveling, or is being
+harrassed by another.
+
+{CSnoop{x <{Yyourself{x> to cancel all outstanding snoops.
+ the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cprotect{x <{Ycharacter{x>
 
 {CProtect{x is used to protect a character from unwanted snooping.  Removing
@@ -200,9 +1675,103 @@ Syntax: {Cprotect{x <{Ycharacter{x>
 In addition, protect will also prevent a character from being forced by 
 another immortal.  It will also show any wizinvis imms to this player if
 they happen to be in the same room.
+self{x> to cancel all outstanding snoops.
+ the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-100 LOG~
+100 LOGtax: {Cprotect{x <{Ycharacter{x>
+
+{CProtect{x is used to protect a character from unwanted snooping.  Removing
+protected status from a character {RWILL{x be seen by that character.
+
+In addition, protect will also prevent a character from being forced by 
+another immortal.  It will also show any wizinvis imms to this player if
+they happen to be in the same room.
+self{x> to cancel all outstanding snoops.
+ the same with a
+player's strongbox.
+ally results
+from swearing or spamming on public channels.  The {Bflameonly{x option
+restricts said person to flame, taking note of above restrictions.  You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Clog{x <{Ycharacter{x>
         {Clog all{x
 
@@ -216,15 +1785,150 @@ Syntax: {Clog{x <{Ycharacter{x>
 
 {CLog all{x logs all character commands.  It is a server-wide toggle; it does
 not persist across reboots.  Please do not use this unless you tell the Imp.
+You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
-92 DENY UNDENY~
+92 DENY UNDENYog{x <{Ycharacter{x>
+        {Clog all{x
+
+{CLog{x <{Ycharacter{x> causes all of a character's commands to be logged into
+the server's log file.  Like Freeze, it is a permanent character toggle.
+Logs may only be used by Creator and Implementor, and should be accompanied
+by mail to the Implementor.
+
+Certain commands (Password) are protected against log.	Conversely, certain
+commands (especially immortal commands) are always logged.
+
+{CLog all{x logs all character commands.  It is a server-wide toggle; it does
+not persist across reboots.  Please do not use this unless you tell the Imp.
+You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
+~
 Syntax: {Cdeny{x   <{Yname{x>
         {Cundeny{x <{Yname{x>
 
 {CDeny{x locks a character out of a game permanently, rendering their name
 unusable.  It may only be removed by linkloading the character and using
 {Cundeny{x.
+used by Creator and Implementor, and should be accompanied
+by mail to the Implementor.
+
+Certain commands (Password) are protected against log.	Conversely, certain
+commands (especially immortal commands) are always logged.
+
+{CLog all{x logs all character commands.  It is a server-wide toggle; it does
+not persist across reboots.  Please do not use this unless you tell the Imp.
+You
+can also specify certain {Gchannels{x to remove.
+
+The {Bexp{x option prevents said person from gaining experience from kills.
+haracter(s). {CTail{x attempts to prevent loops, but please don't
+even try to {Ctail{x each other.
+
+To stop {Ctail{xing a single character, use {Ctail{x {Ycharacter{x {Cstop{x.
+To stop all your {Ctail{xs, use {Ctail stop{x.
+
+There is a known bug in {Ctail{x which causes it to display global
+socials many times instead of once. You may ask, 'why bother typing {Cact{x
+after the character's name?' This is to allow future expansion to other
+{Ctail{x options.
+er enchant{x.
+
+Drooling yet?  Of course you are.  Get out there and start finding cards!
+
+{YSEE ALSO:{x IMMLEGACIES
+ial 
+{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
+Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
+{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
+{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
+tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
+you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
+do not get any tiles or the tile holder back.  Accepted words may not be
+proper nouns, abbreviations, prefixes, or suffixes, and will be checked
+using {Cwww.m-w.com/dictionary{x.
+
+The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
+Which seems like it'll be a pretty long time.  {GEnjoy!{x
+that supports your bid for immortality. Our help file tells
+you what general topics you need to cover in order to make a good
+application. Just because you follow this help does not mean you will be
+made an immortal, but it will definitely produce an application that is
+more than and better than:
+'I know a lot about the mud. Make me an imm'
 ~
 
 -2
