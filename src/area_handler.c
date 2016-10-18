@@ -834,7 +834,6 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	mob->long_descr     = pMobIndex->long_descr;
 	mob->description    = pMobIndex->description;
 	mob->spec_fun       = pMobIndex->spec_fun;
-	mob->prompt         = NULL;
 	mob->reset      = NULL;
 
 	if (pMobIndex->wealth <= 0) {
@@ -1037,6 +1036,9 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->short_descr  = str_dup(parent->short_descr);
 	clone->long_descr   = str_dup(parent->long_descr);
 	clone->description  = str_dup(parent->description);
+	clone->material     = str_dup(parent->material);
+	clone->prefix     = str_dup(parent->prefix);
+	clone->prompt     = str_dup(parent->prompt);
 	clone->group        = parent->group;
 	clone->sex          = parent->sex;
 	clone->class        = parent->class;
@@ -1072,7 +1074,6 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->form         = parent->form;
 	clone->parts        = parent->parts;
 	clone->size         = parent->size;
-	clone->material     = str_dup(parent->material);
 	clone->off_flags    = parent->off_flags;
 	clone->dam_type     = parent->dam_type;
 	clone->start_pos    = parent->start_pos;
