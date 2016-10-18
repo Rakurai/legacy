@@ -142,19 +142,17 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	/* flags for temp weapon affects -- Elrac */
 	if (obj->item_type == ITEM_WEAPON) {
-		for (paf = obj->affected; paf; paf = paf->next) {
-			if (!paf->duration)     continue;
+		long bits = 0;
 
-			if (paf->bitvector & WEAPON_FLAMING)    strcat(buf, "{Y(Fl) ");
+		for (paf = obj->affected; paf; paf = paf->next)
+			if (paf->duration)
+				bits |= paf->bitvector;
 
-			if (paf->bitvector & WEAPON_FROST)      strcat(buf, "{C(Fr) ");
-
-			if (paf->bitvector & WEAPON_VAMPIRIC)   strcat(buf, "{P(Bl) ");
-
-			if (paf->bitvector & WEAPON_SHOCKING)   strcat(buf, "{V(Sh) ");
-
-			if (paf->bitvector & WEAPON_POISON)     strcat(buf, "{G(Po) ");
-		}
+		if (paf->bitvector & WEAPON_FLAMING)    strcat(buf, "{Y(Fl) ");
+		if (paf->bitvector & WEAPON_FROST)      strcat(buf, "{C(Fr) ");
+		if (paf->bitvector & WEAPON_VAMPIRIC)   strcat(buf, "{P(Bl) ");
+		if (paf->bitvector & WEAPON_SHOCKING)   strcat(buf, "{V(Sh) ");
+		if (paf->bitvector & WEAPON_POISON)     strcat(buf, "{G(Po) ");
 	}
 
 	/* flags for temp weapon affects and dazzling light -- Elrac */
@@ -5150,38 +5148,6 @@ void print_old_affects(CHAR_DATA *ch)
 						buf4 = one_argument(buf4, buf2);
 					}
 				}
-
-				if (!obj->enchanted) {
-					for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-						if (!IS_SET(ch->affected_by, paf->bitvector))
-							continue;
-
-						if (paf->where != TO_AFFECTS)
-							continue;
-
-						filter = paf->bitvector;
-						filter &= ch->affected_by;
-						printme = filter;
-						filter &= cheat;
-						cheat -= filter;
-
-						if (!print) {
-							add_buf(buffer, "{bYou are affected by the following equipment spells:{x\n");
-							print = TRUE;
-						}
-
-						strcpy(buf3, affect_bit_name(printme));
-						buf4 = buf3;
-						buf4 = one_argument(buf4, buf2);
-
-						while (buf2[0]) {
-							sprintf(buf, "{bSpell: %-19s:{x %s", buf2, obj->short_descr);
-							add_buf(buffer, buf);
-							add_buf(buffer, "\n");
-							buf4 = one_argument(buf4, buf2);
-						}
-					}
-				}
 			}
 		}
 
@@ -5400,47 +5366,6 @@ void print_new_affects(CHAR_DATA *ch)
 						words = one_argument(words, buf2);
 						ptb(buffer, " %s {b%-19s %s|{x %-42s %s\n",
 						    torch, buf2, border, objbuf, torch);
-					}
-				}
-
-				if (!obj->enchanted) {
-					for (paf = obj->pIndexData->affected; paf; paf = paf->next) {
-						if (paf->where != TO_AFFECTS
-						    || !IS_SET(ch->affected_by, paf->bitvector))
-							continue;
-
-						filter = paf->bitvector;
-						filter &= ch->affected_by;
-						printme = filter;
-						filter &= cheat;
-						cheat -= filter;
-
-						if (!print) {
-							if (found)
-								add_buf(buffer, breakline);
-
-							ptb(buffer, " %s {bYou are affected by the following equipment spells:            %s\n",
-							    torch, torch);
-							add_buf(buffer, breakline);
-							print = TRUE;
-						}
-
-						strcpy(objbuf, smash_bracket(obj->short_descr));
-
-						for (p = objbuf, len = 0; *p; p++)
-							if (++len > 38) {
-								*p = '\0';
-								break;
-							}
-
-						strcpy(buf, affect_bit_name(printme));
-						const char *words = buf;
-
-						while (*words) {
-							words = one_argument(words, buf2);
-							ptb(buffer, " %s {b%-19s %s|{x %-40s %s\n",
-							    torch, buf2, border, objbuf, torch);
-						}
 					}
 				}
 			}

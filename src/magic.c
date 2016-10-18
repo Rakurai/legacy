@@ -1057,7 +1057,7 @@ void spell_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.location  = APPLY_AC;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You feel someone protecting you.\n", victim);
 
 	if (ch != victim)
@@ -1086,7 +1086,7 @@ void spell_steel_mist(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	af.location  = APPLY_AC;
 	af.bitvector = AFF_STEEL;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("A veil of mist covers your armor.\n", victim);
 
 	if (ch != victim)
@@ -1125,10 +1125,10 @@ void spell_blood_moon(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	af.location  = APPLY_DAMROLL;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	af.modifier  = level / 20;
 	af.location  = APPLY_HITROLL;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You have been blessed with the power of the vampire.\n", victim);
 	stc("You are thirsty for blood.\n", victim);
 
@@ -1179,7 +1179,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		af.modifier     = -1;
 		af.bitvector    = ITEM_BLESS;
 		af.evolution = evolution;
-		affect_to_obj(obj, &af);
+		copy_affect_to_obj(obj, &af);
 		act("$p glows with a holy aura.", ch, obj, NULL, TO_ALL);
 		return;
 	}
@@ -1222,10 +1222,10 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.modifier  = level / 8;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	af.location  = APPLY_SAVING_SPELL;
 	af.modifier  = 0 - level / 8;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You feel righteous.\n", victim);
 
 	if (ch != victim)
@@ -1255,7 +1255,7 @@ void spell_blindness(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	af.duration  = 1 + level;
 	af.bitvector = AFF_BLIND;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You are blinded!\n", victim);
 	act("$n appears to be blinded.", victim, NULL, NULL, TO_ROOM);
 }
@@ -1710,9 +1710,9 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 
 		af.bitvector = AFF_CALM;
 		af.evolution = evolution;
-		affect_to_char(vch, &af);
+		copy_affect_to_char(vch, &af);
 		af.location = APPLY_DAMROLL;
-		affect_to_char(vch, &af);
+		copy_affect_to_char(vch, &af);
 	}
 }
 
@@ -1784,7 +1784,7 @@ void spell_change_sex(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 
 	af.bitvector = 0;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You feel different.\n", victim);
 	act("$n doesn't look like $mself anymore...", victim, NULL, NULL, TO_ROOM);
 	return;
@@ -1902,7 +1902,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	af.modifier  = 0;
 	af.bitvector = AFF_CHARM;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	act("Isn't $n just so nice?", ch, NULL, victim, TO_VICT);
 	act("$N looks at you with adoring eyes.", ch, NULL, victim, TO_CHAR);
 }
@@ -2390,7 +2390,7 @@ void spell_darkness(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	af.modifier  = 0;
 	af.bitvector = ROOM_NOLIGHT;
 	af.evolution = evolution;
-	affect_to_room(room, &af);
+	copy_affect_to_room(room, &af);
 }
 
 /* Divine Healing by Lotus */
@@ -2487,7 +2487,7 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		af.modifier     = +1;
 		af.bitvector    = ITEM_EVIL;
 		af.evolution = evolution;
-		affect_to_obj(obj, &af);
+		copy_affect_to_obj(obj, &af);
 		act("$p glows with a malevolent aura.", ch, obj, NULL, TO_ALL);
 		return;
 	}
@@ -2521,10 +2521,10 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.modifier  = -1 * (level / 8);
 	af.bitvector = AFF_CURSE;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	af.location  = APPLY_SAVING_SPELL;
 	af.modifier  = level / 8;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You feel unclean.\n", victim);
 
 	if (ch != victim)
@@ -2587,7 +2587,7 @@ void spell_detect_evil(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	af.location  = APPLY_NONE;
 	af.bitvector = AFF_DETECT_EVIL;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("Your eyes tingle.\n", victim);
 
 	if (ch != victim)
@@ -2616,7 +2616,7 @@ void spell_detect_good(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	af.location  = APPLY_NONE;
 	af.bitvector = AFF_DETECT_GOOD;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("Your eyes tingle.\n", victim);
 
 	if (ch != victim)
@@ -2645,7 +2645,7 @@ void spell_detect_hidden(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	af.modifier  = 0;
 	af.bitvector = AFF_DETECT_HIDDEN;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("Your awareness improves.\n", victim);
 
 	if (ch != victim)
@@ -2674,7 +2674,7 @@ void spell_detect_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	af.location  = APPLY_NONE;
 	af.bitvector = AFF_DETECT_INVIS;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("Your eyes tingle.\n", victim);
 
 	if (ch != victim)
@@ -2703,7 +2703,7 @@ void spell_detect_magic(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	af.location  = APPLY_NONE;
 	af.bitvector = AFF_DETECT_MAGIC;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("Your eyes tingle.\n", victim);
 
 	if (ch != victim)
@@ -2869,10 +2869,6 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	fail = 25;  /* base 25% chance of failure */
 
 	/* find the bonuses */
-	if (!obj->enchanted)
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-			fail += 20;
-
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		fail += 20;
 
@@ -2986,17 +2982,6 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	fail = 25;  /* base 25% chance of failure */
 
 	/* find the bonuses */
-	if (!obj->enchanted)
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-			if (paf->location == APPLY_AC) {
-				ac_bonus = paf->modifier;
-				ac_found = TRUE;
-				fail += 5 * (ac_bonus * ac_bonus);
-			}
-			else  /* things get a little harder */
-				fail += 20;
-		}
-
 	for (paf = obj->affected; paf != NULL; paf = paf->next) {
 		if (paf->location == APPLY_AC) {
 			ac_bonus = paf->modifier;
@@ -3055,26 +3040,6 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		return;
 	}
 
-	/* okay, move all the old flags into new vectors if we have to */
-	if (!obj->enchanted) {
-		AFFECT_DATA *af_new;
-		obj->enchanted = TRUE;
-
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-			af_new = new_affect();
-			af_new->next = obj->affected;
-			obj->affected = af_new;
-			af_new->where       = paf->where;
-			af_new->type        = UMAX(0, paf->type);
-			af_new->level       = paf->level;
-			af_new->duration    = paf->duration;
-			af_new->location    = paf->location;
-			af_new->modifier    = paf->modifier;
-			af_new->bitvector   = paf->bitvector;
-			af_new->evolution   = paf->evolution;
-		}
-	}
-
 	if (IS_IMMORTAL(ch)) {
 		if (IS_HEAD(ch) || number_percent() > 50) {
 			/* exceptional enchant */
@@ -3121,17 +3086,16 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		}
 	}
 	else { /* add a new affect */
-		paf = new_affect();
-		paf->where      = TO_OBJECT;
-		paf->type       = sn;
-		paf->level      = level;
-		paf->duration   = -1;
-		paf->location   = APPLY_AC;
-		paf->modifier   =  added;
-		paf->bitvector  = 0;
-		paf->evolution  = evolution;
-		paf->next       = obj->affected;
-		obj->affected   = paf;
+		AFFECT_DATA af;
+		af.where      = TO_OBJECT;
+		af.type       = sn;
+		af.level      = level;
+		af.duration   = -1;
+		af.location   = APPLY_AC;
+		af.modifier   =  added;
+		af.bitvector  = 0;
+		af.evolution  = evolution;
+		copy_affect_to_obj(obj, &af);
 	}
 }
 
@@ -3167,28 +3131,6 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	fail = 25;  /* base 25% chance of failure */
 
 	/* find the bonuses */
-	if (!obj->enchanted)
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-			if (paf->location == APPLY_HITROLL) {
-				hit_bonus = paf->modifier;
-				hit_found = TRUE;
-				fail += 2 * (hit_bonus * hit_bonus);
-
-				if (obj->item_type != ITEM_WEAPON)
-					fail += 10 * (hit_bonus * hit_bonus);
-			}
-			else if (paf->location == APPLY_DAMROLL) {
-				dam_bonus = paf->modifier;
-				dam_found = TRUE;
-				fail += 2 * (dam_bonus * dam_bonus);
-
-				if (obj->item_type != ITEM_WEAPON)
-					fail += 10 * (dam_bonus * dam_bonus);
-			}
-			else  /* things get a little harder */
-				fail += 25;
-		}
-
 	for (paf = obj->affected; paf != NULL; paf = paf->next) {
 		if (paf->location == APPLY_HITROLL) {
 			hit_bonus = paf->modifier;
@@ -3265,26 +3207,6 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		return;
 	}
 
-	/* okay, move all the old flags into new vectors if we have to */
-	if (!obj->enchanted) {
-		AFFECT_DATA *af_new;
-		obj->enchanted = TRUE;
-
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-			af_new = new_affect();
-			af_new->next = obj->affected;
-			obj->affected = af_new;
-			af_new->where       = paf->where;
-			af_new->type        = UMAX(0, paf->type);
-			af_new->level       = paf->level;
-			af_new->duration    = paf->duration;
-			af_new->location    = paf->location;
-			af_new->modifier    = paf->modifier;
-			af_new->bitvector   = paf->bitvector;
-			af_new->evolution   = paf->evolution;
-		}
-	}
-
 	if (IS_IMMORTAL(ch)) {
 		if (IS_HEAD(ch) || number_percent() > 50) {
 			/* exceptional enchant */
@@ -3340,17 +3262,16 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		}
 	}
 	else { /* add a new affect */
-		paf = new_affect();
-		paf->where      = TO_OBJECT;
-		paf->type       = sn;
-		paf->level      = level;
-		paf->duration   = -1;
-		paf->location   = APPLY_DAMROLL;
-		paf->modifier   =  added;
-		paf->bitvector  = 0;
-		paf->evolution  = evolution;
-		paf->next       = obj->affected;
-		obj->affected   = paf;
+		AFFECT_DATA af;
+		af.where      = TO_OBJECT;
+		af.type       = sn;
+		af.level      = level;
+		af.duration   = -1;
+		af.location   = APPLY_DAMROLL;
+		af.modifier   =  added;
+		af.bitvector  = 0;
+		af.evolution  = evolution;
+		copy_affect_to_obj(obj, &af);
 	}
 
 	if (hit_found) {
@@ -3366,16 +3287,16 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		}
 	}
 	else { /* add a new affect */
-		paf = new_affect();
-		paf->type       = sn;
-		paf->level      = level;
-		paf->duration   = -1;
-		paf->location   = APPLY_HITROLL;
-		paf->modifier   =  added;
-		paf->bitvector  = 0;
-		paf->evolution = evolution;
-		paf->next       = obj->affected;
-		obj->affected   = paf;
+		AFFECT_DATA af;
+		af.where      = TO_OBJECT;
+		af.type       = sn;
+		af.level      = level;
+		af.duration   = -1;
+		af.location   = APPLY_HITROLL;
+		af.modifier   =  added;
+		af.bitvector  = 0;
+		af.evolution  = evolution;
+		copy_affect_to_obj(obj, &af);
 	}
 }
 
@@ -3452,13 +3373,13 @@ void spell_fear(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 	af.modifier  = -1 * (level / 10);
 	af.bitvector = AFF_FEAR;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	af.location  = APPLY_DAMROLL;
 	af.modifier  = -1 * (level / 16);
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	af.location  = APPLY_SAVING_SPELL;
 	af.modifier  = level / 14;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("Oh Crap, you're gonna die! Run for your life!\n", victim);
 
 	if (ch != victim)
@@ -3674,7 +3595,7 @@ void spell_fireproof(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	af.modifier  = 0;
 	af.bitvector = ITEM_BURN_PROOF;
 	af.evolution = evolution;
-	affect_to_obj(obj, &af);
+	copy_affect_to_obj(obj, &af);
 	act("You protect $p from fire.", ch, obj, NULL, TO_CHAR);
 	act("$p is surrounded by a protective aura.", ch, obj, NULL, TO_ROOM);
 }
@@ -3710,7 +3631,7 @@ bool enhance_blade(CHAR_DATA *ch, OBJ_DATA *obj, int sn, int level, int bit)
 	af.modifier     = 0;
 	af.bitvector    = bit;
 	af.evolution    = get_evolution(ch, sn);
-	affect_to_obj(obj, &af);
+	copy_affect_to_obj(obj, &af);
 	return TRUE;
 }
 
@@ -3799,7 +3720,7 @@ void spell_faerie_fire(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	af.modifier  = 2 * level;
 	af.bitvector = AFF_FAERIE_FIRE;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You are surrounded by a pink outline.\n", victim);
 	act("$n is surrounded by a pink outline.", victim, NULL, NULL, TO_ROOM);
 }
@@ -3895,7 +3816,7 @@ void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 	af.modifier  = 0;
 	af.bitvector = AFF_FLYING;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("Your feet rise off the ground.\n", victim);
 	act("$n's feet rise off the ground.", victim, NULL, NULL, TO_ROOM);
 }
@@ -3938,12 +3859,12 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	af.bitvector = 0;
 	af.location  = APPLY_HITROLL;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	af.location  = APPLY_DAMROLL;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	af.modifier  = 10 * (level / 12);
 	af.location  = APPLY_AC;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You are filled with holy wrath!\n", victim);
 	act("$n gets a wild look in $s eyes!", victim, NULL, NULL, TO_ROOM);
 }
@@ -4030,7 +3951,7 @@ void spell_giant_strength(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	af.modifier  = level / 25 + 2;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("Your muscles surge with heightened power!\n", victim);
 	act("$n's muscles surge with heightened power.", victim, NULL, NULL, TO_ROOM);
 }
@@ -4095,7 +4016,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.modifier  = 0;
 	af.bitvector = AFF_HASTE;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You feel yourself moving more quickly.\n", victim);
 	act("$n is moving more quickly.", victim, NULL, NULL, TO_ROOM);
 
@@ -4554,10 +4475,6 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 		break;
 	}
 
-	if (!obj->enchanted)
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-			show_affect_to_char(paf, ch);
-
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		show_affect_to_char(paf, ch);
 
@@ -4599,7 +4516,7 @@ void spell_infravision(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	af.modifier  = 0;
 	af.bitvector = AFF_INFRARED;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("Your eyes glow red.\n", victim);
 	act("$n's eyes glow red.\n", ch, NULL, NULL, TO_ROOM);
 }
@@ -4627,7 +4544,7 @@ void spell_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		af.modifier     = 0;
 		af.bitvector    = ITEM_INVIS;
 		af.evolution = evolution;
-		affect_to_obj(obj, &af);
+		copy_affect_to_obj(obj, &af);
 		act("$p fades out of sight.", ch, obj, NULL, TO_ALL);
 		return;
 	}
@@ -4652,7 +4569,7 @@ void spell_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.modifier  = 0;
 	af.bitvector = AFF_INVISIBLE;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You fade out of existence.\n", victim);
 	act("$n fades out of existence.", victim, NULL, NULL, TO_ROOM);
 }
@@ -4872,7 +4789,7 @@ void spell_mass_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 		af.modifier  = 0;
 		af.bitvector = AFF_INVISIBLE;
 		af.evolution = evolution;
-		affect_to_char(gch, &af);
+		copy_affect_to_char(gch, &af);
 	}
 
 	stc("Ok.\n", ch);
@@ -5097,7 +5014,7 @@ void spell_pass_door(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	af.modifier  = 0;
 	af.bitvector = AFF_PASS_DOOR;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	act("$n turns translucent.", victim, NULL, NULL, TO_ROOM);
 	stc("You turn translucent.\n", victim);
 }
@@ -5164,7 +5081,7 @@ void spell_poison(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 			af.modifier  = 0;
 			af.bitvector = WEAPON_POISON;
 			af.evolution = evolution;
-			affect_to_obj(obj, &af);
+			copy_affect_to_obj(obj, &af);
 			act("$p is coated with deadly venom.", ch, obj, NULL, TO_ALL);
 			return;
 		}
@@ -5385,7 +5302,7 @@ void spell_protection_evil(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 	af.modifier  = -1;
 	af.bitvector = AFF_PROTECT_EVIL;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You feel holy and pure.\n", victim);
 
 	if (ch != victim)
@@ -5414,7 +5331,7 @@ void spell_protection_good(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 	af.modifier  = -1;
 	af.bitvector = AFF_PROTECT_GOOD;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You feel aligned with darkness.\n", victim);
 
 	if (ch != victim)
@@ -5648,7 +5565,7 @@ void spell_divine_regeneration(int sn, int level, CHAR_DATA *ch, void *vo, int t
 	af.modifier  = 0;
 	af.bitvector = AFF_DIVINEREGEN;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 
 	switch (evolution) {
 	case 1:
@@ -5697,7 +5614,7 @@ void spell_regeneration(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	af.modifier  = 0;
 	af.bitvector = AFF_REGENERATION;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 
 	switch (evolution) {
 	case 1:
@@ -5756,10 +5673,6 @@ void spell_remove_alignment(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	fail = 15;  /* base 15% chance of failure */
 
 	/* find the bonuses (Its harder to remove align from a powerful object) */
-	if (!obj->enchanted)
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-			fail += 15;
-
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		fail += 15;
 
@@ -5956,7 +5869,7 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	af.modifier  = 0;
 	af.bitvector = AFF_SANCTUARY;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 }
 
 void spell_shield(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
@@ -5981,7 +5894,7 @@ void spell_shield(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	af.modifier  = -20;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	act("$n is surrounded by a force shield.", victim, NULL, NULL, TO_ROOM);
 	stc("You are surrounded by a force shield.\n", victim);
 	return;
@@ -6023,7 +5936,7 @@ void spell_flameshield(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	af.modifier  = -20;
 	af.bitvector = AFF_FLAMESHIELD;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	act("$n is surrounded by a circle of flames.", victim, NULL, NULL,
 	    TO_ROOM);
 	stc("You are surrounded by a circle of flames.\n", victim);
@@ -6140,7 +6053,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 	af.modifier  = 0;
 	af.bitvector = AFF_SLOW;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You feel yourself slowing d o w n...\n", victim);
 	act("$n starts to move in slow motion.", victim, NULL, NULL, TO_ROOM);
 	return;
@@ -6184,7 +6097,7 @@ void spell_smokescreen(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 		af.modifier  = -4;
 		af.bitvector = AFF_BLIND;
 		af.evolution = evolution;
-		affect_to_char(ch, &af);
+		copy_affect_to_char(ch, &af);
 		stc("You lose control of the smoke and it turns on you!\n", ch);
 		act("$n conjures up a cloud of smoke and it turns on $m!", ch, NULL, NULL, TO_ROOM);
 		return;
@@ -6206,7 +6119,7 @@ void spell_smokescreen(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 			af.modifier  = -4;
 			af.bitvector = AFF_BLIND;
 			af.evolution = evolution;
-			affect_to_char(vch, &af);
+			copy_affect_to_char(vch, &af);
 			act("$n's vision is obscured by a strange cloud of smoke.", vch, NULL, NULL, TO_ROOM);
 			stc("Smoke clouds your vision.\n", vch);
 		}
@@ -6238,7 +6151,7 @@ void spell_stone_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	af.modifier  = -40;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	act("$n's skin turns to stone.", victim, NULL, NULL, TO_ROOM);
 	stc("Your skin turns to stone.\n", victim);
 	return;
@@ -6553,7 +6466,7 @@ void spell_talon(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.duration  = level / 8;
 	af.bitvector = AFF_TALON;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You hold your weapon in a vice-like grip.\n", victim);
 	act("$n is NOT letting go of $s weapon.", victim, NULL, NULL, TO_ROOM);
 	return;
@@ -6841,7 +6754,7 @@ void spell_weaken(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	af.modifier  = -1 * (level / 5);
 	af.bitvector = 0;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 } /* end spell_weaken() */
 
 /* RT recall spell is back */
@@ -7189,15 +7102,15 @@ void spell_age(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 	af.modifier  = -1 * (level / 20);
 	af.bitvector = 0;
 	af.evolution = evolution;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	af.location  = APPLY_CON;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	af.location  = APPLY_WIS;
 	af.modifier  = level / 50;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	af.location  = APPLY_AGE;
 	af.modifier  = level;
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	stc("You feel yourself grow old and frail.\n", victim);
 	act("$n looks much older.", victim, NULL, NULL, TO_ROOM);
 } /* end spell_age() */

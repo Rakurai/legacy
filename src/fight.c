@@ -3173,13 +3173,13 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.evolution    = get_evolution(ch, gsn_berserk);
 		af.modifier     = IS_NPC(ch) ? ch->level / 8 : get_true_hitroll(ch) / 5;
 		af.location     = APPLY_HITROLL;
-		affect_to_char(ch, &af);
+		copy_affect_to_char(ch, &af);
 		af.modifier     = IS_NPC(ch) ? ch->level / 8 : get_true_damroll(ch) / 5;
 		af.location     = APPLY_DAMROLL;
-		affect_to_char(ch, &af);
+		copy_affect_to_char(ch, &af);
 		af.modifier     = UMAX(10, 10 * (ch->level / 5));
 		af.location     = APPLY_AC;
-		affect_to_char(ch, &af);
+		copy_affect_to_char(ch, &af);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -3492,7 +3492,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		af.modifier     = -4;
 		af.bitvector    = AFF_BLIND;
 		af.evolution    = get_evolution(ch, gsn_dirt_kicking);
-		affect_to_char(victim, &af);
+		copy_affect_to_char(victim, &af);
 	}
 	else {
 		act("Your kicked dirt MISSES $N!", ch, NULL, victim, TO_CHAR);
@@ -3993,7 +3993,7 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = AFF_CHARM;
 	af.evolution = get_evolution(ch, gsn_sing);
-	affect_to_char(victim, &af);
+	copy_affect_to_char(victim, &af);
 	act("Isn't $n's music beautiful?", ch, NULL, victim, TO_VICT);
 
 	if (ch != victim)
@@ -4843,18 +4843,6 @@ void eqcheck(CHAR_DATA *ch)
 				if (!IS_SET(ch->affected_by, filter) && paf->where == TO_AFFECTS)
 					SET_BIT(ch->affected_by, paf->bitvector);
 			}
-
-			if (!obj->enchanted) {
-				for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-					filter = paf->bitvector;
-					filter = !filter;
-					filter |= ch->affected_by;
-					filter = !filter;
-
-					if (!IS_SET(ch->affected_by, filter) && paf->where == TO_AFFECTS)
-						SET_BIT(ch->affected_by, paf->bitvector);
-				}
-			}
 		}
 	}
 } /* end eqcheck */
@@ -4941,10 +4929,10 @@ void do_hammerstrike(CHAR_DATA *ch, const char *argument)
 		af.evolution    = get_evolution(ch, gsn_hammerstrike);
 		af.modifier     = get_true_hitroll(ch) / 4;
 		af.location     = APPLY_HITROLL;
-		affect_to_char(ch, &af);
+		copy_affect_to_char(ch, &af);
 		af.modifier     = get_true_damroll(ch) / 4;
 		af.location     = APPLY_DAMROLL;
-		affect_to_char(ch, &af);
+		copy_affect_to_char(ch, &af);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);

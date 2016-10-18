@@ -15,7 +15,6 @@
 
 void unique_item(OBJ_DATA *item)
 {
-	AFFECT_DATA *paf, *af_new;
 	bool added = FALSE;
 
 	if (number_range(1, 50) != 1)
@@ -165,32 +164,17 @@ void unique_item(OBJ_DATA *item)
 
 		item->enchanted = TRUE;
 
-		/* move affects into new vectors, add to existing affect if it exists */
-		for (paf = item->pIndexData->affected; paf != NULL; paf = paf->next) {
-			af_new = new_affect();
-			af_new->next = item->affected;
-			item->affected = af_new;
-			af_new->where           = paf->where;
-			af_new->type            = UMAX(0, paf->type);
-			af_new->level           = paf->level;
-			af_new->duration        = paf->duration;
-			af_new->location        = paf->location;
-			af_new->modifier        = paf->modifier;
-			af_new->bitvector       = paf->bitvector;
-			af_new->evolution       = paf->evolution;
-		}
+		AFFECT_DATA af;
+		af.where      = TO_OBJECT;
+		af.type       = 0;
+		af.level      = item->level;
+		af.duration   = -1;
+		af.location   = loc;
+		af.modifier   = mod;
+		af.bitvector  = 0;
+		af.evolution  = 1;
+		copy_affect_to_obj(item, &af);
 
-		paf = new_affect();
-		paf->where      = TO_OBJECT;
-		paf->type       = 0;
-		paf->level      = item->level;
-		paf->duration   = -1;
-		paf->location   = loc;
-		paf->modifier   = mod;
-		paf->bitvector  = 0;
-		paf->evolution  = 1;
-		paf->next       = item->affected;
-		item->affected  = paf;
 		added = TRUE;
 	}
 	/* value */
@@ -434,23 +418,6 @@ void unique_item(OBJ_DATA *item)
 		                }
 
 		*/
-		if (!item->enchanted) {
-			item->enchanted = TRUE;
-
-			for (paf = item->pIndexData->affected; paf != NULL; paf = paf->next) {
-				af_new = new_affect();
-				af_new->next = item->affected;
-				item->affected = af_new;
-				af_new->where           = paf->where;
-				af_new->type            = UMAX(0, paf->type);
-				af_new->level           = paf->level;
-				af_new->duration        = paf->duration;
-				af_new->location        = paf->location;
-				af_new->modifier        = paf->modifier;
-				af_new->bitvector       = paf->bitvector;
-				af_new->evolution       = paf->evolution;
-			}
-		}
 
 		/* enable below 2 lines for testing */
 		/*              sprintf(buf,"%s, in room %d",item->short_descr, item->in_room == NULL ? 0 : item->in_room->vnum);
@@ -1026,7 +993,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 				af.location  = maff_table[i].loc;
 				af.modifier  = maff_table[i].mod;
 				af.bitvector = maff_table[i].bit;
-				affect_to_char(mob, &af);
+				copy_affect_to_char(mob, &af);
 			}
 	}
 	/* give em some stamina -- Montrey */
@@ -1132,7 +1099,7 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 
 	/* now add the affects */
 	for (paf = parent->affected; paf != NULL; paf = paf->next)
-		affect_to_char(clone, paf);
+		copy_affect_to_char(clone, paf);
 }
 
 /*
@@ -1168,9 +1135,9 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 	obj->enchanted      = FALSE;
 	obj->level          = pObjIndex->level;
 	obj->wear_loc       = -1;
-	obj->name           = pObjIndex->name;
-	obj->short_descr    = pObjIndex->short_descr;
-	obj->description    = pObjIndex->description;
+	obj->name           = str_dup(pObjIndex->name);
+	obj->short_descr    = str_dup(pObjIndex->short_descr);
+	obj->description    = str_dup(pObjIndex->description);
 	obj->material       = str_dup(pObjIndex->material);
 	obj->condition      = pObjIndex->condition;
 	obj->item_type      = pObjIndex->item_type;
@@ -1242,8 +1209,8 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 	}
 
 	for (paf = pObjIndex->affected; paf != NULL; paf = paf->next)
-		if (paf->location == APPLY_SPELL_AFFECT)
-			affect_to_obj(obj, paf);
+//		if (paf->location == APPLY_SPELL_AFFECT)  now all affects are copied -- Montrey
+			copy_affect_to_obj(obj, paf);
 
 	obj->next           = object_list;
 	object_list         = obj;
@@ -1282,7 +1249,7 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->enchanted    = parent->enchanted;
 
 	for (paf = parent->affected; paf != NULL; paf = paf->next)
-		affect_to_obj(clone, paf);
+		copy_affect_to_obj(clone, paf);
 
 	/* extended desc */
 	for (ed = parent->extra_descr; ed != NULL; ed = ed->next) {

@@ -571,53 +571,6 @@ void reset_char(CHAR_DATA *ch)
 		for (i = 0; i < 4; i++)
 			ch->armor_a[i] -= apply_ac(obj, loc, i);
 
-		if (!obj->enchanted)
-			for (af = obj->pIndexData->affected; af != NULL; af = af->next) {
-				mod = af->modifier;
-
-				switch (af->location) {
-				case APPLY_STR:         ch->mod_stat[STAT_STR]  += mod; break;
-
-				case APPLY_DEX:         ch->mod_stat[STAT_DEX]  += mod; break;
-
-				case APPLY_INT:         ch->mod_stat[STAT_INT]  += mod; break;
-
-				case APPLY_WIS:         ch->mod_stat[STAT_WIS]  += mod; break;
-
-				case APPLY_CON:         ch->mod_stat[STAT_CON]  += mod; break;
-
-				case APPLY_CHR:         ch->mod_stat[STAT_CHR]  += mod; break;
-
-				case APPLY_SEX:         ch->sex                 += mod; break;
-
-				case APPLY_MANA:        ch->max_mana            += mod; break;
-
-				case APPLY_HIT:         ch->max_hit             += mod; break;
-
-				case APPLY_STAM:        ch->max_stam            += mod; break;
-
-				case APPLY_AC:
-					for (i = 0; i < 4; i ++)
-						ch->armor_m[i] += mod;
-
-					break;
-
-				case APPLY_HITROLL:     ch->hitroll             += mod; break;
-
-				case APPLY_DAMROLL:     ch->damroll             += mod; break;
-
-				case APPLY_SAVES:       ch->saving_throw        += mod; break;
-
-				case APPLY_SAVING_ROD:  ch->saving_throw        += mod; break;
-
-				case APPLY_SAVING_PETRI: ch->saving_throw        += mod; break;
-
-				case APPLY_SAVING_BREATH: ch->saving_throw       += mod; break;
-
-				case APPLY_SAVING_SPELL: ch->saving_throw        += mod; break;
-				}
-			}
-
 		for (af = obj->affected; af != NULL; af = af->next) {
 			mod = af->modifier;
 
@@ -947,20 +900,6 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 
 				if (found_dup)
 					break;
-
-				if (obj->enchanted)
-					continue;
-
-				for (saf = obj->pIndexData->affected; saf != NULL; saf = saf->next)
-					if (saf != paf
-					    && saf->where == paf->where
-					    && saf->bitvector == paf->bitvector) {
-						found_dup = TRUE;
-						break;
-					}
-
-				if (found_dup)
-					break;
 			}
 
 		/* last but not least, their raffects, if applicable */
@@ -1053,7 +992,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 /*
  * Give an affect to a char.
  */
-void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
+void copy_affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new;
 	paf_new = new_affect();
@@ -1065,7 +1004,7 @@ void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 }
 
 /* give an affect to an object */
-void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
+void copy_affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new;
 	paf_new = new_affect();
@@ -1091,7 +1030,7 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 }
 
 /* Give an affect to a room */
-void affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
+void copy_affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new;
 	paf_new         = new_affect();
@@ -1274,7 +1213,7 @@ void affect_combine(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 	}
 
-	affect_to_char(ch, paf);
+	copy_affect_to_char(ch, paf);
 	return;
 }
 
@@ -1295,7 +1234,7 @@ void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 	}
 
-	affect_to_char(ch, paf);
+	copy_affect_to_char(ch, paf);
 	return;
 }
 
@@ -1674,20 +1613,9 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	obj->wear_loc = iWear;
 
-	if (!obj->enchanted)
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-			if (paf->location != APPLY_SPELL_AFFECT)
-				affect_modify(ch, paf, TRUE);
-
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		if (paf->location == APPLY_SPELL_AFFECT)
-			affect_to_char(ch, paf);
-		else
-			affect_modify(ch, paf, TRUE);
-
-	for (paf = obj->gem_affected; paf != NULL; paf = paf->next)
-		if (paf->location == APPLY_SPELL_AFFECT)
-			affect_to_char(ch, paf);
+			copy_affect_to_char(ch, paf);
 		else
 			affect_modify(ch, paf, TRUE);
 
@@ -1721,24 +1649,6 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 		ch->armor_a[i]    += apply_ac(obj, obj->wear_loc, i);
 
 	obj->wear_loc        = -1;
-
-	if (!obj->enchanted)
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-			if (paf->location == APPLY_SPELL_AFFECT) {
-				for (lpaf = ch->affected; lpaf != NULL; lpaf = lpaf_next) {
-					lpaf_next = lpaf->next;
-
-					if ((lpaf->type == paf->type) &&
-					    (lpaf->level == paf->level) &&
-					    (lpaf->location == APPLY_SPELL_AFFECT)) {
-						affect_remove(ch, lpaf);
-						lpaf_next = NULL;
-					}
-				}
-			}
-			else
-				affect_modify(ch, paf, FALSE);
-		}
 
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		if (paf->location == APPLY_SPELL_AFFECT) {
@@ -3752,11 +3662,6 @@ int get_true_hitroll(CHAR_DATA *ch)
 		if ((obj = get_eq_char(ch, loc)) == NULL)
 			continue;
 
-		if (!obj->enchanted)
-			for (af = obj->pIndexData->affected; af != NULL; af = af->next)
-				if (af->location == APPLY_HITROLL)
-					hitroll += af->modifier;
-
 		for (af = obj->affected; af != NULL; af = af->next)
 			if (af->location == APPLY_HITROLL)
 				hitroll += af->modifier;
@@ -3779,11 +3684,6 @@ int get_true_damroll(CHAR_DATA *ch)
 	for (loc = 0; loc < MAX_WEAR; loc++) {
 		if ((obj = get_eq_char(ch, loc)) == NULL)
 			continue;
-
-		if (!obj->enchanted)
-			for (af = obj->pIndexData->affected; af != NULL; af = af->next)
-				if (af->location == APPLY_DAMROLL)
-					damroll += af->modifier;
 
 		for (af = obj->affected; af != NULL; af = af->next)
 			if (af->location == APPLY_DAMROLL)
@@ -3862,11 +3762,6 @@ int get_age_mod(CHAR_DATA *ch)
 	for (loc = 0; loc < MAX_WEAR; loc++) {
 		if ((obj = get_eq_char(ch, loc)) == NULL)
 			continue;
-
-		if (!obj->enchanted)
-			for (af = obj->pIndexData->affected; af; af = af->next)
-				if (af->location == APPLY_AGE)
-					age += af->modifier;
 
 		for (af = obj->affected; af; af = af->next)
 			if (af->location == APPLY_AGE)

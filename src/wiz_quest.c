@@ -21,7 +21,6 @@ DECLARE_DO_FUN(do_switch);
 void do_addapply(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	AFFECT_DATA *paf, *af_new;
 	char arg1[MAX_INPUT_LENGTH];
 	char arg2[MAX_INPUT_LENGTH];
 	char arg3[MAX_INPUT_LENGTH];
@@ -88,27 +87,12 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 	else
 		duration = atoi(arg4);
 
-	if (!obj->enchanted) {
-		obj->enchanted = TRUE;
-
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next) {
-			af_new = new_affect();
-			af_new->next = obj->affected;
-			obj->affected = af_new;
-			af_new->where           = paf->where;
-			af_new->type            = UMAX(0, paf->type);
-			af_new->level           = paf->level;
-			af_new->duration        = paf->duration;
-			af_new->location        = paf->location;
-			af_new->modifier        = paf->modifier;
-			af_new->bitvector       = paf->bitvector;
-			af_new->evolution       = paf->evolution;
-		}
-	}
-
 	stc("Ok.\n", ch);
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+	obj->enchanted = TRUE;
+
+	// modify existing value?
+	for (AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next)
 		if (paf->location == enchant_type) {
 			paf->level      = ch->level;
 			paf->duration   = duration;
@@ -116,17 +100,17 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-	paf = new_affect();
-	paf->where      = TO_OBJECT;
-	paf->type       = 0;
-	paf->level      = ch->level;
-	paf->duration   = duration;
-	paf->location   = enchant_type;
-	paf->modifier   = affect_modify;
-	paf->bitvector  = 0;
-	paf->evolution  = 1;
-	paf->next       = obj->affected;
-	obj->affected   = paf;
+	// add a new one
+	AFFECT_DATA af;
+	af.where      = TO_OBJECT;
+	af.type       = 0;
+	af.level      = ch->level;
+	af.duration   = duration;
+	af.location   = enchant_type;
+	af.modifier   = affect_modify;
+	af.bitvector  = 0;
+	af.evolution  = 1;
+	copy_affect_to_obj(obj, &af);
 }
 
 /* Addspell command by Demonfire */

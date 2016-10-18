@@ -1632,7 +1632,7 @@ void do_envenom(CHAR_DATA *ch, const char *argument)
 			af.modifier  = 0;
 			af.bitvector = WEAPON_POISON;
 			af.evolution = get_evolution(ch, gsn_envenom);
-			affect_to_obj(obj, &af);
+			copy_affect_to_obj(obj, &af);
 			act("$n coats $p with deadly venom.", ch, obj, NULL, TO_ROOM);
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, gsn_envenom, TRUE, 3);
@@ -2687,11 +2687,6 @@ bool acceptable_sac(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC) || IS_OBJ_STAT(obj, ITEM_NOSAC)) {
 		ptc(ch, "%s is not an acceptable sacrifice.\n", capitalize(obj->short_descr));
-		return FALSE;
-	}
-
-	if (obj->enchanted) {
-		stc("You are too cheap to sacrifice such a valuable item.\n", ch);
 		return FALSE;
 	}
 

@@ -535,11 +535,6 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 		if ((obj = get_eq_char(ch, loc)) == NULL)
 			continue;
 
-		if (!obj->enchanted)
-			for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-				if (paf->where == TO_AFFECTS && paf->location != APPLY_SPELL_AFFECT)
-					affect_modify(ch, paf, TRUE);
-
 		for (paf = obj->affected; paf != NULL; paf = paf->next)
 			if (paf->where == TO_AFFECTS)
 				affect_modify(ch, paf, TRUE);

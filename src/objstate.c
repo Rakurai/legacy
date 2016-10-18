@@ -116,19 +116,21 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
 		fprintf(fp, "V %d %d %d %d %d\n",
 		        obj->value[0], obj->value[1], obj->value[2], obj->value[3], obj->value[4]);
 
-	for (paf = obj->affected; paf; paf = paf->next) {
-		if (paf->type < 0 || paf->type >= MAX_SKILL)
-			continue;
+	if (obj->enchanted) {
+		for (paf = obj->affected; paf; paf = paf->next) {
+			if (paf->type < 0 || paf->type >= MAX_SKILL)
+				continue;
 
-		fprintf(fp, "A '%s' %3d %3d %3d %3d %3d %10d %d\n",
-		        skill_table[paf->type].name,
-		        paf->where,
-		        paf->level,
-		        paf->duration,
-		        paf->modifier,
-		        paf->location,
-		        paf->bitvector,
-		        paf->evolution ? paf->evolution : 1);
+			fprintf(fp, "A '%s' %3d %3d %3d %3d %3d %10d %d\n",
+			        skill_table[paf->type].name,
+			        paf->where,
+			        paf->level,
+			        paf->duration,
+			        paf->modifier,
+			        paf->location,
+			        paf->bitvector,
+			        paf->evolution ? paf->evolution : 1);
+		}
 	}
 
 	for (ed = obj->extra_descr; ed; ed = ed->next)
