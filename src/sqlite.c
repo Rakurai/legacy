@@ -160,8 +160,10 @@ char *db_esc(const char *string)
 	while (string[i] != '\0') {
 		if (string[i] == '\'')
 			buf[j++] = '\'';
-		else if (string[i] == '\"')
-			buf[j++] = '\"';
+// only for mysql compatibility?  don't use double quotes in queries,
+// and don't double them here
+//		else if (string[i] == '\"') 
+//			buf[j++] = '\"';
 
 		buf[j++] = string[i++];
 	}
