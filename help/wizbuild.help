@@ -1,508 +1,36 @@
-92 MPSTAT: {Cgrantlist{x [{Yplayer{x]
-
-This command displays the commands which have been granted to
-you. If you are an immortal, you may check the granted commands
-of other players.
-access to 32 commands.
-
-Please note that {Ycommand{x must be spelled out. Please
-use "wizhelp", for example, rather than "wizh".
-
-Access to the command may be revoked using the {Yremove{x flag.
-aracters.
- raff{x     <{Ychar{x>   <{Yoption{x>
-        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 MPSTAT~
 Syntax: {Cmpstat{x <{Ymobile{x>
 
 This command will list some basic info about the mobile and the mob
 program associated with that mobile.
-k the granted commands
-of other players.
-access to 32 commands.
-
-Please note that {Ycommand{x must be spelled out. Please
-use "wizhelp", for example, rather than "wizh".
-
-Access to the command may be revoked using the {Yremove{x flag.
-aracters.
- raff{x     <{Ychar{x>   <{Yoption{x>
-        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 ROOM AREA BUILDING <{Ymobile{x>
-
-This command will list some basic info about the mobile and the mob
-program associated with that mobile.
-k the granted commands
-of other players.
-access to 32 commands.
-
-Please note that {Ycommand{x must be spelled out. Please
-use "wizhelp", for example, rather than "wizh".
-
-Access to the command may be revoked using the {Yremove{x flag.
-aracters.
- raff{x     <{Ychar{x>   <{Yoption{x>
-        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 ROOM AREA BUILDING~
 {CImmortal{x additions to the ROOM helpfile:
 
 {PPersonal rooms{x, when placed {Woutside{x of a clanhall, should be discussed
 {PAHEAD{x of time with the head {Cbuilder{x, or an {PI{Ym{Gp{Bl{Ve{Pm{Ye{Gn{Bt{Vo{Pr{x.  There are areas
 in the mud that cannot have personal rooms, for example around Annabus,
 the Flaming Sword, or shops.
-nd may be revoked using the {Yremove{x flag.
-aracters.
- raff{x     <{Ychar{x>   <{Yoption{x>
-        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 EXITSortal{x additions to the ROOM helpfile:
-
-{PPersonal rooms{x, when placed {Woutside{x of a clanhall, should be discussed
-{PAHEAD{x of time with the head {Cbuilder{x, or an {PI{Ym{Gp{Bl{Ve{Pm{Ye{Gn{Bt{Vo{Pr{x.  There are areas
-in the mud that cannot have personal rooms, for example around Annabus,
-the Flaming Sword, or shops.
-nd may be revoked using the {Yremove{x flag.
-aracters.
- raff{x     <{Ychar{x>   <{Yoption{x>
-        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 EXITS~
 Syntax: {Cexits in{x
 
 This is an imm-only command that tells you which rooms exit into your
 current location and which portals lead there.  This is helpful with
 rooms that are not connected with two-way exits.
-  There are areas
-in the mud that cannot have personal rooms, for example around Annabus,
-the Flaming Sword, or shops.
-nd may be revoked using the {Yremove{x flag.
-aracters.
- raff{x     <{Ychar{x>   <{Yoption{x>
-        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 ROOMEXITSCexits in{x
-
-This is an imm-only command that tells you which rooms exit into your
-current location and which portals lead there.  This is helpful with
-rooms that are not connected with two-way exits.
-  There are areas
-in the mud that cannot have personal rooms, for example around Annabus,
-the Flaming Sword, or shops.
-nd may be revoked using the {Yremove{x flag.
-aracters.
- raff{x     <{Ychar{x>   <{Yoption{x>
-        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 ROOMEXITS~
 Syntax: {Croomexits{x
 
 This command shows all exits into and out of the room that you are in,
 and the vnums of the room that connect.  <> denote two way exits, while
 a > or a < denotes a one way exit.    
-ts.
-  There are areas
-in the mud that cannot have personal rooms, for example around Annabus,
-the Flaming Sword, or shops.
-nd may be revoked using the {Yremove{x flag.
-aracters.
- raff{x     <{Ychar{x>   <{Yoption{x>
-        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 EXITLIST{Croomexits{x
-
-This command shows all exits into and out of the room that you are in,
-and the vnums of the room that connect.  <> denote two way exits, while
-a > or a < denotes a one way exit.    
-ts.
-  There are areas
-in the mud that cannot have personal rooms, for example around Annabus,
-the Flaming Sword, or shops.
-nd may be revoked using the {Yremove{x flag.
-aracters.
- raff{x     <{Ychar{x>   <{Yoption{x>
-        {Cset extra{x    <{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 EXITLIST~
 Syntax: {Cexitlist{x
 
 Lists information about exits to and from your current area.
@@ -516,108 +44,9 @@ Syntax: {Cexitlist{x
 8543 The Gathering is a vnum/room in a connecting area
 
 {YSEE ALSO:{x 'exits in' and 'roomexit'
-{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 SEDITx: {Cexitlist{x
-
-Lists information about exits to and from your current area.
-
-Example:
- 3370 The School of Skills       <> 8543 The Gathering             (Playpen )
-The < means that 8543 connects to 3370
-The > means that 3370 connects to 8543
-(Playpen ) is the connecting area's name
-3370 The School of Skills is a vnum/room in your current area
-8543 The Gathering is a vnum/room in a connecting area
-
-{YSEE ALSO:{x 'exits in' and 'roomexit'
-{Ychar{x>   <{Yskill{x>
-
-The {Cset{x command is used to change the numerical values of the various data
-structures. Type {Cset{x <{Yclass{x> without an argument to see a listing of options.
-{VSet skill{x all (pc's only) will {Cset{x all the character's skills to the value
-given.	Use string to change the strings on an object or mobile.
-
-{YSEE ALSO:{x string, stat
-ivate rooms are not violated.
-me <{Ynew keywords{x>
-{Cstring mob{x <{Yone of the mob's current keyword{x>    name <{Ynew keywords{x>
-
-{PNote: {WYou can also string room names:{x
-{Cstring room{x <{Yvnum{x> name <{Ynew name{x>
-athers have used some
-          flags they forgot to document, and it took this command to
-          find them.
-nsion to other
-{Ctail{x options.
-er enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 SEDIT~
 Syntax:  {Csedit delete         {W<{Vsocial{W>
          {Csedit new            {W<{Vsocial{W>
          {Csedit show           {W<{Vsocial{W>
@@ -681,68 +110,7 @@ Syntax:  {Csedit delete         {W<{Vsocial{W>
 {cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-100 100 CEDIT{Csedit delete         {W<{Vsocial{W>
-         {Csedit new            {W<{Vsocial{W>
-         {Csedit show           {W<{Vsocial{W>
-         {Csedit {W<{Ystring-name{W>  <{Vsocial{W> {W[{Gstring{W]{x
-
-{CSEDIT{x allows online creation, deletion and editting of socials.
-
-{CSEDIT DELETE{x <social> deletes that social. The deletion is irrecoverable,
-save for restoring a backup file, so use this command with great care!
-
-{CSEDIT NEW <social>{x creates a new, empty social.
-
-{CSEDIT SHOW <social>{x shows all of the strings for that social.
-
-{CSEDIT <string-name> <social> [string]{x changes a certain of the 7 strings that
-make up a social. If you leave out the string, no message will be sent to
-the involved characters.
-
-There are 7 strings that make up a social:
-{Ycnoarg: Sent to character when no argument typed.
-onoarg: Sent to others in the room when no argument is given.
-cfound: Sent to the character if a target is found.
-vfound: Sent to the victim.
-ofound: Sent to others in room, if target is found.
-cself : Sent to the character if the target is self.
-oself : Sent to others in room when a player targets themselves.{x
-
-To get the player names and sexes correct, you need to use those macros:
-
-{c/{GItem      {c/{BFor Char	{c/{PFor Victim
-{c|----------------------------------\
-{c|{Gname       {B$n           {P$N        {c|
-{c|{Ghe/she     {B$e           {P$E        {c|
-{c|{Ghim/her    {B$m           {P$M        {c|
-{c|{Ghis/hers   {B$s           {P$S{x        {c|
-{c|{G(his/her)                         {c|
-{c\----------------------------------/
-
-So, to make a new social called 'epoke' which would poke eyes out, you would
-do the following:
-
-{WSEDIT NEW epoke
-SEDIT cnoarg epoke Poke whose eyes out?
-SEDIT onoarg epoke $n looks for a pair of eyes to poke out.
-SEDIT cfound epoke You poke $N's eyes out!
-SEDIT vfound epoke $n pokes your eyes out! Ouch..
-SEDIT ofound epoke $n pokes $N's eyes out!
-SEDIT cself  epoke Being bored, you poke your own eyes out.
-SEDIT oself  epoke $n pokes $s eyes out!{x
-
-To get more examples, type {GSEDIT SHOW <social-name>{x to see one of the
-existing socials.
-
-The socials are stored in a file called socials.txt. Manual editting of
-that file is not advised. A frequent back-up is recommended. The social
-file is updated by the server as soon as anything changes.  Because of
-this code, there is no longer any option for if the player you try to
-do the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+100 100 CEDIT~
 Syntax:  {Pcedit delete         {W<{Vclan{W>
          {Pcedit new            {W<{Vclan{W>
 	 {Pcedit show           {W<{Vclan{W>
@@ -775,29 +143,6 @@ Syntax:  {Pcedit delete         {W<{Vclan{W>
 
 {PWARNING: DO NOT CREATE CLANS JUST FOR FUN! THIS WILL BE PUNISHED WITH A
          DEMOTION!{x
-ial called 'epoke' which would poke eyes out, you would
-do the following:
-
-{WSEDIT NEW epoke
-SEDIT cnoarg epoke Poke whose eyes out?
-SEDIT onoarg epoke $n looks for a pair of eyes to poke out.
-SEDIT cfound epoke You poke $N's eyes out!
-SEDIT vfound epoke $n pokes your eyes out! Ouch..
-SEDIT ofound epoke $n pokes $N's eyes out!
-SEDIT cself  epoke Being bored, you poke your own eyes out.
-SEDIT oself  epoke $n pokes $s eyes out!{x
-
-To get more examples, type {GSEDIT SHOW <social-name>{x to see one of the
-existing socials.
-
-The socials are stored in a file called socials.txt. Manual editting of
-that file is not advised. A frequent back-up is recommended. The social
-file is updated by the server as soon as anything changes.  Because of
-this code, there is no longer any option for if the player you try to
-do the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
 -2

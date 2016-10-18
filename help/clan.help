@@ -1,47 +1,4 @@
-0 CLANntax: {Ycritical blow{x
-
-One of the ranger's many strengths is his perceptive eye in analyzing
-situations, areas, or others.  This skill uses that perception to
-look for a weakness in an opponent so that they may mortally wound
-them in a single strike.  Even if the blow misses, it does some
-damage, and as an opponent gets weaker and weaker, it becomes easier
-to critical blow them.
-
-{GREMORT CLASS: {YRanger{x
- 
-
-{GREMORT CLASS: {YPaladin{x
-, you will not be able to assume a shadow form on the victim again.
-
-{GREMORT CLASS: {YThief{x
-ncrease and 
-you may be able to learn more extraclass skills.  
-
-Extraclass by itself shows you the all the skills and spells you may
-gain, what class they are from, and how many trains it will cost.
-  {c|{GDazzle         {c|{PStops combat by blinding your opponent    {c\{x
-{c\              |{GBarrier        {c|{POffers extra protection from damage       {c/{x
-{c/              |{GFull Heal      {c|{PComplete recovery from wounds             {c\{x
-{c\ {BThief        {c|{GHone           {c|{PSharpen weapons to a razor edge           {c/{x
-{c/              |{GShadow Form    {c|{PAn extra set of backstabs in combat       {c\{x
-{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
-{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
-{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
-{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
-{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
-{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
-{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
-{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
-{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
-{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
-{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
-{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
-{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
-{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
-{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
-{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
-{c\=========================================================================/{x
-~
+0 CLAN~
 A {PClan{x is a family with a collection of players, united to follow
 and further a common cause.   Each {PClan{x has rules and regulations, to find
 out more about Clans and their '{Gbeliefs{x' type "{Phelp{x <{Yclan name{x>".
@@ -62,65 +19,9 @@ A {PClan{x is a family with a collection of players, united to follow
 
    {PClans{x may on occasion engage in {RClan Wars{x. There are detailed and
 explicit rules for conduct of a {RClan War{x. Type help '{YCLANWAR{X' to see them.
-ckstabs in combat       {c\{x
-{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
-{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
-{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
-{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
-{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
-{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
-{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
-{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
-{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
-{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
-{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
-{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
-{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
-{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
-{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
-{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
-{c\=========================================================================/{x
 ~
 
-0 STARTCLAN FOUNDINGmily with a collection of players, united to follow
-and further a common cause.   Each {PClan{x has rules and regulations, to find
-out more about Clans and their '{Gbeliefs{x' type "{Phelp{x <{Yclan name{x>".
-To join a {PClan{x you  must be at or above level 15.  Speak to a {PClan Leader{x 
-or a {BClan Deputy{x about joining; however, if you are unable to speak to them, 
-please note them that you wish to join their {PClan{x.
-
-   If you find you have joined the wrong {Pclan{x for some reason, you may
-be expelled from your {PClan{x and be free to look around for another {PClan{x
-
-   Joining a {PClan{x is a dangerous step.   Many adventurers live to
-kill and torture others and chances are that your paths will cross.
-Remember, attacking or killing fellow {PClan members{x is generally frowned upon,
-and may bring {Ph{Ra{Pr{Rs{Ph{x punishment upon you from your clan leaders.{x
-
-   If you want to create a clan, check out {YHELP STARTCLAN{x for more
-information.
-
-   {PClans{x may on occasion engage in {RClan Wars{x. There are detailed and
-explicit rules for conduct of a {RClan War{x. Type help '{YCLANWAR{X' to see them.
-ckstabs in combat       {c\{x
-{c\              |{GMidnight       {c|{PIncreased invisibility                    {c/{x
-{c/ {BWarrior      {c|{GFourth Attack  {c|{PAllows one additional attack in combat    {c\{x
-{c\              |{GRiposte        {c|{PStrike back after a successful parry      {c/{x
-{c/              |{GRage           {c|{PAttack everything in the room             {c\{x
-{c\ {BNecromancer  {c|{GHex            {c|{PAttacks are drawn to your opponent's skin {c/{x
-{c/              |{GPain           {c|{PInflict mind-numbing pain on your victim  {c\{x
-{c\              |{GSap            {c|{PTransfers health from your victim to you  {c/{x
-{c/ {BPaladin      {c|{GForce Shield   {c|{PCompletely stops some attacks             {c\{x
-{c\              |{GHammerstrike   {c|{PIncreases your hitroll and damroll        {c/{x
-{c/              |{GHoly Sword     {c|{PSummon a godly blade                      {c\{x
-{c\ {BBard         {c|{GDual Second    {c|{PStrike again with your second weapon      {c/{x
-{c/              |{GAlign          {c|{PSwitch your alignment at will             {c\{x
-{c\              |{GBlur           {c|{PDodge attacks with lightning speed        {c/{x
-{c/ {BRanger       {c|{GMark/Relocate  {c|{PReturn to a remembered place              {c\{x
-{c\              |{GStandfast      {c|{PFirm footing in any terrain               {c/{x
-{c/              |{GCritical Blow  {c|{PFinish a wounded opponent with one hit    {c\{x
-{c\=========================================================================/{x
-~
+0 STARTCLAN FOUNDING~
 At {BL{Ce{gg{Wa{Cc{By{x, enhancing your experience with role-playing is one of the
 many aspects of making this the best possible mud you will ever find.
 Joining an existing clan, or starting your own, can be a very 
@@ -179,63 +80,7 @@ At {BL{Ce{gg{Wa{Cc{By{x, enhancing your experience with role-playing is one of t
 {YSEE ALSO:{x Help CEQ, Help Chall
 ~
 
-0 CLANHALLS CHALL{Cc{By{x, enhancing your experience with role-playing is one of the
-many aspects of making this the best possible mud you will ever find.
-Joining an existing clan, or starting your own, can be a very 
-rewarding experience for most players.  However, to ensure and
-preserve the clan system's quality as a whole, there is a system to
-starting a new clan.
-
-{W1.{x Your clan must have a {Ppurpose{x.  All clans should be {Vrole-play 
-   oriented{x, and it's {Gname{x and {Ybackground{x must reflect that.  A
-   helpfile will be required of your clan which includes explanations
-   of at least (but not limited to) the
-   
-         {CI.   Background / History 
-         II.  Rules / Principles
-         III. Ranks / Hierarchy Structure{x
-   
-   All of the above need to well-thought out and really explain to
-   the immortals as well as the mud as a whole why your clan deserves
-   space to be recognized, and why players should choose your clan.  
-   Uniqueness of roleplay will always be an important factor.  
-
-{W2.{x You will need the following support in terms of {Gplayers{x:
-          
-         {W2 {YLeaders{x (50+ levels)
-         {W5 {BMembers{x
-        {W10 {VLetters of Support{x from non-members
-         
-      {CNote:{x each player may only give support from ONE alt and each
-            alt may only count for ONE category
-    
-{W3.{x  You will need to meet the following requirements in terms of
-    wealth (to be derived from any combo of the original 7 members)
-    
-         {Y1000   Quest Points  {B::half of the amounts return to clan::
-         {Y10000  Gold{x          {B::to begin clanqp & clanbalance acct::
-
-{W4.{x  At this point, you are ready to send in your request with all of
-    the above requested information to {CLegacyImms@yahoo.com{x.  The    
-    chance of your clan being approved rests on many factors,
-    including space available for clans, fulfillment of requirements,
-    and general overall playerbase support.  
-
-{W5.{x  If your clan is approved, the fees in {YQP{x and {YGold{x will be taken
-    from the characters at this time.  In return, you shall receive
-    the default clanhall as well as 10 pieces of clan equipment, 
-    which your leaders shall design.   When these are done, send them
-    to {CLegacyImms@yahoo.com{x, to get them implemented ASAP.
-    
-{W6.{x  By now, your {Pstruggle{x is almost over.  Your last hurdle shall be
-    your probationary month, during which your clan must gain at
-    least {B10 members{x total (not including alts).  At the end of this
-    month, if you have passed all six of the steps ... 
-    
-            {WC{CO{BN{VG{PR{YA{GT{WU{CL{BA{VT{PI{YO{GN{WS{C!{B!{V!  {GYou will have a new clan{Y!{B!{C!{x
-
-{YSEE ALSO:{x Help CEQ, Help Chall
-~
+0 CLANHALLS CHALL~
 {CClanhalls{x
 
 Clans are entitled to many luxuries, one of them being a clanhall. In
@@ -288,97 +133,9 @@ At {BL{Ce{gg{Wa{Cc{By{x, enhancing your experience with role-playing is one of t
 shopkeeper shall only be used for miscellaneous, grocer type items.
 
 {YSEE ALSO:{x Help Claneq, Help Clanprice 
-yImms@yahoo.com{x.  The    
-    chance of your clan being approved rests on many factors,
-    including space available for clans, fulfillment of requirements,
-    and general overall playerbase support.  
-
-{W5.{x  If your clan is approved, the fees in {YQP{x and {YGold{x will be taken
-    from the characters at this time.  In return, you shall receive
-    the default clanhall as well as 10 pieces of clan equipment, 
-    which your leaders shall design.   When these are done, send them
-    to {CLegacyImms@yahoo.com{x, to get them implemented ASAP.
-    
-{W6.{x  By now, your {Pstruggle{x is almost over.  Your last hurdle shall be
-    your probationary month, during which your clan must gain at
-    least {B10 members{x total (not including alts).  At the end of this
-    month, if you have passed all six of the steps ... 
-    
-            {WC{CO{BN{VG{PR{YA{GT{WU{CL{BA{VT{PI{YO{GN{WS{C!{B!{V!  {GYou will have a new clan{Y!{B!{C!{x
-
-{YSEE ALSO:{x Help CEQ, Help Chall
 ~
 
-0 CLANPRICES CPRICElans are entitled to many luxuries, one of them being a clanhall. In
-the near future, clanhalls will be able to be invaded in times of war.
-However for now, they are safe havens for clanmembers to rest, relax, 
-and congegrate with other members.
-
-Each {Gdefault clanhall{x starts out with:
-
-         20 rooms
-          2 clanpills
-          1 healer (lvl 100)
-          1 trainer
-          1 eq shopkeeper
-             * 10 pieces of eq (help ceq for more details)
-          1 food shopkeeper
-             * 10 items of food/drink 
-          1 piece of furniture
-          1 fountain
-            
-However, {Vmuch more{x can be purchased, at the {YQP{x price of:
-
-         Extra Rooms             50 each
-         Juke Box                50
-         Fountains               75
-         Furniture              100
-         Portals (max 3)        100
-         Clan Sage              200
-         Money Changer          100
-         Locker/Bank access     200
-         Anvil                  750
-         Clan Pit               250
-         Clan Arena             100 per room
-         Pet Shop               200 + 100 per pet
-         Shopkeeper             200 + 20 per item sold
-           (for bags etc) 
-
-{BNotes:{x
-
-Healers can be upgraded at {Y10k gold{x per level.  Each 10th level
-requires {Y200qp{x as well.
-
-Furniture may only have a maximum of {G100{x over normal {Cregeneration{x,
-distributed any way you choose.  Examples - 150/150, 120/180, 100/200
-are all allowed.
-
-Clan Anvils have a {YQP{x cost of only {Y3{x per each attempted {Pflag forge{x.
-
-All items sold must be cleared with the {WHead Builder{x.  The extra
-shopkeeper shall only be used for miscellaneous, grocer type items.
-
-{YSEE ALSO:{x Help Claneq, Help Clanprice 
-yImms@yahoo.com{x.  The    
-    chance of your clan being approved rests on many factors,
-    including space available for clans, fulfillment of requirements,
-    and general overall playerbase support.  
-
-{W5.{x  If your clan is approved, the fees in {YQP{x and {YGold{x will be taken
-    from the characters at this time.  In return, you shall receive
-    the default clanhall as well as 10 pieces of clan equipment, 
-    which your leaders shall design.   When these are done, send them
-    to {CLegacyImms@yahoo.com{x, to get them implemented ASAP.
-    
-{W6.{x  By now, your {Pstruggle{x is almost over.  Your last hurdle shall be
-    your probationary month, during which your clan must gain at
-    least {B10 members{x total (not including alts).  At the end of this
-    month, if you have passed all six of the steps ... 
-    
-            {WC{CO{BN{VG{PR{YA{GT{WU{CL{BA{VT{PI{YO{GN{WS{C!{B!{V!  {GYou will have a new clan{Y!{B!{C!{x
-
-{YSEE ALSO:{x Help CEQ, Help Chall
-~
+0 CLANPRICES CPRICE~
 {CClan Prices{x
 
 
@@ -410,122 +167,9 @@ At {BL{Ce{gg{Wa{Cc{By{x, enhancing your experience with role-playing is one of t
 
 {YSEE ALSO:{x Help Claneq, Help Clanhall
 
-    750
-         Clan Pit               250
-         Clan Arena             100 per room
-         Pet Shop               200 + 100 per pet
-         Shopkeeper             200 + 20 per item sold
-           (for bags etc) 
-
-{BNotes:{x
-
-Healers can be upgraded at {Y10k gold{x per level.  Each 10th level
-requires {Y200qp{x as well.
-
-Furniture may only have a maximum of {G100{x over normal {Cregeneration{x,
-distributed any way you choose.  Examples - 150/150, 120/180, 100/200
-are all allowed.
-
-Clan Anvils have a {YQP{x cost of only {Y3{x per each attempted {Pflag forge{x.
-
-All items sold must be cleared with the {WHead Builder{x.  The extra
-shopkeeper shall only be used for miscellaneous, grocer type items.
-
-{YSEE ALSO:{x Help Claneq, Help Clanprice 
-yImms@yahoo.com{x.  The    
-    chance of your clan being approved rests on many factors,
-    including space available for clans, fulfillment of requirements,
-    and general overall playerbase support.  
-
-{W5.{x  If your clan is approved, the fees in {YQP{x and {YGold{x will be taken
-    from the characters at this time.  In return, you shall receive
-    the default clanhall as well as 10 pieces of clan equipment, 
-    which your leaders shall design.   When these are done, send them
-    to {CLegacyImms@yahoo.com{x, to get them implemented ASAP.
-    
-{W6.{x  By now, your {Pstruggle{x is almost over.  Your last hurdle shall be
-    your probationary month, during which your clan must gain at
-    least {B10 members{x total (not including alts).  At the end of this
-    month, if you have passed all six of the steps ... 
-    
-            {WC{CO{BN{VG{PR{YA{GT{WU{CL{BA{VT{PI{YO{GN{WS{C!{B!{V!  {GYou will have a new clan{Y!{B!{C!{x
-
-{YSEE ALSO:{x Help CEQ, Help Chall
 ~
 
-99 IMM Eq immeqs{x
-
-
-Besides adding to the clanhall, clanqp and gold can be spent to
-enhance or add to claneq, as well as obtain a very interesting
-variety of items and conveniences.  
-
-
-{BEnhancement{x of {CClan Equipment{x
-
-You may buy extra points to {Benhance{x your {Cclan equipment{x at {Y100 QP{x each.
-Each {Vpiece{x of equipment can have no more than {Gdouble{x it's original
-point value.  
-
-{GExample:{x A {Plevel 10 ring{x starts out with 3 points.  You can add up to
-         another 3 points, for {Y300 qp{x.
-
-
-{VAdditional {CClan Equipment{x
-
-Additional pieces of eq can be bought (with their starting point 
-value included) for {Y200 qp{x each for the {Pfirst five{x, and then an
-extra {Y200 qp{x per piece each time you exceed another {P5{x.  For {Gexample{x,
-if you want to buy another {V10 pieces{x of {Beq{x, the first {P5{x would cost
-{Y200 qp{x each, the next would cost {Y400 qp{x each.
-
-You may not have more than {G30 pieces{x of {CClan EQ{x.
-
-
-{YSEE ALSO:{x Help Claneq, Help Clanhall
-
-    750
-         Clan Pit               250
-         Clan Arena             100 per room
-         Pet Shop               200 + 100 per pet
-         Shopkeeper             200 + 20 per item sold
-           (for bags etc) 
-
-{BNotes:{x
-
-Healers can be upgraded at {Y10k gold{x per level.  Each 10th level
-requires {Y200qp{x as well.
-
-Furniture may only have a maximum of {G100{x over normal {Cregeneration{x,
-distributed any way you choose.  Examples - 150/150, 120/180, 100/200
-are all allowed.
-
-Clan Anvils have a {YQP{x cost of only {Y3{x per each attempted {Pflag forge{x.
-
-All items sold must be cleared with the {WHead Builder{x.  The extra
-shopkeeper shall only be used for miscellaneous, grocer type items.
-
-{YSEE ALSO:{x Help Claneq, Help Clanprice 
-yImms@yahoo.com{x.  The    
-    chance of your clan being approved rests on many factors,
-    including space available for clans, fulfillment of requirements,
-    and general overall playerbase support.  
-
-{W5.{x  If your clan is approved, the fees in {YQP{x and {YGold{x will be taken
-    from the characters at this time.  In return, you shall receive
-    the default clanhall as well as 10 pieces of clan equipment, 
-    which your leaders shall design.   When these are done, send them
-    to {CLegacyImms@yahoo.com{x, to get them implemented ASAP.
-    
-{W6.{x  By now, your {Pstruggle{x is almost over.  Your last hurdle shall be
-    your probationary month, during which your clan must gain at
-    least {B10 members{x total (not including alts).  At the end of this
-    month, if you have passed all six of the steps ... 
-    
-            {WC{CO{BN{VG{PR{YA{GT{WU{CL{BA{VT{PI{YO{GN{WS{C!{B!{V!  {GYou will have a new clan{Y!{B!{C!{x
-
-{YSEE ALSO:{x Help CEQ, Help Chall
-~
+99 IMM Eq immeq~
 {PThese guidelines must be STRICTLY adhered to when making eq for mortals.{x
 
 {CThis helpfile has been designed to allow immortals to make eq for their followers
@@ -590,69 +234,7 @@ At {BL{Ce{gg{Wa{Cc{By{x, enhancing your experience with role-playing is one of t
 
 ~
 
-99 Immweapons imm weaponst be STRICTLY adhered to when making eq for mortals.{x
-
-{CThis helpfile has been designed to allow immortals to make eq for their followers
-or for those mortals that complete one of their sets with 50 of each of their tokens.{x
-
-{WHere are a few simple rules regarding issuing mortals eq with these stats.
-1. All imm issued eq must be ownered to the mortal receiving it.
-2. You may give your followers ONE piece of eq at your discretion to be used
-only for the term either you specify or at maximum while they are your follower.
-3.Every piece of imm eq should have your name and what is was given for in the 
-name section. example : Qaz gives out a "dagger of blood" to Napalm for being a 
-follower of his. The name of the eq may be: dagger blood follower Qaz, if it 
-were for a set it may read: dagger blood set Qaz
-4.Please use common sense with this privelage and that means do not go giving
-every mortal that follows you a piece of eq. Anyone having questions regarding
-how to use this privelage should see Vegita and he can give you great examples
-of this.{x
-
-Each point allows one of the following: 
-+1 str, int, wis, dex, con or chr. 
-+10 hps, mana, or move 
-+2 hit or dam 
-+1 hit AND +1 dam 
--1 saves
--3 armor class 
-+1 age
-
-The allocated points by level of item are: 
-
-    Level Range               Default Points 
-       1 -  9                        3.5  
-      10 - 19                        4.5
-      20 - 29                        5.5
-      30 - 39                        6.5
-      40 - 49                        7.5
-      50 - 59                        8.5
-      60 - 69                        9.5
-      70 - 79                       10 .5
-      80 - 90                       11.5
-
-Restrictions: 
-1) An item cannot have HR or DR greater than 1/10th + 1 of its level.
-2) Total stats (eg. str, int, etc...) added together cannot be greater 
-   than 1/10th + 1 of the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+99 Immweapons imm weapon~
 Level:            Dice:            Points:       Average:
 1-9               1d20               2              10
 10-19             2d20               3              22
@@ -691,113 +273,9 @@ Level:            Dice:            Points:       Average:
 smash
 suction
 thwack
-el Range               Default Points 
-       1 -  9                        3.5  
-      10 - 19                        4.5
-      20 - 29                        5.5
-      30 - 39                        6.5
-      40 - 49                        7.5
-      50 - 59                        8.5
-      60 - 69                        9.5
-      70 - 79                       10 .5
-      80 - 90                       11.5
-
-Restrictions: 
-1) An item cannot have HR or DR greater than 1/10th + 1 of its level.
-2) Total stats (eg. str, int, etc...) added together cannot be greater 
-   than 1/10th + 1 of the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 CLANEQUIPMENT CEQ Dice:            Points:       Average:
-1-9               1d20               2              10
-10-19             2d20               3              22
-20-29             3d20               4              33
-30-39             4d20               5              44
-40-49             5d20               6              56
-50-59             6d20               7              66
-60-69             7d20               8              78
-70-79             8d20               9              89
-80-91             9d20              10              99
-[Hit Enter to continue]
-
-
-{CAll imm issued will be set to these damages, no exceptions.{x
-
-{PPoints: any listed for help immeq, same restrictions{x
-
-
-
-Flags: Maximum of 3 per weapon
-       The first flag costs 1 points
-       The second flag costs 3 points
-       The third flag cost 5 points
-
-Acceptable damage types:
-
-BASH               SLASH               PIERCE
-beating            chop                bite
-blast              claw                chomp
-charge             cleave              peck
-crush              grep                pierce
-peck               slash               scratch
-pound              slice               stab
-punch              whip                sting
-slap                                   thrust
-smash
-suction
-thwack
-el Range               Default Points 
-       1 -  9                        3.5  
-      10 - 19                        4.5
-      20 - 29                        5.5
-      30 - 39                        6.5
-      40 - 49                        7.5
-      50 - 59                        8.5
-      60 - 69                        9.5
-      70 - 79                       10 .5
-      80 - 90                       11.5
-
-Restrictions: 
-1) An item cannot have HR or DR greater than 1/10th + 1 of its level.
-2) Total stats (eg. str, int, etc...) added together cannot be greater 
-   than 1/10th + 1 of the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 CLANEQUIPMENT CEQ~
 {CClan Equipment{x
 
 Each clan starts out with 10 pieces of eq, which they can design using a 
@@ -848,95 +326,9 @@ Level:            Dice:            Points:       Average:
 cannot be exceeded with this method.
 
 {YSEE ALSO:{x Help Clanweap, Help Clanprice
-f the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 CLANWEAPONS CWEAPONSEach clan starts out with 10 pieces of eq, which they can design using a 
-point system.
-
-Each point allows one of the following: 
-+1 str, int, wis, dex, con or chr. 
-+10 hps, mana, or move 
-+2 hit or dam 
-+1 hit AND +1 dam 
--1 saves
--3 armor class 
-+1 age
-
-The allocated points by level of item are: 
-
-    {BLevel Range               {VDefault Points{x 
-       1 -  9                        2	
-      10 - 19                        3 
-      20 - 29                        4 
-      30 - 39                        5 
-      40 - 49                        6 
-      50 - 59                        7 
-      60 - 69                        8 
-      70 - 79                        9 
-      80 - 90                       10
-
-{PRestrictions:{x 
-1) An item cannot have HR or DR greater than 1/10th of its level.
-2) Total stats (eg. str, int, etc...) added together cannot be greater 
-   than 1/10th of the item's level. 
-3) The total of saves cannot be greater than 1/20th of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th of its level, rounded down
-   to the nearest whole number.
-
-{GExample:{x A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-{YSEE ALSO:{x Help Clanweap, Help Clanprice
-f the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 CLANWEAPONS CWEAPONS~
 {CClan Weapons{x
 
 Your clan may choose to create it's own clan weapons, maximum 
@@ -981,105 +373,9 @@ Level:            Dice:            Points:       Average:
 
 
 {YSEE ALSO:{x Help Claneq, Help Clanprice
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-{YSEE ALSO:{x Help Clanweap, Help Clanprice
-f the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-15 CLANQP Weapons{x
-
-Your clan may choose to create it's own clan weapons, maximum 
-of two per clan.  Each clanweapon you choose to design costs
-{Y300 QP{x.  The stats and restrictions on them are as follows.
-
-{PAverage damage{x
-
-{GLevel:            {BDice:            {VPoints:       {CAverage:{x
-1-9               1d10               1               5
-10-19             2d10               2              11
-20-29             3d10               3              16
-30-39             4d10               4              22
-40-49             5d10               5              27
-50-59             6d10               6              33
-60-69             7d10               7              38
-70-79             8d10               8              44
-80-91             9d10               9              49
-
-All clanweapons will be set to these damages, no exceptions.
-
-{VPoints:{x any listed for help ceq, same restrictions
-
-{CFlags:{x Maximum of 2 per weapon
-       The first flag costs 2 points
-       The second flag costs 4 points
-
-Acceptable damage types:
-
-{BBASH               {GSLASH               {VPIERCE{x
-beating            chop                bite
-blast              claw                chomp
-charge             cleave              peck
-crush              grep                pierce
-peck               slash               scratch
-pound              slice               stab
-punch              whip                sting
-slap                                   thrust
-smash
-suction
-thwack
-
-
-{YSEE ALSO:{x Help Claneq, Help Clanprice
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-{YSEE ALSO:{x Help Clanweap, Help Clanprice
-f the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+15 CLANQP~
 Syntax:
 {x   {Cclanqp{x
 {x   {Cclanqp donate{x <{Yamount{x>
@@ -1088,136 +384,9 @@ Syntax:
 The clan can then decide on what to spend the questpoints, for example on a 
 clan anvil.  Without an argument, {Cclanqp{x will show the current gold and
 qp that your clan possesses, along with other useful information.
-        2d10               2              11
-20-29             3d10               3              16
-30-39             4d10               4              22
-40-49             5d10               5              27
-50-59             6d10               6              33
-60-69             7d10               7              38
-70-79             8d10               8              44
-80-91             9d10               9              49
-
-All clanweapons will be set to these damages, no exceptions.
-
-{VPoints:{x any listed for help ceq, same restrictions
-
-{CFlags:{x Maximum of 2 per weapon
-       The first flag costs 2 points
-       The second flag costs 4 points
-
-Acceptable damage types:
-
-{BBASH               {GSLASH               {VPIERCE{x
-beating            chop                bite
-blast              claw                chomp
-charge             cleave              peck
-crush              grep                pierce
-peck               slash               scratch
-pound              slice               stab
-punch              whip                sting
-slap                                   thrust
-smash
-suction
-thwack
-
-
-{YSEE ALSO:{x Help Claneq, Help Clanprice
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-{YSEE ALSO:{x Help Clanweap, Help Clanprice
-f the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 CLANDEPOSIT   {Cclanqp{x
-{x   {Cclanqp donate{x <{Yamount{x>
-
-The {Cclanqp{x command enables clanmembers to donate questpoints to their clan.
-The clan can then decide on what to spend the questpoints, for example on a 
-clan anvil.  Without an argument, {Cclanqp{x will show the current gold and
-qp that your clan possesses, along with other useful information.
-        2d10               2              11
-20-29             3d10               3              16
-30-39             4d10               4              22
-40-49             5d10               5              27
-50-59             6d10               6              33
-60-69             7d10               7              38
-70-79             8d10               8              44
-80-91             9d10               9              49
-
-All clanweapons will be set to these damages, no exceptions.
-
-{VPoints:{x any listed for help ceq, same restrictions
-
-{CFlags:{x Maximum of 2 per weapon
-       The first flag costs 2 points
-       The second flag costs 4 points
-
-Acceptable damage types:
-
-{BBASH               {GSLASH               {VPIERCE{x
-beating            chop                bite
-blast              claw                chomp
-charge             cleave              peck
-crush              grep                pierce
-peck               slash               scratch
-pound              slice               stab
-punch              whip                sting
-slap                                   thrust
-smash
-suction
-thwack
-
-
-{YSEE ALSO:{x Help Claneq, Help Clanprice
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-{YSEE ALSO:{x Help Clanweap, Help Clanprice
-f the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 CLANDEPOSIT~
 Syntax:
 {x   {Cclandeposit {x<{Yamount{x>
 
@@ -1225,137 +394,9 @@ Syntax:
 donate must be gold that you carry on your person, and there must be a
 bank at the location that you are standing.  To see the current amount
 of gold in your clan's account, use the {Cclanqp{x command.
-sses, along with other useful information.
-        2d10               2              11
-20-29             3d10               3              16
-30-39             4d10               4              22
-40-49             5d10               5              27
-50-59             6d10               6              33
-60-69             7d10               7              38
-70-79             8d10               8              44
-80-91             9d10               9              49
-
-All clanweapons will be set to these damages, no exceptions.
-
-{VPoints:{x any listed for help ceq, same restrictions
-
-{CFlags:{x Maximum of 2 per weapon
-       The first flag costs 2 points
-       The second flag costs 4 points
-
-Acceptable damage types:
-
-{BBASH               {GSLASH               {VPIERCE{x
-beating            chop                bite
-blast              claw                chomp
-charge             cleave              peck
-crush              grep                pierce
-peck               slash               scratch
-pound              slice               stab
-punch              whip                sting
-slap                                   thrust
-smash
-suction
-thwack
-
-
-{YSEE ALSO:{x Help Claneq, Help Clanprice
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-{YSEE ALSO:{x Help Clanweap, Help Clanprice
-f the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 WAR CLANWAR   {Cclandeposit {x<{Yamount{x>
-
-{CClandeposit{x allows you to donate gold to your clan.  The amount you
-donate must be gold that you carry on your person, and there must be a
-bank at the location that you are standing.  To see the current amount
-of gold in your clan's account, use the {Cclanqp{x command.
-sses, along with other useful information.
-        2d10               2              11
-20-29             3d10               3              16
-30-39             4d10               4              22
-40-49             5d10               5              27
-50-59             6d10               6              33
-60-69             7d10               7              38
-70-79             8d10               8              44
-80-91             9d10               9              49
-
-All clanweapons will be set to these damages, no exceptions.
-
-{VPoints:{x any listed for help ceq, same restrictions
-
-{CFlags:{x Maximum of 2 per weapon
-       The first flag costs 2 points
-       The second flag costs 4 points
-
-Acceptable damage types:
-
-{BBASH               {GSLASH               {VPIERCE{x
-beating            chop                bite
-blast              claw                chomp
-charge             cleave              peck
-crush              grep                pierce
-peck               slash               scratch
-pound              slice               stab
-punch              whip                sting
-slap                                   thrust
-smash
-suction
-thwack
-
-
-{YSEE ALSO:{x Help Claneq, Help Clanprice
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-{YSEE ALSO:{x Help Clanweap, Help Clanprice
-f the item's level. 
-3) The total of saves cannot be greater than 1/20th + 1 of the item's level,
-   rounded down to the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 WAR CLANWAR~
 {x
 {R    "It was a cold morning, the kind where the wind just cuts
      through your body as if you were butter.  Cannons were firing
@@ -1396,82 +437,9 @@ Syntax:
 Each completed war results in a transfer of {GFame{x from the defeated clan
 to the victorious clan.  Also, they each respectively lose and gain {PMight{x
 depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 CLANPOWER "It was a cold morning, the kind where the wind just cuts
-     through your body as if you were butter.  Cannons were firing
-     off in the distance, accompanied by the thunderous pounding of
-     horses' hooves.  Two groups of people, gathered on two 
-     opposite hills, slowly faced off.  Suddenly, a cry pierced the
-     silence, and the battlers charged towards each other, meeting
-     with a tremendous crash as grunts of effort and cries of pain
-     filled the air.  Yes, war had fallen upon us again ... "{x
-                                    
-{g                                       - {PAnonymous Diary{x
-
-Syntax:  {Cwar list
-	 war history
-	 war events {W<{Ywar number{W>{x
-
-Being in a clan has many benefits, but it also requires that you defend
-your clan in times of war.  Wars can be declared by any clan on any 
-other clan, by a simple majority vote of leaders.  Being involved in a
-war means you are open to attack at any time by a member of the opposing
-clan, and is a very serious struggle between two or more clans.  War is 
-not to be taken lightly.
-
-{CWar list{x lists all the current wars going on at this time.  The
-challenger is listed first, and then the defender, with each respective
-score listed by the clan name.  If there are none, you will see a 
-message saying that Legacy is at peace.
-
-{CWar history{x lists the history of all the wars that have been fought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 CLANPOWER~
 Syntax:
 {x   {Cclanpower{x
 
@@ -1483,114 +451,9 @@ Syntax:
 using black bar graphs (so you may need to change the background color of
 your mud client).  Each factor is weighted equally in determining overall
 clan ranking, and the clans are listed in order of decreasing power.
-                 
-{g                                       - {PAnonymous Diary{x
-
-Syntax:  {Cwar list
-	 war history
-	 war events {W<{Ywar number{W>{x
-
-Being in a clan has many benefits, but it also requires that you defend
-your clan in times of war.  Wars can be declared by any clan on any 
-other clan, by a simple majority vote of leaders.  Being involved in a
-war means you are open to attack at any time by a member of the opposing
-clan, and is a very serious struggle between two or more clans.  War is 
-not to be taken lightly.
-
-{CWar list{x lists all the current wars going on at this time.  The
-challenger is listed first, and then the defender, with each respective
-score listed by the clan name.  If there are none, you will see a 
-message saying that Legacy is at peace.
-
-{CWar history{x lists the history of all the wars that have been fought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 CLANLEADERSHIP LEADER DEPUTY
-{CClanpower{x displays the graphed power of the various clans of Legacy.
-Four factors determine the overall power of a clan:  {CSize{x (number of
-members), {GFame{x (clanqp), {YWealth{x (clangold), and {PMight{x (war points).  
-
-The current ranking of each clan as compared to the others is represented
-using black bar graphs (so you may need to change the background color of
-your mud client).  Each factor is weighted equally in determining overall
-clan ranking, and the clans are listed in order of decreasing power.
-                 
-{g                                       - {PAnonymous Diary{x
-
-Syntax:  {Cwar list
-	 war history
-	 war events {W<{Ywar number{W>{x
-
-Being in a clan has many benefits, but it also requires that you defend
-your clan in times of war.  Wars can be declared by any clan on any 
-other clan, by a simple majority vote of leaders.  Being involved in a
-war means you are open to attack at any time by a member of the opposing
-clan, and is a very serious struggle between two or more clans.  War is 
-not to be taken lightly.
-
-{CWar list{x lists all the current wars going on at this time.  The
-challenger is listed first, and then the defender, with each respective
-score listed by the clan name.  If there are none, you will see a 
-message saying that Legacy is at peace.
-
-{CWar history{x lists the history of all the wars that have been fought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 CLANLEADERSHIP LEADER DEPUTY~
 Each clan may have one to {Gthree{x leaders, and up to {Gfive{x deputies.  The
 {Yleaders{x usually are the founders of the clan, but sometimes others will
 step up to assume leadership.  They {Vrepresent the clan overall{x and their
@@ -1617,93 +480,9 @@ Each clan may have one to {Gthree{x leaders, and up to {Gfive{x deputies.  The
 Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
 
 {YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 JOIN UNJOIN RANKve one to {Gthree{x leaders, and up to {Gfive{x deputies.  The
-{Yleaders{x usually are the founders of the clan, but sometimes others will
-step up to assume leadership.  They {Vrepresent the clan overall{x and their
-commands are followed without question.  {BDeputies{x are essentially the
-{Vsecond-in-command{x.  They do not choose clan policy or direction, but 
-instead, help with recruitment and monitoring of members.  Each {Cclan{x has
-it's own method of choosing {Yleaders{x and {Bdeputies{x, whether it be by vote
-or selection.  However,  the following notes must be received from the
-immortals for the {Cselection{x or {Premoval{x of a player to be valid.  Beware
-who you place in leadership positions, for they represent your clan.
-
-The {Cselection{x of a {Bdeputy{x requires one leader's approval.
-     (Deputies must be over level {G50{x)
-To {Premove{x a deputy requires all leaders' approval.
-
-The {Cselection{x of a {Yleader{x requires all leaders' approval.
-     (Leaders must be at over level {G91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 JOIN UNJOIN RANK~
 Syntax:
    {Vjoin{x <{Yplayername{x>
    {Vunjoin{x <{Yplayername{x>
@@ -1718,121 +497,9 @@ Syntax:
 The {Vrank player {Ynone{x command will clear their rank.
 
 {YSEE ALSO:{x Help Leader
-te
-or selection.  However,  the following notes must be received from the
-immortals for the {Cselection{x or {Premoval{x of a player to be valid.  Beware
-who you place in leadership positions, for they represent your clan.
-
-The {Cselection{x of a {Bdeputy{x requires one leader's approval.
-     (Deputies must be over level {G50{x)
-To {Premove{x a deputy requires all leaders' approval.
-
-The {Cselection{x of a {Yleader{x requires all leaders' approval.
-     (Leaders must be at over level {G91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 INVITE:
-   {Vjoin{x <{Yplayername{x>
-   {Vunjoin{x <{Yplayername{x>
-   {Vrank{x <{Yplayername{x> <{Ycode{x>
-   {Vrank{x <{Yplayername{x> {Ynone{x
-
-These commands help sort out the ranks of clans and their members.
-
-The code in the rank command is limited to a {Pthree character word{x which
-can only be set by {Cleaders of clans{x on their clan members.	{CLeaders{x are
-urged to treat this as a privilege granted to only the best clan members.
-The {Vrank player {Ynone{x command will clear their rank.
-
-{YSEE ALSO:{x Help Leader
-te
-or selection.  However,  the following notes must be received from the
-immortals for the {Cselection{x or {Premoval{x of a player to be valid.  Beware
-who you place in leadership positions, for they represent your clan.
-
-The {Cselection{x of a {Bdeputy{x requires one leader's approval.
-     (Deputies must be over level {G50{x)
-To {Premove{x a deputy requires all leaders' approval.
-
-The {Cselection{x of a {Yleader{x requires all leaders' approval.
-     (Leaders must be at over level {G91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 INVITE~
 Syntax: {Vinvite{x <{Yplayer{x>
 	{Vinvite{x accept
 	{Vinvite{x decline
@@ -1853,230 +520,15 @@ Syntax: {Vinvite{x <{Yplayer{x>
 compromised in any way. Punishment for any violation will be the
 responsibility of the leader who ordered the invite command for the
 non-clan member.
-91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 CLANRECALLinvite{x <{Yplayer{x>
-	{Vinvite{x accept
-	{Vinvite{x decline
-	{Vinvite{x terminate
-	{Vinvite{x terminate <{Yplayer{x>
-
-By using the invite command, a {Cleader{x of a clan can allow a player who is not
-a member of the clan to enter the clan hall.  The player who receives an
-invitation can either accept or decline the invitation.  By accepting the
-invitation, the player agrees to pay a fee of {C100 gold{x.  If at any time you
-wish to end your invitation after you have accepted it, just use the termination
-command.  In addition, a leader can terminate an invitation at any time.
-
-The person who requested  a non-clan member to be invited will be held
-responsible for the conduct of the non-clan member while they are
-visiting. That person will know the whereabouts of the non-clan member at
-all times to ensure that the integrity of the invite command is not
-compromised in any way. Punishment for any violation will be the
-responsibility of the leader who ordered the invite command for the
-non-clan member.
-91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 CLANRECALL~
 Syntax: {Vclanrecall{x
 
 This returns a person to their {PClan{x hall.
-
-	{Vinvite{x terminate
-	{Vinvite{x terminate <{Yplayer{x>
-
-By using the invite command, a {Cleader{x of a clan can allow a player who is not
-a member of the clan to enter the clan hall.  The player who receives an
-invitation can either accept or decline the invitation.  By accepting the
-invitation, the player agrees to pay a fee of {C100 gold{x.  If at any time you
-wish to end your invitation after you have accepted it, just use the termination
-command.  In addition, a leader can terminate an invitation at any time.
-
-The person who requested  a non-clan member to be invited will be held
-responsible for the conduct of the non-clan member while they are
-visiting. That person will know the whereabouts of the non-clan member at
-all times to ensure that the integrity of the invite command is not
-compromised in any way. Punishment for any violation will be the
-responsibility of the leader who ordered the invite command for the
-non-clan member.
-91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 CLANLIST{Vclanrecall{x
-
-This returns a person to their {PClan{x hall.
-
-	{Vinvite{x terminate
-	{Vinvite{x terminate <{Yplayer{x>
-
-By using the invite command, a {Cleader{x of a clan can allow a player who is not
-a member of the clan to enter the clan hall.  The player who receives an
-invitation can either accept or decline the invitation.  By accepting the
-invitation, the player agrees to pay a fee of {C100 gold{x.  If at any time you
-wish to end your invitation after you have accepted it, just use the termination
-command.  In addition, a leader can terminate an invitation at any time.
-
-The person who requested  a non-clan member to be invited will be held
-responsible for the conduct of the non-clan member while they are
-visiting. That person will know the whereabouts of the non-clan member at
-all times to ensure that the integrity of the invite command is not
-compromised in any way. Punishment for any violation will be the
-responsibility of the leader who ordered the invite command for the
-non-clan member.
-91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 CLANLIST~
 Syntax:
 
    {Vclanlist{x
@@ -2085,120 +537,9 @@ Syntax:
 {VClanlist{x without an argument will show all current {PClans{x and all
 disbanded {PClans{x.  {VClanlist{x with an argument will show the current
 members of a given {PClan{x.
-an to enter the clan hall.  The player who receives an
-invitation can either accept or decline the invitation.  By accepting the
-invitation, the player agrees to pay a fee of {C100 gold{x.  If at any time you
-wish to end your invitation after you have accepted it, just use the termination
-command.  In addition, a leader can terminate an invitation at any time.
-
-The person who requested  a non-clan member to be invited will be held
-responsible for the conduct of the non-clan member while they are
-visiting. That person will know the whereabouts of the non-clan member at
-all times to ensure that the integrity of the invite command is not
-compromised in any way. Punishment for any violation will be the
-responsibility of the leader who ordered the invite command for the
-non-clan member.
-91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 CLANTALK
-   {Vclanlist{x
-   {Vclanlist{x <{Yclan{x>
-
-{VClanlist{x without an argument will show all current {PClans{x and all
-disbanded {PClans{x.  {VClanlist{x with an argument will show the current
-members of a given {PClan{x.
-an to enter the clan hall.  The player who receives an
-invitation can either accept or decline the invitation.  By accepting the
-invitation, the player agrees to pay a fee of {C100 gold{x.  If at any time you
-wish to end your invitation after you have accepted it, just use the termination
-command.  In addition, a leader can terminate an invitation at any time.
-
-The person who requested  a non-clan member to be invited will be held
-responsible for the conduct of the non-clan member while they are
-visiting. That person will know the whereabouts of the non-clan member at
-all times to ensure that the integrity of the invite command is not
-compromised in any way. Punishment for any violation will be the
-responsibility of the leader who ordered the invite command for the
-non-clan member.
-91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 CLANTALK~
 Syntax: {Rclantalk{x {Ymessage{x
 	{Rclantalk who{x
 	{Rclantalk{x
@@ -2212,120 +553,9 @@ Syntax: {Rclantalk{x {Ymessage{x
 
 {Rclantalk who{x will tell you who else is tuned in to this channel
 at the moment.
-r invitation after you have accepted it, just use the termination
-command.  In addition, a leader can terminate an invitation at any time.
-
-The person who requested  a non-clan member to be invited will be held
-responsible for the conduct of the non-clan member while they are
-visiting. That person will know the whereabouts of the non-clan member at
-all times to ensure that the integrity of the invite command is not
-compromised in any way. Punishment for any violation will be the
-responsibility of the leader who ordered the invite command for the
-non-clan member.
-91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
 ~
 
-0 ORDER BLUEROSEtalk{x {Ymessage{x
-	{Rclantalk who{x
-	{Rclantalk{x
-
-This command is for communication among clan members. Your {Ymessage{x
-will be heard by all others in your clan, if they have their clantalk
-channel turned on.
-
-Typing {Rclantalk{x without any messages turns the channel off for you
-if you don't want to hear from your clan, or turns it back on if off.
-
-{Rclantalk who{x will tell you who else is tuned in to this channel
-at the moment.
-r invitation after you have accepted it, just use the termination
-command.  In addition, a leader can terminate an invitation at any time.
-
-The person who requested  a non-clan member to be invited will be held
-responsible for the conduct of the non-clan member while they are
-visiting. That person will know the whereabouts of the non-clan member at
-all times to ensure that the integrity of the invite command is not
-compromised in any way. Punishment for any violation will be the
-responsibility of the leader who ordered the invite command for the
-non-clan member.
-91{x)
-To {Premove{x a leader requires all deputies' approval.
-
-Leaders and deputies{x may also be removed by the {Vimmortals{x if they are 
-{Ginactive{x, OR by an {Poverwhelming {W(80%){x vote of the {Cclan{x as a whole.
-
-Leaders are {Cdenoted{x with a {Yyellow flag{x on the who list.
-Deputies are {Cdenoted{x with a {Bblue flag{x on the who list.
-
-{YSEE ALSO:{x Help Join
-ought on
-Legacy in numbered format.  It uses the same format as war list.
-
-{CWar events{x shows you each individual event that comprises the war.  
-During the war, each kill of a member of {VClan A{x on a member of {BClan B {x
-decreases the score of {BClan B{x.  The first clan that reaches a score of
-{Wzero{x loses the war.  The amount that is decreased per kill depends on a 
-variety of factors, one of them {PPK rating{x.
-
-Each completed war results in a transfer of {GFame{x from the defeated clan
-to the victorious clan.  Also, they each respectively lose and gain {PMight{x
-depending on how drastic the win was.
-o the nearest whole number.
-4) Armor class cannot be greater than 1/10th + 1 of the item's level. 
-5) Total hp, mana and moves cannot be higher than the level of the item. 
-6) An item cannot have age greater than 1/20th + 1 of its level, rounded down
-   to the nearest whole number.
-
-Example: A level 50 piece of eq starts out with 7 points.  Therefore, it 
-could have +2 str, +40 hp, and +2 dam, as an acceptable allocation. 
-However, it could NOT have any more than 50 hp, because of restriction 
-number 5. 
-
-Also, negative points CAN be used to add points for other affects but 
-within the same group only and with a 50% payback rate.  You gain 1
-point per 2 negative points you take.  Max negative points that can be
-used to compensate is 1/20th + 1 of the item's level.  Note that restrictions
-cannot be exceeded with this method.
-
-~
+0 ORDER BLUEROSE~
 The Order of the Blue Rose 
  
         {C_,--._.-,

@@ -1,77 +1,4 @@
-0 JUKEBOX PLAYousegate{x
-
-Spousegate allows you to travel instantly to where your spouse
-is currently located. There are some restrictions to this transportation.
-Neither of you may be in an arena, in a quest area, in a no-recall
-room. Also, you may not be fighting. Your spouse must also be
-visable to you.
- closed doors.
- chance is based on your recall skill, although a 100%
-{Crecall{x does not ensure success. {CRecall{x costs 25% of your stamina.
-{CRecall{x doesn't work in certain god-forsaken rooms, and characters
-afflicted by a curse may not {Crecall{x at all.
-will
-kick out the <{Ycharacter{x> from your group.  Characters can also leave your
-group by using a {Cfollow{x command to stop following you.
-
-{CGroup{x with no argument shows statistics for each character in your group.
-
-You only provides experience as long as no member of your group is more
-than six levels above you.
-
-{YSEE ALSO:{x nofollow
-physically and mentally the player grows toward
-       Knighthood.
-[{NK{Cn{Nt{x] Knight, (level 51 to 91) The "Knight": Finally a true warrior is granted
-       with this fine title, All the leaders must agree that the Player is
-       worthy of the title, for now the member is allowed to have more freedoms
-       and powers than ever before...
-[{NM{Cs{Nt{x] Master, (level R1 15 to 40) The "Master" These fine members are capable
-       of overruling the lower member levels of the clan at wars. Of course,
-       this does not entitle the masters to control the lower level players, but
-       in times of war, those with greater experience and knowledge will be
-       given more authority to determine war strategies, as well as who actually
-       fights. Of course, even a Master would have to bow before Tac's, for the
-       latter specialises in military tactics
-After R1 level 40, players may have whatever rank they wish.
-
-Also:
-Guardian [{NG{Cu{Na{x]  Those who have shown great skill at PK
-Lord Wizard [{NL{Cr{NW{x]  Those who make scrolls and potions for the Blue Rose.
-Recruiter [{NR{Cc{Nt{x]  Those who go about newbies to recruit them for our order
-General [{NT{Ca{Nc{x]   ( Tactical Advisor )
-Ambassador [{ND{Cm{Nt{x]   ( Diplomat ) Important for forging alliances and treaties.
-Leader [{YLDR{x]
-
-
-A Word of Warning:
-
-We, bound by blood and mutual honour, serve as the guardians of justice and 
-the people. Those who attack us are at war with all good people of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 JUKEBOX PLAY~
 Syntax:
    {VPlay{x <{Ysongname{x>
    {VPlay list{x
@@ -80,445 +7,25 @@ Syntax:
 {VPlay list{x displays your wonderfull Legacy Jukebox selection :)
 These commands will help you interface with the numerous jukeboxes located on
 {bL{Ye{Wga{Yc{by{x.
-must also be
-visable to you.
- closed doors.
- chance is based on your recall skill, although a 100%
-{Crecall{x does not ensure success. {CRecall{x costs 25% of your stamina.
-{CRecall{x doesn't work in certain god-forsaken rooms, and characters
-afflicted by a curse may not {Crecall{x at all.
-will
-kick out the <{Ycharacter{x> from your group.  Characters can also leave your
-group by using a {Cfollow{x command to stop following you.
-
-{CGroup{x with no argument shows statistics for each character in your group.
-
-You only provides experience as long as no member of your group is more
-than six levels above you.
-
-{YSEE ALSO:{x nofollow
-physically and mentally the player grows toward
-       Knighthood.
-[{NK{Cn{Nt{x] Knight, (level 51 to 91) The "Knight": Finally a true warrior is granted
-       with this fine title, All the leaders must agree that the Player is
-       worthy of the title, for now the member is allowed to have more freedoms
-       and powers than ever before...
-[{NM{Cs{Nt{x] Master, (level R1 15 to 40) The "Master" These fine members are capable
-       of overruling the lower member levels of the clan at wars. Of course,
-       this does not entitle the masters to control the lower level players, but
-       in times of war, those with greater experience and knowledge will be
-       given more authority to determine war strategies, as well as who actually
-       fights. Of course, even a Master would have to bow before Tac's, for the
-       latter specialises in military tactics
-After R1 level 40, players may have whatever rank they wish.
-
-Also:
-Guardian [{NG{Cu{Na{x]  Those who have shown great skill at PK
-Lord Wizard [{NL{Cr{NW{x]  Those who make scrolls and potions for the Blue Rose.
-Recruiter [{NR{Cc{Nt{x]  Those who go about newbies to recruit them for our order
-General [{NT{Ca{Nc{x]   ( Tactical Advisor )
-Ambassador [{ND{Cm{Nt{x]   ( Diplomat ) Important for forging alliances and treaties.
-Leader [{YLDR{x]
-
-
-A Word of Warning:
-
-We, bound by blood and mutual honour, serve as the guardians of justice and 
-the people. Those who attack us are at war with all good people of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 OUTFIT:
-   {VPlay{x <{Ysongname{x>
-   {VPlay list{x
-
-{VPlay <{Ysongname{x> will do just that: play the song.
-{VPlay list{x displays your wonderfull Legacy Jukebox selection :)
-These commands will help you interface with the numerous jukeboxes located on
-{bL{Ye{Wga{Yc{by{x.
-must also be
-visable to you.
- closed doors.
- chance is based on your recall skill, although a 100%
-{Crecall{x does not ensure success. {CRecall{x costs 25% of your stamina.
-{CRecall{x doesn't work in certain god-forsaken rooms, and characters
-afflicted by a curse may not {Crecall{x at all.
-will
-kick out the <{Ycharacter{x> from your group.  Characters can also leave your
-group by using a {Cfollow{x command to stop following you.
-
-{CGroup{x with no argument shows statistics for each character in your group.
-
-You only provides experience as long as no member of your group is more
-than six levels above you.
-
-{YSEE ALSO:{x nofollow
-physically and mentally the player grows toward
-       Knighthood.
-[{NK{Cn{Nt{x] Knight, (level 51 to 91) The "Knight": Finally a true warrior is granted
-       with this fine title, All the leaders must agree that the Player is
-       worthy of the title, for now the member is allowed to have more freedoms
-       and powers than ever before...
-[{NM{Cs{Nt{x] Master, (level R1 15 to 40) The "Master" These fine members are capable
-       of overruling the lower member levels of the clan at wars. Of course,
-       this does not entitle the masters to control the lower level players, but
-       in times of war, those with greater experience and knowledge will be
-       given more authority to determine war strategies, as well as who actually
-       fights. Of course, even a Master would have to bow before Tac's, for the
-       latter specialises in military tactics
-After R1 level 40, players may have whatever rank they wish.
-
-Also:
-Guardian [{NG{Cu{Na{x]  Those who have shown great skill at PK
-Lord Wizard [{NL{Cr{NW{x]  Those who make scrolls and potions for the Blue Rose.
-Recruiter [{NR{Cc{Nt{x]  Those who go about newbies to recruit them for our order
-General [{NT{Ca{Nc{x]   ( Tactical Advisor )
-Ambassador [{ND{Cm{Nt{x]   ( Diplomat ) Important for forging alliances and treaties.
-Leader [{YLDR{x]
-
-
-A Word of Warning:
-
-We, bound by blood and mutual honour, serve as the guardians of justice and 
-the people. Those who attack us are at war with all good people of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 OUTFIT~
 The {Coutfit{x command, usable by levels {Y5 and below{x, {Cequips{x your character with
 a new set of sub issue gear (banner, weapon, helmet, shield, and vest),
 courtesy of the Mayor's warehouses.  Only empty equipment slots are affected.
 This is useful in case you drop one of your pieces of eq, at which time it will
 poof out of existence.
- your recall skill, although a 100%
-{Crecall{x does not ensure success. {CRecall{x costs 25% of your stamina.
-{CRecall{x doesn't work in certain god-forsaken rooms, and characters
-afflicted by a curse may not {Crecall{x at all.
-will
-kick out the <{Ycharacter{x> from your group.  Characters can also leave your
-group by using a {Cfollow{x command to stop following you.
-
-{CGroup{x with no argument shows statistics for each character in your group.
-
-You only provides experience as long as no member of your group is more
-than six levels above you.
-
-{YSEE ALSO:{x nofollow
-physically and mentally the player grows toward
-       Knighthood.
-[{NK{Cn{Nt{x] Knight, (level 51 to 91) The "Knight": Finally a true warrior is granted
-       with this fine title, All the leaders must agree that the Player is
-       worthy of the title, for now the member is allowed to have more freedoms
-       and powers than ever before...
-[{NM{Cs{Nt{x] Master, (level R1 15 to 40) The "Master" These fine members are capable
-       of overruling the lower member levels of the clan at wars. Of course,
-       this does not entitle the masters to control the lower level players, but
-       in times of war, those with greater experience and knowledge will be
-       given more authority to determine war strategies, as well as who actually
-       fights. Of course, even a Master would have to bow before Tac's, for the
-       latter specialises in military tactics
-After R1 level 40, players may have whatever rank they wish.
-
-Also:
-Guardian [{NG{Cu{Na{x]  Those who have shown great skill at PK
-Lord Wizard [{NL{Cr{NW{x]  Those who make scrolls and potions for the Blue Rose.
-Recruiter [{NR{Cc{Nt{x]  Those who go about newbies to recruit them for our order
-General [{NT{Ca{Nc{x]   ( Tactical Advisor )
-Ambassador [{ND{Cm{Nt{x]   ( Diplomat ) Important for forging alliances and treaties.
-Leader [{YLDR{x]
-
-
-A Word of Warning:
-
-We, bound by blood and mutual honour, serve as the guardians of justice and 
-the people. Those who attack us are at war with all good people of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 IDENTIFY SAGEx command, usable by levels {Y5 and below{x, {Cequips{x your character with
-a new set of sub issue gear (banner, weapon, helmet, shield, and vest),
-courtesy of the Mayor's warehouses.  Only empty equipment slots are affected.
-This is useful in case you drop one of your pieces of eq, at which time it will
-poof out of existence.
- your recall skill, although a 100%
-{Crecall{x does not ensure success. {CRecall{x costs 25% of your stamina.
-{CRecall{x doesn't work in certain god-forsaken rooms, and characters
-afflicted by a curse may not {Crecall{x at all.
-will
-kick out the <{Ycharacter{x> from your group.  Characters can also leave your
-group by using a {Cfollow{x command to stop following you.
-
-{CGroup{x with no argument shows statistics for each character in your group.
-
-You only provides experience as long as no member of your group is more
-than six levels above you.
-
-{YSEE ALSO:{x nofollow
-physically and mentally the player grows toward
-       Knighthood.
-[{NK{Cn{Nt{x] Knight, (level 51 to 91) The "Knight": Finally a true warrior is granted
-       with this fine title, All the leaders must agree that the Player is
-       worthy of the title, for now the member is allowed to have more freedoms
-       and powers than ever before...
-[{NM{Cs{Nt{x] Master, (level R1 15 to 40) The "Master" These fine members are capable
-       of overruling the lower member levels of the clan at wars. Of course,
-       this does not entitle the masters to control the lower level players, but
-       in times of war, those with greater experience and knowledge will be
-       given more authority to determine war strategies, as well as who actually
-       fights. Of course, even a Master would have to bow before Tac's, for the
-       latter specialises in military tactics
-After R1 level 40, players may have whatever rank they wish.
-
-Also:
-Guardian [{NG{Cu{Na{x]  Those who have shown great skill at PK
-Lord Wizard [{NL{Cr{NW{x]  Those who make scrolls and potions for the Blue Rose.
-Recruiter [{NR{Cc{Nt{x]  Those who go about newbies to recruit them for our order
-General [{NT{Ca{Nc{x]   ( Tactical Advisor )
-Ambassador [{ND{Cm{Nt{x]   ( Diplomat ) Important for forging alliances and treaties.
-Leader [{YLDR{x]
-
-
-A Word of Warning:
-
-We, bound by blood and mutual honour, serve as the guardians of justice and 
-the people. Those who attack us are at war with all good people of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 IDENTIFY SAGE~
 Syntax: {Videntify{x <{Yobject{x>
 
 If you are in the same room as the {Pwandering sage{x, then you can
 use this command to {Videntify{x objects in your inventory.  The cost
 is approximately {Y50 + 10 silver{x per level of the object.
-d.
-This is useful in case you drop one of your pieces of eq, at which time it will
-poof out of existence.
- your recall skill, although a 100%
-{Crecall{x does not ensure success. {CRecall{x costs 25% of your stamina.
-{CRecall{x doesn't work in certain god-forsaken rooms, and characters
-afflicted by a curse may not {Crecall{x at all.
-will
-kick out the <{Ycharacter{x> from your group.  Characters can also leave your
-group by using a {Cfollow{x command to stop following you.
-
-{CGroup{x with no argument shows statistics for each character in your group.
-
-You only provides experience as long as no member of your group is more
-than six levels above you.
-
-{YSEE ALSO:{x nofollow
-physically and mentally the player grows toward
-       Knighthood.
-[{NK{Cn{Nt{x] Knight, (level 51 to 91) The "Knight": Finally a true warrior is granted
-       with this fine title, All the leaders must agree that the Player is
-       worthy of the title, for now the member is allowed to have more freedoms
-       and powers than ever before...
-[{NM{Cs{Nt{x] Master, (level R1 15 to 40) The "Master" These fine members are capable
-       of overruling the lower member levels of the clan at wars. Of course,
-       this does not entitle the masters to control the lower level players, but
-       in times of war, those with greater experience and knowledge will be
-       given more authority to determine war strategies, as well as who actually
-       fights. Of course, even a Master would have to bow before Tac's, for the
-       latter specialises in military tactics
-After R1 level 40, players may have whatever rank they wish.
-
-Also:
-Guardian [{NG{Cu{Na{x]  Those who have shown great skill at PK
-Lord Wizard [{NL{Cr{NW{x]  Those who make scrolls and potions for the Blue Rose.
-Recruiter [{NR{Cc{Nt{x]  Those who go about newbies to recruit them for our order
-General [{NT{Ca{Nc{x]   ( Tactical Advisor )
-Ambassador [{ND{Cm{Nt{x]   ( Diplomat ) Important for forging alliances and treaties.
-Leader [{YLDR{x]
-
-
-A Word of Warning:
-
-We, bound by blood and mutual honour, serve as the guardians of justice and 
-the people. Those who attack us are at war with all good people of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 NOLOOT: {Videntify{x <{Yobject{x>
-
-If you are in the same room as the {Pwandering sage{x, then you can
-use this command to {Videntify{x objects in your inventory.  The cost
-is approximately {Y50 + 10 silver{x per level of the object.
-d.
-This is useful in case you drop one of your pieces of eq, at which time it will
-poof out of existence.
- your recall skill, although a 100%
-{Crecall{x does not ensure success. {CRecall{x costs 25% of your stamina.
-{CRecall{x doesn't work in certain god-forsaken rooms, and characters
-afflicted by a curse may not {Crecall{x at all.
-will
-kick out the <{Ycharacter{x> from your group.  Characters can also leave your
-group by using a {Cfollow{x command to stop following you.
-
-{CGroup{x with no argument shows statistics for each character in your group.
-
-You only provides experience as long as no member of your group is more
-than six levels above you.
-
-{YSEE ALSO:{x nofollow
-physically and mentally the player grows toward
-       Knighthood.
-[{NK{Cn{Nt{x] Knight, (level 51 to 91) The "Knight": Finally a true warrior is granted
-       with this fine title, All the leaders must agree that the Player is
-       worthy of the title, for now the member is allowed to have more freedoms
-       and powers than ever before...
-[{NM{Cs{Nt{x] Master, (level R1 15 to 40) The "Master" These fine members are capable
-       of overruling the lower member levels of the clan at wars. Of course,
-       this does not entitle the masters to control the lower level players, but
-       in times of war, those with greater experience and knowledge will be
-       given more authority to determine war strategies, as well as who actually
-       fights. Of course, even a Master would have to bow before Tac's, for the
-       latter specialises in military tactics
-After R1 level 40, players may have whatever rank they wish.
-
-Also:
-Guardian [{NG{Cu{Na{x]  Those who have shown great skill at PK
-Lord Wizard [{NL{Cr{NW{x]  Those who make scrolls and potions for the Blue Rose.
-Recruiter [{NR{Cc{Nt{x]  Those who go about newbies to recruit them for our order
-General [{NT{Ca{Nc{x]   ( Tactical Advisor )
-Ambassador [{ND{Cm{Nt{x]   ( Diplomat ) Important for forging alliances and treaties.
-Leader [{YLDR{x]
-
-
-A Word of Warning:
-
-We, bound by blood and mutual honour, serve as the guardians of justice and 
-the people. Those who attack us are at war with all good people of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 NOLOOT~
 Syntax: {Cnoloot{x
 
 This command sets or unsets a flag which determines if others can loot
@@ -529,145 +36,9 @@ Syntax: {Cnoloot{x
 
 You can check your current {Ynoloot{x status either by typing {Cnoloot{x once or
 twice, or by looking in the output from {Cautolist{x.
- god-forsaken rooms, and characters
-afflicted by a curse may not {Crecall{x at all.
-will
-kick out the <{Ycharacter{x> from your group.  Characters can also leave your
-group by using a {Cfollow{x command to stop following you.
-
-{CGroup{x with no argument shows statistics for each character in your group.
-
-You only provides experience as long as no member of your group is more
-than six levels above you.
-
-{YSEE ALSO:{x nofollow
-physically and mentally the player grows toward
-       Knighthood.
-[{NK{Cn{Nt{x] Knight, (level 51 to 91) The "Knight": Finally a true warrior is granted
-       with this fine title, All the leaders must agree that the Player is
-       worthy of the title, for now the member is allowed to have more freedoms
-       and powers than ever before...
-[{NM{Cs{Nt{x] Master, (level R1 15 to 40) The "Master" These fine members are capable
-       of overruling the lower member levels of the clan at wars. Of course,
-       this does not entitle the masters to control the lower level players, but
-       in times of war, those with greater experience and knowledge will be
-       given more authority to determine war strategies, as well as who actually
-       fights. Of course, even a Master would have to bow before Tac's, for the
-       latter specialises in military tactics
-After R1 level 40, players may have whatever rank they wish.
-
-Also:
-Guardian [{NG{Cu{Na{x]  Those who have shown great skill at PK
-Lord Wizard [{NL{Cr{NW{x]  Those who make scrolls and potions for the Blue Rose.
-Recruiter [{NR{Cc{Nt{x]  Those who go about newbies to recruit them for our order
-General [{NT{Ca{Nc{x]   ( Tactical Advisor )
-Ambassador [{ND{Cm{Nt{x]   ( Diplomat ) Important for forging alliances and treaties.
-Leader [{YLDR{x]
-
-
-A Word of Warning:
-
-We, bound by blood and mutual honour, serve as the guardians of justice and 
-the people. Those who attack us are at war with all good people of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 FORGE SMITHYloot{x
-
-This command sets or unsets a flag which determines if others can loot
-your corpse after you die. The normal setting is on, which means your
-corpse will be safe from looters. Typing {Cnoloot{x will change that.  This
-may come in handy if you die in a dangerous area and ask others to
-retrieve the stuff from your corpse for you.
-
-You can check your current {Ynoloot{x status either by typing {Cnoloot{x once or
-twice, or by looking in the output from {Cautolist{x.
- god-forsaken rooms, and characters
-afflicted by a curse may not {Crecall{x at all.
-will
-kick out the <{Ycharacter{x> from your group.  Characters can also leave your
-group by using a {Cfollow{x command to stop following you.
-
-{CGroup{x with no argument shows statistics for each character in your group.
-
-You only provides experience as long as no member of your group is more
-than six levels above you.
-
-{YSEE ALSO:{x nofollow
-physically and mentally the player grows toward
-       Knighthood.
-[{NK{Cn{Nt{x] Knight, (level 51 to 91) The "Knight": Finally a true warrior is granted
-       with this fine title, All the leaders must agree that the Player is
-       worthy of the title, for now the member is allowed to have more freedoms
-       and powers than ever before...
-[{NM{Cs{Nt{x] Master, (level R1 15 to 40) The "Master" These fine members are capable
-       of overruling the lower member levels of the clan at wars. Of course,
-       this does not entitle the masters to control the lower level players, but
-       in times of war, those with greater experience and knowledge will be
-       given more authority to determine war strategies, as well as who actually
-       fights. Of course, even a Master would have to bow before Tac's, for the
-       latter specialises in military tactics
-After R1 level 40, players may have whatever rank they wish.
-
-Also:
-Guardian [{NG{Cu{Na{x]  Those who have shown great skill at PK
-Lord Wizard [{NL{Cr{NW{x]  Those who make scrolls and potions for the Blue Rose.
-Recruiter [{NR{Cc{Nt{x]  Those who go about newbies to recruit them for our order
-General [{NT{Ca{Nc{x]   ( Tactical Advisor )
-Ambassador [{ND{Cm{Nt{x]   ( Diplomat ) Important for forging alliances and treaties.
-Leader [{YLDR{x]
-
-
-A Word of Warning:
-
-We, bound by blood and mutual honour, serve as the guardians of justice and 
-the people. Those who attack us are at war with all good people of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 FORGE SMITHY~
 Syntax: {Rforge{x <{Yweapon type{x> <{Yweapon name{x>
  -or-   {Rforge flag{x <{Yflag type{x>
 
@@ -714,103 +85,9 @@ Syntax: {Rforge{x <{Yweapon type{x> <{Yweapon name{x>
 
 BOTH forms of forging require that the forger be in the same room with a
 special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 ANVILx: {Rforge{x <{Yweapon type{x> <{Yweapon name{x>
- -or-   {Rforge flag{x <{Yflag type{x>
-
-These two forms of the command cause two very different things to happen.
-
-The FIRST creates a weapon from a bar of forging material which you hold
-in your hand. The {Yweapon type{x can be any one of the following:
-{Csword{x, {Cmace{x, {Cdagger{x, {Caxe{x, {Cpolearm{x, {Cstaff{x, {Cflail{x, or {Cwhip{x.
-
-The {Yweapon name{x can be any string as long as it is less than 30
-printed characters.  Color codes are not counted as a printed character.
-
-A forged weapon's power is based on its creator's level, skill in making
-weapons, and the type of material that is used.  To forge a weapon, the
-crafter must be holding the material he or she wants to make the weapon
-out of (the material must be of identify type: material).  Materials can
-make your weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 ANVIL~
 An {YAnvil{x is required in order to forge weapons from raw materials
 or to forge enhancing attributes (weapon flags) onto a weapon.
 
@@ -818,279 +95,16 @@ An {YAnvil{x is required in order to forge weapons from raw materials
 Repair Shop on Clan Road in Midgaard. This anvil, like most of its kind,
 has costs associated with its use. {YWeapon forging{x costs a number of
 gold coins wheras {Yflag forging{x costs the forger quest points.
- name{x can be any string as long as it is less than 30
-printed characters.  Color codes are not counted as a printed character.
-
-A forged weapon's power is based on its creator's level, skill in making
-weapons, and the type of material that is used.  To forge a weapon, the
-crafter must be holding the material he or she wants to make the weapon
-out of (the material must be of identify type: material).  Materials can
-make your weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 SHOWLOSTil{x is required in order to forge weapons from raw materials
-or to forge enhancing attributes (weapon flags) onto a weapon.
-
-A public forging anvil is available in the smithy below Griswald's
-Repair Shop on Clan Road in Midgaard. This anvil, like most of its kind,
-has costs associated with its use. {YWeapon forging{x costs a number of
-gold coins wheras {Yflag forging{x costs the forger quest points.
- name{x can be any string as long as it is less than 30
-printed characters.  Color codes are not counted as a printed character.
-
-A forged weapon's power is based on its creator's level, skill in making
-weapons, and the type of material that is used.  To forge a weapon, the
-crafter must be holding the material he or she wants to make the weapon
-out of (the material must be of identify type: material).  Materials can
-make your weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 SHOWLOST~
 Syntax: {Cshowlost{x
 
 By enabling the showlost feature, you will be notified of any items in
 your locker or inventory that will be lost before quiting.
-vil is available in the smithy below Griswald's
-Repair Shop on Clan Road in Midgaard. This anvil, like most of its kind,
-has costs associated with its use. {YWeapon forging{x costs a number of
-gold coins wheras {Yflag forging{x costs the forger quest points.
- name{x can be any string as long as it is less than 30
-printed characters.  Color codes are not counted as a printed character.
-
-A forged weapon's power is based on its creator's level, skill in making
-weapons, and the type of material that is used.  To forge a weapon, the
-crafter must be holding the material he or she wants to make the weapon
-out of (the material must be of identify type: material).  Materials can
-make your weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 GOLD SILVER MONEYt{x
-
-By enabling the showlost feature, you will be notified of any items in
-your locker or inventory that will be lost before quiting.
-vil is available in the smithy below Griswald's
-Repair Shop on Clan Road in Midgaard. This anvil, like most of its kind,
-has costs associated with its use. {YWeapon forging{x costs a number of
-gold coins wheras {Yflag forging{x costs the forger quest points.
- name{x can be any string as long as it is less than 30
-printed characters.  Color codes are not counted as a printed character.
-
-A forged weapon's power is based on its creator's level, skill in making
-weapons, and the type of material that is used.  To forge a weapon, the
-crafter must be holding the material he or she wants to make the weapon
-out of (the material must be of identify type: material).  Materials can
-make your weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 GOLD SILVER MONEY~
 Midgaard's economy is based on gold and silver coinage (and the lowly copper,
 which you as an adventurer are far too proud to carry).  Gold coins are worth
 100 silver coins, but are also four times as heavy (25/pound, as opposed to
@@ -1098,136 +112,9 @@ Midgaard's economy is based on gold and silver coinage (and the lowly copper,
 from the Midgaard jeweler, he charges a mere 10% more than they are worth.
 10 gems weigh one pound, and they can be worth more than 100 gold pieces for
 the highest quality stones.  Also see '{YHELP BANK{x'
- as a printed character.
-
-A forged weapon's power is based on its creator's level, skill in making
-weapons, and the type of material that is used.  To forge a weapon, the
-crafter must be holding the material he or she wants to make the weapon
-out of (the material must be of identify type: material).  Materials can
-make your weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 LOCKERrd's economy is based on gold and silver coinage (and the lowly copper,
-which you as an adventurer are far too proud to carry).  Gold coins are worth
-100 silver coins, but are also four times as heavy (25/pound, as opposed to
-100 to the pound for silver). Gems can be bought to alleviate weight problems
-from the Midgaard jeweler, he charges a mere 10% more than they are worth.
-10 gems weigh one pound, and they can be worth more than 100 gold pieces for
-the highest quality stones.  Also see '{YHELP BANK{x'
- as a printed character.
-
-A forged weapon's power is based on its creator's level, skill in making
-weapons, and the type of material that is used.  To forge a weapon, the
-crafter must be holding the material he or she wants to make the weapon
-out of (the material must be of identify type: material).  Materials can
-make your weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 LOCKER~
 Syntax: {Clook in locker{x
         {Cget{x <{Yobject{x> {Vlocker{x
         {Cget all locker{x
@@ -1243,131 +130,9 @@ Syntax: {Clook in locker{x
 fee" will be deducted the next time you try to get something from your
 {Clocker{x and your funds are sufficient.  Your {Clocker{x also has a maximum
 limit for the number and size of items that can be contained within it.
- weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 BANK DEPOSIT WITHDRAW BALANCE       {Cget{x <{Yobject{x> {Vlocker{x
-        {Cget all locker{x
-        {Cput{x <{Yobject{x> {Vlocker{x
-        {Cput all locker{x
-
-{CLockers{x work in a similar manner to containers, however, your {Clocker{x
-is safely located in the town of Midgaard while you are off adventuring
-throughout Thera.  Your {Clocker{x costs {Y10 silver{x for every object kept
-inside.  The fee is deducted every time you quit the game.  If you cannot
-afford to pay the fee, then your {Clocker{x will be closed and you will not
-be able to get items from your {Clocker{x until the fee can be paid.  The "late
-fee" will be deducted the next time you try to get something from your
-{Clocker{x and your funds are sufficient.  Your {Clocker{x also has a maximum
-limit for the number and size of items that can be contained within it.
- weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 BANK DEPOSIT WITHDRAW BALANCE~
 Due to the heavy weight of gold the city bank has been reopened! You can
 safely store your gold and silver in the bank by using the following commands:
 
@@ -1378,137 +143,9 @@ Due to the heavy weight of gold the city bank has been reopened! You can
 that amount of gold/silver from your account.
 
 {Gbalance{x: Shows how much gold and silver you currently have in the bank.
-n your {Clocker{x will be closed and you will not
-be able to get items from your {Clocker{x until the fee can be paid.  The "late
-fee" will be deducted the next time you try to get something from your
-{Clocker{x and your funds are sufficient.  Your {Clocker{x also has a maximum
-limit for the number and size of items that can be contained within it.
- weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 DROP GET GIVE PUT TAKEt of gold the city bank has been reopened! You can
-safely store your gold and silver in the bank by using the following commands:
-
-{Cdeposit{x <{Yamount{x> gold or {Cdeposit{x <{Yamount{x> silver will {Cdeposit{x
-that amount of gold/silver into your account.
-
-{Pwithdraw{x <{Yamount{x> gold or {Pwithdraw{x <{Yamount{x> silver will {Pwithdraw{x
-that amount of gold/silver from your account.
-
-{Gbalance{x: Shows how much gold and silver you currently have in the bank.
-n your {Clocker{x will be closed and you will not
-be able to get items from your {Clocker{x until the fee can be paid.  The "late
-fee" will be deducted the next time you try to get something from your
-{Clocker{x and your funds are sufficient.  Your {Clocker{x also has a maximum
-limit for the number and size of items that can be contained within it.
- weapon easier to forge, or more difficult.  Other materials can
-make your weapon stronger or weaker.  In addition, forged weapons will
-take on the magical properties of the material that is used in making them.
-
-{GEvolved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 DROP GET GIVE PUT TAKE~
 Syntax: {Cdrop{x <{Yobject{x>
         {Cdrop{x <{Ynumber{x>*{x<{Yobject{x>
         {Cdrop{x <{Yamount{x> {Ccoins{x
@@ -1534,134 +171,9 @@ Syntax: {Cdrop{x <{Yobject{x>
 You can use {CDrop{x or {Ggive{x to drop or give {Ymultiple objects of the same type{x
 if you put a number and an asterisk ({C*{x) in front of the object's name.
 Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 EQUIPMENT INVENTORYYobject{x>
-        {Cdrop{x <{Ynumber{x>*{x<{Yobject{x>
-        {Cdrop{x <{Yamount{x> {Ccoins{x
-        {Mget{x  <{Yobject{x>
-        {Mget{x  <{Yobject{x> <{Ycontainer{x>
-        {Ggive{x <{Yobject{x> <{Ycharacter{x>
-        {Ggive{x <{Ynumber{x>*{x<{Yobject{x> <{Ycharacter{x>
-        {Ggive{x <{Yamount{x> {Gcoins{x <{Ycharacter{x>
-        {Vput{x  <{Yobject{x> <{Ycontainer{x>
-
-{CDrop{x drops an object, or some coins, on the ground.
-
-{MGet{x gets an object, either lying on the ground, or from a container, or
-even from a corpse.  TAKE is a synonym for get.
-
-{MGive{x gives an object, or some coins, to another character.
-
-{VPut{x puts an object into a container.
-
-{CDrop{x, {Mget{x and {Vput{x understand the object names '{Yall{x' for all objects and
-'ALL.object' for all objects with the same name.
-
-You can use {CDrop{x or {Ggive{x to drop or give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 EQUIPMENT INVENTORY~
 Syntax: {Cequipment{x
         {Cinventory{x
 
@@ -1669,158 +181,9 @@ Syntax: {Cequipment{x
 {CINVENTORY{x lists your inventory.
 
 {YSEE ALSO:{x combine
- <{Ycontainer{x>
-        {Ggive{x <{Yobject{x> <{Ycharacter{x>
-        {Ggive{x <{Ynumber{x>*{x<{Yobject{x> <{Ycharacter{x>
-        {Ggive{x <{Yamount{x> {Gcoins{x <{Ycharacter{x>
-        {Vput{x  <{Yobject{x> <{Ycontainer{x>
-
-{CDrop{x drops an object, or some coins, on the ground.
-
-{MGet{x gets an object, either lying on the ground, or from a container, or
-even from a corpse.  TAKE is a synonym for get.
-
-{MGive{x gives an object, or some coins, to another character.
-
-{VPut{x puts an object into a container.
-
-{CDrop{x, {Mget{x and {Vput{x understand the object names '{Yall{x' for all objects and
-'ALL.object' for all objects with the same name.
-
-You can use {CDrop{x or {Ggive{x to drop or give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 COMPARE {Cequipment{x
-        {Cinventory{x
-
-{CEQUIPMENT{x lists your equipment (armor, weapons, and held items).
-{CINVENTORY{x lists your inventory.
-
-{YSEE ALSO:{x combine
- <{Ycontainer{x>
-        {Ggive{x <{Yobject{x> <{Ycharacter{x>
-        {Ggive{x <{Ynumber{x>*{x<{Yobject{x> <{Ycharacter{x>
-        {Ggive{x <{Yamount{x> {Gcoins{x <{Ycharacter{x>
-        {Vput{x  <{Yobject{x> <{Ycontainer{x>
-
-{CDrop{x drops an object, or some coins, on the ground.
-
-{MGet{x gets an object, either lying on the ground, or from a container, or
-even from a corpse.  TAKE is a synonym for get.
-
-{MGive{x gives an object, or some coins, to another character.
-
-{VPut{x puts an object into a container.
-
-{CDrop{x, {Mget{x and {Vput{x understand the object names '{Yall{x' for all objects and
-'ALL.object' for all objects with the same name.
-
-You can use {CDrop{x or {Ggive{x to drop or give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 COMPARE~
 Syntax: {Ccompare{x <{Yobject-1{x> <{Yobject-2{x>
         {Ccompare{x <{Yobject{x>
 
@@ -1832,146 +195,9 @@ Syntax: {Ccompare{x <{Yobject-1{x> <{Yobject-2{x>
 object you are currently wearing or wielding of the same type.
 
 {CCompare{x doesn't consider any special modifiers of the objects.
-und, or from a container, or
-even from a corpse.  TAKE is a synonym for get.
-
-{MGive{x gives an object, or some coins, to another character.
-
-{VPut{x puts an object into a container.
-
-{CDrop{x, {Mget{x and {Vput{x understand the object names '{Yall{x' for all objects and
-'ALL.object' for all objects with the same name.
-
-You can use {CDrop{x or {Ggive{x to drop or give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 HOLD REMOVE WEAR WIELDYobject-1{x> <{Yobject-2{x>
-        {Ccompare{x <{Yobject{x>
-
-{CCompare{x compares two objects in your inventory.  If both objects are
-weapons, it will report the one with the better average damage.  If both
-objects are armor, it will report the one with the better armor class.
-
-{CCompare{x with one argument compares an object in your inventory to the
-object you are currently wearing or wielding of the same type.
-
-{CCompare{x doesn't consider any special modifiers of the objects.
-und, or from a container, or
-even from a corpse.  TAKE is a synonym for get.
-
-{MGive{x gives an object, or some coins, to another character.
-
-{VPut{x puts an object into a container.
-
-{CDrop{x, {Mget{x and {Vput{x understand the object names '{Yall{x' for all objects and
-'ALL.object' for all objects with the same name.
-
-You can use {CDrop{x or {Ggive{x to drop or give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 HOLD REMOVE WEAR WIELD~
 Syntax: {Chold{x   <{Yobject{x>
         {Vremove{x <{Yobject{x>
         {Pwear{x   <{Yobject{x>
@@ -1994,137 +220,9 @@ Syntax: {Chold{x   <{Yobject{x>
 inventory.
 
 {YSEE ALSO:{x equipment, inventory
-o drop or give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 DRINK EAT FILL POUR<{Yobject{x>
-        {Vremove{x <{Yobject{x>
-        {Pwear{x   <{Yobject{x>
-        {Pwear all{x
-        {Gwield{x  <{Yobject{x>
-
-The {Chold{x, {Pwear{x, and {Gwield{x commands take an item from your inventory and
-starts using them as equipment.  {CHold{x is used for light sources, wands,
-and staves.  {PWear{x is for armor, and {Gwield{x is for weapons.  {PWear{x can
-be used in lieu of {Chold{x and {Gwield{x for any item.
-
-{YWear all{x will attempt to {Chold{x, {Pwear{x, or {Gwield{x each suitable item in your
-inventory.
-
-You may not be able to {Chold{x, {Pwear{x, or {Gwield{x an item if its alignment does
-not match yours, if it's too heavy for you, or if you're not experienced
-enough to use it properly.
-
-{VRemove{x will take any object from your equipment and put it back into your
-inventory.
-
-{YSEE ALSO:{x equipment, inventory
-o drop or give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 DRINK EAT FILL POUR~
 Syntax: {Cdrink{x <{Yobject{x>
         {Peat{x   <{Yobject{x>
         {Peat{x   <{Cnumber{x>*{x<{Yobject{x>
@@ -2146,136 +244,9 @@ Syntax: {Cdrink{x <{Yobject{x>
 
 {YPour{x transfers a liquid to a container, or empties one.  You can also
 pour from an object into something a character is holding.
-give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 BUY LIST SELL VALUE{Yobject{x>
-        {Peat{x   <{Yobject{x>
-        {Peat{x   <{Cnumber{x>*{x<{Yobject{x>
-        {Peat{x
-        {Gfill{x  <{Yobject{x>
-        {Vpour{x  <{Yobject{x> {Vout{x
-        {Vpour{x  <{Yobject{x> <{Yobject{x>
-        {Vpour{x  <{Yobject{x> <{Ycharacter{x>
-
-{CDrink{x when you are thirsty, and {Peat{x when you are hungry.  {PEat{x without
-an argument will attempt to eat the first item of food in your inventory.
-{CDrink{x without an argument will attempt to drink from a fountain.
-
-If you are {Yvery{x hungry, you can eat {Ymultiple objects of the same type{x
-by typing a number and an asterisk ({C*{x) before the name of the object.
-Example: {Peat 5*bread{x.
-
-{GFill{x fills a drink container with water.
-
-{YPour{x transfers a liquid to a container, or empties one.  You can also
-pour from an object into something a character is holding.
-give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 BUY LIST SELL VALUE~
 Syntax: {Cbuy{x   <{Yobject{x>
         {Vlist{x
         {Vlist{x  <{Yname{x>
@@ -2295,138 +266,9 @@ Syntax: {Cbuy{x   <{Yobject{x>
 {YSell{x sells an object to a shopkeeper.
 
 {GValue{x asks the shopkeeper how much he/she/it will buy the item for.
-container, or empties one.  You can also
-pour from an object into something a character is holding.
-give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 SACRIFICE TAP JUNK DONATEct{x>
-        {Vlist{x
-        {Vlist{x  <{Yname{x>
-        {Psell{x  <{Yobject{x>
-        {Gvalue{x <{Yobject{x>
-
-{CBuy{x buys an object from a shopkeeper. When multiple items of the same
-name are listed, type 'buy n.item', where 'n' is the position of the item
-in a list of that name.  So if there are two swords, buy 2.sword will buy
-the second. If you want to buy multiples of an item, use an * (buy 5*pie
-will buy 5 pies).  These can be combined into (for example) buy 2*2.shield,
-as long as the * is first.
-
-{VList{x lists the objects the shopkeeper will sell you.  {VList{x <{Yname{x> shows
-you only objects of that name.
-
-{YSell{x sells an object to a shopkeeper.
-
-{GValue{x asks the shopkeeper how much he/she/it will buy the item for.
-container, or empties one.  You can also
-pour from an object into something a character is holding.
-give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 SACRIFICE TAP JUNK DONATE~
 Syntax: {CSacrifice{x <{Yobject{x>
         {CTap{x       <{Yobject{x>
         {PJunk{x      <{Yobject{x>
@@ -2442,149 +284,9 @@ Syntax: {CSacrifice{x <{Yobject{x>
 
 {VDonate{x transports an item from your inventory to the public Donation Pit
 in Midgaard.  ({YSEE ALSO:{x pit)
-as long as the * is first.
-
-{VList{x lists the objects the shopkeeper will sell you.  {VList{x <{Yname{x> shows
-you only objects of that name.
-
-{YSell{x sells an object to a shopkeeper.
-
-{GValue{x asks the shopkeeper how much he/she/it will buy the item for.
-container, or empties one.  You can also
-pour from an object into something a character is holding.
-give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 BRANDISH STAFF WAND QUAFF RECITE ZAP        {CTap{x       <{Yobject{x>
-        {PJunk{x      <{Yobject{x>
-        {VDonate{x    <{Yobject{x>
-
-{CSacrifice{x offers an object to the gods, who may reward you.  The amount
-of the reward depends upon the level of object.
-
-{CTap{x does the same as sacrifice.
-
-{PJunk{x removes an item from your inventory.  The gods do not offer rewards
-for junked items.
-
-{VDonate{x transports an item from your inventory to the public Donation Pit
-in Midgaard.  ({YSEE ALSO:{x pit)
-as long as the * is first.
-
-{VList{x lists the objects the shopkeeper will sell you.  {VList{x <{Yname{x> shows
-you only objects of that name.
-
-{YSell{x sells an object to a shopkeeper.
-
-{GValue{x asks the shopkeeper how much he/she/it will buy the item for.
-container, or empties one.  You can also
-pour from an object into something a character is holding.
-give {Ymultiple objects of the same type{x
-if you put a number and an asterisk ({C*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 BRANDISH STAFF WAND QUAFF RECITE ZAP~
 Syntax: {PBrandish{x
         {CQuaff{x  <{Ypotion{x>
         {VRecite{x <{Yscroll{x> <{Ytarget{x>
@@ -2605,280 +307,15 @@ Syntax: {PBrandish{x
 
 These commands may require an item skill to be succesful, see the help entries
 on the skills {Wscrolls{x, {Wstaves{x, and {Wwands{x for more information.
-*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-50 NEWBIEKITPBrandish{x
-        {CQuaff{x  <{Ypotion{x>
-        {VRecite{x <{Yscroll{x> <{Ytarget{x>
-        {GZap{x    <{Ytarget{x>
-        {GZap{x
-
-{PBRANDISH{x brandishes a magical staff.  {CQUAFF{x quaffs a magical potion (as opposed
-to DRINK, which drinks mundane liquids).  {VRECITE{x recites a magical scroll; the
-<{Ytarget{x> is optional, depending on the nature of the scroll.  {GZAP{x zaps a
-magical wand at a target.  If the target is not specified, and you are fighting
-someone, then that character is used for a target.
-
-You must {RHOLD{x a wand or a staff before using {PBRANDISH{x or {GZAP{x.
-
-All of these commands use up their objects.  Potions and scrolls have a single
-charge.  Wands and staves have multiple charges.  When a magical object has no
-more charges, it will be consumed.
-
-These commands may require an item skill to be succesful, see the help entries
-on the skills {Wscrolls{x, {Wstaves{x, and {Wwands{x for more information.
-*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+50 NEWBIEKIT~
 Syntax: {Cnewbiekit{x
 
 {CNewbiekit{x allows newbiehelpers and imms create {BL{Ce{gg{Wa{Cc{By {WS{Pt{Ya{Gr{Ct{Be{Vr {WKit{xs.
-et{x>
-        {GZap{x
-
-{PBRANDISH{x brandishes a magical staff.  {CQUAFF{x quaffs a magical potion (as opposed
-to DRINK, which drinks mundane liquids).  {VRECITE{x recites a magical scroll; the
-<{Ytarget{x> is optional, depending on the nature of the scroll.  {GZAP{x zaps a
-magical wand at a target.  If the target is not specified, and you are fighting
-someone, then that character is used for a target.
-
-You must {RHOLD{x a wand or a staff before using {PBRANDISH{x or {GZAP{x.
-
-All of these commands use up their objects.  Potions and scrolls have a single
-charge.  Wands and staves have multiple charges.  When a magical object has no
-more charges, it will be consumed.
-
-These commands may require an item skill to be succesful, see the help entries
-on the skills {Wscrolls{x, {Wstaves{x, and {Wwands{x for more information.
-*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 ENGRAVE ENGRAVINGit{x
-
-{CNewbiekit{x allows newbiehelpers and imms create {BL{Ce{gg{Wa{Cc{By {WS{Pt{Ya{Gr{Ct{Be{Vr {WKit{xs.
-et{x>
-        {GZap{x
-
-{PBRANDISH{x brandishes a magical staff.  {CQUAFF{x quaffs a magical potion (as opposed
-to DRINK, which drinks mundane liquids).  {VRECITE{x recites a magical scroll; the
-<{Ytarget{x> is optional, depending on the nature of the scroll.  {GZAP{x zaps a
-magical wand at a target.  If the target is not specified, and you are fighting
-someone, then that character is used for a target.
-
-You must {RHOLD{x a wand or a staff before using {PBRANDISH{x or {GZAP{x.
-
-All of these commands use up their objects.  Potions and scrolls have a single
-charge.  Wands and staves have multiple charges.  When a magical object has no
-more charges, it will be consumed.
-
-These commands may require an item skill to be succesful, see the help entries
-on the skills {Wscrolls{x, {Wstaves{x, and {Wwands{x for more information.
-*{x) in front of the object's name.
-Examples:  {Pdrop 5*handkerchief{x or {Pgive 10*bread beggar{x.
-volved:{x
-Upon Evolution, you will gain some bonus to the dice rolls when you {Vforge{x.
-Thereby making your weapon hit even harder.{x
-
-The SECOND form of forging adds one of four magical attributes to a weapon
-you are wielding. The weapon attribute can be any one of the following:
-{Cflame{x, {Cfrost{x, {Cshock{x, and {Cblood{x. Your weapon must be at least
-level 30 in order for you to be able to forge flags onto it.
-These attributes are put on the weapon as *permanent* weapon flags with the
-same effects as those which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 ENGRAVE ENGRAVING~
 Syntax: {Pengrave{x <{Ymessage{x>
 
 Engraving is the art of etching a message into a weapon. It is intended to
@@ -2907,119 +344,9 @@ Syntax: {Pengrave{x <{Ymessage{x>
 So you may want to have your title reflect something about your skill or
 intent in making the weapon, as this will be recorded along with your
 engraved message.
- which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
-0 PITtax: {Pengrave{x <{Ymessage{x>
-
-Engraving is the art of etching a message into a weapon. It is intended to
-show the history of some of the legendary weapons of Thera, but you could
-also use it to write down the 'dirs to the bakery from recall', if you are
-having trouble in that area. Engraving requires the use of special tools
-which mortals can't get (yet), but which every jeweler has. In order to
-minimize the wear and tear on these tools (which you can use for free, no
-matter how uncooperative the jeweler), each person may only engrave one
-message per weapon (and that's a short one, maximum 75 characters). You can
-engrave it again, but that will overwrite YOUR first engraving (others may
-put their own engravings on it). Also, you may not engrave a weapon you are
-not worthy to wield... This is an artifact of the intended purpose, which
-is to show who wrote their name in the history of Thera using this weapon.
-
-To engrave a weapon, take it to any jeweler in the game (there are more
-than you might have thought) wield it, and '{Pengrave{x <{Yyourmessage{x>'.
-Thereafter, if you look at the weapon you will see that there are
-'personal {Cengravings{x' on it, and you can '{Plook engravings{x'. If you have
-more than one engraved weapon, you can '{Plook 2.engravings{x'. Your
-engraving will look like this:
-
-    [date] {Y<your name>{x <your title> engraved {Ythis{x:
-     "<your engraved message>"
-
-So you may want to have your title reflect something about your skill or
-intent in making the weapon, as this will be recorded along with your
-engraved message.
- which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
-~
+0 PIT~
 Syntax: {Cpit{x
         {Cpit{x <{Ymin_level max_level{x> <{Ykeyword(s){x>
 
@@ -3035,65 +362,6 @@ Syntax: {Cpit{x
    {Cpit 20 40 axe{x - shows you axes between levels 20 and 40.
 
 {YSEE ALSO:{x donate
- YOUR first engraving (others may
-put their own engravings on it). Also, you may not engrave a weapon you are
-not worthy to wield... This is an artifact of the intended purpose, which
-is to show who wrote their name in the history of Thera using this weapon.
-
-To engrave a weapon, take it to any jeweler in the game (there are more
-than you might have thought) wield it, and '{Pengrave{x <{Yyourmessage{x>'.
-Thereafter, if you look at the weapon you will see that there are
-'personal {Cengravings{x' on it, and you can '{Plook engravings{x'. If you have
-more than one engraved weapon, you can '{Plook 2.engravings{x'. Your
-engraving will look like this:
-
-    [date] {Y<your name>{x <your title> engraved {Ythis{x:
-     "<your engraved message>"
-
-So you may want to have your title reflect something about your skill or
-intent in making the weapon, as this will be recorded along with your
-engraved message.
- which can *temporarily* be put on weapons using the
-Bladecraft spells (see {RHELP BLADECRAFT{x for details). Your chance of
-succeeding at this task depends on your skill at forging. If you fail, your
-weapon will be destroyed!
-
-{GEvolved:{x
-{xWhen Evolved to evolution 3, {Vforge{x gains the ability for you to
-enhance a weapon with a second permenate flag. The cost for this 
-is 5 times the normal cost and if you fail, your weapon will be distroyed.{x
-
-This second type of forging is now also able to let you make a weapon
-stronger and more powerful.  The downside, however, is that the added
-weight necessary makes it two-handed.  To achieve this, use the flag type
-{Ctwohanded{x.
-
-BOTH forms of forging require that the forger be in the same room with a
-special forging {Yanvil{x. See {RHELP ANVIL{x for details!
-ple of Thera. 
-This includes, but is not restricted to, those who sideswipe us or engage us
-in warfare. With this in mind, those who do evil are due neither our respect
-nor our mercy.  -- only DESTRUCTION. It is no less than the DUTY of all 
-{NK{Bn{Ci{Wg{Ch{Bt{Ns of the {NB{Blu{Ne {NR{Bos{Ne{x to reduce such varlets 
-to a bit of blood spoor and the fleeting memory of the villain(s)' vile 
-existence. If this means that we get a few {RKILLER{x flags, so be it. We 
-will defend our clan by any resources of strength, sorcery and stealth that
-we can muster. Otherwise, we will be honourable with our opponents, accepting
-their surrenders graciously. Individuals who offend us shall be placed onto
-the List of the Black Rose; these fallen lot shall be subject to our extreme
-ill will and we will take every opportunity to kill them. Redemption shall be
-at OUR discretion.
-
-As for honour in METHODS of PK, understand this -- the object of ANY PK
-combat, ESPECIALLY during wartime, is to WIN, not posture and moralise. 
-Anything goes in PK; whoever says otherwise is lying to themselves. We don't
-advocate breaking the rules, but otherwise anything goes. Any trick, tool or
-resource at our command shall be used to defend our clan and the innocent in
-the most efficient way possible. This is our code of honour, and woe to those
-who would impugn it.
-
-
-{YSEE ALSO:{x Help OrderHistory, Help OrderRules
 ~
 
 -2

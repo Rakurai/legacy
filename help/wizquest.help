@@ -1,43 +1,4 @@
-92 QUESTng cards are back!  You can now find these bits of {WM{go{Wn{Ct{Wr{ge{Wy{x's {BL{Cegacy {BS{Cet{x
-scattered around the realm.  Trading cards show some of the coolest stuff in
-Thera, the weapons and armor that are so good they've become legendary.  Plus,
-for those of you who want to know more about the object on the card, just look
-at the card to hear about the coolness that made it a legend.  Each one counts
-as a single hidden token, except for the ultra-cool {PRARE{x cards that count
-as {Y3{x!  Don't forget that this is an {BI{Cmp {BL{Cegacy{x, the rewards are {Pc{Yr{Ga{Bz{Vy{x!
-
-But, that's not all!  If you bring to me {Y10{x different cards at once, you get
-a special bonus.  I'll autograph them for you and put them in a special
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 QUEST~
 Immortal additions to the {RQUEST{x command:
 
 {RQUEST OPEN{x                   -- open the Quest Area for questing.
@@ -47,84 +8,9 @@ Immortal additions to the {RQUEST{x command:
 {RQUEST DOUBLE{x                 -- turns on or off double quest points.
 {RQUEST AWARD{x  <{Yplayer{x> points{x   -- give a player 1 to 10 quest points.
 {RQUEST DEDUCT{x <{Yplayer{x> points{x   -- deduct quest points from a player.
-x, the rewards are {Pc{Yr{Ga{Bz{Vy{x!
-
-But, that's not all!  If you bring to me {Y10{x different cards at once, you get
-a special bonus.  I'll autograph them for you and put them in a special
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 ECHO GECHO PECHO ZECHOthe {RQUEST{x command:
-
-{RQUEST OPEN{x                   -- open the Quest Area for questing.
-{RQUEST CLOSE{x                  -- close the Quest Area.
-{RQUEST PK{x                     -- toggles unlimited or restricted pk in FS.
-{RQUEST LIST{x                   -- list all player's quest status.
-{RQUEST DOUBLE{x                 -- turns on or off double quest points.
-{RQUEST AWARD{x  <{Yplayer{x> points{x   -- give a player 1 to 10 quest points.
-{RQUEST DEDUCT{x <{Yplayer{x> points{x   -- deduct quest points from a player.
-x, the rewards are {Pc{Yr{Ga{Bz{Vy{x!
-
-But, that's not all!  If you bring to me {Y10{x different cards at once, you get
-a special bonus.  I'll autograph them for you and put them in a special
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 ECHO GECHO PECHO ZECHO~
 Syntax: {Cecho{x  <{Ymessage{x>
         {Cgecho{x <{Ymessage{x>
         {Czecho{x <{Ymessage{x>
@@ -140,177 +26,15 @@ Syntax: {Cecho{x  <{Ymessage{x>
 
 The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
 and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 MASTER: {Cecho{x  <{Ymessage{x>
-        {Cgecho{x <{Ymessage{x>
-        {Czecho{x <{Ymessage{x>
-        {Cpecho{x <{Ycharacter{x> <{Ymessage{x>
-
-These commands all perform similar functions.  {CEcho{x sends the message to
-all characters in the same room as the user with no indication of who sent
-it. {CZecho{x sends the message to all characters in the same zone (area).
-{CGecho{x does the same for all players connected to the game, and {Cpecho{x
-sends the message to the player specified as the target.  Any higher level
-god will see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 MASTER~
 Syntax: {Cmaster{x <{Yvictim{x> <{Ymobile{x>
 
 This command will set a mobile as a pet for a player.
-     {Cpecho{x <{Ycharacter{x> <{Ymessage{x>
-
-These commands all perform similar functions.  {CEcho{x sends the message to
-all characters in the same room as the user with no indication of who sent
-it. {CZecho{x sends the message to all characters in the same zone (area).
-{CGecho{x does the same for all players connected to the game, and {Cpecho{x
-sends the message to the player specified as the target.  Any higher level
-god will see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 MORPHx: {Cmaster{x <{Yvictim{x> <{Ymobile{x>
-
-This command will set a mobile as a pet for a player.
-     {Cpecho{x <{Ycharacter{x> <{Ymessage{x>
-
-These commands all perform similar functions.  {CEcho{x sends the message to
-all characters in the same room as the user with no indication of who sent
-it. {CZecho{x sends the message to all characters in the same zone (area).
-{CGecho{x does the same for all players connected to the game, and {Cpecho{x
-sends the message to the player specified as the target.  Any higher level
-god will see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 MORPH~
 Syntax: {Cmorph{x <{Yvictim{x> <{Ymobile{x>
         {Creturn{x
 
@@ -321,291 +45,24 @@ Syntax: {Cmorph{x <{Yvictim{x> <{Ymobile{x>
 
 Morphed mortals can only return to their original bodies by being
 killed, dropping link, or typing the command: {Creturn{x.
-o the game, and {Cpecho{x
-sends the message to the player specified as the target.  Any higher level
-god will see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 LINKLOAD{Cmorph{x <{Yvictim{x> <{Ymobile{x>
-        {Creturn{x
-
-{CMorph{x switches the body of the victim into a mobile.  At least one
-mobile must be in existance on the mud during the time of the morph,
-for the morph command uses that mobile as a template for creating a
-new body for the victim.
-
-Morphed mortals can only return to their original bodies by being
-killed, dropping link, or typing the command: {Creturn{x.
-o the game, and {Cpecho{x
-sends the message to the player specified as the target.  Any higher level
-god will see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 LINKLOAD~
 Syntax: {Clinkload{x <{Yplayer{x>
 
 {CLinkload{x reaches into the playerfiles and loads a player into the game
 in a linkdead status.
-e
-mobile must be in existance on the mud during the time of the morph,
-for the morph command uses that mobile as a template for creating a
-new body for the victim.
-
-Morphed mortals can only return to their original bodies by being
-killed, dropping link, or typing the command: {Creturn{x.
-o the game, and {Cpecho{x
-sends the message to the player specified as the target.  Any higher level
-god will see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-100 100 DESPELL ADDSPELL <{Yplayer{x>
-
-{CLinkload{x reaches into the playerfiles and loads a player into the game
-in a linkdead status.
-e
-mobile must be in existance on the mud during the time of the morph,
-for the morph command uses that mobile as a template for creating a
-new body for the victim.
-
-Morphed mortals can only return to their original bodies by being
-killed, dropping link, or typing the command: {Creturn{x.
-o the game, and {Cpecho{x
-sends the message to the player specified as the target.  Any higher level
-god will see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+100 100 DESPELL ADDSPELL~
 Syntax: {Caddspell{x <{Yobject{x> <{Yspell{x> <{Ylevel{x>
         {Cdespell{x  <{Yobject{x>
 
 Adds spells to or removes spells from objects.	These can be any spells
 currently available on the mud.
-morph,
-for the morph command uses that mobile as a template for creating a
-new body for the victim.
-
-Morphed mortals can only return to their original bodies by being
-killed, dropping link, or typing the command: {Creturn{x.
-o the game, and {Cpecho{x
-sends the message to the player specified as the target.  Any higher level
-god will see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-99 ADDAPPLY{Caddspell{x <{Yobject{x> <{Yspell{x> <{Ylevel{x>
-        {Cdespell{x  <{Yobject{x>
-
-Adds spells to or removes spells from objects.	These can be any spells
-currently available on the mud.
-morph,
-for the morph command uses that mobile as a template for creating a
-new body for the victim.
-
-Morphed mortals can only return to their original bodies by being
-killed, dropping link, or typing the command: {Creturn{x.
-o the game, and {Cpecho{x
-sends the message to the player specified as the target.  Any higher level
-god will see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+99 ADDAPPLY~
 Syntax: {Caddapply {x<{Yobject{x> <{Ytype{x> <{Yvalue{x> <{Yduration{x>
 
 {CAddapply{x is used to add applies to an object.  Applies are bonus
@@ -618,240 +75,20 @@ Syntax: {Caddapply {x<{Yobject{x> <{Ytype{x> <{Yvalue{x> <{Yduration{x>
 
 would set the sword to +20 hp for 50 hours.  Leaving out the 50 would
 make the bonus permanent.
-ll see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 OCLONE: {Caddapply {x<{Yobject{x> <{Ytype{x> <{Yvalue{x> <{Yduration{x>
-
-{CAddapply{x is used to add applies to an object.  Applies are bonus
-attributes, being of hp, mana, move, str, dex, wis, int, con, chr, age,
-ac, hitroll, damroll, or saves.  Value can be any number, from -30000 to
-30000.  Duration can be a number from 0 to 998, and can be left off
-completely to be infinite.
-
-{YExample:          {Vaddapply {Ysword hp 20 50{x
-
-would set the sword to +20 hp for 50 hours.  Leaving out the 50 would
-make the bonus permanent.
-ll see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 OCLONE~
 Syntax: {Coclone{x <{Yobject{x> <{Yowner{x>
 
 Clones a copy of an item that someone else owns and places it into your
 inventory.
-s are bonus
-attributes, being of hp, mana, move, str, dex, wis, int, con, chr, age,
-ac, hitroll, damroll, or saves.  Value can be any number, from -30000 to
-30000.  Duration can be a number from 0 to 998, and can be left off
-completely to be infinite.
-
-{YExample:          {Vaddapply {Ysword hp 20 50{x
-
-would set the sword to +20 hp for 50 hours.  Leaving out the 50 would
-make the bonus permanent.
-ll see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 SKILLPOINToclone{x <{Yobject{x> <{Yowner{x>
-
-Clones a copy of an item that someone else owns and places it into your
-inventory.
-s are bonus
-attributes, being of hp, mana, move, str, dex, wis, int, con, chr, age,
-ac, hitroll, damroll, or saves.  Value can be any number, from -30000 to
-30000.  Duration can be a number from 0 to 998, and can be left off
-completely to be infinite.
-
-{YExample:          {Vaddapply {Ysword hp 20 50{x
-
-would set the sword to +20 hp for 50 hours.  Leaving out the 50 would
-make the bonus permanent.
-ll see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 SKILLPOINT~
 Syntax: {Cskillpoint{x <{Yaward|deduct{x> <{Yplayer{x> <{Yamount{x>
 
 Skill point allows you to grant or remove skill points from a player.
 This is good for side quests or punishment.
-dex, wis, int, con, chr, age,
-ac, hitroll, damroll, or saves.  Value can be any number, from -30000 to
-30000.  Duration can be a number from 0 to 998, and can be left off
-completely to be infinite.
-
-{YExample:          {Vaddapply {Ysword hp 20 50{x
-
-would set the sword to +20 hp for 50 hours.  Leaving out the 50 would
-make the bonus permanent.
-ll see a prompt in front of your message informing him or her that it
-is an {Cecho{x.
-
-The levels of these commands vary with their range.  ({Cecho{x at 94, {Cpecho{x
-and {Czecho{x at 96, and {Cgecho{x at 98.)
-
-protective binder, and you'll get a free restring token!  Sounds great, right?
-Of course it is.  The autographed cards can still be used as part of my set,
-of course, so there's no reason not to do it.  But wait!  Could there STILL
-be more??  You bet there is.  If one of the {Y10{x cards you bring me is a {Prare{x
-card, instead of one restring, you'll get your choice of {Y2 {Pr{Ye{Gs{Bt{Cr{Vi{Yn{Pg{Gs{x, {Y1{x {Gs{Hp{Ge{Hl{Gl{x,
-or {Y1{x {Vgreater enchant{x.
-
-Drooling yet?  Of course you are.  Get out there and start finding cards!
-
-{YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
 -2

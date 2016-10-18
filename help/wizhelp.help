@@ -1,48 +1,4 @@
-92 HELPFILEernate{x, or '{Calt{x', is a character played by the same person as
-another character.  This is allowed, and even encouraged, as part of the
-fun is trying out classes and races that you may be unfamiliar with.  Many
-players have more than one character, and most try to roleplay them
-separately from their other characters.  This too is encouraged, many
-find the challenge of roleplaying different characters stimulating.
-
-Roleplay is not forced on {BL{Ce{gg{Wa{Cc{By{x, but this should not be confused with
-tolerance of making it difficult to roleplay.  Players work hard to keep
-their alts separate, but alas, it is natural to blur the difference
-between player and character.  People tend to familiarize themselves with
-the player, and in doing so, often fail to treat their characters as
-individuals.  Thus, many players do not reveal the identities of all their
-characters.
-
-If you know who a player's alts are, do NOT reveal them to others without
-express permission from that player.  It is considered rude and extremely
-bad etiquette, and is not tolerated on Legacy.  This applies to any form
-of communication on the mud, including notes and channels.  {PPunishment{x for
-revealing alts is swift and harsh.  Please, respect your fellow players,
-don't destroy the possibility of roleplay for others.
-
-forget to tell us how they plan to make their dream real. Every good idea
-has a workable plan. You must tell us your plan or suffer from the sad
-reality that we cannot read your mind.
-
-Something your application can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 HELPFILE~
 Here's the syntax for writing helpfiles:
 
 {WHELPFILE NAME{x
@@ -74,76 +30,9 @@ Here's the syntax for writing helpfiles:
 
 GROUP:  {RSpellgroup{x {RSpellgroup{x
 {YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 DAMAGE ATTACKntax for writing helpfiles:
-
-{WHELPFILE NAME{x
-
-Syntax: {Ccast {x'{Yspellname{x' <{Ytarget{x> {Gargument{x
-        {Cgeneric skill{x <{Yargument{x>
-        {Vskill{x <{Ytarget{x> {Garguments{x
-
-Here's where the text of of your helpfile goes.  Please note the coloring
-and the spacing of this example helpfile.  Use {Ccyan{x for generic skills
-and for spells.  Please use {Yyellow{x for the targets of spells/skills.  Use
-{Ggreen{x for further arguments of skills/spells, and {Yyellow{x for the arguments
-of generic skills.  Use spaces, not tabs to line up multiple syntaxes.
-
-When referring to a {Cspell{x or a {Cgeneric command{x within the text of the
-helpfile, use {Ccyan{x to highlight.  {VViolet{x is used for skills (skills are
-anything that shows up on your skill list.)  Please keep the length of
-your lines in the low 70's.  This one uses a max of 75.
-
-At the bottom of the helpfile goes the spellgroup of the spell and a SEE
-ALSO if your helpfile is naturally related to another one.  For additional
-formatting, see the {Wfireball{x and {Wpeek{x helpfiles.
-
-Above, before the keyword '{WHELPFILE{x', is the name of the file that
-this help belongs in.  You do not need to write this in, it is generated
-by the help command to let you know where to look for a specific file.
-It is used with the loadhelps and printhelps commands.  No, this paragraph
-does not follow the coloring guidelines.  Hush, I'm in a hurry.
-
-GROUP:  {RSpellgroup{x {RSpellgroup{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 DAMAGE ATTACK~
 {c/===============================================\
 {c|{P0      {c|{Hhit            {c|{P20     {c|{Hdivine power   {c|
 {c|{P1      {c|{Hslice          {c|{P21     {c|{Hcleave         {c|
@@ -166,71 +55,9 @@ Here's the syntax for writing helpfiles:
 {c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
 {c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
 {c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 AREAS=============================================\
-{c|{P0      {c|{Hhit            {c|{P20     {c|{Hdivine power   {c|
-{c|{P1      {c|{Hslice          {c|{P21     {c|{Hcleave         {c|
-{c|{P2      {c|{Hstab           {c|{P22     {c|{Hscratch        {c|
-{c|{P3      {c|{Hslash          {c|{P23     {c|{Hpeck           {c|
-{c|{P4      {c|{Hwhip           {c|{P24     {c|{Hpeck           {c|
-{c|{P5      {c|{Hclaw           {c|{P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 AREAS~
 Additional info for {YImms{x:
 
 {YImms{x get {Y3{x extra columns in the output from {Careas{x. These are the area
@@ -239,279 +66,27 @@ Additional info for {YImms{x:
 {Careas *{x will give you only areas with players in them.
 {Careas #{x will give you the areas sorted by vnum ranges.
 These two options can be combined with the others where sensible.
-    {c|{Hpeck           {c|
-{c|{P5      {c|{Hclaw           {c|{P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 SHOWFLAGSl info for {YImms{x:
-
-{YImms{x get {Y3{x extra columns in the output from {Careas{x. These are the area
-file name, the vnum range and the number of players in the area.
-
-{Careas *{x will give you only areas with players in them.
-{Careas #{x will give you the areas sorted by vnum ranges.
-These two options can be combined with the others where sensible.
-    {c|{Hpeck           {c|
-{c|{P5      {c|{Hclaw           {c|{P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 SHOWFLAGS~
 Syntax: {Cshowflags{x <{Yplayer{x>
         {Cshowflags{x <{Ymob{x>
 
 For immortals, this command also shows flags for other characters.
 Some of this information is useful, and it's much more condensed than
 what you get from {Cstat{x.
-m.
-{Careas #{x will give you the areas sorted by vnum ranges.
-These two options can be combined with the others where sensible.
-    {c|{Hpeck           {c|
-{c|{P5      {c|{Hclaw           {c|{P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 EQUIPMENT INVENTORY{x <{Yplayer{x>
-        {Cshowflags{x <{Ymob{x>
-
-For immortals, this command also shows flags for other characters.
-Some of this information is useful, and it's much more condensed than
-what you get from {Cstat{x.
-m.
-{Careas #{x will give you the areas sorted by vnum ranges.
-These two options can be combined with the others where sensible.
-    {c|{Hpeck           {c|
-{c|{P5      {c|{Hclaw           {c|{P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 EQUIPMENT INVENTORY~
 Immortal addition:
 Syntax:  {Cequipment{x <{Ycharacter{x>
          {Cinventory char{x <{Ycharacter{x>
 
 {Cequipment{x <{Ycharacter{x> and {Cinventory char{x <{Ycharacter{x> will list equipment
 or inventory for another character (player or mobile) in the game.
-you the areas sorted by vnum ranges.
-These two options can be combined with the others where sensible.
-    {c|{Hpeck           {c|
-{c|{P5      {c|{Hclaw           {c|{P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 FILErtal addition:
-Syntax:  {Cequipment{x <{Ycharacter{x>
-         {Cinventory char{x <{Ycharacter{x>
-
-{Cequipment{x <{Ycharacter{x> and {Cinventory char{x <{Ycharacter{x> will list equipment
-or inventory for another character (player or mobile) in the game.
-you the areas sorted by vnum ranges.
-These two options can be combined with the others where sensible.
-    {c|{Hpeck           {c|
-{c|{P5      {c|{Hclaw           {c|{P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 FILE~
 Syntax: {Cfile{x <{Yfield{x> <{Ylines{x>
 
 This command can be used to look at some game maintenance files.
@@ -521,276 +96,26 @@ Syntax: {Cfile{x <{Yfield{x> <{Ylines{x>
 of 1 (just the very last line) to 150 (the last 150 lines).
 
 Typing 'file' by itself will show a list of available files.
-P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-100 MOTD 'MESSAGE OF THE DAY'{x> <{Ylines{x>
-
-This command can be used to look at some game maintenance files.
-Depending on your level, not all files may be available to you.
-To avoid spamming your connection to death, you need to indicate
-how many lines of text from the file you want to see, from a minimum
-of 1 (just the very last line) to 150 (the last 150 lines).
-
-Typing 'file' by itself will show a list of available files.
-P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+100 MOTD 'MESSAGE OF THE DAY'~
 Syntax: {Cmotd{x
         {Cmotd {Y-{x{x
         {Cmotd{x {Y+{x <{Ymessage{x>
 
 Without an argument, {Cmotd{x will display the current message of the day.
 The "{Y-{x" will subtract lines, and the "{Y+{x" will add lines to the {Cmotd{x.
-how many lines of text from the file you want to see, from a minimum
-of 1 (just the very last line) to 150 (the last 150 lines).
-
-Typing 'file' by itself will show a list of available files.
-P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 NOTE NOTES NEWS ROLEPLAY IDEA CHANGES UNREAD PERSONALotd{x {Y+{x <{Ymessage{x>
-
-Without an argument, {Cmotd{x will display the current message of the day.
-The "{Y-{x" will subtract lines, and the "{Y+{x" will add lines to the {Cmotd{x.
-how many lines of text from the file you want to see, from a minimum
-of 1 (just the very last line) to 150 (the last 150 lines).
-
-Typing 'file' by itself will show a list of available files.
-P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 NOTE NOTES NEWS ROLEPLAY IDEA CHANGES UNREAD PERSONAL~
 {CImmortal{x addendum to NOTES commands:
 
   {Cnote delete{x <{Ynumber{x>         {H: deletes a note
   {Cnote repost{x <{Ynumber{x>         {H: reposts a note with the to line as "Immortal"
   {Cnote move{x   <{Ynumber{x> <{Yboard{x> {H: will move anybody's notes to another board
-nt to see, from a minimum
-of 1 (just the very last line) to 150 (the last 150 lines).
-
-Typing 'file' by itself will show a list of available files.
-P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 EVOLVE 'EVOLUTION TABLE' NOTES commands:
-
-  {Cnote delete{x <{Ynumber{x>         {H: deletes a note
-  {Cnote repost{x <{Ynumber{x>         {H: reposts a note with the to line as "Immortal"
-  {Cnote move{x   <{Ynumber{x> <{Yboard{x> {H: will move anybody's notes to another board
-nt to see, from a minimum
-of 1 (just the very last line) to 150 (the last 150 lines).
-
-Typing 'file' by itself will show a list of available files.
-P25     {c|{Hchop           {c|
-{c|{P6      {c|{Hblast          {c|{P26     {c|{Hsting          {c|
-{c|{P7      {c|{Hpound          {c|{P27     {c|{Hsmash          {c|
-{c|{P8      {c|{Hcrush          {c|{P28     {c|{Hshocking bite  {c|
-{c|{P9      {c|{Hgrep           {c|{P29     {c|{Hflaming bite   {c|
-{c|{P10     {c|{Hbite           {c|{P30     {c|{Hfreezing bite  {c|
-{c|{P11     {c|{Hpierce         {c|{P31     {c|{Hacidic bite    {c|
-{c|{P12     {c|{Hsuction        {c|{P32     {c|{Hchomp          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 EVOLVE 'EVOLUTION TABLE'~
 The purpose of this helpfile is to aid in policy decisions.
 Maximum evolutions allowed:
 
@@ -807,83 +132,9 @@ The purpose of this helpfile is to aid in policy decisions.
 {PMeditation{x      2     3     1     1     2     2     1     1
 {PPeek{x            1     1     3     1     1     1     2     1
 --------------------------------------------------------------
-          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 TOKENRULESe of this helpfile is to aid in policy decisions.
-Maximum evolutions allowed:
-
-{PSpell/Skill{x    Mag   Cle   Thi   War   Nec   Pld   Bar   Ran
---------------------------------------------------------------
-{PDivine Reg{x      2     3     1     1     1     2     1     1
-{PFireball{x        3     1     1     1     2     1     1     1
-{PRegen{x           2     3     2     2     2     2     2     3
-{PSanctuary{x       2     3     1     1     1     2     1     1
-{PTalon{x           3     2     1     1     2     1     1     1
-{PDisarm{x          1     1     2     3     1     2     1     2
-{PDual Wield{x      1     1     2     2     1     2     3     3
-{PFast Healing{x    1     1     2     3     1     2     2     2
-{PMeditation{x      2     3     1     1     2     2     1     1
-{PPeek{x            1     1     3     1     1     1     2     1
---------------------------------------------------------------
-          {c|
-{c|{P13     {c|{Hbeating        {c|{P33     {c|{Hlife drain     {c|
-{c|{P14     {c|{Hdigestion      {c|{P34     {c|{Hthrust         {c|
-{c|{P15     {c|{Hcharge         {c|{P35     {c|{Hslime          {c|
-{c|{P16     {c|{Hslap           {c|{P36     {c|{Hshock          {c|
-{c|{P17     {c|{Hpunch          {c|{P37     {c|{Hthwack         {c|
-{c|{P18     {c|{Hwrath          {c|{P38     {c|{Hflame          {c|
-{c|{P19     {c|{Hmagic          {c|{P39     {c|{Hchill{x        {c|
-{c\===============================================/{x
-group{x
-{YSEE ALSO:{x otherhelpfile, otherhelpfile
-plication can include:
-Flavor/Personality
-If you like to roleplay, write the note in character. Nothing is more
-pleasing than to have an immortal who has personality. Write in your
-accent. Use your mannerisms. We enjoy a good read as much as the next
-person. A word of caution though: Do not overwhelm the intent of the paper
-with your roleplay. The submission is there to be evaluated on your ability
-to contribute to the mud, not how convincingly you can portray a down and
-out blacksmith with only one hand and a lisp.
-
-Remember:
-This is just a *guide*. Do not follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 TOKENRULES~
 The new Imm Legacy system is for you to be as creative as possible in 
 running quests, designing tokens, and making the mud fun for mortals.
 However, there are certain rules that must be followed to make the 
@@ -919,147 +170,15 @@ The new Imm Legacy system is for you to be as creative as possible in
 them.  Use your common sense, we know you have it, that's why we hired you
 as an imm. :)  Make sure you know the mortal helpfile for legacy sets, and
 if you have any questions, ask!  
-ot follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 LIRIELw Imm Legacy system is for you to be as creative as possible in 
-running quests, designing tokens, and making the mud fun for mortals.
-However, there are certain rules that must be followed to make the 
-system work, and make it fair for everybody.
-
-First of all, tokens are treated just like qp, do not give them out 
-unless you have a reason.  Your alt may not touch your imm tokens.  
-Let me repeat that again.  {PYOUR ALT MAY NOT TOUCH YOUR IMM TOKENS.{x
-This means at no time may your alt have your imm tokens.  Obviously, 
-this also means you cannot collect your own legacy set.  Duh!  Also,
-using owhere to find tokens is explicitly illegal.  Owhere IS logged,
-and using it for your own benefit, or telling others where hidden tokens
-are located will result in an almost certain fry.
-
-Likewise, tokens are not to be handed out to friends.  This should be
-obvious.  Tokens will be given out for what they are intended for.  
-Hiddens will be dropped around the realm randomly, a trivia token given
-to a mortal who answers a trivia question of yours right in a trivia 
-quest, and quest tokens given out for tag/hug quests, or any other quest
-you guys want to do.  These are no brainers.  
-
-When you string your tokens, please load them from the appropriate vnums.
-There are separate vnums for hidden, trivia, quest, and wild.  When you
-string, your name MUST be in the keywords, the token TYPE (hidden, wild,
-whatever) MUST be in the long and the keywords.  Please don't do anything
-obscene (another nobrainer), but otherwise use your roleplay and creative
-max in designing and coloring!  
-
-Please do not drop more than 25 hidden tokens a day, or give out more than
-50 tokens total.  At any time there should be no more than approximately
-500 of your tokens in circulation, if I notice that everybody and their 
-uncle has 50 of your tokens, it means you are distributing much too many of
-them.  Use your common sense, we know you have it, that's why we hired you
-as an imm. :)  Make sure you know the mortal helpfile for legacy sets, and
-if you have any questions, ask!  
-ot follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 LIRIEL~
 Liriel was one of the original three founders of the realm of Legacy, and
 served as head of all Administration.  Unfortunately, due to her many
 pursuits, she is no longer active on Legacy. 
-owed to make the 
-system work, and make it fair for everybody.
-
-First of all, tokens are treated just like qp, do not give them out 
-unless you have a reason.  Your alt may not touch your imm tokens.  
-Let me repeat that again.  {PYOUR ALT MAY NOT TOUCH YOUR IMM TOKENS.{x
-This means at no time may your alt have your imm tokens.  Obviously, 
-this also means you cannot collect your own legacy set.  Duh!  Also,
-using owhere to find tokens is explicitly illegal.  Owhere IS logged,
-and using it for your own benefit, or telling others where hidden tokens
-are located will result in an almost certain fry.
-
-Likewise, tokens are not to be handed out to friends.  This should be
-obvious.  Tokens will be given out for what they are intended for.  
-Hiddens will be dropped around the realm randomly, a trivia token given
-to a mortal who answers a trivia question of yours right in a trivia 
-quest, and quest tokens given out for tag/hug quests, or any other quest
-you guys want to do.  These are no brainers.  
-
-When you string your tokens, please load them from the appropriate vnums.
-There are separate vnums for hidden, trivia, quest, and wild.  When you
-string, your name MUST be in the keywords, the token TYPE (hidden, wild,
-whatever) MUST be in the long and the keywords.  Please don't do anything
-obscene (another nobrainer), but otherwise use your roleplay and creative
-max in designing and coloring!  
-
-Please do not drop more than 25 hidden tokens a day, or give out more than
-50 tokens total.  At any time there should be no more than approximately
-500 of your tokens in circulation, if I notice that everybody and their 
-uncle has 50 of your tokens, it means you are distributing much too many of
-them.  Use your common sense, we know you have it, that's why we hired you
-as an imm. :)  Make sure you know the mortal helpfile for legacy sets, and
-if you have any questions, ask!  
-ot follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 LIRIATIwas one of the original three founders of the realm of Legacy, and
-served as head of all Administration.  Unfortunately, due to her many
-pursuits, she is no longer active on Legacy. 
-owed to make the 
-system work, and make it fair for everybody.
-
-First of all, tokens are treated just like qp, do not give them out 
-unless you have a reason.  Your alt may not touch your imm tokens.  
-Let me repeat that again.  {PYOUR ALT MAY NOT TOUCH YOUR IMM TOKENS.{x
-This means at no time may your alt have your imm tokens.  Obviously, 
-this also means you cannot collect your own legacy set.  Duh!  Also,
-using owhere to find tokens is explicitly illegal.  Owhere IS logged,
-and using it for your own benefit, or telling others where hidden tokens
-are located will result in an almost certain fry.
-
-Likewise, tokens are not to be handed out to friends.  This should be
-obvious.  Tokens will be given out for what they are intended for.  
-Hiddens will be dropped around the realm randomly, a trivia token given
-to a mortal who answers a trivia question of yours right in a trivia 
-quest, and quest tokens given out for tag/hug quests, or any other quest
-you guys want to do.  These are no brainers.  
-
-When you string your tokens, please load them from the appropriate vnums.
-There are separate vnums for hidden, trivia, quest, and wild.  When you
-string, your name MUST be in the keywords, the token TYPE (hidden, wild,
-whatever) MUST be in the long and the keywords.  Please don't do anything
-obscene (another nobrainer), but otherwise use your roleplay and creative
-max in designing and coloring!  
-
-Please do not drop more than 25 hidden tokens a day, or give out more than
-50 tokens total.  At any time there should be no more than approximately
-500 of your tokens in circulation, if I notice that everybody and their 
-uncle has 50 of your tokens, it means you are distributing much too many of
-them.  Use your common sense, we know you have it, that's why we hired you
-as an imm. :)  Make sure you know the mortal helpfile for legacy sets, and
-if you have any questions, ask!  
-ot follow this help file to the letter. You are
-writing a paper that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 LIRIATI~
 If you have ever played Scrabble and Literati (the online Yahoo! version
 of Scrabble) against {WL{Ci{Br{Ci{Te{Wl{x, then you would know she is a real whiz at
 putting words together.  She has brought the game to {BL{Ce{gg{Wa{Cc{By{x for you guys
@@ -1098,59 +217,9 @@ If you have ever played Scrabble and Literati (the online Yahoo! version
 
 The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
 Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 MONTREYhave ever played Scrabble and Literati (the online Yahoo! version
-of Scrabble) against {WL{Ci{Br{Ci{Te{Wl{x, then you would know she is a real whiz at
-putting words together.  She has brought the game to {BL{Ce{gg{Wa{Cc{By{x for you guys
-to sharpen your word skills.
-
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {Btiles{x will be periodically scattered around Thera, just like
-other hidden tokens.  Each tile bears a letter, and the {Gc{Yo{Pl{Vo{Cr{x of the
-tile determines its point worth.  
-
-{BColor of the Letter     Point Worth{x
-   {Y[ ]{x Yellow                1 
-   {C[ ]{x Cyan                  2 
-   {P[ ]{x Red                   3 
-   {G[ ]{x Green                 4 
-   {V[ ]{x Violet                5
-   {W[ ]{x White                 0
-
-Special tiles that might be found include {Cd{Touble lette{Cr{x, {Bt{Nriple lette{Br{x, 
-{Yd{bouble wor{Yd{x, and {Pt{Rriple wor{Pd{x tiles, as well as {Wwilds{x.  The double and
-triple letters and words do exactly as they say they do.  You may pick a 
-letter to double or triple, or if it's a double or triple word, your
-whole words point value gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 MONTREY~
 Montrey has come out of retirement!  PH34R!!  That silly coder that loves
 to make everyone's lives more difficult has, at long last, come back to
 stay at Legacy.  He is one of the three original founders, and knows
@@ -1166,187 +235,14 @@ Montrey has come out of retirement!  PH34R!!  That silly coder that loves
 Oh, good god, what broke this time?!?
 
 {YSEE ALSO:{x TRADING CARDS
-          3 
-   {G[ ]{x Green                 4 
-   {V[ ]{x Violet                5
-   {W[ ]{x White                 0
-
-Special tiles that might be found include {Cd{Touble lette{Cr{x, {Bt{Nriple lette{Br{x, 
-{Yd{bouble wor{Yd{x, and {Pt{Rriple wor{Pd{x tiles, as well as {Wwilds{x.  The double and
-triple letters and words do exactly as they say they do.  You may pick a 
-letter to double or triple, or if it's a double or triple word, your
-whole words point value gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 XENITHy has come out of retirement!  PH34R!!  That silly coder that loves
-to make everyone's lives more difficult has, at long last, come back to
-stay at Legacy.  He is one of the three original founders, and knows
-absolutely everything.  Or at least he tries to sound like he does.  But
-that's not the point.  This is temporary, as he becomes more involved in
-things outside of fixing critical bugs, he will update this file to be
-more descriptive.
-
-Trading Cards:
-Collect them all!  They're part of my {BI{Cmp {BL{Cegacy{x.
-
-Current Projects:
-Oh, good god, what broke this time?!?
-
-{YSEE ALSO:{x TRADING CARDS
-          3 
-   {G[ ]{x Green                 4 
-   {V[ ]{x Violet                5
-   {W[ ]{x White                 0
-
-Special tiles that might be found include {Cd{Touble lette{Cr{x, {Bt{Nriple lette{Br{x, 
-{Yd{bouble wor{Yd{x, and {Pt{Rriple wor{Pd{x tiles, as well as {Wwilds{x.  The double and
-triple letters and words do exactly as they say they do.  You may pick a 
-letter to double or triple, or if it's a double or triple word, your
-whole words point value gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 XENITH~
 Xenith doesn't work here anymore.  But we owe a lot of our code to her
 incredible genius, so we still love her. :)
-s, at long last, come back to
-stay at Legacy.  He is one of the three original founders, and knows
-absolutely everything.  Or at least he tries to sound like he does.  But
-that's not the point.  This is temporary, as he becomes more involved in
-things outside of fixing critical bugs, he will update this file to be
-more descriptive.
-
-Trading Cards:
-Collect them all!  They're part of my {BI{Cmp {BL{Cegacy{x.
-
-Current Projects:
-Oh, good god, what broke this time?!?
-
-{YSEE ALSO:{x TRADING CARDS
-          3 
-   {G[ ]{x Green                 4 
-   {V[ ]{x Violet                5
-   {W[ ]{x White                 0
-
-Special tiles that might be found include {Cd{Touble lette{Cr{x, {Bt{Nriple lette{Br{x, 
-{Yd{bouble wor{Yd{x, and {Pt{Rriple wor{Pd{x tiles, as well as {Wwilds{x.  The double and
-triple letters and words do exactly as they say they do.  You may pick a 
-letter to double or triple, or if it's a double or triple word, your
-whole words point value gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 KENNETHdoesn't work here anymore.  But we owe a lot of our code to her
-incredible genius, so we still love her. :)
-s, at long last, come back to
-stay at Legacy.  He is one of the three original founders, and knows
-absolutely everything.  Or at least he tries to sound like he does.  But
-that's not the point.  This is temporary, as he becomes more involved in
-things outside of fixing critical bugs, he will update this file to be
-more descriptive.
-
-Trading Cards:
-Collect them all!  They're part of my {BI{Cmp {BL{Cegacy{x.
-
-Current Projects:
-Oh, good god, what broke this time?!?
-
-{YSEE ALSO:{x TRADING CARDS
-          3 
-   {G[ ]{x Green                 4 
-   {V[ ]{x Violet                5
-   {W[ ]{x White                 0
-
-Special tiles that might be found include {Cd{Touble lette{Cr{x, {Bt{Nriple lette{Br{x, 
-{Yd{bouble wor{Yd{x, and {Pt{Rriple wor{Pd{x tiles, as well as {Wwilds{x.  The double and
-triple letters and words do exactly as they say they do.  You may pick a 
-letter to double or triple, or if it's a double or triple word, your
-whole words point value gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 KENNETH~
 Kenneth is just some loser who, one day, as a small boy, knocked over a
 set of blocks.  He then spent 17 days in front of those stupid blocks,
 building all kinds of crazy stuff.  Later on in life, he decided he 
@@ -1368,365 +264,26 @@ Kenneth is just some loser who, one day, as a small boy, knocked over a
 Helping to maintain a pleasant atmosphere for the mortals
 Admin stuff
 
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 NEFFERTINI just some loser who, one day, as a small boy, knocked over a
-set of blocks.  He then spent 17 days in front of those stupid blocks,
-building all kinds of crazy stuff.  Later on in life, he decided he 
-wanted to become a civil engineer and build bridges, but he flunked out 
-of school for not passing any classes except his engineering classes.  
-Oddly enough, some imm thought Kenneth's bizarre sense of humor and 
-laziness was interesting, and, after a long period, talked Kenneth into
-becoming an Imm. Ever since, Kenneth has been scratching his itch to 
-build things and amusing people with his wacky antics.  
-
-Kenneth was the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He is now
-part of our Admin team, having left the responsibilities of building to
-our new head builder, Teotwawki. Kenneth's main responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 NEFFERTINI~
 Neffertini was Legacy's resident pure evil builder.  He is now an Elder
 that comes in occassionally.
 
 Neffertini's projects included:
   Crystal Temple
-ll kinds of crazy stuff.  Later on in life, he decided he 
-wanted to become a civil engineer and build bridges, but he flunked out 
-of school for not passing any classes except his engineering classes.  
-Oddly enough, some imm thought Kenneth's bizarre sense of humor and 
-laziness was interesting, and, after a long period, talked Kenneth into
-becoming an Imm. Ever since, Kenneth has been scratching his itch to 
-build things and amusing people with his wacky antics.  
-
-Kenneth was the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He is now
-part of our Admin team, having left the responsibilities of building to
-our new head builder, Teotwawki. Kenneth's main responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 ALARArtini was Legacy's resident pure evil builder.  He is now an Elder
-that comes in occassionally.
-
-Neffertini's projects included:
-  Crystal Temple
-ll kinds of crazy stuff.  Later on in life, he decided he 
-wanted to become a civil engineer and build bridges, but he flunked out 
-of school for not passing any classes except his engineering classes.  
-Oddly enough, some imm thought Kenneth's bizarre sense of humor and 
-laziness was interesting, and, after a long period, talked Kenneth into
-becoming an Imm. Ever since, Kenneth has been scratching his itch to 
-build things and amusing people with his wacky antics.  
-
-Kenneth was the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He is now
-part of our Admin team, having left the responsibilities of building to
-our new head builder, Teotwawki. Kenneth's main responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 ALARA~
 Now departed...
-gacy's resident pure evil builder.  He is now an Elder
-that comes in occassionally.
-
-Neffertini's projects included:
-  Crystal Temple
-ll kinds of crazy stuff.  Later on in life, he decided he 
-wanted to become a civil engineer and build bridges, but he flunked out 
-of school for not passing any classes except his engineering classes.  
-Oddly enough, some imm thought Kenneth's bizarre sense of humor and 
-laziness was interesting, and, after a long period, talked Kenneth into
-becoming an Imm. Ever since, Kenneth has been scratching his itch to 
-build things and amusing people with his wacky antics.  
-
-Kenneth was the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He is now
-part of our Admin team, having left the responsibilities of building to
-our new head builder, Teotwawki. Kenneth's main responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 KAZANDERrted...
-gacy's resident pure evil builder.  He is now an Elder
-that comes in occassionally.
-
-Neffertini's projects included:
-  Crystal Temple
-ll kinds of crazy stuff.  Later on in life, he decided he 
-wanted to become a civil engineer and build bridges, but he flunked out 
-of school for not passing any classes except his engineering classes.  
-Oddly enough, some imm thought Kenneth's bizarre sense of humor and 
-laziness was interesting, and, after a long period, talked Kenneth into
-becoming an Imm. Ever since, Kenneth has been scratching his itch to 
-build things and amusing people with his wacky antics.  
-
-Kenneth was the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He is now
-part of our Admin team, having left the responsibilities of building to
-our new head builder, Teotwawki. Kenneth's main responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 KAZANDER~
 A huge dragon with a love of yellow polka dot bikinis, Kazander is a qwest
 immortal.  Rumor has it his tongue is half his body length!
-  Crystal Temple
-ll kinds of crazy stuff.  Later on in life, he decided he 
-wanted to become a civil engineer and build bridges, but he flunked out 
-of school for not passing any classes except his engineering classes.  
-Oddly enough, some imm thought Kenneth's bizarre sense of humor and 
-laziness was interesting, and, after a long period, talked Kenneth into
-becoming an Imm. Ever since, Kenneth has been scratching his itch to 
-build things and amusing people with his wacky antics.  
-
-Kenneth was the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He is now
-part of our Admin team, having left the responsibilities of building to
-our new head builder, Teotwawki. Kenneth's main responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 KISMET dragon with a love of yellow polka dot bikinis, Kazander is a qwest
-immortal.  Rumor has it his tongue is half his body length!
-  Crystal Temple
-ll kinds of crazy stuff.  Later on in life, he decided he 
-wanted to become a civil engineer and build bridges, but he flunked out 
-of school for not passing any classes except his engineering classes.  
-Oddly enough, some imm thought Kenneth's bizarre sense of humor and 
-laziness was interesting, and, after a long period, talked Kenneth into
-becoming an Imm. Ever since, Kenneth has been scratching his itch to 
-build things and amusing people with his wacky antics.  
-
-Kenneth was the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He is now
-part of our Admin team, having left the responsibilities of building to
-our new head builder, Teotwawki. Kenneth's main responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 KISMET~
 {HK{ci{Hs{cm{He{ct{x was an energetic bard who traveled among the lands of {BL{Ce{gg{Wa{Cc{By{x
 doing his best to entertain all those around him.  After a time he was 
 promoted to Quest Imm to use those skills to promote competition and
@@ -1738,94 +295,9 @@ A huge dragon with a love of yellow polka dot bikinis, Kazander is a qwest
 Running quests and designing new ideas for quests and areas
 Small Admin jobs and enforcement
 Washing and caring for Teo's and Alara's pets. :(
-er since, Kenneth has been scratching his itch to 
-build things and amusing people with his wacky antics.  
-
-Kenneth was the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He is now
-part of our Admin team, having left the responsibilities of building to
-our new head builder, Teotwawki. Kenneth's main responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 TEOTWAWKI{cm{He{ct{x was an energetic bard who traveled among the lands of {BL{Ce{gg{Wa{Cc{By{x
-doing his best to entertain all those around him.  After a time he was 
-promoted to Quest Imm to use those skills to promote competition and
-fun throughout the land.  BE WARNED, THOUGH!!! Trivia can happen at any
-time... ;)
-
---- Some of {HK{ci{Hs{cm{He{ct{x'{Hs{x Duties ---
-
-Running quests and designing new ideas for quests and areas
-Small Admin jobs and enforcement
-Washing and caring for Teo's and Alara's pets. :(
-er since, Kenneth has been scratching his itch to 
-build things and amusing people with his wacky antics.  
-
-Kenneth was the main builder for Legacy, mainly working with clans to
-create, maintain, or update their clanhalls or equipment.  He is now
-part of our Admin team, having left the responsibilities of building to
-our new head builder, Teotwawki. Kenneth's main responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 TEOTWAWKI~
 {PT{Ye{Po{x is the Building Implementor (watch your heads) and helps with Admin. 
  She is currently the only builder immortal for Legacy so she is usually way 
  over her head in stuff to do.  She loves helping mortals with every aspect 
@@ -1845,199 +317,15 @@ A huge dragon with a love of yellow polka dot bikinis, Kazander is a qwest
      Help any and all mortals interested in building learn
      Run more quests
      Remodel the realm
-ain responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 URZAYe{Po{x is the Building Implementor (watch your heads) and helps with Admin. 
- She is currently the only builder immortal for Legacy so she is usually way 
- over her head in stuff to do.  She loves helping mortals with every aspect 
- of the mud that she can.  She runs trivia if and when she has spare time, 
- and is generally a nice person as long as she is not being attacked. *egrin*
-
-{PT{Ye{Po'{Ys{x current projects:
-     Any and all Admin work
-     Maintaining all clanhalls
-     Any and all building upgrades
-     Finishing touches on prison.are and thedead.are
-     Verifying any and all building projects that come in from others
-     Revamping areas and doing minor tweaks
-     Evaluating current areas, eq, pills, and armor
-
-{PT{Ye{Po'{Ys{x future projects:
-     Help any and all mortals interested in building learn
-     Run more quests
-     Remodel the realm
-ain responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 URZA~
 See Urza.
 See Urza run.
 Run, Urza, run!
-tch your heads) and helps with Admin. 
- She is currently the only builder immortal for Legacy so she is usually way 
- over her head in stuff to do.  She loves helping mortals with every aspect 
- of the mud that she can.  She runs trivia if and when she has spare time, 
- and is generally a nice person as long as she is not being attacked. *egrin*
-
-{PT{Ye{Po'{Ys{x current projects:
-     Any and all Admin work
-     Maintaining all clanhalls
-     Any and all building upgrades
-     Finishing touches on prison.are and thedead.are
-     Verifying any and all building projects that come in from others
-     Revamping areas and doing minor tweaks
-     Evaluating current areas, eq, pills, and armor
-
-{PT{Ye{Po'{Ys{x future projects:
-     Help any and all mortals interested in building learn
-     Run more quests
-     Remodel the realm
-ain responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 VEGITAza.
-See Urza run.
-Run, Urza, run!
-tch your heads) and helps with Admin. 
- She is currently the only builder immortal for Legacy so she is usually way 
- over her head in stuff to do.  She loves helping mortals with every aspect 
- of the mud that she can.  She runs trivia if and when she has spare time, 
- and is generally a nice person as long as she is not being attacked. *egrin*
-
-{PT{Ye{Po'{Ys{x current projects:
-     Any and all Admin work
-     Maintaining all clanhalls
-     Any and all building upgrades
-     Finishing touches on prison.are and thedead.are
-     Verifying any and all building projects that come in from others
-     Revamping areas and doing minor tweaks
-     Evaluating current areas, eq, pills, and armor
-
-{PT{Ye{Po'{Ys{x future projects:
-     Help any and all mortals interested in building learn
-     Run more quests
-     Remodel the realm
-ain responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 VEGITA~
 After a long rest, the great {RV{Pe{Ygi{Pt{Ra{x has returned.
 The enforcement hand of the great Teotwawki and Asmadi, there is 
 just about nothing he can't do. One of the original players of this land,
@@ -2058,103 +346,9 @@ After a long rest, the great {RV{Pe{Ygi{Pt{Ra{x has returned.
     better at all things paladin and so on and so forth.{x
 
 
- armor
-
-{PT{Ye{Po'{Ys{x future projects:
-     Help any and all mortals interested in building learn
-     Run more quests
-     Remodel the realm
-ain responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-0 VIROr a long rest, the great {RV{Pe{Ygi{Pt{Ra{x has returned.
-The enforcement hand of the great Teotwawki and Asmadi, there is 
-just about nothing he can't do. One of the original players of this land,
-he has been here since practically the beginning. 
-
-{RV{Pe{Yg{Yi{Pt{Ra{x's current projects
-
-{VNecromancy Group Evolution
-  {WWill encompass animate skeleton, animate wraith, animate gargoyle,
-  animate zombie.
-
-{VHealing Group Evolution
-  {WWill encompass cure light, cure serious, cure critical, and heal.{x
-
-{VRacial Modifiers
-  {WRaces will affect different things, like elfs will be better at
-    magic then humans, a superhuman will hit harder, seraphs will be
-    better at all things paladin and so on and so forth.{x
-
-
- armor
-
-{PT{Ye{Po'{Ys{x future projects:
-     Help any and all mortals interested in building learn
-     Run more quests
-     Remodel the realm
-ain responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+0 VIRO~
 Viro's our coder and Admin.  He's the God of Honour and Fate, and he's got 
 some sort of yin and yang thing going.  He has yet to write a helpfile for
 me to post for him, so for now, this is all that he gets. ;)
@@ -2162,120 +356,9 @@ Viro's our coder and Admin.  He's the God of Honour and Fate, and he's got
 Current projects:
      Any and all coding
      Any and all Admin
-rent projects
-
-{VNecromancy Group Evolution
-  {WWill encompass animate skeleton, animate wraith, animate gargoyle,
-  animate zombie.
-
-{VHealing Group Evolution
-  {WWill encompass cure light, cure serious, cure critical, and heal.{x
-
-{VRacial Modifiers
-  {WRaces will affect different things, like elfs will be better at
-    magic then humans, a superhuman will hit harder, seraphs will be
-    better at all things paladin and so on and so forth.{x
-
-
- armor
-
-{PT{Ye{Po'{Ys{x future projects:
-     Help any and all mortals interested in building learn
-     Run more quests
-     Remodel the realm
-ain responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-92 WIZGROUPur coder and Admin.  He's the God of Honour and Fate, and he's got 
-some sort of yin and yang thing going.  He has yet to write a helpfile for
-me to post for him, so for now, this is all that he gets. ;)
-
-Current projects:
-     Any and all coding
-     Any and all Admin
-rent projects
-
-{VNecromancy Group Evolution
-  {WWill encompass animate skeleton, animate wraith, animate gargoyle,
-  animate zombie.
-
-{VHealing Group Evolution
-  {WWill encompass cure light, cure serious, cure critical, and heal.{x
-
-{VRacial Modifiers
-  {WRaces will affect different things, like elfs will be better at
-    magic then humans, a superhuman will hit harder, seraphs will be
-    better at all things paladin and so on and so forth.{x
-
-
- armor
-
-{PT{Ye{Po'{Ys{x future projects:
-     Help any and all mortals interested in building learn
-     Run more quests
-     Remodel the realm
-ain responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+92 WIZGROUP~
 Syxtax: wizgroup <{Yadd{x/{Yremove{x> <{Yplayer{x> <{Ygroup{x>
 
 This command adds or removes a player from the administrator groups.
@@ -2285,118 +368,9 @@ Syxtax: wizgroup <{Yadd{x/{Yremove{x> <{Yplayer{x> <{Ygroup{x>
 
 You may (though it is not recommended) use "all" in place of the
 group name.
-lution
-  {WWill encompass animate skeleton, animate wraith, animate gargoyle,
-  animate zombie.
-
-{VHealing Group Evolution
-  {WWill encompass cure light, cure serious, cure critical, and heal.{x
-
-{VRacial Modifiers
-  {WRaces will affect different things, like elfs will be better at
-    magic then humans, a superhuman will hit harder, seraphs will be
-    better at all things paladin and so on and so forth.{x
-
-
- armor
-
-{PT{Ye{Po'{Ys{x future projects:
-     Help any and all mortals interested in building learn
-     Run more quests
-     Remodel the realm
-ain responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
-1 TRADING CARDSoup <{Yadd{x/{Yremove{x> <{Yplayer{x> <{Ygroup{x>
-
-This command adds or removes a player from the administrator groups.
-The potential groups are:
-general, quest, build, code, security,
-player, clan, avatar, hero and leader.
-
-You may (though it is not recommended) use "all" in place of the
-group name.
-lution
-  {WWill encompass animate skeleton, animate wraith, animate gargoyle,
-  animate zombie.
-
-{VHealing Group Evolution
-  {WWill encompass cure light, cure serious, cure critical, and heal.{x
-
-{VRacial Modifiers
-  {WRaces will affect different things, like elfs will be better at
-    magic then humans, a superhuman will hit harder, seraphs will be
-    better at all things paladin and so on and so forth.{x
-
-
- armor
-
-{PT{Ye{Po'{Ys{x future projects:
-     Help any and all mortals interested in building learn
-     Run more quests
-     Remodel the realm
-ain responsibility is balancing
-out Teotwawki.
-
-Current Projects:
-Listening to Teo and giving her a swift kick when needed
-Helping to maintain a pleasant atmosphere for the mortals
-Admin stuff
-
-alue gets multiplied.  {WWhite wild {Btiles{x don't count
-for points but they can complete that annoying word that is just missing
-a single letter.  
-
-When you turn in your {WL{Yi{Cr{Bi{Ca{Yt{Wi{x word, you must turn it in in a special 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
-~
+1 TRADING CARDS~
 Trading cards are back!  You can now find these bits of {WM{go{Wn{Ct{Wr{ge{Wy{x's {BL{Cegacy {BS{Cet{x
 scattered around the realm.  Trading cards show some of the coolest stuff in
 Thera, the weapons and armor that are so good they've become legendary.  Plus,
@@ -2417,25 +391,6 @@ Trading cards are back!  You can now find these bits of {WM{go{Wn{Ct{Wr{ge{Wy{x'
 Drooling yet?  Of course you are.  Get out there and start finding cards!
 
 {YSEE ALSO:{x IMMLEGACIES
-ial 
-{WL{Yi{Cr{Bi{Ca{Yt{Wi {BTile {YHolder{x, which may also be found scattered around the realm.
-Based on the total point value of that word, you will be awarded {Bq{Cu{Be{Cs{Bt
-{Ctokens{x.  But wait, it isn't as easy as you think it is ... don't forget,
-{WL{Ci{Br{Ci{Te{Wl{x is a pro and expects great words.  The awarding will be quest
-tokens for the {Vpoint value{x of your words {Pdivided by two{x.  So let's say 
-you turn in a 20 point word.  You would then get {B10 tokens{x.  And no, you
-do not get any tiles or the tile holder back.  Accepted words may not be
-proper nouns, abbreviations, prefixes, or suffixes, and will be checked
-using {Cwww.m-w.com/dictionary{x.
-
-The game of {WL{Yi{Cr{Bi{Ca{Yt{Wi{x will be in play for as long as {WL{Ci{Br{Ci{Te{Wl{x feels like it.
-Which seems like it'll be a pretty long time.  {GEnjoy!{x
-that supports your bid for immortality. Our help file tells
-you what general topics you need to cover in order to make a good
-application. Just because you follow this help does not mean you will be
-made an immortal, but it will definitely produce an application that is
-more than and better than:
-'I know a lot about the mud. Make me an imm'
 ~
 
 -2

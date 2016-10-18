@@ -1,66 +1,4 @@
--1 RACESx: {Ccast{x {Ystarve{x <{Yvictim{x>
-
-This spell makes your victim very hungry and
-thirsty (on success) and nothing on failure.
-This spell works only on PCs, mobs are not
-effected.
-
-GROUP: {RMaladictions{x
-.  It is merely an illusion to confuse your
-friends and enemies.  However, the polymorph spell does have a hidden
-advantage.
-
-GROUP: {RAlteration{x
-he sex of the target
-{Cdarkness{x     creates a cloud of darkness that fills the room
-{Cheat metal{x   heats metal equipment to searing temperatures
-RWeather{x
-ricity into the target
-{Cflameshield{x      creates a circle of flames around your body
-{Csteel mist{x       lowers ac values and protects armor from damage
-{Cblizzard{x         sends a snow flurry avalanching at everyone in the room
-{Cacid rain{x        sends a torrent of acid rain at everyone in the room
-
-(the weather command, unrelated to this group, shows local weather conditions)
-          puts a shimmering shield between you and your enemies
-{Cstoneskin{x        turns skin hard as stone, providing a huge armor boost
-aymore
-{Rwhip{x           the use of whips, chains, and bullwhips
-{Rexotic{x         the use of strange magical weapons
-
-The {Rexotic{x skill cannot be purchased, and is dependent solely upon level.
-x: the name(s) of the creator(s) of the clan.{x
-
-The whoname, clanname and creator are strings, the other fields are numerical.
-for independent, use 1 for Yes, and 0 for No.
-The number specified for clanrecall has to be an existing room in the mud.
-
-{PWARNING: DO NOT CREATE CLANS JUST FOR FUN! THIS WILL BE PUNISHED WITH A
-         DEMOTION!{x
-ial called 'epoke' which would poke eyes out, you would
-do the following:
-
-{WSEDIT NEW epoke
-SEDIT cnoarg epoke Poke whose eyes out?
-SEDIT onoarg epoke $n looks for a pair of eyes to poke out.
-SEDIT cfound epoke You poke $N's eyes out!
-SEDIT vfound epoke $n pokes your eyes out! Ouch..
-SEDIT ofound epoke $n pokes $N's eyes out!
-SEDIT cself  epoke Being bored, you poke your own eyes out.
-SEDIT oself  epoke $n pokes $s eyes out!{x
-
-To get more examples, type {GSEDIT SHOW <social-name>{x to see one of the
-existing socials.
-
-The socials are stored in a file called socials.txt. Manual editting of
-that file is not advised. A frequent back-up is recommended. The social
-file is updated by the server as soon as anything changes.  Because of
-this code, there is no longer any option for if the player you try to
-do the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+-1 RACES~
 Your race is a very important part of your character, because combined
 with class, it determines what your character receives in terms of
 skills and spells, what strengths and weaknesses your character has,
@@ -88,90 +26,9 @@ Your race is a very important part of your character, because combined
 For more information, see the help files for each {Rrace{x (i.e. '{Rhelp dwarf{x')
 
 See '{RHELP RACESTATS{x' for help on race stats.
-xisting room in the mud.
-
-{PWARNING: DO NOT CREATE CLANS JUST FOR FUN! THIS WILL BE PUNISHED WITH A
-         DEMOTION!{x
-ial called 'epoke' which would poke eyes out, you would
-do the following:
-
-{WSEDIT NEW epoke
-SEDIT cnoarg epoke Poke whose eyes out?
-SEDIT onoarg epoke $n looks for a pair of eyes to poke out.
-SEDIT cfound epoke You poke $N's eyes out!
-SEDIT vfound epoke $n pokes your eyes out! Ouch..
-SEDIT ofound epoke $n pokes $N's eyes out!
-SEDIT cself  epoke Being bored, you poke your own eyes out.
-SEDIT oself  epoke $n pokes $s eyes out!{x
-
-To get more examples, type {GSEDIT SHOW <social-name>{x to see one of the
-existing socials.
-
-The socials are stored in a file called socials.txt. Manual editting of
-that file is not advised. A frequent back-up is recommended. The social
-file is updated by the server as soon as anything changes.  Because of
-this code, there is no longer any option for if the player you try to
-do the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
--1 'RACESTATS's a very important part of your character, because combined
-with class, it determines what your character receives in terms of
-skills and spells, what strengths and weaknesses your character has,
-and how you will want to play your character.
-
-{BL{Ce{gg{Wa{Cc{By{x offers the following races during character creation:
-  {PHuman{x       all-around capable, this is the standard race
-  {PDwarf{x       short and stocky, these have great strength but lack speed 
-  {PElf{x         slender and graceful, these are nimble and magical
-  {PIrda{x        an ancient, innately magical race
-  {PGiant{x       huge, tough warriors, they tower over all else in the land
-  {PDragon{x      diverse in form, these are mystical powerful creatures
-  {PFeral{x       feline in nature, these are vicious sneaky fighters
-  {PVampire{x     the race of the undead, feared by most
-  {PSeraph{x      the golden angelic race, descending from the heavens
-  {PWolf{x        at one with the forests, both powerful and quick
-
-Some races can only be played by remorting.  Currently the only one is:
-  {RSuperhuman{x  the superstandard race, {Gremort level 10{x
-
-Different {Rraces{x have different starting statistics, and also different
-stat maximums for magic items and training.
-
-{CCreation points{x increase the amount of experience it takes to gain a level.
-For more information, see the help files for each {Rrace{x (i.e. '{Rhelp dwarf{x')
-
-See '{RHELP RACESTATS{x' for help on race stats.
-xisting room in the mud.
-
-{PWARNING: DO NOT CREATE CLANS JUST FOR FUN! THIS WILL BE PUNISHED WITH A
-         DEMOTION!{x
-ial called 'epoke' which would poke eyes out, you would
-do the following:
-
-{WSEDIT NEW epoke
-SEDIT cnoarg epoke Poke whose eyes out?
-SEDIT onoarg epoke $n looks for a pair of eyes to poke out.
-SEDIT cfound epoke You poke $N's eyes out!
-SEDIT vfound epoke $n pokes your eyes out! Ouch..
-SEDIT ofound epoke $n pokes $N's eyes out!
-SEDIT cself  epoke Being bored, you poke your own eyes out.
-SEDIT oself  epoke $n pokes $s eyes out!{x
-
-To get more examples, type {GSEDIT SHOW <social-name>{x to see one of the
-existing socials.
-
-The socials are stored in a file called socials.txt. Manual editting of
-that file is not advised. A frequent back-up is recommended. The social
-file is updated by the server as soon as anything changes.  Because of
-this code, there is no longer any option for if the player you try to
-do the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+-1 'RACESTATS'~
 {RRace{x      Class Multipliers(Exp per level based on 40cp)
           Mag   Cle   Thi   War   Nec   Pld   Bar   Ran
 -------------------------------------------------------------------
@@ -212,148 +69,18 @@ Your race is a very important part of your character, because combined
 {RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
 Int    Wis    Dex    Str    Int    Chr    Dex    Con
 -----------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 WOLF WOLVES   Class Multipliers(Exp per level based on 40cp)
-          Mag   Cle   Thi   War   Nec   Pld   Bar   Ran
--------------------------------------------------------------------
-{RHuman{x     100   100   100   100   100   100   100   100
-{RDwarf{x     140   105   130   105   150   110   120   120
-{RElf{x       105   120   105   110   130   130   110   120
-{RIrda{x      105   110   130   150   105   120   130   150
-{RGiant{x     150   130   130   105   150   150   120   120
-{RDragon{x    125   150   150   125   150   150   150   150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 WOLF WOLVES~
 One of the more advanced races on Thera, the wolven are starting to 
 appear in greater numbers. Wolves possess a keen sense of smell, which 
 helps them track their prey. Their claws and their natural enhancement 
 ability ensure that they are armed even without weapons, and their 
 thick fur protects them from the cold. However, being creatures of the 
 forest, wolves share an instinctual fear of fire.
-105   120   130   150
-{RGiant{x     150   130   130   105   150   150   120   120
-{RDragon{x    125   150   150   125   150   150   150   150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 DWARF DWARVESre advanced races on Thera, the wolven are starting to 
-appear in greater numbers. Wolves possess a keen sense of smell, which 
-helps them track their prey. Their claws and their natural enhancement 
-ability ensure that they are armed even without weapons, and their 
-thick fur protects them from the cold. However, being creatures of the 
-forest, wolves share an instinctual fear of fire.
-105   120   130   150
-{RGiant{x     150   130   130   105   150   150   120   120
-{RDragon{x    125   150   150   125   150   150   150   150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 DWARF DWARVES~
 Dwarves are a stout and old-lived race, hailing from the deep caves
 of Moria.  Known for foul temper but great stamina, they have
 developed infravision as an adaptation to living underground. 
@@ -363,90 +90,9 @@ Dwarves are a stout and old-lived race, hailing from the deep caves
 but their inexperience with water is a great vulnerability. They also
 have an ancient tradition of metal-working, and are smiths without 
 par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 DRAGONS are a stout and old-lived race, hailing from the deep caves
-of Moria.  Known for foul temper but great stamina, they have
-developed infravision as an adaptation to living underground. 
-Dwarves have immense strength and are very tough, part of their 
-warrior tradition. Being sheltered so long underground, their bodies
-are very resistant to the diseases and poisons of the surface world, 
-but their inexperience with water is a great vulnerability. They also
-have an ancient tradition of metal-working, and are smiths without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 DRAGONS~
 The ancient dragons of Thera come in many shapes and sizes, and
 are probably the second most versatile race behind humans.  They
 tower over all but giants and make fearsome fighters, but are 
@@ -454,94 +100,9 @@ The ancient dragons of Thera come in many shapes and sizes, and
 legendary draconian spells, and their scales deflect many attacks
 quite effectively, but their cumbersome size makes them slower and
 vulnerable to piercing and stabbing attacks.
-a great vulnerability. They also
-have an ancient tradition of metal-working, and are smiths without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 ELF ELVESnt dragons of Thera come in many shapes and sizes, and
-are probably the second most versatile race behind humans.  They
-tower over all but giants and make fearsome fighters, but are 
-intertwined with the weave as well.  They are known for their 
-legendary draconian spells, and their scales deflect many attacks
-quite effectively, but their cumbersome size makes them slower and
-vulnerable to piercing and stabbing attacks.
-a great vulnerability. They also
-have an ancient tradition of metal-working, and are smiths without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 ELF ELVES~
 Slender, fey creatures tied to nature, Elves are an ancient race, 
 populating the woods of Thera before legends were made.  They are 
 secretive by nature, and being small in stature, are often hard to 
@@ -550,190 +111,16 @@ Slender, fey creatures tied to nature, Elves are an ancient race,
 weave of Thera, and are natural conduits for magic.  Their strong 
 ties to the weave make them difficult to deceive through charms, but
 also makes them vulnerable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 HUMANSr, fey creatures tied to nature, Elves are an ancient race, 
-populating the woods of Thera before legends were made.  They are 
-secretive by nature, and being small in stature, are often hard to 
-spot.  Their constitution might be insulted as fragile, but none
-can beat the nimbleness of an elf.  Elves are tied to the magical 
-weave of Thera, and are natural conduits for magic.  Their strong 
-ties to the weave make them difficult to deceive through charms, but
-also makes them vulnerable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 HUMANS~
 The most common race in Thera, humans are also the most versatile.  
 They excel at all professions, and have no weaknesses.  They are also
 the most adaptable race, advancing faster than any other race, 
 regardless of class.
-on might be insulted as fragile, but none
-can beat the nimbleness of an elf.  Elves are tied to the magical 
-weave of Thera, and are natural conduits for magic.  Their strong 
-ties to the weave make them difficult to deceive through charms, but
-also makes them vulnerable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 GIANTSst common race in Thera, humans are also the most versatile.  
-They excel at all professions, and have no weaknesses.  They are also
-the most adaptable race, advancing faster than any other race, 
-regardless of class.
-on might be insulted as fragile, but none
-can beat the nimbleness of an elf.  Elves are tied to the magical 
-weave of Thera, and are natural conduits for magic.  Their strong 
-ties to the weave make them difficult to deceive through charms, but
-also makes them vulnerable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 GIANTS~
 Giants are the largest race that inhabits Thera.  Thick-boned and 
 thick-skulled, this colossal race are the strongest and toughest
 race.  Their immense strength allows them to wield the heaviest of 
@@ -741,96 +128,9 @@ Giants are the largest race that inhabits Thera.  Thick-boned and
 of brute force and resistant to temperature extremes. However, they
 have rather limited mental capabilities, and are thus best suited to
 physical vocations.
-em difficult to deceive through charms, but
-also makes them vulnerable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 FERALS are the largest race that inhabits Thera.  Thick-boned and 
-thick-skulled, this colossal race are the strongest and toughest
-race.  Their immense strength allows them to wield the heaviest of 
-weapons in a single hand.  Also, their huge size makes them masters
-of brute force and resistant to temperature extremes. However, they
-have rather limited mental capabilities, and are thus best suited to
-physical vocations.
-em difficult to deceive through charms, but
-also makes them vulnerable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 FERALS~
 A feline race, ferals have evolved from the ancient big cats of the
 forests.  They are even quicker than the elves, and like the elves, 
 possess the stealth of forest-dwellers.  Unlike the elves, ferals are
@@ -839,95 +139,9 @@ A feline race, ferals have evolved from the ancient big cats of the
 optical receptors, allowing them to see even in the darkest of rooms.
 Their inheritance from the cats also includes an instinctive hatred
 of water.
-erable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 VAMPIRES race, ferals have evolved from the ancient big cats of the
-forests.  They are even quicker than the elves, and like the elves, 
-possess the stealth of forest-dwellers.  Unlike the elves, ferals are
-poor conduits for magic, and are especially afraid of lightning. As
-with all felines, ferals possess a reflective layer behind their 
-optical receptors, allowing them to see even in the darkest of rooms.
-Their inheritance from the cats also includes an instinctive hatred
-of water.
-erable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 VAMPIRES~
 Vampires are the race of the undead - not quite alive, but animated 
 by the blood of the living.  These creatures of darkness have defied 
 the cycle of life and death, but have paid for it with a weakness to
@@ -935,199 +149,14 @@ Vampires are the race of the undead - not quite alive, but animated
 sunlight.  However, vampires are also very powerful.  They fly at 
 will, are masters of shadow and illusion, and can shrug off charm 
 spells and attacks of demonic nature.  
-des an instinctive hatred
-of water.
-erable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 SUPERHUMANSe the race of the undead - not quite alive, but animated 
-by the blood of the living.  These creatures of darkness have defied 
-the cycle of life and death, but have paid for it with a weakness to
-godly power revealed.  They are also vulnerable to light, especially 
-sunlight.  However, vampires are also very powerful.  They fly at 
-will, are masters of shadow and illusion, and can shrug off charm 
-spells and attacks of demonic nature.  
-des an instinctive hatred
-of water.
-erable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 SUPERHUMANS~
 {RSuperhumans{x are the currently available {GRemort Race{x This race
 can only be attained by being atleast remort 10 or higher{x
-defied 
-the cycle of life and death, but have paid for it with a weakness to
-godly power revealed.  They are also vulnerable to light, especially 
-sunlight.  However, vampires are also very powerful.  They fly at 
-will, are masters of shadow and illusion, and can shrug off charm 
-spells and attacks of demonic nature.  
-des an instinctive hatred
-of water.
-erable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 IRDASerhumans{x are the currently available {GRemort Race{x This race
-can only be attained by being atleast remort 10 or higher{x
-defied 
-the cycle of life and death, but have paid for it with a weakness to
-godly power revealed.  They are also vulnerable to light, especially 
-sunlight.  However, vampires are also very powerful.  They fly at 
-will, are masters of shadow and illusion, and can shrug off charm 
-spells and attacks of demonic nature.  
-des an instinctive hatred
-of water.
-erable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 IRDAS~
 Arriving only a few centuries ago from another plane, Irda are a 
 race of fearsome magic-wielding beings.  Other races share a mistrust
 for these powerful beings, as the Irda have developed a reputation 
@@ -1136,97 +165,9 @@ Arriving only a few centuries ago from another plane, Irda are a
 seem to see beyond the veil.  The blackness within allows them to 
 discern the characteristics of both living beings and inanimate 
 objects.
- water.
-erable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
-0 SERAPHIM only a few centuries ago from another plane, Irda are a 
-race of fearsome magic-wielding beings.  Other races share a mistrust
-for these powerful beings, as the Irda have developed a reputation 
-for being unscrupulous in their constant pursuit of greater magical 
-power.  Irda are set apart by their eyes, which lack pupils, but 
-seem to see beyond the veil.  The blackness within allows them to 
-discern the characteristics of both living beings and inanimate 
-objects.
- water.
-erable to the touch of cold iron.
- without 
-par.
-150
-{RFeral{x     175   175   110   125   150   200   125   150
-{RVampire{x   125   200   175   150   110   175   125   175
-{RSeraph{x    150   125   175   125   200   110   175   175
-{RWolf{x      200   150   175   125   175   125   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
-~
+0 SERAPHIM~
 From the heavens, the angelic seraphim have descended to Thera. 
 Characterized by their passionate righteousness, these golden beings'
 biggest weakness is their downright arrogance. Because they come from 
@@ -1239,38 +180,6 @@ From the heavens, the angelic seraphim have descended to Thera.
 seraphim have wings of light that allow them to fly, and it is 
 difficult to harm them with divine wrath - however, the taint of evil
 causes them great pain.
-5   150   110
-{GSuper{x     200   200   200   200   200   200   200   200
--------------------------------------------------------------------
-{RRace{x      CP  Base/Max allowed to train
-               Str     Int     Wis     Dex     Con     Chr
--------------------------------------------------------------
-{RHuman{x     0   13/18   13/18   13/18   13/18   13/18   13/18
-{RDwarf{x     5   15/21   12/16   14/20   10/15   17/21   11/16
-{RElf{x       5   11/16   15/21   13/18   15/21   11/16   14/18
-{RIrda{x     10   12/18   16/21   16/21   13/18   13/18   11/15
-{RGiant{x    10   17/23   10/14   12/17   12/16   17/22   12/18
-{RDragon{x   15   15/20   15/19   15/20   12/16   15/20   13/18
-{RFeral{x    20   14/18   15/19   13/18   18/22   13/18   12/17
-{RVampire{x  20   16/19   16/20   16/20   15/20   12/17   14/19
-{RSeraph{x   20   16/21   14/18   14/20   13/17   15/20   16/21
-{RWolf{x     20   15/20   13/18   14/18   16/20   16/21   14/18
-{GSuper{x    xx   xx/20   xx/20   xx/20   xx/20   xx/20   xx/20
--------------------------------------------------------------
-Stats can be raised by {G5{x over the Max with magical items if you are human.
-They can only be raised by {G4{x if you are Demi-Human.
-No stat may exceed {G25{x.
-Base stats may be different due to rolling in character creation.
-Add {G+3{x to prime stat for any human class and {G+2{x for any
-Demi-Human class.
------------------------------------------------------------
-{RMag{x    {RCle{x    {RThi{x    {RWar{x    {RNec{x    {RPld{x    {RBar{x    {RRan{x
-Int    Wis    Dex    Str    Int    Chr    Dex    Con
------------------------------------------------------------
-the action on is not there.
-
-
-{cOnline social editting - (c) 1996,97 Erwin S. Andreasen <erwin@pip.dknet.dk>{x
 ~
 
 -2
