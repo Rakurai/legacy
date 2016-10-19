@@ -1240,6 +1240,13 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			sprintf(buf, "As a reward, I am giving you %d skill point%s and %d gold.",
 			        pointreward, (pointreward == 1 ? "" : "s"), reward);
 			do_say(questman, buf);
+
+	                if (!IS_SET(ch->revoke, REVOKE_EXP)) {
+				int xp = number_range(100, 300);
+		                ptc(ch, "{PYou receive %d experience points.{x\n", xp);
+        	                gain_exp(ch, xp);
+			}
+
 			sn = get_random_skill(ch);
 
 			if (chance(20) && sn != -1) {
@@ -1250,7 +1257,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			}
 
 			sq_cleanup(ch);
-			ch->pcdata->nextsquest = pointreward * 2;
+			ch->pcdata->nextsquest = pointreward;
 			ch->gold += reward;
 			ch->pcdata->skillpoints += pointreward;
 			wiznet("{Y:SKILL QUEST:{x $N has completed a skill quest", ch, NULL, WIZ_QUEST, 0, 0);
@@ -1345,6 +1352,12 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			        pointreward, (pointreward == 1 ? "" : "s"), reward);
 			do_say(questman, buf);
 
+	                if (!IS_SET(ch->revoke, REVOKE_EXP)) {
+				int xp = number_range(100, 300);
+		                ptc(ch, "{PYou receive %d experience points.{x\n", xp);
+        	                gain_exp(ch, xp);
+			}
+
 			if (pracreward > 0)
 				ptc(ch, "{YYou also gain %d practice%s!{x\n", pracreward, (pracreward == 1 ? "" : "s"));
 
@@ -1357,9 +1370,9 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			ch->questloc = 0;
 
 			if (quest_double)
-				ch->nextquest = pointreward;
+				ch->nextquest = UMAX(1, pointreward/2);
 			else
-				ch->nextquest = pointreward * 2;
+				ch->nextquest = pointreward;
 
 			ch->gold += reward;
 			ch->questpoints += pointreward;
