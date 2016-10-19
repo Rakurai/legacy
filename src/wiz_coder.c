@@ -414,7 +414,7 @@ void do_relevel(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	ch->pcdata->cgroup = GROUP_CLAN | GROUP_AVATAR | GROUP_HERO
+	ch->pcdata->cgroup = GROUP_CLAN | GROUP_AVATAR | GROUP_HERO | GROUP_LEADER
 	                     | GROUP_GEN | GROUP_QUEST | GROUP_BUILD | GROUP_CODE | GROUP_SECURE;
 	ch->level       = MAX_LEVEL;
 	ch->hit         = 30000;
