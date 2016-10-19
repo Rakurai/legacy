@@ -1510,9 +1510,10 @@ void do_show(CHAR_DATA *ch, const char *argument)
 	}
 }
 
+#define MAX_PROMPT_LEN 300
 void do_prompt(CHAR_DATA *ch, const char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
+	char buf[MAX_PROMPT_LEN+1];
 
 	if (argument[0] == '\0') {
 		if (IS_SET(ch->comm, COMM_PROMPT)) {
@@ -1545,7 +1546,8 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 //		if (strlen(argument) > 100)
 //			argument[100] = '\0';
 
-		strncpy(buf, argument, 100);
+		strncpy(buf, argument, MAX_PROMPT_LEN);
+		buf[MAX_PROMPT_LEN] = '\0';
 
 		if (str_suffix("%c", buf))
 			strcat(buf, " ");
