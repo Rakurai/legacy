@@ -734,8 +734,11 @@ cJSON *fwrite_objects(CHAR_DATA *ch, OBJ_DATA *head, bool strongbox) {
 	// be in the original order.  same concept here, except no recursion; we just
 	// take advantage of the linked list underlying the cJSON array and insert at
 	// index 0, so the array is written backwards.
-	for (OBJ_DATA *obj = head; obj; obj = obj->next_content)
-		cJSON_InsertItemInArray(array, 0, fwrite_obj(ch, obj, strongbox));
+	for (OBJ_DATA *obj = head; obj; obj = obj->next_content) {
+		cJSON *item = fwrite_obj(ch, obj, strongbox);
+		if (item)
+			cJSON_InsertItemInArray(array, 0, item);
+	}
 
 	// because objects could be nerfed on saving, this could still be empty
 	if (cJSON_GetArraySize(array) == 0) {
