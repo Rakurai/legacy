@@ -445,6 +445,9 @@ void boot_db()
 			if (strArea[0] == '$')
 				break;
 
+			if (strArea[0] == '#')
+				continue;
+
 			if (strArea[0] == '-')
 				fpArea = stdin;
 			else {
