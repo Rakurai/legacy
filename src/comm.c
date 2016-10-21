@@ -1704,14 +1704,16 @@ void bust_a_prompt(CHAR_DATA *ch)
 
 		case 'Q':
 			if (IS_QUESTOR(ch)) {
-				OBJ_INDEX_DATA *questinfoobj;
+//				OBJ_INDEX_DATA *questinfoobj;
 				MOB_INDEX_DATA *questinfo;
 
 				if (ch->questmob == -1 || ch->questobf == -1)
 					sprintf(buf2, "*report!*");
 				else if (ch->questobj > 0) {
-					if ((questinfoobj = get_obj_index(ch->questobj)) != NULL)
-						sprintf(buf2, "%s", questinfoobj->name);
+//					if ((questinfoobj = get_obj_index(ch->questobj)) != NULL)
+//						sprintf(buf2, "%s", questinfoobj->name);
+					if (ch->questloc)
+						sprintf(buf2, "%s", get_room_index(ch->questloc)->name);
 					else
 						sprintf(buf2, "Unknown");
 				}
@@ -1725,7 +1727,8 @@ void bust_a_prompt(CHAR_DATA *ch)
 					sprintf(buf2, "Unknown");
 			}
 			else
-				sprintf(buf2, "None");
+//				sprintf(buf2, "None");
+				buf2[0] = '\0';
 
 			i = smash_bracket(buf2);
 			break;
@@ -1754,7 +1757,8 @@ void bust_a_prompt(CHAR_DATA *ch)
 			if (IS_SQUESTOR(ch)) {
 				if (ch->pcdata->squestobj != NULL && ch->pcdata->squestmob == NULL) {
 					if (!ch->pcdata->squestobjf)
-						sprintf(buf2, "%s", ch->pcdata->squestobj->short_descr);
+//						sprintf(buf2, "%s", ch->pcdata->squestobj->short_descr);
+						sprintf(buf2, "%s", get_room_index(ch->pcdata->squestloc1)->name);
 					else
 						sprintf(buf2, "*report!*");
 				}
@@ -1772,13 +1776,15 @@ void bust_a_prompt(CHAR_DATA *ch)
 							sprintf(buf2, "*report!*");
 					}
 					else
-						sprintf(buf2, "%s", ch->pcdata->squestobj->short_descr);
+//						sprintf(buf2, "%s", ch->pcdata->squestobj->short_descr);
+						sprintf(buf2, "%s", get_room_index(ch->pcdata->squestloc1)->name);
 				}
 				else
 					sprintf(buf2, "Unknown");
 			}
 			else
-				sprintf(buf2, "None");
+//				sprintf(buf2, "None");
+				buf2[0] = '\0';
 
 			i = smash_bracket(buf2);
 			break;
