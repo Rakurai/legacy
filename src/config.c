@@ -67,17 +67,8 @@ void config_color_func(CHAR_DATA *ch, const char *argument, int type)
 
 	switch (type) {
 	case 3: sprintf(typestr, "channel");            low = 0; high = 29; mod = 1;    break;
-
-	case 4:
-		if (!IS_SET(ch->pcdata->plr, PLR_NEWSCORE))
-		{       sprintf(typestr, "score");              low = 30; high = 49; mod = -29; }
-		else
-		{       sprintf(typestr, "score");              low = 50; high = 79; mod = -49; }
-
-		break;
-
+	case 4: sprintf(typestr, "score");              low = 50; high = 79; mod = -49;	break;
 	case 5: sprintf(typestr, "miscellaneous");      low = 80; high = 99; mod = -79; break;
-
 	default:
 		bug("config_color_func: bad type %d", type);
 		return;

@@ -5032,184 +5032,6 @@ void do_clanpower(CHAR_DATA *ch, const char *argument)
 	free_buf(output);
 }
 
-void print_old_affects(CHAR_DATA *ch)
-{
-	AFFECT_DATA *paf, *paf_last = NULL;
-	char buf[MAX_STRING_LENGTH];
-	const char *buf4;
-	char buf3[MAX_STRING_LENGTH];
-	char buf2[MAX_STRING_LENGTH];
-	bool found = FALSE;
-	long cheat = 0;
-	long filter;
-	long printme;
-	BUFFER *buffer;
-	OBJ_DATA *obj;
-	int iWear;
-	int raff, i;
-	buffer = new_buf();
-	cheat = ch->affected_by;
-
-	if (!IS_NPC(ch) && ch->pcdata->pktimer)
-		ptb(buffer, "{PYour PK timer is at %d seconds and counting!{x\n\n", ch->pcdata->pktimer * 3);
-
-	if (ch->affected != NULL) {
-		add_buf(buffer, "{bYou are affected by the following spells:{x\n");
-
-		for (paf = ch->affected; paf != NULL; paf = paf->next) {
-			if (paf_last != NULL && paf->type == paf_last->type) {
-				if (ch->level >= 20)
-					sprintf(buf, "                          ");
-				else
-					continue;
-			}
-			else
-				sprintf(buf, "{bSpell: %-19s{x", skill_table[paf->type].name);
-
-			add_buf(buffer, buf);
-
-			if (IS_SET(cheat, paf->bitvector))
-				cheat -= paf->bitvector;
-
-			if (ch->level >= 20) {
-				sprintf(buf,
-				        "{b: modifies %s by %d{x ",
-				        affect_loc_name(paf->location),
-				        paf->modifier);
-				add_buf(buffer, buf);
-
-				if (paf->duration == -1)
-					sprintf(buf, "{bpermanently{x");
-				else
-					sprintf(buf, "{bfor %d hours{x", paf->duration + 1);
-
-				add_buf(buffer, buf);
-			}
-
-			add_buf(buffer, "\n");
-			paf_last = paf;
-		}
-
-		found = TRUE;
-		add_buf(buffer, "\n");
-	}
-
-	if (race_table[ch->race].aff != 0 &&
-	    IS_AFFECTED(ch, race_table[ch->race].aff)) {
-		add_buf(buffer, "{bYou are affected by the following racial abilities:{x\n");
-
-		if (IS_SET(cheat, race_table[ch->race].aff))
-			cheat -= race_table[ch->race].aff;
-
-		strcpy(buf3, affect_bit_name(race_table[ch->race].aff));
-		buf4 = buf3;
-		buf4 = one_argument(buf4, buf2);
-
-		while (buf2[0]) {
-			sprintf(buf, "{bSpell: %-19s{x", buf2);
-			add_buf(buffer, buf);
-			add_buf(buffer, "\n");
-			buf4 = one_argument(buf4, buf2);
-		}
-
-		found = TRUE;
-		add_buf(buffer, "\n");
-	}
-
-	if (ch->affected_by != 0  && (ch->affected_by != race_table[ch->race].aff)) {
-		bool print = FALSE;
-
-		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
-			if ((obj = get_eq_char(ch, iWear)) != NULL) {
-				for (paf = obj->affected; paf != NULL; paf = paf->next) {
-					if (!IS_SET(ch->affected_by, paf->bitvector))
-						continue;
-
-					if (paf->where != TO_AFFECTS)
-						continue;
-
-					filter = paf->bitvector;
-					filter &= ch->affected_by;
-					printme = filter;
-					filter &= cheat;
-					cheat -= filter;
-
-					if (!print) {
-						add_buf(buffer, "{bYou are affected by the following equipment spells:{x\n");
-						print = TRUE;
-					}
-
-					strcpy(buf3, affect_bit_name(printme));
-					buf4 = buf3;
-					buf4 = one_argument(buf4, buf2);
-
-					while (buf2[0]) {
-						sprintf(buf, "{bSpell: %-19s:{x %s", buf2, obj->short_descr);
-						add_buf(buffer, buf);
-						add_buf(buffer, "\n");
-						buf4 = one_argument(buf4, buf2);
-					}
-				}
-			}
-		}
-
-		found = TRUE;
-
-		if (print)
-			add_buf(buffer, "\n");
-	}
-
-	if (cheat != 0) {
-		if (!IS_NPC(ch) && !IS_IMMORTAL(ch)) {
-			sprintf(buf, "%s has the immortal affect(s) of %s.  Fixing...",
-			        ch->name, affect_bit_name(cheat));
-			wiznet(buf, NULL, NULL, WIZ_CHEAT, 0, 0);
-			log_string(buf);
-		}
-
-		add_buf(buffer, "{bYou are affected by the following immortal abilities:{x\n");
-		strcpy(buf3, affect_bit_name(cheat));
-		/* get rid of the imm affect, needed for racial changes (removing perms from races) -- Montrey */
-		ch->affected_by -= cheat;
-		buf4 = buf3;
-		buf4 = one_argument(buf4, buf2);
-
-		while (buf2[0]) {
-			sprintf(buf, "{bSpell: %-19s{x", buf2);
-			add_buf(buffer, buf);
-			add_buf(buffer, "\n");
-			buf4 = one_argument(buf4, buf2);
-		}
-
-		found = TRUE;
-		add_buf(buffer, "\n");
-	}
-
-	if (!IS_NPC(ch)) {
-		if ((ch->pcdata->raffect[0] != 0) && (ch->pcdata->remort_count > 0) && IS_SET(ch->pcdata->plr, PLR_SHOWRAFF)) {
-			add_buf(buffer, "{bYou are affected by the following remort affects:{x\n");
-
-			for (raff = 0; raff < ch->pcdata->remort_count / 10 + 1; raff++) {
-				for (i = 0; i < MAX_RAFFECTS; i++) {
-					if (raffects[i].id == ch->pcdata->raffect[raff]) {
-						sprintf(buf, "{b%s{x\n", raffects[i].description);
-						add_buf(buffer, buf);
-					}
-				}
-			}
-
-			add_buf(buffer, "\n");
-			found = TRUE;
-		}
-	}
-
-	if (!found)
-		stc("{bYou are not affected by any spells.{x\n", ch);
-	else
-		page_to_char(buf_string(buffer), ch);
-
-	free_buf(buffer);
-}
 
 void print_new_affects(CHAR_DATA *ch)
 {
@@ -5416,167 +5238,6 @@ void print_new_affects(CHAR_DATA *ch)
 	free_buf(buffer);
 }
 
-void score_old(CHAR_DATA *ch)
-{
-	new_color(ch, CSLOT_OLDSCORE_NAME);
-	ptc(ch, "You are %s%s\n", ch->name, IS_NPC(ch) ? "" : ch->pcdata->title);
-	ptc(ch, "Level %d, %d years old (%d hours).\n", ch->level, get_age(ch), get_play_hours(ch));
-
-	if (!IS_NPC(ch)) {
-		new_color(ch, CSLOT_OLDSCORE_PKILL);
-		ptc(ch, "You have killed %d players and have been killed by %d players, rating %d.\n",
-		    ch->pcdata->pckills, ch->pcdata->pckilled, ch->pcdata->pkrank);
-		new_color(ch, CSLOT_OLDSCORE_AKILL);
-		ptc(ch, "You have won %d arena fights and have lost %d arena fights.\n",
-		    ch->pcdata->arenakills, ch->pcdata->arenakilled);
-
-		if (ch->pcdata->flag_killer > 0 && IS_SET(ch->act, PLR_KILLER))
-			ptc(ch,
-			    "Your {RKILLER{x flag will remain for %d more ticks.\n",
-			    ch->pcdata->flag_killer);
-
-		if (ch->pcdata->flag_thief > 0 && IS_SET(ch->act, PLR_THIEF))
-			ptc(ch,
-			    "Your {BTHIEF{x flag will remain for %d more ticks.\n",
-			    ch->pcdata->flag_thief);
-	}
-
-	new_color(ch, CSLOT_OLDSCORE_CLASS);
-	ptc(ch, "Race: %s  Sex: %s  Class:  %s\n\n",
-	    race_table[ch->race].name,
-	    GET_SEX(ch) == SEX_NEUTRAL ? "sexless" : GET_SEX(ch) == SEX_MALE ? "male" : "female",
-	    IS_NPC(ch) ? "mobile" : class_table[ch->class].name);
-	new_color(ch, CSLOT_OLDSCORE_STAT);
-	ptc(ch, "Str: %-2d(%-2d)", ch->perm_stat[STAT_STR], get_curr_stat(ch, STAT_STR));
-	new_color(ch, CSLOT_OLDSCORE_ARMOR);
-	ptc(ch, "     AC Pierce: %-5d", GET_AC(ch, AC_PIERCE));
-	new_color(ch, CSLOT_OLDSCORE_POINTS);
-	ptc(ch, "    Hit Points: %-5d/%-5d\n", ch->hit, ch->max_hit);
-	new_color(ch, CSLOT_OLDSCORE_STAT);
-	ptc(ch, "Int: %-2d(%-2d)", ch->perm_stat[STAT_INT], get_curr_stat(ch, STAT_INT));
-	new_color(ch, CSLOT_OLDSCORE_ARMOR);
-	ptc(ch, "     AC Bash  : %-5d", GET_AC(ch, AC_BASH));
-	new_color(ch, CSLOT_OLDSCORE_POINTS);
-	ptc(ch, "    Mana      : %-5d/%-5d\n", ch->mana, ch->max_mana);
-	new_color(ch, CSLOT_OLDSCORE_STAT);
-	ptc(ch, "Wis: %-2d(%-2d)", ch->perm_stat[STAT_WIS], get_curr_stat(ch, STAT_WIS));
-	new_color(ch, CSLOT_OLDSCORE_ARMOR);
-	ptc(ch, "     AC Slash : %-5d", GET_AC(ch, AC_SLASH));
-	new_color(ch, CSLOT_OLDSCORE_POINTS);
-	ptc(ch, "    Stamina   : %-5d/%-5d\n", ch->stam, ch->max_stam);
-	new_color(ch, CSLOT_OLDSCORE_STAT);
-	ptc(ch, "Dex: %-2d(%-2d)", ch->perm_stat[STAT_DEX], get_curr_stat(ch, STAT_DEX));
-	new_color(ch, CSLOT_OLDSCORE_ARMOR);
-	ptc(ch, "     AC Magic : %-5d", GET_AC(ch, AC_EXOTIC));
-	new_color(ch, CSLOT_OLDSCORE_WEIGHT);
-	ptc(ch, "    Items     : %-5d/%-5d\n", get_carry_number(ch), can_carry_n(ch));
-	new_color(ch, CSLOT_OLDSCORE_STAT);
-	ptc(ch, "Con: %-2d(%-2d)", ch->perm_stat[STAT_CON], get_curr_stat(ch, STAT_CON));
-	new_color(ch, CSLOT_OLDSCORE_GAIN);
-	ptc(ch, "     Practices: %-4d", ch->practice);
-	new_color(ch, CSLOT_OLDSCORE_WEIGHT);
-	ptc(ch, "     Weight    : %-5d/%-5d\n", get_carry_weight(ch) / 10, can_carry_w(ch) / 10);
-	new_color(ch, CSLOT_OLDSCORE_STAT);
-	ptc(ch, "Chr: %-2d(%-2d)", ch->perm_stat[STAT_CHR], get_curr_stat(ch, STAT_CHR));
-	new_color(ch, CSLOT_OLDSCORE_GAIN);
-	ptc(ch, "     Trains   : %-4d", ch->train);
-	new_color(ch, CSLOT_OLDSCORE_DICEROLL);
-	ptc(ch, "     Hit Roll  : %-5d\n", GET_HITROLL(ch));
-	new_color(ch, CSLOT_OLDSCORE_MONEY);
-	ptc(ch, "                Gold     : %-8ld", ch->gold);
-	new_color(ch, CSLOT_OLDSCORE_DICEROLL);
-	ptc(ch, " Dam Roll  : %-5d\n", GET_DAMROLL(ch));
-
-	if (!IS_NPC(ch)) {
-		new_color(ch, CSLOT_OLDSCORE_QP);
-		ptc(ch, "QP :  %4d", ch->questpoints);
-	}
-	else
-		stc("          ", ch);
-
-	new_color(ch, CSLOT_OLDSCORE_MONEY);
-	ptc(ch, "      Silver   : %-8ld", ch->silver);
-	new_color(ch, CSLOT_OLDSCORE_ALIGN);
-	ptc(ch, " Alignment : %-5d\n", ch->alignment);
-
-	if (!IS_NPC(ch)) {
-		new_color(ch, CSLOT_OLDSCORE_SP);
-		ptc(ch, "SP :  %4d", ch->pcdata->skillpoints);
-	}
-	else
-		stc("          ", ch);
-
-	new_color(ch, CSLOT_OLDSCORE_ALIGN);
-	ptc(ch, "      Saves    : %-6d", ch->saving_throw);
-	new_color(ch, CSLOT_OLDSCORE_ALIGN);
-	ptc(ch, "   Wimpy     : %-5d\n", ch->wimpy);
-
-	if (!IS_NPC(ch)) {
-		new_color(ch, CSLOT_OLDSCORE_RPP);
-		ptc(ch, "RPP : %4d", ch->pcdata->rolepoints);
-	}
-	else
-		stc("          ", ch);
-
-	new_color(ch, CSLOT_OLDSCORE_ALIGN);
-	ptc(ch, "      Thac0    : %-6d\n",
-	    interpolate(ch->level, class_table[ch->class].thac0_00,
-	                class_table[ch->class].thac0_32));
-	set_color(ch, GREEN, NOBOLD);
-	set_color(ch, GREEN, BLINK);
-
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK]   > 10)
-		stc("You are drunk.\n", ch);
-
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] ==  0)
-		stc("You are thirsty.\n", ch);
-
-	if (!IS_NPC(ch) && ch->pcdata->condition[COND_HUNGER] ==  0)
-		stc("You are hungry.\n", ch);
-
-	set_color(ch, WHITE, NOBOLD);
-
-	switch (get_position(ch)) {
-	case POS_DEAD:          stc("You are DEAD!!\n", ch);                  break;
-
-	case POS_MORTAL:        stc("You are mortally wounded.\n", ch);       break;
-
-	case POS_INCAP:         stc("You are incapacitated.\n", ch);          break;
-
-	case POS_STUNNED:       stc("You are stunned.\n", ch);                break;
-
-	case POS_SLEEPING:      stc("You are sleeping.\n", ch);               break;
-
-	case POS_RESTING:       stc("You are resting.\n", ch);                break;
-
-	case POS_STANDING:      stc("You are standing.\n", ch);               break;
-
-	case POS_FIGHTING:      stc("You are fighting.\n", ch);               break;
-
-	case POS_SITTING:       stc("You are sitting.\n", ch);                break;
-	}
-
-	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
-		ptc(ch, "You need %ld exp to level.  ",
-		    ((ch->level + 1) * exp_per_level(ch, ch->pcdata->points) - ch->exp));
-
-	ptc(ch, "You have scored %d total exp.\n", ch->exp);
-
-	if (ch->invis_level)
-		ptc(ch, "  Invisible: level %d", ch->invis_level);
-
-	if (ch->lurk_level)
-		ptc(ch, "  Lurk: level %d", ch->lurk_level);
-
-	if (ch->invis_level || ch->lurk_level)
-		stc("\n", ch);
-
-	if (IS_SET(ch->comm, COMM_SHOW_AFFECTS))
-		print_old_affects(ch);
-
-	if (!IS_NPC(ch) && ch->pcdata->pktimer)
-		ptc(ch, "{PYour PK timer is at %d seconds and counting!{x\n\n", ch->pcdata->pktimer * 3);
-}
 
 void score_new(CHAR_DATA *ch)
 {
@@ -5589,7 +5250,7 @@ void score_new(CHAR_DATA *ch)
 //	line  2:  '`,                Kazander, Lover of Freyja's Soul                '`,
 	/* center the name and title */
 	new_color(ch, CSLOT_SCORE_TITLE);
-	sprintf(buf, "%s%s{x%s", get_custom_color_code(ch, CSLOT_SCORE_NAME), ch->name, ch->pcdata->title);
+	sprintf(buf, "%s%s{x%s", get_custom_color_code(ch, CSLOT_SCORE_NAME), IS_NPC(ch) ? ch->short_descr : ch->name, IS_NPC(ch) ? "" : ch->pcdata->title);
 	ptc(ch, " %s'`,{x %s %s'`,{x\n", flame, strcenter(buf, 62), flame);
 //	line  3:  `,                                                                 `,
 	ptc(ch, " %s`,                                                                 `,{x\n", flame);
@@ -5605,7 +5266,7 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_LEVEL);
 	sprintf(buf, "Level{B:{x %d {B({xRemort %d{B){x     Age{B:{x %d {B({x%d Hours{B){x",
 	        ch->level,
-	        ch->pcdata->remort_count,
+	        IS_NPC(ch) ? 0 : ch->pcdata->remort_count,
 	        get_age(ch),
 	        get_play_hours(ch));
 	stc(strcenter(buf, 62), ch);
@@ -5699,7 +5360,7 @@ void score_new(CHAR_DATA *ch)
 	new_color(ch, CSLOT_SCORE_POINTNAME);
 	ptc(ch, " %s|#|{x SkillPoints  ", torch);
 	new_color(ch, CSLOT_SCORE_POINTNUM);
-	ptc(ch, "%5d %s|{x", ch->pcdata->skillpoints, border);
+	ptc(ch, "%5d %s|{x", IS_NPC(ch) ? 0 : ch->pcdata->skillpoints, border);
 	new_color(ch, CSLOT_SCORE_ARMOR);
 	ptc(ch, "     Magic    %6d  %s|{x", GET_AC(ch, AC_EXOTIC), border);
 	new_color(ch, CSLOT_SCORE_DICENAME);
@@ -5711,7 +5372,7 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, " %s|#|{x    RPPoints  ", torch);
 	new_color(ch, CSLOT_SCORE_POINTNUM);
 	ptc(ch, "%5d %s|                      |                    %s|#|{x\n",
-	    ch->pcdata->rolepoints, border, torch);
+	    IS_NPC(ch) ? 0 : ch->pcdata->rolepoints, border, torch);
 //	line 17:  |#|      Trains      4 |  Alignment    -1000  | Experience         |#|
 	new_color(ch, CSLOT_SCORE_POINTNAME);
 	ptc(ch, " %s|#|{x      Trains  ", torch);
@@ -5729,7 +5390,7 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, "%5d %s|----------------------|{x", ch->practice, border);
 	new_color(ch, CSLOT_SCORE_XPNUM);
 	ptc(ch, "    To Level %6ld %s|#|{x\n",
-	    UMIN((ch->level + 1) * exp_per_level(ch, ch->pcdata->points) - ch->exp, 999999), torch);
+	    IS_NPC(ch) ? 0 : UMIN((ch->level + 1) * exp_per_level(ch, ch->pcdata->points) - ch->exp, 999999), torch);
 //	line 19:  |#|                    |   You are standing   |       Total  42055 |#|
 	sprintf(buf, "You are ");
 
@@ -5761,12 +5422,15 @@ void score_new(CHAR_DATA *ch)
 	ptc(ch, " %s|#|%s----------------------------------------------------------------%s|#|{x\n",
 	    torch, border, torch);
 //	line 21:  |#| PK: 000 Wins, 000 Losses  Rank: 0  Arena: 000 Wins, 000 Losses |#|
-	new_color(ch, CSLOT_SCORE_PKRECORD);
-	sprintf(buf, "PK: %d Wins, %d Losses  %sRank: %d{x  Arena: %d Wins, %d Losses",
-	        ch->pcdata->pckills, ch->pcdata->pckilled,
-	        get_custom_color_code(ch, CSLOT_SCORE_PKRANK), ch->pcdata->pkrank,
-	        ch->pcdata->arenakills, ch->pcdata->arenakilled);
-	ptc(ch, " %s|#|{x %s %s|#|{x\n", torch, strcenter(buf, 62), torch);
+
+	if (!IS_NPC(ch)) {
+		new_color(ch, CSLOT_SCORE_PKRECORD);
+		sprintf(buf, "PK: %d Wins, %d Losses  %sRank: %d{x  Arena: %d Wins, %d Losses",
+		        ch->pcdata->pckills, ch->pcdata->pckilled,
+		        get_custom_color_code(ch, CSLOT_SCORE_PKRANK), ch->pcdata->pkrank,
+		        ch->pcdata->arenakills, ch->pcdata->arenakilled);
+		ptc(ch, " %s|#|{x %s %s|#|{x\n", torch, strcenter(buf, 62), torch);
+	}
 //	line 22:  |#|================================================================|#|
 	ptc(ch, " %s|#|%s================================================================%s|#|{x\n",
 	    torch, border, torch);
@@ -5782,18 +5446,6 @@ void score_new(CHAR_DATA *ch)
 
 void do_affects(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch) || !IS_SET(ch->pcdata->plr, PLR_NEWSCORE)) {
-		/* Avoid getting ordered to show affects.
-		This was causing a crash. Since pets don't talk, they
-		won't show affects anyway. We can just return.
-		-- Outsider */
-		if (IS_AFFECTED(ch, AFF_CHARM))
-			return;
-
-		print_old_affects(ch);
-		return;
-	}
-
 	new_color(ch, CSLOT_SCORE_FLAME);
 	stc("  ,                                                                  ,\n"
 	    " '`,                                                                '`,\n"
@@ -5816,10 +5468,7 @@ void do_affects(CHAR_DATA *ch, const char *argument)
 
 void do_score(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch) || !IS_SET(ch->pcdata->plr, PLR_NEWSCORE))
-		score_old(ch);
-	else
-		score_new(ch);
+	score_new(ch);
 }
 
 /*

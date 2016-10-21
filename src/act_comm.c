@@ -1944,20 +1944,3 @@ void do_outfit(CHAR_DATA *ch, const char *argument)
 	    ch->pcdata->deity[0] ? str_dup(ch->pcdata->deity) : "Alisa");
 }
 
-void do_newscore(CHAR_DATA *ch, const char *argument)
-{
-	if (IS_NPC(ch)) {
-		stc("Sorry, you're stuck with the old version of score.\n", ch);
-		return;
-	}
-
-	if (IS_SET(ch->pcdata->plr, PLR_NEWSCORE)) {
-		stc("You change to the old version of score.\n", ch);
-		REMOVE_BIT(ch->pcdata->plr, PLR_NEWSCORE);
-	}
-	else {
-		stc("You change to the new version of score.\n", ch);
-		SET_BIT(ch->pcdata->plr, PLR_NEWSCORE);
-	}
-}
-

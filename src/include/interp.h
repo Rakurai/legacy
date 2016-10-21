@@ -286,7 +286,6 @@ DECLARE_DO_FUN( do_mwhere       );
 DECLARE_DO_FUN( do_newbiekit    );
 DECLARE_DO_FUN( do_newlock      );
 DECLARE_DO_FUN( do_newpasswd    );
-DECLARE_DO_FUN( do_newscore	);
 DECLARE_DO_FUN( do_immquest     );
 DECLARE_DO_FUN( do_next         );
 DECLARE_DO_FUN( do_nofollow     );
