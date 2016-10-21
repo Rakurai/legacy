@@ -1730,7 +1730,7 @@ struct  kill_data
 #define PLR_MARRIED		(R)
 #define PLR_SQUESTOR		(S)	/* Montrey */
 #define PLR_DUEL_IGNORE		(T)	/* Montrey */
-#define PLR_NEWSCORE		(U)	/* Montrey */
+//#define PLR_NEWSCORE		(U)	/* Montrey */
 
 /* channel flags, for new channel code -- Montrey */
 #define CHAN_GOSSIP		0

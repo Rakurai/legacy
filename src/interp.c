@@ -322,7 +322,6 @@ const   struct  cmd_type        cmd_table       [] = {
 	{ "music",                      do_music,               POS_SLEEPING,   LOG_NORMAL,     1,      0                       },
 	{ "mwhere",                     do_mwhere,              POS_DEAD,               LOG_NORMAL,     5,      GWG                     },
 //	{ "mypipe",                     do_mypipe,              POS_DEAD,               LOG_ALWAYS,     5,      GD | GWC        },
-	{ "newscore",           do_newscore,    POS_SLEEPING,   LOG_NORMAL,     6,      0                       },
 	{ "newpassword",        do_newpasswd,   POS_DEAD,               LOG_ALWAYS,     5,      GWS                     },
 	{ "newbiekit",          do_newbiekit,   POS_RESTING,    LOG_ALWAYS,     5,      0                       },
 	{ "newbiemaker",        do_canmakebag,  POS_DEAD,               LOG_ALWAYS,     5,      GWG                     },

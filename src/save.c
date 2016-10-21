@@ -35,7 +35,7 @@ extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((CHAR_DATA *ch, int row, int column));
 extern void     set_window      args((CHAR_DATA *ch, int top, int bottom));
 
-#define CURRENT_VERSION         15   /* version number for pfiles */
+#define CURRENT_VERSION         16   /* version number for pfiles */
 
 bool debug_json = FALSE;
 
@@ -776,7 +776,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	ch->pcdata->ch                      = ch;
 	ch->pcdata->deity                   = str_dup("Nobody");
 	ch->pcdata->mud_exp                 = MEXP_LEGACY_OLDBIE;
-	ch->pcdata->plr                     = PLR_NEWSCORE;
+//	ch->pcdata->plr                     = PLR_NEWSCORE;
 
 	for (stat = 0; stat < MAX_STATS; stat++)
 		ch->perm_stat[stat]             = 3;
@@ -852,6 +852,10 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 		/* removed holylight at 12 -- Montrey */
 		if (version < 12 && IS_SET(ch->act, N))
 			REMOVE_BIT(ch->act, N);
+
+		// removed old score at 16 and new_score flag -- Montrey
+		if (version < 16 && IS_SET(ch->pcdata->plr, U))
+			REMOVE_BIT(ch->pcdata->plr, U);
 
 		// switching to cgroups with old pfiles -- Montrey (2014)
 		if (version < 15 && IS_SET(ch->act, N)) { // deputy
