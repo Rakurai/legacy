@@ -765,7 +765,7 @@ void do_return(CHAR_DATA *ch, const char *argument)
 
 	if (ch->prompt != NULL) {
 		free_string(ch->prompt);
-		ch->prompt = NULL;
+		ch->prompt = str_dup("");
 	}
 
 	sprintf(buf, "$N has returned from: %s.", ch->short_descr);
