@@ -8,7 +8,7 @@ CC      = gcc
 STD     = -std=gnu99
 WARNING = -Wall -Winline
 DEBUG   = -ggdb
-DEFINE  = -Dlinux -Dunix -DSQL -DDEBUG -DIPV6
+DEFINE  = -Dunix -DSQL -DDEBUG -DIPV6
 C_FLAGS = -O ${STD} ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}
 INCLUDE = -I$(INCDIR) -I/usr/include 
 L_FLAGS = -lsqlite3 -lm
