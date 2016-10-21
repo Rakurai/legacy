@@ -188,8 +188,7 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 			stc("Scroll buffering is off.\n", ch);
 	}
 
-	if (ch->prompt != NULL)
-		ptc(ch, "Your current prompt is: %s\n", ch->prompt);
+	ptc(ch, "Your current prompt is: %s\n", ch->prompt[0] ? ch->prompt : "(none)");
 
 	if (IS_SET(ch->revoke, REVOKE_TELL))
 		stc("No one wants to listen to you.\n", ch);

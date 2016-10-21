@@ -752,10 +752,8 @@ void do_switch(CHAR_DATA *ch, const char *argument)
 	ch->desc            = NULL;
 
 	/* change communications to match */
-	if (ch->prompt != NULL) {
-		free_string(victim->prompt);
-		victim->prompt = str_dup(ch->prompt);
-	}
+	free_string(victim->prompt);
+	victim->prompt = str_dup(ch->prompt);
 
 	victim->comm = ch->comm;
 	victim->censor = ch->censor;        /* Montrey */
@@ -779,10 +777,8 @@ void do_return(CHAR_DATA *ch, const char *argument)
 
 	stc("You return to your original body.\n", ch);
 
-	if (ch->prompt != NULL) {
-		free_string(ch->prompt);
-		ch->prompt = str_dup("");
-	}
+	free_string(ch->prompt);
+	ch->prompt = str_dup("");
 
 	sprintf(buf, "$N has returned from: %s.", ch->short_descr);
 	wiznet(buf, ch->desc->original, 0, WIZ_SWITCHES, WIZ_SECURE, GET_RANK(ch));
