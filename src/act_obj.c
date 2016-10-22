@@ -3940,25 +3940,11 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		argument = one_argument(argument, arg);
 
 		if (arg[0] != '\0') {
-			sprintf(buf, "%s %s", pet->name, arg);
-
-			/* We shouldn't free it, then use it. Also, there is a function for
-			   string searches. -- Outsider
-			free_string( pet->name );
-			for ( x = pet->name; *x != '\0'; x++ )
-			{
-			        if ( *x == '~' )
-			        {
-			                wiznet("$N is attempting to use the tilde in pet name cheat.",
-			                           ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
-			                break;
-			        }
-			}
-			*/
-			if (strchr(pet->name, '~'))
+			if (strchr(arg, '~'))
 				wiznet("$N is attempting to use the tilde in pet name cheat.",
 				       ch, NULL, WIZ_CHEAT, 0, GET_RANK(ch));
 
+			sprintf(buf, "%s %s", pet->name, smash_tilde(arg));
 			free_string(pet->name);
 			pet->name = str_dup(buf);
 		}
