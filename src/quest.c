@@ -1504,7 +1504,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 
 		if (IS_SET(ch->pcdata->plr, PLR_SQUESTOR) && find_squestmaster(ch) != NULL) {
 			sq_cleanup(ch);
-			ch->pcdata->nextsquest = 20;
+			ch->pcdata->nextsquest = 10;
 			wiznet("{Y:SKILL QUEST:{x $N has forfeited $S skill quest", ch, NULL, WIZ_QUEST, 0, 0);
 			stc("You have forfeited your skill quest.\n", ch);
 			return;
@@ -1518,7 +1518,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			ch->questobj = 0;
 			ch->questobf = 0;
 			ch->questloc = 0;
-			ch->nextquest = 12;
+			ch->nextquest = 6;
 			wiznet("{Y:QUEST:{x $N has forfeited $S quest", ch, NULL, WIZ_QUEST, 0, 0);
 			stc("You have forfeited your quest.\n", ch);
 			return;
