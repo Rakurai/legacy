@@ -318,7 +318,7 @@ void do_vlist(CHAR_DATA *ch, const char *argument)
 
 		if ((mobile = get_mob_index(vnum)) != NULL) {
 			if (!printed)
-				stc("[ Vnum] Mobile                         Object\n", ch);
+				stc("[ Vnum] Mobile                        Object\n", ch);
 
 			sprintf(buf, "%s%*s", mobile->short_descr,
 			        30 - color_strlen(mobile->short_descr), " ");
@@ -332,12 +332,12 @@ void do_vlist(CHAR_DATA *ch, const char *argument)
 
 		if ((object = get_obj_index(vnum)) != NULL) {
 			if (!printed)
-				stc(" [Vnum] Mobile                         Object\n", ch);
+				stc("[ Vnum] Mobile                        Object\n", ch);
 
 			if (foundmobile)
 				sprintf(buf, "%-30s ", object->short_descr);
 			else
-				sprintf(buf, "NONE                           %s", object->short_descr);
+				sprintf(buf, "NONE                          %s", object->short_descr);
 
 			strcat(totalbuf, buf);
 			found = TRUE;
@@ -349,8 +349,8 @@ void do_vlist(CHAR_DATA *ch, const char *argument)
 			strcat(totalbuf, buf);
 		}
 		/* error check */
-		else
-			bug("Error in getting object index in do_vlist().", 0);
+//		else
+//			bug("Error in getting object index in do_vlist().", 0);
 
 		if (found) {
 			strcat(totalbuf, "\n");
