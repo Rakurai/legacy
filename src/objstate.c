@@ -33,8 +33,8 @@ bool is_worth_saving(OBJ_DATA *obj)
 	    || obj->in_obj)        /* shouldn't be... */
 		return FALSE;
 
-	if (obj == donation_pit)
-		return FALSE;
+//	if (obj == donation_pit)
+//		return FALSE;
 
 	switch (obj->item_type) {
 	case ITEM_POTION:       /* usually have timers, and trying to speed this up */
