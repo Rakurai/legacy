@@ -174,7 +174,7 @@ void unique_item(OBJ_DATA *item)
 		af.modifier   = mod;
 		af.bitvector  = 0;
 		af.evolution  = 1;
-		copy_affect_to_obj(item, &af);
+		affect_copy_to_obj(item, &af);
 
 		added = TRUE;
 	}
@@ -1096,7 +1096,7 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 		affect_remove_from_char(clone, clone->affected);
 
 	for (const AFFECT_DATA *paf = parent->affected; paf != NULL; paf = paf->next)
-		copy_affect_to_char(clone, paf);
+		affect_copy_to_char(clone, paf);
 }
 
 /*
@@ -1206,7 +1206,7 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 
 	for (const AFFECT_DATA *paf = pObjIndex->affected; paf != NULL; paf = paf->next)
 //		if (paf->location == APPLY_SPELL_AFFECT)  now all affects are copied -- Montrey
-			copy_affect_to_obj(obj, paf);
+			affect_copy_to_obj(obj, paf);
 
 	obj->next           = object_list;
 	object_list         = obj;
@@ -1244,7 +1244,7 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 	clone->enchanted    = parent->enchanted;
 
 	for (const AFFECT_DATA *paf = parent->affected; paf != NULL; paf = paf->next)
-		copy_affect_to_obj(clone, paf);
+		affect_copy_to_obj(clone, paf);
 
 	/* extended desc */
 	for (ed = parent->extra_descr; ed != NULL; ed = ed->next) {

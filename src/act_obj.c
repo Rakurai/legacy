@@ -1633,7 +1633,7 @@ void do_envenom(CHAR_DATA *ch, const char *argument)
 			af.modifier  = 0;
 			af.bitvector = WEAPON_POISON;
 			af.evolution = get_evolution(ch, gsn_envenom);
-			copy_affect_to_obj(obj, &af);
+			affect_copy_to_obj(obj, &af);
 			act("$n coats $p with deadly venom.", ch, obj, NULL, TO_ROOM);
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, gsn_envenom, TRUE, 3);

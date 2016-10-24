@@ -1160,7 +1160,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 
 			if (!level_save(level, paf != NULL ? paf->level : obj->level)) {
 				if (paf != NULL)
-					affect_remove_obj(obj, paf);
+					affect_remove_from_obj(obj, paf);
 
 				act("$p glows a pale blue.", ch, obj, NULL, TO_ALL);
 				REMOVE_BIT(obj->extra_flags, ITEM_EVIL);
@@ -1180,7 +1180,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		af.modifier     = -1;
 		af.bitvector    = ITEM_BLESS;
 		af.evolution = evolution;
-		copy_affect_to_obj(obj, &af);
+		affect_copy_to_obj(obj, &af);
 		act("$p glows with a holy aura.", ch, obj, NULL, TO_ALL);
 		return;
 	}
@@ -2391,7 +2391,7 @@ void spell_darkness(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	af.modifier  = 0;
 	af.bitvector = ROOM_NOLIGHT;
 	af.evolution = evolution;
-	copy_affect_to_room(room, &af);
+	affect_copy_to_room(room, &af);
 }
 
 /* Divine Healing by Lotus */
@@ -2468,7 +2468,7 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 
 			if (!level_save(level, paf != NULL ? paf->level : obj->level)) {
 				if (paf != NULL)
-					affect_remove_obj(obj, paf);
+					affect_remove_from_obj(obj, paf);
 
 				act("$p glows with a red aura.", ch, obj, NULL, TO_ALL);
 				REMOVE_BIT(obj->extra_flags, ITEM_BLESS);
@@ -2488,7 +2488,7 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		af.modifier     = +1;
 		af.bitvector    = ITEM_EVIL;
 		af.evolution = evolution;
-		copy_affect_to_obj(obj, &af);
+		affect_copy_to_obj(obj, &af);
 		act("$p glows with a malevolent aura.", ch, obj, NULL, TO_ALL);
 		return;
 	}
@@ -3096,7 +3096,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		af.modifier   =  added;
 		af.bitvector  = 0;
 		af.evolution  = evolution;
-		copy_affect_to_obj(obj, &af);
+		affect_copy_to_obj(obj, &af);
 	}
 }
 
@@ -3272,7 +3272,7 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		af.modifier   =  added;
 		af.bitvector  = 0;
 		af.evolution  = evolution;
-		copy_affect_to_obj(obj, &af);
+		affect_copy_to_obj(obj, &af);
 	}
 
 	if (hit_found) {
@@ -3297,7 +3297,7 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		af.modifier   =  added;
 		af.bitvector  = 0;
 		af.evolution  = evolution;
-		copy_affect_to_obj(obj, &af);
+		affect_copy_to_obj(obj, &af);
 	}
 }
 
@@ -3596,7 +3596,7 @@ void spell_fireproof(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	af.modifier  = 0;
 	af.bitvector = ITEM_BURN_PROOF;
 	af.evolution = evolution;
-	copy_affect_to_obj(obj, &af);
+	affect_copy_to_obj(obj, &af);
 	act("You protect $p from fire.", ch, obj, NULL, TO_CHAR);
 	act("$p is surrounded by a protective aura.", ch, obj, NULL, TO_ROOM);
 }
@@ -3632,7 +3632,7 @@ bool enhance_blade(CHAR_DATA *ch, OBJ_DATA *obj, int sn, int level, int bit)
 	af.modifier     = 0;
 	af.bitvector    = bit;
 	af.evolution    = get_evolution(ch, sn);
-	copy_affect_to_obj(obj, &af);
+	affect_copy_to_obj(obj, &af);
 	return TRUE;
 }
 
@@ -4545,7 +4545,7 @@ void spell_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		af.modifier     = 0;
 		af.bitvector    = ITEM_INVIS;
 		af.evolution = evolution;
-		copy_affect_to_obj(obj, &af);
+		affect_copy_to_obj(obj, &af);
 		act("$p fades out of sight.", ch, obj, NULL, TO_ALL);
 		return;
 	}
@@ -5082,7 +5082,7 @@ void spell_poison(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 			af.modifier  = 0;
 			af.bitvector = WEAPON_POISON;
 			af.evolution = evolution;
-			copy_affect_to_obj(obj, &af);
+			affect_copy_to_obj(obj, &af);
 			act("$p is coated with deadly venom.", ch, obj, NULL, TO_ALL);
 			return;
 		}

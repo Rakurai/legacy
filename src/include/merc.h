@@ -2305,6 +2305,9 @@ struct obj_data
 	sh_int			spell_lev[MAX_SPELL];
 	bool			valid;
 
+    unsigned int    extra_flag_cache;
+    unsigned int    weapon_flag_cache;
+
     /* ugly way to do this: rather than everywhere cycling through the affects given by
        the object's index data separately from the affects given by inset gems, we
        compile a list of affects whenever one of those changes (rare event). -- Montrey */
@@ -2419,6 +2422,7 @@ struct room_index_data
 	AFFECT_DATA *		affected;		/* Montrey */
 	long			original_flags;		/* Montrey */
 	long			room_flags;
+    unsigned int    room_flag_cache;
 	sh_int			light;
 	sh_int			sector_type;
 	sh_int			heal_rate;

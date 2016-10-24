@@ -25,7 +25,8 @@ _H_FILES = db.h interp.h lookup.h magic.h memory.h merc.h music.h sql.h recycle.
 H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 
 _O_FILES = act_comm.o act_info.o act_move.o act_obj.o \
-	affect.o affect_char.o alias.o area_handler.o bank.o channels.o	\
+	affect.o affect_char.o affect_obj.o affect_room.o \
+	alias.o area_handler.o bank.o channels.o	\
 	clan-edit.o comm.o config.o const.o db.o debug.o departed.o duel.o edit.o effects.o	\
 	fight.o file.o find.o flags.o handler.o help.o hunt.o ignore.o interp.o load_config.o	\
 	lookup.o magic.o marry.o memory.o mob_commands.o mob_prog.o mobiles.o music.o sqlite.o	\

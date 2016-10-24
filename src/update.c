@@ -1171,7 +1171,7 @@ void obj_update(void)
 					}
 				}
 
-				affect_remove_obj(obj, paf);
+				affect_remove_from_obj(obj, paf);
 			}
 		}
 
@@ -1294,7 +1294,7 @@ void room_update(void)
 					if (paf->type > 0 && skill_table[paf->type].msg_obj && room->people)
 						act(skill_table[paf->type].msg_obj, NULL, NULL, NULL, TO_ALL);
 
-				affect_remove_room(room, paf);
+				affect_remove_from_room(room, paf);
 			}
 		}
 	}

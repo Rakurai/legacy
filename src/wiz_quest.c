@@ -15,6 +15,7 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "affect.h"
 
 DECLARE_DO_FUN(do_switch);
 
@@ -110,7 +111,7 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 	af.modifier   = affect_modify;
 	af.bitvector  = 0;
 	af.evolution  = 1;
-	copy_affect_to_obj(obj, &af);
+	affect_copy_to_obj(obj, &af);
 }
 
 /* Addspell command by Demonfire */
