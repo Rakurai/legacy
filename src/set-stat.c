@@ -1358,6 +1358,11 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg2, "value4") || !str_cmp(arg2, "v4")) {
+		if (obj->item_type == ITEM_WEAPON) {
+			stc("Please use the flag command to add or remove weapon flags.\n", ch);
+			return;
+		}
+
 		obj->value[4] = value;
 		ptc(ch, "%s's v4 has been set to %d.\n", obj->short_descr, value);
 		return;
