@@ -1009,7 +1009,7 @@ void load_mobiles(FILE *fp)
 				else if (!str_prefix1(word, "aff"))
 					REMOVE_BIT(pMobIndex->affected_by, vector);
 				else if (!str_prefix1(word, "off"))
-					REMOVE_BIT(pMobIndex->affected_by, vector);
+					REMOVE_BIT(pMobIndex->off_flags, vector);
 				else if (!str_prefix1(word, "drn"))
 					REMOVE_BIT(pMobIndex->drain_flags, vector);
 				else if (!str_prefix1(word, "imm"))
