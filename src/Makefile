@@ -9,8 +9,8 @@ STD     = -std=gnu99
 WARNING = -Wall -Winline
 DEBUG   = -ggdb
 DEFINE  = -Dunix -DSQL -DDEBUG -DIPV6
+INCLUDE = -I$(INCDIR) -I/usr/include
 C_FLAGS = -O ${STD} ${WARNING} ${DEBUG} ${DEFINE} ${INCLUDE}
-INCLUDE = -I$(INCDIR) -I/usr/include 
 L_FLAGS = -lsqlite3 -lm
 
 DATE=`date +%Y-%m-%d`
