@@ -3360,7 +3360,7 @@ void    do_gameout      args( ( CHAR_DATA *ch, const char *argument ) );
 void    do_pit          args( ( CHAR_DATA *ch, const char *argument ) );
 void	set_color	args((CHAR_DATA *ch, int color, int bold));
 void	new_color	args((CHAR_DATA *ch, int custom));
-void    show_affect_to_char  args((AFFECT_DATA *paf, CHAR_DATA *ch));
+void    show_affect_to_char  args((const AFFECT_DATA *paf, CHAR_DATA *ch));
 
 /* act_move.c */
 void    move_char       args( ( CHAR_DATA *ch, int door, bool follow ) );
@@ -3572,9 +3572,9 @@ int     can_carry_w     args(( CHAR_DATA *ch ) );
 bool    is_name         args(( const char *str, const char *namelist ) );
 bool    is_exact_name   args(( const char *str, const char *namelist ) );
 bool    is_exact_name_color   args(( const char *str, const char *namelist ) );
-void    copy_affect_to_char  args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
-void    copy_affect_to_obj   args(( OBJ_DATA *obj, AFFECT_DATA *paf ) );
-void    copy_affect_to_room  args(( ROOM_INDEX_DATA *room, AFFECT_DATA *paf ) );
+void    copy_affect_to_char  args(( CHAR_DATA *ch, const AFFECT_DATA *paf ) );
+void    copy_affect_to_obj   args(( OBJ_DATA *obj, const AFFECT_DATA *paf ) );
+void    copy_affect_to_room  args(( ROOM_INDEX_DATA *room, const AFFECT_DATA *paf ) );
 void    affect_remove   args(( CHAR_DATA *ch, AFFECT_DATA *paf ) );
 void    affect_remove_obj args((OBJ_DATA *obj, AFFECT_DATA *paf ) );
 void    affect_remove_room args((ROOM_INDEX_DATA *obj, AFFECT_DATA *paf ) );

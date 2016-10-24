@@ -462,7 +462,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	cJSON_AddStringToObject(o,		"AfBy",			print_flags(ch->affected_by));
 
 	item = NULL;
-	for (AFFECT_DATA *paf = ch->affected; paf != NULL; paf = paf->next) {
+	for (const AFFECT_DATA *paf = ch->affected; paf != NULL; paf = paf->next) {
 		if (paf->type < 0 || paf->type >= MAX_SKILL)
 			continue;
 
@@ -636,7 +636,7 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 	if (obj->enchanted) {
 //		cJSON_AddNumberToObject(o,	"Enchanted",	obj->enchanted);
 		item = NULL;
-		for (AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
+		for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
 			if (paf->type < 0 || paf->type >= MAX_SKILL)
 				continue;
 
@@ -1342,7 +1342,7 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 							bool found = FALSE;
 
 							/* loop through the pet's spells, only add if they don't have it */
-							for (AFFECT_DATA *old_af = ch->affected; old_af; old_af = old_af->next)
+							for (const AFFECT_DATA *old_af = ch->affected; old_af; old_af = old_af->next)
 								if (old_af->type == paf->type && old_af->location == paf->location) {
 									found = TRUE;
 									break;

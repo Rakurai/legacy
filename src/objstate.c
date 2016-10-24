@@ -62,7 +62,7 @@ bool is_worth_saving(OBJ_DATA *obj)
 void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
 {
 	OBJ_DATA *cobj;
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 	EXTRA_DESCR_DATA *ed;
 	int i = 0;
 	fprintf(fp, "OBJ\n%d %d %d %d ",

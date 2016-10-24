@@ -602,7 +602,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *room;
 	EXIT_DATA *exit;
 	DESCRIPTOR_DATA *d;
-	AFFECT_DATA *af;
+	const AFFECT_DATA *af;
 	FILE *fp;
 	int vnum, nMatch = 0;
 	/* open file */

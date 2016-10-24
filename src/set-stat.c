@@ -1487,7 +1487,7 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 /***** STAT COMMANDS *****/
 void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 
 	if (IS_NPC(victim))
 		ptc(ch, "Vnum: %d  Group: %d  Count: %d  Killed: %d\n",
@@ -1657,7 +1657,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 
 void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 	int i;
 	ptc(ch, "{CVnum: %d   Level: %d\n", obj->pIndexData->vnum, obj->level);
 	ptc(ch, "{CName(s):{x %s{x\n", obj->name);
@@ -1834,7 +1834,7 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 {
 	char buf[MSL];
-	AFFECT_DATA *paf = NULL;
+	const AFFECT_DATA *paf = NULL;
 	OBJ_DATA *obj;
 	CHAR_DATA *rch;
 	int door;

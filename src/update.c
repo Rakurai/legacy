@@ -1082,7 +1082,7 @@ void char_update(void)
 		}
 		else if (IS_AFFECTED(ch, AFF_POISON) && ch != NULL
 		         &&   !IS_AFFECTED(ch, AFF_SLOW)) {
-			AFFECT_DATA *poison;
+			const AFFECT_DATA *poison;
 			poison = get_affect(ch->affected, gsn_poison);
 
 			if (poison != NULL) {

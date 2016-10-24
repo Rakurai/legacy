@@ -36,7 +36,7 @@ DECLARE_DO_FUN(do_return);
 /*
  * Local functions.
  */
-void    affect_modify   args((CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd));
+void    affect_modify   args((CHAR_DATA *ch, const AFFECT_DATA *paf, bool fAdd));
 
 /* Note name match exact */
 bool note_is_name(const char *str, const char *namelist)
@@ -512,7 +512,7 @@ int get_weapon_skill(CHAR_DATA *ch, int sn)
 void reset_char(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
-	AFFECT_DATA *af;
+	const AFFECT_DATA *af;
 	int loc, mod, stat, i;
 
 	/* initialize */
@@ -839,7 +839,7 @@ bool is_exact_name_color(const char *str, const char *namelist)
 /*
  * Apply or remove an affect to a character.
  */
-void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
+void affect_modify(CHAR_DATA *ch, const AFFECT_DATA *paf, bool fAdd)
 {
 	OBJ_DATA *obj;
 	int mod, i;
@@ -864,7 +864,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		   if there is, don't remove it.  replaces the complicated eq_imm_flags and
 		   junk, and solves the problem of removing eq and losing the flag even if
 		   it's racial, permanent, or raffect                  -- Montrey */
-		AFFECT_DATA *saf;
+		const AFFECT_DATA *saf;
 		bool found_dup = FALSE;
 
 		/* let's start with their racial affects, there is no racial drain affect */
@@ -992,7 +992,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 /*
  * Give an affect to a char.
  */
-void copy_affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
+void copy_affect_to_char(CHAR_DATA *ch, const AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new;
 	paf_new = new_affect();
@@ -1004,7 +1004,7 @@ void copy_affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 }
 
 /* give an affect to an object */
-void copy_affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
+void copy_affect_to_obj(OBJ_DATA *obj, const AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new;
 	paf_new = new_affect();
@@ -1030,7 +1030,7 @@ void copy_affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 }
 
 /* Give an affect to a room */
-void copy_affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
+void copy_affect_to_room(ROOM_INDEX_DATA *room, const AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_new;
 	paf_new         = new_affect();
@@ -1182,8 +1182,7 @@ void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
  */
 void affect_strip(CHAR_DATA *ch, int sn)
 {
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
+	AFFECT_DATA *paf, *paf_next;
 
 	for (paf = ch->affected; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
@@ -1326,7 +1325,8 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		++ch->in_room->light;
 
 	if (IS_AFFECTED(ch, AFF_PLAGUE)) {
-		AFFECT_DATA *af, plague;
+		const AFFECT_DATA *af;
+		AFFECT_DATA plague;
 		CHAR_DATA *vch;
 
 		for (af = ch->affected; af != NULL; af = af->next) {
@@ -1589,7 +1589,7 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
  */
 void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 {
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 	int i, i2;
 	void *vo;
 
@@ -1635,9 +1635,7 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
  */
 void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	AFFECT_DATA *paf = NULL;
-	AFFECT_DATA *lpaf = NULL;
-	AFFECT_DATA *lpaf_next = NULL;
+	const AFFECT_DATA *paf = NULL;
 	int i, i2;
 
 	if (obj->wear_loc == WEAR_NONE) {
@@ -1652,6 +1650,8 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		if (paf->location == APPLY_SPELL_AFFECT) {
+			AFFECT_DATA *lpaf = NULL;
+			AFFECT_DATA *lpaf_next = NULL;
 			bug("Norm-Apply: %d", 0);
 
 			for (lpaf = ch->affected; lpaf != NULL; lpaf = lpaf_next) {
@@ -3651,7 +3651,7 @@ int get_true_hitroll(CHAR_DATA *ch)
 {
 	int loc, hitroll;
 	OBJ_DATA *obj;
-	AFFECT_DATA *af;
+	const AFFECT_DATA *af;
 
 	if (IS_NPC(ch))
 		return GET_HITROLL(ch);
@@ -3674,7 +3674,7 @@ int get_true_damroll(CHAR_DATA *ch)
 {
 	int loc, damroll;
 	OBJ_DATA *obj;
-	AFFECT_DATA *af;
+	const AFFECT_DATA *af;
 
 	if (IS_NPC(ch))
 		return GET_DAMROLL(ch);
@@ -3755,7 +3755,7 @@ int get_age(CHAR_DATA *ch)
 int get_age_mod(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
-	AFFECT_DATA *af;
+	const AFFECT_DATA *af;
 	int age = 0, loc;
 
 	/* eq */
@@ -3791,7 +3791,7 @@ AFFECT_DATA *get_affect(AFFECT_DATA *af, int sn)
 /* used with IS_AFFECTED, checks to see if the affect has an evolution rating, returns 1 if not */
 int get_affect_evolution(CHAR_DATA *ch, int sn)
 {
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 	int evo = 1;
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next)

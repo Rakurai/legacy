@@ -1025,8 +1025,6 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 {
 	int i;
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
 
 	if (parent == NULL || clone == NULL || !IS_NPC(parent))
 		return;
@@ -1093,13 +1091,11 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	for (i = 0; i < 3; i++)
 		clone->damage[i]        = parent->damage[i];
 
-	for (paf = clone->affected; paf != NULL; paf = paf_next) {
-		paf_next = paf->next;
-		affect_remove(clone, paf);
-	}
+	while (clone->affected)
+		affect_remove(clone, clone->affected);
 
 	/* now add the affects */
-	for (paf = parent->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = parent->affected; paf != NULL; paf = paf->next)
 		copy_affect_to_char(clone, paf);
 }
 
@@ -1108,7 +1104,6 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
  */
 OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 {
-	AFFECT_DATA *paf;
 	OBJ_DATA *obj;
 	int i;
 
@@ -1209,7 +1204,7 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 		break;
 	}
 
-	for (paf = pObjIndex->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = pObjIndex->affected; paf != NULL; paf = paf->next)
 //		if (paf->location == APPLY_SPELL_AFFECT)  now all affects are copied -- Montrey
 			copy_affect_to_obj(obj, paf);
 
@@ -1223,7 +1218,6 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 {
 	int i;
-	AFFECT_DATA *paf;
 	EXTRA_DESCR_DATA *ed, *ed_new;
 
 	if (parent == NULL || clone == NULL)
@@ -1249,7 +1243,7 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 	/* affects */
 	clone->enchanted    = parent->enchanted;
 
-	for (paf = parent->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = parent->affected; paf != NULL; paf = paf->next)
 		copy_affect_to_obj(clone, paf);
 
 	/* extended desc */

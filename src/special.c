@@ -1139,7 +1139,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	if (argument[0] == '\0') {
 		bool etched = FALSE;
-		AFFECT_DATA *paf;
+		const AFFECT_DATA *paf;
 		stc("{WItems you are wearing:\n", ch);
 
 		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
@@ -1182,7 +1182,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	CHAR_DATA *rch;
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 	char buf[MAX_STRING_LENGTH];
 	int max = 100;
 

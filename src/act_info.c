@@ -101,7 +101,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
 	static char buf[MSL];
 	int diff;
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 	buf[0] = '\0';
 
 	if ((fShort && (obj->short_descr == NULL || obj->short_descr[0] == '\0'))
@@ -195,7 +195,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	return buf;
 }
 
-void show_affect_to_char(AFFECT_DATA *paf, CHAR_DATA *ch)
+void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 {
 	if (IS_IMMORTAL(ch))
 		ptc(ch, "Affects %s by %d, level %d", affect_loc_name(paf->location), paf->modifier, paf->level);
@@ -3189,7 +3189,7 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 void do_consider(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 	CHAR_DATA *victim;
 	int diff, percent;
 	one_argument(argument, arg);
@@ -3550,7 +3550,7 @@ void do_report(CHAR_DATA *ch, const char *argument)
 	char buf[MAX_INPUT_LENGTH];
 	char buf2[MAX_INPUT_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
-	AFFECT_DATA *paf, *paf_last = NULL;
+	const AFFECT_DATA *paf, *paf_last = NULL;
 	one_argument(argument, arg);
 	sprintf(buf,
 	        "You say 'I have %d/%d hp %d/%d mana %d/%d st %d xp.'\n",
@@ -5036,15 +5036,13 @@ void do_clanpower(CHAR_DATA *ch, const char *argument)
 void print_new_affects(CHAR_DATA *ch)
 {
 	char buf[MSL], buf2[MSL], torch[8], border[4], breakline[MSL], *p;
-	AFFECT_DATA *paf, *paf_last = NULL;
+	const AFFECT_DATA *paf, *paf_last = NULL;
 	BUFFER *buffer;
 	OBJ_DATA *obj;
 	long cheat = 0;
 	bool found = FALSE;
 	/* sort varibles */
 	bool un_sorted;
-	AFFECT_DATA temp_paf;
-	AFFECT_DATA *first_pointer, *second_pointer;
 	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
 	sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
 	sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
@@ -5066,20 +5064,21 @@ void print_new_affects(CHAR_DATA *ch)
 			un_sorted = FALSE;
 
 			// go through the list, looking for unsorted items
-			for (paf = ch->affected; paf != NULL; paf = paf->next) {
+			for (AFFECT_DATA *tpaf = ch->affected; tpaf != NULL; tpaf = tpaf->next) {
 				// check for end of list
-				if (! paf->next)
+				if (! tpaf->next)
 					break;
 
 				// check if item and next one are in order
-				if (paf->duration < paf->next->duration) {
-					first_pointer = paf->next;
-					second_pointer = paf->next->next;
-					memcpy(&temp_paf, paf, sizeof(AFFECT_DATA));
-					memcpy(paf, paf->next, sizeof(AFFECT_DATA));
-					paf->next = first_pointer;
-					memcpy(paf->next, &temp_paf, sizeof(AFFECT_DATA));
-					paf->next->next = second_pointer;
+				if (tpaf->duration < tpaf->next->duration) {
+					AFFECT_DATA *first_pointer = tpaf->next;
+					AFFECT_DATA *second_pointer = tpaf->next->next;
+					AFFECT_DATA temp_paf;
+					memcpy(&temp_paf, tpaf, sizeof(AFFECT_DATA));
+					memcpy(tpaf, tpaf->next, sizeof(AFFECT_DATA));
+					tpaf->next = first_pointer;
+					memcpy(tpaf->next, &temp_paf, sizeof(AFFECT_DATA));
+					tpaf->next->next = second_pointer;
 					un_sorted = TRUE;
 				}
 			}

@@ -1280,8 +1280,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		}
 
 		if (!spell) {
-			AFFECT_DATA *paf;
-
 			if (get_eq_char(ch, WEAR_WIELD) != NULL)
 				check_cond(ch, get_eq_char(ch, WEAR_WIELD));
 
@@ -1294,6 +1292,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			    && !saves_spell(victim->level, ch, DAM_HOLY))
 				damage(victim, ch, 5, gsn_sanctuary, DAM_HOLY, TRUE, TRUE);
 
+			AFFECT_DATA *paf;
 			if ((paf = get_affect(victim->affected, gsn_bone_wall)) != NULL
 			    && !saves_spell(paf->level, ch, DAM_PIERCE)) {
 				damage(victim, ch,
@@ -4829,7 +4828,7 @@ void eqcheck(CHAR_DATA *ch)
 {
 	int iWear;
 	OBJ_DATA *obj;
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 	long filter;
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {

@@ -4313,7 +4313,7 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	char buf[MAX_STRING_LENGTH];
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 	int i;
 	struct wear_type {
 		char *loc;
@@ -5644,7 +5644,7 @@ void spell_remove_alignment(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int result, fail;
 	sh_int align;
-	AFFECT_DATA *paf;
+	const AFFECT_DATA *paf;
 
 	/* Make sure the target is not a character. -- Outsider */
 	if (ch == vo)
