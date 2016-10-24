@@ -5086,8 +5086,7 @@ void print_new_affects(CHAR_DATA *ch)
 			ptb(buffer, " %s %-19s %s| %-42s %s\n", torch, buf, border, buf2, torch);
 			paf_last = paf;
 
-			if (IS_SET(cheat, paf->bitvector))
-				cheat -= paf->bitvector;
+			REMOVE_BIT(cheat, paf->bitvector);
 		}
 
 		found = TRUE;
@@ -5102,8 +5101,7 @@ void print_new_affects(CHAR_DATA *ch)
 		    torch, torch);
 		add_buf(buffer, breakline);
 
-		if (IS_SET(cheat, race_table[ch->race].aff))
-			cheat -= race_table[ch->race].aff;
+		REMOVE_BIT(cheat, race_table[ch->race].aff);
 
 		strcpy(buf, affect_bit_name(race_table[ch->race].aff));
 		const char *words = buf;
@@ -5134,7 +5132,8 @@ void print_new_affects(CHAR_DATA *ch)
 					filter &= ch->affected_by;
 					printme = filter;
 					filter &= cheat;
-					cheat -= filter;
+
+					REMOVE_BIT(cheat, filter);
 
 					if (!print) {
 						if (found)
@@ -5175,7 +5174,7 @@ void print_new_affects(CHAR_DATA *ch)
 		        ch->name, affect_bit_name(cheat));
 		wiznet(buf, NULL, NULL, WIZ_CHEAT, 0, 0);
 		log_string(buf);
-		ch->affected_by -= cheat;
+//		ch->affected_by -= cheat;
 	}
 
 	if (!IS_NPC(ch)
