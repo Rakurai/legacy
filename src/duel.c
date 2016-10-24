@@ -527,6 +527,12 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 	for (int sn = 1; sn < MAX_SKILL; sn++)
 		affect_remove_sn_from_char(ch, sn);
 
+	// remove non-racial bits
+	affect_flag_clear_char(ch);
+	affect_flag_add_to_char(ch, race_table[ch->race].aff);
+
+	// TODO: add back eq affects/flags
+
 	ch->hit  = ch->max_hit;
 	ch->mana = ch->max_mana;
 	ch->stam = ch->max_stam;

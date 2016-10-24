@@ -460,7 +460,7 @@ cJSON *fwrite_char(CHAR_DATA *ch)
 	cJSON *o = cJSON_CreateObject(); // object to return
 
 	cJSON_AddStringToObject(o,		"Act",			print_flags(ch->act));
-	cJSON_AddStringToObject(o,		"AfBy",			print_flags(ch->affected_by));
+	cJSON_AddStringToObject(o,		"AfBy",			print_flags(affect_flag_get_char(ch)));
 
 	item = NULL;
 	for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
@@ -904,7 +904,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 			group_add(ch, pc_race_table[ch->race].skills[i], FALSE);
 		}
 
-		ch->affected_by = ch->affected_by | race_table[ch->race].aff;
+		affect_flag_add_to_char(ch, race_table[ch->race].aff);
 		ch->imm_flags   = ch->imm_flags | race_table[ch->race].imm;
 		ch->res_flags   = ch->res_flags | race_table[ch->race].res;
 		ch->vuln_flags  = ch->vuln_flags | race_table[ch->race].vuln;
@@ -1362,6 +1362,12 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 				}
 
 				SKIPKEY("Act");
+
+				if (!str_cmp(key, "AfBy")) {
+					affect_flag_add_to_char(ch, read_flags(o->valuestring));
+					fMatch = TRUE; break;
+				}
+
 				INTKEY("AfBy",			ch->affected_by,			read_flags(o->valuestring));
 				INTKEY("Alig",			ch->alignment,				o->valueint);
 				break;

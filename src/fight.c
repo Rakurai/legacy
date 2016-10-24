@@ -1189,7 +1189,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		affect_remove_sn_from_char(ch, gsn_invis);
 		affect_remove_sn_from_char(ch, gsn_mass_invis);
 		affect_remove_sn_from_char(ch, gsn_midnight);
-		REMOVE_BIT(ch->affected_by, AFF_INVISIBLE);
+		affect_flag_remove_from_char(ch, AFF_INVISIBLE);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
 	}
 
@@ -1897,7 +1897,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 			sprintf(buf, "Check_killer: %s bad AFF_CHARM", IS_NPC(ch) ? ch->short_descr : ch->name);
 			bug(buf, 0);
 			affect_remove_sn_from_char(ch, gsn_charm_person);
-			REMOVE_BIT(ch->affected_by, AFF_CHARM);
+			affect_flag_remove_from_char(ch, AFF_CHARM);
 			return;
 		}
 
@@ -2711,7 +2711,8 @@ void raw_kill(CHAR_DATA *victim)
 	}
 
 	REMOVE_BIT(victim->imm_flags, IMM_SHADOW);
-	victim->affected_by = race_table[victim->race].aff;
+	affect_flag_clear_char(victim);
+	affect_flag_add_to_char(victim, race_table[victim->race].aff);
 	victim->position    = POS_RESTING;
 	victim->hit         = UMAX(1, victim->hit);
 	victim->mana        = UMAX(1, victim->mana);
@@ -3136,13 +3137,9 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-<<<<<<< aa89c67352d755a86f4a54163d833421502af8db
-	if (IS_AFFECTED(ch, AFF_BERSERK)
+	if (affect_flag_on_char(ch, AFF_BERSERK)
 	 || affect_find_in_char(ch, gsn_berserk)
 	 || affect_find_in_char(ch, gsn_frenzy)) {
-=======
-	if (affect_flag_on_char(ch, AFF_BERSERK) || get_affect(ch->affected, gsn_berserk) || get_affect(ch->affected, gsn_frenzy)) {
->>>>>>> Squeezed access to checking flags set on the CHAR_DATA->affected_by bitvector to a common accessor.
 		stc("You get a little madder.\n", ch);
 		return;
 	}
@@ -4845,11 +4842,11 @@ void eqcheck(CHAR_DATA *ch)
 			for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
 				filter = paf->bitvector;
 				filter = !filter;
-				filter |= ch->affected_by;
+				filter |= affect_flag_get_char(ch);
 				filter = !filter;
 
 				if (!affect_flag_on_char(ch, filter) && paf->where == TO_AFFECTS)
-					SET_BIT(ch->affected_by, paf->bitvector);
+					affect_flag_add_to_char(ch, paf->bitvector);
 			}
 		}
 	}

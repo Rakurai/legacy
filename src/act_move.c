@@ -1502,9 +1502,9 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 	affect_remove_sn_from_char(ch, gsn_sneak);
 	affect_remove_sn_from_char(ch, gsn_hide);
 	affect_remove_sn_from_char(ch, gsn_midnight);
-	REMOVE_BIT(ch->affected_by, AFF_HIDE);
-	REMOVE_BIT(ch->affected_by, AFF_INVISIBLE);
-	REMOVE_BIT(ch->affected_by, AFF_SNEAK);
+	affect_flag_remove_from_char(ch, AFF_HIDE);
+	affect_flag_remove_from_char(ch, AFF_INVISIBLE);
+	affect_flag_remove_from_char(ch, AFF_SNEAK);
 	REMOVE_BIT(ch->act, PLR_SUPERWIZ);
 	ch->invis_level = 0;
 	ch->lurk_level = 0;
@@ -3042,7 +3042,7 @@ void do_land(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* we are flying, time to stop */
-	REMOVE_BIT(ch->affected_by, AFF_FLYING);
+	affect_flag_remove_from_char(ch, AFF_FLYING);
 	affect_remove_sn_from_char(ch, gsn_fly);
 	stc("You settle to the ground.\n", ch);
 	act("$n settles to the ground.", ch, NULL, NULL, TO_ROOM);
@@ -3077,7 +3077,7 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 
 	/* check if we can fly naturally */
 	if (IS_SET(AFF_FLYING, race_table[ch->race].aff)) {
-		SET_BIT(ch->affected_by, AFF_FLYING);
+		affect_flag_add_to_char(ch, AFF_FLYING);
 		stc("You gracefully take to the air.\n", ch);
 		act("$n takes to the air.", ch, NULL, NULL, TO_ROOM);
 	}

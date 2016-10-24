@@ -2778,7 +2778,6 @@ extern sh_int	gsn_critical_blow;
  */
 #define IS_NPC(ch)              (IS_SET((ch)->act, ACT_IS_NPC))
 #define IS_PLAYING(d)		(d && d->connected == CON_PLAYING && d->character)
-#define IS_AFFECTED(ch, sn)     (IS_SET((ch)->affected_by, (sn)))
 
 /* permission checking stuff */
 #define IS_HERO(ch)         (!IS_NPC(ch) && ch->level >= LEVEL_HERO)

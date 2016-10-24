@@ -1486,7 +1486,7 @@ void do_showflags(CHAR_DATA *ch, const char *argument)
 		stc(buf, ch);
 	}
 
-	sprintf(buf, "Aff  : %s\n", affect_bit_name(victim->affected_by));
+	sprintf(buf, "Aff  : %s\n", affect_bit_name(affect_flag_get_char(victim)));
 	stc(buf, ch);
 	ptc(ch, "Drn  : %s\n", imm_bit_name(victim->drain_flags));
 	ptc(ch, "Imm  : %s\n", imm_bit_name(victim->imm_flags));
@@ -3180,8 +3180,8 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 
 		if (victim->vuln_flags)         ptc(ch, " Vuln:   %s\n", imm_bit_name(victim->vuln_flags));
 
-		if (victim->affected_by)
-			ptc(ch, "Affects: %s\n", affect_bit_name(victim->affected_by));
+		if (affect_flag_get_char(victim))
+			ptc(ch, "Affects: %s\n", affect_bit_name(affect_flag_get_char(victim)));
 
 		set_color(ch, WHITE, NOBOLD);
 	}
@@ -3265,8 +3265,8 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(victim) && victim->spec_fun != 0)
 			ptc(ch, "{gMobile has special procedure %s.\n", spec_name(victim->spec_fun));
 
-		if (victim->affected_by)
-			ptc(ch, "{gAffected by: %s\n", affect_bit_name(victim->affected_by));
+		if (affect_flag_get_char(victim))
+			ptc(ch, "{gAffected by: %s\n", affect_bit_name(affect_flag_get_char(victim)));
 
 		for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next)
 			ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.\n",
@@ -5044,7 +5044,7 @@ void print_new_affects(CHAR_DATA *ch)
 	sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
 	sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
 	buffer = new_buf();
-	cheat = ch->affected_by;
+	cheat = affect_flag_get_char(ch);
 
 	if (affect_list_char(ch) != NULL) {
 		ptb(buffer, " %s {bYou are affected by the following spells:                      %s\n",
@@ -5116,7 +5116,7 @@ void print_new_affects(CHAR_DATA *ch)
 		found = TRUE;
 	}
 
-	if (ch->affected_by != 0  && (ch->affected_by != race_table[ch->race].aff)) {
+	if (affect_flag_get_char(ch) != 0  && (affect_flag_get_char(ch) != race_table[ch->race].aff)) {
 		char objbuf[MSL];
 		bool print = FALSE;
 		long filter, printme;
@@ -5126,11 +5126,11 @@ void print_new_affects(CHAR_DATA *ch)
 			if ((obj = get_eq_char(ch, iWear)) != NULL) {
 				for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
 					if (paf->where != TO_AFFECTS
-					    || !IS_SET(ch->affected_by, paf->bitvector))
+					    || !IS_SET(affect_flag_get_char(ch), paf->bitvector))
 						continue;
 
 					filter = paf->bitvector;
-					filter &= ch->affected_by;
+					filter &= affect_flag_get_char(ch);
 					printme = filter;
 					filter &= cheat;
 
@@ -5171,11 +5171,14 @@ void print_new_affects(CHAR_DATA *ch)
 	}
 
 	if (cheat != 0 && !IS_NPC(ch)) {
-		sprintf(buf, "%s has invalid affect(s) of %s.  Fixing...",
+		sprintf(buf, "%s has invalid affect(s) of %s.",
 		        ch->name, affect_bit_name(cheat));
 		wiznet(buf, NULL, NULL, WIZ_CHEAT, 0, 0);
 		log_string(buf);
+<<<<<<< 8f2ac2ebc3bba71050d4eaa71d1a0cf568eadb68
 //		ch->affected_by -= cheat;
+=======
+>>>>>>> Squeezed setters for CHAR_DATA->affected_by into a common interface.
 	}
 
 	if (!IS_NPC(ch)

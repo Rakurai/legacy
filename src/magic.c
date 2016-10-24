@@ -880,7 +880,7 @@ void animate_mob(CHAR_DATA *ch, int level, const char *name, long vnum)
 	ptc(ch, "You have created a %s to do your bidding.\n", name);
 	mob->nectimer = level / 10;
 	SET_BIT(mob->act, ACT_PET);
-	SET_BIT(mob->affected_by, AFF_CHARM);
+	affect_flag_add_to_char(mob, AFF_CHARM);
 	mob->comm = COMM_NOCHANNELS;
 	sprintf(buf, "%sSummoned from the darkside, this %s serves '%s'.\n",
 	        mob->description, name, ch->name);
@@ -3518,9 +3518,9 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 		affect_remove_sn_from_char(ich, gsn_sneak);
 		affect_remove_sn_from_char(ich, gsn_hide);
 		affect_remove_sn_from_char(ich, gsn_midnight);
-		REMOVE_BIT(ich->affected_by, AFF_HIDE);
-		REMOVE_BIT(ich->affected_by, AFF_INVISIBLE);
-		REMOVE_BIT(ich->affected_by, AFF_SNEAK);
+		affect_flag_remove_from_char(ich, AFF_HIDE);
+		affect_flag_remove_from_char(ich, AFF_INVISIBLE);
+		affect_flag_remove_from_char(ich, AFF_SNEAK);
 		act("$n is revealed!", ich, NULL, NULL, TO_ROOM);
 		stc("You are revealed!\n", ich);
 	}
@@ -5188,7 +5188,7 @@ void spell_resurrect(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	act("$p springs to life as a hideous zombie!", ch, obj, NULL, TO_ROOM);
 	act("$p springs to life as a hideous zombie!", ch, obj, NULL, TO_CHAR);
 	extract_obj(obj);
-	SET_BIT(mob->affected_by, AFF_CHARM);
+	affect_flag_add_to_char(mob, AFF_CHARM);
 	SET_BIT(mob->act, ACT_PET);
 	mob->comm = COMM_NOCHANNELS;
 	add_follower(mob, ch);

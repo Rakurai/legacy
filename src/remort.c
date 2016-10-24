@@ -478,7 +478,8 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 	victim->pcdata->perm_hit        = victim->max_hit;
 	victim->pcdata->perm_mana       = victim->max_mana;
 	victim->pcdata->perm_stam       = victim->max_stam;
-	victim->affected_by             = race_table[race].aff;
+	affect_flag_clear_char(victim);
+	affect_flag_add_to_char(victim, race_table[race].aff);
 	victim->imm_flags               = race_table[race].imm;
 	victim->res_flags               = race_table[race].res;
 	victim->vuln_flags              = race_table[race].vuln;

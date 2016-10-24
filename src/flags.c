@@ -130,8 +130,6 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 
 			case FIELD_PART:        flag = &victim->parts;          break;
 
-			case FIELD_AFFECT:      flag = &victim->affected_by;    break;
-
 			case FIELD_DRAIN:       flag = &victim->drain_flags;    break;
 
 			case FIELD_IMMUNE:      flag = &victim->imm_flags;      break;
@@ -170,8 +168,6 @@ void do_flag(CHAR_DATA *ch, const char *argument)
 			case FIELD_WIZNET:      flag = &victim->wiznet;         break;
 
 			case FIELD_CGROUP:      flag = &victim->pcdata->cgroup; break;
-
-			case FIELD_AFFECT:      flag = &victim->affected_by;    break;
 
 			case FIELD_DRAIN:       flag = &victim->drain_flags;    break;
 
@@ -449,8 +445,6 @@ int fsearch_player(CHAR_DATA *ch, int fieldptr, long marked)
 
 		case FIELD_CGROUP:      flag = victim->pcdata->cgroup;  break;
 
-		case FIELD_AFFECT:      flag = victim->affected_by;     break;
-
 		case FIELD_DRAIN:       flag = victim->drain_flags;     break;
 
 		case FIELD_IMMUNE:      flag = victim->imm_flags;       break;
@@ -514,8 +508,6 @@ int fsearch_mobile(CHAR_DATA *ch, int fieldptr, long marked)
 		case FIELD_FORM:        flag = victim->form;            break;
 
 		case FIELD_PART:        flag = victim->parts;           break;
-
-		case FIELD_AFFECT:      flag = victim->affected_by;     break;
 
 		case FIELD_DRAIN:       flag = victim->drain_flags;     break;
 
@@ -857,7 +849,6 @@ void do_flagsearch(CHAR_DATA *ch, const char *argument)
 
 		case FIELD_REVOKE:
 		case FIELD_CENSOR:
-		case FIELD_AFFECT:
 		case FIELD_DRAIN:
 		case FIELD_IMMUNE:
 		case FIELD_RESIST:

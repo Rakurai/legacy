@@ -3936,7 +3936,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		}
 
 		SET_BIT(pet->act, ACT_PET);
-		SET_BIT(pet->affected_by, AFF_CHARM);
+		affect_flag_add_to_char(pet, AFF_CHARM);
 		pet->comm = COMM_NOCHANNELS;
 		argument = one_argument(argument, arg);
 

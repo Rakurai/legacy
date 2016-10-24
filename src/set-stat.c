@@ -1640,8 +1640,8 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		stc(buf, ch);
 	}
 
-	if (victim->affected_by)
-		ptc(ch, "{bAffected by %s{x\n", affect_bit_name(victim->affected_by));
+	if (affect_flag_get_char(victim))
+		ptc(ch, "{bAffected by %s{x\n", affect_bit_name(affect_flag_get_char(victim)));
 
 	for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next)
 		ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.{x\n",

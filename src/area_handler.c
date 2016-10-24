@@ -851,7 +851,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	/* read from prototype */
 	mob->group              = pMobIndex->group;
 	mob->act                = pMobIndex->act;
-	mob->affected_by        = pMobIndex->affected_by;
+	affect_flag_add_to_char(mob, pMobIndex->affected_by);
 	mob->comm               = COMM_NOCHANNELS;
 	mob->alignment          = pMobIndex->alignment;
 	mob->level              = pMobIndex->level;
@@ -1061,7 +1061,7 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->res_flags    = parent->res_flags;
 	clone->vuln_flags   = parent->vuln_flags;
 	clone->invis_level  = parent->invis_level;
-	clone->affected_by  = parent->affected_by;
+	affect_flag_add_to_char(clone, affect_flag_get_char(parent));
 	clone->position     = parent->position;
 	clone->practice     = parent->practice;
 	clone->train        = parent->train;

@@ -1367,7 +1367,7 @@ void stop_follower(CHAR_DATA *ch)
 	}
 
 	if (affect_flag_on_char(ch, AFF_CHARM)) {
-		REMOVE_BIT(ch->affected_by, AFF_CHARM);
+		affect_flag_remove_from_char(ch, AFF_CHARM);
 		affect_remove_sn_from_char(ch, gsn_charm_person);
 	}
 

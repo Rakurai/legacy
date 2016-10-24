@@ -568,7 +568,7 @@ void interpret(CHAR_DATA *ch, const char *argument)
 	 * No hiding.
 	 */
 	/* Get rid of this...been causing me problems
-	    REMOVE_BIT( ch->affected_by, AFF_HIDE );
+	    affect_flag_remove_from_char( ch, AFF_HIDE );
 	*/
 
 	/*

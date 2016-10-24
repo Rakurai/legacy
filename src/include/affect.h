@@ -32,13 +32,15 @@ void          affect_swap                 args(( AFFECT_DATA *a, AFFECT_DATA *b 
 // outward facing interface, all calls to obj/char/room affects should be through
 // these procedures.  attempt to force some accessor safety on this crap -- Montrey
 
-//bool          is_affected                 args(( CHAR_DATA *ch, int sn ));
-//char *        affect_print_cache          args(( CHAR_DATA *ch ));
-//void          affect_add_perm_to_char     args(( CHAR_DATA *ch, int sn ));
-//bool          affect_parse_prototype      args(( char letter, AFFECT_DATA *af, unsigned int *bitvector ));
-
-
 // public list accessors defined in affect_<entity>.c
+
+// flags
+
+bool                affect_flag_on_char              args(( CHAR_DATA *ch, unsigned int flag ));
+void                affect_flag_add_to_char          args(( CHAR_DATA *ch, unsigned int flag ));
+void                affect_flag_remove_from_char     args(( CHAR_DATA *ch, unsigned int flag ));
+unsigned int        affect_flag_get_char             args(( CHAR_DATA *ch ));
+void                affect_flag_clear_char           args(( CHAR_DATA *ch ));
 
 // searching
 bool                affect_flag_on_char              args(( CHAR_DATA *ch, unsigned int flag ));

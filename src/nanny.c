@@ -2,6 +2,7 @@
 #include "vt100.h"
 #include "sql.h"
 #include "recycle.h"
+#include "affect.h"
 
 //For the hack fix
 
@@ -538,7 +539,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		for (i = 0; i < MAX_STATS; i++)
 			ch->perm_stat[i] = pc_race_table[race].stats[i];
 
-		ch->affected_by         = ch->affected_by | race_table[race].aff;
+		affect_flag_add_to_char(ch, race_table[race].aff);
 		ch->drain_flags         = 0;
 		ch->imm_flags           = ch->imm_flags | race_table[race].imm;
 		ch->res_flags           = ch->res_flags | race_table[race].res;
