@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "affect.h"
 
 void acid_effect(void *vo, int level, int dam, int target, int evolution)
 {
@@ -223,7 +224,7 @@ void cold_effect(void *vo, int level, int dam, int target, int evolution)
 			af.modifier  = -1;
 			af.bitvector = 0;
 			af.evolution = URANGE(1, evolution - 1, 4);
-			affect_join(victim, &af);
+			affect_join_to_char(victim, &af);
 		}
 
 		/* hunger! (warmth sucked out) */
@@ -366,7 +367,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 			af.modifier     = -4;
 			af.bitvector    = AFF_BLIND;
 			af.evolution    = URANGE(1, evolution - 1, 4);
-			copy_affect_to_char(victim, &af);
+			affect_copy_to_char(victim, &af);
 		}
 
 		/* getting thirsty */
@@ -529,7 +530,7 @@ void poison_effect(void *vo, int level, int dam, int target, int evolution)
 			af.modifier  = -1;
 			af.bitvector = AFF_POISON;
 			af.evolution = URANGE(1, evolution - 1, 4);
-			affect_join(victim, &af);
+			affect_join_to_char(victim, &af);
 		}
 
 		/* equipment */

@@ -26,6 +26,7 @@
 
 #include "merc.h"
 #include "vt100.h"
+#include "affect.h"
 
 extern void     do_file(CHAR_DATA *, const char *);
 
@@ -1367,7 +1368,7 @@ void stop_follower(CHAR_DATA *ch)
 
 	if (IS_AFFECTED(ch, AFF_CHARM)) {
 		REMOVE_BIT(ch->affected_by, AFF_CHARM);
-		affect_strip(ch, gsn_charm_person);
+		affect_remove_sn_from_char(ch, gsn_charm_person);
 	}
 
 	if (can_see(ch->master, ch) && ch->in_room != NULL) {

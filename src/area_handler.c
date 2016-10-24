@@ -12,6 +12,7 @@
 #include "recycle.h"
 #include "memory.h"
 #include "db.h"
+#include "affect.h"
 
 void unique_item(OBJ_DATA *item)
 {
@@ -992,7 +993,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 				af.location  = maff_table[i].loc;
 				af.modifier  = maff_table[i].mod;
 				af.bitvector = maff_table[i].bit;
-				copy_affect_to_char(mob, &af);
+				affect_copy_to_char(mob, &af);
 			}
 	}
 	/* give em some stamina -- Montrey */
@@ -1092,9 +1093,8 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 		clone->damage[i]        = parent->damage[i];
 
 	while (clone->affected)
-		affect_remove(clone, clone->affected);
+		affect_remove_from_char(clone, clone->affected);
 
-	/* now add the affects */
 	for (const AFFECT_DATA *paf = parent->affected; paf != NULL; paf = paf->next)
 		copy_affect_to_char(clone, paf);
 }

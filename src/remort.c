@@ -29,6 +29,7 @@
 #include "tables.h"
 #include "recycle.h"
 #include "magic.h"
+#include "affect.h"
 
 /*****
  Remort Affects Stuff
@@ -467,7 +468,7 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 
 	for (af = victim->affected; af != NULL; af = af_next) {
 		af_next = af->next;
-		affect_remove(victim, af);
+		affect_remove_from_char(victim, af);
 	}
 
 	victim->level                   = 1;

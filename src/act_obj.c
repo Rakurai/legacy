@@ -34,6 +34,7 @@
 #include "tables.h"
 #include "magic.h"
 #include "lookup.h"
+#include "affect.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_split);
@@ -2001,7 +2002,7 @@ void do_drink(CHAR_DATA *ch, const char *argument)
 		af.modifier     = 0;
 		af.bitvector    = AFF_POISON;
 		af.evolution    = 1;
-		affect_join(ch, &af);
+		affect_join_to_char(ch, &af);
 	}
 
 	if (obj->value[0] > 0) {
@@ -2129,7 +2130,7 @@ void do_eat(CHAR_DATA *ch, const char *argument)
 				af.modifier  = -1;
 				af.bitvector = AFF_POISON;
 				af.evolution = 1;
-				affect_join(ch, &af);
+				affect_join_to_char(ch, &af);
 				fPoisoned    = TRUE;
 			}
 		}

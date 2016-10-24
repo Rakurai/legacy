@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "affect.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_look);
@@ -1441,7 +1442,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		af.modifier  = 0;
 		af.bitvector = AFF_SNEAK;
 		af.evolution = get_evolution(ch, gsn_sneak);
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
 		stc("You feel more stealthy.\n", ch);
 		check_improve(ch, gsn_sneak, TRUE, 3);
 	}
@@ -1481,7 +1482,7 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 		af.modifier  = 0;
 		af.bitvector = AFF_HIDE;
 		af.evolution = get_evolution(ch, gsn_hide);
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
 		stc("You blend into the surroundings.\n", ch);
 		check_improve(ch, gsn_hide, TRUE, 3);
 	}
@@ -1496,11 +1497,11 @@ void do_hide(CHAR_DATA *ch, const char *argument)
  */
 void do_visible(CHAR_DATA *ch, const char *argument)
 {
-	affect_strip(ch, gsn_invis);
-	affect_strip(ch, gsn_mass_invis);
-	affect_strip(ch, gsn_sneak);
-	affect_strip(ch, gsn_hide);
-	affect_strip(ch, gsn_midnight);
+	affect_remove_sn_from_char(ch, gsn_invis);
+	affect_remove_sn_from_char(ch, gsn_mass_invis);
+	affect_remove_sn_from_char(ch, gsn_sneak);
+	affect_remove_sn_from_char(ch, gsn_hide);
+	affect_remove_sn_from_char(ch, gsn_midnight);
 	REMOVE_BIT(ch->affected_by, AFF_HIDE);
 	REMOVE_BIT(ch->affected_by, AFF_INVISIBLE);
 	REMOVE_BIT(ch->affected_by, AFF_SNEAK);
@@ -2380,7 +2381,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 			if (!IS_AWAKE(victim)) {
 				if (get_affect(victim->affected, gsn_sleep)) {
 					if (chance(40)) {
-						affect_strip(victim, gsn_sleep);
+						affect_remove_sn_from_char(victim, gsn_sleep);
 						victim->position = POS_STANDING;
 					}
 				}
@@ -2477,7 +2478,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 				act("$n crash lands HARD on the ground.", victim, NULL, NULL, TO_ROOM);
 			}
 
-			affect_strip(victim, gsn_sleep);
+			affect_remove_sn_from_char(victim, gsn_sleep);
 			victim->position = POS_STANDING;
 		}
 		else {
@@ -3042,7 +3043,7 @@ void do_land(CHAR_DATA *ch, const char *argument)
 
 	/* we are flying, time to stop */
 	REMOVE_BIT(ch->affected_by, AFF_FLYING);
-	affect_strip(ch, gsn_fly);
+	affect_remove_sn_from_char(ch, gsn_fly);
 	stc("You settle to the ground.\n", ch);
 	act("$n settles to the ground.", ch, NULL, NULL, TO_ROOM);
 	return;

@@ -5,6 +5,7 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "affect.h"
 
 #define ARENA_DIR       "../misc/"
 #define ARENA_FILE      "arena.txt"
@@ -515,10 +516,6 @@ void duel_kill(CHAR_DATA *victim)
 
 void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 {
-	const AFFECT_DATA *paf;
-	OBJ_DATA *obj;
-	int loc;
-	extern void affect_modify args((CHAR_DATA *, const AFFECT_DATA *, bool));
 	char_from_room(ch);
 
 	if (duel->challenger == ch)
@@ -526,19 +523,9 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 	else
 		char_to_room(ch, duel->arena->defprep);
 
-	while (ch->affected)
-		affect_remove(ch, ch->affected);
-
-	ch->affected_by = race_table[ch->race].aff;
-
-	for (loc = 0; loc < MAX_WEAR; loc++) {
-		if ((obj = get_eq_char(ch, loc)) == NULL)
-			continue;
-
-		for (paf = obj->affected; paf != NULL; paf = paf->next)
-			if (paf->where == TO_AFFECTS)
-				affect_modify(ch, paf, TRUE);
-	}
+	// strip spells
+	for (int sn = 1; sn < MAX_SKILL; sn++)
+		affect_remove_sn_from_char(ch, sn);
 
 	ch->hit  = ch->max_hit;
 	ch->mana = ch->max_mana;

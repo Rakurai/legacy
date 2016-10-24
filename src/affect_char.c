@@ -62,5 +62,150 @@ void affect_add_perm_to_char(CHAR_DATA *ch, int sn) {
 }
 
 void affect_modify_char(CHAR_DATA *ch, const AFFECT_DATA *paf, bool fAdd) {
+	OBJ_DATA *obj;
+	int mod, i;
+	mod = paf->modifier;
 
+	if (fAdd) {
+		switch (paf->where) {
+		case TO_AFFECTS:        SET_BIT(ch->affected_by, paf->bitvector);       break;
+
+		case TO_DRAIN:          SET_BIT(ch->drain_flags, paf->bitvector);       break;
+
+		case TO_IMMUNE:         SET_BIT(ch->imm_flags, paf->bitvector);         break;
+
+		case TO_RESIST:         SET_BIT(ch->res_flags, paf->bitvector);         break;
+
+		case TO_VULN:           SET_BIT(ch->vuln_flags, paf->bitvector);        break;
+		}
+	}
+	else {
+		/* special for removing a flag:
+		   we search through their affects to see if there's another with the same.
+		   if there is, don't remove it.  replaces the complicated eq_imm_flags and
+		   junk, and solves the problem of removing eq and losing the flag even if
+		   it's racial, permanent, or raffect                  -- Montrey */
+		AFFECT_DATA *saf;
+		bool found_dup = FALSE;
+
+		/* let's start with their racial affects, there is no racial drain affect */
+		if ((paf->where == TO_AFFECTS && (race_table[ch->race].aff  & paf->bitvector))
+		    || (paf->where == TO_IMMUNE  && (race_table[ch->race].imm  & paf->bitvector))
+		    || (paf->where == TO_RESIST  && (race_table[ch->race].res  & paf->bitvector))
+		    || (paf->where == TO_VULN    && (race_table[ch->race].vuln & paf->bitvector)))
+			found_dup = TRUE;
+
+		/* ok, try their affects */
+		if (!found_dup)
+			for (saf = ch->affected; saf != NULL; saf = saf->next)
+				if (saf != paf
+				    && saf->where == paf->where
+				    && saf->bitvector == paf->bitvector) {
+					found_dup = TRUE;
+					break;
+				}
+
+		/* no?  try their eq */
+		if (!found_dup)
+			for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
+				if (obj->wear_loc == -1)
+					continue;
+
+				for (saf = obj->affected; saf != NULL; saf = saf->next)
+					if (saf != paf
+					    && saf->where == paf->where
+					    && saf->bitvector == paf->bitvector) {
+						found_dup = TRUE;
+						break;
+					}
+
+				if (found_dup)
+					break;
+			}
+
+		/* last but not least, their raffects, if applicable */
+		if (!found_dup && IS_REMORT(ch) && ch->pcdata->raffect[0]
+		    && (paf->where == TO_VULN || paf->where == TO_RESIST))
+			for (i = 0; i <= ch->pcdata->remort_count / 10 + 1; i++)
+				if ((raffects[ch->pcdata->raffect[i]].id >= 900
+				     && raffects[ch->pcdata->raffect[i]].id <= 949
+				     && raffects[ch->pcdata->raffect[i]].add == paf->bitvector
+				     && paf->where == TO_VULN)
+				    || (raffects[ch->pcdata->raffect[i]].id >= 950
+				        && raffects[ch->pcdata->raffect[i]].id <= 999
+				        && raffects[ch->pcdata->raffect[i]].add == paf->bitvector
+				        && paf->where == TO_RESIST))
+					found_dup = TRUE;
+
+		/* if we found it, don't remove the bit, but continue on to remove modifiers */
+		if (!found_dup)
+			switch (paf->where) {
+			case TO_AFFECTS: REMOVE_BIT(ch->affected_by, paf->bitvector);   break;
+
+			case TO_DRAIN:   REMOVE_BIT(ch->drain_flags, paf->bitvector);   break;
+
+			case TO_IMMUNE:  REMOVE_BIT(ch->imm_flags, paf->bitvector);     break;
+
+			case TO_RESIST:  REMOVE_BIT(ch->res_flags, paf->bitvector);     break;
+
+			case TO_VULN:    REMOVE_BIT(ch->vuln_flags, paf->bitvector);    break;
+			}
+
+		mod = 0 - mod;
+	}
+
+	switch (paf->location) {
+	default:                                                                break;
+
+	case APPLY_STR:                 ch->mod_stat[STAT_STR]  += mod;         break;
+
+	case APPLY_DEX:                 ch->mod_stat[STAT_DEX]  += mod;         break;
+
+	case APPLY_INT:                 ch->mod_stat[STAT_INT]  += mod;         break;
+
+	case APPLY_WIS:                 ch->mod_stat[STAT_WIS]  += mod;         break;
+
+	case APPLY_CON:                 ch->mod_stat[STAT_CON]  += mod;         break;
+
+	case APPLY_CHR:                 ch->mod_stat[STAT_CHR]  += mod;         break;
+
+	case APPLY_SEX:                 ch->sex                 += mod;         break;
+
+	case APPLY_MANA:                ch->max_mana            += mod;         break;
+
+	case APPLY_HIT:                 ch->max_hit             += mod;         break;
+
+	case APPLY_STAM:                ch->max_stam            += mod;         break;
+
+	case APPLY_AC:          for (i = 0; i < 4; i++) ch->armor_m[i] += mod;    break;
+
+	case APPLY_HITROLL:             ch->hitroll             += mod;         break;
+
+	case APPLY_DAMROLL:             ch->damroll             += mod;         break;
+
+	case APPLY_SAVES:               ch->saving_throw        += mod;         break;
+
+	case APPLY_SAVING_ROD:          ch->saving_throw        += mod;         break;
+
+	case APPLY_SAVING_PETRI:        ch->saving_throw        += mod;         break;
+
+	case APPLY_SAVING_BREATH:       ch->saving_throw        += mod;         break;
+
+	case APPLY_SAVING_SPELL:        ch->saving_throw        += mod;         break;
+	}
+
+	/* Check for weapon wielding.  Guard against recursion (for weapons with affects). */
+	if ((obj = get_eq_char(ch, WEAR_WIELD)) != NULL
+	    && get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield * 10)) {
+		static int depth;
+
+		if (depth == 0) {
+			depth++;
+			act("You drop $p.", ch, obj, NULL, TO_CHAR);
+			act("$n drops $p.", ch, obj, NULL, TO_ROOM);
+			obj_from_char(obj);
+			obj_to_room(obj, ch->in_room);
+			depth--;
+		}
+	}
 }

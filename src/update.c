@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "sql.h"
 #include "music.h"
+#include "affect.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit);
@@ -1007,7 +1008,7 @@ void char_update(void)
 						ptc(ch, "%s\n", skill_table[paf->type].msg_off);
 				}
 
-				affect_remove(ch, paf);
+				affect_remove_from_char(ch, paf);
 			}
 		}
 
@@ -1071,7 +1072,7 @@ void char_update(void)
 				    &&  !IS_AFFECTED(vch, AFF_PLAGUE) && number_bits(4) == 0) {
 					stc("You feel hot and feverish.\n", vch);
 					act("$n shivers and looks very ill.", vch, NULL, NULL, TO_ROOM);
-					affect_join(vch, &plague);
+					affect_join_to_char(vch, &plague);
 				}
 			}
 

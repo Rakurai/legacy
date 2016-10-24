@@ -29,14 +29,14 @@
 #include "magic.h"
 #include "recycle.h"
 #include "tables.h"
+#include "affect.h"
+
+// TODO: temporary access, remove when possible
+extern void affect_modify_char args((CHAR_DATA *ch, const AFFECT_DATA *paf, bool fAdd));
+
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_return);
-
-/*
- * Local functions.
- */
-void    affect_modify   args((CHAR_DATA *ch, const AFFECT_DATA *paf, bool fAdd));
 
 /* Note name match exact */
 bool note_is_name(const char *str, const char *namelist)
@@ -836,6 +836,7 @@ bool is_exact_name_color(const char *str, const char *namelist)
 	}
 }
 
+<<<<<<< e2c0212a20aeed7ef26dd2688fa62af287cf7288
 /*
  * Apply or remove an affect to a character.
  */
@@ -1003,6 +1004,8 @@ void copy_affect_to_char(CHAR_DATA *ch, const AFFECT_DATA *paf)
 	return;
 }
 
+=======
+>>>>>>> Moved current accessor functions to new versions.  Changed duel prep to just remove spells, instead of reset all stats of character.
 /* give an affect to an object */
 void copy_affect_to_obj(OBJ_DATA *obj, const AFFECT_DATA *paf)
 {
@@ -1054,37 +1057,6 @@ void copy_affect_to_room(ROOM_INDEX_DATA *room, const AFFECT_DATA *paf)
 		}
 }
 
-/*
- * Remove an affect from a char.
- */
-void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
-{
-	if (ch->affected == NULL) {
-		bug("Affect_remove: no affect.", 0);
-		return;
-	}
-
-	affect_modify(ch, paf, FALSE);
-
-	if (paf == ch->affected)
-		ch->affected = paf->next;
-	else {
-		AFFECT_DATA *prev;
-
-		for (prev = ch->affected; prev != NULL; prev = prev->next)
-			if (prev->next == paf) {
-				prev->next = paf->next;
-				break;
-			}
-
-		if (prev == NULL) {
-			bug("Affect_remove: cannot find paf.", 0);
-			return;
-		}
-	}
-
-	free_affect(paf);
-}
 
 void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
@@ -1094,7 +1066,7 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 	}
 
 	if (obj->carried_by != NULL && obj->wear_loc != -1)
-		affect_modify(obj->carried_by, paf, FALSE);
+		affect_modify_char(obj->carried_by, paf, FALSE);
 
 	/* remove flags from the object if needed */
 	if (paf->bitvector)
@@ -1178,6 +1150,7 @@ void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 }
 
 /*
+<<<<<<< e2c0212a20aeed7ef26dd2688fa62af287cf7288
  * Strip all affects of a given sn.
  */
 void affect_strip(CHAR_DATA *ch, int sn)
@@ -1238,6 +1211,8 @@ void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
 }
 
 /*
+=======
+>>>>>>> Moved current accessor functions to new versions.  Changed duel prep to just remove spells, instead of reset all stats of character.
  * Move a char out of a room.
  */
 void char_from_room(CHAR_DATA *ch)
@@ -1361,7 +1336,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 			    !IS_AFFECTED(vch, AFF_PLAGUE) && number_bits(6) == 0) {
 				stc("You feel hot and feverish.\n", vch);
 				act("$n shivers and looks very ill.", vch, NULL, NULL, TO_ROOM);
-				affect_join(vch, &plague);
+				affect_join_to_char(vch, &plague);
 			}
 		}
 	}
@@ -1615,9 +1590,9 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		if (paf->location == APPLY_SPELL_AFFECT)
-			copy_affect_to_char(ch, paf);
+			affect_copy_to_char(ch, paf);
 		else
-			affect_modify(ch, paf, TRUE);
+			affect_modify_char(ch, paf, TRUE);
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0 && ch->in_room != NULL)
 		++ch->in_room->light;
@@ -1662,13 +1637,13 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 				    (lpaf->location == APPLY_SPELL_AFFECT)) {
 					bug("location = %d", lpaf->location);
 					bug("type = %d", lpaf->type);
-					affect_remove(ch, lpaf);
+					affect_remove_from_char(ch, lpaf);
 					lpaf_next = NULL;
 				}
 			}
 		}
 		else
-			affect_modify(ch, paf, FALSE);
+			affect_modify_char(ch, paf, FALSE);
 
 	if (obj->item_type == ITEM_LIGHT
 	    &&   obj->value[2] != 0
@@ -1678,7 +1653,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	for (i2 = 1; i2 < MAX_SPELL; i2++)
 		if (obj->spell[i2] != 0)
-			affect_strip(ch, obj->spell[i2]);
+			affect_remove_sn_from_char(ch, obj->spell[i2]);
 
 	return;
 }

@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "affect.h"
 
 #define MAX_DAMAGE_MESSAGE 40
 #define PKTIME 10       /* that's x3 seconds, 30 currently */
@@ -986,7 +987,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 				af.modifier  = -1;
 				af.bitvector = AFF_POISON;
 				af.evolution = evolution;
-				affect_join(victim, &af);
+				affect_join_to_char(victim, &af);
 			}
 
 			/* weaken the poison if it's temporary */
@@ -1179,9 +1180,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 	/* Inviso attacks ... not. */
 	if (IS_AFFECTED(ch, AFF_INVISIBLE) || get_affect(ch->affected, gsn_midnight)) {
-		affect_strip(ch, gsn_invis);
-		affect_strip(ch, gsn_mass_invis);
-		affect_strip(ch, gsn_midnight);
+		affect_remove_sn_from_char(ch, gsn_invis);
+		affect_remove_sn_from_char(ch, gsn_mass_invis);
+		affect_remove_sn_from_char(ch, gsn_midnight);
 		REMOVE_BIT(ch->affected_by, AFF_INVISIBLE);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
 	}
@@ -1891,7 +1892,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 			char buf[MAX_STRING_LENGTH];
 			sprintf(buf, "Check_killer: %s bad AFF_CHARM", IS_NPC(ch) ? ch->short_descr : ch->name);
 			bug(buf, 0);
-			affect_strip(ch, gsn_charm_person);
+			affect_remove_sn_from_char(ch, gsn_charm_person);
 			REMOVE_BIT(ch->affected_by, AFF_CHARM);
 			return;
 		}
@@ -2390,7 +2391,7 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 
 	if (get_affect(ch->affected, gsn_sleep))
-		affect_strip(ch, gsn_sleep);
+		affect_remove_sn_from_char(ch, gsn_sleep);
 
 	ch->fighting = victim;
 
@@ -2682,7 +2683,7 @@ void raw_kill(CHAR_DATA *victim)
 	}
 
 	while (victim->affected)
-		affect_remove(victim, victim->affected);
+		affect_remove_from_char(victim, victim->affected);
 
 	if (victim->in_room->sector_type != SECT_ARENA
 	    && victim->in_room->sector_type != SECT_CLANARENA
@@ -3172,13 +3173,13 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		af.evolution    = get_evolution(ch, gsn_berserk);
 		af.modifier     = IS_NPC(ch) ? ch->level / 8 : get_true_hitroll(ch) / 5;
 		af.location     = APPLY_HITROLL;
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
 		af.modifier     = IS_NPC(ch) ? ch->level / 8 : get_true_damroll(ch) / 5;
 		af.location     = APPLY_DAMROLL;
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
 		af.modifier     = UMAX(10, 10 * (ch->level / 5));
 		af.location     = APPLY_AC;
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -3491,7 +3492,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		af.modifier     = -4;
 		af.bitvector    = AFF_BLIND;
 		af.evolution    = get_evolution(ch, gsn_dirt_kicking);
-		copy_affect_to_char(victim, &af);
+		affect_copy_to_char(victim, &af);
 	}
 	else {
 		act("Your kicked dirt MISSES $N!", ch, NULL, victim, TO_CHAR);
@@ -3992,7 +3993,7 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = AFF_CHARM;
 	af.evolution = get_evolution(ch, gsn_sing);
-	copy_affect_to_char(victim, &af);
+	affect_copy_to_char(victim, &af);
 	act("Isn't $n's music beautiful?", ch, NULL, victim, TO_VICT);
 
 	if (ch != victim)
@@ -4928,10 +4929,10 @@ void do_hammerstrike(CHAR_DATA *ch, const char *argument)
 		af.evolution    = get_evolution(ch, gsn_hammerstrike);
 		af.modifier     = get_true_hitroll(ch) / 4;
 		af.location     = APPLY_HITROLL;
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
 		af.modifier     = get_true_damroll(ch) / 4;
 		af.location     = APPLY_DAMROLL;
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);

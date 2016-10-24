@@ -52,6 +52,7 @@
 #include "lookup.h"
 #include "recycle.h"
 #include "sql.h"
+#include "affect.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_color);

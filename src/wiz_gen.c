@@ -19,6 +19,7 @@
 #include "lookup.h"
 #include "tables.h"
 #include "sql.h"
+#include "affect.h"
 
 DECLARE_DO_FUN(do_slookup);
 DECLARE_DO_FUN(do_claninfo);
@@ -3333,12 +3334,12 @@ void do_qpconv(CHAR_DATA *ch, const char *argument)
 
 void restore_char(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	affect_strip(victim, gsn_plague);
-	affect_strip(victim, gsn_poison);
-	affect_strip(victim, gsn_blindness);
-	affect_strip(victim, gsn_sleep);
-	affect_strip(victim, gsn_curse);
-	affect_strip(victim, gsn_fear);
+	affect_remove_sn_from_char(victim, gsn_plague);
+	affect_remove_sn_from_char(victim, gsn_poison);
+	affect_remove_sn_from_char(victim, gsn_blindness);
+	affect_remove_sn_from_char(victim, gsn_sleep);
+	affect_remove_sn_from_char(victim, gsn_curse);
+	affect_remove_sn_from_char(victim, gsn_fear);
 	victim->hit     = victim->max_hit;
 	victim->mana    = victim->max_mana;
 	victim->stam    = victim->max_stam;

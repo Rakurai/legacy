@@ -2,6 +2,7 @@
 
 #include "merc.h"
 #include "magic.h"
+#include "affect.h"
 
 /* needed functions */
 void    wear_obj        args((CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace));
@@ -28,7 +29,7 @@ void spell_sheen(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.bitvector = 0;
 	af.location  = APPLY_SHEEN;
 	af.evolution = evolution;
-	copy_affect_to_char(victim, &af);
+	affect_copy_to_char(victim, &af);
 	stc("A protective sheen covers your armor.\n", victim);
 }
 
@@ -50,7 +51,7 @@ void spell_focus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.location  = APPLY_FOCUS;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	copy_affect_to_char(victim, &af);
+	affect_copy_to_char(victim, &af);
 	stc("You focus on your magic -- you feel more deadly!\n", victim);
 }
 
@@ -82,7 +83,7 @@ void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	af.location  = APPLY_NONE;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	copy_affect_to_char(victim, &af);
+	affect_copy_to_char(victim, &af);
 	stc("You can't move anymore!\n", victim);
 	act("$n seems paralyzed!", victim, NULL, NULL, TO_ROOM);
 }
@@ -105,7 +106,7 @@ void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	af.location  = APPLY_AC;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	copy_affect_to_char(victim, &af);
+	affect_copy_to_char(victim, &af);
 	stc("Your skin takes on the consistency of iron.\n", victim);
 }
 
@@ -129,7 +130,7 @@ void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int e
 	af.location  = APPLY_BARRIER;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	copy_affect_to_char(victim, &af);
+	affect_copy_to_char(victim, &af);
 	stc("You are surrounded by a protective barrier.\n", victim);
 }
 
@@ -194,7 +195,7 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 		af.modifier     = 0;
 		af.bitvector    = AFF_BLIND;
 		af.evolution = evolution;
-		copy_affect_to_char(victim, &af);
+		affect_copy_to_char(victim, &af);
 		stop_fighting(ch, TRUE);
 		return;
 	}
@@ -270,7 +271,7 @@ void spell_midnight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	af.location  = APPLY_NONE;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	copy_affect_to_char(victim, &af);
+	affect_copy_to_char(victim, &af);
 }
 
 /*** NECRO ***/
@@ -347,7 +348,7 @@ void spell_hex(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 	af.modifier  = 3 * level;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	copy_affect_to_char(victim, &af);
+	affect_copy_to_char(victim, &af);
 }
 
 /* Bone Wall */
@@ -362,7 +363,7 @@ void spell_bone_wall(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	af.modifier     = 0;
 	af.bitvector    = 0;
 	af.evolution    = evolution;
-	copy_affect_to_char(ch, &af);
+	affect_copy_to_char(ch, &af);
 	stc("Bones lift from the ground and begin to swirl around you.\n", ch);
 	act("Bones lift from the ground and begin to swirl around $n.", ch, NULL, NULL, TO_ROOM);
 }
@@ -389,7 +390,7 @@ void spell_force(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	af.location  = APPLY_AC;
 	af.bitvector = 0;
 	af.evolution = evolution;
-	copy_affect_to_char(victim, &af);
+	affect_copy_to_char(victim, &af);
 }
 
 /* Holy Sword by Montrey */
