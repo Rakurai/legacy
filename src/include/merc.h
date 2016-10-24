@@ -753,6 +753,7 @@ struct edit_data
 struct  affect_data
 {
     AFFECT_DATA *       next;
+    AFFECT_DATA *       prev;
     bool                valid;
     sh_int              where;
     sh_int              type;
