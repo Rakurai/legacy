@@ -1569,8 +1569,8 @@ void bust_a_prompt(CHAR_DATA *ch)
 				if ((pexit = ch->in_room->exit[door]) != NULL
 				    &&  pexit ->u1.to_room != NULL
 				    && (can_see_room(ch, pexit->u1.to_room)
-				        || (IS_AFFECTED(ch, AFF_INFRARED)))
-				    &&   !IS_AFFECTED(ch, AFF_BLIND)) {
+				        || (affect_flag_on_char(ch, AFF_INFRARED)))
+				    &&   !affect_flag_on_char(ch, AFF_BLIND)) {
 					found = TRUE;
 
 					if (!IS_SET(pexit->exit_info, EX_CLOSED))
@@ -1658,7 +1658,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			if (ch->in_room != NULL)
 				sprintf(buf2, "%s",
 				        (IS_IMMORTAL(ch) ||
-				         (!IS_AFFECTED(ch, AFF_BLIND) &&
+				         (!affect_flag_on_char(ch, AFF_BLIND) &&
 				          !room_is_dark(ch->in_room)))
 				        ? ch->in_room->name : "darkness");
 			else

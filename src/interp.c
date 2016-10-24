@@ -30,6 +30,7 @@
 #include "tables.h"
 #include "vt100.h" /* VT100 Stuff */
 #include "sql.h"
+#include "affect.h"
 
 extern void     goto_line    args((CHAR_DATA *ch, int row, int column));
 extern void     set_window   args((CHAR_DATA *ch, int top, int bottom));
@@ -813,7 +814,7 @@ bool check_social(CHAR_DATA *ch, const char *command, const char *argument)
 		act(iterator->vict_found,    ch, NULL, victim, TO_VICT);
 
 		if (!IS_NPC(ch) && IS_NPC(victim)
-		    &&   !IS_AFFECTED(victim, AFF_CHARM)
+		    &&   !affect_flag_on_char(victim, AFF_CHARM)
 		    &&   IS_AWAKE(victim)
 		    &&   victim->desc == NULL
 		    && (!IS_SET(victim->pIndexData->progtypes, ACT_PROG))) {

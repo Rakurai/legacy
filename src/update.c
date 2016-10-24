@@ -245,7 +245,7 @@ int hit_gain(CHAR_DATA *ch)
 	if (IS_NPC(ch)) {
 		gain =  5 + ch->level;
 
-		if (IS_AFFECTED(ch, AFF_REGENERATION))
+		if (affect_flag_on_char(ch, AFF_REGENERATION))
 			gain *= 2;
 
 		switch (get_position(ch)) {
@@ -292,22 +292,22 @@ int hit_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (IS_AFFECTED(ch, AFF_POISON))
+	if (affect_flag_on_char(ch, AFF_POISON))
 		gain /= 4;
 
-	if (IS_AFFECTED(ch, AFF_PLAGUE))
+	if (affect_flag_on_char(ch, AFF_PLAGUE))
 		gain /= 8;
 
-	if (IS_AFFECTED(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect_flag_on_char(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2 ;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (affect_flag_on_char(ch, AFF_SLOW))
 		gain *= 2 ;
 
-	if (IS_AFFECTED(ch, AFF_REGENERATION))
+	if (affect_flag_on_char(ch, AFF_REGENERATION))
 		gain *= 2;
 
-	if (IS_AFFECTED(ch, AFF_DIVINEREGEN))
+	if (affect_flag_on_char(ch, AFF_DIVINEREGEN))
 		gain *= 4;
 
 	return UMIN(gain, ch->max_hit - ch->hit);
@@ -370,19 +370,19 @@ int mana_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[4] / 100;
 
-	if (IS_AFFECTED(ch, AFF_POISON))
+	if (affect_flag_on_char(ch, AFF_POISON))
 		gain /= 4;
 
-	if (IS_AFFECTED(ch, AFF_PLAGUE))
+	if (affect_flag_on_char(ch, AFF_PLAGUE))
 		gain /= 8;
 
-	if (IS_AFFECTED(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect_flag_on_char(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 2;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (affect_flag_on_char(ch, AFF_SLOW))
 		gain *= 2;
 
-	if (IS_AFFECTED(ch, AFF_DIVINEREGEN))
+	if (affect_flag_on_char(ch, AFF_DIVINEREGEN))
 		gain *= 2;
 
 	return UMIN(gain, ch->max_mana - ch->mana);
@@ -436,22 +436,22 @@ int stam_gain(CHAR_DATA *ch)
 	if (ch->on != NULL && ch->on->item_type == ITEM_FURNITURE)
 		gain = gain * ch->on->value[3] / 100;
 
-	if (IS_AFFECTED(ch, AFF_POISON))
+	if (affect_flag_on_char(ch, AFF_POISON))
 		gain /= 4;
 
-	if (IS_AFFECTED(ch, AFF_PLAGUE))
+	if (affect_flag_on_char(ch, AFF_PLAGUE))
 		gain /= 8;
 
-	if (IS_AFFECTED(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
+	if (affect_flag_on_char(ch, AFF_HASTE) && ch->race != 8) // faeries, ugly hack, fix later -- Montrey (2014)
 		gain /= 3;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (affect_flag_on_char(ch, AFF_SLOW))
 		gain *= 2;
 
-	if (IS_AFFECTED(ch, AFF_REGENERATION))
+	if (affect_flag_on_char(ch, AFF_REGENERATION))
 		gain *= 2;
 
-	if (IS_AFFECTED(ch, AFF_DIVINEREGEN))
+	if (affect_flag_on_char(ch, AFF_DIVINEREGEN))
 		gain *= 2;
 
 	return UMIN(gain, ch->max_stam - ch->stam);
@@ -516,7 +516,7 @@ void mobile_update(void)
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		ch_next = ch->next;
 
-		if (!IS_NPC(ch) || ch->in_room == NULL || IS_AFFECTED(ch, AFF_CHARM))
+		if (!IS_NPC(ch) || ch->in_room == NULL || affect_flag_on_char(ch, AFF_CHARM))
 			continue;
 
 		if (get_position(ch) <= POS_SITTING)
@@ -1050,8 +1050,8 @@ void char_update(void)
 			ch->stam -= dam;
 			damage(ch, ch, dam, gsn_plague, DAM_DISEASE, FALSE, TRUE);
 		}
-		else if (IS_AFFECTED(ch, AFF_POISON) && ch != NULL
-		         &&   !IS_AFFECTED(ch, AFF_SLOW)) {
+		else if (affect_flag_on_char(ch, AFF_POISON) && ch != NULL
+		         &&   !affect_flag_on_char(ch, AFF_SLOW)) {
 			const AFFECT_DATA *poison;
 			poison = affect_find_in_char(ch, gsn_poison);
 
@@ -1310,7 +1310,7 @@ bool eligible_aggressor(CHAR_DATA *ch)
 	        && IS_AWAKE(ch)
 	        && IS_SET(ch->act, ACT_AGGRESSIVE | ACT_AGGR_ALIGN)
 	        && ch->fighting == NULL
-	        && !IS_AFFECTED(ch, AFF_CALM | AFF_CHARM)
+	        && !affect_flag_on_char(ch, AFF_CALM | AFF_CHARM)
 	       );
 }
 

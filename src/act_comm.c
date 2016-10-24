@@ -1312,7 +1312,7 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL) {
+	if (affect_flag_on_char(ch, AFF_CHARM) && ch->master != NULL) {
 		act("But you'd rather follow $N!", ch, NULL, ch->master, TO_CHAR);
 		return;
 	}
@@ -1366,7 +1366,7 @@ void stop_follower(CHAR_DATA *ch)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM)) {
+	if (affect_flag_on_char(ch, AFF_CHARM)) {
 		REMOVE_BIT(ch->affected_by, AFF_CHARM);
 		affect_remove_sn_from_char(ch, gsn_charm_person);
 	}
@@ -1464,7 +1464,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM)) {
+	if (affect_flag_on_char(ch, AFF_CHARM)) {
 		stc("You feel like taking, not giving, orders.\n", ch);
 		return;
 	}
@@ -1524,7 +1524,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (!IS_AFFECTED(victim, AFF_CHARM) || victim->master != ch ||  IS_IMMORTAL(victim)) {
+		if (!affect_flag_on_char(victim, AFF_CHARM) || victim->master != ch ||  IS_IMMORTAL(victim)) {
 			stc("Do it yourself!\n", ch);
 			return;
 		}
@@ -1535,7 +1535,7 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	for (och = ch->in_room->people; och != NULL; och = och_next) {
 		och_next = och->next_in_room;
 
-		if (IS_AFFECTED(och, AFF_CHARM) &&
+		if (affect_flag_on_char(och, AFF_CHARM) &&
 		    och->master == ch &&
 		    (fAll || och == victim)) {
 			if (! found) {
@@ -1664,12 +1664,12 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(victim, AFF_CHARM)) {
+	if (affect_flag_on_char(victim, AFF_CHARM)) {
 		stc("You can't remove charmed mobs from your group.\n", ch);
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM)) {
+	if (affect_flag_on_char(ch, AFF_CHARM)) {
 		act("You like your master too much to leave $m!", ch, NULL, victim, TO_VICT);
 		return;
 	}
@@ -1736,7 +1736,7 @@ void do_split(CHAR_DATA *ch, const char *argument)
 	members = 0;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		if (is_same_group(gch, ch) && !IS_AFFECTED(gch, AFF_CHARM))
+		if (is_same_group(gch, ch) && !affect_flag_on_char(gch, AFF_CHARM))
 			members++;
 	}
 

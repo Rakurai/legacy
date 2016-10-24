@@ -31,6 +31,7 @@
 #include "magic.h"
 #include "sql.h"
 #include "lookup.h"
+#include "affect.h"
 #include "gem.h"
 #include "affect.h"
 
@@ -122,15 +123,15 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	if (IS_OBJ_STAT(obj, ITEM_INVIS))
 		strcat(buf, "{W(Invis) ");
 
-	if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
+	if (affect_flag_on_char(ch, AFF_DETECT_EVIL)
 	    && IS_OBJ_STAT(obj, ITEM_EVIL))
 		strcat(buf, "{R(Red Aura) ");
 
-	if (IS_AFFECTED(ch, AFF_DETECT_GOOD)
+	if (affect_flag_on_char(ch, AFF_DETECT_GOOD)
 	    && IS_OBJ_STAT(obj, ITEM_BLESS))
 		strcat(buf, "{B(Blue Aura) ");
 
-	if (IS_AFFECTED(ch, AFF_DETECT_MAGIC)
+	if (affect_flag_on_char(ch, AFF_DETECT_MAGIC)
 	    && IS_OBJ_STAT(obj, ITEM_MAGIC))
 		strcat(buf, "{G(Magical) ");
 
@@ -460,7 +461,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (IS_SET(victim->comm, COMM_AFK))
 		strcat(buf, "{b[AFK] ");
 
-	if (IS_AFFECTED(victim, AFF_INVISIBLE))
+	if (affect_flag_on_char(victim, AFF_INVISIBLE))
 		strcat(buf, "{C(Invis) ");
 
 	if (affect_find_in_char(victim, gsn_midnight))
@@ -481,28 +482,28 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		strcat(buf, string);
 	}
 
-	if (IS_AFFECTED(victim, AFF_HIDE)) strcat(buf,
+	if (affect_flag_on_char(victim, AFF_HIDE)) strcat(buf,
 		                "{B(Hide) ");
 
-	if (IS_AFFECTED(victim, AFF_CHARM)) strcat(buf,
+	if (affect_flag_on_char(victim, AFF_CHARM)) strcat(buf,
 		                "{M(Charmed) ");
 
-	if (IS_AFFECTED(victim, AFF_PASS_DOOR)) strcat(buf,
+	if (affect_flag_on_char(victim, AFF_PASS_DOOR)) strcat(buf,
 		                "{c(Translucent) ");
 
-	if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) strcat(buf,
+	if (affect_flag_on_char(victim, AFF_FAERIE_FIRE)) strcat(buf,
 		                "{P(Pink Aura) ");
 
-	if (IS_AFFECTED(victim, AFF_FLAMESHIELD)) strcat(buf,
+	if (affect_flag_on_char(victim, AFF_FLAMESHIELD)) strcat(buf,
 		                "{b(Flaming Aura) ");
 
-	if (IS_EVIL(victim) && IS_AFFECTED(ch, AFF_DETECT_EVIL)) strcat(buf,
+	if (IS_EVIL(victim) && affect_flag_on_char(ch, AFF_DETECT_EVIL)) strcat(buf,
 		                "{R(Red Aura) ");
 
-	if (IS_GOOD(victim) && IS_AFFECTED(ch, AFF_DETECT_GOOD)) strcat(buf,
+	if (IS_GOOD(victim) && affect_flag_on_char(ch, AFF_DETECT_GOOD)) strcat(buf,
 		                "{Y(Golden Aura) ");
 
-	if (IS_AFFECTED(victim, AFF_SANCTUARY)) strcat(buf,
+	if (affect_flag_on_char(victim, AFF_SANCTUARY)) strcat(buf,
 		                "{W(White Aura) ");
 
 	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_KILLER))
@@ -809,7 +810,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch->in_room)
 		         && !room_is_very_dark(ch->in_room)
-		         && IS_AFFECTED(rch, AFF_INFRARED))
+		         && affect_flag_on_char(rch, AFF_INFRARED))
 			stc("You see glowing red eyes watching YOU!\n", ch);
 	}
 }
@@ -819,7 +820,7 @@ bool check_blind(CHAR_DATA *ch)
 	if (IS_IMMORTAL(ch))
 		return TRUE;
 
-	if (IS_AFFECTED(ch, AFF_BLIND)) {
+	if (affect_flag_on_char(ch, AFF_BLIND)) {
 		stc("You can't see a thing!\n", ch);
 		return FALSE;
 	}
@@ -3125,7 +3126,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 		for (victim = char_list; victim != NULL; victim = victim->next) {
 			if (victim->in_room != NULL
 			    && victim->in_room->area == ch->in_room->area
-			    && !IS_AFFECTED(victim, AFF_HIDE)
+			    && !affect_flag_on_char(victim, AFF_HIDE)
 			    && can_see(ch, victim)
 			    && is_name(arg, victim->name)) {
 				found = TRUE;
@@ -5093,7 +5094,7 @@ void print_new_affects(CHAR_DATA *ch)
 	}
 
 	if (race_table[ch->race].aff != 0
-	    && IS_AFFECTED(ch, race_table[ch->race].aff)) {
+	    && affect_flag_on_char(ch, race_table[ch->race].aff)) {
 		if (found)
 			add_buf(buffer, breakline);
 

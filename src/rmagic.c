@@ -144,7 +144,7 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	if (ch == victim && ch->fighting != NULL)
 		victim = ch->fighting;
 
-	if (IS_AFFECTED(victim, AFF_BLIND)) {
+	if (affect_flag_on_char(victim, AFF_BLIND)) {
 		stc("They can't see, what good would it do?\n", ch);
 		return;
 	}
@@ -158,7 +158,7 @@ void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	chance = 70 - (victim->level - level) * 2 + victim->saving_throw;
 
 	/* berserking isn't as good as normal saves */
-	if (IS_AFFECTED(victim, AFF_BERSERK))
+	if (affect_flag_on_char(victim, AFF_BERSERK))
 		chance -= victim->level / 4;
 
 	/* better chance if it's dark out */

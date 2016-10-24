@@ -2125,12 +2125,12 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	ptc(ch, "%s%s%s%s%s%s%s%s%s%s{x\n",
 	    IS_SET(victim->pcdata->plr,     PLR_LINK_DEAD) ?        "{G(LinkDead) " : "",
 	    IS_SET(victim->comm,            COMM_AFK) ?             "{b[AFK] "      : "",
-	    IS_AFFECTED(victim,             AFF_INVISIBLE) ?        "{C(Invis) "    : "",
-	    IS_AFFECTED(victim,             AFF_HIDE) ?             "{B(Hide) "     : "",
+	    affect_flag_on_char(victim,             AFF_INVISIBLE) ?        "{C(Invis) "    : "",
+	    affect_flag_on_char(victim,             AFF_HIDE) ?             "{B(Hide) "     : "",
 	    affect_find_in_char(victim, gsn_midnight) ?            "{c(Shadowy) "  : "",
 	    victim->invis_level ?                                   "{T(Wizi) "     : "",
 	    victim->lurk_level ?                                    "{H(Lurk) "     : "",
-	    IS_AFFECTED(victim, AFF_CHARM) ?                        "{M(Charmed) "  : "",
+	    affect_flag_on_char(victim, AFF_CHARM) ?                        "{M(Charmed) "  : "",
 	    IS_SET(victim->act, PLR_KILLER) ?                       "{R(KILLER) "   : "",
 	    IS_SET(victim->act, PLR_THIEF) ?                        "{B(THIEF) "    : "");
 	/* fighting in room 3001, in combat with Super Helga */

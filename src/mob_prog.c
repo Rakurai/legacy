@@ -27,6 +27,7 @@
  ***************************************************************************/
 
 #include "merc.h"
+#include "affect.h"
 
 /*
  * Local function prototypes
@@ -481,18 +482,18 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	if (!str_cmp(buf, "ischarmed")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return IS_AFFECTED(mob, AFF_CHARM) ? 1 : 0;
+		case 'i': return affect_flag_on_char(mob, AFF_CHARM) ? 1 : 0;
 
 		case 'n': if (actor)
-				return IS_AFFECTED(actor, AFF_CHARM) ? 1 : 0;
+				return affect_flag_on_char(actor, AFF_CHARM) ? 1 : 0;
 			else return -1;
 
 		case 't': if (vict)
-				return IS_AFFECTED(vict, AFF_CHARM) ? 1 : 0;
+				return affect_flag_on_char(vict, AFF_CHARM) ? 1 : 0;
 			else return -1;
 
 		case 'r': if (rndm)
-				return IS_AFFECTED(rndm, AFF_CHARM) ? 1 : 0;
+				return affect_flag_on_char(rndm, AFF_CHARM) ? 1 : 0;
 			else return -1;
 
 		default:
@@ -582,18 +583,18 @@ bool mprog_do_ifchck(const char *ifchck, CHAR_DATA *mob, CHAR_DATA *actor,
 
 	if (!str_cmp(buf, "isaffected")) {
 		switch (arg[1]) {  /* arg should be "$*" so just get the letter */
-		case 'i': return (mob->affected_by & atoi(arg));
+		case 'i': return affect_flag_on_char(mob, atoi(arg));
 
 		case 'n': if (actor)
-				return (actor->affected_by & atoi(arg));
+				return affect_flag_on_char(actor, atoi(arg));
 			else return -1;
 
 		case 't': if (vict)
-				return (vict->affected_by & atoi(arg));
+				return affect_flag_on_char(vict, atoi(arg));
 			else return -1;
 
 		case 'r': if (rndm)
-				return (rndm->affected_by & atoi(arg));
+				return affect_flag_on_char(rndm, atoi(arg));
 			else return -1;
 
 		default:
@@ -1581,7 +1582,7 @@ void mprog_driver(const char *com_list, CHAR_DATA *mob, CHAR_DATA *actor,
 	CHAR_DATA *vch   = NULL;
 	int        count = 0;
 
-	/*    if IS_AFFECTED( mob, AFF_CHARM )
+	/*    if affect_flag_on_char( mob, AFF_CHARM )
 	        return;                                 why? :P  -- Montrey */
 
 	/* get a random visable mortal player who is in the room with the mob */

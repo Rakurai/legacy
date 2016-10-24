@@ -353,7 +353,7 @@ void fire_effect(void *vo, int level, int dam, int target, int evolution)
 		OBJ_DATA *obj, *obj_next;
 
 		/* chance of blindness */
-		if (!IS_AFFECTED(victim, AFF_BLIND)
+		if (!affect_flag_on_char(victim, AFF_BLIND)
 		    &&  !saves_spell(level / 4 + dam / 20, victim, DAM_FIRE)) {
 			AFFECT_DATA af = (AFFECT_DATA){0};
 			act("$n is blinded by smoke!", victim, NULL, NULL, TO_ROOM);

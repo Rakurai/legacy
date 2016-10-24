@@ -82,7 +82,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	}
 
 	if (IS_SET(pexit->exit_info, EX_CLOSED)
-	    && (!IS_AFFECTED(ch, AFF_PASS_DOOR) || IS_SET(pexit->exit_info, EX_NOPASS))
+	    && (!affect_flag_on_char(ch, AFF_PASS_DOOR) || IS_SET(pexit->exit_info, EX_NOPASS))
 	    &&  !IS_IMMORTAL(ch)) {
 		act("The $d is closed.", ch, NULL, pexit->keyword, TO_CHAR);
 		return;
@@ -95,7 +95,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	his pet "away" or "home" or otherwise out of the room.
 	-- Outsider
 
-	if (IS_AFFECTED(ch, AFF_CHARM)
+	if (affect_flag_on_char(ch, AFF_CHARM)
 	 && ch->master != NULL
 	 && in_room == ch->master->in_room)
 	{
@@ -128,7 +128,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 	if (in_room->sector_type == SECT_AIR
 	    || to_room->sector_type == SECT_AIR) {
-		if (!IS_AFFECTED(ch, AFF_FLYING) && !IS_IMMORTAL(ch)) {
+		if (!affect_flag_on_char(ch, AFF_FLYING) && !IS_IMMORTAL(ch)) {
 			stc("You cannot fly!\n", ch);
 			return;
 		}
@@ -136,7 +136,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 	if ((in_room->sector_type == SECT_WATER_NOSWIM
 	     || to_room->sector_type == SECT_WATER_NOSWIM)
-	    && !IS_AFFECTED(ch, AFF_FLYING) && !IS_IMMORTAL(ch) && !get_skill(ch, gsn_swimming)) {
+	    && !affect_flag_on_char(ch, AFF_FLYING) && !IS_IMMORTAL(ch) && !get_skill(ch, gsn_swimming)) {
 		OBJ_DATA *obj;
 		bool found = FALSE;
 
@@ -158,10 +158,10 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type)]) / 2;
 
 	/* conditional effects */
-	if (IS_AFFECTED(ch, AFF_FLYING) || IS_AFFECTED(ch, AFF_HASTE))
+	if (affect_flag_on_char(ch, AFF_FLYING) || affect_flag_on_char(ch, AFF_HASTE))
 		cost /= 2;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (affect_flag_on_char(ch, AFF_SLOW))
 		cost *= 2;
 
 	/* remort affect - light feet */
@@ -181,7 +181,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 	ch->stam -= cost;
 
-	if (IS_AFFECTED(ch, AFF_SNEAK) || ch->invis_level
+	if (affect_flag_on_char(ch, AFF_SNEAK) || ch->invis_level
 	    || (!IS_NPC(ch) && IS_SET(ch->act, PLR_SUPERWIZ)))
 		act_new("$n leaves $T.", ch, NULL, dir_name[door], TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
@@ -197,7 +197,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	else
 		sprintf(dir_buf, "the %s", dir_name[rev_dir[door]]);
 
-	if (IS_AFFECTED(ch, AFF_SNEAK) || ch->invis_level
+	if (affect_flag_on_char(ch, AFF_SNEAK) || ch->invis_level
 	    || (!IS_NPC(ch) && IS_SET(ch->act, PLR_SUPERWIZ)))
 		act_new("$n has arrived from $T.", ch, NULL, dir_buf, TO_NOTVIEW, POS_SNEAK, FALSE);
 	else
@@ -218,7 +218,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	for (fch = in_room->people; fch != NULL; fch = fch_next) {
 		fch_next = fch->next_in_room;
 
-		if (fch->master == ch && IS_AFFECTED(fch, AFF_CHARM) && get_position(fch) < POS_STANDING)
+		if (fch->master == ch && affect_flag_on_char(fch, AFF_CHARM) && get_position(fch) < POS_STANDING)
 			do_stand(fch, "");
 
 		if (fch->master == ch && get_position(fch) == POS_STANDING && can_see_room(fch, to_room)) {
@@ -1176,7 +1176,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* if we were flying, stop flying */
-	if (IS_AFFECTED(ch, AFF_FLYING))
+	if (affect_flag_on_char(ch, AFF_FLYING))
 		do_land(ch, NULL);
 
 	return;
@@ -1292,7 +1292,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* if we were flying, land */
-	if (IS_AFFECTED(ch, AFF_FLYING))
+	if (affect_flag_on_char(ch, AFF_FLYING))
 		do_land(ch, NULL);
 
 	return;
@@ -1375,7 +1375,7 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 	}
 
 	/* don't sleep while flying */
-	if (IS_AFFECTED(ch, AFF_FLYING))
+	if (affect_flag_on_char(ch, AFF_FLYING))
 		do_land(ch, NULL);
 
 	return;
@@ -1418,7 +1418,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(ch, AFF_SNEAK)) {
+	if (affect_flag_on_char(ch, AFF_SNEAK)) {
 		stc("You already surpass the wind in stealth.\n", ch);
 		return;
 	}
@@ -1458,7 +1458,7 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(ch, AFF_HIDE)) {
+	if (affect_flag_on_char(ch, AFF_HIDE)) {
 		stc("You find an even better hiding place.\n", ch);
 		return;
 	}
@@ -1640,7 +1640,7 @@ void recall(CHAR_DATA *ch, bool clan)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL) || IS_AFFECTED(ch, AFF_CURSE)) {
+	if (IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL) || affect_flag_on_char(ch, AFF_CURSE)) {
 		stc("Unsympathetic laughter of the Gods plays upon your ears.\n", ch);
 		return;
 	}
@@ -2036,7 +2036,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 
 	/* exit is impassible? */
 	if (IS_SET(pexit->exit_info, EX_CLOSED)
-	    && (!IS_AFFECTED(victim, AFF_PASS_DOOR)
+	    && (!affect_flag_on_char(victim, AFF_PASS_DOOR)
 	        || IS_SET(pexit->exit_info, EX_NOPASS))) {
 		sprintf(buf, "You shove $M up against the %s and threaten $M.", pexit->keyword);
 		act(buf, ch, NULL, victim, TO_CHAR);
@@ -2086,7 +2086,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	else if (victim->in_room->sector_type == SECT_AIR) {
-		if (!IS_AFFECTED(victim, AFF_FLYING)
+		if (!affect_flag_on_char(victim, AFF_FLYING)
 		    && victim->in_room->exit[DIR_DOWN]) {
 			int count = 0;  /* just to prevent an infinite loop */
 			long brief = IS_SET(victim->comm, COMM_BRIEF);
@@ -2191,7 +2191,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM)
+	if (affect_flag_on_char(ch, AFF_CHARM)
 	    && ch->master != NULL
 	    && victim->in_room == ch->master->in_room) {
 		stc("What?  And leave your beloved master?\n", ch);
@@ -2259,7 +2259,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (to_room->sector_type == SECT_AIR
-	    && !IS_AFFECTED(ch, AFF_FLYING)
+	    && !affect_flag_on_char(ch, AFF_FLYING)
 	    && !IS_IMMORTAL(ch)) {
 		stc("You cannot fly!\n", ch);
 		return;
@@ -2282,10 +2282,10 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 	        + stamina_loss[UMIN(SECT_MAX - 1, to_room->sector_type)]);
 
 	/* conditional effects */
-	if (IS_AFFECTED(ch, AFF_FLYING) || IS_AFFECTED(ch, AFF_HASTE))
+	if (affect_flag_on_char(ch, AFF_FLYING) || affect_flag_on_char(ch, AFF_HASTE))
 		cost /= 2;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (affect_flag_on_char(ch, AFF_SLOW))
 		cost *= 2;
 
 	/* remort affect - light feet */
@@ -2304,7 +2304,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 
 	/* exit is impassible? */
 	if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-		if (!IS_AFFECTED(ch, AFF_PASS_DOOR)
+		if (!affect_flag_on_char(ch, AFF_PASS_DOOR)
 		    || IS_SET(pexit->exit_info, EX_NOPASS)) {
 			ptc(ch, "You back into the %s.\n", pexit->keyword);
 			sprintf(buf, "$n tries to drag $N, but backs into the %s.", pexit->keyword);
@@ -2318,7 +2318,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (!IS_AFFECTED(victim, AFF_PASS_DOOR)
+		if (!affect_flag_on_char(victim, AFF_PASS_DOOR)
 		    || IS_SET(pexit->exit_info, EX_NOPASS)) {
 			ptc(ch, "You try to drag them through the %s, but they are too solid.\n", pexit->keyword);
 			sprintf(buf, "$n tries to drag $N, but $E bangs against the %s.", pexit->keyword);
@@ -2397,7 +2397,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	else if (victim->in_room->sector_type == SECT_AIR) {
-		if (!IS_AFFECTED(victim, AFF_FLYING)
+		if (!affect_flag_on_char(victim, AFF_FLYING)
 		    && victim->in_room->exit[DIR_DOWN]) {
 			int count = 0;  /* just to prevent an infinite loop */
 			long brief = IS_SET(victim->comm, COMM_BRIEF);
@@ -2636,7 +2636,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 		if ((victim->in_room->sector_type != SECT_ARENA) &&
 		    (!IS_SET(victim->in_room->room_flags, ROOM_NO_RECALL)) &&
 		    !char_in_duel_room(victim) &&
-		    (!IS_AFFECTED(victim, AFF_CURSE))) {
+		    (!affect_flag_on_char(victim, AFF_CURSE))) {
 			char_from_room(victim);
 			char_to_room(victim, location);
 
@@ -2854,7 +2854,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 
-			if (IS_AFFECTED(ch, AFF_CURSE)
+			if (affect_flag_on_char(ch, AFF_CURSE)
 			    && (IS_SET(portal->value[2], GATE_NOCURSE) || CAN_WEAR(portal, ITEM_TAKE))) {
 				stc("You step through and are spat violently back out.  Hmmm..\n", ch);
 				return;
@@ -2988,7 +2988,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 			if (portal == NULL || portal->value[0] == -1)
 				continue;
 
-			if (fch->master == ch && IS_AFFECTED(fch, AFF_CHARM) && get_position(fch) < POS_STANDING)
+			if (fch->master == ch && affect_flag_on_char(fch, AFF_CHARM) && get_position(fch) < POS_STANDING)
 				do_stand(fch, "");
 
 			if (fch->master == ch && get_position(fch) == POS_STANDING) {
@@ -3036,7 +3036,7 @@ be able to takeoff again.
 void do_land(CHAR_DATA *ch, const char *argument)
 {
 	/* first check to see if we are flying */
-	if (! IS_AFFECTED(ch, AFF_FLYING)) {
+	if (! affect_flag_on_char(ch, AFF_FLYING)) {
 		stc("You are not flying.\n", ch);
 		return;
 	}

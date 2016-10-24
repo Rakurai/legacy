@@ -27,6 +27,7 @@
  ***************************************************************************/
 
 #include "merc.h"
+#include "affect.h"
 
 /*
  * Local functions.
@@ -212,7 +213,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+	if (affect_flag_on_char(ch, AFF_CHARM) && ch->master == victim) {
 		bug("MpKill - Charmed mob attacking master: vnum %d.",
 		    ch->pIndexData->vnum);
 		return;

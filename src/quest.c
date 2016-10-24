@@ -13,6 +13,7 @@
 #include "merc.h"
 #include "tables.h"
 #include "recycle.h"
+#include "affect.h"
 
 /* Object vnums for object quest 'tokens' */
 #define QUEST_OBJQUEST1 1283
@@ -909,7 +910,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 			    || IS_SET(victim->act, ACT_PET)
 			    || !strcmp(victim->in_room->area->name, "Playpen")
 			    || victim->in_room->clan
-			    || IS_SET(victim->affected_by, AFF_CHARM)
+			    || affect_flag_on_char(victim, AFF_CHARM)
 			    || IS_SET(victim->in_room->room_flags, ROOM_PRIVATE | ROOM_SOLITARY)
 			    || IS_SET(victim->in_room->room_flags, ROOM_SAFE | ROOM_MALE_ONLY | ROOM_FEMALE_ONLY)
 			    || quest_level_diff(ch->level, victim->level) != TRUE)
@@ -1568,7 +1569,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (IS_AFFECTED(ch, AFF_CURSE)) {
+		if (affect_flag_on_char(ch, AFF_CURSE)) {
 			stc("You cannot join the quest in your current contition.\n", ch);
 			return;
 		}

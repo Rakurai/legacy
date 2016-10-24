@@ -142,8 +142,8 @@ bool spec_troll_member(CHAR_DATA *ch)
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || IS_AFFECTED(ch, AFF_CALM) || ch->in_room == NULL
-	    || IS_AFFECTED(ch, AFF_CHARM) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_flag_on_char(ch, AFF_CALM) || ch->in_room == NULL
+	    || affect_flag_on_char(ch, AFF_CHARM) || ch->fighting != NULL)
 		return FALSE;
 
 	/* find an ogre to beat up */
@@ -200,8 +200,8 @@ bool spec_ogre_member(CHAR_DATA *ch)
 	int count = 0;
 	char *message;
 
-	if (!IS_AWAKE(ch) || IS_AFFECTED(ch, AFF_CALM) || ch->in_room == NULL
-	    ||  IS_AFFECTED(ch, AFF_CHARM) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_flag_on_char(ch, AFF_CALM) || ch->in_room == NULL
+	    ||  affect_flag_on_char(ch, AFF_CHARM) || ch->fighting != NULL)
 		return FALSE;
 
 	/* find an troll to beat up */
@@ -259,8 +259,8 @@ bool spec_patrolman(CHAR_DATA *ch)
 	char *message;
 	int count = 0;
 
-	if (!IS_AWAKE(ch) || IS_AFFECTED(ch, AFF_CALM) || ch->in_room == NULL
-	    ||  IS_AFFECTED(ch, AFF_CHARM) || ch->fighting != NULL)
+	if (!IS_AWAKE(ch) || affect_flag_on_char(ch, AFF_CALM) || ch->in_room == NULL
+	    ||  affect_flag_on_char(ch, AFF_CHARM) || ch->fighting != NULL)
 		return FALSE;
 
 	/* look for a fight in the room */
@@ -1127,7 +1127,7 @@ bool spec_charm(CHAR_DATA *ch)
 	spell_charm_person(gsn_charm_person, ch->level, ch, victim,
 	                   TAR_CHAR_OFFENSIVE, get_evolution(ch, gsn_charm_person));
 
-	if (IS_AFFECTED(victim, AFF_CHARM))
+	if (affect_flag_on_char(victim, AFF_CHARM))
 		stop_fighting(victim, TRUE);
 
 	return TRUE;
@@ -1272,7 +1272,7 @@ bool spec_clanguard(CHAR_DATA *ch)
 
 	if (!IS_NPC(ch)
 	    || !IS_AWAKE(ch)
-	    || IS_AFFECTED(ch, AFF_CALM | AFF_CHARM)
+	    || affect_flag_on_char(ch, AFF_CALM | AFF_CHARM)
 	    || ch->in_room == NULL)
 		return FALSE;
 

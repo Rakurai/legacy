@@ -988,7 +988,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 		af.evolution = 1;
 
 		for (i = 0; maff_table[i].sn >= 0; i++)
-			if (IS_AFFECTED(mob, maff_table[i].bit)) {
+			if (affect_flag_on_char(mob, maff_table[i].bit)) {
 				af.type      = maff_table[i].sn;
 				af.location  = maff_table[i].loc;
 				af.modifier  = maff_table[i].mod;

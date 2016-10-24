@@ -318,7 +318,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			}
 		}
 
-		if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+		if (affect_flag_on_char(ch, AFF_CHARM) && ch->master == victim) {
 			stc("You can't do that on your own follower.\n", ch);
 			return;
 		}
@@ -390,7 +390,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				if (help_mob(ch, victim))
 					return;
 
-			if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+			if (affect_flag_on_char(ch, AFF_CHARM) && ch->master == victim) {
 				stc("You can't do that on your own follower.\n", ch);
 				return;
 			}
@@ -544,7 +544,7 @@ void do_mpcast(CHAR_DATA *ch, const char *argument)
 	case TAR_CHAR_OFFENSIVE:
 		if ((arg2[0] == '\0' && ch->fighting == NULL)
 		    || (victim = get_char_here(ch, target_name, VIS_CHAR)) == NULL
-		    || (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim))
+		    || (affect_flag_on_char(ch, AFF_CHARM) && ch->master == victim))
 			return;
 
 		vo = (void *) victim;
@@ -589,7 +589,7 @@ void do_mpcast(CHAR_DATA *ch, const char *argument)
 
 		if (target == TARGET_CHAR) { /* check the sanity of the attack */
 			if ((is_safe_spell(ch, victim, FALSE) && victim != ch)
-			    || (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim))
+			    || (affect_flag_on_char(ch, AFF_CHARM) && ch->master == victim))
 				return;
 
 			vo = (void *) victim;
@@ -1119,7 +1119,7 @@ void spell_blindness(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_BLIND)) {
+	if (affect_flag_on_char(victim, AFF_BLIND)) {
 		stc("Your victim doesn't have any sight to lose.\n", ch);
 		return;
 	}
@@ -1516,8 +1516,8 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 				    && (IS_SET(vch->imm_flags, IMM_MAGIC)
 				        || IS_SET(vch->act, ACT_UNDEAD)))
 					failure = TRUE;
-				else if (IS_AFFECTED(vch, AFF_CALM)
-				         || IS_AFFECTED(vch, AFF_BERSERK)
+				else if (affect_flag_on_char(vch, AFF_CALM)
+				         || affect_flag_on_char(vch, AFF_BERSERK)
 				         || affect_find_in_char(vch, gsn_frenzy))
 					failure = TRUE;
 			}
@@ -1563,7 +1563,7 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	level += 2;
 
-	if ((!IS_NPC(ch) && IS_NPC(victim) && !(IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim))
+	if ((!IS_NPC(ch) && IS_NPC(victim) && !(affect_flag_on_char(ch, AFF_CHARM) && ch->master == victim))
 	    || (!IS_NPC(victim) && ch != victim)) {
 		stc("You failed, try dispel magic.\n", ch);
 		return;
@@ -1695,12 +1695,12 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM)) {
+	if (affect_flag_on_char(ch, AFF_CHARM)) {
 		stc("You are charmed yourself, and thus unable to charm others.\n", ch);
 		return;
 	}
 
-	if (IS_AFFECTED(victim, AFF_CHARM)) {
+	if (affect_flag_on_char(victim, AFF_CHARM)) {
 		act("$E is already charmed, there is nothing more you can do!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -2326,7 +2326,7 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	/* character curses */
 	victim = (CHAR_DATA *) vo;
 
-	if (IS_AFFECTED(victim, AFF_CURSE)) {
+	if (affect_flag_on_char(victim, AFF_CURSE)) {
 		if (ch == victim)
 			stc("You are already cursed. You don't need a double whammy.\n", ch);
 		else
@@ -2401,7 +2401,7 @@ void spell_detect_evil(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_DETECT_EVIL)) {
+	if (affect_flag_on_char(victim, AFF_DETECT_EVIL)) {
 		if (victim == ch)
 			stc("You can already sense evil.\n", ch);
 		else
@@ -2430,7 +2430,7 @@ void spell_detect_good(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_DETECT_GOOD)) {
+	if (affect_flag_on_char(victim, AFF_DETECT_GOOD)) {
 		if (victim == ch)
 			stc("You can already sense good.\n", ch);
 		else
@@ -2459,7 +2459,7 @@ void spell_detect_hidden(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_DETECT_HIDDEN)) {
+	if (affect_flag_on_char(victim, AFF_DETECT_HIDDEN)) {
 		if (victim == ch)
 			stc("You are already as alert as you can be. \n", ch);
 		else
@@ -2488,7 +2488,7 @@ void spell_detect_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_DETECT_INVIS)) {
+	if (affect_flag_on_char(victim, AFF_DETECT_INVIS)) {
 		if (victim == ch)
 			stc("You can already see invisible.\n", ch);
 		else
@@ -2517,7 +2517,7 @@ void spell_detect_magic(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_DETECT_MAGIC)) {
+	if (affect_flag_on_char(victim, AFF_DETECT_MAGIC)) {
 		if (victim == ch)
 			stc("You can already sense magical auras.\n", ch);
 		else
@@ -2662,7 +2662,7 @@ void spell_earthquake(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 
 		if (vch->in_room == ch->in_room) {
 			if (vch != ch && !is_safe_spell(ch, vch, TRUE)) {
-				if (IS_AFFECTED(vch, AFF_FLYING))
+				if (affect_flag_on_char(vch, AFF_FLYING))
 					damage(ch, vch, 0, sn, DAM_BASH, TRUE, TRUE);
 				else
 					damage(ch, vch, level + dice(2, 8), sn, DAM_BASH, TRUE, TRUE);
@@ -3124,7 +3124,7 @@ void spell_fear(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_FEAR)) {
+	if (affect_flag_on_char(victim, AFF_FEAR)) {
 		act("Your attack is senseless, $N is already shaking in $S boots!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3165,7 +3165,7 @@ void fireball_bash(CHAR_DATA *ch, CHAR_DATA *victim, int level, int evolution, b
 	chance += (level - victim->level) / 2;
 	chance += (evolution - 1) * 10;
 
-	if (IS_SET(victim->off_flags, OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
+	if (IS_SET(victim->off_flags, OFF_FAST) || affect_flag_on_char(victim, AFF_HASTE))
 		chance -= 15;
 
 	chance -= ((victim->stam * 20) / victim->max_stam);
@@ -3177,7 +3177,7 @@ void fireball_bash(CHAR_DATA *ch, CHAR_DATA *victim, int level, int evolution, b
 	if (!can_see(ch, victim))
 		chance -= 20;
 
-	if (IS_AFFECTED(victim, AFF_PASS_DOOR))
+	if (affect_flag_on_char(victim, AFF_PASS_DOOR))
 		chance -= chance / 4;
 
 	if (spread)
@@ -3319,7 +3319,7 @@ void spell_fireball(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 				return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+	if (affect_flag_on_char(ch, AFF_CHARM) && ch->master == victim) {
 		stc("You can't do that on your own follower.\n", ch);
 		return;
 	}
@@ -3476,7 +3476,7 @@ void spell_faerie_fire(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) {
+	if (affect_flag_on_char(victim, AFF_FAERIE_FIRE)) {
 		act("$N is already glowing pink!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3507,9 +3507,9 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 		if (ich == ch || saves_spell(level, ich, DAM_OTHER))
 			continue;
 
-		if (!IS_AFFECTED(ich, AFF_HIDE)
-		    && !IS_AFFECTED(ich, AFF_SNEAK)
-		    && !IS_AFFECTED(ich, AFF_INVISIBLE)
+		if (!affect_flag_on_char(ich, AFF_HIDE)
+		    && !affect_flag_on_char(ich, AFF_SNEAK)
+		    && !affect_flag_on_char(ich, AFF_INVISIBLE)
 		    && !affect_find_in_char(ich, gsn_midnight))
 			continue;
 
@@ -3528,7 +3528,7 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 
 void spell_farsight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
-	if (IS_AFFECTED(ch, AFF_BLIND)) {
+	if (affect_flag_on_char(ch, AFF_BLIND)) {
 		stc("Maybe it would help if you could see?\n", ch);
 		return;
 	}
@@ -3568,7 +3568,7 @@ void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_FLYING)) {
+	if (affect_flag_on_char(victim, AFF_FLYING)) {
 		if (victim == ch)
 			stc("You are already airborne.\n", ch);
 		else
@@ -3595,7 +3595,7 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (affect_find_in_char(victim, sn) || IS_AFFECTED(victim, AFF_BERSERK)) {
+	if (affect_find_in_char(victim, sn) || affect_flag_on_char(victim, AFF_BERSERK)) {
 		if (victim == ch)
 			stc("You are already in a frenzy.\n", ch);
 		else
@@ -3749,7 +3749,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (affect_find_in_char(victim, sn) || IS_AFFECTED(victim, AFF_HASTE) || IS_SET(victim->off_flags, OFF_FAST)) {
+	if (affect_find_in_char(victim, sn) || affect_flag_on_char(victim, AFF_HASTE) || IS_SET(victim->off_flags, OFF_FAST)) {
 		if (victim == ch)
 			stc("You can't move any faster!\n", ch);
 		else
@@ -3758,7 +3758,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		return;
 	}
 
-	if (IS_AFFECTED(victim, AFF_SLOW)) {
+	if (affect_flag_on_char(victim, AFF_SLOW)) {
 		if (!check_dispel_char(level, victim, gsn_slow, FALSE)) {
 			if (victim != ch)
 				stc("Spell failed.\n", ch);
@@ -4262,7 +4262,7 @@ void spell_infravision(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_INFRARED)) {
+	if (affect_flag_on_char(victim, AFF_INFRARED)) {
 		if (victim == ch)
 			stc("You can already see in the dark.\n", ch);
 		else
@@ -4315,7 +4315,7 @@ void spell_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	/* character invisibility */
 	victim = (CHAR_DATA *) vo;
 
-	if (IS_AFFECTED(victim, AFF_INVISIBLE)) {
+	if (affect_flag_on_char(victim, AFF_INVISIBLE)) {
 		if (victim == ch)
 			stc("You are already invisible!\n", ch);
 		else
@@ -4539,7 +4539,7 @@ void spell_mass_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	CHAR_DATA *gch;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		if (!is_same_group(gch, ch) || IS_AFFECTED(gch, AFF_INVISIBLE))
+		if (!is_same_group(gch, ch) || affect_flag_on_char(gch, AFF_INVISIBLE))
 			continue;
 
 		act("$n slowly fades out of existence.", gch, NULL, NULL, TO_ROOM);
@@ -4760,7 +4760,7 @@ void spell_pass_door(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_PASS_DOOR)) {
+	if (affect_flag_on_char(victim, AFF_PASS_DOOR)) {
 		if (victim == ch)
 			stc("You are already out of phase.\n", ch);
 		else
@@ -4783,7 +4783,7 @@ void spell_pass_door(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 }
 
 void spread_plague(ROOM_INDEX_DATA *room, const AFFECT_DATA *plague, int chance) {
-	if (room == NULL)
+	if (room == NULL || plague == NULL)
 		return;
 
 	if (plague->level <= 1)
@@ -5070,7 +5070,7 @@ void spell_protection_evil(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL)) {
+	if (affect_flag_on_char(victim, AFF_PROTECT_EVIL)) {
 		if (victim == ch)
 			stc("You are already protected.\n", ch);
 		else
@@ -5099,7 +5099,7 @@ void spell_protection_good(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_PROTECT_GOOD)) {
+	if (affect_flag_on_char(victim, AFF_PROTECT_GOOD)) {
 		if (victim == ch)
 			stc("You are already protected.\n", ch);
 		else
@@ -5332,8 +5332,8 @@ void spell_divine_regeneration(int sn, int level, CHAR_DATA *ch, void *vo, int t
 	}
 
 	if ((affect_find_in_char(victim, sn))
-	    || (IS_AFFECTED(victim, AFF_REGENERATION))
-	    || (IS_AFFECTED(victim, AFF_DIVINEREGEN))) {
+	    || (affect_flag_on_char(victim, AFF_REGENERATION))
+	    || (affect_flag_on_char(victim, AFF_DIVINEREGEN))) {
 		if (victim == ch)
 			stc("You can't possibly feel any more vibrant!\n", ch);
 		else
@@ -5381,8 +5381,8 @@ void spell_regeneration(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)
-	    || IS_AFFECTED(victim, AFF_REGENERATION)
-	    || IS_AFFECTED(victim, AFF_DIVINEREGEN)) {
+	    || affect_flag_on_char(victim, AFF_REGENERATION)
+	    || affect_flag_on_char(victim, AFF_DIVINEREGEN)) {
 		if (victim == ch)
 			stc("You can't possibly feel any more vibrant!\n", ch);
 		else
@@ -5611,7 +5611,7 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
+	if (affect_flag_on_char(victim, AFF_SANCTUARY)) {
 		if (victim == ch)
 			stc("You are already in sanctuary.\n", ch);
 		else
@@ -5797,7 +5797,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (affect_find_in_char(victim, sn) || IS_AFFECTED(victim, AFF_SLOW)) {
+	if (affect_find_in_char(victim, sn) || affect_flag_on_char(victim, AFF_SLOW)) {
 		if (victim == ch)
 			stc("You can't move any slower!\n", ch);
 		else
@@ -5807,7 +5807,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 		return;
 	}
 
-	if (IS_AFFECTED(victim, AFF_HASTE)) {
+	if (affect_flag_on_char(victim, AFF_HASTE)) {
 		if (!check_dispel_char(level, victim, gsn_haste, (ch != victim))) {
 			if (victim != ch)
 				stc("Spell failed.\n", ch);
@@ -5886,7 +5886,7 @@ void spell_smokescreen(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 
 	for (vch = to_room->people; vch != NULL; vch = vch->next_in_room) {
 		if (is_safe_spell(ch, vch, TRUE)
-		    || (IS_AFFECTED(vch, AFF_BLIND)))
+		    || (affect_flag_on_char(vch, AFF_BLIND)))
 			continue;
 
 		if (saves_spell(level, vch, DAM_OTHER))
@@ -6228,7 +6228,7 @@ void spell_talon(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af = (AFFECT_DATA){0};
 
-	if (IS_AFFECTED(victim, AFF_TALON)) {
+	if (affect_flag_on_char(victim, AFF_TALON)) {
 		if (victim == ch)
 			stc("If you hold your weapon any tighter people will start to wonder...\n"
 			    , ch);
@@ -6429,7 +6429,7 @@ void spell_undo_spell(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	}
 
 	if ((!IS_NPC(ch) && IS_NPC(victim)
-	     && !(IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim))
+	     && !(affect_flag_on_char(ch, AFF_CHARM) && ch->master == victim))
 	    || (IS_NPC(ch) && !IS_NPC(victim))) {
 		stc("You failed, try dispel magic.\n", ch);
 		return;
@@ -6558,7 +6558,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		}
 
 	if (IS_SET(victim->in_room->room_flags, ROOM_NO_RECALL) ||
-	    IS_AFFECTED(victim, AFF_CURSE) || char_in_duel_room(ch)) {
+	    affect_flag_on_char(victim, AFF_CURSE) || char_in_duel_room(ch)) {
 		stc("Spell failed.\n", victim);
 		return;
 	}

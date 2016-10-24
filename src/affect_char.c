@@ -9,6 +9,10 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
 // searching
 
+bool affect_flag_on_char(CHAR_DATA *ch, unsigned int flag) {
+	return IS_SET(ch->affected_by, flag);
+}
+
 const AFFECT_DATA *affect_list_char(CHAR_DATA *ch) {
 	return ch->affected;
 }

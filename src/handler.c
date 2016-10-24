@@ -34,7 +34,6 @@
 // TODO: temporary access, remove when possible
 extern void affect_modify_char args((void *owner, const AFFECT_DATA *paf, bool fAdd));
 
-
 /* command procedures needed */
 DECLARE_DO_FUN(do_return);
 
@@ -95,7 +94,7 @@ bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
 			return FALSE;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM))
+	if (affect_flag_on_char(ch, AFF_CHARM))
 		return FALSE;
 
 	if (IS_SET(ch->off_flags, ASSIST_ALL))
@@ -922,7 +921,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	    &&   obj->value[2] != 0)
 		++ch->in_room->light;
 
-	if (IS_AFFECTED(ch, AFF_PLAGUE)) {
+	if (affect_flag_on_char(ch, AFF_PLAGUE)) {
 		const AFFECT_DATA *plague = affect_find_in_char(ch, gsn_plague);
 		spread_plague(ch->in_room, plague, 6);
 	}
@@ -1930,22 +1929,22 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim->invis_level)
 		return FALSE;
 
-	if (IS_AFFECTED(ch, AFF_BLIND))
+	if (affect_flag_on_char(ch, AFF_BLIND))
 		return FALSE;
 
-	if (!IS_AFFECTED(ch, AFF_INFRARED))
+	if (!affect_flag_on_char(ch, AFF_INFRARED))
 		if ((room_is_dark(ch->in_room)
-		     && !IS_AFFECTED(ch, AFF_NIGHT_VISION))
+		     && !affect_flag_on_char(ch, AFF_NIGHT_VISION))
 		    || room_is_very_dark(ch->in_room))
 			return FALSE;
 
-	if (IS_AFFECTED(victim, AFF_INVISIBLE)
-	    &&   !IS_AFFECTED(ch, AFF_DETECT_INVIS))
+	if (affect_flag_on_char(victim, AFF_INVISIBLE)
+	    &&   !affect_flag_on_char(ch, AFF_DETECT_INVIS))
 		return FALSE;
 
 	/* sneaking */
-	if (IS_AFFECTED(victim, AFF_SNEAK)
-	    &&   !IS_AFFECTED(ch, AFF_DETECT_HIDDEN)
+	if (affect_flag_on_char(victim, AFF_SNEAK)
+	    &&   !affect_flag_on_char(ch, AFF_DETECT_HIDDEN)
 	    &&   victim->fighting == NULL) {
 		int chance;
 		chance = get_skill(victim, gsn_sneak);
@@ -1957,8 +1956,8 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 			return FALSE;
 	}
 
-	if (IS_AFFECTED(victim, AFF_HIDE)
-	    &&   !IS_AFFECTED(ch, AFF_DETECT_HIDDEN)
+	if (affect_flag_on_char(victim, AFF_HIDE)
+	    &&   !affect_flag_on_char(ch, AFF_DETECT_HIDDEN)
 	    &&   victim->fighting == NULL)
 		return FALSE;
 
@@ -1998,7 +1997,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (room_is_very_dark(ch->in_room))
 		return FALSE;
 
-	if (IS_AFFECTED(ch, AFF_BLIND))
+	if (affect_flag_on_char(ch, AFF_BLIND))
 		return FALSE;
 
 	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH))
@@ -2017,7 +2016,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	}
 
 	if (IS_OBJ_STAT(obj, ITEM_INVIS)
-	    && !IS_AFFECTED(ch, AFF_DETECT_INVIS))
+	    && !affect_flag_on_char(ch, AFF_DETECT_INVIS))
 		return FALSE;
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0)
@@ -2026,7 +2025,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_OBJ_STAT(obj, ITEM_GLOW))
 		return TRUE;
 
-	if (room_is_dark(ch->in_room) && !IS_AFFECTED(ch, AFF_INFRARED))
+	if (room_is_dark(ch->in_room) && !affect_flag_on_char(ch, AFF_INFRARED))
 		return FALSE;
 
 	return TRUE;
@@ -3295,7 +3294,7 @@ int get_age_mod(CHAR_DATA *ch)
 	return age;
 }
 
-/* used with IS_AFFECTED, checks to see if the affect has an evolution rating, returns 1 if not */
+/* checks to see if the affect has an evolution rating, returns 1 if not */
 int get_affect_evolution(CHAR_DATA *ch, int sn)
 {
 	int evo = 1;
