@@ -91,7 +91,7 @@ struct revoke_type
 #define FIELD_REVOKE	4
 #define	FIELD_CENSOR	5
 #define	FIELD_AFFECT	6
-#define	FIELD_DRAIN	7
+#define	FIELD_ABSORB	7
 #define FIELD_IMMUNE	8
 #define FIELD_RESIST	9
 #define	FIELD_VULN	10

@@ -26,6 +26,7 @@
 ***************************************************************************/
 
 #include "merc.h"
+#include "affect.h"
 
 #define MAX_DAMAGE_MESSAGE 40
 #define PKTIME 10       /* that's x3 seconds, 30 currently */
@@ -109,10 +110,11 @@ void violence_update(void)
 
 		if (ch->fighting == NULL) {
 			/* parasite pk timer off of violence_update.  don't forget it's 3 seconds -- Montrey */
-			if (!IS_NPC(ch))
-				if (ch->pcdata->pktimer)
-					if (--ch->pcdata->pktimer == 0)
-						REMOVE_BIT(ch->imm_flags, IMM_SHADOW);
+			if (!IS_NPC(ch)
+			 && ch->pcdata->pktimer
+			 && --ch->pcdata->pktimer == 0
+			 && is_affected(ch, gsn_shadow_form))
+				affect_remove_sn_from_char(ch, gsn_shadow_form);
 
 			continue;
 		}
@@ -161,8 +163,8 @@ void violence_update(void)
 		if (IS_NPC(ch)) {
 			if ((IS_SET(ch->act, ACT_WIMPY)
 			     && number_bits(2) == 0
-			     && ch->hit < ch->max_hit / 5)
-			    || (IS_AFFECTED(ch, AFF_CHARM)
+			     && ch->hit < ATTR_BASE(ch, APPLY_HIT) / 5)
+			    || (is_affected(ch, gsn_charm_person)
 			        && ch->master != NULL
 			        && ch->master->in_room != ch->in_room))
 				do_flee(ch, "");
@@ -173,7 +175,7 @@ void violence_update(void)
 		if (ch->fighting == NULL)
 			continue;
 
-		if (IS_AFFECTED(ch, AFF_FEAR))
+		if (is_affected(ch, gsn_fear))
 			do_flee(ch, "");
 
 		if ((victim = ch->fighting) == NULL)
@@ -182,7 +184,7 @@ void violence_update(void)
 		/* Mobs switch to master, no longer do multihits every round :P -- Montrey */
 		if (IS_NPC(ch)
 		    && IS_NPC(victim)
-		    && IS_AFFECTED(victim, AFF_CHARM)
+		    && is_affected(victim, gsn_charm_person)
 		    && victim->master != NULL
 		    && victim->master->in_room == ch->in_room
 		    && chance(15)) {
@@ -216,7 +218,7 @@ void combat_regen(CHAR_DATA *ch)
 		int sun_damage;
 
 		/* handle the regen first */
-		if (IS_SET(ch->in_room->room_flags, ROOM_DARK | ROOM_INDOORS)
+		if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_DARK | ROOM_INDOORS)
 		    || ch->in_room->sector_type == SECT_INSIDE
 		    || weather_info.sunlight == SUN_DARK)
 			hitgain += (ch->level / 10) + 1;
@@ -236,12 +238,7 @@ void combat_regen(CHAR_DATA *ch)
 			if (sun_damage < 0)
 				sun_damage = 1;
 
-			/* not bothering with vuln, vamps are vuln light anyway */
-			switch (check_immune(ch, DAM_LIGHT)) {
-			case IS_IMMUNE:         sun_damage = 0;                 break;
-
-			case IS_RESISTANT:      sun_damage = sun_damage / 2;    break;
-			}
+			sun_damage -= sun_damage * check_immune(ch, DAM_LIGHT) / 100;
 
 			if (sun_damage > 0) {
 				damage(ch->fighting, ch, sun_damage, 0, DAM_NONE, FALSE, TRUE);
@@ -253,14 +250,14 @@ void combat_regen(CHAR_DATA *ch)
 	}
 
 	/* remort affect - mage regen */
-	if (HAS_RAFF(ch, RAFF_MAGEREGEN) && ch->mana < ch->max_mana)
+	if (HAS_RAFF(ch, RAFF_MAGEREGEN) && ch->mana < ATTR_BASE(ch, APPLY_MANA))
 		managain += (ch->level / 20) + 1;
 
 	/* remort affect - vampire regen */
-	if (HAS_RAFF(ch, RAFF_VAMPREGEN) && ch->hit < ch->max_hit)
+	if (HAS_RAFF(ch, RAFF_VAMPREGEN) && ch->hit < ATTR_BASE(ch, APPLY_HIT))
 		hitgain += (ch->level / 20) + 1;
 
-	if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->stam < ch->max_stam)
+	if (is_affected(ch, gsn_regeneration) && ch->stam < ATTR_BASE(ch, APPLY_STAM))
 		switch (get_affect_evolution(ch, gsn_regeneration)) {
 		case 2: stamgain += ch->level / 30 + 2;   break;
 
@@ -271,7 +268,7 @@ void combat_regen(CHAR_DATA *ch)
 		default:                                break;
 		}
 
-	if (get_skill(ch, gsn_meditation) && ch->mana < ch->max_mana)
+	if (get_skill(ch, gsn_meditation) && ch->mana < ATTR_BASE(ch, APPLY_MANA))
 		switch (get_evolution(ch, gsn_meditation)) {
 		case 2: managain += ch->level / 30 + 2;   break;
 
@@ -282,7 +279,7 @@ void combat_regen(CHAR_DATA *ch)
 		default:                                break;
 		}
 
-	if (get_skill(ch, gsn_fast_healing) && ch->hit < ch->max_hit)
+	if (get_skill(ch, gsn_fast_healing) && ch->hit < ATTR_BASE(ch, APPLY_HIT))
 		switch (get_evolution(ch, gsn_fast_healing)) {
 		case 2: hitgain += ch->level / 30 + 2;    break;
 
@@ -293,7 +290,7 @@ void combat_regen(CHAR_DATA *ch)
 		default:                                break;
 		}
 
-	if (IS_AFFECTED(ch, AFF_DIVINEREGEN)) {
+	if (is_affected(ch, gsn_divine_regeneration)) {
 		int gain = 0;
 
 		switch (get_affect_evolution(ch, gsn_divine_regeneration)) {
@@ -311,11 +308,11 @@ void combat_regen(CHAR_DATA *ch)
 		stamgain += gain;
 	}
 
-	if (ch->hit < ch->max_hit)      ch->hit = UMIN(ch->max_hit, ch->hit + hitgain);
+	if (ch->hit < ATTR_BASE(ch, APPLY_HIT))      ch->hit = UMIN(ATTR_BASE(ch, APPLY_HIT), ch->hit + hitgain);
 
-	if (ch->mana < ch->max_mana)    ch->mana = UMIN(ch->max_mana, ch->mana + managain);
+	if (ch->mana < ATTR_BASE(ch, APPLY_MANA))    ch->mana = UMIN(ATTR_BASE(ch, APPLY_MANA), ch->mana + managain);
 
-	if (ch->stam < ch->max_stam)    ch->stam = UMIN(ch->max_stam, ch->stam + stamgain);
+	if (ch->stam < ATTR_BASE(ch, APPLY_STAM))    ch->stam = UMIN(ATTR_BASE(ch, APPLY_STAM), ch->stam + stamgain);
 }
 
 void check_all_cond(CHAR_DATA *ch)
@@ -326,7 +323,7 @@ void check_all_cond(CHAR_DATA *ch)
 	if (IS_NPC(ch) || IS_IMMORTAL(ch))
 		return;
 
-	if (get_affect(ch->affected, gsn_sheen))
+	if (is_affected(ch, gsn_sheen))
 		return;
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
@@ -346,13 +343,13 @@ void check_cond(CHAR_DATA *ch, OBJ_DATA *obj)
 		return;
 
 	/* sheen protects absolutely */
-	if (get_affect(ch->affected, gsn_sheen))
+	if (is_affected(ch, gsn_sheen))
 		return;
 
 	if ((number_range(0, 500)) != 100)
 		return;
 
-	if (IS_AFFECTED(ch, AFF_STEEL))
+	if (is_affected(ch, gsn_steel_mist))
 		obj->condition -= number_range(1, 4);
 	else
 		obj->condition -= number_range(1, 8);
@@ -409,10 +406,10 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 			}
 
 			/* PCs next */
-			if (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) {
+			if (!IS_NPC(ch) || is_affected(ch, gsn_charm_person)) {
 				if (((!IS_NPC(rch)
 				      && IS_SET(rch->act, PLR_AUTOASSIST))
-				     || IS_AFFECTED(rch, AFF_CHARM))
+				     || is_affected(rch, gsn_charm_person))
 				    && (rch->level != 0)
 				    && is_same_group(ch, rch)
 				    && !is_safe(rch, victim, TRUE))
@@ -422,7 +419,7 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 			}
 
 			/* now check the NPC cases */
-			if (IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM)) {
+			if (IS_NPC(ch) && !is_affected(ch, gsn_charm_person)) {
 				if ((IS_NPC(rch) && IS_SET(rch->off_flags, ASSIST_ALL))
 				    || (IS_NPC(rch) && rch->group && rch->group == ch->group)
 				    || (IS_NPC(rch) && rch->race == ch->race
@@ -499,7 +496,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 			check_improve(ch, gsn_dual_wield, FALSE, 6);
 	}
 
-	if (IS_AFFECTED(ch, AFF_HASTE))
+	if (is_affected(ch, gsn_haste))
 		one_hit(ch, victim, dt, FALSE);
 
 	if (!ch->fighting || dt == gsn_backstab)
@@ -510,7 +507,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (CAN_USE_RSKILL(ch, gsn_fourth_attack))
 		chance += get_skill(ch, gsn_fourth_attack) / 10;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (is_affected(ch, gsn_slow))
 		chance /= 2;
 
 	if (chance(chance)) {
@@ -526,7 +523,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (CAN_USE_RSKILL(ch, gsn_fourth_attack))
 		chance += get_skill(ch, gsn_fourth_attack) / 10;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (is_affected(ch, gsn_slow))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -539,7 +536,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(ch, gsn_fourth_attack) / 2;
 
-	if (IS_AFFECTED(ch, AFF_SLOW) || !CAN_USE_RSKILL(ch, gsn_fourth_attack))
+	if (is_affected(ch, gsn_slow) || !CAN_USE_RSKILL(ch, gsn_fourth_attack))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -553,7 +550,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (get_eq_char(ch, WEAR_SECONDARY)) {
 		chance = get_skill(ch, gsn_dual_second) / 2;
 
-		if (IS_AFFECTED(ch, AFF_SLOW) || !CAN_USE_RSKILL(ch, gsn_dual_second))
+		if (is_affected(ch, gsn_slow) || !CAN_USE_RSKILL(ch, gsn_dual_second))
 			chance = 0;
 
 		chance += ((get_evolution(ch, gsn_dual_wield) - 1) * 5);
@@ -585,7 +582,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	/* remort affect - weak grip */
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) != NULL
-	    && !IS_AFFECTED(ch, AFF_TALON)
+	    && !is_affected(ch, gsn_talon)
 	    && !IS_OBJ_STAT(obj, ITEM_NOREMOVE)
 	    && HAS_RAFF(ch, RAFF_WEAKGRIP)) {
 		if (number_range(1, 100) == 1) {
@@ -612,7 +609,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	int chance, number;
 
 	if (ch->fighting == NULL
-	    && victim->hit == victim->max_hit
+	    && victim->hit == ATTR_BASE(victim, APPLY_HIT)
 	    && (get_eq_char(ch, WEAR_WIELD) != NULL)
 	    && IS_SET(ch->off_flags, OFF_BACKSTAB)
 	    && get_skill(ch, gsn_backstab)) {
@@ -642,8 +639,8 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		}
 	}
 
-	if (IS_AFFECTED(ch, AFF_HASTE)
-	    || (IS_SET(ch->off_flags, OFF_FAST) && !IS_AFFECTED(ch, AFF_SLOW)))
+	if (is_affected(ch, gsn_haste)
+	    || (IS_SET(ch->off_flags, OFF_FAST) && !is_affected(ch, gsn_slow)))
 		one_hit(ch, victim, dt, FALSE);
 
 	if (!ch->fighting || dt == gsn_backstab)
@@ -651,7 +648,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(ch, gsn_second_attack) / 2;
 
-	if (IS_AFFECTED(ch, AFF_SLOW) && !IS_SET(ch->off_flags, OFF_FAST))
+	if (is_affected(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
 		chance /= 2;
 
 	if (chance(chance)) {
@@ -663,7 +660,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(ch, gsn_third_attack) / 4;
 
-	if (IS_AFFECTED(ch, AFF_SLOW) && !IS_SET(ch->off_flags, OFF_FAST))
+	if (is_affected(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -675,7 +672,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(ch, gsn_fourth_attack) / 6;
 
-	if (IS_AFFECTED(ch, AFF_SLOW) && !IS_SET(ch->off_flags, OFF_FAST))
+	if (is_affected(ch, gsn_slow) && !IS_SET(ch->off_flags, OFF_FAST))
 		chance = 0;
 
 	if (chance(chance)) {
@@ -699,7 +696,7 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		break;
 
 	case (1) :
-		if (IS_SET(ch->off_flags, OFF_BERSERK) && !IS_AFFECTED(ch, AFF_BERSERK))
+		if (IS_SET(ch->off_flags, OFF_BERSERK) && !is_affected(ch, gsn_berserk))
 			do_berserk(ch, "");
 
 		break;
@@ -960,13 +957,12 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 
 	/* but do we have a funky weapon? */
 	if (result && wield != NULL) {
-		AFFECT_DATA *weaponaff;
 		int dam, level, evolution;
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_POISON)) {
-			AFFECT_DATA af;
-
-			if ((weaponaff = get_affect(wield->affected, gsn_poison)) == NULL) {
+			AFFECT_DATA *weaponaff;
+			// get from temporary affects, we'll update it below
+			if ((weaponaff = affect_find_in_obj(wield, gsn_poison)) == NULL) {
 				level = wield->level;
 				evolution = 1;
 			}
@@ -978,6 +974,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 			if (!saves_spell(level / 2, victim, DAM_POISON)) {
 				stc("You feel poison coursing through your veins.\n", victim);
 				act("$n is poisoned by the venom on $p.", victim, wield, NULL, TO_ROOM);
+				AFFECT_DATA af;
 				af.where     = TO_AFFECTS;
 				af.type      = gsn_poison;
 				af.level     = level;
@@ -986,7 +983,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 				af.modifier  = -1;
 				af.bitvector = AFF_POISON;
 				af.evolution = evolution;
-				affect_join(victim, &af);
+				affect_join_to_char(victim, &af);
 			}
 
 			/* weaken the poison if it's temporary */
@@ -1001,11 +998,14 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 					weaponaff->level = 0;
 					weaponaff->duration = 0;
 				}
+
+				wield->affects_modified = TRUE;
 			}
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_VAMPIRIC)) {
-			if ((weaponaff = get_affect(wield->affected, gsn_blood_blade)) == NULL)
+			const AFFECT_DATA *weaponaff;
+			if ((weaponaff = affect_find_in_obj(wield, gsn_blood_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1037,7 +1037,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_FLAMING)) {
-			if ((weaponaff = get_affect(wield->affected, gsn_flame_blade)) == NULL)
+			const AFFECT_DATA *weaponaff;
+			if ((weaponaff = affect_find_in_obj(wield, gsn_flame_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1055,7 +1056,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_FROST)) {
-			if ((weaponaff = get_affect(wield->affected, gsn_frost_blade)) == NULL)
+			const AFFECT_DATA *weaponaff;
+			if ((weaponaff = affect_find_in_obj(wield, gsn_frost_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1073,7 +1075,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_SHOCKING)) {
-			if ((weaponaff = get_affect(wield->affected, gsn_shock_blade)) == NULL)
+			const AFFECT_DATA *weaponaff;
+			if ((weaponaff = affect_find_in_obj(wield, gsn_shock_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1122,7 +1125,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 	/* moved here from magic.c */
 	if (spell && focus)
-		if (get_affect(ch->affected, gsn_focus))
+		if (is_affected(ch, gsn_focus))
 			dam += number_range((dam / 4), (dam * 5 / 4));
 
 	if (ch->level < LEVEL_IMMORTAL) {
@@ -1178,11 +1181,12 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	}
 
 	/* Inviso attacks ... not. */
-	if (IS_AFFECTED(ch, AFF_INVISIBLE) || get_affect(ch->affected, gsn_midnight)) {
-		affect_strip(ch, gsn_invis);
-		affect_strip(ch, gsn_mass_invis);
-		affect_strip(ch, gsn_midnight);
-		REMOVE_BIT(ch->affected_by, AFF_INVISIBLE);
+	if (is_affected(ch, gsn_invis)
+	 || is_affected(ch, gsn_midnight)
+	 || is_affected(ch, gsn_mass_invis)) {
+		affect_remove_sn_from_char(ch, gsn_invis);
+		affect_remove_sn_from_char(ch, gsn_mass_invis);
+		affect_remove_sn_from_char(ch, gsn_midnight);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
 	}
 
@@ -1198,19 +1202,19 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	}
 
 	/* BARRIER reduces damage by (currently) 25% -- Elrac */
-	if (dam > 1 && get_affect(victim->affected, gsn_barrier))
+	if (dam > 1 && is_affected(victim, gsn_barrier))
 		dam -= dam / 4;
 
 	sanc_immune = FALSE;
 
-	if (dam > 1 && IS_AFFECTED(victim, AFF_SANCTUARY)) {
+	if (dam > 1 && is_affected(victim, gsn_sanctuary)) {
 		switch (get_affect_evolution(victim, gsn_sanctuary)) {
 		case 1:
 			dam = (dam * 60) / 100;
 			break;
 
 		case 2:
-			if (IS_AFFECTED(ch, AFF_CURSE))
+			if (is_affected(ch, gsn_curse))
 				dam = (dam * 45) / 100;
 			else
 				dam = (dam * 55) / 100;
@@ -1218,7 +1222,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			break;
 
 		case 3:
-			if (IS_AFFECTED(ch, AFF_CURSE))
+			if (is_affected(ch, gsn_curse))
 				dam = (dam * 40) / 100;
 			else
 				dam = (dam * 50) / 100;
@@ -1226,7 +1230,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			break;
 
 		case 4:
-			if (IS_AFFECTED(ch, AFF_CURSE)) {
+			if (is_affected(ch, gsn_curse)) {
 				dam = (dam * 35) / 100;
 
 				if (dam % 10 == 0) {
@@ -1241,8 +1245,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		}
 	}
 
-	if ((IS_AFFECTED(victim, AFF_PROTECT_EVIL) && IS_EVIL(ch))
-	    || (IS_AFFECTED(victim, AFF_PROTECT_GOOD) && IS_GOOD(ch)))
+	if ((is_affected(victim, gsn_protection_evil) && IS_EVIL(ch))
+	    || (is_affected(victim, gsn_protection_good) && IS_GOOD(ch)))
 		dam -= dam / 4;
 
 	/* remort affect - more damage */
@@ -1255,7 +1259,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 	immune = FALSE;
 
-	if (get_affect(victim->affected, gsn_force_shield) && (dam % 4 == 0) && !sanc_immune) {
+	if (is_affected(victim, gsn_force_shield) && (dam % 4 == 0) && !sanc_immune) {
 		immune = TRUE;
 		dam = 0;
 	}
@@ -1280,21 +1284,20 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		}
 
 		if (!spell) {
-			AFFECT_DATA *paf;
-
 			if (get_eq_char(ch, WEAR_WIELD) != NULL)
 				check_cond(ch, get_eq_char(ch, WEAR_WIELD));
 
-			if (IS_AFFECTED(victim, AFF_FLAMESHIELD) && !saves_spell(victim->level, ch, DAM_FIRE))
+			if (is_affected(victim, gsn_flameshield) && !saves_spell(victim->level, ch, DAM_FIRE))
 				damage(victim, ch, 5, find_spell(victim, "flameshield"),
 				       DAM_FIRE, TRUE, TRUE);
 
-			if (IS_AFFECTED(victim, AFF_SANCTUARY)
+			if (is_affected(victim, gsn_sanctuary)
 			    && get_affect_evolution(victim, gsn_sanctuary) >= 3
 			    && !saves_spell(victim->level, ch, DAM_HOLY))
 				damage(victim, ch, 5, gsn_sanctuary, DAM_HOLY, TRUE, TRUE);
 
-			if ((paf = get_affect(victim->affected, gsn_bone_wall)) != NULL
+			AFFECT_DATA *paf;
+			if ((paf = affect_find_in_char(victim, gsn_bone_wall)) != NULL
 			    && !saves_spell(paf->level, ch, DAM_PIERCE)) {
 				damage(victim, ch,
 				       UMAX(number_range(paf->level * 3 / 4, paf->level * 5 / 4), 5),
@@ -1307,20 +1310,12 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 		}
 	}
 
-	switch (check_immune(victim, dam_type)) {
-	case (IS_IMMUNE):
+	int def_mod = check_immune(victim, dam_type);
+
+	if (def_mod >= 100)
 		immune = TRUE;
-		dam = 0;
-		break;
 
-	case (IS_RESISTANT):
-		dam -= dam / 3;
-		break;
-
-	case (IS_VULNERABLE):
-		dam += dam / 2;
-		break;
-	}
+	dam -= dam * def_mod / 100;
 
 	/* new damage modification by armor -- Elrac and Sharra */
 	if (!IS_NPC(victim) && dam > 0 && !spell) {
@@ -1362,8 +1357,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	if (show)
 		dam_message(ch, victim, dam, dt, immune, sanc_immune);
 
-	if (dam == 0)
-		return FALSE;
+//	if (dam == 0)
+//		return FALSE;
 
 	if (!spell)
 		check_all_cond(victim);
@@ -1371,10 +1366,10 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	/* Hurt the victim.  Inform the victim of his new state. */
 	victim->hit -= dam;
 
-	if (dam > victim->max_hit / 4)
+	if (dam > ATTR_BASE(victim, APPLY_HIT) / 4)
 		stc("{PThat really did HURT!{x\n", victim);
 
-	if (victim->hit < victim->max_hit / 4)
+	if (victim->hit < ATTR_BASE(victim, APPLY_HIT) / 4)
 		stc("{PYou sure are BLEEDING!{x\n", victim);
 
 	/* are they dead yet? */
@@ -1422,8 +1417,8 @@ bool check_pulse(CHAR_DATA *victim)
 		if ((victim->hit > -11) && (victim->hit < 1)) {
 			victim->hit += (con_score / 10) * (die_hard_skill / 10);
 
-			if (victim->hit > victim->max_hit)
-				victim->hit = victim->max_hit;
+			if (victim->hit > ATTR_BASE(victim, APPLY_HIT))
+				victim->hit = ATTR_BASE(victim, APPLY_HIT);
 
 			stc("You make an effort to pull yourself together!\n", victim);
 			act("$n pulls themselves together!\n", victim, NULL, NULL, TO_ROOM);
@@ -1629,7 +1624,7 @@ bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 
 		if (!IS_NPC(ch)) {
 			/* no pets */
-			if (IS_SET(victim->act, ACT_PET) && IS_AFFECTED(victim, AFF_CHARM)) {
+			if (IS_SET(victim->act, ACT_PET) && is_affected(victim, gsn_charm_person)) {
 				if (showmsg)
 					act("But $N looks so cute and cuddly.", ch, NULL, victim, TO_CHAR);
 
@@ -1637,7 +1632,7 @@ bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 			}
 
 			/* no charmed creatures unless owner */
-			if (IS_AFFECTED(victim, AFF_CHARM) && ch != victim->master) {
+			if (is_affected(victim, gsn_charm_person) && ch != victim->master) {
 				if (showmsg)
 					stc("That is not your charmed creature!\n", ch);
 
@@ -1646,7 +1641,7 @@ bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 		}
 		else {
 			/* mob killing mob */
-			if (IS_AFFECTED(victim, AFF_CHARM)
+			if (is_affected(victim, gsn_charm_person)
 			    && ch->master != NULL && victim->master != NULL
 			    && !IS_NPC(ch->master) && !IS_NPC(victim->master)
 			    && ch->master != victim->master
@@ -1663,7 +1658,7 @@ bool is_safe_char(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 		/* NPC doing the killing */
 		if (IS_NPC(ch)) {
 			/* charmed mobs and pets cannot attack players while owned */
-			if (IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL
+			if (is_affected(ch, gsn_charm_person) && ch->master != NULL
 			    && ch->master->fighting != victim) {
 				if (showmsg)
 					stc("Players are your friends!\n", ch);
@@ -1714,7 +1709,7 @@ bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim, bool showmsg)
 //		return TRUE;
 
 	/* safe room? */
-	if (IS_SET(victim->in_room->room_flags, ROOM_SAFE)) {
+	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE)) {
 		if (showmsg)
 			stc("Oddly enough, in this room you feel peaceful.\n", ch);
 
@@ -1746,7 +1741,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	if (IS_IMMORTAL(ch) && ch->level >= LEVEL_IMMORTAL && !area)
 		return FALSE;
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE))
+	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SAFE))
 		return TRUE;
 
 	if (victim == ch && area)
@@ -1772,13 +1767,13 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 	if (IS_NPC(ch) && IS_SET(ch->act, ACT_MORPH) && !IS_NPC(victim))
 		return TRUE;
 
-	if (IS_AFFECTED(ch, AFF_FEAR))
+	if (is_affected(ch, gsn_fear))
 		return TRUE;
 
 	/* killing mobiles */
 	if (IS_NPC(victim)) {
 		/* safe room? */
-		if (IS_SET(victim->in_room->room_flags, ROOM_SAFE))
+		if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE))
 			return TRUE;
 
 		if (victim->pIndexData->pShop != NULL)
@@ -1797,7 +1792,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 				return TRUE;
 
 			/* no charmed creatures unless owner */
-			if (IS_AFFECTED(victim, AFF_CHARM) && (area || ch != victim->master))
+			if (is_affected(victim, gsn_charm_person) && (area || ch != victim->master))
 				return TRUE;
 
 			/* legal kill? -- cannot hit mob fighting non-group member */
@@ -1816,12 +1811,12 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 		/* NPC doing the killing */
 		if (IS_NPC(ch)) {
 			/* charmed mobs and pets cannot attack players while owned */
-			if (IS_AFFECTED(ch, AFF_CHARM) && ch->master != NULL
+			if (is_affected(ch, gsn_charm_person) && ch->master != NULL
 			    && ch->master->fighting != victim)
 				return TRUE;
 
 			/* safe room? */
-			if (IS_SET(victim->in_room->room_flags, ROOM_SAFE))
+			if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE))
 				return TRUE;
 
 			/* legal kill? -- mobs only hit players grouped with opponent*/
@@ -1830,7 +1825,7 @@ bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)
 		}
 		/* player doing the killing */
 		else {
-			if (IS_SET(victim->in_room->room_flags, ROOM_SAFE))
+			if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_SAFE))
 				return TRUE;
 
 			/* almost anything goes in questland if UPK is up */
@@ -1862,7 +1857,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	/* Follow charm thread to responsible character.  Attacking someone's charmed char is hostile!
 	   Beware, this will cause a loop if master->pet->master - Lotus */
-	while (IS_AFFECTED(victim, AFF_CHARM) && victim->master != NULL)
+	while (is_affected(victim, gsn_charm_person) && victim->master != NULL)
 		victim = victim->master;
 
 	/* NPC's are fair game.  So are killers and thieves. */
@@ -1887,13 +1882,12 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* Charm-o-rama, you can attack your charmed player */
-	if (IS_SET(ch->affected_by, AFF_CHARM)) {
+	if (is_affected(ch, gsn_charm_person)) {
 		if (ch->master == NULL) {
 			char buf[MAX_STRING_LENGTH];
 			sprintf(buf, "Check_killer: %s bad AFF_CHARM", IS_NPC(ch) ? ch->short_descr : ch->name);
 			bug(buf, 0);
-			affect_strip(ch, gsn_charm_person);
-			REMOVE_BIT(ch->affected_by, AFF_CHARM);
+			affect_remove_sn_from_char(ch, gsn_charm_person);
 			return;
 		}
 
@@ -1917,7 +1911,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* It's okay unless they were sleeping and haven't been attacked recently */
-	if ((get_position(victim) >= POS_RESTING) || (get_affect(ch->affected, gsn_sleep)))
+	if ((get_position(victim) >= POS_RESTING) || (is_affected(ch, gsn_sleep)))
 		return;
 
 	stc("{P*** You are now a KILLER!! ***{x\n", ch);
@@ -1979,7 +1973,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (!can_see(victim, ch))
 		chance /= 2;
 
-	if (get_affect(victim->affected, gsn_paralyze))
+	if (is_affected(victim, gsn_paralyze))
 		chance /= 2;
 
 	chance += victim->level - ch->level;
@@ -2075,7 +2069,7 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (!can_see(victim, ch))
 		chance /= 2;
 
-	if (get_affect(victim->affected, gsn_paralyze))
+	if (is_affected(victim, gsn_paralyze))
 		chance /= 2;
 
 	chance += victim->level - ch->level;
@@ -2157,7 +2151,7 @@ bool check_shblock(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(victim, gsn_shield_block) * 2 / 5;
 
-	if (get_affect(victim->affected, gsn_paralyze))
+	if (is_affected(victim, gsn_paralyze))
 		chance /= 2;
 
 	chance += (victim->level - ch->level);
@@ -2215,16 +2209,16 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	chance += 3 * ((get_curr_stat(victim, STAT_DEX)) - (get_curr_stat(ch, STAT_DEX)));
 
 	// speed and spells
-	if (IS_SET(victim->off_flags, OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
+	if (IS_SET(victim->off_flags, OFF_FAST) || is_affected(victim, gsn_haste))
 		chance += 10;
 
-	if (IS_SET(ch->off_flags, OFF_FAST) || IS_AFFECTED(ch, AFF_HASTE))
+	if (IS_SET(ch->off_flags, OFF_FAST) || is_affected(ch, gsn_haste))
 		chance -= 10;
 
-	if (IS_AFFECTED(victim, AFF_SLOW))
+	if (is_affected(victim, gsn_slow))
 		chance -= 10;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (is_affected(ch, gsn_slow))
 		chance += 10;
 
 	if (!can_see(victim, ch))
@@ -2237,7 +2231,7 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
 
-	if (get_affect(victim->affected, gsn_paralyze))
+	if (is_affected(victim, gsn_paralyze))
 		chance /= 2;
 
 #ifdef DEBUG_CHANCE
@@ -2300,16 +2294,16 @@ bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	chance += 3 * ((get_curr_stat(victim, STAT_DEX)) - (get_curr_stat(ch, STAT_DEX)));
 
 	// speed and spells
-	if (IS_SET(victim->off_flags, OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
+	if (IS_SET(victim->off_flags, OFF_FAST) || is_affected(victim, gsn_haste))
 		chance += 10;
 
-	if (IS_SET(ch->off_flags, OFF_FAST) || IS_AFFECTED(ch, AFF_HASTE))
+	if (IS_SET(ch->off_flags, OFF_FAST) || is_affected(ch, gsn_haste))
 		chance -= 10;
 
-	if (IS_AFFECTED(victim, AFF_SLOW))
+	if (is_affected(victim, gsn_slow))
 		chance -= 10;
 
-	if (IS_AFFECTED(ch, AFF_SLOW))
+	if (is_affected(ch, gsn_slow))
 		chance += 10;
 
 	if (!can_see(victim, ch))
@@ -2322,7 +2316,7 @@ bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
 
-	if (get_affect(victim->affected, gsn_paralyze))
+	if (is_affected(victim, gsn_paralyze))
 		chance /= 2;
 
 #ifdef DEBUG_CHANCE
@@ -2390,8 +2384,8 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 
-	if (get_affect(ch->affected, gsn_sleep))
-		affect_strip(ch, gsn_sleep);
+	if (is_affected(ch, gsn_sleep))
+		affect_remove_sn_from_char(ch, gsn_sleep);
 
 	ch->fighting = victim;
 
@@ -2682,8 +2676,7 @@ void raw_kill(CHAR_DATA *victim)
 		return;
 	}
 
-	while (victim->affected)
-		affect_remove(victim, victim->affected);
+	affect_remove_all_from_char(victim);
 
 	if (victim->in_room->sector_type != SECT_ARENA
 	    && victim->in_room->sector_type != SECT_CLANARENA
@@ -2707,8 +2700,8 @@ void raw_kill(CHAR_DATA *victim)
 		realdeath = FALSE;
 	}
 
-	REMOVE_BIT(victim->imm_flags, IMM_SHADOW);
-	victim->affected_by = race_table[victim->race].aff;
+	// TODO: reset affects to racial? or maybe a debugging message if they didn't come off right
+
 	victim->position    = POS_RESTING;
 	victim->hit         = UMAX(1, victim->hit);
 	victim->mana        = UMAX(1, victim->mana);
@@ -2969,7 +2962,7 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int diff_cla
 	     + ((xp / 3)
 	        * (100 * URANGE(1,
 	                        (get_play_seconds(gch) / (MUD_YEAR * MUD_MONTH * MUD_DAY * MUD_HOUR))
-	                        + get_age_mod(gch),
+	                        + GET_ATTR_MOD(gch, APPLY_AGE),
 	                        50) / 50) / 100);
 
 	/* remort affect - favor of the gods */
@@ -3009,6 +3002,7 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels, int diff_cla
 	return xp;
 } /* end xp_compute */
 
+// TODO: fix this for defense % modifiers
 void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune, bool sanc_immune)
 {
 	char buf1[MAX_INPUT_LENGTH], buf2[MAX_INPUT_LENGTH], buf3[MAX_INPUT_LENGTH];
@@ -3020,7 +3014,8 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, bool immune,
 	if (ch == NULL || victim == NULL)
 		return;
 
-	if (dam ==   0) { vs = "{Ymiss{x";                         vp = "{Ymisses{x";                      }
+	if (dam < 0)         { vs = "{Ghit{x";                              vp = "{Gheals{x"; }
+	else if (dam ==   0) { vs = "{Ymiss{x";                         vp = "{Ymisses{x";                      }
 	else if (dam <=   4) { vs = "{bscratch{x";                      vp = "{bscratches{x";                   }
 	else if (dam <=   8) { vs = "{Ggraze{x";                        vp = "{Ggrazes{x";                      }
 	else if (dam <=  12) { vs = "{Hhit{x";                          vp = "{Hhits{x";                        }
@@ -3133,12 +3128,12 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_BERSERK) || get_affect(ch->affected, gsn_berserk) || get_affect(ch->affected, gsn_frenzy)) {
+	if (is_affected(ch, gsn_berserk) || is_affected(ch, gsn_berserk) || is_affected(ch, gsn_frenzy)) {
 		stc("You get a little madder.\n", ch);
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CALM)) {
+	if (is_affected(ch, gsn_calm)) {
 		stc("You're feeling to mellow to berserk.\n", ch);
 		return;
 	}
@@ -3153,33 +3148,36 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		chance += 10;
 
 	/* damage -- below 50% of hp helps, above hurts */
-	hp_percent = 100 * ch->hit / ch->max_hit;
+	hp_percent = 100 * ch->hit / ATTR_BASE(ch, APPLY_HIT);
 	chance += 25 - hp_percent / 2;
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
 		WAIT_STATE(ch, PULSE_VIOLENCE);
 		/* heal a little damage */
 		ch->hit += ch->level * 2;
-		ch->hit = UMIN(ch->hit, ch->max_hit);
+		ch->hit = UMIN(ch->hit, ATTR_BASE(ch, APPLY_HIT));
 		stc("Your pulse races as you are consumed by rage!\n", ch);
 		act("$n gets a wild look in $s eyes.", ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_berserk, TRUE, 2);
+
+		AFFECT_DATA af;
 		af.where        = TO_AFFECTS;
 		af.type         = gsn_berserk;
 		af.level        = ch->level;
 		af.duration     = number_fuzzy(ch->level / 8);
 		af.bitvector    = AFF_BERSERK;
 		af.evolution    = get_evolution(ch, gsn_berserk);
-		af.modifier     = IS_NPC(ch) ? ch->level / 8 : get_true_hitroll(ch) / 5;
+		af.modifier     = IS_NPC(ch) ? ch->level / 8 : GET_HITROLL(ch) / 5;
 		af.location     = APPLY_HITROLL;
-		copy_affect_to_char(ch, &af);
-		af.modifier     = IS_NPC(ch) ? ch->level / 8 : get_true_damroll(ch) / 5;
+		affect_copy_to_char(ch, &af);
+
+		af.modifier     = IS_NPC(ch) ? ch->level / 8 : GET_HITROLL(ch) / 5;
 		af.location     = APPLY_DAMROLL;
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
+
 		af.modifier     = UMAX(10, 10 * (ch->level / 5));
 		af.location     = APPLY_AC;
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -3242,7 +3240,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+	if (is_affected(ch, gsn_charm_person) && ch->master == victim) {
 		act("But $N is your friend!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3301,12 +3299,12 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	        chance += ((GET_HITROLL(ch) - 120) / 16);
 	}*/
 	/* less bashable if translucent -- Elrac */
-//	if ( IS_AFFECTED(victim,AFF_PASS_DOOR) )
+//	if ( is_affected(victim,AFF_PASS_DOOR) )
 //		chance -= chance / 3;
 	/*Change in chance based on STR and score and stamina*/
 	chance += 3 * (get_curr_stat(ch, STAT_STR) - get_curr_stat(victim, STAT_STR));
 	// stamina mod, scale by their remaining stamina
-	chance = chance * victim->max_stam / UMAX(victim->stam, 1);
+	chance = chance * ATTR_BASE(victim, APPLY_STAM) / UMAX(victim->stam, 1);
 	/*Change in chance based on carried weight of both involved*/
 	// hard to balance this for mobs -- Montrey (2014)
 //	chance += (get_carry_weight(ch) - get_carry_weight(victim)) / 300;
@@ -3385,16 +3383,16 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(victim, AFF_BLIND)) {
+	if (is_affected(victim, gsn_blindness)) {
 		act("$E has already been blinded.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_FLYING))
+	if (is_affected(ch, gsn_fly))
 		/*
 		gsn_fly isn't used anywhere else, so I don't think we need it.
 		-- Outsider
-		|| get_affect(ch->affected, gsn_fly))
+		|| is_affected(ch, gsn_fly))
 		*/
 	{
 		stc("How do you expect to kick dirt while flying?\n", ch);
@@ -3418,7 +3416,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+	if (is_affected(ch, gsn_charm_person) && ch->master == victim) {
 		act("But $N is such a good friend!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3432,10 +3430,10 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	chance -= 2 * get_curr_stat(victim, STAT_DEX);
 
 	/* speed  */
-	if (IS_SET(ch->off_flags, OFF_FAST) || IS_AFFECTED(ch, AFF_HASTE))
+	if (IS_SET(ch->off_flags, OFF_FAST) || is_affected(ch, gsn_haste))
 		chance += 10;
 
-	if (IS_SET(victim->off_flags, OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
+	if (IS_SET(victim->off_flags, OFF_FAST) || is_affected(victim, gsn_haste))
 		chance -= 25;
 
 	/* level */
@@ -3477,13 +3475,14 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	check_killer(ch, victim);
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
 		act("$n is blinded by the dirt in $s eyes!", victim, NULL, NULL, TO_ROOM);
 		act("$n kicks dirt in your eyes!", ch, NULL, victim, TO_VICT);
 		damage(ch, victim, number_range(2, 5), gsn_dirt_kicking, DAM_NONE, FALSE, FALSE);
 		stc("You can't see a thing!\n", victim);
 		check_improve(ch, gsn_dirt_kicking, TRUE, 2);
 		WAIT_STATE(ch, skill_table[gsn_dirt_kicking].beats);
+
+		AFFECT_DATA af;
 		af.where        = TO_AFFECTS;
 		af.type         = gsn_dirt_kicking;
 		af.level        = ch->level;
@@ -3492,7 +3491,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		af.modifier     = -4;
 		af.bitvector    = AFF_BLIND;
 		af.evolution    = get_evolution(ch, gsn_dirt_kicking);
-		copy_affect_to_char(victim, &af);
+		affect_copy_to_char(victim, &af);
 	}
 	else {
 		act("Your kicked dirt MISSES $N!", ch, NULL, victim, TO_CHAR);
@@ -3514,10 +3513,10 @@ bool trip(CHAR_DATA *ch, CHAR_DATA *victim, int chance, int dam_type)
 	chance -= get_curr_stat(victim, STAT_DEX) * 3 / 2;
 
 	/* speed */
-	if (IS_SET(ch->off_flags, OFF_FAST) || IS_AFFECTED(ch, AFF_HASTE))
+	if (IS_SET(ch->off_flags, OFF_FAST) || is_affected(ch, gsn_haste))
 		chance += 10;
 
-	if (IS_SET(victim->off_flags, OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
+	if (IS_SET(victim->off_flags, OFF_FAST) || is_affected(victim, gsn_haste))
 		chance -= 20;
 
 	/* level */
@@ -3591,7 +3590,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(victim, AFF_FLYING)) {
+	if (is_affected(victim, gsn_fly)) {
 		act("$S feet aren't on the ground.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3601,7 +3600,7 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+	if (is_affected(ch, gsn_charm_person) && ch->master == victim) {
 		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3673,7 +3672,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_FEAR)) {
+	if (is_affected(ch, gsn_fear)) {
 		stc("But they would beat the stuffing out of you!!\n", ch);
 		return;
 	}
@@ -3692,7 +3691,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+	if (is_affected(ch, gsn_charm_person) && ch->master == victim) {
 		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -3895,7 +3894,6 @@ void do_battle(CHAR_DATA *ch, const char *argument)
 void do_sing(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
 	int singchance;
 
 	if (argument[0] == '\0') {
@@ -3911,7 +3909,7 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim, TRUE))
 		return;
 
-	if (IS_SET(victim->in_room->room_flags, ROOM_LAW)) {
+	if (IS_SET(GET_ROOM_FLAGS(victim->in_room), ROOM_LAW)) {
 		stc("The mayor does not approve of your playing style.\n", ch);
 		return;
 	}
@@ -3936,8 +3934,8 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 
 	WAIT_STATE(ch, skill_table[gsn_sing].beats);
 
-	if (IS_AFFECTED(victim, AFF_CHARM)
-	    || IS_AFFECTED(ch, AFF_CHARM))
+	if (is_affected(victim, gsn_charm_person)
+	    || is_affected(ch, gsn_charm_person))
 		return;
 
 	singchance = get_skill(ch, gsn_sing) / 2;
@@ -3957,15 +3955,7 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 	if (!IS_NPC(ch) && ch->class == 6)      /* bards */
 		singchance += singchance / 3;
 
-	switch (check_immune(victim, DAM_CHARM)) {
-	case IS_IMMUNE:         singchance = 0;                 break;
-
-	case IS_RESISTANT:      singchance /= 2;                break;
-
-	case IS_VULNERABLE:     singchance += singchance / 2;     break;
-
-	default:                                                break;
-	}
+	singchance -= singchance * check_immune(victim, DAM_CHARM) / 100;
 
 	/*Moderate the final chance*/
 	singchance = URANGE(0, singchance, (101 - (victim->level / 2)));
@@ -3985,6 +3975,8 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 
 	add_follower(victim, ch);
 	victim->leader = ch;
+
+	AFFECT_DATA af;
 	af.where     = TO_AFFECTS;
 	af.type      = gsn_charm_person;
 	af.level     = ch->level;
@@ -3993,7 +3985,8 @@ void do_sing(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = AFF_CHARM;
 	af.evolution = get_evolution(ch, gsn_sing);
-	copy_affect_to_char(victim, &af);
+	affect_copy_to_char(victim, &af);
+
 	act("Isn't $n's music beautiful?", ch, NULL, victim, TO_VICT);
 
 	if (ch != victim)
@@ -4049,7 +4042,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (victim->hit < victim->max_hit) {
+	if (victim->hit < ATTR_BASE(victim, APPLY_HIT)) {
 		act("$N is hurt and suspicious ... you can't sneak up.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -4121,7 +4114,7 @@ void do_shadow(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	if (IS_SET(victim->imm_flags, IMM_SHADOW)) {
+	if (is_affected(victim, gsn_shadow_form)) {
 		act("$N has seen shadow form before and could easily avoid the attack.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -4148,7 +4141,13 @@ void do_shadow(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, gsn_shadow_form, DAM_NONE, TRUE, FALSE);
 	}
 
-	SET_BIT(victim->imm_flags, IMM_SHADOW);
+	AFFECT_DATA af;
+	af.where = TO_AFFECTS;
+	af.type = gsn_shadow_form;
+	af.level = ch->level;
+	af.duration = -1; // will be removed other ways
+	af.evolution = get_evolution(ch, gsn_shadow_form);
+	affect_copy_to_char(victim, &af);
 } /* end do_shadow */
 
 void do_circle(CHAR_DATA *ch, const char *argument)
@@ -4271,9 +4270,9 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		    || pexit->u1.to_room == NULL
 		    || !can_see_room(ch, pexit->u1.to_room)
 		    || (IS_SET(pexit->exit_info, EX_CLOSED)
-		        && (!IS_AFFECTED(ch, AFF_PASS_DOOR)
+		        && (!is_affected(ch, gsn_pass_door)
 		            || IS_SET(pexit->exit_info, EX_NOPASS)))
-		    || (IS_NPC(ch) && IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB)))
+		    || (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)))
 			continue;
 
 		topp++;
@@ -4294,9 +4293,9 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		    || pexit->u1.to_room == NULL
 		    || !can_see_room(ch, pexit->u1.to_room)
 		    || (IS_SET(pexit->exit_info, EX_CLOSED)
-		        && (!IS_AFFECTED(ch, AFF_PASS_DOOR)
+		        && (!is_affected(ch, gsn_pass_door)
 		            || IS_SET(pexit->exit_info, EX_NOPASS)))
-		    || (IS_NPC(ch) && IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB)))
+		    || (IS_NPC(ch) && IS_SET(GET_ROOM_FLAGS(pexit->u1.to_room), ROOM_NO_MOB)))
 			continue;
 
 		if (!chance(chance))
@@ -4456,7 +4455,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 
 		if (evo >= 3) {
 			if (get_position(victim) == POS_FIGHTING
-			    && !IS_AFFECTED(victim, AFF_FLYING)
+			    && !is_affected(victim, gsn_fly)
 			    && chance(30)) {
 				if (trip(ch, victim, skill, gsn_footsweep)) {
 					act("$n sweeps your feet out from under you!", ch, NULL, victim, TO_VICT);
@@ -4564,12 +4563,12 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		}
 
 		/* additional -20% if you're blind */
-		if ((IS_AFFECTED(ch, AFF_BLIND)) && (blind_fight_skill < 50))
+		if ((is_affected(ch, gsn_blindness)) && (blind_fight_skill < 50))
 			modifier -= 20;
 	}
 
 	/* if you're blind, can't disarm, unless you're evo 2 or higher */
-	if ((IS_AFFECTED(ch, AFF_BLIND)) && (blind_fight_skill < 50)) {
+	if ((is_affected(ch, gsn_blindness)) && (blind_fight_skill < 50)) {
 		switch (evo) {
 		case 1: stc("You can't see your opponent's weapon to disarm them!\n", ch);
 			return;
@@ -4602,7 +4601,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_table[gsn_disarm].beats);
 
 	/* evo 1 talon give 60% save, 70% at 2, 80% at 3, 90% at 4 */
-	if (IS_AFFECTED(victim, AFF_TALON)) {
+	if (is_affected(victim, gsn_talon)) {
 		int talonchance = 65;
 
 		switch (get_affect_evolution(victim, gsn_talon)) {
@@ -4774,7 +4773,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_disarm, FALSE, 1);
 	}
 
-	if ((IS_AFFECTED(ch, AFF_BLIND)) && (blind_fight_skill > 0))
+	if ((is_affected(ch, gsn_blindness)) && (blind_fight_skill > 0))
 		check_improve(ch, gsn_blind_fight, FALSE, 1);
 }
 
@@ -4823,29 +4822,6 @@ void do_slay(CHAR_DATA *ch, const char *argument)
 		do_send_announce(victim, buf);
 	}
 } /* end do_slay */
-
-/* Mud sometimes incorrectly removes eq spells.  Aka, after death in arena. */
-void eqcheck(CHAR_DATA *ch)
-{
-	int iWear;
-	OBJ_DATA *obj;
-	AFFECT_DATA *paf;
-	long filter;
-
-	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
-		if ((obj = get_eq_char(ch, iWear)) != NULL) {
-			for (paf = obj->affected; paf != NULL; paf = paf->next) {
-				filter = paf->bitvector;
-				filter = !filter;
-				filter |= ch->affected_by;
-				filter = !filter;
-
-				if (!IS_SET(ch->affected_by, filter) && paf->where == TO_AFFECTS)
-					SET_BIT(ch->affected_by, paf->bitvector);
-			}
-		}
-	}
-} /* end eqcheck */
 
 void do_rotate(CHAR_DATA *ch, const char *argument)
 {
@@ -4909,18 +4885,19 @@ void do_hammerstrike(CHAR_DATA *ch, const char *argument)
 
 	chance = get_skill(ch, gsn_hammerstrike);
 
-	if (get_affect(ch->affected, gsn_hammerstrike)) {
+	if (is_affected(ch, gsn_hammerstrike)) {
 		stc("Are you insane?!?\n", ch);
 		return;
 	}
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
 		WAIT_STATE(ch, PULSE_VIOLENCE);
 		ch->stam -= ch->stam / 3;
 		stc("The gods strike you with a lightning bolt of power!\n", ch);
 		act("$n is lit on fire by a blue bolt of godly power.", ch, NULL, NULL, TO_ROOM);
 		check_improve(ch, gsn_hammerstrike, TRUE, 2);
+
+		AFFECT_DATA af;
 		af.where        = TO_AFFECTS;
 		af.type         = gsn_hammerstrike;
 		af.level        = ch->level;
@@ -4929,10 +4906,11 @@ void do_hammerstrike(CHAR_DATA *ch, const char *argument)
 		af.evolution    = get_evolution(ch, gsn_hammerstrike);
 		af.modifier     = get_true_hitroll(ch) / 4;
 		af.location     = APPLY_HITROLL;
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
+
 		af.modifier     = get_true_damroll(ch) / 4;
 		af.location     = APPLY_DAMROLL;
-		copy_affect_to_char(ch, &af);
+		affect_copy_to_char(ch, &af);
 	}
 	else {
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -4979,7 +4957,7 @@ void do_critical_blow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	chance = 100 - (((ch->fighting->hit * 100) / ch->fighting->max_hit) * 3);
+	chance = 100 - (((ch->fighting->hit * 100) / GET_ATTR(ch->fighting, APPLY_HIT)) * 3);
 
 	if (!chance)
 		chance = 1;
@@ -5059,7 +5037,7 @@ void do_rage(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE) && !IS_IMMORTAL(ch)) {
+	if (IS_SET(GET_ROOM_FLAGS(ch->in_room), ROOM_SAFE) && !IS_IMMORTAL(ch)) {
 		stc("Oddly enough, in this room you feel peaceful.", ch);
 		return;
 	}
@@ -5169,7 +5147,7 @@ void do_lay_on_hands(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_table[gsn_lay_on_hands].beats);
 	heal = ch->level;
 	heal = (heal * skill) / 100;
-	victim->hit = UMIN(victim->hit + heal, victim->max_hit);
+	victim->hit = UMIN(victim->hit + heal, ATTR_BASE(victim, APPLY_HIT));
 	update_pos(victim);
 	stc("You feel better.\n", victim);
 	stc("Your hands glow softly as a sense of divine power travels through you.\n", ch);
@@ -5302,7 +5280,7 @@ void do_bow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_FEAR)) {
+	if (is_affected(ch, gsn_fear)) {
 		stc("But they would beat the stuffing out of you!!\n", ch);
 		return;
 	}
@@ -5321,7 +5299,7 @@ void do_bow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
+	if (is_affected(ch, gsn_charm_person) && ch->master == victim) {
 		act("$N is your beloved master.", ch, NULL, victim, TO_CHAR);
 		return;
 	}

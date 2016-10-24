@@ -337,8 +337,8 @@ const struct race_type race_table[] = {
 	},
 	{
 		"school monster",       FALSE,
-		ACT_NOALIGN,            0,      0,
-		IMM_CHARM | IMM_SUMMON,   0,      VULN_MAGIC,
+		ACT_NOALIGN|ACT_NOSUMMON,            0,      0,
+		IMM_CHARM,   0,      VULN_MAGIC,
 		A | M | V,          A | B | C | D | E | F | H | J | K | Q | U
 	},
 	{
@@ -2437,6 +2437,14 @@ const   struct  skill_type      skill_table     [MAX_SKILL]     = {
 		&gsn_die_hard, SLOT(0), 0, 4,
 		"", "", "", 0,
 		{0, 0, 0, 0, 0, 0, 0, 0}, { 0, 0, 0, 0, 0, 0, 0, 0}
+	},
+	{  // TODO: need to have a way to add gsns with no attached skill
+		"night vision",                { -1, -1, -1, -1, -1, -1, -1, -1 },
+		{ -1, -1, -1, -1, -1, -1, -1, -1 },
+		spell_null,            TAR_IGNORE,     POS_RESTING,
+		&gsn_night_vision,             SLOT(0),        15,     12,
+		"",        "You can no longer see in the dark.",      "",     -1,
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },     { 0, 0, 0, 0, 0, 0, 0, 0 }
 	},
 
 	/* Remort spells and skills, originally by Elrac */

@@ -282,7 +282,7 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 			if ((room = get_room_index(vnum)) == NULL)
 				continue;
 
-			if (!IS_SET(room->room_flags, ROOM_NO_RECALL))
+			if (!IS_SET(GET_ROOM_FLAGS(room), ROOM_NO_RECALL))
 				continue;
 
 			for (x = 0; x <= 5; x++)
@@ -304,7 +304,7 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 			if ((room = get_room_index(vnum)) == NULL)
 				continue;
 
-			if (IS_SET(room->room_flags, ROOM_NOLIGHT))
+			if (IS_SET(GET_ROOM_FLAGS(room), ROOM_NOLIGHT))
 				ptc(ch, "{W[{P%5d{W]{x %s\n", vnum, room->name);
 		}
 

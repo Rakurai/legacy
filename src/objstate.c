@@ -6,6 +6,7 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "affect.h"
 
 /* see if an object has contents that don't appear in it's 'put' resets, return
    TRUE if so.  we don't save normal objects that lie around */
@@ -62,7 +63,6 @@ bool is_worth_saving(OBJ_DATA *obj)
 void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
 {
 	OBJ_DATA *cobj;
-	AFFECT_DATA *paf;
 	EXTRA_DESCR_DATA *ed;
 	int i = 0;
 	fprintf(fp, "OBJ\n%d %d %d %d ",
@@ -117,7 +117,7 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
 		        obj->value[0], obj->value[1], obj->value[2], obj->value[3], obj->value[4]);
 
 	if (obj->enchanted) {
-		for (paf = obj->affected; paf; paf = paf->next) {
+		for (const AFFECT_DATA *paf = obj->perm_affected; paf; paf = paf->next) {
 			if (paf->type < 0 || paf->type >= MAX_SKILL)
 				continue;
 
@@ -208,28 +208,23 @@ OBJ_DATA *fload_objstate(FILE *fp)
 	while (!done) { /* loop over all lines of obj desc */
 		switch (fread_letter(fp)) {
 		case 'A': {
-				AFFECT_DATA *paf;
-				int sn;
-				paf = new_affect();
-				sn = skill_lookup(fread_word(fp));
+				AFFECT_DATA af;
 
-				if (sn < 0) {
-					free_affect(paf);
+				af.type = skill_lookup(fread_word(fp));
+
+				if (af.type < 0) {
 					fread_to_eol(fp);
 					continue;
 				}
-				else
-					paf->type = sn;
 
-				paf->where      = fread_number(fp);
-				paf->level      = fread_number(fp);
-				paf->duration   = fread_number(fp);
-				paf->modifier   = fread_number(fp);
-				paf->location   = fread_number(fp);
-				paf->bitvector  = fread_number(fp);
-				paf->evolution  = fread_number(fp);
-				paf->next       = obj->affected;
-				obj->affected   = paf;
+				af.where      = fread_number(fp);
+				af.level      = fread_number(fp);
+				af.duration   = fread_number(fp);
+				af.modifier   = fread_number(fp);
+				af.location   = fread_number(fp);
+				af.bitvector  = fread_number(fp);
+				af.evolution  = fread_number(fp);
+				affect_copy_to_obj(obj, &af);
 				break;
 			}
 

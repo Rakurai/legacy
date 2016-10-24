@@ -29,10 +29,31 @@
 #include "tables.h"
 #include "recycle.h"
 #include "magic.h"
+#include "affect.h"
 
 /*****
  Remort Affects Stuff
  *****/
+void compile_raffect_mod(CHAR_DATA *ch) {
+	if (IS_NPC(ch) || ch->pcdata->remort_count <= 0)
+		return;
+
+	if (ch->pcdata->raffect_mod)
+		free_stats(ch->pcdata->raffect_mod)
+
+	ch->pcdata->raffect_mod = new_stats();
+
+	for (int i = 0; i < ch->pcdata->remort_count / 10 + 1; i++) {
+		struct raffects r = raffects[ch->pcdata->raffect[i]];
+
+		if (r.id >= 900 && r.id <= 949)
+			SET_BIT(ch->pcdata->raffect_mod->flags[TO_VULN], r.add);
+		else if (r.id >= 950 && r.id <= 999)
+			SET_BIT(ch->pcdata->raffect_mod->flags[TO_RESIST], r.add);
+	}
+
+	
+}
 
 /* take a raff id and return the index number, 0 if a null raff */
 int raff_lookup(int index)
@@ -77,9 +98,9 @@ void rem_raff_affect(CHAR_DATA *ch, int index)
 {
 	if (raffects[index].add) {
 		if ((raffects[index].id >= 900) && (raffects[index].id <= 949))
-			REMOVE_BIT(ch->vuln_flags, raffects[index].add);
+			REMOVE_BIT(GET_FLAGS(ch, TO_VULN), raffects[index].add);
 		else if ((raffects[index].id >= 950) && (raffects[index].id <= 999))
-			REMOVE_BIT(ch->res_flags, raffects[index].add);
+			REMOVE_BIT(GET_FLAGS(ch, TO_RESIST), raffects[index].add);
 	}
 
 	return;
@@ -143,14 +164,14 @@ void roll_one_raff(CHAR_DATA *ch, CHAR_DATA *victim, int place)
 		else if ((raffects[test].id >= 900)
 		         && (raffects[test].id <= 949) /* if it's a vuln... */
 		         && (number_percent() <= (raffects[test].chance - (victim->pcdata->remort_count / 10)))
-		         && (!IS_SET(victim->vuln_flags, raffects[test].add)) /* checks current vulns */
-		         && (!IS_SET(victim->res_flags, raffects[test].add))) /* checks for opposite */
+		         && (!IS_SET(GET_FLAGS(victim, TO_VULN), raffects[test].add)) /* checks current vulns */
+		         && (!IS_SET(GET_FLAGS(victim, TO_RESIST), raffects[test].add))) /* checks for opposite */
 			can_add = TRUE;
 		else if ((raffects[test].id >= 950)
 		         && (raffects[test].id <= 999) /* if it's a res... */
 		         && (number_percent() <= (raffects[test].chance + (victim->pcdata->remort_count / 10)))
-		         && (!IS_SET(victim->res_flags, raffects[test].add)) /* checks current res's */
-		         && (!IS_SET(victim->vuln_flags, raffects[test].add))) /* checks for opposite */
+		         && (!IS_SET(GET_FLAGS(victim, TO_RESIST), raffects[test].add)) /* checks current res's */
+		         && (!IS_SET(GET_FLAGS(victim, TO_VULN), raffects[test].add))) /* checks for opposite */
 			can_add = TRUE;
 
 		if (HAS_RAFF(victim, raffects[test].id))
@@ -167,9 +188,9 @@ void roll_one_raff(CHAR_DATA *ch, CHAR_DATA *victim, int place)
 
 	if (raffects[test].add != 0) {
 		if ((raffects[test].id >= 900) && (raffects[test].id <= 949))
-			SET_BIT(victim->vuln_flags, raffects[test].add);
+			SET_BIT(GET_FLAGS(victim, TO_VULN), raffects[test].add);
 		else if ((raffects[test].id >= 950) && (raffects[test].id <= 999))
-			SET_BIT(victim->res_flags, raffects[test].add);
+			SET_BIT(GET_FLAGS(victim, TO_RESIST), raffects[test].add);
 	}
 
 	if (ch != victim)
@@ -186,6 +207,8 @@ void roll_raffects(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	for (c = 0; c < victim->pcdata->remort_count / 10 + 1; c++)
 		roll_one_raff(ch, victim, c);
+
+	compile_raffect_mod(victim);
 }
 
 /*****
@@ -389,7 +412,6 @@ void do_eremort(CHAR_DATA *ch, const char *argument)
 void do_remort(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA *af, *af_next;
 	char arg1[MIL], arg2[MIL], arg3[MIL], buf[MSL];
 	int race, x, c;
 	argument = one_argument(argument, arg1);
@@ -465,33 +487,24 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	for (af = victim->affected; af != NULL; af = af_next) {
-		af_next = af->next;
-		affect_remove(victim, af);
-	}
+	affect_remove_all_from_char(victim);
 
 	victim->level                   = 1;
 	victim->race                    = race;
-	victim->max_hit                 = 20;
-	victim->max_mana                = 100;
-	victim->max_stam                = 100;
-	victim->hit                     = victim->max_hit;
-	victim->mana                    = victim->max_mana;
-	victim->stam                    = victim->max_stam;
-	victim->pcdata->perm_hit        = victim->max_hit;
-	victim->pcdata->perm_mana       = victim->max_mana;
-	victim->pcdata->perm_stam       = victim->max_stam;
-	victim->affected_by             = race_table[race].aff;
-	victim->imm_flags               = race_table[race].imm;
-	victim->res_flags               = race_table[race].res;
-	victim->vuln_flags              = race_table[race].vuln;
+	victim->hit = ATTR_BASE(victim, APPLY_HIT)   = 20;
+	victim->mana = ATTR_BASE(victim, APPLY_MANA) = 100;
+	victim->stam = ATTR_BASE(victim, APPLY_STAM) = 100;
+
+	// add their permanent affects
+	affect_reset_char(victim);
+
 	victim->form                    = race_table[race].form;
 	victim->parts                   = race_table[race].parts;
 
 	/* make sure stats aren't above their new maximums */
-	for (x = 0; x < MAX_STATS; x++)
-		if (victim->perm_stat[x] > get_max_train(victim, x))
-			victim->perm_stat[x] = get_max_train(victim, x);
+	for (int stat = 0; stat < MAX_STATS; stat++)
+		ATTR_BASE(victim, stat_to_attr(stat))
+		 = UMIN(ATTR_BASE(victim, stat_to_attr(stat)), get_max_train(victim, stat));
 
 	if (arg2[0] != '\0') {
 		free_string(victim->pcdata->deity);
@@ -509,19 +522,15 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 		victim->pet->max_hit                    = 20;
 		victim->pet->max_mana                   = 100;
 		victim->pet->max_stam                   = 100;
-		victim->pet->hit                        = victim->max_hit;
-		victim->pet->mana                       = victim->max_mana;
-		victim->pet->stam                       = victim->max_stam;
-		victim->pet->hitroll                    = 2;
-		victim->pet->damroll                    = 0;
+		victim->pet->hit                        = victim->pet->max_hit;
+		victim->pet->mana                       = victim->pet->max_mana;
+		victim->pet->stam                       = victim->pet->max_stam;
+		ATTR_BASE(victim->pet, APPLY_HITROLL) = 2;
+		ATTR_BASE(victim->pet, APPLY_DAMROLL) = 0;
 		victim->pet->damage[DICE_NUMBER]        = 1;
 		victim->pet->damage[DICE_TYPE]          = 4;
-		victim->pet->perm_stat[STAT_STR]        = 12;
-		victim->pet->perm_stat[STAT_INT]        = 12;
-		victim->pet->perm_stat[STAT_WIS]        = 12;
-		victim->pet->perm_stat[STAT_DEX]        = 12;
-		victim->pet->perm_stat[STAT_CON]        = 12;
-		victim->pet->perm_stat[STAT_CHR]        = 12;
+		for (int stat = 0; stat < MAX_STATS; stat++)
+			ATTR_BASE(victim->pet, stat_to_attr(stat)) = 12;
 		victim->pet->saving_throw               = 0;
 
 		for (c = 0; c < 4; c++)

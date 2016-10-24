@@ -15,6 +15,7 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "affect.h"
 
 DECLARE_DO_FUN(do_switch);
 
@@ -89,17 +90,7 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 
 	stc("Ok.\n", ch);
 
-	obj->enchanted = TRUE;
-
-	// modify existing value?
-	for (AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next)
-		if (paf->location == enchant_type) {
-			paf->level      = ch->level;
-			paf->duration   = duration;
-			paf->modifier   = affect_modify;
-			return;
-		}
-
+	// modify existing value if possible, or
 	// add a new one
 	AFFECT_DATA af;
 	af.where      = TO_OBJECT;
@@ -110,7 +101,7 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 	af.modifier   = affect_modify;
 	af.bitvector  = 0;
 	af.evolution  = 1;
-	copy_affect_to_obj(obj, &af);
+	affect_join_to_obj(obj, &af);
 }
 
 /* Addspell command by Demonfire */
@@ -334,7 +325,7 @@ ROOM_INDEX_DATA *get_scatter_room(CHAR_DATA *ch)
 		    || !str_cmp(room->area->name, "Torayna Cri")
 		    || !str_cmp(room->area->name, "Battle Arenas")
 		    || room->sector_type == SECT_ARENA
-		    || IS_SET(room->room_flags,
+		    || IS_SET(GET_ROOM_FLAGS(room),
 		              ROOM_MALE_ONLY
 		              | ROOM_FEMALE_ONLY
 		              | ROOM_PRIVATE

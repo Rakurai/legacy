@@ -12,6 +12,7 @@
 #include "recycle.h"
 #include "memory.h"
 #include "db.h"
+#include "affect.h"
 
 void unique_item(OBJ_DATA *item)
 {
@@ -162,8 +163,6 @@ void unique_item(OBJ_DATA *item)
 				mod = -1;
 		}
 
-		item->enchanted = TRUE;
-
 		AFFECT_DATA af;
 		af.where      = TO_OBJECT;
 		af.type       = 0;
@@ -173,7 +172,7 @@ void unique_item(OBJ_DATA *item)
 		af.modifier   = mod;
 		af.bitvector  = 0;
 		af.evolution  = 1;
-		copy_affect_to_obj(item, &af);
+		affect_copy_to_obj(item, &af); 
 
 		added = TRUE;
 	}
@@ -429,16 +428,14 @@ void unique_item(OBJ_DATA *item)
 ROOM_INDEX_DATA *get_random_reset_room(AREA_DATA *area)
 {
 	ROOM_INDEX_DATA *room;
-	int i, count, flags, pick = 0, pass = 1;
+	int i, count, pick = 0, pass = 1;
 
 	while (pass <= 2) {
 		for (i = area->min_vnum, count = 0; i <= area->max_vnum; i++) {
 			if ((room = get_room_index(i)) == NULL)
 				continue;
 
-			flags = (room->original_flags) | (room->room_flags);
-
-			if (IS_SET(flags, ROOM_NO_MOB
+			if (IS_SET(GET_ROOM_FLAGS(room), ROOM_NO_MOB
 			           | ROOM_PRIVATE
 			           | ROOM_SAFE
 			           | ROOM_SOLITARY
@@ -548,7 +545,7 @@ void reset_area(AREA_DATA *pArea)
 				pRoomIndexPrev = get_room_index(pRoomIndex->vnum - 1);
 
 				if (pRoomIndexPrev != NULL
-				    && IS_SET(pRoomIndexPrev->room_flags, ROOM_PET_SHOP))
+				    && IS_SET(GET_ROOM_FLAGS(pRoomIndexPrev), ROOM_PET_SHOP))
 					SET_BIT(mob->act, ACT_PET);
 			}
 			/* set area */
@@ -810,7 +807,6 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	CHAR_DATA *mob;
 	int i, stambase;
 	long wealth;
-	AFFECT_DATA af;
 	mobile_count++;
 
 	if (pMobIndex == NULL) {
@@ -850,20 +846,17 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	/* read from prototype */
 	mob->group              = pMobIndex->group;
 	mob->act                = pMobIndex->act;
-	mob->affected_by        = pMobIndex->affected_by;
 	mob->comm               = COMM_NOCHANNELS;
 	mob->alignment          = pMobIndex->alignment;
 	mob->level              = pMobIndex->level;
-	mob->hitroll            = pMobIndex->hitroll;
-	mob->damroll            = pMobIndex->damage[DICE_BONUS];
-	mob->max_hit            = dice(pMobIndex->hit[DICE_NUMBER],
+	ATTR_BASE(mob, APPLY_HITROLL) = pMobIndex->hitroll;
+	ATTR_BASE(mob, APPLY_DAMROLL) = pMobIndex->damage[DICE_BONUS];
+	ATTR_BASE(mob, APPLY_HIT)     = dice(pMobIndex->hit[DICE_NUMBER],
 	                               pMobIndex->hit[DICE_TYPE])
 	                          + pMobIndex->hit[DICE_BONUS];
-	mob->hit                = mob->max_hit;
-	mob->max_mana           = dice(pMobIndex->mana[DICE_NUMBER],
+	ATTR_BASE(mob, APPLY_MANA)    = dice(pMobIndex->mana[DICE_NUMBER],
 	                               pMobIndex->mana[DICE_TYPE])
 	                          + pMobIndex->mana[DICE_BONUS];
-	mob->mana               = mob->max_mana;
 	mob->damage[DICE_NUMBER] = pMobIndex->damage[DICE_NUMBER];
 	mob->damage[DICE_TYPE]  = pMobIndex->damage[DICE_TYPE];
 	mob->dam_type           = pMobIndex->dam_type;
@@ -881,10 +874,6 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 		mob->armor_a[i]       = pMobIndex->ac[i];
 
 	mob->off_flags          = pMobIndex->off_flags;
-	mob->drain_flags        = pMobIndex->drain_flags;
-	mob->imm_flags          = pMobIndex->imm_flags;
-	mob->res_flags          = pMobIndex->res_flags;
-	mob->vuln_flags         = pMobIndex->vuln_flags;
 	mob->start_pos          = pMobIndex->start_pos;
 	mob->default_pos        = pMobIndex->default_pos;
 	mob->sex                = pMobIndex->sex;
@@ -899,54 +888,53 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	mob->material           = str_dup(pMobIndex->material);
 
 	/* computed on the spot */
-
-	for (i = 0; i < MAX_STATS; i ++)
-		mob->perm_stat[i] = UMIN(25, number_fuzzy(8 + mob->level / 12));
+	for (int stat = 0; stat < MAX_STATS; stat++)
+		ATTR_BASE(mob, stat_to_attr(stat)) = UMIN(25, number_fuzzy(8 + mob->level / 12));
 
 	if (IS_SET(mob->act, ACT_WARRIOR)) {
-		mob->perm_stat[STAT_STR] += 3;
-		mob->perm_stat[STAT_INT] -= 2;
-		mob->perm_stat[STAT_CON] += 2;
-		mob->perm_stat[STAT_CHR] -= 1;
-		mob->perm_stat[STAT_WIS] -= 2;
+		ATTR_BASE(mob, APPLY_STR) += 3;
+		ATTR_BASE(mob, APPLY_INT) -= 2;
+		ATTR_BASE(mob, APPLY_CON) += 2;
+		ATTR_BASE(mob, APPLY_CHR) -= 1;
+		ATTR_BASE(mob, APPLY_WIS) -= 2;
 	}
 	else if (IS_SET(mob->act, ACT_THIEF)) {
-		mob->perm_stat[STAT_DEX] += 3;
-		mob->perm_stat[STAT_WIS] -= 2;
-		mob->perm_stat[STAT_CHR] += 2;
-		mob->perm_stat[STAT_CON] -= 2;
+		ATTR_BASE(mob, APPLY_DEX) += 3;
+		ATTR_BASE(mob, APPLY_WIS) -= 2;
+		ATTR_BASE(mob, APPLY_CHR) += 2;
+		ATTR_BASE(mob, APPLY_CON) -= 2;
 	}
 	else if (IS_SET(mob->act, ACT_CLERIC)) {
-		mob->perm_stat[STAT_WIS] += 3;
-		mob->perm_stat[STAT_INT] += 1;
-		mob->perm_stat[STAT_DEX] -= 2;
-		mob->perm_stat[STAT_CHR] += 1;
+		ATTR_BASE(mob, APPLY_WIS) += 3;
+		ATTR_BASE(mob, APPLY_INT) += 1;
+		ATTR_BASE(mob, APPLY_DEX) -= 2;
+		ATTR_BASE(mob, APPLY_CHR) += 1;
 	}
 	else if (IS_SET(mob->act, ACT_MAGE)) {
-		mob->perm_stat[STAT_INT] += 3;
-		mob->perm_stat[STAT_STR] -= 3;
-		mob->perm_stat[STAT_DEX] += 1;
-		mob->perm_stat[STAT_WIS] += 1;
-		mob->perm_stat[STAT_CON] -= 2;
+		ATTR_BASE(mob, APPLY_INT) += 3;
+		ATTR_BASE(mob, APPLY_STR) -= 3;
+		ATTR_BASE(mob, APPLY_DEX) += 1;
+		ATTR_BASE(mob, APPLY_WIS) += 1;
+		ATTR_BASE(mob, APPLY_CON) -= 2;
 	}
 
 	if (race_table[mob->race].pc_race == TRUE)
-		for (i = 0; i < MAX_STATS; i++)
-			mob->perm_stat[i] += (pc_race_table[mob->race].stats[i] - 13);
+		for (int stat = 0; stat < MAX_STATS; stat++)
+			ATTR_BASE(mob, stat_to_attr(stat)) += (pc_race_table[mob->race].stats[stat] - 13);
 
 	/*Speed and size mods*/
 	if (IS_SET(mob->off_flags, OFF_FAST))
-		mob->perm_stat[STAT_DEX] += 2;
+		ATTR_BASE(mob, APPLY_DEX) += 2;
 
-	mob->perm_stat[STAT_STR] += mob->size - SIZE_MEDIUM;
-	mob->perm_stat[STAT_CON] += (mob->size - SIZE_MEDIUM) / 2;
+	ATTR_BASE(mob, APPLY_STR) += mob->size - SIZE_MEDIUM;
+	ATTR_BASE(mob, APPLY_CON) += (mob->size - SIZE_MEDIUM) / 2;
 	/* let's get some spell action */
 	{
 		struct maff {
 			sh_int  sn;
 			sh_int  loc;
 			sh_int  mod;
-			long    bit;
+			unsigned int    bit;
 		};
 		const struct maff maff_table[] = {
 			{       gsn_blindness,          APPLY_HITROLL,  -4,             AFF_BLIND       },
@@ -981,22 +969,49 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 			{       gsn_talon,              APPLY_NONE,     0,              AFF_TALON       },
 			{       -1,                     0,              0,              0               }
 		};
+
+		AFFECT_DATA af;
 		af.where = TO_AFFECTS;
 		af.level = mob->level;
 		af.duration = -1;
 		af.evolution = 1;
 
-		for (i = 0; maff_table[i].sn >= 0; i++)
-			if (IS_AFFECTED(mob, maff_table[i].bit)) {
+		unsigned int bitvector = pMobIndex->affect_bits;
+
+		for (i = 0; maff_table[i].sn >= 0; i++) {
+			unsigned int bit = maff_table[i].bit;
+			if (IS_SET(bitvector, bit)) {
 				af.type      = maff_table[i].sn;
 				af.location  = maff_table[i].loc;
 				af.modifier  = maff_table[i].mod;
-				af.bitvector = maff_table[i].bit;
-				copy_affect_to_char(mob, &af);
+				if (affect_parse_prototype('A', &af, &bit))
+					affect_copy_to_char(mob, &af);
 			}
+		}
+
+		// damage mod affects
+		af.type               = -1;
+		bitvector = pMobIndex->imm_flags;
+
+		while (bitvector != 0)
+			if (affect_parse_prototype('I', &af, &bitvector))
+				affect_copy_to_char(mob, &af); 
+
+		bitvector = pMobIndex->res_flags;
+
+		while (bitvector != 0)
+			if (affect_parse_prototype('R', &af, &bitvector))
+				affect_copy_to_char(mob, &af); 
+
+		bitvector = pMobIndex->vuln_flags;
+
+		while (bitvector != 0)
+			if (affect_parse_prototype('V', &af, &bitvector))
+				affect_copy_to_char(mob, &af); 
+
 	}
 	/* give em some stamina -- Montrey */
-	mob->max_stam = 100;
+	ATTR_BASE(mob, APPLY_STAM) = 100;
 
 	if (IS_SET(mob->act, ACT_MAGE))
 		stambase = 3;
@@ -1010,9 +1025,12 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 		stambase = 5;
 
 	for (i = 0; i < mob->level; i++)
-		mob->max_stam += number_fuzzy(stambase);
+		ATTR_BASE(mob, APPLY_STAM) += number_fuzzy(stambase);
 
-	mob->stam = mob->max_stam / 2;
+	mob->hit = GET_ATTR(mob, APPLY_HIT);
+	mob->mana = GET_ATTR(mob, APPLY_MANA);
+	mob->stam = GET_ATTR(mob, APPLY_STAM);
+
 	mob->position = mob->start_pos;
 	/* link the mob to the world list */
 	mob->next           = char_list;
@@ -1024,10 +1042,6 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 /* duplicate a mobile exactly -- except inventory */
 void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 {
-	int i;
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
-
 	if (parent == NULL || clone == NULL || !IS_NPC(parent))
 		return;
 
@@ -1039,37 +1053,36 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->material     = str_dup(parent->material);
 	clone->prefix     = str_dup(parent->prefix);
 	clone->prompt     = str_dup(parent->prompt);
+
+	for (int i = 1; i < MAX_ATTR; i++)
+		ATTR_BASE(clone, i) = ATTR_BASE(parent, i);
+
 	clone->group        = parent->group;
-	clone->sex          = parent->sex;
+//	clone->sex          = parent->sex;
 	clone->class        = parent->class;
 	clone->race         = parent->race;
 	clone->level        = parent->level;
 	clone->timer        = parent->timer;
 	clone->wait         = parent->wait;
 	clone->hit          = parent->hit;
-	clone->max_hit      = parent->max_hit;
+//	clone->max_hit      = parent->max_hit;
 	clone->mana         = parent->mana;
-	clone->max_mana     = parent->max_mana;
+//	clone->max_mana     = parent->max_mana;
 	clone->stam         = parent->stam;
-	clone->max_stam     = parent->max_stam;
+//	clone->max_stam     = parent->max_stam;
 	clone->gold         = /*parent->gold;*/ 0;
 	clone->silver       = /*parent->silver;*/ 0;
 	clone->exp          = parent->exp;
 	clone->act          = parent->act;
 	clone->comm         = parent->comm;
-	clone->drain_flags  = parent->drain_flags;
-	clone->imm_flags    = parent->imm_flags;
-	clone->res_flags    = parent->res_flags;
-	clone->vuln_flags   = parent->vuln_flags;
 	clone->invis_level  = parent->invis_level;
-	clone->affected_by  = parent->affected_by;
 	clone->position     = parent->position;
 	clone->practice     = parent->practice;
 	clone->train        = parent->train;
-	clone->saving_throw = parent->saving_throw;
+//	clone->saving_throw = parent->saving_throw;
 	clone->alignment    = parent->alignment;
-	clone->hitroll      = parent->hitroll;
-	clone->damroll      = parent->damroll;
+//	clone->hitroll      = parent->hitroll;
+//	clone->damroll      = parent->damroll;
 	clone->wimpy        = parent->wimpy;
 	clone->form         = parent->form;
 	clone->parts        = parent->parts;
@@ -1080,27 +1093,25 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->default_pos  = parent->default_pos;
 	clone->spec_fun     = parent->spec_fun;
 
-	for (i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 		clone->armor_a[i] = parent->armor_a[i];
 
 	/* don't clone armor_m, it's magical eq and spell ac */
 
-	for (i = 0; i < MAX_STATS; i++) {
-		clone->perm_stat[i]     = parent->perm_stat[i];
-		clone->mod_stat[i]      = parent->mod_stat[i];
-	}
+//	for (int i = 0; i < MAX_STATS; i++) {
+//		clone->base_stat[i]     = parent->base_stat[i];
+//	}
 
-	for (i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++)
 		clone->damage[i]        = parent->damage[i];
 
-	for (paf = clone->affected; paf != NULL; paf = paf_next) {
-		paf_next = paf->next;
-		affect_remove(clone, paf);
-	}
+	// remove standard affects and copy from parent
+	// since bonus vectors are identical, this should work right?
+	affect_remove_all_from_char(clone);
 
 	/* now add the affects */
-	for (paf = parent->affected; paf != NULL; paf = paf->next)
-		copy_affect_to_char(clone, paf);
+	for (const AFFECT_DATA *paf = parent->affected; paf != NULL; paf = paf->next)
+		affect_copy_to_char(clone, paf);
 }
 
 /*
@@ -1108,7 +1119,6 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
  */
 OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 {
-	AFFECT_DATA *paf;
 	OBJ_DATA *obj;
 	int i;
 
@@ -1130,10 +1140,6 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 	}
 
 	obj->pIndexData     = pObjIndex;
-	obj->in_room        = NULL;
-	obj->reset      = NULL;
-	obj->clean_timer = 0;
-	obj->enchanted      = FALSE;
 	obj->level          = pObjIndex->level;
 	obj->wear_loc       = -1;
 	obj->name           = str_dup(pObjIndex->name);
@@ -1209,9 +1215,12 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 		break;
 	}
 
-	for (paf = pObjIndex->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = pObjIndex->affected; paf != NULL; paf = paf->next)
 //		if (paf->location == APPLY_SPELL_AFFECT)  now all affects are copied -- Montrey
-			copy_affect_to_obj(obj, paf);
+			affect_copy_to_obj(obj, paf);
+
+	// affect_copy_to_obj sets enchanted, remove it now
+	obj->enchanted = FALSE;
 
 	obj->next           = object_list;
 	object_list         = obj;
@@ -1223,7 +1232,6 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 {
 	int i;
-	AFFECT_DATA *paf;
 	EXTRA_DESCR_DATA *ed, *ed_new;
 
 	if (parent == NULL || clone == NULL)
@@ -1247,10 +1255,11 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 		clone->value[i] = parent->value[i];
 
 	/* affects */
-	clone->enchanted    = parent->enchanted;
+	for (const AFFECT_DATA *paf = parent->perm_affected; paf != NULL; paf = paf->next)
+		affect_copy_to_obj(clone, paf);
 
-	for (paf = parent->affected; paf != NULL; paf = paf->next)
-		copy_affect_to_obj(clone, paf);
+	// affect_copy_to_obj sets enchanted, retain parent status here
+	clone->enchanted    = parent->enchanted;
 
 	/* extended desc */
 	for (ed = parent->extra_descr; ed != NULL; ed = ed->next) {

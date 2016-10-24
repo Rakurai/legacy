@@ -609,11 +609,6 @@ const struct field_type flag_fields[] = {
 	{ "wiznet",             wiz_flags,      CAND_PLAYER,    999,    HED,    999,    IMP     },
 	{ "revoke",             revoke_flags,   CAND_CHAR,      IMM,    IMM,    IMM,    HED     },
 	{ "censor",             censor_flags,   CAND_CHAR,      IMM,    IMM,    IMM,    IMP     },
-	{ "affect",             affect_flags,   CAND_CHAR,      MTL,    MTL,    IMM,    HED     },
-	{ "drains",             imm_flags,      CAND_CHAR,      MTL,    MTL,    IMM,    HED     },
-	{ "immunities",         imm_flags,      CAND_CHAR,      MTL,    MTL,    IMM,    HED     },
-	{ "resistances",        imm_flags,      CAND_CHAR,      MTL,    MTL,    IMM,    HED     },
-	{ "vulnerabilites",     imm_flags,      CAND_CHAR,      MTL,    MTL,    IMM,    HED     },
 	{ "communications",     comm_flags,     CAND_CHAR,      IMM,    IMM,    IMM,    HED     },
 	{ "act",                act_flags,      CAND_MOB,       MTL,    999,    IMM,    999     },
 	{ "offensive",          off_flags,      CAND_MOB,       MTL,    999,    IMM,    999     },
@@ -656,7 +651,7 @@ const struct sector_type sector_table [] = {
 
 /* various flag tables */
 const struct flag_type act_flags[] = {
-	{   "npc",                  A,      FALSE   },
+	{   "nosummon",             A,      TRUE    },
 	{   "sentinel",             B,      TRUE    },
 	{   "scavenger",            C,      TRUE    },
 	{   "morph",                E,      FALSE   },
@@ -706,7 +701,7 @@ const struct flag_type wear_flags[] = {
 };
 
 const struct flag_type plr_flags[] = {
-	{   "npc",                  A,      FALSE   },
+	{   "nosummon",             A,      TRUE    },
 	{   "lookinpit",            B,      TRUE    },
 	{   "autoassist",           C,      TRUE    },
 	{   "autoexit",             D,      TRUE    },
@@ -721,7 +716,7 @@ const struct flag_type plr_flags[] = {
 	{   "vt100",                M,      TRUE    },
 	{   "makebag",              O,      TRUE    },
 	{   "can_loot",             P,      TRUE    },
-	{   "nosummon",             Q,      TRUE    },
+	{   "none",                 Q,      FALSE   },
 	{   "nofollow",             R,      FALSE   },
 	{   "color",                S,      TRUE    },
 	{   "permit",               U,      TRUE    },
@@ -911,7 +906,8 @@ const struct flag_type off_flags[] = {
 };
 
 const struct flag_type imm_flags[] = {
-	{       "summon",       IMM_SUMMON,     TRUE    },
+//	{       "summon",       IMM_SUMMON,     TRUE    },
+	{		"(none)",		A,				FALSE	},
 	{       "charm",        IMM_CHARM,      TRUE    },
 	{       "magic",        IMM_MAGIC,      TRUE    },
 	{       "weapon",       IMM_WEAPON,     TRUE    },

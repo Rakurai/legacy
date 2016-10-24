@@ -52,6 +52,7 @@
 #include "lookup.h"
 #include "recycle.h"
 #include "sql.h"
+#include "affect.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_color);
@@ -1384,8 +1385,8 @@ bool process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 				else
 					strcat(atb, victim->name);
 
-				if (victim->max_hit > 0)
-					percent = victim->hit * 100 / victim->max_hit;
+				if (ATTR_BASE(victim, APPLY_HIT) > 0)
+					percent = victim->hit * 100 / ATTR_BASE(victim, APPLY_HIT);
 				else
 					percent = -1;
 
@@ -1568,8 +1569,8 @@ void bust_a_prompt(CHAR_DATA *ch)
 				if ((pexit = ch->in_room->exit[door]) != NULL
 				    &&  pexit ->u1.to_room != NULL
 				    && (can_see_room(ch, pexit->u1.to_room)
-				        || (IS_AFFECTED(ch, AFF_INFRARED)))
-				    &&   !IS_AFFECTED(ch, AFF_BLIND)) {
+				        || (is_affected(ch, gsn_infravision)))
+				    &&   !is_affected(ch, gsn_blindness)) {
 					found = TRUE;
 
 					if (!IS_SET(pexit->exit_info, EX_CLOSED))
@@ -1597,7 +1598,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'H':
-			sprintf(buf2, "%d", ch->max_hit);
+			sprintf(buf2, "%d", ATTR_BASE(ch, APPLY_HIT));
 			i = buf2;
 			break;
 
@@ -1607,7 +1608,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'M':
-			sprintf(buf2, "%d", ch->max_mana);
+			sprintf(buf2, "%d", ATTR_BASE(ch, APPLY_MANA));
 			i = buf2;
 			break;
 
@@ -1617,7 +1618,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			break;
 
 		case 'V':
-			sprintf(buf2, "%d", ch->max_stam);
+			sprintf(buf2, "%d", ATTR_BASE(ch, APPLY_STAM));
 			i = buf2;
 			break;
 
@@ -1657,7 +1658,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 			if (ch->in_room != NULL)
 				sprintf(buf2, "%s",
 				        (IS_IMMORTAL(ch) ||
-				         (!IS_AFFECTED(ch, AFF_BLIND) &&
+				         (!is_affected(ch, gsn_blindness) &&
 				          !room_is_dark(ch->in_room)))
 				        ? ch->in_room->name : "darkness");
 			else
