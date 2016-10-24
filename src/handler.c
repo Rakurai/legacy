@@ -1998,7 +1998,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim) && IS_SET(victim->act, ACT_SUPERMOB))
 		return FALSE;
 
-	if (get_affect(victim->affected, gsn_midnight))
+	if (affect_find_in_char(victim, gsn_midnight))
 		return FALSE;
 
 	if (!IS_IMMORTAL(ch) && victim->lurk_level && ch->in_room != victim->in_room)
@@ -3373,18 +3373,6 @@ int get_age_mod(CHAR_DATA *ch)
 			age += af->modifier;
 
 	return age;
-}
-
-/* find an affect in a linked list of affect */
-AFFECT_DATA *get_affect(AFFECT_DATA *af, int sn)
-{
-	AFFECT_DATA *paf;
-
-	for (paf = af; paf; paf = paf->next)
-		if (paf->type == sn)
-			return paf;
-
-	return NULL;
 }
 
 /* used with IS_AFFECTED, checks to see if the affect has an evolution rating, returns 1 if not */

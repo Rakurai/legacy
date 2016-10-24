@@ -327,7 +327,7 @@ void check_all_cond(CHAR_DATA *ch)
 	if (IS_NPC(ch) || IS_IMMORTAL(ch))
 		return;
 
-	if (get_affect(ch->affected, gsn_sheen))
+	if (affect_find_in_char(ch, gsn_sheen))
 		return;
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
@@ -347,7 +347,7 @@ void check_cond(CHAR_DATA *ch, OBJ_DATA *obj)
 		return;
 
 	/* sheen protects absolutely */
-	if (get_affect(ch->affected, gsn_sheen))
+	if (affect_find_in_char(ch, gsn_sheen))
 		return;
 
 	if ((number_range(0, 500)) != 100)
@@ -967,7 +967,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_POISON)) {
 			AFFECT_DATA af;
 
-			if ((weaponaff = get_affect(wield->affected, gsn_poison)) == NULL) {
+			if ((weaponaff = affect_find_in_obj(wield, gsn_poison)) == NULL) {
 				level = wield->level;
 				evolution = 1;
 			}
@@ -1006,7 +1006,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_VAMPIRIC)) {
-			if ((weaponaff = get_affect(wield->affected, gsn_blood_blade)) == NULL)
+			if ((weaponaff = affect_find_in_obj(wield, gsn_blood_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1038,7 +1038,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_FLAMING)) {
-			if ((weaponaff = get_affect(wield->affected, gsn_flame_blade)) == NULL)
+			if ((weaponaff = affect_find_in_obj(wield, gsn_flame_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1056,7 +1056,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_FROST)) {
-			if ((weaponaff = get_affect(wield->affected, gsn_frost_blade)) == NULL)
+			if ((weaponaff = affect_find_in_obj(wield, gsn_frost_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1074,7 +1074,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		}
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_SHOCKING)) {
-			if ((weaponaff = get_affect(wield->affected, gsn_shock_blade)) == NULL)
+			if ((weaponaff = affect_find_in_obj(wield, gsn_shock_blade)) == NULL)
 				evolution = 1;
 			else
 				evolution = weaponaff->evolution;
@@ -1123,7 +1123,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 	/* moved here from magic.c */
 	if (spell && focus)
-		if (get_affect(ch->affected, gsn_focus))
+		if (affect_find_in_char(ch, gsn_focus))
 			dam += number_range((dam / 4), (dam * 5 / 4));
 
 	if (ch->level < LEVEL_IMMORTAL) {
@@ -1179,7 +1179,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	}
 
 	/* Inviso attacks ... not. */
-	if (IS_AFFECTED(ch, AFF_INVISIBLE) || get_affect(ch->affected, gsn_midnight)) {
+	if (IS_AFFECTED(ch, AFF_INVISIBLE) || affect_find_in_char(ch, gsn_midnight)) {
 		affect_remove_sn_from_char(ch, gsn_invis);
 		affect_remove_sn_from_char(ch, gsn_mass_invis);
 		affect_remove_sn_from_char(ch, gsn_midnight);
@@ -1199,7 +1199,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 	}
 
 	/* BARRIER reduces damage by (currently) 25% -- Elrac */
-	if (dam > 1 && get_affect(victim->affected, gsn_barrier))
+	if (dam > 1 && affect_find_in_char(victim, gsn_barrier))
 		dam -= dam / 4;
 
 	sanc_immune = FALSE;
@@ -1256,7 +1256,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 
 	immune = FALSE;
 
-	if (get_affect(victim->affected, gsn_force_shield) && (dam % 4 == 0) && !sanc_immune) {
+	if (affect_find_in_char(victim, gsn_force_shield) && (dam % 4 == 0) && !sanc_immune) {
 		immune = TRUE;
 		dam = 0;
 	}
@@ -1294,7 +1294,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 				damage(victim, ch, 5, gsn_sanctuary, DAM_HOLY, TRUE, TRUE);
 
 			AFFECT_DATA *paf;
-			if ((paf = get_affect(victim->affected, gsn_bone_wall)) != NULL
+			if ((paf = affect_find_in_char(victim, gsn_bone_wall)) != NULL
 			    && !saves_spell(paf->level, ch, DAM_PIERCE)) {
 				damage(victim, ch,
 				       UMAX(number_range(paf->level * 3 / 4, paf->level * 5 / 4), 5),
@@ -1917,7 +1917,7 @@ void check_killer(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* It's okay unless they were sleeping and haven't been attacked recently */
-	if ((get_position(victim) >= POS_RESTING) || (get_affect(ch->affected, gsn_sleep)))
+	if ((get_position(victim) >= POS_RESTING) || (affect_find_in_char(ch, gsn_sleep)))
 		return;
 
 	stc("{P*** You are now a KILLER!! ***{x\n", ch);
@@ -1979,7 +1979,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (!can_see(victim, ch))
 		chance /= 2;
 
-	if (get_affect(victim->affected, gsn_paralyze))
+	if (affect_find_in_char(victim, gsn_paralyze))
 		chance /= 2;
 
 	chance += victim->level - ch->level;
@@ -2075,7 +2075,7 @@ bool check_dual_parry(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	if (!can_see(victim, ch))
 		chance /= 2;
 
-	if (get_affect(victim->affected, gsn_paralyze))
+	if (affect_find_in_char(victim, gsn_paralyze))
 		chance /= 2;
 
 	chance += victim->level - ch->level;
@@ -2157,7 +2157,7 @@ bool check_shblock(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	chance = get_skill(victim, gsn_shield_block) * 2 / 5;
 
-	if (get_affect(victim->affected, gsn_paralyze))
+	if (affect_find_in_char(victim, gsn_paralyze))
 		chance /= 2;
 
 	chance += (victim->level - ch->level);
@@ -2237,7 +2237,7 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
 
-	if (get_affect(victim->affected, gsn_paralyze))
+	if (affect_find_in_char(victim, gsn_paralyze))
 		chance /= 2;
 
 #ifdef DEBUG_CHANCE
@@ -2322,7 +2322,7 @@ bool check_blur(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 //		chance /= 2;
 	chance += (victim->level - ch->level) * 2;
 
-	if (get_affect(victim->affected, gsn_paralyze))
+	if (affect_find_in_char(victim, gsn_paralyze))
 		chance /= 2;
 
 #ifdef DEBUG_CHANCE
@@ -2390,7 +2390,7 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 	}
 
-	if (get_affect(ch->affected, gsn_sleep))
+	if (affect_find_in_char(ch, gsn_sleep))
 		affect_remove_sn_from_char(ch, gsn_sleep);
 
 	ch->fighting = victim;
@@ -3133,7 +3133,9 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch, AFF_BERSERK) || get_affect(ch->affected, gsn_berserk) || get_affect(ch->affected, gsn_frenzy)) {
+	if (IS_AFFECTED(ch, AFF_BERSERK)
+	 || affect_find_in_char(ch, gsn_berserk)
+	 || affect_find_in_char(ch, gsn_frenzy)) {
 		stc("You get a little madder.\n", ch);
 		return;
 	}
@@ -3394,7 +3396,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		/*
 		gsn_fly isn't used anywhere else, so I don't think we need it.
 		-- Outsider
-		|| get_affect(ch->affected, gsn_fly))
+		|| affect_find_in_char(ch, gsn_fly))
 		*/
 	{
 		stc("How do you expect to kick dirt while flying?\n", ch);
@@ -4909,7 +4911,7 @@ void do_hammerstrike(CHAR_DATA *ch, const char *argument)
 
 	chance = get_skill(ch, gsn_hammerstrike);
 
-	if (get_affect(ch->affected, gsn_hammerstrike)) {
+	if (affect_find_in_char(ch, gsn_hammerstrike)) {
 		stc("Are you insane?!?\n", ch);
 		return;
 	}

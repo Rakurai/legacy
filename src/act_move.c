@@ -997,7 +997,7 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 
 	switch (get_position(ch)) {
 	case POS_SLEEPING:
-		if (get_affect(ch->affected, gsn_sleep))
+		if (affect_find_in_char(ch, gsn_sleep))
 		{ stc("You don't seem to want to wake up!\n", ch); return; }
 
 		if (obj == NULL) {
@@ -1100,7 +1100,7 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 
 	switch (get_position(ch)) {
 	case POS_SLEEPING:
-		if (get_affect(ch->affected, gsn_sleep)) {
+		if (affect_find_in_char(ch, gsn_sleep)) {
 			stc("You don't seem to want to wake up!\n", ch);
 			return;
 		}
@@ -1186,7 +1186,7 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj = NULL;
 
-	if (get_affect(ch->affected, gsn_sleep)) {
+	if (affect_find_in_char(ch, gsn_sleep)) {
 		stc("You don't seem to want to wake up!\n", ch);
 		return;
 	}
@@ -1405,7 +1405,7 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 	if (IS_AWAKE(victim))
 	{ act("$N is as awake as you are.", ch, NULL, victim, TO_CHAR); return; }
 
-	if (get_affect(victim->affected, gsn_sleep))
+	if (affect_find_in_char(victim, gsn_sleep))
 	{ act("$E doesn't seem to WANT to wake up!",   ch, NULL, victim, TO_CHAR);  return; }
 
 	act_new("$n rudely awakes you from your peaceful slumber.",
@@ -2379,7 +2379,7 @@ void do_drag(CHAR_DATA *ch, const char *argument)
 			act(buf, ch, NULL, victim, TO_NOTVICT);
 
 			if (!IS_AWAKE(victim)) {
-				if (get_affect(victim->affected, gsn_sleep)) {
+				if (affect_find_in_char(victim, gsn_sleep)) {
 					if (chance(40)) {
 						affect_remove_sn_from_char(victim, gsn_sleep);
 						victim->position = POS_STANDING;

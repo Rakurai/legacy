@@ -32,6 +32,7 @@
 #include "sql.h"
 #include "lookup.h"
 #include "gem.h"
+#include "affect.h"
 
 extern AREA_DATA *area_first;
 
@@ -156,7 +157,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	}
 
 	/* flags for temp weapon affects and dazzling light -- Elrac */
-	if (get_affect(obj->affected, gsn_dazzling_light))
+	if (affect_find_in_obj(obj, gsn_dazzling_light))
 		strcat(buf, "{W{f(Dazzling){x ");
 
 	if (obj->condition <= 9 && obj->condition >= 0)         strcat(buf, "{b(Ruined) ");
@@ -463,10 +464,10 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (IS_AFFECTED(victim, AFF_INVISIBLE))
 		strcat(buf, "{C(Invis) ");
 
-	if (get_affect(victim->affected, gsn_midnight))
+	if (affect_find_in_char(victim, gsn_midnight))
 		strcat(buf, "{c(Shadowy) ");
 
-	if (get_affect(victim->affected, gsn_hex))
+	if (affect_find_in_char(victim, gsn_hex))
 		strcat(buf, "{c(Dark Aura) ");
 
 	if (victim->invis_level)

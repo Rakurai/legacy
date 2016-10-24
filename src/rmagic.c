@@ -16,7 +16,7 @@ void spell_sheen(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (get_affect(victim->affected, sn)) {
+	if (affect_find_in_char(victim, sn)) {
 		stc("Your armor is already coated with magical steel.\n", ch);
 		return;
 	}
@@ -38,7 +38,7 @@ void spell_focus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (get_affect(victim->affected, sn)) {
+	if (affect_find_in_char(victim, sn)) {
 		stc("Your spells are already focused.\n", ch);
 		return;
 	}
@@ -65,7 +65,7 @@ void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 		return;
 	}
 
-	if (get_affect(victim->affected, sn)) {
+	if (affect_find_in_char(victim, sn)) {
 		act("$N is already paralyzed.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -93,7 +93,7 @@ void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (get_affect(victim->affected, sn)) {
+	if (affect_find_in_char(victim, sn)) {
 		stc("Your skin is already hard as iron.\n", ch);
 		return;
 	}
@@ -117,7 +117,7 @@ void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int e
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (get_affect(victim->affected, sn)) {
+	if (affect_find_in_char(victim, sn)) {
 		stc("You are already surrounded by a barrier.\n", ch);
 		return;
 	}
@@ -256,7 +256,7 @@ void spell_midnight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (get_affect(victim->affected, sn) && (victim == ch)) {
+	if (affect_find_in_char(victim, sn) && (victim == ch)) {
 		stc("You fail to invade the shadows further.\n", ch);
 		return;
 	}
@@ -332,7 +332,7 @@ void spell_hex(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 		return;
 	}
 
-	if (get_affect(victim->affected, sn)) {
+	if (affect_find_in_char(victim, sn)) {
 		act("The dark gods have already cursed $N.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -375,7 +375,7 @@ void spell_force(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (get_affect(victim->affected, sn)) {
+	if (affect_find_in_char(victim, sn)) {
 		stc("You are already protected by the force.\n", ch);
 		return;
 	}

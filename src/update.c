@@ -1028,7 +1028,7 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (get_affect(ch->affected, gsn_plague) && ch != NULL) {
+		if (affect_find_in_char(ch, gsn_plague) && ch != NULL) {
 			AFFECT_DATA *af, plague;
 			CHAR_DATA *vch;
 			int dam;
@@ -1084,7 +1084,7 @@ void char_update(void)
 		else if (IS_AFFECTED(ch, AFF_POISON) && ch != NULL
 		         &&   !IS_AFFECTED(ch, AFF_SLOW)) {
 			const AFFECT_DATA *poison;
-			poison = get_affect(ch->affected, gsn_poison);
+			poison = affect_find_in_char(ch, gsn_poison);
 
 			if (poison != NULL) {
 				act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);

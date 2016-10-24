@@ -30,6 +30,7 @@
 #include "tables.h"
 #include "magic.h"
 #include "gem.h"
+#include "affect.h"
 
 DECLARE_DO_FUN(do_rset);
 DECLARE_DO_FUN(do_mset);
@@ -2136,7 +2137,7 @@ void do_pstat(CHAR_DATA *ch, const char *argument)
 	    IS_SET(victim->comm,            COMM_AFK) ?             "{b[AFK] "      : "",
 	    IS_AFFECTED(victim,             AFF_INVISIBLE) ?        "{C(Invis) "    : "",
 	    IS_AFFECTED(victim,             AFF_HIDE) ?             "{B(Hide) "     : "",
-	    get_affect(victim->affected, gsn_midnight) ?            "{c(Shadowy) "  : "",
+	    affect_find_in_char(victim, gsn_midnight) ?            "{c(Shadowy) "  : "",
 	    victim->invis_level ?                                   "{T(Wizi) "     : "",
 	    victim->lurk_level ?                                    "{H(Lurk) "     : "",
 	    IS_AFFECTED(victim, AFF_CHARM) ?                        "{M(Charmed) "  : "",
