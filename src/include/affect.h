@@ -1,6 +1,8 @@
 #ifndef _AFFECT_H
 #define _AFFECT_H
 
+#include "affect_int.h"
+
 // outward facing interface, all calls to obj/char/room affects should be through
 // these procedures.  attempt to force some accessor safety on this crap -- Montrey
 
@@ -11,7 +13,7 @@ bool          affect_parse_prototype      args(( char letter, AFFECT_DATA *af, u
 
 // affect_<entity>.c
 AFFECT_DATA * affect_find_in_obj          args(( OBJ_DATA *obj, int sn ));
-AFFECT_DATA * affect_find_in_char         args(( CHAR_DATA *ch, int sn ));
+const AFFECT_DATA * affect_find_in_char         args(( CHAR_DATA *ch, int sn ));
 AFFECT_DATA * affect_find_in_room         args(( ROOM_INDEX_DATA *room, int sn ));
 
 void          affect_copy_to_obj          args(( OBJ_DATA *obj, const AFFECT_DATA *paf ));
@@ -34,4 +36,5 @@ void          affect_remove_all_from_obj       args(( OBJ_DATA *obj ));
 void          affect_remove_all_from_char      args(( CHAR_DATA *ch ));
 void          affect_remove_all_from_room      args(( ROOM_INDEX_DATA *room ));
 
+void          affect_iterate_over_char    args(( CHAR_DATA *ch, affect_callback_fn fn, void *data ));
 #endif // _AFFECT_H

@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "sql.h"
 #include "recycle.h"
+#include "affect.h"
 
 extern AREA_DATA *area_first;
 
@@ -48,7 +49,8 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 		    "  newflag  - finds all objects flagged compartment (formerly dark) or lock (nonexistant)\n"
 		    "  aversion - lists all areas and their versions\n"
 		    "  define   - lists all defines that the preprocessor checks for\n"
-		    "  objstate - save all objects lying on the ground\n", ch);
+		    "  objstate - save all objects lying on the ground\n"
+		    "  affcall  - iterate through affects\n", ch);
 		return;
 	}
 
@@ -246,6 +248,14 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 		for (area = area_first; area != NULL; area = area->next)
 			ptc(ch, "%-20s%d\n", area->file_name, area->version);
 
+		return;
+	}
+
+	if (!strcmp(subfunc, "affcall")) {
+		int count = 0;
+		extern int debug_aff_callback(AFFECT_DATA *node, void *data);
+		affect_iterate_over_char(ch, debug_aff_callback, &count);
+		ptc(ch, "count: %d", count);
 		return;
 	}
 

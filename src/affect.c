@@ -1,6 +1,7 @@
 #include "merc.h"
 #include "affect.h"
 #include "recycle.h"
+#include "affect_int.h"
 
 void affect_remove_from_list(AFFECT_DATA **list_head, AFFECT_DATA *paf) {
 	if (*list_head == paf)
@@ -47,6 +48,8 @@ void affect_copy_to_list(AFFECT_DATA **list_head, const AFFECT_DATA *template)
 {
 	AFFECT_DATA *paf_new = new_affect();
 	*paf_new            = *template;
+	paf_new->next = NULL;
+	paf_new->prev = NULL;
 	affect_insert_in_list(list_head, paf_new);
 }
 
@@ -110,3 +113,8 @@ AFFECT_DATA *affect_find_in_list(AFFECT_DATA *list_head, int sn) {
 	return NULL;
 }
 
+void affect_iterate_over_list(AFFECT_DATA *list_head, affect_callback_wrapper fn, affect_callback_params *params) {
+	for (AFFECT_DATA *paf = list_head; paf; paf = paf->next)
+		if ((*fn)(paf, params) != 0)
+			break;
+}

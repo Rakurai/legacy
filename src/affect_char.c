@@ -5,7 +5,7 @@
 #include "affect_int.h"
 
 
-AFFECT_DATA *affect_find_in_char(CHAR_DATA *ch, int sn) {
+const AFFECT_DATA *affect_find_in_char(CHAR_DATA *ch, int sn) {
 	return affect_find_in_list(ch->affected, sn);
 }
 
@@ -59,6 +59,27 @@ void affect_add_perm_to_char(CHAR_DATA *ch, int sn) {
 	af.evolution = 1;
 
 	affect_copy_to_char(ch, &af);
+}
+
+int affect_callback_wrapper_char(AFFECT_DATA *node, affect_callback_params *params) {
+//	AFFECT_DATA *paf = (AFFECT_DATA *)node;
+	CHAR_DATA *ch = (CHAR_DATA *)params->owner;
+
+	affect_modify_char(ch, node, FALSE);
+	int ret = (params->callback)(node, params->data);
+	affect_modify_char(ch, node, TRUE);
+
+	return ret;
+}
+
+void affect_iterate_over_char(CHAR_DATA *ch, affect_callback_fn callback, void *data) {
+	affect_callback_params params;
+
+	params.owner = ch;
+	params.callback = callback;
+	params.data = data;
+
+	affect_iterate_over_list(ch->affected, affect_callback_wrapper_char, &params);
 }
 
 void affect_modify_char(CHAR_DATA *ch, const AFFECT_DATA *paf, bool fAdd) {
