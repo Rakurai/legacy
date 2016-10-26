@@ -2216,16 +2216,16 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	// speed and spells
 	if (IS_SET(victim->off_flags, OFF_FAST) || IS_AFFECTED(victim, AFF_HASTE))
-		chance += 10;
+		chance += 15;
 
 	if (IS_SET(ch->off_flags, OFF_FAST) || IS_AFFECTED(ch, AFF_HASTE))
-		chance -= 10;
+		chance -= 15;
 
 	if (IS_AFFECTED(victim, AFF_SLOW))
-		chance -= 10;
+		chance -= 15;
 
 	if (IS_AFFECTED(ch, AFF_SLOW))
-		chance += 10;
+		chance += 15;
 
 	if (!can_see(victim, ch))
 		chance -= 20;
