@@ -1785,7 +1785,7 @@ void janitor_update()
 	}
 
 //	bugf("janitor_update: %d items marked for cleanup", count);
-	save_items();
+	objstate_save_items();
 }
 
 void underwater_update(void)

@@ -3052,8 +3052,7 @@ void do_copyover(CHAR_DATA *ch, const char *argument)
 	fclose(fp);
 
 	/*****/
-	if (port == DIZZYPORT)
-		save_items();
+	objstate_save_items();
 
 	/*****/
 

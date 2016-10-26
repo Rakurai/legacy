@@ -559,6 +559,12 @@ void reset_area(AREA_DATA *pArea)
 			break;
 
 		case 'O':
+			// might have loaded the pit from the copyover recovery file
+			if (pReset->arg1 == OBJ_VNUM_PIT && donation_pit != NULL) {
+				last = FALSE;
+				break;
+			}
+
 			if (pArea->nplayer > 0 && pReset->arg1 != OBJ_VNUM_PIT) {
 				last = FALSE;
 				break;

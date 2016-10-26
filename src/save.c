@@ -1514,6 +1514,10 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 				if (!str_cmp(key, "Affc")) {
 					obj->enchanted = TRUE;
 
+					// free affects from the index, if any
+					while (obj->affected)
+						affect_remove_obj(obj, obj->affected);
+
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
