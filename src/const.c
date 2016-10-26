@@ -758,6 +758,7 @@ const struct liq_type liq_table[] = {
 	{ "rice wine",              "clear",        { 190, 0,  4, 0,  2 }   },
 	{ "liquid brimstone",       "red",          { 25,  0, 15, 0,  2 }   },
 	{ "protein shake",          "white",        {   0, 2,  9, 3, 12 }   },
+	{ "pumpkin spice latte",    "creamy",       {   0, 2,  9, 3, 12 }   },
 	{ NULL,                     NULL,           {   0, 0,  0, 0,  0 }   }
 };
 
