@@ -1520,7 +1520,7 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* force a save of items on the ground, should fix it
 	   for crashes after a player dies -- Montrey */
 	if (!IS_NPC(victim))
-		save_items();
+		objstate_save_items();
 
 	if (!IS_NPC(ch) && IS_NPC(victim)) {
 		OBJ_DATA *corpse, *obj, *obj_next;

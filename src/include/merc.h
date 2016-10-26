@@ -3689,8 +3689,8 @@ OD *	get_obj_here		args((CHAR_DATA *ch, const char *argument));
 OD *	get_obj_world		args((CHAR_DATA *ch, const char *argument));
 
 /* objstate.c */
-void	load_items		args((void));
-void	save_items		args((void));
+int     objstate_load_items		args((void));
+int     objstate_save_items		args((void));
 
 /* hunt.c */
 void hunt_victim        args( ( CHAR_DATA *ch) );

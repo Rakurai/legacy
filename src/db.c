@@ -498,6 +498,10 @@ void boot_db()
 	}
 	/* initialize quest stuff after areas loaded, maybe areas are needed */
 	quest_init();
+
+	int itemsloaded = objstate_load_items();   /* load our list of items from disk, before resets! */
+	printf("survived objstate_load_items (%d)\n", itemsloaded);
+
 	/* Perform various loading procedures, reset all areas once, fix up exits */
 	fix_exits();
 	printf("survived fix_exits\n");
@@ -523,8 +527,6 @@ void boot_db()
 	printf("survived load_storage_list\n");
 	load_departed_list();
 	printf("survived load_departed_list\n");
-	load_items();   /* load our list of items from disk */
-	printf("survived load_items\n");
 
 	/* read in our record players and record logins */
 	if (db_query("boot_db", "SELECT logins, players FROM records") == SQL_OK) {
