@@ -2499,14 +2499,14 @@ void make_corpse(CHAR_DATA *ch)
 		if (obj->item_type == ITEM_SCROLL)
 			obj->timer = number_range(1000, 2500);
 
-		if (IS_SET(obj->extra_flags, ITEM_ROT_DEATH) && !floating) {
+		if (IS_OBJ_STAT(obj, ITEM_ROT_DEATH) && !floating) {
 			obj->timer = number_range(5, 10);
 			REMOVE_BIT(obj->extra_flags, ITEM_ROT_DEATH);
 		}
 
 		REMOVE_BIT(obj->extra_flags, ITEM_VIS_DEATH);
 
-		if (IS_SET(obj->extra_flags, ITEM_INVENTORY))
+		if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
 			extract_obj(obj);
 		else if (floating) {
 			if (IS_OBJ_STAT(obj, ITEM_ROT_DEATH)) { /* get rid of it! */

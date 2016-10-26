@@ -1707,7 +1707,7 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 	ptc(ch, "\t\t{BWeight   : %d/%d/%d (10th pounds){x\n",
 	    obj->weight, get_obj_weight(obj), get_true_weight(obj));
 	ptc(ch, "{W\nWear bits : %s\nExtra bits: %s{b\n\n",
-	    wear_bit_name(obj->wear_flags), extra_bit_name(obj->extra_flags));
+	    wear_bit_name(obj->wear_flags), extra_bit_name(obj->extra_flags|obj->extra_flag_cache));
 
 	/* now give out vital statistics as per identify */
 	switch (obj->item_type) {

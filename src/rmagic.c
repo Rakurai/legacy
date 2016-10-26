@@ -425,7 +425,7 @@ void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	sword->value[1]         = level / 8 + 1;
 	sword->timer            = level * 2 - number_range(0, level / 2);
 	sword->level            = level;
-	sword->extra_flags      |= ITEM_INVENTORY;    /* so it vapes on death */
+	SET_BIT(sword->extra_flags, ITEM_INVENTORY);    /* so it vapes on death */
 
 	if (sword->level >= 20)
 		sword->value[4] |= WEAPON_SHOCKING;

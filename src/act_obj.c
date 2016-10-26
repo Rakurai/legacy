@@ -2196,7 +2196,7 @@ bool remove_obj(CHAR_DATA *ch, int iWear, bool fReplace)
 	if (!fReplace)
 		return FALSE;
 
-	if (IS_SET(obj->extra_flags, ITEM_NOREMOVE)) {
+	if (IS_OBJ_STAT(obj, ITEM_NOREMOVE)) {
 		act("You can't seem to remove $p.", ch, obj, NULL, TO_CHAR);
 		return FALSE;
 	}
@@ -3560,7 +3560,7 @@ void do_steal(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!can_drop_obj(ch, obj)
-	    ||   IS_SET(obj->extra_flags, ITEM_INVENTORY)
+	    ||   IS_OBJ_STAT(obj, ITEM_INVENTORY)
 	    ||   obj->level > ch->level) {
 		stc("You can't pry it away.\n", ch);
 		return;
@@ -4138,7 +4138,7 @@ void do_buy(CHAR_DATA *ch, const char *argument)
 		mprog_buy_trigger(keeper, ch);
 
 		for (count = 0; count < number; count++) {
-			if (IS_SET(obj->extra_flags, ITEM_INVENTORY)) {
+			if (IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 				t_obj = create_object(obj->pIndexData, obj->level);
 
 				if (! t_obj) {
@@ -5094,7 +5094,11 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 	free_string(obj->material);
 	obj->material = str_dup(material->material);
 	obj->condition = material->condition;
+
 	obj->extra_flags = material->extra_flags;
+
+	// TODO: should this copy object affects?
+
 	obj->value[0] = weapon_type(type);
 	free_string(obj->name);
 	sprintf(buf, "%s %s", weapon_table[weapon_lookup(type)].name, smash_bracket(name));

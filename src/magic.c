@@ -4345,7 +4345,7 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 		return;
 
 	ptc(ch, "Object '%s' is type %s, extra flags %s.\n",
-	    obj->name, item_type_name(obj), extra_bit_name(obj->extra_flags));
+	    obj->name, item_type_name(obj), extra_bit_name(obj->extra_flags|obj->extra_flag_cache));
 	ptc(ch, "Weight is %d, value is %d, level is %d, and material is %s.\n",
 	    obj->weight / 10, obj->cost, obj->level, obj->material);
 	sprintf(buf, ".");

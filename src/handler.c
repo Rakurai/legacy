@@ -2078,7 +2078,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_AFFECTED(ch, AFF_BLIND))
 		return FALSE;
 
-	if (IS_SET(obj->extra_flags, ITEM_VIS_DEATH))
+	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH))
 		return FALSE;
 
 	if (obj->timer > 0 && !IS_NPC(ch) && is_name("mox", obj->name)
@@ -2093,7 +2093,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			return FALSE;
 	}
 
-	if (IS_SET(obj->extra_flags, ITEM_INVIS)
+	if (IS_OBJ_STAT(obj, ITEM_INVIS)
 	    && !IS_AFFECTED(ch, AFF_DETECT_INVIS))
 		return FALSE;
 
@@ -2114,7 +2114,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
  */
 bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	if (!IS_SET(obj->extra_flags, ITEM_NODROP))
+	if (!IS_OBJ_STAT(obj, ITEM_NODROP))
 		return TRUE;
 
 	if (!IS_NPC(ch) && ch->level >= LEVEL_IMMORTAL)
