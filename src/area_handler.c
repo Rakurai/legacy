@@ -165,7 +165,7 @@ void unique_item(OBJ_DATA *item)
 
 		item->enchanted = TRUE;
 
-		AFFECT_DATA af;
+		AFFECT_DATA af = (AFFECT_DATA){0};
 		af.where      = TO_OBJECT;
 		af.type       = 0;
 		af.level      = item->level;
@@ -811,7 +811,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	CHAR_DATA *mob;
 	int i, stambase;
 	long wealth;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	mobile_count++;
 
 	if (pMobIndex == NULL) {

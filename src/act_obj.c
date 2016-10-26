@@ -1545,7 +1545,7 @@ void do_give(CHAR_DATA *ch, const char *argument)
 void do_envenom(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	int percent, skill;
 
 	/* find out what */
@@ -1991,7 +1991,7 @@ void do_drink(CHAR_DATA *ch, const char *argument)
 
 	if (obj->value[3] != 0) {
 		/* The drink was poisoned! */
-		AFFECT_DATA af;
+		AFFECT_DATA af = (AFFECT_DATA){0};
 		act("$n turns six shades of green and collapses.", ch, NULL, NULL, TO_ROOM);
 		stc("You turn six shades of green and collapse.\n", ch);
 		af.where        = TO_AFFECTS;
@@ -2121,7 +2121,7 @@ void do_eat(CHAR_DATA *ch, const char *argument)
 
 			if (op->value[3] != 0) {
 				/* The food was poisoned! */
-				AFFECT_DATA af;
+				AFFECT_DATA af = (AFFECT_DATA){0};
 				af.where     = TO_AFFECTS;
 				af.type      = gsn_poison;
 				af.level     = number_fuzzy(op->level);

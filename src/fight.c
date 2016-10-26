@@ -965,7 +965,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 		int dam, level, evolution;
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_POISON)) {
-			AFFECT_DATA af;
+			AFFECT_DATA af = (AFFECT_DATA){0};
 
 			if ((weaponaff = affect_find_in_obj(wield, gsn_poison)) == NULL) {
 				level = wield->level;
@@ -3159,7 +3159,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 	chance += 25 - hp_percent / 2;
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA af = (AFFECT_DATA){0};
 		WAIT_STATE(ch, PULSE_VIOLENCE);
 		/* heal a little damage */
 		ch->hit += ch->level * 2;
@@ -3479,7 +3479,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	check_killer(ch, victim);
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA af = (AFFECT_DATA){0};
 		act("$n is blinded by the dirt in $s eyes!", victim, NULL, NULL, TO_ROOM);
 		act("$n kicks dirt in your eyes!", ch, NULL, victim, TO_VICT);
 		damage(ch, victim, number_range(2, 5), gsn_dirt_kicking, DAM_NONE, FALSE, FALSE);
@@ -3897,7 +3897,7 @@ void do_battle(CHAR_DATA *ch, const char *argument)
 void do_sing(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	int singchance;
 
 	if (argument[0] == '\0') {
@@ -4917,7 +4917,7 @@ void do_hammerstrike(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (number_percent() < chance) {
-		AFFECT_DATA af;
+		AFFECT_DATA af = (AFFECT_DATA){0};
 		WAIT_STATE(ch, PULSE_VIOLENCE);
 		ch->stam -= ch->stam / 3;
 		stc("The gods strike you with a lightning bolt of power!\n", ch);

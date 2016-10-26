@@ -1039,7 +1039,7 @@ void spell_animate_gargoyle(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 void spell_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		if (victim == ch)
@@ -1068,7 +1068,7 @@ void spell_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 void spell_steel_mist(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		if (victim == ch)
@@ -1098,7 +1098,7 @@ void spell_steel_mist(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 void spell_blood_moon(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		if (victim == ch)
@@ -1144,7 +1144,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (target == TARGET_OBJ) {
 		obj = (OBJ_DATA *) vo;
@@ -1236,7 +1236,7 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 void spell_blindness(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_BLIND)) {
 		stc("Your victim doesn't have any sight to lose.\n", ch);
@@ -1646,7 +1646,7 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 	int count = 0;
 	int high_level = 0;
 	int chance;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	bool failure = FALSE;
 
 	/* get sum of all mobile levels in the room */
@@ -1752,7 +1752,7 @@ void spell_cause_serious(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 void spell_change_sex(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		if (victim == ch)
@@ -1795,7 +1795,7 @@ void spell_change_sex(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 void spell_channel(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	char camount[MAX_STRING_LENGTH];
 	int amount, max;
 	target_name = one_argument(target_name, camount);
@@ -1842,7 +1842,7 @@ void spell_channel(int sn, int level, CHAR_DATA *ch, void *vo, int target, int e
 void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (victim == ch) {
 		stc("You like yourself even better!\n", ch);
@@ -1911,7 +1911,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 void spell_chill_touch(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	int dam;
 	static const sh_int dam_each[] = {
 		0,
@@ -2356,7 +2356,7 @@ void spell_cure_critical(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 void spell_darkness(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	ROOM_INDEX_DATA *room;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if ((room = ch->in_room) == NULL) {
 		stc("You fail.\n", ch);
@@ -2451,7 +2451,7 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	/* deal with the object case first */
 	if (target == TARGET_OBJ) {
@@ -2569,7 +2569,7 @@ void spell_demonfire(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 void spell_detect_evil(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_DETECT_EVIL)) {
 		if (victim == ch)
@@ -2598,7 +2598,7 @@ void spell_detect_evil(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 void spell_detect_good(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_DETECT_GOOD)) {
 		if (victim == ch)
@@ -2627,7 +2627,7 @@ void spell_detect_good(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 void spell_detect_hidden(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_DETECT_HIDDEN)) {
 		if (victim == ch)
@@ -2656,7 +2656,7 @@ void spell_detect_hidden(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 void spell_detect_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_DETECT_INVIS)) {
 		if (victim == ch)
@@ -2685,7 +2685,7 @@ void spell_detect_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 void spell_detect_magic(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_DETECT_MAGIC)) {
 		if (victim == ch)
@@ -3087,7 +3087,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 		}
 	}
 	else { /* add a new affect */
-		AFFECT_DATA af;
+		AFFECT_DATA af = (AFFECT_DATA){0};
 		af.where      = TO_OBJECT;
 		af.type       = sn;
 		af.level      = level;
@@ -3263,7 +3263,7 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		}
 	}
 	else { /* add a new affect */
-		AFFECT_DATA af;
+		AFFECT_DATA af = (AFFECT_DATA){0};
 		af.where      = TO_OBJECT;
 		af.type       = sn;
 		af.level      = level;
@@ -3288,7 +3288,7 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		}
 	}
 	else { /* add a new affect */
-		AFFECT_DATA af;
+		AFFECT_DATA af = (AFFECT_DATA){0};
 		af.where      = TO_OBJECT;
 		af.type       = sn;
 		af.level      = level;
@@ -3354,7 +3354,7 @@ void spell_energy_drain(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 void spell_fear(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_FEAR)) {
 		act("Your attack is senseless, $N is already shaking in $S boots!", ch, NULL, victim, TO_CHAR);
@@ -3568,7 +3568,7 @@ void spell_fireball(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 void spell_fireproof(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	/* This sounds really stupid....but....Here goes.
 	   If an object is Fireproof AND a character equips it,
@@ -3604,7 +3604,7 @@ void spell_fireproof(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 /* function for bladecraft spells -- Montrey */
 bool enhance_blade(CHAR_DATA *ch, OBJ_DATA *obj, int sn, int level, int bit)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (obj->item_type != ITEM_WEAPON) {
 		stc("This spell can only enhance weapons.\n", ch);
@@ -3706,7 +3706,7 @@ void spell_flamestrike(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 void spell_faerie_fire(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) {
 		act("$N is already glowing pink!", ch, NULL, victim, TO_CHAR);
@@ -3798,7 +3798,7 @@ void spell_floating_disc(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_FLYING)) {
 		if (victim == ch)
@@ -3825,7 +3825,7 @@ void spell_fly(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn) || IS_AFFECTED(victim, AFF_BERSERK)) {
 		if (victim == ch)
@@ -3933,7 +3933,7 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 void spell_giant_strength(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		if (victim == ch)
@@ -3979,7 +3979,7 @@ void spell_harm(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn) || IS_AFFECTED(victim, AFF_HASTE) || IS_SET(victim->off_flags, OFF_FAST)) {
 		if (victim == ch)
@@ -4498,7 +4498,7 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 void spell_infravision(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_INFRARED)) {
 		if (victim == ch)
@@ -4526,7 +4526,7 @@ void spell_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	/* object invisibility */
 	if (target == TARGET_OBJ) {
@@ -4773,7 +4773,7 @@ void spell_mass_healing(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 
 void spell_mass_invis(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	CHAR_DATA *gch;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
@@ -4996,7 +4996,7 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 void spell_pass_door(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_PASS_DOOR)) {
 		if (victim == ch)
@@ -5023,7 +5023,7 @@ void spell_pass_door(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 void spell_plague(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (saves_spell(level, victim, DAM_DISEASE)
 	    || (IS_NPC(victim) && IS_SET(victim->act, ACT_UNDEAD))) {
@@ -5052,7 +5052,7 @@ void spell_poison(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (target == TARGET_OBJ) {
 		obj = (OBJ_DATA *) vo;
@@ -5284,7 +5284,7 @@ void spell_protect_container(int sn, int level, CHAR_DATA *ch, void *vo, int tar
 void spell_protection_evil(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL)) {
 		if (victim == ch)
@@ -5313,7 +5313,7 @@ void spell_protection_evil(int sn, int level, CHAR_DATA *ch, void *vo, int targe
 void spell_protection_good(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_PROTECT_GOOD)) {
 		if (victim == ch)
@@ -5540,7 +5540,7 @@ void spell_refresh(int sn, int level, CHAR_DATA *ch, void *vo, int target, int e
 void spell_divine_regeneration(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if ((ch->level < LEVEL_IMMORTAL) && (victim != ch)) {
 		stc("This spell cannot be cast on others", ch);
@@ -5594,7 +5594,7 @@ void spell_divine_regeneration(int sn, int level, CHAR_DATA *ch, void *vo, int t
 void spell_regeneration(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)
 	    || IS_AFFECTED(victim, AFF_REGENERATION)
@@ -5828,7 +5828,7 @@ void spell_remove_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
 		if (victim == ch)
@@ -5876,7 +5876,7 @@ void spell_sanctuary(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 void spell_shield(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		if (victim == ch)
@@ -5918,7 +5918,7 @@ void spell_sunray(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 void spell_flameshield(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		if (victim == ch)
@@ -5970,7 +5970,7 @@ void spell_shocking_grasp(int sn, int level, CHAR_DATA *ch, void *vo, int target
 void spell_sleep(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (number_percent() < (get_curr_stat(ch, STAT_CHR) * 3))
 		level += 5;
@@ -6014,7 +6014,7 @@ void spell_sleep(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn) || IS_AFFECTED(victim, AFF_SLOW)) {
 		if (victim == ch)
@@ -6064,7 +6064,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 void spell_smokescreen(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *vch;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	ROOM_INDEX_DATA *in_room;
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *pexit;
@@ -6133,7 +6133,7 @@ void spell_smokescreen(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 void spell_stone_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(ch, sn)) {
 		if (victim == ch)
@@ -6446,7 +6446,7 @@ void spell_summon_object(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 void spell_talon(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(victim, AFF_TALON)) {
 		if (victim == ch)
@@ -6731,7 +6731,7 @@ void spell_wrath(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 void spell_weaken(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		act("Your spell comes too late. $N is already weak.",
@@ -7083,7 +7083,7 @@ void spell_high_explosive(int sn, int level, CHAR_DATA *ch, void *vo, int target
 void spell_age(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		act("$N is already aged beyond $S years.", ch, NULL, vo, TO_CHAR);

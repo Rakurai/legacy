@@ -1416,7 +1416,7 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 
 void do_sneak(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(ch, AFF_SNEAK)) {
 		stc("You already surpass the wind in stealth.\n", ch);
@@ -1456,7 +1456,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 
 void do_hide(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (IS_AFFECTED(ch, AFF_HIDE)) {
 		stc("You find an even better hiding place.\n", ch);

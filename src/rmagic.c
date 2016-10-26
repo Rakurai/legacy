@@ -14,7 +14,7 @@ extern bool     global_quick;
 void spell_sheen(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		stc("Your armor is already coated with magical steel.\n", ch);
@@ -36,7 +36,7 @@ void spell_sheen(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 void spell_focus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		stc("Your spells are already focused.\n", ch);
@@ -58,7 +58,7 @@ void spell_focus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (ch == victim) {
 		stc("That wouldn't be very smart now, would it?\n", ch);
@@ -91,7 +91,7 @@ void spell_paralyze(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		stc("Your skin is already hard as iron.\n", ch);
@@ -115,7 +115,7 @@ void spell_ironskin(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		stc("You are already surrounded by a barrier.\n", ch);
@@ -138,7 +138,7 @@ void spell_barrier(int sn, int level, CHAR_DATA *ch, void *vo, int target, int e
 void spell_dazzle(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	int chance;
 
 	if (ch == victim && ch->fighting != NULL)
@@ -254,7 +254,7 @@ void spell_full_heal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 void spell_midnight(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn) && (victim == ch)) {
 		stc("You fail to invade the shadows further.\n", ch);
@@ -325,7 +325,7 @@ void spell_pain(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 void spell_hex(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (ch == victim) {
 		stc("Mortal fear of the dark gods prevents you from hexing yourself.\n", ch);
@@ -354,7 +354,7 @@ void spell_hex(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolu
 /* Bone Wall */
 void spell_bone_wall(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	af.where        = TO_AFFECTS;
 	af.type         = sn;
 	af.level        = level;
@@ -373,7 +373,7 @@ void spell_bone_wall(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 void spell_force(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 
 	if (affect_find_in_char(victim, sn)) {
 		stc("You are already protected by the force.\n", ch);

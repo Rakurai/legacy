@@ -51,7 +51,7 @@ void affect_remove_all_from_char(CHAR_DATA *ch) {
 }
 
 void affect_add_perm_to_char(CHAR_DATA *ch, int sn) {
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	af.type = sn;
 	af.where = TO_AFFECTS;
 	af.level = -1;

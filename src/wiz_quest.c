@@ -102,7 +102,7 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 		}
 
 	// add a new one
-	AFFECT_DATA af;
+	AFFECT_DATA af = (AFFECT_DATA){0};
 	af.where      = TO_OBJECT;
 	af.type       = 0;
 	af.level      = ch->level;
