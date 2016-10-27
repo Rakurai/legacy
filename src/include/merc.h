@@ -2838,8 +2838,8 @@ extern sh_int	gsn_critical_blow;
  * Object macros.
  */
 #define CAN_WEAR(obj, part)     (IS_SET((obj)->wear_flags,  (part)))
-#define IS_OBJ_STAT(obj, stat)  (IS_SET((obj)->extra_flags, (stat)))
-#define IS_WEAPON_STAT(obj,stat)(IS_SET((obj)->value[4],(stat)))
+#define IS_OBJ_STAT(obj, stat)  (IS_SET((obj)->extra_flags | (obj)->extra_flag_cache, (stat)))
+#define IS_WEAPON_STAT(obj,stat)(IS_SET((obj)->value[4] | (obj)->weapon_flag_cache,(stat)))
 #define WEIGHT_MULT(obj)        ((obj)->item_type == ITEM_CONTAINER ? \
         (obj)->value[4] : 100)
 

@@ -4972,7 +4972,7 @@ void do_hone(CHAR_DATA *ch)
 	sprintf(buf, "You skillfully hone %s to a razor edge.\n", weapon->short_descr);
 	act("$n skillfully sharpens $p to a razor edge.", ch, weapon, NULL, TO_ROOM);
 	stc(buf, ch);
-	weapon->value[4] |= WEAPON_SHARP;
+	SET_BIT(weapon->value[4], WEAPON_SHARP);
 	return;
 }
 

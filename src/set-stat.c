@@ -1783,8 +1783,8 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 		ptc(ch, "Damage is %dd%d (average %d).\n",
 		    obj->value[1], obj->value[2], (1 + obj->value[2]) * obj->value[1] / 2);
 
-		if (obj->value[4])  /* weapon flags */
-			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4]));
+		if (obj->value[4] || obj->weapon_flag_cache)  /* weapon flags */
+			ptc(ch, "Weapons flags: %s\n", weapon_bit_name(obj->value[4]|obj->weapon_flag_cache));
 
 		break;
 
