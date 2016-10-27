@@ -30,6 +30,7 @@
 #include "sql.h"
 #include "lookup.h"
 #include "music.h"
+#include "affect.h"
 
 extern  int     _filbuf         args((FILE *));
 
@@ -1198,44 +1199,41 @@ void load_objects(FILE *fp)
 			letter = fread_letter(fp);
 
 			if (letter == 'A') {
-				AFFECT_DATA *paf;
-				paf                     = alloc_perm(sizeof(*paf));
-				paf->where              = TO_OBJECT;
-				paf->type               = -1;
-				paf->level              = pObjIndex->level;
-				paf->duration           = -1;
-				paf->location           = fread_number(fp);
-				paf->modifier           = fread_number(fp);
-				paf->bitvector          = 0;
-				paf->evolution          = 1;
-				paf->next               = pObjIndex->affected;
-				pObjIndex->affected     = paf;
+				AFFECT_DATA af;
+				af.where              = TO_OBJECT;
+				af.type               = -1;
+				af.level              = pObjIndex->level;
+				af.duration           = -1;
+				af.location           = fread_number(fp);
+				af.modifier           = fread_number(fp);
+				af.bitvector          = 0;
+				af.evolution          = 1;
+				affect_copy_to_list(&pObjIndex->affected, &af);
 				top_affect++;
 			}
 			else if (letter == 'F') {
-				AFFECT_DATA *paf;
-				paf                     = alloc_perm(sizeof(*paf));
+				AFFECT_DATA af;
 				letter                  = fread_letter(fp);
 
 				switch (letter) {
 				case 'A':
-					paf->where          = TO_AFFECTS;
+					af.where          = TO_AFFECTS;
 					break;
 
 				case 'D':
-					paf->where          = TO_DRAIN;
+					af.where          = TO_DRAIN;
 					break;
 
 				case 'I':
-					paf->where          = TO_IMMUNE;
+					af.where          = TO_IMMUNE;
 					break;
 
 				case 'R':
-					paf->where          = TO_RESIST;
+					af.where          = TO_RESIST;
 					break;
 
 				case 'V':
-					paf->where          = TO_VULN;
+					af.where          = TO_VULN;
 					break;
 
 				default:
@@ -1243,15 +1241,14 @@ void load_objects(FILE *fp)
 					exit(1);
 				}
 
-				paf->type               = -1;
-				paf->level              = pObjIndex->level;
-				paf->duration           = -1;
-				paf->location           = fread_number(fp);
-				paf->modifier           = fread_number(fp);
-				paf->bitvector          = fread_flag(fp);
-				paf->evolution          = 1;
-				paf->next               = pObjIndex->affected;
-				pObjIndex->affected     = paf;
+				af.type               = -1;
+				af.level              = pObjIndex->level;
+				af.duration           = -1;
+				af.location           = fread_number(fp);
+				af.modifier           = fread_number(fp);
+				af.bitvector          = fread_flag(fp);
+				af.evolution          = 1;
+				affect_copy_to_list(&pObjIndex->affected, &af);
 				top_affect++;
 			}
 			else if (letter == 'E') {

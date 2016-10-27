@@ -1,6 +1,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "gem.h"
+#include "affect.h"
 
 // Gem Table
 const struct gem_type_table_t gem_type_table [MAX_GEM_TYPES] = {
@@ -83,31 +84,31 @@ char *get_gem_short_string(OBJ_DATA *eq) {
 
 void compile_gem_effects(OBJ_DATA *eq) {
 	OBJ_DATA *gem;
-	AFFECT_DATA *paf, *paf_next;
 
 	if (eq->wear_loc != WEAR_NONE) {
 		bug("compile_gem_effects: eq is worn", 0);
 		return;
 	}
 
+	// TODO: this needs to be redone
 	// blow away affects and rebuild
-	for (paf = eq->gem_affected; paf; paf = paf_next) {
-		paf_next = paf->next;
-		free_affect(paf);
+	while (eq->gem_affected) {
+		AFFECT_DATA *t = eq->gem_affected;
+		affect_remove_from_list(&eq->gem_affected, t);
+		free_affect(t);
 	}
 
 	for (gem = eq->gems; gem != NULL; gem = gem->next_content) {
-		paf                     = new_affect();
-		paf->where              = TO_OBJECT;
-		paf->type               = -1;
-		paf->level              = gem->level;
-		paf->duration           = -1;
-		paf->location           = gem_type_table[gem->value[GEM_VALUE_TYPE]].apply_loc;
-		paf->modifier           = gem_type_table[gem->value[GEM_VALUE_TYPE]].modifier[gem->value[GEM_VALUE_QUALITY]];
-		paf->bitvector          = 0;
-		paf->evolution          = 1;
-		paf->next               = eq->gem_affected;
-		eq->gem_affected        = paf;
+		AFFECT_DATA af;
+		af.where              = TO_OBJECT;
+		af.type               = -1;
+		af.level              = gem->level;
+		af.duration           = -1;
+		af.location           = gem_type_table[gem->value[GEM_VALUE_TYPE]].apply_loc;
+		af.modifier           = gem_type_table[gem->value[GEM_VALUE_TYPE]].modifier[gem->value[GEM_VALUE_QUALITY]];
+		af.bitvector          = 0;
+		af.evolution          = 1;
+		affect_copy_to_list(&eq->gem_affected, &af);
 	}
 }
 

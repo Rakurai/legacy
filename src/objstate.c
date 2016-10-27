@@ -6,6 +6,7 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "affect.h"
 
 /* see if an object has contents that don't appear in it's 'put' resets, return
    TRUE if so.  we don't save normal objects that lie around */
@@ -208,28 +209,26 @@ OBJ_DATA *fload_objstate(FILE *fp)
 	while (!done) { /* loop over all lines of obj desc */
 		switch (fread_letter(fp)) {
 		case 'A': {
-				AFFECT_DATA *paf;
+				// TODO: this needs to account for enchanted, don't double affects
+				AFFECT_DATA af;
 				int sn;
-				paf = new_affect();
 				sn = skill_lookup(fread_word(fp));
 
 				if (sn < 0) {
-					free_affect(paf);
 					fread_to_eol(fp);
 					continue;
 				}
 				else
-					paf->type = sn;
+					af.type = sn;
 
-				paf->where      = fread_number(fp);
-				paf->level      = fread_number(fp);
-				paf->duration   = fread_number(fp);
-				paf->modifier   = fread_number(fp);
-				paf->location   = fread_number(fp);
-				paf->bitvector  = fread_number(fp);
-				paf->evolution  = fread_number(fp);
-				paf->next       = obj->affected;
-				obj->affected   = paf;
+				af.where      = fread_number(fp);
+				af.level      = fread_number(fp);
+				af.duration   = fread_number(fp);
+				af.modifier   = fread_number(fp);
+				af.location   = fread_number(fp);
+				af.bitvector  = fread_number(fp);
+				af.evolution  = fread_number(fp);
+				affect_copy_to_obj(obj, &af);
 				break;
 			}
 

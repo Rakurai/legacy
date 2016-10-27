@@ -1445,7 +1445,6 @@ void spell_burning_hands(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 void spell_dazzling_light(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
-	AFFECT_DATA *paf;
 	int add, dur, i;
 
 	/* To avoid crazy memory issues (see spell_fireproof) make
@@ -1463,7 +1462,7 @@ void spell_dazzling_light(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		return;
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next) {
+	for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
 		if (!str_cmp(skill_table[paf->type].name, "dazzling light")) {
 			stc("That light is already quite dazzling.\n", ch);
 			return;
@@ -1480,32 +1479,24 @@ void spell_dazzling_light(int sn, int level, CHAR_DATA *ch, void *vo, int target
 			add++;
 	}
 
-	paf = new_affect();
-	paf->type      = sn;
-	paf->level     = level;
-	paf->duration  = dur;
-	paf->location  = APPLY_HITROLL;
-	paf->modifier  = add;
-	paf->bitvector = 0;
-	paf->evolution = evolution;
-	paf->next      = obj->affected;
-	obj->affected  = paf;
-	paf = new_affect();
-	paf->type      = sn;
-	paf->level     = level;
-	paf->duration  = dur;
-	paf->location  = APPLY_DAMROLL;
-	paf->modifier  = add;
-	paf->bitvector = 0;
-	paf->evolution = evolution;
-	paf->next      = obj->affected;
-	obj->affected  = paf;
+	AFFECT_DATA af;
+	af.where     = TO_OBJECT;
+	af.type      = sn;
+	af.level     = level;
+	af.duration  = dur;
+	af.location  = APPLY_HITROLL;
+	af.modifier  = add;
+	af.bitvector = 0;
+	af.evolution = evolution;
+	affect_copy_to_obj(obj, &af);
+
+	af.location  = APPLY_DAMROLL;
+	affect_copy_to_obj(obj, &af);
 }
 
 void spell_light_of_truth(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
-	AFFECT_DATA *paf;
 
 	/* Avoiding crazy memory issues from objects casting spells on characters...
 	   Make sure caster isn't also the target. -- Outsider */
@@ -1522,80 +1513,49 @@ void spell_light_of_truth(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		return;
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next) {
+	for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
 		if (!str_cmp(skill_table[paf->type].name, "light of truth")) {
 			stc("That light is already somewhat enhanced.\n", ch);
 			return;
 		}
 	}
 
+	AFFECT_DATA af;
+	af.where     = TO_AFFECTS;
+	af.type      = sn;
+	af.level     = level;
+	af.duration  = level;
+	af.location  = 0;
+	af.modifier  = 0;
+	af.evolution = evolution;
+
 	if ((number_percent() + 5) < ch->pcdata->learned[sn]) {
-		paf = new_affect();
-		paf->type      = sn;
-		paf->level     = level;
-		paf->duration  = level;
-		paf->location  = 0;
-		paf->modifier  = 0;
-		paf->bitvector = AFF_DETECT_EVIL;
-		paf->evolution = evolution;
-		paf->next      = obj->affected;
-		obj->affected  = paf;
+		af.bitvector = AFF_DETECT_EVIL;
+		affect_copy_to_obj(obj, &af);
 		act("$p throws a red aura around your evil surroundings.", ch, obj, NULL, TO_CHAR);
 	}
 
 	if ((number_percent() + 5) < ch->pcdata->learned[sn]) {
-		paf = new_affect();
-		paf->type      = sn;
-		paf->level     = level;
-		paf->duration  = level;
-		paf->location  = 0;
-		paf->modifier  = 0;
-		paf->bitvector = AFF_DETECT_GOOD;
-		paf->evolution = evolution;
-		paf->next      = obj->affected;
-		obj->affected  = paf;
+		af.bitvector = AFF_DETECT_GOOD;
+		affect_copy_to_obj(obj, &af);
 		act("$p shows you good things with a golden aura.", ch, obj, NULL, TO_CHAR);
 	}
 
 	if ((number_percent() + 15) < ch->pcdata->learned[sn]) {
-		paf = new_affect();
-		paf->type      = sn;
-		paf->level     = level;
-		paf->duration  = level;
-		paf->location  = 0;
-		paf->modifier  = 0;
-		paf->bitvector = AFF_DETECT_INVIS;
-		paf->evolution = evolution;
-		paf->next      = obj->affected;
-		obj->affected  = paf;
+		af.bitvector = AFF_DETECT_INVIS;
+		affect_copy_to_obj(obj, &af);
 		act("$p suddenly reveals invisible objects!", ch, obj, NULL, TO_CHAR);
 	}
 
 	if ((number_percent() + 15) < ch->pcdata->learned[sn]) {
-		paf = new_affect();
-		paf->type      = sn;
-		paf->level     = level;
-		paf->duration  = level;
-		paf->location  = 0;
-		paf->modifier  = 0;
-		paf->bitvector = AFF_DETECT_HIDDEN;
-		paf->evolution = evolution;
-		paf->next      = obj->affected;
-		obj->affected  = paf;
+		af.bitvector = AFF_DETECT_HIDDEN;
+		affect_copy_to_obj(obj, &af);
 		act("$p shines into every nook and cranny about you.", ch, obj, NULL, TO_CHAR);
 	}
 
 	if ((number_percent() + 25) < ch->pcdata->learned[sn]) {
-		paf = new_affect();
-		paf->type      = sn;
-		paf->level     = level;
-		paf->duration  = level;
-		paf->location  = 0;
-		paf->modifier  = 0;
-		paf->bitvector = AFF_DETECT_MAGIC;
-		paf->evolution = evolution;
-		paf->next      = obj->affected;
-		obj->affected  = paf;
+		af.bitvector = AFF_DETECT_MAGIC;
+		affect_copy_to_obj(obj, &af);
 		act("$p reflects strangely off some of your better equipment.", ch, obj, NULL, TO_CHAR);
 	}
 }

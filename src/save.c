@@ -30,6 +30,7 @@
 #include "tables.h"
 #include "lookup.h"
 #include "deps/cJSON/cJSON.h"
+#include "affect.h"
 
 extern  int     _filbuf         args((FILE *));
 extern void     goto_line       args((CHAR_DATA *ch, int row, int column));
@@ -1328,34 +1329,33 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 							continue;
 						}
 
-						AFFECT_DATA *paf = new_affect();
-						paf->type = sn;
-						get_JSON_short(item, &paf->where, "where");
-						get_JSON_short(item, &paf->level, "level");
-						get_JSON_short(item, &paf->duration, "dur");
-						get_JSON_short(item, &paf->modifier, "mod");
-						get_JSON_short(item, &paf->location, "loc");
-						get_JSON_int(item, &paf->bitvector, "bitv");
-						get_JSON_short(item, &paf->evolution, "evo");
+						AFFECT_DATA af;
+						af.type = sn;
+						get_JSON_short(item, &af.where, "where");
+						get_JSON_short(item, &af.level, "level");
+						get_JSON_short(item, &af.duration, "dur");
+						get_JSON_short(item, &af.modifier, "mod");
+						get_JSON_short(item, &af.location, "loc");
+						get_JSON_int(item, &af.bitvector, "bitv");
+						get_JSON_short(item, &af.evolution, "evo");
 
+						// TODO: is this necessary?  why not just always write affects?
 						if (IS_NPC(ch)) {
 							bool found = FALSE;
 
 							/* loop through the pet's spells, only add if they don't have it */
 							for (const AFFECT_DATA *old_af = ch->affected; old_af; old_af = old_af->next)
-								if (old_af->type == paf->type && old_af->location == paf->location) {
+								if (old_af->type == af.type && old_af->location == af.location) {
 									found = TRUE;
 									break;
 								}
 
 							if (found) {
-								free_affect(paf);
 								continue;
 							}
 						}
 
-						paf->next       = ch->affected;
-						ch->affected    = paf;
+						affect_copy_to_char(ch, &af);
 					}
 					fMatch = TRUE; break;
 				}
