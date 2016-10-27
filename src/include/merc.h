@@ -191,7 +191,6 @@ int	ptb	args((BUFFER *buffer, const char *fmt, ...))	__attribute__	((format(prin
 
 #define SILVER_PER_PLAYER	500000
 
-#define MAX_DRINK                   36
 #define MAX_WEAPON                  39
 
 /* 1 + Total Used ColorItems in do_color */
