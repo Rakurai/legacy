@@ -114,59 +114,6 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 	affect_copy_to_obj(obj, &af);
 }
 
-/* Addspell command by Demonfire */
-void do_addspell(CHAR_DATA *ch, const char *argument)
-{
-	char buf[MAX_STRING_LENGTH];
-	OBJ_DATA *obj;
-	char arg[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
-	char arg3[MAX_INPUT_LENGTH];
-	int free = -1;
-	int i;
-	argument = one_argument(argument, arg);
-	argument = one_argument(argument, arg2);
-	argument = one_argument(argument, arg3);
-
-	if (arg[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		stc("Syntax:\n", ch);
-		stc("addspell <object> <spell name> <level>\n", ch);
-		return;
-	}
-
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		stc("No such item.\n", ch);
-		return;
-	}
-
-	for (i = 1 ; i < MAX_SPELL && free == -1; i++)
-		if (obj->spell[i] == 0)
-			free = i;
-
-	if (free == -1) {
-		stc("No slots remaining..", ch);
-		return;
-	}
-
-	if (atoi(arg3) > ch->level) {
-		stc("You can only addspell an object with your level or below.\n", ch);
-		return;
-	}
-
-	if ((skill_lookup(arg2)) == -1) {
-		stc("No such spell!\n", ch);
-		return;
-	}
-
-	obj->spell[free] = skill_lookup(arg2);
-	obj->spell_lev[free] = atoi(arg3);
-	sprintf(buf, "Item spelled at level %d, %s.\n",
-	        obj->spell_lev[free],
-	        arg2);
-	stc(buf, ch);
-	return;
-}
-
 /* Morph Command by Lotus */
 void do_morph(CHAR_DATA *ch, const char *argument)
 {

@@ -1189,8 +1189,6 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
 void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 {
 	const AFFECT_DATA *paf;
-	int i, i2;
-	void *vo;
 
 	if (get_eq_char(ch, iWear) != NULL) {
 		bug("Equip_char: already equipped (%d).", iWear);
@@ -1207,7 +1205,7 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 		return;
 	}
 
-	for (i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 		ch->armor_a[i] -= apply_ac(obj, iWear, i);
 
 	obj->wear_loc = iWear;
@@ -1220,13 +1218,6 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	if (obj->item_type == ITEM_LIGHT && obj->value[2] != 0 && ch->in_room != NULL)
 		++ch->in_room->light;
-
-	vo = (void *)ch;
-
-	for (i2 = 1; i2 < MAX_SPELL; i2++)
-		if (obj->spell[i2] != 0)
-			/* evolution currently at 1 for worn eq */
-			(*skill_table[obj->spell[i2]].spell_fun)(obj->spell[i2], obj->spell_lev[i2], ch, vo, TARGET_CHAR, 1);
 }
 
 /*
@@ -1235,14 +1226,13 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	const AFFECT_DATA *paf = NULL;
-	int i, i2;
 
 	if (obj->wear_loc == WEAR_NONE) {
 		bug("Unequip_char: already unequipped.", 0);
 		return;
 	}
 
-	for (i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 		ch->armor_a[i]    += apply_ac(obj, obj->wear_loc, i);
 
 	obj->wear_loc        = -1;
@@ -1274,10 +1264,6 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	    &&   ch->in_room != NULL
 	    &&   ch->in_room->light > 0)
 		--ch->in_room->light;
-
-	for (i2 = 1; i2 < MAX_SPELL; i2++)
-		if (obj->spell[i2] != 0)
-			affect_remove_sn_from_char(ch, obj->spell[i2]);
 
 	return;
 }

@@ -2301,8 +2301,6 @@ struct obj_data
 	sh_int			wear_loc;
 	sh_int			timer;
 	sh_int			clean_timer;		/* Montrey */
-	sh_int			spell[MAX_SPELL];
-	sh_int			spell_lev[MAX_SPELL];
 	bool			valid;
 
     unsigned int    extra_flag_cache;

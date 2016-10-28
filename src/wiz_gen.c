@@ -710,7 +710,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 	const char *rest;
 	CHAR_DATA *mob;
 	OBJ_DATA  *obj;
-	int i, j;
+	int j;
 	int number;
 	rest = one_argument(argument, arg);
 
@@ -773,11 +773,6 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 			}
 
 			clone_object(obj, clone);
-
-			for (i = 1; i < MAX_SPELL; i++) {
-				clone->spell[i] = obj->spell[i];
-				clone->spell_lev[i] = obj->spell_lev[i];
-			}
 
 			if (obj->carried_by != NULL)
 				obj_to_char(clone, ch);
@@ -1109,7 +1104,6 @@ void do_deputize(CHAR_DATA *ch, const char *argument)
 void do_despell(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	int i;
 	char arg[MAX_INPUT_LENGTH];
 	argument = one_argument(argument, arg);
 
@@ -1122,11 +1116,6 @@ void do_despell(CHAR_DATA *ch, const char *argument)
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		stc("No such item.\n", ch);
 		return;
-	}
-
-	for (i = 1; i < MAX_SPELL; i++) {
-		obj->spell[i] = 0;
-		obj->spell_lev[i] = 0;
 	}
 
 	stc("Item cleared of all spells.\n", ch);

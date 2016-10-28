@@ -93,7 +93,6 @@ const   struct  cmd_type        cmd_table       [] = {
 
 	{ "accept",                     do_accept,              POS_RESTING,    LOG_NORMAL,     8,      0                       },
 	{ "addapply",           do_addapply,    POS_DEAD,               LOG_ALWAYS,     5,      GD | GWQ        },
-	{ "addspell",           do_addspell,    POS_DEAD,               LOG_ALWAYS,     5,      GD | GWQ        },
 	{ "addexit",            do_addexit,             POS_DEAD,               LOG_ALWAYS,     5,      GWC                     },
 	{ "adjust",                     do_adjust,              POS_DEAD,               LOG_ALWAYS,     5,      GD | GWC        },
 	{ "advance",            do_advance,             POS_DEAD,               LOG_ALWAYS,     5,      GL | GWC        },

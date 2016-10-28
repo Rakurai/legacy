@@ -4448,11 +4448,6 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
                 for (paf = obj->gem_affected; paf != NULL; paf = paf->next)
                         show_affect_to_char(paf, ch);
         }
-
-	for (i = 1; i < MAX_SPELL; i++)
-		if (obj->spell[i] != 0)
-			ptc(ch, "Spelled with '%s' at level %d.\n",
-			    skill_table[obj->spell[i]].name, obj->spell_lev[i]);
 }
 
 void spell_infravision(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)

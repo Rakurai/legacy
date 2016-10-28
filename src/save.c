@@ -682,26 +682,6 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 	if (obj->short_descr != obj->pIndexData->short_descr)
 		cJSON_AddStringToObject(o,	"ShD",			obj->short_descr);
 
-	/*
-	 * Spelled eq by Demonfire
-	 * Added on 11.23.1996
-	 */
-	item = NULL;
-	for (int pos = 0; pos < MAX_SPELL; pos++) {
-		if (obj->spell[pos] == 0)
-			continue;
-
-		if (item == NULL)
-			item = cJSON_CreateArray();
-
-		cJSON *sp = cJSON_CreateObject();
-		cJSON_AddStringToObject(sp, "name", skill_table[obj->spell[pos]].name);
-		cJSON_AddNumberToObject(sp, "level", obj->spell_lev[pos]);
-		cJSON_AddItemToArray(item, sp);
-	}
-	if (item != NULL)
-		cJSON_AddItemToObject(o,	"Splxtra",		item);
-
 	if (obj->timer != 0)
 		cJSON_AddNumberToObject(o,	"Time",			obj->timer);
 
@@ -1600,15 +1580,6 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 				STRKEY("Name",			obj->name,					o->valuestring);
 				break;
 			case 'S':
-				if (!str_cmp(key, "Splxtra")) {
-					int count = 0;
-					for (cJSON *item = o->child; item; item = item->next, count++) {
-						obj->spell[count] = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
-						obj->spell_lev[count] = cJSON_GetObjectItem(item, "level")->valueint;
-					}
-					fMatch = TRUE; break;
-				}
-
 				STRKEY("ShD",			obj->short_descr,			o->valuestring);
 				break;
 			case 'T':

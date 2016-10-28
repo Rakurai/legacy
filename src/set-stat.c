@@ -1659,7 +1659,6 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	const AFFECT_DATA *paf;
-	int i;
 	ptc(ch, "{CVnum: %d   Level: %d\n", obj->pIndexData->vnum, obj->level);
 	ptc(ch, "{CName(s):{x %s{x\n", obj->name);
 	ptc(ch, "Short description: %s{x\nLong  description: %s{x\n",
@@ -1810,11 +1809,6 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		show_affect_to_char(paf, ch);
-
-	for (i = 1; i < MAX_SPELL; i++)
-		if (obj->spell[i] != 0)
-			ptc(ch, "Spelled with '%s' at level %d.\n",
-			    skill_table[obj->spell[i]].name, obj->spell_lev[i]);
 
 	if (obj->num_settings > 0) {
 		ptc(ch, "Has %d settings.\n", obj->num_settings);
