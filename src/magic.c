@@ -4975,6 +4975,28 @@ void spell_pass_door(int sn, int level, CHAR_DATA *ch, void *vo, int target, int
 	stc("You turn translucent.\n", victim);
 }
 
+void spread_plague(ROOM_INDEX_DATA *room, const AFFECT_DATA *plague, int chance) {
+	if (room == NULL)
+		return;
+
+	if (plague->level <= 1)
+		return;
+
+	for (CHAR_DATA *vch = room->people; vch; vch = vch->next_in_room) {
+		AFFECT_DATA af = *plague;
+		af.level        = plague->level - 1;
+		af.duration     = number_range(1, 2 * af.level);
+
+		if (!saves_spell(af.level - 2, vch, DAM_DISEASE)
+		    &&  !IS_IMMORTAL(vch)
+		    &&  !IS_AFFECTED(vch, AFF_PLAGUE) && number_bits(chance) == 0) {
+			stc("You feel hot and feverish.\n", vch);
+			act("$n shivers and looks very ill.", vch, NULL, NULL, TO_ROOM);
+			affect_join_to_char(vch, &af);
+		}
+	}
+}
+
 void spell_plague(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;

@@ -924,48 +924,9 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		++ch->in_room->light;
 
 	if (IS_AFFECTED(ch, AFF_PLAGUE)) {
-		const AFFECT_DATA *af;
-		AFFECT_DATA plague;
-		CHAR_DATA *vch;
-
-		for (af = ch->affected; af != NULL; af = af->next) {
-			if (af->type == gsn_plague)
-				break;
-		}
-
-		if (af == NULL) {
-			REMOVE_BIT(ch->affected_by, AFF_PLAGUE);
-			return;
-		}
-
-		if (af->level == 1)
-			return;
-
-		plague.where            = TO_AFFECTS;
-		plague.type             = gsn_plague;
-		plague.level            = af->level - 1;
-		plague.duration         = number_range(1, 2 * plague.level);
-		plague.location         = APPLY_STR;
-		plague.modifier         = -5;
-		plague.bitvector        = AFF_PLAGUE;
-
-		if (af->evolution > 1)
-			plague.evolution = af->evolution - 1;
-		else
-			plague.evolution = 1;
-
-		for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
-			if (!saves_spell(plague.level - 2, vch, DAM_DISEASE)
-			    &&  !IS_IMMORTAL(vch) &&
-			    !IS_AFFECTED(vch, AFF_PLAGUE) && number_bits(6) == 0) {
-				stc("You feel hot and feverish.\n", vch);
-				act("$n shivers and looks very ill.", vch, NULL, NULL, TO_ROOM);
-				affect_join_to_char(vch, &plague);
-			}
-		}
+		const AFFECT_DATA *plague = affect_find_in_char(ch, gsn_plague);
+		spread_plague(ch->in_room, plague, 6);
 	}
-
-	return;
 }
 
 /* Locker Code */

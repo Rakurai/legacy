@@ -3705,6 +3705,7 @@ bool    Is_Granted      args( (CHAR_DATA *ch, const char *argument) );
 
 
 /* magic.c */
+void    spread_plague   args(( ROOM_INDEX_DATA *room, const AFFECT_DATA *plague, int chance));
 int     find_spell      args( ( CHAR_DATA *ch, const char *name) );
 int     skill_lookup    args( ( const char *name ) );
 int     slot_lookup     args( ( int slot ) );
