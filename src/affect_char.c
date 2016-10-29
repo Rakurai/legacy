@@ -23,6 +23,7 @@ unsigned int affect_flag_get_char(CHAR_DATA *ch) {
 
 void affect_flag_clear_char(CHAR_DATA *ch) {
 	ch->affected_by = 0;
+}
 
 bool affect_flag_on_char(CHAR_DATA *ch, unsigned int flag) {
 	return IS_SET(ch->affected_by, flag);

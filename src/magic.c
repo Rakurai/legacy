@@ -4796,7 +4796,7 @@ void spread_plague(ROOM_INDEX_DATA *room, const AFFECT_DATA *plague, int chance)
 
 		if (!saves_spell(af.level - 2, vch, DAM_DISEASE)
 		    &&  !IS_IMMORTAL(vch)
-		    &&  !IS_AFFECTED(vch, AFF_PLAGUE) && number_bits(chance) == 0) {
+		    &&  !affect_flag_on_char(vch, AFF_PLAGUE) && number_bits(chance) == 0) {
 			stc("You feel hot and feverish.\n", vch);
 			act("$n shivers and looks very ill.", vch, NULL, NULL, TO_ROOM);
 			affect_join_to_char(vch, &af);

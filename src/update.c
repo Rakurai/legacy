@@ -1036,7 +1036,7 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (ch != NULL && IS_AFFECTED(ch, gsn_plague)) {
+		if (ch != NULL && affect_flag_on_char(ch, gsn_plague)) {
 		 	const AFFECT_DATA *plague = affect_find_in_char(ch, gsn_plague);
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",

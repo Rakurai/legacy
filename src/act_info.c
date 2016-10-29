@@ -5175,10 +5175,6 @@ void print_new_affects(CHAR_DATA *ch)
 		        ch->name, affect_bit_name(cheat));
 		wiznet(buf, NULL, NULL, WIZ_CHEAT, 0, 0);
 		log_string(buf);
-<<<<<<< 8f2ac2ebc3bba71050d4eaa71d1a0cf568eadb68
-//		ch->affected_by -= cheat;
-=======
->>>>>>> Squeezed setters for CHAR_DATA->affected_by into a common interface.
 	}
 
 	if (!IS_NPC(ch)
