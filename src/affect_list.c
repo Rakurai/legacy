@@ -98,7 +98,7 @@ void affect_remove_matching_from_list(AFFECT_DATA **list_head, affect_comparator
 void affect_iterate_over_list(AFFECT_DATA **list_head, affect_fn fn, affect_fn_params *params) {
 	for (AFFECT_DATA *paf = *list_head; paf; paf = paf->next) {
 		(params->modifier)(params->owner, paf, FALSE);
-		(*fn)(paf, params); // should return value indicate break?
+		(*fn)(paf, params->data); // should return value indicate break?
 		(params->modifier)(params->owner, paf, TRUE);
 	}
 }
