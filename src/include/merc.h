@@ -2160,6 +2160,7 @@ struct  pc_data
    char *              rank;
    sh_int              lastcolor     [2];
    sh_int              pktimer;
+   sh_int              combattimer;
    char *              status;
    char *              deity;
    sh_int              remort_count;
