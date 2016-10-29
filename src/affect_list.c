@@ -98,18 +98,20 @@ void affect_remove_matching_from_list(AFFECT_DATA **list_head, affect_comparator
 void affect_iterate_over_list(AFFECT_DATA **list_head, affect_fn fn, affect_fn_params *params) {
 	for (AFFECT_DATA *paf = *list_head; paf; paf = paf->next) {
 		(params->modifier)(params->owner, paf, FALSE);
-//		(*fn)(paf, params) // should return value indicate break?
+		(*fn)(paf, params); // should return value indicate break?
 		(params->modifier)(params->owner, paf, TRUE);
 	}
 }
 
 void affect_sort_list(AFFECT_DATA **list_head, affect_comparator comp) {
-	bool sorted = TRUE;
+	bool sorted = FALSE;
 
 	while (!sorted) {
 		sorted = TRUE;
 
 		// go through the list, looking for unsorted items
+		// TODO: there's a more efficient way to do this, we don't have to start at the beginning
+		// with each iteration.  However, more important things to do right now, fix it later.
 		for (AFFECT_DATA *paf = *list_head; paf; paf = paf->next) {
 			if (paf->next == NULL)
 				break;
