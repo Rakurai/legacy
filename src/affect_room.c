@@ -1,11 +1,14 @@
 #include "merc.h"
 #include "affect.h"
-#include "affect_int.h"
+#include "affect_list.h"
 #include "recycle.h"
+
+// local declarations
+void affect_modify_room(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
 // searching
 
-AFFECT_DATA *affect_find_in_room(ROOM_INDEX_DATA *room, int sn) {
+const AFFECT_DATA *affect_find_in_room(ROOM_INDEX_DATA *room, int sn) {
 	return affect_find_in_list(&room->affected, sn);
 }
 
@@ -78,6 +81,10 @@ void affect_update_in_room(ROOM_INDEX_DATA *room, AFFECT_DATA *original, const A
 	affect_modify_room(room, original, FALSE);
 	affect_update(original, template);
 	affect_modify_room(room, original, TRUE);
+}
+
+void affect_sort_room(ROOM_INDEX_DATA *room, affect_comparator comp) {
+	affect_sort_list(&room->affected, comp);
 }
 
 // utility

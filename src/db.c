@@ -31,6 +31,7 @@
 #include "lookup.h"
 #include "music.h"
 #include "affect.h"
+#include "affect_list.h"
 
 extern  int     _filbuf         args((FILE *));
 

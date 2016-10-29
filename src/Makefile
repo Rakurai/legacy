@@ -21,11 +21,11 @@ _O_DEPS = cJSON/cJSON.o
 O_DEPS  = $(patsubst %,$(DEPDIR)/%,$(_O_DEPS))
 
 _H_FILES = db.h interp.h lookup.h magic.h memory.h merc.h music.h sql.h recycle.h tables.h	\
-	telnet.h vt100.h affect.h affect_int.h
+	telnet.h vt100.h affect.h affect_list.h
 H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 
 _O_FILES = act_comm.o act_info.o act_move.o act_obj.o \
-	affect.o affect_char.o affect_obj.o affect_room.o affect_util.o \
+	affect.o affect_char.o affect_obj.o affect_room.o affect_list.o \
 	alias.o area_handler.o bank.o channels.o clan-edit.o comm.o config.o const.o db.o \
 	debug.o departed.o dispel.o duel.o edit.o effects.o	\
 	fight.o file.o find.o flags.o handler.o help.o hunt.o ignore.o interp.o load_config.o	\

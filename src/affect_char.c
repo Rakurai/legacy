@@ -1,8 +1,11 @@
 #include "merc.h"
 #include "affect.h"
+#include "affect_list.h"
 #include "recycle.h"
 #include "tables.h"
-#include "affect_int.h"
+
+// local declarations
+void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
 // searching
 
@@ -90,6 +93,10 @@ void affect_update_in_char(CHAR_DATA *ch, AFFECT_DATA *original, const AFFECT_DA
 	affect_modify_char(ch, original, FALSE);
 	affect_update(original, template);
 	affect_modify_char(ch, original, TRUE);
+}
+
+void affect_sort_char(CHAR_DATA *ch, affect_comparator comp) {
+	affect_sort_list(&ch->affected, comp);
 }
 
 // utility

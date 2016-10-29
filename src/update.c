@@ -995,8 +995,8 @@ void char_update(void)
 		// should get all the grouped spells together.
 		// this will usually already be sorted this way, unless it was sorted by
 		// duration for the show_affects player command, so only O(n) hit here.
-		affect_sort_list(&ch->affected, affect_comparator_duration);
-		affect_sort_list(&ch->affected, affect_comparator_type);
+		affect_sort_char(ch, affect_comparator_duration);
+		affect_sort_char(ch, affect_comparator_type);
 
 		for (const AFFECT_DATA *paf = ch->affected; paf; paf = paf->next) {
 			if (paf->duration == 0) {
@@ -1108,8 +1108,8 @@ void obj_update(void)
 		// are duplicated (for some reason).  so, the hackish solution is to sort
 		// the list twice: once by duration, and then by skill number.  this
 		// should get all the grouped spells together.
-		affect_sort_list(&obj->affected, affect_comparator_duration);
-		affect_sort_list(&obj->affected, affect_comparator_type);
+		affect_sort_obj(obj, affect_comparator_duration);
+		affect_sort_obj(obj, affect_comparator_type);
 
 		for (const AFFECT_DATA *paf = obj->affected; paf; paf = paf->next) {
 			if (paf->duration == 0) {
@@ -1258,8 +1258,8 @@ void room_update(void)
 		// are duplicated (for some reason).  so, the hackish solution is to sort
 		// the list twice: once by duration, and then by skill number.  this
 		// should get all the grouped spells together.
-		affect_sort_list(&room->affected, affect_comparator_duration);
-		affect_sort_list(&room->affected, affect_comparator_type);
+		affect_sort_room(room, affect_comparator_duration);
+		affect_sort_room(room, affect_comparator_type);
 
 		for (const AFFECT_DATA *paf = room->affected; paf; paf = paf->next) {
 			if (paf->duration == 0) {

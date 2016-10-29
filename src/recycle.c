@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "recycle.h"
 #include "affect.h"
+#include "affect_list.h"
 
 extern CHAR_DATA *dv_char;
 extern char dv_command[];

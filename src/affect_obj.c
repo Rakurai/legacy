@@ -1,11 +1,14 @@
 #include "merc.h"
 #include "affect.h"
-#include "affect_int.h"
+#include "affect_list.h"
 #include "recycle.h"
+
+// local declarations
+void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
 // searching
 
-AFFECT_DATA *affect_find_in_obj(OBJ_DATA *obj, int sn) {
+const AFFECT_DATA *affect_find_in_obj(OBJ_DATA *obj, int sn) {
 	return affect_find_in_list(&obj->affected, sn);
 }
 
@@ -80,6 +83,10 @@ void affect_update_in_obj(OBJ_DATA *obj, AFFECT_DATA *original, const AFFECT_DAT
 	affect_modify_obj(obj, original, TRUE);
 }
 
+void affect_sort_obj(OBJ_DATA *obj, affect_comparator comp) {
+	affect_sort_list(&obj->affected, comp);
+}
+
 // utility
 
 // test if an object has an affect
@@ -122,6 +129,7 @@ void affect_modify_flag_cache_obj(OBJ_DATA *obj, sh_int where, unsigned int flag
 
 void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	OBJ_DATA *obj = (OBJ_DATA *)owner;
+	extern void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
 	// set enchanted flag here.  this isnt technically always true, this could be a temp effect,
 	// but i'm trying to simplify while deciding whether the affects should write to file.

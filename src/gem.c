@@ -2,6 +2,7 @@
 #include "recycle.h"
 #include "gem.h"
 #include "affect.h"
+#include "affect_list.h"
 
 // Gem Table
 const struct gem_type_table_t gem_type_table [MAX_GEM_TYPES] = {

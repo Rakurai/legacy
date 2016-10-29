@@ -5058,7 +5058,7 @@ void print_new_affects(CHAR_DATA *ch)
 		   list of affects before we print them.
 		   -- Outsider
 		*/
-		affect_sort_list(&ch->affected, affect_comparator_duration);
+		affect_sort_char(ch, affect_comparator_duration);
 
 		/* End of bubble sort for affects. */
 
