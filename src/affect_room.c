@@ -8,6 +8,10 @@ void affect_modify_room(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
 // searching
 
+const AFFECT_DATA *affect_list_room(ROOM_INDEX_DATA *room) {
+	return room->affected;
+}
+
 const AFFECT_DATA *affect_find_in_room(ROOM_INDEX_DATA *room, int sn) {
 	return affect_find_in_list(&room->affected, sn);
 }

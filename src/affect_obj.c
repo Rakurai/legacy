@@ -8,6 +8,10 @@ void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
 // searching
 
+const AFFECT_DATA *affect_list_obj(OBJ_DATA *obj) {
+	return obj->affected;
+}
+
 const AFFECT_DATA *affect_find_in_obj(OBJ_DATA *obj, int sn) {
 	return affect_find_in_list(&obj->affected, sn);
 }

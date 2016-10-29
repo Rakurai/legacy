@@ -1092,10 +1092,9 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	for (i = 0; i < 3; i++)
 		clone->damage[i]        = parent->damage[i];
 
-	while (clone->affected)
-		affect_remove_from_char(clone, clone->affected);
+	affect_remove_all_from_char(clone);
 
-	for (const AFFECT_DATA *paf = parent->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_char(parent); paf != NULL; paf = paf->next)
 		affect_copy_to_char(clone, paf);
 }
 
@@ -1243,7 +1242,9 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 	/* affects */
 	clone->enchanted    = parent->enchanted;
 
-	for (const AFFECT_DATA *paf = parent->affected; paf != NULL; paf = paf->next)
+	affect_remove_all_from_obj(clone);
+
+	for (const AFFECT_DATA *paf = affect_list_obj(parent); paf; paf = paf->next)
 		affect_copy_to_obj(clone, paf);
 
 	/* extended desc */

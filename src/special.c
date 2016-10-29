@@ -28,6 +28,7 @@
 #include "merc.h"
 #include "magic.h"
 #include "lookup.h"
+#include "affect.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_yell);
@@ -1139,14 +1140,13 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	if (argument[0] == '\0') {
 		bool etched = FALSE;
-		const AFFECT_DATA *paf;
 		stc("{WItems you are wearing:\n", ch);
 
 		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
 			if ((obj = get_eq_char(ch, iWear)) == NULL)
 				continue;
 
-			for (paf = obj->affected; paf != NULL; paf = paf->next)
+			for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
 				if (paf->type == gsn_acid_breath)
 					etched = TRUE;
 
@@ -1182,7 +1182,6 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	CHAR_DATA *rch;
-	const AFFECT_DATA *paf;
 	char buf[MAX_STRING_LENGTH];
 	int max = 100;
 
@@ -1195,7 +1194,7 @@ void obj_repair(CHAR_DATA *ch, OBJ_DATA *obj)
 		return;
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
 		if (paf->type == gsn_acid_breath)
 			max = 100 - (5 * paf->modifier);
 

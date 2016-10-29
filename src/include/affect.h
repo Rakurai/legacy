@@ -41,6 +41,9 @@ void          affect_swap                 args(( AFFECT_DATA *a, AFFECT_DATA *b 
 // public list accessors defined in affect_<entity>.c
 
 // searching
+const AFFECT_DATA * affect_list_obj                  args(( OBJ_DATA *obj ));
+const AFFECT_DATA * affect_list_char                 args(( CHAR_DATA *ch ));
+const AFFECT_DATA * affect_list_room                 args(( ROOM_INDEX_DATA *room ));
 const AFFECT_DATA * affect_find_in_obj               args(( OBJ_DATA *obj, int sn ));
 const AFFECT_DATA * affect_find_in_char              args(( CHAR_DATA *ch, int sn ));
 const AFFECT_DATA * affect_find_in_room              args(( ROOM_INDEX_DATA *room, int sn ));

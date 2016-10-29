@@ -2686,8 +2686,7 @@ void raw_kill(CHAR_DATA *victim)
 		return;
 	}
 
-	while (victim->affected)
-		affect_remove_from_char(victim, victim->affected);
+	affect_remove_all_from_char(victim);
 
 	if (victim->in_room->sector_type != SECT_ARENA
 	    && victim->in_room->sector_type != SECT_CLANARENA
@@ -4835,12 +4834,11 @@ void eqcheck(CHAR_DATA *ch)
 {
 	int iWear;
 	OBJ_DATA *obj;
-	const AFFECT_DATA *paf;
 	long filter;
 
 	for (iWear = 0; iWear < MAX_WEAR; iWear++) {
 		if ((obj = get_eq_char(ch, iWear)) != NULL) {
-			for (paf = obj->affected; paf != NULL; paf = paf->next) {
+			for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
 				filter = paf->bitvector;
 				filter = !filter;
 				filter |= ch->affected_by;

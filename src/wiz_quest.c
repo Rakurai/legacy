@@ -102,7 +102,7 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 	af.bitvector  = 0;
 	af.evolution  = 1;
 
-	// modify existing value?
+	// modify existing value?  special case for accessor, remove this if possible
 	for (AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next)
 		if (paf->location == enchant_type) {
 			affect_update_in_obj(obj, paf, &af);

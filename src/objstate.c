@@ -63,7 +63,6 @@ bool is_worth_saving(OBJ_DATA *obj)
 void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
 {
 	OBJ_DATA *cobj;
-	const AFFECT_DATA *paf;
 	EXTRA_DESCR_DATA *ed;
 	int i = 0;
 	fprintf(fp, "OBJ\n%d %d %d %d ",
@@ -118,7 +117,7 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
 		        obj->value[0], obj->value[1], obj->value[2], obj->value[3], obj->value[4]);
 
 	if (obj->enchanted) {
-		for (paf = obj->affected; paf; paf = paf->next) {
+		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
 			if (paf->type < 0 || paf->type >= MAX_SKILL)
 				continue;
 

@@ -512,7 +512,6 @@ int get_weapon_skill(CHAR_DATA *ch, int sn)
 void reset_char(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
-	const AFFECT_DATA *af;
 	int loc, mod, stat, i;
 
 	/* initialize */
@@ -571,10 +570,10 @@ void reset_char(CHAR_DATA *ch)
 		for (i = 0; i < 4; i++)
 			ch->armor_a[i] -= apply_ac(obj, loc, i);
 
-		for (af = obj->affected; af != NULL; af = af->next) {
-			mod = af->modifier;
+		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
+			mod = paf->modifier;
 
-			switch (af->location) {
+			switch (paf->location) {
 			case APPLY_STR:         ch->mod_stat[STAT_STR]  += mod; break;
 
 			case APPLY_DEX:         ch->mod_stat[STAT_DEX]  += mod; break;
@@ -619,10 +618,10 @@ void reset_char(CHAR_DATA *ch)
 	}
 
 	/* now add back spell effects */
-	for (af = ch->affected; af != NULL; af = af->next) {
-		mod = af->modifier;
+	for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
+		mod = paf->modifier;
 
-		switch (af->location) {
+		switch (paf->location) {
 		case APPLY_STR:         ch->mod_stat[STAT_STR]  += mod; break;
 
 		case APPLY_DEX:         ch->mod_stat[STAT_DEX]  += mod; break;
@@ -1149,8 +1148,6 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
  */
 void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 {
-	const AFFECT_DATA *paf;
-
 	if (get_eq_char(ch, iWear) != NULL) {
 		bug("Equip_char: already equipped (%d).", iWear);
 		return;
@@ -1171,7 +1168,7 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	obj->wear_loc = iWear;
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
 		if (paf->location == APPLY_SPELL_AFFECT)
 			affect_copy_to_char(ch, paf);
 		else
@@ -1186,8 +1183,6 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
  */
 void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	const AFFECT_DATA *paf = NULL;
-
 	if (obj->wear_loc == WEAR_NONE) {
 		bug("Unequip_char: already unequipped.", 0);
 		return;
@@ -1198,7 +1193,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	obj->wear_loc        = -1;
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
 		affect_modify_char(ch, paf, FALSE);
 
 	if (obj->item_type == ITEM_LIGHT
@@ -3178,7 +3173,6 @@ int get_true_hitroll(CHAR_DATA *ch)
 {
 	int loc, hitroll;
 	OBJ_DATA *obj;
-	const AFFECT_DATA *af;
 
 	if (IS_NPC(ch))
 		return GET_HITROLL(ch);
@@ -3189,9 +3183,9 @@ int get_true_hitroll(CHAR_DATA *ch)
 		if ((obj = get_eq_char(ch, loc)) == NULL)
 			continue;
 
-		for (af = obj->affected; af != NULL; af = af->next)
-			if (af->location == APPLY_HITROLL)
-				hitroll += af->modifier;
+		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
+			if (paf->location == APPLY_HITROLL)
+				hitroll += paf->modifier;
 	}
 
 	return hitroll;
@@ -3201,7 +3195,6 @@ int get_true_damroll(CHAR_DATA *ch)
 {
 	int loc, damroll;
 	OBJ_DATA *obj;
-	const AFFECT_DATA *af;
 
 	if (IS_NPC(ch))
 		return GET_DAMROLL(ch);
@@ -3212,9 +3205,9 @@ int get_true_damroll(CHAR_DATA *ch)
 		if ((obj = get_eq_char(ch, loc)) == NULL)
 			continue;
 
-		for (af = obj->affected; af != NULL; af = af->next)
-			if (af->location == APPLY_DAMROLL)
-				damroll += af->modifier;
+		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
+			if (paf->location == APPLY_DAMROLL)
+				damroll += paf->modifier;
 	}
 
 	return damroll;
@@ -3282,7 +3275,6 @@ int get_age(CHAR_DATA *ch)
 int get_age_mod(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
-	const AFFECT_DATA *af;
 	int age = 0, loc;
 
 	/* eq */
@@ -3290,13 +3282,13 @@ int get_age_mod(CHAR_DATA *ch)
 		if ((obj = get_eq_char(ch, loc)) == NULL)
 			continue;
 
-		for (af = obj->affected; af; af = af->next)
+		for (const AFFECT_DATA *af = affect_list_obj(obj); af; af = af->next)
 			if (af->location == APPLY_AGE)
 				age += af->modifier;
 	}
 
 	/* spells */
-	for (af = ch->affected; af; af = af->next)
+	for (const AFFECT_DATA *af = affect_list_char(ch); af; af = af->next)
 		if (af->location == APPLY_AGE)
 			age += af->modifier;
 
@@ -3306,10 +3298,9 @@ int get_age_mod(CHAR_DATA *ch)
 /* used with IS_AFFECTED, checks to see if the affect has an evolution rating, returns 1 if not */
 int get_affect_evolution(CHAR_DATA *ch, int sn)
 {
-	const AFFECT_DATA *paf;
 	int evo = 1;
 
-	for (paf = ch->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next)
 		if (paf->type == sn && paf->evolution > evo)            /* returns the evolution of the highest */
 			evo = paf->evolution;
 

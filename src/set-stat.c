@@ -1488,8 +1488,6 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 /***** STAT COMMANDS *****/
 void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	const AFFECT_DATA *paf;
-
 	if (IS_NPC(victim))
 		ptc(ch, "Vnum: %d  Group: %d  Count: %d  Killed: %d\n",
 		    victim->pIndexData->vnum,
@@ -1645,7 +1643,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim->affected_by)
 		ptc(ch, "{bAffected by %s{x\n", affect_bit_name(victim->affected_by));
 
-	for (paf = victim->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next)
 		ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.{x\n",
 		    skill_table[(int) paf->type].name,
 		    affect_loc_name(paf->location),
@@ -1658,7 +1656,6 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 
 void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 {
-	const AFFECT_DATA *paf;
 	ptc(ch, "{CVnum: %d   Level: %d\n", obj->pIndexData->vnum, obj->level);
 	ptc(ch, "{CName(s):{x %s{x\n", obj->name);
 	ptc(ch, "Short description: %s{x\nLong  description: %s{x\n",
@@ -1807,7 +1804,7 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 		break;
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
 		show_affect_to_char(paf, ch);
 
 	if (obj->num_settings > 0) {
@@ -1820,7 +1817,7 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (obj->gems) {
 		ptc(ch, "Gems are adding:");
 
-		for (paf = obj->gem_affected; paf != NULL; paf = paf->next)
+		for (const AFFECT_DATA *paf = obj->gem_affected; paf != NULL; paf = paf->next)
 			show_affect_to_char(paf, ch);
 	}
 
@@ -1829,7 +1826,6 @@ void format_ostat(CHAR_DATA *ch, OBJ_DATA *obj)
 void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 {
 	char buf[MSL];
-	const AFFECT_DATA *paf = NULL;
 	OBJ_DATA *obj;
 	CHAR_DATA *rch;
 	int door;
@@ -1888,7 +1884,7 @@ void format_rstat(CHAR_DATA *ch, ROOM_INDEX_DATA *location)
 		}
 	}
 
-	for (paf = location->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_room(location); paf != NULL; paf = paf->next)
 		ptc(ch, "{bAffect: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.{x\n",
 		    skill_table[(int) paf->type].name,
 		    affect_loc_name(paf->location),

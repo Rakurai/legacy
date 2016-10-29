@@ -18,6 +18,7 @@
 #include "recycle.h"
 #include "memory.h"
 #include "sql.h"
+#include "affect.h"
 
 DECLARE_DO_FUN(do_echo);
 
@@ -621,7 +622,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		if (fch->pcdata != NULL)
 			num_pcs++;
 
-		for (const AFFECT_DATA *af = fch->affected; af != NULL; af = af->next)
+		for (const AFFECT_DATA *af = affect_list_char(fch); af != NULL; af = af->next)
 			aff_count++;
 	}
 
@@ -667,7 +668,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		count++;
 
-		for (const AFFECT_DATA *af = obj->affected; af != NULL; af = af->next)
+		for (const AFFECT_DATA *af = affect_list_obj(obj); af != NULL; af = af->next)
 			aff_count++;
 	}
 

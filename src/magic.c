@@ -1343,7 +1343,7 @@ void spell_dazzling_light(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		return;
 	}
 
-	for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
 		if (!str_cmp(skill_table[paf->type].name, "dazzling light")) {
 			stc("That light is already quite dazzling.\n", ch);
 			return;
@@ -1394,7 +1394,7 @@ void spell_light_of_truth(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		return;
 	}
 
-	for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
 		if (!str_cmp(skill_table[paf->type].name, "light of truth")) {
 			stc("That light is already somewhat enhanced.\n", ch);
 			return;
@@ -2699,7 +2699,7 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	fail = 25;  /* base 25% chance of failure */
 
 	/* find the bonuses, only in perm affects */
-	for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
 		fail += 20;
 
 	/* apply other modifiers */
@@ -2805,7 +2805,7 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 
 	/* find the bonuses */
 	// only in perm affects, don't count gems
-	for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
 		if (paf->location == APPLY_AC) {
 			ac_bonus = paf->modifier;
 			ac_found = TRUE;
@@ -2935,7 +2935,7 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	fail = 25;  /* base 25% chance of failure */
 
 	/* find the bonuses, only in perm affects */
-	for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
 		if (paf->location == APPLY_HITROLL) {
 			hit_bonus = paf->modifier;
 			hit_found = TRUE;
@@ -4081,7 +4081,6 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	char buf[MAX_STRING_LENGTH];
-	const AFFECT_DATA *paf;
 	int i;
 	struct wear_type {
 		char *loc;
@@ -4243,18 +4242,19 @@ void spell_identify(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 		break;
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
 		show_affect_to_char(paf, ch);
 
-        for (OBJ_DATA *gem = obj->gems; gem; gem = gem->next_content)
-                ptc(ch, "Has a gem %s of type %d with quality %d.\n",
-                                gem->short_descr, gem->value[0], gem->value[1]);
-        if (obj->gems) {
-                ptc(ch, "Gems are adding:");
+    for (OBJ_DATA *gem = obj->gems; gem; gem = gem->next_content)
+            ptc(ch, "Has a gem %s of type %d with quality %d.\n",
+                            gem->short_descr, gem->value[0], gem->value[1]);
 
-                for (paf = obj->gem_affected; paf != NULL; paf = paf->next)
-                        show_affect_to_char(paf, ch);
-        }
+    if (obj->gems) {
+            ptc(ch, "Gems are adding:");
+
+            for (const AFFECT_DATA *paf = obj->gem_affected; paf != NULL; paf = paf->next)
+                    show_affect_to_char(paf, ch);
+    }
 }
 
 void spell_infravision(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
@@ -5429,7 +5429,6 @@ void spell_remove_alignment(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int result, fail;
 	sh_int align;
-	const AFFECT_DATA *paf;
 
 	/* Make sure the target is not a character. -- Outsider */
 	if (ch == vo)
@@ -5458,7 +5457,7 @@ void spell_remove_alignment(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	fail = 15;  /* base 15% chance of failure */
 
 	/* find the bonuses (Its harder to remove align from a powerful object) */
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+	for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next)
 		fail += 15;
 
 	/* apply other modifiers */

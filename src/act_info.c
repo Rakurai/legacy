@@ -102,7 +102,6 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 {
 	static char buf[MSL];
 	int diff;
-	const AFFECT_DATA *paf;
 	buf[0] = '\0';
 
 	if ((fShort && (obj->short_descr == NULL || obj->short_descr[0] == '\0'))
@@ -145,7 +144,7 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 	if (obj->item_type == ITEM_WEAPON) {
 		long bits = 0;
 
-		for (paf = obj->affected; paf; paf = paf->next)
+		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next)
 			if (paf->duration)
 				bits |= paf->bitvector;
 
@@ -3190,7 +3189,6 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 void do_consider(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH], buf[MAX_STRING_LENGTH];
-	const AFFECT_DATA *paf;
 	CHAR_DATA *victim;
 	int diff, percent;
 	one_argument(argument, arg);
@@ -3269,7 +3267,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		if (victim->affected_by)
 			ptc(ch, "{gAffected by: %s\n", affect_bit_name(victim->affected_by));
 
-		for (paf = victim->affected; paf != NULL; paf = paf->next)
+		for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next)
 			ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.\n",
 			    skill_table[(int) paf->type].name, affect_loc_name(paf->location),
 			    paf->modifier, paf->duration, affect_bit_name(paf->bitvector),
@@ -3551,7 +3549,6 @@ void do_report(CHAR_DATA *ch, const char *argument)
 	char buf[MAX_INPUT_LENGTH];
 	char buf2[MAX_INPUT_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
-	const AFFECT_DATA *paf, *paf_last = NULL;
 	one_argument(argument, arg);
 	sprintf(buf,
 	        "You say 'I have %d/%d hp %d/%d mana %d/%d st %d xp.'\n",
@@ -3568,11 +3565,12 @@ void do_report(CHAR_DATA *ch, const char *argument)
 	act(buf, ch, NULL, NULL, TO_ROOM);
 
 	if (!strcmp(arg, "all")) {
-		if (ch->affected != NULL) {
+		if (affect_list_char(ch) != NULL) {
 			stc("You say 'I am affected by the following spells:'\n", ch);
 			act("$n says 'I am affected by the following spells:'", ch, NULL, NULL, TO_ROOM);
 
-			for (paf = ch->affected; paf != NULL; paf = paf->next) {
+			const AFFECT_DATA *paf_last = NULL;
+			for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
 				if (paf_last != NULL && paf->type == paf_last->type)
 					continue;
 				else {
@@ -5037,7 +5035,6 @@ void do_clanpower(CHAR_DATA *ch, const char *argument)
 void print_new_affects(CHAR_DATA *ch)
 {
 	char buf[MSL], buf2[MSL], torch[8], border[4], breakline[MSL], *p;
-	const AFFECT_DATA *paf, *paf_last = NULL;
 	BUFFER *buffer;
 	OBJ_DATA *obj;
 	long cheat = 0;
@@ -5048,7 +5045,7 @@ void print_new_affects(CHAR_DATA *ch)
 	buffer = new_buf();
 	cheat = ch->affected_by;
 
-	if (ch->affected != NULL) {
+	if (affect_list_char(ch) != NULL) {
 		ptb(buffer, " %s {bYou are affected by the following spells:                      %s\n",
 		    torch, torch);
 		add_buf(buffer, breakline);
@@ -5060,9 +5057,8 @@ void print_new_affects(CHAR_DATA *ch)
 		*/
 		affect_sort_char(ch, affect_comparator_duration);
 
-		/* End of bubble sort for affects. */
-
-		for (paf = ch->affected; paf != NULL; paf = paf->next) {
+		const AFFECT_DATA *paf_last = NULL;
+		for (const AFFECT_DATA *paf = affect_list_char(ch); paf != NULL; paf = paf->next) {
 			if (paf_last != NULL && paf->type == paf_last->type) {
 				if (ch->level >= 20)
 					strcpy(buf, "                   ");
@@ -5129,7 +5125,7 @@ void print_new_affects(CHAR_DATA *ch)
 
 		for (iWear = 0; iWear < MAX_WEAR; iWear++) {
 			if ((obj = get_eq_char(ch, iWear)) != NULL) {
-				for (paf = obj->affected; paf; paf = paf->next) {
+				for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
 					if (paf->where != TO_AFFECTS
 					    || !IS_SET(ch->affected_by, paf->bitvector))
 						continue;

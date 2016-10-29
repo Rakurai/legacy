@@ -9,6 +9,10 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
 // searching
 
+const AFFECT_DATA *affect_list_char(CHAR_DATA *ch) {
+	return ch->affected;
+}
+
 const AFFECT_DATA *affect_find_in_char(CHAR_DATA *ch, int sn) {
 	return affect_find_in_list(&ch->affected, sn);
 }

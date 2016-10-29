@@ -998,7 +998,7 @@ void char_update(void)
 		affect_sort_char(ch, affect_comparator_duration);
 		affect_sort_char(ch, affect_comparator_type);
 
-		for (const AFFECT_DATA *paf = ch->affected; paf; paf = paf->next) {
+		for (const AFFECT_DATA *paf = affect_list_char(ch); paf; paf = paf->next) {
 			if (paf->duration == 0) {
 				if (paf->next == NULL
 				 || paf->next->type != paf->type
@@ -1111,7 +1111,7 @@ void obj_update(void)
 		affect_sort_obj(obj, affect_comparator_duration);
 		affect_sort_obj(obj, affect_comparator_type);
 
-		for (const AFFECT_DATA *paf = obj->affected; paf; paf = paf->next) {
+		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
 			if (paf->duration == 0) {
 				if (paf->next == NULL
 				 || paf->next->type != paf->type
@@ -1261,7 +1261,7 @@ void room_update(void)
 		affect_sort_room(room, affect_comparator_duration);
 		affect_sort_room(room, affect_comparator_type);
 
-		for (const AFFECT_DATA *paf = room->affected; paf; paf = paf->next) {
+		for (const AFFECT_DATA *paf = affect_list_room(room); paf; paf = paf->next) {
 			if (paf->duration == 0) {
 				if (paf->next == NULL
 				 || paf->next->type != paf->type
