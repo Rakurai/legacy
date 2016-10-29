@@ -18,17 +18,18 @@ const struct dispel_type dispel_table[] = {
 	{ &gsn_blindness,          FALSE, FALSE, "$n is no longer blinded."                      },
 	{ &gsn_blood_moon,         TRUE,  TRUE,  NULL                                            },
 	{ &gsn_calm,               TRUE,  TRUE,  "$n no longer looks so peaceful..."             },
-	{ &gsn_change_sex,         TRUE,  FALSE, "$n looks more like $mself again."              },
+	{ &gsn_change_sex,         FALSE, FALSE, "$n looks more like $mself again."              },
 	{ &gsn_charm_person,       FALSE, TRUE,  "$n regains $s free will."                      },
-	{ &gsn_chill_touch,        TRUE,  FALSE, "$n looks warmer."                              },
-	{ &gsn_curse,              TRUE,  FALSE, "$n looks more relaxed."                        },
-	{ &gsn_fear,               TRUE,  FALSE, "$n looks less panicked."                       },
+	{ &gsn_chill_touch,        FALSE, FALSE, "$n looks warmer."                              },
+	{ &gsn_curse,              FALSE, FALSE, "$n looks more relaxed."                        },
+	{ &gsn_fear,               FALSE, FALSE, "$n looks less panicked."                       },
 	{ &gsn_detect_evil,        TRUE,  TRUE,  NULL                                            },
 	{ &gsn_detect_good,        TRUE,  TRUE,  NULL                                            },
 	{ &gsn_detect_hidden,      TRUE,  TRUE,  NULL                                            },
 	{ &gsn_detect_invis,       TRUE,  TRUE,  NULL                                            },
 	{ &gsn_detect_magic,       TRUE,  TRUE,  NULL                                            },
 	{ &gsn_faerie_fire,        TRUE,  FALSE, "$n's outline fades."                           },
+	{ &gsn_flameshield,        TRUE,  TRUE,  "The flames around $n fade away."               },
 	{ &gsn_fly,                TRUE,  TRUE,  "$n falls to the ground!"                       },
 	{ &gsn_frenzy,             TRUE,  TRUE,  "$n no longer looks so wild."                   },
 	{ &gsn_giant_strength,     TRUE,  TRUE,  "$n no longer looks so mighty."                 },
@@ -44,10 +45,10 @@ const struct dispel_type dispel_table[] = {
 	{ &gsn_sanctuary,          TRUE,  TRUE,  "The white aura around $n's body vanishes."     },
 	{ &gsn_shield,             TRUE,  TRUE,  "The shield protecting $n vanishes."            },
 	{ &gsn_sleep,              TRUE,  FALSE, NULL                                            },
-	{ &gsn_slow,               TRUE,  FALSE, "$n is no longer moving so slowly."             },
-	{ &gsn_smokescreen,        TRUE,  TRUE,  NULL                                            },
+	{ &gsn_slow,               FALSE, FALSE, "$n is no longer moving so slowly."             },
+	{ &gsn_smokescreen,        FALSE, TRUE,  NULL                                            },
 	{ &gsn_stone_skin,         TRUE,  TRUE,  "$n's skin regains it's normal texture."        },
-	{ &gsn_weaken,             TRUE,  FALSE, "$n looks stronger."                            },
+	{ &gsn_weaken,             FALSE, FALSE, "$n looks stronger."                            },
 	{ NULL,                    TRUE,  TRUE,  NULL                                            }
 };
 
@@ -146,7 +147,13 @@ int affect_fn_dispel_char(AFFECT_DATA *node, void *data) {
 /* co-routine for dispel magic and cancellation */
 bool check_dispel_obj(int dis_level, OBJ_DATA *obj, int sn, bool save)
 {
-	struct dispel_params params = {obj, dis_level, sn, save, 0};
+	struct dispel_params params = {
+		.target = obj,
+		.level  = dis_level,
+		.sn     = sn,
+		.save   = save,
+		.count  = 0
+	};
 
 	// check save, mark for deletion
 	affect_iterate_over_obj(obj, affect_fn_dispel_obj, &params);
@@ -161,7 +168,13 @@ bool check_dispel_obj(int dis_level, OBJ_DATA *obj, int sn, bool save)
 /* co-routine for dispel magic and cancellation */
 bool check_dispel_char(int dis_level, CHAR_DATA *victim, int sn, bool save)
 {
-	struct dispel_params params = {victim, dis_level, sn, save, 0};
+	struct dispel_params params = {
+		.target = victim,
+		.level  = dis_level,
+		.sn     = sn,
+		.save   = save,
+		.count  = 0
+	};
 
 	// check save, mark for deletion
 	affect_iterate_over_char(victim, affect_fn_dispel_char, &params);
