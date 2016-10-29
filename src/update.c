@@ -1036,7 +1036,7 @@ void char_update(void)
 		 *   as it may be lethal damage (on NPC).
 		 */
 
-		if (ch != NULL && affect_flag_on_char(ch, gsn_plague)) {
+		if (ch != NULL && affect_flag_on_char(ch, AFF_PLAGUE)) {
 		 	const AFFECT_DATA *plague = affect_find_in_char(ch, gsn_plague);
 
 			act("$n writhes in agony as plague sores erupt from $s skin.",
@@ -1045,7 +1045,8 @@ void char_update(void)
 
 			spread_plague(ch->in_room, plague, 4);
 
-			int dam = UMIN(ch->level, plague->level / 5 + 1);
+			// TODO: check for plague being NULL only applies as long as plague bit exists
+			int dam = UMIN(ch->level, (plague ? plague->level : ch->level) / 5 + 1);
 			ch->mana -= dam;
 			ch->stam -= dam;
 			damage(ch, ch, dam, gsn_plague, DAM_DISEASE, FALSE, TRUE);
