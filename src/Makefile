@@ -26,8 +26,8 @@ H_FILES = $(patsubst %,$(INCDIR)/%,$(_H_FILES))
 
 _O_FILES = act_comm.o act_info.o act_move.o act_obj.o \
 	affect.o affect_char.o affect_obj.o affect_room.o affect_util.o \
-	alias.o area_handler.o bank.o channels.o	\
-	clan-edit.o comm.o config.o const.o db.o debug.o departed.o duel.o edit.o effects.o	\
+	alias.o area_handler.o bank.o channels.o clan-edit.o comm.o config.o const.o db.o \
+	debug.o departed.o dispel.o duel.o edit.o effects.o	\
 	fight.o file.o find.o flags.o handler.o help.o hunt.o ignore.o interp.o load_config.o	\
 	lookup.o magic.o marry.o memory.o mob_commands.o mob_prog.o mobiles.o music.o sqlite.o	\
 	nanny.o note.o objstate.o quest.o random.o recycle.o remort.o rmagic.o save.o scan.o	\

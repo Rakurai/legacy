@@ -92,11 +92,7 @@ void compile_gem_effects(OBJ_DATA *eq) {
 
 	// TODO: this needs to be redone
 	// blow away affects and rebuild
-	while (eq->gem_affected) {
-		AFFECT_DATA *t = eq->gem_affected;
-		affect_remove_from_list(&eq->gem_affected, t);
-		free_affect(t);
-	}
+	affect_clear_list(&eq->gem_affected);
 
 	for (gem = eq->gems; gem != NULL; gem = gem->next_content) {
 		AFFECT_DATA af;

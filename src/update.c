@@ -815,8 +815,6 @@ void char_update(void)
 		save_number = 0;
 
 	for (ch = char_list; ch != NULL; ch = ch_next) {
-		AFFECT_DATA *paf;
-		AFFECT_DATA *paf_next;
 		ch_next = ch->next;
 
 		if (!IS_IMMORTAL(ch) && !char_in_duel_room(ch)) {
@@ -989,28 +987,38 @@ void char_update(void)
 				ch->pcdata->flag_thief--;
 		}
 
-		for (paf = ch->affected; paf; paf = paf_next) {
-			paf_next = paf->next;
+		// print the affects that are wearing off.  this is complicated because
+		// we may have more than one affect that is part of the same group, and
+		// we also don't want to print a 'wearing off' message for affects that
+		// are duplicated (for some reason).  so, the hackish solution is to sort
+		// the list twice: once by duration, and then by skill number.  this
+		// should get all the grouped spells together.
+		// this will usually already be sorted this way, unless it was sorted by
+		// duration for the show_affects player command, so only O(n) hit here.
+		affect_sort_list(&ch->affected, affect_comparator_duration);
+		affect_sort_list(&ch->affected, affect_comparator_type);
 
-			if (paf->duration > 0) {
-				paf->duration--;
-
-				if (number_range(0, 4) == 0 && paf->level > 0)
-					paf->level--;  /* spell strength fades with time */
-			}
-			else if (paf->duration < 0)
-				;
-			else {
-				if (paf_next == NULL
-				    || paf_next->type != paf->type
-				    || paf_next->duration > 0) {
+		for (const AFFECT_DATA *paf = ch->affected; paf; paf = paf->next) {
+			if (paf->duration == 0) {
+				if (paf->next == NULL
+				 || paf->next->type != paf->type
+				 || paf->next->duration > 0) {
 					if (paf->type > 0 && skill_table[paf->type].msg_off)
 						ptc(ch, "%s\n", skill_table[paf->type].msg_off);
 				}
-
-				affect_remove_from_char(ch, paf);
 			}
 		}
+
+		// now remove spells with duration 0
+		AFFECT_DATA pattern;
+		pattern.duration = 0;
+		affect_remove_matching_from_char(ch, affect_comparator_duration, &pattern);
+
+		// decrement duration and sometimes decrement level.  this is done after
+		// the wearing off of spells with duration 0, because we use -1 to mean
+		// indefinite and players are used to having spell counters go down to 0
+		// before they wear off.
+		affect_iterate_over_char(ch, affect_fn_fade_spell, NULL);
 
 		/* MOBprogram tick trigger -- Montrey */
 		if (IS_NPC(ch)) {
@@ -1085,27 +1093,29 @@ void obj_update(void)
 {
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
-	AFFECT_DATA *paf, *paf_next;
 
 	for (obj = object_list; obj != NULL; obj = obj_next) {
 		CHAR_DATA *rch;
 		char *message;
 		obj_next = obj->next;
 
-		/* go through affects and decrement */
-		for (paf = obj->affected; paf != NULL; paf = paf_next) {
-			paf_next = paf->next;
+		// TODO: this sorting could be eliminated or reduced if we just keep a
+		// boolean value that is set true when affects are added or resorted.
 
-			if (paf->duration > 0) {
-				paf->duration--;
+		// print the affects that are wearing off.  this is complicated because
+		// we may have more than one affect that is part of the same group, and
+		// we also don't want to print a 'wearing off' message for affects that
+		// are duplicated (for some reason).  so, the hackish solution is to sort
+		// the list twice: once by duration, and then by skill number.  this
+		// should get all the grouped spells together.
+		affect_sort_list(&obj->affected, affect_comparator_duration);
+		affect_sort_list(&obj->affected, affect_comparator_type);
 
-				if (number_range(0, 4) == 0 && paf->level > 0)
-					paf->level--;  /* spell strength fades with time */
-			}
-			else if (paf->duration < 0)
-				;
-			else {
-				if (paf_next == NULL || paf_next->type != paf->type || paf_next->duration > 0) {
+		for (const AFFECT_DATA *paf = obj->affected; paf; paf = paf->next) {
+			if (paf->duration == 0) {
+				if (paf->next == NULL
+				 || paf->next->type != paf->type
+				 || paf->next->duration > 0) {
 					/* for addapplied objects with a duration */
 					if (paf->type == 0) {
 						if (obj->carried_by != NULL) {
@@ -1131,10 +1141,19 @@ void obj_update(void)
 						}
 					}
 				}
-
-				affect_remove_from_obj(obj, paf);
 			}
 		}
+
+		// now remove spells with duration 0
+		AFFECT_DATA pattern;
+		pattern.duration = 0;
+		affect_remove_matching_from_obj(obj, affect_comparator_duration, &pattern);
+
+		// decrement duration and sometimes decrement level.  this is done after
+		// the wearing off of spells with duration 0, because we use -1 to mean
+		// indefinite and players are used to having spell counters go down to 0
+		// before they wear off.
+		affect_iterate_over_obj(obj, affect_fn_fade_spell, NULL);
 
 		/* do not decay items being auctioned -- Elrac */
 		if (obj == auction->item)
@@ -1227,37 +1246,46 @@ void obj_update(void)
 void room_update(void)
 {
 	ROOM_INDEX_DATA *room;
-	AFFECT_DATA *paf, *paf_next;
 	int x;
 
 	for (x = 1; x < 32600; x++) {
 		if ((room = get_room_index(x)) == NULL)
 			continue;
 
-		/* go through affects and decrement */
-		for (paf = room->affected; paf != NULL; paf = paf_next) {
-			paf_next = paf->next;
+		// print the affects that are wearing off.  this is complicated because
+		// we may have more than one affect that is part of the same group, and
+		// we also don't want to print a 'wearing off' message for affects that
+		// are duplicated (for some reason).  so, the hackish solution is to sort
+		// the list twice: once by duration, and then by skill number.  this
+		// should get all the grouped spells together.
+		affect_sort_list(&room->affected, affect_comparator_duration);
+		affect_sort_list(&room->affected, affect_comparator_type);
 
-			if (paf->duration > 0) {
-				paf->duration--;
-
-				if (number_range(0, 4) == 0 && paf->level > 0)
-					paf->level--;  /* spell strength fades with time */
-			}
-			else if (paf->duration < 0)
-				;
-			else {
-				/* there is no msg_room for spells, so we'll use msg_obj for
-				   room affect spells.  might change this later, but i really
-				   don't feel like adding another ,"" to all those entries
-				   right now :P -- Montrey */
-				if (paf_next == NULL || paf_next->type != paf->type || paf_next->duration > 0)
+		for (const AFFECT_DATA *paf = room->affected; paf; paf = paf->next) {
+			if (paf->duration == 0) {
+				if (paf->next == NULL
+				 || paf->next->type != paf->type
+				 || paf->next->duration > 0) {
+					/* there is no msg_room for spells, so we'll use msg_obj for
+					   room affect spells.  might change this later, but i really
+					   don't feel like adding another ,"" to all those entries
+					   right now :P -- Montrey */
 					if (paf->type > 0 && skill_table[paf->type].msg_obj && room->people)
 						act(skill_table[paf->type].msg_obj, NULL, NULL, NULL, TO_ALL);
-
-				affect_remove_from_room(room, paf);
+				}
 			}
 		}
+
+		// now remove spells with duration 0
+		AFFECT_DATA pattern;
+		pattern.duration = 0;
+		affect_remove_matching_from_room(room, affect_comparator_duration, &pattern);
+
+		// decrement duration and sometimes decrement level.  this is done after
+		// the wearing off of spells with duration 0, because we use -1 to mean
+		// indefinite and players are used to having spell counters go down to 0
+		// before they wear off.
+		affect_iterate_over_room(room, affect_fn_fade_spell, NULL);
 	}
 }
 

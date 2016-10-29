@@ -28,6 +28,14 @@ void          affect_remove_from_obj      args(( OBJ_DATA *obj, AFFECT_DATA *paf
 void          affect_remove_from_char     args(( CHAR_DATA *ch, AFFECT_DATA *paf ));
 void          affect_remove_from_room     args(( ROOM_INDEX_DATA *room, AFFECT_DATA *paf ));
 
+void          affect_remove_matching_from_obj  args(( OBJ_DATA *obj, affect_comparator comp, const AFFECT_DATA *pattern ));
+void          affect_remove_matching_from_char args(( CHAR_DATA *ch, affect_comparator comp, const AFFECT_DATA *pattern ));
+void          affect_remove_matching_from_room args(( ROOM_INDEX_DATA *room, affect_comparator comp, const AFFECT_DATA *pattern ));
+
+void          affect_remove_marked_from_obj       args(( OBJ_DATA *obj ));
+void          affect_remove_marked_from_char      args(( CHAR_DATA *ch ));
+void          affect_remove_marked_from_room      args(( ROOM_INDEX_DATA *room ));
+
 void	      affect_remove_sn_from_obj   args(( OBJ_DATA *obj, int sn ));
 void	      affect_remove_sn_from_char  args(( CHAR_DATA *ch, int sn ));
 void	      affect_remove_sn_from_room  args(( ROOM_INDEX_DATA *room, int sn ));
@@ -36,5 +44,20 @@ void          affect_remove_all_from_obj       args(( OBJ_DATA *obj ));
 void          affect_remove_all_from_char      args(( CHAR_DATA *ch ));
 void          affect_remove_all_from_room      args(( ROOM_INDEX_DATA *room ));
 
-void          affect_iterate_over_char    args(( CHAR_DATA *ch, affect_callback_fn fn, void *data ));
+void          affect_iterate_over_obj     args(( OBJ_DATA *obj, affect_fn fn, void *data ));
+void          affect_iterate_over_char    args(( CHAR_DATA *ch, affect_fn fn, void *data ));
+void          affect_iterate_over_room    args(( ROOM_INDEX_DATA *room, affect_fn fn, void *data ));
+
+void          affect_update_in_obj        args(( OBJ_DATA *obj, AFFECT_DATA *paf, const AFFECT_DATA *template ));
+void          affect_update_in_char       args(( CHAR_DATA *ch, AFFECT_DATA *paf, const AFFECT_DATA *template ));
+void          affect_update_in_room       args(( ROOM_INDEX_DATA *room, AFFECT_DATA *paf, const AFFECT_DATA *template ));
+
+// comparators
+int           affect_comparator_mark      args(( const AFFECT_DATA *lhs, const AFFECT_DATA *rhs ));
+int           affect_comparator_duration  args(( const AFFECT_DATA *lhs, const AFFECT_DATA *rhs ));
+int           affect_comparator_type      args(( const AFFECT_DATA *lhs, const AFFECT_DATA *rhs ));
+
+// callbacks
+int           affect_fn_fade_spell        args(( AFFECT_DATA *node, void *data ));
+
 #endif // _AFFECT_H

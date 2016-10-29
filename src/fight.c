@@ -961,12 +961,10 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 
 	/* but do we have a funky weapon? */
 	if (result && wield != NULL) {
-		AFFECT_DATA *weaponaff;
+		const AFFECT_DATA *weaponaff;
 		int dam, level, evolution;
 
 		if (ch->fighting == victim && IS_WEAPON_STAT(wield, WEAPON_POISON)) {
-			AFFECT_DATA af = (AFFECT_DATA){0};
-
 			if ((weaponaff = affect_find_in_obj(wield, gsn_poison)) == NULL) {
 				level = wield->level;
 				evolution = 1;
@@ -979,6 +977,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 			if (!saves_spell(level / 2, victim, DAM_POISON)) {
 				stc("You feel poison coursing through your veins.\n", victim);
 				act("$n is poisoned by the venom on $p.", victim, wield, NULL, TO_ROOM);
+
+				AFFECT_DATA af = (AFFECT_DATA){0};
 				af.where     = TO_AFFECTS;
 				af.type      = gsn_poison;
 				af.level     = level;
@@ -992,16 +992,10 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 
 			/* weaken the poison if it's temporary */
 			if (weaponaff != NULL) {
-				weaponaff->level = UMAX(0, weaponaff->level);
-				weaponaff->duration = UMAX(0, weaponaff->duration - 1);
+				affect_iterate_over_obj(wield, affect_fn_fade_spell, &gsn_poison);
 
-				if (weaponaff->level == 0 || weaponaff->duration == 0) {
-					if (weaponaff->level != 0 || weaponaff->duration != 0)
-						act("The poison on $p has worn off.", ch, wield, NULL, TO_CHAR);
-
-					weaponaff->level = 0;
-					weaponaff->duration = 0;
-				}
+				if (weaponaff->duration == 0)
+					act("The poison on $p has worn off.", ch, wield, NULL, TO_CHAR);
 			}
 		}
 
@@ -1094,6 +1088,18 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 
 	tail_chain();
 } /* end one_hit */
+
+// called on a hit from bone wall
+int affect_callback_weaken_bonewall(AFFECT_DATA *node, void *null) {
+	if (node->type == gsn_bone_wall) {
+		node->duration = UMAX(0, node->duration - 1);
+
+		if (node->level > 5)
+			node->level--;
+	}
+	return 1; // quit now, only one bonewall affect
+}
+
 
 /* Inflict damage from a hit.
    damage and damage consolidated, bool added to determine whether it's a magic spell or not -- Montrey */
@@ -1293,16 +1299,14 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			    && !saves_spell(victim->level, ch, DAM_HOLY))
 				damage(victim, ch, 5, gsn_sanctuary, DAM_HOLY, TRUE, TRUE);
 
-			AFFECT_DATA *paf;
+			const AFFECT_DATA *paf;
 			if ((paf = affect_find_in_char(victim, gsn_bone_wall)) != NULL
 			    && !saves_spell(paf->level, ch, DAM_PIERCE)) {
 				damage(victim, ch,
 				       UMAX(number_range(paf->level * 3 / 4, paf->level * 5 / 4), 5),
 				       gsn_bone_wall, DAM_PIERCE, TRUE, TRUE);
-				paf->duration--;
 
-				if (paf->level > 5)
-					paf->level--;
+				affect_iterate_over_char(ch, affect_callback_weaken_bonewall, NULL);
 			}
 		}
 	}

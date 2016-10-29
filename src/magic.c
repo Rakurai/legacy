@@ -199,122 +199,6 @@ void say_spell(CHAR_DATA *ch, int sn)
 	}
 } /* end say_spell */
 
-/* saving throw based on level only */
-bool level_save(int dis_level, int save_level)
-{
-	int save;
-	save = 50 + ((save_level - dis_level) * 3);
-	save = URANGE(5, save, 95);
-	return chance(save);
-}
-
-/* Compute a saving throw.  Negative apply's make saving throw better. */
-bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
-{
-	int save;
-	save = (victim->level - level) * 3 - (victim->saving_throw * 4 / 3);
-
-	if (IS_AFFECTED(victim, AFF_BERSERK))
-		save += victim->level / 4;
-
-	switch (check_immune(victim, dam_type)) {
-	case IS_DRAINING:
-	case IS_IMMUNE:         return TRUE;
-
-	case IS_RESISTANT:      save += 20;      break;
-
-	case IS_VULNERABLE:     save -= 20;      break;
-	}
-
-	save = URANGE(5, save, 95);
-	return chance(save);
-} /* end saves_spell */
-
-/* co-routine for dispel magic and cancellation */
-bool check_dispel(int dis_level, CHAR_DATA *victim, int sn, bool save)
-{
-	AFFECT_DATA *af;
-
-	if ((af = affect_find_in_char(victim, sn)) != NULL) {
-		if (af->duration == -1)
-			dis_level -= 3;
-
-		if ((save && !saves_spell(dis_level, victim, DAM_OTHER))
-		    || (!save && !level_save(dis_level, af->level))
-		    || dis_level >= MAX_LEVEL) {
-			affect_remove_sn_from_char(victim, sn);
-
-			if (skill_table[sn].msg_off) {
-				stc(skill_table[sn].msg_off, victim);
-				stc("\n", victim);
-			}
-
-			return TRUE;
-		}
-		else
-			af->level--;
-	}
-
-	return FALSE;
-}
-
-bool dispel_char(CHAR_DATA *victim, int level)
-{
-	bool found = FALSE;
-	int x;
-	struct cancel_type {
-		char *name;
-		char *msg;
-	};
-	const struct cancel_type cancel_table[] = {
-		{ "armor",              NULL                                            },
-		{ "bless",              NULL                                            },
-		{ "blindness",          "$n is no longer blinded."                      },
-		{ "blood moon",         NULL                                            },
-		{ "calm",               "$n no longer looks so peaceful..."             },
-		{ "change sex",         "$n looks more like $mself again."              },
-		{ "charm person",       "$n regains $s free will."                      },
-		{ "chill touch",        "$n looks warmer."                              },
-		{ "curse",              NULL                                            },
-		{ "fear",               NULL                                            },
-		{ "detect evil",        NULL                                            },
-		{ "detect good",        NULL                                            },
-		{ "detect hidden",      NULL                                            },
-		{ "detect invis",       NULL                                            },
-		{ "detect magic",       NULL                                            },
-		{ "faerie fire",        "$n's outline fades."                           },
-		{ "fly",                "$n falls to the ground!"                       },
-		{ "frenzy",             "$n no longer looks so wild."                   },
-		{ "giant strength",     "$n no longer looks so mighty."                 },
-		{ "haste",              "$n is no longer moving so quickly."            },
-		{ "infravision",        NULL                                            },
-		{ "invis",              "$n fades into existance."                      },
-		{ "mass invis",         "$n fades into existance."                      },
-		{ "pass door",          NULL                                            },
-		{ "protection evil",    NULL                                            },
-		{ "protection good",    NULL                                            },
-		{ "sanctuary",          "The white aura around $n's body vanishes."     },
-		{ "shield",             "The shield protecting $n vanishes."            },
-		{ "sleep",              NULL                                            },
-		{ "slow",               "$n is no longer moving so slowly."             },
-		{ "smokescreen",        NULL                                            },
-		{ "stone skin",         "$n's skin regains it's normal texture."        },
-		{ "weaken",             "$n looks stronger."                            },
-		{ NULL,                 NULL                                            }
-	};
-
-	for (x = 0; cancel_table[x].name != NULL; x++) {
-		if (check_dispel(level, victim, skill_lookup(cancel_table[x].name), FALSE)) {
-			found = TRUE;
-
-			if (cancel_table[x].msg != NULL)
-				act(cancel_table[x].msg, victim, NULL, NULL, TO_ROOM);
-		}
-	}
-
-	return found;
-} /* end dispel_char */
-
 /* Fix those players assisting or hindering when they shouldn't */
 /* i hate seeing things repeated a lot, moved this here to save text -- Montrey */
 bool help_mob(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -1155,21 +1039,18 @@ void spell_bless(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		}
 
 		if (IS_OBJ_STAT(obj, ITEM_EVIL)) {
-			AFFECT_DATA *paf;
-			paf = affect_find_in_obj(obj, gsn_curse);
-
-			if (!level_save(level, paf != NULL ? paf->level : obj->level)) {
-				if (paf != NULL)
-					affect_remove_from_obj(obj, paf);
-
-				act("$p glows a pale blue.", ch, obj, NULL, TO_ALL);
+			// is it cursed or just evil?
+			if (affect_find_in_obj(obj, gsn_curse))
+				check_dispel_obj(level, obj, gsn_curse, TRUE);
+			else if (!level_save(level, obj->level))
 				REMOVE_BIT(obj->extra_flags, ITEM_EVIL);
-				return;
-			}
-			else {
+
+			if (IS_OBJ_STAT(obj, ITEM_EVIL)) // still evil?
 				act("The evil of $p is too powerful for you to overcome.", ch, obj, NULL, TO_CHAR);
-				return;
-			}
+			else
+				act("$p glows a pale blue.", ch, obj, NULL, TO_ALL);
+
+			return;
 		}
 
 		af.where        = TO_OBJECT;
@@ -1688,7 +1569,7 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 		return;
 	}
 
-	if (dispel_char(victim, level))
+	if (dispel_char(victim, level, TRUE))
 		stc("Ok.\n", ch);
 	else
 		stc("Spell failed.\n", ch);
@@ -2271,11 +2152,7 @@ void spell_cure_blindness(int sn, int level, CHAR_DATA *ch, void *vo, int target
 		return;
 	}
 
-	if (check_dispel(level, victim, gsn_blindness, FALSE)) {
-		stc("Your vision returns!\n", victim);
-		act("$n is no longer blinded.", victim, NULL, NULL, TO_ROOM);
-	}
-	else
+	if (!check_dispel_char(level, victim, gsn_blindness, FALSE))
 		stc("Spell failed.\n", ch);
 }
 
@@ -2379,10 +2256,7 @@ void spell_cure_disease(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 		return;
 	}
 
-	if (check_dispel(level, victim, gsn_plague, FALSE))
-		/* message to char is inside the check_dispel */
-		act("$n looks relieved as $s sores vanish.", victim, NULL, NULL, TO_ROOM);
-	else
+	if (!check_dispel_char(level, victim, gsn_plague, FALSE))
 		stc("Spell failed.\n", ch);
 }
 
@@ -2399,9 +2273,8 @@ void spell_cure_poison(int sn, int level, CHAR_DATA *ch, void *vo, int target, i
 		return;
 	}
 
-	if (check_dispel(level, victim, gsn_poison, FALSE)) {
-		stc("A warm feeling runs through your body.\n", victim);
-		act("$n looks much better.", victim, NULL, NULL, TO_ROOM);
+	if (check_dispel_char(level, victim, gsn_poison, FALSE)) {
+		stc("A warm feeling runs through your body.\n", victim); // in addition to msg_off
 	}
 	else
 		stc("Spell failed.\n", ch);
@@ -2423,21 +2296,18 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		}
 
 		if (IS_OBJ_STAT(obj, ITEM_BLESS)) {
-			AFFECT_DATA *paf;
-			paf = affect_find_in_obj(obj, gsn_bless);
-
-			if (!level_save(level, paf != NULL ? paf->level : obj->level)) {
-				if (paf != NULL)
-					affect_remove_from_obj(obj, paf);
-
-				act("$p glows with a red aura.", ch, obj, NULL, TO_ALL);
+			// is it cursed or just evil?
+			if (affect_find_in_obj(obj, gsn_bless))
+				check_dispel_obj(level, obj, gsn_bless, TRUE);
+			else if (!level_save(level, obj->level))
 				REMOVE_BIT(obj->extra_flags, ITEM_BLESS);
-				return;
-			}
-			else {
+
+			if (IS_OBJ_STAT(obj, ITEM_BLESS)) // still good?
 				act("The holy aura of $p is too powerful for you to overcome.", ch, obj, NULL, TO_CHAR);
-				return;
-			}
+			else
+				act("$p glows with a red aura.", ch, obj, NULL, TO_ALL);
+
+			return;
 		}
 
 		af.where        = TO_OBJECT;
@@ -2769,7 +2639,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 		return;
 	}
 
-	if (dispel_char(victim, level)) {
+	if (dispel_char(victim, level, FALSE)) {
 		stc("Ok.\n", ch);
 		eqcheck(victim);
 	}
@@ -2811,7 +2681,6 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 	int result, fail;
-	AFFECT_DATA *paf;
 
 	/* Avoid shrinking characters. -- Outsider */
 	if (ch == vo)
@@ -2829,8 +2698,8 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 
 	fail = 25;  /* base 25% chance of failure */
 
-	/* find the bonuses */
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+	/* find the bonuses, only in perm affects */
+	for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next)
 		fail += 20;
 
 	/* apply other modifiers */
@@ -2856,18 +2725,11 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	}
 
 	if (result < (fail / 3)) { /* item disenchanted */
-		AFFECT_DATA *paf_next;
 		act("$p glows slightly, then dims.", ch, obj, NULL, TO_CHAR);
 		act("$p glows slightly, then dims.", ch, obj, NULL, TO_ROOM);
-		obj->enchanted = TRUE;
 
 		/* remove all affects */
-		for (paf = obj->affected; paf != NULL; paf = paf_next) {
-			paf_next = paf->next;
-			free_affect(paf);
-		}
-
-		obj->affected = NULL;
+		affect_remove_all_from_obj(obj);
 		obj->extra_flags = 0;
 		return;
 	}
@@ -2915,7 +2777,6 @@ void spell_shrink(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
-	AFFECT_DATA *paf;
 	int result, fail;
 	int ac_bonus, added;
 	bool ac_found = FALSE;
@@ -2943,7 +2804,8 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	fail = 25;  /* base 25% chance of failure */
 
 	/* find the bonuses */
-	for (paf = obj->affected; paf != NULL; paf = paf->next) {
+	// only in perm affects, don't count gems
+	for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
 		if (paf->location == APPLY_AC) {
 			ac_bonus = paf->modifier;
 			ac_found = TRUE;
@@ -2980,18 +2842,11 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	}
 
 	if (result < (fail / 3)) { /* item disenchanted */
-		AFFECT_DATA *paf_next;
 		act("$p glows brightly, then fades...oops.", ch, obj, NULL, TO_CHAR);
 		act("$p glows brightly, then fades.", ch, obj, NULL, TO_ROOM);
-		obj->enchanted = TRUE;
 
 		/* remove all affects */
-		for (paf = obj->affected; paf != NULL; paf = paf_next) {
-			paf_next = paf->next;
-			free_affect(paf);
-		}
-
-		obj->affected = NULL;
+		affect_remove_all_from_obj(obj);
 		obj->extra_flags = 0;
 		return;
 	}
@@ -3037,33 +2892,21 @@ void spell_enchant_armor(int sn, int level, CHAR_DATA *ch, void *vo, int target,
 	if (obj->level < LEVEL_HERO)
 		obj->level = UMIN(LEVEL_HERO - 1, obj->level + 1);
 
-	if (ac_found) {
-		for (paf = obj->affected; paf != NULL; paf = paf->next) {
-			if (paf->location == APPLY_AC) {
-				paf->type = sn;
-				paf->modifier += added;
-				paf->level = UMAX(paf->level, level);
-			}
-		}
-	}
-	else { /* add a new affect */
-		AFFECT_DATA af = (AFFECT_DATA){0};
-		af.where      = TO_OBJECT;
-		af.type       = sn;
-		af.level      = level;
-		af.duration   = -1;
-		af.location   = APPLY_AC;
-		af.modifier   =  added;
-		af.bitvector  = 0;
-		af.evolution  = evolution;
-		affect_copy_to_obj(obj, &af);
-	}
+	AFFECT_DATA af;
+	af.where      = TO_OBJECT;
+	af.type       = sn;
+	af.level      = level;
+	af.duration   = -1;
+	af.location   = APPLY_AC;
+	af.modifier   =  added;
+	af.bitvector  = 0;
+	af.evolution  = evolution;
+	affect_join_to_obj(obj, &af);
 }
 
 void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
-	AFFECT_DATA *paf;
 	int result, fail;
 	int hit_bonus, dam_bonus, added;
 	bool hit_found = FALSE, dam_found = FALSE;
@@ -3091,8 +2934,8 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	dam_bonus = 0;
 	fail = 25;  /* base 25% chance of failure */
 
-	/* find the bonuses */
-	for (paf = obj->affected; paf != NULL; paf = paf->next) {
+	/* find the bonuses, only in perm affects */
+	for (const AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next) {
 		if (paf->location == APPLY_HITROLL) {
 			hit_bonus = paf->modifier;
 			hit_found = TRUE;
@@ -3140,16 +2983,11 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	}
 
 	if (result < (fail / 2)) { /* item disenchanted */
-		AFFECT_DATA *paf_next;
 		act("$p glows brightly, then fades...oops.", ch, obj, NULL, TO_CHAR);
 		act("$p glows brightly, then fades.", ch, obj, NULL, TO_ROOM);
-		obj->enchanted = TRUE;
 
 		/* remove all affects */
-		for (paf = obj->affected; paf != NULL; paf = paf_next) {
-			paf_next = paf->next;
-			free_affect(paf);
-		}
+		affect_remove_all_from_obj(obj);
 
 		if (obj->item_type == ITEM_WEAPON) {
 			if (IS_SET(obj->value[4], WEAPON_TWO_HANDS))
@@ -3158,7 +2996,6 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 				obj->value[4] = 0;
 		}
 
-		obj->affected = NULL;
 		obj->extra_flags = 0;
 		return;
 	}
@@ -3210,55 +3047,26 @@ void spell_enchant_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	if (obj->level < LEVEL_HERO - 1)
 		obj->level = UMIN(LEVEL_HERO - 1, obj->level + 1);
 
-	if (dam_found) {
-		for (paf = obj->affected; paf != NULL; paf = paf->next) {
-			if (paf->location == APPLY_DAMROLL) {
-				paf->type = sn;
-				paf->modifier += added;
-				paf->level = UMAX(paf->level, level);
+	AFFECT_DATA af;
+	af.where      = TO_OBJECT;
+	af.type       = sn;
+	af.level      = level;
+	af.duration   = -1;
+	af.location   = APPLY_DAMROLL;
+	af.modifier   =  added;
+	af.bitvector  = 0;
+	af.evolution  = evolution;
+	affect_join_to_obj(obj, &af);
 
-				if (paf->modifier > 4)
-					SET_BIT(obj->extra_flags, ITEM_HUM);
-			}
-		}
-	}
-	else { /* add a new affect */
-		AFFECT_DATA af = (AFFECT_DATA){0};
-		af.where      = TO_OBJECT;
-		af.type       = sn;
-		af.level      = level;
-		af.duration   = -1;
-		af.location   = APPLY_DAMROLL;
-		af.modifier   =  added;
-		af.bitvector  = 0;
-		af.evolution  = evolution;
-		affect_copy_to_obj(obj, &af);
-	}
-
-	if (hit_found) {
-		for (paf = obj->affected; paf != NULL; paf = paf->next) {
-			if (paf->location == APPLY_HITROLL) {
-				paf->type = sn;
-				paf->modifier += added;
-				paf->level = UMAX(paf->level, level);
-
-				if (paf->modifier > 4)
-					SET_BIT(obj->extra_flags, ITEM_HUM);
-			}
-		}
-	}
-	else { /* add a new affect */
-		AFFECT_DATA af = (AFFECT_DATA){0};
-		af.where      = TO_OBJECT;
-		af.type       = sn;
-		af.level      = level;
-		af.duration   = -1;
-		af.location   = APPLY_HITROLL;
-		af.modifier   =  added;
-		af.bitvector  = 0;
-		af.evolution  = evolution;
-		affect_copy_to_obj(obj, &af);
-	}
+	af.where      = TO_OBJECT;
+	af.type       = sn;
+	af.level      = level;
+	af.duration   = -1;
+	af.location   = APPLY_HITROLL;
+	af.modifier   =  added;
+	af.bitvector  = 0;
+	af.evolution  = evolution;
+	affect_join_to_obj(obj, &af);
 }
 
 /* Drain XP, MANA, HP, stamina.  Caster gains portions. */
@@ -3951,7 +3759,7 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 	}
 
 	if (IS_AFFECTED(victim, AFF_SLOW)) {
-		if (!check_dispel(level, victim, gsn_slow, FALSE)) {
+		if (!check_dispel_char(level, victim, gsn_slow, FALSE)) {
 			if (victim != ch)
 				stc("Spell failed.\n", ch);
 
@@ -3959,7 +3767,6 @@ void spell_haste(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 			return;
 		}
 
-		act("$n is moving less slowly.", victim, NULL, NULL, TO_ROOM);
 		return;
 	}
 
@@ -5762,9 +5569,7 @@ void spell_remove_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target, 
 	if (affect_find_in_char(victim, gsn_curse)) {
 		affected = TRUE;
 
-		if (check_dispel(level, victim, gsn_curse, FALSE)) {
-			stc("You feel better.\n", victim);
-			act("$n looks more relaxed.", victim, NULL, NULL, TO_ROOM);
+		if (check_dispel_char(level, victim, gsn_curse, FALSE)) {
 			return;
 		}
 	}
@@ -6004,7 +5809,7 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 	}
 
 	if (IS_AFFECTED(victim, AFF_HASTE)) {
-		if (!check_dispel(level, victim, gsn_haste, (ch != victim))) {
+		if (!check_dispel_char(level, victim, gsn_haste, (ch != victim))) {
 			if (victim != ch)
 				stc("Spell failed.\n", ch);
 
@@ -6012,7 +5817,6 @@ void spell_slow(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 			return;
 		}
 
-		act("$n is moving less quickly.", victim, NULL, NULL, TO_ROOM);
 		return;
 	}
 
@@ -6605,15 +6409,6 @@ void spell_undo_spell(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 		return;
 	}
 
-	/* put hacks for spells you can't undo here -- Montrey */
-	if (undo_sn == gsn_channel
-	    || undo_sn == gsn_fire_breath
-	    || undo_sn == gsn_poison
-	    || undo_sn == gsn_plague) {
-		stc("You failed.\n", ch);
-		return;
-	}
-
 	if (name[0] == '\0')
 		victim = ch;
 	else {
@@ -6641,7 +6436,7 @@ void spell_undo_spell(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 		return;
 	}
 
-	if (check_dispel(level, victim, undo_sn, (ch != victim))) {
+	if (check_dispel_char(level, victim, undo_sn, (ch != victim))) {
 		stc("Ok.\n", ch);
 		eqcheck(victim);
 	}

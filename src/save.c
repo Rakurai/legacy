@@ -1502,19 +1502,18 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 							continue;
 						}
 
-						AFFECT_DATA *paf = new_affect();
-						paf->type = sn;
+						AFFECT_DATA af;
+						af.type = sn;
 
-						get_JSON_short(item, &paf->where, "where");
-						get_JSON_short(item, &paf->level, "level");
-						get_JSON_short(item, &paf->duration, "dur");
-						get_JSON_short(item, &paf->modifier, "mod");
-						get_JSON_short(item, &paf->location, "loc");
-						get_JSON_int(item, &paf->bitvector, "bitv");
-						get_JSON_short(item, &paf->evolution, "evo");
+						get_JSON_short(item, &af.where, "where");
+						get_JSON_short(item, &af.level, "level");
+						get_JSON_short(item, &af.duration, "dur");
+						get_JSON_short(item, &af.modifier, "mod");
+						get_JSON_short(item, &af.location, "loc");
+						get_JSON_int(item, &af.bitvector, "bitv");
+						get_JSON_short(item, &af.evolution, "evo");
 
-						paf->next       = obj->affected;
-						obj->affected    = paf;
+						affect_copy_to_obj(obj, &af);
 					}
 					fMatch = TRUE; break;
 				}

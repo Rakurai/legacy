@@ -390,7 +390,6 @@ void do_eremort(CHAR_DATA *ch, const char *argument)
 void do_remort(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
-	AFFECT_DATA *af, *af_next;
 	char arg1[MIL], arg2[MIL], arg3[MIL], buf[MSL];
 	int race, x, c;
 	argument = one_argument(argument, arg1);
@@ -466,10 +465,7 @@ void do_remort(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	for (af = victim->affected; af != NULL; af = af_next) {
-		af_next = af->next;
-		affect_remove_from_char(victim, af);
-	}
+	affect_remove_all_from_char(victim);
 
 	victim->level                   = 1;
 	victim->race                    = race;

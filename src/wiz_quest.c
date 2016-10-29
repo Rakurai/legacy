@@ -33,7 +33,7 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg4);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		stc("Syntax: addapply <object> <apply> <value> {c<duration>{x\n", ch);
+		stc("Syntax: addapply <object> <apply> <value> [duration]\n", ch);
 		stc("  Applies can be of:\n", ch);
 		stc("    hp mana stamina str dex int wis con chr\n", ch);
 		stc("    age ac hitroll damroll saves\n", ch);
@@ -92,16 +92,6 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 
 	obj->enchanted = TRUE;
 
-	// modify existing value?
-	for (AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next)
-		if (paf->location == enchant_type) {
-			paf->level      = ch->level;
-			paf->duration   = duration;
-			paf->modifier   = affect_modify;
-			return;
-		}
-
-	// add a new one
 	AFFECT_DATA af = (AFFECT_DATA){0};
 	af.where      = TO_OBJECT;
 	af.type       = 0;
@@ -111,6 +101,15 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 	af.modifier   = affect_modify;
 	af.bitvector  = 0;
 	af.evolution  = 1;
+
+	// modify existing value?
+	for (AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next)
+		if (paf->location == enchant_type) {
+			affect_update_in_obj(obj, paf, &af);
+			return;
+		}
+
+	// add a new one
 	affect_copy_to_obj(obj, &af);
 }
 

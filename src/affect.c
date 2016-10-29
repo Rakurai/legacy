@@ -105,16 +105,51 @@ void affect_swap(AFFECT_DATA *a, AFFECT_DATA *b) {
 	a->prev = t.prev;
 }
 
-AFFECT_DATA *affect_find_in_list(AFFECT_DATA *list_head, int sn) {
-	for (AFFECT_DATA *paf = list_head; paf; paf = paf->next)
+AFFECT_DATA *affect_find_in_list(AFFECT_DATA **list_head, int sn) {
+	for (AFFECT_DATA *paf = *list_head; paf; paf = paf->next)
 		if (paf->type == sn)
 			return paf;
 
 	return NULL;
 }
 
-void affect_iterate_over_list(AFFECT_DATA *list_head, affect_callback_wrapper fn, affect_callback_params *params) {
-	for (AFFECT_DATA *paf = list_head; paf; paf = paf->next)
-		if ((*fn)(paf, params) != 0)
-			break;
+void affect_remove_matching_from_list(AFFECT_DATA **list_head, affect_comparator comp, const AFFECT_DATA *pattern, affect_fn_params *params) {
+	AFFECT_DATA *paf, *paf_next;
+
+	for (paf = *list_head; paf; paf = paf_next) {
+		paf_next = paf->next;
+
+		if (comp == NULL || (*comp)(paf, pattern) == 0) {
+			(params->modifier)(params->owner, paf, FALSE);
+			affect_remove_from_list(list_head, paf);
+			free_affect(paf);
+		}
+	}
+}
+
+void affect_iterate_over_list(AFFECT_DATA **list_head, affect_fn fn, affect_fn_params *params) {
+	for (AFFECT_DATA *paf = *list_head; paf; paf = paf->next) {
+		(params->modifier)(params->owner, paf, FALSE);
+//		(*fn)(paf, params) // should return value indicate break?
+		(params->modifier)(params->owner, paf, TRUE);
+	}
+}
+
+void affect_sort_list(AFFECT_DATA **list_head, affect_comparator comp) {
+	bool sorted = TRUE;
+
+	while (!sorted) {
+		sorted = TRUE;
+
+		// go through the list, looking for unsorted items
+		for (AFFECT_DATA *paf = *list_head; paf; paf = paf->next) {
+			if (paf->next == NULL)
+				break;
+
+			if ((*comp)(paf, paf->next) > 0) { // bubble up
+				affect_swap(paf, paf->next); // note that list_head doesn't move, we swapped contents
+				sorted = FALSE;
+			}
+		}
+	}
 }

@@ -253,8 +253,8 @@ void do_debug(CHAR_DATA *ch, const char *argument)
 
 	if (!strcmp(subfunc, "affcall")) {
 		int count = 0;
-		extern int debug_aff_callback(AFFECT_DATA *node, void *data);
-		affect_iterate_over_char(ch, debug_aff_callback, &count);
+		extern int affect_fn_debug(AFFECT_DATA *node, void *data);
+		affect_iterate_over_char(ch, affect_fn_debug, &count);
 		ptc(ch, "count: %d", count);
 		return;
 	}

@@ -3,29 +3,74 @@
 #include "affect_int.h"
 #include "recycle.h"
 
+// searching
 
 AFFECT_DATA *affect_find_in_obj(OBJ_DATA *obj, int sn) {
-	return affect_find_in_list(obj->perm_affected, sn);
+	return affect_find_in_list(&obj->affected, sn);
 }
 
-/* give an affect to an object */
+// adding
+
 void affect_copy_to_obj(OBJ_DATA *obj, const AFFECT_DATA *template)
 {
-	affect_copy_to_list(&obj->perm_affected, template);
+	affect_copy_to_list(&obj->affected, template);
 	affect_modify_obj(obj, template, TRUE);
 }
 
 void affect_join_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf) {
-	affect_dedup_in_list(&obj->perm_affected, paf); // remove
+	affect_dedup_in_list(&obj->affected, paf); // remove
 	affect_modify_obj(obj, paf, FALSE); // modify holder
 	affect_copy_to_obj(obj, paf); // add and modify holder
 }
 
+// removing
+
 void affect_remove_from_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
-	affect_remove_from_list(&obj->perm_affected, paf);
+	affect_remove_from_list(&obj->affected, paf);
 	affect_modify_obj(obj, paf, FALSE);
 	free_affect(paf);
+}
+
+void affect_remove_matching_from_obj(OBJ_DATA *obj, affect_comparator comp, const AFFECT_DATA *pattern) {
+	affect_fn_params params;
+
+	params.owner = obj;
+	params.modifier = affect_modify_obj;
+	params.data = NULL;
+
+	affect_remove_matching_from_list(&obj->affected, comp, pattern, &params);
+}
+
+void affect_remove_marked_from_obj(OBJ_DATA *obj) {
+	AFFECT_DATA pattern;
+	pattern.mark = TRUE;
+
+	affect_remove_matching_from_obj(obj, affect_comparator_mark, &pattern);
+}
+
+void affect_remove_sn_from_obj(OBJ_DATA *obj, int sn) {
+	AFFECT_DATA pattern;
+	pattern.type = sn;
+
+	affect_remove_matching_from_obj(obj, affect_comparator_type, &pattern);
+}
+
+void affect_remove_all_from_obj(OBJ_DATA *obj)
+{
+	affect_remove_matching_from_obj(obj, NULL, NULL);
+}
+
+// modifying
+
+void affect_iterate_over_obj(OBJ_DATA *obj, affect_fn fn, void *data) {
+	affect_fn_params params;
+
+	params.owner = obj;
+	params.modifier = affect_modify_obj;
+	params.data = data;
+
+	affect_iterate_over_list(&obj->affected, fn, &params);
 }
 
 void affect_update_in_obj(OBJ_DATA *obj, AFFECT_DATA *original, const AFFECT_DATA *template)
@@ -35,24 +80,11 @@ void affect_update_in_obj(OBJ_DATA *obj, AFFECT_DATA *original, const AFFECT_DAT
 	affect_modify_obj(obj, original, TRUE);
 }
 
-void affect_remove_sn_from_obj(OBJ_DATA *obj, int sn) {
-	AFFECT_DATA *paf, *head = obj->perm_affected;
-
-	while ((paf = affect_find_in_list(head, sn)) != NULL) {
-		head = paf->next; // start next iteration here instead of looping through again
-		affect_remove_from_obj(obj, paf);
-	}
-}
-
-void affect_remove_all_from_obj(OBJ_DATA *obj)
-{
-	while (obj->perm_affected)
-		affect_remove_from_obj(obj, obj->perm_affected);
-}
+// utility
 
 // test if an object has an affect
 bool obj_has_affect(OBJ_DATA *obj, int sn) {
-	return affect_find_in_list(obj->perm_affected, sn) ? TRUE : FALSE;
+	return affect_find_in_list(&obj->affected, sn) ? TRUE : FALSE;
 }
 
 void affect_modify_flag_cache_obj(OBJ_DATA *obj, sh_int where, unsigned int flags, bool fAdd) {
@@ -88,7 +120,9 @@ void affect_modify_flag_cache_obj(OBJ_DATA *obj, sh_int where, unsigned int flag
 	}
 }
 
-void affect_modify_obj(OBJ_DATA *obj, const AFFECT_DATA *paf, bool fAdd) {
+void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd) {
+	OBJ_DATA *obj = (OBJ_DATA *)owner;
+
 	// set enchanted flag here.  this isnt technically always true, this could be a temp effect,
 	// but i'm trying to simplify while deciding whether the affects should write to file.
 	obj->enchanted = TRUE;

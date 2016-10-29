@@ -397,7 +397,6 @@ void spell_force(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evolution)
 {
 	OBJ_DATA *sword, *wielded;
-	AFFECT_DATA *saf;
 
 	if (!IS_IMMORTAL(ch)) {
 		if (ch->alignment < 1000 && ch->alignment > -1000) {
@@ -436,13 +435,26 @@ void spell_holy_sword(int sn, int level, CHAR_DATA *ch, void *vo, int target, in
 	if (sword->level >= 70)
 		sword->value[4] |= WEAPON_FLAMING;
 
-	for (saf = sword->affected; saf != NULL; saf = saf->next) {
-		if (saf->location == APPLY_HITROLL)
-			saf->modifier = level / 10 + 1;
+	AFFECT_DATA af;
+	af.where      = TO_OBJECT;
+	af.type       = gsn_enchant_weapon;
+	af.level      = level;
+	af.duration   = -1;
+	af.location   = APPLY_HITROLL;
+	af.modifier   = level / 10 + 1;
+	af.bitvector  = 0;
+	af.evolution  = evolution;
+	affect_join_to_obj(sword, &af);
 
-		if (saf->location == APPLY_DAMROLL)
-			saf->modifier = level / 10 + 1;
-	}
+	af.where      = TO_OBJECT;
+	af.type       = gsn_enchant_weapon;
+	af.level      = level;
+	af.duration   = -1;
+	af.location   = APPLY_DAMROLL;
+	af.modifier   = level / 10 + 1;
+	af.bitvector  = 0;
+	af.evolution  = evolution;
+	affect_join_to_obj(sword, &af);
 
 	if (ch->alignment >= 1) {
 		sword->short_descr = str_dup("{Wa Holy Avenger{x");

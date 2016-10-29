@@ -5042,8 +5042,6 @@ void print_new_affects(CHAR_DATA *ch)
 	OBJ_DATA *obj;
 	long cheat = 0;
 	bool found = FALSE;
-	/* sort varibles */
-	bool un_sorted;
 	strcpy(border, get_custom_color_code(ch, CSLOT_SCORE_BORDER));
 	sprintf(torch, "%s|#|{x", get_custom_color_code(ch, CSLOT_SCORE_TORCH));
 	sprintf(breakline, " %s%s----------------------------------------------------------------%s\n", torch, border, torch);
@@ -5054,36 +5052,13 @@ void print_new_affects(CHAR_DATA *ch)
 		ptb(buffer, " %s {bYou are affected by the following spells:                      %s\n",
 		    torch, torch);
 		add_buf(buffer, breakline);
+
 		/* Someone suggested putting affects in order of duration.
 		   To try this, I am going to bubble sort the linked
 		   list of affects before we print them.
 		   -- Outsider
 		*/
-		un_sorted = TRUE;
-
-		while (un_sorted) {
-			un_sorted = FALSE;
-
-			// go through the list, looking for unsorted items
-			for (AFFECT_DATA *tpaf = ch->affected; tpaf != NULL; tpaf = tpaf->next) {
-				// check for end of list
-				if (! tpaf->next)
-					break;
-
-				// check if item and next one are in order
-				if (tpaf->duration < tpaf->next->duration) {
-					AFFECT_DATA *first_pointer = tpaf->next;
-					AFFECT_DATA *second_pointer = tpaf->next->next;
-					AFFECT_DATA temp_paf;
-					memcpy(&temp_paf, tpaf, sizeof(AFFECT_DATA));
-					memcpy(tpaf, tpaf->next, sizeof(AFFECT_DATA));
-					tpaf->next = first_pointer;
-					memcpy(tpaf->next, &temp_paf, sizeof(AFFECT_DATA));
-					tpaf->next->next = second_pointer;
-					un_sorted = TRUE;
-				}
-			}
-		}
+		affect_sort_list(&ch->affected, affect_comparator_duration);
 
 		/* End of bubble sort for affects. */
 

@@ -27,6 +27,7 @@
 
 #include "merc.h"
 #include "recycle.h"
+#include "affect.h"
 
 extern CHAR_DATA *dv_char;
 extern char dv_command[];
@@ -275,22 +276,14 @@ OBJ_DATA *new_obj(void)
 
 void free_obj(OBJ_DATA *obj)
 {
-	AFFECT_DATA *paf, *paf_next;
 	EXTRA_DESCR_DATA *ed, *ed_next;
 
 	if (!IS_VALID(obj))
 		return;
 
 	// data wholly owned by this obj
-	for (paf = obj->affected; paf != NULL; paf = paf_next) {
-		paf_next = paf->next;
-		free_affect(paf);
-	}
-
-	for (paf = obj->gem_affected; paf != NULL; paf = paf_next) {
-		paf_next = paf->next;
-		free_affect(paf);
-	}
+	affect_clear_list(&obj->affected);
+	affect_clear_list(&obj->gem_affected);
 
 	for (ed = obj->extra_descr; ed != NULL; ed = ed_next) {
 		ed_next = ed->next;
@@ -355,7 +348,6 @@ CHAR_DATA *new_char(void)
 void free_char(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj, *obj_next;
-	AFFECT_DATA *paf, *paf_next;
 	TAIL_DATA *td;
 
 	if (!IS_VALID(ch))
@@ -381,10 +373,7 @@ void free_char(CHAR_DATA *ch)
 		}
 	}
 
-	for (paf = ch->affected; paf != NULL; paf = paf_next) {
-		paf_next = paf->next;
-		free_affect(paf);
-	}
+	affect_clear_list(&ch->affected);
 
 	/* stop active TAILs, if any -- Elrac */
 	if (!IS_NPC(ch) && ch->pcdata && ch->pcdata->tailing)

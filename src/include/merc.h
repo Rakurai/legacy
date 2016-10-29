@@ -762,6 +762,7 @@ struct  affect_data
     sh_int              location;
     sh_int              modifier;
     int                 bitvector;
+    bool                mark; // mark for deletion from list, other uses
     sh_int		evolution;
 };
 
@@ -2310,7 +2311,7 @@ struct obj_data
        the object's index data separately from the affects given by inset gems, we
        compile a list of affects whenever one of those changes (rare event). -- Montrey */
     bool            enchanted; // have the affects for this object been modified from the index?  only for saving to file
-    AFFECT_DATA *   perm_affected; // initially identical to the index, can be changed by enchants and addapply
+ //   AFFECT_DATA *   perm_affected; // initially identical to the index, can be changed by enchants and addapply
     AFFECT_DATA *   affected; // the compiled list, never shown in 'stat' or 'lore', so it can be deduped.
 
     char            num_settings;
@@ -3709,10 +3710,16 @@ void    spread_plague   args(( ROOM_INDEX_DATA *room, const AFFECT_DATA *plague,
 int     find_spell      args( ( CHAR_DATA *ch, const char *name) );
 int     skill_lookup    args( ( const char *name ) );
 int     slot_lookup     args( ( int slot ) );
-bool    saves_spell     args( ( int level, CHAR_DATA *victim, int dam_type ) );
 void    obj_cast_spell  args( ( int sn, int level, CHAR_DATA *ch,
                                     CHAR_DATA *victim, OBJ_DATA *obj ) );
 void spell_imprint      args( ( int sn, int level, CHAR_DATA *ch, void *vo ));
+
+// dispel.c
+bool    saves_spell       args(( int level, CHAR_DATA *victim, int dam_type ) );
+bool    check_dispel_char args(( int dis_level, CHAR_DATA *victim, int sn, bool save ));
+bool    check_dispel_obj  args(( int dis_level, OBJ_DATA *obj, int sn, bool save ));
+bool    dispel_char       args(( CHAR_DATA *victim, int level, bool cancellation ));
+bool    level_save        args(( int dis_level, int save_level));
 
 /* note.c */
 const char *format_string( const char *oldstring );

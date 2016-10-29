@@ -32,7 +32,7 @@
 #include "affect.h"
 
 // TODO: temporary access, remove when possible
-extern void affect_modify_char args((CHAR_DATA *ch, const AFFECT_DATA *paf, bool fAdd));
+extern void affect_modify_char args((void *owner, const AFFECT_DATA *paf, bool fAdd));
 
 
 /* command procedures needed */
@@ -1199,26 +1199,7 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 	obj->wear_loc        = -1;
 
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
-		if (paf->location == APPLY_SPELL_AFFECT) {
-			AFFECT_DATA *lpaf = NULL;
-			AFFECT_DATA *lpaf_next = NULL;
-			bug("Norm-Apply: %d", 0);
-
-			for (lpaf = ch->affected; lpaf != NULL; lpaf = lpaf_next) {
-				lpaf_next = lpaf->next;
-
-				if ((lpaf->type == paf->type) &&
-				    (lpaf->level == paf->level) &&
-				    (lpaf->location == APPLY_SPELL_AFFECT)) {
-					bug("location = %d", lpaf->location);
-					bug("type = %d", lpaf->type);
-					affect_remove_from_char(ch, lpaf);
-					lpaf_next = NULL;
-				}
-			}
-		}
-		else
-			affect_modify_char(ch, paf, FALSE);
+		affect_modify_char(ch, paf, FALSE);
 
 	if (obj->item_type == ITEM_LIGHT
 	    &&   obj->value[2] != 0

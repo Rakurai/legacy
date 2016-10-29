@@ -4,10 +4,13 @@
 #include "tables.h"
 #include "affect_int.h"
 
+// searching
 
 const AFFECT_DATA *affect_find_in_char(CHAR_DATA *ch, int sn) {
-	return affect_find_in_list(ch->affected, sn);
+	return affect_find_in_list(&ch->affected, sn);
 }
+
+// adding
 
 void affect_copy_to_char(CHAR_DATA *ch, const AFFECT_DATA *template)
 {
@@ -22,34 +25,6 @@ void affect_join_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 	affect_copy_to_char(ch, paf);
 }
 
-void affect_remove_from_char(CHAR_DATA *ch, AFFECT_DATA *paf)
-{
-	affect_remove_from_list(&ch->affected, paf);
-	affect_modify_char(ch, paf, FALSE);
-	free_affect(paf);
-}
-
-void affect_update_in_char(CHAR_DATA *ch, AFFECT_DATA *original, const AFFECT_DATA *template)
-{
-	affect_modify_char(ch, original, FALSE);
-	affect_update(original, template);
-	affect_modify_char(ch, original, TRUE);
-}
-
-void affect_remove_sn_from_char(CHAR_DATA *ch, int sn) {
-	AFFECT_DATA *paf, *head = ch->affected;
-
-	while ((paf = affect_find_in_list(head, sn)) != NULL) {
-		head = paf->next; // start next iteration here instead of looping through again
-		affect_remove_from_char(ch, paf);
-	}
-}
-
-void affect_remove_all_from_char(CHAR_DATA *ch) {
-	while (ch->affected)
-		affect_remove_from_char(ch, ch->affected);
-}
-
 void affect_add_perm_to_char(CHAR_DATA *ch, int sn) {
 	AFFECT_DATA af = (AFFECT_DATA){0};
 	af.type = sn;
@@ -61,28 +36,66 @@ void affect_add_perm_to_char(CHAR_DATA *ch, int sn) {
 	affect_copy_to_char(ch, &af);
 }
 
-int affect_callback_wrapper_char(AFFECT_DATA *node, affect_callback_params *params) {
-//	AFFECT_DATA *paf = (AFFECT_DATA *)node;
-	CHAR_DATA *ch = (CHAR_DATA *)params->owner;
+// removing
 
-	affect_modify_char(ch, node, FALSE);
-	int ret = (params->callback)(node, params->data);
-	affect_modify_char(ch, node, TRUE);
-
-	return ret;
+void affect_remove_from_char(CHAR_DATA *ch, AFFECT_DATA *paf)
+{
+	affect_remove_from_list(&ch->affected, paf);
+	affect_modify_char(ch, paf, FALSE);
+	free_affect(paf);
 }
 
-void affect_iterate_over_char(CHAR_DATA *ch, affect_callback_fn callback, void *data) {
-	affect_callback_params params;
+void affect_remove_matching_from_char(CHAR_DATA *ch, affect_comparator comp, const AFFECT_DATA *pattern) {
+	affect_fn_params params;
 
 	params.owner = ch;
-	params.callback = callback;
-	params.data = data;
+	params.modifier = affect_modify_char;
+	params.data = NULL;
 
-	affect_iterate_over_list(ch->affected, affect_callback_wrapper_char, &params);
+	affect_remove_matching_from_list(&ch->affected, comp, pattern, &params);
 }
 
-void affect_modify_char(CHAR_DATA *ch, const AFFECT_DATA *paf, bool fAdd) {
+void affect_remove_marked_from_char(CHAR_DATA *ch) {
+	AFFECT_DATA pattern;
+	pattern.mark = TRUE;
+
+	affect_remove_matching_from_char(ch, affect_comparator_mark, &pattern);
+}
+
+void affect_remove_sn_from_char(CHAR_DATA *ch, int sn) {
+	AFFECT_DATA pattern;
+	pattern.type = sn;
+
+	affect_remove_matching_from_char(ch, affect_comparator_type, &pattern);
+}
+
+void affect_remove_all_from_char(CHAR_DATA *ch) {
+	affect_remove_matching_from_char(ch, NULL, NULL);
+}
+
+// modifying
+
+void affect_iterate_over_char(CHAR_DATA *ch, affect_fn fn, void *data) {
+	affect_fn_params params;
+
+	params.owner = ch;
+	params.modifier = affect_modify_char;
+	params.data = data;
+
+	affect_iterate_over_list(&ch->affected, fn, &params);
+}
+
+void affect_update_in_char(CHAR_DATA *ch, AFFECT_DATA *original, const AFFECT_DATA *template)
+{
+	affect_modify_char(ch, original, FALSE);
+	affect_update(original, template);
+	affect_modify_char(ch, original, TRUE);
+}
+
+// utility
+
+void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
+	CHAR_DATA *ch = (CHAR_DATA *)owner;
 	OBJ_DATA *obj;
 	int mod, i;
 	mod = paf->modifier;
