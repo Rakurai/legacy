@@ -907,6 +907,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 		ch->imm_flags   = ch->imm_flags | race_table[ch->race].imm;
 		ch->res_flags   = ch->res_flags | race_table[ch->race].res;
 		ch->vuln_flags  = ch->vuln_flags | race_table[ch->race].vuln;
+
 		ch->form        = race_table[ch->race].form;
 		ch->parts       = race_table[ch->race].parts;
 
@@ -1457,6 +1458,13 @@ void fread_char(CHAR_DATA *ch, cJSON *json, int version)
 		if (!fMatch)
 			bugf("fread_char: unknown key %s", key);
 	}
+
+	// fix old IMM_SUMMON flag, it is repurposed
+	if (IS_SET(ch->imm_flags, A))
+		SET_BIT(ch->act, ACT_NOSUMMON);
+	REMOVE_BIT(ch->imm_flags, A);
+	REMOVE_BIT(ch->res_flags, A);
+	REMOVE_BIT(ch->vuln_flags, A);
 }
 
 // read a single item including its contents

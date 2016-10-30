@@ -1468,7 +1468,7 @@ void do_showflags(CHAR_DATA *ch, const char *argument)
 	}
 
 	set_color(ch, YELLOW, NOBOLD);
-	sprintf(buf, "Act  : %s\n", act_bit_name(victim->act));
+	sprintf(buf, "Act  : %s\n", act_bit_name(victim->act, IS_NPC(victim)));
 	stc(buf, ch);
 
 	if (!IS_NPC(victim)) {
@@ -1620,25 +1620,13 @@ void do_nofollow(CHAR_DATA *ch, const char *argument)
 
 void do_nosummon(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch)) {
-		if (IS_SET(ch->imm_flags, IMM_SUMMON)) {
-			stc("You are no longer immune to summon.\n", ch);
-			REMOVE_BIT(ch->imm_flags, IMM_SUMMON);
-		}
-		else {
-			stc("You are now immune to summoning.\n", ch);
-			SET_BIT(ch->imm_flags, IMM_SUMMON);
-		}
+	if (IS_SET(ch->act, PLR_NOSUMMON)) {
+		stc("You are no longer immune to summon.\n", ch);
+		REMOVE_BIT(ch->act, PLR_NOSUMMON);
 	}
 	else {
-		if (IS_SET(ch->act, PLR_NOSUMMON)) {
-			stc("You are no longer immune to summon.\n", ch);
-			REMOVE_BIT(ch->act, PLR_NOSUMMON);
-		}
-		else {
-			stc("You are now immune to summoning.\n", ch);
-			SET_BIT(ch->act, PLR_NOSUMMON);
-		}
+		stc("You are now immune to summoning.\n", ch);
+		SET_BIT(ch->act, PLR_NOSUMMON);
 	}
 }
 
@@ -3239,7 +3227,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 			    victim->pIndexData->count, victim->pIndexData->killed);
 		}
 
-		ptc(ch, "\n{gAct: %s\n", act_bit_name(victim->act));
+		ptc(ch, "\n{gAct: %s\n", act_bit_name(victim->act, IS_NPC(victim)));
 
 		if (!IS_NPC(victim))
 			ptc(ch, "{gPlr: %s\n", plr_bit_name(victim->pcdata->plr));

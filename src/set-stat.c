@@ -1579,7 +1579,7 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (victim->pcdata->email[0] != '\0')
 			ptc(ch, "Email: %s\n", victim->pcdata->email);
 
-	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act));
+	ptc(ch, "{WAct: %s\n", act_bit_name(victim->act, IS_NPC(victim)));
 
 	if (!IS_NPC(victim)) {
 		ptc(ch, "{WPlr: %s\n", plr_bit_name(victim->pcdata->plr));

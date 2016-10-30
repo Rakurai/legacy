@@ -932,7 +932,7 @@ void load_mobiles(FILE *fp)
 		pMobIndex->race                 = race_lookup(fread_string(fp));
 		pMobIndex->long_descr[0]        = UPPER(pMobIndex->long_descr[0]);
 		pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
-		pMobIndex->act                  = fread_flag(fp) | ACT_IS_NPC
+		pMobIndex->act                  = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].act;
 		pMobIndex->affected_by          = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].aff;
@@ -968,6 +968,7 @@ void load_mobiles(FILE *fp)
 		/* read flags and add in data from the race table */
 		pMobIndex->off_flags            = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].off;
+
 		pMobIndex->absorb_flags          = 0; /* fix when we change the area versions */
 		pMobIndex->imm_flags            = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].imm;
@@ -975,6 +976,14 @@ void load_mobiles(FILE *fp)
 		                                  | race_table[pMobIndex->race].res;
 		pMobIndex->vuln_flags           = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].vuln;
+
+		// fix old style IMM_SUMMON flag, changed to ACT_NOSUMMON
+		if (IS_SET(pMobIndex->imm_flags, A))
+			SET_BIT(pMobIndex->act, ACT_NOSUMMON);
+		REMOVE_BIT(pMobIndex->imm_flags, A);
+		REMOVE_BIT(pMobIndex->res_flags, A);
+		REMOVE_BIT(pMobIndex->vuln_flags, A);
+
 		/* vital statistics */
 		pMobIndex->start_pos        = position_lookup(fread_word(fp));
 		pMobIndex->default_pos      = position_lookup(fread_word(fp));

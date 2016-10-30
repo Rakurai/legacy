@@ -2326,12 +2326,12 @@ const char *extra_bit_name(int extra_flags)
 }
 
 /* return ascii name of an act vector */
-const char *act_bit_name(int act_flags)
+const char *act_bit_name(int act_flags, bool npc)
 {
 	static char buf[512];
 	buf[0] = '\0';
 
-	if (IS_SET(act_flags, ACT_IS_NPC)) {
+	if (npc) {
 		strcat(buf, " npc");
 
 		if (act_flags & ACT_SENTINEL) strcat(buf, " sentinel");

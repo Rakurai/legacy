@@ -337,8 +337,8 @@ const struct race_type race_table[] = {
 	},
 	{
 		"school monster",       FALSE,
-		ACT_NOALIGN,            0,      0,
-		IMM_CHARM | IMM_SUMMON,   0,      VULN_MAGIC,
+		ACT_NOALIGN|ACT_NOSUMMON,            0,      0,
+		IMM_CHARM,   0,      VULN_MAGIC,
 		A | M | V,          A | B | C | D | E | F | H | J | K | Q | U
 	},
 	{

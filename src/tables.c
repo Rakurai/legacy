@@ -911,7 +911,7 @@ const struct flag_type off_flags[] = {
 };
 
 const struct flag_type imm_flags[] = {
-	{       "summon",       IMM_SUMMON,     TRUE    },
+//	{       "summon",       IMM_SUMMON,     TRUE    },
 	{       "charm",        IMM_CHARM,      TRUE    },
 	{       "magic",        IMM_MAGIC,      TRUE    },
 	{       "weapon",       IMM_WEAPON,     TRUE    },

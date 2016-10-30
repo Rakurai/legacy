@@ -906,7 +906,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 			    || (victim->pIndexData == NULL
 			        || victim->in_room == NULL
 			        || victim->pIndexData->pShop != NULL)
-			    || IS_SET(victim->imm_flags, IMM_SUMMON)
+			    || IS_SET(victim->act, ACT_NOSUMMON)
 			    || IS_SET(victim->act, ACT_PET)
 			    || !strcmp(victim->in_room->area->name, "Playpen")
 			    || victim->in_room->clan

@@ -3670,7 +3670,7 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evol
 	    || victim->in_room->guild
 	    || victim->level > level + (IS_NPC(victim) ? 3 : 8)
 	    || (IS_NPC(victim)
-	        && (IS_SET(victim->imm_flags, IMM_SUMMON)
+	        && (IS_SET(victim->act, ACT_NOSUMMON)
 	            || saves_spell(level, victim, DAM_OTHER)))) {
 		stc("You failed.\n", ch);
 		return;
@@ -4610,7 +4610,7 @@ void spell_nexus(int sn, int level, CHAR_DATA *ch, void *vo, int target, int evo
 		    || to_room->guild || from_room->guild
 		    || victim->level >= level + (IS_NPC(victim) ? 3 : 8)
 		    || (IS_NPC(victim)
-		        && (IS_SET(victim->imm_flags, IMM_SUMMON)
+		        && (IS_SET(victim->act, ACT_NOSUMMON)
 		            || saves_spell(level, victim, DAM_OTHER)))) {
 			stc("You failed.\n", ch);
 			return;
@@ -4942,7 +4942,7 @@ void spell_portal(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 		    || victim->in_room->guild
 		    || victim->level >= level + (IS_NPC(victim) ? 3 : 8)
 		    || (IS_NPC(victim)
-		        && (IS_SET(victim->imm_flags, IMM_SUMMON)
+		        && (IS_SET(victim->act, ACT_NOSUMMON)
 		            || saves_spell(level, victim, DAM_OTHER)))) {
 			stc("You failed.\n", ch);
 			return;
@@ -5988,7 +5988,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target, int ev
 	    ||   victim->level >= level + 3
 	    || (!IS_NPC(victim) && victim->level >= LEVEL_IMMORTAL)
 	    ||   victim->fighting != NULL
-	    || (IS_NPC(victim) && IS_SET(victim->imm_flags, IMM_SUMMON))
+	    || (IS_NPC(victim) && IS_SET(victim->act, ACT_NOSUMMON))
 	    || (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
 	    || (!IS_NPC(victim) && IS_SET(victim->act, PLR_NOSUMMON))
 	    || (IS_SET(ch->in_room->room_flags, ROOM_MALE_ONLY) && GET_SEX(victim) != SEX_MALE)
@@ -6371,7 +6371,7 @@ void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo, int target, int 
 	    || char_in_duel_room(ch)
 	    || char_in_duel_room(victim)
 	    || ch->in_room->sector_type == SECT_ARENA
-	    || (victim != ch && IS_SET(victim->imm_flags, IMM_SUMMON))
+	    || (victim != ch && IS_SET(victim->act, ACT_NOSUMMON))
 	    || (!IS_NPC(ch) && victim->fighting != NULL)
 	    || (victim != ch && saves_spell(level, victim, DAM_OTHER))) {
 		stc("You failed.\n", ch);

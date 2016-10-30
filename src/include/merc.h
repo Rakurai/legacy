@@ -944,7 +944,7 @@ struct  kill_data
  * ACT bits for mobs.
  * Used in #MOBILES.
  */
-#define ACT_IS_NPC              (A)             /* Auto set for mobs    */
+#define ACT_NOSUMMON            (A) // replaced old ACT_IS_NPC flag
 #define ACT_SENTINEL            (B)             /* Stays in one room    */
 #define ACT_SCAVENGER           (C)             /* Picks up objects     */
 #define ACT_WHOKNOWS1           (D)             /* Unknown flag         */
@@ -1029,7 +1029,6 @@ struct  kill_data
 #define IS_DRAINING		4
 
 /* DRAIN bits */
-#define DRAIN_SUMMON              (A)
 #define DRAIN_CHARM               (B)
 #define DRAIN_MAGIC               (C)
 #define DRAIN_WEAPON              (D)
@@ -1055,7 +1054,6 @@ struct  kill_data
 #define DRAIN_IRON                (Z)
 
 /* IMM bits for mobs */
-#define IMM_SUMMON              (A)
 #define IMM_CHARM               (B)
 #define IMM_MAGIC               (C)
 #define IMM_WEAPON              (D)
@@ -1081,7 +1079,6 @@ struct  kill_data
 #define IMM_IRON                (Z)
 
 /* RES bits for mobs */
-#define RES_SUMMON              (A)
 #define RES_CHARM               (B)
 #define RES_MAGIC               (C)
 #define RES_WEAPON              (D)
@@ -1106,7 +1103,6 @@ struct  kill_data
 #define RES_IRON                (Z)
 
 /* VULN bits for mobs */
-#define VULN_SUMMON             (A)
 #define VULN_CHARM              (B)
 #define VULN_MAGIC              (C)
 #define VULN_WEAPON             (D)
@@ -1685,9 +1681,9 @@ struct  kill_data
 /*
  * ACT bits for players.
  */
-#define PLR_IS_NPC              (A)             /* Don't EVER set.      */
 
 /* RT auto flags */
+#define PLR_NOSUMMON            (A)
 #define PLR_LOOKINPIT           (B)
 #define PLR_AUTOASSIST          (C)
 #define PLR_AUTOEXIT            (D)
@@ -1704,7 +1700,7 @@ struct  kill_data
 #define PLR_VT100               (M)
 #define PLR_MAKEBAG             (O)
 #define PLR_CANLOOT             (P)
-#define PLR_NOSUMMON            (Q)
+//#define PLR_NOSUMMON            (Q)  moved to A to match NPC flag
 #define PLR_NOFOLLOW            (R)
 #define PLR_COLOR               (S)
 
@@ -2783,7 +2779,7 @@ extern sh_int	gsn_critical_blow;
 /*
  * Character macros.
  */
-#define IS_NPC(ch)              (IS_SET((ch)->act, ACT_IS_NPC))
+#define IS_NPC(ch)              ((ch)->pcdata == NULL ? TRUE : FALSE)
 #define IS_PLAYING(d)		(d && d->connected == CON_PLAYING && d->character)
 
 /* permission checking stuff */
@@ -3623,7 +3619,7 @@ const char *  affect_bit_name args(( int vector ) );
 const char *  extra_bit_name  args(( int extra_flags ) );
 const char *  wiz_bit_name    args(( int wiz_flags ) );
 const char *  wear_bit_name   args(( int wear_flags ) );
-const char *  act_bit_name    args(( int act_flags ) );
+const char *  act_bit_name    args(( int act_flags, bool npc ) );
 const char *  room_bit_name   args(( int room_flags ));
 const char *  plr_bit_name    args(( int plr_flags ) );
 const char *  off_bit_name    args(( int off_flags ) );
