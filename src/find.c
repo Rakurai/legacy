@@ -25,11 +25,11 @@
 /* Find a mobile in the same room as ch */
 CHAR_DATA *get_mob_here(CHAR_DATA *ch, const char *argument, int vis)
 {
-	char arg[MIL];
 	CHAR_DATA *rch;
 	int number, count = 0, etype, vnum = 0;
-	etype = entity_argument(argument, arg);
-	number = number_argument(arg, arg);
+	char temp_arg[MIL], arg[MIL];
+	etype = entity_argument(argument, temp_arg);
+	number = number_argument(temp_arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -75,15 +75,15 @@ CHAR_DATA *get_mob_here(CHAR_DATA *ch, const char *argument, int vis)
    only mobiles, use get_player_area to only find players. */
 CHAR_DATA *get_mob_area(CHAR_DATA *ch, const char *argument, int vis)
 {
-	char arg[MIL];
 	CHAR_DATA *ach;
 	int number, etype, count = 0;
 
 	if ((ach = get_mob_here(ch, argument, vis)) != NULL)
 		return ach;
 
-	etype = entity_argument(argument, arg);
-	number = number_argument(arg, arg);
+	char temp_arg[MIL], arg[MIL];
+	etype = entity_argument(argument, temp_arg);
+	number = number_argument(temp_arg, arg);
 
 	for (ach = char_list; ach != NULL; ach = ach->next) {
 		if (!IS_NPC(ach))
@@ -118,15 +118,15 @@ CHAR_DATA *get_mob_area(CHAR_DATA *ch, const char *argument, int vis)
    only mobiles, use get_player_world to only find players. */
 CHAR_DATA *get_mob_world(CHAR_DATA *ch, const char *argument, int vis)
 {
-	char arg[MSL];
 	CHAR_DATA *wch;
 	int number, etype, count = 0, vnum = 0;
 
 	if ((wch = get_mob_here(ch, argument, vis)) != NULL)
 		return wch;
 
-	etype = entity_argument(argument, arg);
-	number = number_argument(arg, arg);
+	char temp_arg[MIL], arg[MIL];
+	etype = entity_argument(argument, temp_arg);
+	number = number_argument(temp_arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -169,11 +169,11 @@ CHAR_DATA *get_mob_world(CHAR_DATA *ch, const char *argument, int vis)
    only mobiles, use get_player_here to only find players. */
 CHAR_DATA *get_char_here(CHAR_DATA *ch, const char *argument, int vis)
 {
-	char arg[MIL];
 	CHAR_DATA *rch;
 	int number, count = 0, etype, vnum = 0;
-	etype = entity_argument(argument, arg);
-	number = number_argument(arg, arg);
+	char temp_arg[MIL], arg[MIL];
+	etype = entity_argument(argument, temp_arg);
+	number = number_argument(temp_arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -220,11 +220,11 @@ player is in.
 */
 CHAR_DATA *get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argument, int vis)
 {
-	char arg[MIL];
 	CHAR_DATA *rch;
 	int number, count = 0, etype, vnum = 0;
-	etype = entity_argument(argument, arg);
-	number = number_argument(arg, arg);
+	char temp_arg[MIL], arg[MIL];
+	etype = entity_argument(argument, temp_arg);
+	number = number_argument(temp_arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -267,15 +267,15 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argum
    only mobiles, use get_player_area to only find players. */
 CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument, int vis)
 {
-	char arg[MIL];
 	CHAR_DATA *ach;
 	int number, etype, count = 0;
 
 	if ((ach = get_char_here(ch, argument, vis)) != NULL)
 		return ach;
 
-	etype = entity_argument(argument, arg);
-	number = number_argument(arg, arg);
+	char temp_arg[MIL], arg[MIL];
+	etype = entity_argument(argument, temp_arg);
+	number = number_argument(temp_arg, arg);
 
 	for (ach = char_list; ach != NULL; ach = ach->next) {
 		if (ach->in_room == NULL)
@@ -307,15 +307,15 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument, int vis)
    only mobiles, use get_player_world to only find players. */
 CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument, int vis)
 {
-	char arg[MSL];
 	CHAR_DATA *wch;
 	int number, etype, count = 0, vnum = 0;
 
 	if ((wch = get_char_here(ch, argument, vis)) != NULL)
 		return wch;
 
-	etype = entity_argument(argument, arg);
-	number = number_argument(arg, arg);
+	char temp_arg[MIL], arg[MIL];
+	etype = entity_argument(argument, temp_arg);
+	number = number_argument(temp_arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
