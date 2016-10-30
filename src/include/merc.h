@@ -1872,7 +1872,7 @@ struct  mob_index_data
     char *              long_descr;
     char *              description;
     long                act;
-    long                affected_by;
+    long                affect_flags;
     sh_int              alignment;
     sh_int              level;
     sh_int              hitroll;

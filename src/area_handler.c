@@ -815,7 +815,6 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	CHAR_DATA *mob;
 	int i, stambase;
 	long wealth;
-	AFFECT_DATA af = (AFFECT_DATA){0};
 	mobile_count++;
 
 	if (pMobIndex == NULL) {
@@ -855,7 +854,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 	/* read from prototype */
 	mob->group              = pMobIndex->group;
 	mob->act                = pMobIndex->act;
-	affect_flag_add_to_char(mob, pMobIndex->affected_by);
+	affect_flag_add_to_char(mob, pMobIndex->affect_flags);
 	mob->comm               = COMM_NOCHANNELS;
 	mob->alignment          = pMobIndex->alignment;
 	mob->level              = pMobIndex->level;
@@ -986,19 +985,45 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 			{       gsn_talon,              APPLY_NONE,     0,              AFF_TALON       },
 			{       0,                     0,              0,              0               }
 		};
+
+		AFFECT_DATA af = (AFFECT_DATA){0};
 		af.where = TO_AFFECTS;
 		af.level = mob->level;
 		af.duration = -1;
 		af.evolution = 1;
 
-		for (i = 0; maff_table[i].sn > 0; i++)
-			if (affect_flag_on_char(mob, maff_table[i].bit)) {
+		unsigned int bitvector = pMobIndex->affect_flags;
+
+		for (i = 0; maff_table[i].sn > 0; i++) {
+			unsigned int bit = maff_table[i].bit;
+			if (IS_SET(bitvector, bit)) {
 				af.type      = maff_table[i].sn;
 				af.location  = maff_table[i].loc;
 				af.modifier  = maff_table[i].mod;
-				af.bitvector = maff_table[i].bit;
-				affect_copy_to_char(mob, &af);
+				if (affect_parse_prototype('A', &af, &bit))
+					affect_copy_to_char(mob, &af);
 			}
+		}
+
+		// damage mod affects
+		af.type               = 0;
+		bitvector = pMobIndex->imm_flags;
+
+		while (bitvector != 0)
+			if (affect_parse_prototype('I', &af, &bitvector))
+				affect_copy_to_char(mob, &af); 
+
+		bitvector = pMobIndex->res_flags;
+
+		while (bitvector != 0)
+			if (affect_parse_prototype('R', &af, &bitvector))
+				affect_copy_to_char(mob, &af); 
+
+		bitvector = pMobIndex->vuln_flags;
+
+		while (bitvector != 0)
+			if (affect_parse_prototype('V', &af, &bitvector))
+				affect_copy_to_char(mob, &af); 
 	}
 	/* give em some stamina -- Montrey */
 	mob->max_stam = 100;

@@ -934,7 +934,7 @@ void load_mobiles(FILE *fp)
 		pMobIndex->description[0]       = UPPER(pMobIndex->description[0]);
 		pMobIndex->act                  = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].act;
-		pMobIndex->affected_by          = fread_flag(fp)
+		pMobIndex->affect_flags         = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].aff;
 		pMobIndex->pShop                = NULL;
 		pMobIndex->alignment            = fread_number(fp);
@@ -1021,7 +1021,7 @@ void load_mobiles(FILE *fp)
 				if (!str_prefix1(word, "act"))
 					REMOVE_BIT(pMobIndex->act, vector);
 				else if (!str_prefix1(word, "aff"))
-					REMOVE_BIT(pMobIndex->affected_by, vector);
+					REMOVE_BIT(pMobIndex->affect_flags, vector);
 				else if (!str_prefix1(word, "off"))
 					REMOVE_BIT(pMobIndex->off_flags, vector);
 				else if (!str_prefix1(word, "drn"))
