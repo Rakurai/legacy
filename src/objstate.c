@@ -34,8 +34,9 @@ bool is_worth_saving(OBJ_DATA *obj)
 	    || obj->in_obj)        /* shouldn't be... */
 		return FALSE;
 
-	if (obj == donation_pit)
-		return FALSE;
+	// save the donation pit, can be uncommented in case of problems -- Montrey
+//	if (obj == donation_pit)
+//		return FALSE;
 
 	switch (obj->item_type) {
 	case ITEM_POTION:       /* usually have timers, and trying to speed this up */
@@ -60,12 +61,14 @@ bool is_worth_saving(OBJ_DATA *obj)
 }
 
 /* write one object recursively.  this is the guts of fwrite_obj, simplified a bit. */
-void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
+void fwrite_objstate(OBJ_DATA *obj, FILE *fp, int *count)
 {
 	OBJ_DATA *cobj;
 	EXTRA_DESCR_DATA *ed;
 	int i = 0;
 	bool enchanted = affect_enchanted_obj(obj); // whether to write affects or not
+
+	(*count)++;
 
 	fprintf(fp, "OBJ\n%d %d %d %d ",
 	        obj->pIndexData->vnum,
@@ -142,36 +145,41 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
 
 	/* recursively write it's contents */
 	for (cobj = obj->contains; cobj; cobj = cobj->next_content)
-		fwrite_objstate(cobj, fp);
+		fwrite_objstate(cobj, fp, count);
 }
 
 /* loop through the object list, save all items that are lying on the ground
    to disk.  This is called occasionally from update_handler, and selectively
    from some parts of get_obj and drop_obj */
-void save_items()
+int objstate_save_items()
 {
 	FILE *fp;
 	OBJ_DATA *obj;
+	int count = 0;
+
+	if (port != DIZZYPORT)
+		return 0;
 
 	if ((fp = fopen(COPYOVER_ITEMS, "w")) == NULL) {
 		bugf("Could not write to copyover file: %s", COPYOVER_ITEMS);
-		return;
+		return 0;
 	}
 
 	for (obj = object_list; obj != NULL; obj = obj->next)
 		if (is_worth_saving(obj))
-			fwrite_objstate(obj, fp);
+			fwrite_objstate(obj, fp, &count);
 
 	fprintf(fp, "END\n");
 	fclose(fp);
+	return count;
 }
 
-OBJ_DATA *fload_objstate(FILE *fp)
+OBJ_DATA *fload_objstate(FILE *fp, int *count)
 {
 	ROOM_INDEX_DATA *room;
 	OBJ_DATA *obj, *cobj;
 	bool extract = FALSE, done = FALSE;
-	int rvnum, nests, enchanted, i, tmp;
+	int rvnum, nests, ovnum, enchanted;
 
 	if (feof(fp))
 		return NULL;
@@ -179,9 +187,9 @@ OBJ_DATA *fload_objstate(FILE *fp)
 	if (str_cmp(fread_word(fp), "OBJ"))
 		return NULL;
 
-	tmp = fread_number(fp);
+	ovnum = fread_number(fp);
 
-	if (get_obj_index(tmp) == NULL) {
+	if (get_obj_index(ovnum) == NULL) {
 		obj = create_object(get_obj_index(GEN_OBJ_TREASURE), 0);
 
 		if (obj)
@@ -191,7 +199,7 @@ OBJ_DATA *fload_objstate(FILE *fp)
 			return NULL;
 		}
 	}
-	else if ((obj = create_object(get_obj_index(tmp), 0)) == NULL) {
+	else if ((obj = create_object(get_obj_index(ovnum), 0)) == NULL) {
 		/* make a temp object, we'll extract it later, so we can read the rest of the list */
 		extract = TRUE;
 		obj = create_object(get_obj_index(GEN_OBJ_TREASURE), 0);
@@ -202,6 +210,7 @@ OBJ_DATA *fload_objstate(FILE *fp)
 		}
 	}
 
+	(*count)++;
 	rvnum           = fread_number(fp);
 	enchanted       = fread_number(fp);
 	obj->cost       = fread_number(fp);
@@ -209,6 +218,11 @@ OBJ_DATA *fload_objstate(FILE *fp)
 
 	if (enchanted)
 		affect_remove_all_from_obj(obj); // read them from the file
+
+	if (ovnum == OBJ_VNUM_PIT && donation_pit == NULL) {
+		donation_pit = obj;
+		printf("Loading donation pit with %d items.\n", nests);
+	}
 
 	while (!done) { /* loop over all lines of obj desc */
 		switch (fread_letter(fp)) {
@@ -309,8 +323,8 @@ OBJ_DATA *fload_objstate(FILE *fp)
 	}
 
 	/* load it's contents */
-	for (i = 0; i < nests; i++) {
-		if ((cobj = fload_objstate(fp)) != NULL)
+	for (int i = 0; i < nests; i++) {
+		if ((cobj = fload_objstate(fp, count)) != NULL)
 			obj_to_obj(cobj, obj);
 	}
 
@@ -338,19 +352,21 @@ OBJ_DATA *fload_objstate(FILE *fp)
 	return obj;
 }
 
-void load_items()
+int objstate_load_items()
 {
 	FILE *fp;
+	int count = 0;
 
 	if ((fp = fopen(COPYOVER_ITEMS, "r")) == NULL) {
 		bugf("Could not open copyover file: %s", COPYOVER_ITEMS);
-		return;
+		return 0;
 	}
 
 	for (; ;)
-		if (!fload_objstate(fp))        /* load, check for end just in case */
+		if (!fload_objstate(fp, &count))        /* load, check for end just in case */
 			break;
 
 	fclose(fp);
+	return count;
 }
 

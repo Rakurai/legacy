@@ -1333,11 +1333,16 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg2, "value2") || !str_cmp(arg2, "v2")) {
+		// count the drinks
+		int count = 0;
+		while (liq_table[count].liq_name != NULL)
+			count++;
+
 		/* Hack to keep Crush from crashing the mud */
 		if ((obj->item_type == ITEM_FOUNTAIN
 		     || obj->item_type == ITEM_DRINK_CON)
-		    && value > MAX_DRINK) {
-			ptc(ch, "The max for drinks and fountains is %d.\n", MAX_DRINK);
+		    && value >= count) {
+			ptc(ch, "The max for drinks and fountains is %d.\n", count-1);
 			return;
 		}
 
@@ -1359,6 +1364,11 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg2, "value4") || !str_cmp(arg2, "v4")) {
+		if (obj->item_type == ITEM_WEAPON) {
+			stc("Please use the flag command to add or remove weapon flags.\n", ch);
+			return;
+		}
+
 		obj->value[4] = value;
 		ptc(ch, "%s's v4 has been set to %d.\n", obj->short_descr, value);
 		return;

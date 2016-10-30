@@ -1500,6 +1500,10 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 					// this object has different affects than the index, free the old ones
 					affect_remove_all_from_obj(obj);
 
+					// free affects from the index, if any
+					while (obj->affected)
+						affect_remove_obj(obj, obj->affected);
+
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 

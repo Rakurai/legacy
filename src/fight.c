@@ -79,6 +79,7 @@ void    raw_kill        args((CHAR_DATA *victim));
 void    set_fighting    args((CHAR_DATA *ch, CHAR_DATA *victim));
 void    eqcheck         args((CHAR_DATA *ch));
 void    combat_regen    args((CHAR_DATA *ch));
+void    noncombat_regen    args((CHAR_DATA *ch));
 void    do_lay_on_hands       args((CHAR_DATA *ch, const char *argument));
 
 /* Global XP */
@@ -108,20 +109,27 @@ void violence_update(void)
 			continue;
 		}
 
-		if (ch->fighting == NULL) {
+		if ((victim = ch->fighting) == NULL) {
 			/* parasite pk timer off of violence_update.  don't forget it's 3 seconds -- Montrey */
-			if (!IS_NPC(ch))
+
+			if (!IS_NPC(ch)) {
 				if (ch->pcdata->pktimer)
 					if (--ch->pcdata->pktimer == 0)
 						REMOVE_BIT(ch->imm_flags, IMM_SHADOW);
 
+				if (ch->pcdata->combattimer)
+					ch->pcdata->combattimer--;
+				else
+					noncombat_regen(ch);
+			}
+
 			continue;
 		}
 
-		combat_regen(ch);
+		if (!IS_NPC(ch))
+			ch->pcdata->combattimer = 5;
 
-		if (ch == NULL || (victim = ch->fighting) == NULL)
-			continue;
+		combat_regen(ch);
 
 		/* this is moved from the damage function cause i don't want you to
 		   actually have to be getting hit to stand up -- Montrey */
@@ -207,6 +215,21 @@ void violence_update(void)
 		check_assist(ch, victim);
 	}
 } /* end violence_update */
+
+void noncombat_regen(CHAR_DATA *ch) {
+	int hitgain = ch->max_hit/10;
+	int managain = ch->max_mana/10;
+	int stamgain = ch->max_stam/10;
+
+	if (ch->hit < ch->max_hit
+	 || ch->mana < ch->max_mana
+	 || ch->stam < ch->max_stam) {
+	    ch->hit = UMIN(ch->max_hit, ch->hit + hitgain);
+		ch->mana = UMIN(ch->max_mana, ch->mana + managain);
+		ch->stam = UMIN(ch->max_stam, ch->stam + stamgain);
+		stc("You have fully recovered from combat.\n", ch);
+	}
+}
 
 void combat_regen(CHAR_DATA *ch)
 {
@@ -1524,7 +1547,7 @@ void kill_off(CHAR_DATA *ch, CHAR_DATA *victim)
 	/* force a save of items on the ground, should fix it
 	   for crashes after a player dies -- Montrey */
 	if (!IS_NPC(victim))
-		save_items();
+		objstate_save_items();
 
 	if (!IS_NPC(ch) && IS_NPC(victim)) {
 		OBJ_DATA *corpse, *obj, *obj_next;

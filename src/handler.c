@@ -2000,7 +2000,7 @@ bool can_see_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (affect_flag_on_char(ch, AFF_BLIND))
 		return FALSE;
 
-	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH))
+	if (IS_OBJ_STAT(obj, ITEM_VIS_DEATH) && obj->carried_by != ch)
 		return FALSE;
 
 	if (obj->timer > 0 && !IS_NPC(ch) && is_name("mox", obj->name)

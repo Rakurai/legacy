@@ -191,7 +191,6 @@ int	ptb	args((BUFFER *buffer, const char *fmt, ...))	__attribute__	((format(prin
 
 #define SILVER_PER_PLAYER	500000
 
-#define MAX_DRINK                   36
 #define MAX_WEAPON                  39
 
 /* 1 + Total Used ColorItems in do_color */
@@ -2168,6 +2167,7 @@ struct  pc_data
    char *              rank;
    sh_int              lastcolor     [2];
    sh_int              pktimer;
+   sh_int              combattimer;
    char *              status;
    char *              deity;
    sh_int              remort_count;
@@ -3689,8 +3689,8 @@ OD *	get_obj_here		args((CHAR_DATA *ch, const char *argument));
 OD *	get_obj_world		args((CHAR_DATA *ch, const char *argument));
 
 /* objstate.c */
-void	load_items		args((void));
-void	save_items		args((void));
+int     objstate_load_items		args((void));
+int     objstate_save_items		args((void));
 
 /* hunt.c */
 void hunt_victim        args( ( CHAR_DATA *ch) );
