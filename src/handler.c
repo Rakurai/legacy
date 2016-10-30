@@ -2045,6 +2045,46 @@ bool can_drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	return FALSE;
 }
 
+char *print_damage_modifiers(CHAR_DATA *ch, char type) {
+	static char buf[MSL];
+	buf[0] = '\0';
+
+	if (ch->damage_mod == NULL)
+		return buf;
+
+	for (int i = 1; i < 32; i++) {
+		bool print = FALSE;
+
+		switch (type) {
+			case TO_ABSORB:  if (ch->damage_mod[i] > 100)  print = TRUE; break;
+			case TO_IMMUNE:  if (ch->damage_mod[i] == 100) print = TRUE; break;
+			case TO_RESIST:  if (ch->damage_mod[i] > 0)    print = TRUE; break;
+			case TO_VULN:    if (ch->damage_mod[i] < 0)    print = TRUE; break;
+			default:
+				bugf("print_damage_modifiers: unknown type %d", type);
+		}
+
+		if (print) {
+			if (buf[0] != '\0')
+				strcat(buf, " ");
+
+			strcat(buf, imm_flags[i].name);
+
+			if (type != TO_IMMUNE) {
+				char mbuf[100];
+				sprintf(mbuf, "(%+d%%)",
+					type == TO_ABSORB ?  ch->damage_mod[i]-100 : // percent beyond immune
+					type == TO_RESIST ? -ch->damage_mod[i] : // prints resist as a negative
+					                    -ch->damage_mod[i] : // prints vuln as a positive
+				);
+				strcat(buf, mbuf);
+			}
+		}
+	}
+
+	return buf;
+}
+
 /*
  * Return ascii name of an item type.
  */

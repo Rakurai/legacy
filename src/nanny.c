@@ -539,7 +539,40 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		for (i = 0; i < MAX_STATS; i++)
 			ch->perm_stat[i] = pc_race_table[race].stats[i];
 
-		affect_flag_add_to_char(ch, race_table[race].aff);
+		AFFECT_DATA af;
+		af.where = TO_AFFECTS;
+		af.level = -1;
+		af.duration = -1;
+		af.evolution = 1;
+
+		unsigned int bitvector = race_table[race].aff;
+
+		while (bitvector != 0) {
+			af.type = -1; // reset every time
+			if (affect_parse_prototype('A', &af, &bitvector))
+				affect_add_perm_to_char(ch, af.type); // special, handle racial correctness elsewhere
+		}
+
+		// damage mod affects
+		af.type               = 0;
+		bitvector = race_table[race].imm;
+
+		while (bitvector != 0)
+			if (affect_parse_bits('I', &af, &bitvector))
+				affect_copy_to_char(ch, &af); 
+
+		bitvector = race_table[race].res;
+
+		while (bitvector != 0)
+			if (affect_parse_bits('R', &af, &bitvector))
+				affect_copy_to_char(ch, &af); 
+
+		bitvector = race_table[race].vuln;
+
+		while (bitvector != 0)
+			if (affect_parse_bits('V', &af, &bitvector))
+				affect_copy_to_char(ch, &af); 
+
 		ch->absorb_flags         = 0;
 		ch->imm_flags           = ch->imm_flags | race_table[race].imm;
 		ch->res_flags           = ch->res_flags | race_table[race].res;

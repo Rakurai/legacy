@@ -120,156 +120,96 @@ void affect_sort_char(CHAR_DATA *ch, affect_comparator comp) {
 
 // utility
 
+char *affect_print_cache(CHAR_DATA *ch) {
+	static char buf[MSL];
+	buf[0] = '\0';
+
+//	if (ch->affect_cache != NULL)
+//		cp_splaytree_callback(ch->affect_cache, affect_print_cache_callback, buf);
+
+	return buf;
+}
+
 // the modify function is called any time there is a potential change to the list of
 // affects, and here we update any caches or entities that depend on the affect list.
 // it is important that owner->affected reflects the new state of the affects, i.e.
 // the affect has already been inserted or removed, and paf is not a member of the set.
 void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	CHAR_DATA *ch = (CHAR_DATA *)owner;
-	OBJ_DATA *obj;
-	int mod, i;
-	mod = paf->modifier;
 
-	if (fAdd) {
-		switch (paf->where) {
-		case TO_AFFECTS:        SET_BIT(ch->affected_by, paf->bitvector);       break;
+	if (paf->where != TO_DEFENSE && paf->where != TO_AFFECTS && paf->where != TO_OBJECT) {
+		bugf("affect_modify_char: bad where %d", paf->where);
+		return;
+	}
 
-		case TO_ABSORB:          SET_BIT(ch->absorb_flags, paf->bitvector);       break;
-
-		case TO_IMMUNE:         SET_BIT(ch->imm_flags, paf->bitvector);         break;
-
-		case TO_RESIST:         SET_BIT(ch->res_flags, paf->bitvector);         break;
-
-		case TO_VULN:           SET_BIT(ch->vuln_flags, paf->bitvector);        break;
+	if (paf->where == TO_DEFENSE) {
+		if (paf->location < 1 || paf->location > 32) {
+			bugf("affect_modify_char: bad location %d in TO_DEFENSE", paf->location);
+			return;
 		}
-	}
-	else {
-		/* special for removing a flag:
-		   we search through their affects to see if there's another with the same.
-		   if there is, don't remove it.  replaces the complicated eq_imm_flags and
-		   junk, and solves the problem of removing eq and losing the flag even if
-		   it's racial, permanent, or raffect                  -- Montrey */
-		AFFECT_DATA *saf;
-		bool found_dup = FALSE;
 
-		/* let's start with their racial affects, there is no racial drain affect */
-		if ((paf->where == TO_AFFECTS && (race_table[ch->race].aff  & paf->bitvector))
-		    || (paf->where == TO_IMMUNE  && (race_table[ch->race].imm  & paf->bitvector))
-		    || (paf->where == TO_RESIST  && (race_table[ch->race].res  & paf->bitvector))
-		    || (paf->where == TO_VULN    && (race_table[ch->race].vuln & paf->bitvector)))
-			found_dup = TRUE;
+		if (paf->modifier == 0)
+			return;
 
-		/* ok, try their affects */
-		if (!found_dup)
-			for (saf = ch->affected; saf != NULL; saf = saf->next)
-				if (saf != paf
-				    && saf->where == paf->where
-				    && saf->bitvector == paf->bitvector) {
-					found_dup = TRUE;
-					break;
-				}
-
-		/* no?  try their eq */
-		if (!found_dup)
-			for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
-				if (obj->wear_loc == -1)
-					continue;
-
-				for (saf = obj->affected; saf != NULL; saf = saf->next)
-					if (saf != paf
-					    && saf->where == paf->where
-					    && saf->bitvector == paf->bitvector) {
-						found_dup = TRUE;
-						break;
-					}
-
-				if (found_dup)
-					break;
+		if (fAdd) {
+			if (ch->defense_mod == NULL) {
+				ch->defense_mod = alloc_mem(DEFENSE_MOD_MEM_SIZE);
+				memset(ch->defense_mod, 0, DEFENSE_MOD_MEM_SIZE);
 			}
 
-		/* last but not least, their raffects, if applicable */
-		if (!found_dup && IS_REMORT(ch) && ch->pcdata->raffect[0]
-		    && (paf->where == TO_VULN || paf->where == TO_RESIST))
-			for (i = 0; i <= ch->pcdata->remort_count / 10 + 1; i++)
-				if ((raffects[ch->pcdata->raffect[i]].id >= 900
-				     && raffects[ch->pcdata->raffect[i]].id <= 949
-				     && raffects[ch->pcdata->raffect[i]].add == paf->bitvector
-				     && paf->where == TO_VULN)
-				    || (raffects[ch->pcdata->raffect[i]].id >= 950
-				        && raffects[ch->pcdata->raffect[i]].id <= 999
-				        && raffects[ch->pcdata->raffect[i]].add == paf->bitvector
-				        && paf->where == TO_RESIST))
-					found_dup = TRUE;
+			ch->defense_mod[0]++;
+			ch->defense_mod[paf->location] += paf->modifier;
+		}
+		else {
+			ch->defense_mod[0]--;
+			ch->defense_mod[paf->location] -= paf->modifier;
 
-		/* if we found it, don't remove the bit, but continue on to remove modifiers */
-		if (!found_dup)
-			switch (paf->where) {
-			case TO_AFFECTS: REMOVE_BIT(ch->affected_by, paf->bitvector);   break;
+			if (ch->defense_mod[0] == 0) {
+				free_mem(ch->defense_mod, DEFENSE_MOD_MEM_SIZE);
+				ch->defense_mod = NULL;
+			}
+		}
 
-			case TO_ABSORB:   REMOVE_BIT(ch->absorb_flags, paf->bitvector);   break;
+		return;
+	}
 
-			case TO_IMMUNE:  REMOVE_BIT(ch->imm_flags, paf->bitvector);     break;
+	if (paf->where == TO_AFFECTS) {
+		if (paf->type < 1 || paf->type > MAX_SKILL) {
+			bugf("affect_modify_char: bad type %d in TO_AFFECTS", paf->type);
+			return;
+		}
 
-			case TO_RESIST:  REMOVE_BIT(ch->res_flags, paf->bitvector);     break;
+//		update_affect_cache(ch, paf->type, fAdd);
+	}
 
-			case TO_VULN:    REMOVE_BIT(ch->vuln_flags, paf->bitvector);    break;
+	// both TO_OBJECT and TO_AFFECTS can set attribute mods
+
+	// affect makes no mods?  we're done
+	if (paf->modifier == 0)
+		return;
+
+	if (paf->location != APPLY_NONE && paf->modifier != 0) {
+		if (paf->location < 1 || paf->location > 32) {
+			bugf("affect_modify_char: bad location %d when modifier is %d", paf->location, paf->modifier);
+			return;
+		}
+
+		if (fAdd) {
+			if (ch->apply_cache == NULL) {
+				ch->apply_cache = alloc_mem(APPLY_CACHE_MEM_SIZE);
+				memset(ch->apply_cache, 0, APPLY_CACHE_MEM_SIZE);
 			}
 
-		mod = 0 - mod;
-	}
+			ch->apply_cache[0]++;
+			ch->apply_cache[paf->location] += paf->modifier;
+		}
+		else {
+			ch->apply_cache[paf->location] -= paf->modifier;
 
-	switch (paf->location) {
-	default:                                                                break;
-
-	case APPLY_STR:                 ch->mod_stat[STAT_STR]  += mod;         break;
-
-	case APPLY_DEX:                 ch->mod_stat[STAT_DEX]  += mod;         break;
-
-	case APPLY_INT:                 ch->mod_stat[STAT_INT]  += mod;         break;
-
-	case APPLY_WIS:                 ch->mod_stat[STAT_WIS]  += mod;         break;
-
-	case APPLY_CON:                 ch->mod_stat[STAT_CON]  += mod;         break;
-
-	case APPLY_CHR:                 ch->mod_stat[STAT_CHR]  += mod;         break;
-
-	case APPLY_SEX:                 ch->sex                 += mod;         break;
-
-	case APPLY_MANA:                ch->max_mana            += mod;         break;
-
-	case APPLY_HIT:                 ch->max_hit             += mod;         break;
-
-	case APPLY_STAM:                ch->max_stam            += mod;         break;
-
-	case APPLY_AC:          for (i = 0; i < 4; i++) ch->armor_m[i] += mod;    break;
-
-	case APPLY_HITROLL:             ch->hitroll             += mod;         break;
-
-	case APPLY_DAMROLL:             ch->damroll             += mod;         break;
-
-	case APPLY_SAVES:               ch->saving_throw        += mod;         break;
-
-	case APPLY_SAVING_ROD:          ch->saving_throw        += mod;         break;
-
-	case APPLY_SAVING_PETRI:        ch->saving_throw        += mod;         break;
-
-	case APPLY_SAVING_BREATH:       ch->saving_throw        += mod;         break;
-
-	case APPLY_SAVING_SPELL:        ch->saving_throw        += mod;         break;
-	}
-
-	/* Check for weapon wielding.  Guard against recursion (for weapons with affects). */
-	if ((obj = get_eq_char(ch, WEAR_WIELD)) != NULL
-	    && get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield * 10)) {
-		static int depth;
-
-		if (depth == 0) {
-			depth++;
-			act("You drop $p.", ch, obj, NULL, TO_CHAR);
-			act("$n drops $p.", ch, obj, NULL, TO_ROOM);
-			obj_from_char(obj);
-			obj_to_room(obj, ch->in_room);
-			depth--;
+			if (--ch->apply_cache[0] <= 0) {
+				free_mem(ch->apply_cache, APPLY_CACHE_MEM_SIZE);
+				ch->apply_cache = NULL;
+			}
 		}
 	}
 }

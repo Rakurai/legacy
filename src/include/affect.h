@@ -29,6 +29,7 @@ void          affect_update               args(( AFFECT_DATA *paf, const AFFECT_
 void          affect_swap                 args(( AFFECT_DATA *a, AFFECT_DATA *b ));
 unsigned long affect_checksum             args(( const AFFECT_DATA *paf ));
 bool          affect_parse_prototype      args(( char letter, AFFECT_DATA *paf, unsigned int *bitvector ));
+char *        affect_print_cache          args(( CHAR_DATA *ch ));
 
 // outward facing interface, all calls to obj/char/room affects should be through
 // these procedures.  attempt to force some accessor safety on this crap -- Montrey

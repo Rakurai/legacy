@@ -1486,12 +1486,11 @@ void do_showflags(CHAR_DATA *ch, const char *argument)
 		stc(buf, ch);
 	}
 
-	sprintf(buf, "Aff  : %s\n", affect_bit_name(affect_flag_get_char(victim)));
-	stc(buf, ch);
-	ptc(ch, "Drn  : %s\n", imm_bit_name(victim->absorb_flags));
-	ptc(ch, "Imm  : %s\n", imm_bit_name(victim->imm_flags));
-	ptc(ch, "Res  : %s\n", imm_bit_name(victim->res_flags));
-	ptc(ch, "Vuln : %s\n", imm_bit_name(victim->vuln_flags));
+	ptc(ch, "Aff  : %s\n", affect_print_cache(victim));
+	ptc(ch, "Drn  : %s\n", print_damage_modifiers(victim, TO_ABSORB));
+	ptc(ch, "Imm  : %s\n", print_damage_modifiers(victim, TO_IMMUNE));
+	ptc(ch, "Res  : %s\n", print_damage_modifiers(victim, TO_RESIST));
+	ptc(ch, "Vuln : %s\n", print_damage_modifiers(victim, TO_VULN));
 	sprintf(buf, "Form : %s\nParts: %s\n",
 	        form_bit_name(victim->form), part_bit_name(victim->parts));
 	stc(buf, ch);
@@ -3160,16 +3159,17 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 		    GET_AC(victim, AC_PIERCE), GET_AC(victim, AC_BASH),
 		    GET_AC(victim, AC_SLASH),  GET_AC(victim, AC_EXOTIC));
 
-		if (victim->absorb_flags)        ptc(ch, " Absorb: %s\n", imm_bit_name(victim->absorb_flags));
-
-		if (victim->imm_flags)          ptc(ch, " Immune: %s\n", imm_bit_name(victim->imm_flags));
-
-		if (victim->res_flags)          ptc(ch, " Resist: %s\n", imm_bit_name(victim->res_flags));
-
-		if (victim->vuln_flags)         ptc(ch, " Vuln:   %s\n", imm_bit_name(victim->vuln_flags));
-
-		if (affect_flag_get_char(victim))
-			ptc(ch, "Affects: %s\n", affect_bit_name(affect_flag_get_char(victim)));
+		char buf[MSL];
+		strcpy(buf, print_damage_modifiers(victim, TO_ABSORB));
+		if (buf[0]) ptc(ch, " Drain:  %s\n", buf);
+		strcpy(buf, print_damage_modifiers(victim, TO_IMMUNE));
+		if (buf[0]) ptc(ch, " Immune: %s\n", buf);
+		strcpy(buf, print_damage_modifiers(victim, TO_RESIST));
+		if (buf[0]) ptc(ch, " Resist: %s\n", buf);
+		strcpy(buf, print_damage_modifiers(victim, TO_VULN));
+		if (buf[0]) ptc(ch, " Vuln:   %s\n", buf);
+		strcpy(buf, affect_print_cache(victim));
+		if (buf[0]) ptc(ch, " Affect:  %s\n", buf);
 
 		set_color(ch, WHITE, NOBOLD);
 	}
@@ -3235,13 +3235,16 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(victim) && victim->off_flags)
 			ptc(ch, "{gOff: %s\n", off_bit_name(victim->off_flags));
 
-		if (victim->absorb_flags)        ptc(ch, "{gDrn: %s\n", imm_bit_name(victim->absorb_flags));
-
-		if (victim->imm_flags)          ptc(ch, "{gImm: %s\n", imm_bit_name(victim->imm_flags));
-
-		if (victim->res_flags)          ptc(ch, "{gRes: %s\n", imm_bit_name(victim->res_flags));
-
-		if (victim->vuln_flags)         ptc(ch, "{gVul: %s\n", imm_bit_name(victim->vuln_flags));
+		strcpy(buf, print_damage_modifiers(victim, TO_ABSORB));
+		if (buf[0]) ptc(ch, " Drain:  %s\n", buf);
+		strcpy(buf, print_damage_modifiers(victim, TO_IMMUNE));
+		if (buf[0]) ptc(ch, " Immune: %s\n", buf);
+		strcpy(buf, print_damage_modifiers(victim, TO_RESIST));
+		if (buf[0]) ptc(ch, " Resist: %s\n", buf);
+		strcpy(buf, print_damage_modifiers(victim, TO_VULN));
+		if (buf[0]) ptc(ch, " Vuln:   %s\n", buf);
+		strcpy(buf, affect_print_cache(victim));
+		if (buf[0]) ptc(ch, " Affect:  %s\n", buf);
 
 		ptc(ch, "{gForm: %s\n{gParts: %s\n",
 		    form_bit_name(victim->form), part_bit_name(victim->parts));
@@ -3252,9 +3255,6 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 
 		if (IS_NPC(victim) && victim->spec_fun != 0)
 			ptc(ch, "{gMobile has special procedure %s.\n", spec_name(victim->spec_fun));
-
-		if (affect_flag_get_char(victim))
-			ptc(ch, "{gAffected by: %s\n", affect_bit_name(affect_flag_get_char(victim)));
 
 		for (const AFFECT_DATA *paf = affect_list_char(victim); paf != NULL; paf = paf->next)
 			ptc(ch, "{bSpell: '%s' modifies %s by %d for %d hours with bits %s, level %d, evolve %d.\n",

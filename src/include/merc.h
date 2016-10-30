@@ -166,6 +166,10 @@ int	ptb	args((BUFFER *buffer, const char *fmt, ...))	__attribute__	((format(prin
  * Increase the max'es if you add more of something.
  * Adjust the pulse numbers to suit yourself.
  */
+#define MAX_STATS       6
+#define MAX_ATTR                     30 // last apply (that we want to have bonus modifiers for) + 1
+#define MAX_ATTR_FLAG                 5 // number of bit vectors that can be added by affects
+#define MAX_ATTR_VALUE            30000 // within range of 16 bit signed int
 #define MAX_RAFFECTS	           54
 #define MAX_RAFFECT_SLOTS          10
 #define MAX_EXTRACLASS_SLOTS        5
@@ -585,7 +589,6 @@ struct  shop_data
  * Per-class stuff.
  */
 
-#define MAX_STATS       6
 #define STAT_STR        0
 #define STAT_INT        1
 #define STAT_WIS        2
@@ -2021,10 +2024,10 @@ struct  char_data
     long                revoke;  /* New Revoke stuff */
     long                wiznet; /* wiz stuff */
     long		censor;			/* New censor flags -- Montrey */
-    long		        absorb_flags;
-    long                imm_flags;
-    long                res_flags;
-    long                vuln_flags;
+//    long		        absorb_flags;
+//    long                imm_flags;
+//    long                res_flags;
+//    long                vuln_flags;
     sh_int              invis_level;
     sh_int              lurk_level;
     long                affected_by;
@@ -2039,8 +2042,15 @@ struct  char_data
 	sh_int		armor_m[4];
     sh_int              wimpy;
     /* stats */
-    sh_int              perm_stat[MAX_STATS];
-    sh_int              mod_stat[MAX_STATS];
+//    sh_int              perm_stat[MAX_STATS];
+//    sh_int              mod_stat[MAX_STATS];
+
+    int                 attr_base[MAX_ATTR];
+    int *               apply_cache; // maximum stat without eq/affects
+//    cp_splaytree *      affect_cache;
+    sh_int *            defense_mod;
+
+
     /* parts stuff */
     long                form;
     long                parts;
@@ -3552,6 +3562,7 @@ void    mprog_speech_trigger    args ( ( const char* txt, CHAR_DATA* mob ) );
 
 
 /* handler.c */
+char *print_damage_modifiers args((CHAR_DATA *ch, char type));
 int     count_users     args( (OBJ_DATA *obj) );
 bool    deduct_cost     args( (CHAR_DATA *ch, long cost) );
 int     check_immune    args( (CHAR_DATA *ch, int dam_type) );
