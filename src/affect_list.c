@@ -88,8 +88,8 @@ void affect_remove_matching_from_list(AFFECT_DATA **list_head, affect_comparator
 		paf_next = paf->next;
 
 		if (comp == NULL || (*comp)(paf, pattern) == 0) {
-			(params->modifier)(params->owner, paf, FALSE);
 			affect_remove_from_list(list_head, paf);
+			(params->modifier)(params->owner, paf, FALSE);
 			free_affect(paf);
 		}
 	}
@@ -97,8 +97,16 @@ void affect_remove_matching_from_list(AFFECT_DATA **list_head, affect_comparator
 
 void affect_iterate_over_list(AFFECT_DATA **list_head, affect_fn fn, affect_fn_params *params) {
 	for (AFFECT_DATA *paf = *list_head; paf; paf = paf->next) {
+		// unlink the item from the list to call the modifier function
+		if (paf->prev) paf->prev->next = paf->next;
+		if (paf->next) paf->next->prev = paf->prev;
 		(params->modifier)(params->owner, paf, FALSE);
+
 		(*fn)(paf, params->data); // should return value indicate break?
+
+		// relink the item into the list
+		if (paf->prev) paf->prev->next = paf;
+		if (paf->next) paf->next->prev = paf;
 		(params->modifier)(params->owner, paf, TRUE);
 	}
 }

@@ -84,13 +84,6 @@ void affect_iterate_over_obj(OBJ_DATA *obj, affect_fn fn, void *data) {
 	affect_iterate_over_list(&obj->affected, fn, &params);
 }
 
-void affect_update_in_obj(OBJ_DATA *obj, AFFECT_DATA *original, const AFFECT_DATA *template)
-{
-	affect_modify_obj(obj, original, FALSE);
-	affect_update(original, template);
-	affect_modify_obj(obj, original, TRUE);
-}
-
 void affect_sort_obj(OBJ_DATA *obj, affect_comparator comp) {
 	affect_sort_list(&obj->affected, comp);
 }
@@ -135,6 +128,10 @@ void affect_modify_flag_cache_obj(OBJ_DATA *obj, sh_int where, unsigned int flag
 	}
 }
 
+// the modify function is called any time there is a potential change to the list of
+// affects, and here we update any caches or entities that depend on the affect list.
+// it is important that owner->affected reflects the new state of the affects, i.e.
+// the affect has already been inserted or removed, and paf is not a member of the set.
 void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	OBJ_DATA *obj = (OBJ_DATA *)owner;
 	extern void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);

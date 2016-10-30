@@ -80,9 +80,6 @@ void                affect_remove_all_from_room      args(( ROOM_INDEX_DATA *roo
 void                affect_iterate_over_obj          args(( OBJ_DATA *obj, affect_fn fn, void *data ));
 void                affect_iterate_over_char         args(( CHAR_DATA *ch, affect_fn fn, void *data ));
 void                affect_iterate_over_room         args(( ROOM_INDEX_DATA *room, affect_fn fn, void *data ));
-void                affect_update_in_obj             args(( OBJ_DATA *obj, AFFECT_DATA *paf, const AFFECT_DATA *template ));
-void                affect_update_in_char            args(( CHAR_DATA *ch, AFFECT_DATA *paf, const AFFECT_DATA *template ));
-void                affect_update_in_room            args(( ROOM_INDEX_DATA *room, AFFECT_DATA *paf, const AFFECT_DATA *template ));
 void                affect_sort_obj                  args(( OBJ_DATA *ch, affect_comparator comp ));
 void                affect_sort_char                 args(( CHAR_DATA *ch, affect_comparator comp ));
 void                affect_sort_room                 args(( ROOM_INDEX_DATA *ch, affect_comparator comp ));

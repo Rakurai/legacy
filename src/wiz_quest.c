@@ -103,8 +103,8 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 	// modify existing value?  special case for accessor, remove this if possible
 	for (AFFECT_DATA *paf = obj->affected; paf != NULL; paf = paf->next)
 		if (paf->location == enchant_type) {
-			affect_update_in_obj(obj, paf, &af);
-			return;
+			affect_remove_from_obj(obj, paf);
+			break;
 		}
 
 	// add a new one

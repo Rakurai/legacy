@@ -80,13 +80,6 @@ void affect_iterate_over_room(ROOM_INDEX_DATA *room, affect_fn fn, void *data) {
 	affect_iterate_over_list(&room->affected, fn, &params);
 }
 
-void affect_update_in_room(ROOM_INDEX_DATA *room, AFFECT_DATA *original, const AFFECT_DATA *template)
-{
-	affect_modify_room(room, original, FALSE);
-	affect_update(original, template);
-	affect_modify_room(room, original, TRUE);
-}
-
 void affect_sort_room(ROOM_INDEX_DATA *room, affect_comparator comp) {
 	affect_sort_list(&room->affected, comp);
 }
@@ -114,6 +107,10 @@ void affect_modify_flag_cache_room(ROOM_INDEX_DATA *room, sh_int where, unsigned
 	}
 }
 
+// the modify function is called any time there is a potential change to the list of
+// affects, and here we update any caches or entities that depend on the affect list.
+// it is important that owner->affected reflects the new state of the affects, i.e.
+// the affect has already been inserted or removed, and paf is not a member of the set.
 void affect_modify_room(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *)owner;
 	switch (paf->where) {
