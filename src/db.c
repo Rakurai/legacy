@@ -167,6 +167,7 @@ sh_int  gsn_magic_missile;
 sh_int  gsn_mass_healing;
 sh_int  gsn_mass_invis;
 sh_int  gsn_nexus;
+sh_int  gsn_night_vision;
 sh_int  gsn_pass_door;
 sh_int  gsn_plague;
 sh_int  gsn_poison;
@@ -967,7 +968,7 @@ void load_mobiles(FILE *fp)
 		/* read flags and add in data from the race table */
 		pMobIndex->off_flags            = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].off;
-		pMobIndex->drain_flags          = 0; /* fix when we change the area versions */
+		pMobIndex->absorb_flags          = 0; /* fix when we change the area versions */
 		pMobIndex->imm_flags            = fread_flag(fp)
 		                                  | race_table[pMobIndex->race].imm;
 		pMobIndex->res_flags            = fread_flag(fp)
@@ -1015,7 +1016,7 @@ void load_mobiles(FILE *fp)
 				else if (!str_prefix1(word, "off"))
 					REMOVE_BIT(pMobIndex->off_flags, vector);
 				else if (!str_prefix1(word, "drn"))
-					REMOVE_BIT(pMobIndex->drain_flags, vector);
+					REMOVE_BIT(pMobIndex->absorb_flags, vector);
 				else if (!str_prefix1(word, "imm"))
 					REMOVE_BIT(pMobIndex->imm_flags, vector);
 				else if (!str_prefix1(word, "res"))
@@ -1203,56 +1204,45 @@ void load_objects(FILE *fp)
 
 			if (letter == 'A') {
 				AFFECT_DATA af;
-				af.where              = TO_OBJECT;
 				af.type               = 0;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
 				af.location           = fread_number(fp);
 				af.modifier           = fread_number(fp);
-				af.bitvector          = 0;
 				af.evolution          = 1;
-				affect_copy_to_list(&pObjIndex->affected, &af);
-				top_affect++;
+
+				unsigned int bitvector = 0;
+				if (affect_parse_prototype('O', &af, &bitvector)) {
+					affect_copy_to_list(&pObjIndex->affected, &af);
+					top_affect++;
+				}
 			}
 			else if (letter == 'F') {
 				AFFECT_DATA af;
-				letter                  = fread_letter(fp);
-
-				switch (letter) {
-				case 'A':
-					af.where          = TO_AFFECTS;
-					break;
-
-				case 'D':
-					af.where          = TO_DRAIN;
-					break;
-
-				case 'I':
-					af.where          = TO_IMMUNE;
-					break;
-
-				case 'R':
-					af.where          = TO_RESIST;
-					break;
-
-				case 'V':
-					af.where          = TO_VULN;
-					break;
-
-				default:
-					bug("Load_objects: Bad where on flag set.", 0);
-					exit(1);
-				}
-
 				af.type               = 0;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
-				af.location           = fread_number(fp);
-				af.modifier           = fread_number(fp);
-				af.bitvector          = fread_flag(fp);
 				af.evolution          = 1;
-				affect_copy_to_list(&pObjIndex->affected, &af);
-				top_affect++;
+
+				letter          = fread_letter(fp);
+				af.location     = fread_number(fp); // for TO_AFFECTS
+				af.modifier     = fread_number(fp); // for TO_AFFECTS
+
+				unsigned int bitvector    = fread_flag(fp);
+
+				// do at least once even if no bitvector
+				do {
+					af.type = -1; // reset every time
+
+					if (affect_parse_prototype(letter, &af, &bitvector)) {
+						affect_copy_to_list(&pObjIndex->affected, &af); 
+						top_affect++;
+
+						// don't multiply the modifier, just apply to the first bit
+						af.location = 0;
+						af.modifier = 0;
+					}
+				} while (bitvector != 0);
 			}
 			else if (letter == 'E') {
 				EXTRA_DESCR_DATA *ed;

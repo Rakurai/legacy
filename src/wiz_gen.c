@@ -514,7 +514,7 @@ void do_check(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix1(arg, "drain")) {
+	if (!str_prefix1(arg, "absorb")) {
 		buffer = new_buf();
 
 		for (victim = char_list; victim != NULL; victim = victim->next) {
@@ -524,9 +524,9 @@ void do_check(CHAR_DATA *ch, const char *argument)
 			if (!SHOWIMM && IS_IMMORTAL(victim))
 				continue;
 
-			flags = victim->drain_flags;
+			flags = victim->absorb_flags;
 			sprintf(buf,
-			        "{W[%12s] {RDRN: {P[%-25s]{x",
+			        "{W[%12s] {RABS: {P[%-25s]{x",
 			        victim->name,
 			        imm_bit_name(flags));
 			add_buf(buffer, buf);

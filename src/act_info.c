@@ -222,8 +222,8 @@ void show_affect_to_char(const AFFECT_DATA *paf, CHAR_DATA *ch)
 			ptc(ch, "Adds %s weapon flags.\n", weapon_bit_name(paf->bitvector));
 			break;
 
-		case TO_DRAIN:
-			ptc(ch, "Drains %s.\n", imm_bit_name(paf->bitvector));
+		case TO_ABSORB:
+			ptc(ch, "Absorbs %s.\n", imm_bit_name(paf->bitvector));
 			break;
 
 		case TO_IMMUNE:
@@ -1488,7 +1488,7 @@ void do_showflags(CHAR_DATA *ch, const char *argument)
 
 	sprintf(buf, "Aff  : %s\n", affect_bit_name(affect_flag_get_char(victim)));
 	stc(buf, ch);
-	ptc(ch, "Drn  : %s\n", imm_bit_name(victim->drain_flags));
+	ptc(ch, "Drn  : %s\n", imm_bit_name(victim->absorb_flags));
 	ptc(ch, "Imm  : %s\n", imm_bit_name(victim->imm_flags));
 	ptc(ch, "Res  : %s\n", imm_bit_name(victim->res_flags));
 	ptc(ch, "Vuln : %s\n", imm_bit_name(victim->vuln_flags));
@@ -3172,7 +3172,7 @@ void do_scon(CHAR_DATA *ch, const char *argument)
 		    GET_AC(victim, AC_PIERCE), GET_AC(victim, AC_BASH),
 		    GET_AC(victim, AC_SLASH),  GET_AC(victim, AC_EXOTIC));
 
-		if (victim->drain_flags)        ptc(ch, " Drain:  %s\n", imm_bit_name(victim->drain_flags));
+		if (victim->absorb_flags)        ptc(ch, " Absorb: %s\n", imm_bit_name(victim->absorb_flags));
 
 		if (victim->imm_flags)          ptc(ch, " Immune: %s\n", imm_bit_name(victim->imm_flags));
 
@@ -3247,7 +3247,7 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 		if (IS_NPC(victim) && victim->off_flags)
 			ptc(ch, "{gOff: %s\n", off_bit_name(victim->off_flags));
 
-		if (victim->drain_flags)        ptc(ch, "{gDrn: %s\n", imm_bit_name(victim->drain_flags));
+		if (victim->absorb_flags)        ptc(ch, "{gDrn: %s\n", imm_bit_name(victim->absorb_flags));
 
 		if (victim->imm_flags)          ptc(ch, "{gImm: %s\n", imm_bit_name(victim->imm_flags));
 

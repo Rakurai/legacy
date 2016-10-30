@@ -100,3 +100,107 @@ void affect_swap(AFFECT_DATA *a, AFFECT_DATA *b) {
 	a->prev = t.prev;
 }
 
+int affect_bit_to_sn(int bit) {
+	switch (bit) {
+		case AFF_BLIND: return gsn_blindness;
+		case AFF_INVISIBLE: return gsn_invis;
+		case AFF_DETECT_EVIL: return gsn_detect_evil;
+		case AFF_DETECT_GOOD: return gsn_detect_good;
+		case AFF_DETECT_INVIS: return gsn_detect_invis;
+		case AFF_DETECT_MAGIC: return gsn_detect_magic;
+		case AFF_DETECT_HIDDEN: return gsn_detect_hidden;
+		case AFF_SANCTUARY: return gsn_sanctuary;
+		case AFF_FAERIE_FIRE: return gsn_faerie_fire;
+		case AFF_INFRARED: return gsn_infravision;
+		case AFF_CURSE: return gsn_curse;
+		case AFF_FEAR: return gsn_fear;
+		case AFF_POISON: return gsn_poison;
+		case AFF_PROTECT_EVIL: return gsn_protection_evil;
+		case AFF_PROTECT_GOOD: return gsn_protection_good;
+		case AFF_NIGHT_VISION: return gsn_night_vision;
+		case AFF_SNEAK: return gsn_sneak;
+		case AFF_HIDE: return gsn_hide;
+		case AFF_CHARM: return gsn_charm_person;
+		case AFF_FLYING: return gsn_fly;
+		case AFF_PASS_DOOR: return gsn_pass_door;
+		case AFF_BERSERK: return gsn_berserk;
+		case AFF_CALM: return gsn_calm;
+		case AFF_HASTE: return gsn_haste;
+		case AFF_SLOW: return gsn_slow;
+		case AFF_PLAGUE: return gsn_plague;
+		case AFF_DIVINEREGEN: return gsn_divine_regeneration;
+		case AFF_FLAMESHIELD: return gsn_flameshield;
+		case AFF_REGENERATION: return gsn_regeneration;
+		case AFF_TALON: return gsn_talon;
+		case AFF_STEEL: return gsn_steel_mist;
+		default:
+			bugf("affect_bit_to_sn: wierd bit %d", bit);
+	}
+
+	return -1;
+}
+
+// perform the error checking in building affects from a prototype, including bits.
+// fills an AFFECT_DATA struct with one of the bits, removes the bit from
+// the vector.  return value indicates whether the struct is valid to insert.
+// assumes type, level, duration, evolution, location and modifier already filled,
+// but alters if appropriate
+bool affect_parse_prototype(char letter, AFFECT_DATA *paf, unsigned int *bitvector) {
+	// weird case, defense flag A used to be *_SUMMON, changed to a ACT_NOSUMMON.
+	// wouldn't be a concern except the index is repurposed to a cache counter.
+	if (paf->where == TO_DEFENSE)
+		REMOVE_BIT(*bitvector, A);
+
+	unsigned int bit = 1;
+	int index = 0;
+
+	while (index < 32 && !IS_SET(bit, *bitvector)) {
+		bit <<= 1;
+		index++;
+	}
+
+	if (index < 32)
+		REMOVE_BIT(*bitvector, bit);
+
+	// if the bit wasn't found, still continue for the TO_OBJECT.  the loop will
+	// stop when bitvector is 0
+
+	switch (letter) {
+	case 'O': paf->where = TO_OBJECT; break; // location and modifier already set
+	case 'A': paf->where = TO_AFFECTS; break; // location and modifier already set
+	case 'D': paf->where = TO_DEFENSE; break; // modifier already set
+	case 'I': paf->where = TO_DEFENSE; paf->modifier = 100; break;
+	case 'R': paf->where = TO_DEFENSE; paf->modifier = 50; break;
+	case 'V': paf->where = TO_DEFENSE; paf->modifier = -50; break;
+	default:
+		bugf("affect_parse_prototype: bad letter %c", letter);
+		return FALSE;
+	}
+
+	if (paf->where == TO_DEFENSE) {
+		if (index < 1 || index > 32) // no bits, not an error, just skip it
+			return FALSE;
+
+		paf->location = index;
+		return TRUE;
+	}
+
+	if (paf->where == TO_AFFECTS) {
+		int sn = affect_bit_to_sn(bit);
+		if (sn <= 0) {
+			bugf("affect_parse_prototype: sn not found for bit %d in TO_AFFECTS", bit);
+			return FALSE;
+		}
+
+		paf->type = sn;
+		// drop down to applies
+	}
+
+	if (paf->location < 1 || paf->location > 32) {
+		bugf("affect_parse_prototype: bad location %d", paf->location);
+		return FALSE;
+	}
+
+	return TRUE;
+}
+

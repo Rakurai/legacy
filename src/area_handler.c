@@ -886,7 +886,7 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 		mob->armor_a[i]       = pMobIndex->ac[i];
 
 	mob->off_flags          = pMobIndex->off_flags;
-	mob->drain_flags        = pMobIndex->drain_flags;
+	mob->absorb_flags        = pMobIndex->absorb_flags;
 	mob->imm_flags          = pMobIndex->imm_flags;
 	mob->res_flags          = pMobIndex->res_flags;
 	mob->vuln_flags         = pMobIndex->vuln_flags;
@@ -1060,7 +1060,7 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->exp          = parent->exp;
 	clone->act          = parent->act;
 	clone->comm         = parent->comm;
-	clone->drain_flags  = parent->drain_flags;
+	clone->absorb_flags  = parent->absorb_flags;
 	clone->imm_flags    = parent->imm_flags;
 	clone->res_flags    = parent->res_flags;
 	clone->vuln_flags   = parent->vuln_flags;

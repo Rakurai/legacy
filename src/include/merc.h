@@ -171,7 +171,7 @@ int	ptb	args((BUFFER *buffer, const char *fmt, ...))	__attribute__	((format(prin
 #define MAX_EXTRACLASS_SLOTS        5
 #define MAX_THIEF		  250
 #define MAX_KILLER		  250
-#define MAX_SKILL                 233   /* added critical blow */
+#define MAX_SKILL                 234
 #define MAX_GROUP                  39
 #define MAX_IN_GROUP               15
 #define MAX_ALIAS                  30
@@ -772,17 +772,19 @@ struct  affect_data
 
 /* where definitions */
 #define TO_AFFECTS      0
-#define TO_OBJECT       1
-#define TO_IMMUNE       2
-#define TO_RESIST       3
-#define TO_VULN         4
+#define TO_OBJECT       1 // obj->extra_flags
+#define TO_DEFENSE      2
 #define TO_WEAPON       5
 /* new definitions for room affects -- Montrey */
-#define TO_ROOMFLAGS	6
-#define TO_HPREGEN	7
-#define TO_MPREGEN	8
-/* blah, hate adding something out of order */
-#define TO_DRAIN	9
+#define TO_ROOMFLAGS    6
+#define TO_HPREGEN  7
+#define TO_MPREGEN  8
+
+// these aren't used by affects, just to communicate what kind of defense for printing things
+#define TO_ABSORB  20
+#define TO_IMMUNE  21
+#define TO_RESIST  22
+#define TO_VULN    23
 
 
 /*
@@ -1884,7 +1886,7 @@ struct  mob_index_data
     sh_int              ac[4];
     sh_int              dam_type;
     long                off_flags;
-    long		drain_flags;
+    long		        absorb_flags;
     long                imm_flags;
     long                res_flags;
     long                vuln_flags;
@@ -2023,7 +2025,7 @@ struct  char_data
     long                revoke;  /* New Revoke stuff */
     long                wiznet; /* wiz stuff */
     long		censor;			/* New censor flags -- Montrey */
-    long		drain_flags;
+    long		        absorb_flags;
     long                imm_flags;
     long                res_flags;
     long                vuln_flags;
@@ -2603,6 +2605,7 @@ extern sh_int	gsn_magic_missile;
 extern sh_int	gsn_mass_healing;
 extern sh_int	gsn_mass_invis;
 extern sh_int	gsn_nexus;
+extern sh_int   gsn_night_vision;
 extern sh_int	gsn_pass_door;
 extern sh_int	gsn_plague;
 extern sh_int	gsn_poison;

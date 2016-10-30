@@ -1600,8 +1600,8 @@ void format_mstat(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim) && victim->off_flags)
 		ptc(ch, "{WOffense: %s\n", off_bit_name(victim->off_flags));
 
-	if (victim->drain_flags)
-		ptc(ch, "{YDrain: %s\n", imm_bit_name(victim->drain_flags));
+	if (victim->absorb_flags)
+		ptc(ch, "{YAbsorb: %s\n", imm_bit_name(victim->absorb_flags));
 
 	if (victim->imm_flags)
 		ptc(ch, "{YImmune: %s\n", imm_bit_name(victim->imm_flags));

@@ -610,7 +610,7 @@ const struct field_type flag_fields[] = {
 	{ "revoke",             revoke_flags,   CAND_CHAR,      IMM,    IMM,    IMM,    HED     },
 	{ "censor",             censor_flags,   CAND_CHAR,      IMM,    IMM,    IMM,    IMP     },
 	{ "affect",             affect_flags,   CAND_CHAR,      MTL,    MTL,    IMM,    HED     },
-	{ "drains",             imm_flags,      CAND_CHAR,      MTL,    MTL,    IMM,    HED     },
+	{ "absorbs",            imm_flags,      CAND_CHAR,      MTL,    MTL,    IMM,    HED     },
 	{ "immunities",         imm_flags,      CAND_CHAR,      MTL,    MTL,    IMM,    HED     },
 	{ "resistances",        imm_flags,      CAND_CHAR,      MTL,    MTL,    IMM,    HED     },
 	{ "vulnerabilites",     imm_flags,      CAND_CHAR,      MTL,    MTL,    IMM,    HED     },

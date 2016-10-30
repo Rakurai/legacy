@@ -134,7 +134,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 		switch (paf->where) {
 		case TO_AFFECTS:        SET_BIT(ch->affected_by, paf->bitvector);       break;
 
-		case TO_DRAIN:          SET_BIT(ch->drain_flags, paf->bitvector);       break;
+		case TO_ABSORB:          SET_BIT(ch->absorb_flags, paf->bitvector);       break;
 
 		case TO_IMMUNE:         SET_BIT(ch->imm_flags, paf->bitvector);         break;
 
@@ -206,7 +206,7 @@ void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 			switch (paf->where) {
 			case TO_AFFECTS: REMOVE_BIT(ch->affected_by, paf->bitvector);   break;
 
-			case TO_DRAIN:   REMOVE_BIT(ch->drain_flags, paf->bitvector);   break;
+			case TO_ABSORB:   REMOVE_BIT(ch->absorb_flags, paf->bitvector);   break;
 
 			case TO_IMMUNE:  REMOVE_BIT(ch->imm_flags, paf->bitvector);     break;
 

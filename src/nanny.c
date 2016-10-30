@@ -540,7 +540,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			ch->perm_stat[i] = pc_race_table[race].stats[i];
 
 		affect_flag_add_to_char(ch, race_table[race].aff);
-		ch->drain_flags         = 0;
+		ch->absorb_flags         = 0;
 		ch->imm_flags           = ch->imm_flags | race_table[race].imm;
 		ch->res_flags           = ch->res_flags | race_table[race].res;
 		ch->vuln_flags          = ch->vuln_flags | race_table[race].vuln;

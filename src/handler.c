@@ -263,13 +263,13 @@ int check_immune(CHAR_DATA *ch, int dam_type)
 		return -1;
 
 	if (dam_type <= 3) {
-		if (IS_SET(ch->drain_flags, DRAIN_WEAPON))      def = IS_DRAINING;
+		if (IS_SET(ch->absorb_flags, DRAIN_WEAPON))      def = IS_DRAINING;
 		else if (IS_SET(ch->imm_flags, IMM_WEAPON))     def = IS_IMMUNE;
 		else if (IS_SET(ch->res_flags, RES_WEAPON))     def = IS_RESISTANT;
 		else if (IS_SET(ch->vuln_flags, VULN_WEAPON))   def = IS_VULNERABLE;
 	}
 	else { /* magical attack */
-		if (IS_SET(ch->drain_flags, DRAIN_MAGIC))       def = IS_DRAINING;
+		if (IS_SET(ch->absorb_flags, DRAIN_MAGIC))       def = IS_DRAINING;
 		else if (IS_SET(ch->imm_flags, IMM_MAGIC))      def = IS_IMMUNE;
 		else if (IS_SET(ch->res_flags, RES_MAGIC))      def = IS_RESISTANT;
 		else if (IS_SET(ch->vuln_flags, VULN_MAGIC))    def = IS_VULNERABLE;
@@ -314,7 +314,7 @@ int check_immune(CHAR_DATA *ch, int dam_type)
 	default:                return def;
 	}
 
-	if (IS_SET(ch->drain_flags, bit) || def == IS_DRAINING)
+	if (IS_SET(ch->absorb_flags, bit) || def == IS_DRAINING)
 		immune = IS_DRAINING;
 	else if (IS_SET(ch->imm_flags, bit) || def == IS_IMMUNE)
 		immune = IS_IMMUNE;
