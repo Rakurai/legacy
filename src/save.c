@@ -781,6 +781,7 @@ bool load_char_obj(DESCRIPTOR_DATA *d, const char *name)
 	for (stat = 0; stat < MAX_STATS; stat++)
 		ch->perm_stat[stat]             = 3;
 
+	ch->pcdata->combattimer             = -1; // 0 means just came out of combat
 	ch->pcdata->condition[COND_THIRST]  = 48;
 	ch->pcdata->condition[COND_FULL]    = 48;
 	ch->pcdata->condition[COND_HUNGER]  = 48;

@@ -116,7 +116,7 @@ void violence_update(void)
 					if (--ch->pcdata->pktimer == 0)
 						REMOVE_BIT(ch->imm_flags, IMM_SHADOW);
 
-				if (ch->pcdata->combattimer)
+				if (ch->pcdata->combattimer > 0)
 					ch->pcdata->combattimer--;
 				else
 					noncombat_regen(ch);
@@ -125,8 +125,9 @@ void violence_update(void)
 			continue;
 		}
 
-		if (!IS_NPC(ch))
-			ch->pcdata->combattimer = 5;
+		// this is also set in multi_hit, to get the one-shot kills
+                if (!IS_NPC(ch))
+                        ch->pcdata->combattimer = 5;
 
 		combat_regen(ch);
 
@@ -223,10 +224,17 @@ void noncombat_regen(CHAR_DATA *ch) {
 	if (ch->hit < ch->max_hit
 	 || ch->mana < ch->max_mana
 	 || ch->stam < ch->max_stam) {
-	    ch->hit = UMIN(ch->max_hit, ch->hit + hitgain);
+		ch->hit = UMIN(ch->max_hit, ch->hit + hitgain);
 		ch->mana = UMIN(ch->max_mana, ch->mana + managain);
 		ch->stam = UMIN(ch->max_stam, ch->stam + stamgain);
+	}
+
+	if (ch->hit == ch->max_hit
+	 && ch->mana == ch->max_mana
+	 && ch->stam == ch->max_stam
+	 && ch->pcdata->combattimer == 0) {
 		stc("You have fully recovered from combat.\n", ch);
+		ch->pcdata->combattimer = -1; // start again next combat
 	}
 }
 
@@ -488,6 +496,12 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 {
 	OBJ_DATA *obj;
 	int chance;
+
+	// is this the best place to reset combat timer?  hanging it on the violence
+	// update alone sometimes didn't work for one-shot kills.  multi-hit appears to be
+	// called everywhere that initiates violence
+	if (!IS_NPC(ch))
+		ch->pcdata->combattimer = 5;
 
 	/* no attacks for stunnies -- just a check */
 	if (get_position(ch) < POS_RESTING)
