@@ -1202,7 +1202,7 @@ void load_objects(FILE *fp)
 			if (letter == 'A') {
 				AFFECT_DATA af;
 				af.where              = TO_OBJECT;
-				af.type               = -1;
+				af.type               = 0;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
 				af.location           = fread_number(fp);
@@ -1242,7 +1242,7 @@ void load_objects(FILE *fp)
 					exit(1);
 				}
 
-				af.type               = -1;
+				af.type               = 0;
 				af.level              = pObjIndex->level;
 				af.duration           = -1;
 				af.location           = fread_number(fp);

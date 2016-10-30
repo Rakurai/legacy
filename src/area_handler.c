@@ -163,8 +163,6 @@ void unique_item(OBJ_DATA *item)
 				mod = -1;
 		}
 
-		item->enchanted = TRUE;
-
 		AFFECT_DATA af = (AFFECT_DATA){0};
 		af.where      = TO_OBJECT;
 		af.type       = 0;
@@ -174,7 +172,7 @@ void unique_item(OBJ_DATA *item)
 		af.modifier   = mod;
 		af.bitvector  = 0;
 		af.evolution  = 1;
-		affect_copy_to_obj(item, &af);
+		affect_join_to_obj(item, &af);
 
 		added = TRUE;
 	}
@@ -980,14 +978,14 @@ CHAR_DATA *create_mobile(MOB_INDEX_DATA *pMobIndex)
 //	{    gsn_slow,               APPLY_DEX,      -mob->level/25-2,AFF_SLOW       },
 			{       gsn_slow,               APPLY_DEX,      0,              AFF_SLOW        },
 			{       gsn_talon,              APPLY_NONE,     0,              AFF_TALON       },
-			{       -1,                     0,              0,              0               }
+			{       0,                     0,              0,              0               }
 		};
 		af.where = TO_AFFECTS;
 		af.level = mob->level;
 		af.duration = -1;
 		af.evolution = 1;
 
-		for (i = 0; maff_table[i].sn >= 0; i++)
+		for (i = 0; maff_table[i].sn > 0; i++)
 			if (affect_flag_on_char(mob, maff_table[i].bit)) {
 				af.type      = maff_table[i].sn;
 				af.location  = maff_table[i].loc;
@@ -1127,7 +1125,6 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 	obj->in_room        = NULL;
 	obj->reset      = NULL;
 	obj->clean_timer = 0;
-	obj->enchanted      = FALSE;
 	obj->level          = pObjIndex->level;
 	obj->wear_loc       = -1;
 	obj->name           = str_dup(pObjIndex->name);
@@ -1240,8 +1237,6 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 		clone->value[i] = parent->value[i];
 
 	/* affects */
-	clone->enchanted    = parent->enchanted;
-
 	affect_remove_all_from_obj(clone);
 
 	for (const AFFECT_DATA *paf = affect_list_obj(parent); paf; paf = paf->next)

@@ -98,7 +98,7 @@ void compile_gem_effects(OBJ_DATA *eq) {
 	for (gem = eq->gems; gem != NULL; gem = gem->next_content) {
 		AFFECT_DATA af;
 		af.where              = TO_OBJECT;
-		af.type               = -1;
+		af.type               = 0;
 		af.level              = gem->level;
 		af.duration           = -1;
 		af.location           = gem_type_table[gem->value[GEM_VALUE_TYPE]].apply_loc;

@@ -59,6 +59,29 @@ void affect_update(AFFECT_DATA *paf, const AFFECT_DATA *template) {
 	paf->evolution = template->evolution;
 }
 
+// calculate a checksum over the important parts of the AFFECT_DATA structure, for
+// determining whether a list of affects is different from another list.  This is
+// Bernstein's djb2 algorithm, from http://www.cse.yorku.ca/~oz/hash.html
+unsigned long affect_checksum(const AFFECT_DATA *paf) {
+	const unsigned char *str = (const unsigned char *)paf;
+
+	// start checksum at data values
+	int start = 0           // 0-index
+	 + sizeof(AFFECT_DATA *) // next
+	 + sizeof(AFFECT_DATA *) // prev
+	 + sizeof(bool)          // valid
+	 + sizeof(bool);         // mark
+	int end = sizeof(AFFECT_DATA);
+
+	unsigned long hash = 5381;
+
+	// this checksum is intentionally *NOT* insensitive to order of fields/values
+	for (int i = start; i < end; i++)
+		hash = ((hash << 5) + hash) + str[i]; // hash * 33 + c
+
+	return hash;
+}
+
 void affect_swap(AFFECT_DATA *a, AFFECT_DATA *b) {
 	if (a == NULL || b == NULL)
 		return;

@@ -524,7 +524,7 @@ void prepare_char(CHAR_DATA *ch, DUEL_DATA *duel)
 		char_to_room(ch, duel->arena->defprep);
 
 	// strip spells
-	for (int sn = 1; sn < MAX_SKILL; sn++)
+	for (int sn = 0; sn < MAX_SKILL; sn++)
 		affect_remove_sn_from_char(ch, sn);
 
 	// remove non-racial bits

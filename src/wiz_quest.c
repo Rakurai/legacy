@@ -90,8 +90,6 @@ void do_addapply(CHAR_DATA *ch, const char *argument)
 
 	stc("Ok.\n", ch);
 
-	obj->enchanted = TRUE;
-
 	AFFECT_DATA af = (AFFECT_DATA){0};
 	af.where      = TO_OBJECT;
 	af.type       = 0;

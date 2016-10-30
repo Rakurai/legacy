@@ -752,9 +752,14 @@ struct edit_data
  */
 struct  affect_data
 {
+    // note: the grouping of these fields is important for computing checksums.
+    // if any of these change (especially these first 4) the checksum function will need updating.
     AFFECT_DATA *       next;
     AFFECT_DATA *       prev;
     bool                valid;
+    bool                mark; // mark for deletion from list, other uses
+
+    // fields included in checksum
     sh_int              where;
     sh_int              type;
     sh_int              level;
@@ -762,9 +767,9 @@ struct  affect_data
     sh_int              location;
     sh_int              modifier;
     int                 bitvector;
-    bool                mark; // mark for deletion from list, other uses
-    sh_int		evolution;
-};
+    sh_int              evolution;
+
+} __attribute__((packed, aligned(1))); // no alignment padding, for checksums
 
 /* where definitions */
 #define TO_AFFECTS      0
@@ -2310,7 +2315,6 @@ struct obj_data
     /* ugly way to do this: rather than everywhere cycling through the affects given by
        the object's index data separately from the affects given by inset gems, we
        compile a list of affects whenever one of those changes (rare event). -- Montrey */
-    bool            enchanted; // have the affects for this object been modified from the index?  only for saving to file
  //   AFFECT_DATA *   perm_affected; // initially identical to the index, can be changed by enchants and addapply
     AFFECT_DATA *   affected; // the compiled list, never shown in 'stat' or 'lore', so it can be deduped.
 

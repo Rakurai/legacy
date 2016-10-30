@@ -634,15 +634,14 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 		cJSON_AddNumberToObject(o,	"Cost",			obj->cost);
 	if (obj->description != obj->pIndexData->description)
 		cJSON_AddStringToObject(o,	"Desc",			obj->description);
-	if (obj->enchanted) {
-//		cJSON_AddNumberToObject(o,	"Enchanted",	obj->enchanted);
-		item = NULL;
-		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
-			if (paf->type < 0 || paf->type >= MAX_SKILL)
-				continue;
 
-			if (item == NULL)
-				item = cJSON_CreateArray();
+	if (affect_enchanted_obj(obj)) {
+		// we could write an empty list here, for a disenchanted item
+		item = cJSON_CreateArray();
+
+		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf != NULL; paf = paf->next) {
+			if (paf->type >= MAX_SKILL)
+				continue;
 
 			cJSON *aff = cJSON_CreateObject();
 			cJSON_AddStringToObject(aff, "name", skill_table[paf->type].name);
@@ -655,8 +654,8 @@ cJSON *fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool strongbox)
 			cJSON_AddNumberToObject(aff, "evo", paf->evolution);
 			cJSON_AddItemToArray(item, aff);
 		}
-		if (item != NULL)
-			cJSON_AddItemToObject(o,	"Affc",			item);
+
+		cJSON_AddItemToObject(o,	"Affc",			item);
 	}
 
 	item = NULL;
@@ -1498,13 +1497,14 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 		switch (toupper(key[0])) {
 			case 'A':
 				if (!str_cmp(key, "Affc")) {
-					obj->enchanted = TRUE;
+					// this object has different affects than the index, free the old ones
+					affect_remove_all_from_obj(obj);
 
 					for (cJSON *item = o->child; item != NULL; item = item->next) {
 						int sn = skill_lookup(cJSON_GetObjectItem(item, "name")->valuestring);
 
 						if (sn < 0) {
-							bug("Fread_char: unknown skill.", 0);
+							bug("Fread_obj: unknown skill.", 0);
 							continue;
 						}
 
@@ -1569,7 +1569,6 @@ OBJ_DATA * fread_obj(cJSON *json, int version) {
 					fMatch = TRUE; break;
 				}
 
-//				INTKEY("Enchanted",		obj->enchanted,				o->valueint);
 				INTKEY("ExtF",			obj->extra_flags,			o->valueint); // no, not fread_flags
 				break;
 			case 'I':

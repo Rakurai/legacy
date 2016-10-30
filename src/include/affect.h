@@ -27,7 +27,7 @@ int           affect_fn_fade_spell        args(( AFFECT_DATA *node, void *data )
 // single affect operations
 void          affect_update               args(( AFFECT_DATA *paf, const AFFECT_DATA *template ));
 void          affect_swap                 args(( AFFECT_DATA *a, AFFECT_DATA *b ));
-
+unsigned long affect_checksum             args(( const AFFECT_DATA *paf ));
 
 // outward facing interface, all calls to obj/char/room affects should be through
 // these procedures.  attempt to force some accessor safety on this crap -- Montrey
@@ -43,7 +43,7 @@ unsigned int        affect_flag_get_char             args(( CHAR_DATA *ch ));
 void                affect_flag_clear_char           args(( CHAR_DATA *ch ));
 
 // searching
-bool                affect_flag_on_char              args(( CHAR_DATA *ch, unsigned int flag ));
+bool                affect_enchanted_obj             args(( OBJ_DATA *obj ));
 const AFFECT_DATA * affect_list_obj                  args(( OBJ_DATA *obj ));
 const AFFECT_DATA * affect_list_char                 args(( CHAR_DATA *ch ));
 const AFFECT_DATA * affect_list_room                 args(( ROOM_INDEX_DATA *room ));

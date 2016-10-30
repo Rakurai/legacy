@@ -8,6 +8,10 @@ void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd);
 
 // searching
 
+bool affect_enchanted_obj(OBJ_DATA *obj) {
+	return affect_checksum_list(&obj->affected) != affect_checksum_list(&obj->pIndexData->affected);
+}
+
 const AFFECT_DATA *affect_list_obj(OBJ_DATA *obj) {
 	return obj->affected;
 }
@@ -134,10 +138,6 @@ void affect_modify_flag_cache_obj(OBJ_DATA *obj, sh_int where, unsigned int flag
 void affect_modify_obj(void *owner, const AFFECT_DATA *paf, bool fAdd) {
 	OBJ_DATA *obj = (OBJ_DATA *)owner;
 	extern void affect_modify_char(void *owner, const AFFECT_DATA *paf, bool fAdd);
-
-	// set enchanted flag here.  this isnt technically always true, this could be a temp effect,
-	// but i'm trying to simplify while deciding whether the affects should write to file.
-	obj->enchanted = TRUE;
 
 	switch (paf->where) {
 	case TO_OBJECT:

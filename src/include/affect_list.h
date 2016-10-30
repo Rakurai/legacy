@@ -11,6 +11,7 @@ void                affect_clear_list                 args(( AFFECT_DATA **list_
 const AFFECT_DATA * affect_find_in_list               args(( AFFECT_DATA **list_head, int sn ));
 void                affect_remove_matching_from_list  args(( AFFECT_DATA **list_head, affect_comparator comp, const AFFECT_DATA *pattern, affect_fn_params *params ));
 void                affect_iterate_over_list          args(( AFFECT_DATA **list_head, affect_fn fn, affect_fn_params *params ));
+unsigned long       affect_checksum_list              args(( AFFECT_DATA **list_head ));
 void                affect_sort_list                  args(( AFFECT_DATA **list_head, affect_comparator comp ));
 
 //void          affect_modify_obj           args(( void *owner, const AFFECT_DATA *paf, bool fAdd ));

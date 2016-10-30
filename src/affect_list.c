@@ -103,6 +103,18 @@ void affect_iterate_over_list(AFFECT_DATA **list_head, affect_fn fn, affect_fn_p
 	}
 }
 
+unsigned long affect_checksum_list(AFFECT_DATA **list_head) {
+	unsigned long sum = 0;
+
+	// this checksum is intentionally insensitive to order: a->b->c == a->c->b because of
+	// the overflow property of unsigned integers, in that they behave as modulo.  therefore,
+	// the unsigned property of the checksum is critical.
+	for (const AFFECT_DATA *paf = *list_head; paf; paf = paf->next)
+		sum += affect_checksum(paf);
+
+	return sum;
+}
+
 void affect_sort_list(AFFECT_DATA **list_head, affect_comparator comp) {
 	bool sorted = FALSE;
 

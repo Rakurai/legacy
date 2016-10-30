@@ -65,10 +65,12 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
 	OBJ_DATA *cobj;
 	EXTRA_DESCR_DATA *ed;
 	int i = 0;
+	bool enchanted = affect_enchanted_obj(obj); // whether to write affects or not
+
 	fprintf(fp, "OBJ\n%d %d %d %d ",
 	        obj->pIndexData->vnum,
 	        obj->in_room ? obj->in_room->vnum : 0,
-	        obj->enchanted ? 1 : 0,
+	        enchanted ? 1 : 0,
 	        obj->cost);
 
 	/* write how many objects are contained inside */
@@ -116,7 +118,7 @@ void fwrite_objstate(OBJ_DATA *obj, FILE *fp)
 		fprintf(fp, "V %d %d %d %d %d\n",
 		        obj->value[0], obj->value[1], obj->value[2], obj->value[3], obj->value[4]);
 
-	if (obj->enchanted) {
+	if (enchanted) {
 		for (const AFFECT_DATA *paf = affect_list_obj(obj); paf; paf = paf->next) {
 			if (paf->type < 0 || paf->type >= MAX_SKILL)
 				continue;
@@ -169,7 +171,7 @@ OBJ_DATA *fload_objstate(FILE *fp)
 	ROOM_INDEX_DATA *room;
 	OBJ_DATA *obj, *cobj;
 	bool extract = FALSE, done = FALSE;
-	int rvnum, nests, i, tmp;
+	int rvnum, nests, enchanted, i, tmp;
 
 	if (feof(fp))
 		return NULL;
@@ -201,14 +203,16 @@ OBJ_DATA *fload_objstate(FILE *fp)
 	}
 
 	rvnum           = fread_number(fp);
-	obj->enchanted  = fread_number(fp);
+	enchanted       = fread_number(fp);
 	obj->cost       = fread_number(fp);
 	nests           = fread_number(fp);
+
+	if (enchanted)
+		affect_remove_all_from_obj(obj); // read them from the file
 
 	while (!done) { /* loop over all lines of obj desc */
 		switch (fread_letter(fp)) {
 		case 'A': {
-				// TODO: this needs to account for enchanted, don't double affects
 				AFFECT_DATA af;
 				int sn;
 				sn = skill_lookup(fread_word(fp));
