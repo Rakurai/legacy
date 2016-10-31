@@ -556,7 +556,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (str_cmp(skill_table[sn].name, "ventriloquate"))
+	if (sn != gsn_ventriloquate)
 		say_spell(ch, sn);
 
 	wait = skill_table[sn].beats;
@@ -740,7 +740,7 @@ void do_mpcast(CHAR_DATA *ch, const char *argument)
 	if (ch->mana < mana)
 		return;
 
-	if (str_cmp(skill_table[sn].name, "ventriloquate"))
+	if (sn != gsn_ventriloquate)
 		say_spell(ch, sn);
 
 	ch->mana -= mana;
@@ -1463,7 +1463,7 @@ void spell_dazzling_light(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	}
 
 	for (paf = obj->affected; paf != NULL; paf = paf->next) {
-		if (!str_cmp(skill_table[paf->type].name, "dazzling light")) {
+		if (paf->type == gsn_dazzling_light) {
 			stc("That light is already quite dazzling.\n", ch);
 			return;
 		}
@@ -1522,7 +1522,7 @@ void spell_light_of_truth(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	}
 
 	for (paf = obj->affected; paf != NULL; paf = paf->next) {
-		if (!str_cmp(skill_table[paf->type].name, "light of truth")) {
+		if (paf->type == gsn_light_of_truth) {
 			stc("That light is already somewhat enhanced.\n", ch);
 			return;
 		}

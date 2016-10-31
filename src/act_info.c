@@ -200,7 +200,7 @@ void show_affect_to_char(AFFECT_DATA *paf, CHAR_DATA *ch)
 	if (IS_IMMORTAL(ch))
 		ptc(ch, "Affects %s by %d, level %d", affect_loc_name(paf->location), paf->modifier, paf->level);
 	else
-		ptc(ch, "Affects %s by %d\n", affect_loc_name(paf->location), paf->modifier);
+		ptc(ch, "Affects %s by %d", affect_loc_name(paf->location), paf->modifier);
 
 	if (paf->duration > -1)
 		ptc(ch, ", %d hours.\n", paf->duration);
