@@ -26,10 +26,11 @@
 CHAR_DATA *get_mob_here(CHAR_DATA *ch, const char *argument, int vis)
 {
 	CHAR_DATA *rch;
-	int number, count = 0, etype, vnum = 0;
-	char temp_arg[MIL], arg[MIL];
-	etype = entity_argument(argument, temp_arg);
-	number = number_argument(temp_arg, arg);
+	int count = 0, vnum = 0;
+	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int etype = entity_argument(argument, temp_arg);
+	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int number = number_argument(temp_arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -76,14 +77,15 @@ CHAR_DATA *get_mob_here(CHAR_DATA *ch, const char *argument, int vis)
 CHAR_DATA *get_mob_area(CHAR_DATA *ch, const char *argument, int vis)
 {
 	CHAR_DATA *ach;
-	int number, etype, count = 0;
 
 	if ((ach = get_mob_here(ch, argument, vis)) != NULL)
 		return ach;
 
-	char temp_arg[MIL], arg[MIL];
-	etype = entity_argument(argument, temp_arg);
-	number = number_argument(temp_arg, arg);
+	int count = 0;
+	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int etype = entity_argument(argument, temp_arg);
+	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int number = number_argument(temp_arg, arg);
 
 	for (ach = char_list; ach != NULL; ach = ach->next) {
 		if (!IS_NPC(ach))
@@ -119,14 +121,15 @@ CHAR_DATA *get_mob_area(CHAR_DATA *ch, const char *argument, int vis)
 CHAR_DATA *get_mob_world(CHAR_DATA *ch, const char *argument, int vis)
 {
 	CHAR_DATA *wch;
-	int number, etype, count = 0, vnum = 0;
 
 	if ((wch = get_mob_here(ch, argument, vis)) != NULL)
 		return wch;
 
-	char temp_arg[MIL], arg[MIL];
-	etype = entity_argument(argument, temp_arg);
-	number = number_argument(temp_arg, arg);
+	int count = 0, vnum = 0;
+	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int etype = entity_argument(argument, temp_arg);
+	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int number = number_argument(temp_arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -170,10 +173,11 @@ CHAR_DATA *get_mob_world(CHAR_DATA *ch, const char *argument, int vis)
 CHAR_DATA *get_char_here(CHAR_DATA *ch, const char *argument, int vis)
 {
 	CHAR_DATA *rch;
-	int number, count = 0, etype, vnum = 0;
-	char temp_arg[MIL], arg[MIL];
-	etype = entity_argument(argument, temp_arg);
-	number = number_argument(temp_arg, arg);
+	int count = 0, vnum = 0;
+	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int etype = entity_argument(argument, temp_arg);
+	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int number = number_argument(temp_arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -221,10 +225,11 @@ player is in.
 CHAR_DATA *get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argument, int vis)
 {
 	CHAR_DATA *rch;
-	int number, count = 0, etype, vnum = 0;
-	char temp_arg[MIL], arg[MIL];
-	etype = entity_argument(argument, temp_arg);
-	number = number_argument(temp_arg, arg);
+	int count = 0, vnum = 0;
+	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int etype = entity_argument(argument, temp_arg);
+	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int number = number_argument(temp_arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
@@ -268,14 +273,15 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argum
 CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument, int vis)
 {
 	CHAR_DATA *ach;
-	int number, etype, count = 0;
 
 	if ((ach = get_char_here(ch, argument, vis)) != NULL)
 		return ach;
 
-	char temp_arg[MIL], arg[MIL];
-	etype = entity_argument(argument, temp_arg);
-	number = number_argument(temp_arg, arg);
+	int count = 0;
+	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int etype = entity_argument(argument, temp_arg);
+	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int number = number_argument(temp_arg, arg);
 
 	for (ach = char_list; ach != NULL; ach = ach->next) {
 		if (ach->in_room == NULL)
@@ -308,14 +314,15 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument, int vis)
 CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument, int vis)
 {
 	CHAR_DATA *wch;
-	int number, etype, count = 0, vnum = 0;
 
 	if ((wch = get_char_here(ch, argument, vis)) != NULL)
 		return wch;
 
-	char temp_arg[MIL], arg[MIL];
-	etype = entity_argument(argument, temp_arg);
-	number = number_argument(temp_arg, arg);
+	int count = 0, vnum = 0;
+	char temp_arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int etype = entity_argument(argument, temp_arg);
+	char arg[MIL]; // don't combine these, strcpy falsely detects overlapping buffers
+	int number = number_argument(temp_arg, arg);
 
 	if (etype == ENTITY_VM)
 		vnum = atoi(arg);
